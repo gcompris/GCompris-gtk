@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/10/28 01:00:46 bruno>
+ * Time-stamp: <2004/11/09 23:56:46 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -326,7 +326,7 @@ void gcompris_write_boards_status()
   if(home_dir==NULL) {
     config_file = g_strdup("gcompris_boards.cfg");
   } else {
-    config_file = g_strdup_printf("%s/gcompris/gcompris_boards.conf",home_dir);
+    config_file = g_strdup_printf("%s/.gcompris/gcompris_boards.conf",home_dir);
   }
 
   filefd = fopen(config_file, "w+");
@@ -355,7 +355,7 @@ void read_boards_status()
   if(home_dir==NULL) {
     config_file = g_strdup("gcompris_boards.cfg");
   } else {
-    config_file = g_strdup_printf("%s/gcompris/gcompris_boards.conf",home_dir);
+    config_file = g_strdup_printf("%s/.gcompris/gcompris_boards.conf",home_dir);
   }
 
   filefd = open(config_file, O_RDONLY);
