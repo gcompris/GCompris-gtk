@@ -182,22 +182,30 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 /* ======================================= */
 static void end_board ()
 {
-  int i;
+  GdkPixbuf * pixmap = NULL;
+// If we don't animation, there may be a segfault if leaving while the animation is pending
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(gcomprisBoard!=NULL)
     {
-      pause_board(TRUE);
-      railroad_destroy_all_items();
+	pause_board(TRUE);
+	railroad_destroy_all_items();
 
-	for (i=0; i<ENGINES; i++) {
-		gdk_pixbuf_unref(g_list_nth_data(listPixmapEngines,i));
+	while(g_list_length(listPixmapEngines)>0) {
+		pixmap = g_list_nth_data(listPixmapEngines, 0);
+		listPixmapEngines = g_list_remove (listPixmapEngines, pixmap);
+		gdk_pixbuf_unref(pixmap);
 	}
 
-	for (i=0; i<WAGONS; i++) {
-		gdk_pixbuf_unref(g_list_nth_data(listPixmapWagons,i));
+	while(g_list_length(listPixmapWagons)>0) {
+		pixmap = g_list_nth_data(listPixmapWagons, 0);
+		listPixmapWagons = g_list_remove (listPixmapWagons, pixmap);
+		gdk_pixbuf_unref(pixmap);
 	}
 
-	g_list_free(listPixmapEngines);
-	g_list_free(listPixmapWagons);
     }
 }
 
@@ -264,6 +272,7 @@ printf("======= NEXT LEVEL ======== \n");
 /* Destroy all the items */
 static void railroad_destroy_all_items()
 {
+  printf("+++ railroad_destroy_all_items\n");
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
@@ -600,7 +609,7 @@ static void animate_model() {
   animation_count = 0;
   gcompris_play_sound (SOUNDLISTFILE, "train");
   // warning : if timeout is too low, the model will not be displayed
-  timer_id = gtk_timeout_add (20, (GtkFunction) animate_step, NULL);
+  timer_id = gtk_timeout_add (50, (GtkFunction) animate_step, NULL);
 }
 /* ==================================== */
 static void reset_all_lists(void) {
@@ -612,7 +621,8 @@ static void reset_all_lists(void) {
  while(g_list_length(item_answer_list)>0) {
       	item = g_list_nth_data(item_answer_list, 0);
   	item_answer_list = g_list_remove (item_answer_list, item);
-  	gtk_object_destroy (GTK_OBJECT(item));
+// causes segfaults
+//  	gtk_object_destroy (GTK_OBJECT(item));
     }
 
 }
