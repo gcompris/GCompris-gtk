@@ -25,7 +25,7 @@ my %sections = (
 		"hi", 0,
 		"hr", 0,
 		"hu", 0,
-		"it", 0,
+		"it", 60,
 		"lt", 0,
 		"mk", 0,
 		"ml", 0,
@@ -55,31 +55,76 @@ my %rubriques = (
 		 "az", 0,
 		 "ca", 0,
 		 "cs", 0,
-		 "da", 37,
-		 "de", 54,
+		 "da", 61,
+		 "de", 64,
 		 "el", 0,
 		 "en", 12,
 		 "en_CA", 0,
 		 "en_GB", 0,
-		 "es", 40,
-		 "fi", 36,
+		 "es", 47,
+		 "fi", 73,
 		 "fr", 6,
 		 "ga", 0,
 		 "he", 0,
 		 "hi", 0,
 		 "hr", 0,
 		 "hu", 0,
-		 "it", 0,
+		 "it", 66,
 		 "lt", 0,
 		 "mk", 0,
 		 "ml", 0,
 		 "ms", 0,
 		 "nl", 0,
 		 "nb", 0,
-		 "nn", 38,
+		 "nn", 69,
 		 "pa", 0,
 		 "pl", 0,
-		 "pt", 28,
+		 "pt", 56,
+		 "pt_BR", 0,
+		 "ro", 0,
+		 "ru", 0,
+		 "sk", 0,
+		 "sl", 0,
+		 "sq", 0,
+		 "sr", 0,
+		 'sr@Latn', 0,
+		 "sv", 0,
+		 "tr", 0,
+		 "wa", 0,
+		);
+
+
+my %rubriques_all = (
+		 "am", 0,
+		 "ar", 0,
+		 "az", 0,
+		 "ca", 0,
+		 "cs", 0,
+		 "da", 62,
+		 "de", 65,
+		 "el", 0,
+		 "en", 68,
+		 "en_CA", 0,
+		 "en_GB", 0,
+		 "es", 71,
+		 "fi", 74,
+		 "fr", 63,
+		 "ga", 0,
+		 "he", 0,
+		 "hi", 0,
+		 "hr", 0,
+		 "hu", 0,
+		 "it", 67,
+		 "lt", 0,
+		 "mk", 0,
+		 "ml", 0,
+		 "ms", 0,
+		 "nl", 0,
+		 "nb", 0,
+		 "nn", 70,
+		 "pa", 0,
+		 "pl", 0,
+		 "pt", 72,
 		 "pt_BR", 0,
 		 "ro", 0,
 		 "ru", 0,
@@ -106,7 +151,7 @@ sub spip_cleanup {
 
   # We need to html backquote html tags for spip
   # I put in uppercase all html tags
-  my @html_tag = qw/HTML IMG A/;
+  my @html_tag = qw/HTML IMG A BR DIV P/;
   foreach my $tag (@html_tag) {
     $output =~ s/<$tag/&lt;$tag/g;
     $output =~ s/<\/$tag/&lt;$tag/g;
@@ -135,11 +180,13 @@ $ALL_LINGUAS_STR      =~ s/\"//g;
 my @ALL_LINGUAS       = split(' ', $ALL_LINGUAS_STR);
 push @ALL_LINGUAS, "en";	# Add english, it's not in the po list
 # Debug
-@ALL_LINGUAS = qw/fr en/;
+#@ALL_LINGUAS = qw/fr en/;
 
+my $tmp_file    = "temp_file.spip";
 my $output_file = "all_article.spip";
 
 # Erase previous output
+unlink $tmp_file;
 unlink $output_file;
 
 my $first_article = 9999;
@@ -224,6 +271,7 @@ foreach my $section (@sections) {
       print "ERROR on section $section lang $lang#\n";
       print "#\n";
       print "#\n";
+      exit 1;
 
     } else {
 
@@ -232,7 +280,7 @@ foreach my $section (@sections) {
 
       $output = spip_cleanup($output);
 
-      open(OUTPUT, ">>$output_file")
+      open(OUTPUT, ">>$tmp_file")
 	or die "Can't open: $!";
 
       print OUTPUT $output . "\n";
@@ -244,6 +292,9 @@ foreach my $section (@sections) {
 
 #-------------------------------------------------------------------------------
 # Article creation
+
+# We record in a hash the article number for each lang/board name
+my %articles;
 
 foreach my $board (@files) {
 
@@ -263,10 +314,9 @@ foreach my $board (@files) {
     print "$lang ";
 
     # Hide the article
-    $rubriques{$lang} = 0;
+#    $rubriques{$lang} = 0;
 
-#    print "xsltproc --stringparam language $lang --stringparam date '${date}' --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $file"."\n";
-    my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $file`;
+    my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques_all{$lang} --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $file`;
 
     if ($?>>8) {
       print "#\n";
@@ -276,6 +326,7 @@ foreach my $board (@files) {
       print "ERROR on file $file lang $lang#\n";
       print "#\n";
       print "#\n";
+      exit 1;
 
     } else {
 
@@ -284,19 +335,46 @@ foreach my $board (@files) {
 
       $output = spip_cleanup($output);
 
-      open(OUTPUT, ">>$output_file")
+      open(OUTPUT, ">>$tmp_file")
 	or die "Can't open: $!";
 
       print OUTPUT $output . "\n";
 
       close (OUTPUT);
+
+      # Record the article
+      $articles{"$lang:$board"} = $article_id;
     }
   }
 }
 
+#-------------------------------------------------------------------------------
+# Replace article link as created in the menu by the real article number
+# as we created it.
+open(FILEREAD, "< $tmp_file");
+open(FILEWRITE, "> $output_file");
+
+my $line = 0;
+while (<FILEREAD>){
+  my $line = $_;
+  m/href=\"(\w+:\w+\.xml)/g;
+  if(defined($articles{"$1"})) {
+    print "Found article " . $articles{"$1"} . "\n";
+    my $article = "article.php3?id_article=$articles{$1}";
+    my $r = s/(^.*)(href=\")(\w+:\w+\.xml)(.*)/$1$2$article$4/g;
+  }
+  print FILEWRITE;
+}
+close FILEWRITE;
+close FILEREAD;
+
+#-------------------------------------------------------------------------------
+# Summary
 print "\n\nCreated " . ($article_id - $first_article) . " Articles in $output_file\n";
 print "Insert the content of this file in the SPIP dump.xml file.\n";
 print "If screenshots were already in, remove them first\n";
 
+# Cleanup
+unlink $tmp_file;
 
 exit 0;

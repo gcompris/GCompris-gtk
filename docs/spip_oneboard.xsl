@@ -80,26 +80,47 @@
 
             <texte>
               <HTML>
-                <IMG border="0" alt="" align="top">
-                  <xsl:attribute name="src">
-                    <xsl:value-of select="concat('screenshots/',@name)"/>.jpg</xsl:attribute>
+                <DIV>
+                  <IMG border="0" alt="" align="right">
+                    <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
                   </IMG>
 
                   <xsl:if test="(@type != 'chess') and (starts-with(@type,'python:')=false)">
-                    <IMG border="0" alt="" src="boardicons/win.png">
+                    <IMG border="0" alt=""  align="left" src="boardicons/win.png">
                     </IMG>
                   </xsl:if>
+
                   <xsl:if test="@difficulty">
-                    <IMG border="0" alt="" align="top">
+                    <IMG border="0" alt="" align="middle">
                       <xsl:attribute name="src">
                         <xsl:value-of select="concat('boardicons/difficulty_star',@difficulty,'.png')"/>
                       </xsl:attribute>
                     </IMG>
                   </xsl:if>
+                </DIV>
 
-                  <IMG border="0" alt="" align="top">
-                    <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
+                <IMG border="0" alt="" align="left">
+                  <xsl:attribute name="src">
+                    <xsl:value-of select="concat('screenshots/',@name)"/>.jpg</xsl:attribute>
                   </IMG>
+                  
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
+                  <BR></BR>
                 </HTML>
                 
                 <xsl:variable name="tmptext5" select="manual[@xml:lang=$language]"/>
