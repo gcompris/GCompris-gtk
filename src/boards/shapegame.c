@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/08/21 17:41:22 bcoudoin>
+ * Time-stamp: <2003/08/23 14:31:39 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -264,7 +264,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 				  gcompris_image_to_skin("gcompris-shapebg.jpg"));
 	}
 
-      gamewon = FALSE;
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -485,6 +484,7 @@ static void shapegame_next_level()
 {
   char *filename;
 
+  gamewon = FALSE;
   edit_mode = FALSE;
 
   gcompris_bar_set_level(gcomprisBoard);
