@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/07/01 00:58:46 bruno>
+ * Time-stamp: <2002/10/06 23:35:27 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -98,6 +98,7 @@ gchar *colorlist [] =
   };
 
 /* This is the list of shape for the current game */
+static GList *shape_list_init	= NULL;
 static GList *shape_list	= NULL;
 static GList *shape_list_group	= NULL;
 static int current_shapelistgroup_index	= -1;
@@ -461,6 +462,8 @@ static void shapegame_destroy_all_items()
       destroy_shape(shape);
     }
   
+  g_list_free(shape_list);
+
   if (shapelist_table)
     {
       /* Deleting the root item automatically deletes children items */
@@ -503,55 +506,6 @@ static GnomeCanvasItem *shapegame_init_canvas(GnomeCanvasGroup *parent)
 /**************************************************************
  * Shape list management
  */
-
-/*
- * Shuffle the shape list
- */
-static void 
-shuffle_shape_list()
-{
-  GList *icon_list = NULL;
-  GList *list = NULL;
-  int i;
-
-  /* Create the list of icons */
-  for(list = shape_list; list != NULL; list = list->next) {
-    Shape *shape = list->data;
-    if(shape->type==SHAPE_ICON)
-      icon_list = g_list_append (icon_list, shape);
-  }
-  g_list_free(list);
-
-  /* Loop through all the shapes to swap them eventually */
-  for(list = icon_list; list != NULL; list = list->next) {
-    Shape *shape1 = list->data;
-    Shape *shape2;
-
-    i=rand()%(g_list_length(icon_list));
-
-    shape2 = (Shape *)g_list_nth_data(icon_list, i);
-    if(shape2!=NULL)
-      {
-	if(shape1!=shape2)
-	  {
-	    /* Swap the shapes */
-	    double y;
-
-	    y         = shape1->y;
-	    shape1->y = shape2->y;
-	    shape2->y = y;
-
-	    gnome_canvas_item_set (shape1->item,
-				   "y", shape1->y - shape1->h/2,
-				   NULL);
-	    gnome_canvas_item_set (shape2->item,
-				   "y", shape2->y - shape2->h/2,
-				   NULL);
-	  }
-      }
-  }
-  g_list_free(icon_list);
-}
 
 /* Add the given shape to the list of shapes
  * Do nothing if the shape is already in
@@ -1522,7 +1476,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
       shape = create_shape(type, name, pixmapfile, points, targetfile, x, y, 
 			   (double)0, (double)0,
 			   zoomx, zoomy, position, soundfile);
-      add_shape_to_canvas(shape);
+
+      /* add the shape to the list */
+      shape_list_init = g_list_append(shape_list_init, shape);
     } 
   else if (g_strcasecmp(xmlnode->name,"Title")==0)
     {
@@ -1544,8 +1500,22 @@ parse_doc(xmlDocPtr doc)
        we pass NULL as the node of the child */
     add_xml_shape_to_data(doc, node, NULL);
   }
-  // FIXME: NEED TO SUPPORT MULTI ROOT
-  //  shuffle_shape_list();
+
+  /* Insert each of the shapes randomly */
+  while(g_list_length(shape_list_init)>0) 
+    {
+      Shape *shape;
+
+      shape = g_list_nth_data(shape_list_init, RAND(0, (g_list_length(shape_list_init)-1)));
+      add_shape_to_canvas(shape);
+      
+      shape_list_init = g_list_remove (shape_list_init, shape);
+    }
+  
+  g_list_free(shape_list_init);
+  shape_list_init = NULL;
+  
+
 }
 
 

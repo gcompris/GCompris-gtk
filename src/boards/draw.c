@@ -59,12 +59,14 @@ typedef enum
     TOOL_FILLED_CIRCLE	= 3,
     TOOL_LINE		= 4,
     TOOL_POINT		= 5,
-    TOOL_DELETE		= 6,
-    TOOL_FILL		= 7,
-    TOOL_RAISE		= 8,
-    TOOL_SELECT		= 9,
-    TOOL_GRID		= 10,
-    TOOL_IMAGE		= 11,
+    TOOL_TEXT		= 6,
+    TOOL_GRID		= 7,
+    TOOL_DELETE		= 8,
+    TOOL_FILL		= 9,
+    TOOL_RAISE		= 10,
+    TOOL_LOWER		= 11,
+    TOOL_SELECT		= 12,
+    TOOL_IMAGE		= 13,
   } ToolList;
 
 #define NUMBER_OF_TOOL	TOOL_IMAGE + 1
@@ -82,11 +84,13 @@ static char *tool_pixmap_name[] =
     "draw/tool-filledcircle.png", "draw/tool-filledcircle_on.png", 
     "draw/tool-line.png", "draw/tool-line_on.png", 
     "draw/tool-point.png", "draw/tool-point_on.png", 
+    "draw/tool-text.png", "draw/tool-text_on.png", 
+    "draw/tool-grid.png", "draw/tool-grid_on.png",
     "draw/tool-del.png", "draw/tool-del_on.png", 
     "draw/tool-fill.png", "draw/tool-fill_on.png",
     "draw/tool-up.png", "draw/tool-up_on.png",
+    "draw/tool-down.png", "draw/tool-down_on.png",
     "draw/tool-select.png", "draw/tool-select_on.png",
-    "draw/tool-grid.png", "draw/tool-grid_on.png",
     "draw/tool-image.png", "draw/tool-image_on.png"
   };
 
@@ -141,7 +145,7 @@ static AnchorsItem *selected_anchors_item = NULL;
 
 #define DRAW_WIDTH_PIXELS	6
 
-#define GRID_COLOR		0x267da400
+#define GRID_COLOR		0x00000000
 
 static gchar *colorlist [] = 
   {
@@ -160,6 +164,7 @@ static gchar *colorlist [] =
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
+gint		 key_press(guint keyval);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 config(void);
 
@@ -200,7 +205,7 @@ BoardPlugin menu_bp =
     pause_board,
     end_board,
     is_our_board,
-    NULL,
+    key_press,
     NULL,
     NULL,
     config,
@@ -280,6 +285,121 @@ end_board ()
   gcomprisBoard = NULL;
 }
 
+/* Get the user keys to use with the text tool */
+gint key_press(guint keyval)
+{
+  char str[2];
+  GnomeCanvasItem	*item = NULL;
+
+  if(!gcomprisBoard)
+    return TRUE;
+
+  if(selected_anchors_item == NULL) 
+    return TRUE;
+
+  /* Add some filter for control and shift key */
+  switch (keyval)
+    {
+    case GDK_Shift_L:
+    case GDK_Shift_R:
+    case GDK_Control_L:
+    case GDK_Control_R:
+    case GDK_Caps_Lock:
+    case GDK_Shift_Lock:
+    case GDK_Meta_L:
+    case GDK_Meta_R:
+    case GDK_Alt_L:
+    case GDK_Alt_R:
+    case GDK_Super_L:
+    case GDK_Super_R:
+    case GDK_Hyper_L:
+    case GDK_Hyper_R:
+    case GDK_Mode_switch:
+    case GDK_dead_circumflex:
+    case GDK_Num_Lock:
+      return FALSE; 
+    case GDK_KP_0:
+      keyval=GDK_0;
+      break;
+    case GDK_KP_1:
+      keyval=GDK_1;
+      break;
+    case GDK_KP_2:
+      keyval=GDK_2;
+      break;
+    case GDK_KP_3:
+      keyval=GDK_3;
+      break;
+    case GDK_KP_4:
+      keyval=GDK_4;
+      break;
+    case GDK_KP_5:
+      keyval=GDK_5;
+      break;
+    case GDK_KP_6:
+      keyval=GDK_6;
+      break;
+    case GDK_KP_7:
+      keyval=GDK_7;
+      break;
+    case GDK_KP_8:
+      keyval=GDK_8;
+      break;
+    case GDK_KP_9:
+      keyval=GDK_9;
+      break;
+    }
+
+  sprintf(str, "%c", keyval);
+
+  item = selected_anchors_item->item;
+      
+  if(GNOME_IS_CANVAS_TEXT(item))
+    {
+      gchar *oldtext;
+      gchar *newtext;
+
+      gtk_object_get (GTK_OBJECT (item), "text", &oldtext, NULL);
+
+      switch(keyval)
+	{
+	case GDK_BackSpace:
+	case GDK_Delete:
+
+	  if(oldtext[1] != '\0')
+	    newtext = g_strndup(oldtext, strlen(oldtext)-1);
+	  else
+	    newtext = "?";
+
+	  break;
+
+	default:
+
+	  if(oldtext[0] == '?' && strlen(oldtext)==1)
+	    {
+	      oldtext[0] = ' ';
+	      g_strstrip(oldtext);
+	    }
+
+	  if(strlen(oldtext)<50)
+	    newtext = g_strconcat(oldtext, &str, NULL);
+	  else
+	    newtext = g_strdup(oldtext);
+	  break;
+
+	}
+
+      gnome_canvas_item_set (item,
+			     "text", newtext,
+			     NULL);
+	      
+      g_free(oldtext);
+    }
+
+  return TRUE;
+}
+
+
 
 gboolean
 is_our_board (GcomprisBoard *gcomprisBoard)
@@ -330,24 +450,34 @@ static void draw_next_level()
   display_tool_selector(GNOME_CANVAS_GROUP(shape_root_item));
   display_drawing_area(GNOME_CANVAS_GROUP(shape_root_item));
 
-  display_grid(TRUE);
 }
 
 
 static void display_drawing_area(GnomeCanvasGroup *parent)
 {
-  draw_root_item = gnome_canvas_item_new (parent,
-					  gnome_canvas_rect_get_type (),
-					  "x1", (double) drawing_area_x1,
-					  "y1", (double) drawing_area_y1,
-					  "x2", (double) drawing_area_x2,
-					  "y2", (double) drawing_area_y2,
-					  "fill_color", "white",
-					  NULL);
-  gtk_signal_connect(GTK_OBJECT(draw_root_item), "event",
+  GnomeCanvasItem *item = NULL;
+
+  item = gnome_canvas_item_new (parent,
+				gnome_canvas_rect_get_type (),
+				"x1", (double) drawing_area_x1,
+				"y1", (double) drawing_area_y1,
+				"x2", (double) drawing_area_x2,
+				"y2", (double) drawing_area_y2,
+				"fill_color", "white",
+				NULL);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
   
+  display_grid(TRUE);
+
+  draw_root_item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
+
 }
 
 static void display_color_selector(GnomeCanvasGroup *parent)
@@ -473,6 +603,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 	      selectionToolItem = item;
 	      break;
 	    default:
+	      break;
 	    }
 
 	  gtk_signal_connect(GTK_OBJECT(item), "event",
@@ -534,52 +665,29 @@ static void display_grid(gboolean status)
       GnomeCanvasPoints	*points;
       GnomeCanvasItem	*item;
 
-      points = gnome_canvas_points_new(2);
-      points->coords[0] = (double) x;
-      points->coords[1] = (double) drawing_area_y1;
-      points->coords[2] = (double) x;
-      points->coords[3] = (double) drawing_area_y2;
-      
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(grid_root_item),
-				    gnome_canvas_line_get_type (),
-				    "points", points,
-				    "fill_color_rgba", GRID_COLOR,
-				    "width_pixels", 1,
-				    NULL);
-
-      gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) item_event,
-			 NULL);
-
-      gnome_canvas_points_unref(points);
-
-    }
-
-
-  for( y = drawing_area_y1 ; y < drawing_area_y2 ; y += grid_step)
-    {
-      GnomeCanvasPoints	*points;
-      GnomeCanvasItem	*item;
-
-      points = gnome_canvas_points_new(2);
-      points->coords[0] = (double) drawing_area_x1;
-      points->coords[1] = (double) y;
-      points->coords[2] = (double) drawing_area_x2;
-      points->coords[3] = (double) y;
-      
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(grid_root_item),
-				    gnome_canvas_line_get_type (),
-				    "points", points,
-				    "fill_color_rgba", GRID_COLOR,
-				    "width_pixels", 1,
-				    NULL);
-
-      gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) item_event,
-			 NULL);
-
-      gnome_canvas_points_unref(points);
-
+      for( y = drawing_area_y1 ; y < drawing_area_y2 ; y += grid_step)
+	{
+	  
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) x;
+	  points->coords[1] = (double) y;
+	  points->coords[2] = (double) x;
+	  points->coords[3] = (double) y + 1;
+	  
+	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(grid_root_item),
+					gnome_canvas_line_get_type (),
+					"points", points,
+					"fill_color_rgba", GRID_COLOR,
+					"width_pixels", 1,
+					NULL);
+	  
+	  gtk_signal_connect(GTK_OBJECT(item), "event",
+			     (GtkSignalFunc) item_event,
+			     NULL);
+	  
+	  gnome_canvas_points_unref(points);
+	  
+	}
     }
 }
 
@@ -669,6 +777,7 @@ static guint get_tool_cursor(ToolList tool)
       break;
     case TOOL_IMAGE:
     case TOOL_LINE:
+    case TOOL_TEXT:
       return(GCOMPRIS_LINE_CURSOR);
       break;
     case TOOL_POINT:
@@ -746,6 +855,7 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	      gcompris_images_selector_start(gcomprisBoard, IMG_DATA_SET, image_selected);
 	    break;
 	    case TOOL_RAISE:
+	    case TOOL_LOWER:
 	      if(selected_anchors_item)
 		display_anchors(selected_anchors_item, FALSE);
       
@@ -812,56 +922,97 @@ static void display_anchors(AnchorsItem *anchorsItem, gboolean visible)
   if(visible)
     {
       if(anchorsItem->nw)
+	{
 	  gnome_canvas_item_show(anchorsItem->nw);
+	  gnome_canvas_item_raise_to_top(anchorsItem->nw);
+	}
 
       if(anchorsItem->n)
+	{
 	  gnome_canvas_item_show(anchorsItem->n);
+	  gnome_canvas_item_raise_to_top(anchorsItem->n);
+	}
 
       if(anchorsItem->ne)
+	{
 	  gnome_canvas_item_show(anchorsItem->ne);
+	  gnome_canvas_item_raise_to_top(anchorsItem->ne);
+	}
 
       if(anchorsItem->w)
+	{
 	  gnome_canvas_item_show(anchorsItem->w);
+	  gnome_canvas_item_raise_to_top(anchorsItem->w);
+	}
 
       if(anchorsItem->e)
+	{
 	  gnome_canvas_item_show(anchorsItem->e);
+	  gnome_canvas_item_raise_to_top(anchorsItem->e);
+	}
 
       if(anchorsItem->sw)
+	{
 	  gnome_canvas_item_show(anchorsItem->sw);
+	  gnome_canvas_item_raise_to_top(anchorsItem->sw);
+	}
 
       if(anchorsItem->s)
+	{
 	  gnome_canvas_item_show(anchorsItem->s);
+	  gnome_canvas_item_raise_to_top(anchorsItem->s);
+	}
 
       if(anchorsItem->se)
+	{
 	  gnome_canvas_item_show(anchorsItem->se);
+	  gnome_canvas_item_raise_to_top(anchorsItem->se);
+	}
 
     }
   else
     {
       if(anchorsItem->nw)
-      gnome_canvas_item_hide(anchorsItem->nw);
+	gnome_canvas_item_hide(anchorsItem->nw);
 
       if(anchorsItem->n)
-      gnome_canvas_item_hide(anchorsItem->n);
-
+	gnome_canvas_item_hide(anchorsItem->n);
+      
       if(anchorsItem->ne)
-      gnome_canvas_item_hide(anchorsItem->ne);
-
+	gnome_canvas_item_hide(anchorsItem->ne);
+      
       if(anchorsItem->w)
-      gnome_canvas_item_hide(anchorsItem->w);
-
+	gnome_canvas_item_hide(anchorsItem->w);
+      
       if(anchorsItem->e)
-      gnome_canvas_item_hide(anchorsItem->e);
-
+	gnome_canvas_item_hide(anchorsItem->e);
+      
       if(anchorsItem->sw)
-      gnome_canvas_item_hide(anchorsItem->sw);
-
+	gnome_canvas_item_hide(anchorsItem->sw);
+      
       if(anchorsItem->s)
-      gnome_canvas_item_hide(anchorsItem->s);
-
+	gnome_canvas_item_hide(anchorsItem->s);
+      
       if(anchorsItem->se)
-      gnome_canvas_item_hide(anchorsItem->se);
+	gnome_canvas_item_hide(anchorsItem->se);
     }
+}
+
+static void reset_anchors_text(AnchorsItem *anchorsItem)
+{
+
+  double x1, x2, y1, y2;
+  
+  gnome_canvas_item_get_bounds(anchorsItem->item,  &x1, &y1, &x2, &y2); 
+
+  if(anchorsItem->nw)
+  gnome_canvas_item_set (anchorsItem->nw,
+			 "x1", (double) x1+(x2-x1)/2 - DEFAULT_ANCHOR_SIZE,
+			 "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
+			 "x2", (double) x1+(x2-x1)/2 + DEFAULT_ANCHOR_SIZE,
+			 "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
+			 NULL);
+
 }
 
 static void reset_anchors_line(AnchorsItem *anchorsItem)
@@ -1210,6 +1361,15 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
 	  reset_anchors_line(anchorsItem);
 	}
     }
+  else if(GNOME_IS_CANVAS_TEXT(item))
+    {
+      /* Resizing a text is just moving it */
+      gnome_canvas_item_set (item,
+			     "y", (double) y,
+			     "x", (double) x,
+			     NULL);
+      reset_anchors_text(anchorsItem);
+    }
 }
 
 /*
@@ -1232,6 +1392,7 @@ static void set_item_color(AnchorsItem *anchorsItem, gchar *color)
     case TOOL_FILLED_RECT:
     case TOOL_FILLED_CIRCLE:
     case TOOL_POINT:
+    case TOOL_TEXT:
       gnome_canvas_item_set (GNOME_CANVAS_ITEM(item),
 			     "fill_color", currentColor,
 			     NULL);
@@ -1256,7 +1417,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
   GdkPixbuf *pixmap = NULL;
 
   item_root_item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(draw_root_item),
 			   gnome_canvas_group_get_type (),
 			   "x", (double)0,
 			   "y", (double)0,
@@ -1358,6 +1519,24 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "fill_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
+      break;      
+    case TOOL_TEXT:
+      // This is text
+      {
+	GdkFont *gdk_font;
+	
+	gdk_font = gdk_font_load (FONT_BOARD_BIG);
+
+	item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+				      gnome_canvas_text_get_type (),
+				      "text", "?",
+				      "font_gdk", gdk_font,
+				      "x", (double) x,
+				      "y", (double) y,
+				      "anchor", GTK_ANCHOR_CENTER,
+				      "fill_color", currentColor,
+				      NULL);
+      }
       break;      
     default:
       break;
@@ -1551,6 +1730,33 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 	  reset_anchors_bounded(anchorsItem);
 	  break;
 
+	  /* No need for anchors for text by now
+	case TOOL_TEXT:
+	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					      gnome_canvas_rect_get_type (),
+					      "fill_color_rgba", ANCHOR_COLOR,
+					      "outline_color", "black",
+					      "width_pixels", 1,
+					      NULL);
+	  anchorsItem->nw = anchorItem;
+	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NW);
+
+	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			     (GtkSignalFunc) item_event_resize,
+			     anchorsItem);
+
+	  anchorsItem->n  = NULL;
+	  anchorsItem->s  = NULL;
+	  anchorsItem->e  = NULL;
+	  anchorsItem->w  = NULL;
+	  anchorsItem->ne = NULL;
+	  anchorsItem->se = NULL;
+	  anchorsItem->sw = NULL;
+
+	  reset_anchors_text(anchorsItem);
+	  */
+	  break;
+
 	default:
 	  /* No anchors in these cases */
 	  anchorsItem->n  = NULL;
@@ -1647,6 +1853,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
 	  case TOOL_POINT:
+	  case TOOL_TEXT:
 	    /* In this case, we simply redirect to the item creation */
 	    item_event(item, event, NULL);
 	    break;
@@ -1785,6 +1992,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
 	  case TOOL_POINT:
+	  case TOOL_TEXT:
 	    /* In this case, we simply redirect to the item creation */
 	    item_event(item, event, NULL);
 	    break;
@@ -1833,6 +2041,10 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    gnome_canvas_item_raise(item, 1); 	    
 	    break;
 
+	  case TOOL_LOWER:
+	    gnome_canvas_item_lower(item, 1); 	    
+	    break;
+
 	  default:
 	    break;
 	  }
@@ -1878,6 +2090,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
       case TOOL_POINT:
       case TOOL_DELETE:
       case TOOL_FILL:
+      case TOOL_TEXT:
 	gcompris_set_cursor(get_tool_cursor(currentTool));
 	break;
       case TOOL_SELECT:
@@ -1970,6 +2183,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
 	  case TOOL_POINT:
+	  case TOOL_TEXT:
 	    // Create a new item
 	    if(event->button.button==1)
 	      {
