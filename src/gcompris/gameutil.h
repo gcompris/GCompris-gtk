@@ -26,6 +26,10 @@
 
 #include "gcompris.h"
 
+// returns a random integer in range [A,B]
+#define RAND(A,B) (A + (int)((float)(B-A+1)*rand()/(RAND_MAX+1.0)))
+
+
 GdkPixbuf	*gcompris_load_operation_pixmap(char operation);
 GdkPixbuf	*gcompris_load_number_pixmap(char number);
 GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);

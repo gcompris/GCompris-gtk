@@ -1,3 +1,8 @@
+2001-12-16 Pascal Georges <pascal.georges1@free.fr>
+        * added gcompris/animals directory for nice pictures taken from http://schmode.net (we are granted by author to use its photos)
+				* added RAND(A,B) utility macro in gameutil.h, whcih returns a number in [A,B] range
+				* added a new board in algebra group. Not finished yet but starts to be playable (needs a lot of clean up and polish)
+
 2001-12-14  Simos Xenitellis  <simos@hellug.gr>
 
 	* boards/wordsgame/wordslevelmax.el: Added Greek files.
@@ -9,14 +14,14 @@
 	* src/gcompris/gameutil.c: finished the highlighting mecanism (taken fron the gnome-panel)
 	* src/boards/draw.c: highlight the current tool
 	* src/board/draw.c: changed include gnome-xml to libxml
-	
+
 2001-12-09  Martin Herweg <m.herweg@gmx.de>
 	* board/sounds/de/*: ogg vorbis sounds created.
 
 2001-12-09  Simos Xenitellis  <simos@hellug.gr>
 
 	* boards/Makefile.am: Added boards/locale_el.xml.in in %xml_in_files.
-	* boards/Makefile.in: Added boards/locale_el.xml.in in %xml_in_files. 
+	* boards/Makefile.in: Added boards/locale_el.xml.in in %xml_in_files.
 	* boards/locale_el.xml.in: Created Greek file from template.
 	* boards/boardsicon/locale_el.png: Added Greek flag (from GKB programm).
 	* configure.in: Added "el" to ALL_LINGUAS.
@@ -25,7 +30,7 @@
 	* src/gcompris/gcompris.c: implemented command line parameter -window and -mute
 
 2001-12-08 Pascal Georges <pascal.georges1@free.fr>
-        * changed board_finished() to take a parameter (see bonus.h), making use of tuxplane.png and tuxloco.png				
+        * changed board_finished() to take a parameter (see bonus.h), making use of tuxplane.png and tuxloco.png
 
 2001-12-07 Pascal Georges <pascal.georges1@free.fr>
         * fixed some bugs in railroad, imageid, click_on_letter and missingletter boards

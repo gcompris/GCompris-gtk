@@ -39,6 +39,8 @@ static void process_ok(void);
 static void process_time(void);
 static void game_won();
 
+void dump_token(); // FIXME DEBUG ONLY
+
 static void destroy_board();
 
 /* 4 levels :
@@ -51,36 +53,82 @@ static void destroy_board();
 #define NUMBER_OF_LEVELS 4
 #define MAX_NUMBER 5
 
+#define TEXT_COLOR "white"
+#define TEXT_RESULT_COLOR "white"
+
+#define NO_RESULT -1
+
 #define BUTTON_WIDTH 81
 #define BUTTON_HEIGHT 64
 #define HORIZONTAL_SEPARATION 20
+#define VERTICAL_SEPARATION 20
 
 static const char oper_values[] = {'+', '-', 'x', ':', '='};
 static const int num_values[] = {1,2,3,4,5,6,7,8,9,10,25,50,100};
 #define NUM_VALUES 13
 #define Y_OPE 20
 #define Y_NUM 100
-#define Y_ANS 400
+#define Y_ANS 200
+
+#define X_NUM1 300
+#define X_OPE 400
+#define X_NUM2 500
+#define X_EQUAL 600
+#define X_RESULT 700
+
+typedef struct _token token;
+struct _token {
+	gboolean isNumber;
+	gboolean isMoved;
+	char oper;
+	int num;
+	int original_num_item_place;
+	int xOffset_original;
+	int signal_id;
+	GnomeCanvasItem * item;
+};
+
+// contains the values, NUM OPER NUM OPER NUM etc.
+token token_value[MAX_NUMBER*2-1];
+token * ptr_token_selected[MAX_NUMBER*2-1];
+
+static const int y_equal_offset[] = {Y_ANS,Y_ANS+BUTTON_HEIGHT+VERTICAL_SEPARATION,
+Y_ANS+2*BUTTON_HEIGHT+2*VERTICAL_SEPARATION,Y_ANS+3*BUTTON_HEIGHT+3*VERTICAL_SEPARATION};
+
+static const int x_token_offset[] = {X_NUM1,X_OPE,X_NUM2,X_OPE,X_NUM2,X_OPE,X_NUM2,X_OPE,X_NUM2};
+static const int y_token_offset[] = {Y_ANS, Y_ANS,Y_ANS,
+	Y_ANS+BUTTON_HEIGHT+VERTICAL_SEPARATION, Y_ANS+BUTTON_HEIGHT+VERTICAL_SEPARATION,
+	Y_ANS+2*BUTTON_HEIGHT+2*VERTICAL_SEPARATION,Y_ANS+2*BUTTON_HEIGHT+2*VERTICAL_SEPARATION,
+	Y_ANS+3*BUTTON_HEIGHT+3*VERTICAL_SEPARATION, Y_ANS+3*BUTTON_HEIGHT+3*VERTICAL_SEPARATION};
 
 static char answer_oper[MAX_NUMBER-1];
-static int answer_num[MAX_NUMBER];
-static int click_count;
+static int answer_num_index[MAX_NUMBER];
+static int token_count;
+static int result_to_find;
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 
 static GdkPixbuf * num_pixmap[NUM_VALUES];
-static GdkPixbuf * oper_pixmap[4];
+static GdkPixbuf * oper_pixmap[5];
 static GdkPixbuf *button_pixmap = NULL;
 
 static GnomeCanvasItem *oper_item[4];
 static GnomeCanvasItem *num_item[MAX_NUMBER];
+static GnomeCanvasItem *equal_item[NUMBER_OF_LEVELS];
+static GnomeCanvasItem *calcul_line_item[NUMBER_OF_LEVELS*2];
+static GnomeCanvasItem *result_item;
 
 static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent);
 static void algebra_guesscount_destroy_all_items(void);
 static void algebra_guesscount_next_level(void);
 static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+
+void item_absolute_move(GnomeCanvasItem *item, int x, int y);
+static int generate_numbers();
+static int token_result();
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -151,8 +199,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
    		button_pixmap = gcompris_load_pixmap(str);
 			g_free(str);
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			     "gcompris/animals/tiger1_by_Ralf_Schmode.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),"gcompris/animals/tiger1_by_Ralf_Schmode.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -208,7 +255,7 @@ static void algebra_guesscount_next_level() {
 
   algebra_guesscount_destroy_all_items();
   gamewon = FALSE;
-	click_count = 0;
+	token_count = 0;
 
   gcompris_score_set(gcomprisBoard->sublevel);
 
@@ -224,78 +271,138 @@ static void algebra_guesscount_destroy_all_items() {
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent) {
-  GdkFont *gdk_font;
-//  double dx1, dy1, dx2, dy2;
-  int i,j, result, r, xOffset;
+static int token_result() {
+	int result, i;
+
+dump_token(); //FIXME
+
+	if (token_count == 0)
+		return NO_RESULT;
+
+	assert(ptr_token_selected[0]->isNumber);
+	result = num_values[ptr_token_selected[0]->num];
+  printf("result = %d ", result);
+
+	for (i=2; i<token_count; i+=2) {
+		assert(!ptr_token_selected[i-1]->isNumber);
+		switch (token_value[i-1].oper) {
+			case '+' : 	result += num_values[ptr_token_selected[i]->num];
+									break;
+			case '-' : 	result -= num_values[ptr_token_selected[i]->num];// printf(" - %d\n",num_values[token_value[i].num]);
+									break;
+			case 'x' : 	result *= num_values[ptr_token_selected[i]->num];
+									break;
+			case ':' : 	result /= num_values[ptr_token_selected[i]->num];
+									break;
+			default : printf("bug in token_result()\n"); break;
+		}
+		printf("result = %d ", result);
+	}
+	printf("\n");
+	return result;
+}
+/* ==================================== */
+static int generate_numbers() {
+	int i, r, j, result;
   gboolean minus, divide;
 
   for (i=0; i<gcomprisBoard->level+1; i++) {
-    j = (int)((NUM_VALUES-1)*rand()/(RAND_MAX+1.0));
-    answer_num[i] = num_values[j];
+    j = RAND(0,NUM_VALUES-1);
+    answer_num_index[i] = j;
   }
 
-  result = answer_num[0];
-  for (i=0; i<gcomprisBoard->level-1; i++) {
+  result = num_values[answer_num_index[0]];
+  for (i=0; i<gcomprisBoard->level; i++) {
     // + and x can always be chosen, but we must ensure - and / are valid
-    if (result - answer_num[i+1] < 0)
-	minus = FALSE;
-	else
-	  minus = TRUE;
-    if (result % answer_num[i+1] != 0)
-	divide = FALSE;
-	else
-	  divide = TRUE;
+		minus = (result - num_values[answer_num_index[i+1]] >= 0);
+    divide = (result % num_values[answer_num_index[i+1]] == 0);
+
     r = 2 + (minus ? 1 : 0) + (divide ? 1 : 0);
-    j  = (int)(r*rand()/(RAND_MAX+1.0));
-    assert(j>=0 && j<r);
-    switch (j) {
-    case 0 : answer_oper[i] = '+'; break;
-    case 1 : answer_oper[i] = 'x'; break;
-    case 2 : 	if (minus)
-			answer_oper[i] = '-';
-		else
-			answer_oper[i] = '/';
-    		break;
-    case 3 : if ((int)(2*rand()/(RAND_MAX+1.0)) == 0)
-							answer_oper[i] = '/';
-							else
+		printf("r = %d\n", r);
+
+    switch (RAND(1,r)) {
+						case 1 : 	answer_oper[i] = '+';
+											result += num_values[answer_num_index[i+1]];
+											break;
+						case 2 : 	answer_oper[i] = 'x';
+											result *= num_values[answer_num_index[i+1]];
+											break;
+						case 3 : 	if (minus) {
 							answer_oper[i] = '-';
-    		break;
-    default : printf("Bug in guesscount\n"); break;
+							result -= num_values[answer_num_index[i+1]];
+							assert(result >= 0);
+						} else {
+							answer_oper[i] = ':';
+							assert(result%num_values[answer_num_index[i+1]] == 0);
+							result /= num_values[answer_num_index[i+1]];
+							}
+								break;
+						case 4 : if ( RAND(0,1) == 0) {
+											answer_oper[i] = '-';
+											result -= num_values[answer_num_index[i+1]];
+											assert(result >= 0);
+											} else {
+												answer_oper[i] = ':';
+												assert(result%num_values[answer_num_index[i+1]] == 0);
+												result /= num_values[answer_num_index[i+1]];
+												}
+								break;
+						default : printf("Bug in guesscount\n"); break;
     }
   }
-
 // dump for DEBUG
+printf("-----------------------------------\n");
+  printf("num:%d ",num_values[answer_num_index[0]]);
   for (i=0; i<gcomprisBoard->level; i++) {
 		printf("oper:%c ",answer_oper[i]);
-		printf("num:%d ",answer_num[i]);
+		printf("num:%d ",num_values[answer_num_index[i+1]]);
 	}
-	printf("num:%d\n", answer_num[gcomprisBoard->level]);
+	printf("\n");
 // end DEBUG
+	return result;
+}
+/* ==================================== */
+static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent) {
+  GdkFont *gdk_font;
+  int i, xOffset, sid;
+	char str[10];
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+	gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-100-*-*-*-*-*");
 
-  boardRootItem = GNOME_CANVAS_GROUP(
+	result_to_find = generate_numbers();
+
+	boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
-/*
-	text = gnome_canvas_item_new (boardRootItem,
+
+	// the intermediate result, line by line, when empty is "_"
+	for (i=0; i<gcomprisBoard->level; i++) {
+		calcul_line_item[i*2] = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
-				"text", _(board->question),
+				"text", "___",
 				"font_gdk", gdk_font,
-				"x", (double) txt_area_x,
-				"y", (double) txt_area_y,
+				"x", (double) X_EQUAL+BUTTON_WIDTH*1.5,
+				"y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color", TEXT_COLOR,
 				NULL);
+	}
 
-  gnome_canvas_item_get_bounds(text, &dx1, &dy1, &dx2, &dy2);
-  yOffset += VERTICAL_SEPARATION + dy2-dy1;
-*/
+	for (i=0; i<gcomprisBoard->level-1; i++) {
+		calcul_line_item[i*2+1] = gnome_canvas_item_new (boardRootItem,
+				gnome_canvas_text_get_type (),
+				"text", "___",
+				"font_gdk", gdk_font,
+				"x", (double) X_NUM1+BUTTON_WIDTH/2,
+				"y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", TEXT_COLOR,
+				NULL);
+	}
+
   xOffset = (gcomprisBoard->width - 4 * BUTTON_WIDTH - 3 * HORIZONTAL_SEPARATION)/2;
 	for (i=0; i<4; i++) {
 		oper_item[i] = gnome_canvas_item_new (boardRootItem,
@@ -312,11 +419,23 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
   	gtk_signal_connect(GTK_OBJECT(oper_item[i]), "event", (GtkSignalFunc) item_event_oper, (void *) &oper_values[i]);
 		}
 
+	// displays the target result
+	sprintf(str,"%d",result_to_find);
+	result_item = gnome_canvas_item_new (boardRootItem,
+				gnome_canvas_text_get_type (),
+				"text", str,
+				"font_gdk", gdk_font,
+				"x", (double) xOffset+BUTTON_WIDTH,
+				"y", (double) Y_OPE+BUTTON_HEIGHT/2,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", TEXT_RESULT_COLOR,
+				NULL);
+
 	xOffset = (gcomprisBoard->width - (gcomprisBoard->level+1) * BUTTON_WIDTH - gcomprisBoard->level * HORIZONTAL_SEPARATION)/2;
 	for (i=0; i<gcomprisBoard->level+1; i++) {
 		num_item[i] = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", num_pixmap[i],
+				      "pixbuf", num_pixmap[answer_num_index[i]],
 				      "x", (double) xOffset ,
 				      "y", (double) Y_NUM,
 				      "width", (double) BUTTON_WIDTH,
@@ -324,9 +443,31 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 				      "width_set", TRUE,
 				      "height_set", TRUE,
 				      NULL);
+  	sid = gtk_signal_connect(GTK_OBJECT(num_item[i]), "event", (GtkSignalFunc) item_event_num,
+			(void *)&(token_value[i*2]));
+		token_value[i*2].isNumber = TRUE;
+		token_value[i*2].num = answer_num_index[i];
+		token_value[i*2].signal_id = sid;
+		token_value[i*2].item = num_item[i];
+		token_value[i*2].isMoved = FALSE;
+		token_value[i*2].original_num_item_place = i;
+		token_value[i*2].xOffset_original = xOffset;
 		xOffset += BUTTON_WIDTH+HORIZONTAL_SEPARATION;
-  	gtk_signal_connect(GTK_OBJECT(num_item[i]), "event", (GtkSignalFunc) item_event_num, GINT_TO_POINTER(num_values[i]));
 		}
+
+	// items "="
+	for (i=0; i<gcomprisBoard->level; i++) {
+		equal_item[i] = gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_pixbuf_get_type (),
+				      "pixbuf", oper_pixmap[4],
+				      "x", (double) X_EQUAL ,
+				      "y", (double) y_equal_offset[i],
+				      "width", (double) BUTTON_WIDTH,
+				      "height", (double) BUTTON_HEIGHT,
+				      "width_set", TRUE,
+				      "height_set", TRUE,
+				      NULL);
+	}
 
   return NULL;
 }
@@ -347,11 +488,9 @@ static void game_won() {
 }
 
 /* ==================================== */
-static void process_ok()
-{
-  if (gamewon) {
-  }
-  process_time_id = gtk_timeout_add (2000, (GtkFunction) process_time, NULL);
+static void process_ok(){
+	gamewon = (result_to_find == token_result());
+  process_time_id = gtk_timeout_add (50, (GtkFunction) process_time, NULL);
 }
 /* ==================================== */
 static void process_time(){
@@ -362,48 +501,108 @@ static void process_time(){
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
 }
 /* ==================================== */
+static int oper_char_to_pixmap_index(char oper) {
+	int i;
+	printf("oper = %c\n", oper);
+	assert(oper == '+' || oper == '-' || oper == 'x' || oper == ':' || oper == '=');
+
+	for (i=0; i<5; i++)
+		if (oper_values[i] == oper)
+			return i;
+
+	return -1;
+}
+/* ==================================== */
 static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
 	char oper;
-  if(board_paused)
+	GnomeCanvasItem * tmp_item;
+
+	if(board_paused)
     return FALSE;
+	// first verify it is oper turn
+	if (token_count % 2 == 0 || token_count > 2*gcomprisBoard->level+1)
+		return FALSE;
 
 	oper = *((char*)data);
-  switch (event->type)
-    {
+
+  switch (event->type) {
     case GDK_BUTTON_PRESS:
-	printf("clicked %c\n", oper);
-/*	gamewon = TRUE;
-      } else {
-	gamewon = FALSE;
-      }*/
+printf("token_count = %d clicked on %c\n",token_count,oper);
+			token_value[token_count].isNumber = FALSE;
+			token_value[token_count].oper = oper;
+			ptr_token_selected[token_count] = &token_value[token_count];
+			tmp_item = gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_pixbuf_get_type (),
+				      "pixbuf", oper_pixmap[oper_char_to_pixmap_index(oper)],
+				      "x", (double) x_token_offset[token_count],
+				      "y", (double) y_token_offset[token_count],
+				      "width", (double) BUTTON_WIDTH,
+				      "height", (double) BUTTON_HEIGHT,
+				      "width_set", TRUE,
+				      "height_set", TRUE,
+				      NULL);
+  		gtk_signal_connect(GTK_OBJECT(tmp_item), "event", (GtkSignalFunc) item_event_oper_moved, GINT_TO_POINTER(token_count));
+			token_count++;
       break;
     }
   return FALSE;
 }
 /* ==================================== */
-static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
-	int num;
-
+static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
+	char oper;
   if(board_paused)
     return FALSE;
 
-	num = GPOINTER_TO_INT(data);
-  switch (event->type)
-    {
+	oper = *((char*)data);
+  switch (event->type) {
     case GDK_BUTTON_PRESS:
-	printf("clicked %d\n", num);
-/*	gamewon = TRUE;
-      } else {
-	gamewon = FALSE;
-      }*/
-      break;
+			gtk_object_destroy (GTK_OBJECT(item));
+			token_count--;
+			break;
     }
   return FALSE;
 }
+/* ==================================== */
+static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
+	token *t;
+  char str[12];
 
+  if(board_paused)
+    return FALSE;
+	// first verify it is num turn
+	if (token_count % 2 != 0 || token_count > 2*gcomprisBoard->level+1)
+		return FALSE;
+
+	t = (token *)data;
+  switch (event->type){
+    case GDK_BUTTON_PRESS:
+			printf("clicked token_count = %d for value = %d\n", token_count,num_values[t->num]);
+			if (t->isMoved) {
+			// we put back in its original place a number item
+				item_absolute_move(item, t->xOffset_original, Y_NUM);
+				token_count--;
+				t->isMoved = FALSE;
+			} else {
+				item_absolute_move(item, x_token_offset[token_count], y_token_offset[token_count]);
+				t->isMoved = TRUE;
+				ptr_token_selected[token_count] = t;
+				token_count++;
+				// update result text items
+				if (token_count != 1 && token_count % 2 == 1) {
+					sprintf(str,"%d",token_result());
+					printf("token_result = %s\n", str);
+					gnome_canvas_item_set(calcul_line_item[token_count-3], "text", str, NULL);
+					gnome_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
+					}
+				}
+			break;
+		default : break;
+    }
+  return FALSE;
+}
 /* ======================================= */
 // causes a segfault, why ?
-// FIXME : potential memory leak
+// FIXME : potential memory leak ?
 static void destroy_board() {
 	return;
 	int i;
@@ -411,4 +610,23 @@ static void destroy_board() {
   	gdk_pixbuf_unref(num_pixmap[i]);
 	for (i=0; i<5; i++)
 		gdk_pixbuf_unref(oper_pixmap[i]);
+}
+/* ======================================= */
+void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
+	double dx1, dy1, dx2, dy2;
+	gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+	gnome_canvas_item_move(item, ((double)x)-dx1, ((double)y)-dy1);
+}
+/* ======================================= */
+// FIXME : here for debug only
+void dump_token() {
+	int i;
+	token *t;
+
+	for (i=0; i<MAX_NUMBER*2-1; i++) {
+		t = &token_value[i];
+		if (t->isNumber) {
+			printf("i = %d num = %d value = %d\n", i, t->num, num_values[t->num]);
+		}
+	}
 }
