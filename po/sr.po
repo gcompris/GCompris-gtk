@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-13 19:23+0200\n"
-"PO-Revision-Date: 2003-10-13 23:12+0200\n"
+"POT-Creation-Date: 2003-10-22 03:23+0200\n"
+"PO-Revision-Date: 2003-10-22 05:51+0200\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -1794,7 +1794,9 @@ msgstr ""
 msgid ""
 "Click on different active elements : engine, rudders and air tanks in order "
 "to navigate at the ordered depth."
-msgstr "Кликните на разне активне елементе: мотор, кормило или ваздушне резервоаре да бисте достигли наређену дубину."
+msgstr ""
+"Кликните на разне активне елементе: мотор, кормило или ваздушне резервоаре "
+"да бисте достигли наређену дубину."
 
 #: boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -1888,16 +1890,19 @@ msgstr "Вежба куцања"
 #: boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
-"cleanup station in order to reactivate the whole water system."
-msgstr "Кликните на разне активне елементе: сунце, облак, пумпу за воду, станицу за пречишћавање воде да бисте покренули читав систем за воду."
+"cleanup station in order to reactivate the whole water system. When done and "
+"Tux is in his shower, push the shower button for him."
+msgstr "Кликните на разне активне елементе: сунце, облак, пумпу за воду, станицу за пречишћавање воде да бисте покренули читав систем за воду. Када завршите и када се Пингослав тушира, притисните дугме за туш уместо њега."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
 msgstr "Упознајте прераду воде"
 
 #: boards/watercycle.xml.in.h:3
-msgid "You have to bring back the water system up before Tux goes home"
-msgstr "Треба да оспособите систем за воду пре него што Пингослав оде кући"
+msgid ""
+"You have to bring back the water system up. Tux comes from a long fishing "
+"party on his boat. Help him to have a shower."
+msgstr "Треба да оспособите систем за воду. Пингослав се враћа са дуге пецарошке забаве на свом броду. Помозите му да се истушира."
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -1912,18 +1917,18 @@ msgid "Educational suite gcompris"
 msgstr "Образовни комплет gcompris"
 
 #: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
 #: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
-#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
+#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Не могу да нађем датотеку: %s !"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
@@ -2089,11 +2094,11 @@ msgstr "Питон табла"
 msgid "Special board that embed python into gcompris."
 msgstr "Нарочита табла која укључује Питона у гкомприса."
 
-#: src/boards/railroad.c:95
+#: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Игра памћења"
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
 msgstr "Сагради воз према моделу"
 
@@ -2218,7 +2223,7 @@ msgid "Help"
 msgstr "Помоћ"
 
 #: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
-#: src/gcompris/images_selector.c:148
+#: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "У реду"
 
@@ -2422,11 +2427,11 @@ msgid "Use the antialiased canvas (slower)."
 msgstr "Користи улепшан приказ (спорије)."
 
 # bug: wha'???
-#: src/gcompris/gcompris.c:330
+#: src/gcompris/gcompris.c:347
 msgid "GCompris I Have Understood"
 msgstr "ГКомприс ког сам разумео"
 
-#: src/gcompris/gcompris.c:544
+#: src/gcompris/gcompris.c:561
 #, c-format
 msgid ""
 "GCompris\n"
