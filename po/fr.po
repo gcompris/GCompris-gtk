@@ -10,6 +10,7 @@
 # translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
 # translation of fr.po to Français
 # translation of fr.po to
 # translation of fr.po to
@@ -24,14 +25,15 @@
 # Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
 # Laurent Richard <laurent.richard@lilit.be>, 2003, 2004.
 # Renaud de Colombel <renaud.decolombel@free.fr>, 2004, 2005.
+# Bruno coudoin <bruno.coudoin@free.fr>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-04 00:13+0100\n"
-"PO-Revision-Date: 2005-03-04 00:19+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2005-03-11 22:08+0100\n"
+"PO-Revision-Date: 2005-03-11 23:08+0100\n"
+"Last-Translator: Bruno coudoin <bruno.coudoin@free.fr>\n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3052,6 +3054,29 @@ msgstr "Activité Python"
 msgid "Special board that embeds python into gcompris."
 msgstr "Activité spéciale qui embarque python dans GCompris."
 
+#: src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "Vous avez besoin du module python xml. Désactivation SVG."
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: src/boards/python/anim.py:415
+msgid ""
+"Python xml module bot found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr "Python xml module non trouvé. SVG est désactivé. Installer le module python xml pour activer la fonction Sauvegarde/Restauration SVG."
+
+#: src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG est désactivé. Installez le module python xml pour l'activer"
+
+#: src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "Attention: les images suivantes ne peuvent être trouvées sur votre système.\n"
+
+#: src/boards/python/anim.py:2363
+msgid "The corresponding items have been skiped."
+msgstr "Les éléments suivants ont été enlevés"
+
 #: src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
@@ -3304,7 +3329,7 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:209
+#: src/gcompris/about.c:316 src/gcompris/config.c:210
 #: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:261
 msgid "OK"
@@ -3331,229 +3356,233 @@ msgid "Azerbaijani Turkic"
 msgstr "Turc azerbaïdjanais"
 
 #: src/gcompris/config.c:67
+msgid "Bulgarian"
+msgstr "Bulgarie"
+
+#: src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Catalan"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Czech"
 msgstr "Tchèque"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Danish"
 msgstr "Danois"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "German"
 msgstr "Allemand"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Grec"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "English (Canadian)"
 msgstr "Anglais (Canadien)"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Anglais (Royaume Uni)"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "English (USA)"
 msgstr "Anglais (Etats-Unis)"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Finnish"
 msgstr "Finnois"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "French"
 msgstr "Français"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Irish (Gaelic)"
 msgstr "Irlandais (Gaelic)"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Hebrew"
 msgstr "Hébreu"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Hindi)"
 msgstr "Indien (Hindi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Indian (Gujarati)"
 msgstr "Indien (Gujarati)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Indian (Punjabi)"
 msgstr "Indien (Punjab)"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Croate"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Macedonian"
 msgstr "Macédonien"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Malay"
 msgstr "Malaisien"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Norwegian Bokmal"
 msgstr "Norvégien Bokmal"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Norwegian Nynorsk"
 msgstr "Norvégien Nynorsk"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Polish"
 msgstr "Polonais"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Russian"
 msgstr "Russe"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Albanian"
 msgstr "Albanie"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Serbian (Latin)"
 msgstr "Serbes (Latin)"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Serbian"
 msgstr "Serbes"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Walloon"
 msgstr "Wallon"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Chinese (Simplified)"
 msgstr "Chinoi (Simplifié)"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour GCompris)"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "No filter"
 msgstr "Aucun filtre"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "Only this level"
 msgstr "Uniquement ce niveau"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid "Up to this level"
 msgstr "Jusqu'à ce niveau"
 
-#: src/gcompris/config.c:127
+#: src/gcompris/config.c:128
 msgid "This level and above"
 msgstr "Ce niveau et au-dessus"
 
-#: src/gcompris/config.c:183
+#: src/gcompris/config.c:184
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:292
+#: src/gcompris/config.c:293
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:335
+#: src/gcompris/config.c:336
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:363
+#: src/gcompris/config.c:364
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:397
+#: src/gcompris/config.c:398
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:418
+#: src/gcompris/config.c:419
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Pas de thème trouvé dans %s\n"
 
-#: src/gcompris/config.c:433 src/gcompris/config.c:818
-#: src/gcompris/config.c:829
+#: src/gcompris/config.c:434 src/gcompris/config.c:819
+#: src/gcompris/config.c:830
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
