@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/01/13 17:57:41 bruno>
+ * Time-stamp: <2002/03/07 01:09:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -302,7 +302,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 					       gnome_canvas_pixbuf_get_type (),
 					       "pixbuf", pixmap,
 					       "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
-					       - gdk_pixbuf_get_width(pixmap) + 5,
+					       - gdk_pixbuf_get_width(pixmap) + 25,
 					       "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2
 					       + gdk_pixbuf_get_height(pixmap) * (i-1),
 					       "width", (double) gdk_pixbuf_get_width(pixmap),
@@ -313,7 +313,42 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
   }
   gdk_pixbuf_unref(pixmap);
   // display difficulty stars ========================== END
-  
+
+  // display board availability due to sound voice not present
+  if(board->mandatory_sound_file)
+    {
+      gchar *soundfile = NULL;
+      char locale[3];
+
+      strncpy(locale,gcompris_get_locale(),2);
+      locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+
+      soundfile = g_strdup_printf("%s/%s/%s", PACKAGE_DATA_DIR "/sounds", locale, 
+				  board->mandatory_sound_file);
+      printf("Checking mandatory_sound_file %s\n", soundfile);
+
+      if (!g_file_exists (soundfile)) 
+	{
+	  pixmap = gcompris_load_pixmap("gcompris/buttons/voice_bad.png");
+	}
+      else
+	{
+	  pixmap = gcompris_load_pixmap("gcompris/buttons/voice.png");
+	}
+
+      star =  gnome_canvas_item_new (parent,
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap,
+				     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
+				     - gdk_pixbuf_get_width(pixmap) + 5,
+				     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
+				     "width", (double) gdk_pixbuf_get_width(pixmap),
+				     "height", (double) gdk_pixbuf_get_height(pixmap),
+				     NULL);
+      item_list = g_list_append (item_list, star);
+      gdk_pixbuf_unref(pixmap);
+    }
+
   // display menu icon ========================== BEGIN
   pixmap = gcompris_load_pixmap("gcompris/buttons/menuicon.png");
   if(g_strcasecmp(board->type, "menu")==0)
