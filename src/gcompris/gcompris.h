@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/02/03 09:38:11 bruno>
+ * Time-stamp: <2002/02/23 02:19:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -82,6 +82,8 @@ GnomeCanvas     *gcompris_get_canvas();
 gchar	        *gcompris_get_locale();
 void		 gcompris_set_locale(gchar *locale);
 
+void		 gcompris_set_cursor(guint gdk_cursor_type);
+
 /*=========================================================*/
 /* Some global definition to keep a constant look and feel */
 /* Boards coders are invited to use them                   */
@@ -97,6 +99,7 @@ void		 gcompris_set_locale(gchar *locale);
 #define FONT_CONTENT		"-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
 #define FONT_CONTENT_FALLBACK	"-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
 
+#define GCOMPRIS_DEFAULT_CURSOR	GDK_LEFT_PTR
 #endif
 
 /* Local Variables: */

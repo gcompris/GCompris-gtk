@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/02/07 23:21:38 bruno>
+ * Time-stamp: <2002/02/22 22:51:32 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -221,9 +221,17 @@ static void init_background()
 
 }
 
+void gcompris_set_cursor(guint gdk_cursor_type)
+{
+  GdkCursor *hand_cursor;
+
+  hand_cursor = gdk_cursor_new(gdk_cursor_type);
+  gdk_window_set_cursor	 (window->window, hand_cursor);
+  gdk_cursor_destroy(hand_cursor);
+}
+
 static void setup_window ()
 {
-
   window = gnome_app_new (PACKAGE, _("GCompris I Have Understood"));
 
   gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
@@ -241,12 +249,8 @@ static void setup_window ()
     gnome_win_hints_set_layer (GTK_WIDGET (window),  WIN_LAYER_ABOVE_DOCK);
   //  gnome_win_hints_set_state(GTK_WIDGET (window),  WIN_STATE_FIXED_POSITION);
 
-
-  /*  GdkCursor *hand_cursor; */
-  /*  hand_cursor = gdk_cursor_new(GDK_HAND2);
-      gdk_window_set_cursor	 (window->window, hand_cursor);
-      gdk_cursor_destroy(hand_cursor);
-  */
+  // Set the cursor
+  gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
 
   /* -------------- */
 

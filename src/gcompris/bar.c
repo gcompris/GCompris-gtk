@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/02/03 09:59:28 bruno>
+ * Time-stamp: <2002/02/22 23:13:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -26,6 +26,7 @@
 
 #include "gcompris.h"
 #include "gcompris_config.h"
+#include "about.h"
 
 #define SOUNDLISTFILE PACKAGE
 
