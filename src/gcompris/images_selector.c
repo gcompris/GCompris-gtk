@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/02/13 03:00:22 bruno>
+ * Time-stamp: <2005/02/24 21:42:27 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -187,6 +187,11 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   gtk_widget_show (w);
   gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas_list_selector), FALSE);
 
+  /* Set the scrollwheel event */
+  gtk_signal_connect(GNOME_CANVAS(canvas_list_selector), "event",
+		     (GtkSignalFunc) item_event_scroll,
+		     GNOME_CANVAS(canvas_list_selector));
+
   /*
    * Create the image scrollbar
    * --------------------------
@@ -228,6 +233,10 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   gtk_widget_show (w);
   gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas_image_selector), FALSE);
 
+  /* Set the scrollwheel event */
+  gtk_signal_connect(GNOME_CANVAS(canvas_image_selector), "event",
+		     (GtkSignalFunc) item_event_scroll,
+		     GNOME_CANVAS(canvas_image_selector));
 
   /*
    * OK Button
@@ -555,7 +564,6 @@ item_event_images_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 }
 
 /* Callback when a scroll event happens */
-/* FIXME This doesn't work. */
 static gint
 item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 {
@@ -574,6 +582,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 
       break;
     }
+  return FALSE;
 }
 
 /*

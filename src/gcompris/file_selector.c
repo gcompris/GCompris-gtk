@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/02/16 00:32:08 bruno>
+ * Time-stamp: <2005/02/24 21:41:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -499,11 +499,10 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   gtk_widget_show (w);
   gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas), FALSE);
 
-  /* FIXME: Doesn't work. the scroll is fine but the display is buggy
+  /* Set the scrollwheel event */
   gtk_signal_connect(GNOME_CANVAS(canvas), "event",
 		     (GtkSignalFunc) item_event_scroll,
 		     GNOME_CANVAS(canvas));
-  */
 
   /* Display the directory name
    * --------------------------
@@ -673,7 +672,6 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 }
 
 /* Callback when a scroll event happens */
-/* FIXME This doesn't work. */
 static gint
 item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 {
@@ -692,6 +690,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 
       break;
     }
+  return FALSE;
 }
 
 /* Callback when a file is selected */

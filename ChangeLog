@@ -1,3 +1,15 @@
+2005-02-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/read_colors/read_colors_background.png: Cleaned up by Karl Ove Hufthammer
+	* boards/read_colors/read_colors_highlight.png: -
+	* src/gcompris/file_selector.c: (display_files),
+	(item_event_scroll): Yves found the bug. Now the scrollbar works as expected with the wheel
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(item_event_scroll): -
+
+
+	*** RELEASE 6.5PRE2 ***
+	
 2005-02-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/anim/animation.js: updated by Yves
