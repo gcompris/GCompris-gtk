@@ -75,6 +75,9 @@ BoardPlugin menu_bp =
     NULL,
     NULL,
     NULL,
+    NULL,
+    NULL,
+    NULL,
     start_board,
     pause_board,
     end_board,
@@ -259,7 +262,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   right_letter[0] = l[right_position-1];
   right_letter[1] = 0;
   g_strdown(right_letter);
-  gcompris_play_ogg("clic_on_letter",right_letter, NULL);
+  gcompris_play_ogg("click_on_letter",right_letter, NULL);
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),

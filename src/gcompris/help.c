@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2001/12/19 00:29:19 bruno>
+ * Time-stamp: <2002/01/13 01:07:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -25,13 +25,25 @@
  */
 
 #include "gcompris.h"
-#include <gtkhtml/gtkhtml.h>
 
 #define SOUNDLISTFILE PACKAGE
 
 static gint item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-GnomeCanvasItem *rootitem = NULL;
+static gboolean help_displayed = FALSE;
+
+static GnomeCanvasItem *rootitem = NULL;
+static GnomeCanvasItem *item_title = NULL;
+static GnomeCanvasItem *item_content = NULL;
+
+static gchar   *prerequisite = NULL;
+static gchar   *goal = NULL;
+static gchar   *manual = NULL;
+
+static gchar   *prerequisite_title = N_("Prerequisite");
+static gchar   *goal_title = N_("Goal");
+static gchar   *manual_title = N_("Manual");
+
 
 /*
  * Main entry point 
@@ -39,12 +51,27 @@ GnomeCanvasItem *rootitem = NULL;
  *
  */
 
+/**
+ * Return true wether the given board has at least one help field defined
+ *
+ */
+gboolean gcompris_board_has_help (GcomprisBoard *gcomprisBoard)
+{
+
+  prerequisite	= (gcomprisBoard->plugin->prerequisite ? gcomprisBoard->plugin->prerequisite :
+		   gcomprisBoard->prerequisite);
+  goal		= (gcomprisBoard->plugin->goal ? gcomprisBoard->plugin->goal :
+		   gcomprisBoard->goal);
+  manual	= (gcomprisBoard->plugin->manual ? gcomprisBoard->plugin->manual :
+		   gcomprisBoard->manual);
+  return(prerequisite!=NULL || goal!=NULL || manual!=NULL);
+}
 
 /*
  * Do all the help display and register the events
  */
 
-void gcompris_help_start (gchar *title, gchar *content)
+void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 {
 
   GdkPixbuf   *pixmap = NULL;
@@ -52,23 +79,31 @@ void gcompris_help_start (gchar *title, gchar *content)
   gint y = 0;
   gint y_start = 0;
   gint x_start = 0;
-  gint yhtml_start = 0;
-  gint xhtml_start = 0;
   GdkFont *gdk_font;
-  GtkHTML *gtkHtml;
-  gchar *tmp;
-  gchar *htmlHeader = "<html>
-<head>
-<title>GCompris Help</title>
-</head>
-<body text=\"#000000\" bgcolor=\"#00b7fe\" MARGINHEIGHT=\"0\" MARGINWIDTH=\"0\" 
-TOPMARGIN=\"0\" LEFTMARGIN=\"0\">";
-  gchar * htmlFooter = "</body></html>";
-
-
+  GdkFont *gdk_font2;
+  gchar   *name = NULL;
+  gchar   *prerequisite = NULL;
+  gchar   *goal = NULL;
+  gchar   *manual = NULL;
 
   if(rootitem)
     return;
+
+  if(gcomprisBoard!=NULL)
+    {
+      if(gcomprisBoard->plugin->pause_board != NULL)
+	  gcomprisBoard->plugin->pause_board(TRUE);
+    }
+
+  /* Each of these fields can be overriden by the user xml menu file that describe its board */
+  name		= gcomprisBoard->name;
+  prerequisite	= (gcomprisBoard->plugin->prerequisite ? gcomprisBoard->plugin->prerequisite :
+		   gcomprisBoard->prerequisite);
+  goal		= (gcomprisBoard->plugin->goal ? gcomprisBoard->plugin->goal :
+		   gcomprisBoard->goal);
+  manual	= (gcomprisBoard->plugin->manual ? gcomprisBoard->plugin->manual :
+		   gcomprisBoard->manual);
+
 
   rootitem = \
     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
@@ -89,25 +124,146 @@ TOPMARGIN=\"0\" LEFTMARGIN=\"0\">";
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
-  // TITLE
+  // NAME
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 
+  y_start += 40;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", title, 
+				"text", name, 
 				"font_gdk", gdk_font,
 				"x", (double) BOARDWIDTH/2,
-				"y", (double) y_start + 40,
+				"y", (double) y_start,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color", "white",
 				NULL);
+
+
+  y_start += 110;
+
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+
+  // Prerequisite Button
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.25) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_help,
+		     "prerequisite");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("Prerequisite"),
+				"font_gdk", gdk_font,
+				"x", (double)  BOARDWIDTH*0.25,
+				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", "white",
+				NULL);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_help,
+		     "prerequisite");
+
+
+  // Goal Button
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_help,
+		     "goal");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("Goal"),
+				"font_gdk", gdk_font,
+				"x", (double)  BOARDWIDTH*0.5,
+				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", "white",
+				NULL);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_help,
+		     "goal");
+
+  // Manual Button
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.75) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_help,
+		     "manual");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("Manual"),
+				"font_gdk", gdk_font,
+				"x", (double)  BOARDWIDTH*0.75,
+				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", "white",
+				NULL);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_help,
+		     "manual");
+
+
+  gdk_pixbuf_unref(pixmap);
+
+
+  // CONTENT TITLE
+  y_start += 20;
+  item_title = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				      gnome_canvas_text_get_type (),
+				      "text", prerequisite_title,
+				      "font_gdk", gdk_font,
+				      "x", (double)  BOARDWIDTH*0.5,
+				      "y", (double)  y_start,
+				      "anchor", GTK_ANCHOR_CENTER,
+				      "fill_color_rgba", 0xB0040000,
+				      NULL);
+
+  // CONTENT
+  y_start += 20;
+  gdk_font2 = gdk_font_load ("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*");
+
+  item_content = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					gnome_canvas_text_get_type (),
+					"text", prerequisite,
+					"font_gdk", gdk_font2,
+					"x", (double)  x_start + 45,
+					"y", (double)  y_start,
+					"anchor", GTK_ANCHOR_NW,
+					"fill_color", "white",
+					NULL);
 
   // OK
   pixmap = gcompris_load_pixmap("gcompris/buttons/button_small.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2,
+				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
 				NULL);
 
@@ -117,14 +273,12 @@ TOPMARGIN=\"0\" LEFTMARGIN=\"0\">";
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
-  gdk_pixbuf_unref(pixmap);
-
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", N_("OK"),
 				"font_gdk", gdk_font,
-				"x", (double)  BOARDWIDTH/2,
+				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color", "white",
@@ -132,28 +286,10 @@ TOPMARGIN=\"0\" LEFTMARGIN=\"0\">";
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
+  gdk_pixbuf_unref(pixmap);
 
-  // GTKHTML Content
 
-  tmp = g_strconcat(htmlHeader, content, htmlFooter);
-  gtkHtml = GTK_HTML(gtk_html_new_from_string (tmp, strlen(tmp)));
-  g_free(tmp);
-
-  xhtml_start = x_start + 40;
-  yhtml_start = y_start + 90;
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_widget_get_type (),
-			 "widget", gtkHtml, 
-			 "x", (double) xhtml_start,
-			 "y", (double) yhtml_start,
-			 "width", (double) BOARDWIDTH - xhtml_start*2,
-			 "height", (double) BOARDHEIGHT - yhtml_start*2,
-			 "size_pixels", TRUE,
-			 NULL);
-  
-
-  gtk_widget_show (GTK_WIDGET(gtkHtml));
-
+  help_displayed = TRUE;
 }
 
 /*
@@ -164,7 +300,7 @@ void gcompris_help_stop ()
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
-  if(gcomprisBoard!=NULL)
+  if(gcomprisBoard!=NULL && help_displayed)
     {
       if(gcomprisBoard->plugin->pause_board != NULL)
 	{
@@ -177,6 +313,7 @@ void gcompris_help_stop ()
 	  rootitem = NULL;	  
 	}
     }
+  help_displayed = FALSE;
 }
 
 
@@ -203,6 +340,33 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       if(!strcmp((char *)data, "ok"))
 	{
 	  gcompris_help_stop();
+	}      
+      else if(!strcmp((char *)data, "prerequisite"))
+	{
+	  gnome_canvas_item_set(item_content, 
+				"text", prerequisite,
+				NULL);
+	  gnome_canvas_item_set(item_title, 
+				"text", prerequisite_title,
+				NULL);
+	}      
+      else if(!strcmp((char *)data, "goal"))
+	{
+	  gnome_canvas_item_set(item_content, 
+				"text", goal,
+				NULL);
+	  gnome_canvas_item_set(item_title, 
+				"text", goal_title,
+				NULL);
+	}      
+      else if(!strcmp((char *)data, "manual"))
+	{
+	  gnome_canvas_item_set(item_content, 
+				"text", manual,
+				NULL);
+	  gnome_canvas_item_set(item_title, 
+				"text", manual_title,
+				NULL);
 	}      
     default:
       break;

@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2001/12/26 21:46:55 bruno>
+ * Time-stamp: <2002/01/12 22:59:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -52,7 +52,7 @@ static void	 clickgame_pause (gboolean pause);
 static void	 clickgame_end (void);
 static gboolean	 clickgame_is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 clickgame_set_level (guint level);
-static void	 clickgame_help(void);
+static void	 clickgame_config(void);
 
 static FishItem *clickgame_create_item(GnomeCanvasGroup *parent);
 static gint	 clickgame_drop_items (GtkWidget *widget, gpointer data);
@@ -77,6 +77,22 @@ BoardPlugin clickgame_bp =
    N_("Click On Me"),
    N_("Left-Click with the mouse on all swimming fishes before they leave the fishtank"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
+   N_("Can move the mouse\n"),
+   N_("In this game, the children will discover the click on the computer mouse.\n"
+      "The goal is just to click with the left mouse button on the moving fish."),
+   N_("Credits:\n"
+      "Fish are taken from the Unix utility xfishtank.\n"
+      "Images are taken from the National Undersearch Research Program (NURP) Collection "
+      "at http://www.photolib.noaa.gov\n"
+      "All images credit bellongs to the OAR/National Undersea Research Program (NURP).\n"
+      "Except for the first image that also credits the University of North Carolina at Wilmington.\n"
+      "In the gcompris level order, images information is:\n"
+      "Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling\n"
+      "Location: Florida Keys (image nur03006)\n"
+      "Location: Unknown (image nur03505)\n"
+      "Location: Unknown (image nur03010)\n"
+      "Location: Unknown (image nur03011)\n"
+      "Location: Unknown (image nur03013)"),
    NULL,
    NULL,
    NULL,
@@ -88,7 +104,7 @@ BoardPlugin clickgame_bp =
    NULL,
    NULL,
    clickgame_set_level,
-   clickgame_help,
+   clickgame_config,
    NULL
 };
 
@@ -188,7 +204,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_HELP);
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       clickgame_next_level();
 
@@ -241,31 +257,11 @@ clickgame_is_our_board (GcomprisBoard *gcomprisBoard)
 }
 
 static void
-clickgame_help ()
+clickgame_config ()
 {
   if(gcomprisBoard!=NULL)
     {
       clickgame_pause(TRUE);
-      gcompris_help_start(N_("Practice the computer mouse"), 
-			  N_(""
-"<b>Goal:</b>\n"
-"<br>In this game, the children will discover the computer mouse.\n"
-"<br>The goal is just to click with the left mouse button on the moving fish.\n"
-"<p>\n"
-"<b>Credits:</b>\n"
-"<br>Fish are taken from the Unix utility xfishtank.\n"
-"<br>Images are taken from the National Undersearch Research Program (NURP) Collection "
-"at <a href=\"http://www.photolib.noaa.gov\">http://www.photolib.noaa.gov</a>.\n"
-"<br>All images credit bellongs to the OAR/National Undersea Research Program (NURP).\n"
-"<br>Except for the first image that also credits the University of North Carolina at Wilmington.\n"
-"<br>In the gcompris level order, images information is:\n"
-"<ul><li>Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling</li>\n"
-"<li>Location: Florida Keys (image nur03006)</li>\n"
-"<li>Location: Unknown (image nur03505)</li>\n"
-"<li>Location: Unknown (image nur03010)</li>\n"
-"<li>Location: Unknown (image nur03011)</li>\n"
-"<li>Location: Unknown (image nur03013)</li></ul>"
-));
     }
 }
 

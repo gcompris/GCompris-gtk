@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2001/12/26 23:12:52 bruno>
+ * Time-stamp: <2002/01/11 01:07:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -63,16 +63,16 @@ typedef enum
 {
   GCOMPRIS_BAR_LEVEL	= 1 << 0,
   GCOMPRIS_BAR_OK	= 1 << 1,
-  GCOMPRIS_BAR_HELP	= 1 << 2,
-  GCOMPRIS_BAR_REPEAT	= 1 << 3,
-  GCOMPRIS_BAR_CONFIG	= 1 << 4,
-  GCOMPRIS_BAR_ABOUT	= 1 << 5,
+  GCOMPRIS_BAR_REPEAT	= 1 << 2,
+  GCOMPRIS_BAR_CONFIG	= 1 << 3,
+  GCOMPRIS_BAR_ABOUT	= 1 << 4,
 } GComprisBarFlags;
 
 void		 gcompris_bar_set (const GComprisBarFlags flags);
 
 /* Help window */
-void		 gcompris_help_start (gchar *title, gchar *content);
+gboolean	 gcompris_board_has_help (GcomprisBoard *gcomprisBoard);
+void		 gcompris_help_start (GcomprisBoard *gcomprisBoard);
 void		 gcompris_help_stop ();
 
 /* General */

@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/01/06 23:02:07 bruno>
+ * Time-stamp: <2002/01/12 22:03:38 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -303,7 +303,7 @@ gcompris_bar_set (const GComprisBarFlags flags)
   else
     gnome_canvas_item_hide(ok_item);
 
-  if(flags&GCOMPRIS_BAR_HELP)
+  if(gcompris_board_has_help(get_current_gcompris_board()))
     gnome_canvas_item_show(help_item);
   else
     gnome_canvas_item_hide(help_item);
@@ -414,10 +414,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       else if(!strcmp((char *)data, "help"))
 	{
 	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
-	  if(gcomprisBoard->plugin->help != NULL)
-	    {
-	      gcomprisBoard->plugin->help();
-	    }
+	  gcompris_help_start(gcomprisBoard);
 	}
       else if(!strcmp((char *)data, "repeat"))
 	{
@@ -428,7 +425,10 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "config"))
 	{
-	  gcompris_config_start();
+	  if(gcomprisBoard->plugin->config != NULL)
+	    {
+	      gcomprisBoard->plugin->config();
+	    }
 	}
       else if(!strcmp((char *)data, "about"))
 	{

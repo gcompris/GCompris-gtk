@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2001/12/26 21:46:13 bruno>
+ * Time-stamp: <2002/01/11 02:53:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -80,6 +80,9 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    NULL,
+   NULL,
+   NULL,
+   NULL,
    start_board,
    pause_board,
    end_board,
@@ -109,7 +112,6 @@ BoardPlugin
  */
 static void pause_board (gboolean pause)
 {
-
   if(gcomprisBoard==NULL)
     return;
 

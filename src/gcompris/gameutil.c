@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2001/12/23 23:59:30 bruno>
+ * Time-stamp: <2002/01/12 22:55:39 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -318,6 +318,12 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 
   gcomprisBoard->mandatory_sound_file = xmlGetProp(xmlnode,"mandatory_sound_file");
 
+  gcomprisBoard->name = NULL;
+  gcomprisBoard->description = NULL;
+  gcomprisBoard->prerequisite = NULL;
+  gcomprisBoard->goal = NULL;
+  gcomprisBoard->manual = NULL;
+
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
     gchar *lang = xmlGetProp(xmlnode,"lang");
@@ -327,29 +333,8 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	const char *inptr;
-	size_t inleft;
-	char *outptr;
-	size_t outleft;
-	gint retval;
-
 	gcomprisBoard->name = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-
-	inptr   = (const char *) gcomprisBoard->name;
-	outptr  = (char *) g_malloc(MAX_DESCRIPTION_LENGTH);
-	inleft  = xmlUTF8Strsize(gcomprisBoard->name, MAX_DESCRIPTION_LENGTH);
-	outleft = MAX_DESCRIPTION_LENGTH;
-	// Conversion to ISO-8859-1
-	retval = UTF8Toisolat1(outptr, &outleft, gcomprisBoard->name, &inleft);
-	if(retval==0)
-	  {
- 	    g_free(gcomprisBoard->name);
-	    gcomprisBoard->name=outptr;
-	    gcomprisBoard->name[outleft]='\0';
-	  }
-	else
-	  g_free(outptr);
-
+	gcomprisBoard->name = convertUTF8Toisolat1(gcomprisBoard->name);
       }
 
     /* get the description of the board */
@@ -358,30 +343,40 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2))) 
       {
-	const char *inptr;
-	size_t inleft;
-	char *outptr;
-	size_t outleft;
-	gint retval;
-
 	gcomprisBoard->description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	
-	inptr   = (const char *) gcomprisBoard->description;
-	outptr  = (char *) g_malloc(MAX_DESCRIPTION_LENGTH);
-	inleft  = xmlUTF8Strsize(gcomprisBoard->description, MAX_DESCRIPTION_LENGTH);
-	outleft = MAX_DESCRIPTION_LENGTH;
-	// Conversion to ISO-8859-1
-	retval = UTF8Toisolat1(outptr, &outleft, gcomprisBoard->description, &inleft);
-	if(retval==0)
-	  {
- 	    g_free(gcomprisBoard->description);
-	    gcomprisBoard->description=outptr;
-	    gcomprisBoard->description[outleft]='\0';
-	  }
-	else
-	  g_free(outptr);
-
+	gcomprisBoard->description = convertUTF8Toisolat1(gcomprisBoard->description);
       }
+
+    /* get the help prerequisite help of the board */
+    if (!strcmp(xmlnode->name, "prerequisite")
+	&& (lang==NULL ||
+	    !strcmp(lang, gcompris_get_locale())
+	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+      {
+	gcomprisBoard->prerequisite = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->prerequisite = convertUTF8Toisolat1(gcomprisBoard->prerequisite);
+      }
+
+    /* get the help goal of the board */
+    if (!strcmp(xmlnode->name, "goal")
+	&& (lang==NULL ||
+	    !strcmp(lang, gcompris_get_locale())
+	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+      {
+	gcomprisBoard->goal = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->goal = convertUTF8Toisolat1(gcomprisBoard->goal);
+      }
+
+    /* get the help user manual of the board */
+    if (!strcmp(xmlnode->name, "manual")
+	&& (lang==NULL ||
+	    !strcmp(lang, gcompris_get_locale())
+	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+      {
+	gcomprisBoard->manual = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->manual = convertUTF8Toisolat1(gcomprisBoard->manual);
+      }
+
       xmlnode = xmlnode->next;
   }
 
@@ -486,10 +481,10 @@ gchar * convertUTF8Toisolat1(gchar * text) {
   char *outptr;
   size_t outleft;
   gint retval;
- // this should never happen, it does often !!
+  // this should never happen, it does often !!
   if (text == NULL)
-  	return NULL;
-
+    return NULL;
+  
   inptr   = (const char *) text;
   outptr  = (char *) g_malloc(MAX_LENGTH);
   inleft  = xmlUTF8Strsize(text, MAX_LENGTH);
@@ -497,12 +492,12 @@ gchar * convertUTF8Toisolat1(gchar * text) {
   // Conversion to ISO-8859-1
   retval = UTF8Toisolat1(outptr, &outleft, text, &inleft);
   if(retval==0)  {
- 	    g_free(text);
-	    text = outptr;
-	    text[outleft]='\0';
-	  } else
-	  	g_free(outptr);
-
+    g_free(text);
+    text = outptr;
+    text[outleft]='\0';
+  } else
+    g_free(outptr);
+  
   return text;
 }
 

@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2002/01/07 00:12:30 bruno>
+ * Time-stamp: <2002/01/11 02:03:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -75,6 +75,9 @@ BoardPlugin menu_bp =
    N_("Numbers in Order"),
    N_("Move the plane to catch the clouds in the correct order"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
+   NULL,
+   NULL,
+   NULL,
    NULL,
    NULL,
    NULL,
@@ -497,9 +500,8 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data)
 
   /* move the plane */
   planegame_move_plane(planeitem);
-  printf("ICI\n");
-  //  dummy_id = gtk_timeout_add (speed,
-  //			      (GtkFunction) planegame_move_items, NULL);
+  dummy_id = gtk_timeout_add (speed,
+			      (GtkFunction) planegame_move_items, NULL);
 
   return(FALSE);
 }

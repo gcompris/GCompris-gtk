@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2001/12/26 21:45:19 bruno>
+ * Time-stamp: <2002/01/11 00:34:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -81,7 +81,6 @@ static void	 end_board (void);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
 gint		 key_press(guint keyval);
-static void	 help(void);
 
 static GnomeCanvasItem *paratrooper_create_cloud(GnomeCanvasGroup *parent);
 static gint paratrooper_drop_clouds (GtkWidget *widget, gpointer data);
@@ -106,6 +105,12 @@ BoardPlugin menu_bp =
    N_("Paratrooper"),
    N_("Manage the paratrooper to let him safely land"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
+   N_("This board is game oriented. It doesnt needs specific skills to play with"),
+   N_("In this game, the children will try to make Tux the paratrooper lands safely on the "
+      "fishing boat. He/She needs to take care of the wind side and speed.\n"
+      "\n"),
+   N_("Click on any keyboard key to let Tux jump. Another keypress will open the "
+      "'parachute'. Alternatively, a click on the plane and the tux also works."),
    NULL,
    NULL,
    NULL,
@@ -117,7 +122,7 @@ BoardPlugin menu_bp =
    key_press,
    NULL,
    set_level,
-   help,
+   NULL,
    NULL
 };
 
@@ -202,7 +207,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_HELP);
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       /* Init of paratrooper struct */
       paratrooperItem.rootitem = NULL;
@@ -341,25 +346,6 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 	}
     }
   return FALSE;
-}
-
-static void
-help ()
-{
-  if(gcomprisBoard!=NULL)
-    {
-      pause_board(TRUE);
-      gcompris_help_start(N_("The paratrooper game"), 
-			  N_(""
-"<b>Goal:</b>\n"
-"<br>In this game, the children will try to make Tux the paratrooper lands safely on the "
-"fishing boat. He/She needs to take care of the wind side and speed.\n"
-"<p>\n"
-"<b>Usage:</b>\n"
-"<br>Click on any keyboard key to let Tux jump. Another keypress will open the "
-"'parachute'."
-));
-    }
 }
 
 /*-------------------------------------------------------------------------------*/

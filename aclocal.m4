@@ -214,95 +214,85 @@ esac
 ])
 
 
-define([HACK_SUBST], defn([AC_SUBST]))
-
-# serial 1 AC_PROG_XML_I18N_TOOLS
-AC_DEFUN(AC_PROG_XML_I18N_TOOLS,
+dnl AC_PROG_INTLTOOL([MINIMUM-VERSION])
+# serial 1 AC_PROG_INTLTOOL
+AC_DEFUN(AC_PROG_INTLTOOL,
 [
 
-dnl This is a hack - we use the expansion of AC_SUBST instead of
-dnl AC_SUBST itself to avoid automake putting 
-dnl XML_I18N_MERGE_OAF_RULE = @XML_I18N_MERGE_OAF_RULE@
-dnl in all the Makefile.in's, because that will blow up when substituted.
-XML_I18N_MERGE_OAF_RULE='\%.oaf : \%.oaf.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -o $(top_srcdir)/po $< [$]*.oaf'
-HACK_SUBST(XML_I18N_MERGE_OAF_RULE)
+  INTLTOOL_DESKTOP_RULE='%.desktop:   %.desktop.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -d -u'
+INTLTOOL_DIRECTORY_RULE='%.directory: %.directory.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -d -u'
+     INTLTOOL_KEYS_RULE='%.keys:      %.keys.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -k -u'
+      INTLTOOL_OAF_RULE='%.oaf:       %.oaf.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -o -p'
+     INTLTOOL_PONG_RULE='%.pong:      %.pong.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -x -u'
+   INTLTOOL_SERVER_RULE='%.server:    %.server.in    $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -o -u'
+    INTLTOOL_SHEET_RULE='%.sheet:     %.sheet.in     $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -x -u'
+INTLTOOL_SOUNDLIST_RULE='%.soundlist: %.soundlist.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -d -u'
+      INTLTOOL_XML_RULE='%.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -x -u'
+    INTLTOOL_CAVES_RULE='%.caves:     %.caves.in     $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -d -u'
 
-XML_I18N_MERGE_SERVER_RULE='\%.server : \%.server.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -o $(top_srcdir)/po $< [$]*.server'
-HACK_SUBST(XML_I18N_MERGE_SERVER_RULE)
+AC_SUBST(INTLTOOL_DESKTOP_RULE)
+AC_SUBST(INTLTOOL_DIRECTORY_RULE)
+AC_SUBST(INTLTOOL_KEYS_RULE)
+AC_SUBST(INTLTOOL_OAF_RULE)
+AC_SUBST(INTLTOOL_PONG_RULE)
+AC_SUBST(INTLTOOL_SERVER_RULE)
+AC_SUBST(INTLTOOL_SHEET_RULE)
+AC_SUBST(INTLTOOL_SOUNDLIST_RULE)
+AC_SUBST(INTLTOOL_XML_RULE)
+AC_SUBST(INTLTOOL_CAVES_RULE)
 
-dnl same deal
-XML_I18N_MERGE_KEYS_RULE='\%.keys : \%.keys.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -k $(top_srcdir)/po $< [$]*.keys'
-HACK_SUBST(XML_I18N_MERGE_KEYS_RULE)
+# Use the tools built into the package, not the ones that are installed.
 
-dnl same deal
-XML_I18N_MERGE_DESKTOP_RULE='\%.desktop : \%.desktop.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -d $(top_srcdir)/po $< [$]*.desktop'
-HACK_SUBST(XML_I18N_MERGE_DESKTOP_RULE)
+INTLTOOL_EXTRACT='$(top_builddir)/intltool-extract'
+INTLTOOL_MERGE='$(top_builddir)/intltool-merge'
+INTLTOOL_UPDATE='$(top_builddir)/intltool-update'
 
-dnl same deal
-XML_I18N_MERGE_DIRECTORY_RULE='\%.directory : \%.directory.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -d $(top_srcdir)/po $< [$]*.directory'
-HACK_SUBST(XML_I18N_MERGE_DIRECTORY_RULE)
+AC_SUBST(INTLTOOL_EXTRACT)
+AC_SUBST(INTLTOOL_MERGE)
+AC_SUBST(INTLTOOL_UPDATE)
 
-dnl same deal
-XML_I18N_MERGE_SOUNDLIST_RULE='\%.soundlist : \%.soundlist.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -d $(top_srcdir)/po $< [$]*.soundlist'
-HACK_SUBST(XML_I18N_MERGE_SOUNDLIST_RULE)
-
-dnl same deal
-XML_I18N_MERGE_PONG_RULE='\%.pong : \%.pong.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -x $(top_srcdir)/po $< [$]*.pong'
-HACK_SUBST(XML_I18N_MERGE_PONG_RULE)
-
-dnl same deal
-XML_I18N_MERGE_XML_RULE='\%.xml : \%.xml.in $(top_builddir)/xml-i18n-merge $(top_srcdir)/po/*.po\
-	$(top_builddir)/xml-i18n-merge -x $(top_srcdir)/po $< [$]*.xml'
-HACK_SUBST(XML_I18N_MERGE_XML_RULE)
-
-# Always use our own xml-i18n-tools.
-XML_I18N_EXTRACT='$(top_builddir)/xml-i18n-extract'
-AC_SUBST(XML_I18N_EXTRACT)dnl
-
-XML_I18N_MERGE='$(top_builddir)/xml-i18n-merge'
-AC_SUBST(XML_I18N_MERGE)dnl
-
-XML_I18N_UPDATE='$(top_builddir)/xml-i18n-update'
-AC_SUBST(XML_I18N_UPDATE)dnl
-
-AC_PATH_PROG(XML_I18N_TOOLS_PERL, perl)
-if test -z "$XML_I18N_TOOLS_PERL"; then
-   AC_MSG_ERROR([perl not found; required for xml-i18n-tools])
+AC_PATH_PROG(INTLTOOL_PERL, perl)
+if test -z "$INTLTOOL_PERL"; then
+   AC_MSG_ERROR([perl not found; required for intltool])
 fi
-if test -z "`$XML_I18N_TOOLS_PERL -v | fgrep '5.' 2> /dev/null`"; then
-   AC_MSG_ERROR([perl 5.x required for xml-i18n-tools])
+if test -z "`$INTLTOOL_PERL -v | fgrep '5.' 2> /dev/null`"; then
+   AC_MSG_ERROR([perl 5.x required for intltool])
 fi
 
-dnl  manually sed perl in so people don't have to put the xml-i18n-tools scripts in their 
-dnl  AC_OUTPUT
+dnl manually sed perl in so people don't have to put the intltool scripts in AC_OUTPUT
+
 AC_OUTPUT_COMMANDS([
-sed -e "s:@XML_I18N_TOOLS_PERL@:${XML_I18N_TOOLS_PERL}:;" < ${srcdir}/xml-i18n-extract.in > xml-i18n-extract;
-chmod ugo+x xml-i18n-extract;
-chmod u+w xml-i18n-extract;
 
-sed -e "s:@XML_I18N_TOOLS_PERL@:${XML_I18N_TOOLS_PERL}:;" < ${srcdir}/xml-i18n-merge.in > xml-i18n-merge;
-chmod ugo+x xml-i18n-merge;
-chmod u+w xml-i18n-merge;
+sed -e "s:@INTLTOOL_PERL@:${INTLTOOL_PERL}:;" < ${srcdir}/intltool-extract.in > intltool-extract.out
+if cmp -s intltool-extract intltool-extract.out 2>/dev/null; then
+  rm -f intltool-extract.out
+else
+  mv -f intltool-extract.out intltool-extract
+fi
+chmod ugo+x intltool-extract
+chmod u+w intltool-extract
 
-sed -e "s:@XML_I18N_TOOLS_PERL@:${XML_I18N_TOOLS_PERL}:;" < ${srcdir}/xml-i18n-update.in > xml-i18n-update;
-chmod ugo+x xml-i18n-update;
-chmod u+w xml-i18n-update;
-], XML_I18N_TOOLS_PERL=${XML_I18N_TOOLS_PERL})
+sed -e "s:@INTLTOOL_PERL@:${INTLTOOL_PERL}:;" < ${srcdir}/intltool-merge.in > intltool-merge.out
+if cmp -s intltool-merge intltool-merge.out 2>/dev/null; then
+  rm -f intltool-merge.out
+else
+  mv -f intltool-merge.out intltool-merge
+fi
+chmod ugo+x intltool-merge
+chmod u+w intltool-merge
 
-# Redirect the config.log output again, so that the ltconfig log is not
-# clobbered by the next message.
-exec 5>>./config.log
+sed -e "s:@INTLTOOL_PERL@:${INTLTOOL_PERL}:;" < ${srcdir}/intltool-update.in > intltool-update.out
+if cmp -s intltool-update intltool-update.out 2>/dev/null; then
+  rm -f intltool-update.out
+else
+  mv -f intltool-update.out intltool-update
+fi
+chmod ugo+x intltool-update
+chmod u+w intltool-update
+
+], INTLTOOL_PERL=${INTLTOOL_PERL})
+
 ])
-
-dnl old names
-AC_DEFUN(AM_PROG_XML_I18N_TOOLS, [indir([AC_PROG_XML_I18N_TOOLS])])dnl
 
 # libtool.m4 - Configure libtool for the host system. -*-Shell-script-*-
 
@@ -4473,91 +4463,6 @@ int main ()
   AC_SUBST(GDK_PIXBUF_CFLAGS)
   AC_SUBST(GDK_PIXBUF_LIBS)
   rm -f conf.gdk_pixbuftest
-])
-
-dnl AM_PATH_GCONF([MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND [, MODULES]]]])
-dnl Test for GCONF, and define GCONF_CFLAGS and GCONF_LIBS
-dnl
-AC_DEFUN(AM_PATH_GCONF,
-[dnl 
-dnl Get the cflags and libraries from the gconf-config script
-dnl
-AC_ARG_WITH(gconf-prefix,[  --with-gconf-prefix=PFX   Prefix where GCONF is installed (optional)],
-            gconf_config_prefix="$withval", gconf_config_prefix="")
-AC_ARG_WITH(gconf-exec-prefix,[  --with-gconf-exec-prefix=PFX Exec prefix where GCONF is installed (optional)],
-            gconf_config_exec_prefix="$withval", gconf_config_exec_prefix="")
-AC_ARG_ENABLE(gconftest, [  --disable-gconftest       Do not try to compile and run a test GCONF program],
-		    , enable_gconftest=yes)
-
-  gconf_config_args="$gconf_config_args"
-
-  if test x$gconf_config_exec_prefix != x ; then
-     gconf_config_args="$gconf_config_args --exec-prefix=$gconf_config_exec_prefix"
-     if test x${GCONF_CONFIG+set} != xset ; then
-        GCONF_CONFIG=$gconf_config_exec_prefix/bin/gconf-config
-     fi
-  fi
-  if test x$gconf_config_prefix != x ; then
-     gconf_config_args="$gconf_config_args --prefix=$gconf_config_prefix"
-     if test x${GCONF_CONFIG+set} != xset ; then
-        GCONF_CONFIG=$gconf_config_prefix/bin/gconf-config
-     fi
-  fi
-
-  AC_PATH_PROG(GCONF_CONFIG, gconf-config, no)
-  min_gconf_version=ifelse([$1], , 0.5, $1)
-  AC_MSG_CHECKING(for GCONF - version >= $min_gconf_version)
-  no_gconf=""
-  if test "$GCONF_CONFIG" = "no" ; then
-    no_gconf=yes
-  else
-    GCONF_CFLAGS="`$GCONF_CONFIG  $gconf_config_args --cflags $4`"
-    GCONF_LIBS="`$GCONF_CONFIG  $gconf_config_args --libs $4`"
-    gconf_config_major_version=`$GCONF_CONFIG $gconf_config_args --version | \
-	   sed -e 's,^[[^0-9.]]*,,g' -e 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
-    gconf_config_minor_version=`$GCONF_CONFIG $gconf_config_args --version | \
-	   sed -e 's,^[[^0-9.]]*,,g' -e 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\2/'`
-    gconf_config_micro_version=`$GCONF_CONFIG $gconf_config_args --version | \
-	   sed -e 's,^[[^0-9\.]]*,,g' -e 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\3/'`
-  fi
-  if test "x$no_gconf" = x ; then
-     AC_MSG_RESULT(yes)
-     ifelse([$2], , :, [$2])     
-  else
-     AC_MSG_RESULT(no)
-     if test "$GCONF_CONFIG" = "no" ; then
-       echo "*** The gconf-config script installed by GCONF could not be found"
-       echo "*** If GCONF was installed in PREFIX, make sure PREFIX/bin is in"
-       echo "*** your path, or set the GCONF_CONFIG environment variable to the"
-       echo "*** full path to gconf-config."
-     else
-	:
-     fi
-     GCONF_CFLAGS=""
-     GCONF_LIBS=""
-     ifelse([$3], , :, [$3])
-  fi
-  AC_SUBST(GCONF_CFLAGS)
-  AC_SUBST(GCONF_LIBS)
-  rm -f conf.gconftest
-])
-
-dnl AM_GCONF_SOURCE
-dnl Define GCONF_SCHEMA_CONFIG_SOURCE
-dnl
-AC_DEFUN(AM_GCONF_SOURCE,
-[
-if test "x$GCONF_SCHEMA_INSTALL_SOURCE" = "x"; then
-  GCONF_SCHEMA_CONFIG_SOURCE=`gconftool --get-default-source`
-else
-  GCONF_SCHEMA_CONFIG_SOURCE=$GCONF_SCHEMA_INSTALL_SOURCE
-fi
-
-AC_ARG_WITH(gconf-source, 
-[  --with-gconf-source=sourceaddress      Where to install schema files.],GCONF_SCHEMA_CONFIG_SOURCE="$withval",)
-
-  AC_SUBST(GCONF_SCHEMA_CONFIG_SOURCE)
-  AC_MSG_RESULT("Using config source $GCONF_SCHEMA_CONFIG_SOURCE for schema installation")
 ])
 
 # Macro to add for using GNU gettext.

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/01/02 23:46:19 bruno>
+ * Time-stamp: <2002/01/12 22:58:27 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -19,9 +19,10 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <signal.h>
+
 #include "gcompris.h"
 #include <popt-gnome.h>
-#include <gconf/gconf.h>
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -31,13 +32,11 @@ GnomeCanvas *canvas_bg;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
-static void about_cb (GtkWidget *widget, gpointer data);
 static void help_cb (GtkWidget *widget, gpointer data);
 static gint end_board_box (void);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
-
 
 GcomprisProperties	*properties = NULL;
 GcomprisBoard		*gcomprisBoardMenu = NULL;
@@ -159,6 +158,9 @@ static void init_background()
   /* Background area if ratio above 1 */
   if(xratio>=1.0 && properties->fullscreen)
     {
+      /* First, Remove the gnome crash dialog because it locks the user when in full screen */
+      signal(SIGSEGV, SIG_DFL);
+
       gnome_canvas_set_scroll_region (canvas_bg,
 				      0, 0,
 				      gdk_screen_width(),
@@ -269,6 +271,7 @@ static void setup_window ()
   /*
   canvas     = GNOME_CANVAS(gnome_canvas_new_aa ());
   canvas_bar = GNOME_CANVAS(gnome_canvas_new_aa ());
+  canvas_bg = GNOME_CANVAS(gnome_canvas_new_aa ());
   */
 
 
@@ -309,50 +312,6 @@ static void setup_window ()
 static void help_cb (GtkWidget *widget, gpointer data)
 {
   gnome_help_goto(NULL, PACKAGE_HELP_DIR "/C/gcompris.html");
-}
-
-static void about_cb (GtkWidget *widget, gpointer data)
-{
-  static GtkWidget *about;
-  GtkWidget *l, *hbox;
-
-
-  const gchar *authors[] = {
-    "Bruno Coudoin <bruno.coudoin@free.fr>",
-    NULL
-  };
-
-  if (about != NULL) {
-    gdk_window_raise (about->window);
-    gdk_window_show (about->window);
-    return;
-  }
-
-  about = gnome_about_new ("GCompris", VERSION,
-                        ("Copyright 2000,2001 Bruno Coudoin (Released under the GPL)"),
-                        authors,
-                        _("A simple educational board based game for children starting at 3. This software is a GNU Package"),
-                        PACKAGE_DATA_DIR "/gcompris/gcompris-about.jpg");
-
-  hbox = gtk_hbox_new (TRUE, 0);
-  l = gnome_href_new ("http://www.ofset.org/gcompris",
-		      _ ("GCompris Home Page"));
-  gtk_box_pack_start (GTK_BOX (hbox), l, FALSE, FALSE, 0);
-  l = gnome_href_new ("http://www.ofset.org",
-		      _ ("An OFSET development"));
-  gtk_box_pack_start (GTK_BOX (hbox), l, FALSE, FALSE, 0);
-  gtk_box_pack_start (GTK_BOX (GNOME_DIALOG (about)->vbox),
-		      hbox, TRUE, FALSE, 0);
-  gtk_widget_show_all (hbox);
-
-  gtk_object_set_data (GTK_OBJECT (about), "about", about);
-  gtk_window_set_modal (GTK_WINDOW (about), TRUE);
-
-  gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
-		      (gtk_widget_destroyed), &about);
-  gnome_dialog_set_parent (GNOME_DIALOG (about), GTK_WINDOW (window));
-  
-  gtk_widget_show (about);
 }
 
 /*
@@ -470,7 +429,6 @@ main (int argc, char *argv[])
 {
   int c;
   poptContext optCon;
-  GError *gconf_error = NULL;
 
   srand (time (NULL));
 
@@ -479,11 +437,6 @@ main (int argc, char *argv[])
 
   gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
 
-  /* Init gconf for gtkhtml */
-  gconf_init        (argc, argv, &gconf_error);
-  if (gconf_error)
-    g_error ("gconf error: %s\n", gconf_error->message);
-  
   optCon = poptGetContext (NULL, argc, argv, command_line, 0);
 
   load_properties ();

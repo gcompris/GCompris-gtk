@@ -111,33 +111,47 @@ Note that the descriptions are internationalized which means translated in a tar
 
 
 @item
-Control bar
+Control bar:
 @cindex Control bar
-The control bar is always present in GCompris. This icons are contextual which means that when an icon is not meaningfull in a specific contect, it is disabled (NOT YET IMPLEMENTED).
+The control bar is always present in GCompris. This icons are contextual which means that when an icon is not meaningfull in a specific contect, it is simply not displayed.
 
 The control bar contains the icons from left to right:
 @enumerate
 @item
-Help (NOT YET IMPLEMENTED)
+Help:
 @cindex Icon Help
 In some case, a board can be too complex to be described in the @dfn{Board description area}. In this case this will provide access to the additionnal instructions.
 
 @item
-Level
+Level:
 @cindex Icon Level
 Some boards provide different level. The number of levels is board dependant.
 
 @item
-OK
+OK:
 @cindex Icon OK
 Some boards do not automatically detect that the child has finish the given task. Clicking here is similar to entering @key{RET} on the keyboard and thus the @key{RET} key is a shortcut.
 
 @item
-End
-
+End:
+@cindex Icon End
 End the current board if any, otherwise Exit GCompris.
 When entered at the board menu level, it will create a dialog window to confirm the Exit of GCompris.
 @cindex Exiting from GCompris
+
+@item
+About:
+@cindex Icon About
+Display the about box for gcompris with the version number, the author, the licence and links to online resources.
+@cindex About GCompris
+
+@item
+Configure:
+@cindex Icon Configure
+Display the configuration box for gcompris. Configuration can be done at gcompris level when no boards is selected.
+If a board is selected, it can provides configuration options.
+Configuration is persistent and saved in the gnome file in the user home directory under .gnome/gcompris.
+@cindex Configuring GCompris
 
 @end enumerate
 
@@ -226,13 +240,6 @@ of were he/she is in the board. This value must be in the range
 
 Set the max value of the progress bar.
 
-@item
-@code{void gcompris_bar_set_message (const gchar *message);}
-
-Display a message in the status bar.
-
-@end itemize
-
 So when you create a board, you must include gcompris/plugin.h to have
 access to those methods (this is already included in gcompris/gcompris.h).
 
@@ -247,6 +254,8 @@ implementation methods.
 
 The BoardPlugin structure must provide callbaks to at
 least:
+
+@end itemize
 
 @itemize @bullet
 

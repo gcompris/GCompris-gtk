@@ -1,14 +1,14 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(configure.in)
-AM_INIT_AUTOMAKE(gcompris, 0.9.7)
+AM_INIT_AUTOMAKE(gcompris, 1.0.0Pre1)
 AM_CONFIG_HEADER(config.h)
 
 AC_PROG_CC
 AM_PROG_CC_STDC
 AC_HEADER_STDC
 
-AM_PROG_XML_I18N_TOOLS
+AC_PROG_INTLTOOL
 
 AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
@@ -19,11 +19,10 @@ AM_ACLOCAL_INCLUDE(macros)
 GNOME_INIT
 AC_ISC_POSIX
 
-GNOME_COMPILE_WARNINGS
+GNOME_COMPILE_WARNINGS(maximum)
 GNOME_X_CHECKS
 GNOME_XML_CHECK
 AM_PATH_GDK_PIXBUF
-AM_PATH_GCONF
 
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="az de el es fi fr it nl pt_BR ru sv lt"

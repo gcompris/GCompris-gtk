@@ -76,7 +76,7 @@ static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
-static void	 help(void);
+static void	 config(void);
 
 static void	 draw_destroy_all_items(void);
 static void	 draw_next_level(void);
@@ -96,6 +96,14 @@ BoardPlugin menu_bp =
    N_("A simple vector drawing tool"),
    N_("Creative board where you can freely draw"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
+   N_("Needs to handle the mouse with the click easily"),
+   N_("In this game, the children will be able to freely draw.\n"
+      "The goal is just to discover how he can create pretty looking drawings based on "
+      "basic shapes: rectangles, ellipses and lines.\n"),
+   N_("On the left select a drawing tool, on the bottom select a color then click "
+      "on the white area and drag to create a new shape.\n"
+      "To go faster, you can use the middle mouse button to delete an object "
+      "or the right button to move an object.\n"),
    NULL,
    NULL,
    NULL,
@@ -107,7 +115,7 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    NULL,
-   help,
+   config,
    NULL
 };
 
@@ -157,7 +165,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       drawing_area_x2 = gcomprisBoard->width  - 28;
       drawing_area_y2 = gcomprisBoard->height - 83;
 
-      gcompris_bar_set(GCOMPRIS_BAR_HELP);
+      gcompris_bar_set(0);
 
       draw_next_level();
 
@@ -198,25 +206,11 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 }
 
 static void
-help ()
+config ()
 {
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_help_start(N_("Free vector drawing tool"), 
-			  N_(""
-"<b>Goal:</b>\n"
-"<br>In this game, the children will be able to freely draw.\n"
-"<br>The goal is just to discover how he can create pretty looking drawings based on "
-"basic shapes: rectangles, ellipses and lines.\n"
-"<p>\n"
-"<b>Usage:</b>\n"
-"<br>On the left select a drawing tool, on the bottom select a color then click "
-"on the white area and drag to create a new shape.\n"
-"<br>To go faster, you can use the middle mouse button to delete an object "
-"or the right button to move an object.\n"
-));
-			  
     }
 }
 
@@ -530,7 +524,7 @@ static void highlight_color_item(GnomeCanvasItem *item)
 			   NULL);
 
   gnome_canvas_item_set (item,
-			 "outline_color_rgba", 0xaef45890,
+			 "outline_color_rgba", 0xaef45880,
 			 "width_pixels", 3,
 			 NULL);
   current_color_item=item;

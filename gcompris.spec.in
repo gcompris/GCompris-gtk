@@ -3,7 +3,7 @@
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
 %define prefix		/usr
 
-Summary: GCompris / I Have Inderstood.
+Summary: GCompris / I Have Understood.
 Name: 		gcompris
 Version: 	%ver
 Release: 	%rel
@@ -28,6 +28,7 @@ Today several Boards are implemented:
 * Puzzle game with famous paintings
 * Drive Plane to catch clouds in increasing number
 * Balance the scales
+* And much more ...
 
 The Game is included in the Gnome Desktop under the Game menu.
 
@@ -102,7 +103,39 @@ xml-i18n-tools, gdk-pixbuf doivent être installés.
 - configure.in: Changed to use local relative pixmaps and sounds
 	                instead of gnome api
 - src/*.c: Changed to use relative pixmaps and sounds
-	
+
+%package sounds-fr
+Summary:        French sounds for GCompris
+Group: 		Amusements/Games
+Requires:       %name = %version
+
+%description sounds-fr
+French sounds for gcompris.
+
+%package sounds-es
+Summary:        Spanish sounds for GCompris
+Group: 		Amusements/Games
+Requires:       %name = %version
+
+%description sounds-es
+Spanish sounds for gcompris.
+
+%package sounds-de
+Summary:        German sounds for GCompris
+Group: 		Amusements/Games
+Requires:       %name = %version
+
+%description sounds-de
+German sounds for gcompris.
+
+%package sounds-en
+Summary:        English sounds for GCompris
+Group: 		Amusements/Games
+Requires:       %name = %version
+
+%description sounds-en
+English sounds for gcompris.
+
 %prep
 %setup -q
 
@@ -140,10 +173,38 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gnome/apps/Games/*
 %{prefix}/share/pixmaps/*
 %{prefix}/share/gcompris/sounds/*
-%{prefix}/share/gcompris/boards/*
+%{prefix}/share/gcompris/boards/sounds/*.ogg
+%{prefix}/share/gcompris/boards/algebra_guesscount/*
+%{prefix}/share/gcompris/boards/babymatch/*
+%{prefix}/share/gcompris/boards/babyshapes/*
+%{prefix}/share/gcompris/boards/boardicons/*
+%{prefix}/share/gcompris/boards/clockgame/*
+%{prefix}/share/gcompris/boards/CVS/*
+%{prefix}/share/gcompris/boards/draw/*
+%{prefix}/share/gcompris/boards/fishes/*
+%{prefix}/share/gcompris/boards/flags/*
+%{prefix}/share/gcompris/boards/gcompris/*
+%{prefix}/share/gcompris/boards/imageid/*
+%{prefix}/share/gcompris/boards/imagename/*
+%{prefix}/share/gcompris/boards/missing_letter/*
+%{prefix}/share/gcompris/boards/paintings/*
+%{prefix}/share/gcompris/boards/railroad/*
+%{prefix}/share/gcompris/boards/reading/*
+%{prefix}/share/gcompris/boards/scales/*
+%{prefix}/share/gcompris/boards/wordsgame/*
 %{prefix}/lib/gcompris/*
 %{prefix}/share/locale/*/*/*
 %{prefix}/share/gnome/help/gcompris/*/*
 %{prefix}/lib/menu/*
 
+%files sounds-de
+%{prefix}/share/gcompris/boards/sounds/fr
 
+%files sounds-en
+%{prefix}/share/gcompris/boards/sounds/fr
+
+%files sounds-es
+%{prefix}/share/gcompris/boards/sounds/fr
+
+%files sounds-fr
+%{prefix}/share/gcompris/boards/sounds/fr

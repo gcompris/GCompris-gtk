@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/01/02 23:15:01 bruno>
+ * Time-stamp: <2002/01/13 00:11:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -121,7 +121,7 @@ void gcompris_config_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2,
+				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
 				NULL);
 
@@ -131,14 +131,12 @@ void gcompris_config_start ()
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
-  gdk_pixbuf_unref(pixmap);
-
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", N_("OK"),
 				"font_gdk", gdk_font,
-				"x", (double)  BOARDWIDTH/2,
+				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color", "white",
@@ -146,6 +144,8 @@ void gcompris_config_start ()
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
+  gdk_pixbuf_unref(pixmap);
+
 
   // Configuration content
   gdk_font_small = gdk_font_load ("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*");

@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2002/01/05 22:20:18 bruno>
+ * Time-stamp: <2002/01/12 21:59:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -77,6 +77,9 @@ BoardPlugin menu_bp =
    N_("Learning Clock"),
    N_("Learn how to read the time"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
+   NULL,
+   NULL,
+   NULL,
    NULL,
    NULL,
    NULL,
@@ -531,7 +534,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
   item = 
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
-			   "text", _("Set the clock to:"),
+			   "text", _("Set the watch to:"),
 			   "font_gdk", gdk_font_big3,
 			   "x", (double) gcomprisBoard->width*0.15,
 			   "y", (double) cy + needle_size +  needle_size / 3 - 30,

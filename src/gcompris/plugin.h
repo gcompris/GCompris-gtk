@@ -1,6 +1,6 @@
 /* gcompris - plugin.h
  *
- * Time-stamp: <2001/11/06 22:17:27 bruno>
+ * Time-stamp: <2002/01/11 00:29:06 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -33,7 +33,7 @@ typedef void          (*GcomprisEndBoard)     (void);
 typedef gint          (*GcomprisKeyPress)     (guint keyval);
 typedef void          (*GcomprisOK)           (void);
 typedef void          (*GcomprisSetLevel)     (guint level);
-typedef void          (*GcomprisHelp)         ();
+typedef void          (*GcomprisConfig)       ();
 typedef void          (*GcomprisRepeat)       ();
 
 typedef struct
@@ -43,6 +43,10 @@ typedef struct
   char *name;			/* The name that describes this board */
   char *description;		/* The description that describes this board */
   char *author;			/* The author of this board */
+  char *prerequisite;		/* Help information */
+  char *goal;
+  char *manual;
+
   void (*init) (void);		/* Called when the plugin is loaded */
   void (*cleanup) (void);      	/* Called when gcompris exit */
   void (*about) (void);		/* Show the about box */
@@ -57,7 +61,7 @@ typedef struct
   GcomprisKeyPress     key_press;
   GcomprisOK           ok;
   GcomprisSetLevel     set_level;
-  GcomprisHelp         help;
+  GcomprisConfig       config;
   GcomprisRepeat       repeat;
 
 }

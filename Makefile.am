@@ -8,7 +8,6 @@ icon_DATA = gcompris.png
 Gamesdir=$(datadir)/gnome/apps/Games
 Games_in_files = gcompris.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
-@XML_I18N_MERGE_DESKTOP_RULE@
 
 Menudir=$(prefix)/lib/menu
 Menu_DATA=gcompris
@@ -19,9 +18,9 @@ EXTRA_DIST = \
 	$(Menu_DATA) \
 	gcompris.spec.in \
 	gcompris.spec \
-	xml-i18n-extract.in \
-	xml-i18n-merge.in \
-	xml-i18n-update.in
+	intltool-extract.in \
+	intltool-merge.in \
+	intltool-update.in
 
 install-data-local:
 	@$(NORMAL_INSTALL)

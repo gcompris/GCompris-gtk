@@ -2,7 +2,7 @@
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
-	$(GNOME_INCLUDEDIR) $(GCONF_CFLAGS)
+	$(GNOME_INCLUDEDIR)
 
 bin_PROGRAMS = gcompris
 
@@ -23,6 +23,5 @@ gcompris_SOURCES = \
 gcompris_LDADD = \
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
 	$(GNOME_XML_LIB) $(INTLLIBS) \
-	$(GDK_PIXBUF_LIBS) \
-	$(GCONF_LIBS) $(GTKHTML_LIBS)
+	$(GDK_PIXBUF_LIBS) 
 

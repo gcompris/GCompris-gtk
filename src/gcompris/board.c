@@ -57,7 +57,9 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
     {
       bp = (BoardPlugin *) node->data;
       if (bp && bp->is_our_board(gcomprisBoard))
-	return TRUE;
+	{
+	  return TRUE;
+	}
       node = node->next;
     }
   return FALSE;

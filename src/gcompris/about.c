@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2002/01/07 00:18:34 bruno>
+ * Time-stamp: <2002/01/13 00:41:13 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,6 +46,7 @@ void gcompris_about_start ()
   GcomprisBoard		*gcomprisBoard = get_current_gcompris_board();
   GdkFont *gdk_font;
   GdkFont *gdk_font_small;
+  GdkFont *gdk_font2;
   GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
   gint x_start = 0;
@@ -53,6 +54,13 @@ void gcompris_about_start ()
   gint x_flag_start = 0;
   gint y = 0;
   GnomeCanvasItem *item;
+  static gchar *content =
+    N_("Credits:\n"
+       "Author: Bruno Coudoin\n"
+       "Contribution: Pascal Georges\n"
+       "Graphics: Renaud Blanchard\n"
+       "Music: Djilali Sebihi\n");
+
 
   /* Pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
@@ -93,12 +101,173 @@ void gcompris_about_start ()
 				"fill_color", "white",
 				NULL);
 
+  // Version
+  y_start += 100;
+
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", "GCompris V" VERSION,
+				"font_gdk", gdk_font,
+				"x", (double)  BOARDWIDTH/2,
+				"y", (double)  y_start,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xB0040000,
+				NULL);
+
+  // CONTENT
+  gdk_font2 = gdk_font_load ("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*");
+  y_start += 180;
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", content,
+				"font_gdk", gdk_font2,
+				"x", (double)  BOARDWIDTH/2,
+				"y", (double)  y_start,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0x96105E00,
+				NULL);
+
+  // Ofset Reference
+  pixmap = gcompris_load_pixmap("gcompris/ofsetlogo.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.25) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     "ofset");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+  gdk_pixbuf_unref(pixmap);
+  
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("OFSET"),
+				"font_gdk", gdk_font2,
+				"x", (double)  (BOARDWIDTH*0.25),
+				"y", (double)  y_start + 80,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xB0040000,
+				NULL);
+
+  // FSF Reference
+  pixmap = gcompris_load_pixmap("gcompris/fsflogo.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.75) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     "ofset");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+  gdk_pixbuf_unref(pixmap);
+  
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("Free Software Fundation"),
+				"font_gdk", gdk_font2,
+				"x", (double)  (BOARDWIDTH*0.75),
+				"y", (double)  y_start + 80,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xB0040000,
+				NULL);
+
+  // GCompris Reference
+  y_start += 70;
+  pixmap = gcompris_load_pixmap("gcompris/gcomprislogo.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     "gcompris");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+  gdk_pixbuf_unref(pixmap);
+  
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("GCompris Home Page"),
+				"font_gdk", gdk_font2,
+				"x", (double)  (BOARDWIDTH*0.5),
+				"y", (double)  y_start + 30,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xB0040000,
+				NULL);
+
+  // Copyright
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("Copyright 2000,2001,2002 Bruno Coudoin"),
+				"font_gdk", gdk_font2,
+				"x", (double)  BOARDWIDTH/2,
+				"y", (double)  y - 85,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xB0040000,
+				NULL);
+
+  // License
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("This software is a GNU Package and is released under the Gnu Public Licence"),
+				"font_gdk", gdk_font2,
+				"x", (double)  BOARDWIDTH/2,
+				"y", (double)  y - 70,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xB0040000,
+				NULL);
+
+  // GCompris HELP
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_small.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) BOARDWIDTH*0.3 - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     "help");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+  gdk_pixbuf_unref(pixmap);
+
+
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_text_get_type (),
+				"text", N_("Help"),
+				"font_gdk", gdk_font,
+				"x", (double)  BOARDWIDTH*0.3,
+				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", "white",
+				NULL);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     "help");
+
   // OK
   pixmap = gcompris_load_pixmap("gcompris/buttons/button_small.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2,
+				"x", (double) BOARDWIDTH*0.7 - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
 				NULL);
 
@@ -115,7 +284,7 @@ void gcompris_about_start ()
 				gnome_canvas_text_get_type (),
 				"text", N_("OK"),
 				"font_gdk", gdk_font,
-				"x", (double)  BOARDWIDTH/2,
+				"x", (double)  BOARDWIDTH*0.7,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color", "white",
@@ -222,6 +391,27 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       if(!strcmp((char *)data, "ok"))
 	{
 	  gcompris_about_stop();
+	}
+      else if (!strcmp((char *)data, "ofset"))
+	{
+	  gnome_url_show("http://ofset.sourceforge.net");
+	}
+      else if (!strcmp((char *)data, "ofset"))
+	{
+	  gnome_url_show("http://www.fsf.org");
+	}
+      else if (!strcmp((char *)data, "gcompris"))
+	{
+	  gnome_url_show("http://ofset.sourceforge.net/gcompris");
+	}
+      else if (!strcmp((char *)data, "help"))
+	{
+
+	  /* It implements gcompris's own way to load help in order to be
+	   * Package relocatable.
+	   * Unfortunatly, this does not supports I18N
+	   */
+	  gnome_help_goto(NULL, PACKAGE_HELP_DIR "/C/gcompris.html");
 	}
     default:
       break;
