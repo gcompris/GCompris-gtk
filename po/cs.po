@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-18 10:59+0200\n"
-"PO-Revision-Date: 2004-10-18 11:43+0200\n"
+"POT-Creation-Date: 2004-10-19 10:59+0200\n"
+"PO-Revision-Date: 2004-10-19 14:58+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1956,15 +1956,15 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, The Ramparts at Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr "Cassat, Summertime - 1895"
+msgid "Cassatt, Mary - Summertime - 1895"
+msgstr "Cassatt, Mary - Summertime - 1895"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
+msgid "Help Tux the parachuter land safely"
 msgstr "Pomož parašutistovi Tuxovi bezpečně přistát"
 
 #: boards/paratrooper.xml.in.h:2
@@ -1977,14 +1977,12 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
+"In this game, Tux the parachuter need help to land safely on the fishing "
 "boat. He needs to take watch out for the wind direction and speed."
-msgstr ""
-"V této hře parašutista Tux potřebuje pomoci bezpečně přistát na rybářské "
-"loďce. Musí dávat pozor na směr a rychlost větru."
+msgstr "V této hře parašutista Tux potřebuje pomoci bezpečně přistát na rybářské loďce. Musí dávat pozor na směr a rychlost větru."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
 msgstr "Parašutista"
 
 #: boards/paratrooper.xml.in.h:5
@@ -2574,6 +2572,10 @@ msgstr "Vyber si desku"
 msgid "Pratice money usage"
 msgstr "Procvič si používání peněz"
 
+#: src/boards/paratrooper.c:104
+msgid "Paratrooper"
+msgstr "Parašutista"
+
 #: src/boards/paratrooper.c:105
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Veď parašutistu, aby bezpečně přistál"
@@ -2837,16 +2839,16 @@ msgid "Greek"
 msgstr "Řečtina"
 
 #: src/gcompris/config.c:72
-msgid "American English"
-msgstr "Americká angličtina"
+msgid "English (Canadian)"
+msgstr "Angličtina (kanadská)"
 
 #: src/gcompris/config.c:73
-msgid "Great Britain English"
-msgstr "Britská angličtina"
+msgid "English (Great Britain)"
+msgstr "Angličtina (Velká Británie)"
 
 #: src/gcompris/config.c:74
-msgid "Canadian English"
-msgstr "Kanadská angličtina"
+msgid "English (USA)"
+msgstr "Angličtina (USA)"
 
 #: src/gcompris/config.c:75
 msgid "Spanish"
