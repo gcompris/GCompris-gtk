@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/02/14 02:02:55 bruno>
+ * Time-stamp: <2005/02/16 00:32:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -27,6 +27,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+
+/* libxml includes */
+#include <libxml/tree.h>
+#include <libxml/parser.h>
 
 #include "gcompris.h"
 
@@ -89,6 +93,18 @@ static GList  *file_list = NULL;
 
 #define IMAGE_WIDTH  (DRAWING_AREA_X2-DRAWING_AREA_X1)/HORIZONTAL_NUMBER_OF_IMAGE-IMAGE_GAP
 #define IMAGE_HEIGHT (DRAWING_AREA_Y2-DRAWING_AREA_Y1)/VERTICAL_NUMBER_OF_IMAGE-IMAGE_GAP
+
+/*
+ * Mime type management
+ * --------------------
+ */
+typedef struct {
+  gchar	       *description;
+  gchar	       *extension;
+  gchar	       *icon;
+} GcomprisMimeType;
+
+static GList  *mime_list = NULL;
 
 /*
  * Main entry point 
@@ -750,6 +766,114 @@ static void entry_enter_callback( GtkWidget *widget,
 
   entry_text = gtk_entry_get_text(GTK_ENTRY(entry));
 }
+
+/*
+ * MimeType PARSING
+ * ----------------
+ */
+
+void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
+  gchar *mimeSetName = NULL;
+  gchar *filename;
+  GList	*mimeList = NULL;	/* List of Mimes */
+
+  GcomprisMimeType *gcomprisMime = g_malloc0 (sizeof (GcomprisMimeType));
+
+  gcomprisMime->extension   = xmlGetProp(xmlnode,"extension");
+  gcomprisMime->icon        = xmlGetProp(xmlnode,"icon");
+  gcomprisMime->description = NULL;
+
+  /* get the help user credit of the board */
+  xmlnode = xmlnode->xmlChildrenNode;
+  while (xmlnode != NULL) {
+    gchar *lang = xmlGetProp(xmlnode,"lang");
+    if (!strcmp(xmlnode->name, "description")
+	&& (lang==NULL ||
+	    !strcmp(lang, gcompris_get_locale())
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
+      {
+	if(gcomprisMime->description)
+	  g_free(gcomprisMime->description);
+	
+	gcomprisMime->description = xmlNodeListGetString(doc, 
+							 xmlnode->xmlChildrenNode, 1);
+      }
+    xmlnode = xmlnode->next;
+  }
+
+  printf("Mime type description=%s extension=%s icon=%s\n",
+	 gcomprisMime->description,
+	 gcomprisMime->extension,
+	 gcomprisMime->icon);
+  mime_list = g_list_append(mime_list, gcomprisMime);
+
+  return;
+}
+
+static void parse_doc(xmlDocPtr doc) {
+  xmlNodePtr cur;
+
+  cur = xmlDocGetRootElement(doc);	
+  if (cur == NULL) {
+    fprintf(stderr,"empty document\n");
+    xmlFreeDoc(doc);
+    return;
+  }
+  cur = cur->xmlChildrenNode;
+
+  while (cur != NULL) {
+    if ((!xmlStrcmp(cur->name, (const xmlChar *)"MimeType"))){
+      parseMime (doc, cur);
+    }
+    
+    cur = cur->next;
+  }
+	
+  return;
+}
+
+
+/* read an xml file into our memory structures and update our view,
+   dump any old data we have in memory if we can load a new set */
+gboolean load_mime_type_from_file(gchar *fname)
+{
+  /* pointer to the new doc */
+  xmlDocPtr doc;
+
+  g_return_val_if_fail(fname!=NULL,FALSE);
+
+  /* if the file doesn't exist */
+  if(!g_file_test ((fname), G_FILE_TEST_EXISTS)) 
+    {
+      g_warning(_("Couldn't find file %s !"), fname);
+      return FALSE;
+    }
+
+  /* parse the new file and put the result into newdoc */
+  doc = xmlParseFile(fname);
+
+  /* in case something went wrong */
+  if(!doc)
+    return FALSE;
+  
+  if(/* if there is no root element */
+     !doc->children ||
+     /* if it doesn't have a name */
+     !doc->children->name ||
+     /* if it isn't the good node */
+     g_strcasecmp(doc->children->name,"MimeTypeRoot")!=0) {
+    xmlFreeDoc(doc);
+    return FALSE;
+  }
+  
+  /* parse our document and replace old data */
+  parse_doc(doc);
+  
+  xmlFreeDoc(doc);
+  
+  return TRUE;
+}
+
 
 
 /* Local Variables: */

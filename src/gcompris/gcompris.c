@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/01/29 01:45:58 bruno>
+ * Time-stamp: <2005/02/16 00:04:57 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -504,6 +504,9 @@ static void setup_window ()
 
   /* Load all the menu once */
   gcompris_load_menus();
+
+  /* Load the mime type */
+  load_mime_type_from_file(PACKAGE_DATA_DIR"/gcompris/mime_type.xml");
 
   /* Get and Run the root menu */
   gcomprisBoardMenu = gcompris_get_board_from_section("/");

@@ -54,6 +54,7 @@ GcomprisBoard	*gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
 GcomprisBoard   *gcompris_get_board_from_section(gchar *section);
 GList		*gcompris_get_menulist(gchar *section);
 void		 gcompris_load_menus();
+gboolean	 load_mime_type_from_file(gchar *fname);
 
 gchar		*convertUTF8Toisolat1(gchar * text);
 void		 item_absolute_move(GnomeCanvasItem *item, int x, int y);

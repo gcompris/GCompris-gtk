@@ -41,6 +41,7 @@ import copy
 import math
 import time
 import os
+import sys
 import tempfile
 import cPickle as pickle
 
@@ -409,6 +410,10 @@ class Gcompris_anim:
     print("Gcompris_anim config.")
               
   def key_press(self, keyval):
+    #
+    # I suppose codec is the stdin one.
+    #
+    codec = sys.stdin.encoding
     
     # keyboard shortcuts
     if (keyval == gtk.keysyms.F1):
@@ -447,6 +452,7 @@ class Gcompris_anim:
           (keyval == gtk.keysyms.dead_circumflex) or
           (keyval == gtk.keysyms.Num_Lock)):
       return gtk.FALSE
+    
     if (keyval == gtk.keysyms.KP_0):
       keyval= gtk.keysyms._0
     if (keyval == gtk.keysyms.KP_1):
@@ -477,7 +483,7 @@ class Gcompris_anim:
       return True
 
     textItem = self.selected.item_list[0]
-    oldtext = textItem.get_property('text')
+    oldtext = textItem.get_property('text').decode('UTF-8')
     print oldtext
     
     if ((keyval == gtk.keysyms.BackSpace) or
@@ -490,9 +496,11 @@ class Gcompris_anim:
     else:
     
       utf8char=gtk.gdk.keyval_to_unicode(keyval)
+      print type(utf8char),utf8char 
       str = u'%c' % utf8char
 
-      print "str", str
+      print "str", type(str), str
+      print "oldtext",type(oldtext),oldtext
       
       if ((oldtext[:1] == u'?') and (len(oldtext)==1)):
         oldtext = u' '
@@ -506,7 +514,7 @@ class Gcompris_anim:
     print "newtext", newtext
     
       
-    textItem.set(text=newtext)
+    textItem.set(text=newtext.encode('UTF-8'))
     self.updated_text(textItem)
 
     return True
@@ -1953,6 +1961,8 @@ class Gcompris_anim:
     properties = {'matrice' : anAnimItem.canvas_item.i2c_affine((0,0,0,0,0,0)) }
     for property_name in self.attributs[anAnimItem.type]:
       properties [property_name] = anAnimItem.canvas_item.get_property(property_name)
+      if property_name == 'text':
+        properties [property_name] = properties [property_name].decode('UTF-8')
     return properties
 
   def z_reinit(self):
@@ -2399,7 +2409,7 @@ def restore_item(item, frame):
 ##############################################
 
 #import cPickle as pickle
-import Image
+#import Image
 import base64
 
 # Note that we only need one of these for any given version of the
@@ -2717,7 +2727,7 @@ class BaseProcess:
                         'middle')
                     continue
                 if (attr == 'text'):
-                  self.frame.appendChild(self.document.createTextNode(item[1][frame_no]['text']))
+                  self.frame.appendChild(self.document.createTextNode(item[1][frame_no]['text'].encode('UTF-8')))
                   continue
 
               if ( attr == 'font' ):
@@ -2756,30 +2766,31 @@ class BaseProcess:
                     #
                     # Maybe put file and image in same directory ?
                     #
-                    imagefile = open("/usr/local/share/gcompris/boards/" + image_name)
+                    imagefile = open(gcompris.DATA_DIR + '/' + image_name)
                     base64string = base64.encodestring(imagefile.read())
                     self.image.setAttribute(
                         'xlink:href','data:image/png;base64,' + base64string)
 
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    # TODO
-                    # this use Image module
-                    # replace it with pixbuf size information
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    self.im = Image.open('/usr/local/share/gcompris/boards/' + image_name)
+                    # get real size of the image.                    
+                    pixmap = gcompris.utils.load_pixmap(image_name)
+                    width = pixmap.get_width()
+                    height = pixmap.get_height()
+                    
+                    # Pass the <symbol> with image included.
                     self.image.setAttribute(
                         'x','0')
                     self.image.setAttribute(
                         'y','0')
                     self.image.setAttribute(
-                        'width', str(self.im.size[0]))
+                        'width', str(width))
                     self.image.setAttribute(
-                        'height',str(self.im.size[1]))
+                        'height',str(height))
                     self.symbol.setAttribute(
-                        'viewBox','0 0 '+ str(self.im.size[0]) + ' ' + str(self.im.size[1]))
+                        'viewBox','0 0 '+ str(width) + ' ' + str(height))
                     self.symbol.setAttribute(
                         'preserveAspectRatio','none')
                     self.gcompris_name = self.document.createElement('gcompris:image_name')
+                    # Pass the image_name info in private child
                     self.image.appendChild(self.gcompris_name)
                     self.gcompris_name.setAttribute('value',image_name)
                   continue
@@ -2849,7 +2860,7 @@ class DOMProcess(BaseProcess):
           # html buttons included
           self.foreign = self.document.createElement("foreignObject")
           self.svg.appendChild(self.foreign)
-          self.foreign.setAttribute("x","0")
+          self.foreign.setAttribute("x","200")
           self.foreign.setAttribute("y","520")
           self.foreign.setAttribute("width","800")
           self.foreign.setAttribute("height","30")
@@ -2857,13 +2868,13 @@ class DOMProcess(BaseProcess):
           self.button1 = self.document.createElement("html:button")
           self.foreign.appendChild(self.button1)
           self.button1.setAttribute("onclick", "start_animation();")
-          self.button1text = self.document.createTextNode("Start animation")
+          self.button1text = self.document.createTextNode(u'>'.encode('UTF-8'))
           self.button1.appendChild(self.button1text)
          
           self.button2 = self.document.createElement("html:button")
           self.foreign.appendChild(self.button2)
           self.button2.setAttribute("onclick", "speed_down();")
-          self.button2text = self.document.createTextNode("Slower")
+          self.button2text = self.document.createTextNode(u'<<'.encode('UTF-8'))
           self.button2.appendChild(self.button2text)
         
           self.speedtext = self.document.createElement("html:input")
@@ -2885,13 +2896,13 @@ class DOMProcess(BaseProcess):
           self.button3 = self.document.createElement("html:button")
           self.foreign.appendChild(self.button3)
           self.button3.setAttribute("onclick", "speed_up();")
-          self.button3text = self.document.createTextNode("Faster")
+          self.button3text = self.document.createTextNode(u'>>'.encode('UTF-8'))
           self.button3.appendChild(self.button3text)
         
           self.button4 = self.document.createElement("html:button")
           self.foreign.appendChild(self.button4)
           self.button4.setAttribute("onclick", "stop_animation();")
-          self.button4text = self.document.createTextNode("Stop animation")
+          self.button4text = self.document.createTextNode(u'||'.encode('UTF-8'))
           self.button4.appendChild(self.button4text)
 
 
@@ -3281,8 +3292,9 @@ class Outputter:
           keys = self.item_getting[1].keys()
           keys.sort()
           print self.item_getting
+          # data is already in unicode
           self.item_getting[1][keys[-1]]['text']=data
-
+          
     def ProcessingInstructionHandler(self, target, data):
         print 'PI:\n\t', target, data
 

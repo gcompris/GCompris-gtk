@@ -118,13 +118,11 @@ function apply_frame(frame_no){
             continue;
             }
          if ( AnimItemlist[i][1]['frame_' + frame_no]['text'] ){
-            //alert('text');
-            // first removing old text node
-            if ( ! ( AnimItemlist[i][1]['frame_' + frame_no]['create'])){
-              AnimItemlist[i][0].removeChild(AnimItemlist[i][0].childNodes.lastChild);
-            // second append the right text node
-            }
-            AnimItemlist[i][0].appendChild(AnimItemlist[i][1]['frame_' + frame_no]['text']);
+            if (AnimItemlist[i][1]['frame_' + frame_no]['create']){
+               // append the right text node
+	       AnimItemlist[i][0].appendChild(AnimItemlist[i][1]['frame_' + frame_no]['text']);
+               }
+	    else AnimItemlist[i][0].textContent=AnimItemlist[i][1]['frame_' + frame_no]['text'].nodeValue;
             }
          for (k=0; k< AnimItemlist[i][1]['frame_' + frame_no].length; k++){
          attr = AnimItemlist[i][1]['frame_' + frame_no][k][0];

@@ -1,4 +1,4 @@
-SUBDIRS = read_colors advanced_colors babymatch babyshapes flags imageid imagename missing_letter paintings scales doubleentry geography sounds chronos
+SUBDIRS = gcompris read_colors advanced_colors babymatch babyshapes flags imageid imagename missing_letter paintings scales doubleentry geography sounds chronos
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
