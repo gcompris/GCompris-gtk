@@ -153,17 +153,16 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       for (i=0; i<ENGINES; i++) {
       	str = g_strdup_printf("railroad/loco%d.png", i+1);
-	pixmap = gcompris_load_pixmap(str);
-	listPixmapEngines = g_list_append(listPixmapEngines, pixmap);
-	g_free(str);
+				pixmap = gcompris_load_pixmap(str);
+				listPixmapEngines = g_list_append(listPixmapEngines, pixmap);
+				g_free(str);
       }
 
       for (i=0; i<WAGONS; i++) {/* ======================================= */
-
       	str = g_strdup_printf("railroad/wagon%d.png", i+1);
-	pixmap = gcompris_load_pixmap(str);
-	listPixmapWagons = g_list_append(listPixmapWagons, pixmap);
-	g_free(str);
+				pixmap = gcompris_load_pixmap(str);
+				listPixmapWagons = g_list_append(listPixmapWagons, pixmap);
+				g_free(str);
       }
 
       animation_pending = FALSE;
@@ -187,7 +186,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void end_board ()
 {
   GdkPixbuf * pixmap = NULL;
-  // If we don't animation, there may be a segfault if leaving while the animation is pending
+  // If we don't end animation, there may be a segfault if leaving while the animation is pending
   if (timer_id) {
     gtk_timeout_remove (timer_id);
     timer_id = 0;
@@ -200,15 +199,15 @@ static void end_board ()
       railroad_destroy_all_items();
 
       while(g_list_length(listPixmapEngines)>0) {
-	pixmap = g_list_nth_data(listPixmapEngines, 0);
-	listPixmapEngines = g_list_remove (listPixmapEngines, pixmap);
-	gdk_pixbuf_unref(pixmap);
+				pixmap = g_list_nth_data(listPixmapEngines, 0);
+				listPixmapEngines = g_list_remove (listPixmapEngines, pixmap);
+				gdk_pixbuf_unref(pixmap);
       }
 
       while(g_list_length(listPixmapWagons)>0) {
-	pixmap = g_list_nth_data(listPixmapWagons, 0);
-	listPixmapWagons = g_list_remove (listPixmapWagons, pixmap);
-	gdk_pixbuf_unref(pixmap);
+				pixmap = g_list_nth_data(listPixmapWagons, 0);
+				listPixmapWagons = g_list_remove (listPixmapWagons, pixmap);
+				gdk_pixbuf_unref(pixmap);
       }
 
     }
@@ -392,9 +391,9 @@ static void process_ok()
   else
     for (i=0; i<g_list_length(int_answer_list); i++) {
       if ( GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) != GPOINTER_TO_INT(g_list_nth_data(int_model_list,i))) {
-	printf("pour i= %d --> différent\n", i);
-	gamewon = FALSE;
-	break;
+				printf("pour i= %d --> différent\n", i);
+				gamewon = FALSE;
+				break;
       }
     }
   // DUMP lists
@@ -404,7 +403,7 @@ static void process_ok()
     printf("model:\n");
     for (i=0; i<g_list_length(int_model_list); i++)
     printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
-  
+
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
 }
 /* ==================================== */
@@ -431,16 +430,16 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      //    	printf("clicked item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
+          	printf("GDK_BUTTON_PRESS item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
       xOffset = 0;
       for (i=0; i<g_list_length(item_answer_list); i++) {
-	gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
-	xOffset += dx2-dx1;
+				gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
+				xOffset += dx2-dx1;
       }
       if (item_number < ENGINES)
-	pixmap = g_list_nth_data(listPixmapEngines, item_number);
+				pixmap = g_list_nth_data(listPixmapEngines, item_number);
       else
-	pixmap = g_list_nth_data(listPixmapWagons, item_number-ENGINES);
+				pixmap = g_list_nth_data(listPixmapWagons, item_number-ENGINES);
 
       local_item =gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_pixbuf_get_type (),
@@ -452,12 +451,6 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
       //	printf("added %d to int_answer_list\n", item_number);
       gtk_signal_connect(GTK_OBJECT(local_item), "event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
-      break;
-
-    case GDK_MOTION_NOTIFY:
-      break;
-
-    case GDK_BUTTON_RELEASE:
       break;
 
     default:
@@ -486,24 +479,19 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      //	printf("Deleting %d\n",item_number);
+      printf("Deleting %d\n",item_number);
       local_item = g_list_nth_data(item_answer_list,item_number);
       item_answer_list = g_list_remove( item_answer_list, local_item );
       //	gtk_signal_disconnect(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, NULL);
       gtk_object_destroy (GTK_OBJECT(local_item));
       int_answer_list = g_list_remove(int_answer_list, g_list_nth_data(int_answer_list, item_number) );
       reposition_answer();
-      // resetup the signals
-      for (i=0; i<g_list_length(item_answer_list); i++) {
-	local_item = g_list_nth_data(item_answer_list, i);
-	gtk_signal_connect(GTK_OBJECT(local_item),"event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
+      // setup the signals for the cars at the right side of the deleted object
+      for (i=item_number; i<g_list_length(item_answer_list); i++) {
+				local_item = g_list_nth_data(item_answer_list, i);
+				gtk_signal_disconnect_by_func(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, GINT_TO_POINTER( i+1 ));
+        gtk_signal_connect(GTK_OBJECT(local_item),"event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
       }
-      break;
-
-    case GDK_MOTION_NOTIFY:
-      break;
-
-    case GDK_BUTTON_RELEASE:
       break;
 
     default:
@@ -512,8 +500,6 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   return FALSE;
 }
 /* ==================================== */
-/* The code is over complicated because I don't know how
-   to set an item at an absolute position */
 static void reposition_answer() {
   double dx1, dy1, dx2, dy2;
   int i;
@@ -617,7 +603,7 @@ static void animate_model() {
   animation_count = 0;
 
 	gcompris_play_ogg( "train", NULL );
-  
+
   // warning : if timeout is too low, the model will not be displayed
   timer_id = gtk_timeout_add (100, (GtkFunction) animate_step, NULL);
 }

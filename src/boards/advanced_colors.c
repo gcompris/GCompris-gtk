@@ -142,6 +142,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gamewon = FALSE;
     errors = MAX_ERRORS;
     init_xml();
+   	
+    gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
+
     colors_next_level();
     pause_board(FALSE);
   }
@@ -288,7 +291,6 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   i = RAND(0,LAST_COLOR);
 
   gdk_pixbuf_unref(highlight_pixmap);
-  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
 
   /* setup the clock */
   str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
@@ -335,6 +337,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
+	printf("+++ process_ok_timeout errors = %d\n", errors);
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
   if (!gamewon)
     errors--;
@@ -369,14 +372,15 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+    	printf("GDK_BUTTON_PRESS\n");
       gnome_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
       clicked = -1;
       for (i=0; i<4; i++) {
-	for (j=0; j<2; j++) {
-	  if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
-	    clicked = j*4 + i;
-	  }
-	}
+				for (j=0; j<2; j++) {
+	  			if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
+	    			clicked = j*4 + i;
+	  			}
+				}
       }
       if (clicked >= 0) {
 				highlight_selected(clicked);

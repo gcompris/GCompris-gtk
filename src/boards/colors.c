@@ -134,6 +134,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 				list = g_list_remove(list, item);
 			}
 
+		  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
 			colors_next_level();
       pause_board(FALSE);
     }
@@ -231,7 +232,6 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 	i = RAND(0,LAST_COLOR);
 
   gdk_pixbuf_unref(highlight_pixmap);
-  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
 
   return NULL;
 }

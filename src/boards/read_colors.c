@@ -154,7 +154,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       listColors = g_list_append(listColors, item);
       list = g_list_remove(list, item);
     }
-      
+
+	  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
     read_colors_next_level();
     pause_board(FALSE);
   }
@@ -257,7 +258,6 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
   gnome_canvas_item_hide(highlight_image_item);
 
   gdk_pixbuf_unref(highlight_pixmap);
-  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
 
   /* setup the clock */
   str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
