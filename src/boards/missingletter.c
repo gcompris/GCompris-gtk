@@ -30,6 +30,7 @@
 #define SOUNDLISTFILE PACKAGE
 
 GcomprisBoard *gcomprisBoard = NULL;
+gboolean board_paused = TRUE;
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -71,7 +72,6 @@ static GList *board_list = NULL;
 /* ================================================================ */
 static int board_number; // between 0 and board_list.length-1
 static int right_word; // between 1 and 3, indicates which choice is the right one (the player clicks on it
-static int game_won_id = 0;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -128,6 +128,13 @@ static void pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
+
+  if(gamewon == TRUE) /* the game is won */
+    {
+      game_won();
+    }
+  
+  board_paused = pause;
 }
 
 /*
@@ -150,6 +157,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       missing_letter_next_level();
 
+      gamewon = FALSE;
       pause_board(FALSE);
     }
 }
@@ -379,13 +387,6 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 static void game_won()
 {
 
-  if (game_won_id) {
-    gtk_timeout_remove (game_won_id);
-    game_won_id = 0;
-  }
-
-  gcompris_play_sound (SOUNDLISTFILE, "gobble");
-
   gcomprisBoard->sublevel++;
 
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
@@ -404,18 +405,9 @@ static void process_ok()
 {
 
   if (gamewon) {
-
     gnome_canvas_item_set(text, "text", board->answer, NULL);
   }
-  gcompris_display_bonus(gamewon, gcomprisBoard, SMILEY_BONUS);
-  if(gamewon == TRUE) /* the game is won */
-    {
-      game_won_id = gtk_timeout_add (2100, (GtkFunction) game_won, NULL);
-    }
-  else
-    {
-      gcompris_play_sound (SOUNDLISTFILE, "crash");
-    }
+  gcompris_display_bonus(gamewon, SMILEY_BONUS);
 
 }
 
@@ -428,6 +420,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   item_x = event->button.x;
   item_y = event->button.y;
   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+
+  if(board_paused)
+    return FALSE;
 
   switch (event->type)
     {

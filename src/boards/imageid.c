@@ -30,6 +30,7 @@
 #define SOUNDLISTFILE PACKAGE
 
 GcomprisBoard *gcomprisBoard = NULL;
+gboolean board_paused = TRUE;
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -37,9 +38,10 @@ static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static int gamewon;
+
 static void process_ok(void);
 static void highlight_selected(GnomeCanvasItem *);
-/*static gint item_event_valid(GnomeCanvasItem *, GdkEvent *, gpointer);*/
+static void game_won();
 
 typedef struct _Board Board;
 struct _Board {
@@ -68,7 +70,6 @@ static GList *board_list = NULL;
 /* ================================================================ */
 static int board_number; // between 0 and board_list.length-1
 static int right_word; // between 1 and 3, indicates which choice is the right one (the player clicks on it
-static int game_won_id = 0;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -124,6 +125,13 @@ static void pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
+
+  if(gamewon == TRUE) /* the game is won */
+    {
+      game_won();
+    }
+  
+  board_paused = pause;
 }
 
 /*
@@ -145,6 +153,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       imageid_next_level();
 
+      gamewon = FALSE;
       pause_board(FALSE);
     }
 }
@@ -218,14 +227,12 @@ static void imageid_destroy_all_items()
 static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 {
   char *buf[3];
-  int x, y, xp, yp, dx, xOffset,yOffset,place;
+  int x, y, xp, yp, dx, place;
   GdkFont *gdk_font;
-  double dx1, dy1, dx2, dy2;
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *button_pixmap = NULL;
   char *str = NULL;
   Board * board;
-  GList *list;
 
   board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel;
   assert(board_number >= 0  && board_number < g_list_length(board_list));
@@ -362,13 +369,6 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 static void game_won()
 {
 
-  if (game_won_id) {
-    gtk_timeout_remove (game_won_id);
-    game_won_id = 0;
-  }
-
-  gcompris_play_sound (SOUNDLISTFILE, "gobble");
-
   gcomprisBoard->sublevel++;
 
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
@@ -385,16 +385,7 @@ static void game_won()
 /* ==================================== */
 static void process_ok()
 {
-  gcompris_display_bonus(gamewon, gcomprisBoard, SMILEY_BONUS);
-  if(gamewon == TRUE) /* the game is won */
-    {
-      game_won_id = gtk_timeout_add (2100, (GtkFunction) game_won, NULL);
-    }
-  else
-    {
-      gcompris_play_sound (SOUNDLISTFILE, "crash");
-    }
-
+  gcompris_display_bonus(gamewon, SMILEY_BONUS);
 }
 /* ==================================== */
 static gint
@@ -405,6 +396,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   item_x = event->button.x;
   item_y = event->button.y;
   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+
+  if(board_paused)
+    return FALSE;
 
   switch (event->type)
     {

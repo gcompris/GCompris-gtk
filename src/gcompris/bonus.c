@@ -21,33 +21,50 @@
 
 #include "bonus.h"
 
+#define SOUNDLISTFILE PACKAGE
+
 static GnomeCanvasItem *bonus_item = NULL;
 
 static gint end_bonus_id = 0;
 
 
 /* ==================================== */
-void gcompris_display_bonus(int gamewon, GcomprisBoard *gcomprisBoard, int bonus_id) 
+void gcompris_display_bonus(int gamewon, int bonus_id) 
 {
+  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+
+  if(gamewon == TRUE)
+    {
+      gcompris_play_sound (SOUNDLISTFILE, "gobble");
+    }
+  else
+    {
+      gcompris_play_sound (SOUNDLISTFILE, "crash");
+    }
+
+  /* First pause the board */
+  if(gcomprisBoard->plugin->pause_board != NULL)
+    {
+      gcomprisBoard->plugin->pause_board(TRUE);
+    }
+
   switch(bonus_id) {
   case SMILEY_BONUS : 
-    bonus_smiley(gamewon, gcomprisBoard); 
+    bonus_smiley(gamewon); 
     break;
   default : 
-    bonus_smiley(gamewon, gcomprisBoard); 
+    bonus_smiley(gamewon); 
     break;
   }
 }
 
 /* ==================================== */
-/* unfortunately, gcomprisBoard has to be passed as a parameter.
- * I tried to put it in bonus.h, but it does not get updated (remains NULL)
-*/
-void bonus_smiley(int gamewon, GcomprisBoard *gcomprisBoard) 
+void bonus_smiley(int gamewon) 
 {
   char *str= NULL;
   int x,y;
   GdkPixbuf *pixmap = NULL;
+  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   /* bonus_item must be a singleton */
   if (bonus_item != NULL)
@@ -80,7 +97,9 @@ void bonus_smiley(int gamewon, GcomprisBoard *gcomprisBoard)
 }
 
 /* ==================================== */
-void end_bonus() {
+void end_bonus() 
+{
+  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   if (end_bonus_id) {
     gtk_timeout_remove (end_bonus_id);
@@ -91,4 +110,10 @@ void end_bonus() {
     gtk_object_destroy (GTK_OBJECT(bonus_item));
 
   bonus_item = NULL;
+
+  /* Re-Start the the board */
+  if(gcomprisBoard->plugin->pause_board != NULL)
+    {
+      gcomprisBoard->plugin->pause_board(FALSE);
+    }
 }

@@ -31,8 +31,8 @@
 #define SMILEY_BONUS 1
 #define FIREWORKS_BONUS 2
 
-void gcompris_display_bonus(int,GcomprisBoard *, int);
-void bonus_smiley(int,GcomprisBoard *);
+void gcompris_display_bonus(int, int);
+void bonus_smiley(int);
 void end_bonus();
 
 #endif
