@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-05 19:52+0100\n"
-"PO-Revision-Date: 2004-03-05 23:57+0100\n"
+"POT-Creation-Date: 2004-03-15 19:54+0100\n"
+"PO-Revision-Date: 2004-03-16 02:20+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -612,7 +612,10 @@ msgstr "Sleep de prentjes zodat de verhaallijn klopt"
 msgid ""
 "Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
 "of Transportation are based on those found in http://www.wikipedia.org"
-msgstr "De maanfoto is afkomstig van NASA. Ruimtegeluiden van Tuxpaint en Vegastrike. Transportdata zijn gebaseerd op de gegevens van http://www.wikipedia.org"
+msgstr ""
+"De maanfoto is afkomstig van NASA. Ruimtegeluiden van Tuxpaint en "
+"Vegastrike. Transportdata zijn gebaseerd op de gegevens van http://www."
+"wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -633,6 +636,23 @@ msgstr "Maanwandelen"
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux en de appelboom"
+
+#: boards/chronos/board3_0.xml.in.h:1
+msgid ""
+"Place each image in the order and on the date it has been invented. If not "
+"sure, check online in wikipedia at http://www.wikipedia.org"
+msgstr "Plaats elke afbeelding op volgorde en op de datum waarop het is uitgevonden. Indien u niet zeker bent, kunt u online op wikipedia informatie opzoeken: http://www.wikipedia.org"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1
+msgid "Transportation"
+msgstr "Vervoer"
+
+# 8ste eeuw?
+#: boards/chronos/board3_0.xml.in.h:3
+msgid "VIII Century"
+msgstr "VIII eeuw"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1279,7 +1299,10 @@ msgstr "Gehoortraining"
 msgid ""
 "Listen the sound sequence played. Then try to repeat it clicking on the "
 "elements. You can listen again clicking on the repeat button."
-msgstr "Luister naar de serie geluiden. Probeer het daarna te herhalen door op de verschillende voorwerpen te klikken. Je kunt het voorbeeld nogmaals horen door op de herhaalknop te klikken."
+msgstr ""
+"Luister naar de serie geluiden. Probeer het daarna te herhalen door op de "
+"verschillende voorwerpen te klikken. Je kunt het voorbeeld nogmaals horen "
+"door op de herhaalknop te klikken."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
@@ -2420,12 +2443,8 @@ msgid "About GCompris"
 msgstr "Over GCompris"
 
 #: src/gcompris/about.c:110
-msgid "Translators"
-msgstr ""
-"Tino Meinen <a.t.meinen@chello.nl>\n"
-"Dirk Schouten <schoutdi@knoware.nl>\n"
-"Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>\n"
-"Sander Devrieze <s.devrieze@pandora.be>"
+msgid "Translators:"
+msgstr "Vertalers:"
 
 #: src/gcompris/about.c:225
 msgid "GCompris Home Page"
@@ -2624,7 +2643,7 @@ msgstr "Muziek"
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:372
+#: src/gcompris/config.c:369
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
@@ -2692,7 +2711,7 @@ msgstr "Toont de versie van"
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:618
+#: src/gcompris/gcompris.c:619
 #, c-format
 msgid ""
 "GCompris\n"
