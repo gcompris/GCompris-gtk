@@ -1,8 +1,8 @@
 		     GCompris / I Have Understood
 		      GCompris is a GNU package
 
-GCompris is an educationnal game for children starting at 3.
-It uses GTK and the Gnome Libraries (especially the gnome canvas),
+GCompris is an educational game for children starting at 3.
+It uses GTK and the GNOME Libraries (especially the GNOME canvas),
 the libxml and gtk-pixbuf.
 
 
@@ -10,14 +10,14 @@ the libxml and gtk-pixbuf.
 			 GCompris MOTIVATION
 
 Big Issue:
-  Today Linux does not have a lot of usefull educational tools for children.
+  Today Linux does not have a lot of useful educational tools for children.
   When they exist, they are hard to find and request the teacher/parent to
   manage a lot of independant small tools.
 
 
 Big Goal:
-  Build an educationnal game suite all accessible from a single user interface.
-  GCompris provides a simple to use user interface that makes it easy select
+  Build an educational game suite all accessible from a single user interface.
+  GCompris provides a simple to use user interface that makes it easy to select
   appropriate boards. 
 
 How:
@@ -26,7 +26,7 @@ How:
   the board is free to implement the game scheme it wants.
   The status bar is a common facility provided to the board.
 
-  To make GCompris a powerfull tool for all its users, the teachers,
+  To make GCompris a powerful tool for all its users, the teachers,
   the children but also the developers, GCompris implements a plugin system
   where each board is an independant plugin. Then if the board requires it,
   the data set for this board is defined in an XML file.
@@ -45,17 +45,20 @@ About You:
 -------------------------------------------------------------------------------
                            NOTE TO TRANSLATORS
 
-Gcompris is a little bit special in terms of translation needs. The best is done
-to bring back everything to .po files but it is not exaustive.
+GCompris is a little bit special in terms of translation needs. The best is
+done to bring back everything to .po files but it is not exhaustive.
 
 To complete the translation, you must also provide:
 
 A set of file in boards/wordsgame/wordslevelx.yy
 Where x is the level or max and yy your target locale.
-note that these words must be choosen to be simple in your language, don't necessary
-translate the english. Also, it is important to make sure that these words can be 
-written with your keyboard in one key (no alt gr stuff or compose key).
+Note that these words must be choosen to be simple in your language, don't
+necessary translate the English. Also, it is important to make sure that
+these words can be written with your keyboard in one key (no alt-gr stuff or
+compose key).
 
 A complete voice translation in boards/sounds/yy
 It is best to choose somebody that speaks and articulate well your language.
-What is great with gcompris is that you can use it to practice a foreign language.
+What is great with GCompris is that you can use it to practice a foreign
+language.
+

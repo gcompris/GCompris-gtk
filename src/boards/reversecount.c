@@ -85,16 +85,13 @@ static GnomeCanvasItem *clock_image_item;
 // List of images to use in the game
 static gchar *imageList[] =
 {
-  "gcompris/animals/bear001.jpg",
-  "gcompris/animals/malaybear002.jpg",
-  "gcompris/animals/polabear011.jpg",
-  "gcompris/animals/joybear001.jpg",
-  "gcompris/animals/polarbear001.jpg",
-  "gcompris/animals/joybear002.jpg",
-  "gcompris/animals/flamentrosegc.jpg",
-  "gcompris/animals/girafegc.jpg",
-  "gcompris/animals/rhinogc.jpg",
-  "gcompris/animals/singegc.jpg",
+  "reversecount/baleine.png",
+  "reversecount/phoque.png",
+  "reversecount/ourspolaire.png",
+  "reversecount/morse.png",
+  "reversecount/elephant_mer.png",
+  "reversecount/epaulard.png",
+  "reversecount/narval.png",
 };
 #define NUMBER_OF_IMAGES 10
 
@@ -338,7 +335,7 @@ static void reversecount_next_level()
 {
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
+			  imageList[gcomprisBoard->level-1]);
 
   gcompris_bar_set_level(gcomprisBoard);
 
@@ -542,7 +539,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
       int *val;
 
       i = dice_area_x + gdk_pixbuf_get_width(pixmap) * d + 30;
-      j = block_height + 25;
+      j = block_height + 25 + d*7;
 
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
