@@ -976,11 +976,11 @@ class Gcompris_anim:
 
   def snapshot_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      gtk.timeout_add(1000, self.run_flash)
       self.flash.show()
       self.AnimShot(self.root_drawingitem)
       self.item_frame_counter.set(text=self.current_image + 1)
       print "snapshot_event"
+      gtk.timeout_add(1000, self.run_flash)
 
   def run_flash(self):
     print "run_flash"
