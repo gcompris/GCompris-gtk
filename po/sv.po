@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-15 14:00+0200\n"
-"PO-Revision-Date: 2003-08-15 14:01+0200\n"
+"POT-Creation-Date: 2003-08-18 14:06+0200\n"
+"PO-Revision-Date: 2003-08-18 14:08+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2107,11 +2107,11 @@ msgstr ""
 "Denna brädesdata sparas under\n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/submarine.c:180
+#: src/boards/submarine.c:201
 msgid "Submarine"
 msgstr "Ubåt"
 
-#: src/boards/submarine.c:181
+#: src/boards/submarine.c:202
 msgid "Control the depth of a submarine"
 msgstr "Styr djupet på en ubåt"
 
@@ -2165,7 +2165,7 @@ msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc Licens
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:170 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:171 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2210,105 +2210,111 @@ msgstr "Franska"
 msgid "Hebrew"
 msgstr "Hebreiska"
 
+# "Indian" känner jag inte till ett språk som heter, det verkar som om detta
+# egentligen ska vara "Hindi".
 #: src/gcompris/config.c:62
+msgid "Indian"
+msgstr "Indiska"
+
+#: src/gcompris/config.c:63
 msgid "Hungarian"
 msgstr "Ungerska"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Italian"
 msgstr "Italienska"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Macedonian"
 msgstr "Makedonska"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Malay"
 msgstr "Malajiska"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Dutch"
 msgstr "Holländska"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Portuguese"
 msgstr "Portugisiska"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Brazil Portuguese"
 msgstr "Brasiliansk portugisiska"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Romanian"
 msgstr "Rumänska"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Russian"
 msgstr "Ryska"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Swedish"
 msgstr "Svenska"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Slovak"
 msgstr "Slovakiska"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Litauiska"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Standard för gcompris)"
 
-#: src/gcompris/config.c:144
+#: src/gcompris/config.c:145
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:250
+#: src/gcompris/config.c:251
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:293
+#: src/gcompris/config.c:294
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:321
+#: src/gcompris/config.c:322
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:358
+#: src/gcompris/config.c:359
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:392 src/gcompris/config.c:699
-#: src/gcompris/config.c:710
+#: src/gcompris/config.c:393 src/gcompris/config.c:700
+#: src/gcompris/config.c:711
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2443,6 +2449,9 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid "Hindi"
+#~ msgstr "Hindi"
 
 #~ msgid ""
 #~ "Click on any item that has a free block beside it. It will be swapped "
