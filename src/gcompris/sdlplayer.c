@@ -37,8 +37,15 @@ int len=4096, bits=0, which=0;
 void errorv(char *str, va_list ap)
 {
   vfprintf(stderr,str,ap);
+
+  if(strcmp(Mix_GetError(), "Unrecognized file type (not VOC)")==0) {
+    fprintf(stderr,"*** You need a version of \"SDL_mixer\" with OGG Vorbis supported ***\n");
+    exit(EXIT_FAILURE);
+  }
+
   fprintf(stderr,": %s.\n", Mix_GetError());
   fprintf(stderr,": %s.\n", SDL_GetError());
+
 }
 
 int cleanExit(char *str,...)
@@ -100,13 +107,7 @@ int sdlplayer_bg(char *filename, int volume)
     return(cleanExit("Mix_LoadMUS(\"%s\")",filename));
 	
   if(Mix_PlayMusic(music, 1)==-1) {
-    if(strcmp(Mix_GetError(), "Unrecognized file type (not VOC)")==0) {
-      fprintf(stderr,"*** You need a version of \"SDL_mixer\" with OGG \
-              Vorbis supported ***\n");
-      exit(EXIT_FAILURE);
-    } else {
-      return(cleanExit("Mix_LoadMUS(0x%p,1)",music));
-    }
+    return(cleanExit("Mix_LoadMUS(0x%p,1)",music));
   }
 
   Mix_VolumeMusic(volume);
@@ -146,15 +147,7 @@ int sdlplayer(char *filename, int volume)
   Mix_VolumeChunk(sample, MIX_MAX_VOLUME);
 
   if(channel=Mix_PlayChannel(-1, sample, 0)==-1) {
-    if(strcmp(Mix_GetError(), "Unrecognized file type (not VOC)")==0) {
-      fprintf(stderr,"*** You need a version of \"SDL_mixer\" with OGG \
-              Vorbis supported ***\n");
-      exit(EXIT_FAILURE);
-    } else {
-      return(cleanExit("Mix_LoadChannel(0x%p,1)",channel));
-    }
-    // may be critical error, or maybe just no channels were free.
-    // you could allocated another channel in that case...
+    return(cleanExit("Mix_LoadChannel(0x%p,1)",channel));
   }
 
   while(Mix_Playing(channel))
@@ -162,7 +155,7 @@ int sdlplayer(char *filename, int volume)
       SDL_Delay(50);
     }
 	
-  // fade in music
+  // fade in music. Removed, eats too much CPU on low end PCs
   /*   for(i=32; i<=128; i+=10) { */
   /*     Mix_VolumeMusic(i); */
   /*     SDL_Delay(20); */
