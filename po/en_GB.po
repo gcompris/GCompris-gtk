@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-20 23:49+0100\n"
-"PO-Revision-Date: 2004-10-20 23:49+0100\n"
+"POT-Creation-Date: 2004-11-21 22:07+0000\n"
+"PO-Revision-Date: 2004-11-21 22:09+0100\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -280,7 +280,6 @@ msgid "platinum"
 msgstr "platinum"
 
 #: boards/advanced_colors/board8.xml.in.h:6
-#: src/boards/colors.c:59
 msgid "purple"
 msgstr "purple"
 
@@ -454,6 +453,7 @@ msgstr "Free drawing and animation tool."
 #: boards/babymatch/board4_0.xml.in.h:1
 #: boards/babymatch/board5_0.xml.in.h:1
 #: boards/babymatch/board6_0.xml.in.h:1
+#: boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Drag and Drop the items to make them match"
 
@@ -616,8 +616,16 @@ msgid "Tux and the apple tree"
 msgstr "Tux and the apple tree"
 
 #: boards/chronos/board3_0.xml.in.h:1
-msgid "Place each image in the order and on the date it has been invented. If not sure, check online in wikipedia at http://www.wikipedia.org"
-msgstr "Place each image in the order and on the date it has been invented. If not sure, check online in wikipedia at http://www.wikipedia.org"
+msgid ""
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
+msgstr ""
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2
 #: boards/chronos/board3_1.xml.in.h:1
@@ -626,6 +634,11 @@ msgstr "Place each image in the order and on the date it has been invented. If n
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Transportation"
+
+#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board4_1.xml.in.h:1
+msgid "The aviation"
+msgstr "The aviation"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid "A letter is spoken. Click on the corresponding letter in the main area. You can hear the letter again by clicking on the mouth icon in the bottom horizontal box."
@@ -863,32 +876,32 @@ msgid "Place the lands"
 msgstr "Place the lands"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Africa"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "America"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Antartica"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Asia"
+
+#: boards/geography/board1_0.xml.in.h:5
 msgid "Continents"
 msgstr "Continents"
 
-#: boards/geography/board1_0.xml.in.h:2
-msgid "africa"
-msgstr "africa"
-
-#: boards/geography/board1_0.xml.in.h:3
-msgid "america"
-msgstr "america"
-
-#: boards/geography/board1_0.xml.in.h:4
-msgid "antartica"
-msgstr "antartica"
-
-#: boards/geography/board1_0.xml.in.h:5
-msgid "asia"
-msgstr "asia"
-
 #: boards/geography/board1_0.xml.in.h:6
-msgid "europa"
-msgstr "europa"
+msgid "Europa"
+msgstr "Europa"
 
 #: boards/geography/board1_0.xml.in.h:7
-msgid "oceania"
-msgstr "oceania"
+msgid "Oceania"
+msgstr "Oceania"
 
 #: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
@@ -1173,12 +1186,12 @@ msgid "Letter recognition between the screen and the keyboard"
 msgstr "Letter recognition between the screen and the keyboard"
 
 #: boards/gletters.xml.in.h:3
-#: src/boards/gletters.c:128
+#: src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Simple Letters"
 
 #: boards/gletters.xml.in.h:4
-#: src/boards/gletters.c:129
+#: src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Type the falling letters before they reach the ground"
 
@@ -1230,7 +1243,7 @@ msgstr "Practice reading by finding the word matching an image"
 #: boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109
 #: src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: src/boards/reading.c:107
 msgid "Reading"
 msgstr "Reading"
 
@@ -1560,8 +1573,38 @@ msgid "Train your memory and remove all the cards"
 msgstr "Train your memory and remove all the cards"
 
 #: boards/menu.xml.in.h:1
-msgid "A simple click on an icon brings you to an activity or a menu of activities. At the bottom of the screen is the gcompris control bar. The following icons are displayed from right to left. Note that each icon is displayed only if available in the current activity: Home - Back to previous menu or exit gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the current level. Click to select another level Music note - Repeat the question Question Mark - Help Tool - The configuration menu Tux Plane - About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years old 3 Stars - 6 to 7 years old"
-msgstr "A simple click on an icon brings you to an activity or a menu of activities. At the bottom of the screen is the gcompris control bar. The following icons are displayed from right to left. Note that each icon is displayed only if available in the current activity: Home - Back to previous menu or exit gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the current level. Click to select another level Music note - Repeat the question Question Mark - Help Tool - The configuration menu Tux Plane - About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years old 3 Stars - 6 to 7 years old"
+msgid ""
+"A simple click on an icon brings you to an activity or a menu of activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
+msgstr ""
+"A simple click on an icon brings you to an activity or a menu of activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1777,7 +1820,7 @@ msgid "Drag the image parts from the box on the left to create a painting on the
 msgstr "Drag the image parts from the box on the left to create a painting on the main board."
 
 #: boards/paintings.xml.in.h:3
-#: src/boards/shapegame.c:168
+#: src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Make the puzzle"
 
@@ -1907,32 +1950,26 @@ msgid "This board teaches basic colors."
 msgstr "This board teaches basic colours."
 
 #: boards/read_colors/board1.xml.in.h:1
-#: src/boards/colors.c:62
 msgid "black"
 msgstr "black"
 
 #: boards/read_colors/board1.xml.in.h:2
-#: src/boards/colors.c:54
 msgid "blue"
 msgstr "blue"
 
 #: boards/read_colors/board1.xml.in.h:3
-#: src/boards/colors.c:55
 msgid "brown"
 msgstr "brown"
 
 #: boards/read_colors/board1.xml.in.h:4
-#: src/boards/colors.c:56
 msgid "green"
 msgstr "green"
 
 #: boards/read_colors/board1.xml.in.h:5
-#: src/boards/colors.c:57
 msgid "grey"
 msgstr "grey"
 
 #: boards/read_colors/board1.xml.in.h:6
-#: src/boards/colors.c:58
 msgid "orange"
 msgstr "orange"
 
@@ -1941,7 +1978,6 @@ msgid "pink"
 msgstr "pink"
 
 #: boards/read_colors/board1.xml.in.h:8
-#: src/boards/colors.c:60
 msgid "red"
 msgstr "red"
 
@@ -1950,12 +1986,10 @@ msgid "violet"
 msgstr "violet"
 
 #: boards/read_colors/board1.xml.in.h:10
-#: src/boards/colors.c:63
 msgid "white"
 msgstr "white"
 
 #: boards/read_colors/board1.xml.in.h:11
-#: src/boards/colors.c:61
 msgid "yellow"
 msgstr "yellow"
 
@@ -2163,7 +2197,7 @@ msgid "Tux has come back from a long fishing party on his boat. Bring the water 
 msgstr "Tux has come back from a long fishing party on his boat. Bring the water system back up so he can take a shower."
 
 #: boards/wordsgame.xml.in.h:1
-#: src/boards/wordsgame.c:87
+#: src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Falling Words"
 
@@ -2184,8 +2218,8 @@ msgid "Editor for gcompris"
 msgstr "Editor for gcompris"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Educational game starting at 3 years old"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Educational game from 2 to 10 years old"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
@@ -2195,7 +2229,7 @@ msgstr "Educational suite gcompris"
 #: src/boards/imageid.c:605
 #: src/boards/missingletter.c:608
 #: src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1850
+#: src/boards/shapegame.c:1880
 #: src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517
 #: src/gcompris/gameutil.c:518
@@ -2211,7 +2245,7 @@ msgstr "Couldn't find file %s !"
 #: src/boards/imageid.c:608
 #: src/boards/missingletter.c:611
 #: src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1853
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -2291,15 +2325,15 @@ msgstr "White mates"
 msgid "Drawn game"
 msgstr "Drawn game"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Read a letter"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Learn to recognise letters"
 
-#: src/boards/click_on_letter.c:223
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2307,7 +2341,7 @@ msgstr ""
 "Error: this activity requires that you fisrt install \n"
 "the package assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:230
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2319,6 +2353,11 @@ msgstr ""
 "Go in the configuration dialogue to\n"
 "enable the sound"
 
+#. TRANSLATORS: Put here the alphabet in your language
+#: src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyz"
+
 #: src/boards/clickgame.c:182
 #, c-format
 msgid "Couldn't open dir: %s"
@@ -2328,17 +2367,52 @@ msgstr "Couldn't open dir: %s"
 msgid "Set the watch to:"
 msgstr "Set the watch to:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Click on the %s toon"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Click on the blue toon"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Click on the brown toon"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Click on the green toon"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Click on the grey toon"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Click on the orange toon"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Click on the purple toon"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Click on the red toon"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Click on the yellow toon"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Click on the black toon"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Click on the white toon"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Move the items one by one to rearrange them in increasing order"
 
-#: src/boards/hanoi.c:324
-#: src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339
+#: src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Reproduce in the empty area the same tower as the one on the right"
 
@@ -2383,11 +2457,11 @@ msgstr "Select a Board"
 msgid "Pratice money usage"
 msgstr "Pratise money usage"
 
-#: src/boards/paratrooper.c:104
+#: src/boards/paratrooper.c:102
 msgid "Paratrooper"
 msgstr "Paratrooper"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Direct the paratrooper to help him land safely"
 
@@ -2449,63 +2523,59 @@ msgstr "Read Colours"
 msgid "Click on the corresponding color"
 msgstr "Click on the corresponding colour"
 
-#: src/boards/reading.c:103
+#: src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Read a list of words and then tell if the given word is in it"
 
-#: src/boards/reading.c:315
+#: src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Please, check if the word"
 
-#: src/boards/reading.c:335
+#: src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "is being displayed"
 
-#: src/boards/reading.c:522
+#: src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "I am Ready"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Yes I saw it"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "No, it was not there"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "The word to find was '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:645
 msgid "But it was not displayed"
 msgstr "But it was not displayed"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:647
 msgid "And it was displayed"
 msgstr "And it was displayed"
 
-#: src/boards/reading.c:737
-#: src/boards/reading.c:747
+#: src/boards/reading.c:748
+#: src/boards/wordsgame.c:760
 msgid "Cannot open file of words for your locale"
 msgstr "Cannot open file of words for your locale"
-
-#: src/boards/reading.c:776
-msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr "Error: The wordfile package used for your locale is corrupted."
 
 #: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Reverse count"
 
-#: src/boards/shapegame.c:169
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Drag and Drop the items to rebuild the object"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2517,7 +2587,7 @@ msgstr ""
 "type 's' to save and\n"
 "'d' to display all the shapes"
 
-#: src/boards/shapegame.c:424
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2561,7 +2631,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
 
-#: src/boards/wordsgame.c:88
+#: src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Fully type the falling words before they reach the ground"
 
@@ -2609,9 +2679,9 @@ msgid "Help"
 msgstr "Help"
 
 #: src/gcompris/about.c:316
-#: src/gcompris/config.c:205
-#: src/gcompris/gameutil.c:867
-#: src/gcompris/help.c:353
+#: src/gcompris/config.c:207
+#: src/gcompris/gameutil.c:859
+#: src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2682,170 +2752,178 @@ msgid "French"
 msgstr "French"
 
 #: src/gcompris/config.c:78
+msgid "Irish (Gaelic)"
+msgstr "Irish (Gaelic)"
+
+#: src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/gcompris/config.c:79
-msgid "Indian"
-msgstr "Indian"
-
 #: src/gcompris/config.c:80
+msgid "Indian (Hindi)"
+msgstr "Indian (Hindi)"
+
+#: src/gcompris/config.c:81
+msgid "Indian (Punjabi)"
+msgstr "Indian (Punjabi)"
+
+#: src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Croatian"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malay"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:90
 msgid "Norwegian Bokmal"
 msgstr "Norwegian Bokmal"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:91
 msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:97
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:98
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:99
 msgid "Albanian"
 msgstr "Albanian"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:100
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:101
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:102
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:103
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:104
 msgid "Walloon"
 msgstr "Walloon"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:109
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:110
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:111
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:112
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:115
+#: src/gcompris/config.c:117
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:122
 msgid "No filter"
 msgstr "No filter"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:123
 msgid "Only this level"
 msgstr "Only this level"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:124
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:125
 msgid "This level and above"
 msgstr "This level and above"
 
-#: src/gcompris/config.c:179
+#: src/gcompris/config.c:181
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:290
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:331
+#: src/gcompris/config.c:333
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:359
+#: src/gcompris/config.c:361
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:393
+#: src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:414
+#: src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:429
-#: src/gcompris/config.c:814
-#: src/gcompris/config.c:825
+#: src/gcompris/config.c:431
+#: src/gcompris/config.c:816
+#: src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2917,13 +2995,13 @@ msgstr "Use the antialiased canvas (slower)."
 #: src/gcompris/gcompris.c:522
 msgid ""
 "GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\n"
 "http://www.fsf.org/philosophy"
 msgstr ""
-"GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
-"The Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\n"
+"GCompris is free software released under the GPL Licence. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\n"
+"http://gcompris.net\n"
+"The Linux version does not have this restriction. Note that gcompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\n"
 "http://www.fsf.org/philosophy"
 
 #: src/gcompris/gcompris.c:717
@@ -2932,29 +3010,29 @@ msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 
-#: src/gcompris/help.c:173
+#: src/gcompris/help.c:170
 #: src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: src/gcompris/help.c:207
+#: src/gcompris/help.c:198
 #: src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Goal"
 
-#: src/gcompris/help.c:241
+#: src/gcompris/help.c:226
 #: src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:275
+#: src/gcompris/help.c:254
 #: src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Credit"
