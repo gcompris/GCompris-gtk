@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-16 11:36+0200\n"
-"PO-Revision-Date: 2003-07-04 00:13+0200\n"
+"POT-Creation-Date: 2003-07-27 03:34+0200\n"
+"PO-Revision-Date: 2003-07-27 06:59+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -349,6 +349,17 @@ msgstr "Tafel van vermenigvuldiging"
 msgid "Practice the multiplication operation"
 msgstr "Oefenen met vermenigvuldigen"
 
+#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "Ga naar de rekensommen"
+
+#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Klik met de linker muisknop om een bordspel te kiezen"
+
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
@@ -439,17 +450,6 @@ msgstr "Oefenen met optellen"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition"
 msgstr "Eenvoudige optelling"
-
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra activities"
-msgstr "Ga naar de rekensommen"
-
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Klik met de linker muisknop om een bordspel te kiezen"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -779,7 +779,8 @@ msgstr "Zet de dingen in de beste volgorde om ze te tellen"
 msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/fifteen.c:56
+#: src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
@@ -1132,28 +1133,6 @@ msgstr "Vind de rechter- en linkerhanden"
 #: boards/leftright.xml.in.h:4 src/boards/leftright.c:107
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr "Zeggen of het een rechterhand of een linkerhand is"
-
-#: boards/superbrain.xml.in.h:1
-msgid ""
-"Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
-"a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
-msgstr ""
-"Dit is het oorspronkelijke MasterMind-spel. Klik op de keuzes tot je denkt "
-"de juiste combinatie te hebben. Klik dan op OK. Tux tekent een zwart "
-"vierkant als je een positie juist hebt. Met de rechter muisknop draai je de "
-"volgorde van de kleuren om."
-
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
-msgid "Super Brain"
-msgstr "Superbrein"
-
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
-msgid "Tux has hidden several items, find them back in the correct order"
-msgstr ""
-"Tux heeft een aantal kleuren verstopt, vind ze terug in de juiste volgorde."
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
@@ -1540,6 +1519,28 @@ msgstr ""
 "Gebruik de pijltjes om met de helikopter de getallen te in oplopende "
 "volgorde te vangen."
 
+#: boards/pythontest.xml.in.h:1
+msgid "Add a language binding to gcompris."
+msgstr "Voeg een taalbinding toe aan gcompris."
+
+#: boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "Geavanceerde Python-programmeur :)"
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Python-test"
+
+#: boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "Test-bord voor de python-plugin"
+
+#: boards/pythontest.xml.in.h:5
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr ""
+"Met dan aan Guido van Rossum en het python team voor deze krachtige taal!"
+
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
 msgstr "Een geheugenspel met treinen"
@@ -1725,30 +1726,6 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Breng de weegschaal in evenwicht"
 
-#: boards/submarine.xml.in.h:1
-msgid ""
-"Click on different active elements : engine, rudders and air tanks in order "
-"to navigate at the ordered depth."
-msgstr ""
-"Klik op de verschillende actieve elementen: motor, roeren en luchttanks om "
-"naar de gevraagde diepte te manoeuvreren."
-
-#: boards/submarine.xml.in.h:2
-msgid "Learn how a submarine works"
-msgstr "Leren hoe een onderzeeër werkt"
-
-#: boards/submarine.xml.in.h:3
-msgid "Physics basics"
-msgstr "Elementaire natuurkunde"
-
-#: boards/submarine.xml.in.h:4
-msgid "Pilot a submarine"
-msgstr "Een onderzeeër besturen"
-
-#: boards/submarine.xml.in.h:5
-msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "Bestuur een onderzeeër door middel van luchttanks en duikroeren"
-
 #: boards/smallnumbers.xml.in.h:1
 msgid "Counting skill"
 msgstr "Telvaardigheden"
@@ -1774,6 +1751,52 @@ msgid ""
 msgstr ""
 "Toets het getal in dat overeenkomt met het aantal puntjes op de vallende "
 "dobbelsteen."
+
+#: boards/submarine.xml.in.h:1
+msgid ""
+"Click on different active elements : engine, rudders and air tanks in order "
+"to navigate at the ordered depth."
+msgstr ""
+"Klik op de verschillende actieve elementen: motor, roeren en luchttanks om "
+"naar de gevraagde diepte te manoeuvreren."
+
+#: boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "Leren hoe een onderzeeër werkt"
+
+#: boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr "Elementaire natuurkunde"
+
+#: boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr "Een onderzeeër besturen"
+
+#: boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr "Bestuur een onderzeeër door middel van luchttanks en duikroeren"
+
+#: boards/superbrain.xml.in.h:1
+msgid ""
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. At the lower level, tux "
+"gives you an indication if you got a good position by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"oposite order."
+msgstr ""
+"Dit is het oorspronkelijke MasterMind-spel. Klik op de keuzes tot je denkt "
+"de juiste combinatie te hebben. Klik dan op OK. Tux tekent een zwart "
+"vierkant als je een positie juist hebt. Met de rechter muisknop draai je de "
+"volgorde van de kleuren om."
+
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr "Superbrein"
+
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+msgid "Tux has hidden several items, find them back in the correct order"
+msgstr ""
+"Tux heeft een aantal kleuren verstopt, vind ze terug in de juiste volgorde."
 
 #: boards/target.xml.in.h:1
 msgid ""
@@ -1826,43 +1849,21 @@ msgstr "Typ de woorden vooraleer ze de grond raken"
 msgid "Keyboard training"
 msgstr "Toetsenbordtraining"
 
-#: boards/pythontest.xml.in.h:1
-msgid "Add a language binding to gcompris."
-msgstr "Voeg een taalbinding toe aan gcompris."
-
-#: boards/pythontest.xml.in.h:2
-msgid "Advanced Python Programmer :)"
-msgstr "Geavanceerde Python-programmeur :)"
-
-#: boards/pythontest.xml.in.h:3
-msgid "Python Test"
-msgstr "Python-test"
-
-#: boards/pythontest.xml.in.h:4
-msgid "Test board for the python plugin"
-msgstr "Test-bord voor de python-plugin"
-
-#: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr ""
-"Met dan aan Guido van Rossum en het python team voor deze krachtige taal!"
+#: gcompris-edit.desktop.in.h:1
+msgid "Editor for gcompris"
+msgstr "Editor voor GCompris"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
 msgstr "Educatief spel voor kinderen vanaf drie jaar"
 
-#: gcompris-edit.desktop.in.h:1
-msgid "Editor for gcompris"
-msgstr "Editor voor GCompris"
-
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
-#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
-#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
-#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:351
+#: src/boards/shapegame.c:1720 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
+#: src/gcompris/gameutil.c:450 src/gcompris/gameutil.c:451
+#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:351
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
@@ -1965,6 +1966,11 @@ msgstr "Kan pixmap's map niet openen: %s"
 msgid "Set the watch to:"
 msgstr "Stel de klok in op:"
 
+# dit is een rare zin om te vertalen: to fifteen the area?
+#: src/boards/fifteen.c:57
+msgid "Move the mouse to fifteen the area and discover the background"
+msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
+
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Leer lezen"
@@ -2000,6 +2006,14 @@ msgstr "Selecteer een spel"
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Vang met het vliegtuig de wolken in de juiste volgorde"
+
+#: src/boards/python.c:52
+msgid "Python Board"
+msgstr "Python-bord"
+
+#: src/boards/python.c:53
+msgid "Special board that embed python into gcompris."
+msgstr "Speciaal bord dat python in gcompris inbed."
 
 #: src/boards/railroad.c:95
 msgid "Memory game"
@@ -2097,15 +2111,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Afstand tot het doel = %d meter"
 
-#: src/boards/python.c:52
-msgid "Python Board"
-msgstr "Python-bord"
-
-#: src/boards/python.c:53
-msgid "Special board that embed python into gcompris."
-msgstr "Speciaal bord dat python in gcompris inbed."
-
-#: src/gcompris/about.c:57
+#: src/gcompris/about.c:60
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -2119,169 +2125,169 @@ msgstr ""
 "Plaatjes: Renaud Blanchard\n"
 "Muziek: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:94
+#: src/gcompris/about.c:97
 msgid "About GCompris"
 msgstr "Over GCompris"
 
-#: src/gcompris/about.c:200
+#: src/gcompris/about.c:203
 msgid "GCompris Home Page"
 msgstr "GCompris Startpagina"
 
-#: src/gcompris/about.c:222
+#: src/gcompris/about.c:225
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 
-#: src/gcompris/about.c:250
+#: src/gcompris/about.c:253
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:168 src/gcompris/help.c:343
+#: src/gcompris/about.c:287 src/gcompris/config.c:170 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
 
 # moet mogelijk vertaald worden als Abisinisch
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:52
 msgid "Amharic"
 msgstr "Ethiopisch"
 
 # moet mogelijk vertaald worden als Abisinisch
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:53
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:54
 msgid "Azerbaijani Turkic"
 msgstr "Azerbeijaans Turks"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:55
 msgid "German"
 msgstr "Duits"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:56
 msgid "Greek"
 msgstr "Grieks"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:57
 msgid "English"
 msgstr "Engels"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Spanish"
 msgstr "Spaans"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "Finnish"
 msgstr "Fins"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "French"
 msgstr "Frans"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:62
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:63
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:64
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:65
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:66
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:67
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:68
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:69
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:70
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:71
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:72
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:73
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:74
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:75
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:80
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:81
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:82
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:83
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:88
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:142
+#: src/gcompris/config.c:144
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:248
+#: src/gcompris/config.c:250
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:291
+#: src/gcompris/config.c:293
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:319
+#: src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:356
+#: src/gcompris/config.c:358
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:390 src/gcompris/config.c:687
-#: src/gcompris/config.c:698
+#: src/gcompris/config.c:392 src/gcompris/config.c:699
+#: src/gcompris/config.c:710
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2315,11 +2321,11 @@ msgstr "Toont de versie van"
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:327
+#: src/gcompris/gcompris.c:331
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2332,19 +2338,19 @@ msgstr ""
 "Licentie: GPL\n"
 "Meer informatie op http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:167 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Vereisten"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:201 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Doelstelling"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:235 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Handleiding"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:269 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Dank aan"
 
