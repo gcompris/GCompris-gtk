@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-01-02 23:40+0100\n"
+"POT-Creation-Date: 2002-01-07 02:25+0100\n"
 "PO-Revision-Date: 2000-07-28 HO:MI+ZONE\n"
 "Last-Translator: Mauro Colorio <linuxbox@interfree.it>\n"
 "Language-Team: IT <LL@li.org>\n"
@@ -56,9 +56,30 @@ msgstr "Impossibile aprire la directory pixmap: %s"
 msgid "Practice the computer mouse"
 msgstr ""
 
-#: src/boards/clickgame.c:250 src/boards/draw.c:207 src/boards/menu.c:209
-#: src/boards/paratrooper.c:368
-msgid "<b>Goal:</b>"
+#: src/boards/clickgame.c:250
+msgid ""
+"<b>Goal:</b>\n"
+"<br>In this game, the children will discover the computer mouse.\n"
+"<br>The goal is just to click with the left mouse button on the moving "
+"fish.\n"
+"<p>\n"
+"<b>Credits:</b>\n"
+"<br>Fish are taken from the Unix utility xfishtank.\n"
+"<br>Images are taken from the National Undersearch Research Program (NURP) "
+"Collection at <a href=\"http://www.photolib.noaa.gov\">http://www.photolib."
+"noaa.gov</a>.\n"
+"<br>All images credit bellongs to the OAR/National Undersea Research Program "
+"(NURP).\n"
+"<br>Except for the first image that also credits the University of North "
+"Carolina at Wilmington.\n"
+"<br>In the gcompris level order, images information is:\n"
+"<ul><li>Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
+"Photographer: D. Kesling</li>\n"
+"<li>Location: Florida Keys (image nur03006)</li>\n"
+"<li>Location: Unknown (image nur03505)</li>\n"
+"<li>Location: Unknown (image nur03010)</li>\n"
+"<li>Location: Unknown (image nur03011)</li>\n"
+"<li>Location: Unknown (image nur03013)</li></ul>"
 msgstr ""
 
 #: src/boards/clockgame.c:534
@@ -75,6 +96,20 @@ msgstr ""
 
 #: src/boards/draw.c:206
 msgid "Free vector drawing tool"
+msgstr ""
+
+#: src/boards/draw.c:207
+msgid ""
+"<b>Goal:</b>\n"
+"<br>In this game, the children will be able to freely draw.\n"
+"<br>The goal is just to discover how he can create pretty looking drawings "
+"based on basic shapes: rectangles, ellipses and lines.\n"
+"<p>\n"
+"<b>Usage:</b>\n"
+"<br>On the left select a drawing tool, on the bottom select a color then "
+"click on the white area and drag to create a new shape.\n"
+"<br>To go faster, you can use the middle mouse button to delete an object or "
+"the right button to move an object.\n"
 msgstr ""
 
 #: src/boards/erase.c:73
@@ -102,14 +137,14 @@ msgstr ""
 msgid "Learn how to read"
 msgstr ""
 
-#: src/boards/imageid.c:570 src/boards/menu.c:530
-#: src/boards/missingletter.c:586 src/boards/shapegame.c:1161
+#: src/boards/imageid.c:570 src/boards/menu.c:527
+#: src/boards/missingletter.c:586 src/boards/shapegame.c:1263
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Impossibile trovare il file %s !"
 
 #: src/boards/imageid.c:573 src/boards/missingletter.c:589
-#: src/boards/shapegame.c:1164
+#: src/boards/shapegame.c:1266
 #, fuzzy, c-format
 msgid "find file %s !"
 msgstr "Impossibile trovare il file %s !"
@@ -134,16 +169,57 @@ msgstr ""
 msgid "GCompris Help"
 msgstr ""
 
-#: src/boards/paratrooper.c:101
+#: src/boards/menu.c:209
+msgid ""
+"<b>Goal:</b>\n"
+"<br>GCompris is an educational games that provides different activities to "
+"children starting at 3.\n"
+"<p>\n"
+"<b>Usage:</b>\n"
+"<br>To use it, a simple click on an icon brings you to a board or a menu.\n"
+"<br>At the bottom of the screen, you have the gcompris control bar.\n"
+"<br>From right to left, bellow is the meaning of the icons. Note that these "
+"icons are displayed only when available in a board:\n"
+"<ul><li>Home - Back to previous menu or exit gcompris if no more</li>\n"
+"<li>Thumb - OK, confirm your answer</li>\n"
+"<li>Dice - The current level is displayed. Click on it to select another "
+"level</li>\n"
+"<li>Question Mark - The help</li>\n"
+"<li>Music note - Ask gcompris to repeat the question</li></ul>\n"
+"<br>The stars means:\n"
+"<ul><li>1 Star  - 3 to 4 years old</li>\n"
+"<li>2 Stars - 5 to 6 years old</li>\n"
+"<li>3 Stars - 7 to 8 years old</li></ul>\n"
+"<p>\n"
+"<b>Credits:</b>\n"
+"<br>Author: Bruno Coudoin\n"
+"<br>Contribution: Pascal Georges\n"
+"<br>Graphics: Renaud Blanchard\n"
+"<br>Music: Djilali Sebihi\n"
+msgstr ""
+
+#: src/boards/paratrooper.c:106
 msgid "Paratrooper"
 msgstr ""
 
-#: src/boards/paratrooper.c:102
+#: src/boards/paratrooper.c:107
 msgid "Manage the paratrooper to let him safely land"
 msgstr ""
 
-#: src/boards/paratrooper.c:367
+#: src/boards/paratrooper.c:352
 msgid "The paratrooper game"
+msgstr ""
+
+#: src/boards/paratrooper.c:353
+msgid ""
+"<b>Goal:</b>\n"
+"<br>In this game, the children will try to make Tux the paratrooper lands "
+"safely on the fishing boat. He/She needs to take care of the wind side and "
+"speed.\n"
+"<p>\n"
+"<b>Usage:</b>\n"
+"<br>Click on any keyboard key to let Tux jump. Another keypress will open "
+"the 'parachute'."
 msgstr ""
 
 #: src/boards/planegame.c:75
@@ -186,11 +262,11 @@ msgstr ""
 msgid "No, it was not there"
 msgstr ""
 
-#: src/boards/shapegame.c:119
+#: src/boards/shapegame.c:120
 msgid "Make the puzzle"
 msgstr ""
 
-#: src/boards/shapegame.c:120
+#: src/boards/shapegame.c:121
 msgid "Drag and Drop the items to rebuild the object"
 msgstr ""
 
@@ -257,7 +333,7 @@ msgstr ""
 msgid "Do you really want to quit GCompris?"
 msgstr ""
 
-#: src/gcompris/gcompris.c:497
+#: src/gcompris/gcompris.c:500
 #, c-format
 msgid ""
 "GCompris\n"

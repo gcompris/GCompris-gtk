@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-01-05 14:49+0100\n"
+"POT-Creation-Date: 2002-01-07 02:25+0100\n"
 "PO-Revision-Date: 2002-01-05 14:49+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -15,260 +15,13 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: boards/algebra_by.xml.in.h:1 boards/algebra_div.xml.in.h:1
-#: boards/algebra_minus.xml.in.h:1 boards/algebra_plus.xml.in.h:1
-msgid "I Ask you some algebra questions"
-msgstr "Jag ställer några algebrafrågor"
-
-#: boards/algebra_by.xml.in.h:2
-msgid "Pratice the multiplication operation"
-msgstr "Träna på multiplikation"
-
-#: boards/algebra_div.xml.in.h:2
-msgid "Pratice the division operation"
-msgstr "Träna på division"
-
-#: boards/algebra_minus.xml.in.h:2
-msgid "Pratice the substraction operation"
-msgstr "Träna på subtraktion"
-
-#: boards/algebra_plus.xml.in.h:2
-msgid "Pratice the addition operation"
-msgstr "Träna på addition"
-
-#: boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra boards"
-msgstr "Gå till algebrabräden"
-
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select a board"
-msgstr "Vänsterklicka med musen för att välja ett bräde"
-
-#: boards/babymatch.xml.in.h:1
-msgid "Drag and Drop the items to make them match"
-msgstr "Dra och släpp föremålen för att få dem att passa"
-
-#: boards/babymatch.xml.in.h:2
-msgid "Matching Items"
-msgstr "Passande föremål"
-
-#: boards/babyshapes.xml.in.h:1
-msgid "Baby Shape Puzzle"
-msgstr "Formpussel för småbarn"
-
-#: boards/babyshapes.xml.in.h:2
-msgid "Drag and Drop the shapes on their respective target"
-msgstr "Dra och släpp formerna på deras respektive mål"
-
-#: boards/click_on_letter.xml.in.h:1
-msgid "Click on a letter"
-msgstr "Klicka på en bokstav"
-
-#: boards/click_on_letter.xml.in.h:2
-msgid "Hear a letter and click on the right letter"
-msgstr "Hör en bokstav och klicka på rätt bokstav"
-
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:77
-msgid "Click On Me"
-msgstr "Klicka på mig"
-
-#: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:78
-msgid ""
-"Left-Click with the mouse on all swimming fishes before they leave the "
-"fishtank"
-msgstr ""
-"Vänsterklicka med musen på alla simmande fiskar innan de lämnar akvariet"
-
-#: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
-#: src/boards/clockgame.c:78
-msgid "Learn how to read the time"
-msgstr "Lär dig läsa klockan"
-
-#: boards/clockgame.xml.in.h:2 src/boards/algebra.c:93
-#: src/boards/clockgame.c:77
+#: src/boards/algebra.c:93 src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Lär klockan"
 
-#: boards/computer.xml.in.h:1
-msgid "Discover the Computer"
-msgstr "Upptäck datorn"
-
-#: boards/draw.xml.in.h:1 src/boards/draw.c:96
-msgid "A simple vector drawing tool"
-msgstr "Ett enkelt vektorritverktyg"
-
-#: boards/draw.xml.in.h:2 src/boards/draw.c:97
-msgid "Creative board where you can freely draw"
-msgstr "Kreativt bräde där du kan rita fritt"
-
-#: boards/erase.xml.in.h:1 src/boards/erase.c:73
-msgid "Move the mouse"
-msgstr "Flytta musen"
-
-#: boards/erase.xml.in.h:2 src/boards/erase.c:74
-msgid "Move the mouse to erase the area and discover the background"
-msgstr "Flytta musen för att radera området och upptäck bakgrunden"
-
-#: boards/fun.xml.in.h:1
-msgid "Go to Amusement boards"
-msgstr "Gå till nöjesbräden"
-
-#: boards/gletters.xml.in.h:1 src/boards/gletters.c:76
-msgid "Simple Letters"
-msgstr "Enkla bokstäver"
-
-#: boards/gletters.xml.in.h:2 src/boards/gletters.c:77
-msgid "Type the falling letters before they reach the ground"
-msgstr "Skriv de fallande bokstäverna innan de når marken"
-
-#: boards/imageid.xml.in.h:1
-msgid "Practice reading by finding the word matching an image"
-msgstr "Träna läsning genom att hitta det ord som passar en bild"
-
-#: boards/imageid.xml.in.h:2
-msgid "Reading pratice"
-msgstr "Lästräning"
-
-#: boards/imagename.xml.in.h:1
-msgid "Drag and Drop the items above their written name"
-msgstr "Dra och släpp föremålen över deras namn"
-
-#: boards/imagename.xml.in.h:2
-msgid "Image Name"
-msgstr "Bildnamn"
-
-#: boards/memory.xml.in.h:1
-msgid "Discover the cards and find a matching pair"
-msgstr "Upptäck korten och hitta ett passande par"
-
-#: boards/memory.xml.in.h:2
-msgid "Memory Game with images"
-msgstr "Memoryspel med bilder"
-
-#: boards/menu.xml.in.h:1
-msgid "GCompris Main Menu"
-msgstr "GCompris-huvudmeny"
-
-#: boards/missing_letter.xml.in.h:1
-msgid "Fill up the missing letter"
-msgstr "Fyll i den saknade bokstaven"
-
-#: boards/missing_letter.xml.in.h:2
-msgid "Missing Letter"
-msgstr "Saknad bokstav"
-
-#: boards/missing_letter/board1.xml.in.h:1
-msgid "apple _pple a i o"
-msgstr "äpple _pple ä i ö"
-
-#: boards/missing_letter/board1.xml.in.h:2
-msgid "ball _all b p d"
-msgstr "boll _oll b p d"
-
-#: boards/missing_letter/board1.xml.in.h:3
-msgid "banana b_nana a o i"
-msgstr "banan b_nan a o i"
-
-#: boards/missing_letter/board1.xml.in.h:4
-msgid "bed _ed b l f"
-msgstr "säng _äng s l f"
-
-#: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle _ottle b t p"
-msgstr "flaska _laska f t k"
-
-#: boards/missing_letter/board1.xml.in.h:6
-msgid "cake _ake c p d"
-msgstr "kaka _aka k p d"
-
-#: boards/missing_letter/board1.xml.in.h:7
-msgid "house hous_ e a i"
-msgstr "hus h_s u ä i"
-
-#: boards/missing_letter/board1.xml.in.h:8
-msgid "satchel s_tchel a o i"
-msgstr "skolväska sk_lväska o a i"
-
-#: boards/paintings.xml.in.h:1
-msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr ""
-"Dra och släpp föremålen för att sätta ihop de ursprungliga målningarna igen"
-
-#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:119
-msgid "Make the puzzle"
-msgstr "Lägg pusslet"
-
-#: boards/paratrooper.xml.in.h:1 src/boards/paratrooper.c:102
-msgid "Manage the paratrooper to let him safely land"
-msgstr "Hantera fallskärmsjägaren så att han landar säkert"
-
-#: boards/paratrooper.xml.in.h:2 src/boards/paratrooper.c:101
-msgid "Paratrooper"
-msgstr "Fallskärmsjägare"
-
-#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
-msgid "Move the plane to catch the clouds in the correct order"
-msgstr "Flytta planet så att det når molnen i rätt följd"
-
-#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
-msgid "Numbers in Order"
-msgstr "Tal i ordning"
-
-#: boards/reading.xml.in.h:1
-msgid "Go to the Reading boards"
-msgstr "Gå till läsbrädena"
-
-#: boards/readingh.xml.in.h:1
-msgid "Horizontal reading practice"
-msgstr "Vågrät läsövning"
-
-#: boards/readingh.xml.in.h:2
-msgid "Read a list of word and tell if the given word is in it"
-msgstr ""
-"Läs en lista med ord och tala om ifall det angivna ordet finns bland dem"
-
-#: boards/readingv.xml.in.h:1
-msgid "Read a vertical list of word and tell if the given word is in it"
-msgstr ""
-"Läs en lodrät lista med ord och tala om ifall det angivna ordet finns bland "
-"dem"
-
-#: boards/readingv.xml.in.h:2
-msgid "Vertical reading practice"
-msgstr "Lodrät läsövning"
-
-#: boards/scalesboard.xml.in.h:1
-msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Dra och släpp massor för att balansera skalorna"
-
-#: boards/scalesboard.xml.in.h:2
-msgid "Well balance the scales"
-msgstr "Balansera skalorna"
-
-#: boards/smallnumbers.xml.in.h:1 src/boards/smallnumbers.c:69
-msgid "Numbers With Dices"
-msgstr "Tal med tärningar"
-
-#: boards/smallnumbers.xml.in.h:2
-msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
-msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
-
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
-msgid "Falling Words"
-msgstr "Fallande ord"
-
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:83
-msgid "Fully type the falling words before they reach the ground"
-msgstr "Skriv in hela de fallande orden innan de når marken"
-
-#: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Lärorikt spel för barn från 3 år och uppåt"
-
-#: gcompris.desktop.in.h:2
-msgid "GCompris"
-msgstr "GCompris"
+#: src/boards/algebra.c:94 src/boards/clockgame.c:78
+msgid "Learn how to read the time"
+msgstr "Lär dig läsa klockan"
 
 #: src/boards/algebra_guesscount.c:141 src/boards/algebra_guesscount.c:142
 msgid "Guess operations"
@@ -282,6 +35,17 @@ msgstr "Läs en bokstav"
 msgid "Learn to recognize letters"
 msgstr "Lär dig känna igen bokstäver"
 
+#: src/boards/clickgame.c:77
+msgid "Click On Me"
+msgstr "Klicka på mig"
+
+#: src/boards/clickgame.c:78
+msgid ""
+"Left-Click with the mouse on all swimming fishes before they leave the "
+"fishtank"
+msgstr ""
+"Vänsterklicka med musen på alla simmande fiskar innan de lämnar akvariet"
+
 #: src/boards/clickgame.c:169
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
@@ -291,18 +55,108 @@ msgstr "Kunde inte öppna bildfilskatalogen: %s"
 msgid "Practice the computer mouse"
 msgstr "Träna att använda datormusen"
 
-#: src/boards/clickgame.c:250 src/boards/draw.c:207 src/boards/menu.c:209
-#: src/boards/paratrooper.c:368
-msgid "<b>Goal:</b>"
-msgstr "<b>Mål:</b>"
+#: src/boards/clickgame.c:250
+#, fuzzy
+msgid ""
+"<b>Goal:</b>\n"
+"<br>In this game, the children will discover the computer mouse.\n"
+"<br>The goal is just to click with the left mouse button on the moving "
+"fish.\n"
+"<p>\n"
+"<b>Credits:</b>\n"
+"<br>Fish are taken from the Unix utility xfishtank.\n"
+"<br>Images are taken from the National Undersearch Research Program (NURP) "
+"Collection at <a href=\"http://www.photolib.noaa.gov\">http://www.photolib."
+"noaa.gov</a>.\n"
+"<br>All images credit bellongs to the OAR/National Undersea Research Program "
+"(NURP).\n"
+"<br>Except for the first image that also credits the University of North "
+"Carolina at Wilmington.\n"
+"<br>In the gcompris level order, images information is:\n"
+"<ul><li>Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
+"Photographer: D. Kesling</li>\n"
+"<li>Location: Florida Keys (image nur03006)</li>\n"
+"<li>Location: Unknown (image nur03505)</li>\n"
+"<li>Location: Unknown (image nur03010)</li>\n"
+"<li>Location: Unknown (image nur03011)</li>\n"
+"<li>Location: Unknown (image nur03013)</li></ul>"
+msgstr ""
+"Mål:\n"
+"I detta spel kommer barnet att upptäcka datorns mus\n"
+"Målet är bara att klicka med vänstra musknappen på fiskarna som rör sig.\n"
+"\n"
+"Tack till:\n"
+"Fiskarna kommer från Unix-verktyget xfishtank.\n"
+"Bilderna kommer från National Undersearch Research Programs (NURP) samling\n"
+"på http://www.photolib.noaa.gov\n"
+"Alla rättigheter till bilderna tillhör OAR/National Undersea Research\n"
+"Program (NURP), utom den första bilden där rättigheterna även tillhör\n"
+"University of North Carolina i Wilmington\n"
+"I GCompris nivåordning är informationen om bilderna:\n"
+"Plats: Tropiska Atlanten, Florida Keys (bild nur00523)\n"
+"Fotograf: D. Kesling\n"
+"Plats: Florida Keys (bild nur03006)\n"
+"Plats: Okänd (bild nur03505)\n"
+"Plats: Okänd (bild nur03010)\n"
+"Plats: Okänd (bild nur03011)\n"
+"Plats: Okänd (bild nur03013)\n"
 
 #: src/boards/clockgame.c:534
 msgid "Set the clock to:"
 msgstr "Ställ klockan till:"
 
+#: src/boards/draw.c:96
+msgid "A simple vector drawing tool"
+msgstr "Ett enkelt vektorritverktyg"
+
+#: src/boards/draw.c:97
+msgid "Creative board where you can freely draw"
+msgstr "Kreativt bräde där du kan rita fritt"
+
 #: src/boards/draw.c:206
 msgid "Free vector drawing tool"
 msgstr "Vektorritverktyg för frihandsritning"
+
+#: src/boards/draw.c:207
+#, fuzzy
+msgid ""
+"<b>Goal:</b>\n"
+"<br>In this game, the children will be able to freely draw.\n"
+"<br>The goal is just to discover how he can create pretty looking drawings "
+"based on basic shapes: rectangles, ellipses and lines.\n"
+"<p>\n"
+"<b>Usage:</b>\n"
+"<br>On the left select a drawing tool, on the bottom select a color then "
+"click on the white area and drag to create a new shape.\n"
+"<br>To go faster, you can use the middle mouse button to delete an object or "
+"the right button to move an object.\n"
+msgstr ""
+"Mål:\n"
+"I detta spel kan barnen rita fritt.\n"
+"Målet är bara att barnet kan upptäcka hur det kan skapa vackra teckningar\n"
+"baserade på grundläggande former: rektanglar, ellipser och linjer.\n"
+"\n"
+"Användning:\n"
+"På vänstra sidan väljer du ett ritverktyg, sedan väljer du en färg nederst,\n"
+"och sedan klickar du på den vita ytan och drar för att skapa en ny form.\n"
+"För att snabba upp kan du använda musens mittknapp för att ta bort ett\n"
+"objekt eller höger musknapp för att flytta ett objekt.\n"
+
+#: src/boards/erase.c:73
+msgid "Move the mouse"
+msgstr "Flytta musen"
+
+#: src/boards/erase.c:74
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "Flytta musen för att radera området och upptäck bakgrunden"
+
+#: src/boards/gletters.c:76
+msgid "Simple Letters"
+msgstr "Enkla bokstäver"
+
+#: src/boards/gletters.c:77
+msgid "Type the falling letters before they reach the ground"
+msgstr "Skriv de fallande bokstäverna innan de når marken"
 
 #: src/boards/imageid.c:109 src/boards/missingletter.c:103
 #: src/boards/reading.c:98
@@ -313,14 +167,14 @@ msgstr "Läsning"
 msgid "Learn how to read"
 msgstr "Lär dig läsa"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:530
-#: src/boards/missingletter.c:586 src/boards/shapegame.c:1161
+#: src/boards/imageid.c:570 src/boards/menu.c:527
+#: src/boards/missingletter.c:586 src/boards/shapegame.c:1263
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
 #: src/boards/imageid.c:573 src/boards/missingletter.c:589
-#: src/boards/shapegame.c:1164
+#: src/boards/shapegame.c:1266
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -345,9 +199,66 @@ msgstr "Välj ett bräde"
 msgid "GCompris Help"
 msgstr "Hjälp för GCompris"
 
-#: src/boards/paratrooper.c:367
+#: src/boards/menu.c:209
+msgid ""
+"<b>Goal:</b>\n"
+"<br>GCompris is an educational games that provides different activities to "
+"children starting at 3.\n"
+"<p>\n"
+"<b>Usage:</b>\n"
+"<br>To use it, a simple click on an icon brings you to a board or a menu.\n"
+"<br>At the bottom of the screen, you have the gcompris control bar.\n"
+"<br>From right to left, bellow is the meaning of the icons. Note that these "
+"icons are displayed only when available in a board:\n"
+"<ul><li>Home - Back to previous menu or exit gcompris if no more</li>\n"
+"<li>Thumb - OK, confirm your answer</li>\n"
+"<li>Dice - The current level is displayed. Click on it to select another "
+"level</li>\n"
+"<li>Question Mark - The help</li>\n"
+"<li>Music note - Ask gcompris to repeat the question</li></ul>\n"
+"<br>The stars means:\n"
+"<ul><li>1 Star  - 3 to 4 years old</li>\n"
+"<li>2 Stars - 5 to 6 years old</li>\n"
+"<li>3 Stars - 7 to 8 years old</li></ul>\n"
+"<p>\n"
+"<b>Credits:</b>\n"
+"<br>Author: Bruno Coudoin\n"
+"<br>Contribution: Pascal Georges\n"
+"<br>Graphics: Renaud Blanchard\n"
+"<br>Music: Djilali Sebihi\n"
+msgstr ""
+
+#: src/boards/paratrooper.c:106
+msgid "Paratrooper"
+msgstr "Fallskärmsjägare"
+
+#: src/boards/paratrooper.c:107
+msgid "Manage the paratrooper to let him safely land"
+msgstr "Hantera fallskärmsjägaren så att han landar säkert"
+
+#: src/boards/paratrooper.c:352
 msgid "The paratrooper game"
 msgstr "Fallskärmsjägarspelet"
+
+#: src/boards/paratrooper.c:353
+msgid ""
+"<b>Goal:</b>\n"
+"<br>In this game, the children will try to make Tux the paratrooper lands "
+"safely on the fishing boat. He/She needs to take care of the wind side and "
+"speed.\n"
+"<p>\n"
+"<b>Usage:</b>\n"
+"<br>Click on any keyboard key to let Tux jump. Another keypress will open "
+"the 'parachute'."
+msgstr ""
+
+#: src/boards/planegame.c:75
+msgid "Numbers in Order"
+msgstr "Tal i ordning"
+
+#: src/boards/planegame.c:76
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr "Flytta planet så att det når molnen i rätt följd"
 
 #: src/boards/railroad.c:95
 msgid "Memory game"
@@ -384,12 +295,28 @@ msgid "No, it was not there"
 msgstr "Nej, det fanns inte där"
 
 #: src/boards/shapegame.c:120
+msgid "Make the puzzle"
+msgstr "Lägg pusslet"
+
+#: src/boards/shapegame.c:121
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
+
+#: src/boards/smallnumbers.c:69
+msgid "Numbers With Dices"
+msgstr "Tal med tärningar"
 
 #: src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
+
+#: src/boards/wordsgame.c:82
+msgid "Falling Words"
+msgstr "Fallande ord"
+
+#: src/boards/wordsgame.c:83
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Skriv in hela de fallande orden innan de når marken"
 
 #: src/gcompris/gcompris.c:62
 msgid "run gcompris in fullscreen mode."
@@ -520,6 +447,144 @@ msgstr "Musik"
 msgid "Effect"
 msgstr "Effekt"
 
+#~ msgid "I Ask you some algebra questions"
+#~ msgstr "Jag ställer några algebrafrågor"
+
+#~ msgid "Pratice the multiplication operation"
+#~ msgstr "Träna på multiplikation"
+
+#~ msgid "Pratice the division operation"
+#~ msgstr "Träna på division"
+
+#~ msgid "Pratice the substraction operation"
+#~ msgstr "Träna på subtraktion"
+
+#~ msgid "Pratice the addition operation"
+#~ msgstr "Träna på addition"
+
+#~ msgid "Go to Algebra boards"
+#~ msgstr "Gå till algebrabräden"
+
+#~ msgid "Left-Click with the mouse to select a board"
+#~ msgstr "Vänsterklicka med musen för att välja ett bräde"
+
+#~ msgid "Drag and Drop the items to make them match"
+#~ msgstr "Dra och släpp föremålen för att få dem att passa"
+
+#~ msgid "Matching Items"
+#~ msgstr "Passande föremål"
+
+#~ msgid "Baby Shape Puzzle"
+#~ msgstr "Formpussel för småbarn"
+
+#~ msgid "Drag and Drop the shapes on their respective target"
+#~ msgstr "Dra och släpp formerna på deras respektive mål"
+
+#~ msgid "Click on a letter"
+#~ msgstr "Klicka på en bokstav"
+
+#~ msgid "Hear a letter and click on the right letter"
+#~ msgstr "Hör en bokstav och klicka på rätt bokstav"
+
+#~ msgid "Discover the Computer"
+#~ msgstr "Upptäck datorn"
+
+#~ msgid "Go to Amusement boards"
+#~ msgstr "Gå till nöjesbräden"
+
+#~ msgid "Practice reading by finding the word matching an image"
+#~ msgstr "Träna läsning genom att hitta det ord som passar en bild"
+
+#~ msgid "Reading pratice"
+#~ msgstr "Lästräning"
+
+#~ msgid "Drag and Drop the items above their written name"
+#~ msgstr "Dra och släpp föremålen över deras namn"
+
+#~ msgid "Image Name"
+#~ msgstr "Bildnamn"
+
+#~ msgid "Discover the cards and find a matching pair"
+#~ msgstr "Upptäck korten och hitta ett passande par"
+
+#~ msgid "Memory Game with images"
+#~ msgstr "Memoryspel med bilder"
+
+#~ msgid "GCompris Main Menu"
+#~ msgstr "GCompris-huvudmeny"
+
+#~ msgid "Fill up the missing letter"
+#~ msgstr "Fyll i den saknade bokstaven"
+
+#~ msgid "Missing Letter"
+#~ msgstr "Saknad bokstav"
+
+#~ msgid "apple _pple a i o"
+#~ msgstr "äpple _pple ä i ö"
+
+#~ msgid "ball _all b p d"
+#~ msgstr "boll _oll b p d"
+
+#~ msgid "banana b_nana a o i"
+#~ msgstr "banan b_nan a o i"
+
+#~ msgid "bed _ed b l f"
+#~ msgstr "säng _äng s l f"
+
+#~ msgid "bottle _ottle b t p"
+#~ msgstr "flaska _laska f t k"
+
+#~ msgid "cake _ake c p d"
+#~ msgstr "kaka _aka k p d"
+
+#~ msgid "house hous_ e a i"
+#~ msgstr "hus h_s u ä i"
+
+#~ msgid "satchel s_tchel a o i"
+#~ msgstr "skolväska sk_lväska o a i"
+
+#~ msgid "Drag and Drop the items to rebuild the original paintings"
+#~ msgstr ""
+#~ "Dra och släpp föremålen för att sätta ihop de ursprungliga målningarna "
+#~ "igen"
+
+#~ msgid "Go to the Reading boards"
+#~ msgstr "Gå till läsbrädena"
+
+#~ msgid "Horizontal reading practice"
+#~ msgstr "Vågrät läsövning"
+
+#~ msgid "Read a list of word and tell if the given word is in it"
+#~ msgstr ""
+#~ "Läs en lista med ord och tala om ifall det angivna ordet finns bland dem"
+
+#~ msgid "Read a vertical list of word and tell if the given word is in it"
+#~ msgstr ""
+#~ "Läs en lodrät lista med ord och tala om ifall det angivna ordet finns "
+#~ "bland dem"
+
+#~ msgid "Vertical reading practice"
+#~ msgstr "Lodrät läsövning"
+
+#~ msgid "Drag and Drop masses to equilibrate the scales"
+#~ msgstr "Dra och släpp massor för att balansera skalorna"
+
+#~ msgid "Well balance the scales"
+#~ msgstr "Balansera skalorna"
+
+#~ msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
+#~ msgstr ""
+#~ "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
+
+#~ msgid "Educational game starting at 3 years old"
+#~ msgstr "Lärorikt spel för barn från 3 år och uppåt"
+
+#~ msgid "GCompris"
+#~ msgstr "GCompris"
+
+#~ msgid "<b>Goal:</b>"
+#~ msgstr "<b>Mål:</b>"
+
 #~ msgid "Azerbaijani Turkish"
 #~ msgstr "Azerbadjansk turkiska"
 
@@ -565,77 +630,6 @@ msgstr "Effekt"
 
 #~ msgid "Goal:"
 #~ msgstr "Mål:"
-
-#~ msgid ""
-#~ "Goal:\n"
-#~ "In this game, the children will discover the computer mouse\n"
-#~ "The goal is just to click with the left mouse button on the moving fish.\n"
-#~ "\n"
-#~ "Credits:\n"
-#~ "Fish are taken from the Unix utility xfishtank.\n"
-#~ "Images are taken from the National Undersearch Research Program (NURP) "
-#~ "Collection\n"
-#~ "at http://www.photolib.noaa.gov\n"
-#~ "All images credit bellongs to the OAR/National Undersea Research Program "
-#~ "(NURP)\n"
-#~ "Except for the first image that also credits the University of North "
-#~ "Carolina at Wilmington\n"
-#~ "In the gcompris level order, images information is:\n"
-#~ "Location: Tropical Atlantic Ocean, Florida Keys (image nur00523)\n"
-#~ "Photographer: D. Kesling\n"
-#~ "Location: Florida Keys (image nur03006)\n"
-#~ "Location: Unknown (image nur03505)\n"
-#~ "Location: Unknown (image nur03010)\n"
-#~ "Location: Unknown (image nur03011)\n"
-#~ "Location: Unknown (image nur03013)\n"
-#~ msgstr ""
-#~ "Mål:\n"
-#~ "I detta spel kommer barnet att upptäcka datorns mus\n"
-#~ "Målet är bara att klicka med vänstra musknappen på fiskarna som rör sig.\n"
-#~ "\n"
-#~ "Tack till:\n"
-#~ "Fiskarna kommer från Unix-verktyget xfishtank.\n"
-#~ "Bilderna kommer från National Undersearch Research Programs (NURP) "
-#~ "samling\n"
-#~ "på http://www.photolib.noaa.gov\n"
-#~ "Alla rättigheter till bilderna tillhör OAR/National Undersea Research\n"
-#~ "Program (NURP), utom den första bilden där rättigheterna även tillhör\n"
-#~ "University of North Carolina i Wilmington\n"
-#~ "I GCompris nivåordning är informationen om bilderna:\n"
-#~ "Plats: Tropiska Atlanten, Florida Keys (bild nur00523)\n"
-#~ "Fotograf: D. Kesling\n"
-#~ "Plats: Florida Keys (bild nur03006)\n"
-#~ "Plats: Okänd (bild nur03505)\n"
-#~ "Plats: Okänd (bild nur03010)\n"
-#~ "Plats: Okänd (bild nur03011)\n"
-#~ "Plats: Okänd (bild nur03013)\n"
-
-#~ msgid ""
-#~ "Goal:\n"
-#~ "In this game, the children will be able to freely draw.\n"
-#~ "The goal is just to discover how he can create pretty looking drawings "
-#~ "based on\n"
-#~ "basic shapes: rectangles, ellipses and lines.\n"
-#~ "\n"
-#~ "Usage:\n"
-#~ "On the left select a drawing tool, on the bottom select a color then "
-#~ "click\n"
-#~ "on the white area and drag to create a new shape.\n"
-#~ "To go faster, you can use the middle mouse button to delete an object\n"
-#~ "or the right button to move an object.\n"
-#~ msgstr ""
-#~ "Mål:\n"
-#~ "I detta spel kan barnen rita fritt.\n"
-#~ "Målet är bara att barnet kan upptäcka hur det kan skapa vackra "
-#~ "teckningar\n"
-#~ "baserade på grundläggande former: rektanglar, ellipser och linjer.\n"
-#~ "\n"
-#~ "Användning:\n"
-#~ "På vänstra sidan väljer du ett ritverktyg, sedan väljer du en färg "
-#~ "nederst,\n"
-#~ "och sedan klickar du på den vita ytan och drar för att skapa en ny form.\n"
-#~ "För att snabba upp kan du använda musens mittknapp för att ta bort ett\n"
-#~ "objekt eller höger musknapp för att flytta ett objekt.\n"
 
 #~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
 #~ msgstr "Skriv in tangentbordssiffran 1 till 6 innan tärningarna når marken"
