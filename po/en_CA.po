@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-03 03:09-0500\n"
-"PO-Revision-Date: 2005-03-03 22:51-0500\n"
+"POT-Creation-Date: 2005-03-06 10:13-0500\n"
+"PO-Revision-Date: 2005-03-06 22:51-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2719,7 +2719,7 @@ msgstr "Multiple activities for kids"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:927
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
 #: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
 #: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
 #: src/gcompris/images_selector.c:654 src/gcompris/skin.c:83
@@ -2968,6 +2968,31 @@ msgstr "Python Board"
 #: src/boards/python.c:54
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
+
+#: src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "You need the Python XML module. Disabling SVG."
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: src/boards/python/anim.py:415
+msgid ""
+"Python xml module bot found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr ""
+"Python XML module not found. SVG is disabled. Install the Python XML module "
+"to enable SVG Save/restore."
+
+#: src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG is disabled. Install Python XML module to enable it"
+
+#: src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "Warning: the following images cannot be accessed on your system.\n"
+
+#: src/boards/python/anim.py:2363
+msgid "The corresponding items have been skiped."
+msgstr "The corresponding items have been skipped."
 
 #: src/boards/python/pythontest.py:75
 msgid ""
