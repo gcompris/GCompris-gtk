@@ -66,12 +66,14 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static int gamewon;
 
 static void process_ok(void);
-static void game_won();
-static void repeat();
+static void game_won(void);
+static void repeat(void);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup *mazegroup = NULL;
+
+static GnomeCanvasItem *tuxitem = NULL;
 
 static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent);
 static void maze_destroy_all_items(void);
@@ -81,6 +83,8 @@ gint key_press(guint keyval);
 /*--------------------*/
 static void draw_a_rect(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color);
 static void draw_a_line(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color);
+static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap);
+static void move_image(GnomeCanvasGroup *group, int x,int y, GnomeCanvasItem *item);
 static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color);
 static void draw_combined_rect(GnomeCanvasGroup *group, int x1, int y1, int x2,int y2, char *color);
 static void initMaze(void);
@@ -89,7 +93,7 @@ static int* isPossible(int x, int y);
 static void generateMaze(int x, int y);
 static void removeSet(void);
 static void draw_background(void);
-static void setlevelproperties();
+static void setlevelproperties(void);
 /*----------------------*/
 
 /* Description of this plugin */
@@ -157,7 +161,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
       gamewon = FALSE;
 
-		maze_next_level();
+      maze_next_level();
       pause_board(FALSE);
     }
 }
@@ -192,6 +196,8 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
  * set initial values for the next level
  * =====================================================================*/
 static void maze_next_level() {
+	GdkPixbuf *pixmap = NULL;
+
 	maze_destroy_all_items();
 	gcompris_bar_set_level(gcomprisBoard);
 	setlevelproperties();
@@ -206,9 +212,23 @@ static void maze_next_level() {
 	/* make a new group for the items */
 	begin=random()%hoogte;
 	end=random()%hoogte;
-	printf("Begin is: %d , Einde is: %d\n", begin,end);
-	draw_rect(mazegroup,0,begin,"blue");
-	draw_rect(mazegroup,breedte-1,end,"green");
+
+	/* Draw the tux */
+	pixmap = gcompris_load_pixmap("gcompris/misc/tux.png");
+	if(pixmap)
+	  {
+	    tuxitem = draw_image(mazegroup,0,begin,pixmap);
+	    gdk_pixbuf_unref(pixmap);
+	  }
+	
+	/* Draw the target */
+	pixmap = gcompris_load_pixmap("gcompris/misc/door.png");
+	if(pixmap)
+	  {
+	    draw_image(mazegroup,breedte-1,end,pixmap);
+	    gdk_pixbuf_unref(pixmap);
+	  }
+
 	position[ind][0]=0;
 	position[ind][1]=begin;
 	Maze[0][begin]=Maze[0][begin]+SET;	
@@ -307,8 +327,6 @@ static void maze_destroy_all_items() {
 		gtk_object_destroy (GTK_OBJECT(boardRootItem));
 	mazegroup = NULL;
 	boardRootItem = NULL;
-	
-
 }
 
 /* =====================================================================
@@ -391,6 +409,48 @@ static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color)
 	draw_a_rect(group,x1+buffer,y1+buffer ,x1+cellsize-buffer ,y1+cellsize-buffer ,color);
 }
 
+/*
+ * Same as draw rect but for an image
+ * Returns the created item
+ */
+static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap)
+{
+	GnomeCanvasItem *item = NULL;
+	int x1,y1;
+
+	y1=cellsize*(y)-hoogte + board_border_y;
+	x1=cellsize*(x)-breedte + board_border_x;
+
+	item = gnome_canvas_item_new (group,
+				      gnome_canvas_pixbuf_get_type (),
+				      "pixbuf", pixmap, 
+				      "x",	(double)x1+buffer,
+				      "y",	(double)y1+buffer,
+				      "width",	(double)cellsize-buffer*2,
+				      "height",(double)cellsize-buffer*2,
+				      "width_set", TRUE, 
+				      "height_set", TRUE,
+				      NULL);
+
+	return(item);
+}
+
+/*
+ * Same as draw rect but for an image
+ */
+static void move_image(GnomeCanvasGroup *group, int x,int y, GnomeCanvasItem *item)
+{
+	int x1,y1;
+	y1=cellsize*(y)-hoogte + board_border_y;
+	x1=cellsize*(x)-breedte + board_border_x;
+
+	gnome_canvas_item_set (item,
+			       "x",	(double)x1+buffer,
+			       "y",	(double)y1+buffer,
+			       NULL);
+	gnome_canvas_item_raise_to_top(item);
+}
+
 static void draw_combined_rect(GnomeCanvasGroup *group, int x1,int y1,int x2,int y2,char *color)
 {
 	int xx1,yy1,xx2,yy2;
@@ -439,7 +499,7 @@ static int check(int x,int y)
 static int* isPossible(int x, int y)
 {
 	int wall=Maze[x][y];
-	int pos[5];
+	static int pos[5];
 	wall=wall-SET;
 	pos[0]=0;
 	if(x==0)
@@ -647,7 +707,8 @@ static void movePos(int x1, int y1, int x2,int y2)
 				if(position[i][0]==x2 && position[i][1]==y2)
 				{	
 					bo=0;
-					draw_rect(mazegroup,x2,y2,"blue");
+					move_image(mazegroup,x2,y2,tuxitem);
+					//					draw_rect(mazegroup,x2,y2,"blue");
 				}
 				else
 				{
@@ -670,7 +731,7 @@ static void movePos(int x1, int y1, int x2,int y2)
 				game_won();
 			else
 			{
-				draw_rect(mazegroup,x2,y2,"blue");
+				move_image(mazegroup,x2,y2,tuxitem);
 				draw_combined_rect(mazegroup,x1,y1,x2,y2,"green");
 				draw_rect(mazegroup,x1,y1,"green");
 			}

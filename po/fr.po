@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-03-21 19:05+0100\n"
+"POT-Creation-Date: 2002-03-28 00:07+0100\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -164,6 +164,14 @@ msgstr "Apprentissage de l'heure"
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
 msgstr "Découvre l'ordinateur"
+
+#: boards/doubleentry.xml.in.h:1
+msgid "Double entry table"
+msgstr "Table à double entrée"
+
+#: boards/doubleentry.xml.in.h:2
+msgid "Drag and Drop the items in the double entry table"
+msgstr "Attrape et fais glisser les éléments dans la table à double entrée"
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:179
 msgid "A simple vector drawing tool"
@@ -534,7 +542,7 @@ msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr ""
 "Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
-#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:123
+#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:120
 msgid "Make the puzzle"
 msgstr "Construis le puzzle"
 
@@ -667,6 +675,14 @@ msgstr "Les nombres avec les dés"
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
+#: boards/target.xml.in.h:1
+msgid "Practice the addition with a target game"
+msgstr "Entraînement à l'opération d'addition avec un jeu de fléchette"
+
+#: boards/target.xml.in.h:2
+msgid "Touch the target and count your points"
+msgstr "Touches la cible et comptes tes points"
+
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
 msgid "Falling Words"
 msgstr "Les mots qui tombent"
@@ -710,7 +726,7 @@ msgid "Learn how to read"
 msgstr "Apprends à lire"
 
 #: src/boards/imageid.c:578 src/boards/menu.c:537
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1306
+#: src/boards/missingletter.c:599 src/boards/shapegame.c:1275
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -719,7 +735,7 @@ msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1309
+#: src/boards/shapegame.c:1278
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -772,7 +788,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y est pas"
 
-#: src/boards/shapegame.c:124
+#: src/boards/shapegame.c:121
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
@@ -907,31 +923,35 @@ msgstr "Musique"
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/gcompris.c:61
+#: src/gcompris/gcompris.c:62
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance gcompris en mode plein écran"
 
-#: src/gcompris/gcompris.c:63
+#: src/gcompris/gcompris.c:64
 msgid "run gcompris in window mode."
 msgstr "lance gcompris en mode fenêtré"
 
-#: src/gcompris/gcompris.c:65
+#: src/gcompris/gcompris.c:66
 msgid "run gcompris with sound enabled."
 msgstr "lance gcompris avec le son."
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris without sound."
 msgstr "lance gcompris sans le son."
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:70
+msgid "run gcompris with the default gnome cursor."
+msgstr "lance gcompris avec le curseur par défaut de gnome."
+
+#: src/gcompris/gcompris.c:72
 msgid "Prints the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:289
+#: src/gcompris/gcompris.c:297
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:466
+#: src/gcompris/gcompris.c:477
 #, c-format
 msgid ""
 "GCompris\n"
