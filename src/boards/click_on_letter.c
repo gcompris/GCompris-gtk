@@ -277,7 +277,9 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 
   int xOffset,yOffset,i,j;
   GdkPixbuf *button_pixmap = NULL;
-  gchar *alphabet=_("abcdefghijklmnopqrstufw");
+
+  /* TRANSLATORS: Put here the alphabet in your language */
+  gchar *alphabet=_("abcdefghijklmnopqrstuvwxyz");
   assert(g_utf8_validate(alphabet,-1,NULL)); // require by all utf8-functions
 
 

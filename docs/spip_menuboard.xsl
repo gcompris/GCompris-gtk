@@ -63,8 +63,8 @@
               <HTML>
                 <IMG border="0" align="top">
                   <xsl:attribute name="src">
-                    <xsl:value-of select="concat('screenshots/',@name)"/>.jpg</xsl:attribute>
-                    <xsl:attribute name="alt">
+                    <xsl:value-of select="concat('screenshots/',@name)"/>_small.jpg</xsl:attribute>
+                    <xsl:attribute name="title">
                       <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
                       <xsl:if test="not($tmptext)">
                         <xsl:value-of select="title"/>

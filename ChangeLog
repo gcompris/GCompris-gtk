@@ -1,3 +1,10 @@
+2004-11-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* docs/create_thumbnails.pl: created, to create thumbnails
+	* docs/spip_menuboard.xsl: updated. now can create the thumbnails. needs the links now.
+	* docs/spipparser.pl: updated.
+	* src/boards/click_on_letter.c: (click_on_letter_create_item): fixed alphabet.
+
 2004-11-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/wordsgame.c: (pause_board), (start_board),

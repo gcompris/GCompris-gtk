@@ -12,7 +12,7 @@ my %sections = (
 		"ca", 0,
 		"cs", 0,
 		"da", 37,
-		"de", 0,
+		"de", 54,
 		"el", 0,
 		"en", 2,
 		"en_CA", 0,
@@ -56,7 +56,7 @@ my %rubriques = (
 		 "ca", 0,
 		 "cs", 0,
 		 "da", 37,
-		 "de", 0,
+		 "de", 54,
 		 "el", 0,
 		 "en", 12,
 		 "en_CA", 0,
@@ -123,6 +123,7 @@ sub spip_cleanup {
 
 
 #-------------------------------------------------------------------------------
+# Initialisation
 
 my ($sec, $min, $hours, $day, $month, $year) = (localtime)[0,1,2,3,4,5];
 my $date = "".($year+1900)."-".($month+1)."-"."$day $hours:$min:$sec";
@@ -134,21 +135,21 @@ $ALL_LINGUAS_STR      =~ s/\"//g;
 my @ALL_LINGUAS       = split(' ', $ALL_LINGUAS_STR);
 push @ALL_LINGUAS, "en";	# Add english, it's not in the po list
 # Debug
-#@ALL_LINGUAS = qw/fr en/;
+@ALL_LINGUAS = qw/fr en/;
 
 my $output_file = "all_article.spip";
 
 # Erase previous output
 unlink $output_file;
 
-my $first_article = 10000;
+my $first_article = 9999;
 my $article_id    = $first_article;
 
 
 
 # First, Get all the boards description files
 opendir DIR, $boards_dir or die "cannot open dir $boards_dir: $!";
-my @files = grep { $_ =~ /.xml$/} readdir DIR;
+my @files = grep { $_ =~ /\.xml$/} readdir DIR;
 closedir DIR;
 
 #-------------------------------------------------------------------------------
@@ -241,7 +242,6 @@ foreach my $section (@sections) {
   }
 }
 
-exit 0;
 #-------------------------------------------------------------------------------
 # Article creation
 
@@ -261,6 +261,9 @@ foreach my $board (@files) {
     $article_id++;
 
     print "$lang ";
+
+    # Hide the article
+    $rubriques{$lang} = 0;
 
 #    print "xsltproc --stringparam language $lang --stringparam date '${date}' --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $file"."\n";
     my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $file`;
