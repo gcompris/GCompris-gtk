@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/10/20 23:25:19 bruno>
+ * Time-stamp: <2004/12/18 22:50:34 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -168,8 +168,17 @@ board_widget_key_press_callback (GtkWidget   *widget,
       return TRUE;
     case GDK_KP_Enter:
     case GDK_Return:
-      if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok)
+      /* If the board needs to receive key pressed */
+      /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
+       *       whenever possible
+       */
+      if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
 	{
+	  return(get_current_board_plugin()->key_press (event->keyval));
+	} 
+      else if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok)
+	{
+	  /* Else we send the OK signal. */
 	  get_current_board_plugin()->ok ();
 	}
       return TRUE;

@@ -1,3 +1,18 @@
+2004-12-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/images/top_boat_green.png: create by bruno. released under GPL
+	* boards/images/top_boat_red.png: same as above
+	* po/POTFILES.in: fixed
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback): changed the way the OK button
+	if handled.
+	If the board needs to receive key pressed (implements the key_press function)
+	Then on The key ENTER, the key_press will be called with the key.
+      	NOTE: If a board receives key press, it must bind the ENTER Keys to OK
+              whenever possible
+	Before, The enter key was always sent to the ok function.
+	I did not checked if this breaks compatibility yet. It may be needed to add some
+	catch of the Enter key in ok functions.
+	
 2004-12-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/gcompris2spip.pl: added Norsk Bokmal
