@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-06-22 00:33+0200\n"
-"PO-Revision-Date: 2003-06-22 00:34+0200\n"
+"POT-Creation-Date: 2003-06-24 23:46+0200\n"
+"PO-Revision-Date: 2003-06-24 23:47+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2141,7 +2141,7 @@ msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc Licens
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
+#: src/gcompris/about.c:284 src/gcompris/config.c:167 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2191,88 +2191,96 @@ msgid "Italian"
 msgstr "Italienska"
 
 #: src/gcompris/config.c:61
+msgid "Macedonian"
+msgstr "Makedonska"
+
+#: src/gcompris/config.c:62
+msgid "Malayalam"
+msgstr "Malayalam"
+
+#: src/gcompris/config.c:63
 msgid "Malay"
 msgstr "Malajiska"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:64
 msgid "Dutch"
 msgstr "Holländska"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:65
 msgid "Portuguese"
 msgstr "Portugisiska"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:66
 msgid "Brazil Portuguese"
 msgstr "Brasiliansk portugisiska"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:67
 msgid "Romanian"
 msgstr "Rumänska"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:68
 msgid "Russian"
 msgstr "Ryska"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:69
 msgid "Swedish"
 msgstr "Svenska"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:70
 msgid "Slovak"
 msgstr "Slovakiska"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:71
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:72
 msgid "Lithuanian"
 msgstr "Litauiska"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:77
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:78
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:79
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:80
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:85
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Standard för gcompris)"
 
-#: src/gcompris/config.c:139
+#: src/gcompris/config.c:141
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:245
+#: src/gcompris/config.c:247
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:290
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:316
+#: src/gcompris/config.c:318
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:353
+#: src/gcompris/config.c:355
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:684
-#: src/gcompris/config.c:695
+#: src/gcompris/config.c:389 src/gcompris/config.c:686
+#: src/gcompris/config.c:697
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2512,9 +2520,6 @@ msgstr "Återstående tid = %d"
 
 #~ msgid "Latvian"
 #~ msgstr "Lettiska"
-
-#~ msgid "Macedonian"
-#~ msgstr "Makedonska"
 
 #~ msgid "Norwegian (bokmal)"
 #~ msgstr "Norska (bokmål)"
