@@ -308,7 +308,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   switch (place) {
   case 1 :
     buf[0] = board->l2;
-    buf[1] = board->l1;static gint end_bonus_id = 0;
+    buf[1] = board->l1;
     buf[2] = board->l3;
     break;
   case 2 :

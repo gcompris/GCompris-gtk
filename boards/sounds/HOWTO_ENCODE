@@ -1,0 +1,11 @@
+- Record with rec, grecord, bcast2000
+- Save as WAV file
+- Apply loudness transform with sox if necessary.
+	You may such script if the sound is too low :
+	#!/bin/sh
+	for i; do
+			sox $i modif/$i vol 5.0 amplitude 0.05
+	done
+- In the directory where WAV files are run "oggenc *.wav"
+- Copy OGG files in the corresponding directory
+
