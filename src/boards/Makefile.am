@@ -8,7 +8,6 @@ endif
 
 SUBDIRS= $(python_subdir)
 
-
 lib_LTLIBRARIES = \
 	libalgebra.la \
 	libalgebra_guesscount.la \
@@ -49,7 +48,7 @@ lib_LTLIBRARIES = \
 
 libdir = $(plugindir)
 INCLUDES = \
-	-I.. \
+	-I$(top_srcdir)/src \
 	-I$(top_srcdir)/intl \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
@@ -316,13 +315,6 @@ libhanoi_la_LIBADD = \
 
 libhanoi_la_SOURCES = hanoi.c
 
-libpython_la_CPPFLAGS = \
-		-I.. \
-		-I$(top_srcdir)/intl \
-		$(GCOMPRIS_CFLAGS) \
-		$(XML_CFLAGS) \
-		$(PYTHON_CFLAGS) \
-		$(PYGTK_CFLAGS)
 
 libpython_la_LDFLAGS = -export-dynamic -module -avoid-version
 libpython_la_LIBADD =  \
@@ -331,8 +323,13 @@ libpython_la_LIBADD =  \
 	$(PYGTK_LIBS)
 
 libpython_la_SOURCES = python.c \
-	py-gcompris-board.c	 py-gcompris-board.h \
-	py-mod-gcompris.c	 py-mod-gcompris.h
+	py-gcompris-board.c	py-gcompris-board.h	\
+	py-mod-gcompris.c	py-mod-gcompris.h	\
+	py-mod-utils.c		py-mod-utils.h		\
+	py-mod-bonus.c		py-mod-bonus.h		\
+	py-mod-score.c		py-mod-score.h		\
+	py-mod-timer.c		py-mod-timer.h		\
+	py-mod-sound.c		py-mod-sound.h
 
 
 EXTRA_DIST = README

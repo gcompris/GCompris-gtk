@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
+                      "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<article>
+    <articleinfo>
+      <author>
+	<honorific>Ir</honorific>
+	<firstname>Olivier</firstname>
+	<surname>Samyn</surname>
+	<email>osamyn@ulb.ac.be</email>
+      </author>
+      <date>February 2003</date>
+      <revhistory>	
+	<revision>
+	  <revnumber>0.1</revnumber>
+	  <date>February 2003</date>
+	</revision>
+      </revhistory>
+    </articleinfo>
+    <title>Python wrapper for Gcompris</title>
+    <sect1>
+      <title>GcomprisBoard structure mapping </title> 
+
+      <para>
+An instance of this structure in Python will act like an instance of the C
+one. Here a some Python call samples:
+      </para>
+<programlisting>
+...
+  gcomprisBoard.level = 1
+  gcomprisBoard.maxlevel = 1
+...
+  gcompris.bar_start(gcomprisBoard.canvas)
+...
+</programlisting>
+      <para>
+Here are the Python structure member name and type, and a note indicating if the
+attribute is readeable and/or writable.
+      </para>
+      
+      <informaltable>
+	<tgroup cols="4">
+	  <thead>
+	    <row>
+	      <entry>Structure member</entry>
+	      <entry>Type</entry>
+	      <entry>Readable</entry>
+	      <entry>Writable</entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row>
+	      <entry>type</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>board_ready</entry><entry>boolean</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>mode</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>name</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>title</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>description</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>icon_name</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>author</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>boarddir</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>filename</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>difficulty</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>mandatory_sound_file</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>section</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>menuposotion</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>prerequisite</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>goal</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>manual</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>credit</entry><entry>string</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>width</entry><entry>int</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>height</entry><entry>int</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>canvas</entry><entry>gnome.canvas.Canvas</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>previous_board</entry><entry>GcomprisBoard</entry><entry>Y</entry><entry>N</entry>
+	    </row><row>
+	      <entry>level</entry><entry>int</entry><entry>Y</entry><entry>Y</entry>
+	    </row><row>
+	      <entry>maxlevel</entry><entry>int</entry><entry>Y</entry><entry>Y</entry>
+	    </row><row>
+	      <entry>sublevel</entry><entry>int</entry><entry>Y</entry><entry>Y</entry>
+	    </row><row>
+	      <entry>number_of_sublevel</entry><entry>int</entry><entry>Y</entry><entry>Y</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
+    </sect1>
+
+
+
+    <sect1>
+      <title>gcompris.h functions and constants Mapping</title>
+      <sect2>
+	<title>Functions mapping</title>
+	<informaltable>
+	  <tgroup cols="3">
+	    <thead>
+	      <row>
+		<entry>Python function</entry>
+		<entry>C equivalent</entry>
+		<entry>Notes</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>gcompris.end_board()</entry>
+		<entry>void gcompris_end_board(void)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.bar_start(gnomeCanvas)</entry>
+		<entry>void gcompris_bar_start(GnomeCanvas *theCanvas)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.set_background(gnomeCanvasGroup, file)</entry>
+		<entry>GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)</entry>
+		<entry>return a gnome.canvas.CanvasItem object</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.bar_set_level(gcomprisBoard)</entry>
+		<entry>void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.bar_set(flags)</entry>
+		<entry>void gcompris_bar_set(const GComprisBarFlags flags)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.bar_hide(hide)</entry>
+		<entry>void gcompris_bar_hide(gboolean hide)</entry>
+		<entry></entry>
+	      </row>
+	    <row>
+		<entry>gcompris.board_has_help(gcomprisBoard)</entry>
+		<entry>gboolean gcompris_board_has_help(GcomprisBoard *gcomprisBoard)</entry>
+		<entry>return a boolean</entry>
+	      </row>
+	      <row>
+	      <entry>gcompris.help_start(gcomprisBoard)</entry>
+		<entry>void gcompris_help_start(GcomprisBoard *gcomprisBoard)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.help_stop()</entry>
+		<entry>void gcompris_help_stop(void)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.get_canvas()</entry>
+		<entry>GnomeCanvas* gcompris_get_canvas()</entry>
+		<entry>return a gnome.canvas.Canvas</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.get_window()</entry>
+		<entry>GtkWidget* gcompris_get_window(void)</entry>
+		<entry>return a gtk.Widget</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.get_locale()</entry>
+		<entry>gchar* gcompris_get_locale(void)</entry>
+		<entry>return a string</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.set_locale(locale)</entry>
+		<entry>void gcompris_set_locale(gchar *locale)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.set_cursor(cursor_type)</entry>
+		<entry>void gcompris_set_cursor(guint gdk_cursor_type)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.images_selector_start(gcomprisBoard, dataset, callback)</entry>
+		<entry>void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset, ImageSelectorCallBack imscb)</entry>
+		<entry>The callback must be a callable object</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.images_selector_stop()</entry>
+		<entry>void gcompris_images_selector_stop(void)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.exit()</entry>
+		<entry>void gcompris_exit(void)</entry>
+		<entry></entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+      <sect2>
+	<title>GComprisBarFlags enum mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>gcompris.BAR_LEVEL</entry>
+		<entry>GCOMPRIS_BAR_LEVEL</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.BAR_OK</entry>
+		<entry>GCOMPRIS_BAR_OK</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.BAR_REPEAT</entry>
+		<entry>GCOMPRIS_BAR_REPEAT</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.BAR_CONFIG</entry>
+		<entry>GCOMPRIS_BAR_CONFIG</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.BAR_ABOUT</entry>
+		<entry>GCOMPRIS_BAR_ABOUT</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+      
+      <sect2>
+	<title>Misc constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.BOARD_HEIGHT</entry>
+		<entry>BOARDHEIGHT</entry></row>
+	      <row><entry>gcompris.BOARD_WIDTH</entry>
+		<entry>BOARDWIDTH</entry></row>
+	      <row><entry>gcompris.BAR_HEIGHT</entry>
+		<entry>BAR_HEIGHT</entry></row>
+	      <row><entry>gcompris.DEFAULT_SKIN</entry>
+		<entry>DEFAULT_SKIN</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+      <sect2>
+	<title>Colors constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.COLOR_TITLE</entry><entry>COLOR_TITLE</entry></row>
+	      <row><entry>gcompris.COLOR_TEXT_BUTTON</entry><entry>COLOR_TEXT_BUTTON</entry></row>
+	      <row><entry>gcompris.COLOR_CONTENT</entry><entry>COLOR_CONTENT</entry></row>
+	      <row><entry>gcompris.COLOR_SUBTITLE</entry><entry>COLOR_SUBTITLE</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+      <sect2>
+	<title>Fonts constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.FONT_TITLE</entry><entry>FONT_TITLE</entry></row>
+	      <row><entry>gcompris.FONT_TITLE_FALLBACK</entry><entry>FONT_TITLE_FALLBACK</entry></row>
+	      <row><entry>gcompris.FONT_SUBTITLE</entry><entry>FONT_SUBTITLE</entry></row>
+	      <row><entry>gcompris.FONT_SUBTITLE_FALLBACK</entry><entry>FONT_SUBTITLE_FALLBACK</entry></row>
+	      <row><entry>gcompris.FONT_CONTENT</entry><entry>FONT_CONTENT</entry></row>
+	      <row><entry>gcompris.FONT_CONTENT_FALLBACK</entry><entry>FONT_CONTENT_FALLBACK</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+      <sect2>
+	<title>Board font constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.FONT_BOARD_TINY</entry><entry>FONT_BOARD_TINY</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_SMALL</entry><entry>FONT_BOARD_SMALL</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_MEDIUM</entry><entry>FONT_BOARD_MEDIUM</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_BIG</entry><entry>FONT_BOARD_BIG</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_BIG_BOLD</entry><entry>FONT_BOARD_BIG_BOLD</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_FIXED</entry><entry>FONT_BOARD_FIXED</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_TITLE</entry><entry>FONT_BOARD_TITLE</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_TITLE_BOLD</entry><entry>FONT_BOARD_TITLE_BOLD</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_HUGE</entry><entry>FONT_BOARD_HUGE</entry></row>
+	      <row><entry>gcompris.FONT_BOARD_HUGE_BOLD</entry><entry>FONT_BOARD_HUGE_BOLD</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+      <sect2>
+	<title>Cursor constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.CURSOR_FIRST_CUSTOM</entry>
+		<entry>GCOMPRIS_FIRST_CUSTOM_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_BIG_RED_ARROW</entry>
+		<entry>GCOMPRIS_BIG_RED_ARROW_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_BIRD</entry><entry>GCOMPRIS_BIRD_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_LINE</entry><entry>GCOMPRIS_LINE_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_FILLRECT</entry><entry>GCOMPRIS_FILLRECT_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_RECT</entry><entry>GCOMPRIS_RECT_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_FILLCIRCLE</entry><entry>GCOMPRIS_FILLCIRCLE_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_CIRCLE</entry><entry>GCOMPRIS_CIRCLE_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_DEL</entry><entry>GCOMPRIS_DEL_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_FILL</entry><entry>GCOMPRIS_FILL_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_SELECT</entry><entry>GCOMPRIS_SELECT_CURSOR</entry></row>
+	      <row><entry>gcompris.CURSOR_DEFAULT</entry><entry>GCOMPRIS_DEFAULT_CURSOR</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+    </sect1>
+</article>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-default-dtd-file:"/usr/share/xml/docbook/xemacs/docbook-4.2"
+End:
+-->

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # This quick hack gives translation statistics (from the core translation
 # files).

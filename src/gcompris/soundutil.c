@@ -184,15 +184,40 @@ char* get_next_sound_to_play( )
 }
 /* =====================================================================
  * Play a list of OGG sound files. The list must be NULL terminated
+ * This function wraps the var args into a GList and call the 
+ * gcompris_play_ogg_list function to process the sounds.
+ ======================================================================*/
+void gcompris_play_ogg(char *sound, ...)
+{
+  va_list ap;
+  char* tmp = NULL;
+  GList* list = NULL;
+
+  list = g_list_append(list, sound);
+
+  va_start( ap, sound);
+  while( (tmp = va_arg (ap, char *)))
+    {
+      list = g_list_append(list, tmp);
+    }
+  va_end(ap);
+
+  gcompris_play_ogg_list( list );
+  
+  g_list_free(list);  
+}
+
+/* =====================================================================
+ * Play a list of OGG sound files. 
  * The given ogg files will be first tested as a locale dependant sound file:
  * sounds/<current gcompris locale>/<sound>
  * If it doesn't exists, then the test is done with a music file:
  * music/<sound>
- ======================================================================*/
-void gcompris_play_ogg(char *sound, ...)
+ =====================================================================*/
+void gcompris_play_ogg_list( GList* files )
 {
+  GList* list;
   int err;
-  va_list ap;
   char* tmp = NULL;
   char* tmpSound = NULL;
 
@@ -223,20 +248,16 @@ void gcompris_play_ogg(char *sound, ...)
 
   pthread_mutex_lock( &lock );
 
-  if (g_list_length(pending_queue) < MAX_QUEUE_LENGTH)
-    pending_queue = g_list_append(pending_queue, g_strdup( sound ) );
-
-  va_start( ap, sound);
-  while( (tmp = va_arg (ap, char *)))
+  list = g_list_first( files );
+  while( list!=NULL )
     {
       if (g_list_length(pending_queue) < MAX_QUEUE_LENGTH)
 	{
-	  pending_queue = g_list_append(pending_queue, g_strdup( tmp ));
+	  pending_queue = g_list_append(pending_queue, g_strdup( (gchar*)(list->data) ));
 	}
+      list = g_list_next(list);
     }
-
-  va_end(ap);
-
+  
   err = pthread_mutex_unlock ( &lock);
   if (err)
     printf ("mutex_unlock: %s\n", strerror (err));

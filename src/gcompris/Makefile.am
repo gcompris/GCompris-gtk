@@ -1,13 +1,12 @@
 ## Process this file with automake to produce Makefile.in
 if PYTHON_PLUGIN
-  python_ldadd = $(PYTHON_LIBS)
-  python_ldflags = -u Py_Initialize
+python_ldadd = $(PYTHON_LIBS)
+python_ldflags = -u Py_Initialize
 else
-  python_ldadd =
-  python_ldflags =
+python_ldadd =
+python_ldflags =
 endif
  
-
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \

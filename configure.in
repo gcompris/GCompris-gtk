@@ -5,6 +5,8 @@ AM_INIT_AUTOMAKE(gcompris, 2.3)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
+GNOME_COMMON_INIT
+
 AC_ISC_POSIX
 
 LIBGNOME_REQUIRED=1.96.0
@@ -50,12 +52,12 @@ ALL_LINGUAS="am ar az ca de el es fi fr hu it lt ms nl no pt pt_BR ro ru sk sv t
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
-AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}")
+AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}", [Supported languages])
 
 GETTEXT_PACKAGE=gcompris
 AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package name])
 
 dnl Define myprefix depending on wether our user gives us one or not
 if test "x${prefix}" = "xNONE"; then
@@ -65,27 +67,27 @@ else
 fi
 
 dnl Set PACKAGE_LOCALE_DIR in config.h.
-AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale")
+AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale", [Gcompris locale directory])
 
 dnl Set PACKAGE_SOUNDS_DIR
 PACKAGE_SOUNDS_DIR="sounds"
 AC_SUBST(PACKAGE_SOUNDS_DIR)
-AC_DEFINE_UNQUOTED(PACKAGE_SOUNDS_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/sounds")
+AC_DEFINE_UNQUOTED(PACKAGE_SOUNDS_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/sounds", [Gcompris sounds directory])
 
 dnl Set PACKAGE_DATA_DIR
 PACKAGE_DATA_DIR="boards"
 AC_SUBST(PACKAGE_DATA_DIR)
-AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/boards")
+AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/boards", [Gcompris data directory])
 
 dnl Set PACKAGE_HELP_DIR
-AC_DEFINE_UNQUOTED(PACKAGE_HELP_DIR, "${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}")
+AC_DEFINE_UNQUOTED(PACKAGE_HELP_DIR, "${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}", [Gcompris help directory])
 PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}"
 AC_SUBST(PACKAGE_HELP_DIR)
 
 dnl Plugin Directory
-AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${myprefix}/lib/gcompris")
+AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${myprefix}/lib/gcompris", [Gcompris plugins directory])
 
-AC_DEFINE_UNQUOTED(GNOME_ICONDIR, "${myprefix}/share/pixmaps")
+AC_DEFINE_UNQUOTED(GNOME_ICONDIR, "${myprefix}/share/pixmaps", [Gnome icons directory])
 
 plugindir=$libdir/gcompris
 AC_SUBST(plugindir)
