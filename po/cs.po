@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-10 18:53+0100\n"
-"PO-Revision-Date: 2005-01-10 21:42+0100\n"
+"POT-Creation-Date: 2005-01-14 10:52+0100\n"
+"PO-Revision-Date: 2005-01-14 17:51+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1044,11 +1044,11 @@ msgstr "Umísti položky nejlepším způsobem pro jejich počítání"
 msgid "Motor coordination"
 msgstr "Koordinace pohybů"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Hýbej myší"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Hýbej myší pro vymazání oblasti a objevení pozadí"
 
@@ -2391,7 +2391,17 @@ msgid ""
 "When done, you can try to improve your program and start a new race with the "
 "same weather conditions by using the retry button. Going to the next level "
 "will give your more complex wether conditions."
-msgstr "Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované příkazy jsou zobrazeny mezi vstupními oblastmi. Za příkazy 'doleva' a 'doprava' musí být úhel ve stupních. Hodnota úhlu se také nazývá 'parametr' příkazu doleva nebo doprava. Implicitně se používá 45 stupňů. Příkaz 'vpřed' přijímá parametr vzdálenosti. Implicitně se používá 1. Například: left 90 => otočit se pravoúhle doleva vpřed 10 => jít vpřed o 10 jednotek (podle pravítka) Cíl je dojet do pravé části obrazovky (červená čára). Až budeš hotov, můžeš zkusit svůj program vylepšit a začít nový závod se stejnými podmínkami počasí pomocí tlačítka opakovat. Přechod na další úroveň ti dá složitější podmínky počasí."
+msgstr ""
+"Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované "
+"příkazy jsou zobrazeny mezi vstupními oblastmi. Za příkazy 'doleva' a "
+"'doprava' musí být úhel ve stupních. Hodnota úhlu se také nazývá 'parametr' "
+"příkazu doleva nebo doprava. Implicitně se používá 45 stupňů. Příkaz 'vpřed' "
+"přijímá parametr vzdálenosti. Implicitně se používá 1. Například: left 90 => "
+"otočit se pravoúhle doleva vpřed 10 => jít vpřed o 10 jednotek (podle "
+"pravítka) Cíl je dojet do pravé části obrazovky (červená čára). Až budeš "
+"hotov, můžeš zkusit svůj program vylepšit a začít nový závod se stejnými "
+"podmínkami počasí pomocí tlačítka opakovat. Přechod na další úroveň ti dá "
+"složitější podmínky počasí."
 
 #: boards/searace.xml.in.h:3
 msgid ""
@@ -2399,7 +2409,10 @@ msgid ""
 "if the language is extremely basic, you learn here how to think ahead and "
 "enter a program. This activity can be used to introduce the programming "
 "concept to kids."
-msgstr "V této aktivitě se naučíš, jak zadávat počítači příkazy. I když je tento jazyk extrémně základní, naučíš se tady, jak myslet dopředu a zadávat program. Tuto aktivitu lze použít pro představení pojmu programování dětem."
+msgstr ""
+"V této aktivitě se naučíš, jak zadávat počítači příkazy. I když je tento "
+"jazyk extrémně základní, naučíš se tady, jak myslet dopředu a zadávat "
+"program. Tuto aktivitu lze použít pro představení pojmu programování dětem."
 
 #: boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
@@ -2801,13 +2814,13 @@ msgstr "Nauč se číst"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "U daných obrázků ruky rozpoznej, jestli je to pravá nebo levá"
 
-#: src/boards/leftright.c:248 src/boards/python/searace.py:506
-#: src/boards/python/searace.py:771
+#: src/boards/leftright.c:248 src/boards/python/searace.py:513
+#: src/boards/python/searace.py:812
 msgid "left"
 msgstr "doleva"
 
-#: src/boards/leftright.c:258 src/boards/python/searace.py:515
-#: src/boards/python/searace.py:773
+#: src/boards/leftright.c:258 src/boards/python/searace.py:522
+#: src/boards/python/searace.py:814
 msgid "right"
 msgstr "doprava"
 
@@ -2883,55 +2896,59 @@ msgstr "Úroveň"
 msgid "Coordinate"
 msgstr "Koordinace"
 
-#: src/boards/python/searace.py:187 src/boards/python/searace.py:192
-#: src/boards/python/searace.py:218
+#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
+#: src/boards/python/searace.py:220
 msgid "Race is already running"
 msgstr "Závod již běží"
 
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:756
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:781
 msgid "droite"
 msgstr "doprava"
 
 #. Manage default cases (no params given)
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:497 src/boards/python/searace.py:752
-#: src/boards/python/searace.py:765
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:504 src/boards/python/searace.py:777
+#: src/boards/python/searace.py:806
 msgid "forward"
 msgstr "vpřed"
 
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:754
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:779
 #, fuzzy
 msgid "gauche"
 msgstr "aktovka"
 
-#: src/boards/python/searace.py:488
+#: src/boards/python/searace.py:495
 msgid "COMMANDS ARE"
 msgstr "PŘÍKAZY JSOU"
 
-#: src/boards/python/searace.py:663
+#: src/boards/python/searace.py:670
 msgid "The Red boat has won"
 msgstr "Červená loď vyhrála"
 
-#: src/boards/python/searace.py:665
+#: src/boards/python/searace.py:673
 msgid "The Green boat has won"
 msgstr "Zelená loď vyhrála"
 
 #. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-#: src/boards/python/searace.py:694
+#: src/boards/python/searace.py:703
 msgid "Angle:"
 msgstr "Úhel:"
 
-#: src/boards/python/searace.py:694
+#: src/boards/python/searace.py:703
 msgid "Wind:"
 msgstr "Vítr:"
 
-#: src/boards/python/searace.py:759
+#: src/boards/python/searace.py:784
 msgid "Syntax error at line"
 msgstr "Chyba syntaxe na řádku"
 
-#: src/boards/python/searace.py:778
+#: src/boards/python/searace.py:802
+msgid "The command"
+msgstr "Příkaz"
+
+#: src/boards/python/searace.py:821
 msgid "Unknown command at line"
 msgstr "Neznámý příkaz na řádku"
 
