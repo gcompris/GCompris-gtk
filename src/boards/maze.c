@@ -38,6 +38,9 @@
 #define BASE_X2 800
 #define BASE_Y2 500
 
+#define GOOD_COLOR	0x10F01040
+#define BAD_COLOR	0xFF101040
+#define LINE_COLOR	0xFFFFFFFF
 
 /* array of the board */
 static int Maze[MAX_WIDTH][MAX_HEIGHT];

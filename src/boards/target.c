@@ -109,7 +109,7 @@ static TargetDefinition targetDefinition[] =
 #define SPEED_CENTER_Y	130
 
 static guint target_colors[] = {
-  0xAA000000, 0x00AA0000, 0x0000AA00, 0xAAAA0000, 0x00AAAA00, 0xAA00AA00, 0xAA000000, 0x00AA0000, 0x0000AA00, 0xAA000000
+  0xAA0000FF, 0x00AA00FF, 0x0000AAFF, 0xAAAA00FF, 0x00AAAAFF, 0xAA00AAFF, 0xAA0000FF, 0x00AA00FF, 0x0000AAFF, 0xAA0000FF
 };
 
 static guint number_of_arrow = 0;
@@ -417,7 +417,7 @@ static void display_windspeed()
   gnome_canvas_item_new (speedRootItem,
 			 gnome_canvas_line_get_type (),
 			 "points", canvasPoints,
-			 "fill_color_rgba", 0x68c46f00,
+			 "fill_color_rgba", 0x68c46fFF,
 			 "width_units", (double)1,
 			 "width_pixels", (uint) 4,
 			 "last_arrowhead", TRUE,
@@ -433,7 +433,7 @@ static void display_windspeed()
 			 "y1", (double)SPEED_CENTER_Y-5,
 			 "x2", (double)SPEED_CENTER_X+5,
 			 "y2", (double)SPEED_CENTER_Y+5,
-			 "fill_color_rgba", "blue",
+			 "fill_color_rgba", 0x0070C0FF,
 			 "outline_color", "red",
 			 "width_units", (double)1,
 			 NULL);
@@ -666,7 +666,7 @@ static void launch_dart(double item_x, double item_y)
 					"y1", (double)item_y-MAX_DART_SIZE,
 					"x2", (double)item_x+MAX_DART_SIZE,
 					"y2", (double)item_y+MAX_DART_SIZE,
-					"fill_color_rgba", "black",
+					"fill_color_rgba", 0xFF80FFFF,
 					"outline_color", "white",
 					"width_units", (double)1,
 					NULL);

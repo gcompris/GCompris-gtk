@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2002/04/16 23:56:15 bruno>
+ * Time-stamp: <2002/05/01 11:59:27 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -351,7 +351,7 @@ static void display_second(guint second)
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
   gnome_canvas_item_set (second_item,
 			 "points", canvasPoints,
-			 "fill_color_rgba", 0x68c46f00,
+			 "fill_color_rgba", 0x68c46fFF,
 			 "width_units", (double)1,
 			 "width_pixels", (uint) 4,
 			 "last_arrowhead", TRUE,

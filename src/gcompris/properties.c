@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2002/01/20 01:08:00 bruno>
+ * Time-stamp: <2002/05/01 22:30:19 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -39,7 +39,9 @@ GcomprisProperties *gcompris_properties_new ()
 
   tmp->music		= gnome_config_get_int ("/gcompris/Preferences/music=1");
   tmp->fx		= gnome_config_get_int ("/gcompris/Preferences/fx=1");
+  tmp->screensize	= gnome_config_get_int ("/gcompris/Preferences/screensize=1");
   tmp->fullscreen	= gnome_config_get_int ("/gcompris/Preferences/fullscreen=1");
+  tmp->timer		= gnome_config_get_int ("/gcompris/Preferences/timer=1");
 
   locale = getenv("LC_ALL");
   if(locale == NULL)
@@ -80,6 +82,8 @@ GcomprisProperties *gcompris_properties_copy (GcomprisProperties *props)
 
   tmp->music = props->music;
   tmp->fx = props->fx;
+  tmp->screensize = props->screensize;
+  tmp->timer = props->timer;
   tmp->fullscreen = props->fullscreen;
   tmp->locale = g_strdup(props->locale);
 	
@@ -92,6 +96,10 @@ void gcompris_properties_save (GcomprisProperties *props)
 			props->music);
   gnome_config_set_int ("/gcompris/Preferences/fx",
 			props->fx);
+  gnome_config_set_int ("/gcompris/Preferences/screensize",
+			props->screensize);
+  gnome_config_set_int ("/gcompris/Preferences/timer",
+			props->timer);
   gnome_config_set_int ("/gcompris/Preferences/fullscreen",
 			props->fullscreen);
   gnome_config_set_string ("/gcompris/Preferences/locale",

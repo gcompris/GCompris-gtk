@@ -1,3 +1,15 @@
+2002-04-29 Bruno Coudoin <bruno.coudoin@free.fr>
+
+	* src/boards/draw.c: now clicking the background remove the selection
+	now the selection mode is selected after a new item is created
+	added image support
+	* src/gcompris/images_selector.c: created. Let any board access to an image
+	loader. Images are defined in xml dataset similar to boards xml menus.
+	* src/gcompris/gcompris.c: added support for different user defined screen size
+	* src/gcompris/properties.c: added screensize and timer definition
+	* src/gcompris/config.c: added screensize and timer definition
+	* src/boards/shapegame.c: added support for infinite puzzle pieces
+
 2002-04-28 Bruno Coudoin <bruno.coudoin@free.fr>
 
 	* confidure.in: Changed to release 1.0.3

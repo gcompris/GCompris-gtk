@@ -19,6 +19,7 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include "gcompris_config.h"
 #include "timer.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -42,6 +43,11 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 {
   GdkFont *gdk_font;
   GdkPixbuf *pixmap = NULL;
+  GcomprisProperties	*properties = gcompris_get_properties();
+
+  /* Timer is not requested */
+  if(properties->timer==0)
+    return;
 
   gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
@@ -56,6 +62,7 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 
   x = ax;
   y = ay;
+  second = second / properties->timer;
   timer = second;
   ratio = second / 10;
 

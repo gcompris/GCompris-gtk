@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2002/04/14 01:10:37 bruno>
+ * Time-stamp: <2002/05/01 22:13:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -26,7 +26,9 @@ typedef struct {
   gint		music;
   gint		fx;
   gint		fullscreen;
+  gint		screensize;
   gint		defaultcursor;
+  gint		timer;
   gchar	       *locale;
 } GcomprisProperties;
 

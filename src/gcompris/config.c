@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/02/17 21:34:46 bruno>
+ * Time-stamp: <2002/05/01 22:12:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -29,6 +29,8 @@
 static GnomeCanvasItem	*rootitem		= NULL;
 static GnomeCanvasItem	*item_locale_text	= NULL;
 static GnomeCanvasItem	*item_locale_flag	= NULL;
+static GnomeCanvasItem	*item_screen_text	= NULL;
+static GnomeCanvasItem	*item_timer_text	= NULL;
 static GdkPixbuf	*pixmap_checked		= NULL;
 static GdkPixbuf	*pixmap_unchecked	= NULL;
 
@@ -51,6 +53,19 @@ static gchar *linguas[] = {
   "sv",		N_("Swedish"),
   "lt",		N_("Lithuanian"),
   NULL, NULL
+};
+
+static gchar *timername[] = {
+  N_("No time limit"),
+  N_("Slow timer"),
+  N_("Normal timer"),
+  N_("Fast timer")
+};
+
+static gchar *screenname[] = {
+  N_("640x480"),
+  N_("800x600 (Default for gcompris)"),
+  N_("1024x768"),
 };
 
 static void set_locale_flag(gchar *locale);
@@ -170,40 +185,8 @@ void gcompris_config_start ()
   // Locale
   y_start += 140;
 
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_backward.png");
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) x_start - gdk_pixbuf_get_width(pixmap) - 10,
-				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-				NULL);
+  display_previous_next(x_start, y_start, "locale_previous", "locale_next");
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "locale_previous");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-  gdk_pixbuf_unref(pixmap);
-
-
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_forward.png");
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) x_start,
-				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
-				NULL);
-
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "locale_next");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-  gdk_pixbuf_unref(pixmap);
-
-  
   item_locale_flag = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", NULL, 
@@ -251,6 +234,21 @@ void gcompris_config_start ()
 			 "anchor", GTK_ANCHOR_WEST,
 			 "fill_color_rgba", COLOR_CONTENT,
 			 NULL);
+
+  // Screen size
+  y_start += 50;
+
+  display_previous_next(x_start, y_start, "screen_previous", "screen_next");
+
+  item_screen_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					    gnome_canvas_text_get_type (),
+					    "text", screenname[properties->screensize], 
+					    "font_gdk", gdk_font_small,
+					    "x", (double) x_text_start,
+					    "y", (double) y_start,
+					    "anchor", GTK_ANCHOR_WEST,
+					    "fill_color_rgba", COLOR_CONTENT,
+					    NULL);
 
   // Music
   y_start += 50;
@@ -308,6 +306,21 @@ void gcompris_config_start ()
 			 "fill_color_rgba", COLOR_CONTENT,
 			 NULL);
 
+  // Timer
+  y_start += 50;
+
+  display_previous_next(x_start, y_start, "timer_previous", "timer_next");
+
+  item_timer_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					   gnome_canvas_text_get_type (),
+					   "text", timername[properties->timer], 
+					   "font_gdk", gdk_font_small,
+					   "x", (double) x_text_start,
+					   "y", (double) y_start,
+					   "anchor", GTK_ANCHOR_WEST,
+					   "fill_color_rgba", COLOR_CONTENT,
+					   NULL);
+
 }
 
 void gcompris_config_stop ()
@@ -338,6 +351,46 @@ void gcompris_config_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
+display_previous_next(guint x_start, guint y_start, 
+		      gchar *eventname_previous, gchar *eventname_next)
+{
+  GdkPixbuf   *pixmap = NULL;
+  GnomeCanvasItem *item;
+
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_backward.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) x_start - gdk_pixbuf_get_width(pixmap) - 10,
+				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     eventname_previous);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+  gdk_pixbuf_unref(pixmap);
+
+
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_forward.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) x_start,
+				"y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     eventname_next);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+  gdk_pixbuf_unref(pixmap);
+}
+  
 static void set_locale_flag(gchar *locale)
 {
   char *str = NULL;
@@ -495,6 +548,42 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	  set_locale_flag(current_locale);
 	  properties->locale = current_locale;
+	}
+      else if(!strcmp((char *)data, "screen_previous"))
+	{
+	  if(properties->screensize>0)
+	    properties->screensize--;
+
+	  gnome_canvas_item_set (item_screen_text,
+				 "text", screenname[properties->screensize], 
+				 NULL);
+	}
+      else if(!strcmp((char *)data, "screen_next"))
+	{
+	  if(properties->screensize<MAX_SCREEN_VALUE)
+	    properties->screensize++;
+
+	  gnome_canvas_item_set (item_screen_text,
+				 "text", screenname[properties->screensize], 
+				 NULL);
+	}
+      else if(!strcmp((char *)data, "timer_previous"))
+	{
+	  if(properties->timer>0)
+	    properties->timer--;
+
+	  gnome_canvas_item_set (item_timer_text,
+				 "text", timername[properties->timer], 
+				 NULL);
+	}
+      else if(!strcmp((char *)data, "timer_next"))
+	{
+	  if(properties->timer<MAX_TIMER_VALUE)
+	    properties->timer++;
+
+	  gnome_canvas_item_set (item_timer_text,
+				 "text", timername[properties->timer], 
+				 NULL);
 	}
     default:
       break;

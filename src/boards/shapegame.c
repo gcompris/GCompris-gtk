@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/03/20 01:05:55 bruno>
+ * Time-stamp: <2002/05/02 01:30:42 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -62,6 +62,9 @@ struct _Shape {
   ShapeType type;			/* Type of shape */
 
   GnomeCanvasItem *item;     	  	/* Canvas item for this shape */
+				  	/* Root index which this item is in the shapelist */
+  GnomeCanvasGroup *shape_list_group_root;
+  guint shapelistgroup_index;	  	/* Root index which this item is in the shapelist */
   Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
   GnomeCanvasItem *bad_item;		/* Temporary bad placed Canvas item for this shape */
 
@@ -84,7 +87,12 @@ gchar *colorlist [] =
   };
 
 /* This is the list of shape for the current game */
-static GList *shape_list = NULL;
+static GList *shape_list	= NULL;
+static GList *shape_list_group	= NULL;
+static current_shapelistgroup_index	= -1;
+
+#define BUTTON_SPACE		40
+#define MAX_NUMBER_OF_SHAPES	8
 
 /* Hash table of all the shapes in the list of shapes (one by different pixmap plus icon list) */
 static GHashTable *shapelist_table = NULL;
@@ -112,6 +120,7 @@ static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  Gnom
 				      double zoomy, guint position);
 static gboolean 	 increment_sublevel(void);
 static void 		 create_title(char *name, double x, double y, char *justification);
+static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -401,6 +410,10 @@ static void shapegame_destroy_all_items()
 
       g_hash_table_destroy (shapelist_table);
       shapelist_table=NULL;
+      
+      g_list_free(shape_list_group);
+      shape_list_group = NULL;
+      current_shapelistgroup_index = -1;
     }
 }
 
@@ -486,11 +499,81 @@ static void
 add_shape_to_list_of_shapes(Shape *shape)
 {
   GnomeCanvasItem *item;
-  gint MAX_NUMBER_OF_SHAPES = 10;
-  double SHAPE_ELEM_NUMBER_IN_HEIGHT = (double)gcomprisBoard->height/MAX_NUMBER_OF_SHAPES;
+  GdkPixbuf   *pixmap = NULL;
+  double SHAPE_ELEM_NUMBER_IN_HEIGHT = (double)(gcomprisBoard->height-BUTTON_SPACE)/MAX_NUMBER_OF_SHAPES;
+  GnomeCanvasGroup *shape_list_group_root = NULL;
 
   if(!shapelist_table)
     shapelist_table= g_hash_table_new (g_str_hash, g_str_equal);
+
+  /* If the first list is full, add the previos/forward buttons */
+  if(g_hash_table_size(shapelist_table)==MAX_NUMBER_OF_SHAPES)
+    {
+      pixmap = gcompris_load_pixmap("gcompris/buttons/button_backward.png");
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
+				    gnome_canvas_pixbuf_get_type (),
+				    "pixbuf", pixmap, 
+				    "x", (double) -30,
+				    "y", (double) BOARDHEIGHT-40,
+				    NULL);
+      
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_ok,
+			 "previous_shapelist");
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+      gdk_pixbuf_unref(pixmap);
+      
+      
+      pixmap = gcompris_load_pixmap("gcompris/buttons/button_forward.png");
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
+				    gnome_canvas_pixbuf_get_type (),
+				    "pixbuf", pixmap, 
+				    "x", (double) 10,
+				    "y", (double) BOARDHEIGHT-40,
+				    NULL);
+      
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_ok,
+			 "next_shapelist");
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+      gdk_pixbuf_unref(pixmap);
+  }
+
+  if(g_hash_table_size(shapelist_table)%MAX_NUMBER_OF_SHAPES==0)
+    {
+      current_shapelistgroup_index++;
+      printf("Creation of the group of shape current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+      // Hide the previous group
+      if(current_shapelistgroup_index>=1)
+	{
+	  printf(" Hide previous group\n");
+	  shape_list_group_root = GNOME_CANVAS_GROUP(g_list_nth_data(shape_list_group, 
+								     current_shapelistgroup_index-1));
+	  gnome_canvas_item_hide(shape_list_group_root);
+	}
+
+      // We need to start a new shape list group
+      shape_list_group_root = \
+	GNOME_CANVAS_GROUP(gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
+						 gnome_canvas_group_get_type (),
+						 "x", (double)0,
+						 "y", (double)0,
+						 NULL));
+
+      shape_list_group = g_list_append (shape_list_group, shape_list_group_root);
+      printf(" current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+
+    }
+  else
+    {
+      // Get the current shapelist group
+      printf(" get the current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+      shape_list_group_root = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+    }
 
   /* This pixmap is not yet in the list of shapes */
   if(g_hash_table_lookup (shapelist_table, shape->pixmapfile)==NULL)
@@ -498,8 +581,9 @@ add_shape_to_list_of_shapes(Shape *shape)
       double y_offset = 0;
       GdkPixbuf *pixmap = NULL;
 
-      y_offset = SHAPE_ELEM_NUMBER_IN_HEIGHT/2 +
-	g_hash_table_size(shapelist_table)*SHAPE_ELEM_NUMBER_IN_HEIGHT;
+      y_offset = (SHAPE_ELEM_NUMBER_IN_HEIGHT/2 +
+		  (g_hash_table_size(shapelist_table)%MAX_NUMBER_OF_SHAPES)*
+		  SHAPE_ELEM_NUMBER_IN_HEIGHT);
 
       /* So this shape is not yet in, let's put it in now */
       g_hash_table_insert (shapelist_table, shape->pixmapfile, shape);
@@ -524,7 +608,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
 		}
 	      
-	      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
+	      item = gnome_canvas_item_new (shape_list_group_root,
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap, 
 					    "x", (double)-w/2,
@@ -536,13 +620,15 @@ add_shape_to_list_of_shapes(Shape *shape)
 					    NULL);
 	      gdk_pixbuf_unref(pixmap);
 	      
-	      icon_shape = create_shape(SHAPE_ICON, shape->name, shape->pixmapfile, shape->points, shape->targetfile,
+	      icon_shape = create_shape(SHAPE_ICON, shape->name, 
+					shape->pixmapfile, shape->points, shape->targetfile,
 					(double)0, (double)y_offset,
 					(double)w, (double)h, 
 					(double)1, (double)1,
 					0);
 	      icon_shape->item = item;
-	      
+	      icon_shape->shapelistgroup_index = current_shapelistgroup_index;
+	      icon_shape->shape_list_group_root = shape_list_group_root;
 	      setup_item(item, icon_shape);
 	    }
 	}
@@ -604,7 +690,11 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
       gnome_canvas_item_move(shape->icon_shape->item, 
 			     shape->icon_shape->x - shape->x,
 			     shape->icon_shape->y - shape->y);
-      gnome_canvas_item_show(shape->icon_shape->item);
+      if(shape->shapelistgroup_index==current_shapelistgroup_index)
+	gnome_canvas_item_show(shape->icon_shape->item);
+      else
+	gnome_canvas_item_hide(shape->icon_shape->item);
+
       gcompris_set_image_focus(shape->icon_shape->item, TRUE);
       shape->icon_shape=NULL;
 
@@ -733,7 +823,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	   gnome_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 
-	   gnome_canvas_item_reparent (item, (GnomeCanvasGroup *)shape_list_root_item);
+	   gnome_canvas_item_reparent (item, shape->shape_list_group_root);
 
 	   targetshape = find_closest_shape(item_x, item_y, 100);
 	   if(targetshape!=NULL)
@@ -926,6 +1016,47 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 }
 
+/* Callback for the operations */
+static gint
+item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+{
+  GnomeCanvasItem	*root_item;
+
+  switch (event->type) 
+    {
+    case GDK_ENTER_NOTIFY:
+      break;
+    case GDK_LEAVE_NOTIFY:
+      break;
+    case GDK_BUTTON_PRESS:
+      root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+      gnome_canvas_item_hide(root_item);
+
+      printf(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+      if(!strcmp((char *)data, "previous_shapelist"))
+	{
+	  if(current_shapelistgroup_index>0)
+	    {
+	      current_shapelistgroup_index--;
+	    }
+	}
+      else if(!strcmp((char *)data, "next_shapelist"))
+	{	
+	  if(current_shapelistgroup_index<g_list_length(shape_list_group)-1)
+	    {
+	      current_shapelistgroup_index++;
+	    }
+	}
+
+      root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+      gnome_canvas_item_show(root_item);
+    default:
+      break;
+    }
+  return FALSE;
+
+
+}
 
 static void
 setup_item(GnomeCanvasItem *item, Shape *shape)
@@ -1270,7 +1401,8 @@ parse_doc(xmlDocPtr doc)
        we pass NULL as the node of the child */
     add_xml_shape_to_data(doc, node, NULL);
   }
-  shuffle_shape_list();
+  // FIXME: NEED TO SUPPORT MULTI ROOT
+  //  shuffle_shape_list();
 }
 
 

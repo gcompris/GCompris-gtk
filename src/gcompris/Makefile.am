@@ -24,7 +24,8 @@ gcompris_SOURCES = \
 	score.c score.h \
 	config.c gcompris_config.h \
 	about.c about.h \
-	cursor.c cursor.h
+	cursor.c cursor.h \
+	images_selector.c
 
 gcompris_LDADD = \
 	-L$(top_builddir)/src/unicode	\

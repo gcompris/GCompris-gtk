@@ -21,6 +21,9 @@
 #ifndef GCOMPRISCONFIG_H
 #define GCOMPRISCONFIG_H
 
+#define MAX_TIMER_VALUE		3
+#define MAX_SCREEN_VALUE	2
+
 void gcompris_config_start ();
 void gcompris_config_stop ();
 

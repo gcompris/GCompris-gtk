@@ -1,6 +1,6 @@
 /* gcompris - soundutil.c
  *
- * Time-stamp: <2002/02/17 20:02:23 bruno>
+ * Time-stamp: <2002/04/29 01:43:31 bruno>
  *
  * Copyright (C) 2002 Pascal Georges
  *
@@ -30,6 +30,8 @@ static int sound_channels_used;
 static int max_sound_channels;
 
 static gboolean ogg_avalaible;
+
+void child_end(int  signum);
 
 typedef void (*sighandler_t)(int);
 

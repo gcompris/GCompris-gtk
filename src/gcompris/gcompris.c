@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/04/13 23:54:29 bruno>
+ * Time-stamp: <2002/05/01 22:50:01 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -40,6 +40,7 @@ static gint board_widget_key_press_callback (GtkWidget   *widget,
 
 GcomprisProperties	*properties = NULL;
 GcomprisBoard		*gcomprisBoardMenu = NULL;
+static gboolean		 antialiased = FALSE;
 
 /****************************************************************************/
 /* Some constants.  */
@@ -56,6 +57,7 @@ static gchar           *gcompris_locale = NULL;
 #define P_MUTE		104
 #define P_VERSION	105
 #define P_CURSOR	106
+#define P_ANTIALIASED	107
 
 struct poptOption command_line[] = {
   {"fullscreen", 'f', POPT_ARGFLAG_ONEDASH, NULL, P_FULLSCREEN,
@@ -70,6 +72,8 @@ struct poptOption command_line[] = {
    N_("run gcompris with the default gnome cursor.")},
   {"version", 'v', POPT_ARGFLAG_ONEDASH, NULL, P_VERSION,
    N_("Prints the version of " PACKAGE)},
+  {"antialiased", 'a', POPT_ARGFLAG_ONEDASH, NULL, P_ANTIALIASED,
+   N_("Use the antialiased canvas (slower).")},
   POPT_AUTOHELP {NULL, 0, 0, NULL, 0}
 };
 
@@ -148,7 +152,7 @@ GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)
 
 static void init_background()
 {
-  double xratio, yratio;
+  double xratio, yratio, max;
   GtkWidget *vbox;
 
   yratio=gdk_screen_height()/(float)(BOARDHEIGHT+BARHEIGHT);
@@ -159,13 +163,24 @@ static void init_background()
 
   yratio=xratio=MIN(xratio, yratio);
 
-  /* The canvas does not look pretty when resized above 1 ratio. Avoid that */
-  xratio=MIN(1.0, xratio);
+  /* Depending on user preference, set the max ratio */
+  switch(properties->screensize)
+    {
+    case 0: max = 0.8;
+      break;
+    case 1: max = 1;
+      break;
+    case 2: max = 1.28;
+      break;
+    default: max = 1;
+      break;
+    }
+  xratio=MIN(max, xratio);
 
   printf("Calculated x ratio xratio=%f\n", xratio);
   
   /* Background area if ratio above 1 */
-  if(xratio>=1.0 && properties->fullscreen)
+  if(properties->fullscreen)
     {
       /* First, Remove the gnome crash dialog because it locks the user when in full screen */
       signal(SIGSEGV, SIG_DFL);
@@ -191,7 +206,7 @@ static void init_background()
   /* Create a vertical box in which I put first the play board area, then the button bar */
   vbox = gtk_vbox_new (FALSE, 0);
 
-  if(xratio<1.0 || properties->fullscreen==FALSE)
+  if(!properties->fullscreen)
     gnome_app_set_contents (GNOME_APP (window), GTK_WIDGET(vbox));
 
   gtk_widget_show (GTK_WIDGET(vbox));
@@ -201,13 +216,15 @@ static void init_background()
   gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas), TRUE, TRUE, 0);
   gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas_bar), TRUE, TRUE, 0);
 
-  if(xratio>=1.0 && properties->fullscreen)
+  if(properties->fullscreen)
     {
       gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
 			     gnome_canvas_widget_get_type (),
 			     "widget", vbox, 
-			     "x", (double) (gdk_screen_width()-BOARDWIDTH)/2,
-			     "y", (double) (gdk_screen_height()-BOARDHEIGHT-BARHEIGHT)/2,
+			     "x", (double) (gdk_screen_width()-
+					    BOARDWIDTH*xratio)/2,
+			     "y", (double) (gdk_screen_height()-
+					    BOARDHEIGHT*xratio-BARHEIGHT*xratio)/2,
 			     "size_pixels", TRUE,
 			     NULL);
     }
@@ -326,18 +343,20 @@ static void setup_window ()
   gtk_widget_push_colormap(gdk_rgb_get_cmap());
   */
 
-  /* For non anti alias canvas */
-  canvas     = GNOME_CANVAS(gnome_canvas_new ());
-  canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
-  canvas_bg  = GNOME_CANVAS(gnome_canvas_new ());
-
-  /* For anti alias canvas */
-  /*
-  canvas     = GNOME_CANVAS(gnome_canvas_new_aa ());
-  canvas_bar = GNOME_CANVAS(gnome_canvas_new_aa ());
-  canvas_bg = GNOME_CANVAS(gnome_canvas_new_aa ());
-  */
-
+  if(antialiased)
+    {
+      /* For anti alias canvas */
+	canvas     = GNOME_CANVAS(gnome_canvas_new_aa ());
+	canvas_bar = GNOME_CANVAS(gnome_canvas_new_aa ());
+	canvas_bg = GNOME_CANVAS(gnome_canvas_new_aa ());
+    }
+  else
+    {
+      /* For non anti alias canvas */
+      canvas     = GNOME_CANVAS(gnome_canvas_new ());
+      canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
+      canvas_bg  = GNOME_CANVAS(gnome_canvas_new ());
+    }
 
   gnome_app_set_contents (GNOME_APP (window), GTK_WIDGET(canvas_bg));
 
@@ -503,6 +522,10 @@ main (int argc, char *argv[])
 	case P_CURSOR:
 	  g_warning("Default gnome cursor enabled");
 	  properties->defaultcursor = GDK_LEFT_PTR;
+	  break;
+	case P_ANTIALIASED:
+	  g_warning("Slower Antialiased canvas used");
+	  antialiased = TRUE;
 	  break;
 	}
     }

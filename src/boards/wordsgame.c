@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2002/04/14 00:29:36 bruno>
+ * Time-stamp: <2002/04/29 01:52:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -70,6 +70,9 @@ static char		 *get_random_word(void);
 static void		 wordsgame_check_focus (char	*key,
 				   LettersItem *value,
 				   LettersItem **user_data);
+static gboolean words_table_foreach_remove (char *key,
+					    LettersItem *value,
+					    LettersItem *user_data);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
@@ -163,9 +166,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     }
 }
 
-gboolean words_table_foreach_remove (char *key,
-				     LettersItem *value,
-				     LettersItem *user_data)
+static gboolean words_table_foreach_remove (char *key,
+					    LettersItem *value,
+					    LettersItem *user_data)
 {
   free(value->word);
   free(value->overword);

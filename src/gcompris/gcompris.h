@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/04/14 00:17:00 bruno>
+ * Time-stamp: <2002/05/01 01:25:47 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -85,6 +85,12 @@ gchar	        *gcompris_get_locale(void);
 void		 gcompris_set_locale(gchar *locale);
 
 void		 gcompris_set_cursor(guint gdk_cursor_type);
+
+typedef void     (*ImageSelectorCallBack)     (gchar* image);
+void		 gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, 
+						 gchar *dataset, 
+						 ImageSelectorCallBack imscb);
+void		 gcompris_images_selector_stop (void);
 
 /*=========================================================*/
 /* Some global definition to keep a constant look and feel */

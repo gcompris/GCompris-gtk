@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2002/04/17 00:25:30 bruno>
+ * Time-stamp: <2002/05/01 22:03:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *

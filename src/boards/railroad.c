@@ -80,8 +80,8 @@ static void railroad_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-static void reposition_model();
-static void reposition_answer();
+static void reposition_model(void);
+static void reposition_answer(void);
 
 // helper function because g_list_free does not actually reset a list
 static GList * reset_list(GList * list);
