@@ -1,5 +1,9 @@
 2004-01-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/machpuzzle.c: (rectangle_in): Fixed hole detection.
+
+2004-01-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/skins/default/skin.xml: added and changed colors for erase
 	* boards/skins/pink/skin.xml: added and changed colors for erase
 	* src/boards/erase.c: (erase_next_level), (erase_create_item),

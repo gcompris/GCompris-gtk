@@ -488,7 +488,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 }
 
 /* 
- * Returns true if at least 2 corners of 's' rectangle are inside 'd' rectangle
+ * Returns true if at least 3 corners of 's' rectangle are inside 'd' rectangle
  *
  */
 static gint rectangle_in(double sx1, double sy1, double sx2, double sy2,
@@ -497,7 +497,7 @@ static gint rectangle_in(double sx1, double sy1, double sx2, double sy2,
   guint corner_in = 0;
   //  printf("rectangle_in %10f %10f %10f %10f\n             %10f %10f %10f %10f\n", sx1,sy1,sx2,sy2,dx1,dy1,dx2,dy2);
 
-  if(sx1>dx1 && sx1<dx2 && sy1>dy1 && sy1<dy2)
+  if(sx1>dx1 && sx1<dx2 && sy1>dy1 && sy1<dy2) 
     corner_in++;
 
   if(sx2>dx1 && sx2<dx2 && sy2>dy1 && sy2<dy2)
@@ -506,12 +506,10 @@ static gint rectangle_in(double sx1, double sy1, double sx2, double sy2,
   if(sx2>dx1 && sx2<dx2 && sy1>dy1 && sy1<dy2)
     corner_in++;
 
-  if(sx2>dx1 && sx2<dx2 && sy1>dy1 && sy1<dy2)
+  if(sx1>dx1 && sx1<dx2 && sy2>dy1 && sy2<dy2)
     corner_in++;
 
-  //  printf ("    CORNER = %d\n", corner_in);
-
-  return (corner_in>=2 ? TRUE : FALSE);
+  return (corner_in>=3 ? TRUE : FALSE);
 }
 
 /* Move */
