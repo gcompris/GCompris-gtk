@@ -231,7 +231,7 @@ static void* thread_play_ogg (void *s)
 
   if ( file )
     {
-      printf("Calling decode_ogg_file(%s)\n");
+      printf("Calling decode_ogg_file(%s)\n", file);
       decode_ogg_file(file);
       g_free( file );
     }
