@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/03/07 19:45:20 bcoudoin>
+ * Time-stamp: <2004/04/14 00:47:32 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -442,11 +442,13 @@ parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard)
 */
 GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
 {
-  char *filename;
+  gchar *filename;
   /* pointer to the new doc */
   xmlDocPtr doc;
 
   g_return_val_if_fail(fname!=NULL,FALSE);
+
+  g_message("gcompris_read_xml_file for %s\n", fname);
 
   filename = g_strdup(fname);
 
@@ -609,12 +611,22 @@ void gcompris_load_menus()
 
   if (!dir) {
     g_warning("gcompris_load_menus : no menu found in %s", PACKAGE_DATA_DIR);
-
   } else {
 
     while((one_dirent = readdir(dir)) != NULL) {
       /* add the board to the list */
       GcomprisBoard *gcomprisBoard = NULL;
+      gchar *filename;
+      
+      filename = g_strdup_printf("%s/%s",
+				 PACKAGE_DATA_DIR, one_dirent->d_name);
+
+      if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
+	g_free(filename);
+	continue;
+      }
+
+      g_message("gcompris_load_menus is parsing file %s", filename);
 
       if(selectMenuXML(one_dirent->d_name)) {
 	gcomprisBoard = g_malloc (sizeof (GcomprisBoard));
@@ -625,9 +637,10 @@ void gcompris_load_menus()
 	gcomprisBoard->plugin=NULL;
 
 	boards_list = g_list_append(boards_list, gcompris_read_xml_file(gcomprisBoard, 
-									one_dirent->d_name));
+									filename));
 
       }
+      g_free(filename);
     }
   }
   closedir(dir);

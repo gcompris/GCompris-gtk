@@ -36,7 +36,7 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-gboolean	 board_paused = TRUE;
+static gboolean	 board_paused = TRUE;
 static int	 leavenow;
 static int	 gamewon;
 static void	 game_won(void);

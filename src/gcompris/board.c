@@ -61,7 +61,6 @@ void set_current_gcompris_board(GcomprisBoard * gcomprisBoard)
 
 gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 {
-  GList       *node;
   BoardPlugin *bp;
   GModule     *gmodule = NULL;
   gchar       *gmodule_file = NULL;
@@ -135,7 +134,6 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
 void board_play(GcomprisBoard *gcomprisBoard)
 {
-  GList *node;
   BoardPlugin *bp;
   GModule     *gmodule = NULL;
 

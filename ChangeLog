@@ -1,3 +1,14 @@
+2004-04-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* docs/C/Makefile.am: fixed for out of source compilation. Thanks to Mike Castle for that.
+	* docs/fr/Makefile.am: -
+	* src/boards/algebra.c: fixes for windows.
+	* src/boards/maze.c: (maze_next_level), (generateMaze): fixes for windows.
+	* src/gcompris/.cvsignore: updated
+	* src/gcompris/board.c: (board_check_file), (board_play): added traces
+	* src/gcompris/gameutil.c: added traces. Add now the full xml file path in
+	gcompris_load_menus before calling gcompris_read_xml_file
+
 2004-04-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/gcompris-marshal.c: create to make the gcompris library

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/03/08 00:24:24 bcoudoin>
+ * Time-stamp: <2004/04/13 23:26:55 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -454,9 +454,11 @@ static void setup_window ()
 
   /* Get and Run the root menu */
   gcomprisBoardMenu = gcompris_get_board_from_section("/");
-  if(!board_check_file(gcomprisBoardMenu))
+  if(!board_check_file(gcomprisBoardMenu)) {
     g_error("Cant't find the menu board or plugin execution error");
-
+  } else {
+    g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
+  }
   /* Run the bar */
   gcompris_bar_start(canvas_bar);
 
