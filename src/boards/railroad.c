@@ -568,10 +568,14 @@ static gboolean animate_step() {
   // this defines how the train waits before start
 #define MODEL_PAUSE 30
   //	printf("+++animate_step %d \n",animation_count);
-  animation_count++;
+
+  if(board_paused)
+    return TRUE;
 
   if(!gcomprisBoard)
     return FALSE;
+
+  animation_count++;
 
   if (animation_count < MODEL_PAUSE)
     return TRUE;

@@ -50,6 +50,7 @@ static GnomeCanvasItem	*shape_root_item = NULL;
 static GnomeCanvasItem	*draw_root_item = NULL;
 static GnomeCanvasItem	*current_color_item = NULL;
 static guint		 currentColor = 0;
+gboolean		 board_paused = TRUE;
 
 typedef enum
   {
@@ -238,6 +239,10 @@ BoardPlugin
  */
 static void pause_board (gboolean pause)
 {
+  if(gcomprisBoard==NULL)
+    return;
+
+  board_paused = pause;
 
 }
 
@@ -891,6 +896,9 @@ static gint
 tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 {
 
+  if(!gcomprisBoard || board_paused)
+    return FALSE;
+
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
@@ -949,6 +957,9 @@ static gint
 ext_color_event(GnomeCanvasItem *item, GdkEvent *event, gpointer color_rgba)
 {
   guint color = GPOINTER_TO_INT(color_rgba);
+
+  if(!gcomprisBoard || board_paused)
+    return FALSE;
 
   if(color_rgba==NULL)
     return FALSE;
@@ -1888,7 +1899,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
   GdkCursor			*fleur = NULL;
   AnchorType			 anchor;
 
-  if(!gcomprisBoard)
+  if(!gcomprisBoard || board_paused)
     return FALSE;
 
   anchor = (AnchorType)gtk_object_get_user_data(GTK_OBJECT(item));
@@ -2010,7 +2021,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
   double item_x, item_y;
   GdkCursor *fleur = NULL;
 
-  if(!gcomprisBoard)
+  if(!gcomprisBoard || board_paused)
     return FALSE;
 
   switch (event->type)
@@ -2240,7 +2251,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
   double item_x, item_y;
   GnomeCanvasItem *newItem = NULL;
 
-  if(!gcomprisBoard)
+  if(!gcomprisBoard || board_paused)
     return FALSE;
 
   switch (event->type)
