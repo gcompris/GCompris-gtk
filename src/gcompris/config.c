@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/01/13 00:11:48 bruno>
+ * Time-stamp: <2002/01/24 18:43:55 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -37,19 +37,19 @@ static gchar		*current_locale		= NULL;
 #define SOUNDLISTFILE PACKAGE
 
 static gchar *linguas[] = {
-  "az", N_("Azerbaijani Turkic"),
-  "de", N_("German"),
-  "el", N_("Greek"),
-  "en", N_("English"),
-  "es", N_("Spanish"),
-  "fi", N_("Finnish"),
-  "fr", N_("French"),
-  "it", N_("Italian"),
-  "nl",N_("Dutch"),
-  "pt_BR",N_("Brazil Portuguese"),
-  "ru",N_("Romanian"),
-  "sv",N_("Slovenian"),
-  "lt",N_("Lithuanian"),
+  "az", 	N_("Azerbaijani Turkic"),
+  "de", 	N_("German"),
+  "el", 	N_("Greek"),
+  "en", 	N_("English"),
+  "es", 	N_("Spanish"),
+  "fi", 	N_("Finnish"),
+  "fr", 	N_("French"),
+  "it",	 	N_("Italian"),
+  "nl",		N_("Dutch"),
+  "pt_BR",	N_("Brazil Portuguese"),
+  "ru",		N_("Romanian"),
+  "sv",		N_("Swedish"),
+  "lt",		N_("Lithuanian"),
   NULL, NULL
 };
 

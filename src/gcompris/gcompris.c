@@ -345,7 +345,6 @@ gchar *gcompris_get_locale()
 {
   char *locale;
 
-  printf("gcompris_get_locale gcompris_locale=%s\n", gcompris_locale);
   /* First check locale got overrided by the user */
   if(gcompris_locale != NULL)
     return(gcompris_locale);
@@ -388,14 +387,11 @@ main (int argc, char *argv[])
 
   bindtextdomain (PACKAGE, PACKAGE_LOCALE_DIR);
   textdomain (PACKAGE);
-      printf("1 LOCALE = %s\n", getenv("LC_ALL"));
 
   load_properties ();
-      printf("2 LOCALE = %s\n", getenv("LC_ALL"));
 
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);
-      printf("3 LOCALE = %s\n", getenv("LC_ALL"));
 
   gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
 
