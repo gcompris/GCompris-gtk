@@ -132,7 +132,7 @@ plugindir = @plugindir@
 
 sounddir = $(pkgdatadir)/@PACKAGE_SOUNDS_DIR@
 
-sound_DATA = bonus.wav gobble.wav crash.wav level.wav
+sound_DATA = bonus.wav gobble.wav crash.wav level.wav train.wav
 
 EXTRA_DIST = $(sound_DATA) README
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs

@@ -16,6 +16,7 @@ lib_LTLIBRARIES = \
 	libimageid.la \
 	libmissingletter.la \
 	libclick_on_letter.la \
+	librailroad.la \
 	liberase.la \
 	liblocale.la
 
@@ -164,6 +165,13 @@ libclick_on_letter_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
 
 libclick_on_letter_la_SOURCES = click_on_letter.c
 
+librailroad_la_LDFLAGS = -module -avoid-version
+librailroad_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+librailroad_la_SOURCES = railroad.c
 
 liberase_la_LDFLAGS = -module -avoid-version
 liberase_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
@@ -173,7 +181,6 @@ liberase_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
 
 liberase_la_SOURCES = erase.c
 
-
 liblocale_la_LDFLAGS = -module -avoid-version
 liblocale_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
@@ -181,7 +188,6 @@ liblocale_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
 	$(GDK_PIXBUF_LIBS)
 
 liblocale_la_SOURCES = locale.c
-
 
 EXTRA_DIST = README
 

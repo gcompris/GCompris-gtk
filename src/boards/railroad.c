@@ -1,0 +1,624 @@
+/* gcompris - railroad.c
+ *
+ * Copyright (C) 2001 Pascal Georges
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
+#include <ctype.h>
+#include <math.h>
+#include <assert.h>
+
+#include "gcompris/gcompris.h"
+
+#define SOUNDLISTFILE PACKAGE
+
+GcomprisBoard *gcomprisBoard = NULL;
+gboolean board_paused = TRUE;
+
+static void start_board (GcomprisBoard *agcomprisBoard);
+static void pause_board (gboolean pause);
+static void end_board (void);
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
+static void set_level (guint level);
+static int gamewon;
+static void process_ok(void);
+static void game_won();
+static void repeat();
+static void animate_model();
+static gboolean animate_step();
+
+static void show_model(gboolean);
+static void show_answer(gboolean);
+static void show_engines_wagons(gboolean);
+
+#define ENGINES 5 //9
+#define WAGONS 9 // 14
+#define MODEL_MAX_SIZE 4
+
+static const int line[] = { 103,223,303,380, 460, 540};
+static gboolean animation_pending;
+static gint animation_count = 0;
+
+static GnomeCanvasGroup *boardRootItem = NULL;
+static GList * listPixmapEngines = NULL;
+static GList * listPixmapWagons = NULL;
+
+static GnomeCanvasItem *item[ENGINES+WAGONS];
+// ==========================================
+// In all the lists below, 0 is the LEFTmost vehicle|
+// ==========================================
+// contains the list of vehicles to be found.
+static GnomeCanvasItem *item_model[MODEL_MAX_SIZE];
+// contains the list of vehicles proposed by child.
+static GList *item_answer_list = NULL;
+// contains the list of vehicles proposed by child.
+static GList *int_answer_list = NULL;
+// contains the list of vehicles to be found
+static GList *int_model_list = NULL;
+
+static int model_size = 0;
+static gint timer_id;
+
+static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent);
+static void railroad_destroy_all_items(void);
+static void railroad_next_level(void);
+static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+
+static void reposition_model();
+static void reposition_answer();
+
+// helper function because g_list_free does not actually reset a list
+static GList * reset_list(GList * list);
+static void reset_all_lists(void);
+
+/* Description of this plugin */
+BoardPlugin menu_bp =
+  {
+    NULL,
+    NULL,
+    N_("Memory game"),
+    N_("Build a train conforming to the model"),
+    "Pascal Georges pascal.georges1@free.fr>",
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    start_board,
+    pause_board,
+    end_board,
+    is_our_board,
+    NULL,
+    process_ok,
+    set_level,
+    NULL,
+    repeat
+  };
+
+/*
+ * Main entry point mandatory for each Gcompris's game
+ * ---------------------------------------------------
+ *
+ */
+
+BoardPlugin
+*get_bplugin_info(void)
+{
+  return &menu_bp;
+}
+
+/*
+ * in : boolean TRUE = PAUSE : FALSE = CONTINUE
+ *
+ */
+static void pause_board (gboolean pause)
+{
+  if(gcomprisBoard==NULL)
+    return;
+
+  if(gamewon == TRUE) /* the game is won */
+    {
+      game_won();
+    }
+
+  board_paused = pause;
+}
+
+/*
+ */
+static void start_board (GcomprisBoard *agcomprisBoard)
+{
+  int i;
+  char *str;
+  GdkPixbuf * pixmap = NULL;
+
+  if(agcomprisBoard!=NULL)
+    {
+      gcomprisBoard=agcomprisBoard;
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),  "railroad/railroad-bg.jpg");
+
+      for (i=0; i<ENGINES; i++) {
+      	str = g_strdup_printf("railroad/loco%d.png", i+1);
+	pixmap = gcompris_load_pixmap(str);
+	listPixmapEngines = g_list_append(listPixmapEngines, pixmap);
+	g_free(str);
+      }
+
+      for (i=0; i<WAGONS; i++) {
+      	str = g_strdup_printf("railroad/wagon%d.png", i+1);
+	pixmap = gcompris_load_pixmap(str);
+	listPixmapWagons = g_list_append(listPixmapWagons, pixmap);
+	g_free(str);
+      }
+
+      animation_pending = FALSE;
+      gcomprisBoard->level=1;
+      gcomprisBoard->maxlevel=3;
+      gcomprisBoard->sublevel=1;
+      gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
+      gcompris_bar_set_timer(0);
+      gcompris_bar_set_maxtimer(gcomprisBoard->maxlevel * gcomprisBoard->number_of_sublevel);
+
+      railroad_next_level();
+
+      gamewon = FALSE;
+      pause_board(FALSE);
+    }
+}
+/* ======================================= */
+static void end_board ()
+{
+  int i;
+  if(gcomprisBoard!=NULL)
+    {
+      pause_board(TRUE);
+      railroad_destroy_all_items();
+
+	for (i=0; i<ENGINES; i++) {
+		gdk_pixbuf_unref(g_list_nth_data(listPixmapEngines,i));
+	}
+
+	for (i=0; i<WAGONS; i++) {
+		gdk_pixbuf_unref(g_list_nth_data(listPixmapWagons,i));
+	}
+
+	g_list_free(listPixmapEngines);
+	g_list_free(listPixmapWagons);
+    }
+}
+
+/* ======================================= */
+static void set_level (guint level)
+{
+
+  if(gcomprisBoard!=NULL)
+    {
+      gcomprisBoard->level=level;
+      gcomprisBoard->sublevel=1;
+      railroad_next_level();
+    }
+}
+/* ======================================= */
+gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+{
+  if (gcomprisBoard)
+    {
+      if(g_strcasecmp(gcomprisBoard->type, "railroad")==0)
+	{
+	  /* Set the plugin entry */
+	  gcomprisBoard->plugin=&menu_bp;
+
+	  return TRUE;
+	}
+    }
+  return FALSE;
+}
+
+/* ======================================= */
+static void repeat ()
+{
+  if(gcomprisBoard!=NULL) {
+    show_answer(FALSE);
+    show_model(TRUE);
+    show_engines_wagons(FALSE);
+    reposition_model();
+    animate_model();
+    }
+}
+
+/* ==================================== */
+/* set initial values for the next level */
+static void railroad_next_level()
+{
+printf("======= NEXT LEVEL ======== \n");
+  gcompris_bar_set_level(gcomprisBoard);
+
+  reset_all_lists();
+  // I have big troubles with the GList API : the worst I have ever seen !
+  assert(g_list_length(item_answer_list) == 0 && g_list_length(int_answer_list) == 0 && g_list_length(int_model_list) == 0);
+
+  model_size = 0;
+
+  railroad_destroy_all_items();
+  gamewon = FALSE;
+  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+
+  /* Try the next level */
+  railroad_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+}
+/* ==================================== */
+/* Destroy all the items */
+static void railroad_destroy_all_items()
+{
+  if(boardRootItem!=NULL)
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+
+  boardRootItem = NULL;
+}
+/* ==================================== */
+static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
+{
+  int xOffset = 0, yOffset = 0;
+  int i, r, l = 1;
+  GdkPixbuf * pixmap = NULL;
+
+  printf("+++railroad_create_item\n");
+  boardRootItem = GNOME_CANVAS_GROUP(
+				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+							    gnome_canvas_group_get_type (),
+							    "x", (double) 0,
+							    "y", (double) 0,
+							    NULL));
+  // Create the vehicules
+  for (i=0; i<ENGINES+WAGONS; i++) {
+	if (i<ENGINES)
+		pixmap = g_list_nth_data(listPixmapEngines, i);
+		else
+		pixmap = g_list_nth_data(listPixmapWagons, i-ENGINES);
+
+	if ( (xOffset + gdk_pixbuf_get_width(pixmap)) >= gcomprisBoard->width) {
+		xOffset = 0;
+		l++;
+		}
+	yOffset = line[l] - gdk_pixbuf_get_height(pixmap);
+
+  	item[i] = gnome_canvas_item_new (boardRootItem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf",  pixmap,
+				   "x",  (double) xOffset,
+				   "y",  (double) yOffset,
+				   NULL);
+  	xOffset += gdk_pixbuf_get_width(pixmap);
+  }
+  // hide them
+  show_engines_wagons(FALSE);
+
+  // construct the model to be recognized
+  yOffset = line[0];
+  xOffset = 0;
+  model_size = gcomprisBoard->level +1; // engine + cars
+  // First the cars, depending of the level
+  for (i=0; i<model_size-1; i++) {
+	r = (int)(((float) WAGONS)*rand()/(RAND_MAX+1.0));
+	assert( r >=0 && r < WAGONS);
+	// keep track of the answer
+	int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
+	pixmap = g_list_nth_data(listPixmapWagons, r);
+	assert(i >= 0 && i<MODEL_MAX_SIZE);
+	item_model[i] =gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_pixbuf_get_type (),
+					"pixbuf",  pixmap,
+					"x",  (double) xOffset,
+					"y",  (double) yOffset - gdk_pixbuf_get_height(pixmap),
+					NULL);
+	xOffset  += gdk_pixbuf_get_width(pixmap);
+  }
+
+  // Then the engine
+  r = (int)(((float) ENGINES)*rand()/(RAND_MAX+1.0));
+  assert( r >=0 && r < ENGINES);
+  // keep track of the answer
+  int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r));
+  pixmap = g_list_nth_data(listPixmapEngines, r);
+  item_model[model_size-1] =gnome_canvas_item_new (boardRootItem,
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf",  pixmap,
+				   "x",  (double) xOffset,
+				   "y",  (double) yOffset  - gdk_pixbuf_get_height(pixmap),
+				   NULL);
+
+  animate_model();
+
+  for (i=0; i<ENGINES+WAGONS; i++)
+  	gtk_signal_connect(GTK_OBJECT(item[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+
+  printf("---railroad_create_item\n");
+
+  return NULL;
+}
+/* ==================================== */
+static void game_won()
+{
+  gcomprisBoard->sublevel++;
+
+  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+    /* Try the next level */
+    gcomprisBoard->sublevel=0;
+    gcomprisBoard->level++;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
+      gcomprisBoard->level=gcomprisBoard->maxlevel;
+    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+  }
+  railroad_next_level();
+}
+
+/* ==================================== */
+static void process_ok()
+{
+  int i;
+
+  gamewon = TRUE;
+
+  // DEBUG
+  printf("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
+  if (g_list_length(int_answer_list) != g_list_length(int_model_list))
+  	gamewon = FALSE;
+	else
+  		for (i=0; i<g_list_length(int_answer_list); i++) {
+			if ( GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) != GPOINTER_TO_INT(g_list_nth_data(int_model_list,i))) {
+				printf("pour i= %d --> différent\n", i);
+				gamewon = FALSE;
+				break;
+				}
+		}
+  // DUMP lists
+  printf("answer:\n");
+  for (i=0; i<g_list_length(int_answer_list); i++)
+  	printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) );
+  printf("model:\n");
+  for (i=0; i<g_list_length(int_model_list); i++)
+  	printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
+
+  gcompris_display_bonus(gamewon, FLOWER_BONUS);
+  if (gamewon) {
+      railroad_next_level();
+      gamewon = FALSE;
+  }
+}
+/* ==================================== */
+static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+  double item_x, item_y;
+  int item_number;
+  GdkPixbuf * pixmap = NULL;
+  int i, xOffset = 0;
+  GnomeCanvasItem * local_item;
+  double dx1, dy1, dx2, dy2;
+  item_number = GPOINTER_TO_INT(data);
+
+  // we don't allow any input until train is gone
+  if (animation_pending)
+  	return FALSE;
+
+  item_x = event->button.x;
+  item_y = event->button.y;
+  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+
+  if(board_paused)
+    return FALSE;
+
+  switch (event->type)
+    {
+    case GDK_BUTTON_PRESS:
+      	printf("clicked item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
+	xOffset = 0;
+	for (i=0; i<g_list_length(item_answer_list); i++) {
+		gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
+		xOffset += dx2-dx1;
+		}
+	if (item_number < ENGINES)
+		pixmap = g_list_nth_data(listPixmapEngines, item_number);
+		else
+		pixmap = g_list_nth_data(listPixmapWagons, item_number-ENGINES);
+
+	local_item =gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_pixbuf_get_type (),
+					"pixbuf",  pixmap,
+					"x",  (double) xOffset,
+					"y",  (double) line[0] - gdk_pixbuf_get_height(pixmap),
+					NULL);
+	item_answer_list = g_list_append(item_answer_list, local_item);
+	int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
+	printf("added %d to int_answer_list\n", item_number);
+  	gtk_signal_connect(GTK_OBJECT(local_item), "event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
+      break;
+
+    case GDK_MOTION_NOTIFY:
+      break;
+
+    case GDK_BUTTON_RELEASE:
+      break;
+
+    default:
+      break;
+    }
+  return FALSE;
+}
+/* ==================================== */
+/* Used to delete a vehicule at the top (the proposed answer) */
+static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+  double item_x, item_y;
+  int item_number, i;
+  item_number = GPOINTER_TO_INT(data);
+  GnomeCanvasItem *local_item;
+
+  // we don't allow any input until train is gone
+  if (animation_pending)
+  	return FALSE;
+
+  item_x = event->button.x;
+  item_y = event->button.y;
+  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+
+  if(board_paused)
+    return FALSE;
+
+  switch (event->type)
+    {
+    case GDK_BUTTON_PRESS:
+	printf("Deleting %d\n",item_number);
+	local_item = g_list_nth_data(item_answer_list,item_number);
+	item_answer_list = g_list_remove( item_answer_list, local_item );
+//	gtk_signal_disconnect(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, NULL);
+	gtk_object_destroy (GTK_OBJECT(local_item));
+	int_answer_list = g_list_remove(int_answer_list, g_list_nth_data(int_answer_list, item_number) );
+	reposition_answer();
+	// resetup the signals
+	for (i=0; i<g_list_length(item_answer_list); i++) {
+		local_item = g_list_nth_data(item_answer_list, i);
+		gtk_signal_connect(GTK_OBJECT(local_item),"event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
+	}
+      break;
+
+    case GDK_MOTION_NOTIFY:
+      break;
+
+    case GDK_BUTTON_RELEASE:
+      break;
+
+    default:
+      break;
+    }
+  return FALSE;
+}
+/* ==================================== */
+/* The code is over complicated because I don't know how
+    to set an item at an absolute position */
+static void reposition_answer() {
+  double dx1, dy1, dx2, dy2;
+  int i;
+  int xOffset = 0;
+  GnomeCanvasItem * item = NULL;
+printf("+++ reposition_answer\n");
+  for (i=0; i<g_list_length(item_answer_list); i++) {
+	item = g_list_nth_data(item_answer_list,i);
+	gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+	gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
+	xOffset += dx2-dx1;
+	}
+}
+/* ==================================== */
+static void reposition_model() {
+  double dx1, dy1, dx2, dy2;
+  int i;
+  int xOffset = 0;
+  GnomeCanvasItem * item = NULL;
+  printf("+++ reposition_model\n");
+  for (i=0; i<model_size; i++) {
+	item = item_model[i];
+	gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+	gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
+	xOffset += dx2-dx1;
+	}
+}
+
+/* ==================================== */
+static void show_model(gboolean show) {
+  int i;
+  for (i=0; i<model_size; i++)
+	if (show)
+		gnome_canvas_item_show(item_model[i]);
+		else
+		gnome_canvas_item_hide(item_model[i]);
+}
+/* ==================================== */
+static void show_answer(gboolean show) {
+  int i;
+  for (i=0; i<g_list_length(item_answer_list); i++)
+	if (show)
+		gnome_canvas_item_show(g_list_nth_data(item_answer_list,i));
+		else
+		gnome_canvas_item_hide(g_list_nth_data(item_answer_list,i));
+}
+/* ==================================== */
+static void show_engines_wagons(gboolean show) {
+  int i;
+  for (i=0; i<ENGINES+WAGONS; i++)
+	if (show)
+		gnome_canvas_item_show(item[i]);
+		else
+		gnome_canvas_item_hide(item[i]);
+}
+/* ==================================== */
+static gboolean animate_step() {
+	int i;
+	double step = 1.0;
+	// this defines how the train waits before start
+	#define MODEL_PAUSE 60
+//	printf("+++animate_step %d \n",animation_count);
+	animation_count++;
+
+	if (animation_count < MODEL_PAUSE)
+		return TRUE;
+
+	if (animation_count == 160+MODEL_PAUSE) {
+		if (timer_id) {
+    			gtk_timeout_remove (timer_id);
+    			timer_id = 0;
+		}
+		animation_pending = FALSE;
+		show_model(FALSE);
+		show_engines_wagons(TRUE);
+		show_answer(TRUE);
+		return FALSE;
+	}
+
+	step = (double) (animation_count-MODEL_PAUSE) / 50.0;
+	step *= step;
+
+	for (i=0; i<model_size; i++)
+		gnome_canvas_item_move(item_model[i], step, 0.0);
+	return TRUE;
+}
+/* ==================================== */
+static void animate_model() {
+  animation_pending = TRUE;
+  animation_count = 0;
+  gcompris_play_sound (SOUNDLISTFILE, "train");
+  // warning : if timeout is too low, the model will not be displayed
+  timer_id = gtk_timeout_add (20, (GtkFunction) animate_step, NULL);
+}
+/* ==================================== */
+static void reset_all_lists(void) {
+  GnomeCanvasItem *item;
+
+  int_model_list = reset_list(int_model_list);
+  int_answer_list = reset_list(int_answer_list);
+
+ while(g_list_length(item_answer_list)>0) {
+      	item = g_list_nth_data(item_answer_list, 0);
+  	item_answer_list = g_list_remove (item_answer_list, item);
+  	gtk_object_destroy (GTK_OBJECT(item));
+    }
+
+}
+/* ==================================== */
+static GList * reset_list(GList * list) {
+  while (g_list_length(list) > 0)
+	list = g_list_remove(list, g_list_nth_data(list,0));
+
+  return list;
+}
