@@ -76,7 +76,7 @@ void gcompris_edit_display_description(GcomprisBoard *gcomprisBoard)
 				   "iconentry");
 
   strTmp =g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, gcomprisBoard->icon_name);
-  gnome_icon_entry_set_filename(tmpWidget, strTmp);
+  gnome_icon_entry_set_filename(GNOME_ICON_ENTRY(tmpWidget), strTmp);
   g_free(strTmp);
 
 

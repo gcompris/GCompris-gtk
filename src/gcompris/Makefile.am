@@ -17,6 +17,7 @@ bin_PROGRAMS = gcompris gcompris-edit
 
 libgcompris_a_SOURCES = \
 	gcompris.c \
+	gcompris.h gcompris-board.h \
 	gameutil.c gameutil.h \
 	properties.c properties.h \
 	bar.c \
@@ -42,7 +43,8 @@ gcompris_SOURCES = \
 
 
 gcompris_LDFLAGS = \
-	-export-dynamic
+	-export-dynamic \
+	-lvorbisfile
 
 gcompris_LDADD = \
 	$(LIBICONV)		\
@@ -53,7 +55,8 @@ gcompris_LDADD = \
 
 
 gcompris_edit_LDFLAGS = \
-	-export-dynamic
+	-export-dynamic \
+	-lvorbisfile
 
 gcompris_edit_SOURCES = \
 	gcompris-edit.c gcompris-edit.h \

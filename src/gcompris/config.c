@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/12/08 15:52:42 bruno>
+ * Time-stamp: <2002/12/30 18:57:12 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -125,7 +125,7 @@ void gcompris_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", _("GCompris Configuration"), 
+				"text", "GCompris Configuraté € àn", 
 				"font", FONT_TITLE,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,

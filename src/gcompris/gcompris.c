@@ -468,14 +468,14 @@ gchar *gcompris_get_locale()
 void gcompris_set_locale(gchar *locale)
 {
 
-  gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
-  printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
+//  gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
+//  printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
 
   /* Override the env locale to what the user requested */
-  setenv ("LC_ALL", gcompris_get_locale(), TRUE);
-  setenv ("LC_MESSAGES", gcompris_get_locale(), TRUE);
-  setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
-  setenv ("LANG", gcompris_get_locale(), TRUE);
+//  setenv ("LC_ALL", gcompris_get_locale(), TRUE);
+//  setenv ("LC_MESSAGES", gcompris_get_locale(), TRUE);
+//  setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
+//  setenv ("LANG", gcompris_get_locale(), TRUE);
  
   /* WARNING: This does not update gettext translation */
   /* Call for localization startup */
@@ -499,6 +499,11 @@ gcompris_init (int argc, char *argv[])
   GValue value = {0,};
   poptContext pctx; 
   char** args;
+
+  printf("SETTING UTF-8\n");
+    bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+      bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        textdomain (GETTEXT_PACKAGE);
 
   /* To have some real random behaviour */
   srand (time (NULL));
@@ -526,7 +531,7 @@ gcompris_init (int argc, char *argv[])
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
 
   // Set the user's choice locale
-  gcompris_set_locale(properties->locale);
+//  gcompris_set_locale(properties->locale);
 
   /*------------------------------------------------------------*/
   if (popt_version && args == NULL)

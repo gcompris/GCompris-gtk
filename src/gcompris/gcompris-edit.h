@@ -30,4 +30,4 @@ GtkCTreeNode	*gcompris_ctree_get_selected_node();
 void		 gcompris_ctree_set_board_status(GcomprisBoard *gcomprisBoard,
 						 GtkCTreeNode *node,
 						 gboolean status);
-void		 gcompris_ctree_update_status(gcomprisBoard, node);
+void		 gcompris_ctree_update_status(GcomprisBoard *gcomprisBoard, GtkCTreeNode *node);
