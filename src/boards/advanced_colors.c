@@ -56,7 +56,7 @@ static int highlight_width, highlight_height;
 static GList * listColors = NULL;
 
 #define LAST_COLOR 8
-#define LAST_BOARD 2
+#define LAST_BOARD 9
 
 static char* colors[LAST_COLOR];
 static char *backgroundFile = NULL;
