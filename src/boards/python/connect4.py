@@ -23,6 +23,16 @@
 # http://forcedattack.sourceforge.net/
 #
 
+
+#TODO 
+#Correct bug when click out of board: done
+#Reset board on level change: done
+#After level 4 go back to level 1: done
+#Anim coin when playing: done
+#Hide tux after first round: done
+#Enable click on coins: done
+
+
 import gobject
 import gnome
 import gnome.canvas
@@ -55,10 +65,15 @@ class Gcompris_connect4:
   def start(self):
     print "Gcompris_connect4_start."
     self.board_size = 490.0
+    self.boarditem = None
     self.nb_columns = 7
     self.nb_lines = 6
     self.stone_size = 70.0
     self.firstPlayer = False
+    self.timer_anim = 0 
+    self.timer_machine = 0 
+    self.machineHasPlayed = True
+    self.endAnimCallback = None
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=9
     self.gcomprisBoard.sublevel=1
@@ -120,13 +135,17 @@ class Gcompris_connect4:
     del self.tuxboatanim
     self.rootitem.destroy()
     self.boarditem.destroy()
+    if self.timer_anim:
+      gtk.timeout_remove(self.timer_anim)
+    if self.timer_machine:
+      gtk.timeout_remove(self.timer_machine)
+    
 
   def ok(self):
     print("Gcompris_connect4 ok.")
 
   def repeat(self):
     print("Gcompris_connect4 repeat.")
-    self.boarditem.destroy()
     self.newGame()
 
   def config(self):
@@ -143,17 +162,20 @@ class Gcompris_connect4:
 
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
-    if self.gcomprisBoard.level < 4:
-      self.gcomprisBoard.level=level
-      self.gcomprisBoard.sublevel=1
-      gcompris.bar_set_level(self.gcomprisBoard)
-      self.player1.setDifficulty(level)
-      self.player2.setDifficulty(level)
+    if level > 4: level = 1
+    self.gcomprisBoard.level=level
+    self.gcomprisBoard.sublevel=1
+    gcompris.bar_set_level(self.gcomprisBoard)
+    self.player1.setDifficulty(level)
+    self.player2.setDifficulty(level)
+    self.newGame()
 
   # End of Initialisation
   # ---------------------
 
   def newGame(self):
+    if self.boarditem != None:
+      self.boarditem.destroy()
     self.boarditem = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
       x=(gcompris.BOARD_WIDTH-self.board_size)/2.0,
@@ -164,20 +186,25 @@ class Gcompris_connect4:
     self.board = board.Board()
     self.gamewon = False 
     self.firstPlayer = False 
+    self.prof.show()
 
   def columnItemEvent(self, widget, event, column):
     if event.type == gtk.gdk.BUTTON_PRESS:
       print event.x, event.y
-      if event.button == 1 and self.gamewon == False:
+      if event.button == 1 and self.gamewon == False and self.machineHasPlayed:
         column = int((event.x - (gcompris.BOARD_WIDTH-self.board_size)/2.0) // self.stone_size)
         print "columnItemEvent", column
-        self.play(self.player1, 1, column)
-        if self.gamewon == False:
-          self.tuxboatitem.gnome_canvas.show()
-          gcompris.bar_hide(True)
-          self.timer = gtk.timeout_add(100, self.machinePlay)
-          #thread.start_new_thread(self.machinePlay, ())
- 
+        if not (column < 0 or column > (self.nb_columns-1)):
+          self.play(self.player1, 1, column)
+          if self.gamewon == False:
+            self.tuxboatitem.gnome_canvas.show()
+            gcompris.bar_hide(True)
+            #To improve the two timers
+            #self.timer_machine = gtk.timeout_add(2000, self.machinePlay)
+            self.endAnimCallback = self.machinePlay
+            self.machineHasPlayed = False
+            #thread.start_new_thread(self.machinePlay, ())
+   
     return gtk.FALSE
   
   def profItemEvent(self, widget, event, column):
@@ -191,6 +218,11 @@ class Gcompris_connect4:
     print "ai ends"
     self.tuxboatitem.gnome_canvas.hide()
     gcompris.bar_hide(False)
+    self.prof.hide()
+    self.endAnimCallback = self.machinePlayed
+
+  def machinePlayed(self):
+    self.machineHasPlayed = True
 
   def refreshScreen(self):
     gtk.main_iteration(block=False)
@@ -213,12 +245,27 @@ class Gcompris_connect4:
     y = len(self.board.state[self.board.last_move])-1
     file = "connect4/stone_%d.png" % stone
 
-    selector = self.boarditem.add(
+    self.stone = self.boarditem.add(
       gnome.canvas.CanvasPixbuf,
        pixbuf = gcompris.utils.load_pixmap(file),
        x=x*(self.board_size/self.nb_columns),
-       y=(self.board_size/self.nb_columns)*(self.nb_lines-1-y)
+       #y=(self.board_size/self.nb_columns)*(self.nb_lines-1-y)
+       y=0
        )
+    self.stone.connect("event", self.columnItemEvent, 0)
+    self.countAnim = self.nb_lines-y
+    self.timer_anim = gtk.timeout_add(200, self.timerAnim)
+
+  def timerAnim(self):
+    print "timerAnim", self.countAnim
+    self.countAnim -= 1
+    if self.countAnim > 0:
+      y= self.stone.get_property('y')
+      self.stone.set_property('y', y + (self.board_size/self.nb_columns))
+      self.timer_anim = gtk.timeout_add(200, self.timerAnim)
+    else:
+      if self.endAnimCallback:
+        self.endAnimCallback()
 
   def winner(self, player):
     self.gamewon = True

@@ -168,8 +168,8 @@ class MinMax(Player):
 
   def gameOver(self, move):
     return None
-try:
-  psyco.bind(MinMax)
-  psyco.bind(Node)
-except:
-  pass
+#try:
+#  psyco.bind(MinMax)
+#  psyco.bind(Node)
+#except:
+#  pass
