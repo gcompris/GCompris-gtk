@@ -1,3 +1,10 @@
+2004-09-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: adjusted dependancy version
+	* gcompris.spec.in: adjusted dependancy version, added libgnomecanvas
+	* src/boards/menu.c: (menu_start): re-added forced update
+	* src/boards/python/anim.py: fixed bug reported by José JORGE. When re-edited, new shots are not editable.
+
 2004-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/da/misc/click_on_letter.ogg: fixed by  Mogens Jaeger <mogensjaeger@get2net.dk>

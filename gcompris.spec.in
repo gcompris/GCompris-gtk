@@ -4,6 +4,7 @@
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
 %define prefix		/usr
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
+%define canvaslib	%(if rpm -q mandrake-release &> /dev/null; then echo libgnomecanvas2; else echo libgnomecanvas; fi)
 
 Summary: Educational suite for kids 3-10 years old
 Name: 		%name
@@ -20,7 +21,7 @@ Buildrequires: liblinc-devel
 Buildrequires: texinfo 
 # (misc) needed for python support
 Buildrequires: gnome-python python-devel pygtk2.0-devel
-Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
+Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage %canvaslib >= 2.4
 Requires:       gnuchess >= 5.02
 Requires:       @REQUIRE_PYTHON@
 Requires:	assetml-flags
