@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2001/12/03 00:51:08 bruno>
+ * Time-stamp: <2001/12/09 23:40:13 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -78,6 +78,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				"width", (double)  gdk_pixbuf_get_width(pixmap),
 				"height", (double) gdk_pixbuf_get_height(pixmap),
 				NULL);
+  gdk_pixbuf_unref(pixmap);
 
   // HOME
   pixmap = gcompris_load_pixmap("gcompris/buttons/home.png");
@@ -92,14 +93,14 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				"width_set", TRUE, 
 				"height_set", TRUE,
 				NULL);
+  gdk_pixbuf_unref(pixmap);
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "home");
-  gcompris_set_image_focus(pixmap, FALSE);
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
-		     pixmap);
+		     NULL);
 
 
   // OK
@@ -115,14 +116,14 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				"width_set", TRUE, 
 				"height_set", TRUE,
 				NULL);
+  gdk_pixbuf_unref(pixmap);
 
   gtk_signal_connect(GTK_OBJECT(ok_item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "ok");
-  gcompris_set_image_focus(pixmap, FALSE);
   gtk_signal_connect(GTK_OBJECT(ok_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
-		     pixmap);
+		     NULL);
 
 
   // LEVEL
@@ -138,15 +139,15 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				      "width_set", TRUE, 
 				      "height_set", TRUE,
 				      NULL);
+  gdk_pixbuf_unref(pixmap);
 
   current_level = 1;
   gtk_signal_connect(GTK_OBJECT(level_item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "level");
-  gcompris_set_image_focus(pixmap, FALSE);
   level_handler_id =   gtk_signal_connect(GTK_OBJECT(level_item), "event",
 					  (GtkSignalFunc) gcompris_item_event_focus,
-					  pixmap);
+					  NULL);
 
   // HELP
   pixmap = gcompris_load_pixmap("gcompris/buttons/help.png");
@@ -161,13 +162,14 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				     "width_set", TRUE, 
 				     "height_set", TRUE,
 				     NULL);
+  gdk_pixbuf_unref(pixmap);
+
   gtk_signal_connect(GTK_OBJECT(help_item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "help");
-  gcompris_set_image_focus(pixmap, FALSE);
   gtk_signal_connect(GTK_OBJECT(help_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
-		     pixmap);
+		     NULL);
 
   // REPEAT
   pixmap = gcompris_load_pixmap("gcompris/buttons/repeat.png");
@@ -182,13 +184,14 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				     "width_set", TRUE, 
 				     "height_set", TRUE,
 				     NULL);
+  gdk_pixbuf_unref(pixmap);
+
   gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "repeat");
-  gcompris_set_image_focus(pixmap, FALSE);
   gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
-		     pixmap);
+		     NULL);
 
   gnome_canvas_item_show(level_item);
   gnome_canvas_item_show(ok_item);

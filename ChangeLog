@@ -1,3 +1,12 @@
+2001-12-09  Bruno Coudoin  <bruno.coudoin@free.fr>
+	* src/boards/shapegame.c: when dragging, the item is now on top in anycase.
+	                          now highlight the selectable items
+	* src/gcompris/gameutil.c: finished the highlighting mecanism (taken fron the gnome-panel)
+	* src/boards/draw.c: highlight the current tool
+	
+2001-12-09  Martin Herweg <m.herweg@gmx.de>
+	* board/sounds/de/*: ogg vorbis sounds created.
+
 2001-12-09  Simos Xenitellis  <simos@hellug.gr>
 
 	* boards/Makefile.am: Added boards/locale_el.xml.in in %xml_in_files.

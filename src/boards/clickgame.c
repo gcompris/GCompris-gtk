@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2001/12/03 00:14:40 bruno>
+ * Time-stamp: <2001/12/10 00:01:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -586,7 +586,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
 		 gcomprisBoard->level++;
 		 if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
 		   board_finished(BOARD_FINISHED_RANDOM);
-		   return;
+		   return FALSE;
 		 }
 		 clickgame_next_level();
 		 gcompris_play_sound (SOUNDLISTFILE, "bonus");
@@ -671,9 +671,9 @@ static void
 setup_item(FishItem *fishitem)
 {
   if(fishitem)
-    gtk_signal_connect(GTK_OBJECT(fishitem->rootitem), "event",
-		       (GtkSignalFunc) item_event,
-		       fishitem);
+      gtk_signal_connect(GTK_OBJECT(fishitem->rootitem), "event",
+			 (GtkSignalFunc) item_event,
+			 fishitem);
 }
 
 /*

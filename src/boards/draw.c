@@ -69,7 +69,8 @@ typedef enum
   TOOL_RESIZE		= 7
 } ToolList;
 
-static ToolList currentTool = TOOL_RECT;
+static ToolList		 currentTool = TOOL_RECT;
+static GnomeCanvasItem	*currentToolItem = NULL;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
@@ -348,7 +349,11 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) tool_event,
 			 (void *)TOOL_RECT);
+      gcompris_set_image_focus(item, TRUE);
+
     }
+  currentTool = TOOL_RECT;
+  currentToolItem = item;
 
   y += 50;
   pixmap = gcompris_load_pixmap("draw/tool-filledrectangle.png");
@@ -470,7 +475,6 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
     }
   y += 50;
 
-  currentTool = TOOL_RECT;
 }
 
 /* Destroy all the items */
@@ -499,7 +503,12 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
       switch(event->button.button) 
 	{
 	case 1:
+	  if(currentToolItem)
+	    gcompris_set_image_focus(currentToolItem, FALSE);
+
 	  currentTool = tool;
+	  currentToolItem = item;
+	  gcompris_set_image_focus(item, TRUE);
 	  break;
 	default:
 	  break;

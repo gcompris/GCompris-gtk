@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/12/03 00:45:13 bruno>
+ * Time-stamp: <2001/12/09 23:45:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -664,8 +664,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		 return FALSE;
 	       
 	       fleur = gdk_cursor_new(GDK_FLEUR);
-	       
+
+	       /* In order to have our item above the others, I need to reparent it */
+	       gnome_canvas_item_reparent (item, shape_root_item);
 	       gnome_canvas_item_raise_to_top(item);
+
 	       gnome_canvas_item_grab(item,
 				      GDK_POINTER_MOTION_MASK | 
 				      GDK_BUTTON_RELEASE_MASK,
@@ -707,6 +710,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 	   gnome_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
+
+	   gnome_canvas_item_reparent (item, shape_list_root_item);
 
 	   targetshape = find_closest_shape(item_x, item_y, 1000);
 	   if(targetshape!=NULL)
@@ -810,6 +815,9 @@ setup_item(GnomeCanvasItem *item, Shape *shape)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event,
 		     shape);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
 }
 
 /*

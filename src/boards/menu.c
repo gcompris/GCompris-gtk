@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2001/12/04 00:02:51 bruno>
+ * Time-stamp: <2001/12/09 23:40:31 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -293,9 +293,6 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 				"width", (double) gdk_pixbuf_get_width(menu_pixmap),
 				"height", (double) gdk_pixbuf_get_height(menu_pixmap),
 				NULL);
-  gcompris_set_image_focus(menu_pixmap, FALSE);
-  // FIXME Unref of the pixmap will make gcompris_item_event_focus fails
-  //       when it will be fixed.
   gdk_pixbuf_unref(menu_pixmap);
 
   item_list = g_list_append (item_list, item);
@@ -317,7 +314,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
-		     menu_pixmap);
+		     NULL);
 
 
 

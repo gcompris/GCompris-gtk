@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2001/12/09 01:31:26 bruno>
+ * Time-stamp: <2001/12/09 23:50:45 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -89,58 +89,93 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   return(smallnumbers_pixmap);
 }
 
+/*************************************************************
+ * colorshift a pixbuf
+ * code taken from the gnome-panel of gnome-core
+ */
+static void
+do_colorshift (GdkPixbuf *dest, GdkPixbuf *src, int shift)
+{
+	gint i, j;
+	gint width, height, has_alpha, srcrowstride, destrowstride;
+	guchar *target_pixels;
+	guchar *original_pixels;
+	guchar *pixsrc;
+	guchar *pixdest;
+	int val;
+	guchar r,g,b;
+
+	has_alpha = gdk_pixbuf_get_has_alpha (src);
+	width = gdk_pixbuf_get_width (src);
+	height = gdk_pixbuf_get_height (src);
+	srcrowstride = gdk_pixbuf_get_rowstride (src);
+	destrowstride = gdk_pixbuf_get_rowstride (dest);
+	target_pixels = gdk_pixbuf_get_pixels (dest);
+	original_pixels = gdk_pixbuf_get_pixels (src);
+
+	for (i = 0; i < height; i++) {
+		pixdest = target_pixels + i*destrowstride;
+		pixsrc = original_pixels + i*srcrowstride;
+		for (j = 0; j < width; j++) {
+			r = *(pixsrc++);
+			g = *(pixsrc++);
+			b = *(pixsrc++);
+			val = r + shift;
+			*(pixdest++) = CLAMP(val, 0, 255);
+			val = g + shift;
+			*(pixdest++) = CLAMP(val, 0, 255);
+			val = b + shift;
+			*(pixdest++) = CLAMP(val, 0, 255);
+			if (has_alpha)
+				*(pixdest++) = *(pixsrc++);
+		}
+	}
+}
+
+
+
+static GdkPixbuf *
+make_hc_pixbuf(GdkPixbuf *pb, gint val)
+{
+	GdkPixbuf *new;
+	if(!pb)
+		return NULL;
+
+	new = gdk_pixbuf_new(gdk_pixbuf_get_colorspace(pb),
+			     gdk_pixbuf_get_has_alpha(pb),
+			     gdk_pixbuf_get_bits_per_sample(pb),
+			     gdk_pixbuf_get_width(pb),
+			     gdk_pixbuf_get_height(pb));
+	do_colorshift(new, pb, val);
+	/*do_saturate_darken (new, pb, (int)(1.00*255), (int)(1.15*255));*/
+
+	return new;
+}
+
+
 /**
  * Set the focus of the given image (highlight or not)
  *
  */
-void gcompris_set_image_focus(GdkPixbuf *pixbuf1, gboolean focus)
+void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
 {
-}
+  GdkPixbuf *dest = NULL;
+  GdkPixbuf *pixbuf;
 
-/**
- * Callback over a canvas item, this function will highlight the focussed item
- *
- */
-gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GdkPixbuf *pixbuf)
-{
-  /* I Have not been able to reinplement this feature with gdk-pixbuf. Help wanted.
-     It worked fine with the imlib */
-  /*
-  gint width;
-  gint height;
-  GdkPixbuf *dest;
+  gtk_object_get (GTK_OBJECT (item), "pixbuf", &pixbuf, NULL);
+  g_return_if_fail (pixbuf != NULL);
 
-  width = gdk_pixbuf_get_width(pixbuf);
-  height = gdk_pixbuf_get_height(pixbuf);
-
-  printf("creation temp pixbuf\n");
-  dest = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, width, height);
-
-  switch (event->type) 
+  switch (focus) 
     {
-    case GDK_ENTER_NOTIFY:
-      printf("item_event_focus GDK_ENTER_NOTIFY:\n");
-      gdk_pixbuf_composite (pixbuf, dest,
-			    0, 0, width, height,
-			    0, 0,
-			    (double) 1,
-			    (double) 1,
-			    GDK_INTERP_BILINEAR, 255);
-      
-
+    case TRUE:
+      dest = make_hc_pixbuf(pixbuf, 30);
       gnome_canvas_item_set (item,
 			     "pixbuf", dest,
 			     NULL);
+
       break;
-    case GDK_LEAVE_NOTIFY: 
-      printf("item_event_focus GDK_LEAVE_NOTIFY:\n");
-      gdk_pixbuf_composite (pixbuf, dest,
-			    0, 0, width, height,
-			    0, 0,
-			    (double) 1,
-			    (double) 1,
-			    GDK_INTERP_BILINEAR, 127);
-      
+    case FALSE: 
+      dest = make_hc_pixbuf(pixbuf, -30);
       gnome_canvas_item_set (item,
 			     "pixbuf", dest,
 			     NULL);
@@ -149,8 +184,30 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GdkPixbuf
       break;
     }
 
-  gdk_pixbuf_unref (dest);
-  */
+  if(dest!=NULL)
+    gdk_pixbuf_unref (dest);
+
+}
+
+/**
+ * Callback over a canvas item, this function will highlight the focussed item
+ *
+ */
+gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, void *unused)
+{
+
+  switch (event->type) 
+    {
+    case GDK_ENTER_NOTIFY:
+      gcompris_set_image_focus(item, TRUE);
+      break;
+    case GDK_LEAVE_NOTIFY: 
+      gcompris_set_image_focus(item, FALSE);
+      break;
+    default:
+      break;
+    }
+
   return FALSE;
 }
 
