@@ -38,6 +38,7 @@ class Gcompris_searace:
     border_x  = 30
     self.sea_area = (border_x , 30, gcompris.BOARD_WIDTH-border_x , 350)
     self.weather   = []
+    self.current_TB = []
     
     print("Gcompris_searace __init__.")
   
@@ -89,6 +90,7 @@ class Gcompris_searace:
 
   def ok(self):
     print("Gcompris_searace ok.")
+    self.current_TB.insert_at_cursor("\n")
           
 
   def repeat(self):
@@ -186,18 +188,45 @@ class Gcompris_searace:
          width_units=1.0
         )
 
+      # The GO Button
+      w = 100.0
       b = gtk.Button()
-      b.set_label("bang!")
+      b.set_label("GO")
       self.rootitem.add(
         gnome.canvas.CanvasWidget,
                              widget=b,
-                             x=420.0,
+                             x=gcompris.BOARD_WIDTH/2,
                              y=330.0,
-                             width=100.0,
+                             width=w,
                              height= 40.0,
                              anchor=gtk.ANCHOR_N,
                              size_pixels=gtk.FALSE);
       b.show();
+
+
+      # The Programming input area
+      sw = gtk.ScrolledWindow()
+      sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+
+      w = 250.0
+      h = 100.0
+      tb = gtk.TextBuffer()
+      self.current_TB = tb
+      tv = gtk.TextView(tb)
+      sw.add(tv)
+      tb.set_text("forward 10")
+      tv.set_wrap_mode(gtk.WRAP_CHAR)
+      self.rootitem.add(
+        gnome.canvas.CanvasWidget,
+                             widget=sw,
+                             x=gcompris.BOARD_WIDTH/4,
+                             y=400,
+                             width=w,
+                             height= h,
+                             anchor=gtk.ANCHOR_N,
+                             size_pixels=gtk.FALSE);
+      sw.show();
+      tv.show();
 
 
   # Weather condition is a 2 value pair (angle wind_speed)
