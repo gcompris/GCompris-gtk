@@ -1,6 +1,8 @@
 2003-02-09  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/read_colors.c : see below
   * src/gcompris/bonus.c : hardened code against multiple quick key press
+  * scr/gcompris/*.c & src/boards/*.c : changed all calls from gcompris_play_sound
+  to gcompris_play_ogg, in order to have them work better on my system (KDE).
 
 2003-02-08  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/read_colors.c : fixed a bug when the ENTER key is repeatdly

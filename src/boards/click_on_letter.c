@@ -385,7 +385,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_TUXPLANE);
       return;
     }
-    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+    gcompris_play_ogg ("bonus", NULL);
   }
   click_on_letter_next_level();
 }

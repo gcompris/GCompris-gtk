@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = po src sounds docs boards
+SUBDIRS = po src docs boards
 
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png gcompris-edit.png

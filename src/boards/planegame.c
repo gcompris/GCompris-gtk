@@ -384,7 +384,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
     {
       if(plane_target == clouditem->number)
 	{
-	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
+	  gcompris_play_ogg ("gobble", NULL);
 	  item2del_list = g_list_append (item2del_list, clouditem);
 	  plane_target++;
 
@@ -402,7 +402,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 		return;
 	      }
 	      planegame_next_level();
-	      gcompris_play_sound (SOUNDLISTFILE, "bonus");
+	      gcompris_play_ogg ("bonus", NULL);
 	    }
 	}
     }

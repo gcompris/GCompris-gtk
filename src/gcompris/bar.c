@@ -496,12 +496,12 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	}
       else if(!strcmp((char *)data, "back"))
 	{
-	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
+	  gcompris_play_ogg ("gobble", NULL);
 	  board_stop();
 	}
       else if(!strcmp((char *)data, "help"))
 	{
-	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
+	  gcompris_play_ogg ("gobble", NULL);
 	  //	  gcompris_set_image_focus(item, FALSE);
 	  gcompris_help_start(gcomprisBoard);
 	}

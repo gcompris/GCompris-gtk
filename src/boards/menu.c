@@ -416,7 +416,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 
       break;
     case GDK_BUTTON_PRESS:
-      gcompris_play_sound (SOUNDLISTFILE, "gobble");
+      gcompris_play_ogg ("gobble", NULL);
 	  
       if(!board_check_file(menuitem->board))
 	{

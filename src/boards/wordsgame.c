@@ -600,7 +600,7 @@ static void player_win(LettersItem *item)
 {
 
   wordsgame_destroy_item(item);
-  gcompris_play_sound (SOUNDLISTFILE, "gobble");
+  gcompris_play_ogg ("gobble", NULL);
 
   gcomprisBoard->sublevel++;
   gcompris_score_set(gcomprisBoard->sublevel);
@@ -615,7 +615,7 @@ static void player_win(LettersItem *item)
 	return;
       }
       wordsgame_next_level();
-      gcompris_play_sound (SOUNDLISTFILE, "bonus");
+      gcompris_play_ogg ("bonus", NULL);
     }
   else
     {
@@ -637,7 +637,7 @@ static void player_win(LettersItem *item)
 
 static void player_loose()
 {
-  gcompris_play_sound (SOUNDLISTFILE, "crash");
+  gcompris_play_ogg ("crash", NULL);
 }
 
 static LettersItem *

@@ -262,7 +262,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+    gcompris_play_ogg ("bonus", NULL);
   }
   machpuzzle_next_level();
 }

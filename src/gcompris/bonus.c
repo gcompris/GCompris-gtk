@@ -184,7 +184,7 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
   if(gamewon == TRUE)
     gcompris_play_ogg(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)], NULL);
   else
-    gcompris_play_sound (SOUNDLISTFILE, "crash");
+    gcompris_play_ogg ("crash", NULL);
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)

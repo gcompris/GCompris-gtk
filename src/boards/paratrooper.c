@@ -637,7 +637,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	{
 	  gnome_canvas_item_hide(paratrooperItem.parachute);
 	  paratrooperItem.status = TUX_LANDED;
-	  gcompris_play_sound (SOUNDLISTFILE, "bonus");
+	  gcompris_play_ogg ("bonus", NULL);
 	  next_state();
 	}
       else
@@ -649,7 +649,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	    {
 	      gnome_canvas_item_hide(paratrooperItem.parachute);
 	      paratrooperItem.status = TUX_CRASHED;
-	      gcompris_play_sound (SOUNDLISTFILE, "crash");
+	      gcompris_play_ogg ("crash", NULL);
 	      next_state();
 	    }
 	}

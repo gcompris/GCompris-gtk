@@ -462,7 +462,7 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(GnomeCanvasItem *item)
 {
   smallnumbers_destroy_item(item);
-  gcompris_play_sound (SOUNDLISTFILE, "gobble");
+  gcompris_play_ogg ("gobble", NULL);
 
   gcomprisBoard->sublevel++;
   gcompris_score_set(gcomprisBoard->sublevel);
@@ -477,7 +477,7 @@ static void player_win(GnomeCanvasItem *item)
 				return;
       }
       smallnumbers_next_level();
-      gcompris_play_sound (SOUNDLISTFILE, "bonus");
+      gcompris_play_ogg ("bonus", NULL);
     }
   else
     {
@@ -499,7 +499,7 @@ static void player_win(GnomeCanvasItem *item)
 
 static void player_loose()
 {
-  gcompris_play_sound (SOUNDLISTFILE, "crash");
+  gcompris_play_ogg ("crash", NULL);
 }
 
 

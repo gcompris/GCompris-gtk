@@ -306,7 +306,7 @@ static void process_ok()
       if(fishItem!=NULL)
 	gtk_object_destroy(GTK_OBJECT(fishItem));
 
-      gcompris_play_sound (SOUNDLISTFILE, "gobble");
+      gcompris_play_ogg ("gobble", NULL);
       
       if(--number_of_fish == 0)
 	{
@@ -321,7 +321,7 @@ static void process_ok()
     }
   else
     {
-      gcompris_play_sound (SOUNDLISTFILE, "crash");
+      gcompris_play_ogg ("crash", NULL);
       errors--;
       if(errors==0)
 	{
@@ -684,7 +684,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+    gcompris_play_ogg ("bonus", NULL);
   }
   reversecount_next_level();
 }

@@ -435,7 +435,7 @@ static void process_ok()
       gcompris_display_bonus(gamewon, BONUS_FLOWER);
     }
   else
-    gcompris_play_sound (SOUNDLISTFILE, "crash");
+    gcompris_play_ogg ("crash", NULL);
 
 }
 
@@ -750,7 +750,7 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
       shape->icon_shape=NULL;
 
       gnome_canvas_item_hide(item);
-      gcompris_play_sound (SOUNDLISTFILE, "gobble");
+      gcompris_play_ogg ("gobble", NULL);
 
 
     }

@@ -349,14 +349,14 @@ static void clickgame_move_item(FishItem *fishitem)
     {
       if(x1>gcomprisBoard->width) {
 	item2del_list = g_list_append (item2del_list, fishitem);
-	gcompris_play_sound (SOUNDLISTFILE, "crash");
+	gcompris_play_ogg ("crash", NULL);
       }
     }
   else
     {
       if(x2<0) {
 	item2del_list = g_list_append (item2del_list, fishitem);
-	gcompris_play_sound (SOUNDLISTFILE, "crash");
+	gcompris_play_ogg ("crash", NULL);
       }
     }
 
@@ -546,7 +546,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+    gcompris_play_ogg ("bonus", NULL);
   }
   clickgame_next_level();
 }
@@ -593,7 +593,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
            else 
              {
 	       clickgame_destroy_item(fishitem);
-	       gcompris_play_sound (SOUNDLISTFILE, "gobble");
+	       gcompris_play_ogg ("gobble", NULL);
 	       
 	       gcomprisBoard->sublevel++;
 	       gcompris_score_set(gcomprisBoard->sublevel);

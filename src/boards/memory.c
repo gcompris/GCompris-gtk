@@ -550,7 +550,7 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 
 static void player_win()
 {
-  gcompris_play_sound (SOUNDLISTFILE, "bonus");
+  gcompris_play_ogg ("bonus", NULL);
   /* Try the next level */
   gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
@@ -651,7 +651,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	       // Check win
 	       if(strcmp(firstCard->image, secondCard->image)==0)
 		 {
-		   gcompris_play_sound (SOUNDLISTFILE, "gobble");
+		   gcompris_play_ogg ("gobble", NULL);
 		   win_id = gtk_timeout_add (1000,
 					     (GtkFunction) hide_card, NULL);
 		 }

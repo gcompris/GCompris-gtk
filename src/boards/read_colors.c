@@ -51,8 +51,6 @@ static GnomeCanvasItem *color_item = NULL;
 static GnomeCanvasItem *clock_image_item = NULL;
 static GdkPixbuf *clock_pixmap = NULL;
 
-static gboolean board_finished_running = FALSE;
-
 static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent);
 static void read_colors_destroy_all_items(void);
 static void read_colors_next_level(void);
@@ -136,7 +134,6 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "read_colors/read_colors_background.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
-		board_finished_running = FALSE;
     gcompris_bar_set(GCOMPRIS_BAR_OK);
 
     gamewon = FALSE;
@@ -331,10 +328,7 @@ static void process_ok() {
     errors = 1;
   update_clock();
 
-  // we have to test the status of board_finished_running to avoid 
-  // multiple occurences
-  if (errors <= 1 && !board_finished_running) {
-  	board_finished_running = TRUE;
+  if (errors <= 1) {
     board_finished(BOARD_FINISHED_TOOMANYERRORS);
     return;
   }

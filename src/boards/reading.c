@@ -597,7 +597,7 @@ static void ask_yes_no()
 
 static void player_win()
 {
-  gcompris_play_sound (SOUNDLISTFILE, "bonus");
+  gcompris_play_ogg ("bonus", NULL);
 	gamewon = TRUE;
 	wait_for_ready = TRUE;
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
@@ -612,7 +612,7 @@ static void player_win()
 
 static void player_loose()
 {
-  gcompris_play_sound (SOUNDLISTFILE, "crash");
+  gcompris_play_ogg ("crash", NULL);
 	gamewon = FALSE;
 	wait_for_ready = TRUE;
   gcompris_display_bonus(gamewon, BONUS_FLOWER);

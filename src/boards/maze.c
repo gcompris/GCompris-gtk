@@ -417,7 +417,7 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
  * =====================================================================*/
 static void game_won() {
   twoDdisplay();
-  gcompris_play_sound (SOUNDLISTFILE, "bonus");
+  gcompris_play_ogg ("bonus", NULL);
   /* Try the next level */
   gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out

@@ -802,7 +802,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       currentToBeFoundItem=toBeFoundItem;
 
-      gcompris_play_sound (SOUNDLISTFILE, "gobble");
+      gcompris_play_ogg ("gobble", NULL);
       break;
       
     default:

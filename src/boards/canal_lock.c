@@ -448,7 +448,7 @@ static void game_won()
       board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
-    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+    gcompris_play_ogg ("bonus", NULL);
   }
   canal_lock_next_level();
 }
@@ -488,7 +488,7 @@ static void move_boat()
   else
     {
       /* No possible move */
-      gcompris_play_sound (SOUNDLISTFILE, "crash");
+      gcompris_play_ogg ("crash", NULL);
       return;
     }
 
@@ -700,7 +700,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(lock_water_low && canallock_right_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_sound (SOUNDLISTFILE, "crash");
+	    gcompris_play_ogg ("crash", NULL);
 
 	}
       else if(item == lock_right_item)
@@ -708,21 +708,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(!lock_water_low && canallock_left_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_sound (SOUNDLISTFILE, "crash");
+	    gcompris_play_ogg ("crash", NULL);
 	}
       else if(item == canallock_left_item && canallock_right_up)
 	{
 	  if(lock_right_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_sound (SOUNDLISTFILE, "crash");
+	    gcompris_play_ogg ("crash", NULL);
 	}
       else if(item == canallock_right_item && canallock_left_up)
 	{
 	  if(lock_left_up)
 	      toggle_lock(item);
 	  else
-	    gcompris_play_sound (SOUNDLISTFILE, "crash");
+	    gcompris_play_ogg ("crash", NULL);
 	}
       else if(item == tuxboat_item)
 	{
@@ -730,7 +730,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
       else
 	{
-	  gcompris_play_sound (SOUNDLISTFILE, "crash");
+	  gcompris_play_ogg ("crash", NULL);
 	}
       break;
     default:
