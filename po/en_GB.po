@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-26 16:53+0100\n"
+"POT-Creation-Date: 2004-10-03 21:27+0100\n"
 "PO-Revision-Date: 2004-09-26 16:48+0100\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
@@ -2417,8 +2417,8 @@ msgstr "Educational suite gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1848 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
+#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2427,7 +2427,7 @@ msgstr "Couldn't find file %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1851
+#: src/boards/shapegame.c:1853
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -2814,8 +2814,8 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:203
-#: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:204
+#: src/gcompris/gameutil.c:856 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2849,197 +2849,202 @@ msgid "Czech"
 msgstr "Czech"
 
 #: src/gcompris/config.c:69
+#
+msgid "Danish"
+msgstr "Danish"
+
+#: src/gcompris/config.c:70
 msgid "German"
 msgstr "German"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Greek"
 msgstr "Greek"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "American English"
 msgstr "American English"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Great Britain English"
 msgstr "British English"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Canadian English"
 msgstr "Canadian English"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "Spanish"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Finnish"
 msgstr "Finnish"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "French"
 msgstr "French"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Indian"
 msgstr "Indian"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Croatian"
 msgstr "Croatian"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Malay"
 msgstr "Malay"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Albanian"
 msgstr "Albanian"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Walloon"
 msgstr "Walloon"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "No filter"
 msgstr "No filter"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "Only this level"
 msgstr "Only this level"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "This level and above"
 msgstr "This level and above"
 
-#: src/gcompris/config.c:177
+#: src/gcompris/config.c:178
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:286
+#: src/gcompris/config.c:287
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:329
+#: src/gcompris/config.c:330
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:357
+#: src/gcompris/config.c:358
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:391
+#: src/gcompris/config.c:392
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:412
+#: src/gcompris/config.c:413
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:427 src/gcompris/config.c:812
-#: src/gcompris/config.c:823
+#: src/gcompris/config.c:428 src/gcompris/config.c:813
+#: src/gcompris/config.c:824
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3056,15 +3061,15 @@ msgstr "LOAD"
 msgid "SAVE"
 msgstr "SAVE"
 
-#: src/gcompris/gameutil.c:128
+#: src/gcompris/gameutil.c:129
 msgid "Couldn't find file"
 msgstr "Couldn't find file"
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid "This activity is incomplete."
 msgstr "This activity is incomplete."
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:132
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
