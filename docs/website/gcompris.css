@@ -15,12 +15,12 @@
   #float: left;
 } 
 
-#jaune {
+#HEADERRIGHT {
   position : absolute;
   #width: 200px;
   top : 5px;
   #margin: 0;
-  left : 90%;
+  right : 5%;
 }
 
 #MENU {
@@ -31,7 +31,7 @@
   margin : 6px;
   border: 0px solid #111;
   background-color: #FFFFFF;
-  border-color : #5D61C5;
+  border-color : #e2a395;
   padding: 15px;
   display: block;
 } 
@@ -62,16 +62,20 @@ margin:0em;
 
 a:link {
   text-decoration : none; 
-  color : #000000; 
+  color : #c73938; 
 } 
 a:visited {
   text-decoration : none; 
-  color : #000000; 
+  color : #c73938; 
 } 
 a:hover {
   text-decoration: none; 
-  color : #000000; 
+  color : #c73938; 
 } 
+a.highlight:hover {
+  background-color: #d6d8ec;
+}
+
 a:active {
 } 
 body {
@@ -118,15 +122,15 @@ body {
 .menunav {
   font-family : Georgia, "Times New Roman", Times, serif; 
   font-size : 14px; 
-  color : #3543dd; 
+  color : #767bb6;
   font-weight : bold; 
   border-bottom: 1px solid;
-  background-color: #d1dafc;
+  background-color: #d6d8ec;
   border-color : #f27979;
 } 
 .contenu {
   font-size : 14px; 
-  border-color : #5D61C5;
+  border-color : #e2a395;
   display: block;
   padding: 5px;
 } 
@@ -134,6 +138,9 @@ body {
   font-family : Georgia, "Times New Roman", Times, serif; 
   font-size : 24px; 
   font-weight : bold; 
+  display: list-item;
+  list-style-image: url(img_pack/pucetitre.gif);
+  list-style-position: inside;
 } 
 .titre2 {
   font-family : Georgia, "Times New Roman", Times, serif; 
@@ -150,15 +157,20 @@ body {
   font-size : 18px; 
   font-weight : bold; 
   border-bottom:2px solid #369;
-  color:#1826F2;
+  color:#000000;
   font-size:large;
   background-color:transparent;
   padding:0 0 0.2em 0;
 } 
+.titrearticlepuce {
+  display: list-item;
+  list-style-image: url(img_pack/pucesoustitre.gif);
+  list-style-position: inside;
+} 
 .intro {
   font-family : Georgia, "Times New Roman", Times, serif; 
   font-size : 12px; 
-  color : #660000; 
+  color : #c73938; 
   text-align : center; 
 } 
 .locale {
@@ -184,7 +196,7 @@ body {
   margin : 6px;
   border: 2px solid #d573e2;
   background-color: #FFF;
-  border-color : #5D61C5;
+  border-color : #e2a395;
   padding: 15px;
   display: block;
 } 
@@ -195,8 +207,8 @@ body {
   padding : 10px; 
   clear : left; 
   border: 1px solid #111;
-  background-color: #FFFFC9;
-  border-color : #f4cd70;
+  background-color: #d6d8ec;
+  border-color : #e2a395;
 } 
 .surtitre {
   font-size : 10px; 
@@ -204,7 +216,7 @@ body {
 } 
 .soustitre {
   font-size : 14px; 
-  color : #3a5ff4; 
+  color : #767bb6; 
 } 
 .chapo {
   font-size : 11px; 

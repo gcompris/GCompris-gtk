@@ -43,7 +43,7 @@
 	<div class="date">
 	  <:breves:> <br>
 	<BOUCLE_breves(BREVES) {id_secteur} {par date} {inverse} {0,5}>
-	  <li class="grasbeige"> <i>[(#DATE|affdate)]</i>: <a href="#URL_BREVE">#TITRE</a> 
+	  <li class="grasbeige"> <i>[(#DATE|affdate)]</i>: <a href="#URL_BREVE" class="highlight">#TITRE</a> 
 	  </li>
 	</BOUCLE_breves>
     </div>
@@ -56,10 +56,10 @@
 	  <div class="titrearticle">
 	    <div class="date"><:par_auteur:>
 	<BOUCLE4(AUTEURS){id_article}>
-	  <a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR">#NOM</a>
+	  <a href="auteur.php3?id_auteur=#ID_AUTEUR?id_rubrique=#ID_SECTEUR" class="highlight">#NOM</a>
 	</BOUCLE4>
     </div>
-    [(#LOGO_ARTICLE|right)] <a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a>
+    <div class="titrearticlepuce">[(#LOGO_ARTICLE|right)] <a href="#URL_ARTICLE" class="highlight">[(#TITRE|supprimer_numero)]</a></div>
   </div>
     <div class="soustitre">
       [(#SOUSTITRE)]
@@ -67,7 +67,7 @@
     <br>
     <div class="contenu">#TEXTE</div>
 
-    [<div class="titre3"><br><a href="forum.php3?(#PARAMETRES_FORUM)"><:repondre_article:></a></div>]
+    [<div class="titre3"><br><a href="forum.php3?(#PARAMETRES_FORUM)" class="highlight"><:repondre_article:></a></div>]
     <br>
 
   </div>
@@ -81,10 +81,10 @@
 	      <div class="forum"> <a name="forum#ID_FORUM"></a> 
 		<div class="forum-chapo"> 
 		  <div class="titrearticle">#TITRE</div>
-		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>] </div>
+		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL" class="highlight">(#NOM)</A>] </div>
 		<div class="forum-item"> [(#TEXTE|smileys)] 
 		  [
-		  <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
+		  <div>Site : <a href="#URL_SITE" class="highlight">(#NOM_SITE)</a></div>]
 
 		</div>
 	      </div>
@@ -95,11 +95,11 @@
 	      <div class="forum"> <a name="forum#ID_FORUM"></a> 
 		<div class="forum-chapo"> 
 		  <div class="forum-titre">#TITRE</div>
-		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>] 
+		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL" class="highlight">(#NOM)</A>] 
 		</div>
 		<div class="forum-item"> [(#TEXTE|smileys)] 
 		  [
-		  <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
+		  <div>Site : <a href="#URL_SITE" class="highlight">(#NOM_SITE)</a></div>]
 
 		</div>
 	      </div>
@@ -121,9 +121,9 @@
 
     <BOUCLE_site(SITES){id_rubrique}>
       <div class="rubriquesummary"> 
-        <span>[<a href="#URL_SITE">(#LOGO_SITE|left)</a>]</span>
+        <span>[<a href="#URL_SITE" class="highlight">(#LOGO_SITE|left)</a>]</span>
         <span>
-	<div class="titre">[<a href="#URL_SITE">(#NOM_SITE)</a>]</div>
+	<div class="titre">[<a href="#URL_SITE" class="highlight">(#NOM_SITE)</a>]</div>
 	<div class="soustitre">[(#DESCRIPTIF)]</div>
       </span>
       </div>
