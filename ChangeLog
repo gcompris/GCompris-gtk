@@ -1,3 +1,11 @@
+2004-01-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/skins/default/skin.xml: added and changed colors for erase
+	* boards/skins/pink/skin.xml: added and changed colors for erase
+	* src/boards/erase.c: (erase_next_level), (erase_create_item),
+	(game_won), (item_event): based on an idea of Zsolt, added a 2 times and 3 times shoot items
+	* src/gcompris/.cvsignore: fixed.
+
 2004-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added billard

@@ -49,17 +49,17 @@ static int number_of_item_y = 0;
 
 // List of images to use in the game
 static gchar *imageList[] =
-{
-  "gcompris/animals/flamentrosegc.jpg",
-  "gcompris/animals/girafegc.jpg",
-  "gcompris/animals/rhinogc.jpg",
-  "gcompris/animals/singegc.jpg",
-  "gcompris/animals/joybear002.jpg",
-  "gcompris/animals/elephanteauxgc.jpg",
-  "gcompris/animals/hypogc.jpg",
-  "gcompris/animals/jumentmulassieregc.jpg",
-  "gcompris/animals/tetegorillegc.jpg"
-};
+  {
+    "gcompris/animals/flamentrosegc.jpg",
+    "gcompris/animals/girafegc.jpg",
+    "gcompris/animals/rhinogc.jpg",
+    "gcompris/animals/singegc.jpg",
+    "gcompris/animals/joybear002.jpg",
+    "gcompris/animals/elephanteauxgc.jpg",
+    "gcompris/animals/hypogc.jpg",
+    "gcompris/animals/jumentmulassieregc.jpg",
+    "gcompris/animals/tetegorillegc.jpg"
+  };
 #define NUMBER_OF_IMAGES 9
 
 /* Description of this plugin */
@@ -187,31 +187,9 @@ static void erase_next_level()
   gamewon = FALSE;
 
   /* Select level difficulty */
-  switch(gcomprisBoard->level)
-    {
-    case 1:
-      number_of_item_x = gcomprisBoard->level*5;
-      number_of_item_y = gcomprisBoard->level*5;
-      break;
-    case 2:
-      number_of_item_x = gcomprisBoard->level*5;
-      number_of_item_y = gcomprisBoard->level*5;
-      break;
-    case 3: 
-    case 4:
-      number_of_item_x = 4*5;
-      number_of_item_y = 4*5;
-      break;
-    case 5:
-      number_of_item_x = gcomprisBoard->level*5;
-      number_of_item_y = gcomprisBoard->level*5;
-      break;
-    default:
-      number_of_item_x = 5*5;
-      number_of_item_y = 5*5;
-    }
+  number_of_item_x = ((gcomprisBoard->level+1)%2+1)*5;
+  number_of_item_y = ((gcomprisBoard->level+1)%2+1)*5;
       
-
   /* Try the next level */
   erase_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
@@ -244,7 +222,6 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
     {
       for(j=0; j<BOARDHEIGHT; j+=BOARDHEIGHT/number_of_item_y)
 	{
-
 	  item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_rect_get_type (),
 					"x1", (double) i,
@@ -255,7 +232,7 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
 					"outline_color_rgba", gcompris_skin_get_color("erase/rectangle out"),
 					"width_units", (double)1,
 					NULL);
-
+	  gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(0));
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
 	  number_of_item++;
 	}
@@ -270,6 +247,7 @@ static void game_won()
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
+    int i;
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
@@ -285,11 +263,45 @@ static void game_won()
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
+  guint state;
 
   if(board_paused)
     return FALSE;
 
+  if(event->type!=GDK_ENTER_NOTIFY)
+    return FALSE;
+
+  state = (GPOINTER_TO_INT (gtk_object_get_data (GTK_OBJECT (item), "state")));
+
+  if(gcomprisBoard->level>2)
+    {
+      if(!state)
+	{
+	  gnome_canvas_item_set(item,
+				"fill_color_rgba", gcompris_skin_get_color("erase/rectangle in2"),
+				"outline_color_rgba", gcompris_skin_get_color("erase/rectangle out2"),
+				NULL);
+	  state++;
+	  gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(state));
+	  return FALSE;
+	}
+
+      if(gcomprisBoard->level>4) {
+	if(state==1)
+	  {     
+	    state++;
+	    gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(state));
+	    gnome_canvas_item_set(item, 
+				  "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in3"),
+				  "outline_color_rgba", NULL,
+				  NULL);
+	    return FALSE;
+	  }
+      }
+    }
+
   gtk_object_destroy(GTK_OBJECT(item));
+
 
   if(--number_of_item == 0)
     {
