@@ -390,6 +390,65 @@ py_gcompris_filename_pass(PyObject* self, PyObject* args)
 
 }
 
+/*
+ * Set a property in a canvas object
+ * ---------------------------------
+ */
+/* void canvas_set_property(GnomeCanvasItem *item, gchar *property, gchar* value) */
+static PyObject*
+py_gcompris_canvas_set_property(PyObject* self, PyObject* args)
+{
+  PyObject* pyitem;
+  GnomeCanvasItem *item;
+  char *property;
+  char *value;
+
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "Oss:gcompris_canvas_set_property", &pyitem, &property, &value))
+    return NULL;
+
+  /* pass parameter from python */
+  item = (GnomeCanvasItem *) pygobject_get(pyitem);
+
+  /* gcompris_filename_pass( item, string); */
+  g_object_set_data( G_OBJECT(item), property, value);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+
+}
+
+/*
+ * Get a property in a canvas object
+ * ---------------------------------
+ */
+/* gchar *canvas_get_property(GnomeCanvasItem *item, gchar *property) */
+static PyObject*
+py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
+{
+  PyObject* pyitem;
+  GnomeCanvasItem *item;
+  char  *property;
+  char  *value;
+  gchar *result;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "Oss:gcompris_canvas_get_property", &pyitem, &property))
+    return NULL;
+
+  /* pass parameter from python */
+  item = (GnomeCanvasItem *) pygobject_get(pyitem);
+
+  /* gcompris_filename_pass( item, string); */
+  result = g_object_get_data( G_OBJECT(item), property);
+
+  /* Create and return the result */
+  return Py_BuildValue("s", result);
+
+}
+
 
 static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gcompris_load_pixmap, METH_VARARGS, "gcompris_load_pixmap" },
@@ -410,6 +469,8 @@ static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "svg_save",  py_gcompris_svg_save, METH_VARARGS, "gcompris_svg_save" },
   { "svg_restore",  py_gcompris_svg_restore, METH_VARARGS, "gcompris_svg_restore" },
   { "filename_pass",  py_gcompris_filename_pass, METH_VARARGS, "gcompris_filename_pass" },
+  { "canvas_set_property",  py_gcompris_canvas_set_property, METH_VARARGS, "gcompris_canvas_set_property" },
+  { "canvas_get_property",  py_gcompris_canvas_get_property, METH_VARARGS, "gcompris_canvas_get_property" },
   { NULL, NULL, 0, NULL}
 };
 

@@ -1804,8 +1804,8 @@ def image_selected(image):
   # Tell svg_save the filename
   # Write "filename=image" in the property of newitem
   # Can't do it here because in C python string are unreadable
-  gcompris.utils.filename_pass(fles.newitem, image)
-  
+  gcompris.utils.canvas_set_property(fles.newitem, "filename", image)
+
   fles.anchorize(fles.newitemgroup)
   fles.object_set_size_and_pos(fles.newitemgroup, x, y, x+width, y+height)
   fles.select_item(fles.newitemgroup)

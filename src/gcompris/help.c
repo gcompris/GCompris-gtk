@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2004/09/29 22:50:26 bcoudoin>
+ * Time-stamp: <2004/10/27 00:16:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -164,9 +164,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_prerequisite), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "prerequisite");
-      gtk_signal_connect(GTK_OBJECT(item_prerequisite), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 NULL);
       
       item_prerequisite_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
@@ -180,9 +177,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_prerequisite_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "prerequisite");
-      gtk_signal_connect(GTK_OBJECT(item_prerequisite_text), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 item_prerequisite);
     }
 
   // Goal Button
@@ -198,9 +192,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_goal), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "goal");
-      gtk_signal_connect(GTK_OBJECT(item_goal), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 NULL);
       
       item_goal_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
@@ -214,9 +205,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_goal_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "goal");
-      gtk_signal_connect(GTK_OBJECT(item_goal_text), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 item_goal);
     }
 
   // Manual Button
@@ -232,9 +220,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_manual), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "manual");
-      gtk_signal_connect(GTK_OBJECT(item_manual), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 NULL);
       
       item_manual_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
@@ -248,9 +233,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_manual_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "manual");
-      gtk_signal_connect(GTK_OBJECT(item_manual_text), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 item_manual);
     }
 
   // Credit Button
@@ -266,9 +248,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_credit), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "credit");
-      gtk_signal_connect(GTK_OBJECT(item_credit), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 NULL);
       
       item_credit_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
@@ -282,9 +261,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_credit_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "credit");
-      gtk_signal_connect(GTK_OBJECT(item_credit_text), "event",
-			 (GtkSignalFunc) gcompris_item_event_focus,
-			 item_credit);
     }
 
   gdk_pixbuf_unref(pixmap);

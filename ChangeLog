@@ -1,3 +1,18 @@
+2004-10-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/chronos/board4_1.xml.in: added translation to the title
+	* boards/dataset/mrpatate.xml: added new planes from Franck
+	* boards/sounds/ru/Makefile.am: created for russian voices. not yet commited
+	* src/boards/py-mod-utils.c: (py_gcompris_canvas_set_property),
+	(py_gcompris_canvas_get_property): created canvas_set/get_property to let python access to svgimport
+	data in items
+	* src/boards/python/anim.py: uses gcompris.utils.canvas_set_property
+	* src/gcompris/config.c: added Indian (Punjabi)
+	* src/gcompris/gameutil.c: (gcompris_dialog): now do not display a second dialog if it happens
+	it was crashing
+	* src/gcompris/help.c: (gcompris_help_start): removed focus on top button it makes crashing on close
+	* src/gcompris/svgutil.c: (gcompris_svg_save): added http://gcompris.net
+
 2004-10-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Franck Doucet remade many graphism

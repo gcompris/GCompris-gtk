@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/10/12 19:34:29 bruno>
+ * Time-stamp: <2004/10/23 21:13:37 bruno>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -873,7 +873,7 @@ void gcompris_svg_save(char *module, char *file, GnomeCanvasItem *item, int hsiz
 
     rc = snprintf(tmp, 127 , "gcompris:%s",module);
     cur = xmlNewChild(cur, NULL, BAD_CAST tmp, NULL);
-    xmlNewProp(cur, BAD_CAST "xmlns:gcompris", BAD_CAST "http://www.ofset.org/gcompris");
+    xmlNewProp(cur, BAD_CAST "xmlns:gcompris", BAD_CAST "http://gcompris.net");
 
     rc = snprintf(tmp, 127, "Gcompris:%s private data ",module);
     com = xmlNewComment(BAD_CAST tmp);

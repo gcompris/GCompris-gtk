@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/10/09 02:28:41 bruno>
+ * Time-stamp: <2004/10/23 22:22:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -825,19 +825,11 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   printf("Dialog=%s\n", str);
 
-  /* If we are already running delete the previous one */
+  /* If we are already running do nothing */
   if(rootDialogItem) {
-    /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
-    if(itemDialogText) {
-      while (g_idle_remove_by_data (itemDialogText));
-      gtk_object_destroy (itemDialogText);
-      itemDialogText = NULL;
-    }
-
-    gtk_object_destroy(GTK_OBJECT(rootDialogItem));
+    g_warning("Cannot run a dialog box, one is already running. Message = %s\n", str);
+    return;
   }
-  rootDialogItem = NULL;
-
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
