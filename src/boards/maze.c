@@ -936,7 +936,10 @@ static gint key_press_2D_relative(guint keyval)
       break;
     case GDK_Up: one_step(viewing_direction);
       break;
-    case GDK_Down: one_step(U_TURN(viewing_direction));
+    case GDK_Down: 
+      viewing_direction=TURN_RIGHT(viewing_direction); 
+      viewing_direction=TURN_RIGHT(viewing_direction); 
+      update_tux(viewing_direction);
       break;
     default: return FALSE;
     }
@@ -964,7 +967,10 @@ static gint key_press_3D(guint keyval)
       break;
     case GDK_Up: one_step(viewing_direction);
       break;
-    case GDK_Down: one_step(U_TURN(viewing_direction));
+    case GDK_Down:
+      viewing_direction=TURN_RIGHT(viewing_direction); 
+      viewing_direction=TURN_RIGHT(viewing_direction); 
+      update_tux(viewing_direction);
       break;
     case GDK_2: 
     case GDK_space: 
