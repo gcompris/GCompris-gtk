@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-10-28 14:15+0100\n"
-"PO-Revision-Date: 2003-10-28 14:16+0100\n"
+"POT-Creation-Date: 2003-10-30 02:11+0100\n"
+"PO-Revision-Date: 2003-10-30 02:12+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -353,8 +353,8 @@ msgstr "Gå till algebraaktiviteterna"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Vänsterklicka med musen för att välja en aktivitet"
 
@@ -718,11 +718,11 @@ msgstr ""
 "Barnen måste flytta objekten till vänster till deras riktiga plats i "
 "dubbelposttabellen."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:205
 msgid "A simple vector drawing tool"
 msgstr "Ett enkelt vektorritverktyg"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:206
 msgid "Creative board where you can freely draw"
 msgstr "Kreativt bräde där du kan rita fritt"
 
@@ -766,6 +766,10 @@ msgstr "Numreringsträning"
 #: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr "Placera föremålen så att de kan räknas på bäst sätt"
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Gå till upplevelseaktiviteter"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
@@ -2415,43 +2419,47 @@ msgstr "Kunde inte öppna skalkatalogen: %s"
 msgid "Skin : %s"
 msgstr "Skal: %s"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in fullscreen mode."
 msgstr "kör gcompris i helskärmsläge."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in window mode."
 msgstr "kör gcompris i fönsterläge."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris with sound enabled."
 msgstr "kör gcompris med ljud aktiverat."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris without sound."
 msgstr "kör gcompris utan ljud."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris with the default gnome cursor."
 msgstr "kör gcompris med gnomes standardmuspekare."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:77
 msgid "display only activities with this difficulty level."
 msgstr "visa endast aktiviteter med denna svårighetsnivå."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:79
+msgid "select the audio output, one of 'default alsa09 arts esd oss'"
+msgstr "välj ljudutmatningen, en av \"default alsa09 arts esd oss\""
+
+#: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
 msgstr "Skriver ut versionsnumret av "
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:83
 msgid "Use the antialiased canvas (slower)."
 msgstr "Använd den kantutjämnade canvasen (långsammare)."
 
-#: src/gcompris/gcompris.c:350
+#: src/gcompris/gcompris.c:353
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:567
+#: src/gcompris/gcompris.c:570
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2512,7 +2520,7 @@ msgstr "Författare"
 msgid "Directory"
 msgstr "Katalog"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
 msgid "Title"
 msgstr "Titel"
 
@@ -2527,11 +2535,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Släppt under GPL"
 
-#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
+#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
 msgid "Now Playing Music"
 msgstr "Spelar nu musik"
 
-#: src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:247
 msgid "Artist"
 msgstr "Artist"
 
@@ -2553,6 +2561,15 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid "Go to experience activities"
+#~ msgstr "Gå till upplevelseaktiviteter"
+
+#~ msgid "Go to the experience activities"
+#~ msgstr "Gå till upplevelseaktiviteterna"
+
+#~ msgid "Select the audio output, one of 'default alsa09 arts esd oss'"
+#~ msgstr "Välj ljudutmatningen, en av \"default alsa09 arts esd oss\""
 
 #~ msgid ""
 #~ "Click on different active elements : sun, cloud, water pump station, "
