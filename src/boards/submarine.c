@@ -125,7 +125,8 @@ static GnomeCanvasItem *barre_av_item, *barre_ar_item,
 	*air_item_back, *air_item_front,
 	*regleur_item_back, *regleur_item_front,
   *battery_item_back, *battery_item_front,
-  *air_compressor_item, *battery_charger_item, *alert_submarine;
+  *air_compressor_item, *battery_charger_item, *alert_submarine,
+  *bubbling[3];
 
 /* submarine parameters */
 static double barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
@@ -645,6 +646,26 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   gdk_pixbuf_unref(pixmap);
   gnome_canvas_item_hide(alert_submarine);
 
+  // when the submarine makes some bubbles ...
+  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "bubbling.png");
+  pixmap = gcompris_load_pixmap(str);
+  for (i=0; i<3; i++) {
+    bubbling[i] = gnome_canvas_item_new (boardRootItem,
+              gnome_canvas_pixbuf_get_type (),
+              "pixbuf", pixmap,
+              "x", (double) ALERT_SUBMARINE_X,
+              "y", (double) ALERT_SUBMARINE_Y,
+              "width", (double) gdk_pixbuf_get_width(pixmap),
+              "height", (double) gdk_pixbuf_get_height(pixmap),
+              "width_set", TRUE,
+              "height_set", TRUE,
+              "anchor", GTK_ANCHOR_CENTER,
+              NULL);
+	  gnome_canvas_item_hide(bubbling[i]);
+  }
+  g_free(str);
+  gdk_pixbuf_unref(pixmap);
+
   // the triggers for air compressor and battery charger
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "manette.png");
   pixmap = gcompris_load_pixmap(str);
@@ -786,7 +807,6 @@ static gboolean update_timeout_slow() {
   if (barre_ar_angle != 0.0 && barre_av_angle != 0.0) {
   	if (fabs(barre_ar_angle)/barre_ar_angle == fabs(barre_av_angle)/barre_av_angle) {
     	double a = (fabs(barre_ar_angle) > fabs(barre_av_angle)) ? barre_av_angle : barre_ar_angle;
-      printf("2 barres dans le meme sens, prise en compte de %.2f\n", a);
 			submarine_vertical_speed += a * submarine_horizontal_speed/30.0;
       }
   }
@@ -824,7 +844,6 @@ static gboolean update_timeout_slow() {
   {
     double r[6],t1[6], t2[6];
     double y = depth + SUBMARINE_HEIGHT/2 + SURFACE_IN_BACKGROUND - SUBMARINE_WIDTH/2.0*sin(DEG_TO_RAD(assiette));
-    printf( "depth=%d x=%.1f y=%.1f\n", (int) depth,submarine_x, y );
     art_affine_translate( t1 , (double)-SUBMARINE_WIDTH/2.0, (double)-SUBMARINE_HEIGHT );
     art_affine_rotate( r, -assiette );
     art_affine_multiply( r, t1, r);
@@ -860,6 +879,27 @@ static gboolean update_timeout_very_slow() {
 
   /* battery */
   setBattery(battery -= submarine_horizontal_speed*submarine_horizontal_speed/10.0);
+
+  /* bubbling */
+	if ( (ballast_av_purge_open && ballast_av_air > 0.0) ||
+ 			 ( ballast_av_chasse_open && ballast_av_air == MAX_BALLAST ) ) {
+  	item_absolute_move( bubbling[0], submarine_x-30.0, depth-50.0);
+		gnome_canvas_item_show( bubbling[0] );
+  	} else
+		gnome_canvas_item_hide( bubbling[0] );
+
+	if ( (ballast_ar_purge_open && ballast_ar_air > 0.0) ||
+ 			 ( ballast_ar_chasse_open && ballast_ar_air == MAX_BALLAST ) ) {
+  	item_absolute_move( bubbling[2], submarine_x - SUBMARINE_WIDTH , depth-30.0);
+		gnome_canvas_item_show( bubbling[2] );
+  	} else
+		gnome_canvas_item_hide( bubbling[2] );
+
+  if (regleur_purge_open && regleur < MAX_REGLEUR) {
+  	item_absolute_move( bubbling[1], submarine_x - SUBMARINE_WIDTH/2 -30.0, depth-30.0);
+		gnome_canvas_item_show( bubbling[1] );
+  	} else
+		gnome_canvas_item_hide( bubbling[1] );
 
   return TRUE;
 }
