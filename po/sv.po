@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-01-14 00:07+0100\n"
+"POT-Creation-Date: 2002-02-28 22:00+0100\n"
 "PO-Revision-Date: 2002-01-14 00:07+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -28,6 +28,23 @@ msgstr "Träna på multiplikation"
 msgid "Pratice the division operation"
 msgstr "Träna på division"
 
+#: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
+msgid ""
+"Credits: Animal pictures are taken from the Animal Photography Page of Ralf "
+"Schmode (http://schmode.net/) Ralf has given gcompris the authorization to "
+"include his pictures. Thanks a lot Ralf."
+msgstr ""
+
+#: boards/algebra_guesscount.xml.in.h:2
+msgid "Find the correct operations to get the result"
+msgstr ""
+
+#: boards/algebra_guesscount.xml.in.h:3
+msgid ""
+"With displayed numbers and operations, find the right combination to get the "
+"right result"
+msgstr ""
+
 #: boards/algebra_minus.xml.in.h:2
 msgid "Pratice the substraction operation"
 msgstr "Träna på subtraktion"
@@ -45,7 +62,10 @@ msgstr "Gå till algebrabräden"
 msgid "Left-Click with the mouse to select a board"
 msgstr "Vänsterklicka med musen för att välja ett bräde"
 
-#: boards/babymatch.xml.in.h:1
+#: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
+#: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
+#: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Dra och släpp föremålen för att få dem att passa"
 
@@ -77,21 +97,22 @@ msgstr "Hör en bokstav och klicka på rätt bokstav"
 msgid "Can move the mouse"
 msgstr "Kan flytta musen"
 
-#: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:77
+#: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:82
 msgid "Click On Me"
 msgstr "Klicka på mig"
 
 #: boards/clickgame.xml.in.h:3
+#, fuzzy
 msgid ""
 "Credits: Fish are taken from the Unix utility xfishtank. Images are taken "
-"from the National Undersearch Research Program (NURP) Collection at http://"
-"www.photolib.noaa.gov All images credit bellongs to the OAR/National "
-"Undersea Research Program (NURP). Except for the first image that also "
-"credits the University of North Carolina at Wilmington. In the gcompris "
-"level order, images information is: Location: Tropical Atlantic Ocean, "
-"Florida Keys (image nur00523) Photographer: D. Kesling Location: Florida "
-"Keys (image nur03006) Location: Unknown (image nur03505) Location: Unknown "
-"(image nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
+"from the National Undersea Research Program (NURP) Collection at http://www."
+"photolib.noaa.gov All images credit bellongs to the OAR/National Undersea "
+"Research Program (NURP). Except for the first image that also credits the "
+"University of North Carolina at Wilmington. In the gcompris level order, "
+"images information is: Location: Tropical Atlantic Ocean, Florida Keys "
+"(image nur00523) Photographer: D. Kesling Location: Florida Keys (image "
+"nur03006) Location: Unknown (image nur03505) Location: Unknown (image "
+"nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
 "nur03013)"
 msgstr ""
 "Tack till: Fiskarna kommer från Unix-verktyget xfishtank. Bilderna kommer "
@@ -113,7 +134,7 @@ msgstr ""
 "I detta spel kommer barnen att upptäcka klicket på datormusen. Målet är bara "
 "att klicka med vänstra musknappen på fiskarna som rör sig."
 
-#: boards/clickgame.xml.in.h:5 src/boards/clickgame.c:78
+#: boards/clickgame.xml.in.h:5 src/boards/clickgame.c:83
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -134,11 +155,11 @@ msgstr "Lär klockan"
 msgid "Discover the Computer"
 msgstr "Upptäck datorn"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:98
+#: boards/draw.xml.in.h:1 src/boards/draw.c:153
 msgid "A simple vector drawing tool"
 msgstr "Ett enkelt vektorritverktyg"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:99
+#: boards/draw.xml.in.h:2 src/boards/draw.c:154
 msgid "Creative board where you can freely draw"
 msgstr "Kreativt bräde där du kan rita fritt"
 
@@ -157,22 +178,22 @@ msgid "Needs to handle the mouse with the click easily"
 msgstr "Måste enkelt kunna hantera klicket med musen"
 
 #: boards/draw.xml.in.h:5
+#, fuzzy
 msgid ""
 "On the left select a drawing tool, on the bottom select a color then click "
 "on the white area and drag to create a new shape. To go faster, you can use "
-"the middle mouse button to delete an object or the right button to move an "
-"object."
+"the middle mouse button to delete an object."
 msgstr ""
 "På vänstra sidan väljer du ett ritverktyg, sedan väljer du en färg nederst, "
 "och sedan klickar du på den vita ytan och drar för att skapa en ny form. För "
 "att snabba upp kan du använda musens mittknapp för att ta bort ett objekt "
 "eller höger musknapp för att flytta ett objekt."
 
-#: boards/erase.xml.in.h:1 src/boards/erase.c:73
+#: boards/erase.xml.in.h:2 src/boards/erase.c:73
 msgid "Move the mouse"
 msgstr "Flytta musen"
 
-#: boards/erase.xml.in.h:2 src/boards/erase.c:74
+#: boards/erase.xml.in.h:3 src/boards/erase.c:74
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Flytta musen för att radera området och upptäck bakgrunden"
 
@@ -196,13 +217,194 @@ msgstr "Träna läsning genom att hitta det ord som passar en bild"
 msgid "Reading pratice"
 msgstr "Lästräning"
 
-#: boards/imagename.xml.in.h:1
+#: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
+msgid "apple"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:2
+msgid "back"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:3
+msgid "bag"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:4 boards/imagename/board6_0.xml.in.h:2
+msgid "ball"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:5
+msgid "banana"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:6
+msgid "bed"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:7
+msgid "boat"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:8
+msgid "book"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
+msgid "bottle"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:10
+msgid "cake"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:11
+msgid "camel"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:12 boards/imagename/board4_0.xml.in.h:4
+msgid "car"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:13
+msgid "cheese"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:14
+msgid "cow"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+msgid "house"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:16
+msgid "pear"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:17
+msgid "satchel"
+msgstr ""
+
+#: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
+#: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
+#: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
+#: boards/imagename/board6_0.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
 msgstr "Dra och släpp föremålen över deras namn"
 
 #: boards/imagename.xml.in.h:2
 msgid "Image Name"
 msgstr "Bildnamn"
+
+#: boards/imagename/board1_0.xml.in.h:2
+msgid "bulb"
+msgstr ""
+
+#: boards/imagename/board1_0.xml.in.h:3
+msgid "fishing boat"
+msgstr ""
+
+#: boards/imagename/board1_0.xml.in.h:4
+msgid "lamp"
+msgstr ""
+
+#: boards/imagename/board1_0.xml.in.h:5
+msgid "mail box"
+msgstr ""
+
+#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:4
+msgid "postcard"
+msgstr ""
+
+#: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
+#: boards/imagename/board6_0.xml.in.h:7
+msgid "sailing boat"
+msgstr ""
+
+#: boards/imagename/board2_0.xml.in.h:3
+msgid "egg"
+msgstr ""
+
+#: boards/imagename/board2_0.xml.in.h:4
+msgid "eggcup"
+msgstr ""
+
+#: boards/imagename/board2_0.xml.in.h:5
+msgid "flower"
+msgstr ""
+
+#: boards/imagename/board2_0.xml.in.h:6
+msgid "glass"
+msgstr ""
+
+#: boards/imagename/board2_0.xml.in.h:7
+msgid "vase"
+msgstr ""
+
+#: boards/imagename/board3_0.xml.in.h:3
+msgid "light house"
+msgstr ""
+
+#: boards/imagename/board3_0.xml.in.h:4
+msgid "rocket"
+msgstr ""
+
+#: boards/imagename/board3_0.xml.in.h:6
+msgid "sofa"
+msgstr ""
+
+#: boards/imagename/board3_0.xml.in.h:7 boards/imagename/board5_0.xml.in.h:5
+msgid "star"
+msgstr ""
+
+#: boards/imagename/board4_0.xml.in.h:3
+msgid "bicycle"
+msgstr ""
+
+#: boards/imagename/board4_0.xml.in.h:5
+msgid "carrot"
+msgstr ""
+
+#: boards/imagename/board4_0.xml.in.h:6
+msgid "grater"
+msgstr ""
+
+#: boards/imagename/board4_0.xml.in.h:7
+#, fuzzy
+msgid "tree"
+msgstr "Grekiska"
+
+#: boards/imagename/board5_0.xml.in.h:2
+msgid "firtree"
+msgstr ""
+
+#: boards/imagename/board5_0.xml.in.h:3
+msgid "pencil"
+msgstr ""
+
+#: boards/imagename/board5_0.xml.in.h:6
+msgid "truck"
+msgstr ""
+
+#: boards/imagename/board5_0.xml.in.h:7
+msgid "van"
+msgstr ""
+
+#: boards/imagename/board6_0.xml.in.h:3
+msgid "castle"
+msgstr ""
+
+#: boards/imagename/board6_0.xml.in.h:4
+msgid "crown"
+msgstr ""
+
+#: boards/imagename/board6_0.xml.in.h:5
+msgid "flag"
+msgstr ""
+
+#: boards/imagename/board6_0.xml.in.h:6
+msgid "racket"
+msgstr ""
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
@@ -299,9 +501,41 @@ msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr ""
 "Dra och släpp föremålen för att sätta ihop de ursprungliga målningarna igen"
 
-#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:122
+#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:123
 msgid "Make the puzzle"
 msgstr "Lägg pusslet"
+
+#: boards/paintings/board1_0.xml.in.h:1
+msgid "Edgar Degas, The Dancing Class - 1873"
+msgstr ""
+
+#: boards/paintings/board2_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr ""
+
+#: boards/paintings/board3_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+msgstr ""
+
+#: boards/paintings/board3_1.xml.in.h:1
+msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgstr ""
+
+#: boards/paintings/board3_1.xml.in.h:2
+msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+msgstr ""
+
+#: boards/paintings/board4_0.xml.in.h:1
+msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
+msgstr ""
+
+#: boards/paintings/board5_0.xml.in.h:1
+msgid "Cassat, Summertime - 1895"
+msgstr ""
+
+#: boards/paintings/board6_0.xml.in.h:1
+msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr ""
 
 #: boards/paratrooper.xml.in.h:1
 msgid ""
@@ -320,11 +554,11 @@ msgstr ""
 "säkert på fiskebåten. Han eller hon måste ta hänsyn till vindriktningen och "
 "vindstyrkan."
 
-#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:106
+#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
 msgid "Manage the paratrooper to let him safely land"
 msgstr "Hantera fallskärmsjägaren så att han landar säkert"
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:105
+#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
 msgid "Paratrooper"
 msgstr "Fallskärmsjägare"
 
@@ -340,6 +574,14 @@ msgstr "Flytta planet så att det når molnen i rätt följd"
 #: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
 msgid "Numbers in Order"
 msgstr "Tal i ordning"
+
+#: boards/railroad.xml.in.h:1
+msgid "A memory game based on trains"
+msgstr ""
+
+#: boards/railroad.xml.in.h:2
+msgid "Railroad"
+msgstr ""
 
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
@@ -364,6 +606,18 @@ msgstr ""
 msgid "Vertical reading practice"
 msgstr "Lodrät läsövning"
 
+#: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
+#: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
+#: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
+#: boards/scales/board2_0.xml.in.h:1 boards/scales/board2_1.xml.in.h:1
+#: boards/scales/board2_2.xml.in.h:1 boards/scales/board2_3.xml.in.h:1
+#: boards/scales/board2_4.xml.in.h:1 boards/scales/board2_5.xml.in.h:1
+#: boards/scales/board3_0.xml.in.h:1 boards/scales/board3_1.xml.in.h:1
+#: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
+#: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
+msgid "Set the masses in the decreasing order"
+msgstr ""
+
 #: boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
 msgstr "Dra och släpp massor för att balansera skalorna"
@@ -376,8 +630,9 @@ msgstr "Balansera skalorna"
 msgid "Numbers With Dices"
 msgstr "Tal med tärningar"
 
-#: boards/smallnumbers.xml.in.h:2
-msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
+#: boards/smallnumbers.xml.in.h:2 src/boards/smallnumbers.c:70
+#, fuzzy
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
@@ -404,7 +659,7 @@ msgstr "Läs en bokstav"
 msgid "Learn to recognize letters"
 msgstr "Lär dig känna igen bokstäver"
 
-#: src/boards/clickgame.c:169
+#: src/boards/clickgame.c:181
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Kunde inte öppna bildfilskatalogen: %s"
@@ -414,7 +669,7 @@ msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
 
 #: src/boards/imageid.c:109 src/boards/missingletter.c:103
-#: src/boards/reading.c:98
+#: src/boards/reading.c:100
 msgid "Reading"
 msgstr "Läsning"
 
@@ -423,16 +678,16 @@ msgid "Learn how to read"
 msgstr "Lär dig läsa"
 
 #: src/boards/imageid.c:570 src/boards/menu.c:502
-#: src/boards/missingletter.c:586 src/boards/shapegame.c:1269
-#: src/gcompris/gameutil.c:45 src/gcompris/gameutil.c:63
-#: src/gcompris/gameutil.c:82 src/gcompris/gameutil.c:254
-#: src/gcompris/gameutil.c:280 src/gcompris/gameutil.c:430
+#: src/boards/missingletter.c:587 src/boards/shapegame.c:1310
+#: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
+#: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
+#: src/gcompris/gameutil.c:358
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
-#: src/boards/imageid.c:573 src/boards/missingletter.c:589
-#: src/boards/shapegame.c:1272
+#: src/boards/imageid.c:573 src/boards/missingletter.c:590
+#: src/boards/shapegame.c:1313
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -461,39 +716,51 @@ msgstr "Memory-spel"
 msgid "Build a train conforming to the model"
 msgstr "Bygg ett tåg som överensstämmer med modellen"
 
-#: src/boards/reading.c:99
+#: src/boards/reading.c:101
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr ""
 "Läs en lista med ord och tala sedan om ifall det angivna ordet finns bland "
 "dem"
 
-#: src/boards/reading.c:307
+#: src/boards/reading.c:316
 msgid "Please, check if the word"
 msgstr "Kontrollera om ordet"
 
-#: src/boards/reading.c:327
+#: src/boards/reading.c:336
 msgid "is being displayed"
 msgstr "visas"
 
-#: src/boards/reading.c:518
+#: src/boards/reading.c:527
 msgid "I am Ready"
 msgstr "Jag är redo"
 
-#: src/boards/reading.c:558
+#: src/boards/reading.c:567
 msgid "Yes I saw it"
 msgstr "Ja, jag såg det"
 
-#: src/boards/reading.c:588
+#: src/boards/reading.c:597
 msgid "No, it was not there"
 msgstr "Nej, det fanns inte där"
 
-#: src/boards/shapegame.c:123
+#: src/boards/shapegame.c:124
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
 
-#: src/boards/smallnumbers.c:70
-msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
+#: src/boards/leftright.c:97
+msgid "Find your left and right hands"
+msgstr ""
+
+#: src/boards/leftright.c:98
+msgid "Given hands pictures, find if it's a right or left one"
+msgstr ""
+
+#: src/boards/leftright.c:242
+msgid "left"
+msgstr ""
+
+#: src/boards/leftright.c:252
+msgid "right"
+msgstr ""
 
 #: src/gcompris/about.c:58
 msgid ""
@@ -509,24 +776,24 @@ msgstr ""
 "Grafik: Renaud Blanchard\n"
 "Musik: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:96
+#: src/gcompris/about.c:101
 msgid "About GCompris"
 msgstr "Om GCompris"
 
-#: src/gcompris/about.c:204
+#: src/gcompris/about.c:213
 msgid "GCompris Home Page"
 msgstr "Hemsida för GCompris"
 
-#: src/gcompris/about.c:226
+#: src/gcompris/about.c:235
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc License"
 
-#: src/gcompris/about.c:254
+#: src/gcompris/about.c:263
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:285 src/gcompris/config.c:137 src/gcompris/help.c:266
+#: src/gcompris/about.c:294 src/gcompris/config.c:142 src/gcompris/help.c:264
 msgid "OK"
 msgstr "OK"
 
@@ -575,58 +842,54 @@ msgid "Romanian"
 msgstr "Rumänska"
 
 #: src/gcompris/config.c:51
-msgid "Slovenian"
-msgstr "Slovenska"
+msgid "Swedish"
+msgstr "Svenska"
 
 #: src/gcompris/config.c:52
 msgid "Lithuanian"
 msgstr "Litauiska"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:116
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:239
+#: src/gcompris/config.c:247
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:267
+#: src/gcompris/config.c:275
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:295
+#: src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/gcompris.c:60
+#: src/gcompris/gcompris.c:61
 msgid "run gcompris in fullscreen mode."
 msgstr "kör gcompris i helskärmsläge."
 
-#: src/gcompris/gcompris.c:62
+#: src/gcompris/gcompris.c:63
 msgid "run gcompris in window mode."
 msgstr "kör gcompris i fönsterläge."
 
-#: src/gcompris/gcompris.c:64
+#: src/gcompris/gcompris.c:65
 msgid "run gcompris with sound enabled."
 msgstr "kör gcompris med ljud aktiverat."
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris without sound."
 msgstr "kör gcompris utan ljud."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "Prints the version of "
 msgstr "Skriver ut versionsnumret av "
 
-#: src/gcompris/gcompris.c:228
+#: src/gcompris/gcompris.c:286
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:321
-msgid "Do you really want to quit GCompris?"
-msgstr "Vill du verkligen avsluta GCompris?"
-
-#: src/gcompris/gcompris.c:443
+#: src/gcompris/gcompris.c:463
 #, c-format
 msgid ""
 "GCompris\n"
@@ -639,17 +902,63 @@ msgstr ""
 "Licens: GPL\n"
 "Mer information på http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:43 src/gcompris/help.c:150
+#: src/gcompris/gcompris.h:96
+msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
+msgstr ""
+
+#: src/gcompris/gcompris.h:97 src/gcompris/gcompris.h:106
+msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
+msgstr ""
+
+#: src/gcompris/gcompris.h:98
+msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
+msgstr ""
+
+#: src/gcompris/gcompris.h:99 src/gcompris/gcompris.h:105
+msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
+msgstr ""
+
+#: src/gcompris/gcompris.h:100
+msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
+msgstr ""
+
+#: src/gcompris/gcompris.h:101 src/gcompris/gcompris.h:104
+msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
+msgstr ""
+
+#: src/gcompris/gcompris.h:103
+msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
+msgstr ""
+
+#: src/gcompris/gcompris.h:107
+msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
+msgstr ""
+
+#: src/gcompris/gcompris.h:108
+msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
+msgstr ""
+
+#: src/gcompris/help.c:159
 msgid "Prerequisite"
 msgstr "Förkunskap"
 
-#: src/gcompris/help.c:44 src/gcompris/help.c:179
+#: src/gcompris/help.c:190
 msgid "Goal"
 msgstr "Mål:"
 
-#: src/gcompris/help.c:45 src/gcompris/help.c:207
+#: src/gcompris/help.c:218
 msgid "Manual"
 msgstr "Manual"
+
+#~ msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
+#~ msgstr ""
+#~ "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
+
+#~ msgid "Slovenian"
+#~ msgstr "Slovenska"
+
+#~ msgid "Do you really want to quit GCompris?"
+#~ msgstr "Vill du verkligen avsluta GCompris?"
 
 #~ msgid "GCompris"
 #~ msgstr "GCompris"
@@ -718,9 +1027,6 @@ msgstr "Manual"
 
 #~ msgid "GCompris will display all its messages in Swedish"
 #~ msgstr "GCompris kommer att visa alla dess meddelanden på svenska"
-
-#~ msgid "Swedish"
-#~ msgstr "Svenska"
 
 #~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
 #~ msgstr "Skriv in tangentbordssiffran 1 till 6 innan tärningarna når marken"

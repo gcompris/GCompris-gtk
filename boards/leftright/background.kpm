@@ -1,0 +1,50 @@
+<!DOCTYPE KPOVMODELER ><scene>
+ <extra_data>
+  <rendermode sampling_method="0" width="640" subsection="0" antialiasing="0" end_column="640" start_row="1" radiosity="0" height="480" alpha="0" start_column="1" end_row="480" aa_depth="2" aa_jitter="0" aa_jitter_amount="1" aa_threshold="0.3" quality="9" description="Default" />
+  <rendermode sampling_method="1" width="800" subsection="0" antialiasing="1" end_column="640" start_row="1" radiosity="0" height="520" alpha="0" start_column="1" end_row="480" aa_depth="9" aa_jitter="0" aa_jitter_amount="1" aa_threshold="0.01" quality="9" description="New mode" />
+ </extra_data>
+ <torus minor_radius="0.105594" sturm="0" inverse="0" name="" no_shadow="0" major_radius="0.941942" >
+  <scale value="0.718 1 1.289" />
+  <rotate value="-0 0 -90" />
+  <translate value="0 -1.9669 1.96667" />
+ </torus>
+ <sphere radius="0.5" inverse="0" centre="0 0.26667 0" name="main" no_shadow="0" >
+  <pigment name="" >
+   <solidcolor color="0.752941 0.752941 1 0 0" />
+  </pigment>
+  <finish enable_brilliance="0" enable_metallic="0" enable_exponent="0" enable_diffuse="0" metallic="1" enable_reflection="0" irid_turbulence="0" irid="0" crand="0" brilliance="1" enable_roughness="0" enable_specular="0" enable_ambient="0" irid_amount="0" reflection_exponent="1" roughness="0.05" enable_phong_size="1" enable_phong="1" irid_thickness="0" phong="0" ambient="0 0 0 0 0" reflection="0 0 0 0 0" diffuse="0.6" name="" specular="0" phongsize="40" enable_crand="0" />
+  <scale value="1 4 4" />
+  <rotate value="0 0 0" />
+  <translate value="0 -0.4 0" />
+ </sphere>
+ <camera confidence="0.9" right="1.33333 0 0" focal_blur="0" aperture="0.4" angle_enabled="0" cylinder_type="1" direction="0 0 1" variance="0.008" sky="0 1 0" location="5.96667 0 0" focal_point="0 0 0" up="0 1 0" name="" look_at="0 0 0" angle="45" blur_samples="10" camera_type="perspective" />
+ <sphere radius="0.5" inverse="0" centre="0.033333 -1.4333 0.98333" name="vert" no_shadow="0" >
+  <pigment name="" >
+   <solidcolor color="0 0.752941 0 0 0" />
+  </pigment>
+  <finish enable_brilliance="0" enable_metallic="0" enable_exponent="0" enable_diffuse="0" metallic="1" enable_reflection="0" irid_turbulence="0" irid="0" crand="0" brilliance="1" enable_roughness="0" enable_specular="0" enable_ambient="0" irid_amount="0" reflection_exponent="1" roughness="0.05" enable_phong_size="1" enable_phong="1" irid_thickness="0" phong="0" ambient="0 0 0 0 0" reflection="0 0 0 0 0" diffuse="0.6" name="" specular="0" phongsize="40" enable_crand="0" />
+  <scale value="0.5 1 2" />
+  <rotate value="0 0 0" />
+  <translate value="0 -0.533333 0" />
+ </sphere>
+ <light media_interaction="1" area_light="0" fading="0" lighttype="point" location="3.98529 -1.43333 0.0325003" name="" color="1 1 1 0 0" media_attenuation="1" />
+ <sphere radius="0.5" inverse="0" centre="0.033333 -1.4333 0.98333" name="rouge" no_shadow="0" >
+  <pigment name="" >
+   <solidcolor color="0.937255 0 0 0 0" />
+  </pigment>
+  <finish enable_brilliance="0" enable_metallic="0" enable_exponent="0" enable_diffuse="0" metallic="1" enable_reflection="0" irid_turbulence="0" irid="0" crand="0" brilliance="1" enable_roughness="0" enable_specular="0" enable_ambient="0" irid_amount="0" reflection_exponent="1" roughness="0.05" enable_phong_size="1" enable_phong="1" irid_thickness="0" phong="0" ambient="0 0 0 0 0" reflection="0 0 0 0 0" diffuse="0.6" name="" specular="0" phongsize="40" enable_crand="0" />
+  <scale value="0.5 1 2" />
+  <rotate value="0 0 0" />
+  <translate value="0.0186215 -0.566667 -3.99579" />
+ </sphere>
+ <skysphere name="" >
+  <pigment name="" >
+   <pattern densityfile="" octaves="6" enable_turbulence="0" quiltcontrol0="1" gradient="1 1 1" quiltcontrol1="1" maxiterations="10" spiralnumberarms="0" densityinterpolate="0" lambda="2" omega="0.5" turbulence="0 0 0" depth="0" agateturbulence="0.5" patterntype="agate" />
+   <colormap map_values="0.2 0.5 0.7" name="" >
+    <solidcolor color="0.929412 0.698039 0.698039 0 0" />
+    <solidcolor color="0.929412 0.803922 0.611765 0 0" />
+    <solidcolor color="0.752941 0.752941 1 0 0" />
+   </colormap>
+  </pigment>
+ </skysphere>
+</scene>

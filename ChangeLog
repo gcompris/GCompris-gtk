@@ -1,3 +1,6 @@
+2002-03-02 Pascal Georges <pascal.georges1@free.fr>
+  * /src/boards/leftright.c : added new board (with many other files)
+	
 2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
 
 	gcompris now works well in other locales, e.g. Lithuanian.
@@ -8,7 +11,7 @@
 	* src/gcompris/Makefile.am: add things needed for unicode conversion.
 	* src/gcompris/gameutil.c: convert string from UTF8 to locale
 	encoding, not to latin1.
-	
+
 2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
 
 	* src/gcompris/gcompris.h: add defines for all fonts used in boards,

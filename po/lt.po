@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
-"POT-Creation-Date: 2002-02-26 15:39+0200\n"
+"POT-Creation-Date: 2002-02-28 22:00+0100\n"
 "PO-Revision-Date: 2002-02-26 15:05+0200\n"
 "Last-Translator: Mantas Kriauciunas <mantelis@centras.lt>\n"
 "Language-Team: Lithuanian <komp_lt@lkonferencijos.lt>\n"
@@ -729,6 +729,22 @@ msgstr "Ne, tai ne èia"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Padëk figûras á atitinkamas vietas"
 
+#: src/boards/leftright.c:97
+msgid "Find your left and right hands"
+msgstr ""
+
+#: src/boards/leftright.c:98
+msgid "Given hands pictures, find if it's a right or left one"
+msgstr ""
+
+#: src/boards/leftright.c:242
+msgid "left"
+msgstr ""
+
+#: src/boards/leftright.c:252
+msgid "right"
+msgstr ""
+
 #: src/gcompris/about.c:58
 msgid ""
 "Credits:\n"
@@ -742,26 +758,26 @@ msgstr ""
 "Grafika: Renaud Blanchard\n"
 "Muzika: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:103
+#: src/gcompris/about.c:101
 msgid "About GCompris"
 msgstr "Apie Gcompris"
 
-#: src/gcompris/about.c:217
+#: src/gcompris/about.c:213
 msgid "GCompris Home Page"
 msgstr "GCompris namø svetainë"
 
-#: src/gcompris/about.c:239
+#: src/gcompris/about.c:235
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ðita programa yra GNU paketas. Ji yra iðleista pagal Gnu bendràjà licenzijà "
 "(GPL)."
 
-#: src/gcompris/about.c:267
+#: src/gcompris/about.c:263
 msgid "Help"
 msgstr "Pagalba"
 
-#: src/gcompris/about.c:298 src/gcompris/config.c:144 src/gcompris/help.c:268
+#: src/gcompris/about.c:294 src/gcompris/config.c:142 src/gcompris/help.c:264
 msgid "OK"
 msgstr "Gerai"
 
@@ -817,19 +833,19 @@ msgstr "Ðvedø"
 msgid "Lithuanian"
 msgstr "Lietuviø"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:116
 msgid "GCompris Configuration"
 msgstr "GCompris nustatymai"
 
-#: src/gcompris/config.c:251
+#: src/gcompris/config.c:247
 msgid "Fullscreen"
 msgstr "Visame ekrane"
 
-#: src/gcompris/config.c:279
+#: src/gcompris/config.c:275
 msgid "Music"
 msgstr "Muzika"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:303
 msgid "Effect"
 msgstr "Efektai"
 
@@ -906,15 +922,15 @@ msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-iso8859-13"
 msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
 msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-iso8859-13"
 
-#: src/gcompris/help.c:161
+#: src/gcompris/help.c:159
 msgid "Prerequisite"
 msgstr "Reikalavimai"
 
-#: src/gcompris/help.c:192
+#: src/gcompris/help.c:190
 msgid "Goal"
 msgstr "Tikslas"
 
-#: src/gcompris/help.c:220
+#: src/gcompris/help.c:218
 msgid "Manual"
 msgstr "Þinynas"
 
