@@ -44,8 +44,8 @@ static void show_model(gboolean);
 static void show_answer(gboolean);
 static void show_engines_wagons(gboolean);
 
-#define ENGINES 5 //9
-#define WAGONS 9 // 14
+#define ENGINES 9
+#define WAGONS 13
 #define MODEL_MAX_SIZE 4
 
 static const int line[] = { 103,223,303,380, 460, 540};
