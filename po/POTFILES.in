@@ -86,7 +86,6 @@ boards/maze3D.xml.in
 boards/melody.xml.in
 boards/memory.xml.in
 boards/menu.xml.in
-boards/minouche.xml.in
 boards/missing_letter.xml.in
 boards/missing_letter/board1.xml.in
 boards/money.xml.in
@@ -179,7 +178,7 @@ src/boards/target.c
 src/boards/traffic.c
 src/boards/wordsgame.c
 src/gcompris/about.c
-src/gcompris/boards.c
+src/gcompris/board.c
 src/gcompris/config.c
 src/gcompris/gameutil.c
 src/gcompris/gcompris-edit.c
