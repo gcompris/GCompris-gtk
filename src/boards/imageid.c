@@ -94,7 +94,7 @@ static GnomeCanvasItem *image_item = NULL;
 static GnomeCanvasItem *text1_item = NULL;
 static GnomeCanvasItem *text2_item = NULL;
 static GnomeCanvasItem *text3_item = NULL;
-static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL;
+static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *selected_button = NULL;
 
 static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent);
 static void imageid_destroy_all_items(void);
@@ -232,6 +232,7 @@ static void imageid_next_level()
   gcompris_bar_set_level(gcomprisBoard);
 
   imageid_destroy_all_items();
+  selected_button = NULL;
   gamewon = FALSE;
 
   gcompris_score_set(gcomprisBoard->sublevel);
@@ -430,18 +431,20 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-    	temp = item;
-	if (item == button1)
-		temp = text1_item;
-	if (item == button2)
-		temp = text2_item;
-	if (item == button3)
-		temp = text3_item;
+      board_paused = TRUE;
+      temp = item;
+      if (item == text1_item)
+	temp = button1;
+      if (item == text2_item)
+	temp = button2;
+      if (item == text3_item)
+	temp = button3;
 
-	assert(temp == button1 || temp == text1_item || temp == button2 || temp == text2_item || temp == button3 || temp == text3_item);
-      if ( ( temp == text1_item && right_word == 1) ||
-	    ( temp == text2_item && right_word == 2) ||
-	    ( temp == text3_item && right_word == 3) ) {
+      assert(temp == button1 || temp == button2 || temp == button3);
+
+      if ( ( temp == button1 && right_word == 1) ||
+	   ( temp == button2 && right_word == 2) ||
+	   ( temp == button3 && right_word == 3) ) {
 	gamewon = TRUE;
       } else {
 	gamewon = FALSE;
@@ -464,12 +467,34 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 /* ==================================== */
 static void highlight_selected(GnomeCanvasItem * item) {
-  assert ( (item == text1_item) || (item == text2_item) || (item == text3_item));
-  gnome_canvas_item_set(text1_item, "fill_color", TEXT_COLOR, NULL);
-  gnome_canvas_item_set(text2_item, "fill_color", TEXT_COLOR, NULL);
-  gnome_canvas_item_set(text3_item, "fill_color", TEXT_COLOR, NULL);
-  gnome_canvas_item_set(item, "fill_color", "green", NULL);
+  GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
+  GnomeCanvasItem *button;
+
+  /* Replace text item by button item */
+  button = item;
+  if ( button == text1_item ) {
+    button = button1;
+  } else if ( item == text2_item ) {
+    button = button2;
+  } else if ( item == text3_item ) {
+    button = button3;
+  }
+
+  if (selected_button != NULL && selected_button != button) {
+  	button_pixmap = gcompris_load_skin_pixmap("button_large.png");
+  	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
+  	gdk_pixbuf_unref(button_pixmap);
+  }
+
+  if (selected_button != button) {
+  	button_pixmap_selected = gcompris_load_skin_pixmap("button_large_selected.png");
+  	gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+  	selected_button = button;
+  	gdk_pixbuf_unref(button_pixmap_selected);
+  }
+
 }
+
 
 /* ===================================
  *                XML stuff

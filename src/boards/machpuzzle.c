@@ -401,8 +401,8 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
 					      "y2", (double) machItem->yposo + width,
-					      "outline_color_rgba", 0x22EE22FF,
-					      "fill_color_rgba", 0xEEEEEEFF,
+					      "outline_color_rgba", 0xEEEEEEFF,
+					      "fill_color_rgba", 0x111111FF,
 					      "width_units", (double)2,
 					      NULL);
 

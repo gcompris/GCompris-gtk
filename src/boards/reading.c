@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/01/20 00:37:26 bcoudoin>
+ * Time-stamp: <2004/02/01 21:06:36 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -606,7 +606,6 @@ static void ask_yes_no()
 
 static void player_win()
 {
-  gcompris_play_ogg ("bonus", NULL);
   gamewon = TRUE;
   wait_for_ready = TRUE;
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
@@ -623,7 +622,6 @@ static void player_win()
 static void player_loose()
 {
   gchar *str;
-  gcompris_play_ogg ("crash", NULL);
   gamewon = FALSE;
   wait_for_ready = TRUE;
 
@@ -641,6 +639,7 @@ static void player_loose()
 static gint
 item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
+
   switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
@@ -655,15 +654,17 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  ask_ready(FALSE);
 	  pause_board(FALSE);
 	}
-      else if((((char *)data)[0]=='Y' && textToFindIndex == -1)
-	      || (((char *)data)[0]=='N' && textToFindIndex == NOT_THERE))
-	{
-	  player_win();
-	}
-      else
-	{
-	  player_loose();
-	}
+      else if(!wait_for_ready) {
+	if ((((char *)data)[0]=='Y' && textToFindIndex == -1)
+	    || (((char *)data)[0]=='N' && textToFindIndex == NOT_THERE))
+	  {
+	    player_win();
+	  }
+	else
+	  {
+	    player_loose();
+	  }
+      }
       break;
 
     default:

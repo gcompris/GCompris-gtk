@@ -53,7 +53,6 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 
 static GnomeCanvasItem *phone_note_item = NULL;
 static GnomeCanvasItem *l1_item = NULL, *l2_item = NULL, *l3_item = NULL, *l4_item = NULL;
-static GdkPixbuf *l1_pixmap = NULL,*l2_pixmap = NULL,*l3_pixmap = NULL,*l4_pixmap = NULL;
 static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *button4 = NULL, *selected_button = NULL;
 
 static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent);
@@ -270,7 +269,6 @@ static void click_on_letter_destroy_all_items()
 static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 {
   int xOffset,yOffset,i,j;
-  GdkFont *gdk_font;
   GdkPixbuf *button_pixmap = NULL;
   GdkPixbuf *phone_note_pixmap = NULL;
   char *str[4];
@@ -279,8 +277,6 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   char *str1 = NULL;
   char *str2 = NULL;
   char *str3 = NULL;
-
-  gdk_font = gdk_font_load (gcompris_skin_font_board_big);
 
   /*  */
   right_position = ((int)(((float)numberOfLetters)*rand()/(RAND_MAX+1.0))) +1;
@@ -333,16 +329,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 							    "y", (double) 0,
 							    NULL));
   for (i=0; i<numberOfLetters; i++) {
-	str[i] =g_strdup_printf("gcompris/letters/%c.png", l[i]);
-  }
-
-  l1_pixmap = gcompris_load_pixmap(str[0]);
-  l2_pixmap = gcompris_load_pixmap(str[1]);
-  l3_pixmap = gcompris_load_pixmap(str[2]);
-  l4_pixmap = gcompris_load_pixmap(str[3]);
-
-  for (i=0; i<numberOfLetters; i++) {
-	g_free(str[i]);
+	str[i] =g_strdup_printf("%c", l[i]);
   }
 
   phone_note_pixmap = gcompris_load_pixmap("gcompris/misc/phone_note.png");
@@ -367,10 +354,13 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   NULL);
 
   l1_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  l1_pixmap,
-				   "x",  (double) xOffset+(gdk_pixbuf_get_width(button_pixmap)-gdk_pixbuf_get_width(l1_pixmap))/2,
-				   "y",  (double) yOffset+(gdk_pixbuf_get_height(button_pixmap)-gdk_pixbuf_get_height(l1_pixmap))/2,
+				   gnome_canvas_text_get_type (),
+				   "text",  str[0],
+				   "font", gcompris_skin_font_board_huge_bold,
+				   "anchor", GTK_ANCHOR_CENTER,
+				   "fill_color_rgba", 0xefef43FF,
+				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   NULL);
 
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
@@ -382,10 +372,13 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   "y",  (double) yOffset,
 				   NULL);
   l2_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  l2_pixmap,
-				   "x",  (double) xOffset+(gdk_pixbuf_get_width(button_pixmap)-gdk_pixbuf_get_width(l2_pixmap))/2,
-				   "y",  (double) yOffset+(gdk_pixbuf_get_height(button_pixmap)-gdk_pixbuf_get_height(l2_pixmap))/2,
+				   gnome_canvas_text_get_type (),
+				   "text",  str[1],
+				   "font", gcompris_skin_font_board_huge_bold,
+				   "anchor", GTK_ANCHOR_CENTER,
+				   "fill_color_rgba", 0xefef43FF,
+				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   NULL);
 
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
@@ -397,10 +390,13 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   "y",  (double) yOffset,
 				   NULL);
   l3_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  l3_pixmap,
-				   "x",  (double) xOffset+(gdk_pixbuf_get_width(button_pixmap)-gdk_pixbuf_get_width(l3_pixmap))/2,
-				   "y",  (double) yOffset+(gdk_pixbuf_get_height(button_pixmap)-gdk_pixbuf_get_height(l3_pixmap))/2,
+				   gnome_canvas_text_get_type (),
+				   "text",  str[2],
+				   "font", gcompris_skin_font_board_huge_bold,
+				   "anchor", GTK_ANCHOR_CENTER,
+				   "fill_color_rgba", 0xefef43FF,
+				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   NULL);
 
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
@@ -412,28 +408,32 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   "y",  (double) yOffset,
 				   NULL);
   l4_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  l4_pixmap,
-				   "x",  (double) xOffset+(gdk_pixbuf_get_width(button_pixmap)-gdk_pixbuf_get_width(l4_pixmap))/2,
-				   "y",  (double) yOffset+(gdk_pixbuf_get_height(button_pixmap)-gdk_pixbuf_get_height(l4_pixmap))/2,
+				   gnome_canvas_text_get_type (),
+				   "text",  str[3],
+				   "font", gcompris_skin_font_board_huge_bold,
+				   "fill_color_rgba", 0xefef43FF,
+				   "anchor", GTK_ANCHOR_CENTER,
+				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   NULL);
+
+  for (i=0; i<numberOfLetters; i++) {
+	g_free(str[i]);
+  }
 
   gdk_pixbuf_unref(button_pixmap);
   gdk_pixbuf_unref(phone_note_pixmap);
-  gdk_pixbuf_unref(l1_pixmap);
-  gdk_pixbuf_unref(l2_pixmap);
-  gdk_pixbuf_unref(l3_pixmap);
-  gdk_pixbuf_unref(l4_pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(l1_item), "event", (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(l2_item), "event", (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(l3_item), "event", (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(l4_item), "event", (GtkSignalFunc) item_event, NULL);
+  gtk_signal_connect(GTK_OBJECT(l1_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(1));
+  gtk_signal_connect(GTK_OBJECT(l2_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(2));
+  gtk_signal_connect(GTK_OBJECT(l3_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(3));
+  gtk_signal_connect(GTK_OBJECT(l4_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(4));
 
-  gtk_signal_connect(GTK_OBJECT(button1), "event",  (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(button2), "event",  (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(button3), "event",  (GtkSignalFunc) item_event, NULL);
-  gtk_signal_connect(GTK_OBJECT(button4), "event",  (GtkSignalFunc) item_event, NULL);
+  gtk_signal_connect(GTK_OBJECT(button1), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(1));
+  gtk_signal_connect(GTK_OBJECT(button2), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(2));
+  gtk_signal_connect(GTK_OBJECT(button3), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(3));
+  gtk_signal_connect(GTK_OBJECT(button4), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(4));
+
   gtk_signal_connect(GTK_OBJECT(phone_note_item), "event",  (GtkSignalFunc) phone_event, NULL);
   return NULL;
 }
@@ -450,7 +450,6 @@ static void game_won()
       board_finished(BOARD_FINISHED_TUXPLANE);
       return;
     }
-    gcompris_play_ogg ("bonus", NULL);
   }
   click_on_letter_next_level();
 }
@@ -458,11 +457,11 @@ static void game_won()
 /* ==================================== */
 static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
-	return FALSE;
+  return FALSE;
 }
 
 static void process_ok() {
-	// leave time to display the right answer
+  // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 /* ==================================== */
@@ -481,8 +480,8 @@ static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
+  int pos = GPOINTER_TO_INT(data);
   double item_x, item_y;
-  GnomeCanvasItem * temp = NULL;
   item_x = event->button.x;
   item_y = event->button.y;
   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
@@ -493,33 +492,16 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      temp = item;
-      if (item == l1_item)
-	temp = button1;
-      if (item == l2_item)
-	temp = button2;
-      if (item == l3_item )
-	temp = button3;
-      if (item == l4_item )
-	temp = button4;
-
-      assert( temp == button1 || temp == button2 || temp == button3 || temp == button4);
-      if ( ( temp == button1 && right_position == 1) ||
-	   ( temp == button2 && right_position == 2) ||
-	   ( temp == button3 && right_position == 3) ||
-	   ( temp == button4 && right_position == 4) ) {
+      /* We really don't want the user to change his/her mind */
+      board_paused = TRUE;
+  
+      if ( pos == right_position ) {
 	gamewon = TRUE;
       } else {
 	gamewon = FALSE;
       }
-      highlight_selected(temp);
+      highlight_selected(item);
       process_ok();
-      break;
-
-    case GDK_MOTION_NOTIFY:
-      break;
-
-    case GDK_BUTTON_RELEASE:
       break;
 
     default:
@@ -530,21 +512,31 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 /* ==================================== */
 static void highlight_selected(GnomeCanvasItem * item) {
   GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
+  GnomeCanvasItem *button;
 
-  assert( item == button1 || item == button2 || item == button3 || item == button4);
+  /* Replace text item by button item */
+  button = item;
+  if ( button == l1_item ) {
+    button = button1;
+  } else if ( item == l2_item ) {
+    button = button2;
+  } else if ( item == l3_item ) {
+    button = button3;
+  } else if ( item == l4_item ) {
+    button = button4;
+  }
 
-  if (selected_button != NULL) {
+  if (selected_button != NULL && selected_button != button) {
   	button_pixmap = gcompris_load_skin_pixmap("button.png");
   	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
   	gdk_pixbuf_unref(button_pixmap);
   }
 
-  if (selected_button != item) {
+  if (selected_button != button) {
   	button_pixmap_selected = gcompris_load_skin_pixmap("button_selected.png");
-  	gnome_canvas_item_set(item, "pixbuf", button_pixmap_selected, NULL);
-  	selected_button = item;
+  	gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+  	selected_button = button;
   	gdk_pixbuf_unref(button_pixmap_selected);
-  } else
-  	selected_button = NULL;
+  }
 
 }

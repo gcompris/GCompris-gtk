@@ -86,7 +86,7 @@ static GnomeCanvasItem *l1_item = NULL;
 static GnomeCanvasItem *l2_item = NULL;
 static GnomeCanvasItem *l3_item = NULL;
 static GnomeCanvasItem *text = NULL;
-static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL;
+static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *selected_button = NULL;
 
 static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent);
 static void missing_letter_destroy_all_items(void);
@@ -224,6 +224,7 @@ static void missing_letter_next_level()
   gcompris_bar_set_level(gcomprisBoard);
 
   missing_letter_destroy_all_items();
+  selected_button = NULL;
   gamewon = FALSE;
 
   gcompris_score_set(gcomprisBoard->sublevel);
@@ -287,7 +288,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   text = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _(board->question),
-				"font", gcompris_skin_font_board_big,
+				"font", gcompris_skin_font_board_huge_bold,
 				"x", (double) txt_area_x,
 				"y", (double) txt_area_y,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -342,7 +343,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   l1_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[0],
-				   "font", gcompris_skin_font_board_big,
+				   "font", gcompris_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
@@ -359,7 +360,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   l2_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[1],
-				   "font", gcompris_skin_font_board_big,
+				   "font", gcompris_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
@@ -377,7 +378,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   l3_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[2],
-				   "font", gcompris_skin_font_board_big,
+				   "font", gcompris_skin_font_board_huge_bold,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
@@ -442,30 +443,26 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      board_paused = TRUE;
       temp = item;
-      if (item == button1)
-	temp = l1_item;
-      if (item == button2)
-	temp = l2_item;
-      if (item == button3)
-	temp = l3_item;
+      if (item == l1_item)
+	temp = button1;
+      if (item == l2_item)
+	temp = button2;
+      if (item == l3_item)
+	temp = button3;
 
-      assert(temp == button1 || temp == l1_item || temp == button2 || temp == l2_item || temp == button3 || temp == l3_item);
-      if ( ( temp == l1_item && right_word == 1) ||
-	   ( temp == l2_item && right_word == 2) ||
-	   ( temp == l3_item && right_word == 3) ) {
+      assert(temp == button1 || temp == button2 || temp == button3);
+
+      if ( ( temp == button1 && right_word == 1) ||
+	   ( temp == button2 && right_word == 2) ||
+	   ( temp == button3 && right_word == 3) ) {
 	gamewon = TRUE;
       } else {
 	gamewon = FALSE;
       }
       highlight_selected(temp);
       process_ok();
-      break;
-
-    case GDK_MOTION_NOTIFY:
-      break;
-
-    case GDK_BUTTON_RELEASE:
       break;
 
     default:
@@ -475,11 +472,32 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 /* ==================================== */
 static void highlight_selected(GnomeCanvasItem * item) {
-  assert ( (item == l1_item) || (item == l2_item) || (item == l3_item));
-  gnome_canvas_item_set(l1_item, "fill_color", TEXT_COLOR, NULL);
-  gnome_canvas_item_set(l2_item, "fill_color", TEXT_COLOR, NULL);
-  gnome_canvas_item_set(l3_item, "fill_color", TEXT_COLOR, NULL);
-  gnome_canvas_item_set(item, "fill_color", "green", NULL);
+  GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
+  GnomeCanvasItem *button;
+
+  /* Replace text item by button item */
+  button = item;
+  if ( button == l1_item ) {
+    button = button1;
+  } else if ( item == l2_item ) {
+    button = button2;
+  } else if ( item == l3_item ) {
+    button = button3;
+  }
+
+  if (selected_button != NULL && selected_button != button) {
+  	button_pixmap = gcompris_load_skin_pixmap("button.png");
+  	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
+  	gdk_pixbuf_unref(button_pixmap);
+  }
+
+  if (selected_button != button) {
+  	button_pixmap_selected = gcompris_load_skin_pixmap("button_selected.png");
+  	gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
+  	selected_button = button;
+  	gdk_pixbuf_unref(button_pixmap_selected);
+  }
+
 }
 
 /* ===================================
@@ -544,13 +562,13 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 /*  if ((i=sscanf(data, "%s / %s / %s / %s / %s", answer, question, l1, l2, l3)) != 5)
 		printf("Error sscanf result != 5 = %i\n",i);
 */
-	answer = strtok(data,"/");
-	question = strtok(NULL,"/");
-	l1 = strtok(NULL,"/");
-	l2 = strtok(NULL,"/");
-	l3 = strtok(NULL,"/");
+  answer = (char *)strtok(data,"/");
+  question = (char *)strtok(NULL,"/");
+  l1 = (char *)strtok(NULL,"/");
+  l2 = (char *)strtok(NULL,"/");
+  l3 = (char *)strtok(NULL,"/");
 
-	assert(l1 != NULL  && l2 != NULL && l3 != NULL && answer != NULL && question != NULL);
+  assert(l1 != NULL  && l2 != NULL && l3 != NULL && answer != NULL && question != NULL);
 
   board->pixmapfile = g_strdup(pixmapfile);
   board->question = g_strdup(question);

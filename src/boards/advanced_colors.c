@@ -378,16 +378,17 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       gnome_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
       clicked = -1;
       for (i=0; i<4; i++) {
-				for (j=0; j<2; j++) {
-	  			if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
-	    			clicked = j*4 + i;
-	  			}
-				}
+	for (j=0; j<2; j++) {
+	  if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
+	    clicked = j*4 + i;
+	  }
+	}
       }
       if (clicked >= 0) {
-				highlight_selected(clicked);
-				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
-  			ok();
+	board_paused = TRUE;
+	highlight_selected(clicked);
+	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+	ok();
       }
       break;
 

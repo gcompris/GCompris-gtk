@@ -290,6 +290,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/s[cmu]*
 %dir %{prefix}/share/gcompris/boards/sounds
 %{prefix}/share/gcompris/boards/sounds/*.ogg
+%{prefix}/share/gcompris/boards/sounds/melody/*.ogg
 %{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
 %{prefix}/share/applications/*
 %{prefix}/share/gnome/help/*

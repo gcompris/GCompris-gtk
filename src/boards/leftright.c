@@ -376,12 +376,14 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
       if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2) {
 	if (x>CLICKABLE_X1 && x<CLICKABLE_X2) { // the left button is clicked
+	  board_paused = TRUE;
 	  side = LEFT;
 	  highlight_selected(side);
 	  gamewon = (side == answer);
           process_ok();
 	}
 	if (x>CLICKABLE_X3 && x<CLICKABLE_X4) { // the left button is clicked
+	  board_paused = TRUE;
 	  side = RIGHT;
 	  highlight_selected(side);
 	  gamewon = (side == answer);

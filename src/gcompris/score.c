@@ -1,6 +1,6 @@
 /* gcompris - score.c
  *
- * Time-stamp: <2004/01/24 22:44:16 bcoudoin>
+ * Time-stamp: <2004/02/02 00:29:24 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -104,8 +104,8 @@ void gcompris_score_set(guint value)
 			     NULL);
       gdk_pixbuf_unref(button_pixmap);
 
-      tmp = g_strdup_printf("%d:%d", value, max);
-      display_number(boardRootItem, gdk_pixbuf_get_width(button_pixmap)+20, 0, tmp);
+      tmp = g_strdup_printf("%d/%d", value, max);
+      display_number(boardRootItem, gdk_pixbuf_get_width(button_pixmap)+10, 0, tmp);
       g_free(tmp);
     }
     break;

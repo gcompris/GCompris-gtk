@@ -1,9 +1,43 @@
+2004-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/algebra_group.xml.in: -A- removed difficulty=0 cause it breaks the web site generation
+	* boards/boards.xml.in: -A-
+	* boards/colors_group.xml.in: -A-
+	* boards/computer.xml.in: -A-
+	* boards/experience.xml.in: -A-
+	* boards/fun.xml.in: -A-
+	* boards/menu.xml.in: -A-
+	* boards/redraw_symmetrical.xml.in: fixed comments
+	* boards/skins/pink/skin.xml: changed colors for erase
+	* boards/wordsgame/wordslevel1.fr: New list of words from Catherine Lhomme
+	* boards/wordsgame/wordslevel2.fr: New list of words from Catherine Lhomme
+	* boards/wordsgame/wordslevelmax.fr: New list of words from Catherine Lhomme
+	* gcompris.spec.in: added melody ogg files
+	* src/boards/advanced_colors.c: (item_event): fixed bug: added pause while in bonus
+	* src/boards/click_on_letter.c: (click_on_letter_create_item),
+	(game_won), (process_ok_timeout), (process_ok), (item_event),
+	(highlight_selected): fixed bug: added pause while in bonus
+	* src/boards/colors.c: (item_event): fixed bug: added pause while in bonus
+	* src/boards/imageid.c: (imageid_next_level), (item_event),
+	(highlight_selected): fixed bug: added pause while in bonus
+	* src/boards/leftright.c: (item_event): fixed bug: added pause while in bonus
+	* src/boards/machpuzzle.c: (create_machine_item): changed hole color to black
+	* src/boards/missingletter.c: (missing_letter_next_level),
+	(missing_letter_create_item), (item_event), (highlight_selected),
+	(add_xml_data): fixed bug: added pause while in bonus
+	* src/boards/read_colors.c: (item_event): fixed bug: added pause while in bonus
+	* src/boards/reading.c: (player_win), (player_loose),
+	(item_event_valid): fixed bug: added pause while in bonus
+	* src/gcompris/config.c: added Croatian
+	* src/gcompris/score.c: (gcompris_score_set): centered score. use / instead of : for separator
+
 2004-02-01  Robert Sedak  <robert.sedak@sk.htnet.hr>
 
         * configure.in: Added "hr" (Croatian) to ALL_LINGUAS.
 
 2004-01-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* Release 5.0
 	* src/boards/machpuzzle.c: (rectangle_in): Fixed hole detection.
 
 2004-01-31  Bruno coudoin  <bruno.coudoin@free.fr>
@@ -29,24 +63,6 @@
 	* src/boards/python/gcompris/sound/.cvsignore: remove .pyc now
 	* src/gcompris/bonus.c: (board_finished): now uses LOG_STATUS_COMPLETED when board_finished arrives.
 	* src/gcompris/gcompris.h: added GCOMPRIS_LOG_STATUS_COMPLETED
-
-2004-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
-
-	reviewed by: <delete if not using a buddy>
-
-	* boards/Makefile.am:
-	* boards/billard.xml.in:
-	* boards/boardicons/billard.png:
-	* boards/images/billard_background.jpg:
-	* po/POTFILES.in:
-	* src/boards/machpuzzle.c: (start_board), (end_board), (set_level),
-	(is_our_board), (minigolf_next_level),
-	(minigolf_destroy_all_items), (minigolf_create_item), (game_won),
-	(create_machine_item), (rectangle_in), (minigolf_move):
-	* src/boards/python/gcompris/bonus/.cvsignore:
-	* src/boards/python/gcompris/sound/.cvsignore:
-	* src/gcompris/bonus.c: (board_finished):
-	* src/gcompris/gcompris.h:
 
 2004-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
