@@ -315,7 +315,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
-  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  gcompris_display_bonus(gamewon, BONUS_GNU);
   return FALSE;
 }
 

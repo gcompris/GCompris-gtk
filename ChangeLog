@@ -1,3 +1,66 @@
+2004-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	more images by Franck Doucet especially the GNU bonus
+
+	Changed the shapeboard data format to allow the passing of an image from the skins
+	by using pixmapfile="skin:gcompris-shapelabel.png"
+	changed all shapeboard that was usin gcompris-shapelabel and moved it to skins
+	
+	added the GNU bonus
+	
+	* boards/babymatch/board1_0.xml.in:
+	* boards/babymatch/board2_0.xml.in:
+	* boards/babymatch/board3_0.xml.in:
+	* boards/babymatch/board4_0.xml.in:
+	* boards/babymatch/board5_0.xml.in:
+	* boards/babymatch/board6_0.xml.in:
+	* boards/doubleentry/board3_0.xml.in:
+	* boards/gcompris/bonus/gnu_bad.png:
+	* boards/gcompris/bonus/gnu_good.png:
+	* boards/gcompris/gcompris-shapelabel.jpg:
+	* boards/gcompris/misc/glass.png:
+	* boards/gcompris/misc/peer.png:
+	* boards/imagename/board1_0.xml.in:
+	* boards/imagename/board2_0.xml.in:
+	* boards/imagename/board3_0.xml.in:
+	* boards/imagename/board4_0.xml.in:
+	* boards/imagename/board5_0.xml.in:
+	* boards/imagename/board6_0.xml.in:
+	* boards/money/money-bg.jpg:
+	* boards/money/money-bg.png:
+	* boards/paintings/board1_0.xml.in:
+	* boards/paintings/board2_0.xml.in:
+	* boards/paintings/board3_0.xml.in:
+	* boards/paintings/board3_1.xml.in:
+	* boards/paintings/board4_0.xml.in:
+	* boards/paintings/board5_0.xml.in:
+	* boards/paintings/board6_0.xml.in:
+	* boards/scales/board1_0.xml.in:
+	* boards/scales/board1_1.xml.in:
+	* boards/scales/board1_2.xml.in:
+	* boards/scales/board1_3.xml.in:
+	* boards/scales/board1_4.xml.in:
+	* boards/scales/board1_5.xml.in:
+	* boards/scales/board2_0.xml.in:
+	* boards/scales/board2_1.xml.in:
+	* boards/scales/board2_2.xml.in:
+	* boards/scales/board2_3.xml.in:
+	* boards/scales/board2_4.xml.in:
+	* boards/scales/board2_5.xml.in:
+	* boards/scales/board3_0.xml.in:
+	* boards/scales/board3_1.xml.in:
+	* boards/scales/board3_2.xml.in:
+	* boards/scales/board3_3.xml.in:
+	* boards/scales/board3_4.xml.in:
+	* boards/scales/board3_5.xml.in:
+	* boards/skins/default/gcompris-shapelabel.png:
+	* src/boards/colors.c: (process_ok_timeout): use the GNU bonus now
+	* src/boards/money.c: (money_next_level): new background
+	* src/boards/shapegame.c: (create_title), (add_xml_shape_to_data):
+	* src/gcompris/bonus.c: (gcompris_display_bonus):
+	* src/gcompris/bonus.h:
+	* src/gcompris/skin.c: (gcompris_image_to_skin): do no more exit on error
+
 2004-11-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/flags/pa.png: copy from other indian flag

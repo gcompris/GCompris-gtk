@@ -219,6 +219,9 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
   case BONUS_TUX :
     bonus_image("tux",gamewon);
     break;
+  case BONUS_GNU :
+    bonus_image("gnu",gamewon);
+    break;
   default :
     bonus_image("smiley",gamewon);
     break;

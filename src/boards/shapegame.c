@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/10/10 22:14:48 bruno>
+ * Time-stamp: <2004/11/05 00:31:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1542,7 +1542,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			   "y", y,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", justification,
-			   "fill_color_rgba", gcompris_skin_color_subtitle,
+			   "fill_color_rgba", gcompris_skin_color_text_button,
 			   NULL);
 
   gnome_canvas_item_raise_to_top(item);
@@ -1624,7 +1624,16 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   
   pixmapfile = xmlGetProp(xmlnode,"pixmapfile");
   /* if unspecified, make it UNDEFINED */
-  if(!pixmapfile) pixmapfile = UNDEFINED;
+  if(!pixmapfile) {
+    pixmapfile = UNDEFINED;
+  } else {
+    /* If the pixmapfile starts with skin: then get the skin relative image instead */
+    if(!strncmp(pixmapfile, "skin:", 5)) {
+      gchar *oldpixmapfile = pixmapfile;
+      pixmapfile = gcompris_image_to_skin(oldpixmapfile+5);
+      g_free(oldpixmapfile);
+    }
+  }
 
   targetfile = xmlGetProp(xmlnode,"targetfile");
   /* if unspecified, make it UNDEFINED */

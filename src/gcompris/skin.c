@@ -80,7 +80,7 @@ gchar *gcompris_image_to_skin(gchar *pixmapfile)
     return(filename);
   }
 
-  g_error (_("Couldn't find file %s !"), filename);
+  g_warning (_("Couldn't find file %s !"), filename);
 
   return(NULL);
 }
