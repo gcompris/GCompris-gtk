@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2002/01/13 19:23:26 bruno>
+ * Time-stamp: <2002/02/03 09:49:50 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -68,6 +68,8 @@ void gcompris_about_start ()
 
   if(rootitem)
     return;
+
+  gcompris_bar_hide (TRUE);
 
   rootitem = \
     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
@@ -340,6 +342,7 @@ void gcompris_about_stop ()
   if(gcomprisBoard->plugin->pause_board != NULL)
     gcomprisBoard->plugin->pause_board(FALSE);
 
+  gcompris_bar_hide (FALSE);
 }
 
 

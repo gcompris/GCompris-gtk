@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/01/13 18:02:48 bruno>
+ * Time-stamp: <2002/02/03 09:43:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -83,6 +83,8 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   if(rootitem)
     return;
 
+  gcompris_bar_hide(TRUE);
+
   if(gcomprisBoard!=NULL)
     {
       if(gcomprisBoard->plugin->pause_board != NULL)
@@ -147,7 +149,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("Prerequisite"),
+				"text", prerequisite_title,
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.25,
 				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
@@ -176,7 +178,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("Goal"),
+				"text", goal_title,
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
@@ -204,7 +206,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("Manual"),
+				"text", manual_title,
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.75,
 				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
@@ -300,6 +302,7 @@ void gcompris_help_stop ()
 	  rootitem = NULL;	  
 	}
     }
+  gcompris_bar_hide(FALSE);
   help_displayed = FALSE;
 }
 

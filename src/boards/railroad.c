@@ -46,9 +46,9 @@ static void show_engines_wagons(gboolean);
 
 #define ENGINES 9
 #define WAGONS 13
-#define MODEL_MAX_SIZE 4
 #define NUMBER_OF_SUBLEVELS 3
-#define NUMBER_OF_LEVELS 5
+#define NUMBER_OF_LEVELS 3
+#define MODEL_MAX_SIZE NUMBER_OF_LEVELS+1
 
 static const int line[] = { 100,180,260,340, 420, 500};
 static gboolean animation_pending;

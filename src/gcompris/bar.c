@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/01/13 22:34:48 bruno>
+ * Time-stamp: <2002/02/03 09:59:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -35,6 +35,8 @@ static gint item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data);
 static void bar_reset_sound_id ();
 
 static gint current_level = -1;
+static gint current_flags = -1;
+static GnomeCanvasItem *home_item = NULL;
 static GnomeCanvasItem *level_item = NULL;
 static GnomeCanvasItem *ok_item = NULL;
 static GnomeCanvasItem *help_item = NULL;
@@ -90,22 +92,22 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   // HOME
   pixmap = gcompris_load_pixmap("gcompris/buttons/home.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) width*0.9,
-				"y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				"width", (double)  gdk_pixbuf_get_width(pixmap),
-				"height", (double) gdk_pixbuf_get_height(pixmap),
-				"width_set", TRUE, 
-				"height_set", TRUE,
-				NULL);
+  home_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap, 
+				     "x", (double) width*0.9,
+				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				     "width", (double)  gdk_pixbuf_get_width(pixmap),
+				     "height", (double) gdk_pixbuf_get_height(pixmap),
+				     "width_set", TRUE, 
+				     "height_set", TRUE,
+				     NULL);
   gdk_pixbuf_unref(pixmap);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  gtk_signal_connect(GTK_OBJECT(home_item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "back");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  gtk_signal_connect(GTK_OBJECT(home_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
@@ -293,6 +295,9 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
 void
 gcompris_bar_set (const GComprisBarFlags flags)
 {
+
+  current_flags = flags;
+
   if(flags&GCOMPRIS_BAR_LEVEL)
     gnome_canvas_item_show(level_item);
   else
@@ -324,7 +329,28 @@ gcompris_bar_set (const GComprisBarFlags flags)
     gnome_canvas_item_hide(about_item);
 }
 
-
+/* Hide all icons in the control bar 
+ * or retore the icons to the previous value
+ */
+void
+gcompris_bar_hide (gboolean hide)
+{
+  if(hide)
+    {
+      gnome_canvas_item_hide(home_item);
+      gnome_canvas_item_hide(level_item);
+      gnome_canvas_item_hide(ok_item);
+      gnome_canvas_item_hide(help_item);
+      gnome_canvas_item_hide(repeat_item);
+      gnome_canvas_item_hide(config_item);
+      gnome_canvas_item_hide(about_item);
+    }
+  else
+    {
+      gnome_canvas_item_show(home_item);
+      gcompris_bar_set(current_flags);
+    }
+}
 
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/

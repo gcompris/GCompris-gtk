@@ -1,3 +1,14 @@
+2002-02-03  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/railroad.c: Fixed crash at last level. MODEL_MAX_SIZE was not set properly.
+	* src/boards/smallnumbers.c: Added number sounds
+	* src/boards/gletters.c: Added letter sounds
+	* boards/railroad/*.png: some pixmap cleanup to remove white borders.
+	* src/gcompris/bar.c: added gcompris_bar_hide entry to hide/restore the buttons bar.
+	* src/help.c: changed to use gcompris_bar_hide
+	* src/config.c: changed to use gcompris_bar_hide
+	* src/about.c: changed to use gcompris_bar_hide
+	
 2002-01-19  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/properties.c: fixed locale initialization to use use current locale intead of en

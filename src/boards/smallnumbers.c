@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2002/01/13 22:42:35 bruno>
+ * Time-stamp: <2002/02/03 09:08:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -411,6 +411,9 @@ static GnomeCanvasItem *smallnumbers_create_item(GnomeCanvasGroup *parent)
       g_free(lettersItem);
       return NULL;
     }
+
+  lettersItem[1] = '\0';
+  gcompris_play_ogg(lettersItem, NULL);
 
   str = g_strdup_printf("gcompris/dice/gnome-dice%c.png", numbers[i]);
 

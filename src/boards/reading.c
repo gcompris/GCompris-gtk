@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2002/01/13 17:56:46 bruno>
+ * Time-stamp: <2002/02/03 10:36:50 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 

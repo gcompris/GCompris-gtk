@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/01/11 01:07:00 bruno>
+ * Time-stamp: <2002/02/03 09:38:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -69,6 +69,7 @@ typedef enum
 } GComprisBarFlags;
 
 void		 gcompris_bar_set (const GComprisBarFlags flags);
+void		 gcompris_bar_hide (gboolean hide);
 
 /* Help window */
 gboolean	 gcompris_board_has_help (GcomprisBoard *gcomprisBoard);

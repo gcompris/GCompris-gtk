@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2002/01/13 22:43:10 bruno>
+ * Time-stamp: <2002/02/03 09:00:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -423,6 +423,9 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
     sprintf(lettersItem, "%c", c);
 
   } while(item_find_by_title(lettersItem)!=NULL);
+
+  lettersItem[1] = '\0';
+  gcompris_play_ogg(lettersItem, NULL);
 
   str = g_strdup_printf("gcompris/letters/%c.png",
 			letters_array[gcomprisBoard->level%LETTERS_ARRAY_LENGTH][i]);
