@@ -176,6 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/pixmaps/*
 %{prefix}/share/gcompris/sounds/*
 %{prefix}/share/gcompris/boards/sounds/*.ogg
+%{prefix}/share/gcompris/boards/*
 %{prefix}/share/gcompris/boards/algebra_guesscount/*
 %{prefix}/share/gcompris/boards/babymatch/*
 %{prefix}/share/gcompris/boards/babyshapes/*
