@@ -213,7 +213,8 @@ static gchar *imageList[] =
   "gcompris/letters/z.png",
   "gcompris/letters/Z.png"
 };
-#define NUMBER_OF_IMAGES 109
+#define NUMBER_OF_IMAGES 103
+#define LETTERS_BEGIN_AT ( (NUMBER_OF_IMAGES) - 52 )
 
 // These index are use to select only a subset of the previous image list by level
 guint lowerImageIndex, upperImageIndex;
@@ -363,11 +364,11 @@ static void memory_next_level()
   if(gcomprisBoard->level<5)
     {
       lowerImageIndex = 0;
-      upperImageIndex = NUMBER_OF_IMAGES - 68;
+      upperImageIndex = LETTERS_BEGIN_AT;
     }
   else
     {
-      lowerImageIndex = NUMBER_OF_IMAGES - 68;
+      lowerImageIndex = LETTERS_BEGIN_AT;
       upperImageIndex = NUMBER_OF_IMAGES;
     }
   
@@ -423,14 +424,14 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
       return;
     }
 
-  i = lowerImageIndex + rand()%(upperImageIndex-lowerImageIndex);
+  i = lowerImageIndex + (int)((upperImageIndex-lowerImageIndex)*((double)rand()/RAND_MAX));
   memoryArray[x][y] = memoryItem;
   memoryItem->image = imageList[i];
 
   // Randomly set the pair
-  rx = rand()%(numberOfColumn);
-  ry = rand()%(numberOfLine);
-
+  rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
+  ry = (int)(numberOfLine*((double)rand()/RAND_MAX));
+	
   while(memoryArray[rx][ry])
     {
       rx++;
