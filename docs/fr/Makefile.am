@@ -2,8 +2,7 @@
 
 doc = gcompris.html
 
-EXTRA_DIST = gcompris.html \
-	     overview.jpg \
+EXTRA_DIST = overview.jpg \
 	     overview.txt \
 	     topic.dat \
 	     overview.dia

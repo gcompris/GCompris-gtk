@@ -1,3 +1,13 @@
+2003-02-14  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: removed unecessary file in dist
+	* acconfig.h: added GNUCHESS
+	* configure.in:added GNUCHESS
+	* docs/C/Makefile.am:removed unecessary file in dist
+	* docs/fr/Makefile.am:removed unecessary file in dist
+	* src/boards/chess.c: (start_board):added GNUCHESS
+	* src/boards/traffic.c: fixes a compile issue with gcc2.95
+
 2003-02-13  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* .cvsignore: updated

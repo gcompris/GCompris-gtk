@@ -74,7 +74,8 @@ struct _jam {
   guint num_cars;
   guint card;
   guint level;
-  car *cars[];
+#define MAX_NUMBER_OF_CARS 20
+  car *cars[MAX_NUMBER_OF_CARS];
 };
 
 static int	 car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar);

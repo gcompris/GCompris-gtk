@@ -12,3 +12,4 @@
 #undef ALL_LINGUAS
 #undef GNOME_ICONDIR
 #undef GETTEXT_PACKAGE
+

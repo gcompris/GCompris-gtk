@@ -193,9 +193,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     return;
   }
   
-  if (!g_file_exists ("/usr/bin/gnuchess")) {
+  if (!g_file_exists (GNUCHESS)) {
     
-    gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in /usr/bin/gnuchess"), gcompris_end_board);
+    gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gcompris_end_board);
     
     return;
   }

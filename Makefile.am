@@ -20,11 +20,10 @@ EXTRA_DIST = config.rpath  \
 	$(icon_DATA) \
 	$(Menu_DATA) \
 	gcompris.spec.in \
-	gcompris.spec \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
-	core-translation-report po-checktrans.py po-checktrans
+	po-checktrans.py po-checktrans
 
 distcore = $(PACKAGE)-core-$(VERSION)
 
@@ -32,13 +31,13 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@; \
-	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*.in" --exclude "*~" --exclude CVS --exclude .xvpics * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	fi
 
 dist-hook:
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(distdir)/@PACKAGE_DATA_DIR@; \
-	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*~" --exclude ".*" --exclude CVS --exclude .xvpics * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*.in" --exclude "Makefile" --exclude "*~" --exclude ".*" --exclude CVS --exclude .xvpics * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	fi
 
 
