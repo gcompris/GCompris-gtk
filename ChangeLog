@@ -1,3 +1,11 @@
+2003-06-09  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* TODO: Added Dynamic screen/skin resolution change
+	* src/gcompris/oggplayer.c: (decode_ogg_file), (erase_credits),
+	(display_ogg_file_credits): added way to display credit info from ogg
+	* src/gcompris/soundutil.c: (initSound), (scheduler_bgnd),
+	(thread_play_ogg): added background music support
+
 2003-06-03  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in : removed gnome-common-init, added gnome-compile-warning

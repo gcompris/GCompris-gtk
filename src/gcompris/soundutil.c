@@ -17,6 +17,11 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#ifdef __APPLE__
+#   include <sys/types.h>
+#endif
+#include <dirent.h>
+
 #include "gcompris.h"
 #include <signal.h>
 #include <pthread.h>
@@ -28,9 +33,11 @@ static gboolean is_playing;
 
 /* Forward function declarations */
 pthread_t thread_scheduler, thread_play;
+pthread_t thread_scheduler_bgnd, thread_play_bgnd;
 static void*	 thread_play_ogg (void*);
 static char*	 get_next_sound_to_play( );
 static void*	 scheduler ( );
+static void*	 scheduler_bgnd ( );
 extern int	 ogg123(char * sound);
 
 /* mutex */
@@ -53,6 +60,10 @@ void initSound()
 
   if ( pthread_create ( &thread_scheduler, NULL, scheduler, NULL ) != 0)
     perror("create failed for scheduler");
+
+  if ( pthread_create ( &thread_scheduler_bgnd, NULL, scheduler_bgnd, NULL ) != 0)
+    perror("create failed for scheduler background");
+
 }
 
 /* =====================================================================
@@ -74,6 +85,61 @@ void setSoundPolicy(int policy)
 int getSoundPolicy()
 {
   return sound_policy;
+}
+
+/* =====================================================================
+ * Thread scheduler background :
+ *	- launches a single thread for playing and play any file found
+ *        in the gcompris music directory
+ ======================================================================*/
+static void* scheduler_bgnd ()
+{
+  gint i;
+  gchar *str;
+  gchar *filename;
+  struct dirent **namelist = NULL;
+  int namelistlength = 0;
+  GList *musiclist = NULL;
+
+  if ( !gcompris_get_properties()->music )
+    return;
+
+  /* Sleep to let gcompris intialisation and intro music to complete */
+  sleep(20);
+
+  /* Load the Music directory file names */
+  filename = g_strdup_printf("%s", PACKAGE_DATA_DIR "/music/background");
+  namelistlength = scandir(filename,
+			   &namelist, 0, NULL);
+  
+  if (namelistlength < 0)
+    g_warning (_("Couldn't open music dir: %s"), filename);
+  
+  g_free(filename);
+  
+  /* Fill up the music list */
+  for(i=2; i<namelistlength; i++)
+    {
+      str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", namelist[i]->d_name);
+
+      g_free(namelist[i]);
+
+      musiclist = g_list_append (musiclist, str);
+    }
+
+  g_free(namelist);
+
+  /* Now loop over all our music files */
+  while (TRUE)
+    {
+      for(i=0; i<g_list_length(musiclist); i++)
+	{
+	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i));
+	  decode_ogg_file((char *)g_list_nth_data(musiclist, i));
+	}
+    }
+
+  return NULL;
 }
 /* =====================================================================
  * Thread scheduler :
@@ -117,7 +183,6 @@ static void* thread_play_ogg (void *s)
 {
   char* file = NULL;
   char locale[3];
-  pthread_t pid_ogg = 0;
 
   strncpy( locale, gcompris_get_locale(), 2 );
   locale[2] = 0; // because strncpy does not put a '\0' at the end of the string

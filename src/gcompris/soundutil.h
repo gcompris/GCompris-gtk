@@ -47,6 +47,6 @@ int	 getSoundPolicy(void);
 void	 initSound(void);
 pid_t	 exec_play(char *);
 
-int decode_ogg_file(char *infile);
+int	 decode_ogg_file(char *infile);
 
 #endif

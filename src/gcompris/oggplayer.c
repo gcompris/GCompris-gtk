@@ -17,6 +17,8 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include "gcompris.h"
+
 #include <stdio.h>
 #include <libgen.h>
 #include <pthread.h>
@@ -28,10 +30,12 @@
 #include <fcntl.h>
 #endif
 
+static GnomeCanvasItem	*rootitem		= NULL;
+
 int quit = 0;
 
-//int decode_ogg_file(char *infile)
-void *decode_ogg_file(void *infile)
+//void *decode_ogg_file(void *infile)
+int decode_ogg_file(char *infile)
 {
   char buf[4096];
   OggVorbis_File vf;
@@ -135,3 +139,85 @@ void *decode_ogg_file(void *infile)
   return 0;
 }
 
+/*
+ * This does the erase of the credits
+ *
+ */
+static gint erase_credits (GtkWidget *widget, gpointer data)
+{
+  gtk_object_destroy (GTK_OBJECT(rootitem));
+  rootitem = NULL;
+
+  return(FALSE);
+}
+
+void *display_ogg_file_credits(void *infile)
+{
+  OggVorbis_File vf;
+  vorbis_comment *vc;
+  long ov_status;
+  guint i = 0;
+
+  FILE* input;
+  
+  if(rootitem)
+    return;
+
+  input = fopen((char *)infile, "rb");
+  if(!input) {
+      fprintf(stderr, "cannot open %s\n",(char *) infile);
+      return 0;
+    }
+
+  if((ov_status = ov_open(input, &vf, NULL, 0)) < 0) 
+    {
+      fclose(input);
+      fprintf(stderr, "ov_open failed for %s (%d)\n",(char *) infile, ov_status);
+      return 0;
+    }
+  vc = ov_comment(&vf, -1);
+
+  rootitem = \
+    gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("Now Playing Music"),
+			 "font", gcompris_skin_font_subtitle,
+			 "x", (double) BOARDWIDTH/2,
+			 "y", (double) BOARDHEIGHT/2-10 + i++*20,
+			 "anchor", GTK_ANCHOR_NORTH,
+			 "fill_color", "white",
+			 "justification", GTK_JUSTIFY_CENTER,
+			 NULL);
+
+  {
+    char **ptr=vc->user_comments;
+    while(*ptr){
+      fprintf(stderr,"%s\n",*ptr);
+
+      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			     gnome_canvas_text_get_type (),
+			     "text", *ptr,
+			     "font", gcompris_skin_font_board_tiny,
+			     "x", (double) BOARDWIDTH/2,
+			     "y", (double) BOARDHEIGHT/2 + i++*20,
+			     "anchor", GTK_ANCHOR_NORTH,
+			     "fill_color", "white",
+			     "justification", GTK_JUSTIFY_CENTER,
+			     NULL);
+
+      ++ptr;
+    }
+
+    gtk_timeout_add (20000,
+		     (GtkFunction) erase_credits, NULL);
+
+  }
+
+  ov_clear(&vf);
+}
