@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/06/05 22:12:39 bruno>
+ * Time-stamp: <2002/06/26 01:00:47 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -92,6 +92,7 @@ void		 gcompris_images_selector_start (GcomprisBoard *gcomprisBoard,
 						 gchar *dataset, 
 						 ImageSelectorCallBack imscb);
 void		 gcompris_images_selector_stop (void);
+void		 gcompris_exit();
 
 /*=========================================================*/
 /* Some global definition to keep a constant look and feel */

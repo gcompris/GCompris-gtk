@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/06/07 00:18:25 bruno>
+ * Time-stamp: <2002/06/26 01:10:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,7 +33,8 @@
 #define COLOR_SELECTED   0x34682aFF
 #define COLOR_UNSELECTED 0x4252ffFF
 
-static gint item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint	 item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void	 select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text);
 
 static gboolean help_displayed			= FALSE;
 

@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/05/06 00:50:43 bruno>
+ * Time-stamp: <2002/06/26 01:01:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,11 +32,13 @@
 
 #define BAR_GAP 15		/* Value used to fill space above and under icons in the bar */
 
-static gint item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data);
-static void bar_reset_sound_id (void);
+static void	 update_exit_button();
+static gint	 item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data);
+static void	 bar_reset_sound_id (void);
 
 static gint current_level = -1;
 static gint current_flags = -1;
+static GnomeCanvasItem *exit_item = NULL;
 static GnomeCanvasItem *home_item = NULL;
 static GnomeCanvasItem *level_item = NULL;
 static GnomeCanvasItem *ok_item = NULL;
@@ -90,6 +92,29 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				NULL);
   gdk_pixbuf_unref(pixmap);
 
+  // EXIT
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_exit.png");
+  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
+  exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap, 
+				     "x", (double) width*0,
+				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				     "width", (double)  gdk_pixbuf_get_width(pixmap),
+				     "height", (double) gdk_pixbuf_get_height(pixmap),
+				     "width_set", TRUE, 
+				     "height_set", TRUE,
+				     NULL);
+  gdk_pixbuf_unref(pixmap);
+
+  gtk_signal_connect(GTK_OBJECT(exit_item), "event",
+		     (GtkSignalFunc) item_event_bar,
+		     "exit");
+  gtk_signal_connect(GTK_OBJECT(exit_item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  
   // HOME
   pixmap = gcompris_load_pixmap("gcompris/buttons/home.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
@@ -248,6 +273,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     NULL);
 
   // Show them all
+  update_exit_button();
   gnome_canvas_item_show(level_item);
   gnome_canvas_item_show(ok_item);
   gnome_canvas_item_show(help_item);
@@ -299,6 +325,8 @@ gcompris_bar_set (const GComprisBarFlags flags)
 
   current_flags = flags;
 
+  update_exit_button();
+
   if(flags&GCOMPRIS_BAR_LEVEL)
     gnome_canvas_item_show(level_item);
   else
@@ -338,6 +366,7 @@ gcompris_bar_hide (gboolean hide)
 {
   if(hide)
     {
+      gnome_canvas_item_hide(exit_item);
       gnome_canvas_item_hide(home_item);
       gnome_canvas_item_hide(level_item);
       gnome_canvas_item_hide(ok_item);
@@ -357,6 +386,26 @@ gcompris_bar_hide (gboolean hide)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
+
+/*
+ * Display or not the exit button
+ */
+static void update_exit_button()
+{
+
+  if(get_current_gcompris_board() == NULL)
+    return;
+
+  if (get_current_gcompris_board()->previous_board == NULL)
+    {
+      /* We are in the upper menu: show it */
+      gnome_canvas_item_show(exit_item);
+    }
+  else
+    {
+      gnome_canvas_item_hide(exit_item);
+    }
+}
 
 /*
  * This is called to play sound
@@ -461,6 +510,10 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       else if(!strcmp((char *)data, "about"))
 	{
 	  gcompris_about_start();
+	}
+      else if(!strcmp((char *)data, "exit"))
+	{
+	  gcompris_exit();
 	}
       break;
       

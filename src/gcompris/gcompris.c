@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/06/17 01:11:56 bruno>
+ * Time-stamp: <2002/06/26 01:13:47 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -393,30 +393,22 @@ static void setup_window ()
 void gcompris_end_board()
 {
   if (get_current_gcompris_board()->previous_board == NULL)
-    {
-      /* We are in the upper menu: leave GCompris? */
-      quit_cb(NULL, NULL);
+    /* We are in the upper menu */
+    board_play (gcomprisBoardMenu);
+  else
+    /* Run the previous board */
+    board_play (get_current_gcompris_board()->previous_board);
+}
 
-      /* Oups, the user changed his mind : restart the menu */
-      board_play (get_current_gcompris_board());
-      return;
-    }
-
-  /* Run the previous board */
-  board_play (get_current_gcompris_board()->previous_board);
+void gcompris_exit()
+{
+  gcompris_properties_save(properties);
+  gtk_main_quit ();
 }
 
 static void quit_cb (GtkWidget *widget, gpointer data)
 {
-  // FIXME: Should be implemented as a canvas dialog window
-  //  if (end_board_box ())
-  //    return;
-
-  /*      cleanup_plugins(); */
-  gcompris_properties_save(properties);
-
-  gtk_main_quit ();
-
+  gcompris_exit();
 }
 
 static void load_properties ()

@@ -1,21 +1,21 @@
 \input texinfo   @c -*-texinfo-*-
 @c %**start of header
 @setfilename gcompris.info
-@settitle GCompris Documentation
+@settitle Documentation GCompris
 @c %**end of header
 
 @setchapternewpage odd
 
 @ifinfo
-@dircategory Games
+@dircategory Games Education
 @format
 START-INFO-DIR-ENTRY
-* gcompris: (gcompris.info).   Educational games for small children.
+* gcompris: (gcompris.info).   Jeu éducatif pour les enfants de 3 à 10 ans.
 END-INFO-DIR-ENTRY
 @end format
-This is the documentation of GCompris. 
-It contains both a user manual and
-implementation detail suitable for developpers.
+Ce document est la documentation de gcompris.
+Il contient à la fois un manuel utilisateur et des notes d'implementation
+utilisables pour les développeurs.
 
 Copyright 2001 Free Software Foundation, Inc.
 
@@ -31,7 +31,7 @@ Documentation License".
 @sp 10
 @comment The title is printed in a large font.
 @center 
-@titlefont{GCompris Documentation}
+@titlefont{Documentation GCompris}
 @author Written By Bruno Coudoin
 
 @c The following two commands start the copyright page.
@@ -54,25 +54,23 @@ Documentation License".
 
 @menu
 * Introduction::		
-* User Manual::			
-* Internationalization Issues::			
-* Developers Guide::		
+* Manuel utilisateur::			
+* Notes sur l'internationalisation::			
+* Guide pour les développeurs::		
 * GNU Free Documentation License::  
 * Concept Index::		
 @end menu
 
-@node    Introduction, User Manual, Top,      Top
+@node    Introduction, Manuel utilisateur, Top,      Top
 @chapter Introduction
-@section Why GCompris
-GCompris intent is to provide a central location where a user can find different kind of small educational content called 'boards'.
+@section Pourquoi GCompris
+Le but ded GCompris est de fournir un logiciel éducatif complêt et ouvert. Ce logiciel comprend un ensemble d'activité le plus varié possible couvrant les domaines de l'apprentissage de l'ordinateur, souris, clavier, les domaines d'enseignement généraux, lecture, écriture, langues vivantes, algébre ainsi que de activités diverses comme des jeux de mémoire, de compréhension du fonctionnement d'une écluse, ...
 
-Today there is already a lot of free software that provides a small education content.
-Unfortunatly, it is difficult to track, intall and use them because they do not evolve
-at the same speed and offer their own user interface.
+Aujourd'hui il existe déjà beaucoup de logiciel réalisant individuellement des parties de gcompris. Malheureusement, ils sont difficiles à suivre et à maintenir et ils offrent chacun des interfaces différentes de qualité diverses.
 
-GCompris aims to provide a unique user interface that gives access to different boards.
+L'objectif de gcompris est de fournir une plate forme de développement pour des activités à valeurs éducatives.
 
-GCompris is part of the GNU project.
+Gcompris fait parti du projet GNU.
 
 @ifhtml
 <!-- Background white, links blue (unvisited), navy (visited), red (active) -->
@@ -80,36 +78,35 @@ GCompris is part of the GNU project.
 </body>
 @end ifhtml
 
-@cindex Objective of Gcompris
+@cindex Objectif de Gcompris
 
-@node    User Manual, Internationalization Issues, Introduction, Top
-@chapter User Manual
-@section Control
-All controls are designed to be user friendly for the youngest. For this reason, GCompris does not stick to the Gnome standard for user interfaces.
-GCompris is controlled with a mouse. It cannot be used without a mouse or a pointer device.
+@node    Manuel utilisateur, Notes sur l'internationalisation, Introduction, Top
+@chapter Manuel utilisateur
+@section Contrôles
+Tous les contôles sont concus pour être simple d'utilisation pour les plus jeunes. Pour cette raison, bien que gcompris utilise les librairies gnomes, il n'en suis pas les standards.
+Gcompris est controlé avec une souris, il ne peut pas être utilisé sans souris ou système de pointage.
 
-@section Gameplay
+@section Zone de jeu
 @cindex Interface
 @cindex GUI
 
-@subsection Main window
-Once started, GCompris presents a graphical view that includes from top to bottom:
+@subsection Fenêtre principale
+Au démarage, gcompris présente une interface graphique qui inclue :  
 @enumerate
 @item
-Boards icon list
+Liste des activités
 
-Each icon represent a board. When you move the mouse over them, they are highlighted and the name and description of the board is displayed in the board description area.
+Chaque icone représente une activité. Lorqu'on passe la souris dessus, elle est mise en surbrillance et le nom, la description, l'auteur de l'activité est affiché dans la zone 'description des activités'.
 @item
-@dfn{Boards description area}
+@dfn{Zone de description des activités}
 
-Display a small description of what the highlited board icon is about.
-Note that the descriptions are internationalized which means translated in a target language (See @ref{Internationalization Issues} for more information on Internationalization).
-
+Affichage d'une description de l'activité mise en surbrillance.
+Les descriptions sont internationalisée, c'est à dire traduites dans le language cible sélectionné dans gcompris (Voir @ref{Notes sur l'internationalisation} pour plus d'information sur l'internationalisation).
 
 @item
-Control bar:
-@cindex Control bar
-The control bar is always present in GCompris. This icons are contextual which means that when an icon is not meaningfull in a specific context, it is simply not displayed.
+Barre de contrôle :
+@cindex Barre de contrôle
+La barre de contrôle est toujours présente dans gcompris. Chaque icone est contextuelle, ce qui signifie quelle n'apparait que si elle est utilisable dans le contexte courrant.
 
 The control bar contains the icons from left to right:
 @enumerate
