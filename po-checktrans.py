@@ -79,7 +79,8 @@ def slurp_po(fname):
         for k in sl:
             if k != '""':
                 st = st + k
-    #print "translations:",translations,"idents:",idents
+    if language_name != "gcompris":
+        print "translations:(%s=%d%%):(%d/%d)" % (language_name, int(100*float(translations)/idents), translations, idents)
     return (language_name, idents, translations,fuzzies)
 
 if len(sys.argv)<3:
@@ -97,7 +98,10 @@ def maxlen(a,b):
 (t,idents,n,f) = slurp_po(sys.argv[1])
 del t,n,f
 
+print "-------------------------------------------------------------------------------"
+print "Table used by gcomprisweb module"
 translations = map(slurp_po,sys.argv[2:])
+print "-------------------------------------------------------------------------------"
 trans = map(lambda (l,i,t,f),ti=idents:
             "%s:%3d%%(%d/%d/%d)%s"%(l,
                                  100*float(t)/idents,
