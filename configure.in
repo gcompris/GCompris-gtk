@@ -72,14 +72,12 @@ AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${myprefix}/lib/gcompris")
 plugindir=$libdir/gcompris
 AC_SUBST(plugindir)
 
-AC_OUTPUT([ m4/Makefile 
-gcompris.spec
+AC_OUTPUT([ gcompris.spec
 Makefile
 src/Makefile
 src/unicode/Makefile
 src/gcompris/Makefile
 src/boards/Makefile
-intl/Makefile
 po/Makefile.in
 sounds/Makefile
 docs/Makefile
