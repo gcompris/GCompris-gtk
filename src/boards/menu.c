@@ -297,12 +297,17 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 
 
   // display difficulty stars ========================== BEGIN
-  pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
   if (board->difficulty != NULL) {
   	int i, diff = 0;
-	diff = atoi(board->difficulty);
-	for (i=0; i<diff; i++) {
-		star =  gnome_canvas_item_new (parent,
+		diff = atoi(board->difficulty);
+    if (diff > 3) {
+	  	pixmap = gcompris_load_skin_pixmap("difficulty_star2.png");
+      diff -= 3;
+    } else {
+	  	pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
+    }
+		for (i=0; i<diff; i++) {
+			star =  gnome_canvas_item_new (parent,
 					       gnome_canvas_pixbuf_get_type (),
 					       "pixbuf", pixmap,
 					       "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
@@ -312,10 +317,10 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 					       "width", (double) gdk_pixbuf_get_width(pixmap),
 					       "height", (double) gdk_pixbuf_get_height(pixmap),
 					       NULL);
-		item_list = g_list_append (item_list, star);
-	}
+			item_list = g_list_append (item_list, star);
+		}
+  	gdk_pixbuf_unref(pixmap);
   }
-  gdk_pixbuf_unref(pixmap);
   // display difficulty stars ========================== END
 
   // display board availability due to sound voice not present
