@@ -5,16 +5,16 @@
 # Jose Jorge <jjorge@free.fr>, 2004.
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris.HEAD\n"
+"Project-Id-Version: pt\n"
 "POT-Creation-Date: 2004-02-28 01:01+0100\n"
-"PO-Revision-Date: 2004-02-17 22:36+0100\n"
+"PO-Revision-Date: 2004-04-27 22:12+0200\n"
 "Last-Translator: Jose Jorge <jjorge@free.fr>\n"
 "Language-Team: português <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Generator: KBabel 1.3\n"
+"X-Generator: KBabel 1.3.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -369,8 +369,7 @@ msgstr ""
 "fotos. Muito obrigado Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Encontra uma estratégia para arranjar umas operações aritméticas para "
 "encontrar um valor"
@@ -622,11 +621,11 @@ msgstr "Conta uma pequena historia"
 
 #: boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
-msgstr ""
+msgstr "Passeio na Lua"
 
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
-msgstr ""
+msgstr "Tux e a macieira"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -778,8 +777,7 @@ msgstr "Puxa e Larga as peças na tabela de entrada dupla"
 msgid ""
 "The children must move the items on the left to their proper destination in "
 "the double entry table."
-msgstr ""
-"O utilizador deve mover os elementos da esquerda para o bom sitio na tabela"
+msgstr "O utilizador deve mover os elementos da esquerda para o bom sitio na tabela"
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
@@ -1268,16 +1266,15 @@ msgstr "Actividade de treino da escuta"
 msgid ""
 "Listen the sound sequence played. Then try to repeat it clicking on the "
 "elements. You can listen again clicking on the repeat button."
-msgstr ""
+msgstr "Escuta os sons tocados. Tenta então repetir-la carregando no elementos. Podes ouvir outravez carregando no botão repetir."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
 msgstr "Melodia"
 
 #: boards/melody.xml.in.h:4
-#, fuzzy
 msgid "Move and click the mouse"
-msgstr "Mover o rato"
+msgstr "Mover e carregar no rato"
 
 #: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
@@ -1638,8 +1635,7 @@ msgid "Paratrooper"
 msgstr "Paraquedista"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 "Esta actividade é só um jogo. Não precisa nada de especial para poder jogar-"
 "la."
@@ -1681,10 +1677,8 @@ msgid "Test board for the python plugin"
 msgstr "Actividade de teste do Python"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr ""
-"Agradecemos o Guido van Rossum e a equipa Python por esta língua potente !"
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr "Agradecemos o Guido van Rossum e a equipa Python por esta língua potente !"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -1977,10 +1971,8 @@ msgid "Tux has hidden several items, find them back in the correct order"
 msgstr "O Tux escondeu algumas coisas, encontra-las na boa ordem"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
-msgstr ""
-"Sabe mover o rato, ler números e contar até quinze para o primeiro nível"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr "Sabe mover o rato, ler números e contar até quinze para o primeiro nível"
 
 #: boards/target.xml.in.h:2
 msgid ""
@@ -2014,8 +2006,7 @@ msgstr "Um jogo de puzzle com peças que deslizam"
 msgid ""
 "The goal is to remove all of the red car(s) out of the grid through the slot "
 "on the right"
-msgstr ""
-"O objectivo é de tirar todos os carros da grelha através do ponto na direita"
+msgstr "O objectivo é de tirar todos os carros da grelha através do ponto na direita"
 
 #: boards/watercycle.xml.in.h:1
 msgid ""
@@ -2251,17 +2242,18 @@ msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr ""
+"Este é o primeiro elemento de gcompris escrito na língua\n"
+"de programação Python."
 
 #: src/boards/python/pythontest.py:76
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
-msgstr ""
+msgstr "É agora possivel de criar actividades para o gcompris em C ou em Python.\n Obrigado ao Olivier Samys que permitiu isto."
 
 #: src/boards/python/pythontest.py:85
-#, fuzzy
 msgid "This activity is not playable yet, just a test"
-msgstr "Esta actividade está incompleta."
+msgstr "Esta actividade não pode ser jogada por agora, é só um teste"
 
 #. Remove the canvas item we added during this plugin
 #. gcompris - redraw
@@ -2555,8 +2547,7 @@ msgid "GCompris Home Page"
 msgstr "Pagina do GCompris"
 
 #: src/gcompris/about.c:247
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Este programa é um Pacote GNU e é fornecido sob a Licença Publica GNU"
 
 #: src/gcompris/about.c:275
@@ -2605,9 +2596,8 @@ msgid "English"
 msgstr "Inglês"
 
 #: src/gcompris/config.c:61
-#, fuzzy
 msgid "Canadian English"
-msgstr "Inglês"
+msgstr "Inglês do Canada"
 
 #: src/gcompris/config.c:62
 msgid "Spanish"
@@ -2945,3 +2935,4 @@ msgstr "Tempo restante = %d"
 #, fuzzy
 #~ msgid "Move the mouse to fifteen the area and discover the background"
 #~ msgstr "Move o rato para apagar o quadro e descobrir o que está detrás"
+
