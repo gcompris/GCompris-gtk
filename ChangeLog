@@ -1,3 +1,14 @@
+2005-02-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Bruno, improved the file selector. Now directory are shown first, and all is alpha sorted.
+	Yves improved the anim code.
+
+	* src/boards/python/anim.py:
+	* src/gcompris/about.c: (gcompris_about_start):
+	* src/gcompris/file_selector.c: (gcompris_file_selector_stop),
+	(display_files), (item_event_directory),
+	(item_event_file_selector):
+
 2005-02-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/website/sommaire.html: fixed html error

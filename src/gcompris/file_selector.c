@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/02/09 23:40:40 bruno>
+ * Time-stamp: <2005/02/14 02:02:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -68,6 +68,8 @@ static GtkWidget            *gtk_combo_filetypes = NULL;
 
 static gchar *current_rootdir = NULL;
 static GtkEntry *widget_entry = NULL;
+
+static GList  *file_list = NULL;
 
 /* Represent the limits of control area */
 #define	CONTROL_AREA_X1	40.0
@@ -140,6 +142,13 @@ void gcompris_file_selector_stop ()
 
   /* No need to destroy it since it's in rootitem but just clear it */
   file_root_item = NULL;
+
+  /* Cleanup the file list */
+  if(file_list) {
+    //    g_list_foreach(file_list, (GFunc)g_free, NULL);
+    g_list_free(file_list);
+  }
+  file_list = NULL;
 
   gcompris_bar_hide(FALSE);
   file_selector_displayed = FALSE;
@@ -398,6 +407,9 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
   GnomeCanvas	  *canvas; /* The scrolled part */
 
+  GList  *dir_list  = NULL;
+  GList  *listrunner;
+
   if(!rootitem)
     return;
 
@@ -415,6 +427,13 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
     gtk_object_destroy(GTK_OBJECT(file_root_item));
   }
 
+  /* Cleanup the file list */
+  if(file_list) {
+    //g_list_foreach(file_list, (GFunc)g_free, NULL);
+    g_list_free(file_list);
+  }
+  file_list = NULL;
+  
   /* Create a root item to put the image list in it */
   file_root_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(root_item),
@@ -490,11 +509,11 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   iw = IMAGE_WIDTH;
   ih = IMAGE_HEIGHT;
 
+  /* Insert all files in a sorted list */
+
   while((one_dirent = readdir(dir)) != NULL) {
-    /* add the file to the display */
     gchar *filename;
-    GdkPixbuf *pixmap_current  = pixmap_file;
-      
+
     if((strcmp(one_dirent->d_name, "..")==0) &&
        strcmp(current_rootdir, rootdir)==0)
       continue;
@@ -503,27 +522,53 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
       continue;
 
     filename = g_strdup_printf("%s/%s",
-			       rootdir, one_dirent->d_name);
-    
+			       rootdir, (gchar*)(one_dirent->d_name));
+
     if(g_file_test(filename, G_FILE_TEST_IS_DIR)) {
+      dir_list = g_list_insert_sorted(dir_list, filename,
+				       (GCompareFunc)strcmp);
+    } else {
+      file_list = g_list_insert_sorted(file_list, filename,
+				       (GCompareFunc)strcmp);
+    }
+  }
+
+  /* Concat the directory list and file list */
+  file_list = g_list_concat(dir_list, file_list);
+
+  /* We have the list sorted, now display it */
+  listrunner = g_list_first(file_list);
+  while(listrunner) {
+    gchar *allfilename = listrunner->data;
+    gchar *filename    = g_path_get_basename(allfilename);
+    gchar *ext         = rindex(filename, '.');
+
+    /* add the file to the display */
+    GdkPixbuf *pixmap_current  = pixmap_file;
+
+    if(ext)
+      printf("filename=%s extension=%s\n", filename, ext);
+
+    if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
       pixmap_current  = pixmap_dir;
     }
 
     item = gnome_canvas_item_new (gnome_canvas_root(canvas),
 				  gnome_canvas_pixbuf_get_type (),
 				  "pixbuf", pixmap_current,
-				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP - gdk_pixbuf_get_width(pixmap_current))/2,
+				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP
+						     - gdk_pixbuf_get_width(pixmap_current))/2,
 				  "y", (double)iy,
 				  NULL);
 
-    if(g_file_test(filename, G_FILE_TEST_IS_DIR)) {
+    if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) item_event_directory,
-			 filename);
+			 allfilename);
     } else {
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) item_event_file_selector,
-			 filename);
+			 allfilename);
     }
     gtk_signal_connect(GTK_OBJECT(item), "event",
 		       (GtkSignalFunc) gcompris_item_event_focus,
@@ -532,21 +577,27 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
     g_object_set_data (G_OBJECT (item), "path", filename);
     g_signal_connect (item, "destroy",
 		      G_CALLBACK (free_stuff),
-		      filename);
+		      allfilename);
 
     item = gnome_canvas_item_new (gnome_canvas_root(canvas),
 				  gnome_canvas_text_get_type (),
-				  "text", g_path_get_basename(filename),
+				  "text", filename,
 				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
 				  "y", (double)iy + IMAGE_HEIGHT - 5,
 				  "anchor", GTK_ANCHOR_CENTER,
 				  "fill_color_rgba", 0x0000FFFF,
 				  NULL);
 
-    gtk_signal_connect(GTK_OBJECT(item), "event",
-		       (GtkSignalFunc) item_event_file_selector,
-		       filename);
-
+    if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_directory,
+			 allfilename);
+    } else {
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_file_selector,
+			 allfilename);
+    }
+      
     ix+=IMAGE_WIDTH + IMAGE_GAP;
     if(ix>=DRAWING_AREA_X2 - DRAWING_AREA_X1 -IMAGE_GAP)
       {
@@ -564,7 +615,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 				NULL);
 	}
       }
-
+    listrunner = g_list_next(listrunner);
   }
 
   closedir(dir);
@@ -589,6 +640,7 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
     case GDK_LEAVE_NOTIFY:
       break;
     case GDK_BUTTON_PRESS:
+      printf("directory selected=%s\n", dir);
       if(strcmp(g_path_get_basename(dir), "..")==0) {
 	/* Up one level. Remove .. and one directory on the right of the path */
 	dir[strlen(dir)-3] = '\0';
@@ -655,8 +707,8 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  GtkTreeModel *model;
 	  GtkTreeIter iter;
 
-	  model = gtk_combo_box_get_model (gtk_combo_filetypes);
-	  if (gtk_combo_box_get_active_iter (gtk_combo_filetypes, &iter)) {
+	  model = gtk_combo_box_get_model ((GtkComboBox *)gtk_combo_filetypes);
+	  if (gtk_combo_box_get_active_iter ((GtkComboBox *)gtk_combo_filetypes, &iter)) {
 	    gtk_tree_model_get (model, &iter, 0, &file_type, -1);
 	  }
 
@@ -669,9 +721,10 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    g_free(file_type);
 	  }
 
-	  if(result) {
-	    g_free(result);
-	  }
+	  /* DO NOT FREE RESULT OR PYTHON SIDE WILL BE IN TROUBLE */
+	  //	  if(result) {
+	  //	    g_free(result);
+	  //	  }
 	}
 	gcompris_file_selector_stop();
       } else if(!strcmp((char *)data, "/cancel/")) {

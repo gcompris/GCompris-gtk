@@ -57,9 +57,6 @@ class Gcompris_anim:
 
     self.gcomprisBoard = gcomprisBoard
 
-    # Initialisation. Should not change in draw.
-    self.running = False
-    
     # There is two board in the same code
     # here the diff in parameters
 
@@ -91,6 +88,9 @@ class Gcompris_anim:
 
       # anim specific UI
       self.selector_section = "anim2"
+
+    # Initialisation. Should not change in draw.
+    self.running = False
 
 
     # In draw objects are created without drag&drop
@@ -878,7 +878,9 @@ class Gcompris_anim:
   # Event when a click on any item. Perform the move
   def move_item_event(self, item, event):
     if self.tools[self.current_tool][0] == "CCW":
-      if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
+      if ((event.type == gtk.gdk.BUTTON_PRESS) and
+          (event.button == 1) and
+          (gobject.type_name(item)!="GnomeCanvasText")):
         # this one seems broken
         #gcompris.utils.item_rotate_relative(item.get_property("parent"),-10)
         self.rotate_relative(item,-10)
@@ -887,13 +889,18 @@ class Gcompris_anim:
         return gtk.FALSE
 
     if self.tools[self.current_tool][0] == "CW":
-      if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
+      if ((event.type == gtk.gdk.BUTTON_PRESS) and
+          (event.button == 1) and
+          (gobject.type_name(item)!="GnomeCanvasText")):
         self.rotate_relative(item,10)
         return gtk.TRUE
       else:
         return gtk.FALSE
+
     if self.tools[self.current_tool][0] == "FLIP":
-      if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
+      if ((event.type == gtk.gdk.BUTTON_PRESS) and
+          (event.button == 1) and
+          (gobject.type_name(item)!="GnomeCanvasText")):
         self.item_flip(item);
         return gtk.TRUE
       else:
@@ -1249,25 +1256,25 @@ class Gcompris_anim:
           anAnimItem.canvas_item.set_data("AnimItem", anAnimItem)
           self.framelist.append(anAnimItem)
           self.list_z_actual.append(anAnimItem.z)
+          self.draw_created_object = True
 
         
-        if self.tools[self.current_tool][0] == "TEXT":
-          self.updated_text(self.newitem)
-          (x1, x2, y1, y2) = self.get_bounds(self.newitem)
-          self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
-          self.select_item(self.newitemgroup)
+          if self.tools[self.current_tool][0] == "TEXT":
+            self.updated_text(self.newitem)
+            (x1, x2, y1, y2) = self.get_bounds(self.newitem)
+            self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
+            self.select_item(self.newitemgroup)
 
-        if self.gcomprisBoard.mode == 'draw':
-          self.object_set_size_and_pos(self.newitemgroup,
-                                       x1=points['x1'],
-                                       y1=points['y1'],
-                                       x2=points['x2'],
-                                       y2=points['y2']
-                                       )
-          self.select_item(self.newitemgroup)
-          self.draw_created_object = True
-          self.newitem = None
-          self.newitemgroup = None
+            if self.gcomprisBoard.mode == 'draw':
+              self.object_set_size_and_pos(self.newitemgroup,
+                                           x1=points['x1'],
+                                           y1=points['y1'],
+                                           x2=points['x2'],
+                                           y2=points['y2']
+                                           )
+              self.select_item(self.newitemgroup)
+              self.newitem = None
+              self.newitemgroup = None
 
       return gtk.TRUE
 
@@ -1329,9 +1336,9 @@ class Gcompris_anim:
     # MOUSE DRAG STOP
     # ---------------
     if event.type == gtk.gdk.BUTTON_RELEASE:
-      # That's used only in itel creation.
+      # That's used only in item creation.
       # In draw mode, item creation does not use drag&drop
-      if self.gcomprisBoard.mode == 'draw':
+      if self.draw_created_object:
         self.draw_created_object = False
         return gtk.TRUE
 
@@ -1488,12 +1495,14 @@ class Gcompris_anim:
     #y_top += minibutton_height
 
   def object_move(self,object,dx,dy):
-    (x1,y1,x2,y2) = object.get_bounds()
-
-    object.move(dx,dy)
-
-    #self.object_set_size_and_pos(object, x1+dx, y1+dy, x2+dx, y2+dy)
-
+    # Unfortunately object.move is broken for 'TEXT' group.
+    
+    if gobject.type_name(object.item_list[0])=="GnomeCanvasText":
+      (x1,y1,x2,y2) = object.get_bounds()
+      (idx, idy) =  object.w2i( dx, dy )
+      self.object_set_size_and_pos(object, x1+idx, y1+idy, x2+idx, y2+idy)
+    else:
+      object.move(dx, dy)
 
   def object_set_size_and_pos(self, object, x1, y1, x2, y2):
     if gobject.type_name(object.item_list[0])=="GnomeCanvasLine":
@@ -1678,6 +1687,7 @@ class Gcompris_anim:
 
 
   def get_bounds(self, item):
+    
     if gobject.type_name(item)=="GnomeCanvasLine":
       (x1,y1,x2,y2)=item.get_property("points")
     elif gobject.type_name(item)=="GnomeCanvasPixbuf":
@@ -1825,7 +1835,7 @@ class Gcompris_anim:
     bounds = item.get_bounds()
     #    print "Item bounds : ", bounds
 
-    bds = item.get_property("parent").get_bounds()
+    #bds = item.get_property("parent").get_bounds()
     #    print "Item parent bounds : ", bounds
 
     (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
@@ -1867,12 +1877,12 @@ class Gcompris_anim:
 
 
   def updated_text(self, item):
-#    item.set(clip=1)
-#    bounds = self.get_bounds(item)
-#    print bounds, bounds[2]-bounds[0], bounds[3]-bounds[1]
-#    item.set(clip_width=bounds[2]-bounds[0],
-#             clip_height=bounds[3]-bounds[1]
-#             )
+    #item.set(clip=1)
+    #bounds = self.get_bounds(item)
+    #print bounds, bounds[2]-bounds[0], bounds[3]-bounds[1]
+    #item.set(clip_width=bounds[2]-bounds[0],
+    #         clip_height=bounds[3]-bounds[1]
+    #         )
     return
     
 ###########################################
@@ -2232,6 +2242,7 @@ def list_restore(picklelist):
       param = data['parent'], data['points'][0], data['points'][1], data['points'][2], data['points'][3],
     elif item.type == 'TEXT':
       bounds = item.canvas_item.get_bounds()
+      print 'Text bounds :', bounds, ' center ', (data['x'],data['y']) 
       #param = data['parent'], data['x'], data['y'], data['x'], data['y']
       param = data['parent'], bounds[0],bounds[1],bounds[2],bounds[3]
     elif item.type == 'IMAGE':
