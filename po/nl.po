@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.2\n"
-"POT-Creation-Date: 2001-11-11 01:42+0100\n"
+"POT-Creation-Date: 2001-11-14 15:31+0100\n"
 "PO-Revision-Date: 2000-11-12 21:13+0200\n"
 "Last-Translator: Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,13 @@ msgstr ""
 msgid "I Ask you some algebra questions"
 msgstr "Ik vraag je een paar sommen"
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_div.xml.in.h:2
-#: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
-msgid "Simple Algebra"
-msgstr "Eenvoudige Sommen"
+#: boards/algebra_by.xml.in.h:2
+msgid "Pratice the multiplication operation"
+msgstr "Oefenen met vermenigvuldigingen"
+
+#: boards/algebra_div.xml.in.h:2
+msgid "Pratice the division operation"
+msgstr "Oefenen met delingen"
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
@@ -32,6 +35,14 @@ msgstr "Ga naar de rekensommen"
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr "Klik met de linker muisknop om bord te kiezen"
+
+#: boards/algebra_minus.xml.in.h:2
+msgid "Pratice the substraction operation"
+msgstr "Oefenen met aftrekkingen"
+
+#: boards/algebra_plus.xml.in.h:2
+msgid "Pratice the addition operation"
+msgstr "Oefenen met optellingen"
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
@@ -54,7 +65,8 @@ msgid "Click On Me"
 msgstr "Klik Op Mij"
 
 #: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:78
-msgid "Left-Click with the mouse on all swimming fishes before they leave the "
+msgid ""
+"Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
 msgstr "Klik met de muis op alle vissen vooraleer ze weg zwemmen"
 
@@ -80,11 +92,11 @@ msgstr "Kloklezen"
 msgid "Discover the Computer"
 msgstr "Ontdek de computer"
 
-#: boards/draw.xml.in.h:1
+#: boards/draw.xml.in.h:1 src/boards/draw.c:95
 msgid "A simple vector drawing tool"
 msgstr "Een eenvoudig tekenprogramma"
 
-#: boards/draw.xml.in.h:2
+#: boards/draw.xml.in.h:2 src/boards/draw.c:96
 msgid "Creative board where you can freely draw"
 msgstr "Laat je tekentalenten de vrije loop"
 
@@ -120,9 +132,62 @@ msgstr "Lees-oefening"
 msgid "Drag and Drop the items above their written name"
 msgstr "Sleep de objecten naar hun geschreven naam"
 
+#: boards/imagename.xml.in.h:2
+msgid "Image Name"
+msgstr "Beeldjes Noemen"
+
+#: boards/locale.xml.in.h:1 src/boards/locale.c:51
+msgid "Select the language for the messages in GCompris"
+msgstr "Selecteer de taal voor boodschappen in GCompris"
+
+#: boards/locale.xml.in.h:2 src/boards/locale.c:50
+#, fuzzy
+msgid "Select the locale"
+msgstr "Selecteer je taal"
+
+#: boards/locale_de.xml.in.h:1
+msgid "GCompris will display all its messages in German"
+msgstr "GCompris zal alle boodschappen in het Duits weergeven"
+
+#: boards/locale_de.xml.in.h:2
+msgid "German"
+msgstr "Duits"
+
+#: boards/locale_en.xml.in.h:1
+msgid "English"
+msgstr "Engels"
+
+#: boards/locale_en.xml.in.h:2
+msgid "GCompris will display all its messages in English"
+msgstr "GCompris zal alle boodschappen in het Engels weergeven"
+
+#: boards/locale_es.xml.in.h:1
+msgid "GCompris will display all its messages in Spanish"
+msgstr "GCompris zal alle boodschappen in het Spaans weergeven"
+
+#: boards/locale_es.xml.in.h:2
+msgid "Spanish"
+msgstr "Spaans"
+
+#: boards/locale_fr.xml.in.h:1
+msgid "French"
+msgstr "Frans"
+
+#: boards/locale_fr.xml.in.h:2
+msgid "GCompris will display all its messages in French"
+msgstr "GCompris zal alle boodschappen in het Frans weergeven"
+
+#: boards/locale_sv.xml.in.h:1
+msgid "GCompris will display all its messages in Swedish"
+msgstr "GCompris zal alle boodschappen in het Zweeds weergeven"
+
+#: boards/locale_sv.xml.in.h:2
+msgid "Swedish"
+msgstr "Zweeds"
+
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
-msgstr "Vind de gelijke kaarten"
+msgstr "Vind de passende kaarten"
 
 #: boards/memory.xml.in.h:2
 msgid "Memory Game with images"
@@ -132,9 +197,17 @@ msgstr "Geheugenspel met beelden"
 msgid "GCompris Main Menu"
 msgstr "GCompris Hoofdmenu"
 
+#: boards/missing_letter.xml.in.h:1
+msgid "Fill up the missing letter"
+msgstr "Vul de ontbrekende letter in"
+
+#: boards/missing_letter.xml.in.h:2
+msgid "Missing Letter"
+msgstr "Ontbrekende Letter"
+
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Sleep de beeldjes naar de juiste plaats in de schilderij"
+msgstr "Sleep de beeldjes naar de juiste plaats in het schilderij"
 
 #: boards/paintings.xml.in.h:2 src/boards/shapegame.c:119
 msgid "Make the puzzle"
@@ -190,8 +263,9 @@ msgstr "Getallen Met Dobbelstenen"
 
 #: boards/smallnumbers.xml.in.h:2
 msgid "Type the keyboard number 1 to 6 before the dices reach the ground"
-msgstr "Type het getal 1 tot 6 van het toetsenbord \n"
-"voor de dobbelstenen de grond raken"
+msgstr ""
+"Typ het getal 1 tot 6 van het toetsenbord \n"
+"vooraleer de dobbelstenen de grond raken"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
 msgid "Falling Words"
@@ -199,7 +273,7 @@ msgstr "Vallende Woorden"
 
 #: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:83
 msgid "Fully type the falling words before they reach the ground"
-msgstr "Typ de woorden voor ze de grond raken"
+msgstr "Typ de woorden vooraleer ze de grond raken"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
@@ -247,11 +321,11 @@ msgstr ""
 "\n"
 "Bronvermelding:\n"
 "De vissen komen uit het Unix programma xfishtank.\n"
-"Foto's komen van het National Undersearch Research Program (NURP)"
-"http://www.photolib.noaa.gov\n"
+"Foto's komen van het National Undersearch Research Program (NURP)http://www."
+"photolib.noaa.gov\n"
 "Alle beeldrechten behoren aan het OAR/National Undersea Research Program "
-"behalve het eerste beeld, dat komt van de University of North "
-"Carolina at Wilmington\n"
+"behalve het eerste beeld, dat komt van de University of North Carolina at "
+"Wilmington\n"
 "De verschillende niveaus in GCompris gebruiken de volgende beelden:\n"
 "Locatie: Tropische Atlantische Oceaan, Florida Keys (beeld nur00523)\n"
 "Photographer: D. Kesling\n"
@@ -264,6 +338,52 @@ msgstr ""
 #: src/boards/clockgame.c:519
 msgid "Set the clock to:"
 msgstr "Zet de klok op:"
+
+#: src/boards/draw.c:207
+#, fuzzy
+msgid "Free vector drawing tool"
+msgstr "Een eenvoudig tekenprogramma"
+
+#: src/boards/draw.c:208
+msgid ""
+"Goal:\n"
+"In this game, the children will be able to freely draw.\n"
+"The goal is just to discover how he can create pretty looking drawings based "
+"on\n"
+"basic shapes: rectangles, ellipses and lines.\n"
+"\n"
+"Usage:\n"
+"On the left select a drawing tool, on the bottom select a color then click\n"
+"on the white area and drag to create a new shape.\n"
+"To go faster, you can use the middle mouse button to delete an object\n"
+"or the right button to move an object.\n"
+msgstr ""
+"Doel:\n"
+"In dit spel kan je vrijuit tekeningen maken.\n"
+"\n"
+"basis-vormen:\n"
+"rechthoeken, ellipsen en lijnen.\n"
+"\n"
+"Gebruik:\n"
+"Kies een teken-wijze aan de linker kant, en een kleur aan de onderkant.\n"
+"Klik dan in het witte veld en sleep de muis om een vorm te maken.\n"
+"Je kan sneller werken door de middelste muisknop te gebruiken om\n"
+"een object te verwijderen, en de rechter muisknop om een object\n"
+"te verplaatsen.\n"
+
+
+#: src/boards/locale.c:130
+#, c-format
+msgid "GCompris will now display its messages in %s"
+msgstr "GCompris zal zijn boodschappen nu tonen in het %s"
+
+#: src/boards/locale.c:151
+msgid ""
+"If this message is not translated, \n"
+"it means that probably GCompris is not translated in this language"
+msgstr ""
+"Indien deze boodschap niet vertaald is, dan is waarschijnlijk\n"
+"GCompris nog helemaal niet vertaald naar deze taal."
 
 #: src/boards/reading.c:98
 msgid "Reading"
@@ -315,11 +435,11 @@ msgstr ""
 "voor de dobbelstenen de grond raken"
 
 #. GdkCursor *hand_cursor;
-#: src/gcompris/gcompris.c:179
+#: src/gcompris/gcompris.c:180
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:287
+#: src/gcompris/gcompris.c:288
 #, fuzzy
 msgid ""
 "A simple educational board based game for children starting at 3. This "
@@ -328,17 +448,20 @@ msgstr ""
 "Een eenvoudig leerspel voor kinderen vanaf drie jaar.\n"
 "Dit programma is een GNU pakket."
 
-#: src/gcompris/gcompris.c:292
+#: src/gcompris/gcompris.c:293
 msgid "GCompris Home Page"
 msgstr "GCompris Startpagina"
 
-#: src/gcompris/gcompris.c:295
+#: src/gcompris/gcompris.c:296
 msgid "An OFSET development"
 msgstr "Een OFSET ontwikkeling"
 
-#: src/gcompris/gcompris.c:325
+#: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Wil je echt GCompris verlaten?"
+
+#~ msgid "Simple Algebra"
+#~ msgstr "Eenvoudige Sommen"
 
 #~ msgid "Couldn't find pixmap file %s/%s !"
 #~ msgstr "Kan bestand niet vinden %s/%s !"

@@ -20,10 +20,13 @@ msgstr ""
 msgid "I Ask you some algebra questions"
 msgstr "Jag ställer några algebrafrågor"
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_div.xml.in.h:2
-#: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
-msgid "Simple Algebra"
-msgstr "Grundläggande algebra"
+#: boards/algebra_by.xml.in.h:2
+msgid "Pratice the multiplication operation"
+msgstr ""
+
+#: boards/algebra_div.xml.in.h:2
+msgid "Pratice the division operation"
+msgstr ""
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
@@ -33,6 +36,14 @@ msgstr "Gå till algebrabräden"
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr "Vänsterklicka med musen för att välja ett bräde"
+
+#: boards/algebra_minus.xml.in.h:2
+msgid "Pratice the substraction operation"
+msgstr ""
+
+#: boards/algebra_plus.xml.in.h:2
+msgid "Pratice the addition operation"
+msgstr ""
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
@@ -123,6 +134,10 @@ msgstr "Lästräning"
 msgid "Drag and Drop the items above their written name"
 msgstr "Dra och släpp föremålen över deras namn"
 
+#: boards/imagename.xml.in.h:2
+msgid "Image Name"
+msgstr ""
+
 #: boards/locale.xml.in.h:1 src/boards/locale.c:51
 msgid "Select the language for the messages in GCompris"
 msgstr "Välj språket för meddelandena i GCompris"
@@ -182,6 +197,14 @@ msgstr "Memoryspel med bilder"
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
 msgstr "GCompris-huvudmeny"
+
+#: boards/missing_letter.xml.in.h:1
+msgid "Fill up the missing letter"
+msgstr ""
+
+#: boards/missing_letter.xml.in.h:2
+msgid "Missing Letter"
+msgstr ""
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -435,6 +458,9 @@ msgstr "En OFSET-utveckling"
 #: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Vill du verkligen avsluta GCompris?"
+
+#~ msgid "Simple Algebra"
+#~ msgstr "Grundläggande algebra"
 
 #~ msgid "Pratice reading by finding the word matching an image"
 #~ msgstr "Träna läsning genom att hitta det ord som passar en bild"

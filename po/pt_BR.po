@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris-0.3.4\n"
-"POT-Creation-Date: 2001-11-12 14:40+0100\n"
+"POT-Creation-Date: 2001-11-14 15:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Isaías V. Prestes <isix@uol.com.br>\n"
 "Language-Team: pt_BR <pt_BR@li.org>\n"
@@ -23,10 +23,13 @@ msgid "I Ask you some algebra questions"
 msgstr ""
 "Eu pergunto para você algumas questões de algebra (continhas de matemática)"
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_div.xml.in.h:2
-#: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
-msgid "Simple Algebra"
-msgstr "Algebra Simples"
+#: boards/algebra_by.xml.in.h:2
+msgid "Pratice the multiplication operation"
+msgstr ""
+
+#: boards/algebra_div.xml.in.h:2
+msgid "Pratice the division operation"
+msgstr ""
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
@@ -35,6 +38,14 @@ msgstr ""
 #: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
+msgstr ""
+
+#: boards/algebra_minus.xml.in.h:2
+msgid "Pratice the substraction operation"
+msgstr ""
+
+#: boards/algebra_plus.xml.in.h:2
+msgid "Pratice the addition operation"
 msgstr ""
 
 #: boards/babymatch.xml.in.h:1
@@ -129,6 +140,10 @@ msgstr ""
 msgid "Drag and Drop the items above their written name"
 msgstr ""
 
+#: boards/imagename.xml.in.h:2
+msgid "Image Name"
+msgstr ""
+
 #: boards/locale.xml.in.h:1 src/boards/locale.c:51
 msgid "Select the language for the messages in GCompris"
 msgstr ""
@@ -188,6 +203,14 @@ msgstr ""
 
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
+msgstr ""
+
+#: boards/missing_letter.xml.in.h:1
+msgid "Fill up the missing letter"
+msgstr ""
+
+#: boards/missing_letter.xml.in.h:2
+msgid "Missing Letter"
 msgstr ""
 
 #: boards/paintings.xml.in.h:1
@@ -407,6 +430,9 @@ msgstr ""
 #, fuzzy
 msgid "Do you really want to quit GCompris?"
 msgstr "Quer realmente terminar o jogo?"
+
+#~ msgid "Simple Algebra"
+#~ msgstr "Algebra Simples"
 
 #, fuzzy
 #~ msgid "Couldn't find pixmap file %s/%s !"

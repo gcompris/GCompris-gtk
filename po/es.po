@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-11-12 14:40+0100\n"
+"POT-Creation-Date: 2001-11-14 15:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Zohra Coudoin <zohra.coudion@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,13 @@ msgstr ""
 msgid "I Ask you some algebra questions"
 msgstr "Te pregunto unas cuestiones de algebra"
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_div.xml.in.h:2
-#: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
-msgid "Simple Algebra"
-msgstr "Algebra simple"
+#: boards/algebra_by.xml.in.h:2
+msgid "Pratice the multiplication operation"
+msgstr ""
+
+#: boards/algebra_div.xml.in.h:2
+msgid "Pratice the division operation"
+msgstr ""
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
@@ -31,6 +34,14 @@ msgstr "Elige los cuadros de algebra"
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr "Usa el buton de izquierda del raton para seleccionar un cuadro"
+
+#: boards/algebra_minus.xml.in.h:2
+msgid "Pratice the substraction operation"
+msgstr ""
+
+#: boards/algebra_plus.xml.in.h:2
+msgid "Pratice the addition operation"
+msgstr ""
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
@@ -125,6 +136,10 @@ msgstr "Ejercicio de lectura"
 msgid "Drag and Drop the items above their written name"
 msgstr "Selecciona y mueve los elementos en su nombre"
 
+#: boards/imagename.xml.in.h:2
+msgid "Image Name"
+msgstr ""
+
 #: boards/locale.xml.in.h:1 src/boards/locale.c:51
 msgid "Select the language for the messages in GCompris"
 msgstr ""
@@ -185,6 +200,14 @@ msgstr "Juego de memoria con imagenes"
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
 msgstr "Menu principal de GCompris"
+
+#: boards/missing_letter.xml.in.h:1
+msgid "Fill up the missing letter"
+msgstr ""
+
+#: boards/missing_letter.xml.in.h:2
+msgid "Missing Letter"
+msgstr ""
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -421,3 +444,6 @@ msgstr "Un desarrollo OFSET"
 #: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Quieres realmente quitar el juego?"
+
+#~ msgid "Simple Algebra"
+#~ msgstr "Algebra simple"

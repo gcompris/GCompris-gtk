@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-11-12 14:40+0100\n"
+"POT-Creation-Date: 2001-11-14 15:31+0100\n"
 "PO-Revision-Date: 2001-03-22 10:20EET\n"
 "Last-Translator: Jyrki Kuoppala <jkp@kaapeli.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -19,10 +19,13 @@ msgstr ""
 msgid "I Ask you some algebra questions"
 msgstr "Annan sinulle hiukan laskettavaa"
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_div.xml.in.h:2
-#: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
-msgid "Simple Algebra"
-msgstr "Laske"
+#: boards/algebra_by.xml.in.h:2
+msgid "Pratice the multiplication operation"
+msgstr ""
+
+#: boards/algebra_div.xml.in.h:2
+msgid "Pratice the division operation"
+msgstr ""
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
@@ -31,6 +34,14 @@ msgstr ""
 #: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
+msgstr ""
+
+#: boards/algebra_minus.xml.in.h:2
+msgid "Pratice the substraction operation"
+msgstr ""
+
+#: boards/algebra_plus.xml.in.h:2
+msgid "Pratice the addition operation"
 msgstr ""
 
 #: boards/babymatch.xml.in.h:1
@@ -128,6 +139,10 @@ msgstr ""
 msgid "Drag and Drop the items above their written name"
 msgstr "Siirrä paloja ja rakenna maalaus"
 
+#: boards/imagename.xml.in.h:2
+msgid "Image Name"
+msgstr ""
+
 #: boards/locale.xml.in.h:1 src/boards/locale.c:51
 msgid "Select the language for the messages in GCompris"
 msgstr ""
@@ -187,6 +202,14 @@ msgstr ""
 
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
+msgstr ""
+
+#: boards/missing_letter.xml.in.h:1
+msgid "Fill up the missing letter"
+msgstr ""
+
+#: boards/missing_letter.xml.in.h:2
+msgid "Missing Letter"
 msgstr ""
 
 #: boards/paintings.xml.in.h:1
@@ -409,6 +432,9 @@ msgstr ""
 #, fuzzy
 msgid "Do you really want to quit GCompris?"
 msgstr "Haluatko lopettaa pelin?"
+
+#~ msgid "Simple Algebra"
+#~ msgstr "Laske"
 
 #~ msgid "Couldn't find pixmap file %s/%s !"
 #~ msgstr "Pixmap-tiedostoa %s/%s ei löydy!"
