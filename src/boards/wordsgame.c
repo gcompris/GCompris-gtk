@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2003/10/30 00:04:29 bcoudoin>
+ * Time-stamp: <2004/02/03 23:58:26 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -231,7 +231,6 @@ static void wordsgame_check_focus (gchar       *key,
 
 gint key_press(guint keyval)
 {
-  char str[2];
   char utf8char[6];
 
   if(!gcomprisBoard)

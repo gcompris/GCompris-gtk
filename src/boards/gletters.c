@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/01/24 23:27:05 bcoudoin>
+ * Time-stamp: <2004/02/04 00:56:49 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -447,7 +447,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   item =					\
     gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
-			   "x", (double)(rand()%(gcomprisBoard->width-170)),
+			   "x", (double) 0,
 			   "y", (double) -12,
 			   NULL);
 

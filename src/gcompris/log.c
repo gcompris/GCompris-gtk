@@ -37,12 +37,15 @@
 
 #include <gcompris.h>
  
+#define KEYLOG_MAX 256
 
 static gchar hostname[256];
 
-static gchar *comment_set;
-static GcomprisBoard *gcomprisBoard_set;
-static time_t start_time;
+static gchar		*comment_set;
+static gchar		 keylog[KEYLOG_MAX];
+static GcomprisBoard	*gcomprisBoard_set;
+static time_t		 start_time;
+static time_t		 start_time_key;
 
 /* By default, we use local time, not UTC */
 #define USE_UTC 0
@@ -54,9 +57,11 @@ static time_t start_time;
 void gcompris_log_start (GcomprisBoard *gcomprisBoard) {
 
   gcomprisBoard_set = gcomprisBoard;
-  start_time = time(NULL);
+  start_time     = time(NULL);
+  start_time_key = time(NULL);
   gethostname(hostname, 256);
   comment_set = "";
+  keylog[0]   = '\0';
 }
 
 /** gcompris_log_set_comment
@@ -68,6 +73,42 @@ void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *comment) {
 
   if(comment != NULL && gcomprisBoard_set == gcomprisBoard)
     comment_set = g_strdup(comment);
+}
+
+/** gcompris_log_key
+ * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
+ * \param key: a keyval as defined by gtk
+ *
+ */
+void gcompris_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval) {
+  char utf8char[6];
+  int i;
+  /* get the current time from the Unix kernel */
+  time_t end_time = time(NULL);
+  double duration = difftime(end_time,start_time_key);
+
+  if(!g_unichar_isalnum (gdk_keyval_to_unicode (keyval)))
+    return;
+
+  /* Reset the timer */
+  start_time_key = end_time;
+
+  /* Should be an easier way to get the UTF-8 code in our string */
+  for(i=0; i<6; i++)
+    utf8char[i] = '\0';
+
+  sprintf(utf8char, "%c", gdk_keyval_to_unicode(keyval));
+
+  g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
+  		     utf8char);
+
+  if(strlen(keylog)<(KEYLOG_MAX-10)) {
+    strcat(keylog, utf8char);
+    printf(" 1 gcompris_log_set_key %s\n", keylog);
+    sprintf(keylog+strlen(keylog), "/%d:", (guint)duration);
+    printf(" 2 gcompris_log_set_key %s\n", keylog);
+  }
+
 }
 
 /** gcompris_log_end
@@ -109,18 +150,20 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   flog = fopen(file,"a");
 
   /* date,computer,user,board,level,sublevel,status, duration,comment */
-  fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s\n", buf, hostname, g_get_user_name(),
+  fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, g_get_user_name(),
 	  gcomprisBoard->name, 
 	  gcomprisBoard->level, gcomprisBoard->sublevel,
 	  status,
 	  (guint)duration,
-	  comment_set);
-  printf("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s\n", buf, hostname, g_get_user_name(), 
+	  comment_set,
+	  keylog);
+  printf("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s;%s\n", buf, hostname, g_get_user_name(), 
 	 gcomprisBoard->name, 
 	 gcomprisBoard->level, gcomprisBoard->sublevel,
 	 status,
 	 (guint)duration,
-	 comment_set);
+	 comment_set,
+	 keylog);
 
   fclose(flog);
 
