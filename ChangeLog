@@ -1,5 +1,10 @@
 2005-01-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/erase.c: (erase_destroy_all_items): fixed a potential bug
+	* src/boards/python/searace.py: now the text box are not editable when the course runs
+
+2005-01-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/erase.c: (pause_board), (bonus), (finished),
 	(game_won), (item_event): added a timer before the bonus to let kid appreciate the image
 

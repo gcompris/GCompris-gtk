@@ -94,7 +94,7 @@ class Gcompris_searace:
     # We display what's going on here
     self.statusitem = []
     
-    print("Gcompris_searace __init__.")
+    #print("Gcompris_searace __init__.")
   
 
   def start(self):  
@@ -110,7 +110,7 @@ class Gcompris_searace:
       gcompris.bar_set_repeat_icon(pixmap)
       gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
     else:
-	gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
+      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
     
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
@@ -138,7 +138,7 @@ class Gcompris_searace:
     # And finaly the players boats
     self.init_boats()
     
-    print("Gcompris_searace start.")
+    #print("Gcompris_searace start.")
 
 
   def end(self):
@@ -158,7 +158,7 @@ class Gcompris_searace:
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
-    print("Gcompris_searace end.")
+    #print("Gcompris_searace end.")
         
 
   def pause(self, pause):
@@ -181,6 +181,8 @@ class Gcompris_searace:
     # This is a real go
     # We set a timer. At each tick an entry in each user box is read analysed and run
     if(not self.left_boat.timer and not self.right_boat.timer):
+      self.left_boat.tv.set_editable(False)
+      self.right_boat.tv.set_editable(False)
       self.race_one_command(self.left_boat)
       self.race_one_command(self.right_boat)
     else:
@@ -221,7 +223,8 @@ class Gcompris_searace:
       
             
   def config(self):
-    print("Gcompris_searace config.")
+    #print("Gcompris_searace config.")
+    return
               
   def key_press(self, keyval):
     #print("got key %i" % keyval)
@@ -276,6 +279,10 @@ class Gcompris_searace:
     self.left_boat.won      = False
     self.right_boat.won     = False
     self.statusitem.set(text="")
+
+    # Let the user enter comands
+    self.left_boat.tv.set_editable(True)
+    self.right_boat.tv.set_editable(True)
 
   #----------------------------------------
   # Display the whole playing field
@@ -730,6 +737,9 @@ class Gcompris_searace:
   def race_one_command(self, boat):
 
     if(self.board_paused):
+      # Let the user enter commands
+      boat.tv.set_editable(True)
+      
       boat.line = 0
       boat.timer = 0
       return
@@ -741,6 +751,10 @@ class Gcompris_searace:
     
     if (boat.line > boat.tb.get_line_count()):
       # No more commands to process for this player
+
+      # Let the user enter commands
+      boat.tv.set_editable(True)
+      
       boat.line = 0
       boat.timer = 0
       return
@@ -757,6 +771,10 @@ class Gcompris_searace:
       cmd += " 45"
     elif ( len(cmds) > 2):
       boat.speeditem.set(text=_("Syntax error at line") + " " + str(boat.line) + " (" + cmd + ")")
+
+      # Let the user enter commands
+      boat.tv.set_editable(True)
+      
       boat.line = 0
       boat.timer = 0
       return
@@ -773,7 +791,22 @@ class Gcompris_searace:
     elif( cmd.startswith(_("right"))):
       boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value*-1)
     else:
+      # Let the user enter commands
+      boat.tv.set_editable(True)
+      
       boat.line = 0
       boat.timer = 0
       boat.speeditem.set(text=_("Unknown command at line") + " " + str(boat.line) + "(" + cmd + ")")
 
+  # Will return a text string: the tux move
+  def tux_move(self):
+
+    # The sea area is defined in the global self.sea_area
+    step_x    = (self.sea_area[2]-self.sea_area[0])/20/2
+    step_y    = (self.sea_area[3]-self.sea_area[1])/10/2
+    
+    #for y in range (self.sea_area[1], self.sea_area[3]+1, step_y):
+    #for x in range (self.sea_area[0], self.sea_area[2]+1, step_x):
+        
+
+    return

@@ -204,6 +204,11 @@ static void erase_next_level()
 /* Destroy all the items */
 static void erase_destroy_all_items()
 {
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
+
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
