@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2003/02/16 17:31:50 bruno>
+ * Time-stamp: <2003/05/03 18:10:42 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002,2003 Bruno Coudoin
  *
@@ -178,8 +178,8 @@ void gcompris_config_start ()
   gdk_pixbuf_unref(pixmap);
 
 
-  pixmap_checked   = gcompris_load_pixmap("gcompris/buttons/button_checked.png");
-  pixmap_unchecked = gcompris_load_pixmap("gcompris/buttons/button_unchecked.png");
+  pixmap_checked   = gcompris_load_skin_pixmap("button_checked.png");
+  pixmap_unchecked = gcompris_load_skin_pixmap("button_unchecked.png");
 
 
   x_start += 150;
@@ -200,7 +200,7 @@ void gcompris_config_start ()
 					    NULL);
 
   /* Display a bad icon if this locale is not available */
-  pixmap   = gcompris_load_pixmap("gcompris/buttons/mini_bad.png");
+  pixmap   = gcompris_load_skin_pixmap("mini_bad.png");
   item_bad_flag = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap,
