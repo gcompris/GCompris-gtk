@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-09 10:59+0200\n"
-"PO-Revision-Date: 2004-10-09 17:48+0200\n"
+"POT-Creation-Date: 2004-10-24 10:52+0200\n"
+"PO-Revision-Date: 2004-10-24 18:40+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -279,7 +279,7 @@ msgstr "pisztácia"
 msgid "platinum"
 msgstr "platina"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "bíbor"
 
@@ -327,7 +327,7 @@ msgid ""
 msgstr ""
 "Két szám szorzása jelenik meg. Az egyenlőségjel jobb oldalán add meg\n"
 "az eredményt. A szorzat módosításához használd a jobbra és balra nyilakat.\n"
-"Ha kész vagy, nyomj entert a válaszod ellenőrzéséhez."
+"Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez."
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
@@ -408,7 +408,7 @@ msgid ""
 msgstr ""
 "Két szám kivonása van felírva. Az egyenlőségjel jobb oldalán add \n"
 "meg a különbségüket. A válasz módosításához használd a jobbra és\n"
-"balra nyilakat. Ha kész vagy, nyomj entert a válszod ellenőrzéséhez."
+"balra nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez."
 
 #: boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -430,7 +430,7 @@ msgid ""
 msgstr ""
 "Két szám összeadása van felírva. Az egyenlőségjel jobb oldalán add\n"
 "meg az összegüket. A válasz módosításához használd a jobbra és\n"
-"balra nyilakat. Ha kész vagy, nyomj entert a válszod ellenőrzéséhez."
+"balra nyilakat. Ha kész vagy, nyomj Enter-t a válszod ellenőrzéséhez."
 
 #: boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -618,7 +618,7 @@ msgstr "Sakktanulás"
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
-msgstr "A sakkmotor a gnuchessből származik."
+msgstr "A sakkmotor a gnuchess-ből származik."
 
 #: boards/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
@@ -641,7 +641,7 @@ msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
 "Dates of Transportation are based on those found in http://www.wikipedia.org"
 msgstr ""
-"A Hold képe a NASA-tól van. Az űrhangok a Tuxpaintből és a\n"
+"A Hold képe a NASA-tól van. Az űrhangok a Tuxpaint-ből és a\n"
 "Vegastrike-ból származnak. A szállítóeszközök dátumai a\n"
 "http://www.wikipedia.org-on alapulnak"
 
@@ -679,9 +679,9 @@ msgstr ""
 msgid "Transportation"
 msgstr "Közlekedési eszközök"
 
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
-msgstr "VIII. század"
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "The aviation"
+msgstr "A repülés"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -899,7 +899,7 @@ msgstr ""
 "Először rendezd a tárgyakat, így megszámolhatod őket. Aztán válaszd ki a "
 "jobb \n"
 "alsó területen, hogy melyik tárgy számát akarod megválaszolni. \n"
-"Írd be a válaszod, majd kattints az OK gombra vagy nyomj entert."
+"Írd be a válaszod, majd kattints az OK gombra vagy nyomj Enter-t."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -946,8 +946,8 @@ msgid ""
 "will go back."
 msgstr ""
 "Vidd az egeret a cső piros része fölé. Ezzel lépésről lépésre kiengedheted a "
-"vizet,  egészen a virágokig. Légy óvatos, ha az egérmutató elhagyja a "
-"csövet, a piros rész visszamegy!"
+"vizet, egészen a virágokig. Légy óvatos, ha az egérmutató elhagyja a csövet, "
+"a piros rész visszamegy!"
 
 #: boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
@@ -1280,6 +1280,10 @@ msgstr "törökország"
 #: boards/geography/board3_1.xml.in.h:23
 msgid "ukraine"
 msgstr "ukrajna"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Franciaország régiói"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1977,8 +1981,8 @@ msgid "Spatial representation"
 msgstr "Térbeli megjelenítés"
 
 #: boards/paintings/board1_0.xml.in.h:1
-msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr "Edgar Degas, The Dancing Class - 1873"
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas, The Dancing Class - 1873-75"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
@@ -2002,16 +2006,16 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, The Ramparts at Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr "Cassat, Summertime - 1895"
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Cassatt, Mary - Summertime - 1894"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
-msgstr "Segíts Tuxnak, az ejtőernyős pingvinnek biztonságosan landolni a hajón"
+msgid "Help Tux the parachuter land safely"
+msgstr "Segíts Tuxnak, az ejtőernyősnek biztonságosan landolni"
 
 #: boards/paratrooper.xml.in.h:2
 msgid ""
@@ -2024,16 +2028,16 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
-"boat. He needs to take watch out for the wind direction and speed."
+"In this game, Tux the parachuter needs help to land safely on the fishing "
+"boat. He needs to take care of the wind direction and speed."
 msgstr ""
-"Ebben a játékban az ejtőernyős Tux pingvinnek segítségre van szüksége, \n"
+"Ebben a játékban az ejtőernyős Tuxnak segítségre van szüksége, \n"
 "hogy biztonságosan megérkezzen a halászhajóra. Figyelned kell a \n"
 "szél irányára és az erősségére."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
-msgstr "Tux, az ejtőernyős pingvin"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
+msgstr "Ejtőernyős ugrás"
 
 #: boards/paratrooper.xml.in.h:5
 msgid "This board is game oriented. No specific skills are needed to play."
@@ -2063,7 +2067,7 @@ msgstr ""
 
 #: boards/pythontest.xml.in.h:1
 msgid "Add a language binding to gcompris."
-msgstr "Nyelvi kapcsolat hozzáadása a GComprishoz."
+msgstr "Nyelvi kapcsolat hozzáadása a GCompris-hoz."
 
 #: boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
@@ -2120,27 +2124,27 @@ msgstr "Színek olvasása"
 msgid "This board teaches basic colors."
 msgstr "Ez a tábla az alapvető színeket tanítja meg."
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "fekete"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "kék"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "barna"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "zöld"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "szürke"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "narancssárga"
 
@@ -2148,7 +2152,7 @@ msgstr "narancssárga"
 msgid "pink"
 msgstr "rózsaszín"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "vörös"
 
@@ -2156,11 +2160,11 @@ msgstr "vörös"
 msgid "violet"
 msgstr "viola"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "fehér"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "sárga"
 
@@ -2247,9 +2251,9 @@ msgid ""
 msgstr ""
 "A dobókockára kattintva mutasd meg, hogy hány jégkocka van Tux és a hal \n"
 "között. A jobb egérgombbal kattintva a kockára visszafelé számolhatsz. \n"
-"Ha kész vagy, kattints az OK gombra, vagy nyomd meg az enter billentyűt."
+"Ha kész vagy, kattints az OK gombra, vagy nyomd meg az Enter billentyűt."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
 msgstr "Gyakorold a kivonást egy vidám játékkal"
 
@@ -2391,7 +2395,7 @@ msgstr ""
 "Elsőként ellenőrizd a szél irányát és erősségét. Ezt követően kattints a\n"
 "céltáblára, majd nézd meg, hova repült a nyíl. Ha minden nyilat ellőttél,\n"
 "megjelenik egy új ablak, ide írd be, hány pontot szereztél. \n"
-"Ha kész vagy, kattints a hüvelykujjra vagy nyomj entert."
+"Ha kész vagy, kattints a hüvelykujjra vagy nyomj Enter-t."
 
 #: boards/target.xml.in.h:3 src/boards/target.c:122
 msgid "Practice addition with a target game"
@@ -2457,7 +2461,7 @@ msgstr "Gépeld be a leeső szavakat, mielőtt leérnének a földre"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
-msgstr "Szerkesztő a GComprishoz"
+msgstr "Szerkesztő a GCompris-hoz"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
@@ -2496,15 +2500,15 @@ msgstr ""
 "Tuxnak gondjai vannak a hajóban. Át szeretne menni a zsilipen. \n"
 "Segíts Tuxnak és értsd meg, hogyan is működik egy zsilip."
 
-#: src/boards/chess.c:139
+#: src/boards/chess.c:137
 msgid "Learning Chess"
 msgstr "Tanulj sakkozni"
 
-#: src/boards/chess.c:140
+#: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
 msgstr "Sakkozz Tux ellen tanuló módban"
 
-#: src/boards/chess.c:193
+#: src/boards/chess.c:191
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2512,10 +2516,10 @@ msgid ""
 "Please upgrade to gnuchess 5 or above."
 msgstr ""
 "Hiba: /usr/bin/gnuchessx van telepítve,\n"
-"ami a gnuchessnek egy régi verziója. \n"
+"ami a gnuchess-nek egy régi verziója. \n"
 "Kérem frissítsen gnuchess 5 vagy újabb verzióra."
 
-#: src/boards/chess.c:200
+#: src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2530,31 +2534,31 @@ msgstr ""
 "terjesztése webhelyén.\n"
 "És ellenőrizze, hogy benne van-e a következőben:"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Fehér lép"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Fekete lép"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Fehér sakk"
 
-#: src/boards/chess.c:722
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Fekete sakk"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Fekete matt"
 
-#: src/boards/chess.c:1059
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Fehér matt"
 
-#: src/boards/chess.c:1064
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Döntetlen"
 
@@ -2583,23 +2587,58 @@ msgid ""
 "enable the sound"
 msgstr ""
 "Hiba: ez a játék nem játszható kikapcsolt\n"
-"hangeffektekkel.\n"
+"hangeffektusokkal.\n"
 "A beállítási párbeszédablakban\n"
-"kapcsolhatóak be az effektek."
+"kapcsolhatóak be az effektusok."
 
 #: src/boards/clickgame.c:182
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s könyvtárat"
 
-#: src/boards/clockgame.c:530
+#: src/boards/clockgame.c:528
 msgid "Set the watch to:"
 msgstr "Állítsd be az órát erre:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Kattints a(z) %s színű figurára"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Kattints a kék színű figurára"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Kattints a barna színű figurára"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Kattints a zöld színű figurára"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Kattints a szürke színű figurára"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Kattints a narancsszínű figurára"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Kattints a bíbor színű figurára"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Kattints a piros színű figurára"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Kattints a sárga színű figurára"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Kattints a fekete színű figurára"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Kattints a fehér színű figurára"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2649,7 +2688,11 @@ msgstr "Válassz egy játékot"
 msgid "Pratice money usage"
 msgstr "Gyakorold a pénz használatát"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:102
+msgid "Paratrooper"
+msgstr "Tux, az ejtőernyős pingvin"
+
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Irányítsd Tuxot hogy biztonságban landoljon a hajón"
 
@@ -2663,7 +2706,7 @@ msgstr "Python tábla"
 
 #: src/boards/python.c:54
 msgid "Special board that embeds python into gcompris."
-msgstr "Különleges tábla ami beágyazza a GComprisba a Pythont."
+msgstr "Különleges tábla ami beágyazza a GCompris-ba a Python-t."
 
 #: src/boards/python/pythontest.py:75
 msgid ""
@@ -2753,7 +2796,7 @@ msgstr "Nem tudom megnyitni a magyar szavak listáját tartalmazó fájlt"
 msgid "Error: The wordfile package used for your locale is corrupted."
 msgstr "Hiba: A nyelvi beállításnak megfelelő szófájl-csomag sérült."
 
-#: src/boards/reversecount.c:140
+#: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Visszafelé számolás"
 
@@ -2864,7 +2907,7 @@ msgstr "Ez a program GNU szoftver és a GNU Public Licence alatt áll"
 msgid "Help"
 msgstr "Segítség"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:204
+#: src/gcompris/about.c:316 src/gcompris/config.c:205
 #: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2912,16 +2955,16 @@ msgid "Greek"
 msgstr "Görög"
 
 #: src/gcompris/config.c:72
-msgid "American English"
-msgstr "Amerikai angol"
+msgid "English (Canadian)"
+msgstr "Angol (Kanadai)"
 
 #: src/gcompris/config.c:73
-msgid "Great Britain English"
-msgstr "Brit angol"
+msgid "English (Great Britain)"
+msgstr "Angol (Brit)"
 
 #: src/gcompris/config.c:74
-msgid "Canadian English"
-msgstr "Kanadai angol"
+msgid "English (USA)"
+msgstr "Angol (USA)"
 
 #: src/gcompris/config.c:75
 msgid "Spanish"
@@ -2976,125 +3019,129 @@ msgid "Dutch"
 msgstr "Holland"
 
 #: src/gcompris/config.c:88
-msgid "Norwegian"
-msgstr "Norvég"
+msgid "Norwegian Bokmal"
+msgstr "Norvég Bokmal"
 
 #: src/gcompris/config.c:89
+msgid "Norwegian Nynorsk"
+msgstr "Norvég Nyorsk"
+
+#: src/gcompris/config.c:90
 msgid "Polish"
 msgstr "Lengyel"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Portuguese"
 msgstr "Portugál"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Brazil Portuguese"
 msgstr "Brazil portugál"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Romanian"
 msgstr "Román"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Russian"
 msgstr "Orosz"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Slovenian"
 msgstr "Szlovén"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Albanian"
 msgstr "Albán"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Serbian (Latin)"
 msgstr "Szerb (latin)"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Serbian"
 msgstr "Szerb"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Swedish"
 msgstr "Svéd"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Turkish"
 msgstr "Török"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Walloon"
 msgstr "Vallon"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "No time limit"
 msgstr "Nincs időkorlátozás"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Slow timer"
 msgstr "Sok idő"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Normal timer"
 msgstr "Átlagos idő"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Fast timer"
 msgstr "Kevés idő"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (a GCompris alapértelmezettje)"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "No filter"
 msgstr "Nincs szűrő"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "Only this level"
 msgstr "Csak ezen a szinten"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "Up to this level"
 msgstr "Eddig a szintig"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "This level and above"
 msgstr "Ez a szint és fölötte"
 
-#: src/gcompris/config.c:178
+#: src/gcompris/config.c:179
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: src/gcompris/config.c:287
+#: src/gcompris/config.c:288
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: src/gcompris/config.c:330
+#: src/gcompris/config.c:331
 msgid "Music"
 msgstr "Zene"
 
-#: src/gcompris/config.c:358
+#: src/gcompris/config.c:359
 msgid "Effect"
 msgstr "Effektusok"
 
-#: src/gcompris/config.c:392
+#: src/gcompris/config.c:393
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s témakönyvtárat"
 
-#: src/gcompris/config.c:413
+#: src/gcompris/config.c:414
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "%s helyen nem található téma\n"
 
-#: src/gcompris/config.c:428 src/gcompris/config.c:813
-#: src/gcompris/config.c:824
+#: src/gcompris/config.c:429 src/gcompris/config.c:814
+#: src/gcompris/config.c:825
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
@@ -3168,7 +3215,7 @@ msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -3178,9 +3225,9 @@ msgstr ""
 "A GCompris szabad szoftver, mely a GPL licenc alatt kerül kiadásra. A "
 "fejlesztés támogatására a Windowsos verzió a 45-ből csak 12 játékot "
 "tartalmaz. A teljes verzió megrendelhető a \n"
-"http://www.ofset.org/order/GCompris\n"
+"http://gcompris.net\n"
 "címen. A Linux verzió nem tartalmazza ezt a megkötést. Ne feledje, a "
-"GComprist azért fejlesztjük, hogy az iskolákat megszabadítsuk a "
+"GCompris-t azért fejlesztjük, hogy az iskolákat megszabadítsuk a "
 "monopolisztikus szoftverszállítóktól. Ha úgy gondolja, hogy az iskolákban a "
 "gyerekeket a szabadságra kellene nevelni, fontolja meg a GNU/Linux "
 "használatát. További információért nézze meg a következő oldalt:\n"
@@ -3192,12 +3239,12 @@ msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Verzió: %s\n"
 "Licenc: GPL\n"
-"További információ: http://www.ofset.org/gcompris\n"
+"További információ: http://gcompris.net\n"
 
 #: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
@@ -3266,7 +3313,7 @@ msgstr "%Y. %b. %e., %a., %H.%M.%S %Z"
 msgid "Couldn't open music dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s zenekönyvtárat"
 
-#: src/gcompris/soundutil.c:182
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
