@@ -1,15 +1,15 @@
 # translation of nb.po to Norwegian Bokmål <
 # Norwegian (bokmål) translation of GCompris.
-# Copyright (C) 2000-2004 Free Software Foundation, Inc.
+# Copyright (C) 2000-2004, 2005 Free Software Foundation, Inc.
 # Kjartan Maraas <kmaraas@gnome.org>, 2000-2004.
-# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004.
+# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-29 18:09+0100\n"
-"PO-Revision-Date: 2004-11-30 17:21+0100\n"
+"POT-Creation-Date: 2005-01-06 12:20+0100\n"
+"PO-Revision-Date: 2005-01-06 21:59+0100\n"
 "Last-Translator: Klaus Ade Johnstad <klaus@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmål < <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -638,10 +638,11 @@ msgstr "Dra og plasser bildene i riktig rekkefølge, slik at de forteller en his
 #: boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
 msgstr ""
 "Bilder av Månen kommer fra NASA, romlyder kommer fra Tuxpaint og Vegastrike. "
-"Datoene for turene kommer fra opplysninger funnet på http://www.wikipedia.org"
+"Datoene for turene kommer fra opplysninger funnet på http://www.wikipedia.org. Bilder av transport kommer fra Franck Doucet."
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -657,7 +658,7 @@ msgstr "Fortelle en kort historie"
 
 #: boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
-msgstr "Månevandring"
+msgstr "Reisen til Månen"
 
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -693,21 +694,69 @@ msgstr "1903 The Wright brothers Flyer III"
 msgid "1909 Louis Bleriot cross the Channel"
 msgstr "1909 Louis Bleriot krysser Den engelske kanal"
 
-#: boards/chronos/board4_0.xml.in.h:4
+#: boards/chronos/board4_0.xml.in.h:4 boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
-msgstr "Avisjon"
+msgstr "Luftfart"
 
 #: boards/chronos/board4_1.xml.in.h:1
-msgid "1927 Charles Lindbergh cross Atlantique ocean"
-msgstr "1927 Charles Lindbergh krysser Atlanterhavet"
-
-#: boards/chronos/board4_1.xml.in.h:2
-msgid "1934 Helene Boucher speed record 444km/h"
-msgstr "1934 Helene Boucher fartsrekord på 444 km/t"
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 Charles Lindbergh\n"
+"krysser Atlanterhavet"
 
 #: boards/chronos/board4_1.xml.in.h:3
-msgid "1947 Chuck Yager break the sound-wall"
-msgstr "1947 Chuck Yager bryter lydmuren"
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 Helene Boucher\n"
+"fartsrekord på 444 km/t"
+
+#: boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yager\n"
+"break the sound-wall"
+msgstr ""
+"1947 Chuck Yager\n"
+"bryter lydmuren"
+
+#: boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnot's fardier"
+
+#: boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr "1878 Léon Bollé \"La Mancelle\""
+
+#: boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 Den første bensindrevne\n"
+"bil lagd av Benz"
+
+#: boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "bil"
+
+#: boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899 Renault \"voiturette\""
+
+#: boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923 Lancia Lambda"
+
+#: boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 199"
+msgstr "1955 Citroën ds 199"
+
+#: boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Biler"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1595,7 +1644,7 @@ msgstr "vimpel"
 
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
-msgstr "racket"
+msgstr "tennisracket"
 
 #: boards/leftright.xml.in.h:1
 msgid ""
@@ -2270,6 +2319,24 @@ msgstr ""
 "Tux er sulten. Hjelp han med å fange fisk ved å stille inn terningen slik at "
 "han hopper ditt hvor fisken er."
 
+#: boards/searace.xml.in.h:1
+msgid "A Sea race against Tux"
+msgstr "En sjøkamp mot Tux"
+
+#: boards/searace.xml.in.h:2
+msgid ""
+"Give good instructions to your ship in order to be first in a race against "
+"Tux."
+msgstr "Gi ditt skip gode instrukser slik at ditt skip vinner mot Tux."
+
+#: boards/searace.xml.in.h:3
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area."
+msgstr ""
+"I tekstboksen skriver du linje for linje de retningene båten din skal seile. "
+"De mulige kommandoene vises mellom feltene."
+
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
 #: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
@@ -2470,7 +2537,7 @@ msgstr "Pedagogisk programpakke GCompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2570,8 +2637,8 @@ msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
 msgstr ""
-"Feil: Denne aktiviteten krever at du har pakken \n"
-"assetml-voices-alphabet- installert"
+"Feil: Denne aktiviteten krever at du har installert\n"
+"pakken assetml-voices-alphabet-"
 
 #: src/boards/click_on_letter.c:237
 msgid ""
@@ -2736,6 +2803,31 @@ msgstr "Nivå"
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Koordinat"
+
+#: src/boards/python/searace.py:159 src/boards/python/searace.py:164
+#: src/boards/python/searace.py:191
+msgid "Race is already running"
+msgstr "En konkurranse er allerede startet"
+
+#: src/boards/python/searace.py:570
+msgid "The Red boat has won"
+msgstr "Den røde båten har vunnet"
+
+#: src/boards/python/searace.py:572
+msgid "The Green boat has won"
+msgstr "Den grønne båten har vunnet"
+
+#: src/boards/python/searace.py:656
+msgid "forward"
+msgstr "forover"
+
+#: src/boards/python/searace.py:662
+msgid "turnleft"
+msgstr "venstre"
+
+#: src/boards/python/searace.py:664
+msgid "turnright"
+msgstr "høyre"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -2904,8 +2996,8 @@ msgstr "Denne programvaren er en GNU pakke, og er frigitt med en GNU Public Lice
 msgid "Help"
 msgstr "Hjelp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Greit"
@@ -3082,70 +3174,74 @@ msgstr "Tyrkisk"
 msgid "Walloon"
 msgstr "Vallonsk"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Kinesisk (forenklet)"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "Ingen tidsbegrensning"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Treg teller"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Normal teller"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Rask teller"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standard for GCompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "Alle nivåer"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Bare dette nivået"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Opp til dette nivået"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "Dette nivået og høyere"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "Konfigurasjon av GCompris"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Hele skjermen"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Musikk"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effekter"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åpne katalog for tema: %s"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Fant ikke noe tema i %s\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
@@ -3214,7 +3310,7 @@ msgstr "Skriv ut versjonen av"
 msgid "Use the antialiased canvas (slower)."
 msgstr "Bruk utjevnet kanvas (tregere)."
 
-#: src/gcompris/gcompris.c:522
+#: src/gcompris/gcompris.c:532
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3236,7 +3332,7 @@ msgstr ""
 "elevene om frihet, så burde du vurdere å bruke GNU/Linux.\n"
 "For mer informasjon se http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:717
+#: src/gcompris/gcompris.c:727
 #, c-format
 msgid ""
 "GCompris\n"
