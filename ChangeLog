@@ -1,3 +1,87 @@
+2004-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/menu.c: (menu_create_item): fixed malformed printf regardings mandatory_sound_file
+
+2004-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/gcompris/letters/0.png: Letters/Numbers pixmaps are Not needed anymore
+	* boards/gcompris/letters/1.png:
+	* boards/gcompris/letters/2.png:
+	* boards/gcompris/letters/3.png:
+	* boards/gcompris/letters/4.png:
+	* boards/gcompris/letters/5.png:
+	* boards/gcompris/letters/6.png:
+	* boards/gcompris/letters/7.png:
+	* boards/gcompris/letters/8.png:
+	* boards/gcompris/letters/9.png:
+	* boards/gcompris/letters/A.png:
+	* boards/gcompris/letters/B.png:
+	* boards/gcompris/letters/C.png:
+	* boards/gcompris/letters/D.png:
+	* boards/gcompris/letters/E.png:
+	* boards/gcompris/letters/F.png:
+	* boards/gcompris/letters/G.png:
+	* boards/gcompris/letters/H.png:
+	* boards/gcompris/letters/I.png:
+	* boards/gcompris/letters/J.png:
+	* boards/gcompris/letters/K.png:
+	* boards/gcompris/letters/L.png:
+	* boards/gcompris/letters/M.png:
+	* boards/gcompris/letters/N.png:
+	* boards/gcompris/letters/O.png:
+	* boards/gcompris/letters/P.png:
+	* boards/gcompris/letters/Q.png:
+	* boards/gcompris/letters/R.png:
+	* boards/gcompris/letters/S.png:
+	* boards/gcompris/letters/T.png:
+	* boards/gcompris/letters/U.png:
+	* boards/gcompris/letters/V.png:
+	* boards/gcompris/letters/W.png:
+	* boards/gcompris/letters/X.png:
+	* boards/gcompris/letters/Y.png:
+	* boards/gcompris/letters/Z.png:
+	* boards/gcompris/letters/a.png:
+	* boards/gcompris/letters/b.png:
+	* boards/gcompris/letters/by.png:
+	* boards/gcompris/letters/c.png:
+	* boards/gcompris/letters/d.png:
+	* boards/gcompris/letters/div.png:
+	* boards/gcompris/letters/e.png:
+	* boards/gcompris/letters/equal.png:
+	* boards/gcompris/letters/f.png:
+	* boards/gcompris/letters/g.png:
+	* boards/gcompris/letters/h.png:
+	* boards/gcompris/letters/i.png:
+	* boards/gcompris/letters/j.png:
+	* boards/gcompris/letters/k.png:
+	* boards/gcompris/letters/l.png:
+	* boards/gcompris/letters/m.png:
+	* boards/gcompris/letters/minus.png:
+	* boards/gcompris/letters/n.png:
+	* boards/gcompris/letters/o.png:
+	* boards/gcompris/letters/p.png:
+	* boards/gcompris/letters/plus.png:
+	* boards/gcompris/letters/q.png:
+	* boards/gcompris/letters/question.png:
+	* boards/gcompris/letters/r.png:
+	* boards/gcompris/letters/s.png:
+	* boards/gcompris/letters/t.png:
+	* boards/gcompris/letters/u.png:
+	* boards/gcompris/letters/v.png:
+	* boards/gcompris/letters/w.png:
+	* boards/gcompris/letters/x.png:
+	* boards/gcompris/letters/y.png:
+	* boards/gcompris/letters/z.png:
+	* docs/C/python.xml: updated to remove gcompris_load_number_pixmap
+	* src/boards/algebra.c: (start_board), (key_press),
+	(display_operand), (algebra_create_item), (set_focus_item),
+	(process_ok), (get_operand), (get_random_number): ported to use fonts instead of gcompris_load_number_pixmap
+	* src/boards/py-mod-utils.c: updated to remove gcompris_load_number_pixmap
+	* src/gcompris/board.c: (board_check_file): added a test in case menu are not loaded
+	* src/gcompris/bonus.c: (board_finished), (bonus_image): added a call to gcompris_log_start
+	* src/gcompris/gameutil.c: updated to remove gcompris_load_number_pixmap
+	* src/gcompris/gameutil.h: updated to remove gcompris_load_number_pixmap
+
 2004-01-26  Olivier Samyn  <osamyn@ulb.ac.be>
 
 	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init): Added gettext variables

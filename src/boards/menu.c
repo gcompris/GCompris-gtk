@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/12/06 04:20:06 bcoudoin>
+ * Time-stamp: <2004/01/27 13:21:41 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -351,7 +351,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 					      board->mandatory_sound_file);
       } else {
 	/* We search a fixed path sound file */
-	soundfile = g_strdup_printf("%s/%s/%s", PACKAGE_DATA_DIR "/sounds", 
+	soundfile = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/sounds", 
 				    board->mandatory_sound_file);
 	g_warning("Checking mandatory_sound_file %s\n", soundfile);
       }
