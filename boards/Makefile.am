@@ -1,4 +1,4 @@
-SUBDIRS = babymatch imageid imagename missing_letter paintings scales
+SUBDIRS = babymatch imageid imagename missing_letter paintings scales doubleentry
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
@@ -14,6 +14,7 @@ xml_in_files = \
 	clockgame.xml.in \
 	computer.xml.in \
 	draw.xml.in \
+	doubleentry.xml.in \
 	fun.xml.in \
 	gletters.xml.in \
 	imagename.xml.in \
@@ -29,6 +30,7 @@ xml_in_files = \
 	reading.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \
+	target.xml.in \
 	wordsgame.xml.in \
 	imageid.xml.in \
 	missing_letter.xml.in \

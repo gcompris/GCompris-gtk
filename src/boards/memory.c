@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2002/01/13 22:38:11 bruno>
+ * Time-stamp: <2002/03/20 16:54:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -610,7 +610,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 {
 
   if(!gcomprisBoard)
-    return;
+    return FALSE;
 
    switch (event->type) 
      {

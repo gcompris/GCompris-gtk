@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/03/02 22:25:23 bruno>
+ * Time-stamp: <2002/03/20 01:05:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,8 +32,6 @@
 #define UNDEFINED "Undefined"
 
 static int gamewon;
-
-static GList *item_list = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -112,7 +110,6 @@ static Shape 		*find_closest_shape(double x, double y, double limit);
 static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  GnomeCanvasPoints* points,
 				      char *targetfile, double x, double y, double l, double h, double zoomx, 
 				      double zoomy, guint position);
-static void 		 display_color_selector(GnomeCanvasGroup *parent);
 static gboolean 	 increment_sublevel();
 
 /* Description of this plugin */
@@ -173,12 +170,11 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
   gchar *filename = NULL;
+  gboolean default_background = TRUE;
 
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-shapebg.jpg");
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;
@@ -206,6 +202,26 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       /* In this board, the sublevels are dynamicaly discovered based on data files */
       gcomprisBoard->number_of_sublevel=G_MAXINT;
+
+      
+      if(gcomprisBoard->mode!=NULL)
+	if(g_strncasecmp(gcomprisBoard->mode, "background=", 11)==0)
+	  {
+	    gchar *tmp = NULL;
+	    
+	    tmp = g_malloc(strlen(gcomprisBoard->mode));
+	    tmp = strcpy(tmp, gcomprisBoard->mode + 11);
+	    
+	    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), tmp);
+	    default_background = FALSE;
+	    g_free(tmp);
+	  }
+
+      if(default_background)
+	{
+	  // Default case, load the default background
+	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-shapebg.jpg");
+	}
 
       shapegame_next_level();
 
@@ -296,6 +312,8 @@ static void shapegame_next_level()
 
   shapegame_init_canvas(gnome_canvas_root(gcomprisBoard->canvas));
 
+  //  gcompris_set_background(GNOME_CANVAS_GROUP(shape_background_item), "gcompris/gcompris-shapebg.jpg");
+
   filename = g_strdup_printf("%s/%s/board%d_%d.xml",
 			     PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
@@ -373,7 +391,9 @@ static void shapegame_destroy_all_items()
     {
       /* Deleting the root item automatically deletes children items */
       gtk_object_destroy (GTK_OBJECT(shape_list_root_item));
+      shape_list_root_item = NULL;
       gtk_object_destroy (GTK_OBJECT(shape_root_item));
+      shape_root_item = NULL;
 
       g_hash_table_destroy (shapelist_table);
       shapelist_table=NULL;
@@ -391,7 +411,6 @@ static GnomeCanvasItem *shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   "x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
 			   "y", (double)0,
 			   NULL);
-  item_list = g_list_append (item_list, shape_list_root_item);
 
   shape_root_item = \
     gnome_canvas_item_new (parent,
@@ -399,7 +418,6 @@ static GnomeCanvasItem *shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   "x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
 			   "y", (double)0,
 			   NULL);
-  item_list = g_list_append (item_list, shape_root_item);
 
   return (item);
 }
@@ -464,7 +482,7 @@ static void
 add_shape_to_list_of_shapes(Shape *shape)
 {
   GnomeCanvasItem *item;
-  gint MAX_NUMBER_OF_SHAPES = 8;
+  gint MAX_NUMBER_OF_SHAPES = 10;
   double SHAPE_ELEM_NUMBER_IN_HEIGHT = (double)gcomprisBoard->height/MAX_NUMBER_OF_SHAPES;
 
   if(!shapelist_table)
@@ -488,7 +506,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 	  if(pixmap)
 	    {
 	      double w, h;
-	      guint SHAPE_SIZE = SHAPE_ELEM_NUMBER_IN_HEIGHT - 20;
+	      guint SHAPE_SIZE = SHAPE_ELEM_NUMBER_IN_HEIGHT - 5;
 	      Shape *icon_shape;
 	      
 	      /* Calc a zoom factor so that the shape will fit in the shapelist
@@ -522,7 +540,6 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      icon_shape->item = item;
 	      
 	      setup_item(item, icon_shape);
-	      item_list = g_list_append (item_list, item);
 	    }
 	}
     }
@@ -589,49 +606,6 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 
       gnome_canvas_item_hide(item);
       gcompris_play_sound (SOUNDLISTFILE, "gobble");
-    }
-}
-
-static void display_color_selector(GnomeCanvasGroup *parent)
-{
-  GdkPixbuf *pixmap;
-  GnomeCanvasItem *item = NULL;
-  gint x  = 0;
-  gint y  = 0;
-  gint x1 = 0;
-  gint c  = 0;
-
-  pixmap = gcompris_load_pixmap("draw/color-selector.jpg");
-  if(pixmap)
-    {
-      x = (gcomprisBoard->width
-	   - gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO*2
-	   - gdk_pixbuf_get_width(pixmap))/2 
-	+ gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO;
-      
-      y = gcomprisBoard->height - gdk_pixbuf_get_height(pixmap) - 5;
-
-      item = gnome_canvas_item_new (parent,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
-				    "x", (double) x,
-				    "y", (double) y,
-				    NULL);
-      gdk_pixbuf_unref(pixmap);
-    }
-
-  
-  for(x1=x+26; x1<(x+26)+55*10; x1+=55)
-    {
-      item = gnome_canvas_item_new (parent,
-			     gnome_canvas_rect_get_type (),
-			     "x1", (double) x1,
-			     "y1", (double) y + 8,
-			     "x2", (double) x1 + 50,
-			     "y2", (double) y + gdk_pixbuf_get_height(pixmap) - 8,
-			     "fill_color", colorlist[c],
-			     NULL);
-      c++;
     }
 }
 
@@ -799,7 +773,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		   gdk_pixbuf_unref(pixmap);
 
 		   targetshape->bad_item = item;
-		   item_list = g_list_append (item_list, item);
 		   setup_item(item, targetshape);
 		 }
 
@@ -988,7 +961,7 @@ add_shape_to_canvas(Shape *shape)
 					"height_set", TRUE,
 					NULL);
 	  gdk_pixbuf_unref(targetpixmap);
-	} 
+	}
       else
 	{
 	  /* Display a point to highlight the target location of this shape */
@@ -1008,7 +981,6 @@ add_shape_to_canvas(Shape *shape)
 			     shape);
 	}
       gnome_canvas_item_lower_to_bottom(item);
-      item_list = g_list_append (item_list, item);
     }
   
   if(shape->points!=NULL)
@@ -1027,7 +999,7 @@ add_shape_to_canvas(Shape *shape)
       printf("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
       if(strcmp(shape->pixmapfile, UNDEFINED)!=0)
 	{
-	  printf("Yes it is an image \n");
+	  printf("  Yes it is an image \n");
 	  pixmap = gcompris_load_pixmap(shape->pixmapfile);
 	  if(pixmap)
 	    {	
@@ -1057,13 +1029,14 @@ add_shape_to_canvas(Shape *shape)
   if(shape->type==SHAPE_TARGET || shape->type==SHAPE_DUMMY_TARGET)
     {
       setup_item(item, shape);
-      item_list = g_list_append (item_list, item);
 
       gnome_canvas_item_hide(item);
       add_shape_to_list_of_shapes(shape);
     }
   else if(shape->type==SHAPE_BACKGROUND)
-    gnome_canvas_item_lower_to_bottom(item);
+    {
+      gnome_canvas_item_lower_to_bottom(item);
+    }
 
 }
 
@@ -1264,10 +1237,6 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   else if (g_strcasecmp(xmlnode->name,"Title")==0)
     {
       create_title(name, x, y, justification);
-    }
-  else if (g_strcasecmp(xmlnode->name,"Option")==0)
-    {
-      display_color_selector(GNOME_CANVAS_GROUP(shape_root_item));
     }
   
 }

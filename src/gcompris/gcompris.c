@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/03/14 15:43:15 bcoudoin>
+ * Time-stamp: <2002/03/19 23:07:08 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -55,6 +55,7 @@ static gchar           *gcompris_locale = NULL;
 #define P_SOUND		103
 #define P_MUTE		104
 #define P_VERSION	105
+#define P_CURSOR	106
 
 struct poptOption command_line[] = {
   {"fullscreen", 'f', POPT_ARGFLAG_ONEDASH, NULL, P_FULLSCREEN,
@@ -65,6 +66,8 @@ struct poptOption command_line[] = {
    N_("run gcompris with sound enabled.")},
   {"mute", 'm', POPT_ARGFLAG_ONEDASH, NULL, P_MUTE,
    N_("run gcompris without sound.")},
+  {"cursor", 'c', POPT_ARGFLAG_ONEDASH, NULL, P_CURSOR,
+   N_("run gcompris with the default gnome cursor.")},
   {"version", 'v', POPT_ARGFLAG_ONEDASH, NULL, P_VERSION,
    N_("Prints the version of " PACKAGE)},
   POPT_AUTOHELP {NULL, 0, 0, NULL, 0}
@@ -232,7 +235,12 @@ static void init_background()
 void gcompris_set_cursor(guint gdk_cursor_type)
 {
   GdkCursor *cursor;
-  // I suppose there is less than 1000 cursors defined in gdkcursors.h !
+
+  // Little hack to force gcompris to use the default gnome cursor
+  if(gdk_cursor_type==GCOMPRIS_DEFAULT_CURSOR)
+    gdk_cursor_type=properties->defaultcursor;
+
+  // I suppose there is less than GCOMPRIS_FIRST_CUSTOM_CURSOR cursors defined in gdkcursors.h !
   if (gdk_cursor_type < GCOMPRIS_FIRST_CUSTOM_CURSOR) {
     cursor = gdk_cursor_new(gdk_cursor_type);
     gdk_window_set_cursor	 (window->window, cursor);
@@ -448,13 +456,16 @@ main (int argc, char *argv[])
 
   load_properties ();
 
+  // Set the default gcompris cursor
+  properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
+
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);
-
-	initSound();
-
-	gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
-
+  
+  initSound();
+  
+  gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
+  
   optCon = poptGetContext (NULL, argc, argv, command_line, 0);
 
   /*------------------------------------------------------------*/
@@ -487,6 +498,11 @@ main (int argc, char *argv[])
 	  g_warning("Sound enabled");
 	  properties->music = TRUE;
 	  properties->fx = TRUE;
+	  break;
+
+	case P_CURSOR:
+	  g_warning("Default gnome cursor enabled");
+	  properties->defaultcursor = GDK_LEFT_PTR;
 	  break;
 	}
     }

@@ -182,6 +182,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/boardicons/*
 %{prefix}/share/gcompris/boards/clockgame/*
 %{prefix}/share/gcompris/boards/colors/*
+%{prefix}/share/gcompris/boards/doubleentry/*
 %{prefix}/share/gcompris/boards/draw/*
 %{prefix}/share/gcompris/boards/fishes/*
 %{prefix}/share/gcompris/boards/flags/*
@@ -195,6 +196,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/railroad/*
 %{prefix}/share/gcompris/boards/reading/*
 %{prefix}/share/gcompris/boards/scales/*
+%{prefix}/share/gcompris/boards/target/*
 %{prefix}/share/gcompris/boards/wordsgame/*
 %{prefix}/lib/gcompris/*
 %{prefix}/share/locale/*/*/*

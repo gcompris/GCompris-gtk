@@ -1,27 +1,28 @@
 
 lib_LTLIBRARIES = \
-	libmenu.la \
-	libclickgame.la \
 	libalgebra.la \
+	libalgebra_guesscount.la \
+	libclick_on_letter.la \
+	libclickgame.la \
 	libclockgame.la \
-	libshapegame.la \
-	libwordsgame.la \
+	libcolors.la \
+	libdraw.la \
+	liberase.la \
 	libgletters.la \
+	libimageid.la \
+	libleftright.la \
 	libplanegame.la \
 	libsmallnumbers.la \
 	libparatrooper.la \
 	libreading.la \
 	libmaze.la \
 	libmemory.la \
-	libdraw.la \
-	libimageid.la \
+	libmenu.la \
 	libmissingletter.la \
-	libclick_on_letter.la \
 	librailroad.la \
-	liberase.la \
-	libalgebra_guesscount.la \
-	libleftright.la \
-	libcolors.la
+	libshapegame.la \
+	libtarget.la \
+	libwordsgame.la
 
 libdir = $(plugindir)
 INCLUDES = \
@@ -212,6 +213,14 @@ libcolors_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libcolors_la_SOURCES = colors.c
+
+libtarget_la_LDFLAGS = -module -avoid-version
+libtarget_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libtarget_la_SOURCES = target.c
 
 libmaze_la_LDFLAGS = -module -avoid-version
 libmaze_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@

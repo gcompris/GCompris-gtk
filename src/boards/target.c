@@ -1,0 +1,720 @@
+/* gcompris - target.c
+ *
+ * Copyright (C) 2001 Bruno Coudoin
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
+#include <ctype.h>
+#include <math.h>
+#include <assert.h>
+
+#include "gcompris/gcompris.h"
+
+#define SOUNDLISTFILE PACKAGE
+
+GcomprisBoard *gcomprisBoard = NULL;
+gboolean board_paused = TRUE;
+
+static void start_board (GcomprisBoard *agcomprisBoard);
+static void pause_board (gboolean pause);
+static void end_board (void);
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
+static void set_level (guint level);
+static int gamewon;
+static void game_won(void);
+
+#define VERTICAL_SEPARATION	30
+#define HORIZONTAL_SEPARATION	30
+#define TEXT_COLOR		"white"
+
+static GnomeCanvasGroup *boardRootItem = NULL;
+static GnomeCanvasGroup *speedRootItem = NULL;
+
+double wind_speed;
+double ang;
+
+static GnomeCanvasItem  *answer_item = NULL;
+static gchar		 answer_string[10];
+static guint		 answer_string_index = 0;
+
+static GnomeCanvasItem *animate_item = NULL;
+static gint		animate_id = 0;
+static gint		animate_item_distance = 0;
+static gint		animate_item_size = 0;
+static double		animate_item_x = 0;
+static double		animate_item_y = 0;
+#define MAX_DART_SIZE 20
+#define MIN_DART_SIZE 3
+
+static guint		user_points = 0;
+
+/*
+ * Functions Definition
+ */
+static void		process_ok(void);
+gint			key_press(guint keyval);
+static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent);
+static void		target_destroy_all_items(void);
+static void		target_next_level(void);
+static gint		item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void		animate_items(void);
+static void		launch_dart(double item_x, double item_y);
+
+/*
+ * distance to target, min wind speed, max wind speed, target1 width(center), 
+ * value1 (for target1), ... to target10, value10
+ *
+ * a target width of 0 means no such target
+ */
+#define MAX_NUMBER_OF_TARGET 10
+
+typedef struct {
+  guint number_of_arrow;
+  guint target_distance;
+  guint target_min_wind_speed;
+  guint target_max_wind_speed;
+  gint target_width_value[MAX_NUMBER_OF_TARGET*2];
+} TargetDefinition;
+
+
+/*
+ * Definition of targets one line by level based on TargetDefinition
+ */ 
+static TargetDefinition targetDefinition[] =
+{
+  { 3, 100, 2, 5,  { 40, 5 , 80, 3, 150, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+  { 5, 150, 2, 7,  { 30, 10, 50, 5, 150, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+  { 7, 200, 4, 9,  { 20, 10, 40, 5, 60, 3, 150, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
+  { 7, 200, 5, 10, { 15, 100, 35, 50, 55, 10, 75, 5, 150, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} }
+};
+#define NUMBER_OF_TARGET 4
+
+#define TARGET_CENTER_X	BOARDWIDTH/2 - 100
+#define TARGET_CENTER_Y	BOARDHEIGHT/2
+
+#define SPEED_CENTER_X	BOARDWIDTH-200
+#define SPEED_CENTER_Y	130
+
+static guint target_colors[] = {
+  0xAA000000, 0x00AA0000, 0x0000AA00, 0xAAAA0000, 0x00AAAA00, 0xAA00AA00, 0xAA000000, 0x00AA0000, 0x0000AA00, 0xAA000000
+};
+
+static guint number_of_arrow = 0;
+
+/* Description of this plugin */
+BoardPlugin menu_bp =
+  {
+    NULL,
+    NULL,
+    N_("Practice the addition with a target game"),
+    N_("Touch the target and count your points"),
+    "Bruno Coudoin <bruno.coudoin@free.fr>",
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    start_board,
+    pause_board,
+    end_board,
+    is_our_board,
+    key_press,
+    process_ok,
+    set_level,
+    NULL,
+    NULL
+  };
+
+/*
+ * Main entry point mandatory for each Gcompris's game
+ * ---------------------------------------------------
+ *
+ */
+
+BoardPlugin
+*get_bplugin_info(void)
+{
+  return &menu_bp;
+}
+
+/*
+ * in : boolean TRUE = PAUSE : FALSE = CONTINUE
+ *
+ */
+static void pause_board (gboolean pause)
+{
+  if(gcomprisBoard==NULL)
+    return;
+
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
+    {
+      game_won();
+    }
+
+  if(pause)
+    {
+      if (animate_id) {
+	gtk_timeout_remove (animate_id);
+	animate_id = 0;
+      }
+    }
+  else
+    {
+      if(animate_item) {
+	animate_id = gtk_timeout_add (200, (GtkFunction) animate_items, NULL);
+      }
+    }
+
+  board_paused = pause;
+}
+
+/*
+ */
+static void start_board (GcomprisBoard *agcomprisBoard)
+{
+
+  if(agcomprisBoard!=NULL)
+    {
+      gcomprisBoard=agcomprisBoard;
+      gcomprisBoard->level=1;
+      gcomprisBoard->maxlevel=NUMBER_OF_TARGET;
+      gcomprisBoard->sublevel=1;
+      gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+
+      target_next_level();
+
+      gamewon = FALSE;
+      pause_board(FALSE);
+    }
+}
+/* ======================================= */
+static void end_board ()
+{
+  if(gcomprisBoard!=NULL)
+    {
+      pause_board(TRUE);
+      target_destroy_all_items();
+    }
+  gcomprisBoard = NULL;
+}
+
+/* ======================================= */
+static void set_level (guint level)
+{
+
+  if(gcomprisBoard!=NULL)
+    {
+      gcomprisBoard->level=level;
+      gcomprisBoard->sublevel=1;
+      target_next_level();
+    }
+}
+
+
+/* ======================================= */
+gint key_press(guint keyval)
+{
+  guint c;
+
+  if(!gcomprisBoard)
+    return TRUE;
+
+  /* Add some filter for control and shift key */
+  switch (keyval)
+    {
+      /* Avoid all this keys to be interpreted by this game */
+    case GDK_Shift_L:
+    case GDK_Shift_R:
+    case GDK_Control_L:
+    case GDK_Control_R:
+    case GDK_Caps_Lock:
+    case GDK_Shift_Lock:
+    case GDK_Meta_L:
+    case GDK_Meta_R:
+    case GDK_Alt_L:
+    case GDK_Alt_R:
+    case GDK_Super_L:
+    case GDK_Super_R:
+    case GDK_Hyper_L:
+    case GDK_Hyper_R:
+    case GDK_Num_Lock:
+      return FALSE; 
+    case GDK_KP_Enter:
+    case GDK_Return:
+      process_ok();
+      return TRUE;
+    case GDK_KP_0:
+    case GDK_KP_Insert:
+      keyval=GDK_0;
+      break;
+    case GDK_KP_1:
+    case GDK_KP_End:
+      keyval=GDK_1;
+      break;
+    case GDK_KP_2:
+    case GDK_KP_Down:
+      keyval=GDK_2;
+      break;
+    case GDK_KP_3:
+    case GDK_KP_Page_Down:
+      keyval=GDK_3;
+      break;
+    case GDK_KP_4:
+    case GDK_KP_Left:
+      keyval=GDK_4;
+      break;
+    case GDK_KP_5:
+    case GDK_KP_Begin:
+      keyval=GDK_5;
+      break;
+    case GDK_KP_6:
+    case GDK_KP_Right:
+      keyval=GDK_6;
+      break;
+    case GDK_KP_7:
+    case GDK_KP_Home:
+      keyval=GDK_7;
+      break;
+    case GDK_KP_8:
+    case GDK_KP_Up:
+      keyval=GDK_8;
+      break;
+    case GDK_KP_9:
+    case GDK_KP_Page_Up:
+      keyval=GDK_9;
+      break;
+    case GDK_Right:
+    case GDK_Left:
+      break;
+    case GDK_BackSpace:
+      if(answer_string_index>0)
+	{
+	  answer_string_index--;
+	  answer_string[answer_string_index] = 0;
+	}
+      break;
+    }
+
+  c = tolower(keyval); 
+
+  if(c>='0' && c<='9')
+    {
+      answer_string[answer_string_index++] = c;
+      answer_string[answer_string_index] = 0;
+      printf("answer_string_index=%d answer_string=%s\n", answer_string_index, answer_string);
+    }
+
+  if(answer_item)
+    gnome_canvas_item_set(answer_item,
+			  "text", g_strdup_printf(_("Points = %s"), answer_string),
+			  NULL);
+
+  return TRUE;
+}
+
+
+/* ======================================= */
+gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+{
+  if (gcomprisBoard)
+    {
+      if(g_strcasecmp(gcomprisBoard->type, "target")==0)
+	{
+	  /* Set the plugin entry */
+	  gcomprisBoard->plugin=&menu_bp;
+
+	  return TRUE;
+	}
+    }
+  return FALSE;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/* set initial values for the next level */
+static void target_next_level()
+{
+
+  gcompris_bar_set_level(gcomprisBoard);
+
+  target_destroy_all_items();
+  gamewon = FALSE;
+
+  /* Try the next level */
+  target_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+}
+/* ==================================== */
+/* Destroy all the items */
+static void target_destroy_all_items()
+{
+  if(boardRootItem!=NULL)
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
+
+  boardRootItem = NULL;
+
+  if(speedRootItem!=NULL)
+    gtk_object_destroy (GTK_OBJECT(speedRootItem));
+
+  animate_item = NULL;
+  answer_item = NULL;
+  answer_string_index = 0;
+  user_points = 0;
+
+  speedRootItem = NULL;
+}
+
+/*
+ * Display a random wind speed
+ */
+static void display_windspeed()
+{
+  guint second = 0;
+  guint needle_zoom = 15;
+  GdkFont *gdk_font;
+
+  GnomeCanvasPoints *canvasPoints;
+  canvasPoints = gnome_canvas_points_new (2);
+
+  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
+
+  if(speedRootItem!=NULL)
+    gtk_object_destroy (GTK_OBJECT(speedRootItem));
+
+  speedRootItem = GNOME_CANVAS_GROUP(
+				    gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+							   gnome_canvas_group_get_type (),
+							   "x", (double) 0,
+							   "y", (double) 0,
+							   NULL));
+
+  /* Speed orientation */
+  second = rand()%60;
+  ang = second * M_PI / 30;
+
+  /* Speed force */
+  wind_speed = targetDefinition[gcomprisBoard->level-1].target_min_wind_speed \
+    + rand()%(targetDefinition[gcomprisBoard->level-1].target_max_wind_speed \
+	      - targetDefinition[gcomprisBoard->level-1].target_min_wind_speed);
+
+  canvasPoints->coords[0]=SPEED_CENTER_X;
+  canvasPoints->coords[1]=SPEED_CENTER_Y;
+  canvasPoints->coords[2]=SPEED_CENTER_X + wind_speed * sin(ang) * needle_zoom;
+  canvasPoints->coords[3]=SPEED_CENTER_Y - wind_speed * cos(ang) * needle_zoom;
+  gnome_canvas_item_new (speedRootItem,
+			 gnome_canvas_line_get_type (),
+			 "points", canvasPoints,
+			 "fill_color_rgba", 0x68c46f00,
+			 "width_units", (double)1,
+			 "width_pixels", (uint) 4,
+			 "last_arrowhead", TRUE,
+			 "arrow_shape_a", (double) wind_speed,
+			 "arrow_shape_b", (double) wind_speed-15,
+			 "arrow_shape_c", (double) 5.0,
+			 NULL);
+
+  /* Draw the center of the speedometer */
+  gnome_canvas_item_new (speedRootItem,
+			 gnome_canvas_ellipse_get_type(),
+			 "x1", (double)SPEED_CENTER_X-5,
+			 "y1", (double)SPEED_CENTER_Y-5,
+			 "x2", (double)SPEED_CENTER_X+5,
+			 "y2", (double)SPEED_CENTER_Y+5,
+			 "fill_color_rgba", "blue",
+			 "outline_color", "red",
+			 "width_units", (double)1,
+			 NULL);
+
+  gnome_canvas_item_new (speedRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", g_strdup_printf(_("Wind speed = %d\nkilometers/hour"), (guint)wind_speed),
+			 "font_gdk", gdk_font,
+			 "x", (double) SPEED_CENTER_X,
+			 "y", (double) SPEED_CENTER_Y + 40,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", "white",
+			 NULL);
+
+}
+
+
+
+/* ==================================== */
+static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
+{
+  int i;
+  GnomeCanvasItem *item = NULL;
+  GdkFont *gdk_font;
+
+  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
+
+  boardRootItem = GNOME_CANVAS_GROUP(
+				     gnome_canvas_item_new (parent,
+							    gnome_canvas_group_get_type (),
+							    "x", (double) TARGET_CENTER_X,
+							    "y", (double) TARGET_CENTER_Y,
+							    NULL));
+  for(i=0; i<MAX_NUMBER_OF_TARGET; i++)
+    {
+      if(targetDefinition[gcomprisBoard->level-1].target_width_value[i*2]>0)
+	{
+	  item = gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_ellipse_get_type(),
+					"x1", (double)-targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
+					"y1", (double)-targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
+					"x2", (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
+					"y2", (double)targetDefinition[gcomprisBoard->level-1].target_width_value[i*2],
+					"fill_color_rgba", target_colors[i],
+					"outline_color", "black",
+					"width_units", (double)1,
+					NULL);
+	  
+	  gnome_canvas_item_lower_to_bottom(item);
+	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
+	  
+	  /* Display the value for this target */
+	  item = gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_text_get_type (),
+					"text", g_strdup_printf("%d", 
+								targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1]),
+					"font_gdk", gdk_font,
+					"x", (double) 0,
+					"y", (double) targetDefinition[gcomprisBoard->level-1].target_width_value[i*2] - 10,
+					"anchor", GTK_ANCHOR_CENTER,
+					"fill_color", "white",
+					NULL);
+	  
+	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
+	}
+    }
+
+  number_of_arrow = targetDefinition[gcomprisBoard->level-1].number_of_arrow;
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", g_strdup_printf(_("Distance to target = %d meters"), 
+						 targetDefinition[gcomprisBoard->level-1].target_distance),
+			 "font_gdk", gdk_font,
+			 "x", (double) 0,
+			 "y", (double) BOARDHEIGHT-TARGET_CENTER_Y -40,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", "white",
+			 NULL);
+
+  display_windspeed();
+
+  return NULL;
+}
+/* ==================================== */
+static void game_won()
+{
+  gcomprisBoard->sublevel++;
+
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+    /* Try the next level */
+    gcomprisBoard->sublevel=1;
+    gcomprisBoard->level++;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      board_finished(BOARD_FINISHED_RANDOM);
+      return;
+    }
+    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+  }
+  target_next_level();
+}
+
+static void process_ok()
+{
+  guint answer_points = atoi(answer_string);
+
+  if(answer_points == user_points)
+    {
+      gamewon = TRUE;
+      target_destroy_all_items();
+      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    }
+  else
+    {
+      gcompris_play_sound (SOUNDLISTFILE, "crash");
+    }
+
+
+}
+
+/*
+ * Request score
+ *
+ */
+static void request_score()
+{
+  GdkPixbuf *button_pixmap = NULL;
+  double y_offset = 130;
+  double x_offset = 150;
+  GdkFont *gdk_font;
+
+  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_pixbuf_get_type (),
+			 "pixbuf",  button_pixmap, 
+			 "x", x_offset,
+			 "y", y_offset,
+			 NULL);
+
+  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
+
+  answer_item = gnome_canvas_item_new (boardRootItem,
+				       gnome_canvas_text_get_type (),
+				       "text", g_strdup_printf(_("Points = %s"), ""),
+				       "font_gdk", gdk_font,
+				       "x", (double) x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
+				       "y", (double) y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
+				       "anchor", GTK_ANCHOR_CENTER,
+				       "fill_color", "white",
+				       NULL);
+
+  gdk_pixbuf_unref(button_pixmap);
+}
+
+static void add_points(double x, double y)
+{
+  guint i;
+  double diametre;
+
+  // Calculate the distance
+  diametre = sqrt(x*x+y*y);
+  printf("diametre = %f\n", diametre);
+  for(i=0; i<MAX_NUMBER_OF_TARGET; i++)
+    {
+      if(diametre < targetDefinition[gcomprisBoard->level-1].target_width_value[i*2])
+	{
+	  user_points += targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1];
+	  printf("points = %d\n", user_points);
+	  break;
+	}
+    }
+
+}
+
+
+/*
+ * Dart animation
+ *
+ */
+static void animate_items()
+{
+  if(board_paused)
+    return;
+
+  if(!animate_item)
+    return;
+
+  // Apply the wind move
+  animate_item_x = animate_item_x + wind_speed * sin(ang);
+  animate_item_y = animate_item_y - wind_speed * cos(ang);
+
+  gnome_canvas_item_set (animate_item,
+			 "x1", (double)animate_item_x - animate_item_size,
+			 "y1", (double)animate_item_y - animate_item_size,
+			 "x2", (double)animate_item_x + animate_item_size,
+			 "y2", (double)animate_item_y + animate_item_size,
+			 NULL);
+  
+  if(animate_item_size>MIN_DART_SIZE)
+    animate_item_size--;
+
+  if(animate_item_distance-- == 0)
+    {
+      gtk_timeout_remove (animate_id);
+      animate_id = 0;
+      animate_item = NULL;
+
+      // Calc the point for this dart
+      add_points(animate_item_x, animate_item_y);
+
+      // Change the wind for the next target
+      display_windspeed();
+    }
+
+}
+
+/*
+ * 
+ */
+static void launch_dart(double item_x, double item_y)
+{
+
+  animate_item_x	= item_x;
+  animate_item_y	= item_y;
+  animate_item_size	= MAX_DART_SIZE;
+  animate_item_distance	= targetDefinition[gcomprisBoard->level-1].target_distance/10;
+
+  animate_item = gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_ellipse_get_type(),
+					"x1", (double)item_x-MAX_DART_SIZE,
+					"y1", (double)item_y-MAX_DART_SIZE,
+					"x2", (double)item_x+MAX_DART_SIZE,
+					"y2", (double)item_y+MAX_DART_SIZE,
+					"fill_color_rgba", "black",
+					"outline_color", "white",
+					"width_units", (double)1,
+					NULL);
+
+  animate_id = gtk_timeout_add (200, (GtkFunction) animate_items, NULL);
+
+  if(--number_of_arrow == 0)
+    {
+      request_score();
+    }
+  
+}
+
+/* ==================================== */
+static gint
+item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+{
+  double item_x, item_y;
+  
+  if(board_paused)
+    return FALSE;
+
+  /* Is there already a dart on air */
+  if(number_of_arrow == 0 || animate_item)
+    return FALSE;
+
+  switch (event->type) 
+    {
+    case GDK_BUTTON_PRESS:
+      switch(event->button.button) 
+	{
+	case 1:
+	case 2:
+	case 3:
+	  item_x = event->button.x;
+	  item_y = event->button.y;
+	  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+
+	  launch_dart(item_x, item_y);
+
+	  break;
+	default:
+	  break;
+	}
+    default:
+      break;
+    }
+  return FALSE;
+}
