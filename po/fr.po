@@ -1,6 +1,7 @@
 # translation of fr.po to 
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
 # gcompris fr.po.
 # Copyright (C) 2000-2003, 2004 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2003.
@@ -11,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-05 18:45+0200\n"
-"PO-Revision-Date: 2004-06-05 18:53+0200\n"
+"POT-Creation-Date: 2004-06-16 01:43+0200\n"
+"PO-Revision-Date: 2004-06-16 01:59+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -474,6 +475,14 @@ msgstr "Déplacement et clique de la souris"
 msgid "algorithm"
 msgstr "algorithme"
 
+#: boards/anim.xml.in.h:1
+msgid "Create an animation"
+msgstr "Créer une animation"
+
+#: boards/anim.xml.in.h:2
+msgid "Free drawing and animation tool."
+msgstr "Outil libre de dessin et d'animation"
+
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
@@ -634,8 +643,8 @@ msgid ""
 "Dates of Transportation are based on those found in http://www.wikipedia.org"
 msgstr ""
 "Les photos de la lune viennent de la NASA. Les sons de l'espace viennent de "
-"Tuxpaint et Vegastrike.Les dates des moyens de transport ont été trouvées "
-"surhttp://www.wikipedia.org"
+"Tuxpaint et Vegastrike. Les dates des moyens de transport ont été trouvées "
+"sur http://www.wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -662,10 +671,10 @@ msgid ""
 "Place each image in the order and on the date it has been invented. If not "
 "sure, check online in wikipedia at http://www.wikipedia.org"
 msgstr ""
-"Place chaque image dans l'ordre, et sur la date à laquelle elle a été "
-"inventée.\n"
-"Si tu n'es pas sur(e), vérifie sur Internet à l'adresse http://www.wikipedia."
-"org"
+"Place chaque image dans l'ordre, et sur la date àlaquelle\n"
+"elle a été inventée.\n"
+"Si tu n'es pas sur(e), vérifie sur Internet à\n"
+"l'adresse http://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -1399,9 +1408,9 @@ msgid ""
 "available in the current activity: Home - Back to previous menu or exit "
 "gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
 "current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool Box - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years "
-"old 3 Stars - 7 to 8 years old"
+"question Question Mark - Help Tool - The configuration menu Tux Plane - "
+"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
+"old 3 Stars - 6 to 7 years old"
 msgstr ""
 "Pour l'utiliser, un simple clic sur une icône vous amènera vers une activité "
 "ou un menu.\n"
@@ -1421,9 +1430,9 @@ msgstr ""
 "    Boîte à outils - Menu de configuration\n"
 "    Tux et son avion - Boîte d'information sur gcompris\n"
 "Les étoiles signifient :\n"
-"    1 étoile  - 3 à 4 ans\n"
-"    2 étoiles - 5 à 6 ans\n"
-"    3 étoiles - 7 à 8 ans"
+"    1 étoile  - 2 à 3 ans\n"
+"    2 étoiles - 4 à 5 ans\n"
+"    3 étoiles - 6 à 7 ans"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -2776,8 +2785,8 @@ msgstr "Ne peut pas trouver le répertoire de thème : %s"
 msgid "No skin found in %s\n"
 msgstr "Pas de thème trouvé dans %s\n"
 
-#: src/gcompris/config.c:425 src/gcompris/config.c:808
-#: src/gcompris/config.c:819
+#: src/gcompris/config.c:425 src/gcompris/config.c:810
+#: src/gcompris/config.c:821
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -2832,17 +2841,26 @@ msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
 #: src/gcompris/gcompris.c:496
 msgid ""
-"This is a Demo version of gcompris,\n"
-"only 12 on 45 activities are available.\n"
-"To get the full version,\n"
-"go to http://www.ofset.org/order/gcompris"
+"GCompris is free software released under the GPL License. In order to "
+"support the development, the Windows version provides only 12 of the 45 "
+"activities. You can get the full version for a small fee at\n"
+"http://www.ofset.org/order/gcompris\n"
+"The Linux version does not have this restriction. Note that gcompris is "
+"being developped to free schools from monopolistic software vendors. If you "
+"also believe that we should teach freedom to kids, please consider using GNU/"
+"Linux. Get more information on\n"
+"http://www.fsf.org/philosophy"
 msgstr ""
-"Ceci est une version de démonstration de gcompris. \n"
-"Uniquement 12 sur 45 activités sont disponibles. \n"
-"Pour obtenir la version complète rendez-vous sur \n"
-"http://www.ofset.org/order/gcompris"
+"GCompris est un logiciel libre distribué sous les termes de la licence GPL. "
+"Afin de supporter son développement, la version Windows ne propose que 12 des 45 activités. "
+"Vous pouvez obtenir la version complète contre une petite contribution sur "
+"http://www.ofset.org/order/gcompris "
+"La version Linux ne contient pas cette restriction. "
+"Notez que gcompris est développé pour libérer les écoles des vendeurs de logiciel monopolistiques. "
+"Si vous aussi pensez que nous devons apprendre la liberté à nos enfants, merci de considérer GNU/Linux. Obtenez plus d'information sur "
+"http://www.fsf.org/philosophy "
 
-#: src/gcompris/gcompris.c:673
+#: src/gcompris/gcompris.c:678
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2944,6 +2962,17 @@ msgstr "Temps écoulé"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
+
+#~ msgid ""
+#~ "This is a Demo version of gcompris,\n"
+#~ "only 12 on 45 activities are available.\n"
+#~ "To get the full version,\n"
+#~ "go to http://www.ofset.org/order/gcompris"
+#~ msgstr ""
+#~ "Ceci est une version de démonstration de gcompris. \n"
+#~ "Uniquement 12 sur 45 activités sont disponibles. \n"
+#~ "Pour obtenir la version complète rendez-vous sur \n"
+#~ "http://www.ofset.org/order/gcompris"
 
 #, fuzzy
 #~ msgid "minouche"
