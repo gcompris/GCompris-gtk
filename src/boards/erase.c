@@ -47,6 +47,8 @@ static int number_of_item = 0;
 static int number_of_item_x = 0;
 static int number_of_item_y = 0;
 
+static gint timer_id = 0;
+
 // List of images to use in the game
 static gchar *imageList[] =
   {
@@ -105,6 +107,11 @@ static void pause_board (gboolean pause)
 {
   if(gcomprisBoard==NULL)
     return;
+
+  if (timer_id) {
+    gtk_timeout_remove (timer_id);
+    timer_id = 0;
+  }
 
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
@@ -240,6 +247,17 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
 
   return NULL;
 }
+
+static void bonus() {
+  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  timer_id = 0;
+}
+
+static void finished() {
+  board_finished(BOARD_FINISHED_RANDOM);
+  timer_id = 0;
+}
+
 /* ==================================== */
 static void game_won()
 {
@@ -251,7 +269,7 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished(BOARD_FINISHED_RANDOM);
+      timer_id = gtk_timeout_add (2000, (GtkFunction) finished, NULL);
       return;
     }
     gcompris_play_ogg ("bonus", NULL);
@@ -307,7 +325,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     {
       gamewon = TRUE;
       erase_destroy_all_items();
-      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+      timer_id = gtk_timeout_add (4000, (GtkFunction) bonus, NULL);
     }
   
   return FALSE;

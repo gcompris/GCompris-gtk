@@ -1,3 +1,8 @@
+2005-01-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/erase.c: (pause_board), (bonus), (finished),
+	(game_won), (item_event): added a timer before the bonus to let kid appreciate the image
+
 2005-01-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/tuxpara.png: added the boat to make it easier to catch
