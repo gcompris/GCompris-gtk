@@ -12,6 +12,12 @@
 	shape board is OkIfAddedName="xx" where xx is the sum of expected. This sum is
 	calculated by adding the name property of a shape changed to an int of the shapes
 	dragged by the user.
+	changed to have the shapelist buttons previous/next contextual
+	changed to allow the shapelist area to be defined in the xml.in file using for
+	example:
+	<ShapeGame shapebox_x="15" shapebox_y="20" shapebox_w="280" shapebox_h="240" 
+	shapebox_nb_shape_x="2" shapebox_nb_shape_y="3" >
+	* boards/gcompris/gcompris-shapebg.jpg: changed the shapelist hope it looks better
 
 2002-05-28 Bruno Coudoin <bruno.coudoin@free.fr>
 	* configure.in: changed AM_GNU_GETTEXT by AM_GLIB_GNU_GETTEXT
