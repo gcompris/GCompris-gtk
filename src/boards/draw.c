@@ -50,7 +50,7 @@ static GnomeCanvasItem	*shape_root_item = NULL;
 static GnomeCanvasItem	*draw_root_item = NULL;
 static GnomeCanvasItem	*current_color_item = NULL;
 static guint		 currentColor = 0;
-gboolean		 board_paused = TRUE;
+static gboolean		 board_paused = TRUE;
 
 typedef enum
   {

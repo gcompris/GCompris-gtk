@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2004/06/13 00:03:16 bcoudoin>
+ * Time-stamp: <2004/06/15 01:35:31 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -29,7 +29,7 @@
 static GList *item_list = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static gboolean board_paused = TRUE;
 
 static GnomeCanvasItem *second_item;
 static GnomeCanvasItem *hour_item;

@@ -511,7 +511,7 @@ class Gcompris_anim:
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        # activate the anchors
+        # deactivate the anchors
         if self.selected != None:
           self.selected.item_list[1].hide()
           self.selected=None
@@ -536,7 +536,8 @@ class Gcompris_anim:
       x=event.x
       y=event.y
 
-      bounds = item.get_bounds()
+      #bounds = item.get_bounds()
+      bounds = self.get_bounds(item)
 
       # Save the ofset between the mouse pointer and the upper left corner of the object
       if(self.in_select_ofx == -1):
@@ -562,9 +563,15 @@ class Gcompris_anim:
         # We need to realign y cause the bounds values are not precise enough
         n,y = self.snap_to_grid(x,y)
 
+      print "delta bounded" , x, y
 
       # Now perform the object move
-      gcompris.utils.item_absolute_move(item.get_property("parent"), x, y)
+      #gcompris.utils.item_absolute_move(item.get_property("parent"), x, y)
+      self.object_move(
+        item.get_property("parent"),
+        x-bounds[0],
+        y-bounds[1]
+        )
 
       return gtk.TRUE
     
@@ -977,7 +984,7 @@ class Gcompris_anim:
   def snapshot_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
       self.flash.show()
-      gobject.timeout_add(40, self.run_flash)
+      gobject.timeout_add(100, self.run_flash)
       self.AnimShot(self.root_drawingitem)
 
   def run_flash(self):
@@ -1025,6 +1032,17 @@ class Gcompris_anim:
       height_set = 1
       )
     run.connect("event", self.playing_event)
+
+  def object_move(self,object,dx,dy):
+    if gobject.type_name(object.item_list[0])=="GnomeCanvasLine":
+      (x1,y1,x2,y2)=object.item_list[0].get_property('points')
+    else:
+      x1=object.item_list[0].get_property("x1")
+      y1=object.item_list[0].get_property("y1")
+      x2=object.item_list[0].get_property("x2")
+      y2=object.item_list[0].get_property("y2")
+
+    self.object_set_size_and_pos(object, x1+dx, y1+dy, x2+dx, y2+dy)
 
   def object_set_size_and_pos(self, object, x1, y1, x2, y2):
     if gobject.type_name(object.item_list[0])=="GnomeCanvasLine":
@@ -1179,6 +1197,14 @@ class Gcompris_anim:
                                      )
 
 
+  def get_bounds(self, item):
+    if gobject.type_name(item)=="GnomeCanvasLine":
+      (x1,y1,x2,y2)=item.get_property("points")
+    else:
+      x1=item.get_property("x1")
+      y1=item.get_property("y1")
+      x2=item.get_property("x2")
+      y2=item.get_property("y2")
 
-
+    return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
       

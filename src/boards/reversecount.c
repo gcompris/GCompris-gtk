@@ -25,8 +25,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard	*gcomprisBoard = NULL;
-gboolean	 board_paused = TRUE;
+static GcomprisBoard	*gcomprisBoard = NULL;
+static gboolean	 board_paused = TRUE;
 static gint	 animate_id = 0;
 static int	 leavenow;
 

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/03/13 00:10:08 bcoudoin>
+ * Time-stamp: <2004/06/15 01:33:41 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -44,7 +44,7 @@ static gint addedname;	/* Defined the rules to apply to determine if the
 			*/
 
 static GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static gboolean board_paused = TRUE;
 
 typedef enum
 {

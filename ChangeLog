@@ -1,3 +1,14 @@
+2004-06-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/boards2static.pl: created. Allow to transform the boards to static notation used in the
+	windows version.
+	* src/boards/clockgame.c: -A- added missing static => fails on windows
+	* src/boards/draw.c: -A-
+	* src/boards/python/anim.py: Fixed coord system by Yves Combe
+	* src/boards/reversecount.c: -A-
+	* src/boards/shapegame.c: -A-
+	* THANKS: Updated. It was very needed.
+
 2004-06-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* .cvsignore:
