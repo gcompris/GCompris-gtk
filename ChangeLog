@@ -1,3 +1,9 @@
+2003-09-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/colors.c: (item_event): fixed wrong click coord when gcompris is resized
+	* src/boards/advanced_colors.c: (item_event): added a test to avoid item_event on game end
+	* src/boards/read_colors.c: (item_event): added a test to avoid item_event on game end
+
 2003-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* Makefile.am: remove .asset.in copy in install-data-local

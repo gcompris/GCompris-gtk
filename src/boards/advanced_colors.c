@@ -363,10 +363,11 @@ static void ok() {
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int i, j, clicked;
+
   x = event->button.x;
   y = event->button.y;
 
-  if(board_paused)
+  if (!gcomprisBoard || board_paused)
     return FALSE;
 
   switch (event->type)

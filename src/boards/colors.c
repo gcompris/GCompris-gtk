@@ -329,15 +329,17 @@ static void process_ok() {
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int i, j, clicked;
+
   x = event->button.x;
   y = event->button.y;
 
-  if(board_paused)
+  if (!gcomprisBoard || board_paused)
     return FALSE;
 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gnome_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
       clicked = -1;
       for (i=0; i<4; i++) {
 	for (j=0; j<2; j++) {
