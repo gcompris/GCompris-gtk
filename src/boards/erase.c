@@ -55,8 +55,12 @@ static gchar *imageList[] =
   "gcompris/animals/rhinogc.jpg",
   "gcompris/animals/singegc.jpg",
   "gcompris/animals/joybear002.jpg",
+  "gcompris/animals/elephanteauxgc.jpg",
+  "gcompris/animals/hypogc.jpg",
+  "gcompris/animals/jumentmulassieregc.jpg",
+  "gcompris/animals/tetegorillegc.jpg"
 };
-#define NUMBER_OF_IMAGES 5
+#define NUMBER_OF_IMAGES 9
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
