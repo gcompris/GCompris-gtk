@@ -1,4 +1,4 @@
-SUBDIRS = read_colors advanced_colors babymatch babyshapes flags imageid imagename missing_letter paintings scales doubleentry geography
+SUBDIRS = read_colors advanced_colors babymatch babyshapes flags imageid imagename missing_letter paintings scales doubleentry geography sounds
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
