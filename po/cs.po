@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-04 11:21+0100\n"
-"PO-Revision-Date: 2005-02-04 13:11+0100\n"
+"POT-Creation-Date: 2005-02-06 11:20+0100\n"
+"PO-Revision-Date: 2005-02-06 16:54+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -696,6 +696,26 @@ msgstr "Vyprávěj krátký příběh"
 #: boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
 msgstr "Náměsíčný"
+
+#: boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Podzim"
+
+#: boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Jaro"
+
+#: boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Léto"
+
+#: boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "4 roční období"
+
+#: boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Zima"
 
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -1795,7 +1815,19 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between invisible and visible modes. Visible mode gives you just an "
 "indication of your position like a map. You cannot move tux in visible mode."
-msgstr "Použij šipky na klávesnici pro přesun Tuxe nahoru ke dveřím. Pro přepínání mezi viditelným a neviditelným režimem použij mezerník. Viditelný režim ti dává jen informace o tvé pozici jako na mapě. Ve viditelném režimu nemůžeš Tuxem pohybovat."
+msgstr ""
+"Použij šipky na klávesnici pro přesun Tuxe nahoru ke dveřím. Pro přepínání "
+"mezi viditelným a neviditelným režimem použij mezerník. Viditelný režim ti "
+"dává jen informace o tvé pozici jako na mapě. Ve viditelném režimu nemůžeš "
+"Tuxem pohybovat."
+
+#: boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Najdi cestu z různých typů bludiště"
+
+#: boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Jít na aktivity s bludišti"
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2861,7 +2893,8 @@ msgstr "doprava"
 
 #: src/boards/maze.c:488
 msgid "Look at your position and switch back to invisible mode to move"
-msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
+msgstr ""
+"Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
 
 #: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
