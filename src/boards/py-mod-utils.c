@@ -222,11 +222,14 @@ py_gcompris_dialog(PyObject* self, PyObject* args)
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "sO:gcompris_dialog", &str, &pyCallback))
     return NULL;
-  if(!PyCallable_Check(pyCallback)) return NULL;
-
+  if(!PyCallable_Check(pyCallback)){
+    gcompris_dialog(str,NULL);
+  }
+  else {
   /* Call the corresponding C function */
+  pyDialogBoxCallBackFunc = pyCallback ;
   gcompris_dialog(str, pyDialogBoxCallBack);
-
+  }
   /* Create and return the result */
   Py_INCREF(Py_None);
   return Py_None;

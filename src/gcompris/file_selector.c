@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/03/01 00:26:43 bruno>
+ * Time-stamp: <2005/03/02 01:36:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -412,9 +412,6 @@ free_stuff (GtkObject *obj, gchar *data)
 
 static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 {
-
-  GdkPixbuf *pixmap_dir  = NULL;
-  GdkPixbuf *pixmap_file = NULL;
   GnomeCanvasItem *item;
   double iw, ih;
   struct dirent *one_dirent;
@@ -524,9 +521,6 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 				NULL);
 
 
-  pixmap_dir  = gcompris_load_pixmap(gcompris_image_to_skin("directory.png"));
-  pixmap_file = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
-
   iw = IMAGE_WIDTH;
   ih = IMAGE_HEIGHT;
 
@@ -560,18 +554,32 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   /* We have the list sorted, now display it */
   listrunner = g_list_first(file_list);
   while(listrunner) {
+    /* add the file to the display */
+    GdkPixbuf *pixmap_current;
+
     gchar *allfilename = listrunner->data;
     gchar *filename    = g_path_get_basename(allfilename);
     gchar *ext         = rindex(filename, '.');
 
-    /* add the file to the display */
-    GdkPixbuf *pixmap_current  = pixmap_file;
+
 
     if(ext)
       printf("filename=%s extension=%s\n", filename, ext);
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
-      pixmap_current  = pixmap_dir;
+      pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("directory.png"));
+    } else if(ext) {
+      /* Need to find an icon for this extension */
+      GcomprisMimeType *mimeType = NULL;
+
+      /* Extract the mime type for this extension */
+      mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_ext_hash, ext));
+      if(mimeType)
+	printf("display_file_selector mimetype=%s\n", mimeType->description);
+
+      pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+    } else {
+      pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
     }
 
     item = gnome_canvas_item_new (gnome_canvas_root(canvas),
@@ -581,6 +589,8 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 						     - gdk_pixbuf_get_width(pixmap_current))/2,
 				  "y", (double)iy,
 				  NULL);
+
+    gdk_pixbuf_unref(pixmap_current);
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
       gtk_signal_connect(GTK_OBJECT(item), "event",
@@ -640,9 +650,6 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   }
 
   closedir(dir);
-
-  gdk_pixbuf_unref(pixmap_dir);
-  gdk_pixbuf_unref(pixmap_file);
 
 }
 
@@ -919,7 +926,8 @@ void gcompris_load_mime_types()
     return;
   }
 
-  mimetypes_hash = g_hash_table_new (g_str_hash, g_str_equal);
+  mimetypes_hash     = g_hash_table_new (g_str_hash, g_str_equal);
+  mimetypes_ext_hash = g_hash_table_new (g_str_hash, g_str_equal);
   printf("ICI\n");
   /* Load the Pixpmaps directory file names */
   dir = opendir(PACKAGE_DATA_DIR"/gcompris/mimetypes/");

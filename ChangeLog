@@ -1,3 +1,13 @@
+2005-03-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Yves fixed dialog call from python and anim
+	file_selector is a little bit improved
+	
+	* src/boards/py-mod-utils.c: (py_gcompris_dialog):
+	* src/boards/python/anim.py:
+	* src/gcompris/file_selector.c: (display_files),
+	(gcompris_load_mime_types):
+
 2005-03-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Yves has added a dialog in case the images are not found on reload

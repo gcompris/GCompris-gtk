@@ -2168,7 +2168,7 @@ def general_save(filename, filetype):
   if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
     anim2_to_svg(filename)
     return
-  if (filetype in ['image/gcompris+draw+anim','image/gcompris+draw']):
+  if (filetype in ['image/gcompris+anim','image/gcompris+draw']):
     anim2_to_file(filename)
     return
   print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
@@ -2180,7 +2180,7 @@ def general_restore(filename, filetype):
   if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
     svg_to_anim2(filename)
     return
-  if (filetype in ['image/gcompris+draw+anim','image/gcompris+draw']):
+  if (filetype in ['image/gcompris+anim','image/gcompris+draw']):
     file_to_anim2(filename)
     return
   print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
@@ -2319,18 +2319,20 @@ def list_restore(picklelist):
 
   missing_images = []
   for fles.current_frame in range(fles.frames_total+1):
-    for item in fles.animlist:
+    for item in fles.animlist[:]:
       if fles.gcomprisBoard.mode == 'draw':
         item.z = fles.animlist.index(item)
-      restore_item( item, fles.current_frame)
-
+      restore_item( item, fles.current_frame, missing_images)
+      
+  print 'missing_images',  missing_images
   if missing_images:
     list_images = ''
     for im in missing_images:
       list_images = list_images + im + '\n'
-    gcompris.utils.dialog(_('Warning: the following images cannot be accessed on your system.\n')+
-                          list_images + _('The corresponding items have been skiped.'), None)
- 
+    gcompris.utils.dialog(_('Warning: the following images cannot be accessed on your system.\n') +
+                          list_images +
+                          _('The corresponding items have been skiped.'),
+                          None)
   fles.list_z_last_shot= []
   for item in fles.framelist:
     fles.list_z_last_shot.append(item.z)
@@ -2348,16 +2350,16 @@ def list_restore(picklelist):
       del anAnimItem.frames_info[fles.current_frame]
 
  
-  
-def restore_item(item, frame):
+def restore_item(item, frame, missing):
   global fles
+  print item.type, frame
   if not item.frames_info.has_key(frame):
     return
   modif = item.frames_info[frame].copy()
   if modif.has_key('delete'):
     item.canvas_item.get_property("parent").destroy()
     fles.framelist.remove(item)
-    return
+    return False
   if (modif.has_key('create') or (fles.gcomprisBoard.mode == 'draw')):
     if modif.has_key('create'):
       del modif['create']
@@ -2375,11 +2377,12 @@ def restore_item(item, frame):
       modif['anchor']= gtk.ANCHOR_CENTER
     if item.type == 'IMAGE':
       item.image_name =  modif['image_name']
-      # TODO stock the image name and display only the list of all images once/
-      if not access(item.image_name, R_OK):
-        missing_images.append(item.image_name)
-        fles.framelist.remove(item)
-        return
+      print 'Test sur l\'image :', item.image_name
+      if not os.access(gcompris.DATA_DIR + '/' + item.image_name, os.R_OK):
+        print 'Image manquante:', item.image_name
+        missing.append(item.image_name)
+        fles.animlist.remove(item)
+        return False
       del modif['image_name']
       pixmap = gcompris.utils.load_pixmap(item.image_name)
       modif['pixbuf']= pixmap
@@ -2396,7 +2399,7 @@ def restore_item(item, frame):
       newitemgroup.lower(delta)
     newitemgroup.affine_absolute(matrice)
     fles.framelist.append(item)
-    return
+    return True
   else:
     if modif.has_key('z'):
       item.z = modif['z']
@@ -2416,7 +2419,7 @@ def restore_item(item, frame):
       #item.canvas_item.get_property("parent").item_list[1].destroy()
       item.canvas_item.set(**modif)
       #fles.anchorize(item.canvas_item.get_property("parent"))
-
+    return True
 
 ##############################################
 #
