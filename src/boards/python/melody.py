@@ -47,10 +47,14 @@ class Gcompris_melody:
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1 
     self.gcomprisBoard.number_of_sublevel=1
-    self.show_bang_timer = 0
+    self.timers = []
     self.solution = []
     self.kidstry = []
+    self.in_repeat = 0;
 
+    # Play an intro sound
+    gcompris.sound.play_ogg("melody/melody")
+    
     #
     # This list contains the 'theme' for each melody level.
     #
@@ -138,18 +142,17 @@ class Gcompris_melody:
   def ok(self):
     print("Gcompris_melody ok.")
 
-  def cleanup(self):
-    # Clear all timer
-    if self.show_bang_timer :
-      gtk.timeout_remove(self.show_bang_timer)
 
-    for i in self.sound_list:
-      if i.has_key('bang_timer') and i['bang_timer'] != 0:
-        gtk.timeout_remove(i['bang_timer'])
-        
-      if i.has_key('bang_timer_stop') and i['bang_timer_stop']  != 0:
-        gtk.timeout_remove(i['bang_timer_stop'])
-        
+  def cleanup(self):
+
+    # Clear all timer
+    for i in self.timers :
+      gtk.timeout_remove(i)
+
+    self.timers = []
+
+    self.in_repeat = 0;
+    
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
     self.rootitem = None
@@ -208,14 +211,21 @@ class Gcompris_melody:
         gcompris.bonus.display(1, gcompris.bonus.FLOWER)
 
   
+  # Ready to play for the kid
+  def ready(self):
+
+    self.in_repeat = 0
+    self.timers.pop(0)
+
+    
   # Shows and plays the thing clicked
-  def show_bang_stop(self):
+  def show_bang_stop(self, a):
 
     if self.board_paused or self.rootitem == None:
       return
 
     self.bang_item.hide()
-
+    self.timers.pop(0)
     
   # Shows and plays the thing clicked
   def show_bang(self, a):
@@ -228,21 +238,37 @@ class Gcompris_melody:
     self.bang_item.show()
     
     gcompris.sound.play_ogg(a['sound'])
-    a['bang_timer'] = 0
+    self.timers.pop(0)
 
 
   def repeat(self):
     print("Gcompris_melody repeat.")
+    # Important to use a timer here to keep self.timers up todate
+    self.timers.append(gtk.timeout_add(50, self.repeat_it))
+    
+  def repeat_it(self):
+    print("Gcompris_melody repeat it.")
+    if self.in_repeat:
+      return
+    
+    # We are like paused until the last sound is played
+    self.in_repeat = 1;
+
+    if self.timers :
+      self.timers.pop(0)
+
     self.kidstry = []
     timer = 0
 
     for i in self.solution:
-      i['bang_timer'] = gtk.timeout_add(timer, self.show_bang, i)
+      self.timers.append(gtk.timeout_add(timer, self.show_bang, i))
       timer = timer + 1000
-      i['bang_timer_stop'] = gtk.timeout_add(timer, self.show_bang_stop)
+      self.timers.append(gtk.timeout_add(timer, self.show_bang_stop, i))
       timer = timer + 500
       
+    self.timers.append(gtk.timeout_add(timer, self.ready))
 
+    
   def config(self):
     print("Gcompris_melody config.")
   
@@ -254,7 +280,7 @@ class Gcompris_melody:
     for i in range(self.gcomprisBoard.level+2):
       self.solution.append(sound_struct[random.randint(0,len(sound_struct)-1)])
       
-    self.show_bang_timer = gtk.timeout_add(1000, self.repeat)
+    self.timers.append(gtk.timeout_add(1300, self.repeat_it))
               
   def key_press(self, keyval):
     print("got key %i" % keyval)
@@ -302,7 +328,7 @@ class Gcompris_melody:
   # ---------------- sound on click events -----------------------
   def sound_item_event(self, widget, event, sound_struct):
 
-    if self.board_paused:
+    if self.board_paused or self.in_repeat:
       return
     
     if event.type == gtk.gdk.BUTTON_PRESS:
