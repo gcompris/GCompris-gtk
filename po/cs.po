@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-04 15:07+0200\n"
-"PO-Revision-Date: 2004-07-04 16:57+0200\n"
+"POT-Creation-Date: 2004-07-31 19:18+0200\n"
+"PO-Revision-Date: 2004-07-31 20:39+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -822,11 +822,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr "Klikni na položku a poslechni si její cílovou pozici"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: boards/draw.xml.in.h:1 src/boards/draw.c:213
 msgid "A simple vector drawing tool"
 msgstr "Jednoduchý vektorový kreslicí nástroj"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
+#: boards/draw.xml.in.h:2 src/boards/draw.c:214
 msgid "Creative board where you can draw freely"
 msgstr "Kreativní deska, kde si můžeš volně kreslit"
 
@@ -935,10 +935,14 @@ msgid "Place the lands"
 msgstr "Umísti země"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Continents"
+msgstr "Kontinenty"
+
+#: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "Severní Amerika"
 
-#: boards/geography/board2_0.xml.in.h:1
+#: boards/geography/board2_1.xml.in.h:1
 msgid "South America"
 msgstr "Jižní Amerika"
 
@@ -946,11 +950,11 @@ msgstr "Jižní Amerika"
 msgid "West Europe"
 msgstr "Západní Evropa"
 
-#: boards/geography/board4_0.xml.in.h:1
+#: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr "Východní Evropa"
 
-#: boards/geography/board5_0.xml.in.h:1
+#: boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regiony Francie"
 
@@ -2096,7 +2100,7 @@ msgstr "Naučná sada gcompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
-#: src/gcompris/gcompris.c:404 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:406 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2715,6 +2719,18 @@ msgstr "V %s nenalezen skin\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
+#: src/gcompris/file_selector.c:239
+msgid "CANCEL"
+msgstr "ZRUŠIT"
+
+#: src/gcompris/file_selector.c:270
+msgid "LOAD"
+msgstr "NAČÍST"
+
+#: src/gcompris/file_selector.c:270
+msgid "SAVE"
+msgstr "ULOŽIT"
+
 #: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
 msgstr "Nemohu najít soubor"
@@ -2763,7 +2779,7 @@ msgstr "Vytiskne verzi "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:516
+#: src/gcompris/gcompris.c:518
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -2776,7 +2792,7 @@ msgid ""
 "http://www.fsf.org/philosophy"
 msgstr ""
 
-#: src/gcompris/gcompris.c:699
+#: src/gcompris/gcompris.c:701
 #, c-format
 msgid ""
 "GCompris\n"
