@@ -760,13 +760,20 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	       break;
 
 	   case TOOL_DELETE:
-	     gtk_object_destroy (GTK_OBJECT(item));
+	     if(item!=draw_root_item)
+	       gtk_object_destroy (GTK_OBJECT(item));
 	     return FALSE;
 	     break;
 
-	   default:
+	   case TOOL_RESIZE:
+	   case TOOL_MOVE:
 	     {
 	       double x1, y1, x2, y2;
+
+
+	       if(item==draw_root_item)
+		 return FALSE;
+		 
 	       // Just resize or move the seleted item
 	       newItem = item;
 	       
@@ -778,7 +785,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	       
 	       resize_item_ref_x = x1;
 	       resize_item_ref_y = y1;
-	       
 	     }
 	     break;
 	   }
