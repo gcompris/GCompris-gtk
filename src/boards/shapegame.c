@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/09/22 01:56:02 bcoudoin>
+ * Time-stamp: <2004/09/22 23:35:52 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -132,8 +132,9 @@ static GnomeCanvasItem	*shape_root_item;
 static GnomeCanvasItem	*shape_list_root_item;
 
 /* The tooltip */
-static GnomeCanvasItem	*tooltip_root_item;
+static GnomeCanvasGroup	*tooltip_root_item;
 static GnomeCanvasItem	*tooltip_text_item;
+static GnomeCanvasItem	*tooltip_bg_item;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void 		 pause_board (gboolean pause);
@@ -623,6 +624,8 @@ static void shapegame_destroy_all_items()
       shape_list_root_item = NULL;
       gtk_object_destroy (GTK_OBJECT(shape_root_item));
       shape_root_item = NULL;
+      gtk_object_destroy (GTK_OBJECT(tooltip_root_item));
+      tooltip_root_item = NULL;
 
       g_hash_table_destroy (shapelist_table);
       shapelist_table=NULL;
@@ -654,30 +657,32 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
   /* Create the tooltip area */
   pixmap = gcompris_load_skin_pixmap("button_large.png");
   tooltip_root_item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+    gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
-			   "x", (double)(gcomprisBoard->width - gdk_pixbuf_get_width(pixmap))/2,
-			   "y", (double)gcomprisBoard->height/2,
+			   "x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO + 60,
+			   "y", (double)0,
 			   NULL);
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
-			 gnome_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap, 
-			 "x", (double) 0,
-			 "y", (double) 0,
-			 NULL);
+  tooltip_bg_item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
+			   gnome_canvas_pixbuf_get_type (),
+			   "pixbuf", pixmap, 
+			   "x", (double) 0,
+			   "y", (double) 0,
+			   NULL);
   gdk_pixbuf_unref(pixmap);
 
-  tooltip_text_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
-					     gnome_canvas_text_get_type (),
-					     "text", "",
-					     "font", gcompris_skin_font_board_medium,
-					     "x", (double)gdk_pixbuf_get_width(pixmap)/2,
-					     "y", 24.0,
-					     "anchor", GTK_ANCHOR_CENTER,
-					     "justification", GTK_JUSTIFY_CENTER,
-					     "fill_color", "white",
-					     NULL);
+  tooltip_text_item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
+			   gnome_canvas_text_get_type (),
+			   "text", "",
+			   "font", gcompris_skin_font_board_small,
+			   "x", (double)gdk_pixbuf_get_width(pixmap)/2,
+			   "y", 24.0,
+			   "anchor", GTK_ANCHOR_CENTER,
+			   "justification", GTK_JUSTIFY_CENTER,
+			   "fill_color", "white",
+			   NULL);
 
   /* Hide the tooltip */
   gnome_canvas_item_hide(tooltip_root_item);
@@ -975,7 +980,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      {
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
-	 gnome_canvas_item_raise_to_top(tooltip_root_item);
+	 gnome_canvas_item_set(tooltip_root_item,
+			       "y", shape->y,
+			       NULL);
+	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
+	 gnome_canvas_item_set(tooltip_bg_item,
+			       "y", 0.0,
+			       NULL);
 	 gnome_canvas_item_set(tooltip_text_item,
 			       "text", shape->tooltip,
 			       NULL);
@@ -984,7 +995,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
        break;
      case GDK_LEAVE_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON)
-	 gnome_canvas_item_hide(tooltip_root_item);
+       	 gnome_canvas_item_hide(tooltip_root_item);
        break;
      case GDK_BUTTON_PRESS:
        switch(event->button.button) 
@@ -1367,7 +1378,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       gnome_canvas_item_show(root_item);
 
       /* FIXME : Workaround for bugged canvas */
-      gnome_canvas_update_now(gcomprisBoard->canvas);
+      //      gnome_canvas_update_now(gcomprisBoard->canvas);
 
     default:
       break;
@@ -1939,6 +1950,8 @@ write_shape_to_xml(xmlNodePtr xmlnode, Shape *shape)
   newxml = xmlNewChild(xmlnode,NULL,"Shape",NULL);
   /* set properties on it */
   xmlSetProp(newxml,"name",shape->name);
+  if(shape->tooltip)
+    xmlSetProp(newxml,"tooltip",shape->tooltip);
   xmlSetProp(newxml,"pixmapfile",shape->pixmapfile);
   xmlSetProp(newxml,"sound",shape->soundfile);
 
