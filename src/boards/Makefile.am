@@ -18,7 +18,8 @@ lib_LTLIBRARIES = \
 	libclick_on_letter.la \
 	librailroad.la \
 	liberase.la \
-	liblocale.la
+	liblocale.la \
+  libalgebra_guesscount.la
 
 libdir = $(plugindir)
 INCLUDES = -I$(top_builddir)/intl $(GNOME_INCLUDEDIR) -I..
@@ -188,6 +189,14 @@ liblocale_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 liblocale_la_SOURCES = locale.c
+
+libalgebra_guesscount_la_LDFLAGS = -module -avoid-version
+libalgebra_guesscount_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libalgebra_guesscount_la_SOURCES = algebra_guesscount.c
 
 EXTRA_DIST = README
 

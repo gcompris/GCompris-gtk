@@ -37,7 +37,8 @@ xml_in_files = \
 	missing_letter.xml.in \
 	click_on_letter.xml.in \
 	railroad.xml.in \
-	erase.xml.in
+	erase.xml.in \
+	algebra_guesscount.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
