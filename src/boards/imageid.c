@@ -17,6 +17,8 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#define DEBUG 0
+
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
@@ -56,6 +58,7 @@ static gboolean read_xml_file(char *fname);
 static void init_xml();
 static void add_xml_data(xmlDocPtr doc,xmlNodePtr xmlnode, GNode * child);
 static void parse_doc(xmlDocPtr doc);
+static gchar * readUTF8Toisolat1(gchar * text);
 static gboolean read_xml_file(char *fname);
 static void destroy_board_list();
 static void destroy_board(Board * board);
@@ -132,7 +135,7 @@ static void pause_board (gboolean pause)
     {
       game_won();
     }
-  
+
   board_paused = pause;
 }
 
@@ -257,9 +260,9 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, board->pixmapfile);
   pixmap = gcompris_load_pixmap(str);
-  dx = (gcomprisBoard->width - 
-	HORIZONTAL_SEPARATION - 
-	gdk_pixbuf_get_width(button_pixmap) - 
+  dx = (gcomprisBoard->width -
+	HORIZONTAL_SEPARATION -
+	gdk_pixbuf_get_width(button_pixmap) -
 	gdk_pixbuf_get_width(pixmap))/2;
   x = HORIZONTAL_SEPARATION + gdk_pixbuf_get_width(button_pixmap) + dx;
 
@@ -458,7 +461,9 @@ static void init_xml()
   assert(g_file_exists(filename));
   assert(read_xml_file(filename)== TRUE);
   g_free(filename);
-  //  dump_xml();
+#ifdef DEBUG
+  dump_xml();
+#endif
 }
 /* ======  for DEBUG ========  */
 #ifdef DEBUG
@@ -472,6 +477,34 @@ static void dump_xml() {
     }
 }
 #endif
+/* ==================================== */
+/* Taken partly from gameutil.c, translates UTF8 charset to iso Latin1 */
+static gchar * readUTF8Toisolat1(gchar * text) {
+#define MAX_LENGTH 128
+  const char *inptr;
+  size_t inleft;
+  char *outptr;
+  size_t outleft;
+  gint retval;
+ // this should never happen, it does often !!
+  if (text == NULL)
+  	return NULL;
+
+  inptr   = (const char *) text;
+  outptr  = (char *) g_malloc(MAX_LENGTH);
+  inleft  = xmlUTF8Strsize(text, MAX_LENGTH);
+  outleft = MAX_LENGTH;
+  // Conversion to ISO-8859-1
+  retval = UTF8Toisolat1(outptr, &outleft, text, &inleft);
+  if(retval==0)  {
+ 	    g_free(text);
+	    text = outptr;
+	    text[outleft]='\0';
+	  } else
+	  	g_free(outptr);
+
+  return text;
+}
 
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
@@ -494,17 +527,19 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 		text1 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+		text1 = readUTF8Toisolat1(text1);
 	if (!strcmp(xmlnode->name, "text2") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 		text2 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+		text2 = readUTF8Toisolat1(text2);
 	if (!strcmp(xmlnode->name, "text3") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 		text3 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+		text3 = readUTF8Toisolat1(text3);
 	xmlnode = xmlnode->next;
 	}
-
 	// I really don't know why this test, but otherwise, the list is doubled
 	// with 1 line on 2 filled with NULL elements
 	if ( (pixmapfile == NULL || text1 == NULL || text2 == NULL || text3 == NULL))
