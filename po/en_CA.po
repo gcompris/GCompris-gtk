@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-29 03:05-0500\n"
-"PO-Revision-Date: 2004-12-29 19:37-0400\n"
+"POT-Creation-Date: 2005-01-05 22:44-0500\n"
+"PO-Revision-Date: 2005-01-05 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -2333,6 +2333,14 @@ msgstr ""
 "Give good instructions to your ship in order to be first in a race against "
 "Tux."
 
+#: boards/searace.xml.in.h:3
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area."
+msgstr ""
+"In the text entry, enter line-by-line commands to give direct your "
+"boat. Commands supported are displayed between the two entry areas."
+
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
 #: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
@@ -2539,7 +2547,7 @@ msgstr "Educational suite gcompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:419 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2804,15 +2812,28 @@ msgstr "Level"
 msgid "Coordinate"
 msgstr "Coordinate"
 
-#: src/boards/python/searace.py:448
+#: src/boards/python/searace.py:159 src/boards/python/searace.py:164
+#: src/boards/python/searace.py:191
+msgid "Race is already running"
+msgstr "Race is already running"
+
+#: src/boards/python/searace.py:570
+msgid "The Red boat has won"
+msgstr "The Red boat has won"
+
+#: src/boards/python/searace.py:572
+msgid "The Green boat has won"
+msgstr "The Green boat has won"
+
+#: src/boards/python/searace.py:656
 msgid "forward"
 msgstr "forward"
 
-#: src/boards/python/searace.py:451
+#: src/boards/python/searace.py:662
 msgid "turnleft"
 msgstr "turn left"
 
-#: src/boards/python/searace.py:453
+#: src/boards/python/searace.py:664
 msgid "turnright"
 msgstr "turn right"
 
@@ -2986,7 +3007,7 @@ msgid "Help"
 msgstr "Help"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:208
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -3299,7 +3320,7 @@ msgstr "Print the version of "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:531
+#: src/gcompris/gcompris.c:532
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3321,7 +3342,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:726
+#: src/gcompris/gcompris.c:727
 #, c-format
 msgid ""
 "GCompris\n"
