@@ -93,6 +93,37 @@ my %rubriques = (
 		 "wa", 0,
 		);
 #-------------------------------------------------------------------------------
+sub spip_cleanup {
+  my $output = shift;
+
+  # Spip doesn't like shortucted tags like <ps/>. But xsltproc does this by default
+  # and I dod not find a way to avoid that.
+  # I put in this list the tags that could be empty.
+  my @empty_tag = qw/id_trad nom_site url_site extra ps soustitre chapo/;
+  foreach my $tag (@empty_tag) {
+    $output =~ s/<$tag\/>/<$tag><\/$tag>/g;
+  }
+
+  # We need to html backquote html tags for spip
+  # I put in uppercase all html tags
+  my @html_tag = qw/HTML IMG A/;
+  foreach my $tag (@html_tag) {
+    $output =~ s/<$tag/&lt;$tag/g;
+    $output =~ s/<\/$tag/&lt;$tag/g;
+  }
+
+  # Fix the tag <lien:auteur> because wa cannot use it in xslt name space is not defined
+  $output =~ s/lien_auteur/lien:auteur/g;
+
+  # Remove eMail adresses
+  $output =~ s/[a-zA-Z0-9\_\-\.\(]+@[a-zA-Z0-9\_\-\.\)]+//g;
+
+  return $output;
+}
+
+
+#-------------------------------------------------------------------------------
+
 my ($sec, $min, $hours, $day, $month, $year) = (localtime)[0,1,2,3,4,5];
 my $date = "".($year+1900)."-".($month+1)."-"."$day $hours:$min:$sec";
 
@@ -115,10 +146,104 @@ my $article_id    = $first_article;
 
 
 
-# First, loop over all the boards description files
+# First, Get all the boards description files
 opendir DIR, $boards_dir or die "cannot open dir $boards_dir: $!";
 my @files = grep { $_ =~ /.xml$/} readdir DIR;
 closedir DIR;
+
+#-------------------------------------------------------------------------------
+# Menu creation
+
+my @sections;
+
+my $all_boards_file = "all_boards.xml";
+# Erase previous output
+unlink $all_boards_file;
+
+open(OUTPUT, ">>$all_boards_file");
+
+print OUTPUT "<GComprisBoards>\n";
+
+foreach my $board (@files) {
+
+  print "Processing $board\n";
+  my $file = "$boards_dir/$board";
+  open(BOARD, "<$file");
+
+  my $board_content;
+  read(BOARD, $board_content, 65535);
+
+  $board_content =~ /section=\"([a-zA-Z\/\.]+)\"/;
+  print "   Section=$1\n";
+  if($1 !~ /\.$/ && $1 ne "/") { # Remove the root menu and boards
+    print "   This is a menu\n";
+    push(@sections, $1);
+  }
+
+  if($board_content =~ /difficulty=\"0\"/) {
+    goto done;
+  }
+  # Some filtering
+  $board_content =~ s/<\?xml version="1.0" encoding="UTF-8"\?>//g;
+
+  print OUTPUT $board_content;
+
+ done:
+  close(BOARD);
+}
+
+print OUTPUT "\n</GComprisBoards>\n";
+
+close (OUTPUT);
+
+# Loop over each menu entry
+foreach my $section (@sections) {
+
+  print "\nProcessing $section\nLang:";
+
+  # The first article is the reference article
+  my $traduction_id = $article_id;
+
+  # 2nd loop over each language
+  foreach my $lang (@ALL_LINGUAS) {
+
+    my $xslfile = "spip_menuboard.xsl";
+
+    $article_id++;
+
+    print "$lang ";
+
+    my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file`;
+
+    if ($?>>8) {
+      print "#\n";
+      print "#\n";
+      print "#\n";
+      print "An error as been encountered in xslt processing: processing is left uncomplete\n";
+      print "ERROR on section $section lang $lang#\n";
+      print "#\n";
+      print "#\n";
+
+    } else {
+
+      # Make some cleanup where needed
+      # ------------------------------
+
+      $output = spip_cleanup($output);
+
+      open(OUTPUT, ">>$output_file")
+	or die "Can't open: $!";
+
+      print OUTPUT $output . "\n";
+
+      close (OUTPUT);
+    }
+  }
+}
+
+exit 0;
+#-------------------------------------------------------------------------------
+# Article creation
 
 foreach my $board (@files) {
 
@@ -154,27 +279,7 @@ foreach my $board (@files) {
       # Make some cleanup where needed
       # ------------------------------
 
-      # Spip doesn't like shortucted tags like <ps/>. But xsltproc does this by default
-      # and I dod not find a way to avoid that.
-      # I put in this list the tags that could be empty.
-      my @empty_tag = qw/id_trad nom_site url_site extra ps soustitre chapo/;
-      foreach my $tag (@empty_tag) {
-	$output =~ s/<$tag\/>/<$tag><\/$tag>/g;
-      }
-
-      # We need to html backquote html tags for spip
-      # I put in uppercase all html tags
-      my @html_tag = qw/HTML IMG A/;
-      foreach my $tag (@html_tag) {
-	$output =~ s/<$tag/&lt;$tag/g;
-	$output =~ s/<\/$tag/&lt;$tag/g;
-      }
-
-      # Fix the tag <lien:auteur> because wa cannot use it in xslt name space is not defined
-      $output =~ s/lien_auteur/lien:auteur/g;
-
-      # Remove eMail adresses
-      $output =~ s/[a-zA-Z0-9\_\-\.\(]+@[a-zA-Z0-9\_\-\.\)]+//g;
+      $output = spip_cleanup($output);
 
       open(OUTPUT, ">>$output_file")
 	or die "Can't open: $!";
@@ -189,4 +294,6 @@ foreach my $board (@files) {
 print "\n\nCreated " . ($article_id - $first_article) . " Articles in $output_file\n";
 print "Insert the content of this file in the SPIP dump.xml file.\n";
 print "If screenshots were already in, remove them first\n";
+
+
 exit 0;
