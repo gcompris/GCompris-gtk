@@ -1,20 +1,19 @@
-# translation of gcompris.HEAD.po to Albanian
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Përkthimi i mesazheve të gcompris në shqip
+# This file is distributed under the same license as the gcompris package.
+# Copyright (C) 2004 Free Software Foundation, Inc.
 # Laurent Dhima <laurenti@alblinux.net>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris.HEAD\n"
+"Project-Id-Version: gcompris HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-18 19:22+0200\n"
-"PO-Revision-Date: 2004-07-01 17:43+0200\n"
+"POT-Creation-Date: 2004-09-02 11:23+0200\n"
+"PO-Revision-Date: 2004-09-03 16:47+0200\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -30,7 +29,7 @@ msgstr "Kliko tek ngjyra korrekte"
 
 #: boards/advanced_colors.xml.in.h:4
 msgid "Click on the correct colored box."
-msgstr ""
+msgstr "Kliko tek kutia me ngjyrë korrekte."
 
 #: boards/advanced_colors.xml.in.h:5
 msgid "Learn to recognize unusual colors."
@@ -260,7 +259,7 @@ msgstr "ulli"
 
 #: boards/advanced_colors/board8.xml.in.h:1
 msgid "greyish blue"
-msgstr ""
+msgstr "greyish blue"
 
 #: boards/advanced_colors/board8.xml.in.h:2
 msgid "mauve"
@@ -319,120 +318,136 @@ msgid "veronese"
 msgstr "veronese"
 
 #: boards/algebra_by.xml.in.h:1
+#, fuzzy
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
 "and press the Enter key to check your answer."
-msgstr ""
+msgstr "A me dy është At djathtas nga e barabartë produkti majtas dhe djathtas produkti dhe Shto."
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
 msgid "Answer some algebra questions"
-msgstr ""
+msgstr "Përgjigje disa pyetje algjebre"
 
 #: boards/algebra_by.xml.in.h:3
+#, fuzzy
 msgid "In a limited time, give the product of two numbers"
-msgstr ""
+msgstr "Zmadho a ora produkti nga dy"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
-msgstr ""
+msgstr "Tabela e shumëzimit"
 
 #: boards/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
-msgstr ""
+msgstr "Praktiko veprimet e shumzimit"
 
 #: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr ""
+msgstr "Shko tek aktivitetet algjebrike"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
+#, fuzzy
 msgid "Left-Click with the mouse to select an activity"
-msgstr ""
+msgstr "Majtas me zgjidh"
 
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
+#, fuzzy
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
 "his pictures. Thanks a lot Ralf."
-msgstr ""
+msgstr "Faqja ngahttp://schmode.net/ a."
 
 #: boards/algebra_guesscount.xml.in.h:2
+#, fuzzy
 msgid ""
 "Choose the numbers and arithmetic operators at the top of the board area "
 "that give the specified result. The numbers and operators can be unselected "
 "by clicking on them."
-msgstr ""
+msgstr "dhe sipër nga dhe nga në."
 
 #: boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
-msgstr ""
+#, fuzzy
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgstr "a a nga veprimet gjej a"
 
 #: boards/algebra_guesscount.xml.in.h:4
+#, fuzzy
 msgid "Find the correct operations to get the result"
-msgstr ""
+msgstr "Gjej veprimet merr"
 
 #: boards/algebra_guesscount.xml.in.h:5
+#, fuzzy
 msgid ""
 "Find the right combination of numbers and operations to obtain a specified "
 "result"
-msgstr ""
+msgstr "Gjej djathtas nga dhe veprimet a"
 
 #: boards/algebra_guesscount.xml.in.h:6
+#, fuzzy
 msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr ""
+msgstr "katër veprimet veprimet"
 
 #: boards/algebra_minus.xml.in.h:1
+#, fuzzy
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
 "your answer, and press the Enter key to check the result."
-msgstr ""
+msgstr "A me dy është At djathtas nga e barabartë majtas dhe djathtas dhe Shto."
 
 #: boards/algebra_minus.xml.in.h:3
+#, fuzzy
 msgid "In a limited time, find the difference between two numbers"
-msgstr ""
+msgstr "Zmadho a ora gjej dy"
 
 #: boards/algebra_minus.xml.in.h:4
 msgid "Practice the substraction operation"
 msgstr ""
 
 #: boards/algebra_minus.xml.in.h:5
+#, fuzzy
 msgid "Simple substraction"
-msgstr ""
+msgstr "E thjeshtë"
 
 #: boards/algebra_plus.xml.in.h:1
+#, fuzzy
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
 "Enter key to check your answer."
-msgstr ""
+msgstr "A me dy është At djathtas nga e barabartë majtas dhe djathtas dhe Shto."
 
 #: boards/algebra_plus.xml.in.h:3
+#, fuzzy
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
-msgstr ""
+msgstr "Zmadho a ora gjej nga nga dy thjeshtë në."
 
 #: boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
 msgstr ""
 
 #: boards/algebra_plus.xml.in.h:5
+#, fuzzy
 msgid "Simple addition. Can recognize written numbers"
-msgstr ""
+msgstr "E thjeshtë"
 
 #: boards/algorithm.xml.in.h:1
+#, fuzzy
 msgid "Complete a list of symbols"
-msgstr ""
+msgstr "U plotësua a lista nga"
 
 #: boards/algorithm.xml.in.h:2
+#, fuzzy
 msgid "Find the next in a list of symbols."
-msgstr ""
+msgstr "Gjej në vazhdim në a lista nga."
 
 #: boards/algorithm.xml.in.h:3 boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
@@ -440,135 +455,160 @@ msgstr ""
 
 #: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
 #: boards/melody.xml.in.h:4
+#, fuzzy
 msgid "Move and click the mouse"
-msgstr ""
+msgstr "Lëvize dhe"
 
 #: boards/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr ""
 
 #: boards/anim.xml.in.h:1
+#, fuzzy
 msgid "Create an animation"
-msgstr ""
+msgstr "Krijo Animacion"
 
 #: boards/anim.xml.in.h:2
+#, fuzzy
 msgid "Free drawing and animation tool."
-msgstr ""
+msgstr "I lirë dhe Animacion."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
 #: boards/babymatch/board6_0.xml.in.h:1
+#, fuzzy
 msgid "Drag and Drop the items to make them match"
-msgstr ""
+msgstr "dhe Hidh elementët"
 
 #: boards/babymatch.xml.in.h:2
+#, fuzzy
 msgid ""
 "In the main board area, a set of objects is shown. In the vertical box (at "
 "the left of the main board), another set of objects is printed, each of "
 "which match exactly one object on the main board. The logical link between "
 "these objects must be found. Drag the objects to the correct red space in "
 "the main area."
-msgstr ""
+msgstr "Zmadho a nga është Zmadho majtas nga nga është nga në lidhje e kuqe hapësirë në."
 
 #: boards/babymatch.xml.in.h:3
+#, fuzzy
 msgid "Matching Items"
-msgstr ""
+msgstr "Përputhja Elementë"
 
 #: boards/babymatch.xml.in.h:4
 msgid "Motor coordination. Concept match."
 msgstr ""
 
 #: boards/babymatch.xml.in.h:5
+#, fuzzy
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr ""
+msgstr "Miu dhe."
 
 #: boards/babyshapes.xml.in.h:1
+#, fuzzy
 msgid "Complete the puzzle"
-msgstr ""
+msgstr "U plotësua"
 
 #: boards/babyshapes.xml.in.h:2
+#, fuzzy
 msgid ""
 "Complete the puzzle by dragging the pieces from the set of pieces on the "
 "left."
-msgstr ""
+msgstr "U plotësua nga nga në majtas."
 
 #: boards/babyshapes.xml.in.h:3
+#, fuzzy
 msgid "Drag and Drop the shapes on their respective target"
-msgstr ""
+msgstr "dhe Hidh në"
 
 #: boards/babyshapes.xml.in.h:4
+#, fuzzy
 msgid "Good mouse control"
-msgstr ""
+msgstr "kontrolli"
 
 #: boards/babyshapes.xml.in.h:5
+#, fuzzy
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr ""
+msgstr "është nga dhe GPL"
 
 #: boards/babyshapes/board5_0.xml.in.h:1
+#, fuzzy
 msgid "Hello ! My name is Lock."
-msgstr ""
+msgstr "emri është Blloko."
 
 #: boards/babyshapes/board6_0.xml.in.h:1
+#, fuzzy
 msgid "Lock on grass."
-msgstr ""
+msgstr "Blloko në."
 
 #: boards/babyshapes/board7_0.xml.in.h:1
+#, fuzzy
 msgid "Lock with colored shapes."
-msgstr ""
+msgstr "Blloko me."
 
 #: boards/ballcatch.xml.in.h:1
+#, fuzzy
 msgid "Push the two shift keys together to send the ball straight"
-msgstr ""
+msgstr "Shtyj dy shift"
 
 #: boards/ballcatch.xml.in.h:2
+#, fuzzy
 msgid "Send the ball to Tux"
-msgstr ""
+msgstr "Dërgo Tux"
 
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
 #: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
 #: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
+#, fuzzy
 msgid "Mouse manipulation"
-msgstr ""
+msgstr "Miu"
 
 #: boards/billard.xml.in.h:2
+#, fuzzy
 msgid ""
 "Point and click on the ball to set the speed and direction of the ball. The "
 "closer you click to the center, the slower the ball moves."
-msgstr ""
+msgstr "Pikë dhe në dhe nga."
 
 #: boards/billard.xml.in.h:3
 msgid "Shoot the ball into the hole"
 msgstr ""
 
 #: boards/billard.xml.in.h:4
+#, fuzzy
 msgid "The game of billiards"
-msgstr ""
+msgstr "nga"
 
 #: boards/boards.xml.in.h:1
+#, fuzzy
 msgid "Go to board based activities"
-msgstr ""
+msgstr "Shko"
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
+#, fuzzy
 msgid "Operate a canal lock"
-msgstr ""
+msgstr "a"
 
 #: boards/canal_lock.xml.in.h:2
+#, fuzzy
 msgid ""
 "Tux is in trouble, and needs to take his ship through a lock. Help Tux and "
 "understand how a canal lock works."
-msgstr ""
+msgstr "Tux është në dhe a Tux dhe a."
 
 #: boards/canal_lock.xml.in.h:3
+#, fuzzy
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
-msgstr ""
+msgstr "Ti në nga Hap dhe në djathtas Tux në."
 
 #: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
+#, fuzzy
 msgid "Play chess against the computer in a learning mode"
-msgstr ""
+msgstr "Luaj në a modaliteti"
 
 #: boards/chess.xml.in.h:2
 msgid "Practice chess"
@@ -581,56 +621,65 @@ msgstr ""
 
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
+#, fuzzy
 msgid "The chess engine is from gnuchess."
-msgstr ""
+msgstr "është."
 
 #: boards/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
 msgstr ""
 
 #: boards/chess_partyend.xml.in.h:3
+#, fuzzy
 msgid "Play end of chess game against the computer"
-msgstr ""
+msgstr "Luaj fund nga"
 
 #: boards/chronos.xml.in.h:1
 msgid "Chronos"
 msgstr ""
 
 #: boards/chronos.xml.in.h:2
+#, fuzzy
 msgid "Drag and Drop the items to organize the story"
-msgstr ""
+msgstr "dhe Hidh elementët history"
 
 #: boards/chronos.xml.in.h:3
+#, fuzzy
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
 "Dates of Transportation are based on those found in http://www.wikipedia.org"
-msgstr ""
+msgstr "Hapësira dhe nga në nëhttp://www.wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
+#, fuzzy
 msgid "Order the pictures to tell the story"
-msgstr ""
+msgstr "Renditja history"
 
 #: boards/chronos.xml.in.h:5
+#, fuzzy
 msgid "Pick from the pictures on the left and put them on the red points"
-msgstr ""
+msgstr "në majtas dhe në e kuqe"
 
 #: boards/chronos.xml.in.h:6
+#, fuzzy
 msgid "Tell a short story"
-msgstr ""
+msgstr "a history"
 
 #: boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
 msgstr ""
 
 #: boards/chronos/board2_0.xml.in.h:1
+#, fuzzy
 msgid "Tux and the apple tree"
-msgstr ""
+msgstr "Tux dhe degëzimi"
 
 #: boards/chronos/board3_0.xml.in.h:1
+#, fuzzy
 msgid ""
 "Place each image in the order and on the date it has been invented. If not "
 "sure, check online in wikipedia at http://www.wikipedia.org"
-msgstr ""
+msgstr "figurë në dhe në data nuk nëhttp://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -643,37 +692,45 @@ msgid "VIII Century"
 msgstr ""
 
 #: boards/click_on_letter.xml.in.h:1
+#, fuzzy
 msgid ""
 "A letter is spoken. Click on the corresponding letter in the main area. You "
 "can hear the letter again by clicking on the mouth icon in the bottom "
 "horizontal box."
-msgstr ""
+msgstr "A është në në Ti nga në ikonë në poshtë."
 
 #: boards/click_on_letter.xml.in.h:2
+#, fuzzy
 msgid "Click on a letter"
-msgstr ""
+msgstr "në a"
 
 #: boards/click_on_letter.xml.in.h:3
+#, fuzzy
 msgid "Hear a letter and click on the right one"
-msgstr ""
+msgstr "a dhe në djathtas"
 
 #: boards/click_on_letter.xml.in.h:4
+#, fuzzy
 msgid "Letter name recognition"
-msgstr ""
+msgstr "Letter emri"
 
 #: boards/click_on_letter.xml.in.h:5
+#, fuzzy
 msgid "Visual letters recognition. Can move the mouse."
-msgstr ""
+msgstr "Viazual."
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
+#, fuzzy
 msgid "Click On Me"
-msgstr ""
+msgstr "Në Unë"
 
 #: boards/clickgame.xml.in.h:2
+#, fuzzy
 msgid "Click with the left mouse button on the moving fish."
-msgstr ""
+msgstr "me majtas në."
 
 #: boards/clickgame.xml.in.h:3
+#, fuzzy
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 "National Undersea Research Program (NURP) Collection at http://www.photolib."
@@ -684,43 +741,49 @@ msgid ""
 "Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: "
 "Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
 "Unknown (image nur03011) Location: Unknown (image nur03013)"
-msgstr ""
+msgstr "Peshku Programi Koleksionihttp://www.photolib.noaa.gov Gjithçka figurë Programi për i pari figurë është nga nga Veri Wilmington në niveli Vendodhja Atlantic Florida Çelësat figurë D Vendodhja Florida Çelësat figurë Vendodhja Nuk njihet figurë Vendodhja Nuk njihet figurë Vendodhja Nuk njihet figurë Vendodhja Nuk njihet figurë"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
-msgstr ""
+#, fuzzy
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgstr "Majtas me në përpara"
 
 #: boards/clickgame.xml.in.h:5
+#, fuzzy
 msgid "Motor coordination: mouse mouvement and mouse click."
-msgstr ""
+msgstr "dhe."
 
 #: boards/clockgame.xml.in.h:1
+#, fuzzy
 msgid ""
 "Distinguish differences between hour, minute and second. Compose a time in a "
 "clock"
-msgstr ""
+msgstr "orë minutë dhe sekondë Kompozo a ora në a"
 
 #: boards/clockgame.xml.in.h:2
+#, fuzzy
 msgid ""
 "For each printed hour (hours:minutes or hours:minutes:seconds) click the "
 "corresponding arrow to set the clock time to match the given hour. The "
 "different arrows can be turned by selecting them and moving the mouse"
-msgstr ""
+msgstr "orë orë minuta orë minuta sekonda shigjetë ora orë nga dhe"
 
 #: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
+#, fuzzy
 msgid "Learn how to tell time"
-msgstr ""
+msgstr "ora"
 
 #: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
 #: src/boards/clockgame.c:77
+#, fuzzy
 msgid "Learning Clock"
-msgstr ""
+msgstr "Ora"
 
 #: boards/clockgame.xml.in.h:5
+#, fuzzy
 msgid "Time concept Time reading"
-msgstr ""
+msgstr "Ora Ora"
 
 #: boards/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -728,97 +791,115 @@ msgstr ""
 
 #: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:3
 #: src/boards/advanced_colors.c:87 src/boards/colors.c:75
+#, fuzzy
 msgid "Click on the right color"
-msgstr ""
+msgstr "në djathtas"
 
 #: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "Ngjyrat"
 
 #: boards/colors.xml.in.h:4
+#, fuzzy
 msgid "Hear the color and click on the toon."
-msgstr ""
+msgstr "dhe në."
 
 #: boards/colors.xml.in.h:5
+#, fuzzy
 msgid ""
 "This board teaches color recognition. Select the spoken color from the set "
 "of colored toons."
-msgstr ""
+msgstr "Zgjidh nga."
 
 #: boards/colors_group.xml.in.h:1
+#, fuzzy
 msgid "Go to colors activities"
-msgstr ""
+msgstr "Shko"
 
 #: boards/computer.xml.in.h:1
+#, fuzzy
 msgid "Discover the Computer"
-msgstr ""
+msgstr "Kompjuteri"
 
 #: boards/doubleentry.xml.in.h:1
+#, fuzzy
 msgid "Basic counting skills"
-msgstr ""
+msgstr "Bazë"
 
 #: boards/doubleentry.xml.in.h:2
+#, fuzzy
 msgid "Double entry table"
-msgstr ""
+msgstr "Dyfish tabelë"
 
 #: boards/doubleentry.xml.in.h:3
+#, fuzzy
 msgid "Drag and Drop proposed items to their destination"
-msgstr ""
+msgstr "dhe Hidh elementët"
 
 #: boards/doubleentry.xml.in.h:4
+#, fuzzy
 msgid "Drag and Drop the items in the double entry table"
-msgstr ""
+msgstr "dhe Hidh elementët në tabelë"
 
 #: boards/doubleentry.xml.in.h:5
+#, fuzzy
 msgid ""
 "Move the items on the left to their proper position in the double entry "
 "table."
-msgstr ""
+msgstr "Lëvize elementët në majtas në tabelë."
 
 #: boards/doubleentry/board3_0.xml.in.h:1
+#, fuzzy
 msgid "Click on an item and listen to its target position"
-msgstr ""
+msgstr "në element dhe"
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:213
+#, fuzzy
 msgid "A simple vector drawing tool"
-msgstr ""
+msgstr "A thjeshtë"
 
 #: boards/draw.xml.in.h:2 src/boards/draw.c:214
 msgid "Creative board where you can draw freely"
 msgstr ""
 
 #: boards/draw.xml.in.h:3
+#, fuzzy
 msgid ""
 "In this game, children can draw freely. The goal is just to discover how to "
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines."
-msgstr ""
+msgstr "Zmadho është në dhe rreshta."
 
 #: boards/draw.xml.in.h:4
+#, fuzzy
 msgid "Needs to handle the mouse with the click easily"
-msgstr ""
+msgstr "me"
 
 #: boards/draw.xml.in.h:5
+#, fuzzy
 msgid ""
 "Select a drawing tool on the left and a color on the bottom, and click and "
 "drag in the white area to create a new shape. To save time, you can use the "
 "middle mouse button to delete an object."
-msgstr ""
+msgstr "Zgjidh a në majtas dhe a në poshtë dhe dhe në e bardhë a i ri Për ruaj ora elemino."
 
 #: boards/enumerate.xml.in.h:1
+#, fuzzy
 msgid "Basic enumeration"
-msgstr ""
+msgstr "Bazë"
 
 #: boards/enumerate.xml.in.h:2
+#, fuzzy
 msgid "Count the items"
-msgstr ""
+msgstr "Numëro elementët"
 
 #: boards/enumerate.xml.in.h:3
+#, fuzzy
 msgid ""
 "First, properly organize the items so that you can count them. Then, select "
 "the item you want to answer in the bottom right area. Enter the answer with "
 "the keyboard and press the OK button or the 'Enter' key."
-msgstr ""
+msgstr "E Para elementët zgjidh element në poshtë djathtas Shto me tastiera dhe OK Shto."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -826,54 +907,86 @@ msgid "Numeration training"
 msgstr ""
 
 #: boards/enumerate.xml.in.h:5 src/boards/enumerate.c:92
+#, fuzzy
 msgid "Place the items in the best way to count them"
-msgstr ""
+msgstr "elementët në"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr ""
 
 #: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#, fuzzy
 msgid "Move the mouse"
-msgstr ""
+msgstr "Lëvize"
 
 #: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#, fuzzy
 msgid "Move the mouse to erase the area and discover the background"
-msgstr ""
+msgstr "Lëvize dhe"
 
 #: boards/erase.xml.in.h:6
+#, fuzzy
 msgid "Move the mouse until all the blocks disappear."
-msgstr ""
+msgstr "Lëvize deri më blloqet."
 
 #: boards/experience.xml.in.h:1
+#, fuzzy
 msgid "Go to experiences activities"
+msgstr "Shko"
+
+#: boards/followline.xml.in.h:1
+#, fuzzy
+msgid "Emerge the pipe"
+msgstr "pipe"
+
+#: boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
 msgstr ""
 
+#: boards/followline.xml.in.h:3
+#, fuzzy
+msgid ""
+"Move the mouse over the red part of the pipe. This will emerge it, part by "
+"part up to the flowers. If you move out of the pipe, the red part will go "
+"back."
+msgstr "Lëvize e kuqe nga pipe nga sipër nga pipe e kuqe mbrapa."
+
+#: boards/followline.xml.in.h:4
+#, fuzzy
+msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
+msgstr "Tux pipe është i ndalur"
+
 #: boards/fifteen.xml.in.h:1
+#, fuzzy
 msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
 "the empty block."
-msgstr ""
+msgstr "në çdo element a bllok me bllok."
 
 #: boards/fifteen.xml.in.h:3
+#, fuzzy
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr ""
+msgstr "Lëvize elementët nga në"
 
 #: boards/fifteen.xml.in.h:4
+#, fuzzy
 msgid "Original code taken from libgnomecanvas demo"
-msgstr ""
+msgstr "Orgjinali kodi"
 
 #: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
 msgid "The fifteen game"
 msgstr ""
 
 #: boards/fun.xml.in.h:1
+#, fuzzy
 msgid "Go to Amusement activities"
-msgstr ""
+msgstr "Zbavitje"
 
 #: boards/geography.xml.in.h:1
+#, fuzzy
 msgid "Drag and Drop the items to redraw the complete map"
-msgstr ""
+msgstr "dhe Hidh elementët harta"
 
 #: boards/geography.xml.in.h:2
 msgid "Place the lands"
@@ -888,82 +1001,93 @@ msgid "North America"
 msgstr "Amerika e Veriut"
 
 #: boards/geography/board2_1.xml.in.h:1
+#, fuzzy
 msgid "South America"
-msgstr ""
+msgstr "Jug"
 
-#. GRUT modified this item
 #: boards/geography/board3_0.xml.in.h:1
 msgid "West Europe"
 msgstr "Europa Perëndimore"
 
-#. GRUT modified this item
 #: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr "Europa Lindore"
 
 #: boards/geography/board4_0.xml.in.h:1
+#, fuzzy
 msgid "Regions of France"
-msgstr ""
+msgstr "nga Franca"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
+#, fuzzy
 msgid "Keyboard manipulation"
-msgstr ""
+msgstr "Tastiera"
 
 #: boards/gletters.xml.in.h:2
+#, fuzzy
 msgid "Letter recognition between the screen and the keyboard"
-msgstr ""
+msgstr "Letter dhe tastiera"
 
 #: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#, fuzzy
 msgid "Simple Letters"
-msgstr ""
+msgstr "E thjeshtë"
 
 #: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#, fuzzy
 msgid "Type the falling letters before they reach the ground"
-msgstr ""
+msgstr "Lloji përpara"
 
 #: boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
 msgstr ""
 
 #: boards/hanoi.xml.in.h:2
+#, fuzzy
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
-msgstr ""
+msgstr "dhe Hidh sipër në djathtas në hapësirë në majtas."
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
 msgstr ""
 
 #: boards/hanoi.xml.in.h:5
+#, fuzzy
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
+msgstr "në djathtas në hapësirë në majtas"
 
 #: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
+#, fuzzy
 msgid "Simplified Tower of Hanoi"
-msgstr ""
+msgstr "I thjeshtuar nga"
 
 #: boards/hexagon.xml.in.h:1
+#, fuzzy
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr ""
+msgstr "Gjej nga në blu"
 
 #: boards/hexagon.xml.in.h:4
+#, fuzzy
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become more red "
 "as you get closer."
-msgstr ""
+msgstr "gjej blu tjetër e kuqe merr."
 
 #: boards/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr ""
 
 #: boards/imageid.xml.in.h:1
+#, fuzzy
 msgid "Click on the word corresponding to the printed image."
-msgstr ""
+msgstr "në figurë."
 
 #: boards/imageid.xml.in.h:2
+#, fuzzy
 msgid "Practice reading by finding the word matching an image"
-msgstr ""
+msgstr "nga figurë"
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
@@ -973,8 +1097,9 @@ msgid "Reading"
 msgstr "Shi"
 
 #: boards/imageid.xml.in.h:4
+#, fuzzy
 msgid "Reading practice"
-msgstr ""
+msgstr "Shi"
 
 #: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
 msgid "apple"
@@ -1004,7 +1129,6 @@ msgstr ""
 msgid "boat"
 msgstr ""
 
-#. GRUT modified this item
 #: boards/imageid/board1.xml.in.h:8
 msgid "book"
 msgstr "libri"
@@ -1073,22 +1197,26 @@ msgstr ""
 #: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
 #: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
 #: boards/imagename/board6_0.xml.in.h:1
+#, fuzzy
 msgid "Drag and Drop the items above their written name"
-msgstr ""
+msgstr "dhe Hidh elementët emri"
 
 #: boards/imagename.xml.in.h:2
+#, fuzzy
 msgid ""
 "Drag the images from the vertical box on the left to their corresponding "
 "name on the right. Click the OK button to check your answer."
-msgstr ""
+msgstr "në majtas emri në djathtas OK."
 
 #: boards/imagename.xml.in.h:3
+#, fuzzy
 msgid "Image Name"
-msgstr ""
+msgstr "Emri"
 
 #: boards/imagename.xml.in.h:5
+#, fuzzy
 msgid "Vocabulary and reading"
-msgstr ""
+msgstr "dhe"
 
 #: boards/imagename/board1_0.xml.in.h:2
 msgid "bulb"
@@ -1103,8 +1231,9 @@ msgid "lamp"
 msgstr ""
 
 #: boards/imagename/board1_0.xml.in.h:5
+#, fuzzy
 msgid "mail box"
-msgstr ""
+msgstr "mail"
 
 #: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:3
 msgid "postcard"
@@ -1200,104 +1329,122 @@ msgid "racket"
 msgstr ""
 
 #: boards/leftright.xml.in.h:1
+#, fuzzy
 msgid ""
 "A hand is shown. Determine if it is a right or left hand. Click on the red "
 "button at the left, or on the green button at the right."
-msgstr ""
+msgstr "A është është a djathtas majtas në e kuqe majtas në jeshile djathtas."
 
 #: boards/leftright.xml.in.h:2
+#, fuzzy
 msgid "Determine if a hand is a right or left hand"
-msgstr ""
+msgstr "a është a djathtas majtas"
 
 #: boards/leftright.xml.in.h:3
+#, fuzzy
 msgid ""
 "Distinguish right and left hands from different points of view. Spatial "
 "representation"
-msgstr ""
+msgstr "djathtas dhe majtas nga shfaq"
 
 #: boards/leftright.xml.in.h:4 src/boards/leftright.c:106
+#, fuzzy
 msgid "Find your left and right hands"
-msgstr ""
+msgstr "Gjej majtas dhe djathtas"
 
 #: boards/leftright.xml.in.h:5 boards/railroad.xml.in.h:4
 msgid "None"
 msgstr "Asnjë"
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#, fuzzy
 msgid "Can use the keyboard arrow to move an object."
-msgstr ""
+msgstr "tastiera shigjetë."
 
 #: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#, fuzzy
 msgid "Find your way out of the maze"
-msgstr ""
+msgstr "Gjej nga"
 
 #: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#, fuzzy
 msgid "Help Tux get out of this maze."
-msgstr ""
+msgstr "Tux merr nga."
 
 #: boards/maze.xml.in.h:4 src/boards/maze.c:127
 msgid "Maze"
 msgstr "Maze"
 
 #: boards/maze.xml.in.h:5
+#, fuzzy
 msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr ""
+msgstr "tastiera Tux sipër."
 
 #: boards/maze3D.xml.in.h:1
+#, fuzzy
 msgid "3D Maze"
-msgstr ""
+msgstr "Maze"
 
 #: boards/maze3D.xml.in.h:3
+#, fuzzy
 msgid "Find your way out of the 3D maze"
-msgstr ""
+msgstr "Gjej nga"
 
 #: boards/maze3D.xml.in.h:5
+#, fuzzy
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr ""
+msgstr "tastiera Tux sipër dhe modaliteti nga a harta Ti në modaliteti."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
 msgstr ""
 
 #: boards/melody.xml.in.h:2
+#, fuzzy
 msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
-msgstr ""
+msgstr "dhe nga në Ti nga në."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
 msgstr ""
 
 #: boards/melody.xml.in.h:5
+#, fuzzy
 msgid "Repeat a melody"
-msgstr ""
+msgstr "Përsërit a"
 
 #: boards/memory.xml.in.h:1
+#, fuzzy
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
 "in their hidden faces. Click on a card to can uncover it and see its hidden "
 "picture. However, you can only see two hidden pictures at once. You have to "
 "remember the position of the pictures to associate them. To remove a pair of "
 "cards, uncover both of them."
-msgstr ""
+msgstr "A nga në të bardhë cards është është nga në në a dhe dy Ti nga Për hiq a nga cards nga."
 
 #: boards/memory.xml.in.h:2
+#, fuzzy
 msgid "Discover the cards and find a matching pair"
-msgstr ""
+msgstr "cards dhe gjej a"
 
 #: boards/memory.xml.in.h:3
+#, fuzzy
 msgid "Memory Game with images"
-msgstr ""
+msgstr "Kujtesa Loja me"
 
 #: boards/memory.xml.in.h:5
+#, fuzzy
 msgid "Train your memory and remove all the cards"
-msgstr ""
+msgstr "dhe hiq cards"
 
 #: boards/menu.xml.in.h:1
+#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of activities. "
 "At the bottom of the screen is the gcompris control bar. The following icons "
@@ -1308,65 +1455,76 @@ msgid ""
 "question Question Mark - Help Tool - The configuration menu Tux Plane - "
 "About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
 "old 3 Stars - 6 to 7 years old"
-msgstr ""
+msgstr "A thjeshtë në ikonë a menuja nga At poshtë nga është kontrolli djathtas majtas Shënim ikonë është në Mbrapa paraardhësja menuja sipër OK Konfermo Shfaq niveli zgjidh niveli Muzikë Përsërit Pyetje menuja Tux Informacione vite vite vite"
 
 #: boards/menu.xml.in.h:2
+#, fuzzy
 msgid "GCompris Main Menu"
-msgstr ""
+msgstr "Menu"
 
 #: boards/menu.xml.in.h:3
+#, fuzzy
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
-msgstr ""
+msgstr "është a nga vite."
 
 #: boards/menu.xml.in.h:5
+#, fuzzy
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-msgstr ""
+msgstr "nga është a"
 
 #: boards/missing_letter.xml.in.h:1
+#, fuzzy
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
-msgstr ""
+msgstr "është në dhe është Zgjidh."
 
 #: boards/missing_letter.xml.in.h:2
+#, fuzzy
 msgid "Fill up the missing letter"
-msgstr ""
+msgstr "Mbush (përshtat) sipër"
 
 #: boards/missing_letter.xml.in.h:3
+#, fuzzy
 msgid "Missing Letter"
-msgstr ""
+msgstr "Mungues Letter"
 
 #: boards/missing_letter.xml.in.h:4
 msgid "Train reading skill"
 msgstr ""
 
 #: boards/missing_letter.xml.in.h:5
+#, fuzzy
 msgid "Word reading"
-msgstr ""
+msgstr "Fjala"
 
 #: boards/missing_letter/board1.xml.in.h:1
+#, fuzzy
 msgid "apple/_pple/a/i/o"
-msgstr ""
+msgstr "a"
 
 #: boards/missing_letter/board1.xml.in.h:2
+#, fuzzy
 msgid "apple/app_e/l/h/n"
-msgstr ""
+msgstr "e j"
 
 #: boards/missing_letter/board1.xml.in.h:3
+#, fuzzy
 msgid "apple/appl_/e/h/a"
-msgstr ""
+msgstr "e a"
 
 #: boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:5
+#, fuzzy
 msgid "ball/b_ll/a/u/o"
-msgstr ""
+msgstr "a"
 
 #: boards/missing_letter/board1.xml.in.h:6
 msgid "ball/bal_/l/h/s"
@@ -1377,20 +1535,23 @@ msgid "banana/_anana/b/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:8
+#, fuzzy
 msgid "banana/b_nana/a/o/i"
-msgstr ""
+msgstr "a"
 
 #: boards/missing_letter/board1.xml.in.h:9
+#, fuzzy
 msgid "banana/ba_ana/n/m/b"
-msgstr ""
+msgstr "j m"
 
 #: boards/missing_letter/board1.xml.in.h:10
 msgid "bed/_ed/b/l/f"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:11
+#, fuzzy
 msgid "bed/b_d/e/a/i"
-msgstr ""
+msgstr "e a"
 
 #: boards/missing_letter/board1.xml.in.h:12
 msgid "bed/be_/d/p/b"
@@ -1405,28 +1566,32 @@ msgid "bottle/b_ttle/o/u/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:15
+#, fuzzy
 msgid "bottle/bott_e/l/y/r"
-msgstr ""
+msgstr "e p"
 
 #: boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:17
+#, fuzzy
 msgid "cake/c_ke/a/o/e"
-msgstr ""
+msgstr "a e"
 
 #: boards/missing_letter/board1.xml.in.h:18
+#, fuzzy
 msgid "cake/ca_e/k/q/c"
-msgstr ""
+msgstr "e"
 
 #: boards/missing_letter/board1.xml.in.h:19
 msgid "car/_ar/c/k/b"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:20
+#, fuzzy
 msgid "car/c_r/a/k/o"
-msgstr ""
+msgstr "a"
 
 #: boards/missing_letter/board1.xml.in.h:21
 msgid "car/ca_/r/w/k"
@@ -1437,8 +1602,9 @@ msgid "dog/_og/d/p/q"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:23
+#, fuzzy
 msgid "dog/d_g/o/g/a"
-msgstr ""
+msgstr "a"
 
 #: boards/missing_letter/board1.xml.in.h:24
 msgid "dog/do_/g/p/q"
@@ -1457,16 +1623,18 @@ msgid "fish/fis_/h/o/i"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:28
+#, fuzzy
 msgid "house/_ouse/h/e/j"
-msgstr ""
+msgstr "e"
 
 #: boards/missing_letter/board1.xml.in.h:29
 msgid "house/h_use/o/f/u"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:30
+#, fuzzy
 msgid "house/hous_/e/a/i"
-msgstr ""
+msgstr "e a"
 
 #: boards/missing_letter/board1.xml.in.h:31
 msgid "plane/_lane/p/g/d"
@@ -1477,16 +1645,18 @@ msgid "plane/p_ane/l/j/i"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:33
+#, fuzzy
 msgid "plane/pl_ne/a/o/s"
-msgstr ""
+msgstr "a"
 
 #: boards/missing_letter/board1.xml.in.h:34
 msgid "satchel/_atchel/s/c/l"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:35
+#, fuzzy
 msgid "satchel/s_tchel/a/o/i"
-msgstr ""
+msgstr "a"
 
 #: boards/missing_letter/board1.xml.in.h:36
 msgid "satchel/sa_chel/t/p/c"
@@ -1497,10 +1667,11 @@ msgid "Can count"
 msgstr ""
 
 #: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+#, fuzzy
 msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it in the upper screen area."
-msgstr ""
+msgstr "në në nga hiq a në në."
 
 #: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
@@ -1511,56 +1682,64 @@ msgid "Practice money usage"
 msgstr ""
 
 #: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+#, fuzzy
 msgid ""
 "You must buy the different items and give the exact price. At higher levels, "
 "several items are displayed, and you must first calculate the total price."
-msgstr ""
+msgstr "Ti elementët dhe At elementët dhe i pari."
 
 #: boards/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
 msgstr ""
 
 #: boards/paintings.xml.in.h:1
+#, fuzzy
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr ""
+msgstr "dhe Hidh elementët"
 
 #: boards/paintings.xml.in.h:2
+#, fuzzy
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr ""
+msgstr "figurë në majtas a në."
 
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
 msgstr ""
 
 #: boards/paintings.xml.in.h:4
+#, fuzzy
 msgid "Mouse manipulation: movement, drag and drop"
-msgstr ""
+msgstr "Miu dhe"
 
 #: boards/paintings.xml.in.h:5
 msgid "Spatial representation"
 msgstr ""
 
 #: boards/paintings/board1_0.xml.in.h:1
+#, fuzzy
 msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr ""
+msgstr "Klasa"
 
 #: boards/paintings/board2_0.xml.in.h:1
+#, fuzzy
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr ""
+msgstr "Pierre"
 
 #: boards/paintings/board3_0.xml.in.h:1
+#, fuzzy
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr ""
+msgstr "Pierre At"
 
 #: boards/paintings/board3_1.xml.in.h:1
 msgid "Kandinsky, Wassily, Composition VIII - 1923"
 msgstr ""
 
 #: boards/paintings/board3_1.xml.in.h:2
+#, fuzzy
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr ""
+msgstr "në plani i punës x cm R E re"
 
 #: boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
@@ -1571,99 +1750,117 @@ msgid "Cassat, Summertime - 1895"
 msgstr ""
 
 #: boards/paintings/board6_0.xml.in.h:1
+#, fuzzy
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr ""
+msgstr "Van Rruga në"
 
 #: boards/paratrooper.xml.in.h:1
+#, fuzzy
 msgid "Help Tux the paratrooper land safely"
-msgstr ""
+msgstr "Tux"
 
 #: boards/paratrooper.xml.in.h:2
+#, fuzzy
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
-msgstr ""
+msgstr "çdo në Tux në Tux hap."
 
 #: boards/paratrooper.xml.in.h:3
+#, fuzzy
 msgid ""
 "In this game, Tux the paratrooper need help to land safely on the fishing "
 "boat. He needs to take watch out for the wind direction and speed."
-msgstr ""
+msgstr "Zmadho Tux ndihmë në për dhe."
 
 #: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
 msgid "Paratrooper"
 msgstr ""
 
 #: boards/paratrooper.xml.in.h:5
+#, fuzzy
 msgid "This board is game oriented. No specific skills are needed to play."
-msgstr ""
+msgstr "është Jo lexo."
 
 #: boards/planegame.xml.in.h:1
+#, fuzzy
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr ""
+msgstr "Lëvize në"
 
 #: boards/planegame.xml.in.h:2
+#, fuzzy
 msgid "Number"
-msgstr ""
+msgstr "Numri"
 
 #: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
+#, fuzzy
 msgid "Numbers in Order"
-msgstr ""
+msgstr "Numrat në Renditja"
 
 #: boards/planegame.xml.in.h:5
+#, fuzzy
 msgid ""
 "Use the up, down, right and left keyboard keys to move the helicopter to "
 "catch the numbers in increasing order."
-msgstr ""
+msgstr "sipër poshtë djathtas dhe majtas tastiera në."
 
 #: boards/pythontest.xml.in.h:1
+#, fuzzy
 msgid "Add a language binding to gcompris."
-msgstr ""
+msgstr "Shto a."
 
 #: boards/pythontest.xml.in.h:2
+#, fuzzy
 msgid "Advanced Python Programmer :)"
-msgstr ""
+msgstr "Të detajuara Python"
 
 #: boards/pythontest.xml.in.h:3
+#, fuzzy
 msgid "Python Test"
-msgstr ""
+msgstr "Python Prova"
 
 #: boards/pythontest.xml.in.h:4
+#, fuzzy
 msgid "Test board for the python plugin"
-msgstr ""
+msgstr "Prova për"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr ""
+#, fuzzy
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "dhe për!"
 
 #: boards/railroad.xml.in.h:1
+#, fuzzy
 msgid "A memory game based on trains"
-msgstr ""
+msgstr "A në"
 
 #: boards/railroad.xml.in.h:2
+#, fuzzy
 msgid ""
 "A train - a locomotive and wagon(s) - is displayed at the top of the main "
 "area for a few seconds. Rebuild it at the top of the screen by selecting the "
 "appropriate wagons and locomotive. Unselect an item by clicking on it again. "
 "Check your construction by clicking on the hand at the bottom."
-msgstr ""
+msgstr "A a dhe është sipër nga për a sekonda sipër nga nga dhe element nga në Kontrolli nga në poshtë."
 
 #: boards/railroad.xml.in.h:3
+#, fuzzy
 msgid "Memory training"
-msgstr ""
+msgstr "Kujtesa"
 
 #: boards/railroad.xml.in.h:5
 msgid "Railroad"
 msgstr ""
 
 #: boards/read_colors.xml.in.h:2
+#, fuzzy
 msgid "Click on the correct colored object."
-msgstr ""
+msgstr "në."
 
 #: boards/read_colors.xml.in.h:4
+#, fuzzy
 msgid "Read colors"
-msgstr ""
+msgstr "Lexo"
 
 #: boards/read_colors.xml.in.h:5
 msgid "This board teaches basic colors."
@@ -1714,78 +1911,93 @@ msgid "yellow"
 msgstr "e verdhë"
 
 #: boards/reading.xml.in.h:1
+#, fuzzy
 msgid "Go to the Reading activities"
-msgstr ""
+msgstr "Shi"
 
 #: boards/readingh.xml.in.h:1 boards/readingv.xml.in.h:1
+#, fuzzy
 msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on left. Indicate whether or not the given word appeared in "
 "the list."
-msgstr ""
+msgstr "A është sipër djathtas nga A lista nga dhe në majtas nuk në lista."
 
 #: boards/readingh.xml.in.h:2
+#, fuzzy
 msgid "Horizontal reading practice"
-msgstr ""
+msgstr "Horizontal"
 
 #: boards/readingh.xml.in.h:3
+#, fuzzy
 msgid "Read a list of words and tell if a given word is in it"
-msgstr ""
+msgstr "Lexo a lista nga dhe a është në"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
+#, fuzzy
 msgid "Read training in a limited time"
-msgstr ""
+msgstr "Lexo në a ora"
 
 #: boards/readingv.xml.in.h:2
+#, fuzzy
 msgid "Read a vertical list of words and tell if a given word is in it"
-msgstr ""
+msgstr "Lexo a lista nga dhe a është në"
 
 #: boards/readingv.xml.in.h:5
+#, fuzzy
 msgid "Vertical reading practice"
-msgstr ""
+msgstr "Vertikal"
 
 #: boards/redraw.xml.in.h:1
+#, fuzzy
 msgid "Copy a drawing from the box on the right into the box on the left."
-msgstr ""
+msgstr "Kopjo a në djathtas në majtas."
 
 #: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
+#, fuzzy
 msgid ""
 "First, select the proper tool from the toolbar. Then, drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but take care not to have unwanted objects under others."
-msgstr ""
+msgstr "E Para zgjidh Kur u krye në OK me a e kuqe nga është nuk me rëndësi nuk."
 
 #: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#, fuzzy
 msgid "Redraw the given item"
-msgstr ""
+msgstr "Rivizato element"
 
 #: boards/redraw_symmetrical.xml.in.h:1
+#, fuzzy
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr ""
+msgstr "Kopjo figurë nga në djathtas në majtas."
 
 #: boards/reversecount.xml.in.h:1
+#, fuzzy
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
-msgstr ""
+msgstr "dhe sipër për i pari niveli"
 
 #: boards/reversecount.xml.in.h:2
+#, fuzzy
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
 "fish. Click the dict with the right mouse button to coun backwards. When "
 "done, click on the OK button or hit the Enter key."
-msgstr ""
+msgstr "në Tux dhe me djathtas Kur u krye në OK Shto."
 
 #: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#, fuzzy
 msgid "Practice substraction with a funny game"
-msgstr ""
+msgstr "me a"
 
 #: boards/reversecount.xml.in.h:4
+#, fuzzy
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr ""
+msgstr "Tux është gjej nga."
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -1796,169 +2008,199 @@ msgstr ""
 #: boards/scales/board3_0.xml.in.h:1 boards/scales/board3_1.xml.in.h:1
 #: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
 #: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
+#, fuzzy
 msgid "Drag and Drop masses to equilibrate the scales"
-msgstr ""
+msgstr "dhe Hidh"
 
 #: boards/scalesboard.xml.in.h:1
+#, fuzzy
 msgid "Drag and Drop masses to balance the scales"
-msgstr ""
+msgstr "dhe Hidh"
 
 #: boards/scalesboard.xml.in.h:2
 msgid "Mental calculation, arithmetic equality"
 msgstr ""
 
 #: boards/scalesboard.xml.in.h:3
+#, fuzzy
 msgid ""
 "The painting is an original painting made by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL license."
-msgstr ""
+msgstr "është ngavirginie.moreau@free.fr në emri është në Egjipti është GPL liçenca."
 
 #: boards/scalesboard.xml.in.h:4
+#, fuzzy
 msgid ""
 "To balance the scales, move the masses on the left. left side. The masses "
 "can be arranged in any order."
-msgstr ""
+msgstr "Për në majtas majtas në çdo."
 
 #: boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
 msgstr ""
 
 #: boards/smallnumbers.xml.in.h:1
+#, fuzzy
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr ""
+msgstr "Numëro nga në përpara"
 
 #: boards/smallnumbers.xml.in.h:2
 msgid "Counting skill"
 msgstr ""
 
 #: boards/smallnumbers.xml.in.h:3
+#, fuzzy
 msgid "In a limited time, count the number of dots"
-msgstr ""
+msgstr "Zmadho a ora nga"
 
 #: boards/smallnumbers.xml.in.h:4
+#, fuzzy
 msgid "Numbers With Dice"
-msgstr ""
+msgstr "Numrat"
 
 #: boards/smallnumbers.xml.in.h:5
+#, fuzzy
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
-msgstr ""
+msgstr "tastiera lloji nga në."
 
 #: boards/submarine.xml.in.h:1
+#, fuzzy
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the ordered depth."
-msgstr ""
+msgstr "në aktiv dhe në."
 
 #: boards/submarine.xml.in.h:2
+#, fuzzy
 msgid "Learn how a submarine works"
-msgstr ""
+msgstr "a"
 
 #: boards/submarine.xml.in.h:3
+#, fuzzy
 msgid "Physics basics"
-msgstr ""
+msgstr "Fizikë"
 
 #: boards/submarine.xml.in.h:4
+#, fuzzy
 msgid "Pilot a submarine"
-msgstr ""
+msgstr "Pilot a"
 
 #: boards/submarine.xml.in.h:5
+#, fuzzy
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr ""
+msgstr "Pilot a dhe"
 
 #: boards/superbrain.xml.in.h:1
+#, fuzzy
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
 "Then, click on the OK button in the control bar. In the lower levels, Tux "
 "gives you an indication if you found a hiding place by marking the item with "
 "a black box. You can use the right mouse button to flip the colors in the "
 "opposite order."
-msgstr ""
+msgstr "në elementët deri më gjej është në OK në kontrolli Zmadho Tux a nga element me a e zezë Ti djathtas në."
 
 #: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+#, fuzzy
 msgid "Super Brain"
-msgstr ""
+msgstr "Super"
 
 #: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+#, fuzzy
 msgid "Tux has hidden several items. Find them again in the correct order"
-msgstr ""
+msgstr "Tux elementët Gjej në"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
-msgstr ""
+#, fuzzy
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr "dhe sipër për i pari niveli"
 
 #: boards/target.xml.in.h:2
+#, fuzzy
 msgid ""
 "Check the wind speed and direction, and then click on the target to launch a "
 "dart. When you have thrown all of your darts, a window appears asking you to "
 "count your score. Enter the score with the keyboard then press the Enter key "
 "or the OK button."
-msgstr ""
+msgstr "Kontrolli dhe dhe në a Kur nga a dritare Shto me tastiera Shto OK."
 
 #: boards/target.xml.in.h:3 src/boards/target.c:122
+#, fuzzy
 msgid "Practice addition with a target game"
-msgstr ""
+msgstr "me a"
 
 #: boards/target.xml.in.h:4
+#, fuzzy
 msgid "Throw darts at a target and count your score."
-msgstr ""
+msgstr "a dhe."
 
 #: boards/target.xml.in.h:5 src/boards/target.c:123
+#, fuzzy
 msgid "Touch the target and count the points"
-msgstr ""
+msgstr "dhe"
 
 #: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
+#, fuzzy
 msgid "A sliding block puzzle game"
-msgstr ""
+msgstr "A bllok"
 
 #: boards/traffic.xml.in.h:2
+#, fuzzy
 msgid "Remove all the red cars from the grid through the slot on the right"
-msgstr ""
+msgstr "Hiq e kuqe në djathtas"
 
 #: boards/watercycle.xml.in.h:1
+#, fuzzy
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
 "water cleanup station, in order to reactivate the entire water system. When "
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
-msgstr ""
+msgstr "në aktiv dhe në sistemi Kur sistemi është mbrapa sipër dhe Tux është në shtyp për."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
 msgstr ""
 
 #: boards/watercycle.xml.in.h:3
+#, fuzzy
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
-msgstr ""
+msgstr "Tux mbrapa a në sistemi mbrapa sipër a."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#, fuzzy
 msgid "Falling Words"
-msgstr ""
+msgstr "Fjalët"
 
 #: boards/wordsgame.xml.in.h:3
+#, fuzzy
 msgid "Keyboard training"
-msgstr ""
+msgstr "Tastiera"
 
 #: boards/wordsgame.xml.in.h:4
+#, fuzzy
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr ""
+msgstr "Lloji përpara"
 
 #: boards/wordsgame.xml.in.h:5
+#, fuzzy
 msgid "Type the falling words before they reach the ground"
-msgstr ""
+msgstr "Lloji përpara"
 
 #: gcompris-edit.desktop.in.h:1
+#, fuzzy
 msgid "Editor for gcompris"
-msgstr ""
+msgstr "Editori për"
 
 #: gcompris.desktop.in.h:1
+#, fuzzy
 msgid "Educational game starting at 3 years old"
-msgstr ""
+msgstr "vite"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
@@ -1971,105 +2213,123 @@ msgstr ""
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
+#, fuzzy
 msgid "Couldn't find file %s !"
-msgstr ""
+msgstr "gjej!"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
 #: src/boards/shapegame.c:1766
 #, c-format
+#, fuzzy
 msgid "find file %s !"
-msgstr ""
+msgstr "gjej!"
 
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
+#, fuzzy
 msgid "Guess operations"
-msgstr ""
+msgstr "veprimet"
 
 #: src/boards/canal_lock.c:114
+#, fuzzy
 msgid ""
 "Tux is in trouble in his ship. He needs to take it through a lock.\n"
 "Help Tux and understand how a canal lock works."
-msgstr ""
+msgstr "Tux është në në a Tux dhe a."
 
 #: src/boards/chess.c:139
 msgid "Learning Chess"
 msgstr ""
 
 #: src/boards/chess.c:140
+#, fuzzy
 msgid "Play chess against tux in a learning mode"
-msgstr ""
+msgstr "Luaj në a modaliteti"
 
 #: src/boards/chess.c:193
+#, fuzzy
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
 "of gnuchess.\n"
 "Please upgrade to gnuchess 5 or above."
-msgstr ""
+msgstr "Gabim është instaluar versioni upgrade."
 
 #: src/boards/chess.c:200
+#, fuzzy
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
 "And check it is in "
-msgstr ""
+msgstr "Gabim i jashtëm programi është lexo në programi nëhttp://www.rpmfind.net në Linux është në "
 
 #: src/boards/chess.c:579
+#, fuzzy
 msgid "White Turn"
-msgstr ""
+msgstr "E bardhë"
 
 #: src/boards/chess.c:579
+#, fuzzy
 msgid "Black Turn"
-msgstr ""
+msgstr "E zezë"
 
 #: src/boards/chess.c:720
+#, fuzzy
 msgid "White check"
-msgstr ""
+msgstr "E bardhë"
 
 #: src/boards/chess.c:722
+#, fuzzy
 msgid "Black check"
-msgstr ""
+msgstr "E zezë"
 
 #: src/boards/chess.c:1054
+#, fuzzy
 msgid "Black mates"
-msgstr ""
+msgstr "E zezë"
 
 #: src/boards/chess.c:1059
+#, fuzzy
 msgid "White mates"
-msgstr ""
+msgstr "E bardhë"
 
 #: src/boards/chess.c:1064
+#, fuzzy
 msgid "Drawn game"
-msgstr ""
+msgstr "Barazim"
 
 #: src/boards/click_on_letter.c:72
+#, fuzzy
 msgid "Read a letter"
-msgstr ""
+msgstr "Lexo a"
 
 #: src/boards/click_on_letter.c:73
 msgid "Learn to recognize letters"
 msgstr ""
 
 #: src/boards/click_on_letter.c:223
+#, fuzzy
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
-msgstr ""
+msgstr "Gabim i pari instalo"
 
 #: src/boards/click_on_letter.c:230
+#, fuzzy
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
 "Go in the configuration dialog to\n"
 "enable the sound"
-msgstr ""
+msgstr "Gabim me jo aktiv në dialog"
 
 #: src/boards/clickgame.c:182
 #, c-format
+#, fuzzy
 msgid "Couldn't open dir: %s"
-msgstr ""
+msgstr "hap"
 
 #: src/boards/clockgame.c:530
 msgid "Set the watch to:"
@@ -2077,24 +2337,28 @@ msgstr ""
 
 #: src/boards/colors.c:217
 #, c-format
+#, fuzzy
 msgid "Click on the %s toon"
-msgstr ""
+msgstr "në"
 
 #: src/boards/fifteen.c:57
+#, fuzzy
 msgid "Move the items one by one to rearrange them in increasing order"
-msgstr ""
+msgstr "Lëvize elementët nga në"
 
 #: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#, fuzzy
 msgid "Reproduce in the empty area the same tower as the one on the right"
-msgstr ""
+msgstr "në në djathtas"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr ""
 
 #: src/boards/leftright.c:107
+#, fuzzy
 msgid "Given pictures of hands, find if it's a right or left one"
-msgstr ""
+msgstr "nga gjej a djathtas majtas"
 
 #: src/boards/leftright.c:248
 msgid "left"
@@ -2105,60 +2369,72 @@ msgid "right"
 msgstr "djathtas"
 
 #: src/boards/maze.c:445
+#, fuzzy
 msgid "Look at your position and switch back to 3D mode to move"
-msgstr ""
+msgstr "Paraqitja dhe mbrapa modaliteti"
 
 #: src/boards/memory.c:164
 msgid "Memory"
 msgstr "Kujtesa"
 
 #: src/boards/memory.c:165
+#, fuzzy
 msgid "Find the matching pair"
-msgstr ""
+msgstr "Gjej"
 
 #: src/boards/menu.c:72
 msgid "Main Menu"
 msgstr "Menuja qendrore"
 
 #: src/boards/menu.c:73
+#, fuzzy
 msgid "Select a Board"
-msgstr ""
+msgstr "Zgjidh a"
 
 #: src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr ""
 
 #: src/boards/paratrooper.c:105
+#, fuzzy
 msgid "Direct the paratrooper to help him land safely"
-msgstr ""
+msgstr "ndihmë"
 
 #: src/boards/planegame.c:78
+#, fuzzy
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr ""
+msgstr "Lëvize në"
 
 #: src/boards/python.c:53
+#, fuzzy
 msgid "Python Board"
-msgstr ""
+msgstr "Python"
 
 #: src/boards/python.c:54
+#, fuzzy
 msgid "Special board that embeds python into gcompris."
-msgstr ""
+msgstr "Speciale."
 
 #: src/boards/python/pythontest.py:75
+#, fuzzy
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
-msgstr ""
+msgstr "është i pari në në Python."
 
 #: src/boards/python/pythontest.py:84
+#, fuzzy
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
 msgstr ""
+"është tani në C në Python\n"
+"."
 
 #: src/boards/python/pythontest.py:93
+#, fuzzy
 msgid "This activity is not playable yet, just a test"
-msgstr ""
+msgstr "është nuk a"
 
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
@@ -2169,158 +2445,185 @@ msgid "Coordinate"
 msgstr ""
 
 #: src/boards/railroad.c:96
+#, fuzzy
 msgid "Memory game"
-msgstr ""
+msgstr "Kujtesa"
 
 #: src/boards/railroad.c:97
+#, fuzzy
 msgid "Build a train according to the model"
-msgstr ""
+msgstr "Gjenero a"
 
 #: src/boards/read_colors.c:85
+#, fuzzy
 msgid "Read Colors"
-msgstr ""
+msgstr "Lexo Ngjyrat"
 
 #: src/boards/read_colors.c:86
+#, fuzzy
 msgid "Click on the corresponding color"
-msgstr ""
+msgstr "në"
 
 #: src/boards/reading.c:103
+#, fuzzy
 msgid "Read a list of words and then tell if the given word is in it"
-msgstr ""
+msgstr "Lexo a lista nga dhe është në"
 
 #: src/boards/reading.c:315
 msgid "Please, check if the word"
 msgstr ""
 
 #: src/boards/reading.c:335
+#, fuzzy
 msgid "is being displayed"
-msgstr ""
+msgstr "është"
 
 #: src/boards/reading.c:522
+#, fuzzy
 msgid "I am Ready"
-msgstr ""
+msgstr "pd Gati"
 
 #: src/boards/reading.c:562
+#, fuzzy
 msgid "Yes I saw it"
-msgstr ""
+msgstr "Po"
 
 #: src/boards/reading.c:592
+#, fuzzy
 msgid "No, it was not there"
-msgstr ""
+msgstr "Jo nuk"
 
 #. Report what was wrong in the log
 #: src/boards/reading.c:630
 #, c-format
+#, fuzzy
 msgid "The word to find was '%s'"
-msgstr ""
+msgstr "gjej"
 
 #: src/boards/reading.c:633
+#, fuzzy
 msgid "But it was not displayed"
-msgstr ""
+msgstr "nuk"
 
 #: src/boards/reading.c:635
+#, fuzzy
 msgid "And it was displayed"
-msgstr ""
+msgstr "And"
 
 #: src/boards/reading.c:737 src/boards/reading.c:747
+#, fuzzy
 msgid "Cannot open file of words for your locale"
-msgstr ""
+msgstr "hap nga për lokale"
 
 #: src/boards/reading.c:776
+#, fuzzy
 msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr ""
+msgstr "Gabim për lokale është."
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr ""
 
 #: src/boards/shapegame.c:162
+#, fuzzy
 msgid "Drag and Drop the items to rebuild the object"
-msgstr ""
+msgstr "dhe Hidh elementët"
 
 #. Enter Edit Mode
 #: src/boards/shapegame.c:409
+#, fuzzy
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
 "type 's' to save, and\n"
 "'d' to display all the shapes"
-msgstr ""
+msgstr "Ti Ndrysho modaliteti elementët dhe ruaj dhe j"
 
 #: src/boards/shapegame.c:417
+#, fuzzy
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
-msgstr ""
+msgstr "j"
 
 #: src/boards/smallnumbers.c:70
+#, fuzzy
 msgid "Numbers With Dices"
-msgstr ""
+msgstr "Numrat"
 
 #: src/boards/smallnumbers.c:71
+#, fuzzy
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr ""
+msgstr "Lloji tastiera përpara"
 
 #: src/boards/submarine.c:201
 msgid "Submarine"
 msgstr ""
 
 #: src/boards/submarine.c:202
+#, fuzzy
 msgid "Control the depth of a submarine"
-msgstr ""
+msgstr "Kontrollo nga a"
 
 #: src/boards/target.c:323 src/boards/target.c:576
 #, c-format
+#, fuzzy
 msgid "Points = %s"
-msgstr ""
+msgstr "Pika"
 
 #: src/boards/target.c:441
 #, c-format
+#, fuzzy
 msgid ""
 "Wind speed = %d\n"
 "kilometers/hour"
-msgstr ""
+msgstr "orë"
 
 #: src/boards/target.c:503
 #, c-format
+#, fuzzy
 msgid "Distance to target = %d meters"
-msgstr ""
+msgstr "metra"
 
 #: src/boards/wordsgame.c:88
+#, fuzzy
 msgid "Fully type the falling words before they reach the ground"
-msgstr ""
+msgstr "lloji përpara"
 
 #: src/gcompris/about.c:65
+#, fuzzy
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
-msgstr ""
+msgstr "Autori Pascal Muzikë Muzikë j"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: src/gcompris/about.c:73 src/gcompris/interface.c:484
+#, fuzzy
 msgid "translator_credits"
-msgstr ""
+msgstr "Laurent Dhima <laurenti@alblinux.net>"
 
 #: src/gcompris/about.c:105
+#, fuzzy
 msgid "About GCompris"
-msgstr ""
+msgstr "Informacione"
 
-#. GRUT modified this item
 #: src/gcompris/about.c:115
 msgid "Translators:"
 msgstr "Përkthyes:"
 
 #: src/gcompris/about.c:230
+#, fuzzy
 msgid "GCompris Home Page"
-msgstr ""
+msgstr "Faqja"
 
 #: src/gcompris/about.c:252
-msgid ""
-"This software is a GNU Package and is released under the GNU Public Licence"
-msgstr ""
+#, fuzzy
+msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgstr "është a GNU Paketa dhe është GNU Publik"
 
 #: src/gcompris/about.c:281
 msgid "Help"
@@ -2333,14 +2636,15 @@ msgid "OK"
 msgstr "OK"
 
 #: src/gcompris/board.c:170
+#, fuzzy
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
+msgstr "Dinamik është nuk ngarkoje j"
 
 #: src/gcompris/config.c:63
+#, fuzzy
 msgid "Your system default"
-msgstr ""
+msgstr "sistemi prezgjedhur"
 
-#. GRUT modified this item
 #: src/gcompris/config.c:64
 msgid "Amharic"
 msgstr "Amharic"
@@ -2350,8 +2654,9 @@ msgid "Arabic"
 msgstr "Arabe"
 
 #: src/gcompris/config.c:66
+#, fuzzy
 msgid "Azerbaijani Turkic"
-msgstr ""
+msgstr "Azerbaijani"
 
 #: src/gcompris/config.c:67
 msgid "Catalan"
@@ -2374,12 +2679,14 @@ msgid "American English"
 msgstr "Anglisht Amerikane"
 
 #: src/gcompris/config.c:72
+#, fuzzy
 msgid "Great Britain English"
-msgstr ""
+msgstr "Anglisht"
 
 #: src/gcompris/config.c:73
+#, fuzzy
 msgid "Canadian English"
-msgstr ""
+msgstr "Anglisht"
 
 #: src/gcompris/config.c:74
 msgid "Spanish"
@@ -2421,7 +2728,6 @@ msgstr "Lituaniane"
 msgid "Macedonian"
 msgstr "Maqedonisht"
 
-#. GRUT modified this item
 #: src/gcompris/config.c:84
 msgid "Malayalam"
 msgstr "Malajalam"
@@ -2447,8 +2753,9 @@ msgid "Portuguese"
 msgstr "Portugeze"
 
 #: src/gcompris/config.c:90
+#, fuzzy
 msgid "Brazil Portuguese"
-msgstr ""
+msgstr "Brazili Portugeze"
 
 #: src/gcompris/config.c:91
 msgid "Romanian"
@@ -2471,8 +2778,9 @@ msgid "Albanian"
 msgstr "Shqip"
 
 #: src/gcompris/config.c:96
+#, fuzzy
 msgid "Serbian (Latin)"
-msgstr ""
+msgstr "Sërbisht Latinishte"
 
 #: src/gcompris/config.c:97
 msgid "Serbian"
@@ -2491,44 +2799,54 @@ msgid "Walloon"
 msgstr "Walloon"
 
 #: src/gcompris/config.c:105
+#, fuzzy
 msgid "No time limit"
-msgstr ""
+msgstr "Jo ora"
 
 #: src/gcompris/config.c:106
+#, fuzzy
 msgid "Slow timer"
-msgstr ""
+msgstr "Ngadalë kohëmatës"
 
 #: src/gcompris/config.c:107
+#, fuzzy
 msgid "Normal timer"
-msgstr ""
+msgstr "Normal kohëmatës"
 
 #: src/gcompris/config.c:108
+#, fuzzy
 msgid "Fast timer"
-msgstr ""
+msgstr "Shpejt kohëmatës"
 
 #: src/gcompris/config.c:113
+#, fuzzy
 msgid "800x600 (Default for gcompris)"
-msgstr ""
+msgstr "E prezgjedhur për"
 
 #: src/gcompris/config.c:118
+#, fuzzy
 msgid "No filter"
-msgstr ""
+msgstr "Jo filtro"
 
 #: src/gcompris/config.c:119
+#, fuzzy
 msgid "Only this level"
-msgstr ""
+msgstr "Vetëm niveli"
 
 #: src/gcompris/config.c:120
+#, fuzzy
 msgid "Up to this level"
-msgstr ""
+msgstr "Sipër niveli"
 
 #: src/gcompris/config.c:121
+#, fuzzy
 msgid "This level and above"
-msgstr ""
+msgstr "niveli dhe"
 
 #: src/gcompris/config.c:177
+#, fuzzy
 msgid "GCompris Configuration"
-msgstr ""
+msgstr "Konfigurimi"
 
 #: src/gcompris/config.c:286
 msgid "Fullscreen"
@@ -2544,19 +2862,22 @@ msgstr ""
 
 #: src/gcompris/config.c:391
 #, c-format
+#, fuzzy
 msgid "Couldn't open skin dir: %s"
-msgstr ""
+msgstr "hap veshje"
 
 #: src/gcompris/config.c:412
 #, c-format
+#, fuzzy
 msgid "No skin found in %s\n"
-msgstr ""
+msgstr "Jo veshje në j"
 
 #: src/gcompris/config.c:427 src/gcompris/config.c:812
 #: src/gcompris/config.c:823
 #, c-format
+#, fuzzy
 msgid "Skin : %s"
-msgstr ""
+msgstr "Skin (Veshja grafike)"
 
 #: src/gcompris/file_selector.c:235
 msgid "CANCEL"
@@ -2571,56 +2892,68 @@ msgid "SAVE"
 msgstr ""
 
 #: src/gcompris/gameutil.c:128
+#, fuzzy
 msgid "Couldn't find file"
-msgstr ""
+msgstr "gjej"
 
 #: src/gcompris/gameutil.c:130
+#, fuzzy
 msgid "This activity is incomplete."
-msgstr ""
+msgstr "është."
 
 #: src/gcompris/gameutil.c:131
+#, fuzzy
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
-msgstr ""
+msgstr "Dalja dhe."
 
 #: src/gcompris/gcompris.c:82
+#, fuzzy
 msgid "run gcompris in fullscreen mode."
-msgstr ""
+msgstr "në modaliteti."
 
 #: src/gcompris/gcompris.c:84
+#, fuzzy
 msgid "run gcompris in window mode."
-msgstr ""
+msgstr "në dritare modaliteti."
 
 #: src/gcompris/gcompris.c:86
+#, fuzzy
 msgid "run gcompris with sound enabled."
-msgstr ""
+msgstr "me aktiv."
 
 #: src/gcompris/gcompris.c:88
 msgid "run gcompris without sound."
 msgstr ""
 
 #: src/gcompris/gcompris.c:90
+#, fuzzy
 msgid "run gcompris with the default gnome cursor."
-msgstr ""
+msgstr "me prezgjedhur."
 
 #: src/gcompris/gcompris.c:92
+#, fuzzy
 msgid "display only activities with this difficulty level."
-msgstr ""
+msgstr "me niveli."
 
 #: src/gcompris/gcompris.c:94
+#, fuzzy
 msgid "display debug informations on the console."
-msgstr ""
+msgstr "në."
 
 #: src/gcompris/gcompris.c:96
+#, fuzzy
 msgid "Print the version of "
-msgstr ""
+msgstr "Printo versioni nga "
 
 #: src/gcompris/gcompris.c:98
+#, fuzzy
 msgid "Use the antialiased canvas (slower)."
-msgstr ""
+msgstr "plani i punës."
 
 #: src/gcompris/gcompris.c:522
+#, fuzzy
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -2632,15 +2965,19 @@ msgid ""
 "Linux. Get more information on\n"
 "http://www.fsf.org/philosophy"
 msgstr ""
+"është GPL Liçenca Zmadho Dritaret versioni nga Ti merr versioni për a\n"
+"http://www.ofset.org/order/gcompris Linux versioni nuk Shënim është GNU Linux tjetër në\n"
+"http://www.fsf.org/philosophy"
 
 #: src/gcompris/gcompris.c:717
 #, c-format
+#, fuzzy
 msgid ""
 "GCompris\n"
 "Version: %d\n"
 "Licence: GPL\n"
 "More info at http://ofset.sourceforge.net/gcompris\n"
-msgstr ""
+msgstr "GPLhttp://ofset.sourceforge.net/gcompris j"
 
 #: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
@@ -2650,7 +2987,6 @@ msgstr ""
 msgid "Goal"
 msgstr "Qëllimi"
 
-#. GRUT modified this item
 #: src/gcompris/help.c:241 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
@@ -2660,8 +2996,9 @@ msgid "Credit"
 msgstr ""
 
 #: src/gcompris/interface.c:104
+#, fuzzy
 msgid "Gcompris Editor"
-msgstr ""
+msgstr "Gcompris Editori"
 
 #: src/gcompris/interface.c:180
 msgid "Icon"
@@ -2692,30 +3029,35 @@ msgid "Directory"
 msgstr "Directory"
 
 #: src/gcompris/interface.c:286
+#, fuzzy
 msgid "Title"
-msgstr ""
+msgstr "Titulli"
 
 #: src/gcompris/interface.c:490
+#, fuzzy
 msgid "Released under GPL"
-msgstr ""
+msgstr "GPL"
 
 #. Prepare our log
 #. The default format for time represenation.  See strftime(3)
 #: src/gcompris/log.c:157
+#, fuzzy
 msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr ""
+msgstr "a M S Z Y"
 
 #: src/gcompris/soundutil.c:140
 #, c-format
+#, fuzzy
 msgid "Couldn't open music dir: %s"
-msgstr ""
+msgstr "hap"
 
 #: src/gcompris/soundutil.c:182
 #, c-format
+#, fuzzy
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
 "vorbis OR the sound output failed"
-msgstr ""
+msgstr "është i ndalur tani në nuk"
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
@@ -2723,11 +3065,13 @@ msgid "Couldn't find pixmap file: %s"
 msgstr "E pamundur gjetja e file pixmap: %s"
 
 #: src/gcompris/timer.c:237
+#, fuzzy
 msgid "Time Elapsed"
-msgstr ""
+msgstr "Ora"
 
 #: src/gcompris/timer.c:323
 #, c-format
+#, fuzzy
 msgid "Remaining Time = %d"
-msgstr ""
+msgstr "E mbetur Ora"
 
