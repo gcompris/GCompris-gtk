@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/06/04 22:58:45 bruno>
+ * Time-stamp: <2002/06/09 02:56:53 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -37,30 +37,47 @@ extern GnomeCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
 
-GdkPixbuf *gcompris_load_operation_pixmap(char operation)
-{
-  gchar *filename;
-  GdkPixbuf *pixmap;
-
-  filename = g_strdup_printf("%s/%s/%s%c%s", PACKAGE_DATA_DIR, "gcompris", lettersdir, operation, IMAGEEXTENSION);
-
-  if (!g_file_exists (filename)) {
-    g_error (_("Couldn't find file %s !"), filename);
-  }
-
-  pixmap = gdk_pixbuf_new_from_file (filename);
-
-  g_free (filename);
-
-  return(pixmap);
-}
-
+/*
+ * Load the given pixmap in the gcompris number/letter directory
+ * operations can also be loaded 
+ */
 GdkPixbuf *gcompris_load_number_pixmap(char number)
 {
   gchar *filename;
   GdkPixbuf *pixmap;
+  gchar     *file = NULL;
 
-  filename = g_strdup_printf("%s/%s/%s%c%s", PACKAGE_DATA_DIR, "gcompris", lettersdir, number, IMAGEEXTENSION);
+  switch(number)
+    {
+    case '+':
+      file = "plus";
+      break;
+    case ':':
+      file = "div";
+      break;
+    case '-':
+      file = "minus";
+      break;
+    case '*':
+    case 'x':
+      file = "by";
+      break;
+    case '=':
+      file = "equal";
+      break;
+    case '?':
+      file = "question";
+      break;
+    default:
+      break;
+    }
+
+  if(file == NULL)
+    filename = g_strdup_printf("%s/%s/%s%c%s", PACKAGE_DATA_DIR, "gcompris",
+			       lettersdir, number, IMAGEEXTENSION);
+  else
+    filename = g_strdup_printf("%s/%s/%s%s%s", PACKAGE_DATA_DIR, "gcompris",
+			       lettersdir, file, IMAGEEXTENSION);
 
   if (!g_file_exists (filename)) {
     g_error (_("Couldn't find file %s !"), filename);

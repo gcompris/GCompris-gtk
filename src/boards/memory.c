@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2002/03/20 16:54:03 bruno>
+ * Time-stamp: <2002/06/09 02:04:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -190,12 +190,6 @@ static gchar *imageList[] =
   "gcompris/letters/N.png",
   "gcompris/letters/o.png",
   "gcompris/letters/O.png",
-  "gcompris/letters/=.png",
-  "gcompris/letters/-.png",
-  "gcompris/letters/:.png",
-  "gcompris/letters/?.png",
-  "gcompris/letters/*.png",
-  "gcompris/letters/+.png",
   "gcompris/letters/p.png",
   "gcompris/letters/P.png",
   "gcompris/letters/q.png",

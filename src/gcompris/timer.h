@@ -41,5 +41,7 @@ typedef void          (*GcomprisTimerEnd)       ();
 void	 gcompris_timer_display(int x, int y, TimerList type, int second, GcomprisTimerEnd gcomprisTimerEnd);
 void	 gcompris_timer_add(int second);
 void	 gcompris_timer_end(void);
+guint	 gcompris_timer_get_remaining();
+void	 gcompris_timer_pause(gboolean pause);
 
 #endif

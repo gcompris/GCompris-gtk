@@ -24,6 +24,7 @@
 
 #define SOUNDLISTFILE PACKAGE
 
+static gboolean		 paused;
 static double		 x;
 static double		 y;
 static double		 ystep;
@@ -34,6 +35,7 @@ static TimerList	 type;
 GnomeCanvasItem		*item;
 static gint		 timer_increment (GtkWidget *widget, gpointer data);
 static gint		 subtimer_increment (GtkWidget *widget, gpointer data);
+static void		 start_animation();
 static GnomeCanvasGroup *boardRootItem = NULL;
 static gint		 animate_id = 0;
 static gint		 subanimate_id = 0;
@@ -52,6 +54,8 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
   gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
   gcompris_timer_end();
+
+  paused = FALSE;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
@@ -123,16 +127,12 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
 			     NULL);
       gdk_pixbuf_unref(pixmap);
 
-      /* Perform under second animation */
-      subratio = 5;
-      subanimate_id = gtk_timeout_add (1000/subratio, (GtkFunction) subtimer_increment, NULL);
-
       break;
     default:
       break;
     }
 
-    animate_id = gtk_timeout_add (1000, (GtkFunction) timer_increment, NULL);
+  start_animation();
 }
 
 void gcompris_timer_add(int second)
@@ -146,6 +146,8 @@ void gcompris_timer_end()
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
   boardRootItem = NULL;
 
+  paused = TRUE;
+
   if (animate_id)
     gtk_timeout_remove (animate_id);
   animate_id = 0;
@@ -154,6 +156,61 @@ void gcompris_timer_end()
     gtk_timeout_remove (subanimate_id);
   subanimate_id = 0;
 }
+
+void gcompris_timer_pause(gboolean pause)
+{
+  if(boardRootItem==NULL)
+    return;
+
+  paused = pause;
+
+  printf("gcompris_timer_pause %d\n", paused);
+  if(pause)
+    {
+      printf("   gcompris_timer_pause stop the timer\n");
+      if (animate_id)
+	gtk_timeout_remove (animate_id);
+      animate_id = 0;
+      
+      if (subanimate_id)
+	gtk_timeout_remove (subanimate_id);
+      subanimate_id = 0;
+    }
+  else
+    {
+      start_animation();
+    }
+
+}
+
+guint gcompris_timer_get_remaining()
+{
+  return(timer);
+}
+
+
+static void start_animation()
+{
+
+  switch(type)
+    {
+    case GCOMPRIS_TIMER_SAND:
+    case GCOMPRIS_TIMER_CLOCK:
+      /* No subanimation */
+      break;
+    case GCOMPRIS_TIMER_TEXT:
+      /* No subanimation */
+      break;
+    case GCOMPRIS_TIMER_BALLOON:
+      /* Perform under second animation */
+      subratio = 5;
+      subanimate_id = gtk_timeout_add (1000/subratio, (GtkFunction) subtimer_increment, NULL);
+      break;
+    }
+
+  animate_id = gtk_timeout_add (1000, (GtkFunction) timer_increment, NULL);
+}
+
 
 static void display_time_ellapsed()
 {
@@ -175,6 +232,9 @@ static void display_time_ellapsed()
 
 static gint subtimer_increment(GtkWidget *widget, gpointer data)
 {
+  if(paused)
+    return(FALSE);
+
   switch(type)
     {
     case GCOMPRIS_TIMER_BALLOON:
@@ -194,6 +254,9 @@ static gint subtimer_increment(GtkWidget *widget, gpointer data)
 
 static gint timer_increment(GtkWidget *widget, gpointer data)
 {
+  if(paused)
+    return(FALSE);
+
   timer--;
 
   if(timer==-1)

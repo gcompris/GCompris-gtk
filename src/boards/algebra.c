@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2002/05/01 22:03:40 bruno>
+ * Time-stamp: <2002/06/09 03:34:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -23,9 +23,12 @@
 
 #include "gcompris/gcompris.h"
 
-#define PLUSSIGNFILE '+'
-#define MINUSSIGNFILE '-'
-#define BYSIGNFILE '*'
+#define TIMER_X 150
+#define TIMER_Y 140
+
+#define PLUSSIGNFILE   '+'
+#define MINUSSIGNFILE  '-'
+#define BYSIGNFILE     '*'
 #define DIVIDESIGNFILE ':'
 
 /* Some constants for the numbers layout */
@@ -136,10 +139,11 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  /* Make the timer follow our pause status */
+  gcompris_timer_pause(pause);
+
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
-    {
       algebra_next_level();
-    }
 
   if(leavenow == TRUE && pause == FALSE)
     board_finished(BOARD_FINISHED_RANDOM);
@@ -409,7 +413,8 @@ static void algebra_next_level()
 							    NULL));
 
   maxtime = 20;
-  gcompris_timer_display(150, 140, GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
+  gcompris_timer_display(TIMER_X, TIMER_Y, 
+			 GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
 
   /* Try the next level */
   algebra_create_item(boardRootItem);
@@ -620,7 +625,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 		      y_firstline, second_operand_str, FALSE);
 
   /* Display the operator */
-  algebra_pixmap = gcompris_load_operation_pixmap(currentOperation);
+  algebra_pixmap = gcompris_load_number_pixmap(currentOperation);
   if(vertical_layout)
     {
       x=(double) gcomprisBoard->width - x_align - NUMBERSWIDTH - 20;
@@ -657,7 +662,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     }
   else
     {
-      algebra_pixmap = gcompris_load_operation_pixmap('=');
+      algebra_pixmap = gcompris_load_number_pixmap('=');
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", algebra_pixmap, 
