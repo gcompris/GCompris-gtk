@@ -159,9 +159,9 @@ class Gcompris_redraw:
           target.remove(j)
           
     if(len(target) == 0):
-      gcompris.bonus.display(1, gcompris.bonus.FLOWER)
       self.erase_drawing_area()
       if (self.increment_level() == 1):
+        gcompris.bonus.display(1, gcompris.bonus.FLOWER)
         self.display_current_level()
     else:
       gcompris.bonus.display(0, gcompris.bonus.FLOWER)
@@ -214,7 +214,7 @@ class Gcompris_redraw:
   def increment_level(self):
     self.gcomprisBoard.sublevel += 1
 
-    if(self.gcomprisBoard.sublevel>=self.gcomprisBoard.number_of_sublevel):
+    if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
       # Try the next level
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
@@ -372,6 +372,7 @@ class Gcompris_redraw:
 
     #
     # Given coord are returned swapped
+    # Work fine for rect and ellipse but not line
     # so that y2 > y1 and x2 > x1 
     #
   def reorder_coord(self, x1, y1, x2, y2):
@@ -402,7 +403,24 @@ class Gcompris_redraw:
     xofset = self.target_area[0] - self.drawing_area[0]
     
     for i in drawing:
-      item = self.root_targetitem.add ( i['type'] )
+      #
+      # Can specify the item type to draw via a real GTK type or a TOOL string 
+      if(i.has_key('type')):
+        item = self.root_targetitem.add ( i['type'] )
+      elif(i.has_key('tool')):
+        if(i['tool'] == "RECT"):
+          item = self.root_targetitem.add ( gnome.canvas.CanvasRect )
+        elif(i['tool'] == "FILL_RECT"):
+          item = self.root_targetitem.add ( gnome.canvas.CanvasRect )
+        elif(i['tool'] == "CIRCLE"):
+          item = self.root_targetitem.add ( gnome.canvas.CanvasEllipse )
+        elif(i['tool'] == "FILL_CIRCLE"):
+          item = self.root_targetitem.add ( gnome.canvas.CanvasEllipse )
+        elif(i['tool'] == "LINE"):
+          item = self.root_targetitem.add ( gnome.canvas.CanvasLine )
+        else:
+          print ("ERROR: incorrect type in draw_image_target", i)
+      
       for k, v in i.items():
         if k == 'fill_color' :
           item.set ( fill_color = v )
@@ -533,7 +551,7 @@ class Gcompris_redraw:
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
         
-        # Reset the ofx ofset
+        # Reset thein_select_ofx ofset
         self.in_select_ofx = -1
         self.in_select_ofy = -1
 
@@ -557,8 +575,6 @@ class Gcompris_redraw:
       x -= self.in_select_ofx
       y -= self.in_select_ofy
 
-      # Workaround for bad line positionning
-      # if(not self.current_drawing[item_index].has_key('points')):
       x,y = self.snap_to_grid(x,y)
 
       # Check drawing boundaries
@@ -582,8 +598,8 @@ class Gcompris_redraw:
         self.current_drawing[item_index]['y2'] += oy
       else:
         # It can only be a line
-        ox = x - self.current_drawing[item_index]['points'][0]
-        oy = y - self.current_drawing[item_index]['points'][1]
+        ox = x - min(self.current_drawing[item_index]['points'][0], self.current_drawing[item_index]['points'][2])
+        oy = y - min(self.current_drawing[item_index]['points'][1], self.current_drawing[item_index]['points'][3])
         nx1 = self.current_drawing[item_index]['points'][0] + ox
         ny1 = self.current_drawing[item_index]['points'][1] + oy
         nx2 = self.current_drawing[item_index]['points'][2] + ox
@@ -668,7 +684,7 @@ class Gcompris_redraw:
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
 
           # Add the new item to our list
-          self.current_drawing.append({'type': gnome.canvas.CanvasLine,
+          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
                                         'points':(self.pos_x, self.pos_y, x, y),
                                         'fill_color_rgba':self.colors[self.current_color],
                                         'width_units':8.0})
@@ -692,7 +708,7 @@ class Gcompris_redraw:
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
 
           # Add the new item to our list
-          self.current_drawing.append({'type': gnome.canvas.CanvasRect,
+          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
                                        'x1':self.pos_x,
                                        'y1':self.pos_y,
                                        'x2':x,
@@ -720,7 +736,7 @@ class Gcompris_redraw:
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
 
           # Add the new item to our list
-          self.current_drawing.append({'type': gnome.canvas.CanvasRect,
+          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
                                        'x1':self.pos_x,
                                        'y1':self.pos_y,
                                        'x2':x,
@@ -748,7 +764,7 @@ class Gcompris_redraw:
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
 
           # Add the new item to our list
-          self.current_drawing.append({'type': gnome.canvas.CanvasEllipse,
+          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
                                        'x1':self.pos_x,
                                        'y1':self.pos_y,
                                        'x2':x,
@@ -776,7 +792,7 @@ class Gcompris_redraw:
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
           
           # Add the new item to our list
-          self.current_drawing.append({'type': gnome.canvas.CanvasEllipse,
+          self.current_drawing.append({'tool': self.tools[self.current_tool][0],
                                        'x1':self.pos_x,
                                        'y1':self.pos_y,
                                        'x2':x,
@@ -834,12 +850,19 @@ class Gcompris_redraw:
         if self.tools[self.current_tool][0] == "LINE":
           bounds = self.current_drawing[len(self.current_drawing)-1]['points']
           if (bounds[0] == bounds[2]) and (bounds[1] == bounds[3]):
-            # Oups, empty line
+            # Oops, empty line
             self.del_item(self.newitem, len(self.current_drawing)-1)
           else:
             # We need to reord the coord in increasing order to allow later comparison
-            x1, y1, x2, y2 = self.reorder_coord(bounds[0], bounds[1], bounds[2], bounds[3])
-            self.current_drawing[len(self.current_drawing)-1]['points'] = (x1, y1, x2, y2)
+            # I use a trick, I do x1*x1+y1 and x2*x2+y2, put the lower as the A point
+            i = bounds[0]*bounds[0] + bounds[1]
+            j = bounds[2]*bounds[2] + bounds[3]
+            if(i<=j):
+              self.current_drawing[len(self.current_drawing)-1]['points'] = (bounds[0], bounds[1],
+                                                                             bounds[2], bounds[3])
+            else:
+              self.current_drawing[len(self.current_drawing)-1]['points'] = (bounds[2], bounds[3],
+                                                                             bounds[0], bounds[1])
             
         elif (self.tools[self.current_tool][0] == "RECT" or
               self.tools[self.current_tool][0] == "FILL_RECT" or
@@ -869,44 +892,69 @@ class Gcompris_redraw:
   def init_item_list(self):
     self.drawlist = \
     [
-      [{'x2': 360.0, 'y2': 80.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}]
+      [{'x2': 360.0, 'y2': 80.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 200.0, 'tool': 'FILL_RECT'}]
       ,
-      [{'x2': 200.0, 'y2': 80.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
-       {'x2': 400.0, 'y2': 80.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect},
-       {'x2': 200.0, 'y2': 480.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 440.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
-       {'x2': 400.0, 'y2': 480.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 440.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect}]
+      [{'x2': 420.0, 'width_units': 1.0, 'y2': 100.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 440.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}]
       ,
+      [{'x2': 200.0, 'y2': 80.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 160.0, 'tool': 'FILL_RECT'},
+       {'x2': 400.0, 'y2': 80.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 360.0, 'tool': 'FILL_RECT'},
+       {'x2': 200.0, 'y2': 480.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 440.0, 'x1': 160.0, 'tool': 'FILL_RECT'},
+       {'x2': 400.0, 'y2': 480.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 440.0, 'x1': 360.0, 'tool': 'FILL_RECT'}]
+      ,
+      [{'x2': 200.0, 'y2': 360.0, 'outline_color_rgba': 4042322175L, 'width_units': 4.0, 'y1': 200.0, 'x1': 180.0, 'tool': 'RECT'},
+       {'x2': 340.0, 'y2': 400.0, 'outline_color_rgba': 4042322175L, 'width_units': 4.0, 'y1':380.0, 'x1': 180.0, 'tool': 'RECT'},
+       {'x2': 380.0, 'y2': 400.0, 'outline_color_rgba': 4042322175L, 'width_units': 4.0, 'y1': 240.0, 'x1': 360.0, 'tool': 'RECT'},
+       {'x2': 380.0, 'y2': 220.0, 'outline_color_rgba': 4042322175L, 'width_units': 4.0, 'y1': 200.0, 'x1': 220.0, 'tool': 'RECT'}]
+      ,
+      [{'x2': 360.0, 'y2': 360.0, 'outline_color_rgba': 4042322175L, 'width_units': 4.0, 'y1': 180.0, 'x1': 200.0, 'tool': 'RECT'},
+       {'x2': 340.0, 'y2': 320.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 280.0, 'x1': 300.0, 'tool': 'FILL_CIRCLE'},
+       {'x2': 320.0, 'y2': 260.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 200.0, 'x1': 240.0, 'tool': 'FILL_RECT'}]
+      ,
+      [{'x2': 260.0, 'y2': 140.0, 'outline_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 160.0, 'tool': 'CIRCLE', 'width_units': 5.0},
+       {'x2': 240.0, 'y2': 120.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 60.0, 'x1': 180.0, 'tool': 'FILL_CIRCLE'}]
+      ,
+      # 4 Huge Diagonal lines
+      [{'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 20.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (140.0, 260.0, 260.0, 500.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 500.0, 420.0, 260.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 20.0, 420.0, 260.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}]
+      ,
+      [{'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 320.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 220.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 260.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 380.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 440.0, 'tool': 'FILL_RECT', 'x1': 260.0}]
+      ,
+      # Dog
+      [{'x2': 180.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 240.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 200.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 340.0,'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba':2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 320.0}, {'x2': 380.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 320.0}]
+      ,
+      # Fish
+      [{'x2': 360.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 320.0}, {'x2': 180.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}]
+      ,
+      # House
+      [{'x2': 360.0, 'width_units': 1.0, 'y2': 340.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 340.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 280.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'tool': 'LINE', 'points': (200.0, 240.0, 280.0, 160.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (280.0, 160.0, 360.0, 240.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}]
+      ,
+      # Billard
       [
-      {'x2': 180.0, 'y2': 480.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1':40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
-      {'x2': 360.0, 'y2': 480.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 460.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect},
-      {'x2': 400.0, 'y2': 480.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 380.0, 'type': gnome.canvas.CanvasRect}]
+      {'width_units': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'fill_color_rgba': 2199425535L},
+      {'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 300.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
+      {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 100.0, 'x1': 240.0, 'tool': 'FILL_CIRCLE'},
+      {'x2': 280.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
+      {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'},
+      {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 100.0, 'x1': 300.0, 'tool': 'FILL_CIRCLE'},
+      {'x2': 280.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 120.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
+      {'x2': 300.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'}
+      ]
       ,
-      [{'x2': 400.0, 'y2': 480.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'y2': 160.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 60.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}]
+      # Clara (my daughter)
+      [{'x2': 240.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 220.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 300.0, 'tool': 'FILL_RECT'}, {'x2': 220.0, 'width_units': 1.0, 'y2': 200.0,'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 160.0, 'tool': 'FILL_RECT'}, {'x2': 380.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 320.0, 'tool': 'FILL_RECT'}, {'x2': 380.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 120.0, 'x1': 360.0, 'tool': 'FILL_RECT'}, {'x2': 180.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'x1': 160.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 60.0, 'x1': 220.0, 'tool': 'FILL_CIRCLE'}, {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 240.0, 'tool': 'FILL_CIRCLE'}, {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'}, {'width_units': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'tool': 'LINE', 'fill_color_rgba': 3992977663L}, {'x2': 300.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'x1': 240.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 180.0, 'x1': 220.0, 'tool': 'FILL_RECT'}, {'x2': 340.0, 'width_units': 1.0, 'y2': 400.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 320.0, 'x1': 200.0, 'tool': 'FILL_RECT'}]
       ,
-      [{'x2': 200.0, 'y2': 360.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 200.0, 'x1': 180.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'y2': 220.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 200.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'y2': 400.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 380.0, 'x1': 180.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'y2': 400.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 240.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect}]
-      ,
-      [{'x2': 360.0, 'y2': 360.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 180.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'y2': 320.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 280.0, 'x1': 300.0, 'type': gnome.canvas.CanvasEllipse}, {'x2': 320.0, 'y2': 260.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 200.0, 'x1': 240.0, 'type': gnome.canvas.CanvasRect}]
-      ,
-      [{'x2': 260.0, 'y2': 140.0, 'outline_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasEllipse, 'width_units': 5.0},
-       {'x2': 240.0, 'y2': 120.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 60.0, 'x1': 180.0, 'type': gnome.canvas.CanvasEllipse}]
-      ,
-      [
-      {'width_units': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 2199425535L},
-      {'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 300.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 100.0, 'x1': 240.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 280.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 100.0, 'x1': 300.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 280.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 120.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 300.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse}
-      ],
-      [{'x2': 240.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}, {'x2': 320.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 300.0, 'type': gnome.canvas.CanvasRect}, {'x2': 220.0, 'width_units': 1.0, 'y2': 200.0,'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 320.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 120.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect}, {'x2': 180.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect}, {'x2': 320.0, 'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 60.0, 'x1': 220.0, 'type': gnome.canvas.CanvasEllipse}, {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 240.0, 'type': gnome.canvas.CanvasEllipse}, {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse}, {'width_units': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 3992977663L}, {'x2': 300.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'x1': 240.0, 'type': gnome.canvas.CanvasRect}, {'x2': 320.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 180.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'width_units': 1.0, 'y2': 400.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 320.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}]
+      # Bicycle
+      [{'x2': 240.0, 'y2': 340.0, 'outline_color_rgba': 4287383039L, 'width_units': 5.0, 'y1': 260.0, 'tool': 'CIRCLE', 'x1': 160.0}, {'x2': 400.0, 'y2': 340.0, 'outline_color_rgba': 4287383039L, 'width_units': 5.0, 'y1': 260.0, 'tool': 'CIRCLE', 'x1': 320.0}, {'tool': 'LINE', 'points': (200.0, 300.0, 280.0, 300.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (280.0,300.0, 340.0, 240.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (240.0, 240.0, 340.0, 240.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (200.0, 300.0, 240.0, 240.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (240.0, 220.0, 240.0, 240.0), 'width_units': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (220.0, 220.0, 260.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (340.0, 200.0, 340.0, 240.0), 'width_units': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (320.0, 200.0, 340.0, 200.0), 'width_units': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (340.0, 240.0, 360.0, 300.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}]
+
     ]
 
-    self.gcomprisBoard.maxlevel=len(self.drawlist)
-    self.gcomprisBoard.number_of_sublevel=1
+    # Take care here that the number of items in the above list must be a multiple of
+    # number_of_sublevel*maxlevel
+    self.gcomprisBoard.number_of_sublevel=2
+    self.gcomprisBoard.maxlevel=len(self.drawlist)/self.gcomprisBoard.number_of_sublevel
+    print "Number of target=", len(self.drawlist)
+    print "Maxlevel=", self.gcomprisBoard.maxlevel, " sublevel=", self.gcomprisBoard.number_of_sublevel
     
