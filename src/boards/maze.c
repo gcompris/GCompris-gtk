@@ -100,6 +100,8 @@ static void draw_background(void);
 static void setlevelproperties(void);
 static gint tux_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint target_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void update_tux(gint direction);
+
 /*---------- 3D stuff ------------*/
 static GnomeCanvasGroup *threedgroup = NULL;
 static gint viewing_direction=EAST;
@@ -177,10 +179,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=9;
-    gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
     /* The mode defines if we run 2D or 3D */
-
     /* Default mode is 2D */
     if(!gcomprisBoard->mode)
       modeIs2D=TRUE;
@@ -188,6 +188,11 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       modeIs2D=TRUE;
     else if(g_strncasecmp(gcomprisBoard->mode, "3D", 2)==0)
       modeIs2D=FALSE;
+
+    if(modeIs2D)
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+    else
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
 
     gamewon = FALSE;
 
@@ -244,14 +249,14 @@ static void maze_next_level() {
   end=random()%hoogte;
 
   /* Draw the tux */
-  pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_north.png");
+  pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_east.png");
   if(pixmap)
     {
       tuxitem = draw_image(mazegroup,0,begin,pixmap);
       gdk_pixbuf_unref(pixmap);
       gtk_signal_connect(GTK_OBJECT(tuxitem), "event", (GtkSignalFunc) tux_event, NULL);
     }
-	
+
   /* Draw the target */
   pixmap = gcompris_load_pixmap("gcompris/misc/door.png");
   if(pixmap)
@@ -269,6 +274,8 @@ static void maze_next_level() {
 	
   if (gcomprisBoard->level==1) run_fast=FALSE;
   if (gcomprisBoard->level==4) run_fast=TRUE;
+
+  update_tux(viewing_direction);
 
   if(!modeIs2D)
     threeDdisplay(); 
@@ -356,8 +363,23 @@ static void setlevelproperties(){
       board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
     }		
 }
+
+/*
+ * Repeat let the user get a help map in 3D mode
+ *
+ */
 static void repeat (){
+
+  if(modeIs2D)
+    return;
+
+  if(threeDactive)
+    twoDdisplay();
+  else
+    threeDdisplay();
+
 }
+
 /* =====================================================================
  * Destroy all the items
  * =====================================================================*/
@@ -747,46 +769,78 @@ static guint available_direction(guint last_step)
 }
 
 static void one_step(guint richting)
-{	switch (richting)
-  {   case WEST: movePos(position[ind][0],position[ind][1],position[ind][0]-1,position[ind][1],richting);
-	return;
-  case EAST: movePos(position[ind][0],position[ind][1],position[ind][0]+1,position[ind][1],richting);
-    return;
-  case NORTH: movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]-1,richting);
-    return;	
-  case SOUTH: movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]+1,richting);
-    return;
-  }
+{	
+  update_tux(richting);
+
+  switch (richting)
+    {
+    case WEST: movePos(position[ind][0],position[ind][1],position[ind][0]-1,position[ind][1],richting);
+      return;
+    case EAST: movePos(position[ind][0],position[ind][1],position[ind][0]+1,position[ind][1],richting);
+      return;
+    case NORTH: movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]-1,richting);
+      return;	
+    case SOUTH: movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]+1,richting);
+      return;
+    }
 }
 
 static gint key_press(guint keyval)
-{	guint richting=0,level=gcomprisBoard->level;
+{
+  guint richting=0,level=gcomprisBoard->level;
 
- if (threeDactive) return key_press_3D(keyval);
- switch (keyval)
-   {	case GDK_Left: richting=WEST; break;
-   case GDK_Right: richting=EAST; break;
-   case GDK_Up: richting=NORTH; break;
-   case GDK_Down: richting=SOUTH; break;
-   case GDK_3:
-   case GDK_space:
-     /* switch to 3D only if allowed in the mode */
-     if(!modeIs2D)
-       threeDdisplay(); 
-     return TRUE;
-   default: return FALSE;
-   }
- if (Maze[position[ind][0]][position[ind][1]]&richting) return TRUE;
- one_step(richting);
- viewing_direction=richting;
+  if (threeDactive) return key_press_3D(keyval);
 
- /* run until we come to a fork, (make sure to stop on next level!) */
- while (run_fast && (richting=available_direction(richting))
-	&& gcomprisBoard->level==level)
-   {	one_step(richting);
-   viewing_direction=richting;
-   }
- return TRUE;
+  switch (keyval)
+    {
+    case GDK_Left:
+      /* When In 3D Mode, can't move tux in the 2D mode */
+      if(!modeIs2D)
+	return TRUE;
+
+      richting=WEST;
+      break;
+    case GDK_Right: 
+      /* When In 3D Mode, can't move tux in the 2D mode */
+      if(!modeIs2D)
+	return TRUE;
+
+      richting=EAST; 
+      break;
+    case GDK_Up: 
+      /* When In 3D Mode, can't move tux in the 2D mode */
+      if(!modeIs2D)
+	return TRUE;
+
+      richting=NORTH; 
+      break;
+    case GDK_Down: 
+      /* When In 3D Mode, can't move tux in the 2D mode */
+      if(!modeIs2D)
+	return TRUE;
+
+      richting=SOUTH; 
+      break;
+    case GDK_3:
+    case GDK_space:
+      /* switch to 3D only if allowed in the mode */
+      if(!modeIs2D)
+	threeDdisplay(); 
+      return TRUE;
+    default: return FALSE;
+    }
+  if (Maze[position[ind][0]][position[ind][1]]&richting) return TRUE;
+  one_step(richting);
+  viewing_direction=richting;
+
+  /* run until we come to a fork, (make sure to stop on next level!) */
+  while (run_fast && (richting=available_direction(richting))
+	 && gcomprisBoard->level==level)
+    {	
+      one_step(richting);
+      viewing_direction=richting;
+    }
+  return TRUE;
 }
 
 static gint tux_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
@@ -809,29 +863,32 @@ static gint target_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 static gint key_press_3D(guint keyval)
-{	switch (keyval)
-  {	case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction); 
-	  break;
-  case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction); 
-    break;
-  case GDK_Up: one_step(viewing_direction);
-    break;
-  case GDK_Down: one_step(U_TURN(viewing_direction));
-    break;
-  case GDK_2: 
-  case GDK_space: 
-    twoDdisplay();
-    return TRUE;
-  case GDK_E: case GDK_e: eye_pos_y+=0.1; if (eye_pos_y>0.9) eye_pos_y=0.9; break;
-  case GDK_X: case GDK_x: eye_pos_y-=0.1; if (eye_pos_y<-0.9) eye_pos_y=-0.9; break;
-  case GDK_D: case GDK_d: eye_pos_x+=0.1; if (eye_pos_x>0.9) eye_pos_x=0.9; break;
-  case GDK_S: case GDK_s: eye_pos_x-=0.1; if (eye_pos_x<-0.9) eye_pos_x=-0.9; break;
-  case GDK_Y: case GDK_y: case GDK_Z: case GDK_z: eye_pos_z+=0.1; break;
-  case GDK_R: case GDK_r: eye_pos_z-=0.1; if (eye_pos_z<-0.9) eye_pos_z=-0.9; break;
-  default: return FALSE;
-  }
- draw3D();
- return TRUE;
+{	
+  switch (keyval)
+    {	
+    case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction); 
+      break;
+    case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction); 
+      break;
+    case GDK_Up: one_step(viewing_direction);
+      break;
+    case GDK_Down: one_step(U_TURN(viewing_direction));
+      break;
+    case GDK_2: 
+    case GDK_space: 
+      twoDdisplay();
+      return TRUE;
+    case GDK_E: case GDK_e: eye_pos_y+=0.1; if (eye_pos_y>0.9) eye_pos_y=0.9; break;
+    case GDK_X: case GDK_x: eye_pos_y-=0.1; if (eye_pos_y<-0.9) eye_pos_y=-0.9; break;
+    case GDK_D: case GDK_d: eye_pos_x+=0.1; if (eye_pos_x>0.9) eye_pos_x=0.9; break;
+    case GDK_S: case GDK_s: eye_pos_x-=0.1; if (eye_pos_x<-0.9) eye_pos_x=-0.9; break;
+    case GDK_Y: case GDK_y: case GDK_Z: case GDK_z: eye_pos_z+=0.1; break;
+    case GDK_R: case GDK_r: eye_pos_z-=0.1; if (eye_pos_z<-0.9) eye_pos_z=-0.9; break;
+    default: return FALSE;
+    }
+  update_tux(viewing_direction);
+  draw3D();
+  return TRUE;
 }
 
 struct Trapez
@@ -1180,3 +1237,33 @@ static void threeDdisplay()
   draw3D();
 }
 
+static void update_tux(gint direction)
+{
+  GdkPixbuf *pixmap = NULL;
+
+  switch(direction)
+    {
+    case EAST:
+      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_east.png");
+      break;
+    case WEST:
+      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_west.png");
+      break;
+    case NORTH:
+      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_north.png");
+      break;
+    case SOUTH:
+      pixmap = gcompris_load_pixmap("gcompris/misc/tux_top_south.png");
+      break;
+    }
+
+  if(pixmap)
+    {
+      gnome_canvas_item_set (tuxitem,
+			     "pixbuf", pixmap,
+			     NULL);
+      gdk_pixbuf_unref(pixmap);
+    }
+	
+
+}

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/12/09 22:01:39 bruno>
+ * Time-stamp: <2002/12/15 23:05:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -242,6 +242,24 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
 }
 
 /*
+ * Return a copy of the given string in which it has
+ * changes '\''n' to '\n'.
+ * The recognized sequences are \b
+ * \f \n \r \t \\ \" and the octal format.
+ * 
+ */
+gchar *reactivate_newline(gchar *str)
+{
+  gchar *newstr;
+  
+  newstr = g_strcompress(str);
+  
+  g_free(str);
+
+  return newstr;
+}
+
+/*
  * Thanks for George Lebl <jirka@5z.com> for his Genealogy example
  * for all the XML stuff there
  */
@@ -308,7 +326,11 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	gcomprisBoard->prerequisite = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	if(gcomprisBoard->prerequisite)
+	  g_free(gcomprisBoard->prerequisite);
+  
+	gcomprisBoard->prerequisite = reactivate_newline(xmlNodeListGetString(doc, 
+									      xmlnode->xmlChildrenNode, 1));
       }
 
     /* get the help goal of the board */
@@ -317,7 +339,11 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	gcomprisBoard->goal = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	if(gcomprisBoard->goal)
+	  g_free(gcomprisBoard->goal);
+  
+	gcomprisBoard->goal = reactivate_newline(xmlNodeListGetString(doc, 
+								      xmlnode->xmlChildrenNode, 1));
       }
 
     /* get the help user manual of the board */
@@ -326,7 +352,11 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	gcomprisBoard->manual = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	if(gcomprisBoard->manual)
+	  g_free(gcomprisBoard->manual);
+  
+	gcomprisBoard->manual = reactivate_newline(xmlNodeListGetString(doc, 
+									xmlnode->xmlChildrenNode, 1));
       }
 
     /* get the help user credit of the board */
@@ -335,7 +365,11 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	gcomprisBoard->credit = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	if(gcomprisBoard->credit)
+	  g_free(gcomprisBoard->credit);
+  
+	gcomprisBoard->credit = reactivate_newline(xmlNodeListGetString(doc, 
+									xmlnode->xmlChildrenNode, 1));
       }
 
     xmlnode = xmlnode->next;

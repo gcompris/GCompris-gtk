@@ -1,3 +1,10 @@
+2002-12-16  bruno  <bruno.coudoin@free.fr>
+
+	* src/boards/maze.c: (start_board), (maze_next_level), (repeat),
+	(one_step), (key_press), (key_press_3D), (update_tux): Implemented the proper direction for tux. Now in 3D mode, the kid cannot move tux while looking at the 2D map.
+	* src/gcompris/gameutil.c: (reactivate_newline),
+	(gcompris_add_xml_to_data): Fixed bad newline handling
+
 2002-12-15  bruno  <bruno.coudoin@free.fr>
 
 	* acconfig.h: Major changes all around to support GNOME2
