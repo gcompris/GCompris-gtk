@@ -1,0 +1,2466 @@
+# Serbian translation of gcompris
+# Courtesy of Prevod.org team (http://www.prevod.org/) -- 2003.
+#
+# This file is distributed under the same license as the gcompris package.
+#
+# Maintainer: Данило Шеган <dsegan@gmx.net>
+#
+# Warning: Color translations are not very good.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gcompris\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-09-19 00:54+0200\n"
+"PO-Revision-Date: 2003-09-19 00:53+0200\n"
+"Last-Translator: Данило Шеган <danilo@prevod.org>\n"
+"Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
+msgid "Advanced colors"
+msgstr "Напредне боје"
+
+#: boards/advanced_colors.xml.in.h:2 boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr "Уме да чита"
+
+#: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
+#: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
+#: src/boards/colors.c:75
+msgid "Click on the right color"
+msgstr "Кликните на праву боју"
+
+#: boards/advanced_colors.xml.in.h:4
+msgid "Click on the right colored box."
+msgstr "Кликните на кућицу одговарајуће боје."
+
+#: boards/advanced_colors.xml.in.h:5
+msgid "This board is dedicated to recognize unusual colors."
+msgstr "Ова табла је посвећена препознавању необичних боја."
+
+#: boards/advanced_colors/board1.xml.in.h:1
+msgid "almond"
+msgstr "бадемаста"
+
+#: boards/advanced_colors/board1.xml.in.h:2
+msgid "chestnut"
+msgstr "кестенаста"
+
+#: boards/advanced_colors/board1.xml.in.h:3
+msgid "claret"
+msgstr "црвенкаста"
+
+#: boards/advanced_colors/board1.xml.in.h:4
+msgid "cobalt"
+msgstr "кобалтна"
+
+#: boards/advanced_colors/board1.xml.in.h:5
+msgid "coral"
+msgstr "корална"
+
+#: boards/advanced_colors/board1.xml.in.h:6
+msgid "corn"
+msgstr "кукурузна"
+
+#: boards/advanced_colors/board1.xml.in.h:7
+msgid "cyan"
+msgstr "цијан"
+
+#: boards/advanced_colors/board1.xml.in.h:8
+msgid "sienna"
+msgstr "сијена"
+
+#: boards/advanced_colors/board2.xml.in.h:1
+msgid "lime"
+msgstr "жуто зелена"
+
+#: boards/advanced_colors/board2.xml.in.h:2
+msgid "sage"
+msgstr "кадифаста"
+
+#: boards/advanced_colors/board2.xml.in.h:3
+msgid "salmon"
+msgstr "лососна"
+
+#: boards/advanced_colors/board2.xml.in.h:4
+msgid "sapphire"
+msgstr "сафирна"
+
+#: boards/advanced_colors/board2.xml.in.h:5
+msgid "sepia"
+msgstr "црвеносмеђа"
+
+# или врста лептира, па онда „сулфурна“?
+#: boards/advanced_colors/board2.xml.in.h:6
+msgid "sulphur"
+msgstr "сумпорна"
+
+#: boards/advanced_colors/board2.xml.in.h:7
+msgid "tea"
+msgstr "чајна"
+
+#: boards/advanced_colors/board2.xml.in.h:8
+msgid "turquoise"
+msgstr "тиркизна"
+
+#: boards/advanced_colors/board3.xml.in.h:1
+msgid "absinthe"
+msgstr "пеленаста"
+
+#: boards/advanced_colors/board3.xml.in.h:2
+msgid "alabaster"
+msgstr "алабастер"
+
+#: boards/advanced_colors/board3.xml.in.h:3
+msgid "amber"
+msgstr "боја ћилибара"
+
+#: boards/advanced_colors/board3.xml.in.h:4
+msgid "amethyst"
+msgstr "аметисна"
+
+#: boards/advanced_colors/board3.xml.in.h:5
+msgid "anise"
+msgstr "онајз"
+
+#: boards/advanced_colors/board3.xml.in.h:6
+msgid "aquamarine"
+msgstr "маринско плава"
+
+#: boards/advanced_colors/board3.xml.in.h:7
+msgid "mahogany"
+msgstr "махагонијска"
+
+#: boards/advanced_colors/board3.xml.in.h:8
+#: boards/advanced_colors/board8.xml.in.h:8
+msgid "vermilion"
+msgstr "цинобер"
+
+#: boards/advanced_colors/board4.xml.in.h:1
+#: boards/advanced_colors/board5.xml.in.h:1
+msgid "aubergine"
+msgstr "плави патлиџан"
+
+#: boards/advanced_colors/board4.xml.in.h:2
+msgid "ceruse"
+msgstr "керусна"
+
+#: boards/advanced_colors/board4.xml.in.h:3
+msgid "chartreuse"
+msgstr "шартрез"
+
+#: boards/advanced_colors/board4.xml.in.h:4
+msgid "emerald"
+msgstr "емералд"
+
+#: boards/advanced_colors/board4.xml.in.h:5
+msgid "fawn"
+msgstr "ланена"
+
+#: boards/advanced_colors/board4.xml.in.h:6
+msgid "fuchsia"
+msgstr "фуксија"
+
+#: boards/advanced_colors/board4.xml.in.h:7
+msgid "glaucous"
+msgstr "глукозна"
+
+#: boards/advanced_colors/board4.xml.in.h:8
+msgid "ruby"
+msgstr "рубинска"
+
+#: boards/advanced_colors/board5.xml.in.h:2
+msgid "auburn"
+msgstr "кестењава"
+
+#: boards/advanced_colors/board5.xml.in.h:3
+msgid "azure"
+msgstr "азурна"
+
+#: boards/advanced_colors/board5.xml.in.h:4
+msgid "bistre"
+msgstr "бистра"
+
+#: boards/advanced_colors/board5.xml.in.h:5
+msgid "celadon"
+msgstr "жућкаста"
+
+#: boards/advanced_colors/board5.xml.in.h:6
+msgid "cerulean"
+msgstr "серална"
+
+#: boards/advanced_colors/board5.xml.in.h:7
+msgid "crimson"
+msgstr "тамноцрвена"
+
+#: boards/advanced_colors/board5.xml.in.h:8
+msgid "greyish-brown"
+msgstr "сивкасто-браон"
+
+#: boards/advanced_colors/board6.xml.in.h:1
+msgid "dove"
+msgstr "боја голуба"
+
+#: boards/advanced_colors/board6.xml.in.h:2
+msgid "garnet"
+msgstr "боја грана"
+
+#: boards/advanced_colors/board6.xml.in.h:3
+msgid "indigo"
+msgstr "индиго"
+
+#: boards/advanced_colors/board6.xml.in.h:4
+msgid "ivory"
+msgstr "слоновача"
+
+#: boards/advanced_colors/board6.xml.in.h:5
+msgid "jade"
+msgstr "жад"
+
+#: boards/advanced_colors/board6.xml.in.h:6
+msgid "lavender"
+msgstr "боја деспића"
+
+#: boards/advanced_colors/board6.xml.in.h:7
+msgid "lichen"
+msgstr "боја лишаја"
+
+#: boards/advanced_colors/board6.xml.in.h:8
+msgid "wine"
+msgstr "вино"
+
+#: boards/advanced_colors/board7.xml.in.h:1
+msgid "larch"
+msgstr "боја ариша"
+
+#: boards/advanced_colors/board7.xml.in.h:2
+msgid "lilac"
+msgstr "лила"
+
+#: boards/advanced_colors/board7.xml.in.h:3
+msgid "magenta"
+msgstr "магента"
+
+#: boards/advanced_colors/board7.xml.in.h:4
+msgid "malachite"
+msgstr "малахитна"
+
+#: boards/advanced_colors/board7.xml.in.h:5
+msgid "mimosa"
+msgstr "мимоза"
+
+#: boards/advanced_colors/board7.xml.in.h:6
+msgid "navy"
+msgstr "морнарска"
+
+#: boards/advanced_colors/board7.xml.in.h:7
+msgid "ochre"
+msgstr "окер"
+
+#: boards/advanced_colors/board7.xml.in.h:8
+msgid "olive"
+msgstr "љубичаста"
+
+#: boards/advanced_colors/board8.xml.in.h:1
+msgid "greyish blue"
+msgstr "сивкасто плава"
+
+#: boards/advanced_colors/board8.xml.in.h:2
+msgid "mauve"
+msgstr "слезова боја"
+
+#: boards/advanced_colors/board8.xml.in.h:3
+msgid "opaline"
+msgstr "опална"
+
+#: boards/advanced_colors/board8.xml.in.h:4
+msgid "pistachio"
+msgstr "боја морског лешника"
+
+#: boards/advanced_colors/board8.xml.in.h:5
+msgid "platinum"
+msgstr "платинаста"
+
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+msgid "purple"
+msgstr "пурпурна"
+
+#: boards/advanced_colors/board8.xml.in.h:7
+msgid "ultramarine"
+msgstr "ултрамаринска"
+
+#: boards/advanced_colors/board9.xml.in.h:1
+msgid "dark purple"
+msgstr "тамно пурпурна"
+
+#: boards/advanced_colors/board9.xml.in.h:2
+msgid "plum"
+msgstr "шљива"
+
+#: boards/advanced_colors/board9.xml.in.h:3
+msgid "prussian blue"
+msgstr "пруска плава"
+
+#: boards/advanced_colors/board9.xml.in.h:4
+msgid "rust"
+msgstr "рђа"
+
+#: boards/advanced_colors/board9.xml.in.h:5
+msgid "saffron"
+msgstr "шафрон"
+
+#: boards/advanced_colors/board9.xml.in.h:6
+msgid "vanilla"
+msgstr "ванила"
+
+#: boards/advanced_colors/board9.xml.in.h:7
+msgid "verdigris"
+msgstr "бакарна"
+
+#: boards/advanced_colors/board9.xml.in.h:8
+msgid "veronese"
+msgstr "веронезна"
+
+#: boards/algebra_by.xml.in.h:1
+msgid ""
+"A multiplication of two numbers is displayed. At the right of the equal "
+"sign, give the answer. Use the left and right arrow to modify your answer, "
+"the return key to validate an answer"
+msgstr ""
+"Приказан је производ два броја. На десној страни од знака једнакости унесите "
+"одговор. Користите леву и десну стрелицу да измените одговор, и ентер да "
+"проверите одговор"
+
+# bug: I Ask -> I'll ask
+#: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
+#: boards/algebra_plus.xml.in.h:2
+msgid "I Ask you some algebra questions"
+msgstr "Поставићу ти пар питања из алгебре"
+
+#: boards/algebra_by.xml.in.h:3
+msgid "In a limited time, give the result to the multiplication of two numbers"
+msgstr "У ограниченом времену дајте резултат производа два броја"
+
+#: boards/algebra_by.xml.in.h:4
+msgid "Multiplication table"
+msgstr "Таблица множења"
+
+#: boards/algebra_by.xml.in.h:5
+msgid "Practice the multiplication operation"
+msgstr "Вежбајте операцију множења"
+
+#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "Иди на алгебарске вежбе"
+
+#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Леви клик миша за избор вежбе"
+
+#: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) Ralf has given gcompris the authorization to include "
+"his pictures. Thanks a lot Ralf."
+msgstr ""
+"Слике животиња су узете са странице о фотографијама животиња Ралфа Шмодеа "
+"(Ralf Schmode — http://schmode.net/). Ралф је одобрио укључивање његових "
+"слика у гкомприс. Хвала много Ралф."
+
+#: boards/algebra_guesscount.xml.in.h:2
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgstr ""
+"Смислите начин за уређивање скупа аритметичких операција за добијање "
+"вредности"
+
+#: boards/algebra_guesscount.xml.in.h:3
+msgid "Find the correct operations to get the result"
+msgstr "Нађите исправне операције за добијање резултата"
+
+#: boards/algebra_guesscount.xml.in.h:4
+msgid "The four arithmetic operations. Combine several arithmetic operations"
+msgstr "Четири аритметичке операције. Слагање више аритметичких операција"
+
+#: boards/algebra_guesscount.xml.in.h:5
+msgid ""
+"To compose your operations, choose your numbers and arithmetic operators at "
+"the top of the board area. These numbers and operators can be unselected by "
+"clicking on them."
+msgstr ""
+"Да саставите ваше операције, изаберите бројеве и аритметичке знакове на врху "
+"табле. Ови бројеви и знаци операција се могу отпустити кликом на њих."
+
+#: boards/algebra_guesscount.xml.in.h:6
+msgid ""
+"With displayed numbers and operations, find the right combination to get the "
+"right result"
+msgstr ""
+"Пронађите одговарајућу комбинацију за приказане бројеве и операције, тако да "
+"резултат буде тачан"
+
+#: boards/algebra_minus.xml.in.h:1
+msgid ""
+"A substraction of two numbers is displayed. At the right of the equal sign, "
+"give the answer. Use the left and right arrow to modify your answer, the "
+"return key to validate an answer"
+msgstr ""
+"Приказана је разлика два броја. Унесите одговор на десној страни знака "
+"једнакости. Користите стрелице за лево и десно да измените одговор, а тастер "
+"ентер да га проверите."
+
+#: boards/algebra_minus.xml.in.h:3
+msgid "In a limited time, give the result to the substraction of two numbers"
+msgstr "У ограниченом времену, дајте резултат разлике два броја"
+
+#: boards/algebra_minus.xml.in.h:4
+msgid "Practice the substraction operation"
+msgstr "Вежбајте операцију одузимања"
+
+#: boards/algebra_minus.xml.in.h:5
+msgid "Simple substraction"
+msgstr "Једноставно одузимање"
+
+#: boards/algebra_plus.xml.in.h:1
+msgid ""
+"An addition of two numbers is displayed. At the right of the equal sign, "
+"give the answer. Use the left and right arrow to modify your answer, the "
+"return key to validate an answer"
+msgstr ""
+"Приказан је збир два броја. На десној страни знака једнакости, упишите "
+"одговор. Користите стрелице за лево и десно за измену одговора, а притисните "
+"ентер да проверите ваш одговор"
+
+#: boards/algebra_plus.xml.in.h:3
+msgid "In a limited time, give the result to the addition of two numbers"
+msgstr "У ограниченом времену, дајте резултат збира два броја"
+
+#: boards/algebra_plus.xml.in.h:4
+msgid "Practice the addition operation"
+msgstr "Вежбајте операцију сабирања"
+
+#: boards/algebra_plus.xml.in.h:5
+msgid "Simple addition"
+msgstr "Једноставно сабирање"
+
+#: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
+#: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
+#: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1
+msgid "Drag and Drop the items to make them match"
+msgstr "Превуците и пустите ставке да би их упарили"
+
+#: boards/babymatch.xml.in.h:2
+msgid ""
+"In the main board area, a set of objects are printed. In the vertical frame "
+"- at the left of the main board area, another set of objects are printed, "
+"each of these objects match with exactly one object of the main board area. "
+"The logical link between these objects must be found. This is achieved by "
+"dragging the objects to the right red plots in the main area."
+msgstr ""
+"Исписан је скуп објеката на главној површини табле. У усправном оквиру — са "
+"леве стране главне површине — исписан је још један скуп објеката, тако са "
+"сваки од ових одговара тачно једном објекту са главне површине. Потребно је "
+"пронаћи логичку везу између ових објеката. Ово се постиже превлачењем "
+"објеката на црвене позиције десно на главној површини."
+
+#: boards/babymatch.xml.in.h:3
+msgid "Matching Items"
+msgstr "Упарене ставке"
+
+#: boards/babymatch.xml.in.h:4
+msgid "Motor coordination. Concept match."
+msgstr "Управљање покретима. Упаривање концепта."
+
+#: boards/babymatch.xml.in.h:5 boards/paintings.xml.in.h:4
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr "Управљање мишем: кретање, превлачење и пуштање"
+
+#: boards/babyshapes.xml.in.h:1
+msgid "Baby Shape Puzzle"
+msgstr "Слагалица облика за бебе"
+
+#: boards/babyshapes.xml.in.h:2
+msgid "Drag and Drop the shapes on their respective target"
+msgstr "Превуци и пусти облике на одговарајуће место"
+
+#: boards/babyshapes.xml.in.h:3
+msgid "Good mouse control"
+msgstr "Добро управљање мишем"
+
+#: boards/babyshapes.xml.in.h:4
+msgid "The dog is provided by Andre Connes and released under the GPL"
+msgstr "Куче је обезбедио Андре Конес (Connes) и објавио под ОЈЛ (GPL)"
+
+#: boards/babyshapes/board5_0.xml.in.h:1
+msgid "Hello ! My name is Lock."
+msgstr "Здраво! Моје име је Брана."
+
+#: boards/babyshapes/board6_0.xml.in.h:1
+msgid "Lock on grass."
+msgstr "Брана на трави."
+
+#: boards/babyshapes/board7_0.xml.in.h:1
+msgid "Lock with colored shapes."
+msgstr "Брана са обојеним облицима."
+
+#: boards/boards.xml.in.h:1
+msgid "Go to board based activities"
+msgstr "Иди на радње на табли"
+
+#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
+msgid "Operate a canal lock"
+msgstr "Радите са браном на каналу"
+
+#: boards/canal_lock.xml.in.h:2
+msgid ""
+"Tux is in trouble in his ship, he needs to take through a lock. Help Tux and "
+"understand how a canal lock works."
+msgstr ""
+"Пингослав је у невољи на броду, мора да прође кроз брану. Помозите "
+"Пингославу и провалите како ради брана у каналу."
+
+#: boards/canal_lock.xml.in.h:3
+msgid ""
+"You are in charge of the canal lock. You have to open the gates and the "
+"lockgates in the right order. Let Tux travel through the gates in the two "
+"ways."
+msgstr ""
+"Ви управљате браном на каналу. Морате да отворите капије у правом редоследу. "
+"Омогућите Пингославу да прође кроз капије на два начина."
+
+#: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
+msgid "Play chess against the computer in a learning mode"
+msgstr "Играјте шах против рачунара док учите"
+
+#: boards/chess.xml.in.h:2
+msgid "Practice chess"
+msgstr "Вежбајте шах"
+
+#: boards/chess_computer.xml.in.h:1 boards/chess_movelearn.xml.in.h:2
+#: boards/chess_partyend.xml.in.h:1
+msgid "Learning chess"
+msgstr "Учење шаха"
+
+#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
+#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
+#: boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr "Баратање мишем"
+
+#: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
+#: boards/chess_partyend.xml.in.h:4
+msgid "The chess engine is the gnuchess."
+msgstr "Систем за шах је Гнуов шах (gnuchess)."
+
+#: boards/chess_movelearn.xml.in.h:1
+msgid "Chess training. Catch the computer's pawns."
+msgstr "Вежбање шаха. Ухватите пешаке рачунара."
+
+#: boards/chess_partyend.xml.in.h:3
+msgid "Play end of chess game against the computer"
+msgstr "Играјте крај шаховске игре против рачунара"
+
+#: boards/click_on_letter.xml.in.h:1
+msgid ""
+"A letter is spelled. Click on the corresponding letter in the main area. You "
+"can hear again the letter by clicking on the speaker icon in the bottom "
+"horizontal frame."
+msgstr ""
+"Слово је изговорено. Кликните на одговарајуће слово на главној површини. "
+"Изговор можете поново чути ако кликнете на сличицу звучника у дну водоравног "
+"оквира."
+
+#: boards/click_on_letter.xml.in.h:2
+msgid "Click on a letter"
+msgstr "Кликните на слово"
+
+#: boards/click_on_letter.xml.in.h:3
+msgid "Hear a letter and click on the right letter"
+msgstr "Почујте слово и кликните на право слово"
+
+#: boards/click_on_letter.xml.in.h:4
+msgid "Letter recognition"
+msgstr "Препознавање слова"
+
+#: boards/click_on_letter.xml.in.h:5 boards/leftright.xml.in.h:5
+#: boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "Ниједно"
+
+#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
+msgid "Click On Me"
+msgstr "Кликните на мене"
+
+#: boards/clickgame.xml.in.h:2
+msgid ""
+"Fish are taken from the Unix utility xfishtank. Images are taken from the "
+"National Undersea Research Program (NURP) Collection at http://www.photolib."
+"noaa.gov All images credit bellongs to the OAR/National Undersea Research "
+"Program (NURP). Except for the first image that also credits the University "
+"of North Carolina at Wilmington. In the gcompris level order, images "
+"information is: Location: Tropical Atlantic Ocean, Florida Keys (image "
+"nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) "
+"Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
+"Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
+msgstr ""
+"Риба је покупљена из Уникс алата xfishtank. Слике су покупљене из колекције "
+"„Државног програма подводног истраживања“ (NURP) са http://www.photolib.noaa."
+"gov Све заслуге за слике припадају OAR/NURP-у. Осим прве слике за коју је "
+"такође заслужан Универзитет Северне Каролине у Вилмингтону. Према распореду "
+"нивоа, подаци о сликама су: Место: Тропски Атлански океан, Кључеви Флориде "
+"(слика nur00523) Фотограф: D. Kesling Место: Кључеви Флориде (слика "
+"nur03006) Место: непознато (слика nur03505) Место: непознато (слика "
+"nur03010) Место: непознато (слика nur03011) Место: непознато (слика nur03013)"
+
+#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
+msgid ""
+"Left-Click with the mouse on all swimming fishes before they leave the "
+"fishtank"
+msgstr ""
+"Кликните левим тастером миша на све покретне рибе пре него што отпливају из "
+"акваријума"
+
+#: boards/clickgame.xml.in.h:4
+msgid ""
+"Motor coordination: mouse mouvement and mouse click. The goal is just to "
+"click with the left mouse button on the moving fish."
+msgstr ""
+"Управљање покретима: кретање и кликтање миша. Циљ је само да кликнете леви "
+"тастер миша на покретне рибе."
+
+#: boards/clockgame.xml.in.h:1
+msgid ""
+"Distinguish differences between hour, minute and second. Compose a time in a "
+"clock"
+msgstr ""
+"Уочите разлике између часа, минута и секунди. Сачините време за часовник"
+
+#: boards/clockgame.xml.in.h:2
+msgid ""
+"For each printed hour (hours:minutes or hours:minutes:seconds) manipulate "
+"the corresponding arrow to set the clock time matching the given hour. The "
+"different arrows can be turned by selecting them and moving the mouse"
+msgstr ""
+"За свако исписано време (час:минут или час:минут:секунде) поставите "
+"одговарајућу казаљку тако да сат показује исправно време. Све казаљке се "
+"могу окретати тако што се изаберу и затим се помера миш"
+
+#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
+#: src/boards/clockgame.c:78
+msgid "Learn how to read the time"
+msgstr "Научите да гледате на сат"
+
+#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
+#: src/boards/clockgame.c:77
+msgid "Learning Clock"
+msgstr "Читање времена"
+
+# bug: what???
+#: boards/clockgame.xml.in.h:5
+msgid "Time concept Time reading"
+msgstr "Концепт времена Читање времена"
+
+#: boards/colors.xml.in.h:1
+msgid "Can move the mouse."
+msgstr "Уме да покреће миша."
+
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
+msgid "Colors"
+msgstr "Боје"
+
+#: boards/colors.xml.in.h:4
+msgid "Hear the color and click on the toon."
+msgstr "Саслушајте боју и кликните на свраку."
+
+#: boards/colors.xml.in.h:5
+msgid ""
+"This board is dedicated to train kids to recognize colors. Several colored "
+"toons are displayed and a color is spoken. The kid must select the proper "
+"toon."
+msgstr ""
+"Ова табла је намењена учењу деце да препознају боје. Приказује се неколико "
+"обојених сврака, и боја је изговорена. Дете треба да изабере одговарајућу "
+"свраку."
+
+#: boards/colors_group.xml.in.h:1
+msgid "Go to colors activities"
+msgstr "Иди на вежбе са бојама"
+
+#: boards/computer.xml.in.h:1
+msgid "Discover the Computer"
+msgstr "Откријте рачунар"
+
+#: boards/doubleentry.xml.in.h:1
+msgid "Basic counting skills"
+msgstr "Основне способности пребројавања"
+
+#: boards/doubleentry.xml.in.h:2
+msgid "Double entry table"
+msgstr "Табела са двоструким уносом"
+
+#: boards/doubleentry.xml.in.h:3
+msgid "Drag and Drop proposed items to their destination"
+msgstr "Превуците и пустите препоручене ставке на њихово одредиште"
+
+#: boards/doubleentry.xml.in.h:4
+msgid "Drag and Drop the items in the double entry table"
+msgstr "Превуците и пустите ставке у табелу са двоструким уносом"
+
+#: boards/doubleentry.xml.in.h:5
+msgid ""
+"The children must move the items on the left to their proper destination in "
+"the double entry table."
+msgstr ""
+"Деца морају да преместе ставке са леве стране на одговарајуће место у табели "
+"са двоструким уносом."
+
+#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+msgid "A simple vector drawing tool"
+msgstr "Једноставно векторско цртање"
+
+#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+msgid "Creative board where you can freely draw"
+msgstr "Уметничка табла на којој можете слободно да цртате"
+
+#: boards/draw.xml.in.h:3
+msgid ""
+"In this game, the children will be able to freely draw. The goal is just to "
+"discover how he can create pretty looking drawings based on basic shapes: "
+"rectangles, ellipses and lines."
+msgstr ""
+"У овој игри, деца могу слободно да цртају. Циљ је да сазнамо како могу да "
+"направе лепе слике из основних облика: правоугаоника, елипси и правих."
+
+#: boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Потребно је лако баратати мишем и умети кликнути"
+
+#: boards/draw.xml.in.h:5
+msgid ""
+"On the left select a drawing tool, on the bottom select a color then click "
+"on the white area and drag to create a new shape. To go faster, you can use "
+"the middle mouse button to delete an object."
+msgstr ""
+"На левој страни изаберите алат за цртање, на дну изаберите боју и затим "
+"кликните на белу површину и вуците да бисте направили нови облик. За бржи "
+"рад, можете користити средње дугме миша да обришете објекат."
+
+#: boards/enumerate.xml.in.h:1
+msgid "Count the items"
+msgstr "Преброј ставке"
+
+#: boards/enumerate.xml.in.h:2 boards/planegame.xml.in.h:2
+msgid "Number"
+msgstr "Број"
+
+#: boards/enumerate.xml.in.h:3 boards/planegame.xml.in.h:4
+#: src/boards/enumerate.c:91
+msgid "Numeration training"
+msgstr "Вежба пребројавања"
+
+#: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
+msgid "Place the items in the best way to count them"
+msgstr "Уреди ставке за што лакше бројање"
+
+#: boards/erase.xml.in.h:2
+msgid "Motor coordination"
+msgstr "Управљање покретима"
+
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+msgid "Move the mouse"
+msgstr "Померајте миша"
+
+#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "Померајте миша да обришете површину и угледате позадину"
+
+#: boards/erase.xml.in.h:6
+msgid "Move the mouse until all the blocks disapear."
+msgstr "Померајте миша док не нестану сви блокови."
+
+#: boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block deside him. It will be swapped with "
+"the empty block."
+msgstr ""
+"Кликните на било коју ставку која садржи слободан блог поред себе. Биће "
+"замењена са празним блоком."
+
+# increasing number -> increasing order
+#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr "Преместите ставке једну по једну да их поређате у растући поредак"
+
+#: boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr "Изворни кôд преузет из примера за libgnomecanvas"
+
+# bug: unclear: "15th game" or "game of fifteen"
+#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr "Игра петнаест"
+
+#: boards/fun.xml.in.h:1
+msgid "Go to Amusement activities"
+msgstr "Иди забавне вежбе"
+
+#: boards/geography.xml.in.h:1
+msgid "Drag and Drop the items to redraw the complete map"
+msgstr "Превуците и пустите ставке да исцртате целу карту"
+
+#: boards/geography.xml.in.h:2
+msgid "Place the lands"
+msgstr "Разместите континенте"
+
+#: boards/geography/board1_0.xml.in.h:1
+msgid "North America"
+msgstr "Северна Америка"
+
+#: boards/geography/board2_0.xml.in.h:1
+msgid "South America"
+msgstr "Јужна Америка"
+
+#: boards/geography/board3_0.xml.in.h:1
+msgid "West Europe"
+msgstr "Западна Европа"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "East Europe"
+msgstr "Источна Европа"
+
+#: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
+msgid "Keyboard manipulation"
+msgstr "Баратање тастатуром"
+
+#: boards/gletters.xml.in.h:2
+msgid "Letter recognition between the screen and the keyboard"
+msgstr "Препознавање слова на екрану и тастатури"
+
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
+msgid "Simple Letters"
+msgstr "Једноставна слова"
+
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
+msgid "Type the falling letters before they reach the ground"
+msgstr "Укуцајте падајућа слова пре него што стигну до земље"
+
+#: boards/hanoi.xml.in.h:1
+msgid "Drag and Drop the top piece only on an empty location"
+msgstr "Превуците и пустите горњи комад једино на празно место"
+
+# bug: than the one -> like the one
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
+msgid "Reproduce in the empty area the same tower than the one on the right"
+msgstr "Направите на празном месту исту кулу као она на десној страни"
+
+#: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
+msgid "Reproduce the given tower"
+msgstr "Направите дату кулу"
+
+#: boards/hanoi.xml.in.h:5 src/boards/hanoi.c:104
+msgid "Simplified Tower of Hanoi"
+msgstr "Поједностављене Ханојске куле"
+
+#: boards/hanoi.xml.in.h:6
+msgid "Taken the concept from the EPI games."
+msgstr "Идеја преузета из EPI игрица."
+
+#: boards/imageid.xml.in.h:1
+msgid "Click on the word corresponding to the printed image."
+msgstr "Кликните на реч која одговара слици."
+
+#: boards/imageid.xml.in.h:2
+msgid "Practice reading by finding the word matching an image"
+msgstr "Вежба читања проналажењем речи која одговара слици"
+
+#: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
+#: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
+#: src/boards/imageid.c:109 src/boards/missingletter.c:101
+#: src/boards/reading.c:100
+msgid "Reading"
+msgstr "Читање"
+
+#: boards/imageid.xml.in.h:4
+msgid "Reading pratice"
+msgstr "Вежба читања"
+
+#: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
+msgid "apple"
+msgstr "јабука"
+
+#: boards/imageid/board1.xml.in.h:2
+msgid "back"
+msgstr "назад"
+
+#: boards/imageid/board1.xml.in.h:3
+msgid "bag"
+msgstr "кеса"
+
+#: boards/imageid/board1.xml.in.h:4 boards/imagename/board6_0.xml.in.h:2
+msgid "ball"
+msgstr "лопта"
+
+#: boards/imageid/board1.xml.in.h:5
+msgid "banana"
+msgstr "банана"
+
+#: boards/imageid/board1.xml.in.h:6
+msgid "bed"
+msgstr "кревет"
+
+#: boards/imageid/board1.xml.in.h:7
+msgid "boat"
+msgstr "чамац"
+
+#: boards/imageid/board1.xml.in.h:8
+msgid "book"
+msgstr "књига"
+
+#: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
+msgid "bottle"
+msgstr "боца"
+
+#: boards/imageid/board1.xml.in.h:10
+msgid "cake"
+msgstr "колач"
+
+#: boards/imageid/board1.xml.in.h:11
+msgid "camel"
+msgstr "камила"
+
+#: boards/imageid/board1.xml.in.h:12 boards/imagename/board4_0.xml.in.h:4
+msgid "car"
+msgstr "кола"
+
+#: boards/imageid/board1.xml.in.h:13
+msgid "cat"
+msgstr "мачка"
+
+#: boards/imageid/board1.xml.in.h:14
+msgid "catch"
+msgstr "замка"
+
+#: boards/imageid/board1.xml.in.h:15
+msgid "cheese"
+msgstr "сир"
+
+#: boards/imageid/board1.xml.in.h:16
+msgid "cow"
+msgstr "крава"
+
+#: boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr "пас"
+
+#: boards/imageid/board1.xml.in.h:18
+msgid "finish"
+msgstr "завршетак"
+
+#: boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr "риба"
+
+#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
+msgid "house"
+msgstr "кућа"
+
+#: boards/imageid/board1.xml.in.h:21
+msgid "pear"
+msgstr "крушка"
+
+#: boards/imageid/board1.xml.in.h:22
+msgid "plane"
+msgstr "авион"
+
+#: boards/imageid/board1.xml.in.h:23
+msgid "satchel"
+msgstr "торба"
+
+#: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
+#: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
+#: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
+#: boards/imagename/board6_0.xml.in.h:1
+msgid "Drag and Drop the items above their written name"
+msgstr "Превуците и пустите ставке изнад њихових исписаних имена"
+
+#: boards/imagename.xml.in.h:2
+msgid "Image Name"
+msgstr "Име слике"
+
+#: boards/imagename.xml.in.h:3
+msgid ""
+"In the main board area, a set of red plots associated with work are printed. "
+"In the vertical frame - at the left of the main board area, a set of objects "
+"are represented, each of these objects match with one word of the main board "
+"area. The right association must be find for these objects. This is achieved "
+"by dragging the objects to the right red plot in the main area."
+msgstr ""
+"На главној површини табле, исцран је скуп црвених места везаних за рад. У "
+"усправном оквиру — са леве стране главне површине — представљен је скуп "
+"објеката, а сваки од ових објеката одговара једној речи са главне површине. "
+"Потребно је пронаћи исправну везу за ове објекте. Ово се постиже превлачењем "
+"објеката на црвена места на главној површини."
+
+#: boards/imagename.xml.in.h:5
+msgid "Vocabulary and reading"
+msgstr "Речник и читање"
+
+#: boards/imagename/board1_0.xml.in.h:2
+msgid "bulb"
+msgstr "сијалица"
+
+#: boards/imagename/board1_0.xml.in.h:3
+msgid "fishing boat"
+msgstr "рибарски чамац"
+
+#: boards/imagename/board1_0.xml.in.h:4
+msgid "lamp"
+msgstr "лампа"
+
+#: boards/imagename/board1_0.xml.in.h:5
+msgid "mail box"
+msgstr "сандуче"
+
+#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:3
+msgid "postcard"
+msgstr "разгледница"
+
+#: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
+#: boards/imagename/board6_0.xml.in.h:7
+msgid "sailing boat"
+msgstr "једрењак"
+
+#: boards/imagename/board2_0.xml.in.h:3
+msgid "egg"
+msgstr "јаје"
+
+#: boards/imagename/board2_0.xml.in.h:4
+msgid "eggcup"
+msgstr "сталак за јаје"
+
+#: boards/imagename/board2_0.xml.in.h:5
+msgid "flower"
+msgstr "цвет"
+
+#  Class page:
+#: boards/imagename/board2_0.xml.in.h:6
+msgid "glass"
+msgstr "стакло"
+
+#: boards/imagename/board2_0.xml.in.h:7
+msgid "vase"
+msgstr "ваза"
+
+#: boards/imagename/board3_0.xml.in.h:3
+msgid "light house"
+msgstr "светионик"
+
+#: boards/imagename/board3_0.xml.in.h:4
+msgid "rocket"
+msgstr "ракета"
+
+#: boards/imagename/board3_0.xml.in.h:6
+msgid "sofa"
+msgstr "кауч"
+
+#: boards/imagename/board3_0.xml.in.h:7 boards/imagename/board5_0.xml.in.h:5
+msgid "star"
+msgstr "звезда"
+
+#: boards/imagename/board4_0.xml.in.h:3
+msgid "bicycle"
+msgstr "бицикла"
+
+#: boards/imagename/board4_0.xml.in.h:5
+msgid "carrot"
+msgstr "шаргарепа"
+
+#: boards/imagename/board4_0.xml.in.h:6
+msgid "grater"
+msgstr "треница"
+
+#: boards/imagename/board4_0.xml.in.h:7
+msgid "tree"
+msgstr "дрво"
+
+#: boards/imagename/board5_0.xml.in.h:2
+msgid "pencil"
+msgstr "оловка"
+
+#: boards/imagename/board5_0.xml.in.h:4
+msgid "spruce"
+msgstr "оморика"
+
+#: boards/imagename/board5_0.xml.in.h:6
+msgid "truck"
+msgstr "камион"
+
+#: boards/imagename/board5_0.xml.in.h:7
+msgid "van"
+msgstr "комби"
+
+#: boards/imagename/board6_0.xml.in.h:3
+msgid "castle"
+msgstr "дворац"
+
+#: boards/imagename/board6_0.xml.in.h:4
+msgid "crown"
+msgstr "круна"
+
+#: boards/imagename/board6_0.xml.in.h:5
+msgid "flag"
+msgstr "застава"
+
+#: boards/imagename/board6_0.xml.in.h:6
+msgid "racket"
+msgstr "рекет"
+
+#: boards/leftright.xml.in.h:1
+msgid ""
+"A hand is printed. You have to tell if this is the right or left hand. Click "
+"on the red button - at the left - or on the green button - at the right."
+msgstr ""
+"Нацртана је шака. Треба да кажете да ли је то десна или лева шака. Кликните "
+"на црвено дугме за лево, или зелено дугме за десно."
+
+#: boards/leftright.xml.in.h:2
+msgid ""
+"Distinguish from different point of view the left hand from the right hand. "
+"Spatial representation"
+msgstr ""
+"Разликујте леву шаку од десне гледањем из разних тачака. Просторна представа"
+
+#: boards/leftright.xml.in.h:3 src/boards/leftright.c:106
+msgid "Find your left and right hands"
+msgstr "Нађите вашу леву или десну шаку"
+
+#: boards/leftright.xml.in.h:4 src/boards/leftright.c:107
+msgid "Given hands pictures, find if it's a right or left one"
+msgstr "За дате слике шака, откријте да ли је у питању десна или лева"
+
+#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+msgid "Can use the keyboard arrow to move an object."
+msgstr "Уме да користи стрелице на тастатури да премести предмет."
+
+#: boards/maze.xml.in.h:2 src/boards/maze.c:127
+msgid "Find your way out of the maze"
+msgstr "Пронађите пут из лавиринта"
+
+#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+msgid "Help Tux get out of this maze."
+msgstr "Помозите Пингославу да изађе из лавиринта."
+
+#: boards/maze.xml.in.h:4 src/boards/maze.c:126
+msgid "Maze"
+msgstr "Лавиринт"
+
+#: boards/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Користите стрелице на тастатури да довучете Пингослава до врата."
+
+#: boards/maze3D.xml.in.h:1
+msgid "3D Maze"
+msgstr "3Д лавиринт"
+
+#: boards/maze3D.xml.in.h:3
+msgid "Find your way out of the 3D maze"
+msgstr "Пронађите излаз из 3Д лавиринта"
+
+#: boards/maze3D.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
+"switch between 2D and 3D mode"
+msgstr ""
+"Користите стрелице на тастатури да довучете Пингослава до врата. Користите "
+"тастер за размак да се пребаците у 2Д или 3Д режим"
+
+#: boards/memory.xml.in.h:1
+msgid ""
+"A set of blink cards is printed. Each pair is associated by the same picture "
+"in their hidden faces. When clicking on a card, you can uncover the card and "
+"see its hidden picture. However you can only see two hidden pictures at "
+"once. You have to remember the position of the pictures to associate them. "
+"To remove a pair of card, uncover both of them."
+msgstr ""
+"Исцран је скуп трепћућих карата. Сваки пар је повезан истом сликом на "
+"сакривеним странама. Када кликнете на карту, откривате је и видите сакривену "
+"слику. Међутим, истовремено можете видети највише две сакривене слике. Треба "
+"да запамтите места слика да бисте их повезали. Да уклоните пара карата, "
+"откријте их обе."
+
+#: boards/memory.xml.in.h:2
+msgid "Discover the cards and find a matching pair"
+msgstr "Откријте карте и нађите пара"
+
+#: boards/memory.xml.in.h:3
+msgid "Memory Game with images"
+msgstr "Игра памћења са сликама"
+
+#: boards/memory.xml.in.h:5
+msgid "Train your memory and remove all the cards"
+msgstr "Вежбајте ваше памћење и уклоните све карте"
+
+#: boards/menu.xml.in.h:1
+msgid "GCompris Main Menu"
+msgstr "Главни мени ГКомприса"
+
+# bug: "is an educational games" -> "is an educational game"/"is a set of educational games"
+#: boards/menu.xml.in.h:2
+msgid ""
+"GCompris is an educational games that provides different activities to "
+"children from 3 to 8 years old."
+msgstr ""
+"ГКомприс је скуп образовних игара које обезбеђују разне вежбе за децу од 3 "
+"до 8 година старости."
+
+#: boards/menu.xml.in.h:4
+msgid ""
+"The goal of gcompris is to provide a free alternative to popular proprietary "
+"edutainment software"
+msgstr ""
+"Циљ гкомприса је да обезбеди слободан програм као замена за популарне "
+"власничке образовне програме"
+
+# bug: not very clear
+#: boards/menu.xml.in.h:5
+msgid ""
+"To use it, a simple click on an icon brings you to an activity or a menu. At "
+"the bottom of the screen, you have the gcompris control bar. From right to "
+"left, bellow is the meaning of the icons. Note that these icons are "
+"displayed only when available in an activity: Home - Back to previous menu "
+"or exit gcompris if no more Thumb - OK, confirm your answer Dice - The "
+"current level is displayed. Click on it to select another level Music note - "
+"Ask gcompris to repeat the question Question Mark - The help Tool Box - The "
+"configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to "
+"4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
+msgstr ""
+"Да користите, једноставан клик на икону вам приказује вежбу или мени. У дну "
+"екрана се налази управљачка трака гкомприса. Са десна на лево, испод је "
+"значење икона. Обратите пажњу да се ове иконе приказују само ако су доступне "
+"у вежби: Почетак — назад за претходни мени или излаз из гкомприса ако нема "
+"више ништа. Палац — у реду, потврда вашег одговора. Коцкица — приказује "
+"текући ниво (кликните на њега да изаберете неки други ниво). Музичка нота — "
+"нека гкомприс понови питање. Знак питања — помоћ. Алатница — мени са "
+"подешавањима. Пингослав у лету — о програму. Звезде значе: 1 звезда — 3 до 4 "
+"године; 2 звезде — 5 до 6 година; 3 звезде — 7 до 8 година старости"
+
+#: boards/missing_letter.xml.in.h:1
+msgid ""
+"An object is displayed in the main area. An incomplete word is printed under "
+"the picture. Select the missing letter to complete the word."
+msgstr ""
+"Приказан је објекат на главној површини. Непотпуна реч је исписана испод "
+"слике. Изаберите недостајуће слово да допуните реч."
+
+#: boards/missing_letter.xml.in.h:2
+msgid "Fill up the missing letter"
+msgstr "Попуните недостајуће слово"
+
+#: boards/missing_letter.xml.in.h:3
+msgid "Missing Letter"
+msgstr "Недостајуће слово"
+
+#: boards/missing_letter.xml.in.h:4
+msgid "Train reading skill"
+msgstr "Вежбајте читање"
+
+#: boards/missing_letter.xml.in.h:5
+msgid "Word reading"
+msgstr "Читање речи"
+
+#: boards/missing_letter/board1.xml.in.h:1
+msgid "apple/_pple/a/i/o"
+msgstr "јабука/_абука/ј/з/л"
+
+#: boards/missing_letter/board1.xml.in.h:2
+msgid "apple/app_e/l/h/n"
+msgstr "јабука/ја_ука/б/р/н"
+
+#: boards/missing_letter/board1.xml.in.h:3
+msgid "apple/appl_/e/h/a"
+msgstr "јабука/јаб_ка/у/е/а"
+
+#: boards/missing_letter/board1.xml.in.h:4
+msgid "ball/_all/b/p/d"
+msgstr "лопта/_опта/л/п/д"
+
+#: boards/missing_letter/board1.xml.in.h:5
+msgid "ball/b_ll/a/u/o"
+msgstr "лопта/л_пта/о/а/у"
+
+#: boards/missing_letter/board1.xml.in.h:6
+msgid "ball/bal_/l/h/s"
+msgstr "лопта/лоп_а/т/р/к"
+
+#: boards/missing_letter/board1.xml.in.h:7
+msgid "banana/_anana/b/p/d"
+msgstr "банана/_анана/б/п/џ"
+
+#: boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr "банана/б_нана/а/и/о"
+
+#: boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr "банана/ба_ана/н/м/б"
+
+#: boards/missing_letter/board1.xml.in.h:10
+msgid "bed/_ed/b/l/f"
+msgstr "кревет/_ревет/к/д/е"
+
+#: boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr "кревет/к_евет/р/л/м"
+
+#: boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr "кревет/кре_ет/в/т/п"
+
+#: boards/missing_letter/board1.xml.in.h:13
+msgid "bottle/_ottle/b/t/p"
+msgstr "боца/_оца/б/д/р"
+
+#: boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr "боца/б_ца/о/е/и"
+
+#: boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr "боца/бо_а/ц/и/р"
+
+#: boards/missing_letter/board1.xml.in.h:16
+msgid "cake/_ake/c/p/d"
+msgstr "колач/_олач/к/ј/ж"
+
+#: boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr "колач/к_лач/о/а/е"
+
+#: boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr "колач/ко_ач/л/ж/љ"
+
+#: boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr "кола/_ола/к/р/ц"
+
+#: boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr "кола/к_ла/о/е/а"
+
+#: boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr "кола/ко_а/л/г/џ"
+
+#: boards/missing_letter/board1.xml.in.h:22
+msgid "dog/_og/d/p/q"
+msgstr "џукац/_укац/џ/б/т"
+
+#: boards/missing_letter/board1.xml.in.h:23
+msgid "dog/d_g/o/g/a"
+msgstr "џукац/џ_кац/у/е/о"
+
+#: boards/missing_letter/board1.xml.in.h:24
+msgid "dog/do_/g/p/q"
+msgstr "џукац/џу_ац/к/р/м"
+
+#: boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr "риба/_иба/р/б/т"
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr "риба/р_ба/и/а/е"
+
+#: boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr "риба/ри_а/б/њ/ч"
+
+#: boards/missing_letter/board1.xml.in.h:28
+msgid "house/_ouse/h/e/j"
+msgstr "кућа/_ућа/к/т/х"
+
+#: boards/missing_letter/board1.xml.in.h:29
+msgid "house/h_use/o/f/u"
+msgstr "кућа/к_ћа/у/е/р"
+
+#: boards/missing_letter/board1.xml.in.h:30
+msgid "house/hous_/e/a/i"
+msgstr "кућа/ку_а/ћ/ч/џ"
+
+#: boards/missing_letter/board1.xml.in.h:31
+msgid "plane/_lane/p/g/d"
+msgstr "пољана/_ољана/п/г/б"
+
+#: boards/missing_letter/board1.xml.in.h:32
+msgid "plane/p_ane/l/j/i"
+msgstr "пољана/п_љана/о/р/е"
+
+#: boards/missing_letter/board1.xml.in.h:33
+msgid "plane/pl_ne/a/o/s"
+msgstr "пољана/по_ана/љ/р/т"
+
+#: boards/missing_letter/board1.xml.in.h:34
+msgid "satchel/_atchel/s/c/l"
+msgstr "торба/_орба/т/г/м"
+
+#: boards/missing_letter/board1.xml.in.h:35
+msgid "satchel/s_tchel/a/o/i"
+msgstr "торба/т_рба/о/а/е"
+
+#: boards/missing_letter/board1.xml.in.h:36
+msgid "satchel/sa_chel/t/p/c"
+msgstr "торба/то_ба/р/г/л"
+
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+msgid "Money"
+msgstr "Новац"
+
+#: boards/money.xml.in.h:2 src/boards/money.c:88
+msgid "Pratice money usage"
+msgstr "Вежбајте употребу новца"
+
+# bug: Pratice -> Practice
+#: boards/money_cents.xml.in.h:2
+msgid "Pratice money usage including cents"
+msgstr "Вежбајте употребу новца укључујући и паре"
+
+#: boards/paintings.xml.in.h:1
+msgid "Drag and Drop the items to rebuild the original paintings"
+msgstr "Превуците и пустите делове да добијете изворну слику"
+
+#: boards/paintings.xml.in.h:2
+msgid ""
+"In the main board area, a set of red plots are displayed. In the vertical "
+"frame - at the left of the main board area, a set of image parts of a "
+"painting are avalaible. Drag and drop these parts in the right plot to "
+"rebuild the original painting."
+msgstr ""
+"На главној површини табле, приказује се скуп црвених места. У усправном "
+"оквиру — на левој страни главне површине табле, доступан је скуп делова "
+"слике. Превуците и пустите ове делове на одговарајуће место да добијете "
+"изворну слику."
+
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
+msgid "Make the puzzle"
+msgstr "Направи слагалицу"
+
+#: boards/paintings.xml.in.h:5
+msgid "Spatial representation"
+msgstr "Просторна представа"
+
+#: boards/paintings/board1_0.xml.in.h:1
+msgid "Edgar Degas, The Dancing Class - 1873"
+msgstr "Едгар Дега, Разред у плесу — 1873"
+
+#: boards/paintings/board2_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+msgstr "Пјер-Августо Рено, Le Moulin de la Galette — 1876"
+
+#: boards/paintings/board3_0.xml.in.h:1
+msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+msgstr "Пјер-Августо Рено, Девојке за клавиром — 1892"
+
+#: boards/paintings/board3_1.xml.in.h:1
+msgid "Kandinsky, Wassily, Composition VIII - 1923"
+msgstr "Кандински, Василије, композиција VIII — 1923"
+
+#: boards/paintings/board3_1.xml.in.h:2
+msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+msgstr ""
+"Уље на платну, 140 x 201 cm; Музеј Соломона Р. Гугенхајма (Guggenheim), "
+"Њујорк"
+
+#: boards/paintings/board4_0.xml.in.h:1
+msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
+msgstr "Базил, Бедеми у Ајге-Мортеу — 1867"
+
+#: boards/paintings/board5_0.xml.in.h:1
+msgid "Cassat, Summertime - 1895"
+msgstr "Касат, Лето — 1895"
+
+#: boards/paintings/board6_0.xml.in.h:1
+msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+msgstr "Винсент Ван Гог, Сеоска улица у Оверу — 1890"
+
+#: boards/paratrooper.xml.in.h:1
+msgid ""
+"Click on any keyboard key to let Tux jump. Another keypress will open the "
+"parachute. Alternatively, a click on the plane and the tux also works."
+msgstr ""
+"Притисните тастер да омогућите Пингославу да скочи. Наредни притисак тастера "
+"ће отворити падобран. Такође, може се кликнути на авион и пингвина уместо "
+"тога."
+
+#: boards/paratrooper.xml.in.h:2
+msgid ""
+"In this game, the children will try to make Tux the paratrooper lands safely "
+"on the fishing boat. He/She needs to take care of the wind side and speed."
+msgstr ""
+"У овој игри, деца треба да помогну Пингославу да безбедно слети на рибарски "
+"чамац. Треба да воде рачуна о смеру и брзини ветра."
+
+#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
+msgid "Manage the paratrooper to let him safely land"
+msgstr "Управљајте падобранцем како би безбедно слетео"
+
+#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
+msgid "Paratrooper"
+msgstr "Падобранац"
+
+#: boards/paratrooper.xml.in.h:5
+msgid ""
+"This board is game oriented. It doesnt needs specific skills to play with."
+msgstr ""
+"Ова табла је обична игра. Нису потребне нарочите вештине да бисте је играли."
+
+#: boards/planegame.xml.in.h:1
+msgid "Move the helicopter to catch the clouds in the correct order"
+msgstr "Померајте хеликоптер да ухватите облаке у исправном поретку"
+
+#: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
+msgid "Numbers in Order"
+msgstr "Бројеви у поретку"
+
+#: boards/planegame.xml.in.h:5
+msgid ""
+"Use the up, down, right and left keyboard keys to move the helicopter to "
+"catch the numbers in the incremental order"
+msgstr ""
+"Користите тастере горе, доле, десно и лево да померате хеликоптер како бисте "
+"ухватили бројеве у растућем поретку"
+
+#: boards/pythontest.xml.in.h:1
+msgid "Add a language binding to gcompris."
+msgstr "Додајте спрегу са језиком у гкомприса."
+
+#: boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "Напредан Питон програмер :о)"
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Проба Питона"
+
+#: boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "Пробна табла за Питон додатак"
+
+#: boards/pythontest.xml.in.h:5
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr ""
+"Хвала Гидо ван Росуму (Guido van Rossum) и Питон тиму за овај моћан језик!"
+
+#: boards/railroad.xml.in.h:1
+msgid "A memory game based on trains"
+msgstr "Игра памћења заснована на возовима"
+
+#: boards/railroad.xml.in.h:2
+msgid ""
+"A train - a locomotive and wagon(s) - is displayed at the top of the main "
+"area. After a few the second train go away. Then, you have to rebuild it at "
+"the top of the screen by selecting the appropriate wagons and locomotive. "
+"You can always unselect an item by clicking on it. Validate your "
+"construction by clicking on the hand at the bottom."
+msgstr ""
+"Воз — локомотива и вагони — је приказан на врху главне површине. Након "
+"неколико секунди воз одлази. Затим, треба да га поново саградите избором "
+"одговарајућих вагона и локомотиве. Увек можете оставити ставку кликом на њу. "
+"Проверите како сте саградили ваш воз кликом на руку у дну."
+
+#: boards/railroad.xml.in.h:3
+msgid "Memory training"
+msgstr "Вежба памћења"
+
+#: boards/railroad.xml.in.h:5
+msgid "Railroad"
+msgstr "Пруга"
+
+#: boards/read_colors.xml.in.h:3
+msgid "Click on the right colored object."
+msgstr "Кликните на објекат одговарајуће боје."
+
+#: boards/read_colors.xml.in.h:4
+msgid "Read colors"
+msgstr "Прочитај боје"
+
+#: boards/read_colors.xml.in.h:5
+msgid "This board is dedicated to read basic colors."
+msgstr "Ова табла је посвећена читању основних боја."
+
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+msgid "black"
+msgstr "црна"
+
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+msgid "blue"
+msgstr "плава"
+
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+msgid "brown"
+msgstr "браон"
+
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+msgid "green"
+msgstr "зелена"
+
+# bug: gray?
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+msgid "grey"
+msgstr "сива"
+
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+msgid "orange"
+msgstr "наранџаста"
+
+#: boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr "ружичаста"
+
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+msgid "red"
+msgstr "црвена"
+
+#: boards/read_colors/board1.xml.in.h:9
+msgid "violet"
+msgstr "љубичаста"
+
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+msgid "white"
+msgstr "бела"
+
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+msgid "yellow"
+msgstr "жута"
+
+#: boards/reading.xml.in.h:1
+msgid "Go to the Reading activities"
+msgstr "Иди на читалачке вежбе"
+
+#: boards/readingh.xml.in.h:1 boards/readingv.xml.in.h:1
+msgid ""
+"At the top and right of the board area, a word is printed. At the left a "
+"list of words will move in and out of the screen. Tell if you see the "
+"initial word in this list."
+msgstr ""
+"Горе, десно на табли је исписана реч. Лево се налази списак речи који ће "
+"проћи преко екрана. Реците да ли видите почетну реч у списку."
+
+#: boards/readingh.xml.in.h:2
+msgid "Horizontal reading practice"
+msgstr "Вежба читања водоравно"
+
+#: boards/readingh.xml.in.h:3
+msgid "Read a list of word and tell if the given word is in it"
+msgstr "Прочитајте списак речи и реците да ли је дата реч у њему"
+
+#: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
+msgid "Read training in a limited time"
+msgstr "Вежба читања за ограничено време"
+
+# bug: of word -> of words
+#: boards/readingv.xml.in.h:2
+msgid "Read a vertical list of word and tell if the given word is in it"
+msgstr "Прочитајте усправан списак речи и реците да ли је дата реч у њему"
+
+#: boards/readingv.xml.in.h:5
+msgid "Vertical reading practice"
+msgstr "Вежба читања усправно"
+
+#: boards/reversecount.xml.in.h:1
+msgid ""
+"Can move the mouse, can read numbers and substract numbers up to 10 for the "
+"first level"
+msgstr "Уме да помера миша, чита бројеве и одузима бројеве до 10 за први ниво"
+
+#: boards/reversecount.xml.in.h:2
+msgid ""
+"First count how many ice spot are between tux and the fish. Then click on "
+"the dice to select the proper number. You can also use the right mouse "
+"button on the dices to count backward. When done, click on the OK button or "
+"hit the keyboard enter key."
+msgstr ""
+"Прво пребројте колико има ледених тачака између Пингослава и рибе. Затим "
+"кликните на коцкицу да изаберете одговарајући број. Такође можете користити "
+"и десно дугме миша на коцкици да бројите уназад. Када завршите, кликните на "
+"дугме „У реду“ или притисните ентер на тастатури."
+
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
+msgid "Practice the substraction with a funny game"
+msgstr "Вежбајте одузимање кроз забавну игру"
+
+#: boards/reversecount.xml.in.h:4
+msgid ""
+"Tux is hungry. Help him find fishes by counting the ice spot needed to reach "
+"them."
+msgstr ""
+"Пингослав је гладан. Помозите му да нађе рибе бројањем ледених тачака "
+"потребних да их стигне."
+
+#: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
+#: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
+#: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
+#: boards/scales/board2_0.xml.in.h:1 boards/scales/board2_1.xml.in.h:1
+#: boards/scales/board2_2.xml.in.h:1 boards/scales/board2_3.xml.in.h:1
+#: boards/scales/board2_4.xml.in.h:1 boards/scales/board2_5.xml.in.h:1
+#: boards/scales/board3_0.xml.in.h:1 boards/scales/board3_1.xml.in.h:1
+#: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
+#: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
+#: boards/scalesboard.xml.in.h:1
+msgid "Drag and Drop masses to equilibrate the scales"
+msgstr "Превуците и пустите масе да уравнотежите плоче"
+
+#: boards/scalesboard.xml.in.h:2
+msgid "Mental calculus, arithmetic equality"
+msgstr "Рачун напамет, аритметичка једнакост"
+
+#: boards/scalesboard.xml.in.h:3
+msgid ""
+"The painting is an original painting made by Virginie MOREAU (virginie."
+"moreau@free.fr) in 2001. Its name is 'spices seller in egypt'. It is "
+"released under the GPL license."
+msgstr ""
+"Слика је оригинално дело Вирџиније Моро (Virginie MOREAU — virginie."
+"moreau@free.fr) из 2001. године. Име јој је „продавац зачина у Египту“. "
+"Објављена је под ОЈЛ (GPL)."
+
+#: boards/scalesboard.xml.in.h:4
+msgid ""
+"To equilibrate the scales, move the masses in its left plateau. The masses "
+"can be arranged in any order."
+msgstr ""
+"Да уједначите скале, преместите масе на леву плочу. Масе се могу урадити "
+"потпуно произвољно."
+
+#: boards/scalesboard.xml.in.h:5
+msgid "Well balance the scales"
+msgstr "Добро уравнотежене плоче"
+
+#: boards/smallnumbers.xml.in.h:1
+msgid "Counting skill"
+msgstr "Способност бројања"
+
+#: boards/smallnumbers.xml.in.h:2
+msgid "In a limited time, count a number of dots"
+msgstr "Пребројте тачке за ограничено време"
+
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+msgid "Numbers With Dices"
+msgstr "Бројеви са коцкица"
+
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
+msgstr "Укуцајте број од 1 до 9 пре него што коцкица падне на земљу"
+
+#: boards/smallnumbers.xml.in.h:5
+msgid ""
+"With the keyboard, press the number corresponding to the number of dots in "
+"the falling dice."
+msgstr ""
+"Помоћу тастатуре, притисните број који одговара броју тачака на падајућој "
+"коцкици."
+
+#: boards/submarine.xml.in.h:1
+msgid ""
+"Click on different active elements : engine, rudders and air tanks in order "
+"to navigate at the ordered depth."
+msgstr ""
+"Кликните на разне активне елементе: мотор, кормило или ваздушне резервоаре "
+"да бисте достиглу наређену дубину."
+
+#: boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "Научите како ради подморница"
+
+#: boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr "Основе физике"
+
+#: boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr "Возите подморницу"
+
+#: boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr "Возите подморницу помоћу ваздушних резервоара и кормила за роњење"
+
+#: boards/superbrain.xml.in.h:1
+msgid ""
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. At the lower level, tux "
+"gives you an indication if you got a good position by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"oposite order."
+msgstr ""
+"Кликните на ствари док не добијете оно што сматрате исправним одговором. "
+"Затим, кликните дугме „У реду“ у управљачкој траци. На нижим нивоима, "
+"Пингослав указује уколико сте поставили на добру позицију означавањем ставке "
+"црним оквиром. Можете користити десно дугме миша да изврнете боје у "
+"супротном редоследу."
+
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr "Изванредан ум"
+
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+msgid "Tux has hidden several items, find them back in the correct order"
+msgstr "Пингослав је сакрио неколико ствари, нађите их у исправном редоследу"
+
+#: boards/target.xml.in.h:1
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr "Уме да помера миша, може да чита бројеве и да броји до 15 за први ниво"
+
+#: boards/target.xml.in.h:2
+msgid ""
+"First check the wind strength and direction, then click on the target to "
+"launch a dart, when all your darts are sent, a window appears requiring you "
+"to count your score. Enter the score with the keyboard then press the enter "
+"key or the OK icon."
+msgstr ""
+"Прво проверите снагу ветра и правац, затим кликните на мету да испалите "
+"стрелу, када испалите све стреле, појављује се прозор где треба да "
+"пребројите ваше поене. Унесите резултат тастатуром и притисните ентер или "
+"икону „У реду“."
+
+#: boards/target.xml.in.h:3 src/boards/target.c:122
+msgid "Practice the addition with a target game"
+msgstr "Вежбајте сабирање са игром гађања"
+
+#: boards/target.xml.in.h:4
+msgid "Send darts on a target and count your score."
+msgstr "Испалите стреле у мету и пребројте резултат."
+
+#: boards/target.xml.in.h:5 src/boards/target.c:123
+msgid "Touch the target and count your points"
+msgstr "Дотакните мету и пребројте ваше поене"
+
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
+msgid "A sliding block puzzle game"
+msgstr "Слагалица са клизајућим блоговима"
+
+#: boards/traffic.xml.in.h:2
+msgid ""
+"The goal is to remove all of the red car(s) out of the grid through the slot "
+"on the right"
+msgstr "Циљ је уклонити сва црвена кола из мреже кроз излаз десно"
+
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+msgid "Falling Words"
+msgstr "Падајуће речи"
+
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Потпуно укуцајте речи које падају пре него што стигну до земље"
+
+#: boards/wordsgame.xml.in.h:4
+msgid "Keyboard training"
+msgstr "Вежба куцања"
+
+#: gcompris-edit.desktop.in.h:1
+msgid "Editor for gcompris"
+msgstr "Уређивач за гкомприса"
+
+#: gcompris.desktop.in.h:1
+msgid "Educational game starting at 3 years old"
+msgstr "Образовна игра за трогодишњаке и старије"
+
+#: gcompris.desktop.in.h:2
+msgid "Educational suite gcompris"
+msgstr "Образовни комплет gcompris"
+
+#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
+#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
+#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "Не могу да нађем датотеку: %s !"
+
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/shapegame.c:1728
+#, c-format
+msgid "find file %s !"
+msgstr "нађи датотеку %s !"
+
+#: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
+msgid "Guess operations"
+msgstr "Погодите операције"
+
+#: src/boards/canal_lock.c:114
+msgid ""
+"Tux is in trouble in his ship, he needs to take through a lock.\n"
+"Help Tux and understand how a canal lock works."
+msgstr ""
+"Пингослав је у неприлици на броду, мора да прође кроз брану.\n"
+"Помозите Пингославу и схватите како брана на каналу ради."
+
+#: src/boards/chess.c:137
+msgid "Learning Chess"
+msgstr "Учење шаха"
+
+#: src/boards/chess.c:138
+msgid "Play chess against tux in a learning mode"
+msgstr "Играјте шах против Пингослава док учите"
+
+#: src/boards/chess.c:191
+msgid ""
+"Error: /usr/bin/gnuchessx is installed\n"
+"which means you run an old version\n"
+"of gnuchess.\n"
+"Please upgrade to gnuchess 5 or above."
+msgstr ""
+"Грешка: инсталиран је /usr/bin/gnuchessx\n"
+"што значи да користите старо издање\n"
+"gnuchess-а.\n"
+"Молим доградите на издање gnuchess-а 5 или новије."
+
+#: src/boards/chess.c:198
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is in "
+msgstr ""
+"Грешка: спољашњи програм gnuchess је обавезан за\n"
+"играње шаха у гкомпрису.\n"
+"Нађите овај програм на http://www.rpmfind.net или у \n"
+"вашем ГНУ/Линукс систему\n"
+"Такође, проверите да ли је у"
+
+#: src/boards/chess.c:577
+msgid "White Turn"
+msgstr "Бели на потезу"
+
+#: src/boards/chess.c:577
+msgid "Black Turn"
+msgstr "Црни на потезу"
+
+#: src/boards/chess.c:718
+msgid "White check"
+msgstr "Шах белог"
+
+#: src/boards/chess.c:720
+msgid "Black check"
+msgstr "Шах црног"
+
+#: src/boards/chess.c:1052
+msgid "Black mates"
+msgstr "Шах-мат црног"
+
+#: src/boards/chess.c:1057
+msgid "White mates"
+msgstr "Шах-мат белог"
+
+#: src/boards/chess.c:1062
+msgid "Drawn game"
+msgstr "Нерешено"
+
+#: src/boards/click_on_letter.c:73
+msgid "Read a letter"
+msgstr "Прочитај слово"
+
+#: src/boards/click_on_letter.c:74
+msgid "Learn to recognize letters"
+msgstr "Научите да препознајете слова"
+
+#: src/boards/clickgame.c:182
+#, c-format
+msgid "Couldn't open pixmap dir: %s"
+msgstr "Не могу да отворим директоријум са сликама: %s"
+
+#: src/boards/clockgame.c:530
+msgid "Set the watch to:"
+msgstr "Постави сат на:"
+
+#: src/boards/colors.c:210
+#, c-format
+msgid "Click on the %s toon"
+msgstr "Кликните на свраку %s"
+
+#: src/boards/imageid.c:110 src/boards/missingletter.c:102
+msgid "Learn how to read"
+msgstr "Научите да читате"
+
+#: src/boards/leftright.c:247
+msgid "left"
+msgstr "лево"
+
+#: src/boards/leftright.c:257
+msgid "right"
+msgstr "десно"
+
+#: src/boards/machpuzzle.c:85
+msgid "Move the mouse to machpuzzle the area and discover the background"
+msgstr "Померите миша да бисте склонили слагалице и видели позадину"
+
+#: src/boards/memory.c:227
+msgid "Memory"
+msgstr "Памћење"
+
+#: src/boards/memory.c:228
+msgid "Find the matching pair"
+msgstr "Нађите пар"
+
+#: src/boards/menu.c:79
+msgid "Main Menu"
+msgstr "Главни мени"
+
+#: src/boards/menu.c:80
+msgid "Select a Board"
+msgstr "Изаберите таблу"
+
+#: src/boards/planegame.c:78
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr "Померите раван да бисте ухватили облаке у исправном редоследу"
+
+#: src/boards/python.c:52
+msgid "Python Board"
+msgstr "Питон табла"
+
+#: src/boards/python.c:53
+msgid "Special board that embed python into gcompris."
+msgstr "Нарочита табла која укључује Питона у гкомприса."
+
+#: src/boards/railroad.c:95
+msgid "Memory game"
+msgstr "Игра памћења"
+
+#: src/boards/railroad.c:96
+msgid "Build a train conforming to the model"
+msgstr "Сагради воз према моделу"
+
+#: src/boards/read_colors.c:85
+msgid "Read Colors"
+msgstr "Прочитај боје"
+
+#: src/boards/read_colors.c:86
+msgid "Click on the corresponding color"
+msgstr "Кликните на одговарајућу боју"
+
+#: src/boards/reading.c:101
+msgid "Read a list of words and then tell if the given word is in it"
+msgstr "Прочитај списак речи а затим питај да ли је дата реч у њему"
+
+#: src/boards/reading.c:313
+msgid "Please, check if the word"
+msgstr "Молим, проверите да ли се реч"
+
+#: src/boards/reading.c:333
+msgid "is being displayed"
+msgstr "приказује"
+
+#: src/boards/reading.c:516
+msgid "I am Ready"
+msgstr "Спреман сам"
+
+#: src/boards/reading.c:553
+msgid "Yes I saw it"
+msgstr "Да, видео сам га"
+
+#: src/boards/reading.c:583
+msgid "No, it was not there"
+msgstr "Не, није био тамо"
+
+#: src/boards/reversecount.c:136
+msgid "Reverse count"
+msgstr "Обрни бројач"
+
+#: src/boards/shapegame.c:161
+msgid "Drag and Drop the items to rebuild the object"
+msgstr "Превуците и пустите ставке да бисте поново изградили објекат"
+
+#. Enter Edit Mode
+#: src/boards/shapegame.c:407
+msgid ""
+"You entered the Edit mode\n"
+"Move the puzzle items and\n"
+"'s' to save\n"
+"'d' to display all the shapes"
+msgstr ""
+"Ушли сте у режим уређивања\n"
+"Померајте ставке слагалице и\n"
+"„s“ да сачувате\n"
+"„d“ да прикажете све облике"
+
+#: src/boards/shapegame.c:415
+msgid ""
+"This board data are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"Подаци ове табле су сачувани у \n"
+"/tmp/gcompris-board.xml"
+
+#: src/boards/submarine.c:201
+msgid "Submarine"
+msgstr "Подморница"
+
+#: src/boards/submarine.c:202
+msgid "Control the depth of a submarine"
+msgstr "Управљајте дубином подморнице"
+
+#: src/boards/target.c:324 src/boards/target.c:572
+#, c-format
+msgid "Points = %s"
+msgstr "Тачке = %s"
+
+#: src/boards/target.c:441
+#, c-format
+msgid ""
+"Wind speed = %d\n"
+"kilometers/hour"
+msgstr ""
+"Брзина ветра = %d\n"
+"километара по часу"
+
+#: src/boards/target.c:503
+#, c-format
+msgid "Distance to target = %d meters"
+msgstr "Растојање до мете = %d метара"
+
+#: src/gcompris/about.c:60
+msgid ""
+"Credits:\n"
+"Author: Bruno Coudoin\n"
+"Contribution: Pascal Georges\n"
+"Graphics: Renaud Blanchard\n"
+"Music: Djilali Sebihi\n"
+msgstr ""
+"Заслуге:\n"
+"Аутор: Бруно Коудојн (Bruno Coudoin)\n"
+"Допринео: Паскал Жорж (Pascal Georges)\n"
+"Графика: Ренауд Бланшард (Renaud Blanchard)\n"
+"Музика: Ђилали Себи (Djilali Sebihi)\n"
+
+#: src/gcompris/about.c:97
+msgid "About GCompris"
+msgstr "О ГКомпрису"
+
+#: src/gcompris/about.c:203
+msgid "GCompris Home Page"
+msgstr "Домаћа страница ГКомприса"
+
+#: src/gcompris/about.c:225
+msgid ""
+"This software is a GNU Package and is released under the Gnu Public Licence"
+msgstr ""
+"Овај програм је ГНУ програм и објављен је под Гнуовом општом јавном лиценцом"
+
+#: src/gcompris/about.c:253
+msgid "Help"
+msgstr "Помоћ"
+
+#: src/gcompris/about.c:287 src/gcompris/config.c:175 src/gcompris/help.c:341
+#: src/gcompris/images_selector.c:148
+msgid "OK"
+msgstr "У реду"
+
+#: src/gcompris/config.c:52
+msgid "Amharic"
+msgstr "амхарски"
+
+#: src/gcompris/config.c:53
+msgid "Arabic"
+msgstr "арапски"
+
+#: src/gcompris/config.c:54
+msgid "Azerbaijani Turkic"
+msgstr "азербејџански турски"
+
+#: src/gcompris/config.c:55
+msgid "Catalan"
+msgstr "каталонски"
+
+#: src/gcompris/config.c:56
+msgid "Czech"
+msgstr "чешки"
+
+#: src/gcompris/config.c:57
+msgid "German"
+msgstr "немачки"
+
+#: src/gcompris/config.c:58
+msgid "Greek"
+msgstr "грчки"
+
+#: src/gcompris/config.c:59
+msgid "English"
+msgstr "енглески"
+
+#: src/gcompris/config.c:60
+msgid "Spanish"
+msgstr "шпански"
+
+#: src/gcompris/config.c:61
+msgid "Finnish"
+msgstr "фински"
+
+#: src/gcompris/config.c:62
+msgid "French"
+msgstr "француски"
+
+#: src/gcompris/config.c:63
+msgid "Hebrew"
+msgstr "хебрејски"
+
+#: src/gcompris/config.c:64
+msgid "Indian"
+msgstr "индијски"
+
+#: src/gcompris/config.c:65
+msgid "Hungarian"
+msgstr "мађарски"
+
+#: src/gcompris/config.c:66
+msgid "Italian"
+msgstr "италијански"
+
+#: src/gcompris/config.c:67
+msgid "Lithuanian"
+msgstr "литвански"
+
+#: src/gcompris/config.c:68
+msgid "Macedonian"
+msgstr "македонски"
+
+#: src/gcompris/config.c:69
+msgid "Malayalam"
+msgstr "малајамски"
+
+#: src/gcompris/config.c:70
+msgid "Malay"
+msgstr "малајски"
+
+#: src/gcompris/config.c:71
+msgid "Dutch"
+msgstr "холандски"
+
+#: src/gcompris/config.c:72
+msgid "Norwegian"
+msgstr "норвешки"
+
+#: src/gcompris/config.c:73
+msgid "Polish"
+msgstr "пољски"
+
+#: src/gcompris/config.c:74
+msgid "Portuguese"
+msgstr "португалски"
+
+#: src/gcompris/config.c:75
+msgid "Brazil Portuguese"
+msgstr "бразилски португалски"
+
+#: src/gcompris/config.c:76
+msgid "Romanian"
+msgstr "румунски"
+
+#: src/gcompris/config.c:77
+msgid "Russian"
+msgstr "руски"
+
+#: src/gcompris/config.c:78
+msgid "Slovak"
+msgstr "словачки"
+
+#: src/gcompris/config.c:79
+msgid "Swedish"
+msgstr "шведски"
+
+#: src/gcompris/config.c:80
+msgid "Turkish"
+msgstr "турски"
+
+#: src/gcompris/config.c:85
+msgid "No time limit"
+msgstr "Без временског ограничења"
+
+#: src/gcompris/config.c:86
+msgid "Slow timer"
+msgstr "Споро тече време"
+
+#: src/gcompris/config.c:87
+msgid "Normal timer"
+msgstr "Обично тече време"
+
+#: src/gcompris/config.c:88
+msgid "Fast timer"
+msgstr "Брзо тече време"
+
+#: src/gcompris/config.c:93
+msgid "800x600 (Default for gcompris)"
+msgstr "800x600 (подразумевано за gcompris-а)"
+
+#: src/gcompris/config.c:149
+msgid "GCompris Configuration"
+msgstr "Подешавање GCompris-а"
+
+#: src/gcompris/config.c:255
+msgid "Fullscreen"
+msgstr "Цео екран"
+
+#: src/gcompris/config.c:298
+msgid "Music"
+msgstr "Музика"
+
+#: src/gcompris/config.c:326
+msgid "Effect"
+msgstr "Ефекат"
+
+#: src/gcompris/config.c:363
+#, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "Нисам могао да отворим директоријум са маскама: %s"
+
+#: src/gcompris/config.c:397 src/gcompris/config.c:696
+#: src/gcompris/config.c:707
+#, c-format
+msgid "Skin : %s"
+msgstr "Маска : %s"
+
+#: src/gcompris/gcompris.c:65
+msgid "run gcompris in fullscreen mode."
+msgstr "Покрени gcompris-а преко целог екрана."
+
+#: src/gcompris/gcompris.c:67
+msgid "run gcompris in window mode."
+msgstr "Покрени гкомприса у прозору."
+
+#: src/gcompris/gcompris.c:69
+msgid "run gcompris with sound enabled."
+msgstr "Покрени гкомприса уз укључен звук."
+
+#: src/gcompris/gcompris.c:71
+msgid "run gcompris without sound."
+msgstr "Покрени гкомприса без звука."
+
+#: src/gcompris/gcompris.c:73
+msgid "run gcompris with the default gnome cursor."
+msgstr "Покрени гкомприса уз подразумеваног Гномовог показивача."
+
+#: src/gcompris/gcompris.c:75
+msgid "Prints the version of "
+msgstr "Испиши издање за "
+
+#: src/gcompris/gcompris.c:77
+msgid "Use the antialiased canvas (slower)."
+msgstr "Користи улепшан приказ (спорије)."
+
+# bug: wha'???
+#: src/gcompris/gcompris.c:330
+msgid "GCompris I Have Understood"
+msgstr "ГКомприс ког сам разумео"
+
+#: src/gcompris/gcompris.c:546
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More infos on http://ofset.sourceforge.net/gcompris\n"
+msgstr ""
+"ГКомприс\n"
+"Издање: %s\n"
+"Лиценца: ОЈЛ (GPL)\n"
+"Више на http://ofset.sourceforge.net/gcompris\n"
+
+#: src/gcompris/help.c:167 src/gcompris/interface.c:243
+msgid "Prerequisite"
+msgstr "Предуслови"
+
+#: src/gcompris/help.c:201 src/gcompris/interface.c:252
+msgid "Goal"
+msgstr "Циљ"
+
+#: src/gcompris/help.c:235 src/gcompris/interface.c:261
+msgid "Manual"
+msgstr "Упутство"
+
+#: src/gcompris/help.c:269 src/gcompris/interface.c:270
+msgid "Credit"
+msgstr "Заслуге"
+
+#: src/gcompris/interface.c:104
+msgid "Gcompris Editor"
+msgstr "ГКомприсов уређивач"
+
+#: src/gcompris/interface.c:180
+msgid "Icon"
+msgstr "Икона"
+
+#: src/gcompris/interface.c:189
+msgid "Name"
+msgstr "Име"
+
+#: src/gcompris/interface.c:198 src/gcompris/interface.c:415
+msgid "Description"
+msgstr "Опис"
+
+#: src/gcompris/interface.c:207
+msgid "Type"
+msgstr "Врста"
+
+#: src/gcompris/interface.c:216
+msgid "Difficulty"
+msgstr "Сложеност"
+
+#: src/gcompris/interface.c:225
+msgid "Author"
+msgstr "Аутор"
+
+#: src/gcompris/interface.c:234
+msgid "Directory"
+msgstr "Директоријум"
+
+#: src/gcompris/interface.c:286
+msgid "Title"
+msgstr "Наслов"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/interface.c:484
+msgid "translator_credits"
+msgstr ""
+"Данило Шеган <danilo@prevod.org>\n"
+"\n"
+"Prevod.org — превод на српски језик."
+
+#: src/gcompris/interface.c:490
+msgid "Released under GPL"
+msgstr "Објављено под ОЈЛ (GPL)"
+
+#: src/gcompris/oggplayer.c:189
+msgid "Now Playing Music"
+msgstr "Сада пуштам музику"
+
+#: src/gcompris/soundutil.c:116
+#, c-format
+msgid "Couldn't open music dir: %s"
+msgstr "Не могу да отворим директоријум са музиком: %s"
+
+#: src/gcompris/support.c:60 src/gcompris/support.c:85
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Не могу да пронађем датотеку са сликом: %s"
+
+#: src/gcompris/timer.c:237
+msgid "Time Ellapsed"
+msgstr "Протекло време"
+
+#: src/gcompris/timer.c:323
+#, c-format
+msgid "Remaining Time = %d"
+msgstr "Преостало време = %d"
