@@ -131,7 +131,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
       gcompris_score_start(SCORESTYLE_NOTE,
 			   50,
 			   50,
@@ -391,9 +391,14 @@ static void game_won()
 }
 
 /* ==================================== */
-static void process_ok()
-{
+static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
+	return FALSE;
+}
+
+static void process_ok() {
+	// leave time to display the right answer
+  g_timeout_add(1000, process_ok_timeout, NULL);
 }
 /* ==================================== */
 static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
@@ -443,6 +448,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	gamewon = FALSE;
       }
       highlight_selected(temp);
+      process_ok();
       break;
 
     case GDK_MOTION_NOTIFY:

@@ -1,5 +1,8 @@
 2003-02-11  Pascal Georges <pascal.georges1@free.fr>
-  * src/boards/*colors*.c : removed the thumb, directly calling process_ok
+  * src/boards/*.c : removed the thumb, directly calling process_ok for
+  colors, read_colors,advanced_colors, click_on_letter, missing_letter, image_id
+  and leftright boards.
+  Added a 1 sec timeout to let time to display the entered answer.
 
 2003-02-10  Marius Andreiana <marius galuna.ro>
 	* src/gcompris/config.c: romanian and russian locale are no longer combined

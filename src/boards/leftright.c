@@ -155,7 +155,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
       gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
       gcompris_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       leftright_next_level();
 
@@ -345,8 +345,14 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static void process_ok() {
+static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	return FALSE;
+}
+
+static void process_ok() {
+	// leave time to display the right answer
+  g_timeout_add(1000, process_ok_timeout, NULL);
 }
 /* =====================================================================
  *
@@ -369,11 +375,13 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 					side = LEFT;
 					highlight_selected(side);
 					gamewon = (side == answer);
+          process_ok();
 				}
 				if (x>CLICKABLE_X3 && x<CLICKABLE_X4) { // the left button is clicked
 					side = RIGHT;
 					highlight_selected(side);
 					gamewon = (side == answer);
+          process_ok();
 				}
 			}
 

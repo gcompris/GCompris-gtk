@@ -253,8 +253,14 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static void process_ok() {
+static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	return FALSE;
+}
+
+static void process_ok() {
+	// leave time to display the right answer
+  g_timeout_add(1000, process_ok_timeout, NULL);
 }
 /* =====================================================================
  *

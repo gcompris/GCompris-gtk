@@ -320,7 +320,7 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static void process_ok() {
+static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
   if (!gamewon)
     errors--;
@@ -330,9 +330,14 @@ static void process_ok() {
 
   if (errors <= 1) {
     board_finished(BOARD_FINISHED_TOOMANYERRORS);
-    return;
   }
 
+	return FALSE;
+}
+
+static void process_ok() {
+	// leave time to display the right answer
+  g_timeout_add(1000, process_ok_timeout, NULL);
 }
 
 /* =====================================================================

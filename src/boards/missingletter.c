@@ -38,9 +38,7 @@ static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
 static int gamewon;
-static gint process_time_id = 0;
 static void		 process_ok(void);
-static void		 process_time(void);
 static void		 highlight_selected(GnomeCanvasItem *);
 static void		 game_won(void);
 
@@ -166,7 +164,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   50,
 			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       missing_letter_next_level();
 
@@ -412,23 +410,19 @@ static void game_won() {
 }
 
 /* ==================================== */
-static void process_ok()
-{
+static gboolean process_ok_timeout() {
+  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+	return FALSE;
+}
+
+static void process_ok() {
   if (gamewon) {
     gnome_canvas_item_set(text, "text", board->answer, NULL);
   }
-  if(!process_time_id)
-    process_time_id = gtk_timeout_add (2000, (GtkFunction) process_time, NULL);
+	// leave time to display the right answer
+  g_timeout_add(1000, process_ok_timeout, NULL);
 }
-/* ==================================== */
-static void process_time()
-{
-  if (process_time_id) {
-    gtk_timeout_remove (process_time_id);
-    process_time_id = 0;
-  }
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
-}
+
 /* ==================================== */
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
@@ -462,6 +456,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	gamewon = FALSE;
       }
       highlight_selected(temp);
+      process_ok();
       break;
 
     case GDK_MOTION_NOTIFY:
