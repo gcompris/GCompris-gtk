@@ -56,14 +56,19 @@ static guint colors[] =
     0x7F007F80,
   };
 
+#define MAX_COLORS	10
+
 #define PIECE_WIDTH	20
 #define PIECE_HEIGHT	20
-#define PIECE_GAP	10
+#define PIECE_GAP	18
 #define PIECE_GAP_GOOD	5
 #define SCROLL_LIMIT	160
 
 #define COLOR_GOOD	0x00000080
 #define COLOR_MISPLACED	0xFFFFFF80
+
+#define PIECE_DISPLAY_X	30
+#define PIECE_DISPLAY_Y	30
 
 static void	 process_ok(void);
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -75,6 +80,8 @@ static int	 gamewon;
 static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
+static GnomeCanvasGroup	*boardLogoItem = NULL;
+
 
 static GnomeCanvasItem	*mastermind_create_item(GnomeCanvasGroup *parent);
 static void		 mastermind_destroy_all_items(void);
@@ -89,9 +96,9 @@ static gint current_y_position  = 0;
 #define MAX_PIECES	10
 static guint solution[MAX_PIECES];
 
-#define Y_STEP	(PIECE_HEIGHT+PIECE_GAP)
+#define LEVEL_MAX_FOR_HELP	4
 
-static GnomeCanvasItem	*logoitem = NULL;
+#define Y_STEP	(PIECE_HEIGHT+PIECE_GAP)
 
 // List of images to use in the game
 static gchar *imageList[] =
@@ -233,6 +240,7 @@ static void mastermind_next_level()
 {
   guint i;
   GdkPixbuf *pixmap = NULL;
+  gboolean selected_color[MAX_COLORS];
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
@@ -243,33 +251,82 @@ static void mastermind_next_level()
   gamewon = FALSE;
 
   /* Select level difficulty : should not go above MAX_PIECES */
-  number_of_piece = gcomprisBoard->level + 2;
-  number_of_color     = gcomprisBoard->level + 4;
+  /* number_of_color must be upper than number_of_piece to allow unicity */
+
+  if(gcomprisBoard->level < LEVEL_MAX_FOR_HELP) 
+    {
+      number_of_piece = gcomprisBoard->level + 2;
+      number_of_color = gcomprisBoard->level + 4;
+    }
+  else
+    {
+      number_of_piece = gcomprisBoard->level - LEVEL_MAX_FOR_HELP + 3;
+      number_of_color = gcomprisBoard->level - LEVEL_MAX_FOR_HELP + 5;
+    }
+
 
   current_y_position = BOARDHEIGHT - 50;
 
-  /* Init a random solution */
+  /* Init a random solution : colors choosen are uniquely choosen */
+  for(i=0; i<number_of_color; i++)
+    {
+      selected_color[i] = FALSE;
+    }
+
   for(i=0; i<number_of_piece; i++)
     {
-      solution[i] = (guint)RAND(1, number_of_color);
+      guint j;
+      gboolean found = FALSE;
+
+      j = (guint)RAND(1, number_of_color);
+      while(selected_color[j])
+	j = (guint)RAND(1, number_of_color);
+	
+      solution[i] = j;
+      selected_color[j] = TRUE;
+      printf("solution[%d]=%d\n", i, j);
     }
+
+
   
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
-
 							    NULL));
 
+  boardLogoItem = GNOME_CANVAS_GROUP(
+				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+							    gnome_canvas_group_get_type (),
+							    "x", (double) 0,
+							    "y", (double) 0,
+							    NULL));
+  
+  /* The logo */
   pixmap = gcompris_load_pixmap("images/mastermind_logo.png");
-  logoitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap,
-				    "x",      (double)BOARDWIDTH/2 - gdk_pixbuf_get_width(pixmap)/2 - 40,
-				    "y",      (double)          80 - gdk_pixbuf_get_height(pixmap)/2,
-				    NULL);
+  gnome_canvas_item_new (boardLogoItem,
+			 gnome_canvas_pixbuf_get_type (),
+			 "pixbuf", pixmap,
+			 "x",      (double)BOARDWIDTH/2 - gdk_pixbuf_get_width(pixmap)/2 - 40,
+			 "y",      (double)          80 - gdk_pixbuf_get_height(pixmap)/2,
+			 NULL);
   gdk_pixbuf_unref(pixmap);
+
+  /* The list of the pieces */
+  for(i=0; i<number_of_color; i++)
+    {
+      gnome_canvas_item_new (boardLogoItem,
+			     gnome_canvas_ellipse_get_type(),
+			     "x1", (double) PIECE_DISPLAY_X,
+			     "y1", (double) PIECE_DISPLAY_Y + i*PIECE_WIDTH*1.2 + (i*PIECE_GAP*1.2),
+			     "x2", (double) PIECE_DISPLAY_X + PIECE_WIDTH*1.2,
+			     "y2", (double) PIECE_DISPLAY_Y + i*PIECE_WIDTH*1.2 + PIECE_HEIGHT*1.2 + (i*PIECE_GAP*1.2),
+			     "fill_color_rgba", colors[i],
+			     "outline_color", "white",
+			     "width_units", (double)1,
+			     NULL);
+    }
 
 
   mastermind_create_item(boardRootItem);
@@ -283,25 +340,87 @@ static void mastermind_destroy_all_items()
 
   boardRootItem = NULL;
 
-  if(logoitem!=NULL)
-    gtk_object_destroy (GTK_OBJECT(logoitem));
+  if(boardLogoItem!=NULL)
+    gtk_object_destroy (GTK_OBJECT(boardLogoItem));
 
-  logoitem = NULL;
+  boardLogoItem = NULL;
 }
 /* ==================================== */
 static GnomeCanvasItem *mastermind_create_item(GnomeCanvasGroup *parent)
 {
   int i, j, x;
+  double x1, x2;
   GnomeCanvasItem *item = NULL;
   Piece *piece = NULL;
+  GnomeCanvasPoints	*points;
 
   if(current_y_position < SCROLL_LIMIT)
     {
-      gnome_canvas_item_move(boardRootItem, 0, (double)Y_STEP);
+      gnome_canvas_item_move(GNOME_CANVAS_ITEM(boardRootItem), 0.0, (double)Y_STEP);
     }
 
   x = (BOARDWIDTH - number_of_piece*(PIECE_WIDTH+PIECE_GAP))/2;
 
+  /* Draw a line to separate cleanly */
+  x1 = x + PIECE_WIDTH/2;
+  x2 = (BOARDWIDTH + (number_of_piece-1)*(PIECE_WIDTH+PIECE_GAP))/2 - PIECE_WIDTH/2;
+
+  points = gnome_canvas_points_new(2);
+  points->coords[0] = (double) x1;
+  points->coords[1] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2;
+  points->coords[2] = (double) x2;
+  points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2;
+  
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_line_get_type (),
+			 "points", points,
+			 "fill_color", "white",
+			 "width_pixels", 1,
+			 NULL);
+  
+  points->coords[0] = (double) x1 + 2;
+  points->coords[1] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2 + 1;
+  points->coords[2] = (double) x2 + 2;
+  points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2 + 1;
+  
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_line_get_type (),
+			 "points", points,
+			 "fill_color", "black",
+			 "width_pixels", 1,
+			 NULL);
+
+  /* Continuing the line */  
+  x1 = (BOARDWIDTH + (number_of_piece+2)*(PIECE_WIDTH+PIECE_GAP))/2;
+  x2 = x1 + number_of_piece*PIECE_WIDTH/2;
+
+  points->coords[0] = (double) x1;
+  points->coords[1] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2;
+  points->coords[2] = (double) x2;
+  points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2;
+  
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_line_get_type (),
+			 "points", points,
+			 "fill_color", "white",
+			 "width_pixels", 1,
+			 NULL);
+  
+  points->coords[0] = (double) x1 + 2;
+  points->coords[1] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2 + 1;
+  points->coords[2] = (double) x2 + 2;
+  points->coords[3] = (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/2 + 1;
+  
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_line_get_type (),
+			 "points", points,
+			 "fill_color", "black",
+			 "width_pixels", 1,
+			 NULL);
+  
+  gnome_canvas_points_unref(points);
+  
+  /* Draw the pieces */
   listPieces = g_list_alloc();
 
   for(i=0; i<number_of_piece; i++)
@@ -373,8 +492,6 @@ static GnomeCanvasItem *mastermind_create_item(GnomeCanvasGroup *parent)
 
     }
 
-  current_y_position -= Y_STEP;
-
   return NULL;
 }
 /* ==================================== */
@@ -441,15 +558,29 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Piece *piece)
 static void mark_pieces()
 {
   guint i, j;
+  guint x;
   Piece	*piece = NULL;
+  guint nbgood = 0;
+  guint nbmisplaced = 0;
+  guint solution_tmp[MAX_PIECES];
+
+  for(i=0; i<number_of_piece; i++)
+    {
+      solution_tmp[i] = solution[i];
+    }
 
   gamewon = TRUE;
+
+  /* Mark good placed */
   for(i=1; i<g_list_length(listPieces);  i++)
     {
       piece = g_list_nth_data(listPieces, i);
-      if(piece->selecteditem == solution[i-1])
+      if(piece->selecteditem == solution_tmp[i-1])
 	{
-	  gnome_canvas_item_show(piece->good);
+	  if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
+	    gnome_canvas_item_show(piece->good);
+	  nbgood++;
+	  solution_tmp[i-1] = G_MAXINT;
 	}      
       else
 	{
@@ -458,6 +589,65 @@ static void mark_pieces()
 
       piece->completed = TRUE;
     }
+
+  /* Mark misplaced */
+  for(i=1; i<=number_of_piece;  i++)
+    {
+      gboolean done;
+
+      printf("checking misplaced for piece %d\n", i);
+      piece = g_list_nth_data(listPieces, i);
+
+      /* Search if this color is elsewhere */
+      j = 1;
+      done = FALSE;
+      do {
+	printf(" misplaced at piece %d ?\n", j);
+	if(piece->selecteditem != solution[i-1] &&
+	   piece->selecteditem == solution_tmp[j-1])
+	  {
+	    printf(" found it\n");
+	    nbmisplaced++;
+	    solution_tmp[j-1] = G_MAXINT;
+	    if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
+	      gnome_canvas_item_show(piece->misplaced);		  
+	    done = TRUE;
+	  }
+      } while (!done && j++!=number_of_piece);
+    }
+
+  /* Display the matermind information to the user */
+  x = (BOARDWIDTH + (number_of_piece+2)*(PIECE_WIDTH+PIECE_GAP))/2;
+  for(i=0; i<nbgood;  i++)
+    {
+      gnome_canvas_item_new (boardRootItem,
+			     gnome_canvas_ellipse_get_type(),
+			     "x1", (double) x + i*PIECE_WIDTH/2 + (i*PIECE_GAP/2),
+			     "y1", (double) current_y_position,
+			     "x2", (double) x + i*PIECE_WIDTH/2  + PIECE_WIDTH/2 + (i*PIECE_GAP/2),
+			     "y2", (double) current_y_position + PIECE_HEIGHT/2,
+			     "fill_color", "black",
+			     "outline_color", "white",
+			     "width_units", (double)1,
+			     NULL);
+    }
+
+  for(i=0; i<nbmisplaced;  i++)
+    {
+      gnome_canvas_item_new (boardRootItem,
+			     gnome_canvas_ellipse_get_type(),
+			     "x1", (double) x + i*PIECE_WIDTH/2 + (i*PIECE_GAP/2),
+			     "y1", (double) current_y_position + PIECE_HEIGHT/2 + PIECE_GAP/3,
+			     "x2", (double) x + i*PIECE_WIDTH/2  + PIECE_WIDTH/2 + (i*PIECE_GAP/2),
+			     "y2", (double) current_y_position + PIECE_HEIGHT + PIECE_GAP/3,
+			     "fill_color", "white",
+			     "outline_color", "black",
+			     "width_units", (double)1,
+			     NULL);
+    }
+
+  current_y_position -= Y_STEP;
+
   g_list_free(listPieces);
 
   mastermind_create_item(boardRootItem);

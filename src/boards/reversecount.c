@@ -118,8 +118,8 @@ BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Move the mouse"),
-    N_("Move the mouse to reversecount the area and discover the background"),
+    N_("Reverse count"),
+    N_("Practice the substraction with a funny game"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
