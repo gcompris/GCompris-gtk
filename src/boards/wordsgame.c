@@ -87,6 +87,18 @@ static void		 wordsgame_add_new_item(void);
 static void		 player_win(LettersItem *item);
 static void		 player_loose(void);
 
+
+#define MAX_FALLSPEED  7000
+#define MAX_SPEED  150
+#define MIN_FALLSPEED  3000
+#define MIN_SPEED  50
+#define DEFAULT_FALLSPEED  7000
+#define DEFAULT_SPEED  150
+
+#define INCREMENT_FALLSPEED  1000
+#define INCREMENT_SPEED  10
+
+
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
 
@@ -149,11 +161,11 @@ static void pause_board (gboolean pause)
   else
     {
       if(!drop_items_id) {
-	drop_items_id = g_timeout_add (100,
+	drop_items_id = g_timeout_add (0,
 					 (GtkFunction) wordsgame_drop_items, NULL);
       }
       if(!dummy_id) {
-	dummy_id = g_timeout_add (100, (GtkFunction) wordsgame_move_items, NULL);
+	dummy_id = g_timeout_add (10, (GtkFunction) wordsgame_move_items, NULL);
       }
     }
 }
@@ -165,18 +177,21 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      gcomprisBoard=agcomprisBoard;
+    gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
-
-
-      gcomprisBoard->level = 1;
-      gcomprisBoard->maxlevel = 6;
-      gcomprisBoard->sublevel = 1;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
 
 
-      wordsgame_next_level();
+    gcomprisBoard->level = 1;
+    gcomprisBoard->maxlevel = 6;
+    gcomprisBoard->sublevel = 0;
+    gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+
+    /* Default speed */
+    speed=DEFAULT_SPEED;
+    fallSpeed=DEFAULT_FALLSPEED;
+
+    wordsgame_next_level();
     }
 }
 
@@ -392,14 +407,12 @@ static void wordsgame_next_level()
   items=g_ptr_array_new();
   items2del=g_ptr_array_new();
 
-  /* Default speed */
-  speed=150;
-  fallSpeed=7000;
   
   /* Increase speed only after 5 levels */
   if(gcomprisBoard->level>5)
     {
-      fallSpeed=7000-gcomprisBoard->level*200;
+    gint temp=fallSpeed-gcomprisBoard->level*200;
+    if (temp > MIN_FALLSPEED)	fallSpeed=temp;
     }
 
   pause_board(FALSE);
@@ -432,7 +445,7 @@ static void wordsgame_move_item(LettersItem *item)
 	g_ptr_array_add (items2del, item);
 	g_static_rw_lock_writer_unlock (&items2del_lock);
 
-        g_timeout_add (500,(GtkFunction) wordsgame_destroy_items, items2del);
+        g_timeout_add (100,(GtkFunction) wordsgame_destroy_items, items2del);
 
 	player_loose();
     }
@@ -444,7 +457,7 @@ static void wordsgame_move_item(LettersItem *item)
  */
 static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
 {
-    if (items==NULL) return (TRUE);
+    assert (items!=NULL);
     gint i;
     LettersItem *item;
     
@@ -456,7 +469,8 @@ static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
 	g_static_rw_lock_reader_unlock (&items_lock);
 	wordsgame_move_item(item);
 	}
-  return(TRUE);
+    dummy_id = g_timeout_add (speed,(GtkFunction) wordsgame_move_items, NULL);
+    return (FALSE);
 }
 
 
@@ -645,13 +659,12 @@ static void player_win(LettersItem *item)
     g_timeout_add (500,(GtkFunction) wordsgame_destroy_items, items2del);
 
 
-
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) 
     {
 
       /* Try the next level */
       gcomprisBoard->level++;
-      gcomprisBoard->sublevel = 1;
+      gcomprisBoard->sublevel = 0;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
 	board_finished(BOARD_FINISHED_RANDOM);
 	return;
@@ -661,26 +674,31 @@ static void player_win(LettersItem *item)
     }
   else
     {
-
+                                                                                                                              
       /* Drop a new item now to speed up the game */
     g_static_rw_lock_reader_lock (&items_lock);
     gint count=items->len;
     g_static_rw_lock_reader_unlock (&items_lock);
-
-    
-    
+                                                                                                                              
       if(count==0)
-	{
-	  if (drop_items_id) {
-	    /* Remove pending new item creation to sync the falls */
-	    g_source_remove (drop_items_id);
-	    drop_items_id = 0;
-	  }
-	  if(!drop_items_id) {
-	    drop_items_id = g_timeout_add (100,
-					     (GtkFunction) wordsgame_drop_items, NULL);
-	  }
-	}
+        {
+
+	  if ((fallSpeed-=INCREMENT_FALLSPEED) < MIN_FALLSPEED) fallSpeed+=INCREMENT_FALLSPEED;
+
+	  if ((speed-=INCREMENT_SPEED) < MIN_SPEED) speed+=INCREMENT_SPEED;
+	  
+          if (drop_items_id) {
+            /* Remove pending new item creation to sync the falls */
+            g_source_remove (drop_items_id);
+            drop_items_id = 0;
+          }
+	  
+          if(!drop_items_id) {
+            drop_items_id = g_timeout_add (0,
+                                             (GtkFunction) wordsgame_drop_items, NULL);
+          }
+  
+        }
     }
 
 }

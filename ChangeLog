@@ -1,3 +1,13 @@
+2004-11-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/wordsgame.c: (pause_board), (start_board),
+	(wordsgame_next_level), (wordsgame_move_item),
+	(wordsgame_move_items), (player_win): improved the drop speed to
+	change speed and fallspeed when list of words on screen is empty 
+	(player typed words more fast when it drops).
+	May be adjust increment min and max speed by change #define constants.
+	Done by Alexey Lubimov
+
 2004-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/Makefile.am: added spip utility
