@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/06/30 23:38:33 bruno>
+ * Time-stamp: <2002/10/06 16:42:24 djill>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -25,6 +25,7 @@
 
 #include "gcompris.h"
 #include "gcompris_config.h"
+#include "locale.h"
 
 static GnomeCanvasItem	*rootitem		= NULL;
 static GnomeCanvasItem	*item_locale_text	= NULL;
@@ -259,7 +260,7 @@ void gcompris_config_start ()
 
   item_screen_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
-					    "text", screenname[properties->screensize], 
+					    "text", gettext(screenname[properties->screensize]), 
 					    "font_gdk", gdk_font_small,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
@@ -330,7 +331,7 @@ void gcompris_config_start ()
 
   item_timer_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					   gnome_canvas_text_get_type (),
-					   "text", timername[properties->timer], 
+					   "text", gettext(timername[properties->timer]),
 					   "font_gdk", gdk_font_small,
 					   "x", (double) x_text_start,
 					   "y", (double) y_start,
@@ -578,7 +579,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->screensize--;
 
 	  gnome_canvas_item_set (item_screen_text,
-				 "text", screenname[properties->screensize], 
+				 "text", gettext(screenname[properties->screensize]), 
 				 NULL);
 	}
       else if(!strcmp((char *)data, "screen_next"))
@@ -587,7 +588,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->screensize++;
 
 	  gnome_canvas_item_set (item_screen_text,
-				 "text", screenname[properties->screensize], 
+				 "text", gettext(screenname[properties->screensize]), 
 				 NULL);
 	}
       else if(!strcmp((char *)data, "timer_previous"))
@@ -596,7 +597,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->timer--;
 
 	  gnome_canvas_item_set (item_timer_text,
-				 "text", timername[properties->timer], 
+				 "text", gettext(timername[properties->timer]), 
 				 NULL);
 	}
       else if(!strcmp((char *)data, "timer_next"))
@@ -605,7 +606,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    properties->timer++;
 
 	  gnome_canvas_item_set (item_timer_text,
-				 "text", timername[properties->timer], 
+				 "text", gettext(timername[properties->timer]), 
 				 NULL);
 	}
     default:
