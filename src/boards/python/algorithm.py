@@ -113,16 +113,16 @@ class Gcompris_algorithm:
      s = self.paint_image(i ,i ,410)
      s.connect ("event", self.apple_click, i)
     self.algo = random.choice(self.algos)
-    self.zufall = []
+    self.random_index = []
     for i in range(self.anzahl):
-     self.zufall.append(random.randrange(len(self.symbollist))) 
+     self.random_index.append(random.randrange(len(self.symbollist))) 
     for i in range(len(self.symbollist)):
-     self.paint_image(self.zufall[self.algo(i)], i, 20)
-    self.zufall = []
+     self.paint_image(self.random_index[self.algo(i)], i, 20)
+    self.random_index = []
     for i in range(self.anzahl):
-     self.zufall.append(random.randrange(len(self.symbollist)))
+     self.random_index.append(random.randrange(len(self.symbollist)))
     for i in range(5):
-     self.paint_image(self.zufall[self.algo(i)], i, 140)
+     self.paint_image(self.random_index[self.algo(i)], i, 140)
     self.place = 5 
     self.paint_qm ()
 
@@ -162,7 +162,7 @@ class Gcompris_algorithm:
   def apple_click (self, widget, event=None, index=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
      print self.symbollist [index]
-     if index == self.zufall[self.algo(self.place)]:
+     if index == self.random_index[self.algo(self.place)]:
       self.qm.destroy()
       self.paint_image(index, self.place, 140)
       self.place +=1
