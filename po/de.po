@@ -6,6 +6,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-03 16:20+0100\n"
-"PO-Revision-Date: 2005-02-03 16:24+0100\n"
+"POT-Creation-Date: 2005-02-10 21:22+0100\n"
+"PO-Revision-Date: 2005-02-10 21:26+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -721,6 +722,26 @@ msgstr "Erzähle eine kurze Geschichte"
 #: boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
 msgstr "Spaziergang auf dem Mond"
+
+#: boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Herbst"
+
+#: boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Frühling"
+
+#: boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Sommer"
+
+#: boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "Die vier Jahreszeiten"
+
+#: boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Winter"
 
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -1831,8 +1852,17 @@ msgid ""
 "indication of your position like a map. You cannot move tux in visible mode."
 msgstr ""
 "Benutze die Tastaturpfeile um Tux zur Tür zu leiten. Benutze die Leertaste "
-"um zwischen unsichtbarem und sichtbarem Modus zu wechseln. Der sichtbare Modus gibt Dir nur einen Hinweis auf Deine Position, ähnlich wie eine Landkarte. Du kannst Tux nicht "
-"im sichtbaren Modus bewegen."
+"um zwischen unsichtbarem und sichtbarem Modus zu wechseln. Der sichtbare "
+"Modus gibt Dir nur einen Hinweis auf Deine Position, ähnlich wie eine "
+"Landkarte. Du kannst Tux nicht im sichtbaren Modus bewegen."
+
+#: boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Finde Deinen Weg aus verschiedenen Labyrinthen"
+
+#: boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Gehe zu dem Labyrinthen"
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2728,7 +2758,7 @@ msgstr "Mehrere Aktivitäten für Kinder"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:644
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2931,7 +2961,9 @@ msgstr "rechts"
 
 #: src/boards/maze.c:488
 msgid "Look at your position and switch back to invisible mode to move"
-msgstr "Betrachte Deine Position und schalte zum Weitermachen zum unsichtbaren Modus zurück"
+msgstr ""
+"Betrachte Deine Position und schalte zum Weitermachen zum unsichtbaren Modus "
+"zurück"
 
 #: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
@@ -3228,9 +3260,9 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:208
+#: src/gcompris/about.c:316 src/gcompris/config.c:209
 #: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:152
+#: src/gcompris/images_selector.c:252
 msgid "OK"
 msgstr "OK"
 
@@ -3313,182 +3345,186 @@ msgid "Indian (Hindi)"
 msgstr "Indisch (Hindi)"
 
 #: src/gcompris/config.c:81
+msgid "Indian (Gujarati)"
+msgstr "Indisch (Gujarati)"
+
+#: src/gcompris/config.c:82
 msgid "Indian (Punjabi)"
 msgstr "Indisch (Punjabi)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Italian"
 msgstr "Italienisch"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Macedonian"
 msgstr "Mazedonisch"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Malay"
 msgstr "Malaysisch"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Holländisch"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Norwegisch Bokmal"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Neunorwegisch"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Polnisch"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Portugiesisch"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Brazil Portuguese"
 msgstr "Brasilianisches Portugiesisch"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Rumänisch"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Albanian"
 msgstr "Albanisch"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Serbian (Latin)"
 msgstr "Serbisch (Latein)"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Serbian"
 msgstr "Serbisch"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Walloon"
 msgstr "Wallonisch"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Chinese (Simplified)"
 msgstr "Chinesisch (Vereinfacht)"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "No filter"
 msgstr "Kein Filter"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Only this level"
 msgstr "Nur diese Ebene"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "Up to this level"
 msgstr "Bis zu dieser Ebene"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid "This level and above"
 msgstr "Diese Ebene und höher"
 
-#: src/gcompris/config.c:182
+#: src/gcompris/config.c:183
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: src/gcompris/config.c:291
+#: src/gcompris/config.c:292
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:335
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:363
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:396
+#: src/gcompris/config.c:397
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: src/gcompris/config.c:417
+#: src/gcompris/config.c:418
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Keine Verkleidung in %s gefunden\n"
 
-#: src/gcompris/config.c:432 src/gcompris/config.c:817
-#: src/gcompris/config.c:828
+#: src/gcompris/config.c:433 src/gcompris/config.c:818
+#: src/gcompris/config.c:829
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: src/gcompris/file_selector.c:277
+#: src/gcompris/file_selector.c:287
 msgid "CANCEL"
 msgstr "Abbrechen"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:318
 msgid "LOAD"
 msgstr "Laden"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:318
 msgid "SAVE"
 msgstr "Speichern"
 
