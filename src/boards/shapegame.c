@@ -406,7 +406,7 @@ static gint key_press(guint keyval)
     {
     case 'e':
       /* Enter Edit Mode */
-      gcompris_dialog(_("You entered the Edit mode\nMove the puzzle items and\n's' to save\n'd' to display all the shapes"), NULL);
+      gcompris_dialog(_("You entered the Edit mode\nMove the puzzle items and\ntype 's' to save, and\n'd' to display all the shapes"), NULL);
       edit_mode = TRUE;
       break;
     case 's':

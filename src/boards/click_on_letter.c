@@ -222,14 +222,14 @@ static gboolean sounds_are_fine (gchar* letter)
   str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
   
   if(!str2) {
-    gchar *msg = g_strdup_printf("%s%s", _("Error: this activity requires you to install first\nthe package assetml-voices-alphabet-"),
+    gchar *msg = g_strdup_printf("%s%s", _("Error: this activity requires you that you first install \nthe package assetml-voices-alphabet-"),
 				 locale);
     gcompris_dialog(msg, gcompris_end_board);
     g_free(msg);
     fine = FALSE;
   } else {
     if(!properties->fx) {
-      gcompris_dialog(_("Error: this activity cannot be played with the\nsound effect disabled.\nGo in the configuration dialog to\nenable the sound"), gcompris_end_board);
+      gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo in the configuration dialog to\nenable the sound"), gcompris_end_board);
       fine = FALSE;
     }
   }

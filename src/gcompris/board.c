@@ -38,7 +38,7 @@ void init_plugins(void)
 
   /* Fist make sure the module loading is supported on this platform */
   if (!g_module_supported())
-    g_error("Dynamic module loading is not supported. gcompris cannot work.\n");
+    g_error( _("Dynamic module loading is not supported. gcompris cannot load.\n") );
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 
@@ -119,7 +119,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
 	return TRUE;
       } else {
-	g_warning("We found a plugin with the name %s but is_our_board() return FALSE (type=%s)\n", 
+	g_warning("We found a plugin with the name %s but is_our_board() returned FALSE (type=%s)\n", 
 		  gcomprisBoard->name,
 		  gcomprisBoard->type);
       }

@@ -244,7 +244,7 @@ void gcompris_about_start ()
   // License
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", _("This software is a GNU Package and is released under the Gnu Public Licence"),
+				"text", _("This software is a GNU Package and is released under the GNU Public Licence"),
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 70,

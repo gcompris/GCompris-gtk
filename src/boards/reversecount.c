@@ -138,7 +138,7 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("Reverse count"),
-    N_("Practice the substraction with a funny game"),
+    N_("Practice substraction with a funny game"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

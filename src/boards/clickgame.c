@@ -84,7 +84,7 @@ static BoardPlugin clickgame_bp =
    NULL,
    NULL,
    N_("Click On Me"),
-   N_("Left-Click with the mouse on all swimming fishes before they leave the fishtank"),
+   N_("Left-Click with the mouse on all swimming fish before they leave the fishtank"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

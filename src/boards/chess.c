@@ -188,7 +188,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   
   if (g_file_test ("/usr/bin/gnuchessx", G_FILE_TEST_EXISTS)) {
     
-    gcompris_dialog(_("Error: /usr/bin/gnuchessx is installed\nwhich means you run an old version\nof gnuchess.\nPlease upgrade to gnuchess 5 or above."), gcompris_end_board);
+    gcompris_dialog(_("Error: /usr/bin/gnuchessx is installed\nwhich means you have an old version\nof gnuchess.\nPlease upgrade to gnuchess 5 or above."), gcompris_end_board);
     
     return;
   }

@@ -1,3 +1,91 @@
+2004-04-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Bugzilla #139771: Strings addition, fixes by Adam Weinberger
+	Bugzilla #140045: s/strwaberry/strawberry/ in hexagon.xml.in
+	* boards/advanced_colors.xml.in:
+	* boards/algebra_by.xml.in:
+	* boards/algebra_guesscount.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/algorithm.xml.in:
+	* boards/babymatch.xml.in:
+	* boards/babyshapes.xml.in:
+	* boards/billard.xml.in:
+	* boards/canal_lock.xml.in:
+	* boards/chess_computer.xml.in:
+	* boards/chess_movelearn.xml.in:
+	* boards/chess_partyend.xml.in:
+	* boards/chronos.xml.in:
+	* boards/click_on_letter.xml.in:
+	* boards/clickgame.xml.in:
+	* boards/clockgame.xml.in:
+	* boards/colors.xml.in:
+	* boards/doubleentry.xml.in:
+	* boards/draw.xml.in:
+	* boards/enumerate.xml.in:
+	* boards/erase.xml.in:
+	* boards/fifteen.xml.in:
+	* boards/gcompris_pixmaps.assetml.in:
+	* boards/hanoi.xml.in:
+	* boards/hexagon.xml.in:
+	* boards/imagename.xml.in:
+	* boards/leftright.xml.in:
+	* boards/maze3D.xml.in:
+	* boards/melody.xml.in:
+	* boards/memory.xml.in:
+	* boards/menu.xml.in:
+	* boards/minouche.xml.in:
+	* boards/missing_letter.xml.in:
+	* boards/money.xml.in:
+	* boards/money_cents.xml.in:
+	* boards/paintings.xml.in:
+	* boards/paratrooper.xml.in:
+	* boards/planegame.xml.in:
+	* boards/pythontest.xml.in:
+	* boards/railroad.xml.in:
+	* boards/read_colors.xml.in:
+	* boards/readingh.xml.in:
+	* boards/readingv.xml.in:
+	* boards/redraw.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/reversecount.xml.in:
+	* boards/scalesboard.xml.in:
+	* boards/smallnumbers.xml.in:
+	* boards/submarine.xml.in:
+	* boards/superbrain.xml.in:
+	* boards/target.xml.in:
+	* boards/traffic.xml.in:
+	* boards/watercycle.xml.in:
+	* boards/wordsgame.xml.in:
+	* src/boards/algebra.c:
+	* src/boards/canal_lock.c:
+	* src/boards/chess.c: (start_board):
+	* src/boards/click_on_letter.c: (sounds_are_fine):
+	* src/boards/clickgame.c:
+	* src/boards/clockgame.c:
+	* src/boards/draw.c:
+	* src/boards/fifteen.c:
+	* src/boards/hanoi.c: (hanoi_create_item):
+	* src/boards/leftright.c:
+	* src/boards/money_widget.c: (finalize):
+	* src/boards/paratrooper.c:
+	* src/boards/python.c: (pythonboard_init), (pythonboard_start):
+	* src/boards/railroad.c:
+	* src/boards/reversecount.c:
+	* src/boards/shapegame.c: (key_press):
+	* src/boards/superbrain.c:
+	* src/boards/target.c:
+	* src/gcompris/about.c: (gcompris_about_start):
+	* src/gcompris/board.c: (init_plugins), (board_check_file):
+	* src/gcompris/config.c: (gcompris_config_start):
+	* src/gcompris/gameutil.c: (gcompris_get_asset_file),
+	(gcompris_load_pixmap), (gcompris_read_xml_file):
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_init):
+	* src/gcompris/log.c: (gcompris_log_end):
+	* src/gcompris/oggplayer.c: (decode_ogg_file):
+	* src/gcompris/soundutil.c: (scheduler_bgnd):
+	* src/gcompris/timer.c: (display_time_ellapsed):
+
 2004-04-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/C/Makefile.am: fixed for out of source compilation. Thanks to Mike Castle for that.

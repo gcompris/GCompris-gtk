@@ -204,7 +204,7 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("A simple vector drawing tool"),
-    N_("Creative board where you can freely draw"),
+    N_("Creative board where you can draw freely"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/04/13 23:26:55 bcoudoin>
+ * Time-stamp: <2004/04/14 01:08:56 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -78,9 +78,9 @@ static struct poptOption options[] = {
   {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
    N_("display only activities with this difficulty level."), NULL},
   {"audio", 'A', POPT_ARG_STRING, &popt_audio_output, 0,
-   N_("select the audio output. Use '-A list' to get the list of available audio output"), NULL},
+   N_("select the audio output. Use '-A list' to get the list of available audio outputs"), NULL},
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
-   N_("Prints the version of " PACKAGE), NULL},
+   N_("Print the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
    N_("Use the antialiased canvas (slower)."), NULL},
   POPT_AUTOHELP
@@ -455,7 +455,7 @@ static void setup_window ()
   /* Get and Run the root menu */
   gcomprisBoardMenu = gcompris_get_board_from_section("/");
   if(!board_check_file(gcomprisBoardMenu)) {
-    g_error("Cant't find the menu board or plugin execution error");
+    g_error("Couldn't find the board menu, or plugin execution error");
   } else {
     g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
   }
@@ -619,7 +619,7 @@ gcompris_init (int argc, char *argv[])
   if (popt_version)
     {
       printf (_("GCompris\nVersion: %d\nLicence: GPL\n"
-		"More infos on http://ofset.sourceforge.net/gcompris\n"),
+		"More info at http://ofset.sourceforge.net/gcompris\n"),
 	      VERSION);
       exit (0);
     }

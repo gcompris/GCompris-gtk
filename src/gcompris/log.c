@@ -141,7 +141,7 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   /* Prepare our log */
 
   /* The default format for time represenation.  See strftime(3) */
-  char *fmt = "%a %b %d %H:%M:%S %Z %Y";
+  char *fmt = _("%a %b %d %H:%M:%S %Z %Y");
 
   char buf[256];
    

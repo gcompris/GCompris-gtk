@@ -388,7 +388,7 @@ void gcompris_config_start ()
 
     /* Should not happen. It the user found the config, there should be a skin */
     if(g_list_length(skinlist) == 0) {
-      g_warning("No skin found in %s\n", PACKAGE_DATA_DIR"/skins");
+      g_warning( _("No skin found in %s\n"), PACKAGE_DATA_DIR"/skins");
     }
 
     /* Find the current skin index */

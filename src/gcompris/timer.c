@@ -234,7 +234,7 @@ static void display_time_ellapsed()
       /* Display the value for this timer */
       if(item)
 	gnome_canvas_item_set(item,
-			      "text", _("Time Ellapsed"),
+			      "text", _("Time Elapsed"),
 			      NULL);
       break;
     default:

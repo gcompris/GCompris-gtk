@@ -94,7 +94,7 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("Memory game"),
-    N_("Build a train conforming to the model"),
+    N_("Build a train according to the model"),
     "Pascal Georges pascal.georges1@free.fr>",
     NULL,
     NULL,

@@ -102,7 +102,7 @@ static BoardPlugin menu_bp =
    NULL,
    NULL,
    N_("Paratrooper"),
-   N_("Manage the paratrooper to let him safely land"),
+   N_("Direct the paratrooper to help him land safely"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

@@ -108,7 +108,7 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("Super Brain"),
-    N_("Tux has hidden several items, find them back in the correct order"),
+    N_("Tux has hidden several items. Find them again in the correct order"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

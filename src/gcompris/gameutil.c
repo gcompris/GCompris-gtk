@@ -74,7 +74,7 @@ gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories,
     }
   else
     {
-      g_warning("Asset not found (dataset=%s categorie=%s mimetype=%s locale=%s file=%s)\n", 
+      g_warning("Asset not found (dataset=%s category=%s mimetype=%s locale=%s file=%s)\n", 
 		dataset, categories, mimetype, gcompris_get_locale(), file);
     }
   assetml_free_assetlist(gl_result);
@@ -128,7 +128,7 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 			  _("Couldn't find file"), 
 			  pixmapfile,
 			  _("This activity is incomplete."),
-			  _("Exit it and report\nus the problem"));
+			  _("Exit it and report\nthe problem to the authors."));
     gcompris_dialog (str, NULL);
     g_free(str);
   }
@@ -477,7 +477,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
 
   /* in case something went wrong */
   if(!doc) {
-    g_warning("Oups, the parsing of %s failed", filename);
+    g_warning("Oops, the parsing of %s failed", filename);
     return NULL;
   }
   
@@ -489,7 +489,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
      g_strcasecmp(doc->children->name,"GCompris")!=0) {
     xmlFreeDoc(doc);
     g_free(gcomprisBoard);
-    g_warning("Oups, the file %s is not for gcompris", filename);
+    g_warning("Oops, the file %s is not for gcompris", filename);
     return NULL;
   }
   

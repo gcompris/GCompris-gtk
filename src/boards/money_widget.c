@@ -118,7 +118,7 @@ finalize (GtkObject *object)
 
   Money_Widget *moneyWidget = (Money_Widget *) object;
 
-  printf("ERROR : Finalyse is NEVER CALLED\n");
+  printf("ERROR : Finalize is NEVER CALLED\n");
   /* FIXME: CLEANUP CODE UNTESTED */
   while(g_list_length(moneyWidget->priv->moneyItemList)>0) 
     {

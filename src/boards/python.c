@@ -51,7 +51,7 @@ static BoardPlugin pythonboard_bp =
    NULL,
    NULL,
    N_("Python Board"),
-   N_("Special board that embed python into gcompris."),
+   N_("Special board that embeds python into gcompris."),
    "Olivier Samyn <osamyn@ulb.ac.be>",
    pythonboard_init,
    NULL,
@@ -100,7 +100,7 @@ pythonboard_init (){
   globals = PyModule_GetDict(main_module); /* Borrowed reference */
 
   if(globals==NULL){
-    g_warning("! Python disabled: Cannot get infos from the python interpreter.\n");
+    g_warning("! Python disabled: Cannot get info from the python interpreter.\n");
     pythonboard_is_ready = FALSE;
   } else {
     /* Add the python plugins dir to the python's search path */
@@ -192,7 +192,7 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
     globals = PyModule_GetDict(main_module);
 
     if(globals==NULL){
-      g_print("Cannot get infos from the python interpreter. Seems there is a problem with this one.\n");
+      g_print("Cannot get info from the python interpreter. Seems there is a problem with this one.\n");
       return;
     } else {
       gcomprisBoard = agcomprisBoard;

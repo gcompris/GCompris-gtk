@@ -119,8 +119,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Practice the addition with a target game"),
-    N_("Touch the target and count your points"),
+    N_("Practice addition with a target game"),
+    N_("Touch the target and count the points"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

@@ -75,7 +75,7 @@ static BoardPlugin menu_bp =
    NULL,
    NULL,
    N_("Learning Clock"),
-   N_("Learn how to read the time"),
+   N_("Learn how to tell time"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

@@ -96,7 +96,7 @@ int decode_ogg_file(char *infile)
     driver_id = ao_driver_id(properties->audio_output);
 
   if ( driver_id < 0 ){
-     fprintf(stderr, "Error unable to find a usable audio output device (%d)\nTry 'gcompris -A' to select an alternative audio output\nUse '-A list' to display the list of available device", driver_id);
+     fprintf(stderr, _("Error unable to find a usable audio output device (%d)\nTry 'gcompris -A' to select an alternative audio output\nUse '-A list' to display the list of available devices"), driver_id);
      /* Disable sounds in gcompris */
      properties->music = FALSE;
      properties->fx = FALSE;
@@ -116,7 +116,7 @@ int decode_ogg_file(char *infile)
   if (audio_device == NULL)
     {
       fclose(input);
-      fprintf(stderr, "Error opening audio device\n");
+      fprintf(stderr, _("Error opening audio device\n"));
       return -1;
     }
 
