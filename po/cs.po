@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
-"POT-Creation-Date: 2003-03-28 12:19+0100\n"
-"PO-Revision-Date: 2003-05-22 18:26+0200\n"
+"POT-Creation-Date: 2003-05-23 12:03+0200\n"
+"PO-Revision-Date: 2003-05-23 14:13+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -794,6 +794,14 @@ msgstr "Severní Amerika"
 msgid "South America"
 msgstr "Jižní Amerika"
 
+#: boards/geography/board3_0.xml.in.h:1
+msgid "West Europe"
+msgstr "Západní Evropa"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "East Europe"
+msgstr "Východní Evropa"
+
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
 msgstr "Manipulace s klávesnicí"
@@ -1426,7 +1434,7 @@ msgid ""
 "rebuild the original painting."
 msgstr ""
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:156
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
 msgid "Make the puzzle"
 msgstr "Sestav skládačku"
 
@@ -1697,6 +1705,30 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Dobře vyrovnat vány."
 
+#: boards/submarine.xml.in.h:1
+msgid ""
+"Click on different active elements : engine, rudders and air tanks in order "
+"to navigate at the ordered depth."
+msgstr ""
+"Klikej na různé aktivní elementy\" motor, kormidla a vzduchové nádrže, abys "
+"plaval v přikázané hloubce."
+
+#: boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "Nauč se, jak funguje ponorka"
+
+#: boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr "Základy fyziky"
+
+#: boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr "Řiď ponorku"
+
+#: boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr "Řiď ponorku pomocí vzduchových nádrží a výškových kormidel"
+
 #: boards/smallnumbers.xml.in.h:1
 msgid "Counting skill"
 msgstr "Schopnost počítat"
@@ -1802,10 +1834,10 @@ msgstr "Editor pro gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1566 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:157 src/gcompris/gameutil.c:493
-#: src/gcompris/gameutil.c:494 src/gcompris/images_selector.c:347
+#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
+#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
+#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
 #: src/gcompris/soundutil.c:286
 #, c-format
 msgid "Couldn't find file %s !"
@@ -1813,7 +1845,7 @@ msgstr "Nemohu nalézt soubor %s !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1569
+#: src/boards/shapegame.c:1723
 #, c-format
 msgid "find file %s !"
 msgstr "nalézt soubor %s !"
@@ -1989,9 +2021,26 @@ msgstr "Ne, nebylo tam"
 msgid "Reverse count"
 msgstr "Počítání pozpátku"
 
-#: src/boards/shapegame.c:157
+#: src/boards/shapegame.c:161
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Táhni a pusť položky pro znovusestavení objektu"
+
+#. Enter Edit Mode
+#: src/boards/shapegame.c:408
+msgid ""
+"You entered the Edit mode\n"
+"Move the puzzle items and\n"
+"'s' to save\n"
+"'d' to display all the shapes"
+msgstr ""
+
+#: src/boards/shapegame.c:416
+msgid ""
+"This board data are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"Data této desky jsou uložena pod\n"
+"/tmp/gcompris-board.xml"
 
 #: src/boards/submarine.c:174
 msgid "Submarine"
@@ -2020,11 +2069,11 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Vzdálenost k cíli = %d metrů"
 
-#: src/boards/python.c:47
+#: src/boards/python.c:52
 msgid "Python Board"
 msgstr "Deska Pythonu"
 
-#: src/boards/python.c:48
+#: src/boards/python.c:53
 msgid "Special board that embed python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
 
@@ -2190,8 +2239,8 @@ msgstr "Efekty"
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:683
-#: src/gcompris/config.c:694
+#: src/gcompris/config.c:387 src/gcompris/config.c:684
+#: src/gcompris/config.c:695
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2228,7 +2277,7 @@ msgstr "Používat vyhlazovaný canvas (pomalejší)"
 msgid "GCompris I Have Understood"
 msgstr "GCompris Pochopil jsem"
 
-#: src/gcompris/gcompris.c:540
+#: src/gcompris/gcompris.c:541
 #, c-format
 msgid ""
 "GCompris\n"
