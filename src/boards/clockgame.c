@@ -275,11 +275,8 @@ static void display_hour(guint hour)
 
   /* Calc the needle angle */
   ang = ((hour > 12) ? hour-12 : hour) * M_PI / 6;
-
-  /* Depending on the level, work like a real clock, add the minute offset
-     to the hour needle */
-  if(gcomprisBoard->level>3)
-    ang += currentTime.minute * M_PI / 360;
+  ang += currentTime.minute * M_PI / 360;
+  ang += currentTime.second * M_PI / 21600;
 
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
@@ -312,6 +309,7 @@ static void display_minute(guint minute)
     return;
 
   ang = minute * M_PI / 30;
+  ang += currentTime.second * M_PI / 1800;
 
   canvasPoints->coords[0]=cx;
   canvasPoints->coords[1]=cy;
@@ -655,9 +653,16 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(item==hour_item)
 	    display_hour(angle * 6 / M_PI);
 	  else if(item==minute_item)
+	  {
 	    display_minute(angle * 30 / M_PI);
+	    display_hour(currentTime.hour);
+	  }
 	  else if(item==second_item)
+	  {
 	    display_second(angle * 30 / M_PI);
+	    display_minute(currentTime.minute);
+	    display_hour(currentTime.hour);
+	  }
 
           x = new_x + cx;
           y = new_y + cy;
@@ -684,7 +689,11 @@ static void get_random_hour(Time *time)
 {
 
   time->hour=rand()%12;
-  time->second=rand()%60;
+  
+  if(gcomprisBoard->level>3)
+    time->second=rand()%60;
+  else time->second=0;
+  
   time->minute=rand()%60;
 
   switch(gcomprisBoard->level)

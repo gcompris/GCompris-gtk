@@ -319,11 +319,17 @@ static void update_line_calcul() {
   else
     line = (int)(token_count/2);
 
+  if(line==-1)
+    return;
+
   sprintf(str, "%d",token_result());
-  gnome_canvas_item_set(calcul_line_item[line*2], "text", BLANK, NULL);
+  gnome_canvas_item_set(calcul_line_item[line*2],      "text", BLANK, NULL);
   gnome_canvas_item_set(calcul_line_item_back[line*2], "text", BLANK, NULL);
-  gnome_canvas_item_set(calcul_line_item[line*2+1], "text", BLANK, NULL);
-  gnome_canvas_item_set(calcul_line_item_back[line*2+1], "text", BLANK, NULL);
+
+  if(line < gcomprisBoard->level-1) {			/* No next line to update on last line */
+    gnome_canvas_item_set(calcul_line_item[line*2+1],      "text", BLANK, NULL);
+    gnome_canvas_item_set(calcul_line_item_back[line*2+1], "text", BLANK, NULL);
+  }
 }
 /* ==================================== */
 static int generate_numbers() {
@@ -339,16 +345,22 @@ static int generate_numbers() {
   for (i=0; i<gcomprisBoard->level; i++) {
     // + and x can always be chosen, but we must ensure - and / are valid
     minus = (result - num_values[answer_num_index[i+1]] >= 0);
-    divide = (result % num_values[answer_num_index[i+1]] == 0);
 
-    r = 2 + (minus ? 1 : 0) + (divide ? 1 : 0);
+    if(gcomprisBoard->level > 2 && num_values[answer_num_index[i+1]] <= 5) {       /* Avoid div operator at lower level */
+      divide = (result % num_values[answer_num_index[i+1]] == 0);
+    } else {
+      divide = 0;
+    }
+    r = 2 + minus + divide;
 
     switch (RAND(1,r)) {
-    case 1 : 	answer_oper[i] = '+';
+    case 1 : 	
+      answer_oper[i] = '+';
       result += num_values[answer_num_index[i+1]];
       break;
-    case 2 :		// prevent result from getting too big
-      if (result*num_values[answer_num_index[i+1]] < 1000 ) {
+    case 2 :		// prevent result from getting too big and accept only < 10 bor the by operator
+      if ( (result*num_values[answer_num_index[i+1]] < 1000 ) &&
+	   ( num_values[answer_num_index[i+1]] < 10) ) {
 	answer_oper[i] = 'x';
 	result *= num_values[answer_num_index[i+1]];
       } else {
@@ -356,25 +368,27 @@ static int generate_numbers() {
 	result += num_values[answer_num_index[i+1]];
       }
       break;
-    case 3 : 	if (minus) {
-      answer_oper[i] = '-';
-      result -= num_values[answer_num_index[i+1]];
-      assert(result >= 0);
-    } else {
-      answer_oper[i] = ':';
-      assert(result%num_values[answer_num_index[i+1]] == 0);
-      result /= num_values[answer_num_index[i+1]];
-    }
+    case 3 :
+      if (minus) {
+	answer_oper[i] = '-';
+	result -= num_values[answer_num_index[i+1]];
+	assert(result >= 0);
+      } else {
+	answer_oper[i] = ':';
+	assert(result%num_values[answer_num_index[i+1]] == 0);
+	result /= num_values[answer_num_index[i+1]];
+      }
       break;
-    case 4 : if ( RAND(0,1) == 0) {
-      answer_oper[i] = '-';
-      result -= num_values[answer_num_index[i+1]];
-      assert(result >= 0);
-    } else {
-      answer_oper[i] = ':';
-      assert(result%num_values[answer_num_index[i+1]] == 0);
-      result /= num_values[answer_num_index[i+1]];
-    }
+    case 4 : 
+      if ( RAND(0,1) == 0) {
+	answer_oper[i] = '-';
+	result -= num_values[answer_num_index[i+1]];
+	assert(result >= 0);
+      } else {
+	answer_oper[i] = ':';
+	assert(result%num_values[answer_num_index[i+1]] == 0);
+	result /= num_values[answer_num_index[i+1]];
+      }
       break;
     default : g_warning("Bug in guesscount\n"); break;
     }
@@ -646,10 +660,14 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
       // update result text items
       if (token_count != 1 && token_count % 2 == 1) {
 	sprintf(str,"%d",token_result());
+	
 	gnome_canvas_item_set(calcul_line_item[token_count-3], "text", str, NULL);
 	gnome_canvas_item_set(calcul_line_item_back[token_count-3], "text", str, NULL);
-	gnome_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
-	gnome_canvas_item_set(calcul_line_item_back[token_count-2], "text", str, NULL);
+
+	if(token_count < 2*gcomprisBoard->level+1) {			/* No next line to update on last line */
+	  gnome_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
+	  gnome_canvas_item_set(calcul_line_item_back[token_count-2], "text", str, NULL);
+	}
       }
     }
     break;
