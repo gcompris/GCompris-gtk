@@ -178,10 +178,10 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
 
   /* Print it out */
   if(g_get_home_dir()) {
-    file = g_strconcat(g_get_home_dir(), "/.gcompris.log", NULL);
+    file = g_strconcat(g_get_home_dir(), "/.gcompris/gcompris.log", NULL);
   } else {
     /* On WIN98, No home dir */
-    file = g_strdup("gcompris.log");
+    file = g_strdup("gcompris/gcompris.log");
   }
 
   flog = fopen(file,"a");

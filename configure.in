@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
-AM_INIT_AUTOMAKE(gcompris, 6.3RC2)
+AM_INIT_AUTOMAKE(gcompris, 6.3RC3)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -445,7 +445,7 @@ AC_SUBST(VERSION_VOICES_GEOGRAPHY_PT)
 VERSION_VOICES_MISC_PT=1.1
 AC_SUBST(VERSION_VOICES_MISC_PT)
 
-VERSION_FLAGS=1.5
+VERSION_FLAGS=1.6
 AC_SUBST(VERSION_FLAGS)
 
 

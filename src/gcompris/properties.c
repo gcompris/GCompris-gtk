@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/10/10 20:37:58 bruno>
+ * Time-stamp: <2004/10/28 01:00:46 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -74,15 +74,37 @@ gchar *scan_get_string(GScanner *scanner) {
   return NULL;
 }
 
+/*
+ * create the root dir if needed
+ *
+ * return 0 if OK, -1 if ERROR
+ */
+static int
+create_rootdir (gchar *rootdir)
+{
+
+  /* Case where ~/.gcompris already exist as a file. We remove it */
+  if(g_file_test(rootdir, G_FILE_TEST_IS_REGULAR)) {
+    unlink(rootdir);
+  }
+
+  if(g_file_test(rootdir, G_FILE_TEST_IS_DIR)) {
+    return 0;
+  }
+
+  return(mkdir(rootdir, 0755));
+}
+
 GcomprisProperties *gcompris_properties_new ()
 {
   GcomprisProperties *tmp;
   G_CONST_RETURN gchar *home_dir;
-  char *config_file;
-  const gchar *locale;
-  int i;
-  GScanner *scanner;
-  int filefd;
+  char          *config_file;
+  const gchar   *locale;
+  int            i;
+  GScanner      *scanner;
+  int		 filefd;
+  gchar         *full_rootdir;
 
   boards_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
@@ -102,10 +124,22 @@ GcomprisProperties *gcompris_properties_new ()
 
   home_dir = g_get_home_dir();
 
-  if(home_dir==NULL) {
-    config_file = g_strdup("gcompris.cfg");
+  if(home_dir==NULL) {		/* WIN98 */
+
+    /* On WIN98, No home dir */
+    full_rootdir = g_strdup_printf("%s", "gcompris");
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+
+    config_file = g_strdup("gcompris/gcompris.cfg");
+
   } else {
-    config_file = g_strdup_printf("%s/.gcompris",home_dir);
+
+    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris", NULL);
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+
+    config_file = g_strdup_printf("%s/.gcompris/gcompris.conf",home_dir);
   }
 
   filefd = open(config_file, O_RDONLY);
@@ -238,7 +272,7 @@ void gcompris_properties_save (GcomprisProperties *props)
   if(home_dir==NULL) {
     config_file = g_strdup("gcompris.cfg");
   } else {
-    config_file = g_strdup_printf("%s/.gcompris",home_dir);
+    config_file = g_strdup_printf("%s/.gcompris/gcompris.conf",home_dir);
   }
 
   filefd = fopen(config_file, "w+");
@@ -292,7 +326,7 @@ void gcompris_write_boards_status()
   if(home_dir==NULL) {
     config_file = g_strdup("gcompris_boards.cfg");
   } else {
-    config_file = g_strdup_printf("%s/.gcompris_boards",home_dir);
+    config_file = g_strdup_printf("%s/gcompris/gcompris_boards.conf",home_dir);
   }
 
   filefd = fopen(config_file, "w+");
@@ -321,7 +355,7 @@ void read_boards_status()
   if(home_dir==NULL) {
     config_file = g_strdup("gcompris_boards.cfg");
   } else {
-    config_file = g_strdup_printf("%s/.gcompris_boards",home_dir);
+    config_file = g_strdup_printf("%s/gcompris/gcompris_boards.conf",home_dir);
   }
 
   filefd = open(config_file, O_RDONLY);

@@ -435,7 +435,7 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
   gchar *result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Oss:gcompris_canvas_get_property", &pyitem, &property))
+  if(!PyArg_ParseTuple(args, "Os:gcompris_canvas_get_property", &pyitem, &property))
     return NULL;
 
   /* pass parameter from python */
@@ -445,7 +445,12 @@ py_gcompris_canvas_get_property(PyObject* self, PyObject* args)
   result = g_object_get_data( G_OBJECT(item), property);
 
   /* Create and return the result */
-  return Py_BuildValue("s", result);
+  if(result==NULL) {
+    Py_INCREF(Py_None);
+    return Py_None;
+  } else {
+    return Py_BuildValue("s", result);
+  }
 
 }
 

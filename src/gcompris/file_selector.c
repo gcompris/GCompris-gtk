@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2004/08/16 23:49:30 bcoudoin>
+ * Time-stamp: <2004/10/28 00:45:50 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -283,18 +283,18 @@ display_file_selector(int mode,
   file_selector_displayed = TRUE;
 
   if(g_get_home_dir()) {
-    full_rootdir = g_strconcat(g_get_home_dir(), "/gcompris", NULL);
+    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data", NULL);
     create_rootdir(full_rootdir);
     g_free(full_rootdir);
 
-    full_rootdir = g_strconcat(g_get_home_dir(), "/gcompris/", rootdir, NULL);
+    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data/", rootdir, NULL);
   } else {
     /* On WIN98, No home dir */
-    full_rootdir = g_strdup_printf("%s", "gcompris");
+    full_rootdir = g_strdup_printf("%s", "gcompris/user_data");
     create_rootdir(full_rootdir);
     g_free(full_rootdir);
   
-    full_rootdir = g_strdup_printf("%s/%s", "gcompris", rootdir);
+    full_rootdir = g_strdup_printf("%s/%s", "gcompris/user_data", rootdir);
   }
 
   create_rootdir(full_rootdir);

@@ -889,7 +889,8 @@ class Gcompris_anim:
             outline_color_rgba=self.colors[self.current_color],
             width_units=4.0
             )
-          self.newitem.set_data('empty',True)
+          #          self.newitem.set_data('empty',True)
+          gcompris.utils.canvas_set_property(self.newitem, "empty", True)
           
         elif self.tools[self.current_tool][0] == "FILL_RECT":
 
@@ -924,7 +925,8 @@ class Gcompris_anim:
             outline_color_rgba=self.colors[self.current_color],
             width_units=5.0
             )
-          self.newitem.set_data('empty',True)
+          #          self.newitem.set_data('empty',True)
+          gcompris.utils.canvas_set_property(self.newitem, "empty", True)
         
         elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
 
@@ -1100,7 +1102,9 @@ class Gcompris_anim:
     aff = item.i2c_affine(l)
     cloned.affine_relative(aff)
     try:
-      empty=item.get_data('empty')
+      #      empty=item.get_data('empty')
+      # Can't do it here because it needs to be C compatible for the svgexport
+      empty = gcompris.utils.canvas_get_property(fles.newitem, "empty")
     except:
       empty=False
 
@@ -1528,7 +1532,9 @@ class Gcompris_anim:
       item_type='IMAGE'
     elif gobject.type_name(item)=="GnomeCanvasRect":
       try:
-        empty = item.get_data('empty')
+        # Can't do it here because it needs to be C compatible for the svgexport
+        empty = gcompris.utils.canvas_get_property(item, "empty")
+        #empty = item.get_data('empty')
         if empty == None:
           empty = Fale
         else:
@@ -1545,7 +1551,10 @@ class Gcompris_anim:
 
     elif gobject.type_name(item)=="GnomeCanvasEllipse":
       try:
-        empty = item.get_data('empty')
+        #empty = item.get_data('empty')
+        # Can't do it here because it needs to be C compatible for the svgexport
+        empty = gcompris.utils.canvas_get_property(item, "empty")
+
         if empty == None:
           empty = Fale
         else:

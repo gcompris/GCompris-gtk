@@ -1,3 +1,17 @@
+2004-10-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	changed to use ~/.gcompris as a directory and store all created files in it.
+	
+	* boards/flags/gcompris_flags.assetml.in: added indian
+	* configure.in: increased to release 6.3RC3. updated flags release
+	* src/boards/py-mod-utils.c: (py_gcompris_canvas_get_property): fixed bug
+	* src/boards/python/anim.py: uses py_gcompris_canvas_get_property. fixed empty object load bug.
+	* src/gcompris/file_selector.c: (display_file_selector):
+	* src/gcompris/log.c: (gcompris_log_end):
+	* src/gcompris/properties.c: (create_rootdir),
+	(gcompris_properties_new), (gcompris_properties_save),
+	(gcompris_write_boards_status), (read_boards_status):
+
 2004-10-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chronos/board4_1.xml.in: added translation to the title
