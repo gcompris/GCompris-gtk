@@ -1,14 +1,14 @@
-# gcompris fr.po.
+# French translation of gcompris.
 # Copyright (C) 2000-2002 Free Software Foundation, Inc.
-# maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
-# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
+# maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2002.
+# Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-11-26 14:13+0100\n"
-"PO-Revision-Date: 2002-11-12 00:41+0100\n"
-"Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
+"Project-Id-Version: 1.2.1\n"
+"POT-Creation-Date: 2002-12-14 15:01+0100\n"
+"PO-Revision-Date: 2002-12-14 14:59+0100\n"
+"Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -34,7 +34,8 @@ msgstr "Clique sur le bon objet coloré."
 
 #: boards/advanced_colors.xml.in.h:5
 msgid "This board is dedicated to recognize unusual colors."
-msgstr "L'objectif de cette activité est de reconnaître des couleurs non usuelles."
+msgstr ""
+"L'objectif de cette activité est de reconnaître des couleurs non usuelles."
 
 #: boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -1538,7 +1539,7 @@ msgstr ""
 "l'envers.\n"
 "Quand tu as terminé, clique sur le bouton OK ou utilise la touche entrée."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:125
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:132
 msgid "Practice the substraction with a funny game"
 msgstr "Entraînement à la soustraction avec un jeu amusant"
 
@@ -1848,7 +1849,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/reversecount.c:124
+#: src/boards/reversecount.c:131
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
@@ -2200,11 +2201,11 @@ msgstr "Ne peux pas trouver l'image %s !"
 msgid "Couldn't create pixmap from file: %s"
 msgstr "Ne peut pas trouver l'image: %s"
 
-#: src/gcompris/timer.c:223
+#: src/gcompris/timer.c:237
 msgid "Time Ellapsed"
 msgstr "Temps écoulé"
 
-#: src/gcompris/timer.c:308
+#: src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
