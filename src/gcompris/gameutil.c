@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/02/09 15:11:10 bruno>
+ * Time-stamp: <2002/02/11 23:33:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -238,7 +238,7 @@ void child_end(int  signum)
 {
   int pid;
 
-  pid = waitpid(ogg_pid, NULL, WNOHANG);
+  pid = waitpid(-1, NULL, WNOHANG);
   if(pid == -1)
     {
       g_error("Error waitpid");
