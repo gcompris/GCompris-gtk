@@ -109,6 +109,8 @@ BoardPlugin menu_bp =
     NULL,
     process_ok,
     set_level,
+    NULL,
+    NULL
   };
 
 /*

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/10/28 18:58:06 bruno>
+ * Time-stamp: <2001/11/06 22:20:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -130,6 +130,8 @@ BoardPlugin menu_bp =
    NULL,
    process_ok,
    set_level,
+   NULL,
+   NULL
 };
 
 /*

@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2001/09/12 23:46:04 bruno>
+ * Time-stamp: <2001/11/06 22:20:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -80,6 +80,8 @@ BoardPlugin menu_bp =
    key_press,
    NULL,
    set_level,
+   NULL,
+   NULL
 };
 
 /*

@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2001/09/12 23:41:48 bruno>
+ * Time-stamp: <2001/11/06 22:21:22 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -113,6 +113,7 @@ BoardPlugin menu_bp =
    NULL,
    set_level,
    help,
+   NULL
 };
 
 /*
@@ -671,7 +672,6 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
   gnome_canvas_item_move(paratrooperItem.rootitem, offset, paratrooperItem.speed);
   paratrooperItem.y += paratrooperItem.speed;
   paratrooperItem.x += offset;
-  printf("paratrooperItem.x = %d\n", paratrooperItem.x);
 
   /* Check we reached the target */
   if(paratrooperItem.y>boat_landarea_y)

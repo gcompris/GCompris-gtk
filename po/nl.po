@@ -5,22 +5,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.2\n"
-"POT-Creation-Date: 2001-10-29 00:54+0100\n"
+"POT-Creation-Date: 2001-11-06 22:57+0100\n"
 "PO-Revision-Date: 2000-07-22 16:13+0200\n"
 "Last-Translator: Dirk Schouten <schoutdi@knoware.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
-
-#: boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra boards"
-msgstr ""
-
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select a board"
-msgstr ""
 
 #: boards/algebra_by.xml.in.h:1 boards/algebra_div.xml.in.h:1
 #: boards/algebra_minus.xml.in.h:1 boards/algebra_plus.xml.in.h:1
@@ -31,6 +22,15 @@ msgstr "Ik vraag je een paar sommen"
 #: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
 msgid "Simple Algebra"
 msgstr "Eenvoudige Sommen"
+
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra boards"
+msgstr ""
+
+#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select a board"
+msgstr ""
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
@@ -94,6 +94,14 @@ msgstr "Eenvoudige Letters"
 #: boards/gletters.xml.in.h:2 src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
 msgstr "Typ de vallende letters voor ze de grond raken"
+
+#: boards/imageid.xml.in.h:1
+msgid "Pratice reading by finding the word matching an image"
+msgstr ""
+
+#: boards/imageid.xml.in.h:2
+msgid "Reading pratice"
+msgstr ""
 
 #: boards/imagename.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
@@ -184,13 +192,100 @@ msgstr ""
 "Typ de vallende woorden helemaal \n"
 "voor ze de grond raken"
 
-#: boards/imageid.xml.in.h:1
-msgid "Pratice reading by finding the word matching an image"
+#: gcompris.desktop.in.h:1
+msgid "Educational game starting at 3 years old"
 msgstr ""
 
-#: boards/imageid.xml.in.h:2
-msgid "Reading pratice"
+#: gcompris.desktop.in.h:2
+msgid "GCompris"
 msgstr ""
+
+#: src/boards/clickgame.c:169
+#, c-format
+msgid "Couldn't open pixmap dir: %s"
+msgstr "Kan pixmap directory niet openen: %s"
+
+#: src/boards/clickgame.c:246
+msgid "Practice the computer mouse"
+msgstr ""
+
+#: src/boards/clickgame.c:247
+msgid ""
+"Goal:\n"
+"In this game, the children will discover the computer mouse\n"
+"The goal is just to click with the left mouse button on the moving fish.\n"
+"\n"
+"Credits:\n"
+"Fish are taken from the Unix utility xfishtank.\n"
+"Images are taken from the National Undersearch Research Program (NURP) "
+"Collection\n"
+"at http://www.photolib.noaa.gov\n"
+"All images credit bellongs to the OAR/National Undersea Research Program "
+"(NURP)\n"
+"Except for the first image that also credits the University of North "
+"Carolina at Wilmington\n"
+"In the gcompris level order, images information is:\n"
+"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523)\n"
+"Photographer: D. Kesling\n"
+"Location: Florida Keys (image nur03006)\n"
+"Location: Unknown (image nur03505)\n"
+"Location: Unknown (image nur03010)\n"
+"Location: Unknown (image nur03011)\n"
+"Location: Unknown (image nur03013)\n"
+msgstr ""
+
+#: src/boards/clockgame.c:519
+msgid "Set the clock to:"
+msgstr ""
+
+#: src/boards/reading.c:98
+msgid "Reading"
+msgstr ""
+
+#: src/boards/reading.c:99
+msgid "Read a list of words and then tell if the given word is in it"
+msgstr ""
+
+#: src/boards/reading.c:308
+msgid "Please, check if the word"
+msgstr ""
+
+#: src/boards/reading.c:328
+msgid "is being displayed"
+msgstr ""
+
+#: src/boards/reading.c:519
+msgid "I am Ready"
+msgstr ""
+
+#: src/boards/reading.c:559
+msgid "Yes I saw it"
+msgstr ""
+
+#: src/boards/reading.c:589
+msgid "No, it was not there"
+msgstr ""
+
+#: src/boards/shapegame.c:120
+msgid "Drag and Drop the items to rebuild the object"
+msgstr ""
+
+#: src/boards/shapegame.c:1142
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "Kan bestand niet vinden %s !"
+
+#: src/boards/shapegame.c:1145
+#, fuzzy, c-format
+msgid "find file %s !"
+msgstr "Kan bestand niet vinden %s !"
+
+#: src/boards/smallnumbers.c:70
+#, fuzzy
+msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
+msgstr ""
+"Type het nummer 1 tot 6 van het toetsenbord \n"
+"voor de dobbelstenen de grond raken"
 
 #. GdkCursor *hand_cursor;
 #: src/gcompris/gcompris.c:179
@@ -216,108 +311,6 @@ msgstr ""
 
 #: src/gcompris/gcompris.c:325
 msgid "Do you really want to quit GCompris?"
-msgstr ""
-
-#: src/boards/clickgame.c:168
-#, c-format
-msgid "Couldn't open pixmap dir: %s"
-msgstr "Kan pixmap directory niet openen: %s"
-
-#: src/boards/clickgame.c:245
-msgid "Practice the computer mouse"
-msgstr ""
-
-#: src/boards/clickgame.c:246
-msgid ""
-"Goal:\n"
-"In this game, the children will discover the computer mouse\n"
-"The goal is just to click with the left mouse button on the moving fish.\n"
-"\n"
-"Credits:\n"
-"Fish are taken from the Unix utility xfishtank.\n"
-"Images are taken from the National Undersearch Research Program (NURP) "
-"Collection\n"
-"at http://www.photolib.noaa.gov\n"
-"All images credit bellongs to the OAR/National Undersea Research Program "
-"(NURP)\n"
-"Except for the first image that also credits the University of North "
-"Carolina at Wilmington\n"
-"In the gcompris level order, images information is:\n"
-"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523)\n"
-"Photographer: D. Kesling\n"
-"Location: Florida Keys (image nur03006)\n"
-"Location: Unknown (image nur03505)\n"
-"Location: Unknown (image nur03010)\n"
-"Location: Unknown (image nur03011)\n"
-"Location: Unknown (image nur03013)\n"
-msgstr ""
-
-#: src/boards/smallnumbers.c:70
-#, fuzzy
-msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-msgstr ""
-"Type het nummer 1 tot 6 van het toetsenbord \n"
-"voor de dobbelstenen de grond raken"
-
-#: src/boards/clockgame.c:517
-msgid "Set the clock to:"
-msgstr ""
-
-#: src/boards/shapegame.c:120
-msgid "Drag and Drop the items to rebuild the object"
-msgstr ""
-
-#: src/boards/shapegame.c:1140
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Kan bestand niet vinden %s !"
-
-#: src/boards/shapegame.c:1143
-#, fuzzy, c-format
-msgid "find file %s !"
-msgstr "Kan bestand niet vinden %s !"
-
-#: src/boards/reading.c:98
-msgid "Reading"
-msgstr ""
-
-#: src/boards/reading.c:99
-msgid "Read a list of word and then tell if the given word is in it"
-msgstr ""
-
-#: src/boards/reading.c:306
-msgid "Please, check if the word"
-msgstr ""
-
-#: src/boards/reading.c:326
-msgid "is being displayed"
-msgstr ""
-
-#: src/boards/reading.c:517
-msgid "I am Ready"
-msgstr ""
-
-#: src/boards/reading.c:557
-msgid "Yes I saw it"
-msgstr ""
-
-#: src/boards/reading.c:587
-msgid "No, it was not there"
-msgstr ""
-
-#. Local Variables:
-#. mode:c
-#. eval:(load-library "time-stamp")
-#. eval:(make-local-variable 'write-file-hooks)
-#. eval:(add-hook 'write-file-hooks 'time-stamp)
-#. eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name))
-#. End:
-#: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr ""
-
-#: gcompris.desktop.in.h:2
-msgid "GCompris"
 msgstr ""
 
 #~ msgid "Couldn't find pixmap file %s/%s !"

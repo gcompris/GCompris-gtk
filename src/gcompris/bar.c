@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2001/10/28 20:49:31 bruno>
+ * Time-stamp: <2001/11/06 22:25:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -36,6 +36,7 @@ static gint current_level = -1;
 static GnomeCanvasItem *level_item = NULL;
 static GnomeCanvasItem *ok_item = NULL;
 static GnomeCanvasItem *help_item = NULL;
+static GnomeCanvasItem *repeat_item = NULL;
 static guint level_handler_id;
 static gfloat maxtimer;
 
@@ -172,12 +173,34 @@ void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     pixmap);
 
+  // REPEAT
+  pixmap = gcompris_load_pixmap("gcompris/buttons/repeat.png");
+  zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
+  repeat_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap, 
+				     "x", (double) width*0.5,
+				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				     "width", (double)  gdk_pixbuf_get_width(pixmap)*zoom,
+				     "height", (double) gdk_pixbuf_get_height(pixmap)*zoom,
+				     "width_set", TRUE, 
+				     "height_set", TRUE,
+				     NULL);
+  gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
+		     (GtkSignalFunc) item_event_bar,
+		     "repeat");
+  gcompris_set_image_focus(pixmap, FALSE);
+  gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     pixmap);
+
   /* Default value for the timer */
   gcompris_bar_set_maxtimer (0);
-
-    gnome_canvas_item_show(level_item);
-    gnome_canvas_item_show(ok_item);
-    gnome_canvas_item_show(help_item);
+  
+  gnome_canvas_item_show(level_item);
+  gnome_canvas_item_show(ok_item);
+  gnome_canvas_item_show(help_item);
+  gnome_canvas_item_show(repeat_item);
 }
 
 
@@ -257,6 +280,11 @@ gcompris_bar_set (const GComprisBarFlags flags)
     gnome_canvas_item_show(help_item);
   else
     gnome_canvas_item_hide(help_item);
+
+  if(flags&GCOMPRIS_BAR_REPEAT)
+    gnome_canvas_item_show(repeat_item);
+  else
+    gnome_canvas_item_hide(repeat_item);
 }
 
 
@@ -323,6 +351,13 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  if(gcomprisBoard->plugin->help != NULL)
 	    {
 	      gcomprisBoard->plugin->help();
+	    }
+	}
+      else if(!strcmp((char *)data, "repeat"))
+	{
+	  if(gcomprisBoard->plugin->repeat != NULL)
+	    {
+	      gcomprisBoard->plugin->repeat();
 	    }
 	}
       break;

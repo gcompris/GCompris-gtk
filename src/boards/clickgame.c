@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2001/10/27 00:07:59 bruno>
+ * Time-stamp: <2001/11/06 22:22:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -89,6 +89,7 @@ BoardPlugin clickgame_bp =
    NULL,
    clickgame_set_level,
    clickgame_help,
+   NULL
 };
 
 /*

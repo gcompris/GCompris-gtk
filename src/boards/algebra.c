@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2001/10/28 19:42:16 bruno>
+ * Time-stamp: <2001/11/06 22:23:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -104,6 +104,8 @@ BoardPlugin menu_bp =
    key_press,
    process_ok,
    set_level,
+   NULL,
+   NULL
 };
 
 /*

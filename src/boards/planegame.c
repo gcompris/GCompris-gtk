@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2001/09/23 01:53:59 bruno>
+ * Time-stamp: <2001/11/06 22:21:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -86,6 +86,8 @@ BoardPlugin menu_bp =
    key_press,
    NULL,
    set_level,
+   NULL,
+   NULL
 };
 
 /*

@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2001/10/15 00:54:06 bruno>
+ * Time-stamp: <2001/11/06 22:22:13 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -243,6 +243,8 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    set_level,
+   NULL,
+   NULL
 };
 
 /*

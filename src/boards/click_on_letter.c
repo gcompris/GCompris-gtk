@@ -37,6 +37,7 @@ static int gamewon;
 static void process_ok(void);
 static void highlight_selected(GnomeCanvasItem *);
 static void game_won();
+static void repeat();
 
 #define VERTICAL_SEPARATION 30
 #define HORIZONTAL_SEPARATION 30
@@ -77,6 +78,8 @@ BoardPlugin menu_bp =
     NULL,
     process_ok,
     set_level,
+    NULL,
+    repeat
   };
 
 /*
@@ -122,7 +125,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=3;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
       gcompris_bar_set_timer(0);
       gcompris_bar_set_maxtimer(gcomprisBoard->maxlevel * gcomprisBoard->number_of_sublevel);
 
@@ -167,6 +170,17 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 	}
     }
   return FALSE;
+}
+
+/* ======================================= */
+static void repeat ()
+{
+  printf("REPEAT\n");
+  if(gcomprisBoard!=NULL)
+    {
+      gcompris_play_ogg(/*"clic_on_letter",*/right_letter, NULL);
+
+    }
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -390,6 +404,8 @@ static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
     case GDK_BUTTON_PRESS:
   	gcompris_play_ogg(/*"clic_on_letter",*/right_letter, NULL);
 	break;
+    default:
+      break;
     }
   return TRUE;
 }

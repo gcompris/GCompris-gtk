@@ -6,22 +6,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2001-10-29 00:54+0100\n"
+"POT-Creation-Date: 2001-11-06 22:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Martin Herweg <m.herweg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
-
-#: boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra boards"
-msgstr "Hier geht's zu den Rechenaufgaben"
-
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select a board"
-msgstr "Klicke mit der linken Maustaste auf eines der Icons"
 
 #: boards/algebra_by.xml.in.h:1 boards/algebra_div.xml.in.h:1
 #: boards/algebra_minus.xml.in.h:1 boards/algebra_plus.xml.in.h:1
@@ -32,6 +23,15 @@ msgstr "Ich stelle Dir ein paar einfache Rechenaufgaben"
 #: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
 msgid "Simple Algebra"
 msgstr "Einfache Rechenaufgaben"
+
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra boards"
+msgstr "Hier geht's zu den Rechenaufgaben"
+
+#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select a board"
+msgstr "Klicke mit der linken Maustaste auf eines der Icons"
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
@@ -94,6 +94,15 @@ msgstr "Einfache Buchstaben"
 #: boards/gletters.xml.in.h:2 src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
 msgstr "Gib die fallenden Buchstaben ein, bevor sie unten ankommen"
+
+#: boards/imageid.xml.in.h:1
+msgid "Pratice reading by finding the word matching an image"
+msgstr ""
+
+#: boards/imageid.xml.in.h:2
+#, fuzzy
+msgid "Reading pratice"
+msgstr "Vertikale Leseübung"
 
 #: boards/imagename.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
@@ -182,49 +191,24 @@ msgstr "Fallende Wörter"
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Gib die Wörter vollständig ein bevor sie unten ankommen"
 
-#: boards/imageid.xml.in.h:1
-msgid "Pratice reading by finding the word matching an image"
-msgstr ""
+#: gcompris.desktop.in.h:1
+msgid "Educational game starting at 3 years old"
+msgstr "Lernspiel für Kinder ab 3"
 
-#: boards/imageid.xml.in.h:2
-#, fuzzy
-msgid "Reading pratice"
-msgstr "Vertikale Leseübung"
-
-#. GdkCursor *hand_cursor;
-#: src/gcompris/gcompris.c:179
-msgid "GCompris I Have Understood"
-msgstr "GCompris - Ich habe verstanden"
-
-#: src/gcompris/gcompris.c:287
-msgid ""
-"A simple educational board based game for children starting at 3. This "
-"software is a GNU Package"
-msgstr "Ein einfaches Lernspiel für Kinder ab 3.Dieses Programm ist freie Software (www.gnu.org)"
-
-#: src/gcompris/gcompris.c:292
-#, fuzzy
-msgid "GCompris Home Page"
+#: gcompris.desktop.in.h:2
+msgid "GCompris"
 msgstr "GCompris"
 
-#: src/gcompris/gcompris.c:295
-msgid "An OFSET development"
-msgstr ""
-
-#: src/gcompris/gcompris.c:325
-msgid "Do you really want to quit GCompris?"
-msgstr "Möchtest Du GCompris wirklich beenden?"
-
-#: src/boards/clickgame.c:168
+#: src/boards/clickgame.c:169
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Kann Grafik-Verzeichnis %s nicht öffnen"
 
-#: src/boards/clickgame.c:245
+#: src/boards/clickgame.c:246
 msgid "Practice the computer mouse"
 msgstr "Übe den Umgang mit der Computer-Maus"
 
-#: src/boards/clickgame.c:246
+#: src/boards/clickgame.c:247
 msgid ""
 "Goal:\n"
 "In this game, the children will discover the computer mouse\n"
@@ -257,70 +241,80 @@ msgstr ""
 "Die Bilder gehören zur Sammlung des National Undersearch Research Program (NURP)\n"
 " http://www.photolib.noaa.gov\n"
 
-#: src/boards/smallnumbers.c:70
-msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-msgstr ""
-"Gebe die Zahl 1 bis 9 ein, die der Anzahl Augen auf\n"
-" den Würfeln entspricht bevor sie unten ankommen"
-
-#: src/boards/clockgame.c:517
+#: src/boards/clockgame.c:519
 msgid "Set the clock to:"
 msgstr "Stelle die Uhr auf:"
-
-#: src/boards/shapegame.c:120
-msgid "Drag and Drop the items to rebuild the object"
-msgstr "Füge die Teile zusammen"
-
-#: src/boards/shapegame.c:1140
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Kann Grafik-Datei %s nicht finden"
-
-#: src/boards/shapegame.c:1143
-#, c-format
-msgid "find file %s !"
-msgstr "Kann Datei %s nicht finden"
 
 #: src/boards/reading.c:98
 msgid "Reading"
 msgstr "Lesen"
 
 #: src/boards/reading.c:99
-msgid "Read a list of word and then tell if the given word is in it"
+#, fuzzy
+msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lies eine Liste von Worten und sag mir, ob das gesuchte Wort vorkommt"
 
-#: src/boards/reading.c:306
+#: src/boards/reading.c:308
 #, fuzzy
 msgid "Please, check if the word"
 msgstr "Bitte sag mir, ob das Wort"
 
-#: src/boards/reading.c:326
+#: src/boards/reading.c:328
 msgid "is being displayed"
 msgstr "angezeigt wurde"
 
-#: src/boards/reading.c:517
+#: src/boards/reading.c:519
 msgid "I am Ready"
 msgstr "Los geht's!"
 
-#: src/boards/reading.c:557
+#: src/boards/reading.c:559
 msgid "Yes I saw it"
 msgstr "Ja, ich hab's gesehen"
 
-#: src/boards/reading.c:587
+#: src/boards/reading.c:589
 msgid "No, it was not there"
 msgstr "Nein, es kam nicht vor"
 
-#. Local Variables:
-#. mode:c
-#. eval:(load-library "time-stamp")
-#. eval:(make-local-variable 'write-file-hooks)
-#. eval:(add-hook 'write-file-hooks 'time-stamp)
-#. eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name))
-#. End:
-#: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Lernspiel für Kinder ab 3"
+#: src/boards/shapegame.c:120
+msgid "Drag and Drop the items to rebuild the object"
+msgstr "Füge die Teile zusammen"
 
-#: gcompris.desktop.in.h:2
-msgid "GCompris"
+#: src/boards/shapegame.c:1142
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "Kann Grafik-Datei %s nicht finden"
+
+#: src/boards/shapegame.c:1145
+#, c-format
+msgid "find file %s !"
+msgstr "Kann Datei %s nicht finden"
+
+#: src/boards/smallnumbers.c:70
+msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
+msgstr ""
+"Gebe die Zahl 1 bis 9 ein, die der Anzahl Augen auf\n"
+" den Würfeln entspricht bevor sie unten ankommen"
+
+#. GdkCursor *hand_cursor;
+#: src/gcompris/gcompris.c:179
+msgid "GCompris I Have Understood"
+msgstr "GCompris - Ich habe verstanden"
+
+#: src/gcompris/gcompris.c:287
+msgid ""
+"A simple educational board based game for children starting at 3. This "
+"software is a GNU Package"
+msgstr "Ein einfaches Lernspiel für Kinder ab 3.Dieses Programm ist freie Software (www.gnu.org)"
+
+#: src/gcompris/gcompris.c:292
+#, fuzzy
+msgid "GCompris Home Page"
 msgstr "GCompris"
+
+#: src/gcompris/gcompris.c:295
+msgid "An OFSET development"
+msgstr ""
+
+#: src/gcompris/gcompris.c:325
+msgid "Do you really want to quit GCompris?"
+msgstr "Möchtest Du GCompris wirklich beenden?"

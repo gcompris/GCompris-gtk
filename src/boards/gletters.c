@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2001/10/13 01:56:12 bruno>
+ * Time-stamp: <2001/11/06 22:22:16 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -87,6 +87,8 @@ BoardPlugin menu_bp =
    key_press,
    NULL,
    set_level,
+   NULL,
+   NULL
 };
 
 /*

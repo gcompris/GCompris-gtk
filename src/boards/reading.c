@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2001/10/30 22:48:27 bruno>
+ * Time-stamp: <2001/11/06 22:21:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -109,6 +109,8 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    set_level,
+   NULL,
+   NULL
 };
 
 /*
@@ -499,7 +501,7 @@ static void ask_ready(gboolean status)
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 
   /*----- READY -----*/
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
   item1 = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap, 

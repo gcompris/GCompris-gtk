@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2001/10/15 00:37:07 bruno>
+ * Time-stamp: <2001/11/06 22:20:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -93,6 +93,8 @@ BoardPlugin menu_bp =
    key_press,
    NULL,
    set_level,
+   NULL,
+   NULL
 };
 
 /*

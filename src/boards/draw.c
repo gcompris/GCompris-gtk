@@ -107,6 +107,7 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    help,
+   NULL
 };
 
 /*

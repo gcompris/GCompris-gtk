@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2001/10/28 21:37:03 bruno>
+ * Time-stamp: <2001/11/06 22:22:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -84,6 +84,8 @@ BoardPlugin menu_bp =
    NULL,
    process_ok,
    set_level,
+   NULL,
+   NULL
 };
 
 

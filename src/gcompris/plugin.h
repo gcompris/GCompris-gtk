@@ -1,6 +1,6 @@
 /* gcompris - plugin.h
  *
- * Time-stamp: <2001/09/12 23:36:45 bruno>
+ * Time-stamp: <2001/11/06 22:17:27 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -34,6 +34,7 @@ typedef gint          (*GcomprisKeyPress)     (guint keyval);
 typedef void          (*GcomprisOK)           (void);
 typedef void          (*GcomprisSetLevel)     (guint level);
 typedef void          (*GcomprisHelp)         ();
+typedef void          (*GcomprisRepeat)       ();
 
 typedef struct
 {
@@ -57,6 +58,7 @@ typedef struct
   GcomprisOK           ok;
   GcomprisSetLevel     set_level;
   GcomprisHelp         help;
+  GcomprisRepeat       repeat;
 
 }
 BoardPlugin;
