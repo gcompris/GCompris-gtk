@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-29 14:41+0200\n"
-"PO-Revision-Date: 2004-03-29 16:18+0200\n"
+"POT-Creation-Date: 2004-04-07 03:19+0200\n"
+"PO-Revision-Date: 2004-04-07 13:20+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -447,6 +447,30 @@ msgstr "Procvičení operace sčítání"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Jednoduché sčítání. Pozná psané číslice"
+
+#: boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "Doplnit seznam symbolů"
+
+#: boards/algorithm.xml.in.h:2 boards/hexagon.xml.in.h:2
+#: boards/minouche.xml.in.h:2
+msgid "Logic training activity"
+msgstr "Aktivita pro cvičení logiky"
+
+#: boards/algorithm.xml.in.h:3
+msgid ""
+"Look at the list with given symbols. Then try to complete it clicking on the "
+"right symbol."
+msgstr "Podívej se na seznam daných symbolů. Pak se jej pokus doplnit kliknutím na správný symbol."
+
+#: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
+#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
+msgid "Move and click the mouse"
+msgstr "Hýbej a klikej myší"
+
+#: boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "algoritmus"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -962,6 +986,21 @@ msgstr "Zjednodušené Hanojské věže"
 msgid "Taken the concept from the EPI games."
 msgstr "Koncept převzat z her EPI."
 
+# FIXME: s/strwaberry/strawberry/
+#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+msgid "Find the strwaberry by clicking on the blue fields"
+msgstr "Najdi jahodu klikáním na modrá pole"
+
+#: boards/hexagon.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer as you come as "
+"more as red get the fields"
+msgstr "Zkus najít jahodu pod modrými poli, čím blíž přijdeš, tím červenější budou pole"
+
+#: boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "šestiúhelník"
+
 #: boards/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
 msgstr "Klikni na slovo odpovídající vytištěnému obrázku."
@@ -1291,10 +1330,6 @@ msgstr ""
 msgid "Melody"
 msgstr "Melodie"
 
-#: boards/melody.xml.in.h:4
-msgid "Move and click the mouse"
-msgstr "Hýbej a klikej myší"
-
 #: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr "Opakuj melodii"
@@ -1366,6 +1401,17 @@ msgstr ""
 "Otazník - nápověda Krabice s nářadím - konfigurační menu Tuxovo letadlo - "
 "dialog o programu Hvězdičky znamenají: 1 hvězdička - 3 až 4 roky 2 hvědičky "
 "- 5 až 6 let 3 hvězdičky - 7 až 8 let"
+
+#: boards/minouche.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer you come as more "
+"red get the fields"
+msgstr "Zkus najít jahodu pod modrými poli, čím blíž přijdeš, tím červenější budou pole"
+
+#: boards/minouche.xml.in.h:5
+#, fuzzy
+msgid "minouche"
+msgstr "okrová"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -2426,7 +2472,7 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
+#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2464,156 +2510,160 @@ msgid "Greek"
 msgstr "Řečtina"
 
 #: src/gcompris/config.c:60
-msgid "English"
-msgstr "Angličtina"
+msgid "American English"
+msgstr "Americká angličtina"
 
 #: src/gcompris/config.c:61
+msgid "Great Britain English"
+msgstr "Britská angličtina"
+
+#: src/gcompris/config.c:62
 msgid "Canadian English"
 msgstr "Kanadská angličtina"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Spanish"
 msgstr "Španělština"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Finnish"
 msgstr "Finština"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "French"
 msgstr "Francouzština"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Hebrew"
 msgstr "Hebrejština"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Indian"
 msgstr "Hindština"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Hungarian"
 msgstr "Maďarština"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Croatian"
 msgstr "Chorvatština"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Italian"
 msgstr "Italština"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Malay"
 msgstr "Malajština"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Dutch"
 msgstr "Holandština"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Norwegian"
 msgstr "Norština"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Polish"
 msgstr "Polština"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Brazil Portuguese"
 msgstr "Brazilská portugalština"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Serbian"
 msgstr "Srbština"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:155
+#: src/gcompris/config.c:156
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:264
+#: src/gcompris/config.c:265
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:308
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:335
+#: src/gcompris/config.c:336
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:369
+#: src/gcompris/config.c:370
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:405 src/gcompris/config.c:728
-#: src/gcompris/config.c:739
+#: src/gcompris/config.c:406 src/gcompris/config.c:729
+#: src/gcompris/config.c:740
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
