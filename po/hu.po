@@ -6,16 +6,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris.HEAD\n"
+"Project-Id-Version: gcompris.HEAD.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-20 11:25+0100\n"
-"PO-Revision-Date: 2005-03-20 20:13+0100\n"
+"POT-Creation-Date: 2005-03-28 11:02+0200\n"
+"PO-Revision-Date: 2005-03-28 19:06+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.9.1\n"
 "Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
@@ -723,6 +723,10 @@ msgstr "A négy évszak"
 msgid "Winter"
 msgstr "Tél"
 
+#: boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "Kertészkedés"
+
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux és az almafa"
@@ -1196,272 +1200,272 @@ msgid "Oceania"
 msgstr "Óceánia"
 
 #: boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "Alaszka"
+
+#: boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "Bahamák"
+
+#: boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "Kanada"
+
+#: boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "Kuba"
+
+#: boards/geography/board2_0.xml.in.h:5
+msgid "Dominican republic"
+msgstr "Dominikai Köztársaság"
+
+#: boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "Grönland"
+
+#: boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "Haiti"
+
+#: boards/geography/board2_0.xml.in.h:8 boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "Izland"
+
+#: boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "Mexikó"
+
+#: boards/geography/board2_0.xml.in.h:11
 msgid "North America"
 msgstr "Észak-Amerika"
 
-#: boards/geography/board2_0.xml.in.h:2
-msgid "alaska"
-msgstr "alaszka"
-
-#: boards/geography/board2_0.xml.in.h:3
-msgid "bahamas"
-msgstr "bahama"
-
-#: boards/geography/board2_0.xml.in.h:4
-msgid "canada"
-msgstr "kanada"
-
-#: boards/geography/board2_0.xml.in.h:5
-msgid "cuba"
-msgstr "kuba"
-
-#: boards/geography/board2_0.xml.in.h:6
-msgid "dominican republic"
-msgstr "dominikai köztársaság"
-
-#: boards/geography/board2_0.xml.in.h:7
-msgid "greenland"
-msgstr "grönland"
-
-#: boards/geography/board2_0.xml.in.h:8
-msgid "haiti"
-msgstr "haiti"
-
-#: boards/geography/board2_0.xml.in.h:9 boards/geography/board3_0.xml.in.h:8
-msgid "iceland"
-msgstr "izland"
-
-#: boards/geography/board2_0.xml.in.h:10
-msgid "jamaica"
-msgstr "jamaika"
-
-#: boards/geography/board2_0.xml.in.h:11
-msgid "mexico"
-msgstr "mexikó"
-
 #: boards/geography/board2_0.xml.in.h:12
-msgid "united state"
-msgstr "egyesült államok"
+msgid "United state"
+msgstr "Egyesült Államok"
 
 #: boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "Argentína"
+
+#: boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "Bolívia"
+
+#: boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "Brazília"
+
+#: boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "Chile"
+
+#: boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "Kolumbia"
+
+#: boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: boards/geography/board2_1.xml.in.h:7
+msgid "French guiana"
+msgstr "Francia Guyana"
+
+#: boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "Guyana"
+
+#: boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "Panama"
+
+#: boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "Peru"
+
+#: boards/geography/board2_1.xml.in.h:12
 msgid "South America"
 msgstr "Dél-Amerika"
 
-#: boards/geography/board2_1.xml.in.h:2
-msgid "argentina"
-msgstr "argentína"
-
-#: boards/geography/board2_1.xml.in.h:3
-msgid "bolivia"
-msgstr "bolívia"
-
-#: boards/geography/board2_1.xml.in.h:4
-msgid "brazil"
-msgstr "brazília"
-
-#: boards/geography/board2_1.xml.in.h:5
-msgid "chile"
-msgstr "chile"
-
-#: boards/geography/board2_1.xml.in.h:6
-msgid "colombia"
-msgstr "kolumbia"
-
-#: boards/geography/board2_1.xml.in.h:7
-msgid "ecuador"
-msgstr "ecuador"
-
-#: boards/geography/board2_1.xml.in.h:8
-msgid "french guiana"
-msgstr "francia guyana"
-
-#: boards/geography/board2_1.xml.in.h:9
-msgid "guyana"
-msgstr "guyana"
-
-#: boards/geography/board2_1.xml.in.h:10
-msgid "panama"
-msgstr "panama"
-
-#: boards/geography/board2_1.xml.in.h:11
-msgid "paraguay"
-msgstr "paraguay"
-
-#: boards/geography/board2_1.xml.in.h:12
-msgid "peru"
-msgstr "peru"
-
 #: boards/geography/board2_1.xml.in.h:13
-msgid "suriname"
-msgstr "suriname"
+msgid "Suriname"
+msgstr "Suriname"
 
 #: boards/geography/board2_1.xml.in.h:14
-msgid "uruguay"
-msgstr "uruguay"
+msgid "Uruguay"
+msgstr "Uruguay"
 
 #: boards/geography/board2_1.xml.in.h:15
-msgid "venezuela"
-msgstr "venezuela"
+msgid "Venezuela"
+msgstr "Venezuela"
 
 #: boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "Ausztria"
+
+#: boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "Belgium"
+
+#: boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "Dánia"
+
+#: boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "Finnország"
+
+#: boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "Franciaország"
+
+#: boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "Németország"
+
+#: boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "Írország"
+
+#: boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "Olaszország"
+
+#: boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: boards/geography/board3_0.xml.in.h:11
+msgid "Netherland"
+msgstr "Hollandia"
+
+#: boards/geography/board3_0.xml.in.h:12
+msgid "Norway"
+msgstr "Norvégia"
+
+#: boards/geography/board3_0.xml.in.h:13
+msgid "Portugal"
+msgstr "Portugália"
+
+#: boards/geography/board3_0.xml.in.h:14
+msgid "Spain"
+msgstr "Spanyolország"
+
+#: boards/geography/board3_0.xml.in.h:15
+msgid "Sweden"
+msgstr "Svédország"
+
+#: boards/geography/board3_0.xml.in.h:16
+msgid "Switzerland"
+msgstr "Svájc"
+
+#: boards/geography/board3_0.xml.in.h:17
+msgid "United kingdom"
+msgstr "Egyesült Királyság"
+
+#: boards/geography/board3_0.xml.in.h:18
 msgid "West Europe"
 msgstr "Nyugat-Európa"
 
-#: boards/geography/board3_0.xml.in.h:2
-msgid "austria"
-msgstr "ausztria"
-
-#: boards/geography/board3_0.xml.in.h:3
-msgid "belgium"
-msgstr "belgium"
-
-#: boards/geography/board3_0.xml.in.h:4
-msgid "denmark"
-msgstr "dánia"
-
-#: boards/geography/board3_0.xml.in.h:5
-msgid "finland"
-msgstr "finnország"
-
-#: boards/geography/board3_0.xml.in.h:6
-msgid "france"
-msgstr "franciaország"
-
-#: boards/geography/board3_0.xml.in.h:7
-msgid "germany"
-msgstr "németország"
-
-#: boards/geography/board3_0.xml.in.h:9
-msgid "ireland"
-msgstr "írország"
-
-#: boards/geography/board3_0.xml.in.h:10
-msgid "italy"
-msgstr "olaszország"
-
-#: boards/geography/board3_0.xml.in.h:11
-msgid "luxembourg"
-msgstr "luxemburg"
-
-#: boards/geography/board3_0.xml.in.h:12
-msgid "netherland"
-msgstr "hollandia"
-
-#: boards/geography/board3_0.xml.in.h:13
-msgid "norway"
-msgstr "norvégia"
-
-#: boards/geography/board3_0.xml.in.h:14
-msgid "portugal"
-msgstr "portugália"
-
-#: boards/geography/board3_0.xml.in.h:15
-msgid "spain"
-msgstr "spanyolország"
-
-#: boards/geography/board3_0.xml.in.h:16
-msgid "sweden"
-msgstr "svédország"
-
-#: boards/geography/board3_0.xml.in.h:17
-msgid "switz"
-msgstr "svájc"
-
-#: boards/geography/board3_0.xml.in.h:18
-msgid "united kingdom"
-msgstr "egyesült királyság"
-
 #: boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "Albánia"
+
+#: boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "Fehéroroszország"
+
+#: boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia herzegovina"
+msgstr "Bosznia-Hercegovina"
+
+#: boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "Bulgária"
+
+#: boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "Horvátország"
+
+#: boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "Ciprus"
+
+#: boards/geography/board3_1.xml.in.h:7 src/gcompris/config.c:69
+msgid "Czech"
+msgstr "Cseh"
+
+#: boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
 msgstr "Kelet-Európa"
 
-#: boards/geography/board3_1.xml.in.h:2
-msgid "albania"
-msgstr "albánia"
-
-#: boards/geography/board3_1.xml.in.h:3
-msgid "belarus"
-msgstr "fehéroroszország"
-
-#: boards/geography/board3_1.xml.in.h:4
-msgid "bosnia herzegovina"
-msgstr "bosznia-hercegovina"
-
-#: boards/geography/board3_1.xml.in.h:5
-msgid "bulgaria"
-msgstr "bulgária"
-
-#: boards/geography/board3_1.xml.in.h:6
-msgid "croatia"
-msgstr "horvátország"
-
-#: boards/geography/board3_1.xml.in.h:7
-msgid "cyprus"
-msgstr "ciprus"
-
-#: boards/geography/board3_1.xml.in.h:8
-msgid "czech"
-msgstr "csehország"
-
 #: boards/geography/board3_1.xml.in.h:9
-msgid "estonia"
-msgstr "észtország"
+msgid "Estonia"
+msgstr "Észtország"
 
 #: boards/geography/board3_1.xml.in.h:10
-msgid "greece"
-msgstr "görögország"
+msgid "Greece"
+msgstr "Görögország"
 
 #: boards/geography/board3_1.xml.in.h:11
-msgid "hungary"
-msgstr "magyarország"
+msgid "Hungary"
+msgstr "Magyarország"
 
 #: boards/geography/board3_1.xml.in.h:12
-msgid "latvia"
-msgstr "lettország"
+msgid "Latvia"
+msgstr "Lettország"
 
 #: boards/geography/board3_1.xml.in.h:13
-msgid "lithuania"
-msgstr "litvánia"
+msgid "Lithuania"
+msgstr "Litvánia"
 
 #: boards/geography/board3_1.xml.in.h:14
-msgid "macedonia"
-msgstr "macedónia"
+msgid "Macedonia"
+msgstr "Macedónia"
 
 #: boards/geography/board3_1.xml.in.h:15
-msgid "moldova"
-msgstr "moldova"
+msgid "Moldova"
+msgstr "Moldova"
 
 #: boards/geography/board3_1.xml.in.h:16
-msgid "poland"
-msgstr "lengyelország"
+msgid "Poland"
+msgstr "Lengyelország"
 
 #: boards/geography/board3_1.xml.in.h:17
-msgid "romania"
-msgstr "románia"
+msgid "Romania"
+msgstr "Románia"
 
 #: boards/geography/board3_1.xml.in.h:18
-msgid "russia"
-msgstr "oroszország"
+msgid "Russia"
+msgstr "Oroszország"
 
 #: boards/geography/board3_1.xml.in.h:19
-msgid "serbia montenegro"
-msgstr "szerbia és montenegró"
+msgid "Serbia montenegro"
+msgstr "Szerbia és Montenegró"
 
 #: boards/geography/board3_1.xml.in.h:20
-msgid "slovakia"
-msgstr "szlovákia"
+msgid "Slovakia"
+msgstr "Szlovákia"
 
 #: boards/geography/board3_1.xml.in.h:21
-msgid "slovenia"
-msgstr "szlovénia"
+msgid "Slovenia"
+msgstr "Szlovénia"
 
 #: boards/geography/board3_1.xml.in.h:22
-msgid "turkey"
-msgstr "törökország"
+msgid "Turkey"
+msgstr "Törökország"
 
 #: boards/geography/board3_1.xml.in.h:23
-msgid "ukraine"
-msgstr "ukrajna"
+msgid "Ukraine"
+msgstr "Ukrajna"
 
 #: boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
@@ -2744,19 +2748,19 @@ msgstr "A GCompris oktatóprogram-gyűjtemény"
 msgid "Multiple activities for kids"
 msgstr "Változatos tevékenységek gyerekeknek"
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
-#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
+#: src/boards/advanced_colors.c:533 src/boards/imageid.c:605
+#: src/boards/missingletter.c:608 src/boards/read_colors.c:492
 #: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
 #: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
-#: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
+#: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:474
 #: src/gcompris/images_selector.c:654 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nem találtam meg a(z) %s fájlt!"
 
-#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
-#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
+#: src/boards/advanced_colors.c:536 src/boards/imageid.c:608
+#: src/boards/missingletter.c:611 src/boards/read_colors.c:495
 #: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
@@ -2774,15 +2778,15 @@ msgstr ""
 "Tuxnak gondjai vannak a hajóban. Át szeretne menni a zsilipen. \n"
 "Segíts Tuxnak és értsd meg, hogyan is működik egy zsilip."
 
-#: src/boards/chess.c:137
+#: src/boards/chess.c:136
 msgid "Learning Chess"
 msgstr "Tanulj sakkozni"
 
-#: src/boards/chess.c:138
+#: src/boards/chess.c:137
 msgid "Play chess against tux in a learning mode"
 msgstr "Sakkozz Tux ellen tanuló módban"
 
-#: src/boards/chess.c:191
+#: src/boards/chess.c:190
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2793,7 +2797,7 @@ msgstr ""
 "ami a gnuchess-nek egy régi verziója. \n"
 "Kérem frissítsen gnuchess 5 vagy újabb verzióra."
 
-#: src/boards/chess.c:198
+#: src/boards/chess.c:197 src/boards/chess.c:239
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2808,31 +2812,31 @@ msgstr ""
 "terjesztése webhelyén.\n"
 "És ellenőrizze, hogy benne van-e a következőben:"
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "White Turn"
 msgstr "Fehér lép"
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "Black Turn"
 msgstr "Fekete lép"
 
-#: src/boards/chess.c:718
+#: src/boards/chess.c:720
 msgid "White check"
 msgstr "Fehér sakk"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:722
 msgid "Black check"
 msgstr "Fekete sakk"
 
-#: src/boards/chess.c:1052
+#: src/boards/chess.c:1053
 msgid "Black mates"
 msgstr "Fekete matt"
 
-#: src/boards/chess.c:1057
+#: src/boards/chess.c:1058
 msgid "White mates"
 msgstr "Fehér matt"
 
-#: src/boards/chess.c:1062
+#: src/boards/chess.c:1063
 msgid "Drawn game"
 msgstr "Döntetlen"
 
@@ -3006,7 +3010,9 @@ msgstr "A python xml modul szükséges. Az SVG-t kikapcsolom."
 msgid ""
 "Python xml module bot found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
-msgstr "A Python xml modulja nem található. Az SVG-t kikapcsolom. Telepítse a python xml modult az SVG mentés/betöltés bekapcsolásához."
+msgstr ""
+"A Python xml modulja nem található. Az SVG-t kikapcsolom. Telepítse a python "
+"xml modult az SVG mentés/betöltés bekapcsolásához."
 
 #: src/boards/python/anim.py:2205
 msgid "SVG is disabled. Install python xml module to enable it"
@@ -3303,10 +3309,6 @@ msgstr "Bolgár"
 msgid "Catalan"
 msgstr "Katalán"
 
-#: src/gcompris/config.c:69
-msgid "Czech"
-msgstr "Cseh"
-
 #: src/gcompris/config.c:70
 msgid "Danish"
 msgstr "Dán"
@@ -3555,43 +3557,43 @@ msgstr ""
 "Lépj ki és jelentsd a \n"
 "hibát a szerzőknek."
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:90
 msgid "run gcompris in fullscreen mode."
 msgstr "A GCompris teljes képernyős módban fusson."
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:92
 msgid "run gcompris in window mode."
 msgstr "A GCompris ablakban fusson."
 
-#: src/gcompris/gcompris.c:86
+#: src/gcompris/gcompris.c:94
 msgid "run gcompris with sound enabled."
 msgstr "A GCompris használjon hangokat."
 
-#: src/gcompris/gcompris.c:88
+#: src/gcompris/gcompris.c:96
 msgid "run gcompris without sound."
 msgstr "A GCompris ne használjon hangokat."
 
-#: src/gcompris/gcompris.c:90
+#: src/gcompris/gcompris.c:98
 msgid "run gcompris with the default gnome cursor."
 msgstr "A GCompris az alapértelmezett egérmutatóval fusson."
 
-#: src/gcompris/gcompris.c:92
+#: src/gcompris/gcompris.c:100
 msgid "display only activities with this difficulty level."
 msgstr "Csak az ilyen nehézségi szintű tevékenységek mutatása."
 
-#: src/gcompris/gcompris.c:94
+#: src/gcompris/gcompris.c:102
 msgid "display debug informations on the console."
 msgstr "hibakereső információk megjelenítése a konzolon."
 
-#: src/gcompris/gcompris.c:96
+#: src/gcompris/gcompris.c:104
 msgid "Print the version of "
 msgstr "Verziószám megtekintése: "
 
-#: src/gcompris/gcompris.c:98
+#: src/gcompris/gcompris.c:106
 msgid "Use the antialiased canvas (slower)."
 msgstr "Élsimított vászon (lassú)."
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:583
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3614,7 +3616,7 @@ msgstr ""
 "használatát. További információért nézze meg a következő oldalt:\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:736
+#: src/gcompris/gcompris.c:831
 #, c-format
 msgid ""
 "GCompris\n"
