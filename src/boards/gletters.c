@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/03/10 23:51:27 bcoudoin>
+ * Time-stamp: <2004/03/24 00:56:56 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -24,7 +24,7 @@
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
-#define DEBUG 1
+
 static GList *item_list = NULL;
 static GList *item2del_list = NULL;
 
@@ -317,7 +317,7 @@ int load_charset_from_file(FILE *fp) {
   return TRUE;
 }   
 
-int get_charset(char *locale) {
+int get_charset(const char *locale) {
   char *filename;
   FILE *charsfd = NULL;
   int i;
@@ -434,7 +434,8 @@ gint is_falling_letter(char *utfchar) {
 
 static gint key_press(guint keyval) {
   char c;
-  char lcStr[6],ucStr[6], *str;
+  char lcStr[6],ucStr[6];
+  gchar *str;
   char utf8char[6], keyChar[6], mapChar[6];
   int i;
 
@@ -517,15 +518,18 @@ static gint key_press(guint keyval) {
 #ifdef DEBUG
   g_message("checking keymap: %d\n",keyMapSize);
 #endif
-  g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),utf8char);
 
-  for(i = 0; i < keyMapSize; ++i) {
+  i = g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),utf8char);
+  utf8char[i]='\0';
+
+
+  for (i = 0; i < keyMapSize; i++) {
 #ifdef DEBUG
     g_message("keymap: %d: %s\n",i,keyMap[i]);
 #endif
 
     sprintf(keyChar, "%lc", g_utf8_get_char(keyMap[i]));
-    sprintf(mapChar, "%lc", g_utf8_get_char(g_utf8_find_next_char(keyMap[i],-1)));
+    sprintf(mapChar, "%lc", g_utf8_get_char(g_utf8_find_next_char(keyMap[i], NULL)));
 
 #ifdef DEBUG
     g_message("char1: %s, char2: %s",keyChar, mapChar);
@@ -549,11 +553,16 @@ static gint key_press(guint keyval) {
   /* no match in keymap */
   if (i == keyMapSize) {
 
-    g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),utf8char);
+#ifdef DEBUG
+    g_message("i == keyMapSize\n");
+#endif
 
     sprintf(lcStr,"%s",g_utf8_strdown(utf8char,-1));
     sprintf(ucStr,"%s",g_utf8_strup(utf8char,-1));
-
+#ifdef DEBUG
+    g_message("lcStr = %s\n", lcStr);
+    g_message("ucStr = %s\n", ucStr);
+#endif
     if ( is_falling_letter(lcStr) ) {
       str = lcStr;
     }
@@ -566,7 +575,7 @@ static gint key_press(guint keyval) {
     }
   }
 
-  gchar *list_of_letters[255];
+  gchar list_of_letters[255];
   list_of_letters[0] = '\0';
 
   /* We have to loop to concat the letters */
