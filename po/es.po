@@ -10,14 +10,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
-"POT-Creation-Date: 2004-02-02 01:45+0100\n"
-"PO-Revision-Date: 2004-02-08 11:30+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-17 02:38+0100\n"
+"PO-Revision-Date: 2004-02-17 02:49+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.2\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
@@ -373,8 +373,7 @@ msgstr ""
 "para incluir sus fotografías. Muchas gracias Ralf"
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Desarrolla una estrategia para resolver un conjunto de operaciones "
 "aritméticas para encontrar un valor"
@@ -385,8 +384,7 @@ msgstr "Encuentra las operaciones correctas para obtener el resultado"
 
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr ""
-"La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
+msgstr "La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
 
 #: boards/algebra_guesscount.xml.in.h:5
 msgid ""
@@ -439,16 +437,20 @@ msgstr ""
 "respuesta, la tecla Intro es para validar la respuesta"
 
 #: boards/algebra_plus.xml.in.h:3
-msgid "In a limited time, give the result to the addition of two numbers"
-msgstr "En tiempo limitado, obtén el resultado de la suma de dos números"
+msgid ""
+"In a limited time, give the result to the addition of two numbers. "
+"Introduction to simple in-line addition"
+msgstr ""
+"En un tiempo limitado, obtén el resultado de la suma de dos números. "
+"Introducción a la suma de números simple"
 
 #: boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
 msgstr "Practica la operación de suma"
 
 #: boards/algebra_plus.xml.in.h:5
-msgid "Simple addition"
-msgstr "Suma simple"
+msgid "Simple addition. Can recognize written numbers"
+msgstr "Suma simple. Puede reconocer números escritos"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -480,13 +482,13 @@ msgstr "Asociando elementos"
 msgid "Motor coordination. Concept match."
 msgstr "Coordinación motriz. Concepto matemático."
 
-#: boards/babymatch.xml.in.h:5 boards/paintings.xml.in.h:4
-msgid "Mouse manipulation: movement, drag and drop"
-msgstr "Manipulación del ratón: movimiento, arrastrar y soltar"
+#: boards/babymatch.xml.in.h:5
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
+msgstr "Manipulación del ratón: movimiento, arrastrar y soltar. Referencias culturales."
 
 #: boards/babyshapes.xml.in.h:1
-msgid "Baby Shape Puzzle"
-msgstr "Rompecabezas de formas bebé"
+msgid "Complete the puzzle"
+msgstr "Completa el rompecabezas"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
@@ -497,6 +499,16 @@ msgid "Good mouse control"
 msgstr "Buen control del ratón"
 
 #: boards/babyshapes.xml.in.h:4
+msgid ""
+"In the main area, a puzzle set is proposed. In the left area, you have the "
+"set of pieces for this puzzle. To place the pieces, you must use the drag/"
+"drop mouvement with the mouse."
+msgstr ""
+"En el área principal, se propone completar un rompecabezas. En el área izquierda, "
+"tiene un conjunto de piezas para este rompecabezas. Para colocar las piezas, debe usar "
+"el movimiento de arrastrar y soltar con el ratón."
+
+#: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
 msgstr "El perro es provisto por Andre Connes y liberado bajo la GPL"
 
@@ -518,25 +530,26 @@ msgstr "Ir a las actividades basadas en el tablero"
 
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
 #: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulación del ratón"
 
 #: boards/billard.xml.in.h:2
 msgid "Send the ball in the hole"
-msgstr ""
+msgstr "Manda la bola al agujero"
 
 #: boards/billard.xml.in.h:3
-#, fuzzy
-msgid "The billard game"
-msgstr "El juego de los quince"
+msgid "The billiards game"
+msgstr "El juego de los billares"
 
 #: boards/billard.xml.in.h:4
 msgid ""
 "The click point on the ball will give the speed and direction to the ball. "
 "More you click in the center, slower is the ball."
 msgstr ""
+"El punto de pulsación en la bola dará la dirección y el movimiento a la bola. "
+"Cuanto más esté su pulsación al centro , más lenta será la bola."
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
@@ -586,6 +599,34 @@ msgstr "Entrenamiento de ajedrez. Atrapa al peón de la computadora."
 msgid "Play end of chess game against the computer"
 msgstr "Juega el último movimiento del juego de ajedrez contra la computadora"
 
+#: boards/chronos.xml.in.h:1
+msgid "Chronos"
+msgstr "Chronos"
+
+#: boards/chronos.xml.in.h:2
+msgid "Drag and Drop the items to organize the story"
+msgstr "Arrastra y suelta los elementos para organizar la historia"
+
+#: boards/chronos.xml.in.h:3
+msgid ""
+"Moon photo comes from NASA\n"
+" Space sounds from Tuxpaint and Vegastrike"
+msgstr ""
+"La foto de la luna proviene de la NASA\n"
+" Sonidos del espacio desde Tuxpaint y Vegastrike"
+
+#: boards/chronos.xml.in.h:4
+msgid "Order the pictures to tell the story"
+msgstr "Ordene las fotos para contar la historia"
+
+#: boards/chronos.xml.in.h:5
+msgid "Pick the pictures on the left and put them on the red points"
+msgstr "Escoja las fotos de la izquierda y póngalas en los puntos rojos"
+
+#: boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr "Cuente una historia breve"
+
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
@@ -605,19 +646,22 @@ msgid "Hear a letter and click on the right letter"
 msgstr "Escucha la letra y señala la correcta"
 
 #: boards/click_on_letter.xml.in.h:4
-msgid "Letter recognition"
-msgstr "Reconocimiento de letras"
+msgid "Letter name recognition"
+msgstr "Reconocimiento de nombres de letras"
 
-#: boards/click_on_letter.xml.in.h:5 boards/leftright.xml.in.h:5
-#: boards/railroad.xml.in.h:4
-msgid "None"
-msgstr "Ninguno"
+#: boards/click_on_letter.xml.in.h:5
+msgid "Visual letters recognition. Can move the mouse."
+msgstr "Reconocimiento visual de letras. Puede mover el ratón."
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Pulsa sobre mí"
 
 #: boards/clickgame.xml.in.h:2
+msgid "Click with the left mouse button on the moving fish."
+msgstr "Pulse con el botón izquierdo del ratón sobre el pez que se mueve."
+
+#: boards/clickgame.xml.in.h:3
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 "National Undersea Research Program (NURP) Collection at http://www.photolib."
@@ -641,7 +685,7 @@ msgstr ""
 "(imagen nur03010) Localización: Desconocida (imagen nur03011) Localización: "
 "Desconocida (imagen nur03013)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
+#: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -649,14 +693,9 @@ msgstr ""
 "Pulsa con el botón izquierdo del ratón sobre los peces antes que se escapen "
 "del acuario"
 
-#: boards/clickgame.xml.in.h:4
-msgid ""
-"Motor coordination: mouse mouvement and mouse click. The goal is just to "
-"click with the left mouse button on the moving fish."
-msgstr ""
-"Coordinación motriz: movimiento del ratón y pulsa con el ratón. El objetivo "
-"es sólo hacer pulsa con el botón izquierdo del ratón sobre el pez en "
-"movimiento."
+#: boards/clickgame.xml.in.h:5
+msgid "Motor coordination: mouse mouvement and mouse click."
+msgstr "Coordinación motriz. movimiento del ratón y pulsación."
 
 #: boards/clockgame.xml.in.h:1
 msgid ""
@@ -779,19 +818,29 @@ msgstr ""
 "para borrar un objeto."
 
 #: boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr "Enumeración básica"
+
+#: boards/enumerate.xml.in.h:2
 msgid "Count the items"
 msgstr "Cuenta los elementos"
 
-#: boards/enumerate.xml.in.h:2 boards/planegame.xml.in.h:2
-msgid "Number"
-msgstr "Número"
+#: boards/enumerate.xml.in.h:3
+msgid ""
+"First, organize properly the items so that you can count them. Then, select "
+"the item you want to answer for in the bottom right area. Enter the answer "
+"with the keyboard and press the OK button or the 'Enter' key."
+msgstr ""
+"Primero, organice apropiadamente los elementos para que pueda contarlos. Luego seleccione "
+"el elemento que quiera contestar en el área inferior derecha. Introduzca la respuesta "
+"con el teclado y pulse Aceptar o la tecla Enter"
 
-#: boards/enumerate.xml.in.h:3 boards/planegame.xml.in.h:4
+#: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
 msgid "Numeration training"
 msgstr "Entrenamiento de numeración"
 
-#: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
+#: boards/enumerate.xml.in.h:5 src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr "Coloca los elementos de la mejor forma para luego contarlos"
 
@@ -885,8 +934,7 @@ msgstr "Arrastra y suelta la pieza superior sólo sobre una posición vacía"
 
 #: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
-msgstr ""
-"Reproduce en el área vacía la misma torre que se encuentra hacia la derecha"
+msgstr "Reproduce en el área vacía la misma torre que se encuentra hacia la derecha"
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
@@ -916,7 +964,7 @@ msgid "Reading"
 msgstr "Lectura"
 
 #: boards/imageid.xml.in.h:4
-msgid "Reading pratice"
+msgid "Reading practice"
 msgstr "Ejercicio de lectura"
 
 #: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
@@ -1176,6 +1224,10 @@ msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 "De acuerdo a las fotografías, encuentra cual es la derecha y cual es la "
 "izquierda"
+
+#: boards/leftright.xml.in.h:5 boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "Ninguno"
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
@@ -1483,8 +1535,8 @@ msgstr ""
 msgid "Money"
 msgstr "Dinero"
 
-#: boards/money.xml.in.h:4 src/boards/money.c:88
-msgid "Pratice money usage"
+#: boards/money.xml.in.h:4
+msgid "Practice money usage"
 msgstr "Practica de uso del dinero"
 
 #: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
@@ -1496,8 +1548,8 @@ msgstr ""
 "más altos se muestran varios elementos, debes calcular el precio total."
 
 #: boards/money_cents.xml.in.h:4
-msgid "Pratice money usage including cents"
-msgstr "Practica de uso del dinero, incluyendo centavos"
+msgid "Practice money usage including cents"
+msgstr "Practica de uso del dinero, incluyendo céntimos"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -1519,6 +1571,10 @@ msgstr ""
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
 msgstr "Arma el rompecabezas"
+
+#: boards/paintings.xml.in.h:4
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr "Manipulación del ratón: movimiento, arrastrar y soltar"
 
 #: boards/paintings.xml.in.h:5
 msgid "Spatial representation"
@@ -1583,8 +1639,7 @@ msgid "Paratrooper"
 msgstr "Paracaidista"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 "Este tablero es un juego. No necesita conocimientos específicos para poder "
 "jugar."
@@ -1592,6 +1647,10 @@ msgstr ""
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
 msgstr "Mueve el helicóptero para capturar las nubes en el orden correcto"
+
+#: boards/planegame.xml.in.h:2
+msgid "Number"
+msgstr "Número"
 
 #: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
 msgid "Numbers in Order"
@@ -1622,10 +1681,8 @@ msgid "Test board for the python plugin"
 msgstr "Tablero de prueba para la extensión de Python"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr ""
-"¡Gracias a Guido van Rossum y al equipo de python por este poderoso lenguaje!"
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr "¡Gracias a Guido van Rossum y al equipo de python por este poderoso lenguaje!"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -1730,8 +1787,7 @@ msgstr "Ejercicio de lectura horizontal"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of word and tell if the given word is in it"
-msgstr ""
-"Lee una lista de palabras y busca si la palabra propuesta esta en la lista"
+msgstr "Lee una lista de palabras y busca si la palabra propuesta esta en la lista"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -1860,14 +1916,13 @@ msgstr "Habilidad para contar"
 msgid "In a limited time, count a number of dots"
 msgstr "En un tiempo limitado, cuenta la cantidad de puntos"
 
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:70
 msgid "Numbers With Dices"
 msgstr "Juegos de números"
 
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:71
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr ""
-"Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
+msgstr "Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
 
 #: boards/smallnumbers.xml.in.h:5
 msgid ""
@@ -1926,8 +1981,7 @@ msgstr ""
 "correcto"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Puede mover el ratón, puede leer números y contar hasta 15 para el primer "
 "nivel"
@@ -1997,8 +2051,7 @@ msgstr "Palabras que caen"
 
 #: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
 msgid "Fully type the falling words before they reach the ground"
-msgstr ""
-"Escribe completamente las palabras que caen antes de que lleguen al suelo"
+msgstr "Escribe completamente las palabras que caen antes de que lleguen al suelo"
 
 #: boards/wordsgame.xml.in.h:4
 msgid "Keyboard training"
@@ -2019,8 +2072,8 @@ msgstr "Suite educativa gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
-#: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:463 src/gcompris/gameutil.c:464
+#: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2181,6 +2234,10 @@ msgstr "Menú principal de GCompris"
 msgid "Select a Board"
 msgstr "Selecciona un tablero"
 
+#: src/boards/money.c:88
+msgid "Pratice money usage"
+msgstr "Practica de uso del dinero"
+
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Mueve el avión para capturar las nubes en el orden correcto"
@@ -2193,151 +2250,10 @@ msgstr "Tablero de Python"
 msgid "Special board that embed python into gcompris."
 msgstr "Tablero especial que incrusta a python dentro de gcompris."
 
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. These are used to let us restart only after the bonux is displayed.
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. the game is won
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. This is a WIN
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Nivel"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coordenada"
@@ -2383,10 +2299,18 @@ msgid "No, it was not there"
 msgstr "No, no la he visto"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:629
+#: src/boards/reading.c:630
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "La palabra que se busca era «%s»"
+
+#: src/boards/reading.c:633
+msgid "But it was not displayed"
+msgstr "Pero no se muestra"
+
+#: src/boards/reading.c:635
+msgid "And it was displayed"
+msgstr "Y se muestra"
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2446,40 +2370,48 @@ msgstr "Distancia al blanco = %d metros"
 
 #: src/gcompris/about.c:60
 msgid ""
-"Credits:\n"
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
-"Créditos:\n"
 "Autor: Bruno Coudoin\n"
 "Contribución: Pascal Georges\n"
 "Gráficos: Renaud Blanchard\n"
 "Música de intro: Djilali Sebihi\n"
 "Música de fondo: Rico Da Halvarez\n"
 
-#: src/gcompris/about.c:99
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+msgid "translator_credits"
+msgstr "Pablo G. del Campo <pablodc@bigfoot.com>, 2003."
+
+#: src/gcompris/about.c:100
 msgid "About GCompris"
 msgstr "Acerca de GCompris"
 
-#: src/gcompris/about.c:205
+#: src/gcompris/about.c:110
+msgid "Translators"
+msgstr ""
+"Pablo G. del Campo <pablodc@bigfoot.com>, 2003. "
+"Francisco Javier F. Serrador <serrador@cvs.gnome.org>"
+
+#: src/gcompris/about.c:225
 msgid "GCompris Home Page"
 msgstr "Página de GCompris"
 
-#: src/gcompris/about.c:227
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+#: src/gcompris/about.c:247
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública GNU (GPL)"
 
-#: src/gcompris/about.c:255
+#: src/gcompris/about.c:275
 msgid "Help"
 msgstr "Ayuda"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
+#: src/gcompris/about.c:309 src/gcompris/config.c:180 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Aceptar"
@@ -2545,9 +2477,8 @@ msgid "Hungarian"
 msgstr "Húngaro"
 
 #: src/gcompris/config.c:67
-#, fuzzy
 msgid "Croatian"
-msgstr "Catalán"
+msgstr "Croata"
 
 #: src/gcompris/config.c:68
 msgid "Italian"
@@ -2662,11 +2593,27 @@ msgstr "Efecto"
 msgid "Couldn't open skin dir: %s"
 msgstr "No se puede abrir el directorio de pieles: %s"
 
-#: src/gcompris/config.c:404 src/gcompris/config.c:721
-#: src/gcompris/config.c:732
+#: src/gcompris/config.c:404 src/gcompris/config.c:727
+#: src/gcompris/config.c:738
 #, c-format
 msgid "Skin : %s"
 msgstr "Piel : %s"
+
+#: src/gcompris/gameutil.c:127
+msgid "Couldn't find file"
+msgstr "No se ha podido encontrar el archivo"
+
+#: src/gcompris/gameutil.c:129
+msgid "This activity is incomplete."
+msgstr "Esta actividad está incompleta."
+
+#: src/gcompris/gameutil.c:130
+msgid ""
+"Exit it and report\n"
+"us the problem"
+msgstr ""
+"Salga e infórmenos\n"
+"del problema"
 
 #: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
@@ -2708,7 +2655,7 @@ msgstr "Imprime la versión de "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Usar el lienzo suavizado (mas lento)."
 
-#: src/gcompris/gcompris.c:614
+#: src/gcompris/gcompris.c:618
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2773,16 +2720,12 @@ msgstr "Directorio"
 msgid "Title"
 msgstr "Título"
 
-#. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/interface.c:484
-msgid "translator_credits"
-msgstr "Pablo G. del Campo <pablodc@bigfoot.com>, 2003."
-
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
 msgstr "Liberado bajo la GPL"
 
 #: src/gcompris/oggplayer.c:165
+#, c-format
 msgid ""
 "Possible audio output devices are:\n"
 "default "
@@ -2817,5 +2760,20 @@ msgstr "Tiempo terminado"
 msgid "Remaining Time = %d"
 msgstr "Tiempo disponible = %d"
 
+#~ msgid "Simple addition"
+#~ msgstr "Suma simple"
+
+#~ msgid "Baby Shape Puzzle"
+#~ msgstr "Rompecabezas de formas bebé"
+
+#~ msgid ""
+#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
+#~ "click with the left mouse button on the moving fish."
+#~ msgstr ""
+#~ "Coordinación motriz: movimiento del ratón y pulsa con el ratón. El "
+#~ "objetivo es sólo hacer pulsa con el botón izquierdo del ratón sobre el "
+#~ "pez en movimiento."
+
 #~ msgid "Move the mouse to machpuzzle the area and discover the background"
 #~ msgstr "Mueve el ratón para hacer coincidir la zona y descubrir el fondo"
+
