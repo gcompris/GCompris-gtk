@@ -1,13 +1,14 @@
+# Dutch translation of gcompris
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Dirk Schouten <schoutdi@knoware.nl>, 2000.
 # Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>, 2001, 2002.
 # Tino Meinen <a.t.meinen@chello.nl>, 2002, 2003
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-01-30 00:04+0100\n"
-"PO-Revision-Date: 2003-01-30 00:24+0100\n"
+"POT-Creation-Date: 2003-02-12 04:02+0100\n"
+"PO-Revision-Date: 2003-02-12 08:45+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -837,7 +838,7 @@ msgstr "Lees-oefening om woorden aan beelden te koppelen"
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:103
+#: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
 msgid "Reading"
 msgstr "Lezen"
@@ -1777,18 +1778,18 @@ msgstr "Educatief spel voor kinderen vanaf drie jaar"
 msgid "Editor for gcompris"
 msgstr "Editor voor GCompris"
 
-#: src/boards/advanced_colors.c:527 src/boards/imageid.c:573
-#: src/boards/missingletter.c:592 src/boards/read_colors.c:487
+#: src/boards/advanced_colors.c:534 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
 #: src/boards/shapegame.c:1561 src/boards/traffic.c:622
 #: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
 #: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:255
+#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:265
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: src/boards/advanced_colors.c:530 src/boards/imageid.c:576
-#: src/boards/missingletter.c:595 src/boards/read_colors.c:490
+#: src/boards/advanced_colors.c:537 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
 #: src/boards/shapegame.c:1564
 #, c-format
 msgid "find file %s !"
@@ -1885,7 +1886,7 @@ msgstr "Kan pixmap directory niet openen: %s"
 msgid "Set the watch to:"
 msgstr "Zet de klok op:"
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:104
+#: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Leer lezen"
 
@@ -2019,7 +2020,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:156 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:158 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2086,50 +2087,58 @@ msgid "Romanian"
 msgstr "Roemeens"
 
 #: src/gcompris/config.c:59
+msgid "Russian"
+msgstr "Russisch"
+
+#: src/gcompris/config.c:60
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:61
 msgid "Slovak"
 msgstr "Slovaaks"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:62
+msgid "Turkish"
+msgstr "Turks"
+
+#: src/gcompris/config.c:63
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:68
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:69
 msgid "Slow timer"
 msgstr "Trage timer"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:70
 msgid "Normal timer"
 msgstr "Normale timer"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:71
 msgid "Fast timer"
 msgstr "Snelle timer"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:76
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:130
+#: src/gcompris/config.c:132
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:236
+#: src/gcompris/config.c:238
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:279
+#: src/gcompris/config.c:281
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:309
 msgid "Effect"
 msgstr "Effect"
 
@@ -2162,11 +2171,11 @@ msgstr "Toont de versie van"
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)"
 
-#: src/gcompris/gcompris.c:328
+#: src/gcompris/gcompris.c:327
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:540
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2179,19 +2188,19 @@ msgstr ""
 "Licentie: GPL\n"
 "Meer informatie op http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:168 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Vereisten"
 
-#: src/gcompris/help.c:202 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Doelstelling"
 
-#: src/gcompris/help.c:236 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Handleiding"
 
-#: src/gcompris/help.c:270 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Dank aan"
 
