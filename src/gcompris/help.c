@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2003/02/14 01:14:53 bruno>
+ * Time-stamp: <2003/07/20 18:57:49 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -97,8 +97,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   if(rootitem)
     return;
-
-  gcompris_bar_hide(TRUE);
 
   if(gcomprisBoard!=NULL)
     {
@@ -355,6 +353,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 		     item);
   gdk_pixbuf_unref(pixmap);
 
+  gcompris_bar_hide(TRUE);
 
   help_displayed = TRUE;
 }
@@ -380,6 +379,7 @@ void gcompris_help_stop ()
 	  rootitem = NULL;	  
 	}
     }
+
   gcompris_bar_hide(FALSE);
   help_displayed = FALSE;
 }

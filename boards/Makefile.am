@@ -24,6 +24,7 @@ xml_in_files = \
 	doubleentry.xml.in \
 	enumerate.xml.in \
 	fun.xml.in \
+	fifteen.xml.in \
 	geography.xml.in \
 	gletters.xml.in \
 	hanoi.xml.in \

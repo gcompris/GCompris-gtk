@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2003/02/16 23:18:48 bruno>
+ * Time-stamp: <2003/07/20 18:01:43 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,6 +33,9 @@ static gint		 move_plane_id		= 0;
 static gint		 plane_x		= 0;
 static gint		 plane_y		= 0;
 static gint		 plane_speed		= 0;
+
+static gboolean is_displayed			= FALSE;
+
 
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint move_plane (GtkWidget *widget, gpointer item);
@@ -313,6 +316,7 @@ void gcompris_about_start ()
   x_flag_start = x_start + 50;
   x_text_start = x_start + 120;
 
+  is_displayed = TRUE;
 
 }
 
@@ -327,19 +331,22 @@ void gcompris_about_stop ()
 
   // Destroy the help box
   if(rootitem!=NULL)
-    {
       gtk_object_destroy(GTK_OBJECT(rootitem));
-      gcomprisBoard->plugin->pause_board(FALSE);
-    }
   rootitem = NULL;	  
 
-  gdk_pixbuf_unref(pixmap_about);
+  if(pixmap_about)
+    gdk_pixbuf_unref(pixmap_about);
+  pixmap_about = NULL;
 
   /* UnPause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
-    gcomprisBoard->plugin->pause_board(FALSE);
+  if(gcomprisBoard->plugin->pause_board != NULL && is_displayed)
+    {
+      gcomprisBoard->plugin->pause_board(FALSE);
+    }
 
   gcompris_bar_hide (FALSE);
+
+  is_displayed = FALSE;
 }
 
 

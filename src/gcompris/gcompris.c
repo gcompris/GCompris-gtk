@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/01/27 01:48:57 bruno>
+ * Time-stamp: <2003/07/20 17:56:53 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -99,7 +99,11 @@ board_widget_key_press_callback (GtkWidget   *widget,
   switch (event->keyval)
     {
     case GDK_Escape:
+      /* Remove any dialog box */
       gcompris_help_stop();
+      gcompris_config_stop();
+      gcompris_about_stop();
+
       board_stop();
       return TRUE;
     case GDK_KP_Enter:

@@ -20,6 +20,7 @@ lib_LTLIBRARIES = \
 	libdraw.la \
 	liberase.la \
 	libenumerate.la \
+	libfifteen.la \
 	libgletters.la \
 	libhanoi.la \
 	libimageid.la \
@@ -314,6 +315,13 @@ libhanoi_la_LIBADD = \
 	$(XML_LIBS) $(INTLLIBS)
 
 libhanoi_la_SOURCES = hanoi.c
+
+libfifteen_la_LDFLAGS = -module -avoid-version
+libfifteen_la_LIBADD = \
+	$(GCOMPRIS_LIBS)	\
+	$(XML_LIBS) $(INTLLIBS)
+
+libfifteen_la_SOURCES = fifteen.c
 
 
 libpython_la_LDFLAGS = -export-dynamic -module -avoid-version

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2003/07/14 12:16:57 bcoudoin>
+ * Time-stamp: <2003/07/20 18:01:51 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002,2003 Bruno Coudoin
  *
@@ -43,6 +43,8 @@ static gchar		*current_locale		= NULL;
 static GList		*skinlist		= NULL;
 static guint		skin_index;
 #define Y_GAP	45
+
+static gboolean is_displayed			= FALSE;
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -396,6 +398,7 @@ void gcompris_config_start ()
 					  "fill_color_rgba", gcompris_skin_color_content,
 					  NULL);
   
+  is_displayed = TRUE;
 }
 
 void gcompris_config_stop ()
@@ -410,14 +413,23 @@ void gcompris_config_stop ()
     }
   rootitem = NULL;	  
 
-  gdk_pixbuf_unref(pixmap_unchecked);
-  gdk_pixbuf_unref(pixmap_checked);
+  if(pixmap_unchecked)
+    gdk_pixbuf_unref(pixmap_unchecked);
+  pixmap_unchecked = NULL;
+
+  if(pixmap_checked)
+    gdk_pixbuf_unref(pixmap_checked);
+  pixmap_checked = NULL;
 
   /* UnPause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
-    gcomprisBoard->plugin->pause_board(FALSE);
+  if(gcomprisBoard->plugin->pause_board != NULL && is_displayed)
+    {
+      gcomprisBoard->plugin->pause_board(FALSE);
+    }
 
   gcompris_bar_hide(FALSE);
+
+  is_displayed = FALSE;
 }
 
 

@@ -1,5 +1,22 @@
+2003-07-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am:
+	* src/boards/Makefile.am:
+	* src/boards/fifteen.c:  created the fifteen board based on the libgnomecanvas demo
+	* boards/images/fifteen_frame.png: created the fifteen board
+	* src/gcompris/about.c: (gcompris_about_start),
+	(gcompris_about_stop): fixed a bug where 'esc' key was not closing the dialog
+	* src/gcompris/bar.c: (gcompris_bar_start),
+	(gcompris_bar_set_level): fixed a bug where 'esc' key was not closing the dialog
+	* src/gcompris/config.c: (gcompris_config_start),
+	(gcompris_config_stop): fixed a bug where 'esc' key was not closing the dialog
+	* src/gcompris/gameutil.c: (gcompris_item_event_focus): fixed bug where the icon was becomming darker and darker
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback):  fixed a bug where 'esc' key was not closing the dialog
+	* src/gcompris/help.c: (gcompris_help_start), (gcompris_help_stop): fixed a bug where 'esc' key was not closing the dialog
+
 2003-07-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* configure.in : changed to release 3.2
 	* boards/geography/board3_0.xml.in: Fixed dual sound declaration. This level was broken.
 
 2003-07-14  Bruno Coudoin  <bruno.coudoin@free.fr>
@@ -17,7 +34,6 @@
 
 2003-06-27  Bruno Coudoin  <bruno.coudoin@free.fr>
 
-	* configure.in : changed to release 3.2
 	* src/boards/chess.c: (chess_create_item): fixed bug with gnuchess above 5.05 and 5.06
 	  with these gnuchess, gcompris was not able to play chess. Simon Waters 
 	  <Simon@wretched.demon.co.uk> who maintains gnuchess tell me it should be fixed in 5.07
