@@ -21,7 +21,7 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-
+
 
 /*****************************************************************************/
 /* The following structure describes a board object.  */
@@ -42,6 +42,7 @@ struct _GcomprisBoard
   gchar		      *author;
   gchar		      *boarddir;
   gchar		      *filename;
+  gchar		*difficulty;
 
   /* Size of the window in which we have to run */
   gint16               width;
@@ -54,7 +55,7 @@ struct _GcomprisBoard
   /* Pointors to the previous board to start when this one ends */
   GcomprisBoard       *previous_board;
 
-  /* Dynamic board information (status) */  
+  /* Dynamic board information (status) */
   guint                level;
   guint                maxlevel;
   guint                sublevel;
@@ -62,7 +63,7 @@ struct _GcomprisBoard
 };
 
 
-
+
 
 #endif
 

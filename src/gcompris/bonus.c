@@ -49,17 +49,20 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
     }
 
   switch(bonus_id) {
-  case SMILEY_BONUS : 
-    bonus_smiley(gamewon); 
+  case SMILEY_BONUS :
+    bonus_image("smiley",gamewon);
     break;
-  default : 
-    bonus_smiley(gamewon); 
+  case FLOWER_BONUS :
+    bonus_image("flower",gamewon);
+    break;
+  default :
+    bonus_image("smiley",gamewon);
     break;
   }
 }
 
 /* ==================================== */
-void bonus_smiley(int gamewon) 
+void bonus_image(char *image, int gamewon) 
 {
   char *str= NULL;
   int x,y;
@@ -71,9 +74,9 @@ void bonus_smiley(int gamewon)
   	return;
 
   if (gamewon == TRUE)
-    str = g_strdup_printf("%s", "gcompris/bonus/smiley_good.png");
+    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
   else
-    str = g_strdup_printf("%s", "gcompris/bonus/smiley_bad.png");
+    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_bad.png");
 
   pixmap = gcompris_load_pixmap(str);
 

@@ -40,6 +40,7 @@ static void set_level (guint level);
 static int gamewon;
 static void process_ok(void);
 static void highlight_selected(GnomeCanvasItem *);
+static void game_won();
 
 typedef struct _Board Board;
 struct _Board {
@@ -141,6 +142,7 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+gnome_sound_init(NULL);
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
@@ -407,7 +409,7 @@ static void process_ok()
   if (gamewon) {
     gnome_canvas_item_set(text, "text", board->answer, NULL);
   }
-  gcompris_display_bonus(gamewon, SMILEY_BONUS);
+  gcompris_display_bonus(gamewon, FLOWER_BONUS);
 
 }
 

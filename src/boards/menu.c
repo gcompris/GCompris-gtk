@@ -97,7 +97,7 @@ BoardPlugin menu_bp =
  */
 
 
-BoardPlugin 
+BoardPlugin
 *get_bplugin_info(void)
 {
   return &menu_bp;
@@ -139,9 +139,9 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 								NULL));
 
       g_list_foreach (boardlist, (GFunc) display_board_icon, NULL);
-      
+
       create_info_area(boardRootItem);
-      
+
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=1;
@@ -159,11 +159,11 @@ menu_end ()
   GcomprisBoard *board;
 
   /* Erase the boardlist */
-  while(g_list_length(boardlist)>0) 
+  while(g_list_length(boardlist)>0)
     {
       board = g_list_nth_data(boardlist, 0);
       boardlist = g_list_remove (boardlist, board);
-      
+
       /* FIXME : We need a better cleanup */
       g_free(board->name);
       g_free(board->description);
@@ -176,7 +176,7 @@ menu_end ()
 
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
-  
+
   boardRootItem=NULL;
 }
 
@@ -237,8 +237,8 @@ static gboolean next_spot()
 
 static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard *board)
 {
-  GdkPixbuf *menu_pixmap = NULL;
-  GnomeCanvasItem *item;
+  GdkPixbuf *menu_pixmap = NULL, *star_pixmap = NULL;
+  GnomeCanvasItem *item, *star;
   MenuItem *menuitem;
 
   menuitem = malloc(sizeof(MenuItem));
@@ -247,7 +247,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 
   item = gnome_canvas_item_new (parent,
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", menu_pixmap, 
+				"pixbuf", menu_pixmap,
 				"x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2,
 				"y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
 				"width", (double) gdk_pixbuf_get_width(menu_pixmap),
@@ -256,8 +256,31 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
   gcompris_set_image_focus(menu_pixmap, FALSE);
   // FIXME Unref of the pixmap will make gcompris_item_event_focus fails
   //       when it will be fixed.
-  gdk_pixbuf_unref(menu_pixmap);
   item_list = g_list_append (item_list, item);
+
+  // display difficulty stars ========================== BEGIN
+  star_pixmap = gcompris_load_pixmap("gcompris/difficulty_star.png");
+  if (board->difficulty != NULL) {
+  	int i, diff = 0;
+	if (strcmp("1",board->difficulty) == 0) diff = 1;
+	if (strcmp("2",board->difficulty) == 0) diff = 2;
+	if (strcmp("3",board->difficulty) == 0) diff = 3;
+	for (i=0; i<diff; i++) {
+		star =  gnome_canvas_item_new (parent,
+						gnome_canvas_pixbuf_get_type (),
+						"pixbuf", star_pixmap,
+						"x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2  - gdk_pixbuf_get_width(star_pixmap) + 5,
+						"y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2 + gdk_pixbuf_get_height(star_pixmap) * (i-1),
+						"width", (double) gdk_pixbuf_get_width(star_pixmap),
+						"height", (double) gdk_pixbuf_get_height(star_pixmap),
+						NULL);
+  	item_list = g_list_append (item_list, star);
+	}
+  }
+// display difficulty stars ========================== END
+
+  gdk_pixbuf_unref(star_pixmap);
+  gdk_pixbuf_unref(menu_pixmap);
 
   if (!menu_table)
     {
@@ -284,10 +307,10 @@ static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 {
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
-      /* HACK : If I don't set the color here, then the 3 text are not visible !!! 
+      /* HACK : If I don't set the color here, then the 3 text are not visible !!!
        *        just add again white here and it works again !!!! */
       gnome_canvas_item_set (boardname_item,
 			     "text", menuitem->board->name,

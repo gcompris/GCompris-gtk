@@ -3,7 +3,7 @@
  * Time-stamp: <2001/10/29 00:48:02 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -66,7 +66,7 @@ GdkPixbuf *gcompris_load_number_pixmap(char number)
   pixmap = gdk_pixbuf_new_from_file (filename);
   
   g_free (filename);
-  
+
   return(pixmap);
 }
 
@@ -180,7 +180,6 @@ void gcompris_play_sound (const char *soundlistfile, const char *which)
 static void
 gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GcomprisBoard *gcomprisBoard)
 {
-
   if(/* if the node has no name */
      !xmlnode->name ||
      /* or if the name is not "Board" */
@@ -200,14 +199,16 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 
   gcomprisBoard->boarddir = xmlGetProp(xmlnode,"boarddir");
 
+  gcomprisBoard->difficulty = xmlGetProp(xmlnode,"difficulty");
+
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
     gchar *lang = xmlGetProp(xmlnode,"lang");
     /* get the name of the board */
-    if (!strcmp(xmlnode->name, "name") 
-	&& (lang==NULL 
+    if (!strcmp(xmlnode->name, "name")
+	&& (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	const char *inptr;
 	size_t inleft;
@@ -236,7 +237,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 
     /* get the description of the board */
     if (!strcmp(xmlnode->name, "description")
-	&& (lang==NULL || 
+	&& (lang==NULL ||
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2))) 
       {
@@ -287,7 +288,7 @@ parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard)
 
 
 /* read an xml file into our memory structures and update our view,
-   dump any old data we have in memory if we can load a new set 
+   dump any old data we have in memory if we can load a new set
    Return a newly allocated GcomprisBoard or NULL if the parsing failed
 */
 GcomprisBoard *gcompris_read_xml_file(char *fname)
@@ -304,7 +305,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
   filename = g_strdup(fname);
 
   /* if the file doesn't exist */
-  if(!g_file_exists(filename)) 
+  if(!g_file_exists(filename))
     {
       g_free(filename);
 

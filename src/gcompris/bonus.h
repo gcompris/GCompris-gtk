@@ -29,10 +29,10 @@
 
 #define RANDOM_BONUS 0
 #define SMILEY_BONUS 1
-#define FIREWORKS_BONUS 2
+#define FLOWER_BONUS 2
 
 void gcompris_display_bonus(int, int);
-void bonus_smiley(int);
+void bonus_image(char *,int);
 void end_bonus();
 
 #endif
