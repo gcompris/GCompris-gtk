@@ -12,7 +12,7 @@ lib_LTLIBRARIES = \
 	libgletters.la \
 	libimageid.la \
 	libleftright.la \
-	libmastermind.la \
+	libsuperbrain.la \
 	libmaze.la \
 	libmemory.la \
 	libmenu.la \
@@ -259,13 +259,13 @@ libadvanced_colors_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 
 libadvanced_colors_la_SOURCES = advanced_colors.c
 
-libmastermind_la_LDFLAGS = -module -avoid-version
-libmastermind_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+libsuperbrain_la_LDFLAGS = -module -avoid-version
+libsuperbrain_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
 	$(GNOME_XML_LIB) $(INTLLIBS) \
 	$(GDK_PIXBUF_LIBS)
 
-libmastermind_la_SOURCES = mastermind.c
+libsuperbrain_la_SOURCES = superbrain.c
 
 libread_colors_la_LDFLAGS = -module -avoid-version
 libread_colors_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@

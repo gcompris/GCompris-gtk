@@ -1,4 +1,4 @@
-/* gcompris - mastermind.c
+/* gcompris - superbrain.c
  *
  * Copyright (C) 2002 Bruno Coudoin
  *
@@ -83,9 +83,9 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup	*boardLogoItem = NULL;
 
 
-static GnomeCanvasItem	*mastermind_create_item(GnomeCanvasGroup *parent);
-static void		 mastermind_destroy_all_items(void);
-static void		 mastermind_next_level(void);
+static GnomeCanvasItem	*superbrain_create_item(GnomeCanvasGroup *parent);
+static void		 superbrain_destroy_all_items(void);
+static void		 superbrain_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, Piece *piece);
 static void		 mark_pieces(void);
 
@@ -180,7 +180,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_OK|GCOMPRIS_BAR_LEVEL);
 
-      mastermind_next_level();
+      superbrain_next_level();
 
       gamewon = FALSE;
       pause_board(FALSE);
@@ -192,7 +192,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      mastermind_destroy_all_items();
+      superbrain_destroy_all_items();
     }
   gcomprisBoard = NULL;
 }
@@ -205,7 +205,7 @@ static void set_level (guint level)
     {
       gcomprisBoard->level=level;
       gcomprisBoard->sublevel=1;
-      mastermind_next_level();
+      superbrain_next_level();
     }
 }
 /* ======================================= */
@@ -213,7 +213,7 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "mastermind")==0)
+      if(g_strcasecmp(gcomprisBoard->type, "superbrain")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;
@@ -236,7 +236,7 @@ static void process_ok() {
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /* set initial values for the next level */
-static void mastermind_next_level()
+static void superbrain_next_level()
 {
   guint i;
   GdkPixbuf *pixmap = NULL;
@@ -247,7 +247,7 @@ static void mastermind_next_level()
 
   gcompris_bar_set_level(gcomprisBoard);
 
-  mastermind_destroy_all_items();
+  superbrain_destroy_all_items();
   gamewon = FALSE;
 
   /* Select level difficulty : should not go above MAX_PIECES */
@@ -304,7 +304,7 @@ static void mastermind_next_level()
 							    NULL));
   
   /* The logo */
-  pixmap = gcompris_load_pixmap("images/mastermind_logo.png");
+  pixmap = gcompris_load_pixmap("images/superbrain_logo.png");
   gnome_canvas_item_new (boardLogoItem,
 			 gnome_canvas_pixbuf_get_type (),
 			 "pixbuf", pixmap,
@@ -329,11 +329,11 @@ static void mastermind_next_level()
     }
 
 
-  mastermind_create_item(boardRootItem);
+  superbrain_create_item(boardRootItem);
 }
 /* ==================================== */
 /* Destroy all the items */
-static void mastermind_destroy_all_items()
+static void superbrain_destroy_all_items()
 {
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -346,7 +346,7 @@ static void mastermind_destroy_all_items()
   boardLogoItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *mastermind_create_item(GnomeCanvasGroup *parent)
+static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 {
   int i, j, x;
   double x1, x2;
@@ -509,7 +509,7 @@ static void game_won()
     }
     gcompris_play_sound (SOUNDLISTFILE, "bonus");
   }
-  mastermind_next_level();
+  superbrain_next_level();
 }
 
 /* ==================================== */
@@ -650,6 +650,6 @@ static void mark_pieces()
 
   g_list_free(listPieces);
 
-  mastermind_create_item(boardRootItem);
+  superbrain_create_item(boardRootItem);
 
 }
