@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-05-07 11:06+0200\n"
-"PO-Revision-Date: 2003-05-07 11:08+0200\n"
+"POT-Creation-Date: 2003-05-09 11:59+0200\n"
+"PO-Revision-Date: 2003-05-09 12:00+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -801,6 +801,14 @@ msgstr "Nordamerika"
 #: boards/geography/board2_0.xml.in.h:1
 msgid "South America"
 msgstr "Sydamerika"
+
+#: boards/geography/board3_0.xml.in.h:1
+msgid "West Europe"
+msgstr "Västeuropa"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "East Europe"
+msgstr "Östeuropa"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
@@ -1852,7 +1860,7 @@ msgstr "Redigerare för gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1706 src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1718 src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
 #: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
 #: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
@@ -1863,7 +1871,7 @@ msgstr "Kunde inte hitta filen %s!"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1709
+#: src/boards/shapegame.c:1721
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -2390,6 +2398,9 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid "Europe"
+#~ msgstr "Europa"
 
 #~ msgid ""
 #~ "Click on the items until you find what you think is the correct answer. "
