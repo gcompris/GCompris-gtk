@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2001/12/02 03:07:16 bruno>
+ * Time-stamp: <2001/12/02 22:43:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -115,7 +115,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE) /* the game is won */
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
       game_won();
     }
@@ -144,7 +144,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
-      gcompris_point_start(POINTSTYLE_NOTE, 
+      gcompris_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
@@ -165,7 +165,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_point_end();
+      gcompris_score_end();
       clockgame_destroy_all_items();
     }
 }
@@ -209,7 +209,7 @@ static void clockgame_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
-  gcompris_point_set(gcomprisBoard->sublevel);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   clockgame_destroy_all_items();
 

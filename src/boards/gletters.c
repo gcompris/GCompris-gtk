@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2001/12/01 23:33:31 bruno>
+ * Time-stamp: <2001/12/03 00:23:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -147,6 +147,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=6;
+      gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       gletters_next_level();
@@ -161,6 +166,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_score_end();
       gletters_destroy_all_items();
     }
 }
@@ -299,12 +305,9 @@ static void gletters_next_level()
   speed=100+(40/gcomprisBoard->level);
   fallSpeed=5000-gcomprisBoard->level*200;
   imageZoom=1.0;
-  gcomprisBoard->number_of_sublevel=10;
 
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-  gcomprisBoard->sublevel=0;
-
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcomprisBoard->sublevel=1;
+  gcompris_score_set(gcomprisBoard->sublevel);
 }
 
 
@@ -472,9 +475,9 @@ static void player_win(GnomeCanvasItem *item)
   gcompris_play_sound (SOUNDLISTFILE, "gobble");
 
   gcomprisBoard->sublevel++;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
-  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) 
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) 
     {
       /* Try the next level */
       gcomprisBoard->level++;

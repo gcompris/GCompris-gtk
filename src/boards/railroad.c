@@ -129,7 +129,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE) /* the game is won */
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
       game_won();
     }
@@ -169,9 +169,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=3;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
-      gcompris_bar_set_timer(0);
-      gcompris_bar_set_maxtimer(gcomprisBoard->maxlevel * gcomprisBoard->number_of_sublevel);
 
       railroad_next_level();
 
@@ -192,6 +194,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
 	pause_board(TRUE);
+	gcompris_score_end();
 	railroad_destroy_all_items();
 
 	while(g_list_length(listPixmapEngines)>0) {
@@ -263,7 +266,7 @@ printf("======= NEXT LEVEL ======== \n");
 
   railroad_destroy_all_items();
   gamewon = FALSE;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   railroad_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -364,9 +367,9 @@ static void game_won()
 {
   gcomprisBoard->sublevel++;
 
-  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
-    gcomprisBoard->sublevel=0;
+    gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
       board_finished();

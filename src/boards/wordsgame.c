@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2001/12/02 03:28:02 bruno>
+ * Time-stamp: <2001/12/02 22:28:35 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -158,7 +158,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel = 6;
       gcomprisBoard->sublevel = 1;
       gcomprisBoard->number_of_sublevel = 5;
-      gcompris_point_start(POINTSTYLE_NOTE, 
+      gcompris_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
@@ -184,7 +184,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_point_end();
+      gcompris_score_end();
       wordsgame_destroy_all_items();
       if (words_table)
 	{
@@ -388,7 +388,7 @@ static void wordsgame_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
-  gcompris_point_set(gcomprisBoard->sublevel);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   wordsgame_destroy_all_items();
 
@@ -578,7 +578,7 @@ static void player_win(LettersItem *item)
   gcompris_play_sound (SOUNDLISTFILE, "gobble");
 
   gcomprisBoard->sublevel++;
-  gcompris_point_set(gcomprisBoard->sublevel);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) 
     {

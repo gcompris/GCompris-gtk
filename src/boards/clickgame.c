@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2001/12/01 23:30:23 bruno>
+ * Time-stamp: <2001/12/03 00:14:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -183,6 +183,11 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=6;
+      gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_HELP);
 
       clickgame_next_level();
@@ -200,12 +205,9 @@ clickgame_end ()
   if(gcomprisBoard!=NULL)
     {
       clickgame_pause(TRUE);
+      gcompris_score_end();
       clickgame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
-
-      /* reset the timer */
-      gcompris_bar_set_timer(0);
-
     }
 }
 
@@ -307,12 +309,10 @@ static void clickgame_next_level()
   /* Try the next level */
   speed=100+(40/(gcomprisBoard->level));
   fallSpeed=5000-gcomprisBoard->level*200;
-  gcomprisBoard->number_of_sublevel=10;
   /* Make the images tend to 0.5 ratio */
   imageZoom=0.5+(0.5/(gcomprisBoard->level));
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-  gcomprisBoard->sublevel=0;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcomprisBoard->sublevel=1;
+  gcompris_score_set(gcomprisBoard->sublevel);
 
 }
 
@@ -579,8 +579,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
 	       gcompris_play_sound (SOUNDLISTFILE, "gobble");
 
 	       gcomprisBoard->sublevel++;
-	       gcompris_bar_set_timer(gcomprisBoard->sublevel);
-	       if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+	       gcompris_score_set(gcomprisBoard->sublevel);
+
+	       if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
 		 /* Try the next level */
 		 gcomprisBoard->level++;
 		 if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out

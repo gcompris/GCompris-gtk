@@ -97,7 +97,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE) /* the game is won */
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
       game_won();
     }
@@ -120,8 +120,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
-      gcompris_bar_set_timer(0);
-      gcompris_bar_set_maxtimer(gcomprisBoard->maxlevel * gcomprisBoard->number_of_sublevel);
 
       erase_next_level();
 
@@ -175,7 +173,6 @@ static void erase_next_level()
 
   erase_destroy_all_items();
   gamewon = FALSE;
-  gcompris_bar_set_timer(board_number);
 
   /* Select level difficulty */
   number_of_item_x = gcomprisBoard->level*5;

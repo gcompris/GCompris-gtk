@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2001/12/01 23:29:40 bruno>
+ * Time-stamp: <2001/12/03 00:47:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -320,7 +320,7 @@ gint key_press(guint keyval)
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
 	board_finished();
-	return;
+	return TRUE;
       }
       paratrooper_next_level();
       break;
@@ -394,12 +394,9 @@ static void paratrooper_next_level()
 
   /* Try the next level */
   speed=100+(30/(gcomprisBoard->level));
-  gcomprisBoard->number_of_sublevel=1;
+  gcomprisBoard->number_of_sublevel=0;
   /* Make the images tend to 0.5 ratio */
   imageZoom=0.3+(0.4/(gcomprisBoard->level));
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-  gcomprisBoard->sublevel=0;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
 
   /* Setup and Display the plane */
   planespeed_y = 0;
@@ -515,10 +512,6 @@ static void paratrooper_next_level()
 
   /* The sea is always on top */
   gnome_canvas_item_raise_to_top(seaitem);
-
-  /* status bar */
-  gcompris_bar_set_maxtimer(1);
-  gcompris_bar_set_timer(0);
 
   g_free (str);
 

@@ -1,4 +1,9 @@
 2001-12-02  Bruno Coudoin  <bruno.coudoin@free.fr>
+	* src/gcompris/score.c: creation of the gcompris_score API to replace gcompris_point API
+	* src/gcompris/point.[ch]: removed
+	* src/boards/*.c: changed the pause algo to fullfill the boardfinish needs
+	
+2001-12-02  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* src/boards/clockgame.c: modified to use board_finished(). Fixed max timer.
 	                          modified to use gcompris_point API
 	* src/board/algebra.c: modified to use gcompris_point API

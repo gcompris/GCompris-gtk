@@ -134,7 +134,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE && pause == FALSE ) /* the game is won */
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
       game_won();
     }
@@ -154,12 +154,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			      "missing_letter/missingletter-bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=4;
-      gcomprisBoard->sublevel=0;
+      gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=2; /* Go to next level after this number of 'play' */
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
-      gcompris_bar_set_timer(0);
       init_xml();
-      gcompris_bar_set_maxtimer(g_list_length(board_list));
 
       missing_letter_next_level();
 
@@ -175,6 +177,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_score_end();
       missing_letter_destroy_all_items();
       destroy_board_list();
     }
@@ -187,7 +190,7 @@ set_level (guint level)
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
-      gcomprisBoard->sublevel=0;
+      gcomprisBoard->sublevel=1;
       missing_letter_next_level();
     }
 }
@@ -218,7 +221,7 @@ static void missing_letter_next_level()
   missing_letter_destroy_all_items();
   gamewon = FALSE;
 
-  gcompris_bar_set_timer(board_number);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   missing_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -396,9 +399,9 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 static void game_won() {
   gcomprisBoard->sublevel++;
 
-  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
-    gcomprisBoard->sublevel=0;
+    gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
 	board_finished();

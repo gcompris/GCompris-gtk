@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2001/12/01 23:34:53 bruno>
+ * Time-stamp: <2001/12/03 00:41:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -251,9 +251,7 @@ static void reading_next_level()
   current_y = BASE_Y1;
 
   gcomprisBoard->number_of_sublevel=1;
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-  gcomprisBoard->sublevel=0;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcomprisBoard->sublevel=1;
 
   display_what_to_do(boardRootItem);
   ask_ready(TRUE);

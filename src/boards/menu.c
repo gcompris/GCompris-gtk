@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2001/11/26 00:00:14 bruno>
+ * Time-stamp: <2001/12/03 01:21:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -392,7 +392,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 {
   GdkFont *gdk_font, *gdk_font_small, *gdk_font_big;
   gint x = (double)gcomprisBoard->width/2;
-  gint y = 400;
+  gint y = 350;
 
   /* Load a gdk font */
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*");
@@ -416,7 +416,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "text", "",
 			   "font_gdk", gdk_font_small,
 			   "x", (double) x,
-			   "y", (double) y + 40,
+			   "y", (double) y + 35,
 			   "anchor", GTK_ANCHOR_NORTH,
 			   "fill_color", "white",
 			   "justification", GTK_JUSTIFY_CENTER,
@@ -428,7 +428,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "text", "",
 			   "font_gdk", gdk_font_small,
 			   "x", (double) x,
-			   "y", (double) y + 90,
+			   "y", (double) y + 80,
 			   "anchor", GTK_ANCHOR_NORTH,
 			   "fill_color", "white",
 			   "justification", GTK_JUSTIFY_CENTER,

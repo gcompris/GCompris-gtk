@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2001/12/02 02:58:12 bruno>
+ * Time-stamp: <2001/12/02 22:28:51 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -148,7 +148,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=9;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
-      gcompris_point_start(POINTSTYLE_NOTE, 
+      gcompris_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
@@ -190,7 +190,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      gcompris_point_end();
+      gcompris_score_end();
       algebra_destroy_all_items();
     }
 }
@@ -372,7 +372,7 @@ static void algebra_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
-  gcompris_point_set(gcomprisBoard->sublevel);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   algebra_destroy_all_items();
 

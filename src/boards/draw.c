@@ -149,10 +149,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(0);
 
       gcomprisBoard->number_of_sublevel=0;
-      gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-
       gcomprisBoard->sublevel = 0;
-      gcompris_bar_set_timer(gcomprisBoard->sublevel);
 
       drawing_area_x1 = 93;
       drawing_area_y1 = 23;
@@ -231,7 +228,6 @@ static void draw_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
 
   draw_destroy_all_items();
 

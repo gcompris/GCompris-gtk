@@ -107,8 +107,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(0);
-      gcompris_bar_set_timer(0);
-      gcompris_bar_set_maxtimer(gcomprisBoard->maxlevel * gcomprisBoard->number_of_sublevel);
 
       /* Use the given mode to set the locale */
       if(!gcomprisBoard->mode)

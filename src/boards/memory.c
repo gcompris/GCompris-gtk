@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2001/12/01 23:33:51 bruno>
+ * Time-stamp: <2001/12/03 00:27:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -377,9 +377,7 @@ static void memory_next_level()
     }
   
   gcomprisBoard->number_of_sublevel=1;
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
   gcomprisBoard->sublevel=0;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
 
   create_item(boardRootItem);
 }

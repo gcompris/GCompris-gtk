@@ -103,7 +103,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE) /* the game is won */
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
       game_won();
     }
@@ -126,8 +126,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
-      gcompris_bar_set_timer(0);
-      gcompris_bar_set_maxtimer(gcomprisBoard->maxlevel * gcomprisBoard->number_of_sublevel);
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
 
       click_on_letter_next_level();
 
@@ -141,6 +143,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_score_end();
       click_on_letter_destroy_all_items();
     }
 }
@@ -193,7 +196,7 @@ static void click_on_letter_next_level()
   click_on_letter_destroy_all_items();
   gamewon = FALSE;
   selected_button = NULL;
-  gcompris_bar_set_timer(board_number);
+  gcompris_score_set(board_number);
 
   /* Try the next level */
   click_on_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));

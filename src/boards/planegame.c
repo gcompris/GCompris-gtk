@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2001/12/01 23:34:16 bruno>
+ * Time-stamp: <2001/12/03 01:13:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -166,6 +166,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_score_end();
       planegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
@@ -306,12 +307,8 @@ static void planegame_next_level()
   /* Try the next level */
   speed=100+(40/(gcomprisBoard->level));
   fallSpeed=7000-gcomprisBoard->level*200;
-  gcomprisBoard->number_of_sublevel=10;
   /* Make the images tend to 0.5 ratio */
   imageZoom=0.5+(0.5/(gcomprisBoard->level));
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-  gcomprisBoard->sublevel=0;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
 
   /* Setup and Display the plane */
   planespeed_y = 0;
@@ -335,8 +332,14 @@ static void planegame_next_level()
   /* Game rules */
   plane_target = 1;
   plane_last_target = gcomprisBoard->level*10;
-  gcompris_bar_set_maxtimer(plane_last_target);
-  gcompris_bar_set_timer(plane_target-1);
+
+  gcomprisBoard->number_of_sublevel=plane_last_target;
+  gcompris_score_start(SCORESTYLE_NOTE, 
+		       gcomprisBoard->width - 220, 
+		       gcomprisBoard->height - 50, 
+		       gcomprisBoard->number_of_sublevel);
+  gcomprisBoard->sublevel=plane_target;
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   g_free (str);
 
@@ -369,7 +372,7 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
 	  item2del_list = g_list_append (item2del_list, clouditem);
 	  plane_target++;
-	  gcompris_bar_set_timer(plane_target-1);
+	  gcompris_score_set(plane_target);
 	  
 	  if(plane_target==plane_last_target)
 	    {
