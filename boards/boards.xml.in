@@ -3,16 +3,11 @@
   <Board
 	 name="boards"
 	 type="menu"
+	 section="/boards"
+	 difficulty="0"
 	 icon="boardicons/boards.png"
 	 author="">
 	 <_title>Go to board based activities</_title>
 	 <_description>Left-Click with the mouse to select an activity</_description>
   </Board>
-  <Data filename="paintings.xml"/>
-  <Data filename="memory.xml"/>
-  <Data filename="railroad.xml"/>
-  <Data filename="superbrain.xml"/>
-  <Data filename="chess.xml"/>
-  <Data filename="traffic.xml"/>
-  <Data filename="machpuzzle.xml"/>
 </GCompris>

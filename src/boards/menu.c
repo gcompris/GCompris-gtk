@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/01/06 21:59:54 bruno>
+ * Time-stamp: <2003/01/12 22:17:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -133,7 +133,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-init.jpg");
 
-      read_xml_file(gcomprisBoard->filename);
+      //      read_xml_file(gcomprisBoard->filename);
 
       boardRootItem = GNOME_CANVAS_GROUP(
 					 gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -142,6 +142,8 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 								"y", (double) 0,
 								NULL));
 
+      printf("menu_start section=%s\n", gcomprisBoard->section);
+      boardlist = gcompris_get_menulist(gcomprisBoard->section);
       g_list_foreach (boardlist, (GFunc) display_board_icon, NULL);
 
       create_info_area(boardRootItem);
@@ -169,6 +171,7 @@ menu_end ()
       boardlist = g_list_remove (boardlist, board);
 
       /* FIXME : We need a better cleanup */
+      /*
       g_free(board->name);
       g_free(board->title);
       g_free(board->description);
@@ -177,6 +180,7 @@ menu_end ()
       g_free(board->boarddir);
       g_free(board->filename);
       g_free(board);
+      */
     }
 
   if(boardRootItem!=NULL)
@@ -358,8 +362,8 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap,
 				     "x", (double)current_x + gdk_pixbuf_get_width(menu_pixmap)/2
-				     - gdk_pixbuf_get_width(pixmap) - 5,
-				     "y", (double)current_y + gdk_pixbuf_get_height(menu_pixmap)/2,
+				     - gdk_pixbuf_get_width(pixmap) + 5,
+				     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
 				     "width", (double) gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
 				     NULL);
@@ -479,92 +483,6 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   NULL);
 
 }
-
-
-/*
- * Thanks for George Lebl <jirka@5z.com> for his Genealogy example
- * for all the XML stuff there
- */
-
-static void
-add_menu(xmlNodePtr xmlnode, GNode * child)
-{
-  char *filename;
-
-  if(/* if the node has no name */
-     !xmlnode->name ||
-     /* or if the name is not "Data" */
-     (g_strcasecmp(xmlnode->name,"Data")!=0)
-     )
-    return;
-  
-  /* get the filename of this data */
-  filename = xmlGetProp(xmlnode,"filename");
-
-  boardlist = g_list_append (boardlist, gcompris_read_xml_file(filename));
-  
-}
-
-/* parse the doc, add it to our internal structures and to the clist */
-static void
-parse_doc(xmlDocPtr doc)
-{
-  xmlNodePtr node;
-  
-  /* find <Shape> nodes and add them to the list, this just
-     loops through all the children of the root of the document */
-  for(node = doc->children->children; node != NULL; node = node->next) {
-    /* add the shape to the list, there are no children so
-       we pass NULL as the node of the child */
-    add_menu(node,NULL);
-  }
-}
-
-
-
-/* read an xml file into our memory structures and update our view,
-   dump any old data we have in memory if we can load a new set */
-static gboolean
-read_xml_file(char *fname)
-{
-  /* pointer to the new doc */
-  xmlDocPtr doc;
-
-  g_return_val_if_fail(fname!=NULL,FALSE);
-
-  /* if the file doesn't exist */
-  if(!g_file_exists(fname)) 
-    {
-      g_warning(_("Couldn't find file %s !"), fname);
-      return FALSE;
-    }
-
-  /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(fname);
-
-  /* in case something went wrong */
-  if(!doc)
-    return FALSE;
-  
-  if(/* if there is no root element */
-     !doc->children ||
-     /* if it doesn't have a name */
-     !doc->children->name ||
-     /* if it isn't a GCompris node */
-     g_strcasecmp(doc->children->name,"GCompris")!=0) {
-    xmlFreeDoc(doc);
-    return FALSE;
-  }
-  
-  /* parse our document and replace old data */
-  parse_doc(doc);
-  
-  xmlFreeDoc(doc);
-  
-  return TRUE;
-}
-
-
 
 
 /* Local Variables: */

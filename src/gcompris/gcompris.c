@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/12/14 23:33:49 bruno>
+ * Time-stamp: <2003/01/12 03:06:50 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -388,8 +388,11 @@ static void setup_window ()
 
   init_plugins();
 
-  /* Load and Run the menu */
-  gcomprisBoardMenu = gcompris_read_xml_file(PACKAGE_DATA_DIR INITIAL_MENU);
+  /* Load all the menu once */
+  gcompris_load_menus();
+
+  /* Get and Run the root menu */
+  gcomprisBoardMenu = gcompris_get_board_from_section("/");
   if(!board_check_file(gcomprisBoardMenu))
     g_error("Cant't find the menu board or plugin execution error");
 
@@ -468,14 +471,14 @@ gchar *gcompris_get_locale()
 void gcompris_set_locale(gchar *locale)
 {
 
-//  gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
-//  printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
+  gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
+  printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
 
   /* Override the env locale to what the user requested */
-//  setenv ("LC_ALL", gcompris_get_locale(), TRUE);
-//  setenv ("LC_MESSAGES", gcompris_get_locale(), TRUE);
-//  setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
-//  setenv ("LANG", gcompris_get_locale(), TRUE);
+  setenv ("LC_ALL", gcompris_get_locale(), TRUE);
+  setenv ("LC_MESSAGES", gcompris_get_locale(), TRUE);
+  setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
+  setenv ("LANG", gcompris_get_locale(), TRUE);
  
   /* WARNING: This does not update gettext translation */
   /* Call for localization startup */
@@ -500,10 +503,9 @@ gcompris_init (int argc, char *argv[])
   poptContext pctx; 
   char** args;
 
-  printf("SETTING UTF-8\n");
-    bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-      bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-        textdomain (GETTEXT_PACKAGE);
+  bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  textdomain (GETTEXT_PACKAGE);
 
   /* To have some real random behaviour */
   srand (time (NULL));
@@ -531,7 +533,7 @@ gcompris_init (int argc, char *argv[])
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
 
   // Set the user's choice locale
-//  gcompris_set_locale(properties->locale);
+  gcompris_set_locale(properties->locale);
 
   /*------------------------------------------------------------*/
   if (popt_version && args == NULL)

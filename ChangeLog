@@ -1,3 +1,26 @@
+2003-01-12  bruno  <bruno.coudoin@free.fr>
+
+	* boards/*.xml.in: Changed to use the new menu system. Now submenu are discovered dynamically
+	* boards/images/scenery2_background.jpg: added a descent see color
+	* configure.in: removed unsused definition
+	* src/boards/clickgame.c: (clickgame_start): cleanup
+	* src/boards/machpuzzle.c: (machpuzzle_destroy_all_items),
+	(machpuzzle_create_item), (item_event), (create_machine_item),
+	(machpuzzle_move): improved but far from complete yet
+	* src/boards/menu.c: (menu_start), (menu_end), (menu_create_item),
+	(create_info_area): Changed to use the new menu system
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data),
+	(gcompris_read_xml_file), (gcompris_get_board_from_section),
+	(boardlist_compare_func), (gcompris_get_menulist), (selectMenuXML),
+	(gcompris_load_menus): Changed to use the new menu system
+	* src/gcompris/gameutil.h: Changed to use the new menu system
+	* src/gcompris/gcompris-board.h:Changed to use the new menu system
+	* src/gcompris/gcompris-edit.c: (init_tree), (add_menu),
+	(parse_doc), (read_xml_file), (main):Changed to use the new menu system
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_set_locale),
+	(gcompris_init):Changed to use the new menu system
+	* src/gcompris/gcompris.h:Changed to use the new menu system
+
 2003-01-06  bruno  <bruno.coudoin@free.fr>
 
 	* acconfig.h: removed an unused define for plugins

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
   <Board
-	 name="fun"
+	 name="colors_group"
 	 type="menu"
+	 section="/fun/colors"
+	 difficulty="0"
 	 icon="boardicons/colors.png"
 	 author="">
 	 <_title>Go to colors activities</_title>
 	 <_description>Left-Click with the mouse to select an activity</_description>
   </Board>
-  <Data filename="colors.xml"/>
-  <Data filename="read_colors.xml"/>
-  <Data filename="advanced_colors.xml"/>
 </GCompris>

@@ -43,7 +43,8 @@ struct _MachItem {
   double	   ax, ay;
   double	   xposo, xpos, vxo;
   double	   yposo, ypos, vyo;
-  double	   bounce;
+  double	   elasticity;
+  double	   width, height;
   double	   hotspotx[16];
   double	   hotspoty[16];
 };
@@ -55,8 +56,6 @@ static GList *item_list = NULL;
 GcomprisBoard *gcomprisBoard = NULL;
 gboolean board_paused = TRUE;
 static gint move_id = 0;
-static gint score = 0;
-static GnomeCanvasItem *score_item = NULL;
 static  double		times_inc  = 0.1;
 static double		gravity = 9.8;
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -220,17 +219,17 @@ static void machpuzzle_destroy_all_items()
   }
 
   boardRootItem = NULL;
+
+  if(item_list)
+    g_list_free(item_list);
+
+  item_list = NULL;
 }
 /* ==================================== */
 static GnomeCanvasItem *machpuzzle_create_item(GnomeCanvasGroup *parent)
 {
   int i,j;
-  GnomeCanvasPoints	*points;
-  GnomeCanvasItem	*item;
   MachItem		*machItem;
-  GdkFont		*gdk_font;
-
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -239,82 +238,14 @@ static GnomeCanvasItem *machpuzzle_create_item(GnomeCanvasGroup *parent)
 							    "y", (double) 0,
 
 							    NULL));
-  //  machItem = create_machine_item(MACH_BASKET_BALL, 20.0, 20.0);
-  machItem = create_machine_item(MACH_BASKET_BALL, 200.0, 100.0);
-  //  machItem = create_machine_item(MACH_BILLARD_BALL, 250.0, 100.0);
 
-  //  machItem = create_machine_item(MACH_FLYING_BALL, 450.0, 400.0);
+  machItem = create_machine_item(MACH_BASKET_BALL, 20.0, 20.0);
+  //  machItem = create_machine_item(MACH_BASKET_BALL, 200.0, 100.0);
+  machItem = create_machine_item(MACH_BILLARD_BALL, 250.0, 100.0);
 
-  machItem = create_machine_item(MACH_HORZ_WALL, 300.0, 300.0);
+  machItem = create_machine_item(MACH_FLYING_BALL, 450.0, 400.0);
 
-  /* The border */
-
-  points = gnome_canvas_points_new(2);
-  points->coords[0] = (double) 1;
-  points->coords[1] = (double) 1;
-  points->coords[2] = (double) BOARDWIDTH;
-  points->coords[3] = (double) 1;
-  
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_line_get_type (),
-				"points", points,
-				"fill_color", "white",
-				"width_pixels", 5,
-				NULL);
-  gnome_canvas_points_unref(points);
-
-  points = gnome_canvas_points_new(2);
-  points->coords[0] = (double) 1;
-  points->coords[1] = (double) 1;
-  points->coords[2] = (double) 1;
-  points->coords[3] = (double) BOARDHEIGHT;
-  
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_line_get_type (),
-				"points", points,
-				"fill_color", "red",
-				"width_pixels", 5,
-				NULL);
-  gnome_canvas_points_unref(points);
-
-  points = gnome_canvas_points_new(2);
-  points->coords[0] = (double) BOARDWIDTH-1;
-  points->coords[1] = (double) 1;
-  points->coords[2] = (double) BOARDWIDTH-1;
-  points->coords[3] = (double) BOARDHEIGHT;
-  
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_line_get_type (),
-				"points", points,
-				"fill_color", "red",
-				"width_pixels", 5,
-				NULL);
-  gnome_canvas_points_unref(points);
-
-  points = gnome_canvas_points_new(2);
-  points->coords[0] = (double) 1;
-  points->coords[1] = (double) BOARDHEIGHT-2;
-  points->coords[2] = (double) BOARDWIDTH;
-  points->coords[3] = (double) BOARDHEIGHT-2;
-  
-  item = gnome_canvas_item_new (boardRootItem,
-				gnome_canvas_line_get_type (),
-				"points", points,
-				"fill_color", "red",
-				"width_pixels", 5,
-				NULL);
-  gnome_canvas_points_unref(points);
-
-
-  score_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", "SCORE : 0",
-				      "font_gdk", gdk_font,
-				      "x", (double) BOARDWIDTH  - 100,
-				      "y", (double) BOARDHEIGHT - 50,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", "red",
-				      NULL);
+  machItem = create_machine_item(MACH_HORZ_WALL, 100.0, 300.0);
 
   return NULL;
 }
@@ -361,13 +292,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem)
      case GDK_BUTTON_PRESS:
        width = x2-x1;
 
-       //       machItem->vyo   = (y1 - machItem->ypos) * machItem->bounce;
+       //       machItem->vyo   = (y1 - machItem->ypos) * machItem->elasticity;
        machItem->times = 0;
        machItem->yposo = machItem->ypos;
        machItem->xposo = machItem->xpos;
 
-       machItem->vyo = ((item_y-y1)<width/2?(width/2-(item_y-y1))*5:-1*(width/2-(y2-item_y))*5);
-       machItem->vxo = ((item_x-x1)<width/2?(width/2-(item_x-x1))*5:-1*(width/2-(x2-item_x))*5);
+       machItem->vyo = ((item_y-y1)<width/2?(width/2-(item_y-y1))*20:-1*(width/2-(y2-item_y))*20);
+       machItem->vxo = ((item_x-x1)<width/2?(width/2-(item_x-x1))*20:-1*(width/2-(x2-item_x))*20);
        break;
        
      default:
@@ -425,7 +356,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       machItem->vyo	= 0;
       machItem->ay	= 0;
 
-      machItem->bounce  = 5;
+      machItem->elasticity  = 5;
 
       machItem->item = gnome_canvas_item_new (boardRootItem,
 					      gnome_canvas_rect_get_type (),
@@ -461,7 +392,10 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       machItem->vyo	= 0;
       machItem->ay	= gravity;
 
-      machItem->bounce  = 2;
+      machItem->width	= width;
+      machItem->height	= width;
+
+      machItem->elasticity  = 3;
 
       machItem->item = gnome_canvas_item_new (boardRootItem,
 					      gnome_canvas_ellipse_get_type (),
@@ -499,7 +433,10 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       machItem->vyo	= 0;
       machItem->ay	= gravity;
 
-      machItem->bounce  = 7;
+      machItem->width	= width;
+      machItem->height	= width;
+
+      machItem->elasticity  = 4;
 
       machItem->item = gnome_canvas_item_new (boardRootItem,
 					      gnome_canvas_ellipse_get_type (),
@@ -533,9 +470,12 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       machItem->yposo	= y;
       machItem->ypos	= y;
       machItem->vyo	= -5;
-      machItem->ay	= -5;
+      machItem->ay	= -0.5;
 
-      machItem->bounce  = 2;
+      machItem->width	= width;
+      machItem->height	= width;
+
+      machItem->elasticity  = 1;
 
       machItem->item = gnome_canvas_item_new (boardRootItem,
 					      gnome_canvas_ellipse_get_type (),
@@ -601,15 +541,14 @@ static void machpuzzle_move(GList *item_list)
 	      wy = machItem->hotspoty[j];
 	      gnome_canvas_item_i2w(machItem->item, &wx,&wy);
 
-	      printf("Checking coll detec %d at x=%f y=%f\n", j, wx, wy);
-	      printf("    hotspotx=%f  hotspoty=%f\n", 
-		     machItem->hotspotx[j], 
-		     machItem->hotspoty[j]);
+	      //	      printf("Checking coll detec %d at x=%f y=%f\n", j, wx, wy);
+	      //	      printf("    hotspotx=%f  hotspoty=%f\n", 
+	      //		     machItem->hotspotx[j], 
+	      //		     machItem->hotspoty[j]);
 	      collItem = gnome_canvas_get_item_at(gcomprisBoard->canvas,
 						  wx, wy);
 	      if (collItem)
 		{
-		  printf("  got an item\n");
 		  collMachItem=(MachItem*)gtk_object_get_data(GTK_OBJECT(collItem),
 							      "mach");
 		  if(collMachItem)
@@ -625,23 +564,26 @@ static void machpuzzle_move(GList *item_list)
 
 	    }
 
-	  if(!collision)
-	    {
-	      machItem->ypos=machItem->yposo 
-		+ (machItem->vyo*machItem->times) 
-		+ (.5*machItem->ay * (machItem->times*machItem->times));
-	      
-	      machItem->xpos=machItem->xposo 
-		+ (machItem->vxo*machItem->times) 
-		+ (.5*machItem->ax * (machItem->times*machItem->times));
-	      
-	      
-	      item_absolute_move(item, machItem->xpos, machItem->ypos);
-	    }
+	  machItem->ypos=machItem->yposo 
+	    + (machItem->vyo*machItem->times) 
+	    + (.5*machItem->ay * (machItem->times*machItem->times));
 	  
-	  if(y2>=BOARDHEIGHT-5 && (y1 - machItem->ypos)<=0 || collision == TRUE)
+	  machItem->xpos=machItem->xposo 
+	    + (machItem->vxo*machItem->times) 
+	    + (.5*machItem->ax * (machItem->times*machItem->times));
+
+	  /* v = u + at */
+	  machItem->vxo += (machItem->ax * machItem->times);
+	  machItem->vyo += (machItem->ay * machItem->times);
+	  
+	  if(machItem->ypos >= BOARDHEIGHT - machItem->height -1)
+	    machItem->ypos = BOARDHEIGHT - machItem->height;
+
+	  item_absolute_move(item, machItem->xpos, machItem->ypos);
+	  
+	  if(machItem->ypos>=BOARDHEIGHT-machItem->height && (y1 - machItem->ypos)<=0 || collision == TRUE)
 	    {
-	      machItem->vyo   = (y1 - machItem->ypos) * machItem->bounce;
+	      machItem->vyo   = (y1 - machItem->ypos) * machItem->elasticity;
 	      machItem->times = 0;
 	      machItem->yposo = machItem->ypos;
 	      machItem->xposo = machItem->xpos;
@@ -652,22 +594,16 @@ static void machpuzzle_move(GList *item_list)
 	  
 	  if(y1<=5 && (y1 - machItem->ypos)>0 || collision == TRUE)
 	    {
-	      machItem->vyo = (y1 - machItem->ypos) * machItem->bounce;
+	      machItem->vyo = (y1 - machItem->ypos) * machItem->elasticity;
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
-	      
-	      score ++;
-	      gnome_canvas_item_set (score_item,
-				     "text", g_strdup_printf("Score : %d", score),
-				     NULL);
-	      
 	    }
 
 	  if(x1<=5 && (x1 - machItem->xpos)>0 || collision == TRUE)
 	    {
-	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->bounce;
-	      machItem->vxo = (x1 - machItem->xpos) * machItem->bounce;
+	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->elasticity;
+	      machItem->vxo = (x1 - machItem->xpos) * machItem->elasticity;
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
@@ -675,33 +611,11 @@ static void machpuzzle_move(GList *item_list)
 
 	  if(x2>=BOARDWIDTH-5 && machItem->vxo>0 || collision == TRUE)
 	    {
-	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->bounce;
-	      machItem->vxo = (x1 - machItem->xpos) * machItem->bounce;
+	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->elasticity;
+	      machItem->vxo = (x1 - machItem->xpos) * machItem->elasticity;
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
-	    }
-
-	  if(collision)
-	    {
-	      printf("1- in collision\n");
-	      dump_machItem(machItem);
-
-	      machItem->times += times_inc;
-
-	      machItem->ypos=machItem->yposo 
-		+ (machItem->vyo*machItem->times) 
-		+ (.5*machItem->ay * (machItem->times*machItem->times));
-	      
-	      machItem->xpos=machItem->xposo 
-		+ (machItem->vxo*machItem->times) 
-		+ (.5*machItem->ax * (machItem->times*machItem->times));
-	      
-	      
-	      printf("2- in collision\n");
-	      dump_machItem(machItem);
-
-	      item_absolute_move(item, machItem->xpos, machItem->ypos);
 	    }
 
 	}

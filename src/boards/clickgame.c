@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2002/04/14 00:20:48 bruno>
+ * Time-stamp: <2003/01/11 10:55:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -186,11 +186,14 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 	  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, namelist[i]->d_name);
 	  str[strlen(str)-5]='x';
 
+	  g_free(namelist[i]);
+
 	  if(g_list_find_custom(pixmaplist, str, (GCompareFunc) strcmp) == NULL)
 	  {
 	    pixmaplist = g_list_append (pixmaplist, str);
 	  }
 	}
+      g_free(namelist);
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;

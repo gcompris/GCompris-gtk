@@ -39,6 +39,11 @@ void		 gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus);
 gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, 
 					   GnomeCanvasItem *dest_item);
 GcomprisBoard	*gcompris_read_xml_file(char *fname);
+
+GcomprisBoard   *gcompris_get_board_from_section(gchar *section);
+GList		*gcompris_get_menulist(gchar *section);
+void		 gcompris_load_menus();
+
 gchar		*convertUTF8Toisolat1(gchar * text);
 void		 item_absolute_move(GnomeCanvasItem *item, int x, int y);
 

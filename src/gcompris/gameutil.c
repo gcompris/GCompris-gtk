@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/12/23 13:42:33 lucette>
+ * Time-stamp: <2003/01/12 22:12:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -19,6 +19,8 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include <dirent.h>
+
 /* libxml includes */
 #include <libxml/tree.h>
 #include <libxml/parser.h>
@@ -31,6 +33,9 @@
 
 /* default gnome pixmap directory in which this game tales the icon */
 static char *lettersdir = "letters/";
+
+/* List of all available boards  */
+static GList *boards_list = NULL;
 
 static GnomeCanvasGroup *rootDialogItem = NULL;
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb);
@@ -281,19 +286,13 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->type = xmlGetProp(xmlnode,"type");
 
   /* get the specific mode for this board */
-  gcomprisBoard->mode = xmlGetProp(xmlnode,"mode");
-
-  gcomprisBoard->name = xmlGetProp(xmlnode,"name");
-
-  gcomprisBoard->icon_name = xmlGetProp(xmlnode,"icon");
-
-  gcomprisBoard->author = xmlGetProp(xmlnode,"author");
-
-  gcomprisBoard->boarddir = xmlGetProp(xmlnode,"boarddir");
-
-  gcomprisBoard->difficulty = xmlGetProp(xmlnode,"difficulty");
-
-  gcomprisBoard->mandatory_sound_file = xmlGetProp(xmlnode,"mandatory_sound_file");
+  gcomprisBoard->mode			= xmlGetProp(xmlnode,"mode");
+  gcomprisBoard->name			= xmlGetProp(xmlnode,"name");
+  gcomprisBoard->icon_name		= xmlGetProp(xmlnode,"icon");
+  gcomprisBoard->author			= xmlGetProp(xmlnode,"author");
+  gcomprisBoard->boarddir		= xmlGetProp(xmlnode,"boarddir");
+  gcomprisBoard->mandatory_sound_file	= xmlGetProp(xmlnode,"mandatory_sound_file");
+  gcomprisBoard->section		= xmlGetProp(xmlnode,"section");
 
   gcomprisBoard->title = NULL;
   gcomprisBoard->description = NULL;
@@ -301,6 +300,10 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->goal = NULL;
   gcomprisBoard->manual = NULL;
   gcomprisBoard->credit = NULL;
+
+  gcomprisBoard->difficulty		= xmlGetProp(xmlnode,"difficulty");
+  if(gcomprisBoard->difficulty == NULL)
+    gcomprisBoard->difficulty		= "0";
 
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
@@ -471,6 +474,97 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
   gcomprisBoard->height = BOARDHEIGHT;
 
   return gcomprisBoard;
+}
+
+/* Return the boards with the given section
+ */
+GcomprisBoard *gcompris_get_board_from_section(gchar *section)
+{  
+  GList *list = NULL;
+
+  for(list = boards_list; list != NULL; list = list->next) {
+    GcomprisBoard *board = list->data;
+
+    if( board->section && (strcmp (board->section, section) == 0))
+      {
+	return board;
+      }
+  }
+  
+  return NULL;
+}
+
+static int boardlist_compare_func(const void *a, const void *b)
+{
+  return strcasecmp(((GcomprisBoard *) a)->difficulty, ((GcomprisBoard *) b)->difficulty);
+}
+
+
+/* Return the list of boards in the given section
+ * Boards are sorted depending on their difficulty value
+ */
+GList *gcompris_get_menulist(gchar *section)
+{
+  GList *list = NULL;
+  GList *result_list = NULL;
+  gchar *path;
+
+  for(list = boards_list; list != NULL; list = list->next) {
+    GcomprisBoard *board = list->data;
+
+    if(board->section 
+       && strlen(section)<=strlen(board->section)
+       && strcmp (section, board->section) != 0) {
+
+      path = g_path_get_dirname(board->section);
+
+      if(strcmp (section, path) == 0) {	
+	result_list = g_list_append(result_list, board);
+      }
+      g_free(path);
+    }
+  }
+
+  /* Sort the list now */
+  result_list = g_list_sort(result_list, boardlist_compare_func);
+
+  return result_list;
+}
+
+/*
+ * Select only files with .xml extention
+ */
+int selectMenuXML(void *d)
+{
+  gchar *file = ((struct dirent *)d)->d_name;
+
+  if(strlen(file)<4)
+    return 0;
+
+  return (strncmp (&file[strlen(file)-4], ".xml", 4) == 0);
+}
+
+/* load all the menus xml files in the gcompris path
+ * into our memory structures.
+ */
+void gcompris_load_menus()
+{
+  struct dirent **namelist;
+  int n;
+  
+  n = scandir(PACKAGE_DATA_DIR, &namelist, &selectMenuXML, alphasort);
+  if (n < 0)
+    g_warning("gcompris_load_menus : scandir");
+  else {
+    while(n--) {
+      /* add the board to the list */
+      boards_list = g_list_append(boards_list, gcompris_read_xml_file(namelist[n]->d_name));
+
+      free (namelist [n]);
+    }
+    free (namelist);
+  }
+  gcompris_get_menulist("/");
 }
 
 /* ======================================= */

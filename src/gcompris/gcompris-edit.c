@@ -40,7 +40,7 @@ static GtkWidget	*gcompris_edit	= NULL;
 static GtkWidget	*treeview	= NULL;
 static GtkTreeModel	*model		= NULL;
 
-static gboolean		 read_xml_file(GtkCTreeNode *parentNode, char *fname);
+static gboolean		 read_xml_file(GtkTreeIter *parentNode, char *fname);
 
 /* Prototype for selection handler callback */
 static void		tree_selection_changed_cb (GtkTreeSelection *selection, 
@@ -325,33 +325,19 @@ void init_tree()
 		    G_CALLBACK (gtk_tree_view_expand_all), NULL);
 
 
-  read_xml_file(NULL, PACKAGE_DATA_DIR INITIAL_MENU);
+  read_xml_file(NULL, "/");
 
 }
 
 static void
-add_menu(GtkCTreeNode *parentNode, xmlNodePtr xmlnode, GNode * child)
+add_menu(GtkTreeIter *parentNode, GcomprisBoard *gcomprisBoardMenu, GNode * child)
 {
   char *filename;
-  GcomprisBoard		*gcomprisBoardMenu = NULL;
   GtkCTreeNode		*newNode = NULL;
   GtkTreeIter		 iter;
 
-  if(/* if the node has no name */
-     !xmlnode->name ||
-     /* or if the name is not "Data" */
-     (g_strcasecmp(xmlnode->name,"Data")!=0)
-     )
-    return;
-  
-  /* get the filename of this data */
-  filename = xmlGetProp(xmlnode,"filename");
-
-  gcomprisBoardMenu = gcompris_read_xml_file(filename);
-  if(!board_check_file(gcomprisBoardMenu))
-    g_error("Cant't find the menu board or plugin execution error");
-
-  gtk_tree_store_append (model, &iter, NULL);
+  printf("add_menu %s\n", gcomprisBoardMenu->name);
+  gtk_tree_store_append (model, &iter, parentNode);
   gtk_tree_store_set (model, &iter,
 		      VISIBLE_COLUMN, 
 		      (gcompris_properties_get_board_status(gcomprisBoardMenu->name)? TRUE : FALSE),
@@ -364,23 +350,25 @@ add_menu(GtkCTreeNode *parentNode, xmlNodePtr xmlnode, GNode * child)
   /* Recursively add sub menu */
   if(g_strcasecmp(gcomprisBoardMenu->type, "menu")==0)
     {
-      read_xml_file(newNode, filename);
+      printf("add_sub_menu %s\n", gcomprisBoardMenu->name);
+      read_xml_file(&iter, gcomprisBoardMenu->section);
     }
 }
 
 
 /* parse the doc, add it to our internal structures and to the clist */
 static void
-parse_doc(GtkCTreeNode *parentNode, xmlDocPtr doc)
+parse_doc(GtkCTreeNode *parentNode, GList *boards_list)
 {
-  xmlNodePtr node;
-  
-  /* find <Shape> nodes and add them to the list, this just
-     loops through all the children of the root of the document */
-  for(node = doc->children->children; node != NULL; node = node->next) {
-    /* add the shape to the list, there are no children so
-       we pass NULL as the node of the child */
-    add_menu(parentNode, node, NULL);
+  GList *list = NULL;
+
+  printf("parse_doc\n");
+
+  for(list = boards_list; list != NULL; list = list->next) {
+    GcomprisBoard *board = list->data;
+
+    printf("   parse_doc board=%s\n", board->name);
+    add_menu(parentNode, board, NULL);
   }
 }
 
@@ -389,61 +377,14 @@ parse_doc(GtkCTreeNode *parentNode, xmlDocPtr doc)
 /* read an xml file into our memory structures and update our view,
    dump any old data we have in memory if we can load a new set */
 static gboolean
-read_xml_file(GtkCTreeNode *parentNode, char *fname)
+read_xml_file(GtkTreeIter *parentNode, char *fname)
 {
-  char *filename;
 
-  /* pointer to the new doc */
-  xmlDocPtr doc;
-
-  g_return_val_if_fail(fname!=NULL,FALSE);
-
-  filename = g_strdup(fname);
-
-  /* if the file doesn't exist */
-  if(!g_file_test(filename, G_FILE_TEST_EXISTS))
-    {
-      g_free(filename);
-
-      /* if the file doesn't exist, try with our default prefix */
-      filename = g_strdup_printf("%s/%s",
-				 PACKAGE_DATA_DIR, fname);
-
-      if(!g_file_test(filename, G_FILE_TEST_EXISTS))
-	{
-	  g_warning(_("Couldn't find file %s !"), fname);
-	  g_warning(_("Couldn't find file %s !"), filename);
-	  g_free(filename);
-	  return FALSE;
-	}
-
-    }
-
-
-  /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(filename);
-
-  /* in case something went wrong */
-  if(!doc)
-    return FALSE;
-  
-  if(/* if there is no root element */
-     !doc->children ||
-     /* if it doesn't have a name */
-     !doc->children->name ||
-     /* if it isn't a GCompris node */
-     g_strcasecmp(doc->children->name,"GCompris")!=0) {
-    xmlFreeDoc(doc);
-    return FALSE;
-  }
-  
+  printf("read_xml_file section=%s\n", fname);
   /* parse our document and replace old data */
-  parse_doc(parentNode, doc);
-  
-  xmlFreeDoc(doc);
-  
-}
+  parse_doc(parentNode, gcompris_get_menulist(fname));
 
+}
 
 int
 main (int argc, char *argv[])
@@ -479,6 +420,9 @@ main (int argc, char *argv[])
   tmpWidget = gtk_object_get_data (GTK_OBJECT (gcompris_edit),
 				   "iconentry");
   gnome_icon_entry_set_pixmap_subdir(tmpWidget, PACKAGE_DATA_DIR"/boardicons");
+
+  /* Load all the menu once */
+  gcompris_load_menus();
 
   init_tree();
 
