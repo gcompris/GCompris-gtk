@@ -11,16 +11,17 @@ lib_LTLIBRARIES = \
 	libgletters.la \
 	libimageid.la \
 	libleftright.la \
-	libplanegame.la \
-	libsmallnumbers.la \
-	libparatrooper.la \
-	libreading.la \
 	libmaze.la \
 	libmemory.la \
 	libmenu.la \
 	libmissingletter.la \
+	libparatrooper.la \
+	libplanegame.la \
 	librailroad.la \
+	libreading.la \
+	libreversecount.la \
 	libshapegame.la \
+	libsmallnumbers.la \
 	libtarget.la \
 	libwordsgame.la
 
@@ -229,6 +230,14 @@ libmaze_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libmaze_la_SOURCES = maze.c
+
+libreversecount_la_LDFLAGS = -module -avoid-version
+libreversecount_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libreversecount_la_SOURCES = reversecount.c
 
 EXTRA_DIST = README
 

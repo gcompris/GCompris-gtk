@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/05/02 01:30:42 bruno>
+ * Time-stamp: <2002/05/10 01:26:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,6 +30,7 @@
 #define SOUNDLISTFILE PACKAGE
 
 #define UNDEFINED "Undefined"
+#define SQUARE_LIMIT_DISTANCE 50
 
 static int gamewon;
 
@@ -59,6 +60,7 @@ struct _Shape {
   double zoomx;				/* x zoom factor */
   double zoomy;				/* y zoom factor */
   gint   position;			/* depth position 0=bottom other=intermediate */
+  char  *soundfile;			/* relative sound file to be played when pressing mouse button */
   ShapeType type;			/* Type of shape */
 
   GnomeCanvasItem *item;     	  	/* Canvas item for this shape */
@@ -89,7 +91,7 @@ gchar *colorlist [] =
 /* This is the list of shape for the current game */
 static GList *shape_list	= NULL;
 static GList *shape_list_group	= NULL;
-static current_shapelistgroup_index	= -1;
+static int current_shapelistgroup_index	= -1;
 
 #define BUTTON_SPACE		40
 #define MAX_NUMBER_OF_SHAPES	8
@@ -117,7 +119,7 @@ static gboolean 	 write_xml_file(char *fname);
 static Shape 		*find_closest_shape(double x, double y, double limit);
 static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  GnomeCanvasPoints* points,
 				      char *targetfile, double x, double y, double l, double h, double zoomx, 
-				      double zoomy, guint position);
+				      double zoomy, guint position, char *soundfile);
 static gboolean 	 increment_sublevel(void);
 static void 		 create_title(char *name, double x, double y, char *justification);
 static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
@@ -233,6 +235,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-shapebg.jpg");
 	}
 
+      gamewon = FALSE;
       shapegame_next_level();
 
       pause_board(FALSE);
@@ -506,14 +509,14 @@ add_shape_to_list_of_shapes(Shape *shape)
   if(!shapelist_table)
     shapelist_table= g_hash_table_new (g_str_hash, g_str_equal);
 
-  /* If the first list is full, add the previos/forward buttons */
+  /* If the first list is full, add the previous/forward buttons */
   if(g_hash_table_size(shapelist_table)==MAX_NUMBER_OF_SHAPES)
     {
       pixmap = gcompris_load_pixmap("gcompris/buttons/button_backward.png");
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap, 
-				    "x", (double) -30,
+				    "x", (double) -40,
 				    "y", (double) BOARDHEIGHT-40,
 				    NULL);
       
@@ -530,7 +533,7 @@ add_shape_to_list_of_shapes(Shape *shape)
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap, 
-				    "x", (double) 10,
+				    "x", (double) 0,
 				    "y", (double) BOARDHEIGHT-40,
 				    NULL);
       
@@ -553,7 +556,9 @@ add_shape_to_list_of_shapes(Shape *shape)
 	  printf(" Hide previous group\n");
 	  shape_list_group_root = GNOME_CANVAS_GROUP(g_list_nth_data(shape_list_group, 
 								     current_shapelistgroup_index-1));
-	  gnome_canvas_item_hide(shape_list_group_root);
+	  //gnome_canvas_item_hide(shape_list_group_root);
+      item = g_list_nth_data(shape_list_group, current_shapelistgroup_index-1);
+      gnome_canvas_item_hide(item);
 	}
 
       // We need to start a new shape list group
@@ -625,11 +630,18 @@ add_shape_to_list_of_shapes(Shape *shape)
 					(double)0, (double)y_offset,
 					(double)w, (double)h, 
 					(double)1, (double)1,
-					0);
+					0, shape->soundfile);
 	      icon_shape->item = item;
 	      icon_shape->shapelistgroup_index = current_shapelistgroup_index;
+	      shape->shapelistgroup_index = current_shapelistgroup_index;
+	      printf(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", 
+		     shape->name, 
+		     shape->shapelistgroup_index, current_shapelistgroup_index);
 	      icon_shape->shape_list_group_root = shape_list_group_root;
 	      setup_item(item, icon_shape);
+	      gtk_signal_connect(GTK_OBJECT(item), "event",
+				 (GtkSignalFunc) gcompris_item_event_focus,
+				 NULL);
 	    }
 	}
     }
@@ -637,7 +649,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 
 /*
  * Find the closest shape from the given point if it is located at
- * a distance under the given limit.
+ * a distance under the given square limit.
  */
 static Shape *find_closest_shape(double x, double y, double limit)
 {
@@ -684,16 +696,14 @@ static void dump_shape(Shape *shape)
  */
 static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 {
+  printf("shape_goes_back_to_list shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", shape->name, shape->shapelistgroup_index, current_shapelistgroup_index);
   if(shape->icon_shape!=NULL)
     {
       /* There was a previous icon here, put it back to the list */
       gnome_canvas_item_move(shape->icon_shape->item, 
 			     shape->icon_shape->x - shape->x,
 			     shape->icon_shape->y - shape->y);
-      if(shape->shapelistgroup_index==current_shapelistgroup_index)
-	gnome_canvas_item_show(shape->icon_shape->item);
-      else
-	gnome_canvas_item_hide(shape->icon_shape->item);
+      gnome_canvas_item_show(shape->icon_shape->item);
 
       gcompris_set_image_focus(shape->icon_shape->item, TRUE);
       shape->icon_shape=NULL;
@@ -712,6 +722,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    GdkCursor *fleur;
    static int dragging;
    double item_x, item_y;
+   gchar *soundfile=NULL;
 
    if(!get_board_playing())
      return FALSE;
@@ -764,6 +775,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		       gcompris_set_image_focus(item, TRUE);
 		       shape->icon_shape=NULL;
 		     }
+		   break;
+		 case SHAPE_ICON:
+		   if (strcmp(shape->soundfile,UNDEFINED) != 0)
+		   {
+		   	soundfile=g_strdup(shape->soundfile);
+			gcompris_play_ogg(soundfile, NULL);
+		   }
 		   break;
 		 default:
 		   break;
@@ -825,7 +843,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 	   gnome_canvas_item_reparent (item, shape->shape_list_group_root);
 
-	   targetshape = find_closest_shape(item_x, item_y, 100);
+	   targetshape = find_closest_shape(item_x, item_y, SQUARE_LIMIT_DISTANCE);
 	   if(targetshape!=NULL)
 	     {
 	       /* Finish the placement of the grabbed item anyway */
@@ -1064,9 +1082,6 @@ setup_item(GnomeCanvasItem *item, Shape *shape)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event,
 		     shape);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
 }
 
 /*
@@ -1214,7 +1229,7 @@ static Shape *
 create_shape(ShapeType type, char *name, char *pixmapfile, GnomeCanvasPoints* points,
 	     char *targetfile, double x, double y, 
 	     double w, double h, double zoomx, 
-	     double zoomy, guint position)
+	     double zoomy, guint position, char *soundfile)
 {
   Shape *shape;
   
@@ -1233,6 +1248,7 @@ create_shape(ShapeType type, char *name, char *pixmapfile, GnomeCanvasPoints* po
   shape->zoomy = zoomy;
   shape->position = position;
   shape->type = type;
+  shape->soundfile = g_strdup(soundfile);
 
   shape->bad_item = NULL;
   shape->icon_shape = NULL;
@@ -1252,6 +1268,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   char *name, *cx, *cy, *cd, *czoomx, *czoomy, *cposition, *ctype, *justification;
   char *pixmapfile = NULL;
   char *targetfile = NULL;
+  char *soundfile = NULL;
   double x, y, zoomx, zoomy;
   GnomeCanvasPoints* points = NULL;
   gchar **d;
@@ -1280,6 +1297,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   /* if unspecified, make it UNDEFINED */
   if(!targetfile) targetfile = UNDEFINED;
 
+  soundfile = xmlGetProp(xmlnode,"sound");
+  /* if unspecified, make it UNDEFINED */
+  if(!soundfile) soundfile = UNDEFINED;
   /*********************************/
   /* get the points for a polygone */
   /* The list of points is similar to the one define in the SVG standard */
@@ -1378,7 +1398,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
       /* WARNING : I do not initialize the width and height since I don't need them */
       shape = create_shape(type, name, pixmapfile, points, targetfile, x, y, 
 			   (double)0, (double)0,
-			   zoomx, zoomy, position);
+			   zoomx, zoomy, position, soundfile);
       add_shape_to_canvas(shape);
     } 
   else if (g_strcasecmp(xmlnode->name,"Title")==0)
@@ -1423,7 +1443,7 @@ read_xml_file(char *fname)
       g_warning(_("Couldn't find file %s !"), fname);
       return FALSE;
     }
-      g_warning(_("find file %s !"), fname);
+  g_warning(_("find file %s !"), fname);
 
   /* parse the new file and put the result into newdoc */
   doc = xmlParseFile(fname);
@@ -1465,6 +1485,7 @@ write_shape_to_xml(xmlNodePtr xmlnode, Shape *shape)
   /* set properties on it */
   xmlSetProp(newxml,"name",shape->name);
   xmlSetProp(newxml,"pixmapfile",shape->pixmapfile);
+  xmlSetProp(newxml,"sound",shape->soundfile);
 
   tmp = g_strdup_printf("%f", shape->x);
   xmlSetProp(newxml,"x",tmp);

@@ -1,6 +1,6 @@
 /* gcompris - soundutil.c
  *
- * Time-stamp: <2002/05/06 00:48:24 bruno>
+ * Time-stamp: <2002/05/10 00:41:35 bruno>
  *
  * Copyright (C) 2002 Pascal Georges
  *
@@ -230,7 +230,7 @@ void gcompris_play_ogg(char *sound, ...) {
 
   tmpSound = (tsSound*) malloc(sizeof(tsSound));
   tmpSound->string = s;
-
+  printf("tmpSound->string=%s\n", s);
   if (sound_channels_used < max_sound_channels) {
     playing_queue = g_list_append(playing_queue, tmpSound);
     pid = exec_play(s);
