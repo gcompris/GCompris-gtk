@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/03/13 13:28:47 bcoudoin>
+ * Time-stamp: <2004/05/19 21:28:25 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -153,7 +153,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH*0.25) - gdk_pixbuf_get_width(pixmap)/2,
+				"x", (double) (BOARDWIDTH*0.20) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
@@ -180,7 +180,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH*0.75) - gdk_pixbuf_get_width(pixmap)/2,
+				"x", (double) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 

@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/03/10 23:20:49 bcoudoin>
+ * Time-stamp: <2004/05/19 21:05:50 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -403,6 +403,9 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 {
+  GtkTextIter    iter_start, iter_end;
+  GtkTextBuffer *buffer;
+  GtkTextTag    *txt_tag;
 
   switch (event->type)
     {
@@ -415,10 +418,20 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 			       "fill_color", "white",
 			       NULL);
 
-      if(menuitem->board->description)
+      if(menuitem->board->description) {
 	gnome_canvas_item_set (description_item,
 			       "text",  menuitem->board->description,
 			       NULL);
+
+	buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(description_item));
+	txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
+					     "foreground", "white",
+					     "font",       gcompris_skin_font_board_medium,
+					     NULL);
+	gtk_text_buffer_get_end_iter(buffer, &iter_end);
+	gtk_text_buffer_get_start_iter(buffer, &iter_start);
+	gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);	
+      }
 
       if(menuitem->board->author)
 	gnome_canvas_item_set (author_item,
@@ -479,14 +492,18 @@ static void create_info_area(GnomeCanvasGroup *parent)
 
   description_item = \
     gnome_canvas_item_new (parent,
-			   gnome_canvas_text_get_type (),
+			   gnome_canvas_rich_text_get_type (),
 			   "text", " ",
-			   "font", gcompris_skin_font_board_medium,
 			   "x", (double) x,
 			   "y", (double) y + 25,
+			   "width", (double)BOARDWIDTH - 100,
+			   "height", 50.0,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color", "white",
 			   "justification", GTK_JUSTIFY_CENTER,
+			   "grow_height", FALSE,
+			   "cursor_visible", FALSE,
+			   "cursor_blink", FALSE,
+			   "editable", FALSE,
 			   NULL);
 
   author_item = \
