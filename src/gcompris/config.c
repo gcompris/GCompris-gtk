@@ -372,8 +372,8 @@ static gchar *get_locale_name(gchar *locale)
 
       i=i+2;
     }
-
-  return(locale);
+  // Oups this locale is not in the table. Return the first one
+  return(linguas[0]);
 }
 
 /**
@@ -396,7 +396,8 @@ static gchar *get_next_locale(gchar *locale)
 	}
       i=i+2;
     }
-  return(locale);
+  // Oups this locale is not in the table. Return the first one
+  return(linguas[0]);
 }
 
 /**

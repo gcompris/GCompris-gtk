@@ -39,7 +39,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->music		= gnome_config_get_int ("/gcompris/Preferences/music=1");
   tmp->fx		= gnome_config_get_int ("/gcompris/Preferences/fx=1");
   tmp->fullscreen	= gnome_config_get_int ("/gcompris/Preferences/fullscreen=1");
-  tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=C");
+  tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en");
 
   return (tmp);
 }
