@@ -84,11 +84,11 @@ function init(){
              frame_attributs.push(gc_attr);
              frame_attributs[gc_frame.attributes[k].nodeName]= frame_attributs[frame_attributs.length -1];
 	     }
-          if (gc_frame.hasChildNodes){
+          //if (gc_frame.hasChildNodes){
 	    // text part of text element
             // supposed there is only one node, type 3 (text)
-            frame_attributs['text'] = gc_frame.childNodes[0];
-            }
+            //frame_attributs['text'] = gc_frame.childNodes[0];
+            //}
           frames_info.push(frame_attributs);
 
           frames_info['frame_' + gc_frame.getAttribute('time')] = frames_info[frames_info.length -1];
@@ -118,11 +118,7 @@ function apply_frame(frame_no){
             continue;
             }
          if ( AnimItemlist[i][1]['frame_' + frame_no]['text'] ){
-            if (AnimItemlist[i][1]['frame_' + frame_no]['create']){
-               // append the right text node
-	       AnimItemlist[i][0].appendChild(AnimItemlist[i][1]['frame_' + frame_no]['text']);
-               }
-	    else AnimItemlist[i][0].textContent=AnimItemlist[i][1]['frame_' + frame_no]['text'].nodeValue;
+            AnimItemlist[i][0].textContent=AnimItemlist[i][1]['frame_' + frame_no]['text'][1];
             }
          for (k=0; k< AnimItemlist[i][1]['frame_' + frame_no].length; k++){
          attr = AnimItemlist[i][1]['frame_' + frame_no][k][0];
