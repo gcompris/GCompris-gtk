@@ -1,3 +1,12 @@
+2002-12-31  bruno  <bruno.coudoin@free.fr>
+
+	* boards/boards.xml.in: Added traffic board based on the GPL code from Geoff Reedy <vader21@imsa.edu>
+	* boards/money/money-bg.jpg: less flashy background
+	* po/POTFILES.in: Added traffic board
+	* po/fr.po: Added traffic board
+	* src/boards/Makefile.am: Added traffic board
+	* src/boards/traffic.c: Added traffic board
+
 2002-12-26  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/money.c: new activity created by Bruno Coudoin

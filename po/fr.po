@@ -3,11 +3,12 @@
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
 # Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
 #
+#: src/boards/traffic.c:115
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-12-14 23:54+0100\n"
-"PO-Revision-Date: 2002-12-23 13:18+0100\n"
+"POT-Creation-Date: 2002-12-31 00:12+0100\n"
+"PO-Revision-Date: 2002-12-31 00:40+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -1135,7 +1136,7 @@ msgstr ""
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Sait utiliser les flèches du clavier"
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:125
+#: boards/maze.xml.in.h:2 src/boards/maze.c:127
 msgid "Find your way out of the maze"
 msgstr "Trouve ta voie hors du labyrinthe"
 
@@ -1143,11 +1144,11 @@ msgstr "Trouve ta voie hors du labyrinthe"
 msgid "Help Tux get out of this maze."
 msgstr "Aide Tux à trouver sa voie hors du labyrinthe"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:124
+#: boards/maze.xml.in.h:4 src/boards/maze.c:126
 msgid "Maze"
 msgstr "Labyrinthe"
 
-#: boards/maze.xml.in.h:5 boards/maze3D.xml.in.h:5
+#: boards/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Utilise les flèches du clavier pour déplacer Tux jusqu'à la porte"
 
@@ -1158,6 +1159,13 @@ msgstr "Labyrinthe en 3D"
 #: boards/maze3D.xml.in.h:3
 msgid "Find your way out of the 3D maze"
 msgstr "Trouve ta voie hors du labyrinthe en 3D"
+
+#: boards/maze3D.xml.in.h:5
+#, fuzzy
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
+"switch between 2D and 3D mode"
+msgstr "Utilise les flèches du clavier pour déplacer Tux jusqu'à la porte"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1298,6 +1306,20 @@ msgstr "maison/_aison/m/l/d"
 #: boards/missing_letter/board1.xml.in.h:8
 msgid "satchel/s_tchel/a/o/i"
 msgstr "cartable/cart_ble/a/o/u"
+
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+#, fuzzy
+msgid "Money"
+msgstr "Aucun"
+
+#: boards/money.xml.in.h:2 src/boards/money.c:88
+#, fuzzy
+msgid "Pratice money usage"
+msgstr "Apprentissage des échecs"
+
+#: boards/money_cents.xml.in.h:2
+msgid "Pratice money usage including cents"
+msgstr "Apprend à manipuler de l'argent avec les centimes"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -1655,6 +1677,18 @@ msgstr "Envoie des flèches sur la cible et compte ton score"
 msgid "Touch the target and count your points"
 msgstr "Touche la cible et compte tes points"
 
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:114
+msgid "A sliding block puzzle game"
+msgstr "Un puzzle avec des pièces qui glissent"
+
+#: boards/traffic.xml.in.h:2
+msgid ""
+"The goal is to remove all of the red car(s) out of the grid through the slot "
+"on the right"
+msgstr ""
+"L'objectif est de supprimer toutes les voitures rouges de la grille\n"
+"à travers l'ouverture à droite."
+
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
 msgid "Falling Words"
 msgstr "Les mots qui tombent"
@@ -1678,10 +1712,11 @@ msgstr "Editeur de gcompris"
 #: src/boards/advanced_colors.c:526 src/boards/imageid.c:573
 #: src/boards/menu.c:533 src/boards/missingletter.c:595
 #: src/boards/read_colors.c:485 src/boards/shapegame.c:1561
-#: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:104
-#: src/gcompris/gameutil.c:391 src/gcompris/gameutil.c:392
-#: src/gcompris/gcompris-edit.c:414 src/gcompris/gcompris-edit.c:415
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:269
+#: src/boards/traffic.c:671 src/gcompris/gameutil.c:85
+#: src/gcompris/gameutil.c:104 src/gcompris/gameutil.c:430
+#: src/gcompris/gameutil.c:431 src/gcompris/gcompris-edit.c:414
+#: src/gcompris/gcompris-edit.c:415 src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:269
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
@@ -1883,6 +1918,26 @@ msgstr ""
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance de la cible = %d metres"
+
+#: src/boards/traffic.c:748
+#, c-format
+msgid "You've taken %d moves."
+msgstr "Tu as réalisé %d déplacements."
+
+#: src/boards/traffic.c:754
+#, c-format
+msgid "The best you can do is %d."
+msgstr "Le mieux que tu puisses faire est %d."
+
+#: src/boards/traffic.c:764
+#, c-format
+msgid "You've removed %d cars."
+msgstr "Tu as supprimé %d voitures."
+
+#: src/boards/traffic.c:770
+#, c-format
+msgid "You need to remove %d more."
+msgstr "Tu dois en supprimer encore %d. "
 
 #: src/gcompris/about.c:57
 msgid ""

@@ -27,6 +27,7 @@ lib_LTLIBRARIES = \
 	libshapegame.la \
 	libsmallnumbers.la \
 	libtarget.la \
+	libtraffic.la \
 	libwordsgame.la \
 	libadvanced_colors.la \
 	libread_colors.la
@@ -269,6 +270,13 @@ libmoney_la_LIBADD = @PTHREAD_LIB@
 	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libmoney_la_SOURCES = money.c money_widget.c money_widget.h
+
+libtraffic_la_LDFLAGS = -module -avoid-version
+libtraffic_la_LIBADD = @PTHREAD_LIB@
+	$(GCOMPRIS_LIBS)	\
+	$(GNOME_XML_LIB) $(INTLLIBS)
+
+libtraffic_la_SOURCES = traffic.c
 
 EXTRA_DIST = README
 
