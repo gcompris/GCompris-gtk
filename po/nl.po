@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-18 03:17+0200\n"
-"PO-Revision-Date: 2004-06-18 06:42+0200\n"
+"POT-Creation-Date: 2004-07-03 20:25+0200\n"
+"PO-Revision-Date: 2004-07-04 01:34+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -2549,7 +2549,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:201
+#: src/gcompris/about.c:316 src/gcompris/config.c:202
 #: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2692,85 +2692,89 @@ msgid "Slovenian"
 msgstr "Sloveens"
 
 #: src/gcompris/config.c:95
+msgid "Albanian"
+msgstr "Albanees"
+
+#: src/gcompris/config.c:96
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:117
 msgid "No filter"
 msgstr "Geen filter"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "Only this level"
 msgstr "Alleen dit niveau"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "Up to this level"
 msgstr "Tot aan dit niveau"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "This level and above"
 msgstr "Vanaf dit niveau en hoger"
 
-#: src/gcompris/config.c:175
+#: src/gcompris/config.c:176
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:284
+#: src/gcompris/config.c:285
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:327
+#: src/gcompris/config.c:328
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:355
+#: src/gcompris/config.c:356
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:389
+#: src/gcompris/config.c:390
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:410
+#: src/gcompris/config.c:411
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: src/gcompris/config.c:425 src/gcompris/config.c:810
-#: src/gcompris/config.c:821
+#: src/gcompris/config.c:426 src/gcompris/config.c:811
+#: src/gcompris/config.c:822
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
