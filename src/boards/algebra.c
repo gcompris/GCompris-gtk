@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2001/12/02 22:28:51 bruno>
+ * Time-stamp: <2001/12/26 21:47:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -185,14 +185,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void
 end_board ()
 {
-
-
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
       gcompris_score_end();
       algebra_destroy_all_items();
     }
+  gcomprisBoard = NULL;
 }
 
 static void

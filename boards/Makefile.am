@@ -1,3 +1,5 @@
+SUBDIRS = scales missing_letter
+
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \

@@ -229,6 +229,7 @@ static void end_board () {
     destroy_board();
     algebra_guesscount_destroy_all_items();
   }
+  gcomprisBoard = NULL;
 }
 
 /* ==================================== */

@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2001/12/23 23:41:28 bruno>
+ * Time-stamp: <2001/12/26 23:13:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -148,7 +148,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(GCOMPRIS_BAR_HELP);
+      gcompris_bar_set(GCOMPRIS_BAR_HELP|GCOMPRIS_BAR_CONFIG);
 
       menu_pause(FALSE);
 

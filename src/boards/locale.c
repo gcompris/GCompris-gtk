@@ -174,6 +174,7 @@ static void end_board ()
       pause_board(TRUE);
       locale_destroy_all_items();
     }
+  gcomprisBoard = NULL;
 }
 
 /* ======================================= */

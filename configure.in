@@ -27,6 +27,11 @@ AM_PATH_GCONF
 
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="az de el es fi fr it nl pt_BR ru sv lt"
+
+dnl GCompris needs to know which locale are supported
+AC_SUBST(ALL_LINGUAS)
+AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}")
+
 AM_GNU_GETTEXT
 
 dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically
@@ -80,6 +85,8 @@ sounds/Makefile
 docs/Makefile
 docs/C/Makefile
 boards/Makefile
+boards/missing_letter/Makefile
+boards/scales/Makefile
 ])
 
 echo ""

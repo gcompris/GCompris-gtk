@@ -16,7 +16,8 @@ gcompris_SOURCES = \
 	plugin.h \
 	pluginenum.c pluginenum.h board.h board.c \
 	bonus.c bonus.h \
-	score.c score.h
+	score.c score.h \
+	config.c gcompris_config.h
 
 gcompris_LDADD = \
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \

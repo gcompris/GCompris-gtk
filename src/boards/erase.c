@@ -70,8 +70,8 @@ BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Read a letter"),
-    N_("Learn to recognize letters"),
+    N_("Move the mouse"),
+    N_("Move the mouse to erase the area and discover the background"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
@@ -145,6 +145,7 @@ static void end_board ()
       pause_board(TRUE);
       erase_destroy_all_items();
     }
+  gcomprisBoard = NULL;
 }
 
 /* ======================================= */

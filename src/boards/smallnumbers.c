@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2001/12/03 00:27:03 bruno>
+ * Time-stamp: <2001/12/26 21:43:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -164,6 +164,7 @@ end_board ()
       gcompris_score_end();
       smallnumbers_destroy_all_items();
     }
+  gcomprisBoard = NULL;
 }
 
 static void

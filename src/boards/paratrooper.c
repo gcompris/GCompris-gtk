@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2001/12/19 01:48:13 bruno>
+ * Time-stamp: <2001/12/26 21:45:19 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -205,6 +205,7 @@ end_board ()
       paratrooper_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
+  gcomprisBoard = NULL;
 }
 
 static void

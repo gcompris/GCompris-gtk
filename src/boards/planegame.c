@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2001/12/03 01:13:54 bruno>
+ * Time-stamp: <2001/12/26 21:45:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -170,6 +170,7 @@ end_board ()
       planegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
+  gcomprisBoard = NULL;
 }
 
 static void
@@ -322,8 +323,8 @@ static void planegame_next_level()
 				     "pixbuf", pixmap, 
 				     "x", (double) plane_x,
 				     "y", (double) plane_y,
-				     "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom*0.7,
-				     "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom*0.7,
+				     "width", (double) gdk_pixbuf_get_width(pixmap)*imageZoom,
+				     "height", (double) gdk_pixbuf_get_height(pixmap)*imageZoom,
 				     "width_set", TRUE, 
 				     "height_set", TRUE,
 				     NULL);

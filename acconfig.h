@@ -10,5 +10,6 @@
 #undef PACKAGE_HELP_DIR
 #undef PLUGINSUBS
 #undef PLUGIN_DIR
+#undef ALL_LINGUAS
 
 

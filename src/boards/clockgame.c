@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2001/12/02 22:43:17 bruno>
+ * Time-stamp: <2001/12/26 21:46:37 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -168,6 +168,7 @@ end_board ()
       gcompris_score_end();
       clockgame_destroy_all_items();
     }
+  gcomprisBoard = NULL;
 }
 
 static void

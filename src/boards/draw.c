@@ -177,6 +177,7 @@ end_board ()
       draw_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
+  gcomprisBoard = NULL;
 }
 
 

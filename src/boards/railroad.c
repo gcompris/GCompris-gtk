@@ -187,7 +187,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 static void end_board ()
 {
   GdkPixbuf * pixmap = NULL;
-// If we don't animation, there may be a segfault if leaving while the animation is pending
+  // If we don't animation, there may be a segfault if leaving while the animation is pending
   if (timer_id) {
     gtk_timeout_remove (timer_id);
     timer_id = 0;
@@ -195,23 +195,24 @@ static void end_board ()
 
   if(gcomprisBoard!=NULL)
     {
-	pause_board(TRUE);
-	gcompris_score_end();
-	railroad_destroy_all_items();
+      pause_board(TRUE);
+      gcompris_score_end();
+      railroad_destroy_all_items();
 
-	while(g_list_length(listPixmapEngines)>0) {
-		pixmap = g_list_nth_data(listPixmapEngines, 0);
-		listPixmapEngines = g_list_remove (listPixmapEngines, pixmap);
-		gdk_pixbuf_unref(pixmap);
-	}
+      while(g_list_length(listPixmapEngines)>0) {
+	pixmap = g_list_nth_data(listPixmapEngines, 0);
+	listPixmapEngines = g_list_remove (listPixmapEngines, pixmap);
+	gdk_pixbuf_unref(pixmap);
+      }
 
-	while(g_list_length(listPixmapWagons)>0) {
-		pixmap = g_list_nth_data(listPixmapWagons, 0);
-		listPixmapWagons = g_list_remove (listPixmapWagons, pixmap);
-		gdk_pixbuf_unref(pixmap);
-	}
+      while(g_list_length(listPixmapWagons)>0) {
+	pixmap = g_list_nth_data(listPixmapWagons, 0);
+	listPixmapWagons = g_list_remove (listPixmapWagons, pixmap);
+	gdk_pixbuf_unref(pixmap);
+      }
 
     }
+  gcomprisBoard = NULL;
 }
 
 /* ======================================= */
@@ -250,7 +251,7 @@ static void repeat ()
     show_engines_wagons(FALSE);
     reposition_model();
     animate_model();
-    }
+  }
 }
 
 /* ==================================== */
@@ -296,24 +297,24 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
 							    NULL));
   // Create the vehicules
   for (i=0; i<ENGINES+WAGONS; i++) {
-	if (i<ENGINES)
-		pixmap = g_list_nth_data(listPixmapEngines, i);
-		else
-		pixmap = g_list_nth_data(listPixmapWagons, i-ENGINES);
+    if (i<ENGINES)
+      pixmap = g_list_nth_data(listPixmapEngines, i);
+    else
+      pixmap = g_list_nth_data(listPixmapWagons, i-ENGINES);
 
-	if ( (xOffset + gdk_pixbuf_get_width(pixmap)) >= gcomprisBoard->width) {
-		xOffset = 0;
-		l++;
-		}
-	yOffset = line[l] - gdk_pixbuf_get_height(pixmap);
+    if ( (xOffset + gdk_pixbuf_get_width(pixmap)) >= gcomprisBoard->width) {
+      xOffset = 0;
+      l++;
+    }
+    yOffset = line[l] - gdk_pixbuf_get_height(pixmap);
 
-  	item[i] = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset,
-				   NULL);
-  	xOffset += gdk_pixbuf_get_width(pixmap);
+    item[i] = gnome_canvas_item_new (boardRootItem,
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf",  pixmap,
+				     "x",  (double) xOffset,
+				     "y",  (double) yOffset,
+				     NULL);
+    xOffset += gdk_pixbuf_get_width(pixmap);
   }
   // hide them
   show_engines_wagons(FALSE);
@@ -324,19 +325,19 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
   model_size = gcomprisBoard->level +1; // engine + cars
   // First the cars, depending of the level
   for (i=0; i<model_size-1; i++) {
-	r = (int)(((float) WAGONS)*rand()/(RAND_MAX+1.0));
-	assert( r >=0 && r < WAGONS);
-	// keep track of the answer
-	int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
-	pixmap = g_list_nth_data(listPixmapWagons, r);
-	assert(i >= 0 && i<MODEL_MAX_SIZE);
-	item_model[i] =gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_pixbuf_get_type (),
-					"pixbuf",  pixmap,
-					"x",  (double) xOffset,
-					"y",  (double) yOffset - gdk_pixbuf_get_height(pixmap),
-					NULL);
-	xOffset  += gdk_pixbuf_get_width(pixmap);
+    r = (int)(((float) WAGONS)*rand()/(RAND_MAX+1.0));
+    assert( r >=0 && r < WAGONS);
+    // keep track of the answer
+    int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r+ENGINES));
+    pixmap = g_list_nth_data(listPixmapWagons, r);
+    assert(i >= 0 && i<MODEL_MAX_SIZE);
+    item_model[i] =gnome_canvas_item_new (boardRootItem,
+					  gnome_canvas_pixbuf_get_type (),
+					  "pixbuf",  pixmap,
+					  "x",  (double) xOffset,
+					  "y",  (double) yOffset - gdk_pixbuf_get_height(pixmap),
+					  NULL);
+    xOffset  += gdk_pixbuf_get_width(pixmap);
   }
 
   // Then the engine
@@ -346,16 +347,16 @@ static GnomeCanvasItem *railroad_create_item(GnomeCanvasGroup *parent)
   int_model_list = g_list_append(int_model_list, GINT_TO_POINTER(r));
   pixmap = g_list_nth_data(listPixmapEngines, r);
   item_model[model_size-1] =gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset  - gdk_pixbuf_get_height(pixmap),
-				   NULL);
+						   gnome_canvas_pixbuf_get_type (),
+						   "pixbuf",  pixmap,
+						   "x",  (double) xOffset,
+						   "y",  (double) yOffset  - gdk_pixbuf_get_height(pixmap),
+						   NULL);
 
   animate_model();
 
   for (i=0; i<ENGINES+WAGONS; i++)
-  	gtk_signal_connect(GTK_OBJECT(item[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+    gtk_signal_connect(GTK_OBJECT(item[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
 
   return NULL;
 }
@@ -385,30 +386,30 @@ static void process_ok()
   gamewon = TRUE;
 
   // DEBUG
-//  printf("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
+  //  printf("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
   if (g_list_length(int_answer_list) != g_list_length(int_model_list))
-  	gamewon = FALSE;
-	else
-  		for (i=0; i<g_list_length(int_answer_list); i++) {
-			if ( GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) != GPOINTER_TO_INT(g_list_nth_data(int_model_list,i))) {
-				printf("pour i= %d --> différent\n", i);
-				gamewon = FALSE;
-				break;
-				}
-		}
+    gamewon = FALSE;
+  else
+    for (i=0; i<g_list_length(int_answer_list); i++) {
+      if ( GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) != GPOINTER_TO_INT(g_list_nth_data(int_model_list,i))) {
+	printf("pour i= %d --> différent\n", i);
+	gamewon = FALSE;
+	break;
+      }
+    }
   // DUMP lists
   /*printf("answer:\n");
-  for (i=0; i<g_list_length(int_answer_list); i++)
-  	printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) );
-  printf("model:\n");
-  for (i=0; i<g_list_length(int_model_list); i++)
-  	printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
-*/
+    for (i=0; i<g_list_length(int_answer_list); i++)
+    printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) );
+    printf("model:\n");
+    for (i=0; i<g_list_length(int_model_list); i++)
+    printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
+  */
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
-/*  if (gamewon) {
+  /*  if (gamewon) {
       game_won();
       gamewon = FALSE;
-  }*/
+      }*/
 }
 /* ==================================== */
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
@@ -422,7 +423,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 
   // we don't allow any input until train is gone
   if (animation_pending)
-  	return FALSE;
+    return FALSE;
 
   item_x = event->button.x;
   item_y = event->button.y;
@@ -434,27 +435,27 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-  //    	printf("clicked item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
-	xOffset = 0;
-	for (i=0; i<g_list_length(item_answer_list); i++) {
-		gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
-		xOffset += dx2-dx1;
-		}
-	if (item_number < ENGINES)
-		pixmap = g_list_nth_data(listPixmapEngines, item_number);
-		else
-		pixmap = g_list_nth_data(listPixmapWagons, item_number-ENGINES);
+      //    	printf("clicked item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
+      xOffset = 0;
+      for (i=0; i<g_list_length(item_answer_list); i++) {
+	gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
+	xOffset += dx2-dx1;
+      }
+      if (item_number < ENGINES)
+	pixmap = g_list_nth_data(listPixmapEngines, item_number);
+      else
+	pixmap = g_list_nth_data(listPixmapWagons, item_number-ENGINES);
 
-	local_item =gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_pixbuf_get_type (),
-					"pixbuf",  pixmap,
-					"x",  (double) xOffset,
-					"y",  (double) line[0] - gdk_pixbuf_get_height(pixmap),
-					NULL);
-	item_answer_list = g_list_append(item_answer_list, local_item);
-	int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
-//	printf("added %d to int_answer_list\n", item_number);
-  	gtk_signal_connect(GTK_OBJECT(local_item), "event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
+      local_item =gnome_canvas_item_new (boardRootItem,
+					 gnome_canvas_pixbuf_get_type (),
+					 "pixbuf",  pixmap,
+					 "x",  (double) xOffset,
+					 "y",  (double) line[0] - gdk_pixbuf_get_height(pixmap),
+					 NULL);
+      item_answer_list = g_list_append(item_answer_list, local_item);
+      int_answer_list = g_list_append(int_answer_list,GINT_TO_POINTER(item_number));
+      //	printf("added %d to int_answer_list\n", item_number);
+      gtk_signal_connect(GTK_OBJECT(local_item), "event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( g_list_length(item_answer_list)-1 ));
       break;
 
     case GDK_MOTION_NOTIFY:
@@ -477,7 +478,7 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   item_number = GPOINTER_TO_INT(data);
   // we don't allow any input until train is gone
   if (animation_pending)
-  	return FALSE;
+    return FALSE;
 
   item_x = event->button.x;
   item_y = event->button.y;
@@ -489,18 +490,18 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-//	printf("Deleting %d\n",item_number);
-	local_item = g_list_nth_data(item_answer_list,item_number);
-	item_answer_list = g_list_remove( item_answer_list, local_item );
-//	gtk_signal_disconnect(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, NULL);
-	gtk_object_destroy (GTK_OBJECT(local_item));
-	int_answer_list = g_list_remove(int_answer_list, g_list_nth_data(int_answer_list, item_number) );
-	reposition_answer();
-	// resetup the signals
-	for (i=0; i<g_list_length(item_answer_list); i++) {
-		local_item = g_list_nth_data(item_answer_list, i);
-		gtk_signal_connect(GTK_OBJECT(local_item),"event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
-	}
+      //	printf("Deleting %d\n",item_number);
+      local_item = g_list_nth_data(item_answer_list,item_number);
+      item_answer_list = g_list_remove( item_answer_list, local_item );
+      //	gtk_signal_disconnect(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, NULL);
+      gtk_object_destroy (GTK_OBJECT(local_item));
+      int_answer_list = g_list_remove(int_answer_list, g_list_nth_data(int_answer_list, item_number) );
+      reposition_answer();
+      // resetup the signals
+      for (i=0; i<g_list_length(item_answer_list); i++) {
+	local_item = g_list_nth_data(item_answer_list, i);
+	gtk_signal_connect(GTK_OBJECT(local_item),"event", (GtkSignalFunc) answer_event, GINT_TO_POINTER( i ));
+      }
       break;
 
     case GDK_MOTION_NOTIFY:
@@ -516,19 +517,19 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
 }
 /* ==================================== */
 /* The code is over complicated because I don't know how
-    to set an item at an absolute position */
+   to set an item at an absolute position */
 static void reposition_answer() {
   double dx1, dy1, dx2, dy2;
   int i;
   int xOffset = 0;
   GnomeCanvasItem * item = NULL;
-printf("+++ reposition_answer\n");
+  printf("+++ reposition_answer\n");
   for (i=0; i<g_list_length(item_answer_list); i++) {
-	item = g_list_nth_data(item_answer_list,i);
-	gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-	gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
-	xOffset += dx2-dx1;
-	}
+    item = g_list_nth_data(item_answer_list,i);
+    gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+    gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
+    xOffset += dx2-dx1;
+  }
 }
 /* ==================================== */
 static void reposition_model() {
@@ -538,70 +539,70 @@ static void reposition_model() {
   GnomeCanvasItem * item = NULL;
   printf("+++ reposition_model\n");
   for (i=0; i<model_size; i++) {
-	item = item_model[i];
-	gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-	gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
-	xOffset += dx2-dx1;
-	}
+    item = item_model[i];
+    gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+    gnome_canvas_item_move(item, xOffset-dx1, line[0]-dy2);
+    xOffset += dx2-dx1;
+  }
 }
 
 /* ==================================== */
 static void show_model(gboolean show) {
   int i;
   for (i=0; i<model_size; i++)
-	if (show)
-		gnome_canvas_item_show(item_model[i]);
-		else
-		gnome_canvas_item_hide(item_model[i]);
+    if (show)
+      gnome_canvas_item_show(item_model[i]);
+    else
+      gnome_canvas_item_hide(item_model[i]);
 }
 /* ==================================== */
 static void show_answer(gboolean show) {
   int i;
   for (i=0; i<g_list_length(item_answer_list); i++)
-	if (show)
-		gnome_canvas_item_show(g_list_nth_data(item_answer_list,i));
-		else
-		gnome_canvas_item_hide(g_list_nth_data(item_answer_list,i));
+    if (show)
+      gnome_canvas_item_show(g_list_nth_data(item_answer_list,i));
+    else
+      gnome_canvas_item_hide(g_list_nth_data(item_answer_list,i));
 }
 /* ==================================== */
 static void show_engines_wagons(gboolean show) {
   int i;
   for (i=0; i<ENGINES+WAGONS; i++)
-	if (show)
-		gnome_canvas_item_show(item[i]);
-		else
-		gnome_canvas_item_hide(item[i]);
+    if (show)
+      gnome_canvas_item_show(item[i]);
+    else
+      gnome_canvas_item_hide(item[i]);
 }
 /* ==================================== */
 static gboolean animate_step() {
-	int i;
-	double step = 1.0;
-	// this defines how the train waits before start
-	#define MODEL_PAUSE 60
-//	printf("+++animate_step %d \n",animation_count);
-	animation_count++;
+  int i;
+  double step = 1.0;
+  // this defines how the train waits before start
+#define MODEL_PAUSE 60
+  //	printf("+++animate_step %d \n",animation_count);
+  animation_count++;
 
-	if (animation_count < MODEL_PAUSE)
-		return TRUE;
+  if (animation_count < MODEL_PAUSE)
+    return TRUE;
 
-	if (animation_count == 160+MODEL_PAUSE) {
-		if (timer_id) {
-    			gtk_timeout_remove (timer_id);
-    			timer_id = 0;
-		}
-		animation_pending = FALSE;
-		show_model(FALSE);
-		show_engines_wagons(TRUE);
-		show_answer(TRUE);
-		return FALSE;
-	}
+  if (animation_count == 160+MODEL_PAUSE) {
+    if (timer_id) {
+      gtk_timeout_remove (timer_id);
+      timer_id = 0;
+    }
+    animation_pending = FALSE;
+    show_model(FALSE);
+    show_engines_wagons(TRUE);
+    show_answer(TRUE);
+    return FALSE;
+  }
 
-	step = (double) (animation_count-MODEL_PAUSE) / 50.0;
-	step *= step;
+  step = (double) (animation_count-MODEL_PAUSE) / 50.0;
+  step *= step;
 
-	for (i=0; i<model_size; i++)
-		gnome_canvas_item_move(item_model[i], step, 0.0);
-	return TRUE;
+  for (i=0; i<model_size; i++)
+    gnome_canvas_item_move(item_model[i], step, 0.0);
+  return TRUE;
 }
 /* ==================================== */
 static void animate_model() {
@@ -618,18 +619,18 @@ static void reset_all_lists(void) {
   int_model_list = reset_list(int_model_list);
   int_answer_list = reset_list(int_answer_list);
 
- while(g_list_length(item_answer_list)>0) {
-      	item = g_list_nth_data(item_answer_list, 0);
-  	item_answer_list = g_list_remove (item_answer_list, item);
-// causes segfaults
-//  	gtk_object_destroy (GTK_OBJECT(item));
-    }
+  while(g_list_length(item_answer_list)>0) {
+    item = g_list_nth_data(item_answer_list, 0);
+    item_answer_list = g_list_remove (item_answer_list, item);
+    // causes segfaults
+    //  	gtk_object_destroy (GTK_OBJECT(item));
+  }
 
 }
 /* ==================================== */
 static GList * reset_list(GList * list) {
   while (g_list_length(list) > 0)
-	list = g_list_remove(list, g_list_nth_data(list,0));
+    list = g_list_remove(list, g_list_nth_data(list,0));
 
   return list;
 }

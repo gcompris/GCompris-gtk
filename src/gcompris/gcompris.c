@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/12/24 00:08:10 bruno>
+ * Time-stamp: <2001/12/27 01:34:33 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -551,11 +551,10 @@ main (int argc, char *argv[])
 
   if (properties->music)
     {
-      gcompris_play_ogg("../intro", NULL);
-      sleep(1);
+      gcompris_play_ogg("../intro", "welcome", NULL);
     }
-
-  gcompris_play_ogg("welcome", NULL);
+  else
+    gcompris_play_ogg("welcome", NULL);
 
   gtk_main ();
   return 0;

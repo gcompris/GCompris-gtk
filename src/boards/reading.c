@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2001/12/03 00:41:59 bruno>
+ * Time-stamp: <2001/12/26 21:44:39 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -185,6 +185,7 @@ end_board ()
       pause_board(TRUE);
       reading_destroy_all_items();
     }
+  gcomprisBoard = NULL;
 }
 
 static void

@@ -197,9 +197,6 @@ sub create_translation_database
             if (/^#,.*fuzzy/) {
                 $_ = <PO_FILE>; next;
             }
-            if (/^msgid ""/) {
-	      print "WARNING in  $po_file : This case is not handled properly by xml-i18n-msgid\n\n";
-	    }
             if (/^msgid "(.*)"/) {
 		my $msgid = $1;
                 $_ = <PO_FILE>;

@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2001/12/19 00:35:20 bruno>
+ * Time-stamp: <2001/12/26 21:46:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -209,6 +209,7 @@ clickgame_end ()
       clickgame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
+  gcomprisBoard = NULL;
 }
 
 static void

@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2001/12/02 22:28:35 bruno>
+ * Time-stamp: <2001/12/26 21:43:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -195,6 +195,7 @@ end_board ()
 	  words_table=NULL;
 	}
     }
+  gcomprisBoard = NULL;
 }
 
 static void

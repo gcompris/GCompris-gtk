@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2001/12/09 01:59:26 bruno>
+ * Time-stamp: <2001/12/27 01:14:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -39,12 +39,16 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->music		= gnome_config_get_int ("/gcompris/Preferences/music=1");
   tmp->fx		= gnome_config_get_int ("/gcompris/Preferences/fx=1");
   tmp->fullscreen	= gnome_config_get_int ("/gcompris/Preferences/fullscreen=1");
+  tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=C");
 
   return (tmp);
 }
 
 void gcompris_properties_destroy (GcomprisProperties *props)
 {
+  if(props->locale!=NULL)
+    g_free(props->locale);
+
   free (props);
 }
 
@@ -56,6 +60,8 @@ GcomprisProperties *gcompris_properties_copy (GcomprisProperties *props)
 
   tmp->music = props->music;
   tmp->fx = props->fx;
+  tmp->fullscreen = props->fullscreen;
+  tmp->locale = g_strdup(props->locale);
 	
   return (tmp);
 }
@@ -68,6 +74,8 @@ void gcompris_properties_save (GcomprisProperties *props)
 			props->fx);
   gnome_config_set_int ("/gcompris/Preferences/fullscreen",
 			props->fullscreen);
+  gnome_config_set_string ("/gcompris/Preferences/locale",
+			props->locale);
 
   gnome_config_sync ();
 }

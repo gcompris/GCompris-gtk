@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/12/16 20:37:22 bruno>
+ * Time-stamp: <2001/12/26 21:44:18 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -195,6 +195,7 @@ end_board ()
       shapegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
+  gcomprisBoard = NULL;
 }
 
 static void

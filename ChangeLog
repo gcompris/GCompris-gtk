@@ -1,10 +1,17 @@
+2001-12-26  Bruno Coudoin  <bruno.coudoin@free.fr>
+	* boards/missing_letter: added support for xmli18n
+	* boards/scales: added support for xmli18n (preparation only since shapegame needs xml rewrite)
+	* src/boards/*.c: set to null gcomprisBoard in end_board to avoid problem in bonus
+	* src/gcompris/config.c: creation of the configuration window
+	* src/gcompris/properties.c: added support for locale property storage
+
 2001-12-24  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* src/boards/planegame.c: replaced the plane by a brain new helico
 	                          designed by Renaud Blanchard
-	*  src/boards/click_on_letter.c: now clear gcomprisBoard in end_board
-	                                 this fixes a bug where the bonus is
-					 redisplayed endlessly in the menu
-	*  src/boards/missingletter.c: now clear gcomprisBoard in end_board
+	* src/boards/click_on_letter.c: now clear gcomprisBoard in end_board
+	                                this fixes a bug where the bonus is
+				        redisplayed endlessly in the menu
+	* src/boards/missingletter.c: now clear gcomprisBoard in end_board
 
 2001-12-23  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* src/gcompris/gcompris.c: added gconf init for the gtkhtml

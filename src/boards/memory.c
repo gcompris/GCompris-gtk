@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2001/12/06 23:54:02 bruno>
+ * Time-stamp: <2001/12/26 21:45:49 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -312,6 +312,7 @@ end_board ()
       pause_board(TRUE);
       memory_destroy_all_items();
     }
+  gcomprisBoard = NULL;
 }
 
 static void
