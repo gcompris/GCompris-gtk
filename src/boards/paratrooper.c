@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2001/11/06 22:21:22 bruno>
+ * Time-stamp: <2001/12/01 23:29:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -318,8 +318,10 @@ gint key_press(guint keyval)
       break;
     case TUX_LANDED:
       gcomprisBoard->level++;
-      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-	gcomprisBoard->level=gcomprisBoard->maxlevel;
+      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+	board_finished();
+	return;
+      }
       paratrooper_next_level();
       break;
     case TUX_CRASHED:

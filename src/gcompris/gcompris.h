@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2001/11/11 23:13:57 bruno>
+ * Time-stamp: <2001/12/02 00:04:22 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -40,6 +40,7 @@
 #include "gameutil.h"
 #include "pluginenum.h"
 #include "bonus.h"
+#include "point.h"
 
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 600
@@ -58,7 +59,6 @@ GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);
 void		 gcompris_bar_set_level (GcomprisBoard *gcomprisBoard);
 void		 gcompris_bar_set_timer (guint time);
 void		 gcompris_bar_set_maxtimer (guint time);
-void		 gcompris_bar_set_message (const gchar *message);
 
 /* Status bar control */
 typedef enum

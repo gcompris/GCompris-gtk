@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2001/11/29 03:56:31 bruno>
+ * Time-stamp: <2001/12/02 02:58:12 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -146,8 +146,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=9;
-      gcomprisBoard->sublevel=0;
+      gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=10; /* Go to next level after this number of 'play' */
+      gcompris_point_start(POINTSTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
       /* The mode defines the operation */
@@ -186,6 +190,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_point_end();
       algebra_destroy_all_items();
     }
 }
@@ -198,7 +203,7 @@ set_level (guint level)
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
-      gcomprisBoard->sublevel=0;
+      gcomprisBoard->sublevel=1;
       algebra_next_level();
     }
 }
@@ -367,9 +372,7 @@ static void algebra_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
-
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcompris_point_set(gcomprisBoard->sublevel);
 
   algebra_destroy_all_items();
 
@@ -719,15 +722,16 @@ static void process_ok()
   if(hasfail==NULL)
     {
       gcomprisBoard->sublevel++;
-      gcompris_bar_set_timer(gcomprisBoard->sublevel);
 
-      if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+      if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
 	/* Try the next level */
 	gcomprisBoard->level++;
-	if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-	  gcomprisBoard->level=gcomprisBoard->maxlevel;
+	if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+	  board_finished();
+	  return;
+	}
 
-	gcomprisBoard->sublevel=0;
+	gcomprisBoard->sublevel=1;
 	init_operation();
 	gcompris_play_sound (SOUNDLISTFILE, "bonus");
       } else {

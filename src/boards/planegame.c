@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2001/11/06 22:21:15 bruno>
+ * Time-stamp: <2001/12/01 23:34:16 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -375,8 +375,10 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 	    {
 	      /* Try the next level */
 	      gcomprisBoard->level++;
-	      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-		gcomprisBoard->level=gcomprisBoard->maxlevel;
+	      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+		board_finished();
+		return;
+	      }
 	      planegame_next_level();
 	      gcompris_play_sound (SOUNDLISTFILE, "bonus");
 	    }

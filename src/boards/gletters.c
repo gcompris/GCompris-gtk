@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2001/11/10 22:56:47 bruno>
+ * Time-stamp: <2001/12/01 23:33:31 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -478,8 +478,10 @@ static void player_win(GnomeCanvasItem *item)
     {
       /* Try the next level */
       gcomprisBoard->level++;
-      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-	gcomprisBoard->level=gcomprisBoard->maxlevel;
+      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+	board_finished();
+	return;
+      }
       gletters_next_level();
       gcompris_play_sound (SOUNDLISTFILE, "bonus");
     }

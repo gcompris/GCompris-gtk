@@ -135,7 +135,7 @@ INCLUDES =  	-I$(top_srcdir)/intl 	$(GNOME_INCLUDEDIR)
 
 bin_PROGRAMS = gcompris
 
-gcompris_SOURCES =  	pixbuf_util.c pixbuf_util.h 	gcompris.c gcompris.h gcompris-board.h 	properties.c properties.h 	gameutil.c gameutil.h 	bar.c 	help.c 	plugin.h 	pluginenum.c pluginenum.h board.h board.c 	bonus.c bonus.h
+gcompris_SOURCES =  	pixbuf_util.c pixbuf_util.h 	gcompris.c gcompris.h gcompris-board.h 	properties.c properties.h 	gameutil.c gameutil.h 	bar.c 	help.c 	plugin.h 	pluginenum.c pluginenum.h board.h board.c 	bonus.c bonus.h 	point.c point.h
 
 
 gcompris_LDADD =  	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) 	$(GNOME_XML_LIB) $(INTLLIBS) 	$(GDK_PIXBUF_LIBS)
@@ -153,7 +153,7 @@ LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
 gcompris_OBJECTS =  pixbuf_util.$(OBJEXT) gcompris.$(OBJEXT) \
 properties.$(OBJEXT) gameutil.$(OBJEXT) bar.$(OBJEXT) help.$(OBJEXT) \
-pluginenum.$(OBJEXT) board.$(OBJEXT) bonus.$(OBJEXT)
+pluginenum.$(OBJEXT) board.$(OBJEXT) bonus.$(OBJEXT) point.$(OBJEXT)
 gcompris_DEPENDENCIES = 
 gcompris_LDFLAGS = 
 CFLAGS = @CFLAGS@

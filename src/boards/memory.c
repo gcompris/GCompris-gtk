@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2001/11/06 22:22:13 bruno>
+ * Time-stamp: <2001/12/01 23:33:51 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -549,8 +549,10 @@ static void player_win()
   gcompris_play_sound (SOUNDLISTFILE, "bonus");
   /* Try the next level */
   gcomprisBoard->level++;
-  if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-    gcomprisBoard->level=gcomprisBoard->maxlevel;
+  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+    board_finished();
+    return;
+  }
   memory_next_level();
 }
 

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/11/29 03:34:04 bruno>
+ * Time-stamp: <2001/12/01 23:14:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -236,7 +236,10 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
-static void increment_sublevel()
+/*
+ * Returns true if increment is done, false is end of board
+ */
+static gboolean increment_sublevel()
 {
   gcomprisBoard->sublevel++;
   gcompris_bar_set_timer(gcomprisBoard->sublevel);
@@ -244,13 +247,16 @@ static void increment_sublevel()
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-      gcomprisBoard->level=1;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      board_finished();
+      return FALSE;
+    }
     
     gcomprisBoard->sublevel=0;
   }
 
   gcompris_bar_set_level(gcomprisBoard);
+  return TRUE;
 }
 
 /* set initial values for the next level */
@@ -270,11 +276,12 @@ static void shapegame_next_level()
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
 
   while(!g_file_exists(filename)
-	&& (gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0))
+	&& ((gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0)))
     {
       /* Try the next level */
       gcomprisBoard->sublevel=gcomprisBoard->number_of_sublevel;
-      increment_sublevel();
+      if(!increment_sublevel())
+	return;
       
       g_free(filename);
       filename = g_strdup_printf("%s/%s/board%d_%d.xml",  

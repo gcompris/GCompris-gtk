@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2001/11/06 22:20:23 bruno>
+ * Time-stamp: <2001/12/02 03:28:02 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -156,6 +156,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
+      gcomprisBoard->sublevel = 1;
+      gcomprisBoard->number_of_sublevel = 5;
+      gcompris_point_start(POINTSTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       wordsgame_next_level();
@@ -178,6 +184,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_point_end();
       wordsgame_destroy_all_items();
       if (words_table)
 	{
@@ -381,6 +388,7 @@ static void wordsgame_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
+  gcompris_point_set(gcomprisBoard->sublevel);
 
   wordsgame_destroy_all_items();
 
@@ -393,10 +401,6 @@ static void wordsgame_next_level()
     {
       fallSpeed=7000-gcomprisBoard->level*200;
     }
-  gcomprisBoard->number_of_sublevel=5;
-  gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
-  gcomprisBoard->sublevel=0;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
 
   pause_board(FALSE);
 }
@@ -574,14 +578,17 @@ static void player_win(LettersItem *item)
   gcompris_play_sound (SOUNDLISTFILE, "gobble");
 
   gcomprisBoard->sublevel++;
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcompris_point_set(gcomprisBoard->sublevel);
 
-  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) 
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) 
     {
       /* Try the next level */
       gcomprisBoard->level++;
-      if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-	gcomprisBoard->level=gcomprisBoard->maxlevel;
+      gcomprisBoard->sublevel = 1;
+      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+	board_finished();
+	return;
+      }
       wordsgame_next_level();
       gcompris_play_sound (SOUNDLISTFILE, "bonus");
     }

@@ -1,4 +1,14 @@
-2001-12-01 Pascal Georges <pascal.georges1@free.fr
+2001-12-02  Bruno Coudoin  <bruno.coudoin@free.fr>
+	* src/boards/clockgame.c: modified to use board_finished(). Fixed max timer.
+	                          modified to use gcompris_point API
+	* src/board/algebra.c: modified to use gcompris_point API
+	* src/board/wordsgame.c: modified to use gcompris_point API
+	* src/boards/*.c: modified to use board_finished().
+	* boards/paintings/board6_1.xml: deleted, was incomplete.
+	* src/gcompris/bonus.h: removed entry gcompris_bar_set_message()
+	* src/gcompris/point.c: creation of the gcompris_point API to replace gcompris_bar_timer
+	
+2001-12-01 Pascal Georges <pascal.georges1@free.fr>
 	* added board_finished() function in bonus.c, called when a sequential board is done
 	It displays tux in a plane flying toward a door (!)
 	* corrected the XML accent bug, that still remained in missingletter (but I had already corrected in imageid)
@@ -17,7 +27,7 @@
 	* src/boards/menu.c: changed to add more space between the two menu lines
 	* boards/boardicons/railroad.png: made it smaller to be closed to other icons
 
-2001-11-25 Pascal Georges <pascal.georges1@free.fr
+2001-11-25 Pascal Georges <pascal.georges1@free.fr>
 	* src/gcompris/gameutil.c : added convertUTF8Toisolat1 function
 
 2001-11-23 Reinhard Müller <reinhard.mueller@bytewise.at>

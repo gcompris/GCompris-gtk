@@ -27,7 +27,7 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@; \
-	  cd @PACKAGE_DATA_DIR@ ; find . -name \*~ -or -name \*.in  -printf \"%f\n\" >/tmp/GCOMPRIS_LIST.txt ; cd .. ; \
+	  find @PACKAGE_DATA_DIR@ -name \*~ -or -name \*.in  -printf \"%f\n\" >/tmp/GCOMPRIS_LIST.txt ; \
 	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude CVS --exclude .xvpics --exclude-from  /tmp/GCOMPRIS_LIST.txt * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 	fi
@@ -35,7 +35,9 @@ install-data-local:
 dist-hook:
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(distdir)/@PACKAGE_DATA_DIR@; \
-	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude CVS --exclude .xvpics * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  find @PACKAGE_DATA_DIR@ -name \*~  -printf \"%f\n\" >/tmp/GCOMPRIS_LIST.txt ; \
+	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude CVS --exclude .xvpics --exclude-from  /tmp/GCOMPRIS_LIST.txt * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 	fi
 
 

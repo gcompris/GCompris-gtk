@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2001/11/06 22:22:40 bruno>
+ * Time-stamp: <2001/12/01 23:30:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -583,8 +583,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
 	       if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
 		 /* Try the next level */
 		 gcomprisBoard->level++;
-		 if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-		   gcomprisBoard->level=gcomprisBoard->maxlevel;
+		 if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+		   board_finished();
+		   return;
+		 }
 		 clickgame_next_level();
 		 gcompris_play_sound (SOUNDLISTFILE, "bonus");
 		 return FALSE;

@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2001/11/18 22:25:54 bruno>
+ * Time-stamp: <2001/12/01 23:51:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -254,15 +254,7 @@ gcompris_bar_set_maxtimer (guint time)
   gnome_appbar_set_progress (GNOME_APPBAR (statusbar), 0.0);
 }
 
-
-/* Setting text line information.  */
-void
-gcompris_bar_set_message (const gchar *message)
-{
-  gnome_appbar_set_status (GNOME_APPBAR (statusbar), message);
-}
-
-/* Setting text line information.  */
+/* Setting list of available icons in the control bar */
 void
 gcompris_bar_set (const GComprisBarFlags flags)
 {

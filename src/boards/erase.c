@@ -258,8 +258,10 @@ static void game_won()
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-      gcomprisBoard->level=gcomprisBoard->maxlevel;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      board_finished();
+      return;
+    }
     gcompris_play_sound (SOUNDLISTFILE, "bonus");
   }
   erase_next_level();

@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2001/11/06 22:22:28 bruno>
+ * Time-stamp: <2001/12/02 03:07:16 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -29,6 +29,7 @@
 static GList *item_list = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
+gboolean board_paused = TRUE;
 
 static GnomeCanvasItem *second_item;
 static GnomeCanvasItem *hour_item;
@@ -54,6 +55,9 @@ static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static void process_ok(void);
+
+static int gamewon;
+static void game_won();
 
 static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent);
 static void clockgame_destroy_item(GnomeCanvasItem *item);
@@ -111,6 +115,12 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  if(gamewon == TRUE) /* the game is won */
+    {
+      game_won();
+    }
+
+  board_paused = pause;
 }
 
 /*
@@ -130,16 +140,19 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       cy =  gcomprisBoard->height*0.4;
       clock_size = gcomprisBoard->height*0.3;
 
-      gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=6;
-      gcomprisBoard->sublevel=0;
+      gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
+      gcompris_point_start(POINTSTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
-      gcompris_bar_set_timer(0);
 
       clockgame_next_level();
 
+      gamewon = FALSE;
       pause_board(FALSE);
     }
 
@@ -152,6 +165,7 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_point_end();
       clockgame_destroy_all_items();
     }
 }
@@ -163,7 +177,7 @@ set_level (guint level)
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
-      gcomprisBoard->sublevel=0;
+      gcomprisBoard->sublevel=1;
       clockgame_next_level();
     }
 }
@@ -195,7 +209,7 @@ static void clockgame_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
-  gcompris_bar_set_timer(gcomprisBoard->sublevel);
+  gcompris_point_set(gcomprisBoard->sublevel);
 
   clockgame_destroy_all_items();
 
@@ -557,31 +571,38 @@ static gboolean time_equal(Time *time1, Time *time2)
 
 }
 
+/* ==================================== */
+static void game_won()
+{
+  gamewon = FALSE;
+  gcomprisBoard->sublevel++;
+
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+    /* Try the next level */
+    gcomprisBoard->sublevel=1;
+    gcomprisBoard->level++;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      board_finished();
+      return;
+    }
+    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+  }
+  clockgame_next_level();
+}
+
+/* ==================================== */
 static void process_ok()
 {
   if(time_equal(&timeToFind, &currentTime))
     {
-      gcompris_play_sound (SOUNDLISTFILE, "gobble");
-
-      gcomprisBoard->sublevel++;
-      gcompris_bar_set_timer(gcomprisBoard->sublevel);
-
-      if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
-	/* Try the next level */
-	gcomprisBoard->sublevel=0;
-	gcomprisBoard->level++;
-	if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-	    gcomprisBoard->level=gcomprisBoard->maxlevel;
-	gcompris_play_sound (SOUNDLISTFILE, "bonus");
-      }
-
-      clockgame_next_level();
+      gamewon = TRUE;
     }
   else
     {
       /* Oups, you're wrong */
-      gcompris_play_sound (SOUNDLISTFILE, "crash");
+      gamewon = FALSE;
     }
+  gcompris_display_bonus(gamewon, BONUS_FLOWER);
 }
 
 
@@ -594,6 +615,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   static int dragging;
   GdkCursor *fleur;
   double new_x, new_y;
+
+  if(board_paused)
+    return FALSE;
 
   item_x = event->button.x;
   item_y = event->button.y;
