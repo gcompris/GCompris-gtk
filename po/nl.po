@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-19 19:00+0200\n"
-"PO-Revision-Date: 2004-10-19 21:59+0200\n"
+"POT-Creation-Date: 2004-10-24 18:52+0200\n"
+"PO-Revision-Date: 2004-10-24 23:24+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -279,7 +279,7 @@ msgstr "pistache"
 msgid "platinum"
 msgstr "platinum"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "paars"
 
@@ -683,6 +683,11 @@ msgstr ""
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Vervoer"
+
+# is dit goed?
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "The aviation"
+msgstr "Het vliegen"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1274,6 +1279,10 @@ msgstr "turkije"
 #: boards/geography/board3_1.xml.in.h:23
 msgid "ukraine"
 msgstr "oekraïne"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Franse regios"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1961,8 +1970,8 @@ msgid "Spatial representation"
 msgstr "Ruimtelijke voorstelling"
 
 #: boards/paintings/board1_0.xml.in.h:1
-msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr "Edgar Degas, De Dansles - 1873"
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas, De Dansles - 1873-75"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
@@ -1985,8 +1994,8 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, De Versterkingen te Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassatt, Mary - Summertime - 1895"
-msgstr "Cassatt, Mary - Zomer - 1895"
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Cassatt, Mary - Zomer - 1894"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -2006,12 +2015,10 @@ msgstr ""
 "springen. Druk nogmaals op een toets of klik op Tux om de parachute te "
 "openen."
 
-# engels taalfout: He needs to take watch out for the wind....
-# .. the parachuter need help to....
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the parachuter need help to land safely on the fishing "
-"boat. He needs to take watch out for the wind direction and speed."
+"In this game, Tux the parachuter needs help to land safely on the fishing "
+"boat. He needs to take care of the wind direction and speed."
 msgstr ""
 "In dit spel heeft Tux de parachutist hulp nodig om veilig te landen op de "
 "vissersboot. Hij moet rekening houden met de windrichting en snelheid."
@@ -2103,27 +2110,27 @@ msgstr "Kleuren lezen"
 msgid "This board teaches basic colors."
 msgstr "Dit bord is voor het leren van eenvoudige kleuren."
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "zwart"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "blauw"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "bruin"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "groen"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "grijs"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "oranje"
 
@@ -2131,7 +2138,7 @@ msgstr "oranje"
 msgid "pink"
 msgstr "roze"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "rood"
 
@@ -2139,11 +2146,11 @@ msgstr "rood"
 msgid "violet"
 msgstr "violet"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "wit"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "geel"
 
@@ -2573,14 +2580,49 @@ msgstr ""
 msgid "Couldn't open dir: %s"
 msgstr "Kon de map niet openen: %s"
 
-#: src/boards/clockgame.c:530
+#: src/boards/clockgame.c:528
 msgid "Set the watch to:"
 msgstr "Stel de klok in op:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Klik op het %s plaatje"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Klik op het blauwe plaatje"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Klik op het bruine plaatje"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Klik op het groene plaatje"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Klik op het grijze plaatje"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Klik op het oranje plaatje"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Klik op het paarse plaatje"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Klik op het rode plaatje"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Klik op het gele plaatje"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Klik op het zwarte plaatje"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Klik op het witte plaatje"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2631,11 +2673,11 @@ msgstr "Selecteer een spel"
 msgid "Pratice money usage"
 msgstr "Leer met geld omgaan"
 
-#: src/boards/paratrooper.c:104
+#: src/boards/paratrooper.c:102
 msgid "Paratrooper"
 msgstr "Parachutist"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Probeer de parachutist veilig op de boot te laten landen"
 
@@ -3175,7 +3217,7 @@ msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -3200,12 +3242,13 @@ msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Versie: %s\n"
 "Licentie: GPL\n"
-"Meer informatie op http://www.ofset.org/gcompris\n"
+"Meer informatie op http://gcompris.net\n"
+"\n"
 
 #: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
@@ -3314,9 +3357,6 @@ msgstr "Resterende tijd = %d"
 
 #~ msgid "Canadian English"
 #~ msgstr "Canadees Engels"
-
-#~ msgid "Regions of France"
-#~ msgstr "Franse regios"
 
 #~ msgid ""
 #~ "This is a Demo version of gcompris,\n"
