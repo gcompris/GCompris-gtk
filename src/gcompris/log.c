@@ -96,9 +96,9 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   /* and convert it to UTC or local time representation */
   struct tm *tp;
   if (USE_UTC)
-    tp = gmtime(&end_time);
+    tp = gmtime(&start_time);
   else
-    tp = localtime(&end_time);
+    tp = localtime(&start_time);
 
   /* convert the time to a string according to the format specification in fmt */
   strftime(buf, sizeof(buf), fmt, tp);
@@ -109,13 +109,13 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   flog = fopen(file,"a");
 
   /* date,computer,user,board,level,sublevel,status, duration,comment */
-  fprintf(flog, "%s,%s,%s,%s,%d,%d,%s,%d,%s\n", buf, hostname, g_get_user_name(),
+  fprintf(flog, "%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s\n", buf, hostname, g_get_user_name(),
 	  gcomprisBoard->name, 
 	  gcomprisBoard->level, gcomprisBoard->sublevel,
 	  status,
 	  (guint)duration,
 	  comment_set);
-  printf("%s,%s,%s,%s,%d,%d,%s,%d,%s\n", buf, hostname, g_get_user_name(), 
+  printf("%s;%s;%s;gcompris;%s;%d;%d;%s;%d;%s\n", buf, hostname, g_get_user_name(), 
 	 gcomprisBoard->name, 
 	 gcomprisBoard->level, gcomprisBoard->sublevel,
 	 status,

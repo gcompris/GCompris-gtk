@@ -192,7 +192,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=NUMBER_OF_TARGET;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/target_background.jpg");
 
@@ -350,6 +349,7 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void target_next_level()
 {
 
+  gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
   gcompris_bar_set_level(gcomprisBoard);
 
   target_destroy_all_items();
@@ -535,18 +535,20 @@ static void process_ok()
 {
   guint answer_points = atoi(answer_string);
 
-  if(answer_points == user_points)
-    {
-      gamewon = TRUE;
-      target_destroy_all_items();
-      gcompris_display_bonus(gamewon, BONUS_SMILEY);
-    }
-  else
-    {
-      gamewon = FALSE;
-      gcompris_display_bonus(gamewon, BONUS_SMILEY);
-    }
-
+  if(answer_item) {
+    
+    if(answer_points == user_points)
+      {
+	gamewon = TRUE;
+	target_destroy_all_items();
+	gcompris_display_bonus(gamewon, BONUS_SMILEY);
+      }
+    else
+      {
+	gamewon = FALSE;
+	gcompris_display_bonus(gamewon, BONUS_SMILEY);
+      }
+  }
 
 }
 
@@ -560,6 +562,7 @@ static void request_score()
   double y_offset = 160;
   double x_offset = 245;
 
+  gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
   button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type (),

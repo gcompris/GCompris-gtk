@@ -1,3 +1,10 @@
+2004-01-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/target.c: (start_board), (target_next_level),
+	(process_ok), (request_score): fixed bug where ok was accepted before dart were send.
+	now the ok button is contextual.
+	* src/gcompris/log.c: (gcompris_log_end): added program name in the log format. Now use starttime.
+
 2004-01-21  Olivier Samyn  <osamyn@easynet.be>
 
 	* docs/C/python.html: synced docs with code
