@@ -251,7 +251,9 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
 gchar *reactivate_newline(gchar *str)
 {
   gchar *newstr;
-  
+ printf("reactivate_newline %s\n", str); 
+  if(str==NULL)
+	return(NULL);
   newstr = g_strcompress(str);
   
   g_free(str);
