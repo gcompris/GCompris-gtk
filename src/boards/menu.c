@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/06/26 00:34:19 bruno>
+ * Time-stamp: <2002/12/09 23:13:46 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -435,20 +435,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 
 static void create_info_area(GnomeCanvasGroup *parent)
 {
-  GdkFont *gdk_font, *gdk_font_small, *gdk_font_big;
   gint x = (double)gcomprisBoard->width/2;
   gint y = 350;
-
-  /* Load a gdk font */
-  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
-  gdk_font_small = gdk_font_load (FONT_BOARD_TINY);
-  gdk_font_big = gdk_font_load (FONT_BOARD_BIG);
 
   boardname_item = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
-			   "text", "",
-			   "font_gdk", gdk_font_big,
+			   "text", " ",
+			   "font", FONT_BOARD_BIG,
 			   "x", (double) x,
 			   "y", (double) y,
 			   "anchor", GTK_ANCHOR_CENTER,
@@ -458,8 +452,8 @@ static void create_info_area(GnomeCanvasGroup *parent)
   description_item = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
-			   "text", "",
-			   "font_gdk", gdk_font_small,
+			   "text", " ",
+			   "font", FONT_BOARD_MEDIUM,
 			   "x", (double) x,
 			   "y", (double) y + 35,
 			   "anchor", GTK_ANCHOR_NORTH,
@@ -470,14 +464,15 @@ static void create_info_area(GnomeCanvasGroup *parent)
   author_item = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
-			   "text", "",
-			   "font_gdk", gdk_font_small,
+			   "text", " ",
+			   "font", FONT_BOARD_TINY,
 			   "x", (double) x,
 			   "y", (double) y + 80,
-			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color", "white",
-			   "justification", GTK_JUSTIFY_CENTER,
+  			   "anchor", GTK_ANCHOR_NORTH,
+  			   "fill_color", "white",
+  			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
+
 }
 
 

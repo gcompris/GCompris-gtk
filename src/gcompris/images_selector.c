@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2002/05/05 22:21:17 bruno>
+ * Time-stamp: <2002/12/09 23:07:46 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -88,7 +88,6 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   gint		 y = 0;
   gint		 y_start = 0;
   gint		 x_start = 0;
-  GdkFont	*gdk_font;
   gchar		*name = NULL;
 
   if(rootitem)
@@ -124,11 +123,6 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
-  gdk_font = gdk_font_load (FONT_TITLE);
-  if(!gdk_font)
-    // Fallback to a more usual font
-    gdk_font = gdk_font_load (FONT_TITLE_FALLBACK);
-
   y_start += 110;
 
   pixmap = gcompris_load_pixmap("gcompris/buttons/button_large_selected.png");
@@ -152,7 +146,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap),
 				"anchor", GTK_ANCHOR_CENTER,
@@ -348,7 +342,7 @@ read_xml_file(gchar *fname)
   g_return_val_if_fail(fname!=NULL,FALSE);
 
   /* if the file doesn't exist */
-  if(!g_file_exists(fname)) 
+  if(!g_file_test ((fname), G_FILE_TEST_EXISTS)) 
     {
       g_warning(_("Couldn't find file %s !"), fname);
       return FALSE;

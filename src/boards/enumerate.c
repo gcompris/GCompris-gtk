@@ -379,9 +379,6 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
   GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *pixmap_answer = NULL;
-  GdkFont *gdk_font;
-	
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -472,7 +469,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_text_get_type (),
 			       "text", "?",
-			       "font_gdk", gdk_font,
+			       "font", FONT_BOARD_BIG,
 			       "x", (double) ANSWER_X + 2*ANSWER_WIDTH,
 			       "y", (double) current_y + ANSWER_HEIGHT/2,
 			       "anchor", GTK_ANCHOR_EAST,

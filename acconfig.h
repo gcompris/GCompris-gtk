@@ -11,5 +11,5 @@
 #undef PLUGINSUBS
 #undef PLUGIN_DIR
 #undef ALL_LINGUAS
-
-
+#undef GNOME_ICONDIR
+#undef GETTEXT_PACKAGE

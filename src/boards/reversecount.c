@@ -603,13 +603,11 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
   GnomeCanvasItem *item = NULL;
   GdkPixbuf   *pixmap = NULL;
   int i,j;
-  //  GdkFont *gdk_font;
 
   block_width  = BOARDWIDTH/number_of_item_x;
   block_height = BOARDHEIGHT/number_of_item_y;
 
   pixmap = gcompris_load_pixmap(imagename);
-  //  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
   if(block < number_of_item_x)
     {
@@ -668,18 +666,6 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
 				"width_set", TRUE, 
 				"height_set", TRUE,
 				NULL);
-
-  /*
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
-			 "text", g_strdup_printf("%d", (guint)block),
-			 "font_gdk", gdk_font,
-			 "x", (double) i+block_width/2,
-			 "y", (double) j+block_height/2,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "red",
-			 NULL);
-  */
 
   gdk_pixbuf_unref(pixmap);
 

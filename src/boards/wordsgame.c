@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2002/04/29 01:52:36 bruno>
+ * Time-stamp: <2002/12/12 00:07:16 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -39,8 +39,9 @@ static gint drop_items_id = 0;
 static GHashTable *words_table= NULL;
 
 typedef struct {
-  char *word;
-  char *overword;
+  gchar *word;
+  gchar *overword;
+  gint  charcounter;
   GnomeCanvasItem *rootitem;
   GnomeCanvasItem *overwriteItem;
 } LettersItem;
@@ -67,7 +68,7 @@ static void		 player_win(LettersItem *item);
 static void		 player_loose(void);
 static LettersItem 	*item_find_by_title (const gchar *title);
 static char		 *get_random_word(void);
-static void		 wordsgame_check_focus (char	*key,
+static void		 wordsgame_check_focus (gchar	*key,
 				   LettersItem *value,
 				   LettersItem **user_data);
 static gboolean words_table_foreach_remove (char *key,
@@ -207,16 +208,19 @@ set_level (guint level)
     }
 }
 
-static void wordsgame_check_focus (char	*key,
+static void wordsgame_check_focus (gchar       *key,
 				   LettersItem *value,
 				   LettersItem **user_data)
 {
   LettersItem *usrdata = *user_data;
+  gchar *nextCurrentChar;
 
   if(usrdata->rootitem!=NULL)
     return;
 
-  if(key[0]==usrdata->word[0])
+  nextCurrentChar = g_utf8_next_char(key);
+
+  if(strncmp(key, usrdata->word, nextCurrentChar-key)==0)
     {
       free(*user_data);
       *user_data = value;
@@ -227,9 +231,11 @@ static void wordsgame_check_focus (char	*key,
 gint key_press(guint keyval)
 {
   char str[2];
+  gchar *utf8char;
 
   if(!gcomprisBoard)
     return TRUE;
+
 
   /* Add some filter for control and shift key */
   switch (keyval)
@@ -286,6 +292,8 @@ gint key_press(guint keyval)
 
   sprintf(str, "%c", keyval);
 
+  utf8char = g_locale_to_utf8(str, 1, NULL, NULL, NULL);
+
   if(currentFocus==NULL) 
     {
       LettersItem *searchitem;
@@ -293,9 +301,10 @@ gint key_press(guint keyval)
       searchitem = malloc(sizeof(LettersItem));
 
       /* Try to see if this letter matches the first one of any words */
-      searchitem->word = (char *)&str;
-      searchitem->rootitem=NULL;
-      searchitem->overword="";
+      searchitem->word        = utf8char;
+      searchitem->rootitem    = NULL;
+      searchitem->overword    = "";
+      searchitem->charcounter = 0;
 
       g_hash_table_foreach (words_table, (GHFunc) wordsgame_check_focus, &searchitem);
 
@@ -314,23 +323,33 @@ gint key_press(guint keyval)
     {
       if(currentFocus->rootitem!=NULL) 
 	{
-	  char currentChar;
-	  
-	  /* Check this is the correct letter */
-	  currentChar = currentFocus->word[strlen(currentFocus->overword)];
+	  gchar *currentChar;
+	  gchar *nextCurrentChar;
+	  gint   i;
 
-	  if(currentChar==str[0])
+	  currentChar = currentFocus->word;
+	  for(i = 0 ; i < currentFocus->charcounter ; i++) {
+	    currentChar = g_utf8_next_char(currentChar);
+	  }
+	    
+	  nextCurrentChar = g_utf8_next_char(currentChar);
+
+	  if(strncmp(currentChar, utf8char, nextCurrentChar-currentChar)==0)
 	    {
+
+	      currentFocus->charcounter++;
+
 	      /* Increment the overword */
 	      snprintf(currentFocus->overword, 
-		       strlen(currentFocus->overword)+2,
+		       nextCurrentChar-currentFocus->word + 1,
 		       "%s", currentFocus->word);
-	      
+
 	      gnome_canvas_item_set (currentFocus->overwriteItem,
 				     "text", currentFocus->overword,
 				     NULL);
-	      
-	      if(strlen(currentFocus->overword)==strlen(currentFocus->word))
+
+	      if(g_utf8_strlen(currentFocus->overword, MAXWORDSLENGTH) ==
+		 g_utf8_strlen(currentFocus->word, MAXWORDSLENGTH))
 		{
 		  /* You won Guy */
 		  player_win(item_find_by_title(currentFocus->word));
@@ -342,6 +361,7 @@ gint key_press(guint keyval)
 	    {
 	      /* It is a loose : unselect the word and defocus */
 	      currentFocus->overword[0]='\0';
+	      currentFocus->charcounter=0;
 	      gnome_canvas_item_set (currentFocus->overwriteItem,
 				     "text", currentFocus->overword,
 				     NULL);
@@ -496,7 +516,6 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 {
   GnomeCanvasItem *item2;
   LettersItem *lettersItem;
-  GdkFont *gdk_font;
 
   lettersItem = malloc(sizeof(LettersItem));
 
@@ -504,9 +523,6 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     {
       words_table= g_hash_table_new (g_str_hash, g_str_equal);
     }
-
-  /* Load a gdk font */
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /* Beware, since we put the words in a hash table, we do not allow the same
      letter to be displayed two times */
@@ -516,14 +532,13 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 
   /* fill up the overword with zeros */
   lettersItem->overword=calloc(strlen(lettersItem->word), 1);
+  lettersItem->charcounter=0;
 
   lettersItem->rootitem = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
-			   "x", (double)(rand()%(gcomprisBoard->width-
-						 (guint)(gdk_string_width(gdk_font, 
-									  lettersItem->word)))),
-			   "y", (double) -gdk_string_height(gdk_font, lettersItem->word),
+			   "x", (double)(rand()%(gcomprisBoard->width-100)),
+			   "y", (double) -12,
 			   NULL);
 
   /* To 'erase' words, I create 2 times the text item. One is empty now */
@@ -532,7 +547,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", lettersItem->word,
-			   "font_gdk", gdk_font,
+			   "font", FONT_BOARD_BIG_BOLD,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", GTK_ANCHOR_NW,
@@ -543,7 +558,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font_gdk", gdk_font,
+			   "font", FONT_BOARD_BIG_BOLD,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", GTK_ANCHOR_NW,
@@ -660,13 +675,13 @@ static FILE *get_wordfile(char *locale)
  * Return a random word from a set of text file depending on 
  * the current level and language
  */
-static char *get_random_word()
+static gchar *get_random_word()
 {
   FILE *wordsfd;
   long size, i;
-  char *str;
+  gchar *str;
 
-  str = malloc(MAXWORDSLENGTH);
+  str = g_malloc(MAXWORDSLENGTH);
 
   wordsfd = get_wordfile(gcompris_get_locale());
 

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/10/06 16:42:24 djill>
+ * Time-stamp: <2002/12/08 15:52:42 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -87,8 +87,6 @@ void gcompris_config_start ()
 {
   GcomprisBoard		*gcomprisBoard = get_current_gcompris_board();
   GcomprisProperties	*properties = gcompris_get_properties();
-  GdkFont *gdk_font;
-  GdkFont *gdk_font_small;
   GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
   gint x_start = 0;
@@ -125,16 +123,10 @@ void gcompris_config_start ()
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
-  // TITLE
-  gdk_font = gdk_font_load (FONT_TITLE);
-  if(!gdk_font)
-    // Fallback to a more usual font
-    gdk_font = gdk_font_load (FONT_TITLE_FALLBACK);
-
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("GCompris Configuration"), 
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -160,7 +152,7 @@ void gcompris_config_start ()
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -174,12 +166,6 @@ void gcompris_config_start ()
 		     item);
   gdk_pixbuf_unref(pixmap);
 
-
-  // Configuration content
-  gdk_font_small = gdk_font_load (FONT_SUBTITLE);
-  if(!gdk_font_small)
-    // Fallback to a more usual font
-    gdk_font_small = gdk_font_load (FONT_SUBTITLE_FALLBACK);
 
   pixmap_checked   = gcompris_load_pixmap("gcompris/buttons/button_checked.png");
   pixmap_unchecked = gcompris_load_pixmap("gcompris/buttons/button_unchecked.png");
@@ -218,7 +204,7 @@ void gcompris_config_start ()
   item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", get_locale_name(current_locale), 
-					    "font_gdk", gdk_font_small,
+					    "font", FONT_SUBTITLE,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
@@ -246,7 +232,7 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Fullscreen"), 
-			 "font_gdk", gdk_font_small,
+			 "font", FONT_CONTENT,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
@@ -261,7 +247,7 @@ void gcompris_config_start ()
   item_screen_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", gettext(screenname[properties->screensize]), 
-					    "font_gdk", gdk_font_small,
+					    "font", FONT_CONTENT,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
@@ -289,7 +275,7 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Music"), 
-			 "font_gdk", gdk_font_small,
+			 "font", FONT_CONTENT,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
@@ -317,7 +303,7 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Effect"), 
-			 "font_gdk", gdk_font_small,
+			 "font", FONT_CONTENT,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
@@ -332,7 +318,7 @@ void gcompris_config_start ()
   item_timer_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					   gnome_canvas_text_get_type (),
 					   "text", gettext(timername[properties->timer]),
-					   "font_gdk", gdk_font_small,
+					   "font", FONT_CONTENT,
 					   "x", (double) x_text_start,
 					   "y", (double) y_start,
 					   "anchor", GTK_ANCHOR_WEST,
@@ -420,7 +406,7 @@ static void set_locale_flag(gchar *locale)
 
   g_warning("Trying to load flag %s", filename);
 
-  if (g_file_exists (filename)) 
+  if (g_file_test ((filename), G_FILE_TEST_EXISTS)) 
     {
       pixmap = gcompris_load_pixmap(str);
     } 

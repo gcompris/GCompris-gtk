@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2002/03/13 23:09:41 bruno>
+ * Time-stamp: <2002/12/09 23:11:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -510,15 +510,12 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data)
 
 static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 {
-  GdkFont *gdk_font;
   GdkPixbuf *pixmap = NULL;
   GnomeCanvasItem *itemgroup;
   char *str = NULL;
   char *number = NULL;
   int i, min;
   CloudItem *clouditem;
-
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /* Random cloud number */
   if(rand()%2==0)
@@ -562,7 +559,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(itemgroup),
 			 gnome_canvas_text_get_type (),
 			 "text", number,
-			 "font_gdk", gdk_font,
+			 "font", FONT_BOARD_BIG,
 			 "x", (double) 0,
 			 "y", (double) 0,
 			 "fill_color", "red",

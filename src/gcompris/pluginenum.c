@@ -102,7 +102,7 @@ void init_plugins(void)
 	while (node)
 	{
 		ip = (BoardPlugin *) node->data;
-		temp = g_basename(ip->filename);
+		temp = (gchar *)g_basename(ip->filename);
 		if (ip->init)
 			ip->init();
 		node = node->next;
@@ -126,7 +126,7 @@ void add_plugin(gchar * filename)
 	 */
 	{
 		GList *l;
-		gchar *base_filename = g_basename(filename);
+		gchar *base_filename = (gchar *)g_basename(filename);
 
 		for (l = bp_data->board_list; l; l = l->next)
 		{

@@ -1,14 +1,14 @@
-# French translation of gcompris.
+# gcompris fr.po.
 # Copyright (C) 2000-2002 Free Software Foundation, Inc.
-# maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2002.
-# Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2002.
+# maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
+# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.2.1\n"
-"POT-Creation-Date: 2002-12-14 15:01+0100\n"
-"PO-Revision-Date: 2002-12-14 14:59+0100\n"
-"Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
+"Project-Id-Version: 0.9.7\n"
+"POT-Creation-Date: 2002-12-14 23:54+0100\n"
+"PO-Revision-Date: 2002-12-14 23:57+0100\n"
+"Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -814,6 +814,14 @@ msgstr "Attrape et fais glisser les éléments pour reconstruire la carte"
 #: boards/geography.xml.in.h:2
 msgid "Place the lands"
 msgstr "Place les pays"
+
+#: boards/geography/board1_0.xml.in.h:1
+msgid "North America"
+msgstr "Amérique du Nord"
+
+#: boards/geography/board2_0.xml.in.h:1
+msgid "South America"
+msgstr "Amérique du Sud"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
@@ -1647,11 +1655,11 @@ msgstr "Envoie des flèches sur la cible et compte ton score"
 msgid "Touch the target and count your points"
 msgstr "Touche la cible et compte tes points"
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:85
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
 msgid "Falling Words"
 msgstr "Les mots qui tombent"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:86
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 
@@ -1667,20 +1675,20 @@ msgstr "Jeu éducatif à partir de 3 ans"
 msgid "Editor for gcompris"
 msgstr "Editeur de gcompris"
 
-#: src/boards/advanced_colors.c:529 src/boards/imageid.c:578
-#: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/read_colors.c:487 src/boards/shapegame.c:1564
-#: src/gcompris/gameutil.c:86 src/gcompris/gameutil.c:105
-#: src/gcompris/gameutil.c:398 src/gcompris/gameutil.c:399
-#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:269
+#: src/boards/advanced_colors.c:526 src/boards/imageid.c:573
+#: src/boards/menu.c:533 src/boards/missingletter.c:595
+#: src/boards/read_colors.c:485 src/boards/shapegame.c:1561
+#: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:104
+#: src/gcompris/gameutil.c:391 src/gcompris/gameutil.c:392
+#: src/gcompris/gcompris-edit.c:414 src/gcompris/gcompris-edit.c:415
+#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:269
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/advanced_colors.c:532 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/read_colors.c:490
-#: src/boards/shapegame.c:1567
+#: src/boards/advanced_colors.c:529 src/boards/imageid.c:576
+#: src/boards/missingletter.c:598 src/boards/read_colors.c:488
+#: src/boards/shapegame.c:1564
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -1732,31 +1740,31 @@ msgstr ""
 "dans votre distribution GNU/Linux.\n"
 "Ensuite vérifiez qu'il est dans /usr/bin/gnuchessx"
 
-#: src/boards/chess.c:571
+#: src/boards/chess.c:569
 msgid "White Turn"
 msgstr "Les blancs jouent"
 
-#: src/boards/chess.c:571
+#: src/boards/chess.c:569
 msgid "Black Turn"
 msgstr "Les noirs jouent"
 
-#: src/boards/chess.c:715
+#: src/boards/chess.c:710
 msgid "White check"
 msgstr "Echec au blancs"
 
-#: src/boards/chess.c:717
+#: src/boards/chess.c:712
 msgid "Black check"
 msgstr "Echec au noirs"
 
-#: src/boards/chess.c:1049
+#: src/boards/chess.c:1044
 msgid "Black mates"
 msgstr "Blancs échec et mat"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1049
 msgid "White mates"
 msgstr "Noirs échec et mat"
 
-#: src/boards/chess.c:1059
+#: src/boards/chess.c:1054
 msgid "Drawn game"
 msgstr "Echec et pat"
 
@@ -1773,7 +1781,7 @@ msgstr "Apprends à reconnaitre les lettres"
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Ne peut pas trouver le répertoire d'images: %s"
 
-#: src/boards/clockgame.c:537
+#: src/boards/clockgame.c:530
 msgid "Set the watch to:"
 msgstr "Règle la montre sur :"
 
@@ -1781,11 +1789,11 @@ msgstr "Règle la montre sur :"
 msgid "Learn how to read"
 msgstr "Apprends à lire"
 
-#: src/boards/leftright.c:251
+#: src/boards/leftright.c:247
 msgid "left"
 msgstr "gauche"
 
-#: src/boards/leftright.c:261
+#: src/boards/leftright.c:257
 msgid "right"
 msgstr "droite"
 
@@ -1817,11 +1825,11 @@ msgstr "Le jeu de mémoire"
 msgid "Build a train conforming to the model"
 msgstr "Construis un train correspondant au modèle"
 
-#: src/boards/read_colors.c:86
+#: src/boards/read_colors.c:85
 msgid "Read Colors"
 msgstr "Lire des couleurs"
 
-#: src/boards/read_colors.c:87
+#: src/boards/read_colors.c:86
 msgid "Click on the corresponding color"
 msgstr "Clique sur la bonne couleur lue"
 
@@ -1829,23 +1837,23 @@ msgstr "Clique sur la bonne couleur lue"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lis une liste de mots et dis si le mot donné en fait partie"
 
-#: src/boards/reading.c:316
+#: src/boards/reading.c:313
 msgid "Please, check if the word"
 msgstr "S'il te plaît, vérifie si le mot"
 
-#: src/boards/reading.c:336
+#: src/boards/reading.c:333
 msgid "is being displayed"
 msgstr "est affiché"
 
-#: src/boards/reading.c:527
+#: src/boards/reading.c:516
 msgid "I am Ready"
 msgstr "Je suis prêt"
 
-#: src/boards/reading.c:567
+#: src/boards/reading.c:553
 msgid "Yes I saw it"
 msgstr "Oui je l'ai vu"
 
-#: src/boards/reading.c:597
+#: src/boards/reading.c:583
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
@@ -1857,12 +1865,12 @@ msgstr "Compte à rebours"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
-#: src/boards/target.c:324 src/boards/target.c:581
+#: src/boards/target.c:324 src/boards/target.c:572
 #, c-format
 msgid "Points = %s"
 msgstr "Points = %s"
 
-#: src/boards/target.c:444
+#: src/boards/target.c:441
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -1871,12 +1879,12 @@ msgstr ""
 "Vitesse du vent = %d\n"
 "kilometres/heure"
 
-#: src/boards/target.c:509
+#: src/boards/target.c:503
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance de la cible = %d metres"
 
-#: src/gcompris/about.c:60
+#: src/gcompris/about.c:57
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -1890,27 +1898,27 @@ msgstr ""
 "Graphiques: Renaud Blanchard\n"
 "Musique: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:103
+#: src/gcompris/about.c:94
 msgid "About GCompris"
 msgstr "Au sujet de GCompris"
 
-#: src/gcompris/about.c:215
+#: src/gcompris/about.c:200
 msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
-#: src/gcompris/about.c:237
+#: src/gcompris/about.c:222
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
 
-#: src/gcompris/about.c:265
+#: src/gcompris/about.c:250
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:299 src/gcompris/config.c:162 src/gcompris/help.c:355
-#: src/gcompris/images_selector.c:154
+#: src/gcompris/about.c:284 src/gcompris/config.c:154 src/gcompris/help.c:342
+#: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "Valider"
 
@@ -1998,19 +2006,19 @@ msgstr "Compteur rapide"
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:136
+#: src/gcompris/config.c:128
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:248
+#: src/gcompris/config.c:234
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:291
+#: src/gcompris/config.c:277
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:319
+#: src/gcompris/config.c:305
 msgid "Effect"
 msgstr "Effet"
 
@@ -2042,11 +2050,11 @@ msgstr "Affiche la version de "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:316
+#: src/gcompris/gcompris.c:328
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:512
+#: src/gcompris/gcompris.c:534
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2059,147 +2067,73 @@ msgstr ""
 "License: GPL\n"
 "Plus d'informations sur http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/gcompris.h:105
-msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-msgstr "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-
-#: src/gcompris/gcompris.h:106 src/gcompris/gcompris.h:115
-msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-msgstr "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-
-#: src/gcompris/gcompris.h:107
-msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-
-#: src/gcompris/gcompris.h:108 src/gcompris/gcompris.h:114
-msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-
-#: src/gcompris/gcompris.h:109
-msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-msgstr "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-
-#: src/gcompris/gcompris.h:110 src/gcompris/gcompris.h:113
-msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-msgstr "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-
-#: src/gcompris/gcompris.h:112
-msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-msgstr "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-
-#: src/gcompris/gcompris.h:116
-msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-
-#: src/gcompris/gcompris.h:117
-msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-*-*-iso8859-1"
-
-#: src/gcompris/help.c:181 src/gcompris/interface.c:435
+#: src/gcompris/help.c:168 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: src/gcompris/help.c:215 src/gcompris/interface.c:446
+#: src/gcompris/help.c:202 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Objectif"
 
-#: src/gcompris/help.c:249 src/gcompris/interface.c:457
+#: src/gcompris/help.c:236 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuel"
 
-#: src/gcompris/help.c:283 src/gcompris/interface.c:546
+#: src/gcompris/help.c:270 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Crédit"
 
-#: src/gcompris/interface.c:117
-msgid "GCompris Edit"
+#: src/gcompris/interface.c:104
+msgid "Gcompris Editor"
 msgstr "GCompris Editeur"
 
-#: src/gcompris/interface.c:222
-msgid "Add"
-msgstr "Ajouter"
-
-#: src/gcompris/interface.c:223
-msgid "New file"
-msgstr "Nouveau fichier"
-
-#: src/gcompris/interface.c:235
-msgid "Remove"
-msgstr "Efface"
-
-#: src/gcompris/interface.c:236
-msgid "Open a file"
-msgstr "Ouvrir un fichier"
-
-#: src/gcompris/interface.c:248
-msgid "Up"
-msgstr "Monter"
-
-#: src/gcompris/interface.c:261
-msgid "Down"
-msgstr "Bas"
-
-#: src/gcompris/interface.c:296
-msgid "List of activities"
-msgstr "Liste des activités"
-
-#: src/gcompris/interface.c:302 src/gcompris/interface.c:568
-msgid "Name"
-msgstr "Nom"
-
-#: src/gcompris/interface.c:311 src/gcompris/interface.c:590
-msgid "Title"
-msgstr "Titre"
-
-#: src/gcompris/interface.c:320 src/gcompris/interface.c:395
-msgid "Difficulty"
-msgstr "Difficulté"
-
-#: src/gcompris/interface.c:362
+#: src/gcompris/interface.c:180
 msgid "Icon"
 msgstr "Icone"
 
-#: src/gcompris/interface.c:373
-msgid "Board dir"
-msgstr "Répertoire"
+#: src/gcompris/interface.c:189
+msgid "Name"
+msgstr "Nom"
 
-#: src/gcompris/interface.c:384
-msgid "Author"
-msgstr "Auteur"
-
-#: src/gcompris/interface.c:406
-msgid "Type"
-msgstr "Type"
-
-#: src/gcompris/interface.c:536
-msgid "..."
-msgstr "..."
-
-#: src/gcompris/interface.c:544
-msgid "Enregistrer le fichier"
-msgstr "Enregistrer le fichier"
-
-#: src/gcompris/interface.c:557 src/gcompris/interface.c:711
+#: src/gcompris/interface.c:198 src/gcompris/interface.c:415
 msgid "Description"
 msgstr "Description"
 
-#: src/gcompris/interface.c:723
-msgid "Content"
-msgstr "Contenu"
+#: src/gcompris/interface.c:207
+msgid "Type"
+msgstr "Type"
 
-#: src/gcompris/interface.c:778
-msgid "Icon List"
-msgstr "Liste des icones"
+#: src/gcompris/interface.c:216
+msgid "Difficulty"
+msgstr "Difficulté"
 
-#: src/gcompris/support.c:100 src/gcompris/support.c:138
+#: src/gcompris/interface.c:225
+msgid "Author"
+msgstr "Auteur"
+
+#: src/gcompris/interface.c:234
+msgid "Directory"
+msgstr "Répertoire"
+
+#: src/gcompris/interface.c:286
+msgid "Title"
+msgstr "Titre"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/interface.c:484
+msgid "translator_credits"
+msgstr ""
+"Bruno Coudoin\n"
+"Christophe Merlet (RedFox)"
+
+#: src/gcompris/interface.c:490
+msgid "Released under GPL"
+msgstr "Sous Licence GPL"
+
+#: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "Ne peux pas trouver l'image %s !"
-
-#: src/gcompris/support.c:116
-#, c-format
-msgid "Couldn't create pixmap from file: %s"
-msgstr "Ne peut pas trouver l'image: %s"
 
 #: src/gcompris/timer.c:237
 msgid "Time Ellapsed"
@@ -2209,25 +2143,3 @@ msgstr "Temps écoulé"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
-
-#~ msgid ""
-#~ "A division of two numbers is displayed. At the right of the equal sign, "
-#~ "give the answer. Use the left and right arrow to modify your answer, the "
-#~ "return key to validate an answer. The timer can be enabled or disabled in "
-#~ "the gcompris general configuration."
-#~ msgstr ""
-#~ "La division de deux nombres est affichée. Sur la droite du signe égale,\n"
-#~ "vous devez entrer la réponse. Utiliser les touches gauche et droite pour "
-#~ "modifier\n"
-#~ "la réponse.\n"
-#~ "La touche 'entrée' valide la réponse."
-
-#~ msgid "In a limited time, give the result to the division of two numbers"
-#~ msgstr "En en temps limité, donnez la réponse à la division de deux nombres"
-
-#~ msgid "Practice the division operation"
-#~ msgstr "Entraînement à l'opération de division"
-
-#, fuzzy
-#~ msgid "Move the mouse to enumerate the area and discover the background"
-#~ msgstr "Déplace la souris pour tout effacer et découvir le fond"

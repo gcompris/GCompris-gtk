@@ -2,11 +2,7 @@
 
 
 void
-on_save1_activate                      (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
-on_exit1_activate                      (GtkMenuItem     *menuitem,
+on_quit1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
@@ -22,21 +18,11 @@ on_paste1_activate                     (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_clear1_activate                     (GtkMenuItem     *menuitem,
-                                        gpointer         user_data);
-
-void
 on_about1_activate                     (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_ctree1_tree_select_row              (GtkCTree        *ctree,
-                                        GList           *node,
-                                        gint             column,
-                                        gpointer         user_data);
-
-void
-on_new_file1_activate                  (GtkMenuItem     *menuitem,
+on_new1_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
@@ -44,7 +30,7 @@ on_open1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_save2_activate                      (GtkMenuItem     *menuitem,
+on_save1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
@@ -52,7 +38,7 @@ on_save_as1_activate                   (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_exit2_activate                      (GtkMenuItem     *menuitem,
+on_quit2_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
@@ -84,37 +70,49 @@ on_about2_activate                     (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_buttonIconList_clicked              (GtkButton       *button,
+on_new1_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_ctree1_tree_unselect_row            (GtkCTree        *ctree,
-                                        GList           *node,
-                                        gint             column,
+on_open1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_button1_clicked                     (GtkButton       *button,
+on_save1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_button2_clicked                     (GtkButton       *button,
+on_save_as1_activate                   (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_buttonDel_clicked                   (GtkButton       *button,
+on_quit2_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_buttonAdd_clicked                   (GtkButton       *button,
+on_cut2_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_ctree1_tree_collapse                (GtkCTree        *ctree,
-                                        GList           *node,
+on_copy2_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data);
 
 void
-on_ctree1_tree_expand                  (GtkCTree        *ctree,
-                                        GList           *node,
+on_paste2_activate                     (GtkMenuItem     *menuitem,
+                                        gpointer         user_data);
+
+void
+on_clear2_activate                     (GtkMenuItem     *menuitem,
+                                        gpointer         user_data);
+
+void
+on_properties1_activate                (GtkMenuItem     *menuitem,
+                                        gpointer         user_data);
+
+void
+on_preferences1_activate               (GtkMenuItem     *menuitem,
+                                        gpointer         user_data);
+
+void
+on_about2_activate                     (GtkMenuItem     *menuitem,
                                         gpointer         user_data);

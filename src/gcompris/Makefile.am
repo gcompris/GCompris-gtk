@@ -2,63 +2,68 @@
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
-	-I$(top_srcdir)/src/unicode \
+	-DDATADIR=\""$(datadir)"\" \
+	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
-	$(GDK_PIXBUF_CFLAGS) \
 	$(XML_CFLAGS) \
-	$(PTHREAD_CFLAGS)
+	$(PTHREAD_CFLAGS) \
+	-DGNOME_DISABLE_DEPRECATED
 
 bin_PROGRAMS = gcompris gcompris-edit
+#bin_PROGRAMS = gcompris
 
 #noinst_LIBRARIES = \
 #	libgcompris.a
 
 libgcompris_a_SOURCES = \
-	pixbuf_util.c pixbuf_util.h \
-	gcompris.c gcompris.h gcompris-board.h \
-	properties.c properties.h \
+	gcompris.c \
 	gameutil.c gameutil.h \
-	soundutil.c soundutil.h \
+	properties.c properties.h \
 	bar.c \
+	images_selector.c \
+	oggplayer.c \
 	help.c \
+	pixbuf_util.c pixbuf_util.h \
+	board.h board.c \
+	soundutil.c soundutil.h \
+	cursor.c cursor.h \
 	plugin.h \
-	pluginenum.c pluginenum.h board.h board.c \
+	pluginenum.c pluginenum.h \
 	bonus.c bonus.h \
 	timer.c timer.h \
 	score.c score.h \
 	config.c gcompris_config.h \
-	about.c about.h \
-	cursor.c cursor.h \
-	images_selector.c \
-	oggplayer.c
+	about.c about.h 
 
 
 gcompris_SOURCES = \
 	main.c \
 	$(libgcompris_a_SOURCES)
 
+
+gcompris_LDFLAGS = \
+	-export-dynamic
+
 gcompris_LDADD = \
-	-L$(top_builddir)/src/unicode	\
-	-lgcompris_unicode		\
-	$(LIBICONV)			\
-	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(LIBICONV)		\
+	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) \
-	$(GDK_PIXBUF_LIBS) \
 	$(PTHREAD_LIB) \
 	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)
 
 
+gcompris_edit_LDFLAGS = \
+	-export-dynamic
+
 gcompris_edit_SOURCES = \
-	gcompris-edit.c gcompris-edit.h on.xpm off.xpm \
+	gcompris-edit.c gcompris-edit.h \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
 	$(libgcompris_a_SOURCES)
 
 gcompris_edit_LDADD = \
-	-L$(top_builddir)/src/unicode	\
-	-lgcompris_unicode		\
-	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(INTLLIBS) \
-	$(XML_LIBS) $(GDK_PIXBUF_LIBS) \
+	$(GCOMPRIS_LIBS) \
+	$(XML_LIBS) $(INTLLIBS) \
 	$(PTHREAD_LIB) \
 	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)

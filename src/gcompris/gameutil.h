@@ -22,7 +22,7 @@
 #define GAMEUTIL_H
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gdk-pixbuf/gnome-canvas-pixbuf.h>
+#include <libgnomecanvas/gnome-canvas-pixbuf.h>
 
 #include "gcompris.h"
 #include "soundutil.h"

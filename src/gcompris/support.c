@@ -1,5 +1,5 @@
 /*
- * NE PAS ÉDITER CE FICHIER - il est généré par Glade.
+ * NE PAS Ã‰DITER CE FICHIER - il est gÃ©nÃ©rÃ© par Glade.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -10,14 +10,11 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 
 #include <gnome.h>
 
 #include "support.h"
-
-/* This is an internally used function to create pixmaps. */
-static GtkWidget* create_dummy_pixmap  (GtkWidget       *widget,
-                                        gboolean         gnome_pixmap);
 
 GtkWidget*
 lookup_widget                          (GtkWidget       *widget,
@@ -31,6 +28,8 @@ lookup_widget                          (GtkWidget       *widget,
         parent = gtk_menu_get_attach_widget (GTK_MENU (widget));
       else
         parent = widget->parent;
+      if (!parent)
+        parent = gtk_object_get_data (GTK_OBJECT (widget), "GladeParentKey");
       if (parent == NULL)
         break;
       widget = parent;
@@ -43,104 +42,74 @@ lookup_widget                          (GtkWidget       *widget,
   return found_widget;
 }
 
-/* This is a dummy pixmap we use when a pixmap can't be found. */
-static char *dummy_pixmap_xpm[] = {
-/* columns rows colors chars-per-pixel */
-"1 1 1 1",
-"  c None",
-/* pixels */
-" ",
-" "
-};
-
-/* This is an internally used function to create pixmaps. */
-static GtkWidget*
-create_dummy_pixmap                    (GtkWidget       *widget,
-                                        gboolean         gnome_pixmap)
-{
-  GdkColormap *colormap;
-  GdkPixmap *gdkpixmap;
-  GdkBitmap *mask;
-  GtkWidget *pixmap;
-
-  if (gnome_pixmap)
-    {
-      return gnome_pixmap_new_from_xpm_d (dummy_pixmap_xpm);
-    }
-
-  colormap = gtk_widget_get_colormap (widget);
-  gdkpixmap = gdk_pixmap_colormap_create_from_xpm_d (NULL, colormap, &mask,
-                                                     NULL, dummy_pixmap_xpm);
-  if (gdkpixmap == NULL)
-    g_error ("Couldn't create replacement pixmap.");
-  pixmap = gtk_pixmap_new (gdkpixmap, mask);
-  gdk_pixmap_unref (gdkpixmap);
-  gdk_bitmap_unref (mask);
-  return pixmap;
-}
-
 /* This is an internally used function to create pixmaps. */
 GtkWidget*
 create_pixmap                          (GtkWidget       *widget,
-                                        const gchar     *filename,
-                                        gboolean         gnome_pixmap)
+                                        const gchar     *filename)
 {
   GtkWidget *pixmap;
-  GdkColormap *colormap;
-  GdkPixmap *gdkpixmap;
-  GdkBitmap *mask;
   gchar *pathname;
 
   if (!filename || !filename[0])
-      return create_dummy_pixmap (widget, gnome_pixmap);
+      return gtk_image_new ();
 
-  pathname = gnome_pixmap_file (filename);
+  pathname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_PIXMAP,
+                                        filename, TRUE, NULL);
   if (!pathname)
     {
       g_warning (_("Couldn't find pixmap file: %s"), filename);
-      return create_dummy_pixmap (widget, gnome_pixmap);
+      return gtk_image_new ();
     }
 
-  if (gnome_pixmap)
-    {
-      pixmap = gnome_pixmap_new_from_file (pathname);
-      g_free (pathname);
-      return pixmap;
-    }
-
-  colormap = gtk_widget_get_colormap (widget);
-  gdkpixmap = gdk_pixmap_colormap_create_from_xpm (NULL, colormap, &mask,
-                                                   NULL, pathname);
-  if (gdkpixmap == NULL)
-    {
-      g_warning (_("Couldn't create pixmap from file: %s"), pathname);
-      g_free (pathname);
-      return create_dummy_pixmap (widget, gnome_pixmap);
-    }
+  pixmap = gtk_image_new_from_file (pathname);
   g_free (pathname);
-
-  pixmap = gtk_pixmap_new (gdkpixmap, mask);
-  gdk_pixmap_unref (gdkpixmap);
-  gdk_bitmap_unref (mask);
   return pixmap;
 }
 
-/* This is an internally used function to create imlib images. */
-GdkImlibImage*
-create_image                           (const gchar     *filename)
+/* This is an internally used function to create pixmaps. */
+GdkPixbuf*
+create_pixbuf                          (const gchar     *filename)
 {
-  GdkImlibImage *image;
-  gchar *pathname;
+  gchar *pathname = NULL;
+  GdkPixbuf *pixbuf;
+  GError *error = NULL;
 
-  pathname = gnome_pixmap_file (filename);
+  if (!filename || !filename[0])
+      return NULL;
+
+  pathname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_PIXMAP,
+                                        filename, TRUE, NULL);
+
   if (!pathname)
     {
       g_warning (_("Couldn't find pixmap file: %s"), filename);
       return NULL;
     }
 
-  image = gdk_imlib_load_image (pathname);
+  pixbuf = gdk_pixbuf_new_from_file (pathname, &error);
+  if (!pixbuf)
+    {
+      fprintf (stderr, "Failed to load pixbuf file: %s: %s\n",
+               pathname, error->message);
+      g_error_free (error);
+    }
   g_free (pathname);
-  return image;
+  return pixbuf;
+}
+
+/* This is used to set ATK action descriptions. */
+void
+glade_set_atk_action_description       (AtkAction       *action,
+                                        const gchar     *action_name,
+                                        const gchar     *description)
+{
+  gint n_actions, i;
+
+  n_actions = atk_action_get_n_actions (action);
+  for (i = 0; i < n_actions; i++)
+    {
+      if (!strcmp (atk_action_get_name (action, i), action_name))
+        atk_action_set_description (action, i, description);
+    }
 }
 

@@ -102,11 +102,11 @@ static TargetDefinition targetDefinition[] =
 };
 #define NUMBER_OF_TARGET 4
 
-#define TARGET_CENTER_X	BOARDWIDTH/2 - 100
-#define TARGET_CENTER_Y	BOARDHEIGHT/2
+#define TARGET_CENTER_X	235
+#define TARGET_CENTER_Y	260
 
-#define SPEED_CENTER_X	BOARDWIDTH-200
-#define SPEED_CENTER_Y	130
+#define SPEED_CENTER_X	660
+#define SPEED_CENTER_Y	125
 
 static guint target_colors[] = {
   0xAA0000FF, 0x00AA00FF, 0x0000AAFF, 0xAAAA00FF, 0x00AAAAFF, 0xAA00AAFF, 0xAA0000FF, 0x00AA00FF, 0x0000AAFF, 0xAA0000FF
@@ -194,7 +194,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/target_background.jpg");
 
       target_next_level();
 
@@ -385,12 +385,9 @@ static void display_windspeed()
 {
   guint second = 0;
   guint needle_zoom = 15;
-  GdkFont *gdk_font;
 
   GnomeCanvasPoints *canvasPoints;
   canvasPoints = gnome_canvas_points_new (2);
-
-  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
   if(speedRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(speedRootItem));
@@ -418,7 +415,7 @@ static void display_windspeed()
   gnome_canvas_item_new (speedRootItem,
 			 gnome_canvas_line_get_type (),
 			 "points", canvasPoints,
-			 "fill_color_rgba", 0x68c46fFF,
+			 "fill_color_rgba", 0x6df438FF,
 			 "width_units", (double)1,
 			 "width_pixels", (uint) 4,
 			 "last_arrowhead", TRUE,
@@ -434,7 +431,7 @@ static void display_windspeed()
 			 "y1", (double)SPEED_CENTER_Y-5,
 			 "x2", (double)SPEED_CENTER_X+5,
 			 "y2", (double)SPEED_CENTER_Y+5,
-			 "fill_color_rgba", 0x0070C0FF,
+			 "fill_color_rgba", 0x6df438FF,
 			 "outline_color", "red",
 			 "width_units", (double)1,
 			 NULL);
@@ -442,9 +439,9 @@ static void display_windspeed()
   gnome_canvas_item_new (speedRootItem,
 			 gnome_canvas_text_get_type (),
 			 "text", g_strdup_printf(_("Wind speed = %d\nkilometers/hour"), (guint)wind_speed),
-			 "font_gdk", gdk_font,
+			 "font", FONT_BOARD_MEDIUM,
 			 "x", (double) SPEED_CENTER_X,
-			 "y", (double) SPEED_CENTER_Y + 40,
+			 "y", (double) SPEED_CENTER_Y + 110,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color", "white",
 			 NULL);
@@ -458,9 +455,6 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 {
   int i;
   GnomeCanvasItem *item = NULL;
-  GdkFont *gdk_font;
-
-  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (parent,
@@ -491,7 +485,7 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 					gnome_canvas_text_get_type (),
 					"text", g_strdup_printf("%d", 
 								targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1]),
-					"font_gdk", gdk_font,
+					"font", FONT_BOARD_MEDIUM,
 					"x", (double) 0,
 					"y", (double) targetDefinition[gcomprisBoard->level-1].target_width_value[i*2] - 10,
 					"anchor", GTK_ANCHOR_CENTER,
@@ -508,9 +502,9 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 			 gnome_canvas_text_get_type (),
 			 "text", g_strdup_printf(_("Distance to target = %d meters"), 
 						 targetDefinition[gcomprisBoard->level-1].target_distance),
-			 "font_gdk", gdk_font,
+			 "font", FONT_BOARD_MEDIUM,
 			 "x", (double) 0,
-			 "y", (double) BOARDHEIGHT-TARGET_CENTER_Y -40,
+			 "y", (double) BOARDHEIGHT-TARGET_CENTER_Y -45,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color", "white",
 			 NULL);
@@ -562,9 +556,8 @@ static void process_ok()
 static void request_score()
 {
   GdkPixbuf *button_pixmap = NULL;
-  double y_offset = 130;
-  double x_offset = 150;
-  GdkFont *gdk_font;
+  double y_offset = 160;
+  double x_offset = 245;
 
   button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
   gnome_canvas_item_new (boardRootItem,
@@ -574,12 +567,10 @@ static void request_score()
 			 "y", y_offset,
 			 NULL);
 
-  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
-
   answer_item = gnome_canvas_item_new (boardRootItem,
 				       gnome_canvas_text_get_type (),
 				       "text", g_strdup_printf(_("Points = %s"), ""),
-				       "font_gdk", gdk_font,
+				       "font", FONT_BOARD_TITLE_BOLD,
 				       "x", (double) x_offset + gdk_pixbuf_get_width(button_pixmap)/2,
 				       "y", (double) y_offset + gdk_pixbuf_get_height(button_pixmap)/2,
 				       "anchor", GTK_ANCHOR_CENTER,

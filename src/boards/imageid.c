@@ -254,7 +254,6 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 {
   char *buf[3];
   int x, y, xp, yp, place;
-  GdkFont *gdk_font;
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *button_pixmap = NULL;
   char *str = NULL;
@@ -305,7 +304,6 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   /* display the 3 words */
   /* the right word is at position 0 : it is swapped with any position depending of place value */
 
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
   switch (place) {
   case 1 :
     buf[0] = board->text2;
@@ -336,7 +334,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   text1_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[0],
-				      "font_gdk", gdk_font,
+				      "font", FONT_BOARD_BIG,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -353,7 +351,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   text2_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[1],
-				      "font_gdk", gdk_font,
+				      "font", FONT_BOARD_BIG,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -371,7 +369,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   text3_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[2],
-				      "font_gdk", gdk_font,
+				      "font", FONT_BOARD_BIG,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -520,21 +518,18 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 	  {
 		text1 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-		text1 = convertUTF8Toisolat1(text1);
 	  }
 	if (!strcmp(xmlnode->name, "text2") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 	  {
 	    text2 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    text2 = convertUTF8Toisolat1(text2);
 	  }
 	if (!strcmp(xmlnode->name, "text3") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 	  {
 	    text3 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    text3 = convertUTF8Toisolat1(text3);
 	  }
 	xmlnode = xmlnode->next;
 	}

@@ -1457,6 +1457,9 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "outline_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
+      gnome_canvas_update_now (gcomprisBoard->canvas);
       break;
     case TOOL_FILLED_RECT:
       // This is a filled rectangle
@@ -1468,6 +1471,9 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y2", (double) y + item_size_y,
 				    "fill_color", currentColor,
 				    NULL);
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
+      gnome_canvas_update_now (gcomprisBoard->canvas);
       break;      
     case TOOL_POINT:
       // This is a point
@@ -1491,6 +1497,9 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "outline_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
+      gnome_canvas_update_now (gcomprisBoard->canvas);
       break;
     case TOOL_FILLED_CIRCLE:
       // This is a filled ellipse
@@ -1502,6 +1511,9 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y2", (double) y + item_size_y,
 				    "fill_color", currentColor,
 				    NULL);
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
+      gnome_canvas_update_now (gcomprisBoard->canvas);
       break;      
     case TOOL_LINE:
       // This is a line
@@ -1524,14 +1536,10 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
     case TOOL_TEXT:
       // This is text
       {
-	GdkFont *gdk_font;
-	
-	gdk_font = gdk_font_load (FONT_BOARD_BIG);
-
 	item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 				      gnome_canvas_text_get_type (),
 				      "text", "?",
-				      "font_gdk", gdk_font,
+				      "font", FONT_BOARD_BIG_BOLD,
 				      "x", (double) x,
 				      "y", (double) y,
 				      "anchor", GTK_ANCHOR_CENTER,

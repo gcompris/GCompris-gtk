@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/10/13 17:53:04 bruno>
+ * Time-stamp: <2002/12/09 22:01:39 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -24,7 +24,6 @@
 #include <libxml/parser.h>
 
 #include "gcompris.h"
-#include "e-unicode.h"
 
 #define IMAGEEXTENSION ".png"
 
@@ -82,11 +81,11 @@ GdkPixbuf *gcompris_load_number_pixmap(char number)
     filename = g_strdup_printf("%s/%s/%s%s%s", PACKAGE_DATA_DIR, "gcompris",
 			       lettersdir, file, IMAGEEXTENSION);
 
-  if (!g_file_exists (filename)) {
+  if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     g_error (_("Couldn't find file %s !"), filename);
   }
 
-  pixmap = gdk_pixbuf_new_from_file (filename);
+  pixmap = gdk_pixbuf_new_from_file (filename, NULL);
 
   g_free (filename);
 
@@ -101,11 +100,11 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 
   filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pixmapfile);
 
-  if (!g_file_exists (filename)) {
+  if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     g_error (_("Couldn't find file %s !"), filename);
   }
 
-  smallnumbers_pixmap = gdk_pixbuf_new_from_file (filename);
+  smallnumbers_pixmap = gdk_pixbuf_new_from_file (filename, NULL);
 
   if(!smallnumbers_pixmap)
     g_warning("Loading image returned a null pointer");
@@ -292,7 +291,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->title = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	gcomprisBoard->title = convertUTF8Toisolat1(gcomprisBoard->title);
       }
 
     /* get the description of the board */
@@ -302,7 +300,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	gcomprisBoard->description = convertUTF8Toisolat1(gcomprisBoard->description);
       }
 
     /* get the help prerequisite help of the board */
@@ -312,7 +309,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->prerequisite = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	gcomprisBoard->prerequisite = convertUTF8Toisolat1(gcomprisBoard->prerequisite);
       }
 
     /* get the help goal of the board */
@@ -322,7 +318,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->goal = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	gcomprisBoard->goal = convertUTF8Toisolat1(gcomprisBoard->goal);
       }
 
     /* get the help user manual of the board */
@@ -332,7 +327,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->manual = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	gcomprisBoard->manual = convertUTF8Toisolat1(gcomprisBoard->manual);
       }
 
     /* get the help user credit of the board */
@@ -342,7 +336,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->credit = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	gcomprisBoard->credit = convertUTF8Toisolat1(gcomprisBoard->credit);
       }
 
     xmlnode = xmlnode->next;
@@ -385,7 +378,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
   filename = g_strdup(fname);
 
   /* if the file doesn't exist */
-  if(!g_file_exists(filename))
+  if(!g_file_test ((filename), G_FILE_TEST_EXISTS))
     {
       g_free(filename);
 
@@ -393,7 +386,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
       filename = g_strdup_printf("%s/%s",
 				 PACKAGE_DATA_DIR, fname);
 
-      if(!g_file_exists(filename))
+      if(!g_file_test ((filename), G_FILE_TEST_EXISTS))
 	{
 	  g_warning(_("Couldn't find file %s !"), fname);
 	  g_warning(_("Couldn't find file %s !"), filename);
@@ -451,7 +444,7 @@ gchar * convertUTF8Toisolat1(gchar * text) {
   if (text == NULL)
     return NULL;
 
-  retval = e_utf8_to_locale_string (text);
+  //  retval = e_utf8_to_locale_string (text);
 
   if(retval != NULL)  {
     g_free(text);

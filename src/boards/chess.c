@@ -554,13 +554,11 @@ static void display_white_turn(gboolean whiteturn)
 
   if(turn_item == NULL)
     {
-      GdkFont *gdk_font;
-      gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
       turn_item = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_text_get_type (),
 					 "text",       " ",
-					 "font_gdk",   gdk_font,
+					 "font",       FONT_BOARD_BIG,
 					 "x", (double) TURN_X,
 					 "y", (double) TURN_Y,
 					 "anchor",     GTK_ANCHOR_CENTER,
@@ -578,13 +576,10 @@ static void display_info(gchar *info)
 
   if(info_item == NULL)
     {
-      GdkFont *gdk_font;
-      gdk_font = gdk_font_load (FONT_BOARD_BIG);
-
       info_item = gnome_canvas_item_new (boardRootItem,
 					 gnome_canvas_text_get_type (),
 					 "text",       " ",
-					 "font_gdk",   gdk_font,
+					 "font",       FONT_BOARD_BIG,
 					 "x", (double) INFO_X,
 					 "y", (double) INFO_Y,
 					 "anchor",     GTK_ANCHOR_CENTER,

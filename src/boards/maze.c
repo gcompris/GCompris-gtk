@@ -269,6 +269,10 @@ static void maze_next_level() {
 	
   if (gcomprisBoard->level==1) run_fast=FALSE;
   if (gcomprisBoard->level==4) run_fast=TRUE;
+
+  if(!modeIs2D)
+    threeDdisplay(); 
+
 }
 /* ======================================= */
 static void setlevelproperties(){

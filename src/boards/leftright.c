@@ -230,7 +230,6 @@ static void leftright_destroy_all_items() {
  *
  * =====================================================================*/
 static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
-  GdkFont *gdk_font;
   GdkPixbuf *highlight_pixmap = NULL;
   GdkPixbuf *hand_pixmap = NULL;
   char *str = NULL;
@@ -243,13 +242,10 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 							    "y", (double) 0,
 							    NULL));
 
-  //gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
-	gdk_font = gdk_font_load (FONT_BOARD_BIG);
-	
   left_text_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", _("left"),
-				      "font_gdk", gdk_font,
+				      "font", FONT_BOARD_BIG,
 				      "x", (double) CENTER_LEFT_X,
 				      "y", (double) CENTER_LEFT_Y,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -259,7 +255,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   right_text_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", _("right"),
-				      "font_gdk", gdk_font,
+				      "font", FONT_BOARD_BIG,
 				      "x", (double) CENTER_RIGHT_X,
 				      "y", (double) CENTER_RIGHT_Y,
 				      "anchor", GTK_ANCHOR_CENTER,

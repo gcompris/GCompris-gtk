@@ -131,14 +131,14 @@ static void* thread_play_ogg (void *s)
 
   file = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
 
-  if (g_file_exists (file))
+  if (g_file_test ((file), G_FILE_TEST_EXISTS))
     {
       printf("trying to play %s\n", file);
     } else
       {
 	g_free(file);
 	file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
-	if (g_file_exists (file))
+	if (g_file_test ((file), G_FILE_TEST_EXISTS))
 	  {
 	    printf("trying to play %s\n", file);
 	  }
@@ -265,7 +265,7 @@ void gcompris_play_sound (const char *soundlistfile, const char *which)
 
   filename = g_strdup_printf("%s/%s.wav", PACKAGE_SOUNDS_DIR, which);
 
-  if (!g_file_exists (filename))
+  if (!g_file_test ((filename), G_FILE_TEST_EXISTS))
     g_error (_("Couldn't find file %s !"), filename);
 
   if (gcompris_get_properties()->fx)

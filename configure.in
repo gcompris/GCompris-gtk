@@ -1,12 +1,24 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(configure.in)
-AM_INIT_AUTOMAKE(gcompris, 1.2.1)
+AC_INIT(src/gcompris/gcompris.c)
+AM_INIT_AUTOMAKE(gcompris, 2.0.0)
 AM_CONFIG_HEADER(config.h)
 
 AC_ISC_POSIX
 
-GNOME_INIT
+GNOME_COMPILE_WARNINGS
+
+GNOME_PTHREAD_CHECK
+AC_SUBST(PTHREAD_LIB)
+
+LIBGNOME_REQUIRED=1.96.0
+LIBGNOMEUI_REQUIRED=1.96.0
+GDK_PIXBUF_REQUIRED=2.0.6
+LIBGNOMECANVAS_REQUIRED=2.0.2
+
+PKG_CHECK_MODULES(GCOMPRIS, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED)
+AC_SUBST(GCOMPRIS_CFLAGS)
+AC_SUBST(GCOMPRIS_LIBS)
 
 dnl For embedded ogg player
 dnl FIXME XIPH prefix are the one needed on Mandrake ?
@@ -17,12 +29,6 @@ dnl AM_PATH_OGG
 dnl AM_PATH_AO
 dnl AM_PATH_VORBIS
 
-AC_SUBST(SHARE_CFLAGS)
-AC_SUBST(SOCKET_LIBS)
-AC_SUBST(SHARE_LIBS)
-AC_SUBST(PTHREAD_CFLAGS)
-AC_SUBST(PTHREAD_LIBS)
-
 AC_PROG_CC
 AM_PROG_CC_STDC
 AC_HEADER_STDC
@@ -30,11 +36,11 @@ AC_HEADER_STDC
 AC_PROG_INTLTOOL
 
 AM_DISABLE_STATIC
+AC_LIBTOOL_DLOPEN
 AM_PROG_LIBTOOL
 
-GNOME_X_CHECKS
+dnl GNOME2 GNOME_X_CHECKS
 AM_PATH_GLIB
-AM_PATH_GDK_PIXBUF
 AM_PATH_XML2
 AM_ICONV
 
@@ -45,14 +51,10 @@ dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
 AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}")
 
-dnl AM_GLIB_GNU_GETTEXT
+GETTEXT_PACKAGE=gcompris
+AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
-
-dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically
-dnl FIXME : should use gnome-config gnomecanvaspixbuf --libs
-dnl and gnome-config gnomecanvaspixbuf --cflags
-GDK_PIXBUF_LIBS="$GDK_PIXBUF_LIBS -lgnomecanvaspixbuf"
-AC_SUBST(GDK_PIXBUF_LIBS)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
 
 dnl Define myprefix depending on wether our user gives us one or not
 if test "x${prefix}" = "xNONE"; then
@@ -83,13 +85,21 @@ dnl Plugin Directory
 AC_DEFINE_UNQUOTED(PLUGINSUBS, "")
 AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${myprefix}/lib/gcompris")
 
+AC_DEFINE_UNQUOTED(GNOME_ICONDIR, "${myprefix}/share/pixmaps")
+
 plugindir=$libdir/gcompris
 AC_SUBST(plugindir)
+
+dnl Test for gnuchess
+
+AC_PATH_PROG(GNUCHESS, gnuchess,no)
+if test x$GNUCHESS = xno; then
+  AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
+fi
 
 AC_OUTPUT([ gcompris.spec
 Makefile
 src/Makefile
-src/unicode/Makefile
 src/gcompris/Makefile
 src/boards/Makefile
 po/Makefile.in

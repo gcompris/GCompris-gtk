@@ -1,7 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ShapeGame>
-  <Title name="North America" x="600" y="495" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="600" y="495" justification="GTK_JUSTIFY_CENTER">
+    <_name>North America</_name>
+  </Title>
   <Shape name="A" pixmapfile="geography/northamerica/bahamas.png" x="379" y="443" zoomx="1" zoomy="1" position="0" sound="geography/bahamas"/>
   <Shape name="B" pixmapfile="geography/northamerica/canada.png" x="329" y="182" zoomx="1" zoomy="1" position="0" sound="geography/canada"/>
   <Shape name="C" pixmapfile="geography/northamerica/cuba.png" x="371" y="472" zoomx="1" zoomy="1" position="0" sound="geography/cuba"/>

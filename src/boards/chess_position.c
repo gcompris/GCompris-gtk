@@ -64,8 +64,9 @@ position_get_type ()
 			sizeof (PositionClass),
 			(GtkClassInitFunc) class_init,
 			(GtkObjectInitFunc) init,
-			(GtkArgSetFunc) NULL,
-			(GtkArgGetFunc) NULL
+			(gpointer) NULL,
+			(gpointer) NULL,
+			(GtkClassInitFunc) NULL
 		};
 		position_type = gtk_type_unique (gtk_object_get_type (),
 						 &position_info);
@@ -91,7 +92,7 @@ class_init (PositionClass *class)
 
 	object_class = (GtkObjectClass*) class;
 
-	object_class->finalize = finalize;
+	//2	object_class->finalize = finalize;
 }
 
 static void

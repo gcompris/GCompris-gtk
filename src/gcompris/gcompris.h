@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/06/26 01:00:47 bruno>
+ * Time-stamp: <2002/12/10 00:06:46 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -102,19 +102,21 @@ void		 gcompris_exit();
 #define COLOR_CONTENT		0x0D0DFA00
 #define COLOR_SUBTITLE		0xB0040000
 
-#define FONT_TITLE		_("-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1")
-#define FONT_TITLE_FALLBACK	_("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*")
-#define FONT_SUBTITLE		_("-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1")
-#define FONT_SUBTITLE_FALLBACK	_("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*")
-#define FONT_CONTENT		_("-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1")
-#define FONT_CONTENT_FALLBACK	_("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*")
+#define FONT_TITLE		"Sans 20"
+#define FONT_TITLE_FALLBACK	"Sans 12"
+#define FONT_SUBTITLE		"Sans 16"
+#define FONT_SUBTITLE_FALLBACK	"Sans 12"
+#define FONT_CONTENT		"Sans 12"
+#define FONT_CONTENT_FALLBACK	"Sans 12"
 
-#define FONT_BOARD_TINY		_("-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*")
-#define FONT_BOARD_SMALL	_("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*")
-#define FONT_BOARD_MEDIUM	_("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*")
-#define FONT_BOARD_BIG		_("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*")
-#define FONT_BOARD_BIG_BOLD	_("-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*")
-#define FONT_BOARD_FIXED	_("-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*")
+#define FONT_BOARD_TINY		"Sans 10"
+#define FONT_BOARD_SMALL	"Sans 12"
+#define FONT_BOARD_MEDIUM	"Sans 14"
+#define FONT_BOARD_BIG		"Sans 16"
+#define FONT_BOARD_BIG_BOLD	"Sans bold 16"
+#define FONT_BOARD_FIXED	"Fixed 12"
+#define FONT_BOARD_TITLE	"Sans 20"
+#define FONT_BOARD_TITLE_BOLD	"Sans bold 20"
 
 /*=========================================================*/
 // These are gcompris defined cursors

@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ShapeGame>
-  <Title name="South America" x="550" y="495" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="600" y="495" justification="GTK_JUSTIFY_CENTER">
+    <_name>South America</_name>
+  </Title>
   <Shape name="A" pixmapfile="geography/southamerica/argentina.png" x="390" y="380" zoomx="1" zoomy="1" position="0" sound="geography/argentina"/>
   <Shape name="B" pixmapfile="geography/southamerica/bolivia.png" x="370" y="224" zoomx="1" zoomy="1" position="0" sound="geography/bolivia"/>
   <Shape name="C" pixmapfile="geography/southamerica/brazil.png" x="433" y="203" zoomx="1" zoomy="1" position="0" sound="geography/brazil"/>

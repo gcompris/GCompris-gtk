@@ -1,5 +1,5 @@
 /*
- * NE PAS ÉDITER CE FICHIER - il est généré par Glade.
+ * NE PAS Ã‰DITER CE FICHIER - il est gÃ©nÃ©rÃ© par Glade.
  */
 
 #include <gnome.h>
@@ -17,18 +17,21 @@
 GtkWidget*  lookup_widget              (GtkWidget       *widget,
                                         const gchar     *widget_name);
 
-/* get_widget() is deprecated. Use lookup_widget instead. */
-#define get_widget lookup_widget
 
 
 /*
  * Private Functions.
  */
 
-/* This is used to create the pixmaps in the interface. */
+/* This is used to create the pixmaps used in the interface. */
 GtkWidget*  create_pixmap              (GtkWidget       *widget,
-                                        const gchar     *filename,
-                                        gboolean         gnome_pixmap);
+                                        const gchar     *filename);
 
-GdkImlibImage* create_image            (const gchar     *filename);
+/* This is used to create the pixbufs used in the interface. */
+GdkPixbuf*  create_pixbuf              (const gchar     *filename);
+
+/* This is used to set ATK action descriptions. */
+void        glade_set_atk_action_description (AtkAction       *action,
+                                              const gchar     *action_name,
+                                              const gchar     *description);
 

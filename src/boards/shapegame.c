@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/11/25 23:36:42 bruno>
+ * Time-stamp: <2002/12/12 00:57:35 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,7 +30,7 @@
 #define SOUNDLISTFILE PACKAGE
 
 #define UNDEFINED "Undefined"
-#define SQUARE_LIMIT_DISTANCE 50
+#define SQUARE_LIMIT_DISTANCE 50.0
 
 static int gamewon;
 
@@ -686,7 +686,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 static Shape *find_closest_shape(double x, double y, double limit)
 {
   GList *list;
-  double goodDist = powf(limit,2);
+  double goodDist = limit;
   Shape *candidateShape = NULL;
 
   /* loop through all our shapes */
@@ -697,8 +697,9 @@ static Shape *find_closest_shape(double x, double y, double limit)
     if(shape->type==SHAPE_TARGET)
       {
 	/* Calc the distance between this shape and the given coord */
-	dist = powf((shape->x-x),2) + powf((shape->y-y),2);
-	
+	dist = sqrt(powf((shape->x-x),2) + powf((shape->y-y),2));
+	printf("DIST=%f shapename=%s\n", dist, shape->name);
+	printf("   x=%f y=%f shape->x=%f shape->y=%f\n", x, y, shape->x, shape->y);
 	if(dist<goodDist)
 	  {
 	    goodDist=dist;
@@ -845,14 +846,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       /* This records the offset between the mouse pointer and the grabbed item center */
 	       offset_x = x - item_x;
 	       offset_y = y - item_y;
-	       
+	       printf("offsetx=%f offsetx=%f\n", offset_x, offset_y);
 	       if(item==NULL)
 		 return FALSE;
 	       
 	       fleur = gdk_cursor_new(GDK_FLEUR);
 
-	       /* In order to have our item above the others, I need to reparent it */
-	       gnome_canvas_item_reparent (item, (GnomeCanvasGroup *)shape_root_item);
+	       /* Make sure this item is on top */
+	       gnome_canvas_item_raise_to_top(shape_list_root_item);
 	       gnome_canvas_item_raise_to_top(item);
 
 	       gnome_canvas_item_grab(item,
@@ -897,9 +898,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	   gnome_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 
-	   gnome_canvas_item_reparent (item, shape->shape_list_group_root);
-
-	   targetshape = find_closest_shape(item_x, item_y, SQUARE_LIMIT_DISTANCE);
+	   targetshape = find_closest_shape(item_x - offset_x,
+					    item_y - offset_y,
+					    SQUARE_LIMIT_DISTANCE);
 	   if(targetshape!=NULL)
 	     {
 	       /* Finish the placement of the grabbed item anyway */
@@ -923,6 +924,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		   printf("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
 			  shape->target_shape->placed);
 		   gnome_canvas_item_show(targetshape->item);
+		   gnome_canvas_item_raise_to_top(targetshape->item);
 		 }
 	       else
 		 {
@@ -1283,16 +1285,12 @@ add_shape_to_canvas(Shape *shape)
 static void create_title(char *name, double x, double y, char *justification)
 {
   GnomeCanvasItem *item;
-  GdkFont *gdk_font;
-
-  /* Load a gdk font */
-  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
   item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 			   gnome_canvas_text_get_type (),
 			   "text", name,
-			   "font_gdk", gdk_font,
+			   "font", FONT_BOARD_MEDIUM,
 			   "x", x,
 			   "y", y,
 			   "anchor", GTK_ANCHOR_CENTER,
@@ -1475,7 +1473,6 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	name = xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
-	name = convertUTF8Toisolat1(name);
       }
     xmlnamenode = xmlnamenode->next;
   }

@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2002/04/14 00:26:10 bruno>
+ * Time-stamp: <2002/12/09 22:42:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -300,12 +300,9 @@ static void reading_destroy_all_items()
 
 static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 {
-  GdkFont *gdk_font;
   gint base_Y = 110;
   gint base_X = 580;
   gint i;
-
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /* Load the text to find */
   textToFind = "*";
@@ -314,7 +311,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", _("Please, check if the word"),
-			 "font_gdk", gdk_font,
+			 "font", FONT_BOARD_BIG,
 			 "x", (double) base_X,
 			 "y", (double) base_Y,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -324,7 +321,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", textToFind,
-			 "font_gdk", gdk_font,
+			 "font", FONT_BOARD_BIG,
 			 "x", (double) base_X,
 			 "y", (double) base_Y + 30,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -334,7 +331,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
 			 "text", _("is being displayed"),
-			 "font_gdk", gdk_font,
+			 "font", FONT_BOARD_BIG,
 			 "x", (double) base_X,
 			 "y", (double) base_Y + 60,
 			 "anchor", GTK_ANCHOR_CENTER,
@@ -355,7 +352,6 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
 {
   LettersItem *lettersItem;
-  GdkFont *gdk_font;
   gint i;
   gint anchor = GTK_ANCHOR_CENTER;
 
@@ -384,10 +380,6 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
     }
 
   lettersItem = malloc(sizeof(LettersItem));
-
-  /* Load a gdk font */
-  gdk_font = gdk_font_load (FONT_BOARD_FIXED);
-
 
   if(textToFindIndex!=0)
     {
@@ -420,7 +412,7 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", lettersItem->word,
-			   "font_gdk", gdk_font,
+			   "font", FONT_BOARD_FIXED,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
@@ -431,7 +423,7 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font_gdk", gdk_font,
+			   "font", FONT_BOARD_FIXED,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
@@ -491,7 +483,6 @@ static void ask_ready(gboolean status)
   GdkPixbuf *button_pixmap = NULL;
   double y_offset = 310;
   double x_offset = 430;
-  GdkFont *gdk_font;
 
   if(status==FALSE)
     {
@@ -505,8 +496,6 @@ static void ask_ready(gboolean status)
       item2 = NULL;
       return;
     }
-
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /*----- READY -----*/
   button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
@@ -525,7 +514,7 @@ static void ask_ready(gboolean status)
   item2 = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _("I am Ready"),
-				"font_gdk", gdk_font,
+				"font", FONT_BOARD_BIG,
 				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
@@ -544,9 +533,6 @@ static void ask_yes_no()
   GdkPixbuf *button_pixmap = NULL;
   double y_offset = 310;
   double x_offset = 430;
-  GdkFont *gdk_font;
-
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /*----- YES -----*/
   button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
@@ -565,7 +551,7 @@ static void ask_yes_no()
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _("Yes I saw it"),
-				"font_gdk", gdk_font,
+				"font", FONT_BOARD_BIG,
 				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
@@ -595,7 +581,7 @@ static void ask_yes_no()
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _("No, it was not there"),
-				"font_gdk", gdk_font,
+				"font", FONT_BOARD_BIG,
 				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,

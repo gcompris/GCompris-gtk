@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/10/09 00:12:03 bruno>
+ * Time-stamp: <2002/12/14 23:33:49 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -24,7 +24,6 @@
 
 #include "gcompris.h"
 #include <locale.h>
-#include <popt-gnome.h>
 
 #include "cursor.h"
 
@@ -53,32 +52,40 @@ static gchar           *gcompris_locale = NULL;
 /****************************************************************************/
 /* Command line params */
 
-#define P_FULLSCREEN	101
-#define P_WINDOW	102
-#define P_SOUND		103
-#define P_MUTE		104
-#define P_VERSION	105
-#define P_CURSOR	106
-#define P_ANTIALIASED	107
+/*** gcompris-popttable */
+static int popt_fullscreen	= FALSE;
+static int popt_window		= FALSE;
+static int popt_sound		= FALSE;
+static int popt_mute		= FALSE;
+static int popt_cursor		= FALSE;
+static int popt_version		= FALSE;
+static int popt_aalias		= FALSE;
 
-struct poptOption command_line[] = {
-  {"fullscreen", 'f', POPT_ARGFLAG_ONEDASH, NULL, P_FULLSCREEN,
-   N_("run gcompris in fullscreen mode.")},
-  {"window", 'w', POPT_ARGFLAG_ONEDASH, NULL, P_WINDOW,
-   N_("run gcompris in window mode.")},
-  {"sound", 's', POPT_ARGFLAG_ONEDASH, NULL, P_SOUND,
-   N_("run gcompris with sound enabled.")},
-  {"mute", 'm', POPT_ARGFLAG_ONEDASH, NULL, P_MUTE,
-   N_("run gcompris without sound.")},
-  {"cursor", 'c', POPT_ARGFLAG_ONEDASH, NULL, P_CURSOR,
-   N_("run gcompris with the default gnome cursor.")},
-  {"version", 'v', POPT_ARGFLAG_ONEDASH, NULL, P_VERSION,
-   N_("Prints the version of " PACKAGE)},
-  {"antialiased", 'a', POPT_ARGFLAG_ONEDASH, NULL, P_ANTIALIASED,
-   N_("Use the antialiased canvas (slower).")},
-  POPT_AUTOHELP {NULL, 0, 0, NULL, 0}
+static struct poptOption options[] = {
+  {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
+   N_("run gcompris in fullscreen mode."), NULL},
+  {"window", 'w', POPT_ARG_NONE, &popt_window, 0,
+   N_("run gcompris in window mode."), NULL},
+  {"sound", 's', POPT_ARG_NONE, &popt_sound, 0,
+   N_("run gcompris with sound enabled."), NULL},
+  {"mute", 'm', POPT_ARG_NONE, &popt_mute, 0,
+   N_("run gcompris without sound."), NULL},
+  {"cursor", 'c', POPT_ARG_NONE, &popt_cursor, 0,
+   N_("run gcompris with the default gnome cursor."), NULL},
+  {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
+   N_("Prints the version of " PACKAGE), NULL},
+  {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
+   N_("Use the antialiased canvas (slower)."), NULL},
+  {
+    NULL,
+    '\0',
+    0,
+    NULL,
+    0,
+    NULL,
+    NULL
+  }
 };
-
 
 
 /****************************************************************************/
@@ -203,6 +210,7 @@ static void init_background()
 			     "y2", (double) gdk_screen_height(),
 			     "fill_color", "black",
 			     NULL);
+      
     }
 
   /* Create a vertical box in which I put first the play board area, then the button bar */
@@ -227,6 +235,8 @@ static void init_background()
 					    BOARDWIDTH*xratio)/2,
 			     "y", (double) (gdk_screen_height()-
 					    BOARDHEIGHT*xratio-BARHEIGHT*xratio)/2,
+			     "width",  (double)BOARDWIDTH*xratio,
+			     "height", (double)BOARDHEIGHT*xratio+BARHEIGHT*xratio,
 			     "size_pixels", TRUE,
 			     NULL);
     }
@@ -313,9 +323,15 @@ void gcompris_set_cursor(guint gdk_cursor_type)
 
 static void setup_window ()
 {
+  GtkWidget* frame;
+
   window = gnome_app_new (PACKAGE, _("GCompris I Have Understood"));
 
+  frame = gtk_frame_new(NULL);
+
   gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
+  gtk_window_set_default_size(GTK_WINDOW(window), 250, 350);
+  gtk_window_set_wmclass(GTK_WINDOW(window), "gcompris", "GCompris");
 
   gtk_widget_realize (window);
 
@@ -324,11 +340,6 @@ static void setup_window ()
   gtk_signal_connect (GTK_OBJECT (window), "key_press_event",
 		      GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
-
-  // Full screen
-  if(properties->fullscreen)
-    gnome_win_hints_set_layer (GTK_WIDGET (window),  WIN_LAYER_ABOVE_DOCK);
-  //  gnome_win_hints_set_state(GTK_WIDGET (window),  WIN_STATE_FIXED_POSITION);
 
   // Set the cursor
   gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
@@ -466,10 +477,12 @@ void gcompris_set_locale(gchar *locale)
   setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
   setenv ("LANG", gcompris_get_locale(), TRUE);
  
- /* WARNING: This does not update gettext translation */
+  /* WARNING: This does not update gettext translation */
   /* Call for localization startup */
-  bindtextdomain (PACKAGE, PACKAGE_LOCALE_DIR);
-  textdomain (PACKAGE);
+  bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  textdomain (GETTEXT_PACKAGE);
+  
 
 }
 
@@ -481,13 +494,31 @@ void gcompris_set_locale(gchar *locale)
 int
 gcompris_init (int argc, char *argv[])
 {
-  int c;
-  poptContext optCon;
+  GnomeProgram *gnome_gcompris;
+  GnomeClient* client;
+  GValue value = {0,};
+  poptContext pctx; 
+  char** args;
 
   /* To have some real random behaviour */
   srand (time (NULL));
 
   signal(SIGINT, gcompris_terminate);
+
+  gnome_gcompris = gnome_program_init(PACKAGE, VERSION, LIBGNOMEUI_MODULE,
+				      argc, argv, 
+				      GNOME_PARAM_POPT_TABLE, options, 
+				      GNOME_PARAM_APP_DATADIR,DATADIR, NULL);
+  gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gcompris.png");
+  
+  g_value_init (&value, G_TYPE_POINTER);
+  g_object_get_property (G_OBJECT(gnome_gcompris), 
+			   GNOME_PARAM_POPT_CONTEXT, &value);
+  
+  (poptContext)pctx = g_value_get_pointer (&value);
+
+  /* Argument parsing */
+  args = (char **) poptGetArgs(pctx);
 
   load_properties ();
 
@@ -497,67 +528,58 @@ gcompris_init (int argc, char *argv[])
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);
 
-  initSound();
-  
-  gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
-  
-  optCon = poptGetContext (NULL, argc, argv, command_line, 0);
-
   /*------------------------------------------------------------*/
-  while ((c = poptGetNextOpt (optCon)) != -1)
+  if (popt_version && args == NULL)
     {
-      switch (c)
-	{
-	case P_VERSION:
-	  printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
-		    "More infos on http://ofset.sourceforge.net/gcompris\n"),
-		  VERSION);
-	  exit (0);
-	  break;
-
-	case P_FULLSCREEN:
-	  properties->fullscreen = TRUE;
-	  break;
-
-	case P_WINDOW:
-	  properties->fullscreen = FALSE;
-	  break;
-
-	case P_MUTE:
-	  g_warning("Sound disabled");
-	  properties->music = FALSE;
-	  properties->fx = FALSE;
-	  break;
-
-	case P_SOUND:
-	  g_warning("Sound enabled");
-	  properties->music = TRUE;
-	  properties->fx = TRUE;
-	  break;
-
-	case P_CURSOR:
-	  g_warning("Default gnome cursor enabled");
-	  properties->defaultcursor = GDK_LEFT_PTR;
-	  break;
-	case P_ANTIALIASED:
-	  g_warning("Slower Antialiased canvas used");
-	  antialiased = TRUE;
-	  break;
-	}
+      printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
+		"More infos on http://ofset.sourceforge.net/gcompris\n"),
+	      VERSION);
+      exit (0);
     }
 
-  if (c < -1)
+  if (popt_fullscreen && args == NULL)
     {
-      /* an error occurred during option processing */
-      fprintf (stderr, "%s: %s\n",
-	       poptBadOption (optCon, POPT_BADOPTION_NOALIAS),
-	       poptStrerror (c));
-      return (-1);
+      properties->fullscreen = TRUE;
     }
 
+  if (popt_window && args == NULL)
+    {
+      properties->fullscreen = FALSE;
+    }
+
+  if (popt_mute && args == NULL)
+    {
+      g_warning("Sound disabled");
+      properties->music = FALSE;
+      properties->fx = FALSE;
+    }
+
+  if (popt_sound && args == NULL)
+    {
+      g_warning("Sound enabled");
+      properties->music = TRUE;
+      properties->fx = TRUE;
+    }
+
+  if (popt_cursor && args == NULL)
+    {
+      g_warning("Default gnome cursor enabled");
+      properties->defaultcursor = GDK_LEFT_PTR;
+    }
+
+  if (popt_aalias && args == NULL)
+    {
+      g_warning("Slower Antialiased canvas used");
+      antialiased = TRUE;
+    }
+
+  poptFreeContext(pctx); 
   /*------------------------------------------------------------*/
 
 
+  if(properties->music)
+    initSound();
+  
   gnome_sound_init(NULL);
 
   /* Gdk-Pixbuf */
@@ -565,7 +587,7 @@ gcompris_init (int argc, char *argv[])
 
   setup_window ();
 
-  gtk_widget_show (window);
+  gtk_widget_show_all (window);
 
   if (properties->music)
     {

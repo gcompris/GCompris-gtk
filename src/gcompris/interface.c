@@ -1,5 +1,5 @@
 /*
- * NE PAS ÉDITER CE FICHIER - il est généré par Glade.
+ * NE PAS Ã‰DITER CE FICHIER - il est gÃ©nÃ©rÃ© par Glade.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 
 #include <gnome.h>
 
@@ -17,11 +18,16 @@
 #include "interface.h"
 #include "support.h"
 
+#define GLADE_HOOKUP_OBJECT(component,widget,name) \
+  gtk_object_set_data_full (GTK_OBJECT (component), name, \
+    gtk_widget_ref (widget), (GtkDestroyNotify) gtk_widget_unref)
+
+#define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
+  gtk_object_set_data (GTK_OBJECT (component), name, widget)
+
 static GnomeUIInfo file1_menu_uiinfo[] =
 {
-  GNOMEUIINFO_MENU_SAVE_ITEM (on_save1_activate, NULL),
-  GNOMEUIINFO_SEPARATOR,
-  GNOMEUIINFO_MENU_EXIT_ITEM (on_exit1_activate, NULL),
+  GNOMEUIINFO_MENU_EXIT_ITEM (on_quit1_activate, NULL),
   GNOMEUIINFO_END
 };
 
@@ -30,8 +36,6 @@ static GnomeUIInfo edit1_menu_uiinfo[] =
   GNOMEUIINFO_MENU_CUT_ITEM (on_cut1_activate, NULL),
   GNOMEUIINFO_MENU_COPY_ITEM (on_copy1_activate, NULL),
   GNOMEUIINFO_MENU_PASTE_ITEM (on_paste1_activate, NULL),
-  GNOMEUIINFO_MENU_CLEAR_ITEM (on_clear1_activate, NULL),
-  GNOMEUIINFO_SEPARATOR,
   GNOMEUIINFO_END
 };
 
@@ -54,737 +58,446 @@ GtkWidget*
 create_gcompris_edit (void)
 {
   GtkWidget *gcompris_edit;
-  GtkWidget *dock1;
+  GdkPixbuf *gcompris_edit_icon_pixbuf;
+  GtkWidget *bonobodock1;
   GtkWidget *toolbar1;
-  GtkWidget *tmp_toolbar_icon;
-  GtkWidget *buttonAdd;
-  GtkWidget *buttonDel;
-  GtkWidget *buttonUp;
-  GtkWidget *buttonDown;
   GtkWidget *hpaned1;
   GtkWidget *scrolledwindow1;
-  GtkWidget *ctree1;
-  GtkWidget *label1;
-  GtkWidget *label2;
-  GtkWidget *label3;
-  GtkWidget *notebook1;
-  GtkWidget *scrolledwindow_description;
+  GtkWidget *treeview;
+  GtkWidget *notebook4;
+  GtkWidget *scrolledwindow14;
   GtkWidget *viewport1;
-  GtkWidget *table1;
-  GtkWidget *label6;
-  GtkWidget *label11;
-  GtkWidget *label10;
-  GtkWidget *label9;
-  GtkWidget *label8;
-  GtkWidget *combo1;
-  GtkWidget *combo_entryType;
+  GtkWidget *table2;
+  GtkWidget *label16;
   GtkWidget *label17;
   GtkWidget *label18;
   GtkWidget *label19;
-  GtkObject *spinbuttonDifficulty_adj;
-  GtkWidget *spinbuttonDifficulty;
-  GtkWidget *entryAuthor;
-  GtkWidget *entryBoardDir;
-  GtkWidget *hbox1;
-  GtkWidget *pixmapBoardIcon;
-  GtkWidget *vbox1;
-  GtkWidget *vbuttonbox1;
-  GtkWidget *buttonIconList;
   GtkWidget *label20;
-  GtkWidget *label12;
-  GtkWidget *label7;
-  GtkWidget *entryName;
   GtkWidget *label21;
-  GtkWidget *entryTitle;
-  GtkWidget *scrolledwindow3;
-  GtkWidget *textPrerequisite;
-  GtkWidget *scrolledwindow4;
-  GtkWidget *textGoal;
-  GtkWidget *scrolledwindow5;
-  GtkWidget *textManual;
-  GtkWidget *scrolledwindow6;
-  GtkWidget *textCredit;
-  GtkWidget *scrolledwindow2;
-  GtkWidget *textDescription;
-  GtkWidget *label4;
-  GtkWidget *empty_notebook_page;
-  GtkWidget *label5;
-  GtkWidget *appbar1;
-  GtkTooltips *tooltips;
+  GtkWidget *label22;
+  GtkWidget *label23;
+  GtkWidget *label24;
+  GtkWidget *label25;
+  GtkWidget *label26;
+  GtkWidget *iconentry;
+  GtkWidget *label27;
+  GtkWidget *combo1;
+  GtkWidget *entry_type;
+  GtkWidget *entry_name;
+  GtkWidget *entry_title;
+  GtkWidget *scrolledwindow15;
+  GtkWidget *textview_description;
+  GtkObject *spinbutton_difficulty_adj;
+  GtkWidget *spinbutton_difficulty;
+  GtkWidget *entry_author;
+  GtkWidget *entry_directory;
+  GtkWidget *scrolledwindow16;
+  GtkWidget *textview_prerequisite;
+  GtkWidget *scrolledwindow17;
+  GtkWidget *textview_goal;
+  GtkWidget *scrolledwindow18;
+  GtkWidget *textview_manual;
+  GtkWidget *scrolledwindow19;
+  GtkWidget *textview_credit;
+  GtkWidget *label15;
 
-  tooltips = gtk_tooltips_new ();
-
-  gcompris_edit = gnome_app_new ("Edit", _("GCompris Edit"));
+  gcompris_edit = gnome_app_new ("Gcompris Editor", _("Gcompris Editor"));
   gtk_widget_set_name (gcompris_edit, "gcompris_edit");
-  gtk_object_set_data (GTK_OBJECT (gcompris_edit), "gcompris_edit", gcompris_edit);
-  gtk_window_set_default_size (GTK_WINDOW (gcompris_edit), 706, 450);
-  gtk_window_set_policy (GTK_WINDOW (gcompris_edit), TRUE, TRUE, FALSE);
+  gtk_window_set_default_size (GTK_WINDOW (gcompris_edit), 640, 480);
+  gcompris_edit_icon_pixbuf = create_pixbuf ("gcompris-edit/gcompris-edit.png");
+  if (gcompris_edit_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (gcompris_edit), gcompris_edit_icon_pixbuf);
+      gdk_pixbuf_unref (gcompris_edit_icon_pixbuf);
+    }
 
-  dock1 = GNOME_APP (gcompris_edit)->dock;
-  gtk_widget_set_name (dock1, "dock1");
-  gtk_widget_ref (dock1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "dock1", dock1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (dock1);
+  bonobodock1 = GNOME_APP (gcompris_edit)->dock;
+  gtk_widget_set_name (bonobodock1, "bonobodock1");
+  gtk_widget_show (bonobodock1);
 
   gnome_app_create_menus (GNOME_APP (gcompris_edit), menubar1_uiinfo);
 
   gtk_widget_set_name (menubar1_uiinfo[0].widget, "file1");
-  gtk_widget_ref (menubar1_uiinfo[0].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "file1",
-                            menubar1_uiinfo[0].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
 
-  gtk_widget_set_name (file1_menu_uiinfo[0].widget, "save1");
-  gtk_widget_ref (file1_menu_uiinfo[0].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "save1",
-                            file1_menu_uiinfo[0].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
-
-  gtk_widget_set_name (file1_menu_uiinfo[1].widget, "separator1");
-  gtk_widget_ref (file1_menu_uiinfo[1].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "separator1",
-                            file1_menu_uiinfo[1].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
-
-  gtk_widget_set_name (file1_menu_uiinfo[2].widget, "exit1");
-  gtk_widget_ref (file1_menu_uiinfo[2].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "exit1",
-                            file1_menu_uiinfo[2].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
+  gtk_widget_set_name (file1_menu_uiinfo[0].widget, "quit1");
 
   gtk_widget_set_name (menubar1_uiinfo[1].widget, "edit1");
-  gtk_widget_ref (menubar1_uiinfo[1].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "edit1",
-                            menubar1_uiinfo[1].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
 
   gtk_widget_set_name (edit1_menu_uiinfo[0].widget, "cut1");
-  gtk_widget_ref (edit1_menu_uiinfo[0].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "cut1",
-                            edit1_menu_uiinfo[0].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
 
   gtk_widget_set_name (edit1_menu_uiinfo[1].widget, "copy1");
-  gtk_widget_ref (edit1_menu_uiinfo[1].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "copy1",
-                            edit1_menu_uiinfo[1].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
 
   gtk_widget_set_name (edit1_menu_uiinfo[2].widget, "paste1");
-  gtk_widget_ref (edit1_menu_uiinfo[2].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "paste1",
-                            edit1_menu_uiinfo[2].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
-
-  gtk_widget_set_name (edit1_menu_uiinfo[3].widget, "clear1");
-  gtk_widget_ref (edit1_menu_uiinfo[3].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "clear1",
-                            edit1_menu_uiinfo[3].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
-
-  gtk_widget_set_name (edit1_menu_uiinfo[4].widget, "separator2");
-  gtk_widget_ref (edit1_menu_uiinfo[4].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "separator2",
-                            edit1_menu_uiinfo[4].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
 
   gtk_widget_set_name (menubar1_uiinfo[2].widget, "help1");
-  gtk_widget_ref (menubar1_uiinfo[2].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "help1",
-                            menubar1_uiinfo[2].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
 
   gtk_widget_set_name (help1_menu_uiinfo[1].widget, "about1");
-  gtk_widget_ref (help1_menu_uiinfo[1].widget);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "about1",
-                            help1_menu_uiinfo[1].widget,
-                            (GtkDestroyNotify) gtk_widget_unref);
 
-  toolbar1 = gtk_toolbar_new (GTK_ORIENTATION_HORIZONTAL, GTK_TOOLBAR_BOTH);
+  toolbar1 = gtk_toolbar_new ();
   gtk_widget_set_name (toolbar1, "toolbar1");
-  gtk_widget_ref (toolbar1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "toolbar1", toolbar1,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (toolbar1);
   gnome_app_add_toolbar (GNOME_APP (gcompris_edit), GTK_TOOLBAR (toolbar1), "toolbar1",
-                                GNOME_DOCK_ITEM_BEH_EXCLUSIVE,
-                                GNOME_DOCK_TOP, 1, 0, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (toolbar1), 1);
-  gtk_toolbar_set_space_size (GTK_TOOLBAR (toolbar1), 16);
-  gtk_toolbar_set_space_style (GTK_TOOLBAR (toolbar1), GTK_TOOLBAR_SPACE_LINE);
-  gtk_toolbar_set_button_relief (GTK_TOOLBAR (toolbar1), GTK_RELIEF_NONE);
-
-  tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_ADD);
-  buttonAdd = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
-                                GTK_TOOLBAR_CHILD_BUTTON,
-                                NULL,
-                                _("Add"),
-                                _("New file"), NULL,
-                                tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (buttonAdd, "buttonAdd");
-  gtk_widget_ref (buttonAdd);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonAdd", buttonAdd,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (buttonAdd);
-
-  tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_REMOVE);
-  buttonDel = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
-                                GTK_TOOLBAR_CHILD_BUTTON,
-                                NULL,
-                                _("Remove"),
-                                _("Open a file"), NULL,
-                                tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (buttonDel, "buttonDel");
-  gtk_widget_ref (buttonDel);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonDel", buttonDel,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (buttonDel);
-
-  tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_UP);
-  buttonUp = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
-                                GTK_TOOLBAR_CHILD_BUTTON,
-                                NULL,
-                                _("Up"),
-                                NULL, NULL,
-                                tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (buttonUp, "buttonUp");
-  gtk_widget_ref (buttonUp);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonUp", buttonUp,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (buttonUp);
-
-  tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_DOWN);
-  buttonDown = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
-                                GTK_TOOLBAR_CHILD_BUTTON,
-                                NULL,
-                                _("Down"),
-                                NULL, NULL,
-                                tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (buttonDown, "buttonDown");
-  gtk_widget_ref (buttonDown);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonDown", buttonDown,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (buttonDown);
+                                BONOBO_DOCK_ITEM_BEH_EXCLUSIVE,
+                                BONOBO_DOCK_TOP, 1, 0, 0);
+  gtk_toolbar_set_style (GTK_TOOLBAR (toolbar1), GTK_TOOLBAR_BOTH);
 
   hpaned1 = gtk_hpaned_new ();
   gtk_widget_set_name (hpaned1, "hpaned1");
-  gtk_widget_ref (hpaned1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "hpaned1", hpaned1,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (hpaned1);
   gnome_app_set_contents (GNOME_APP (gcompris_edit), hpaned1);
-  gtk_paned_set_position (GTK_PANED (hpaned1), 257);
+  gtk_paned_set_position (GTK_PANED (hpaned1), 150);
 
   scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (scrolledwindow1, "scrolledwindow1");
-  gtk_widget_ref (scrolledwindow1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "scrolledwindow1", scrolledwindow1,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (scrolledwindow1);
   gtk_paned_pack1 (GTK_PANED (hpaned1), scrolledwindow1, FALSE, TRUE);
-  gtk_widget_set_usize (scrolledwindow1, 168, -2);
 
-  ctree1 = gtk_ctree_new (3, 0);
-  gtk_widget_set_name (ctree1, "ctree1");
-  gtk_widget_ref (ctree1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "ctree1", ctree1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (ctree1);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow1), ctree1);
-  gtk_widget_set_usize (ctree1, 150, -2);
-  gtk_tooltips_set_tip (tooltips, ctree1, _("List of activities"), NULL);
-  gtk_clist_set_column_width (GTK_CLIST (ctree1), 0, 80);
-  gtk_clist_set_column_width (GTK_CLIST (ctree1), 1, 80);
-  gtk_clist_set_column_width (GTK_CLIST (ctree1), 2, 80);
-  gtk_clist_column_titles_show (GTK_CLIST (ctree1));
+  treeview = gtk_tree_view_new ();
+  gtk_widget_set_name (treeview, "treeview");
+  gtk_widget_show (treeview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview);
 
-  label1 = gtk_label_new (_("Name"));
-  gtk_widget_set_name (label1, "label1");
-  gtk_widget_ref (label1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label1", label1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label1);
-  gtk_clist_set_column_widget (GTK_CLIST (ctree1), 0, label1);
-  gtk_widget_set_usize (label1, 104, -2);
+  notebook4 = gtk_notebook_new ();
+  gtk_widget_set_name (notebook4, "notebook4");
+  gtk_widget_show (notebook4);
+  gtk_paned_pack2 (GTK_PANED (hpaned1), notebook4, TRUE, TRUE);
 
-  label2 = gtk_label_new (_("Title"));
-  gtk_widget_set_name (label2, "label2");
-  gtk_widget_ref (label2);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label2", label2,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label2);
-  gtk_clist_set_column_widget (GTK_CLIST (ctree1), 1, label2);
-  gtk_widget_set_usize (label2, 93, -2);
-
-  label3 = gtk_label_new (_("Difficulty"));
-  gtk_widget_set_name (label3, "label3");
-  gtk_widget_ref (label3);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label3", label3,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label3);
-  gtk_clist_set_column_widget (GTK_CLIST (ctree1), 2, label3);
-  gtk_widget_set_usize (label3, 9, -2);
-
-  notebook1 = gtk_notebook_new ();
-  gtk_widget_set_name (notebook1, "notebook1");
-  gtk_widget_ref (notebook1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "notebook1", notebook1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (notebook1);
-  gtk_paned_pack2 (GTK_PANED (hpaned1), notebook1, TRUE, TRUE);
-
-  scrolledwindow_description = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow_description, "scrolledwindow_description");
-  gtk_widget_ref (scrolledwindow_description);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "scrolledwindow_description", scrolledwindow_description,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (scrolledwindow_description);
-  gtk_container_add (GTK_CONTAINER (notebook1), scrolledwindow_description);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow_description), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+  scrolledwindow14 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow14, "scrolledwindow14");
+  gtk_widget_show (scrolledwindow14);
+  gtk_container_add (GTK_CONTAINER (notebook4), scrolledwindow14);
 
   viewport1 = gtk_viewport_new (NULL, NULL);
   gtk_widget_set_name (viewport1, "viewport1");
-  gtk_widget_ref (viewport1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "viewport1", viewport1,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (viewport1);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow_description), viewport1);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow14), viewport1);
 
-  table1 = gtk_table_new (12, 2, FALSE);
-  gtk_widget_set_name (table1, "table1");
-  gtk_widget_ref (table1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "table1", table1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (table1);
-  gtk_container_add (GTK_CONTAINER (viewport1), table1);
+  table2 = gtk_table_new (12, 2, FALSE);
+  gtk_widget_set_name (table2, "table2");
+  gtk_widget_show (table2);
+  gtk_container_add (GTK_CONTAINER (viewport1), table2);
 
-  label6 = gtk_label_new (_("Icon"));
-  gtk_widget_set_name (label6, "label6");
-  gtk_widget_ref (label6);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label6", label6,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label6);
-  gtk_table_attach (GTK_TABLE (table1), label6, 0, 1, 0, 1,
+  label16 = gtk_label_new (_("Icon"));
+  gtk_widget_set_name (label16, "label16");
+  gtk_widget_show (label16);
+  gtk_table_attach (GTK_TABLE (table2), label16, 0, 1, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label6), 0, 0.5);
+  gtk_label_set_justify (GTK_LABEL (label16), GTK_JUSTIFY_LEFT);
+  gtk_misc_set_alignment (GTK_MISC (label16), 0, 0.5);
 
-  label11 = gtk_label_new (_("Board dir"));
-  gtk_widget_set_name (label11, "label11");
-  gtk_widget_ref (label11);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label11", label11,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label11);
-  gtk_table_attach (GTK_TABLE (table1), label11, 0, 1, 7, 8,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label11), 0, 0.5);
-
-  label10 = gtk_label_new (_("Author"));
-  gtk_widget_set_name (label10, "label10");
-  gtk_widget_ref (label10);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label10", label10,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label10);
-  gtk_table_attach (GTK_TABLE (table1), label10, 0, 1, 6, 7,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label10), 0, 0.5);
-
-  label9 = gtk_label_new (_("Difficulty"));
-  gtk_widget_set_name (label9, "label9");
-  gtk_widget_ref (label9);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label9", label9,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label9);
-  gtk_table_attach (GTK_TABLE (table1), label9, 0, 1, 5, 6,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label9), 0, 0.5);
-
-  label8 = gtk_label_new (_("Type"));
-  gtk_widget_set_name (label8, "label8");
-  gtk_widget_ref (label8);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label8", label8,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label8);
-  gtk_table_attach (GTK_TABLE (table1), label8, 0, 1, 4, 5,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label8), 0, 0.5);
-
-  combo1 = gtk_combo_new ();
-  gtk_widget_set_name (combo1, "combo1");
-  gtk_widget_ref (combo1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "combo1", combo1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (combo1);
-  gtk_table_attach (GTK_TABLE (table1), combo1, 1, 2, 4, 5,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-
-  combo_entryType = GTK_COMBO (combo1)->entry;
-  gtk_widget_set_name (combo_entryType, "combo_entryType");
-  gtk_widget_ref (combo_entryType);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "combo_entryType", combo_entryType,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (combo_entryType);
-  gtk_entry_set_editable (GTK_ENTRY (combo_entryType), FALSE);
-
-  label17 = gtk_label_new (_("Prerequisite"));
+  label17 = gtk_label_new (_("Name"));
   gtk_widget_set_name (label17, "label17");
-  gtk_widget_ref (label17);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label17", label17,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (label17);
-  gtk_table_attach (GTK_TABLE (table1), label17, 0, 1, 8, 9,
+  gtk_table_attach (GTK_TABLE (table2), label17, 0, 1, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label17), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label17), 0, 0.5);
 
-  label18 = gtk_label_new (_("Goal"));
+  label18 = gtk_label_new (_("Description"));
   gtk_widget_set_name (label18, "label18");
-  gtk_widget_ref (label18);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label18", label18,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (label18);
-  gtk_table_attach (GTK_TABLE (table1), label18, 0, 1, 9, 10,
+  gtk_table_attach (GTK_TABLE (table2), label18, 0, 1, 3, 4,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label18), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label18), 0, 0.5);
 
-  label19 = gtk_label_new (_("Manual"));
+  label19 = gtk_label_new (_("Type"));
   gtk_widget_set_name (label19, "label19");
-  gtk_widget_ref (label19);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label19", label19,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (label19);
-  gtk_table_attach (GTK_TABLE (table1), label19, 0, 1, 10, 11,
+  gtk_table_attach (GTK_TABLE (table2), label19, 0, 1, 4, 5,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label19), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label19), 0, 0.5);
 
-  spinbuttonDifficulty_adj = gtk_adjustment_new (1, 1, 3, 1, 10, 10);
-  spinbuttonDifficulty = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonDifficulty_adj), 1, 0);
-  gtk_widget_set_name (spinbuttonDifficulty, "spinbuttonDifficulty");
-  gtk_widget_ref (spinbuttonDifficulty);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "spinbuttonDifficulty", spinbuttonDifficulty,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (spinbuttonDifficulty);
-  gtk_table_attach (GTK_TABLE (table1), spinbuttonDifficulty, 1, 2, 5, 6,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_spin_button_set_wrap (GTK_SPIN_BUTTON (spinbuttonDifficulty), TRUE);
-
-  entryAuthor = gtk_entry_new ();
-  gtk_widget_set_name (entryAuthor, "entryAuthor");
-  gtk_widget_ref (entryAuthor);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "entryAuthor", entryAuthor,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (entryAuthor);
-  gtk_table_attach (GTK_TABLE (table1), entryAuthor, 1, 2, 6, 7,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_entry_set_editable (GTK_ENTRY (entryAuthor), FALSE);
-
-  entryBoardDir = gtk_entry_new ();
-  gtk_widget_set_name (entryBoardDir, "entryBoardDir");
-  gtk_widget_ref (entryBoardDir);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "entryBoardDir", entryBoardDir,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (entryBoardDir);
-  gtk_table_attach (GTK_TABLE (table1), entryBoardDir, 1, 2, 7, 8,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_entry_set_editable (GTK_ENTRY (entryBoardDir), FALSE);
-
-  hbox1 = gtk_hbox_new (FALSE, 0);
-  gtk_widget_set_name (hbox1, "hbox1");
-  gtk_widget_ref (hbox1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "hbox1", hbox1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (hbox1);
-  gtk_table_attach (GTK_TABLE (table1), hbox1, 1, 2, 0, 1,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_FILL), 0, 0);
-
-  pixmapBoardIcon = gtk_type_new (gnome_pixmap_get_type ());
-  gtk_widget_set_name (pixmapBoardIcon, "pixmapBoardIcon");
-  gtk_widget_ref (pixmapBoardIcon);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "pixmapBoardIcon", pixmapBoardIcon,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (pixmapBoardIcon);
-  gtk_box_pack_start (GTK_BOX (hbox1), pixmapBoardIcon, TRUE, TRUE, 0);
-
-  vbox1 = gtk_vbox_new (FALSE, 0);
-  gtk_widget_set_name (vbox1, "vbox1");
-  gtk_widget_ref (vbox1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "vbox1", vbox1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (vbox1);
-  gtk_box_pack_end (GTK_BOX (hbox1), vbox1, FALSE, FALSE, 0);
-
-  vbuttonbox1 = gtk_vbutton_box_new ();
-  gtk_widget_set_name (vbuttonbox1, "vbuttonbox1");
-  gtk_widget_ref (vbuttonbox1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "vbuttonbox1", vbuttonbox1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (vbuttonbox1);
-  gtk_box_pack_start (GTK_BOX (vbox1), vbuttonbox1, TRUE, TRUE, 0);
-
-  buttonIconList = gtk_button_new_with_label (_("..."));
-  gtk_widget_set_name (buttonIconList, "buttonIconList");
-  gtk_widget_ref (buttonIconList);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonIconList", buttonIconList,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (buttonIconList);
-  gtk_box_pack_end (GTK_BOX (vbox1), buttonIconList, FALSE, FALSE, 0);
-  GTK_WIDGET_UNSET_FLAGS (buttonIconList, GTK_CAN_FOCUS);
-  gtk_tooltips_set_tip (tooltips, buttonIconList, _("Enregistrer le fichier"), NULL);
-
-  label20 = gtk_label_new (_("Credit"));
+  label20 = gtk_label_new (_("Difficulty"));
   gtk_widget_set_name (label20, "label20");
-  gtk_widget_ref (label20);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label20", label20,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (label20);
-  gtk_table_attach (GTK_TABLE (table1), label20, 0, 1, 11, 12,
+  gtk_table_attach (GTK_TABLE (table2), label20, 0, 1, 5, 6,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label20), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label20), 0, 0.5);
 
-  label12 = gtk_label_new (_("Description"));
-  gtk_widget_set_name (label12, "label12");
-  gtk_widget_ref (label12);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label12", label12,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label12);
-  gtk_table_attach (GTK_TABLE (table1), label12, 0, 1, 3, 4,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label12), 0, 0.5);
-
-  label7 = gtk_label_new (_("Name"));
-  gtk_widget_set_name (label7, "label7");
-  gtk_widget_ref (label7);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label7", label7,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label7);
-  gtk_table_attach (GTK_TABLE (table1), label7, 0, 1, 1, 2,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
-
-  entryName = gtk_entry_new ();
-  gtk_widget_set_name (entryName, "entryName");
-  gtk_widget_ref (entryName);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "entryName", entryName,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (entryName);
-  gtk_table_attach (GTK_TABLE (table1), entryName, 1, 2, 1, 2,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_entry_set_editable (GTK_ENTRY (entryName), FALSE);
-
-  label21 = gtk_label_new (_("Title"));
+  label21 = gtk_label_new (_("Author"));
   gtk_widget_set_name (label21, "label21");
-  gtk_widget_ref (label21);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label21", label21,
-                            (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (label21);
-  gtk_table_attach (GTK_TABLE (table1), label21, 0, 1, 2, 3,
+  gtk_table_attach (GTK_TABLE (table2), label21, 0, 1, 6, 7,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label21), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label21), 0, 0.5);
 
-  entryTitle = gtk_entry_new ();
-  gtk_widget_set_name (entryTitle, "entryTitle");
-  gtk_widget_ref (entryTitle);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "entryTitle", entryTitle,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (entryTitle);
-  gtk_table_attach (GTK_TABLE (table1), entryTitle, 1, 2, 2, 3,
+  label22 = gtk_label_new (_("Directory"));
+  gtk_widget_set_name (label22, "label22");
+  gtk_widget_show (label22);
+  gtk_table_attach (GTK_TABLE (table2), label22, 0, 1, 7, 8,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label22), GTK_JUSTIFY_LEFT);
+  gtk_misc_set_alignment (GTK_MISC (label22), 0, 0.5);
+
+  label23 = gtk_label_new (_("Prerequisite"));
+  gtk_widget_set_name (label23, "label23");
+  gtk_widget_show (label23);
+  gtk_table_attach (GTK_TABLE (table2), label23, 0, 1, 8, 9,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label23), GTK_JUSTIFY_LEFT);
+  gtk_misc_set_alignment (GTK_MISC (label23), 0, 0.5);
+
+  label24 = gtk_label_new (_("Goal"));
+  gtk_widget_set_name (label24, "label24");
+  gtk_widget_show (label24);
+  gtk_table_attach (GTK_TABLE (table2), label24, 0, 1, 9, 10,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label24), GTK_JUSTIFY_LEFT);
+  gtk_misc_set_alignment (GTK_MISC (label24), 0, 0.5);
+
+  label25 = gtk_label_new (_("Manual"));
+  gtk_widget_set_name (label25, "label25");
+  gtk_widget_show (label25);
+  gtk_table_attach (GTK_TABLE (table2), label25, 0, 1, 10, 11,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label25), GTK_JUSTIFY_LEFT);
+  gtk_misc_set_alignment (GTK_MISC (label25), 0, 0.5);
+
+  label26 = gtk_label_new (_("Credit"));
+  gtk_widget_set_name (label26, "label26");
+  gtk_widget_show (label26);
+  gtk_table_attach (GTK_TABLE (table2), label26, 0, 1, 11, 12,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label26), GTK_JUSTIFY_LEFT);
+  gtk_misc_set_alignment (GTK_MISC (label26), 0, 0.5);
+
+  iconentry = gnome_icon_entry_new (NULL, NULL);
+  gtk_widget_set_name (iconentry, "iconentry");
+  gtk_widget_show (iconentry);
+  gtk_table_attach (GTK_TABLE (table2), iconentry, 1, 2, 0, 1,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (GTK_FILL), 0, 0);
+
+  label27 = gtk_label_new (_("Title"));
+  gtk_widget_set_name (label27, "label27");
+  gtk_widget_show (label27);
+  gtk_table_attach (GTK_TABLE (table2), label27, 0, 1, 2, 3,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_justify (GTK_LABEL (label27), GTK_JUSTIFY_LEFT);
+  gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
+
+  combo1 = gtk_combo_new ();
+  gtk_object_set_data (GTK_OBJECT (GTK_COMBO (combo1)->popwin),
+                       "GladeParentKey", combo1);
+  gtk_widget_set_name (combo1, "combo1");
+  gtk_widget_show (combo1);
+  gtk_table_attach (GTK_TABLE (table2), combo1, 1, 2, 4, 5,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_entry_set_editable (GTK_ENTRY (entryTitle), FALSE);
 
-  scrolledwindow3 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow3, "scrolledwindow3");
-  gtk_widget_ref (scrolledwindow3);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "scrolledwindow3", scrolledwindow3,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (scrolledwindow3);
-  gtk_table_attach (GTK_TABLE (table1), scrolledwindow3, 1, 2, 8, 9,
+  entry_type = GTK_COMBO (combo1)->entry;
+  gtk_widget_set_name (entry_type, "entry_type");
+  gtk_widget_show (entry_type);
+  gtk_entry_set_editable (GTK_ENTRY (entry_type), FALSE);
+
+  entry_name = gtk_entry_new ();
+  gtk_widget_set_name (entry_name, "entry_name");
+  gtk_widget_show (entry_name);
+  gtk_table_attach (GTK_TABLE (table2), entry_name, 1, 2, 1, 2,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 2);
+  gtk_entry_set_editable (GTK_ENTRY (entry_name), FALSE);
+
+  entry_title = gtk_entry_new ();
+  gtk_widget_set_name (entry_title, "entry_title");
+  gtk_widget_show (entry_title);
+  gtk_table_attach (GTK_TABLE (table2), entry_title, 1, 2, 2, 3,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 1);
+  gtk_entry_set_editable (GTK_ENTRY (entry_title), FALSE);
+
+  scrolledwindow15 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow15, "scrolledwindow15");
+  gtk_widget_show (scrolledwindow15);
+  gtk_table_attach (GTK_TABLE (table2), scrolledwindow15, 1, 2, 3, 4,
                     (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow3), GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
+                    (GtkAttachOptions) (GTK_FILL), 0, 1);
 
-  textPrerequisite = gtk_text_new (NULL, NULL);
-  gtk_widget_set_name (textPrerequisite, "textPrerequisite");
-  gtk_widget_ref (textPrerequisite);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "textPrerequisite", textPrerequisite,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (textPrerequisite);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow3), textPrerequisite);
-  gtk_text_set_editable (GTK_TEXT (textPrerequisite), TRUE);
+  textview_description = gtk_text_view_new ();
+  gtk_widget_set_name (textview_description, "textview_description");
+  gtk_widget_show (textview_description);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow15), textview_description);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (textview_description), FALSE);
 
-  scrolledwindow4 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow4, "scrolledwindow4");
-  gtk_widget_ref (scrolledwindow4);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "scrolledwindow4", scrolledwindow4,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (scrolledwindow4);
-  gtk_table_attach (GTK_TABLE (table1), scrolledwindow4, 1, 2, 9, 10,
+  spinbutton_difficulty_adj = gtk_adjustment_new (1, 1, 3, 1, 1, 1);
+  spinbutton_difficulty = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_difficulty_adj), 1, 0);
+  gtk_widget_set_name (spinbutton_difficulty, "spinbutton_difficulty");
+  gtk_widget_show (spinbutton_difficulty);
+  gtk_table_attach (GTK_TABLE (table2), spinbutton_difficulty, 1, 2, 5, 6,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 2);
+  gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbutton_difficulty), TRUE);
+
+  entry_author = gtk_entry_new ();
+  gtk_widget_set_name (entry_author, "entry_author");
+  gtk_widget_show (entry_author);
+  gtk_table_attach (GTK_TABLE (table2), entry_author, 1, 2, 6, 7,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 2);
+  gtk_entry_set_editable (GTK_ENTRY (entry_author), FALSE);
+
+  entry_directory = gtk_entry_new ();
+  gtk_widget_set_name (entry_directory, "entry_directory");
+  gtk_widget_show (entry_directory);
+  gtk_table_attach (GTK_TABLE (table2), entry_directory, 1, 2, 7, 8,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 2);
+  gtk_entry_set_editable (GTK_ENTRY (entry_directory), FALSE);
+
+  scrolledwindow16 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow16, "scrolledwindow16");
+  gtk_widget_show (scrolledwindow16);
+  gtk_table_attach (GTK_TABLE (table2), scrolledwindow16, 1, 2, 8, 9,
                     (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow4), GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
+                    (GtkAttachOptions) (GTK_FILL), 0, 2);
 
-  textGoal = gtk_text_new (NULL, NULL);
-  gtk_widget_set_name (textGoal, "textGoal");
-  gtk_widget_ref (textGoal);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "textGoal", textGoal,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (textGoal);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow4), textGoal);
-  gtk_text_set_editable (GTK_TEXT (textGoal), TRUE);
+  textview_prerequisite = gtk_text_view_new ();
+  gtk_widget_set_name (textview_prerequisite, "textview_prerequisite");
+  gtk_widget_show (textview_prerequisite);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow16), textview_prerequisite);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (textview_prerequisite), FALSE);
 
-  scrolledwindow5 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow5, "scrolledwindow5");
-  gtk_widget_ref (scrolledwindow5);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "scrolledwindow5", scrolledwindow5,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (scrolledwindow5);
-  gtk_table_attach (GTK_TABLE (table1), scrolledwindow5, 1, 2, 10, 11,
+  scrolledwindow17 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow17, "scrolledwindow17");
+  gtk_widget_show (scrolledwindow17);
+  gtk_table_attach (GTK_TABLE (table2), scrolledwindow17, 1, 2, 9, 10,
                     (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow5), GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
+                    (GtkAttachOptions) (GTK_FILL), 0, 2);
 
-  textManual = gtk_text_new (NULL, NULL);
-  gtk_widget_set_name (textManual, "textManual");
-  gtk_widget_ref (textManual);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "textManual", textManual,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (textManual);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow5), textManual);
-  gtk_text_set_editable (GTK_TEXT (textManual), TRUE);
+  textview_goal = gtk_text_view_new ();
+  gtk_widget_set_name (textview_goal, "textview_goal");
+  gtk_widget_show (textview_goal);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow17), textview_goal);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (textview_goal), FALSE);
 
-  scrolledwindow6 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow6, "scrolledwindow6");
-  gtk_widget_ref (scrolledwindow6);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "scrolledwindow6", scrolledwindow6,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (scrolledwindow6);
-  gtk_table_attach (GTK_TABLE (table1), scrolledwindow6, 1, 2, 11, 12,
+  scrolledwindow18 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow18, "scrolledwindow18");
+  gtk_widget_show (scrolledwindow18);
+  gtk_table_attach (GTK_TABLE (table2), scrolledwindow18, 1, 2, 10, 11,
                     (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow6), GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
+                    (GtkAttachOptions) (GTK_FILL), 0, 2);
 
-  textCredit = gtk_text_new (NULL, NULL);
-  gtk_widget_set_name (textCredit, "textCredit");
-  gtk_widget_ref (textCredit);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "textCredit", textCredit,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (textCredit);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow6), textCredit);
-  gtk_text_set_editable (GTK_TEXT (textCredit), TRUE);
+  textview_manual = gtk_text_view_new ();
+  gtk_widget_set_name (textview_manual, "textview_manual");
+  gtk_widget_show (textview_manual);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow18), textview_manual);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (textview_manual), FALSE);
 
-  scrolledwindow2 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow2, "scrolledwindow2");
-  gtk_widget_ref (scrolledwindow2);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "scrolledwindow2", scrolledwindow2,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (scrolledwindow2);
-  gtk_table_attach (GTK_TABLE (table1), scrolledwindow2, 1, 2, 3, 4,
+  scrolledwindow19 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow19, "scrolledwindow19");
+  gtk_widget_show (scrolledwindow19);
+  gtk_table_attach (GTK_TABLE (table2), scrolledwindow19, 1, 2, 11, 12,
                     (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_FILL), 0, 0);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow2), GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
+                    (GtkAttachOptions) (GTK_FILL), 0, 2);
 
-  textDescription = gtk_text_new (NULL, NULL);
-  gtk_widget_set_name (textDescription, "textDescription");
-  gtk_widget_ref (textDescription);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "textDescription", textDescription,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (textDescription);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow2), textDescription);
+  textview_credit = gtk_text_view_new ();
+  gtk_widget_set_name (textview_credit, "textview_credit");
+  gtk_widget_show (textview_credit);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow19), textview_credit);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (textview_credit), FALSE);
 
-  label4 = gtk_label_new (_("Description"));
-  gtk_widget_set_name (label4, "label4");
-  gtk_widget_ref (label4);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label4", label4,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label4);
-  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 0), label4);
+  label15 = gtk_label_new (_("Description"));
+  gtk_widget_set_name (label15, "label15");
+  gtk_widget_show (label15);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook4), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook4), 0), label15);
+  gtk_label_set_justify (GTK_LABEL (label15), GTK_JUSTIFY_LEFT);
 
-  empty_notebook_page = gtk_vbox_new (FALSE, 0);
-  gtk_widget_show (empty_notebook_page);
-  gtk_container_add (GTK_CONTAINER (notebook1), empty_notebook_page);
-
-  label5 = gtk_label_new (_("Content"));
-  gtk_widget_set_name (label5, "label5");
-  gtk_widget_ref (label5);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "label5", label5,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (label5);
-  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 1), label5);
-
-  appbar1 = gnome_appbar_new (TRUE, TRUE, GNOME_PREFERENCES_NEVER);
-  gtk_widget_set_name (appbar1, "appbar1");
-  gtk_widget_ref (appbar1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "appbar1", appbar1,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (appbar1);
-  gnome_app_set_statusbar (GNOME_APP (gcompris_edit), appbar1);
-
-  gnome_app_install_menu_hints (GNOME_APP (gcompris_edit), menubar1_uiinfo);
-  gtk_signal_connect (GTK_OBJECT (buttonAdd), "clicked",
-                      GTK_SIGNAL_FUNC (on_buttonAdd_clicked),
-                      NULL);
-  gtk_signal_connect (GTK_OBJECT (buttonDel), "clicked",
-                      GTK_SIGNAL_FUNC (on_buttonDel_clicked),
-                      NULL);
-  gtk_signal_connect (GTK_OBJECT (ctree1), "tree_select_row",
-                      GTK_SIGNAL_FUNC (on_ctree1_tree_select_row),
-                      NULL);
-  gtk_signal_connect (GTK_OBJECT (ctree1), "tree_unselect_row",
-                      GTK_SIGNAL_FUNC (on_ctree1_tree_unselect_row),
-                      NULL);
-  gtk_signal_connect_after (GTK_OBJECT (ctree1), "tree_collapse",
-                            GTK_SIGNAL_FUNC (on_ctree1_tree_collapse),
-                            NULL);
-  gtk_signal_connect_after (GTK_OBJECT (ctree1), "tree_expand",
-                            GTK_SIGNAL_FUNC (on_ctree1_tree_expand),
-                            NULL);
-  gtk_signal_connect (GTK_OBJECT (buttonIconList), "clicked",
-                      GTK_SIGNAL_FUNC (on_buttonIconList_clicked),
-                      NULL);
-
-  gtk_widget_grab_focus (ctree1);
-  gtk_widget_grab_default (ctree1);
-  gtk_object_set_data (GTK_OBJECT (gcompris_edit), "tooltips", tooltips);
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (gcompris_edit, gcompris_edit, "gcompris_edit");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, bonobodock1, "bonobodock1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[0].widget, "file1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, file1_menu_uiinfo[0].widget, "quit1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[1].widget, "edit1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, edit1_menu_uiinfo[0].widget, "cut1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, edit1_menu_uiinfo[1].widget, "copy1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, edit1_menu_uiinfo[2].widget, "paste1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[2].widget, "help1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, help1_menu_uiinfo[1].widget, "about1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, toolbar1, "toolbar1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, hpaned1, "hpaned1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow1, "scrolledwindow1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, treeview, "treeview");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, notebook4, "notebook4");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow14, "scrolledwindow14");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, viewport1, "viewport1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, table2, "table2");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label16, "label16");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label17, "label17");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label18, "label18");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label19, "label19");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label20, "label20");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label21, "label21");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label22, "label22");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label23, "label23");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label24, "label24");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label25, "label25");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label26, "label26");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, iconentry, "iconentry");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label27, "label27");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, combo1, "combo1");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, entry_type, "entry_type");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, entry_name, "entry_name");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, entry_title, "entry_title");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow15, "scrolledwindow15");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, textview_description, "textview_description");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, spinbutton_difficulty, "spinbutton_difficulty");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, entry_author, "entry_author");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, entry_directory, "entry_directory");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow16, "scrolledwindow16");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, textview_prerequisite, "textview_prerequisite");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow17, "scrolledwindow17");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, textview_goal, "textview_goal");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow18, "scrolledwindow18");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, textview_manual, "textview_manual");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow19, "scrolledwindow19");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, textview_credit, "textview_credit");
+  GLADE_HOOKUP_OBJECT (gcompris_edit, label15, "label15");
 
   return gcompris_edit;
 }
 
 GtkWidget*
-create_window_iconlist (void)
+create_about1 (void)
 {
-  GtkWidget *window_iconlist;
-  GtkWidget *iconselection;
+  const gchar *authors[] = {
+    "Bruno Coudoin",
+    NULL
+  };
+  const gchar *documenters[] = { NULL };
+  /* TRANSLATORS: Replace this string with your names, one name per line. */
+  gchar *translators = _("translator_credits");
+  GtkWidget *about1;
 
-  window_iconlist = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_widget_set_name (window_iconlist, "window_iconlist");
-  gtk_object_set_data (GTK_OBJECT (window_iconlist), "window_iconlist", window_iconlist);
-  gtk_window_set_title (GTK_WINDOW (window_iconlist), _("Icon List"));
+  if (!strcmp (translators, "translator_credits"))
+    translators = NULL;
+  about1 = gnome_about_new ("Gcompris Editor", VERSION,
+                        _("Released under GPL"),
+                        "",
+                        authors,
+                        documenters,
+                        translators,
+                        NULL);
+  gtk_widget_set_name (about1, "about1");
 
-  iconselection = gnome_icon_selection_new ();
-  gtk_widget_set_name (iconselection, "iconselection");
-  gtk_widget_ref (iconselection);
-  gtk_object_set_data_full (GTK_OBJECT (window_iconlist), "iconselection", iconselection,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (iconselection);
-  gtk_container_add (GTK_CONTAINER (window_iconlist), iconselection);
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (about1, about1, "about1");
 
-  return window_iconlist;
+  return about1;
 }
 

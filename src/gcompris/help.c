@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/06/26 01:10:52 bruno>
+ * Time-stamp: <2002/12/08 15:47:49 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -92,8 +92,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   gint y = 0;
   gint y_start = 0;
   gint x_start = 0;
-  GdkFont *gdk_font;
-  GdkFont *gdk_font2;
   gchar   *name = NULL;
   gchar   *text_to_display = NULL;
 
@@ -130,17 +128,11 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
-  // NAME
-  gdk_font = gdk_font_load (FONT_TITLE);
-  if(!gdk_font)
-    // Fallback to a more usual font
-    gdk_font = gdk_font_load (FONT_TITLE_FALLBACK);
-
   y_start += 40;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", name, 
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -151,11 +143,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   y_start += 120;
 
   pixmap = gcompris_load_pixmap("gcompris/buttons/button_up.png");
-
-  gdk_font2 = gdk_font_load (FONT_CONTENT);
-  if(!gdk_font2)
-    // Fallback to a more usual font
-    gdk_font2 = gdk_font_load (FONT_CONTENT_FALLBACK);
 
   // Prerequisite Button
   if(prerequisite)
@@ -179,7 +166,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       item_prerequisite_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
 				    "text", _("Prerequisite"),
-				    "font_gdk", gdk_font2,
+				    "font", FONT_CONTENT,
 				    "x", (double)  BOARDWIDTH*0.20,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
@@ -213,7 +200,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       item_goal_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
 				    "text", _("Goal"),
-				    "font_gdk", gdk_font2,
+				    "font", FONT_CONTENT,
 				    "x", (double)  BOARDWIDTH*0.4,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
@@ -247,7 +234,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       item_manual_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
 				    "text", _("Manual"),
-				    "font_gdk", gdk_font2,
+				    "font", FONT_CONTENT,
 				    "x", (double)  BOARDWIDTH*0.6,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
@@ -281,7 +268,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       item_credit_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
 				    "text", _("Credit"),
-				    "font_gdk", gdk_font2,
+				    "font", FONT_CONTENT,
 				    "x", (double)  BOARDWIDTH*0.8,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
@@ -326,7 +313,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   item_content = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					gnome_canvas_text_get_type (),
 					"text", text_to_display,
-					"font_gdk", gdk_font2,
+					"font", FONT_CONTENT,
 					"x", (double)  x_start + 45,
 					"y", (double)  y_start,
 					"anchor", GTK_ANCHOR_NW,
@@ -353,7 +340,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,

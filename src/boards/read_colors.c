@@ -59,7 +59,6 @@ static void update_clock();
 
 static int highlight_width, highlight_height, errors;
 static GList * listColors = NULL;
-static  GdkFont *gdk_font = NULL;
 
 #define LAST_COLOR 11
 #define MAX_ERRORS 10
@@ -138,28 +137,27 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       gcompris_bar_set(GCOMPRIS_BAR_OK);
 
       gamewon = FALSE;
-			errors = MAX_ERRORS;
+      errors = MAX_ERRORS;
 
-		  gdk_font = gdk_font_load (FONT_BOARD_BIG);
-			init_xml();
-
-			// we generate a list of color indexes in a random order
-  		while (g_list_length(listColors) > 0)
-    		listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
-
-			for (i=0; i<LAST_COLOR; i++)
-				list = g_list_append(list, GINT_TO_POINTER(i));
-
-			while ((g_list_length(list) > 0)) {
-				i = RAND(0,g_list_length(list)-1);
-				item = g_list_nth_data(list, i);
-				listColors = g_list_append(listColors, item);
-				list = g_list_remove(list, item);
-			}
-
-			read_colors_next_level();
+      init_xml();
+      
+      // we generate a list of color indexes in a random order
+      while (g_list_length(listColors) > 0)
+	listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+      
+      for (i=0; i<LAST_COLOR; i++)
+	list = g_list_append(list, GINT_TO_POINTER(i));
+      
+      while ((g_list_length(list) > 0)) {
+	i = RAND(0,g_list_length(list)-1);
+	item = g_list_nth_data(list, i);
+	listColors = g_list_append(listColors, item);
+	list = g_list_remove(list, item);
+      }
+      
+      read_colors_next_level();
       pause_board(FALSE);
-    }
+  }
 }
 
 /* =====================================================================
@@ -206,7 +204,7 @@ static void read_colors_next_level() {
   color_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
-				      "font_gdk", gdk_font,
+				      "font", FONT_BOARD_TITLE_BOLD,
 				      "x", (double) (color_x1+color_x2)/2,
 				      "y", (double) (color_y1+color_y2)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
@@ -434,12 +432,12 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 				if (!strcmp(xmlnode->name, sColor)) {
 					if (lang == NULL) { // get default value
 							text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-							colors[i] = convertUTF8Toisolat1(text);
+							colors[i] = text;
 					} else // get correct language
 						if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
 							text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 							printf("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
-							colors[i] = convertUTF8Toisolat1(text);
+							colors[i] = text;
 							color++;
 							}
 					break;

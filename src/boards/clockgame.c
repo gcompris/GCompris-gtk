@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2002/05/01 11:59:27 bruno>
+ * Time-stamp: <2002/12/10 00:04:32 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -376,15 +376,8 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
   GnomeCanvasPoints *canvasPoints;
   char *color;
   char *color_text;
-  GdkFont *font, *gdk_font, *gdk_font_small, *gdk_font_big, *gdk_font_big2, *gdk_font_big3;
   gchar *mtext = NULL;
-
-  /* Load a gdk font */
-  gdk_font = gdk_font_load (FONT_BOARD_SMALL);
-  gdk_font_small = gdk_font_load (FONT_BOARD_TINY);
-  gdk_font_big = gdk_font_load (FONT_BOARD_SMALL);
-  gdk_font_big2 = gdk_font_load (FONT_BOARD_MEDIUM);
-  gdk_font_big3 = gdk_font_load (FONT_BOARD_BIG_BOLD);
+  gchar *font = NULL;
 
   canvasPoints = gnome_canvas_points_new (2);
 
@@ -398,7 +391,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	  canvasPoints->coords[1]=cy - (needle_size-hour_point_size) * cos(ang);
 	  color="darkblue";
 	  color_text="red";
-	  font = gdk_font;
+	  font = FONT_BOARD_SMALL;
 	}
       else
 	{
@@ -407,7 +400,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	  canvasPoints->coords[1]=cy - (needle_size-min_point_size) * cos(ang);
 	  color="red";
 	  color_text="red";
-	  font = gdk_font_small;
+	  font = FONT_BOARD_TINY;
 	}
 
       canvasPoints->coords[2]=cx + needle_size * sin(ang);
@@ -428,7 +421,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	  item = gnome_canvas_item_new (parent,
 					gnome_canvas_text_get_type (),
 					"text", mtext,
-					"font_gdk", font,
+					"font", font,
 					"x", (double) cx + (needle_size+10) * sin(ang),
 					"y", (double) cy - (needle_size+10) * cos(ang),
 					"anchor", GTK_ANCHOR_CENTER,
@@ -447,7 +440,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	    item = gnome_canvas_item_new (parent,
 					  gnome_canvas_text_get_type (),
 					  "text", mtext,
-					  "font_gdk", gdk_font_big,
+					  "font", font,
 					  "x", (double) cx + (needle_size-30) * sin(ang),
 					  "y", (double) cy - (needle_size-30) * cos(ang),
 					  "anchor", GTK_ANCHOR_CENTER,
@@ -467,7 +460,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	gnome_canvas_item_new (parent,
 			       gnome_canvas_text_get_type (),
 			       "text", "",
-			       "font_gdk", gdk_font_big2,
+			       "font", FONT_BOARD_MEDIUM,
 			       "x", (double) cx,
 			       "y", (double) cy +  needle_size/2,
 			       "anchor", GTK_ANCHOR_CENTER,
@@ -535,7 +528,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", _("Set the watch to:"),
-			   "font_gdk", gdk_font_big3,
+			   "font", FONT_BOARD_MEDIUM,
 			   "x", (double) gcomprisBoard->width*0.15,
 			   "y", (double) cy + needle_size +  needle_size / 3 - 30,
 			   "anchor", GTK_ANCHOR_CENTER,
@@ -547,7 +540,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font_gdk", gdk_font_big3,
+			   "font", FONT_BOARD_BIG_BOLD,
 			   "x", (double) gcomprisBoard->width*0.15,
 			   "y", (double) cy + needle_size +  needle_size / 3,
 			   "anchor", GTK_ANCHOR_CENTER,

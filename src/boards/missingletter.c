@@ -247,7 +247,6 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 {
   char *buf[3];
   int xOffset,yOffset,place;
-  GdkFont *gdk_font;
   double dx1, dy1, dx2, dy2;
   GdkPixbuf *button_pixmap = NULL;
   GdkPixbuf *pixmap = NULL;
@@ -262,8 +261,6 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   /* this is the coordinate of the text to find */
   gint txt_area_x = 515;
   gint txt_area_y = 430;
-
-  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel-1;
 /*  if (board_number >= g_list_length(board_list))
@@ -293,7 +290,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   text = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", _(board->question),
-				"font_gdk", gdk_font,
+				"font", FONT_BOARD_BIG,
 				"x", (double) txt_area_x,
 				"y", (double) txt_area_y,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -348,7 +345,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   l1_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[0],
-				   "font_gdk", gdk_font,
+				   "font", FONT_BOARD_BIG,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
@@ -365,7 +362,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   l2_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[1],
-				   "font_gdk", gdk_font,
+				   "font", FONT_BOARD_BIG,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
@@ -383,7 +380,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   l3_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
 				   "text", buf[2],
-				   "font_gdk", gdk_font,
+				   "font", FONT_BOARD_BIG,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
 				   "anchor", GTK_ANCHOR_CENTER,
@@ -540,7 +537,6 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 					   || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	data = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	data = convertUTF8Toisolat1(data);
       }
     xmlnode = xmlnode->next;
   }

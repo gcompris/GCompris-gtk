@@ -1,6 +1,6 @@
 /*
- * NE PAS ÉDITER CE FICHIER - il est généré par Glade.
+ * NE PAS Ã‰DITER CE FICHIER - il est gÃ©nÃ©rÃ© par Glade.
  */
 
 GtkWidget* create_gcompris_edit (void);
-GtkWidget* create_window_iconlist (void);
+GtkWidget* create_about1 (void);

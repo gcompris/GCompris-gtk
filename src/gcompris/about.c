@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2002/05/05 22:25:25 bruno>
+ * Time-stamp: <2002/12/09 22:23:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,9 +46,6 @@ void gcompris_about_stop (void);
 void gcompris_about_start ()
 {
   GcomprisBoard		*gcomprisBoard = get_current_gcompris_board();
-  GdkFont *gdk_font;
-  GdkFont *gdk_font_small;
-  GdkFont *gdk_font2;
   GdkPixbuf   *pixmap = NULL;
   gint y_start = 0;
   gint x_start = 0;
@@ -92,16 +89,10 @@ void gcompris_about_start ()
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
-  // TITLE
-  gdk_font = gdk_font_load (FONT_TITLE);
-  if(!gdk_font)
-    // Fallback to a more usual font
-    gdk_font = gdk_font_load (FONT_TITLE_FALLBACK);
-
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("About GCompris"), 
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -114,24 +105,18 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "GCompris V" VERSION,
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", COLOR_SUBTITLE,
 				NULL);
 
-  // CONTENT
-  gdk_font2 = gdk_font_load (FONT_CONTENT);
-  if(!gdk_font2)
-    // Fallback to a more usual font
-    gdk_font2 = gdk_font_load (FONT_CONTENT_FALLBACK);
-
   y_start += 180;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", content,
-				"font_gdk", gdk_font2,
+				"font", FONT_CONTENT,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -158,7 +143,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "OFSET",
-				"font_gdk", gdk_font2,
+				"font", FONT_CONTENT,
 				"x", (double)  (BOARDWIDTH*0.25),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -185,7 +170,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "Free Software Foundation",
-				"font_gdk", gdk_font2,
+				"font", FONT_CONTENT,
 				"x", (double)  (BOARDWIDTH*0.75),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -213,7 +198,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("GCompris Home Page"),
-				"font_gdk", gdk_font2,
+				"font", FONT_CONTENT,
 				"x", (double)  (BOARDWIDTH*0.5),
 				"y", (double)  y_start + 30,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -224,7 +209,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "Copyright 2000,2001,2002 Bruno Coudoin",
-				"font_gdk", gdk_font2,
+				"font", FONT_CONTENT,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 85,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -235,7 +220,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("This software is a GNU Package and is released under the Gnu Public Licence"),
-				"font_gdk", gdk_font2,
+				"font", FONT_CONTENT,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 70,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -263,7 +248,7 @@ void gcompris_about_start ()
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("Help"),
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double)  BOARDWIDTH*0.3,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -297,7 +282,7 @@ void gcompris_about_start ()
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font_gdk", gdk_font,
+				"font", FONT_TITLE,
 				"x", (double)  BOARDWIDTH*0.7,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -309,12 +294,6 @@ void gcompris_about_start ()
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     item);
-
-  // About box content
-  gdk_font_small = gdk_font_load (FONT_SUBTITLE);
-  if(!gdk_font_small)
-    // Fallback to a more usual font
-    gdk_font_small = gdk_font_load (FONT_SUBTITLE_FALLBACK);
 
   pixmap_about = gcompris_load_pixmap("gcompris/gcompris-about.png");
 
@@ -415,15 +394,15 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
       else if (!strcmp((char *)data, "ofset"))
 	{
-	  gnome_url_show("http://ofset.sourceforge.net");
+	  gnome_url_show("http://ofset.sourceforge.net", NULL);
 	}
       else if (!strcmp((char *)data, "ofset"))
 	{
-	  gnome_url_show("http://www.fsf.org");
+	  gnome_url_show("http://www.fsf.org", NULL);
 	}
       else if (!strcmp((char *)data, "gcompris"))
 	{
-	  gnome_url_show("http://ofset.sourceforge.net/gcompris");
+	  gnome_url_show("http://ofset.sourceforge.net/gcompris", NULL);
 	}
       else if (!strcmp((char *)data, "help"))
 	{
@@ -432,7 +411,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   * Package relocatable.
 	   * Unfortunatly, this does not supports I18N
 	   */
-	  gnome_help_goto(NULL, PACKAGE_HELP_DIR "/C/gcompris.html");
+	  gnome_help_display(PACKAGE_HELP_DIR "/C/gcompris.html", NULL, NULL);
 	}
     default:
       break;
