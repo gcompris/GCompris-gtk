@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-30 02:30-0500\n"
+"POT-Creation-Date: 2005-03-30 23:28-0500\n"
 "PO-Revision-Date: 2005-03-30 22:51-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -600,9 +600,9 @@ msgstr "Send the ball to Tux"
 
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:6 ../boards/erase.xml.in.h:3
-#: ../boards/fifteen.xml.in.h:2 ../boards/hanoi.xml.in.h:3
-#: ../boards/memory.xml.in.h:4
+#: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
+#: ../boards/erase.xml.in.h:3 ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Mouse manipulation"
 
@@ -997,6 +997,32 @@ msgstr "Go to colours activities"
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
 msgstr "Discover the Computer"
+
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "Arrange four coins in a row"
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr "Click anywhere in the line in which you want to drop a piece"
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "Connect 4"
+
+#: ../boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr "Create a line of 4 pieces either horizontally or vertically"
+
+#: ../boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
+msgstr ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
