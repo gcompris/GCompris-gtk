@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2004/07/17 01:41:44 bcoudoin>
+ * Time-stamp: <2004/07/30 02:00:27 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -48,6 +48,8 @@ static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir);
 static int		 display_file_selector(int mode, 
 					       GcomprisBoard *gcomprisBoard, gchar *rootdir,
 					       FileSelectorCallBack iscb);
+static void		 entry_enter_callback( GtkWidget *widget,
+					       GtkWidget *entry );
 static int		 create_rootdir (gchar *rootdir);
 static void		 free_stuff (GtkObject *obj, gchar* data);
 
@@ -123,10 +125,10 @@ void gcompris_file_selector_stop ()
 
   printf("gcompris_file_selector_stop\n");
   // Destroy the file_selector box
+  /* FIXME: Crashes randomly */
   if(rootitem!=NULL)
-    {
-      gtk_object_destroy(GTK_OBJECT(rootitem));
-    }
+    gtk_object_destroy(GTK_OBJECT(rootitem));
+
   rootitem = NULL;	  
 
   /* No need to destroy it since it's in rootitem but just clear it */
@@ -204,9 +206,11 @@ display_file_selector(int mode,
 				"anchor", GTK_ANCHOR_NW,
 				"size_pixels", FALSE,
 				NULL);
-  g_signal_connect (item, "event",
-		    G_CALLBACK (item_event_file_selector),
-		    NULL);
+  gtk_signal_connect(GTK_OBJECT(widget_entry), "activate",
+		     GTK_SIGNAL_FUNC(entry_enter_callback),
+		     widget_entry);
+  /* Mandatory to have the keyboard keys going to our entry */
+  gtk_grab_add(GTK_OBJECT (widget_entry));
 
   gtk_widget_show (widget_entry);
 
@@ -473,6 +477,7 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 	dir=g_path_get_dirname(dir);
       }
       display_files(rootitem, g_strdup(dir));
+      gtk_entry_set_text(widget_entry, "");
       break;
     default:
       break;
@@ -520,6 +525,13 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 }
 
+static void entry_enter_callback( GtkWidget *widget,
+				  GtkWidget *entry )
+{
+  gchar *entry_text;
+  entry_text = gtk_entry_get_text(GTK_ENTRY(entry));
+  printf("Entry contents: %s\n", entry_text);
+}
 
 
 /* Local Variables: */

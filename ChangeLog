@@ -1,5 +1,13 @@
 2004-07-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/gcompris/file_selector.c: (gcompris_file_selector_stop),
+	(display_file_selector), (item_event_directory),
+	(entry_enter_callback): added grab on the entry to have it behave correctly.
+	unstable code. the gcompris_file_selector_stop fails randomly on 
+	gtk_object_destroy(GTK_OBJECT(rootitem)); don't know why yet.
+
+2004-07-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/draw.c: (display_tool_selector): improved, not yet complete.
 	* boards/skins/default/button_load.png: created with image from http://www.openclipart.org in public domain
 	* boards/skins/default/button_save.png: created with image from http://www.openclipart.org in public domain
