@@ -429,7 +429,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
       return;
     }
 
-  i = lowerImageIndex + rand()%(upperImageIndex-lowerImageIndex) -1;
+  i = lowerImageIndex + rand()%(upperImageIndex-lowerImageIndex);
   memoryArray[x][y] = memoryItem;
   memoryItem->image = imageList[i];
 
