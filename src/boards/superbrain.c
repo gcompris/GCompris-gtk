@@ -63,12 +63,14 @@ static guint colors[] =
 #define PIECE_GAP	18
 #define PIECE_GAP_GOOD	5
 #define SCROLL_LIMIT	160
+#define PLAYING_AREA_X	190
+#define PLAYING_HELP_X	(BOARDWIDTH-80)
 
 #define COLOR_GOOD	0x00000080
 #define COLOR_MISPLACED	0xFFFFFF80
 
-#define PIECE_DISPLAY_X	30
-#define PIECE_DISPLAY_Y	30
+#define PIECE_DISPLAY_X	40
+#define PIECE_DISPLAY_Y	35
 
 static void	 process_ok(void);
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -99,20 +101,6 @@ static guint solution[MAX_PIECES];
 #define LEVEL_MAX_FOR_HELP	4
 
 #define Y_STEP	(PIECE_HEIGHT+PIECE_GAP)
-
-// List of images to use in the game
-static gchar *imageList[] =
-{
-  "gcompris/animals/bear001.jpg",
-  "gcompris/animals/malaybear002.jpg",
-  "gcompris/animals/polabear011.jpg",
-  "gcompris/animals/spectbear001.jpg",
-  "gcompris/animals/joybear001.jpg",
-  "gcompris/animals/polarbear001.jpg",
-  "gcompris/animals/joybear002.jpg",
-  "gcompris/animals/poolbears001.jpg"
-};
-#define NUMBER_OF_IMAGES 8
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -243,7 +231,7 @@ static void superbrain_next_level()
   gboolean selected_color[MAX_COLORS];
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
+			  "images/superbrain_background.jpg");
 
   gcompris_bar_set_level(gcomprisBoard);
 
@@ -284,7 +272,6 @@ static void superbrain_next_level()
 	
       solution[i] = j;
       selected_color[j] = TRUE;
-      printf("solution[%d]=%d\n", i, j);
     }
 
 
@@ -303,16 +290,6 @@ static void superbrain_next_level()
 							    "y", (double) 0,
 							    NULL));
   
-  /* The logo */
-  pixmap = gcompris_load_pixmap("images/superbrain_logo.png");
-  gnome_canvas_item_new (boardLogoItem,
-			 gnome_canvas_pixbuf_get_type (),
-			 "pixbuf", pixmap,
-			 "x",      (double)BOARDWIDTH/2 - gdk_pixbuf_get_width(pixmap)/2 - 40,
-			 "y",      (double)          80 - gdk_pixbuf_get_height(pixmap)/2,
-			 NULL);
-  gdk_pixbuf_unref(pixmap);
-
   /* The list of the pieces */
   for(i=0; i<number_of_color; i++)
     {
@@ -359,11 +336,11 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
       gnome_canvas_item_move(GNOME_CANVAS_ITEM(boardRootItem), 0.0, (double)Y_STEP);
     }
 
-  x = (BOARDWIDTH - number_of_piece*(PIECE_WIDTH+PIECE_GAP))/2;
+  x = (BOARDWIDTH - number_of_piece*(PIECE_WIDTH+PIECE_GAP))/2 + PLAYING_AREA_X;
 
   /* Draw a line to separate cleanly */
   x1 = x + PIECE_WIDTH/2;
-  x2 = (BOARDWIDTH + (number_of_piece-1)*(PIECE_WIDTH+PIECE_GAP))/2 - PIECE_WIDTH/2;
+  x2 = (BOARDWIDTH + (number_of_piece-1)*(PIECE_WIDTH+PIECE_GAP))/2 - PIECE_WIDTH/2 + PLAYING_AREA_X;
 
   points = gnome_canvas_points_new(2);
   points->coords[0] = (double) x1;
@@ -391,7 +368,8 @@ static GnomeCanvasItem *superbrain_create_item(GnomeCanvasGroup *parent)
 			 NULL);
 
   /* Continuing the line */  
-  x1 = (BOARDWIDTH + (number_of_piece+2)*(PIECE_WIDTH+PIECE_GAP))/2;
+  //  x1 = (BOARDWIDTH + (number_of_piece+2)*(PIECE_WIDTH+PIECE_GAP))/2 + PLAYING_AREA_X;
+  x1 = PLAYING_HELP_X;
   x2 = x1 + number_of_piece*PIECE_WIDTH/2;
 
   points->coords[0] = (double) x1;
@@ -595,18 +573,15 @@ static void mark_pieces()
     {
       gboolean done;
 
-      printf("checking misplaced for piece %d\n", i);
       piece = g_list_nth_data(listPieces, i);
 
       /* Search if this color is elsewhere */
       j = 1;
       done = FALSE;
       do {
-	printf(" misplaced at piece %d ?\n", j);
 	if(piece->selecteditem != solution[i-1] &&
 	   piece->selecteditem == solution_tmp[j-1])
 	  {
-	    printf(" found it\n");
 	    nbmisplaced++;
 	    solution_tmp[j-1] = G_MAXINT;
 	    if(gcomprisBoard->level<LEVEL_MAX_FOR_HELP)
@@ -617,7 +592,8 @@ static void mark_pieces()
     }
 
   /* Display the matermind information to the user */
-  x = (BOARDWIDTH + (number_of_piece+2)*(PIECE_WIDTH+PIECE_GAP))/2;
+  //  x = (BOARDWIDTH + (number_of_piece+2)*(PIECE_WIDTH+PIECE_GAP))/2;
+  x = PLAYING_HELP_X;
   for(i=0; i<nbgood;  i++)
     {
       gnome_canvas_item_new (boardRootItem,

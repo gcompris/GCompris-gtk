@@ -14,6 +14,7 @@ lib_LTLIBRARIES = \
 	libimageid.la \
 	libleftright.la \
 	libsuperbrain.la \
+	libmachpuzzle.la \
 	libmaze.la \
 	libmemory.la \
 	libmenu.la \
@@ -277,6 +278,13 @@ libtraffic_la_LIBADD = @PTHREAD_LIB@
 	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libtraffic_la_SOURCES = traffic.c
+
+libmachpuzzle_la_LDFLAGS = -module -avoid-version
+libmachpuzzle_la_LIBADD = @PTHREAD_LIB@
+	$(GCOMPRIS_LIBS)	\
+	$(GNOME_XML_LIB) $(INTLLIBS)
+
+libmachpuzzle_la_SOURCES = machpuzzle.c
 
 EXTRA_DIST = README
 

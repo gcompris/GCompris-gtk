@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/12/26 00:55:01 bruno>
+ * Time-stamp: <2002/12/31 23:13:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -380,16 +380,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
     case GDK_ENTER_NOTIFY:
       /* HACK : If I don't set the color here, then the 3 text are not visible !!!
        *        just add again white here and it works again !!!! */
-      gnome_canvas_item_set (boardname_item,
-			     "text", menuitem->board->title,
-			     "fill_color", "blue",
-			     NULL);
-      gnome_canvas_item_set (description_item,
-			     "text",  menuitem->board->description,
-			     NULL);
-      gnome_canvas_item_set (author_item,
-			     "text",  menuitem->board->author,
-			     NULL);
+      if(menuitem->board->title)
+	gnome_canvas_item_set (boardname_item,
+			       "text", menuitem->board->title,
+			       "fill_color", "blue",
+			       NULL);
+
+      if(menuitem->board->description)
+	gnome_canvas_item_set (description_item,
+			       "text",  menuitem->board->description,
+			       NULL);
+
+      if(menuitem->board->author)
+	gnome_canvas_item_set (author_item,
+			       "text",  menuitem->board->author,
+			       NULL);
 
       break;
     case GDK_LEAVE_NOTIFY:

@@ -36,17 +36,8 @@ gboolean	board_paused  = TRUE;
 
 static GnomeCanvasGroup *allcars         = NULL;
 
-static GnomeCanvasItem  *removedCarsItem = NULL;
-static GnomeCanvasItem  *removeLeftItem  = NULL;
-static GnomeCanvasItem  *moveTakenItem   = NULL;
-static GnomeCanvasItem  *bestMoveItem    = NULL;
-
-#define MESSAGE_CENTER_X	575
-#define MESSAGE_CENTER_Y	190
-#define MESSAGE_COLOR		"blue"
-
-#define OFSET_X 50
-#define OFSET_Y 130
+#define OFSET_X 250
+#define OFSET_Y 128
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
@@ -55,6 +46,7 @@ static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
+static void	 repeat(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -73,38 +65,28 @@ struct _car {
   guint orient : 1;
   guint goal : 1;
   guint size;
+  guint color;
   gchar color_string[50];
   GnomeCanvasGroup *canvasgroup;
 };
 
 struct _jam {
-  car *cars;
   guint num_cars;
-  guint cars_for_goal;
-  guint minmoves;
   guint card;
   guint level;
+  car *cars[];
 };
 
 static int	 car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar);
 gboolean	 load_level(guint level, guint card);
 
-static jam	 current_card  ={NULL,0,0,0,0,0};
-static jam	 old_jam       ={NULL,0,0,0,0,0}; /* for disaster recovery */
-
-guint		 cars_for_goal;
-guint		 cars_removed;
-gboolean	 must_free;
-guint		 moves_taken;
+static jam	 current_card  ={0,0,0,NULL};
 
 static void	 draw_border(GnomeCanvasGroup *rootBorder);
 static void	 draw_grid  (GnomeCanvasGroup *rootBorder);
-static gboolean	 cars_from_strv(char **strv);
+static gint	 cars_from_strv(char **strv);
 static void	 load_error(void);
 static void	 load_not_found(void);
-
-static void	 label_update_moves(void);
-static void	 label_update_goal(void);
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -126,7 +108,7 @@ BoardPlugin menu_bp =
     NULL,
     set_level,
     NULL,
-    NULL
+    repeat
   };
 
 /*
@@ -169,8 +151,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=8;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "traffic/traffic-bg.jpg");
@@ -219,6 +201,18 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
   return FALSE;
 }
 
+/*
+ * Repeat let the user restart the current level
+ *
+ */
+static void repeat (){
+
+  traffic_destroy_all_items();
+
+  /* Try the next level */
+  traffic_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+}
+
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /* set initial values for the next level */
@@ -230,17 +224,6 @@ static void traffic_next_level()
   traffic_destroy_all_items();
   gamewon = FALSE;
 
-  /* Select level difficulty */
-  switch(gcomprisBoard->level)
-    {
-    case 1:
-      break;
-    case 2:
-      break;
-    default:
-      break;
-    }
-      
   /* Try the next level */
   traffic_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 
@@ -249,9 +232,17 @@ static void traffic_next_level()
 /* Destroy all the items */
 static void traffic_destroy_all_items()
 {
+  guint i;
+
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
   boardRootItem = NULL;
+
+  for (i=0; i<current_card.num_cars; i++)
+    {
+      g_free(current_card.cars[i]);
+    }
+  current_card.num_cars = 0;
 }
 
 /* ==================================== */
@@ -282,47 +273,6 @@ static GnomeCanvasItem *traffic_create_item(GnomeCanvasGroup *parent)
 						    "y", 11.0,
 						    NULL));
   gtk_object_set_data(GTK_OBJECT(allcars),"whatami",(gpointer)"allcars");
-
-  /* ------ */
-  removedCarsItem = gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
-			 "text", "",
-			 "font", FONT_BOARD_MEDIUM,
-			 "x", (double) MESSAGE_CENTER_X,
-			 "y", (double) MESSAGE_CENTER_Y,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", MESSAGE_COLOR,
-			 NULL);
-
-  removeLeftItem = gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
-			 "text", "",
-			 "font", FONT_BOARD_MEDIUM,
-			 "x", (double) MESSAGE_CENTER_X,
-			 "y", (double) MESSAGE_CENTER_Y+20,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", MESSAGE_COLOR,
-			 NULL);
-
-  moveTakenItem = gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
-			 "text", "TOTO",
-			 "font", FONT_BOARD_MEDIUM,
-			 "x", (double) MESSAGE_CENTER_X,
-			 "y", (double) MESSAGE_CENTER_Y+120,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", MESSAGE_COLOR,
-			 NULL);
-
-  bestMoveItem = gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
-			 "text", "",
-			 "font", FONT_BOARD_MEDIUM,
-			 "x", (double) MESSAGE_CENTER_X,
-			 "y", (double) MESSAGE_CENTER_Y+140,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", MESSAGE_COLOR,
-			 NULL);
 
   /* Ready now, let's go */
   load_level(gcomprisBoard->level, gcomprisBoard->sublevel);
@@ -401,7 +351,7 @@ void draw_car(car *thiscar)
 				 "y1",0.0,
 				 "x2",(thiscar->orient?40.0*thiscar->size:40.0)-2.25,
 				 "y2",(thiscar->orient?40.0:40.0*thiscar->size)-2.25,
-				 "fill_color", g_strdup(thiscar->color_string),
+				 "fill_color_rgba", thiscar->color,
 				 "outline_color", NULL,
 				 NULL);
 
@@ -448,7 +398,7 @@ void draw_jam(jam *myjam)
 {
   int whichcar;
   for (whichcar=0;whichcar<myjam->num_cars;whichcar++)
-    draw_car(&myjam->cars[whichcar]);
+    draw_car(myjam->cars[whichcar]);
 }
 
 static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
@@ -557,13 +507,9 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	dx=CLAMP(item_x-start_x,-39,39);
 
 	if (thiscar->goal && big_x==250+OFSET_X) { 
-	  cars_removed++;
 	  gnome_canvas_item_ungrab(item,event->button.time);
 	  gnome_canvas_item_hide(item);
-	  moves_taken++;
 	  moving=FALSE;
-	  label_update_goal();
-	  label_update_moves();
 
 	  gamewon = TRUE;
 	  gcompris_display_bonus(gamewon, BONUS_SMILEY);
@@ -617,8 +563,10 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
   case GDK_BUTTON_RELEASE:
     if (moving && (event->button.button==button))
       {
-	double even_vals_x[]={11+OFSET_X,51+OFSET_X,91+OFSET_X,131+OFSET_X,171+OFSET_X,211+OFSET_X,HUGE_VAL};
-	double even_vals_y[]={11+OFSET_Y,51+OFSET_Y,91+OFSET_Y,131+OFSET_Y,171+OFSET_Y,211+OFSET_Y,HUGE_VAL};
+	double even_vals_x[]={11+OFSET_X,51+OFSET_X,91+OFSET_X,131+
+			      OFSET_X,171+OFSET_X,211+OFSET_X,HUGE_VAL};
+	double even_vals_y[]={11+OFSET_Y,51+OFSET_Y,91+OFSET_Y,131+
+			      OFSET_Y,171+OFSET_Y,211+OFSET_Y,HUGE_VAL};
 	double *ptr;
 	double x=0,y=0;
 
@@ -639,8 +587,6 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 	gnome_canvas_item_move(item,dx,dy);
 	gnome_canvas_item_ungrab(item,event->button.time);
 	hit=0;
-	moves_taken++;
-	label_update_moves();
 	moving=FALSE;
       }
     break;
@@ -658,12 +604,10 @@ gboolean load_level(guint level, guint card)
 {
   char **car_strv=NULL;
   char *data_file;
-  int num_cars=0;
+  int dummy;
 
   current_card.level = level;
   current_card.card  = card;
-
-  cars_removed=0;
 
   data_file = g_strdup_printf("%s/traffic/%s",PACKAGE_DATA_DIR, DATAFILE);
 
@@ -675,60 +619,103 @@ gboolean load_level(guint level, guint card)
 				       g_strdup_printf("/Level%d",level), "/",
 				       NULL));
   gnome_config_get_vector(g_strdup_printf("Card%d",card),
-			  &num_cars, &car_strv);
+			  &dummy, &car_strv);
   gnome_config_pop_prefix();
   if (!car_strv) { load_not_found(); return FALSE; }
 
-  current_card.num_cars=num_cars-1;
+  current_card.num_cars = cars_from_strv(&car_strv[0]);
+					 
+  if(current_card.num_cars == -1)
+    g_error("In loading dataset for traffic activity");
 
-  if (sscanf(car_strv[0],"%d,%d",
-	     &current_card.cars_for_goal,
-	     &current_card.minmoves)!=2) 
-    { 
-      load_error(); 
-      return FALSE; 
-    }
-
-
-  cars_for_goal=current_card.cars_for_goal;
-
-
-  g_free(current_card.cars);
-  current_card.cars=g_new(car,num_cars);
-  must_free=1;
-  if (!cars_from_strv(&car_strv[1]))
-    load_error();
-  
-  old_jam=current_card;
-
-  moves_taken=0;
-
-  label_update_moves();
-  label_update_goal();
   draw_jam(&current_card);
+
   return TRUE;
 }
 
-gboolean cars_from_strv(char **strv)
+/* Returns the number of cars
+ * I took the formatting from
+ *  http://www.javascript-games.org/puzzle/rushhour/
+ */
+gint cars_from_strv(char **strv)
 {
   car *ccar;
-  int counter=0;
-  int x,y,orient,goal;
-  while (*strv) {
-    if (++counter>current_card.num_cars)  return FALSE;
-    ccar=&current_card.cars[counter-1];
-    if (sscanf(*strv,"%u,%u,%u,%u,%u,%49s",
-	       &x,&y,
-	       &orient,&goal,
-	       &ccar->size,ccar->color_string)!=6) {
-      return FALSE;
+  char x,y,id;
+  int col, row;
+  int number_of_cars = 0;
+  gboolean more_car = TRUE;
+
+  while (more_car) {
+
+    current_card.cars[number_of_cars] = (car *)g_new(car, 1);
+    ccar = current_card.cars[number_of_cars];
+
+    /* By default, not a goal car */
+    ccar->goal   = 0;
+
+    number_of_cars++;
+
+    if (sscanf(*strv,"%c%c%c",
+	       &id,&x,&y)!=3) {
+      return -1;
     }
-    ccar->x=x; ccar->y=y;
-    ccar->orient=orient;
-    ccar->goal=goal;
-    strv++;
+
+    /* Point to the next car */
+    *strv += 3;
+
+    if(*strv[0] != ',')
+      more_car = FALSE;
+
+    *strv += 1;
+
+    if (id == 'O' || id == 'P' || id == 'Q' || id == 'R') ccar->size = 3;
+    else ccar->size = 2;
+
+    ccar->orient = 1;
+    ccar->x = 0;
+    ccar->y = y-'1';
+
+    if (x == 'A') ccar->x = 0;
+    else if (x == 'B') ccar->x = 1;
+    else if (x == 'C') ccar->x = 2;
+    else if (x == 'D') ccar->x = 3;
+    else if (x == 'E') ccar->x = 4;
+    else if (x == 'F') ccar->x = 5;
+    else {
+      ccar->y = x-'1';
+      ccar->orient = 0;
+
+      if (y == 'A') ccar->x = 0;
+      else if (y == 'B') ccar->x = 1;
+      else if (y == 'C') ccar->x = 2;
+      else if (y == 'D') ccar->x = 3;
+      else if (y == 'E') ccar->x = 4;
+      else if (y == 'F') ccar->x = 5;
+    }
+
+    if (id == 'X') 
+      {
+	ccar->color  = 0xFF0000FF;
+	ccar->goal   = 1;
+      }
+    else if (id == 'A') ccar->color = 0x80FF80FF;
+    else if (id == 'B') ccar->color = 0xC0C000FF;
+    else if (id == 'C') ccar->color = 0x8080FFFF;
+    else if (id == 'D') ccar->color = 0xFF80FFFF;
+    else if (id == 'E') ccar->color = 0xC00000FF;
+    else if (id == 'F') ccar->color = 0x008000FF;
+    else if (id == 'G') ccar->color = 0xC0C0C0FF;
+    else if (id == 'H') ccar->color = 0xFFCC51FF;
+    else if (id == 'I') ccar->color = 0xFFFF00FF;
+    else if (id == 'J') ccar->color = 0xFFA801FF;
+    else if (id == 'K') ccar->color = 0x00FF00FF;
+    else if (id == 'O') ccar->color = 0xFFFF00FF;
+    else if (id == 'P') ccar->color = 0xFF80FFFF;
+    else if (id == 'Q') ccar->color = 0x0000FFFF;
+    else if (id == 'R') ccar->color = 0x00FFFFFF;
+    
   }
-  return TRUE;
+  return number_of_cars;
 }
 
 void load_error(void)
@@ -741,33 +728,3 @@ void load_not_found(void)
   board_finished(BOARD_FINISHED_RANDOM);
 }
 
-static void label_update_moves(void) 
-{
-  if(removedCarsItem)
-    gnome_canvas_item_set(removedCarsItem,
-			  "text", g_strdup_printf(_("You've taken %d moves."),
-						  moves_taken),
-			  NULL);
-
-  if(removeLeftItem)
-    gnome_canvas_item_set(removeLeftItem,
-			  "text", g_strdup_printf(_("The best you can do is %d."),
-						  current_card.minmoves),
-			  NULL);
-
-}
-
-static void label_update_goal(void)
-{
-  if(moveTakenItem)
-    gnome_canvas_item_set(moveTakenItem,
-			  "text", g_strdup_printf(_("You've removed %d cars."),
-						  cars_removed),
-			  NULL);
-
-  if(bestMoveItem)
-    gnome_canvas_item_set(bestMoveItem,
-			  "text", g_strdup_printf(_("You need to remove %d more."),
-						  cars_for_goal-cars_removed),
-			  NULL);
-}

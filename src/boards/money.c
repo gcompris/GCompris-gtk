@@ -569,4 +569,6 @@ static void process_ok()
       money_destroy_all_items();
       gcompris_display_bonus(gamewon, BONUS_SMILEY);
     }
+  else
+    gcompris_display_bonus(gamewon, BONUS_SMILEY);
 }

@@ -1,3 +1,20 @@
+2003-01-03  bruno  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added machpuzzle activity (uncomplete yet)
+	* boards/boards.xml.in:added machpuzzle activity (uncomplete yet)
+	* boards/images/superbrain_logo.png:delete
+	* boards/traffic/TrafficData:added 40 levels taken from http://www.javascript-games.org/puzzle/rushhour/
+	* boards/traffic/traffic-bg.jpg: new background
+	* src/boards/Makefile.am:added machpuzzle activity (uncomplete yet)
+	* src/boards/menu.c: (item_event): fixed warning if text was empty
+	* src/boards/money.c: (process_ok): added bonus bad when user is wrong
+	* src/boards/superbrain.c: (superbrain_next_level),
+	(superbrain_create_item), (mark_pieces):  moved to fit in background
+	* src/boards/traffic.c: (start_board), (repeat),
+	(traffic_next_level), (traffic_destroy_all_items),
+	(traffic_create_item), (draw_car), (draw_jam), (car_cb),
+	(load_level), (cars_from_strv): moved to fit in background
+
 2002-12-31  bruno  <bruno.coudoin@free.fr>
 
 	* boards/boards.xml.in: Added traffic board based on the GPL code from Geoff Reedy <vader21@imsa.edu>

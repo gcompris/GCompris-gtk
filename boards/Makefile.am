@@ -27,6 +27,7 @@ xml_in_files = \
 	geography.xml.in \
 	gletters.xml.in \
 	imagename.xml.in \
+	machpuzzle.xml.in \
 	maze.xml.in \
 	maze3D.xml.in \
 	memory.xml.in \
