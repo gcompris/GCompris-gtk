@@ -143,18 +143,15 @@ sub spip_cleanup {
 
   # Spip doesn't like shortucted tags like <ps/>. But xsltproc does this by default
   # and I dod not find a way to avoid that.
-  # I put in this list the tags that could be empty.
-  my @empty_tag = qw/id_trad nom_site url_site extra ps soustitre chapo/;
-  foreach my $tag (@empty_tag) {
-    $output =~ s/<$tag\/>/<$tag><\/$tag>/g;
-  }
+  # I put __REMOVEME__ in empty tags and I remove it there
+  $output =~ s/__REMOVEME__//g;
 
   # We need to html backquote html tags for spip
   # I put in uppercase all html tags
   my @html_tag = qw/HTML IMG A BR DIV P/;
   foreach my $tag (@html_tag) {
     $output =~ s/<$tag/&lt;$tag/g;
-    $output =~ s/<\/$tag/&lt;$tag/g;
+    $output =~ s/<\/$tag/&lt;\/$tag/g;
   }
 
   # Fix the tag <lien:auteur> because wa cannot use it in xslt name space is not defined

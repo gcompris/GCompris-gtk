@@ -32,13 +32,13 @@
       <lang><xsl:value-of select="$language"/></lang>
       <langue_choisie>oui</langue_choisie>
       <id_trad><xsl:value-of select="$traduction_id"/></id_trad>
-      <nom_site></nom_site>
-      <url_site></url_site>
-      <extra></extra>
+      <nom_site>__REMOVEME__</nom_site>
+      <url_site>__REMOVEME__</url_site>
+      <extra>__REMOVEME__</extra>
       <idx>oui</idx>
       <id_version>0</id_version>
       <lien_auteur>1</lien_auteur>
-      <ps>none</ps>
+      <ps>__REMOVEME__</ps>
 
       <xsl:for-each select="GComprisBoards/GCompris/Board[starts-with(@section,$section) and (substring-after(substring(@section,string-length($section)),'/')='')]">
 
@@ -56,36 +56,36 @@
 
         <HTML>
           <DIV class="conteneur">
+            
+            <xsl:for-each select="GComprisBoards/GCompris/Board[starts-with(@section,$section) and (substring-after(substring(@section,string-length($section)),'/')='.')]">
+              <!-- order the result by difficulty -->
+              <xsl:sort select="@difficulty"
+                data-type="number"
+                order="ascending"/>
 
-        <xsl:for-each select="GComprisBoards/GCompris/Board[starts-with(@section,$section) and (substring-after(substring(@section,string-length($section)),'/')='.')]">
-          <!-- order the result by difficulty -->
-          <xsl:sort select="@difficulty"
-            data-type="number"
-            order="ascending"/>
-
-          <P class="flottante">
-            <A>
-              <xsl:attribute name="href" align="center">
-                <xsl:value-of select="concat($language,':',@name,'.xml')"/>
-              </xsl:attribute>
-              <IMG border="0" align="top">
-                <xsl:attribute name="src">
-                  <xsl:value-of select="concat('screenshots/',@name)"/>_small.jpg
-                </xsl:attribute>
-                <xsl:attribute name="title">
-                  <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
-                  <xsl:if test="not($tmptext)">
-                    <xsl:value-of select="title"/>
-                  </xsl:if>
-                  <xsl:value-of select="$tmptext"/>
-                </xsl:attribute>
-              </IMG>
-            </A>
-          </P>
-        </xsl:for-each>
-        <DIV class="spacer"></DIV>
-      </DIV>
-      </HTML>
+              <P class="flottante">
+                <A>
+                  <xsl:attribute name="href" align="center">
+                    <xsl:value-of select="concat($language,':',@name,'.xml')"/>
+                  </xsl:attribute>
+                  <IMG border="0" align="top" alt="">
+                    <xsl:attribute name="src">
+                      <xsl:value-of select="concat('screenshots/',@name)"/>_small.jpg
+                    </xsl:attribute>
+                    <xsl:attribute name="title">
+                      <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
+                      <xsl:if test="not($tmptext)">
+                        <xsl:value-of select="title"/>
+                      </xsl:if>
+                      <xsl:value-of select="$tmptext"/>
+                    </xsl:attribute>
+                  </IMG>
+                </A>
+              </P>
+            </xsl:for-each>
+            <DIV class="spacer">__REMOVEME__</DIV>
+          </DIV>
+        </HTML>
       </texte>
     </article>
   </xsl:template>

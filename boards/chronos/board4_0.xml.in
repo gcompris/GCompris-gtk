@@ -4,11 +4,17 @@
   <Title x="150" y="50" justification="GTK_JUSTIFY_CENTER">
     <_name>The aviation</_name>
   </Title>
-  <Shape name="G" pixmapfile="chronos/images/Eole.png" sound="Undefined" x="233" y="276" zoomx="1" zoomy="1" position="0"/>
-  <Title x="233" y="379" justification="GTK_JUSTIFY_CENTER"><name>1880</name></Title>
-  <Shape name="E" pixmapfile="chronos/images/wright_flyer.png" sound="Undefined" x="550" y="120" zoomx="1" zoomy="1" position="0"/>
-  <Title x="534" y="207" justification="GTK_JUSTIFY_CENTER"><name>1903</name></Title>
-  <Shape name="C" pixmapfile="chronos/images/bleriot.png" sound="Undefined" x="570" y="380" zoomx="1" zoomy="1" position="0"/>
-  <Title x="585" y="460" justification="GTK_JUSTIFY_CENTER"><name>1909</name></Title>
+  <Shape zoomy="1" zoomx="1" y="276" x="233" sound="Undefined" position="0" pixmapfile="chronos/images/Eole.png" name="G"/>
+  <Title y="379" x="233" justification="GTK_JUSTIFY_CENTER">
+    <_name>1880 The Clement Ader's Eole</_name>
+  </Title>
+  <Shape zoomy="1" zoomx="1" y="120" x="550" sound="Undefined" position="0" pixmapfile="chronos/images/wright_flyer.png" name="E"/>
+  <Title y="215" x="534" justification="GTK_JUSTIFY_CENTER">
+  <_name>1903 The Wright brothers Flyer III </_name>
+  </Title>
+  <Shape zoomy="1" zoomx="1" y="380" x="570" sound="Undefined" position="0" pixmapfile="chronos/images/bleriot.png" name="C"/>
+  <Title y="460" x="585" justification="GTK_JUSTIFY_CENTER">
+  <_name>1909 Louis Bleriot cross the Channel</_name>
+  </Title>
 </ShapeGame>
 

@@ -33,13 +33,13 @@
             <lang><xsl:value-of select="$language"/></lang>
             <langue_choisie>oui</langue_choisie>
             <id_trad><xsl:value-of select="$traduction_id"/></id_trad>
-            <nom_site></nom_site>
-            <url_site></url_site>
-            <extra></extra>
+            <nom_site>__REMOVEME__</nom_site>
+            <url_site>__REMOVEME__</url_site>
+            <extra>__REMOVEME__</extra>
             <idx>oui</idx>
             <id_version>0</id_version>
             <lien_auteur>1</lien_auteur>
-            <ps>none</ps>
+            <ps>__REMOVEME__</ps>
 
             <surtitre>
               <xsl:value-of select="@author"/>
@@ -104,23 +104,24 @@
                     <xsl:value-of select="concat('screenshots/',@name)"/>.jpg</xsl:attribute>
                   </IMG>
                   
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
-                  <BR></BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
+                  <BR>__REMOVEME__</BR>
                 </HTML>
                 
                 <xsl:variable name="tmptext5" select="manual[@xml:lang=$language]"/>

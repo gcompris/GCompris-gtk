@@ -10,9 +10,9 @@ on the date it has been invented.\n
 If not sure, check online in wikipedia at\n
 http://www.wikipedia.org</_name>
   </Title>
-  <Shape name="C" pixmapfile="chronos/images/st_rocket.png" sound="Undefined" x="520" y="200" zoomx="1" zoomy="1" position="0"/>
-  <Title x="510" y="300" justification="GTK_JUSTIFY_CENTER"><name>1769</name></Title>
-  <Shape name="G" pixmapfile="gcompris/misc/tuxloco.png" sound="Undefined" x="250" y="100" zoomx="1" zoomy="1" position="0"/>
-  <Title x="240" y="200" justification="GTK_JUSTIFY_CENTER"><name>1758</name></Title>
+  <Shape zoomy="1" zoomx="1" y="240" x="520" sound="Undefined" position="0" pixmapfile="chronos/images/fardier.png" name="C"/>
+  <Title y="300" x="510" justification="GTK_JUSTIFY_CENTER"><name>1769</name></Title>
+  <Shape zoomy="1" zoomx="1" y="100" x="250" sound="Undefined" position="0" pixmapfile="gcompris/misc/st_rocket.png" name="G"/>
+  <Title y="205" x="240" justification="GTK_JUSTIFY_CENTER"><name>1758</name></Title>
 </ShapeGame>
 
