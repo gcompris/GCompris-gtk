@@ -235,8 +235,9 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 							    "y", (double) 0,
 							    NULL));
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
-
+  //gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+	gdk_font = gdk_font_load (FONT_BOARD_BIG);
+	
   left_text_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", _("left"),

@@ -198,7 +198,6 @@ static void colors_destroy_all_items() {
  *
  * =====================================================================*/
 static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
-  GdkFont *gdk_font;
   GdkPixbuf *highlight_pixmap = NULL;
   char *str = NULL;
 	int i;
@@ -209,8 +208,6 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
-
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "colors_highlight.png");
   highlight_pixmap = gcompris_load_pixmap(str);
