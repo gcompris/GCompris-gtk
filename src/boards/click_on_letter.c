@@ -205,16 +205,6 @@ static void click_on_letter_destroy_all_items()
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
-    // Is the following needed ? It seems to segfault
-/*  gtk_object_destroy (GTK_OBJECT(l1_item));
-  gtk_object_destroy (GTK_OBJECT(l2_item));
-  gtk_object_destroy (GTK_OBJECT(l3_item));
-  gtk_object_destroy (GTK_OBJECT(l4_item));
-  gtk_object_destroy (GTK_OBJECT(button1));
-  gtk_object_destroy (GTK_OBJECT(button2));
-  gtk_object_destroy (GTK_OBJECT(button3));
-  gtk_object_destroy (GTK_OBJECT(button4));
-*/
   boardRootItem = NULL;
 }
 /* ==================================== */
