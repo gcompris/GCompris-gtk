@@ -1,3 +1,12 @@
+2005-02-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* docs/website/sommaire.html: fixed html error
+	* src/boards/python/anim.py: improved import/export multiformat by Yves
+	* src/boards/python/watercycle.py: fixed cloud position (reported by Ronny Standtke)
+	* src/gcompris/about.c: (gcompris_about_start): Added Franck Doucet in the Drawing credits
+	* src/gcompris/images_selector.c: (display_image),
+	(item_event_imageset_selector): fixed a bug when list was only one line
+
 2005-02-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/fr/gcompris.texi: updated by de Colombel Renaud <renaud.decolombel@free.fr>

@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/02/09 00:56:51 bruno>
+ * Time-stamp: <2005/02/13 03:00:22 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -357,9 +357,6 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
       guint iy_calc;
       ix=0;
       iy+=IMAGE_HEIGHT + IMAGE_GAP;
-      gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_image_selector), 0, 0, 
-				      DRAWING_AREA_X2- DRAWING_AREA_X1, 
-				      iy + IMAGE_HEIGHT + IMAGE_GAP);
 
       /* Cannot use GINT_TO_POINTER with a constant calculation */
       iy_calc = iy + IMAGE_HEIGHT + IMAGE_GAP;
@@ -492,6 +489,12 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 	  }
 	  /* Not yet displayed this set */
 	  if(!imageset_done) {
+	    guint iy_calc;
+	    /* Cannot use GINT_TO_POINTER with a constant calculation */
+	    /* Set the initial iy value                               */
+	    iy_calc = IMAGE_HEIGHT + IMAGE_GAP;
+	    g_object_set_data (G_OBJECT (rootitem_set), "iy", GINT_TO_POINTER (iy_calc));
+
 	    g_list_foreach (image_list, (GFunc) display_image, rootitem_set);
 	    g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (1));
 	  }
@@ -501,13 +504,11 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 	  gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_image_selector), 0, 0, 
 					  DRAWING_AREA_X2- DRAWING_AREA_X1, 
 					  last_iy - IMAGE_GAP);
-	  
 	  if(last_iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
 	    gnome_canvas_item_set(image_bg_item,
 				  "y2", (double) last_iy + IMAGE_HEIGHT + IMAGE_GAP,
 				  NULL);
 	  }
-
 
 	  gnome_canvas_item_show(rootitem_set);
 	  current_root_set = rootitem_set;

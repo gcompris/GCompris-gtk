@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/10/20 23:24:07 bruno>
+ * Time-stamp: <2005/02/11 22:33:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -64,7 +64,7 @@ void gcompris_about_start ()
   static gchar *content =
     N_("Author: Bruno Coudoin\n"
        "Contribution: Pascal Georges, Jose Jorge\n"
-       "Graphics: Renaud Blanchard\n"
+       "Graphics: Renaud Blanchard, Franck Doucet\n"
        "Intro Music: Djilali Sebihi\n"
        "Background Music: Rico Da Halvarez\n"
        );

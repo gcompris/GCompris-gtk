@@ -265,6 +265,7 @@ class Gcompris_watercycle:
 
     # Some item ordering
     self.rainitem.raise_to_top()
+    self.clouditem.raise_to_top()
     
     # Ready GO
     self.move_boat()
