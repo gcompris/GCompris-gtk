@@ -43,9 +43,9 @@ struct _AssetML
   gchar		*imagefile;
   gchar		*audiofile;
   gchar		*videofile;
-  gchar		*imagecredit;
-  gchar		*audiocredit;
-  gchar		*videocredit;
+  gchar		*imagecredits;
+  gchar		*audiocredits;
+  gchar		*videocredits;
 };
 
 

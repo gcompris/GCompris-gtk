@@ -33,7 +33,7 @@
 gchar	*assetml_get_locale(void);
 gchar	*reactivate_newline(gchar *str);
 void	 dump_asset(AssetML *assetml);
-int	 selectAssetML(void *d);
+int	 selectAssetML(const struct dirent *d);
 void	 assetml_read_xml_file(GList **gl_result, char *fname,
 			       gchar *dataset, gchar* categories, gchar* name);
 void	 assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* name);
@@ -94,9 +94,9 @@ void dump_asset(AssetML *assetml)
   printf("  imagefile=%s\n",assetml->imagefile);
   printf("  audiofile=%s\n",assetml->audiofile);
   printf("  videofile=%s\n",assetml->videofile);
-  printf("  imagecredit=%s\n",assetml->imagecredit);
-  printf("  audiocredit=%s\n",assetml->audiocredit);
-  printf("  videocredit=%s\n",assetml->videocredit);
+  printf("  imagecredits=%s\n",assetml->imagecredits);
+  printf("  audiocredits=%s\n",assetml->audiocredits);
+  printf("  videocredits=%s\n",assetml->videocredits);
 
 }
 
@@ -175,34 +175,34 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
 								       xmlnode->xmlChildrenNode, 1));
       }
 
-    /* get the description of the ImageCredit */
-    if (!strcmp(xmlnode->name, "ImageCredit")
+    /* get the description of the ImageCredits */
+    if (!strcmp(xmlnode->name, "ImageCredits")
 	&& (lang==NULL ||
 	    !strcmp(lang, assetml_get_locale())
 	    || !strncmp(lang, assetml_get_locale(), 2)))
       {
-	assetml->imagecredit = reactivate_newline(xmlNodeListGetString(doc, 
+	assetml->imagecredits = reactivate_newline(xmlNodeListGetString(doc, 
 								       xmlnode->xmlChildrenNode, 1));
       }
 
 
-    /* get the description of the AudioCredit */
-    if (!strcmp(xmlnode->name, "AudioCredit")
+    /* get the description of the AudioCredits */
+    if (!strcmp(xmlnode->name, "AudioCredits")
 	&& (lang==NULL ||
 	    !strcmp(lang, assetml_get_locale())
 	    || !strncmp(lang, assetml_get_locale(), 2)))
       {
-	assetml->audiocredit = reactivate_newline(xmlNodeListGetString(doc, 
+	assetml->audiocredits = reactivate_newline(xmlNodeListGetString(doc, 
 								       xmlnode->xmlChildrenNode, 1));
       }
 
-    /* get the description of the VideoCredit */
-    if (!strcmp(xmlnode->name, "VideoCredit")
+    /* get the description of the VideoCredits */
+    if (!strcmp(xmlnode->name, "VideoCredits")
 	&& (lang==NULL ||
 	    !strcmp(lang, assetml_get_locale())
 	    || !strncmp(lang, assetml_get_locale(), 2)))
       {
-	assetml->videocredit = reactivate_newline(xmlNodeListGetString(doc, 
+	assetml->videocredits = reactivate_newline(xmlNodeListGetString(doc, 
 								       xmlnode->xmlChildrenNode, 1));
       }
 
@@ -330,7 +330,7 @@ void assetml_read_xml_file(GList **gl_result, char *filename,
 /*
  * Select only files with FILE_EXT
  */
-int selectAssetML(void *d)
+int selectAssetML(const struct dirent *d)
 {
   gchar *file = ((struct dirent *)d)->d_name;
   guint ext_length = strlen(FILE_EXT);
@@ -383,9 +383,9 @@ void free_asset(AssetML *assetml)
   xmlFree(assetml->imagefile);
   xmlFree(assetml->audiofile);
   xmlFree(assetml->videofile);
-  xmlFree(assetml->imagecredit);
-  xmlFree(assetml->audiocredit);
-  xmlFree(assetml->videocredit);
+  xmlFree(assetml->imagecredits);
+  xmlFree(assetml->audiocredits);
+  xmlFree(assetml->videocredits);
 
   g_free(assetml);
 }
@@ -411,10 +411,10 @@ GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* name)
     }
   else
     {
-      //#ifdef DEBUG
+#ifdef DEBUG
       printf("Dumping return value of assetml_get_asset\n");
       g_list_foreach (gl_result, (GFunc) dump_asset, NULL);
-      //#endif
+#endif
       return gl_result;
     }
 }

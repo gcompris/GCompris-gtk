@@ -149,6 +149,7 @@ VORBISENC_LIBS = @VORBISENC_LIBS@
 VORBISFILE_LIBS = @VORBISFILE_LIBS@
 VORBIS_CFLAGS = @VORBIS_CFLAGS@
 VORBIS_LIBS = @VORBIS_LIBS@
+WARN_CFLAGS = @WARN_CFLAGS@
 XGETTEXT = @XGETTEXT@
 XML_CFLAGS = @XML_CFLAGS@
 XML_LIBS = @XML_LIBS@
@@ -195,20 +196,23 @@ INCLUDES = \
 	-I$(top_srcdir)/src/libassetml			\
 	-I$(top_builddir)				\
 	$(WARN_CFLAGS) 					\
-	$(GCOMPRIS_CFLAGS)				\
+	$(GLIB_CFLAGS)					\
+	$(XML_CFLAGS)					\
 	-DG_LOG_DOMAIN=\"Assetml\"			\
 	-DVERSION=\"$(VERSION)\"
 
 
 noinst_PROGRAMS = test
 
-#bin_PROGRAMS = test
+
+#test_LDFLAGS = -all-static
 test_SOURCES = \
 	test.c
 
 
 test_LDADD = \
-	$(GCOMPRIS_LIBS)	\
+	$(GLIB_LIBS) $(XML_LIBS)  \
+	$(GCOMPRIS_LIBS) \
 	$(top_builddir)/src/libassetml/libassetml.la
 
 subdir = src/libassetml/test
@@ -235,7 +239,7 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 DIST_SOURCES = $(test_SOURCES)
-DIST_COMMON = Makefile.am Makefile.in
+DIST_COMMON = README Makefile.am Makefile.in
 SOURCES = $(test_SOURCES)
 
 all: all-am

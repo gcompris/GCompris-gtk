@@ -1,8 +1,22 @@
+The latest version can be find online at:
+http://freeduc.linuxtag.uni-kl.de:9673/cps/Public/devel/assetml/assetml_description/view
+
+Créateur : Bruno Coudoin
+
 About AssetML
 
 AssetML defines an xml file that let application developper to use it as a resource database.
 
 The idea is to associate image, sounds and video to a single asset. This way, an application can search for a specific resource.
+What is it use for
+
+AssetML can be used to provide stock images, sounds or video and let any application benefit from it.
+
+For example in the education area, we always need voices for letters, numbers, icons and so on. Instead of having each application developpers provide its own, he could create a package with an assetml and let others use it.
+
+Another example is to use it to package free musics in the usual distribution form (like rpm). This way, audio players and games could let you browse and select a background music easily.
+
+Last is for stock images, like with music, we can now install them and let the user select a background or a n image for a document by searching through the assetml database.
 XML File format
 
 Here is basically a description of the xml file
@@ -11,7 +25,7 @@ Here is basically a description of the xml file
   <Asset audiofile="1.ogg" imagefile="1.png" videofile="1.mpg">
    <_Name>One</_Name>
    <_Description>The number One</_Description>
-   <AudioCredits>Who did the audio / Licence info</AudioCredits>
+   <AudioCredits>Who did the audio / Licence info</SoundCredits>
    <ImageCredits>Who did the image / Licence info</ImageCredits>
    <VideoCredits>Who did the video / Licence info</VideoCredits>
    <Categories>number;math;algebra</Categories>
@@ -32,9 +46,9 @@ After xml-i18n parsing we would end up with:
    <Description>The number One</Description>
    <Name xml:lang="fr">Un</Name>
    <Description xml:lang="fr">Numero Un</Description>
-   <AudioCredits>Who did the audio / Licence info</AudioCredits>
-   <ImageCredits>Who did the audio / Licence info</ImageCredits>
-   <VideoCredits>Who did the audio / Licence info</VideoCredits>
+   <AudioCredits>Who did the audio / Licence info</SoundCredits>
+   <ImageCredits>Who did the image / Licence info</ImageCredits>
+   <VideoCredits>Who did the video / Licence info</VideoCredits>
    <Categories>number;math;algebra</Categories>
   </Asset>
  </AssetML>
@@ -46,16 +60,16 @@ To easily find assetml file, they must have the extension .assetml and be locate
 The images, audio and video themselves can be placed anywhere and they will be found by merging the attribute rootdir of AssetML and the xxxfile attribute.
 Where to place file when I18N is needed
 
-For the audio file and video file, there is a file notation to discover if the file exist in the current locale. The token % is used to represent the locale. For example, imagefile="1_%.png" will be searched as 1_fr.png for the french resource, or, audiofile="audios/%/1.ogg" will be search as audios/de/1.ogg for the german resource.
+For the audio file and video file, there is a file notation to discover if the file exist in the current locale. The token % is used to represent the locale. For example, imagefile="1_%.png" will be searched as 1_fr.png for the french resource, or, audiofile="sounds/%/1.ogg" will be search as sounds/de/1.ogg for the german resource.
 
 This way, the packager can organise its asset files the way he/she wants within the archive.
 Packaging issues
 
 Of course, only one resource (image, audio or video) is mandatory to define an asset.
 
-In order to avoid to create huge resource files, we could create separate packages that all put their .assetml file in a predefined directory for example /usr/share/assetml and from here, our apps could parse the xml files and filter in them searching for a specific info. Here, the categories field could be used to display car or tree for example.
+In order to avoid to create huge resource files, you can create separate packages with several .assetml files. In order for anybody to find them, you must put them in the predefined directory /usr/share/pixmaps and from here, any app can parse the xml files and filter in them searching for a specific info. Here, the categories field could be used to display car or tree for example.
 
-One still could of course create a package dependancy to the resources package is they are mandatory for its app to work.
+One still could of course create a package dependancy to the resources package if they are mandatory for its app to work.
 API proposal
 
 Here is an example of API that could be used to implement AssetML
@@ -74,10 +88,10 @@ Here is an example of API that could be used to implement AssetML
   gchar         *dataset;
   gchar         *categories;
   gchar         *name;
-  gchar         *audiofile;
+  gchar         *imagefile;
   gchar         *audiofile;
   gchar         *videofile;
-  gchar         *audiocredit;
+  gchar         *imagecredit;
   gchar         *audiocredit;
   gchar         *videocredit;
  };
