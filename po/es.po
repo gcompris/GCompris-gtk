@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-27 19:13+0100\n"
-"PO-Revision-Date: 2004-01-21 01:53+0100\n"
+"POT-Creation-Date: 2004-01-24 21:32+0100\n"
+"PO-Revision-Date: 2004-01-24 21:34+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -572,12 +572,9 @@ msgstr "Juega el último movimiento del juego de ajedrez contra la computadora"
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the speaker icon in the bottom "
+"can hear again the letter by clicking on the mouth icon in the bottom "
 "horizontal frame."
-msgstr ""
-"Es deletreada una letra. Pulsa sobre la letra correspondiente en el área "
-"principal. Puede oír nuevamente la letra pulsando sobre el icono del "
-"parlante en cuadro horizontal inferior."
+msgstr "Se pronuncia una letra. Pulse sobre la letra correspondiente en el área principal. Puede oír nuevamente la letra pulsando sobre el icono con la boca en marco horizontal inferior."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -894,7 +891,7 @@ msgstr "Ejercicio de lectura en que se debe asociar una palabra con una imagen"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Reading"
 msgstr "Lectura"
 
@@ -1193,7 +1190,10 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
 "switch between 2D and 3D mode. 2D mode gives you just an indication on your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr "Utiliza las flechas del teclado para mover a Tux hacia la puerta. Utiliza la tecla «espacio» para cambiar entre los modos 2D y 3D. el modo 2D te da una indicación de tu posición como en un mapa. No puedes mover a tux en modo 2D."
+msgstr ""
+"Utiliza las flechas del teclado para mover a Tux hacia la puerta. Utiliza la "
+"tecla «espacio» para cambiar entre los modos 2D y 3D. el modo 2D te da una "
+"indicación de tu posición como en un mapa. No puedes mover a tux en modo 2D."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -1738,7 +1738,12 @@ msgid ""
 "will be told were the errors are with little red cross. The order of objects "
 "(above/under) is not important but take care not to have unwanted object "
 "under others."
-msgstr "Primero debes seleccionear la hettamienta apropiada en la barra de herramientas. Después debes arrastrar el ratón para crear objetos. Cuando lo haya hecho, pulse sobre el botón Aceptar. Se le dirán los errores con una crucecita roja. El orden de los objetos no es importante pero ten en cuenta que no debe tener un objeto no necesitado debajo de otros."
+msgstr ""
+"Primero debes seleccionear la hettamienta apropiada en la barra de "
+"herramientas. Después debes arrastrar el ratón para crear objetos. Cuando lo "
+"haya hecho, pulse sobre el botón Aceptar. Se le dirán los errores con una "
+"crucecita roja. El orden de los objetos no es importante pero ten en cuenta "
+"que no debe tener un objeto no necesitado debajo de otros."
 
 #: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
@@ -1748,7 +1753,9 @@ msgstr "Redibujar el ememento dado"
 msgid ""
 "At each level, a drawing is displayed in the right area. You must redraw its "
 "symmetry in the left area."
-msgstr "En cada nivel, un dibujo se muestra en el área derecha. Debes dibujar su simétrico en el área izquierda."
+msgstr ""
+"En cada nivel, un dibujo se muestra en el área derecha. Debes dibujar su "
+"simétrico en el área izquierda."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1985,8 +1992,8 @@ msgstr "Juego para niños desde 3 años"
 msgid "Educational suite gcompris"
 msgstr "Suite educativa gcompris"
 
-#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:580
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:499
 #: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
 #: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
 #: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
@@ -1996,8 +2003,8 @@ msgstr "Suite educativa gcompris"
 msgid "Couldn't find file %s !"
 msgstr "¡No se ha podido encontrar el archivo %s!"
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
+#: src/boards/advanced_colors.c:543 src/boards/imageid.c:583
+#: src/boards/missingletter.c:593 src/boards/read_colors.c:502
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
@@ -2114,7 +2121,7 @@ msgstr "No se puede encontrar el archivo pixmap: %s"
 msgid "Set the watch to:"
 msgstr "Pon la hora en:"
 
-#: src/boards/colors.c:216
+#: src/boards/colors.c:217
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Pulse en la animación %s"
@@ -2123,11 +2130,11 @@ msgstr "Pulse en la animación %s"
 msgid "Learn how to read"
 msgstr "Aprende a leer "
 
-#: src/boards/leftright.c:247
+#: src/boards/leftright.c:248
 msgid "left"
 msgstr "izquierda"
 
-#: src/boards/leftright.c:257
+#: src/boards/leftright.c:258
 msgid "right"
 msgstr "derecha"
 
@@ -2135,7 +2142,7 @@ msgstr "derecha"
 msgid "Move the mouse to machpuzzle the area and discover the background"
 msgstr "Mueve el ratón para hacer coincidir la zona y descubrir el fondo"
 
-#: src/boards/maze.c:446
+#: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Mira a tu posición y vuelva a modo 3D para moverse."
 
@@ -2167,151 +2174,10 @@ msgstr "Tablero de Python"
 msgid "Special board that embed python into gcompris."
 msgstr "Tablero especial que incrusta a python dentro de gcompris."
 
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. These are used to let us restart only after the bonux is displayed.
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. the game is won
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. This is a WIN
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Nivel"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coordenada"
@@ -2332,29 +2198,35 @@ msgstr "Lee colores"
 msgid "Click on the corresponding color"
 msgstr "Pulsa sobre el color correspondiente"
 
-#: src/boards/reading.c:102
+#: src/boards/reading.c:103
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lee una lista de palabras y di si la palabra propuesta está en ella"
 
-#: src/boards/reading.c:314
+#: src/boards/reading.c:322
 msgid "Please, check if the word"
 msgstr "Por favor, comprueba si la palabra"
 
-#: src/boards/reading.c:334
+#: src/boards/reading.c:342
 msgid "is being displayed"
 msgstr "está siendo mostrada"
 
-#: src/boards/reading.c:517
+#: src/boards/reading.c:525
 msgid "I am Ready"
 msgstr "Estoy listo/a"
 
-#: src/boards/reading.c:554
+#: src/boards/reading.c:562
 msgid "Yes I saw it"
 msgstr "Sí, la he visto"
 
-#: src/boards/reading.c:584
+#: src/boards/reading.c:592
 msgid "No, it was not there"
 msgstr "No, no la he visto"
+
+#. Report what was wrong in the log
+#: src/boards/reading.c:631
+#, c-format
+msgid "The word to find was '%s'"
+msgstr "La palabra que se busca era «%s»"
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2393,7 +2265,7 @@ msgstr "Submarino"
 msgid "Control the depth of a submarine"
 msgstr "Controla la profundidad de un submarino"
 
-#: src/boards/target.c:324 src/boards/target.c:572
+#: src/boards/target.c:323 src/boards/target.c:576
 #, c-format
 msgid "Points = %s"
 msgstr "Puntos = %s"
@@ -2746,6 +2618,7 @@ msgid "Released under GPL"
 msgstr "Liberado bajo la GPL"
 
 #: src/gcompris/oggplayer.c:165
+#, c-format
 msgid ""
 "Possible audio output devices are:\n"
 "default "
