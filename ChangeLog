@@ -1,3 +1,10 @@
+2005-03-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed by Jose to have a decreasing boat speed.
+	Stopped animation.
+	
+	* src/boards/python/watercycle.py:
+
 2005-03-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added or improved images in anim (By Frank)
@@ -199,6 +206,12 @@
 	* src/boards/python/melody.py: 
 	* src/gcompris/config.c: added bulgarian
 
+	*** RELEASE 6.5.1 ***
+
+	Fixed Packaging bug
+	
+	*** RELEASE 6.5   ***
+
 2005-03-11  Alexander Shopov  <ash@contact.bg>
 
 	* configure.in: Added "bg" (Bulgarian) to ALL_LINGUAS
@@ -305,7 +318,7 @@
 2005-02-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved support for mimetype.
-	Now it's possible to provide a signle .xml file by mimetype definition.
+	Now it's possible to provide a single .xml file by mimetype definition.
 	Add icons from the gnome stock default icons.
 	At least, extension are added on save.
 	

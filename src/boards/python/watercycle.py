@@ -357,16 +357,21 @@ class Gcompris_watercycle:
     
     
   def move_boat(self):
-    self.tuxboatitem.move(1, 0)
-    if( self.tuxboatitem.get_bounds()[2] < 700 ) :
+    if( self.tuxboatitem.get_bounds()[2] < 745 ) :
+      #Tried to make the boat slow down when arriving
+      if( self.tuxboatitem.get_bounds()[2] < 600 ) :
+        self.tuxboatitem.move(3, 0)
+      else:
+        self.tuxboatitem.move(2, 0)
       self.boat_timer = gtk.timeout_add(self.timerinc, self.move_boat)
-    else :
+    else:
       if self.tuxboatitem.get_bounds()[2] < 790 :
         # Park the boat
         self.tuxboatitem.move(1, -1)
         self.boat_timer = gtk.timeout_add(self.timerinc, self.move_boat)
       else :
         # We are parked, change the boat to remove tux
+        self.tuxboatanim.deactivate(self.tuxboatitem)
         self.tuxboatitem.set(
           pixbuf = gcompris.utils.load_pixmap("gcompris/misc/fishingboat.png"),
           width = 100.0,
