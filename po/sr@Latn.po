@@ -10,14 +10,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-12-15 21:10+0100\n"
-"PO-Revision-Date: 2003-12-11 19:35+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-12-22 08:37+0100\n"
+"PO-Revision-Date: 2003-12-22 08:39+0100\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -532,8 +532,8 @@ msgid ""
 "lockgates in the right order. Let Tux travel through the gates in the two "
 "ways."
 msgstr ""
-"Vi upravljate branom na kanalu. Morate da otvorite kapije u pravom "
-"redosledu. Omogućite Pingoslavu da prođe kroz kapije na dva načina."
+"Vi upravljate branom na kanalu. Morate da otvorite kapije u pravom redosledu. "
+"Omogućite Pingoslavu da prođe kroz kapije na dva načina."
 
 #: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -611,15 +611,14 @@ msgid ""
 "Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
 "Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
-"Riba je pokupljena iz Uniks alata xfishtank. Slike su pokupljene iz "
-"kolekcije „Državnog programa podvodnog istraživanja“ (NURP) sa http://www."
-"photolib.noaa.gov Sve zasluge za slike pripadaju OAR/NURP-u. Osim prve slike "
-"za koju je takođe zaslužan Univerzitet Severne Karoline u Vilmingtonu. Prema "
-"rasporedu nivoa, podaci o slikama su: Mesto: Tropski Atlanski okean, "
-"Ključevi Floride (slika nur00523) Fotograf: D. Kesling Mesto: Ključevi "
-"Floride (slika nur03006) Mesto: nepoznato (slika nur03505) Mesto: nepoznato "
-"(slika nur03010) Mesto: nepoznato (slika nur03011) Mesto: nepoznato (slika "
-"nur03013)"
+"Riba je pokupljena iz Uniks alata xfishtank. Slike su pokupljene iz kolekcije "
+"„Državnog programa podvodnog istraživanja“ (NURP) sa http://www.photolib.noaa."
+"gov Sve zasluge za slike pripadaju OAR/NURP-u. Osim prve slike za koju je "
+"takođe zaslužan Univerzitet Severne Karoline u Vilmingtonu. Prema rasporedu "
+"nivoa, podaci o slikama su: Mesto: Tropski Atlanski okean, Ključevi Floride "
+"(slika nur00523) Fotograf: D. Kesling Mesto: Ključevi Floride (slika "
+"nur03006) Mesto: nepoznato (slika nur03505) Mesto: nepoznato (slika "
+"nur03010) Mesto: nepoznato (slika nur03011) Mesto: nepoznato (slika nur03013)"
 
 #: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
 msgid ""
@@ -634,8 +633,8 @@ msgid ""
 "Motor coordination: mouse mouvement and mouse click. The goal is just to "
 "click with the left mouse button on the moving fish."
 msgstr ""
-"Upravljanje pokretima: kretanje i kliktanje miša. Cilj je samo da kliknete "
-"levi taster miša na pokretne ribe."
+"Upravljanje pokretima: kretanje i kliktanje miša. Cilj je samo da kliknete levi "
+"taster miša na pokretne ribe."
 
 #: boards/clockgame.xml.in.h:1
 msgid ""
@@ -771,10 +770,6 @@ msgstr "Vežba prebrojavanja"
 msgid "Place the items in the best way to count them"
 msgstr "Uredi stavke za što lakše brojanje"
 
-#: boards/experience.xml.in.h:1
-msgid "Go to experiences activities"
-msgstr "Idi na iskustvene vežbe"
-
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Upravljanje pokretima"
@@ -790,6 +785,10 @@ msgstr "Pomerajte miša da obrišete površinu i ugledate pozadinu"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Pomerajte miša dok ne nestanu svi blokovi."
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Idi na iskustvene vežbe"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
@@ -1011,8 +1010,8 @@ msgstr ""
 "Na glavnoj površini table, iscran je skup crvenih mesta vezanih za rad. U "
 "uspravnom okviru — sa leve strane glavne površine — predstavljen je skup "
 "objekata, a svaki od ovih objekata odgovara jednoj reči sa glavne površine. "
-"Potrebno je pronaći ispravnu vezu za ove objekte. Ovo se postiže "
-"prevlačenjem objekata na crvena mesta na glavnoj površini."
+"Potrebno je pronaći ispravnu vezu za ove objekte. Ovo se postiže prevlačenjem "
+"objekata na crvena mesta na glavnoj površini."
 
 #: boards/imagename.xml.in.h:5
 msgid "Vocabulary and reading"
@@ -1155,7 +1154,7 @@ msgstr "Za date slike šaka, otkrijte da li je u pitanju desna ili leva"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Ume da koristi strelice na tastaturi da premesti predmet."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:127
+#: boards/maze.xml.in.h:2 src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "Pronađite put iz lavirinta"
 
@@ -1163,7 +1162,7 @@ msgstr "Pronađite put iz lavirinta"
 msgid "Help Tux get out of this maze."
 msgstr "Pomozite Pingoslavu da izađe iz lavirinta."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:126
+#: boards/maze.xml.in.h:4 src/boards/maze.c:127
 msgid "Maze"
 msgstr "Lavirint"
 
@@ -1182,10 +1181,17 @@ msgstr "Pronađite izlaz iz 3D lavirinta"
 #: boards/maze3D.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode"
-msgstr ""
-"Koristite strelice na tastaturi da dovučete Pingoslava do vrata. Koristite "
-"taster za razmak da se prebacite u 2D ili 3D režim"
+"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
+"position like a map. You cannot move tux in 2D mode."
+msgstr "Koristite strelice na tastaturi da dovučete Pingoslava do vrata. Koristite taster za razmak da se prebacite u 2D ili 3D režim. 2D režim vam jedino daje vaš položaj (nalik mapi). Pingoslava ne možete da pomerate u 2D režimu."
+
+#: boards/melody.xml.in.h:1
+msgid "Ear training activity"
+msgstr "Igra uvežbavanja sluha"
+
+#: boards/melody.xml.in.h:2
+msgid "Repeat a melody"
+msgstr "Ponovi melodiju"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1249,14 +1255,13 @@ msgid ""
 msgstr ""
 "Da koristite, jednostavan klik na ikonu vam prikazuje vežbu ili meni. U dnu "
 "ekrana se nalazi upravljačka traka gkomprisa. Sa desna na levo, ispod je "
-"značenje ikona. Obratite pažnju da se ove ikone prikazuju samo ako su "
-"dostupne u vežbi: Početak — nazad za prethodni meni ili izlaz iz gkomprisa "
-"ako nema više ništa. Palac — u redu, potvrda vašeg odgovora. Kockica — "
-"prikazuje tekući nivo (kliknite na njega da izaberete neki drugi nivo). "
-"Muzička nota — neka gkompris ponovi pitanje. Znak pitanja — pomoć. Alatnica "
-"— meni sa podešavanjima. Pingoslav u letu — o programu. Zvezde znače: 1 "
-"zvezda — 3 do 4 godine; 2 zvezde — 5 do 6 godina; 3 zvezde — 7 do 8 godina "
-"starosti"
+"značenje ikona. Obratite pažnju da se ove ikone prikazuju samo ako su dostupne "
+"u vežbi: Početak — nazad za prethodni meni ili izlaz iz gkomprisa ako nema "
+"više ništa. Palac — u redu, potvrda vašeg odgovora. Kockica — prikazuje "
+"tekući nivo (kliknite na njega da izaberete neki drugi nivo). Muzička nota — "
+"neka gkompris ponovi pitanje. Znak pitanja — pomoć. Alatnica — meni sa "
+"podešavanjima. Pingoslav u letu — o programu. Zvezde znače: 1 zvezda — 3 do 4 "
+"godine; 2 zvezde — 5 do 6 godina; 3 zvezde — 7 do 8 godina starosti"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -1601,8 +1606,8 @@ msgid ""
 msgstr ""
 "Voz — lokomotiva i vagoni — je prikazan na vrhu glavne površine. Nakon "
 "nekoliko sekundi voz odlazi. Zatim, treba da ga ponovo sagradite izborom "
-"odgovarajućih vagona i lokomotive. Uvek možete ostaviti stavku klikom na "
-"nju. Proverite kako ste sagradili vaš voz klikom na ruku u dnu."
+"odgovarajućih vagona i lokomotive. Uvek možete ostaviti stavku klikom na nju. "
+"Proverite kako ste sagradili vaš voz klikom na ruku u dnu."
 
 #: boards/railroad.xml.in.h:3
 msgid "Memory training"
@@ -1711,7 +1716,7 @@ msgstr ""
 "Na svakom nivou, crtež se prikazuje na desnoj strani. Morate ga ponovo "
 "nacrtati na levoj."
 
-#: boards/redraw.xml.in.h:2
+#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First you must select the proper tool in the tool bar. Then, you must drag "
 "the mouse to create objects. When you are done, click on the OK button, you "
@@ -1725,9 +1730,15 @@ msgstr ""
 "(iznad/ispod) nije bitan, ali pazite da ne ostavite neželjeni objekat ispod "
 "ostalih."
 
-#: boards/redraw.xml.in.h:3
+#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Ponovo iscrtajte datu stavku"
+
+#: boards/redraw_symmetrical.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw its "
+"symmetry in the left area."
+msgstr "Na svakom nivou, crtež se prikazuje na desnoj strani. Morate ga ponovo nacrtati simetrično na levoj."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1856,8 +1867,8 @@ msgid ""
 msgstr ""
 "Kliknite na stvari dok ne dobijete ono što smatrate ispravnim odgovorom. "
 "Zatim, kliknite dugme „U redu“ u upravljačkoj traci. Na nižim nivoima, "
-"Pingoslav ukazuje ukoliko ste postavili na dobru poziciju označavanjem "
-"stavke crnim okvirom. Možete koristiti desno dugme miša da izvrnete boje u "
+"Pingoslav ukazuje ukoliko ste postavili na dobru poziciju označavanjem stavke "
+"crnim okvirom. Možete koristiti desno dugme miša da izvrnete boje u "
 "suprotnom redosledu."
 
 #: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
@@ -2103,6 +2114,10 @@ msgstr "desno"
 msgid "Move the mouse to machpuzzle the area and discover the background"
 msgstr "Pomerite miša da biste sklonili slagalice i videli pozadinu"
 
+#: src/boards/maze.c:446
+msgid "Look at your position and switch back to 3D mode to move"
+msgstr "Pogledajte svoj položaj i prebacite se u 3D režim za kretanje"
+
 #: src/boards/memory.c:227
 msgid "Memory"
 msgstr "Pamćenje"
@@ -2152,6 +2167,8 @@ msgstr "Naročita tabla koja uključuje Pitona u gkomprisa."
 #. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #.
 #. PythonTest Board module
+#. These are used to let us restart only after the bonux is displayed.
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
 #. TOOL SELECTION
 #. COLOR SELECTION
 #. Define the coord of each drawing area
@@ -2167,11 +2184,13 @@ msgstr "Naročita tabla koja uključuje Pitona u gkomprisa."
 #. only have to kill it. The canvas deletes all the items it contains automaticaly.
 #. Remove the root item removes all the others inside it
 #. Delete error previous mark if any
-#. Do nothing special
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+#. the game is won
 #. Save a copy of the target drawing future comparison
 #. Save a copy of the drawing cause we need to remove empty items
 #. Remove all empty items
 #. Need to check if target image equals drawing image
+#. This is a WIN
 #. Delete previous mark if any
 #. Create our rootitem for error items mark
 #. display where there is errors
@@ -2193,7 +2212,7 @@ msgstr "Naročita tabla koja uključuje Pitona u gkomprisa."
 #. Try the next level
 #. the current board is finished : bail out
 #. display current/sublevel number
-#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Nivo"
 
@@ -2215,7 +2234,17 @@ msgstr "Nivo"
 #. Work fine for rect and ellipse but not line
 #. so that y2 > y1 and x2 > x1
 #.
+#.
+#. Take a drawing and return a symmetrical one
+#.
+#. Make a deepcopy of the list
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
 #. Draw the image target
+#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+#.
 #. Save the drawing in image_target for future comparison
 #. Create our rootitem for target items
 #. The images target are always drawn on the drawing area to ease the final comparison
@@ -2262,7 +2291,7 @@ msgstr "Nivo"
 #. 2 = in target area
 #. 3 = out of both area
 #.
-#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Koordinata"
 

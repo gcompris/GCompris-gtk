@@ -10,14 +10,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-12-15 21:10+0100\n"
-"PO-Revision-Date: 2003-12-11 19:35+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-12-22 08:37+0100\n"
+"PO-Revision-Date: 2003-12-22 08:39+0100\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -770,10 +770,6 @@ msgstr "Вежба пребројавања"
 msgid "Place the items in the best way to count them"
 msgstr "Уреди ставке за што лакше бројање"
 
-#: boards/experience.xml.in.h:1
-msgid "Go to experiences activities"
-msgstr "Иди на искуствене вежбе"
-
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Управљање покретима"
@@ -789,6 +785,10 @@ msgstr "Померајте миша да обришете површину и у
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Померајте миша док не нестану сви блокови."
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Иди на искуствене вежбе"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
@@ -1154,7 +1154,7 @@ msgstr "За дате слике шака, откријте да ли је у п
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Уме да користи стрелице на тастатури да премести предмет."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:127
+#: boards/maze.xml.in.h:2 src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "Пронађите пут из лавиринта"
 
@@ -1162,7 +1162,7 @@ msgstr "Пронађите пут из лавиринта"
 msgid "Help Tux get out of this maze."
 msgstr "Помозите Пингославу да изађе из лавиринта."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:126
+#: boards/maze.xml.in.h:4 src/boards/maze.c:127
 msgid "Maze"
 msgstr "Лавиринт"
 
@@ -1181,10 +1181,17 @@ msgstr "Пронађите излаз из 3Д лавиринта"
 #: boards/maze3D.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode"
-msgstr ""
-"Користите стрелице на тастатури да довучете Пингослава до врата. Користите "
-"тастер за размак да се пребаците у 2Д или 3Д режим"
+"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
+"position like a map. You cannot move tux in 2D mode."
+msgstr "Користите стрелице на тастатури да довучете Пингослава до врата. Користите тастер за размак да се пребаците у 2Д или 3Д режим. 2Д режим вам једино даје ваш положај (налик мапи). Пингослава не можете да померате у 2Д режиму."
+
+#: boards/melody.xml.in.h:1
+msgid "Ear training activity"
+msgstr "Игра увежбавања слуха"
+
+#: boards/melody.xml.in.h:2
+msgid "Repeat a melody"
+msgstr "Понови мелодију"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1709,7 +1716,7 @@ msgstr ""
 "На сваком нивоу, цртеж се приказује на десној страни. Морате га поново "
 "нацртати на левој."
 
-#: boards/redraw.xml.in.h:2
+#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First you must select the proper tool in the tool bar. Then, you must drag "
 "the mouse to create objects. When you are done, click on the OK button, you "
@@ -1723,9 +1730,15 @@ msgstr ""
 "(изнад/испод) није битан, али пазите да не оставите нежељени објекат испод "
 "осталих."
 
-#: boards/redraw.xml.in.h:3
+#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Поново исцртајте дату ставку"
+
+#: boards/redraw_symmetrical.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw its "
+"symmetry in the left area."
+msgstr "На сваком нивоу, цртеж се приказује на десној страни. Морате га поново нацртати симетрично на левој."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2101,6 +2114,10 @@ msgstr "десно"
 msgid "Move the mouse to machpuzzle the area and discover the background"
 msgstr "Померите миша да бисте склонили слагалице и видели позадину"
 
+#: src/boards/maze.c:446
+msgid "Look at your position and switch back to 3D mode to move"
+msgstr "Погледајте свој положај и пребаците се у 3Д режим за кретање"
+
 #: src/boards/memory.c:227
 msgid "Memory"
 msgstr "Памћење"
@@ -2150,6 +2167,8 @@ msgstr "Нарочита табла која укључује Питона у г
 #. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #.
 #. PythonTest Board module
+#. These are used to let us restart only after the bonux is displayed.
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
 #. TOOL SELECTION
 #. COLOR SELECTION
 #. Define the coord of each drawing area
@@ -2165,11 +2184,13 @@ msgstr "Нарочита табла која укључује Питона у г
 #. only have to kill it. The canvas deletes all the items it contains automaticaly.
 #. Remove the root item removes all the others inside it
 #. Delete error previous mark if any
-#. Do nothing special
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+#. the game is won
 #. Save a copy of the target drawing future comparison
 #. Save a copy of the drawing cause we need to remove empty items
 #. Remove all empty items
 #. Need to check if target image equals drawing image
+#. This is a WIN
 #. Delete previous mark if any
 #. Create our rootitem for error items mark
 #. display where there is errors
@@ -2191,7 +2212,7 @@ msgstr "Нарочита табла која укључује Питона у г
 #. Try the next level
 #. the current board is finished : bail out
 #. display current/sublevel number
-#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Ниво"
 
@@ -2213,7 +2234,17 @@ msgstr "Ниво"
 #. Work fine for rect and ellipse but not line
 #. so that y2 > y1 and x2 > x1
 #.
+#.
+#. Take a drawing and return a symmetrical one
+#.
+#. Make a deepcopy of the list
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
 #. Draw the image target
+#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+#.
 #. Save the drawing in image_target for future comparison
 #. Create our rootitem for target items
 #. The images target are always drawn on the drawing area to ease the final comparison
@@ -2260,7 +2291,7 @@ msgstr "Ниво"
 #. 2 = in target area
 #. 3 = out of both area
 #.
-#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Координата"
 
