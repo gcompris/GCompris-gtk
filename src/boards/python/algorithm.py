@@ -61,7 +61,9 @@ class Gcompris_algorithm:
     self.leftx = 90
 
   def start(self): 
-    gcompris.bar_set (gcompris.BAR_LEVEL) 
+    gcompris.bar_set (0) 
+    gcompris.set_background(self.gcomprisBoard.canvas.root(),
+                            "images/scenery5_background.png")
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1 
     self.gcomprisBoard.number_of_sublevel=5
@@ -96,7 +98,7 @@ class Gcompris_algorithm:
     
   def display_current_level(self):
     self.cleanup()
-    gcompris.score.start(gcompris.score.STYLE_NOTE, 570, 355,
+    gcompris.score.start(gcompris.score.STYLE_NOTE, 570, 305,
      self.gcomprisBoard.number_of_sublevel)
     gcompris.bar_set_level(self.gcomprisBoard)
     gcompris.score.set(self.gcomprisBoard.sublevel)
@@ -108,21 +110,36 @@ class Gcompris_algorithm:
       x=0.0,
       y=0.0
       )
-    
+
+    # Display our list of items
     for i in range(len(self.symbollist)):
-     s = self.paint_image(i ,i ,410)
+     s = self.paint_image(i ,i ,390)
      s.connect ("event", self.apple_click, i)
+
+    # Display the algorithm
     self.algo = random.choice(self.algos)
+
+    # Create a uniq list of index in random order
     self.random_index = []
+    self.selector  = range(self.anzahl)
     for i in range(self.anzahl):
-     self.random_index.append(random.randrange(len(self.symbollist))) 
+      j=random.randrange(len(self.selector))
+      self.random_index.append(self.selector[j])
+      self.selector.pop(j)
+
+    # Display what to search
     for i in range(len(self.symbollist)):
-     self.paint_image(self.random_index[self.algo(i)], i, 20)
+     self.paint_image(self.random_index[self.algo(i)], i, 45)
+
+    # Display the uncomplete user area
     self.random_index = []
+    
     for i in range(self.anzahl):
      self.random_index.append(random.randrange(len(self.symbollist)))
+     
     for i in range(5):
-     self.paint_image(self.random_index[self.algo(i)], i, 140)
+     self.paint_image(self.random_index[self.algo(i)], i, 147)
+     
     self.place = 5 
     self.paint_qm ()
 
@@ -131,6 +148,7 @@ class Gcompris_algorithm:
      x = self.place*self.distance+30+self.leftx, 
      y = 170, fill_color_rgba = 0xff0000ffL, 
      font = gcompris.skin.get_font("gcompris/board/huge bold"))
+    
   def key_press(self, keyval):
     print("got key %i" % keyval)
     return
@@ -161,10 +179,9 @@ class Gcompris_algorithm:
 
   def apple_click (self, widget, event=None, index=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-     print self.symbollist [index]
      if index == self.random_index[self.algo(self.place)]:
       self.qm.destroy()
-      self.paint_image(index, self.place, 140)
+      self.paint_image(index, self.place, 147)
       self.place +=1
       if self.place == self.anzahl:
        self.increment_level()

@@ -1,3 +1,23 @@
+2004-06-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/images/scenery5_background.png: created. used by the hexagon board
+	* boards/skins/default/config.png: remade in more easy to 'read'
+	* boards/skins/default/difficulty_star.png: removed. replaced by some more cute one
+	* boards/skins/default/difficulty_star1.png: some more cute icons for the difficulty
+	* boards/skins/default/difficulty_star2.png:
+	* boards/skins/default/difficulty_star3.png:
+	* boards/skins/default/difficulty_star4.png:
+	* boards/skins/default/difficulty_star5.png:
+	* boards/skins/default/difficulty_star6.png:
+	* src/boards/menu.c: (display_board_icon), (menu_create_item),
+	(item_event), (create_info_area): removed the use of the rich text canvas cause it crashes
+	* src/boards/python/algorithm.py: use the new scenery background with a bridge
+	* src/gcompris/config.c: (gcompris_config_start),
+	(display_difficulty_level): adjusted for the new difficulty icons
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data),
+	(gcompris_display_difficulty_stars):  adjusted for the new difficulty icons
+	* src/gcompris/gameutil.h: now give a ratio to gcompris_display_difficulty_stars
+
 2004-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/menu.c: (display_board_icon): -A- implemented better board filtering

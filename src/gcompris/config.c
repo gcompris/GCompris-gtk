@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/06/05 02:09:46 bcoudoin>
+ * Time-stamp: <2004/06/05 23:55:34 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -437,7 +437,7 @@ void gcompris_config_start ()
 
   display_previous_next(x_start, y_start, "filter_style_previous", "filter_style_next");
 
-  stars_group_x = x_start + 60;
+  stars_group_x = x_start + 45;
   stars_group_y = y_start - 25;
 
   item_filter_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -667,12 +667,14 @@ static void display_difficulty_level()
     stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
 						    (double) stars_group_x,
 						    (double) stars_group_y,
+						    (double) 1,
 						    properties->difficulty_filter);
     gtk_signal_connect(GTK_OBJECT(stars_group), "event",
 		       (GtkSignalFunc) item_event_ok,
 		       "difficulty_next");
   } else {
-    gnome_canvas_item_hide(stars_group);
+    if(stars_group)
+      gnome_canvas_item_hide(stars_group);
   }
 }
 

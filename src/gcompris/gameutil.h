@@ -56,7 +56,9 @@ void		 item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int
 typedef void     (*DialogBoxCallBack)     ();
 void		 gcompris_dialog(gchar *str, DialogBoxCallBack dbcb);
 void		 gcompris_dialog_close();
-GnomeCanvasGroup *display_difficulty_stars(GnomeCanvasGroup *parent, double x, double y, int difficulty);
+GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent, double x, double y, 
+						    double ratio,
+						    int difficulty);
 
 /*! \fn GdkPixbuf	*gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* name)
     \brief Returns a pixmap from the assetml base. 

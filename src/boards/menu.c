@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/06/05 01:32:28 bcoudoin>
+ * Time-stamp: <2004/06/06 00:16:25 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -244,6 +244,7 @@ static void display_board_icon(GcomprisBoard *board, MenuItems *menuitems)
 	  break;
 	default:
 	  /* Hum, should not happen, let's display the board anyway */
+	  break;
 	}
       }
     }
@@ -275,7 +276,8 @@ static gboolean next_spot()
 
 static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, GcomprisBoard *board)
 {
-  GdkPixbuf *menu_pixmap = NULL, *pixmap = NULL;
+  GdkPixbuf *menu_pixmap = NULL;
+  GdkPixbuf *pixmap = NULL;
   GnomeCanvasItem *item, *menu_button;
   int difficulty;
 
@@ -287,20 +289,15 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 				       "pixbuf", menu_pixmap,
 				       "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2,
 				       "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
-				       "width", (double) gdk_pixbuf_get_width(menu_pixmap),
-				       "height", (double) gdk_pixbuf_get_height(menu_pixmap),
 				       NULL);
-  gdk_pixbuf_unref(menu_pixmap);
-
 
   // display difficulty stars
   if (board->difficulty != NULL) {
     difficulty = atoi(board->difficulty);
     gcompris_display_difficulty_stars(parent,
-				      (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
-				      - gdk_pixbuf_get_width(pixmap) - 5,
-				      (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2
-				      + gdk_pixbuf_get_height(pixmap) + 20,
+				      (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2 - 25,
+				      (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
+				      (double) 0.6,
 				      difficulty);
   }
 
@@ -332,11 +329,8 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
       gnome_canvas_item_new (parent,
 			     gnome_canvas_pixbuf_get_type (),
 			     "pixbuf", pixmap,
-			     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
-			     - gdk_pixbuf_get_width(pixmap) + 5,
-			     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
-			     "width", (double) gdk_pixbuf_get_width(pixmap),
-			     "height", (double) gdk_pixbuf_get_height(pixmap),
+			     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2 - 25,
+			     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2 + 28,
 			     NULL);
       gdk_pixbuf_unref(pixmap);
       g_free(soundfile);
@@ -357,6 +351,9 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 				     NULL);
       gdk_pixbuf_unref(pixmap);
     }
+
+  gdk_pixbuf_unref(menu_pixmap);
+
   // display menu icon ========================== END
 
   /*
@@ -394,28 +391,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
   switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
-      /* HACK : If I don't set the color here, then the 3 text are not visible !!!
-       *        just add again white here and it works again !!!! */
       if(board->title && G_IS_OBJECT(menuitems->boardname_item))
 	gnome_canvas_item_set (menuitems->boardname_item,
 			       "text", board->title,
-			       "fill_color", "white",
 			       NULL);
 
-      if(board->description && G_IS_OBJECT(menuitems->description_item)) {
+      if(board->description && G_IS_OBJECT(menuitems->description_item))
 	gnome_canvas_item_set (menuitems->description_item,
 			       "text",  board->description,
 			       NULL);
-
-	buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(menuitems->description_item));
-	txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
-					     "foreground", "white",
-					     "font",       gcompris_skin_font_board_medium,
-					     NULL);
-	gtk_text_buffer_get_end_iter(buffer, &iter_end);
-	gtk_text_buffer_get_start_iter(buffer, &iter_start);
-	gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);	
-      }
 
       if(board->author && G_IS_OBJECT(menuitems->author_item))
 	gnome_canvas_item_set (menuitems->author_item,
@@ -462,7 +446,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 {
   gint x = (double)gcomprisBoard->width/2;
-  gint y = 400;
+  gint y = 383;
 
   if(parent    == NULL)
     return;
@@ -474,24 +458,19 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "font", gcompris_skin_font_board_big,
 			   "x", (double) x,
 			   "y", (double) y,
-			   "anchor", GTK_ANCHOR_CENTER,
+			   "anchor", GTK_ANCHOR_NORTH,
 			   "fill_color", "white",
 			   NULL);
 
   menuitems->description_item = \
     gnome_canvas_item_new (parent,
-			   gnome_canvas_rich_text_get_type (),
+			   gnome_canvas_text_get_type (),
 			   "text", "",
+			   "font",       gcompris_skin_font_board_medium,
 			   "x", (double) x,
-			   "y", (double) y + 25,
-			   "width", (double)BOARDWIDTH - 100,
-			   "height", 50.0,
+			   "y", (double) y + 28,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "justification", GTK_JUSTIFY_CENTER,
-			   "grow_height", FALSE,
-			   "cursor_visible", FALSE,
-			   "cursor_blink", FALSE,
-			   "editable", FALSE,
+			   "fill_color", "white",
 			   NULL);
 
   menuitems->author_item = \

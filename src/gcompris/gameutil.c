@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/06/05 01:56:14 bcoudoin>
+ * Time-stamp: <2004/06/05 22:55:17 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -379,8 +379,29 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
+	int i;
 	gcomprisBoard->description = reactivate_newline(xmlNodeListGetString(doc, 
 									     xmlnode->xmlChildrenNode, 1));
+
+	/* WARNING: I used to use the richtext item that handle the clipping but it is not
+	 * stable enough. Here I remove any \n unterered by the translator and insert new newlines
+	 */
+
+	/* Remove newline in description if needed */
+	for(i=0; i<strlen(gcomprisBoard->description); i++) {
+	  if(gcomprisBoard->description[i]=='\n')
+	    gcomprisBoard->description[i]=' ';
+	}
+
+	/* Insert newline in description if needed */
+	i=60;
+	while(i<strlen(gcomprisBoard->description)) {
+	  char *index;
+	  index = strchr(gcomprisBoard->description+i, ' ');
+	  if(index)
+	    *index='\n';
+	  i+=70;
+	}
       }
 
     /* get the help prerequisite help of the board */
@@ -898,12 +919,24 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
  */
 GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent, 
 						    double x, double y, 
+						    double ratio,
 						    gint difficulty)
 {
   GdkPixbuf *pixmap = NULL;
   int i;
   GnomeCanvasGroup *stars_group = NULL;
   GnomeCanvasGroup *item = NULL;
+  gchar *filename = NULL;
+
+  if(difficulty==0 || difficulty>6)
+    return;
+
+  filename = g_strdup_printf("difficulty_star%d.png", difficulty);
+  pixmap   = gcompris_load_skin_pixmap(filename);
+  g_free(filename);
+
+  if(!pixmap)
+    return;
 
   stars_group = GNOME_CANVAS_GROUP(
 				  gnome_canvas_item_new (parent,
@@ -912,24 +945,21 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
 							 "y", (double) 0,
 							 NULL));
 
-  if (difficulty > 3) {
-    pixmap = gcompris_load_skin_pixmap("difficulty_star2.png");
-    difficulty -= 3;
-  } else {
-    pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
-  }
-  for (i=0; i<difficulty; i++) {
-    item = gnome_canvas_item_new (stars_group,
-				  gnome_canvas_pixbuf_get_type (),
-				  "pixbuf", pixmap,
-				  "x", x,
-				  "y", y + (i*20),
-				  NULL);
-    
-    gtk_signal_connect(GTK_OBJECT(item), "event",
-		       (GtkSignalFunc) gcompris_item_event_focus,
-		       NULL);
-  }
+  item = gnome_canvas_item_new (stars_group,
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap,
+				"x", x,
+				"y", y,
+				"width", (double) gdk_pixbuf_get_width(pixmap) * ratio,
+				"height", (double) gdk_pixbuf_get_height(pixmap) * ratio,
+				"width_set", TRUE, 
+				"height_set", TRUE,
+				NULL);
+  
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
   gdk_pixbuf_unref(pixmap);
 
   return(stars_group);
