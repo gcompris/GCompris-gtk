@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/04/14 01:08:56 bcoudoin>
+ * Time-stamp: <2004/04/19 02:03:24 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -550,7 +550,7 @@ void gcompris_set_locale(gchar *locale)
   if(gcompris_locale != NULL)
     g_free(gcompris_locale);
 
-  gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
+  gcompris_locale = g_strdup(setlocale(LC_MESSAGES, locale));
 
   if(gcompris_locale!=NULL && strcmp(locale, gcompris_locale))
     g_warning("Requested locale '%s' got '%s'", locale, gcompris_locale);
@@ -610,7 +610,7 @@ gcompris_init (int argc, char *argv[])
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
 
   /* Save the default locale */
-  gcompris_user_default_locale = g_strdup(setlocale(LC_ALL, NULL));
+  gcompris_user_default_locale = g_strdup(setlocale(LC_MESSAGES, NULL));
 
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);

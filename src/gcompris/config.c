@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/03/29 22:52:47 bcoudoin>
+ * Time-stamp: <2004/04/19 02:03:17 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -522,7 +522,7 @@ static void set_locale_flag(gchar *locale)
 			 NULL);
 
   /* Check wether or not the locale is available */
-  if(setlocale(LC_ALL, locale)==NULL)
+  if(setlocale(LC_MESSAGES, locale)==NULL)
     gnome_canvas_item_show (item_bad_flag);
   else
     gnome_canvas_item_hide (item_bad_flag);

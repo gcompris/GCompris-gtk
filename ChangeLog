@@ -1,5 +1,11 @@
 2004-04-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	fixed bug debian Bug#244544 Fails to get locale
+	* src/gcompris/config.c: (set_locale_flag): replaced LC_ALL by setlocale(LC_MESSAGES, NULL)
+	* src/gcompris/gcompris.c: (gcompris_set_locale), (gcompris_init): replaced LC_ALL by setlocale(LC_MESSAGES, NULL)
+
+2004-04-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/watercycle.xml.in: fixed xml
 	* src/boards/clickgame.c: (clickgame_start),
 	(clickgame_destroy_all_items), (clickgame_create_item),
