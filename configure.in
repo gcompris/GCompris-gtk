@@ -9,9 +9,13 @@ AC_ISC_POSIX
 GNOME_INIT
 
 dnl For embedded ogg player
-XIPH_PATH_OGG
-XIPH_PATH_AO
-XIPH_PATH_VORBIS
+dnl FIXME XIPH prefix are the one needed on Mandrake ?
+dnl XIPH_PATH_OGG
+dnl XIPH_PATH_AO
+dnl XIPH_PATH_VORBIS
+AM_PATH_OGG
+AM_PATH_AO
+AM_PATH_VORBIS
 
 AC_SUBST(SHARE_CFLAGS)
 AC_SUBST(SOCKET_LIBS)
@@ -103,9 +107,8 @@ boards/imageid/Makefile
 boards/imagename/Makefile
 boards/missing_letter/Makefile
 boards/paintings/Makefile
-boards/scales/Makefile
-boards/advanced_colors/Makefile
 boards/read_colors/Makefile
+boards/scales/Makefile
 ])
 
 echo ""
