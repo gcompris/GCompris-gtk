@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2002/01/13 22:43:16 bruno>
+ * Time-stamp: <2002/02/06 20:37:18 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -157,11 +157,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 6;
       gcomprisBoard->sublevel = 1;
-      gcomprisBoard->number_of_sublevel = 5;
-      gcompris_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
-			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       wordsgame_next_level();
@@ -388,6 +383,13 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void wordsgame_next_level() 
 {
 
+  gcomprisBoard->number_of_sublevel = 10 + 
+    ((gcomprisBoard->level-1) * 5);
+  gcompris_score_start(SCORESTYLE_NOTE, 
+		       gcomprisBoard->width - 220, 
+		       gcomprisBoard->height - 50, 
+		       gcomprisBoard->number_of_sublevel);
+  
   gcompris_bar_set_level(gcomprisBoard);
   gcompris_score_set(gcomprisBoard->sublevel);
 

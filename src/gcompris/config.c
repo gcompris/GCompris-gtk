@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/02/03 09:44:10 bruno>
+ * Time-stamp: <2002/02/06 20:30:19 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -110,7 +110,7 @@ void gcompris_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("GCompris Configuration"), 
+				"text", _("GCompris Configuration"), 
 				"font_gdk", gdk_font,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
@@ -136,7 +136,7 @@ void gcompris_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("OK"),
+				"text", _("OK"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
@@ -238,7 +238,7 @@ void gcompris_config_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", N_("Fullscreen"), 
+			 "text", _("Fullscreen"), 
 			 "font_gdk", gdk_font_small,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
@@ -266,7 +266,7 @@ void gcompris_config_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", N_("Music"), 
+			 "text", _("Music"), 
 			 "font_gdk", gdk_font_small,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
@@ -294,7 +294,7 @@ void gcompris_config_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", N_("Effect"), 
+			 "text", _("Effect"), 
 			 "font_gdk", gdk_font_small,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,

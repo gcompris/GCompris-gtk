@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2002/02/03 09:49:50 bruno>
+ * Time-stamp: <2002/02/06 20:31:52 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -95,7 +95,7 @@ void gcompris_about_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("About GCompris"), 
+				"text", _("About GCompris"), 
 				"font_gdk", gdk_font,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
@@ -203,7 +203,7 @@ void gcompris_about_start ()
   
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("GCompris Home Page"),
+				"text", _("GCompris Home Page"),
 				"font_gdk", gdk_font2,
 				"x", (double)  (BOARDWIDTH*0.5),
 				"y", (double)  y_start + 30,
@@ -225,7 +225,7 @@ void gcompris_about_start ()
   // License
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("This software is a GNU Package and is released under the Gnu Public Licence"),
+				"text", _("This software is a GNU Package and is released under the Gnu Public Licence"),
 				"font_gdk", gdk_font2,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 70,
@@ -253,7 +253,7 @@ void gcompris_about_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("Help"),
+				"text", _("Help"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.3,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
@@ -284,7 +284,7 @@ void gcompris_about_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", N_("OK"),
+				"text", _("OK"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.7,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,

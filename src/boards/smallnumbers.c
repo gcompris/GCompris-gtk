@@ -67,7 +67,7 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    N_("Numbers With Dices"),
-   N_("Type the keyboard number 1 to 9 before the dices reach the ground"),
+   N_("Type the keyboard number 1 to 9 before the dice reaches the ground"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

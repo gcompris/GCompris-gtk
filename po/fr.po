@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-02-03 19:59+0100\n"
+"POT-Creation-Date: 2002-02-06 20:22+0100\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -88,21 +88,21 @@ msgstr "Écoute une lettre et clique sur la bonne lettre"
 msgid "Can move the mouse"
 msgstr "Pouvoir déplacer la souris"
 
-#: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:77
+#: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:82
 msgid "Click On Me"
 msgstr "Clique sur moi"
 
 #: boards/clickgame.xml.in.h:3
 msgid ""
 "Credits: Fish are taken from the Unix utility xfishtank. Images are taken "
-"from the National Undersearch Research Program (NURP) Collection at http://"
-"www.photolib.noaa.gov All images credit bellongs to the OAR/National "
-"Undersea Research Program (NURP). Except for the first image that also "
-"credits the University of North Carolina at Wilmington. In the gcompris "
-"level order, images information is: Location: Tropical Atlantic Ocean, "
-"Florida Keys (image nur00523) Photographer: D. Kesling Location: Florida "
-"Keys (image nur03006) Location: Unknown (image nur03505) Location: Unknown "
-"(image nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
+"from the National Undersea Research Program (NURP) Collection at http://www."
+"photolib.noaa.gov All images credit bellongs to the OAR/National Undersea "
+"Research Program (NURP). Except for the first image that also credits the "
+"University of North Carolina at Wilmington. In the gcompris level order, "
+"images information is: Location: Tropical Atlantic Ocean, Florida Keys "
+"(image nur00523) Photographer: D. Kesling Location: Florida Keys (image "
+"nur03006) Location: Unknown (image nur03505) Location: Unknown (image "
+"nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
 "nur03013)"
 msgstr ""
 "Crédits : Les poissons viennent de l'utilitaire Unix xfishtank.\n"
@@ -132,7 +132,7 @@ msgstr ""
 "poissons\n"
 "en mouvement"
 
-#: boards/clickgame.xml.in.h:5 src/boards/clickgame.c:78
+#: boards/clickgame.xml.in.h:5 src/boards/clickgame.c:83
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -418,8 +418,8 @@ msgstr "Equilibre correctement la balance"
 msgid "Numbers With Dices"
 msgstr "Les nombres avec les dés"
 
-#: boards/smallnumbers.xml.in.h:2
-msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
+#: boards/smallnumbers.xml.in.h:2 src/boards/smallnumbers.c:70
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
@@ -446,7 +446,7 @@ msgstr "Lit une lettre"
 msgid "Learn to recognize letters"
 msgstr "Apprend à reconnaitre les lettres"
 
-#: src/boards/clickgame.c:169
+#: src/boards/clickgame.c:181
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Ne peux pas trouver le répertoire d'images: %s"
@@ -532,10 +532,6 @@ msgstr "Non, il n'y est pas"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
-#: src/boards/smallnumbers.c:70
-msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
-
 #: src/gcompris/about.c:58
 msgid ""
 "Credits:\n"
@@ -569,7 +565,7 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:139 src/gcompris/help.c:268
+#: src/gcompris/about.c:287 src/gcompris/config.c:139 src/gcompris/help.c:263
 msgid "OK"
 msgstr "Valider"
 
@@ -678,14 +674,17 @@ msgstr ""
 "License: GPL\n"
 "Plus d'informations sur http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:43
+#: src/gcompris/help.c:147 src/gcompris/help.c:223 src/gcompris/help.c:335
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: src/gcompris/help.c:44
+#: src/gcompris/help.c:176 src/gcompris/help.c:344
 msgid "Goal"
 msgstr "Objectif"
 
-#: src/gcompris/help.c:45
+#: src/gcompris/help.c:204 src/gcompris/help.c:353
 msgid "Manual"
 msgstr "Manuel"
+
+#~ msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
+#~ msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
