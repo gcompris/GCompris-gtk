@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-24 04:11+0100\n"
-"PO-Revision-Date: 2004-02-26 11:33+0100\n"
+"POT-Creation-Date: 2004-03-05 19:52+0100\n"
+"PO-Revision-Date: 2004-03-05 23:57+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -610,11 +610,9 @@ msgstr "Sleep de prentjes zodat de verhaallijn klopt"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
-"Moon photo comes from NASA\n"
-" Space sounds from Tuxpaint and Vegastrike"
-msgstr ""
-"Maanfoto afkomstig van NASA\n"
-"Ruimtegeluiden van Tuxpaint en Vegastrike"
+"Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
+"of Transportation are based on those found in http://www.wikipedia.org"
+msgstr "De maanfoto is afkomstig van NASA. Ruimtegeluiden van Tuxpaint en Vegastrike. Transportdata zijn gebaseerd op de gegevens van http://www.wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -928,11 +926,11 @@ msgstr "Toetsenbord-vaardigheden"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Herken letters op het scherm en het toetsenbord"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
 msgid "Simple Letters"
 msgstr "Eenvoudige Letters"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
 msgid "Type the falling letters before they reach the ground"
 msgstr "Typ de vallende letters voor ze de grond raken"
 
@@ -1275,11 +1273,23 @@ msgstr ""
 msgid "Ear training activity"
 msgstr "Gehoortraining"
 
+# voorwerpen ipv elementen.
+# is dit correct?
 #: boards/melody.xml.in.h:2
+msgid ""
+"Listen the sound sequence played. Then try to repeat it clicking on the "
+"elements. You can listen again clicking on the repeat button."
+msgstr "Luister naar de serie geluiden. Probeer het daarna te herhalen door op de verschillende voorwerpen te klikken. Je kunt het voorbeeld nogmaals horen door op de herhaalknop te klikken."
+
+#: boards/melody.xml.in.h:3
 msgid "Melody"
 msgstr "Melodie"
 
-#: boards/melody.xml.in.h:3
+#: boards/melody.xml.in.h:4
+msgid "Move and click the mouse"
+msgstr "Beweeg de muis en klik ermee"
+
+#: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr "Een melodie herhalen"
 
@@ -2063,8 +2073,8 @@ msgstr "Educatieve software GCompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:463 src/gcompris/gameutil.c:464
+#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/gcompris/gameutil.c:464 src/gcompris/gameutil.c:465
 #: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2073,7 +2083,7 @@ msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1738
+#: src/boards/shapegame.c:1766
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -2210,11 +2220,11 @@ msgstr "rechts"
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Bekijk je positie en ga terug naar 3D-modus om te kunnen bewegen"
 
-#: src/boards/memory.c:227
+#: src/boards/memory.c:164
 msgid "Memory"
 msgstr "Geheugen"
 
-#: src/boards/memory.c:228
+#: src/boards/memory.c:165
 msgid "Find the matching pair"
 msgstr "Zoek het gelijke paar"
 
@@ -2234,11 +2244,11 @@ msgstr "Leer met geld omgaan"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Vang met het vliegtuig de wolken in de juiste volgorde"
 
-#: src/boards/python.c:52
+#: src/boards/python.c:53
 msgid "Python Board"
 msgstr "Python-bord"
 
-#: src/boards/python.c:53
+#: src/boards/python.c:54
 msgid "Special board that embed python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
 
@@ -2385,13 +2395,13 @@ msgstr "Afstand tot het doel = %d meter"
 #: src/gcompris/about.c:60
 msgid ""
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Auteur: Bruno Coudoin\n"
-"Bijdragen: Pascal Georges\n"
+"Bijdragen: Pascal Georges, Jose Jorge\n"
 "Plaatjes: Renaud Blanchard\n"
 "Intromuziek: Djilali Sebihi\n"
 "Achtergrondmuziek: Rico Da Halvarez\n"
@@ -2430,7 +2440,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:180 src/gcompris/help.c:341
+#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2474,162 +2484,166 @@ msgid "English"
 msgstr "Engels"
 
 #: src/gcompris/config.c:61
+msgid "Canadian English"
+msgstr "Canadees Engels"
+
+#: src/gcompris/config.c:62
 msgid "Spanish"
 msgstr "Spaans"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Finnish"
 msgstr "Fins"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "French"
 msgstr "Frans"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
 # is dit indisch of indiaas?
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Indian"
 msgstr "Indiaas"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Norwegian"
 msgstr "Noors"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:154
+#: src/gcompris/config.c:155
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:263
+#: src/gcompris/config.c:264
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:306
+#: src/gcompris/config.c:307
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:335
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:371
+#: src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:404 src/gcompris/config.c:727
-#: src/gcompris/config.c:738
+#: src/gcompris/config.c:405 src/gcompris/config.c:728
+#: src/gcompris/config.c:739
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/gameutil.c:127
+#: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
 msgstr "Kan bestand niet vinden!"
 
-#: src/gcompris/gameutil.c:129
+#: src/gcompris/gameutil.c:130
 msgid "This activity is incomplete."
 msgstr "Deze activiteit is niet voltooid."
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid ""
 "Exit it and report\n"
 "us the problem"
@@ -2691,19 +2705,19 @@ msgstr ""
 "Licentie: GPL\n"
 "Meer informatie op http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:167 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Vereisten"
 
-#: src/gcompris/help.c:201 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Doelstelling"
 
-#: src/gcompris/help.c:235 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Handleiding"
 
-#: src/gcompris/help.c:269 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Dank aan"
 
@@ -2783,21 +2797,16 @@ msgstr "Verstreken tijd"
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
 
-msgid "Simple addition"
-msgstr "Eenvoudige optelling"
+#~ msgid "Simple addition"
+#~ msgstr "Eenvoudige optelling"
 
-msgid "Baby Shape Puzzle"
-msgstr "Baby puzzel"
+#~ msgid ""
+#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
+#~ "click with the left mouse button on the moving fish."
+#~ msgstr ""
+#~ "Motoriek: In dit spel leren kinderen klikken met de muis. Het doel is "
+#~ "zuiver en alleen om met de linkermuisknop op de bewegende vissen te "
+#~ "klikken. "
 
-msgid ""
-"Motor coordination: mouse mouvement and mouse click. The goal is just to "
-"click with the left mouse button on the moving fish."
-msgstr ""
-"Motoriek: In dit spel leren kinderen klikken met de muis. Het doel is zuiver "
-"en alleen om met de linkermuisknop op de bewegende vissen te klikken. "
-
-msgid "Move the mouse to machpuzzle the area and discover the background"
-msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
-
-msgid "GCompris I Have Understood"
-msgstr "GCompris Ik heb het begrepen"
+#~ msgid "Move the mouse to machpuzzle the area and discover the background"
+#~ msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
