@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-04 14:29+0200\n"
-"PO-Revision-Date: 2004-04-04 17:21+0200\n"
+"POT-Creation-Date: 2004-04-06 19:21+0200\n"
+"PO-Revision-Date: 2004-04-07 03:36+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -453,6 +453,32 @@ msgstr "Oefenen met optellen"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Eenvoudige optellingen. Kan getallen herkennen"
+
+# voortzetten
+#: boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "Een lijst met symbolen afmaken"
+
+#: boards/algorithm.xml.in.h:2 boards/hexagon.xml.in.h:2
+#: boards/minouche.xml.in.h:2
+msgid "Logic training activity"
+msgstr "Training in logica"
+
+# voort te zetten ipv te completeren
+#: boards/algorithm.xml.in.h:3
+msgid ""
+"Look at the list with given symbols. Then try to complete it clicking on the "
+"right symbol."
+msgstr "Bekijk de lijst met gegeven symbolen. Probeer daarna de lijst te completeren door op het juiste symbool te klikkn."
+
+#: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
+#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
+msgid "Move and click the mouse"
+msgstr "Beweeg de muis en klik ermee"
+
+#: boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "algoritme"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -981,6 +1007,21 @@ msgstr "Versimpelde Toren van Hanoi"
 msgid "Taken the concept from the EPI games."
 msgstr "Concept afgekeken van EPI games."
 
+# spelfout in Engels: strwaberry
+#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+msgid "Find the strwaberry by clicking on the blue fields"
+msgstr "Zoek de aarbij door op de blauwe velden te klikken"
+
+#: boards/hexagon.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer as you come as "
+"more as red get the fields"
+msgstr "Probeer de aardbei te vinden onder de blauwe velden. Hoe dichter bij de aarbei, hoe roder de velden worden"
+
+#: boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "hexagon"
+
 #: boards/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
 msgstr "Klik op het woord dat bij het plaatje past."
@@ -1315,10 +1356,6 @@ msgstr ""
 msgid "Melody"
 msgstr "Melodie"
 
-#: boards/melody.xml.in.h:4
-msgid "Move and click the mouse"
-msgstr "Beweeg de muis en klik ermee"
-
 #: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr "Een melodie herhalen"
@@ -1388,6 +1425,17 @@ msgstr ""
 "instellingen menu.  Vliegtuig: Informatie over het spel.  Betekenis van de "
 "sterren: 1 Ster: 3 tot 4 jaar oud.  2 Sterren: 5 tot 6 jaar oud.  3 Sterren: "
 "7 tot 8 jaar oud."
+
+#: boards/minouche.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer you come as more "
+"red get the fields"
+msgstr "Probeer de aardbei te vinden onder de blauwe velden. Hoe dichter bij de aardbei, hoe roder de velden worden"
+
+# wat is dit?
+#: boards/minouche.xml.in.h:5
+msgid "minouche"
+msgstr "minouche"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -2466,7 +2514,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
+#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2506,157 +2554,161 @@ msgid "Greek"
 msgstr "Grieks"
 
 #: src/gcompris/config.c:60
-msgid "English"
-msgstr "Engels"
+msgid "American English"
+msgstr "Amerikaans Engels"
 
 #: src/gcompris/config.c:61
+msgid "Great Britain English"
+msgstr "Brits Engels"
+
+#: src/gcompris/config.c:62
 msgid "Canadian English"
 msgstr "Canadees Engels"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Spanish"
 msgstr "Spaans"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Finnish"
 msgstr "Fins"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "French"
 msgstr "Frans"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
 # is dit indisch of indiaas?
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Indian"
 msgstr "Indiaas"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Norwegian"
 msgstr "Noors"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:155
+#: src/gcompris/config.c:156
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:264
+#: src/gcompris/config.c:265
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:308
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:335
+#: src/gcompris/config.c:336
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:369
+#: src/gcompris/config.c:370
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:405 src/gcompris/config.c:728
-#: src/gcompris/config.c:739
+#: src/gcompris/config.c:406 src/gcompris/config.c:729
+#: src/gcompris/config.c:740
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2822,6 +2874,9 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "English"
+#~ msgstr "Engels"
 
 #~ msgid "Simple addition"
 #~ msgstr "Eenvoudige optelling"
