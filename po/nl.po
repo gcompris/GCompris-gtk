@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-04 03:26+0100\n"
-"PO-Revision-Date: 2003-11-04 12:52+0100\n"
+"POT-Creation-Date: 2003-11-11 03:25+0100\n"
+"PO-Revision-Date: 2003-11-11 12:32+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -1933,7 +1933,7 @@ msgstr "Educatieve software GCompris"
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
 #: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
 #: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
@@ -2443,8 +2443,12 @@ msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
 #: src/gcompris/gcompris.c:79
-msgid "select the audio output, one of 'default alsa09 arts esd oss'"
-msgstr "selecteer de audio-uitgang, kies uit 'standaard alsa09 arts esd oss'"
+msgid ""
+"select the audio output. Use '-A list' to get the list of available audio "
+"output"
+msgstr ""
+"selecteer de geluidsuitgang. Gebruik '-A list' voor een lijst met "
+"beschikbare geluidsuitgangen"
 
 #: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
@@ -2454,11 +2458,11 @@ msgstr "Toont de versie van"
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:353
+#: src/gcompris/gcompris.c:357
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:570
+#: src/gcompris/gcompris.c:579
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2519,7 +2523,7 @@ msgstr "Auteur"
 msgid "Directory"
 msgstr "Map"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
 msgid "Title"
 msgstr "Titel"
 
@@ -2536,15 +2540,23 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
 
-#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
+#: src/gcompris/oggplayer.c:165
+msgid ""
+"Possible audio output devices are:\n"
+"default "
+msgstr ""
+"Mogelijke geluidsuitgangen zijn:\n"
+"standaard "
+
+#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
 msgstr "Muziek wordt nu afgespeeld"
 
-#: src/gcompris/oggplayer.c:247
+#: src/gcompris/oggplayer.c:278
 msgid "Artist"
 msgstr "Artiest"
 
-#: src/gcompris/soundutil.c:116
+#: src/gcompris/soundutil.c:113
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Kon muziek-map niet openen: %s"
