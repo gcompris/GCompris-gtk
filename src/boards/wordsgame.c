@@ -172,8 +172,8 @@ static gboolean words_table_foreach_remove (char *key,
 					    LettersItem *value,
 					    LettersItem *user_data)
 {
-  free(value->word);
-  free(value->overword);
+  g_free(value->word);
+  g_free(value->overword);
   return TRUE;
 }
 
@@ -232,6 +232,7 @@ static void wordsgame_check_focus (gchar       *key,
 static gint key_press(guint keyval)
 {
   char utf8char[6];
+  guint utf8_length;
 
   if(!gcomprisBoard)
     return TRUE;
@@ -292,10 +293,8 @@ static gint key_press(guint keyval)
       break;
     }
 
-  sprintf(utf8char, "%c", gdk_keyval_to_unicode(keyval));
-
-  g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
-		     utf8char);
+  utf8_length = g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
+				   utf8char);
 
   if(currentFocus==NULL) 
     {
@@ -330,21 +329,16 @@ static gint key_press(guint keyval)
 	  gchar *nextCurrentChar;
 	  gint   i;
 
-	  currentChar = currentFocus->word;
-	  for(i = 0 ; i < currentFocus->charcounter ; i++) {
-	    currentChar = g_utf8_next_char(currentChar);
-	  }
+	  /* Find the next Char */
+	  currentChar = currentFocus->word + currentFocus->charcounter;
 	    
-	  nextCurrentChar = g_utf8_next_char(currentChar);
-
-	  if(strncmp(currentChar, utf8char, nextCurrentChar-currentChar)==0)
+	  if(strncmp(currentChar, utf8char, utf8_length)==0)
 	    {
-	      currentFocus->charcounter++;
+	      currentFocus->charcounter += utf8_length;
 
 	      /* Increment the overword */
-	      snprintf(currentFocus->overword, 
-		       nextCurrentChar-currentFocus->word + 1,
-		       "%s", currentFocus->word);
+	      strncpy(currentFocus->overword, currentFocus->word, currentFocus->charcounter);
+	      currentFocus->overword[currentFocus->charcounter] = '\0';
 
 	      gnome_canvas_item_set (currentFocus->overwriteItem,
 				     "text", currentFocus->overword,
@@ -353,8 +347,10 @@ static gint key_press(guint keyval)
 	      if(g_utf8_strlen(currentFocus->overword, MAXWORDSLENGTH) ==
 		 g_utf8_strlen(currentFocus->word, MAXWORDSLENGTH))
 		{
+		  LettersItem *item = item_find_by_title(currentFocus->word);
+
 		  /* You won Guy */
-		  player_win(item_find_by_title(currentFocus->word));
+		  player_win(item);
 
 		  currentFocus=NULL;
 		}
@@ -378,6 +374,7 @@ static gint key_press(guint keyval)
       /* Anyway kid you clicked on the wrong key */
       player_loose();
     }
+
   return FALSE;
 }
 
@@ -437,9 +434,9 @@ static void remove_old_word(LettersItem *item)
   /* Remove old word */
   g_hash_table_remove (words_table, (item->word));
   /* The items are freed by player_win */
-  free(item->word);
-  free(item->overword);		  
-  free(item);
+  g_free(item->word);
+  g_free(item->overword);		  
+  g_free(item);
 }
 
 static void wordsgame_move_item(LettersItem *item)
@@ -523,6 +520,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 {
   GnomeCanvasItem *item2;
   LettersItem *lettersItem;
+  guint maxtry = 10;
 
   lettersItem = malloc(sizeof(LettersItem));
 
@@ -533,9 +531,14 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 
   /* Beware, since we put the words in a hash table, we do not allow the same
      letter to be displayed two times */
+
   do {
     lettersItem->word = get_random_word();
-  } while(item_find_by_title(lettersItem->word)!=NULL);
+  } while(item_find_by_title(lettersItem->word)!=NULL && maxtry--);
+
+  if(maxtry==0) {
+    return NULL;
+  }
 
   /* fill up the overword with zeros */
   lettersItem->overword=calloc(strlen(lettersItem->word), 1);
@@ -601,11 +604,12 @@ static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
 static void player_win(LettersItem *item)
 {
 
-  wordsgame_destroy_item(item);
   gcompris_play_ogg ("gobble", NULL);
 
   gcomprisBoard->sublevel++;
   gcompris_score_set(gcomprisBoard->sublevel);
+
+  wordsgame_destroy_item(item);
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) 
     {

@@ -67,7 +67,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
   BoardPlugin *(*plugin_get_bplugin_info) (void) = NULL;
   guint        i=0;
 
-  assert(gcomprisBoard!=NULL);
+  g_assert(gcomprisBoard!=NULL);
   
   /* Check Already loaded */  
   if(gcomprisBoard->plugin!=NULL) {
@@ -87,6 +87,8 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
     gmodule = g_module_open (gmodule_file, 0);
     if(gmodule) {
       g_warning("opened module %s with name %s\n",gmodule_file , type);
+    } else {
+      g_warning("Failed to open module %s with name %s\n",gmodule_file , type);
     }
     g_free(type);
   }
@@ -123,9 +125,11 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 		  gcomprisBoard->name,
 		  gcomprisBoard->type);
       }
+    } else {
+      g_warning("plugin_get_bplugin_info entry point not found for %s\n", 
+		gcomprisBoard->filename);
     }
   }
-
   g_warning("No plugin library found for board type '%s', requested by '%s'", 
 	    gcomprisBoard->type,  gcomprisBoard->filename);
 
@@ -137,7 +141,7 @@ void board_play(GcomprisBoard *gcomprisBoard)
   BoardPlugin *bp;
   GModule     *gmodule = NULL;
 
-  assert(gcomprisBoard!=NULL);
+  g_assert(gcomprisBoard!=NULL);
 
   board_check_file(gcomprisBoard);
 

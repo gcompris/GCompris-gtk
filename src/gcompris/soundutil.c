@@ -60,7 +60,8 @@ void initSound()
   sound_policy = PLAY_AFTER_CURRENT;
   is_playing = FALSE;
 
-  ao_initialize();
+  //  ao_initialize();
+  sdlplayer_init();
 
   thread_scheduler = g_thread_create((GThreadFunc)scheduler, NULL, FALSE, NULL);
   if (thread_scheduler == NULL)
@@ -148,7 +149,8 @@ static gpointer scheduler_bgnd (gpointer user_data)
 	{
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
 	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
-	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
+	  //	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
+	  if(sdlplayer_bg((char *)g_list_nth_data(musiclist, i), 128)!=0)
 	    goto exit;
 	}
     }
@@ -241,7 +243,8 @@ static void* thread_play_ogg (void *s)
   if ( file )
     {
       printf("Calling decode_ogg_file(%s)\n", file);
-      decode_ogg_file(file);
+      //      decode_ogg_file(file);
+      sdlplayer(file, 128);
       g_free( file );
     }
 

@@ -59,16 +59,31 @@ int decode_ogg_file(char *infile)
   
   GcomprisProperties	*properties = gcompris_get_properties();
 
+  /* Get the audio output from the gcompris properties */
+  if(!strcmp(properties->audio_output, ""))
+    driver_id = ao_default_driver_id();
+  else
+    driver_id = ao_driver_id(properties->audio_output);
+
+  if ( driver_id < 0 ){
+     printf(_("Error unable to find a usable audio output device (%d)\nTry 'gcompris -A' to select an alternative audio output\nUse '-A list' to display the list of available devices"), driver_id);
+     /* Disable sounds in gcompris */
+     properties->music = FALSE;
+     properties->fx = FALSE;
+     properties->audio_works = FALSE;
+     return 0;
+  }
+
   input = fopen((char *)infile, "rb");
   if(!input) {
-      fprintf(stderr, "cannot open %s\n",(char *) infile);
+      printf("cannot open %s\n",(char *) infile);
       return -1;
     }
 
   if((ov_status = ov_open(input, &vf, NULL, 0)) < 0) 
     {
       fclose(input);
-      fprintf(stderr, "ov_open failed for %s (%d)\n",(char *) infile, ov_status);
+      printf("ov_open failed for %s (%d)\n",(char *) infile, ov_status);
       return -1;
     }
   vc = ov_comment(&vf, -1);
@@ -77,29 +92,14 @@ int decode_ogg_file(char *infile)
   {
     char **ptr=vc->user_comments;
     while(*ptr){
-      fprintf(stderr,"%s\n",*ptr);
+      printf("%s\n",*ptr);
       ++ptr;
     }
-    printf("%s : ", basename(infile));    
+    printf("%s : ", infile);    
     printf("\nBitstream is %d channel(s), %ldHz\n",vi->channels,vi->rate);
     printf("Encoded by: %s\n",vc->vendor);
     printf("number of logical streams : %ld \n", ov_streams(&vf));
     printf("duration = %f seconds\n\n", ov_time_total(&vf, -1));
-  }
-
-  /* Get the audio output from the gcompris properties */
-  if(!strcmp(properties->audio_output, ""))
-    driver_id = ao_default_driver_id();
-  else
-    driver_id = ao_driver_id(properties->audio_output);
-
-  if ( driver_id < 0 ){
-     fprintf(stderr, _("Error unable to find a usable audio output device (%d)\nTry 'gcompris -A' to select an alternative audio output\nUse '-A list' to display the list of available devices"), driver_id);
-     /* Disable sounds in gcompris */
-     properties->music = FALSE;
-     properties->fx = FALSE;
-     properties->audio_works = FALSE;
-     return 0;
   }
   
   big_endian = ao_is_big_endian();
@@ -114,7 +114,7 @@ int decode_ogg_file(char *infile)
   if (audio_device == NULL)
     {
       fclose(input);
-      fprintf(stderr, _("Error opening audio device\n"));
+      printf(_("Error opening audio device\n"));
       return -1;
     }
 
@@ -122,7 +122,7 @@ int decode_ogg_file(char *infile)
   while(!eof){
     long ret=ov_read(&vf,buf,sizeof(buf),big_endian, word_size, signed_sample, &bs);
     if(bs != 0){
-	fprintf(stderr, "Only one logical bitstream currently supported\n");
+	printf("Only one logical bitstream currently supported\n");
 	break;
     }
     if (ret == 0) {
@@ -135,7 +135,7 @@ int decode_ogg_file(char *infile)
       /* we don't bother dealing with sample rate changes, etc, but
 	 you'll have to*/
       if (ao_play(audio_device, buf, (unsigned int) ret) == 0)
-	  fprintf(stderr, "error writing audio data \n");	
+	  printf("error writing audio data \n");	
     }
   }
 
@@ -200,14 +200,14 @@ void *display_ogg_file_credits(void *infile)
 
   input = fopen((char *)infile, "rb");
   if(!input) {
-      fprintf(stderr, "cannot open %s\n",(char *) infile);
+      printf("cannot open %s\n",(char *) infile);
       return 0;
     }
 
   if((ov_status = ov_open(input, &vf, NULL, 0)) < 0) 
     {
       fclose(input);
-      fprintf(stderr, "ov_open failed for %s (%d)\n",(char *) infile, ov_status);
+      printf("ov_open failed for %s (%d)\n",(char *) infile, ov_status);
       return 0;
     }
   vc = ov_comment(&vf, -1);
@@ -261,7 +261,7 @@ void *display_ogg_file_credits(void *infile)
       gchar **stra;
       gchar *str;
 
-      fprintf(stderr,"%s\n",*ptr);
+      printf("%s\n",*ptr);
       line++;
 
 

@@ -6,7 +6,6 @@ dist_python_DATA= \
 	algorithm.py \
 	hexagon.py \
 	melody.py \
-	minouche.py \
 	pythontest.py \
 	redraw.py \
 	watercycle.py

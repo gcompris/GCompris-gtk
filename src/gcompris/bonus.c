@@ -125,7 +125,7 @@ void board_finished(int type) {
   pixmap_tuxplane = gcompris_load_pixmap(str);
   g_free(str);
 
-  assert(gcomprisBoard != NULL);
+  g_assert(gcomprisBoard != NULL);
 
   x = gcomprisBoard->width - OFFSET - gdk_pixbuf_get_width(pixmap_door1);
   y = OFFSET;
@@ -247,7 +247,7 @@ void bonus_image(char *image, int gamewon)
 
   pixmap = gcompris_load_pixmap(str);
 
-  assert(gcomprisBoard != NULL);
+  g_assert(gcomprisBoard != NULL);
 
   x = (gcomprisBoard->width - gdk_pixbuf_get_width(pixmap))/2;
   y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap))/2;

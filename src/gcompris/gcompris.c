@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/04/19 02:03:24 bcoudoin>
+ * Time-stamp: <2004/05/04 23:01:47 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -374,7 +374,7 @@ static void setup_window ()
   gcompris_icon_pixbuf = gdk_pixbuf_new_from_file (GNOME_ICONDIR"/gcompris.png", &error);
   if (!gcompris_icon_pixbuf)
     {
-      fprintf (stderr, "Failed to load pixbuf file: %s: %s\n",
+      g_warning ("Failed to load pixbuf file: %s: %s\n",
                GNOME_ICONDIR"/gcompris.png", error->message);
       g_error_free (error);
     }

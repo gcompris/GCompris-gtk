@@ -41,13 +41,13 @@ INCLUDES = \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED \
-	$(gcompris_edit_cflags)
+	$(gcompris_edit_cflags) $(shell sdl-config --cflags)
 
 gcompris_SOURCES = \
 	main.c
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(python_ldflags)
+	-export-dynamic $(python_ldflags) $(shell sdl-config --libs) -lSDL_mixer
 
 gcompris_LDADD = \
 	$(LIBICONV)		\
@@ -63,7 +63,7 @@ gcompris_LDADD = \
 # Gcompris edit
 #
 gcompris_edit_LDFLAGS = \
-	-export-dynamic 
+	-export-dynamic $(shell sdl-config --libs) -lSDL_mixer
 
 gcompris_edit_SOURCES = \
 	gcompris-edit.c gcompris-edit.h \
@@ -125,7 +125,9 @@ libgcompris_1_la_SOURCES =			\
 	skin.c \
 	config.c \
 	about.c \
-	log.c
+	log.c \
+	localename.c \
+	sdlplayer.c
 
 $(libgcompris_1_la_OBJECTS): $(marshal_sources)
 
