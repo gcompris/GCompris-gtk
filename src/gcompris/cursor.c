@@ -24,21 +24,6 @@ static GdkCursor *hand_cursor;
 GtkWidget *window;
 
 /* =====================================================================
- *
- * =====================================================================*/
-/*void init_cursor() {
-  GdkCursor *hand_cursor;
-	GdkColor fg, bg;
-
-  gdk_color_parse("rgb:0000/0000/0000",&fg);
-  gdk_color_parse("rgb:FFFF/3FFF/0000",&bg);
-
-	hand_cursor = gdk_cursor_new_from_data(handcursor_bits, 40, 40, &fg, &bg, 0, 0);
-	gdk_window_set_cursor(gcompris_get_window(), hand_cursor);
-  gdk_cursor_destroy(hand_cursor);
-}
-*/
-/* =====================================================================
  * This function is taken from stickers game
  * by Paul Kienzle and Tanya Riseman <stickers@kienzle.powernet.co.uk>
  * =====================================================================*/

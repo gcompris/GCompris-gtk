@@ -217,7 +217,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     algebra_guesscount_next_level();
 
 		gcompris_set_cursor(BIRD_CURSOR);
-		
+
     gamewon = FALSE;
 
     pause_board(FALSE);
@@ -233,6 +233,7 @@ static void end_board () {
     algebra_guesscount_destroy_all_items();
   }
   gcomprisBoard = NULL;
+	gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
 }
 
 /* ==================================== */
