@@ -39,6 +39,8 @@ GDK_PIXBUF_REQUIRED=2.0.6
 LIBGNOMECANVAS_REQUIRED=2.0.2
 
 PKG_CHECK_MODULES(GCOMPRIS, gtk+-2.0 >= $GTK_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0 libassetml)
+AC_CHECK_LIB(SDL_mixer, Mix_OpenAudio,, AC_MSG_ERROR([*** SDL_mixer not found. Visit http://www.libsdl.org and get it]))
+
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
 
@@ -75,11 +77,6 @@ else
 
 fi
 
-dnl For embedded ogg player
-XIPH_PATH_OGG
-XIPH_PATH_AO
-XIPH_PATH_VORBIS
-
 AC_HEADER_DIRENT
 
 AC_PROG_CC
@@ -91,6 +88,13 @@ AC_PROG_INTLTOOL
 AM_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
+
+dnl Check for SDL
+SDL_VERSION=1.2.3
+AM_PATH_SDL($SDL_VERSION,
+            :,
+	    AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])
+)
 
 dnl GNOME2 GNOME_X_CHECKS
 AM_PATH_GLIB_2_0
@@ -501,22 +505,10 @@ echo with options:
 echo "python plugins = $build_python_plugin"
 echo "gcompris edit  = $build_gcompris_edit"
 
-if test -x "${OGG_LIBS}"; then
-echo "OGG LIBS       = NOT DETECTED (install libogg-devel)"
+if test -x "${SDL_LIBS}"; then
+echo "SDL LIBS       = NOT DETECTED (install sdl-devel)"
 else
-echo "OGG LIBS       = FOUND"
-fi
-
-if test -x "${AO_LIBS}"; then
-echo "AO LIBS        = NOT DETECTED (install libao-devel)"
-else
-echo "AO LIBS        = FOUND"
-fi
-
-if test -x "${VORBIS_LIBS}"; then
-echo "VORBIS LIBS    = NOT DETECTED (install libvorbis-devel)"
-else
-echo "VORBIS LIBS    = FOUND"
+echo "SDL LIBS       = FOUND"
 fi
 
 echo gcompris will be installed in ${prefix}
