@@ -46,6 +46,7 @@ static gboolean		 read_xml_file(GtkTreeIter *parentNode, char *fname);
 /* Prototype for selection handler callback */
 static void		tree_selection_changed_cb (GtkTreeSelection *selection, 
 						   gpointer data);
+extern GcomprisProperties	*properties;
 
 
 /* columns */
@@ -407,7 +408,7 @@ main (int argc, char *argv[])
                       NULL);
 
   /* Init the gcompris properties */
-  gcompris_properties_new();
+  properties = gcompris_properties_new ();
 
   /*
    * The following code was added by Glade to create one of each component
@@ -418,10 +419,10 @@ main (int argc, char *argv[])
   gtk_widget_show (gcompris_edit);
 
   /* connect exit code */
-  gtk_signal_connect (GTK_OBJECT (gcompris_edit), "delete_event",
-		      GTK_SIGNAL_FUNC (quit_cb), NULL);
-  gtk_signal_connect (GTK_OBJECT (gcompris_edit), "destroy",
-		      GTK_SIGNAL_FUNC (quit_cb), NULL);
+  gtk_signal_connect (GTK_OBJECT (gcompris_edit), "delete_event", 
+ 		      GTK_SIGNAL_FUNC (quit_cb), NULL); 
+  gtk_signal_connect (GTK_OBJECT (gcompris_edit), "destroy", 
+ 		      GTK_SIGNAL_FUNC (quit_cb), NULL);
 
   init_plugins();
 

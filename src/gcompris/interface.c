@@ -104,7 +104,7 @@ create_gcompris_edit (void)
   gcompris_edit = gnome_app_new ("Gcompris Editor", _("Gcompris Editor"));
   gtk_widget_set_name (gcompris_edit, "gcompris_edit");
   gtk_window_set_default_size (GTK_WINDOW (gcompris_edit), 640, 480);
-  gcompris_edit_icon_pixbuf = create_pixbuf ("gcompris-edit/gcompris-edit.png");
+  gcompris_edit_icon_pixbuf = create_pixbuf (GNOME_ICONDIR"/gcompris-edit.png");
   if (gcompris_edit_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (gcompris_edit), gcompris_edit_icon_pixbuf);
