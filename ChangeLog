@@ -1,3 +1,12 @@
+2004-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
+	
+	to fix the newline issues in xml files, added the token xml:space="preserve"
+	Thanks to Danilo Segan for that.
+	
+	* boards/chronos/board3_0.xml.in:
+	* boards/menu.xml.in:
+	* boards/redraw_symmetrical.xml.in: fixed directory path
+
 2004-11-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/algebramenu.xml.in: replace algebra by math
