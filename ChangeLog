@@ -1,3 +1,17 @@
+2004-07-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/draw/tool-camera.png: created for anim by Bruno
+	* boards/draw/tool-camera_on.png: -
+	* boards/draw/tool-movie.png: -
+	* boards/draw/tool-movie_on.png: -
+	* boards/sounds/fr/france_region/gcompris_franceregion_fr.assetml.i
+	n: now this assetml package is declared as locale="" instead of french.
+	this way, users of other  countries will hear some french
+	* boards/sounds/fr/geography/COPYRIGHT: added clara copyright
+	* boards/sounds/fr/geography/gcompris_geography_fr.assetml.in: added european countries
+	* src/boards/python/anim.py: added 2 buttons for camera and video play
+	* src/gcompris/config.c: added Albanian locale
+
 2004-06-30  Olivier Samyn  <osamyn@easynet.be>
 
 	* docs/C/python.xml: Documents the new bindings

@@ -86,6 +86,8 @@ class Gcompris_anim:
       ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
       ["FILL",           "draw/tool-fill.png",            "draw/tool-fill_on.png",               gcompris.CURSOR_FILL],
       ["SELECT",         "draw/tool-select.png",          "draw/tool-select_on.png",             gcompris.CURSOR_SELECT],
+      ["MOVIE",          "draw/tool-movie.png",           "draw/tool-movie_on.png",              gcompris.CURSOR_SELECT],
+      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],
 #      ["RAISE",         "draw/tool-up.png",          "draw/tool-up_on.png",             gcompris.CURSOR_DEFAULT],
 #      ["LOWER",         "draw/tool-down.png",          "draw/tool-down_on.png",             gcompris.CURSOR_DEFAULT],
 #      ["CCW",         "draw/tool-rotation-ccw.png",          "draw/tool-rotation-ccw_on.png",             gcompris.CURSOR_DEFAULT],
@@ -226,20 +228,38 @@ class Gcompris_anim:
       if i%2:
         y += stepy
 
-    # The last item is select, we select it by default
-    self.current_tool = i
-    self.old_tool_item = item
-    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[i][2]))
-    gcompris.set_cursor(self.tools[i][3]);
+      if(self.tools[i][0]=="SELECT"):
+        # Always select the SELECT item by default
+        self.current_tool = i
+        self.old_tool_item = item
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[i][2]))
+        gcompris.set_cursor(self.tools[i][3]);
 
 
   # Event when a tool is selected
   def tool_item_event(self, item, event, tool):
-    if self.running:
+    if self.running and (self.tools[tool][0] != "MOVIE"):
       return
     
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
+        # Some button have instant effects
+        if (self.tools[tool][0] == "PICTURE"):
+          self.flash.show()
+          self.AnimShot(self.root_drawingitem)
+          self.item_frame_counter.set(text=self.current_image + 1)
+          gtk.timeout_add(1000, self.run_flash)
+          return
+        else:
+          if (self.tools[tool][0] == "MOVIE"):
+            if not self.running:
+              self.running=True
+              self.AnimRun()
+            else:
+              self.running=False
+              self.root_playingitem.hide()
+              self.rootitem.show()
+
         # unselect object if necessary
         if (self.tools[tool][0] != "SELECT") and (self.selected != None):
           self.selected.item_list[1].hide()
@@ -254,6 +274,7 @@ class Gcompris_anim:
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
         gcompris.set_cursor(self.tools[self.current_tool][3]);
 
+        
   # Display the color selector
   def draw_colors(self):
 
