@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-24 12:09+0200\n"
-"PO-Revision-Date: 2003-08-21 22:46+0200\n"
+"POT-Creation-Date: 2003-08-28 00:22+0200\n"
+"PO-Revision-Date: 2003-08-28 00:24+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -869,9 +869,8 @@ msgid "Taken the concept from the EPI games."
 msgstr "Taget från konceptet i EPI-spelen."
 
 #: boards/imageid.xml.in.h:1
-#, fuzzy
 msgid "Click on the word corresponding to the printed image."
-msgstr "Klicka på motsvarande färg"
+msgstr "Klicka på ordet som motsvarar den visade bilden."
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -1119,14 +1118,12 @@ msgid "racket"
 msgstr "racket"
 
 #: boards/leftright.xml.in.h:1
-#, fuzzy
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
 "on the red button - at the left - or on the green button - at the right."
 msgstr ""
 "En hand visas. Du måste svara på om det är höger eller vänster hand. Klicka "
-"på den röda knappen till vänster eller den gröna knappen till höger och "
-"klicka sedan på handen längst ner för att bekräfta ditt val."
+"på den röda knappen till vänster eller den gröna knappen till höger."
 
 #: boards/leftright.xml.in.h:2
 msgid ""
@@ -1251,14 +1248,12 @@ msgstr ""
 "3 till 4 år 2 stjärnor - 5 till 6 år 3 stjärnor - 7 till 8 år"
 
 #: boards/missing_letter.xml.in.h:1
-#, fuzzy
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
 "the picture. Select the missing letter to complete the word."
 msgstr ""
 "Ett objekt visas i huvudområdet. Ett ofullständigt ord visas under bilden. "
-"Välj den bokstav som saknas för att göra ordet komplett. Klicka på handen "
-"längst ner för att rätta ditt svar."
+"Välj den bokstav som saknas för att göra ordet komplett."
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
@@ -1695,7 +1690,7 @@ msgstr ""
 "tärningarna för att räkna baklänges. När du är klar klickar du på OK-knappen "
 "eller trycker på returtangenten på tangentbordet."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
 msgid "Practice the substraction with a funny game"
 msgstr "Träna på subtraktion med ett roligt spel"
 
@@ -2082,7 +2077,7 @@ msgstr "Ja, jag såg det"
 msgid "No, it was not there"
 msgstr "Nej, det fanns inte där"
 
-#: src/boards/reversecount.c:129
+#: src/boards/reversecount.c:136
 msgid "Reverse count"
 msgstr "Omvänd räkning"
 
@@ -2257,9 +2252,8 @@ msgid "Dutch"
 msgstr "Holländska"
 
 #: src/gcompris/config.c:72
-#, fuzzy
 msgid "Norwegian"
-msgstr "Norska (bokmål)"
+msgstr "Norska"
 
 #: src/gcompris/config.c:73
 msgid "Portuguese"
@@ -2330,8 +2324,8 @@ msgstr "Effekt"
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:685
-#: src/gcompris/config.c:696
+#: src/gcompris/config.c:396 src/gcompris/config.c:695
+#: src/gcompris/config.c:706
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2466,6 +2460,28 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid "Click on the word corresponding to the displayed image."
+#~ msgstr "Klicka på ordet som motsvarar den visade bilden."
+
+#~ msgid ""
+#~ "A hand is displayed. You have to tell if this is the right or left hand. "
+#~ "Click on the red button - at the left - or on the green button - at the "
+#~ "right."
+#~ msgstr ""
+#~ "En hand visas. Du måste svara på om det är höger eller vänster hand. "
+#~ "Klicka på den röda knappen till vänster eller den gröna knappen till "
+#~ "höger."
+
+#~ msgid ""
+#~ "An object is displayed in the main area. An incomplete word is displayed "
+#~ "under the picture. Select the missing letter to complete the word."
+#~ msgstr ""
+#~ "Ett objekt visas i huvudområdet. Ett ofullständigt ord visas under "
+#~ "bilden. Välj den bokstav som saknas för att göra ordet komplett."
+
+#~ msgid "Norwegian (bokmal)"
+#~ msgstr "Norska (bokmål)"
 
 #~ msgid ""
 #~ "Click on the word corresponding to the printed image. When you are sure "
