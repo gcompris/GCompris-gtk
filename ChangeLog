@@ -1,8 +1,8 @@
 2003-02-11  Pascal Georges <pascal.georges1@free.fr>
-  * src/boards/*.c : removed the thumb, directly calling process_ok for
-  colors, read_colors,advanced_colors, click_on_letter, missing_letter, image_id
-  and leftright boards.
-  Added a 1 sec timeout to let time to display the entered answer.
+	* src/boards/*.c : removed the thumb, directly calling process_ok for
+	  colors, read_colors,advanced_colors, click_on_letter, missing_letter, image_id
+	  and leftright boards.
+	  Added a 1 sec timeout to let time to display the entered answer.
 
 2003-02-10  Marius Andreiana <marius galuna.ro>
 	* src/gcompris/config.c: romanian and russian locale are no longer combined
@@ -13,15 +13,15 @@
 
 2003-02-09  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/read_colors.c : see below
-  * src/gcompris/bonus.c : hardened code against multiple quick key press
-  * scr/gcompris/*.c & src/boards/*.c : changed all calls from gcompris_play_sound
-  to gcompris_play_ogg, in order to have them work better on my system (KDE).
+	* src/gcompris/bonus.c : hardened code against multiple quick key press
+	* scr/gcompris/*.c & src/boards/*.c : changed all calls from gcompris_play_sound
+	  to gcompris_play_ogg, in order to have them work better on my system (KDE).
 
 2003-02-08  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/read_colors.c : fixed a bug when the ENTER key is repeatdly
-  pressed : the board_finished(BOARD_FINISHED_TOOMANYERRORS); got called once
-  per key press, making too many pictures to be displayed. This bug may occur in other
-  boards ...
+	  pressed : the board_finished(BOARD_FINISHED_TOOMANYERRORS); got called once
+	  per key press, making too many pictures to be displayed. This bug may occur in other
+	  boards ...
 
 2003-02-05  Bruno Coudoin  <bruno.coudoin@free.fr>
 
@@ -45,8 +45,8 @@
 	* TESTS: removed the comment on enumerate
 
 2003-02-01  Pascal Georges <pascal.georges1@free.fr>
-	*	src/gcompris/soundutil.c : as train.wav could not be played (/dev/dsp
-  busy error), modified it to be played as an ogg file
+	* src/gcompris/soundutil.c : as train.wav could not be played (/dev/dsp
+	  busy error), modified it to be played as an ogg file
 
 2003-01-29  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/missingletter.c : added more questions (now 36)
