@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-23 16:15+0200\n"
+"POT-Creation-Date: 2004-11-02 09:13+0100\n"
 "PO-Revision-Date: 2004-08-16 09:18+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -279,7 +279,7 @@ msgstr "Pistazie"
 msgid "platinum"
 msgstr "Platin"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "Lila"
 
@@ -676,15 +676,19 @@ msgid ""
 "Place each image in the order and on the date it has been invented. If not "
 "sure, check online in wikipedia at http://www.wikipedia.org"
 msgstr ""
-"Plaziere jedes Bild auf dem Datum, an dem es erfunden wurde. Wenn Du Dir "
-"unsicher bist, kannst Du im Internet unter http://www.wikipedia.org "
-"nachschlagen."
+"Plaziere jedes Bild auf dem Datum, an dem es erfunden wurde.\n"
+"Wenn Du Dir unsicher bist, kannst Du im Internet unter\n"
+"http://www.wikipedia.org nachschlagen."
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Verkehrsmittel"
+
+#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+msgid "The aviation"
+msgstr "Die Luftfahrt"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -2113,27 +2117,27 @@ msgstr "Farben lesen"
 msgid "This board teaches basic colors."
 msgstr "Diese Tafel lehrt einfache Farben."
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "Schwarz"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "Blau"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "Braun"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "Grün"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "Grau"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "Orange"
 
@@ -2141,7 +2145,7 @@ msgstr "Orange"
 msgid "pink"
 msgstr "Pink"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "Rot"
 
@@ -2149,11 +2153,11 @@ msgstr "Rot"
 msgid "violet"
 msgstr "Violett"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "Weiß"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "Gelb"
 
@@ -2588,10 +2592,45 @@ msgstr "Konnte Verzeichnis %s nicht öffnen"
 msgid "Set the watch to:"
 msgstr "Stelle die Uhr auf:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Klicke auf %s"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Klicke auf die blaue Figur"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Klicke auf die braune Figur"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Klicke auf die grüne Figur"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Klicke auf die graue Figur"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Klicke auf die orange Figur"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Klicke auf die lila Figur"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Klicke auf die rote Figur"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Klicke auf die gelbe Figur"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Klicke auf die schwarze Figur"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Klicke auf die weiße Figur"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2643,11 +2682,11 @@ msgstr "Wähle eine Tafel"
 msgid "Pratice money usage"
 msgstr "Übe die Verwendung von Geld"
 
-#: src/boards/paratrooper.c:104
+#: src/boards/paratrooper.c:102
 msgid "Paratrooper"
 msgstr "Fallschirmspringen"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Führe den Fallschirmspringer um ihm bei einer sicheren Landung zu helfen"
 
@@ -2863,8 +2902,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:205
-#: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2940,165 +2979,169 @@ msgid "Hebrew"
 msgstr "Hebräisch"
 
 #: src/gcompris/config.c:79
-msgid "Indian"
-msgstr "Indisch"
+msgid "Indian (Hindi)"
+msgstr "Indisch (Hindi)"
 
 #: src/gcompris/config.c:80
+msgid "Indian (Punjabi)"
+msgstr "Indisch (Punjabi)"
+
+#: src/gcompris/config.c:81
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Italian"
 msgstr "Italienisch"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Macedonian"
 msgstr "Mazedonisch"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Malay"
 msgstr "Malaysisch"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Dutch"
 msgstr "Holländisch"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Norwegian Bokmal"
 msgstr "Norwegisch Bokmal"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Norwegian Nynorsk"
 msgstr "Neunorwegisch"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Polish"
 msgstr "Polnisch"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Portuguese"
 msgstr "Portugiesisch"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Brazil Portuguese"
 msgstr "Brasilianisches Portugiesisch"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Romanian"
 msgstr "Rumänisch"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Albanian"
 msgstr "Albanisch"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Serbian (Latin)"
 msgstr "Serbisch (Latein)"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Serbian"
 msgstr "Serbisch"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Walloon"
 msgstr "Wallonisch"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: src/gcompris/config.c:115
+#: src/gcompris/config.c:116
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "No filter"
 msgstr "Kein Filter"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "Only this level"
 msgstr "Nur diese Ebene"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "Up to this level"
 msgstr "Bis zu dieser Ebene"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "This level and above"
 msgstr "Diese Ebene und höher"
 
-#: src/gcompris/config.c:179
+#: src/gcompris/config.c:180
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:289
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: src/gcompris/config.c:331
+#: src/gcompris/config.c:332
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:359
+#: src/gcompris/config.c:360
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:393
+#: src/gcompris/config.c:394
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: src/gcompris/config.c:414
+#: src/gcompris/config.c:415
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Keine Verkleidung in %s gefunden\n"
 
-#: src/gcompris/config.c:429 src/gcompris/config.c:814
-#: src/gcompris/config.c:825
+#: src/gcompris/config.c:430 src/gcompris/config.c:815
+#: src/gcompris/config.c:826
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
@@ -3172,22 +3215,16 @@ msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
 "Linux. Get more information on\n"
 "http://www.fsf.org/philosophy"
 msgstr ""
-"GCompris ist unter der GPL veröffentlichte freie Software.\n"
-"Um die Entwicklung von GCompris zu unterstützen, bietet die Windows-Version "
-"nur 12 der 45 Aktivitäten. Sie können die Vollversion für eine kleine Gebühr "
-"unter http://www.ofset.org/order/gcompris erhalten. Die Linux-Version hat "
-"nicht diese Einschränkung.\n"
-"Bitte beachten Sie, dass GCompris entwickelt wird, um Schulen von "
-"monopolistischen Softwareanbietern zu entbinden. Wenn Sie auch glauben, dass "
-"wir Kindern Freiheit lehren sollen, ziehen Sie bitte die Benutzung von GNU/"
-"Linux in Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter "
+"GCompris ist unter der GPL veröffentlichte freie Software. Um die Entwicklung zu unterstützen, bietet die Windows-Version nur 12 der 45 Aktivitäten. Sie können die Vollversion für eine kleine Gebühr unter\n"
+"http://gcompris.net\n"
+"erhalten. Die Linux-Version hat diese Einschränkung nicht. Bitte beachten Sie, dass GCompris entwickelt wird, um Schulen von  monopolistischen Softwareanbietern zu entbinden. Wenn Sie auch glauben, dass wir Kindern Freiheit lehren sollen, ziehen Sie bitte die Benutzung von GNU/Linux in Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
 #: src/gcompris/gcompris.c:717
@@ -3196,26 +3233,26 @@ msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Version: %s\n"
 "Lizenz: GPL\n"
-"Mehr Informationen unter http://www.ofset.org/gcompris\n"
+"Mehr Informationen unter http://gcompris.net\n"
 
-#: src/gcompris/help.c:173 src/gcompris/interface.c:243
+#: src/gcompris/help.c:170 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Voraussetzung"
 
-#: src/gcompris/help.c:207 src/gcompris/interface.c:252
+#: src/gcompris/help.c:198 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Ziel"
 
-#: src/gcompris/help.c:241 src/gcompris/interface.c:261
+#: src/gcompris/help.c:226 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Handbuch"
 
-#: src/gcompris/help.c:275 src/gcompris/interface.c:270
+#: src/gcompris/help.c:254 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Dank"
 
