@@ -16,6 +16,7 @@ Menu_DATA=gcompris
 
 EXTRA_DIST = \
 	$(Games_DATA) \
+	$(Games_in_files) \
 	$(icon_DATA) \
 	$(Menu_DATA) \
 	gcompris.spec.in \
@@ -42,9 +43,9 @@ dist-hook:
 	  find @PACKAGE_DATA_DIR@ -name \*~ -printf %f\\n >/tmp/GCOMPRIS_LIST.txt ; \
 	  find @PACKAGE_DATA_DIR@ -name \.\* -printf %f\\n >>/tmp/GCOMPRIS_LIST.txt ; \
 	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude CVS --exclude .xvpics --exclude-from  /tmp/GCOMPRIS_LIST.txt * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 	fi
 
-#	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update
