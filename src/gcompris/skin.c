@@ -327,6 +327,10 @@ void gcompris_skin_xml_load (gchar* skin)
  */
 void gcompris_skin_load (gchar* skin)
 {
+
+  if(skin==NULL)
+    return;
+
   gcompris_skin_free();
   
   gcompris_skin_fonts = g_hash_table_new_full(g_str_hash, g_str_equal,

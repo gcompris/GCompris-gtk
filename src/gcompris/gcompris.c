@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/05/17 00:27:54 bcoudoin>
+ * Time-stamp: <2004/05/19 00:47:39 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -30,11 +30,6 @@
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
 # define WIN32
-#endif
-
-#ifdef WIN32
-# define WIN32_LEAN_AND_MEAN
-# include <windows.h>
 #endif
 
 GtkWidget *window;
@@ -90,7 +85,9 @@ static struct poptOption options[] = {
    N_("Print the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
    N_("Use the antialiased canvas (slower)."), NULL},
+#ifndef WIN32
   POPT_AUTOHELP
+#endif
   {
     NULL,
     '\0',
@@ -248,6 +245,8 @@ static void init_background()
 			     "x2", (double) gdk_screen_width(),
 			     "y2", (double) gdk_screen_height() + 30,
 			     "fill_color", "black",
+			     "outline_color", "black",
+			     "width_units", (double)0,
 			     NULL);
       
     }
@@ -551,11 +550,18 @@ char *gcompris_get_user_default_locale()
 void gcompris_set_locale(gchar *locale)
 {
 
-  printf("gcompris_set_locale %s\n", locale);
+  printf("gcompris_set_locale '%s'\n", locale);
   if(gcompris_locale != NULL)
     g_free(gcompris_locale);
 
+#if defined WIN32
+  /* On windows, it always works */
+  gcompris_locale = g_strdup(locale);
+  setlocale(LC_MESSAGES, locale);
+  setlocale(LC_ALL, locale);
+#else
   gcompris_locale = g_strdup(setlocale(LC_MESSAGES, locale));
+#endif
 
   if(gcompris_locale!=NULL && strcmp(locale, gcompris_locale))
     g_warning("Requested locale '%s' got '%s'", locale, gcompris_locale);
@@ -565,10 +571,10 @@ void gcompris_set_locale(gchar *locale)
 
   /* Override the env locale to what the user requested */
   /* This makes gettext to give us the new locale text  */
-  setenv ("LC_ALL", gcompris_get_locale(), TRUE);
-  setenv ("LC_MESSAGES", gcompris_get_locale(), TRUE);
-  setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
-  setenv ("LANG", gcompris_get_locale(), TRUE);
+  my_setenv ("LC_ALL", gcompris_get_locale());
+  my_setenv ("LC_MESSAGES", gcompris_get_locale());
+  my_setenv ("LANGUAGE", gcompris_get_locale());
+  my_setenv ("LANG", gcompris_get_locale());
 
   /* This does update gettext translation uppon next gettext call */
   /* Call for localization startup */

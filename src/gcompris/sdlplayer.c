@@ -67,7 +67,7 @@ int sdlplayer_init()
     return(cleanExit("SDL_Init"));
 	
   // initialize sdl mixer, open up the audio device
-  if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers)<0)
+  if(Mix_OpenAudio(22050,MIX_DEFAULT_FORMAT,1,audio_buffers)<0)
     return(cleanExit("Mix_OpenAudio"));
 
   // print out some info on the audio device and stream

@@ -1,3 +1,66 @@
+2004-05-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/sounds/fr/geography/alaska.ogg: all .ogg remixed to mono and normalized
+	* boards/sounds/fr/geography/argentina.ogg:
+	* boards/sounds/fr/geography/bahamas.ogg:
+	* boards/sounds/fr/geography/bolivia.ogg:
+	* boards/sounds/fr/geography/brazil.ogg:
+	* boards/sounds/fr/geography/canada.ogg:
+	* boards/sounds/fr/geography/chile.ogg:
+	* boards/sounds/fr/geography/colombia.ogg:
+	* boards/sounds/fr/geography/costa_rica.ogg:
+	* boards/sounds/fr/geography/cuba.ogg:
+	* boards/sounds/fr/geography/dominican_republic.ogg:
+	* boards/sounds/fr/geography/ecuador.ogg:
+	* boards/sounds/fr/geography/french_guiana.ogg:
+	* boards/sounds/fr/geography/greenland.ogg:
+	* boards/sounds/fr/geography/guatemala.ogg:
+	* boards/sounds/fr/geography/guyana.ogg:
+	* boards/sounds/fr/geography/haiti.ogg:
+	* boards/sounds/fr/geography/honduras.ogg:
+	* boards/sounds/fr/geography/iceland.ogg:
+	* boards/sounds/fr/geography/jamaica.ogg:
+	* boards/sounds/fr/geography/mexico.ogg:
+	* boards/sounds/fr/geography/nicaragua.ogg:
+	* boards/sounds/fr/geography/panama.ogg:
+	* boards/sounds/fr/geography/paraguay.ogg:
+	* boards/sounds/fr/geography/peru.ogg:
+	* boards/sounds/fr/geography/salvador.ogg:
+	* boards/sounds/fr/geography/suriname.ogg:
+	* boards/sounds/fr/geography/uruguay.ogg:
+	* boards/sounds/fr/geography/usa.ogg:
+	* boards/sounds/fr/geography/venezuela.ogg:
+	* boards/sounds/fr/misc/back.ogg:
+	* boards/sounds/fr/misc/by.ogg:
+	* boards/sounds/fr/misc/click_on_letter.ogg:
+	* boards/sounds/fr/misc/configuration.ogg:
+	* boards/sounds/fr/misc/congratulation.ogg:
+	* boards/sounds/fr/misc/equal.ogg:
+	* boards/sounds/fr/misc/good.ogg:
+	* boards/sounds/fr/misc/great.ogg:
+	* boards/sounds/fr/misc/help.ogg:
+	* boards/sounds/fr/misc/minus.ogg:
+	* boards/sounds/fr/misc/ok.ogg:
+	* boards/sounds/fr/misc/outof.ogg:
+	* boards/sounds/fr/misc/plus.ogg:
+	* boards/sounds/fr/misc/quit.ogg:
+	* boards/sounds/fr/misc/super.ogg:
+	* boards/sounds/fr/misc/welcome.ogg:
+	* configure.in: changed to release 6.0PRE1
+	* src/gcompris/config.c: (item_event_ok): do not call initsound if not needed
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save): fixed win98 config file path
+	* src/gcompris/sdlplayer.c: (sdlplayer_init): changed sdl init params to take less CPU
+	* src/gcompris/soundutil.c: (initSound): fixed call to initsound if not needed
+
+2004-05-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* boards/sounds/fr/misc/click_on_letter.ogg:
+	* src/gcompris/config.c: (item_event_ok):
+	* src/gcompris/soundutil.c: (initSound):
+
 2004-05-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: removed assetml dependancy

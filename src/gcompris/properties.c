@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/05/16 23:18:29 bcoudoin>
+ * Time-stamp: <2004/05/19 01:17:29 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -81,6 +81,7 @@ gchar *scan_get_string(GScanner *scanner) {
 GcomprisProperties *gcompris_properties_new ()
 {
   GcomprisProperties *tmp;
+  G_CONST_RETURN gchar *home_dir;
   char *config_file;
   const gchar *locale;
   int i;
@@ -98,7 +99,13 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->skin		= "default";
   tmp->locale           = NULL;
 
-  config_file = g_strdup_printf("%s/.gcompris",g_get_home_dir());
+  home_dir = g_get_home_dir();
+
+  if(home_dir==NULL) {
+    config_file = g_strdup("gcompris.cfg");
+  } else {
+    config_file = g_strdup_printf("%s/.gcompris",home_dir);
+  }
 
   filefd = open(config_file, O_RDONLY);
 
@@ -214,10 +221,17 @@ void gcompris_properties_destroy (GcomprisProperties *props)
 
 void gcompris_properties_save (GcomprisProperties *props)
 {
+  G_CONST_RETURN gchar *home_dir;
   char *config_file;
   FILE *filefd;
 
-  config_file = g_strdup_printf("%s/.gcompris",g_get_home_dir());
+  home_dir = g_get_home_dir();
+
+  if(home_dir==NULL) {
+    config_file = g_strdup("gcompris.cfg");
+  } else {
+    config_file = g_strdup_printf("%s/.gcompris",home_dir);
+  }
 
   filefd = fopen(config_file, "w+");
 
@@ -256,13 +270,19 @@ static void boards_write (gchar       *key,
  */
 void gcompris_write_boards_status()
 {
+  G_CONST_RETURN gchar *home_dir;
   char *config_file;
   int i;
   GScanner *scanner;
   FILE *filefd;
 
-  printf("gcompris_write_boards_status\n");
-  config_file = g_strdup_printf("%s/.gcompris_boards",g_get_home_dir());
+  home_dir = g_get_home_dir();
+
+  if(home_dir==NULL) {
+    config_file = g_strdup("gcompris_boards.cfg");
+  } else {
+    config_file = g_strdup_printf("%s/.gcompris_boards",home_dir);
+  }
 
   filefd = fopen(config_file, "w+");
 
@@ -279,12 +299,17 @@ void gcompris_write_boards_status()
 
 void read_boards_status()
 {
+  G_CONST_RETURN gchar *home_dir;
   char *config_file;
   int i;
   GScanner *scanner;
   int filefd;
 
-  config_file = g_strdup_printf("%s/.gcompris_boards",g_get_home_dir());
+  if(home_dir==NULL) {
+    config_file = g_strdup("gcompris_boards.cfg");
+  } else {
+    config_file = g_strdup_printf("%s/.gcompris_boards",home_dir);
+  }
 
   filefd = open(config_file, O_RDONLY);
 
@@ -363,7 +388,7 @@ gboolean gcompris_properties_get_board_status(gchar *boardName)
 int my_setenv (const char * name, const char * value) {
   size_t namelen = strlen(name);
   size_t valuelen = (value==NULL ? 0 : strlen(value));
-#if defined _WIN32
+#if defined WIN32
   /* On Woe32, each process has two copies of the environment variables,
      one managed by the OS and one managed by the C library. We set
      the value in both locations, so that other software that looks in
@@ -374,8 +399,8 @@ int my_setenv (const char * name, const char * value) {
      <http://www.cygwin.com/ml/cygwin/1999-04/msg00478.html> */
   if (!SetEnvironmentVariableA(name,value))
     return -1;
-#endif
-#if defined(HAVE_PUTENV)
+  //#endif
+  //#if defined(HAVE_PUTENV)
   char* buffer = (char*)malloc(namelen+1+valuelen+1);
   if (!buffer)
     return -1; /* no need to set errno = ENOMEM */
@@ -391,7 +416,6 @@ int my_setenv (const char * name, const char * value) {
   return setenv(name,value,1);
 #else
   /* Uh oh, neither putenv() nor setenv() ... */
-  //  return setenv(name,value,1);
   return -1;
 #endif
 }

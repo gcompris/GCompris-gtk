@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/04/19 02:03:17 bcoudoin>
+ * Time-stamp: <2004/05/18 23:20:27 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -28,6 +28,11 @@
 #include "locale.h"
 
 #include <dirent.h>
+
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
 
 static GnomeCanvasItem	*rootitem		= NULL;
 static GnomeCanvasItem	*item_locale_text	= NULL;
@@ -522,10 +527,15 @@ static void set_locale_flag(gchar *locale)
 			 NULL);
 
   /* Check wether or not the locale is available */
+#ifdef WIN32
+  /* On win32, it's always available, do not try to check */
+  gnome_canvas_item_hide (item_bad_flag);
+#else
   if(setlocale(LC_MESSAGES, locale)==NULL)
     gnome_canvas_item_show (item_bad_flag);
   else
     gnome_canvas_item_hide (item_bad_flag);
+#endif
 
   g_free(str);
 
@@ -610,6 +620,9 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
   GcomprisProperties	*properties = gcompris_get_properties();
 
+  if(data==NULL)
+    return;
+
   switch (event->type) 
     {
     case GDK_ENTER_NOTIFY:
@@ -630,6 +643,10 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  gcompris_config_stop();
 	  gcompris_properties_save(properties);
 	  gcompris_load_menus();
+
+	  if(properties->music || properties->fx) {
+	    initSound();
+	  }
 	}
       else if(!strcmp((char *)data, "fullscreen"))
 	{

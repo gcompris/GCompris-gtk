@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2004/05/11 23:54:44 bcoudoin>
+ * Time-stamp: <2004/05/18 22:40:39 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -25,6 +25,11 @@
  */
 
 #include "gcompris.h"
+
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -461,9 +466,12 @@ static void set_content(gchar *text) {
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
 
+  /* On windows, shadow doesn't look nice, leave it empty */
+#ifndef WIN32
   gnome_canvas_item_set(item_content_shadow, 
 			"text", text,
 			NULL);
+#endif
 
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 

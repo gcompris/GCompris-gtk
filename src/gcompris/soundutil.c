@@ -39,6 +39,9 @@ static gboolean	 is_playing;
 GMutex		*lock = NULL;
 GCond		*cond = NULL;
 
+/* Singleton */
+static guint	 sound_init = 0;
+
 /* Forward function declarations */
 GThread		*thread_scheduler, *thread_scheduler_bgnd;
 
@@ -55,6 +58,12 @@ extern int	 ogg123(char * sound);
  * =====================================================================*/
 void initSound()
 {
+
+  /* Check to run the init once only */
+  if(sound_init == 1) {
+    return;
+  }
+  sound_init = 1;
 
   /* Initialize the thread system */
   if (!g_thread_supported ()) g_thread_init (NULL);
