@@ -20,12 +20,10 @@
 #include "gcompris.h"
 
 #include <stdio.h>
-#include <libgen.h>
-#include <pthread.h>
 #include <vorbis/vorbisfile.h>
 #include <ao/ao.h>
 
-#ifdef __WIN32
+#ifdef _WIN32
 #include <io.h>
 #include <fcntl.h>
 #endif

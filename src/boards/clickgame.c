@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2004/03/13 00:57:56 bcoudoin>
+ * Time-stamp: <2004/04/18 18:09:38 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,7 +32,7 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-gboolean board_paused = TRUE;
+static gboolean board_paused = TRUE;
 
 static GList *item_list = NULL;
 static GList *item2del_list = NULL;
@@ -165,39 +165,39 @@ static void clickgame_pause (gboolean pause)
 static void clickgame_start (GcomprisBoard *agcomprisBoard)
 {
   gint i;
-  char *str;
+  gchar *str;
   gchar *filename;
-  struct dirent **namelist = NULL;
-  int namelistlength = 0;
+  DIR *dir;
+  struct dirent *one_dirent;
 
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard = agcomprisBoard;
 
       /* Load the Pixpmaps directory file names */
-      filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);
-      namelistlength = scandir(filename,
-			       &namelist, 0, alphasort);
-
-      if (namelistlength < 0)
-	g_error (_("Couldn't open pixmap dir: %s"), filename);
+      filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);      
+      dir = opendir(filename);
+      
+      if (!dir)
+	g_error (_("Couldn't open dir: %s"),filename);
 
       g_free(filename);
 
-      /* Fill up the pixmap list */
-      for(i=2; i<namelistlength; i++)
-	{
-	  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, namelist[i]->d_name);
-	  str[strlen(str)-5]='x';
+      while((one_dirent = readdir(dir)) != NULL) {
 
-	  g_free(namelist[i]);
+	if (one_dirent->d_name[0] != '.') {
+
+	  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, one_dirent->d_name);
+	  str[strlen(str)-5]='x';
 
 	  if(g_list_find_custom(pixmaplist, str, (GCompareFunc) strcmp) == NULL)
 	  {
 	    pixmaplist = g_list_append (pixmaplist, str);
 	  }
 	}
-      g_free(namelist);
+      }
+      closedir(dir);
+
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;
@@ -393,13 +393,32 @@ static void clickgame_destroy_items()
 static void clickgame_destroy_all_items()
 {
   FishItem *fishitem;
+  int i;
 
   while(g_list_length(item_list)>0) 
     {
       fishitem = g_list_nth_data(item_list, 0);
       clickgame_destroy_item(fishitem);
     }
+  if(item_list) {
+    g_list_free(item_list);
+    item_list = NULL;
+  }
 
+  i=g_list_length(pixmaplist);
+  for(i=0; i<g_list_length(pixmaplist); i++) {
+    g_free(g_list_nth_data(item_list, i));
+  }
+
+  if(pixmaplist) {
+    g_list_free(pixmaplist);
+    pixmaplist = NULL;
+  }
+
+  if(imagelist) {
+    g_list_free(imagelist);
+    imagelist = NULL;
+  }
 }
 
 /*
@@ -461,10 +480,12 @@ static FishItem *clickgame_create_item(GnomeCanvasGroup *parent)
   if(fishitem->speed<0)
     {
       x = (double) gcomprisBoard->width;
+      fishitem->speed=MIN(fishitem->speed, -1);
     }
   else 
     {
       x = (double) -gdk_pixbuf_get_width(pixmap)*imageZoom;
+      fishitem->speed=MAX(fishitem->speed, 1);
     }
 
   rootitem = \
@@ -699,12 +720,11 @@ static void load_random_pixmap()
 {
   GdkPixbuf *pixmap;
   int i, j;
-  char *str = NULL;
+  gchar *str = NULL;
   gboolean cont = TRUE;
 
   if(g_list_length(pixmaplist)<=0)
     return;
-
 
   i=rand()%(g_list_length(pixmaplist));
 
@@ -732,8 +752,12 @@ static void load_random_pixmap()
       else
 	{
 	  pixmap = gcompris_load_pixmap (str);
-	  
-	  imagelist = g_list_append (imagelist, pixmap);
+
+	  if(pixmap) {
+	    imagelist = g_list_append (imagelist, pixmap);
+	  } else {
+	    cont = FALSE;
+	  }
 	}
 
       g_free (filename);

@@ -21,47 +21,53 @@
 #   include <sys/types.h>
 #endif
 #include <dirent.h>
-
 #include "gcompris.h"
 #include <signal.h>
-#include <pthread.h>
+#include <glib.h>
 #include <ao/ao.h>
 
-static GList *pending_queue = NULL;
-static int sound_policy;
-static gboolean is_playing;
-
-/* Forward function declarations */
-pthread_t thread_scheduler, thread_play;
-pthread_t thread_scheduler_bgnd, thread_play_bgnd;
-static void*	 thread_play_ogg (void*);
-static char*	 get_next_sound_to_play( );
-static void*	 scheduler ( );
-static void*	 scheduler_bgnd ( );
-extern int	 ogg123(char * sound);
+static GList	*pending_queue = NULL;
+static int	 sound_policy;
+static gboolean	 is_playing;
 
 /* mutex */
-pthread_mutex_t lock;
-pthread_cond_t cond;
+GMutex		*lock = NULL;
+GCond		*cond = NULL;
+
+/* Forward function declarations */
+GThread		*thread_scheduler, *thread_scheduler_bgnd;
+
+static void	*thread_play_ogg (void*);
+static char	*get_next_sound_to_play( );
+
+static gpointer  scheduler (gpointer user_data);
+static gpointer  scheduler_bgnd (gpointer user_data);
+
+extern int	 ogg123(char * sound);
 
 /* =====================================================================
  *
  * =====================================================================*/
 void initSound()
 {
-  pthread_mutexattr_t mutattr;
-  pthread_mutexattr_init (&mutattr);
-  pthread_mutex_init( &lock, &mutattr );
-  pthread_cond_init( &cond, NULL );
+
+  /* Initialize the thread system */
+  if (!g_thread_supported ()) g_thread_init (NULL);
+
+  lock = g_mutex_new ();
+  cond = g_cond_new ();
+
   sound_policy = PLAY_AFTER_CURRENT;
   is_playing = FALSE;
 
   ao_initialize();
 
-  if ( pthread_create ( &thread_scheduler, NULL, scheduler, NULL ) != 0)
+  thread_scheduler = g_thread_create((GThreadFunc)scheduler, NULL, FALSE, NULL);
+  if (thread_scheduler == NULL)
     perror("create failed for scheduler");
 
-  if ( pthread_create ( &thread_scheduler_bgnd, NULL, scheduler_bgnd, NULL ) != 0)
+  thread_scheduler_bgnd = g_thread_create((GThreadFunc)scheduler_bgnd, NULL, FALSE, NULL);
+  if (thread_scheduler_bgnd == NULL)
     perror("create failed for scheduler background");
 
 }
@@ -75,7 +81,6 @@ void setSoundPolicy(int policy)
     {
     case PLAY_ONLY_IF_IDLE : sound_policy = PLAY_ONLY_IF_IDLE; break;
     case PLAY_AFTER_CURRENT : sound_policy = PLAY_AFTER_CURRENT; break;
-    case PLAY_OVERRIDE_ALL : sound_policy = PLAY_OVERRIDE_ALL; break;
     default : sound_policy = PLAY_AFTER_CURRENT;
     }
 }
@@ -92,39 +97,41 @@ int getSoundPolicy()
  *	- launches a single thread for playing and play any file found
  *        in the gcompris music directory
  ======================================================================*/
-static void* scheduler_bgnd ()
+static gpointer scheduler_bgnd (gpointer user_data)
 {
   gint i;
   gchar *str;
   gchar *filename;
-  struct dirent **namelist = NULL;
-  int namelistlength = 0;
   GList *musiclist = NULL;
+  DIR *dir;
+  struct dirent *one_dirent;
 
   /* Sleep to let gcompris intialisation and intro music to complete */
   sleep(20);
 
   /* Load the Music directory file names */
   filename = g_strdup_printf("%s", PACKAGE_DATA_DIR "/music/background");
-  namelistlength = scandir(filename,
-			   &namelist, 0, NULL);
-  
-  if (namelistlength < 0)
+
+  dir = opendir(filename);
+      
+  if (!dir) {
     g_warning (_("Couldn't open music dir: %s"), filename);
+    g_free(filename);
+    return NULL;
+  }
   
   g_free(filename);
   
   /* Fill up the music list */
-  for(i=2; i<namelistlength; i++)
-    {
-      str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", namelist[i]->d_name);
+  while((one_dirent = readdir(dir)) != NULL) {
 
-      g_free(namelist[i]);
+    if (one_dirent->d_name[0] != '.') {
+      str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", one_dirent->d_name);
 
       musiclist = g_list_append (musiclist, str);
     }
-
-  g_free(namelist);
+  }
+  closedir(dir);
 
   /* No music no play */
   if(g_list_length(musiclist)==0)
@@ -159,7 +166,7 @@ static void* scheduler_bgnd ()
  *	-	then launches another thread if some sounds are pending
  *	-	the thread never ends
  ======================================================================*/
-static void* scheduler ()
+static gpointer scheduler (gpointer user_data)
 {
   int retcode;
   char *sound = NULL;
@@ -174,15 +181,9 @@ static void* scheduler ()
 	}
       else
 	{
-	  int err;
+	  g_cond_wait (cond, lock);
 
-	  err = pthread_cond_wait (&cond, &lock);
-	  if (err)
-	    printf ("cond_wait  : %s\n", strerror (err));
-
-	  err = pthread_mutex_unlock ( &lock);
-	  if (err)
-	    printf ("mutex_unlock: %s\n", strerror (err));
+	  g_mutex_unlock (lock);
 	}
     }
   return NULL;
@@ -253,7 +254,7 @@ char* get_next_sound_to_play( )
 {
   char* tmpSound = NULL;
 
-  pthread_mutex_lock( &lock );
+  g_mutex_lock (lock);
 
   if ( g_list_length(pending_queue) > 0 )
     {
@@ -262,7 +263,7 @@ char* get_next_sound_to_play( )
       printf( "... get_next_sound_to_play : %s\n", tmpSound );
     }
 
-  pthread_mutex_unlock( &lock );
+  g_mutex_unlock (lock);
 
   return tmpSound;
 }
@@ -312,25 +313,7 @@ void gcompris_play_ogg_list( GList* files )
 	( is_playing == TRUE || g_list_length( pending_queue ) > 0 ) )
     return;
 
-  if (sound_policy == PLAY_OVERRIDE_ALL)
-    {
-      // cancel playing thread
-      if ( pthread_cancel(thread_play) != 0)
-	perror("thread cancel failed:");
-
-      // cancel all pending sounds
-      pthread_mutex_lock( &lock );
-      while ( g_list_length(pending_queue) > 0 )
-	{
-	  tmpSound = g_list_nth_data(pending_queue, 0);
-	  pending_queue = g_list_remove(pending_queue, tmpSound);
-	  g_free(tmpSound);
-	}
-      pthread_mutex_unlock( &lock );
-
-    } // PLAY_OVERRIDE_ALL
-
-  pthread_mutex_lock( &lock );
+  g_mutex_lock (lock);
 
   list = g_list_first( files );
   while( list!=NULL )
@@ -342,15 +325,11 @@ void gcompris_play_ogg_list( GList* files )
       list = g_list_next(list);
     }
   
-  err = pthread_mutex_unlock ( &lock);
-  if (err)
-    printf ("mutex_unlock: %s\n", strerror (err));
+  g_mutex_unlock (lock);
 
   // Tell the scheduler to check for new sounds to play
   printf("Tell the scheduler to check for new sounds to play\n");
-  err = pthread_cond_signal (&cond);
-  if (err)
-    printf ("cond_signal : %s\n", strerror (err));
+  g_cond_signal (cond);
 
 }
 

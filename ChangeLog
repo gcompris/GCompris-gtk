@@ -1,3 +1,16 @@
+2004-04-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/watercycle.xml.in: fixed xml
+	* src/boards/clickgame.c: (clickgame_start),
+	(clickgame_destroy_all_items), (clickgame_create_item),
+	(load_random_pixmap): now uses portable readdir enstead of scandir. fixed memory leak.
+	* src/gcompris/oggplayer.c: fixed includes headers
+	* src/gcompris/soundutil.c: (initSound), (setSoundPolicy),
+	(scheduler_bgnd), (scheduler), (get_next_sound_to_play),
+	(gcompris_play_ogg_list): changed to use portable gthreads instead of pthreads
+	* src/gcompris/soundutil.h: removed PLAY_OVERRIDE_ALL option. It was never used and was hard to
+	port to gthreads.
+
 2004-04-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Bugzilla #139771: Strings addition, fixes by Adam Weinberger

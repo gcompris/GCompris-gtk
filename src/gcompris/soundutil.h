@@ -23,7 +23,6 @@
 
 #include <stdio.h>
 #include "gcompris.h"
-#include "sys/wait.h"
 
 #define MAX_QUEUE_LENGTH 5
 #define MAX_SOUND_FILES 20
@@ -32,20 +31,13 @@ typedef enum
 {
   PLAY_ONLY_IF_IDLE		= 0,
   PLAY_AFTER_CURRENT		= 1,
-  PLAY_OVERRIDE_ALL		= 2
 } SoundPolicy;
-
-typedef struct {
-	char *string;
-	pid_t pid;
-} tsSound;
 
 void	 gcompris_play_ogg(char *, ...);
 void	 gcompris_play_ogg_list( GList* files );
 void	 setSoundPolicy(int);
 int	 getSoundPolicy(void);
 void	 initSound(void);
-pid_t	 exec_play(char *);
 
 int	 decode_ogg_file(char *infile);
 void	 display_ao_devices();
