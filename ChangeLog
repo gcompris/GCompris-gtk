@@ -1,3 +1,19 @@
+2005-01-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Welcome to life to Nicolas Combes.
+
+	Added a new relative 2D maze. On the idea of Yves.
+	Well meny peaple though about it and wanted it. Yves and Nicolas decided me to 
+	implement it now.
+
+	* boards/Makefile.am: added maze2DRelative
+	* boards/maze2DRelative.xml.in: -
+	* po/POTFILES.in: -
+	* src/boards/maze.c: (start_board), (key_press), (target_event),
+	(key_press_2D_relative): -
+	* src/gcompris/gcompris.c: (setup_window): fixed key event. Previous changes did broke it.
+	Hope it works fine now.
+
 2005-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/dataset/mrpatate.xml: removed double entry

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/01/27 00:28:51 bruno>
+ * Time-stamp: <2005/01/29 01:45:58 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -445,9 +445,6 @@ static void setup_window ()
 
   gtk_signal_connect (GTK_OBJECT (window), "delete_event",
 		      GTK_SIGNAL_FUNC (quit_cb), NULL);
-  gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
-			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
-
 
   /* For non anti alias canvas */
   gtk_widget_push_visual (gdk_rgb_get_visual ());
@@ -476,6 +473,15 @@ static void setup_window ()
       canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
       canvas_bg  = GNOME_CANVAS(gnome_canvas_new ());
     }
+
+  gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
+			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+  gtk_signal_connect_after (GTK_OBJECT (canvas), "key_press_event",
+			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+  gtk_signal_connect_after (GTK_OBJECT (canvas_bar), "key_press_event",
+			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+  gtk_signal_connect_after (GTK_OBJECT (canvas_bg), "key_press_event",
+			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
   if(properties->fullscreen)
     gtk_container_add (GTK_CONTAINER (window), GTK_WIDGET(canvas_bg));

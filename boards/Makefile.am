@@ -45,6 +45,7 @@ xml_in_files = \
 	imagename.xml.in \
 	leftright.xml.in \
 	maze.xml.in \
+	maze2DRelative.xml.in \
 	maze3D.xml.in \
 	melody.xml.in \
 	memory.xml.in \

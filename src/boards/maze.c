@@ -58,6 +58,7 @@ static int thickness=2;
 static gboolean run_fast=FALSE;
 
 static gboolean modeIs2D=TRUE;
+static gboolean modeRelative=FALSE;
 /*-----------------------*/
 
 static GcomprisBoard *gcomprisBoard = NULL;
@@ -117,6 +118,7 @@ static void threeDdisplay();
 static void twoDdisplay();
 static void draw3D();
 static gint key_press_3D(guint keyval);
+static gint key_press_2D_relative(guint keyval);
 /*----------------------*/
 
 /* Description of this plugin */
@@ -186,12 +188,18 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
     /* The mode defines if we run 2D or 3D */
     /* Default mode is 2D */
+    modeRelative=FALSE;
     if(!gcomprisBoard->mode)
       modeIs2D=TRUE;
-    else if(g_strncasecmp(gcomprisBoard->mode, "2D", 2)==0)
+    else if(g_strncasecmp(gcomprisBoard->mode, "2DR", 3)==0) {
+      /* 2D Relative */
       modeIs2D=TRUE;
-    else if(g_strncasecmp(gcomprisBoard->mode, "3D", 2)==0)
+      modeRelative=TRUE;
+    } else if(g_strncasecmp(gcomprisBoard->mode, "2D", 2)==0) {
+      modeIs2D=TRUE;
+    } else if(g_strncasecmp(gcomprisBoard->mode, "3D", 2)==0) {
       modeIs2D=FALSE;
+    }
 
     if(modeIs2D) {
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
@@ -839,6 +847,8 @@ static gint key_press(guint keyval)
 
   if (threeDactive) return key_press_3D(keyval);
 
+  if (modeRelative) return key_press_2D_relative(keyval);
+
   switch (keyval)
     {
     case GDK_Left:
@@ -908,6 +918,40 @@ static gint target_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {	if (event->type!=GDK_BUTTON_PRESS) return FALSE;
  threeDdisplay(position[ind][0],position[ind][1]);
  return FALSE;
+}
+
+static gint key_press_2D_relative(guint keyval)
+{
+  guint richting=0,level=gcomprisBoard->level;
+
+  switch (keyval)
+    {	
+    case GDK_Left: viewing_direction=TURN_LEFT(viewing_direction); 
+      update_tux(viewing_direction);
+      return TRUE;
+      break;
+    case GDK_Right: viewing_direction=TURN_RIGHT(viewing_direction); 
+      update_tux(viewing_direction);
+      return TRUE;
+      break;
+    case GDK_Up: one_step(viewing_direction);
+      break;
+    case GDK_Down: one_step(U_TURN(viewing_direction));
+      break;
+    default: return FALSE;
+    }
+
+  richting=viewing_direction;
+
+  /* run until we come to a fork, (make sure to stop on next level!) */
+  while (run_fast && (richting=available_direction(richting))
+	 && gcomprisBoard->level==level)
+    {	
+      one_step(richting);
+      viewing_direction=richting;
+    }
+
+  return TRUE;
 }
 
 static gint key_press_3D(guint keyval)
