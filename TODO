@@ -25,9 +25,13 @@
 
 * change the scale board to be more realistic and flexible.
 
-* Dynamic screen resolution change
+* Dynamic screen resolution change (using Xrender)
 
 * Dynamic skin change
+
+* Remove the Gnome dependancy to use GTK only. The gnomecanvas itself do 
+  not require gnome. Less dependancy less install issues. Also could
+  make porting easier.
 
 Bug report from Marec Dirson:
 
@@ -35,10 +39,6 @@ Bug report from Marec Dirson:
 souvent de cliquer sur des zones transparentes et de s'étonner que ça
 ne marche pas (je me demande si je ne t'avais pas déja fait cette
 remarque)
-
-- il n'y a plus de demande de confirmation pour quitter le jeu, et il
-lui est arrivé de qortir par erreur (ma souris envoie des fois des
-événements clic en double)
 
 - quand on fait glisser qqch à la souris, ça serait intéressant
 d'emêcher le pointeur d'entre dans la barre du bas, pour éviter de la
@@ -57,26 +57,12 @@ soustractions et le reste seraint pour plue tard :).  On retombe sur
 la possibilité de restriction des tableaux accessibles suivant l'âge
 ou autre)
 
-- au moins le poisson f09 a le pb du parasite sur la dernière ligne,
-et un autre, je crois que c'est le f04 (en tout cas il était tigré)
-
 - je me demande si dans le tableau "train" il ne serait pas mieux de
 faire la construction par drag'n'drop.  Si il prend la bonne loco mais
 se trompe de wagon, il faut recommencer au début, c'est pas top.
 
 - Aussi, il y a un cas ou malgres qu'on mettes la bonne solution, 
   il ne trouve pas que c'est OK.
-
-- suggestion pour l'horloge : mettre en couleurs les chiffres
-heure/minute demandés, en utilisant la couleur des aiguilles /
-chiffres du cadrant.  Ca devrait aider à expliquer ce qu'il faut
-faire.
-
-- j'ai encore le même pb de taille des fontes, c'est affreux par
-moment :(
-
-- j'en oublie sûrement, on a vu un film entre la partie et la
-rédaction de ce mail.  A suivre, de toute façon il est accro :)
 
 - dans le jeu du train, c'est très drôle de cliquer sur "replay" quand le
 jeu montre le train, mais après, les trains vont de plus en plus vite, même

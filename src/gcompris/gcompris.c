@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/09/25 23:08:44 bcoudoin>
+ * Time-stamp: <2003/10/15 02:23:51 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -95,6 +95,19 @@ board_widget_key_press_callback (GtkWidget   *widget,
 				gpointer     client_data)
 {
 
+  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
+					 || (event->keyval == GDK_R))) {
+    printf("Refreshing the canvas\n");
+    gnome_canvas_update_now(canvas);
+    return TRUE;
+  }
+
+  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_q)
+					 || (event->keyval == GDK_Q))) {
+    gcompris_exit();
+    return TRUE;
+  }
+
   switch (event->keyval)
     {
     case GDK_Escape:
@@ -104,6 +117,10 @@ board_widget_key_press_callback (GtkWidget   *widget,
       gcompris_about_stop();
 
       board_stop();
+      return TRUE;
+    case GDK_F5:
+      printf("Refreshing the canvas\n");
+      gnome_canvas_update_now(canvas);
       return TRUE;
     case GDK_KP_Enter:
     case GDK_Return:
