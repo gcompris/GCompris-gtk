@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2004/07/16 01:37:27 bcoudoin>
+ * Time-stamp: <2004/07/17 01:41:44 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -60,6 +60,7 @@ static GnomeCanvasItem	*item_content = NULL;
 static FileSelectorCallBack fileSelectorCallBack = NULL;
 
 static gchar *current_rootdir = NULL;
+static GtkEntry *widget_entry = NULL;
 
 /* Represent the limits of control area */
 #define	CONTROL_AREA_X1	40
@@ -191,10 +192,27 @@ display_file_selector(int mode,
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2 + 20;
   gdk_pixbuf_unref(pixmap);
 
+  /* Entry area */
+  widget_entry = gtk_entry_new_with_max_length (50);
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_widget_get_type (),
+				"widget", GTK_WIDGET(widget_entry),
+				"x", (double) CONTROL_AREA_X1 + 10,
+				"y", (double) y_start + 30,
+				"width", 250.0,
+				"height", 20.0,
+				"anchor", GTK_ANCHOR_NW,
+				"size_pixels", FALSE,
+				NULL);
+  g_signal_connect (item, "event",
+		    G_CALLBACK (item_event_file_selector),
+		    NULL);
+
+  gtk_widget_show (widget_entry);
+
   y_start += 110;
 
   pixmap = gcompris_load_skin_pixmap("button_large.png");
-
 
   // CANCEL
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -350,9 +368,10 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
 				gnome_canvas_text_get_type (),
 				"text", rootdir,
-				"x", (double)CONTROL_AREA_X1 + 100,
+				"x", (double)CONTROL_AREA_X1 + 10,
 				"y", (double)CONTROL_AREA_Y1 + 50,
 				"fill_color_rgba", 0x0000FFFF,
+				"anchor", GTK_ANCHOR_NW,
 				NULL);
 
 
@@ -475,14 +494,23 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       break;
     case GDK_BUTTON_PRESS:
       if(!strcmp((char *)data, "/ok/"))	{
+
+	/* Nothing selected, please cancel instead */
+	if(strcmp(gtk_entry_get_text(widget_entry),"")==0) {
+	  return FALSE;
+	}
+
+	if(fileSelectorCallBack!=NULL) {
+	  gchar *result;
+	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
+	  printf("Returning FILE = %s\n", result);
+	  fileSelectorCallBack(result);
+	}
 	gcompris_file_selector_stop();
       } else if(!strcmp((char *)data, "/cancel/")) {
 	gcompris_file_selector_stop();
       } else {
-	if(fileSelectorCallBack!=NULL)
-	  fileSelectorCallBack(data);
-	
-	gcompris_file_selector_stop();
+	gtk_entry_set_text(widget_entry, g_path_get_basename((gchar *)data));
       }
       break;
     default:

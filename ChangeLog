@@ -1,3 +1,11 @@
+2004-07-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* po/POTFILES.in: removed uneeded boards/geography/board5_0.xml.in
+	* src/boards/py-mod-gcompris.c: (pyFileSelectorCallBack): fised pyFileSelectorCallBackFunc ref (by Yves)
+	* src/boards/python/anim.py: latest version from Yves. added many tools like text.
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(display_files), (item_event_file_selector): improved a little bit. still incomplete.
+
 2004-07-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/anim.py: updated by Yves Combe. Loading svg can now be completed.

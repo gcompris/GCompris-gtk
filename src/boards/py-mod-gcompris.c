@@ -479,7 +479,7 @@ static PyObject* pyFileSelectorCallBackFunc = NULL;
 void pyFileSelectorCallBack(gchar* file){
   PyObject* args;
   PyObject* result;
-  if(pyImageSelectorCallBackFunc==NULL) return;
+  if(pyFileSelectorCallBackFunc==NULL) return;
 
   /* Build arguments */
   args = PyTuple_New(1);

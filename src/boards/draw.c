@@ -55,22 +55,24 @@ static gboolean		 board_paused = TRUE;
 
 typedef enum
   {
-    TOOL_RECT		= 0,
-    TOOL_FILLED_RECT	= 1,
-    TOOL_CIRCLE		= 2,
-    TOOL_FILLED_CIRCLE	= 3,
-    TOOL_LINE		= 4,
-    TOOL_IMAGE		= 5,
-    TOOL_TEXT		= 6,
-    TOOL_GRID		= 7,
-    TOOL_DELETE		= 8,
-    TOOL_FILL		= 9,
-    TOOL_RAISE		= 10,
-    TOOL_LOWER		= 11,
-    TOOL_SELECT		= 12,
-    TOOL_FLIP		= 13,
-    TOOL_ROTATE_CCW	= 14,
-    TOOL_ROTATE_CW	= 15,
+    TOOL_LOAD		= 0,
+    TOOL_SAVE		= 1,
+    TOOL_RECT		= 2,
+    TOOL_FILLED_RECT	= 3,
+    TOOL_CIRCLE		= 4,
+    TOOL_FILLED_CIRCLE	= 5,
+    TOOL_LINE		= 6,
+    TOOL_IMAGE		= 7,
+    TOOL_TEXT		= 8,
+    TOOL_GRID		= 9,
+    TOOL_DELETE		= 10,
+    TOOL_FILL		= 11,
+    TOOL_RAISE		= 12,
+    TOOL_LOWER		= 13,
+    TOOL_SELECT		= 14,
+    TOOL_FLIP		= 15,
+    TOOL_ROTATE_CCW	= 16,
+    TOOL_ROTATE_CW	= 17,
   } ToolList;
 
 #define NUMBER_OF_TOOL	TOOL_ROTATE_CW + 1
@@ -82,6 +84,8 @@ static GnomeCanvasItem	*selectionToolItem = NULL;
 // Used to cross reference pixmap for the tools
 static char *tool_pixmap_name[] =
   {
+    "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",
+    "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
     "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",
     "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
     "draw/tool-circle.png",          "draw/tool-circle_on.png",
@@ -644,10 +648,10 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) tool_event,
-			 (void *)TOOL_RECT);
+			 (void *)TOOL_LOAD);
 
     }
-  currentTool = TOOL_RECT;
+  currentTool = TOOL_LOAD;
   currentToolItem = item;
 
   for( toolIndex = 1 ; toolIndex < NUMBER_OF_TOOL ; toolIndex++)
@@ -917,6 +921,12 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 
 	  switch(tool)
 	    {
+	    case TOOL_LOAD:
+	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_image);
+	      break;
+	    case TOOL_SAVE:
+	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_image);
+	      break;
 	    case TOOL_GRID:
 	      display_grid((grid_step==0 ? TRUE : FALSE));
 	      return TRUE;
@@ -2021,6 +2031,7 @@ static void image_selected(gchar *image)
  */
 static void load_image(gchar *image)
 {
+  printf("callback in draw, load_image got image %s\n", image);
 }
 
 /**
@@ -2028,6 +2039,7 @@ static void load_image(gchar *image)
  */
 static void save_image(gchar *image)
 {
+  printf("callback in draw, save_image got image %s\n", image);
 }
 
 /*

@@ -29,6 +29,7 @@ import gcompris.skin
 import gcompris.bonus
 import gtk
 import gtk.gdk
+import gtk.keysyms
 import copy
 import math
 import time
@@ -37,6 +38,10 @@ import time
 #import sys
 #sys.path.append("/home/yves/GCompris")
 #import animutils
+
+#Print
+import os
+import tempfile
 
 fles=None
 
@@ -53,9 +58,10 @@ class Gcompris_anim:
 
     # These are used to let us restart only after the bonux is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-    self.board_paused  = 0;
-    self.gamewon       = 0;
+    self.board_paused  = 0
+    self.gamewon       = 0
 
+    self.MAX_TEXT_CHAR = 50
     self.DEFAULT_ANCHOR_SIZE	= 8
     self.ANCHOR_COLOR = 0x36ede480
     # anchortype
@@ -77,12 +83,14 @@ class Gcompris_anim:
                                self.ANCHOR_SW,
                                self.ANCHOR_W,
                                self.ANCHOR_NW
-                               ]
+                               ],
+                     'TEXT': [ self.ANCHOR_N ]
                      }
     self.anchors ['FILL_RECT'] =  self.anchors ['RECT']
     self.anchors ['CIRCLE'] =  self.anchors ['RECT']
     self.anchors ['FILL_CIRCLE'] =  self.anchors ['RECT']
     self.anchors ['IMAGE'] =  self.anchors ['RECT']
+#    self.anchors ['TEXT'] =  self.anchors ['RECT']
 
 
     self.events = { 'LINE' : [ self.fillin_item_event,
@@ -90,9 +98,13 @@ class Gcompris_anim:
                                self.create_item_event,
                                self.del_item_event ] ,
                     'RECT' : [ self.fillout_item_event,
-                                      self.move_item_event,
-                                      self.create_item_event,
-                                      self.del_item_event ],
+                               self.move_item_event,
+                               self.create_item_event,
+                               self.del_item_event ],
+                    'TEXT' : [ self.fillin_item_event,
+                               self.move_item_event,
+                               self.create_item_event,
+                               self.del_item_event ],
                     'IMAGE' : [ self.move_item_event,
                                 self.create_item_event,
                                 self.del_item_event ]
@@ -101,6 +113,7 @@ class Gcompris_anim:
     self.events ['FILL_RECT']         = self.events ['LINE']
     self.events ['FILL_CIRCLE']       = self.events ['LINE']
     self.events ['CIRCLE']  = self.events ['RECT']
+#    self.events ['TEXT']  = self.events ['IMAGE']
                                
     # TOOL SELECTION
     self.tools = [
@@ -117,6 +130,7 @@ class Gcompris_anim:
       ["CCW",         "draw/tool-rotation-ccw.png",          "draw/tool-rotation-ccw_on.png",             gcompris.CURSOR_DEFAULT],
       ["CW",         "draw/tool-rotation-cw.png",          "draw/tool-rotation-cw_on.png",             gcompris.CURSOR_DEFAULT],
       ["FLIP",         "draw/tool-flip.png",          "draw/tool-flip_on.png",             gcompris.CURSOR_DEFAULT],
+      ["TEXT",         "draw/tool-text.png",          "draw/tool-text_on.png",             gcompris.CURSOR_LINE],
       ["IMAGE",         "draw/tool-image.png",          "draw/tool-image_on.png",             gcompris.CURSOR_DEFAULT],
       ["MOVIE",          "draw/tool-movie.png",           "draw/tool-movie_on.png",              gcompris.CURSOR_SELECT],
       ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],  
@@ -215,10 +229,97 @@ class Gcompris_anim:
     print("Gcompris_anim config.")
               
   def key_press(self, keyval):
-    print("got key %i" % keyval)
-    return
+    
+    if (keyval == gtk.keysyms.F1):
+      gcompris.file_selector_save( self.gcomprisBoard, "../gcompris/root_dir/", svg_save)
+    elif (keyval == gtk.keysyms.F2):
+      gcompris.file_selector_load( self.gcomprisBoard, "../gcompris/root_dir/", svg_restore)
 
+    elif (keyval == gtk.keysyms.F3):
+      self.ps_print(self.root_drawingitem)
+    
+    elif ((keyval == gtk.keysyms.Shift_L) or
+          (keyval == gtk.keysyms.Shift_R) or
+          (keyval == gtk.keysyms.Control_L) or
+          (keyval == gtk.keysyms.Control_R) or
+          (keyval == gtk.keysyms.Caps_Lock) or
+          (keyval == gtk.keysyms.Shift_Lock) or
+          (keyval == gtk.keysyms.Meta_L) or
+          (keyval == gtk.keysyms.Meta_R) or
+          (keyval == gtk.keysyms.Alt_L) or
+          (keyval == gtk.keysyms.Alt_R) or
+          (keyval == gtk.keysyms.Super_L) or
+          (keyval == gtk.keysyms.Super_R) or
+          (keyval == gtk.keysyms.Hyper_L) or
+          (keyval == gtk.keysyms.Hyper_R) or
+          (keyval == gtk.keysyms.Mode_switch) or
+          (keyval == gtk.keysyms.dead_circumflex) or
+          (keyval == gtk.keysyms.Num_Lock)):
+      return gtk.FALSE
+    if (keyval == gtk.keysyms.KP_0):
+      keyval= gtk.keysyms._0
+    if (keyval == gtk.keysyms.KP_1):
+      keyval= gtk.keysyms._1
+    if (keyval == gtk.keysyms.KP_2):
+      keyval= gtk.keysyms._2
+    if (keyval == gtk.keysyms.KP_2):
+      keyval= gtk.keysyms._2
+    if (keyval == gtk.keysyms.KP_3):
+      keyval= gtk.keysyms._3
+    if (keyval == gtk.keysyms.KP_4):
+      keyval= gtk.keysyms._4
+    if (keyval == gtk.keysyms.KP_5):
+      keyval= gtk.keysyms._5
+    if (keyval == gtk.keysyms.KP_6):
+      keyval= gtk.keysyms._6
+    if (keyval == gtk.keysyms.KP_7):
+      keyval= gtk.keysyms._7
+    if (keyval == gtk.keysyms.KP_8):
+      keyval= gtk.keysyms._8
+    if (keyval == gtk.keysyms.KP_9):
+      keyval= gtk.keysyms._9
 
+    if (self.selected == None):
+      return True
+    elif (gobject.type_name(self.selected.item_list[0])!="GnomeCanvasText"):
+      print "Not Text object when got key !!!"
+      return True
+
+    textItem = self.selected.item_list[0]
+    oldtext = textItem.get_property('text')
+    print oldtext
+    
+    if ((keyval == gtk.keysyms.BackSpace) or
+        (keyval == gtk.keysyms.Delete)):
+      print "DEL", oldtext, len(oldtext)
+      if (len(oldtext) != 1):
+        newtext = oldtext[:-1]
+      else:
+        newtext = u'?'
+    else:
+    
+      utf8char=gtk.gdk.keyval_to_unicode(keyval)
+      str = u'%c' % utf8char
+
+      print "str", str
+      
+      if ((oldtext[:1] == u'?') and (len(oldtext)==1)):
+        oldtext = u' '
+        oldtext = oldtext.strip()
+
+      if (len(oldtext) < self.MAX_TEXT_CHAR):
+        newtext = oldtext + str
+      else:
+        newtext = oldtext
+
+    print "newtext", newtext
+    
+      
+    textItem.set(text=newtext)
+    self.updated_text(textItem)
+
+    return True
+  
   # Display the tools
   def draw_tools(self):
 
@@ -285,14 +386,17 @@ class Gcompris_anim:
         if (self.tools[tool][0] == "IMAGE"):
           self.pos_x = gcompris.BOARD_WIDTH/2
           self.pos_y = gcompris.BOARD_HEIGHT/2
+
           gcompris.images_selector_start(self.gcomprisBoard, gcompris.DATA_DIR + "/dataset/mrpatate.xml", image_selected);
+          return gtk.TRUE
           
         if (self.tools[tool][0] == "PICTURE"):
           self.flash.show()
           self.AnimShot(self.root_drawingitem)
           self.item_frame_counter.set(text=self.current_image + 1)
           gtk.timeout_add(1000, self.run_flash)
-          return
+          return gtk.TRUE
+        
         else:
           if (self.tools[tool][0] == "MOVIE"):
             if not self.running:
@@ -323,7 +427,7 @@ class Gcompris_anim:
         if (self.tools[tool][0] != "SELECT") and (self.selected != None):
           self.selected.item_list[1].hide()
           self.selected = None
-          
+                    
         # Deactivate old button
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
 
@@ -578,27 +682,28 @@ class Gcompris_anim:
   def move_item_event(self, item, event):
     if self.tools[self.current_tool][0] == "CCW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        gcompris.utils.item_rotate_relative(item.get_property("parent"), -10);
+        #gcompris.utils.item_rotate_relative(item.get_property("parent"), -10);
+        self.item_rotate_relative(item, -10);
         return gtk.TRUE
       else:
         return gtk.FALSE
 
     if self.tools[self.current_tool][0] == "CW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
+        #gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
+        self.item_rotate_relative(item, 10);
         return gtk.TRUE
       else:
         return gtk.FALSE
     if self.tools[self.current_tool][0] == "FLIP":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
+        self.item_flip(item);
         return gtk.TRUE
       else:
         return gtk.FALSE
 
     if self.tools[self.current_tool][0] == "RAISE":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        print "raise to top"
         item.get_property("parent").raise_to_top()
         return gtk.TRUE
       else:
@@ -629,8 +734,7 @@ class Gcompris_anim:
         # activate the anchors
         self.selected=item.get_property("parent")
         self.selected.item_list[1].show()
- 
-        
+         
         # Reset the in_select_ofx ofset
         self.in_select_ofx = -1
         self.in_select_ofy = -1
@@ -638,8 +742,10 @@ class Gcompris_anim:
         return gtk.TRUE
         
     if event.state & gtk.gdk.BUTTON1_MASK:
-      x=event.x
-      y=event.y
+      wx=event.x
+      wy=event.y
+      #pass in item relative coordinate
+      (x, y)= item.w2i( wx, wy)
 
       #bounds = item.get_bounds()
       bounds = self.get_bounds(item)
@@ -655,25 +761,29 @@ class Gcompris_anim:
       x,y = self.snap_to_grid(x,y)
 
       # Check drawing boundaries
-      if(x<self.drawing_area[0]):
-        x=self.drawing_area[0]
-      if(x>(self.drawing_area[2]-(bounds[2]-bounds[0]))):
-        x=self.drawing_area[2]-(bounds[2]-bounds[0])
+      #needs to be corrected with item relative coordinate
+#      if(x<self.drawing_area[0]):
+#        x=self.drawing_area[0]
+#      if(x>(self.drawing_area[2]-(bounds[2]-bounds[0]))):
+#        x=self.drawing_area[2]-(bounds[2]-bounds[0])
         # We need to realign x cause the bounds values are not precise enough
-        x,n = self.snap_to_grid(x,y)
-      if(y<self.drawing_area[1]):
-        y=self.drawing_area[1]
-      if(y>(self.drawing_area[3]-(bounds[3]-bounds[1]))):
-        y=self.drawing_area[3]-(bounds[3]-bounds[1])
+#        x,n = self.snap_to_grid(x,y)
+#      if(y<self.drawing_area[1]):
+#        y=self.drawing_area[1]
+#      if(y>(self.drawing_area[3]-(bounds[3]-bounds[1]))):
+#        y=self.drawing_area[3]-(bounds[3]-bounds[1])
         # We need to realign y cause the bounds values are not precise enough
-        n,y = self.snap_to_grid(x,y)
+#        n,y = self.snap_to_grid(x,y)
 
       # Now perform the object move
       #gcompris.utils.item_absolute_move(item.get_property("parent"), x, y)
+      # pass it in item coordinate:
+      #(idx, idy) =  item.w2i( x-bounds[0], y-bounds[1] )
+      (idx, idy) =  ( x-bounds[0], y-bounds[1] )
       self.object_move(
         item.get_property("parent"),
-        x-bounds[0],
-        y-bounds[1]
+        idx,
+        idy
         )
 
       return gtk.TRUE
@@ -718,6 +828,7 @@ class Gcompris_anim:
              self.tools[self.current_tool][0] == "FILL_RECT" or
              self.tools[self.current_tool][0] == "FILL_CIRCLE" or
              self.tools[self.current_tool][0] == "IMAGE" or
+             self.tools[self.current_tool][0] == "TEXT" or
              self.tools[self.current_tool][0] == "LINE")):
       return gtk.FALSE
 
@@ -830,17 +941,39 @@ class Gcompris_anim:
             outline_color_rgba=0x000000FFL,
             width_units=1.0
             )
+        elif self.tools[self.current_tool][0] == "TEXT":
+
+          x,y = self.snap_to_grid(event.x,event.y)
+          self.pos_x = x
+          self.pos_y = y
+
+          self.newitem = self.newitemgroup.add(
+            gnome.canvas.CanvasText,
+            x=self.pos_x,
+            y=self.pos_y,
+            fill_color_rgba=self.colors[self.current_color],
+            font=gcompris.FONT_BOARD_BIG_BOLD,
+            text=u'?',
+            anchor=gtk.ANCHOR_CENTER
+            )
                   
         if self.newitem != 0:
           self.anchorize(self.newitemgroup)
-          
+        
+        if self.tools[self.current_tool][0] == "TEXT":
+          self.updated_text(self.newitem)
+          (x1, x2, y1, y2) = self.get_bounds(self.newitem)
+          self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
+          self.select_item(self.newitemgroup)
+
       return gtk.TRUE
 
     #
     # MOTION EVENT
     # ------------
     if event.type == gtk.gdk.MOTION_NOTIFY:
-      if (self.tools[self.current_tool][0] == "IMAGE"):
+      if ((self.tools[self.current_tool][0] == "IMAGE") or
+          (self.tools[self.current_tool][0] == "TEXT")):
         return gtk.FALSE
       
       if event.state & gtk.gdk.BUTTON1_MASK:
@@ -888,7 +1021,8 @@ class Gcompris_anim:
     # MOUSE DRAG STOP
     # ---------------
     if event.type == gtk.gdk.BUTTON_RELEASE:
-      if (self.tools[self.current_tool][0] == "IMAGE"):
+      if ((self.tools[self.current_tool][0] == "IMAGE") or
+          (self.tools[self.current_tool][0] == "TEXT")):
         return gtk.FALSE
       
       if event.button == 1:
@@ -907,9 +1041,9 @@ class Gcompris_anim:
           #self.del_item(self.newitem)
           pass
         
-        print self.tools[self.current_tool][0]
-        print self.newitem.get_bounds()
-        print self.newitemgroup.get_bounds()
+#        print self.tools[self.current_tool][0]
+#        print self.newitem.get_bounds()
+#        print self.newitemgroup.get_bounds()
 
         return gtk.TRUE
     return gtk.FALSE
@@ -990,11 +1124,9 @@ class Gcompris_anim:
       self.flash.show()
       self.AnimShot(self.root_drawingitem)
       self.item_frame_counter.set(text=self.current_image + 1)
-      print "snapshot_event"
       gtk.timeout_add(1000, self.run_flash)
 
   def run_flash(self):
-    print "run_flash"
     self.flash.hide()
     return False
 
@@ -1150,20 +1282,10 @@ class Gcompris_anim:
     self.running = False
 
   def object_move(self,object,dx,dy):
-    if gobject.type_name(object.item_list[0])=="GnomeCanvasLine":
-      (x1,y1,x2,y2)=object.item_list[0].get_property('points')
-    elif gobject.type_name(object.item_list[0])=="GnomeCanvasPixbuf":
-      x1=object.item_list[0].get_property("x")
-      y1=object.item_list[0].get_property("y")
-      x2=object.item_list[0].get_property("x")+object.item_list[0].get_property("width")
-      y2=object.item_list[0].get_property("y")+object.item_list[0].get_property("height")
-    else:
-      x1=object.item_list[0].get_property("x1")
-      y1=object.item_list[0].get_property("y1")
-      x2=object.item_list[0].get_property("x2")
-      y2=object.item_list[0].get_property("y2")
+    (x1,y1,x2,y2) = self.get_bounds(object.item_list[0])
 
     self.object_set_size_and_pos(object, x1+dx, y1+dy, x2+dx, y2+dy)
+
 
   def object_set_size_and_pos(self, object, x1, y1, x2, y2):
     if gobject.type_name(object.item_list[0])=="GnomeCanvasLine":
@@ -1171,19 +1293,23 @@ class Gcompris_anim:
         points=(x1,y1,x2,y2)
         )
     elif gobject.type_name(object.item_list[0])=="GnomeCanvasPixbuf":
-       object.item_list[0].set(
-         x=x1,
-         y=y1,
-         width=x2-x1,
-         height=y2-y1,
-         )
-
+      object.item_list[0].set(
+        x=x1,
+        y=y1,
+        width=x2-x1,
+        height=y2-y1
+        )
+    elif gobject.type_name(object.item_list[0])=="GnomeCanvasText":
+      object.item_list[0].set(
+        x=(x1+x2)/2,
+        y=(y1+y2)/2
+        )
     else:
       object.item_list[0].set(
         x1=x1,
         x2=x2,
         y1=y1,
-        y2=y2,
+        y2=y2
         )
       
     for anchor in object.item_list[1].item_list:
@@ -1250,14 +1376,19 @@ class Gcompris_anim:
   def resize_item_event(self, item, event, anchor_type):
     if self.running:
       return
+
     
     if event.state & gtk.gdk.BUTTON1_MASK:
       # warning: anchor is in a group of anchors, wich is in the object group
       parent=item.get_property("parent").get_property("parent")
       real_item=parent.item_list[0]
+      if gobject.type_name(real_item)=="GnomeCanvasText":
+        return
 
-      x=event.x
-      y=event.y
+      wx=event.x
+      wy=event.y
+      #passing x, y to item relative coordinate
+      (x,y)= item.w2i(wx,wy)
 
       if gobject.type_name(real_item)=="GnomeCanvasLine":
         points= real_item.get_property("points")
@@ -1342,6 +1473,15 @@ class Gcompris_anim:
       y1=item.get_property("y")
       x2=item.get_property("x")+item.get_property("width")
       y2=item.get_property("y")+item.get_property("height")
+    elif gobject.type_name(item)=="GnomeCanvasText":
+      x=item.get_property("x")
+      y=item.get_property("y")
+      width=item.get_property("text_width")
+      height=item.get_property("text_height")
+      x1=x-width/2
+      y1=y-height/2
+      x2=x1+width
+      y2=y1+height
     else:
       x1=item.get_property("x1")
       y1=item.get_property("y1")
@@ -1351,11 +1491,7 @@ class Gcompris_anim:
     return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
 
     
-  def anchorize( self, group):
-    # group contains normal items.
-
-    item = group.item_list[0]
-
+  def item_type(self, item):
     if gobject.type_name(item)=="GnomeCanvasLine":
       item_type='LINE'
     elif gobject.type_name(item)=="GnomeCanvasPixbuf":
@@ -1363,12 +1499,15 @@ class Gcompris_anim:
     elif gobject.type_name(item)=="GnomeCanvasRect":
       try:
         empty = item.get_data('empty')
+        if empty == None:
+          empty = Fale
+        else:
+          empty = True
         # empty is passed from C, not python object
         # if we get it that means is True
-        empty = True
       except:
         empty = False
-
+        
       if empty:
         item_type='RECT'
       else:
@@ -1377,9 +1516,12 @@ class Gcompris_anim:
     elif gobject.type_name(item)=="GnomeCanvasEllipse":
       try:
         empty = item.get_data('empty')
+        if empty == None:
+          empty = Fale
+        else:
+          empty = True
         # empty is passed from C, not python object
         # if we get it that means is True
-        empty = True
       except:
         empty = False
 
@@ -1388,12 +1530,22 @@ class Gcompris_anim:
       else:
         item_type='FILL_CIRCLE'
 
-    #set the events on item
+    elif gobject.type_name(item)=="GnomeCanvasText":
+      item_type='TEXT'
+
+
+    return item_type
+
+
+  def anchorize( self, group):
+    # group contains normal items.
+
+    item = group.item_list[0]
+
+    item_type = self.item_type(item)
+
     for event in self.events[item_type]:
       item.connect("event", event)
-
-    print "Passing del", item
-    item.connect("event", self.del_item_event)
 
     anchorgroup=group.add(
       gnome.canvas.CanvasGroup,
@@ -1404,7 +1556,6 @@ class Gcompris_anim:
     anchorgroup.hide()
 
     for anchor_type in self.anchors[item_type]:
-      print anchor_type
       anchor=anchorgroup.add(
         gnome.canvas.CanvasRect,
         fill_color_rgba=self.ANCHOR_COLOR,
@@ -1415,7 +1566,107 @@ class Gcompris_anim:
       anchor.connect("event", self.resize_item_event,anchor_type)
 
 
+  def select_item(self, group):
+    if (self.selected != None):
+      self.selected.item_list[1].hide()
+      self.selected = None
+
+    # Deactivate old button
+    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
+        
+    # Activate new button                         
+    self.current_tool = self.select_tool_number
+    self.old_tool_item = self.select_tool
+    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
+    gcompris.set_cursor(self.tools[self.current_tool][3]);
+
+    self.selected = group
+    self.selected.item_list[1].show()
+
+
+  # gcompris.utils fonction seems have center problem
+  def item_rotate_relative(self, item, angle):
+    bounds = self.get_bounds(item)
+    (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
+    
+    t = math.radians(angle)
+
+    # This matrix rotate around ( cx, cy )
+
+    #     This is the résult of the product:
+
+
+    #            T_{-c}             Rot (t)                 T_c
+
+    #       1    0   cx       cos(t) -sin(t)    0        1    0  -cx
+    #       0    1   cy  by   sin(t)  cos(t)    0   by   0    1  -cy
+    #       0    0    1         0       0       1        0    0   1
+
+    
+    mat = ( math.cos(t),
+            math.sin(t),
+            -math.sin(t),
+            math.cos(t),
+            (1-math.cos(t))*cx + math.sin(t)*cy,
+            -math.sin(t)*cx + (1 - math.cos(t))*cy)
+   
+    item.get_property("parent").affine_relative(mat)
+
+  def item_flip(self, item):
+    bounds = self.get_bounds(item)
+    (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
+    
+    mat = ( -1, 0, 0, 1, 2*cx, 0)
+   
+    item.get_property("parent").affine_relative(mat)
+
+
+  def updated_text(self, item):
+#    item.set(clip=1)
+#    bounds = self.get_bounds(item)
+#    print bounds, bounds[2]-bounds[0], bounds[3]-bounds[1]
+#    item.set(clip_width=bounds[2]-bounds[0],
+#             clip_height=bounds[3]-bounds[1]
+#             )
+    return
+
+  def ps_print(self, group):
+    file = tempfile.mkstemp('.svg','anim',text=True)
+    print file
+    # file will be reopen by svg_save
+    os.close(file[0])
+    #svg_save(file[1])
+    
+    #used to suppress the anchors
+    SaveGroup = self.rootitem.add(
+      gnome.canvas.CanvasGroup,
+      x = 0,
+      y = 0
+      )
+    gcompris.utils.clone_item(self.root_drawingitem, SaveGroup)
+    print len(SaveGroup.item_list),  len(self.root_drawingitem.item_list)
+    
+    gcompris.utils.svg_save("anim",
+                            file[1],
+                            SaveGroup.item_list[0],
+                            gcompris.BOARD_WIDTH,
+                            gcompris.BOARD_HEIGHT,
+                            0
+                            )
+    SaveGroup.destroy()
+
+    # Check we find the convert programm
+    resultList = os.popen('type -p convert').readlines()
+    if (len(resultList)==0):
+      print "Print is only possible with ImageMagick installed!!"
+    else:
+      resultList = os.popen('convert ' +  file[1]  + ' ' + file[1][:-3] +  'ps').readlines()
+
+    
+
 def svg_restore(filename):
+  print "svg_restore", filename
+  
   global fles
 
   gcompris.utils.svg_restore("anim",
@@ -1423,12 +1674,13 @@ def svg_restore(filename):
                              fles.root_anim
                              )
 
-  last_picture = fles.root_anim.item_list[-1]
+  if (len(fles.root_anim.item_list) > 0):
+    last_picture = fles.root_anim.item_list[-1]
 
-  for item in last_picture.item_list:
-    gcompris.utils.clone_item(item, fles.root_drawingitem)
-    fles.anchorize(fles.root_drawingitem.item_list[-1])
-        
+    for item in last_picture.item_list:
+      gcompris.utils.clone_item(item, fles.root_drawingitem)
+      fles.anchorize(fles.root_drawingitem.item_list[-1])
+
   # unselect object if necessary
   if (fles.selected != None):
     fles.selected.item_list[1].hide()
@@ -1442,14 +1694,27 @@ def svg_restore(filename):
   fles.old_tool_item = fles.select_tool
   fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][2]))
   gcompris.set_cursor(fles.tools[fles.current_tool][3]);
-    
+
+def svg_save(filename):
+  print "svg_save", filename
+
+  global fles
+  gcompris.utils.svg_save("anim",
+                          filename,
+                          fles.root_anim,
+                          gcompris.BOARD_WIDTH,
+                          gcompris.BOARD_HEIGHT,
+                          10
+                          )
 
 def image_selected(image):
   #fles is used because self is not passed through callback
   global fles
-  print fles, image
   
   pixmap = gcompris.utils.load_pixmap(image)
+  #print image
+  #pixmap = gcompris.utils.load_pixmap("GCompris/anchor.svg")
+  
   
   fles.newitem = None
   fles.newitemgroup = fles.root_drawingitem.add(
@@ -1457,14 +1722,19 @@ def image_selected(image):
     x=0.0,
     y=0.0
     )
-  
+
+  x= fles.pos_x
+  y= fles.pos_y
+  width = pixmap.get_width()
+  height = pixmap.get_height()
+
   fles.newitem = fles.newitemgroup.add(
     gnome.canvas.CanvasPixbuf,
     pixbuf = pixmap,
-    x= fles.pos_x,
-    y= fles.pos_y,
-    width = pixmap.get_width(),
-    height = pixmap.get_height(),
+    x=x,
+    y=y,
+    width=width,
+    height=height,
     width_set = True,
     height_set = True
     )
@@ -1472,20 +1742,8 @@ def image_selected(image):
   gcompris.utils.filename_pass(fles.newitem,image)
 
   fles.anchorize(fles.newitemgroup)
-        
-  # unselect object if necessary
-  if (fles.selected != None):
-    fles.selected.item_list[1].hide()
-    fles.selected = None
-        
-  # Deactivate old button
-  fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][1]))
-        
-  # Activate new button                         
-  fles.current_tool = fles.select_tool_number
-  fles.old_tool_item = fles.select_tool
-  fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][2]))
-  gcompris.set_cursor(fles.tools[fles.current_tool][3]);
-    
-  fles.selected = fles.newitemgroup
-  fles.selected.item_list[1].show()
+  fles.object_set_size_and_pos(fles.newitemgroup, x, y, x+width, y+height)
+  fles.select_item(fles.newitemgroup)
+
+  fles.newitem = None
+  fles.newitemgroup = None
