@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/07/09 00:10:53 bcoudoin>
+ * Time-stamp: <2004/08/17 00:02:44 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -61,6 +61,7 @@ static gboolean		 antialiased = FALSE;
 static GnomeCanvasItem *backgroundimg = NULL;
 static gchar           *gcompris_locale = NULL;
 static gchar           *gcompris_user_default_locale = NULL;
+static gboolean		gcompris_debug = FALSE;
 
 /****************************************************************************/
 /* Command line params */
@@ -74,6 +75,7 @@ static int popt_cursor		  = FALSE;
 static int popt_version		  = FALSE;
 static int popt_aalias		  = FALSE;
 static int popt_difficulty_filter = FALSE;
+static int popt_debug		  = FALSE;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -88,6 +90,8 @@ static struct poptOption options[] = {
    N_("run gcompris with the default gnome cursor."), NULL},
   {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
    N_("display only activities with this difficulty level."), NULL},
+  {"debug", 'D', POPT_ARG_NONE, &popt_debug, 0,
+   N_("display debug informations on the console."), NULL},
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
    N_("Print the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
@@ -127,7 +131,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
-    printf("Refreshing the canvas\n");
+    g_message("Refreshing the canvas\n");
     gnome_canvas_update_now(canvas);
     return TRUE;
   }
@@ -159,7 +163,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
       board_stop();
       return TRUE;
     case GDK_F5:
-      printf("Refreshing the canvas\n");
+      g_message("Refreshing the canvas\n");
       gnome_canvas_update_now(canvas);
       return TRUE;
     case GDK_KP_Enter:
@@ -230,9 +234,9 @@ static void init_background()
 
   yratio=gdk_screen_height()/(float)(BOARDHEIGHT+BARHEIGHT);
   xratio=gdk_screen_width()/(float)BOARDWIDTH;
-    printf("The gdk_screen_width()=%f gdk_screen_height()=%f\n",
+    g_message("The gdk_screen_width()=%f gdk_screen_height()=%f\n",
   	 (double)gdk_screen_width(), (double)gdk_screen_height());
-    printf("The xratio=%f yratio=%f\n", xratio, yratio);
+    g_message("The xratio=%f yratio=%f\n", xratio, yratio);
 
   yratio=xratio=MIN(xratio, yratio);
 
@@ -250,7 +254,7 @@ static void init_background()
     }
   xratio=MIN(max, xratio);
 
-  printf("Calculated x ratio xratio=%f\n", xratio);
+  g_message("Calculated x ratio xratio=%f\n", xratio);
   
   /* Background area if ratio above 1 */
   if(properties->fullscreen)
@@ -610,7 +614,7 @@ char *gcompris_get_user_default_locale()
 void gcompris_set_locale(gchar *locale)
 {
 
-  printf("gcompris_set_locale '%s'\n", locale);
+  g_message("gcompris_set_locale '%s'\n", locale);
   if(gcompris_locale != NULL)
     g_free(gcompris_locale);
 
@@ -642,6 +646,14 @@ void gcompris_set_locale(gchar *locale)
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
+}
+
+void gcompris_log_handler (const gchar *log_domain,
+			   GLogLevelFlags log_level,
+			   const gchar *message,
+			   gpointer user_data) {
+  if(gcompris_debug)
+    g_printerr ("%s: %s\n\n", "gcompris", message);
 }
 
 /*****************************************
@@ -695,6 +707,10 @@ gcompris_init (int argc, char *argv[])
   gcompris_set_locale(properties->locale);
 #endif
 
+  /* Set the default message handler, it avoids message with option -D */
+  g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_WARNING | G_LOG_FLAG_FATAL
+		     | G_LOG_FLAG_RECURSION, gcompris_log_handler, NULL);
+
   /*------------------------------------------------------------*/
   if (popt_version)
     {
@@ -702,6 +718,11 @@ gcompris_init (int argc, char *argv[])
 		"More info at http://ofset.sourceforge.net/gcompris\n"),
 	      VERSION);
       exit (0);
+    }
+
+  if (popt_debug)
+    {
+      gcompris_debug = TRUE;
     }
 
   if (popt_fullscreen)

@@ -1,3 +1,14 @@
+2004-08-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/maze3D.png: remade of the icon by bruno with inkscape
+	* src/gcompris/file_selector.c: (gcompris_file_selector_stop),
+	(free_stuff), (item_event_directory), (item_event_file_selector),
+	(entry_enter_callback): removed stdout traces
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(init_background), (gcompris_set_locale), (gcompris_log_handler),
+	(gcompris_init): implemented -D option for debug traces. By default, gcompris traces
+	are no more on stdout. glib, gtk outputs are still on stdout.
+
 2004-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/ballcatch.xml.in: missing file, ballcatch game

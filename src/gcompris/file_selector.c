@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2004/07/31 02:06:56 bcoudoin>
+ * Time-stamp: <2004/08/16 23:49:30 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -122,13 +122,10 @@ void gcompris_file_selector_stop ()
 	}
     }
 
-  printf("gcompris_file_selector_stop\n");
   // Destroy the file_selector box
   /* FIXME: Crashes randomly */
   if(rootitem!=NULL)
     gtk_object_destroy(GTK_OBJECT(rootitem));
-
-  printf("gcompris_file_selector_stop 2\n");
 
   rootitem = NULL;	  
 
@@ -137,7 +134,6 @@ void gcompris_file_selector_stop ()
 
   gcompris_bar_hide(FALSE);
   file_selector_displayed = FALSE;
-  printf("gcompris_file_selector_stop end\n");
 }
 
 
@@ -328,7 +324,6 @@ create_rootdir (gchar *rootdir)
 static void
 free_stuff (GtkObject *obj, gchar *data)
 {
-  printf("freestuff %s\n", data);
   g_free(data);
 }
 
@@ -476,7 +471,6 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
     case GDK_LEAVE_NOTIFY:
       break;
     case GDK_BUTTON_PRESS:
-      printf("item_event_directory %s\n", dir);
       if(strcmp(g_path_get_basename(dir), "..")==0) {
 	/* Up one level. Remove .. and one directory on the right of the path */
 	dir[strlen(dir)-3] = '\0';
@@ -517,7 +511,6 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	if(fileSelectorCallBack!=NULL) {
 	  gchar *result;
 	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
-	  printf("Returning FILE = %s\n", result);
 	  fileSelectorCallBack(result);
 	}
 	gcompris_file_selector_stop();
@@ -543,7 +536,6 @@ static void entry_enter_callback( GtkWidget *widget,
     return;
 
   entry_text = gtk_entry_get_text(GTK_ENTRY(entry));
-  printf("Entry contents: %s\n", entry_text);
 }
 
 
