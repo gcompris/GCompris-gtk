@@ -17,15 +17,18 @@
 	algebra_by
 ----------------------------------------------
 	babymatch
+  - tested by Pascal Georges <pascal.georges1@free.fr>
 ----------------------------------------------
 	babyshapes
+  - tested by Pascal Georges <pascal.georges1@free.fr>
 ----------------------------------------------
 	canal_lock
   - tested by Pascal Georges <pascal.georges1@free.fr>
 ----------------------------------------------
 	chess_computer
   - tested by Pascal Georges <pascal.georges1@free.fr>
-  - Black stops playing after a few moves
+  - Black stops playing after a few moves (gnuchess process
+  is still there, but sleeping)
 ----------------------------------------------
 	chess_movelearn
 ----------------------------------------------
@@ -82,6 +85,9 @@
 	readingv
 ----------------------------------------------
 	read_colors
+  - tested by Pascal Georges <pascal.georges1@free.fr>
+  when pressing <ENTER> many times, gets a buggy emergency
+  car display
 ----------------------------------------------
 	reversecount
 ----------------------------------------------
