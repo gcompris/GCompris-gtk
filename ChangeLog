@@ -1,3 +1,25 @@
+2004-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* TODO: added TODO for configuration of audio audput in a config dialog
+	* boards/algebra_plus.xml.in: improved comments
+	* boards/babymatch.xml.in: improved comments
+	* boards/babyshapes.xml.in: improved comments
+	* boards/click_on_letter.xml.in: improved comments
+	* boards/clickgame.xml.in: improved comments
+	* boards/enumerate.xml.in: improved comments
+	* boards/sounds/pt/misc/gcompris_misc_pt.assetml.in: updated by Jose
+	* boards/sounds/pt/misc/about.ogg: created by Jose Jorge 
+	* boards/sounds/pt/misc/back.ogg:  created by Jose Jorge 
+	* boards/sounds/pt/misc/configuration.ogg:  created by Jose Jorge 
+	* boards/sounds/pt/misc/congratulations.ogg: created by Jose Jorge 
+	* src/boards/gletters.c: (gletters_create_item): fixed bug where object could be displayed 
+	on the right (invisible)
+	* src/boards/wordsgame.c: (key_press): cleanup
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback): added the key logger in log
+	* src/gcompris/gcompris.h: added the key logger in log (no need for python plugins)
+	* src/gcompris/log.c: (gcompris_log_start), (gcompris_log_set_key),
+	(gcompris_log_end): added the key logger
+	
 2004-02-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/algebra_group.xml.in: -A- removed difficulty=0 cause it breaks the web site generation
