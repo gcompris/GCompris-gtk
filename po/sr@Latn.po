@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-26 17:18+0200\n"
-"PO-Revision-Date: 2003-09-26 17:20+0200\n"
+"POT-Creation-Date: 2003-10-13 19:23+0200\n"
+"PO-Revision-Date: 2003-10-13 23:12+0200\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -774,11 +774,11 @@ msgstr "Uredi stavke za što lakše brojanje"
 msgid "Motor coordination"
 msgstr "Upravljanje pokretima"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:66 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Pomerajte miša"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5 src/boards/erase.c:67
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Pomerajte miša da obrišete površinu i ugledate pozadinu"
 
@@ -1429,7 +1429,9 @@ msgstr "Ume da broji"
 msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
-msgstr "Kliknite na novčiće ili papirni novac u dnu ekrana da platite. Ukoliko želite da uklonite novac ili novčanicu, kliknite na gornji deo ekrana."
+msgstr ""
+"Kliknite na novčiće ili papirni novac u dnu ekrana da platite. Ukoliko "
+"želite da uklonite novac ili novčanicu, kliknite na gornji deo ekrana."
 
 #: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
@@ -1443,7 +1445,9 @@ msgstr "Vežbajte upotrebu novca"
 msgid ""
 "You must buy the different items and give the exact price. At higher level, "
 "several items are displayed, you must first calculate the total price."
-msgstr "Morate kupiti razne stavke i dati tačnu cenu. Na višem nivou, prikazuje se nekoliko stavki, pa morate prvo izračunati ukupnu cenu."
+msgstr ""
+"Morate kupiti razne stavke i dati tačnu cenu. Na višem nivou, prikazuje se "
+"nekoliko stavki, pa morate prvo izračunati ukupnu cenu."
 
 # bug: Pratice -> Practice
 #: boards/money_cents.xml.in.h:4
@@ -1711,7 +1715,7 @@ msgstr ""
 "i desno dugme miša na kockici da brojite unazad. Kada završite, kliknite na "
 "dugme „U redu“ ili pritisnite enter na tastaturi."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice the substraction with a funny game"
 msgstr "Vežbajte oduzimanje kroz zabavnu igru"
 
@@ -1790,9 +1794,7 @@ msgstr ""
 msgid ""
 "Click on different active elements : engine, rudders and air tanks in order "
 "to navigate at the ordered depth."
-msgstr ""
-"Kliknite na razne aktivne elemente: motor, kormilo ili vazdušne rezervoare "
-"da biste dostiglu naređenu dubinu."
+msgstr "Kliknite na razne aktivne elemente: motor, kormilo ili vazdušne rezervoare da biste dostigli naređenu dubinu."
 
 #: boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -1883,6 +1885,20 @@ msgstr "Potpuno ukucajte reči koje padaju pre nego što stignu do zemlje"
 msgid "Keyboard training"
 msgstr "Vežba kucanja"
 
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system."
+msgstr "Kliknite na razne aktivne elemente: sunce, oblak, pumpu za vodu, stanicu za prečišćavanje vode da biste pokrenuli čitav sistem za vodu."
+
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr "Upoznajte preradu vode"
+
+#: boards/watercycle.xml.in.h:3
+msgid "You have to bring back the water system up before Tux goes home"
+msgstr "Treba da osposobite sistem za vodu pre nego što Pingoslav ode kući"
+
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
 msgstr "Uređivač za gkomprisa"
@@ -1895,18 +1911,18 @@ msgstr "Obrazovna igra za trogodišnjake i starije"
 msgid "Educational suite gcompris"
 msgstr "Obrazovni komplet gcompris"
 
-#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
+#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne mogu da nađem datoteku: %s !"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
 #: src/boards/shapegame.c:1728
 #, c-format
@@ -2024,7 +2040,7 @@ msgstr "Ne mogu da otvorim direktorijum sa slikama: %s"
 msgid "Set the watch to:"
 msgstr "Postavi sat na:"
 
-#: src/boards/colors.c:210
+#: src/boards/colors.c:216
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Kliknite na svraku %s"
@@ -2113,7 +2129,7 @@ msgstr "Da, video sam ga"
 msgid "No, it was not there"
 msgstr "Ne, nije bio tamo"
 
-#: src/boards/reversecount.c:136
+#: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr "Obrni brojač"
 
@@ -2471,7 +2487,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Direktorijum"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
 msgid "Title"
 msgstr "Naslov"
 
@@ -2487,11 +2503,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Objavljeno pod OJL (GPL)"
 
-#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
+#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
 msgid "Now Playing Music"
 msgstr "Sada puštam muziku"
 
-#: src/gcompris/oggplayer.c:245
+#: src/gcompris/oggplayer.c:248
 msgid "Artist"
 msgstr "Izvođač"
 
