@@ -4,12 +4,24 @@
   <Title x="600" y="495" justification="GTK_JUSTIFY_CENTER">
     <_name>Continents</_name>
   </Title>
-  <Shape name="A" pixmapfile="geography/continents/africa.png" x="433" y="318" zoomx="1" zoomy="1" position="0" sound="geography/africa"/>
-  <Shape name="B" pixmapfile="geography/continents/america.png" x="232" y="251" zoomx="1" zoomy="1" position="0" sound="geography/america"/>
-  <Shape name="D" pixmapfile="geography/continents/antartica.png" x="370" y="465" zoomx="1" zoomy="1" position="0" sound="geography/antartica"/>
-  <Shape name="C" pixmapfile="geography/continents/asia.png" x="595" y="211" zoomx="1" zoomy="1" position="0" sound="geography/asia"/>
-    <Shape name="E" pixmapfile="geography/continents/europa.png" x="430" y="156" zoomx="1" zoomy="1" position="0" sound="geography/europa"/>
-  <Shape name="F" pixmapfile="geography/continents/oceania.png" x="695" y="398" zoomx="1" zoomy="1" position="0" sound="geography/oceania"/>
+  <Shape name="A" pixmapfile="geography/continents/africa.png" x="433" y="318" zoomx="1" zoomy="1" position="0" sound="geography/africa">
+        <_tooltip>africa</_tooltip>
+  </Shape>
+  <Shape name="B" pixmapfile="geography/continents/america.png" x="232" y="251" zoomx="1" zoomy="1" position="0" sound="geography/america">
+        <_tooltip>america</_tooltip>
+  </Shape>
+  <Shape name="D" pixmapfile="geography/continents/antartica.png" x="370" y="465" zoomx="1" zoomy="1" position="0" sound="geography/antartica">
+        <_tooltip>antartica</_tooltip>
+  </Shape>
+  <Shape name="C" pixmapfile="geography/continents/asia.png" x="595" y="211" zoomx="1" zoomy="1" position="0" sound="geography/asia">
+        <_tooltip>asia</_tooltip>
+  </Shape>
+    <Shape name="E" pixmapfile="geography/continents/europa.png" x="430" y="156" zoomx="1" zoomy="1" position="0" sound="geography/europa">
+        <_tooltip>europa</_tooltip>
+  </Shape>
+  <Shape name="F" pixmapfile="geography/continents/oceania.png" x="695" y="398" zoomx="1" zoomy="1" position="0" sound="geography/oceania">
+        <_tooltip>oceania</_tooltip>
+  </Shape>
   <Shape name="1" pixmapfile="geography/continents/back.png" type="SHAPE_BACKGROUND"
 	 x="425" y="260" zoomx="1" zoomy="1" position="0"/>
 </ShapeGame>

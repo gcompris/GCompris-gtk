@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/09/04 00:22:18 bcoudoin>
+ * Time-stamp: <2004/09/22 01:56:02 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -59,6 +59,7 @@ typedef enum
 typedef struct _Shape Shape;
 struct _Shape {
   char  *name;				/* name of the shape */
+  char  *tooltip;			/* optional tooltip for the shape */
   char  *pixmapfile;			/* relative pixmap file name of the shape */
   GnomeCanvasPoints* points; 		/* OR list of points for this shape */
   char  *targetfile;			/* OPTIONAL relative pixmap file name of the target shape, by default 
@@ -130,6 +131,10 @@ static gint SHAPE_BOX_WIDTH_RATIO = 18;
 static GnomeCanvasItem	*shape_root_item;
 static GnomeCanvasItem	*shape_list_root_item;
 
+/* The tooltip */
+static GnomeCanvasItem	*tooltip_root_item;
+static GnomeCanvasItem	*tooltip_text_item;
+
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void 		 pause_board (gboolean pause);
 static void 		 end_board (void);
@@ -138,14 +143,15 @@ static void 		 set_level (guint level);
 static void 		 process_ok(void);
 static gint		 key_press(guint keyval);
 
-static GnomeCanvasItem 	*shapegame_init_canvas(GnomeCanvasGroup *parent);
+static void              shapegame_init_canvas(GnomeCanvasGroup *parent);
 static void 		 shapegame_destroy_all_items(void);
 static void 		 setup_item(GnomeCanvasItem *item, Shape *shape);
 static void 		 shapegame_next_level(void);
 static gboolean 	 read_xml_file(char *fname);
 static gboolean 	 write_xml_file(char *fname);
 static Shape 		*find_closest_shape(double x, double y, double limit);
-static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  GnomeCanvasPoints* points,
+static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
+				      char *pixmapfile,  GnomeCanvasPoints* points,
 				      char *targetfile, double x, double y, double l, double h, double zoomx, 
 				      double zoomy, guint position, char *soundfile);
 static gboolean 	 increment_sublevel(void);
@@ -627,10 +633,9 @@ static void shapegame_destroy_all_items()
     }
 }
 
-static GnomeCanvasItem *shapegame_init_canvas(GnomeCanvasGroup *parent)
+static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 {
-  GnomeCanvasItem *item = NULL;
-
+  GdkPixbuf       *pixmap = NULL;
 
   shape_list_root_item = \
     gnome_canvas_item_new (parent,
@@ -646,7 +651,37 @@ static GnomeCanvasItem *shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   "y", (double)0,
 			   NULL);
 
-  return (item);
+  /* Create the tooltip area */
+  pixmap = gcompris_load_skin_pixmap("button_large.png");
+  tooltip_root_item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)(gcomprisBoard->width - gdk_pixbuf_get_width(pixmap))/2,
+			   "y", (double)gcomprisBoard->height/2,
+			   NULL);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
+			 gnome_canvas_pixbuf_get_type (),
+			 "pixbuf", pixmap, 
+			 "x", (double) 0,
+			 "y", (double) 0,
+			 NULL);
+  gdk_pixbuf_unref(pixmap);
+
+  tooltip_text_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
+					     gnome_canvas_text_get_type (),
+					     "text", "",
+					     "font", gcompris_skin_font_board_medium,
+					     "x", (double)gdk_pixbuf_get_width(pixmap)/2,
+					     "y", 24.0,
+					     "anchor", GTK_ANCHOR_CENTER,
+					     "justification", GTK_JUSTIFY_CENTER,
+					     "fill_color", "white",
+					     NULL);
+
+  /* Hide the tooltip */
+  gnome_canvas_item_hide(tooltip_root_item);
+
 }
 
 /**************************************************************
@@ -802,7 +837,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 					    NULL);
 	      gdk_pixbuf_unref(pixmap);
 	      
-	      icon_shape = create_shape(SHAPE_ICON, shape->name, 
+	      icon_shape = create_shape(SHAPE_ICON, shape->name, shape->tooltip,
 					shape->pixmapfile, shape->points, shape->targetfile,
 					(double)0, (double)y_offset,
 					(double)w, (double)h, 
@@ -938,6 +973,19 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
    switch (event->type) 
      {
+     case GDK_ENTER_NOTIFY:
+       if(shape->tooltip && shape->type == SHAPE_ICON) {
+	 gnome_canvas_item_raise_to_top(tooltip_root_item);
+	 gnome_canvas_item_set(tooltip_text_item,
+			       "text", shape->tooltip,
+			       NULL);
+	 gnome_canvas_item_show(tooltip_root_item);
+       }
+       break;
+     case GDK_LEAVE_NOTIFY:
+       if(shape->tooltip && shape->type == SHAPE_ICON)
+	 gnome_canvas_item_hide(tooltip_root_item);
+       break;
      case GDK_BUTTON_PRESS:
        switch(event->button.button) 
          {
@@ -1276,10 +1324,6 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
   switch (event->type) 
     {
-    case GDK_ENTER_NOTIFY:
-      break;
-    case GDK_LEAVE_NOTIFY:
-      break;
     case GDK_BUTTON_PRESS:
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       gnome_canvas_item_hide(root_item);
@@ -1493,7 +1537,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 }
 
 static Shape *
-create_shape(ShapeType type, char *name, char *pixmapfile, GnomeCanvasPoints* points,
+create_shape(ShapeType type, char *name, char *tooltip, char *pixmapfile, GnomeCanvasPoints* points,
 	     char *targetfile, double x, double y, 
 	     double w, double h, double zoomx, 
 	     double zoomy, guint position, char *soundfile)
@@ -1504,6 +1548,11 @@ create_shape(ShapeType type, char *name, char *pixmapfile, GnomeCanvasPoints* po
   shape = g_new(Shape,1);
   
   shape->name = g_strdup(name);
+  if(tooltip)
+    shape->tooltip = g_strdup(tooltip);
+  else
+    shape->tooltip = NULL;
+
   shape->pixmapfile = g_strdup(pixmapfile);
   shape->points = points;
   shape->targetfile = g_strdup(targetfile);
@@ -1535,6 +1584,7 @@ static void
 add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *name, *cx, *cy, *cd, *czoomx, *czoomy, *cposition, *ctype, *justification;
+  char *tooltip;
   GtkJustification justification_gtk;
   char *pixmapfile = NULL;
   char *targetfile = NULL;
@@ -1664,8 +1714,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     }
   }
 
-  /* get the name of the shape */
-  name = NULL;
+  /* get the name and tooltip of the shape */
+  name    = NULL;
+  tooltip = NULL;
 
   xmlnamenode = xmlnode->xmlChildrenNode;
   while (xmlnamenode != NULL) {
@@ -1678,6 +1729,16 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
       {
 	name = xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
       }
+
+    /* get the tooltip of the shape */
+    if (!strcmp(xmlnamenode->name, "tooltip")
+	&& (lang==NULL
+	    || !strcmp(lang, gcompris_get_locale())
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
+      {
+	tooltip = xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+      }
+
     xmlnamenode = xmlnamenode->next;
   }
 
@@ -1685,11 +1746,12 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   if(!name)
     name = xmlGetProp(xmlnode,"name");
 
+
   if(g_strcasecmp(xmlnode->name,"Shape")==0)
     {
       /* add the shape to the database */
       /* WARNING : I do not initialize the width and height since I don't need them */
-      shape = create_shape(type, name, pixmapfile, points, targetfile, x, y, 
+      shape = create_shape(type, name, tooltip, pixmapfile, points, targetfile, x, y, 
 			   (double)0, (double)0,
 			   zoomx, zoomy, position, soundfile);
 

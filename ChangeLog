@@ -1,3 +1,15 @@
+2004-09-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/geography/board1_0.xml.in: added country names in new tooltip entity
+	* boards/geography/board2_0.xml.in:
+	* boards/geography/board2_1.xml.in:
+	* boards/geography/board3_0.xml.in:
+	* boards/geography/board4_0.xml.in:
+	* configure.in: changed to release 6.3RC1
+	* src/boards/shapegame.c: (shapegame_init_canvas),
+	(add_shape_to_list_of_shapes), (item_event), (item_event_ok),
+	(create_shape), (add_xml_shape_to_data): create a new tooltip entity in the shape xml definition
+
 2004-09-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/da/.cvsignore: missing
