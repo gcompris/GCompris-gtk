@@ -68,19 +68,33 @@ static int number_of_item_y = 0;
 static int item_width;
 static int item_height;
 
-static gchar *colorlist [] = 
+/* Keep here the limit of the column */
+static gint limit_column_x1[MAX_NUMBER_X];
+static gint limit_column_x2[MAX_NUMBER_X];
+
+static guint colorlist [] = 
   {
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "purple",
-    "grey",
-    "brown",
-    "cyan",
+    0x00FFFF00,
+    0x50000000,
+    0xA0000000,
+    0xF0000000,
+    0x00500000,
+    0x00A00000,
+    0x00F00000,
+    0x00003000,
+    0x0000AA00,
+    0x0000FF00,
+    0x50500000,
+    0xA0A00000,
+    0xF0F00000,
+    0x00505000,
+    0x00A0A000,
+    0x00F0F000,
+    0x50005000,
+    0xA000A000,
+    0xF000F000
   };
-#define NUMBER_OF_COLOR 8
+#define NUMBER_OF_COLOR 19
 
 
 /* Description of this plugin */
@@ -242,8 +256,19 @@ static void hanoi_next_level()
 /* Destroy all the items */
 static void hanoi_destroy_all_items()
 {
+  guint i,j;
+
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
+
+  /* Cleanup our memory structure */
+  for(i=0; i<(number_of_item_x+2); i++)
+    {
+      for(j=0; j<number_of_item_y; j++)
+	{
+	  g_free(position[i][j]);
+	}
+    }
 
   boardRootItem = NULL;
 }
@@ -257,11 +282,17 @@ static void dump_solution()
     {
       for(j=0; j<number_of_item_y; j++)
 	{
-	  printf("(%d,%d=%2d) ",  position[i][j]->i,  position[i][j]->j, position[i][j]->color);
+	  printf("(%d,%d=%2d/%d) ",  position[i][j]->i,  position[i][j]->j, position[i][j]->color, 
+		 position[i][j]->on_top);
 	}
       printf("\n");
     }
 
+}
+
+static void print_piece(PieceItem *piece)
+{
+  printf("Piece: (%d,%d=%2d/%d)\n",  piece->i,  piece->j, piece->color, piece->on_top);
 }
 
 /* ==================================== */
@@ -286,13 +317,13 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	  position[i][j]->on_top = FALSE;
 	}
     }
+
   /* Initialize a random goal and store the color index in position[number_of_item_x] */
   for(i=0; i<(number_of_item_y); i++)
     {
       position[number_of_item_x+1][i]->color = (guint)RAND(0, NUMBER_OF_COLOR);
     }
 
-  dump_solution();
   /* Randomly place the solution */
   for (color_to_place=0; color_to_place<number_of_item_y; color_to_place++)
     {
@@ -303,18 +334,15 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	  done = FALSE;
 	  i = (guint)RAND(0, number_of_item_x-2);
 	  j = (guint)RAND(0, number_of_item_y-2);
-	  printf("%d %d\n", i, j);
 	  if(position[i][j]->color == -1)
 	    {
 	      done = TRUE;
 	      position[i][j]->color = position[number_of_item_x+1][color_to_place]->color;
-	      printf("DONE color=%d\n", position[number_of_item_x+1][color_to_place]->color);
 	    }
 	}
       while(!done);
     }
 
-  dump_solution();
   /* Initialize the left open positions */
   for(i=0; i<(number_of_item_x); i++)
     {
@@ -331,7 +359,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   /* Mark the top pieces */
   for(i=0; i<(number_of_item_x); i++)
     {
-      position[i][number_of_item_y-1]->on_top = TRUE;
+      position[i][number_of_item_y-2]->on_top = TRUE;
     }
   /*----------------------------------------*/
   /* Display it now */
@@ -364,7 +392,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
 				 "x2", (double) item_width * (i+1) - gap_x/2,
 				 "y2", (double) baseline + 50,
-				 "fill_color", "blue",
+				 "fill_color", "navy",
 				 "outline_color", "black",
 				 "width_units", (double)1,
 				 NULL);
@@ -378,7 +406,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
 				 "x2", (double) item_width * (i+1) - gap_x/2,
 				 "y2", (double) baseline + 50,
-				 "fill_color", "cyan",
+				 "fill_color", "aquamarine",
 				 "outline_color", "black",
 				 "width_units", (double)1,
 				 NULL);
@@ -412,15 +440,17 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 					    - item_height + gap_y,
 					    "x2", (double) item_width * i + item_width - gap_x,
 					    "y2", (double) baseline - item_height * j,
-					    "fill_color", colorlist[position[i][j]->color],
+					    "fill_color_rgba", colorlist[position[i][j]->color],
 					    "outline_color", "black",
 					    "width_units", (double)1,
 					    NULL);
 	      position[i][j]->item = item;
+
+	      if(i!=number_of_item_x+1)
+		gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,  position[i][j]);
+
 	    }
 
-	  if(i!=number_of_item_x+1)
-	    gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,  position[i][j]);
 	}
     }
 
@@ -444,6 +474,23 @@ static void game_won()
   hanoi_next_level();
 }
 
+/*
+ * Returns TRUE is the goal is reached
+ */
+static gboolean is_completed()
+{
+  gint j;
+  gboolean done = TRUE;
+
+  for(j=0; j<number_of_item_y; j++)
+    {
+      if(position[number_of_item_x+1][j]->color != position[number_of_item_x][j]->color)
+	done = FALSE;
+    }
+
+  return done;
+}
+
 /* ==================================== */
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
@@ -460,121 +507,138 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
   if(board_paused)
     return FALSE;
 
-   item_x = event->button.x;
-   item_y = event->button.y;
-   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  item_x = event->button.x;
+  item_y = event->button.y;
+  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+  
+  switch (event->type) 
+    {
+    case GDK_BUTTON_PRESS:
+      switch(event->button.button) 
+	{
+	case 1:
+	  
+	  if(!data->on_top)
+	    return FALSE;
+	  
+	  x = item_x;
+	  y = item_y;
+	  
+	  gnome_canvas_item_raise_to_top(item);
+	  
+	  fleur = gdk_cursor_new(GDK_FLEUR);
+	  gnome_canvas_item_grab(item,
+				 GDK_POINTER_MOTION_MASK | 
+				 GDK_BUTTON_RELEASE_MASK,
+				 fleur,
+				 event->button.time);
+	  gdk_cursor_destroy(fleur);
+	  dragging = TRUE;
+	  break;
+	}
+      break;
+      
+    case GDK_MOTION_NOTIFY:
+      if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+	{
+	  new_x = item_x;
+	  new_y = item_y;
+	  
+	  gnome_canvas_item_move(item, new_x - x, new_y - y);
+	  x = new_x;
+	  y = new_y;
+	}
+      break;
+      
+    case GDK_BUTTON_RELEASE:
+      if(dragging) 
+	{
+	  gint i,j;
+	  gint tmpi, tmpj;
+	  double tmpx, tmpy;
+	  PieceItem *piece_src;
+	  PieceItem *piece_dst;
+	  gint col, line;
+	  
+	  gnome_canvas_item_ungrab(item, event->button.time);
+	  dragging = FALSE;
+	  
+	  /* Search the column (x) where this item is ungrabbed */
+	  for(i=0; i<=number_of_item_x; i++)
+	    if(position[i][0]->x   < item_x &&
+	       position[i+1][0]->x > item_x)
+	      col = i;
 
-   switch (event->type) 
-     {
-     case GDK_BUTTON_PRESS:
-       switch(event->button.button) 
-         {
-         case 1:
-
-	   if(!data->on_top)
-	     return FALSE;
-
-	   x = item_x;
-	   y = item_y;
-
-	   gnome_canvas_item_raise_to_top(item);
-
-	   fleur = gdk_cursor_new(GDK_FLEUR);
-	   gnome_canvas_item_grab(item,
-				  GDK_POINTER_MOTION_MASK | 
-				  GDK_BUTTON_RELEASE_MASK,
-				  fleur,
-				  event->button.time);
-	   gdk_cursor_destroy(fleur);
-	   dragging = TRUE;
-	   break;
-         }
-       break;
-
-     case GDK_MOTION_NOTIFY:
-       if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
-         {
-           new_x = item_x;
-           new_y = item_y;
-             
-           gnome_canvas_item_move(item, new_x - x, new_y - y);
-           x = new_x;
-           y = new_y;
-         }
-       break;
-           
-     case GDK_BUTTON_RELEASE:
-       if(dragging) 
-	 {
-	   gint i,j;
-	   gint tmpi, tmpj;
-	   double tmpx, tmpy;
-	   PieceItem *tmpp;
-	   gint col, line;
-
-	   gnome_canvas_item_ungrab(item, event->button.time);
-	   dragging = FALSE;
-
-	   /* Search the column (x) where this item is ungrabbed */
-	   for(i=0; i<=number_of_item_x; i++)
-	     if(position[i][0]->x   < item_x &&
-		position[i+1][0]->x > item_x)
-	       col = i;
-	   
-	   /* Update ontop values for the piece under the grabbed one */
-	   if(data->j>0)
-	     position[data->i][data->j-1]->on_top = TRUE;
-
-
-	   /* Now search the free line (y) */
-	   for(i=number_of_item_y-1; i>=0; i--)
-	     if(position[col][i]->color == -1)
-	       line = i;
-
-	   /* Move the piece */
-	   item_absolute_move (item, position[col][line]->x, position[col][line]->y);
-
-	   /* Swap values in the pieces */
-	   printf("Found col=%d line=%d\n", col, line);
-	   printf("1 swapping %d,%d and %d,%d\n", 
-		  position[data->i][data->j]->i, position[data->i][data->j]->j,
-		  position[col][line]->i, position[col][line]->j);
-
-	   tmpx    = data->x;
-	   tmpy    = data->y;
-	   position[data->i][data->j]->x = position[col][line]->x;
-	   position[data->i][data->j]->y = position[col][line]->y;
-	   position[col][line]->x = tmpx;
-	   position[col][line]->y = tmpy;
-
-	   tmpi    = data->i;
-	   tmpj    = data->j;
-	   position[data->i][data->j]->i = position[col][line]->i;
-	   position[data->i][data->j]->j = position[col][line]->j;
-	   position[col][line]->i = tmpi;
-	   position[col][line]->j = tmpj;
-
-	   dump_solution();
-	   printf("2 swapping %d,%d and %d,%d\n", 
-		  position[data->i][data->j]->i, position[data->i][data->j]->j, 
-		  position[col][line]->i, position[col][line]->j);
+	  /* Bad drop / Outside of column area */
+	  /* Bad drop / On the same column */
+	  if(col<0 || col > number_of_item_x || col == data->i)
+	    {
+	      /* Return to the original position */
+	      item_absolute_move (item, data->x, data->y);
+	      return FALSE;
+	    }
 
 
-	   tmpp = position[data->i][data->j];
-	   position[data->i][data->j] = position[col][line];
-	   position[col][line] = tmpp;
+	  /* Now search the free line (y) */
+	  line = number_of_item_y;
+	  for(i=number_of_item_y-1; i>=0; i--)
+	    if(position[col][i]->color == -1)
+	      line = i;
+	  
+	  /* Bad drop / Too many pieces here */
+	  if(line >= number_of_item_y)
+	    {
+	      /* Return to the original position */
+	      item_absolute_move (item, data->x, data->y);
+	      return FALSE;
+	    }
 
-	   printf("4 swapping %d,%d and %d,%d\n", position[data->i][data->j]->i, position[data->i][data->j]->j, position[col][line]->i, position[col][line]->j);
-	   
-	   dump_solution();
-	 }
-       break;
+	  /* Update ontop values for the piece under the grabbed one */
+	  if(data->j>0)
+	    position[data->i][data->j-1]->on_top = TRUE;
+	  
+	  /* Update ontop values for the piece under the ungrabbed one */
+	  if(line>0)
+	    position[col][line-1]->on_top = FALSE;
+	  
+	  /* Move the piece */
+	  piece_dst = position[col][line];
+	  piece_src = data;
+	  item_absolute_move (item, piece_dst->x, piece_dst->y);
+	  
+	  /* Swap values in the pieces */
+	  tmpx    = data->x;
+	  tmpy    = data->y;
+	  piece_src->x = piece_dst->x;
+	  piece_src->y = piece_dst->y;
+	  piece_dst->x = tmpx;
+	  piece_dst->y = tmpy;
+	  
+	  tmpi    = data->i;
+	  tmpj    = data->j;
+	  position[tmpi][tmpj]->i = piece_dst->i;
+	  position[tmpi][tmpj]->j = piece_dst->j;
+	  piece_dst->i  = tmpi;
+	  piece_dst->j  = tmpj;
+	  
+	  position[piece_src->i][piece_src->j] = piece_src;
+	  position[piece_dst->i][piece_dst->j] = piece_dst;
 
-     default:
-       break;
-     }
-         
-
+	  dump_solution();
+	  if(is_completed())
+	    {
+	      gamewon = TRUE;
+	      hanoi_destroy_all_items();
+	      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	    }
+	}
+      break;
+      
+    default:
+      break;
+    }
+  
+  
   return FALSE;
 }
 

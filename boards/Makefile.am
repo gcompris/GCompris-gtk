@@ -26,6 +26,7 @@ xml_in_files = \
 	fun.xml.in \
 	geography.xml.in \
 	gletters.xml.in \
+	hanoi.xml.in \
 	imagename.xml.in \
 	maze.xml.in \
 	maze3D.xml.in \

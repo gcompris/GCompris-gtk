@@ -509,12 +509,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Piece *piece)
 	  switch(event->button.button) 
 	    {
 	    case 1:
+	    case 4:
 	      piece->selecteditem++;
 	      if(piece->selecteditem>=g_list_length(piece->listitem))
 		piece->selecteditem = 1;
 	      break;
 	    case 2:
 	    case 3:
+	    case 5:
 	      piece->selecteditem--;
 	      if(piece->selecteditem<=0)
 		piece->selecteditem = g_list_length(piece->listitem)-1;

@@ -7,13 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2003-02-17 15:50+0100\n"
-"PO-Revision-Date: 2002-12-31 00:40+0100\n"
-"Last-Translator: Laurent RICHARD <laurent.richard@lilit.be>\n"
-"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
+"POT-Creation-Date: 2003-02-22 02:12+0100\n"
+"PO-Revision-Date: 2003-02-22 02:26+0100\n"
+"Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
+"Language-Team: Français <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.6\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -35,8 +36,7 @@ msgstr "Clique sur le bon objet coloré."
 
 #: boards/advanced_colors.xml.in.h:5
 msgid "This board is dedicated to recognize unusual colors."
-msgstr ""
-"L'objectif de cette activité est de reconnaître des couleurs non usuelles."
+msgstr "L'objectif de cette activité est de reconnaître des couleurs non usuelles."
 
 #: boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -340,8 +340,7 @@ msgstr "Je te pose quelques questions simples d'algèbre"
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr ""
-"En en temps limité, donnez la réponse à la multiplication de deux nombres"
+msgstr "En en temps limité, donnez la réponse à la multiplication de deux nombres"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
@@ -361,8 +360,7 @@ msgstr ""
 "Ralf a autorisé gcompris à les inclure. Merci beaucoup Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Déployer une stratégie pour arranges un ensemble d'opérations arithmétique\n"
 "pour trouver une valeur cible"
@@ -553,7 +551,7 @@ msgstr "Apprentissage des échecs"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/memory.xml.in.h:4
+#: boards/erase.xml.in.h:3 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulation de la souris"
 
@@ -635,8 +633,7 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
-msgstr ""
-"Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
+msgstr "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
 
 #: boards/clickgame.xml.in.h:4
 msgid ""
@@ -841,6 +838,26 @@ msgid "Type the falling letters before they reach the ground"
 msgstr ""
 "Avec les touches du clavier, élimine les lettres qui tombent avant qu'elles "
 "ne touchent le sol"
+
+#: boards/hanoi.xml.in.h:1
+msgid "Drag and Drop the top piece only on an empty location"
+msgstr "Attrape et fais glisser les pièces du haut sur des emplacements libres"
+
+#: boards/hanoi.xml.in.h:3
+msgid "Reproduce in the empty area the same tower than the one on the right"
+msgstr "Reproduit dans la zone vide la même tour que celle de droite"
+
+#: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:106
+msgid "Reproduce the given tower"
+msgstr "Reproduit la tour donnée"
+
+#: boards/hanoi.xml.in.h:5 src/boards/hanoi.c:105
+msgid "Simplified Tower of Hanoi"
+msgstr "Tour de Hanoi simplifié"
+
+#: boards/hanoi.xml.in.h:6
+msgid "Taken the concept from the EPI games."
+msgstr "Le concept vient des jeux de l'EPI."
 
 #: boards/imageid.xml.in.h:1
 msgid ""
@@ -1153,8 +1170,7 @@ msgstr "Super Cerveau"
 
 #: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
-msgstr ""
-"Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
+msgstr "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
@@ -1456,8 +1472,7 @@ msgstr "Apprends à manipuler de l'argent avec les centimes"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr ""
-"Attrape et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
 #: boards/paintings.xml.in.h:2
 msgid ""
@@ -1539,8 +1554,7 @@ msgid "Paratrooper"
 msgstr "Parachutiste"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 "Ce tableau est un jeu. Il ne requiert pas de connaissances particulières "
 "pour y jouer."
@@ -1780,8 +1794,7 @@ msgstr ""
 "le dé qui tombe."
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Sait déplacer la souris, lire des nombres et compter jusqu'à 15\n"
 "pour le premier niveau"
@@ -1894,7 +1907,6 @@ msgstr ""
 "5 ou plus."
 
 #: src/boards/chess.c:198
-#, fuzzy
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1906,7 +1918,7 @@ msgstr ""
 "pour jouer aux échecs dans gcompris.\n"
 "Trouvez ce programme sur http://www.rpmfind.net ou \n"
 "dans votre distribution GNU/Linux.\n"
-"Ensuite vérifiez qu'il est dans /usr/bin/gnuchessx"
+"Ensuite vérifiez qu'il est dans "
 
 #: src/boards/chess.c:569
 msgid "White Turn"
@@ -2079,8 +2091,7 @@ msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
 #: src/gcompris/about.c:222
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
@@ -2099,9 +2110,8 @@ msgid "Amharic"
 msgstr "Amharique"
 
 #: src/gcompris/config.c:51
-#, fuzzy
 msgid "Arabic"
-msgstr "Amharique"
+msgstr "Arabe"
 
 #: src/gcompris/config.c:52
 msgid "Azerbaijani Turkic"
@@ -2161,7 +2171,7 @@ msgstr "Roumain"
 
 #: src/gcompris/config.c:66
 msgid "Russian"
-msgstr ""
+msgstr "Russe"
 
 #: src/gcompris/config.c:67
 msgid "Swedish"
@@ -2216,15 +2226,15 @@ msgid "Effect"
 msgstr "Effet"
 
 #: src/gcompris/config.c:353
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't open skin dir: %s"
-msgstr "Ne peut pas trouver le répertoire d'images: %s"
+msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
 #: src/gcompris/config.c:387 src/gcompris/config.c:683
 #: src/gcompris/config.c:694
 #, c-format
 msgid "Skin : %s"
-msgstr ""
+msgstr "Thème : %s"
 
 #: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
@@ -2360,3 +2370,4 @@ msgstr "Temps restant = %d"
 
 #~ msgid "You need to remove %d more."
 #~ msgstr "Tu dois en supprimer encore %d. "
+

@@ -11,6 +11,7 @@ lib_LTLIBRARIES = \
 	liberase.la \
 	libenumerate.la \
 	libgletters.la \
+	libhanoi.la \
 	libimageid.la \
 	libleftright.la \
 	libsuperbrain.la \
@@ -285,6 +286,13 @@ libmachpuzzle_la_LIBADD = @PTHREAD_LIB@
 	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libmachpuzzle_la_SOURCES = machpuzzle.c
+
+libhanoi_la_LDFLAGS = -module -avoid-version
+libhanoi_la_LIBADD = @PTHREAD_LIB@
+	$(GCOMPRIS_LIBS)	\
+	$(GNOME_XML_LIB) $(INTLLIBS)
+
+libhanoi_la_SOURCES = hanoi.c
 
 EXTRA_DIST = README
 
