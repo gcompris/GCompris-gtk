@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-24 20:52-0500\n"
-"PO-Revision-Date: 2004-03-24 21:24-0500\n"
+"POT-Creation-Date: 2004-04-10 16:31-0400\n"
+"PO-Revision-Date: 2004-04-10 16:36-0400\n"
 "Last-Translator: Gareth Owen <gowen72@yahoo.comg>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -336,7 +336,8 @@ msgstr "I ask you some maths questions"
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr "In a limited time, give the result to the multiplication of two numbers"
+msgstr ""
+"In a limited time, give the result to the multiplication of two numbers"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
@@ -446,6 +447,32 @@ msgstr "Practise the addition operation"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Simple addition. Can recognise written numbers"
+
+#: boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "Complete a list of symbols"
+
+#: boards/algorithm.xml.in.h:2 boards/hexagon.xml.in.h:2
+#: boards/minouche.xml.in.h:2
+msgid "Logic training activity"
+msgstr "Logic training activity"
+
+#: boards/algorithm.xml.in.h:3
+msgid ""
+"Look at the list with given symbols. Then try to complete it clicking on the "
+"right symbol."
+msgstr ""
+"Look at the list with given symbols. Then try to complete it clicking on the "
+"right symbol."
+
+#: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
+#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
+msgid "Move and click the mouse"
+msgstr "Move and click the mouse"
+
+#: boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "algorithm"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -708,8 +735,7 @@ msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
 msgstr ""
-"Left-Click with the mouse on all swimming fish before they leave the "
-"fishtank"
+"Left-Click with the mouse on all swimming fish before they leave the fishtank"
 
 #: boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
@@ -848,8 +874,8 @@ msgid ""
 "with the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
 "First, properly organise the items so that you can count them. Then, select "
-"the item you want to answer in the bottom right area. Enter the answer "
-"with the keyboard and press the OK button or the 'Enter' key."
+"the item you want to answer in the bottom right area. Enter the answer with "
+"the keyboard and press the OK button or the 'Enter' key."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -967,6 +993,22 @@ msgstr "Simplified Tower of Hanoi"
 #: boards/hanoi.xml.in.h:6
 msgid "Taken the concept from the EPI games."
 msgstr "Taken the concept from the EPI games."
+
+#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+msgid "Find the strwaberry by clicking on the blue fields"
+msgstr "Find the strawberry by clicking on the blue fields"
+
+#: boards/hexagon.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer as you come as "
+"more as red get the fields"
+msgstr ""
+"Try to find the strawberry under the blue fields, the nearer you come the "
+"fields become more red"
+
+#: boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "hexagon"
 
 #: boards/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
@@ -1299,10 +1341,6 @@ msgstr ""
 msgid "Melody"
 msgstr "Melody"
 
-#: boards/melody.xml.in.h:4
-msgid "Move and click the mouse"
-msgstr "Move and click the mouse"
-
 #: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr "Repeat a melody"
@@ -1374,6 +1412,18 @@ msgstr ""
 "Ask gcompris to repeat the question Question Mark - The help Tool Box - The "
 "configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to "
 "4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
+
+#: boards/minouche.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer you come as more "
+"red get the fields"
+msgstr ""
+"Try to find the strawberry under the blue fields, the nearer you come the "
+"fields become more red"
+
+#: boards/minouche.xml.in.h:5
+msgid "minouche"
+msgstr "minouche"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -1921,8 +1971,8 @@ msgid ""
 "To equilibrate the scales, move the masses in its left plateau. The masses "
 "can be arranged in any order."
 msgstr ""
-"To balance the scales, move the masses in its left plateau. The masses "
-"can be arranged in any order."
+"To balance the scales, move the masses in its left plateau. The masses can "
+"be arranged in any order."
 
 #: boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
@@ -2565,7 +2615,8 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: src/gcompris/about.c:68 src/gcompris/interface.c:484
 msgid "translator_credits"
-msgstr "Abigail Brady <morwen@evilmagi_c.org>\n"
+msgstr ""
+"Abigail Brady <morwen@evilmagi_c.org>\n"
 "Bastien Nocera <hadess@hadess.net>\n"
 "Gareth Owen <gowen72@yahoo.com>"
 
@@ -2591,7 +2642,7 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
+#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2629,156 +2680,160 @@ msgid "Greek"
 msgstr "Greek"
 
 #: src/gcompris/config.c:60
-msgid "English"
-msgstr "English"
+msgid "American English"
+msgstr "American English"
 
 #: src/gcompris/config.c:61
+msgid "Great Britain English"
+msgstr "British English"
+
+#: src/gcompris/config.c:62
 msgid "Canadian English"
 msgstr "Canadian English"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Spanish"
 msgstr "Spanish"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Finnish"
 msgstr "Finnish"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "French"
 msgstr "French"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Indian"
 msgstr "Indian"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Croatian"
 msgstr "Croatian"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Malay"
 msgstr "Malay"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:155
+#: src/gcompris/config.c:156
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:264
+#: src/gcompris/config.c:265
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:308
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:335
+#: src/gcompris/config.c:336
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:369
+#: src/gcompris/config.c:370
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:405 src/gcompris/config.c:728
-#: src/gcompris/config.c:739
+#: src/gcompris/config.c:406 src/gcompris/config.c:729
+#: src/gcompris/config.c:740
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2942,3 +2997,6 @@ msgstr "Time Ellapsed"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
+
+#~ msgid "English"
+#~ msgstr "English"
