@@ -1,8 +1,12 @@
 2004-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* configure.in: added AC_CANONICAL_TARGET to avoid the warning in AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET	
+	bug reported by the debian team Yann Dirson.
+
+2004-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Alexey Lubimov <avl@l14.ru> made all the sounds for russian.
 	
-
 	* boards/babymatch/board7_0.xml.in: Changed babymatch/board7_0.xml.in by Karl Ove Hufthammer <karl@huftis.org>
 	so that is more complex.
 	* boards/babymatch/umbrella.png: taken from openclipart
