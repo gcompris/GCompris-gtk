@@ -15,6 +15,9 @@ xml_in_files = \
 	boards.xml.in \
 	canal_lock.xml.in \
 	chess.xml.in \
+	chess_computer.xml.in \
+	chess_movelearn.xml.in \
+	chess_partyend.xml.in \
 	clickgame.xml.in \
 	clockgame.xml.in \
 	computer.xml.in \

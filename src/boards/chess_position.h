@@ -55,27 +55,29 @@ struct _Position {
 	PositionPrivate *priv;
 };
 
-GtkType    position_get_type            (void);    
-GtkObject *position_new                 (void);
-GtkObject *position_new_initial         (void);
-Position  *position_copy                (Position *pos);
-void       position_set_initial         (Position *pos);
-void       position_move                (Position *pos, Square from, Square to);
-Square     position_move_normalize      (Position *pos, Square from, Square to);
-void       position_move_reverse_white  (Position *pos, Square from, Square to);
-void       position_move_reverse_black  (Position *pos, Square from, Square to);
-void       position_move_reverse        (Position *pos, Square from, Square to);
-gint       position_move_generator      (Position *pos, Square **index0, gshort *anz_s, gshort *anz_n);
-gboolean   position_white_king_attack   (Position *pos);
-gboolean   position_black_king_attack   (Position *pos);
-gshort     position_legal_move          (Position *pos, Square **zl, gshort *as, gshort *an);
+GtkType    position_get_type             (void);    
+GtkObject *position_new                   (void);
+GtkObject *position_new_initial           (void);
+Position  *position_copy                 (Position *pos);
+void       position_set_initial          (Position *pos);
+void       position_set_initial_partyend (Position *pos, int level);
+void       position_set_initial_movelearn(Position *pos, int level);
+void       position_move                 (Position *pos, Square from, Square to);
+Square     position_move_normalize       (Position *pos, Square from, Square to);
+void       position_move_reverse_white   (Position *pos, Square from, Square to);
+void       position_move_reverse_black   (Position *pos, Square from, Square to);
+void       position_move_reverse         (Position *pos, Square from, Square to);
+gint       position_move_generator        (Position *pos, Square **index0, gshort *anz_s, gshort *anz_n);
+gboolean   position_white_king_attack    (Position *pos);
+gboolean   position_black_king_attack    (Position *pos);
+gshort     position_legal_move           (Position *pos, Square **zl, gshort *as, gshort *an);
 
 /* Misc. accessors */
-void       position_set_white_king      (Position *pos, Square square);
-void       position_set_black_king      (Position *pos, Square square);
-void       position_set_color_to_move   (Position *pos, short color);
-short      position_get_color_to_move   (Position *pos);
-short      position_last_piece_captured (Position *pos);
+void       position_set_white_king       (Position *pos, Square square);
+void       position_set_black_king       (Position *pos, Square square);
+void       position_set_color_to_move    (Position *pos, short color);
+short      position_get_color_to_move    (Position *pos);
+short      position_last_piece_captured  (Position *pos);
 
 #ifdef __cplusplus
 }

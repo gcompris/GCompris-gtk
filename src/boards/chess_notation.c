@@ -38,7 +38,7 @@ rank_to_ascii (char **move, Square square)
 	*(*move)++ = square / 10 + 47 ;			/* 1 - 8 */
 }
 
-static void
+void
 square_to_ascii(char **move, Square square)
 {
 	file_to_ascii (move, square);
@@ -193,14 +193,18 @@ ascii_to_piece (char p)
 char
 piece_to_ascii (int piece)
 {
+  static char piece_to_ascii_full[]= {'P','N','B','R','Q','K'};
   int i;
+
+  if(piece == EMPTY)
+    return(' ');
 
   i = norm_piece (piece);
 
   if(WPIECE(piece))
-    return piece_to_ascii_t[i];
+    return piece_to_ascii_full[i];
   else
-    return tolower(piece_to_ascii_t[i]);
+    return tolower(piece_to_ascii_full[i]);
 
   g_assert_not_reached ();
   

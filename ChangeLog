@@ -1,3 +1,26 @@
+2002-09-19  Bruno Coudoin  <bcoudoin@anfora.fr>
+
+	* boards/Makefile.am: added specific chess boards
+	* boards/boardicons/chess_computer.png: added specific chess boards
+	* boards/boardicons/chess_movelearn.png: added specific chess boards
+	* boards/boardicons/chess_partyend.png: added specific chess boards
+	* boards/chess.xml.in: added specific chess boards
+	* boards/chess/k.png: reworked
+	* boards/chess_computer.xml.in: added specific chess boards
+	* boards/chess_movelearn.xml.in: added specific chess boards
+	* boards/chess_partyend.xml.in: added specific chess boards
+	* po/POTFILES.in: added specific chess boards
+	* po/fr.po: added specific chess boards
+	* src/boards/chess.c: (start_board), (chess_next_level),
+	(chess_destroy_all_items), (chess_create_item), (move_piece_to),
+	(hightlight_possible_moves), (item_event), (item_event_black),
+	(engine_local_cb): changed to rely only on chess_notation
+	* src/boards/chess_notation.c: (piece_to_ascii): bug fix
+	* src/boards/chess_notation.h: added function to support specific board
+	* src/boards/chess_position.c: (position_set_initial_partyend),
+	(position_set_initial_movelearn), (position_display): added function to support specific board
+	* src/boards/chess_position.h: added function to support specific board
+
 2002-09-15  Bruno Coudoin  <bcoudoin@anfora.fr>
 
 	* boards/read_colors/.cvsignore: added
@@ -27,6 +50,7 @@
 
 	* boards/Makefile.am: added Chess
 	* boards/fun.xml.in: added Chess
+	* src/boards/chess*.[ch]: created the chess board based on gnome-chess by Robert Wilhelm
 	* configure.in: added advanced_colors
 	* po/POTFILES.in: updated
 	* src/boards/Makefile.am: added advanced_colors

@@ -212,6 +212,190 @@ position_set_initial (Position *pos)
 	pos->priv->tomove = WHITE;
 }
 
+void
+position_set_initial_partyend (Position *pos, int level)
+{
+	unsigned int a;
+	register Square square;
+	register gshort rank;
+
+	for (rank = 1; rank <= 8; rank++) { 
+		for (square = A1 + ((rank - 1) * 10); 
+		     square <= H1 + ((rank - 1) * 10);
+		     square++) {
+		pos->square [square] = EMPTY;
+		}
+	}
+
+	switch(level) {
+	case 1:
+	default:
+		/* The white pieces */
+		pos->square [A1] = WK;
+		pos->square [B4] = WQ;
+		pos->square [B5] = WQ;
+		
+		/* The black pieces */
+		pos->square [E8] = BK;
+
+		/* The kings */
+		pos->priv->wk_square = A1;
+		pos->priv->bk_square = E8;
+		break;
+	case 2:
+		/* The white pieces */
+		pos->square [E1] = WK;
+		pos->square [B4] = WR;
+		pos->square [B5] = WR;
+		
+		/* The black pieces */
+		pos->square [A1] = BK;
+
+		/* The kings */
+		pos->priv->wk_square = E1;
+		pos->priv->bk_square = A1;
+		break;
+	case 3:
+		/* The white pieces */
+		pos->square [E1] = WK;
+		pos->square [B4] = WR;
+		pos->square [B5] = WB;
+		
+		/* The black pieces */
+		pos->square [A1] = BK;
+
+		/* The kings */
+		pos->priv->wk_square = E1;
+		pos->priv->bk_square = A1;
+		break;
+	}
+
+	/* White to move */
+	pos->priv->wr_a_move = 0;
+	pos->priv->wr_h_move = 0;
+	pos->priv->br_a_move = 0;
+	pos->priv->br_h_move = 0;
+	pos->priv->captured = EMPTY;
+	pos->priv->tomove = WHITE;
+}
+
+void
+position_set_initial_movelearn (Position *pos, int level)
+{
+	unsigned int a;
+	register Square square;
+	register gshort rank;
+
+	for (rank = 1; rank <= 8; rank++) { 
+		for (square = A1 + ((rank - 1) * 10); 
+		     square <= H1 + ((rank - 1) * 10);
+		     square++) {
+		pos->square [square] = EMPTY;
+		}
+	}
+
+	switch(level) {
+	case 1:
+	default:
+		/* The white pieces */
+		pos->square [E1] = WK;
+		pos->square [B4] = WR;
+		
+		/* The black pieces */
+		pos->square [A1] = BK;
+		pos->square [E7] = BP;
+
+		/* The kings */
+		pos->priv->wk_square = E1;
+		pos->priv->bk_square = A1;
+		break;
+	case 2:
+		/* The white pieces */
+		pos->square [E1] = WK;
+		pos->square [B4] = WQ;
+		
+		/* The black pieces */
+		pos->square [A1] = BK;
+		pos->square [E7] = BP;
+
+		/* The kings */
+		pos->priv->wk_square = E1;
+		pos->priv->bk_square = A1;
+		break;
+	case 3:
+		/* The white pieces */
+		pos->square [E1] = WK;
+		pos->square [C4] = WB;
+		pos->square [D4] = WB;
+		
+		/* The black pieces */
+		pos->square [A1] = BK;
+		pos->square [E7] = BP;
+
+		/* The kings */
+		pos->priv->wk_square = E1;
+		pos->priv->bk_square = A1;
+		break;
+	case 4:
+		/* The white pieces */
+		pos->square [E1] = WK;
+		pos->square [B4] = WN;
+		pos->square [B5] = WN;
+		
+		/* The black pieces */
+		pos->square [A1] = BK;
+		pos->square [E7] = BP;
+
+		/* The kings */
+		pos->priv->wk_square = E1;
+		pos->priv->bk_square = A1;
+		break;
+	case 5:
+		/* The white pieces */
+		pos->square [E1] = WK;
+		pos->square [D2] = WP;
+		pos->square [E2] = WP;
+		pos->square [F2] = WP;
+		pos->square [G2] = WP;
+		pos->square [H2] = WP;
+		
+		/* The black pieces */
+		pos->square [A1] = BK;
+		pos->square [E7] = BP;
+
+		/* The kings */
+		pos->priv->wk_square = E1;
+		pos->priv->bk_square = A1;
+		break;
+	}
+
+	/* White to move */
+	pos->priv->wr_a_move = 0;
+	pos->priv->wr_h_move = 0;
+	pos->priv->br_a_move = 0;
+	pos->priv->br_h_move = 0;
+	pos->priv->captured = EMPTY;
+	pos->priv->tomove = WHITE;
+}
+
+/* Debug purpose */
+void
+position_display (Position *pos)
+{
+  register Square square;
+  register Piece piece;
+  register gshort rank;
+
+  for (rank = 8; rank >= 1; rank--) { 
+    for (square = A1 + ((rank - 1) * 10); 
+	 square <= H1 + ((rank - 1) * 10);
+	 square++) {
+
+	    printf("%c ", piece_to_ascii(pos->square [square]));
+    }
+    printf("\n");
+  }
+}
 /* 
  * Move Functions
  *

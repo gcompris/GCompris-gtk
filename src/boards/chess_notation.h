@@ -33,6 +33,7 @@ char * move_to_ascii (char *p, Square from, Square to);
 void ascii_to_move (Position *pos, char *p, Square *from, Square *to);
 int  ascii_to_piece (char p);
 char piece_to_ascii (int piece);
+void square_to_ascii(char **move, Square square);
 
 /* Standard Algebraic Notation Functions */
 char * move_to_san (Position *pos, Square from, Square to);

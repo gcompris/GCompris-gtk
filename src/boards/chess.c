@@ -76,8 +76,12 @@ static int	 get_square_from_coord (double x, double y);
 #define INFO_X		TURN_X
 #define INFO_Y		(TURN_Y+40)
 
-#define IS_WHITE_PIECE(p)	(isupper(p))
+/* Game Type */
+#define COMPUTER	1
+#define PARTYEND	2
+#define MOVELEARN	3
 
+static char gameType = COMPUTER;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -96,23 +100,23 @@ static Position *position;
  */
 typedef struct {
   GnomeCanvasItem	*square_item;
-  gchar			 position[2];
-  gchar			 piece;
   GnomeCanvasItem	*piece_item;
-  Square		 from;
-  Square		 to;
+  Square		 square;
 } GSquare;
+
+static GSquare  *currentHighlightedGsquare;
 
 static GnomeCanvasItem	*turn_item = NULL;
 static GnomeCanvasItem	*info_item = NULL;
 
-static GSquare *chessboard[9][9];
+/* Need more space to fit notation.h definition */
+static GSquare *chessboard[100];
 
 static GnomeCanvasItem	*chess_create_item(GnomeCanvasGroup *parent);
 static void		 chess_destroy_all_items(void);
 static void		 chess_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static void		 display_square(GSquare *square);
+static gint		 item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static int		 start_child (char        *cmd,
 				      char       **arg,
 				      GIOChannel **read_chan,
@@ -185,16 +189,32 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
+
+      /* Default mode */
+      if(!gcomprisBoard->mode)
+	gameType=COMPUTER;
+      else if(g_strncasecmp(gcomprisBoard->mode, "computer", 1)==0)
+	gameType=COMPUTER;
+      else if(g_strncasecmp(gcomprisBoard->mode, "partyend", 1)==0)
+	gameType=PARTYEND;
+      else if(g_strncasecmp(gcomprisBoard->mode, "movelearn", 1)==0)
+	gameType=MOVELEARN;
+
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-      gcompris_bar_set(0);
 
-      chess_next_level();
-
-      gamewon = FALSE;
-      pause_board(FALSE);
+      switch(gameType)
+	{
+	case PARTYEND:
+	case MOVELEARN:
+	  gcomprisBoard->maxlevel=9;
+	  gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+	  break;
+	default:
+	  gcompris_bar_set(0);
+	}
 
       start_child ("gnuchessx", NULL, &read_chan,
 		   &write_chan, &childpid);
@@ -210,6 +230,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       write_child (write_chan, "depth\n");
       write_child (write_chan, "1\n");
       
+      chess_next_level();
+
+      gamewon = FALSE;
+      pause_board(FALSE);
+
     }
 }
 /* ======================================= */
@@ -261,7 +286,9 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static void chess_next_level()
 {
-  guint x,y;
+  register Square square;
+  register Piece piece;
+  register gshort rank;
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			  "gcompris/gcompris-bg.jpg");
@@ -271,59 +298,35 @@ static void chess_next_level()
   chess_destroy_all_items();
   gamewon = FALSE;
 
+  /* Initial position */
   position = POSITION (position_new_initial ());
 
-  /* Initial position */
-  for(x=1; x<=8; x++)
-    for(y=1; y<=8; y++)
-      {
-	GSquare *square;
+  switch(gameType)
+    {
+    case PARTYEND:
+      position_set_initial_partyend(position, gcomprisBoard->level);
+      break;
+    case MOVELEARN:
+      position_set_initial_movelearn(position, gcomprisBoard->level);
+      break;
+    }
+  /* Init our internal chessboard */
+  for (rank = 1; rank <= 8; rank++) { 
+    for (square = A1 + ((rank - 1) * 10); 
+	 square <= H1 + ((rank - 1) * 10);
+	 square++) {
 
-	square = g_malloc(sizeof(GSquare));
+	GSquare *gsquare;
 
-	square->position[0] = 'a' + x - 1;
-	square->position[1] = '0' + y;
+	gsquare = g_malloc(sizeof(GSquare));
 
-	if(y==7)
-	  {
-	    square->piece='p';
-	  }
-	else if(y==2) 
-	  {
-	    square->piece='P';
-	  }
-	else if(y==8)
-	  {
-	    if(x==1) square->piece='r';
-	    if(x==2) square->piece='n';
-	    if(x==3) square->piece='b';
-	    if(x==4) square->piece='q';
-	    if(x==5) square->piece='k';
-	    if(x==6) square->piece='b';
-	    if(x==7) square->piece='n';
-	    if(x==8) square->piece='r';
-	  }		
-	else if(y==1)
-	  {
-	    if(x==1) square->piece='R';
-	    if(x==2) square->piece='N';
-	    if(x==3) square->piece='B';
-	    if(x==4) square->piece='Q';
-	    if(x==5) square->piece='K';
-	    if(x==6) square->piece='B';
-	    if(x==7) square->piece='N';
-	    if(x==8) square->piece='R';
-	  }		
-	else
-	  square->piece=' ';
-
-	chessboard[x][y] = square;
-	chessboard[x][y]->piece_item = NULL;
-
-	chessboard[x][y]->from = get_square(x, y);
-	printf("get_square(%d, %d) = %d\n", x, y, chessboard[x][y]->from);
-      }
-
+	chessboard[square] = gsquare;
+	chessboard[square]->piece_item = NULL;
+	chessboard[square]->square = square;
+	
+    }
+  }    
+   
   /* Try the next level */
   chess_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
@@ -332,7 +335,9 @@ static void chess_next_level()
 /* Destroy all the items */
 static void chess_destroy_all_items()
 {
-  guint x, y;
+  register Square square;
+  register Piece piece;
+  register gshort rank;
 
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -344,23 +349,29 @@ static void chess_destroy_all_items()
 
   position = NULL;
 
-  for(x=1; x<=8; x++)
-    for(y=1; y<=8; y++)
-      {
-	if(chessboard[x][y]!=NULL)
-	  {
-	    g_free(chessboard[x][y]);
-	    chessboard[x][y]=NULL;
-	  }
-      }
+  for (rank = 1; rank <= 8; rank++) { 
+    for (square = A1 + ((rank - 1) * 10); 
+	 square <= H1 + ((rank - 1) * 10);
+	 square++) {
+      
+      if(chessboard[square]!=NULL)
+	{
+	  g_free(chessboard[square]);
+	  chessboard[square]=NULL;
+	}
+    }
+  }
 }
 
 /* ==================================== */
 static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 {
-  int x,y;
   guint color;
   GnomeCanvasItem *item = NULL;
+  Square square;
+  Piece piece;
+  gshort rank;
+  gboolean white_side = TRUE;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -370,58 +381,105 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 
 							    NULL));
 
-  for(x=0; x<8; x++)
-    {
-      for(y=0; y<8; y++)
-	{
+  for (rank = 1; rank <= 8; rank++) { 
+    for (square = A1 + ((rank - 1) * 10); 
+	 square <= H1 + ((rank - 1) * 10);
+	 square++) {
+      int x,y;
+      
+      x = square % 10 - 1;
+      y = square / 10 - 2;
 
-	  color=((x+y)%2?BLACK_COLOR:WHITE_COLOR);
-	  
-	  item  = gnome_canvas_item_new (boardRootItem,
-					 gnome_canvas_rect_get_type (),
-					 "x1", (double) CHESSBOARD_X + (x * SQUARE_WIDTH),
-					 "y1", (double) CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT),
-					 "x2", (double) CHESSBOARD_X + (x * SQUARE_WIDTH) + SQUARE_WIDTH -1,
-					 "y2", (double)  CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) + SQUARE_HEIGHT -1,
-					 "fill_color_rgba", color,
-					 "outline_color", "black",
-					 "width_units", (double)1,
-					 NULL);
-	  chessboard[x+1][y+1]->square_item = item;
-	}
+      color=((x+y)%2?BLACK_COLOR:WHITE_COLOR);
+      
+      item  = gnome_canvas_item_new (boardRootItem,
+				     gnome_canvas_rect_get_type (),
+				     "x1", (double) CHESSBOARD_X + (x * SQUARE_WIDTH),
+				     "y1", (double) CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT),
+				     "x2", (double) CHESSBOARD_X + (x * SQUARE_WIDTH) + SQUARE_WIDTH -1,
+				     "y2", (double)  CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) + SQUARE_HEIGHT -1,
+				     "fill_color_rgba", color,
+				     "outline_color", "black",
+				     "width_units", (double)1,
+				     NULL);
+      chessboard[square]->square_item = item;
     }
+  }
+
+  /* Enter the gnuchessx edit mode */
+  write_child (write_chan, "edit\n");
+  write_child (write_chan, "#\n");
 
   /* Display the pieces */
-  for(x=0; x<8; x++)
-    {
-      for(y=0; y<8; y++)
-	{
-	  if(chessboard[x+1][y+1]->piece!=' ')
-	    {
-	      GdkPixbuf *pixmap = NULL;
-	      char *str;
-	      str = g_strdup_printf("chess/%c.png", chessboard[x+1][y+1]->piece);
-	      
-	      pixmap = gcompris_load_pixmap(str);
-	      g_free(str);
-	      printf("loading piece %c\n",  chessboard[x+1][y+1]->piece);
-	      item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_pixbuf_get_type (),
-					    "pixbuf", pixmap, 
-					    "x", (double)CHESSBOARD_X + (x * SQUARE_WIDTH) +
-					    (guint)((SQUARE_WIDTH-gdk_pixbuf_get_width(pixmap))/2),
-					    "y", (double) CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) +
-					    (guint)((SQUARE_HEIGHT-gdk_pixbuf_get_height(pixmap))/2),
-					    NULL);
+  for (rank = 1; rank <= 8; rank++) { 
+    for (square = A1 + ((rank - 1) * 10); 
+	 square <= H1 + ((rank - 1) * 10);
+	 square++) 
+      {
+	GdkPixbuf *pixmap = NULL;
+	char *str;
+	gint x, y;
+	char *temp;
+	char *san;
 
-	      chessboard[x+1][y+1]->piece_item = item;
-	      if(IS_WHITE_PIECE(chessboard[x+1][y+1]->piece))
-		gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
-	      gdk_pixbuf_unref(pixmap);
+	piece = position->square[square];
 
-	    }
-	}
-    }
+	x = square % 10 - 1;
+	y = square / 10 - 2;
+
+	/* Destination square */
+	san = g_new0 (char, 12);
+	temp = san;
+	square_to_ascii (&temp, square);
+	printf ( "%c%s\n", piece_to_ascii(piece), san);
+	if(piece!=NONE)
+	  {
+	    
+	    if(white_side && BPIECE(piece) ||
+	       !white_side && WPIECE(piece)) 
+	      {
+		white_side = !white_side;
+		write_child (write_chan, "c\n");
+	      }
+	    write_child (write_chan, "%c%s\n", piece_to_ascii(piece), san);
+	  }
+  	temp = san;
+	san = g_strdup (temp);
+	g_free (temp);
+
+	printf("square=%d piece=%d x=%d y=%d\n", square, piece, x, y);
+	if(piece != EMPTY)
+	  {
+	    str = g_strdup_printf("chess/%c.png", piece_to_ascii(piece));
+	    
+	    pixmap = gcompris_load_pixmap(str);
+	    printf("loading piece %s\n",   str);
+	    g_free(str);
+	    item = gnome_canvas_item_new (boardRootItem,
+					  gnome_canvas_pixbuf_get_type (),
+					  "pixbuf", pixmap, 
+					  "x", (double)CHESSBOARD_X + (x * SQUARE_WIDTH) +
+					  (guint)((SQUARE_WIDTH-gdk_pixbuf_get_width(pixmap))/2),
+					  "y", (double) CHESSBOARD_Y + ((7-y) * SQUARE_HEIGHT) +
+					  (guint)((SQUARE_HEIGHT-gdk_pixbuf_get_height(pixmap))/2),
+					  NULL);
+	    
+	    chessboard[square]->piece_item = item;
+	    if(WPIECE(piece))
+	      gtk_signal_connect(GTK_OBJECT(item), "event", 
+				 (GtkSignalFunc) item_event, NULL);
+	    else
+	      gtk_signal_connect(GTK_OBJECT(item), "event", 
+				 (GtkSignalFunc) item_event_black, NULL);
+
+	    gdk_pixbuf_unref(pixmap);
+	  }
+      }
+  }
+
+  /* Quit the gnuchessx edit mode */
+  write_child (write_chan, ".\n");
+  write_child (write_chan, "bd\n");
 
   display_white_turn(TRUE);
 
@@ -443,13 +501,6 @@ static void game_won()
     gcompris_play_sound (SOUNDLISTFILE, "bonus");
   }
   chess_next_level();
-}
-
-static void
-display_square(GSquare *square)
-{
-  printf("---------\n");
-  printf("piece=%c position=%c%c\n", square->piece, square->position[0], square->position[1]);
 }
 
 static void display_white_turn(gboolean whiteturn)
@@ -501,8 +552,7 @@ static void display_info(gchar *info)
 
 
 /*
- * Move a piece to the given position
- * dest is a chess notation like c2c4
+ * Move a piece to the given position using chess_notation notation
  *
  */
 static void move_piece_to(Square from, Square to)
@@ -515,14 +565,9 @@ static void move_piece_to(Square from, Square to)
   Piece piece = NONE;
       
 
-  printf("move_piece_to %d %d\n", from, to);
+  printf("move_piece_to from=%d to=%d\n", from, to);
 
-  x = from % 10;
-  y = from / 10 -1;
-  
-  printf("   move_piece_to from x=%d y=%d\n", x, y);
-
-  source_square = chessboard[x][y];
+  source_square = chessboard[from];
   item = source_square->piece_item;
   source_square->piece_item = NULL;
 
@@ -533,11 +578,12 @@ static void move_piece_to(Square from, Square to)
     }
 
   /* If we are promoting a pawn */
-  if(IS_WHITE_PIECE(source_square->piece))
+  if(position_get_color_to_move(position)==BLACK)
     {
       if (to & 128) {
 	piece = ((to & 127) >> 3 ) + WP - 1;
 	to = (to & 7) + A8;            
+	printf("  Promoting white piece to %d\n", piece);
       }
     }
   else
@@ -552,22 +598,22 @@ static void move_piece_to(Square from, Square to)
   /* Show the moved piece */
   gnome_canvas_item_set(source_square->square_item,
 			"outline_color",
-			(!IS_WHITE_PIECE(source_square->piece)?"red":"green"),
+			(BPIECE(position->square[to])?"red":"green"),
 			NULL);
 
-  display_white_turn(!IS_WHITE_PIECE(source_square->piece));
+  display_white_turn(BPIECE(position->square[to]));
 
   x = to % 10;
   y = to / 10 -1;
   
   printf("   move_piece_to to    x=%d y=%d\n", x, y);
 
-  dest_square = chessboard[x][y];
+  dest_square = chessboard[to];
 
   /* Show the moved piece */
   gnome_canvas_item_set(dest_square->square_item,
 			"outline_color", 
-			(!IS_WHITE_PIECE(source_square->piece)?"red":"green"),
+			(BPIECE(position->square[to])?"red":"green"),
 			NULL);
 
   if(dest_square->piece_item != NULL)
@@ -575,8 +621,6 @@ static void move_piece_to(Square from, Square to)
     gtk_object_destroy (GTK_OBJECT(dest_square->piece_item));
 
   dest_square->piece_item    = item;
-  dest_square->piece         = source_square->piece;
-  source_square->piece       = ' ';
 
   /* Find the ofset to move the piece */
   gnome_canvas_item_get_bounds  (item,
@@ -588,17 +632,17 @@ static void move_piece_to(Square from, Square to)
 
   ofset_x = (CHESSBOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
   ofset_y = (CHESSBOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
-  printf("ofset = x=%f y=%f\n", ofset_x, ofset_y);
+
   gnome_canvas_item_move(item, ofset_x, ofset_y);
 
   /* Manage rock */
-  if(dest_square->piece=='K' && source_square->from==E1 && dest_square->from==C1)
+  if(position->square[to]==WK && from==E1 && to==C1)
     move_piece_to(A1, D1);
-  else if(dest_square->piece=='K' && source_square->from==E1 && dest_square->from==G1)
+  else if(position->square[to]==WK && from==E1 && to==G1)
     move_piece_to(H1, F1);
-  else if(dest_square->piece=='k' && source_square->from==E8 && dest_square->from==C8)
+  else if(position->square[to]==BK && from==E8 && to==C8)
     move_piece_to(A8, D8);
-  else if(dest_square->piece=='k' && source_square->from==E8 && dest_square->from==G8)
+  else if(position->square[to]==BK && from==E8 && to==G8)
     move_piece_to(H8, F8);
 
   /* Manage promotion */
@@ -608,13 +652,12 @@ static void move_piece_to(Square from, Square to)
       char *str;
       printf("  WARNING promoting a pawn from=%d to=%d piece=%d\n", from, to, piece);
       printf("  piece_to_ascii returns %c\n", piece_to_ascii(piece));
-      dest_square->piece=piece_to_ascii(piece);
 
-      str = g_strdup_printf("chess/%c.png", dest_square->piece);
+      str = g_strdup_printf("chess/%c.png", piece_to_ascii(piece));
 	      
       pixmap = gcompris_load_pixmap(str);
       g_free(str);
-      printf("loading piece %c\n",  dest_square->piece);
+      printf("loading piece %c\n",  piece_to_ascii(piece));
       gnome_canvas_item_set (dest_square->piece_item,
 			     "pixbuf", pixmap, 
 			     NULL);
@@ -655,43 +698,62 @@ get_square_from_coord (double x, double y)
 
 }
 
-void hightlight_possible_moves(GSquare *square)
+void hightlight_possible_moves(GSquare *gsquare)
 {
-  guint x, y;
   Square square_test;
   guint color;
+  register Square square;
+  register Piece piece;
+  register gshort rank;
+  short    current_color;
 
-  for(x=1; x<=8; x++)
-    for(y=1; y<=8; y++)
-      {
-	square_test = position_move_normalize (position, square->from, chessboard[x][y]->from);
-	printf("Testing position %d %d from %d to %d returned %d\n", x, y,
-	       square->from, chessboard[x][y]->from, square_test);
+  if(currentHighlightedGsquare == gsquare)
+    return;
+
+  /* Remember the current color to move */
+  current_color = position_get_color_to_move(position);
+
+  if(WPIECE(position->square[gsquare->square]))
+    position_set_color_to_move(position, WHITE);
+  else
+    position_set_color_to_move(position, BLACK);
+
+  for (rank = 1; rank <= 8; rank++) { 
+    for (square = A1 + ((rank - 1) * 10); 
+	 square <= H1 + ((rank - 1) * 10);
+	 square++) {
+
+
+	square_test = position_move_normalize (position, gsquare->square, chessboard[square]->square);
 
 	if (square_test) 
 	  {
-	    color=((x+y)%2?BLACK_COLOR_H:WHITE_COLOR_H);
+	    color=((rank+square)%2?BLACK_COLOR_H:WHITE_COLOR_H);
 
-	    gnome_canvas_item_set(chessboard[x][y]->square_item,
+	    gnome_canvas_item_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
 				  "outline_color", "black",
 				  NULL);
 	  }
 	else
 	  {
-	    color=((x+y)%2?BLACK_COLOR:WHITE_COLOR);
+	    color=((rank+square)%2?BLACK_COLOR:WHITE_COLOR);
 
-	    gnome_canvas_item_set(chessboard[x][y]->square_item,
+	    gnome_canvas_item_set(chessboard[square]->square_item,
 				  "fill_color_rgba", color,
 				  "outline_color", "black",
 				  NULL);
 	  }
       }      
+  }
+
+  /* Set back the current color to move */
+  position_set_color_to_move(position, current_color);
 
   /* Show the current piece */
-  gnome_canvas_item_set(square->square_item,
+  gnome_canvas_item_set(gsquare->square_item,
 			"outline_color",
-			(!IS_WHITE_PIECE(square->piece)?"red":"green"),
+			(BPIECE(position->square[gsquare->square])?"red":"green"),
 			NULL);
   
 }
@@ -701,7 +763,7 @@ static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
    static double x, y;
-   static GSquare *square;
+   static GSquare *gsquare;
    double new_x, new_y;
    GdkCursor *fleur;
    static int dragging;
@@ -719,14 +781,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       {
 	guint x1, y1;
-	Square square_from;
+	Square square;
 
-	square_from = get_square_from_coord(event->button.x, event->button.y);
-	x1 = square_from % 10;
-	y1 = square_from / 10 -1;
-	square = chessboard[x1][y1];
-
-	display_square(square);
+	square = get_square_from_coord(event->button.x, event->button.y);
+	x1 = square % 10;
+	y1 = square / 10 -1;
+	gsquare = chessboard[square];
 
 	x = item_x;
 	y = item_y;
@@ -741,7 +801,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	gdk_cursor_destroy(fleur);
 	dragging = TRUE;
 
-	hightlight_possible_moves(square);
+	hightlight_possible_moves(gsquare);
       }
       break;
     case GDK_MOTION_NOTIFY:
@@ -763,31 +823,28 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   double ofset_x, ofset_y;
 	   double x1, y1, x2, y2;
 	   char pos[6];
+	   Square to;
 
-	   square->to = get_square_from_coord(event->button.x, event->button.y);
-	   printf("===== Source square = %d Destination square = %d\n", square->from, 
-		  square->to);
+	   to = get_square_from_coord(event->button.x, event->button.y);
+	   printf("===== Source square = %d Destination square = %d\n", gsquare->square, 
+		  to);
 
-	   square->to = position_move_normalize (position, square->from, square->to);
-	   if (square->to) {
-	     position_move (position, square->from, square->to);
-	     display_square(square);
+	   to = position_move_normalize (position, gsquare->square, to);
+	   if (to) {
+	     position_move (position, gsquare->square, to);
+
 	     x = 1 + (event->button.x - CHESSBOARD_X) / SQUARE_WIDTH;
 	     y = 1 + (event->button.y - CHESSBOARD_Y) / SQUARE_HEIGHT;
-	     pos[0] = square->position[0];
-	     pos[1] = square->position[1];
-	     pos[2] = 'a' + x - 1;
-	     pos[3] = '9' - y;
-	     pos[4] = '\n';
-	     pos[5] = 0;
-	     
+	     move_to_ascii((char *)&pos, gsquare->square, to);
+
 	     /* Tell gnuchess what our move is */
 	     write_child (write_chan, (char *)&pos);
-	     move_piece_to(square->from, square->to);
+	     write_child (write_chan, "\n");
+	     move_piece_to(gsquare->square, to);
 	   }
 	   else
 	     {
-	       printf("====== MOVE from %d REFUSED\n", square->from);
+	       printf("====== MOVE from %d REFUSED\n", gsquare->square);
 	   
 	       /* Find the ofset to move the piece back to where it was*/
 	       gnome_canvas_item_get_bounds  (item,
@@ -796,11 +853,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 					      &x2,
 					      &y2);
 	       
-	       x = square->position[0] - 'a' + 1;
-	       y = '9' - square->position[1];
+	       x = gsquare->square % 10;
+	       y = gsquare->square / 10 -1;
 	       
 	       ofset_x = (CHESSBOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
-	       ofset_y = (CHESSBOARD_Y + SQUARE_HEIGHT * (y-1)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
+	       ofset_y = (CHESSBOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
 	       printf("ofset = x=%f y=%f\n", ofset_x, ofset_y);
 	       
 	       gnome_canvas_item_move(item, ofset_x, ofset_y);
@@ -808,6 +865,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	   gnome_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
+
+	   position_display(position);
+	   write_child (write_chan, "bd\n");
+
 	 }
        break;
 
@@ -816,6 +877,31 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     }
 
   return FALSE;
+}
+
+/* ==================================== */
+/* The user clicked on a black piece    */
+static gint
+item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+{
+   static GSquare *gsquare;
+
+  if(board_paused)
+    return FALSE;
+
+  switch (event->type)
+    {
+    case GDK_BUTTON_PRESS:
+      {
+	Square square;
+
+	square = get_square_from_coord(event->button.x, event->button.y);
+	gsquare = chessboard[square];
+
+	hightlight_possible_moves(gsquare);
+      }
+      break;
+    }
 }
 
 /*======================================================================*/
@@ -909,7 +995,7 @@ engine_local_cb (GIOChannel *source,
     /* parse for illegal move */
     if (!strncmp ("Illegal move",buf,12))
       {
-	printf("Illegal move to %s\n", buf+31);
+	g_warning("Illegal move to %s : SHOULD NOT HAPPEN", buf+31);
       }
 
     if (!strncmp ("Black mates!",buf,12))
