@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/03/31 23:34:02 bruno>
+ * Time-stamp: <2005/04/07 00:03:51 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -280,8 +280,8 @@ static void init_background()
 
 #ifdef XRANDR
   /* Search the 800x600 Resolution */
-  printf("properties->noxrandr=%d\n", properties->noxrandr);
   if(properties->fullscreen && !properties->noxrandr) {
+    g_warning("XRANDR Is compiled in. Searching a good resolution");
 
     xrandr = g_new0 (XRANDRData, 1);
     xrandr_get_config ( xrandr );

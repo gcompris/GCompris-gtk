@@ -25,10 +25,10 @@
 #define BONUS_DURATION 2000
 #define TUX_TIME_STEP 300
 
-static GnomeCanvasItem *bonus_item = NULL;
-static GnomeCanvasItem *door1_item = NULL;
-static GnomeCanvasItem *door2_item = NULL;
-static GnomeCanvasItem *tuxplane_item = NULL;
+static GnomeCanvasGroup *bonus_group   = NULL;
+static GnomeCanvasItem  *door1_item    = NULL;
+static GnomeCanvasItem  *door2_item    = NULL;
+static GnomeCanvasItem  *tuxplane_item = NULL;
 
 static gboolean board_finished_running = FALSE;
 static gboolean bonus_display_running = FALSE;
@@ -248,8 +248,8 @@ void bonus_image(char *image, BonusStatusList gamewon)
   GdkPixbuf *pixmap = NULL;
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
-  /* check that bonus_item is a singleton */
-  if (bonus_item != NULL) {
+  /* check that bonus_group is a singleton */
+  if (bonus_group != NULL) {
     bonus_display_running = FALSE;
     return;
   }
@@ -267,33 +267,57 @@ void bonus_image(char *image, BonusStatusList gamewon)
     gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
     break;
   case BOARD_DRAW :
-    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_draw.png");
+    /* We do not have draw image so a text message is displayed bellow under the
+     * win image
+     */
+    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
     /* Record the end of board */
-    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_PASSED);
+    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_DRAW);
     break;
   }
 
   /* Log the board start again*/
   gcompris_log_start(gcomprisBoard);
 
+  g_assert(gcomprisBoard != NULL);
+
   pixmap = gcompris_load_pixmap(str);
 
-  g_assert(gcomprisBoard != NULL);
+  bonus_group = (GnomeCanvasGroup *) \
+    gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
 
   x = (gcomprisBoard->width - gdk_pixbuf_get_width(pixmap))/2;
   y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap))/2;
-  bonus_item = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap,
-				      "x", (double) x,
-				      "y", (double) y,
-				      "width", (double) gdk_pixbuf_get_width(pixmap),
-				      "height", (double) gdk_pixbuf_get_height(pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  gnome_canvas_item_new (bonus_group,
+			 gnome_canvas_pixbuf_get_type (),
+			 "pixbuf", pixmap,
+			 "x", (double) x,
+			 "y", (double) y,
+			 "width", (double) gdk_pixbuf_get_width(pixmap),
+			 "height", (double) gdk_pixbuf_get_height(pixmap),
+			 "width_set", TRUE,
+			 "height_set", TRUE,
+			 NULL);
+
+
+  if(gamewon==BOARD_DRAW) {
+    gnome_canvas_item_new (bonus_group,
+			   gnome_canvas_text_get_type (),
+			   "text", _("Drawn game"),
+			   "font", gcompris_skin_font_title,
+			   "x", (double) BOARDWIDTH/2,
+			   "y", (double) gdk_pixbuf_get_height(pixmap),
+			   "anchor", GTK_ANCHOR_CENTER,
+			   "fill_color_rgba", gcompris_skin_color_title,
+			   NULL);
+  }
 
   gdk_pixbuf_unref(pixmap);
+
   g_free(str);
   end_bonus_id = gtk_timeout_add (BONUS_DURATION, (GtkFunction) end_bonus, NULL);
 }
@@ -308,10 +332,10 @@ void end_bonus()
     end_bonus_id = 0;
   }
 
-  if(bonus_item)
-    gtk_object_destroy (GTK_OBJECT(bonus_item));
+  if(bonus_group)
+    gtk_object_destroy (GTK_OBJECT(bonus_group));
 
-  bonus_item = NULL;
+  bonus_group = NULL;
   bonus_display_running = FALSE;
 
   gcompris_bar_hide(FALSE);

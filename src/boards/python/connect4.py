@@ -70,6 +70,7 @@ class Gcompris_connect4:
     self.nb_lines = 6
     self.stone_size = 70.0
     self.firstPlayer = False
+    self.winPlayers = []
     self.timer_anim = 0 
     self.timer_machine = 0 
     self.machineHasPlayed = True
@@ -146,7 +147,11 @@ class Gcompris_connect4:
 
   def repeat(self):
     print("Gcompris_connect4 repeat.")
-    self.newGame()
+    if self.winPlayers[-3:] == ['H', 'H', 'H']:
+      self.winPlayers = []
+      self.set_level(self.gcomprisBoard.level+1)
+    else: 
+      self.newGame()
 
   def config(self):
     print("Gcompris_connect4 config.")
@@ -168,6 +173,7 @@ class Gcompris_connect4:
     gcompris.bar_set_level(self.gcomprisBoard)
     self.player1.setDifficulty(level)
     self.player2.setDifficulty(level)
+    self.winPlayers = []
     self.newGame()
 
   # End of Initialisation
@@ -184,7 +190,12 @@ class Gcompris_connect4:
     self.player1 = human.Human(self.gcomprisBoard.level)
     self.player2 = minmax.MinMax(self.gcomprisBoard.level, self.refreshScreen)
     self.board = board.Board()
-    self.gamewon = False 
+    self.gamewon = False
+    self.winLine = None
+    try:
+      del self.redLine
+    except:
+      pass
     self.firstPlayer = False 
     self.prof.show()
 
@@ -231,10 +242,11 @@ class Gcompris_connect4:
   def play(self, player, numPlayer, column):
     move = player.doMove(self.board, numPlayer, column)
     if type(move) is types.IntType and rules.isMoveLegal(self.board, move):
-      self.firstPlayer = True
+#      self.firstPlayer = True
       self.board.move(move, numPlayer)
       self.drawBoard(self.board)
-      if rules.isWinner(self.board, numPlayer):
+      self.winLine = rules.isWinner(self.board, numPlayer)
+      if self.winLine:
         return self.winner(numPlayer)
       elif rules.isBoardFull(self.board):
         return self.winner(0)
@@ -270,6 +282,23 @@ class Gcompris_connect4:
   def winner(self, player):
     self.gamewon = True
     print 'The winner is:', player
+    if ((self.firstPlayer and (player==2)) or
+        ((not self.firstPlayer) and (player==1))):
+      self.winPlayers.append('H')
+    else:
+      self.winPlayers.append('N')
+    points = ( self.winLine[0][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
+               (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[0][1])+self.stone_size/2,
+               self.winLine[1][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
+               (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[1][1])+self.stone_size/2
+               )
+               
+    self.redLine = self.boarditem.add(
+      gnome.canvas.CanvasLine,
+       fill_color_rgba=0xFF0000FFL,
+       points=points,
+       width_pixels = 8 
+       )
     if player == 1:
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
     elif player == 2:

@@ -120,16 +120,18 @@ RANDR_LIBS=
 found_randr=no
 AC_CHECK_LIB(Xrandr, XRRSetScreenConfigAndRate,
              [AC_CHECK_HEADER(X11/extensions/Xrandr.h,
-                              RANDR_LIBS=-lXrandr found_randr=yes,,
+                              RANDR_LIBS="-L/usr/X11R6/lib/ -lXrandr" found_randr=yes,,
                                 [#include <X11/Xlib.h>])],
-               , -lXrender $ALL_X_LIBS )
+               , -L/usr/X11R6/lib/ -lXrandr $ALL_X_LIBS )
 
 if test "x$found_randr" = "xno"; then
    AC_MSG_NOTICE(["Suitable Xrandr extension library not found - you need at least X 4.3. Will not use xrandr for fullscreen."])
+   AC_DEFINE_UNQUOTED(XRANDR, 0, [XRANDR NOT Available])
+else
    AC_DEFINE_UNQUOTED(XRANDR, 1, [XRANDR Available])
 fi
 
-
+LDFLAGS="${LDFLAGS} ${RANDR_LIBS}"
 
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et fi fr ga gu he hi hr hu it lt mk ml ms nb nl nn pa pl pt pt_BR ro ru rw sk sl sq sr sr@Latn sv tr wa zh_CN"

@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/03/03 22:52:59 bruno>
+ * Time-stamp: <2005/04/05 23:49:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -297,10 +297,10 @@ display_file_selector(int the_mode,
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			   gnome_canvas_widget_get_type (),
 			   "widget", GTK_WIDGET(gtk_combo_filetypes),
-			   "x", (double) CONTROL_AREA_X1 + 300,
+			   "x", (double) CONTROL_AREA_X1 + 450,
 			   "y", (double) y_start + 30,
 			   "width", 250.0,
-			   "height", 30.0,
+			   "height", 35.0,
 			   "anchor", GTK_ANCHOR_NW,
 			   "size_pixels", FALSE,
 			   NULL);

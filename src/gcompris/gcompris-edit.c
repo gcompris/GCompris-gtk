@@ -24,6 +24,9 @@
 #  include <config.h>
 #endif
 
+#include "gcompris.h"
+#include "gcompris-edit.h"
+
 #include <gnome.h>
 
 #include "interface.h"
@@ -32,9 +35,6 @@
 /* libxml includes */
 #include <libxml/tree.h>
 #include <libxml/parser.h>
-
-#include "gcompris.h"
-#include "gcompris-edit.h"
 
 static GtkWidget	*gcompris_edit	= NULL;
 static GtkWidget	*treeview	= NULL;

@@ -1,3 +1,16 @@
+2005-04-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: fixed regarding Xrandr
+	* src/boards/python/connect4.py: added a line to show the winning position
+	by Yves Combe
+	* src/boards/python/connect4p/rules.py: -
+	* src/gcompris/bonus.c: (bonus_image), (end_bonus): Added support for the DRAW (equality)
+	* src/gcompris/config.c:
+	* src/gcompris/file_selector.c: (display_file_selector):
+	* src/gcompris/gcompris-edit.c: moved the includes to avoid a conflict with _ (gettext)
+	* src/gcompris/gcompris.c: (init_background): cleanup
+	* src/gcompris/gcompris.h: added GCOMPRIS_LOG_STATUS_DRAW
+
 
 	*** RELEASE 6.5.2 ***
 

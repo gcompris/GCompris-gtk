@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/01/07 00:32:49 bruno>
+ * Time-stamp: <2005/04/06 23:30:01 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -137,6 +137,7 @@ void		 gcompris_exit();
 /* Trace Log */
 #define GCOMPRIS_LOG_STATUS_PASSED    "PASSED"
 #define GCOMPRIS_LOG_STATUS_FAILED    "FAILED"
+#define GCOMPRIS_LOG_STATUS_DRAW      "DRAW"
 #define GCOMPRIS_LOG_STATUS_COMPLETED "COMPLETED"
 
 /* gcompris internal only */
