@@ -1,3 +1,11 @@
+2005-01-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/click_on_letter.xml.in: fixed bad assetml reference that was making the 
+	audio being seen as broken on the menu icon
+	* boards/geography.xml.in: same
+	* boards/searace1player.xml.in: fixed typo
+	* src/gcompris/gameutil.c: (gcompris_get_asset_file): better debug string
+
 2005-01-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chronos/board4_1.xml.in: fixed Yager by Yeager (reported by Kelemen G~bor)
