@@ -7,14 +7,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-01-23 10:56+0100\n"
+"POT-Creation-Date: 2003-01-28 22:37+0100\n"
 "PO-Revision-Date: 2003-01-26 09:56+EDT\n"
 "Last-Translator: Ge'ez Frontier Foundation <locales@geez.org>\n"
 "Language-Team: Amharic <locales@geez.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -1131,31 +1130,119 @@ msgid "apple/_pple/a/i/o"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball/_all/b/p/d"
+msgid "apple/app_e/l/h/n"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana/b_nana/a/o/i"
+msgid "apple/appl_/e/h/a"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed/_ed/b/l/f"
+msgid "ball/_all/b/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle/_ottle/b/t/p"
+msgid "ball/b_ll/a/u/o"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake/_ake/c/p/d"
+msgid "ball/bal_/l/h/s"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house/hous_/e/a/i"
+msgid "banana/_anana/b/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:10
+msgid "bed/_ed/b/l/f"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:13
+msgid "bottle/_ottle/b/t/p"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:16
+msgid "cake/_ake/c/p/d"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:22
+msgid "fish/_ish/f/h/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:23
+msgid "fish/f_sh/i/u/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:24
+msgid "fish/fis_/h/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:25
+msgid "house/_ouse/h/e/j"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "house/h_use/o/f/u"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:27
+msgid "house/hous_/e/a/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:28
+msgid "satchel/_atchel/s/c/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:29
 msgid "satchel/s_tchel/a/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:30
+msgid "satchel/sa_chel/t/p/c"
 msgstr ""
 
 #: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
@@ -1504,18 +1591,18 @@ msgstr ""
 msgid "Editor for gcompris"
 msgstr ""
 
-#: src/boards/advanced_colors.c:526 src/boards/imageid.c:573
-#: src/boards/missingletter.c:595 src/boards/read_colors.c:485
+#: src/boards/advanced_colors.c:527 src/boards/imageid.c:573
+#: src/boards/missingletter.c:592 src/boards/read_colors.c:487
 #: src/boards/shapegame.c:1561 src/boards/traffic.c:622
 #: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
 #: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:269
+#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:255
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr ""
 
-#: src/boards/advanced_colors.c:529 src/boards/imageid.c:576
-#: src/boards/missingletter.c:598 src/boards/read_colors.c:488
+#: src/boards/advanced_colors.c:530 src/boards/imageid.c:576
+#: src/boards/missingletter.c:595 src/boards/read_colors.c:490
 #: src/boards/shapegame.c:1564
 #, c-format
 msgid "find file %s !"
@@ -1728,112 +1815,116 @@ msgstr ""
 msgid "Help"
 msgstr "መረጃ"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:155 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:156 src/gcompris/help.c:342
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "እሺ"
 
 #: src/gcompris/config.c:44
-msgid "Azerbaijani Turkic"
+msgid "Amharic"
 msgstr ""
 
 #: src/gcompris/config.c:45
+msgid "Azerbaijani Turkic"
+msgstr ""
+
+#: src/gcompris/config.c:46
 msgid "German"
 msgstr "ጀርመን"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:47
 msgid "Greek"
 msgstr "ግሪክኛ"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:48
 msgid "English"
 msgstr "እንግሊዝኛ"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:49
 msgid "Spanish"
 msgstr "ስፓኒሽ"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:50
 msgid "Finnish"
 msgstr "ፊኒሽ"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:51
 msgid "French"
 msgstr "ፈረንሳይኛ"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:52
 msgid "Hungarian"
 msgstr "ሀንጋሪኛ"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:53
 msgid "Italian"
 msgstr "ጣሊያንኛ"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:54
 msgid "Malay"
 msgstr "ማላይኛ"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:55
 msgid "Dutch"
 msgstr "ደች"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:56
 msgid "Portuguese"
 msgstr "ፖርቱጋሊኛ"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:57
 msgid "Brazil Portuguese"
 msgstr "የብራዚል ፖርቱጋልኛ"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:58
 msgid "Romanian"
 msgstr "ሮማኒያን"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:59
 msgid "Swedish"
 msgstr "ስዊድንኛ"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:60
 msgid "Slovak"
 msgstr "ስሎቫክኛ"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:61
 msgid "Lithuanian"
 msgstr "ሊቱአኒያን"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "No time limit"
 msgstr ""
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Slow timer"
 msgstr ""
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Normal timer"
 msgstr ""
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Fast timer"
 msgstr ""
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "800x600 (Default for gcompris)"
 msgstr ""
 
-#: src/gcompris/config.c:129
+#: src/gcompris/config.c:130
 msgid "GCompris Configuration"
 msgstr ""
 
-#: src/gcompris/config.c:235
+#: src/gcompris/config.c:236
 msgid "Fullscreen"
 msgstr "ሙሉ እስክሪን"
 
-#: src/gcompris/config.c:278
+#: src/gcompris/config.c:279
 msgid "Music"
 msgstr "ሙዚቃ"
 
-#: src/gcompris/config.c:306
+#: src/gcompris/config.c:307
 msgid "Effect"
 msgstr "ክንውን"
 

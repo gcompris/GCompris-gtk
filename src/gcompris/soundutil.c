@@ -49,9 +49,7 @@ void initSound()
   sound_policy = PLAY_AFTER_CURRENT;
   is_playing = FALSE;
 
-  printf("...calling ao_initialize\n");
   ao_initialize();
-  printf("...calling ao_initialize done\n");
 
   if ( pthread_create ( &thread_scheduler, NULL, scheduler, NULL ) != 0)
     perror("create failed for scheduler");
@@ -101,12 +99,9 @@ static void* scheduler ()
 	{
 	  int err;
 
-	  printf ("   in scheduler: before cond_wait \n");
 	  err = pthread_cond_wait (&cond, &lock);
 	  if (err)
 	    printf ("cond_wait  : %s\n", strerror (err));
-
-	  printf ("   in scheduler: after cond_wait \n");
 
 	  err = pthread_mutex_unlock ( &lock);
 	  if (err)
@@ -123,8 +118,6 @@ static void* thread_play_ogg (void *s)
   char* file = NULL;
   char locale[3];
   pthread_t pid_ogg = 0;
-
-  fprintf (stderr, "+++thread_play_ogg:%s<-\n", s);
 
   strncpy( locale, gcompris_get_locale(), 2 );
   locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
@@ -157,8 +150,6 @@ static void* thread_play_ogg (void *s)
       g_free( file );
     }
 
-  fprintf (stderr, "---thread_play_ogg\n");
-  //  pthread_exit( NULL );
   return NULL;
 }
 
@@ -169,7 +160,6 @@ char* get_next_sound_to_play( )
 {
   char* tmpSound = NULL;
 
-  printf("+++get_next_sound_to_play\n");
   pthread_mutex_lock( &lock );
 
   if ( g_list_length(pending_queue) > 0 )
@@ -180,7 +170,6 @@ char* get_next_sound_to_play( )
     }
 
   pthread_mutex_unlock( &lock );
-  printf("---get_next_sound_to_play\n");
 
   return tmpSound;
 }
@@ -197,8 +186,6 @@ void gcompris_play_ogg(char *sound, ...)
   va_list ap;
   char* tmp = NULL;
   char* tmpSound = NULL;
-
-  printf("+++gcompris_play_ogg\n");
 
   if ( !gcompris_get_properties()->fx )
     return;
@@ -251,7 +238,6 @@ void gcompris_play_ogg(char *sound, ...)
   if (err)
     printf ("cond_signal : %s\n", strerror (err));
 
-  printf("---gcompris_play_ogg\n");
 }
 /* =====================================================================
  *     Play a sound installed in the Gnome sound list

@@ -3,11 +3,10 @@
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
 # Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
 #
-#: src/boards/traffic.c:115
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-12-31 15:51+0100\n"
+"POT-Creation-Date: 2003-01-28 22:37+0100\n"
 "PO-Revision-Date: 2002-12-31 00:40+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -792,7 +791,7 @@ msgstr "Déplace les éléments et arrange les de façon à pouvoir les compter"
 msgid "Motor coordination"
 msgstr "Coordination moteur"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Déplace la souris de l'ordinateur"
 
@@ -1123,11 +1122,11 @@ msgstr ""
 "couleurs\n"
 "dans l'autre sens."
 
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:122
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
 msgid "Super Brain"
 msgstr "Super Cerveau"
 
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:123
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
 msgstr ""
 "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
@@ -1280,32 +1279,120 @@ msgid "apple/_pple/a/i/o"
 msgstr "pomme/p_mme/o/i/u"
 
 #: boards/missing_letter/board1.xml.in.h:2
+msgid "apple/app_e/l/h/n"
+msgstr "pomme/_omme/p/q/d"
+
+#: boards/missing_letter/board1.xml.in.h:3
+msgid "apple/appl_/e/h/a"
+msgstr "pomme/pomm_/e/i/u"
+
+#: boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
 msgstr "ballon/_allon/b/g/p"
 
-#: boards/missing_letter/board1.xml.in.h:3
-msgid "banana/b_nana/a/o/i"
+#: boards/missing_letter/board1.xml.in.h:5
+msgid "ball/b_ll/a/u/o"
+msgstr "ballon/b_llon/a/u/o"
+
+#: boards/missing_letter/board1.xml.in.h:6
+msgid "ball/bal_/l/h/s"
+msgstr "ballon/ball_n/o/u/a"
+
+#: boards/missing_letter/board1.xml.in.h:7
+msgid "banana/_anana/b/p/d"
 msgstr "banane/b_nane/a/o/u"
 
-#: boards/missing_letter/board1.xml.in.h:4
+#: boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr "banane/_anane/b/d/p"
+
+#: boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr "banane/ba_ane/n/m/b"
+
+#: boards/missing_letter/board1.xml.in.h:10
 msgid "bed/_ed/b/l/f"
 msgstr "lit/_it/l/p/t"
 
-#: boards/missing_letter/board1.xml.in.h:5
+#: boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr "lit/l_t/i/l/t"
+
+#: boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr "lit/li_/t/n/e"
+
+#: boards/missing_letter/board1.xml.in.h:13
 msgid "bottle/_ottle/b/t/p"
 msgstr "biberon/_iberon/b/p/d"
 
-#: boards/missing_letter/board1.xml.in.h:6
+#: boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr "biberon/b_beron/i/v/u"
+
+#: boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr "biberon/biber_n/o/e/b"
+
+#: boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
 msgstr "gâteau/_âteau/g/p/l"
 
-#: boards/missing_letter/board1.xml.in.h:7
+#: boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr "gâteau/gâ_eau/t/p/d"
+
+#: boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr "gâteau/gâtea_/u/o/l"
+
+#: boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr "voiture/_oiture/v/w/f"
+
+#: boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr "voiture/vo_ture/i/a/k"
+
+#: boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr "voiture/voitu_e/r/g/n"
+
+#: boards/missing_letter/board1.xml.in.h:22
+msgid "fish/_ish/f/h/l"
+msgstr "poisson/_oisson/p/b/q"
+
+#: boards/missing_letter/board1.xml.in.h:23
+msgid "fish/f_sh/i/u/l"
+msgstr "poisson/p_isson/o/i/a"
+
+#: boards/missing_letter/board1.xml.in.h:24
+msgid "fish/fis_/h/o/i"
+msgstr "poisson/poisso_/n/m/b"
+
+#: boards/missing_letter/board1.xml.in.h:25
+msgid "house/_ouse/h/e/j"
+msgstr "maison/mai_on/s/l/m"
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "house/h_use/o/f/u"
+msgstr "maison/mais_n/o/d/u"
+
+#: boards/missing_letter/board1.xml.in.h:27
 msgid "house/hous_/e/a/i"
 msgstr "maison/_aison/m/l/d"
 
-#: boards/missing_letter/board1.xml.in.h:8
+#: boards/missing_letter/board1.xml.in.h:28
+msgid "satchel/_atchel/s/c/l"
+msgstr "cartable/_artable/c/g/v"
+
+#: boards/missing_letter/board1.xml.in.h:29
 msgid "satchel/s_tchel/a/o/i"
 msgstr "cartable/cart_ble/a/o/u"
+
+#: boards/missing_letter/board1.xml.in.h:30
+msgid "satchel/sa_chel/t/p/c"
+msgstr "cartable/carta_le/b/g/p"
 
 #: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
 #, fuzzy
@@ -1569,7 +1656,7 @@ msgstr ""
 "l'envers.\n"
 "Quand tu as terminé, clique sur le bouton OK ou utilise la touche entrée."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:132
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
 msgid "Practice the substraction with a funny game"
 msgstr "Entraînement à la soustraction avec un jeu amusant"
 
@@ -1677,7 +1764,7 @@ msgstr "Envoie des flèches sur la cible et compte ton score"
 msgid "Touch the target and count your points"
 msgstr "Touche la cible et compte tes points"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:114
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:96
 msgid "A sliding block puzzle game"
 msgstr "Un puzzle avec des pièces qui glissent"
 
@@ -1709,20 +1796,18 @@ msgstr "Jeu éducatif à partir de 3 ans"
 msgid "Editor for gcompris"
 msgstr "Editeur de gcompris"
 
-#: src/boards/advanced_colors.c:526 src/boards/imageid.c:573
-#: src/boards/menu.c:533 src/boards/missingletter.c:595
-#: src/boards/read_colors.c:485 src/boards/shapegame.c:1561
-#: src/boards/traffic.c:671 src/gcompris/gameutil.c:85
-#: src/gcompris/gameutil.c:104 src/gcompris/gameutil.c:430
-#: src/gcompris/gameutil.c:431 src/gcompris/gcompris-edit.c:414
-#: src/gcompris/gcompris-edit.c:415 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:269
+#: src/boards/advanced_colors.c:527 src/boards/imageid.c:573
+#: src/boards/missingletter.c:592 src/boards/read_colors.c:487
+#: src/boards/shapegame.c:1561 src/boards/traffic.c:622
+#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
+#: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
+#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:255
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/advanced_colors.c:529 src/boards/imageid.c:576
-#: src/boards/missingletter.c:598 src/boards/read_colors.c:488
+#: src/boards/advanced_colors.c:530 src/boards/imageid.c:576
+#: src/boards/missingletter.c:595 src/boards/read_colors.c:490
 #: src/boards/shapegame.c:1564
 #, c-format
 msgid "find file %s !"
@@ -1832,6 +1917,11 @@ msgstr "gauche"
 msgid "right"
 msgstr "droite"
 
+#: src/boards/machpuzzle.c:85
+#, fuzzy
+msgid "Move the mouse to machpuzzle the area and discover the background"
+msgstr "Déplace la souris pour tout effacer et découvrir le fond"
+
 #: src/boards/memory.c:227
 msgid "Memory"
 msgstr "Memory"
@@ -1892,7 +1982,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/reversecount.c:131
+#: src/boards/reversecount.c:129
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
@@ -1918,26 +2008,6 @@ msgstr ""
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance de la cible = %d metres"
-
-#: src/boards/traffic.c:748
-#, c-format
-msgid "You've taken %d moves."
-msgstr "Tu as réalisé %d déplacements."
-
-#: src/boards/traffic.c:754
-#, c-format
-msgid "The best you can do is %d."
-msgstr "Le mieux que tu puisses faire est %d."
-
-#: src/boards/traffic.c:764
-#, c-format
-msgid "You've removed %d cars."
-msgstr "Tu as supprimé %d voitures."
-
-#: src/boards/traffic.c:770
-#, c-format
-msgid "You need to remove %d more."
-msgstr "Tu dois en supprimer encore %d. "
 
 #: src/gcompris/about.c:57
 msgid ""
@@ -1972,104 +2042,117 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:154 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:156 src/gcompris/help.c:342
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "Valider"
 
 #: src/gcompris/config.c:44
+msgid "Amharic"
+msgstr ""
+
+#: src/gcompris/config.c:45
 msgid "Azerbaijani Turkic"
 msgstr "Turc azerbaïdjanais"
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:46
 msgid "German"
 msgstr "Allemand"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:47
 msgid "Greek"
 msgstr "Grec"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:48
 msgid "English"
 msgstr "Anglais"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:49
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:50
 msgid "Finnish"
 msgstr "Finnois"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:51
 msgid "French"
 msgstr "Français"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:52
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:53
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:54
 msgid "Malay"
 msgstr "Malaisien"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:55
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:56
+#, fuzzy
+msgid "Portuguese"
+msgstr "Portugais brésilien"
+
+#: src/gcompris/config.c:57
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:66
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:67
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:68
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:69
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:74
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:234
+#: src/gcompris/config.c:130
+msgid "GCompris Configuration"
+msgstr "Configuration de GCompris"
+
+#: src/gcompris/config.c:236
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:277
+#: src/gcompris/config.c:279
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:305
+#: src/gcompris/config.c:307
 msgid "Effect"
 msgstr "Effet"
 
@@ -2105,7 +2188,7 @@ msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:539
+#: src/gcompris/gcompris.c:541
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2195,5 +2278,14 @@ msgstr "Temps écoulé"
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
 
-#~ msgid "GCompris Configuration"
-#~ msgstr "Configuration de GCompris"
+#~ msgid "You've taken %d moves."
+#~ msgstr "Tu as réalisé %d déplacements."
+
+#~ msgid "The best you can do is %d."
+#~ msgstr "Le mieux que tu puisses faire est %d."
+
+#~ msgid "You've removed %d cars."
+#~ msgstr "Tu as supprimé %d voitures."
+
+#~ msgid "You need to remove %d more."
+#~ msgstr "Tu dois en supprimer encore %d. "

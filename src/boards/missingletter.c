@@ -72,8 +72,8 @@ static GList *board_list = NULL;
 #define HORIZONTAL_SEPARATION 30
 
 //NUMBER_OF_SUBLEVELS*NUMBER_OF_LEVELS must equal the number of boards in XML file
-#define NUMBER_OF_SUBLEVELS 2
-#define NUMBER_OF_LEVELS 4
+#define NUMBER_OF_SUBLEVELS 10
+#define NUMBER_OF_LEVELS 3
 
 #define TEXT_COLOR "white"
 
@@ -175,8 +175,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     }
 }
 
-static void
-end_board ()
+static void end_board ()
 {
 
   if(gcomprisBoard!=NULL)
@@ -262,10 +261,8 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   gint txt_area_x = 515;
   gint txt_area_y = 430;
 
-  board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel-1;
-/*  if (board_number >= g_list_length(board_list))
-	board_number = g_list_length(board_list)-1;
-*/
+  board_number = (gcomprisBoard->level-1) * NUMBER_OF_SUBLEVELS + gcomprisBoard->sublevel-1;
+
   assert(board_number >= 0  && board_number < g_list_length(board_list));
   place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
   assert(place >= 0  && place < 3);
@@ -517,8 +514,8 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
 	//int i;
   char *pixmapfile = NULL;
-  char *question = NULL, *answer = NULL;//question[255], answer[255];
-  char *l1 = NULL, *l2 = NULL, *l3 = NULL;//l1[2], l2[2], l3[2];
+  char *question = NULL, *answer = NULL;
+  char *l1 = NULL, *l2 = NULL, *l3 = NULL;
   char *data = NULL;
   Board * board = g_new(Board,1);
 
