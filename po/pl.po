@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-31 12:05+0200\n"
+"POT-Creation-Date: 2004-04-08 14:55+0200\n"
 "PO-Revision-Date: 2003-10-31 15:35+0100\n"
 "Last-Translator: Gnome PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -452,6 +452,32 @@ msgstr "Ćwiczenie dodawania"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Proste dodawanie. Umiejętność rozpoznawania napisanych liczb"
+
+#: boards/algorithm.xml.in.h:1
+msgid "Complete a list of symbols"
+msgstr "Uzupełnienie listy symboli"
+
+#: boards/algorithm.xml.in.h:2 boards/hexagon.xml.in.h:2
+#: boards/minouche.xml.in.h:2
+msgid "Logic training activity"
+msgstr "Gra ćwicząca logikę"
+
+#: boards/algorithm.xml.in.h:3
+msgid ""
+"Look at the list with given symbols. Then try to complete it clicking on the "
+"right symbol."
+msgstr ""
+"Spójrz na listę z podanymi symbolami. Następnie postaraj się uzupełnić "
+"listę, klikając na poprawnym symbolu."
+
+#: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
+#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
+msgid "Move and click the mouse"
+msgstr "Porusz i kliknij myszką"
+
+#: boards/algorithm.xml.in.h:5
+msgid "algorithm"
+msgstr "algorytm"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -982,6 +1008,22 @@ msgstr "Uproszczone Wieże Hanoi"
 msgid "Taken the concept from the EPI games."
 msgstr "Pomysł wzięty z gier EPI"
 
+#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+msgid "Find the strwaberry by clicking on the blue fields"
+msgstr "Szukanie truskawki poprzez kliknięcie na niebieskich polach"
+
+#: boards/hexagon.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer as you come as "
+"more as red get the fields"
+msgstr ""
+"Postaraj się znaleźć truskawkę pod niebieskimi polami, im bliżej truskawki, "
+"tym pola stają się bardziej czerwone"
+
+#: boards/hexagon.xml.in.h:5
+msgid "hexagon"
+msgstr "sześciokąt"
+
 #: boards/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
 msgstr "Kliknij słowo odpowiadające wyświetlonemu obrazowi."
@@ -1315,10 +1357,6 @@ msgstr ""
 msgid "Melody"
 msgstr "Melodia"
 
-#: boards/melody.xml.in.h:4
-msgid "Move and click the mouse"
-msgstr "Porusz i kliknij myszką"
-
 #: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr "Powtórz melodię"
@@ -1392,6 +1430,19 @@ msgstr ""
 "konfiguracyjne; Samolot - okienko informacyjne. Gwiazdy oznaczają: 1 gwiazda "
 "- zabawa dla dzieci w wieku 3 do 4 lat, 2 gwiazdy - 5 do 6, 3 gwiazdy - 7 do "
 "8 lat. "
+
+#: boards/minouche.xml.in.h:4
+msgid ""
+"Try to find the strawberry under the blue fields,as nearer you come as more "
+"red get the fields"
+msgstr ""
+"Postaraj się znaleźć truskawkę pod niebieskimi polami, im bliżej truskawki, "
+"tym pola stają się bardziej czerwone"
+
+#: boards/minouche.xml.in.h:5
+#, fuzzy
+msgid "minouche"
+msgstr "ochra"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -2476,7 +2527,7 @@ msgstr ""
 msgid "Help"
 msgstr "Pomoc"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
+#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2514,156 +2565,160 @@ msgid "Greek"
 msgstr "grecki"
 
 #: src/gcompris/config.c:60
-msgid "English"
-msgstr "angielski"
+msgid "American English"
+msgstr "angielski amerykański"
 
 #: src/gcompris/config.c:61
+msgid "Great Britain English"
+msgstr "angielski brytyjski"
+
+#: src/gcompris/config.c:62
 msgid "Canadian English"
 msgstr "angielski kandyjski"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Spanish"
 msgstr "hiszpański"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Finnish"
 msgstr "fiński"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "French"
 msgstr "francuski"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Hebrew"
 msgstr "hebrajski"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Indian"
 msgstr "hinduski"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Hungarian"
 msgstr "węgierski"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Croatian"
 msgstr "chorwacki"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Italian"
 msgstr "włoski"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Lithuanian"
 msgstr "litewski"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Macedonian"
 msgstr "macedoński"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malayalam"
 msgstr "malajalam"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Malay"
 msgstr "malajski"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Dutch"
 msgstr "holenderski"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Norwegian"
 msgstr "norweski"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Polish"
 msgstr "polski"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Portuguese"
 msgstr "portugalski"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Brazil Portuguese"
 msgstr "portugalski (brazylijski)"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Romanian"
 msgstr "rumuński"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Russian"
 msgstr "rosyjski"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slovak"
 msgstr "słowacki"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Slovenian"
 msgstr "słoweński"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Serbian (Latin)"
 msgstr "serbski (łacina)"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Serbian"
 msgstr "serbski"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Swedish"
 msgstr "szwedzki"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Turkish"
 msgstr "turecki"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "No time limit"
 msgstr "Bez ograniczeń czasowych"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Slow timer"
 msgstr "Wolny stoper"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Normal timer"
 msgstr "Normalny stoper"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Fast timer"
 msgstr "Szybki stoper"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (domyślna dla GCompris)"
 
-#: src/gcompris/config.c:155
+#: src/gcompris/config.c:156
 msgid "GCompris Configuration"
 msgstr "Ustawienia GCompris"
 
-#: src/gcompris/config.c:264
+#: src/gcompris/config.c:265
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:308
 msgid "Music"
 msgstr "Muzyka"
 
-#: src/gcompris/config.c:335
+#: src/gcompris/config.c:336
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:369
+#: src/gcompris/config.c:370
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nie można otworzyć ścieżki do szaty graficznej: %s"
 
-#: src/gcompris/config.c:405 src/gcompris/config.c:728
-#: src/gcompris/config.c:739
+#: src/gcompris/config.c:406 src/gcompris/config.c:729
+#: src/gcompris/config.c:740
 #, c-format
 msgid "Skin : %s"
 msgstr "Szata graficzna: %s"
@@ -2828,6 +2883,9 @@ msgstr "Czas minął"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Pozostały czas = %d"
+
+#~ msgid "English"
+#~ msgstr "angielski"
 
 #~ msgid "Simple addition"
 #~ msgstr "Proste dodawanie"
