@@ -1,0 +1,105 @@
+Please help me fill this test report :
+
+==============================================
+algebra_by
+
+----------------------------------------------
+algebra_div
+
+----------------------------------------------
+algebra_guesscount
+  - app crash after passing the last board.
+    Can't reproduce it after adding a waitpid call in the play ogg
+procedure (pascal georges).
+
+----------------------------------------------
+algebra_minus
+
+----------------------------------------------
+algebra_plus
+
+----------------------------------------------
+babymatch
+
+----------------------------------------------
+babyshapes
+  - Tested (bug : First level starts at 2, and when clicking on the
+level dice, jumps from 4 to 6 directly, and consider the game is
+finished (it should go back to 1 instead)) (pascal georges)
+
+----------------------------------------------
+clickgame
+  - tested (minor bug : when the last fish is clicked, the amount is
+11/10) (pascal georges).
+
+----------------------------------------------
+click_on_letter
+  - tested (pascal georges).
+
+----------------------------------------------
+clockgame
+
+----------------------------------------------
+draw
+  - tested (pascal georges).
+
+----------------------------------------------
+erase
+  - tested (pascal georges)
+
+----------------------------------------------
+gletters
+
+----------------------------------------------
+imageid
+  - tested for FR & ENG (pascal georges)
+  - sounds are not translated and appear in french. As they are not
+mandatory, they should not be played
+
+----------------------------------------------
+imagename
+  - not tested : no French translation (pascal georges)
+
+----------------------------------------------
+memory
+
+----------------------------------------------
+missing_letter
+  - tested for FR & ENG (pascal georges)
+  - sounds are not translated and appear in french. As they are not
+mandatory, they should not be played
+
+----------------------------------------------
+paintings
+  - Sometimes badly crash (X does not respond, cursor moves but is
+blocked in NE/SW cross shape). Pascal Georges
+
+----------------------------------------------
+paratrooper
+
+----------------------------------------------
+planegame
+  - tested (fully tested : long !) (pascal georges).
+
+----------------------------------------------
+railroad
+  - tested (pascal georges).
+
+----------------------------------------------
+readingh
+  - tested (pascal georges).
+
+----------------------------------------------
+readingv
+
+----------------------------------------------
+scalesboard
+
+----------------------------------------------
+smallnumbers
+
+----------------------------------------------
+wordsgame
+
+----------------------------------------------
+

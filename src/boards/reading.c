@@ -3,7 +3,7 @@
  * Time-stamp: <2002/02/03 10:36:50 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -19,7 +19,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-// FIXME: Cleanup of LettersItem created struct is not done 
+// FIXME: Cleanup of LettersItem created struct is not done
 
 #include <errno.h>
 
@@ -73,6 +73,8 @@ static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
+static int wait_for_ready;
+static int gamewon;
 
 static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent);
 static gint reading_drop_items ();
@@ -119,7 +121,7 @@ BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
+BoardPlugin
 *get_bplugin_info(void)
 {
   return &menu_bp;
@@ -131,6 +133,10 @@ BoardPlugin
  */
 static void pause_board (gboolean pause)
 {
+	// after the bonus is ended, the board is unpaused, but we must wait for
+	// the player to be ready (this board does not use the same framework as others)
+	if (wait_for_ready)
+		return;
 
   if(gcomprisBoard==NULL)
     return;
@@ -160,7 +166,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "reading/gcompris-bg.jpg");
-
+			wait_for_ready = FALSE;
+			gamewon = FALSE;
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
@@ -222,9 +229,11 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void reading_next_level() 
+static void reading_next_level()
 {
   gcompris_bar_set_level(gcomprisBoard);
+
+	gamewon = FALSE;
 
   reading_destroy_all_items();
 
@@ -267,7 +276,7 @@ static void reading_destroy_item(LettersItem *item)
 {
   /* The items are freed by player_win */
   free(item->word);
-  free(item->overword);		  
+  free(item->overword);
   free(item);
 }
 #endif
@@ -379,7 +388,7 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
   /* Load a gdk font */
   gdk_font = gdk_font_load ("-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-iso8859-1");
 
-  
+
   if(textToFindIndex!=0)
     {
       lettersItem->word = get_random_word();
@@ -515,9 +524,9 @@ static void ask_ready(gboolean status)
 
   item2 = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
-				"text", _("I am Ready"), 
+				"text", _("I am Ready"),
 				"font_gdk", gdk_font,
-				"x", (double) x_offset + 
+				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -543,7 +552,7 @@ static void ask_yes_no()
   button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap, 
+				"pixbuf",  button_pixmap,
 				"x", x_offset,
 				"y", y_offset,
 				NULL);
@@ -555,9 +564,9 @@ static void ask_yes_no()
 
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
-				"text", _("Yes I saw it"), 
+				"text", _("Yes I saw it"),
 				"font_gdk", gdk_font,
-				"x", (double) x_offset + 
+				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -573,7 +582,7 @@ static void ask_yes_no()
   button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf",  button_pixmap, 
+				"pixbuf",  button_pixmap,
 				"x", x_offset,
 				"y", y_offset,
 				NULL);
@@ -585,9 +594,9 @@ static void ask_yes_no()
 
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
-				"text", _("No, it was not there"), 
+				"text", _("No, it was not there"),
 				"font_gdk", gdk_font,
-				"x", (double) x_offset + 
+				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,
 				"y", (double) y_offset + 40,
 				"anchor", GTK_ANCHOR_CENTER,
@@ -603,6 +612,9 @@ static void ask_yes_no()
 static void player_win()
 {
   gcompris_play_sound (SOUNDLISTFILE, "bonus");
+	gamewon = TRUE;
+	wait_for_ready = TRUE;
+  gcompris_display_bonus(gamewon, BONUS_FLOWER);
   /* Try the next level */
   gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
@@ -615,14 +627,17 @@ static void player_win()
 static void player_loose()
 {
   gcompris_play_sound (SOUNDLISTFILE, "crash");
-  reading_next_level();
+	gamewon = FALSE;
+	wait_for_ready = TRUE;
+  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+	reading_next_level();
 }
 
 /* Callback for the yes and no buttons */
 static gint
 item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;
@@ -632,6 +647,7 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       if (((char *)data)[0]=='R')
 	{
 	  // The user is Ready
+		wait_for_ready = FALSE;
 	  ask_ready(FALSE);
 	  pause_board(FALSE);
 	}
@@ -643,9 +659,9 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else
 	{
 	  player_loose();
-	} 
+	}
       break;
-      
+
     default:
       break;
     }
