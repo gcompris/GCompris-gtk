@@ -286,7 +286,12 @@ class Gcompris_searace:
 
     # Let the user enter comands
     self.left_boat.tv.set_editable(True)
-    self.right_boat.tv.set_editable(True)
+
+    if self.gcomprisBoard.mode == '1player':
+      self.tux_move()
+    else:
+      self.right_boat.tv.set_editable(True)
+
 
   #----------------------------------------
   # Display the whole playing field
@@ -946,3 +951,5 @@ class Gcompris_searace:
     tux_move += _("forward") + " " + str(cumulative_distance+2) + "\n"
 
     self.right_boat.tb.set_text(tux_move)
+    self.right_boat.tv.set_editable(False)
+    

@@ -66,6 +66,7 @@ xml_in_files = \
 	redraw_symmetrical.xml.in \
 	reversecount.xml.in \
 	searace.xml.in \
+	searace1player.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \
 	submarine.xml.in \
