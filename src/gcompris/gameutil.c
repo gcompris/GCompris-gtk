@@ -636,7 +636,7 @@ void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
 
 /* ======================================= */
 /* As gnome does not implement its own API : gnome_canvas_item_rotate
-   we have to do it ourselves .... 
+   we have to do it ourselves ....
    IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
    rotation is clockwise if angle > 0 */
 void item_rotate(GnomeCanvasItem *item, double angle) {
@@ -648,6 +648,7 @@ void item_rotate(GnomeCanvasItem *item, double angle) {
   art_affine_multiply( r, t, r);
 	art_affine_translate( t , (x2+x1)/2, (y2+y1)/2 );
   art_affine_multiply( r, r, t);
+
   gnome_canvas_item_affine_absolute( item, r );
 }
 

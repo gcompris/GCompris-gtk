@@ -39,9 +39,6 @@ static int gamewon;
 static void process_ok(void);
 static void game_won();
 
-#define NUMBER_OF_SUBLEVELS 6
-#define NUMBER_OF_LEVELS 4
-
 #define PURGE_AR 225
 #define PURGE_AV 438
 #define REGLEUR 330
@@ -56,9 +53,12 @@ static void game_won();
 #define BARRE_AV_X 530
 #define BARRE_AV_Y 100
 
-#define SUBMARINE_HEEL 10
+// taken from submarine.png
+#define SUBMARINE_WIDTH 122
+#define SUBMARINE_HEIGHT 29
+
 #define SURFACE_IN_BACKGROUND 30
-#define SURFACE_DEPTH 5.0
+#define SURFACE_DEPTH 7.0
 #define IP_DEPTH 13.0
 #define SECURITY_DEPTH 55.0
 #define MAX_DEPTH 300.0
@@ -67,11 +67,13 @@ static void game_won();
 #define AIR_INITIAL 50000
 #define BATTERY_INITIAL 5000
 #define MAX_BALLAST 10000
-#define MAX_REGLEUR 500
+#define MAX_REGLEUR 800
+#define REGLEUR_INITIAL 100.0
+#define WEIGHT_INITIAL -300.0
 
-#define SUBMARINE_INITIAL_X 10
-#define WRAP_X 700
-#define SUBMARINE_INITIAL_DEPTH SECURITY_DEPTH
+#define SUBMARINE_INITIAL_X 150
+#define WRAP_X 800
+#define SUBMARINE_INITIAL_DEPTH 270.0// DEBUG SURFACE_DEPTH
 
 #define RUDDER_STEP 5
 #define RUDDER_MAX 15
@@ -90,8 +92,9 @@ static void game_won();
 #define UP 1
 #define DOWN 0
 
-#define UPDATE_DELAY 300
-#define UPDATE_DELAY_SLOW 1500
+#define UPDATE_DELAY 200
+#define UPDATE_DELAY_SLOW 500
+#define UPDATE_DELAY_VERY_SLOW 1500
 
 #define TEXT_COLOR_FRONT "red"
 #define TEXT_COLOR_BACK "orange"
@@ -115,7 +118,7 @@ static GnomeCanvasItem *barre_av_item, *barre_ar_item,
 
 /* submarine parameters */
 static double barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
-static double submarine_horizontal_speed, submarine_vertical_speed, assiette;
+static double submarine_horizontal_speed, submarine_vertical_speed, speed_ordered, assiette;
 static double ballast_av_air, ballast_ar_air;
 
 static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent);
@@ -137,11 +140,10 @@ static void setAir(double value);
 static void setRegleur(double value);
 static void setAssiette(double value);
 
-static void updateDynamic();
-
 static gboolean update_timeout();
 static gboolean update_timeout_slow();
-static guint timer_id, timer_slow_id;
+static gboolean update_timeout_very_slow();
+static guint timer_id, timer_slow_id, timer_very_slow_id;
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -195,9 +197,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       gcomprisBoard=agcomprisBoard;
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "submarine/sub_bg.jpg");
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
       submarine_next_level();
       gamewon = FALSE;
       pause_board(FALSE);
@@ -215,6 +215,7 @@ static void end_board () {
   /* kill pending timers */
   g_source_remove(timer_id);
 	g_source_remove(timer_slow_id);
+	g_source_remove(timer_very_slow_id);
 
   gcomprisBoard = NULL;
 }
@@ -251,10 +252,10 @@ static void submarine_next_level() {
 	ballast_av_chasse_open = ballast_ar_chasse_open = regleur_chasse_open = FALSE;
 	barre_av_angle = barre_ar_angle = 0.0;
   depth = SUBMARINE_INITIAL_DEPTH;
-  submarine_horizontal_speed = 0.0;
+  submarine_horizontal_speed = speed_ordered = 0.0;
   submarine_x = SUBMARINE_INITIAL_X;
-  weight = -200.0;
-  regleur = 300.0;
+  weight = WEIGHT_INITIAL;
+  regleur = REGLEUR_INITIAL;
   air = AIR_INITIAL;
   battery = BATTERY_INITIAL;
 	ballast_av_air = ballast_ar_air = 0.0;
@@ -297,13 +298,13 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 	submarine_item = gnome_canvas_item_new (boardRootItem,
 						gnome_canvas_pixbuf_get_type (),
 						"pixbuf", pixmap,
-						"x", (double) SUBMARINE_INITIAL_X,
-						"y", (double) SUBMARINE_INITIAL_DEPTH + SURFACE_IN_BACKGROUND - SUBMARINE_HEEL,
+						"x", (double) 0.0,//SUBMARINE_INITIAL_X,
+						"y", (double) 0.0,//SUBMARINE_INITIAL_DEPTH + SURFACE_IN_BACKGROUND - SUBMARINE_HEIGHT,
 						"width", (double) gdk_pixbuf_get_width(pixmap),
 						"height", (double) gdk_pixbuf_get_height(pixmap),
 						"width_set", TRUE,
 						"height_set", TRUE,
-            //"anchor", GTK_ANCHOR_CENTER, // to be removed or item_move does not work
+            "anchor", GTK_ANCHOR_CENTER,
 						NULL);
 
   g_free(str);
@@ -615,6 +616,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 
   timer_id = g_timeout_add(UPDATE_DELAY, update_timeout, NULL);
   timer_slow_id = g_timeout_add(UPDATE_DELAY_SLOW, update_timeout_slow, NULL);
+  timer_very_slow_id = g_timeout_add(UPDATE_DELAY_VERY_SLOW, update_timeout_very_slow, NULL);
+  
   return NULL;
 }
 /* =====================================================================
@@ -689,50 +692,36 @@ static gboolean update_timeout() {
  * =====================================================================*/
 static gboolean update_timeout_slow() {
 	double delta_assiette;
-	/* assiette */
-  delta_assiette = (ballast_ar_air - ballast_av_air)/300.0 +
-  	(barre_av_angle - barre_ar_angle)/10.0*submarine_horizontal_speed;
-  assiette += delta_assiette*UPDATE_DELAY/10000.0;
+
+    /* speed : don't reach instantly the ordered speed */
+  if (speed_ordered != submarine_horizontal_speed) {
+		submarine_horizontal_speed += (speed_ordered-submarine_horizontal_speed)/10.0;
+    if (fabs(speed_ordered - submarine_horizontal_speed) < 0.1)
+			submarine_horizontal_speed = speed_ordered;
+  }
+
+  /* assiette */
+  delta_assiette = (ballast_ar_air - ballast_av_air)/200.0 +
+  	(barre_av_angle - barre_ar_angle)/5.0*submarine_horizontal_speed;
+  assiette -= delta_assiette*UPDATE_DELAY/10000.0;
   if (assiette < -30.0)
   	assiette = -30.0;
   if (assiette > 30.0)
   	assiette = 30.0;
-  setAssiette(assiette);
 
-	/* battery */
-  setBattery(battery -= submarine_horizontal_speed*submarine_horizontal_speed/10.0);
+  //setAssiette(assiette);
 
-  /* position */
-  updateDynamic();
-  submarine_x += submarine_horizontal_speed;
-  depth += submarine_vertical_speed;
-  if (depth < 0.0)
-  	depth = 0.0;
-  if (depth > 300.0)
-  	depth = 300.0;
+  /* If surfacing, diminish the 'assiette' */
+  if ( depth <= 5.0 + SURFACE_DEPTH) {
+  	assiette *= depth/(depth+1.0);
+  }
 
-  printf("depth = %d\n", (int) depth);
-
-  /* if the submarine is too close from right, put it at left */
-  if ( submarine_x > WRAP_X )
-		submarine_x = SUBMARINE_INITIAL_X;
-
-  item_absolute_move( submarine_item,submarine_x, depth + SURFACE_IN_BACKGROUND-SUBMARINE_HEEL);
-
-  return TRUE;
-}
-/* =====================================================================
- * Updates submarine physics : the horizontal and vertical speeds,
- * the speed of rotation and global balance
- * =====================================================================*/
-static void updateDynamic() {
+  /* update some dynamic parameters */
 	/* resulting_weight > 0 ==> the sub goes deeper
      regleur : this is the qty of water */
 	resulting_weight = weight - ballast_av_air - ballast_ar_air + regleur;
-  submarine_vertical_speed = resulting_weight/300.0 + submarine_horizontal_speed*sin(DEG_TO_RAD(assiette));
-  printf("vspeed=%.2f hspeed=%.2f res_weight=%.2f asst=%.2f balav=%.0f balar=%.0f\n",
-  	submarine_vertical_speed,submarine_horizontal_speed, resulting_weight, assiette,
-    ballast_av_air, ballast_ar_air);
+  submarine_vertical_speed = resulting_weight/300.0 + submarine_horizontal_speed*sin(DEG_TO_RAD(-assiette));
+
   /* if depth rudders are in the same direction */
   if (barre_ar_angle != 0.0 && barre_av_angle != 0.0) {
   	if (fabs(barre_ar_angle)/barre_ar_angle == fabs(barre_av_angle)/barre_av_angle) {
@@ -741,6 +730,41 @@ static void updateDynamic() {
 			submarine_vertical_speed += a * submarine_horizontal_speed/30.0;
       }
   }
+
+  /* position */
+  submarine_x += submarine_horizontal_speed * cos(DEG_TO_RAD(assiette));
+  depth += submarine_vertical_speed;
+  if (depth < SURFACE_DEPTH)
+  	depth = SURFACE_DEPTH;
+  if (depth > MAX_DEPTH)
+  	depth = MAX_DEPTH;
+
+  /* if the submarine is too close from right, put it at left */
+  if ( submarine_x > WRAP_X )
+		submarine_x = 0.0;
+
+  {
+    double r[6],t1[6], t2[6];
+    double y = depth + SUBMARINE_HEIGHT/2 + SURFACE_IN_BACKGROUND - SUBMARINE_WIDTH/2.0*sin(DEG_TO_RAD(assiette));
+    printf( "depth=%d x=%.1f y=%.1f\n", (int) depth,submarine_x, y );
+    art_affine_translate( t1 , (double)-SUBMARINE_WIDTH/2.0, (double)-SUBMARINE_HEIGHT );
+    art_affine_rotate( r, -assiette );
+    art_affine_multiply( r, t1, r);
+    art_affine_translate( t2 , submarine_x, y );
+    art_affine_multiply( r, r, t2);
+    gnome_canvas_item_affine_absolute( submarine_item, r );
+  }
+
+  return TRUE;
+}
+/* =====================================================================
+ * Periodically recalculate some submarine parameters, with a slow delay
+ * =====================================================================*/
+static gboolean update_timeout_very_slow() {
+	/* battery */
+  setBattery(battery -= submarine_horizontal_speed*submarine_horizontal_speed/10.0);
+
+  return TRUE;
 }
 /* =====================================================================
  *
@@ -972,16 +996,16 @@ static gint engine_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
     {
     case GDK_BUTTON_PRESS:
     	if (d == UP) {
-        submarine_horizontal_speed += SPEED_STEP;
+        speed_ordered += SPEED_STEP;
       }
     	if (d == DOWN) {
-        submarine_horizontal_speed -= SPEED_STEP;
+        speed_ordered -= SPEED_STEP;
       }
-      if (submarine_horizontal_speed > SPEED_MAX)
-				submarine_horizontal_speed = SPEED_MAX;
-    	if (submarine_horizontal_speed < 0)
-      	submarine_horizontal_speed = 0;
-			setSpeed(submarine_horizontal_speed);
+      if (speed_ordered > SPEED_MAX)
+				speed_ordered = SPEED_MAX;
+    	if (speed_ordered < 0)
+      	speed_ordered = 0;
+      setSpeed(speed_ordered);
 			break;
 
     default:
@@ -1017,5 +1041,5 @@ static void setRegleur(double value) {
 	gnome_canvas_item_set(regleur_item_front, "text", s12, NULL);
 }
 static void setAssiette(double value) {
-	item_rotate(submarine_item, value);
+	item_rotate( submarine_item, -value );
 }

@@ -28,7 +28,8 @@ lib_LTLIBRARIES = \
 	libreversecount.la \
 	libshapegame.la \
 	libsmallnumbers.la \
-	libtarget.la \
+	libsubmarine.la \
+  libtarget.la \
 	libtraffic.la \
 	libwordsgame.la \
 	libadvanced_colors.la \
@@ -67,7 +68,7 @@ libalgebra_la_SOURCES = algebra.c
 libclockgame_la_LDFLAGS = -module -avoid-version
 libclockgame_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(XML_LIBS) $(INTLLIBS) 
+	$(XML_LIBS) $(INTLLIBS)
 
 libclockgame_la_SOURCES = clockgame.c
 
@@ -75,7 +76,7 @@ libclockgame_la_SOURCES = clockgame.c
 libshapegame_la_LDFLAGS = -module -avoid-version
 libshapegame_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(XML_LIBS) $(INTLLIBS) 
+	$(XML_LIBS) $(INTLLIBS)
 
 libshapegame_la_SOURCES = shapegame.c
 
@@ -177,7 +178,7 @@ librailroad_la_SOURCES = railroad.c
 liberase_la_LDFLAGS = -module -avoid-version
 liberase_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(XML_LIBS) $(INTLLIBS) 
+	$(XML_LIBS) $(INTLLIBS)
 
 liberase_la_SOURCES = erase.c
 
@@ -198,7 +199,7 @@ libleftright_la_SOURCES = leftright.c
 libcolors_la_LDFLAGS = -module -avoid-version
 libcolors_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libcolors_la_SOURCES = colors.c
 
@@ -226,35 +227,35 @@ libreversecount_la_SOURCES = reversecount.c
 libcanal_lock_la_LDFLAGS = -module -avoid-version
 libcanal_lock_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libcanal_lock_la_SOURCES = canal_lock.c
 
 libadvanced_colors_la_LDFLAGS = -module -avoid-version
 libadvanced_colors_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libadvanced_colors_la_SOURCES = advanced_colors.c
 
 libsuperbrain_la_LDFLAGS = -module -avoid-version
 libsuperbrain_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libsuperbrain_la_SOURCES = superbrain.c
 
 libread_colors_la_LDFLAGS = -module -avoid-version
 libread_colors_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libread_colors_la_SOURCES = read_colors.c
 
 libchess_la_LDFLAGS = -module -avoid-version
 libchess_la_LIBADD = @PTHREAD_LIB@
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libchess_la_SOURCES = chess.c chess_position.c chess_notation.c \
 	chess_notation.h chess_position.h chess_makros.h
@@ -286,6 +287,13 @@ libmachpuzzle_la_LIBADD = @PTHREAD_LIB@
 	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libmachpuzzle_la_SOURCES = machpuzzle.c
+
+libsubmarine_la_LDFLAGS = -module -avoid-version
+libsubmarine_la_LIBADD = @PTHREAD_LIB@
+	$(GCOMPRIS_LIBS)	\
+	$(GNOME_XML_LIB) $(INTLLIBS)
+
+libsubmarine_la_SOURCES = submarine.c
 
 libhanoi_la_LDFLAGS = -module -avoid-version
 libhanoi_la_LIBADD = @PTHREAD_LIB@
