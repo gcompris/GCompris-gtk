@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/11/05 00:31:00 bruno>
+ * Time-stamp: <2004/11/09 00:29:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -156,7 +156,8 @@ static Shape 		*create_shape(ShapeType type, char *name, char *tooltip,
 				      char *targetfile, double x, double y, double l, double h, double zoomx, 
 				      double zoomy, guint position, char *soundfile);
 static gboolean 	 increment_sublevel(void);
-static void 		 create_title(char *name, double x, double y, GtkJustification justification);
+static void 		 create_title(char *name, double x, double y, GtkJustification justification,
+				      guint32 color_rgba);
 static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint		 item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape);
 
@@ -1514,7 +1515,8 @@ add_shape_to_canvas(Shape *shape)
 
 }
 
-static void create_title(char *name, double x, double y, GtkJustification justification)
+static void create_title(char *name, double x, double y, GtkJustification justification,
+			 guint32 color_rgba)
 {
   GnomeCanvasItem *item;
 
@@ -1542,7 +1544,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			   "y", y,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", justification,
-			   "fill_color_rgba", gcompris_skin_color_text_button,
+			   "fill_color_rgba", color_rgba,
 			   NULL);
 
   gnome_canvas_item_raise_to_top(item);
@@ -1610,6 +1612,8 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   Shape *shape;
   xmlNodePtr xmlnamenode;
   char *locale;
+  char *color_text;
+  guint color_rgba;
 
   if(/* if the node has no name */
      !xmlnode->name ||
@@ -1735,6 +1739,14 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     }
   }
 
+  /* get the COLOR of the Title Specified by skin reference */
+  color_text = xmlGetProp(xmlnode,"color_skin");
+  if(color_text) {
+    color_rgba = gcompris_skin_get_color(color_text);
+  } else {
+    color_rgba = gcompris_skin_get_color("gcompris/content");	/* the default */
+  }
+
   /* get the name and tooltip of the shape */
   name    = NULL;
   tooltip = NULL;
@@ -1781,7 +1793,16 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     } 
   else if (g_strcasecmp(xmlnode->name,"Title")==0)
     {
-      create_title(name, x, y, justification_gtk);
+      /* Readd \n is needed */
+      gchar *newname;
+
+      if(name != NULL) {
+	newname = g_strcompress(name);
+
+	g_free(name);
+
+	create_title(newname, x, y, justification_gtk, color_rgba);
+      }
     }
   
 }

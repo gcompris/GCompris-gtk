@@ -1,3 +1,58 @@
+2004-11-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	release 6.3 final
+	
+	Also I fixed the too long text in chronos. Now shapes type activity have
+	a better textual color. I added the option
+	color_skin="gcompris/textbutton" in the shape xml format.
+	This way a Title can specify a color but I enforce the use of one from
+	the skin. Now by default Titles are of color skin:gcompris/content.
+
+	* boards/babymatch/board1_0.xml.in:
+	* boards/babymatch/board2_0.xml.in:
+	* boards/babymatch/board3_0.xml.in:
+	* boards/babymatch/board4_0.xml.in:
+	* boards/babymatch/board5_0.xml.in:
+	* boards/babymatch/board6_0.xml.in:
+	* boards/babymatch/board7_0.xml.in:
+	* boards/chronos/board3_0.xml.in:
+	* boards/imagename/board1_0.xml.in:
+	* boards/imagename/board2_0.xml.in:
+	* boards/imagename/board3_0.xml.in:
+	* boards/imagename/board4_0.xml.in:
+	* boards/imagename/board5_0.xml.in:
+	* boards/imagename/board6_0.xml.in:
+	* boards/menu.xml.in:
+	* boards/paintings/board1_0.xml.in:
+	* boards/paintings/board2_0.xml.in:
+	* boards/paintings/board3_0.xml.in:
+	* boards/paintings/board3_1.xml.in:
+	* boards/paintings/board4_0.xml.in:
+	* boards/paintings/board5_0.xml.in:
+	* boards/paintings/board6_0.xml.in:
+	* boards/scales/board1_0.xml.in:
+	* boards/scales/board1_1.xml.in:
+	* boards/scales/board1_2.xml.in:
+	* boards/scales/board1_3.xml.in:
+	* boards/scales/board1_4.xml.in:
+	* boards/scales/board1_5.xml.in:
+	* boards/scales/board2_0.xml.in:
+	* boards/scales/board2_1.xml.in:
+	* boards/scales/board2_2.xml.in:
+	* boards/scales/board2_3.xml.in:
+	* boards/scales/board2_4.xml.in:
+	* boards/scales/board2_5.xml.in:
+	* boards/scales/board3_0.xml.in:
+	* boards/scales/board3_1.xml.in:
+	* boards/scales/board3_2.xml.in:
+	* boards/scales/board3_3.xml.in:
+	* boards/scales/board3_4.xml.in:
+	* boards/scales/board3_5.xml.in:
+	* boards/skins/default/skin.xml:
+	* configure.in: release 6.3
+	* po/LINGUAS: removed, do not work with rpm creation
+	* src/boards/shapegame.c: (create_title), (add_xml_shape_to_data):
+
 2004-11-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/gletters.c: (gletters_create_item): By Alexey Lubimov 

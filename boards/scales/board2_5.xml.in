@@ -2,7 +2,7 @@
 <ShapeGame OkIfAddedName="17">
   <Shape name="1" pixmapfile="skin:gcompris-shapelabel.png" type="SHAPE_BACKGROUND"
 	 x="405" y="460" zoomx="1" zoomy="1" position="0"/>
-  <Title x="394" y="460" justification="GTK_JUSTIFY_CENTER">
+  <Title x="394" y="460" justification="GTK_JUSTIFY_CENTER" color_skin="gcompris/text button">
     <_name>Drag and Drop masses to equilibrate the scales</_name>
   </Title>
   <Shape name="M" pixmapfile="scales/masse.png" x="585" y="172" zoomx="1" zoomy="1" position="0" type="SHAPE_BACKGROUND"/>
