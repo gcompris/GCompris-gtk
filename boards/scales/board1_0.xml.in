@@ -2,7 +2,9 @@
 <ShapeGame>
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
 	 x="405" y="460" zoomx="1" zoomy="1" position="0"/>
-  <Title name="Set the masses in the decreasing order" x="394" y="460" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="394" y="460" justification="GTK_JUSTIFY_CENTER">
+    <_name>Set the masses in the decreasing order</_name>
+  </Title>
   <Shape name="M" pixmapfile="scales/masse.png" x="585" y="172" zoomx="1" zoomy="1" position="0" type="SHAPE_BACKGROUND"/>
   <Title name="5" x="585" y="180" justification="GTK_JUSTIFY_CENTER"/>
   <Shape name="B" pixmapfile="scales/scales.png" x="400" y="250" zoomx="1" zoomy="1" position="0" type="SHAPE_BACKGROUND"/>

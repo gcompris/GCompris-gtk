@@ -228,6 +228,7 @@ INTLTOOL_DIRECTORY_RULE='%.directory: %.directory.in $(INTLTOOL_MERGE) $(wildcar
     INTLTOOL_SHEET_RULE='%.sheet:     %.sheet.in     $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -x -u'
 INTLTOOL_SOUNDLIST_RULE='%.soundlist: %.soundlist.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -d -u'
       INTLTOOL_XML_RULE='%.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -x -u'
+    INTLTOOL_CAVES_RULE='%.caves:     %.caves.in     $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< [$]@ -d -u'
 
 AC_SUBST(INTLTOOL_DESKTOP_RULE)
 AC_SUBST(INTLTOOL_DIRECTORY_RULE)
@@ -238,6 +239,7 @@ AC_SUBST(INTLTOOL_SERVER_RULE)
 AC_SUBST(INTLTOOL_SHEET_RULE)
 AC_SUBST(INTLTOOL_SOUNDLIST_RULE)
 AC_SUBST(INTLTOOL_XML_RULE)
+AC_SUBST(INTLTOOL_CAVES_RULE)
 
 # Use the tools built into the package, not the ones that are installed.
 
@@ -3660,7 +3662,6 @@ AC_DEFUN([GNOME_INIT_HOOK],[
 	AC_SUBST(GTKXMHTML_LIBS)
 	AC_SUBST(GTKHTML_LIBS)
 	AC_SUBST(GNOME_XML_LIBS)
-	AC_SUBST(GNOME_XML_CFLAGS)
 	AC_SUBST(ZVT_LIBS)
 	AC_SUBST(GNOME_LIBDIR)
 	AC_SUBST(GNOME_INCLUDEDIR)
@@ -4285,7 +4286,6 @@ AC_DEFUN([GNOME_XML_HOOK],[
 	AC_CHECK_LIB(xml2, xmlNewDoc, [
 		$1
 		GNOME_XML_LIB=`$GNOME_CONFIG --libs xml2`
-		GNOME_XML_CFLAGS=`$GNOME_CONFIG --cflags xml2`
 	], [
 		if test x$2 = xfailure; then 
 			AC_MSG_ERROR(Could not link sample xml2 program)

@@ -1,8 +1,19 @@
 <?xml version="1.0"?>
 <ShapeGame>
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
-	 x="405" y="570" zoomx="1" zoomy="1" position="0"/>
-  <Title name="Drag and Drop the items to make them match"   x="394" y="570" justification="GTK_JUSTIFY_CENTER"/>
+	 x="405" y="460" zoomx="1" zoomy="1" position="0"/>
+  <Title   x="394" y="460" justification="GTK_JUSTIFY_CENTER">
+    <name>Drag and Drop the items to make them match</name>
+    <name xml:lang="az">Vahidləri oxşatmaq üçün vahidləiu Sürükləyib Buraxın</name>
+    <name xml:lang="de">Stelle die Bilder passend zusammen</name>
+    <name xml:lang="el">Μετακινείστε και Αποθέσατε τα κομμάτια για να τα κάνετε να ταιριάξουν</name>
+    <name xml:lang="es">Selecciona y mueve los elementos para que se asocien</name>
+    <name xml:lang="fi">Siirrä paloja ja rakenna maalaus</name>
+    <name xml:lang="fr">Attrape et fais glisser les éléments pour les faire correspondre</name>
+    <name xml:lang="lt">Nutempk daiktą prie jam tinkamo</name>
+    <name xml:lang="nl">Sleep de prentjes naar de juiste plaats</name>
+    <name xml:lang="sv">Dra och släpp föremålen för att få dem att passa</name>
+  </Title>
   <Shape name="A" pixmapfile="gcompris/misc/castle.png" type="SHAPE_BACKGROUND"
 	 x="194" y="200" zoomx="1" zoomy="1" position="0"/>
   <Shape name="D" pixmapfile="gcompris/misc/crown.png"

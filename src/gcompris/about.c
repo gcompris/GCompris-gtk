@@ -91,7 +91,10 @@ void gcompris_about_start ()
   gdk_pixbuf_unref(pixmap);
 
   // TITLE
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_TITLE);
+  if(!gdk_font)
+    // Fallback to a more usual font
+    gdk_font = gdk_font_load (FONT_TITLE_FALLBACK);
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
@@ -100,7 +103,7 @@ void gcompris_about_start ()
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
+				"fill_color_rgba", COLOR_TITLE,
 				NULL);
 
   // Version
@@ -113,11 +116,15 @@ void gcompris_about_start ()
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xB0040000,
+				"fill_color_rgba", COLOR_SUBTITLE,
 				NULL);
 
   // CONTENT
-  gdk_font2 = gdk_font_load ("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*");
+  gdk_font2 = gdk_font_load (FONT_CONTENT);
+  if(!gdk_font2)
+    // Fallback to a more usual font
+    gdk_font2 = gdk_font_load (FONT_CONTENT_FALLBACK);
+
   y_start += 180;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
@@ -126,7 +133,7 @@ void gcompris_about_start ()
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0x96105E00,
+				"fill_color_rgba", COLOR_CONTENT,
 				NULL);
 
   // Ofset Reference
@@ -153,7 +160,7 @@ void gcompris_about_start ()
 				"x", (double)  (BOARDWIDTH*0.25),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xB0040000,
+				"fill_color_rgba", COLOR_SUBTITLE,
 				NULL);
 
   // FSF Reference
@@ -180,7 +187,7 @@ void gcompris_about_start ()
 				"x", (double)  (BOARDWIDTH*0.75),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xB0040000,
+				"fill_color_rgba", COLOR_SUBTITLE,
 				NULL);
 
   // GCompris Reference
@@ -208,7 +215,7 @@ void gcompris_about_start ()
 				"x", (double)  (BOARDWIDTH*0.5),
 				"y", (double)  y_start + 30,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xB0040000,
+				"fill_color_rgba", COLOR_SUBTITLE,
 				NULL);
 
   // Copyright
@@ -219,7 +226,7 @@ void gcompris_about_start ()
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 85,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xB0040000,
+				"fill_color_rgba", COLOR_CONTENT,
 				NULL);
 
   // License
@@ -230,16 +237,16 @@ void gcompris_about_start ()
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 70,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", 0xB0040000,
+				"fill_color_rgba", COLOR_CONTENT,
 				NULL);
 
   // GCompris HELP
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_small.png");
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
 				"x", (double) BOARDWIDTH*0.3 - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
 				NULL);
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
@@ -256,21 +263,21 @@ void gcompris_about_start ()
 				"text", _("Help"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.3,
-				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
+				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
+				"fill_color_rgba", COLOR_TITLE,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     "help");
 
   // OK
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_small.png");
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
 				"x", (double) BOARDWIDTH*0.7 - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
 				NULL);
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
@@ -287,16 +294,19 @@ void gcompris_about_start ()
 				"text", _("OK"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.7,
-				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
+				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
+				"fill_color_rgba", COLOR_TITLE,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
 
   // About box content
-  gdk_font_small = gdk_font_load ("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*");
+  gdk_font_small = gdk_font_load (FONT_SUBTITLE);
+  if(!gdk_font_small)
+    // Fallback to a more usual font
+    gdk_font_small = gdk_font_load (FONT_SUBTITLE_FALLBACK);
 
   pixmap_about = gcompris_load_pixmap("gcompris/gcompris-about.png");
 

@@ -106,7 +106,10 @@ void gcompris_config_start ()
   gdk_pixbuf_unref(pixmap);
 
   // TITLE
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_TITLE);
+  if(!gdk_font)
+    // Fallback to a more usual font
+    gdk_font = gdk_font_load (FONT_TITLE_FALLBACK);
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
@@ -115,16 +118,16 @@ void gcompris_config_start ()
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
+				"fill_color_rgba", COLOR_TITLE,
 				NULL);
 
   // OK
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_small.png");
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
 				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
 				NULL);
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
@@ -139,9 +142,9 @@ void gcompris_config_start ()
 				"text", _("OK"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.5,
-				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 8,
+				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", "white",
+				"fill_color_rgba", COLOR_TITLE,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_ok,
@@ -150,7 +153,10 @@ void gcompris_config_start ()
 
 
   // Configuration content
-  gdk_font_small = gdk_font_load ("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*");
+  gdk_font_small = gdk_font_load (FONT_SUBTITLE);
+  if(!gdk_font_small)
+    // Fallback to a more usual font
+    gdk_font_small = gdk_font_load (FONT_SUBTITLE_FALLBACK);
 
   pixmap_checked   = gcompris_load_pixmap("gcompris/buttons/button_checked.png");
   pixmap_unchecked = gcompris_load_pixmap("gcompris/buttons/button_unchecked.png");
@@ -215,7 +221,7 @@ void gcompris_config_start ()
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
-					    "fill_color", "white",
+					    "fill_color_rgba", COLOR_CONTENT,
 					    NULL);
 
   // Fullscreen / Window
@@ -243,7 +249,7 @@ void gcompris_config_start ()
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color", "white",
+			 "fill_color_rgba", COLOR_CONTENT,
 			 NULL);
 
   // Music
@@ -271,7 +277,7 @@ void gcompris_config_start ()
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color", "white",
+			 "fill_color_rgba", COLOR_CONTENT,
 			 NULL);
 
   // Effect
@@ -299,7 +305,7 @@ void gcompris_config_start ()
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color", "white",
+			 "fill_color_rgba", COLOR_CONTENT,
 			 NULL);
 
 }

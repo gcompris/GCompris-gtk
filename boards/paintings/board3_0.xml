@@ -2,7 +2,9 @@
 <ShapeGame>
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
 	 x="405" y="495" zoomx="1" zoomy="1" position="0"/>
-  <Title name=" Pierre-Auguste RENOIR, Girls At The Piano - 1892" x="405" y="495" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="405" y="495" justification="GTK_JUSTIFY_CENTER">
+    <name> Pierre-Auguste Renoir, Girls At The Piano - 1892</name>
+  </Title>
   <Shape name="A" pixmapfile="paintings/level6/renoir-filles_piano-1.png" x="322" y="69" zoomx="1" zoomy="1" position="0"/>
   <Shape name="B" pixmapfile="paintings/level6/renoir-filles_piano-2.png" x="478" y="69" zoomx="1" zoomy="1" position="0"/>
   <Shape name="C" pixmapfile="paintings/level6/renoir-filles_piano-3.png" x="300" y="190" zoomx="1" zoomy="1" position="0"/>

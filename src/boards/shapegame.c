@@ -92,28 +92,28 @@ static GList *shape_list = NULL;
 static GHashTable *shapelist_table = NULL;
 static gint SHAPE_BOX_WIDTH_RATIO = 18;
 
-static GnomeCanvasItem *shape_root_item;
-static GnomeCanvasItem *shape_list_root_item;
+static GnomeCanvasItem	*shape_root_item;
+static GnomeCanvasItem	*shape_list_root_item;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
-static void process_ok(void);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void 		 pause_board (gboolean pause);
+static void 		 end_board (void);
+static gboolean 	 is_our_board (GcomprisBoard *gcomprisBoard);
+static void 		 set_level (guint level);
+static void 		 process_ok(void);
 
-static GnomeCanvasItem *shapegame_init_canvas(GnomeCanvasGroup *parent);
-static void shapegame_destroy_all_items(void);
-static void setup_item(GnomeCanvasItem *item, Shape *shape);
-static void shapegame_next_level(void);
-static gboolean read_xml_file(char *fname);
-static gboolean write_xml_file(char *fname);
-static Shape *find_closest_shape(double x, double y, double limit);
-static Shape *create_shape(ShapeType type, char *name, char *pixmapfile,  GnomeCanvasPoints* points,
-			   char *targetfile, double x, double y, double l, double h, double zoomx, 
-			   double zoomy, guint position);
-static void display_color_selector(GnomeCanvasGroup *parent);
-static gboolean increment_sublevel();
+static GnomeCanvasItem 	*shapegame_init_canvas(GnomeCanvasGroup *parent);
+static void 		 shapegame_destroy_all_items(void);
+static void 		 setup_item(GnomeCanvasItem *item, Shape *shape);
+static void 		 shapegame_next_level(void);
+static gboolean 	 read_xml_file(char *fname);
+static gboolean 	 write_xml_file(char *fname);
+static Shape 		*find_closest_shape(double x, double y, double limit);
+static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  GnomeCanvasPoints* points,
+				      char *targetfile, double x, double y, double l, double h, double zoomx, 
+				      double zoomy, guint position);
+static void 		 display_color_selector(GnomeCanvasGroup *parent);
+static gboolean 	 increment_sublevel();
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -1110,7 +1110,7 @@ create_shape(ShapeType type, char *name, char *pixmapfile, GnomeCanvasPoints* po
 
 
 static void
-add_xml_shape_to_data(xmlNodePtr xmlnode, GNode * child)
+add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *name, *cx, *cy, *cd, *czoomx, *czoomy, *cposition, *ctype, *justification;
   char *pixmapfile = NULL;
@@ -1122,6 +1122,7 @@ add_xml_shape_to_data(xmlNodePtr xmlnode, GNode * child)
   guint position;
   ShapeType type = SHAPE_TARGET;
   Shape *shape;
+  xmlNodePtr xmlnamenode;
 
   if(/* if the node has no name */
      !xmlnode->name ||
@@ -1134,9 +1135,6 @@ add_xml_shape_to_data(xmlNodePtr xmlnode, GNode * child)
      )
     return;
   
-  /* get the name of the shape */
-  name = xmlGetProp(xmlnode,"name");
-
   pixmapfile = xmlGetProp(xmlnode,"pixmapfile");
   /* if unspecified, make it UNDEFINED */
   if(!pixmapfile) pixmapfile = UNDEFINED;
@@ -1215,6 +1213,27 @@ add_xml_shape_to_data(xmlNodePtr xmlnode, GNode * child)
   justification = xmlGetProp(xmlnode,"justification");
   if(!justification) justification = "GTK_JUSTIFICATION_CENTER"; /* GTK_JUSTIFICATION_CENTER is default */
 
+  /* get the name of the shape */
+  name = NULL;
+
+  xmlnamenode = xmlnode->xmlChildrenNode;
+  while (xmlnamenode != NULL) {
+    gchar *lang = xmlGetProp(xmlnamenode,"lang");
+    /* get the name of the shape */
+    if (!strcmp(xmlnamenode->name, "name")
+	&& (lang==NULL
+	    || !strcmp(lang, gcompris_get_locale())
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
+      {
+	name = xmlNodeListGetString(doc, xmlnamenode->xmlChildrenNode, 1);
+	name = convertUTF8Toisolat1(name);
+      }
+    xmlnamenode = xmlnamenode->next;
+  }
+
+  /* If name is not given as an element, try to get it as a property */
+  if(!name)
+    name = xmlGetProp(xmlnode,"name");
 
   if(g_strcasecmp(xmlnode->name,"Shape")==0)
     {
@@ -1247,7 +1266,7 @@ parse_doc(xmlDocPtr doc)
   for(node = doc->children->children; node != NULL; node = node->next) {
     /* add the shape to the list, there are no children so
        we pass NULL as the node of the child */
-    add_xml_shape_to_data(node,NULL);
+    add_xml_shape_to_data(doc, node, NULL);
   }
   shuffle_shape_list();
 }

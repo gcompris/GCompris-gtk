@@ -2,8 +2,13 @@
 <ShapeGame>
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
 	 x="405" y="495" zoomx="1" zoomy="1" position="0"/>
-  <Title name="Kandinsky, Wassily, Composition VIII - 1923" x="405" y="485" justification="GTK_JUSTIFY_CENTER"/>
-  <Title name="Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York" x="405" y="505" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="405" y="485" justification="GTK_JUSTIFY_CENTER">
+    <name>Kandinsky, Wassily, Composition VIII - 1923</name>
+  </Title>
+  <Title x="405" y="505" justification="GTK_JUSTIFY_CENTER">
+    <name>Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York</name>
+    <name xml:lang="fr">Huile sur toile, 140 x 201 cm; Solomon R. Guggenheim Museum, New York</name>
+  </Title>
   <Shape name="A" pixmapfile="paintings//kandinky.comp8/puzzle1.png" x="168" y="150" zoomx="1" zoomy="1" position="0"/>
   <Shape name="B" pixmapfile="paintings//kandinky.comp8/puzzle2.png" x="335" y="150" zoomx="1" zoomy="1" position="0"/>
   <Shape name="C" pixmapfile="paintings//kandinky.comp8/puzzle3.png" x="502" y="122" zoomx="1" zoomy="1" position="0"/>

@@ -2,7 +2,9 @@
 <ShapeGame>
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
 	 x="405" y="495" zoomx="1" zoomy="1" position="0"/>
-  <Title name="DEGAS Village The Dancing Class 1873" x="394" y="495" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="394" y="495" justification="GTK_JUSTIFY_CENTER">
+    <name>Degas, The Dancing Class - 1873</name>
+  </Title>
   <Shape name="A" pixmapfile="paintings/level4/degas_class-dance_1.png" x="320" y="90"  zoomx="1" zoomy="1" position="0"/>
   <Shape name="B" pixmapfile="paintings/level4/degas_class-dance_2.png" x="513" y="88"  zoomx="1" zoomy="1" position="0"/>
   <Shape name="C" pixmapfile="paintings/level4/degas_class-dance_3.png" x="292" y="235" zoomx="1" zoomy="1" position="0"/>

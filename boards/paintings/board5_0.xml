@@ -2,7 +2,10 @@
 <ShapeGame>
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
 	 x="395" y="490" zoomx="1" zoomy="1" position="0"/>
-  <Title name="CASSAT Summertime 1895" x="395" y="490" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="395" y="490" justification="GTK_JUSTIFY_CENTER">
+    <name>CASSAT Summertime 1895</name>
+    <name xml:lang="fr">Cassat, l&apos;été - 1895</name>
+  </Title>
   <Shape name="C" pixmapfile="paintings/level2/cassat_summertime_3.jpg" x="598" y="130" zoomx="1" zoomy="1" position="0"/>
   <Shape name="A" pixmapfile="paintings/level2/cassat_summertime_1.jpg" x="199" y="130" zoomx="1" zoomy="1" position="0"/>
   <Shape name="E" pixmapfile="paintings/level2/cassat_summertime_5.jpg" x="399" y="351" zoomx="1" zoomy="1" position="0"/>

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/01/13 20:50:32 bruno>
+ * Time-stamp: <2002/02/09 15:11:10 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,8 +32,11 @@
 /* default gnome pixmap directory in which this game tales the icon */
 static char *lettersdir = "letters/";
 static pid_t ogg_pid = 0;
+static gboolean ogg_playing = FALSE;
 
 extern GnomeCanvas *canvas;
+
+typedef void (*sighandler_t)(int);
 
 GdkPixbuf *gcompris_load_operation_pixmap(char operation)
 {
@@ -97,40 +100,40 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 static void
 do_colorshift (GdkPixbuf *dest, GdkPixbuf *src, int shift)
 {
-	gint i, j;
-	gint width, height, has_alpha, srcrowstride, destrowstride;
-	guchar *target_pixels;
-	guchar *original_pixels;
-	guchar *pixsrc;
-	guchar *pixdest;
-	int val;
-	guchar r,g,b;
+  gint i, j;
+  gint width, height, has_alpha, srcrowstride, destrowstride;
+  guchar *target_pixels;
+  guchar *original_pixels;
+  guchar *pixsrc;
+  guchar *pixdest;
+  int val;
+  guchar r,g,b;
 
-	has_alpha = gdk_pixbuf_get_has_alpha (src);
-	width = gdk_pixbuf_get_width (src);
-	height = gdk_pixbuf_get_height (src);
-	srcrowstride = gdk_pixbuf_get_rowstride (src);
-	destrowstride = gdk_pixbuf_get_rowstride (dest);
-	target_pixels = gdk_pixbuf_get_pixels (dest);
-	original_pixels = gdk_pixbuf_get_pixels (src);
+  has_alpha = gdk_pixbuf_get_has_alpha (src);
+  width = gdk_pixbuf_get_width (src);
+  height = gdk_pixbuf_get_height (src);
+  srcrowstride = gdk_pixbuf_get_rowstride (src);
+  destrowstride = gdk_pixbuf_get_rowstride (dest);
+  target_pixels = gdk_pixbuf_get_pixels (dest);
+  original_pixels = gdk_pixbuf_get_pixels (src);
 
-	for (i = 0; i < height; i++) {
-		pixdest = target_pixels + i*destrowstride;
-		pixsrc = original_pixels + i*srcrowstride;
-		for (j = 0; j < width; j++) {
-			r = *(pixsrc++);
-			g = *(pixsrc++);
-			b = *(pixsrc++);
-			val = r + shift;
-			*(pixdest++) = CLAMP(val, 0, 255);
-			val = g + shift;
-			*(pixdest++) = CLAMP(val, 0, 255);
-			val = b + shift;
-			*(pixdest++) = CLAMP(val, 0, 255);
-			if (has_alpha)
-				*(pixdest++) = *(pixsrc++);
-		}
-	}
+  for (i = 0; i < height; i++) {
+    pixdest = target_pixels + i*destrowstride;
+    pixsrc = original_pixels + i*srcrowstride;
+    for (j = 0; j < width; j++) {
+      r = *(pixsrc++);
+      g = *(pixsrc++);
+      b = *(pixsrc++);
+      val = r + shift;
+      *(pixdest++) = CLAMP(val, 0, 255);
+      val = g + shift;
+      *(pixdest++) = CLAMP(val, 0, 255);
+      val = b + shift;
+      *(pixdest++) = CLAMP(val, 0, 255);
+      if (has_alpha)
+	*(pixdest++) = *(pixsrc++);
+    }
+  }
 }
 
 
@@ -138,19 +141,19 @@ do_colorshift (GdkPixbuf *dest, GdkPixbuf *src, int shift)
 static GdkPixbuf *
 make_hc_pixbuf(GdkPixbuf *pb, gint val)
 {
-	GdkPixbuf *new;
-	if(!pb)
-		return NULL;
+  GdkPixbuf *new;
+  if(!pb)
+    return NULL;
 
-	new = gdk_pixbuf_new(gdk_pixbuf_get_colorspace(pb),
-			     gdk_pixbuf_get_has_alpha(pb),
-			     gdk_pixbuf_get_bits_per_sample(pb),
-			     gdk_pixbuf_get_width(pb),
-			     gdk_pixbuf_get_height(pb));
-	do_colorshift(new, pb, val);
-	/*do_saturate_darken (new, pb, (int)(1.00*255), (int)(1.15*255));*/
+  new = gdk_pixbuf_new(gdk_pixbuf_get_colorspace(pb),
+		       gdk_pixbuf_get_has_alpha(pb),
+		       gdk_pixbuf_get_bits_per_sample(pb),
+		       gdk_pixbuf_get_width(pb),
+		       gdk_pixbuf_get_height(pb));
+  do_colorshift(new, pb, val);
+  /*do_saturate_darken (new, pb, (int)(1.00*255), (int)(1.15*255));*/
 
-	return new;
+  return new;
 }
 
 
@@ -212,64 +215,114 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, void *unu
   return FALSE;
 }
 
+/*
+ * Generic code to remove zombie processes
+ */
+void zombie_cleanup(void)
+{
+  int pid;
+  while((pid = waitpid(-1, NULL, WNOHANG)))
+    {
+      if(pid == -1)
+	{
+	  g_error("Error waitpid");
+	}
+    }
+}
+
+/*
+ * Process the cleanup of the child (no zombies)
+ * And update our status as not playing ogg
+ */
+void child_end(int  signum)
+{
+  int pid;
+
+  pid = waitpid(ogg_pid, NULL, WNOHANG);
+  if(pid == -1)
+    {
+      g_error("Error waitpid");
+    }
+
+  ogg_playing = FALSE;
+}
+
 /* =====================================================================
  * Play a list of OGG sound files. The list must be NULL terminated
  * should have used threads instead of fork + exec calls
-   ======================================================================*/
+ * The given ogg files will be first tested as a locale dependant sound file:
+ * sounds/<current gcompris locale>/<sound>
+ * If it doesn't exists, then the test is done with a music file:
+ * music/<sound>
+ ======================================================================*/
 void gcompris_play_ogg(char *sound, ...) {
-	va_list ap;
-	char * s = NULL;
-	char *argv[20];
-	char locale[3];
-	int argc = 0;
+  va_list ap;
+  char * s = NULL;
+  char *argv[20];
+  char locale[3];
+  int argc = 0;
 
-	if (!gcompris_get_properties()->fx)
-		return;
+  if (!gcompris_get_properties()->fx)
+    return;
 
-	strncpy(locale,gcompris_get_locale(),2);
-	locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+  if(ogg_playing)
+      return;
 
-	// first kill the previous process playing an ogg file
-	if (ogg_pid)
-			kill(ogg_pid, SIGKILL);
+  /*
+   * We are not playing an ogg, play the requested one
+   */
 
-	ogg_pid = fork ();
+  /* Now we are playing an ogg */
+  ogg_playing = TRUE;
 
-	if (ogg_pid > 0) { // go back to gcompris
-								waitpid(-1, NULL, WNOHANG);
-                return;
-        } else if (ogg_pid == 0) { // child process
+  strncpy(locale,gcompris_get_locale(),2);
+  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
 
-		argv[0] = "ogg123";
-		argv[1] = "-v";
-		argc = 2;
-		argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
-		if (g_file_exists (argv[argc])) {
-		  printf("trying to play %s\n", argv[argc]);
-		  argc++;
-		}
-		else
-		  g_free(argv[argc]);
+  signal(SIGCHLD, child_end);
 
-		va_start( ap, sound);
-		while( (s = va_arg (ap, char *))) {
-			argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
-			printf("trying to play %s\n", argv[argc]);
+  ogg_pid = fork ();
 
-			if (!g_file_exists (argv[argc])) {
-				g_warning (_("Couldn't find file %s !"), argv[argc]);
-				g_free(argv[argc]);
-				//				continue;
-			}
-			else
-			  argc ++;
-		}
-		va_end(ap);
-		argv[argc] = NULL;
-		execvp( "ogg123", argv);
-        } else {
-                fprintf(stderr, "Unable to fork\n");
-        }
+  if (ogg_pid > 0) { // go back to gcompris
+    return;
+  } else if (ogg_pid == 0) { // child process
+    argc = 0;
+    argv[argc++] = "ogg123";
+    //    argv[argc++] = "-v";
+    argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
+    if (g_file_exists (argv[argc])) {
+      printf("trying to play %s\n", argv[argc]);
+      argc++;
+    } else {
+      g_free(argv[argc]);
+      argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", sound);
+      if (g_file_exists (argv[2])) {
+	printf("trying to play %s\n", argv[argc]);
+	argc++;
+      } else 
+	g_free(argv[argc]);
+    }
+
+    va_start( ap, sound);
+    while( (s = va_arg (ap, char *))) {
+      argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
+      printf("trying to play %s\n", argv[argc]);
+      if (!g_file_exists (argv[argc]))
+	argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
+
+      if (!g_file_exists (argv[argc])) {
+	g_warning (_("Couldn't find file %s !"), argv[argc]);
+	g_free(argv[argc]);
+	//				continue;
+      }
+      else
+	argc ++;
+    }
+    va_end(ap);
+    argv[argc] = NULL;
+    execvp( "ogg123", argv);
+  } else {
+    fprintf(stderr, "Unable to fork\n");
+  }
 }
 
 /* Play a sound installed in the Gnome sound list */
@@ -383,7 +436,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	gcomprisBoard->manual = convertUTF8Toisolat1(gcomprisBoard->manual);
       }
 
-      xmlnode = xmlnode->next;
+    xmlnode = xmlnode->next;
   }
 
 }
@@ -399,7 +452,7 @@ parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard)
   for(node = doc->children->children; node != NULL; node = node->next) {
     /* add the board to the list, there are no children so
        we pass NULL as the node of the child */
-     gcompris_add_xml_to_data(doc, node, NULL, gcomprisBoard);
+    gcompris_add_xml_to_data(doc, node, NULL, gcomprisBoard);
   }
 }
 

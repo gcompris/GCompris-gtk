@@ -82,6 +82,21 @@ GnomeCanvas     *gcompris_get_canvas();
 gchar	        *gcompris_get_locale();
 void		 gcompris_set_locale(gchar *locale);
 
+/*=========================================================*/
+/* Some global definition to keep a constant look and feel */
+/* Boards coders are invited to use them                   */
+#define COLOR_TITLE		0x0F0FC000
+#define COLOR_TEXT_BUTTON       0x0F0FC000
+#define COLOR_CONTENT		0x0D0DFA00
+#define COLOR_SUBTITLE		0xB0040000
+
+#define FONT_TITLE		"-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
+#define FONT_TITLE_FALLBACK	"-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
+#define FONT_SUBTITLE		"-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
+#define FONT_SUBTITLE_FALLBACK	"-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
+#define FONT_CONTENT		"-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
+#define FONT_CONTENT_FALLBACK	"-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
+
 #endif
 
 /* Local Variables: */

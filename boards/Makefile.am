@@ -1,4 +1,4 @@
-SUBDIRS = scales missing_letter
+SUBDIRS = babymatch missing_letter paintings scales
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 

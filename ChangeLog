@@ -1,13 +1,30 @@
+2002-02-10  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gameutil.c: Changed gcompris_play_ogg to play non localized ogg files
+	* Makefile.am: created dist-core and dist-sounds target
+	* create_dist_sounds: created, use to created by locale sound tar
+	* src/gcompris/gameutil.c: fixed play_ogg to catch sigchld and avoid multiple ogg play and zombies
+	* src/gcompris/help.c: changed to behave like tabs widget
+	* src/gcompris/about.c: changed fonts and OK button width
+	* src/gcompris/config.c: changed fonts and OK button width
+	* boards/*.xml.in: changed author reference from at to @ in the email adress
+	* src/boards/shapegame.c: changed to allow title name to be i18nized
+	* boards/paintings/*.xml.in: created .in files to allow i18n titles
+	* boards/babymatch/*.xml.in: created .in files to allow i18n titles. Fixed title coord.
+	* boards/scale/*.xml.in: modified .in files to use i18n titles
+
 2002-02-10 Pascal Georges <pascal.georges1@free.fr>
-  * Changed smiley_good and smiley_bad pictures (made with kpovmodeler & povray)
+
+	* Changed smiley_good and smiley_bad pictures (made with kpovmodeler & povray)
 
 2002-02-09 Pascal Georges <pascal.georges1@free.fr>
-  * Changed 2 pictures : banana.png (I took a photo) and ballon.png (made with povray)
-  * Modified readingh & readingv to give some feedback when the answer is submited
+	
+	* Changed 2 pictures : banana.png (I took a photo) and ballon.png (made with povray)
+	* Modified readingh & readingv to give some feedback when the answer is submited
 	* Added a TESTS file in root directory to keep track of board tests
 
 2002-02-08 Pascal Georges <pascal.georges1@free.fr>
-  * Before playing a new ogg file, the previous play is killed, even if not finished
+	* Before playing a new ogg file, the previous play is killed, even if not finished
 	  to avoid a bunch of pending sounds, which are rapidly meaningless
 
 2002-02-07 Pascal Georges <pascal.georges1@free.fr>

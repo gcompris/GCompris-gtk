@@ -2,7 +2,9 @@
 <ShapeGame>
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
 	 x="405" y="460" zoomx="1" zoomy="1" position="0"/>
-  <Title name="BAZILLE The Ramparts at Aigues-Mortes 1867" x="405" y="460" justification="GTK_JUSTIFY_CENTER"/>
+  <Title x="405" y="460" justification="GTK_JUSTIFY_CENTER">
+    <name>Bazille, The Ramparts at Aigues-Mortes - 1867</name>
+  </Title>
   <Shape name="F" pixmapfile="paintings/level1/bazille_rampart_6.jpg" x="606" y="331" zoomx="1" zoomy="1" position="0"/>
   <Shape name="B" pixmapfile="paintings/level1/bazille_rampart_2.jpg" x="403" y="150" zoomx="1" zoomy="1" position="0"/>
   <Shape name="E" pixmapfile="paintings/level1/bazille_rampart_5.jpg" x="403" y="331" zoomx="1" zoomy="1" position="0"/>
