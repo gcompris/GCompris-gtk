@@ -117,7 +117,7 @@ class Gcompris_anim:
     # Drawing area is editing image area
     # Palying area is playing map 
     self.drawing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 78]
-    self.playing_area = [ 70.0, 20.0,  gcompris.BOARD_WIDTH - 69, gcompris.BOARD_HEIGHT - 78]
+    self.playing_area = [124.0, 20.0, gcompris.BOARD_WIDTH - 15, gcompris.BOARD_HEIGHT - 78]
 
     # Global used for the select event
     self.in_select_ofx = -1
@@ -126,6 +126,11 @@ class Gcompris_anim:
     # The error root item
     self.root_erroritem = []
 
+    # The frame counter
+    self.item_frame_counter = []
+    self.current_image = 0
+    
+    
   def start(self):  
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
@@ -164,7 +169,7 @@ class Gcompris_anim:
     self.rootitem.destroy()
     self.root_drawingitem.destroy()
     self.root_playingitem.destroy()
-        # Delete error previous mark if any
+    # Delete error previous mark if any
     if(self.root_erroritem):
       self.root_erroritem.destroy()
 
@@ -193,7 +198,10 @@ class Gcompris_anim:
       pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.jpg"),
       x=5,
       y=20.0,
-      width=30.0
+      width=100.0,
+      height=423.0,
+      width_set=True,
+      height_set=True
       )
 
     x1=11.0
@@ -227,6 +235,9 @@ class Gcompris_anim:
 
   # Event when a tool is selected
   def tool_item_event(self, item, event, tool):
+    if self.running:
+      return
+    
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         # unselect object if necessary
@@ -288,6 +299,9 @@ class Gcompris_anim:
 
   # Color event
   def color_item_event(self, item, event, color):
+    if self.running:
+      return
+    
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         # Deactivate old button
@@ -330,14 +344,10 @@ class Gcompris_anim:
     self.draw_grid(x1,x2,y1,y2,step)
 
     self.flash = self.rootitem.add (
-      gnome.canvas.CanvasRect,
-      x1=x1,
-      y1=y1,
-      x2=x2,
-      y2=y2,
-      fill_color_rgba=0xf4dd2c10L,
-      width_units=2.0,
-      outline_color_rgba=0x111199FFL
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/camera.png"),
+      x=300,
+      y=200,
       )
     self.flash.hide()
 
@@ -368,63 +378,44 @@ class Gcompris_anim:
       width_units=2.0,
       outline_color_rgba=0x111199FFL
       )
-    item.connect("event", self.playing_event)
-
-    run = self.root_playingitem.add(
-      gnome.canvas.CanvasPixbuf,
-#      pixbuf = gcompris.utils.load_pixmap(self.gcomprisBoard.icon_name),
-      pixbuf = gcompris.utils.load_pixmap("boardicons/anim.png"),
-#      x = gcompris.BOARD_WIDTH - 60,
-      x = 11,
-      y = 20 ,
-      width = 60,
-      height = 60,
-      width_set = 1,
-      height_set = 1
-      )
-    run.connect("event", self.playing_event)
+    item.connect("event", self.playing_event, False)
 
     # intervall = 1000 / anim_speed
     self.anim_speed=5
 
     run = self.root_playingitem.add(
       gnome.canvas.CanvasPixbuf,
-#      pixbuf = gcompris.utils.load_pixmap(self.gcomprisBoard.icon_name),
-      pixbuf = gcompris.utils.load_pixmap("submarine/up.png"),
-#      x = gcompris.BOARD_WIDTH - 60,
-      x = 10,
-      y = 100 ,
-      width = 20,
-      height = 20,
-      width_set = 1,
-      height_set = 1
-      )
-    run.connect("event", self.speed_event,True)
-
-    self.speed_item = self.root_playingitem.add(
-      gnome.canvas.CanvasText,
-      text=self.anim_speed,
-      font=gcompris.skin.get_font("gcompris/content"),
-      x=38,
-      y=100,
-      anchor=gtk.ANCHOR_CENTER,
-      fill_color_rgba=0xFFFFFFFFL
-      )
-
-
-    run = self.root_playingitem.add(
-      gnome.canvas.CanvasPixbuf,
-#      pixbuf = gcompris.utils.load_pixmap(self.gcomprisBoard.icon_name),
       pixbuf = gcompris.utils.load_pixmap("submarine/down.png"),
-#      x = gcompris.BOARD_WIDTH - 60,
-      x = 46,
-      y = 100,
+      x = 15,
+      y = 410,
       width = 20,
       height = 20,
       width_set = 1,
       height_set = 1
       )
     run.connect("event", self.speed_event,False)
+
+    self.speed_item = self.root_playingitem.add(
+      gnome.canvas.CanvasText,
+      text=self.anim_speed,
+      font = gcompris.skin.get_font("gcompris/board/medium"),
+      x=52,
+      y=420,
+      anchor=gtk.ANCHOR_CENTER,
+      )
+
+
+    run = self.root_playingitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("submarine/up.png"),
+      x = 70,
+      y = 410,
+      width = 20,
+      height = 20,
+      width_set = 1,
+      height_set = 1
+      )
+    run.connect("event", self.speed_event,True)
 
     
     self.root_anim = self.root_playingitem.add(
@@ -917,10 +908,10 @@ class Gcompris_anim:
 
   def AnimShot(self, modele):
       shot = self.root_anim.add(
-      gnome.canvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
+        gnome.canvas.CanvasGroup,
+        x=0.0,
+        y=0.0
+        )
 
       # tous ls objets de premiers niveau sont des canvasGroup;
       # il contiennent soit les listes d'objets,
@@ -928,6 +919,7 @@ class Gcompris_anim:
       for item in modele.item_list:
         self.clone(shot,item)
       shot.hide()
+      self.current_image+=1
 
   def clone(self, parent, item):
     cloned= parent.add(
@@ -967,6 +959,7 @@ class Gcompris_anim:
     self.current_image=(self.current_image+1)%(len(self.cartoon))
     if self.running:
       self.cartoon[self.current_image].show()
+      self.item_frame_counter.set(text=self.current_image + 1)
     return self.running
 
   def AnimRun(self):
@@ -974,7 +967,7 @@ class Gcompris_anim:
     if len(self.cartoon)==0:
       print "Mmm... Need to make shots before run anim !!"
       return
-    self.rootitem.hide()
+#    self.rootitem.hide()
     self.root_playingitem.show()
     self.cartoon[0].show()
     self.current_image=0
@@ -983,19 +976,23 @@ class Gcompris_anim:
 
   def snapshot_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
+      gtk.timeout_add(1000, self.run_flash)
       self.flash.show()
-      gobject.timeout_add(100, self.run_flash)
       self.AnimShot(self.root_drawingitem)
+      self.item_frame_counter.set(text=self.current_image + 1)
+      print "snapshot_event"
 
   def run_flash(self):
+    print "run_flash"
     self.flash.hide()
     return False
 
-  def playing_event(self, item, event):
+  def playing_event(self, item, event, state):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      if not self.running:
-        self.running=True
-	self.AnimRun()
+      if state:
+        if not self.running:
+          self.running=True
+          self.AnimRun()
       else:
         self.running=False
         self.root_playingitem.hide()
@@ -1004,34 +1001,142 @@ class Gcompris_anim:
 
   # Display the animation tools
   def draw_animtools(self):
+    x_left = 8
+    y_top  = 456
+    minibutton_width = 32
+    minibutton_height = 20
 
-    snapshot = self.rootitem.add(
+    # Draw the background area
+    self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("anim/camera.png"),
-#      x = gcompris.BOARD_WIDTH - 60,
-      x = 11,
-      y = 50 + len(self.tools)/2*45 ,
-      width = 60,
-      height = 60,
-      width_set = 1,
-      height_set = 1
+      pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.jpg"),
+      x=x_left-3,
+      y=y_top - 6,
+      width=100.0,
+      height=67.0,
+      width_set=True,
+      height_set=True
       )
-    snapshot.connect("event", self.snapshot_event)
+
+    # First
+    self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+      x = x_left,
+      y = y_top,
+      )
+    self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = "<<",
+      x = x_left + 14,
+      y = y_top + 7,
+      )
+
+    # Image Number
+    self.item_frame_counter = self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = self.current_image + 1,
+      x = x_left + minibutton_width + 14,
+      y = y_top + 15,
+      font = gcompris.skin.get_font("gcompris/board/medium"))
+
+    # Last
+    self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+      x = x_left + 2*minibutton_width,
+      y = y_top,
+      )
+    self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = ">>",
+      x = x_left + 2*minibutton_width + 14,
+      y = y_top + 7,
+      )
+
+    # Next line
+    y_top += minibutton_height
+    
+    # Previous
+    self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+      x = x_left,
+      y = y_top,
+      )
+    self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = "<",
+      x = x_left + 14,
+      y = y_top + 7,
+      )
+
+    # Next
+    self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+      x = x_left + 2*minibutton_width,
+      y = y_top,
+      )
+    self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = ">",
+      x = x_left + 2*minibutton_width + 14,
+      y = y_top + 7,
+      )
+
+    # Last button line
+    y_top += minibutton_height
+
+    # Stop
+    item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+      x = x_left,
+      y = y_top,
+      )
+    item.connect("event", self.playing_event, False)
+    item = self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = "O",
+      x = x_left + 14,
+      y = y_top + 7,
+      )
+    item.connect("event", self.playing_event, False)
+    
+    # Play
+    item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+      x = x_left + minibutton_width,
+      y = y_top,
+      )
+    item.connect("event", self.playing_event, True)
+    item = self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = "->",
+      x = x_left + minibutton_width + 14,
+      y = y_top + 7,
+      )
+    item.connect("event", self.playing_event, True)
+
+    # Snapshot (record)
+    item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+      x = x_left + 2*minibutton_width,
+      y = y_top,
+      )
+    item.connect("event", self.snapshot_event)
+    item = self.rootitem.add(
+      gnome.canvas.CanvasText,
+      text = "+",
+      x = x_left + 2*minibutton_width + 14,
+      y = y_top + 7,
+      )
+    item.connect("event", self.snapshot_event)
 
     self.running = False
-
-    run = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("boardicons/anim.png"),
-#      x = gcompris.BOARD_WIDTH - 60,
-      x = 11,
-      y = 110 + len(self.tools)/2*45 ,
-      width = 60,
-      height = 60,
-      width_set = 1,
-      height_set = 1
-      )
-    run.connect("event", self.playing_event)
 
   def object_move(self,object,dx,dy):
     if gobject.type_name(object.item_list[0])=="GnomeCanvasLine":
@@ -1119,6 +1224,9 @@ class Gcompris_anim:
 
       
   def resize_item_event(self, item, event, anchor_type):
+    if self.running:
+      return
+    
     if event.state & gtk.gdk.BUTTON1_MASK:
       # warning: anchor is in a group of anchors, wich is in the object group
       parent=item.get_property("parent").get_property("parent")
