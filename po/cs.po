@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-27 10:55+0200\n"
-"PO-Revision-Date: 2004-10-27 13:30+0200\n"
+"POT-Creation-Date: 2004-11-03 02:54+0100\n"
+"PO-Revision-Date: 2004-11-03 13:20+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -964,32 +964,32 @@ msgid "Place the lands"
 msgstr "Umísti země"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Afika"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "Amerika"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Antarktida"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Ásie"
+
+#: boards/geography/board1_0.xml.in.h:5
 msgid "Continents"
 msgstr "Kontinenty"
 
-#: boards/geography/board1_0.xml.in.h:2
-msgid "africa"
-msgstr "Afika"
-
-#: boards/geography/board1_0.xml.in.h:3
-msgid "america"
-msgstr "Amerika"
-
-#: boards/geography/board1_0.xml.in.h:4
-msgid "antartica"
-msgstr "Antarktida"
-
-#: boards/geography/board1_0.xml.in.h:5
-msgid "asia"
-msgstr "Ásie"
-
 #: boards/geography/board1_0.xml.in.h:6
-msgid "europa"
+msgid "Europa"
 msgstr "Evropa"
 
 #: boards/geography/board1_0.xml.in.h:7
-msgid "oceania"
-msgstr "oceánie"
+msgid "Oceania"
+msgstr "Oceánie"
 
 #: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
@@ -2846,7 +2846,7 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/about.c:316 src/gcompris/config.c:207
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2918,173 +2918,177 @@ msgid "French"
 msgstr "Francouzština"
 
 #: src/gcompris/config.c:78
+msgid "Irish (Gaelic)"
+msgstr "Irština (galská)"
+
+#: src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "Hebrejština"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Indian (Hindi)"
 msgstr "Indský (Hindi)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
 msgstr "Indský (Punjabi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Maďarština"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Chorvatština"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italština"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malajština"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Holandština"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Norwegian Bokmal"
 msgstr "Norština Bokmal"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Nynorsk"
 msgstr "Norština Nynorsk"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Polština"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Brazilská portugalština"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Albanian"
 msgstr "Albánština"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Serbian"
 msgstr "Srbština"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Walloon"
 msgstr "Valonština"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:117
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "No filter"
 msgstr "Žádný filtr"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "Only this level"
 msgstr "Jen tato úroveň"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Up to this level"
 msgstr "Do této úrovně"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "This level and above"
 msgstr "Tato úroveň a vyšší"
 
-#: src/gcompris/config.c:180
+#: src/gcompris/config.c:181
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:289
+#: src/gcompris/config.c:290
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:332
+#: src/gcompris/config.c:333
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:360
+#: src/gcompris/config.c:361
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:394
+#: src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:415
+#: src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "V %s nenalezen skin\n"
 
-#: src/gcompris/config.c:430 src/gcompris/config.c:815
-#: src/gcompris/config.c:826
+#: src/gcompris/config.c:431 src/gcompris/config.c:816
+#: src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
