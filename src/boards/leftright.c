@@ -223,13 +223,12 @@ static void leftright_destroy_all_items() {
  * =====================================================================*/
 static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   GdkFont *gdk_font;
-  GdkPixbuf *pixmap = NULL;
   GdkPixbuf *highlight_pixmap = NULL;
   GdkPixbuf *hand_pixmap = NULL;
   char *str = NULL;
 	int i;
 
-  boardRootItem = GNOME_CANVAS_GROUP(
+	boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
@@ -237,7 +236,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 							    NULL));
 
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
-	
+
   left_text_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", _("left"),
@@ -314,7 +313,6 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 
   g_free(str);
 
-	gdk_pixbuf_unref(pixmap);
   gdk_pixbuf_unref(highlight_pixmap);
   gdk_pixbuf_unref(hand_pixmap);
 
