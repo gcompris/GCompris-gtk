@@ -1,6 +1,7 @@
 # translation of de.po to 
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -11,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-30 19:17+0100\n"
-"PO-Revision-Date: 2004-11-30 19:28+0100\n"
+"POT-Creation-Date: 2004-12-05 12:16+0100\n"
+"PO-Revision-Date: 2004-12-05 12:22+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -686,9 +687,9 @@ msgid ""
 "http://www.wikipedia.org"
 msgstr ""
 "Plaziere jedes Bild in der Reihenfolge und\n"
-" auf das Datum, an dem es erfunden wurde.\n"
-" Wenn Du Dir unsicher bist, kannst Du im Internet unter\n"
-" http://www.wikipedia.org nachschlagen."
+"auf das Datum, an dem es erfunden wurde.\n"
+"Wenn Du Dir unsicher bist, kannst Du im Internet unter\n"
+"http://www.wikipedia.org nachschlagen."
 
 #: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -1754,8 +1755,8 @@ msgid ""
 "    2 Stars - 4 to 5 years old\n"
 "    3 Stars - 6 to 7 years old"
 msgstr ""
-"Ein einfacher Klick auf ein Symbol führt zu einer Tafel oder einem "
-"weiteren Menü.\n"
+"Ein einfacher Klick auf ein Symbol führt zu einer Tafel oder einem weiteren "
+"Menü.\n"
 "Am unteren Rand befindet sich die Kontroll-Leiste von GCompris.\n"
 "Die folgenden Symbole werden von rechts nach links angezeigt. Beachte, dass "
 "die Symbole nur dann angezeigt werden, wenn sie auch in der aktuellen Tafel "
@@ -2949,7 +2950,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -3129,70 +3130,74 @@ msgstr "Türkisch"
 msgid "Walloon"
 msgstr "Wallonisch"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Chinesisch (Vereinfacht)"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "Kein Filter"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Nur diese Ebene"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Bis zu dieser Ebene"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "Diese Ebene und höher"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Keine Verkleidung in %s gefunden\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
