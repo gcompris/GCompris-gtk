@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/03/27 01:30:45 bruno>
+ * Time-stamp: <2005/03/31 23:34:02 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -84,6 +84,7 @@ static int popt_version		  = FALSE;
 static int popt_aalias		  = FALSE;
 static int popt_difficulty_filter = FALSE;
 static int popt_debug		  = FALSE;
+static int popt_noxrandr	  = FALSE;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -104,6 +105,8 @@ static struct poptOption options[] = {
    N_("Print the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
    N_("Use the antialiased canvas (slower)."), NULL},
+  {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
+   N_("Disable XRANDR (No screen resolution change)."), NULL},
 #ifndef WIN32
   POPT_AUTOHELP
 #endif
@@ -276,12 +279,14 @@ static void init_background()
   int i;
 
 #ifdef XRANDR
-  xrandr = g_new0 (XRANDRData, 1);
-  xrandr_get_config ( xrandr );
-  xr_previous_size = (SizeID)xrandr->xr_current_size;
-
   /* Search the 800x600 Resolution */
-  if(properties->fullscreen) {
+  printf("properties->noxrandr=%d\n", properties->noxrandr);
+  if(properties->fullscreen && !properties->noxrandr) {
+
+    xrandr = g_new0 (XRANDRData, 1);
+    xrandr_get_config ( xrandr );
+    xr_previous_size = (SizeID)xrandr->xr_current_size;
+
     for (i = 0; i < xrandr->xr_nsize; i++) {
       if(xrandr->xr_sizes[i].width == BOARDWIDTH, xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
 	xrandr->xr_current_size = (SizeID)i;
@@ -289,9 +294,12 @@ static void init_background()
 	break;
       }
     }
+    screen_height = xrandr->xr_sizes[xrandr->xr_current_size].height;
+    screen_width  = xrandr->xr_sizes[xrandr->xr_current_size].width;
+  } else {
+  screen_height = gdk_screen_height();
+  screen_width  = gdk_screen_width();
   }
-  screen_height = xrandr->xr_sizes[xrandr->xr_current_size].height;
-  screen_width  = xrandr->xr_sizes[xrandr->xr_current_size].width;
 #else
   screen_height = gdk_screen_height();
   screen_width  = gdk_screen_width();
@@ -842,6 +850,11 @@ gcompris_init (int argc, char *argv[])
   if (popt_fullscreen)
     {
       properties->fullscreen = TRUE;
+    }
+
+  if (popt_noxrandr)
+    {
+      properties->noxrandr = TRUE;
     }
 
   if (popt_window)
