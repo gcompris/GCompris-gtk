@@ -22,6 +22,8 @@
 #include "bonus.h"
 
 #define SOUNDLISTFILE PACKAGE
+#define BONUS_DURATION 2000
+#define TUXPLANE_TIME_STEP 300
 
 static GnomeCanvasItem *bonus_item = NULL;
 static GnomeCanvasItem *door1_item = NULL;
@@ -125,7 +127,7 @@ void board_finished() {
   gdk_pixbuf_unref(pixmap_door2);
   gdk_pixbuf_unref(pixmap_tuxplane);
 
-  board_finished_id = gtk_timeout_add (300, (GtkFunction) end_board_finished, NULL);
+  board_finished_id = gtk_timeout_add (TUXPLANE_TIME_STEP, (GtkFunction) end_board_finished, NULL);
 }
 
 /* ==================================== */
@@ -191,9 +193,10 @@ void bonus_image(char *image, int gamewon)
 				      "width_set", TRUE,
 				      "height_set", TRUE,
 				      NULL);
+
   gdk_pixbuf_unref(pixmap);
   g_free(str);
-  end_bonus_id = gtk_timeout_add (2000, (GtkFunction) end_bonus, NULL);
+  end_bonus_id = gtk_timeout_add (BONUS_DURATION, (GtkFunction) end_bonus, NULL);
 }
 
 /* ==================================== */
@@ -211,9 +214,7 @@ void end_bonus()
 
   bonus_item = NULL;
 
-  /* Re-Start the the board */
+  /* Re-Start the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
-    {
       gcomprisBoard->plugin->pause_board(FALSE);
-    }
 }

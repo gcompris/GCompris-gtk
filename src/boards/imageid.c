@@ -135,7 +135,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE) /* the game is won */
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
       game_won();
     }
