@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board 
+	 name="billard"
+	 type="minigolf" 
+	 section="/computer/."
+	 icon="boardicons/billard.png" 
+	 difficulty="1"
+	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
+	 boarddir="">
+	 <_title>The billard game</_title>
+ 	 <_description>Send the ball in the hole</_description>
+	<_prerequisite>Mouse manipulation</_prerequisite>
+	<_manual>The click point on the ball will give the
+ speed and direction to the ball. More you click in the
+center, slower is the ball.</_manual>
+	<_goal>Send the ball in the hole</_goal>
+	<_credit></_credit>
+  </Board>
+  <Data directory=""/>
+</GCompris>

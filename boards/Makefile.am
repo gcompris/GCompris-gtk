@@ -11,6 +11,7 @@ xml_in_files = \
 	algebra_group.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
+	billard.xml.in \
 	boards.xml.in \
 	canal_lock.xml.in \
 	chess.xml.in \

@@ -103,7 +103,7 @@ void board_finished(int type) {
     type = RAND(1,BOARD_FINISHED_LAST-1);
 
   /* Record the end of board */
-  gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
+  gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_COMPLETED);
 
   switch (type) {
 	case BOARD_FINISHED_TUXPLANE :

@@ -1,3 +1,37 @@
+2004-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added billard
+	* boards/billard.xml.in: created
+	* boards/boardicons/billard.png: created 
+	* boards/images/billard_background.jpg: created 
+	* po/POTFILES.in: added billard
+	* src/boards/machpuzzle.c: (start_board), (end_board), (set_level),
+	(is_our_board), (minigolf_next_level),
+	(minigolf_destroy_all_items), (minigolf_create_item), (game_won),
+	(create_machine_item), (rectangle_in), (minigolf_move): completed implementation to have a simple billard simulation
+	* src/boards/python/gcompris/bonus/.cvsignore: remove .pyc now
+	* src/boards/python/gcompris/sound/.cvsignore: remove .pyc now
+	* src/gcompris/bonus.c: (board_finished): now uses LOG_STATUS_COMPLETED when board_finished arrives.
+	* src/gcompris/gcompris.h: added GCOMPRIS_LOG_STATUS_COMPLETED
+
+2004-01-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* boards/Makefile.am:
+	* boards/billard.xml.in:
+	* boards/boardicons/billard.png:
+	* boards/images/billard_background.jpg:
+	* po/POTFILES.in:
+	* src/boards/machpuzzle.c: (start_board), (end_board), (set_level),
+	(is_our_board), (minigolf_next_level),
+	(minigolf_destroy_all_items), (minigolf_create_item), (game_won),
+	(create_machine_item), (rectangle_in), (minigolf_move):
+	* src/boards/python/gcompris/bonus/.cvsignore:
+	* src/boards/python/gcompris/sound/.cvsignore:
+	* src/gcompris/bonus.c: (board_finished):
+	* src/gcompris/gcompris.h:
+
 2004-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/menu.c: (menu_create_item): fixed malformed printf regardings mandatory_sound_file

@@ -1,4 +1,4 @@
-/* gcompris - machpuzzle.c
+/* gcompris - minigolf.c
  *
  * Copyright (C) 2001 Bruno Coudoin
  *
@@ -28,6 +28,7 @@
 typedef enum {
   MACH_HORZ_WALL = 0,
   MACH_VERT_WALL,
+  MACH_HOLE,
   MACH_DIAG_WALL,
   MACH_BILLARD_BALL,
   MACH_BASKET_BALL,
@@ -45,8 +46,6 @@ struct _MachItem {
   double	   yposo, ypos, vyo;
   double	   elasticity;
   double	   width, height;
-  double	   hotspotx[16];
-  double	   hotspoty[16];
 };
 
 typedef struct _MachItem MachItem;
@@ -56,8 +55,9 @@ static GList *item_list = NULL;
 GcomprisBoard *gcomprisBoard = NULL;
 gboolean board_paused = TRUE;
 static gint move_id = 0;
-static  double		times_inc  = 0.1;
-static double		gravity = 9.8;
+static double		times_inc  = 0.1;
+static double		gravity = 0;
+static double		velocity = 0.99;
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
@@ -68,13 +68,16 @@ static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*machpuzzle_create_item(GnomeCanvasGroup *parent);
-static void		 machpuzzle_destroy_all_items(void);
-static void		 machpuzzle_next_level(void);
+static GnomeCanvasItem	*minigolf_create_item(GnomeCanvasGroup *parent);
+static void		 minigolf_destroy_all_items(void);
+static void		 minigolf_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, MachItem *machItem);
-static void		 machpuzzle_move(GList *item_list);
+static void		 minigolf_move(GList *item_list);
 
 static MachItem		*create_machine_item(MachItemType machItemType, double x, double y);
+
+/* The border in the image background */
+#define BORDER 40
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -82,7 +85,7 @@ BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("Move the mouse"),
-    N_("Move the mouse to machpuzzle the area and discover the background"),
+    "minigolf",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
@@ -142,7 +145,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
-      machpuzzle_next_level();
+      minigolf_next_level();
 
       gamewon = FALSE;
       pause_board(FALSE);
@@ -154,7 +157,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
-      machpuzzle_destroy_all_items();
+      minigolf_destroy_all_items();
     }
   gcomprisBoard = NULL;
 }
@@ -167,7 +170,7 @@ static void set_level (guint level)
     {
       gcomprisBoard->level=level;
       gcomprisBoard->sublevel=1;
-      machpuzzle_next_level();
+      minigolf_next_level();
     }
 }
 /* ======================================= */
@@ -175,7 +178,7 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "machpuzzle")==0)
+      if(g_strcasecmp(gcomprisBoard->type, "minigolf")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;
@@ -189,26 +192,25 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /* set initial values for the next level */
-static void machpuzzle_next_level()
+static void minigolf_next_level()
 {
 
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  gcompris_image_to_skin("gcompris-bg.jpg"));
+  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),"images/billard_background.jpg");
 
   gcompris_bar_set_level(gcomprisBoard);
 
-  machpuzzle_destroy_all_items();
+  minigolf_destroy_all_items();
   gamewon = FALSE;
 
   /* Try the next level */
-  machpuzzle_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+  minigolf_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 
-  move_id = gtk_timeout_add (40, (GtkFunction) machpuzzle_move, item_list);
+  move_id = gtk_timeout_add (40, (GtkFunction) minigolf_move, item_list);
 
 }
 /* ==================================== */
 /* Destroy all the items */
-static void machpuzzle_destroy_all_items()
+static void minigolf_destroy_all_items()
 {
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -226,10 +228,9 @@ static void machpuzzle_destroy_all_items()
   item_list = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *machpuzzle_create_item(GnomeCanvasGroup *parent)
+static GnomeCanvasItem *minigolf_create_item(GnomeCanvasGroup *parent)
 {
   int i,j;
-  MachItem		*machItem;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -239,13 +240,9 @@ static GnomeCanvasItem *machpuzzle_create_item(GnomeCanvasGroup *parent)
 
 							    NULL));
 
-  machItem = create_machine_item(MACH_BASKET_BALL, 20.0, 20.0);
-  //  machItem = create_machine_item(MACH_BASKET_BALL, 200.0, 100.0);
-  machItem = create_machine_item(MACH_BILLARD_BALL, 250.0, 100.0);
+  create_machine_item(MACH_HOLE, 650.0, 235.0);
+  create_machine_item(MACH_BASKET_BALL, (double)RAND(50, 150), (double)RAND(60, 400));
 
-  machItem = create_machine_item(MACH_FLYING_BALL, 450.0, 400.0);
-
-  machItem = create_machine_item(MACH_HORZ_WALL, 100.0, 300.0);
 
   return NULL;
 }
@@ -264,7 +261,7 @@ static void game_won()
     }
     gcompris_play_ogg ("bonus", NULL);
   }
-  machpuzzle_next_level();
+  minigolf_next_level();
 }
 
 /* ==================================== */
@@ -377,20 +374,21 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       break;
     case MACH_DIAG_WALL:
       break;
-    case MACH_BILLARD_BALL:
-      width = 30;
-      machItem->moving	= TRUE;
+    case MACH_HOLE:
+      /* Make the hole be smaller based on the level */
+      width = 70 - gcomprisBoard->level*2;
+      machItem->moving	= FALSE;
       machItem->times   = 0.0;
 
       machItem->xposo	= x;
       machItem->xpos	= x;
-      machItem->vxo	= 10;
+      machItem->vxo	= 0;
       machItem->ax	= 0;
 
       machItem->yposo	= y;
       machItem->ypos	= y;
       machItem->vyo	= 0;
-      machItem->ay	= gravity;
+      machItem->ay	= 0;
 
       machItem->width	= width;
       machItem->height	= width;
@@ -403,19 +401,10 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 					      "y1", (double) machItem->yposo,
 					      "x2", (double) machItem->xposo + width,
 					      "y2", (double) machItem->yposo + width,
-					      "outline_color", "black",
-					      "fill_color_rgba", 0x1010FFFF,
-					      "width_units", (double)1,
+					      "outline_color_rgba", 0x22EE22FF,
+					      "fill_color_rgba", 0xEEEEEEFF,
+					      "width_units", (double)2,
 					      NULL);
-
-      gtk_signal_connect(GTK_OBJECT(machItem->item), "event",
-			 (GtkSignalFunc) item_event,
-			 machItem);
-
-      //      machItem->hotspotx[hs]   = machItem->xposo - 1;
-      //      machItem->hotspoty[hs++] = machItem->yposo - 1;
-      machItem->hotspotx[hs]   = machItem->xposo + width + 1;
-      machItem->hotspoty[hs++] = machItem->yposo + width + 1;
 
       break;
     case MACH_BASKET_BALL:
@@ -425,7 +414,7 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 
       machItem->xposo	= x;
       machItem->xpos	= x;
-      machItem->vxo	= 10;
+      machItem->vxo	= 0;
       machItem->ax	= 0;
 
       machItem->yposo	= y;
@@ -453,9 +442,6 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
 			 (GtkSignalFunc) item_event,
 			 machItem);
      
-      machItem->hotspotx[hs]   = machItem->xposo + width + 1;
-      machItem->hotspoty[hs++] = machItem->yposo + width + 1;
-
       break;
     case MACH_FLYING_BALL:
       width = 40;
@@ -494,10 +480,6 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
       break;
     }
 
-  /* End of hot spot list for collision detection */
-  machItem->hotspotx[hs]   = - 1;
-  machItem->hotspoty[hs++] = - 1;
-
   gtk_object_set_data(GTK_OBJECT(machItem->item),"mach",(gpointer)machItem);
 
   item_list = g_list_append (item_list, machItem);
@@ -505,22 +487,50 @@ static MachItem *create_machine_item(MachItemType machItemType, double x, double
   return machItem;
 }
 
+/* 
+ * Returns true if at least 2 corners of 's' rectangle are inside 'd' rectangle
+ *
+ */
+static gint rectangle_in(double sx1, double sy1, double sx2, double sy2,
+			 double dx1, double dy1, double dx2, double dy2)
+{
+  guint corner_in = 0;
+  //  printf("rectangle_in %10f %10f %10f %10f\n             %10f %10f %10f %10f\n", sx1,sy1,sx2,sy2,dx1,dy1,dx2,dy2);
+
+  if(sx1>dx1 && sx1<dx2 && sy1>dy1 && sy1<dy2)
+    corner_in++;
+
+  if(sx2>dx1 && sx2<dx2 && sy2>dy1 && sy2<dy2)
+    corner_in++;
+
+  if(sx2>dx1 && sx2<dx2 && sy1>dy1 && sy1<dy2)
+    corner_in++;
+
+  if(sx2>dx1 && sx2<dx2 && sy1>dy1 && sy1<dy2)
+    corner_in++;
+
+  //  printf ("    CORNER = %d\n", corner_in);
+
+  return (corner_in>=2 ? TRUE : FALSE);
+}
+
 /* Move */
-static void machpuzzle_move(GList *item_list)
+static void minigolf_move(GList *item_list)
 {
   double		 x1, y1, x2, y2;
   MachItem		*machItem;
   GnomeCanvasItem	*item;
   guint			 i;
   gboolean		 collision = FALSE;
+  double	         xpos, ypos;
 
   for(i=0; i<g_list_length(item_list); i++)
     {
-      gint j = 0;
+      gint j;
 
       machItem = g_list_nth_data(item_list, i);
 
-      //     dump_machItem(machItem);
+      //      dump_machItem(machItem);
       item = machItem->item;
 
       if(machItem->moving)
@@ -531,46 +541,60 @@ static void machpuzzle_move(GList *item_list)
 	  machItem->times += times_inc;
 	  
 	  /* Collision detection */
-	  while(machItem->hotspotx[j]!=-1)
+	  for(j=0; j<g_list_length(item_list); j++)
 	    {
-	      GnomeCanvasItem *collItem;
 	      MachItem	      *collMachItem;
-	      double	       wx, wy;
 
-	      wx = machItem->hotspotx[j];
-	      wy = machItem->hotspoty[j];
-	      gnome_canvas_item_i2w(machItem->item, &wx,&wy);
+	      collMachItem = g_list_nth_data(item_list, j);
 
-	      //	      printf("Checking coll detec %d at x=%f y=%f\n", j, wx, wy);
-	      //	      printf("    hotspotx=%f  hotspoty=%f\n", 
-	      //		     machItem->hotspotx[j], 
-	      //		     machItem->hotspoty[j]);
-	      collItem = gnome_canvas_get_item_at(gcomprisBoard->canvas,
-						  wx, wy);
-	      if (collItem)
-		{
-		  collMachItem=(MachItem*)gtk_object_get_data(GTK_OBJECT(collItem),
-							      "mach");
-		  if(collMachItem)
-		    {
-		      printf("!!! Collision detected with:\n");
-		      dump_machItem(collMachItem);
+	      //printf("Checking coll detec item %d\n", j);
 
-		      collision = TRUE;
-		    }
-		}
+	      if(collMachItem != machItem) {
 
-	      j++;
-
+		if(rectangle_in(x1, y1, x2, y2, 
+				collMachItem->xpos,
+				collMachItem->ypos,
+				collMachItem->xpos + collMachItem->width,
+				collMachItem->ypos + collMachItem->height))
+		  {
+		    //printf("!!! Collision detected with:\n");
+		    //dump_machItem(collMachItem);
+		    collision = TRUE;
+		    
+		    gamewon = TRUE;
+		    minigolf_destroy_all_items();
+		    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+		    return;
+		  }
+	      }
 	    }
 
-	  machItem->ypos=machItem->yposo 
+	  ypos=machItem->yposo 
 	    + (machItem->vyo*machItem->times) 
 	    + (.5*machItem->ay * (machItem->times*machItem->times));
-	  
-	  machItem->xpos=machItem->xposo 
+
+	  /* Simulate going slower */
+	  if(ABS(machItem->ypos-ypos)>0.3) {
+	    machItem->vyo = machItem->vyo * velocity;
+	  } else {
+	    machItem->yposo = ypos;
+	    machItem->vyo = 0;
+	  }
+
+	  xpos=machItem->xposo 
 	    + (machItem->vxo*machItem->times) 
 	    + (.5*machItem->ax * (machItem->times*machItem->times));
+
+	  /* Simulate going slower */
+	  if(ABS(machItem->xpos-xpos)>0.3) {
+	    machItem->vxo = machItem->vxo * velocity;
+	  } else {
+	    machItem->xposo = xpos;
+	    machItem->vxo = 0;
+	  }
+
+	  machItem->xpos=xpos;
+	  machItem->ypos=ypos;
 
 	  /* v = u + at */
 	  machItem->vxo += (machItem->ax * machItem->times);
@@ -579,40 +603,53 @@ static void machpuzzle_move(GList *item_list)
 	  if(machItem->ypos >= BOARDHEIGHT - machItem->height -1)
 	    machItem->ypos = BOARDHEIGHT - machItem->height;
 
+	  if(machItem->ypos < 0)
+	    machItem->ypos = 0;
+
+	  if(machItem->xpos < 0)
+	    machItem->xpos = 0;
+
+	  if(machItem->xpos > BOARDWIDTH)
+	    machItem->xpos = BOARDWIDTH;
+
+
 	  item_absolute_move(item, machItem->xpos, machItem->ypos);
 	  
-	  if(machItem->ypos>=BOARDHEIGHT-machItem->height && (y1 - machItem->ypos)<=0 || collision == TRUE)
+	  if(machItem->ypos>=BOARDHEIGHT-machItem->height-BORDER && (y1 - machItem->ypos)<=0 || collision == TRUE)
 	    {
-	      machItem->vyo   = (y1 - machItem->ypos) * machItem->elasticity;
+	      machItem->vyo   = machItem->vyo * -0.5;
+	      machItem->vxo   = machItem->vxo * 0.5;
 	      machItem->times = 0;
 	      machItem->yposo = machItem->ypos;
 	      machItem->xposo = machItem->xpos;
 	      
 	      /* Floor touch */
-	      machItem->vxo *= 0.9;
+	      //machItem->vxo *= 0.9;
 	    }
 	  
-	  if(y1<=5 && (y1 - machItem->ypos)>0 || collision == TRUE)
+	  if(y1<=BORDER && (y1 - machItem->ypos)>=0 || collision == TRUE)
 	    {
-	      machItem->vyo = (y1 - machItem->ypos) * machItem->elasticity;
+	      machItem->vyo   = machItem->vyo * -0.5;
+	      machItem->vxo   = machItem->vxo * 0.5;
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
 	    }
 
-	  if(x1<=5 && (x1 - machItem->xpos)>0 || collision == TRUE)
+	  //	  if(x1<=5 && (x1 - machItem->xpos)>0 || collision == TRUE)
+	  if(x1<=BORDER && machItem->vxo<0 || collision == TRUE)
 	    {
-	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->elasticity;
-	      machItem->vxo = (x1 - machItem->xpos) * machItem->elasticity;
+	      machItem->vyo   = machItem->vyo * 0.5;
+	      machItem->vxo   = machItem->vxo * -0.5;
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
 	    }
 
-	  if(x2>=BOARDWIDTH-5 && machItem->vxo>0 || collision == TRUE)
+	  if(x2>=BOARDWIDTH-BORDER && machItem->vxo>0 || collision == TRUE)
 	    {
-	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->elasticity;
-	      machItem->vxo = (x1 - machItem->xpos) * machItem->elasticity;
+	      machItem->vyo = 0.5 * machItem->vyo;
+	      machItem->vxo = machItem->vxo * -0.5;
 	      machItem->times=0;
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
