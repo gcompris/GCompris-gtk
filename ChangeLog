@@ -1,7 +1,14 @@
 2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
 
-	* macros, intl: removed from CVS, use more up-to-ate ones from
-	gnome-common.
+	* configure.in: fix libxml2 checks, add iconv and glib checks.
+	* src/boards/Makefile.am, src/gcompris/Makefile.am: use correct XML_LIBS,
+	added XML_CFLAGS to INCLUDES.
+
+2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
+
+	* macros, intl: removed from CVS, use more up-to-date ones from
+	gnome-common (use "cvs checkout gcompris" to get them again, update
+	won't work).
 	* intltool-*.in, ABOUT-NLS, aclocal.m4, config.h.in, ltmain.sh:
 	remove files from CVS, they are created by autogen.sh
 

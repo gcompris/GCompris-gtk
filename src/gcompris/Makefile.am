@@ -26,6 +26,6 @@ gcompris_SOURCES = \
 
 gcompris_LDADD = \
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
-	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(XML_LIBS) $(INTLLIBS) \
 	$(GDK_PIXBUF_LIBS) 
 

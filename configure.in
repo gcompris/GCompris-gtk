@@ -21,9 +21,10 @@ AC_ISC_POSIX
 
 GNOME_COMPILE_WARNINGS(maximum)
 GNOME_X_CHECKS
-GNOME_XML_CHECK
+AM_PATH_GLIB
 AM_PATH_GDK_PIXBUF
-AM_PATH_XML
+AM_PATH_XML2
+AM_ICONV
 
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="az de el es fi fr it nl pt_BR ru sv lt"
