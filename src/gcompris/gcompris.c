@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/12/08 23:09:57 bcoudoin>
+ * Time-stamp: <2003/12/21 20:51:25 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -348,7 +348,7 @@ void gcompris_set_cursor(guint gdk_cursor_type)
     
     cursor = gdk_cursor_new_from_data(bits, 40 , 40, &fg, &bg, 0, 0);
     gdk_window_set_cursor(window->window, cursor);
-    gdk_cursor_destroy(cursor);
+    gdk_cursor_unref(cursor);
   }
 }
 
