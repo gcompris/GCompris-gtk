@@ -77,7 +77,10 @@ class Gcompris_redraw:
     # Global used for the select event
     self.in_select_ofx = -1
     self.in_select_ofy = -1
-    
+
+    # The error root item
+    self.root_erroritem = []
+
     # Set it to 1 to let you create new forms
     # Once set, draw your shape in the right area. Then clic on OK to display
     # the data for the form (in the console). Then copy the data in the list at the end of
@@ -120,6 +123,10 @@ class Gcompris_redraw:
     self.rootitem.destroy()
     self.root_drawingitem.destroy()
     self.root_targetitem.destroy()
+    # Delete error previous mark if any
+    if(self.root_erroritem):
+      self.root_erroritem.destroy()
+        
 
 
   def pause(self, pause):  
@@ -129,7 +136,8 @@ class Gcompris_redraw:
 
   def ok(self):
     # Save a copy of the target drawing future comparison
-    target = list(self.image_target)
+    target  = list(self.image_target)
+    target2 = list(self.image_target)
 
     # Save a copy of the drawing cause we need to remove empty items
     source = list(self.current_drawing)
@@ -147,25 +155,69 @@ class Gcompris_redraw:
       print source
       print("-------------------------------------------------------------------------------")
 
-    # First, simply check number of items matches
-    if(len(target) != len(source)):
-      gcompris.bonus.display(0, gcompris.bonus.FLOWER)
-      return
-    
     # Need to check if target image equals drawing image
     for i in source:
       for j in target:
         if i == j:
           target.remove(j)
           
-    if(len(target) == 0):
+    for i in target2:
+      for j in source:
+        if i == j:
+          source.remove(j)
+          
+    if(len(target) == 0 and len(source) == 0):
       self.erase_drawing_area()
       if (self.increment_level() == 1):
         gcompris.bonus.display(1, gcompris.bonus.FLOWER)
         self.display_current_level()
     else:
-      gcompris.bonus.display(0, gcompris.bonus.FLOWER)
-      
+      # Delete previous mark if any
+      if(self.root_erroritem):
+        self.root_erroritem.destroy()
+
+      # Create our rootitem for error items mark
+      self.root_erroritem = self.gcomprisBoard.canvas.root().add(
+        gnome.canvas.CanvasGroup,
+        x=0.0,
+        y=0.0
+        )
+
+      self.display_error(target, 1)
+      self.display_error(source, 0)
+
+
+  # display where there is errors
+  # if in_target is set then error are displayed in the target area
+  def display_error(self, target, in_target):
+
+    # Bad Icon Width and Height / 2
+    icw=8
+    ich=8
+
+    # The images target are always drawn on the drawing area to ease the final comparison
+    if in_target:
+      xofset = self.target_area[0] - self.drawing_area[0]
+    else:
+      xofset = 0
+    
+    for t in target:
+      if(t.has_key('points')):
+        self.root_erroritem.add(
+          gnome.canvas.CanvasPixbuf,
+          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
+          x = t['points'][0] + (t['points'][2]-t['points'][0])/2 - icw + xofset,
+          y = t['points'][1] + (t['points'][3]-t['points'][1])/2 -ich
+          )
+      else:
+        self.root_erroritem.add(
+          gnome.canvas.CanvasPixbuf,
+          pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("mini_bad.png")),
+          x = t['x1'] + (t['x2']-t['x1'])/2 -icw + xofset,
+          y = t['y1'] + (t['y2']-t['y1'])/2 -ich
+          )
+
+    
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
     self.gcomprisBoard.level=level;
@@ -189,14 +241,42 @@ class Gcompris_redraw:
   def erase_drawing_area(self):
     self.root_targetitem.destroy()
     self.root_drawingitem.destroy()
+    if(self.root_erroritem):
+      self.root_erroritem.destroy()
 
   # Display the current level target
   def display_current_level(self):
     # Set the level in the control bar
     gcompris.bar_set_level(self.gcomprisBoard);
 
-    self.draw_image_target(self.drawlist[(self.gcomprisBoard.level-1)*self.gcomprisBoard.number_of_sublevel+
-                                         (self.gcomprisBoard.sublevel-1)])
+    # Calc the index in drawlist
+    i = (self.gcomprisBoard.level-1)*self.gcomprisBoard.number_of_sublevel+ \
+        (self.gcomprisBoard.sublevel-1)
+    
+    if(i>=len(self.drawlist)):
+       # the current board is finished : bail out
+       gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+       return
+       
+    self.draw_image_target(self.drawlist[i])
+
+    self.display_sublevel()
+
+    # Prepare an item for the coord display
+    self.coorditem = self.root_targetitem.add(
+      gnome.canvas.CanvasText,
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH / 2 + 1,
+      y=gcompris.BOARD_HEIGHT - 10 + 1 ,
+      fill_color_rgba=0x000000FFL
+      )
+    self.coorditem_shadow = self.root_targetitem.add(
+      gnome.canvas.CanvasText,
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH / 2,
+      y= gcompris.BOARD_HEIGHT - 10,
+      fill_color_rgba=0xFFFFFFFFL
+      )
 
     # Create our rootitem for drawing items
     self.root_drawingitem = self.gcomprisBoard.canvas.root().add(
@@ -225,6 +305,30 @@ class Gcompris_redraw:
       
     return 1
         
+  # display current/sublevel number
+  def display_sublevel(self):
+
+    self.root_targetitem.add(
+      gnome.canvas.CanvasText,
+      text="Level " + str(self.gcomprisBoard.sublevel) + "/"
+      + str(self.gcomprisBoard.number_of_sublevel),
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH - 10 + 1,
+      y=gcompris.BOARD_HEIGHT - 10 + 1,
+      fill_color_rgba=0x000000FFL,
+      anchor=gtk.ANCHOR_EAST,
+      )
+    self.root_targetitem.add(
+      gnome.canvas.CanvasText,
+      text="Level " + str(self.gcomprisBoard.sublevel) + "/"
+      + str(self.gcomprisBoard.number_of_sublevel),
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH - 10,
+      y=gcompris.BOARD_HEIGHT - 10,
+      fill_color_rgba=0xFFFFFFFFL,
+      anchor=gtk.ANCHOR_EAST
+      )
+
   # Display the tools
   def draw_tools(self):
 
@@ -367,6 +471,7 @@ class Gcompris_redraw:
       width_units=2.0,
       outline_color_rgba=0x111199FFL
       )
+    item.connect("event", self.target_item_event)
 
     self.draw_grid(x1,x2,y1,y2,step)
 
@@ -460,17 +565,31 @@ class Gcompris_redraw:
         elif k == 'y2' :
           item.set ( y2 = v)
 
+  #
+  # Draw the grid
+  #
   def draw_grid(self, x1, x2, y1, y2, step):
 
     # Coord of the written numbers
     x_text = x1 - 14
     y_text = y1 - 10
+
+    # We manage a 2 colors grid
+    ci = 0
+    ca = 0x1D0DFFFFL
+    cb = 0xAAEEAAFFL
     
     for i in range(x1,x2,step):
+      if(ci%2):
+        color = ca
+      else:
+        color = cb
+      ci += 1
+      
       item = self.rootitem.add (
         gnome.canvas.CanvasLine,
         points=(i , y1, i , y2),
-        fill_color_rgba=0x3740E3FFL,
+        fill_color_rgba=color,
         width_units=1.0,
         )
       # Shadow for text number
@@ -495,12 +614,20 @@ class Gcompris_redraw:
       # Clicking on lines let you create object
       if(x1<self.target_area[0]):
         item.connect("event", self.create_item_event)
+      else:
+        item.connect("event", self.target_item_event)
 
     for i in range(y1,y2,step):
+      if(ci%2):
+        color = ca
+      else:
+        color = cb
+      ci += 1
+      
       item = self.rootitem.add (
         gnome.canvas.CanvasLine,
         points=(x1, i, x2 , i),
-        fill_color_rgba=0x3740E3FFL,
+        fill_color_rgba=color,
         width_units=1.0,
         )
       # Shadow for text number
@@ -534,8 +661,8 @@ class Gcompris_redraw:
     result.append(float(self.drawing_area[0] + tmp*self.current_step))
 
     tmp = round(((y+(self.current_step)) -
-               self.drawing_area[2])/self.current_step) - 1
-    result.append(float(self.drawing_area[2] + tmp*self.current_step))
+               self.drawing_area[1])/self.current_step) - 1
+    result.append(float(self.drawing_area[1] + tmp*self.current_step))
     return result
 
 
@@ -582,10 +709,14 @@ class Gcompris_redraw:
         x=self.drawing_area[0]
       if(x>(self.drawing_area[2]-(bounds[2]-bounds[0]))):
         x=self.drawing_area[2]-(bounds[2]-bounds[0])
+        # We need to realign x cause the bounds values are not precise enough
+        x,n = self.snap_to_grid(x,y)
       if(y<self.drawing_area[1]):
         y=self.drawing_area[1]
       if(y>(self.drawing_area[3]-(bounds[3]-bounds[1]))):
         y=self.drawing_area[3]-(bounds[3]-bounds[1])
+        # We need to realign y cause the bounds values are not precise enough
+        n,y = self.snap_to_grid(x,y)
 
       # Need to update current_drawing
       if(self.current_drawing[item_index].has_key('x1')):
@@ -654,10 +785,61 @@ class Gcompris_redraw:
           return gtk.TRUE
     return gtk.FALSE
 
+  #
+  # Display the mouse coord in the drawing or target area
+  # type:
+  # 1 = in drawing area
+  # 2 = in target area
+  # 3 = out of both area
+  #
+  def display_coord(self, x, y, type):
+    if(type == 1):
+      xl = self.drawing_area[0]
+    else:
+      xl = self.target_area[0]
+      
+    yl = self.drawing_area[1]
+    
+    x = int(round(((x+(self.current_step/2)) - xl)/self.current_step) - 1)
+    y = int(round(((y+(self.current_step/2)) - yl)/self.current_step) - 1)
 
-  # Event when a click on the drawing area happen
+    if(type == 3):
+      self.coorditem.set(text="")
+      self.coorditem_shadow.set(text="")
+    else:
+      self.coorditem.set(
+        text="Coordinate = (" + str(x) + "/" + str(y) + ")"
+        )
+      self.coorditem_shadow.set(
+        text="Coordinate = (" + str(x) + "/" + str(y) + ")"
+        )
+
+
+
+    
+  # Event when an event on the target area happen
+  def target_item_event(self, item, event):
+
+    if event.type == gtk.gdk.LEAVE_NOTIFY:
+      self.display_coord(event.x,event.y, 3)
+    else:
+      self.display_coord(event.x,event.y, 2)
+
+      
+  # Event when an event on the drawing area happen
   def create_item_event(self, item, event):
+
+    if event.type == gtk.gdk.LEAVE_NOTIFY:
+      self.display_coord(event.x,event.y, 3)
+    else:
+      self.display_coord(event.x,event.y, 1)
+      
     if event.type == gtk.gdk.BUTTON_PRESS:
+      
+      # Delete error previous mark if any
+      if(self.root_erroritem):
+        self.root_erroritem.destroy()
+
       if event.button == 1:
         self.newitem = None
         
@@ -992,8 +1174,8 @@ class Gcompris_redraw:
 
     ]
 
-    # Take care here that the number of items in the above list must be a multiple of
-    # number_of_sublevel*maxlevel
+    # Warning: Take care here that there is no more than 10 levels
+    
     self.gcomprisBoard.number_of_sublevel=4
     self.gcomprisBoard.maxlevel=len(self.drawlist)/self.gcomprisBoard.number_of_sublevel
     print "Number of target=", len(self.drawlist)
