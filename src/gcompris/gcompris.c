@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/02/07 19:30:18 bcoudoin>
+ * Time-stamp: <2004/03/08 00:24:24 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -142,7 +142,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
       /* If the board needs to receive key pressed */
       if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
 	{
-	  // Rmoved, Do hard to analyse.
+	  // Removed, Too hard to analyse.
 	  //	  gcompris_log_set_key(get_current_board_plugin(), event->keyval);
 
 	  return(get_current_board_plugin()->key_press (event->keyval));
@@ -507,19 +507,19 @@ static void load_properties ()
  * This returns the locale for which text must be displayed
  *
  */
-gchar *gcompris_get_locale()
+const gchar *gcompris_get_locale()
 {
-  char *locale;
+  const gchar *locale;
 
   /* First check locale got overrided by the user */
   if(gcompris_locale != NULL)
     return(gcompris_locale);
 
-  locale = getenv("LC_ALL");
+  locale = g_getenv("LC_ALL");
   if(locale == NULL)
-    locale = getenv("LC_MESSAGES");
+    locale = g_getenv("LC_MESSAGES");
   if(locale == NULL)
-    locale = getenv("LANG");
+    locale = g_getenv("LANG");
 
   if(locale!=NULL)
     return(locale);
@@ -557,11 +557,12 @@ void gcompris_set_locale(gchar *locale)
     g_warning("Failed to set requested locale %s got %s", locale, gcompris_locale);
 
   /* Override the env locale to what the user requested */
+  /* This makes gettext to give us the new locale text  */
   setenv ("LC_ALL", gcompris_get_locale(), TRUE);
   setenv ("LC_MESSAGES", gcompris_get_locale(), TRUE);
   setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
   setenv ("LANG", gcompris_get_locale(), TRUE);
- 
+
   /* This does update gettext translation uppon next gettext call */
   /* Call for localization startup */
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);

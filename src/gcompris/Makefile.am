@@ -45,7 +45,6 @@ libgcompris_a_SOURCES = \
 	soundutil.c soundutil.h \
 	cursor.c cursor.h \
 	plugin.h \
-	pluginenum.c pluginenum.h \
 	bonus.c bonus.h \
 	timer.c timer.h \
 	score.c score.h \

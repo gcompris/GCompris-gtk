@@ -22,14 +22,12 @@
 
 struct BoardPluginData
 {
-  GList		*board_list;
-  BoardPlugin	*current_board_plugin;
   GcomprisBoard	*current_gcompris_board;
   gboolean	 playing;
   gboolean	 paused;
 };
 
-GList		*get_board_list(void);
+void		 init_plugins(void);
 BoardPlugin	*get_current_board_plugin(void);
 void		 set_current_board_plugin(BoardPlugin * ip);
 GcomprisBoard	*get_current_gcompris_board(void);
@@ -41,8 +39,6 @@ void		 board_pause(void);
 gboolean	 get_board_playing(void);
 gboolean	 get_board_paused(void);
 gchar		*board_get_info_text(void);
-void		 board_about(gint index);
-void		 board_configure(gint index);
 
 void		 board_set_info_text(gchar * text);
 void		 board_file_info_box(gchar * filename);

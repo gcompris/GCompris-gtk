@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/02/07 18:48:24 bcoudoin>
+ * Time-stamp: <2004/03/07 13:22:23 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -42,7 +42,6 @@
 #include "board.h"
 #include "properties.h"
 #include "gameutil.h"
-#include "pluginenum.h"
 #include "bonus.h"
 #include "timer.h"
 #include "score.h"
@@ -93,7 +92,7 @@ void		 gcompris_help_stop (void);
 GnomeCanvas     *gcompris_get_canvas(void);
 GtkWidget	*gcompris_get_window(void);
 
-gchar	        *gcompris_get_locale(void);
+const gchar	*gcompris_get_locale(void);
 void		 gcompris_set_locale(gchar *locale);
 char		*gcompris_get_user_default_locale(void);
 

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/02/23 23:47:00 bcoudoin>
+ * Time-stamp: <2004/03/07 19:45:20 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -502,6 +502,8 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
   gcomprisBoard->canvas=canvas;
   gcomprisBoard->previous_board=NULL;
 
+  gcomprisBoard->gmodule      = NULL;
+  gcomprisBoard->gmodule_file = NULL;
 
   /* Fixed since I use the canvas own pixel_per_unit scheme */
   gcomprisBoard->width  = BOARDWIDTH;
@@ -567,10 +569,10 @@ GList *gcompris_get_menulist(gchar *section)
 
 /*
  * Select only files with .xml extention
+ * Return 1 if the given file end in .xml 0 else
  */
-int selectMenuXML(void *d)
+int selectMenuXML(gchar *file)
 {
-  gchar *file = ((struct dirent *)d)->d_name;
 
   if(strlen(file)<4)
     return 0;
@@ -593,7 +595,8 @@ void cleanup_menus() {
  */
 void gcompris_load_menus()
 {
-  struct dirent **namelist;
+  struct dirent *one_dirent;
+  DIR *dir;
   int n;
 
   if(boards_list) {
@@ -601,26 +604,34 @@ void gcompris_load_menus()
     return;
   }
 
-  n = scandir(PACKAGE_DATA_DIR, &namelist, &selectMenuXML, alphasort);
-  if (n < 0)
-    g_warning("gcompris_load_menus : scandir");
-  else {
-    while(n--) {
+  /* Load the Pixpmaps directory file names */
+  dir = opendir(PACKAGE_DATA_DIR);
+
+  if (!dir) {
+    g_warning("gcompris_load_menus : no menu found in %s", PACKAGE_DATA_DIR);
+
+  } else {
+
+    while((one_dirent = readdir(dir)) != NULL) {
       /* add the board to the list */
       GcomprisBoard *gcomprisBoard = NULL;
 
-      gcomprisBoard = g_malloc (sizeof (GcomprisBoard));
+      if(selectMenuXML(one_dirent->d_name)) {
+	gcomprisBoard = g_malloc (sizeof (GcomprisBoard));
 
-      /* Need to be initialized here because gcompris_read_xml_file is used also to reread the locale data */
-      /* And we don't want in this case to loose the current plugin */
-      gcomprisBoard->plugin=NULL;
+	/* Need to be initialized here because gcompris_read_xml_file is used also to reread 	*/
+	/* the locale data									*/
+	/* And we don't want in this case to loose the current plugin				*/
+	gcomprisBoard->plugin=NULL;
 
-      boards_list = g_list_append(boards_list, gcompris_read_xml_file(gcomprisBoard, namelist[n]->d_name));
+	boards_list = g_list_append(boards_list, gcompris_read_xml_file(gcomprisBoard, 
+									one_dirent->d_name));
 
-      free (namelist [n]);
+      }
     }
-    free (namelist);
   }
+  closedir(dir);
+
   gcompris_get_menulist("/");
 }
 

@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/02/28 01:27:59 bcoudoin>
+ * Time-stamp: <2004/03/13 13:28:47 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -107,8 +107,8 @@ void gcompris_about_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", _("Translators"), 
-			 "font", gcompris_skin_font_content,
+			 "text", _("Translators:"), 
+			 "font", gcompris_skin_font_subtitle,
 			 "x", (double) BOARDWIDTH/2-320,
 			 "y", (double) y_start + 90,
 			 "anchor", GTK_ANCHOR_NORTH_WEST,
@@ -117,10 +117,10 @@ void gcompris_about_start ()
 
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
-			 "text", gettext(translators),
+			 "text", translators,
 			 "font", gcompris_skin_font_content,
 			 "x", (double)  BOARDWIDTH/2-320,
-			 "y", (double)  y_start + 110,
+			 "y", (double)  y_start + 120,
 			 "anchor", GTK_ANCHOR_NORTH_WEST,
 			 "fill_color_rgba", gcompris_skin_color_content,
 			 NULL);
@@ -423,24 +423,28 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
       else if (!strcmp((char *)data, "ofset"))
 	{
-	  //	  gnome_url_show("http://ofset.sourceforge.net", NULL);
+	  /* FIXME: Should inform the user that we don't find mozilla. */
+	  system("mozilla http://ofset.sf.net &");
 	}
       else if (!strcmp((char *)data, "fsf"))
 	{
-	  //	  gnome_url_show("http://www.fsf.org", NULL);
+	  /* FIXME: Should inform the user that we don't find mozilla. */
+	  system("mozilla http://www.fsf.org &");
 	}
       else if (!strcmp((char *)data, "gcompris"))
 	{
-	  //	  gnome_url_show("http://ofset.sourceforge.net/gcompris", NULL);
+	  /* FIXME: Should inform the user that we don't find mozilla. */
+	  system("mozilla http://ofset.sourceforge.net/gcompris &");
 	}
       else if (!strcmp((char *)data, "help"))
 	{
-
 	  /* It implements gcompris's own way to load help in order to be
 	   * Package relocatable.
 	   * Unfortunatly, this does not supports I18N
 	   */
-	  //	  gnome_url_show(PACKAGE_HELP_DIR "/C/gcompris.html", NULL);
+	  /* FIXME: Should inform the user that we don't find mozilla. */
+	  system("mozilla "PACKAGE_HELP_DIR"/C/gcompris.html &");
+
 	}
     default:
       break;

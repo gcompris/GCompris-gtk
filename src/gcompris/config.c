@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/02/28 00:09:28 bcoudoin>
+ * Time-stamp: <2004/03/06 19:13:07 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -357,60 +357,60 @@ void gcompris_config_start ()
 
   // Skin
   {
-    gchar *filename;
-    struct dirent **namelist = NULL;
-    int namelistlength = 0;
+    struct dirent *one_dirent;
     guint i;
     char *str;
+    DIR *dir;
     
     /* Load the Pixpmaps directory file names */
-    filename = g_strdup_printf("%s/skins", PACKAGE_DATA_DIR);
-    namelistlength = scandir(filename,
-			     &namelist, 0, alphasort);
-    
-    if (namelistlength < 0)
-      g_error (_("Couldn't open skin dir: %s"), filename);
-    
-    g_free(filename);
+    dir = opendir(PACKAGE_DATA_DIR"/skins");
+
+    if (!dir)
+      g_error (_("Couldn't open skin dir: %s"), PACKAGE_DATA_DIR"/skins");
     
     /* Fill up the skin list */
-    for(i=2; i<namelistlength; i++)
-      {
-	str = g_strdup_printf("%s", namelist[i]->d_name);
-	
-	g_free(namelist[i]);
-	
+    while((one_dirent = readdir(dir)) != NULL) {
+
+      if (one_dirent->d_name[0] != '.') {
+	gchar *filename;
 	/* Only directory here are skins */
-	filename = g_strdup_printf("%s/skins/%s", PACKAGE_DATA_DIR, str);
+	filename = g_strdup_printf("%s/skins/%s", PACKAGE_DATA_DIR, one_dirent->d_name);
+
 	if (g_file_test ((filename), G_FILE_TEST_IS_DIR)) {
-	  skinlist = g_list_append (skinlist, str);
+	  gchar *skin_name = g_strdup_printf("%s", one_dirent->d_name);
+	  skinlist = g_list_append (skinlist, skin_name);
 	}
 	g_free(filename);
       }
-    g_free(namelist);
+    }
+    closedir(dir);
+
+    /* Should not happen. It the user found the config, there should be a skin */
+    if(g_list_length(skinlist) == 0) {
+      g_warning("No skin found in %s\n", PACKAGE_DATA_DIR"/skins");
+    }
 
     /* Find the current skin index */
     skin_index = 0;
     for(i=0; i<g_list_length(skinlist);  i++)
       if(!strcmp((char *)g_list_nth_data(skinlist, i), properties->skin))
-	 skin_index = i;
+	skin_index = i;
+
+    y_start += Y_GAP;
+
+    display_previous_next(x_start, y_start, "skin_previous", "skin_next");
+
+    item_skin_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					    gnome_canvas_text_get_type (),
+					    "text", g_strdup_printf(_("Skin : %s"), 
+								    (char *)g_list_nth_data(skinlist, skin_index)),
+					    "font", gcompris_skin_font_content,
+					    "x", (double) x_text_start,
+					    "y", (double) y_start,
+					    "anchor", GTK_ANCHOR_WEST,
+					    "fill_color_rgba", gcompris_skin_color_content,
+					    NULL);
   }
-
-  y_start += Y_GAP;
-
-  display_previous_next(x_start, y_start, "skin_previous", "skin_next");
-
-  item_skin_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					  gnome_canvas_text_get_type (),
-					  "text", g_strdup_printf(_("Skin : %s"), 
-								  (char *)g_list_nth_data(skinlist, skin_index)),
-					  "font", gcompris_skin_font_content,
-					  "x", (double) x_text_start,
-					  "y", (double) y_start,
-					  "anchor", GTK_ANCHOR_WEST,
-					  "fill_color_rgba", gcompris_skin_color_content,
-					  NULL);
-  
   is_displayed = TRUE;
 }
 

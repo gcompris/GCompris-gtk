@@ -1,6 +1,6 @@
 /* gcompris - gcompris-board.h
  *
- * Time-stamp: <2003/09/28 22:16:11 bcoudoin>
+ * Time-stamp: <2004/03/07 19:39:56 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -64,6 +64,11 @@ struct _GcomprisBoard
 
   /* Pointors to boards's own functions */
   BoardPlugin         *plugin;
+
+  /* The gmodule pointers */
+  GModule	*gmodule;
+  gchar		*gmodule_file;
+
 
   /* Pointors to the previous board to start when this one ends */
   GcomprisBoard       *previous_board;

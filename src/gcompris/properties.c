@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/02/04 01:36:34 bcoudoin>
+ * Time-stamp: <2004/03/07 13:21:11 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -72,7 +72,7 @@ GcomprisProperties *gcompris_properties_new ()
 {
   GcomprisProperties *tmp;
   char *config_file;
-  char *locale;
+  const gchar *locale;
   int i;
   GScanner *scanner;
   int filefd;
@@ -168,11 +168,11 @@ GcomprisProperties *gcompris_properties_new ()
    * Some system use LOCALE 'C' for english. We have to set it explicitly
    */
   if(!tmp->locale) {
-    locale = getenv("LC_ALL");
+    locale = g_getenv("LC_ALL");
     if(locale == NULL)
-      locale = getenv("LC_MESSAGES");
+      locale = g_getenv("LC_MESSAGES");
     if(locale == NULL)
-      locale = getenv("LANG");
+      locale = g_getenv("LANG");
 
     if (locale != NULL && !strcmp(locale, "C"))
       {
