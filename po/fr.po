@@ -1,18 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2000 Free Software Foundation, Inc.
-# FIRST AUTHOR Bruno Coudoin <bruno.coudoin@free.fr>, 2000.
+# gcompris fr.po.
+# Copyright (C) 2000-2001 Free Software Foundation, Inc.
+# maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
+# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2001.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.2\n"
-"POT-Creation-Date: 2001-11-06 22:57+0100\n"
-"PO-Revision-Date: 2000-07-20 20:00+CEST\n"
-"Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: 0.9.4\n"
+"POT-Creation-Date: 2001-11-09 14:04+0100\n"
+"PO-Revision-Date: 2001-11-09 13:43+0100\n"
+"Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
+"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: boards/algebra_by.xml.in.h:1 boards/algebra_div.xml.in.h:1
 #: boards/algebra_minus.xml.in.h:1 boards/algebra_plus.xml.in.h:1
@@ -35,7 +35,7 @@ msgstr "Clique avec le bouton gauche pour sélectionner un tableau"
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "Attrapes et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les éléments pour les faire correspondre"
 
 #: boards/babymatch.xml.in.h:2
 msgid "Matching Items"
@@ -47,7 +47,7 @@ msgstr "Construis le puzzle"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
-msgstr "Attrapes et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les formes vers leur emplacement respectif"
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:77
 msgid "Click On Me"
@@ -59,6 +59,14 @@ msgid ""
 "fishtank"
 msgstr ""
 "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
+
+#: boards/click_on_letter.xml.in.h:1
+msgid "Click on a letter"
+msgstr "Clique sur une lettre"
+
+#: boards/click_on_letter.xml.in.h:2
+msgid "Hear a letter and click on the right letter"
+msgstr "Écoute une lettre et clique sur la bonne lettre"
 
 #: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
 #: src/boards/clockgame.c:74
@@ -92,11 +100,13 @@ msgstr "Jeux des Lettres"
 
 #: boards/gletters.xml.in.h:2 src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
-msgstr "Avec les touches du clavier, élimines les lettres qui tombent avant qu'elles ne touchent le sol"
+msgstr ""
+"Avec les touches du clavier, élimine les lettres qui tombent avant qu'elles "
+"ne touchent le sol"
 
 #: boards/imageid.xml.in.h:1
-msgid "Pratice reading by finding the word matching an image"
-msgstr ""
+msgid "Practice reading by finding the word matching an image"
+msgstr "Exercices de lecture pour trouver le mot correspondant à une image"
 
 #: boards/imageid.xml.in.h:2
 msgid "Reading pratice"
@@ -104,7 +114,7 @@ msgstr "Entrainement à la lecture"
 
 #: boards/imagename.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
-msgstr "Attrapes et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les éléments sous leur nom écrit"
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
@@ -120,7 +130,8 @@ msgstr "Menu principal de GCompris"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Attrapes et fais glisser les éléments pour reconstruire le tableau original"
+msgstr ""
+"Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
 #: boards/paintings.xml.in.h:2 src/boards/shapegame.c:119
 msgid "Make the puzzle"
@@ -128,15 +139,15 @@ msgstr "Construis le puzzle"
 
 #: boards/paratrooper.xml.in.h:1
 msgid "Manage the paratrooper to let him safely land"
-msgstr "Gére le parachutiste et fais le atterir en douceur"
+msgstr "Gère le parachutiste et fais le atterrir en douceur"
 
 #: boards/paratrooper.xml.in.h:2
 msgid "Paratrooper"
-msgstr ""
+msgstr "Parachutiste"
 
 #: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr "Déplaces l'avion pour attraper les nuages dans le bon ordre"
+msgstr "Déplace l'avion pour attraper les nuages dans le bon ordre"
 
 #: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
 msgid "Numbers in Order"
@@ -164,7 +175,7 @@ msgstr "Vers les tableaux de lecture"
 
 #: boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Attrapes et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les poids pour équilibrer la balance"
 
 #: boards/scalesboard.xml.in.h:2
 msgid "Well balance the scales"
@@ -176,7 +187,7 @@ msgstr "Les nombres avec les dés"
 
 #: boards/smallnumbers.xml.in.h:2
 msgid "Type the keyboard number 1 to 6 before the dices reach the ground"
-msgstr "Appuies sur les touches 1 à 6 avant que les dés ne touchent le sol"
+msgstr "Appuie sur les touches 1 à 6 avant que les dés ne touchent le sol"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
 msgid "Falling Words"
@@ -184,7 +195,7 @@ msgstr "Les mots qui tombent"
 
 #: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:83
 msgid "Fully type the falling words before they reach the ground"
-msgstr "Entres au clavier les mots qui tombent avant qu'ils ne touchent le sol"
+msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
@@ -262,7 +273,7 @@ msgstr "Non, il n'y est pas"
 
 #: src/boards/shapegame.c:120
 msgid "Drag and Drop the items to rebuild the object"
-msgstr "Attrapes et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
 #: src/boards/shapegame.c:1142
 #, c-format
@@ -276,7 +287,7 @@ msgstr "trouve le fichier %s !"
 
 #: src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-msgstr "Appuies sur les touches 1 à 9 avant que les dés ne touchent le sol"
+msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
 #. GdkCursor *hand_cursor;
 #: src/gcompris/gcompris.c:179
@@ -287,7 +298,9 @@ msgstr "GCompris J'ai Compris"
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
-msgstr "Un simple jeux d'apprentissage à partir de 3 ans. Ce logiciel fait partie du projet GNU"
+msgstr ""
+"Un simple jeux d'apprentissage à partir de 3 ans. Ce logiciel fait partie du "
+"projet GNU"
 
 #: src/gcompris/gcompris.c:292
 msgid "GCompris Home Page"
@@ -295,8 +308,8 @@ msgstr "Page d'accueil de GCompris"
 
 #: src/gcompris/gcompris.c:295
 msgid "An OFSET development"
-msgstr ""
+msgstr "Un développement d'OFSET"
 
 #: src/gcompris/gcompris.c:325
 msgid "Do you really want to quit GCompris?"
-msgstr "Veux tu vraiment quitter ce jeux ?"
+msgstr "Veux tu vraiment quitter ce jeu ?"
