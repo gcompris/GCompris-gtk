@@ -34,7 +34,6 @@ import copy
 import math
 import time
 
-#Print
 import os
 import tempfile
 
@@ -163,9 +162,6 @@ class Gcompris_anim:
     self.in_select_ofx = -1
     self.in_select_ofy = -1
 
-    # The error root item
-    self.root_erroritem = []
-
     # The frame counter
     self.item_frame_counter = []
     self.current_image = 0
@@ -210,13 +206,7 @@ class Gcompris_anim:
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
     self.rootitem.destroy()
-    self.root_drawingitem.destroy()
-    self.root_playingitem.destroy()
-    # Delete error previous mark if any
-    if(self.root_erroritem):
-      self.root_erroritem.destroy()
 
-# Mandatory?
   def pause(self, pause):
     #used to stop the event reception at the end?
     self.board_paused = pause
@@ -236,7 +226,7 @@ class Gcompris_anim:
       gcompris.file_selector_load( self.gcomprisBoard, "anim", svg_restore)
 
     elif (keyval == gtk.keysyms.F3):
-      self.ps_print(self.root_drawingitem)
+      self.ps_print(self.get_drawing(self.current_image))
     
     elif ((keyval == gtk.keysyms.Shift_L) or
           (keyval == gtk.keysyms.Shift_R) or
@@ -395,28 +385,30 @@ class Gcompris_anim:
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "PICTURE"):
-          self.AnimShot(self.root_drawingitem)
+          self.AnimShot(self.get_drawing(self.current_image))
           return gtk.TRUE
         
         elif (self.tools[tool][0] == "MOVIE"):
           if not self.running:
-            self.playing_start()
-          else:
+            
             # unselect object if necessary
             if (self.selected != None):
               self.selected.item_list[1].hide()
               self.selected = None
-     
-              # Deactivate old button
-              self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
+              
+            self.playing_start()
+          else:
+            # FIXME: DEAD CODE
+            # Deactivate old button
+            self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
         
-              # Activate new button                         
-              self.current_tool = self.select_tool_number
-              self.old_tool_item = self.select_tool
-              self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
-              gcompris.set_cursor(self.tools[self.current_tool][3]);
-              self.playing_stop()
-              return gtk.TRUE
+            # Activate new button                         
+            self.current_tool = self.select_tool_number
+            self.old_tool_item = self.select_tool
+            self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
+            gcompris.set_cursor(self.tools[self.current_tool][3]);
+            self.playing_stop()
+            return gtk.TRUE
             
             # unselect object if necessary
         elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
@@ -532,6 +524,22 @@ class Gcompris_anim:
       )
     self.draw_grid(x1,x2,y1,y2,step)
 
+    # Create the root_anim group which contains all the drawings.
+    # At root_anim root, there is a group for each drawings.
+    self.root_anim = self.rootitem.add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
+
+    gcompris.utils.item_absolute_move(self.root_anim,
+                                      int(self.playing_area[0]-self.drawing_area[0]),
+                                      int(self.playing_area[1]-self.drawing_area[1])
+                                      )
+
+    # Create a group for the first drawing
+    self.new_drawing()
+    
     self.flash = self.rootitem.add (
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("anim/camera.png"),
@@ -539,6 +547,7 @@ class Gcompris_anim:
       y=200,
       )
     self.flash.hide()
+
 
   # Display the drawing area
   def draw_playing_area(self):
@@ -594,17 +603,6 @@ class Gcompris_anim:
       )
     run.connect("event", self.speed_event,True)
 
-    
-    self.root_anim = self.rootitem.add(
-      gnome.canvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
-
-    gcompris.utils.item_absolute_move(self.root_anim,
-                                      int(self.playing_area[0]-self.drawing_area[0]),
-                                      int(self.playing_area[1]-self.drawing_area[1])
-                                      )
 
   def speed_event(self, item, event, up):
   
@@ -821,7 +819,7 @@ class Gcompris_anim:
     
     # Right button is a shortcup to Shot
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-      self.AnimShot(self.root_drawingitem)
+      self.AnimShot(self.get_drawing(self.current_image))
       return gtk.FALSE
     
     if (not (self.tools[self.current_tool][0] == "RECT" or
@@ -835,13 +833,12 @@ class Gcompris_anim:
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       
-      # Delete error previous mark if any
-      if(self.root_erroritem):
-        self.root_erroritem.destroy()
-
       if event.button == 1:
         self.newitem = None
-        self.newitemgroup = self.root_drawingitem.add(
+        print "----------------------------------------"
+        print "Current image = " + str(self.current_image)
+        self.dump_group(self.root_anim)
+        self.newitemgroup = self.root_anim.item_list[self.current_image].add(
           gnome.canvas.CanvasGroup,
           x=0.0,
           y=0.0
@@ -942,6 +939,7 @@ class Gcompris_anim:
             outline_color_rgba=0x000000FFL,
             width_units=1.0
             )
+          
         elif self.tools[self.current_tool][0] == "TEXT":
 
           x,y = self.snap_to_grid(event.x,event.y)
@@ -1049,30 +1047,46 @@ class Gcompris_anim:
         return gtk.TRUE
     return gtk.FALSE
 
-  # tous les objets de premiers niveau sont des canvasGroup;
-  # il contiennent soit les listes d'objets,
-  # soit des associations poignees-objets
-  def AnimShot(self, modele):
-    self.flash.show()
-    
+
+  # Return the root group for the drawing at 'index'
+  def get_drawing(self, index):
+    return self.root_anim.item_list[index]
+
+  
+  # Create a group for the next drawing
+  # return the new root group for this drawing
+  def new_drawing(self):
     shot = self.root_anim.add(
       gnome.canvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
+    self.current_image = len(self.root_anim.item_list) - 1
+    return shot
+  
+  
+  # All first level objects are canvas groups
+  # They contains objects list or anchors
+  def AnimShot(self, modele):
+    self.flash.show()
+
+    # Create a group for the next drawing
+    shot = self.new_drawing()
+
+    # Move to the next drawing
+    self.current_image = len(self.root_anim.item_list) - 1
 
     for item in modele.item_list:
-      #animutils.clone_item(shot,item)
-      item2 = gcompris.utils.clone_item(item, shot)
-      # Set back the callback so that we will be abble to edit the image again
-      # FIXME Do not work. How to do this ?
-      #self.anchorize(item2)
-      
-    shot.hide()
-      
-    self.current_image+=1
+      gcompris.utils.clone_item(item, shot)
 
-    self.item_frame_counter.set(text=self.current_image + 1)
+    # Recreate the anchors
+    for item in shot.item_list:
+      self.anchorize(item)
+
+    # Hide the current drawing
+    modele.hide()
+      
+    self.item_frame_counter.set(text = self.current_image + 1)
     gtk.timeout_add(500, self.run_flash)
 
   def clone(self, parent, item):
@@ -1109,28 +1123,31 @@ class Gcompris_anim:
     return cloned
 
   def run_anim(self):
-    self.cartoon[self.current_image].hide()
-    self.current_image=(self.current_image+1)%(len(self.cartoon))
     if self.running:
-      self.cartoon[self.current_image].show()
+      self.get_drawing(self.current_image).hide()
+      self.current_image=(self.current_image+1)%(len(self.root_anim.item_list))
+      self.get_drawing(self.current_image).show()
       self.item_frame_counter.set(text=self.current_image + 1)
     return self.running
 
   def AnimRun(self):
-    self.cartoon=self.root_anim.item_list
-    if len(self.cartoon)==0:
+    if len(self.root_anim.item_list)==0:
       print "Mmm... Need to make shots before run anim !!"
       self.running=False
-      svg_restore("gcompris.svg")
       return
-    self.cartoon[0].show()
+    # Hide the current drawing
+    self.get_drawing(self.current_image).hide()
+
+    # Show the first drawing
     self.current_image=0
+    self.get_drawing(self.current_image).show()
+    
     self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim)
 
 
   def snapshot_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      self.AnimShot(self.root_drawingitem)
+      self.AnimShot(self.get_drawing(self.current_image))
 
   def run_flash(self):
     self.flash.hide()
@@ -1141,18 +1158,20 @@ class Gcompris_anim:
       self.running=True
       self.root_coloritem.hide()
       self.root_toolitem.hide()
-      self.root_drawingitem.hide()
-      self.root_playingitem.show()
       self.AnimRun()
       
   def playing_stop(self):
     if self.running:
       self.running=False
-      self.root_playingitem.hide()
-      self.root_drawingitem.show()
       self.root_coloritem.show()
       self.root_toolitem.show()
-      self.item_frame_counter.set(text=len(self.cartoon)+1)
+
+      # Hide the current drawing and show the last drawing
+      self.get_drawing(self.current_image).hide()
+      self.current_image = len(self.root_anim.item_list) - 1
+      self.item_frame_counter.set(text=self.current_image+1)
+      # Show the current drawing
+      self.get_drawing(self.current_image).show()
 
   def playing_event(self, item, event, state):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -1166,20 +1185,17 @@ class Gcompris_anim:
       return
 
     if event.type == gtk.gdk.BUTTON_PRESS:
-      self.cartoon=self.root_anim.item_list
-      self.root_anim.show()
-      self.cartoon[self.current_image].hide()
+      self.get_drawing(self.current_image).hide()
       if state == "first":
         self.current_image = 0
       elif state == "last":
-        self.current_image = len(self.cartoon)-1
+        self.current_image = len(self.root_anim.item_list)-1
       elif state == "previous":
-        self.current_image=(self.current_image-1)%(len(self.cartoon))
+        self.current_image = (self.current_image-1)%(len(self.root_anim.item_list))
       elif state == "next":
-        self.current_image=(self.current_image+1)%(len(self.cartoon))
+        self.current_image = (self.current_image+1)%(len(self.root_anim.item_list))
 
-      print "self.current_image=" + str(self.current_image)
-      self.cartoon[self.current_image].show()
+      self.get_drawing(self.current_image).show()
       self.item_frame_counter.set(text=self.current_image + 1)
 
   # Display the animation tools
@@ -1379,7 +1395,7 @@ class Gcompris_anim:
 
     # Right button is a shortcup to Shot
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-      self.AnimShot(self.root_drawingitem)
+      self.AnimShot(self.get_drawing(self.current_image))
       return gtk.FALSE
     
     if event.state & gtk.gdk.BUTTON1_MASK:
@@ -1496,7 +1512,12 @@ class Gcompris_anim:
 
     
   def item_type(self, item):
-    if gobject.type_name(item)=="GnomeCanvasLine":
+
+    item_type = ''
+    
+    if gobject.type_name(item)=="GnomeCanvasGroup":
+      item_type='GROUP'
+    elif gobject.type_name(item)=="GnomeCanvasLine":
       item_type='LINE'
     elif gobject.type_name(item)=="GnomeCanvasPixbuf":
       item_type='IMAGE'
@@ -1541,12 +1562,28 @@ class Gcompris_anim:
     return item_type
 
 
-  def anchorize( self, group):
+  #
+  # Call anchorize recursively on each item of the group
+  #
+  def recursive_anchorize(self, root_item):
+    for item in root_item.item_list:
+      if gobject.type_name(item)=="GnomeCanvasGroup":
+        self.recursive_anchorize(item)
+      else:
+        self.anchorize(item.get_property("parent"))
+
+  #
+  # Add the anchors and callbacks on an item
+  #
+  def anchorize(self, group):
     # group contains normal items.
 
     item = group.item_list[0]
 
     item_type = self.item_type(item)
+
+    if item_type == "GROUP" or not item_type:
+      return
 
     for event in self.events[item_type]:
       item.connect("event", event)
@@ -1566,7 +1603,7 @@ class Gcompris_anim:
         outline_color_rgba=0x000000FFL,
         width_pixels=1,
         )
-      anchor.set_data('anchor_type',anchor_type)
+      anchor.set_data('anchor_type', anchor_type)
       anchor.connect("event", self.resize_item_event,anchor_type)
 
 
@@ -1619,8 +1656,8 @@ class Gcompris_anim:
       x = 0,
       y = 0
       )
-    gcompris.utils.clone_item(self.root_drawingitem, SaveGroup)
-    print len(SaveGroup.item_list),  len(self.root_drawingitem.item_list)
+    gcompris.utils.clone_item(self.root_anim.item_list[self.current_image], SaveGroup)
+    print len(SaveGroup.item_list),  len(self.root_anim.item_list[self.current_image].item_list)
     
     gcompris.utils.svg_save("anim",
                             file[1],
@@ -1638,30 +1675,50 @@ class Gcompris_anim:
     else:
       resultList = os.popen('convert ' +  file[1]  + ' ' + file[1][:-3] +  'ps').readlines()
 
+  # Debugging function to dump a canvas group content
+  # This function is recursive
+  def dump_group(self, item):
+
+    if(self.item_type(item) == "GROUP"):
+      print "Group size = " + str(len(item.item_list))
+      for item in item.item_list:
+        self.dump_group(item)
+    else:
+      print "  " + self.item_type(item)
     
+# ----------------------------------------
+# GLOBAL FUNCTIONS
+# ----------------------------------------
 
 def svg_restore(filename):
   print "svg_restore", filename
   
   global fles
 
-  gcompris.utils.svg_restore("anim",
-                             filename,
-                             fles.root_anim
-                             )
-
-  if (len(fles.root_anim.item_list) > 0):
-    last_picture = fles.root_anim.item_list[-1]
-
-    for item in last_picture.item_list:
-      gcompris.utils.clone_item(item, fles.root_drawingitem)
-      fles.anchorize(fles.root_drawingitem.item_list[-1])
-
   # unselect object if necessary
   if (fles.selected != None):
     fles.selected.item_list[1].hide()
     fles.selected = None
         
+  # Delete the current drawings
+  # Make the root_anim empty
+  for item in fles.root_anim.item_list:
+    item.destroy()
+
+  gcompris.utils.svg_restore("anim",
+                             filename,
+                             fles.root_anim
+                             )
+
+#  if (len(fles.root_anim.item_list) > 0):
+#    last_picture = fles.root_anim.item_list[-1]
+
+  if (len(fles.root_anim.item_list) > 0):
+    for item in fles.root_anim.item_list:
+      print "iterate one slide"
+      if gobject.type_name(item)=="GnomeCanvasGroup":
+        fles.recursive_anchorize(item)
+
   # Deactivate old button
   fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][1]))
         
@@ -1670,6 +1727,7 @@ def svg_restore(filename):
   fles.old_tool_item = fles.select_tool
   fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][2]))
   gcompris.set_cursor(fles.tools[fles.current_tool][3]);
+
 
 def svg_save(filename):
   print "svg_save", filename
@@ -1688,12 +1746,9 @@ def image_selected(image):
   global fles
   
   pixmap = gcompris.utils.load_pixmap(image)
-  #print image
-  #pixmap = gcompris.utils.load_pixmap("GCompris/anchor.svg")
-  
   
   fles.newitem = None
-  fles.newitemgroup = fles.root_drawingitem.add(
+  fles.newitemgroup = fles.root_anim.item_list[fles.current_image].add(
     gnome.canvas.CanvasGroup,
     x=0.0,
     y=0.0
@@ -1701,7 +1756,7 @@ def image_selected(image):
 
   x= fles.pos_x
   y= fles.pos_y
-  width = pixmap.get_width()
+  width  = pixmap.get_width()
   height = pixmap.get_height()
 
   fles.newitem = fles.newitemgroup.add(
@@ -1714,12 +1769,17 @@ def image_selected(image):
     width_set = True,
     height_set = True
     )
-  
-  gcompris.utils.filename_pass(fles.newitem,image)
 
+  # Tell svg_save the filename
+  # Write "filename=image" in the property of newitem
+  # Can't do it here because in C python string are unreadable
+  gcompris.utils.filename_pass(fles.newitem, image)
+  
   fles.anchorize(fles.newitemgroup)
   fles.object_set_size_and_pos(fles.newitemgroup, x, y, x+width, y+height)
   fles.select_item(fles.newitemgroup)
 
   fles.newitem = None
   fles.newitemgroup = None
+
+

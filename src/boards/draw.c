@@ -155,7 +155,7 @@ static AnchorsItem *selected_anchors_item = NULL;
 
 #define DRAW_WIDTH_PIXELS	6
 
-#define GRID_COLOR		0x00000000
+#define GRID_COLOR		0XCECECEFF
 
 #define MAX_TEXT_CHAR		50
 
@@ -1866,6 +1866,10 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "height_set", TRUE,
 				NULL);
       //				    "anchor", GTK_ANCHOR_CENTER,
+
+      /* Tell svg_save the filename */
+      gtk_object_set_data(GTK_OBJECT(item), "filename", g_strdup(imagename));
+
       gdk_pixbuf_unref(pixmap);
       break;
     case TOOL_RECT:
@@ -2130,7 +2134,8 @@ static void image_selected(gchar *image)
 static void recreate_item(GnomeCanvasItem *item)
 {
 
-  g_assert(item != NULL);
+  if(item == NULL) 
+    return;
 
   if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_GROUP ) {
     /* If it's a group, then the first object is the real object to create the anchor for */

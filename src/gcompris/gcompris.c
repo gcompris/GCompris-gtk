@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/08/17 00:02:44 bcoudoin>
+ * Time-stamp: <2004/09/11 00:44:47 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -714,8 +714,8 @@ gcompris_init (int argc, char *argv[])
   /*------------------------------------------------------------*/
   if (popt_version)
     {
-      printf (_("GCompris\nVersion: %d\nLicence: GPL\n"
-		"More info at http://ofset.sourceforge.net/gcompris\n"),
+      printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
+		"More info at http://www.ofset.org/gcompris\n"),
 	      VERSION);
       exit (0);
     }

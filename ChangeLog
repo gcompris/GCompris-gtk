@@ -1,3 +1,13 @@
+2004-09-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/draw.c: (create_item), (recreate_item): completed image load/save
+	* src/boards/python/anim.py: completed image by image re-editing. Warning, multi drawings
+	load is broken.
+	* src/gcompris/about.c: (item_event_ok): fixed hyperlink to home pages
+	* src/gcompris/gcompris.c: (gcompris_init): fixed version display
+	* src/gcompris/svgutil.c: (gcompris_pixbuf_to_svg_file),
+	(gcompris_svg_restore): added a test to let draw.c load/save images
+
 2004-09-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/draw/tool-load.png: remade using an image from openclipart

@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/05/28 00:59:40 bcoudoin>
+ * Time-stamp: <2004/09/11 00:45:19 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -431,7 +431,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if (!strcmp((char *)data, "ofset"))
 	{
 	  /* FIXME: Should inform the user that we don't find mozilla. */
-	  system("mozilla http://ofset.sf.net &");
+	  system("mozilla http://www.ofset.org &");
 	}
       else if (!strcmp((char *)data, "fsf"))
 	{
@@ -441,7 +441,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if (!strcmp((char *)data, "gcompris"))
 	{
 	  /* FIXME: Should inform the user that we don't find mozilla. */
-	  system("mozilla http://ofset.sourceforge.net/gcompris &");
+	  system("mozilla http://www.ofset.org/gcompris &");
 	}
       else if (!strcmp((char *)data, "help"))
 	{

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/09/04 16:44:32 bcoudoin>
+ * Time-stamp: <2004/09/15 00:13:52 bcoudoin>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -49,7 +49,7 @@ typedef void (*sighandler_t)(int);
  */
 /*
  * Clone an item.
- * Items that contains the property "anchors" will not be saved.
+ * Items that contains the property "anchors" will not be cloned.
  * To mark an item use:
  *    gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", TRUE);
  *
@@ -488,14 +488,15 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
   gcomprisPrivateData = defs->xmlChildrenNode;
   while ( gcomprisPrivateData != NULL ){
-    if (!xmlStrcmp(gcomprisPrivateData->name, (const xmlChar *)"gcompris:anim")){
+    if (!xmlStrcmp(gcomprisPrivateData->name, (const xmlChar *)"gcompris:anim") ||
+	!xmlStrcmp(gcomprisPrivateData->name, (const xmlChar *)"gcompris:drawings")){
       break;
     }
     gcomprisPrivateData = gcomprisPrivateData->next;
   }
 
   itemName = g_object_get_data(G_OBJECT(item), "filename");
-
+  printf("gcompris_pixbuf_to_svg_file:filename=%s\n", itemName);
   i = 0;
   img = gcomprisPrivateData->xmlChildrenNode;
   while ( img != NULL ){
@@ -1388,11 +1389,6 @@ void gcompris_svg_restore(char *module, char *filename, GnomeCanvasGroup *parent
     cur = cur->next;
   }
 }
-
-/* void *gcompris_filename_pass( GnomeCanvasItem *item, char *string) */
-/* { */
-/*   g_object_set_data( G_OBJECT(item), "filename", string); */
-/* } */
 
 /* Local Variables: */
 /* mode:c */
