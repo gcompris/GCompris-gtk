@@ -16,6 +16,9 @@ closedir DIR;
 
 foreach my $image (@files) {
 
+  # Skip old thumbs
+  next if ($image =~ m/_small\.jpg/);
+
   print "Processing $image\n";
   my $file  = "$screenshots_dir/$image";
   (my $thumb = $file) =~ s/\.jpg/_small\.jpg/;
