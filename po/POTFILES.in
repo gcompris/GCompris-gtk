@@ -18,6 +18,12 @@ boards/fun.xml.in
 boards/gletters.xml.in
 boards/imageid.xml.in
 boards/imagename.xml.in
+boards/locale.xml.in
+boards/locale_de.xml.in
+boards/locale_en.xml.in
+boards/locale_es.xml.in
+boards/locale_fr.xml.in
+boards/locale_sv.xml.in
 boards/memory.xml.in
 boards/menu.xml.in
 boards/missing_letter.xml.in
@@ -34,8 +40,10 @@ gcompris.desktop.in
 src/boards/algebra.c
 src/boards/clickgame.c
 src/boards/clockgame.c
+src/boards/draw.c
 src/boards/gletters.c
 src/boards/gletters.c
+src/boards/locale.c
 src/boards/planegame.c
 src/boards/reading.c
 src/boards/shapegame.c

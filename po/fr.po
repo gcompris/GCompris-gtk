@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.4\n"
-"POT-Creation-Date: 2001-11-11 01:42+0100\n"
+"POT-Creation-Date: 2001-11-12 00:55+0100\n"
 "PO-Revision-Date: 2001-11-09 13:43+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -57,7 +57,8 @@ msgstr "Clique sur moi"
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
-msgstr "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
+msgstr ""
+"Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid "Click on a letter"
@@ -81,12 +82,11 @@ msgstr "Apprentissage de l'heure"
 msgid "Discover the Computer"
 msgstr "Utilise la souris de l'ordinateur"
 
-#: boards/draw.xml.in.h:1
+#: boards/draw.xml.in.h:1 src/boards/draw.c:95
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2
-#, fuzzy
+#: boards/draw.xml.in.h:2 src/boards/draw.c:96
 msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative ou l'on peut dessiner librement"
 
@@ -108,7 +108,9 @@ msgstr "Jeux des Lettres"
 
 #: boards/gletters.xml.in.h:2 src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
-msgstr "Avec les touches du clavier, élimine les lettres qui tombent avant qu'elles ne touchent le sol"
+msgstr ""
+"Avec les touches du clavier, élimine les lettres qui tombent avant qu'elles "
+"ne touchent le sol"
 
 #: boards/imageid.xml.in.h:1
 msgid "Practice reading by finding the word matching an image"
@@ -121,6 +123,54 @@ msgstr "Entrainement à la lecture"
 #: boards/imagename.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
 msgstr "Attrape et fais glisser les éléments sous leur nom écrit"
+
+#: boards/locale.xml.in.h:1 src/boards/locale.c:51
+msgid "Select the language for the messages in GCompris"
+msgstr "Sélectionne la langue pour les messages de GCompris"
+
+#: boards/locale.xml.in.h:2 src/boards/locale.c:50
+msgid "Select the locale"
+msgstr "Sélectionne la locale"
+
+#: boards/locale_de.xml.in.h:1
+msgid "GCompris will display all its messages in German"
+msgstr "GCompris affichera tous ses messages en Allemand"
+
+#: boards/locale_de.xml.in.h:2
+msgid "German"
+msgstr "Allemand"
+
+#: boards/locale_en.xml.in.h:1
+msgid "English"
+msgstr "Anglais"
+
+#: boards/locale_en.xml.in.h:2
+msgid "GCompris will display all its messages in English"
+msgstr "GCompris affichera tous ses messages en Anglais"
+
+#: boards/locale_es.xml.in.h:1
+msgid "GCompris will display all its messages in Spanish"
+msgstr "GCompris affichera tous ses messages en Espagnol"
+
+#: boards/locale_es.xml.in.h:2
+msgid "Spanish"
+msgstr "Espagnol"
+
+#: boards/locale_fr.xml.in.h:1
+msgid "French"
+msgstr "Français"
+
+#: boards/locale_fr.xml.in.h:2
+msgid "GCompris will display all its messages in French"
+msgstr "GCompris affichera tous ses messages en Français"
+
+#: boards/locale_sv.xml.in.h:1
+msgid "GCompris will display all its messages in Swedish"
+msgstr "GCompris affichera tous ses messages en Suédois"
+
+#: boards/locale_sv.xml.in.h:2
+msgid "Swedish"
+msgstr "Suédois"
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
@@ -136,7 +186,8 @@ msgstr "Menu principal de GCompris"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Attrape et fais glisser les éléments pour reconstruire le tableau original"
+msgstr ""
+"Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
 #: boards/paintings.xml.in.h:2 src/boards/shapegame.c:119
 msgid "Make the puzzle"
@@ -270,6 +321,52 @@ msgstr ""
 msgid "Set the clock to:"
 msgstr "Régle l'horloge sur :"
 
+#: src/boards/draw.c:207
+msgid "Free vector drawing tool"
+msgstr "Dessin vectoriel libre"
+
+#: src/boards/draw.c:208
+msgid ""
+"Goal:\n"
+"In this game, the children will be able to freely draw.\n"
+"The goal is just to discover how he can create pretty looking drawings based "
+"on\n"
+"basic shapes: rectangles, ellipses and lines.\n"
+"\n"
+"Usage:\n"
+"On the left select a drawing tool, on the bottom select a color then click\n"
+"on the white area and drag to create a new shape.\n"
+"To go faster, you can use the middle mouse button to delete an object\n"
+"or the right button to move an object.\n"
+msgstr ""
+"Objectif:\n"
+"Dans ce jeux, l'élève peut dessiner librement.\n"
+"L'objectif et de découvrir comment créer des jolies dessins basées sur des "
+"formes \n"
+"simples : rectangles, ellipse et lignes.\n"
+"\n"
+"Utilisation:\n"
+"Sur la gauche, sélectionner un outil de dessin, en bas sélectionner une "
+"couleur \n"
+"puis cliquer dans la zone blanche en glissant pour créer une nouvelle "
+"forme.\n"
+"Pour aller plus vite, on peut utiliser la touche du millieu pour détruire "
+"un \n"
+"objet ou le bouton de droite pour déplacer un objet.\n"
+
+#: src/boards/locale.c:130
+#, fuzzy, c-format
+msgid "GCompris will now display its messages in %s"
+msgstr "GCompris affichera maintenant ses messages en %s"
+
+#: src/boards/locale.c:151
+msgid ""
+"If this message is not translated, \n"
+"it means that probably GCompris is not translated in this language"
+msgstr ""
+"Si ce message n'est pas traduit, cela signifie probablement\n"
+"que GCompris n'est pas traduit dans cette langue"
+
 #: src/boards/reading.c:98
 msgid "Reading"
 msgstr "Lecture"
@@ -317,24 +414,26 @@ msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
 #. GdkCursor *hand_cursor;
-#: src/gcompris/gcompris.c:179
+#: src/gcompris/gcompris.c:180
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:287
+#: src/gcompris/gcompris.c:288
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
-msgstr "Un simple jeux d'apprentissage à partir de 3 ans. Ce logiciel fait partie du projet GNU"
+msgstr ""
+"Un simple jeux d'apprentissage à partir de 3 ans. Ce logiciel fait partie du "
+"projet GNU"
 
-#: src/gcompris/gcompris.c:292
+#: src/gcompris/gcompris.c:293
 msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
-#: src/gcompris/gcompris.c:295
+#: src/gcompris/gcompris.c:296
 msgid "An OFSET development"
 msgstr "Un développement d'OFSET"
 
-#: src/gcompris/gcompris.c:325
+#: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Veux tu vraiment quitter GCompris ?"

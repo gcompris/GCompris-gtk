@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2001/11/06 22:09:56 bruno>
+ * Time-stamp: <2001/11/11 23:13:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -76,9 +76,10 @@ void		 gcompris_help_start (gchar *title, gchar *content);
 void		 gcompris_help_stop ();
 
 /* General */
-GnomeCanvas *gcompris_get_canvas();
+GnomeCanvas     *gcompris_get_canvas();
 
-gchar *gcompris_get_locale();
+gchar	        *gcompris_get_locale();
+void		 gcompris_set_locale(gchar *locale);
 
 #endif
 

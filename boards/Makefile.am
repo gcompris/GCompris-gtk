@@ -15,6 +15,12 @@ xml_in_files = \
 	fun.xml.in \
 	gletters.xml.in \
 	imagename.xml.in \
+	locale.xml.in \
+	locale_de.xml.in \
+	locale_en.xml.in \
+	locale_es.xml.in \
+	locale_fr.xml.in \
+	locale_sv.xml.in \
 	memory.xml.in \
 	menu.xml.in \
 	paintings.xml.in \

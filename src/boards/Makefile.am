@@ -16,7 +16,8 @@ lib_LTLIBRARIES = \
 	libimageid.la \
 	libmissingletter.la \
 	libclick_on_letter.la \
-	liberase.la
+	liberase.la \
+	liblocale.la
 
 libdir = $(plugindir)
 INCLUDES = -I$(top_builddir)/intl $(GNOME_INCLUDEDIR) -I..
@@ -171,6 +172,15 @@ liberase_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
 	$(GDK_PIXBUF_LIBS)
 
 liberase_la_SOURCES = erase.c
+
+
+liblocale_la_LDFLAGS = -module -avoid-version
+liblocale_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+liblocale_la_SOURCES = locale.c
 
 
 EXTRA_DIST = README

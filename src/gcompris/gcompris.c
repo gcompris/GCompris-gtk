@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/10/28 16:12:07 bruno>
+ * Time-stamp: <2001/11/12 01:07:17 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -66,6 +66,7 @@ GcomprisBoard		*gcomprisBoardMenu = NULL;
 static char *default_message= "This software is a GNU Package";
 
 static GnomeCanvasItem *backgroundimg = NULL;
+static gchar           *gcompris_locale = NULL;
 
 static gint
 board_widget_key_press_callback (GtkWidget   *widget,
@@ -384,6 +385,11 @@ static void load_properties ()
  */
 gchar *gcompris_get_locale()
 {
+
+  /* First check gcompris got overrided by the user */
+  if(gcompris_locale !=NULL)
+    return(gcompris_locale);
+
   if(!strcmp(setlocale(0, NULL), "C"))
     {
       /* NO Locale, Try to use the English Locale */
@@ -393,6 +399,18 @@ gchar *gcompris_get_locale()
     {
       return(setlocale(0, NULL));
     }
+}
+
+/*
+ * This set the locale for which text must be displayed
+ * locale = NULL to tell gcompris to use the default system local again
+ *
+ */
+void gcompris_set_locale(gchar *locale)
+{
+
+  gcompris_locale = setlocale(LC_ALL, locale);
+  printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
 }
 
 

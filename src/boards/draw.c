@@ -92,8 +92,8 @@ BoardPlugin menu_bp =
 {
    NULL,
    NULL,
-   N_("Free Drawing"),
-   N_("Exercice you artistic skills with this vector drawing board"),
+   N_("A simple vector drawing tool"),
+   N_("Creative board where you can freely draw"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,
@@ -746,38 +746,42 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	   
 	   resize_item_ref_x = item_x;
 	   resize_item_ref_y = item_y;
-	   
-	   if(item==draw_root_item)
-	     {
+
+	   switch(currentTool) {
+	   case TOOL_RECT:
+	   case TOOL_FILLED_RECT:
+	   case TOOL_CIRCLE: 
+	   case TOOL_FILLED_CIRCLE:
+	   case TOOL_LINE:
 	       // Create a new item
 	       newItem = create_item(x, y);
 	       if(newItem==NULL)
 		 return FALSE;
-	     }
-	   else
+	       break;
+
+	   case TOOL_DELETE:
+	     gtk_object_destroy (GTK_OBJECT(item));
+	     return FALSE;
+	     break;
+
+	   default:
 	     {
-	       if(currentTool == TOOL_DELETE)
-		 {
-		   gtk_object_destroy (GTK_OBJECT(item));
-		   return FALSE;
-		 }
-	       else
-		 {
-		   double x1, y1, x2, y2;
-		   // Just resize or move the seleted item
-		   newItem = item;
-
-		   gnome_canvas_item_get_bounds  (item,
-						  &x1,
-						  &y1,
-						  &x2,
-						  &y2);
-
-		   resize_item_ref_x = x1;
-		   resize_item_ref_y = y1;
-	   
-		 }
+	       double x1, y1, x2, y2;
+	       // Just resize or move the seleted item
+	       newItem = item;
+	       
+	       gnome_canvas_item_get_bounds  (item,
+					      &x1,
+					      &y1,
+					      &x2,
+					      &y2);
+	       
+	       resize_item_ref_x = x1;
+	       resize_item_ref_y = y1;
+	       
 	     }
+	     break;
+	   }
 
 	   gnome_canvas_item_raise_to_top(newItem);
 	   fleur = gdk_cursor_new(GDK_FLEUR);

@@ -129,7 +129,7 @@ cflags_set = @cflags_set@
 cxxflags_set = @cxxflags_set@
 plugindir = @plugindir@
 
-lib_LTLIBRARIES =  	libmenu.la 	libclickgame.la 	libalgebra.la 	libclockgame.la 	libshapegame.la 	libwordsgame.la 	libgletters.la 	libplanegame.la 	libsmallnumbers.la 	libparatrooper.la 	libreading.la 	libmemory.la 	libdraw.la 	libimageid.la 	libmissingletter.la 	libclick_on_letter.la 	liberase.la
+lib_LTLIBRARIES =  	libmenu.la 	libclickgame.la 	libalgebra.la 	libclockgame.la 	libshapegame.la 	libwordsgame.la 	libgletters.la 	libplanegame.la 	libsmallnumbers.la 	libparatrooper.la 	libreading.la 	libmemory.la 	libdraw.la 	libimageid.la 	libmissingletter.la 	libclick_on_letter.la 	liberase.la 	liblocale.la
 
 
 libdir = $(plugindir)
@@ -220,6 +220,11 @@ liberase_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
 
 liberase_la_SOURCES = erase.c
 
+liblocale_la_LDFLAGS = -module -avoid-version
+liblocale_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIBS@
+
+liblocale_la_SOURCES = locale.c
+
 EXTRA_DIST = README
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = ../../config.h
@@ -265,6 +270,8 @@ libclick_on_letter_la_DEPENDENCIES =
 libclick_on_letter_la_OBJECTS =  click_on_letter.lo
 liberase_la_DEPENDENCIES = 
 liberase_la_OBJECTS =  erase.lo
+liblocale_la_DEPENDENCIES = 
+liblocale_la_OBJECTS =  locale.lo
 CFLAGS = @CFLAGS@
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -277,8 +284,8 @@ DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 
 TAR = gtar
 GZIP_ENV = --best
-SOURCES = $(libmenu_la_SOURCES) $(libclickgame_la_SOURCES) $(libalgebra_la_SOURCES) $(libclockgame_la_SOURCES) $(libshapegame_la_SOURCES) $(libwordsgame_la_SOURCES) $(libgletters_la_SOURCES) $(libplanegame_la_SOURCES) $(libsmallnumbers_la_SOURCES) $(libparatrooper_la_SOURCES) $(libreading_la_SOURCES) $(libmemory_la_SOURCES) $(libdraw_la_SOURCES) $(libimageid_la_SOURCES) $(libmissingletter_la_SOURCES) $(libclick_on_letter_la_SOURCES) $(liberase_la_SOURCES)
-OBJECTS = $(libmenu_la_OBJECTS) $(libclickgame_la_OBJECTS) $(libalgebra_la_OBJECTS) $(libclockgame_la_OBJECTS) $(libshapegame_la_OBJECTS) $(libwordsgame_la_OBJECTS) $(libgletters_la_OBJECTS) $(libplanegame_la_OBJECTS) $(libsmallnumbers_la_OBJECTS) $(libparatrooper_la_OBJECTS) $(libreading_la_OBJECTS) $(libmemory_la_OBJECTS) $(libdraw_la_OBJECTS) $(libimageid_la_OBJECTS) $(libmissingletter_la_OBJECTS) $(libclick_on_letter_la_OBJECTS) $(liberase_la_OBJECTS)
+SOURCES = $(libmenu_la_SOURCES) $(libclickgame_la_SOURCES) $(libalgebra_la_SOURCES) $(libclockgame_la_SOURCES) $(libshapegame_la_SOURCES) $(libwordsgame_la_SOURCES) $(libgletters_la_SOURCES) $(libplanegame_la_SOURCES) $(libsmallnumbers_la_SOURCES) $(libparatrooper_la_SOURCES) $(libreading_la_SOURCES) $(libmemory_la_SOURCES) $(libdraw_la_SOURCES) $(libimageid_la_SOURCES) $(libmissingletter_la_SOURCES) $(libclick_on_letter_la_SOURCES) $(liberase_la_SOURCES) $(liblocale_la_SOURCES)
+OBJECTS = $(libmenu_la_OBJECTS) $(libclickgame_la_OBJECTS) $(libalgebra_la_OBJECTS) $(libclockgame_la_OBJECTS) $(libshapegame_la_OBJECTS) $(libwordsgame_la_OBJECTS) $(libgletters_la_OBJECTS) $(libplanegame_la_OBJECTS) $(libsmallnumbers_la_OBJECTS) $(libparatrooper_la_OBJECTS) $(libreading_la_OBJECTS) $(libmemory_la_OBJECTS) $(libdraw_la_OBJECTS) $(libimageid_la_OBJECTS) $(libmissingletter_la_OBJECTS) $(libclick_on_letter_la_OBJECTS) $(liberase_la_OBJECTS) $(liblocale_la_OBJECTS)
 
 all: all-redirect
 .SUFFIXES:
@@ -411,6 +418,9 @@ libclick_on_letter.la: $(libclick_on_letter_la_OBJECTS) $(libclick_on_letter_la_
 liberase.la: $(liberase_la_OBJECTS) $(liberase_la_DEPENDENCIES)
 	$(LINK) -rpath $(libdir) $(liberase_la_LDFLAGS) $(liberase_la_OBJECTS) $(liberase_la_LIBADD) $(LIBS)
 
+liblocale.la: $(liblocale_la_OBJECTS) $(liblocale_la_DEPENDENCIES)
+	$(LINK) -rpath $(libdir) $(liblocale_la_LDFLAGS) $(liblocale_la_OBJECTS) $(liblocale_la_LIBADD) $(LIBS)
+
 tags: TAGS
 
 ID: $(HEADERS) $(SOURCES) $(LISP)
@@ -531,6 +541,9 @@ all-redirect all-am all installdirs mostlyclean-generic \
 distclean-generic clean-generic maintainer-clean-generic clean \
 mostlyclean distclean maintainer-clean
 
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
 	$(GNOME_XML_LIB) $(INTLLIBS) \
 	$(GDK_PIXBUF_LIBS)

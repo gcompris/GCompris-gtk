@@ -1,6 +1,6 @@
 /* gcompris - erase.c
  *
- * Copyright (C) 2001 Pascal Georges
+ * Copyright (C) 2001 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -60,7 +60,7 @@ BoardPlugin menu_bp =
     NULL,
     N_("Read a letter"),
     N_("Learn to recognize letters"),
-    "Pascal Georges pascal.georges1@free.fr>",
+    "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
     NULL,

@@ -1,6 +1,12 @@
 2001-11-11  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/reading.c: corrected button reference to use the correct one
+	* src/boards/draw.c: changed so that you can still draw on other items
+	* src/boards/local.c: created the local selection board
+	* src/boards/gcompris.c: added gcompris_set_locale()
+	* boards/local*.xml.in: created the local selection board
+	* boards/boardicons/local*.png: created the local selection board
+	* po/POTFILE.in: added missing draw.c, added local*
 	
 2001-11-11  Zohra Coudoin  <zohra.coudoin@free.fr>
 

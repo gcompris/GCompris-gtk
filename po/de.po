@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2001-11-11 01:42+0100\n"
+"POT-Creation-Date: 2001-11-12 00:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Martin Herweg <m.herweg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,11 +84,11 @@ msgstr "Lerne die Uhrzeit"
 msgid "Discover the Computer"
 msgstr "Entdecke den Computer"
 
-#: boards/draw.xml.in.h:1
+#: boards/draw.xml.in.h:1 src/boards/draw.c:95
 msgid "A simple vector drawing tool"
 msgstr "Ein sehr einfaches Zeichenprogramm"
 
-#: boards/draw.xml.in.h:2
+#: boards/draw.xml.in.h:2 src/boards/draw.c:96
 #, fuzzy
 msgid "Creative board where you can freely draw"
 msgstr "freie Fläche zum zeichenen"
@@ -126,6 +126,55 @@ msgstr "Vertikale Leseübung"
 #: boards/imagename.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
 msgstr "Nimm die Teile und leg' sie auf die passenden Worte"
+
+#: boards/locale.xml.in.h:1 src/boards/locale.c:51
+msgid "Select the language for the messages in GCompris"
+msgstr ""
+
+#: boards/locale.xml.in.h:2 src/boards/locale.c:50
+#, fuzzy
+msgid "Select the locale"
+msgstr "Stelle die Uhr auf:"
+
+#: boards/locale_de.xml.in.h:1
+msgid "GCompris will display all its messages in German"
+msgstr ""
+
+#: boards/locale_de.xml.in.h:2
+msgid "German"
+msgstr ""
+
+#: boards/locale_en.xml.in.h:1
+msgid "English"
+msgstr ""
+
+#: boards/locale_en.xml.in.h:2
+msgid "GCompris will display all its messages in English"
+msgstr ""
+
+#: boards/locale_es.xml.in.h:1
+msgid "GCompris will display all its messages in Spanish"
+msgstr ""
+
+#: boards/locale_es.xml.in.h:2
+msgid "Spanish"
+msgstr ""
+
+#: boards/locale_fr.xml.in.h:1
+msgid "French"
+msgstr ""
+
+#: boards/locale_fr.xml.in.h:2
+msgid "GCompris will display all its messages in French"
+msgstr ""
+
+#: boards/locale_sv.xml.in.h:1
+msgid "GCompris will display all its messages in Swedish"
+msgstr ""
+
+#: boards/locale_sv.xml.in.h:2
+msgid "Swedish"
+msgstr ""
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
@@ -264,6 +313,37 @@ msgstr ""
 msgid "Set the clock to:"
 msgstr "Stelle die Uhr auf:"
 
+#: src/boards/draw.c:207
+#, fuzzy
+msgid "Free vector drawing tool"
+msgstr "Ein sehr einfaches Zeichenprogramm"
+
+#: src/boards/draw.c:208
+msgid ""
+"Goal:\n"
+"In this game, the children will be able to freely draw.\n"
+"The goal is just to discover how he can create pretty looking drawings based "
+"on\n"
+"basic shapes: rectangles, ellipses and lines.\n"
+"\n"
+"Usage:\n"
+"On the left select a drawing tool, on the bottom select a color then click\n"
+"on the white area and drag to create a new shape.\n"
+"To go faster, you can use the middle mouse button to delete an object\n"
+"or the right button to move an object.\n"
+msgstr ""
+
+#: src/boards/locale.c:130
+#, c-format
+msgid "GCompris will now display its messages in %s"
+msgstr ""
+
+#: src/boards/locale.c:151
+msgid ""
+"If this message is not translated, \n"
+"it means that probably GCompris is not translated in this language"
+msgstr ""
+
 #: src/boards/reading.c:98
 msgid "Reading"
 msgstr "Lesen"
@@ -315,25 +395,25 @@ msgstr ""
 " den Würfeln entspricht bevor sie unten ankommen"
 
 #. GdkCursor *hand_cursor;
-#: src/gcompris/gcompris.c:179
+#: src/gcompris/gcompris.c:180
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Ich habe verstanden"
 
-#: src/gcompris/gcompris.c:287
+#: src/gcompris/gcompris.c:288
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
 msgstr "Ein einfaches Lernspiel für Kinder ab 3.Dieses Programm ist freie Software (www.gnu.org)"
 
-#: src/gcompris/gcompris.c:292
+#: src/gcompris/gcompris.c:293
 #, fuzzy
 msgid "GCompris Home Page"
 msgstr "GCompris"
 
-#: src/gcompris/gcompris.c:295
+#: src/gcompris/gcompris.c:296
 msgid "An OFSET development"
 msgstr ""
 
-#: src/gcompris/gcompris.c:325
+#: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Möchtest Du GCompris wirklich beenden?"
