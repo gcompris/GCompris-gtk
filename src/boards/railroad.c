@@ -615,7 +615,9 @@ static gboolean animate_step() {
 static void animate_model() {
   animation_pending = TRUE;
   animation_count = 0;
-  gcompris_play_sound (SOUNDLISTFILE, "train");
+
+	gcompris_play_ogg( "train", NULL );
+  
   // warning : if timeout is too low, the model will not be displayed
   timer_id = gtk_timeout_add (100, (GtkFunction) animate_step, NULL);
 }
