@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/07/31 00:55:31 bcoudoin>
+ * Time-stamp: <2004/07/31 23:44:55 bcoudoin>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -599,24 +599,17 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
 
     /* This is the base64 transformed image */
-    /* FIXME
     img = xmlDocGetRootElement( imageDoc );
 
     buffer = xmlGetProp ( img, 
 			  BAD_CAST "base64");
 
     xmlFreeNode(img);
-    */
     img = NULL;
 
-    /* FIXME
     xmlNewProp ( cur,
 		 "xlink:href",
 		 BAD_CAST buffer );
-    */
-    xmlNewProp ( cur,
-		 "xlink:href",
-		 BAD_CAST itemName );
 
 
   }
