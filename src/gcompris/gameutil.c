@@ -24,6 +24,7 @@
 #include <libxml/parser.h>
 
 #include "gcompris.h"
+#include "e-unicode.h"
 
 #define IMAGEEXTENSION ".png"
 
@@ -402,41 +403,31 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
 /* ==================================== */
 /* translates UTF8 charset to iso Latin1 */
 gchar * convertUTF8Toisolat1(gchar * text) {
-#define MAX_LENGTH 1024
-  const char *inptr;
-  size_t inleft;
-  char *outptr;
-  size_t outleft;
-  gint retval;
+  gchar *retval;
   gint i;
 
   // this should never happen, it does often !!
   if (text == NULL)
     return NULL;
 
-  inptr   = (const char *) text;
-  outptr  = (char *) g_malloc(MAX_LENGTH);
-  inleft  = xmlUTF8Strsize(text, MAX_LENGTH);
-  outleft = MAX_LENGTH;
-  // Conversion to ISO-8859-1
-  retval = UTF8Toisolat1(outptr, &outleft, text, &inleft);
-  if(retval==0)  {
+  retval = e_utf8_to_locale_string (text);
+
+  if(retval != NULL)  {
     g_free(text);
-    text = outptr;
-    text[outleft]='\0';
+    text = retval;
 
     // if we find \n on 2 char, recreate a real \n
     i=0;
-    while(text[i++]!='\0')
+    while(text[i]!='\0')
       {
 	if(text[i]=='\\' && text[i+1]=='n')
 	  {
 	    text[i]=' ';
 	    text[i+1]='\n';
 	  }
+	++i;
       }
-  } else
-    g_free(outptr);
+  }
 
   return text;
 }

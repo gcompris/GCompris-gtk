@@ -1,5 +1,16 @@
 2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
 
+	gcompris now works well in other locales, e.g. Lithuanian.
+
+	* src/unicode/*: copied some files from GAL to get conversion from
+	UTF8 to locale encoding. Removed all unneeded things from these files.
+	* src/Makefile.am: build unicode subdir.
+	* src/gcompris/Makefile.am: add things needed for unicode conversion.
+	* src/gcompris/gameutil.c: convert string from UTF8 to locale
+	encoding, not to latin1.
+	
+2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
+
 	* src/gcompris/gcompris.h: add defines for all fonts used in boards,
 	let translate the font so that strings will be displayed correctly
 	in all locales.

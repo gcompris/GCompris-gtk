@@ -2,6 +2,7 @@
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
+	-I$(top_srcdir)/src/unicode \
 	$(GNOME_INCLUDEDIR) \
 	$(GDK_PIXBUF_CFLAGS) \
 	$(XML_CFLAGS)
@@ -25,6 +26,9 @@ gcompris_SOURCES = \
 	cursor.c cursor.h
 
 gcompris_LDADD = \
+	-L$(top_builddir)/src/unicode	\
+	-lgcompris_unicode		\
+	$(LIBICONV)			\
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
 	$(XML_LIBS) $(INTLLIBS) \
 	$(GDK_PIXBUF_LIBS) 
