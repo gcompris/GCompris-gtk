@@ -18,6 +18,7 @@ xml_in_files = \
 	locale.xml.in \
 	locale_de.xml.in \
 	locale_en.xml.in \
+	locale_el.xml.in \
 	locale_es.xml.in \
 	locale_fr.xml.in \
 	locale_sv.xml.in \
