@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-01 03:34+0100\n"
-"PO-Revision-Date: 2004-03-01 15:19+0100\n"
+"POT-Creation-Date: 2004-03-15 03:29+0100\n"
+"PO-Revision-Date: 2004-03-15 11:42+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -604,7 +604,9 @@ msgstr "Uspořádej příběh tažením a puštěním"
 msgid ""
 "Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
 "of Transportation are based on those found in http://www.wikipedia.org"
-msgstr "Fotografie měsíce je od NASA Vesmírné zvuky z Tuxpaint a Vegastrike. Data přepravy jsou založena na datech nalezených na http://www.wikipedia.org"
+msgstr ""
+"Fotografie měsíce je od NASA Vesmírné zvuky z Tuxpaint a Vegastrike. Data "
+"přepravy jsou založena na datech nalezených na http://www.wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -625,6 +627,22 @@ msgstr "Náměsíčný"
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux a jabloň"
+
+#: boards/chronos/board3_0.xml.in.h:1
+msgid ""
+"Place each image in the order and on the date it has been invented. If not "
+"sure, check online in wikipedia at http://www.wikipedia.org"
+msgstr "Umísti každý obrázek na datum, kdy byl vynalezen. Pokud si nejsi jist, podívej se online na wikipedii na http://www.wikipedia.org"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1
+msgid "Transportation"
+msgstr "Doprava"
+
+#: boards/chronos/board3_0.xml.in.h:3
+msgid "VIII Century"
+msgstr "8. století"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1259,7 +1277,9 @@ msgstr "Aktivita pro cvičení sluchu"
 msgid ""
 "Listen the sound sequence played. Then try to repeat it clicking on the "
 "elements. You can listen again clicking on the repeat button."
-msgstr "Poslouchej přehrávanou posloupnost zvuků. Pak ji zkus zopakovat klikáním na prvky. Můžeš znovu poslouchat kliknutím na tlačítko opakování."
+msgstr ""
+"Poslouchej přehrávanou posloupnost zvuků. Pak ji zkus zopakovat klikáním na "
+"prvky. Můžeš znovu poslouchat kliknutím na tlačítko opakování."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
@@ -2213,11 +2233,11 @@ msgstr "Procvič si používání peněz"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Hýbej letadlem, abys chytil mraky ve správném pořadí"
 
-#: src/boards/python.c:52
+#: src/boards/python.c:53
 msgid "Python Board"
 msgstr "Deska Pythonu"
 
-#: src/boards/python.c:53
+#: src/boards/python.c:54
 msgid "Special board that embed python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
 
@@ -2383,8 +2403,8 @@ msgid "About GCompris"
 msgstr "O GCompris"
 
 #: src/gcompris/about.c:110
-msgid "Translators"
-msgstr "Překladatelé"
+msgid "Translators:"
+msgstr "Překladatelé:"
 
 #: src/gcompris/about.c:225
 msgid "GCompris Home Page"
@@ -2581,7 +2601,7 @@ msgstr "Hudba"
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:372
+#: src/gcompris/config.c:369
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
@@ -2648,7 +2668,7 @@ msgstr "Vytiskne verzi "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:618
+#: src/gcompris/gcompris.c:619
 #, c-format
 msgid ""
 "GCompris\n"
