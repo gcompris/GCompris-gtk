@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-06 03:35+0100\n"
-"PO-Revision-Date: 2004-02-06 17:45+0100\n"
+"POT-Creation-Date: 2004-02-10 14:35+0100\n"
+"PO-Revision-Date: 2004-02-10 19:33+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -436,7 +436,9 @@ msgstr ""
 msgid ""
 "In a limited time, give the result to the addition of two numbers. "
 "Introduction to simple in-line addition"
-msgstr "V omezeném čase zadej výsledek sčítání dvou čísel. Úvod do jednoduchého sčítání pod sebou"
+msgstr ""
+"V omezeném čase zadej výsledek sčítání dvou čísel. Úvod do jednoduchého "
+"sčítání pod sebou"
 
 #: boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -476,9 +478,8 @@ msgid "Motor coordination. Concept match."
 msgstr "Koordinace pohybů. Shoda konceptů."
 
 #: boards/babymatch.xml.in.h:5
-#, fuzzy
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr "Manipulace s myší: pohyb, tažení a puštění"
+msgstr "Manipulace s myší: pohyb, tažení a puštění."
 
 #: boards/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -497,7 +498,9 @@ msgid ""
 "In the main area, a puzzle set is proposed. In the left area, you have the "
 "set of pieces for this puzzle. To place the pieces, you must use the drag/"
 "drop mouvement with the mouse."
-msgstr "V hlavní oblasti je navržena sada skládačky. V levé oblasti máš sadu dílků této skládačky. Dílky umístíe přetažením myší."
+msgstr ""
+"V hlavní oblasti je navržena sada skládačky. V levé oblasti máš sadu dílků "
+"této skládačky. Dílky umístíe přetažením myší."
 
 #: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
@@ -531,7 +534,7 @@ msgid "Send the ball in the hole"
 msgstr "Pošli kouli do díry"
 
 #: boards/billard.xml.in.h:3
-msgid "The billard game"
+msgid "The billiards game"
 msgstr "Hra billiard"
 
 #: boards/billard.xml.in.h:4
@@ -782,7 +785,10 @@ msgid ""
 "First, organize properly the items so that you can count them. Then, select "
 "the item you want to answer for in the bottom right area. Enter the answer "
 "with the keyboard and press the OK button or the 'Enter' key."
-msgstr "Nejdříve správně zorganizuj položky, aby se daly spočítat. Pak vyber položku, na kterou chcešo odpovídat, v oblasti vpravo dole. Zadej odpověď klávesnicí a stiskni tlačítko OK nebo klávesu 'Enter'."
+msgstr ""
+"Nejdříve správně zorganizuj položky, aby se daly spočítat. Pak vyber "
+"položku, na kterou chcešo odpovídat, v oblasti vpravo dole. Zadej odpověď "
+"klávesnicí a stiskni tlačítko OK nebo klávesu 'Enter'."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -914,7 +920,7 @@ msgid "Reading"
 msgstr "Čtení"
 
 #: boards/imageid.xml.in.h:4
-msgid "Reading pratice"
+msgid "Reading practice"
 msgstr "Procvičení čtení"
 
 #: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
@@ -1476,8 +1482,8 @@ msgstr ""
 msgid "Money"
 msgstr "Peníze"
 
-#: boards/money.xml.in.h:4 src/boards/money.c:88
-msgid "Pratice money usage"
+#: boards/money.xml.in.h:4
+msgid "Practice money usage"
 msgstr "Procvič si používání peněz"
 
 #: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
@@ -1489,7 +1495,7 @@ msgstr ""
 "věcí, musíš nejdřív spočítat celkovou cenu."
 
 #: boards/money_cents.xml.in.h:4
-msgid "Pratice money usage including cents"
+msgid "Practice money usage including cents"
 msgstr "Procvič si používání peněz včetně halířů"
 
 #: boards/paintings.xml.in.h:1
@@ -1845,11 +1851,11 @@ msgstr "Schopnost počítat"
 msgid "In a limited time, count a number of dots"
 msgstr "V omezeném čase spočítat počet teček"
 
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:70
 msgid "Numbers With Dices"
 msgstr "Čísla s kostkami"
 
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:71
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Stiskni klávesu s číslem 1 až 9, než kostka dopadne na zem"
 
@@ -1993,8 +1999,8 @@ msgstr "Naučná sada gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
-#: src/gcompris/gcompris.c:371 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:455 src/gcompris/gameutil.c:456
+#: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2155,6 +2161,10 @@ msgstr "Hlavní menu"
 msgid "Select a Board"
 msgstr "Vyber si desku"
 
+#: src/boards/money.c:88
+msgid "Pratice money usage"
+msgstr "Procvič si používání peněz"
+
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Hýbej letadlem, abys chytil mraky ve správném pořadí"
@@ -2216,10 +2226,18 @@ msgid "No, it was not there"
 msgstr "Ne, nebylo tam"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:629
+#: src/boards/reading.c:630
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Hledané slovo bylo '%s'"
+
+#: src/boards/reading.c:633
+msgid "But it was not displayed"
+msgstr "Ale nebylo zobrazeno"
+
+#: src/boards/reading.c:635
+msgid "And it was displayed"
+msgstr "A bylo zobrazeno"
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2279,39 +2297,46 @@ msgstr "Vzdálenost k cíli = %d metrů"
 
 #: src/gcompris/about.c:60
 msgid ""
-"Credits:\n"
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
-"Kredity:\n"
 "Autor: Bruno Coudoin\n"
 "Spolupráce: Pascal Georges\n"
 "Grafika: Renaud Blanchard\n"
 "Úvodní hudba: Djilali Sebihi\n"
 "Hudba na pozadí: Rico Da Halvarez\n"
 
-#: src/gcompris/about.c:99
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+msgid "translator_credits"
+msgstr "Miloslav Trmač"
+
+#: src/gcompris/about.c:100
 msgid "About GCompris"
 msgstr "O GCompris"
 
-#: src/gcompris/about.c:205
+#: src/gcompris/about.c:110
+msgid "Translators"
+msgstr "Překladatelé"
+
+#: src/gcompris/about.c:225
 msgid "GCompris Home Page"
 msgstr "Domovská stránka GCompris"
 
-#: src/gcompris/about.c:227
+#: src/gcompris/about.c:247
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Toto software je balík GNU a je uvolněno za podmínek Gnu Public Licence"
 
-#: src/gcompris/about.c:255
+#: src/gcompris/about.c:275
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
+#: src/gcompris/about.c:309 src/gcompris/config.c:180 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2493,8 +2518,8 @@ msgstr "Efekty"
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:404 src/gcompris/config.c:721
-#: src/gcompris/config.c:732
+#: src/gcompris/config.c:404 src/gcompris/config.c:727
+#: src/gcompris/config.c:738
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2539,7 +2564,7 @@ msgstr "Vytiskne verzi "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:616
+#: src/gcompris/gcompris.c:618
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2603,11 +2628,6 @@ msgstr "Adresář"
 #: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
 msgid "Title"
 msgstr "Název"
-
-#. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/interface.c:484
-msgid "translator_credits"
-msgstr "Miloslav Trmač"
 
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
