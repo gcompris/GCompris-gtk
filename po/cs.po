@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-06 03:35+0200\n"
-"PO-Revision-Date: 2004-05-06 14:12+0200\n"
+"POT-Creation-Date: 2004-05-12 03:38+0200\n"
+"PO-Revision-Date: 2004-05-12 13:25+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -809,6 +809,10 @@ msgid ""
 "Move the items on the left to their proper position in the double entry "
 "table."
 msgstr ""
+
+#: boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr "Klikni na položku a poslechni si její cílovou pozici"
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
@@ -2083,8 +2087,8 @@ msgstr "Naučná sada gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:466 src/gcompris/gameutil.c:467
-#: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:470 src/gcompris/gameutil.c:471
+#: src/gcompris/gcompris.c:368 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2475,7 +2479,8 @@ msgstr "OK"
 
 #: src/gcompris/board.c:41
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr "Dynamické načítání modulů není podporováno. gcompris se nemůže spustit.\n"
+msgstr ""
+"Dynamické načítání modulů není podporováno. gcompris se nemůže spustit.\n"
 
 #: src/gcompris/config.c:52
 msgid "Your system default"
@@ -2689,47 +2694,39 @@ msgstr ""
 "Ukončete ji a nahlaste\n"
 "problém autorům"
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in fullscreen mode."
 msgstr "spustit gcompris v režimu přes celou obrazovku."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris in window mode."
 msgstr "spustit gcompris v režimu okna."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris with sound enabled."
 msgstr "spustit gcompris s povolenými zvuky."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris without sound."
 msgstr "spustit gcompris bez zvuku."
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:76
 msgid "run gcompris with the default gnome cursor."
 msgstr "spustit gcompris s implicitním kurzorem gnome."
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:78
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: src/gcompris/gcompris.c:81
-msgid ""
-"select the audio output. Use '-A list' to get the list of available audio "
-"outputs"
-msgstr ""
-"vybrat výstup zvuku. Seznam dostupných výstupů zvuku získáte použitím '-A "
-"list'"
-
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:80
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: src/gcompris/gcompris.c:85
+#: src/gcompris/gcompris.c:82
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:621
+#: src/gcompris/gcompris.c:616
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2790,7 +2787,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Adresář"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:272
+#: src/gcompris/interface.c:286
 msgid "Title"
 msgstr "Název"
 
@@ -2804,45 +2801,12 @@ msgstr "Uvolněno pod podmínkami GPL"
 msgid "%a %b %d %H:%M:%S %Z %Y"
 msgstr "%a %d. %b %Y, %H:%M:%S %Z"
 
-#: src/gcompris/oggplayer.c:69
-#, c-format
-msgid ""
-"Error unable to find a usable audio output device (%d)\n"
-"Try 'gcompris -A' to select an alternative audio output\n"
-"Use '-A list' to display the list of available devices"
-msgstr ""
-"Chyba nemohu najít vhodné zařízení pro výstup zvuku (%d)\n"
-"Zkuste 'gcompris -A' pro výběr alternativního výstupu zvuku\n"
-"Pro zobrazení seznamu dostupných zařízení použijte '-A list'"
-
-#: src/gcompris/oggplayer.c:117
-#, c-format
-msgid "Error opening audio device\n"
-msgstr "Chyba při otevírání zvukového zařízení\n"
-
-#: src/gcompris/oggplayer.c:163
-#, c-format
-msgid ""
-"Possible audio output devices are:\n"
-"default "
-msgstr ""
-"Možná zařízení výstupu zvuku jsou:\n"
-"default "
-
-#: src/gcompris/oggplayer.c:235 src/gcompris/oggplayer.c:246
-msgid "Now Playing Music"
-msgstr "Nyní přehrávám hudbu"
-
-#: src/gcompris/oggplayer.c:276
-msgid "Artist"
-msgstr "Umělec"
-
-#: src/gcompris/soundutil.c:119
+#: src/gcompris/soundutil.c:128
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Nemohu otevřít adresář hudby: %s"
 
-#: src/gcompris/soundutil.c:161
+#: src/gcompris/soundutil.c:170
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -2864,6 +2828,38 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid ""
+#~ "select the audio output. Use '-A list' to get the list of available audio "
+#~ "outputs"
+#~ msgstr ""
+#~ "vybrat výstup zvuku. Seznam dostupných výstupů zvuku získáte použitím '-A "
+#~ "list'"
+
+#~ msgid ""
+#~ "Error unable to find a usable audio output device (%d)\n"
+#~ "Try 'gcompris -A' to select an alternative audio output\n"
+#~ "Use '-A list' to display the list of available devices"
+#~ msgstr ""
+#~ "Chyba nemohu najít vhodné zařízení pro výstup zvuku (%d)\n"
+#~ "Zkuste 'gcompris -A' pro výběr alternativního výstupu zvuku\n"
+#~ "Pro zobrazení seznamu dostupných zařízení použijte '-A list'"
+
+#~ msgid "Error opening audio device\n"
+#~ msgstr "Chyba při otevírání zvukového zařízení\n"
+
+#~ msgid ""
+#~ "Possible audio output devices are:\n"
+#~ "default "
+#~ msgstr ""
+#~ "Možná zařízení výstupu zvuku jsou:\n"
+#~ "default "
+
+#~ msgid "Now Playing Music"
+#~ msgstr "Nyní přehrávám hudbu"
+
+#~ msgid "Artist"
+#~ msgstr "Umělec"
 
 #~ msgid ""
 #~ "Try to find the strawberry under the blue fields. The closer you get, the "
