@@ -476,25 +476,28 @@ py_gcompris_exit(PyObject* self, PyObject* args)
 /* Some functions and variables needed to get the file selector working */
 static PyObject* pyFileSelectorCallBackFunc = NULL;
 
-void pyFileSelectorCallBack(gchar* file){
+void pyFileSelectorCallBack(gchar* file, char* file_type){
   PyObject* args;
   PyObject* result;
   if(pyFileSelectorCallBackFunc==NULL) return;
 
   /* Build arguments */
-  args = PyTuple_New(1);
+  args  = PyTuple_New(2);
   PyTuple_SetItem(args, 0, Py_BuildValue("s", file));
+  PyTuple_SetItem(args, 1, Py_BuildValue("s", file_type));
   result = PyObject_CallObject(pyFileSelectorCallBackFunc, args);
   if(result==NULL){
     PyErr_Print();
   } else {
     Py_DECREF(result);
   }
+
 }
 
 
 /* void gcompris_file_selector_load(GcomprisBoard *gcomprisBoard,
                                     gchar *rootdir,
+				    gchar *file_types, (A Comma separated text explaining the different file types)
                                     FileSelectorCallBack fscb);
 */
 static PyObject*
@@ -503,12 +506,14 @@ py_gcompris_file_selector_load(PyObject* self, PyObject* args){
   GcomprisBoard* cGcomprisBoard;
   PyObject* pyCallback;
   gchar* rootdir;
+  gchar* file_types;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OsO:gcompris_file_selector_load",
+		       "OssO:gcompris_file_selector_load",
 		       &pyGcomprisBoard,
 		       &rootdir,
+		       &file_types,
 		       &pyCallback))
     return NULL;
   if(!PyCallable_Check(pyCallback)) return NULL;
@@ -518,6 +523,7 @@ py_gcompris_file_selector_load(PyObject* self, PyObject* args){
   pyFileSelectorCallBackFunc = pyCallback;
   gcompris_file_selector_load(cGcomprisBoard,
                               rootdir,
+			      file_types,
                               pyFileSelectorCallBack);
 
   /* Create and return the result */
@@ -528,6 +534,7 @@ py_gcompris_file_selector_load(PyObject* self, PyObject* args){
 
 /* void gcompris_file_selector_save(GcomprisBoard *gcomprisBoard,
                                     gchar *rootdir,
+				    gchar *file_types, (A Comma separated text explaining the different file types)
                                     FileSelectorCallBack fscb);
 */
 static PyObject*
@@ -536,12 +543,14 @@ py_gcompris_file_selector_save(PyObject* self, PyObject* args){
   GcomprisBoard* cGcomprisBoard;
   PyObject* pyCallback;
   gchar* rootdir;
+  char* file_types;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "OsO:gcompris_file_selector_save",
+		       "OssO:gcompris_file_selector_save",
 		       &pyGcomprisBoard,
 		       &rootdir,
+		       &file_types,
 		       &pyCallback))
     return NULL;
   if(!PyCallable_Check(pyCallback)) return NULL;
@@ -551,6 +560,7 @@ py_gcompris_file_selector_save(PyObject* self, PyObject* args){
   pyFileSelectorCallBackFunc = pyCallback;
   gcompris_file_selector_save(cGcomprisBoard,
                               rootdir,
+			      file_types,
                               pyFileSelectorCallBack);
 
   /* Create and return the result */

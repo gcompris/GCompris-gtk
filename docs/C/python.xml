@@ -32,6 +32,10 @@ xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/
 	  <revnumber>0.3</revnumber>
 	  <date>January 2004</date>
 	</revision>
+	<revision>
+	  <revnumber>0.3</revnumber>
+	  <date>January 2005</date>
+	</revision>
       </revhistory>
     </articleinfo>
     <title>Python wrapper for Gcompris</title>
@@ -281,13 +285,13 @@ attribute is readeable and/or writable.</para>
 		<entry></entry>
 	      </row>
 	      <row>
-		<entry>gcompris.file_selector_load(gcomprisBoard, rootdir, callback)</entry>
-		<entry>void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir, FileSelectorCallBack fscb)</entry>
+		<entry>gcompris.file_selector_load(gcomprisBoard, rootdir, file_types, callback)</entry>
+		<entry>void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir, gchar *file_types, FileSelectorCallBack fscb)</entry>
 		<entry>The callback must be a callable object</entry>
 	      </row>
 	      <row>
-		<entry>gcompris.file_selector_save(gcomprisBoard, rootdir, callback)</entry>
-		<entry>void gcompris_file_selector_save(GcomprisBoard *gcomprisBoard, gchar *rootdir, FileSelectorCallBack fscb)</entry>
+		<entry>gcompris.file_selector_save(gcomprisBoard, rootdir, file_types, callback)</entry>
+		<entry>void gcompris_file_selector_save(GcomprisBoard *gcomprisBoard, gchar *rootdir,gchar *file_types, FileSelectorCallBack fscb)</entry>
 		<entry>The callback must be a callable object</entry>
 	      </row>
 	      <row>

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/12/29 23:41:14 bruno>
+ * Time-stamp: <2005/01/07 00:32:49 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -120,12 +120,14 @@ void		 gcompris_images_selector_start (GcomprisBoard *gcomprisBoard,
 						 ImageSelectorCallBack imscb);
 void		 gcompris_images_selector_stop (void);
 
-typedef void     (*FileSelectorCallBack)     (gchar* file);
+typedef void     (*FileSelectorCallBack)     (gchar *file, gchar *file_type); /* file_type is one string from file_types in the save */
 void		 gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, 
-					      gchar *rootdir, 
+					      gchar *rootdir,
+					      gchar *file_types, /* A Comma separated text explaining the different file types */
 					      FileSelectorCallBack fscb);
 void		 gcompris_file_selector_save (GcomprisBoard *gcomprisBoard,
 					      gchar *rootdir,
+					      gchar *file_types, /* A Comma separated text explaining the different file types */
 					      FileSelectorCallBack fscb);
 void		 gcompris_file_selector_stop (void);
 

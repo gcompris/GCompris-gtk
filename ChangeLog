@@ -1,3 +1,21 @@
+2005-01-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* boards/anim.xml.in:
+	* boards/boardicons/searace.png:
+	* boards/draw.xml.in:
+	* docs/C/python.xml:
+	* src/boards/draw.c: (key_press), (tool_event):
+	* src/boards/py-mod-gcompris.c: (pyFileSelectorCallBack),
+	(py_gcompris_file_selector_load), (py_gcompris_file_selector_save):
+	* src/boards/python/anim.py:
+	* src/boards/python/searace.py:
+	* src/gcompris/file_selector.c: (gcompris_file_selector_save),
+	(gcompris_file_selector_load), (display_file_selector),
+	(item_event_file_selector):
+	* src/gcompris/gcompris.h:
+
 2005-01-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/searace.png: added, created by bruno

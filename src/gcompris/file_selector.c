@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2004/10/28 00:45:50 bruno>
+ * Time-stamp: <2005/01/07 00:10:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,7 +46,9 @@ static gint		 item_event_directory(GnomeCanvasItem *item,
 					      char *dir);
 static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir);
 static int		 display_file_selector(int mode, 
-					       GcomprisBoard *gcomprisBoard, gchar *rootdir,
+					       GcomprisBoard *gcomprisBoard,
+					       gchar *rootdir,
+					       gchar *file_types,
 					       FileSelectorCallBack iscb);
 static void		 entry_enter_callback( GtkWidget *widget,
 					       GtkWidget *entry );
@@ -90,19 +92,22 @@ static GtkEntry *widget_entry = NULL;
 
 /*
  * Do all the file_selector display and register the events
+ * file_types is A Comma separated text explaining the different file types
  */
 
 void gcompris_file_selector_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
+				  gchar *file_types,
 				  FileSelectorCallBack iscb)
 {
-  display_file_selector(MODE_SAVE, gcomprisBoard, rootdir,
+  display_file_selector(MODE_SAVE, gcomprisBoard, rootdir, file_types,
 			iscb);
 }
 
 void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
+				  gchar *file_types,
 				  FileSelectorCallBack iscb)
 {
-  display_file_selector(MODE_LOAD, gcomprisBoard, rootdir,
+  display_file_selector(MODE_LOAD, gcomprisBoard, rootdir, file_types,
 			iscb);
 }
 
@@ -146,7 +151,9 @@ void gcompris_file_selector_stop ()
 
 static int 
 display_file_selector(int mode, 
-		      GcomprisBoard *gcomprisBoard, gchar *rootdir,
+		      GcomprisBoard *gcomprisBoard,
+		      gchar *rootdir,
+		      gchar *file_types,
 		      FileSelectorCallBack iscb) {
 
 
@@ -511,7 +518,8 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	if(fileSelectorCallBack!=NULL) {
 	  gchar *result;
 	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
-	  fileSelectorCallBack(result);
+	  /* FIXME: Need to grab and return the file type */
+	  fileSelectorCallBack(result, "");
 	}
 	gcompris_file_selector_stop();
       } else if(!strcmp((char *)data, "/cancel/")) {

@@ -32,12 +32,16 @@ from gettext import gettext as _
 
 class Boat:
   """The Boat Class"""
+
+  # The Text View and Scrolled windows
   tb   = None
   tv   = None
+  sw   = None
   x    = 0.0
   y    = 0.0
   angle  = 0
   arrived = False
+  won     = False
   
   # To move the ship
   dx   = 0.0
@@ -65,6 +69,8 @@ class Gcompris_searace:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
 
+    self.board_paused = False
+    
     # Some constants
     self.border_x  = 30
     self.sea_area = (self.border_x , 30, gcompris.BOARD_WIDTH-self.border_x , 350)
@@ -97,6 +103,8 @@ class Gcompris_searace:
     self.gcomprisBoard.sublevel=1 
     self.gcomprisBoard.number_of_sublevel=1
 
+    self.board_paused = False
+
     gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
@@ -126,7 +134,7 @@ class Gcompris_searace:
     
     print("Gcompris_searace start.")
 
-    
+
   def end(self):
     # Remove all the timer first
     if self.timer1 :
@@ -147,9 +155,23 @@ class Gcompris_searace:
     print("Gcompris_searace end.")
         
 
-  def ok(self):
-    print("Gcompris_searace ok.")
+  def pause(self, pause):
+    
+    self.board_paused = pause
+    
+    # There is a problem with GTK widgets, they are not covered by the help
+    # We hide/show them here
+    if(pause):
+      self.left_boat.sw.hide()
+      self.right_boat.sw.hide()
+    else:
+      self.left_boat.sw.show()
+      self.right_boat.sw.show()
+      self.repeat()
 
+    return
+                  
+  def ok(self):
     # This is a real go
     # We set a timer. At each tick an entry in each user box is read analysed and run
     if(not self.left_boat.timer and not self.right_boat.timer):
@@ -185,7 +207,6 @@ class Gcompris_searace:
       
             
   def repeat(self):
-    print("Gcompris_searace repeat.")
     # Want to rerun it
     if(self.left_boat.timer or self.right_boat.timer):
       self.statusitem.set(text=_("Race is already running"))
@@ -207,11 +228,13 @@ class Gcompris_searace:
   # Set the initial coordinates of the boats and display them
   def init_boats(self):
 
-    self.left_boat.x = self.border_x
-    self.left_boat.y = 150
-    self.right_boat.x = self.left_boat.x
-    self.right_boat.y = self.left_boat.y + 28
-
+    self.left_boat.x      = self.border_x
+    self.left_boat.y      = 150
+    self.right_boat.x     = self.left_boat.x
+    self.right_boat.y     = self.left_boat.y + 28
+    self.left_boat.angle  = 0
+    self.right_boat.angle = 0
+    
     # Display the player boats
     if(self.left_boat.item):
       self.left_boat.item.destroy()
@@ -244,6 +267,8 @@ class Gcompris_searace:
     self.right_boat.line    = 0
     self.left_boat.arrived  = False
     self.right_boat.arrived = False
+    self.left_boat.won      = False
+    self.right_boat.won     = False
     self.statusitem.set(text="")
 
   #----------------------------------------
@@ -330,57 +355,66 @@ class Gcompris_searace:
          width_units=1.0
         )
 
+
+    # The ARRIVAL LINE
+    self.rootitem.add(
+      gnome.canvas.CanvasLine,
+      points=(self.sea_area[2], self.sea_area[1]-5, self.sea_area[2], self.sea_area[3]+5),
+      fill_color_rgba = 0xFF0000FFL,
+      width_units=5.0
+      )
+    
     # The grid is done
     # ----------------
     
     # The Programming input area LEFT
-    sw = gtk.ScrolledWindow()
-    sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
-    sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
+    self.left_boat.sw = gtk.ScrolledWindow()
+    self.left_boat.sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
+    self.left_boat.sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
       
     w = 250.0
     h = 100.0
     y = 400.0
     self.left_boat.tb = gtk.TextBuffer()
     self.left_boat.tv = gtk.TextView(self.left_boat.tb)
-    sw.add(self.left_boat.tv)
+    self.left_boat.sw.add(self.left_boat.tv)
     self.left_boat.tb.set_text("turnleft 45\nforward 1\nturnright 45")
     self.left_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
-      widget=sw,
+      widget=self.left_boat.sw,
       x=gcompris.BOARD_WIDTH/4,
       y=y,
       width=w,
       height= h,
       anchor=gtk.ANCHOR_N,
-      size_pixels=gtk.FALSE);
-    self.left_boat.tv.show();
-    sw.show();
+      size_pixels=gtk.FALSE)
+    self.left_boat.tv.show()
+    self.left_boat.sw.show()
 
     # The Programming input area RIGHT
-    sw = gtk.ScrolledWindow()
-    sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
-    sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
+    self.right_boat.sw = gtk.ScrolledWindow()
+    self.right_boat.sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
+    self.right_boat.sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
       
     w = 250.0
     h = 100.0
     self.right_boat.tb = gtk.TextBuffer()
     self.right_boat.tv = gtk.TextView(self.right_boat.tb)
-    sw.add(self.right_boat.tv)
+    self.right_boat.sw.add(self.right_boat.tv)
     self.right_boat.tb.set_text("turnright 45\nforward 1\nturnleft 45")
     self.right_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
-      widget=sw,
+      widget=self.right_boat.sw,
       x=(gcompris.BOARD_WIDTH/4)*3,
       y=y,
       width=w,
       height= h,
       anchor=gtk.ANCHOR_N,
-      size_pixels=gtk.FALSE);
-    self.right_boat.tv.show();
-    sw.show();
+      size_pixels=gtk.FALSE)
+    self.right_boat.tv.show()
+    self.right_boat.sw.show()
 
     # Text Labels
     self.left_boat.speeditem = self.rootitem.add (
@@ -543,6 +577,10 @@ class Gcompris_searace:
   def cmd_forward(self, boat, value):
     #    print "Player " + str(boat.player) + " cmd_forward " + str(value) + " dx=" + str(boat.dx) + " dy=" + str(boat.dy)
 
+    if(self.board_paused):
+      boat.timer = 0
+      return
+    
     value -= 1
     if value <= 0:
       # Process next command
@@ -563,12 +601,14 @@ class Gcompris_searace:
       y = self.sea_area[1]
       (boat.x, boat.y)= boat.item.w2i( x, y)
     elif(x>self.sea_area[2]):
-      # This is the finish line
       boat.arrived = True
 
-      if(self.left_boat.arrived):
+      if(not self.left_boat.won and not self.right_boat.won):
+        boat.won = True
+           
+      if(self.left_boat.won):
         self.statusitem.set(text=_("The Red boat has won"))
-      elif(self.right_boat.arrived):
+      elif(self.right_boat.won):
         self.statusitem.set(text=_("The Green boat has won"))
            
       boat.timer = 0
@@ -597,7 +637,7 @@ class Gcompris_searace:
     if(cx<0):
       penalty*=2
     wind = cx*condition[1]*-1*penalty
-    #print "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
+    #print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
     boat.speeditem.set(text = "Angle:" + str(condition[0]) + " Wind:" + str(int(wind)*-1))
     boat.timer = gtk.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
 
@@ -608,6 +648,10 @@ class Gcompris_searace:
   def cmd_turn_left(self, boat, value):
     #    print "Player " + str(boat.player) + " turn left " + str(value)
 
+    if(self.board_paused):
+      boat.timer = 0
+      return
+    
     if value == 0:
       # Process next command
       self.race_one_command(boat)
@@ -632,6 +676,11 @@ class Gcompris_searace:
   # Run the race
   def race_one_command(self, boat):
 
+    if(self.board_paused):
+      boat.line = 0
+      boat.timer = 0
+      return
+    
     a = boat.tb.get_iter_at_line(boat.line)
     b = boat.tb.get_iter_at_line(boat.line)
     b.forward_to_line_end()

@@ -322,10 +322,10 @@ static gint key_press(guint keyval)
   switch (keyval)
     {
     case GDK_F1:
-      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_drawing);
+      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
       break;
     case GDK_F2:
-      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_drawing);
+      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
       break;
     case GDK_Shift_L:
     case GDK_Shift_R:
@@ -932,10 +932,10 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	  switch(tool)
 	    {
 	    case TOOL_LOAD:
-	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_drawing);
+	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
 	      break;
 	    case TOOL_SAVE:
-	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_drawing);
+	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
 	      break;
 	    case TOOL_GRID:
 	      display_grid((grid_step==0 ? TRUE : FALSE));

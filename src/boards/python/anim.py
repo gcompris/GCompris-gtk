@@ -221,9 +221,9 @@ class Gcompris_anim:
   def key_press(self, keyval):
     
     if (keyval == gtk.keysyms.F1):
-      gcompris.file_selector_save( self.gcomprisBoard, "anim", svg_save)
+      gcompris.file_selector_save( self.gcomprisBoard, "anim", "", svg_save)
     elif (keyval == gtk.keysyms.F2):
-      gcompris.file_selector_load( self.gcomprisBoard, "anim", svg_restore)
+      gcompris.file_selector_load( self.gcomprisBoard, "anim", "", svg_restore)
 
     elif (keyval == gtk.keysyms.F3):
       self.ps_print(self.get_drawing(self.current_image))
@@ -370,11 +370,11 @@ class Gcompris_anim:
       if event.button == 1:
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
-          gcompris.file_selector_save( self.gcomprisBoard, "anim", svg_save)
+          gcompris.file_selector_save( self.gcomprisBoard, "anim", "", svg_save)
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "LOAD"):
-          gcompris.file_selector_load( self.gcomprisBoard, "anim", svg_restore)
+          gcompris.file_selector_load( self.gcomprisBoard, "anim", "", svg_restore)
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "IMAGE"):
@@ -1719,7 +1719,7 @@ class Gcompris_anim:
 # GLOBAL FUNCTIONS
 # ----------------------------------------
 
-def svg_restore(filename):
+def svg_restore(filename, file_type):
   print "svg_restore", filename
   
   global fles
@@ -1775,7 +1775,7 @@ def svg_restore(filename):
   gcompris.set_cursor(fles.tools[fles.current_tool][3]);
 
 
-def svg_save(filename):
+def svg_save(filename, file_type):
   print "svg_save", filename
 
   global fles
