@@ -1,12 +1,11 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Slovak translation of GCompris 1.00
+# Copyright (C) 1999 Free Software Foundation, Inc.
+# Zdenko Podobný <zdpo@mailbox.sk>, 2002.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-03-17 10:13+0100\n"
-"PO-Revision-Date: 2002-03-10 17:28+0100\n"
+"Project-Id-Version: gcompris 1.00\n"
+"POT-Creation-Date: 2002-03-12 10:40+0100\n"
+"PO-Revision-Date: 2002-03-19 18:29+0100\n"
 "Last-Translator: Zdenko Podobný <zdpo@mailbox.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -17,15 +16,15 @@ msgstr ""
 #: boards/algebra_by.xml.in.h:1 boards/algebra_div.xml.in.h:1
 #: boards/algebra_minus.xml.in.h:1 boards/algebra_plus.xml.in.h:1
 msgid "I Ask you some algebra questions"
-msgstr ""
+msgstr "Polo¾ím vám niekoµko otázok z algebry"
 
 #: boards/algebra_by.xml.in.h:2
 msgid "Pratice the multiplication operation"
-msgstr ""
+msgstr "Precvièovanie násobilky"
 
 #: boards/algebra_div.xml.in.h:2
 msgid "Pratice the division operation"
-msgstr ""
+msgstr "Precvièovanie delenia"
 
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
@@ -33,73 +32,73 @@ msgid ""
 "Schmode (http://schmode.net/) Ralf has given gcompris the authorization to "
 "include his pictures. Thanks a lot Ralf."
 msgstr ""
+"Poïakovanie: Obrázky zvierat sú prevzaté zo stránky fotografií zvierat Ralfa "
+"Schmodea (http://schmode.net/). Ralf autorizoval pou¾itie svojich obrázkov pre "
+"GCompris. Vïaka Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
 msgid "Find the correct operations to get the result"
-msgstr ""
+msgstr "Hµadanie správnej operácie, aby ste dostali výsledok"
 
 #: boards/algebra_guesscount.xml.in.h:3
 msgid ""
 "With displayed numbers and operations, find the right combination to get the "
 "right result"
 msgstr ""
+"Pomocou zobrazených èísel a operácií, nájdite správnu kombináciu na získanie "
+"správneho výsledku"
 
 #: boards/algebra_minus.xml.in.h:2
 msgid "Pratice the substraction operation"
-msgstr ""
+msgstr "Precvièovanie odèítania"
 
 #: boards/algebra_plus.xml.in.h:2
 msgid "Pratice the addition operation"
-msgstr ""
+msgstr "Precvièovanie sèítania"
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
-msgstr ""
+msgstr "Prejs» na algebrickú tabuµu"
 
 #: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
-msgstr ""
+msgstr "Kliknutím µavého tlaèítka vyberte tabuµu"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
 #: boards/babymatch/board6_0.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop the items to make them match"
-msgstr "«ahajte a pustite polo¾ky tak, aby ste znovu postavili objekt"
+msgstr "«ahajte a pustite polo¾ky tak, aby boli zhodné"
 
 #: boards/babymatch.xml.in.h:2
 msgid "Matching Items"
-msgstr ""
+msgstr "Zhodné polo¾ky"
 
 #: boards/babyshapes.xml.in.h:1
-#, fuzzy
 msgid "Baby Shape Puzzle"
-msgstr "Vytvori» rébus"
+msgstr "Detský rébus"
 
 #: boards/babyshapes.xml.in.h:2
-#, fuzzy
 msgid "Drag and Drop the shapes on their respective target"
-msgstr "«ahajte a pustite polo¾ky tak, aby ste znovu postavili objekt"
+msgstr "«ahajte a pustite tvary na ich príslu¹né miesto"
 
 #: boards/babyshapes.xml.in.h:3
 msgid "Good mouse control"
-msgstr ""
+msgstr "Dobrá kontrola my¹i"
 
 #: boards/click_on_letter.xml.in.h:1
-#, fuzzy
 msgid "Click on a letter"
-msgstr "Klikni na mòa"
+msgstr "Klikni na písmeno"
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Hear a letter and click on the right letter"
-msgstr ""
+msgstr "Vypoèujte si písmeno a potom kliknite na správne písmeno"
 
 #: boards/clickgame.xml.in.h:1
-#, fuzzy
 msgid "Can move the mouse"
-msgstr "Pohyb my¹i"
+msgstr "Mo¾nos» hýba» my¹ou"
 
 #: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:82
 msgid "Click On Me"
@@ -118,12 +117,24 @@ msgid ""
 "nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
 "nur03013)"
 msgstr ""
+"Poïakovanie: Ryby sú prevzaté z unixového nástroja xfishtank.  Obrázky sú "
+"prevzaté zo zbierky programu Národného podmorského výskumu (NURP) z http://www."
+"photolib.noaa.gov. V¹etky obrázky patria k OAR/National Undersea Research Program (NURP) "
+"okrem prvého obrázka, za ktorý patrí vïaka Univerzite Severnej Karolíny vo Wilmingtone. "
+"Informácie o obrázkoch na úrovni GCompris sú nasledovné: Umiestnenie: Tropický atlantický "
+"oceán, Florida Keys (obrázok nur00523) Fotograf: D. Kesling Umiestnenie: Florida Keys "
+"(obrázok nur03006) Umiestnenie: Neznáme (obrázok nur03505) Umiestnenie: Neznáme (obrázok "
+"nur03010) Umiestnenie: Neznáme (obrázok nur03011) Umiestnenie: Neznáme (obrázok "
+"nur03013)"
 
 #: boards/clickgame.xml.in.h:4
 msgid ""
 "In this game, the children will discover the click on the computer mouse. "
 "The goal is just to click with the left mouse button on the moving fish."
 msgstr ""
+"V tejto hre deti budú objavova» klikanie µavým tlaèítkom poèítaèovej "
+"my¹i. Cieµom je jednoduché klikanie µavým tlaèítkom na pohybujúce "
+"sa ryby."
 
 #: boards/clickgame.xml.in.h:5 src/boards/clickgame.c:83
 msgid ""
@@ -144,9 +155,8 @@ msgid "Learning Clock"
 msgstr "Uèenie sa hodín"
 
 #: boards/computer.xml.in.h:1
-#, fuzzy
 msgid "Discover the Computer"
-msgstr "Pohyb my¹i"
+msgstr "Preskúmavanie poèítaèa"
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:179
 msgid "A simple vector drawing tool"
@@ -162,10 +172,12 @@ msgid ""
 "discover how he can create pretty looking drawings based on basic shapes: "
 "rectangles, ellipses and lines."
 msgstr ""
+"v tejto hre deti mô¾u voµne kresli». Cieµom je, aby objavili, ako vytvori» "
+"pekné kresby pomocou základných tvarov: pravouholníkov, elíps a èiar."
 
 #: boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
-msgstr ""
+msgstr "Potrebné je ovláda» my¹ jednoduchým klikaním."
 
 #: boards/draw.xml.in.h:5
 msgid ""
@@ -173,6 +185,9 @@ msgid ""
 "on the white area and drag to create a new shape. To go faster, you can use "
 "the middle mouse button to delete an object."
 msgstr ""
+"Vµavo si vyberte nástroj na kreslenie, dole si vyberte farbu a potom "
+"kliknite na bielu plochu a »ahajte, èím vytvoríte nový tvar. Prostredné "
+"tlaèítko zma¾e objekt."
 
 #: boards/erase.xml.in.h:2 src/boards/erase.c:73
 msgid "Move the mouse"
@@ -184,7 +199,7 @@ msgstr "Pohybom my¹i oèistite oblas» a objavte pozadie"
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement boards"
-msgstr ""
+msgstr "Prejs» k Zábavnej tabuli"
 
 #: boards/gletters.xml.in.h:1 src/boards/gletters.c:76
 msgid "Simple Letters"
@@ -196,170 +211,167 @@ msgstr "Stlaète klávesu padajúceho písmena skôr ako dopadne"
 
 #: boards/imageid.xml.in.h:1
 msgid "Practice reading by finding the word matching an image"
-msgstr ""
+msgstr "Precvièovanie èítania pomocou hµadania vhodného slova k obrázku"
 
 #: boards/imageid.xml.in.h:2
-#, fuzzy
 msgid "Reading pratice"
-msgstr "Èítanie"
+msgstr "Cvièenie èítania"
 
 #: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
 msgid "apple"
-msgstr ""
+msgstr "jablko"
 
 #: boards/imageid/board1.xml.in.h:2
 msgid "back"
-msgstr ""
+msgstr "spä»"
 
 #: boards/imageid/board1.xml.in.h:3
 msgid "bag"
-msgstr ""
+msgstr "ta¹ka"
 
 #: boards/imageid/board1.xml.in.h:4 boards/imagename/board6_0.xml.in.h:2
 msgid "ball"
-msgstr ""
+msgstr "lopta"
 
 #: boards/imageid/board1.xml.in.h:5
 msgid "banana"
-msgstr ""
+msgstr "banán"
 
 #: boards/imageid/board1.xml.in.h:6
 msgid "bed"
-msgstr ""
+msgstr "posteµ"
 
 #: boards/imageid/board1.xml.in.h:7
 msgid "boat"
-msgstr ""
+msgstr "loï"
 
 #: boards/imageid/board1.xml.in.h:8
 msgid "book"
-msgstr ""
+msgstr "kniha"
 
 #: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
 msgid "bottle"
-msgstr ""
+msgstr "fµa¹a"
 
 #: boards/imageid/board1.xml.in.h:10
 msgid "cake"
-msgstr ""
+msgstr "koláè"
 
 #: boards/imageid/board1.xml.in.h:11
 msgid "camel"
-msgstr ""
+msgstr "»ava"
 
 #: boards/imageid/board1.xml.in.h:12 boards/imagename/board4_0.xml.in.h:4
 msgid "car"
-msgstr ""
+msgstr "auto"
 
 #: boards/imageid/board1.xml.in.h:13
 msgid "cheese"
-msgstr ""
+msgstr "syr"
 
 #: boards/imageid/board1.xml.in.h:14
 msgid "cow"
-msgstr ""
+msgstr "krava"
 
 #: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
-msgstr ""
+msgstr "dom"
 
 #: boards/imageid/board1.xml.in.h:16
 msgid "pear"
-msgstr ""
+msgstr "hru¹ka"
 
 #: boards/imageid/board1.xml.in.h:17
 msgid "satchel"
-msgstr ""
+msgstr "aktovka"
 
 #: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
 #: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
 #: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
 #: boards/imagename/board6_0.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop the items above their written name"
-msgstr "«ahajte a pustite polo¾ky tak, aby ste znovu postavili objekt"
+msgstr "«ahajte a pustite polo¾ky na ich napísaný názov"
 
 #: boards/imagename.xml.in.h:2
 msgid "Image Name"
-msgstr ""
+msgstr "Meno obrázku"
 
 #: boards/imagename/board1_0.xml.in.h:2
 msgid "bulb"
-msgstr ""
+msgstr "¾iarovka"
 
 #: boards/imagename/board1_0.xml.in.h:3
 msgid "fishing boat"
-msgstr ""
+msgstr "loviaca loï"
 
 #: boards/imagename/board1_0.xml.in.h:4
 msgid "lamp"
-msgstr ""
+msgstr "lampa"
 
 #: boards/imagename/board1_0.xml.in.h:5
 msgid "mail box"
-msgstr ""
+msgstr "po¹tová schránka"
 
 #: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:4
 msgid "postcard"
-msgstr ""
+msgstr "pohµadnica"
 
 #: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
 #: boards/imagename/board6_0.xml.in.h:7
 msgid "sailing boat"
-msgstr ""
+msgstr "plávajúca loï"
 
 #: boards/imagename/board2_0.xml.in.h:3
 msgid "egg"
-msgstr ""
+msgstr "vajíèko"
 
 #: boards/imagename/board2_0.xml.in.h:4
 msgid "eggcup"
-msgstr ""
+msgstr "pohár na vajíèko"
 
 #: boards/imagename/board2_0.xml.in.h:5
 msgid "flower"
-msgstr ""
+msgstr "kvet"
 
 #: boards/imagename/board2_0.xml.in.h:6
 msgid "glass"
-msgstr ""
+msgstr "pohár"
 
 #: boards/imagename/board2_0.xml.in.h:7
 msgid "vase"
-msgstr ""
+msgstr "váza"
 
 #: boards/imagename/board3_0.xml.in.h:3
 msgid "light house"
-msgstr ""
+msgstr "maják"
 
 #: boards/imagename/board3_0.xml.in.h:4
 msgid "rocket"
-msgstr ""
+msgstr "raketa"
 
 #: boards/imagename/board3_0.xml.in.h:6
 msgid "sofa"
-msgstr ""
+msgstr "pohovka"
 
 #: boards/imagename/board3_0.xml.in.h:7 boards/imagename/board5_0.xml.in.h:5
 msgid "star"
-msgstr ""
+msgstr "hviezda"
 
 #: boards/imagename/board4_0.xml.in.h:3
 msgid "bicycle"
-msgstr ""
+msgstr "bicykel"
 
 #: boards/imagename/board4_0.xml.in.h:5
 msgid "carrot"
-msgstr ""
+msgstr "mrkva"
 
 #: boards/imagename/board4_0.xml.in.h:6
 msgid "grater"
-msgstr ""
+msgstr "strúhadlo"
 
 #: boards/imagename/board4_0.xml.in.h:7
-#, fuzzy
 msgid "tree"
-msgstr "Grécky"
+msgstr "strom"
 
 #: boards/imagename/board5_0.xml.in.h:2
 msgid "firtree"
@@ -367,56 +379,59 @@ msgstr ""
 
 #: boards/imagename/board5_0.xml.in.h:3
 msgid "pencil"
-msgstr ""
+msgstr "ceruzka"
 
 #: boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
-msgstr ""
+msgstr "kamión"
 
 #: boards/imagename/board5_0.xml.in.h:7
 msgid "van"
-msgstr ""
+msgstr "dodávka"
 
 #: boards/imagename/board6_0.xml.in.h:3
 msgid "castle"
-msgstr ""
+msgstr "hrad"
 
 #: boards/imagename/board6_0.xml.in.h:4
 msgid "crown"
-msgstr ""
+msgstr "koruna"
 
 #: boards/imagename/board6_0.xml.in.h:5
 msgid "flag"
-msgstr ""
+msgstr "zástava"
 
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
-msgstr ""
+msgstr "raketa"
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
-msgstr ""
+msgstr "Preskúmajte karty a nájdite zhodné páry"
 
 #: boards/memory.xml.in.h:2
 msgid "Memory Game with images"
-msgstr ""
+msgstr "Pamä»ová hra s obrázkami"
 
 #: boards/menu.xml.in.h:1
-#, fuzzy
 msgid "GCompris Main Menu"
-msgstr "Hlavná ponuka"
+msgstr "Hlavná ponuka GComprisu"
 
 #: boards/menu.xml.in.h:2
 msgid ""
 "GCompris is an educational games that provides different activities to "
 "children from 3 to 8 years old."
 msgstr ""
+"GCompris sú vzdelávacie hry, ktoré poskytujú rôzne aktivity pre deti "
+"od 3 do 5 rokoch."
 
 #: boards/menu.xml.in.h:4
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
+"Cieµom GComprisu je vytvori» slobodnú alternatívu k populárnym proprietarym "
+"vzdelávacím softvérom"
 
 #: boards/menu.xml.in.h:5
 msgid ""
@@ -430,51 +445,58 @@ msgid ""
 "menu Tux Plane - The about box The stars means: 1 Star - 3 to 4 years old 2 "
 "Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
 msgstr ""
+"Ak chcete nieèo pou¾i», jednoducho kliknite na ikonu a zobrazí sa vám tabuµa alebo "
+"ponuka. V dolnej èasti obrazovky je panel ovládanie GComprisu. V¹imnite si, ¾e "
+"ikony sú zobrazené iba vtedy, keï ich je mo¾né pou¾i» v tabuli: Domov - Spä» "
+"na predchádzajúcu ponuku alebo ukonèí program, Palec - OK, potvrdí va¹u voµbu "
+"Kocka - Zobrazuje aktuálnu úroveò. Kliknutím na òu zmeníte obtia¾nos» Hudobná nota "
+"- Po¾iadavka, aby GCompris zopakoval po¾iadavku Otáznik - Pomocník Nástroje "
+"- Ponuka s nastaveniami Lietadlo s Tuxom - O programe Hviezdy znamenajú: "
+"1 Hviezda - pre 3 a¾ 4 roèných 2 Hviezdy - 5 a¾ 6 roèných 3 Hviezdy - 7 a¾ 8 roèných"
 
 #: boards/missing_letter.xml.in.h:1
 msgid "Fill up the missing letter"
-msgstr ""
+msgstr "Vyplòte chýbajúce písmená"
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Missing Letter"
-msgstr ""
+msgstr "Chýbajúce písmeno"
 
 #: boards/missing_letter/board1.xml.in.h:1
-msgid "apple/_pple/a/i/o"
-msgstr ""
+msgid "apple _pple a i o"
+msgstr "jablko j_blko a i o"
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball/_all/b/p/d"
-msgstr ""
+msgid "ball _all b p d"
+msgstr "lopta _opta l b d"
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana/b_nana/a/o/i"
-msgstr ""
+msgid "banana b_nana a o i"
+msgstr "banán b_nán a o i"
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed/_ed/b/l/f"
+msgid "bed _ed b l f"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle/_ottle/b/t/p"
+msgid "bottle _ottle b t p"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake/_ake/c/p/d"
+msgid "cake _ake c p d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house/hous_/e/a/i"
+msgid "house hous_ e a i"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:8
-msgid "satchel/s_tchel/a/o/i"
+msgid "satchel s_tchel a o i"
 msgstr ""
 
 #: boards/paintings.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "«ahajte a pustite polo¾ky tak, aby ste znovu postavili objekt"
+msgstr "«ahajte a pustite polo¾ky tak, aby ste znovu vytvorili pôvodnú maµbu"
 
 #: boards/paintings.xml.in.h:2 src/boards/shapegame.c:123
 msgid "Make the puzzle"
@@ -482,47 +504,51 @@ msgstr "Vytvori» rébus"
 
 #: boards/paintings/board1_0.xml.in.h:1
 msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr ""
+msgstr "Edgar Degas, Taneèná trieda - 1873"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr ""
+msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
 #: boards/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr ""
+msgstr "Pierre-Auguste Renoir, Dievèa pri klavíry - 1892"
 
 #: boards/paintings/board3_1.xml.in.h:1
 msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr ""
+msgstr "Kandinsky, Wassily, Kompozícia VIII - 1923"
 
 #: boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr ""
+msgstr "Olej na plátne , 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 
 #: boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
-msgstr ""
+msgstr "Bazille, Hradby v Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
 msgid "Cassat, Summertime - 1895"
-msgstr ""
+msgstr "Cassat, Leto - 1895"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr ""
+msgstr "Vincent Van Gogh, Dedinská ulica v Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
 msgid ""
 "Click on any keyboard key to let Tux jump. Another keypress will open the "
 "parachute. Alternatively, a click on the plane and the tux also works."
 msgstr ""
+"Po stlaèení akejkoµvek klávesy Tux vyskoèí. Po ïal¹om stlaèení klávesy "
+"sa otvorí padák. Podobne funguje aj kliknutie na lietadlo a Tuxa."
 
 #: boards/paratrooper.xml.in.h:2
 msgid ""
 "In this game, the children will try to make Tux the paratrooper lands safely "
 "on the fishing boat. He/She needs to take care of the wind side and speed."
 msgstr ""
+"V tejto hre deti sa budú pokú¹a», aby prieskumník Tux bezpeène "
+"pristál na rybárskej lodi. Bude treba bra» do úvahy smer vetra a rýchlos»."
 
 #: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
 msgid "Manage the paratrooper to let him safely land"
@@ -533,47 +559,46 @@ msgid "Paratrooper"
 msgstr "Výsadkár"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
+"Táto tabuµa je orientovaná na hru. Nevy¾aduje ¹pecifické schopnosti, "
+"aby ste ju mohli hra»."
 
-#: boards/planegame.xml.in.h:1 src/boards/planegame.c:78
+#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Pohybujte lietadlom tak, aby zachytil oblaky v správnom poradí"
 
-#: boards/planegame.xml.in.h:2 src/boards/planegame.c:77
+#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
 msgid "Numbers in Order"
 msgstr "Èísla v poradí"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
-msgstr ""
+msgstr "Pamä»ová hra zalo¾ená na vlakoch"
 
 #: boards/railroad.xml.in.h:2
 msgid "Railroad"
-msgstr ""
+msgstr "®eleznica"
 
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
-msgstr ""
+msgstr "Prejdite k èítacej tabuli"
 
 #: boards/readingh.xml.in.h:1
 msgid "Horizontal reading practice"
-msgstr ""
+msgstr "Precvièovanie vodorovného èítania"
 
 #: boards/readingh.xml.in.h:2
-#, fuzzy
 msgid "Read a list of word and tell if the given word is in it"
 msgstr "Preèítajte zoznam slov a potom povedzte, èi dané slovo nie je v òom"
 
 #: boards/readingv.xml.in.h:1
-#, fuzzy
 msgid "Read a vertical list of word and tell if the given word is in it"
-msgstr "Preèítajte zoznam slov a potom povedzte, èi dané slovo nie je v òom"
+msgstr "Preèítajte zvislý zoznam slov a potom povedzte, èi dané slovo nie je v òom"
 
 #: boards/readingv.xml.in.h:2
 msgid "Vertical reading practice"
-msgstr ""
+msgstr "Precvièovanie zvislého èítanie"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -585,12 +610,11 @@ msgstr ""
 #: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
 #: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
 msgid "Set the masses in the decreasing order"
-msgstr ""
+msgstr "Poukladajte hmotu v zostupnom poradí"
 
 #: boards/scalesboard.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "«ahajte a pustite polo¾ky tak, aby ste znovu postavili objekt"
+msgstr "«ahajte a pustite hmoty do vyrovnania mierok"
 
 #: boards/scalesboard.xml.in.h:2
 msgid "Well balance the scales"
@@ -601,7 +625,6 @@ msgid "Numbers With Dices"
 msgstr "Èísla s kockami"
 
 #: boards/smallnumbers.xml.in.h:2 src/boards/smallnumbers.c:70
-#, fuzzy
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Stlaète klávesy s èíslami od 1 po 9 skôr ako kocky dopadnú"
 
@@ -615,7 +638,7 @@ msgstr "Úplne napí¹te padajúce slová skôr ako dopadnú"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
-msgstr ""
+msgstr "Vzdelávacia hra pre deti od 3 rokov"
 
 #: src/boards/algebra_guesscount.c:140 src/boards/algebra_guesscount.c:141
 msgid "Guess operations"
@@ -647,8 +670,8 @@ msgstr "Èítanie"
 msgid "Learn how to read"
 msgstr "Uèenie sa ako èíta»"
 
-#: src/boards/imageid.c:578 src/boards/menu.c:537
-#: src/boards/missingletter.c:600 src/boards/shapegame.c:1306
+#: src/boards/imageid.c:570 src/boards/menu.c:537
+#: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -656,7 +679,7 @@ msgstr "Uèenie sa ako èíta»"
 msgid "Couldn't find file %s !"
 msgstr "Nie je mo¾né nájs» súbor %s !"
 
-#: src/boards/imageid.c:581 src/boards/missingletter.c:603
+#: src/boards/imageid.c:573 src/boards/missingletter.c:590
 #: src/boards/shapegame.c:1309
 #, c-format
 msgid "find file %s !"
@@ -716,27 +739,27 @@ msgstr "«ahajte a pustite polo¾ky tak, aby ste znovu postavili objekt"
 
 #: src/boards/leftright.c:98
 msgid "Find your left and right hands"
-msgstr ""
+msgstr "Nájdite svoje µavé a pravé ruky"
 
 #: src/boards/leftright.c:99
 msgid "Given hands pictures, find if it's a right or left one"
-msgstr ""
+msgstr "Na daných obrázkoch zistite, èi zobrazená ruka je µavá alebo pravá"
 
-#: src/boards/leftright.c:243
+#: src/boards/leftright.c:242
 msgid "left"
-msgstr ""
+msgstr "µavá"
 
-#: src/boards/leftright.c:253
+#: src/boards/leftright.c:252
 msgid "right"
-msgstr ""
+msgstr "pravá"
 
 #: src/boards/colors.c:67
 msgid "Colors"
-msgstr ""
+msgstr "Farby"
 
 #: src/boards/colors.c:68
 msgid "Click on the right color"
-msgstr ""
+msgstr "Kliknite na správnu farbu"
 
 #: src/gcompris/about.c:58
 msgid ""
@@ -761,10 +784,8 @@ msgid "GCompris Home Page"
 msgstr "Domovská stránka GComprisa"
 
 #: src/gcompris/about.c:235
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
-msgstr ""
-"Tento softvér je GNU Balíèek aj vydaný pod licenciou Gnu Public Licence"
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
+msgstr "Tento softvér je GNU Balíèek aj vydaný pod licenciou Gnu Public Licence"
 
 #: src/gcompris/about.c:263
 msgid "Help"
@@ -820,7 +841,7 @@ msgstr "Rumunsky"
 
 #: src/gcompris/config.c:51
 msgid "Swedish"
-msgstr ""
+msgstr "©védsky"
 
 #: src/gcompris/config.c:52
 msgid "Lithuanian"
@@ -881,39 +902,39 @@ msgstr ""
 
 #: src/gcompris/gcompris.h:96
 msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-msgstr ""
+msgstr "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-2"
 
 #: src/gcompris/gcompris.h:97 src/gcompris/gcompris.h:106
 msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-msgstr ""
+msgstr "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
 
 #: src/gcompris/gcompris.h:98
 msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-msgstr ""
+msgstr "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-2"
 
 #: src/gcompris/gcompris.h:99 src/gcompris/gcompris.h:105
 msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-msgstr ""
+msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
 
 #: src/gcompris/gcompris.h:100
 msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-msgstr ""
+msgstr "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-2"
 
 #: src/gcompris/gcompris.h:101 src/gcompris/gcompris.h:104
 msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-msgstr ""
+msgstr "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
 
 #: src/gcompris/gcompris.h:103
 msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-msgstr ""
+msgstr "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
 
 #: src/gcompris/gcompris.h:107
 msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-msgstr ""
+msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
 
 #: src/gcompris/gcompris.h:108
 msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-msgstr ""
+msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
 
 #: src/gcompris/help.c:159
 msgid "Prerequisite"
@@ -921,11 +942,9 @@ msgstr "Po¾iadavky"
 
 #: src/gcompris/help.c:190
 msgid "Goal"
-msgstr "Ciel"
+msgstr "Cieµ"
 
 #: src/gcompris/help.c:218
 msgid "Manual"
 msgstr "Manuál"
 
-#~ msgid "Slovenian"
-#~ msgstr "Slovinsky"
