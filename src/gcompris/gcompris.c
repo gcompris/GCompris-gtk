@@ -584,7 +584,7 @@ gcompris_init (int argc, char *argv[])
   /*------------------------------------------------------------*/
 
 
-  if(properties->music)
+  if(properties->music || properties->fx)
     initSound();
   
   gnome_sound_init(NULL);
