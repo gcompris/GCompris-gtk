@@ -11,6 +11,7 @@ dist_python_DATA= \
 	melody.py \
 	pythontest.py \
 	redraw.py \
+	searace.py \
 	watercycle.py
 
 
