@@ -1,14 +1,20 @@
+2003-02-02  bruno  <bruno.coudoin@free.fr>
+
+	* src/boards/enumerate.c: (item_event): Now object cannot be dropped outside the canvas
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback): removed old comment
+	* TESTS: removed the comment on enumerate
+
 2003-02-01  Pascal Georges <pascal.georges1@free.fr>
 	*	src/gcompris/soundutil.c : as train.wav could not be played (/dev/dsp
   busy error), modified it to be played as an ogg file
 
 2003-01-29  Pascal Georges <pascal.georges1@free.fr>
-  * src/boards/missingletter.c : added more questions (now 36)
-  * src/boards/imageid.c : added more questions (not enough yet ...)
+	* src/boards/missingletter.c : added more questions (now 36)
+	* src/boards/imageid.c : added more questions (not enough yet ...)
 
 2003-01-28  Pascal Georges <pascal.georges1@free.fr>
-  * src/gcompris/gcompris.c : fixed sound init (when music is off, the fx sound was also off ...)
-  * src/boards/missingletter.c : added more questions (30 instead of 8)
+	* src/gcompris/gcompris.c : fixed sound init (when music is off, the fx sound was also off ...)
+	* src/boards/missingletter.c : added more questions (30 instead of 8)
 
 2003-01-27  bruno  <bruno.coudoin@free.fr>
 

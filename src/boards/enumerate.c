@@ -578,12 +578,26 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
      case GDK_MOTION_NOTIFY:
        if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
          {
+	   double x1, x2, y1, y2;
+
+	   gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2); 
+
            new_x = item_x;
            new_y = item_y;
-             
-           gnome_canvas_item_move(item, new_x - x, new_y - y);
-           x = new_x;
-           y = new_y;
+
+	   /* Check board boundaries */
+	   if((x1 < 0 && new_x<x)|| (x2 > BOARDWIDTH && new_x>x))
+	     {
+	       new_x = x;
+	     }
+	   if((y1 < 0 && new_y<y) || (y2 > BOARDHEIGHT && new_y>y))
+	     {
+	       new_y = y;
+	     }
+
+	   gnome_canvas_item_move(item, new_x - x, new_y - y);
+	   x = new_x;
+	   y = new_y;
          }
        break;
            
