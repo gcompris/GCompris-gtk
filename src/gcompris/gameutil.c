@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/01/24 00:57:11 bruno>
+ * Time-stamp: <2005/02/16 22:11:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -599,7 +599,7 @@ GList *gcompris_get_menulist(gchar *section)
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
-    if(board->section 
+    if(board && board->section 
        && strlen(section)<=strlen(board->section)
        && strcmp (section, board->section) != 0) {
 

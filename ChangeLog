@@ -1,5 +1,10 @@
 2005-02-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* boards/gcompris/Makefile.am: fixed, was not putting the file in the correct place
+	* src/gcompris/gameutil.c: (gcompris_get_menulist): more robust boards xml parsing
+
+2005-02-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Yves improved anim again
 	Bruno started the mime type system
 

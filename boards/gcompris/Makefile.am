@@ -1,4 +1,4 @@
-xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
+xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/gcompris
 
 xml_in_files = \
 	mime_type.xml.in
