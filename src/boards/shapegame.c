@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/08/23 14:31:39 bcoudoin>
+ * Time-stamp: <2003/12/06 04:54:07 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -44,6 +44,7 @@ static gint addedname;	/* Defined the rules to apply to determine if the
 			*/
 
 static GcomprisBoard *gcomprisBoard = NULL;
+gboolean board_paused = TRUE;
 
 typedef enum
 {
@@ -203,6 +204,7 @@ static void pause_board (gboolean pause)
       shapegame_next_level();
     }
 
+  board_paused = pause;
 }
 
 /*
@@ -224,7 +226,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       filename = g_strdup_printf("%s/%s/board%d_0.xml",
 				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
 				 gcomprisBoard->maxlevel);
-      while(g_file_exists(filename))
+      while(g_file_test(filename, G_FILE_TEST_EXISTS))
 	{
 	  gcomprisBoard->maxlevel++;
 	
@@ -500,7 +502,7 @@ static void shapegame_next_level()
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
 
 
-  while(!g_file_exists(filename)
+  while(!g_file_test(filename, G_FILE_TEST_EXISTS)
 	&& ((gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0)))
     {
       /* Try the next level */
@@ -911,6 +913,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    if(!get_board_playing())
      return FALSE;
 
+  if(board_paused)
+    return FALSE;
+
+
    if(shape==NULL) {
      g_warning("Shape is NULL : Should not happen");
      return FALSE;
@@ -1264,6 +1270,9 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
   GnomeCanvasItem	*root_item;
 
+  if(board_paused)
+    return FALSE;
+
   switch (event->type) 
     {
     case GDK_ENTER_NOTIFY:
@@ -1583,7 +1592,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   y = atof(cy);
 
   /* Back up the current locale to be sure to load well C formated numbers */
-  locale = gcompris_get_locale();
+  locale = g_strdup(gcompris_get_locale());
   gcompris_set_locale("C");
 
   /* get the ZOOMX coord of the shape */
@@ -1607,6 +1616,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
   /* Back to the user locale */
   gcompris_set_locale(locale);
+  g_strdup(locale);
 
   /* get the TYPE of the shape */
   ctype = xmlGetProp(xmlnode,"type");
@@ -1720,7 +1730,7 @@ read_xml_file(char *fname)
   g_return_val_if_fail(fname!=NULL,FALSE);
   
   /* if the file doesn't exist */
-  if(!g_file_exists(fname)) 
+  if(!g_file_test(fname, G_FILE_TEST_EXISTS)) 
     {
       g_warning(_("Couldn't find file %s !"), fname);
       return FALSE;
