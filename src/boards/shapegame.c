@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/02/17 20:43:49 bruno>
+ * Time-stamp: <2002/03/02 22:25:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -197,7 +197,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 				     gcomprisBoard->maxlevel);
 	}
       gcomprisBoard->maxlevel--;
-      printf("maxlevel = %d\n", gcomprisBoard->maxlevel);
 
       g_free(filename);
       
@@ -301,12 +300,10 @@ static void shapegame_next_level()
 			     PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
 
-  printf("1 gcomprisBoard->level %d   filename=%s\n", gcomprisBoard->level, filename);
 
   while(!g_file_exists(filename)
 	&& ((gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0)))
     {
-  printf("2 gcomprisBoard->level %d\n", gcomprisBoard->level);
       /* Try the next level */
       gcomprisBoard->sublevel=gcomprisBoard->number_of_sublevel;
       if(!increment_sublevel())
@@ -316,7 +313,6 @@ static void shapegame_next_level()
       filename = g_strdup_printf("%s/%s/board%d_%d.xml",
 				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
 				 gcomprisBoard->level, gcomprisBoard->sublevel);
-  printf("3 gcomprisBoard->level %d   filename=%s\n", gcomprisBoard->level, filename);
     }
   read_xml_file(filename);
 
@@ -1031,7 +1027,7 @@ add_shape_to_canvas(Shape *shape)
       printf("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
       if(strcmp(shape->pixmapfile, UNDEFINED)!=0)
 	{
-	  printf("it's an image \n");
+	  printf("Yes it is an image \n");
 	  pixmap = gcompris_load_pixmap(shape->pixmapfile);
 	  if(pixmap)
 	    {	
