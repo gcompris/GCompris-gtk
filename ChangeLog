@@ -1,3 +1,12 @@
+2004-04-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* README.mingw: taken from the pan project
+	* README.windows: taken from the pan project
+	* boards/flags/en_GB.png: now really GB flag
+	* po/POTFILES.in: updated
+	* src/gcompris/gameutil.c: (gcompris_get_board_from_section): added traces
+	* src/gcompris/soundutil.c: (scheduler): added a lock that was deadlocking on windows.
+
 2004-04-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	fixed bug debian Bug#244544 Fails to get locale

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/04/14 00:47:32 bcoudoin>
+ * Time-stamp: <2004/04/27 23:01:59 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -520,15 +520,19 @@ GcomprisBoard *gcompris_get_board_from_section(gchar *section)
 {  
   GList *list = NULL;
 
+  printf("gcompris_get_board_from_section(%s)\n", section);
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
+    printf("  gcompris_get_board_from_section(%s) looking for board->name=%s board->section=%s\n", 
+	   section, board->name,  board->section);
     if( board->section && (strcmp (board->section, section) == 0))
       {
+	printf("  gcompris_get_board_from_section(%s) FOUND IT: board->name=%s\n", section, board->name);
 	return board;
       }
   }
-  
+  printf("gcompris_get_board_from_section(%s): Section not found\n", section);
   return NULL;
 }
 

@@ -1,0 +1,96 @@
+How to build gcompris on Windows
+
+FIXME: http://sources.redhat.com/ml/cygwin/1999-05/msg00249.html
+       tells how to associate Gcompris.ico with Gcompris.exe
+
+1: MINGW
+===========
+
+ * MinGW (www.mingw.org) is the Minimalist GNU for Windows.
+   Unlike cygwin, apps built with MinGW don't require any middleware
+   libraries to run.  That's why I chose it over cygwin for Gcompris.
+ * Download the "MinGW" installer exe and install into c:\mingw\ .
+ * Download the "MSYS" and "MSYS Developer Toolkit" installer exes
+   and install into c:\msys\ .
+ * Copy the .profile file from the bottom of this document into
+   c:\msys\1.0\home\yourname\.profile .
+ * if msvcrt.dll is not in your Windows/System folder, get it
+   from http://www.simtel.net/simtel.net/win95/dll
+   or by installing Internet Explorer 4.0 or higher
+
+
+2: LIBRARY PREREQUISITES
+========================
+I installed each of the prerequisites in its own directory underneath
+c:\msys\1.0\opt\, so that (1) they're easy to blow away piece-by-piece
+to upgrade to newer versions, and (2) they show up as /opt/gtk, /opt/libxml,
+and so on from msys, which is reasonably clear.  If you choose a different
+hierarchy make sure to tweak your .profile.
+
+2.1 GTK
+=======
++ gcompris needs gtk to run.
+* Install the latest "GTK Runtime Environment"
+  and "GTK Development Environment" -- *IN THAT ORDER* --
+  from http://sourceforge.net/projects/gtk-win/
+  into c:\msys\1.0\opt\gtk
+* edit /opt/gtk/bin/glib-gettextize, replace "/target" with "/opt/gtk"
+* sanity check: you should now be able to run gtk-demo.exe from msys.
+
+2.2 LIBXML2
+===========
++ gcompris needs libxml2 to run.
+* Snag a tarball from ftp://xmlsoft.org/ and untar it in your msys home directory.
+* ./configure --prefix=/opt/libxml2; make; make install
+* edit /opt/libxml2/lib/pkgconfig/libxml-2.0.pc:
+  Add " -lws2_32 " to the end of the "Libs:" line.
+* Sanity check: "$ pkg-config --cflags libxml-2.0" should give meaningful output now.
+* Sanity check: "$ pkg-config --libs libxml-2.0" should also work, and include -lws2_32
+
+2.6 PREREQUISITE SUMMARY
+========================
+* At this point, you must have the following subdirectories:
+  + /opt/gtk
+  + /opt/libxml2
+* And, if you plan on building from CVS, you'll also need:
+  + /opt/gnome-common
+
+3: BUILDING GCOMPRIS.EXE
+========================
+* Get a tarball or CVS snapshot of gcompris.
+* run ./autogen.sh from gcompris's top-level directory.  This will take a long time.
+* *drum roll...* make!
+
+4: BULDING GCOMPRIS-SETUP.EXE
+========================
+* Make sure gcompris.iss and README.windows exist
+* go into gcompris/po/ directory and make the mo files
+* Install INNO Setup version 4 (or higher) from http://www.jrsoftware.org/is4.php
+* Open c:\msys\1.0\home\yourname\gcompris\gcompris.iss inside the inno installer
+* Should compile and build without a hitch, placing the setup file in c:\
+
+
+APPENDIX: MY .profile
+=====================
+
+  # Life with MinGW
+  export CFLAGS="$CFLAGS -mwindows -mno-cygwin -mms-bitfields"
+  export CPPFLAGS="$CPPFLAGS -I/c/mingw/include -DWINDOWS -DWIN32"
+  export PATH="$PATH:/c/mingw/bin"
+  export CVSROOT=":pserver:charles@cvs.gnome.org:/cvs/gnome"
+
+  # GTK
+  export GTK_HOME="/opt/gtk"
+  export CPPFLAGS="$CPPFLAGS -I$GTK_HOME/include"
+  export PATH="$GTK_HOME/bin:$GTK_HOME/lib:$PATH"
+  export PKG_CONFIG_PATH="$GTK_HOME/lib/pkgconfig:$PKG_CONFIG_PATH"
+  export ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I $GTK_HOME/share/aclocal"
+  export LIBICONV="$GTK_HOME/lib/iconv.dll"
+
+  # LIBXML2
+  export LIBXML2_HOME="/opt/libxml2"
+  export PKG_CONFIG_PATH="$LIBXML2_HOME/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+  echo "Loaded .profile..."
+
+

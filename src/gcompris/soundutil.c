@@ -181,9 +181,10 @@ static gpointer scheduler (gpointer user_data)
 	}
       else
 	{
+	  g_mutex_lock (lock);
 	  g_cond_wait (cond, lock);
-
 	  g_mutex_unlock (lock);
+
 	}
     }
   return NULL;
