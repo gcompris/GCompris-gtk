@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <GCompris>
-  <Board 
-	 type="click_on_letter" 
-	 icon="boardicons/missing_letter.png" 
+  <Board
+	 type="click_on_letter"
+	 icon="boardicons/click_on_letter.png"
+	mandatory_sound_file="clic_on_letter.ogg"
 	 difficulty="1"
 	 author="Pascal Georges (pascal.georges1 at free.fr)"
-	 boarddir="">
-	 <name>Ear the letters</name>
-	 <description>Ear the letter and find it</description>
+	 boarddir="click_on_letter">
+	 <_name>Click on a letter</_name>
+	 <_description>Hear a letter and click on the right letter</_description>
   </Board>
 </GCompris>
