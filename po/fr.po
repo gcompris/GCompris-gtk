@@ -3,6 +3,7 @@
 # translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
 # gcompris fr.po.
 # Copyright (C) 2000-2003, 2004 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2003.
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-03 21:43+0200\n"
-"PO-Revision-Date: 2004-09-05 23:17+0200\n"
+"POT-Creation-Date: 2004-09-17 22:57+0200\n"
+"PO-Revision-Date: 2004-09-20 23:14+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -861,11 +862,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr "Clique sur un élément et écoute sa position cible"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:213
+#: boards/draw.xml.in.h:1 src/boards/draw.c:215
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:214
+#: boards/draw.xml.in.h:2 src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
 msgstr "Tableau à vocation créative où l'on peut dessiner librement"
 
@@ -953,9 +954,12 @@ msgstr "Coordination moteur"
 #: boards/followline.xml.in.h:3
 msgid ""
 "Move the mouse over the red part of the pipe. This will emerge it, part by "
-"part up to the flowers. If you move out of the pipe, the red part will go "
-"back."
-msgstr "Déplace la souris au dessus du bouchon (la partie rouge du tuyau). Cela te permet de le déboucher, morceau après morceau. Attention, si tu sort la sourie du tuyau, le bouchon recule."
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
+msgstr ""
+"Déplace la souris au dessus du bouchon (la partie rouge du tuyau). Cela te "
+"permet de le déboucher, morceau après morceau. Attention, si tu sort la "
+"souris du tuyau, le bouchon recule."
 
 #: boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
@@ -1974,7 +1978,7 @@ msgstr ""
 #: boards/reversecount.xml.in.h:2
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
-"fish. Click the dict with the right mouse button to coun backwards. When "
+"fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
 "D'abord compte combien de glaçons il y a entre Tux et le poisson.\n"
@@ -2026,8 +2030,8 @@ msgstr ""
 
 #: boards/scalesboard.xml.in.h:4
 msgid ""
-"To balance the scales, move the masses on the left. left side. The masses "
-"can be arranged in any order."
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
 msgstr ""
 "Pour équilibrer la balance, déplace les masses sur le plateau de gauche.\n"
 "Les masses peuvent être placées dans n'importe quel ordre."
@@ -2204,7 +2208,7 @@ msgstr "Suite éducative gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/boards/shapegame.c:1775 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2214,7 +2218,7 @@ msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1766
+#: src/boards/shapegame.c:1778
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -2602,7 +2606,7 @@ msgid "Help"
 msgstr "Aide"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:203
-#: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
+#: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Valider"
@@ -2921,14 +2925,14 @@ msgstr ""
 #, c-format
 msgid ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "Licence: GPL\n"
-"More info at http://ofset.sourceforge.net/gcompris\n"
+"More info at http://www.ofset.org/gcompris\n"
 msgstr ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "License: GPL\n"
-"Plus d'informations sur http://ofset.sourceforge.net/gcompris\n"
+"Plus d'informations sur http://www.ofset.org/gcompris\n"
 
 #: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
