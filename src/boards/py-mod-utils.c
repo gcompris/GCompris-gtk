@@ -84,7 +84,6 @@ py_gcompris_item_event_focus(PyObject* self, PyObject* args)
   GnomeCanvasItem* item;
   PyObject* pyevent;
   GdkEvent* event;
-  PyObject* pydest_item;
   gint result;
 
   /* Parse arguments */

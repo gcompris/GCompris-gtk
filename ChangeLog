@@ -1,3 +1,16 @@
+2004-01-24  Olivier Samyn  <osamyn@ulb.ac.be>
+
+	* src/boards/py-mod-gcompris.c: (py_gcompris_bar_set_repeat_icon),
+	(py_gcompris_bar_hide), (py_gcompris_board_has_help),
+	(py_gcompris_help_start), (py_gcompris_log_set_comment): fixed compilation warning and some errors 
+	* src/boards/py-mod-skin.c: (py_gcompris_skin_get_font): fixed compilation warning and some errors
+	* src/boards/py-mod-utils.c: (py_gcompris_item_event_focus): fixed compilation warning and some errors
+	* src/boards/python.c: (pythonboard_init), (pythonboard_start),
+	(pythonboard_pause), (pythonboard_end), (pythonboard_is_our_board),
+	(pythonboard_key_press), (pythonboard_ok), (pythonboard_set_level),
+	(pythonboard_config), (pythonboard_repeat): fixed bug when pressing a key in a python board, fixed compilation warning and some errors
+	* src/gcompris/gcompris.h: corrected function name (gcompris_log_set_comment)
+
 2004-01-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/target.c: (start_board), (target_next_level),

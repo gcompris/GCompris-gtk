@@ -109,7 +109,6 @@ py_gcompris_skin_get_color(PyObject* self, PyObject* args)
 static PyObject*
 py_gcompris_skin_get_font(PyObject* self, PyObject* args)
 {
-  char* pixmapfile;
   gchar* id;
   gchar* result;
 

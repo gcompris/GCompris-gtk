@@ -109,12 +109,11 @@ py_gcompris_bar_set_repeat_icon(PyObject* self, PyObject* args)
 {
   PyObject* pyObject;
   GdkPixbuf* pixmap;
-  GcomprisBoard* cGcomprisBoard;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "O:gcompris_bar_set_repeat_icon", &pyObject))
     return NULL;
-  pixmap = (GdkPixbuf*) pygobject_get(pixmap);
+  pixmap = (GdkPixbuf*) pygobject_get(pyObject);
 
   /* Call the corresponding C function */
   gcompris_bar_set_repeat_icon(pixmap);
@@ -151,7 +150,7 @@ py_gcompris_bar_hide(PyObject* self, PyObject* args)
   gint values;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "i:gcompris_bar_hide", values))
+  if(!PyArg_ParseTuple(args, "i:gcompris_bar_hide", &values))
     return NULL;
 
   /* Call the corresponding C function */
@@ -172,7 +171,7 @@ py_gcompris_board_has_help(PyObject* self, PyObject* args)
   gboolean result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_board_has_help", pyObject))
+  if(!PyArg_ParseTuple(args, "O:gcompris_board_has_help", &pyObject))
     return NULL;
   pyGcomprisBoard = (pyGcomprisBoardObject*) pyObject;
   cGcomprisBoard = pyGcomprisBoard -> cdata;
@@ -199,9 +198,9 @@ py_gcompris_help_start(PyObject* self, PyObject* args)
   GcomprisBoard* cGcomprisBoard;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris_help_start", pyObject))
+  if(!PyArg_ParseTuple(args, "O:gcompris_help_start", &pyObject))
     return NULL;
-  pyGcomprisBoard = (pyGcomprisBoardObject*) pyGcomprisBoard;
+  pyGcomprisBoard = (pyGcomprisBoardObject*) pyObject;
   cGcomprisBoard = pyGcomprisBoard->cdata;
 
   /* Call the corresponding C function */
@@ -386,9 +385,9 @@ py_gcompris_images_selector_start(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *comment); */
+/* void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *comment); */
 static PyObject*
-py_gcompris_log_set_reason(PyObject* self, PyObject* args)
+py_gcompris_log_set_comment(PyObject* self, PyObject* args)
 {
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
@@ -396,15 +395,15 @@ py_gcompris_log_set_reason(PyObject* self, PyObject* args)
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "Os:gcompris_log_set_reason",
+		       "Os:gcompris_log_set_comment",
 		       &pyGcomprisBoard,
 		       &comment))
     return NULL;
   cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
 
   /* Call the corresponding C function */
-  gcompris_log_set_reason(cGcomprisBoard,
-			  comment);
+  gcompris_log_set_comment(cGcomprisBoard,
+			   comment);
 
   /* Create and return the result */
   Py_INCREF(Py_None);
@@ -494,7 +493,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "images_selector_stop",  py_gcompris_images_selector_stop,
     METH_VARARGS, "gcompris_images_selector_stop" },
   { "exit",  py_gcompris_exit, METH_VARARGS, "gcompris_exit" },
-  { "log_set_reason",  py_gcompris_log_set_reason, METH_VARARGS, "gcompris_log_set_reason" },
+  { "log_set_comment",  py_gcompris_log_set_comment, METH_VARARGS, "gcompris_log_set_comment" },
   { "log_end",  py_gcompris_log_end, METH_VARARGS, "gcompris_log_end" },
   { NULL, NULL, 0, NULL}
 };

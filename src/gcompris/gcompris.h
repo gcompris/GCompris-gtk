@@ -114,7 +114,7 @@ void		 gcompris_exit();
 void gcompris_log_start (GcomprisBoard *gcomprisBoard); 
 
 /* Use it to tell the teacher where the kid failed */
-void gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *comment); 
+void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *comment); 
 
 /* Do not use it if you use the bonus API in your board */
 void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
