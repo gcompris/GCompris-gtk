@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/12/30 00:31:10 bruno>
+ * Time-stamp: <2005/01/02 00:43:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -751,8 +751,8 @@ void item_rotate_relative(GnomeCanvasItem *item, double angle) {
   } else if(GNOME_IS_CANVAS_GROUP(item)){
     gtk_object_get (GTK_OBJECT (item), "x", &x1, NULL);
     gtk_object_get (GTK_OBJECT (item), "y", &y1, NULL);
-    x2 = 0;
-    y2 = 0;
+    x2 = x1;
+    y2 = y1;
   } else {
     gtk_object_get (GTK_OBJECT (item), "x1", &x1, NULL);
     gtk_object_get (GTK_OBJECT (item), "y1", &y1, NULL);
@@ -838,7 +838,7 @@ void gcompris_dialog_close() {
   if(rootDialogItem) {
     /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
     while (g_idle_remove_by_data (itemDialogText));
-    gtk_object_destroy (itemDialogText);
+    gtk_object_destroy (GTK_OBJECT(itemDialogText));
     itemDialogText = NULL;
 
     gtk_object_destroy(GTK_OBJECT(rootDialogItem));
