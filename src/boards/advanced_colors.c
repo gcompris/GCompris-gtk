@@ -398,6 +398,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	char * tmp = NULL;
   char *sColor = NULL;
 	int color = 0;
+	int i;
 	gchar *lang;
 
 	xmlnode = xmlnode->xmlChildrenNode;
@@ -408,23 +409,27 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 		if (!strcmp(xmlnode->name, "pixmapfile"))
 	    backgroundFile = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 
-			sColor = g_strdup_printf("color%d", color+1);
 	  	lang = xmlGetProp(xmlnode,"lang");
 
-			if (!strcmp(xmlnode->name, sColor)) {
-				if (lang == NULL) { // get default value
-						text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-						colors[color] = convertUTF8Toisolat1(text);
-				} else // get correct language
-					if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
-						text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-						printf("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
-						colors[color] = convertUTF8Toisolat1(text);
-						color++;
-						}
-				}
+			// try to match color[i]
+			for (i=0; i<8; i++) {
+				sColor = g_strdup_printf("color%d", i+1);
+				if (!strcmp(xmlnode->name, sColor)) {
+					if (lang == NULL) { // get default value
+							text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+							colors[i] = convertUTF8Toisolat1(text);
+					} else // get correct language
+						if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
+							text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+							printf("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
+							colors[i] = convertUTF8Toisolat1(text);
+							color++;
+							}
+					break;
+					}
+			g_free(sColor);
+			} // end for
 		xmlnode = xmlnode->next;
-		g_free(sColor);
 	}
 
 	printf("colors found in XML = %d\n", color);
