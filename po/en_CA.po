@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-25 13:50-0700\n"
-"PO-Revision-Date: 2004-05-25 13:51-0700\n"
+"POT-Creation-Date: 2004-05-30 14:53-0700\n"
+"PO-Revision-Date: 2004-05-30 14:54-0700\n"
 "Last-Translator: Adam Weinberger  <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -1939,7 +1939,7 @@ msgid ""
 msgstr ""
 "The painting is an original painting made by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL license."
+"released under the GPL licence."
 
 #: boards/scalesboard.xml.in.h:4
 msgid ""
@@ -2142,15 +2142,15 @@ msgstr ""
 "Tux is in trouble in his ship. He needs to take it through a lock.\n"
 "Help Tux and understand how a canal lock works."
 
-#: src/boards/chess.c:137
+#: src/boards/chess.c:139
 msgid "Learning Chess"
 msgstr "Learning Chess"
 
-#: src/boards/chess.c:138
+#: src/boards/chess.c:140
 msgid "Play chess against tux in a learning mode"
 msgstr "Play chess against tux in a learning mode"
 
-#: src/boards/chess.c:191
+#: src/boards/chess.c:193
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2162,7 +2162,7 @@ msgstr ""
 "of gnuchess.\n"
 "Please upgrade to gnuchess 5 or above."
 
-#: src/boards/chess.c:198
+#: src/boards/chess.c:200
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2176,31 +2176,31 @@ msgstr ""
 "GNU/Linux distribution\n"
 "And check it is in "
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "White Turn"
 msgstr "White Turn"
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "Black Turn"
 msgstr "Black Turn"
 
-#: src/boards/chess.c:718
+#: src/boards/chess.c:720
 msgid "White check"
 msgstr "White check"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:722
 msgid "Black check"
 msgstr "Black check"
 
-#: src/boards/chess.c:1052
+#: src/boards/chess.c:1054
 msgid "Black mates"
 msgstr "Black mates"
 
-#: src/boards/chess.c:1057
+#: src/boards/chess.c:1059
 msgid "White mates"
 msgstr "White mates"
 
-#: src/boards/chess.c:1062
+#: src/boards/chess.c:1064
 msgid "Drawn game"
 msgstr "Drawn game"
 
@@ -2358,39 +2358,47 @@ msgstr "Click on the corresponding colour"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Read a list of words and then tell if the given word is in it"
 
-#: src/boards/reading.c:322
+#: src/boards/reading.c:329
 msgid "Please, check if the word"
 msgstr "Please, check if the word"
 
-#: src/boards/reading.c:342
+#: src/boards/reading.c:349
 msgid "is being displayed"
 msgstr "is being displayed"
 
-#: src/boards/reading.c:525
+#: src/boards/reading.c:541
 msgid "I am Ready"
 msgstr "I am Ready"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:581
 msgid "Yes I saw it"
 msgstr "Yes I saw it"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:611
 msgid "No, it was not there"
 msgstr "No, it was not there"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:649
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "The word to find was '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:652
 msgid "But it was not displayed"
 msgstr "But it was not displayed"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:654
 msgid "And it was displayed"
 msgstr "And it was displayed"
+
+#: src/boards/reading.c:756 src/boards/reading.c:766
+msgid "Cannot open file of words for your locale"
+msgstr "Cannot open wordlist for your locale"
+
+#: src/boards/reading.c:795
+msgid "Error: The wordfile package used for your locale is corrupted."
+msgstr "Error: The wordfile package used for your locale is corrupted."
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2503,7 +2511,8 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:187 src/gcompris/help.c:367
+#: src/gcompris/about.c:316 src/gcompris/config.c:187
+#: src/gcompris/gameutil.c:778 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2761,12 +2770,12 @@ msgid ""
 "This is a Demo version of gcompris,\n"
 "only 12 on 45 activities are available.\n"
 "To get the full version,\n"
-"go to http://ofset.sf.net/gcompris/order.html"
+"go to http://www.ofset.org/order/gcompris"
 msgstr ""
-"This is a Demo version of gcompris,\n"
-"only 12 on 45 activities are available.\n"
+"This is a Demo version of gcompris.\n"
+"Only 12 on 45 activities are available.\n"
 "To get the full version,\n"
-"go to http://ofset.sf.net/gcompris/order.html"
+"go to http://www.ofset.org/order/gcompris"
 
 #: src/gcompris/gcompris.c:663
 #, c-format
@@ -2781,19 +2790,19 @@ msgstr ""
 "Licence: GPL\n"
 "More info on http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:174 src/gcompris/interface.c:243
+#: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: src/gcompris/help.c:208 src/gcompris/interface.c:252
+#: src/gcompris/help.c:207 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Goal"
 
-#: src/gcompris/help.c:242 src/gcompris/interface.c:261
+#: src/gcompris/help.c:241 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:276 src/gcompris/interface.c:270
+#: src/gcompris/help.c:275 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Credit"
 
@@ -2871,47 +2880,3 @@ msgstr "Time Elapsed"
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
 
-#~ msgid ""
-#~ "Try to find the strawberry under the blue fields. The closer you get, the "
-#~ "more red the fields become."
-#~ msgstr ""
-#~ "Try to find the strawberry under the blue fields. The closer you get, the "
-#~ "more red the fields become."
-
-#~ msgid "minouche"
-#~ msgstr "minouche"
-
-#~ msgid ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "outputs"
-#~ msgstr ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "outputs"
-
-#~ msgid ""
-#~ "Error unable to find a usable audio output device (%d)\n"
-#~ "Try 'gcompris -A' to select an alternative audio output\n"
-#~ "Use '-A list' to display the list of available devices"
-#~ msgstr ""
-#~ "Error unable to find a usable audio output device (%d)\n"
-#~ "Try 'gcompris -A' to select an alternative audio output\n"
-#~ "Use '-A list' to display the list of available devices"
-
-#~ msgid "Error opening audio device\n"
-#~ msgstr "Error opening audio device\n"
-
-#~ msgid ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-#~ msgstr ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-
-#~ msgid "Now Playing Music"
-#~ msgstr "Now Playing Music"
-
-#~ msgid "Artist"
-#~ msgstr "Artist"
-
-#~ msgid "Couldn't open pixmap dir: %s"
-#~ msgstr "Couldn't open pixmap dir: %s"
