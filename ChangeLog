@@ -1,3 +1,13 @@
+2004-04-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gcompris-marshal.c: create to make the gcompris library
+	(gnome_canvas_marshal_VOID__OBJECT_INT_INT_INT_INT),
+	(gnome_canvas_marshal_BOOLEAN__BOXED): -
+	* src/gcompris/gcompris-marshal.h: -
+	* src/gcompris/gcompris-marshal.list: -
+	* src/gcompris/libgcompris-1.0-uninstalled.pc.in: -
+	* src/gcompris/libgcompris-1.0.pc.in: -
+
 2004-04-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/algorithm.py: By Christof Petig removed german words.
