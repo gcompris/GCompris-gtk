@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/05/01 22:50:01 bruno>
+ * Time-stamp: <2002/06/04 21:40:44 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -376,7 +376,7 @@ static void setup_window ()
   init_plugins();
 
   /* Load and Run the menu */
-  gcomprisBoardMenu = gcompris_read_xml_file(PACKAGE_DATA_DIR "/menu.xml");
+  gcomprisBoardMenu = gcompris_read_xml_file(PACKAGE_DATA_DIR INITIAL_MENU);
   if(!board_check_file(gcomprisBoardMenu))
     g_error("Cant't find the menu board or plugin execution error");
 
@@ -462,7 +462,7 @@ void gcompris_set_locale(gchar *locale)
  */
 
 int
-main (int argc, char *argv[])
+gcompris_init (int argc, char *argv[])
 {
   int c;
   poptContext optCon;

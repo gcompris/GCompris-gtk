@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/05/05 21:46:44 bruno>
+ * Time-stamp: <2002/06/04 22:58:45 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -260,6 +260,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->prerequisite = NULL;
   gcomprisBoard->goal = NULL;
   gcomprisBoard->manual = NULL;
+  gcomprisBoard->credit = NULL;
 
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
@@ -312,6 +313,16 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
       {
 	gcomprisBoard->manual = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	gcomprisBoard->manual = convertUTF8Toisolat1(gcomprisBoard->manual);
+      }
+
+    /* get the help user credit of the board */
+    if (!strcmp(xmlnode->name, "credit")
+	&& (lang==NULL ||
+	    !strcmp(lang, gcompris_get_locale())
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
+      {
+	gcomprisBoard->credit = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->credit = convertUTF8Toisolat1(gcomprisBoard->credit);
       }
 
     xmlnode = xmlnode->next;

@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/05/05 22:32:20 bruno>
+ * Time-stamp: <2002/06/01 02:27:27 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -28,22 +28,35 @@
 
 #define SOUNDLISTFILE PACKAGE
 
+#define GAP_TO_BUTTON -20
+
+#define COLOR_SELECTED   0x34682aFF
+#define COLOR_UNSELECTED 0x4252ffFF
+
 static gint item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-static gboolean help_displayed = FALSE;
+static gboolean help_displayed			= FALSE;
 
-static GnomeCanvasItem *rootitem = NULL;
-static GnomeCanvasItem *item_content = NULL;
+static GnomeCanvasItem *rootitem		= NULL;
+static GnomeCanvasItem *item_content		= NULL;
 
-static gchar   *prerequisite = NULL;
-static gchar   *goal = NULL;
-static gchar   *manual = NULL;
+static gchar *prerequisite			= NULL;
+static gchar *goal				= NULL;
+static gchar *manual				= NULL;
+static gchar *credit				= NULL;
 
-static GnomeCanvasItem *item_prerequisite = NULL;
-static GnomeCanvasItem *item_goal = NULL;
-static GnomeCanvasItem *item_manual = NULL;
+static GnomeCanvasItem *item_prerequisite	= NULL;
+static GnomeCanvasItem *item_goal		= NULL;
+static GnomeCanvasItem *item_manual		= NULL;
+static GnomeCanvasItem *item_credit		= NULL;
 
-static GnomeCanvasItem *item_selected = NULL;
+static GnomeCanvasItem *item_prerequisite_text  = NULL;
+static GnomeCanvasItem *item_goal_text          = NULL;
+static GnomeCanvasItem *item_manual_text        = NULL;
+static GnomeCanvasItem *item_credit_text        = NULL;
+
+static GnomeCanvasItem *item_selected		= NULL;
+static GnomeCanvasItem *item_selected_text	= NULL;
 
 
 /*
@@ -62,7 +75,8 @@ gboolean gcompris_board_has_help (GcomprisBoard *gcomprisBoard)
   prerequisite	= gcomprisBoard->prerequisite;
   goal		= gcomprisBoard->goal;
   manual	= gcomprisBoard->manual;
-  return(prerequisite!=NULL || goal!=NULL || manual!=NULL);
+  credit	= gcomprisBoard->credit;
+  return(prerequisite!=NULL || goal!=NULL || manual!=NULL || credit!=NULL);
 }
 
 /*
@@ -80,6 +94,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   GdkFont *gdk_font;
   GdkFont *gdk_font2;
   gchar   *name = NULL;
+  gchar   *text_to_display = NULL;
 
   if(rootitem)
     return;
@@ -132,120 +147,184 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				NULL);
 
 
-  y_start += 110;
+  y_start += 120;
 
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large_selected.png");
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_up.png");
 
-  // Prerequisite Button
-  item_prerequisite = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					     gnome_canvas_pixbuf_get_type (),
-					     "pixbuf", pixmap, 
-					     "x", (double) (BOARDWIDTH*0.25) - gdk_pixbuf_get_width(pixmap)/2,
-					     "y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
-					     NULL);
-  
-  gtk_signal_connect(GTK_OBJECT(item_prerequisite), "event",
-		     (GtkSignalFunc) item_event_help,
-		     "prerequisite");
-  gtk_signal_connect(GTK_OBJECT(item_prerequisite), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-
-  item_selected = item_prerequisite;
-  gdk_pixbuf_unref(pixmap);
-
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("Prerequisite"),
-				"font_gdk", gdk_font,
-				"x", (double)  BOARDWIDTH*0.25,
-				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TEXT_BUTTON,
-				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_help,
-		     "prerequisite");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     item_prerequisite);
-
-
-  // Goal Button
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
-
-  item_goal = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
-				     "x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-				     "y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
-				     NULL);
-
-  gtk_signal_connect(GTK_OBJECT(item_goal), "event",
-		     (GtkSignalFunc) item_event_help,
-		     "goal");
-  gtk_signal_connect(GTK_OBJECT(item_goal), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("Goal"),
-				"font_gdk", gdk_font,
-				"x", (double)  BOARDWIDTH*0.5,
-				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TEXT_BUTTON,
-				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_help,
-		     "goal");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     item_goal);
-
-  // Manual Button
-  item_manual = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH*0.75) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
-				NULL);
-
-  gtk_signal_connect(GTK_OBJECT(item_manual), "event",
-		     (GtkSignalFunc) item_event_help,
-		     "manual");
-  gtk_signal_connect(GTK_OBJECT(item_manual), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("Manual"),
-				"font_gdk", gdk_font,
-				"x", (double)  BOARDWIDTH*0.75,
-				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TEXT_BUTTON,
-				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_help,
-		     "manual");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     item_manual);
-
-
-  // CONTENT
-  y_start += 10;
   gdk_font2 = gdk_font_load (FONT_CONTENT);
   if(!gdk_font2)
     // Fallback to a more usual font
     gdk_font2 = gdk_font_load (FONT_CONTENT_FALLBACK);
 
+  // Prerequisite Button
+  if(prerequisite)
+    {
+      item_prerequisite = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+						 gnome_canvas_pixbuf_get_type (),
+						 "pixbuf", pixmap, 
+						 "x", (double) (BOARDWIDTH*0.2) - gdk_pixbuf_get_width(pixmap)/2,
+						 "y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+						 NULL);
+      
+      gtk_signal_connect(GTK_OBJECT(item_prerequisite), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "prerequisite");
+      gtk_signal_connect(GTK_OBJECT(item_prerequisite), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+      
+      item_selected = item_prerequisite;
+      
+      item_prerequisite_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_text_get_type (),
+				    "text", _("Prerequisite"),
+				    "font_gdk", gdk_font2,
+				    "x", (double)  BOARDWIDTH*0.20,
+				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+				    "anchor", GTK_ANCHOR_CENTER,
+				    "fill_color_rgba", COLOR_TEXT_BUTTON,
+				    NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "prerequisite");
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 item_prerequisite);
+    }
+
+  // Goal Button
+  if(goal)
+    {
+      item_goal = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					 gnome_canvas_pixbuf_get_type (),
+					 "pixbuf", pixmap, 
+					 "x", (double) (BOARDWIDTH*0.4) - gdk_pixbuf_get_width(pixmap)/2,
+					 "y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+					 NULL);
+      
+      gtk_signal_connect(GTK_OBJECT(item_goal), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "goal");
+      gtk_signal_connect(GTK_OBJECT(item_goal), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+      
+      item_goal_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_text_get_type (),
+				    "text", _("Goal"),
+				    "font_gdk", gdk_font2,
+				    "x", (double)  BOARDWIDTH*0.4,
+				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+				    "anchor", GTK_ANCHOR_CENTER,
+				    "fill_color_rgba", COLOR_TEXT_BUTTON,
+				    NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "goal");
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 item_goal);
+    }
+
+  // Manual Button
+  if(manual)
+    {
+      item_manual = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					   gnome_canvas_pixbuf_get_type (),
+					   "pixbuf", pixmap, 
+					   "x", (double) (BOARDWIDTH*0.6) - gdk_pixbuf_get_width(pixmap)/2,
+					   "y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+					   NULL);
+      
+      gtk_signal_connect(GTK_OBJECT(item_manual), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "manual");
+      gtk_signal_connect(GTK_OBJECT(item_manual), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+      
+      item_manual_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_text_get_type (),
+				    "text", _("Manual"),
+				    "font_gdk", gdk_font2,
+				    "x", (double)  BOARDWIDTH*0.6,
+				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+				    "anchor", GTK_ANCHOR_CENTER,
+				    "fill_color_rgba", COLOR_TEXT_BUTTON,
+				    NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "manual");
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 item_manual);
+    }
+
+  // Credit Button
+  if(credit)
+    {
+      item_credit = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					   gnome_canvas_pixbuf_get_type (),
+					   "pixbuf", pixmap, 
+					   "x", (double) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
+					   "y", (double) y_start - gdk_pixbuf_get_height(pixmap) - 10,
+					   NULL);
+      
+      gtk_signal_connect(GTK_OBJECT(item_credit), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "credit");
+      gtk_signal_connect(GTK_OBJECT(item_credit), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 NULL);
+      
+      item_credit_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_text_get_type (),
+				    "text", _("Credit"),
+				    "font_gdk", gdk_font2,
+				    "x", (double)  BOARDWIDTH*0.8,
+				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
+				    "anchor", GTK_ANCHOR_CENTER,
+				    "fill_color_rgba", COLOR_TEXT_BUTTON,
+				    NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_help,
+			 "credit");
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) gcompris_item_event_focus,
+			 item_credit);
+    }
+
+  gdk_pixbuf_unref(pixmap);
+
+  // CONTENT
+
+  // default text to display
+
+  if(prerequisite)
+    {
+      text_to_display = prerequisite;
+      select_item(item_prerequisite, item_prerequisite_text);
+    }
+  else if(goal)
+    {
+      text_to_display = goal;
+      select_item(item_goal, item_goal_text);
+    }
+  else if(manual)
+    {
+      text_to_display = manual;
+      select_item(item_manual, item_manual_text);
+    }
+  else if(credit)
+    {
+      text_to_display = credit;
+      select_item(item_credit, item_credit_text);
+    }
+
+  y_start += 5;
   item_content = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					gnome_canvas_text_get_type (),
-					"text", prerequisite,
+					"text", text_to_display,
 					"font_gdk", gdk_font2,
 					"x", (double)  x_start + 45,
 					"y", (double)  y_start,
@@ -254,6 +333,8 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 					NULL);
 
   // OK
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -321,25 +402,32 @@ void gcompris_help_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
-static void select_item(GnomeCanvasItem *item)
+static void select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text)
 {
   GdkPixbuf   *pixmap = NULL;
   
   if(item_selected)
     {
-      pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+      pixmap = gcompris_load_pixmap("gcompris/buttons/button_up.png");
       gnome_canvas_item_set(item_selected, 
 			    "pixbuf", pixmap,
+			    NULL);
+      gnome_canvas_item_set(item_selected_text, 
+			    "fill_color_rgba", COLOR_UNSELECTED,
 			    NULL);
       gdk_pixbuf_unref(pixmap);
     }
 
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large_selected.png");
+  pixmap = gcompris_load_pixmap("gcompris/buttons/button_up_selected.png");
   gnome_canvas_item_set(item, 
 			"pixbuf", pixmap,
 			NULL);
   gdk_pixbuf_unref(pixmap);
+  gnome_canvas_item_set(item_text, 
+			"fill_color_rgba", COLOR_SELECTED,
+			NULL);
   item_selected = item;
+  item_selected_text = item_text;
 }
 
 /* Callback for the bar operations */
@@ -360,7 +448,7 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}      
       else if(!strcmp((char *)data, "prerequisite"))
 	{
-	  select_item(item_prerequisite);
+	  select_item(item_prerequisite, item_prerequisite_text);
 
 	  gnome_canvas_item_set(item_content, 
 				"text", prerequisite,
@@ -368,7 +456,7 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}      
       else if(!strcmp((char *)data, "goal"))
 	{
-	  select_item(item_goal);
+	  select_item(item_goal, item_goal_text);
 
 	  gnome_canvas_item_set(item_content, 
 				"text", goal,
@@ -376,10 +464,18 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}      
       else if(!strcmp((char *)data, "manual"))
 	{
-	  select_item(item_manual);
+	  select_item(item_manual, item_manual_text);
 	  
 	  gnome_canvas_item_set(item_content, 
 				"text", manual,
+				NULL);
+	}      
+      else if(!strcmp((char *)data, "credit"))
+	{
+	  select_item(item_credit, item_credit_text);
+	  
+	  gnome_canvas_item_set(item_content, 
+				"text", credit,
 				NULL);
 	}      
     default:

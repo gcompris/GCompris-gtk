@@ -7,9 +7,12 @@ INCLUDES = \
 	$(GDK_PIXBUF_CFLAGS) \
 	$(XML_CFLAGS)
 
-bin_PROGRAMS = gcompris
+bin_PROGRAMS = gcompris gcompris-edit
 
-gcompris_SOURCES = \
+#noinst_LIBRARIES = \
+#	libgcompris.a
+
+libgcompris_a_SOURCES = \
 	pixbuf_util.c pixbuf_util.h \
 	gcompris.c gcompris.h gcompris-board.h \
 	properties.c properties.h \
@@ -27,6 +30,11 @@ gcompris_SOURCES = \
 	cursor.c cursor.h \
 	images_selector.c
 
+
+gcompris_SOURCES = \
+	main.c \
+	$(libgcompris_a_SOURCES)
+
 gcompris_LDADD = \
 	-L$(top_builddir)/src/unicode	\
 	-lgcompris_unicode		\
@@ -35,3 +43,16 @@ gcompris_LDADD = \
 	$(XML_LIBS) $(INTLLIBS) \
 	$(GDK_PIXBUF_LIBS) 
 
+
+gcompris_edit_SOURCES = \
+	gcompris-edit.c \
+	support.c support.h \
+	interface.c interface.h \
+	callbacks.c callbacks.h \
+	$(libgcompris_a_SOURCES)
+
+gcompris_edit_LDADD = \
+	-L$(top_builddir)/src/unicode	\
+	-lgcompris_unicode		\
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(INTLLIBS) \
+	$(XML_LIBS) $(GDK_PIXBUF_LIBS)

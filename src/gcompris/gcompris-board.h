@@ -1,6 +1,6 @@
 /* gcompris - gcompris-board.h
  *
- * Time-stamp: <2002/04/06 00:22:40 bruno>
+ * Time-stamp: <2002/06/01 02:27:53 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -50,6 +50,7 @@ struct _GcomprisBoard
   gchar		      *prerequisite;
   gchar		      *goal;
   gchar		      *manual;
+  gchar		      *credit;
 
   /* Size of the window in which we have to run */
   gint16               width;

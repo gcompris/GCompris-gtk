@@ -1,8 +1,8 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/05/01 01:25:47 bruno>
+ * Time-stamp: <2002/06/05 22:12:39 bruno>
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@
 #define BOARDHEIGHT 520
 #define BARHEIGHT   80
 
+#define INITIAL_MENU	"/menu.xml"
 
 /*****************************************************************************/
 /* Method usefull for boards provided by gcompris */
