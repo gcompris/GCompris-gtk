@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-03 11:24+0200\n"
-"PO-Revision-Date: 2004-09-03 14:19+0200\n"
+"POT-Creation-Date: 2004-09-07 11:25+0200\n"
+"PO-Revision-Date: 2004-09-07 13:34+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -830,11 +830,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr "Klikni na položku a poslechni si její cílovou pozici"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:213
+#: boards/draw.xml.in.h:1 src/boards/draw.c:215
 msgid "A simple vector drawing tool"
 msgstr "Jednoduchý vektorový kreslicí nástroj"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:214
+#: boards/draw.xml.in.h:2 src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
 msgstr "Kreativní deska, kde si můžeš volně kreslit"
 
@@ -921,9 +921,9 @@ msgstr "Koordinace jemných pohybů"
 #: boards/followline.xml.in.h:3
 msgid ""
 "Move the mouse over the red part of the pipe. This will emerge it, part by "
-"part up to the flowers. If you move out of the pipe, the red part will go "
-"back."
-msgstr "Přesuň myš na červenou část hadice. To ji postupně vytáhne až ke květinám. Pokud uhneš z hadice, červená část se vrátí zpět."
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
+msgstr "Přesuň myš na červenou část hadice. To ji postupně vytáhne až ke květinám. Opatrně, pokud uhneš z hadice, červená část se vrátí zpět."
 
 #: boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
@@ -1910,12 +1910,9 @@ msgstr "Pro první úroveň umí hýbat myší, umí číst čísla a odčítat 
 #: boards/reversecount.xml.in.h:2
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
-"fish. Click the dict with the right mouse button to coun backwards. When "
+"fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
-msgstr ""
-"Ukaž, kolik kusů ledu je mezi tuxem a rybou, kliknutím na kostku. Na kostce "
-"můžeš také počítat zpět pomocí pravého tlačítka myši. Až budeš hotov, klikni "
-"na tlačítko OK nebo stiskni klávesu Enter."
+msgstr "Ukaž, kolik kusů ledu je mezi Tuxem a rybou, kliknutím na kostku. Na kostce můžeš také počítat zpět pomocí pravého tlačítka myši. Až budeš hotov, klikni na tlačítko OK nebo stiskni klávesu Enter."
 
 #: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice substraction with a funny game"
@@ -1955,11 +1952,10 @@ msgstr ""
 "fr) nakreslil roku 2001. Jmenuje se 'Prodavač koření v Egyptě'. Je uvolněna "
 "pod podmínkami licence GPL."
 
-# FIXME: s/left. left side./left side./
 #: boards/scalesboard.xml.in.h:4
 msgid ""
-"To balance the scales, move the masses on the left. left side. The masses "
-"can be arranged in any order."
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
 msgstr ""
 "Pro vyrovnání vah přesuň závaží na jejich levou misku. Závaží mohou být "
 "uspořádána v libovolném pořadí."
@@ -2125,7 +2121,7 @@ msgstr "Naučná sada gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/boards/shapegame.c:1765 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2135,7 +2131,7 @@ msgstr "Nemohu nalézt soubor %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1766
+#: src/boards/shapegame.c:1768
 #, c-format
 msgid "find file %s !"
 msgstr "nalézt soubor %s !"
