@@ -39,7 +39,7 @@ class Gcompris_redraw:
 
     self.gcomprisBoard = gcomprisBoard
 
-    # These are used to let us restart only after the bonux is displayed.
+    # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0;
     self.gamewon       = 0;

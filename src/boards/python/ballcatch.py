@@ -5,6 +5,7 @@ import gnome.canvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
+import gcompris.bonus
 import gtk
 import gtk.gdk
 from gettext import gettext as _
@@ -19,6 +20,11 @@ class Gcompris_ballcatch:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
 
+    # These are used to let us restart only after the bonus is displayed.
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    self.board_paused  = 0;
+    self.gamewon       = 0;
+
     print("Gcompris_ballcatch __init__.")
 
 
@@ -27,13 +33,14 @@ class Gcompris_ballcatch:
     self.gcomprisBoard.maxlevel=9
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+                            "images/beach.png")
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    # Event loop timer for the ball move
-    self.ballinc = 20
+
+    self.ballinc    = 20        # Event loop timer for the ball move
+    self.timer_diff = 0         # Store the time diff between left and right key
     
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
@@ -48,7 +55,7 @@ class Gcompris_ballcatch:
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tux.png"),
       x=gcompris.BOARD_WIDTH/2 - 60,
-      y=60.0
+      y=135.0
       )
 
     # Balloon
@@ -81,16 +88,6 @@ class Gcompris_ballcatch:
     mat = ( -1, 0, 0, 1, 2*cx, 0)
     item.affine_relative(mat)
     
-    # For the game status WIN/LOOSE
-    self.status = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      x=gcompris.BOARD_WIDTH / 2,
-      y=gcompris.BOARD_HEIGHT - 200,
-      font=gcompris.skin.get_font("gcompris/content"),
-      fill_color_rgba=0x123456FFL,
-      justification=gtk.JUSTIFY_CENTER
-      )
-
     # The basic tick for object moves
     self.timerinc = 1000
     
@@ -98,32 +95,6 @@ class Gcompris_ballcatch:
 
     self.counter_left  = 0
     self.counter_right = 0
-
-    self.speed = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      x=gcompris.BOARD_WIDTH / 2,
-      y=gcompris.BOARD_HEIGHT - 280,
-      font=gcompris.skin.get_font("gcompris/content"),
-      text="Speed="+str(self.timerinc)+" ms",
-      fill_color="white",
-      justification=gtk.JUSTIFY_CENTER
-      )
-
-    self.textitem_left = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      font=gcompris.skin.get_font("gcompris/content"),
-      x=gcompris.BOARD_WIDTH / 3,
-      y=gcompris.BOARD_HEIGHT - 240,
-      fill_color_rgba=0xFFFFFFFFL
-      )
-    
-    self.textitem_right = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      font=gcompris.skin.get_font("gcompris/content"),
-      x=gcompris.BOARD_WIDTH / 1.5,
-      y=gcompris.BOARD_HEIGHT - 240,
-      fill_color_rgba=0xFFFFFFFFL
-      )
 
     self.left_continue  = True
     self.right_continue = True
@@ -155,78 +126,98 @@ class Gcompris_ballcatch:
   def key_press(self, keyval):
     print("Gcompris_ballcatch key press. %i" % keyval)
 
-    win = False
-    
     if (keyval == gtk.keysyms.Shift_L):
       self.left_continue  = False
     
     if (keyval == gtk.keysyms.Shift_R):
       self.right_continue = False
 
-    if(not self.left_continue and not self.right_continue):
-      if(self.counter_left == self.counter_right):
-        self.status.set(text="GAGNE",
-                        fill_color_rgba=0x2bf9f2FFL)
-        win=True
-      else:
-        self.status.set(text="PERDU",
-                        fill_color_rgba=0xFF0000FFL)
-        
-    if ((keyval == gtk.keysyms.BackSpace) or
-        (keyval == gtk.keysyms.Delete)):
-      self.timerinc = 1100
-      keyval = 32
       
-    if (keyval == 32):
-      self.init_balloon()
-      self.left_continue  = True
-      self.right_continue = True
-      self.counter_left  = 0
-      self.counter_right = 0
-      if(win):
-        if(self.timerinc>200):
-          self.timerinc -= 200
-        elif(self.timerinc>100):
-          self.timerinc -= 50
-        elif(self.timerinc>10):
-          self.timerinc -= 10
-        elif(self.timerinc>1):
-          self.timerinc -= 1
-
-      if(self.timerinc<1):
-          self.timerinc = 1
-          
-      self.status.set(text="")
-      
-      # Restart the timer
-      self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
-
-    self.speed.set(text="Speed="+str(self.timerinc)+" ms")
-      
+  # Called by gcompris core 
   def pause(self, pause):
-    print("Gcompris_ballcatch pause. %i" % pause)
+    
+    self.board_paused = pause
+    
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    # the game is won
+    if(pause == 0):
+      self.next_level()
+      self.gamewon = 0
+
+    return
 
 
+  # Called by gcompris when the user click on the level icon
   def set_level(self, level):
-    print("Gcompris_ballcatch set level. %i" % level)
+    self.gcomprisBoard.level=level
+    self.gcomprisBoard.sublevel=1
+    self.next_level()
 
-# ---- End of Initialisation
+  # End of Initialisation
+  # ---------------------
+  
+  def next_level(self):
+
+    # Set the level in the control bar
+    gcompris.bar_set_level(self.gcomprisBoard);
+    
+    self.init_balloon()
+    self.left_continue  = True
+    self.right_continue = True
+    self.counter_left  = 0
+    self.counter_right = 0
+
+    if(self.gcomprisBoard.level == 1):
+      self.timerinc = 900
+    elif(self.gcomprisBoard.level == 2):
+      self.timerinc = 350
+    elif(self.gcomprisBoard.level == 3):
+      self.timerinc = 300
+    elif(self.gcomprisBoard.level == 4):
+      self.timerinc = 200
+    elif(self.gcomprisBoard.level == 5):
+      self.timerinc = 150
+    elif(self.gcomprisBoard.level == 6):
+      self.timerinc = 100
+    elif(self.gcomprisBoard.level == 7):
+      self.timerinc = 60
+    elif(self.gcomprisBoard.level == 8):
+      self.timerinc = 30
+    elif(self.gcomprisBoard.level == 9):
+      self.timerinc = 15
+
+    if(self.timerinc<1):
+      self.timerinc = 1
+          
+    # Restart the timer
+    self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
+
 
   def timer_inc_display(self):
 
     if(self.left_continue):
-      self.textitem_left.set(text=str(self.counter_left))
       self.counter_left += self.timer_inc
 
     if(self.right_continue):
-      self.textitem_right.set(text=str(self.counter_right))
       self.counter_right += self.timer_inc
 
     if(self.left_continue or self.right_continue):
       self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
     else:
       # Send the ball now
-      self.timer_diff = self.counter_right/1000-self.counter_left/1000
+      self.timer_diff = self.counter_right/1000 - self.counter_left/1000
+      # Make some adjustment so that it cannot be too or too far close from the target
+      # In between, the calculated value stay proportional to the error.
+      print self.timer_diff
+      if(self.timer_diff < -6):
+        self.timer_diff = -6
+      elif(self.timer_diff > 6):
+        self.timer_diff = 6
+      elif(self.timer_diff > -1.5 and self.timer_diff < 0 ):
+        self.timer_diff = -1.5
+      elif(self.timer_diff < 1.5 and self.timer_diff > 0 ):
+        self.timer_diff = 1.5
+        
       self.timer_inc  = gtk.timeout_add(self.ballinc, self.ball_move)
       
   def ball_move(self):
@@ -234,7 +225,7 @@ class Gcompris_ballcatch:
     # The move simulation
     self.balloon_size -= 3
     self.balloon_x    += self.timer_diff
-    self.balloon_y    -= 7
+    self.balloon_y    -= 5
 
     if(self.balloon_width_units>1.0):
       self.balloon_width_units -= 0.5
@@ -249,7 +240,17 @@ class Gcompris_ballcatch:
 
     if(self.balloon_size>48):
       self.timer_inc  = gtk.timeout_add(self.ballinc, self.ball_move)
-
+    else:
+      # We are done with the ballon move
+      if(self.counter_left == self.counter_right):
+        # This is a win
+        if (self.increment_level() == 1):
+          self.gamewon = 1
+          gcompris.bonus.display(1, gcompris.bonus.FLOWER)
+      else:
+        # This is a loose
+        self.gamewon = 0
+        gcompris.bonus.display(0, gcompris.bonus.FLOWER)
 
   def get_bounds(self, item):
     if gobject.type_name(item)=="GnomeCanvasPixbuf":
@@ -270,7 +271,25 @@ class Gcompris_ballcatch:
       y1=self.balloon_y - self.balloon_size/2,
       x2=self.balloon_x + self.balloon_size/2,
       y2=self.balloon_y + self.balloon_size/2,
-      fill_color_rgba=0xc98d68FFL,
+      fill_color_rgba=0xFF1212FFL,
       outline_color_rgba=0x000000FFL,
       width_units=self.balloon_width_units
       )
+
+  # Code that increments the sublevel and level
+  # And bail out if no more levels are available
+  # return 1 if continue, 0 if bail out
+  def increment_level(self):
+    self.gcomprisBoard.sublevel += 1
+
+    if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
+      # Try the next level
+      self.gcomprisBoard.sublevel=1
+      self.gcomprisBoard.level += 1
+      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
+        # the current board is finished : bail out
+        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+        return 0
+      
+    return 1
+        
