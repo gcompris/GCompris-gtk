@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/12/30 18:57:12 bcoudoin>
+ * Time-stamp: <2003/01/17 13:25:45 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -42,22 +42,22 @@ static gchar		*current_locale		= NULL;
 
 static gchar *linguas[] = {
   "az", 	N_("Azerbaijani Turkic"),
-  "de", 	N_("German"),
-  "el", 	N_("Greek"),
-  "en",		N_("English"),
-  "es", 	N_("Spanish"),
-  "fi", 	N_("Finnish"),
-  "fr", 	N_("French"),
-  "hu",		N_("Hungarian"),
-  "it",	 	N_("Italian"),
-  "ms",		N_("Malay"),
-  "nl",		N_("Dutch"),
-  "pt",		N_("Portuguese"),
+  "de_DE", 	N_("German"),
+  "el_GR", 	N_("Greek"),
+  "en_GB",	N_("English"),
+  "es_ES", 	N_("Spanish"),
+  "fi_FI", 	N_("Finnish"),
+  "fr_FR", 	N_("French"),
+  "hu_HU",	N_("Hungarian"),
+  "it_IT", 	N_("Italian"),
+  "ms_MY",	N_("Malay"),
+  "nl_NL",	N_("Dutch"),
+  "pt_PT",	N_("Portuguese"),
   "pt_BR",	N_("Brazil Portuguese"),
-  "ru",		N_("Romanian"),
-  "sv",		N_("Swedish"),
-  "sk",		N_("Slovak"),
-  "lt",		N_("Lithuanian"),
+  "ru_RU",	N_("Romanian"),
+  "sv_FI",	N_("Swedish"),
+  "sk_SK",	N_("Slovak"),
+  "lt_LT",	N_("Lithuanian"),
   NULL, NULL
 };
 
@@ -126,7 +126,7 @@ void gcompris_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "GCompris Configuraté € àn", 
+				"text", "GCompris Configuraté $ àn", 
 				"font", FONT_TITLE,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
