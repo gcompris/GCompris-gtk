@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-05-26 22:17+0200\n"
+"POT-Creation-Date: 2002-05-26 23:11+0200\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -106,7 +106,7 @@ msgid ""
 "lockgates in the right order. Let Tux travel through the gates in the two "
 "ways."
 msgstr ""
-"Tu es responsable de l'écluse. Tu dois ouvrir les porttes et les vannes\n"
+"Tu es responsable de l'écluse. Tu dois ouvrir les portes et les vannes\n"
 "dans le bon ordre.\n"
 "Fait traverser Tux à travers l'écluse dans les deux sens."
 
@@ -182,6 +182,32 @@ msgstr "Apprends à lire l'heure"
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Apprentissage de l'heure"
+
+#: boards/colors.xml.in.h:1
+msgid "Can move the mouse."
+msgstr "Pouvoir déplacer la souris"
+
+#: boards/colors.xml.in.h:2 src/boards/colors.c:68
+msgid "Click on the right color"
+msgstr "Clique sur la bonne couleur"
+
+#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+msgid "Colors"
+msgstr "Couleurs"
+
+#: boards/colors.xml.in.h:4
+msgid "Hear the color and click on the toon."
+msgstr "Écoute une couleur et cliques sur l'ours"
+
+#: boards/colors.xml.in.h:5
+msgid ""
+"This board is dedicated to train kids to recognize colors. Several colored "
+"toons are displayed and a color is spoken. The kid must select the proper "
+"toon."
+msgstr ""
+"Cette activité est dediée à l'apprentissage des couleurs.\n"
+"Plusieurs ours colorés sont proposés est la couleur est prononcée.\n"
+"L'enfant doit sélectionner la bonne couleur."
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -260,9 +286,8 @@ msgid "Go to Amusement boards"
 msgstr "Vers les tableaux de jeu"
 
 #: boards/geography.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop the items to redraw the complete map"
-msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
+msgstr "Attrape et fais glisser les éléments pour reconstruire la carte"
 
 #: boards/geography.xml.in.h:2
 msgid "Place the lands"
@@ -706,6 +731,38 @@ msgstr "Lis une liste de mots et dis si le mot donné en fait partie"
 msgid "Vertical reading practice"
 msgstr "Entraînement à la lecture verticale"
 
+#: boards/reversecount.xml.in.h:1
+msgid ""
+"Can move the mouse, can read numbers and substract numbers up to 10 for the "
+"first level"
+msgstr ""
+"Sait déplacer la souris, lire des nombres et les soustraire jusqu'à 10\n"
+"pour le premier niveau"
+
+#: boards/reversecount.xml.in.h:2
+msgid ""
+"First count how many ice spot are between tux and the fish. Then click on "
+"the dice to select the proper number. You can also use the right mouse "
+"button on the dices to count backward. When done, click on the OK button or "
+"hit the keyboard enter key."
+msgstr ""
+"D'abord comptes combien de glaçons il y a entre Tux et le poisson.\n"
+"Ensuite, click sur le dé pour sélectionner le bon chiffre.\n"
+"Tu peux aussi utiliser le bouton droit de la souris pour compter à l'envers.\n"
+"Quand tu as terminé, cliques sur le boutton OK ou utilises la touche entrée."
+
+#: boards/reversecount.xml.in.h:3
+msgid "Practice the substraction with a funny game"
+msgstr "Entraînement à la soustraction avec un jeu amusant"
+
+#: boards/reversecount.xml.in.h:4
+msgid ""
+"Tux is hungry. Help him find fishes by counting the ice spot needed to reach "
+"the fish."
+msgstr ""
+"Tux à faim. Aides le à trouver des poissons en comptant les glaçons nécessaires\n"
+"pour les atteindre."
+
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
 #: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
@@ -891,14 +948,6 @@ msgstr "gauche"
 #: src/boards/leftright.c:253
 msgid "right"
 msgstr "droite"
-
-#: src/boards/colors.c:67
-msgid "Colors"
-msgstr "Couleurs"
-
-#: src/boards/colors.c:68
-msgid "Click on the right color"
-msgstr "Clique sur la bonne couleur"
 
 #: src/gcompris/about.c:60
 msgid ""
