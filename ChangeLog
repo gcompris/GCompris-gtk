@@ -1,3 +1,23 @@
+2003-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added watercycle
+	* boards/gcompris/animals/flamentrosegc.jpg: animal image given by 
+	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
+	* boards/gcompris/animals/girafegc.jpg: same as flamentrosegc.jpg
+	* boards/gcompris/animals/readme.txt: update with new images
+	* boards/gcompris/animals/rhinogc.jpg: same as flamentrosegc.jpg
+	* boards/gcompris/animals/singegc.jpg: same as flamentrosegc.jpg
+	* po/POTFILES.in: added watercycle
+	* src/boards/erase.c: added new animal images
+	* src/boards/hanoi.c: (hanoi_create_item): fixed alpha chanel setting (when using the aa canvas)
+	* src/boards/py-mod-skin.c: (py_gcompris_load_skin_pixmap): fixed parameter passing
+	* src/boards/py-mod-utils.c: (py_gcompris_load_pixmap): fixed parameter passing
+	* src/boards/python/Makefile.am: added watercycle
+	* src/boards/python/watercycle.py: created 
+	* src/boards/reading.c: (player_win): re-indented
+	* src/boards/reversecount.c: added new animal images
+	* src/gcompris/bonus.c: (board_finished): re-indented
+
 2003-10-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: Release 4.0PRE3

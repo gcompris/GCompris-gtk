@@ -90,9 +90,9 @@ void board_finished(int type) {
   char * str = NULL;
 
   if (board_finished_running)
-  	return;
-    else
-			board_finished_running = TRUE;
+    return;
+  else
+    board_finished_running = TRUE;
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)

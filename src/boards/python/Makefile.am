@@ -3,6 +3,7 @@ SUBDIRS=gcompris
 pythondir = $(plugindir)/python
 
 dist_python_DATA= \
-	pythontest.py
+	pythontest.py \
+	watercycle.py
 
 

@@ -91,8 +91,12 @@ static gchar *imageList[] =
   "gcompris/animals/joybear001.jpg",
   "gcompris/animals/polarbear001.jpg",
   "gcompris/animals/joybear002.jpg",
+  "gcompris/animals/flamentrosegc.jpg",
+  "gcompris/animals/girafegc.jpg",
+  "gcompris/animals/rhinogc.jpg",
+  "gcompris/animals/singegc.jpg",
 };
-#define NUMBER_OF_IMAGES 6
+#define NUMBER_OF_IMAGES 10
 
 // List of fish to use in the game
 static gchar *fishList[] =

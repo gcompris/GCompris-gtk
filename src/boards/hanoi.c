@@ -77,21 +77,21 @@ static gint limit_column_x2[MAX_NUMBER_X];
 
 static guint colorlist [] = 
   {
-    0x00FFFF00,
-    0xA0000000,
-    0xF0000000,
-    0x00A00000,
-    0x00F00000,
-    0x0000AA00,
-    0x0000FF00,
-    0x50500000,
-    0xA0A00000,
-    0xF0F00000,
-    0x00505000,
-    0x00A0A000,
-    0x50005000,
-    0xA000A000,
-    0xF000F000
+    0x00FFFFFF,
+    0xA00000FF,
+    0xF00000FF,
+    0x00A000FF,
+    0x00F000FF,
+    0x0000AAFF,
+    0x0000FFFF,
+    0x505000FF,
+    0xA0A000FF,
+    0xF0F000FF,
+    0x005050FF,
+    0x00A0A0FF,
+    0x500050FF,
+    0xA000A0FF,
+    0xF000F0FF
   };
 #define NUMBER_OF_COLOR 14
 
@@ -445,7 +445,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
 				 "x2", (double) item_width * (i+1) - gap_x/2,
 				 "y2", (double) baseline + 50,
-				 "fill_color_rgba", 0x036ED800,
+				 "fill_color_rgba", 0x036ED8FF,
 				 "outline_color", "black",
 				 "width_units", (double)1,
 				 NULL);
@@ -459,7 +459,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
 				 "x2", (double) item_width * (i+1) - gap_x/2,
 				 "y2", (double) baseline + 50,
-				 "fill_color_rgba", 0x48AAF100,
+				 "fill_color_rgba", 0x48AAF1FF,
 				 "outline_color", "black",
 				 "width_units", (double)1,
 				 NULL);
@@ -473,7 +473,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 			     "y1", (double) baseline - item_height * number_of_item_y - gap_y,
 			     "x2", (double) item_width * i + item_width/2 + w,
 			     "y2", (double) baseline,
-			     "fill_color_rgba", 0xFF103000,
+			     "fill_color_rgba", 0xFF1030FF,
 			     "outline_color", "black",
 			     "width_units", (double)1,
 			     NULL);
@@ -491,7 +491,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
         
       item = gnome_canvas_item_new (boardRootItem,
 				    GNOME_TYPE_CANVAS_SHAPE,
-				    "fill_color_rgba", 0x20FF3000,
+				    "fill_color_rgba", 0x20FF30FF,
 				    "outline_color", "black",
 				    NULL);
       gnome_canvas_shape_set_path_def (GNOME_CANVAS_SHAPE (item), path);

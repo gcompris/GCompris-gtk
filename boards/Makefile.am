@@ -60,7 +60,8 @@ xml_in_files = \
 	leftright.xml.in \
 	colors.xml.in \
 	colors_group.xml.in \
-	pythontest.xml.in
+	pythontest.xml.in \
+	watercycle.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

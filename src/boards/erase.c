@@ -50,16 +50,13 @@ static int number_of_item_y = 0;
 // List of images to use in the game
 static gchar *imageList[] =
 {
-  "gcompris/animals/bear001.jpg",
-  "gcompris/animals/malaybear002.jpg",
-  "gcompris/animals/polabear011.jpg",
-  "gcompris/animals/spectbear001.jpg",
-  "gcompris/animals/joybear001.jpg",
-  "gcompris/animals/polarbear001.jpg",
+  "gcompris/animals/flamentrosegc.jpg",
+  "gcompris/animals/girafegc.jpg",
+  "gcompris/animals/rhinogc.jpg",
+  "gcompris/animals/singegc.jpg",
   "gcompris/animals/joybear002.jpg",
-  "gcompris/animals/poolbears001.jpg"
 };
-#define NUMBER_OF_IMAGES 8
+#define NUMBER_OF_IMAGES 5
 
 /* Description of this plugin */
 BoardPlugin menu_bp =

@@ -35,7 +35,8 @@ py_gcompris_load_pixmap(PyObject* self, PyObject* args)
   char* pixmapfile;
   GdkPixbuf* result;
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_load_pixmap"))
+
+  if(!PyArg_ParseTuple(args, "s:gcompris_load_pixmap", &pixmapfile))
     return NULL;
 
   /* Call the corresponding C function */

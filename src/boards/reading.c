@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2003/08/21 16:08:55 bcoudoin>
+ * Time-stamp: <2003/10/08 17:50:58 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -598,8 +598,8 @@ static void ask_yes_no()
 static void player_win()
 {
   gcompris_play_ogg ("bonus", NULL);
-	gamewon = TRUE;
-	wait_for_ready = TRUE;
+  gamewon = TRUE;
+  wait_for_ready = TRUE;
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
   /* Try the next level */
   gcomprisBoard->level++;
