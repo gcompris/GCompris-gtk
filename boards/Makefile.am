@@ -45,7 +45,6 @@ xml_in_files = \
 	reversecount.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \
-  submarine.xml.in \
 	superbrain.xml.in \
 	target.xml.in \
 	traffic.xml.in \
@@ -58,7 +57,8 @@ xml_in_files = \
 	algebra_guesscount.xml.in \
 	leftright.xml.in \
 	colors.xml.in \
-	colors_group.xml.in
+	colors_group.xml.in \
+	pythontest.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

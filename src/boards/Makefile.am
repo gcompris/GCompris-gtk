@@ -1,3 +1,14 @@
+if PYTHON_PLUGIN
+python_plugin = libpython.la
+python_subdir = python
+else
+python_plugin =
+python_subdir =
+endif
+
+SUBDIRS= $(python_subdir)
+
+
 lib_LTLIBRARIES = \
 	libalgebra.la \
 	libalgebra_guesscount.la \
@@ -29,21 +40,24 @@ lib_LTLIBRARIES = \
 	libshapegame.la \
 	libsmallnumbers.la \
 	libsubmarine.la \
-  libtarget.la \
+	libtarget.la \
 	libtraffic.la \
 	libwordsgame.la \
 	libadvanced_colors.la \
-	libread_colors.la
+	libread_colors.la \
+	$(python_plugin)
 
 libdir = $(plugindir)
 INCLUDES = \
 	-I.. \
 	-I$(top_srcdir)/intl \
 	$(GCOMPRIS_CFLAGS) \
-	$(XML_CFLAGS)
+	$(XML_CFLAGS) \
+	$(PYTHON_CFLAGS) \
+	$(PYGTK_CFLAGS)
 
 libmenu_la_LDFLAGS = -module -avoid-version
-libmenu_la_LIBADD = @PTHREAD_LIB@
+libmenu_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS)
 
@@ -51,14 +65,14 @@ libmenu_la_SOURCES = menu.c
 
 
 libclickgame_la_LDFLAGS = -module -avoid-version
-libclickgame_la_LIBADD = @PTHREAD_LIB@
+libclickgame_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS)
 
 libclickgame_la_SOURCES = clickgame.c
 
 libalgebra_la_LDFLAGS = -module -avoid-version
-libalgebra_la_LIBADD = @PTHREAD_LIB@
+libalgebra_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS)
 
@@ -66,7 +80,7 @@ libalgebra_la_SOURCES = algebra.c
 
 
 libclockgame_la_LDFLAGS = -module -avoid-version
-libclockgame_la_LIBADD = @PTHREAD_LIB@
+libclockgame_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS)
 
@@ -74,7 +88,7 @@ libclockgame_la_SOURCES = clockgame.c
 
 
 libshapegame_la_LDFLAGS = -module -avoid-version
-libshapegame_la_LIBADD = @PTHREAD_LIB@
+libshapegame_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS)
 
@@ -82,7 +96,7 @@ libshapegame_la_SOURCES = shapegame.c
 
 
 libwordsgame_la_LDFLAGS = -module -avoid-version
-libwordsgame_la_LIBADD = @PTHREAD_LIB@
+libwordsgame_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -90,7 +104,7 @@ libwordsgame_la_SOURCES = wordsgame.c
 
 
 libgletters_la_LDFLAGS = -module -avoid-version
-libgletters_la_LIBADD = @PTHREAD_LIB@
+libgletters_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -98,7 +112,7 @@ libgletters_la_SOURCES = gletters.c
 
 
 libplanegame_la_LDFLAGS = -module -avoid-version
-libplanegame_la_LIBADD = @PTHREAD_LIB@
+libplanegame_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -106,7 +120,7 @@ libplanegame_la_SOURCES = planegame.c
 
 
 libsmallnumbers_la_LDFLAGS = -module -avoid-version
-libsmallnumbers_la_LIBADD = @PTHREAD_LIB@
+libsmallnumbers_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -114,7 +128,7 @@ libsmallnumbers_la_SOURCES = smallnumbers.c
 
 
 libparatrooper_la_LDFLAGS = -module -avoid-version
-libparatrooper_la_LIBADD = @PTHREAD_LIB@
+libparatrooper_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -122,7 +136,7 @@ libparatrooper_la_SOURCES = paratrooper.c
 
 
 libreading_la_LDFLAGS = -module -avoid-version
-libreading_la_LIBADD = @PTHREAD_LIB@
+libreading_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -130,7 +144,7 @@ libreading_la_SOURCES = reading.c
 
 
 libdraw_la_LDFLAGS = -module -avoid-version
-libdraw_la_LIBADD = @PTHREAD_LIB@
+libdraw_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -138,7 +152,7 @@ libdraw_la_SOURCES = draw.c
 
 
 libmemory_la_LDFLAGS = -module -avoid-version
-libmemory_la_LIBADD = @PTHREAD_LIB@
+libmemory_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -146,7 +160,7 @@ libmemory_la_SOURCES = memory.c
 
 
 libimageid_la_LDFLAGS = -module -avoid-version
-libimageid_la_LIBADD = @PTHREAD_LIB@
+libimageid_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -154,7 +168,7 @@ libimageid_la_SOURCES = imageid.c
 
 
 libmissingletter_la_LDFLAGS = -module -avoid-version
-libmissingletter_la_LIBADD = @PTHREAD_LIB@
+libmissingletter_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
@@ -162,145 +176,164 @@ libmissingletter_la_SOURCES = missingletter.c
 
 
 libclick_on_letter_la_LDFLAGS = -module -avoid-version
-libclick_on_letter_la_LIBADD = @PTHREAD_LIB@
+libclick_on_letter_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
 libclick_on_letter_la_SOURCES = click_on_letter.c
 
 librailroad_la_LDFLAGS = -module -avoid-version
-librailroad_la_LIBADD = @PTHREAD_LIB@
+librailroad_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
 librailroad_la_SOURCES = railroad.c
 
 liberase_la_LDFLAGS = -module -avoid-version
-liberase_la_LIBADD = @PTHREAD_LIB@
+liberase_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS)
 
 liberase_la_SOURCES = erase.c
 
 libalgebra_guesscount_la_LDFLAGS = -module -avoid-version
-libalgebra_guesscount_la_LIBADD = @PTHREAD_LIB@
+libalgebra_guesscount_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) 
 
 libalgebra_guesscount_la_SOURCES = algebra_guesscount.c
 
 libleftright_la_LDFLAGS = -module -avoid-version
-libleftright_la_LIBADD = @PTHREAD_LIB@
+libleftright_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(XML_LIBS) $(INTLLIBS) 
 
 libleftright_la_SOURCES = leftright.c
 
 libcolors_la_LDFLAGS = -module -avoid-version
-libcolors_la_LIBADD = @PTHREAD_LIB@
+libcolors_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libcolors_la_SOURCES = colors.c
 
 libtarget_la_LDFLAGS = -module -avoid-version
-libtarget_la_LIBADD = @PTHREAD_LIB@
+libtarget_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(XML_LIBS) $(INTLLIBS) 
 
 libtarget_la_SOURCES = target.c
 
 libmaze_la_LDFLAGS = -module -avoid-version
-libmaze_la_LIBADD = @PTHREAD_LIB@
+libmaze_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(XML_LIBS) $(INTLLIBS) 
 
 libmaze_la_SOURCES = maze.c
 
 libreversecount_la_LDFLAGS = -module -avoid-version
-libreversecount_la_LIBADD = @PTHREAD_LIB@
+libreversecount_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS) 
+	$(XML_LIBS) $(INTLLIBS) 
 
 libreversecount_la_SOURCES = reversecount.c
 
 libcanal_lock_la_LDFLAGS = -module -avoid-version
-libcanal_lock_la_LIBADD = @PTHREAD_LIB@
+libcanal_lock_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libcanal_lock_la_SOURCES = canal_lock.c
 
 libadvanced_colors_la_LDFLAGS = -module -avoid-version
-libadvanced_colors_la_LIBADD = @PTHREAD_LIB@
+libadvanced_colors_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libadvanced_colors_la_SOURCES = advanced_colors.c
 
 libsuperbrain_la_LDFLAGS = -module -avoid-version
-libsuperbrain_la_LIBADD = @PTHREAD_LIB@
+libsuperbrain_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libsuperbrain_la_SOURCES = superbrain.c
 
 libread_colors_la_LDFLAGS = -module -avoid-version
-libread_colors_la_LIBADD = @PTHREAD_LIB@
+libread_colors_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libread_colors_la_SOURCES = read_colors.c
 
 libchess_la_LDFLAGS = -module -avoid-version
-libchess_la_LIBADD = @PTHREAD_LIB@
+libchess_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libchess_la_SOURCES = chess.c chess_position.c chess_notation.c \
 	chess_notation.h chess_position.h chess_makros.h
 
 libenumerate_la_LDFLAGS = -module -avoid-version
-libenumerate_la_LIBADD = @PTHREAD_LIB@
+libenumerate_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libenumerate_la_SOURCES = enumerate.c
 
 libmoney_la_LDFLAGS = -module -avoid-version
-libmoney_la_LIBADD = @PTHREAD_LIB@
+libmoney_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libmoney_la_SOURCES = money.c money_widget.c money_widget.h
 
 libtraffic_la_LDFLAGS = -module -avoid-version
-libtraffic_la_LIBADD = @PTHREAD_LIB@
+libtraffic_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libtraffic_la_SOURCES = traffic.c
 
 libmachpuzzle_la_LDFLAGS = -module -avoid-version
-libmachpuzzle_la_LIBADD = @PTHREAD_LIB@
+libmachpuzzle_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libmachpuzzle_la_SOURCES = machpuzzle.c
 
 libsubmarine_la_LDFLAGS = -module -avoid-version
-libsubmarine_la_LIBADD = @PTHREAD_LIB@
+libsubmarine_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libsubmarine_la_SOURCES = submarine.c
 
 libhanoi_la_LDFLAGS = -module -avoid-version
-libhanoi_la_LIBADD = @PTHREAD_LIB@
+libhanoi_la_LIBADD = \
 	$(GCOMPRIS_LIBS)	\
-	$(GNOME_XML_LIB) $(INTLLIBS)
+	$(XML_LIBS) $(INTLLIBS)
 
 libhanoi_la_SOURCES = hanoi.c
+
+libpython_la_CPPFLAGS = \
+		-I.. \
+		-I$(top_srcdir)/intl \
+		$(GCOMPRIS_CFLAGS) \
+		$(XML_CFLAGS) \
+		$(PYTHON_CFLAGS) \
+		$(PYGTK_CFLAGS)
+
+libpython_la_LDFLAGS = -export-dynamic -module -avoid-version
+libpython_la_LIBADD =  \
+	$(GCOMPRIS_LIBS)	\
+	$(XML_LIBS) $(INTLLIBS) \
+	$(PYGTK_LIBS)
+
+libpython_la_SOURCES = python.c \
+	py-gcompris-board.c	 py-gcompris-board.h \
+	py-mod-gcompris.c	 py-mod-gcompris.h
+
 
 EXTRA_DIST = README
 

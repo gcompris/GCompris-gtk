@@ -7,17 +7,12 @@ AM_MAINTAINER_MODE
 
 AC_ISC_POSIX
 
-GNOME_COMPILE_WARNINGS
-
-GNOME_PTHREAD_CHECK
-AC_SUBST(PTHREAD_LIB)
-
 LIBGNOME_REQUIRED=1.96.0
 LIBGNOMEUI_REQUIRED=1.96.0
 GDK_PIXBUF_REQUIRED=2.0.6
 LIBGNOMECANVAS_REQUIRED=2.0.2
 
-PKG_CHECK_MODULES(GCOMPRIS, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED)
+PKG_CHECK_MODULES(GCOMPRIS, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0)
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
 
@@ -41,8 +36,13 @@ AC_LIBTOOL_DLOPEN
 AM_PROG_LIBTOOL
 
 dnl GNOME2 GNOME_X_CHECKS
-AM_PATH_GLIB
-AM_PATH_XML2
+AM_PATH_GLIB_2_0
+
+dnl libxml-2 Checks
+PKG_CHECK_MODULES(XML, libxml-2.0)
+AC_SUBST(XML_CFLAGS)
+AC_SUBST(XML_LIBS)
+
 AM_ICONV
 
 dnl Add the languages which your application supports here.
@@ -108,11 +108,100 @@ if test x$TETEX = xno; then
   AC_MSG_ERROR(Couldn't find texi2html usualy in the tetex package, please install it)
 fi
 
+dnl Tests for the python plugin
+PYTHON_CFLAGS=
+PYTHON_LIBS=
+PYTHON_PATH=yes
+build_python_plugin=yes
+AC_ARG_WITH(python,
+  AC_HELP_STRING(
+    [--with-python=path],
+    [Give the python interpreter (ex: /opt/python/bin/python2.2)]),
+  [PYTHON_PATH=$withval] )
+
+if test x$PYTHON_PATH = xno; then
+  build_python_plugin=no
+else
+  dnl Find a python interpretter
+  python_old_path=${PATH}
+  if test x$PYTHON_PATH = xyes; then
+    AC_PATH_PROG(python_exec, python, no)
+    if test x$python_exec = xno; then
+      build_python_plugin=no
+      AC_MSG_WARN([Couldn't find python interpreter, python plugin disabled.])
+    fi
+  else
+    if test -x "${PYTHON_PATH}"; then
+      python_exec=${PYTHON_PATH}
+    else
+      build_python_plugin=no
+      AC_MSG_WARN([Couldn't find python interpreter, python plugin disabled.])
+    fi
+  fi
+
+  if test x$build_python_plugin = xyes; then
+    python_version=`${python_exec} -c "import sys; print sys.version[[:3]]"`
+    python_prefix=`${python_exec} -c "import sys; print sys.prefix"`
+    python_exec_prefix=`${python_exec} -c "import sys; print sys.exec_prefix"`
+
+    dnl Search for python's includes
+    python_old_cppflags=${CPPFLAGS}
+    CPPFLAGS="${CPPFLAGS} -I${python_prefix}/include/python${python_version}"
+    AC_CHECK_HEADER(Python.h, 
+                    PYTHON_CFLAGS="-I${python_prefix}/include/python${python_version}",
+                    [ AC_MSG_WARN([Couldn't find python includes, python plugin disabled.])
+                      build_python_plugin=no])
+    CPPFLAGS=$python_old_cppflags
+  fi
+  if test x$build_python_plugin = xyes; then
+    dnl Search for python's libs
+    dnl Take the needed libraries into the lib/python/config/Makefile... (see dia config)
+    python_makefile="${python_exec_prefix}/lib/python${python_version}/config/Makefile"
+    if test -f "${python_makefile}"; then
+    dnl extra required libs
+      python_localmodlibs=`sed -n -e 's/^LOCALMODLIBS=\(.*\)/\1/p' $python_makefile`
+      python_basemodlibs=`sed -n -e 's/^BASEMODLIBS=\(.*\)/\1/p' $python_makefile`
+      python_other_libs=`sed -n -e 's/^LIBS=\(.*\)/\1/p' $python_makefile`
+      python_libs_cflags=`sed -n -e 's/^LINKFORSHARED=\(.*\)/\1/p' $python_makefile`
+      python_libs="${python_localmodlibs} ${python_basemodlibs} ${python_other_libs}"
+
+      python_old_ldflags=${LDFLAGS}
+      LDFLAGS="${LDFLAGS} ${python_libs_cflags} -L${python_exec_prefix}/lib/python${python_version}/config ${python_libs}"
+      AC_CHECK_LIB(python${python_version}, 
+                   Py_Initialize, 
+                   PYTHON_LIBS="${python_libs_cflags} -L${python_exec_prefix}/lib/python${python_version}/config -lpython${python_version} ${python_libs}",
+                   [ AC_MSG_WARN([Couldn't find python library, python plugin disabled.])
+                     build_python_plugin=no ])  
+      LDFLAGS=${python_old_ldflags}
+    else
+      AC_MSG_WARN([Couldn't find python library, python plugin disabled.])
+      build_python_plugin=no
+    fi
+  fi
+fi
+
+dnl Finally output the required python variables and automake defines.
+AM_CONDITIONAL(PYTHON_PLUGIN, test x$build_python_plugin = xyes)
+
+AC_SUBST(PYTHON_CFLAGS)
+AC_SUBST(PYTHON_LIBS)
+
+if test x$build_python_plugin = xno; then
+  AC_MSG_NOTICE([Python plugin is disabled.])
+else
+  dnl Python interpreter is available so check for pygtk and gnome-python
+  PKG_CHECK_MODULES(PYGTK, pygtk-2.0 gnome-python-2.0)	
+  AC_SUBST(PYGTK_CFLAGS)
+  AC_SUBST(PYGTK_LIBS)
+fi
+
+dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
 Makefile
 src/Makefile
 src/gcompris/Makefile
 src/boards/Makefile
+src/boards/python/Makefile
 po/Makefile.in
 docs/Makefile
 docs/C/Makefile

@@ -1,3 +1,37 @@
+2003-03-05  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: Added python plugin by Olivier Samyn
+	* boards/boardicons/python.png: Added python plugin by Olivier Samyn
+	* configure.in:
+	* po/Makefile.in.in: Added python plugin by Olivier Samyn
+	* po/POTFILES.in: Added python plugin by Olivier Samyn
+	* src/boards/Makefile.am: Added python plugin by Olivier Samyn
+	* src/boards/py-gcompris-board.c: Added python plugin by Olivier Samyn
+	(gcompris_new_pyGcomprisBoardObject),
+	(pyGcomprisBoardType_dealloc), (pyGcomprisBoardType_getattr),
+	(pyGcomprisBoardType_setattr): Added python plugin by Olivier Samyn
+	* src/boards/py-gcompris-board.h: Added python plugin by Olivier Samyn
+	* src/boards/py-mod-gcompris.c: (py_gcompris_end_board),
+	(py_gcompris_bar_start), (py_gcompris_set_background),
+	(py_gcompris_bar_set_level), (py_gcompris_bar_set),
+	(py_gcompris_bar_hide), (py_gcompris_board_has_help),
+	(py_gcompris_help_start), (py_gcompris_help_stop),
+	(py_gcompris_get_canvas), (py_gcompris_get_window),
+	(py_gcompris_get_locale), (py_gcompris_set_locale),
+	(py_gcompris_set_cursor), (pyImageSelectorCallBack),
+	(py_gcompris_images_selector_start),
+	(py_gcompris_images_selector_stop), (py_gcompris_exit),
+	(python_gcompris_module_init): Added python plugin by Olivier Samyn
+	* src/boards/py-mod-gcompris.h: Added python plugin by Olivier Samyn
+	* src/boards/python.c: (get_bplugin_info), (python_simple_call),
+	(pythonboard_start), (pythonboard_pause), (pythonboard_end),
+	(pythonboard_is_our_board), (pythonboard_key_press),
+	(pythonboard_ok), (pythonboard_set_level), (pythonboard_config),
+	(pythonboard_repeat): Added python plugin by Olivier Samyn
+	* src/boards/python/Makefile.am: Added python plugin by Olivier Samyn
+	* src/boards/python/pythontest.py: Added python plugin by Olivier Samyn
+	* src/gcompris/Makefile.am: Added python plugin by Olivier Samyn
+
 2003-03-04  Gregory Leblanc  <gleblanc@linuxweasel.com>
 
 	* boards/algebra_guesscount/dash.png:

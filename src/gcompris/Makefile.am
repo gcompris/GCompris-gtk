@@ -1,4 +1,13 @@
 ## Process this file with automake to produce Makefile.in
+if PYTHON_PLUGIN
+  python_ldadd = $(PYTHON_LIBS)
+  python_ldflags = -u Py_Initialize
+else
+  python_ldadd =
+  python_ldflags =
+endif
+ 
+
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
@@ -6,7 +15,6 @@ INCLUDES = \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \
-	$(PTHREAD_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED
 
 bin_PROGRAMS = gcompris gcompris-edit
@@ -43,14 +51,14 @@ gcompris_SOURCES = \
 
 
 gcompris_LDFLAGS = \
-	-export-dynamic 
+	-export-dynamic $(python_ldflags)
 
 gcompris_LDADD = \
 	$(LIBICONV)		\
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) \
-	$(PTHREAD_LIB) \
-	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)
+	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)\
+	$(python_ldadd)
 
 
 gcompris_edit_LDFLAGS = \
@@ -66,5 +74,4 @@ gcompris_edit_SOURCES = \
 gcompris_edit_LDADD = \
 	$(GCOMPRIS_LIBS) \
 	$(XML_LIBS) $(INTLLIBS) \
-	$(PTHREAD_LIB) \
 	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)
