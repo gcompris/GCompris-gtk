@@ -27,22 +27,26 @@
  * => Dangerous
  */
 
-void *load_asset(gchar *dataset, gchar* categories, gchar* name, guint expected_number);
+void *load_asset(gchar *dataset, gchar* categories, gchar* name, 
+		 gchar* mimetype, guint expected_number);
 
 
 /*
  * Test the Load of an asset from the assetml database
  */
-void *load_asset(gchar *dataset, gchar* categories, gchar* name, guint expected_number)
+void *load_asset(gchar *dataset, gchar* categories, gchar* name, gchar* mimetype,
+		 guint expected_number)
 {
   GList *gl_result;
 
-  gl_result = assetml_get_asset(dataset, categories, name);
+  gl_result = assetml_get_asset(dataset, categories, mimetype, name);
 
   if(g_list_length(gl_result)==expected_number)
-    printf("Test Dataset=%15s Categorie=%12s Name=%10s PASSED\n", dataset, categories, name);
+    printf("%15s %15s %15s %15s %2d/%2d PASSED\n", dataset, categories, mimetype, name, 
+	   expected_number, g_list_length(gl_result));
   else
-    printf("Test Dataset=%15s Categorie=%12s Name=%10s FAILED\n", dataset, categories, name);
+    printf("%15s %15s %15s %15s %2d/%2d FAILED\n", dataset, categories, mimetype, name, 
+	   expected_number, g_list_length(gl_result));
 
   assetml_free_assetlist(gl_result);
 }
@@ -51,15 +55,18 @@ int
 main (int argc, char *argv[])
 {
 
-  load_asset("gcompris core", NULL, "number one", 1);
-  load_asset("gcompris core", NULL, "Number One", 1);
-  load_asset("gcompris core", NULL, "number Two", 1);
-  load_asset(NULL, NULL, "number", 0);
-  load_asset(NULL, NULL, NULL, 10);
-  load_asset(NULL, "math", "number one", 1);
-  load_asset(NULL, "nonexistant", NULL, 0);
-  load_asset(NULL, "algebra", NULL, 10);
-  load_asset(NULL, "math", NULL, 10);
-  load_asset(NULL, "gcompris", NULL, 10);
+  printf("%15s %15s %15s %15s %2s/%2s\n", "Dataset", "Category", "Mimetype", "Name", "Ex", "Op");
+
+  load_asset("assetml test", NULL, "number one", "image/png", 1);
+  load_asset("assetml test", NULL, "number one", NULL, 2);
+  load_asset("assetml test", NULL, "Number One", "audio/x-ogg", 1);
+  load_asset("assetml test", NULL, "number Two", NULL, 2);
+  load_asset("assetml test", NULL, "number", NULL, 0);
+  load_asset("assetml test", NULL, NULL, NULL, 20);
+  load_asset("assetml test", "math", "number one", NULL, 2);
+  load_asset("assetml test", "nonexistant", NULL, NULL, 0);
+  load_asset("assetml test", "algebra", NULL, "image/png", 10);
+  load_asset("assetml test", "math", NULL, "audio/x-ogg", 10);
+  load_asset("assetml test", "gcompris", NULL, NULL, 20);
 
 }

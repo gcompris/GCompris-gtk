@@ -44,15 +44,18 @@ void	 dump_asset(AssetML *assetml);
 static gchar *dataset	= NULL;
 static gchar *name		= NULL;
 static gchar *categories	= NULL;
+static gchar *mimetype		= NULL;
 static int showVersion		= FALSE;
 
 static struct poptOption options[] = {
   {"dataset", 'd', POPT_ARG_STRING, &dataset, 0,
-   N_("run gcompris in fullscreen mode."), NULL},
+   N_("Specify the dataset to search in"), NULL},
   {"name", 'n', POPT_ARG_STRING, &name, 0,
-   N_("run gcompris in window mode."), NULL},
+   N_("Specify a name to search"), NULL},
   {"categories", 'c', POPT_ARG_STRING, &categories, 0,
-   N_("run gcompris without sound."), NULL},
+   N_("Specify a category to search in"), NULL},
+  {"mimetype", 'm', POPT_ARG_STRING, &mimetype, 0,
+   N_("Specify a mimetype to search in (eg: image/png)"), NULL},
   {"version", '\0', POPT_ARG_NONE, &showVersion, 0,
    N_("Prints the version of " PACKAGE), NULL},
   POPT_AUTOHELP
@@ -78,17 +81,14 @@ void dump_asset(AssetML *assetml)
   if(assetml==NULL)
     return;
 
-  printf("dataset=%s\n",assetml->dataset);
-  printf("  categories=%s\n",assetml->categories);
-  printf("  name=%s\n",assetml->name_noi18n);
-  printf("    name(i18n)=%s\n",assetml->name);
-  printf("    description=%s\n",assetml->description);
-  printf("    imagefile=%s\n",assetml->imagefile);
-  printf("    audiofile=%s\n",assetml->audiofile);
-  printf("    videofile=%s\n",assetml->videofile);
-  printf("    imagecredits=%s\n",assetml->imagecredits);
-  printf("    audiocredits=%s\n",assetml->audiocredits);
-  printf("    videocredits=%s\n",assetml->videocredits);
+  printf("dataset         = %s\n",assetml->dataset);
+  printf("  categories    = %s\n",assetml->categories);
+  printf("  name          = %s\n",assetml->name_noi18n);
+  printf("    name(i18n)  = %s\n",assetml->name);
+  printf("    mimetype    = %s\n",assetml->mimetype);
+  printf("    description = %s\n",assetml->description);
+  printf("    file        = %s\n",assetml->file);
+  printf("    credits     = %s\n",assetml->credits);
 
 }
 
@@ -122,7 +122,7 @@ main (int argc, const char **argv)
     }
 
   /*------------------------------------------------------------*/
-  result = assetml_get_asset(dataset, categories, name);
+  result = assetml_get_asset(dataset, categories, mimetype, name);
 
   g_list_foreach (result, (GFunc) dump_asset, NULL);
 

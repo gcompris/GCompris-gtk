@@ -1,3 +1,18 @@
+2003-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap_asset): changed
+	* asseml api
+	* src/libassetml/assetml.c: (dump_asset),
+	(assetml_add_xml_to_data), (matching), (parse_doc),
+	(assetml_read_xml_file), (assetml_load_xml), (free_asset),
+	(assetml_get_asset): changed assetml api to include the mimetype
+	* src/libassetml/assetml.h: changed assetml api 
+	* src/libassetml/test/test.c: (load_asset), (main): changed assetml
+	* api 
+	* src/libassetml/test/test_assetml.assetml: changed assetml api 
+	* src/libassetml/tools/assetml-query.c: (dump_asset), (main): changed
+	* assetml api 
+
 2003-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: added AC_HEADER_DIRENT

@@ -35,8 +35,9 @@ gchar	*reactivate_newline(gchar *str);
 void	 dump_asset(AssetML *assetml);
 int	 selectAssetML(const struct dirent *d);
 void	 assetml_read_xml_file(GList **gl_result, char *fname,
-			       gchar *dataset, gchar* categories, gchar* name);
-void	 assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* name);
+			       gchar *dataset, gchar* categories, gchar* mimetype, gchar* name);
+void	 assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, 
+			  gchar* name);
 void	 free_asset(AssetML *assetml);
 
 /*
@@ -86,17 +87,14 @@ void dump_asset(AssetML *assetml)
   if(assetml==NULL)
     return;
 
-  printf("  name=%s\n",assetml->name_noi18n);
-  printf("  name(i18n)=%s\n",assetml->name);
-  printf("  dataset=%s\n",assetml->dataset);
-  printf("  description=%s\n",assetml->description);
-  printf("  categories=%s\n",assetml->categories);
-  printf("  imagefile=%s\n",assetml->imagefile);
-  printf("  audiofile=%s\n",assetml->audiofile);
-  printf("  videofile=%s\n",assetml->videofile);
-  printf("  imagecredits=%s\n",assetml->imagecredits);
-  printf("  audiocredits=%s\n",assetml->audiocredits);
-  printf("  videocredits=%s\n",assetml->videocredits);
+  printf("  name        = %s\n",assetml->name_noi18n);
+  printf("  name(i18n)  = %s\n",assetml->name);
+  printf("  dataset     = %s\n",assetml->dataset);
+  printf("  description = %s\n",assetml->description);
+  printf("  categories  = %s\n",assetml->categories);
+  printf("  file        = %s\n",assetml->file);
+  printf("  mimetype    = %s\n",assetml->mimetype);
+  printf("  credits     = %s\n",assetml->credits);
 
 }
 
@@ -123,25 +121,18 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
   assetml = g_malloc0 (sizeof (AssetML));
 
   /* get the specific values */
-  tmpstr = xmlGetProp(xmlnode,"imagefile");
+  tmpstr = xmlGetProp(xmlnode,"file");
   if(tmpstr && strlen(tmpstr)>0)
-    assetml->imagefile		= g_strdup_printf("%s/%s", rootdir, tmpstr);
+    assetml->file		= g_strdup_printf("%s/%s", rootdir, tmpstr);
   else
-    assetml->imagefile		= NULL;
+    assetml->file		= NULL;
   xmlFree(tmpstr);
 
-  tmpstr = xmlGetProp(xmlnode,"audiofile");
+  tmpstr = xmlGetProp(xmlnode,"mimetype");
   if(tmpstr && strlen(tmpstr)>0)
-  assetml->audiofile		= g_strdup_printf("%s/%s", rootdir, tmpstr);
+  assetml->mimetype		= g_strdup(tmpstr);
   else
-    assetml->audiofile		= NULL;
-  xmlFree(tmpstr);
-
-  tmpstr = xmlGetProp(xmlnode,"videofile");
-  if(tmpstr && strlen(tmpstr)>0)
-    assetml->videofile		= g_strdup_printf("%s/%s", rootdir, tmpstr);
-  else
-    assetml->videofile		= NULL;
+    assetml->mimetype		= NULL;
   xmlFree(tmpstr);
 
   xmlnode = xmlnode->xmlChildrenNode;
@@ -175,36 +166,16 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
 								       xmlnode->xmlChildrenNode, 1));
       }
 
-    /* get the description of the ImageCredits */
-    if (!strcmp(xmlnode->name, "ImageCredits")
+    /* get the description of the Credits */
+    if (!strcmp(xmlnode->name, "Credits")
 	&& (lang==NULL ||
 	    !strcmp(lang, assetml_get_locale())
 	    || !strncmp(lang, assetml_get_locale(), 2)))
       {
-	assetml->imagecredits = reactivate_newline(xmlNodeListGetString(doc, 
-								       xmlnode->xmlChildrenNode, 1));
+	assetml->credits = reactivate_newline(xmlNodeListGetString(doc, 
+								   xmlnode->xmlChildrenNode, 1));
       }
 
-
-    /* get the description of the AudioCredits */
-    if (!strcmp(xmlnode->name, "AudioCredits")
-	&& (lang==NULL ||
-	    !strcmp(lang, assetml_get_locale())
-	    || !strncmp(lang, assetml_get_locale(), 2)))
-      {
-	assetml->audiocredits = reactivate_newline(xmlNodeListGetString(doc, 
-								       xmlnode->xmlChildrenNode, 1));
-      }
-
-    /* get the description of the VideoCredits */
-    if (!strcmp(xmlnode->name, "VideoCredits")
-	&& (lang==NULL ||
-	    !strcmp(lang, assetml_get_locale())
-	    || !strncmp(lang, assetml_get_locale(), 2)))
-      {
-	assetml->videocredits = reactivate_newline(xmlNodeListGetString(doc, 
-								       xmlnode->xmlChildrenNode, 1));
-      }
 
     /* get the description of the Categories */
     if (!strcmp(xmlnode->name, "Categories")
@@ -227,13 +198,17 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
  * return true if the assetml matches the requirements
  */
 static gboolean matching(AssetML *assetml, gchar *mydataset, 
-			 gchar *dataset, gchar* categories, gchar* name)
+			 gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
 {
   g_assert(assetml);
 
   assetml->dataset = g_strdup(mydataset);
   if(assetml->dataset && dataset)
     if(g_ascii_strcasecmp(assetml->dataset, dataset))
+      return FALSE;
+
+  if(assetml->mimetype && mimetype)
+    if(g_ascii_strcasecmp(assetml->mimetype, mimetype))
       return FALSE;
 
   if(assetml->name_noi18n && name)
@@ -260,7 +235,7 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
 static void
 parse_doc(GList **gl_result, xmlDocPtr doc, 
 	  gchar *mydataset, gchar *rootdir,
-	  gchar *dataset, gchar* categories, gchar* name)
+	  gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
 {
   xmlNodePtr node;
 
@@ -271,7 +246,7 @@ parse_doc(GList **gl_result, xmlDocPtr doc,
        we pass NULL as the node of the child */
     AssetML *assetml = assetml_add_xml_to_data(doc, node, rootdir, NULL);
 
-    if(assetml && matching(assetml, mydataset, dataset, categories, name))
+    if(assetml && matching(assetml, mydataset, dataset, categories, mimetype, name))
       *gl_result = g_list_append (*gl_result, assetml);
 				
   }
@@ -284,7 +259,7 @@ parse_doc(GList **gl_result, xmlDocPtr doc,
    Fill the gl_result list with all matching asseml items
 */
 void assetml_read_xml_file(GList **gl_result, char *filename,
-			   gchar *dataset, gchar* categories, gchar* name)
+			   gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
 {
   /* pointer to the new doc */
   xmlDocPtr doc;
@@ -318,7 +293,7 @@ void assetml_read_xml_file(GList **gl_result, char *filename,
   mydataset = xmlGetProp(doc->children,"dataset");
 
   /* parse our document and replace old data */
-  parse_doc(gl_result, doc, mydataset, rootdir, dataset, categories, name);
+  parse_doc(gl_result, doc, mydataset, rootdir, dataset, categories, mimetype, name);
 
   xmlFree(rootdir);
   xmlFree(mydataset);
@@ -344,7 +319,7 @@ int selectAssetML(const struct dirent *d)
 /* load all the xml files in the assetml path
  * into our memory structures.
  */
-void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* name)
+void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
 {
   struct dirent **namelist;
   int n;
@@ -358,7 +333,7 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
       gchar *file = g_strdup_printf("%s/%s", ASSETMLPIXMAPDIR, namelist[n]->d_name);
       
       assetml_read_xml_file(gl_result, file,
-      			    dataset, categories, name);
+      			    dataset, categories, mimetype, name);
       
       g_free(file);
       free (namelist [n]);
@@ -380,12 +355,9 @@ void free_asset(AssetML *assetml)
   xmlFree(assetml->dataset);
   xmlFree(assetml->description);
   xmlFree(assetml->categories);
-  xmlFree(assetml->imagefile);
-  xmlFree(assetml->audiofile);
-  xmlFree(assetml->videofile);
-  xmlFree(assetml->imagecredits);
-  xmlFree(assetml->audiocredits);
-  xmlFree(assetml->videocredits);
+  xmlFree(assetml->file);
+  xmlFree(assetml->mimetype);
+  xmlFree(assetml->credits);
 
   g_free(assetml);
 }
@@ -398,11 +370,11 @@ void assetml_free_assetlist(GList *assetlist)
 
 }
 
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* name)
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
 {
   GList *gl_result = NULL;
 
-  assetml_load_xml(&gl_result, dataset, categories, name);
+  assetml_load_xml(&gl_result, dataset, categories, mimetype, name);
 
   if(g_list_length(gl_result)==0)
     {

@@ -28,7 +28,7 @@
    name: the asset name to get or NULL for any name
 */
    
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* name);
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name);
 void	 assetml_free_assetlist(GList *assetlist);
 
 typedef struct _AssetML         AssetML;
@@ -40,12 +40,9 @@ struct _AssetML
   gchar		*name;
   gchar		*name_noi18n;
   gchar		*description;
-  gchar		*imagefile;
-  gchar		*audiofile;
-  gchar		*videofile;
-  gchar		*imagecredits;
-  gchar		*audiocredits;
-  gchar		*videocredits;
+  gchar		*file;
+  gchar		*mimetype;
+  gchar		*credits;
 };
 
 

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/08/11 16:03:33 bcoudoin>
+ * Time-stamp: <2003/08/12 13:01:39 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -109,7 +109,7 @@ GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* 
   AssetML *assetml;
   GdkPixbuf *pixmap;
 
-  gl_result = assetml_get_asset(dataset, categories, name);
+  gl_result = assetml_get_asset(dataset, categories, "image/png", name);
 
   if(g_list_length(gl_result)>0)
     {
@@ -117,9 +117,9 @@ GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* 
       /* Always get the first item */
       assetml = (AssetML *)g_list_nth_data(gl_result, 0);
 
-      if(assetml->imagefile)
+      if(assetml->file)
 	{
-	  pixmap = gdk_pixbuf_new_from_file (assetml->imagefile, NULL);
+	  pixmap = gdk_pixbuf_new_from_file (assetml->file, NULL);
 
 	  assetml_free_assetlist(gl_result);
 
