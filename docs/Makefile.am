@@ -2,3 +2,4 @@
 
 SUBDIRS =  C fr
 
+EXTRA_DIST = spipparser.pl spip_oneboard.xsl

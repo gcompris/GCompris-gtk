@@ -552,7 +552,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     item->rootitem = \
 	gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
-			   "x", (double)(rand()%(gcomprisBoard->width-170)),
+			   "x", (double) 0,
 			   "y", (double) -12,
 			   NULL);
 
@@ -579,6 +579,20 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 			   "anchor", GTK_ANCHOR_NW,
 			   "fill_color", "blue",
 			   NULL);
+			   
+   /*set right x position */
+
+    double x1, y1, x2, y2;
+                                                                                                          
+                                                                                                                          
+    gnome_canvas_item_get_bounds    (item->rootitem,
+                                   &x1,
+                                   &y1,
+                                   &x2,
+                                   &y2);
+                                                                                                                      
+    gnome_canvas_item_move (item->rootitem,(double) (rand()%(gcomprisBoard->width-(gint)(x2))),(double) 0);
+
 
     g_static_rw_lock_writer_lock (&items_lock);
     g_ptr_array_add(items, item);

@@ -1,5 +1,12 @@
 2004-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* docs/Makefile.am: added spip utility
+	* docs/spip_oneboard.xsl: created this tool to create the screenshot web site in spip format
+	* docs/spipparser.pl: -
+	* src/boards/wordsgame.c: (wordsgame_create_item): fixed word positionning by Alexey Lubimov
+
+2004-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/wordsgame.c: (pause_board), (start_board),
 	(end_board), (key_press), (wordsgame_next_level),
 	(wordsgame_move_item), (wordsgame_move_items),
