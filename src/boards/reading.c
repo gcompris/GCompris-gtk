@@ -29,13 +29,17 @@
 
 #define SOUNDLISTFILE PACKAGE
 #define MAXWORDSLENGTH 50
+#define MAX_WORDS 100
+
+
+static GPtrArray *words=NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
 static gint drop_items_id    = 0;
 static gint next_level_timer = 0;
 
-static char *textToFind = NULL;
+static gchar *textToFind = NULL;
 static gint textToFindIndex = 0;
 #define NOT_THERE -1000
 
@@ -86,7 +90,8 @@ static gint		 reading_next_level(void);
 
 static void		 player_win(void);
 static void		 player_loose(void);
-static char		*get_random_word();
+static gchar		*get_random_word(gboolean);
+static gboolean	 read_wordfile();
 static GnomeCanvasItem	*display_what_to_do(GnomeCanvasGroup *parent);
 static void		 ask_ready(gboolean status);
 static void		 ask_yes_no(void);
@@ -232,6 +237,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /* set initial values for the next level */
 static gint reading_next_level()
 {
+
   gcompris_bar_set_level(gcomprisBoard);
 
   gamewon = FALSE;
@@ -264,9 +270,9 @@ static gint reading_next_level()
   gcomprisBoard->number_of_sublevel=1;
   gcomprisBoard->sublevel=1;
 
+  read_wordfile();
   display_what_to_do(boardRootItem);
   ask_ready(TRUE);
-
   return (FALSE);
 }
 
@@ -288,27 +294,45 @@ static void reading_destroy_all_items()
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem = NULL;
-  textToFind    = NULL;
   previousFocus.rootItem = NULL;
   toDeleteFocus.rootItem = NULL;
+
+  if (textToFind!=NULL) 
+    {
+    g_free(textToFind);
+    textToFind=NULL;
+    }
+  
+  if (words!=NULL) 
+    {
+    g_ptr_array_free (words, TRUE);
+    words=NULL;
+    }
+  
+  
+
 }
 
 static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 {
+
   gint base_Y = 110;
   gint base_X = 580;
   gint i;
 
-  /* Free the previous text to find */
-  if(textToFind)
-    g_free(textToFind);
-
   /* Load the text to find */
-  textToFind = "*";
-  textToFind = get_random_word();
+  
+  textToFind = get_random_word(TRUE);
 
-  if(textToFind==NULL)
-    return;
+  assert(textToFind != NULL);
+
+  /* Decide now if this time we will display the text to find */
+  /* Use this formula to have a better random number see 'man 3 rand' */
+  i=((int)(2.0*rand()/(RAND_MAX+1.0)));
+  if(i==0)
+      textToFindIndex = rand() % numberOfLine;
+  else
+    textToFindIndex = NOT_THERE;
 
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
@@ -340,13 +364,6 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 			 "fill_color", "white",
 			 NULL);
 
-  /* Decide now if this time we will display the text to find */
-  /* Use this formula to have a better random number see 'man 3 rand' */
-  i=((int)(2.0*rand()/(RAND_MAX+1.0)));
-  if(i==0)
-      textToFindIndex = rand() % numberOfLine;
-  else
-    textToFindIndex = NOT_THERE;
 
   return NULL;
 }
@@ -358,8 +375,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
   gchar *word;
   gchar *overword;
 
-  if(textToFind==NULL)
-    return FALSE;
+  assert(textToFind!=NULL);
 
   if(toDeleteFocus.rootItem)
     {
@@ -382,27 +398,24 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
       return FALSE;
     }
 
+    
   if(textToFindIndex!=0)
     {
-      word = get_random_word();
+      word = get_random_word(FALSE);
     }
   else
     {
-      word = g_strdup(textToFind);
+      word = textToFind;
     }
 
-  if(word==NULL)
-    return FALSE;
+  assert(word!=NULL);
 
   if(textToFindIndex>=0)
     textToFindIndex--;
 
   /* fill up the overword with X */
-  overword = g_malloc(strlen(word));
-  for(i=0; i<strlen(word); i++)
-    overword[i] = 'x';
 
-  overword[i]='\0';
+  overword = g_strnfill (g_utf8_strlen(word,-1)-1,'x');
 
   previousFocus.rootItem = \
     GNOME_CANVAS_GROUP( gnome_canvas_item_new (parent,
@@ -424,7 +437,6 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
 			   "anchor", anchor,
 			   "fill_color", "black",
 			   NULL);
-  g_free(word);
 
   previousFocus.overwriteItem = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
@@ -684,109 +696,85 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 
+
+
 static FILE *get_wordfile(const char *locale)
 {
-  char *filename;
+  gchar *filename;
   FILE *wordsfd = NULL;
-
+                                                                                                                              
   /* First Try to find a file matching the level and the locale */
-  filename = g_strdup_printf("%s%s%d.%.2s",  
-			     PACKAGE_DATA_DIR, "/wordsgame/wordslevel", 
-			     gcomprisBoard->level, locale);
+  filename = g_strdup_printf("%s%s%d.%.2s",
+                             PACKAGE_DATA_DIR, "/wordsgame/wordslevel",
+                             gcomprisBoard->level, locale);
   //  g_message("Trying to open file %s ", filename);
   wordsfd = fopen (filename, "r");
-
+                                                                                                                              
   if(wordsfd==NULL)
     {
       /* Second Try to find a file matching the 'max' and the locale */
-      sprintf(filename, "%s%s%.2s",  
-	      PACKAGE_DATA_DIR, "/wordsgame/wordslevelmax.", 
-	      locale);
+      g_sprintf(filename, "%s%s%.2s",
+              PACKAGE_DATA_DIR, "/wordsgame/wordslevelmax.",
+              locale);
       //      g_message("Trying to open file %s ", filename);
-
+                                                                                                                              
       wordsfd = fopen (filename, "r");
     }
-
+                                                                                                                              
   g_free(filename);
-
+                                                                                                                              
   return wordsfd;
+}
+
+
+
+
+static gboolean  read_wordfile()
+{
+
+  FILE *wordsfd;
+  gchar *buf;
+                                                                                                                                
+
+  wordsfd = get_wordfile(gcompris_get_locale());
+                                                                                                                              
+  if(wordsfd==NULL)
+    {
+      /* Try to open the english locale by default */
+      wordsfd = get_wordfile("en");
+                                                                                                                              
+      /* Too bad, even english is not there. Check your Install */
+      if(wordsfd==NULL) {
+        gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
+        return FALSE;
+      }
+    }
+                                                                                                                              
+   words=g_ptr_array_new ();
+   while (buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH-1, wordsfd)) {
+	assert(g_utf8_validate(buf,-1,NULL));
+	g_ptr_array_add(words,buf);
+	}
+   fclose(wordsfd);
+
 }
 /*
  * Return a random word from a set of text file depending on 
  * the current level and language
  */
-static char *get_random_word()
+
+
+static gchar *get_random_word(gboolean remove)
 {
-  FILE *wordsfd;
-  long  size, i;
-  char *str;
-  int   try;
-
-  str = malloc(MAXWORDSLENGTH);
-
-  wordsfd = get_wordfile(gcompris_get_locale());
-
-  if(wordsfd==NULL)
-    {
-      /* Try to open the english locale by default */
-      wordsfd = get_wordfile("en");
-      
-      /* Too bad, even english is not there. Check your Install */
-      if(wordsfd==NULL) {
-	g_free(str);
-	gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
-	return NULL;
-      }
-    }
-
-  fseek (wordsfd, 0L, SEEK_END);
-  size = ftell (wordsfd);
-
-  if(size==0) {
-    g_free(str);
-    gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
-    return NULL;
-  }
-
-  i=rand()%size;
-  fseek(wordsfd, i, SEEK_SET);
-
-  try=-1;  /* We want to be sure to loop at least 2 times */
-  do {
-
-    /* Read 2 times so that we are sure to sync on an end of line */
-    /* Warning, We are not allowed to return the text to find     */
-    fgets(str, MAXWORDSLENGTH, wordsfd);
-
-    if(ftell(wordsfd)==size) {
-      rewind(wordsfd);
-      str[0]='\0';
-    }
-
-    /* Chop the return */
-    if(strlen(str)>0)
-      str[strlen(str)-1]='\0';
-
-    try++;
-
-  } while((str[0]=='\0' || strncmp(textToFind, str, strlen(textToFind))==0 || try<=0) && try<10);
-
-  /* We have a problem */
-  if(str[0]=='\0') {
-    gcompris_dialog(_("Error: The wordfile package used for your locale is corrupted."), gcompris_end_board);
-  }
-
-  fclose(wordsfd);
-
-  if(strcmp(textToFind, str)==0) {
-    g_free(str);
-    str=get_random_word();
-  }
-
-  return (str);
+  int i=rand()%words->len;
+  if (remove) 
+    return g_ptr_array_remove_index(words,i);
+  else
+    return g_ptr_array_index(words,i);
 }
 
-
+
+
 /* Local Variables: */
 /* mode:c */
 /* eval:(load-library "time-stamp") */

@@ -1,3 +1,22 @@
+2004-11-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/flags/pa.png: copy from other indian flag
+	* boards/gletters/gletters.ru: created by Alexey Lubimov
+	* boards/skins/babytoy/button_large2.png: remade by Franck Doucet
+	* boards/sounds/ru/alphabet/Makefile.am: created. uncomplete yet
+	* boards/sounds/ru/colors/Makefile.am: -
+	* boards/sounds/ru/geography/Makefile.am: -
+	* boards/sounds/ru/misc/Makefile.am: -
+	* docs/fr/gcompris.texi: fixed by de Colombel Renaud <renaud.decolombel@free.fr>
+	* src/boards/reading.c: added support for utf8, fixed memory leaks by Alexey Lubimov <avl@l14.ru>
+	* src/boards/click_on_letter.c: (repeat), (sounds_are_fine),
+	(click_on_letter_next_level), (click_on_letter_create_item),
+	(item_event), (highlight_selected): fixed to use utf8 by Alexey Lubimov
+	* src/gcompris/Makefile.am: added remove gcompris-marshal.* in cleanup
+	* src/gcompris/assetml.c: (dump_asset), (assetml_add_xml_to_data),
+	(matching), (free_asset): improved to support a name field by Alexey Lubimov
+	* src/gcompris/assetml.h: -
+
 2004-11-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/flags/gcompris_flags.assetml.in: added ga.png

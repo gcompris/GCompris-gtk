@@ -162,3 +162,6 @@ dist-hook:
 install-data-local: install-libtool-import-lib
 
 uninstall-local: uninstall-libtool-import-lib
+
+clean-local:
+	rm -f gcompris-marshal.*

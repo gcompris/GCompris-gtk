@@ -20,8 +20,11 @@
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
+#include <glib.h>
 
 #include "gcompris/gcompris.h"
+
+
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -46,15 +49,18 @@ static void		 repeat(void);
 
 #define NUMBER_OF_SUBLEVELS 3
 #define NUMBER_OF_LEVELS 5
+#define MAX_NUMBER_OF_LETTERS 4
 
 #define TEXT_COLOR "white"
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *l1_item = NULL, *l2_item = NULL, *l3_item = NULL, *l4_item = NULL;
-static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *button4 = NULL, *selected_button = NULL;
+static GnomeCanvasItem *l_items[MAX_NUMBER_OF_LETTERS];
+static GnomeCanvasItem *buttons[MAX_NUMBER_OF_LETTERS];
+static GnomeCanvasItem *selected_button = NULL;
 
 static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent);
+
 static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
@@ -62,7 +68,9 @@ static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gboolean sounds_are_fine(gchar* letter);
 
 static int right_position;
-static char right_letter[2] = "";
+static int number_of_letters=MAX_NUMBER_OF_LETTERS;
+static gchar *right_letter;
+
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -187,21 +195,21 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* ======================================= */
 static void repeat ()
 {
-  if(gcomprisBoard!=NULL)
+   if(gcomprisBoard!=NULL)
     {
-      char *str1 = NULL;
-      char *str2 = NULL;
 
-      str1 = g_strdup_printf("%s%s", right_letter, ".ogg");
-      str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+      gchar *str1 = NULL;
+      gchar *right_letter_ogg = NULL;
 
-      if(str2) {
-	gcompris_play_ogg(str2, NULL);
+      right_letter_ogg = g_strdup_printf("%s%s",right_letter,".ogg");
+      str1 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", right_letter_ogg);
+
+      if(str1) {
+	gcompris_play_ogg(str1, NULL);
       }
 
       g_free(str1);
-      g_free(str2);
-      
+      g_free(right_letter_ogg);
     }
 }
 
@@ -210,11 +218,10 @@ static gboolean sounds_are_fine (gchar* letter)
   char *str1 = NULL;
   char *str2 = NULL;
   GcomprisProperties	*properties = gcompris_get_properties();
-  char locale[3];
+  gchar *locale;
   gboolean fine = TRUE;
 
-  strncpy( locale, gcompris_get_locale(), 2 );
-  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+  locale= g_strndup(gcompris_get_locale(), 2);
   
   str1 = g_strdup_printf("%s%s", letter, ".ogg");
   str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
@@ -232,6 +239,7 @@ static gboolean sounds_are_fine (gchar* letter)
     }
   }
   
+  g_free(locale);
   g_free(str1);
   g_free(str2);
   
@@ -250,7 +258,7 @@ static void click_on_letter_next_level()
   gamewon = FALSE;
   selected_button = NULL;
   gcompris_score_set(gcomprisBoard->sublevel);
-
+  g_free (right_letter);
   /* Try the next level */
   click_on_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
@@ -266,58 +274,62 @@ static void click_on_letter_destroy_all_items()
 /* ==================================== */
 static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 {
+
   int xOffset,yOffset,i,j;
   GdkPixbuf *button_pixmap = NULL;
-  char *str[4];
-  char l[4];
-  int numberOfLetters = 4;
-  char *str1 = NULL;
-  char *str2 = NULL;
-  char *str3 = NULL;
+  gchar *alphabet=_("abcdefghijklmnopqrstufw");
+  assert(g_utf8_validate(alphabet,-1,NULL)); // require by all utf8-functions
 
-  /*  */
-  right_position = ((int)(((float)numberOfLetters)*rand()/(RAND_MAX+1.0))) +1;
-  assert(right_position >= 1  && right_position <= numberOfLetters);
 
-  /* set up letters, the right one is at position right_position */
-  /* level 1 : min letters, level 2 : cap letters, level 3 : mix of both */
-  for (i=0; i<numberOfLetters; i++) {
-	switch (gcomprisBoard->level) {
-		case 1 : l[i] = 'a' + ((char)( 26.0 * rand() / (RAND_MAX+1.0)));
-			break;
-		case 2 : l[i] = 'A' + ((char)( 26.0 * rand() / (RAND_MAX+1.0)));
-			break;
-		default :
-			if ( rand() > (RAND_MAX/2) )
-				l[i] = 'a' + ((char)( 26.0 * rand() / (RAND_MAX+1.0)));
-			else
-				l[i] = 'A' + ((char)( 26.0 * rand() / (RAND_MAX+1.0)));
-			break;
-	}
-	// check that the letter has not been taken yet (beware that 'a' == 'A' is to be avoided)
-	for(j=0; j<i; j++) {
-		if (l[j] == l[i] || abs(l[j] - l[i]) == 'a' - 'A' ) {
+  int length_of_aphabet=g_utf8_strlen (alphabet,-1);
+
+  number_of_letters=gcomprisBoard->level+1;
+  if (number_of_letters>MAX_NUMBER_OF_LETTERS) number_of_letters=MAX_NUMBER_OF_LETTERS;
+
+  int numbers[number_of_letters];
+  gchar *letters[number_of_letters];
+  assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
+
+  for (i=0;i<number_of_letters;i++){
+	numbers[i]=((int)(((float)length_of_aphabet)*rand()/(RAND_MAX+1.0)));
+
+	// check that the letter has not been taken yet	
+	for(j=0;j<i;j++){
+		if (numbers[i]==numbers[j]) {
 			i--;
 			continue;
 		}
 	}
+
   }
 
-  right_letter[0] = l[right_position-1];
-  right_letter[1] = 0;
-  g_strdown(right_letter);
 
-  /* Get the sounds to play from assetml */
-  str1 = gcompris_get_asset_file("gcompris misc", NULL, "audio/x-ogg", "click_on_letter.ogg");
 
-  str2 = g_strdup_printf("%s%s", right_letter, ".ogg");
-  str3 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str2);
 
-  gcompris_play_ogg(str1, str3, NULL);
+  for (i=0;i<number_of_letters;i++){
+   gchar *copy_from=g_utf8_offset_to_pointer(alphabet, numbers[i]);
+   gchar *copy_to=g_utf8_offset_to_pointer(alphabet, numbers[i]+1);
+   letters[i]=g_strndup(copy_from,copy_to-copy_from);
+   switch (gcomprisBoard->level) {
+	case 1	:
+	case 2  : letters[i]=g_strndup(copy_from,copy_to-copy_from); break;
+	case 3  : letters[i]=g_utf8_strup(copy_from,copy_to-copy_from); break;
+	default : 
+		if ( rand() > (RAND_MAX/2) ) 
+			letters[i]=g_strndup(copy_from,copy_to-copy_from);
+		else 
+			letters[i]=g_utf8_strup(copy_from,copy_to-copy_from);
+	}
 
-  g_free(str1);
-  g_free(str2);
-  g_free(str3);
+  }
+
+  /*  */
+  right_position = ((int)(((float)number_of_letters)*rand()/(RAND_MAX+1.0)));
+  assert(right_position >= 0  && right_position < number_of_letters);
+  right_letter = g_utf8_strdown(letters[right_position],-1);
+
+  repeat();
+ 
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -325,113 +337,43 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
-  for (i=0; i<numberOfLetters; i++) {
-	str[i] =g_strdup_printf("%c", l[i]);
-  }
+
 
   button_pixmap = gcompris_load_pixmap("images/wagon-yellow.png");
 
   yOffset = VERTICAL_SEPARATION;
   xOffset = 5;
 
-  button1 = gnome_canvas_item_new (boardRootItem,
+
+  for (i=0; i< number_of_letters; i++) {
+
+  buttons[i] = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_pixbuf_get_type (),
 				   "pixbuf",  button_pixmap,
 				   "x",  (double) xOffset,
 				   "y",  (double) yOffset,
 				   NULL);
 
-  l1_item = gnome_canvas_item_new (boardRootItem,
+
+  l_items[i] = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
-				   "text",  str[0],
+				   "text", letters[i] ,
 				   "font", gcompris_skin_font_board_huge_bold,
 				   "anchor", GTK_ANCHOR_CENTER,
 				   "fill_color_rgba", 0x0000ffff,
 				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
 				   NULL);
-
+  g_free(letters[i]);
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
 
-  button2 = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  button_pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset,
-				   NULL);
-  l2_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_text_get_type (),
-				   "text",  str[1],
-				   "font", gcompris_skin_font_board_huge_bold,
-				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", 0x0000ffff,
-				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
-				   NULL);
-
-  xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
-
-  button3 = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  button_pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset,
-				   NULL);
-  l3_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_text_get_type (),
-				   "text",  str[2],
-				   "font", gcompris_skin_font_board_huge_bold,
-				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", 0x0000ffff,
-				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
-				   NULL);
-
-  xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
-
-  button4 = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  button_pixmap,
-				   "x",  (double) xOffset,
-				   "y",  (double) yOffset,
-				   NULL);
-  l4_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_text_get_type (),
-				   "text",  str[3],
-				   "font", gcompris_skin_font_board_huge_bold,
-				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", 0x0000ffff,
-				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
-				   NULL);
-
-  for (i=0; i<numberOfLetters; i++) {
-	g_free(str[i]);
+  gtk_signal_connect(GTK_OBJECT(l_items[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
+  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
   }
+
+
   gdk_pixbuf_unref(button_pixmap);
-
-
-  gtk_signal_connect(GTK_OBJECT(l1_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(1));
-  gtk_signal_connect(GTK_OBJECT(l2_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(2));
-  gtk_signal_connect(GTK_OBJECT(l3_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(3));
-  gtk_signal_connect(GTK_OBJECT(l4_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(4));
-
-  gtk_signal_connect(GTK_OBJECT(button1), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(1));
-  gtk_signal_connect(GTK_OBJECT(button1), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-  gtk_signal_connect(GTK_OBJECT(button2), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(2));
-  gtk_signal_connect(GTK_OBJECT(button2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-  gtk_signal_connect(GTK_OBJECT(button3), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(3));
-  gtk_signal_connect(GTK_OBJECT(button3), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-  gtk_signal_connect(GTK_OBJECT(button4), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(4));
-  gtk_signal_connect(GTK_OBJECT(button4), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
 
   return NULL;
 }
@@ -498,7 +440,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       } else {
 	gamewon = FALSE;
       }
-      highlight_selected(item);
+     highlight_selected(item);
       process_ok();
       break;
 
@@ -511,17 +453,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 static void highlight_selected(GnomeCanvasItem * item) {
   GdkPixbuf *button_pixmap_selected = NULL, *button_pixmap = NULL;
   GnomeCanvasItem *button;
+  int i;
+
 
   /* Replace text item by button item */
   button = item;
-  if ( button == l1_item ) {
-    button = button1;
-  } else if ( item == l2_item ) {
-    button = button2;
-  } else if ( item == l3_item ) {
-    button = button3;
-  } else if ( item == l4_item ) {
-    button = button4;
+  for (i=0; i<number_of_letters;i++) {
+     if ( l_items[i] == item ) {
+	button = buttons[i];
+     }
   }
 
   if (selected_button != NULL && selected_button != button) {

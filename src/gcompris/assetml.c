@@ -94,6 +94,7 @@ void dump_asset(AssetML *assetml)
 
   printf("  dataset     = %s\n",assetml->dataset);
   printf("  file        = %s\n",assetml->file);
+  printf("  name        = %s\n",assetml->name);
   printf("  locale      = %s\n",assetml->locale);
   printf("  description = %s\n",assetml->description);
   printf("  categories  = %s\n",assetml->categories);
@@ -136,12 +137,22 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
     assetml->file		= NULL;
   xmlFree(tmpstr);
 
+  tmpstr = xmlGetProp(xmlnode,"name");
+  if(tmpstr && strlen(tmpstr)>0)
+  assetml->name		= g_strdup(tmpstr);
+  else
+    assetml->name		= g_path_get_basename(assetml->file);
+  xmlFree(tmpstr);
+
+
   tmpstr = xmlGetProp(xmlnode,"mimetype");
   if(tmpstr && strlen(tmpstr)>0)
   assetml->mimetype		= g_strdup(tmpstr);
   else
     assetml->mimetype		= NULL;
   xmlFree(tmpstr);
+
+
 
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
@@ -190,7 +201,7 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
  */
 static gboolean matching(AssetML *assetml, gchar *mydataset, 
 			 gchar *dataset, gchar* categories, gchar* mimetype, 
-			 const gchar* mylocale, const gchar* locale, gchar* file)
+			 const gchar* mylocale, const gchar* locale, gchar* name)
 {
   g_assert(assetml);
 
@@ -198,6 +209,7 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
   if(assetml->dataset && dataset)
     if(g_ascii_strcasecmp(assetml->dataset, dataset))
       return FALSE;
+
 
   /* Check the leading locale definition matches the leading user request so that
    * File   Requested   Status
@@ -214,12 +226,16 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
     if(g_ascii_strcasecmp(assetml->mimetype, mimetype))
       return FALSE;
 
-  if(assetml->file && file)
+  if(assetml->name && name)
+    if(g_ascii_strcasecmp(assetml->name, name))
+      return FALSE;
+
+/*  if(assetml->file && file)
     {
       gchar *str1;
       gchar *str2;
       gboolean nomatch;
-      /* We test only the basename of the file so that caller do not need to specify a full path */
+//      We test only the basename of the file so that caller do not need to specify a full path 
       str1 = g_path_get_basename(assetml->file);
       str2 = g_path_get_basename(file);
 
@@ -230,7 +246,7 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
 
       if(nomatch)
 	return FALSE;
-    }
+    }*/
 
   if(assetml->categories && categories)
     {
@@ -375,6 +391,7 @@ void free_asset(AssetML *assetml)
   xmlFree(assetml->description);
   xmlFree(assetml->categories);
   xmlFree(assetml->file);
+  xmlFree(assetml->name);
   xmlFree(assetml->mimetype);
   xmlFree(assetml->credits);
 

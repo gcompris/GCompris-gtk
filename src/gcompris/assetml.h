@@ -49,6 +49,7 @@ struct _AssetML
   gchar		*locale;
   gchar		*description;
   gchar		*file;
+  gchar		*name;
   gchar		*mimetype;
   gchar		*credits;
 };

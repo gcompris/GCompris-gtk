@@ -63,81 +63,74 @@ Documentation License".
 
 @node    Introduction, Manuel utilisateur, Top,      Top
 @chapter Introduction
-@section Pourquoi GCompris
-Le but de GCompris est de fournir un logiciel éducatif complêt et ouvert. Ce logiciel comprend un ensemble d'activité le plus varié possible couvrant les domaines de l'apprentissage de l'ordinateur, souris, clavier, les domaines d'enseignement généraux, lecture, écriture, langues vivantes, algébre ainsi que de activités diverses comme des jeux de mémoire, de compréhension du fonctionnement d'une écluse, ...
+@section Pourquoi GCompris ?
+Le but de GCompris est de fournir un logiciel éducatif complet et ouvert. Ce logiciel comprend un ensemble d'activités le plus varié possible couvrant les domaines de l'apprentissage de l'ordinateur, souris, clavier, les domaines d'enseignement généraux, lecture, écriture, langues vivantes, algèbre ainsi que des activités diverses comme des jeux de mémoire, de compréhension du fonctionnement d'une écluse, ...
 
-Aujourd'hui il existe déjà beaucoup de logiciel réalisant individuellement des parties de gcompris. Malheureusement, ils sont difficiles à suivre et à maintenir et ils offrent chacun des interfaces différentes de qualité diverses.
+Aujourd'hui il existe déjà beaucoup de logiciels réalisant individuellement des parties de GCompris. Malheureusement, ils sont difficiles à suivre et à maintenir et ils offrent chacun des interfaces différentes de qualités diverses.
 
-L'objectif de gcompris est de fournir une plate forme de développement pour des activités à valeurs éducatives.
+L'objectif de GCompris est de fournir une plate forme de développement pour des activités à valeurs éducatives.
 
-Gcompris fait parti du projet GNU.
+Gcompris fait partie du projet GNU.
 
 @cindex Objectif de Gcompris
 
 @node    Manuel utilisateur, Internationalisation, Introduction, Top
 @chapter Manuel utilisateur
 @section Contrôles
-Tous les contôles sont concus pour être simple d'utilisation pour les plus jeunes. Pour cette raison, bien que gcompris utilise les librairies gnomes, il n'en suis pas les standards.
-Gcompris est controlé avec une souris, il ne peut pas être utilisé sans souris ou système de pointage.
+Tous les contrôles sont conçus pour être simples d'utilisation pour les plus jeunes. Pour cette raison, bien que GCompris utilise les librairies Gnome, il n'en suit pas les standards. GCompris est contrôlé avec une souris, il ne peut pas être utilisé sans souris ou système de pointage.
 
 @section Zone de jeu
 @cindex Interface
 @cindex GUI
 
 @subsection Fenêtre principale
-Au démarage, gcompris présente une interface graphique qui inclue :  
+Au démarrage, GCompris présente une interface graphique qui inclut :
 @enumerate
-@item
-Liste des activités
-
-Chaque icone représente une activité. Lorqu'on passe la souris dessus, elle est mise en surbrillance et le nom, la description, l'auteur de l'activité est affiché dans la zone 'description des activités'.
+@item Liste des activités
+Chaque icône représente une activité. Lorsqu'on passe la souris dessus, elle est mise en surbrillance et le nom, la description, l'auteur de l'activité est affiché dans la zone 'description des activités'.
 @item
 @dfn{Zone de description des activités}
 
-Affichage d'une description de l'activité mise en surbrillance.
-Les descriptions sont internationalisée, c'est à dire traduites dans le language cible sélectionné dans gcompris (Voir @ref{Internationalisation} pour plus d'information sur l'internationalisation).
+Zone de description des activités : Affichage d'une description de l'activité mise en surbrillance. Les descriptions sont internationalisées, c'est à dire traduites dans la langue cible sélectionnée dans GCompris (Voir @ref{Internationalisation} pour plus d'information sur l'internationalisation).
 
 @item
 Barre de contrôle :
 @cindex Barre de contrôle
-La barre de contrôle est toujours présente dans gcompris. Chaque icone est contextuelle, ce qui signifie quelle n'apparait que si elle est utilisable dans le contexte courrant.
+La barre de contrôle est toujours présente dans GCompris. Chaque icône est contextuelle, ce qui signifie quelle n'apparaît que si elle est utilisable dans le contexte courant. La barre de contrôle contient de gauche à droite :
 
 La barre de contrôle contient de gauche à droite :
 @enumerate
 @item
 Aide:
-@cindex Icone Aide
-Dans certain cas, une activité peut être trop complexe pour être décrite simplement dans la @dfn{Zone de description des activités}. Dans ce cas, cette fonction donne accés aux informations additionelles.
+@cindex Icône Aide
+Dans certains cas, une activité peut être trop complexe pour être décrite simplement dans la @dfn{Zone de description des activités}. Dans ce cas, cette fonction donne accès aux informations additionnelles.
 
 @item
 Niveau:
-@cindex Icone Niveau
-Les activités proposent en générale plusieurs niveau. Le nombre de niveau dépend de l'activité.
+@cindex Icône Niveau
+Les activités proposent en général plusieurs niveaux. Le nombre de niveaux dépend de l'activité.
 
 @item
 OK:
-@cindex Icone OK
-Certaines activités ne détectent pas automatiquement que l'enfant à terminer la tâche. Dans ce cas, il faut cliquer sur l'icone OK et est équivallent à utiliser la touche @key{RET} du clavier. La touche @key{RET} est un racourci.
+@cindex Icône OK
+Certaines activités ne détectent pas automatiquement que l'enfant a terminé la tâche. Dans ce cas, il faut cliquer sur l'icône OK et est équivalent à utiliser la touche @key{RET} du clavier. La touche @key{RET} est un raccourci.
 
 @item
 Fin:
-@cindex Icone Fin
-End the current board if any, otherwise Exit GCompris.
-When entered at the board menu level, it will create a dialog window to confirm the Exit of GCompris.
-@cindex Exiting from GCompris
+@cindex Icône Fin
+Met fin à l'activité courante, si elle existe, ou, dans la négative, permet de sortir de GCompris. Si on clique sur cette icône au niveau du choix des activités, elle ouvrira une boite de dialogue qui demandera confirmation de la sortie de GCompris.
+@cindex Quitter GCompris
 
 @item
 A propos:
-@cindex Icone A propos
-La boite de dialogue A propos de gcompris indique le numéro de version, les auteurs, la license et des liens sur des ressources en ligne.
+@cindex Icône A propos
+La boite de dialogue A propos de GCompris indique le numéro de version, les auteurs, la licence et des liens sur des ressources en ligne.
 @cindex A propos de GCompris
 
 @item
 Configure:
-@cindex Icone Configure
-Affiche la boite de configuration de gcompris. La configuration est réalisé au niveau de gcompris lorsque aucune activité n'est sélectionnée, ou au niveau d'une activité si elle le permet.
-La configuration est persistante et est sauvé dans le répertoire home de l'utilisateur sous .gnome/gcompris.
-Ce fichier est un fichier texte qui peut être édité manuellement.
+@cindex Icône Configure
+Affiche la boite de configuration de GCompris. La configuration est réalisée au niveau de GCompris lorsque aucune activité n'est sélectionnée, ou au niveau d'une activité si elle le permet. La configuration est persistante et est sauvée dans le répertoire home de l'utilisateur sous .gnome/GCompris. Ce fichier est un fichier texte qui peut être édité manuellement.
 @cindex Configuration de GCompris
 
 @end enumerate
@@ -148,18 +141,16 @@ Ce fichier est un fichier texte qui peut être édité manuellement.
 Tout simplement dans le menu de départ, sélectionner une activité en cliquant dessus.
 
 @subsection Terminer une activité
-Dans la barre, selectionner le boutton 'Retour'
+Dans la barre, sélectionner le bouton 'Retour'.
 
 @node    Internationalisation, Guide pour les développeurs, Manuel utilisateur, Top
 @chapter Internationalisation
 @section Ma langue est-elle supportée ?
-Gcompris est internationalisé et supporte déjà plusieurs langues.
+GCompris est internationalisé et supporte déjà plusieurs langues. 
+Pour savoir si la vôtre est prise en charge, vous pouvez lancer GCompris et sélectionner votre langue dans l'option de configuration. 
+Si votre langue n'est pas supportée, vous pouvez réaliser la traduction vous même. Pour cela, contacter le mainteneur officiel du projet GCompris.
 
-Pour savoir si la votre est prise en charge, vous pouvez lancer gcompris et sélectionner votre langue dans l'option de configuration.
-
-Si votre language n'est pas supporté, vous pouvez réaliser la traduction vous même. Pour cela, contacter le mainteneur officiel du projet gcompris.
-
-@section Comment traduire gcompris dans ma langue
+@section Comment traduire GCompris dans ma langue
 D'abord, il faut ajouter votre nom de locale dans la variable ALL_LINGUAS du fichier configure.in.
 Ensuite il faut relancer autoconf pour prendre en compte la modification.
 @code{autoconf}
@@ -168,33 +159,28 @@ Puis, générer une version à jour du fichier @file{gcompris.pot} en utilisant la 
 @code{cd gcompris/po}
 @code{make update-po}
 
-Ensuite, récupérer le fichier @file{gcompris.pot}, copier le dans un fichier nommé @file{XX.po} avec XX étant le nom de votre locale, par example 'it' for Italian.
+Ensuite, récupérer le fichier @file{gcompris.pot}, copier le dans un fichier nommé @file{XX.po} avec XX étant le nom de votre locale, par exemple 'it' pour  italien.
 
-Lizez le fichier généré, il contient tout le texte en Anglais trouvé dans gcompris. Il suffit ensuite de réaliser la traduction dans la zone vide situé après la phrase en Anglais.
+Lisez le fichier généré, il contient tout le texte en Anglais trouvé dans GCompris. Il suffit ensuite de réaliser la traduction dans la zone vide située après la phrase en Anglais.
 
 Pour vérifier la traduction, il faut l'installer avec la commande
 @code{make install} au plus haut niveau
 
-Ensuite, envoyer la traduction au mainteneur de gcompris. Il/Elle l'incluera dans la prochaine version officielle.
+Ensuite, envoyer la traduction au mainteneur de GCompris. Il/Elle l'inclura dans la prochaine version officielle.
 
 @node    Guide pour les développeurs, GNU Free Documentation License, Internationalisation, Top
 @chapter Guide pour les développeurs
-@section Pourquoi ajouter vos activités dans gcompris
-Si vous avez une idée de tableau que vous aimeriez proposer aux enfants, vous pouvez faire un nouveau projet, appellons le gIdea. si vous commencez à partir de zero, il vous faudra tout implémenter, menu, bare de contôle, gestion des retours utilisateur, mécanismes d'aides, gestion du projet su le Web, ...
+@section Pourquoi ajouter vos activités dans GCompris
+Si vous avez une idée de tableau que vous aimeriez proposer aux enfants, vous pouvez faire un nouveau projet, appelons le gIdea. Si vous commencez à partir de zéro, il vous faudra tout implémenter, menu, barre de contrôle, gestion des retours utilisateur, mécanismes d'aides, gestion du projet sur le Web, ... 
+Si gIdea n'est pas un gros programme, il peut être plus simple de l'implémenter sous la forme d'une activité de GCompris. De cette façon, vous bénéficiez de l'infrastructure de GCompris et de sa constante évolution. 
+Pour l'utilisateur final, il est aussi plus simple et agréable d'avoir une interface unique et consistante pour un ensemble d'activités plutôt que d'avoir à installer des programmes différents gIdea gFun g... 
+Il n'est pas dans les objectifs de GCompris de devenir un langage de programmation. GCompris est implémenté en C (pour le coeur et les activités). Les activités sont chargées dynamiquement (plugins) ce qui rend possible la création et distribution de l'activité indépendamment de GCompris. 
 
-Si gIdea n'est pas un gros programme, il peut être plus simple de l'implémenter sous la forme d'une activité de gcompris.
-De cette façon, vous bénéficiez de l'infrastructure de gcompris et de sa constante évolution.
+L'implémentation de GCompris est basée sur le canvas Gnome (voir @uref{http://www.gnome.org} pour la documentation). Le canvas Gnome fournit un widget de haut niveau qui libère le programmeur de la manipulation des bitmaps lors de la réalisation d'applications graphiques. Dans l'implémentation actuelle, il n'est pas possible d'utiliser un autre ensemble de widgets. 
 
-Pour l'utilisateur final, il est aussi plus simple et agréable d'avoir une interface unique et consistante pour un ensemble d'activité plutôt que d'avoir à installer des programmes différent gIdea gFun g...
+Certaines activités de GCompris sont conçues pour accepter de recevoir leurs jeux de données à partir d'un fichier XML. Dans ce cas, ces activités peuvent être réutilisées à condition de comprendre le format de leurs données. Pour rendre cette opération plus simple, et permettre à des non programmeurs d'utiliser ces fonctionnalités, GCompris fournira un éditeur d'activités. Il faut noter que l'activité 'shape' utilisée pour les tableaux de maîtres, par exemple, sait déjà lire et écrire ses données au format XML.
 
-Il n'est pas dans les objectifs de gcompris de devenir un language de programmation. Gcompris est implémenté en C (Pour le coeur et les activités). Les Activités sont chargées dynamiquements (plugins) ce qui rend possible la création et distribution de'activité indépendament de gcompris.
-
-L'implémentation de gcompris est basée sur le canvas gnome (see @uref{http://www.gnome.org} documentations). Le canvas gnome fournis un widget de haut niveau qui libére le programmeur de la manipulation des bitmaps lors de la réalisation d'application graphiques. Dans l'implémentation actuelle, il n'est pas possible d'utiliser un autre ensemble de widget. 
-
-Certaines activité de gcompris sont conçues pour accepter de recevoir leurs jeux de données à partir d'un fichier XML. Dans ce cas, ces activités peuvent être réutilisé  à condition de comprendre le format de leurs données. Pour rendre cette opération plus simple, et permettre à des non programmeurs d'utiliser ces fonctionnalités, gcompris fournira un éditeur d'activité.
-Il faut noter que l'activité 'shape' utilisé pour les tableaux de maitre par exemple sait déjà lire et écrire ses données au format XML.
-
-@section Comment ajouter vos activités dans gcompris
+@section Comment ajouter vos activités dans GCompris
 
 @subsection Vue d'ensemble
 
@@ -202,7 +188,7 @@ Il faut noter que l'activité 'shape' utilisé pour les tableaux de maitre par exe
 
 @subsection GCompris API
 
-GCompris fournis différents services aux développeurs d'activités.
+GCompris fournit différents services aux développeurs d'activités.
 Ces services sont décrits dans le fichier gcompris/gcompris.h
 
 @itemize @bullet
@@ -210,42 +196,22 @@ Ces services sont décrits dans le fichier gcompris/gcompris.h
 @item
 @code{GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);}
 
-Set the background image for your game. You can get help from gameutil.h
-to load the image.
+Définit l'image de fond de votre jeu. Vous pouvez trouver de l'aide dans gameutil.h pour charger l'image.
 
 @item
 @code{void gcompris_bar_set_level (GcomprisGame *gcomprisGame);}
 
-The user did fine and has to go to the next level. 
-Before calling it, @code{gcomprisGame->level} must be updated by the
-board.
+L'utilisateur a réussi et doit faire le niveau suivant. Avant de l'appeler, @code{gcomprisGame->level} doit être mis à jour par l'activité.
 
 @item
 @code{void gcompris_bar_set_timer (guint time);}
 
-The timer is a progress bar that is usually used to inform the user
-of were he/she is in the board. This value must be in the range
-0 to 'maxtimer' given with @code{bar_set_maxtimer()}
+Le 'timer' est une barre de progression qui est normalement utilisée pour informer l'utilisateur de sa progression dans l'activité. Cette valeur doit être comprise entre 0 et 'maxtimer' donnée par @code{bar_set_maxtimer()}
 
 @item
 @code{void bar_set_maxtimer (guint time);}
 
-Set the max value of the progress bar.
-
-So when you create a board, you must include gcompris/plugin.h to have
-access to those methods (this is already included in gcompris/gcompris.h).
-
-plugin.h also define the BoardPlugin structure. It is the heart
-of GCompris. Each board creates its own BoardPlugin and give it back to
-Gcompris when called in the get_bplugin_info() entry point:
-
-@code{BoardPlugin* *get_bplugin_info ();}
-
-The BoardPlugin returned structure must contains callbacks to your 
-implementation methods.
-
-The BoardPlugin structure must provide callbaks to at
-least:
+Établit la valeur maximale de la barre de progression. Ainsi, quand vous créez une activité, vous devez y inclure gcompris/plugin.h pour avoir accès à ces méthodes (déjà inclus dans gcompris/gcompris.h). plugin.h défini également la structure 'BoardPlugin'. C'est le noyau de GCompris. Chaque activité crée son propre 'BoardPlugin' et le renvoie à GCompris quand il est appelé par le point d'entrée get_bplugin_info() @code{BoardPlugin* *get_bplugin_info ();} La structure 'BoardPlugin' renvoyée doit contenir des 'callbacks' vers vos méthodes d'implémentation. La structure 'BoardPlugin' doit fournir des 'callbacks' vers, au moins :
 
 @end itemize
 
@@ -254,107 +220,87 @@ least:
 @item
 @code{void *GcomprisStartBoard     (GcomprisBoard *gcomprisBoard);}
 
-This is called by GCompris when this board has been requested by the user
+est appelé par GCompris quand cette activité a été demandée par l'utilisateur.
 
 @item
 @code{void *GcomprisEndBoard      (void);}
 
-This is called by GCompris when the user clicked 'end' in the control bar.
+est appelé par GCompris quand l'utilisateur a cliqué sur 'Fin' dans la barre de contrôlé.
 
 @end itemize
 
-Optionnaly, a GComprisGame structure can contains callbacks to:
+Éventuellement, la structure d'une activité GCompris peut contenir des 'callbacks' vers :
 
 @itemize @bullet
 
 @item
 @code{gint *GcomprisKeyPress     (guint keyval);}
 
-If the board wants to receive user keypress, it must provide this
-callback method. The keyval is not filtered and is returned as
-Gnome return it. Check the Gnome documentation to understand how
-to manipulate it.
+Si l'activité a besoin que l'utilisateur appuie sur des touches, elle doit fournir une méthode de 'callback'. 'keyval' (la valeur des touches ?) n'est pas filtrée et est renvoyée telle que Gnome le fait. Consulter la documentation Gnome pour comprendre comment la manipuler.
 
 @item
 @code{void *GcomprisOK           (void);}
 
-This method is called when the user click the 'OK' button in the control
-bar. It is a good practice to make the enter and return key behaves
-as the 'ok' button, but it may not be always appropriate. For this reason,
-it is the responsibility of the board implementation to do it.
+Cette méthode est appelée quand l'utilisateur clique sur le bouton 'OK' dans la barre de contrôlé. C'est une pratique censée que d'aligner le comportement des touches ENTRÉE et RETURN sur celui du bouton 'OK', mais cela ne conviendra peut-être pas à toutes les situations. Pour cette raison, la responsabilité en est laissée à l'implémentation de l'activité.
 
 @item
 @code{void *GcomprisSetLevel     (guint level);}
 
-This is called with the level requested by the user.
-You provide the maximum number of level you support in @code{gcomprisGame->maxlevel}.
- Gcompris will take care to call it only with a valid level value.
+Est appelé avec le niveau demandé par l'utilisateur. Fournir le nombre maximal de niveaux que vous proposez dans @code{gcomprisGame->maxlevel}.
+ GCompris veillera à l'appeler uniquement avec une valeur correcte.
 
 @end itemize
 
-@subsection Example of duplicating an existing board to create your own
+@subsection Exemple de duplication d'une activité existante pour créer la vôtre
 
-This describes all the steps required to add a new board to GCompris.
+Ce qui suit décrit toutes les étapes nécessaires à l'adjonction de nouvelles activités à GCompris.
 
-As an example, I describe here how I created the clock game.
+Je décris ici, à titre d'exemple, comment j'ai créé le jeu d'apprentissage de l'heure.
 
 @enumerate
 @item
-Copy an existing game (closest to your new board).
+Copier une activité existante (la plus proche de votre nouvelle activité).
 @code{cp algebra.c clockgame.c}
 
 @item
-Edit src/boards/Makefile.am and add the file to the list of lib_LTLIBRARIES
-Then add at the end the entries for libclockgame_la_LDFLAGS, 
-libclockgame_la_LIBADD and libclockgame_la_SOURCES. Look at examples in src/boards/Makefile.am
-to see how to do that.
+Éditer src/boards/Makefile.am et ajouter le fichier à la liste des librairies LTLIBRARIES, puis ajouter à la fin les entrées pour libclockgame_la_LDFLAGS, libclockgame_la_LIBADD et libclockgame_la_SOURCES. Vous pouvez consulter les exemples dans src/boards/Makefile.am afin de voir comment procéder.
 
 @item
-In clockgame.c replace all 'algebra' by 'clockgame'
+Dans clockgame.c, remplacer les occurrences 'algebra' par 'clockgame'.
 
 @item
-In clockgame.c set the proper information for the new game:
+Dans clockgame.c, indiquer les informations correctes pour le nouveau jeu : 
 
 @code{if(g_strcasecmp(gcomprisBoard->type, "clockgame")==0)}
 
-  You must then create or copy the board description to the proper location
+   vous devez alors créer ou copier la description de l'activité au bon endroit :
 
 @code{cp boards/algebra.xml boards/clockgame.xml}
 
-  Then edit clockgame.xml with a proper description and icon.
-  Set the icon file at the location given in clockgame.xml.
+  puis éditer clockgame.xml afin d'y insérer les informations correctes concernant la description de l'activité et son icône. Enregistrer le fichier de l'icône à l'endroit indiqué par clockgame.xml.
 
 @item
-In boards/Makefile.am add your file in the list. Respect the alphanumeric order.
-Same step in po/POTFILES.in
+Dans boards/Makefile.am ajouter votre fichier à la liste en respectant l'ordre alphanumérique. Faire de même dans po/POTFILES.in
 
 @item
-make should compile everything fine.
+make devrait compiler le tout sans problème.
 
 @item
-make install is mandatory or the icon won't be find at runtime.
+Il est indispensable de faire un make install, ou l'icône ne sera pas trouvée lors de l'exécution du programme.
 
 @item
-Now running gcompris should show up the new icon and you should be able
-to play the game you did copy. Now it's time to code the board
-in clockgame.c
+Au lancement de GCompris, vous devriez voir la nouvelle icône et pouvoir jouer au jeu que vous avez copié. Vous pouvez maintenant coder l'activité dans clockgame.c
 
 @item
-Update the po files:
-
+Mettre à jour le fichier po : 
 @code{cd gcompris/po}
-
-@code{edit POTFILES.in and add src/clockgame.c)}
-
-@code{make}
-
-@code{make update-po}
+Éditer POTFILES.in et ajouter src/clockgame.c)
 
 @item
-Now you can add the translation in the po files.
+Ajouter maintenant la traduction dans les fichers po.
       
 @item
-'make' and then 'make install' will compile and install your translation.
+'make' puis 'make install' compileront et installeront votre traduction.
 
 @end enumerate
 
