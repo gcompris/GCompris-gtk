@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2003/08/27 16:01:31 bcoudoin>
+ * Time-stamp: <2003/12/11 00:43:30 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -332,6 +332,24 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
 
 
 
+/* gcompris_bar_set_repeat_icon
+ *
+ * Override the repeat icon to a new one specific to your current board.
+ * This must be called before calling gcompris_bar_set with GCOMPRIS_BAR_REPEAT_ICON
+ * the given pixmap is freed.
+ *
+ * Next call to gcompris_bar_set with GCOMPRIS_BAR_REPEAT will restore the default icon.
+ *
+ */
+void
+gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap)
+{
+  gnome_canvas_item_set (repeat_item,
+			 "pixbuf", pixmap,
+			 NULL);
+  gdk_pixbuf_unref(pixmap);
+}
+
 /* Setting list of available icons in the control bar */
 void
 gcompris_bar_set (const GComprisBarFlags flags)
@@ -356,10 +374,24 @@ gcompris_bar_set (const GComprisBarFlags flags)
   else
     gnome_canvas_item_hide(help_item);
 
-  if(flags&GCOMPRIS_BAR_REPEAT)
+  if(flags&GCOMPRIS_BAR_REPEAT) {
+    GdkPixbuf *pixmap;
+
+    /* Set the repeat icon to the original one */
+    pixmap = gcompris_load_skin_pixmap("repeat.png");
+    gnome_canvas_item_set (repeat_item,
+			   "pixbuf", pixmap,
+			   NULL);
+    gdk_pixbuf_unref(pixmap);
+
     gnome_canvas_item_show(repeat_item);
-  else
-    gnome_canvas_item_hide(repeat_item);
+  } else {
+
+    if(flags&GCOMPRIS_BAR_REPEAT_ICON)
+      gnome_canvas_item_show(repeat_item);
+    else
+      gnome_canvas_item_hide(repeat_item);
+  }
 
   if(flags&GCOMPRIS_BAR_CONFIG)
     gnome_canvas_item_show(config_item);

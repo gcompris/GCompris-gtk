@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/12/09 02:22:32 bcoudoin>
+ * Time-stamp: <2003/12/11 01:10:35 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -329,6 +329,8 @@ void gcompris_properties_disable_board(gchar *boardName)
 
 /*
  * Return TRUE if boardName is available, FALSE otherwise
+ *
+ */
 gboolean gcompris_properties_get_board_status(gchar *boardName)
 {
   guint result;

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2003/12/06 04:50:51 bcoudoin>
+ * Time-stamp: <2003/12/10 23:51:30 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -68,15 +68,17 @@ void		 gcompris_bar_start (GnomeCanvas *theCanvas);
 
 GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);
 void		 gcompris_bar_set_level (GcomprisBoard *gcomprisBoard);
+void		 gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap);
 
 /* Status bar control */
 typedef enum
 {
-  GCOMPRIS_BAR_LEVEL	= 1 << 0,
-  GCOMPRIS_BAR_OK	= 1 << 1,
-  GCOMPRIS_BAR_REPEAT	= 1 << 2,
-  GCOMPRIS_BAR_CONFIG	= 1 << 3,
-  GCOMPRIS_BAR_ABOUT	= 1 << 4,
+  GCOMPRIS_BAR_LEVEL	   = 1 << 0,
+  GCOMPRIS_BAR_OK	   = 1 << 1,
+  GCOMPRIS_BAR_REPEAT	   = 1 << 2,
+  GCOMPRIS_BAR_CONFIG	   = 1 << 3,
+  GCOMPRIS_BAR_ABOUT	   = 1 << 4,
+  GCOMPRIS_BAR_REPEAT_ICON = 1 << 5,
 } GComprisBarFlags;
 
 void		 gcompris_bar_set (const GComprisBarFlags flags);

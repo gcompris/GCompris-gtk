@@ -1,3 +1,11 @@
+2003-12-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/bar.c: (gcompris_bar_set_repeat_icon),
+	(gcompris_bar_set): implemented the possibility to specify a repeat icon (not tested)
+	* src/gcompris/gcompris.h:  implemented the possibility to specify a repeat icon
+	* src/gcompris/properties.c: fixed comment that was hiding a func
+	* src/gcompris/soundutil.h: added stdio.h
+
 2003-12-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/redraw.xml.in: added documentation

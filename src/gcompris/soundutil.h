@@ -21,6 +21,7 @@
 #ifndef SOUNDUTIL_H
 #define SOUNDUTIL_H
 
+#include <stdio.h>
 #include "gcompris.h"
 #include "sys/wait.h"
 
