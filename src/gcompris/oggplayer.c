@@ -96,7 +96,7 @@ int decode_ogg_file(char *infile)
     driver_id = ao_driver_id(properties->audio_output);
 
   if ( driver_id < 0 ){
-     fprintf(stderr, "Error unable to find a usable audio output device (%d)\nTry gcompris -A to select an alternative audio output", driver_id);
+     fprintf(stderr, "Error unable to find a usable audio output device (%d)\nTry 'gcompris -A' to select an alternative audio output\nUse '-A list' to display the list of available device", driver_id);
      /* Disable sounds in gcompris */
      properties->music = FALSE;
      properties->fx = FALSE;
@@ -145,6 +145,33 @@ int decode_ogg_file(char *infile)
   ao_close(audio_device);
   return 0;
 }
+
+/*
+ * Display the list of possible output device
+ * as returned by libao
+ *
+ */
+void display_ao_devices() {
+
+  /* Display the list of available audio plugins for libao */
+  int driver_count, i;
+  ao_info **devices;
+
+  ao_initialize();
+
+  devices = ao_driver_info_list(&driver_count);
+  
+  
+  printf(_("Possible audio output devices are:\ndefault "));
+  for(i = 0; i < driver_count; i++) {
+    if (devices[i]->type == AO_TYPE_LIVE)
+      printf("%s", devices[i]->short_name);
+    printf (" ");
+  }
+  printf("\n");
+
+}
+
 
 /*
  * This does the erase of the credits

@@ -48,5 +48,6 @@ void	 initSound(void);
 pid_t	 exec_play(char *);
 
 int	 decode_ogg_file(char *infile);
+void	 display_ao_devices();
 
 #endif

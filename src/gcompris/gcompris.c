@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/11/03 16:20:31 bcoudoin>
+ * Time-stamp: <2003/11/08 01:34:39 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -76,7 +76,7 @@ static struct poptOption options[] = {
   {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
    N_("display only activities with this difficulty level."), NULL},
   {"audio", 'A', POPT_ARG_STRING, &popt_audio_output, 0,
-   N_("select the audio output, one of 'default alsa09 arts esd oss'"), NULL},
+   N_("select the audio output. Use '-A list' to get the list of available audio output"), NULL},
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
    N_("Prints the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
@@ -501,7 +501,12 @@ void gcompris_set_locale(gchar *locale)
 {
 
   gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
-  printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
+
+  if(gcompris_locale!=NULL && strcmp(locale, gcompris_locale))
+    g_warning("Requested locale %s got %s", locale, gcompris_locale);
+
+  if(gcompris_locale==NULL)
+    g_warning("Failed to set requested locale %s got %s", locale, gcompris_locale);
 
   /* Override the env locale to what the user requested */
   setenv ("LC_ALL", gcompris_get_locale(), TRUE);
@@ -621,12 +626,18 @@ gcompris_init (int argc, char *argv[])
 
   if (popt_audio_output && args == NULL)
     {
-      g_warning("Selected audio output %s", popt_audio_output);
-      if(!strcmp(popt_audio_output, "default"))
-	properties->audio_output = "";
-      else
-	properties->audio_output = popt_audio_output;
+      if(!strcmp(popt_audio_output, "list")) {
+	
+	display_ao_devices();
+	exit(0);
 
+      } else {
+	g_warning("Selected audio output %s", popt_audio_output);
+	if(!strcmp(popt_audio_output, "default"))
+	  properties->audio_output = "";
+	else
+	  properties->audio_output = popt_audio_output;
+      }
     }
 
   poptFreeContext(pctx); 
