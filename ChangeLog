@@ -1,3 +1,10 @@
+2003-06-27  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in : changed to release 3.2
+	* src/boards/chess.c: (chess_create_item): fixed bug with gnuchess above 5.05 and 5.06
+	  with these gnuchess, gcompris was not able to play chess. Simon Waters 
+	  <Simon@wretched.demon.co.uk> who maintains gnuchess tell me it should be fixed in 5.07
+
 2003-06-18  Guntupalli Karunakar  <karunakar@freedomink.org>
 
 	* configure.in: Added "ml" in ALL_LINGUAS.
@@ -9,7 +16,7 @@
 
 2003-06-09  Bruno Coudoin  <bruno.coudoin@free.fr>
 
-	* TODO: Added Dynamic screen/skin resolution change
+	* TODO: Added Dynamic screen/skin resolution change as todo
 	* src/gcompris/oggplayer.c: (decode_ogg_file), (erase_credits),
 	(display_ogg_file_credits): added way to display credit info from ogg
 	* src/gcompris/soundutil.c: (initSound), (scheduler_bgnd),

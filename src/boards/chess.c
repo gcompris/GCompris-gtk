@@ -395,7 +395,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   gshort rank;
   gboolean white_side = TRUE;
   guint empty_case = 0;
-
+  gboolean need_slash = TRUE;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -430,12 +430,13 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
     }
   }
 
-  /* Enter the gnuchessx edit mode */
+  /* Enter the gnuchess edit mode */
   write_child (write_chan, "force\n");
   write_child (write_chan, "new\n");
   write_child (write_chan, "setboard ");
 
   empty_case = 0;
+  need_slash = FALSE;
 
   /* Display the pieces */
   for (rank = 8; rank >= 1; rank--) { 
@@ -459,9 +460,16 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	temp = san;
 	square_to_ascii (&temp, square);
 	//	printf ( "%c%s\n", piece_to_ascii(piece), san);
+
+	if(need_slash)
+	  {
+	    write_child (write_chan, "/");
+	    need_slash = FALSE;
+	  }
+
 	if(piece!=NONE)
 	  {
-	    
+
 	    if(white_side && BPIECE(piece) ||
 	       !white_side && WPIECE(piece)) 
 	      {
@@ -487,7 +495,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 
 	    empty_case=0;
 
-	    write_child (write_chan, "/");
+	    need_slash = TRUE;
 	  }
 
   	temp = san;
@@ -525,7 +533,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   }
 
   /* Quit the gnuchessx edit mode */
-  write_child (write_chan, " w KQkq - 0 1\n");
+  write_child (write_chan, " w KQkq\n");
 
   display_white_turn(TRUE);
 
