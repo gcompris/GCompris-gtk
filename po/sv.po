@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-11-15 13:54+0100\n"
-"PO-Revision-Date: 2001-11-15 14:03+0100\n"
+"POT-Creation-Date: 2001-11-17 14:58+0100\n"
+"PO-Revision-Date: 2001-11-17 14:59+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,11 +22,11 @@ msgstr "Jag ställer några algebrafrågor"
 
 #: boards/algebra_by.xml.in.h:2
 msgid "Pratice the multiplication operation"
-msgstr ""
+msgstr "Träna på multiplikation"
 
 #: boards/algebra_div.xml.in.h:2
 msgid "Pratice the division operation"
-msgstr ""
+msgstr "Träna på division"
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
@@ -39,11 +39,11 @@ msgstr "Vänsterklicka med musen för att välja ett bräde"
 
 #: boards/algebra_minus.xml.in.h:2
 msgid "Pratice the substraction operation"
-msgstr ""
+msgstr "Träna på subtraktion"
 
 #: boards/algebra_plus.xml.in.h:2
 msgid "Pratice the addition operation"
-msgstr ""
+msgstr "Träna på addition"
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
@@ -136,7 +136,7 @@ msgstr "Dra och släpp föremålen över deras namn"
 
 #: boards/imagename.xml.in.h:2
 msgid "Image Name"
-msgstr ""
+msgstr "Bildnamn"
 
 #: boards/locale.xml.in.h:1 src/boards/locale.c:51
 msgid "Select the language for the messages in GCompris"
@@ -200,11 +200,11 @@ msgstr "GCompris-huvudmeny"
 
 #: boards/missing_letter.xml.in.h:1
 msgid "Fill up the missing letter"
-msgstr ""
+msgstr "Fyll i den saknade bokstaven"
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Missing Letter"
-msgstr ""
+msgstr "Saknad bokstav"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -267,9 +267,8 @@ msgid "Numbers With Dices"
 msgstr "Tal med tärningar"
 
 #: boards/smallnumbers.xml.in.h:2
-msgid "Type the keyboard number 1 to 6 before the dices reach the ground"
-msgstr ""
-"Skriv in siffran (1 till 6) på tangentbordet innan tärningarna når marken"
+msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
+msgstr "Skriv in tangentbordssiffran 1 till 6 innan tärningarna når marken"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
 msgid "Falling Words"
@@ -458,6 +457,18 @@ msgstr "En OFSET-utveckling"
 #: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Vill du verkligen avsluta GCompris?"
+
+#~ msgid "Practice the multiplication operation"
+#~ msgstr "Träna på multiplikation"
+
+#~ msgid "Practice the division operation"
+#~ msgstr "Träna på division"
+
+#~ msgid "Practice the substraction operation"
+#~ msgstr "Träna på subtraktion"
+
+#~ msgid "Practice the addition operation"
+#~ msgstr "Träna på addition"
 
 #~ msgid "Simple Algebra"
 #~ msgstr "Grundläggande algebra"
