@@ -88,6 +88,22 @@ class Gcompris_ballcatch:
     mat = ( -1, 0, 0, 1, 2*cx, 0)
     item.affine_relative(mat)
     
+    # The Left Shift KEY
+    self.leftkey = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("images/shift_key.png"),
+      x=gcompris.BOARD_WIDTH/2-240.0,
+      y=gcompris.BOARD_HEIGHT - 80
+      )
+
+    # The Right Shift KEY
+    self.rightkey = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("images/shift_key.png"),
+      x=gcompris.BOARD_WIDTH/2+100.0,
+      y=gcompris.BOARD_HEIGHT - 80
+      )
+
     # The basic tick for object moves
     self.timerinc = 1000
     
