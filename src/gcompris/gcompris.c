@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/05/31 07:26:45 bcoudoin>
+ * Time-stamp: <2004/06/01 01:19:55 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -195,16 +195,18 @@ GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)
   background_pixmap = gcompris_load_pixmap (file);
 
   if(backgroundimg)
-    gtk_object_destroy (GTK_OBJECT(backgroundimg));
-
-  backgroundimg=gnome_canvas_item_new (parent,
-				       gnome_canvas_pixbuf_get_type (),
-				       "pixbuf", background_pixmap, 
-				       "x", 0.0,
-				       "y", 0.0,
-				       "width", (double) BOARDWIDTH,
-				       "height", (double) BOARDHEIGHT,
-				       NULL);
+      gnome_canvas_item_set (backgroundimg,
+			     "pixbuf", background_pixmap,
+			     NULL);
+  else
+    backgroundimg=gnome_canvas_item_new (parent,
+					 gnome_canvas_pixbuf_get_type (),
+					 "pixbuf", background_pixmap, 
+					 "x", 0.0,
+					 "y", 0.0,
+					 "width", (double) BOARDWIDTH,
+					 "height", (double) BOARDHEIGHT,
+					 NULL);
   gnome_canvas_item_lower_to_bottom(backgroundimg);
 
   gdk_pixbuf_unref(background_pixmap);

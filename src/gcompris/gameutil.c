@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/05/31 06:35:33 bcoudoin>
+ * Time-stamp: <2004/06/01 01:08:19 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -206,6 +206,17 @@ make_hc_pixbuf(GdkPixbuf *pb, gint val)
   return new;
 }
 
+/**
+ * Free the highlight image from our image_focus system
+ */
+static void
+free_image_focus (GnomeCanvasItem *item, void *none)
+{
+  GdkPixbuf *pixbuf;
+
+  pixbuf = (GdkPixbuf *)g_object_get_data (G_OBJECT (item), "pixbuf_ref");
+  gdk_pixbuf_unref(pixbuf);
+}
 
 /**
  * Set the focus of the given image (highlight or not)
@@ -226,6 +237,10 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
     {
       g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixbuf);
       pixbuf_ref = pixbuf;
+      g_signal_connect (item, "destroy",
+ 			G_CALLBACK (free_image_focus),
+ 			NULL);
+
     }
   
 

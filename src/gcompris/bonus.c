@@ -227,7 +227,7 @@ void bonus_image(char *image, int gamewon)
 
   /* check that bonus_item is a singleton */
   if (bonus_item != NULL) {
-  	bonus_display_running = FALSE;
+    bonus_display_running = FALSE;
     return;
   }
 
@@ -281,7 +281,7 @@ void end_bonus()
     gtk_object_destroy (GTK_OBJECT(bonus_item));
 
   bonus_item = NULL;
-	bonus_display_running = FALSE;
+  bonus_display_running = FALSE;
 
   gcompris_bar_hide(FALSE);
 

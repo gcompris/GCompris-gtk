@@ -1,5 +1,14 @@
 2004-06-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/click_on_letter.c: (end_board),
+	(click_on_letter_create_item): removed useless phone item
+	* src/gcompris/bonus.c: (bonus_image), (end_bonus): indenting
+	* src/gcompris/gameutil.c: (free_image_focus),
+	(gcompris_set_image_focus): fixed major memory leak in the focus system
+	* src/gcompris/gcompris.c: (gcompris_set_background): reuse the background item
+
+2004-06-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/menu.c: (menu_start), (menu_end),
 	(display_board_icon), (menu_create_item), (item_event),
 	(create_info_area), (free_stuff): Major changes to avoid memory leaks. Despite my efforts

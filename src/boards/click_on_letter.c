@@ -51,7 +51,6 @@ static void		 repeat(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem *phone_note_item = NULL;
 static GnomeCanvasItem *l1_item = NULL, *l2_item = NULL, *l3_item = NULL, *l4_item = NULL;
 static GnomeCanvasItem *button1 = NULL, *button2 = NULL, *button3 = NULL, *button4 = NULL, *selected_button = NULL;
 
@@ -155,7 +154,7 @@ static void end_board ()
       gcompris_score_end();
       click_on_letter_destroy_all_items();
     }
-    gcomprisBoard = NULL;
+  gcomprisBoard = NULL;
 }
 
 /* ======================================= */
@@ -409,8 +408,8 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   for (i=0; i<numberOfLetters; i++) {
 	g_free(str[i]);
   }
-
   gdk_pixbuf_unref(button_pixmap);
+
 
   gtk_signal_connect(GTK_OBJECT(l1_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(1));
   gtk_signal_connect(GTK_OBJECT(l2_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(2));
@@ -434,7 +433,6 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(phone_note_item), "event",  (GtkSignalFunc) phone_event, NULL);
   return NULL;
 }
 /* ==================================== */
