@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-15 10:56+0200\n"
-"PO-Revision-Date: 2004-08-15 11:01+0200\n"
+"POT-Creation-Date: 2004-08-24 19:59+0200\n"
+"PO-Revision-Date: 2004-08-24 19:59+0200\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1014,7 +1014,9 @@ msgstr "Concepto tomado de EPI games."
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
-msgstr "Arrastre y suelte las piezas superiores sólo de una clavija a otra, para reproducir la torre de la derecha en el espacio vacío de la izquierda."
+msgstr ""
+"Arrastre y suelte las piezas superiores sólo de una clavija a otra, para "
+"reproducir la torre de la derecha en el espacio vacío de la izquierda."
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
@@ -1711,7 +1713,9 @@ msgstr "Dirige al paracaidista para que aterrice con seguridad"
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
-msgstr "Pulse una tecla o pulse en el avión para que Tux salte. Pulse otra tecla o pulse en Tux para abrir el paracaídas."
+msgstr ""
+"Pulse una tecla o pulse en el avión para que Tux salte. Pulse otra tecla o "
+"pulse en Tux para abrir el paracaídas."
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
@@ -1865,7 +1869,10 @@ msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on left. Indicate whether or not the given word appeared in "
 "the list."
-msgstr "Una palabra se muestra en la parte superior derecha del tablero. Una lista de palabras aparecerán y desaparecerán a la izquierda. Indica si la palabra dada apareció en la lista."
+msgstr ""
+"Una palabra se muestra en la parte superior derecha del tablero. Una lista "
+"de palabras aparecerán y desaparecerán a la izquierda. Indica si la palabra "
+"dada apareció en la lista."
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -1916,7 +1923,9 @@ msgstr "Redibujar el ememento dado"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr "Copia la imagen reflejada de un objeto desde la caja de la derecha a la caja de la izquierda."
+msgstr ""
+"Copia la imagen reflejada de un objeto desde la caja de la derecha a la caja "
+"de la izquierda."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2157,7 +2166,7 @@ msgstr "Suite educativa gcompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
-#: src/gcompris/gcompris.c:406 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2789,15 +2798,15 @@ msgstr "No se encontró ninguna piel en %s\n"
 msgid "Skin : %s"
 msgstr "Piel : %s"
 
-#: src/gcompris/file_selector.c:239
+#: src/gcompris/file_selector.c:235
 msgid "CANCEL"
 msgstr "CANCELAR"
 
-#: src/gcompris/file_selector.c:270
+#: src/gcompris/file_selector.c:266
 msgid "LOAD"
 msgstr "CARGAR"
 
-#: src/gcompris/file_selector.c:270
+#: src/gcompris/file_selector.c:266
 msgid "SAVE"
 msgstr "GUARDAR"
 
@@ -2817,39 +2826,43 @@ msgstr ""
 "Salga e infórmenos\n"
 "del problema"
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:82
 msgid "run gcompris in fullscreen mode."
 msgstr "ejecutar gcompris a pantalla completa"
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:84
 msgid "run gcompris in window mode."
 msgstr "ejecutar gcompris en una ventana"
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:86
 msgid "run gcompris with sound enabled."
 msgstr "ejecutar gcompris con el sonido habilitado."
 
-#: src/gcompris/gcompris.c:86
+#: src/gcompris/gcompris.c:88
 msgid "run gcompris without sound."
 msgstr "ejecutar gcompris sin sonido."
 
-#: src/gcompris/gcompris.c:88
+#: src/gcompris/gcompris.c:90
 msgid "run gcompris with the default gnome cursor."
 msgstr "ejecutar gcompris con el cursor predeterminado de GNOME."
 
-#: src/gcompris/gcompris.c:90
+#: src/gcompris/gcompris.c:92
 msgid "display only activities with this difficulty level."
 msgstr "mostrar sólo actividades con este nivel de dificultad."
 
-#: src/gcompris/gcompris.c:92
+#: src/gcompris/gcompris.c:94
+msgid "display debug informations on the console."
+msgstr "mostrar información de depuración en la consola."
+
+#: src/gcompris/gcompris.c:96
 msgid "Print the version of "
 msgstr "Imprime la versión de "
 
-#: src/gcompris/gcompris.c:94
+#: src/gcompris/gcompris.c:98
 msgid "Use the antialiased canvas (slower)."
 msgstr "Usar el lienzo suavizado (mas lento)."
 
-#: src/gcompris/gcompris.c:518
+#: src/gcompris/gcompris.c:522
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -2871,7 +2884,7 @@ msgstr ""
 "considere usar GNU/Linux. Obtenga más información acerca de esto en\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:701
+#: src/gcompris/gcompris.c:717
 #, c-format
 msgid ""
 "GCompris\n"
