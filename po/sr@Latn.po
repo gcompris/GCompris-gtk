@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-22 03:23+0200\n"
-"PO-Revision-Date: 2003-10-22 05:51+0200\n"
+"POT-Creation-Date: 2003-10-23 19:30+0200\n"
+"PO-Revision-Date: 2003-10-24 00:50+0200\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -774,11 +774,11 @@ msgstr "Uredi stavke za što lakše brojanje"
 msgid "Motor coordination"
 msgstr "Upravljanje pokretima"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:66 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Pomerajte miša"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:67
+#: boards/erase.xml.in.h:5 src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Pomerajte miša da obrišete površinu i ugledate pozadinu"
 
@@ -1892,7 +1892,10 @@ msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
 "cleanup station in order to reactivate the whole water system. When done and "
 "Tux is in his shower, push the shower button for him."
-msgstr "Kliknite na razne aktivne elemente: sunce, oblak, pumpu za vodu, stanicu za prečišćavanje vode da biste pokrenuli čitav sistem za vodu. Kada završite i kada se Pingoslav tušira, pritisnite dugme za tuš umesto njega."
+msgstr ""
+"Kliknite na razne aktivne elemente: sunce, oblak, pumpu za vodu, stanicu za "
+"prečišćavanje vode da biste pokrenuli čitav sistem za vodu. Kada završite i "
+"kada se Pingoslav tušira, pritisnite dugme za tuš umesto njega."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
@@ -1902,7 +1905,9 @@ msgstr "Upoznajte preradu vode"
 msgid ""
 "You have to bring back the water system up. Tux comes from a long fishing "
 "party on his boat. Help him to have a shower."
-msgstr "Treba da osposobite sistem za vodu. Pingoslav se vraća sa duge pecaroške zabave na svom brodu. Pomozite mu da se istušira."
+msgstr ""
+"Treba da osposobite sistem za vodu. Pingoslav se vraća sa duge pecaroške "
+"zabave na svom brodu. Pomozite mu da se istušira."
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -2222,7 +2227,7 @@ msgstr ""
 msgid "Help"
 msgstr "Pomoć"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:178 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "U redu"
@@ -2336,102 +2341,110 @@ msgid "Slovak"
 msgstr "slovački"
 
 #: src/gcompris/config.c:79
+msgid "Slovenian"
+msgstr "slovenački"
+
+#: src/gcompris/config.c:80
 msgid "Serbian (Latin)"
 msgstr "srpski (latinica)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Serbian"
 msgstr "srpski"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Swedish"
 msgstr "švedski"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Turkish"
 msgstr "turski"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "No time limit"
 msgstr "Bez vremenskog ograničenja"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Slow timer"
 msgstr "Sporo teče vreme"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Normal timer"
 msgstr "Obično teče vreme"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Fast timer"
 msgstr "Brzo teče vreme"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (podrazumevano za gcompris-a)"
 
-#: src/gcompris/config.c:151
+#: src/gcompris/config.c:152
 msgid "GCompris Configuration"
 msgstr "Podešavanje GCompris-a"
 
-#: src/gcompris/config.c:257
+#: src/gcompris/config.c:258
 msgid "Fullscreen"
 msgstr "Ceo ekran"
 
-#: src/gcompris/config.c:300
+#: src/gcompris/config.c:301
 msgid "Music"
 msgstr "Muzika"
 
-#: src/gcompris/config.c:328
+#: src/gcompris/config.c:329
 msgid "Effect"
 msgstr "Efekat"
 
-#: src/gcompris/config.c:365
+#: src/gcompris/config.c:366
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nisam mogao da otvorim direktorijum sa maskama: %s"
 
-#: src/gcompris/config.c:399 src/gcompris/config.c:705
-#: src/gcompris/config.c:716
+#: src/gcompris/config.c:400 src/gcompris/config.c:706
+#: src/gcompris/config.c:717
 #, c-format
 msgid "Skin : %s"
 msgstr "Maska : %s"
 
-#: src/gcompris/gcompris.c:65
+#: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
 msgstr "Pokreni gcompris-a preko celog ekrana."
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in window mode."
 msgstr "Pokreni gkomprisa u prozoru."
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris with sound enabled."
 msgstr "Pokreni gkomprisa uz uključen zvuk."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris without sound."
 msgstr "Pokreni gkomprisa bez zvuka."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris with the default gnome cursor."
 msgstr "Pokreni gkomprisa uz podrazumevanog Gnomovog pokazivača."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:76
+msgid "display only activities with this difficulty level."
+msgstr "prikaži samo aktivnosti ove težine."
+
+#: src/gcompris/gcompris.c:78
 msgid "Prints the version of "
 msgstr "Ispiši izdanje za "
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:80
 msgid "Use the antialiased canvas (slower)."
 msgstr "Koristi ulepšan prikaz (sporije)."
 
 # bug: wha'???
-#: src/gcompris/gcompris.c:347
+#: src/gcompris/gcompris.c:350
 msgid "GCompris I Have Understood"
 msgstr "GKompris kog sam razumeo"
 
-#: src/gcompris/gcompris.c:561
+#: src/gcompris/gcompris.c:567
 #, c-format
 msgid ""
 "GCompris\n"
