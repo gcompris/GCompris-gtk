@@ -432,6 +432,13 @@ gchar * convertUTF8Toisolat1(gchar * text) {
   return text;
 }
 
+/* ======================================= */
+void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
+  double dx1, dy1, dx2, dy2;
+  gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
+  gnome_canvas_item_move(item, ((double)x)-dx1, ((double)y)-dy1);
+}
+
 /* Local Variables: */
 /* mode:c */
 /* eval:(load-library "time-stamp") */

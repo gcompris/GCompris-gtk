@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-02-28 22:00+0100\n"
+"POT-Creation-Date: 2002-03-06 21:16+0100\n"
 "PO-Revision-Date: 2002-01-14 00:07+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -155,11 +155,11 @@ msgstr "Lär klockan"
 msgid "Discover the Computer"
 msgstr "Upptäck datorn"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:153
+#: boards/draw.xml.in.h:1 src/boards/draw.c:168
 msgid "A simple vector drawing tool"
 msgstr "Ett enkelt vektorritverktyg"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:154
+#: boards/draw.xml.in.h:2 src/boards/draw.c:169
 msgid "Creative board where you can freely draw"
 msgstr "Kreativt bräde där du kan rita fritt"
 
@@ -647,7 +647,7 @@ msgstr "Skriv in hela de fallande orden innan de når marken"
 msgid "Educational game starting at 3 years old"
 msgstr "Lärorikt spel för barn från 3 år och uppåt"
 
-#: src/boards/algebra_guesscount.c:141 src/boards/algebra_guesscount.c:142
+#: src/boards/algebra_guesscount.c:140 src/boards/algebra_guesscount.c:141
 msgid "Guess operations"
 msgstr "Gissningsövningar"
 
@@ -678,7 +678,7 @@ msgid "Learn how to read"
 msgstr "Lär dig läsa"
 
 #: src/boards/imageid.c:570 src/boards/menu.c:502
-#: src/boards/missingletter.c:587 src/boards/shapegame.c:1310
+#: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -687,7 +687,7 @@ msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
 #: src/boards/imageid.c:573 src/boards/missingletter.c:590
-#: src/boards/shapegame.c:1313
+#: src/boards/shapegame.c:1309
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -746,11 +746,11 @@ msgstr "Nej, det fanns inte där"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
 
-#: src/boards/leftright.c:97
+#: src/boards/leftright.c:98
 msgid "Find your left and right hands"
 msgstr ""
 
-#: src/boards/leftright.c:98
+#: src/boards/leftright.c:99
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 
@@ -760,6 +760,14 @@ msgstr ""
 
 #: src/boards/leftright.c:252
 msgid "right"
+msgstr ""
+
+#: src/boards/colors.c:68
+msgid "Colors"
+msgstr ""
+
+#: src/boards/colors.c:69
+msgid "Click on the right color"
 msgstr ""
 
 #: src/gcompris/about.c:58

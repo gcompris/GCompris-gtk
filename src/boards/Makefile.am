@@ -19,7 +19,8 @@ lib_LTLIBRARIES = \
 	librailroad.la \
 	liberase.la \
 	libalgebra_guesscount.la \
-	libleftright.la
+	libleftright.la \
+	libcolors.la
 
 libdir = $(plugindir)
 INCLUDES = \
@@ -202,6 +203,14 @@ libleftright_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libleftright_la_SOURCES = leftright.c
+
+libcolors_la_LDFLAGS = -module -avoid-version
+libcolors_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libcolors_la_SOURCES = colors.c
 
 EXTRA_DIST = README
 

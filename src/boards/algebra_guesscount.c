@@ -129,7 +129,6 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-void item_absolute_move(GnomeCanvasItem *item, int x, int y);
 static int generate_numbers();
 static int token_result();
 
@@ -669,10 +668,4 @@ static void destroy_board() {
     gdk_pixbuf_unref(num_pixmap[i]);
   for (i=0; i<5; i++)
     gdk_pixbuf_unref(oper_pixmap[i]);
-}
-/* ======================================= */
-void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
-  double dx1, dy1, dx2, dy2;
-  gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
-  gnome_canvas_item_move(item, ((double)x)-dx1, ((double)y)-dy1);
 }
