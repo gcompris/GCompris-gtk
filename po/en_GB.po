@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:29-0400\n"
-"PO-Revision-Date: 2004-04-19 13:28-0400\n"
+"POT-Creation-Date: 2004-05-25 18:47-0400\n"
+"PO-Revision-Date: 2004-05-25 18:48-0400\n"
 "Last-Translator: Gareth Owen <gowen72@yahoo.comg>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -454,12 +454,11 @@ msgid "Find the next in a list of symbols."
 msgstr "Find the next in a list of symbols."
 
 #: boards/algorithm.xml.in.h:3 boards/hexagon.xml.in.h:2
-#: boards/minouche.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Logic training activity"
 
 #: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
-#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
+#: boards/melody.xml.in.h:4
 msgid "Move and click the mouse"
 msgstr "Move and click the mouse"
 
@@ -818,6 +817,10 @@ msgstr ""
 "Move the items on the left to their proper position in the double entry "
 "table."
 
+#: boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr "Click on an item and listen to its target position"
+
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
 msgstr "A simple vector drawing tool"
@@ -989,7 +992,7 @@ msgstr "Reproduce the tower on the right in the empty space on the left"
 msgid "Simplified Tower of Hanoi"
 msgstr "Simplified Tower of Hanoi"
 
-#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+#: boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
 msgstr "Find the strawberry by clicking on the blue fields"
 
@@ -1401,18 +1404,6 @@ msgid ""
 msgstr ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-
-#: boards/minouche.xml.in.h:4
-msgid ""
-"Try to find the strawberry under the blue fields. The closer you get, the "
-"more red the fields become."
-msgstr ""
-"Try to find the strawberry under the blue fields. The closer you get, the "
-"more red the fields become."
-
-#: boards/minouche.xml.in.h:5
-msgid "minouche"
-msgstr "minouche"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -2113,8 +2104,8 @@ msgstr "Educational suite gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:466 src/gcompris/gameutil.c:467
-#: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:475 src/gcompris/gameutil.c:476
+#: src/gcompris/gcompris.c:392 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2279,11 +2270,11 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
-#: src/boards/menu.c:79
+#: src/boards/menu.c:80
 msgid "Main Menu"
 msgstr "Main Menu"
 
-#: src/boards/menu.c:80
+#: src/boards/menu.c:81
 msgid "Select a Board"
 msgstr "Select a Board"
 
@@ -2600,7 +2591,7 @@ msgstr "Distance to target = %d metres"
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Fully type the falling words before they reach the ground"
 
-#: src/gcompris/about.c:60
+#: src/gcompris/about.c:65
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -2615,232 +2606,236 @@ msgstr ""
 "Background Music: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+#: src/gcompris/about.c:73 src/gcompris/interface.c:484
 msgid "translator_credits"
 msgstr ""
 "Abigail Brady <morwen@evilmagi_c.org>\n"
 "Bastien Nocera <hadess@hadess.net>\n"
 "Gareth Owen <gowen72@yahoo.com>"
 
-#: src/gcompris/about.c:100
+#: src/gcompris/about.c:105
 msgid "About GCompris"
 msgstr "About GCompris"
 
-#: src/gcompris/about.c:110
+#: src/gcompris/about.c:115
 msgid "Translators:"
 msgstr "Translators:"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:230
 msgid "GCompris Home Page"
 msgstr "GCompris Home Page"
 
-#: src/gcompris/about.c:247
+#: src/gcompris/about.c:252
 msgid ""
 "This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 
-#: src/gcompris/about.c:275
+#: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
+#: src/gcompris/about.c:316 src/gcompris/config.c:187 src/gcompris/help.c:367
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/board.c:41
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
+
+#: src/gcompris/config.c:57
 msgid "Your system default"
 msgstr "Your system default"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:58
 msgid "Amharic"
 msgstr "Amharic"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:59
 msgid "Arabic"
 msgstr "Arabic"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:60
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijani Turkic"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:61
 msgid "Catalan"
 msgstr "Catalan"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:62
 msgid "Czech"
 msgstr "Czech"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:63
 msgid "German"
 msgstr "German"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:64
 msgid "Greek"
 msgstr "Greek"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:65
 msgid "American English"
 msgstr "American English"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:66
 msgid "Great Britain English"
 msgstr "British English"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:67
 msgid "Canadian English"
 msgstr "Canadian English"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:68
 msgid "Spanish"
 msgstr "Spanish"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:69
 msgid "Finnish"
 msgstr "Finnish"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:70
 msgid "French"
 msgstr "French"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:71
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:72
 msgid "Indian"
 msgstr "Indian"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:73
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:74
 msgid "Croatian"
 msgstr "Croatian"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:75
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:77
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:78
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:79
 msgid "Malay"
 msgstr "Malay"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:80
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:81
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:82
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:83
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:84
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:85
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:86
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:87
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:88
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:89
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:90
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:91
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:92
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:97
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:98
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:99
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:100
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:105
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:156
+#: src/gcompris/config.c:161
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:265
+#: src/gcompris/config.c:270
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:308
+#: src/gcompris/config.c:313
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:336
+#: src/gcompris/config.c:341
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:375
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:391
+#: src/gcompris/config.c:396
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:406 src/gcompris/config.c:729
-#: src/gcompris/config.c:740
+#: src/gcompris/config.c:411 src/gcompris/config.c:746
+#: src/gcompris/config.c:757
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2861,47 +2856,51 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:77
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:79
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:81
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:83
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:81
-msgid ""
-"select the audio output. Use '-A list' to get the list of available audio "
-"outputs"
-msgstr ""
-"select the audio output. Use '-A list' to get the list of available audio "
-"outputs"
-
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:85
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:85
+#: src/gcompris/gcompris.c:87
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:621
+#: src/gcompris/gcompris.c:491
+msgid ""
+"This is a Demo version of gcompris,\n"
+"only 12 on 45 activities are available.\n"
+"To get the full version,\n"
+"go to http://ofset.sf.net/gcompris/order.html"
+msgstr ""
+"This is a Demo version of gcompris,\n"
+"only 12 on 45 activities are available.\n"
+"To get the full version,\n"
+"go to http://ofset.sf.net/gcompris/order.html"
+
+#: src/gcompris/gcompris.c:663
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2914,19 +2913,19 @@ msgstr ""
 "Licence: GPL\n"
 "More info at http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:174 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:208 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Goal"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:242 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:276 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Credit"
 
@@ -2962,7 +2961,7 @@ msgstr "Author"
 msgid "Directory"
 msgstr "Directory"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:272
+#: src/gcompris/interface.c:286
 msgid "Title"
 msgstr "Title"
 
@@ -2970,43 +2969,18 @@ msgstr "Title"
 msgid "Released under GPL"
 msgstr "Released under GPL"
 
-#: src/gcompris/oggplayer.c:97
-#, c-format
-msgid ""
-"Error unable to find a usable audio output device (%d)\n"
-"Try 'gcompris -A' to select an alternative audio output\n"
-"Use '-A list' to display the list of available devices"
-msgstr ""
-"Error unable to find a usable audio output device (%d)\n"
-"Try 'gcompris -A' to select an alternative audio output\n"
-"Use '-A list' to display the list of available devices"
+#. Prepare our log
+#. The default format for time represenation.  See strftime(3)
+#: src/gcompris/log.c:157
+msgid "%a %b %d %H:%M:%S %Z %Y"
+msgstr "%a %d %b %H:%M:%S %Z %Y"
 
-#: src/gcompris/oggplayer.c:117
-msgid "Error opening audio device\n"
-msgstr "Error opening audio device\n"
-
-#: src/gcompris/oggplayer.c:163
-msgid ""
-"Possible audio output devices are:\n"
-"default "
-msgstr ""
-"Possible audio output devices are:\n"
-"default "
-
-#: src/gcompris/oggplayer.c:235 src/gcompris/oggplayer.c:246
-msgid "Now Playing Music"
-msgstr "Now Playing Music"
-
-#: src/gcompris/oggplayer.c:276
-msgid "Artist"
-msgstr "Artist"
-
-#: src/gcompris/soundutil.c:118
+#: src/gcompris/soundutil.c:141
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Couldn't open music dir: %s"
 
-#: src/gcompris/soundutil.c:159
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -3028,6 +3002,48 @@ msgstr "Time Elapsed"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
+
+#~ msgid ""
+#~ "Try to find the strawberry under the blue fields. The closer you get, the "
+#~ "more red the fields become."
+#~ msgstr ""
+#~ "Try to find the strawberry under the blue fields. The closer you get, the "
+#~ "more red the fields become."
+
+#~ msgid "minouche"
+#~ msgstr "minouche"
+
+#~ msgid ""
+#~ "select the audio output. Use '-A list' to get the list of available audio "
+#~ "outputs"
+#~ msgstr ""
+#~ "select the audio output. Use '-A list' to get the list of available audio "
+#~ "outputs"
+
+#~ msgid ""
+#~ "Error unable to find a usable audio output device (%d)\n"
+#~ "Try 'gcompris -A' to select an alternative audio output\n"
+#~ "Use '-A list' to display the list of available devices"
+#~ msgstr ""
+#~ "Error unable to find a usable audio output device (%d)\n"
+#~ "Try 'gcompris -A' to select an alternative audio output\n"
+#~ "Use '-A list' to display the list of available devices"
+
+#~ msgid "Error opening audio device\n"
+#~ msgstr "Error opening audio device\n"
+
+#~ msgid ""
+#~ "Possible audio output devices are:\n"
+#~ "default "
+#~ msgstr ""
+#~ "Possible audio output devices are:\n"
+#~ "default "
+
+#~ msgid "Now Playing Music"
+#~ msgstr "Now Playing Music"
+
+#~ msgid "Artist"
+#~ msgstr "Artist"
 
 #~ msgid "Couldn't open pixmap dir: %s"
 #~ msgstr "Couldn't open pixmap dir: %s"
