@@ -371,9 +371,11 @@ class Gcompris_anim:
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
           gcompris.file_selector_save( self.gcomprisBoard, "anim", svg_save)
+          return gtk.TRUE
           
         elif (self.tools[tool][0] == "LOAD"):
           gcompris.file_selector_load( self.gcomprisBoard, "anim", svg_restore)
+          return gtk.TRUE
           
         elif (self.tools[tool][0] == "IMAGE"):
           self.pos_x = gcompris.BOARD_WIDTH/2
@@ -397,20 +399,8 @@ class Gcompris_anim:
               self.selected = None
               
             self.playing_start()
-          else:
-            # FIXME: DEAD CODE
-            # Deactivate old button
-            self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
-        
-            # Activate new button                         
-            self.current_tool = self.select_tool_number
-            self.old_tool_item = self.select_tool
-            self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
-            gcompris.set_cursor(self.tools[self.current_tool][3]);
-            self.playing_stop()
             return gtk.TRUE
-            
-            # unselect object if necessary
+
         elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
           self.selected.item_list[1].hide()
           self.selected = None
@@ -603,7 +593,20 @@ class Gcompris_anim:
       )
     run.connect("event", self.speed_event,True)
 
+    # And finaly a STOP icon
+    run = self.root_playingitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("boardicons/draw.png"),
+      x = 16,
+      y = 110,
+      )
+    run.connect("event", self.stop_event,True)
 
+
+  def stop_event(self, item, event, up):
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      self.playing_stop()
+    
   def speed_event(self, item, event, up):
   
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -1158,11 +1161,13 @@ class Gcompris_anim:
       self.running=True
       self.root_coloritem.hide()
       self.root_toolitem.hide()
+      self.root_playingitem.show()
       self.AnimRun()
       
   def playing_stop(self):
     if self.running:
       self.running=False
+      self.root_playingitem.hide()
       self.root_coloritem.show()
       self.root_toolitem.show()
 

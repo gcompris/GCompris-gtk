@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/06/12 22:59:18 bcoudoin>
+ * Time-stamp: <2004/09/16 22:37:06 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -343,11 +343,8 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
       item =  gnome_canvas_item_new (parent,
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap,
-				     "x", (double)current_x + gdk_pixbuf_get_width(menu_pixmap)/2
-				     - gdk_pixbuf_get_width(pixmap) + 5,
+				     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2 - 25,
 				     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
-				     "width", (double) gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
 				     NULL);
       gdk_pixbuf_unref(pixmap);
     }

@@ -1,3 +1,21 @@
+2004-09-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/algebra_by.png: remade using image from openclipart.org (public domain)
+	* boards/boardicons/algebra_group.png: -
+	* boards/boardicons/algebra_minus.png: -
+	* boards/boardicons/algebra_plus.png: -
+	* boards/boardicons/algebramenu.png: -
+	* boards/boardicons/boards.png: -
+	* boards/boardicons/computer.png: -
+	* boards/images/water_spot.png: Made by Bruno
+	* boards/skins/default/menuicon.png:  remade using image from openclipart.org (public domain)
+	* src/boards/menu.c: (menu_create_item): replaced the menuicon on the left
+	* src/boards/python/anim.py: added a stop icon in drawing mode. fixed tool button status
+	after playing and other actions
+	* src/boards/python/followline.py: added a water spot over the flowers uppon success because
+	Mathilde (Jose's daughter) said it's useless to emerge the pipe if there is no water going out.
+	I can do nothing but agree.
+
 2004-09-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/anim.py: fixed, can load/save drawings

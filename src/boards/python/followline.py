@@ -5,6 +5,7 @@ import gnome.canvas
 import gcompris
 import gcompris.skin
 import gcompris.bonus
+import gcompris.utils
 import gtk
 import gtk.gdk
 import random
@@ -106,6 +107,7 @@ class Gcompris_followline:
 
     self.rootitem.destroy()
     self.lines_group.destroy()
+    self.water_spot_group.destroy()
     
   def next_level(self):
 
@@ -130,7 +132,6 @@ class Gcompris_followline:
       y=0.0
       )
 
-    
     # Another group where we put each canvas line item in it
     self.lines_group = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
@@ -190,6 +191,22 @@ class Gcompris_followline:
       y = y2
 
     self.highlight_next_line()
+
+    # Another group where we put each canvas line item in it
+    self.water_spot_group = self.gcomprisBoard.canvas.root().add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
+    # A water spot will be displayed when the user win
+    self.water_spot = self.water_spot_group.add (
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("images/water_spot.png"),
+      x=580,
+      y=260,
+      )
+    self.water_spot.hide()
+    
 
   # Code that increments the sublevel and level
   # And bail out if no more levels are available
@@ -261,6 +278,8 @@ class Gcompris_followline:
       if (self.increment_level() == 1):
         self.state = "Done"
         self.gamewon = 1
+        self.water_spot.raise_to_top()
+        self.water_spot.show()
         gcompris.bonus.display(1, gcompris.bonus.FLOWER)
       
     return done
