@@ -32,7 +32,8 @@ class Gcompris_watercycle:
     self.sun_timer = 0
     self.vapor_timer = 0
     self.cloud_timer = 0
-
+    self.waterlevel_timer = 0
+    
     gcompris.bar_set(0)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             "watercycle/background.png")
@@ -73,7 +74,8 @@ class Gcompris_watercycle:
       x=470.0,
       y=130.0
       )
-
+    self.cleanwaterstatus = 0
+    
     # The Sun
     self.sunitem = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
@@ -96,14 +98,6 @@ class Gcompris_watercycle:
       y2=155.0,
       fill_color_rgba=0x0099FFFF,
       width_units=0.0
-      )
-
-    # The tuxboat
-    self.tuxboatitem = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tuxboat.png"),
-      x=10.0,
-      y=470.0
       )
 
     # The Snow
@@ -179,6 +173,78 @@ class Gcompris_watercycle:
     self.watercleaningitem.connect("event", gcompris.utils.item_event_focus)
     self.watercleaning_on = 0
 
+    # The tuxboat
+    self.tuxboatitem = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tuxboat.png"),
+      x=10.0,
+      y=470.0
+      )
+
+    # Tux in the shower (without water)
+    self.tuxshoweritem = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/minitux.png"),
+      x=569.0,
+      y=239.0
+      )
+    self.tuxshoweritem.hide()
+    self.tuxisinshower = 0
+    
+    # Tux in the shower with the water
+    self.tuxshowerwateritem = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("watercycle/showerwater.png"),
+      x=561.0,
+      y=231.0
+      )
+    self.tuxshowerwateritem.hide()
+    
+    # The shower itself
+    self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("watercycle/shower.png"),
+      x=560.0,
+      y=283.0
+      )
+
+    # The shower on/off button (I need to get the 2 buttons to manage the focus)
+    self.showerbuttonitem_on = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("watercycle/shower_on.png"),
+      x=622.0,
+      y=260.0
+      )
+    self.showerbuttonitem_on.connect("event", self.showerbutton_item_event)
+    # This item is clickeable and it must be seen
+    self.showerbuttonitem_on.connect("event", gcompris.utils.item_event_focus)
+    self.showerbuttonitem_on.hide()
+    self.showerbutton = 0
+
+    self.showerbuttonitem_off = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap("watercycle/shower_off.png"),
+      x=622.0,
+      y=260.0
+      )
+    self.showerbuttonitem_off.connect("event", self.showerbutton_item_event)
+    # This item is clickeable and it must be seen
+    self.showerbuttonitem_off.connect("event", gcompris.utils.item_event_focus)
+
+    # The level of water in the castle
+    self.waterlevel_max = 65
+    self.waterlevel_min = 85
+    self.waterlevel     = self.waterlevel_min
+    self.waterlevel_timer = gtk.timeout_add(1000, self.update_waterlevel)
+
+    self.waterlevel_item = self.rootitem.add(
+          gnome.canvas.CanvasLine,
+          points = (655 , self.waterlevel,
+                    655 , self.waterlevel_min),
+          fill_color_rgba = 0x0033FFFF,
+          width_units = 20.0
+          )
+
 
     # Ready GO
     self.move_boat()
@@ -196,6 +262,8 @@ class Gcompris_watercycle:
       gtk.timeout_remove(self.vapor_timer)
     if self.cloud_timer :
       gtk.timeout_remove(self.cloud_timer)
+    if self.waterlevel_timer :
+      gtk.timeout_remove(self.waterlevel_timer)
     
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
@@ -214,14 +282,77 @@ class Gcompris_watercycle:
   def config(self):
     print("Gcompris_watercycle config.")
               
-  def key_press(self, keyval):  
+  def key_press(self, keyval):
+    print("got key %i" % keyval)
     return
-  
+
+  # This is called each second to update to castle water level
+  def update_waterlevel(self):
+    old_waterlevel = self.waterlevel
+    
+    if self.waterpump_on and self.waterlevel > self.waterlevel_max :
+      self.waterlevel -= 1
+
+    # It tux is in the shower and it works, then remove some water
+    if (self.tuxisinshower and self.cleanwaterstatus and self.showerbutton
+        and self.waterlevel < self.waterlevel_min) :
+      self.waterlevel += 2
+
+    # Redisplay the level of water if needed
+    if old_waterlevel != self.waterlevel :
+      self.waterlevel_item.set(
+        points = (655, self.waterlevel,
+                  655, self.waterlevel_min),
+        )
+
+    # Update the clean water tubes
+    if self.waterlevel < self.waterlevel_min - 5 :
+      self.set_cleanwater(1)
+    else:
+      self.set_cleanwater(0)
+      # In this case, de activate the shower to avoid blinking tubes
+      self.showerbuttonitem_on.hide()
+      self.showerbuttonitem_off.show()
+      self.showerbutton = 0
+      self.shower_water_update()
+
+    self.waterlevel_timer = gtk.timeout_add(1000, self.update_waterlevel)
+
+
+  def set_cleanwater(self, status):
+    if(status == self.cleanwaterstatus):
+      return
+    
+    if status:
+      self.cleanwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/cleanwater.png"));
+    else:
+      self.cleanwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/cleanwater_off.png"));
+    self.cleanwaterstatus = status
+    
+    
   def move_boat(self):
     self.tuxboatitem.move(1, 0)
-    if( self.tuxboatitem.get_bounds()[2] < 790 ) :
+    if( self.tuxboatitem.get_bounds()[2] < 700 ) :
       self.boat_timer = gtk.timeout_add(self.timerinc, self.move_boat)
-      
+    else :
+      if self.tuxboatitem.get_bounds()[2] < 790 :
+        # Park the boat
+        self.tuxboatitem.move(1, -1)
+        self.boat_timer = gtk.timeout_add(self.timerinc, self.move_boat)
+      else :
+        # We are parked, change the boat to remove tux
+        self.tuxboatitem.set(
+          pixbuf = gcompris.utils.load_pixmap("gcompris/misc/fishingboat.png"),
+          width = 100.0,
+          height = 48.0,
+          width_set = 1, 
+          height_set = 1,
+          )
+        # Now display tux in the shower
+        self.tuxshoweritem.show()
+        self.tuxisinshower = 1
+
+        
   def move_cloud(self):
     if(self.cloud_on):
       self.clouditem.show()
@@ -294,10 +425,6 @@ class Gcompris_watercycle:
 
       self.sun_direction = self.sun_direction * -1
       
-  def set_cleanwater(self):
-    self.cleanwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/cleanwater.png"));
-
-
   def pause(self, pause):  
     print("Gcompris_watercycle pause. %i" % pause)
                   
@@ -326,8 +453,6 @@ class Gcompris_watercycle:
         if self.riverfull:
           self.waterpump_on = 1
           self.pumpwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/pumpwater.png"));
-          # Set the water to the house after a timeout to simulate the water castle refill
-          self.cleanwater_timer = gtk.timeout_add(3000, self.set_cleanwater)
         return gtk.TRUE
     return gtk.FALSE
 
@@ -340,3 +465,39 @@ class Gcompris_watercycle:
         return gtk.TRUE
     return gtk.FALSE
 
+
+  # If Tux is in the shower, we must display the water if needed
+  def shower_water_update(self):
+    
+    if not self.tuxisinshower:
+      return
+
+    if self.cleanwaterstatus and self.showerbutton:
+      self.tuxshoweritem.hide()
+      self.tuxshowerwateritem.show()
+    else:
+      self.tuxshoweritem.show()
+      self.tuxshowerwateritem.hide()
+
+  
+  def showerbutton_item_event(self, widget, event=None):
+
+    # Not active until tux is in the shower and the watercleaning station is running
+    if not self.tuxisinshower:
+      return
+
+    if not self.watercleaning_on:
+      return
+    
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      if event.button == 1:
+        if self.showerbutton:
+          self.showerbuttonitem_on.hide()
+          self.showerbuttonitem_off.show()
+        else:
+          self.showerbuttonitem_on.show()
+          self.showerbuttonitem_off.hide()
+          
+        self.showerbutton = not self.showerbutton
+
+        self.shower_water_update()
