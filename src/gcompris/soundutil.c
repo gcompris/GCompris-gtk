@@ -129,6 +129,10 @@ static void* scheduler_bgnd ()
 
   g_free(namelist);
 
+  /* No music no play */
+  if(g_list_length(musiclist)==0)
+    return NULL;
+
   /* Now loop over all our music files */
   while (TRUE)
     {

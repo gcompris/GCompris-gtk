@@ -1,11 +1,9 @@
-.dnl Process this file with autoconf to produce a configure script.
+dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
-AM_INIT_AUTOMAKE(gcompris, 3.2)
+AM_INIT_AUTOMAKE(gcompris, 3.3)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
-
-GNOME_COMPILE_WARNINGS
 
 AC_ISC_POSIX
 
@@ -17,6 +15,11 @@ LIBGNOMECANVAS_REQUIRED=2.0.2
 PKG_CHECK_MODULES(GCOMPRIS, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0)
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
+
+dnl For libassetml
+PKG_CHECK_MODULES(GOBJECT, gobject-2.0)
+AC_SUBST(GOBJECT_CFLAGS)
+AC_SUBST(GOBJECT_LIBS)
 
 dnl For embedded ogg player
 dnl FIXME XIPH prefix are the one needed on Mandrake ?
@@ -41,6 +44,9 @@ dnl libxml-2 Checks
 PKG_CHECK_MODULES(XML, libxml-2.0)
 AC_SUBST(XML_CFLAGS)
 AC_SUBST(XML_LIBS)
+
+dnl glib-genmarshal
+AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 
 AM_ICONV
 
@@ -110,7 +116,8 @@ fi
 dnl Tests for the python plugin
 PYTHON_CFLAGS=
 PYTHON_LIBS=
-PYTHON_PATH=yes
+dnl By default, dont build python until we have something usefull to show
+PYTHON_PATH=no
 build_python_plugin=yes
 AC_ARG_WITH(python,
   AC_HELP_STRING(
@@ -198,6 +205,10 @@ dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
 Makefile
 src/Makefile
+src/libassetml/Makefile
+src/libassetml/libassetml.pc
+src/libassetml/test/Makefile
+src/libassetml/tools/Makefile
 src/gcompris/Makefile
 src/boards/Makefile
 src/boards/python/Makefile

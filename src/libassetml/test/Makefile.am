@@ -7,6 +7,7 @@ INCLUDES = \
 	-I$(top_builddir)				\
 	$(WARN_CFLAGS) 					\
 	$(GLIB_CFLAGS)					\
+	$(GOBJECT_CFLAGS)					\
 	$(XML_CFLAGS)					\
 	-DG_LOG_DOMAIN=\"Assetml\"			\
 	-DVERSION=\"$(VERSION)\"
@@ -20,5 +21,5 @@ test_SOURCES = \
 
 test_LDADD = \
 	$(GLIB_LIBS) $(XML_LIBS)  \
-	$(GCOMPRIS_LIBS) \
+	$(GOBJECT_LIBS) \
 	$(top_builddir)/src/libassetml/libassetml.la

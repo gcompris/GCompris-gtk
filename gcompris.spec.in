@@ -1,6 +1,7 @@
 %define ver      	@VERSION@
 %define RELEASE 	1
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
+%define verassetml     	1.0
 %define prefix		/usr
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
 
@@ -12,11 +13,12 @@ Copyright: 	GPL
 Group: 		Amusements/Games
 Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tgz
 BuildRoot: 	/var/tmp/gcompris-%{PACKAGE_VERSION}-root
-URL: 		http://savannah.gnu.org
+URL: 		http://ofset.sf.net/gcompris
 Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
 Requires:       gnuchess >= 5.02
 Requires:       python gnome-python gnome-python-canvas pygtk2.0
+Requires:       gcompris-libassetml
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
 %description
@@ -105,6 +107,24 @@ Requires:       %name
 %description sounds-pt
 Portuguese sounds for gcompris.
 
+%package libassetml
+Summary:        Library assetml to share image and audio file between project
+Group: 		System/Libraries
+Version: 	%verassetml
+Requires:       libxml2 glib
+
+%description libassetml
+AssetML Library
+
+%package libassetml-devel
+Summary:        Devel Library assetml to share image and audio file between project
+Group: 		System/Libraries
+Version: 	%verassetml
+Requires:       libassetml
+
+%description libassetml-devel
+AssetML Devel Library
+
 %prep
 %setup -q
 
@@ -175,3 +195,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt
 
+%files libassetml
+%defattr(-, root, root)
+%{prefix}/lib/libassetml.so.*
+%{prefix}/bin/assetml-query
+
+%files libassetml-devel
+%defattr(-, root, root)
+%{prefix}/lib/lib*.so
+%{prefix}/lib/*a
+%{prefix}/include/libassetml*/*
+%{prefix}/lib/pkgconfig/libassetml.pc

@@ -114,16 +114,15 @@ main (int argc, const char **argv)
   poptGetNextOpt(optCon);
 
   optCon = poptFreeContext(optCon); 
-  /*------------------------------------------------------------*/
-
-
-  result = assetml_get_asset(dataset, categories, name);
 
   if (showVersion) 
     {
       printVersion();
       return 0;
     }
+
+  /*------------------------------------------------------------*/
+  result = assetml_get_asset(dataset, categories, name);
 
   g_list_foreach (result, (GFunc) dump_asset, NULL);
 

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/07/20 17:09:58 bcoudoin>
+ * Time-stamp: <2003/07/30 01:24:27 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -27,6 +27,8 @@
 #include <libxml/parser.h>
 
 #include "gcompris.h"
+
+#include <assetml.h>
 
 #define IMAGEEXTENSION ".png"
 
@@ -98,25 +100,69 @@ GdkPixbuf *gcompris_load_number_pixmap(char number)
   return(pixmap);
 }
 
+/*
+ * Load a pixmap from the assetml database
+ */
+GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* name)
+{
+  GList *gl_result;
+  AssetML *assetml;
+  GdkPixbuf *pixmap;
+
+  gl_result = assetml_get_asset(dataset, categories, name);
+
+  if(g_list_length(gl_result)>0)
+    {
+
+      /* Always get the first item */
+      assetml = (AssetML *)g_list_nth_data(gl_result, 0);
+
+      if(assetml->imagefile)
+	{
+	  pixmap = gdk_pixbuf_new_from_file (assetml->imagefile, NULL);
+
+	  assetml_free_assetlist(gl_result);
+
+	  if(!pixmap)
+	    g_warning("Loading image returned a null pointer");
+
+	  return pixmap;
+	}
+
+    }
+
+  assetml_free_assetlist(gl_result);
+
+  return NULL;
+
+}
+
 GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 {
   gchar *filename;
-  GdkPixbuf *smallnumbers_pixmap;
+  GdkPixbuf *pixmap;
 
+  /* Let's try to find it in the assetml base */
+  pixmap = gcompris_load_pixmap_asset(NULL, NULL, pixmapfile);
+  
+  if(pixmap)
+    return pixmap;
+
+  /* Search it on the file system */
   filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pixmapfile);
 
   if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
-    g_error (_("Couldn't find file %s !"), filename);
+      g_error (_("Couldn't find file %s !"), filename);
   }
 
-  smallnumbers_pixmap = gdk_pixbuf_new_from_file (filename, NULL);
+  pixmap = gdk_pixbuf_new_from_file (filename, NULL);
 
-  if(!smallnumbers_pixmap)
+  if(!pixmap)
     g_warning("Loading image returned a null pointer");
 
   g_free (filename);
 
-  return(smallnumbers_pixmap);
+  return(pixmap);
 }
 
 /*************************************************************

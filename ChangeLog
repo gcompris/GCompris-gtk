@@ -1,3 +1,21 @@
+2003-08-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added libassetml
+	* configure.in: removed gnome_compile_warnings / added libassetml
+	* gcompris.spec.in: added libassetml
+	* src/Makefile.am:added libassetml
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap_asset),
+	(gcompris_load_pixmap): initial support for libassetml
+	* src/gcompris/gcompris.c: (setup_window): added gtk_window_fullscreen call to 
+	  support full compliant standard window manager (like xfce)
+	* src/gcompris/soundutil.c: (scheduler_bgnd): fixed end loop in case there was no 
+	  .ogg to play
+	* src/libassetml/assetml.c: Created 
+	* src/libassetml/test/Makefile.am: Created
+	* src/libassetml/tools/Makefile.am: Created
+	* src/libassetml/tools/assetml-query.c: Created
+
 2003-07-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am:

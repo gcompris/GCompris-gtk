@@ -6,10 +6,11 @@ else
 python_ldadd =
 python_ldflags =
 endif
- 
+
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
+	-I$(top_srcdir)/src/libassetml \
 	-DDATADIR=\""$(datadir)"\" \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
@@ -17,7 +18,6 @@ INCLUDES = \
 	-DGNOME_DISABLE_DEPRECATED
 
 bin_PROGRAMS = gcompris gcompris-edit
-#bin_PROGRAMS = gcompris
 
 #noinst_LIBRARIES = \
 #	libgcompris.a
@@ -58,7 +58,9 @@ gcompris_LDADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) \
 	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)\
-	$(python_ldadd)
+	$(python_ldadd) \
+	$(top_builddir)/src/libassetml/libassetml.la
+
 
 
 gcompris_edit_LDFLAGS = \
@@ -74,4 +76,5 @@ gcompris_edit_SOURCES = \
 gcompris_edit_LDADD = \
 	$(GCOMPRIS_LIBS) \
 	$(XML_LIBS) $(INTLLIBS) \
-	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)
+	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS) \
+	$(top_builddir)/src/libassetml/libassetml.la

@@ -1,3 +1,3 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = gcompris boards
+SUBDIRS = libassetml gcompris boards

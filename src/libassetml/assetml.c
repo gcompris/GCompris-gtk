@@ -352,7 +352,7 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
   n = scandir(ASSETMLPIXMAPDIR, &namelist, &selectAssetML, 0);
 
   if (n <= 0)
-    g_warning("scandir returns no files with extension %s", FILE_EXT);
+    g_warning("scandir returns no files with extension %s in directory %s", FILE_EXT, ASSETMLPIXMAPDIR);
   else {
     while(n--) {
       gchar *file = g_strdup_printf("%s/%s", ASSETMLPIXMAPDIR, namelist[n]->d_name);

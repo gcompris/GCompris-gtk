@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/07/20 17:56:53 bcoudoin>
+ * Time-stamp: <2003/08/04 16:59:26 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -20,7 +20,6 @@
  */
 
 #include <signal.h>
-#include <locale.h>
 
 #include "gcompris.h"
 #include <locale.h>
@@ -387,6 +386,7 @@ static void setup_window ()
       gdk_window_set_decorations (window->window, 0);
       gdk_window_set_functions (window->window, 0);
       gtk_widget_set_uposition (window, 0, 0);
+      gtk_window_fullscreen (GTK_WINDOW(window));
     }
 
   init_plugins();
