@@ -1,3 +1,4 @@
+# Translation of nn to Norwegian Nynorsk
 # Translation of nn.po to Norwegian Nynorsk.
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
@@ -7,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-18 20:15+0200\n"
-"PO-Revision-Date: 2004-10-18 21:19+0200\n"
+"POT-Creation-Date: 2004-10-28 22:51+0200\n"
+"PO-Revision-Date: 2004-10-28 23:14+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.9\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
@@ -279,7 +280,7 @@ msgstr "pistasiegrøn"
 msgid "platinum"
 msgstr "platinablond"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "purpur"
 
@@ -671,6 +672,10 @@ msgstr ""
 msgid "Transportation"
 msgstr "Samferdsel"
 
+#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+msgid "The aviation"
+msgstr "Luftfart"
+
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spoken. Click on the corresponding letter in the main area. You "
@@ -918,7 +923,9 @@ msgid ""
 "Move the mouse over the red part of the pipe. This will emerge it, part by "
 "part up to the flowers. Take care, if you move out of the pipe, the red part "
 "will go back."
-msgstr "Flytt musa over den raude delen av vasslangen. Då vil vatnet begynna å renna ut, litt etter litt. Pass på at du ikkje flyttar peikaren ut av slangen."
+msgstr ""
+"Flytt musa over den raude delen av vasslangen. Då vil vatnet begynna å renna "
+"ut, litt etter litt. Pass på at du ikkje flyttar peikaren ut av slangen."
 
 #: boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
@@ -929,8 +936,8 @@ msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
 "the empty block."
 msgstr ""
-"Trykk på ei brikke som har ei ledig rute ved sidan av seg. Denne vil då"
-"byta plass med den ledige ruta."
+"Trykk på ei brikke som har ei ledig rute ved sidan av seg. Denne vil dåbyta "
+"plass med den ledige ruta."
 
 #: boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
@@ -1251,6 +1258,10 @@ msgstr "Tyrkia"
 #: boards/geography/board3_1.xml.in.h:23
 msgid "ukraine"
 msgstr "Ukraina"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Regionar i Frankrike"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1626,7 +1637,10 @@ msgstr "Du skal øva på å høyra og hugsa ein enkel melodi."
 msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
-msgstr "Høyr på melodien, og gjenta han ved å trykkja på kasserollane i rett rekkjefølgje. Du kan høyra han om att ved å trykkja på munnbiletet nedst på skjermen."
+msgstr ""
+"Høyr på melodien, og gjenta han ved å trykkja på kasserollane i rett "
+"rekkjefølgje. Du kan høyra han om att ved å trykkja på munnbiletet nedst på "
+"skjermen."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
@@ -1926,8 +1940,8 @@ msgid "Spatial representation"
 msgstr "Øva på mental romleg framstilling."
 
 #: boards/paintings/board1_0.xml.in.h:1
-msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr "Edgar Degas: Ballettimen (1874)"
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas: Ballettimen (1873–1875)"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
@@ -1946,21 +1960,26 @@ msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Olje på lerret – 140 × 201 cm"
 
 #: boards/paintings/board4_0.xml.in.h:1
+#
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
-msgstr ""
+msgstr "Bazille: Festningsvollane ved Aigues-Mortes (1867)"
 
 #: boards/paintings/board5_0.xml.in.h:1
-#, fuzzy
-msgid "Cassat, Summertime - 1895"
+#
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+msgid "Cassatt, Mary - Summertime - 1894"
 msgstr "Mary Stevenson Cassatt: Sommar (1894)"
 
 #: boards/paintings/board6_0.xml.in.h:1
+#
+# Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr ""
+msgstr "Vincent Van Gogh: Landsbygater i Auvers (1890)"
 
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
-msgstr "Hjelp Tux å landa trygt og sikkert med fallskjermen sin."
+msgid "Help Tux the parachuter land safely"
+msgstr "Hjelp Tux å landa trygt med fallskjermen sin."
 
 #: boards/paratrooper.xml.in.h:2
 msgid ""
@@ -1972,14 +1991,14 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
-"boat. He needs to take watch out for the wind direction and speed."
+"In this game, Tux the parachuter needs help to land safely on the fishing "
+"boat. He needs to take care of the wind direction and speed."
 msgstr ""
 "Tux hoppar i fallskjerm! No må du hjelpa han med å landa trygt på "
 "fiskebåten. Hugs at du må å ta omsyn til både vindretning og vindstyrke."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
 msgstr "Fallskjermhoppar"
 
 #: boards/paratrooper.xml.in.h:5
@@ -2063,27 +2082,27 @@ msgstr "Les fargar"
 msgid "This board teaches basic colors."
 msgstr "Her skal du læra namna på dei vanlegaste fargane."
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "svart"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "blå"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "brun"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "grøn"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "grå"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "oransje"
 
@@ -2091,7 +2110,7 @@ msgstr "oransje"
 msgid "pink"
 msgstr "rosa"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "raud"
 
@@ -2099,11 +2118,11 @@ msgstr "raud"
 msgid "violet"
 msgstr "lilla"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "kvit"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "gul"
 
@@ -2152,8 +2171,9 @@ msgid ""
 "important but take care not to have unwanted objects under others."
 msgstr ""
 "Først må du velja rett verktøy i verktøylinja. Dra så musa for å laga "
-"figuren. Når du er ferdig trykkjer du «OK». Eventuelle feil vert då markert med små raude krossar. Rekkjefølgja på objekta (over/under) spelar inga rolle, men "
-"pass på at du ikkje har uønskja objekt under andre."
+"figuren. Når du er ferdig trykkjer du «OK». Eventuelle feil vert då markert "
+"med små raude krossar. Rekkjefølgja på objekta (over/under) spelar inga "
+"rolle, men pass på at du ikkje har uønskja objekt under andre."
 
 #: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
@@ -2163,7 +2183,9 @@ msgstr "Kopier teikning"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr "Kopier spegelbiletet av ei teikning frå feltet til høgre til feltet til venstre."
+msgstr ""
+"Kopier spegelbiletet av ei teikning frå feltet til høgre til feltet til "
+"venstre."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2226,7 +2248,9 @@ msgstr ""
 msgid ""
 "To balance the scales, move the masses on the left side. The masses can be "
 "arranged in any order."
-msgstr "Legg lodd på vekta slik at ho kjem i likevekt. Rekkjefølgja på lodda spelar inga rolle."
+msgstr ""
+"Legg lodd på vekta slik at ho kjem i likevekt. Rekkjefølgja på lodda spelar "
+"inga rolle."
 
 #: boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
@@ -2342,8 +2366,9 @@ msgid ""
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
 msgstr ""
-"Trykk på dei ulike elementa for å setja vasskrinsløpet i gong. Desse er sola, skyene, vasspumpestasjonen og vassrenseanlegget. Når du er ferdig, og Tux har "
-"komme til dusjen, kan du trykkja på dusjknappen for han."
+"Trykk på dei ulike elementa for å setja vasskrinsløpet i gong. Desse er "
+"sola, skyene, vasspumpestasjonen og vassrenseanlegget. Når du er ferdig, og "
+"Tux har komme til dusjen, kan du trykkja på dusjknappen for han."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
@@ -2353,7 +2378,9 @@ msgstr "Du skal læra om vasskrinsløpet."
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
-msgstr "Tux kjem heim etter ein lang båttur, og du må setja i gong vasskrinsløpet, slik at han kan få ein velfortent dusj."
+msgstr ""
+"Tux kjem heim etter ein lang båttur, og du må setja i gong vasskrinsløpet, "
+"slik at han kan få ein velfortent dusj."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
@@ -2507,14 +2534,49 @@ msgstr ""
 msgid "Couldn't open dir: %s"
 msgstr "Klarte ikkje opna mappa «%s»"
 
-#: src/boards/clockgame.c:530
+#: src/boards/clockgame.c:528
 msgid "Set the watch to:"
 msgstr "Set uret til"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Trykk på den %s figuren"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Trykk på den blå figuren"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Trykk på den brune figuren"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Trykk på den grøne figuren"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Trykk på den grå figuren"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Trykk på den oransje figuren"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Trykk på den lilla figuren"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Trykk på den raude figuren"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Trykk på den gule figuren"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Trykk på den svarte figuren"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Trykk på den kvite figuren"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2564,7 +2626,11 @@ msgstr "Vel brett"
 msgid "Pratice money usage"
 msgstr "Øv på å bruka pengar"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:102
+msgid "Paratrooper"
+msgstr "Fallskjermhoppar"
+
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Hjelp fallskjermhopparen å landa trygt og sikkert"
 
@@ -2777,8 +2843,8 @@ msgstr "GCompris er ein GNU-pakke og tilgjengeleg under GNU Public License."
 msgid "Help"
 msgstr "Hjelp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:205
-#: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2824,16 +2890,16 @@ msgid "Greek"
 msgstr "Gresk"
 
 #: src/gcompris/config.c:72
-msgid "American English"
-msgstr "Engelsk (USA)"
+msgid "English (Canadian)"
+msgstr "Engelsk (Canada)"
 
 #: src/gcompris/config.c:73
-msgid "Great Britain English"
+msgid "English (Great Britain)"
 msgstr "Engelsk (Storbritannia)"
 
 #: src/gcompris/config.c:74
-msgid "Canadian English"
-msgstr "Engelsk (Canada)"
+msgid "English (USA)"
+msgstr "Engelsk (USA)"
 
 #: src/gcompris/config.c:75
 msgid "Spanish"
@@ -2852,165 +2918,169 @@ msgid "Hebrew"
 msgstr "Hebraisk"
 
 #: src/gcompris/config.c:79
-msgid "Indian"
-msgstr "Indisk"
+msgid "Indian (Hindi)"
+msgstr "Indisk (Hindi)"
 
 #: src/gcompris/config.c:80
+msgid "Indian (Punjabi)"
+msgstr "Indisk (panjabi)"
+
+#: src/gcompris/config.c:81
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Italian"
 msgstr "Italiensk"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Macedonian"
 msgstr "Makedonsk"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Malay"
 msgstr "Malayisk"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Dutch"
 msgstr "Nederlandsk"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Norwegian Bokmal"
 msgstr "Norsk (bokmål)"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Norwegian Nynorsk"
 msgstr "Norsk (nynorsk)"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Polish"
 msgstr "Polsk"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Portuguese"
 msgstr "Portugisisk (Portugal)"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Brazil Portuguese"
 msgstr "Portugisisk (Brasil)"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Romanian"
 msgstr "Rumensk"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Russian"
 msgstr "Russisk"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Albanian"
 msgstr "Albansk"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Serbian (Latin)"
 msgstr "Serbisk (latinsk alfabet)"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Swedish"
 msgstr "Svensk"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Walloon"
 msgstr " Vallonsk"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "No time limit"
 msgstr "Inga tidsgrense"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Slow timer"
 msgstr "Sakte tid"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Normal timer"
 msgstr "Vanleg tid"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Fast timer"
 msgstr "Rask tid"
 
-#: src/gcompris/config.c:115
+#: src/gcompris/config.c:116
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standard for GCompris)"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "No filter"
 msgstr "Ingen filter"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "Only this level"
 msgstr "Berre dette nivået"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "Up to this level"
 msgstr "Opp til dette nivået"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "This level and above"
 msgstr "Dette nivået og høgare"
 
-#: src/gcompris/config.c:179
+#: src/gcompris/config.c:180
 msgid "GCompris Configuration"
 msgstr "GCompris-oppsett"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:289
 msgid "Fullscreen"
 msgstr "Fullskjerm"
 
-#: src/gcompris/config.c:331
+#: src/gcompris/config.c:332
 msgid "Music"
 msgstr "Musikk"
 
-#: src/gcompris/config.c:359
+#: src/gcompris/config.c:360
 msgid "Effect"
 msgstr "Lydeffektar"
 
-#: src/gcompris/config.c:393
+#: src/gcompris/config.c:394
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Klarte ikkje opna draktmappa «%s»"
 
-#: src/gcompris/config.c:414
+#: src/gcompris/config.c:415
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Fann inga drakt i «%s»\n"
 
-#: src/gcompris/config.c:429 src/gcompris/config.c:814
-#: src/gcompris/config.c:825
+#: src/gcompris/config.c:430 src/gcompris/config.c:815
+#: src/gcompris/config.c:826
 #, c-format
 msgid "Skin : %s"
 msgstr "Drakt: %s"
@@ -3084,7 +3154,7 @@ msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -3092,14 +3162,14 @@ msgid ""
 "http://www.fsf.org/philosophy"
 msgstr ""
 "GCompris er fri programvare tilgjengeleg under GNU GPL-lisensen. For å "
-"støtta utviklinga er berre 12 av 45 aktivitetar tilgjengeleg i Windows-"
+"støtta utviklinga er berre 12 av 45 aktivitetar tilgjengelege i Windows-"
 "versjonen. Du kan få heile versjonen for eit lite vederlag på\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net/.\n"
 "Linux-utgåva har ikkje denne avgrensinga. Merk at GCompris er utvikla for å "
 "fri skular frå monopolistiske programvareleverandørar. Om du òg meiner me "
 "bør læra ungane om fridom, så vurder om ikkje du òg vil bruka GNU/Linux. Du "
 "finn meir informasjon på\n"
-"http://www.gnu.org/philosophy/"
+"http://www.fsf.org/philosophy/."
 
 #: src/gcompris/gcompris.c:717
 #, c-format
@@ -3107,26 +3177,26 @@ msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Versjon: %s\n"
-"Lisensvilkår: GPL\n"
-"Meir informasjon på http://www.ofset.org/gcompris\n"
+"Lisensvilkår: GNU GPL\n"
+"Meir informasjon på http://gcompris.net/\n"
 
-#: src/gcompris/help.c:173 src/gcompris/interface.c:243
+#: src/gcompris/help.c:170 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Føresetnader"
 
-#: src/gcompris/help.c:207 src/gcompris/interface.c:252
+#: src/gcompris/help.c:198 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Mål"
 
-#: src/gcompris/help.c:241 src/gcompris/interface.c:261
+#: src/gcompris/help.c:226 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Bruksrettleiing"
 
-#: src/gcompris/help.c:275 src/gcompris/interface.c:270
+#: src/gcompris/help.c:254 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Bidragsytarar"
 
@@ -3204,125 +3274,4 @@ msgstr "Tid gått"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tid igjen: %d"
-
-#~ msgid "VIII Century"
-#~ msgstr "Åttande hundreår"
-
-#~ msgid "This board is dedicated to recognize unusual colors."
-#~ msgstr "Her kan du læra å kjenna att nokre sjeldne fargenamn."
-
-#~ msgid ""
-#~ "In a limited time, give the result to the multiplication of two numbers"
-#~ msgstr "Skriv inn svaret på gongstykket innan tidsfristen går ut."
-
-#~ msgid ""
-#~ "With displayed numbers and operations, find the right combination to get "
-#~ "the right result"
-#~ msgstr ""
-#~ "Finn rett samansetjing av tala og operatorane for å få rett resultat"
-
-#~ msgid "Simple addition"
-#~ msgstr "Enkel addisjon"
-
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Minipuslespel"
-
-#~ msgid "The billard game"
-#~ msgstr "Biljardspel"
-
-#~ msgid ""
-#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
-#~ "click with the left mouse button on the moving fish."
-#~ msgstr ""
-#~ "Motorkoordinering: Museflytting og -klikking. Målet er å klikka med "
-#~ "venstre museknapp på fiskane."
-
-#~ msgid ""
-#~ "This board is dedicated to train kids to recognize colors. Several "
-#~ "colored toons are displayed and a color is spoken. The kid must select "
-#~ "the proper toon."
-#~ msgstr ""
-#~ "Dette brett er meint å læra ungar å kjenna att fargar. Fleire farga "
-#~ "figurar vert viste, og namnet på ein farge uttalt. Ungen må så velja rett "
-#~ "figur."
-
-#~ msgid "Drag and Drop the top piece only on an empty location"
-#~ msgstr "Dra og slepp toppstykket berre til ein tom plass"
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots associated with work are "
-#~ "printed. In the vertical frame - at the left of the main board area, a "
-#~ "set of objects are represented, each of these objects match with one word "
-#~ "of the main board area. The right association must be find for these "
-#~ "objects. This is achieved by dragging the objects to the right red plot "
-#~ "in the main area."
-#~ msgstr ""
-#~ "På hovudområdet er dei ei mengd raude punkt som er kopla til arbeid "
-#~ "skriven. I loddrett felt til venstre er dei fleire gjenstandar. Kvar av "
-#~ "desse høyrer til eitt ord på hovudfeltet. Du må finna rett kopling mellom "
-#~ "objekta. Dette gjer du ved å fra objekt til rett raude punkt i "
-#~ "hovudfeltet."
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots are displayed. In the vertical "
-#~ "frame - at the left of the main board area, a set of image parts of a "
-#~ "painting are avalaible. Drag and drop these parts in the right plot to "
-#~ "rebuild the original painting."
-#~ msgstr ""
-#~ "På hovudområdet ser du fleire raude punkt. I feltet til venstre er det "
-#~ "fleire delar av måleri. Dra og slepp desse delane til rett plass for å "
-#~ "laga biletet."
-
-#~ msgid ""
-#~ "Click on any keyboard key to let Tux jump. Another keypress will open the "
-#~ "parachute. Alternatively, a click on the plane and the tux also works."
-#~ msgstr ""
-#~ "Trykk på ein tast for å få Tux til å hoppa, og éin gong til for å opna "
-#~ "fallskjermen. Du kan òg trykkja på flyet og Tux med musa."
-
-#~ msgid ""
-#~ "At the top and right of the board area, a word is printed. At the left a "
-#~ "list of words will move in and out of the screen. Tell if you see the "
-#~ "initial word in this list."
-#~ msgstr ""
-#~ "Øvst og til høgre vert det vist eit ord. Til venstre ser du ei oversikt "
-#~ "over ord som flyt inn og ut av skjermen. Sjå om du ser ordet i denne "
-#~ "lista."
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "it in the left area."
-#~ msgstr ""
-#~ "På kvart nivå vert ei teikning vist til høgre. Du må teikna dette til "
-#~ "venstre."
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "its symmetry in the left area."
-#~ msgstr ""
-#~ "På kvart nivå vert det vist ei teiking til høgre. Du må teikna om att "
-#~ "denne til venstre."
-
-#~ msgid "Couldn't open pixmap dir: %s"
-#~ msgstr "Klarte ikkje opna biletmappa «%s»"
-
-#~ msgid ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "output"
-#~ msgstr ""
-#~ "Vel lydeining. Bruk «-A list» for å visa ei oversikt over tilgjengelege "
-#~ "lydeiningar"
-
-#~ msgid ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-#~ msgstr ""
-#~ "Tilgjengelege lydeiningar:\n"
-#~ "standard"
-
-#~ msgid "Now Playing Music"
-#~ msgstr "Spelar musikk"
-
-#~ msgid "Artist"
-#~ msgstr "Artist"
 
