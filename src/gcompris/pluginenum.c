@@ -19,6 +19,9 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#ifdef __APPLE__
+#  include <sys/types.h>
+#endif /* __APPLE__ */
 #include <dirent.h>
 #include <sys/stat.h>
 
@@ -109,9 +112,9 @@ void add_plugin(gchar * filename)
 #ifdef HPUX
   shl_t *h;
 #else
-  void *h;
+  void *h = NULL;
 #endif
-  void *(*gpi) (void);
+  void *(*gpi) (void) = NULL;
 
 #ifndef DISABLE_USER_PLUGIN_DIR
   /*
@@ -131,20 +134,27 @@ void add_plugin(gchar * filename)
       }
   }
 #endif
+
 #ifdef HPUX
   if ((h = shl_load(filename, BIND_DEFERRED, 0)) != NULL)
     /* use shl_load family of functions on HP-UX 
        HP-UX does not support dlopen on 32-bit
        PA-RISC executables */
 #else
+#ifdef __APPLE__
+	if ((h = dlopen(filename, RTLD_LOCAL)) != NULL)
+#endif
     if ((h = dlopen(filename, RTLD_NOW)) != NULL)
 #endif /* HPUX */
       {
 #ifdef HPUX
 	if ((shl_findsym(&h, "get_bplugin_info", TYPE_PROCEDURE, (void*) &gpi)) == 0)
-#else
-	  if ((gpi = dlsym(h, "get_bplugin_info")) != NULL)
 #endif
+ #ifdef __APPLE__
+                if ((gpi = dlsym(h, "_get_bplugin_info")) != NULL)
+#else
+                if ((gpi = dlsym(h, "get_bplugin_info")) != NULL)
+#endif /* __APPLE__ */
 	    {
 	      BoardPlugin *p;
 	      g_message("    plugin %s loaded", filename);
@@ -157,8 +167,11 @@ void add_plugin(gchar * filename)
 	  else
 	    {
 #ifdef HPUX
+	      perror("Loading plugin failed (sh_findsym)!"); 
 	      shl_unload(h);
 #else
+	      g_message("    plugin %s not loaded",filename);
+	      fprintf(stderr, "%s\n", dlerror());
 	      dlclose(h);
 #endif
 	    }

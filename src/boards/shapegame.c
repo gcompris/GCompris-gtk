@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/03/09 17:57:52 bruno>
+ * Time-stamp: <2003/03/17 16:53:11 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -698,7 +698,7 @@ static Shape *find_closest_shape(double x, double y, double limit)
     if(shape->type==SHAPE_TARGET)
       {
 	/* Calc the distance between this shape and the given coord */
-	dist = sqrt(powf((shape->x-x),2) + powf((shape->y-y),2));
+	dist = sqrt(pow((shape->x-x),2) + pow((shape->y-y),2));
 	printf("DIST=%f shapename=%s\n", dist, shape->name);
 	printf("   x=%f y=%f shape->x=%f shape->y=%f\n", x, y, shape->x, shape->y);
 	if(dist<goodDist)

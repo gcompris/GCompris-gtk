@@ -1,3 +1,10 @@
+2003-03-17 Christophe Trophime <trophime@grenoble.cnrs.fr>
+
+	* src/boards/clickgame.c: MAC OSX Port
+	* src/boards/shapegame.c: (find_closest_shape): MAC OSX Port
+	* src/gcompris/oggplayer.c: (decode_ogg_file): MAC OSX Port
+	* src/gcompris/pluginenum.c: (add_plugin): MAC OSX Port
+
 2003-03-05  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: Added python plugin by Olivier Samyn
