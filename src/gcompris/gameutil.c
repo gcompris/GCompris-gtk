@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/06/18 00:28:51 bcoudoin>
+ * Time-stamp: <2004/06/30 00:05:27 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -963,6 +963,85 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
   gdk_pixbuf_unref(pixmap);
 
   return(stars_group);
+}
+
+/** 
+ * recursive c func to clone GnomeCanvasItem
+ * parent is parent for new item
+ * item is item to clone 
+ */
+
+void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)
+{
+  GnomeCanvasItem *cloned;
+
+  GParamSpec **properties;
+  guint n_properties;
+
+  int i;
+  int *empty = NULL ;
+  int *anchors = NULL ;
+
+  
+  /* cloned = gcompris_anim_clone_item(parent, item); */
+  cloned = gnome_canvas_item_new(parent,
+				 G_OBJECT_TYPE(item),
+				 NULL);
+
+  /* copy flags. Need to check what must be done EXACTLY */
+  GTK_OBJECT_FLAGS(cloned) = GTK_OBJECT_FLAGS(item); 
+
+  /* copy affine matrix */
+  if (item->xform) {
+    if ( GTK_OBJECT_FLAGS(item) & GNOME_CANVAS_ITEM_AFFINE_FULL ){
+      cloned->xform = malloc(sizeof(double)*6);
+      for (i=0; i<6; i++)
+	cloned->xform[i]=item->xform[i];
+    }
+    else {
+      cloned->xform = malloc(sizeof(double)*2);
+      for (i=0; i<2; i++)
+	cloned->xform[i]=item->xform[i];
+    }
+  }
+  /* check if this is alresady the case ? */
+  else cloned->xform = NULL;
+
+  /* get all the properties and copy them */
+  properties = g_object_class_list_properties (G_OBJECT_GET_CLASS(item),
+                                             &n_properties);
+
+  /* anchors are hidden to play without them */
+  anchors = g_object_get_data(G_OBJECT(item), "anchors");
+  if (anchors)
+    gnome_canvas_item_hide(cloned);
+
+  empty = g_object_get_data(G_OBJECT(item), "empty");
+
+  for (i=0; i< n_properties; i++) {
+    GValue property;
+
+    /* fill-* properties are not passed if object is empty. */
+    /* Note: strncmp returns 0  on success */
+    if (strncmp("fill",properties[i]->name,4) || ! empty)
+
+      if ( (properties[i]->flags & G_PARAM_READABLE) && (properties[i]->flags & G_PARAM_WRITABLE ) ){
+
+	memset(&property, 0, sizeof(property));
+	g_value_init(&property,G_PARAM_SPEC_VALUE_TYPE(properties[i]));
+
+	g_object_get_property(G_OBJECT(item), properties[i]->name, &property);
+
+	if (&property){
+	  g_object_set_property(G_OBJECT(cloned), properties[i]->name, &property);
+	}
+      }
+  }
+
+  /* recursively clone items from GnomeCanvasGroup */
+  if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_GROUP )
+    g_list_foreach(GNOME_CANVAS_GROUP(item)->item_list, (GFunc) gcompris_clone_item, GNOME_CANVAS_GROUP(cloned));
+
 }
 
 /* Local Variables: */

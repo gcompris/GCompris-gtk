@@ -35,7 +35,7 @@
    \param locale is the locale to search for or NULL for the current locale
    \param file the asset file name to get or NULL for any file name
 */
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* locale, gchar* name);
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, const gchar* locale, gchar* name);
 
 
 void	 assetml_free_assetlist(GList *assetlist);

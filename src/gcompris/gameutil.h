@@ -84,4 +84,12 @@ GdkPixbuf	*gcompris_load_pixmap_asset(gchar *dataset, gchar* categories,
 gchar		*gcompris_get_asset_file(gchar *dataset, gchar* categories, 
 					 gchar* mimetype, gchar* file);
 
+/*! \fn void		 gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)
+    \brief recursive c func to clone GnomeCanvasItem
+
+    \param item The item to clone
+    \param parent for the new item
+*/
+void		 gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent);
+
 #endif

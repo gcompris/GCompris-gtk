@@ -30,25 +30,25 @@
 
 #define FILE_EXT ".assetml"
 
-gchar		*assetml_get_locale(void);
+const gchar	*assetml_get_locale(void);
 static gchar	*reactivate_newline(gchar *str);
 static void	 dump_asset(AssetML *assetml);
 int		 selectAssetML(const struct dirent *d);
 void		 assetml_read_xml_file(GList **gl_result, char *fname,
 				       gchar *dataset, gchar* categories, gchar* mimetype, 
-				       gchar *locale, gchar* file);
+				       const gchar *locale, gchar* file);
 void		 assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, 
 				  gchar* mimetype, 
-				  gchar* locale, gchar* file);
+				  const gchar* locale, gchar* file);
 void		 free_asset(AssetML *assetml);
 
 /*
  * This returns the locale for which text must be displayed
  *
  */
-gchar *assetml_get_locale()
+const gchar *assetml_get_locale()
 {
-  char *locale;
+  const char *locale;
 
   locale = g_getenv("LC_ALL");
   if(locale == NULL)
@@ -190,7 +190,7 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
  */
 static gboolean matching(AssetML *assetml, gchar *mydataset, 
 			 gchar *dataset, gchar* categories, gchar* mimetype, 
-			 gchar* mylocale, gchar* locale, gchar* file)
+			 const gchar* mylocale, const gchar* locale, gchar* file)
 {
   g_assert(assetml);
 
@@ -252,7 +252,7 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
 static void
 parse_doc(GList **gl_result, xmlDocPtr doc, 
 	  gchar *mydataset, gchar *rootdir, gchar* mylocale,
-	  gchar *dataset, gchar* categories, gchar* mimetype, gchar* locale, gchar* file)
+	  gchar *dataset, gchar* categories, gchar* mimetype, const gchar* locale, gchar* file)
 {
   xmlNodePtr node;
 
@@ -276,7 +276,7 @@ parse_doc(GList **gl_result, xmlDocPtr doc,
    Fill the gl_result list with all matching asseml items
 */
 void assetml_read_xml_file(GList **gl_result, char *assetmlfile,
-			   gchar *dataset, gchar* categories, gchar* mimetype, gchar *locale, gchar* file)
+			   gchar *dataset, gchar* categories, gchar* mimetype, const gchar *locale, gchar* file)
 {
   /* pointer to the new doc */
   xmlDocPtr doc;
@@ -338,7 +338,7 @@ int selectAssetML(const struct dirent *d)
 /* load all the xml files in the assetml path
  * into our memory structures.
  */
-void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, gchar *locale, 
+void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, const gchar *locale, 
 		      gchar* name)
 {
   struct dirent *one_dirent;
@@ -389,7 +389,7 @@ void assetml_free_assetlist(GList *assetlist)
 
 }
 
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar *locale, gchar* file)
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, const gchar *locale, gchar* file)
 {
   GList *gl_result = NULL;
 

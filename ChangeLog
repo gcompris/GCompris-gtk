@@ -1,3 +1,13 @@
+2004-06-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/assetml.c: (assetml_get_locale), (matching),
+	(parse_doc), (assetml_read_xml_file), (assetml_load_xml),
+	(assetml_get_asset): added several 'const locale' where needed to avoid compile time warnings
+	* src/gcompris/assetml.h: added several 'const locale'
+	* src/gcompris/gameutil.c: (gcompris_display_difficulty_stars),
+	(gcompris_clone_item): added gcompris_clone_item by Yves Combe
+	* src/gcompris/gameutil.h: added gcompris_clone_item by Yves Combe
+
 2004-06-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/anim/minibutton.png: added, created by bruno.
