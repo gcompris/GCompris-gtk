@@ -11,6 +11,7 @@ xml_in_files = \
 	algebra_plus.xml.in \
 	algebramenu.xml.in \
 	algorithm.xml.in \
+	anim.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
 	billard.xml.in \

@@ -22,7 +22,8 @@ EXTRA_DIST = \
 	gcompris.spec \
 	intltool-extract.in \
 	intltool-merge.in \
-	intltool-update.in
+	intltool-update.in \
+	README.mingw
 
 distcore = $(PACKAGE)-core-$(VERSION)
 

@@ -1,3 +1,24 @@
+2004-06-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* .cvsignore:
+	* Makefile.am: added README.mingw
+	* README.mingw: copyed from a mingw ported program. can find back which. Not adapted to gcompris
+	maybe highly wrong but it's better than nothing.
+	* boards/Makefile.am: -A- added anim by Yves Combe yves at ycombe point net
+	* boards/anim.xml.in: -A-
+	* boards/anim/camera.png: created by Bruno
+	* boards/boardicons/anim.png: created by Bruno
+	* gcompris.ico: for windows
+	* po/POTFILES.in: -A-
+	* src/boards/clickgame.c: (get_bplugin_info),
+	(clickgame_is_our_board): changed plugin name ti suit the standard and ease the windows maintenance
+	* src/boards/clockgame.c: (display_hour): hour needle is shorter now. (due to user remarks)
+	* src/boards/menu.c: added static where missing
+	* src/boards/python/Makefile.am: -A-
+	* src/boards/python/anim.py: -A-
+	* src/boards/traffic.c: added static where missing
+	* src/boards/wordsgame.c: (key_press): nothing.
+
 2004-06-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/images/scenery5_background.png: fixed the edge

@@ -33,8 +33,8 @@
 #define DATAFILE "TrafficData"
 
 
-GcomprisBoard  *gcomprisBoard = NULL;
-gboolean	board_paused  = TRUE;
+static GcomprisBoard  *gcomprisBoard = NULL;
+static gboolean	board_paused  = TRUE;
 
 static GnomeCanvasGroup *allcars         = NULL;
 

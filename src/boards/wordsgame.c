@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2004/03/10 23:15:22 bcoudoin>
+ * Time-stamp: <2004/06/12 23:45:50 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -331,7 +331,7 @@ static gint key_press(guint keyval)
 
 	  /* Find the next Char */
 	  currentChar = currentFocus->word + currentFocus->charcounter;
-	    
+
 	  if(strncmp(currentChar, utf8char, utf8_length)==0)
 	    {
 	      currentFocus->charcounter += utf8_length;

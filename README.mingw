@@ -61,15 +61,6 @@ hierarchy make sure to tweak your .profile.
 * run ./autogen.sh from gcompris's top-level directory.  This will take a long time.
 * *drum roll...* make!
 
-4: BULDING GCOMPRIS-SETUP.EXE
-========================
-* Make sure gcompris.iss and README.windows exist
-* go into gcompris/po/ directory and make the mo files
-* Install INNO Setup version 4 (or higher) from http://www.jrsoftware.org/is4.php
-* Open c:\msys\1.0\home\yourname\gcompris\gcompris.iss inside the inno installer
-* Should compile and build without a hitch, placing the setup file in c:\
-
-
 APPENDIX: MY .profile
 =====================
 
@@ -77,7 +68,6 @@ APPENDIX: MY .profile
   export CFLAGS="$CFLAGS -mwindows -mno-cygwin -mms-bitfields"
   export CPPFLAGS="$CPPFLAGS -I/c/mingw/include -DWINDOWS -DWIN32"
   export PATH="$PATH:/c/mingw/bin"
-  export CVSROOT=":pserver:charles@cvs.gnome.org:/cvs/gnome"
 
   # GTK
   export GTK_HOME="/opt/gtk"

@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2004/04/18 18:09:38 bcoudoin>
+ * Time-stamp: <2004/06/12 23:31:34 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -79,7 +79,7 @@ static  double               speed = 0.0;
 static  double               imageZoom = 0.0;
 
 /* Description of this plugin */
-static BoardPlugin clickgame_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
@@ -111,7 +111,7 @@ static BoardPlugin clickgame_bp =
 BoardPlugin 
 *get_bplugin_info(void)
 {
-   return &clickgame_bp;
+   return &menu_bp;
 }
 
 /*
@@ -250,7 +250,7 @@ clickgame_is_our_board (GcomprisBoard *gcomprisBoard)
       if(g_strcasecmp(gcomprisBoard->type, "clickgame")==0)
 	{
 	  /* Set the plugin entry */
-	  gcomprisBoard->plugin=&clickgame_bp;
+	  gcomprisBoard->plugin=&menu_bp;
 
 	  return TRUE;
 	}

@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2004/03/10 23:16:47 bcoudoin>
+ * Time-stamp: <2004/06/13 00:03:16 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -265,7 +265,7 @@ static void display_digital_time(GnomeCanvasItem *item, Time *time)
 
 static void display_hour(guint hour)
 {
-  double needle_size = clock_size*0.85;
+  double needle_size = clock_size*0.70;
   double ang;
   GnomeCanvasPoints *canvasPoints;
   canvasPoints = gnome_canvas_points_new (2);

@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/06/06 00:16:25 bcoudoin>
+ * Time-stamp: <2004/06/12 22:59:18 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -176,7 +176,7 @@ menu_end ()
   boardRootItem=NULL;
 }
 
-gboolean
+static gboolean
 menu_is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
