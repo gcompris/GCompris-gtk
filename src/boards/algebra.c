@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2003/02/16 23:25:20 bruno>
+ * Time-stamp: <2004/01/27 00:38:42 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -28,13 +28,11 @@
 
 #define PLUSSIGNFILE   '+'
 #define MINUSSIGNFILE  '-'
-#define BYSIGNFILE     '*'
+#define BYSIGNFILE     'x'
 #define DIVIDESIGNFILE ':'
 
 /* Some constants for the numbers layout */
 #define NUMBERSWIDTH       45
-#define NUMBERSHEIGHT      64
-#define NUMBERSSPACEHEIGHT NUMBERSHEIGHT
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -51,9 +49,6 @@ static GcomprisBoard *gcomprisBoard = NULL;
 
 static char *expected_result = NULL;
 
-/* Default layout for the algebra operation */
-static gboolean vertical_layout = FALSE;
-
 static gboolean operation_done[11];
 
 typedef struct {
@@ -61,7 +56,6 @@ typedef struct {
   GnomeCanvasItem *item;
   GnomeCanvasItem *focus_item;
   GnomeCanvasItem *bad_item;
-  GdkPixbuf *image;
   char *next;  /* Help : Should point to a ToBeFoundItem but don't know how to recurse on it */
   char *previous;
   char value;
@@ -71,7 +65,7 @@ static ToBeFoundItem *currentToBeFoundItem = NULL;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static char currentOperation = PLUSSIGNFILE;
+static char currentOperation[2];
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -174,24 +168,19 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
       /* The mode defines the operation */
-      /* If added with the sign | then the vertical layout is selected */
 
       /* Default mode */
       if(!gcomprisBoard->mode)
-	currentOperation=PLUSSIGNFILE;
+	currentOperation[0]=PLUSSIGNFILE;
       else if(g_strncasecmp(gcomprisBoard->mode, "+", 1)==0)
-	currentOperation=PLUSSIGNFILE;
+	currentOperation[0]=PLUSSIGNFILE;
       else if(g_strncasecmp(gcomprisBoard->mode, "-", 1)==0)
-	currentOperation=MINUSSIGNFILE;
+	currentOperation[0]=MINUSSIGNFILE;
       else if(g_strncasecmp(gcomprisBoard->mode, "*", 1)==0)
-	currentOperation=BYSIGNFILE;
+	currentOperation[0]=BYSIGNFILE;
       else if(g_strncasecmp(gcomprisBoard->mode, "/", 1)==0)
-	currentOperation=DIVIDESIGNFILE;
-      
-      if(g_strncasecmp(gcomprisBoard->mode+1, "|", 1)==0)
-	 vertical_layout=TRUE;
-      else
-	vertical_layout=FALSE;
+	currentOperation[0]=DIVIDESIGNFILE;
+      currentOperation[1]='\0';
 
       init_operation();
       algebra_next_level();
@@ -325,10 +314,13 @@ gint key_press(guint keyval)
   if(currentToBeFoundItem!=NULL &&
      keyval>=GDK_0 && keyval<=GDK_9)
     {
-      currentToBeFoundItem->image = gcompris_load_number_pixmap(c);
+      char number[2];
+      number[1] = '\0';
+      number[0] = (char)c;
+
       currentToBeFoundItem->value = c;
       gnome_canvas_item_set (currentToBeFoundItem->item,
-			     "pixbuf", currentToBeFoundItem->image,
+			     "text", (char *)&number,
 			     NULL);
 
       /* Not a failure (yet) */
@@ -340,20 +332,10 @@ gint key_press(guint keyval)
       /* Move the focus to the next appropriate digit */
       while(!stop)
 	{
-	  if(vertical_layout)
-	    {
-	      if(currentToBeFoundItem->next!=NULL)
-		currentToBeFoundItem = (ToBeFoundItem *)currentToBeFoundItem->next;
-	      else
-		stop = TRUE;
-	    }
+	  if(currentToBeFoundItem->previous!=NULL)
+	    currentToBeFoundItem = (ToBeFoundItem *)currentToBeFoundItem->previous;
 	  else
-	    {
-	      if(currentToBeFoundItem->previous!=NULL)
-		currentToBeFoundItem = (ToBeFoundItem *)currentToBeFoundItem->previous;
-	      else
-		stop = TRUE;
-	    }
+	    stop = TRUE;
 
 	  if(currentToBeFoundItem->in_error==TRUE ||
 	     currentToBeFoundItem->value=='?')
@@ -480,7 +462,6 @@ static void display_operand(GnomeCanvasGroup *parent,
 			    char *operand_str,
 			    gboolean masked)
 {
-  GdkPixbuf *algebra_pixmap = NULL;
   GnomeCanvasItem *item, *focus_item = NULL, *bad_item = NULL;
   int i;
   ToBeFoundItem *toBeFoundItem=NULL;
@@ -488,60 +469,45 @@ static void display_operand(GnomeCanvasGroup *parent,
 
   for(i=strlen(operand_str)-1; i>=0; i--)
     {
-      if(masked) 
-	{
-	  algebra_pixmap = gcompris_load_number_pixmap('?');
-	} 
-      else 
-	{
-	  algebra_pixmap = gcompris_load_number_pixmap(operand_str[i]);
-	}
+      char operand[2] = "?";
 
+      if(!masked)
+	operand[0] = operand_str[i];
+      
       item = gnome_canvas_item_new (parent,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", algebra_pixmap, 
-				    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH)
-				    +(NUMBERSWIDTH-gdk_pixbuf_get_width(algebra_pixmap))/2-
-				    gdk_pixbuf_get_width(algebra_pixmap)/2,
-				    "y", y - gdk_pixbuf_get_height(algebra_pixmap)/2,
-				    "width", (double) gdk_pixbuf_get_width(algebra_pixmap),
-				    "height", (double) gdk_pixbuf_get_height(algebra_pixmap),
+				    gnome_canvas_text_get_type (),
+				    "text", &operand, 
+				    "font", gcompris_skin_font_board_huge_bold,
+				    "anchor", GTK_ANCHOR_CENTER,
+				    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
+				    "y", y,
+				    "fill_color_rgba", 0x2c2cFFFF,
 				    NULL);
-      gdk_pixbuf_unref(algebra_pixmap);
       item_list = g_list_append (item_list, item);
 
       if(masked) 
 	{
 	  focus_item = gnome_canvas_item_new (parent,
-					      gnome_canvas_rect_get_type (),
-					      "x1",  x_align-((strlen(operand_str)-i)*NUMBERSWIDTH)
-					      +(NUMBERSWIDTH-gdk_pixbuf_get_width(algebra_pixmap))/2 + 5
-					      - (gdk_pixbuf_get_width(algebra_pixmap))/2,
-					      "y1", (double)y + (gdk_pixbuf_get_height(algebra_pixmap))/2,
-					      "x2", (double)x_align-((strlen(operand_str)-i)*NUMBERSWIDTH)
-					      +(NUMBERSWIDTH-gdk_pixbuf_get_width(algebra_pixmap))/2 + 
-					      gdk_pixbuf_get_width(algebra_pixmap) - 5
-					      - (gdk_pixbuf_get_width(algebra_pixmap))/2,
-					      "y2", (double)y + (gdk_pixbuf_get_height(algebra_pixmap))/2 + 5,
-					      "fill_color", "black",
-					      "outline_color", "blue",
-					      "width_units", (double)2,
+					      gnome_canvas_text_get_type (),
+					      "text", "_",
+					      "font", gcompris_skin_font_board_huge_bold,
+					      "anchor", GTK_ANCHOR_CENTER,
+					      "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
+					      "y", y,
+					      "fill_color_rgba", 0x00ae00FF,
 					      NULL);
 
 	  item_list = g_list_append (item_list, focus_item);
 
-	  algebra_pixmap = gcompris_load_skin_pixmap("bad.png");
 	  bad_item = gnome_canvas_item_new (parent,
-					    gnome_canvas_pixbuf_get_type (),
-					    "pixbuf", algebra_pixmap, 
-					    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH)
-					    +(NUMBERSWIDTH-gdk_pixbuf_get_width(algebra_pixmap))/2 
-					    -gdk_pixbuf_get_width(algebra_pixmap)/2,
-					    "y", y -gdk_pixbuf_get_height(algebra_pixmap)/2,
-					    "width", (double) gdk_pixbuf_get_width(algebra_pixmap),
-					    "height", (double) gdk_pixbuf_get_height(algebra_pixmap),
+					    gnome_canvas_text_get_type (),
+					    "text", "/",
+					    "font", gcompris_skin_font_board_huge_bold,
+					    "anchor", GTK_ANCHOR_CENTER,
+					    "x", x_align-((strlen(operand_str)-i)*NUMBERSWIDTH),
+					    "y", y,
+					    "fill_color_rgba", 0xFF0000FF,
 					    NULL);
-	  gdk_pixbuf_unref(algebra_pixmap);
 	  gnome_canvas_item_hide(bad_item);
 
 	  item_list = g_list_append (item_list, bad_item);
@@ -554,7 +520,6 @@ static void display_operand(GnomeCanvasGroup *parent,
 	  toBeFoundItem->bad_item=bad_item;
 	  toBeFoundItem->index=i;
 	  toBeFoundItem->value='?';
-	  toBeFoundItem->image=algebra_pixmap;
 	  toBeFoundItem->item=item;
 	  toBeFoundItem->focus_item=focus_item;
 	  toBeFoundItem->previous=(char *)previousToBeFoundItem;
@@ -566,8 +531,8 @@ static void display_operand(GnomeCanvasGroup *parent,
 
 	  previousToBeFoundItem=toBeFoundItem;
 
-	  /* Init the focussed item on the right digit depending on vertical_layout */
-	  if(i==(vertical_layout?strlen(operand_str)-1:0))
+	  /* Init the focussed item on the right digit */
+	  if(i==0)
 	    {
 	      currentToBeFoundItem=toBeFoundItem;
 	      set_focus_item(toBeFoundItem, TRUE);
@@ -585,7 +550,6 @@ static void display_operand(GnomeCanvasGroup *parent,
 
 static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 {
-  GdkPixbuf *algebra_pixmap = NULL;
   GnomeCanvasItem *item;
   guint first_operand, second_operand;
   char *first_operand_str = NULL;
@@ -610,76 +574,44 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   /* Calc the longuest value */
   longuest = MAX(strlen(first_operand_str), strlen(second_operand_str));
 
-  if(vertical_layout)
-    /* Vertical layout : Warning x_align is the right assigned value for display_operand */
-    x_align = gcomprisBoard->width - (gcomprisBoard->width - (longuest*NUMBERSWIDTH))/2 - 200;
-  else
-    x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2 + NUMBERSWIDTH*(strlen(first_operand_str)) - 200;
+  x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2 + NUMBERSWIDTH*(strlen(first_operand_str)) - 200;
 
   /* First operand */
   display_operand(parent, x_align, y_firstline, first_operand_str, FALSE);
 
   /* Second operand */
-  if(vertical_layout)
-      display_operand(parent, x_align, y_firstline + NUMBERSSPACEHEIGHT, second_operand_str, FALSE);
-  else
-      display_operand(parent, x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
-		      y_firstline, second_operand_str, FALSE);
+  display_operand(parent, x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
+		  y_firstline, second_operand_str, FALSE);
 
   /* Display the operator */
-  algebra_pixmap = gcompris_load_number_pixmap(currentOperation);
-  if(vertical_layout)
-    {
-      x=(double) gcomprisBoard->width - x_align - NUMBERSWIDTH - 20;
-      y=(double) y_firstline + NUMBERSSPACEHEIGHT;
-    }
-  else
-    {
-      x=(double) x_align;
-      y=(double) y_firstline;
-    }
+  x=(double) x_align;
+  y=(double) y_firstline;
   item = gnome_canvas_item_new (parent,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", algebra_pixmap, 
-				"x", x -  gdk_pixbuf_get_width(algebra_pixmap)/2,
-				"y", y -  gdk_pixbuf_get_height(algebra_pixmap)/2,
-				"width", (double)  gdk_pixbuf_get_width(algebra_pixmap),
-				"height", (double) gdk_pixbuf_get_height(algebra_pixmap),
+				gnome_canvas_text_get_type (),
+				"text", currentOperation, 
+				"font", gcompris_skin_font_board_huge_bold,
+				"x", x,
+				"y", y,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xFF3333FF,
 				NULL);
   item_list = g_list_append (item_list, item);
 
-  /* Now the separator line or the equal sign*/
-  if(vertical_layout)
-    {
-      item = gnome_canvas_item_new (parent,
-				    gnome_canvas_rect_get_type (),
-				    "x1", (double) gcomprisBoard->width - x_align - NUMBERSWIDTH - 20,
-				    "y1", (double) y_firstline + NUMBERSSPACEHEIGHT + NUMBERSSPACEHEIGHT/2,
-				    "x2", (double) x_align+(NUMBERSWIDTH-gdk_pixbuf_get_width(algebra_pixmap))/2,
-				    "y2", (double)  y_firstline + NUMBERSSPACEHEIGHT + NUMBERSSPACEHEIGHT/2 + 5,
-				    "fill_color", "blue",
-				    "outline_color", "green",
-				    "width_units", (double)1,
-				    NULL);
-    }
-  else
-    {
-      algebra_pixmap = gcompris_load_number_pixmap('=');
-      item = gnome_canvas_item_new (parent,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", algebra_pixmap, 
-				    "x", (double) x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1)
-				    - gdk_pixbuf_get_width(algebra_pixmap)/2,
-				    "y", (double) y_firstline - gdk_pixbuf_get_height(algebra_pixmap)/2,
-				    "width", (double)  gdk_pixbuf_get_width(algebra_pixmap),
-				    "height", (double) gdk_pixbuf_get_height(algebra_pixmap),
-				    NULL);
-    }
+  /* Now the equal sign*/
+  item = gnome_canvas_item_new (parent,
+				gnome_canvas_text_get_type (),
+				"text", "=", 
+				"font", gcompris_skin_font_board_huge_bold,
+				"x", x_align + NUMBERSWIDTH*(strlen(second_operand_str)+1),
+				"y", y,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", 0xFF3333FF,
+				NULL);
   item_list = g_list_append (item_list, item);
 
   /* Display the empty area */
   g_free(expected_result);
-  switch(currentOperation)
+  switch(currentOperation[0])
     {
     case PLUSSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand+second_operand);
@@ -700,13 +632,10 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     default:
       g_error("Bad Operation");
     }
-  if(vertical_layout)
-    display_operand(parent, x_align, y_firstline + NUMBERSSPACEHEIGHT*2 + 10, expected_result, TRUE);
-  else
-    display_operand(parent, x_align + NUMBERSWIDTH*(strlen(second_operand_str)+
-						    strlen(expected_result)+2),
-		    y_firstline, expected_result, TRUE);
-
+  display_operand(parent, x_align + NUMBERSWIDTH*(strlen(second_operand_str)+
+						  strlen(expected_result)+2),
+		  y_firstline, expected_result, TRUE);
+  
 
   gcompris_play_ogg(first_operand_str, audioOperand , second_operand_str, "equal", NULL);
 
@@ -720,17 +649,11 @@ static void set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status)
 {
   if(status)
     {
-      gnome_canvas_item_set (toBeFoundItem->focus_item,
-			     "fill_color", "blue",
-			     "outline_color", "green",
-			     NULL);
+      gnome_canvas_item_show (toBeFoundItem->focus_item);
     }
   else
     {
-      gnome_canvas_item_set (toBeFoundItem->focus_item,
-			     "fill_color", NULL,
-			     "outline_color", NULL,
-			     NULL);
+      gnome_canvas_item_hide (toBeFoundItem->focus_item);
     }
 }
 
@@ -754,11 +677,8 @@ static void process_ok()
 	{
 	  gnome_canvas_item_show(currentToBeFoundItem->bad_item);
 	  currentToBeFoundItem->in_error = TRUE;
-	  /* Depending on vertical_layout, remember the appropriate digit to focus next */
-	  if(vertical_layout && hasfail==NULL)
-	    hasfail=currentToBeFoundItem;
-	  else
-	    hasfail=currentToBeFoundItem;
+	  /* remember the appropriate digit to focus next */
+	  hasfail=currentToBeFoundItem;
 	}
       currentToBeFoundItem=(ToBeFoundItem *)currentToBeFoundItem->next;
     }
@@ -829,7 +749,6 @@ static gint get_operand()
 	i=1;
     }
   operation_done[i]=TRUE;
-  printf("get operand returns %d (j=%d)\n", i, j);
   return i;
 }
 
@@ -846,7 +765,7 @@ static void get_random_number(guint *first_operand, guint *second_operand)
 {
   guint min, max;
 
-  switch(currentOperation)
+  switch(currentOperation[0])
     {
     case PLUSSIGNFILE:
       *first_operand = get_operand();

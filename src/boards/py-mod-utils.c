@@ -10,24 +10,6 @@
  */
 
 
-/* GdkPixbuf *gcompris_load_number_pixmap(char number); */
-static PyObject*
-py_gcompris_load_number_pixmap(PyObject* self, PyObject* args)
-{
-  char value;
-  GdkPixbuf* result;
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "b:gcompris_load_number_pixmap", &value))
-    return NULL;
-
-  /* Call the corresponding C function */
-  result = gcompris_load_number_pixmap(value);
-
-  /* Create and return the result */
-  return(PyObject*)pygobject_new((GObject*) result);
-}
-
-
 /* GdkPixbuf *gcompris_load_pixmap(char *pixmapfile); */
 static PyObject*
 py_gcompris_load_pixmap(PyObject* self, PyObject* args)
@@ -298,7 +280,6 @@ py_gcompris_get_asset_file(PyObject* self, PyObject* args)
 
 
 static PyMethodDef PythonGcomprisUtilsModule[] = {
-  { "load_number_pixmap",  py_gcompris_load_number_pixmap, METH_VARARGS, "gcompris_load_number_pixmap" },
   { "load_pixmap",  py_gcompris_load_pixmap, METH_VARARGS, "gcompris_load_pixmap" },
   { "set_image_focus",  py_gcompris_set_image_focus, METH_VARARGS, "gcompris_set_image_focus" },
   { "item_event_focus",  py_gcompris_item_event_focus, METH_VARARGS, "gcompris_item_event_focus" },

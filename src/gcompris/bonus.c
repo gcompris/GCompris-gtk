@@ -102,6 +102,9 @@ void board_finished(int type) {
   if(type==BOARD_FINISHED_RANDOM)
     type = RAND(1,BOARD_FINISHED_LAST-1);
 
+  /* Record the end of board */
+  gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
+
   switch (type) {
 	case BOARD_FINISHED_TUXPLANE :
 		str = g_strdup_printf("gcompris/misc/tuxplane.png");
@@ -233,12 +236,14 @@ void bonus_image(char *image, int gamewon)
   if (gamewon == TRUE) {
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
     /* Record the end of board */
-    gcompris_log_end (get_current_gcompris_board(), GCOMPRIS_LOG_STATUS_PASSED);
+    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_PASSED);
   } else {
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_bad.png");
     /* Record the end of board */
-    gcompris_log_end (get_current_gcompris_board(), GCOMPRIS_LOG_STATUS_FAILED);
+    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
   }
+  /* Log the board start again*/
+  gcompris_log_start(gcomprisBoard);
 
   pixmap = gcompris_load_pixmap(str);
 

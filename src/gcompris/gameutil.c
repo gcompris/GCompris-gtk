@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/10/29 18:55:55 bcoudoin>
+ * Time-stamp: <2004/01/26 23:42:36 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,59 +46,6 @@ static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallB
 extern GnomeCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
-
-/*
- * Load the given pixmap in the gcompris number/letter directory
- * operations can also be loaded 
- */
-GdkPixbuf *gcompris_load_number_pixmap(char number)
-{
-  gchar *filename;
-  GdkPixbuf *pixmap;
-  gchar     *file = NULL;
-
-  switch(number)
-    {
-    case '+':
-      file = "plus";
-      break;
-    case ':':
-      file = "div";
-      break;
-    case '-':
-      file = "minus";
-      break;
-    case '*':
-    case 'x':
-      file = "by";
-      break;
-    case '=':
-      file = "equal";
-      break;
-    case '?':
-      file = "question";
-      break;
-    default:
-      break;
-    }
-
-  if(file == NULL)
-    filename = g_strdup_printf("%s/%s/%s%c%s", PACKAGE_DATA_DIR, "gcompris",
-			       lettersdir, number, IMAGEEXTENSION);
-  else
-    filename = g_strdup_printf("%s/%s/%s%s%s", PACKAGE_DATA_DIR, "gcompris",
-			       lettersdir, file, IMAGEEXTENSION);
-
-  if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
-    g_error (_("Couldn't find file %s !"), filename);
-  }
-
-  pixmap = gdk_pixbuf_new_from_file (filename, NULL);
-
-  g_free (filename);
-
-  return(pixmap);
-}
 
 /*
  * Returns a filename path found from the assetml base. 

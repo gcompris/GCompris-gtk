@@ -52,6 +52,9 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
   GList *node;
   BoardPlugin *bp;
 
+  if(!gcomprisBoard)
+    return FALSE;
+
   if(gcomprisBoard->plugin!=NULL)
     {
       return TRUE;
