@@ -521,10 +521,10 @@ static void snap_to_grid(double *x, double *y)
   if(grid_step==0)
     return;
 
-  tmp = (guint)(*x - drawing_area_x1)/grid_step;
+  tmp = (guint)((*x+(grid_step/2)) - drawing_area_x1)/grid_step;
   *x = (double)drawing_area_x1 + tmp*grid_step;
 
-  tmp = (guint)(*y - drawing_area_y1)/grid_step;
+  tmp = (guint)((*y+(grid_step/2)) - drawing_area_y1)/grid_step;
   *y = (double)drawing_area_y1 + tmp*grid_step;
 }
 
