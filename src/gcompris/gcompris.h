@@ -41,6 +41,7 @@
 #include "pluginenum.h"
 #include "bonus.h"
 #include "score.h"
+#include "cursor.h"
 
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520
@@ -78,6 +79,7 @@ void		 gcompris_help_stop ();
 
 /* General */
 GnomeCanvas     *gcompris_get_canvas();
+GtkWidget * gcompris_get_window();
 
 gchar	        *gcompris_get_locale();
 void		 gcompris_set_locale(gchar *locale);
@@ -99,9 +101,11 @@ void		 gcompris_set_cursor(guint gdk_cursor_type);
 #define FONT_CONTENT		"-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
 #define FONT_CONTENT_FALLBACK	"-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
 
-#define GCOMPRIS_DEFAULT_CURSOR	GDK_LEFT_PTR
+//#define GCOMPRIS_DEFAULT_CURSOR	GDK_LEFT_PTR
+#define GCOMPRIS_DEFAULT_CURSOR BIG_RED_ARROW_CURSOR
+
 #endif
-
+
 /* Local Variables: */
 /* mode:c */
 /* eval:(load-library "time-stamp") */

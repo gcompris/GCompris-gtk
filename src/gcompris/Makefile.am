@@ -21,7 +21,8 @@ gcompris_SOURCES = \
 	bonus.c bonus.h \
 	score.c score.h \
 	config.c gcompris_config.h \
-	about.c about.h
+	about.c about.h \
+	cursor.c cursor.h
 
 gcompris_LDADD = \
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \

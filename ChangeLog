@@ -1,3 +1,8 @@
+2002-02-23 Pascal Georges <pascal.georges1@free.fr>
+  * src/gcompris/gcompris.c: modified gcompris_set_cursor to use custom cursors. A big red arrow is the default,
+	  a red bird is for the moment only used for algebra_guesscount
+	* src/gcompris/cursor.[ch] : definitions and handling of custom cursors
+
 2002-02-23  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/draw.c: New draw completed including new icons and cursors

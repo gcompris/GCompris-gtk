@@ -111,6 +111,12 @@ GnomeCanvas *gcompris_get_canvas()
   return canvas;
 }
 
+GtkWidget *gcompris_get_window()
+{
+  return window;
+}
+
+
 GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)
 {
   GdkPixbuf *background_pixmap = NULL;
@@ -142,7 +148,7 @@ static void init_background()
 
   yratio=gdk_screen_height()/(float)(BOARDHEIGHT+BARHEIGHT);
   xratio=gdk_screen_width()/(float)BOARDWIDTH;
-    printf("The gdk_screen_width()=%f gdk_screen_height()=%f\n", 
+    printf("The gdk_screen_width()=%f gdk_screen_height()=%f\n",
   	 (double)gdk_screen_width(), (double)gdk_screen_height());
     printf("The xratio=%f yratio=%f\n", xratio, yratio);
 
@@ -223,11 +229,28 @@ static void init_background()
 
 void gcompris_set_cursor(guint gdk_cursor_type)
 {
-  GdkCursor *hand_cursor;
+  GdkCursor *cursor;
+	// I suppose there is less than 1000 cursors defined in gdkcursors.h !
+	if (gdk_cursor_type < FIRST_CUSTOM_CURSOR) {
+  	cursor = gdk_cursor_new(gdk_cursor_type);
+  	gdk_window_set_cursor	 (window->window, cursor);
+  	gdk_cursor_destroy(cursor);
+		} else { // we use a custom cursor
+			GdkColor fg, bg;
+			static const gchar * cursor;
+			gchar * bits;
+			switch (gdk_cursor_type) {
+				case BIG_RED_ARROW_CURSOR : bits = big_red_arrow_cursor_bits; break;
+				case BIRD_CURSOR : bits = bird_cursor_bits; break;
+				default : bits = big_red_arrow_cursor_bits;
+			}
 
-  hand_cursor = gdk_cursor_new(gdk_cursor_type);
-  gdk_window_set_cursor	 (window->window, hand_cursor);
-  gdk_cursor_destroy(hand_cursor);
+  		gdk_color_parse("rgb:0000/0000/0000",&fg);
+  		gdk_color_parse("rgb:FFFF/3FFF/0000",&bg);
+			cursor = gdk_cursor_new_from_data(bits, 40, 40, &fg, &bg, 0, 0);
+			gdk_window_set_cursor(window->window, cursor);
+			gdk_cursor_destroy(cursor);
+		}
 }
 
 static void setup_window ()
@@ -289,7 +312,7 @@ static void setup_window ()
     {
       gdk_window_set_decorations (window->window, 0);
       gdk_window_set_functions (window->window, 0);
-      gtk_widget_set_uposition (window, 0, 0);  
+      gtk_widget_set_uposition (window, 0, 0);
     }
 
   init_plugins();
@@ -398,8 +421,8 @@ main (int argc, char *argv[])
   gcompris_set_locale(properties->locale);
 
 	initSound();
-	
-  gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
+
+	gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
 
   optCon = poptGetContext (NULL, argc, argv, command_line, 0);
 
@@ -469,7 +492,7 @@ main (int argc, char *argv[])
   return 0;
 }
 
-
+
 /* Local Variables: */
 /* mode:c */
 /* eval:(load-library "time-stamp") */

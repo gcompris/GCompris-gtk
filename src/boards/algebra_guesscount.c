@@ -216,7 +216,10 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
     algebra_guesscount_next_level();
 
+		gcompris_set_cursor(BIRD_CURSOR);
+		
     gamewon = FALSE;
+
     pause_board(FALSE);
   }
 }
