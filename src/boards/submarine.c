@@ -36,7 +36,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static int gamewon;
 
-static void process_ok(void);
+static void ok(void);
 static void game_won();
 
 #define PURGE_AR 225
@@ -101,6 +101,8 @@ static void game_won();
 #define UP 1
 #define DOWN 0
 
+#define FRIGATE_SPEED 5.0
+
 #define UPDATE_DELAY 200
 #define UPDATE_DELAY_SLOW 300
 #define UPDATE_DELAY_VERY_SLOW 1500
@@ -117,6 +119,7 @@ static GnomeCanvasItem *ballast_av_chasse_item, *ballast_ar_chasse_item, *regleu
 gboolean ballast_av_purge_open, ballast_ar_purge_open, regleur_purge_open;
 gboolean ballast_av_chasse_open, ballast_ar_chasse_open, regleur_chasse_open;
 gboolean air_charging, battery_charging;
+gboolean submarine_destroyed;
 
 static GnomeCanvasItem *barre_av_item, *barre_ar_item,
 	*barre_av_up_item, *barre_av_down_item, *barre_ar_up_item, *barre_ar_down_item,
@@ -126,7 +129,7 @@ static GnomeCanvasItem *barre_av_item, *barre_ar_item,
 	*regleur_item_back, *regleur_item_front,
   *battery_item_back, *battery_item_front,
   *air_compressor_item, *battery_charger_item, *alert_submarine,
-  *bubbling[3];
+  *bubbling[3], *frigate_item, *explosion[3];
 
 /* submarine parameters */
 static double barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
@@ -153,6 +156,8 @@ static void setBattery(double value);
 static void setAir(double value);
 static void setRegleur(double value);
 
+static void submarine_explosion();
+
 static gboolean update_timeout();
 static gboolean update_timeout_slow();
 static gboolean update_timeout_very_slow();
@@ -175,7 +180,7 @@ BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL
@@ -273,6 +278,7 @@ static void submarine_next_level() {
   air = AIR_INITIAL;
   battery = BATTERY_INITIAL;
 	ballast_av_air = ballast_ar_air = MAX_BALLAST/10.0;
+	submarine_destroyed = FALSE;
 
   submarine_destroy_all_items();
   gamewon = FALSE;
@@ -653,8 +659,8 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
     bubbling[i] = gnome_canvas_item_new (boardRootItem,
               gnome_canvas_pixbuf_get_type (),
               "pixbuf", pixmap,
-              "x", (double) ALERT_SUBMARINE_X,
-              "y", (double) ALERT_SUBMARINE_Y,
+              "x", (double) 0.0,
+              "y", (double) 0.0,
               "width", (double) gdk_pixbuf_get_width(pixmap),
               "height", (double) gdk_pixbuf_get_height(pixmap),
               "width_set", TRUE,
@@ -662,6 +668,26 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
               "anchor", GTK_ANCHOR_CENTER,
               NULL);
 	  gnome_canvas_item_hide(bubbling[i]);
+  }
+  g_free(str);
+  gdk_pixbuf_unref(pixmap);
+
+  // explosion items
+  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "explosion.png");
+  pixmap = gcompris_load_pixmap(str);
+  for (i=0; i<3; i++) {
+    explosion[i] = gnome_canvas_item_new (boardRootItem,
+              gnome_canvas_pixbuf_get_type (),
+              "pixbuf", pixmap,
+              "x", (double) 0.0,
+              "y", (double) 0.0,
+              "width", (double) gdk_pixbuf_get_width(pixmap),
+              "height", (double) gdk_pixbuf_get_height(pixmap),
+              "width_set", TRUE,
+              "height_set", TRUE,
+              "anchor", GTK_ANCHOR_CENTER,
+              NULL);
+	  gnome_canvas_item_hide(explosion[i]);
   }
   g_free(str);
   gdk_pixbuf_unref(pixmap);
@@ -690,6 +716,23 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						"width_set", TRUE,
 						"height_set", TRUE,
             "anchor", GTK_ANCHOR_CENTER,
+						NULL);
+  g_free(str);
+  gdk_pixbuf_unref(pixmap);
+
+  // the antisubmarine warfare frigate
+  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "asw_frigate.png");
+  pixmap = gcompris_load_pixmap(str);
+  frigate_item = gnome_canvas_item_new (boardRootItem,
+						gnome_canvas_pixbuf_get_type (),
+						"pixbuf", pixmap,
+						"x", (double) 700.0,
+						"y", (double) 2.0,
+						"width", (double) gdk_pixbuf_get_width(pixmap),
+						"height", (double) gdk_pixbuf_get_height(pixmap),
+						"width_set", TRUE,
+						"height_set", TRUE,
+            //"anchor", GTK_ANCHOR_CENTER,
 						NULL);
   g_free(str);
   gdk_pixbuf_unref(pixmap);
@@ -841,7 +884,7 @@ static gboolean update_timeout_slow() {
   if ( submarine_x > WRAP_X )
 		submarine_x = SUBMARINE_WIDTH/2.0;
 
-  {
+  { /* displayes the submarine */
     double r[6],t1[6], t2[6];
     double y = depth + SUBMARINE_HEIGHT/2 + SURFACE_IN_BACKGROUND - SUBMARINE_WIDTH/2.0*sin(DEG_TO_RAD(assiette));
     art_affine_translate( t1 , (double)-SUBMARINE_WIDTH/2.0, (double)-SUBMARINE_HEIGHT );
@@ -851,6 +894,28 @@ static gboolean update_timeout_slow() {
     art_affine_multiply( r, r, t2);
     gnome_canvas_item_affine_absolute( submarine_item, r );
   }
+
+  /* the frigate */
+  {
+  	double x1, x2, y1, y2, x;
+    x = - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0;
+  	gnome_canvas_item_get_bounds(frigate_item, &x1, &y1, &x2, &y2);
+    gnome_canvas_item_move(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
+    /* detects a collision betwwen the frigate and the submarine */
+    printf("depth=%d submarine_x = %.1f x1=%d x2=%d\n", (int)depth, submarine_x, (int)x1, (int)x2);
+    if (depth <= 30.0 && !submarine_destroyed)
+      if ( (submarine_x - SUBMARINE_WIDTH <= x1 && submarine_x >= x2) ||
+          (submarine_x - SUBMARINE_WIDTH >= x1 && submarine_x - SUBMARINE_WIDTH <= x2) ||
+          (submarine_x >= x1 && submarine_x <= x2) ) {
+        submarine_explosion();
+        printf("éperonnage\n");
+      }
+    /* wraps the destroyer if it reached the left side (and disappeared for a long time)*/
+    if (x2 < -300.0) {
+    	item_absolute_move( frigate_item, gcomprisBoard->width, y1 );
+    }
+
+	}
 
   return TRUE;
 }
@@ -930,14 +995,14 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gboolean process_ok_timeout() {
+static gboolean ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
 	return FALSE;
 }
 
-static void process_ok() {
+static void ok() {
 	// leave time to display the right answer
-  g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
+  g_timeout_add(TIME_CLICK_TO_BONUS, ok_timeout, NULL);
 }
 
 /* =====================================================================
@@ -1225,4 +1290,20 @@ static void setRegleur(double value) {
   sprintf(s12,"%d",(int)value);
 	gnome_canvas_item_set(regleur_item_back, "text", s12, NULL);
 	gnome_canvas_item_set(regleur_item_front, "text", s12, NULL);
+}
+/* =====================================================================
+ *	Submarine explosion
+ * =====================================================================*/
+static void submarine_explosion() {
+  submarine_destroyed = TRUE;
+	gcompris_play_ogg("explos", NULL);
+  /* make the submarine die */
+  setSpeed(speed_ordered = submarine_horizontal_speed = 0.0);
+  setBattery(battery = 0.0);
+  setAir(air = 0.0);
+  regleur = MAX_REGLEUR;
+  weight = 2000.0;
+  /* display the explosion */
+  item_absolute_move( explosion[0], submarine_x - SUBMARINE_WIDTH/2 -30.0, depth-30.0 );
+	gnome_canvas_item_show(explosion[0]);
 }
