@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-10-11 23:02+0200\n"
-"PO-Revision-Date: 2003-10-11 23:04+0200\n"
+"POT-Creation-Date: 2003-10-24 01:11+0200\n"
+"PO-Revision-Date: 2003-10-24 01:12+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -771,11 +771,11 @@ msgstr "Placera föremålen så att de kan räknas på bäst sätt"
 msgid "Motor coordination"
 msgstr "Motorik"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:66 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Flytta musen"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:67
+#: boards/erase.xml.in.h:5 src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Flytta musen för att radera området och upptäck bakgrunden"
 
@@ -1888,18 +1888,24 @@ msgstr "Tangentbordsträning"
 #: boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
-"cleanup station in order to reactivate the whole water system."
+"cleanup station in order to reactivate the whole water system. When done and "
+"Tux is in his shower, push the shower button for him."
 msgstr ""
 "Klicka på olika aktiva element: sol, moln, vattenpumpstation, "
-"vattenreningsverk för att att återaktivera hela vattensystemet."
+"vattenreningsverk för att att återaktivera hela vattensystemet. När du är "
+"klar och Tux är i duschen trycker du på duschknappen åt honom."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
 msgstr "Lär vattnets kretslopp"
 
 #: boards/watercycle.xml.in.h:3
-msgid "You have to bring back the water system up before Tux goes home"
-msgstr "Du måste få igång vattensystemet igen innan Tux kan gå hem"
+msgid ""
+"You have to bring back the water system up. Tux comes from a long fishing "
+"party on his boat. Help him to have a shower."
+msgstr ""
+"Du måste få igång vattensystemet igen. Tux kommer från en lång fisketur med "
+"båten. Hjälp honom att få en dusch."
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -1914,18 +1920,18 @@ msgid "Educational suite gcompris"
 msgstr "Läroprogramssviten gcompris"
 
 #: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
 #: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
-#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:364
+#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
@@ -2092,11 +2098,11 @@ msgstr "Pythonbräde"
 msgid "Special board that embed python into gcompris."
 msgstr "Specialbräde som bäddar in python i gcompris."
 
-#: src/boards/railroad.c:95
+#: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Memory-spel"
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
 msgstr "Bygg ett tåg som överensstämmer med modellen"
 
@@ -2221,8 +2227,8 @@ msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc Licens
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
-#: src/gcompris/images_selector.c:148
+#: src/gcompris/about.c:287 src/gcompris/config.c:178 src/gcompris/help.c:341
+#: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
@@ -2337,101 +2343,109 @@ msgid "Slovak"
 msgstr "Slovakiska"
 
 #: src/gcompris/config.c:79
+msgid "Slovenian"
+msgstr "Slovenska"
+
+#: src/gcompris/config.c:80
 msgid "Serbian (Latin)"
 msgstr "Serbiska (Latin)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Serbian"
 msgstr "Serbiska"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Swedish"
 msgstr "Svenska"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Standard för gcompris)"
 
-#: src/gcompris/config.c:151
+#: src/gcompris/config.c:152
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:257
+#: src/gcompris/config.c:258
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:300
+#: src/gcompris/config.c:301
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:328
+#: src/gcompris/config.c:329
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:365
+#: src/gcompris/config.c:366
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:399 src/gcompris/config.c:705
-#: src/gcompris/config.c:716
+#: src/gcompris/config.c:400 src/gcompris/config.c:706
+#: src/gcompris/config.c:717
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
 
-#: src/gcompris/gcompris.c:65
+#: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
 msgstr "kör gcompris i helskärmsläge."
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in window mode."
 msgstr "kör gcompris i fönsterläge."
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris with sound enabled."
 msgstr "kör gcompris med ljud aktiverat."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris without sound."
 msgstr "kör gcompris utan ljud."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris with the default gnome cursor."
 msgstr "kör gcompris med gnomes standardmuspekare."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:76
+msgid "display only activities with this difficulty level."
+msgstr "visa endast aktiviteter med denna svårighetsnivå."
+
+#: src/gcompris/gcompris.c:78
 msgid "Prints the version of "
 msgstr "Skriver ut versionsnumret av "
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:80
 msgid "Use the antialiased canvas (slower)."
 msgstr "Använd den kantutjämnade canvasen (långsammare)."
 
-#: src/gcompris/gcompris.c:330
+#: src/gcompris/gcompris.c:350
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:544
+#: src/gcompris/gcompris.c:567
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2492,7 +2506,7 @@ msgstr "Författare"
 msgid "Directory"
 msgstr "Katalog"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:242
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
 msgid "Title"
 msgstr "Titel"
 
@@ -2507,11 +2521,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Släppt under GPL"
 
-#: src/gcompris/oggplayer.c:205 src/gcompris/oggplayer.c:216
+#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
 msgid "Now Playing Music"
 msgstr "Spelar nu musik"
 
-#: src/gcompris/oggplayer.c:246
+#: src/gcompris/oggplayer.c:248
 msgid "Artist"
 msgstr "Artist"
 
@@ -2533,6 +2547,13 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid ""
+#~ "Click on different active elements : sun, cloud, water pump station, "
+#~ "water cleanup station in order to reactivate the whole water system."
+#~ msgstr ""
+#~ "Klicka på olika aktiva element: sol, moln, vattenpumpstation, "
+#~ "vattenreningsverk för att att återaktivera hela vattensystemet."
 
 #~ msgid ""
 #~ "Click on the coins or paper money on the bottom of the screen to pay. If "
@@ -2690,9 +2711,6 @@ msgstr "Återstående tid = %d"
 
 #~ msgid "Portuguese (Brazilian)"
 #~ msgstr "Portugisiska (brasiliansk)"
-
-#~ msgid "Slovenian"
-#~ msgstr "Slovenska"
 
 #~ msgid "Spanish (Mexico)"
 #~ msgstr "Spanska (Mexiko)"
