@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-29 19:27+0100\n"
-"PO-Revision-Date: 2003-10-30 04:00+0100\n"
+"POT-Creation-Date: 2003-11-06 13:24+0100\n"
+"PO-Revision-Date: 2003-11-06 13:24+0100\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -358,8 +358,8 @@ msgstr "Иди на алгебарске вежбе"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Леви клик миша за избор вежбе"
 
@@ -722,11 +722,11 @@ msgstr ""
 "Деца морају да преместе ставке са леве стране на одговарајуће место у табели "
 "са двоструким уносом."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:199
+#: boards/draw.xml.in.h:1 src/boards/draw.c:205
 msgid "A simple vector drawing tool"
 msgstr "Једноставно векторско цртање"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:200
+#: boards/draw.xml.in.h:2 src/boards/draw.c:206
 msgid "Creative board where you can freely draw"
 msgstr "Уметничка табла на којој можете слободно да цртате"
 
@@ -769,6 +769,10 @@ msgstr "Вежба пребројавања"
 #: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr "Уреди ставке за што лакше бројање"
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Иди на искуствене вежбе"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
@@ -1931,7 +1935,7 @@ msgstr "Образовни комплет gcompris"
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
 #: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
 #: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Не могу да нађем датотеку: %s !"
@@ -2439,7 +2443,8 @@ msgstr "прикажи само активности ове тежине."
 
 #: src/gcompris/gcompris.c:79
 msgid "select the audio output, one of 'default alsa09 arts esd oss'"
-msgstr "изаберите звучни излаз, један од „default“, „алса09“, „arts“, „esd“, „oss“"
+msgstr ""
+"изаберите звучни излаз, један од „default“, „алса09“, „arts“, „esd“, „oss“"
 
 #: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
@@ -2450,11 +2455,11 @@ msgid "Use the antialiased canvas (slower)."
 msgstr "Користи улепшан приказ (спорије)."
 
 # bug: wha'???
-#: src/gcompris/gcompris.c:353
+#: src/gcompris/gcompris.c:357
 msgid "GCompris I Have Understood"
 msgstr "ГКомприс ког сам разумео"
 
-#: src/gcompris/gcompris.c:570
+#: src/gcompris/gcompris.c:574
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2515,7 +2520,7 @@ msgstr "Аутор"
 msgid "Directory"
 msgstr "Директоријум"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:247
 msgid "Title"
 msgstr "Наслов"
 
@@ -2531,15 +2536,15 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Објављено под ОЈЛ (GPL)"
 
-#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
+#: src/gcompris/oggplayer.c:210 src/gcompris/oggplayer.c:221
 msgid "Now Playing Music"
 msgstr "Сада пуштам музику"
 
-#: src/gcompris/oggplayer.c:247
+#: src/gcompris/oggplayer.c:251
 msgid "Artist"
 msgstr "Извођач"
 
-#: src/gcompris/soundutil.c:116
+#: src/gcompris/soundutil.c:113
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Не могу да отворим директоријум са музиком: %s"
