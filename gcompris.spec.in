@@ -169,48 +169,35 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-, root, root)
-
 %doc ABOUT-NLS AUTHORS COPYING ChangeLog INSTALL NEWS README TODO THANKS
 %attr(-, root, games) %{prefix}/bin/*
-%{prefix}/share/gnome/apps/Games/*
-%{prefix}/share/pixmaps/*
-%{prefix}/share/gcompris/sounds/*
-%{prefix}/share/gcompris/boards/*.xml
-%{prefix}/share/gcompris/boards/algebra_guesscount/*
-%{prefix}/share/gcompris/boards/babymatch/*
-%{prefix}/share/gcompris/boards/babyshapes/*
-%{prefix}/share/gcompris/boards/boardicons/*
-%{prefix}/share/gcompris/boards/clockgame/*
-%{prefix}/share/gcompris/boards/colors/*
-%{prefix}/share/gcompris/boards/doubleentry/*
-%{prefix}/share/gcompris/boards/draw/*
-%{prefix}/share/gcompris/boards/fishes/*
-%{prefix}/share/gcompris/boards/flags/*
-%{prefix}/share/gcompris/boards/gcompris/*
-%{prefix}/share/gcompris/boards/imageid/*
-%{prefix}/share/gcompris/boards/imagename/*
-%{prefix}/share/gcompris/boards/leftright/*
-%{prefix}/share/gcompris/boards/missing_letter/*
-%{prefix}/share/gcompris/boards/music/*
-%{prefix}/share/gcompris/boards/paintings/*
-%{prefix}/share/gcompris/boards/railroad/*
-%{prefix}/share/gcompris/boards/reading/*
-%{prefix}/share/gcompris/boards/scales/*
-%{prefix}/share/gcompris/boards/target/*
-%{prefix}/share/gcompris/boards/wordsgame/*
-%{prefix}/lib/gcompris/*
-%{prefix}/share/locale/*/*/*
-%{prefix}/share/gnome/help/gcompris/*/*
+%{prefix}/lib/gcompris
 %{prefix}/lib/menu/*
+%dir %{prefix}/share/gcompris
+%dir %{prefix}/share/gcompris/boards
+%{prefix}/share/gcompris/boards/[^s]*
+%{prefix}/share/gcompris/boards/s[cm]*
+%dir %{prefix}/share/gcompris/boards/sounds
+%{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
+%{prefix}/share/gcompris/sounds
+%{prefix}/share/gnome/apps/Games/*
+%{prefix}/share/gnome/help/*
+%{prefix}/share/info/*
+%{prefix}/share/locale/*/*/*
+%{prefix}/share/pixmaps/*
 
 %files sounds-de
+%defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/de
 
 %files sounds-en
+%defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/en
 
 %files sounds-es
+%defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/es
 
 %files sounds-fr
+%defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr
