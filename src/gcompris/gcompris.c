@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/02/24 19:12:11 bruno>
+ * Time-stamp: <2002/03/06 15:44:44 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -269,6 +269,9 @@ void gcompris_set_cursor(guint gdk_cursor_type)
       break;
     case GCOMPRIS_DEL_CURSOR : 
       bits = big_red_del_cursor_bits; 
+      break;
+    case GCOMPRIS_SELECT_CURSOR : 
+      bits = big_red_select_cursor_bits; 
       break;
     default : bits = big_red_arrow_cursor_bits;
     }

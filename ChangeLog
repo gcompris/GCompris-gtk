@@ -1,3 +1,10 @@
+2002-03-06  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/draw.c: Added a select button that makes it easier to move 
+	object. Now in object creation mode, you can create object within others.
+	Added the point tool to create point (usefull to indicate a starting point
+	in a reproduce it game)
+	
 2002-03-06 Pascal Georges <pascal.georges1@free.fr>
 
 	* src/boards/colors.c : new board

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/02/24 15:15:29 bruno>
+ * Time-stamp: <2002/03/06 14:11:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -120,6 +120,7 @@ void		 gcompris_set_cursor(guint gdk_cursor_type);
 #define GCOMPRIS_CIRCLE_CURSOR		1007
 #define GCOMPRIS_DEL_CURSOR		1008
 #define GCOMPRIS_FILL_CURSOR		1009
+#define GCOMPRIS_SELECT_CURSOR		1010
 
 //#define GCOMPRIS_DEFAULT_CURSOR	GDK_LEFT_PTR
 #define GCOMPRIS_DEFAULT_CURSOR		GCOMPRIS_BIG_RED_ARROW_CURSOR
