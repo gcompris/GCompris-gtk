@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/05/16 23:08:46 bcoudoin>
+ * Time-stamp: <2004/05/24 23:22:05 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -309,8 +309,6 @@ static void
 gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GcomprisBoard *gcomprisBoard)
 {
 
-  g_message("gcompris_add_xml_to_data xmlnode->name=%s\n", xmlnode->name);
-
   if(/* if the node has no name */
      !xmlnode->name ||
      /* or if the name is not "Board" */
@@ -461,8 +459,6 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
 
   g_return_val_if_fail(fname!=NULL,FALSE);
 
-  g_message("gcompris_read_xml_file for %s\n", fname);
-
   filename = g_strdup(fname);
 
   /* if the file doesn't exist */
@@ -512,7 +508,6 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
   xmlFreeDoc(doc);
 
   /* Store the file that belong to this board for trace and further need */
-  g_message("gcompris_read_xml_file for %s found name %s\n", fname, gcomprisBoard->name);
   gcomprisBoard->filename=filename;
   gcomprisBoard->board_ready=FALSE;
   gcomprisBoard->canvas=canvas;
@@ -534,19 +529,14 @@ GcomprisBoard *gcompris_get_board_from_section(gchar *section)
 {  
   GList *list = NULL;
 
-  printf("gcompris_get_board_from_section(%s)\n", section);
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
-    printf("  gcompris_get_board_from_section(%s) looking for board->name=%s board->section=%s\n", 
-	   section, board->name,  board->section);
     if( board->section && (strcmp (board->section, section) == 0))
       {
-	printf("  gcompris_get_board_from_section(%s) FOUND IT: board->name=%s\n", section, board->name);
 	return board;
       }
   }
-  printf("gcompris_get_board_from_section(%s): Section not found\n", section);
   return NULL;
 }
 
@@ -643,8 +633,6 @@ void gcompris_load_menus()
 	g_free(filename);
 	continue;
       }
-
-      g_message("gcompris_load_menus is parsing file %s", filename);
 
       if(selectMenuXML(one_dirent->d_name)) {
 	gcomprisBoard = g_malloc (sizeof (GcomprisBoard));
@@ -751,8 +739,9 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
   GnomeCanvasItem *item_dialog = NULL;
   GnomeCanvasItem *item_text   = NULL;
   GdkPixbuf *pixmap_dialog = NULL;
-  GtkWidget *gtktext;
-  GdkFont *gdk_font;
+  GtkTextIter    iter_start, iter_end;
+  GtkTextBuffer *buffer;
+  GtkTextTag    *txt_tag;
 
   /* If we already running delete the previous one */
   if(rootDialogItem)
@@ -787,16 +776,32 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 		     dbcb);
 
   item_text = gnome_canvas_item_new (rootDialogItem,
-			 gnome_canvas_text_get_type (),
+				     gnome_canvas_rich_text_get_type (),
+				     "x", (double) BOARDWIDTH/2,
+				     "y", (double) 100.0,
+				     "width", (double)BOARDWIDTH-260.0,
+				     "height", 400.0,
+				     "anchor", GTK_ANCHOR_NORTH,
+				     "justification", GTK_JUSTIFY_CENTER,
+				     "grow_height", FALSE,
+				     "cursor_visible", FALSE,
+				     "cursor_blink", FALSE,
+				     "editable", FALSE,
+				     NULL);
+
+  gnome_canvas_item_set (item_text,
 			 "text", str,
-			 "font", gcompris_skin_font_subtitle,
-			 "x", (double) (BOARDWIDTH/2),
-			 "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
-			 100,
-			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color", "white",
-			 "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
+
+  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_text));
+  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
+				       "font",       gcompris_skin_font_board_medium,
+				       "foreground", "blue",
+				       "family-set", TRUE,
+				       NULL);
+  gtk_text_buffer_get_end_iter(buffer, &iter_end);
+  gtk_text_buffer_get_start_iter(buffer, &iter_start);
+  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
   gtk_signal_connect(GTK_OBJECT(item_text), "event",
 		     (GtkSignalFunc) item_event_ok,

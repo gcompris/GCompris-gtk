@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/05/19 00:47:39 bcoudoin>
+ * Time-stamp: <2004/05/24 02:35:38 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -112,6 +112,21 @@ board_widget_key_press_callback (GtkWidget   *widget,
 					 || (event->keyval == GDK_R))) {
     printf("Refreshing the canvas\n");
     gnome_canvas_update_now(canvas);
+    return TRUE;
+  }
+
+  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_p)
+					 || (event->keyval == GDK_P))) {
+    properties->key="thanks_for_your_help";
+    gcompris_properties_save(properties);
+    gcompris_load_menus();
+
+    /* Remove any dialog box */
+    gcompris_help_stop();
+    gcompris_config_stop();
+    gcompris_about_stop();
+
+    board_stop();
     return TRUE;
   }
 
@@ -469,6 +484,13 @@ static void setup_window ()
   board_play (gcomprisBoardMenu);
 
   init_background();
+
+#ifdef WIN32
+  if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
+    board_pause();
+    gcompris_dialog(_("This is a Demo version of gcompris,\nonly 12 on 45 activities are available.\nTo get the full version,\ngo to http://ofset.sf.net/gcompris/order.html"), NULL);
+  }
+#endif
 }
 
 void gcompris_end_board()
@@ -507,6 +529,11 @@ static void load_properties ()
 {
   properties = gcompris_properties_new ();
   gcompris_skin_load(properties->skin);
+}
+
+GcomprisProperties *gcompris_get_properties ()
+{
+  return (properties);
 }
 
 /*

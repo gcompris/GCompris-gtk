@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/05/19 01:17:29 bcoudoin>
+ * Time-stamp: <2004/05/20 02:17:31 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -26,9 +26,7 @@
 
 #include "gcompris.h"
 
-GcomprisProperties *properties;
-
-GHashTable* boards_hash = NULL;
+static GHashTable* boards_hash = NULL;
 
 void read_boards_status();
 void write_boards_status();
@@ -42,11 +40,6 @@ void write_boards_status();
 # define WIN32_LEAN_AND_MEAN
 # include <windows.h>
 #endif
-
-GcomprisProperties *gcompris_get_properties ()
-{
-  return (properties);
-}
 
 /*
  * return 1 if parsing OK, 0 otherwise
@@ -97,6 +90,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->fullscreen	= 1;
   tmp->timer		= 1;
   tmp->skin		= "default";
+  tmp->key		= "default";
   tmp->locale           = NULL;
 
   home_dir = g_get_home_dir();
@@ -153,6 +147,10 @@ GcomprisProperties *gcompris_properties_new ()
 	} else if(!strcmp(value.v_identifier, "locale")) {
 	  tmp->locale = scan_get_string(scanner);
 	  if(!tmp->locale)
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "key")) {
+	  tmp->key = scan_get_string(scanner);
+	  if(!tmp->key)
 	    g_warning("Config file parsing error on token %s", token);
 	}
 	break;
@@ -248,8 +246,9 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=%d\n", "fullscreen",	props->fullscreen);
   fprintf(filefd, "%s=%d\n", "timer",		props->timer);
   
-  fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
-  fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
+  fprintf(filefd, "%s=\"%s\"\n", "skin",	props->skin);
+  fprintf(filefd, "%s=\"%s\"\n", "locale",	props->locale);
+  fprintf(filefd, "%s=\"%s\"\n", "key",		props->key);
   
   fclose(filefd);
 }
@@ -304,6 +303,8 @@ void read_boards_status()
   int i;
   GScanner *scanner;
   int filefd;
+
+  home_dir = g_get_home_dir();
 
   if(home_dir==NULL) {
     config_file = g_strdup("gcompris_boards.cfg");

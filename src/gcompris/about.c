@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/05/19 21:28:25 bcoudoin>
+ * Time-stamp: <2004/05/19 23:22:02 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -25,6 +25,11 @@
 
 #include "gcompris.h"
 #include "about.h"
+
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
 
 static GnomeCanvasItem	*rootitem		= NULL;
 static GnomeCanvasItem	*plane_item		= NULL;
@@ -253,6 +258,7 @@ void gcompris_about_start ()
 				NULL);
 
   // GCompris HELP
+#ifndef WIN32
   pixmap = gcompris_load_skin_pixmap("button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
@@ -285,6 +291,7 @@ void gcompris_about_start ()
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     item);
+#endif
 
   // OK
   pixmap = gcompris_load_skin_pixmap("button_large.png");

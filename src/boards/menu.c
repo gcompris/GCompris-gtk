@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/05/19 21:05:50 bcoudoin>
+ * Time-stamp: <2004/05/24 02:14:02 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -38,6 +38,7 @@
 static GList *item_list = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 /* Hash table of all displayed images  */
 static GHashTable *menu_table= NULL;
@@ -117,6 +118,7 @@ static void menu_pause (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  board_paused = pause;
 }
 
 /*
@@ -191,7 +193,7 @@ menu_end ()
   boardRootItem=NULL;
 }
 
-static gboolean
+gboolean
 menu_is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
@@ -406,6 +408,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
   GtkTextIter    iter_start, iter_end;
   GtkTextBuffer *buffer;
   GtkTextTag    *txt_tag;
+
+  if(board_paused)
+    return FALSE;
 
   switch (event->type)
     {

@@ -65,6 +65,14 @@ Le jeu est inclus dans les icones sous le menu Jeux.
 
 A installer si vous avez des enfants utilisant cet ordinateur.
 
+%package devel
+Summary:        Development package for gcompris
+Group: 		Amusements/Games
+Version: %version
+
+%description devel
+Development package for gcompris
+
 %package -n assetml-voices-alphabet-de
 Summary:        Alphabet voices in German
 Group: 		Amusements/Games
@@ -320,6 +328,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %_libdir/%{name}/
 %_libdir/%{name}/*
+%_libdir/libgcompris-1.so.0.0.0
+%_libdir/libgcompris-1.so.0
 
 %_menudir/*
 %dir %{prefix}/share/gcompris
@@ -339,6 +349,14 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/locale/*/*/*
 %{prefix}/share/pixmaps/*.png
 %_infodir/*
+
+%files devel
+%dir %_includedir/libgcompris-1.0/libgcompris
+%_includedir/libgcompris-1.0/libgcompris/*
+%dir %_libdir
+%_libdir/libgcompris-1.la
+%_libdir/libgcompris-1.so
+%_libdir/pkgconfig/libgcompris-1.0.pc
 
 %files -n assetml-voices-alphabet-de
 %defattr(-, root, root)

@@ -1,3 +1,27 @@
+2004-05-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/enumerate.png: -1- changed austere drawing by a new cute colored one
+	* boards/images/enumerate_background.jpg: -1-
+	* boards/skins/default/dialogbox.png: remade to be less exantric
+	* gcompris.spec.in: fixed devel package
+	* src/boards/menu.c: (menu_pause), (item_event): can be paused now
+	* src/gcompris/about.c: (gcompris_about_start): fixed layout
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data),
+	(gcompris_read_xml_file), (gcompris_get_board_from_section),
+	(gcompris_load_menus), (gcompris_dialog): removed traces. now dialogbox uses richtext canvas.
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(setup_window), (load_properties), (gcompris_get_properties): -2- sync with the windows version
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save), (read_boards_status): -2-
+	* src/gcompris/properties.h: -2-
+
+2004-05-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/menu.c: (item_event), (create_info_area): now use a multiline area for the
+	board description. There is no more need to manually multi line descriptions in the po
+	files. One more long standing annoying issue.
+	* src/gcompris/about.c: (gcompris_about_start): fixed layout
+
 2004-05-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/fr/geography/alaska.ogg: all .ogg remixed to mono and normalized
