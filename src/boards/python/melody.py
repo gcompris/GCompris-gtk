@@ -24,8 +24,10 @@ import gcompris
 import gcompris.utils
 import gcompris.skin
 import gcompris.sound
+import gcompris.bonus
 import gtk
 import gtk.gdk
+import random
 
 class Gcompris_melody:
   """The melody activity"""
@@ -33,19 +35,129 @@ class Gcompris_melody:
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
-    
     print("Gcompris_melody __init__.")
-  
+
+    # These are used to let us restart only after the bonux is displayed.
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    self.board_paused  = 0;
+    self.gamewon       = 0;
+
 
   def start(self):  
     self.gcomprisBoard.level=1
-    self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1 
     self.gcomprisBoard.number_of_sublevel=1
+    self.show_bang_timer = 0
+    self.solution = []
+    self.kidstry = []
 
-    gcompris.bar_set(0)
+    #
+    # This list contains the 'theme' for each melody level.
+    #
+    self.melodylist = \
+                      [
+      # Kitchen
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      
+      # Kitchen2
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+
+      # Kitchen3
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      
+      # Kitchen4
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      
+      # Kitchen5
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      
+      # Kitchen6
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      
+      # Kitchen7
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      
+      # Kitchen8
+      [
+      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      
+      ]
+
+    self.gcomprisBoard.maxlevel = len(self.melodylist)
+
+    gcompris.bar_set(gcompris.BAR_REPEAT|gcompris.BAR_LEVEL)
+
+    self.display_current_level()
+    self.pause(0);
+    print("Gcompris_melody start.")
+    
+  def end(self):
+    self.cleanup()
+    print("Gcompris_melody end.")
+        
+
+  def ok(self):
+    print("Gcompris_melody ok.")
+
+  def cleanup(self):
+    # Clear all timer
+    if self.show_bang_timer :
+      gtk.timeout_remove(self.show_bang_timer)
+
+    for i in self.sound_list:
+      if i.has_key('bang_timer') and i['bang_timer'] != 0:
+        gtk.timeout_remove(i['bang_timer'])
+        
+      if i.has_key('bang_timer_stop') and i['bang_timer_stop']  != 0:
+        gtk.timeout_remove(i['bang_timer_stop'])
+        
+    # Remove the root item removes all the others inside it
+    self.rootitem.destroy()
+    self.rootitem = None
+    
+  def display_current_level(self):
+
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            "melody/background.jpg")
+                            self.melodylist[self.gcomprisBoard.level-1][0]['background'])
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -56,69 +168,93 @@ class Gcompris_melody:
       y=0.0
       )
 
-    # son1
-    self.son1_item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("melody/son1.png"),
-      x=150.0,
-      y=50.0
-      )
-    self.son1_item.connect("event", self.son1_item_event)
-    # This item is clickeable and it must be seen
-    self.son1_item.connect("event", gcompris.utils.item_event_focus)
-
-    # son2
-    self.son2_item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("melody/son2.png"),
-      x=550.0,
-      y=50.0
-      )
-    self.son2_item.connect("event", self.son2_item_event)
-    # This item is clickeable and it must be seen
-    self.son2_item.connect("event", gcompris.utils.item_event_focus)
-
-    # son3
-    self.son3_item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("melody/son3.png"),
-      x=150.0,
-      y=250.0
-      )
-    self.son3_item.connect("event", self.son3_item_event)
-    # This item is clickeable and it must be seen
-    self.son3_item.connect("event", gcompris.utils.item_event_focus)
-
-    # son4
-    self.son4_item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("melody/son4.png"),
-      x=550.0,
-      y=250.0
-      )
-    self.son4_item.connect("event", self.son4_item_event)
-    # This item is clickeable and it must be seen
-    self.son4_item.connect("event", gcompris.utils.item_event_focus)
-
-    print("Gcompris_melody start.")
+    self.sound_list = self.melodylist[self.gcomprisBoard.level-1][1]
     
-  def end(self):
-    # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    for i in self.sound_list:
+      self.sound_item = self.rootitem.add(
+        gnome.canvas.CanvasPixbuf,
+        pixbuf = gcompris.utils.load_pixmap(i['image']),
+        x=i['x'],
+        y=i['y']
+        )
+      self.sound_item.connect("event", self.sound_item_event, i)
+      # This item is clickeable and it must be seen
+      self.sound_item.connect("event", gcompris.utils.item_event_focus)
 
-    print("Gcompris_melody end.")
-        
+    
+    self.bang_item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap(self.melodylist[self.gcomprisBoard.level-1][0]['hittool']),
+      x=0,
+      y=0
+      )
+    self.bang_item.hide()
+    
+    self.hitofset_x = self.melodylist[self.gcomprisBoard.level-1][0]['hitofset_x']
+    self.hitofset_y = self.melodylist[self.gcomprisBoard.level-1][0]['hitofset_y']
 
-  def ok(self):
-    print("Gcompris_melody ok.")
-          
+    self.populate(self.sound_list)
+
+
+  # records the try of the child
+  def tried(self, a):
+    if len(self.kidstry) >= len(self.solution) :
+      self.kidstry.pop(0)
+    self.kidstry.append(a)
+    #level finished?
+    if self.kidstry == self.solution :
+      if (self.increment_level() == 1):
+        self.gamewon = 1
+        gcompris.bonus.display(1, gcompris.bonus.FLOWER)
+
+  
+  # Shows and plays the thing clicked
+  def show_bang_stop(self):
+
+    if self.board_paused or self.rootitem == None:
+      return
+
+    self.bang_item.hide()
+
+    
+  # Shows and plays the thing clicked
+  def show_bang(self, a):
+
+    if self.board_paused or self.rootitem == None:
+      return
+    
+    self.bang_item.set(x=a['x'] + self.hitofset_x, y=a['y'] + self.hitofset_y)
+
+    self.bang_item.show()
+    
+    gcompris.sound.play_ogg(a['sound'])
+    a['bang_timer'] = 0
+
 
   def repeat(self):
     print("Gcompris_melody repeat.")
-            
+    self.kidstry = []
+    timer = 0
+
+    for i in self.solution:
+      i['bang_timer'] = gtk.timeout_add(timer, self.show_bang, i)
+      timer = timer + 1000
+      i['bang_timer_stop'] = gtk.timeout_add(timer, self.show_bang_stop)
+      timer = timer + 500
+      
 
   def config(self):
     print("Gcompris_melody config.")
+  
+  #randomize the sequence and plays it one first time
+  def populate(self, sound_struct):
+    print("Gcompris_melody populate.")
+    self.solution = []
+
+    for i in range(self.gcomprisBoard.level+2):
+      self.solution.append(sound_struct[random.randint(0,len(sound_struct)-1)])
+      
+    self.show_bang_timer = gtk.timeout_add(1000, self.repeat)
               
   def key_press(self, keyval):
     print("got key %i" % keyval)
@@ -126,32 +262,52 @@ class Gcompris_melody:
 
 
   def pause(self, pause):  
-    print("Gcompris_melody pause. %i" % pause)
+    self.board_paused = pause
+    
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    # the game is won
+    if(self.gamewon == 1 and pause == 0):
+      self.cleanup()
+      self.display_current_level()
+      self.gamewon = 0
+
+    return
                   
+
   def set_level(self, level):  
     print("Gcompris_melody set level. %i" % level)
+    self.gcomprisBoard.level=level;
+    self.gcomprisBoard.sublevel=1;
+    self.cleanup()
+    self.display_current_level()
+  
+  # Code that increments the sublevel and level
+  # And bail out if no more levels are available
+  # return 1 if continue, 0 if bail out
+  def increment_level(self):
+    self.gcomprisBoard.sublevel += 1
 
-  def son1_item_event(self, widget, event=None):
+    if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
+      # Try the next level
+      self.gcomprisBoard.sublevel=1
+      self.gcomprisBoard.level += 1
+      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
+        # the current board is finished : bail out
+        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+        return 0
+      
+    return 1
+
+            
+  # ---------------- sound on click events -----------------------
+  def sound_item_event(self, widget, event, sound_struct):
+
+    if self.board_paused:
+      return
+    
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-          gcompris.sound.play_ogg("melody/son1")
+          gcompris.sound.play_ogg(sound_struct['sound'])
+          self.tried(sound_struct)
     return gtk.FALSE
-								  
-  def son2_item_event(self, widget, event=None):
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      if event.button == 1:
-          gcompris.sound.play_ogg("melody/son2")
-    return gtk.FALSE
-								  
-  def son3_item_event(self, widget, event=None):
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      if event.button == 1:
-          gcompris.sound.play_ogg("melody/son3")
-    return gtk.FALSE
-								  
-  def son4_item_event(self, widget, event=None):
-    if event.type == gtk.gdk.BUTTON_PRESS:
-      if event.button == 1:
-          gcompris.sound.play_ogg("melody/son4")
-    return gtk.FALSE
-								  
+  
