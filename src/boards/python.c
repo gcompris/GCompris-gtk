@@ -28,6 +28,7 @@ static PyObject* python_gcomprisBoard = NULL;
 static PyObject* python_board_module = NULL;
 static PyObject* python_board_instance = NULL;
 
+static void	 pythonboard_init ();
 static void	 pythonboard_start (GcomprisBoard *agcomprisBoard);
 static void	 pythonboard_pause (gboolean pause);
 static void	 pythonboard_end (void);
@@ -40,6 +41,8 @@ static void	 pythonboard_set_level (guint level);
 static void	 pythonboard_config(void);
 static void	 pythonboard_repeat (void);
 
+static gboolean  pythonboard_is_ready = FALSE;
+
 
 /* Description of this plugin */
 BoardPlugin pythonboard_bp =
@@ -49,7 +52,7 @@ BoardPlugin pythonboard_bp =
    N_("Python Board"),
    N_("Special board that embed python into gcompris."),
    "Olivier Samyn <osamyn@ulb.ac.be>",
-   NULL,
+   pythonboard_init,
    NULL,
    NULL,
    NULL,
@@ -66,7 +69,7 @@ BoardPlugin pythonboard_bp =
 
 
 /*
- * Return the plugin structure (Common to all gcompris boards
+ * Return the plugin structure (Common to all gcompris boards)
  */
 
 BoardPlugin 
@@ -77,6 +80,72 @@ BoardPlugin
 
 
 /*
+ * Tests if a python interpreter is available
+ * and that all required imports can be loaded.
+ */
+void	 
+pythonboard_init (){
+  PyObject* main_module;
+  PyObject* globals;
+  gchar* execstr;
+
+  /* Initialize the python interpreter */
+  Py_Initialize();
+
+  pythonboard_is_ready = TRUE;
+
+  main_module = PyImport_AddModule("__main__"); /* Borrowed reference */
+  globals = PyModule_GetDict(main_module); /* Borrowed reference */
+
+  if(globals==NULL){
+    g_warning("! Python disabled: Cannot get infos from the python interpreter.\n");  
+    pythonboard_is_ready = FALSE;
+  } else {
+    /* Add the python plugins dir to the python's search path */
+    execstr = g_strdup_printf("import sys; sys.path.append('%s/python')",PLUGIN_DIR); 
+    if(PyRun_SimpleString(execstr)!=0){
+      pythonboard_is_ready = FALSE;
+      g_warning("! Python disabled: Cannot add plugins dir into search path\n");  
+    } else {
+      /* Load the gcompris modules */
+      python_gcompris_module_init();
+      
+      /* Try to import pygtk modules */
+      g_free(execstr);
+      execstr = g_strdup_printf("import gtk; import gtk.gdk",PLUGIN_DIR);
+      if(PyRun_SimpleString(execstr)!=0){
+	pythonboard_is_ready = FALSE;
+	g_warning("! Python disabled: Cannot import pygtk modules\n");  
+      } else {
+	/* Try to import gnome-python modules */
+	g_free(execstr);
+	execstr = g_strdup_printf("import gnome; import gnome.canvas",PLUGIN_DIR);
+	if(PyRun_SimpleString(execstr)!=0){
+	  pythonboard_is_ready = FALSE;
+	  g_warning("! Python disabled: Cannot import gnome-python modules\n");  
+	} else {
+	  /* Try to import gcompris modules */
+	  g_free(execstr);
+	  execstr = g_strdup_printf("import gcompris; import gcompris.bonus; "
+				    "import gcompris.score; import gcompris.sound;"
+				    "import gcompris.skin; import gcompris.timer;"
+				    "import gcompris.utils" ,PLUGIN_DIR);
+	  if(PyRun_SimpleString(execstr)!=0){
+	    pythonboard_is_ready = FALSE;
+	    g_warning("! Python disabled: Cannot import gcompris modules\n");  
+	  }
+	}
+      }
+    }
+    g_free(execstr); 
+
+  }
+
+  /* Finalize the python interpreter */
+  Py_Finalize();
+}
+
+/*
  * Start the board. 
  * In this case: 
  * - initialize python interpreter
@@ -85,7 +154,8 @@ BoardPlugin
  * - load the python written board
  * - call the board start function
  */
-void pythonboard_start (GcomprisBoard *agcomprisBoard){
+void 
+pythonboard_start (GcomprisBoard *agcomprisBoard){
   PyObject* main_module;
   PyObject* py_function_result;
   PyObject* module_dict;
@@ -206,18 +276,20 @@ void pythonboard_end (void){
  * Return TRUE if the board is a python one.
  */
 gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
-  if (agcomprisBoard!=NULL)
-    {
-      if(g_strcasecmp(agcomprisBoard->type, "pythonboard")==0)
-        {
-          /* Set the plugin entry */
-          agcomprisBoard->plugin=&pythonboard_bp;
-	  
-	  g_print("pythonboard: is our board = TRUE\n");
-	  
-          return TRUE;
-        }
-    }
+  if(pythonboard_is_ready){
+    if (agcomprisBoard!=NULL)
+      {
+	if(g_strcasecmp(agcomprisBoard->type, "pythonboard")==0)
+	  {
+	    /* Set the plugin entry */
+	    agcomprisBoard->plugin=&pythonboard_bp;
+	    
+	    g_print("pythonboard: is our board = TRUE\n");
+	    
+	    return TRUE;
+	  }
+      }
+  }
   return FALSE;  
 }
 

@@ -14,7 +14,6 @@ gcompris_new_pyGcomprisBoardObject(GcomprisBoard* aboard)
 {
   pyGcomprisBoardObject* theboard = NULL;
 
-g_print("pyGcomprisBoardType new\n");
   theboard = PyObject_New(pyGcomprisBoardObject, &pyGcomprisBoardType);
   if (theboard!=NULL)
     theboard->cdata = aboard;
@@ -27,7 +26,6 @@ g_print("pyGcomprisBoardType new\n");
 static void 
 pyGcomprisBoardType_dealloc(pyGcomprisBoardObject *self)
 {
-g_print("pyGcomprisBoardType_dealloc\n");
   self->cdata = NULL;
   PyObject_DEL(self);
 }
@@ -43,7 +41,6 @@ static PyMethodDef pyGcomprisBoardType_methods[] = {
 static PyObject *
 pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
 {
-g_print("pyGcomprisBoardType getAttr\n");
   if (self->cdata != NULL) {
     /* Board type */
     if(strcmp(name,"type")==0) return Py_BuildValue("s", self->cdata->type);
@@ -110,7 +107,6 @@ pyGcomprisBoardType_setattr(pyGcomprisBoardObject *self, char *name, PyObject *v
 {
   int value;
   
-g_print("pyGcomprisBoardType setAttr\n");
   if (self->cdata==NULL) return -1;
   if (v==NULL) return -1;
 
