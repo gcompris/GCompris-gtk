@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2003/11/25 01:34:52 bcoudoin>
+ * Time-stamp: <2003/12/07 20:19:32 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -620,6 +620,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
 	  gcompris_skin_load(properties->skin);
 	  gcompris_config_stop();
+	  gcompris_properties_save(properties);
 	}
       else if(!strcmp((char *)data, "fullscreen"))
 	{

@@ -18,7 +18,7 @@
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 # 
-
+from gettext import gettext as _
 # PythonTest Board module
 import gnome
 import gnome.canvas
@@ -34,6 +34,7 @@ class Gcompris_redraw:
   
 
   def __init__(self, gcomprisBoard):
+    bindtextdomain("gcompris")
     self.gcomprisBoard = gcomprisBoard
 
     # TOOL SELECTION
@@ -86,8 +87,8 @@ class Gcompris_redraw:
     # the data for the form (in the console). Then copy the data in the list at the end of
     # this file in init_item_list
     # Set self.editing_mode = None to forbid drawing in the right area
-    #    self.editing_mode = None
-    self.editing_mode = 1
+    self.editing_mode = None
+    #self.editing_mode = 1
     
 
   def start(self):  
@@ -310,7 +311,7 @@ class Gcompris_redraw:
 
     self.root_targetitem.add(
       gnome.canvas.CanvasText,
-      text="Level " + str(self.gcomprisBoard.sublevel) + "/"
+      text=_("Level") + " " + str(self.gcomprisBoard.sublevel) + "/"
       + str(self.gcomprisBoard.number_of_sublevel),
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH - 10 + 1,
@@ -320,7 +321,7 @@ class Gcompris_redraw:
       )
     self.root_targetitem.add(
       gnome.canvas.CanvasText,
-      text="Level " + str(self.gcomprisBoard.sublevel) + "/"
+      text=_("Level") + " " + str(self.gcomprisBoard.sublevel) + "/"
       + str(self.gcomprisBoard.number_of_sublevel),
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH - 10,
@@ -512,6 +513,8 @@ class Gcompris_redraw:
       # Can specify the item type to draw via a real GTK type or a TOOL string 
       if(i.has_key('type')):
         item = self.root_targetitem.add ( i['type'] )
+        item.connect("event", self.target_item_event)
+
       elif(i.has_key('tool')):
         if(i['tool'] == "RECT"):
           item = self.root_targetitem.add ( gnome.canvas.CanvasRect )
@@ -525,6 +528,7 @@ class Gcompris_redraw:
           item = self.root_targetitem.add ( gnome.canvas.CanvasLine )
         else:
           print ("ERROR: incorrect type in draw_image_target", i)
+        item.connect("event", self.target_item_event)
       
       for k, v in i.items():
         if k == 'fill_color' :
@@ -808,10 +812,10 @@ class Gcompris_redraw:
       self.coorditem_shadow.set(text="")
     else:
       self.coorditem.set(
-        text="Coordinate = (" + str(x) + "/" + str(y) + ")"
+        text=_("Coordinate") + " = (" + str(x) + "/" + str(y) + ")"
         )
       self.coorditem_shadow.set(
-        text="Coordinate = (" + str(x) + "/" + str(y) + ")"
+        text=_("Coordinate") + " = (" + str(x) + "/" + str(y) + ")"
         )
 
 

@@ -1,3 +1,48 @@
+2003-12-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/redraw.xml.in: added documentation
+	* boards/skins/default/gcompris-shapebg.jpg: fixed 1 missing pixel border
+	* boards/traffic/TrafficData: removed and replaced by traffic.h
+	* configure.in: replaced the dependancy of gcompris from gnome to gtk
+	marked to release 5.0
+	* docs/fr/gcompris.texi: fixed doc nodes
+	* gcompris.spec.in: fixed for info file distribution. better use of % directives
+	* po/POTFILES.in: added redraw.py
+	* src/boards/Makefile.am: added trafic.h
+	* src/boards/advanced_colors.c: (init_xml), (read_xml_file): gtk port
+	* src/boards/chess.c: (start_board), (chess_create_item),
+	(start_child): fixed error message and process to use GNUCHESS env var
+	* src/boards/clickgame.c: (load_random_pixmap): use g_file_test instead of g_file_exists
+	* src/boards/imageid.c: (init_xml), (read_xml_file): use g_file_test instead of g_file_exists
+	* src/boards/menu.c: (menu_create_item): use g_file_test instead of g_file_exists
+	* src/boards/missingletter.c: (init_xml), (read_xml_file): use g_file_test instead of g_file_exists
+	* src/boards/py-mod-sound.c: removed gcompris_play_sound (gnome dependant)
+	* src/boards/python/redraw.py: added i18n (don't work), removed editable flag
+	* src/boards/read_colors.c: (init_xml), (read_xml_file): use g_file_test instead of g_file_exits
+	* src/boards/reading.c: added stdio.h
+	* src/boards/traffic.c: (load_level), (cars_from_strv): modified to use a .h instead of a file for data
+	* src/boards/traffic.h: created with data from boards/traffic/TrafficData
+	* src/boards/wordsgame.c: added stdio.h
+	* src/gcompris/Makefile.am: gtk port
+	* src/gcompris/about.c: (item_event_ok): commented out gnome_url_show. Still Need a replacement
+	* src/gcompris/callbacks.c: (on_quit1_activate): implemeted quit CB, cleanup of unneeded funtions
+	* src/gcompris/config.c: (item_event_ok): gtk port
+	* src/gcompris/gcompris-edit.c: (quit_cb), (main): uses gcompris_write_boards_status now. Quit CB.
+	* src/gcompris/gcompris.c: (init_background),
+	(gcompris_set_cursor), (setup_window), (gcompris_exit),
+	(gcompris_init): gtk port, params reading rewrite, main loop moved from gnome to gtk
+	* src/gcompris/gcompris.h: added missing include due to the remove of gnome
+	* src/gcompris/pluginenum.c: added stdio.h
+	* src/gcompris/properties.c: (scan_get_int), (scan_get_string),
+	(gcompris_properties_new), (gcompris_properties_save),
+	(boards_write), (gcompris_write_boards_status),
+	(read_boards_status), (gcompris_properties_enable_board),
+	(gcompris_properties_disable_board): complete rewrite with the glib scanner.
+	* src/gcompris/properties.h: removed unused gcompris_properties_copy. added enum for properties
+	added gcompris_write_boards_status
+	* src/gcompris/soundutil.c: (gcompris_play_ogg_list):  removed gcompris_play_sound (gnome dependant)
+	* src/gcompris/soundutil.h:  removed gcompris_play_sound (gnome dependant)
+
 2003-12-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/bonus.c: now hide the bar.

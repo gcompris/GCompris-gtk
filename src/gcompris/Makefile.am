@@ -7,6 +7,20 @@ python_ldadd =
 python_ldflags =
 endif
 
+gcompris_edit_INCLUDE = \
+	$(GCOMPRIS_EDIT_CFLAGS)
+
+
+if GCOMPRIS_EDIT
+
+bin_PROGRAMS = gcompris gcompris_edit
+gcompris_edit_cflags = $(GCOMPRIS_EDIT_CFLAGS)
+
+else
+
+bin_PROGRAMS = gcompris
+gcompris_edit_cflags = 
+endif
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
@@ -14,12 +28,8 @@ INCLUDES = \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \
-	-DGNOME_DISABLE_DEPRECATED
-
-bin_PROGRAMS = gcompris gcompris-edit
-
-#noinst_LIBRARIES = \
-#	libgcompris.a
+	-DGNOME_DISABLE_DEPRECATED \
+	$(gcompris_edit_cflags)
 
 libgcompris_a_SOURCES = \
 	gcompris.c \
@@ -56,8 +66,9 @@ gcompris_LDADD = \
 	$(LIBICONV)		\
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) \
-	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)\
-	$(python_ldadd)
+	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS) \
+	$(python_ldadd) \
+	$(LIBPOPT)
 
 
 
@@ -73,5 +84,6 @@ gcompris_edit_SOURCES = \
 
 gcompris_edit_LDADD = \
 	$(GCOMPRIS_LIBS) \
+	$(GCOMPRIS_EDIT_LIBS) \
 	$(XML_LIBS) $(INTLLIBS) \
 	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)

@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2003/10/12 22:49:24 bcoudoin>
+ * Time-stamp: <2003/12/06 04:19:19 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -23,6 +23,7 @@
 #   include <sys/types.h>
 #endif
 #include <dirent.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 #include "gcompris/pixbuf_util.h"
@@ -725,7 +726,7 @@ static void load_random_pixmap()
 
       filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, str);
 
-      if (!g_file_exists (filename))
+      if (!g_file_test (filename, G_FILE_TEST_EXISTS))
 	{
 	  cont = FALSE;
 	}

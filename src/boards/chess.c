@@ -186,14 +186,14 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
   
-  if (g_file_exists ("/usr/bin/gnuchessx")) {
+  if (g_file_test ("/usr/bin/gnuchessx", G_FILE_TEST_EXISTS)) {
     
     gcompris_dialog(_("Error: /usr/bin/gnuchessx is installed\nwhich means you run an old version\nof gnuchess.\nPlease upgrade to gnuchess 5 or above."), gcompris_end_board);
     
     return;
   }
   
-  if (!g_file_exists (GNUCHESS)) {
+  if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS)) {
     
     gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gcompris_end_board);
     
@@ -235,7 +235,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gcompris_bar_set(0);
 	}
       
-      start_child ("gnuchess", param, &read_chan,
+      start_child (GNUCHESS, param, &read_chan,
 		   &write_chan, &childpid);
       
       read_cb = g_io_add_watch (read_chan, G_IO_IN,
@@ -532,7 +532,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
       }
   }
 
-  /* Quit the gnuchessx edit mode */
+  /* Quit the gnuchess edit mode */
   write_child (write_chan, " w KQkq\n");
 
   display_white_turn(TRUE);
@@ -1158,7 +1158,7 @@ start_child (char *cmd,
 
     if (execvp (cmd, arg) < 0)
       {
-	g_warning("In order to play chess, you need to have gnuchess package installed with gnuchessx in the path");
+	g_warning("In order to play chess, you need to have gnuchess installed as " GNUCHESS);
 	perror (cmd);
       }
     _exit (1);

@@ -10,25 +10,6 @@
  * "*" C function.
  */
 
-/* void gcompris_play_sound (const char *soundlistfile, const char *which); */
-static PyObject*
-py_gcompris_play_sound(PyObject* self, PyObject* args)
-{
-  gchar* soundlistfile;
-  gchar* which;
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ss:gcompris_play_sound", &soundlistfile, &which))
-    return NULL;
-
-  /* Call the corresponding C function */
-  gcompris_play_sound(soundlistfile, which);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
 /*void gcompris_play_ogg_list( GList* files ); */
 static PyObject*
 py_gcompris_play_ogg_list(PyObject* self, PyObject* args)
@@ -81,7 +62,6 @@ py_gcompris_play_ogg(PyObject* self, PyObject* args)
 }
 
 static PyMethodDef PythonGcomprisSoundModule[] = {
-  { "play",  py_gcompris_play_sound, METH_VARARGS, "gcompris_play_sound" },
   { "play_ogg_list",  py_gcompris_play_ogg_list, METH_VARARGS, "gcompris_play_ogg_list" },
   { "play_ogg",  py_gcompris_play_ogg, METH_VARARGS, "gcompris_play_ogg" },
   { NULL, NULL, 0, NULL}

@@ -24,6 +24,8 @@
 #include <math.h>
 #include <assert.h>
 
+#include "traffic.h"
+
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
@@ -85,7 +87,7 @@ static jam	 current_card  ={0,0,0,NULL};
 
 static void	 draw_border(GnomeCanvasGroup *rootBorder);
 static void	 draw_grid  (GnomeCanvasGroup *rootBorder);
-static gint	 cars_from_strv(char **strv);
+static gint	 cars_from_strv(char *strv);
 static void	 load_error(void);
 static void	 load_not_found(void);
 
@@ -606,33 +608,17 @@ static int car_cb(GnomeCanvasItem *item, GdkEvent *event, car *thiscar)
 
 /* From jam.c */
 
-#define strip_spaces(string) g_strjoinv("",g_strsplit((string)," ",0))
-
-gboolean load_level(guint level, guint card)
+gboolean load_level(guint level, guint sublevel)
 {
-  char **car_strv=NULL;
-  char *data_file;
-  int dummy;
+  char *car_strv=NULL;
 
   current_card.level = level;
-  current_card.card  = card;
+  current_card.card  = sublevel;
 
-  data_file = g_strdup_printf("%s/traffic/%s",PACKAGE_DATA_DIR, DATAFILE);
+  car_strv = DataList[(level-1) * gcomprisBoard->number_of_sublevel + (sublevel-1)];
 
-  if (!g_file_test ((data_file), G_FILE_TEST_EXISTS)) {
-    g_error (_("Couldn't find file %s !"), data_file);
-  }
+  current_card.num_cars = cars_from_strv(car_strv);
 
-  gnome_config_push_prefix(g_strconcat("=", data_file, "=",
-				       g_strdup_printf("/Level%d",level), "/",
-				       NULL));
-  gnome_config_get_vector(g_strdup_printf("Card%d",card),
-			  &dummy, &car_strv);
-  gnome_config_pop_prefix();
-  if (!car_strv) { load_not_found(); return FALSE; }
-
-  current_card.num_cars = cars_from_strv(&car_strv[0]);
-					 
   if(current_card.num_cars == -1)
     g_error("In loading dataset for traffic activity");
 
@@ -645,7 +631,7 @@ gboolean load_level(guint level, guint card)
  * I took the formatting from
  *  http://www.javascript-games.org/puzzle/rushhour/
  */
-gint cars_from_strv(char **strv)
+gint cars_from_strv(char *strv)
 {
   car *ccar;
   char x,y,id;
@@ -663,18 +649,18 @@ gint cars_from_strv(char **strv)
 
     number_of_cars++;
 
-    if (sscanf(*strv,"%c%c%c",
+    if (sscanf(strv,"%c%c%c",
 	       &id,&x,&y)!=3) {
       return -1;
     }
 
     /* Point to the next car */
-    *strv += 3;
+    strv += 3;
 
-    if(*strv[0] != ',')
+    if(strv[0] != ',')
       more_car = FALSE;
 
-    *strv += 1;
+    strv += 1;
 
     if (id == 'O' || id == 'P' || id == 'Q' || id == 'R') ccar->size = 3;
     else ccar->size = 2;

@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/11/25 00:03:55 bcoudoin>
+ * Time-stamp: <2003/12/09 02:22:32 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -19,31 +19,138 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 #include "gcompris.h"
 
 GcomprisProperties *properties;
 
-GcomprisProperties *gcompris_properties_new (void);
+GHashTable* boards_hash = NULL;
+
+void read_boards_status();
+void write_boards_status();
 
 GcomprisProperties *gcompris_get_properties ()
 {
   return (properties);
 }
 
+/*
+ * return 1 if parsing OK, 0 otherwise
+ * the return value is returned in retval
+ */
+guint scan_get_int(GScanner *scanner, int *retval) {
+  GTokenType token = g_scanner_get_next_token (scanner);
+  token = g_scanner_get_next_token (scanner);
+  if(token == G_TOKEN_INT) {
+    /* we got it */
+    GTokenValue value = g_scanner_cur_value(scanner);
+    *retval = value.v_int;
+    return 1;
+  }
+  return 0;
+}
+
+/*
+ * return String if parsing OK, NULL otherwise
+ */
+gchar *scan_get_string(GScanner *scanner) {
+  GTokenType token = g_scanner_get_next_token (scanner);
+  token = g_scanner_get_next_token (scanner);
+  if(token == G_TOKEN_STRING) {
+    /* we got it */
+    GTokenValue value = g_scanner_cur_value(scanner);
+    return (g_strdup(value.v_string));
+  }
+  return NULL;
+}
+
 GcomprisProperties *gcompris_properties_new ()
 {
   GcomprisProperties *tmp;
+  char *config_file;
   char *locale;
+  int i;
+  GScanner *scanner;
+  int filefd;
+
+  boards_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
+  tmp->music		= 1;
+  tmp->fx		= 1;
+  tmp->screensize	= 1;
+  tmp->fullscreen	= 1;
+  tmp->timer		= 1;
+  tmp->skin		= "default";
+  tmp->audio_output	= "";
 
-  tmp->music		= gnome_config_get_int    ("/gcompris/Preferences/music=1");
-  tmp->fx		= gnome_config_get_int    ("/gcompris/Preferences/fx=1");
-  tmp->screensize	= gnome_config_get_int    ("/gcompris/Preferences/screensize=1");
-  tmp->fullscreen	= gnome_config_get_int    ("/gcompris/Preferences/fullscreen=1");
-  tmp->timer		= gnome_config_get_int    ("/gcompris/Preferences/timer=1");
-  tmp->skin		= gnome_config_get_string ("/gcompris/Preferences/skin=default");
-  tmp->audio_output	= gnome_config_get_string ("/gcompris/Preferences/audio_output=");
+  config_file = g_strdup_printf("%s/.gcompris",g_get_home_dir());
+
+  filefd = open(config_file, O_RDONLY);
+
+  g_free(config_file);
+
+  if(filefd > 0) {
+
+    /* create a new scanner */
+    scanner = g_scanner_new(NULL);
+
+    /* set up the scanner to read from the file */
+    g_scanner_input_file(scanner, filefd);
+
+    /* while the next token is something else other than end of file */
+    while(g_scanner_peek_next_token(scanner) != G_TOKEN_EOF) {
+
+      /* get the next token */
+      GTokenType token = g_scanner_get_next_token(scanner);
+      switch(token) {
+      case G_TOKEN_IDENTIFIER: {
+	gchar *token;
+	/* if we have a symbol, check it's ours */
+	GTokenValue value = g_scanner_cur_value(scanner);
+	token = g_strdup(value.v_identifier);
+
+	if(!strcmp(value.v_identifier, "music")) {
+	  if(!scan_get_int(scanner, &tmp->music))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "fx")) {
+	  if(!scan_get_int(scanner, &tmp->fx))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "screensize")) {
+	  if(!scan_get_int(scanner, &tmp->screensize))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "fullscreen")) {
+	  if(!scan_get_int(scanner, &tmp->fullscreen))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "timer")) {
+	  if(!scan_get_int(scanner, &tmp->timer))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "skin")) {
+	  tmp->skin = scan_get_string(scanner);
+	  if(!tmp->skin)
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "audio_output")) {
+	  tmp->audio_output = scan_get_string(scanner);
+	  if(!tmp->audio_output)
+	    g_warning("Config file parsing error on token %s", token);
+	}
+	break;
+      }
+      default:
+	break;
+      }
+    }
+
+    /* destroy the scanner */
+    g_scanner_destroy(scanner);
+
+    close(filefd);
+
+  }
 
   /* By default audio is said to work until libao fails to load it */
   tmp->audio_works	= TRUE;
@@ -63,13 +170,19 @@ GcomprisProperties *gcompris_properties_new ()
 
   if (!strcmp(locale, "C"))
     {
-      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en_US.UTF-8");
+      tmp->locale		= "en_US.UTF-8";
     } 
   else 
     {
       /* No user specified locale = '' */
-      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=");
+      tmp->locale		= "";
     }
+
+  /*
+   * Read the board status
+   * ---------------------
+   */
+  read_boards_status();
 
   return (tmp);
 }
@@ -82,47 +195,123 @@ void gcompris_properties_destroy (GcomprisProperties *props)
   free (props);
 }
 
-GcomprisProperties *gcompris_properties_copy (GcomprisProperties *props)
-{
-  GcomprisProperties *tmp;
-
-  tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
-
-  tmp->music		 = props->music;
-  tmp->fx		 = props->fx;
-  tmp->audio_works	 = props->audio_works;
-  tmp->screensize	 = props->screensize;
-  tmp->timer		 = props->timer;
-  tmp->fullscreen	 = props->fullscreen;
-  tmp->locale		 = g_strdup(props->locale);
-  tmp->skin		 = g_strdup(props->skin);
-  tmp->audio_output	 = g_strdup(props->audio_output);
-
-  tmp->difficulty_filter = g_strdup(props->difficulty_filter);
-
-  return (tmp);
-}
-
 void gcompris_properties_save (GcomprisProperties *props)
 {
-  gnome_config_set_int		("/gcompris/Preferences/music",
-				 props->music);
-  gnome_config_set_int		("/gcompris/Preferences/fx",
-				 props->fx);
-  gnome_config_set_int		("/gcompris/Preferences/screensize",
-				 props->screensize);
-  gnome_config_set_int		("/gcompris/Preferences/timer",
-				 props->timer);
-  gnome_config_set_int		("/gcompris/Preferences/fullscreen",
-				 props->fullscreen);
-  gnome_config_set_string	("/gcompris/Preferences/locale",
-				 props->locale);
-  gnome_config_set_string	("/gcompris/Preferences/skin",
-				 props->skin);
-  gnome_config_set_string	("/gcompris/Preferences/audio_output",
-				 props->audio_output);
+  char *config_file;
+  FILE *filefd;
 
-  gnome_config_sync ();
+  config_file = g_strdup_printf("%s/.gcompris",g_get_home_dir());
+
+  filefd = fopen(config_file, "w+");
+
+  if(!filefd) {
+      g_warning("cannot open '%s', configuration file not saved\n",(char *) config_file);
+      return;
+    }
+
+  g_free(config_file);
+
+  fprintf(filefd, "%s=%d\n", "music",		props->music);
+  fprintf(filefd, "%s=%d\n", "fx",		props->fx);
+  fprintf(filefd, "%s=%d\n", "screensize",	props->screensize);
+  fprintf(filefd, "%s=%d\n", "fullscreen",	props->fullscreen);
+  fprintf(filefd, "%s=%d\n", "timer",		props->timer);
+  
+  fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
+  fprintf(filefd, "%s=\"%s\"\n", "audio_output",	props->audio_output);
+  
+  fclose(filefd);
+}
+
+
+
+static void boards_write (gchar       *key,
+			  gpointer     value,
+			  FILE        *filefd)
+{
+  printf("  %s=%d\n", key, GPOINTER_TO_UINT(value));
+  fprintf(filefd, "%s=%d\n", key, GPOINTER_TO_UINT(value));
+}
+
+
+/*
+ * Save the board status (enable/disable)
+ */
+void gcompris_write_boards_status()
+{
+  char *config_file;
+  int i;
+  GScanner *scanner;
+  FILE *filefd;
+
+  printf("gcompris_write_boards_status\n");
+  config_file = g_strdup_printf("%s/.gcompris_boards",g_get_home_dir());
+
+  filefd = fopen(config_file, "w+");
+
+  if(!filefd) {
+    g_warning("cannot open '%s', configuration file not saved\n",(char *) config_file);
+    return;
+  }
+
+  g_free(config_file);
+
+  g_hash_table_foreach (boards_hash, (GHFunc) boards_write, filefd);
+
+}
+
+void read_boards_status()
+{
+  char *config_file;
+  int i;
+  GScanner *scanner;
+  int filefd;
+
+  config_file = g_strdup_printf("%s/.gcompris_boards",g_get_home_dir());
+
+  filefd = open(config_file, O_RDONLY);
+
+  g_free(config_file);
+
+  if(filefd > 0) {
+
+    /* create a new scanner */
+    scanner = g_scanner_new(NULL);
+
+    /* set up the scanner to read from the file */
+    g_scanner_input_file(scanner, filefd);
+
+    /* while the next token is something else other than end of file */
+    while(g_scanner_peek_next_token(scanner) != G_TOKEN_EOF) {
+
+      /* get the next token */
+      GTokenType token = g_scanner_get_next_token(scanner);
+      switch(token) {
+      case G_TOKEN_IDENTIFIER: {
+	guint data;
+	gchar *token;
+	/* if we have a symbol, check it's ours */
+	GTokenValue value = g_scanner_cur_value(scanner);
+	token = g_strdup(value.v_identifier);
+
+	if(!scan_get_int(scanner, &data))
+	  g_warning("Config file parsing error on token %s", token);
+	else {
+	  g_hash_table_insert(boards_hash, token, GUINT_TO_POINTER(data));
+	}
+	break;
+      }
+      default:
+	break;
+      }
+    }
+
+    /* destroy the scanner */
+    g_scanner_destroy(scanner);
+
+    close(filefd);
+
+  }
 }
 
 /*
@@ -130,34 +319,26 @@ void gcompris_properties_save (GcomprisProperties *props)
  */
 void gcompris_properties_enable_board(gchar *boardName)
 {
-  gchar *tmp = g_strdup_printf("/gcompris/BoardStatus/%s=1", boardName);
-  gnome_config_set_int (tmp, 1);
-  g_free(tmp);
-
-  gnome_config_sync ();
+  g_hash_table_remove(boards_hash, boardName);
 }
 
 void gcompris_properties_disable_board(gchar *boardName)
 {
-  gchar *tmp = g_strdup_printf("/gcompris/BoardStatus/%s=0", boardName);
-  gnome_config_set_int (tmp, 0);
-  g_free(tmp);
-
-  gnome_config_sync ();
+  g_hash_table_insert(boards_hash, boardName, GUINT_TO_POINTER(1));
 }
 
+/*
+ * Return TRUE if boardName is available, FALSE otherwise
 gboolean gcompris_properties_get_board_status(gchar *boardName)
 {
-  gboolean status;
-  gchar *tmp = g_strdup_printf("/gcompris/BoardStatus/%s=1", boardName);
+  guint result;
 
-  status = ((gnome_config_get_int (tmp) == 1) ? TRUE : FALSE);
+  result = GPOINTER_TO_UINT(g_hash_table_lookup(boards_hash, boardName));
 
-  g_free(tmp);
-
-  return(status);
-
-
+  if(result==1)
+    return FALSE;
+  else
+    return TRUE;
 }
 
 

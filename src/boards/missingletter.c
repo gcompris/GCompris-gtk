@@ -498,7 +498,7 @@ static void init_xml()
 {
   char *filename;
   filename = g_strdup_printf("%s/%s/board1.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);
-  assert(g_file_exists(filename));
+  assert(g_file_test(filename, G_FILE_TEST_EXISTS));
   assert(read_xml_file(filename)== TRUE);
   g_free(filename);
   dump_xml();
@@ -582,7 +582,7 @@ static gboolean read_xml_file(char *fname)
   g_return_val_if_fail(fname!=NULL,FALSE);
 
   /* if the file doesn't exist */
-  if(!g_file_exists(fname))
+  if(!g_file_test(fname, G_FILE_TEST_EXISTS))
     {
       g_warning(_("Couldn't find file %s !"), fname);
       return FALSE;

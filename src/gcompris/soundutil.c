@@ -353,26 +353,6 @@ void gcompris_play_ogg_list( GList* files )
     printf ("cond_signal : %s\n", strerror (err));
 
 }
-/* =====================================================================
- *     Play a sound installed in the Gnome sound list
- * ======================================================================*/
-void gcompris_play_sound (const char *soundlistfile, const char *which)
-{
-  gchar *filename;
-
-  if (!gcompris_get_properties()->fx)
-    return;
-
-  filename = g_strdup_printf("%s/%s.wav", PACKAGE_SOUNDS_DIR, which);
-  // DEBUG
-  printf("gcompris_play_sound %s\n", filename);
-  if (!g_file_test ((filename), G_FILE_TEST_EXISTS))
-    g_error (_("Couldn't find file %s !"), filename);
-
-  gnome_sound_play (filename);
-
-  g_free (filename);
-}
 
 /* Local Variables: */
 /* mode:c */

@@ -40,6 +40,7 @@ static GtkWidget	*gcompris_edit	= NULL;
 static GtkWidget	*treeview	= NULL;
 static GtkTreeModel	*model		= NULL;
 
+static void quit_cb (GtkWidget *widget, gpointer data);
 static gboolean		 read_xml_file(GtkTreeIter *parentNode, char *fname);
 
 /* Prototype for selection handler callback */
@@ -58,6 +59,11 @@ enum
   NUM_COLUMNS
 };
 
+static void quit_cb (GtkWidget *widget, gpointer data)
+{
+  gcompris_write_boards_status();
+  gtk_main_quit ();
+}
 
 /*
  * Update the description based on the given gcomprisBoard
@@ -400,6 +406,9 @@ main (int argc, char *argv[])
                       GNOME_PARAM_APP_DATADIR, PACKAGE_DATA_DIR,
                       NULL);
 
+  /* Init the gcompris properties */
+  gcompris_properties_new();
+
   /*
    * The following code was added by Glade to create one of each component
    * (except popup menus), just so that you see something after building
@@ -410,9 +419,9 @@ main (int argc, char *argv[])
 
   /* connect exit code */
   gtk_signal_connect (GTK_OBJECT (gcompris_edit), "delete_event",
-		      GTK_SIGNAL_FUNC (gtk_exit), NULL);
+		      GTK_SIGNAL_FUNC (quit_cb), NULL);
   gtk_signal_connect (GTK_OBJECT (gcompris_edit), "destroy",
-		      GTK_SIGNAL_FUNC (gtk_exit), NULL);
+		      GTK_SIGNAL_FUNC (quit_cb), NULL);
 
   init_plugins();
 

@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2003/10/25 13:25:52 bcoudoin>
+ * Time-stamp: <2003/12/01 01:35:09 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -403,15 +403,15 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
       else if (!strcmp((char *)data, "ofset"))
 	{
-	  gnome_url_show("http://ofset.sourceforge.net", NULL);
+	  //	  gnome_url_show("http://ofset.sourceforge.net", NULL);
 	}
       else if (!strcmp((char *)data, "fsf"))
 	{
-	  gnome_url_show("http://www.fsf.org", NULL);
+	  //	  gnome_url_show("http://www.fsf.org", NULL);
 	}
       else if (!strcmp((char *)data, "gcompris"))
 	{
-	  gnome_url_show("http://ofset.sourceforge.net/gcompris", NULL);
+	  //	  gnome_url_show("http://ofset.sourceforge.net/gcompris", NULL);
 	}
       else if (!strcmp((char *)data, "help"))
 	{
@@ -420,7 +420,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   * Package relocatable.
 	   * Unfortunatly, this does not supports I18N
 	   */
-	  gnome_url_show(PACKAGE_HELP_DIR "/C/gcompris.html", NULL);
+	  //	  gnome_url_show(PACKAGE_HELP_DIR "/C/gcompris.html", NULL);
 	}
     default:
       break;

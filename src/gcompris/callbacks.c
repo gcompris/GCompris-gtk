@@ -13,7 +13,8 @@ void
 on_quit1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-
+  gcompris_write_boards_status();
+  gtk_main_quit ();
 }
 
 
@@ -85,46 +86,6 @@ on_save_as1_activate                   (GtkMenuItem     *menuitem,
 
 
 void
-on_quit2_activate                      (GtkMenuItem     *menuitem,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_cut2_activate                       (GtkMenuItem     *menuitem,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_copy2_activate                      (GtkMenuItem     *menuitem,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_paste2_activate                     (GtkMenuItem     *menuitem,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_clear2_activate                     (GtkMenuItem     *menuitem,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
 on_properties1_activate                (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
@@ -134,14 +95,6 @@ on_properties1_activate                (GtkMenuItem     *menuitem,
 
 void
 on_preferences1_activate               (GtkMenuItem     *menuitem,
-                                        gpointer         user_data)
-{
-
-}
-
-
-void
-on_about2_activate                     (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
 

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2003/11/25 01:26:46 bcoudoin>
+ * Time-stamp: <2003/12/06 04:50:51 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -26,9 +26,13 @@
 #  include <config.h>
 #endif
 
-#include <gnome.h>
+#include <libgnomecanvas/libgnomecanvas.h>
+
+#include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
 
 #include <glib.h>
+#include <libintl.h>
 
 #include <config.h>
 #include <gmodule.h>
@@ -49,6 +53,10 @@
 #define BARHEIGHT   80
 
 #define DEFAULT_SKIN "default"
+
+#define _(String) gettext (String)
+#define gettext_noop(String) String
+#define N_(String) gettext_noop (String)
 
 /*****************************************************************************/
 /* Method usefull for boards provided by gcompris */

@@ -1,24 +1,31 @@
-%define ver      	@VERSION@
+%define name		gcompris
+%define version      	@VERSION@
 %define RELEASE 	1
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
 %define prefix		/usr
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
 
 Summary: Educational suite for kids 3-10 years old
-Name: 		gcompris
-Version: 	%ver
+Name: 		%name
+Version: 	%version
 Release: 	%rel
 Copyright: 	GPL
-Group: 		Amusements/Games
+Group: 		Games/Other
 Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tar.gz
-BuildRoot: 	/var/tmp/gcompris-%{PACKAGE_VERSION}-root
-URL: 		http://ofset.sf.net/gcompris
-Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
+BuildRoot: 	%_tmppath/%name-%version-buildroot
+Buildrequires: gnuchess libogg-devel
+Buildrequires: libxml2-devel libgnomeui2-devel
+Buildrequires: libvorbis-devel libao-devel 
+Buildrequires: liblinc-devel 
+Buildrequires: texinfo libassetml-devel
+# (misc) needed for python support
+Buildrequires: gnome-python python-devel pygtk2.0-devel
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
 Requires:       gnuchess >= 5.02
 Requires:       libassetml @REQUIRE_PYTHON@
 Requires:	assetml-flags
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
+URL: 		http://ofset.sf.net/gcompris
 
 %description
 GCompris / I Have Understood is an educationnal game for children starting at 3.
@@ -238,34 +245,42 @@ Contains png 60x40 country flags and an assetml description file
 %ifarch alpha
   MYARCH_FLAGS="--host=alpha-redhat-linux"
 %endif
+%configure 
 
-CFLAGS="$RPM_OPT_FLAGS" ./configure --quiet $MYARCH_FLAGS --prefix=%{prefix} \
-	 --localstatedir=/var/lib
+%make
 
-if [ "$SMP" != "" ]; then
-  make -j$SMP MAKE="make -j$SMP"
-else
-  make
-fi
 
 %install
 rm -rf $RPM_BUILD_ROOT
+%makeinstall_std
 
-make prefix=$RPM_BUILD_ROOT%{prefix} install >install.log 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post 
 
+%update_menus
+
+%_install_info %{name}.info
+
 %postun 
+
+%clean_menus
+
+%preun
+
+%_remove_install_info %{name}.info
 
 %files
 %defattr(-, root, root)
-%doc ABOUT-NLS AUTHORS COPYING ChangeLog INSTALL NEWS README TODO THANKS
-%attr(-, root, games) %{prefix}/bin/*
-%{prefix}/lib/gcompris
-%{_menudir}/*
+%doc AUTHORS COPYING ChangeLog NEWS README
+%_bindir/*
+
+%dir %_libdir/%{name}/
+%_libdir/%{name}/*
+
+%_menudir/*
 %dir %{prefix}/share/gcompris
 %dir %{prefix}/share/gcompris/boards
 %dir %{prefix}/share/gcompris/boards/skins
@@ -280,7 +295,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gnome/help/*
 %{prefix}/share/locale/*/*/*
 %{prefix}/share/pixmaps/*.png
-%{prefix}/info/*
+%_infodir/*
 
 %files -n assetml-voices-alphabet-de
 %defattr(-, root, root)

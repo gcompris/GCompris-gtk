@@ -1,20 +1,52 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
-AM_INIT_AUTOMAKE(gcompris, 4.2)
+AM_INIT_AUTOMAKE(gcompris, 5.0)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
 AC_ISC_POSIX
 
-LIBGNOME_REQUIRED=1.96.0
-LIBGNOMEUI_REQUIRED=1.96.0
+GTK_REQUIRED=2.0.3
 GDK_PIXBUF_REQUIRED=2.0.6
 LIBGNOMECANVAS_REQUIRED=2.0.2
 
-PKG_CHECK_MODULES(GCOMPRIS, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0 libassetml)
+PKG_CHECK_MODULES(GCOMPRIS, gtk+-2.0 >= $GTK_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0 libassetml)
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
+
+dnl gcompris-edit still require gnome
+GCOMPRIS_EDIT_CFLAGS=
+GCOMPRIS_EDIT_LIBS=
+dnl By default, build gcompris-edit
+GCOMPRIS_EDIT=yes
+build_gcompris_edit=yes
+AC_ARG_WITH(editor,
+  AC_HELP_STRING(
+    [--with-editor],
+    [Tell configure to compile gcompris-edit (it requires gnome)]),
+  [GCOMPRIS_EDIT=$withval] )
+
+if test x$GCOMPRIS_EDIT = xno; then
+  build_gcompris_edit=no
+fi
+
+dnl Finally output the required python variables and automake defines.
+AM_CONDITIONAL(GCOMPRIS_EDIT, test x$build_gcompris_edit = xyes)
+
+if test x$build_gcompris_edit = xno; then
+  AC_MSG_NOTICE([gcompris-edit build is disabled.])
+else
+  dnl gcompris-edit is requested, so check for gnome
+  LIBGNOME_REQUIRED=1.96.0
+  LIBGNOMEUI_REQUIRED=1.96.0
+
+  PKG_CHECK_MODULES(GCOMPRIS_EDIT, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED)
+
+  AC_SUBST(GCOMPRIS_EDIT_CFLAGS)
+  AC_SUBST(GCOMPRIS_EDIT_LIBS)
+
+fi
 
 dnl For embedded ogg player
 dnl FIXME XIPH prefix are the one needed on Mandrake ?
@@ -44,6 +76,10 @@ AC_SUBST(XML_LIBS)
 
 dnl glib-genmarshal
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
+
+dnl popt
+AC_CHECK_LIB(popt, poptDupArgv,,
+AC_MSG_ERROR([You must have popt 1.5 or newer to compile gcompris.]))
 
 AM_ICONV
 
@@ -337,6 +373,7 @@ echo ""
 echo configure complete,
 echo with options:
 echo python plugins = $build_python_plugin
+echo gcompris edit = $build_gcompris_edit
 echo gcompris will be installed in ${prefix}
 echo to compile and install in in another directory
 echo type sh configure --prefix=/usr

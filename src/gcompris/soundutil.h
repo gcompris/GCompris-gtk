@@ -39,7 +39,6 @@ typedef struct {
 	pid_t pid;
 } tsSound;
 
-void	 gcompris_play_sound (const char *soundlistfile, const char *which);
 void	 gcompris_play_ogg(char *, ...);
 void	 gcompris_play_ogg_list( GList* files );
 void	 setSoundPolicy(int);

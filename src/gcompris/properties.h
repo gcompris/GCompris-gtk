@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2003/11/04 22:22:37 bcoudoin>
+ * Time-stamp: <2003/12/09 01:12:34 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -39,12 +39,24 @@ typedef struct {
 GcomprisProperties	*gcompris_get_properties (void);
 GcomprisProperties	*gcompris_properties_new (void);
 void			 gcompris_properties_destroy (GcomprisProperties *props);
-GcomprisProperties	*gcompris_properties_copy (GcomprisProperties *props);
 void			 gcompris_properties_save (GcomprisProperties *props);
 
 void			 gcompris_properties_enable_board(gchar *boardName);
 void			 gcompris_properties_disable_board(gchar *boardName);
 gboolean		 gcompris_properties_get_board_status(gchar *boardName);
+void			 gcompris_write_boards_status();
+
+/* private definitions */
+typedef enum {
+  GCOMPRIS_PROP_MUSIC,
+  GCOMPRIS_PROP_FX,
+  GCOMPRIS_PROP_SCREENSIZE,
+  GCOMPRIS_PROP_TIMER,
+  GCOMPRIS_PROP_FULLSCREEN,
+  GCOMPRIS_PROP_LOCALE,
+  GCOMPRIS_PROP_SKIN,
+  GCOMPRIS_PROP_AUDIO
+} GcomprisTokenType;
 
 #endif
 

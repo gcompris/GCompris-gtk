@@ -24,6 +24,7 @@
 #endif /* __APPLE__ */
 #include <dirent.h>
 #include <sys/stat.h>
+#include <stdio.h>
 
 #include "gcompris.h"
 

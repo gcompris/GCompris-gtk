@@ -55,7 +55,7 @@ Documentation License".
 @menu
 * Introduction::		
 * Manuel utilisateur::			
-* Notes sur l'internationalisation::			
+* Internationalisation::			
 * Guide pour les développeurs::		
 * GNU Free Documentation License::  
 * Concept Index::		
@@ -74,7 +74,7 @@ Gcompris fait parti du projet GNU.
 
 @cindex Objectif de Gcompris
 
-@node    Manuel utilisateur, Notes sur l'internationalisation, Introduction, Top
+@node    Manuel utilisateur, Internationalisation, Introduction, Top
 @chapter Manuel utilisateur
 @section Contrôles
 Tous les contôles sont concus pour être simple d'utilisation pour les plus jeunes. Pour cette raison, bien que gcompris utilise les librairies gnomes, il n'en suis pas les standards.
@@ -95,7 +95,7 @@ Chaque icone représente une activité. Lorqu'on passe la souris dessus, elle est 
 @dfn{Zone de description des activités}
 
 Affichage d'une description de l'activité mise en surbrillance.
-Les descriptions sont internationalisée, c'est à dire traduites dans le language cible sélectionné dans gcompris (Voir @ref{Notes sur l'internationalisation} pour plus d'information sur l'internationalisation).
+Les descriptions sont internationalisée, c'est à dire traduites dans le language cible sélectionné dans gcompris (Voir @ref{Internationalisation} pour plus d'information sur l'internationalisation).
 
 @item
 Barre de contrôle :
@@ -150,8 +150,8 @@ Tout simplement dans le menu de départ, sélectionner une activité en cliquant de
 @subsection Terminer une activité
 Dans la barre, selectionner le boutton 'Retour'
 
-@node    Notes sur l'internationalisation, Guide pour les développeurs, Manuel utilisateur, Top
-@chapter Notes sur l'internationalisation
+@node    Internationalisation, Guide pour les développeurs, Manuel utilisateur, Top
+@chapter Internationalisation
 @section Ma langue est-elle supportée ?
 Gcompris est internationalisé et supporte déjà plusieurs langues.
 
@@ -177,7 +177,7 @@ Pour vérifier la traduction, il faut l'installer avec la commande
 
 Ensuite, envoyer la traduction au mainteneur de gcompris. Il/Elle l'incluera dans la prochaine version officielle.
 
-@node    Guide pour les développeurs, GNU Free Documentation License, Notes sur l'internationalisation, Top
+@node    Guide pour les développeurs, GNU Free Documentation License, Internationalisation, Top
 @chapter Guide pour les développeurs
 @section Pourquoi ajouter vos activités dans gcompris
 Si vous avez une idée de tableau que vous aimeriez proposer aux enfants, vous pouvez faire un nouveau projet, appellons le gIdea. si vous commencez à partir de zero, il vous faudra tout implémenter, menu, bare de contôle, gestion des retours utilisateur, mécanismes d'aides, gestion du projet su le Web, ...

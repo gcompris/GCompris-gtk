@@ -197,7 +197,7 @@ libmoney_la_SOURCES = money.c money_widget.c money_widget.h
 
 libtraffic_la_LDFLAGS = -module -avoid-version
 libtraffic_la_LIBADD =
-libtraffic_la_SOURCES = traffic.c
+libtraffic_la_SOURCES = traffic.c traffic.h
 
 libmachpuzzle_la_LDFLAGS = -module -avoid-version
 libmachpuzzle_la_LIBADD =

@@ -20,6 +20,7 @@
  */
 
 #include <errno.h>
+#include <stdio.h>
 
 #include "gcompris/gcompris.h"
 

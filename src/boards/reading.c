@@ -22,6 +22,7 @@
 // FIXME: Cleanup of LettersItem created struct is not done
 
 #include <errno.h>
+#include <stdio.h>
 
 #include "gcompris/gcompris.h"
 
