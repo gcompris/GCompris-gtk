@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-18 19:41+0200\n"
-"PO-Revision-Date: 2003-09-19 01:40+0200\n"
+"POT-Creation-Date: 2003-09-27 11:41+0200\n"
+"PO-Revision-Date: 2003-09-27 15:55+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -781,10 +781,12 @@ msgid ""
 "Click on any item that has a free block deside him. It will be swapped with "
 "the empty block."
 msgstr ""
+"Klikni na libovolnou položku, která má vedle sebe volný blok. Bude prohozena "
+"s prázdným blokem."
 
 #: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr ""
+msgstr "Po jednom přesouvej položky, aby byly uspořádány podle velikosti"
 
 #: boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
@@ -842,7 +844,7 @@ msgstr "Napiš padající písmeno, než dopadne na zem"
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Táhni a pusť horní kousek jen na prázdné místo"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Vytvoř v prázdné oblasti stejnou věž, jako je ta vpravo"
 
@@ -1401,15 +1403,36 @@ msgstr "aktovka/ak_ovka/t/d/p"
 msgid "satchel/sa_chel/t/p/c"
 msgstr "aktovka/akt_vka/o/a/u"
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "Umí počítat"
+
+#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+msgid ""
+"Click on the coins or paper money on the botton of the screen to pay. If you "
+"want to remove a coin or note, click on it on the upper screen area."
+msgstr ""
+"Zaplať kliknutím na mince nebo papírové peníze ve spodní části obrazovky. "
+"Pokud chceš odstranit minci nebo bankovku, klikni na ni v horní části "
+"obrazovky."
+
+#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
 msgstr "Peníze"
 
-#: boards/money.xml.in.h:2 src/boards/money.c:88
+#: boards/money.xml.in.h:4 src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr "Procvič si používání peněz"
 
-#: boards/money_cents.xml.in.h:2
+#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+msgid ""
+"You must buy the different items and give the exact price. At higher level, "
+"several items are displayed, you must first calculate the total price."
+msgstr ""
+"Musíš kupovat různé věci a platit přesně. Ve vyšší úrovni je zobrazeno víc "
+"věcí, musíš nejdřív spočítat celkovou cenu."
+
+#: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
 msgstr "Procvič si používání peněz včetně halířů"
 
@@ -1940,13 +1963,33 @@ msgstr "Bílý matuje"
 msgid "Drawn game"
 msgstr "Remíza"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:74
 msgid "Read a letter"
 msgstr "Přečti písmeno"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:75
 msgid "Learn to recognize letters"
 msgstr "Nauč se rozpoznávat písmena"
+
+#: src/boards/click_on_letter.c:226
+msgid ""
+"Error: this activity requires you to install first\n"
+"the package assetml-voices-alphabet-"
+msgstr ""
+"Chyba: tato aktivita vyžaduje, abyste nejdříve\n"
+"nainstalovali balíček assetml-voices-alphabet-"
+
+#: src/boards/click_on_letter.c:233
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effect disabled.\n"
+"Go in the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Chyba: tuto aktivitu nelze hrát se zakázanými\n"
+"zvukovými efekty.\n"
+"Zvuk povolte v dialogu\n"
+"nastavení"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2130,7 +2173,7 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:175 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2244,56 +2287,64 @@ msgid "Slovak"
 msgstr "Slovenština"
 
 #: src/gcompris/config.c:79
+msgid "Serbian (Latin)"
+msgstr "Srbština (latinka)"
+
+#: src/gcompris/config.c:80
+msgid "Serbian"
+msgstr "Srbština"
+
+#: src/gcompris/config.c:81
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:82
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:87
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:88
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:89
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:90
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:95
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:149
+#: src/gcompris/config.c:151
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:255
+#: src/gcompris/config.c:257
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:298
+#: src/gcompris/config.c:300
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:326
+#: src/gcompris/config.c:328
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:363
+#: src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:397 src/gcompris/config.c:696
-#: src/gcompris/config.c:707
+#: src/gcompris/config.c:399 src/gcompris/config.c:705
+#: src/gcompris/config.c:716
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2330,7 +2381,7 @@ msgstr "Používat vyhlazovaný canvas (pomalejší)"
 msgid "GCompris I Have Understood"
 msgstr "GCompris Pochopil jsem"
 
-#: src/gcompris/gcompris.c:546
+#: src/gcompris/gcompris.c:544
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2391,7 +2442,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Adresář"
 
-#: src/gcompris/interface.c:286
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
 msgid "Title"
 msgstr "Název"
 
@@ -2404,9 +2455,13 @@ msgstr "Miloslav Trmač"
 msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
 
-#: src/gcompris/oggplayer.c:189
+#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
 msgid "Now Playing Music"
 msgstr "Nyní přehrávám hudbu"
+
+#: src/gcompris/oggplayer.c:245
+msgid "Artist"
+msgstr "Umělec"
 
 #: src/gcompris/soundutil.c:116
 #, c-format
