@@ -13,8 +13,8 @@ START-INFO-DIR-ENTRY
 * gcompris: (gcompris.info).   Jeu éducatif pour les enfants de 3 à 10 ans.
 END-INFO-DIR-ENTRY
 @end format
-Ce document est la documentation de gcompris.
-Il contient à la fois un manuel utilisateur et des notes d'implementation
+Ce document est la documentation de GCompris.
+Il contient à la fois un manuel utilisateur et des notes d'implémentation
 utilisables pour les développeurs.
 
 Copyright 2001 Free Software Foundation, Inc.
@@ -130,7 +130,7 @@ La boite de dialogue A propos de GCompris indique le numéro de version, les aute
 @item
 Configure:
 @cindex Icône Configure
-Affiche la boite de configuration de GCompris. La configuration est réalisée au niveau de GCompris lorsque aucune activité n'est sélectionnée, ou au niveau d'une activité si elle le permet. La configuration est persistante et est sauvée dans le répertoire home de l'utilisateur sous .gnome/GCompris. Ce fichier est un fichier texte qui peut être édité manuellement.
+Affiche la boite de configuration de GCompris. La configuration est réalisée au niveau de GCompris lorsqu'aucune activité n'est sélectionnée, ou au niveau d'une activité si elle le permet. La configuration est persistante et est sauvée dans le répertoire home de l'utilisateur sous .gnome/GCompris. Ce fichier est un fichier texte qui peut être édité manuellement.
 @cindex Configuration de GCompris
 
 @end enumerate
@@ -159,12 +159,12 @@ Puis, générer une version à jour du fichier @file{gcompris.pot} en utilisant la 
 @code{cd gcompris/po}
 @code{make update-po}
 
-Ensuite, récupérer le fichier @file{gcompris.pot}, copier le dans un fichier nommé @file{XX.po} avec XX étant le nom de votre locale, par exemple 'it' pour  italien.
+Ensuite, récupérer le fichier @file{gcompris.pot}, le copier dans un fichier nommé @file{XX.po} avec XX étant le nom de votre locale, par exemple 'it' pour  italien.
 
 Lisez le fichier généré, il contient tout le texte en Anglais trouvé dans GCompris. Il suffit ensuite de réaliser la traduction dans la zone vide située après la phrase en Anglais.
 
 Pour vérifier la traduction, il faut l'installer avec la commande
-@code{make install} au plus haut niveau
+@code{make install} au plus haut niveau.
 
 Ensuite, envoyer la traduction au mainteneur de GCompris. Il/Elle l'inclura dans la prochaine version officielle.
 
@@ -211,7 +211,7 @@ Le 'timer' est une barre de progression qui est normalement utilisée pour inform
 @item
 @code{void bar_set_maxtimer (guint time);}
 
-Établit la valeur maximale de la barre de progression. Ainsi, quand vous créez une activité, vous devez y inclure gcompris/plugin.h pour avoir accès à ces méthodes (déjà inclus dans gcompris/gcompris.h). plugin.h défini également la structure 'BoardPlugin'. C'est le noyau de GCompris. Chaque activité crée son propre 'BoardPlugin' et le renvoie à GCompris quand il est appelé par le point d'entrée get_bplugin_info() @code{BoardPlugin* *get_bplugin_info ();} La structure 'BoardPlugin' renvoyée doit contenir des 'callbacks' vers vos méthodes d'implémentation. La structure 'BoardPlugin' doit fournir des 'callbacks' vers, au moins :
+Établit la valeur maximale de la barre de progression. Ainsi, quand vous créez une activité, vous devez y inclure gcompris/plugin.h pour avoir accès à ces méthodes (déjà inclus dans gcompris/gcompris.h). plugin.h définit également la structure 'BoardPlugin'. C'est le noyau de GCompris. Chaque activité crée son propre 'BoardPlugin' et le renvoie à GCompris quand il est appelé par le point d'entrée get_bplugin_info() @code{BoardPlugin* *get_bplugin_info ();} La structure 'BoardPlugin' renvoyée doit contenir des 'callbacks' vers vos méthodes d'implémentation. La structure 'BoardPlugin' doit fournir des 'callbacks' vers, au moins :
 
 @end itemize
 
@@ -241,7 +241,7 @@ Si l'activité a besoin que l'utilisateur appuie sur des touches, elle doit fourn
 @item
 @code{void *GcomprisOK           (void);}
 
-Cette méthode est appelée quand l'utilisateur clique sur le bouton 'OK' dans la barre de contrôlé. C'est une pratique censée que d'aligner le comportement des touches ENTRÉE et RETURN sur celui du bouton 'OK', mais cela ne conviendra peut-être pas à toutes les situations. Pour cette raison, la responsabilité en est laissée à l'implémentation de l'activité.
+Cette méthode est appelée quand l'utilisateur clique sur le bouton 'OK' dans la barre de contrôle. C'est une pratique censée que d'aligner le comportement des touches ENTRÉE et RETURN sur celui du bouton 'OK', mais cela ne conviendra peut-être pas à toutes les situations. Pour cette raison, la responsabilité en est laissée à l'implémentation de l'activité.
 
 @item
 @code{void *GcomprisSetLevel     (guint level);}
