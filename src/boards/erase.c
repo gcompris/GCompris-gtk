@@ -280,7 +280,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     {
       gamewon = TRUE;
       erase_destroy_all_items();
-      gcompris_display_bonus(gamewon, BONUS_FLOWER);
+      gcompris_display_bonus(gamewon, BONUS_SMILEY);
     }
   
   return FALSE;
