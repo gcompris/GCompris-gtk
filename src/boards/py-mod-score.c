@@ -78,7 +78,7 @@ static PyMethodDef PythonGcomprisScoreModule[] = {
 void python_gcompris_score_module_init(void)
 {
   PyObject* module;
-  module = Py_InitModule("gcompris.score", PythonGcomprisScoreModule);
+  module = Py_InitModule("_gcompris_score", PythonGcomprisScoreModule);
 
   /* Misc constants */
   PyModule_AddIntConstant(module, "STYLE_NOTE", SCORESTYLE_NOTE ); 

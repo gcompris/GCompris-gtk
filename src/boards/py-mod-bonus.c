@@ -55,7 +55,7 @@ static PyMethodDef PythonGcomprisBonusModule[] = {
 void python_gcompris_bonus_module_init(void)
 {
   PyObject* module;
-  module = Py_InitModule("gcompris.bonus", PythonGcomprisBonusModule);
+  module = Py_InitModule("_gcompris_bonus", PythonGcomprisBonusModule);
 
   /* Misc constants */
   PyModule_AddIntConstant(module, "TIME_CLICK_TO", TIME_CLICK_TO_BONUS ); 

@@ -403,7 +403,8 @@ static PyMethodDef PythonGcomprisModule[] = {
 void python_gcompris_module_init(void)
 {
   PyObject* gcomprisModule;
-  gcomprisModule = Py_InitModule("gcompris", PythonGcomprisModule);
+
+  gcomprisModule = Py_InitModule("_gcompris", PythonGcomprisModule);
 
   /* Misc constants */
   PyModule_AddIntConstant(gcomprisModule, "BOARD_HEIGHT", BOARDHEIGHT );

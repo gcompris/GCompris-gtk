@@ -2,6 +2,12 @@
 import gnome
 import gnome.canvas
 import gcompris
+import gcompris.utils
+
+cercle = 0
+
+print dir(gcompris)
+print dir(gcompris.utils)
 
 def img_selected(image):
   print("img selected")
@@ -22,16 +28,30 @@ def pythontest_start():
   gcomprisBoard.number_of_sublevel=1
   gcompris.bar_set(0)
   gcompris.set_background(gcomprisBoard.canvas.root(),
-			  "gcompris/nur00523.jpg")
+			  gcompris.utils.image_to_skin("gcompris-bg.jpg"))
   gcompris.bar_set_level(gcomprisBoard)
 
-  gcompris.images_selector_start(gcomprisBoard,
-                                 "%s%s" % (gcompris.DATA_DIR, "/dataset/mrpatate.xml"),
-                                 img_selected)
+  global cercle
+  cercle = gcomprisBoard.canvas.root().add(
+    gnome.canvas.CanvasEllipse,
+    x1=0.0,
+    y1=0.0,
+    x2=100.0,
+    y2=100.0,
+    fill_color='red',
+    outline_color='white',
+    width_units=1.0
+    )
 
   print("pythontest start.")
 
 def pythontest_end():
+  """Gcompris board end function.
+
+  The python equivalent of the C function:
+    void end_board();
+  """
+  cercle.destroy()
   print("pythontest end.")
 
 def pythontest_ok():

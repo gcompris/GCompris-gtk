@@ -90,7 +90,7 @@ static PyMethodDef PythonGcomprisSoundModule[] = {
 void python_gcompris_sound_module_init(void)
 {
   PyObject* module;
-  module = Py_InitModule("gcompris.sound", PythonGcomprisSoundModule);
+  module = Py_InitModule("_gcompris_sound", PythonGcomprisSoundModule);
 }
 
 /* Some usefull code parts ... */

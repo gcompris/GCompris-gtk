@@ -21,6 +21,7 @@
 #include <pygobject.h>
 #include "gcompris/gcompris.h"
 #include "py-gcompris-board.h"
+#include "py-mod-gcompris.h"
 
 static GcomprisBoard *gcomprisBoard = NULL;
 static PyObject* python_gcomprisBoard = NULL;
@@ -133,7 +134,6 @@ void pythonboard_start (GcomprisBoard *agcomprisBoard){
     PySys_SetArgv(1, python_args);
     
     init_pygobject();
-    python_gcompris_module_init();
 
     main_module = PyImport_AddModule("__main__");
     globals = PyModule_GetDict(main_module);
@@ -149,9 +149,15 @@ void pythonboard_start (GcomprisBoard *agcomprisBoard){
     boarddir = g_strdup_printf("import sys; sys.path.append('%s/python')",PLUGIN_DIR); 
     PyRun_SimpleString(boarddir); 
     g_free(boarddir); 
-    
+
+    /* Load the gcompris modules */
+    python_gcompris_module_init();
+
     /* Python is now initialized we create some usefull variables */
     boardfunction = g_strdup_printf("%s_start", agcomprisBoard->name);
+
+    /* Run an interactive python command line for debugging purposes */
+    //    PyRun_InteractiveLoop(stdin, NULL);
     
     /* Insert the board module into the python's interpreter */
     python_board_module = PyImport_ImportModuleEx(agcomprisBoard->name,  
@@ -233,8 +239,7 @@ gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
           return TRUE;
         }
     }
-  return FALSE;
-  
+  return FALSE;  
 }
 
 /*
