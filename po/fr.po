@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-03-17 10:13+0100\n"
+"POT-Creation-Date: 2002-03-21 19:05+0100\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -326,7 +326,7 @@ msgstr "lampe"
 msgid "mail box"
 msgstr "boîte au lettre"
 
-#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:4
+#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:3
 msgid "postcard"
 msgstr "carte postale"
 
@@ -388,12 +388,12 @@ msgid "tree"
 msgstr "arbre"
 
 #: boards/imagename/board5_0.xml.in.h:2
-msgid "firtree"
-msgstr "sapin"
-
-#: boards/imagename/board5_0.xml.in.h:3
 msgid "pencil"
 msgstr "stylo"
+
+#: boards/imagename/board5_0.xml.in.h:4
+msgid "spruce"
+msgstr "sapin"
 
 #: boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
@@ -418,6 +418,14 @@ msgstr "drapeau"
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
 msgstr "raquette"
+
+#: boards/maze.xml.in.h:1 src/boards/maze.c:101
+msgid "Find your way out of the maze"
+msgstr "Trouves ta voie hors du labyrinthe"
+
+#: boards/maze.xml.in.h:2 src/boards/maze.c:100
+msgid "Maze"
+msgstr "Labyrinthe"
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
@@ -702,7 +710,7 @@ msgid "Learn how to read"
 msgstr "Apprends à lire"
 
 #: src/boards/imageid.c:578 src/boards/menu.c:537
-#: src/boards/missingletter.c:600 src/boards/shapegame.c:1306
+#: src/boards/missingletter.c:599 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -710,7 +718,7 @@ msgstr "Apprends à lire"
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/imageid.c:581 src/boards/missingletter.c:603
+#: src/boards/imageid.c:581 src/boards/missingletter.c:602
 #: src/boards/shapegame.c:1309
 #, c-format
 msgid "find file %s !"
@@ -983,3 +991,6 @@ msgstr "Objectif"
 #: src/gcompris/help.c:218
 msgid "Manual"
 msgstr "Manuel"
+
+#~ msgid "firtree"
+#~ msgstr "sapin"
