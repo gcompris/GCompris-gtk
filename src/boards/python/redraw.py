@@ -51,7 +51,7 @@ class Gcompris_redraw:
     self.current_tool=0
 
     # COLOR SELECTION
-    self.colors = [ 0x111111FFL,   
+    self.colors = [ 0x2A2A2AFFL,   
                     0x7C4B21FFL,   
                     0xEE0000FFL,   
                     0xFF8C45FFL,   
@@ -74,6 +74,10 @@ class Gcompris_redraw:
     self.drawing_area = [140.0, 20.0, 420.0, 500.0]
     self.target_area  = [460.0, 20.0, 740.0, 500.0]
 
+    # Global used for the select event
+    self.in_select_ofx = -1
+    self.in_select_ofy = -1
+    
     # Set it to 1 to let you create new forms
     # Once set, draw your shape in the right area. Then clic on OK to display
     # the data for the form (in the console). Then copy the data in the list at the end of
@@ -82,8 +86,6 @@ class Gcompris_redraw:
     #    self.editing_mode = None
     self.editing_mode = 1
     
-    print("Gcompris_redraw __init__.")
-  
 
   def start(self):  
     self.gcomprisBoard.level=1
@@ -159,14 +161,13 @@ class Gcompris_redraw:
     if(len(target) == 0):
       gcompris.bonus.display(1, gcompris.bonus.FLOWER)
       self.erase_drawing_area()
-      self.increment_level()
-      self.display_current_level()
+      if (self.increment_level() == 1):
+        self.display_current_level()
     else:
       gcompris.bonus.display(0, gcompris.bonus.FLOWER)
       
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
-    print("Gcompris_redraw set level: %i" % level)
     self.gcomprisBoard.level=level;
     self.gcomprisBoard.sublevel=1;
 
@@ -209,6 +210,7 @@ class Gcompris_redraw:
 
   # Code that increments the sublevel and level
   # And bail out if no more levels are available
+  # return 1 if continue, 0 if bail out
   def increment_level(self):
     self.gcomprisBoard.sublevel += 1
 
@@ -218,8 +220,10 @@ class Gcompris_redraw:
       self.gcomprisBoard.level += 1
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
         # the current board is finished : bail out
-        gcompris.bonus.board_finished(gcompris.bonus.BOARD_FINISHED_RANDOM)
-
+        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+        return 0
+      
+    return 1
         
   # Display the tools
   def draw_tools(self):
@@ -363,12 +367,24 @@ class Gcompris_redraw:
       width_units=2.0,
       outline_color_rgba=0x111199FFL
       )
-    # In editing mode, we allow the creation of items in the right area
-    # if(self.editing_mode != None):
-    item.connect("event", self.create_item_event)
 
     self.draw_grid(x1,x2,y1,y2,step)
 
+    #
+    # Given coord are returned swapped
+    # so that y2 > y1 and x2 > x1 
+    #
+  def reorder_coord(self, x1, y1, x2, y2):
+    p = [x1, y1, x2, y2]
+    if(x1>x2):
+      p[0] = x2
+      p[2] = x1
+    if(y1>y2):
+      p[1] = y2
+      p[3] = y1
+    return p
+
+  
   # Draw the image target
   def draw_image_target(self, drawing):
 
@@ -386,11 +402,8 @@ class Gcompris_redraw:
     xofset = self.target_area[0] - self.drawing_area[0]
     
     for i in drawing:
-      print i
       item = self.root_targetitem.add ( i['type'] )
       for k, v in i.items():
-        print k
-        print v
         if k == 'fill_color' :
           item.set ( fill_color = v )
         elif k == 'fill_color_rgba' :
@@ -431,6 +444,10 @@ class Gcompris_redraw:
 
   def draw_grid(self, x1, x2, y1, y2, step):
 
+    # Coord of the written numbers
+    x_text = x1 - 14
+    y_text = y1 - 10
+    
     for i in range(x1,x2,step):
       item = self.rootitem.add (
         gnome.canvas.CanvasLine,
@@ -438,18 +455,56 @@ class Gcompris_redraw:
         fill_color_rgba=0x3740E3FFL,
         width_units=1.0,
         )
-
+      # Shadow for text number
+      self.rootitem.add (
+        gnome.canvas.CanvasText,
+        text=int((i-x1) / step),
+        font=gcompris.skin.get_font("gcompris/content"),
+        x=i+1,
+        y=y_text+1,
+        fill_color_rgba=0x000000FFL
+        )
+      # Text number
+      self.rootitem.add (
+        gnome.canvas.CanvasText,
+        text=int((i-x1) / step),
+        font=gcompris.skin.get_font("gcompris/content"),
+        x=i,
+        y=y_text,
+        fill_color_rgba=0xFFFFA0FFL
+        )
+      
+      # Clicking on lines let you create object
       if(x1<self.target_area[0]):
         item.connect("event", self.create_item_event)
 
     for i in range(y1,y2,step):
       item = self.rootitem.add (
         gnome.canvas.CanvasLine,
-        points=(x1 , i, x2 , i),
+        points=(x1, i, x2 , i),
         fill_color_rgba=0x3740E3FFL,
         width_units=1.0,
         )
+      # Shadow for text number
+      self.rootitem.add (
+        gnome.canvas.CanvasText,
+        text=int((i-y1) / step),
+        font=gcompris.skin.get_font("gcompris/content"),
+        x=x_text+1,
+        y=i+1,
+        fill_color_rgba=0x000000FFL
+        )
+      # Text number
+      self.rootitem.add (
+        gnome.canvas.CanvasText,
+        text=int((i-y1) / step),
+        font=gcompris.skin.get_font("gcompris/content"),
+        x=x_text,
+        y=i,
+        fill_color_rgba=0xFFFFA0FFL
+        )
 
+      # Clicking on lines let you create object
       if(x1<self.target_area[0]):
         item.connect("event", self.create_item_event)
 
@@ -465,12 +520,25 @@ class Gcompris_redraw:
     result.append(float(self.drawing_area[2] + tmp*self.current_step))
     return result
 
-  # Event when a click on an any item. Perform the move
+
+  # Event when a click on any item. Perform the move
   def move_item_event(self, item, event, item_index):
 
     if self.tools[self.current_tool][0] != "SELECT":
       return gtk.FALSE
 
+    #
+    # MOUSE DRAG STOP
+    # ---------------
+    if event.type == gtk.gdk.BUTTON_RELEASE:
+      if event.button == 1:
+        
+        # Reset the ofx ofset
+        self.in_select_ofx = -1
+        self.in_select_ofy = -1
+
+        return gtk.TRUE
+        
     if event.state & gtk.gdk.BUTTON1_MASK:
       x=event.x
       y=event.y
@@ -478,11 +546,19 @@ class Gcompris_redraw:
       # Workaround for bad line positionning
       if(self.current_drawing[item_index].has_key('points')):
         item.set(width_units=1.0)
-        
-      bounds = item.get_bounds()
-      x -= (bounds[2]-bounds[0])/2
-      y -= (bounds[3]-bounds[1])/2
 
+      bounds = item.get_bounds()
+
+      # Save the ofset between the mouse pointer and the upper left corner of the object
+      if(self.in_select_ofx == -1):
+        self.in_select_ofx = x-bounds[0]
+        self.in_select_ofy = y-bounds[1]
+
+      x -= self.in_select_ofx
+      y -= self.in_select_ofy
+
+      # Workaround for bad line positionning
+      # if(not self.current_drawing[item_index].has_key('points')):
       x,y = self.snap_to_grid(x,y)
 
       # Check drawing boundaries
@@ -505,9 +581,9 @@ class Gcompris_redraw:
         self.current_drawing[item_index]['x2'] += ox
         self.current_drawing[item_index]['y2'] += oy
       else:
-        # It's can only be a line
-        ox = x - bounds[0]
-        oy = y - bounds[1]
+        # It can only be a line
+        ox = x - self.current_drawing[item_index]['points'][0]
+        oy = y - self.current_drawing[item_index]['points'][1]
         nx1 = self.current_drawing[item_index]['points'][0] + ox
         ny1 = self.current_drawing[item_index]['points'][1] + oy
         nx2 = self.current_drawing[item_index]['points'][2] + ox
@@ -519,8 +595,8 @@ class Gcompris_redraw:
 
       # Workaround for bad line positionning
       if(self.current_drawing[item_index].has_key('points')):
-        item.set(width_units=7.0)
-        
+        item.set(width_units=8.0)
+
       return gtk.TRUE
     
     return gtk.FALSE
@@ -546,15 +622,19 @@ class Gcompris_redraw:
           self.current_drawing[drawing_item_index]['outline_color_rgba'] = self.colors[self.current_color]
           return gtk.TRUE
     return gtk.FALSE
-          
+
+  # Del an item and internal struct cleanup
+  def del_item(self, item, drawing_item_index):
+    item.destroy()
+    # Warning, do not realy delete it or we bug the index of other items
+    self.current_drawing[drawing_item_index] = []
+
   # Event when a click on an item happen
   def del_item_event(self, item, event, drawing_item_index):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "DEL":
-          item.destroy()
-          # Warning, do not realy delete it or we bug the index of other items
-          self.current_drawing[drawing_item_index] = []
+          self.del_item(item, drawing_item_index);
           return gtk.TRUE
     return gtk.FALSE
 
@@ -582,7 +662,7 @@ class Gcompris_redraw:
             gnome.canvas.CanvasLine,
             points=(self.pos_x, self.pos_y, x, y),          
             fill_color_rgba=self.colors[self.current_color],
-            width_units=7.0
+            width_units=8.0
             )
           self.newitem.connect("event", self.fillin_item_event, len(self.current_drawing))
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
@@ -591,7 +671,7 @@ class Gcompris_redraw:
           self.current_drawing.append({'type': gnome.canvas.CanvasLine,
                                         'points':(self.pos_x, self.pos_y, x, y),
                                         'fill_color_rgba':self.colors[self.current_color],
-                                        'width_units':7.0})
+                                        'width_units':8.0})
 
         elif self.tools[self.current_tool][0] == "RECT":
           
@@ -606,19 +686,19 @@ class Gcompris_redraw:
             x2=x,
             y2=y,
             outline_color_rgba=self.colors[self.current_color],
-            width_units=5.0
+            width_units=4.0
             )
           self.newitem.connect("event", self.fillout_item_event, len(self.current_drawing))
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
 
           # Add the new item to our list
           self.current_drawing.append({'type': gnome.canvas.CanvasRect,
-                                        'x1':self.pos_x,
-                                        'y1':self.pos_y,
-                                        'x2':x,
-                                        'y2':y,
-                                        'outline_color_rgba':self.colors[self.current_color],
-                                        'width_units':5.0})
+                                       'x1':self.pos_x,
+                                       'y1':self.pos_y,
+                                       'x2':x,
+                                       'y2':y,
+                                       'outline_color_rgba':self.colors[self.current_color],
+                                       'width_units':4.0})
                                       
         elif self.tools[self.current_tool][0] == "FILL_RECT":
 
@@ -633,17 +713,21 @@ class Gcompris_redraw:
             x2=x,
             y2=y,
             fill_color_rgba=self.colors[self.current_color],
+            outline_color_rgba=0x000000FFL,
+            width_units=1.0
             )
           self.newitem.connect("event", self.fillin_item_event, len(self.current_drawing))
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
 
           # Add the new item to our list
           self.current_drawing.append({'type': gnome.canvas.CanvasRect,
-                                        'x1':self.pos_x,
-                                        'y1':self.pos_y,
-                                        'x2':x,
-                                        'y2':y,
-                                        'fill_color_rgba':self.colors[self.current_color]})
+                                       'x1':self.pos_x,
+                                       'y1':self.pos_y,
+                                       'x2':x,
+                                       'y2':y,
+                                       'fill_color_rgba':self.colors[self.current_color],
+                                       'outline_color_rgba':0x000000FFL,
+                                       'width_units':1.0})
 
         elif self.tools[self.current_tool][0] == "CIRCLE":
 
@@ -685,23 +769,30 @@ class Gcompris_redraw:
             x2=x,
             y2=y,
             fill_color_rgba=self.colors[self.current_color],
+            outline_color_rgba=0x000000FFL,
+            width_units=1.0
             )
           self.newitem.connect("event", self.fillin_item_event, len(self.current_drawing))
           self.newitem.connect("event", self.move_item_event, len(self.current_drawing))
           
           # Add the new item to our list
           self.current_drawing.append({'type': gnome.canvas.CanvasEllipse,
-                                        'x1':self.pos_x,
-                                        'y1':self.pos_y,
-                                        'x2':x,
-                                        'y2':y,
-                                        'fill_color_rgba':self.colors[self.current_color]})
+                                       'x1':self.pos_x,
+                                       'y1':self.pos_y,
+                                       'x2':x,
+                                       'y2':y,
+                                       'fill_color_rgba':self.colors[self.current_color],
+                                       'outline_color_rgba':0x000000FFL,
+                                       'width_units':1.0})
         if self.newitem != 0:
           self.newitem.connect("event", self.create_item_event)
           self.newitem.connect("event", self.del_item_event, len(self.current_drawing)-1)
           
       return gtk.TRUE
-    
+
+    #
+    # MOTION EVENT
+    # ------------
     if event.type == gtk.gdk.MOTION_NOTIFY:
       if event.state & gtk.gdk.BUTTON1_MASK:
         x=event.x
@@ -719,11 +810,9 @@ class Gcompris_redraw:
           y=self.drawing_area[3]
           
         if self.tools[self.current_tool][0] == "LINE":
-          self.newitem.set(
-            points=( self.pos_x, self.pos_y, x, y) )
+          self.newitem.set( points=( self.pos_x, self.pos_y, x, y) )
           # Reset the item to our list
           self.current_drawing[len(self.current_drawing)-1]['points'] = ( self.pos_x, self.pos_y, x, y)
-          
         elif (self.tools[self.current_tool][0] == "RECT" or
               self.tools[self.current_tool][0] == "FILL_RECT" or
               self.tools[self.current_tool][0] == "CIRCLE" or
@@ -735,54 +824,89 @@ class Gcompris_redraw:
           self.current_drawing[len(self.current_drawing)-1]['x2'] = x
           self.current_drawing[len(self.current_drawing)-1]['y2'] = y
           
-          
+
+    #
+    # MOUSE DRAG STOP
+    # ---------------
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
+        # We have to remove empty created items (the kid did not drag enough)
+        if self.tools[self.current_tool][0] == "LINE":
+          bounds = self.current_drawing[len(self.current_drawing)-1]['points']
+          if (bounds[0] == bounds[2]) and (bounds[1] == bounds[3]):
+            # Oups, empty line
+            self.del_item(self.newitem, len(self.current_drawing)-1)
+          else:
+            # We need to reord the coord in increasing order to allow later comparison
+            x1, y1, x2, y2 = self.reorder_coord(bounds[0], bounds[1], bounds[2], bounds[3])
+            self.current_drawing[len(self.current_drawing)-1]['points'] = (x1, y1, x2, y2)
+            
+        elif (self.tools[self.current_tool][0] == "RECT" or
+              self.tools[self.current_tool][0] == "FILL_RECT" or
+              self.tools[self.current_tool][0] == "CIRCLE" or
+              self.tools[self.current_tool][0] == "FILL_CIRCLE"):
+          # It's a rect or ellipse
+          x1 = self.current_drawing[len(self.current_drawing)-1]['x1']
+          y1 = self.current_drawing[len(self.current_drawing)-1]['y1']
+          x2 = self.current_drawing[len(self.current_drawing)-1]['x2']
+          y2 = self.current_drawing[len(self.current_drawing)-1]['y2']
+          if (x1 == x2) or (y1 == y2):
+            # Oups, empty rect
+            self.del_item(self.newitem, len(self.current_drawing)-1)
+          else:
+            # We need to reord the coord in increasing order to allow later comparison
+            x1, y1, x2, y2 = self.reorder_coord(x1, y1, x2, y2)
+            self.current_drawing[len(self.current_drawing)-1]['x1'] = x1
+            self.current_drawing[len(self.current_drawing)-1]['y1'] = y1
+            self.current_drawing[len(self.current_drawing)-1]['x2'] = x2
+            self.current_drawing[len(self.current_drawing)-1]['y2'] = y2
+          
         return gtk.TRUE
     return gtk.FALSE
 
 
   # The list of items (data) for this game
   def init_item_list(self):
-    self.drawlist = [
-      [{'x2': 360.0, 'y2': 80.0, 'fill_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}]
+    self.drawlist = \
+    [
+      [{'x2': 360.0, 'y2': 80.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}]
       ,
-      [{'x2': 200.0, 'y2': 80.0, 'fill_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
-       {'x2': 400.0, 'y2': 80.0, 'fill_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect},
-       {'x2': 200.0, 'y2': 480.0, 'fill_color_rgba': 4042322175L, 'y1': 440.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
-       {'x2': 400.0, 'y2': 480.0, 'fill_color_rgba': 4042322175L, 'y1': 440.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect}]
+      [{'x2': 200.0, 'y2': 80.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
+       {'x2': 400.0, 'y2': 80.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect},
+       {'x2': 200.0, 'y2': 480.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 440.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
+       {'x2': 400.0, 'y2': 480.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 440.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect}]
       ,
       [
-      {'x2': 180.0, 'y2': 480.0, 'fill_color_rgba': 4042322175L, 'y1':40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
-      {'x2': 360.0, 'y2': 480.0, 'fill_color_rgba': 4042322175L, 'y1': 460.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect},
-      {'x2': 400.0, 'y2': 480.0, 'fill_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 380.0, 'type': gnome.canvas.CanvasRect}]
+      {'x2': 180.0, 'y2': 480.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1':40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect},
+      {'x2': 360.0, 'y2': 480.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 460.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect},
+      {'x2': 400.0, 'y2': 480.0,  'width_units': 1.0,'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 40.0, 'x1': 380.0, 'type': gnome.canvas.CanvasRect}]
       ,
       [{'x2': 400.0, 'y2': 480.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'y2': 160.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 60.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}]
       ,
       [{'x2': 200.0, 'y2': 360.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 200.0, 'x1': 180.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'y2': 220.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 200.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'y2': 400.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 380.0, 'x1': 180.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'y2': 400.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 240.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect}]
       ,
-      [{'x2': 360.0, 'y2': 360.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 180.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'y2': 320.0, 'fill_color_rgba': 4042322175L, 'y1': 280.0, 'x1': 300.0, 'type': gnome.canvas.CanvasEllipse}, {'x2': 320.0, 'y2': 260.0, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'x1': 240.0, 'type': gnome.canvas.CanvasRect}]
+      [{'x2': 360.0, 'y2': 360.0, 'outline_color_rgba': 4042322175L, 'width_units': 5.0, 'y1': 180.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'y2': 320.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 280.0, 'x1': 300.0, 'type': gnome.canvas.CanvasEllipse}, {'x2': 320.0, 'y2': 260.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 200.0, 'x1': 240.0, 'type': gnome.canvas.CanvasRect}]
       ,
       [{'x2': 260.0, 'y2': 140.0, 'outline_color_rgba': 4042322175L, 'y1': 40.0, 'x1': 160.0, 'type': gnome.canvas.CanvasEllipse, 'width_units': 5.0},
-       {'x2': 240.0, 'y2': 120.0, 'fill_color_rgba': 4042322175L, 'y1': 60.0, 'x1': 180.0, 'type': gnome.canvas.CanvasEllipse}]
+       {'x2': 240.0, 'y2': 120.0, 'width_units': 1.0, 'fill_color_rgba': 4042322175L, 'outline_color_rgba': 255L, 'y1': 60.0, 'x1': 180.0, 'type': gnome.canvas.CanvasEllipse}]
       ,
       [
-      {'width_units': 7.0, 'points': (180.0, 60.0, 380.0, 60.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'width_units': 7.0, 'points': (180.0, 80.0, 180.0, 440.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'width_units': 7.0, 'points': (180.0, 460.0, 380.0, 460.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'width_units': 7.0, 'points': (380.0, 80.0, 380.0, 440.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
-      {'x2': 300.0, 'y2': 120.0, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 280.0, 'y2': 120.0, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 320.0, 'y2': 120.0, 'fill_color_rgba': 2085298687L, 'y1': 100.0, 'x1': 300.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 280.0, 'y2': 140.0, 'fill_color_rgba': 3116109311L, 'y1': 120.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 300.0, 'y2': 140.0, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse},
-      {'x2': 280.0, 'y2': 320.0, 'fill_color_rgba': 4042322175L, 'y1': 300.0, 'x1': 260.0,'type': gnome.canvas.CanvasEllipse},
-      {'x2': 260.0, 'y2': 120.0, 'fill_color_rgba': 2199425535L, 'y1': 100.0, 'x1': 240.0, 'type': gnome.canvas.CanvasEllipse},
-      {'width_units': 7.0, 'points': (260.0, 320.0, 220.0, 420.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 2199425535L}
-      ]
-      ]
+      {'width_units': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 4042322175L},
+      {'width_units': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 2199425535L},
+      {'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 300.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
+      {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 100.0, 'x1': 240.0, 'type': gnome.canvas.CanvasEllipse},
+      {'x2': 280.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
+      {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse},
+      {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 100.0, 'x1': 300.0, 'type': gnome.canvas.CanvasEllipse},
+      {'x2': 280.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 120.0, 'x1': 260.0, 'type': gnome.canvas.CanvasEllipse},
+      {'x2': 300.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse}
+      ],
+      [{'x2': 240.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}, {'x2': 320.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 300.0, 'type': gnome.canvas.CanvasRect}, {'x2': 220.0, 'width_units': 1.0, 'y2': 200.0,'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 320.0, 'type': gnome.canvas.CanvasRect}, {'x2': 380.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 120.0, 'x1': 360.0, 'type': gnome.canvas.CanvasRect}, {'x2': 180.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'x1': 160.0, 'type': gnome.canvas.CanvasRect}, {'x2': 320.0, 'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 60.0, 'x1': 220.0, 'type': gnome.canvas.CanvasEllipse}, {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 240.0, 'type': gnome.canvas.CanvasEllipse}, {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 280.0, 'type': gnome.canvas.CanvasEllipse}, {'width_units': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'type': gnome.canvas.CanvasLine, 'fill_color_rgba': 3992977663L}, {'x2': 300.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'x1': 240.0, 'type': gnome.canvas.CanvasRect}, {'x2': 320.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 180.0, 'x1': 220.0, 'type': gnome.canvas.CanvasRect}, {'x2': 340.0, 'width_units': 1.0, 'y2': 400.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 320.0, 'x1': 200.0, 'type': gnome.canvas.CanvasRect}]
+    ]
 
     self.gcomprisBoard.maxlevel=len(self.drawlist)
-    print (">>>> %i" % self.gcomprisBoard.maxlevel)
     self.gcomprisBoard.number_of_sublevel=1
-
+    
