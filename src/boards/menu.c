@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/02/16 23:27:35 bruno>
+ * Time-stamp: <2003/02/23 16:42:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -391,7 +391,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
       if(menuitem->board->title)
 	gnome_canvas_item_set (boardname_item,
 			       "text", menuitem->board->title,
-			       "fill_color", "blue",
+			       "fill_color", "white",
 			       NULL);
 
       if(menuitem->board->description)
@@ -459,7 +459,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "x", (double) x,
 			   "y", (double) y,
 			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color", "blue",
+			   "fill_color", "white",
 			   NULL);
 
   description_item = \
@@ -470,7 +470,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "x", (double) x,
 			   "y", (double) y + 25,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color", "blue",
+			   "fill_color", "white",
 			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 
@@ -482,7 +482,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "x", (double) x,
 			   "y", (double) y + 90,
   			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color", "blue",
+  			   "fill_color", "white",
   			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 
