@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-01-02 23:07+0100\n"
+"POT-Creation-Date: 2002-01-02 23:40+0100\n"
 "PO-Revision-Date: 2001-11-24 16:26+03:00\n"
 "Last-Translator: Valek Filippov <frob@df.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -113,27 +113,6 @@ msgstr "Не удалось найти файл %s!"
 #, c-format
 msgid "find file %s !"
 msgstr "найти файл %s!"
-
-#: src/boards/locale.c:50
-msgid "Select the locale"
-msgstr "Выберите язык"
-
-#: src/boards/locale.c:51
-msgid "Select the language for the messages in GCompris"
-msgstr "Выберите язык для сообщений GCompris"
-
-#: src/boards/locale.c:143
-#, fuzzy
-msgid "GCompris will now display its messages in the selected language"
-msgstr "GCompris будет теперь показывать свои сообщения на %s"
-
-#: src/boards/locale.c:158
-msgid ""
-"If this message is not translated, \n"
-"it means that probably GCompris is not translated in this language"
-msgstr ""
-"Если это сообщение не переведено, \n"
-"это может означать, что GCompirs не переведён на этот язык"
 
 #: src/boards/memory.c:232
 msgid "Memory"
@@ -285,6 +264,96 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 
+#: src/gcompris/config.c:40
+msgid "Azerbaijani Turkic"
+msgstr ""
+
+#: src/gcompris/config.c:41
+msgid "German"
+msgstr ""
+
+#: src/gcompris/config.c:42
+msgid "Greek"
+msgstr ""
+
+#: src/gcompris/config.c:43
+msgid "English"
+msgstr ""
+
+#: src/gcompris/config.c:44
+msgid "Spanish"
+msgstr ""
+
+#: src/gcompris/config.c:45
+msgid "Finnish"
+msgstr ""
+
+#: src/gcompris/config.c:46
+msgid "French"
+msgstr ""
+
+#: src/gcompris/config.c:47
+msgid "Italian"
+msgstr ""
+
+#: src/gcompris/config.c:48
+msgid "Dutch"
+msgstr ""
+
+#: src/gcompris/config.c:49
+msgid "Brazil Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:50
+msgid "Romanian"
+msgstr ""
+
+#: src/gcompris/config.c:51
+msgid "Slovenian"
+msgstr ""
+
+#: src/gcompris/config.c:52
+msgid "Lithuanian"
+msgstr ""
+
+#: src/gcompris/config.c:111
+#, fuzzy
+msgid "GCompris Configuration"
+msgstr "GCompris"
+
+#: src/gcompris/config.c:139
+msgid "OK"
+msgstr ""
+
+#: src/gcompris/config.c:239
+msgid "Fullscreen"
+msgstr ""
+
+#: src/gcompris/config.c:267
+msgid "Music"
+msgstr ""
+
+#: src/gcompris/config.c:295
+msgid "Effect"
+msgstr ""
+
+#~ msgid "Select the locale"
+#~ msgstr "Выберите язык"
+
+#~ msgid "Select the language for the messages in GCompris"
+#~ msgstr "Выберите язык для сообщений GCompris"
+
+#, fuzzy
+#~ msgid "GCompris will now display its messages in the selected language"
+#~ msgstr "GCompris будет теперь показывать свои сообщения на %s"
+
+#~ msgid ""
+#~ "If this message is not translated, \n"
+#~ "it means that probably GCompris is not translated in this language"
+#~ msgstr ""
+#~ "Если это сообщение не переведено, \n"
+#~ "это может означать, что GCompirs не переведён на этот язык"
+
 #, fuzzy
 #~ msgid "Baby Shape Puzzle"
 #~ msgstr "Собрать головоломку"
@@ -328,10 +397,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "GCompris will display all its messages in Swedish"
 #~ msgstr "GCompris будет теперь показывать свои сообщения на %s"
-
-#, fuzzy
-#~ msgid "GCompris Main Menu"
-#~ msgstr "GCompris"
 
 #, fuzzy
 #~ msgid "Horizontal reading practice"

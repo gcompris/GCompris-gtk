@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.2\n"
-"POT-Creation-Date: 2002-01-02 23:07+0100\n"
+"POT-Creation-Date: 2002-01-02 23:40+0100\n"
 "PO-Revision-Date: 2000-11-12 21:13+0200\n"
 "Last-Translator: Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,28 +113,6 @@ msgstr "Kan bestand %s niet vinden !"
 #, fuzzy, c-format
 msgid "find file %s !"
 msgstr "bestand %s vinden !"
-
-#: src/boards/locale.c:50
-#, fuzzy
-msgid "Select the locale"
-msgstr "Selecteer je taal"
-
-#: src/boards/locale.c:51
-msgid "Select the language for the messages in GCompris"
-msgstr "Selecteer de taal voor boodschappen in GCompris"
-
-#: src/boards/locale.c:143
-#, fuzzy
-msgid "GCompris will now display its messages in the selected language"
-msgstr "GCompris zal zijn boodschappen nu tonen in het %s"
-
-#: src/boards/locale.c:158
-msgid ""
-"If this message is not translated, \n"
-"it means that probably GCompris is not translated in this language"
-msgstr ""
-"Indien deze boodschap niet vertaald is, dan is waarschijnlijk\n"
-"GCompris nog helemaal niet vertaald naar deze taal."
 
 #: src/boards/memory.c:232
 msgid "Memory"
@@ -293,6 +271,97 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 
+#: src/gcompris/config.c:40
+msgid "Azerbaijani Turkic"
+msgstr ""
+
+#: src/gcompris/config.c:41
+msgid "German"
+msgstr "Duits"
+
+#: src/gcompris/config.c:42
+msgid "Greek"
+msgstr ""
+
+#: src/gcompris/config.c:43
+msgid "English"
+msgstr "Engels"
+
+#: src/gcompris/config.c:44
+msgid "Spanish"
+msgstr "Spaans"
+
+#: src/gcompris/config.c:45
+msgid "Finnish"
+msgstr ""
+
+#: src/gcompris/config.c:46
+msgid "French"
+msgstr "Frans"
+
+#: src/gcompris/config.c:47
+msgid "Italian"
+msgstr ""
+
+#: src/gcompris/config.c:48
+msgid "Dutch"
+msgstr ""
+
+#: src/gcompris/config.c:49
+msgid "Brazil Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:50
+msgid "Romanian"
+msgstr ""
+
+#: src/gcompris/config.c:51
+msgid "Slovenian"
+msgstr ""
+
+#: src/gcompris/config.c:52
+msgid "Lithuanian"
+msgstr ""
+
+#: src/gcompris/config.c:111
+#, fuzzy
+msgid "GCompris Configuration"
+msgstr "GCompris Hoofdmenu"
+
+#: src/gcompris/config.c:139
+msgid "OK"
+msgstr ""
+
+#: src/gcompris/config.c:239
+msgid "Fullscreen"
+msgstr ""
+
+#: src/gcompris/config.c:267
+msgid "Music"
+msgstr ""
+
+#: src/gcompris/config.c:295
+msgid "Effect"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Select the locale"
+#~ msgstr "Selecteer je taal"
+
+#~ msgid "Select the language for the messages in GCompris"
+#~ msgstr "Selecteer de taal voor boodschappen in GCompris"
+
+#, fuzzy
+#~ msgid "GCompris will now display its messages in the selected language"
+#~ msgstr "GCompris zal zijn boodschappen nu tonen in het %s"
+
+#~ msgid ""
+#~ "If this message is not translated, \n"
+#~ "it means that probably GCompris is not translated in this language"
+#~ msgstr ""
+#~ "Indien deze boodschap niet vertaald is, dan is waarschijnlijk\n"
+#~ "GCompris nog helemaal niet vertaald naar deze taal."
+
 #~ msgid "I Ask you some algebra questions"
 #~ msgstr "Ik vraag je een paar sommen"
 
@@ -354,27 +423,15 @@ msgstr ""
 #~ msgid "GCompris will display all its messages in German"
 #~ msgstr "GCompris zal alle boodschappen in het Duits weergeven"
 
-#~ msgid "German"
-#~ msgstr "Duits"
-
 #, fuzzy
 #~ msgid "GCompris will display all its messages in Greek"
 #~ msgstr "GCompris zal alle boodschappen in het Frans weergeven"
-
-#~ msgid "English"
-#~ msgstr "Engels"
 
 #~ msgid "GCompris will display all its messages in English"
 #~ msgstr "GCompris zal alle boodschappen in het Engels weergeven"
 
 #~ msgid "GCompris will display all its messages in Spanish"
 #~ msgstr "GCompris zal alle boodschappen in het Spaans weergeven"
-
-#~ msgid "Spanish"
-#~ msgstr "Spaans"
-
-#~ msgid "French"
-#~ msgstr "Frans"
 
 #~ msgid "GCompris will display all its messages in French"
 #~ msgstr "GCompris zal alle boodschappen in het Frans weergeven"
@@ -394,10 +451,6 @@ msgstr ""
 
 #~ msgid "Memory Game with images"
 #~ msgstr "Geheugenspel met beelden"
-
-#, fuzzy
-#~ msgid "GCompris Main Menu"
-#~ msgstr "GCompris Hoofdmenu"
 
 #~ msgid "Fill up the missing letter"
 #~ msgstr "Vul de ontbrekende letter in"

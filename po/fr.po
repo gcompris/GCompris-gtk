@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.4\n"
-"POT-Creation-Date: 2002-01-02 23:07+0100\n"
+"POT-Creation-Date: 2002-01-02 23:40+0100\n"
 "PO-Revision-Date: 2001-11-09 13:43+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -113,26 +113,6 @@ msgstr "Ne peux pas trouver le fichier %s !"
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
-
-#: src/boards/locale.c:50
-msgid "Select the locale"
-msgstr "Sélectionne la locale"
-
-#: src/boards/locale.c:51
-msgid "Select the language for the messages in GCompris"
-msgstr "Sélectionne la langue pour les messages de GCompris"
-
-#: src/boards/locale.c:143
-msgid "GCompris will now display its messages in the selected language"
-msgstr "GCompris affichera maintenant ses messages dans la langue sélectionée"
-
-#: src/boards/locale.c:158
-msgid ""
-"If this message is not translated, \n"
-"it means that probably GCompris is not translated in this language"
-msgstr ""
-"Si ce message n'est pas traduit, cela signifie probablement\n"
-"que GCompris n'est pas traduit dans cette langue"
 
 #: src/boards/memory.c:232
 msgid "Memory"
@@ -287,6 +267,96 @@ msgstr ""
 "License: GPL\n"
 "Plus d'information sur http://ofset.sourceforge.net/gcompris\n"
 
+#: src/gcompris/config.c:40
+msgid "Azerbaijani Turkic"
+msgstr ""
+
+#: src/gcompris/config.c:41
+msgid "German"
+msgstr "Allemand"
+
+#: src/gcompris/config.c:42
+msgid "Greek"
+msgstr "Greque"
+
+#: src/gcompris/config.c:43
+msgid "English"
+msgstr "Anglais"
+
+#: src/gcompris/config.c:44
+msgid "Spanish"
+msgstr "Espagnol"
+
+#: src/gcompris/config.c:45
+msgid "Finnish"
+msgstr ""
+
+#: src/gcompris/config.c:46
+msgid "French"
+msgstr "Français"
+
+#: src/gcompris/config.c:47
+msgid "Italian"
+msgstr ""
+
+#: src/gcompris/config.c:48
+msgid "Dutch"
+msgstr ""
+
+#: src/gcompris/config.c:49
+msgid "Brazil Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:50
+msgid "Romanian"
+msgstr ""
+
+#: src/gcompris/config.c:51
+msgid "Slovenian"
+msgstr ""
+
+#: src/gcompris/config.c:52
+msgid "Lithuanian"
+msgstr "Lituanien"
+
+#: src/gcompris/config.c:111
+#, fuzzy
+msgid "GCompris Configuration"
+msgstr "Menu principal de GCompris"
+
+#: src/gcompris/config.c:139
+msgid "OK"
+msgstr ""
+
+#: src/gcompris/config.c:239
+msgid "Fullscreen"
+msgstr ""
+
+#: src/gcompris/config.c:267
+msgid "Music"
+msgstr ""
+
+#: src/gcompris/config.c:295
+msgid "Effect"
+msgstr ""
+
+#~ msgid "Select the locale"
+#~ msgstr "Sélectionne la locale"
+
+#~ msgid "Select the language for the messages in GCompris"
+#~ msgstr "Sélectionne la langue pour les messages de GCompris"
+
+#~ msgid "GCompris will now display its messages in the selected language"
+#~ msgstr ""
+#~ "GCompris affichera maintenant ses messages dans la langue sélectionée"
+
+#~ msgid ""
+#~ "If this message is not translated, \n"
+#~ "it means that probably GCompris is not translated in this language"
+#~ msgstr ""
+#~ "Si ce message n'est pas traduit, cela signifie probablement\n"
+#~ "que GCompris n'est pas traduit dans cette langue"
+
 #~ msgid "I Ask you some algebra questions"
 #~ msgstr "Je te pose quelques questions simples d'algèbre"
 
@@ -347,17 +417,8 @@ msgstr ""
 #~ msgid "GCompris will display all its messages in German"
 #~ msgstr "GCompris affichera tous ses messages en Allemand"
 
-#~ msgid "German"
-#~ msgstr "Allemand"
-
 #~ msgid "GCompris will display all its messages in Greek"
 #~ msgstr "GCompris affichera tous ses messages en Greque"
-
-#~ msgid "Greek"
-#~ msgstr "Greque"
-
-#~ msgid "English"
-#~ msgstr "Anglais"
 
 #~ msgid "GCompris will display all its messages in English"
 #~ msgstr "GCompris affichera tous ses messages en Anglais"
@@ -365,20 +426,11 @@ msgstr ""
 #~ msgid "GCompris will display all its messages in Spanish"
 #~ msgstr "GCompris affichera tous ses messages en Espagnol"
 
-#~ msgid "Spanish"
-#~ msgstr "Espagnol"
-
-#~ msgid "French"
-#~ msgstr "Français"
-
 #~ msgid "GCompris will display all its messages in French"
 #~ msgstr "GCompris affichera tous ses messages en Français"
 
 #~ msgid "GCompris will display all its messages in Lithuanian"
 #~ msgstr "GCompris affichera tous ses messages en Lituanien"
-
-#~ msgid "Lithuanian"
-#~ msgstr "Lituanien"
 
 #~ msgid "GCompris will display all its messages in Swedish"
 #~ msgstr "GCompris affichera tous ses messages en Suédois"
@@ -391,9 +443,6 @@ msgstr ""
 
 #~ msgid "Memory Game with images"
 #~ msgstr "Jeux du memory avec des images et des lettres"
-
-#~ msgid "GCompris Main Menu"
-#~ msgstr "Menu principal de GCompris"
 
 #~ msgid "Fill up the missing letter"
 #~ msgstr "Trouve la lettre manquante"

@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris 0.9.6\n"
-"POT-Creation-Date: 2002-01-02 23:07+0100\n"
+"POT-Creation-Date: 2002-01-02 23:40+0100\n"
 "PO-Revision-Date: 2001-12-09 19:06+0000\n"
 "Last-Translator: AARG! Anonymous <remailer@aarg.net>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -120,27 +120,6 @@ msgstr "Δε μπορώ να βρω το αρχείο %s !"
 #, c-format
 msgid "find file %s !"
 msgstr "βρω το αρχείο %s !"
-
-#: src/boards/locale.c:50
-msgid "Select the locale"
-msgstr "Επιλογή τοπικών ρυθμίσεων"
-
-#: src/boards/locale.c:51
-msgid "Select the language for the messages in GCompris"
-msgstr "Επιλογή γλώσσας μηνυμάτων του GCompris"
-
-#: src/boards/locale.c:143
-msgid "GCompris will now display its messages in the selected language"
-msgstr "Το GCompris θα εμφανίζει τώρα τα μηνύματά του στην επιλεγμένη γλώσσα"
-
-#: src/boards/locale.c:158
-msgid ""
-"If this message is not translated, \n"
-"it means that probably GCompris is not translated in this language"
-msgstr ""
-"Αν αυτό το μήνυμα δεν είναι μεταφρασμένο, \n"
-"αυτό σημαίνει ότι πιθανόν το GCompris δεν είναι μεταφρασμένο σε αυτή τη "
-"γλώσσα"
 
 #: src/boards/memory.c:232
 msgid "Memory"
@@ -298,6 +277,97 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 
+#: src/gcompris/config.c:40
+msgid "Azerbaijani Turkic"
+msgstr ""
+
+#: src/gcompris/config.c:41
+msgid "German"
+msgstr "Γερμανικά"
+
+#: src/gcompris/config.c:42
+msgid "Greek"
+msgstr ""
+
+#: src/gcompris/config.c:43
+msgid "English"
+msgstr "Αγγλικά"
+
+#: src/gcompris/config.c:44
+msgid "Spanish"
+msgstr "Ισπανικά"
+
+#: src/gcompris/config.c:45
+msgid "Finnish"
+msgstr ""
+
+#: src/gcompris/config.c:46
+msgid "French"
+msgstr "Γαλλικά"
+
+#: src/gcompris/config.c:47
+msgid "Italian"
+msgstr ""
+
+#: src/gcompris/config.c:48
+msgid "Dutch"
+msgstr ""
+
+#: src/gcompris/config.c:49
+msgid "Brazil Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:50
+msgid "Romanian"
+msgstr ""
+
+#: src/gcompris/config.c:51
+msgid "Slovenian"
+msgstr ""
+
+#: src/gcompris/config.c:52
+msgid "Lithuanian"
+msgstr ""
+
+#: src/gcompris/config.c:111
+#, fuzzy
+msgid "GCompris Configuration"
+msgstr "Κεντρικό Μενού GCompris"
+
+#: src/gcompris/config.c:139
+msgid "OK"
+msgstr ""
+
+#: src/gcompris/config.c:239
+msgid "Fullscreen"
+msgstr ""
+
+#: src/gcompris/config.c:267
+msgid "Music"
+msgstr ""
+
+#: src/gcompris/config.c:295
+msgid "Effect"
+msgstr ""
+
+#~ msgid "Select the locale"
+#~ msgstr "Επιλογή τοπικών ρυθμίσεων"
+
+#~ msgid "Select the language for the messages in GCompris"
+#~ msgstr "Επιλογή γλώσσας μηνυμάτων του GCompris"
+
+#~ msgid "GCompris will now display its messages in the selected language"
+#~ msgstr ""
+#~ "Το GCompris θα εμφανίζει τώρα τα μηνύματά του στην επιλεγμένη γλώσσα"
+
+#~ msgid ""
+#~ "If this message is not translated, \n"
+#~ "it means that probably GCompris is not translated in this language"
+#~ msgstr ""
+#~ "Αν αυτό το μήνυμα δεν είναι μεταφρασμένο, \n"
+#~ "αυτό σημαίνει ότι πιθανόν το GCompris δεν είναι μεταφρασμένο σε αυτή τη "
+#~ "γλώσσα"
+
 #~ msgid "I Ask you some algebra questions"
 #~ msgstr "Σας κάνω μερικές ερωτήσεις άλγεβρας"
 
@@ -361,27 +431,15 @@ msgstr ""
 #~ msgid "GCompris will display all its messages in German"
 #~ msgstr "Το GCompris θα εμφανίζει όλα τα μηνύματα στα Γερμανικά"
 
-#~ msgid "German"
-#~ msgstr "Γερμανικά"
-
 #, fuzzy
 #~ msgid "GCompris will display all its messages in Greek"
 #~ msgstr "Το GCompris θα εμφανίζει όλα τα μηνύματα στα Ισπανικά"
-
-#~ msgid "English"
-#~ msgstr "Αγγλικά"
 
 #~ msgid "GCompris will display all its messages in English"
 #~ msgstr "Το GCompris θα εμφανίζει όλα τα μηνύματα στα Αγγλικά"
 
 #~ msgid "GCompris will display all its messages in Spanish"
 #~ msgstr "Το GCompris θα εμφανίζει όλα τα μηνύματα στα Ισπανικά"
-
-#~ msgid "Spanish"
-#~ msgstr "Ισπανικά"
-
-#~ msgid "French"
-#~ msgstr "Γαλλικά"
 
 #~ msgid "GCompris will display all its messages in French"
 #~ msgstr "Το GCompris θα εμφανίζει όλα τα μηνύματα στα Ισπανικά"
@@ -401,10 +459,6 @@ msgstr ""
 
 #~ msgid "Memory Game with images"
 #~ msgstr "Παιχνίδι Μνήμης με εικόνες"
-
-#, fuzzy
-#~ msgid "GCompris Main Menu"
-#~ msgstr "Κεντρικό Μενού GCompris"
 
 #~ msgid "Fill up the missing letter"
 #~ msgstr "Συμπληρώστε το γράμμα που λείπει"

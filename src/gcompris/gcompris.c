@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/01/02 22:55:48 bruno>
+ * Time-stamp: <2002/01/02 23:46:19 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -487,6 +487,9 @@ main (int argc, char *argv[])
   optCon = poptGetContext (NULL, argc, argv, command_line, 0);
 
   load_properties ();
+
+  // Set the user's choice locale
+  gcompris_set_locale(properties->locale);
 
   /*------------------------------------------------------------*/
   while ((c = poptGetNextOpt (optCon)) != -1)

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2002-01-02 23:07+0100\n"
+"POT-Creation-Date: 2002-01-02 23:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Martin Herweg <m.herweg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,27 +114,6 @@ msgstr "Kann Grafik-Datei %s nicht finden"
 #, c-format
 msgid "find file %s !"
 msgstr "Kann Datei %s nicht finden"
-
-#: src/boards/locale.c:50
-msgid "Select the locale"
-msgstr "Wähle eine Sprache"
-
-#: src/boards/locale.c:51
-msgid "Select the language for the messages in GCompris"
-msgstr "Wähle die Sprache für Meldungen"
-
-#: src/boards/locale.c:143
-msgid "GCompris will now display its messages in the selected language"
-msgstr "GCompris wird nun seine Meldungen in der gewählten Sprache anzeigen"
-
-#: src/boards/locale.c:158
-msgid ""
-"If this message is not translated, \n"
-"it means that probably GCompris is not translated in this language"
-msgstr ""
-"Wenn einzelne Meldungen dennoch auf englisch erscheinen, \n"
-"dann liegt es daran, dass dieser Teil des Programms noch nicht übersetzt\n"
-"wurde."
 
 #: src/boards/memory.c:232
 msgid "Memory"
@@ -290,6 +269,96 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 
+#: src/gcompris/config.c:40
+msgid "Azerbaijani Turkic"
+msgstr ""
+
+#: src/gcompris/config.c:41
+msgid "German"
+msgstr "Deutsch"
+
+#: src/gcompris/config.c:42
+msgid "Greek"
+msgstr ""
+
+#: src/gcompris/config.c:43
+msgid "English"
+msgstr "Englisch"
+
+#: src/gcompris/config.c:44
+msgid "Spanish"
+msgstr "Spanisch"
+
+#: src/gcompris/config.c:45
+msgid "Finnish"
+msgstr ""
+
+#: src/gcompris/config.c:46
+msgid "French"
+msgstr "Französisch"
+
+#: src/gcompris/config.c:47
+msgid "Italian"
+msgstr ""
+
+#: src/gcompris/config.c:48
+msgid "Dutch"
+msgstr ""
+
+#: src/gcompris/config.c:49
+msgid "Brazil Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:50
+msgid "Romanian"
+msgstr ""
+
+#: src/gcompris/config.c:51
+msgid "Slovenian"
+msgstr ""
+
+#: src/gcompris/config.c:52
+msgid "Lithuanian"
+msgstr ""
+
+#: src/gcompris/config.c:111
+#, fuzzy
+msgid "GCompris Configuration"
+msgstr "GCompris Hauptmenü"
+
+#: src/gcompris/config.c:139
+msgid "OK"
+msgstr ""
+
+#: src/gcompris/config.c:239
+msgid "Fullscreen"
+msgstr ""
+
+#: src/gcompris/config.c:267
+msgid "Music"
+msgstr ""
+
+#: src/gcompris/config.c:295
+msgid "Effect"
+msgstr ""
+
+#~ msgid "Select the locale"
+#~ msgstr "Wähle eine Sprache"
+
+#~ msgid "Select the language for the messages in GCompris"
+#~ msgstr "Wähle die Sprache für Meldungen"
+
+#~ msgid "GCompris will now display its messages in the selected language"
+#~ msgstr "GCompris wird nun seine Meldungen in der gewählten Sprache anzeigen"
+
+#~ msgid ""
+#~ "If this message is not translated, \n"
+#~ "it means that probably GCompris is not translated in this language"
+#~ msgstr ""
+#~ "Wenn einzelne Meldungen dennoch auf englisch erscheinen, \n"
+#~ "dann liegt es daran, dass dieser Teil des Programms noch nicht übersetzt\n"
+#~ "wurde."
+
 #~ msgid "I Ask you some algebra questions"
 #~ msgstr "Ich stelle Dir ein paar einfache Rechenaufgaben"
 
@@ -351,27 +420,15 @@ msgstr ""
 #~ msgid "GCompris will display all its messages in German"
 #~ msgstr "Alle Meldungen werden in deutscher Sprache angezeigt"
 
-#~ msgid "German"
-#~ msgstr "Deutsch"
-
 #, fuzzy
 #~ msgid "GCompris will display all its messages in Greek"
 #~ msgstr "Alle Meldungen werden in französisch angezeigt"
-
-#~ msgid "English"
-#~ msgstr "Englisch"
 
 #~ msgid "GCompris will display all its messages in English"
 #~ msgstr "Alle Meldungen werden in englischer Sprache angezeigt"
 
 #~ msgid "GCompris will display all its messages in Spanish"
 #~ msgstr "Alle Meldungen werden in spanisch angezeigt"
-
-#~ msgid "Spanish"
-#~ msgstr "Spanisch"
-
-#~ msgid "French"
-#~ msgstr "Französisch"
 
 #~ msgid "GCompris will display all its messages in French"
 #~ msgstr "Alle Meldungen werden in französisch angezeigt"
@@ -391,10 +448,6 @@ msgstr ""
 
 #~ msgid "Memory Game with images"
 #~ msgstr "Memory-Spiel mit Bildern"
-
-#, fuzzy
-#~ msgid "GCompris Main Menu"
-#~ msgstr "GCompris Hauptmenü"
 
 #~ msgid "Fill up the missing letter"
 #~ msgstr "füge den fehlenden Buchstaben ein"
