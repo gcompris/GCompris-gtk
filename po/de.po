@@ -1,19 +1,19 @@
 # translation of de.po to Deutsch
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
-# Martin Herweg <m.herweg@gmx.de>, 2001
-# Ronny Standtke <Ronny.Standtke@gmx.de>, 2003
+# Martin Herweg <m.herweg@gmx.de>, 2001.
+# Ronny Standtke <Ronny.Standtke@gmx.de>, 2003, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "POT-Creation-Date: 2003-12-15 21:10+0100\n"
-"PO-Revision-Date: 2003-12-08 22:54+0100\n"
+"PO-Revision-Date: 2004-02-01 11:32+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.1\n"
+"X-Generator: KBabel 1.0.2\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -338,8 +338,7 @@ msgstr "Fragen aus der Algebra"
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr ""
-"Ermittle das Ergebnis der Multiplikation zweier Zahlen in begrenzter Zeit."
+msgstr "Ermittle das Ergebnis der Multiplikation zweier Zahlen in begrenzter Zeit."
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
@@ -371,8 +370,7 @@ msgstr ""
 "der Bilder gestattet. Vielen Dank Ralf!"
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Entwickle eine Strategie, einen Satz arithmetischer Operatoren anzuordnen, "
 "um ein\n"
@@ -420,8 +418,7 @@ msgstr ""
 
 #: boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, give the result to the substraction of two numbers"
-msgstr ""
-"Ermittle das Ergebnis der Subtraktion zweier Zahlen in begrenzter Zeit."
+msgstr "Ermittle das Ergebnis der Subtraktion zweier Zahlen in begrenzter Zeit."
 
 #: boards/algebra_minus.xml.in.h:4
 msgid "Practice the substraction operation"
@@ -1600,14 +1597,12 @@ msgid "Paratrooper"
 msgstr "Fallschirmspringen"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr "Keine besonderen Kenntnisse erforderlich."
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr ""
-"Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
+msgstr "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
 
 #: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
 msgid "Numbers in Order"
@@ -1639,8 +1634,7 @@ msgid "Test board for the python plugin"
 msgstr "Testtafel für das Python-Plugin"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
 msgstr ""
 "Dank an Guido van Rossum und die Python-Mannschaft für diese mächtige "
 "Sprache!"
@@ -1774,6 +1768,8 @@ msgid ""
 "At each level, a drawing is displayed in the right area. You must redraw it "
 "in the left area."
 msgstr ""
+"In jeder Stufe wird auf der rechten Seite eine Zeichnung dargestellt. Du\n"
+"musst sie auf der linken Seite nachzeichnen."
 
 #: boards/redraw.xml.in.h:2
 msgid ""
@@ -1783,6 +1779,12 @@ msgid ""
 "(above/under) is not important but take care not to have unwanted object "
 "under others."
 msgstr ""
+"Zunächst musst Du das richtige Werkzeug auswählen. Dann musst Du die\n"
+"Maus ziehen um Objekte zu erstellen. Wenn Du fertig bist, musst Du den\n"
+"OK-Knopf drücken. Kleine rote Kreuze verraten Dir, wo die Fehler sind.\n"
+"Die Anordnung der Objekte (drunter/drüber) ist nicht wichtig. Achte jedoch\n"
+"daruaf, dass Du nicht aus Versehen unerwünschten Objekte unter anderen\n"
+"Objekten hast."
 
 #: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
@@ -1879,8 +1881,7 @@ msgstr "Würfel und Zahlen"
 
 #: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr ""
-"Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
+msgstr "Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
 
 #: boards/smallnumbers.xml.in.h:5
 msgid ""
@@ -1948,12 +1949,10 @@ msgstr "Super Gehirn"
 
 #: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
-msgstr ""
-"Tux hat einige Gegenstände versteckt, finde sie in der richtigen Reihenfolge"
+msgstr "Tux hat einige Gegenstände versteckt, finde sie in der richtigen Reihenfolge"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Kann die Maus bewegen, kann Nummern lesen und kann für die erste Ebene bis "
 "15 zählen"
@@ -2212,8 +2211,7 @@ msgstr "Wähle eine Tafel"
 
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr ""
-"Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
+msgstr "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
 
 #: src/boards/python.c:52
 msgid "Python Board"
@@ -2287,7 +2285,7 @@ msgstr "Spezial-Tafel, die Python in gcompris einbettet"
 #. display current/sublevel number
 #: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
 msgid "Level"
-msgstr ""
+msgstr "Stufe"
 
 #. Display the tools
 #. Display the tools
@@ -2355,9 +2353,8 @@ msgstr ""
 #. 3 = out of both area
 #.
 #: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
-#, fuzzy
 msgid "Coordinate"
-msgstr "Dank"
+msgstr "Koordinate"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -2480,8 +2477,7 @@ msgid "GCompris Home Page"
 msgstr "GCompris Webseite"
 
 #: src/gcompris/about.c:227
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU Public Licence "
 "veröffentlicht"
@@ -2716,7 +2712,7 @@ msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
 #: src/gcompris/gcompris.c:614
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "GCompris\n"
 "Version: %d\n"
@@ -2724,7 +2720,7 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 "GCompris\n"
-"Version: %s\n"
+"Version: %d\n"
 "Lizenz: GPL\n"
 "Mehr Informationen auf http://ofset.sourceforge.net/gcompris\n"
 
@@ -2889,3 +2885,4 @@ msgstr "Verbleibende Zeit = %d"
 
 #~ msgid "Do you really want to quit GCompris?"
 #~ msgstr "Möchtest Du GCompris wirklich beenden?"
+
