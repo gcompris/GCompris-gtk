@@ -1,4 +1,28 @@
-2002-09-22  Bruno Coudoin  <bcoudoin@anfora.fr>
+2002-10-09  bruno  <bruno.coudoin@free.fr>
+
+	* configure.in: added support to compile internal ogg player
+	* src/boards/draw.c: (resize_item), (create_item): added anchor to text items
+	* src/gcompris/Makefile.am: added support to compile internal ogg player
+	* src/gcompris/oggplayer.c: (decode_ogg_file): created by Nabil Ben Khalifa
+	* src/gcompris/soundutil.c: (initSound), (setSoundPolicy),
+	(getSoundPolicy), (scheduler), (thread_play_ogg),
+	(get_next_sound_to_play), (gcompris_play_ogg),
+	(gcompris_play_sound): Removed the fork to ogg123, use now internal ogg player
+	* src/gcompris/soundutil.h: added supporrt for internal ogg player
+
+2002-10-06  bruno  <bruno.coudoin@free.fr>
+
+	* src/boards/draw.c: (key_press), (draw_next_level),
+	(display_drawing_area), (display_tool_selector), (display_grid),
+	(get_tool_cursor), (tool_event), (display_anchors),
+	(reset_anchors_text), (resize_item), (set_item_color),
+	(create_item), (item_event_resize), (item_event_move),
+	(item_event): Added TEXT support. Complete raise/lower implementation
+	* src/boards/shapegame.c: (shapegame_destroy_all_items),
+	(add_xml_shape_to_data), (parse_doc): Reintroduced the random placement
+	* src/gcompris/config.c: (gcompris_config_start), (item_event_ok): I18N fixes
+
+2002-09-22  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/algebra_group.png: better icon (I hope)
 	* boards/boardicons/algebramenu.png: better icon (I hope)
@@ -7,7 +31,7 @@
 	* src/boards/chess_position.c: (position_set_initial_partyend),
 	(position_set_initial_movelearn): fixed too simple or bad example
 
-2002-09-19  Bruno Coudoin  <bcoudoin@anfora.fr>
+2002-09-19  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added specific chess boards
 	* boards/boardicons/chess_computer.png: added specific chess boards
@@ -30,7 +54,7 @@
 	(position_set_initial_movelearn), (position_display): added function to support specific board
 	* src/boards/chess_position.h: added function to support specific board
 
-2002-09-15  Bruno Coudoin  <bcoudoin@anfora.fr>
+2002-09-15  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* boards/read_colors/.cvsignore: added
 	* src/boards/chess.c: (display_info), (move_piece_to),
@@ -42,7 +66,7 @@
 	* src/boards/chess_notation.h:implemented the promotion
 	* src/gcompris/gcompris.c: (gcompris_terminate), (gcompris_init):catched singint to clean subprocesses
 
-2002-09-12 Bruno Coudoin  <bcoudoin@anfora.fr>
+2002-09-12 Bruno Coudoin  <bruno.coudoin@free.fr>
 	* boards/menu.xml.in: Whole menu reviewed
 	* boards/scale/tabepice.png: added painting provided by Virginie Moreau
 	* boards/superbrain.xml.in: new board by bruno
@@ -55,7 +79,7 @@
 	* src/boards/read_colors.c : a new board in the color serial.
 	* src/gcompris/bonus.[ch] : added BOARD_FINISHED_TOOMANYERRORS to end a board when too many errors occured
 
-2002-09-06  Bruno Coudoin  <bcoudoin@anfora.fr>
+2002-09-06  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added Chess
 	* boards/fun.xml.in: added Chess

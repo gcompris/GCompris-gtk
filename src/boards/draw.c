@@ -1363,6 +1363,7 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
     }
   else if(GNOME_IS_CANVAS_TEXT(item))
     {
+      /* FIXME : Should take care of not moving the text outside the drawing area */
       /* Resizing a text is just moving it */
       gnome_canvas_item_set (item,
 			     "y", (double) y,
@@ -1730,8 +1731,8 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 	  reset_anchors_bounded(anchorsItem);
 	  break;
 
-	  /* No need for anchors for text by now
-	case TOOL_TEXT:
+	  /* Anchors is needed to show the text widget that has the focus */
+ 	case TOOL_TEXT:
 	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 					      gnome_canvas_rect_get_type (),
 					      "fill_color_rgba", ANCHOR_COLOR,
@@ -1754,7 +1755,6 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 	  anchorsItem->sw = NULL;
 
 	  reset_anchors_text(anchorsItem);
-	  */
 	  break;
 
 	default:

@@ -5,7 +5,8 @@ INCLUDES = \
 	-I$(top_srcdir)/src/unicode \
 	$(GNOME_INCLUDEDIR) \
 	$(GDK_PIXBUF_CFLAGS) \
-	$(XML_CFLAGS)
+	$(XML_CFLAGS) \
+	$(PTHREAD_CFLAGS)
 
 bin_PROGRAMS = gcompris gcompris-edit
 
@@ -28,7 +29,8 @@ libgcompris_a_SOURCES = \
 	config.c gcompris_config.h \
 	about.c about.h \
 	cursor.c cursor.h \
-	images_selector.c
+	images_selector.c \
+	oggplayer.c
 
 
 gcompris_SOURCES = \
@@ -41,7 +43,9 @@ gcompris_LDADD = \
 	$(LIBICONV)			\
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
 	$(XML_LIBS) $(INTLLIBS) \
-	$(GDK_PIXBUF_LIBS) 
+	$(GDK_PIXBUF_LIBS) \
+	$(PTHREAD_LIB) \
+	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)
 
 
 gcompris_edit_SOURCES = \
@@ -55,4 +59,6 @@ gcompris_edit_LDADD = \
 	-L$(top_builddir)/src/unicode	\
 	-lgcompris_unicode		\
 	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(INTLLIBS) \
-	$(XML_LIBS) $(GDK_PIXBUF_LIBS)
+	$(XML_LIBS) $(GDK_PIXBUF_LIBS) \
+	$(PTHREAD_LIB) \
+	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)

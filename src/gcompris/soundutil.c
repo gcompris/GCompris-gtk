@@ -1,7 +1,5 @@
 /* gcompris - soundutil.c
  *
- * Time-stamp: <2002/05/10 00:41:35 bruno>
- *
  * Copyright (C) 2002 Pascal Georges
  *
  *   This program is free software; you can redistribute it and/or modify
@@ -21,152 +19,185 @@
 
 #include "gcompris.h"
 #include <signal.h>
+#include <pthread.h>
+#include <ao/ao.h>
 
 static GList *pending_queue = NULL;
-static GList *playing_queue = NULL;
-
 static int sound_policy;
-static int sound_channels_used;
-static int max_sound_channels;
+static gboolean is_playing;
 
-static gboolean ogg_avalaible;
+/* Forward function declarations */
+pthread_t thread_scheduler, thread_play;
+static void* thread_play_ogg (void*);
+static char* get_next_sound_to_play( );
+static void* scheduler ( );
+extern int ogg123(char * sound);
 
-void child_end(int  signum);
-
-typedef void (*sighandler_t)(int);
+/* mutex */
+pthread_mutex_t lock;
+pthread_cond_t cond;
 
 /* =====================================================================
  *
  * =====================================================================*/
-void initSound() {
+void initSound()
+{
+  pthread_mutexattr_t mutattr;
+  pthread_mutexattr_init (&mutattr);
+  pthread_mutex_init( &lock, &mutattr );
+  pthread_cond_init( &cond, NULL );
   sound_policy = PLAY_AFTER_CURRENT;
-  sound_channels_used = 0;
-  max_sound_channels = 1;
-  if (gnome_is_program_in_path("ogg123") == NULL) {
-    ogg_avalaible = FALSE;
-  } else {
-    ogg_avalaible = TRUE;
-  }
+  is_playing = FALSE;
+
+  printf("...calling ao_initialize\n");
+  ao_initialize();
+  printf("...calling ao_initialize done\n");
+
+  if ( pthread_create ( &thread_scheduler, NULL, scheduler, NULL ) != 0)
+    perror("create failed for scheduler");
 }
 
 /* =====================================================================
  *
  * =====================================================================*/
-void setSoundPolicy(int policy) {
-  switch (policy) {
-  case PLAY_ONLY_IF_IDLE : sound_policy = PLAY_ONLY_IF_IDLE; break;
-  case PLAY_AFTER_CURRENT : sound_policy = PLAY_AFTER_CURRENT; break;
-  case PLAY_OVERRIDE_ALL : sound_policy = PLAY_OVERRIDE_ALL; break;
-  default : sound_policy = PLAY_AFTER_CURRENT;
-  }
+void setSoundPolicy(int policy)
+{
+  switch (policy)
+    {
+    case PLAY_ONLY_IF_IDLE : sound_policy = PLAY_ONLY_IF_IDLE; break;
+    case PLAY_AFTER_CURRENT : sound_policy = PLAY_AFTER_CURRENT; break;
+    case PLAY_OVERRIDE_ALL : sound_policy = PLAY_OVERRIDE_ALL; break;
+    default : sound_policy = PLAY_AFTER_CURRENT;
+    }
 }
 /* =====================================================================
  *
  * =====================================================================*/
-int getSoundPolicy() {
+int getSoundPolicy()
+{
   return sound_policy;
 }
 /* =====================================================================
- * Process the cleanup of the child (no zombies)
- * =====================================================================*/
-void child_end(int  signum)
+ * Thread scheduler :
+ *	- launches a single thread for playing a file
+ *	- joins the previous thread at its end
+ *	-	then launches another thread if some sounds are pending
+ *	-	the thread never ends
+ ======================================================================*/
+static void* scheduler ()
 {
-  pid_t pid;
-  int i;
-  tsSound * tmpSound;
+  int retcode;
+  char *sound = NULL;
 
-  pid = waitpid(-1, NULL, WNOHANG);
-  printf("child_end pid=%d  pending = %d playing = %d\n", 
-	 pid,g_list_length(pending_queue),g_list_length(playing_queue));
+  printf("+++scheduler\n");
 
-  if (pid == -1)
-    g_error("Error waitpid");
-  else {
-    sound_channels_used--;
-    for (i=0; i<g_list_length(playing_queue) ; i++) {
-      tmpSound = g_list_nth_data(playing_queue, i);
-      if ( tmpSound->pid == pid ) {
-	printf("Found PID\n");
-	g_free(tmpSound->string);
-	playing_queue = g_list_remove(playing_queue, tmpSound);
-	free(tmpSound);
-	break;
+  while (TRUE)
+    {
+      printf("   scheduler loop\n");
+      if ( ( sound = get_next_sound_to_play( ) ) != NULL )
+	{
+	  //	  retcode = pthread_create ( &thread_play, NULL, thread_play_ogg, (void *) sound );
+	  thread_play_ogg(sound);
+	  //	  if (retcode != 0)
+	  //	    fprintf (stderr, "create failed %d\n", retcode);
+	  is_playing = FALSE;
+	  //	  if ( pthread_join( thread_play, NULL ) != 0 )
+	  //	    perror("scheduler :: pthread join error");
+	  //	  is_playing = TRUE;
+	  //g_free(sound);
+	}
+      else
+	{
+	  int err;
+
+	  printf ("   in scheduler: before cond_wait \n");
+	  err = pthread_cond_wait (&cond, &lock);
+	  if (err)
+	    printf ("cond_wait  : %s\n", strerror (err));
+	  // wait
+	  //usleep(1000000);
+	  printf ("   in scheduler: after cond_wait \n");
+
+	  err = pthread_mutex_unlock ( &lock);
+	  if (err)
+	    printf ("mutex_unlock: %s\n", strerror (err));
+
+	}
+    }
+  return NULL;
+}
+/* =====================================================================
+ * Thread function for playing a single file
+ ======================================================================*/
+static void* thread_play_ogg (void *s)
+{
+  char* file = NULL;
+  char locale[3];
+  pthread_t pid_ogg = 0;
+
+  fprintf (stderr, "+++thread_play_ogg:%s<-\n", s);
+
+  strncpy( locale, gcompris_get_locale(), 2 );
+  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+
+  file = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
+
+  if (g_file_exists (file))
+    {
+      printf("trying to play %s\n", file);
+    } else
+      {
+	g_free(file);
+	file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
+	if (g_file_exists (file))
+	  {
+	    printf("trying to play %s\n", file);
+	  } 
+	else
+	  {
+	    g_free(file);
+	    g_warning("Can't find sound %s", s);
+	    return NULL;
+	  }
       }
-    } // FOR
 
+  if ( file )
+    {
+      //      if ( pthread_create(&pid_ogg, NULL, decode_ogg_file, file) != 0)
+      //	perror("create thread failed for decode_ogg_file");
+      
+      //      pthread_join(pid_ogg, 0);
+      printf("Calling decode_ogg_file(%s)\n");
+      decode_ogg_file(file);
+      g_free( file );
+    }
 
-    for (i=0; i<g_list_length(pending_queue); i++) {
-
-      if (sound_channels_used >= max_sound_channels)
-	break;
-
-      tmpSound = g_list_nth_data(pending_queue, i);
-      pid = exec_play(tmpSound->string);
-      if (pid!=-1) {// play is OK
-	pending_queue = g_list_remove(pending_queue, tmpSound);
-	playing_queue = g_list_append(playing_queue, tmpSound);
-	tmpSound->pid = pid;
-      } else {
-	/* could not play sound -> remove it from pending queues */
-	pending_queue = g_list_remove(pending_queue, tmpSound);
-	g_free(tmpSound->string);
-	free(tmpSound);
-      }
-    } // FOR
-  }
+  fprintf (stderr, "---thread_play_ogg\n");
+  //  pthread_exit( NULL );
+  return NULL;
 }
 
 /* =====================================================================
- * returns -1 if sound can't be played, the pid of the sound process otherwise
- * =====================================================================*/
-pid_t exec_play(char *s) {
-  char * sound = NULL, *tmp = NULL;
-  char locale[3];
-  pid_t pid = 0;
-  int argc;
-  char *argv[MAX_SOUND_FILES];
+ * Returns the next sound play, or NULL if there is no
+ ======================================================================*/
+char* get_next_sound_to_play( )
+{
+  char* tmpSound = NULL;
 
-  strncpy(locale,gcompris_get_locale(),2);
-  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+  printf("+++get_next_sound_to_play\n");
+  pthread_mutex_lock( &lock );
 
-  signal(SIGCHLD, child_end);
+  if ( g_list_length(pending_queue) > 0 )
+    {
+      tmpSound = g_list_nth_data( pending_queue, 0 );
+      pending_queue = g_list_remove( pending_queue, tmpSound );
+      printf( "... get_next_sound_to_play : %s\n", tmpSound );
+    }
 
-  pid = fork ();
+  pthread_mutex_unlock( &lock );
+  printf("---get_next_sound_to_play\n");
 
-  if (pid > 0) { // go back to gcompris
-    printf("+++execplay %s child pid = %d pending = %d playing = %d\n",s, pid,g_list_length(pending_queue),g_list_length(playing_queue) );
-    sound_channels_used++;
-    return pid;
-  } else if (pid == 0) { // child process
-    argc = 0;
-    argv[argc++] = "ogg123";
-    argv[argc++] = "-q";
-
-    tmp = s;
-    while ( (sound = strtok(tmp, " "))) {
-      argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
-      if (g_file_exists (argv[argc])) {
-	printf("trying to play %s\n", argv[argc]);
-	argc++;
-      } else {
-	g_free(argv[argc]);
-	argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", sound);
-	if (g_file_exists (argv[argc])) {
-	  printf("trying to play %s\n", argv[argc]);
-	  argc++;
-	} else
-	  g_free(argv[argc]);
-      }
-      tmp = NULL;
-    } // WHILE
-
-    argv[argc] = NULL;
-    execvp( "ogg123", argv);
-  } else {
-    fprintf(stderr, "Unable to fork\n");
-  }
-
-  return -1;
+  return tmpSound;
 }
 /* =====================================================================
  * Play a list of OGG sound files. The list must be NULL terminated
@@ -175,78 +206,70 @@ pid_t exec_play(char *s) {
  * If it doesn't exists, then the test is done with a music file:
  * music/<sound>
  ======================================================================*/
-void gcompris_play_ogg(char *sound, ...) {
+void gcompris_play_ogg(char *sound, ...)
+{
+  int err;
   va_list ap;
-  gchar * s = NULL;
-  char * tmp = NULL;
-  pid_t pid;
-  tsSound * tmpSound = NULL;
+  char* tmp = NULL;
+  char* tmpSound = NULL;
 
-  if (!gcompris_get_properties()->fx || !ogg_avalaible)
+  printf("+++gcompris_play_ogg\n");
+
+  if ( !gcompris_get_properties()->fx )
     return;
 
-  if (sound_policy == PLAY_ONLY_IF_IDLE && (g_list_length(playing_queue) > 0 || g_list_length(pending_queue) > 0))
+  if ( 	sound_policy == PLAY_ONLY_IF_IDLE &&
+	( is_playing == TRUE || g_list_length( pending_queue ) > 0 ) )
     return;
 
-  if (sound_policy == PLAY_OVERRIDE_ALL) {
-    while ( g_list_length(playing_queue) > 0 ) {
-      tmpSound = g_list_nth_data(playing_queue, 0);
-      // kill all playing sounds
-      if (kill(tmpSound->pid, SIGKILL) != 0)
-	perror("Kill failed:");
-      g_free(tmpSound->string);
-      playing_queue = g_list_remove(playing_queue, tmpSound);
-      free(tmpSound);
+  if (sound_policy == PLAY_OVERRIDE_ALL)
+    {
+      // cancel playing thread
+      if ( pthread_cancel(thread_play) != 0)
+	perror("thread cancel failed:");
+
+      // cancel all pending sounds
+      pthread_mutex_lock( &lock );
+      while ( g_list_length(pending_queue) > 0 )
+	{
+	  tmpSound = g_list_nth_data(pending_queue, 0);
+	  pending_queue = g_list_remove(pending_queue, tmpSound);
+	  g_free(tmpSound);
+	}
+      pthread_mutex_unlock( &lock );
+
+    } // PLAY_OVERRIDE_ALL
+
+  pthread_mutex_lock( &lock );
+  if (g_list_length(pending_queue) < MAX_QUEUE_LENGTH)
+    {
+      pending_queue = g_list_append(pending_queue, g_strdup( sound ) );
     }
 
-    // cancel all pending sounds
-    while ( g_list_length(pending_queue) > 0 ) {
-      tmpSound = g_list_nth_data(pending_queue, 0);
-      g_free(tmpSound->string);
-      pending_queue = g_list_remove(pending_queue, tmpSound);
-      free(tmpSound);
-    }
-
-    sound_channels_used = 0;
-  } // PLAY_OVERRIDE_ALL
-
-  // PLAY_AFTER_CURRENT : the sound is played after current running ones, all pending sounds are cancelled
-  if (sound_policy == PLAY_AFTER_CURRENT) {
-    while ( g_list_length(pending_queue) > 0 ) {
-      tmpSound = g_list_nth_data(pending_queue, 0);
-      assert(tmpSound);
-      g_free(tmpSound->string);
-      pending_queue = g_list_remove(pending_queue, tmpSound);
-      free(tmpSound);
-    }
-  } // PLAY_AFTER_CURRENT
-
-  s = g_strconcat(sound, " ", NULL);
   va_start( ap, sound);
-  while( (tmp = va_arg (ap, char *))) {
-    s = g_strconcat(s, " ", tmp, " ", NULL);
-  }
+  while( (tmp = va_arg (ap, char *)))
+    {
+      if (g_list_length(pending_queue) < MAX_QUEUE_LENGTH)
+	{
+	  pending_queue = g_list_append(pending_queue, g_strdup( tmp ));
+	}
+    }
+
   va_end(ap);
 
-  tmpSound = (tsSound*) malloc(sizeof(tsSound));
-  tmpSound->string = s;
-  printf("tmpSound->string=%s\n", s);
-  if (sound_channels_used < max_sound_channels) {
-    playing_queue = g_list_append(playing_queue, tmpSound);
-    pid = exec_play(s);
-    tmpSound->pid = pid;
-    if (pid == -1) { // we got a problem playing sound : cancel it
-      g_free(tmpSound->string);
-      pending_queue = g_list_remove(pending_queue, tmpSound);
-      free(tmpSound);
-    }
-  } else {
-    printf("No more channels free to play %s\n", s);
-    if (g_list_length(pending_queue) < MAX_QUEUE_LENGTH)
-      pending_queue = g_list_append(pending_queue, tmpSound);
-    printf("pending = %d\n",g_list_length(pending_queue));
-  }
+  //  pthread_mutex_unlock( &lock );
+  err = pthread_mutex_unlock ( &lock);
+  if (err)
+    printf ("mutex_unlock: %s\n", strerror (err));
 
+  // Tell the scheduler to check for new sounds to play
+  printf("Tell the scheduler to check for new sounds to play\n");
+  err = pthread_cond_signal (&cond);
+  if (err)
+    printf ("cond_signal : %s\n", strerror (err));
+
+
+  printf("---gcompris_play_ogg\n");
 }
 /* =====================================================================
  *     Play a sound installed in the Gnome sound list
@@ -260,12 +283,14 @@ void gcompris_play_sound (const char *soundlistfile, const char *which)
 
   filename = g_strdup_printf("%s/%s.wav", PACKAGE_SOUNDS_DIR, which);
 
-  if (!g_file_exists (filename)) {
-    g_error (_("Couldn't find file %s !"), filename);
-  }
-  if (gcompris_get_properties()->fx) {
-    gnome_sound_play (filename);
-  }
+  if (!g_file_exists (filename))
+    {
+      g_error (_("Couldn't find file %s !"), filename);
+    }
+  if (gcompris_get_properties()->fx)
+    {
+      gnome_sound_play (filename);
+    }
 
   g_free (filename);
 }
