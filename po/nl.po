@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-19 10:51+0100\n"
-"PO-Revision-Date: 2005-01-19 18:08+0100\n"
+"POT-Creation-Date: 2005-01-31 11:20+0100\n"
+"PO-Revision-Date: 2005-01-31 22:42+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
-"Language-Team: Nederlands <vertaling@nl.linux.org>\n"
+"Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -808,11 +808,11 @@ msgstr ""
 
 #: boards/chronos/board4_1.xml.in.h:5
 msgid ""
-"1947 Chuck Yager\n"
+"1947 Chuck Yeager\n"
 "break the sound-wall"
 msgstr ""
-"1947 Chuck Yager\n"
-"doorbreken de geluidsbarrière"
+"1947 Chuck Yeager\n"
+"doorbreekt de geluidsbarrière"
 
 #: boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
@@ -1765,25 +1765,32 @@ msgstr "Vind de rechter- en linkerhanden"
 msgid "None"
 msgstr "Geen"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
+#: boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kan de pijltjes op het toetsenbord gebruiken om een object te bewegen."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#: boards/maze.xml.in.h:2 src/boards/maze.c:130
 msgid "Find your way out of the maze"
 msgstr "Vind de uitgang van de doolhof"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
+#: boards/maze3D.xml.in.h:4
 msgid "Help Tux get out of this maze."
 msgstr "Haal Tux uit de doolhof"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:127
+#: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
+#: src/boards/maze.c:129
 msgid "Maze"
 msgstr "Doolhof"
 
-#: boards/maze.xml.in.h:5
+#: boards/maze.xml.in.h:5 boards/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Gebruik de pijltjes op het toetsenbord om Tux naar de deur te brengen."
+
+#: boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Vind de uitgang van het doolhof (verplaatsing is relatief)"
 
 #: boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2424,7 +2431,8 @@ msgstr ""
 
 #: boards/searace.xml.in.h:1 boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
-msgstr "Geef goede opdrachten aan je schip om als eerste te eindigen in de race."
+msgstr ""
+"Geef goede opdrachten aan je schip om als eerste te eindigen in de race."
 
 #: boards/searace.xml.in.h:2 boards/searace1player.xml.in.h:2
 msgid ""
@@ -2437,9 +2445,10 @@ msgid ""
 "perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
 "in the ruler) The goal is to reach the right of the screen (the red line). "
 "When done, you can try to improve your program and start a new race with the "
-"same weather conditions by using the retry button. Going to the next level "
-"will give your more complex wether conditions."
-msgstr ""
+"same weather conditions by using the retry button. You can click and drag "
+"your mouse anywhere on the map to get a measurement in distance and angle. "
+"Going to the next level will give your more complex weather conditions."
+msgstr "In de tekstinvoer geef je regel voor regel, besturingsopdrachten aan je boot. De mogelijke opdrachten worden getoond in de twee invoervelden. De opdrachten 'links' en 'rechts' moeten worden gevolgd door een hoek in graden. Deze hoek wordt ook wel een 'parameter' genoemd. Standaard wordt 45 graden gebruikt. De opdracht 'vooruit' mag gevolgd worden door een afstand. Standaard wordt 1 gebruikt. Bijvoorbeeld: links 90 betekent: draai een kwartslag naar links. Vooruit 10 betekent: Ga tien eenheden vooruit (zoals te zien is op de lineaal). Het doel is om de rechterkant van het scherm te bereiken (de rode lijn). Bij voltooiing kun je proberen je programma te verbeteren en een nieuwe race te starten onder dezelfde weersomstandigheden. Hiervoor druk je op de knop 'opnieuw'. Je kunt op de kaart klikken en slepen om afstanden en hoeken te meten. In het volgende level zul je moeilijker weersomstandigheden te maken krijgen. "
 
 #: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
 msgid ""
@@ -2447,11 +2456,19 @@ msgid ""
 "if the language is extremely basic, you learn here how to think ahead and "
 "enter a program. This activity can be used to introduce the programming "
 "concept to kids."
-msgstr "In deze activiteit leer je hoe je opdrachten geeft aan een computer. Zelfs al is de taal heel erg simpel, leer je hoe je vooruit moet denken en een programma moet invoeren. Deze activiteit kan worden gebruikt om kinderen het principe van programmeren te leren."
+msgstr ""
+"In deze activiteit leer je hoe je opdrachten geeft aan een computer. Zelfs "
+"al is de taal heel erg simpel, leer je hoe je vooruit moet denken en een "
+"programma moet invoeren. Deze activiteit kan worden gebruikt om kinderen het "
+"principe van programmeren te leren."
 
-#: boards/searace.xml.in.h:4 boards/searace1player.xml.in.h:4
+#: boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
 msgstr "Zeerace (2 spelers)"
+
+#: boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "Zeerace (enkele speler)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2848,21 +2865,21 @@ msgid "Given pictures of hands, find if it's a right or left one"
 msgstr ""
 "Geef aan of op de plaatjes een rechterhand of een linkerhand te zien is"
 
-#: src/boards/leftright.c:248 src/boards/python/searace.py:407
-#: src/boards/python/searace.py:432 src/boards/python/searace.py:522
-#: src/boards/python/searace.py:810 src/boards/python/searace.py:843
-#: src/boards/python/searace.py:945
+#: src/boards/leftright.c:248 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:544
+#: src/boards/python/searace.py:856 src/boards/python/searace.py:889
+#: src/boards/python/searace.py:986
 msgid "left"
 msgstr "links"
 
-#: src/boards/leftright.c:258 src/boards/python/searace.py:407
-#: src/boards/python/searace.py:432 src/boards/python/searace.py:531
-#: src/boards/python/searace.py:812 src/boards/python/searace.py:845
-#: src/boards/python/searace.py:939
+#: src/boards/leftright.c:258 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:553
+#: src/boards/python/searace.py:858 src/boards/python/searace.py:891
+#: src/boards/python/searace.py:980
 msgid "right"
 msgstr "rechts"
 
-#: src/boards/maze.c:445
+#: src/boards/maze.c:453
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Bekijk je positie en ga terug naar 3D-modus om te kunnen bewegen"
 
@@ -2936,52 +2953,60 @@ msgstr "Niveau"
 msgid "Coordinate"
 msgstr "Coördinaat"
 
-#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
-#: src/boards/python/searace.py:220
+#: src/boards/python/searace.py:201 src/boards/python/searace.py:206
+#: src/boards/python/searace.py:232
 msgid "Race is already running"
 msgstr "De race is al begonnen"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
-#: src/boards/python/searace.py:407 src/boards/python/searace.py:432
-#: src/boards/python/searace.py:513 src/boards/python/searace.py:808
-#: src/boards/python/searace.py:837 src/boards/python/searace.py:937
-#: src/boards/python/searace.py:943 src/boards/python/searace.py:951
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:535 src/boards/python/searace.py:854
+#: src/boards/python/searace.py:883 src/boards/python/searace.py:978
+#: src/boards/python/searace.py:984 src/boards/python/searace.py:992
 msgid "forward"
 msgstr "vooruit"
 
-#: src/boards/python/searace.py:504
+#: src/boards/python/searace.py:526
 msgid "COMMANDS ARE"
 msgstr "OPDRACHTEN ZIJN"
 
-#: src/boards/python/searace.py:716
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr "Dit is een gelijkspel"
+
+#: src/boards/python/searace.py:759
 msgid "The Red boat has won"
 msgstr "De rode boot heeft gewonnen"
 
-#: src/boards/python/searace.py:719
+#: src/boards/python/searace.py:762
 msgid "The Green boat has won"
 msgstr "De groene boot heeft gewonnen"
 
-#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-#: src/boards/python/searace.py:734
+#: src/boards/python/searace.py:780 src/boards/python/searace.py:1022
 msgid "Angle:"
 msgstr "Hoek:"
 
-#: src/boards/python/searace.py:734
+#: src/boards/python/searace.py:780
 msgid "Wind:"
 msgstr "Wind:"
 
-#: src/boards/python/searace.py:815
+#: src/boards/python/searace.py:861
 msgid "Syntax error at line"
 msgstr "Syntaxfout op regel"
 
-#: src/boards/python/searace.py:833
+#: src/boards/python/searace.py:879
 msgid "The command"
 msgstr "De opdracht"
 
-#: src/boards/python/searace.py:852
+#: src/boards/python/searace.py:898
 msgid "Unknown command at line"
 msgstr "Onbekende opdracht op regel"
+
+#: src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr "Afstand:"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -3070,11 +3095,11 @@ msgstr ""
 "De gegevens van dit bord zijn opgeslagen\n"
 "onder /tmp/gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:70
+#: src/boards/smallnumbers.c:62
 msgid "Numbers With Dices"
 msgstr "Getallen met dobbelstenen"
 
-#: src/boards/smallnumbers.c:71
+#: src/boards/smallnumbers.c:63
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr ""
 "Typ de getallen 1 tot 9 op het toetsenbord voordat de dobbelsteen de grond "
@@ -3415,15 +3440,15 @@ msgstr "Geen skin gevonden in %s\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:242
+#: src/gcompris/file_selector.c:277
 msgid "CANCEL"
 msgstr "ANNULEREN"
 
-#: src/gcompris/file_selector.c:273
+#: src/gcompris/file_selector.c:308
 msgid "LOAD"
 msgstr "LADEN"
 
-#: src/gcompris/file_selector.c:273
+#: src/gcompris/file_selector.c:308
 msgid "SAVE"
 msgstr "OPSLAAN"
 
@@ -3480,7 +3505,7 @@ msgstr "Toont de versie van "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:532
+#: src/gcompris/gcompris.c:538
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3504,7 +3529,7 @@ msgstr ""
 "op\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:727
+#: src/gcompris/gcompris.c:733
 #, c-format
 msgid ""
 "GCompris\n"
