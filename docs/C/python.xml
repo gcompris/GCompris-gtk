@@ -280,6 +280,21 @@ attribute is readeable and/or writable.</para>
 		<entry>gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status)</entry>
 		<entry></entry>
 	      </row>
+	      <row>
+		<entry>gcompris.file_selector_load(gcomprisBoard, rootdir, callback)</entry>
+		<entry>void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir, FileSelectorCallBack fscb)</entry>
+		<entry>The callback must be a callable object</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.file_selector_save(gcomprisBoard, rootdir, callback)</entry>
+		<entry>void gcompris_file_selector_save(GcomprisBoard *gcomprisBoard, gchar *rootdir, FileSelectorCallBack fscb)</entry>
+		<entry>The callback must be a callable object</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.file_selector_stop()</entry>
+		<entry>void gcompris_file_selector_stop(void)</entry>
+		<entry></entry>
+	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>

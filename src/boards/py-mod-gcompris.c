@@ -473,6 +473,109 @@ py_gcompris_exit(PyObject* self, PyObject* args)
 }
 
 
+/* Some functions and variables needed to get the file selector working */
+static PyObject* pyFileSelectorCallBackFunc = NULL;
+
+void pyFileSelectorCallBack(gchar* file){
+  PyObject* args;
+  PyObject* result;
+  if(pyImageSelectorCallBackFunc==NULL) return;
+
+  /* Build arguments */
+  args = PyTuple_New(1);
+  PyTuple_SetItem(args, 0, Py_BuildValue("s", file));
+  result = PyObject_CallObject(pyFileSelectorCallBackFunc, args);
+  if(result==NULL){
+    PyErr_Print();
+  } else {
+    Py_DECREF(result);
+  }
+}
+
+
+/* void gcompris_file_selector_load(GcomprisBoard *gcomprisBoard,
+                                    gchar *rootdir,
+                                    FileSelectorCallBack fscb);
+*/
+static PyObject*
+py_gcompris_file_selector_load(PyObject* self, PyObject* args){
+  PyObject* pyGcomprisBoard;
+  GcomprisBoard* cGcomprisBoard;
+  PyObject* pyCallback;
+  gchar* rootdir;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args,
+		       "OsO:gcompris_file_selector_load",
+		       &pyGcomprisBoard,
+		       &rootdir,
+		       &pyCallback))
+    return NULL;
+  if(!PyCallable_Check(pyCallback)) return NULL;
+  cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
+
+  /* Call the corresponding C function */
+  pyFileSelectorCallBackFunc = pyCallback;
+  gcompris_file_selector_load(cGcomprisBoard,
+                              rootdir,
+                              pyFileSelectorCallBack);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
+/* void gcompris_file_selector_save(GcomprisBoard *gcomprisBoard,
+                                    gchar *rootdir,
+                                    FileSelectorCallBack fscb);
+*/
+static PyObject*
+py_gcompris_file_selector_save(PyObject* self, PyObject* args){
+  PyObject* pyGcomprisBoard;
+  GcomprisBoard* cGcomprisBoard;
+  PyObject* pyCallback;
+  gchar* rootdir;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args,
+		       "OsO:gcompris_file_selector_save",
+		       &pyGcomprisBoard,
+		       &rootdir,
+		       &pyCallback))
+    return NULL;
+  if(!PyCallable_Check(pyCallback)) return NULL;
+  cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
+
+  /* Call the corresponding C function */
+  pyFileSelectorCallBackFunc = pyCallback;
+  gcompris_file_selector_save(cGcomprisBoard,
+                              rootdir,
+                              pyFileSelectorCallBack);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
+/* void gcompris_file_selector_stop (void); */
+static PyObject*
+py_gcompris_file_selector_stop(PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_file_selector_stop"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gcompris_file_selector_stop();
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
 static PyMethodDef PythonGcomprisModule[] = {
   { "end_board",  py_gcompris_end_board, METH_VARARGS, "gcompris_end_board" },
   { "bar_start",  py_gcompris_bar_start, METH_VARARGS, "gcompris_bar_start" },
@@ -497,6 +600,12 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "exit",  py_gcompris_exit, METH_VARARGS, "gcompris_exit" },
   { "log_set_comment",  py_gcompris_log_set_comment, METH_VARARGS, "gcompris_log_set_comment" },
   { "log_end",  py_gcompris_log_end, METH_VARARGS, "gcompris_log_end" },
+  { "file_selector_load",  py_gcompris_file_selector_load,
+    METH_VARARGS, "gcompris_file_selector_load" },
+  { "file_selector_save",  py_gcompris_file_selector_save,
+    METH_VARARGS, "gcompris_file_selector_save" },
+  { "file_selector_stop",  py_gcompris_file_selector_stop,
+    METH_VARARGS, "gcompris_file_selector_stop" },
   { NULL, NULL, 0, NULL}
 };
 

@@ -1,3 +1,10 @@
+2004-07-08  Olivier Samyn  <osamyn@easynet.be>
+
+	* docs/C/python.xml: Added the new file selector API to the python binding.
+	* src/boards/py-mod-gcompris.c: (pyFileSelectorCallBack),
+	(py_gcompris_file_selector_load), (py_gcompris_file_selector_save),
+	(py_gcompris_file_selector_stop): Added the new file selector API to the python binding.
+
 2004-07-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/geography/board1_0.xml.in: -A- updated, cleaned the images, better looking maps.
