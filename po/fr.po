@@ -1,20 +1,21 @@
+# translation of fr.po to 
 # gcompris fr.po.
-# Copyright (C) 2000-2002 Free Software Foundation, Inc.
+# Copyright (C) 2000-2002,2003 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
 # Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
 # Laurent Richard <laurent.richard@lilit.be>, 2003
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2003-02-22 02:12+0100\n"
-"PO-Revision-Date: 2003-02-22 02:26+0100\n"
-"Last-Translator: Bruno Coudoin <bruno.coudoin@free.fr>\n"
-"Language-Team: Français <fr@li.org>\n"
+"Project-Id-Version: fr\n"
+"POT-Creation-Date: 2003-05-22 00:31+0200\n"
+"PO-Revision-Date: 2003-05-22 00:57+0200\n"
+"Last-Translator: \n"
+"Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.6\n"
+"X-Generator: KBabel 1.0.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -596,7 +597,7 @@ msgstr "Reconnaissance des lettres"
 msgid "None"
 msgstr "Aucun"
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:82
+#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
 msgid "Click On Me"
 msgstr "Clique sur moi"
 
@@ -629,7 +630,7 @@ msgstr ""
 "Emplacement : Inconnu (image nur03011)\n"
 "Emplacement : Inconnu (image nur03013)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:83
+#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -821,6 +822,14 @@ msgstr "Amérique du Nord"
 msgid "South America"
 msgstr "Amérique du Sud"
 
+#: boards/geography/board3_0.xml.in.h:1
+msgid "West Europe"
+msgstr "Europe de l'ouest"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "East Europe"
+msgstr "Europe de l'est"
+
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
 msgstr "Manipulation du clavier"
@@ -843,15 +852,15 @@ msgstr ""
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Attrape et fais glisser les pièces du haut sur des emplacements libres"
 
-#: boards/hanoi.xml.in.h:3
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:323
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Reproduit dans la zone vide la même tour que celle de droite"
 
-#: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:106
+#: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
 msgstr "Reproduit la tour donnée"
 
-#: boards/hanoi.xml.in.h:5 src/boards/hanoi.c:105
+#: boards/hanoi.xml.in.h:5 src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
 msgstr "Tour de Hanoi simplifié"
 
@@ -1487,7 +1496,7 @@ msgstr ""
 "positionner les parties d'image sur le bon point rouge pour reconstruire la "
 "peinture originale."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:156
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
 msgid "Make the puzzle"
 msgstr "Construis le puzzle"
 
@@ -1769,6 +1778,30 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Equilibre correctement la balance"
 
+#: boards/submarine.xml.in.h:1
+msgid ""
+"Click on different active elements : engine, rudders and air tanks in order "
+"to navigate at the ordered depth."
+msgstr "Clique sur différents éléments actif : moteur, gouvernails et  réservoir d'air pour navigeur à la bonne profondeur"
+
+#: boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "Apprend le fonctionnement d'un sous-marin"
+
+#: boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr "Physique de base"
+
+#: boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr "Pilote un sous-marin"
+
+#: boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr ""
+"Piltote un sous-marin avec les réservoirs d'air "
+"et les gouvernails de direction de piqué"
+
 #: boards/smallnumbers.xml.in.h:1
 msgid "Counting skill"
 msgstr "Savoir compter"
@@ -1847,6 +1880,26 @@ msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 msgid "Keyboard training"
 msgstr "Entraînement au clavier"
 
+#: boards/pythontest.xml.in.h:1
+msgid "Add a language binding to gcompris."
+msgstr ""
+
+#: boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr ""
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr ""
+
+#: boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr ""
+
+#: boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr ""
+
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
 msgstr "Jeu éducatif à partir de 3 ans"
@@ -1857,18 +1910,18 @@ msgstr "Editeur de gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1562 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:108
-#: src/gcompris/gameutil.c:156 src/gcompris/gameutil.c:492
-#: src/gcompris/gameutil.c:493 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:265
+#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
+#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
+#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:286
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1565
+#: src/boards/shapegame.c:1723
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -1956,7 +2009,7 @@ msgstr "Lis une lettre"
 msgid "Learn to recognize letters"
 msgstr "Apprends à reconnaitre les lettres"
 
-#: src/boards/clickgame.c:179
+#: src/boards/clickgame.c:182
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Ne peut pas trouver le répertoire d'images: %s"
@@ -2045,9 +2098,39 @@ msgstr "Non, il n'y était pas"
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
-#: src/boards/shapegame.c:157
+#: src/boards/shapegame.c:161
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
+
+#. Enter Edit Mode
+#: src/boards/shapegame.c:408
+msgid ""
+"You entered the Edit mode\n"
+"Move the puzzle items and\n"
+"'s' to save\n"
+"'d' to display all the shapes"
+msgstr ""
+"Vous entrez dans le mode édition\n"
+"Déplacez les éléments et utilisez\n"
+"'s' pour sauver\n"
+"'d' pour afficher toutes les pièces"
+
+#: src/boards/shapegame.c:416
+msgid ""
+"This board data are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"Les données de ce tableaux \n"
+"sont sauvées dans \n"
+"/tmp/gcompris-board.xml"
+
+#: src/boards/submarine.c:174
+msgid "Submarine"
+msgstr "Sous-marin"
+
+#: src/boards/submarine.c:175
+msgid "Control the depth of a submarine"
+msgstr "Contrôle la profondeur d'un sous-marin"
 
 #: src/boards/target.c:324 src/boards/target.c:572
 #, c-format
@@ -2067,6 +2150,14 @@ msgstr ""
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance de la cible = %d metres"
+
+#: src/boards/python.c:52
+msgid "Python Board"
+msgstr ""
+
+#: src/boards/python.c:53
+msgid "Special board that embed python into gcompris."
+msgstr ""
 
 #: src/gcompris/about.c:57
 msgid ""
@@ -2230,8 +2321,8 @@ msgstr "Effet"
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:683
-#: src/gcompris/config.c:694
+#: src/gcompris/config.c:387 src/gcompris/config.c:684
+#: src/gcompris/config.c:695
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -2268,7 +2359,7 @@ msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:540
+#: src/gcompris/gcompris.c:541
 #, c-format
 msgid ""
 "GCompris\n"
