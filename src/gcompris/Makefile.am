@@ -92,6 +92,7 @@ libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
 libgcomprisinclude_HEADERS =			\
 	gcompris.h gcompris-board.h \
 	gameutil.h \
+	svgutil.h \
 	properties.h \
 	pixbuf_util.h \
 	soundutil.h \
@@ -109,6 +110,7 @@ libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
 	gcompris.c \
 	gameutil.c \
+	svgutil.c \
 	properties.c \
 	bar.c \
 	file_selector.c \

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/07/07 22:47:15 bcoudoin>
+ * Time-stamp: <2004/07/15 22:15:33 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -42,6 +42,7 @@
 #include "board.h"
 #include "properties.h"
 #include "gameutil.h"
+#include "svgutil.h"
 #include "bonus.h"
 #include "timer.h"
 #include "score.h"

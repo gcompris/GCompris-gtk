@@ -1,3 +1,14 @@
+2004-07-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* po/POTFILES.in: added missing files
+	* src/boards/py-mod-utils.c:  updated by Yves Combe
+	* src/boards/python/anim.py: updated by Yves Combe
+	* src/gcompris/Makefile.am: added new svgutil.c and .h
+	* src/gcompris/gameutil.c: removed all svg stuff. moved to svgutil.c
+	* src/gcompris/gcompris.h: added svgutil.h
+	* src/gcompris/svgutil.c: created by Yves Combe
+	* src/gcompris/svgutil.h: created by Yves Combe
+
 2004-07-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/file_selector.c: (gcompris_file_selector_save),

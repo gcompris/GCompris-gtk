@@ -33,6 +33,7 @@ import copy
 import math
 import time
 
+fles=None
 
 #class Gcompris_anim:
 class Gcompris_anim:
@@ -42,8 +43,10 @@ class Gcompris_anim:
 
     self.gcomprisBoard = gcomprisBoard
     self.empty="empty"
+    global fles
+    fles=self
 
-    # These are used to let us restart only after the bonux is displayed.
+    # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0;
     self.gamewon       = 0;
@@ -74,6 +77,7 @@ class Gcompris_anim:
     self.anchors ['FILL_RECT'] =  self.anchors ['RECT']
     self.anchors ['CIRCLE'] =  self.anchors ['RECT']
     self.anchors ['FILL_CIRCLE'] =  self.anchors ['RECT']
+    self.anchors ['IMAGE'] =  self.anchors ['RECT']
     
                                
     # TOOL SELECTION
@@ -86,13 +90,14 @@ class Gcompris_anim:
       ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
       ["FILL",           "draw/tool-fill.png",            "draw/tool-fill_on.png",               gcompris.CURSOR_FILL],
       ["SELECT",         "draw/tool-select.png",          "draw/tool-select_on.png",             gcompris.CURSOR_SELECT],
+      ["RAISE",         "draw/tool-up.png",          "draw/tool-up_on.png",             gcompris.CURSOR_DEFAULT],
+      ["LOWER",         "draw/tool-down.png",          "draw/tool-down_on.png",             gcompris.CURSOR_DEFAULT],
+      ["CCW",         "draw/tool-rotation-ccw.png",          "draw/tool-rotation-ccw_on.png",             gcompris.CURSOR_DEFAULT],
+      ["CW",         "draw/tool-rotation-cw.png",          "draw/tool-rotation-cw_on.png",             gcompris.CURSOR_DEFAULT],
+      ["FLIP",         "draw/tool-flip.png",          "draw/tool-flip_on.png",             gcompris.CURSOR_DEFAULT],
+      ["IMAGE",         "draw/tool-image.png",          "draw/tool-image_on.png",             gcompris.CURSOR_DEFAULT],
       ["MOVIE",          "draw/tool-movie.png",           "draw/tool-movie_on.png",              gcompris.CURSOR_SELECT],
-      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],
-#      ["RAISE",         "draw/tool-up.png",          "draw/tool-up_on.png",             gcompris.CURSOR_DEFAULT],
-#      ["LOWER",         "draw/tool-down.png",          "draw/tool-down_on.png",             gcompris.CURSOR_DEFAULT],
-#      ["CCW",         "draw/tool-rotation-ccw.png",          "draw/tool-rotation-ccw_on.png",             gcompris.CURSOR_DEFAULT],
-#      ["CW",         "draw/tool-rotation-cw.png",          "draw/tool-rotation-cw_on.png",             gcompris.CURSOR_DEFAULT],
-         
+      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],  
       ]
     
     self.current_tool=0
@@ -229,6 +234,8 @@ class Gcompris_anim:
         y += stepy
 
       if(self.tools[i][0]=="SELECT"):
+        self.select_tool = item
+        self.select_tool_number = i
         # Always select the SELECT item by default
         self.current_tool = i
         self.old_tool_item = item
@@ -239,11 +246,25 @@ class Gcompris_anim:
   # Event when a tool is selected
   def tool_item_event(self, item, event, tool):
     if self.running and (self.tools[tool][0] != "MOVIE"):
-      return
+      if (self.tools[tool][0] == "PICTURE" and
+          event.type == gtk.gdk.BUTTON_PRESS):
+        gcompris.utils.svg_save("anim",
+                           "gcompris.svg",
+                           self.root_anim,
+                           gcompris.BOARD_WIDTH,
+                           gcompris.BOARD_HEIGHT,
+                           10
+                           )
+        return
     
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         # Some button have instant effects
+        if (self.tools[tool][0] == "IMAGE"):
+          self.pos_x = gcompris.BOARD_WIDTH/2
+          self.pos_y = gcompris.BOARD_HEIGHT/2
+          gcompris.images_selector_start(self.gcomprisBoard, gcompris.DATA_DIR + "/dataset/mrpatate.xml", image_selected);
+          
         if (self.tools[tool][0] == "PICTURE"):
           self.flash.show()
           self.AnimShot(self.root_drawingitem)
@@ -517,7 +538,35 @@ class Gcompris_anim:
 
   # Event when a click on any item. Perform the move
   def move_item_event(self, item, event):
+    if self.tools[self.current_tool][0] == "CCW":
+      if event.type == gtk.gdk.BUTTON_PRESS:
+        gcompris.utils.item_rotate_relative(item.get_property("parent"), -10);
+        return gtk.TRUE
+      else:
+        return gtk.FALSE
 
+    if self.tools[self.current_tool][0] == "CW":
+      if event.type == gtk.gdk.BUTTON_PRESS:
+        gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
+        return gtk.TRUE
+      else:
+        return gtk.FALSE
+
+    if self.tools[self.current_tool][0] == "RAISE":
+      if event.type == gtk.gdk.BUTTON_PRESS:
+        print "raise to top"
+        item.get_property("parent").raise_to_top()
+        return gtk.TRUE
+      else:
+        return gtk.FALSE
+
+    if self.tools[self.current_tool][0] == "LOWER":
+      if event.type == gtk.gdk.BUTTON_PRESS:
+        item.get_property("parent").lower(1)
+        return gtk.TRUE
+      else:
+        return gtk.FALSE
+    
     if self.tools[self.current_tool][0] != "SELECT":
       return gtk.FALSE
 
@@ -575,8 +624,6 @@ class Gcompris_anim:
         # We need to realign y cause the bounds values are not precise enough
         n,y = self.snap_to_grid(x,y)
 
-      print "delta bounded" , x, y
-
       # Now perform the object move
       #gcompris.utils.item_absolute_move(item.get_property("parent"), x, y)
       self.object_move(
@@ -622,6 +669,13 @@ class Gcompris_anim:
 
   # Event when an event on the drawing area happen
   def create_item_event(self, item, event):
+    if (not (self.tools[self.current_tool][0] == "RECT" or
+             self.tools[self.current_tool][0] == "CIRCLE" or
+             self.tools[self.current_tool][0] == "FILL_RECT" or
+             self.tools[self.current_tool][0] == "FILL_CIRCLE" or
+             self.tools[self.current_tool][0] == "IMAGE" or
+             self.tools[self.current_tool][0] == "LINE")):
+      return gtk.FALSE
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       
@@ -651,9 +705,9 @@ class Gcompris_anim:
           self.pos_x = x
           self.pos_y = y
 
-# un item doit être remplacé par un group contenant:
-#     - le group "poignées" avec toutes les poignées
-#     - l'item lui même
+# un item doit etre remplace par un group contenant:
+#     - le group "poignees" avec toutes les poignees
+#     - l'item lui meme
 #
 #     ItemGroup:
 #        AnchorsGroup
@@ -775,7 +829,13 @@ class Gcompris_anim:
     # MOTION EVENT
     # ------------
     if event.type == gtk.gdk.MOTION_NOTIFY:
+      if (self.tools[self.current_tool][0] == "IMAGE"):
+        return gtk.FALSE
+      
       if event.state & gtk.gdk.BUTTON1_MASK:
+        if (self.tools[self.current_tool][0] == "RAISE" or
+            self.tools[self.current_tool][0] == "LOWER"):
+          return gtk.FALSE
         x=event.x
         y=event.y
         x,y = self.snap_to_grid(event.x,event.y)
@@ -817,7 +877,13 @@ class Gcompris_anim:
     # MOUSE DRAG STOP
     # ---------------
     if event.type == gtk.gdk.BUTTON_RELEASE:
+      if (self.tools[self.current_tool][0] == "IMAGE"):
+        return gtk.FALSE
+      
       if event.button == 1:
+        if (self.tools[self.current_tool][0] == "RAISE" or
+            self.tools[self.current_tool][0] == "LOWER"):
+          return gtk.FALSE
         # We have to remove empty created items (the kid did not drag enough)
         if self.tools[self.current_tool][0] == "LINE":
           # need to delete empty line. self.newitem est l'objet courant
@@ -834,7 +900,6 @@ class Gcompris_anim:
         print self.newitem.get_bounds()
         print self.newitemgroup.get_bounds()
 
-        
         return gtk.TRUE
     return gtk.FALSE
 
@@ -938,7 +1003,8 @@ class Gcompris_anim:
       # il contiennent soit les listes d'objets,
       # soit des associations poignées-objets
       for item in modele.item_list:
-        self.clone(shot,item)
+        #animutils.clone_item(shot,item)
+        gcompris.utils.clone_item(item,shot)
       shot.hide()
       self.current_image+=1
 
@@ -987,6 +1053,11 @@ class Gcompris_anim:
     self.cartoon=self.root_anim.item_list
     if len(self.cartoon)==0:
       print "Mmm... Need to make shots before run anim !!"
+      gcompris.utils.svg_restore("anim",
+                       "gcompris.svg",
+                       self.root_anim
+                       )
+      self.running=False
       return
 #    self.rootitem.hide()
     self.root_playingitem.show()
@@ -1162,6 +1233,11 @@ class Gcompris_anim:
   def object_move(self,object,dx,dy):
     if gobject.type_name(object.item_list[0])=="GnomeCanvasLine":
       (x1,y1,x2,y2)=object.item_list[0].get_property('points')
+    elif gobject.type_name(object.item_list[0])=="GnomeCanvasPixbuf":
+      x1=object.item_list[0].get_property("x")
+      y1=object.item_list[0].get_property("y")
+      x2=object.item_list[0].get_property("x")+object.item_list[0].get_property("width")
+      y2=object.item_list[0].get_property("y")+object.item_list[0].get_property("height")
     else:
       x1=object.item_list[0].get_property("x1")
       y1=object.item_list[0].get_property("y1")
@@ -1175,6 +1251,14 @@ class Gcompris_anim:
       object.item_list[0].set(
         points=(x1,y1,x2,y2)
         )
+    elif gobject.type_name(object.item_list[0])=="GnomeCanvasPixbuf":
+       object.item_list[0].set(
+         x=x1,
+         y=y1,
+         width=x2-x1,
+         height=y2-y1,
+         )
+
     else:
       object.item_list[0].set(
         x1=x1,
@@ -1262,6 +1346,11 @@ class Gcompris_anim:
         y1=points[1]
         x2=points[2]
         y2=points[3]
+      elif gobject.type_name(real_item)=="GnomeCanvasPixbuf":
+        x1=real_item.get_property("x")
+        y1=real_item.get_property("y")
+        x2=x1+real_item.get_property("width")
+        y2=y1+real_item.get_property("height")
       else:
         x1=real_item.get_property("x1")
         y1=real_item.get_property("y1")
@@ -1329,6 +1418,11 @@ class Gcompris_anim:
   def get_bounds(self, item):
     if gobject.type_name(item)=="GnomeCanvasLine":
       (x1,y1,x2,y2)=item.get_property("points")
+    elif gobject.type_name(item)=="GnomeCanvasPixbuf":
+      x1=item.get_property("x")
+      y1=item.get_property("y")
+      x2=item.get_property("x")+item.get_property("width")
+      y2=item.get_property("y")+item.get_property("height")
     else:
       x1=item.get_property("x1")
       y1=item.get_property("y1")
@@ -1337,3 +1431,75 @@ class Gcompris_anim:
 
     return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
       
+def image_selected(image):
+  #fles is used because self is not passed through callback
+  global fles
+  print fles, image
+  
+  pixmap = gcompris.utils.load_pixmap(image)
+  
+  fles.newitem = None
+  fles.newitemgroup = fles.root_drawingitem.add(
+    gnome.canvas.CanvasGroup,
+    x=0.0,
+    y=0.0
+    )
+  
+  fles.newitem = fles.newitemgroup.add(
+    gnome.canvas.CanvasPixbuf,
+    pixbuf = pixmap,
+    x= fles.pos_x,
+    y= fles.pos_y,
+    width = pixmap.get_width(),
+    height = pixmap.get_height(),
+    width_set = True,
+    height_set = True
+    )
+  
+  gcompris.utils.filename_pass(fles.newitem,image)
+  
+  fles.newitem.connect("event", fles.move_item_event)
+  fles.newitem.connect("event", fles.create_item_event)    
+  fles.newitem.connect("event", fles.del_item_event)
+    
+  anchorgroup=fles.newitemgroup.add(
+    gnome.canvas.CanvasGroup,
+    x=0,
+    y=0
+    )
+  anchorgroup.set_data('anchors',True)
+  anchorgroup.show()
+  
+  for anchor_type in fles.anchors[fles.tools[fles.current_tool][0]]:
+    anchor=anchorgroup.add(
+      gnome.canvas.CanvasRect,
+      fill_color_rgba=fles.ANCHOR_COLOR,
+      outline_color_rgba=0x000000FFL,
+      width_pixels=1,
+      )
+    anchor.set_data('anchor_type',anchor_type)
+    anchor.connect("event", fles.resize_item_event,anchor_type)
+      
+      
+  # unselect object if necessary
+  if (fles.selected != None):
+    fles.selected.item_list[1].hide()
+    fles.selected = None
+        
+  # Deactivate old button
+  fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][1]))
+        
+  # Activate new button                         
+  fles.current_tool = fles.select_tool_number
+  fles.old_tool_item = fles.select_tool
+  fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][2]))
+  gcompris.set_cursor(fles.tools[fles.current_tool][3]);
+    
+  fles.selected = fles.newitemgroup
+  fles.selected.item_list[1].show()
+  
+  print "ok image"
+
+def anchorize(group):
+  # group contains group of normal items.
+  pass
