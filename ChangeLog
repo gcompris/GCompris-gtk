@@ -1,3 +1,31 @@
+2003-08-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: added assetml.in file creation
+	* gcompris.spec.in: added assetml package creation
+	* src/boards/click_on_letter.c: (repeat),
+	(click_on_letter_create_item), (phone_event): uses assetml
+	* src/boards/colors.c: (repeat): uses assetml
+	* src/boards/draw.c: (color_event): uses assetml
+	* src/boards/gletters.c: (gletters_create_item): uses assetml
+	* src/boards/smallnumbers.c: (smallnumbers_create_item): uses assetml
+	* src/gcompris/bar.c: (gcompris_bar_start),
+	(gcompris_bar_set_level), (bar_play_sound), (item_event_bar):  uses assetml
+	* src/gcompris/config.c: (set_locale_flag), (item_event_ok):  uses assetml / fixed focus effect
+	* src/gcompris/gameutil.c: (gcompris_get_asset_file),
+	(gcompris_load_pixmap_asset), (gcompris_load_pixmap): assetml enhancements
+	* src/gcompris/gameutil.h: assetml enhancements
+	* src/gcompris/gcompris.c: (gcompris_init): uses assetml
+	* src/gcompris/soundutil.c: (thread_play_ogg),
+	(gcompris_play_sound): assetml enhancements
+	* src/libassetml/assetml.c: (dump_asset),
+	(assetml_add_xml_to_data), (matching), (parse_doc),
+	(assetml_read_xml_file), (assetml_load_xml), (free_asset),
+	(assetml_get_asset): removed the name field in assetml to use file as a key instead
+	* src/libassetml/assetml.h: assetml enhancements
+	* src/libassetml/test/test.c: (load_asset), (main): assetml enhancements
+	* src/libassetml/test/test_assetml.assetml: assetml enhancements
+	* src/libassetml/tools/assetml-query.c: (dump_asset), (main): assetml enhancements
+
 2003-08-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/reversecount.c: fixed several bugs: can no more jump over the fish

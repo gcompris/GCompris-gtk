@@ -42,20 +42,23 @@ void	 dump_asset(AssetML *assetml);
 
 /*** assetml-query-popttable */
 static gchar *dataset	= NULL;
-static gchar *name		= NULL;
+static gchar *file		= NULL;
 static gchar *categories	= NULL;
+static gchar *locale		= NULL;
 static gchar *mimetype		= NULL;
 static int showVersion		= FALSE;
 
 static struct poptOption options[] = {
   {"dataset", 'd', POPT_ARG_STRING, &dataset, 0,
    N_("Specify the dataset to search in"), NULL},
-  {"name", 'n', POPT_ARG_STRING, &name, 0,
-   N_("Specify a name to search"), NULL},
+  {"file", 'f', POPT_ARG_STRING, &file, 0,
+   N_("Specify a file to search"), NULL},
   {"categories", 'c', POPT_ARG_STRING, &categories, 0,
    N_("Specify a category to search in"), NULL},
   {"mimetype", 'm', POPT_ARG_STRING, &mimetype, 0,
    N_("Specify a mimetype to search in (eg: image/png)"), NULL},
+  {"locale", 'l', POPT_ARG_STRING, &locale, 0,
+   N_("Specify a locale to search in (eg: fr)"), NULL},
   {"version", '\0', POPT_ARG_NONE, &showVersion, 0,
    N_("Prints the version of assetml-query"), NULL},
   POPT_AUTOHELP
@@ -83,8 +86,7 @@ void dump_asset(AssetML *assetml)
 
   printf("dataset         = %s\n",assetml->dataset);
   printf("  categories    = %s\n",assetml->categories);
-  printf("  name          = %s\n",assetml->name_noi18n);
-  printf("    name(i18n)  = %s\n",assetml->name);
+  printf("  locale        = %s\n",assetml->locale);
   printf("    mimetype    = %s\n",assetml->mimetype);
   printf("    description = %s\n",assetml->description);
   printf("    file        = %s\n",assetml->file);
@@ -122,7 +124,7 @@ main (int argc, const char **argv)
     }
 
   /*------------------------------------------------------------*/
-  result = assetml_get_asset(dataset, categories, mimetype, name);
+  result = assetml_get_asset(dataset, categories, mimetype, locale, file);
 
   g_list_foreach (result, (GFunc) dump_asset, NULL);
 

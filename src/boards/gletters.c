@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2003/01/05 00:14:42 bruno>
+ * Time-stamp: <2003/08/22 09:53:58 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -399,7 +399,8 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 {
   GdkPixbuf *gletters_pixmap = NULL;
   GnomeCanvasItem *item;
-  char *str = NULL;
+  char *str  = NULL;
+  char *str2 = NULL;
   int i;
   guint c;
   char *lettersItem;
@@ -428,7 +429,13 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   } while(item_find_by_title(lettersItem)!=NULL);
 
   lettersItem[1] = '\0';
-  gcompris_play_ogg(lettersItem, NULL);
+
+  str = g_strdup_printf("%s%s", lettersItem, ".ogg");
+  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str);
+  gcompris_play_ogg(str2, NULL);
+
+  g_free(str);
+  g_free(str2);
 
   str = g_strdup_printf("gcompris/letters/%c.png",
 			letters_array[gcomprisBoard->level%LETTERS_ARRAY_LENGTH][i]);

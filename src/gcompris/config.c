@@ -1,8 +1,8 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2003/08/17 18:45:49 bcoudoin>
+ * Time-stamp: <2003/08/27 16:01:38 bcoudoin>
  *
- * Copyright (C) 2000,2001,2002,2003 Bruno Coudoin
+ * Copyright (C) 2000-2003 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -52,6 +52,8 @@ static gchar *linguas[] = {
   "am_ET.UTF-8", 	N_("Amharic"),
   "ar_AE.UTF-8", 	N_("Arabic"),
   "az_AZ.UTF-8", 	N_("Azerbaijani Turkic"),
+  "ca_ES.UTF-8",	N_("Catalan"),
+  "cs_CZ.UTF-8",	N_("Czech"),
   "de_DE.UTF-8", 	N_("German"),
   "el_GR.UTF-8", 	N_("Greek"),
   "en_GB.UTF-8",	N_("English"),
@@ -62,18 +64,19 @@ static gchar *linguas[] = {
   "hi_IN.UTF-8",	N_("Indian"),
   "hu_HU.UTF-8",	N_("Hungarian"),
   "it_IT.UTF-8", 	N_("Italian"),
+  "lt_LT.UTF-8",	N_("Lithuanian"),
   "mk_MK.UTF-8",	N_("Macedonian"),
   "ml_IN.UTF-8",	N_("Malayalam"),
   "ms_MY.UTF-8",	N_("Malay"),
   "nl_NL.UTF-8",	N_("Dutch"),
+  "no_NO.UTF-8",	N_("Norwegian"),
   "pt_PT.UTF-8",	N_("Portuguese"),
   "pt_BR.UTF-8",	N_("Brazil Portuguese"),
   "ro_RO.UTF-8",	N_("Romanian"),
   "ru_RU.UTF-8",	N_("Russian"),
-  "sv_FI.UTF-8",	N_("Swedish"),
   "sk_SK.UTF-8",	N_("Slovak"),
+  "sv_FI.UTF-8",	N_("Swedish"),
   "tr_TR.UTF-8",	N_("Turkish"),
-  "lt_LT.UTF-8",	N_("Lithuanian"),
   NULL, NULL
 };
 
@@ -482,28 +485,11 @@ display_previous_next(guint x_start, guint y_start,
 static void set_locale_flag(gchar *locale)
 {
   char *str = NULL;
-  char *filename = NULL;
   GdkPixbuf *pixmap = NULL;
 
   /* First try to find a flag for the long locale name */
-  str = g_strdup_printf("flags/%.5s.png", locale);
-  filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, str);
-
-  if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) 
-    {
-      g_free(str);
-      g_free(filename);
-
-      str = g_strdup_printf("flags/%.2s.png", locale);
-      filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, str);
-    }
-
-  g_warning("Trying to load flag %s", filename);
-
-  if (g_file_test ((filename), G_FILE_TEST_EXISTS)) 
-    {
-      pixmap = gcompris_load_pixmap(str);
-    } 
+  str = g_strdup_printf("%.2s.png", locale);
+  pixmap = gcompris_load_pixmap_asset("gcompris flags", "flags", "image/png", str);
 
   gnome_canvas_item_set (item_locale_flag,
 			 "pixbuf", pixmap,
@@ -516,7 +502,6 @@ static void set_locale_flag(gchar *locale)
     gnome_canvas_item_hide (item_bad_flag);
 
   g_free(str);
-  g_free(filename);
 
   if(pixmap)
     gdk_pixbuf_unref(pixmap);
@@ -615,6 +600,9 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if(!strcmp((char *)data, "fullscreen"))
 	{
 	  properties->fullscreen = (properties->fullscreen ? 0 : 1);
+	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
+			     (properties->fullscreen ? pixmap_checked : pixmap_unchecked));
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->fullscreen ? pixmap_checked : pixmap_unchecked),
 				 NULL);
@@ -623,6 +611,9 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if(!strcmp((char *)data, "music"))
 	{
 	  properties->music = (properties->music ? 0 : 1);
+	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
+			     (properties->music ? pixmap_checked : pixmap_unchecked));
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->music ? pixmap_checked : pixmap_unchecked),
 				 NULL);
@@ -631,9 +622,13 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if(!strcmp((char *)data, "effect"))
 	{
 	  properties->fx = (properties->fx ? 0 : 1);
+	  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+	  g_object_set_data (G_OBJECT (item), "pixbuf_ref",  
+			     (properties->fx ? pixmap_checked : pixmap_unchecked));
 	  gnome_canvas_item_set (item,
 				 "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
 				 NULL);
+
 
 	}
       else if(!strcmp((char *)data, "locale_previous"))

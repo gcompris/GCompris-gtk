@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2003/01/06 22:03:41 bruno>
+ * Time-stamp: <2003/08/22 10:10:29 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -394,6 +394,8 @@ static GnomeCanvasItem *smallnumbers_create_item(GnomeCanvasGroup *parent)
   char *str;
   int i;
   char *lettersItem;
+  char *str1 = NULL;
+  char *str2 = NULL;
 
   if (!letters_table)
     {
@@ -413,7 +415,14 @@ static GnomeCanvasItem *smallnumbers_create_item(GnomeCanvasGroup *parent)
     }
 
   lettersItem[1] = '\0';
-  gcompris_play_ogg(lettersItem, NULL);
+
+  str1 = g_strdup_printf("%s%s", lettersItem, ".ogg");
+  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+
+  gcompris_play_ogg(str2, NULL);
+
+  g_free(str1);
+  g_free(str2);
 
   str = g_strdup_printf("gcompris/dice/gnome-dice%c.png", numbers[i]);
 

@@ -17,19 +17,27 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+/*! \file assetml.h
+  \brief The libassetml API
+*/
+
 #ifndef ASSETML_H
 #define ASSETML_H
 
 #include <glib.h>
 
-/* Returns a list of AssetML struct
-   dataset: the name of the dataset, NULL for ANY dataset
-   categories: a list of categorie columns ';' separated (NULL for all)
-   mimetype: an official mimetype describing the content (NULL for all)
-   name: the asset name to get or NULL for any name
+/**
+   \fn GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
+   \brief Returns a list of AssetML struct
+   \param dataset the name of the dataset, NULL for ANY dataset
+   \param categories a list of categorie columns ';' separated (NULL for all)
+   \param mimetype an official mimetype describing the content (NULL for all)
+   \param locale is the locale to search for or NULL for the current locale
+   \param file the asset file name to get or NULL for any file name
 */
-   
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name);
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* locale, gchar* name);
+
+
 void	 assetml_free_assetlist(GList *assetlist);
 
 typedef struct _AssetML         AssetML;
@@ -38,8 +46,7 @@ struct _AssetML
 {
   gchar		*dataset;
   gchar		*categories;
-  gchar		*name;
-  gchar		*name_noi18n;
+  gchar		*locale;
   gchar		*description;
   gchar		*file;
   gchar		*mimetype;

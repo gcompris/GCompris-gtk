@@ -191,42 +191,50 @@ static void* thread_play_ogg (void *s)
   strncpy( locale, gcompris_get_locale(), 2 );
   locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
 
-  file = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
-
-  if (g_file_test ((file), G_FILE_TEST_EXISTS))
-  {
-  	printf("trying to play %s\n", file);
-  } else
-  {
-		g_free(file);
-		file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
-		if (g_file_test ((file), G_FILE_TEST_EXISTS))
-	  {
-	    printf("trying to play %s\n", file);
-	  } else
-    /* Try to find a sound file that does not need to be localized 
-    (ie directly in root /sounds directory) */
+  if(((char *)s)[0]=='/')
     {
-    	g_free(file);
-		  file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
-			if (g_file_test ((file), G_FILE_TEST_EXISTS))
-		  {
-	  	  printf("trying to play %s\n", file);
-    	} else
-	  	{
-	   		g_free(file);
-	   		g_warning("Can't find sound %s", s);
-	   		return NULL;
-	  	}
+      /* If the given file starts with a / then we don't need to search it */
+      file = g_strdup(s);
     }
-  }
+  else
+    {
+      file = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
+      
+      if (g_file_test ((file), G_FILE_TEST_EXISTS))
+	{
+	  printf("trying to play %s\n", file);
+	} else
+	  {
+	    g_free(file);
+	    file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
+	    if (g_file_test ((file), G_FILE_TEST_EXISTS))
+	      {
+		printf("trying to play %s\n", file);
+	      } else
+		/* Try to find a sound file that does not need to be localized 
+		   (ie directly in root /sounds directory) */
+		{
+		  g_free(file);
+		  file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
+		  if (g_file_test ((file), G_FILE_TEST_EXISTS))
+		    {
+		      printf("trying to play %s\n", file);
+		    } else
+		      {
+			g_free(file);
+			g_warning("Can't find sound %s", s);
+			return NULL;
+		      }
+		}
+	  }
+    }
 
   if ( file )
-  {
-  	printf("Calling decode_ogg_file(%s)\n");
-   	decode_ogg_file(file);
-    g_free( file );
-  }
+    {
+      printf("Calling decode_ogg_file(%s)\n");
+      decode_ogg_file(file);
+      g_free( file );
+    }
 
   return NULL;
 }
@@ -349,7 +357,7 @@ void gcompris_play_sound (const char *soundlistfile, const char *which)
     return;
 
   filename = g_strdup_printf("%s/%s.wav", PACKAGE_SOUNDS_DIR, which);
-	// DEBUG
+  // DEBUG
   printf("gcompris_play_sound %s\n", filename);
   if (!g_file_test ((filename), G_FILE_TEST_EXISTS))
     g_error (_("Couldn't find file %s !"), filename);

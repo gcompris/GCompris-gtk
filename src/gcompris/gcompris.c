@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/08/04 16:59:26 bcoudoin>
+ * Time-stamp: <2003/08/22 01:52:40 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -506,6 +506,7 @@ gcompris_init (int argc, char *argv[])
   GValue value = {0,};
   poptContext pctx; 
   char** args;
+  gchar *str;
 
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -600,12 +601,16 @@ gcompris_init (int argc, char *argv[])
 
   gtk_widget_show_all (window);
 
+  str = gcompris_get_asset_file("gcompris misc", NULL, "audio/x-ogg", "welcome.ogg");
+
   if (properties->music)
     {
-      gcompris_play_ogg("intro", "welcome", NULL);
+      gcompris_play_ogg("intro", str, NULL);
     }
   else
-    gcompris_play_ogg("welcome", NULL);
+    gcompris_play_ogg(str, NULL);
+
+  g_free(str);
 
   gtk_main ();
   return 0;

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/08/12 13:01:39 bcoudoin>
+ * Time-stamp: <2003/08/23 00:21:29 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -101,15 +101,17 @@ GdkPixbuf *gcompris_load_number_pixmap(char number)
 }
 
 /*
- * Load a pixmap from the assetml database
+ * Returns a filename path found from the assetml base. 
  */
-GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* name)
+gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, 
+			       gchar* mimetype, gchar* file)
 {
   GList *gl_result;
   AssetML *assetml;
   GdkPixbuf *pixmap;
+  gchar* resultfile = NULL;
 
-  gl_result = assetml_get_asset(dataset, categories, "image/png", name);
+  gl_result = assetml_get_asset(dataset, categories, mimetype, gcompris_get_locale(), file);
 
   if(g_list_length(gl_result)>0)
     {
@@ -119,34 +121,54 @@ GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* 
 
       if(assetml->file)
 	{
-	  pixmap = gdk_pixbuf_new_from_file (assetml->file, NULL);
-
-	  assetml_free_assetlist(gl_result);
-
-	  if(!pixmap)
-	    g_warning("Loading image returned a null pointer");
-
-	  return pixmap;
+	  resultfile = g_strdup(assetml->file);
 	}
 
     }
-
+  else
+    {
+      g_warning("Asset not found (dataset=%s categorie=%s mimetype=%s locale=%s file=%s)\n", 
+		dataset, categories, mimetype, gcompris_get_locale(), file);
+    }
   assetml_free_assetlist(gl_result);
 
-  return NULL;
-
+  return (resultfile);
 }
 
+
+/*
+ * Load a pixmap from the assetml database
+ */
+GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, 
+				      gchar* mimetype, gchar* name)
+{
+  GdkPixbuf *pixmap;
+  gchar* file = NULL;
+  
+  file = gcompris_get_asset_file(dataset, categories, mimetype, name);
+  
+  if(file)
+    {
+      
+      pixmap = gdk_pixbuf_new_from_file (file, NULL);
+      
+      if(!pixmap)
+	g_warning("Loading image returned a null pointer");
+      
+      return pixmap;
+    }
+
+  return NULL;
+}
+
+/*
+ * load a pixmap from the filesystem 
+ * pixmapfile is given relative to PACKAGE_DATA_DIR
+ */
 GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 {
   gchar *filename;
   GdkPixbuf *pixmap;
-
-  /* Let's try to find it in the assetml base */
-  pixmap = gcompris_load_pixmap_asset(NULL, NULL, pixmapfile);
-  
-  if(pixmap)
-    return pixmap;
 
   /* Search it on the file system */
   filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pixmapfile);

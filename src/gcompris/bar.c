@@ -1,8 +1,8 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2003/08/11 17:34:41 bcoudoin>
+ * Time-stamp: <2003/08/27 16:01:31 bcoudoin>
  *
- * Copyright (C) 2000,2001,2002,2003 Bruno Coudoin
+ * Copyright (C) 2000-2003 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -112,7 +112,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 
   gtk_signal_connect(GTK_OBJECT(exit_item), "event",
 		     (GtkSignalFunc) item_event_bar,
-		     "exit");
+		     "quit");
 
   gtk_signal_connect(GTK_OBJECT(exit_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
@@ -260,7 +260,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 
   gtk_signal_connect(GTK_OBJECT(config_item), "event",
 		     (GtkSignalFunc) item_event_bar,
-		     "config");
+		     "configuration");
 
   gtk_signal_connect(GTK_OBJECT(config_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
@@ -325,12 +325,6 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
       			     "pixbuf", pixmap,
       			     NULL);
       gdk_pixbuf_unref(pixmap);
-
-      /* Warning, I have to reconnect to highlight the new image */
-      gtk_signal_disconnect	(GTK_OBJECT(level_item), level_handler_id);
-      level_handler_id = gtk_signal_connect(GTK_OBJECT(level_item), "event",
-					    (GtkSignalFunc) gcompris_item_event_focus,
-					    NULL);
     }
   
   current_level=gcomprisBoard->level;
@@ -437,13 +431,23 @@ static void update_exit_button()
  * This is called to play sound
  *
  */
-static gint bar_play_sound (gchar *data)
+static gint bar_play_sound (gchar *sound)
 {
-	int policy = getSoundPolicy();
-	setSoundPolicy(PLAY_ONLY_IF_IDLE);
-  gcompris_play_ogg(data, NULL);
-	setSoundPolicy(policy);
-	sound_play_id = 0;
+  int policy = getSoundPolicy();
+  gchar *str1;
+  gchar *str2;
+  setSoundPolicy(PLAY_ONLY_IF_IDLE);
+
+  str1 = g_strdup_printf("%s%s", sound, ".ogg");
+  str2 = gcompris_get_asset_file("gcompris misc", NULL, "audio/x-ogg", str1);
+
+  gcompris_play_ogg( str2, NULL);
+
+  g_free(str1);
+  g_free(str2);
+
+  setSoundPolicy(policy);
+  sound_play_id = 0;
   return (FALSE);
 }
 
@@ -492,6 +496,8 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	{
 	  gint tmp = current_level;
 	  gchar *current_level_str;
+	  gchar *str_level;
+	  gchar *str_number;
 
 	  current_level++;
 	  if(current_level>gcomprisBoard->maxlevel)
@@ -499,8 +505,15 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 
 	  if(tmp!=current_level)
 	    {
-	      current_level_str = g_strdup_printf("%d", current_level);
-	      gcompris_play_ogg("level", current_level_str, NULL);
+	      current_level_str = g_strdup_printf("%d.ogg", current_level);
+
+	      str_level  = gcompris_get_asset_file("gcompris misc",     NULL, "audio/x-ogg", "level.ogg");
+	      str_number = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", current_level_str);
+
+	      gcompris_play_ogg(str_level, str_number, NULL);
+
+	      g_free(str_level);
+	      g_free(str_number);
 	      g_free(current_level_str);
 	    }
 
@@ -517,7 +530,6 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       else if(!strcmp((char *)data, "help"))
 	{
 	  gcompris_play_ogg ("gobble", NULL);
-	  //	  gcompris_set_image_focus(item, FALSE);
 	  gcompris_help_start(gcomprisBoard);
 	}
       else if(!strcmp((char *)data, "repeat"))
@@ -527,20 +539,18 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	      gcomprisBoard->plugin->repeat();
 	    }
 	}
-      else if(!strcmp((char *)data, "config"))
+      else if(!strcmp((char *)data, "configuration"))
 	{
 	  if(gcomprisBoard->plugin->config != NULL)
 	    {
-	      //	      gcompris_set_image_focus(item, FALSE);
 	      gcomprisBoard->plugin->config();
 	    }
 	}
       else if(!strcmp((char *)data, "about"))
 	{
-	  //	  gcompris_set_image_focus(item, FALSE);
 	  gcompris_about_start();
 	}
-      else if(!strcmp((char *)data, "exit"))
+      else if(!strcmp((char *)data, "quit"))
 	{
 	  gcompris_exit();
 	}

@@ -189,8 +189,22 @@ static void colors_next_level() {
 }
 /* ======================================= */
 static void repeat (){
+
   if(gcomprisBoard!=NULL)
-    gcompris_play_ogg(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2], NULL);
+    {
+      char *str1 = NULL;
+      char *str2 = NULL;
+
+      str1 = g_strdup_printf("%s%s", colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2],
+			     ".ogg");
+      str2 = gcompris_get_asset_file("gcompris colors", NULL, "audio/x-ogg", str1);
+
+      gcompris_play_ogg(str2, NULL);
+
+      g_free(str1);
+      g_free(str2);
+
+    }
 }
 /* =====================================================================
  * Destroy all the items

@@ -901,9 +901,21 @@ color_event(GnomeCanvasItem *item, GdkEvent *event, gchar *color)
       switch(event->button.button)
 	{
 	case 1:
-	  currentColor = color;
-	  highlight_color_item(item);
-	  gcompris_play_ogg(color, NULL);
+	  {
+	    char *str1 = NULL;
+	    char *str2 = NULL;
+
+	    currentColor = color;
+	    highlight_color_item(item);
+
+	    str1 = g_strdup_printf("%s%s", color, ".ogg");
+	    str2 = gcompris_get_asset_file("gcompris colors", NULL, "audio/x-ogg", str1);
+
+	    gcompris_play_ogg(str2, NULL);
+
+	    g_free(str1);
+	    g_free(str2);
+	  }
 	  break;
 	default:
 	  break;

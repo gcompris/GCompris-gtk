@@ -35,9 +35,9 @@ gchar	*reactivate_newline(gchar *str);
 void	 dump_asset(AssetML *assetml);
 int	 selectAssetML(const struct dirent *d);
 void	 assetml_read_xml_file(GList **gl_result, char *fname,
-			       gchar *dataset, gchar* categories, gchar* mimetype, gchar* name);
+			       gchar *dataset, gchar* categories, gchar* mimetype, gchar *locale, gchar* file);
 void	 assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, 
-			  gchar* name);
+			  gchar* locale, gchar* file);
 void	 free_asset(AssetML *assetml);
 
 /*
@@ -87,12 +87,11 @@ void dump_asset(AssetML *assetml)
   if(assetml==NULL)
     return;
 
-  printf("  name        = %s\n",assetml->name_noi18n);
-  printf("  name(i18n)  = %s\n",assetml->name);
   printf("  dataset     = %s\n",assetml->dataset);
+  printf("  file        = %s\n",assetml->file);
+  printf("  locale      = %s\n",assetml->locale);
   printf("  description = %s\n",assetml->description);
   printf("  categories  = %s\n",assetml->categories);
-  printf("  file        = %s\n",assetml->file);
   printf("  mimetype    = %s\n",assetml->mimetype);
   printf("  credits     = %s\n",assetml->credits);
 
@@ -123,7 +122,11 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
   /* get the specific values */
   tmpstr = xmlGetProp(xmlnode,"file");
   if(tmpstr && strlen(tmpstr)>0)
-    assetml->file		= g_strdup_printf("%s/%s", rootdir, tmpstr);
+    if(rootdir[0]!='/')
+      /* This is a relative path, add ASSETMLPIXMAPDIR and rootdir prefix */
+      assetml->file		= g_build_filename(ASSETMLPIXMAPDIR, rootdir, tmpstr, NULL);
+    else
+      assetml->file		= g_build_filename(rootdir, tmpstr, NULL);
   else
     assetml->file		= NULL;
   xmlFree(tmpstr);
@@ -138,24 +141,7 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
     gchar *lang = xmlGetProp(xmlnode,"lang");
-    /* get the name of the asset */
 
-    if (!strcmp(xmlnode->name, "Name")
-	&& (lang==NULL ||
-	    !strcmp(lang, assetml_get_locale())
-	    || !strncmp(lang, assetml_get_locale(), 2)))
-      {
-	if(lang)
-	  assetml->name_noi18n	= xmlNodeListGetString(doc, 
-						       xmlnode->xmlChildrenNode, 1);
-	else
-	  {
-	    assetml->name = reactivate_newline(xmlNodeListGetString(doc, 
-								    xmlnode->xmlChildrenNode, 1));
-	    if(assetml->name_noi18n==NULL)
-	      assetml->name_noi18n = assetml->name;
-	  }
-      }
     /* get the description of the asset */
     if (!strcmp(xmlnode->name, "Description")
 	&& (lang==NULL ||
@@ -194,11 +180,12 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
 }
 
 /*
- * Given the assetml and the  dataset, categories, name
+ * Given the assetml and the dataset, categories, name
  * return true if the assetml matches the requirements
  */
 static gboolean matching(AssetML *assetml, gchar *mydataset, 
-			 gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
+			 gchar *dataset, gchar* categories, gchar* mimetype, 
+			 gchar* mylocale, gchar* locale, gchar* file)
 {
   g_assert(assetml);
 
@@ -207,14 +194,39 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
     if(g_ascii_strcasecmp(assetml->dataset, dataset))
       return FALSE;
 
+  /* Check the leading locale definition matches the leading user request so that
+   * File   Requested   Status
+   * fr     fr_FR.UTF8  OK
+   * pt     pt_BR       OK
+   * pt_BR  pt          NO
+   */
+  assetml->locale = g_strdup(mylocale);
+  if(assetml->locale && locale)
+    if(g_ascii_strncasecmp(assetml->locale, locale, strlen(assetml->locale)))
+      return FALSE;
+
   if(assetml->mimetype && mimetype)
     if(g_ascii_strcasecmp(assetml->mimetype, mimetype))
       return FALSE;
 
-  if(assetml->name_noi18n && name)
-    if(g_ascii_strcasecmp(assetml->name_noi18n, name))
-      return FALSE;
-  
+  if(assetml->file && file)
+    {
+      gchar *str1;
+      gchar *str2;
+      gboolean nomatch;
+      /* We test only the basename of the file so that caller do not need to specify a full path */
+      str1 = g_path_get_basename(assetml->file);
+      str2 = g_path_get_basename(file);
+
+      nomatch = g_ascii_strcasecmp(str1, str2);
+
+      g_free(str1);
+      g_free(str2);
+
+      if(nomatch)
+	return FALSE;
+    }
+
   if(assetml->categories && categories)
     {
       guint i;
@@ -234,8 +246,8 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
 /* parse the doc, add it to our internal structures and to the clist */
 static void
 parse_doc(GList **gl_result, xmlDocPtr doc, 
-	  gchar *mydataset, gchar *rootdir,
-	  gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
+	  gchar *mydataset, gchar *rootdir, gchar* mylocale,
+	  gchar *dataset, gchar* categories, gchar* mimetype, gchar* locale, gchar* file)
 {
   xmlNodePtr node;
 
@@ -246,7 +258,7 @@ parse_doc(GList **gl_result, xmlDocPtr doc,
        we pass NULL as the node of the child */
     AssetML *assetml = assetml_add_xml_to_data(doc, node, rootdir, NULL);
 
-    if(assetml && matching(assetml, mydataset, dataset, categories, mimetype, name))
+    if(assetml && matching(assetml, mydataset, dataset, categories, mimetype, mylocale, locale, file))
       *gl_result = g_list_append (*gl_result, assetml);
 				
   }
@@ -258,22 +270,23 @@ parse_doc(GList **gl_result, xmlDocPtr doc,
    dump any old data we have in memory if we can load a new set
    Fill the gl_result list with all matching asseml items
 */
-void assetml_read_xml_file(GList **gl_result, char *filename,
-			   gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
+void assetml_read_xml_file(GList **gl_result, char *assetmlfile,
+			   gchar *dataset, gchar* categories, gchar* mimetype, gchar *locale, gchar* file)
 {
   /* pointer to the new doc */
   xmlDocPtr doc;
   gchar *rootdir;
+  gchar *mylocale;
   gchar *mydataset;
 
-  g_return_if_fail(filename!=NULL);
+  g_return_if_fail(assetmlfile!=NULL);
 
   /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(filename);
+  doc = xmlParseFile(assetmlfile);
 
   /* in case something went wrong */
   if(!doc) {
-    g_warning("Oups, the parsing of %s failed", filename);
+    g_warning("Oups, the parsing of %s failed", assetmlfile);
     return;
   }
   
@@ -285,15 +298,16 @@ void assetml_read_xml_file(GList **gl_result, char *filename,
      g_strcasecmp(doc->children->name,"AssetML")!=0) 
     {
       xmlFreeDoc(doc);
-      g_warning("Oups, the file %s is not of the assetml type", filename);
+      g_warning("Oups, the file %s is not of the assetml type", assetmlfile);
       return;
     }
 
   rootdir   = xmlGetProp(doc->children,"rootdir");
   mydataset = xmlGetProp(doc->children,"dataset");
+  mylocale    = xmlGetProp(doc->children,"locale");
 
   /* parse our document and replace old data */
-  parse_doc(gl_result, doc, mydataset, rootdir, dataset, categories, mimetype, name);
+  parse_doc(gl_result, doc, mydataset, rootdir, mylocale, dataset, categories, mimetype, locale, file);
 
   xmlFree(rootdir);
   xmlFree(mydataset);
@@ -319,7 +333,8 @@ int selectAssetML(const struct dirent *d)
 /* load all the xml files in the assetml path
  * into our memory structures.
  */
-void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
+void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, gchar *locale, 
+		      gchar* name)
 {
   struct dirent **namelist;
   int n;
@@ -330,12 +345,12 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
     g_warning("scandir returns no files with extension %s in directory %s", FILE_EXT, ASSETMLPIXMAPDIR);
   else {
     while(n--) {
-      gchar *file = g_strdup_printf("%s/%s", ASSETMLPIXMAPDIR, namelist[n]->d_name);
+      gchar *assetmlfile = g_strdup_printf("%s/%s", ASSETMLPIXMAPDIR, namelist[n]->d_name);
       
-      assetml_read_xml_file(gl_result, file,
-      			    dataset, categories, mimetype, name);
+      assetml_read_xml_file(gl_result, assetmlfile,
+      			    dataset, categories, mimetype, locale, name);
       
-      g_free(file);
+      g_free(assetmlfile);
       free (namelist [n]);
     }
     free (namelist);
@@ -347,11 +362,7 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
 void free_asset(AssetML *assetml)
 {
 
-  xmlFree(assetml->name_noi18n);
-
-  if(assetml->name!=assetml->name_noi18n)
-    xmlFree(assetml->name);
-
+  xmlFree(assetml->locale);
   xmlFree(assetml->dataset);
   xmlFree(assetml->description);
   xmlFree(assetml->categories);
@@ -370,11 +381,11 @@ void assetml_free_assetlist(GList *assetlist)
 
 }
 
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar *locale, gchar* file)
 {
   GList *gl_result = NULL;
 
-  assetml_load_xml(&gl_result, dataset, categories, mimetype, name);
+  assetml_load_xml(&gl_result, dataset, categories, mimetype, locale, file);
 
   if(g_list_length(gl_result)==0)
     {

@@ -187,7 +187,17 @@ static void repeat ()
 {
   if(gcomprisBoard!=NULL)
     {
-      gcompris_play_ogg(right_letter, NULL);
+      char *str1 = NULL;
+      char *str2 = NULL;
+
+      str1 = g_strdup_printf("%s%s", right_letter, ".ogg");
+      str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+
+      gcompris_play_ogg(str2, NULL);
+
+      g_free(str1);
+      g_free(str2);
+
     }
 }
 
@@ -225,6 +235,9 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   char *str[4];
   char l[4];
   int numberOfLetters = 4;
+  char *str1 = NULL;
+  char *str2 = NULL;
+  char *str3 = NULL;
 
   gdk_font = gdk_font_load (gcompris_skin_font_board_big);
 
@@ -259,7 +272,18 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   right_letter[0] = l[right_position-1];
   right_letter[1] = 0;
   g_strdown(right_letter);
-  gcompris_play_ogg("click_on_letter",right_letter, NULL);
+
+  /* Get the sounds to play from assetml */
+  str1 = gcompris_get_asset_file("gcompris misc", NULL, "audio/x-ogg", "click_on_letter.ogg");
+
+  str2 = g_strdup_printf("%s%s", right_letter, ".ogg");
+  str3 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str2);
+
+  gcompris_play_ogg(str1, str3, NULL);
+
+  g_free(str1);
+  g_free(str2);
+  g_free(str3);
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -405,8 +429,8 @@ static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-  	gcompris_play_ogg(right_letter, NULL);
-	break;
+      repeat();
+      break;
     default:
       break;
     }

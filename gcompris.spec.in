@@ -24,7 +24,7 @@ Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
 %description
 GCompris / I Have Understood is an educationnal game for children starting at 3.
-Today several Boards are implemented:
+More than 40 different activities are proposed:
 * Click on the animals => learn the mouse/click usage
 * Type the falling letters => learn the keyboard usage
 * Falling Dices
@@ -36,7 +36,7 @@ Today several Boards are implemented:
 * Balance the scales
 * And much more ...
 
-The Game is included in the Gnome Desktop under the Game menu.
+The Game is included in the Main desktop menu in 'Games'.
 
 You should install it only if you have children using this computer.
 
@@ -44,7 +44,7 @@ You should install it only if you have children using this computer.
 GCompris / J'ai Compris est un logiciel éducatif pour les enfants 
 à partir de 3 ans.
 
-Aujourd'hui, plusieurs tableaux sont implémentés :
+Plus de 40 activités sont proposées :
 * Cliquer sur les animaux => apprentissage du click et de la souris
 * Entrer les lettres qui tombent => Apprentissage du clavier
 * Les dés qui tombent
@@ -54,50 +54,176 @@ Aujourd'hui, plusieurs tableaux sont implémentés :
 * Puzzle avec des tableaux célèbres
 * Pilote un avion pour attraper les nuages dans l'ordre
 * Equilibre la balance
+* ...
 
-Le jeu est inclus dans le bureau Gnome sous le menu Jeux.
+Le jeu est inclus dans les icones sous le menu Jeux.
 
-À installer si vous avez des enfants utilisant cet ordinateur.
+A installer si vous avez des enfants utilisant cet ordinateur.
 
-%package sounds-fr
-Summary:        French sounds for GCompris
+%package assetml-voice-alphabet-de
+Summary:        Alphabet voices in German
 Group: 		Amusements/Games
-Requires:       %name
+Version: 1.0
 
-%description sounds-fr
-French sounds for gcompris.
+%description assetml-voice-alphabet-de
+Alphabet voices in German
 
-%package sounds-es
-Summary:        Spanish sounds for GCompris
+%package assetml-voice-colors-de
+Summary:        Colors voices in German
 Group: 		Amusements/Games
-Requires:       %name
+Version: 1.0
 
-%description sounds-es
-Spanish sounds for gcompris.
+%description assetml-voice-colors-de
+Colors voices in German
 
-%package sounds-de
-Summary:        German sounds for GCompris
+%package assetml-voice-geography-de
+Summary:        Country name voices in German
 Group: 		Amusements/Games
-Requires:       %name
+Version: 1.0
 
-%description sounds-de
-German sounds for gcompris.
+%description assetml-voice-geography-de
+Country name voices in German
 
-%package sounds-en
-Summary:        English sounds for GCompris
+%package assetml-voice-misc-de
+Summary:        Miscelaneous voices in German
 Group: 		Amusements/Games
-Requires:       %name
+Version: 1.0
 
-%description sounds-en
-English sounds for gcompris.
+%description assetml-voice-misc-de
+Miscelaneous voices in German
 
-%package sounds-pt
-Summary:        Portuguese sounds for GCompris
+
+%package assetml-voice-alphabet-en
+Summary:        Alphabet voices in English
 Group: 		Amusements/Games
-Requires:       %name
+Version: 1.0
 
-%description sounds-pt
-Portuguese sounds for gcompris.
+%description assetml-voice-alphabet-en
+Alphabet voices in English
+
+%package assetml-voice-colors-en
+Summary:        Colors voices in English
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-colors-en
+Colors voices in English
+
+%package assetml-voice-geography-en
+Summary:        Country name voices in English
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-geography-en
+Country name voices in English
+
+%package assetml-voice-misc-en
+Summary:        Miscelaneous voices in English
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-misc-en
+Miscelaneous voices in English
+
+
+%package assetml-voice-alphabet-es
+Summary:        Alphabet voices in Spanish
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-alphabet-es
+Alphabet voices in Spanish
+
+%package assetml-voice-colors-es
+Summary:        Colors voices in Spanish
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-colors-es
+Colors voices in Spanish
+
+%package assetml-voice-geography-es
+Summary:        Country name voices in Spanish
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-geography-es
+Country name voices in Spanish
+
+%package assetml-voice-misc-es
+Summary:        Miscelaneous voices in Spanish
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-misc-es
+Miscelaneous voices in Spanish
+
+
+%package assetml-voice-alphabet-fr
+Summary:        Alphabet voices in French
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-alphabet-fr
+Alphabet voices in French
+
+%package assetml-voice-colors-fr
+Summary:        Colors voices in French
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-colors-fr
+Colors voices in French
+
+%package assetml-voice-geography-fr
+Summary:        Country name voices in French
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-geography-fr
+Country name voices in French
+
+%package assetml-voice-misc-fr
+Summary:        Miscelaneous voices in French
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-misc-fr
+Miscelaneous voices in French
+
+
+%package assetml-voice-alphabet-pt
+Summary:        Alphabet voices in Portuguese
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-alphabet-pt
+Alphabet voices in Portuguese
+
+%package assetml-voice-colors-pt
+Summary:        Colors voices in Portuguese
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-colors-pt
+Colors voices in Portuguese
+
+%package assetml-voice-geography-pt
+Summary:        Country name voices in Portuguese
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-geography-pt
+Country name voices in Portuguese
+
+%package assetml-voice-misc-pt
+Summary:        Miscelaneous voices in Portuguese
+Group: 		Amusements/Games
+Version: 1.0
+
+%description assetml-voice-misc-pt
+Miscelaneous voices in Portuguese
+
 
 %package assetml-flags
 Summary:        Contains png 60x40 country flags and an assetml description file
@@ -159,7 +285,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ABOUT-NLS AUTHORS COPYING ChangeLog INSTALL NEWS README TODO THANKS
 %attr(-, root, games) %{prefix}/bin/*
 %{prefix}/lib/gcompris
-%{prefix}/lib/menu/*
+%{_menudir}/*
 %dir %{prefix}/share/gcompris
 %dir %{prefix}/share/gcompris/boards
 %dir %{prefix}/share/gcompris/boards/skins
@@ -172,29 +298,94 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
 %{prefix}/share/gnome/apps/Games/*
 %{prefix}/share/gnome/help/*
-%{prefix}/info/*
 %{prefix}/share/locale/*/*/*
 %{prefix}/share/pixmaps/*.png
+%{_infodir}/*
 
-%files sounds-de
+%files assetml-voice-alphabet-de
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/de
+%{prefix}/share/gcompris/boards/sounds/de/alphabet
 
-%files sounds-en
+%files assetml-voice-colors-de
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/en
+%{prefix}/share/gcompris/boards/sounds/de/colors
 
-%files sounds-es
+%files assetml-voice-geography-de
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/es
+%{prefix}/share/gcompris/boards/sounds/de/geography
 
-%files sounds-fr
+%files assetml-voice-misc-de
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/fr
+%{prefix}/share/gcompris/boards/sounds/de/misc
 
-%files sounds-pt
+
+%files assetml-voice-alphabet-en
 %defattr(-, root, root)
-%{prefix}/share/gcompris/boards/sounds/pt
+%{prefix}/share/gcompris/boards/sounds/en/alphabet
+
+%files assetml-voice-colors-en
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/en/colors
+
+%files assetml-voice-geography-en
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/en/geography
+
+%files assetml-voice-misc-en
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/en/misc
+
+
+%files assetml-voice-alphabet-es
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/es/alphabet
+
+%files assetml-voice-colors-es
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/es/colors
+
+%files assetml-voice-geography-es
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/es/geography
+
+%files assetml-voice-misc-es
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/es/misc
+
+
+%files assetml-voice-alphabet-fr
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fr/alphabet
+
+%files assetml-voice-colors-fr
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fr/colors
+
+%files assetml-voice-geography-fr
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fr/geography
+
+%files assetml-voice-misc-fr
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fr/misc
+
+
+%files assetml-voice-alphabet-pt
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/pt/alphabet
+
+%files assetml-voice-colors-pt
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/pt/colors
+
+%files assetml-voice-geography-pt
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/pt/geography
+
+%files assetml-voice-misc-pt
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/pt/misc
+
 
 %files libassetml
 %defattr(-, root, root)
@@ -208,16 +399,43 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libassetml-devel
 %defattr(-, root, root)
-%{prefix}/lib/lib*.so
-%{prefix}/lib/*a
-%{prefix}/include/libassetml*/*
-%{prefix}/lib/pkgconfig/libassetml.pc
+%{_libdir}/lib*.so
+%{_libdir}/*a
+%{_includedir}/libassetml*/*
+%{_libdir}/pkgconfig/libassetml.pc
 
 %define date	%(echo `LC_ALL="C" date +"%a %b %d %Y"`)
 %changelog
 * %{date} Gcompris <bruno.coudoin@free.fr>
 
 $Log$
+Revision 1.23  2003/08/27 21:42:47  bcoudoin
+* configure.in: added assetml.in file creation
+* gcompris.spec.in: added assetml package creation
+* src/boards/click_on_letter.c: (repeat),
+(click_on_letter_create_item), (phone_event): uses assetml
+* src/boards/colors.c: (repeat): uses assetml
+* src/boards/draw.c: (color_event): uses assetml
+* src/boards/gletters.c: (gletters_create_item): uses assetml
+* src/boards/smallnumbers.c: (smallnumbers_create_item): uses assetml
+* src/gcompris/bar.c: (gcompris_bar_start),
+(gcompris_bar_set_level), (bar_play_sound), (item_event_bar):  uses assetml
+* src/gcompris/config.c: (set_locale_flag), (item_event_ok):  uses assetml / fixed focus effect
+* src/gcompris/gameutil.c: (gcompris_get_asset_file),
+(gcompris_load_pixmap_asset), (gcompris_load_pixmap): assetml enhancements
+* src/gcompris/gameutil.h: assetml enhancements
+* src/gcompris/gcompris.c: (gcompris_init): uses assetml
+* src/gcompris/soundutil.c: (thread_play_ogg),
+(gcompris_play_sound): assetml enhancements
+* src/libassetml/assetml.c: (dump_asset),
+(assetml_add_xml_to_data), (matching), (parse_doc),
+(assetml_read_xml_file), (assetml_load_xml), (free_asset),
+(assetml_get_asset): removed the name field in assetml to use file as a key instead
+* src/libassetml/assetml.h: assetml enhancements
+* src/libassetml/test/test.c: (load_asset), (main): assetml enhancements
+* src/libassetml/test/test_assetml.assetml: assetml enhancements
+* src/libassetml/tools/assetml-query.c: (dump_asset), (main): assetml enhancements
+
 Revision 1.22  2003/08/18 23:25:06  bcoudoin
 added changelog from cvs
 
