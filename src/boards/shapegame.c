@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/05/18 01:33:36 bcoudoin>
+ * Time-stamp: <2003/05/21 04:24:33 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1285,6 +1285,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    } 
 
 	  gnome_canvas_item_show(next_shapelist_item);
+
 	}
       else if(!strcmp((char *)data, "next_shapelist"))
 	{	
@@ -1307,7 +1308,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       gnome_canvas_item_show(root_item);
 
       /* FIXME : Workaround for bugged canvas */
-      //      gnome_canvas_update_now(gcomprisBoard->canvas);
+      gnome_canvas_update_now(gcomprisBoard->canvas);
 
     default:
       break;

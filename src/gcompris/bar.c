@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2003/05/06 01:20:09 bcoudoin>
+ * Time-stamp: <2003/05/13 01:34:09 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002,2003 Bruno Coudoin
  *
@@ -368,7 +368,7 @@ gcompris_bar_set (const GComprisBarFlags flags)
     gnome_canvas_item_hide(about_item);
 
   /* FIXME : Workaround for bugged canvas */
-  gnome_canvas_update_now(get_current_gcompris_board()->canvas);
+  //  gnome_canvas_update_now(get_current_gcompris_board()->canvas);
 
 }
 

@@ -59,6 +59,32 @@ class Gcompris_pythontest:
       )
     self.canvasitems[2].connect("event", self.circle_item_event)
 
+    self.canvasitems[3] = self.gcomprisBoard.canvas.root().add(
+      gnome.canvas.CanvasText,
+      x=400.0,
+      y=100.0,
+      text="This is the first plugin in gcompris coded in the Python\nProgramming language.",
+      fill_color="white",
+      justification=gtk.JUSTIFY_CENTER
+      )
+
+    self.canvasitems[4] = self.gcomprisBoard.canvas.root().add(
+      gnome.canvas.CanvasText,
+      x=400.0,
+      y=140.0,
+      text="It is now possible to develop gcompris activies in C or in Python.\n Thanks to Olivier Samys who makes this possible.",
+      fill_color="white",
+      justification=gtk.JUSTIFY_CENTER
+      )
+
+    self.canvasitems[5] = self.gcomprisBoard.canvas.root().add(
+      gnome.canvas.CanvasText,
+      x=400.0,
+      y=380.0,
+      text="This activity is not playable yet, just a test",
+      fill_color="white",
+      justification=gtk.JUSTIFY_CENTER
+      )
     print("Gcompris_pythontest start.")
 
     
