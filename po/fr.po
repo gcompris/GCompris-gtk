@@ -7,6 +7,8 @@
 # translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
+# translation of fr.po to
 # translation of fr.po to Français
 # translation of fr.po to
 # translation of fr.po to
@@ -26,8 +28,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-29 17:55+0100\n"
-"PO-Revision-Date: 2005-01-30 23:29+0100\n"
+"POT-Creation-Date: 2005-02-05 22:59+0100\n"
+"PO-Revision-Date: 2005-02-05 23:25+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -730,6 +732,26 @@ msgstr "Raconte une histoire courte."
 #: boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
 msgstr "On a marché sur la lune"
+
+#: boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Automne"
+
+#: boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Printemps"
+
+#: boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Eté"
+
+#: boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "Les quatre saisons"
+
+#: boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Hivers"
 
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -1798,21 +1820,21 @@ msgid "None"
 msgstr "Aucun"
 
 #: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
-#: boards/maze3D.xml.in.h:2
+#: boards/maze3D.xml.in.h:2 boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Sait utiliser les flèches du clavier."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:130
+#: boards/maze.xml.in.h:2 src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Trouve ta voie hors du labyrinthe."
 
 #: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
-#: boards/maze3D.xml.in.h:4
+#: boards/maze3D.xml.in.h:4 boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Aide Tux à trouver sa voie hors du labyrinthe."
 
 #: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
-#: src/boards/maze.c:129
+#: boards/mazeInvisible.xml.in.h:4 src/boards/maze.c:132
 msgid "Maze"
 msgstr "Labyrinthe"
 
@@ -1842,6 +1864,27 @@ msgstr ""
 "la touche 'Espace' pour passer du mode 2D au mode 3D. Le mode 2D donne juste "
 "une indication sur ta position, comme une carte. Tu ne peux pas déplacer Tux "
 "en mode 2D. "
+
+#: boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Trouve ta voie hors du labyrinthe invisible."
+
+#: boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr ""
+"Utilise les flèches du clavier pour déplacer Tux jusqu'à la porte. Utilise "
+"la touche 'Espace' pour passer du mode invisible au mode visible. Le mode visible donne juste une indication sur ta position, comme une carte. Tu ne peux pas déplacer Tux en mode visible."
+
+#: boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Trouve ta voie dans différentes sortes de labyrinthes."
+
+#: boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Vers les Labyrinthe"
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2563,15 +2606,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Equilibre correctement la balance"
 
-#: boards/smallnumbers.xml.in.h:1
+#: boards/smallnumbers.xml.in.h:1 boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Compte le nombre de points sur les dés avant qu'ils ne touchent le sol."
 
-#: boards/smallnumbers.xml.in.h:2
+#: boards/smallnumbers.xml.in.h:2 boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Savoir compter"
 
-#: boards/smallnumbers.xml.in.h:3
+#: boards/smallnumbers.xml.in.h:3 boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "En en temps limité, compte un nombre de points."
 
@@ -2579,13 +2622,17 @@ msgstr "En en temps limité, compte un nombre de points."
 msgid "Numbers With Dice"
 msgstr "Les nombres avec les dés"
 
-#: boards/smallnumbers.xml.in.h:5
+#: boards/smallnumbers.xml.in.h:5 boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr ""
 "Avec le clavier, tape le nombre correspondant aux nombres de points dans \n"
 "le dé qui tombe."
+
+#: boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Les nombres avec 2 dés"
 
 #: boards/submarine.xml.in.h:1
 msgid ""
@@ -2728,6 +2775,10 @@ msgstr "Jeu éducatif pour les 2 à 10 ans"
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
 msgstr "Suite éducative GCompris"
+
+#: gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Activités multiples pour enfants"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
@@ -2933,7 +2984,11 @@ msgstr "gauche"
 msgid "right"
 msgstr "droite"
 
-#: src/boards/maze.c:453
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Regarde bien ta position et retourne à la vue invisible pour bouger."
+
+#: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Regarde bien ta position et retourne à la vue 3D pour bouger."
 
@@ -3146,11 +3201,11 @@ msgstr ""
 "sont sauvées dans \n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:70
+#: src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Les nombres avec les dés"
 
-#: src/boards/smallnumbers.c:71
+#: src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol."
 
@@ -3479,15 +3534,15 @@ msgstr "Pas de thème trouvé dans %s\n"
 msgid "Skin : %s"
 msgstr "Thème : %s"
 
-#: src/gcompris/file_selector.c:277
+#: src/gcompris/file_selector.c:284
 msgid "CANCEL"
 msgstr "ANNULER"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:315
 msgid "LOAD"
 msgstr "CHARGER"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:315
 msgid "SAVE"
 msgstr "SAUVER"
 
