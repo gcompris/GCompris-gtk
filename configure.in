@@ -53,7 +53,7 @@ AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 AM_ICONV
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az ca cs de el es fi fr he hu it lt mk ml ms nl no pt pt_BR ro ru sk sv tr"
+ALL_LINGUAS="am ar az ca cs de el es fi fr he hi hu it lt mk ml ms nl no pt pt_BR ro ru sk sv tr"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
