@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-15 14:39+0200\n"
-"PO-Revision-Date: 2004-04-16 00:07+0200\n"
+"POT-Creation-Date: 2004-04-22 19:27+0200\n"
+"PO-Revision-Date: 2004-04-23 13:26+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -324,7 +324,11 @@ msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
 "and press the Enter key to check your answer."
-msgstr "Je ziet een vermenigvuldiging van twee getallen. Geef het antwoord aan de rechterkant van het gelijkheidsteken. Gebruik de linkse en rechtse pijltjes om je antwoord te veranderen, en de Enter-toets om je antwoord te controleren."
+msgstr ""
+"Je ziet een vermenigvuldiging van twee getallen. Geef het antwoord aan de "
+"rechterkant van het gelijkheidsteken. Gebruik de linkse en rechtse pijltjes "
+"om je antwoord te veranderen, en de Enter-toets om je antwoord te "
+"controleren."
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
@@ -334,7 +338,8 @@ msgstr "Antwoord enkele  rekensommen"
 # de vermenigvuldiging
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the product of two numbers"
-msgstr "Geef in een beperkte tijd het resultaat van het product van twee getallen"
+msgstr ""
+"Geef in een beperkte tijd het resultaat van het product van twee getallen"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
@@ -366,15 +371,11 @@ msgstr ""
 "foto's te gebruiken. Dank je wel, Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
-#, fuzzy
 msgid ""
 "Choose the numbers and arithmetic operators at the top of the board area "
 "that give the specified result. The numbers and operators can be unselected "
 "by clicking on them."
-msgstr ""
-"Om je bewerkingen samen te stellen kies je getallen en bewerkingen bovenaan "
-"het bord. De keuze voor getallen en bewerkingen kan je wegdoen door erop te "
-"klikken."
+msgstr "Kies de getallen en bewerkingen bovenaan het bord die het juiste antwoord opleveren. De keuzes kunenn ongedaan gemaakt worden door erop te klikken."
 
 #: boards/algebra_guesscount.xml.in.h:3
 msgid ""
@@ -389,7 +390,7 @@ msgstr "Zoek de juiste bewerkingen om het antwoord te krijgen"
 msgid ""
 "Find the right combination of numbers and operations to obtain a specified "
 "result"
-msgstr ""
+msgstr "Zoek de juiste combinatie van getallen en bewerkingen om het opgegeven resultaat te verkrijgen"
 
 #: boards/algebra_guesscount.xml.in.h:6
 msgid "The four arithmetic operations. Combine several arithmetic operations"
@@ -398,20 +399,16 @@ msgstr ""
 "bewerkingen"
 
 #: boards/algebra_minus.xml.in.h:1
-#, fuzzy
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
 "your answer, and press the Enter key to check the result."
-msgstr ""
-"Je ziet een aftrekking van twee getallen. Geef het antwoord aan de "
-"rechterkant van het gelijkheidsteken. Gebruik de linkse en rechtse pijltjes "
-"om je antwoord te veranderen, en de Enter toets om je antwoord te "
-"controleren. "
+msgstr "Er wordt een aftrekking van twee getallen getoond. Geef het antwoord aan de rechterkant van het gelijkheidsteken. Gebruik de pijltjes links en rechts om je antwoord aan te passen, en de Enter-toets om je antwoord te controleren. "
 
 #: boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
-msgstr "Geef in een beperkte tijd het resultaat van het verschil van twee getallen"
+msgstr ""
+"Geef in een beperkte tijd het resultaat van het verschil van twee getallen"
 
 #: boards/algebra_minus.xml.in.h:4
 msgid "Practice the substraction operation"
@@ -422,22 +419,19 @@ msgid "Simple substraction"
 msgstr "Eenvoudige aftrekking"
 
 #: boards/algebra_plus.xml.in.h:1
-#, fuzzy
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
 "Enter key to check your answer."
-msgstr ""
-"Je ziet een optelling van twee getallen. Geef het antwoord aan de "
-"rechterkant van het gelijkheidsteken. Gebruik de linkse en rechtse pijltjes "
-"om je antwoord te veranderen, en de Enter toets om je antwoord te "
-"controleren. "
+msgstr "Er wordt een optelling van twee getallen getoond. Geef het antwoord aan de rechterkant van het gelijkheidsteken. Gebruik de pijltjes links en rechts om je antwoord aan te passen, en de Enter-toets om je antwoord te controleren. "
 
 #: boards/algebra_plus.xml.in.h:3
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
-msgstr "Geef in een beperkte tijd het resultaat van de som van twee getallen.  Introductie tot eenvoudige optellingen"
+msgstr ""
+"Geef in een beperkte tijd het resultaat van de som van twee getallen.  "
+"Introductie tot eenvoudige optellingen"
 
 #: boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -479,18 +473,13 @@ msgid "Drag and Drop the items to make them match"
 msgstr "Sleep de prentjes naar de juiste plaats"
 
 #: boards/babymatch.xml.in.h:2
-#, fuzzy
 msgid ""
 "In the main board area, a set of objects is shown. In the vertical box (at "
 "the left of the main board), another set of objects is printed, each of "
 "which match exactly one object on the main board. The logical link between "
 "these objects must be found. Drag the objects to the correct red space in "
 "the main area."
-msgstr ""
-"Een aantal objecten staan in het midden van het bord. Andere objecten staan "
-"aan de linkerkant. Elk van deze objecten hoort bij precies één object op het "
-"bord. Vind het logische verband tussen beide. Dit doe je door de objecten te "
-"slepen naar de juiste rode puntjes op het bord."
+msgstr "Een aantal objecten staan in het midden van het bord. Andere objecten staan aan de linkerkant. Elk van deze objecten aan de linkerkant hoort bij precies één object op het hoofdbord. Het logische verband tussen beide objecten moet worden gevonden. Sleep de linker objecten naar de juiste rode puntjes op het hoofdbord."
 
 #: boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -513,7 +502,7 @@ msgstr "Maak de puzzel af"
 msgid ""
 "Complete the puzzle by dragging the pieces from the set of pieces on the "
 "left."
-msgstr ""
+msgstr "Maak de puzzel af door de stukken aan de linkerkant te verslepen."
 
 #: boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
@@ -550,7 +539,9 @@ msgstr "Omgaan met de muis"
 msgid ""
 "Point and click on the ball to set the speed and direction of the ball. The "
 "closer you click to the center, the slower the ball moves."
-msgstr "Klik op de bal om snelheid en richting aan te geven. Hoe meer je in het centrum klikt, hoe langzamer de bal."
+msgstr ""
+"Klik op de bal om snelheid en richting aan te geven. Hoe meer je in het "
+"centrum klikt, hoe langzamer de bal."
 
 #: boards/billard.xml.in.h:3
 msgid "Shoot the ball into the hole"
@@ -566,10 +557,9 @@ msgstr "Ga naar de bordspellen"
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
-msgstr "Bedien een sluis"
+msgstr "Een sluis bedienen"
 
 #: boards/canal_lock.xml.in.h:2
-#, fuzzy
 msgid ""
 "Tux is in trouble, and needs to take his ship through a lock. Help Tux and "
 "understand how a canal lock works."
@@ -578,13 +568,10 @@ msgstr ""
 "Help Tux en leer hoe een sluis werkt."
 
 #: boards/canal_lock.xml.in.h:3
-#, fuzzy
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
-msgstr ""
-"Je moet de sluis bedienen. Open de poorten en de kleppen in de juiste "
-"volgorde. Laat Tux door de sluis gaan in twee richtingen."
+msgstr "Je moet de sluis bedienen. Open de poorten en de kleppen in de juiste volgorde zodat Tux in beide richtingen door de sluis kan gaan."
 
 #: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -635,7 +622,6 @@ msgid "Order the pictures to tell the story"
 msgstr "Zet de plaatjes op volgorde om het verhaal te vertellen"
 
 #: boards/chronos.xml.in.h:5
-#, fuzzy
 msgid "Pick from the pictures on the left and put them on the red points"
 msgstr "Kies de plaatjes links en zet ze op de rode punten"
 
@@ -676,7 +662,10 @@ msgid ""
 "A letter is spoken. Click on the corresponding letter in the main area. You "
 "can hear the letter again by clicking on the mouth icon in the bottom "
 "horizontal box."
-msgstr "Er wordt een letter gespeld. Klik op de overeenkomende letter op het bord. Je kunt de letter opnieuw beluisteren door op het mondje onderaan het scherm te klikken."
+msgstr ""
+"Er wordt een letter gespeld. Klik op de overeenkomende letter op het bord. "
+"Je kunt de letter opnieuw beluisteren door op het mondje onderaan het scherm "
+"te klikken."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -703,7 +692,6 @@ msgid "Click with the left mouse button on the moving fish."
 msgstr "Klik met de linker muisknop op de bewegende vissen."
 
 #: boards/clickgame.xml.in.h:3
-#, fuzzy
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 "National Undersea Research Program (NURP) Collection at http://www.photolib."
@@ -714,30 +702,14 @@ msgid ""
 "Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: "
 "Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
 "Unknown (image nur03011) Location: Unknown (image nur03013)"
-msgstr ""
-"In dit spel ontdekken de kinderen de computermuis\n"
-"Klik met de linkermuisknop op de bewegende vissen.\n"
-"\n"
-"Bronvermelding:\n"
-"De vissen komen uit het Unix programma xfishtank.\n"
-"De foto's komen van het National Undersearch Research Program (NURP) http://"
-"www.photolib.noaa.gov\n"
-"Alle beeldrechten behoren toe aan het OAR/National Undersea Research Program "
-"behalve het eerste beeld, dat komt van de University of North Carolina at "
-"Wilmington\n"
-"De verschillende niveaus in GCompris gebruiken de volgende beelden:\n"
-"Locatie: Tropische Atlantische Oceaan, Florida Keys (beeld nur00523)\n"
-"Photograaf: D. Kesling\n"
-"Locatie: Florida Keys (beeld nur03006)\n"
-"Locatie: Onbekend (beeld nur03505)\n"
-"Locatie: Onbekend (beeld nur03010)\n"
-"Locatie: Onbekend (beeld nur03011)\n"
-"Locatie: Onbekend (beeld nur03013)"
+msgstr "De vissen komen uit het Unix programma xfishtank. De foto's komen van het National Undersea Research Program (NURP) http://www.photolib.noaa.gov Alle beeldrechten behoren toe aan het OAR/National Undersea Research Program (NURP) behalve de eerste afbeelding, dat eigendom is van de University of North Carolina in Wilmington. De verschillende niveaus in GCompris gebruiken de volgende afbeeldingen: Locatie: Tropische Atlantische Oceaan, Florida Keys (afbeelding nur00523) Photograaf: D. Kesling Locatie: Florida Keys (afbeelding nur03006) Locatie: Onbekend (afbeelding nur03505) Locatie: Onbekend (afbeelding nur03010) Locatie: Onbekend (afbeelding nur03011) Locatie: Onbekend (afbeelding nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fish before they leave the fishtank"
-msgstr "Klik met de linker muisknop op alle vissen voordat ze uit het aquarium zwemmen"
+msgstr ""
+"Klik met de linker muisknop op alle vissen voordat ze uit het aquarium "
+"zwemmen"
 
 #: boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
@@ -752,14 +724,11 @@ msgstr ""
 "de klok"
 
 #: boards/clockgame.xml.in.h:2
-#, fuzzy
 msgid ""
 "For each printed hour (hours:minutes or hours:minutes:seconds) click the "
 "corresponding arrow to set the clock time to match the given hour. The "
 "different arrows can be turned by selecting them and moving the mouse"
-msgstr ""
-"Beweeg de wijzers zodat de klok het opgegeven uur aangeeft. Je beweegt een "
-"wijzer door erop te klikken en dan te slepen."
+msgstr "Beweeg de wijzers zodat de klok het opgegeven uur aangeeft. Je beweegt een wijzer door erop te klikken en dan te slepen."
 
 #: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
@@ -796,7 +765,9 @@ msgstr "Luister naar de kleurnaam en klik op het overeenstemmend plaatje"
 msgid ""
 "This board teaches color recognition. Select the spoken color from the set "
 "of colored toons."
-msgstr "Dit bord geeft les in kleurherkenning. Selecteer de gesproken kleur uit de verzameling gekleerde plaatjes."
+msgstr ""
+"Dit bord geeft les in kleurherkenning. Selecteer de gesproken kleur uit de "
+"verzameling gekleerde plaatjes."
 
 #: boards/colors_group.xml.in.h:1
 msgid "Go to colors activities"
@@ -823,11 +794,10 @@ msgid "Drag and Drop the items in the double entry table"
 msgstr "Sleep de vormpjes om de tabel compleet te maken"
 
 #: boards/doubleentry.xml.in.h:5
-#, fuzzy
 msgid ""
 "Move the items on the left to their proper position in the double entry "
 "table."
-msgstr "Je moet de voorwerpen links naar de juiste plaats slepen."
+msgstr "Sleep de voorwerpen links naar de juiste plaats in de tabel."
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
@@ -851,16 +821,11 @@ msgid "Needs to handle the mouse with the click easily"
 msgstr "Goed met de muis om kunnen gaan (bewegen en klikken)"
 
 #: boards/draw.xml.in.h:5
-#, fuzzy
 msgid ""
 "Select a drawing tool on the left and a color on the bottom, and click and "
 "drag in the white area to create a new shape. To save time, you can use the "
 "middle mouse button to delete an object."
-msgstr ""
-"Kies een tekenvorm aan de linkerkant, en een kleur aan de onderkant.\n"
-"Klik dan in het witte veld en sleep de muis om een vorm te maken.\n"
-"Met de middelste muisknop kun je een object verwijderen en met de rechter "
-"muisknop kun je een object verplaatsen."
+msgstr "Kies een tekenvorm aan de linkerkant, en een kleur aan de onderkant. Klik dan in het witte veld en sleep de muis om een vorm te maken. Met de middelste muisknop kun je een object verwijderen."
 
 #: boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -871,7 +836,6 @@ msgid "Count the items"
 msgstr "Tel het aantal figuurtjes"
 
 #: boards/enumerate.xml.in.h:3
-#, fuzzy
 msgid ""
 "First, properly organize the items so that you can count them. Then, select "
 "the item you want to answer in the bottom right area. Enter the answer with "
@@ -986,7 +950,7 @@ msgstr "Concept afgekeken van EPI games."
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
-msgstr ""
+msgstr "Sleep de bovenste stukken van de ene paal naar de andere om de toren aan de rechterkant na te bouwen op het lege gedeelte aan de linkerkant."
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
@@ -994,7 +958,7 @@ msgstr "Maak de gegeven toren opnieuw"
 
 #: boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
+msgstr "Reproduceer de toren aan de rechterkant in de lege ruimte aan de linkerkant"
 
 #: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
@@ -1005,14 +969,12 @@ msgid "Find the strawberry by clicking on the blue fields"
 msgstr "Zoek de aardbei door op de blauwe velden te klikken"
 
 #: boards/hexagon.xml.in.h:4
-#, fuzzy
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become more red "
 "as you get closer."
-msgstr ""
-"Probeer de aardbei te vinden onder de blauwe velden. Hoe dichter bij de "
-"aardbei, hoe roder de velden worden"
+msgstr "Probeer de aardbei te vinden onder de blauwe velden. Hoe dichter bij de aardbei, hoe roder de velden worden."
 
+# zeskant?
 #: boards/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "hexagon"
@@ -1139,7 +1101,7 @@ msgstr "Sleep de objecten naar hun geschreven naam"
 msgid ""
 "Drag the images from the vertical box on the left to their corresponding "
 "name on the right. Click the OK button to check your answer."
-msgstr ""
+msgstr "Sleep de afbeeldingen uit het linkergedeelte naar de corresponderende naam aan de rechterkant. Klik op OK om je antwoord te controleren."
 
 #: boards/imagename.xml.in.h:3
 msgid "Image Name"
@@ -1271,13 +1233,10 @@ msgid "Determine if a hand is a right or left hand"
 msgstr "Bepaal of je een linker of rechterhand ziet"
 
 #: boards/leftright.xml.in.h:3
-#, fuzzy
 msgid ""
 "Distinguish right and left hands from different points of view. Spatial "
 "representation"
-msgstr ""
-"De linkerhand van de rechterhand onderscheiden vanuit verschillende "
-"standpunten.  Ruimtelijk inzicht"
+msgstr "De linkerhand van de rechterhand onderscheiden vanuit verschillende gezichtspunten.  Ruimtelijk inzicht"
 
 #: boards/leftright.xml.in.h:4 src/boards/leftright.c:106
 msgid "Find your left and right hands"
@@ -1316,16 +1275,11 @@ msgid "Find your way out of the 3D maze"
 msgstr "Vind de uitgang van de doolhof"
 
 #: boards/maze3D.xml.in.h:5
-#, fuzzy
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr ""
-"Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de "
-"spatiebalk om te wisselen tussen weergave in twee dimensies of drie "
-"dimensies. Weergave in 2D geeft een indicatie van je positie als op een "
-"landkaart. Je kunt Tux niet bewegen in tweedimensionale weergave."
+msgstr "Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de spatiebalk om te wisselen tussen weergave in twee dimensies of drie dimensies. Weergave in 2D geeft een idee van je positie net als bij een landkaart. Je kunt Tux niet bewegen in tweedimensionale weergave."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -1334,14 +1288,10 @@ msgstr "Gehoortraining"
 # voorwerpen ipv elementen.
 # is dit correct?
 #: boards/melody.xml.in.h:2
-#, fuzzy
 msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
-msgstr ""
-"Luister naar de serie geluiden. Probeer het daarna te herhalen door op de "
-"verschillende voorwerpen te klikken. Je kunt het voorbeeld nogmaals horen "
-"door op de herhaalknop te klikken."
+msgstr "Luister naar een serie geluiden en probeer deze daarna te herhalen door op de verschillende voorwerpen te klikken. Je kunt het voorbeeld nogmaals horen door op de herhaalknop te klikken."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
@@ -1352,18 +1302,13 @@ msgid "Repeat a melody"
 msgstr "Een melodie herhalen"
 
 #: boards/memory.xml.in.h:1
-#, fuzzy
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
 "in their hidden faces. Click on a card to can uncover it and see its hidden "
 "picture. However, you can only see two hidden pictures at once. You have to "
 "remember the position of the pictures to associate them. To remove a pair of "
 "cards, uncover both of them."
-msgstr ""
-"Je ziet een aantal omgekeerde kaarten. Vind de overeenkomstige kaarten. De "
-"afbeelding op een kaart ontdek je door erop te klikken. Je kan per beurt "
-"slechts twee kaarten omdraaien. Onthoud waar welke afbeeldingen liggen, en "
-"probeer twee dezelfde afbeeldingen te vinden in één beurt."
+msgstr "Er wordt een verzameling blanco kaarten getoond. Vind de overeenkomstige kaarten. De afbeelding op een kaart ontdek je door erop te klikken. Je kan per beurt slechts twee kaarten omdraaien. Onthoud waar de afbeeldingen liggen en probeer twee dezelfde afbeeldingen te vinden in één beurt."
 
 #: boards/memory.xml.in.h:2
 msgid "Discover the cards and find a matching pair"
@@ -1378,7 +1323,6 @@ msgid "Train your memory and remove all the cards"
 msgstr "Train je geheugen en haal alle kaarten weg"
 
 #: boards/menu.xml.in.h:1
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of activities. "
 "At the bottom of the screen is the gcompris control bar. The following icons "
@@ -1389,45 +1333,29 @@ msgid ""
 "question Question Mark - Help Tool Box - The configuration menu Tux Plane - "
 "About game The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years "
 "old 3 Stars - 7 to 8 years old"
-msgstr ""
-"Om het te gebruiken klik je op een pictogram waardoor je een bordspel of een "
-"ander menu te zien krijgt. Onderaan het scherm vind je de controlebalk van "
-"gcompris. Huisje: Teruggaan naar het vorige menu of GCompris afsluiten.  "
-"Duim: Bevestig je antwoord.  Dobbelsteen: De moeilijkheidsgraad instellen. "
-"Muzieknoot: De vraag herhalen. Vraagteken: Hulp.  Gereedschapskist: Het "
-"instellingen menu.  Vliegtuig: Informatie over het spel.  Betekenis van de "
-"sterren: 1 Ster: 3 tot 4 jaar oud.  2 Sterren: 5 tot 6 jaar oud.  3 Sterren: "
-"7 tot 8 jaar oud."
+msgstr "Klikken op een pictogram geeft u een bordspel of een menu met bordspellen. Onderaan het scherm vindt u de controlebalk van gcompris. Daarin vindt u van rechts naar links de volgende pictogrammen. Huisje: Teruggaan naar het vorige menu of gcompris afsluiten.  Duim: OK, bevestig je antwoord.  Dobbelsteen: De moeilijkheidsgraad instellen. Muzieknoot: De vraag herhalen. Vraagteken: Hulp.  Gereedschapskist: Het configuratiemenu.  Vliegtuig: Informatie over het spel.  Betekenis van de sterren: 1 Ster: 3 tot 4 jaar oud.  2 Sterren: 5 tot 6 jaar oud.  3 Sterren: 7 tot 8 jaar oud. Merk op dat de pictogrammen alleen zichtbaar zijn als ze in het bordspel een functie hebben."
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
-msgstr "GCompris Hoofdmenu"
+msgstr "GCompris hoofdmenu"
 
 #: boards/menu.xml.in.h:3
-#, fuzzy
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
-msgstr ""
-"Gcompris is een verzameling leerzame spelletjes voor kinderen van 3 tot 8.\n"
-"Er zijn diverse opdrachten en spelletjes voor de verschillende leeftijden."
+msgstr "Gcompris is een verzameling leerzame spelletjes voor kinderen van 3 tot 8 jaar oud. Er zijn diverse opdrachten en spelletjes voor de verschillende leeftijden."
 
 #: boards/menu.xml.in.h:5
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-msgstr ""
-"Het doel van gcompris is een Vrij alternatief te bieden voor populaire "
-"edutainment software."
+msgstr "Het doel van gcompris is een vrij alternatief te bieden voor populaire 'edutainment software'."
 
 #: boards/minouche.xml.in.h:4
-#, fuzzy
 msgid ""
 "Try to find the strawberry under the blue fields. The closer you get, the "
 "more red the fields become."
-msgstr ""
-"Probeer de aardbei te vinden onder de blauwe velden. Hoe dichter bij de "
-"aardbei, hoe roder de velden worden"
+msgstr "Probeer de aardbei te vinden onder de blauwe velden. Hoe dichter bij de aardbei, hoe roder de velden worden."
 
 # wat is dit?
 #: boards/minouche.xml.in.h:5
@@ -1435,13 +1363,10 @@ msgid "minouche"
 msgstr "minouche"
 
 #: boards/missing_letter.xml.in.h:1
-#, fuzzy
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
-msgstr ""
-"Je ziet een object op het bord, met een onvolledig woord eronder.  Zoek de "
-"ontbrekende letters."
+msgstr "Je ziet een object op het bord, met een onvolledig woord eronder.  Zoek de ontbrekende letters om het woord af te maken."
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
@@ -1608,13 +1533,10 @@ msgid "Can count"
 msgstr "Kan tellen"
 
 #: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
-#, fuzzy
 msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it in the upper screen area."
-msgstr ""
-"Klik op de muntjes of de briefjes onderaan het scherm om te betalen. Als je "
-"muntje of briefje wilt weghalen klik je erop in het bovenste schermgebied."
+msgstr "Klik op de muntjes of de briefjes onderaan het scherm om te betalen. Als je een muntje of briefje wilt weghalen klik je erop in het bovenste gedeelte van het scherm."
 
 #: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
@@ -1622,10 +1544,9 @@ msgstr "Geld"
 
 #: boards/money.xml.in.h:4
 msgid "Practice money usage"
-msgstr "Leren met geld omgaan"
+msgstr "Leren omgaan met geld"
 
 #: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
-#, fuzzy
 msgid ""
 "You must buy the different items and give the exact price. At higher levels, "
 "several items are displayed, and you must first calculate the total price."
@@ -1646,7 +1567,7 @@ msgstr "Sleep de plaatjes naar de juiste plaats"
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr ""
+msgstr "Sleep de stukken uit het linkergedeelte om een schilderij of het hoofdbord te maken."
 
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
@@ -1692,35 +1613,31 @@ msgstr "Cassat, Zomer - 1895"
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Dorpsstraat in Auvers - 1890"
 
+# Probeer de parachutist op de boot te laten landen
 #: boards/paratrooper.xml.in.h:1
-#, fuzzy
 msgid "Help Tux the paratrooper land safely"
-msgstr "Probeer de parachutist op de boot te laten landen"
+msgstr "Help Tux de parachutist veilig te landen"
 
 #: boards/paratrooper.xml.in.h:2
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
-msgstr ""
+msgstr "Druk op een willekeurige toets of klik op het vliegtuig om Tux te laten springen. Druk nogmaals op een toets of klik op Tux om de parachute te openen."
 
+# engels taalfout: He needs to take watch out for the wind....
 #: boards/paratrooper.xml.in.h:3
-#, fuzzy
 msgid ""
 "In this game, Tux the paratrooper need help to land safely on the fishing "
 "boat. He needs to take watch out for the wind direction and speed."
-msgstr ""
-"In dit spel proberen de kinderen Tux, de parachutist, veilig te laten landen "
-"op de vissersboot. Ze moeten rekening houden met de windrichting en snelheid."
+msgstr "In dit spel heeft Tux de parachutist hulp nodig om veilig te landen op de vissersboot. Hij moet rekening houden met de windrichting en snelheid."
 
 #: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
 msgid "Paratrooper"
 msgstr "Parachutist"
 
 #: boards/paratrooper.xml.in.h:5
-#, fuzzy
 msgid "This board is game oriented. No specific skills are needed to play."
-msgstr ""
-"Dit spel is spel-georienteerd. Je er hebt geen speciale vaardigheden nodig."
+msgstr "Dit bord is spel-georiënteerd. Er zijn geen speciale vaardigheden voor nodig."
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
@@ -1735,13 +1652,10 @@ msgid "Numbers in Order"
 msgstr "Getallen op volgorde"
 
 #: boards/planegame.xml.in.h:5
-#, fuzzy
 msgid ""
 "Use the up, down, right and left keyboard keys to move the helicopter to "
 "catch the numbers in increasing order."
-msgstr ""
-"Gebruik de pijltjes om met de helikopter de getallen te in oplopende "
-"volgorde te vangen."
+msgstr "Gebruik de pijltjes op het toetsenbord om met de helikopter de getallen in oplopende volgorde te vangen."
 
 #: boards/pythontest.xml.in.h:1
 msgid "Add a language binding to gcompris."
@@ -1760,7 +1674,6 @@ msgid "Test board for the python plugin"
 msgstr "Test-bord voor de python-plugin"
 
 #: boards/pythontest.xml.in.h:5
-#, fuzzy
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
@@ -1771,18 +1684,12 @@ msgid "A memory game based on trains"
 msgstr "Een geheugenspel met treinen"
 
 #: boards/railroad.xml.in.h:2
-#, fuzzy
 msgid ""
 "A train - a locomotive and wagon(s) - is displayed at the top of the main "
 "area for a few seconds. Rebuild it at the top of the screen by selecting the "
 "appropriate wagons and locomotive. Unselect an item by clicking on it again. "
 "Check your construction by clicking on the hand at the bottom."
-msgstr ""
-"Je ziet een trein (locomotief en wagons) bovenaan het bord. De trein "
-"vertrektna een paar seconden, en je moet die trein nabouwen, door wagons en "
-"eenlocomotief te kiezen. Je kan een keuze terug ongedaan maken door er "
-"nogeens op te klikken. Controleer je keuze door onderaan op het handje te "
-"klikken."
+msgstr "Er wordt gedurende een aantal seconden een trein getoond (locomotief en wagons) bovenaan het hoofdbord. Bouw de trein na door de juiste wagons en locomotief te kiezen. Maak een keuze ongedaan door er nogmaals op te klikken. Controleer je keuze door op het handje onderaan te klikken."
 
 #: boards/railroad.xml.in.h:3
 msgid "Memory training"
@@ -1793,18 +1700,16 @@ msgid "Railroad"
 msgstr "Spoorbaan"
 
 #: boards/read_colors.xml.in.h:2
-#, fuzzy
 msgid "Click on the correct colored object."
-msgstr "Klik op het juist gekleurde voorwerp."
+msgstr "Klik op het juiste gekleurde voorwerp."
 
 #: boards/read_colors.xml.in.h:4
 msgid "Read colors"
 msgstr "Kleuren lezen"
 
 #: boards/read_colors.xml.in.h:5
-#, fuzzy
 msgid "This board teaches basic colors."
-msgstr "Dit bord wordt gebruikt om eenvoudige kleuren te lezen."
+msgstr "Dit bord is voor het leren van eenvoudige kleuren."
 
 #: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
@@ -1859,25 +1764,23 @@ msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on left. Indicate whether or not the given word appeared in "
 "the list."
-msgstr ""
+msgstr "Er verschijnt een woord rechtsboven op het bord. Daarna verschijnt een lijst met woorden in het linkergedeelte. Geef aan of het gegeven woord in de lijst stond of niet."
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
 msgstr "Horizontale leesoefening"
 
 #: boards/readingh.xml.in.h:3
-#, fuzzy
 msgid "Read a list of words and tell if a given word is in it"
-msgstr "Zeg of het gevraagde woord in de lijst zit"
+msgstr "Lees een woordenlijst en zeg of het gevraagde woord in de lijst voorkomt"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
 msgstr "Leesoefening met beperkte tijd"
 
 #: boards/readingv.xml.in.h:2
-#, fuzzy
 msgid "Read a vertical list of words and tell if a given word is in it"
-msgstr "Zeg of het gevraagde woord in de lijst zit"
+msgstr "Bekijk een verticale lijst met woorden en zeg of het gevraagde woord in de lijst voorkomt"
 
 #: boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
@@ -1885,22 +1788,16 @@ msgstr "Verticale leesoefening"
 
 #: boards/redraw.xml.in.h:1
 msgid "Copy a drawing from the box on the right into the box on the left."
-msgstr ""
+msgstr "Kopieer een tekening uit het rechtergedeelte in het linkergedeelte."
 
-# vormen ipv objecten?
+# vormen ipv objecten
 #: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
-#, fuzzy
 msgid ""
 "First, select the proper tool from the toolbar. Then, drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but take care not to have unwanted objects under others."
-msgstr ""
-"Je moet eerst het juiste gereedschap kiezen in de werkbalk. Daarna moet je "
-"de met de muis slepen om objecten te maken. Als je klaar bent klik je op de "
-"knop OK en zullen er kleine rode kruizen verschijnen op de plaatsen waar je "
-"fouten hebt gemaakt. De volgorde van de objecten (boven/onder) doet er niet "
-"toe, maar kijk uit dat je geen ongewilde objecten onder andere hebt."
+msgstr "Selecteer eerst het juiste gereedschap in de werkbalk. Sleep daarna met de muis om vormen te maken. Als je klaar bent klik je op de knop OK en zullen er kleine rode kruizen verschijnen op de plaatsen waar je fouten hebt gemaakt. De volgorde van de vormen (boven/onder) doet er niet toe, maar kijk uit dat er geen ongewilde vormen onder de andere staan."
 
 #: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
@@ -1910,27 +1807,21 @@ msgstr "Teken het gegeven item opnieuw"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr ""
+msgstr "Kopieer het spiegelbeeld van een object uit het rechtergedeelte naar het linkergedeelte."
 
 #: boards/reversecount.xml.in.h:1
-#, fuzzy
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
-msgstr ""
-"De muis kunnen bewegen, getallen kunnen lezen en getallen tot 10 aftrekken."
+msgstr "De muis kunnen bewegen, getallen kunnen lezen en getallen tot 10 aftrekken voor het eerste niveau"
 
+# 2 x engels taalfout: Click the dict with the right mouse button to coun backwards
 #: boards/reversecount.xml.in.h:2
-#, fuzzy
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
 "fish. Click the dict with the right mouse button to coun backwards. When "
 "done, click on the OK button or hit the Enter key."
-msgstr ""
-"Tel eerst over hoeveel ijsschotsen Tux moet lopen om de vis te vangen. Klik "
-"dan op de dobbelsteen om het juiste aantal te kiezen. Met de rechtse "
-"muisknop tel je af. Controleer je keuze door op OK te klikken, of door de "
-"Enter toets in te drukken."
+msgstr "Tel eerst over hoeveel ijsschotsen Tux moet lopen om de vis te vangen. Klik dan op de dobbelsteen om het juiste aantal te kiezen. Met de rechter muisknop tel je af. Controleer je keuze door op OK te klikken, of door de Enter-toets in te drukken."
 
 #: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice substraction with a funny game"
@@ -1973,8 +1864,9 @@ msgstr ""
 "fr) uit 2001. De titel is 'Kruidenverkoper in Egypte'. Het is uitgebracht "
 "onder de GPL licentievoorwaarden."
 
+# engels taalfout:
+# To balance the scales, move the masses on the left. left side. The masses ...
 #: boards/scalesboard.xml.in.h:4
-#, fuzzy
 msgid ""
 "To balance the scales, move the masses on the left. left side. The masses "
 "can be arranged in any order."
@@ -1987,26 +1879,22 @@ msgid "Well balance the scales"
 msgstr "Breng de weegschaal in evenwicht"
 
 #: boards/smallnumbers.xml.in.h:1
-#, fuzzy
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Typ de woorden vooraleer ze de grond raken"
+msgstr "Tel het aantal puntjes op de dobbelstenen voordat ze de grond raken"
 
 #: boards/smallnumbers.xml.in.h:2
 msgid "Counting skill"
 msgstr "Telvaardigheden"
 
 #: boards/smallnumbers.xml.in.h:3
-#, fuzzy
 msgid "In a limited time, count the number of dots"
 msgstr "Tel een aantal puntjes in een beperkte tijd"
 
 #: boards/smallnumbers.xml.in.h:4
-#, fuzzy
 msgid "Numbers With Dice"
 msgstr "Getallen met dobbelstenen"
 
 #: boards/smallnumbers.xml.in.h:5
-#, fuzzy
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
@@ -2014,8 +1902,8 @@ msgstr ""
 "Toets het getal in dat overeenkomt met het aantal puntjes op de vallende "
 "dobbelsteen."
 
+# navigeren ipv manoeuvreren
 #: boards/submarine.xml.in.h:1
-#, fuzzy
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the ordered depth."
@@ -2040,28 +1928,21 @@ msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr "Bestuur een onderzeeër door middel van luchttanks en duikroeren"
 
 #: boards/superbrain.xml.in.h:1
-#, fuzzy
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
 "Then, click on the OK button in the control bar. In the lower levels, Tux "
 "gives you an indication if you found a hiding place by marking the item with "
 "a black box. You can use the right mouse button to flip the colors in the "
 "opposite order."
-msgstr ""
-"Dit is het oorspronkelijke MasterMind-spel. Klik op de keuzes tot je denkt "
-"de juiste combinatie te hebben. Klik dan op OK. Tux tekent een zwart "
-"vierkant als je een positie juist hebt. Met de rechter muisknop draai je de "
-"volgorde van de kleuren om."
+msgstr "Dit is het oorspronkelijke MasterMind-spel. Klik op de keuzes tot je denkt de juiste combinatie te hebben. Klik dan op OK. Tux tekent een zwart vierkant als je een positie juist hebt. Met de rechter muisknop draai je de volgorde van de kleuren om."
 
 #: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
 msgid "Super Brain"
 msgstr "Superbrein"
 
 #: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
-#, fuzzy
 msgid "Tux has hidden several items. Find them again in the correct order"
-msgstr ""
-"Tux heeft een aantal kleuren verstopt, vind ze terug in de juiste volgorde."
+msgstr "Tux heeft verschillende voorwerpen verstopt. Vind ze terug in de juiste volgorde"
 
 #: boards/target.xml.in.h:1
 msgid ""
@@ -2069,44 +1950,34 @@ msgid ""
 msgstr "Kan de muis bewegen, kan getallen lezen en optellen tot 15"
 
 #: boards/target.xml.in.h:2
-#, fuzzy
 msgid ""
 "Check the wind speed and direction, and then click on the target to launch a "
 "dart. When you have thrown all of your darts, a window appears asking you to "
 "count your score. Enter the score with the keyboard then press the Enter key "
 "or the OK button."
-msgstr ""
-"Controleer eerst de windkracht en richting, en klik dan op het doel om een "
-"pijl af te schieten. Als alle pijlen afgeschoten zijn krijg je een venster "
-"om je score te tellen. Tik je score in op het toetsenbord, en druk dan op "
-"Enter, of klik op OK."
+msgstr "Controleer eerst de windkracht en richting, en klik dan op het doel om een pijl af te schieten. Als alle pijlen afgeschoten zijn krijg je een venster om je score te berekenen. Tik je score in op het toetsenbord, en druk dan op Enter, of klik op OK."
 
 #: boards/target.xml.in.h:3 src/boards/target.c:122
-#, fuzzy
 msgid "Practice addition with a target game"
-msgstr "Oefen optellen met een doelspel"
+msgstr "Optellen oefenen met een doelspel"
 
 #: boards/target.xml.in.h:4
-#, fuzzy
 msgid "Throw darts at a target and count your score."
-msgstr "Gooi de pijlen naar het doel en tel je punten."
+msgstr "Gooi de pijlen naar het doel en bereken je score."
 
 #: boards/target.xml.in.h:5 src/boards/target.c:123
-#, fuzzy
 msgid "Touch the target and count the points"
-msgstr "Raak het doel en tel je punten"
+msgstr "Raak het doel aan en tel de punten"
 
 #: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr "Een puzzel met schuivende blokken"
 
 #: boards/traffic.xml.in.h:2
-#, fuzzy
 msgid "Remove all the red cars from the grid through the slot on the right"
-msgstr "Het doel is om de rode auto door het gat rechts uit het vak te halen."
+msgstr "Haal alle rode auto's uit het rooster door de sluis aan de rechterkant"
 
 #: boards/watercycle.xml.in.h:1
-#, fuzzy
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
 "water cleanup station, in order to reactivate the entire water system. When "
@@ -2120,11 +1991,17 @@ msgstr ""
 # watervoorziening beter?
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
-msgstr "De waterkringloop verkennen"
+msgstr "De waterkringloop ontdekken"
+
+#: boards/watercycle.xml.in.h:3
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
+msgstr "Tux komt terug van een lange visreis op zijn boot. Probeer de watervoorziening te herstellen zodat hij een douche kan nemen."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
-msgstr "Vallende Woorden"
+msgstr "Vallende woorden"
 
 #: boards/wordsgame.xml.in.h:3
 msgid "Keyboard training"
@@ -2140,7 +2017,7 @@ msgstr "Typ de vallende woorden voordat ze de grond raken"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
-msgstr "Editor voor GCompris"
+msgstr "Editor voor gcompris"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
@@ -2149,7 +2026,7 @@ msgstr "Educatief spel voor kinderen vanaf drie jaar"
 # vrij vertaald
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
-msgstr "Educatieve software GCompris"
+msgstr "Educatieve software gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
@@ -2270,10 +2147,10 @@ msgstr ""
 "Ga naar het configuratiedialoogvenster om \n"
 "het geluid aan te zetten."
 
-#: src/boards/clickgame.c:183
+#: src/boards/clickgame.c:182
 #, c-format
-msgid "Couldn't open pixmap dir: %s"
-msgstr "Kan pixmap's map niet openen: %s"
+msgid "Couldn't open dir: %s"
+msgstr "Kon de map niet openen: %s"
 
 #: src/boards/clockgame.c:530
 msgid "Set the watch to:"
@@ -2285,12 +2162,10 @@ msgid "Click on the %s toon"
 msgstr "Klik op het %s plaatje"
 
 #: src/boards/fifteen.c:57
-#, fuzzy
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Verplaats de vakjes één voor één zodat alle getallen netjes oplopen"
 
 #: src/boards/hanoi.c:324 src/boards/hanoi.c:335
-#, fuzzy
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Maak op een vrije plaats dezelfde toren als die rechts te zien is"
 
@@ -2299,9 +2174,8 @@ msgid "Learn how to read"
 msgstr "Leer lezen"
 
 #: src/boards/leftright.c:107
-#, fuzzy
 msgid "Given pictures of hands, find if it's a right or left one"
-msgstr "Zeggen of het een rechterhand of een linkerhand is"
+msgstr "Geef aan of op de plaatjes een rechterhand of een linkerhand te zien is"
 
 #: src/boards/leftright.c:248
 msgid "left"
@@ -2543,7 +2417,8 @@ msgstr "GCompris Startpagina"
 #: src/gcompris/about.c:247
 msgid ""
 "This software is a GNU Package and is released under the GNU Public Licence"
-msgstr "Deze software is een GNU pakket, uitgebracht onder de Gnu Public Licence"
+msgstr ""
+"Deze software is een GNU pakket, uitgebracht onder de Gnu Public Licence"
 
 #: src/gcompris/about.c:275
 msgid "Help"
@@ -2871,7 +2746,7 @@ msgstr "Auteur"
 msgid "Directory"
 msgstr "Map"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:272
 msgid "Title"
 msgstr "Titel"
 
@@ -2879,20 +2754,23 @@ msgstr "Titel"
 msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
 
-#: src/gcompris/oggplayer.c:99
+#: src/gcompris/oggplayer.c:97
 #, c-format
 msgid ""
 "Error unable to find a usable audio output device (%d)\n"
 "Try 'gcompris -A' to select an alternative audio output\n"
 "Use '-A list' to display the list of available devices"
 msgstr ""
+"Fout: kon geen geschikt audio uitvoerapparaat vinden (%d)\n"
+"Probeer: 'gcompris -A' om een alternatieve geluidsuitvoer te selecteren\n"
+"Gebruik: '-A list' om een lijst met beschikbare apparaten weer te geven"
 
-#: src/gcompris/oggplayer.c:119
+#: src/gcompris/oggplayer.c:117
 #, c-format
 msgid "Error opening audio device\n"
-msgstr ""
+msgstr "Fout bij openen van geluidsapparaat\n"
 
-#: src/gcompris/oggplayer.c:165
+#: src/gcompris/oggplayer.c:163
 #, c-format
 msgid ""
 "Possible audio output devices are:\n"
@@ -2901,25 +2779,25 @@ msgstr ""
 "Mogelijke geluidsuitgangen zijn:\n"
 "standaard "
 
-#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:235 src/gcompris/oggplayer.c:246
 msgid "Now Playing Music"
 msgstr "Muziek wordt nu afgespeeld"
 
-#: src/gcompris/oggplayer.c:278
+#: src/gcompris/oggplayer.c:276
 msgid "Artist"
 msgstr "Artiest"
 
-#: src/gcompris/soundutil.c:113
+#: src/gcompris/soundutil.c:118
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Kon muziek-map niet openen: %s"
 
-#: src/gcompris/soundutil.c:152
+#: src/gcompris/soundutil.c:159
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
 "vorbis OR the sound output failed"
-msgstr ""
+msgstr "De achtergrondmuziek is nu gestopt. De bestanden in %s staan niet in het ogg formaat OF de geluidsuitvoer is mislukt"
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
@@ -2934,6 +2812,9 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "Couldn't open pixmap dir: %s"
+#~ msgstr "Kan pixmap's map niet openen: %s"
 
 #~ msgid "This board is dedicated to recognize unusual colors."
 #~ msgstr "Dit bord wordt gebruikt om ongebruikelijke kleuren te herkennen"
@@ -3037,13 +2918,6 @@ msgstr "Resterende tijd = %d"
 #~ msgstr ""
 #~ "Bij elk niveau wordt een tekening getoond aan de rechterzijde. Je moet "
 #~ "hiervan de symmetrie in het linkergedeelte natekenen."
-
-#~ msgid ""
-#~ "You have to bring back the water system up. Tux comes from a long fishing "
-#~ "party on his boat. Help him to have a shower."
-#~ msgstr ""
-#~ "Je moet proberen de watervoorziening te herstellen. Tux komt terug van "
-#~ "een lange vis-reist op zijn boot. Help hem een douche te krijgen."
 
 #~ msgid "English"
 #~ msgstr "Engels"
