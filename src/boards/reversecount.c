@@ -1,6 +1,6 @@
 /* gcompris - reversecount.c
  *
- * Copyright (C) 2002 Bruno Coudoin
+ * Copyright (C) 2002,2003 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@
 
 GcomprisBoard	*gcomprisBoard = NULL;
 gboolean	 board_paused = TRUE;
+static gint	 animate_id = 0;
 static int	 leavenow;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -47,6 +48,7 @@ static void	 game_won(void);
 static GnomeCanvasGroup *boardRootItem = NULL;
 
 static void		 process_ok(void);
+static void		 process_error(void);
 static GnomeCanvasItem	*reversecount_create_item(GnomeCanvasGroup *parent);
 static void		 reversecount_destroy_all_items(void);
 static void		 reversecount_next_level(void);
@@ -55,18 +57,23 @@ static GnomeCanvasItem	*display_item_at(gchar *imagename, int block, double rati
 static void		 display_random_fish();
 static void		 create_clock(double x, double y, int value);
 static void		 update_clock(int value);
+static gint		 animate_tux();
 
-static int number_of_item = 0;
+static int number_of_item   = 0;
 static int number_of_item_x = 0;
 static int number_of_item_y = 0;
 
-static int errors = 0;
-static int number_of_dices = 0;
-static int max_dice_number = 0;
-static int number_of_fish = 0;
+static int errors           = 0;
+static int number_of_dices  = 0;
+static int max_dice_number  = 0;
+static int number_of_fish   = 0;
 
-static int tux_index = 0;
-static int fish_index = 0;
+static int tux_index	    = 0;
+static int tux_destination  = 0;
+static int fish_index	    = 0;
+static int animate_speed    = 0;
+
+#define ANIMATE_SPEED	800
 
 static double tux_ratio = 0;
 
@@ -173,7 +180,6 @@ static void pause_board (gboolean pause)
   if(leavenow == TRUE && pause == FALSE)
     board_finished(BOARD_FINISHED_TOOMANYERRORS);
 
-
   board_paused = pause;
 }
 
@@ -195,6 +201,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gamewon = FALSE;
       leavenow = FALSE;
+
       pause_board(FALSE);
     }
 }
@@ -274,67 +281,49 @@ gint key_press(guint keyval)
 }
 
 
+static void process_error()
+{
+  gcompris_play_ogg ("crash", NULL);
+  errors--;
+  if(errors==0)
+    {
+      gamewon = FALSE;
+      leavenow = TRUE;
+      reversecount_destroy_all_items();
+      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    }
+  else
+    {
+      update_clock(errors);
+    }
+}
+
 /* ======================================= */
 static void process_ok()
 {
   guint i;
 
+  tux_destination = tux_index;
+
   for(i=0; i<number_of_dices; i++)
-      tux_index += dicevalue_array[i];
+      tux_destination += dicevalue_array[i];
 
   // Wrapping
-  if(tux_index >= number_of_item)
-    tux_index = tux_index - (number_of_item);
+  if(tux_destination >= number_of_item)
+    tux_destination = tux_destination - (number_of_item);
 
-  // Move tux
-  if(tuxItem!=NULL)
-    gtk_object_destroy(GTK_OBJECT(tuxItem));
-
-  /* Caclulate which tux should be displayed */
-  if(tux_index<number_of_item_x-1)
-    tuxItem = display_item_at(TUX_IMG_EAST, tux_index, tux_ratio);
-  else if(tux_index<number_of_item_x+number_of_item_y-2)
-    tuxItem = display_item_at(TUX_IMG_SOUTH, tux_index, tux_ratio);
-  else if(tux_index<2*number_of_item_x+number_of_item_y-3)
-    tuxItem = display_item_at(TUX_IMG_WEST, tux_index, tux_ratio);
-  else
-    tuxItem = display_item_at(TUX_IMG_NORTH, tux_index, tux_ratio);
-
-  if(tux_index == fish_index)
+  // Do not allow going at a position after the fish
+  if((tux_destination > fish_index)
+     || (tux_destination == tux_index))
     {
-      // Remove the fish
-      if(fishItem!=NULL)
-	gtk_object_destroy(GTK_OBJECT(fishItem));
+      process_error();
+      return;
+    }
 
-      gcompris_play_ogg ("gobble", NULL);
-      
-      if(--number_of_fish == 0)
-	{
-	  gamewon = TRUE;
-	  reversecount_destroy_all_items();
-	  gcompris_display_bonus(gamewon, BONUS_SMILEY);
-	}
-      else
-	{
-	  display_random_fish();
-	}
-    }
-  else
-    {
-      gcompris_play_ogg ("crash", NULL);
-      errors--;
-      if(errors==0)
-	{
-	  gamewon = FALSE;
-	  leavenow = TRUE;
-	  reversecount_destroy_all_items();
-	  gcompris_display_bonus(gamewon, BONUS_SMILEY);
-	}
-      else
-	{
-	  update_clock(errors);
-	}
-    }
+  if(!animate_id) {
+    animate_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_tux, NULL);
+  }
+  
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -405,6 +394,8 @@ static void reversecount_next_level()
       number_of_fish = 10;
       break;
     }
+
+  animate_speed = ANIMATE_SPEED - gcomprisBoard->level * 60;
 
   number_of_item = number_of_item_x * 2 + (number_of_item_y - 2) * 2;
 
@@ -580,8 +571,7 @@ static void display_random_fish()
 {
 
   fish_index = tux_index + 
-    rand()%(max_dice_number*number_of_dices) + 
-    number_of_dices;
+    rand()%(max_dice_number*number_of_dices) + 1;
 
   // Wrapping
   if(fish_index >= number_of_item)
@@ -711,11 +701,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 	{
 	case 1:
 	  if(dicevalue_array[i]++ >= max_dice_number)
-	    dicevalue_array[i] = 1;
+	    dicevalue_array[i] = 0;
 	  break;
 	case 2:
 	case 3:
-	  if(dicevalue_array[i]-- == 1)
+	  if(dicevalue_array[i]-- == 0)
 	    dicevalue_array[i] = max_dice_number;
 	  break;
 	default:
@@ -787,4 +777,66 @@ static void update_clock(int value)
   
   gdk_pixbuf_unref(pixmap);
   g_free(str);
+}
+
+static gint animate_tux()
+{
+  // Move tux
+  if(tuxItem!=NULL)
+    gtk_object_destroy(GTK_OBJECT(tuxItem));
+
+  tux_index++;
+
+  printf("=========== tux_index=%d tux_destination=%d fish_index=%d\n", tux_index, tux_destination, fish_index);
+
+  // Wrapping
+  if(tux_index >= number_of_item)
+    tux_index = tux_index - (number_of_item);
+
+  /* Caclulate which tux should be displayed */
+  if(tux_index<number_of_item_x-1)
+    tuxItem = display_item_at(TUX_IMG_EAST, tux_index, tux_ratio);
+  else if(tux_index<number_of_item_x+number_of_item_y-2)
+    tuxItem = display_item_at(TUX_IMG_SOUTH, tux_index, tux_ratio);
+  else if(tux_index<2*number_of_item_x+number_of_item_y-3)
+    tuxItem = display_item_at(TUX_IMG_WEST, tux_index, tux_ratio);
+  else
+    tuxItem = display_item_at(TUX_IMG_NORTH, tux_index, tux_ratio);
+
+  /* Rearm the timer to go to the next spot */
+  if(tux_index != tux_destination)
+    {
+      animate_id = gtk_timeout_add (animate_speed,
+      				    (GtkFunction) animate_tux, NULL);
+    }
+  else
+    {
+      animate_id = 0;
+
+      if(tux_destination != fish_index)
+	{
+	  process_error();
+	}
+      else
+	{
+	  // Remove the fish
+	  if(fishItem!=NULL)
+	    gtk_object_destroy(GTK_OBJECT(fishItem));
+	  
+	  gcompris_play_ogg ("gobble", NULL);
+	  
+	  if(--number_of_fish == 0)
+	    {
+	      gamewon = TRUE;
+	      reversecount_destroy_all_items();
+	      gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	    }
+	  else
+	    {
+	      display_random_fish();
+	    }
+	}
+    }
+
+  return(FALSE);
 }

@@ -1,3 +1,15 @@
+2003-08-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/reversecount.c: fixed several bugs: can no more jump over the fish
+	* can no more face impossible case (too close or too far)
+	* now tux moves ice by ice to let the kid count in his head.
+
+2003-08-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/shapegame.c: fixed the gamewon status that were not reseted at next level
+	* boards/babymatch/board5_0.xml.in: replaced the match star/tree by tuxplane/tuxhelico since
+	* the tree/star has no meaning in non christian country
+
 2003-08-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/submarine.c: fixed to display the help
