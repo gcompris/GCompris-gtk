@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-14 19:13-0400\n"
-"PO-Revision-Date: 2004-06-14 19:14-0400\n"
+"POT-Creation-Date: 2004-07-31 10:50-0400\n"
+"PO-Revision-Date: 2004-07-31 10:51-0400\n"
 "Last-Translator: Gareth Owen <gowen72@yahoo.comg>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -829,11 +829,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr "Click on an item and listen to its target position"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: boards/draw.xml.in.h:1 src/boards/draw.c:213
 msgid "A simple vector drawing tool"
 msgstr "A simple vector drawing tool"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
+#: boards/draw.xml.in.h:2 src/boards/draw.c:214
 msgid "Creative board where you can draw freely"
 msgstr "Creative board where you can draw freely"
 
@@ -941,10 +941,14 @@ msgid "Place the lands"
 msgstr "Place the lands"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Continents"
+msgstr "Continents"
+
+#: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "North America"
 
-#: boards/geography/board2_0.xml.in.h:1
+#: boards/geography/board2_1.xml.in.h:1
 msgid "South America"
 msgstr "South America"
 
@@ -952,11 +956,11 @@ msgstr "South America"
 msgid "West Europe"
 msgstr "West Europe"
 
-#: boards/geography/board4_0.xml.in.h:1
+#: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr "East Europe"
 
-#: boards/geography/board5_0.xml.in.h:1
+#: boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regions of France"
 
@@ -2113,7 +2117,7 @@ msgstr "Educational suite gcompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
-#: src/gcompris/gcompris.c:397 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:406 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2306,7 +2310,6 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
-#. PythonTest Board module
 #: src/boards/python/pythontest.py:67
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
@@ -2327,152 +2330,10 @@ msgstr ""
 msgid "This activity is not playable yet, just a test"
 msgstr "This activity is not playable yet, just a test"
 
-#. Remove the canvas item we added during this plugin
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. These are used to let us restart only after the bonux is displayed.
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. the game is won
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. This is a WIN
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Level"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coordinate"
@@ -2651,13 +2512,13 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:201
+#: src/gcompris/about.c:316 src/gcompris/config.c:202
 #: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/board.c:41
+#: src/gcompris/board.c:170
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
 
@@ -2790,88 +2651,104 @@ msgid "Slovenian"
 msgstr "Slovenian"
 
 #: src/gcompris/config.c:95
+msgid "Albanian"
+msgstr "Albanian"
+
+#: src/gcompris/config.c:96
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:117
 msgid "No filter"
 msgstr "No filter"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "Only this level"
 msgstr "Only this level"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "This level and above"
 msgstr "This level and above"
 
-#: src/gcompris/config.c:175
+#: src/gcompris/config.c:176
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:284
+#: src/gcompris/config.c:285
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:327
+#: src/gcompris/config.c:328
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:355
+#: src/gcompris/config.c:356
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:389
+#: src/gcompris/config.c:390
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:410
+#: src/gcompris/config.c:411
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:425 src/gcompris/config.c:810
-#: src/gcompris/config.c:821
+#: src/gcompris/config.c:426 src/gcompris/config.c:811
+#: src/gcompris/config.c:822
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
+
+#: src/gcompris/file_selector.c:239
+msgid "CANCEL"
+msgstr "CANCEL"
+
+#: src/gcompris/file_selector.c:270
+msgid "LOAD"
+msgstr "LOAD"
+
+#: src/gcompris/file_selector.c:270
+msgid "SAVE"
+msgstr "SAVE"
 
 #: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
@@ -2889,39 +2766,39 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:80
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:82
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:84
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:86
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:81
+#: src/gcompris/gcompris.c:88
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:90
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:85
+#: src/gcompris/gcompris.c:92
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:87
+#: src/gcompris/gcompris.c:94
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:496
+#: src/gcompris/gcompris.c:518
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -2943,7 +2820,7 @@ msgstr ""
 "Linux. Get more information on\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:673
+#: src/gcompris/gcompris.c:701
 #, c-format
 msgid ""
 "GCompris\n"
