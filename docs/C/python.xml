@@ -643,11 +643,6 @@ attribute is readeable and/or writable.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>gcompris.sound.play(soundlistfile, which)</entry>
-		<entry>void gcompris_play_sound (const char *soundlistfile, const char *which)</entry>
-		<entry></entry>
-	      </row>
-	      <row>
 		<entry>gcompris.sound.play_ogg_list(list)</entry>
 		<entry>void gcompris_play_ogg_list( GList* files )</entry>
 		<entry>The list argument is a GList</entry>
@@ -656,11 +651,6 @@ attribute is readeable and/or writable.</para>
 		<entry>gcompris.sound.play_ogg(list)</entry>
 		<entry>void gcompris_play_ogg(char *, ...)</entry>
 		<entry>The list argument is a python list containing strings</entry>
-	      </row>
-	      <row>
-		<entry>gcompris.sound.</entry>
-		<entry></entry>
-		<entry></entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
