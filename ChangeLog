@@ -1,3 +1,14 @@
+2004-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/draw/tool-load.png: created with image from http://www.openclipart.org in public domain
+	* boards/draw/tool-save.png: created with image from http://www.openclipart.org in public domain
+	* boards/skins/default/button_load.png: removed, not used
+	* boards/skins/default/button_save.png: removed, not used
+	* src/boards/draw.c: (load_image), (save_image): implemented basic load/save. Not complete yet.
+	* src/gcompris/sdlplayer.c: Now, display an explicit error on stderr if ogg vorbis support is not
+	installed (Thanks to Yin Xu <yxu@ic-tech.ca>)
+	* src/boards/python/anim.py: added load/save buttons.
+
 2004-08-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added ballcatch game

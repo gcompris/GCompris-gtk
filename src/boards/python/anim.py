@@ -117,23 +117,25 @@ class Gcompris_anim:
                                
     # TOOL SELECTION
     self.tools = [
+      ["SAVE",           "draw/tool-save.png",            "draw/tool-save.png",                  gcompris.CURSOR_SELECT],
+      ["LOAD",           "draw/tool-load.png",            "draw/tool-load.png",                  gcompris.CURSOR_SELECT],  
+      ["MOVIE",          "draw/tool-movie.png",           "draw/tool-movie_on.png",              gcompris.CURSOR_SELECT],
+      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],  
       ["RECT",           "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
       ["FILL_RECT",      "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",    gcompris.CURSOR_FILLRECT],
       ["CIRCLE",         "draw/tool-circle.png",          "draw/tool-circle_on.png",             gcompris.CURSOR_CIRCLE],
       ["FILL_CIRCLE",    "draw/tool-filledcircle.png",    "draw/tool-filledcircle_on.png",       gcompris.CURSOR_FILLCIRCLE],
       ["LINE",           "draw/tool-line.png",            "draw/tool-line_on.png",               gcompris.CURSOR_LINE],
-      ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
       ["FILL",           "draw/tool-fill.png",            "draw/tool-fill_on.png",               gcompris.CURSOR_FILL],
+      ["DEL",            "draw/tool-del.png",             "draw/tool-del_on.png",                gcompris.CURSOR_DEL],
       ["SELECT",         "draw/tool-select.png",          "draw/tool-select_on.png",             gcompris.CURSOR_SELECT],
-      ["RAISE",         "draw/tool-up.png",          "draw/tool-up_on.png",             gcompris.CURSOR_DEFAULT],
-      ["LOWER",         "draw/tool-down.png",          "draw/tool-down_on.png",             gcompris.CURSOR_DEFAULT],
-      ["CCW",         "draw/tool-rotation-ccw.png",          "draw/tool-rotation-ccw_on.png",             gcompris.CURSOR_DEFAULT],
-      ["CW",         "draw/tool-rotation-cw.png",          "draw/tool-rotation-cw_on.png",             gcompris.CURSOR_DEFAULT],
-      ["FLIP",         "draw/tool-flip.png",          "draw/tool-flip_on.png",             gcompris.CURSOR_DEFAULT],
-      ["TEXT",         "draw/tool-text.png",          "draw/tool-text_on.png",             gcompris.CURSOR_LINE],
-      ["IMAGE",         "draw/tool-image.png",          "draw/tool-image_on.png",             gcompris.CURSOR_DEFAULT],
-      ["MOVIE",          "draw/tool-movie.png",           "draw/tool-movie_on.png",              gcompris.CURSOR_SELECT],
-      ["PICTURE",        "draw/tool-camera.png",          "draw/tool-camera_on.png",             gcompris.CURSOR_SELECT],  
+      ["RAISE",          "draw/tool-up.png",              "draw/tool-up_on.png",                 gcompris.CURSOR_DEFAULT],
+      ["LOWER",          "draw/tool-down.png",            "draw/tool-down_on.png",               gcompris.CURSOR_DEFAULT],
+      ["CCW",            "draw/tool-rotation-ccw.png",    "draw/tool-rotation-ccw_on.png",       gcompris.CURSOR_DEFAULT],
+      ["CW",             "draw/tool-rotation-cw.png",     "draw/tool-rotation-cw_on.png",        gcompris.CURSOR_DEFAULT],
+      ["FLIP",           "draw/tool-flip.png",            "draw/tool-flip_on.png",               gcompris.CURSOR_DEFAULT],
+      ["TEXT",           "draw/tool-text.png",            "draw/tool-text_on.png",               gcompris.CURSOR_LINE],
+      ["IMAGE",          "draw/tool-image.png",           "draw/tool-image_on.png",              gcompris.CURSOR_DEFAULT],
       ]
     
     self.current_tool=0
@@ -172,7 +174,10 @@ class Gcompris_anim:
     # The frame counter
     self.item_frame_counter = []
     self.current_image = 0
-    
+
+    # The root items
+    self.root_coloritem = []
+    self.root_toolitem  = []
     
   def start(self):  
     self.gcomprisBoard.level=1
@@ -231,9 +236,9 @@ class Gcompris_anim:
   def key_press(self, keyval):
     
     if (keyval == gtk.keysyms.F1):
-      gcompris.file_selector_save( self.gcomprisBoard, "../gcompris/root_dir/", svg_save)
+      gcompris.file_selector_save( self.gcomprisBoard, "anim", svg_save)
     elif (keyval == gtk.keysyms.F2):
-      gcompris.file_selector_load( self.gcomprisBoard, "../gcompris/root_dir/", svg_restore)
+      gcompris.file_selector_load( self.gcomprisBoard, "anim", svg_restore)
 
     elif (keyval == gtk.keysyms.F3):
       self.ps_print(self.root_drawingitem)
@@ -323,20 +328,26 @@ class Gcompris_anim:
   # Display the tools
   def draw_tools(self):
 
-    self.rootitem.add(
+    self.root_toolitem = self.rootitem.add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
+
+    self.root_toolitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.jpg"),
       x=5,
-      y=20.0,
+      y=5.0,
       width=100.0,
-      height=423.0,
+      height=458.0,
       width_set=True,
       height_set=True
       )
 
     x1=11.0
     x2=56.0
-    y=30.0
+    y=11.0
     stepy=45
 
     # Display the tools
@@ -346,7 +357,7 @@ class Gcompris_anim:
       else:
         theX = x1
         
-      item = self.rootitem.add(
+      item = self.root_toolitem.add(
         gnome.canvas.CanvasPixbuf,
         pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
         x=theX,
@@ -367,46 +378,39 @@ class Gcompris_anim:
 
 
   # Event when a tool is selected
+  # Perform instant action or swich the tool selection
   def tool_item_event(self, item, event, tool):
-    if self.running and (self.tools[tool][0] != "MOVIE"):
-      if (self.tools[tool][0] == "PICTURE" and
-          event.type == gtk.gdk.BUTTON_PRESS):
-        gcompris.utils.svg_save("anim",
-                           "gcompris.svg",
-                           self.root_anim,
-                           gcompris.BOARD_WIDTH,
-                           gcompris.BOARD_HEIGHT,
-                           10
-                           )
-      return
-    
+
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         # Some button have instant effects
-        if (self.tools[tool][0] == "IMAGE"):
+        if (self.tools[tool][0] == "SAVE"):
+          gcompris.file_selector_save( self.gcomprisBoard, "anim", svg_save)
+          
+        elif (self.tools[tool][0] == "LOAD"):
+          gcompris.file_selector_load( self.gcomprisBoard, "anim", svg_restore)
+          
+        elif (self.tools[tool][0] == "IMAGE"):
           self.pos_x = gcompris.BOARD_WIDTH/2
           self.pos_y = gcompris.BOARD_HEIGHT/2
 
-          gcompris.images_selector_start(self.gcomprisBoard, gcompris.DATA_DIR + "/dataset/mrpatate.xml", image_selected);
+          gcompris.images_selector_start(self.gcomprisBoard,
+                                         gcompris.DATA_DIR + "/dataset/mrpatate.xml",
+                                         image_selected);
           return gtk.TRUE
           
-        if (self.tools[tool][0] == "PICTURE"):
-          self.flash.show()
+        elif (self.tools[tool][0] == "PICTURE"):
           self.AnimShot(self.root_drawingitem)
-          self.item_frame_counter.set(text=self.current_image + 1)
-          gtk.timeout_add(1000, self.run_flash)
           return gtk.TRUE
         
-        else:
-          if (self.tools[tool][0] == "MOVIE"):
-            if not self.running:
-              self.running=True
-              self.AnimRun()
-            else:
-              # unselect object if necessary
-              if (self.selected != None):
-                self.selected.item_list[1].hide()
-                self.selected = None
+        elif (self.tools[tool][0] == "MOVIE"):
+          if not self.running:
+            self.playing_start()
+          else:
+            # unselect object if necessary
+            if (self.selected != None):
+              self.selected.item_list[1].hide()
+              self.selected = None
      
               # Deactivate old button
               self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
@@ -416,18 +420,18 @@ class Gcompris_anim:
               self.old_tool_item = self.select_tool
               self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
               gcompris.set_cursor(self.tools[self.current_tool][3]);
-
-              self.running=False
-              self.root_playingitem.hide()
-              self.rootitem.show()
-
+              self.playing_stop()
               return gtk.TRUE
-
-        # unselect object if necessary
-        if (self.tools[tool][0] != "SELECT") and (self.selected != None):
+            
+            # unselect object if necessary
+        elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
           self.selected.item_list[1].hide()
           self.selected = None
-                    
+
+        #
+        # Normal case, tool button switch
+        # -------------------------------
+        
         # Deactivate old button
         self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
 
@@ -452,7 +456,13 @@ class Gcompris_anim:
 
     c = 0
 
-    self.rootitem.add(
+    self.root_coloritem = self.rootitem.add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
+    
+    self.root_coloritem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
       x=x,
@@ -464,7 +474,7 @@ class Gcompris_anim:
 
       for j in range(0,4):
         c = i*4 +j
-        item = self.rootitem.add(
+        item = self.root_coloritem.add(
           gnome.canvas.CanvasRect,
           x1=x1 + 26*(j%2),
           y1=y+8 + (color_pixmap_height/2 -6)*(j/2),
@@ -544,25 +554,13 @@ class Gcompris_anim:
     y2=self.playing_area[3]
 
 
-    # The CanvasGroup for the playing space.
-    self.root_playingitem = self.gcomprisBoard.canvas.root().add(
+    # The CanvasGroup for the playing area.
+    self.root_playingitem = self.rootitem.add(
       gnome.canvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
     self.root_playingitem.hide()
-
-    item = self.root_playingitem.add (
-      gnome.canvas.CanvasRect,
-      x1=x1,
-      y1=y1,
-      x2=x2,
-      y2=y2,
-      fill_color_rgba=0xFFFFFFFFL,
-      width_units=2.0,
-      outline_color_rgba=0x111199FFL
-      )
-    item.connect("event", self.playing_event, False)
 
     # intervall = 1000 / anim_speed
     self.anim_speed=5
@@ -602,7 +600,7 @@ class Gcompris_anim:
     run.connect("event", self.speed_event,True)
 
     
-    self.root_anim = self.root_playingitem.add(
+    self.root_anim = self.rootitem.add(
       gnome.canvas.CanvasGroup,
       x=0.0,
       y=0.0
@@ -762,6 +760,7 @@ class Gcompris_anim:
 
       # Check drawing boundaries
       #needs to be corrected with item relative coordinate
+      # FIXME
 #      if(x<self.drawing_area[0]):
 #        x=self.drawing_area[0]
 #      if(x>(self.drawing_area[2]-(bounds[2]-bounds[0]))):
@@ -823,6 +822,15 @@ class Gcompris_anim:
 
   # Event when an event on the drawing area happen
   def create_item_event(self, item, event):
+    if(event.type == gtk.gdk.BUTTON_PRESS and self.running==True):
+      self.playing_stop()
+      return gtk.FALSE
+    
+    # Right button is a shortcup to Shot
+    if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+      self.AnimShot(self.root_drawingitem)
+      return gtk.FALSE
+    
     if (not (self.tools[self.current_tool][0] == "RECT" or
              self.tools[self.current_tool][0] == "CIRCLE" or
              self.tools[self.current_tool][0] == "FILL_RECT" or
@@ -1048,21 +1056,31 @@ class Gcompris_anim:
         return gtk.TRUE
     return gtk.FALSE
 
+  # tous les objets de premiers niveau sont des canvasGroup;
+  # il contiennent soit les listes d'objets,
+  # soit des associations poignées-objets
   def AnimShot(self, modele):
-      shot = self.root_anim.add(
-        gnome.canvas.CanvasGroup,
-        x=0.0,
-        y=0.0
-        )
+    self.flash.show()
+    
+    shot = self.root_anim.add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
 
-      # tous ls objets de premiers niveau sont des canvasGroup;
-      # il contiennent soit les listes d'objets,
-      # soit des associations poignées-objets
-      for item in modele.item_list:
-        #animutils.clone_item(shot,item)
-        gcompris.utils.clone_item(item,shot)
-      shot.hide()
-      self.current_image+=1
+    for item in modele.item_list:
+      #animutils.clone_item(shot,item)
+      item2 = gcompris.utils.clone_item(item, shot)
+      # Set back the callback so that we will be abble to edit the image again
+      # FIXME Do not work. How to do this ?
+      #self.anchorize(item2)
+      
+    shot.hide()
+      
+    self.current_image+=1
+
+    self.item_frame_counter.set(text=self.current_image + 1)
+    gtk.timeout_add(500, self.run_flash)
 
   def clone(self, parent, item):
     cloned= parent.add(
@@ -1112,8 +1130,6 @@ class Gcompris_anim:
       self.running=False
       svg_restore("gcompris.svg")
       return
-#    self.rootitem.hide()
-    self.root_playingitem.show()
     self.cartoon[0].show()
     self.current_image=0
     self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim)
@@ -1121,31 +1137,62 @@ class Gcompris_anim:
 
   def snapshot_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      self.flash.show()
       self.AnimShot(self.root_drawingitem)
-      self.item_frame_counter.set(text=self.current_image + 1)
-      gtk.timeout_add(1000, self.run_flash)
 
   def run_flash(self):
     self.flash.hide()
     return False
 
+  def playing_start(self):
+    if not self.running:
+      self.running=True
+      self.root_coloritem.hide()
+      self.root_toolitem.hide()
+      self.root_drawingitem.hide()
+      self.root_playingitem.show()
+      self.AnimRun()
+      
+  def playing_stop(self):
+    if self.running:
+      self.running=False
+      self.root_playingitem.hide()
+      self.root_drawingitem.show()
+      self.root_coloritem.show()
+      self.root_toolitem.show()
+      self.item_frame_counter.set(text=len(self.cartoon)+1)
+
   def playing_event(self, item, event, state):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if state:
-        if not self.running:
-          self.running=True
-          self.AnimRun()
+        self.playing_start()
       else:
-        self.running=False
-        self.root_playingitem.hide()
-        self.rootitem.show()
+        self.playing_stop()
 
+  def image_select_event(self, item, event, state):
+    if self.running:
+      return
+
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      self.cartoon=self.root_anim.item_list
+      self.root_anim.show()
+      self.cartoon[self.current_image].hide()
+      if state == "first":
+        self.current_image = 0
+      elif state == "last":
+        self.current_image = len(self.cartoon)-1
+      elif state == "previous":
+        self.current_image=(self.current_image-1)%(len(self.cartoon))
+      elif state == "next":
+        self.current_image=(self.current_image+1)%(len(self.cartoon))
+
+      print "self.current_image=" + str(self.current_image)
+      self.cartoon[self.current_image].show()
+      self.item_frame_counter.set(text=self.current_image + 1)
 
   # Display the animation tools
   def draw_animtools(self):
     x_left = 8
-    y_top  = 456
+    y_top  = 472
     minibutton_width = 32
     minibutton_height = 20
 
@@ -1156,24 +1203,26 @@ class Gcompris_anim:
       x=x_left-3,
       y=y_top - 6,
       width=100.0,
-      height=67.0,
+      height=47.0,
       width_set=True,
       height_set=True
       )
 
     # First
-    self.rootitem.add(
+    item = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
       x = x_left,
       y = y_top,
       )
-    self.rootitem.add(
+    item.connect("event", self.image_select_event, "first")
+    item = self.rootitem.add(
       gnome.canvas.CanvasText,
       text = "<<",
       x = x_left + 14,
       y = y_top + 7,
       )
+    item.connect("event", self.image_select_event, "first")
 
     # Image Number
     self.item_frame_counter = self.rootitem.add(
@@ -1184,100 +1233,58 @@ class Gcompris_anim:
       font = gcompris.skin.get_font("gcompris/board/medium"))
 
     # Last
-    self.rootitem.add(
+    item = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
       x = x_left + 2*minibutton_width,
       y = y_top,
       )
-    self.rootitem.add(
+    item.connect("event", self.image_select_event, "last")
+    item = self.rootitem.add(
       gnome.canvas.CanvasText,
       text = ">>",
       x = x_left + 2*minibutton_width + 14,
       y = y_top + 7,
       )
+    item.connect("event", self.image_select_event, "last")
 
     # Next line
     y_top += minibutton_height
     
     # Previous
-    self.rootitem.add(
+    item = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
       x = x_left,
       y = y_top,
       )
-    self.rootitem.add(
+    item.connect("event", self.image_select_event, "previous")
+    item = self.rootitem.add(
       gnome.canvas.CanvasText,
       text = "<",
       x = x_left + 14,
       y = y_top + 7,
       )
+    item.connect("event", self.image_select_event, "previous")
 
     # Next
-    self.rootitem.add(
+    item = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
       x = x_left + 2*minibutton_width,
       y = y_top,
       )
-    self.rootitem.add(
+    item.connect("event", self.image_select_event, "next")
+    item = self.rootitem.add(
       gnome.canvas.CanvasText,
       text = ">",
       x = x_left + 2*minibutton_width + 14,
       y = y_top + 7,
       )
+    item.connect("event", self.image_select_event, "next")
 
     # Last button line
     y_top += minibutton_height
-
-    # Stop
-    item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
-      x = x_left,
-      y = y_top,
-      )
-    item.connect("event", self.playing_event, False)
-    item = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      text = "O",
-      x = x_left + 14,
-      y = y_top + 7,
-      )
-    item.connect("event", self.playing_event, False)
-    
-    # Play
-    item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
-      x = x_left + minibutton_width,
-      y = y_top,
-      )
-    item.connect("event", self.playing_event, True)
-    item = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      text = "->",
-      x = x_left + minibutton_width + 14,
-      y = y_top + 7,
-      )
-    item.connect("event", self.playing_event, True)
-
-    # Snapshot (record)
-    item = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
-      x = x_left + 2*minibutton_width,
-      y = y_top,
-      )
-    item.connect("event", self.snapshot_event)
-    item = self.rootitem.add(
-      gnome.canvas.CanvasText,
-      text = "+",
-      x = x_left + 2*minibutton_width + 14,
-      y = y_top + 7,
-      )
-    item.connect("event", self.snapshot_event)
 
     self.running = False
 
@@ -1377,6 +1384,10 @@ class Gcompris_anim:
     if self.running:
       return
 
+    # Right button is a shortcup to Shot
+    if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+      self.AnimShot(self.root_drawingitem)
+      return gtk.FALSE
     
     if event.state & gtk.gdk.BUTTON1_MASK:
       # warning: anchor is in a group of anchors, wich is in the object group

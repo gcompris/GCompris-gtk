@@ -84,8 +84,8 @@ static GnomeCanvasItem	*selectionToolItem = NULL;
 // Used to cross reference pixmap for the tools
 static char *tool_pixmap_name[] =
   {
-    "skins/default/button_load.png", "skins/default/button_load.png",
-    "skins/default/button_save.png", "skins/default/button_save.png",
+    "draw/tool-load.png",            "draw/tool-load.png",
+    "draw/tool-save.png",            "draw/tool-save.png",
     "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",
     "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
     "draw/tool-circle.png",          "draw/tool-circle_on.png",
@@ -2037,17 +2037,19 @@ static void image_selected(gchar *image)
 /**
  * Callback for the image load
  */
-static void load_image(gchar *image)
+static void load_image(gchar *file)
 {
-  printf("callback in draw, load_image got image %s\n", image);
+  printf("callback in draw, load_image got image %s\n", file);
+  gcompris_svg_restore(FILE_SELECTOR_ROOT, file, GNOME_CANVAS_GROUP(draw_root_item));
 }
 
 /**
  * Callback for the image save
  */
-static void save_image(gchar *image)
+static void save_image(gchar *file)
 {
-  printf("callback in draw, save_image got image %s\n", image);
+  printf("callback in draw, save_image got image %s\n", file);
+  gcompris_svg_save(FILE_SELECTOR_ROOT, file, draw_root_item, BOARDWIDTH, BOARDHEIGHT, 0);
 }
 
 /*

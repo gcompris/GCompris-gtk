@@ -266,8 +266,7 @@ static void* thread_play_ogg (void *s)
 
   if ( file )
     {
-      printf("Calling decode_ogg_file(%s)\n", file);
-      //      decode_ogg_file(file);
+      printf("Calling gcompris internal sdlplayer_file(%s)\n", file);
       sdlplayer(file, 128);
       g_free( file );
     }

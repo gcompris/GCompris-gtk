@@ -99,8 +99,16 @@ int sdlplayer_bg(char *filename, int volume)
   if(!(music=Mix_LoadMUS(filename)))
     return(cleanExit("Mix_LoadMUS(\"%s\")",filename));
 	
-  if(Mix_PlayMusic(music, 1)==-1)
-    cleanExit("Mix_PlayMusic(0x%p,1)",music);
+  if(Mix_PlayMusic(music, 1)==-1) {
+    if(strcmp(Mix_GetError(), "Unrecognized file type (not VOC)")==0) {
+      fprintf(stderr,"*** You need a version of \"SDL_mixer\" with OGG \
+              Vorbis supported ***\n");
+      exit(EXIT_FAILURE);
+    } else {
+      return(cleanExit("Mix_LoadMUS(0x%p,1)",music));
+    }
+  }
+
   Mix_VolumeMusic(volume);
 
   // wait for the music to complete
@@ -138,7 +146,13 @@ int sdlplayer(char *filename, int volume)
   Mix_VolumeChunk(sample, MIX_MAX_VOLUME);
 
   if(channel=Mix_PlayChannel(-1, sample, 0)==-1) {
-    return(cleanExit("Mix_PlayChannel"));
+    if(strcmp(Mix_GetError(), "Unrecognized file type (not VOC)")==0) {
+      fprintf(stderr,"*** You need a version of \"SDL_mixer\" with OGG \
+              Vorbis supported ***\n");
+      exit(EXIT_FAILURE);
+    } else {
+      return(cleanExit("Mix_LoadChannel(0x%p,1)",channel));
+    }
     // may be critical error, or maybe just no channels were free.
     // you could allocated another channel in that case...
   }
