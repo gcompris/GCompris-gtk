@@ -1,5 +1,7 @@
 # translation of fr.po to 
 # translation of fr.po to
+# translation of fr.po to
+# translation of fr.po to
 # translation of fr.po to Français
 # translation of fr.po to
 # translation of fr.po to
@@ -19,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-27 01:35+0100\n"
-"PO-Revision-Date: 2004-11-27 01:43+0100\n"
+"POT-Creation-Date: 2004-12-15 00:59+0100\n"
+"PO-Revision-Date: 2004-12-15 01:04+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -367,7 +369,7 @@ msgstr "Vers les activités d'algèbre"
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Clique avec le bouton gauche pour sélectionner une activité."
 
@@ -659,11 +661,12 @@ msgstr "Attrape et fais glisser les éléments pour remettre l'histoire dans l'o
 #: boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
 msgstr ""
 "Les photos de la lune viennent de la NASA. Les sons de l'espace viennent de "
-"Tuxpaint et Vegastrike. Les dates des moyens de transport ont été trouvés "
-"sur http://www.wikipedia.org"
+"Tuxpaint et Vegastrike.Les dates des moyens de transport ont été trouvés sur "
+"http://www.wikipedia.org. Images des moyens de transport par Franck Doucet."
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -709,27 +712,81 @@ msgstr "1880 l'Eole de Clement Ader"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
-msgstr "1903 le Flyer III des freres Wright"
+msgstr ""
+"1903 le Flyer III\n"
+"des freres Wright"
 
 #: boards/chronos/board4_0.xml.in.h:3
 msgid "1909 Louis Bleriot cross the Channel"
-msgstr "1909 Louis Bleriot traverse la Manche"
+msgstr ""
+"1909 Louis Bleriot\n"
+"traverse la Manche"
 
-#: boards/chronos/board4_0.xml.in.h:4
+#: boards/chronos/board4_0.xml.in.h:4 boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
 msgstr "L'aviation"
 
 #: boards/chronos/board4_1.xml.in.h:1
-msgid "1927 Charles Lindbergh cross Atlantique ocean"
-msgstr "1927 Charles Lindbergh traverse l' Atlantique"
-
-#: boards/chronos/board4_1.xml.in.h:2
-msgid "1934 Helene Boucher speed record 444km/h"
-msgstr "1934 record d' Helene Boucher 444km/h"
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 Charles Lindbergh\n"
+"traverse l' Atlantique"
 
 #: boards/chronos/board4_1.xml.in.h:3
-msgid "1947 Chuck Yager break the sound-wall"
-msgstr "1947 Chuck Yager passe le mur du son"
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 record d'Helene Boucher\n"
+"444km/h"
+
+#: boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yager\n"
+"break the sound-wall"
+msgstr ""
+"1947 Chuck Yager\n"
+"passe le mur du son"
+
+#: boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr ""
+"1769 le fardier\n"
+"de Cugnot"
+
+#: boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr "1878 Léon Bollé \"La Mancelle\""
+
+#: boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 La 1 ère automobile\n"
+"à essence de Benz"
+
+#: boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "La voiture"
+
+#: boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899 Renault \"voiturette\""
+
+#: boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923 Lancia Lambda"
+
+#: boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 199"
+msgstr "1955 Citroën ds 199"
+
+#: boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Voitures"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1748,18 +1805,23 @@ msgid "Train your memory and remove all the cards"
 msgstr "Entraînement de la mémoire, enlève toutes les cartes."
 
 #: boards/menu.xml.in.h:1
-#, fuzzy
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities."
-"\\n At the bottom of the screen is the gcompris control bar.\\n The "
-"following icons are displayed from right to left.\\n Note that each icon is "
-"displayed only if available in the current activity:\\n Home - Back to "
-"previous menu or exit gcompris if at the top\\n Thumb - OK. Confirm your "
-"answer\\n Dice - Display the current level. Click to select another level\\n "
-"Music note - Repeat the question\\n Question Mark - Help\\n Tool - The "
-"configuration menu\\n Tux Plane - About game\\n The stars means:\\n 1 Star - "
-"2 to 3 years old\\n 2 Stars - 4 to 5 years old\\n 3 Stars - 6 to 7 years old"
-"\\n"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"Note that each icon is displayed only if available in the current activity:\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About game\n"
+"The stars means:\n"
+"    1 Star  - 2 to 3 years old\n"
+"    2 Stars - 4 to 5 years old\n"
+"    3 Stars - 6 to 7 years old"
 msgstr ""
 "Pour l'utiliser, un simple clic sur une icône t'amènera vers une activité ou "
 "un menu.\n"
@@ -1781,13 +1843,13 @@ msgstr ""
 "Les étoiles signifient :\n"
 "    1 étoile  - 2 à 3 ans\n"
 "    2 étoiles - 4 à 5 ans\n"
-"    3 étoiles - 6 à 7 ans\n"
+"    3 étoiles - 6 à 7 ans"
 
-#: boards/menu.xml.in.h:2
+#: boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "Menu principal de GCompris"
 
-#: boards/menu.xml.in.h:3
+#: boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
@@ -1795,7 +1857,7 @@ msgstr ""
 "GCompris est un logiciel éducatif qui offre différentes activités aux\n"
 "enfants de 3 à 8 ans."
 
-#: boards/menu.xml.in.h:5
+#: boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -2960,7 +3022,7 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -3138,70 +3200,74 @@ msgstr "Turc"
 msgid "Walloon"
 msgstr "Wallon"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Chinoi (Simplifié)"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour GCompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "Aucun filtre"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Uniquement ce niveau"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Jusqu'à ce niveau"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "Ce niveau et au-dessus"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Pas de thème trouvé dans %s\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
