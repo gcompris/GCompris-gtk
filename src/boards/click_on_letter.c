@@ -185,11 +185,9 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 /* ======================================= */
 static void repeat ()
 {
-  printf("REPEAT\n");
   if(gcomprisBoard!=NULL)
     {
       gcompris_play_ogg(right_letter, NULL);
-
     }
 }
 
