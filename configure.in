@@ -1,0 +1,92 @@
+dnl Process this file with autoconf to produce a configure script.
+
+AC_INIT(configure.in)
+AM_INIT_AUTOMAKE(gcompris, 0.9.3)
+AM_CONFIG_HEADER(config.h)
+
+AM_PROG_XML_I18N_TOOLS
+
+AM_DISABLE_STATIC
+AM_PROG_LIBTOOL
+
+dnl Pick up the Gnome macros.
+AM_ACLOCAL_INCLUDE(macros)
+
+GNOME_INIT
+AC_ISC_POSIX
+AC_PROG_CC
+AM_PROG_CC_STDC
+AC_HEADER_STDC
+
+GNOME_COMPILE_WARNINGS
+GNOME_X_CHECKS
+GNOME_XML_CHECK
+AM_PATH_GDK_PIXBUF
+
+dnl Add the languages which your application supports here.
+ALL_LINGUAS="fr es nl it fi de pt_BR"
+AM_GNU_GETTEXT
+
+dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically
+dnl FIXME : should use gnome-config gnomecanvaspixbuf --libs
+dnl and gnome-config gnomecanvaspixbuf --cflags
+GDK_PIXBUF_LIBS="$GDK_PIXBUF_LIBS -lgnomecanvaspixbuf"
+AC_SUBST(GDK_PIXBUF_LIBS)
+
+dnl Define myprefix depending on wether our user gives us one or not
+if test "x${prefix}" = "xNONE"; then
+  myprefix=${ac_default_prefix}
+else
+  myprefix=${prefix}
+fi
+
+dnl Set PACKAGE_LOCALE_DIR in config.h.
+AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${myprefix}/${DATADIRNAME}/locale")
+
+dnl Set PACKAGE_SOUNDS_DIR
+PACKAGE_SOUNDS_DIR="sounds"
+AC_SUBST(PACKAGE_SOUNDS_DIR)
+AC_DEFINE_UNQUOTED(PACKAGE_SOUNDS_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/sounds")
+
+dnl Set PACKAGE_DATA_DIR
+PACKAGE_DATA_DIR="boards"
+AC_SUBST(PACKAGE_DATA_DIR)
+AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${myprefix}/${DATADIRNAME}/${PACKAGE}/boards")
+
+dnl Set PACKAGE_HELP_DIR
+AC_DEFINE_UNQUOTED(PACKAGE_HELP_DIR, "${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}")
+PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}"
+AC_SUBST(PACKAGE_HELP_DIR)
+
+dnl Plugin Directory
+AC_DEFINE_UNQUOTED(PLUGINSUBS, "")
+AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${myprefix}/lib/gcompris")
+
+plugindir=$libdir/gcompris
+AC_SUBST(plugindir)
+
+AC_OUTPUT([
+gcompris.spec
+Makefile
+macros/Makefile
+src/Makefile
+src/gcompris/Makefile
+src/boards/Makefile
+intl/Makefile
+po/Makefile.in
+sounds/Makefile
+docs/Makefile
+docs/C/Makefile
+boards/Makefile
+])
+
+echo ""
+echo "***************************************************"
+echo ""
+echo configure complete,
+echo gcompris will be installed in ${prefix}
+echo to compile and install in in another directory
+echo type sh configure --prefix=/usr
+echo
+echo type \'make\' to compile gcompris
+echo type \'make\' install to install it

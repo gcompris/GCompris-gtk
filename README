@@ -1,0 +1,43 @@
+		     GCompris / I Have Understood
+		      GCompris is a GNU package
+
+GCompris is an educationnal game for children starting at 3.
+It uses GTK and the Gnome Libraries (especially the gnome canvas),
+the libxml and gtk-pixbuf.
+
+
+-------------------------------------------------------------------------------
+			 GCompris MOTIVATION
+
+Big Issue:
+  Today Linux does not have a lot of usefull educational tools for children.
+  When they exist, they are hard to find and request the teacher/parent to
+  manage a lot of independant small tools.
+
+
+Big Goal:
+  Build an educationnal game suite all accessible from a single user interface.
+  GCompris provides a simple to use user interface that makes it easy select
+  appropriate boards. 
+
+How:
+  GCompris is designed in a way that it is easy to add new boards to it.
+  Today a board is called with the root canvas of the main window, and then 
+  the board is free to implement the game scheme it wants.
+  The status bar is a common facility provided to the board.
+
+  To make GCompris a powerfull tool for all its users, the teachers,
+  the children but also the developers, GCompris implements a plugin system
+  where each board is an independant plugin. Then if the board requires it,
+  the data set for this board is defined in an XML file.
+
+  GCompris will provide a board editor to let teacher/educator easily add
+  boards to GCompris.
+
+About You:
+  Yes you can help by:
+  Creating new boards.
+  Providing fancy graphics to incorporate as icons or backgrounds.
+  Translate GCompris.
+  Just giving your ideas.
+

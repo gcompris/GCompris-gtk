@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ShapeGame>
+  <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
+	 x="405" y="570" zoomx="1" zoomy="1" position="0"/>
+  <Title name="Place the shapes in their proper location"   x="394" y="570" justification="GTK_JUSTIFY_CENTER"/>
+  <Shape name="C" pixmapfile="babyshapes/toron.png"			targetfile="babyshapes/T_toron.png"  
+	 x="594" y="200" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="D" pixmapfile="babyshapes/cone.png"			targetfile="babyshapes/T_cone.png"     
+	 x="194" y="400" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="A" pixmapfile="babyshapes/banana.png"			targetfile="babyshapes/T_banana.png"  
+	 x="194" y="200" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="E" pixmapfile="babyshapes/cube.png"			targetfile="babyshapes/T_cube.png"    
+	 x="394" y="400" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="F" pixmapfile="babyshapes/half_sphere.png"		targetfile="babyshapes/T_half_sphere.png"      
+	 x="594" y="400" zoomx="1" zoomy="1" position="0"/>
+  <Shape name="B" pixmapfile="babyshapes/star.png"			targetfile="babyshapes/T_star.png"       
+	 x="394" y="200" zoomx="1" zoomy="1" position="0"/>
+</ShapeGame>
