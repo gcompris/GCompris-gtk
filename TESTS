@@ -21,8 +21,11 @@
 	babyshapes
 ----------------------------------------------
 	canal_lock
+  - tested by Pascal Georges <pascal.georges1@free.fr>
 ----------------------------------------------
 	chess_computer
+  - tested by Pascal Georges <pascal.georges1@free.fr>
+  - Black stops playing after a few moves
 ----------------------------------------------
 	chess_movelearn
 ----------------------------------------------
@@ -52,8 +55,15 @@
 	machpuzzle
 ----------------------------------------------
 	maze
+  - tested by Pascal Georges <pascal.georges1@free.fr>
+	- Small bug : After level 4, Tux automatically stops at cross roads.
+  This is nice, but for the latest portion of road, it isn't set
+  to green, so we don't visually see the green line reaching the door.
 ----------------------------------------------
 	maze3D
+  - tested by Pascal Georges <pascal.georges1@free.fr>
+  - When the green target is reached, there is no visual or audio
+  feedback indicating the end of the board.
 ----------------------------------------------
 	memory
 ----------------------------------------------
