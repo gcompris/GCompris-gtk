@@ -459,11 +459,6 @@ attribute is readeable and/or writable.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>gcompris.utils.load_number_pixmap(number)</entry>
-		<entry>GdkPixbuf *gcompris_load_number_pixmap(char number)</entry>
-		<entry>return a gtk.gdk.Pixbuf</entry>
-	      </row>
-	      <row>
 		<entry>gcompris.utils.image_to_skin(imagename)</entry>
 		<entry>gchar *gcompris_image_to_skin(gchar *imagename)</entry>
 		<entry>return a string</entry>
