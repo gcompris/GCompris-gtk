@@ -101,9 +101,6 @@ static void* scheduler_bgnd ()
   int namelistlength = 0;
   GList *musiclist = NULL;
 
-  if ( !gcompris_get_properties()->music )
-    return;
-
   /* Sleep to let gcompris intialisation and intro music to complete */
   sleep(20);
 
@@ -136,6 +133,10 @@ static void* scheduler_bgnd ()
   /* Now loop over all our music files */
   while (TRUE)
     {
+      /* Music can be disabled at any time */
+      if ( !gcompris_get_properties()->music )
+	return;
+
       for(i=0; i<g_list_length(musiclist); i++)
 	{
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */

@@ -1,6 +1,24 @@
+2003-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* TODO: updated
+	* src/boards/draw.c: (get_tool_cursor), (item_event_move): changed drawing tools order. 
+	*                                                          fixed raise/lower button.
+	* src/boards/menu.c: (menu_create_item): put in red sound icon if sound is not working
+	* src/gcompris/oggplayer.c: (decode_ogg_file): disable the sounds in gcompris if cannot open it
+	* src/gcompris/properties.h: added a boolean to check if the sounds is working
+	* src/gcompris/soundutil.c: (scheduler_bgnd): check in the background loop if sounds is enabled
+	*                                             now if you disable music, next song will quit the 
+	*                                             background loop
+	* src/gcompris/gcompris.c: (gcompris_set_cursor): Patch from PUYDT Julien (from debian)
+	*                          solves the cursor random color.
+	* src/gcompris/properties.c: (gcompris_properties_new): now esd no more used by default
+	*                            as the sound output but the default libao output. this
+	*                            maybe changed using gcompris -A or editing /etc/libao.conf
+	*                            added a boolean to check if the sounds is working
+
 2003-10-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/draw.c: chaged to rotate only item not group and recalc anchors
+	* src/boards/draw.c: changed to rotate only item not group and recalc anchors
 	resizing an image works fine but it is not easy to resize it after
 	
 2003-10-30  Bruno coudoin  <bruno.coudoin@free.fr>

@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/10/23 00:49:46 bcoudoin>
+ * Time-stamp: <2003/11/04 22:22:04 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -356,7 +356,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 	g_warning("Checking mandatory_sound_file %s\n", soundfile);
       }
 
-      if (!g_file_exists (soundfile)) 
+      if (!g_file_exists (soundfile) || !gcompris_get_properties()->audio_works) 
 	{
 	  pixmap = gcompris_load_skin_pixmap("voice_bad.png");
 	}

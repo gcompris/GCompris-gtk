@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/10/29 00:45:38 bcoudoin>
+ * Time-stamp: <2003/11/04 22:25:17 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -43,7 +43,10 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->fullscreen	= gnome_config_get_int    ("/gcompris/Preferences/fullscreen=1");
   tmp->timer		= gnome_config_get_int    ("/gcompris/Preferences/timer=1");
   tmp->skin		= gnome_config_get_string ("/gcompris/Preferences/skin=default");
-  tmp->audio_output	= gnome_config_get_string ("/gcompris/Preferences/audio_output=esd");
+  tmp->audio_output	= gnome_config_get_string ("/gcompris/Preferences/audio_output=");
+
+  /* By default audio is said to work until libao fails to load it */
+  tmp->audio_works	= TRUE;
 
   /* Non persistant value */
   tmp->difficulty_filter = -1;		/* No difficulty filter by default */
@@ -87,6 +90,7 @@ GcomprisProperties *gcompris_properties_copy (GcomprisProperties *props)
 
   tmp->music		 = props->music;
   tmp->fx		 = props->fx;
+  tmp->audio_works	 = props->audio_works;
   tmp->screensize	 = props->screensize;
   tmp->timer		 = props->timer;
   tmp->fullscreen	 = props->fullscreen;

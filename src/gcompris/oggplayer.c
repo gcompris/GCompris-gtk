@@ -97,6 +97,10 @@ int decode_ogg_file(char *infile)
 
   if ( driver_id < 0 ){
      fprintf(stderr, "Error unable to find a usable audio output device (%d)\nTry gcompris -A to select an alternative audio output", driver_id);
+     /* Disable sounds in gcompris */
+     properties->music = FALSE;
+     properties->fx = FALSE;
+     properties->audio_works = FALSE;
      return 0;
   }
   

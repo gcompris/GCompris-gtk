@@ -1,8 +1,8 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/10/29 01:00:20 bcoudoin>
+ * Time-stamp: <2003/11/03 16:20:31 bcoudoin>
  *
- * Copyright (C) 2000,2001 Bruno Coudoin
+ * Copyright (C) 2000-2003 Bruno Coudoin
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -297,16 +297,22 @@ void gcompris_set_cursor(guint gdk_cursor_type)
   // I suppose there is less than GCOMPRIS_FIRST_CUSTOM_CURSOR cursors defined in gdkcursors.h !
   if (gdk_cursor_type < GCOMPRIS_FIRST_CUSTOM_CURSOR) {
     cursor = gdk_cursor_new(gdk_cursor_type);
-    gdk_window_set_cursor	 (window->window, cursor);
+    gdk_window_set_cursor (window->window, cursor);
     gdk_cursor_destroy(cursor);
   } else { // we use a custom cursor
     GdkColor fg, bg;
     //    static const gchar * cursor;
     static const gchar ** bits;
-    
+
+    gdk_color_parse("rgb:FFFF/FFFF/FFFF",&fg);
+    gdk_color_parse("rgb:FFFF/3FFF/0000",&bg);
+
+    gdk_color_parse("black",&fg);
+    gdk_color_parse("red",&bg);
+
     switch (gdk_cursor_type) {
     case GCOMPRIS_BIG_RED_ARROW_CURSOR : 
-      bits = big_red_arrow_cursor_bits; 
+      bits = big_red_arrow_cursor_bits;
       break;
     case GCOMPRIS_BIRD_CURSOR : 
       bits = bird_cursor_bits; 
@@ -338,8 +344,6 @@ void gcompris_set_cursor(guint gdk_cursor_type)
     default : bits = big_red_arrow_cursor_bits;
     }
     
-    gdk_color_parse("rgb:FFFF/FFFF/FFFF",&fg);
-    gdk_color_parse("rgb:FFFF/3FFF/0000",&bg);
     cursor = gdk_cursor_new_from_data(bits, 40 , 40, &fg, &bg, 0, 0);
     gdk_window_set_cursor(window->window, cursor);
     gdk_cursor_destroy(cursor);

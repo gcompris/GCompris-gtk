@@ -58,7 +58,7 @@ typedef enum
     TOOL_CIRCLE		= 2,
     TOOL_FILLED_CIRCLE	= 3,
     TOOL_LINE		= 4,
-    TOOL_FLIP		= 5,
+    TOOL_IMAGE		= 5,
     TOOL_TEXT		= 6,
     TOOL_GRID		= 7,
     TOOL_DELETE		= 8,
@@ -66,7 +66,7 @@ typedef enum
     TOOL_RAISE		= 10,
     TOOL_LOWER		= 11,
     TOOL_SELECT		= 12,
-    TOOL_IMAGE		= 13,
+    TOOL_FLIP		= 13,
     TOOL_ROTATE_CCW	= 14,
     TOOL_ROTATE_CW	= 15,
   } ToolList;
@@ -85,7 +85,7 @@ static char *tool_pixmap_name[] =
     "draw/tool-circle.png",          "draw/tool-circle_on.png",
     "draw/tool-filledcircle.png",    "draw/tool-filledcircle_on.png",
     "draw/tool-line.png",            "draw/tool-line_on.png",
-    "draw/tool-flip.png",           "draw/tool-flip_on.png",
+    "draw/tool-image.png",           "draw/tool-image_on.png",
     "draw/tool-text.png",            "draw/tool-text_on.png",
     "draw/tool-grid.png",            "draw/tool-grid_on.png",
     "draw/tool-del.png",             "draw/tool-del_on.png",
@@ -93,7 +93,7 @@ static char *tool_pixmap_name[] =
     "draw/tool-up.png",              "draw/tool-up_on.png",
     "draw/tool-down.png",            "draw/tool-down_on.png",
     "draw/tool-select.png",          "draw/tool-select_on.png",
-    "draw/tool-image.png",           "draw/tool-image_on.png",
+    "draw/tool-flip.png",           "draw/tool-flip_on.png",
     "draw/tool-rotation-ccw.png",    "draw/tool-rotation-ccw_on.png",
     "draw/tool-rotation-cw.png",     "draw/tool-rotation-cw_on.png"
   };
@@ -825,6 +825,8 @@ static guint get_tool_cursor(ToolList tool)
     case TOOL_FILLED_CIRCLE:
       return(GCOMPRIS_FILLCIRCLE_CURSOR);
       break;
+    case TOOL_RAISE:
+    case TOOL_LOWER:
     case TOOL_IMAGE:
     case TOOL_LINE:
     case TOOL_TEXT:
@@ -2066,11 +2068,11 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    break;
 
 	  case TOOL_RAISE:
-	    gnome_canvas_item_raise(anchorsItem->item, 1);
+	    gnome_canvas_item_raise(anchorsItem->rootitem, 1);
 	    break;
 
 	  case TOOL_LOWER:
-	    gnome_canvas_item_lower(anchorsItem->item, 1);
+	    gnome_canvas_item_lower(anchorsItem->rootitem, 1);
 	    break;
 
 	  case TOOL_ROTATE_CW:
@@ -2127,12 +2129,10 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_RAISE:
-	    gnome_canvas_item_lower(anchorsItem->item, 1);
-	    reset_anchors_bounded(anchorsItem);
+	    gnome_canvas_item_lower(anchorsItem->rootitem, 1);
 	    break;
 	  case TOOL_LOWER:
-	    gnome_canvas_item_raise(anchorsItem->item, 1);
-	    reset_anchors_bounded(anchorsItem);
+	    gnome_canvas_item_raise(anchorsItem->rootitem, 1);
 	    break;
 
 	  default:
