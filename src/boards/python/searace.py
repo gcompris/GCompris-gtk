@@ -37,7 +37,8 @@ class Boat:
   x    = 0.0
   y    = 0.0
   angle  = 0
-
+  arrived = False
+  
   # To move the ship
   dx   = 0.0
   dy   = 0.0
@@ -83,6 +84,9 @@ class Gcompris_searace:
 
     # How to transform user visible sea size to pixels (calculated later)
     self.sea_ratio = 1
+
+    # We display what's going on here
+    self.statusitem = []
     
     print("Gcompris_searace __init__.")
   
@@ -152,11 +156,13 @@ class Gcompris_searace:
       self.race_one_command(self.left_boat)
       self.race_one_command(self.right_boat)
     else:
-      print "Race is already running"
+      self.statusitem.set(text=_("Race is already running"))
 
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
-    if(not self.left_boat.timer and not self.right_boat.timer):
+    if(self.left_boat.timer or self.right_boat.timer):
+      self.statusitem.set(text=_("Race is already running"))
+    else:
       self.gcomprisBoard.level=level;
       self.gcomprisBoard.sublevel=1;
       
@@ -181,7 +187,9 @@ class Gcompris_searace:
   def repeat(self):
     print("Gcompris_searace repeat.")
     # Want to rerun it
-    if(not self.left_boat.timer and not self.right_boat.timer):
+    if(self.left_boat.timer or self.right_boat.timer):
+      self.statusitem.set(text=_("Race is already running"))
+    else:
       self.init_boats()
       
             
@@ -232,9 +240,11 @@ class Gcompris_searace:
     self.right_boat.item.raise_to_top()
     
     # Reset command line processing as well.
-    self.left_boat.line  = 0
-    self.right_boat.line = 0
-
+    self.left_boat.line     = 0
+    self.right_boat.line    = 0
+    self.left_boat.arrived  = False
+    self.right_boat.arrived = False
+    self.statusitem.set(text="")
 
   #----------------------------------------
   # Display the whole playing field
@@ -330,16 +340,17 @@ class Gcompris_searace:
       
     w = 250.0
     h = 100.0
+    y = 400.0
     self.left_boat.tb = gtk.TextBuffer()
     self.left_boat.tv = gtk.TextView(self.left_boat.tb)
     sw.add(self.left_boat.tv)
-    self.left_boat.tb.set_text("forward 100")
+    self.left_boat.tb.set_text("turnleft 45\nforward 1\nturnright 45")
     self.left_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
       widget=sw,
       x=gcompris.BOARD_WIDTH/4,
-      y=400,
+      y=y,
       width=w,
       height= h,
       anchor=gtk.ANCHOR_N,
@@ -357,13 +368,13 @@ class Gcompris_searace:
     self.right_boat.tb = gtk.TextBuffer()
     self.right_boat.tv = gtk.TextView(self.right_boat.tb)
     sw.add(self.right_boat.tv)
-    self.right_boat.tb.set_text("forward 100")
+    self.right_boat.tb.set_text("turnright 45\nforward 1\nturnleft 45")
     self.right_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
       widget=sw,
       x=(gcompris.BOARD_WIDTH/4)*3,
-      y=400,
+      y=y,
       width=w,
       height= h,
       anchor=gtk.ANCHOR_N,
@@ -377,7 +388,7 @@ class Gcompris_searace:
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/4,
-      y=400-20,
+      y=y-15,
       fill_color_rgba=0xFF0000FFL
       )
 
@@ -386,9 +397,40 @@ class Gcompris_searace:
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=(gcompris.BOARD_WIDTH/4)*3,
-      y=400-20,
+      y=y-15,
       fill_color_rgba=0X027308FFL
       )
+
+    # The status area
+    self.statusitem = self.rootitem.add (
+      gnome.canvas.CanvasText,
+      text="",
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH/2,
+      y=y-40,
+      fill_color_rgba=0XFF66FFFFL
+      )
+
+    # The decoration boats
+    pixmap = gcompris.utils.load_pixmap("images/top_boat_red.png")
+    item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x=50,
+      y=y+40,
+      anchor=gtk.ANCHOR_CENTER,
+      )
+    gcompris.utils.item_rotate_relative(item, -90);
+
+    pixmap = gcompris.utils.load_pixmap("images/top_boat_green.png")
+    item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x=gcompris.BOARD_WIDTH-50,
+      y=y+40,
+      anchor=gtk.ANCHOR_CENTER,
+      )
+    gcompris.utils.item_rotate_relative(item, -90);
 
 
   # Weather condition is a 2 value pair (angle wind_speed)
@@ -445,8 +487,8 @@ class Gcompris_searace:
     item = self.root_weather_item.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
-      x=cx-pixmap.get_width()/2,
-      y=cy-pixmap.get_height()/2,
+      x=cx,
+      y=cy,
       anchor=gtk.ANCHOR_CENTER
       )
     gcompris.utils.item_rotate_relative(item, condition[1][0]);
@@ -456,8 +498,8 @@ class Gcompris_searace:
       gnome.canvas.CanvasText,
       text=condition[1][1],
       font=gcompris.skin.get_font("gcompris/content"),
-      x=cx+1,
-      y=cy+1,
+      x=cx+1+pixmap.get_width()/2,
+      y=cy+1+pixmap.get_height()/2,
       fill_color_rgba=0x000000FFL
       )
     
@@ -466,8 +508,8 @@ class Gcompris_searace:
       gnome.canvas.CanvasText,
       text=condition[1][1],
       font=gcompris.skin.get_font("gcompris/content"),
-      x=cx,
-      y=cy,
+      x=cx+pixmap.get_width()/2,
+      y=cy+pixmap.get_height()/2,
       fill_color_rgba=0xFFFFFFFFL
       )
     return
@@ -522,7 +564,13 @@ class Gcompris_searace:
       (boat.x, boat.y)= boat.item.w2i( x, y)
     elif(x>self.sea_area[2]):
       # This is the finish line
-      print "Player " + str(boat.player) + " has finished"
+      boat.arrived = True
+
+      if(self.left_boat.arrived):
+        self.statusitem.set(text=_("The Red boat has won"))
+      elif(self.right_boat.arrived):
+        self.statusitem.set(text=_("The Green boat has won"))
+           
       boat.timer = 0
       return
 
@@ -550,7 +598,7 @@ class Gcompris_searace:
       penalty*=2
     wind = cx*condition[1]*-1*penalty
     #print "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-    boat.speeditem.set(text = "Angle:" + str(condition[0]) + " Wind:" + str(int(wind)*-1) + " (" + str(condition[1]) + ")")
+    boat.speeditem.set(text = "Angle:" + str(condition[0]) + " Wind:" + str(int(wind)*-1))
     boat.timer = gtk.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
 
     
@@ -596,9 +644,10 @@ class Gcompris_searace:
       return
     
     cmd   = boat.tb.get_text(a, b, gtk.FALSE)
+    cmd   = cmd.lstrip("\n\t ")
     cmds  = cmd.split()
     if ( len(cmds) != 2):
-      print "Player " + str(boat.player) + " Syntax error command=" + cmd + " At line " + str(boat.line)
+      boat.speeditem.set(text=" Syntax error command at line " + str(boat.line) + " (" + cmd + ")")
       boat.line = 0
       boat.timer = 0
       return
@@ -617,5 +666,5 @@ class Gcompris_searace:
     else:
       boat.line = 0
       boat.timer = 0
-      print "Player " + str(boat.player) + " Unknown command: " + "'" + cmd + "'"
-      print "Player " + str(boat.player) + "Stop processing your commands"
+      boat.speeditem.set(text="Unknown command at line " + str(boat.line) + "(" + cmd + ")")
+

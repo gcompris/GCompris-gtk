@@ -1,3 +1,15 @@
+2005-01-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/searace.png: added, created by bruno
+	* boards/searace.xml.in: set to level 6, first manual.
+	* src/boards/python/searace.py: FIRST playable version, have fun.
+
+2005-01-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/searace.py: playable now !!. Need more feedback and better parsing.
+	* src/gcompris/gameutil.c: (item_rotate_relative),
+	(gcompris_dialog_close): fixed rotation of groups (unsure, not tested)
+
 2004-12-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/anim.py: fixed rotation. still bugged at anchors level
