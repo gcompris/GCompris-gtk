@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/09/16 22:37:06 bcoudoin>
+ * Time-stamp: <2004/09/29 00:16:53 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -159,7 +159,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_ABOUT);
 
       /* FIXME : Workaround for bugged canvas */
-      //gnome_canvas_update_now(gcomprisBoard->canvas);
+      gnome_canvas_update_now(gcomprisBoard->canvas);
 
       menu_pause(FALSE);
 

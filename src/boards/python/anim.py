@@ -1084,7 +1084,7 @@ class Gcompris_anim:
 
     # Recreate the anchors
     for item in shot.item_list:
-      self.anchorize(item)
+      self.recursive_anchorize(item)
 
     # Hide the current drawing
     modele.hide()
