@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-03-12 10:40+0100\n"
+"POT-Creation-Date: 2002-03-17 10:13+0100\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -490,36 +490,36 @@ msgid "Missing Letter"
 msgstr "Lettre manquante"
 
 #: boards/missing_letter/board1.xml.in.h:1
-msgid "apple _pple a i o"
-msgstr "pomme p_mme o i u"
+msgid "apple/_pple/a/i/o"
+msgstr "pomme/p_mme/o/i/u"
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball _all b p d"
-msgstr "ballon _allon b g p"
+msgid "ball/_all/b/p/d"
+msgstr "ballon/_allon/b/g/p"
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana b_nana a o i"
-msgstr "banane b_nane a o u"
+msgid "banana/b_nana/a/o/i"
+msgstr "banane/b_nane/a/o/u"
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed _ed b l f"
-msgstr "lit _it l p t"
+msgid "bed/_ed/b/l/f"
+msgstr "lit/_it/l/p/t"
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle _ottle b t p"
-msgstr "biberon _iberon b p d"
+msgid "bottle/_ottle/b/t/p"
+msgstr "biberon/_iberon/b/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake _ake c p d"
-msgstr "gâteau _âteau g p l"
+msgid "cake/_ake/c/p/d"
+msgstr "gâteau/_âteau/g/p/l"
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house hous_ e a i"
-msgstr "maison _aison m l d"
+msgid "house/hous_/e/a/i"
+msgstr "maison/_aison/m/l/d"
 
 #: boards/missing_letter/board1.xml.in.h:8
-msgid "satchel s_tchel a o i"
-msgstr "cartable cart_ble a o u"
+msgid "satchel/s_tchel/a/o/i"
+msgstr "cartable/cart_ble/a/o/u"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -595,11 +595,11 @@ msgstr ""
 "Ce tableau est un jeu. Il ne requiert pas de connaissances particulières "
 "pour y jouer."
 
-#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
+#: boards/planegame.xml.in.h:1 src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Déplace l'avion pour attraper les nuages dans le bon ordre"
 
-#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
+#: boards/planegame.xml.in.h:2 src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Les nombres dans l'ordre"
 
@@ -701,8 +701,8 @@ msgstr "Lecture"
 msgid "Learn how to read"
 msgstr "Apprends à lire"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:537
-#: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
+#: src/boards/imageid.c:578 src/boards/menu.c:537
+#: src/boards/missingletter.c:600 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -710,7 +710,7 @@ msgstr "Apprends à lire"
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/imageid.c:573 src/boards/missingletter.c:590
+#: src/boards/imageid.c:581 src/boards/missingletter.c:603
 #: src/boards/shapegame.c:1309
 #, c-format
 msgid "find file %s !"
@@ -778,11 +778,11 @@ msgstr ""
 "L'image d'une main est montrée, il faut déterminer si c'est la gauche ou la "
 "droite"
 
-#: src/boards/leftright.c:242
+#: src/boards/leftright.c:243
 msgid "left"
 msgstr "gauche"
 
-#: src/boards/leftright.c:252
+#: src/boards/leftright.c:253
 msgid "right"
 msgstr "droite"
 

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-03-12 10:40+0100\n"
+"POT-Creation-Date: 2002-03-17 10:13+0100\n"
 "PO-Revision-Date: 2002-01-14 00:07+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -465,36 +465,44 @@ msgid "Missing Letter"
 msgstr "Saknad bokstav"
 
 #: boards/missing_letter/board1.xml.in.h:1
-msgid "apple _pple a i o"
-msgstr "äpple _pple ä i ö"
+#, fuzzy
+msgid "apple/_pple/a/i/o"
+msgstr "äpple/_pple/ä/i/ö"
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball _all b p d"
-msgstr "boll _oll b p d"
+#, fuzzy
+msgid "ball/_all/b/p/d"
+msgstr "boll/_oll/b/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana b_nana a o i"
-msgstr "banan b_nan a o i"
+#, fuzzy
+msgid "banana/b_nana/a/o/i"
+msgstr "banan/b_nan/a/o/i"
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed _ed b l f"
-msgstr "säng _äng s l f"
+#, fuzzy
+msgid "bed/_ed/b/l/f"
+msgstr "säng/_äng/s/l/f"
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle _ottle b t p"
-msgstr "flaska _laska f t k"
+#, fuzzy
+msgid "bottle/_ottle/b/t/p"
+msgstr "flaska/_laska/f/t/k"
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake _ake c p d"
-msgstr "kaka _aka k p d"
+#, fuzzy
+msgid "cake/_ake/c/p/d"
+msgstr "kaka/_aka/k/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house hous_ e a i"
-msgstr "hus h_s u ä i"
+#, fuzzy
+msgid "house/hous_/e/a/i"
+msgstr "hus/h_s/u/ä/i"
 
 #: boards/missing_letter/board1.xml.in.h:8
-msgid "satchel s_tchel a o i"
-msgstr "skolväska sk_lväska o a i"
+#, fuzzy
+msgid "satchel/s_tchel/a/o/i"
+msgstr "skolväska/sk_lväska/o/a/i"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -567,11 +575,11 @@ msgid ""
 "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr "Detta bräde är spelorienterat. Det kräver inga speciella förkunskaper."
 
-#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
+#: boards/planegame.xml.in.h:1 src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Flytta planet så att det når molnen i rätt följd"
 
-#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
+#: boards/planegame.xml.in.h:2 src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Tal i ordning"
 
@@ -677,8 +685,8 @@ msgstr "Läsning"
 msgid "Learn how to read"
 msgstr "Lär dig läsa"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:537
-#: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
+#: src/boards/imageid.c:578 src/boards/menu.c:537
+#: src/boards/missingletter.c:600 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -686,7 +694,7 @@ msgstr "Lär dig läsa"
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
-#: src/boards/imageid.c:573 src/boards/missingletter.c:590
+#: src/boards/imageid.c:581 src/boards/missingletter.c:603
 #: src/boards/shapegame.c:1309
 #, c-format
 msgid "find file %s !"
@@ -754,11 +762,11 @@ msgstr ""
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 
-#: src/boards/leftright.c:242
+#: src/boards/leftright.c:243
 msgid "left"
 msgstr ""
 
-#: src/boards/leftright.c:252
+#: src/boards/leftright.c:253
 msgid "right"
 msgstr ""
 

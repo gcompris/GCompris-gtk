@@ -336,7 +336,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
     buf[2] = board->l3;
     break;
   }
-  
+
   yOffset = ( gcomprisBoard->height - 3*gdk_pixbuf_get_height(button_pixmap) - 2*VERTICAL_SEPARATION) / 2;
   xOffset = (img_area_x-gdk_pixbuf_get_width(button_pixmap))/2;
   button1 = gnome_canvas_item_new (boardRootItem,
@@ -518,9 +518,10 @@ static void init_xml()
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
+	//int i;
   char *pixmapfile = NULL;
-  char question[255], answer[255];
-  char l1[2], l2[2], l3[2];
+  char *question = NULL, *answer = NULL;//question[255], answer[255];
+  char *l1 = NULL, *l2 = NULL, *l3 = NULL;//l1[2], l2[2], l3[2];
   char *data = NULL;
   Board * board = g_new(Board,1);
 
@@ -549,7 +550,16 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   if ( pixmapfile == NULL || data == NULL)
     return;
 
-  sscanf(data, "%s %s %s %s %s", answer, question, l1, l2, l3);
+/*  if ((i=sscanf(data, "%s / %s / %s / %s / %s", answer, question, l1, l2, l3)) != 5)
+		printf("Error sscanf result != 5 = %i\n",i);
+*/
+	answer = strtok(data,"/");
+	question = strtok(NULL,"/");
+	l1 = strtok(NULL,"/");
+	l2 = strtok(NULL,"/");
+	l3 = strtok(NULL,"/");
+
+	assert(l1 != NULL  && l2 != NULL && l3 != NULL && answer != NULL && question != NULL);
 
   board->pixmapfile = g_strdup(pixmapfile);
   board->question = g_strdup(question);

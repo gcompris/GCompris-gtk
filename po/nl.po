@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-03-12 10:40+0100\n"
+"POT-Creation-Date: 2002-03-17 10:13+0100\n"
 "PO-Revision-Date: 2002-01-28 04:02+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -480,36 +480,44 @@ msgid "Missing Letter"
 msgstr "Ontbrekende Letter"
 
 #: boards/missing_letter/board1.xml.in.h:1
-msgid "apple _pple a i o"
-msgstr "appel _ppel a i o"
+#, fuzzy
+msgid "apple/_pple/a/i/o"
+msgstr "appel/_ppel/a/i/o"
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball _all b p d"
-msgstr "bal _al b p d"
+#, fuzzy
+msgid "ball/_all/b/p/d"
+msgstr "bal/_al/b/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana b_nana a o i"
-msgstr "banaan b_naan a o i"
+#, fuzzy
+msgid "banana/b_nana/a/o/i"
+msgstr "banaan/b_naan/a/o/i"
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed _ed b l f"
-msgstr "bed _ed b l f"
+#, fuzzy
+msgid "bed/_ed/b/l/f"
+msgstr "bed/_ed/b/l/f"
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle _ottle b t p"
-msgstr "fles _les f t p"
+#, fuzzy
+msgid "bottle/_ottle/b/t/p"
+msgstr "fles/_les/f/t/p"
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake _ake c p d"
-msgstr "taart _aart t p d"
+#, fuzzy
+msgid "cake/_ake/c/p/d"
+msgstr "taart/_aart/t/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house hous_ e a i"
-msgstr "huis hui_ s z f"
+#, fuzzy
+msgid "house/hous_/e/a/i"
+msgstr "huis/hui_/s/z/f"
 
 #: boards/missing_letter/board1.xml.in.h:8
-msgid "satchel s_tchel a o i"
-msgstr "schooltas scho_ltas o a i"
+#, fuzzy
+msgid "satchel/s_tchel/a/o/i"
+msgstr "schooltas/scho_ltas/o/a/i"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -582,11 +590,11 @@ msgid ""
 msgstr ""
 "Dit spel is spel-georienteerd. Je hebt geen speciale vaardigheden nodig."
 
-#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
+#: boards/planegame.xml.in.h:1 src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Stuur het vliegtuig naar de wolken in de juiste volgorde"
 
-#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
+#: boards/planegame.xml.in.h:2 src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Getallen in Volgorde"
 
@@ -691,8 +699,8 @@ msgstr "Lezen"
 msgid "Learn how to read"
 msgstr "Leer te lezen"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:537
-#: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
+#: src/boards/imageid.c:578 src/boards/menu.c:537
+#: src/boards/missingletter.c:600 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -700,7 +708,7 @@ msgstr "Leer te lezen"
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: src/boards/imageid.c:573 src/boards/missingletter.c:590
+#: src/boards/imageid.c:581 src/boards/missingletter.c:603
 #: src/boards/shapegame.c:1309
 #, c-format
 msgid "find file %s !"
@@ -766,11 +774,11 @@ msgstr ""
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 
-#: src/boards/leftright.c:242
+#: src/boards/leftright.c:243
 msgid "left"
 msgstr ""
 
-#: src/boards/leftright.c:252
+#: src/boards/leftright.c:253
 msgid "right"
 msgstr ""
 

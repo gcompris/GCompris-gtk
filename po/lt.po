@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
-"POT-Creation-Date: 2002-03-13 02:28+0000\n"
+"POT-Creation-Date: 2002-03-17 10:13+0100\n"
 "PO-Revision-Date: 2002-03-13 02:15-0000\n"
 "Last-Translator: Mantas Kriauciunas <mantelis@centras.lt>\n"
 "Language-Team: Lithuanian <komp_lt@lkonferencijos.lt>\n"
@@ -458,36 +458,44 @@ msgid "Missing Letter"
 msgstr "Áraðyk raidæ"
 
 #: boards/missing_letter/board1.xml.in.h:1
-msgid "apple _pple a i o"
-msgstr "obuolys _buolys o a u"
+#, fuzzy
+msgid "apple/_pple/a/i/o"
+msgstr "obuolys/_buolys/o/a/u"
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball _all b p d"
-msgstr "kamuolys _amuolys k s g"
+#, fuzzy
+msgid "ball/_all/b/p/d"
+msgstr "kamuolys/_amuolys/k/s/g"
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana b_nana a o i"
-msgstr "bananas b_nanas a o e"
+#, fuzzy
+msgid "banana/b_nana/a/o/i"
+msgstr "bananas/b_nanas/a/o/e"
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed _ed b l f"
-msgstr "lova _ova l m k"
+#, fuzzy
+msgid "bed/_ed/b/l/f"
+msgstr "lova/_ova/l/m/k"
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle _ottle b t p"
-msgstr "butelis _utelis b k p"
+#, fuzzy
+msgid "bottle/_ottle/b/t/p"
+msgstr "butelis/_utelis/b/k/p"
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake _ake c p d"
-msgstr "tortas _ortas t p k"
+#, fuzzy
+msgid "cake/_ake/c/p/d"
+msgstr "tortas/_ortas/t/p/k"
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house hous_ e a i"
-msgstr "namas nama_ s u c"
+#, fuzzy
+msgid "house/hous_/e/a/i"
+msgstr "namas/nama_/s/u/c"
 
 #: boards/missing_letter/board1.xml.in.h:8
-msgid "satchel s_tchel a o i"
-msgstr "krepðys k_epðys r i l"
+#, fuzzy
+msgid "satchel/s_tchel/a/o/i"
+msgstr "krepðys/k_epðys/r/i/l"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -561,11 +569,11 @@ msgid ""
 "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr "Ðis þaidimas nereikalauja specifiniø ágûdþiø."
 
-#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
+#: boards/planegame.xml.in.h:1 src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Teisinga tvarka nuskrisk prie debesëliø "
 
-#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
+#: boards/planegame.xml.in.h:2 src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Skaièiai ið eilës"
 
@@ -667,8 +675,8 @@ msgstr "Skaitymas"
 msgid "Learn how to read"
 msgstr "Iðmok skaityti"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:537
-#: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
+#: src/boards/imageid.c:578 src/boards/menu.c:537
+#: src/boards/missingletter.c:600 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -676,7 +684,7 @@ msgstr "Iðmok skaityti"
 msgid "Couldn't find file %s !"
 msgstr "Negaliu rasti bylos %s !"
 
-#: src/boards/imageid.c:573 src/boards/missingletter.c:590
+#: src/boards/imageid.c:581 src/boards/missingletter.c:603
 #: src/boards/shapegame.c:1309
 #, c-format
 msgid "find file %s !"
@@ -742,11 +750,11 @@ msgstr "Nuspræsk deðinë ar kairë ranka"
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr "Ið nuotraukø nuspræsk deðinë ar kairë tai ranka"
 
-#: src/boards/leftright.c:242
+#: src/boards/leftright.c:243
 msgid "left"
 msgstr "kairë"
 
-#: src/boards/leftright.c:252
+#: src/boards/leftright.c:253
 msgid "right"
 msgstr "deðinë"
 

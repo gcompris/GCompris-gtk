@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris-0.3.4\n"
-"POT-Creation-Date: 2002-03-12 10:40+0100\n"
+"POT-Creation-Date: 2002-03-17 10:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Isaías V. Prestes <isix@uol.com.br>\n"
 "Language-Team: pt_BR <pt_BR@li.org>\n"
@@ -436,35 +436,35 @@ msgid "Missing Letter"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:1
-msgid "apple _pple a i o"
+msgid "apple/_pple/a/i/o"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball _all b p d"
+msgid "ball/_all/b/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana b_nana a o i"
+msgid "banana/b_nana/a/o/i"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed _ed b l f"
+msgid "bed/_ed/b/l/f"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle _ottle b t p"
+msgid "bottle/_ottle/b/t/p"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake _ake c p d"
+msgid "cake/_ake/c/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house hous_ e a i"
+msgid "house/hous_/e/a/i"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:8
-msgid "satchel s_tchel a o i"
+msgid "satchel/s_tchel/a/o/i"
 msgstr ""
 
 #: boards/paintings.xml.in.h:1
@@ -532,11 +532,11 @@ msgid ""
 "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 
-#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
+#: boards/planegame.xml.in.h:1 src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr ""
 
-#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
+#: boards/planegame.xml.in.h:2 src/boards/planegame.c:77
 #, fuzzy
 msgid "Numbers in Order"
 msgstr "Números dos Dados"
@@ -644,8 +644,8 @@ msgstr ""
 msgid "Learn how to read"
 msgstr "Aprenda como acertar as horas do relógio"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:537
-#: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
+#: src/boards/imageid.c:578 src/boards/menu.c:537
+#: src/boards/missingletter.c:600 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
 #: src/gcompris/gameutil.c:358
@@ -653,7 +653,7 @@ msgstr "Aprenda como acertar as horas do relógio"
 msgid "Couldn't find file %s !"
 msgstr "Impossível encontrar o arquivo pixmap %s !"
 
-#: src/boards/imageid.c:573 src/boards/missingletter.c:590
+#: src/boards/imageid.c:581 src/boards/missingletter.c:603
 #: src/boards/shapegame.c:1309
 #, fuzzy, c-format
 msgid "find file %s !"
@@ -720,11 +720,11 @@ msgstr ""
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 
-#: src/boards/leftright.c:242
+#: src/boards/leftright.c:243
 msgid "left"
 msgstr ""
 
-#: src/boards/leftright.c:252
+#: src/boards/leftright.c:253
 msgid "right"
 msgstr ""
 
