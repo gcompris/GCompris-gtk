@@ -344,7 +344,7 @@ static void reversecount_next_level()
     case 4:
       number_of_item_x = 8;
       number_of_item_y = 6;
-      number_of_dices = 2;
+      number_of_dices = 1;
       max_dice_number = 3;
       number_of_fish = 6;
       break;
@@ -537,24 +537,29 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block)
   if(block < number_of_item_x)
     {
       // Upper line
+      printf("      // Upper line\n");
       i = block_width * block;
       j = 0;
     } 
-  else if(block < number_of_item_x + number_of_item_y - 1)
+  else if(block < number_of_item_x + number_of_item_y - 2)
     {
       // Right line
+      printf("      // Right line\n");
       i = block_width * (number_of_item_x - 1);
       j = block_height * (block - (number_of_item_x-1));
     }
   else if(block < number_of_item_x*2 + number_of_item_y - 2)
     {
       // Bottom line
-      i = block_width * (number_of_item_x - (block-(number_of_item_x*2-1))-2);
+      printf("      // Bottom line\n");
+      i = block_width * (number_of_item_x - (block-
+					     (number_of_item_x+number_of_item_y-1))-2);
       j = block_height * (number_of_item_y-1);
     }
   else
     {
       // Left line
+      printf("      // Left line\n");
       i = 0;
       j = block_height * (number_of_item_y - (block - (number_of_item_x*2 + 
 						      number_of_item_y-4)));
