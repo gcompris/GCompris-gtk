@@ -59,15 +59,6 @@ Le jeu est inclus dans le bureau Gnome sous le menu Jeux.
 
 À installer si vous avez des enfants utilisant cet ordinateur.
 
-%changelog
-* Thu Feb 06 2003  Bruno Coudoin <bruno.coudoin@free.fr>
-- Added the money board
-- Added the traffic board
-- Added more translation
-- Better graphics
-- Code cleanup and bugfixes
-- Added portuguese speech
-
 %package sounds-fr
 Summary:        French sounds for GCompris
 Group: 		Amusements/Games
@@ -221,3 +212,12 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/*a
 %{prefix}/include/libassetml*/*
 %{prefix}/lib/pkgconfig/libassetml.pc
+
+%define date	%(echo `LC_ALL="C" date +"%a %b %d %Y"`)
+%changelog
+* %{date} Gcompris <bruno.coudoin@free.fr>
+
+$Log$
+Revision 1.22  2003/08/18 23:25:06  bcoudoin
+added changelog from cvs
+
