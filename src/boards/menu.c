@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/07/14 19:33:37 bcoudoin>
+ * Time-stamp: <2003/09/26 03:11:35 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -341,6 +341,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 
       if (!g_file_exists (soundfile)) 
 	{
+	  /* FIXME: Second Chance, should check in assetml */
 	  pixmap = gcompris_load_skin_pixmap("voice_bad.png");
 	}
       else
@@ -359,6 +360,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 				     NULL);
       item_list = g_list_append (item_list, star);
       gdk_pixbuf_unref(pixmap);
+      g_free(soundfile);
     }
 
   // display menu icon ========================== BEGIN

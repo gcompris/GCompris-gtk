@@ -61,6 +61,7 @@ static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gboolean sounds_are_fine(gchar* letter);
 
 static int right_position;
 static char right_letter[2] = "";
@@ -122,6 +123,9 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
 
+  if(!sounds_are_fine("a"))
+    return;
+
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
@@ -141,6 +145,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gamewon = FALSE;
       pause_board(FALSE);
+
     }
 }
 /* ======================================= */
@@ -193,12 +198,48 @@ static void repeat ()
       str1 = g_strdup_printf("%s%s", right_letter, ".ogg");
       str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
 
-      gcompris_play_ogg(str2, NULL);
+      if(str2) {
+	gcompris_play_ogg(str2, NULL);
+      }
 
       g_free(str1);
       g_free(str2);
-
+      
     }
+}
+
+static gboolean sounds_are_fine (gchar* letter)
+{
+  char *str1 = NULL;
+  char *str2 = NULL;
+  GcomprisProperties	*properties = gcompris_get_properties();
+  char locale[3];
+  gboolean fine = TRUE;
+
+  strncpy( locale, gcompris_get_locale(), 2 );
+  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+  
+  str1 = g_strdup_printf("%s%s", letter, ".ogg");
+  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+  
+  if(!str2) {
+    gchar *msg = g_strdup_printf("%s%s", _("Error: this activity requires you to install first\nthe package assetml-voices-alphabet-"),
+				 locale);
+    gcompris_dialog(msg, gcompris_end_board);
+    g_free(msg);
+    fine = FALSE;
+  } else {
+    if(!properties->fx) {
+      gcompris_dialog(_("Error: this activity cannot be played with the\nsound effect disabled.\nGo in the configuration dialog to\nenable the sound"), gcompris_end_board);
+      fine = FALSE;
+    }
+  }
+  
+  g_free(str1);
+  g_free(str2);
+  
+  return(fine);
+  
 }
 
 /*-------------------------------------------------------------------------------*/

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2003/09/16 01:46:51 bcoudoin>
+ * Time-stamp: <2003/09/24 02:47:51 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -76,6 +76,8 @@ static gchar *linguas[] = {
   "ro_RO.UTF-8",	N_("Romanian"),
   "ru_RU.UTF-8",	N_("Russian"),
   "sk_SK.UTF-8",	N_("Slovak"),
+  "sr@Latn_YU.ISO-8859-2",	N_("Serbian (Latin)"),
+  "sr_YU.UTF-8",	N_("Serbian"),
   "sv_FI.UTF-8",	N_("Swedish"),
   "tr_TR.UTF-8",	N_("Turkish"),
   NULL, NULL
@@ -489,8 +491,15 @@ static void set_locale_flag(gchar *locale)
   GdkPixbuf *pixmap = NULL;
 
   /* First try to find a flag for the long locale name */
-  str = g_strdup_printf("%.2s.png", locale);
+  str = g_strdup_printf("%.5s.png", locale);
   pixmap = gcompris_load_pixmap_asset("gcompris flags", "flags", "image/png", str);
+
+  /* Not found, Try now with the short locale name */
+  if(!pixmap) {
+    g_free(str);
+    str = g_strdup_printf("%.2s.png", locale);
+    pixmap = gcompris_load_pixmap_asset("gcompris flags", "flags", "image/png", str);
+  }
 
   gnome_canvas_item_set (item_locale_flag,
 			 "pixbuf", pixmap,
@@ -519,7 +528,7 @@ static gchar *get_locale_name(gchar *locale)
 
   while(linguas[i] != NULL)
     {
-      if(!strncmp(locale, linguas[i], 5))
+      if(!strcmp(locale, linguas[i]))
 	return(gettext(linguas[i+1]));
 
       i=i+2;

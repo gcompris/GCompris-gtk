@@ -32,6 +32,8 @@
 
 static GnomeCanvasItem	*rootitem		= NULL;
 
+static gint	 item_event_ogginfo(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+
 int quit = 0;
 
 //void *decode_ogg_file(void *infile)
@@ -157,8 +159,10 @@ void *display_ogg_file_credits(void *infile)
   vorbis_comment *vc;
   long ov_status;
   guint i = 0;
-
+  guint y = BOARDHEIGHT - 120;
   FILE* input;
+  GdkPixbuf   *pixmap = NULL;
+  GnomeCanvasItem *item;
   
   if(rootitem)
     return;
@@ -184,12 +188,34 @@ void *display_ogg_file_credits(void *infile)
 			   "y", (double)0,
 			   NULL);
 
+  pixmap = gcompris_load_skin_pixmap("display_area_small.png");
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2,
+				"y", (double) y - 60,
+				NULL);
+  gtk_signal_connect(GTK_OBJECT(rootitem), "event",
+		     (GtkSignalFunc) item_event_ogginfo,
+		     NULL);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("Now Playing Music"),
+			 "font", gcompris_skin_font_subtitle,
+			 "x", (double) BOARDWIDTH/2 +1,
+			 "y", (double) y - 10 + i*20 +1,
+			 "anchor", GTK_ANCHOR_NORTH,
+			 "fill_color", "black",
+			 "justification", GTK_JUSTIFY_CENTER,
+			 NULL);
+
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Now Playing Music"),
 			 "font", gcompris_skin_font_subtitle,
 			 "x", (double) BOARDWIDTH/2,
-			 "y", (double) BOARDHEIGHT/2-10 + i++*20,
+			 "y", (double) y - 10 + i++*20,
 			 "anchor", GTK_ANCHOR_NORTH,
 			 "fill_color", "white",
 			 "justification", GTK_JUSTIFY_CENTER,
@@ -197,15 +223,49 @@ void *display_ogg_file_credits(void *infile)
 
   {
     char **ptr=vc->user_comments;
-    while(*ptr){
+    guint line = 0;
+
+    /* Take only the first lines */
+    while(*ptr && line < 2){
+      gchar **stra;
+      gchar *str;
+
       fprintf(stderr,"%s\n",*ptr);
+      line++;
+
+
+      stra = g_strsplit (*ptr, "=", 2);
+
+      if(!strcmp(stra[0], "TITLE")) {
+	g_free(stra[0]);
+	stra[0] = _("Title");
+      }  else {
+	if (!strcmp(stra[0], "ARTIST")) {
+	  g_free(stra[0]);
+	  stra[0] = _("Artist");
+	}
+      }
+
+      str = g_strdup_printf("%s: %s", stra[0], stra[1]);
+		
+		
+      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			     gnome_canvas_text_get_type (),
+			     "text", str,
+			     "font", gcompris_skin_font_board_tiny,
+			     "x", (double) BOARDWIDTH/2 +1,
+			     "y", (double) y + i*20 +1,
+			     "anchor", GTK_ANCHOR_NORTH,
+			     "fill_color", "black",
+			     "justification", GTK_JUSTIFY_CENTER,
+			     NULL);
 
       gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			     gnome_canvas_text_get_type (),
-			     "text", *ptr,
+			     "text", str,
 			     "font", gcompris_skin_font_board_tiny,
 			     "x", (double) BOARDWIDTH/2,
-			     "y", (double) BOARDHEIGHT/2 + i++*20,
+			     "y", (double) y + i++*20,
 			     "anchor", GTK_ANCHOR_NORTH,
 			     "fill_color", "white",
 			     "justification", GTK_JUSTIFY_CENTER,
@@ -220,4 +280,25 @@ void *display_ogg_file_credits(void *infile)
   }
 
   ov_clear(&vf);
+}
+
+/* Callback for the ogginfo operations */
+static gint
+item_event_ogginfo(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+{
+
+  switch (event->type) 
+    {
+    case GDK_ENTER_NOTIFY:
+      break;
+    case GDK_LEAVE_NOTIFY:
+      break;
+    case GDK_BUTTON_PRESS:
+      gtk_object_destroy (GTK_OBJECT(rootitem));
+      rootitem = NULL;
+    default:
+      break;
+    }
+  return FALSE;
+
 }

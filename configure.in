@@ -189,6 +189,7 @@ AM_CONDITIONAL(PYTHON_PLUGIN, test x$build_python_plugin = xyes)
 AC_SUBST(PYTHON_CFLAGS)
 AC_SUBST(PYTHON_LIBS)
 
+REQUIRE_PYHTON=""
 if test x$build_python_plugin = xno; then
   AC_MSG_NOTICE([Python plugin is disabled.])
 else
@@ -196,7 +197,10 @@ else
   PKG_CHECK_MODULES(PYGTK, pygtk-2.0 gnome-python-2.0)	
   AC_SUBST(PYGTK_CFLAGS)
   AC_SUBST(PYGTK_LIBS)
+  REQUIRE_PYHTON="python gnome-python gnome-python-canvas pygtk2.0"
 fi
+
+AC_SUBST(REQUIRE_PYTHON)
 
 dnl For libassetml
 PKG_CHECK_MODULES(GOBJECT, gobject-2.0)

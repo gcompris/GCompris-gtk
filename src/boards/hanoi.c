@@ -310,8 +310,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   guint color_to_place;
   guint used_colors[NUMBER_OF_COLOR];
   GnomeCanvasPathDef *path;
-
-  guint w = 10;
+  guint w;
       
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -319,6 +318,17 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", _("Reproduce in the empty area the same tower than the one on the right"),
+			 "font", gcompris_skin_font_board_medium,
+			 "x", (double) BOARDWIDTH/2 +1,
+			 "y", (double) BOARDHEIGHT - 50 +1,
+			 "anchor", GTK_ANCHOR_NORTH,
+			 "fill_color", "black",
+			 "justification", GTK_JUSTIFY_CENTER,
+			 NULL);
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
@@ -456,13 +466,14 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	}
 
       /* Create the vertical line */
+      w = 10;
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_rect_get_type (),
 			     "x1", (double) item_width * i + item_width/2 - w,
 			     "y1", (double) baseline - item_height * number_of_item_y - gap_y,
 			     "x2", (double) item_width * i + item_width/2 + w,
 			     "y2", (double) baseline,
-			     "fill_color_rgba", 0xF0103000,
+			     "fill_color_rgba", 0xFF103000,
 			     "outline_color", "black",
 			     "width_units", (double)1,
 			     NULL);

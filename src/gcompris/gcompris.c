@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/08/22 01:52:40 bcoudoin>
+ * Time-stamp: <2003/09/25 23:08:44 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -343,14 +343,12 @@ static void setup_window ()
 		      GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
 
-  // Set the cursor
-  gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
-
-  /* -------------- */
-
   /* For non anti alias canvas */
   gtk_widget_push_visual (gdk_rgb_get_visual ());
   gtk_widget_push_colormap (gdk_rgb_get_cmap ());
+
+  // Set the cursor
+  gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
 
   /* For anti alias canvas */
   /*

@@ -98,8 +98,9 @@ void board_finished(int type) {
   if(gcomprisBoard->plugin->pause_board != NULL)
       gcomprisBoard->plugin->pause_board(TRUE);
 
+  /* WARNING: I remove 1 to the BOARD_FINISHED_LAST because RANDOM is for GOOD end only */
   if(type==BOARD_FINISHED_RANDOM)
-    type = RAND(1,BOARD_FINISHED_LAST);
+    type = RAND(1,BOARD_FINISHED_LAST-1);
 
   switch (type) {
 	case BOARD_FINISHED_TUXPLANE :

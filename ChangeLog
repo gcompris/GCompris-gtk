@@ -1,3 +1,30 @@
+2003-09-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/click_on_letter.xml.in: changed reference to mandatory_sound_file but stil buggy
+	* boards/flags/ca.png: now catalan instead of canadian
+	* boards/flags/cs.png: Former Tchechoslovakia
+	* boards/flags/gcompris_flags.assetml.in: fixed 
+	* boards/flags/sr.png: added
+	* boards/money.xml.in: added help 
+	* boards/money_cents.xml.in: added help 
+	* boards/skins/default/display_area_small.png: added to display the music artist
+	* boards/skins/pink/display_area_small.png: added to display the music artist
+	* configure.in: removed python compilation and passes info to spec file
+	* gcompris.spec.in: removed python dependancies if not defined in configure.in
+	* po/fi.po: updated by Rami Aubourg-Kaires
+	* src/boards/click_on_letter.c: (start_board), (repeat),
+	(sounds_are_fine): added a test if sounds is available. is not can't enter the board
+	* src/boards/hanoi.c: (hanoi_create_item): fixed plot width
+	* src/boards/menu.c: (menu_create_item): added a fixme: need to complete test of
+	mandatory_sound_file with assetml
+	* src/gcompris/bonus.c: (board_finished): bad end bonuses are not used when random end is 
+	requested
+	* src/gcompris/config.c: (set_locale_flag), (get_locale_name): added serbian: fixed to 
+	support serbian specifics with 2 different char set
+	* src/gcompris/gcompris.c: (setup_window): fixed the long lasting random cursor color. It needed to be set AFTER the colormap settings.
+	* src/gcompris/oggplayer.c: (display_ogg_file_credits),
+	(item_event_ogginfo): now display less information but better looking.
+
 2003-09-19  Danilo Šegan  <dsegan@gmx.net>
 
 	* configure.in: Added "sr" and "sr@Latn" to ALL_LINGUAS.
