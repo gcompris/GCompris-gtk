@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-27 19:28+0200\n"
-"PO-Revision-Date: 2004-09-28 02:21+0200\n"
+"POT-Creation-Date: 2004-10-18 10:59+0200\n"
+"PO-Revision-Date: 2004-10-18 11:43+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -670,10 +670,6 @@ msgstr ""
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Doprava"
-
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
-msgstr "8. století"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -2192,7 +2188,7 @@ msgstr ""
 "můžeš také počítat zpět pomocí pravého tlačítka myši. Až budeš hotov, klikni "
 "na tlačítko OK nebo stiskni klávesu Enter."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
 msgstr "Procvič si odčítání v zábavné hře"
 
@@ -2399,8 +2395,8 @@ msgstr "Naučná sada gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1848 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
+#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2409,7 +2405,7 @@ msgstr "Nemohu nalézt soubor %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1851
+#: src/boards/shapegame.c:1853
 #, c-format
 msgid "find file %s !"
 msgstr "nalézt soubor %s !"
@@ -2426,15 +2422,15 @@ msgstr ""
 "Tux má ve své lodi potíže. Potřebuje s ní projet plavební komorou.\n"
 "Pomoz Tuxovi a pochop, jak pracuje plavební komora."
 
-#: src/boards/chess.c:139
+#: src/boards/chess.c:137
 msgid "Learning Chess"
 msgstr "Učení se hrát šachy"
 
-#: src/boards/chess.c:140
+#: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
 msgstr "Hrej šachy proti tuxovi ve výukovém režimu"
 
-#: src/boards/chess.c:193
+#: src/boards/chess.c:191
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2446,7 +2442,7 @@ msgstr ""
 "gnuchess.\n"
 "Aktualizujte prosím na gnuchess verze 5 nebo vyšší."
 
-#: src/boards/chess.c:200
+#: src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2460,31 +2456,31 @@ msgstr ""
 "nebo ve své distribuci GNU/Linuxu\n"
 "a přesvědčte se, že je nainstalován"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Bílý na tahu"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Černý na tahu"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Bílý v šachu"
 
-#: src/boards/chess.c:722
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Černý v šachu"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Černý matuje"
 
-#: src/boards/chess.c:1059
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Bílý matuje"
 
-#: src/boards/chess.c:1064
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Remíza"
 
@@ -2684,7 +2680,7 @@ msgstr "Nemohu otevřít soubor slov pro vaše locale"
 msgid "Error: The wordfile package used for your locale is corrupted."
 msgstr "Chyba: balíček wordfile používaný pro vaše locale je poškozen."
 
-#: src/boards/reversecount.c:140
+#: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Počítání pozpátku"
 
@@ -2793,8 +2789,8 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:203
-#: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:205
+#: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2829,197 +2825,205 @@ msgid "Czech"
 msgstr "Čeština"
 
 #: src/gcompris/config.c:69
+msgid "Danish"
+msgstr "Dánština"
+
+#: src/gcompris/config.c:70
 msgid "German"
 msgstr "Němčina"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Greek"
 msgstr "Řečtina"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "American English"
 msgstr "Americká angličtina"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Great Britain English"
 msgstr "Britská angličtina"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Canadian English"
 msgstr "Kanadská angličtina"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "Španělština"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Finnish"
 msgstr "Finština"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "French"
 msgstr "Francouzština"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Hebrew"
 msgstr "Hebrejština"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Indian"
 msgstr "Hindština"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Hungarian"
 msgstr "Maďarština"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Croatian"
 msgstr "Chorvatština"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Italian"
 msgstr "Italština"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Malay"
 msgstr "Malajština"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Dutch"
 msgstr "Holandština"
 
-#: src/gcompris/config.c:87
-msgid "Norwegian"
-msgstr "Norština"
-
 #: src/gcompris/config.c:88
+msgid "Norwegian Bokmal"
+msgstr "Norština Bokmal"
+
+#: src/gcompris/config.c:89
+msgid "Norwegian Nynorsk"
+msgstr "Norština Nynorsk"
+
+#: src/gcompris/config.c:90
 msgid "Polish"
 msgstr "Polština"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:91
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:92
 msgid "Brazil Portuguese"
 msgstr "Brazilská portugalština"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:93
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:94
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:95
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:96
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:97
 msgid "Albanian"
 msgstr "Albánština"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:98
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:99
 msgid "Serbian"
 msgstr "Srbština"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:100
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:101
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:102
 msgid "Walloon"
 msgstr "Valonština"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:107
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:108
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:109
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:110
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:115
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:120
 msgid "No filter"
 msgstr "Žádný filtr"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:121
 msgid "Only this level"
 msgstr "Jen tato úroveň"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:122
 msgid "Up to this level"
 msgstr "Do této úrovně"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:123
 msgid "This level and above"
 msgstr "Tato úroveň a vyšší"
 
-#: src/gcompris/config.c:177
+#: src/gcompris/config.c:179
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:286
+#: src/gcompris/config.c:288
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:329
+#: src/gcompris/config.c:331
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:357
+#: src/gcompris/config.c:359
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:391
+#: src/gcompris/config.c:393
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:412
+#: src/gcompris/config.c:414
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "V %s nenalezen skin\n"
 
-#: src/gcompris/config.c:427 src/gcompris/config.c:812
-#: src/gcompris/config.c:823
+#: src/gcompris/config.c:429 src/gcompris/config.c:814
+#: src/gcompris/config.c:825
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3036,15 +3040,15 @@ msgstr "NAČÍST"
 msgid "SAVE"
 msgstr "ULOŽIT"
 
-#: src/gcompris/gameutil.c:128
+#: src/gcompris/gameutil.c:129
 msgid "Couldn't find file"
 msgstr "Nemohu najít soubor"
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid "This activity is incomplete."
 msgstr "Tato aktivita není dokončena."
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:132
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3181,7 +3185,7 @@ msgstr "%a %d. %b %Y, %H:%M:%S %Z"
 msgid "Couldn't open music dir: %s"
 msgstr "Nemohu otevřít adresář hudby: %s"
 
-#: src/gcompris/soundutil.c:182
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -3203,6 +3207,9 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid "VIII Century"
+#~ msgstr "8. století"
 
 #~ msgid "Regions of France"
 #~ msgstr "Regiony Francie"
