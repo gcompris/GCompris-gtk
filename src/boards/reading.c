@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2003/02/16 23:28:11 bruno>
+ * Time-stamp: <2003/08/21 16:08:55 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -133,10 +133,10 @@ BoardPlugin
  */
 static void pause_board (gboolean pause)
 {
-	// after the bonus is ended, the board is unpaused, but we must wait for
-	// the player to be ready (this board does not use the same framework as others)
-	if (wait_for_ready)
-		return;
+  // after the bonus is ended, the board is unpaused, but we must wait for
+  // the player to be ready (this board does not use the same framework as others)
+  if (wait_for_ready)
+    return;
 
   if(gcomprisBoard==NULL)
     return;
@@ -166,7 +166,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "reading/gcompris-bg.jpg");
-      wait_for_ready = FALSE;
+      wait_for_ready = TRUE;
       gamewon = FALSE;
 
       gcomprisBoard->level = 1;
@@ -633,7 +633,7 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       if (((char *)data)[0]=='R')
 	{
 	  // The user is Ready
-		wait_for_ready = FALSE;
+	  wait_for_ready = FALSE;
 	  ask_ready(FALSE);
 	  pause_board(FALSE);
 	}
