@@ -358,7 +358,8 @@ class Gcompris_searace:
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
       x=cx-pixmap.get_width()/2,
-      y=cy-pixmap.get_height()/2
+      y=cy-pixmap.get_height()/2,
+      anchor=gtk.ANCHOR_CENTER
       )
     gcompris.utils.item_rotate_relative(item, condition[1][0]);
 

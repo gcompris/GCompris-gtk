@@ -35,6 +35,14 @@
 // returns a random integer in range [A,B]
 #define RAND(A,B) (A + (int)((float)(B-A+1)*rand()/(RAND_MAX+1.0)))
 
+#ifndef MAX
+#define MAX(a,b) (((a) > (b)) ? (a) : (b))
+#endif
+
+#ifndef MIN
+#define MIN(a,b) (((a) < (b)) ? (a) : (b))
+#endif
+
 gchar 		*g_utf8_strndup(gchar*,gint);
 
 GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);

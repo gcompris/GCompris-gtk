@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/07/15 22:15:33 bcoudoin>
+ * Time-stamp: <2004/12/29 23:41:14 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -60,7 +60,10 @@
 
 #define _(String) gettext (String)
 #define gettext_noop(String) String
+
+#ifndef N_
 #define N_(String) gettext_noop (String)
+#endif
 
 /*****************************************************************************/
 /* Method usefull for boards provided by gcompris */

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/12/18 22:50:34 bruno>
+ * Time-stamp: <2004/12/29 23:44:18 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -193,6 +193,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
 	}
     }
 
+  /* Event not handled; try parent item */
   return FALSE;
 };
 

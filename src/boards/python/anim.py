@@ -676,14 +676,20 @@ class Gcompris_anim:
   def move_item_event(self, item, event):
     if self.tools[self.current_tool][0] == "CCW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        gcompris.utils.item_rotate_relative(item.get_property("parent"), -10);
+        gcompris.utils.item_rotate_relative(item, -10);
+        object = item.get_property("parent")
+        for anchor in object.item_list[1].item_list:
+          gcompris.utils.item_rotate_relative(anchor, -10);
         return gtk.TRUE
       else:
         return gtk.FALSE
 
     if self.tools[self.current_tool][0] == "CW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
+        gcompris.utils.item_rotate_relative(item, 10);
+        object = item.get_property("parent")
+        for anchor in object.item_list[1].item_list:
+          gcompris.utils.item_rotate_relative(anchor, 10);
         return gtk.TRUE
       else:
         return gtk.FALSE
@@ -887,7 +893,7 @@ class Gcompris_anim:
             x2=x,
             y2=y,
             outline_color_rgba=self.colors[self.current_color],
-            width_units=4.0
+            width_units=4.0,
             )
           #          self.newitem.set_data('empty',True)
           gcompris.utils.canvas_set_property(self.newitem, "empty", True)
@@ -1807,7 +1813,7 @@ def image_selected(image):
     width=width,
     height=height,
     width_set = True,
-    height_set = True
+    height_set = True,
     )
 
   # Tell svg_save the filename

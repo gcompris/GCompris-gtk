@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/10/23 22:22:57 bruno>
+ * Time-stamp: <2004/12/30 00:31:10 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -727,11 +727,50 @@ void item_rotate(GnomeCanvasItem *item, double angle) {
    rotation is clockwise if angle > 0 */
 void item_rotate_relative(GnomeCanvasItem *item, double angle) {
   double x1, x2, y1, y2;
+  double tx1, tx2, ty1, ty2;
   double cx, cy;
   double t;
   double r[6];
 
-  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
+  //  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
+  /* WARNING: Do not use gnome_canvas_item_get_bounds which gives unpredictable results */
+  if(GNOME_IS_CANVAS_LINE(item)) {
+    GnomeCanvasPoints	*points;
+    gtk_object_get (GTK_OBJECT (item), "points", &points, NULL);
+    x1 = points->coords[0];
+    y1 = points->coords[1];
+    x2 = points->coords[2];
+    y2 = points->coords[3];
+  } else if(GNOME_IS_CANVAS_PIXBUF(item)){
+    gtk_object_get (GTK_OBJECT (item), "x", &x1, NULL);
+    gtk_object_get (GTK_OBJECT (item), "y", &y1, NULL);
+    gtk_object_get (GTK_OBJECT (item), "width",  &x2, NULL);
+    gtk_object_get (GTK_OBJECT (item), "height", &y2, NULL);
+    x2 += x1;
+    y2 += y1;
+  } else if(GNOME_IS_CANVAS_GROUP(item)){
+    gtk_object_get (GTK_OBJECT (item), "x", &x1, NULL);
+    gtk_object_get (GTK_OBJECT (item), "y", &y1, NULL);
+    x2 = 0;
+    y2 = 0;
+  } else {
+    gtk_object_get (GTK_OBJECT (item), "x1", &x1, NULL);
+    gtk_object_get (GTK_OBJECT (item), "y1", &y1, NULL);
+    gtk_object_get (GTK_OBJECT (item), "x2", &x2, NULL);
+    gtk_object_get (GTK_OBJECT (item), "y2", &y2, NULL);
+  }
+
+  tx1 = x1;
+  ty1 = y1;
+  tx2 = x2;
+  ty2 = y2;
+
+  x1 = MIN(tx1,tx2);
+  y1 = MIN(ty1,ty2);
+  x2 = MAX(tx1,tx2);
+  y2 = MAX(ty1,ty2);
+    
+
   cx = (x2+x1)/2;
   cy = (y2+y1)/2;
 

@@ -1,3 +1,14 @@
+2004-12-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/anim.py: fixed rotation. still bugged at anchors level
+	* src/boards/python/searace.py: now can move the boats, rotation is fixed
+	* src/gcompris/gameutil.c: (item_rotate_relative): rotation is fixed
+	* src/gcompris/gameutil.h: added MIN and MAX
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback): added a comment
+	* src/gcompris/gcompris.h: added #ifndef N_
+	* src/gcompris/svgutil.c: (gcompris_rect_to_svg_file),
+	(gcompris_ellipse_to_svg_file): uses MIN and MAX instead of internaly defined min and max
+
 2004-12-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chronos/board4_2.xml.in: Updated by Franck Doucet

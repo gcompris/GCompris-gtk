@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/10/23 21:13:37 bruno>
+ * Time-stamp: <2004/12/29 23:31:29 bruno>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -36,9 +36,6 @@
 #define MAX_DESCRIPTION_LENGTH 1000
 
 #define MY_ENCODING "utf-8"
-
-#define max(a,b) ((a) > (b) ? (a) : (b))
-#define min(a,b) ((a) < (b) ? (a) : (b))
 
 typedef void (*sighandler_t)(int);
 
@@ -260,11 +257,11 @@ void *gcompris_rect_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
   gcompris_re_colors_to_svg_file(item, cur);
 
   g_object_get(G_OBJECT(item), "x1", &x1, "y1", &y1, "x2", &x2, "y2", &y2, NULL);
-  x = min(x1,x2);
-  y = min(y1,y2);
+  x = MIN(x1,x2);
+  y = MIN(y1,y2);
   
-  width = max(x1,x2) - x;
-  height = max(y1,y2)- y;
+  width = MAX(x1,x2) - x;
+  height = MAX(y1,y2)- y;
 
   rc = snprintf(tmp, 127,"%lf", x);
   xmlNewProp( cur, 
@@ -308,8 +305,8 @@ void *gcompris_ellipse_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode ){
   x = (x1 + x2)*.5;
   y = (y1+y2)*.5;
   
-  xrad = max(x1,x2) - x;
-  yrad = max(y1,y2)- y;
+  xrad = MAX(x1,x2) - x;
+  yrad = MAX(y1,y2)- y;
 
   rc = snprintf(tmp, 127,"%lf", x);
   xmlNewProp( cur, 
