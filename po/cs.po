@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-28 11:02+0100\n"
-"PO-Revision-Date: 2005-01-28 13:57+0100\n"
+"POT-Creation-Date: 2005-01-31 03:20+0100\n"
+"PO-Revision-Date: 2005-01-31 10:50+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1741,25 +1741,32 @@ msgstr "Najdi svou levou a pravou ruku"
 msgid "None"
 msgstr "Žádný"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
+#: boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Umí používat šipky na klávesnici pro pohyb objektu."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#: boards/maze.xml.in.h:2 src/boards/maze.c:130
 msgid "Find your way out of the maze"
 msgstr "Najdi cestu z bludiště"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
+#: boards/maze3D.xml.in.h:4
 msgid "Help Tux get out of this maze."
 msgstr "Pomoz Tuxovi dostat se z tohoto bludiště."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:127
+#: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
+#: src/boards/maze.c:129
 msgid "Maze"
 msgstr "Bludiště"
 
-#: boards/maze.xml.in.h:5
+#: boards/maze.xml.in.h:5 boards/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Použij šipky na klávesnici pro přesunutí Tuxe nahoru ke dveřím."
+
+#: boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Najdi cestu z bludiště (pohyb je relativní)"
 
 #: boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2391,7 +2398,18 @@ msgid ""
 "same weather conditions by using the retry button. You can click and drag "
 "your mouse anywhere on the map to get a measurement in distance and angle. "
 "Going to the next level will give your more complex weather conditions."
-msgstr "Do textového pole řádek po řádku zadávej příkazy pro řízení lodi. Podporované příkazy jsou zobrazeny mezi vstupními oblastmi. Za příkazy 'doleva' a 'doprava' musí být úhel ve stupních. Hodnota úhlu se také nazývá 'parametr' příkazu doleva nebo doprava. Implicitně se používá 45 stupňů. Příkaz 'vpřed' přijímá parametr vzdálenosti. Implicitně se používá 1. Například: left 90 => otočit se pravoúhle doleva vpřed 10 => jít vpřed o 10 jednotek (podle pravítka) Cíl je dojet do pravé části obrazovky (červená čára). Až budeš hotov, můžeš zkusit svůj program vylepšit a začít nový závod se stejnými podmínkami počasí pomocí tlačítka opakovat. Kdekoli na mapě můžeš kliknutím a tažením myši změřit vzdálenost a úhel. Přechod na další úroveň ti dá složitější podmínky počasí."
+msgstr ""
+"Do textového pole řádek po řádku zadávej příkazy pro řízení lodi. "
+"Podporované příkazy jsou zobrazeny mezi vstupními oblastmi. Za příkazy "
+"'doleva' a 'doprava' musí být úhel ve stupních. Hodnota úhlu se také nazývá "
+"'parametr' příkazu doleva nebo doprava. Implicitně se používá 45 stupňů. "
+"Příkaz 'vpřed' přijímá parametr vzdálenosti. Implicitně se používá 1. "
+"Například: left 90 => otočit se pravoúhle doleva vpřed 10 => jít vpřed o 10 "
+"jednotek (podle pravítka) Cíl je dojet do pravé části obrazovky (červená "
+"čára). Až budeš hotov, můžeš zkusit svůj program vylepšit a začít nový závod "
+"se stejnými podmínkami počasí pomocí tlačítka opakovat. Kdekoli na mapě "
+"můžeš kliknutím a tažením myši změřit vzdálenost a úhel. Přechod na další "
+"úroveň ti dá složitější podmínky počasí."
 
 #: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
 msgid ""
@@ -2822,7 +2840,7 @@ msgstr "doleva"
 msgid "right"
 msgstr "doprava"
 
-#: src/boards/maze.c:445
+#: src/boards/maze.c:453
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
 
@@ -3431,7 +3449,7 @@ msgstr "Vytiskne verzi "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:532
+#: src/gcompris/gcompris.c:538
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3444,7 +3462,7 @@ msgid ""
 "http://www.fsf.org/philosophy"
 msgstr ""
 
-#: src/gcompris/gcompris.c:727
+#: src/gcompris/gcompris.c:733
 #, c-format
 msgid ""
 "GCompris\n"
