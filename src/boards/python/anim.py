@@ -33,6 +33,11 @@ import copy
 import math
 import time
 
+# TO BE REMOVED
+#import sys
+#sys.path.append("/home/yves/GCompris")
+#import animutils
+
 fles=None
 
 #class Gcompris_anim:
@@ -46,7 +51,7 @@ class Gcompris_anim:
     global fles
     fles=self
 
-    # These are used to let us restart only after the bonus is displayed.
+    # These are used to let us restart only after the bonux is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0;
     self.gamewon       = 0;
@@ -78,7 +83,24 @@ class Gcompris_anim:
     self.anchors ['CIRCLE'] =  self.anchors ['RECT']
     self.anchors ['FILL_CIRCLE'] =  self.anchors ['RECT']
     self.anchors ['IMAGE'] =  self.anchors ['RECT']
+
+
+    self.events = { 'LINE' : [ self.fillin_item_event,
+                               self.move_item_event,
+                               self.create_item_event,
+                               self.del_item_event ] ,
+                    'RECT' : [ self.fillout_item_event,
+                                      self.move_item_event,
+                                      self.create_item_event,
+                                      self.del_item_event ],
+                    'IMAGE' : [ self.move_item_event,
+                                self.create_item_event,
+                                self.del_item_event ]
+                    }
     
+    self.events ['FILL_RECT']         = self.events ['LINE']
+    self.events ['FILL_CIRCLE']       = self.events ['LINE']
+    self.events ['CIRCLE']  = self.events ['RECT']
                                
     # TOOL SELECTION
     self.tools = [
@@ -255,7 +277,7 @@ class Gcompris_anim:
                            gcompris.BOARD_HEIGHT,
                            10
                            )
-        return
+      return
     
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
@@ -277,9 +299,25 @@ class Gcompris_anim:
               self.running=True
               self.AnimRun()
             else:
+              # unselect object if necessary
+              if (self.selected != None):
+                self.selected.item_list[1].hide()
+                self.selected = None
+     
+              # Deactivate old button
+              self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
+        
+              # Activate new button                         
+              self.current_tool = self.select_tool_number
+              self.old_tool_item = self.select_tool
+              self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
+              gcompris.set_cursor(self.tools[self.current_tool][3]);
+
               self.running=False
               self.root_playingitem.hide()
               self.rootitem.show()
+
+              return gtk.TRUE
 
         # unselect object if necessary
         if (self.tools[tool][0] != "SELECT") and (self.selected != None):
@@ -551,6 +589,12 @@ class Gcompris_anim:
         return gtk.TRUE
       else:
         return gtk.FALSE
+    if self.tools[self.current_tool][0] == "FLIP":
+      if event.type == gtk.gdk.BUTTON_PRESS:
+        gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
+        return gtk.TRUE
+      else:
+        return gtk.FALSE
 
     if self.tools[self.current_tool][0] == "RAISE":
       if event.type == gtk.gdk.BUTTON_PRESS:
@@ -705,10 +749,6 @@ class Gcompris_anim:
           self.pos_x = x
           self.pos_y = y
 
-# un item doit etre remplace par un group contenant:
-#     - le group "poignees" avec toutes les poignees
-#     - l'item lui meme
-#
 #     ItemGroup:
 #        AnchorsGroup
 #           ANCHOR_SE
@@ -721,8 +761,6 @@ class Gcompris_anim:
             fill_color_rgba=self.colors[self.current_color],
             width_units=8.0
             )
-          self.newitem.connect("event", self.fillin_item_event)
-          self.newitem.connect("event", self.move_item_event)
 
         elif self.tools[self.current_tool][0] == "RECT":
           
@@ -740,9 +778,7 @@ class Gcompris_anim:
             width_units=4.0
             )
           self.newitem.set_data('empty',True)
-          self.newitem.connect("event", self.fillout_item_event)
-          self.newitem.connect("event", self.move_item_event)
-
+          
         elif self.tools[self.current_tool][0] == "FILL_RECT":
 
           x,y = self.snap_to_grid(event.x,event.y)
@@ -760,9 +796,7 @@ class Gcompris_anim:
             outline_color_rgba=0x000000FFL,
             width_units=1.0
             )
-          self.newitem.connect("event", self.fillin_item_event)
-          self.newitem.connect("event", self.move_item_event)
-
+        
         elif self.tools[self.current_tool][0] == "CIRCLE":
 
           x,y = self.snap_to_grid(event.x,event.y)
@@ -779,9 +813,7 @@ class Gcompris_anim:
             width_units=5.0
             )
           self.newitem.set_data('empty',True)
-          self.newitem.connect("event", self.fillout_item_event)
-          self.newitem.connect("event", self.move_item_event)
-
+        
         elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
 
           x,y = self.snap_to_grid(event.x,event.y)
@@ -798,30 +830,9 @@ class Gcompris_anim:
             outline_color_rgba=0x000000FFL,
             width_units=1.0
             )
-          self.newitem.connect("event", self.fillin_item_event)
-          self.newitem.connect("event", self.move_item_event)
-          
+                  
         if self.newitem != 0:
-          self.newitem.connect("event", self.create_item_event)
-          self.newitem.connect("event", self.del_item_event)
-
-        anchorgroup=self.newitemgroup.add(
-          gnome.canvas.CanvasGroup,
-          x=0,
-          y=0
-          )
-        anchorgroup.set_data('anchors',True)
-        anchorgroup.hide()
-        
-        for anchor_type in self.anchors[self.tools[self.current_tool][0]]:
-          anchor=anchorgroup.add(
-            gnome.canvas.CanvasRect,
-            fill_color_rgba=self.ANCHOR_COLOR,
-            outline_color_rgba=0x000000FFL,
-            width_pixels=1,
-            )
-          anchor.set_data('anchor_type',anchor_type)
-          anchor.connect("event", self.resize_item_event,anchor_type)
+          self.anchorize(self.newitemgroup)
           
       return gtk.TRUE
 
@@ -903,95 +914,6 @@ class Gcompris_anim:
         return gtk.TRUE
     return gtk.FALSE
 
-
-  __list_properties = {'GnomeCanvasText' : [
-       "anchor",
-#       "attributes",
-       "clip",
-       "clip-height",
-       "clip-width",
-       "family",
-       "family-set",
-#       "fill-color",
-       "fill-color-gdk",
-       "fill-color-rgba",
-       "fill-stipple",
-       "font",
-       "font-desc",
-       "justification",
-#      "markup",
-       "rise",
-       "rise-set",
-       "scale",
-       "scale-set",
-       "size",
-       "size-points",
-       "size-set",
-       "stretch",
-       "stretch-set",
-       "strikethrough",
-       "strikethrough-set",
-       "style",
-       "style-set",
-       "text",
-#       "text-height",
-#       "text-width",
-       "underline",
-       "underline-set",
-       "variant",
-       "variant-set",
-       "weight",
-       "weight-set",
-       "x",
-       "x-offset",
-       "y",
-       "y-offset"
-       ],
-       'GnomeCanvasRE':[
-       "x1",
-       "x2",
-       "y1",
-       "y2",
-       "cap-style",
-       "dash",
-#       "fill-color",
-       "fill-color-gdk",
-       "fill-color-rgba",
-       "fill-stipple",
-       "join-style",
-       "miterlimit",
-#       "outline-color",
-       "outline-color-gdk",
-       "outline-color-rgba",
-       "outline-stipple",
-       "width-pixels",
-#       "width-units",
-       "wind"
-       ],
-       'GnomeCanvasLine':[
-       "arrow-shape-a",
-       "arrow-shape-b",
-       "arrow-shape-c",
-       "cap-style",
-#       "fill-color",
-       "fill-color-gdk",
-       "fill-color-rgba",
-       "fill-stipple",
-       "first-arrowhead",
-       "join-style",
-       "last-arrowhead",
-       "line-style",
-       "points",
-       "smooth",
-       "spline-steps",
-       "width-pixels",
-#      "width-units"
-       ]
-       }
-
-  __list_properties['GnomeCanvasRect'] = __list_properties['GnomeCanvasRE']
-  __list_properties['GnomeCanvasEllipse'] = __list_properties['GnomeCanvasRE']
-
   def AnimShot(self, modele):
       shot = self.root_anim.add(
         gnome.canvas.CanvasGroup,
@@ -1053,11 +975,8 @@ class Gcompris_anim:
     self.cartoon=self.root_anim.item_list
     if len(self.cartoon)==0:
       print "Mmm... Need to make shots before run anim !!"
-      gcompris.utils.svg_restore("anim",
-                       "gcompris.svg",
-                       self.root_anim
-                       )
       self.running=False
+      svg_restore("gcompris.svg")
       return
 #    self.rootitem.hide()
     self.root_playingitem.show()
@@ -1430,7 +1349,101 @@ class Gcompris_anim:
       y2=item.get_property("y2")
 
     return (min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2))
-      
+
+    
+  def anchorize( self, group):
+    # group contains normal items.
+
+    item = group.item_list[0]
+
+    if gobject.type_name(item)=="GnomeCanvasLine":
+      item_type='LINE'
+    elif gobject.type_name(item)=="GnomeCanvasPixbuf":
+      item_type='IMAGE'
+    elif gobject.type_name(item)=="GnomeCanvasRect":
+      try:
+        empty = item.get_data('empty')
+        # empty is passed from C, not python object
+        # if we get it that means is True
+        empty = True
+      except:
+        empty = False
+
+      if empty:
+        item_type='RECT'
+      else:
+        item_type='FILL_RECT'
+
+    elif gobject.type_name(item)=="GnomeCanvasEllipse":
+      try:
+        empty = item.get_data('empty')
+        # empty is passed from C, not python object
+        # if we get it that means is True
+        empty = True
+      except:
+        empty = False
+
+      if empty:
+        item_type='CIRCLE'
+      else:
+        item_type='FILL_CIRCLE'
+
+    #set the events on item
+    for event in self.events[item_type]:
+      item.connect("event", event)
+
+    print "Passing del", item
+    item.connect("event", self.del_item_event)
+
+    anchorgroup=group.add(
+      gnome.canvas.CanvasGroup,
+      x=0,
+      y=0
+      )
+    anchorgroup.set_data('anchors',True)
+    anchorgroup.hide()
+
+    for anchor_type in self.anchors[item_type]:
+      print anchor_type
+      anchor=anchorgroup.add(
+        gnome.canvas.CanvasRect,
+        fill_color_rgba=self.ANCHOR_COLOR,
+        outline_color_rgba=0x000000FFL,
+        width_pixels=1,
+        )
+      anchor.set_data('anchor_type',anchor_type)
+      anchor.connect("event", self.resize_item_event,anchor_type)
+
+
+def svg_restore(filename):
+  global fles
+
+  gcompris.utils.svg_restore("anim",
+                             filename,
+                             fles.root_anim
+                             )
+
+  last_picture = fles.root_anim.item_list[-1]
+
+  for item in last_picture.item_list:
+    gcompris.utils.clone_item(item, fles.root_drawingitem)
+    fles.anchorize(fles.root_drawingitem.item_list[-1])
+        
+  # unselect object if necessary
+  if (fles.selected != None):
+    fles.selected.item_list[1].hide()
+    fles.selected = None
+        
+  # Deactivate old button
+  fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][1]))
+        
+  # Activate new button                         
+  fles.current_tool = fles.select_tool_number
+  fles.old_tool_item = fles.select_tool
+  fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][2]))
+  gcompris.set_cursor(fles.tools[fles.current_tool][3]);
+    
+
 def image_selected(image):
   #fles is used because self is not passed through callback
   global fles
@@ -1457,30 +1470,9 @@ def image_selected(image):
     )
   
   gcompris.utils.filename_pass(fles.newitem,image)
-  
-  fles.newitem.connect("event", fles.move_item_event)
-  fles.newitem.connect("event", fles.create_item_event)    
-  fles.newitem.connect("event", fles.del_item_event)
-    
-  anchorgroup=fles.newitemgroup.add(
-    gnome.canvas.CanvasGroup,
-    x=0,
-    y=0
-    )
-  anchorgroup.set_data('anchors',True)
-  anchorgroup.show()
-  
-  for anchor_type in fles.anchors[fles.tools[fles.current_tool][0]]:
-    anchor=anchorgroup.add(
-      gnome.canvas.CanvasRect,
-      fill_color_rgba=fles.ANCHOR_COLOR,
-      outline_color_rgba=0x000000FFL,
-      width_pixels=1,
-      )
-    anchor.set_data('anchor_type',anchor_type)
-    anchor.connect("event", fles.resize_item_event,anchor_type)
-      
-      
+
+  fles.anchorize(fles.newitemgroup)
+        
   # unselect object if necessary
   if (fles.selected != None):
     fles.selected.item_list[1].hide()
@@ -1497,9 +1489,3 @@ def image_selected(image):
     
   fles.selected = fles.newitemgroup
   fles.selected.item_list[1].show()
-  
-  print "ok image"
-
-def anchorize(group):
-  # group contains group of normal items.
-  pass
