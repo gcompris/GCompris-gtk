@@ -55,17 +55,17 @@
             </titre>
 
             <descriptif>
-              <xsl:variable name="tmptext" select="description[@xml:lang=$language]"/>
+              <xsl:variable name="tmptext" select="prerequisite[@xml:lang=$language]"/>
               <xsl:if test="not($tmptext)">
-                <xsl:value-of select="description"/>
+                <xsl:value-of select="prerequisite"/>
               </xsl:if>
               <xsl:value-of select="$tmptext"/>
             </descriptif>
 
             <soustitre>
-              <xsl:variable name="tmptext" select="prerequisite[@xml:lang=$language]"/>
+              <xsl:variable name="tmptext" select="description[@xml:lang=$language]"/>
               <xsl:if test="not($tmptext)">
-                <xsl:value-of select="prerequisite"/>
+                <xsl:value-of select="description"/>
               </xsl:if>
               <xsl:value-of select="$tmptext"/>
             </soustitre>
@@ -81,54 +81,43 @@
             <texte>
               <HTML>
                 <DIV>
-                  <IMG border="0" alt="" align="right">
-                    <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
-                  </IMG>
-
-                  <xsl:if test="(@type != 'chess') and (starts-with(@type,'python:')=false)">
-                    <IMG border="0" alt=""  align="left" src="boardicons/win.png">
+                  <IMG border="0" alt="" align="left">
+                    <xsl:attribute name="src">
+                      <xsl:value-of select="concat('screenshots/',@name)"/>.jpg</xsl:attribute>
                     </IMG>
-                  </xsl:if>
-
-                  <xsl:if test="@difficulty">
-                    <IMG border="0" alt="" align="middle">
-                      <xsl:attribute name="src">
-                        <xsl:value-of select="concat('boardicons/difficulty_star',@difficulty,'.png')"/>
-                      </xsl:attribute>
-                    </IMG>
-                  </xsl:if>
-                </DIV>
-
-                <IMG border="0" alt="" align="left">
-                  <xsl:attribute name="src">
-                    <xsl:value-of select="concat('screenshots/',@name)"/>.jpg</xsl:attribute>
-                  </IMG>
                   
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
-                  <BR>__REMOVEME__</BR>
+                    <DIV class="flottante">
+                      <IMG border="0" alt="" align="right">
+                        <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
+                      </IMG>
+
+                      <xsl:if test="@difficulty">
+                        <IMG border="0" alt="" align="right">
+                          <xsl:attribute name="src">
+                            <xsl:value-of select="concat('boardicons/difficulty_star',@difficulty,'.png')"/>
+                          </xsl:attribute>
+                        </IMG>
+                      </xsl:if>
+
+                      <xsl:if test="(@type != 'chess') and (starts-with(@type,'python:')=false)">
+                        <IMG border="0" alt=""  align="right" src="boardicons/win.png">
+                        </IMG>
+                      </xsl:if>
+
+                    </DIV>
+                  </DIV>
+
+                  <DIV class="oneboardtext">
+                    <xsl:variable name="tmptext5" select="manual[@xml:lang=$language]"/>
+                    <xsl:if test="not($tmptext5)">
+                      <xsl:value-of select="manual"/>
+                    </xsl:if>                    
+                    <xsl:value-of select="$tmptext5"/>
+                    __NBSP__
+                  </DIV>
+
                 </HTML>
                 
-                <xsl:variable name="tmptext5" select="manual[@xml:lang=$language]"/>
-                <xsl:if test="not($tmptext5)">
-                  <xsl:value-of select="manual"/>
-                </xsl:if>
-                <xsl:value-of select="$tmptext5"/>
 
               </texte>
             </article>

@@ -145,6 +145,7 @@ sub spip_cleanup {
   # and I dod not find a way to avoid that.
   # I put __REMOVEME__ in empty tags and I remove it there
   $output =~ s/__REMOVEME__//g;
+  $output =~ s/__NBSP__/&nbsp;/g;
 
   # We need to html backquote html tags for spip
   # I put in uppercase all html tags
