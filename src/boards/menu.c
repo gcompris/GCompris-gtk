@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/03/09 17:56:54 bruno>
+ * Time-stamp: <2003/06/15 23:25:46 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -427,7 +427,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 	  
       if(!board_check_file(menuitem->board))
 	{
-	  g_warning("Can't find the board %s", menuitem->board->filename);
+	  g_warning("No plugin library found for type '%s', requested by '%s'", 
+		    menuitem->board->type,  menuitem->board->filename);
 	  return FALSE;
 	}
 
