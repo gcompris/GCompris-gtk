@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-09-05 18:25+0000\n"
+"POT-Creation-Date: 2002-09-06 22:56+0000\n"
 "PO-Revision-Date: 2002-03-30 22:34+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -513,6 +513,24 @@ msgid ""
 "ways."
 msgstr ""
 
+#: boards/chess.xml.in.h:1
+#, fuzzy
+msgid "Learning chess"
+msgstr "Kloklezen"
+
+#: boards/chess.xml.in.h:2 boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr ""
+
+#: boards/chess.xml.in.h:3 src/boards/chess.c:133
+msgid "Play chess against tux in a learning mode"
+msgstr ""
+
+#: boards/chess.xml.in.h:4
+msgid "The chess engine is the gnuchess."
+msgstr ""
+
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
@@ -587,11 +605,6 @@ msgstr ""
 "In dit spel leren kinderen het klikken met de muis. Het doel is zuiver en "
 "alleen om met de linker muisknop op de bewegende vissen te klikken. "
 
-#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
-#: boards/memory.xml.in.h:4
-msgid "Mouse manipulation"
-msgstr ""
-
 #: boards/clockgame.xml.in.h:1
 msgid ""
 "Distinguish differences between hour, minute and second. Compose a time in a "
@@ -624,8 +637,8 @@ msgstr ""
 msgid "Can move the mouse."
 msgstr "Kan de muis laten bewegen"
 
-#: boards/colors.xml.in.h:2 src/boards/advanced_colors.c:85
-#: src/boards/colors.c:68
+#: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:2
+#: src/boards/advanced_colors.c:86 src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr "Klik op de juiste kleur"
 
@@ -723,11 +736,11 @@ msgstr ""
 msgid "Motor coordination"
 msgstr ""
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:73
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:74
+#: boards/erase.xml.in.h:5 src/boards/erase.c:70
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
@@ -1279,6 +1292,24 @@ msgstr "Memorie spel"
 msgid "Railroad"
 msgstr "Spoorweg"
 
+#: boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr ""
+
+#: boards/read_colors.xml.in.h:3
+#, fuzzy
+msgid "Click on the right colored object."
+msgstr "Klik op de juiste kleur"
+
+#: boards/read_colors.xml.in.h:4
+#, fuzzy
+msgid "Read colors"
+msgstr "Kleuren"
+
+#: boards/read_colors.xml.in.h:5
+msgid "This board is dedicated to read basic colors."
+msgstr ""
+
 #: boards/read_colors/board1.xml.in.h:1
 #, fuzzy
 msgid "black"
@@ -1488,13 +1519,13 @@ msgstr ""
 msgid "Educational game starting at 3 years old"
 msgstr "Educatief spel voor kinderen vanaf drie jaar"
 
-#: src/boards/advanced_colors.c:84
+#: src/boards/advanced_colors.c:85
 msgid "Advanced colors"
 msgstr ""
 
-#: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
+#: src/boards/advanced_colors.c:528 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/read_colors.c:402 src/boards/shapegame.c:1567
+#: src/boards/read_colors.c:484 src/boards/shapegame.c:1567
 #: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
 #: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
 #: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
@@ -1503,8 +1534,8 @@ msgstr ""
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/read_colors.c:405
+#: src/boards/advanced_colors.c:531 src/boards/imageid.c:581
+#: src/boards/missingletter.c:602 src/boards/read_colors.c:487
 #: src/boards/shapegame.c:1570
 #, c-format
 msgid "find file %s !"
@@ -1518,6 +1549,35 @@ msgstr "Raad de bewerkingen"
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
 "Help Tux and understand how a canal lock works."
+msgstr ""
+
+#: src/boards/chess.c:132
+#, fuzzy
+msgid "Learning Chess"
+msgstr "Kloklezen"
+
+#: src/boards/chess.c:461
+msgid "White Turn"
+msgstr ""
+
+#: src/boards/chess.c:461
+msgid "Black Turn"
+msgstr ""
+
+#: src/boards/chess.c:573
+msgid "White check"
+msgstr ""
+
+#: src/boards/chess.c:575
+msgid "Black check"
+msgstr ""
+
+#: src/boards/chess.c:863
+msgid "Black mates"
+msgstr ""
+
+#: src/boards/chess.c:868
+msgid "White mates"
 msgstr ""
 
 #: src/boards/click_on_letter.c:73
@@ -1585,12 +1645,12 @@ msgstr "Memorie spel"
 msgid "Build a train conforming to the model"
 msgstr "Bouw een trein zoals in het voorbeeld"
 
-#: src/boards/read_colors.c:68
+#: src/boards/read_colors.c:83
 #, fuzzy
 msgid "Read Colors"
 msgstr "Kleuren"
 
-#: src/boards/read_colors.c:69
+#: src/boards/read_colors.c:84
 #, fuzzy
 msgid "Click on the corresponding color"
 msgstr "Klik op de juiste kleur"
@@ -1814,7 +1874,7 @@ msgstr ""
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:498
+#: src/gcompris/gcompris.c:499
 #, c-format
 msgid ""
 "GCompris\n"

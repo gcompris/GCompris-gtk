@@ -99,6 +99,9 @@ void board_finished(int type) {
 	case BOARD_FINISHED_TUXLOCO :
 		str = g_strdup_printf("gcompris/misc/tuxloco.png");
 		break;
+	case BOARD_FINISHED_TOOMANYERRORS :
+		str = g_strdup_printf("gcompris/misc/toomanyerrors.png");
+		break;
 	default :
 		str = g_strdup_printf("gcompris/misc/tuxplane.png");
 		break;

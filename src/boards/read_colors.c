@@ -326,6 +326,12 @@ static void process_ok() {
 	if (errors <1)
 		errors = 1;
 	update_clock();
+	
+	if (errors <= 1) {
+		board_finished(BOARD_FINISHED_TOOMANYERRORS);
+		return;
+	}
+
 }
 
 /* =====================================================================

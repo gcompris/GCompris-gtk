@@ -53,6 +53,7 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent);
 static void colors_destroy_all_items(void);
 static void colors_next_level(void);
 static void set_level (guint);
+static void update_clock();
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static int highlight_width, highlight_height;
 static GList * listColors = NULL;
@@ -324,6 +325,7 @@ static void game_won() {
 			board_finished(BOARD_FINISHED_TUXLOCO);
 			return;
 			}
+
 		init_xml();
 		} else { // the current board is not finished
 				  gcomprisBoard->sublevel++;
@@ -341,6 +343,12 @@ static void process_ok() {
 	if (errors <1)
 		errors = 1;
 	update_clock();
+	
+	if (errors <= 1) {
+		board_finished(BOARD_FINISHED_TOOMANYERRORS);
+		return;
+	}
+	
 }
 /* =====================================================================
  *
@@ -382,7 +390,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
  * =====================================================================*/
 static void update_clock() {
   char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
-  
+
 	gtk_object_destroy (GTK_OBJECT(clock_image_item));
 
   clock_pixmap = gcompris_load_pixmap(str);

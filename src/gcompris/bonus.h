@@ -42,7 +42,8 @@ typedef enum
   BOARD_FINISHED_RANDOM		= 0,
   BOARD_FINISHED_TUXPLANE	= 1,
   BOARD_FINISHED_TUXLOCO	= 2,
-  BOARD_FINISHED_LAST		= 2
+	BOARD_FINISHED_TOOMANYERRORS = 3,
+  BOARD_FINISHED_LAST		= 3
 } BoardFinishedList;
 
 void	 gcompris_display_bonus(int, int);

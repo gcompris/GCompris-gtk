@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-09-05 18:25+0000\n"
+"POT-Creation-Date: 2002-09-06 22:56+0000\n"
 "PO-Revision-Date: 2001-12-29 14:16GMT+0200\n"
 "Last-Translator: Vasif İsmayıloğlu MD <azerb_linux@hotmail.com>\n"
 "Language-Team: Azerbaijani Turkic <linuxaz@azerimail.net>\n"
@@ -492,6 +492,24 @@ msgid ""
 "ways."
 msgstr ""
 
+#: boards/chess.xml.in.h:1
+#, fuzzy
+msgid "Learning chess"
+msgstr "Öyrənmə Saatı"
+
+#: boards/chess.xml.in.h:2 boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr ""
+
+#: boards/chess.xml.in.h:3 src/boards/chess.c:133
+msgid "Play chess against tux in a learning mode"
+msgstr ""
+
+#: boards/chess.xml.in.h:4
+msgid "The chess engine is the gnuchess."
+msgstr ""
+
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
@@ -544,11 +562,6 @@ msgid ""
 "click with the left mouse button on the moving fish."
 msgstr ""
 
-#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
-#: boards/memory.xml.in.h:4
-msgid "Mouse manipulation"
-msgstr ""
-
 #: boards/clockgame.xml.in.h:1
 msgid ""
 "Distinguish differences between hour, minute and second. Compose a time in a "
@@ -581,8 +594,8 @@ msgstr ""
 msgid "Can move the mouse."
 msgstr "Siçanı hərəkət etdir"
 
-#: boards/colors.xml.in.h:2 src/boards/advanced_colors.c:85
-#: src/boards/colors.c:68
+#: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:2
+#: src/boards/advanced_colors.c:86 src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr ""
 
@@ -665,11 +678,11 @@ msgstr ""
 msgid "Motor coordination"
 msgstr ""
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:73
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69
 msgid "Move the mouse"
 msgstr "Siçanı hərəkət etdir"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:74
+#: boards/erase.xml.in.h:5 src/boards/erase.c:70
 msgid "Move the mouse to erase the area and discover the background"
 msgstr ""
 
@@ -1194,6 +1207,22 @@ msgstr ""
 msgid "Railroad"
 msgstr ""
 
+#: boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr ""
+
+#: boards/read_colors.xml.in.h:3
+msgid "Click on the right colored object."
+msgstr ""
+
+#: boards/read_colors.xml.in.h:4
+msgid "Read colors"
+msgstr ""
+
+#: boards/read_colors.xml.in.h:5
+msgid "This board is dedicated to read basic colors."
+msgstr ""
+
 #: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr ""
@@ -1397,13 +1426,13 @@ msgstr ""
 msgid "Educational game starting at 3 years old"
 msgstr ""
 
-#: src/boards/advanced_colors.c:84
+#: src/boards/advanced_colors.c:85
 msgid "Advanced colors"
 msgstr ""
 
-#: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
+#: src/boards/advanced_colors.c:528 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/read_colors.c:402 src/boards/shapegame.c:1567
+#: src/boards/read_colors.c:484 src/boards/shapegame.c:1567
 #: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
 #: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
 #: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
@@ -1412,8 +1441,8 @@ msgstr ""
 msgid "Couldn't find file %s !"
 msgstr "%s faylı tapıla bilmir !"
 
-#: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/read_colors.c:405
+#: src/boards/advanced_colors.c:531 src/boards/imageid.c:581
+#: src/boards/missingletter.c:602 src/boards/read_colors.c:487
 #: src/boards/shapegame.c:1570
 #, c-format
 msgid "find file %s !"
@@ -1427,6 +1456,35 @@ msgstr ""
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
 "Help Tux and understand how a canal lock works."
+msgstr ""
+
+#: src/boards/chess.c:132
+#, fuzzy
+msgid "Learning Chess"
+msgstr "Öyrənmə Saatı"
+
+#: src/boards/chess.c:461
+msgid "White Turn"
+msgstr ""
+
+#: src/boards/chess.c:461
+msgid "Black Turn"
+msgstr ""
+
+#: src/boards/chess.c:573
+msgid "White check"
+msgstr ""
+
+#: src/boards/chess.c:575
+msgid "Black check"
+msgstr ""
+
+#: src/boards/chess.c:863
+msgid "Black mates"
+msgstr ""
+
+#: src/boards/chess.c:868
+msgid "White mates"
 msgstr ""
 
 #: src/boards/click_on_letter.c:73
@@ -1495,11 +1553,11 @@ msgstr ""
 msgid "Build a train conforming to the model"
 msgstr ""
 
-#: src/boards/read_colors.c:68
+#: src/boards/read_colors.c:83
 msgid "Read Colors"
 msgstr ""
 
-#: src/boards/read_colors.c:69
+#: src/boards/read_colors.c:84
 msgid "Click on the corresponding color"
 msgstr ""
 
@@ -1717,7 +1775,7 @@ msgstr ""
 msgid "GCompris I Have Understood"
 msgstr "GCompris Anladım"
 
-#: src/gcompris/gcompris.c:498
+#: src/gcompris/gcompris.c:499
 #, c-format
 msgid ""
 "GCompris\n"
