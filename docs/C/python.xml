@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
                       "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 <!--
 This file is in the xml docbook format. It can be translated to many formats
@@ -19,7 +19,7 @@ xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/
 	<email>osamyn@ulb.ac.be</email>
       </author>
       <date>February 2003</date>
-      <revhistory>	
+      <revhistory>
 	<revision>
 	  <revnumber>0.1</revnumber>
 	  <date>February 2003</date>
@@ -27,6 +27,10 @@ xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/
 	<revision>
 	  <revnumber>0.2</revnumber>
 	  <date>April 2003</date>
+	</revision>
+	<revision>
+	  <revnumber>0.3</revnumber>
+	  <date>January 2004</date>
 	</revision>
       </revhistory>
     </articleinfo>
@@ -51,7 +55,7 @@ but there is no warranty on their behaviour... I you find a bug report it!</para
     </sect1>
 
     <sect1>
-      <title>Python board structure</title> 
+      <title>Python board structure</title>
 <para>Each board written in python must contains a class which name is
 "Gcompris_xxx" where xxx is the name of the board. Let's take an example: I made
 a gcompris board written in python and called "pythontest".</para>
@@ -90,7 +94,7 @@ one. Here a some Python call samples:</para>
 </programlisting>
 <para>Here are the Python structure member name and type, and a note indicating if the
 attribute is readeable and/or writable.</para>
-      
+
       <informaltable>
 	<tgroup cols="4">
 	  <thead>
@@ -197,6 +201,11 @@ attribute is readeable and/or writable.</para>
 		<entry></entry>
 	      </row>
 	      <row>
+		<entry>gcompris.bar_set_repeat_icon(pixmap)</entry>
+		<entry>void gcompris_bar_set_repeat_icon(GdkPixbuf *pixmap)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
 		<entry>gcompris.bar_set(flags)</entry>
 		<entry>void gcompris_bar_set(const GComprisBarFlags flags)</entry>
 		<entry></entry>
@@ -261,6 +270,16 @@ attribute is readeable and/or writable.</para>
 		<entry>void gcompris_exit(void)</entry>
 		<entry></entry>
 	      </row>
+	      <row>
+		<entry>gcompris.log_set_reason (gcomprisBoard, comment)</entry>
+		<entry>gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *comment)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.log_end (gcomprisBoard, status)</entry>
+		<entry>gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status)</entry>
+		<entry></entry>
+	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
@@ -300,7 +319,7 @@ attribute is readeable and/or writable.</para>
 	  </tgroup>
 	</informaltable>
       </sect2>
-      
+
       <sect2>
 	<title>Misc constants mapping</title>
 	<informaltable>
@@ -480,14 +499,34 @@ attribute is readeable and/or writable.</para>
 		<entry></entry>
 	      </row>
 	      <row>
+		<entry>gcompris.utils.item_rotate_relative(item, angle)</entry>
+		<entry>void item_rotate_relative(GnomeCanvasItem *item, double angle)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
 		<entry>gcompris.utils.item_rotate_with_center(item, angle, x, y)</entry>
 		<entry>void item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.item_rotate_relative_with_center(item, angle, x, y)</entry>
+		<entry>void item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
 		<entry>gcompris.utils.dialog(str, callback)</entry>
 		<entry>void gcompris_dialog(gchar *str, DialogBoxCallBack callback)</entry>
 		<entry>The callback must be a callable object</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.load_pixmap_asset(dataset, categories, mimetype, name)</entry>
+		<entry>GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry>
+		<entry>return a gtk.gdk.Pixbuf</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.get_asset_file(dataset, categories, mimetype, name)</entry>
+		<entry>gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry>
+		<entry>return a string</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>

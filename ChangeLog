@@ -1,3 +1,16 @@
+2004-01-21  Olivier Samyn  <osamyn@easynet.be>
+
+	* docs/C/python.html: synced docs with code
+	* docs/C/python.xml: synced docs with code
+	* src/boards/py-mod-gcompris.c: (py_gcompris_bar_set_repeat_icon),
+	(py_gcompris_get_user_default_locale),
+	(py_gcompris_log_set_reason), (py_gcompris_log_end): wrapped some
+new functions
+	* src/boards/py-mod-utils.c: (py_gcompris_item_rotate_relative),
+	(py_gcompris_item_rotate_relative_with_center),
+	(py_gcompris_load_pixmap_asset), (py_gcompris_get_asset_file):
+wrapped some new functions
+
 2004-01-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* po/Makefile.in.in: no idea why it as changed
