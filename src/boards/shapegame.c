@@ -1709,6 +1709,7 @@ parse_doc(xmlDocPtr doc)
 {
   xmlNodePtr node;
   GList *list;
+  GnomeCanvasItem *item;
 
   /* find <Shape> nodes and add them to the list, this just
      loops through all the children of the root of the document */
@@ -1733,7 +1734,16 @@ parse_doc(xmlDocPtr doc)
   
   g_list_free(shape_list_init);
   shape_list_init = NULL;
+
+  item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+  gnome_canvas_item_hide(item); 
+  item = g_list_nth_data(shape_list_group, 0);
+  gnome_canvas_item_show(item);
+  gnome_canvas_item_hide(previous_shapelist_item); 
+  gnome_canvas_item_show(next_shapelist_item);
+  current_shapelistgroup_index = 0; 
   
+
   /* Loop through all the shapes and */
   /* Arrange the order (depth) of the shapes on the canvas */
   /* Depending on the xml given definition in the position property */
