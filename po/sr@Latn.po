@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-19 00:54+0200\n"
-"PO-Revision-Date: 2003-09-19 00:53+0200\n"
+"POT-Creation-Date: 2003-09-26 17:18+0200\n"
+"PO-Revision-Date: 2003-09-26 17:20+0200\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -857,7 +857,7 @@ msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Prevucite i pustite gornji komad jedino na prazno mesto"
 
 # bug: than the one -> like the one
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Napravite na praznom mestu istu kulu kao ona na desnoj strani"
 
@@ -1420,16 +1420,33 @@ msgstr "torba/t_rba/o/a/e"
 msgid "satchel/sa_chel/t/p/c"
 msgstr "torba/to_ba/r/g/l"
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "Ume da broji"
+
+# bug: botton -> button
+#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+msgid ""
+"Click on the coins or paper money on the botton of the screen to pay. If you "
+"want to remove a coin or note, click on it on the upper screen area."
+msgstr "Kliknite na novčiće ili papirni novac u dnu ekrana da platite. Ukoliko želite da uklonite novac ili novčanicu, kliknite na gornji deo ekrana."
+
+#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
 msgstr "Novac"
 
-#: boards/money.xml.in.h:2 src/boards/money.c:88
+#: boards/money.xml.in.h:4 src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr "Vežbajte upotrebu novca"
 
+#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+msgid ""
+"You must buy the different items and give the exact price. At higher level, "
+"several items are displayed, you must first calculate the total price."
+msgstr "Morate kupiti razne stavke i dati tačnu cenu. Na višem nivou, prikazuje se nekoliko stavki, pa morate prvo izračunati ukupnu cenu."
+
 # bug: Pratice -> Practice
-#: boards/money_cents.xml.in.h:2
+#: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
 msgstr "Vežbajte upotrebu novca uključujući i pare"
 
@@ -1970,13 +1987,33 @@ msgstr "Šah-mat belog"
 msgid "Drawn game"
 msgstr "Nerešeno"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:74
 msgid "Read a letter"
 msgstr "Pročitaj slovo"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:75
 msgid "Learn to recognize letters"
 msgstr "Naučite da prepoznajete slova"
+
+#: src/boards/click_on_letter.c:226
+msgid ""
+"Error: this activity requires you to install first\n"
+"the package assetml-voices-alphabet-"
+msgstr ""
+"Greška: ova vežba zahteva da prvo instalirate\n"
+"paket assetml-voices-alphabet-"
+
+#: src/boards/click_on_letter.c:233
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effect disabled.\n"
+"Go in the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Greška: ova vežba se ne može igrati uz \n"
+"isključeni zvuk.\n"
+"Idite u prozorče za podešavanja da\n"
+"uključite zvuk."
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2164,7 +2201,7 @@ msgstr ""
 msgid "Help"
 msgstr "Pomoć"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:175 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "U redu"
@@ -2278,56 +2315,64 @@ msgid "Slovak"
 msgstr "slovački"
 
 #: src/gcompris/config.c:79
+msgid "Serbian (Latin)"
+msgstr "srpski (latinica)"
+
+#: src/gcompris/config.c:80
+msgid "Serbian"
+msgstr "srpski"
+
+#: src/gcompris/config.c:81
 msgid "Swedish"
 msgstr "švedski"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:82
 msgid "Turkish"
 msgstr "turski"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:87
 msgid "No time limit"
 msgstr "Bez vremenskog ograničenja"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:88
 msgid "Slow timer"
 msgstr "Sporo teče vreme"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:89
 msgid "Normal timer"
 msgstr "Obično teče vreme"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:90
 msgid "Fast timer"
 msgstr "Brzo teče vreme"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:95
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (podrazumevano za gcompris-a)"
 
-#: src/gcompris/config.c:149
+#: src/gcompris/config.c:151
 msgid "GCompris Configuration"
 msgstr "Podešavanje GCompris-a"
 
-#: src/gcompris/config.c:255
+#: src/gcompris/config.c:257
 msgid "Fullscreen"
 msgstr "Ceo ekran"
 
-#: src/gcompris/config.c:298
+#: src/gcompris/config.c:300
 msgid "Music"
 msgstr "Muzika"
 
-#: src/gcompris/config.c:326
+#: src/gcompris/config.c:328
 msgid "Effect"
 msgstr "Efekat"
 
-#: src/gcompris/config.c:363
+#: src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nisam mogao da otvorim direktorijum sa maskama: %s"
 
-#: src/gcompris/config.c:397 src/gcompris/config.c:696
-#: src/gcompris/config.c:707
+#: src/gcompris/config.c:399 src/gcompris/config.c:705
+#: src/gcompris/config.c:716
 #, c-format
 msgid "Skin : %s"
 msgstr "Maska : %s"
@@ -2365,7 +2410,7 @@ msgstr "Koristi ulepšan prikaz (sporije)."
 msgid "GCompris I Have Understood"
 msgstr "GKompris kog sam razumeo"
 
-#: src/gcompris/gcompris.c:546
+#: src/gcompris/gcompris.c:544
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2426,7 +2471,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Direktorijum"
 
-#: src/gcompris/interface.c:286
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
 msgid "Title"
 msgstr "Naslov"
 
@@ -2442,9 +2487,13 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Objavljeno pod OJL (GPL)"
 
-#: src/gcompris/oggplayer.c:189
+#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
 msgid "Now Playing Music"
 msgstr "Sada puštam muziku"
+
+#: src/gcompris/oggplayer.c:245
+msgid "Artist"
+msgstr "Izvođač"
 
 #: src/gcompris/soundutil.c:116
 #, c-format
