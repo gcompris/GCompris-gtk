@@ -1,3 +1,15 @@
+2004-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/geography/board3_1.xml.in: fixed image reference
+	* boards/missing_letter/board1.xml.in: fixed image reference
+	* boards/sounds/da/Makefile.am: added
+	* boards/sounds/da/geography/Makefile.am: added
+	* boards/sounds/da/misc/Makefile.am: added
+	* configure.in: changed GTK version
+	* gcompris.spec.in: removed libassetml reference
+	* src/boards/gletters.c: (key_press): moved a declaration to compile with old gcc 2.95
+	* src/gcompris/config.c: added danish
+
 2004-09-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/geography/board1_0.xml.in: added country names in new tooltip entity

@@ -17,12 +17,12 @@ Buildrequires: gnuchess libogg-devel
 Buildrequires: libxml2-devel libgnomeui2-devel
 Buildrequires: libvorbis-devel libao-devel 
 Buildrequires: liblinc-devel 
-Buildrequires: texinfo libassetml-devel
+Buildrequires: texinfo 
 # (misc) needed for python support
 Buildrequires: gnome-python python-devel pygtk2.0-devel
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
 Requires:       gnuchess >= 5.02
-Requires:       libassetml @REQUIRE_PYTHON@
+Requires:       @REQUIRE_PYTHON@
 Requires:	assetml-flags
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 URL: 		http://ofset.sf.net/gcompris

@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/03/24 00:56:56 bcoudoin>
+ * Time-stamp: <2004/09/28 00:50:44 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -438,6 +438,7 @@ static gint key_press(guint keyval) {
   gchar *str;
   char utf8char[6], keyChar[6], mapChar[6];
   int i;
+  gchar list_of_letters[255];
 
 #ifdef DEBUG
   g_message("in key_press: %d, %c, %lc",keyval,keyval,keyval);
@@ -575,7 +576,6 @@ static gint key_press(guint keyval) {
     }
   }
 
-  gchar list_of_letters[255];
   list_of_letters[0] = '\0';
 
   /* We have to loop to concat the letters */

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/08/03 23:20:15 bcoudoin>
+ * Time-stamp: <2004/09/28 00:42:05 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -66,6 +66,7 @@ static gchar *linguas[] = {
   "az_AZ.UTF-8", 	N_("Azerbaijani Turkic"),
   "ca_ES.UTF-8",	N_("Catalan"),
   "cs_CZ.UTF-8",	N_("Czech"),
+  "da_DK.UTF-8", 	N_("Danish"),
   "de_DE.UTF-8", 	N_("German"),
   "el_GR.UTF-8", 	N_("Greek"),
   "en_US.UTF-8",	N_("American English"),
