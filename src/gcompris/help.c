@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2003/07/20 18:57:49 bcoudoin>
+ * Time-stamp: <2004/02/28 16:03:20 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -35,11 +35,13 @@
 
 static gint	 item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static void	 select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text);
+static void	 set_content(char *text);
 
 static gboolean help_displayed			= FALSE;
 
 static GnomeCanvasItem *rootitem		= NULL;
 static GnomeCanvasItem *item_content		= NULL;
+static GnomeCanvasItem *item_content_shadow	= NULL;
 
 static gchar *prerequisite			= NULL;
 static gchar *goal				= NULL;
@@ -309,15 +311,34 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
     }
 
   y_start += 5;
+
+  item_content_shadow = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					gnome_canvas_rich_text_get_type (),
+					"x", (double)  x_start + 45 + 1,
+					"y", (double)  y_start + 1,
+					"width", 620.0,
+					"height", 400.0,
+					"anchor", GTK_ANCHOR_NW,
+					"grow_height", FALSE,
+					"cursor_visible", FALSE,
+					"cursor_blink", FALSE,
+					"editable", FALSE,
+					NULL);
+
   item_content = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					gnome_canvas_text_get_type (),
-					"text", text_to_display,
-					"font", gcompris_skin_font_content,
+					gnome_canvas_rich_text_get_type (),
 					"x", (double)  x_start + 45,
 					"y", (double)  y_start,
+					"width", 620.0,
+					"height", 400.0,
 					"anchor", GTK_ANCHOR_NW,
-					"fill_color_rgba", gcompris_skin_color_content,
+					"grow_height", FALSE,
+					"cursor_visible", FALSE,
+					"cursor_blink", FALSE,
+					"editable", FALSE,
 					NULL);
+
+  set_content(text_to_display);
 
   // OK
   pixmap = gcompris_load_skin_pixmap("button_large.png");
@@ -419,6 +440,42 @@ static void select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text)
   item_selected_text = item_text;
 }
 
+/* Apply the style to the given RichText item  */
+static void set_content(gchar *text) {
+
+  GtkTextIter    iter_start, iter_end;
+  GtkTextBuffer *buffer;
+  GtkTextTag    *txt_tag;
+
+  gnome_canvas_item_set(item_content, 
+			"text", text,
+			NULL);
+
+  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
+  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
+				       "foreground", "black",
+				       "font",       "Sans 10",
+				       NULL);
+  gtk_text_buffer_get_end_iter(buffer, &iter_end);
+  gtk_text_buffer_get_start_iter(buffer, &iter_start);
+  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
+
+
+  gnome_canvas_item_set(item_content_shadow, 
+			"text", text,
+			NULL);
+
+  buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
+  txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 
+				       "foreground", "blue",
+				       "font",       "Sans 10",
+				       NULL);
+  gtk_text_buffer_get_end_iter(buffer, &iter_end);
+  gtk_text_buffer_get_start_iter(buffer, &iter_start);
+  gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
+
+}
+
 /* Callback for the bar operations */
 static gint
 item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
@@ -438,34 +495,22 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if(!strcmp((char *)data, "prerequisite"))
 	{
 	  select_item(item_prerequisite, item_prerequisite_text);
-
-	  gnome_canvas_item_set(item_content, 
-				"text", prerequisite,
-				NULL);
+	  set_content(prerequisite);
 	}      
       else if(!strcmp((char *)data, "goal"))
 	{
 	  select_item(item_goal, item_goal_text);
-
-	  gnome_canvas_item_set(item_content, 
-				"text", goal,
-				NULL);
+	  set_content(goal);
 	}      
       else if(!strcmp((char *)data, "manual"))
 	{
 	  select_item(item_manual, item_manual_text);
-	  
-	  gnome_canvas_item_set(item_content, 
-				"text", manual,
-				NULL);
+	  set_content(manual);
 	}      
       else if(!strcmp((char *)data, "credit"))
 	{
 	  select_item(item_credit, item_credit_text);
-	  
-	  gnome_canvas_item_set(item_content, 
-				"text", credit,
-				NULL);
+	  set_content(credit);
 	}      
     default:
       break;

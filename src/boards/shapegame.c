@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/02/20 00:54:46 bcoudoin>
+ * Time-stamp: <2004/02/28 14:06:30 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -149,7 +149,7 @@ static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  Gnom
 				      char *targetfile, double x, double y, double l, double h, double zoomx, 
 				      double zoomy, guint position, char *soundfile);
 static gboolean 	 increment_sublevel(void);
-static void 		 create_title(char *name, double x, double y, char *justification);
+static void 		 create_title(char *name, double x, double y, GtkJustification justification);
 static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint		 item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape);
 
@@ -1456,9 +1456,24 @@ add_shape_to_canvas(Shape *shape)
 
 }
 
-static void create_title(char *name, double x, double y, char *justification)
+static void create_title(char *name, double x, double y, GtkJustification justification)
 {
   GnomeCanvasItem *item;
+
+  /* Shadow */
+  item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+			   gnome_canvas_text_get_type (),
+			   "text", name,
+			   "font", gcompris_skin_font_board_medium,
+			   "x", x + 1,
+			   "y", y + 1,
+			   "anchor", GTK_ANCHOR_CENTER,
+			   "justification", justification,
+			   "fill_color", "black",
+			   NULL);
+
+  gnome_canvas_item_raise_to_top(item);
 
   item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
@@ -1518,6 +1533,7 @@ static void
 add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *name, *cx, *cy, *cd, *czoomx, *czoomy, *cposition, *ctype, *justification;
+  GtkJustification justification_gtk;
   char *pixmapfile = NULL;
   char *targetfile = NULL;
   char *soundfile = NULL;
@@ -1632,8 +1648,19 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     type = SHAPE_COLORLIST;
 
   /* get the JUSTIFICATION of the Title */
+  justification_gtk = GTK_JUSTIFY_CENTER;	/* GTK_JUSTIFICATION_CENTER is default */
   justification = xmlGetProp(xmlnode,"justification");
-  if(!justification) justification = "GTK_JUSTIFICATION_CENTER"; /* GTK_JUSTIFICATION_CENTER is default */
+  if(justification) {
+    if (strcmp(justification, "GTK_JUSTIFY_LEFT") == 0) {
+      justification_gtk = GTK_JUSTIFY_LEFT;
+    } else if (strcmp(justification, "GTK_JUSTIFY_RIGHT") == 0) {
+      justification_gtk = GTK_JUSTIFY_RIGHT;
+    } else if (strcmp(justification, "GTK_JUSTIFY_CENTER") == 0) {
+      justification_gtk = GTK_JUSTIFY_CENTER;
+    } else if (strcmp(justification, "GTK_JUSTIFY_FILL") == 0) {
+      justification_gtk = GTK_JUSTIFY_FILL;
+    }
+  }
 
   /* get the name of the shape */
   name = NULL;
@@ -1669,7 +1696,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     } 
   else if (g_strcasecmp(xmlnode->name,"Title")==0)
     {
-      create_title(name, x, y, justification);
+      create_title(name, x, y, justification_gtk);
     }
   
 }

@@ -1,5 +1,20 @@
 2004-02-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* boards/chronos.xml.in: added transportation levels
+	* boards/chronos/Makefile.am:  added transportation
+	* boards/chronos/images/README: created. 
+	* boards/chronos/images/vicking_boat.png: created by Bruno coudoin. Released under the GPL. 
+	* boards/dataset/mrpatate.xml: added the viking boat
+	* boards/gletters/README: created bt Yan Seiner
+	* boards/redraw_symmetrical.xml.in: reset the name. I have a problem with the web site generation here.
+	the name field was supose to be used for web generation and was set to the file name. It has changed for python.
+	need to find a way to fix that. Most important is that the game works.
+	* src/boards/shapegame.c: (create_title), (add_xml_shape_to_data): added a black shadow under the text. Fixed title alignment.
+	* src/gcompris/help.c: (gcompris_help_start), (set_content),
+	(item_event_help): changed to use the rich text item. Now the line wrapping is done automatically.
+
+2004-02-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* .cvsignore: added list_translators.sh
 	* boards/boardicons/chronos.png: added by Jose
 	* boards/flags/en_CA.png: added. taken from gkb.
