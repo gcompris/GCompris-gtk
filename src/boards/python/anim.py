@@ -67,6 +67,15 @@ class Gcompris_anim:
                       }
 
     if self.gcomprisBoard.mode == 'draw':
+      self.format_string = { 'gcompris' : 'GCompris draw 2 cPikle file',
+                             'svg' : 'GCompris draw 2 svg file'
+                             }
+    else:
+      self.format_string = { 'gcompris' : 'GCompris anim 2 cPikle file',
+                             'svg' : 'GCompris anim 2 svg file'
+                             }
+      
+    if self.gcomprisBoard.mode == 'draw':
       # DRAW
       #
       # draw is adapted to little kids : big anchors
@@ -2164,6 +2173,9 @@ def anim2_to_file(filename):
 
   file =   open(filename, 'wb')
 
+  # Save the descriptif frame:
+  pickle.dump(fles.format_string['gcompris'],file,True) 
+
   # save the total of frames
   pickle.dump(fles.frames_total, file, True)
 
@@ -2214,7 +2226,18 @@ def file_to_anim2(filename):
   global fles
 
   file =   open(filename, 'rb')
-  fles.frames_total = pickle.load(file)
+  desc = pickle.load(file)
+
+  if type(desc) == type('str'):
+    # string
+    if 'desc' != fles.format_string['gcompris']:
+      print filename, ' has description : ', desc
+    fles.frames_total = pickle.load(file)
+  elif type(desc) == type(1):
+    print filename, ' has no description. Sure is ', fles.format_string['gcompris'],' ?'
+    # int
+    fles.frames_total = desc
+    
   picklelist = pickle.load(file)
   file.close()
   list_restore(picklelist)
@@ -2781,6 +2804,7 @@ class DOMProcess(BaseProcess):
     finishOutput() method.
     """
     def initOutput(self):
+        global fles
         # Create a new document with no namespace uri, qualified name,
         # or document type
         self.document = implementation.createDocument(None,None,None)
@@ -2795,6 +2819,12 @@ class DOMProcess(BaseProcess):
         self.svg.setAttribute("xmlns:gcompris","http://www.ofset.org/gcompris")
         self.svg.setAttribute("onload","init();")
         self.document.appendChild(self.svg)
+
+        self.metadata = self.document.createElement("metadata")
+        self.svg.appendChild(self.metadata)
+        self.gc_desc = self.document.createElement("gcompris:description")
+        self.metadata.appendChild(self.gc_desc)
+        self.gc_desc.setAttribute('value',fles.format_string['svg'])
 
         if fles.gcomprisBoard.mode != 'draw':	
           self.script = self.document.createElement("script")
@@ -2896,7 +2926,9 @@ def svg_to_anim2(filename):
     """Process command line parameters and run the conversion."""
 
     infp = open(filename)
+    global fles
 
+    fles.filename = filename
     out = Outputter()
     parser = expat.ParserCreate()
 
@@ -3110,10 +3142,18 @@ class Outputter:
         self.in_element.append(name)
         if (name == 'svg'):
           if (fles.gcomprisBoard.mode == 'draw'):
-            self.wait_element_list = [ 'defs' ]
+            self.wait_element_list = [ 'defs', 'metadata' ]
           else:
-            self.wait_element_list = [ 'script' ] 
+            self.wait_element_list = [ 'script', 'metadata' ] 
           return
+        if (name == 'metadata'):
+           self.wait_element_list = ['gcompris:description']
+           return
+        if (name == 'gcompris:description'):
+           desc = attrs['value']
+           if 'desc' != fles.format_string['gcompris']:
+             print fles.filename, ' has description : ', desc
+           return
         if (name == 'script'):
            self.wait_end_of = name
            return
@@ -3196,6 +3236,12 @@ class Outputter:
             print self.picklelist
             list_restore(self.picklelist)
             return
+        if (name == 'metadata'):
+          if (fles.gcomprisBoard.mode == 'draw'):
+            self.wait_element_list = [ 'defs' ]
+          else:
+            self.wait_element_list = [ 'script' ] 
+          return
         if (name == 'script'):
             self.wait_element_list = [ 'gcompris:frames_total' ]
             return
@@ -3220,7 +3266,7 @@ class Outputter:
             self.item_getting = None
             return
         
-        print 'End element:\n\t', name
+        #print 'End element:\n\t', name
 
     def CharacterDataHandler(self, data):
       if (self.in_element != []):
