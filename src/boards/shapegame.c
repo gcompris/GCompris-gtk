@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/06/11 00:59:54 bruno>
+ * Time-stamp: <2002/06/13 00:37:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -102,8 +102,22 @@ static GList *shape_list	= NULL;
 static GList *shape_list_group	= NULL;
 static int current_shapelistgroup_index	= -1;
 
+static GnomeCanvasItem *next_shapelist_item;		/* Canvas item button for the next shapelist */
+static GnomeCanvasItem *previous_shapelist_item;   	/* Canvas item button for the previous shapelist */
+
+/* Let's define the structure for the shapebox list that contains the icons of the shapes */
+typedef struct _ShapeBox ShapeBox;
+struct _ShapeBox {
+  double x;				/* x coordinate */
+  double y;				/* y coordinate */
+  double w;				/* width */
+  double h;				/* height */
+  guint  nb_shape_x;			/* Number of shape on x */
+  guint  nb_shape_y;			/* Number of shape on y */
+};
+static ShapeBox shapeBox;
+
 #define BUTTON_SPACE		40
-#define MAX_NUMBER_OF_SHAPES	8
 
 /* Hash table of all the shapes in the list of shapes (one by different pixmap plus icon list) */
 static GHashTable *shapelist_table = NULL;
@@ -472,7 +486,7 @@ static GnomeCanvasItem *shapegame_init_canvas(GnomeCanvasGroup *parent)
   shape_list_root_item = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
-			   "x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO,
+			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
 
@@ -547,53 +561,62 @@ add_shape_to_list_of_shapes(Shape *shape)
 {
   GnomeCanvasItem *item;
   GdkPixbuf   *pixmap = NULL;
-  double SHAPE_ELEM_NUMBER_IN_HEIGHT = (double)(gcomprisBoard->height-BUTTON_SPACE)/MAX_NUMBER_OF_SHAPES;
   GnomeCanvasGroup *shape_list_group_root = NULL;
+  double ICON_GAP    = 5.0;
+  double ICON_HEIGHT = (double)(shapeBox.h / shapeBox.nb_shape_y) - ICON_GAP;
+  double ICON_WIDTH  = (double)(shapeBox.w / shapeBox.nb_shape_x) - ICON_GAP;
 
   if(!shapelist_table)
     shapelist_table= g_hash_table_new (g_str_hash, g_str_equal);
 
-  /* If the first list is full, add the previous/forward buttons */
-  if(g_hash_table_size(shapelist_table)==MAX_NUMBER_OF_SHAPES)
+  /*----------------------------------------------------------------------*/
+  /* If the first list is full, add the previous/forward buttons          */
+  if(g_hash_table_size(shapelist_table)==(shapeBox.nb_shape_x * shapeBox.nb_shape_y))
     {
       pixmap = gcompris_load_pixmap("gcompris/buttons/button_backward.png");
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
-				    "x", (double) -40,
-				    "y", (double) BOARDHEIGHT-40,
-				    NULL);
+      previous_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
+						       gnome_canvas_pixbuf_get_type (),
+						       "pixbuf", pixmap, 
+						       "x", (double) shapeBox.x + (shapeBox.w/2) -
+						       gdk_pixbuf_get_width(pixmap) - 2,
+						       "y", (double) shapeBox.y + shapeBox.h,
+						       NULL);
       
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(previous_shapelist_item), "event",
 			 (GtkSignalFunc) item_event_ok,
 			 "previous_shapelist");
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(previous_shapelist_item), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 NULL);
       gdk_pixbuf_unref(pixmap);
-      
       
       pixmap = gcompris_load_pixmap("gcompris/buttons/button_forward.png");
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
-				    "x", (double) 0,
-				    "y", (double) BOARDHEIGHT-40,
-				    NULL);
+      next_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
+						   gnome_canvas_pixbuf_get_type (),
+						   "pixbuf", pixmap, 
+						   "x", (double) shapeBox.x + (shapeBox.w/2) + 2,
+						   "y", (double) shapeBox.y + shapeBox.h,
+						   NULL);
       
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(next_shapelist_item), "event",
 			 (GtkSignalFunc) item_event_ok,
 			 "next_shapelist");
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(next_shapelist_item), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 NULL);
       gdk_pixbuf_unref(pixmap);
+      gnome_canvas_item_hide(next_shapelist_item);
+
   }
 
-  if(g_hash_table_size(shapelist_table)%MAX_NUMBER_OF_SHAPES==0)
+  /*----------------------------------------------------------------------*/
+  /* Do We need to create a new list                                      */
+  if(g_hash_table_size(shapelist_table)%(shapeBox.nb_shape_x * shapeBox.nb_shape_y)==0)
     {
       current_shapelistgroup_index++;
-      printf("Creation of the group of shape current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+      printf("Creation of the group of shape current_shapelistgroup_index=%d\n", 
+	     current_shapelistgroup_index);
+
       // Hide the previous group
       if(current_shapelistgroup_index>=1)
 	{
@@ -624,15 +647,25 @@ add_shape_to_list_of_shapes(Shape *shape)
       shape_list_group_root = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
     }
 
-  /* This pixmap is not yet in the list of shapes */
+  /*----------------------------------------------------------------------*/
+  /* This pixmap is not yet in the list of shapes                         */
   if(g_hash_table_lookup (shapelist_table, shape->pixmapfile)==NULL)
     {
       double y_offset = 0;
+      double x_offset = 0;
       GdkPixbuf *pixmap = NULL;
 
-      y_offset = (SHAPE_ELEM_NUMBER_IN_HEIGHT/2 +
-		  (g_hash_table_size(shapelist_table)%MAX_NUMBER_OF_SHAPES)*
-		  SHAPE_ELEM_NUMBER_IN_HEIGHT);
+      y_offset = shapeBox.y + (ICON_HEIGHT/2 +
+			       (g_hash_table_size(shapelist_table) % shapeBox.nb_shape_y) *
+			       ICON_HEIGHT);
+      
+      x_offset = shapeBox.x + (ICON_WIDTH/2 +
+			       ((g_hash_table_size(shapelist_table) %
+				 ( shapeBox.nb_shape_x * shapeBox.nb_shape_y)) /
+				shapeBox.nb_shape_y) *
+			       ICON_WIDTH);
+      printf("  ICON_WIDTH = %f   ICON_HEIGHT = %f\n", ICON_WIDTH, ICON_HEIGHT);
+      printf("x_offset = %f   y_offset = %f\n", x_offset, y_offset);
 
       /* So this shape is not yet in, let's put it in now */
       g_hash_table_insert (shapelist_table, shape->pixmapfile, shape);
@@ -643,24 +676,29 @@ add_shape_to_list_of_shapes(Shape *shape)
 	  if(pixmap)
 	    {
 	      double w, h;
-	      guint SHAPE_SIZE = SHAPE_ELEM_NUMBER_IN_HEIGHT - 5;
 	      Shape *icon_shape;
 	      
 	      /* Calc a zoom factor so that the shape will fit in the shapelist
 		 whatever its current size */
-	      w = SHAPE_SIZE;
-	      h = gdk_pixbuf_get_height(pixmap) * ( w / gdk_pixbuf_get_width(pixmap));
+	      w = gdk_pixbuf_get_width(pixmap);
+	      h = gdk_pixbuf_get_height(pixmap);
 	      
-	      if(h > SHAPE_SIZE)
+	      if(h > ICON_HEIGHT)
 		{
-		  h = SHAPE_SIZE;
+		  h = ICON_HEIGHT;
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
+		}
+	      
+	      if(w > ICON_WIDTH)
+		{
+		  w = ICON_WIDTH;
+		  h = gdk_pixbuf_get_height(pixmap) * ( w / gdk_pixbuf_get_width(pixmap));
 		}
 	      
 	      item = gnome_canvas_item_new (shape_list_group_root,
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap, 
-					    "x", (double)-w/2,
+					    "x", (double)x_offset-w/2,
 					    "y", (double)y_offset-h/2,
 					    "width", (double) w,
 					    "height", (double) h,
@@ -1116,17 +1154,32 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       printf(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       if(!strcmp((char *)data, "previous_shapelist"))
 	{
+	  gcompris_set_image_focus(item, TRUE);
+
 	  if(current_shapelistgroup_index>0)
 	    {
 	      current_shapelistgroup_index--;
 	    }
+
+	  if(current_shapelistgroup_index == 0)
+	    gnome_canvas_item_hide(previous_shapelist_item);
+
+	  gnome_canvas_item_show(next_shapelist_item);
 	}
       else if(!strcmp((char *)data, "next_shapelist"))
 	{	
+	  gcompris_set_image_focus(item, TRUE);
+
 	  if(current_shapelistgroup_index<g_list_length(shape_list_group)-1)
 	    {
 	      current_shapelistgroup_index++;
 	    }
+
+	  if(current_shapelistgroup_index == g_list_length(shape_list_group)-1)
+	    gnome_canvas_item_hide(next_shapelist_item);
+
+	  gnome_canvas_item_show(previous_shapelist_item);
+
 	}
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
@@ -1499,7 +1552,7 @@ read_xml_file(char *fname)
 {
   /* pointer to the new doc */
   xmlDocPtr  doc;
-  gchar     *caddedname;
+  gchar     *tmpstr;
   
   g_return_val_if_fail(fname!=NULL,FALSE);
   
@@ -1527,13 +1580,67 @@ read_xml_file(char *fname)
     return FALSE;
   }
 
-  caddedname = xmlGetProp(doc->children,"OkIfAddedName");
-  /* if unspecified, make it MAXINT */
-  if(!caddedname) 
+  /*--------------------------------------------------*/
+  /* Read OkIfAddedName property */
+  tmpstr = xmlGetProp(doc->children,"OkIfAddedName");
+  /* if unspecified, make it INT_MAX */
+  if(!tmpstr) 
       addedname = INT_MAX;
   else
-      addedname = atoi(caddedname);
+      addedname = atoi(tmpstr);
   printf("addedname=%d\n", addedname);
+
+  /*--------------------------------------------------*/
+  /* Read ShapeBox property */
+  tmpstr = xmlGetProp(doc->children,"shapebox_x");
+  /* if unspecified, use the default value */
+  if(!tmpstr) 
+      shapeBox.x = 15;
+  else
+      shapeBox.x = atof(tmpstr);
+  printf("shapeBox.x=%f\n", shapeBox.x);
+
+  tmpstr = xmlGetProp(doc->children,"shapebox_y");
+  /* if unspecified, use the default value */
+  if(!tmpstr) 
+      shapeBox.y = 25;
+  else
+      shapeBox.y = atof(tmpstr);
+  printf("shapeBox.y=%f\n", shapeBox.y);
+
+  tmpstr = xmlGetProp(doc->children,"shapebox_w");
+  /* if unspecified, use the default value */
+  if(!tmpstr) 
+      shapeBox.w = 80;
+  else
+      shapeBox.w = atof(tmpstr);
+  printf("shapeBox.w=%f\n", shapeBox.w);
+
+  tmpstr = xmlGetProp(doc->children,"shapebox_h");
+  /* if unspecified, use the default value */
+  if(!tmpstr) 
+      shapeBox.h = 430;
+  else
+      shapeBox.h = atof(tmpstr);
+  printf("shapeBox.h=%f\n", shapeBox.h);
+
+  tmpstr = xmlGetProp(doc->children,"shapebox_nb_shape_x");
+  /* if unspecified, use the default value */
+  if(!tmpstr) 
+      shapeBox.nb_shape_x = 1;
+  else
+      shapeBox.nb_shape_x = atoi(tmpstr);
+  printf("shapeBox.nb_shape_x=%d\n", shapeBox.nb_shape_x);
+
+  tmpstr = xmlGetProp(doc->children,"shapebox_nb_shape_y");
+  /* if unspecified, use the default value */
+  if(!tmpstr) 
+      shapeBox.nb_shape_y = 5;
+  else
+      shapeBox.nb_shape_y = atoi(tmpstr);
+  printf("shapeBox.nb_shape_y=%d\n", shapeBox.nb_shape_y);
+
+
   /* parse our document and replace old data */
   parse_doc(doc);
   
