@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 01:43+0200\n"
+"POT-Creation-Date: 2004-09-03 21:43+0200\n"
 "PO-Revision-Date: 2004-08-10 22:56+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -384,7 +384,8 @@ msgstr ""
 "Ces nombres et opérateurs peuvent être dé-sélectionnés en cliquant dessus."
 
 #: boards/algebra_guesscount.xml.in.h:3
-msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Déployer une stratégie pour arranges un ensemble d'opérations arithmétique\n"
 "pour trouver une valeur cible"
@@ -555,6 +556,14 @@ msgstr "Lock sur l'herbe"
 msgid "Lock with colored shapes."
 msgstr "Lock avec des formes colorées"
 
+#: boards/ballcatch.xml.in.h:1
+msgid "Push the two shift keys together to send the ball straight"
+msgstr ""
+
+#: boards/ballcatch.xml.in.h:2
+msgid "Send the ball to Tux"
+msgstr ""
+
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
 #: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
@@ -635,7 +644,8 @@ msgstr "Le Temps"
 
 #: boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre"
+msgstr ""
+"Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
@@ -719,7 +729,8 @@ msgstr "Clique sur moi"
 
 #: boards/clickgame.xml.in.h:2
 msgid "Click with the left mouse button on the moving fish."
-msgstr "Clique avec le bouton gauche de la souris sur les poissons qui bougent."
+msgstr ""
+"Clique avec le bouton gauche de la souris sur les poissons qui bougent."
 
 #: boards/clickgame.xml.in.h:3
 msgid ""
@@ -751,8 +762,10 @@ msgstr ""
 "Emplacement : Inconnu (image nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
-msgstr "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
+msgid ""
+"Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgstr ""
+"Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
 
 #: boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
@@ -852,11 +865,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr "Clique sur un élément et écoute sa position cible"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: boards/draw.xml.in.h:1 src/boards/draw.c:213
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
+#: boards/draw.xml.in.h:2 src/boards/draw.c:214
 msgid "Creative board where you can draw freely"
 msgstr "Tableau à vocation créative où l'on peut dessiner librement"
 
@@ -933,6 +946,26 @@ msgstr "Bougez la souris jusqu'à ce que les blocks disparaissent"
 msgid "Go to experiences activities"
 msgstr "Vers les activités d'expérimentation"
 
+#: boards/followline.xml.in.h:1
+msgid "Emerge the pipe"
+msgstr ""
+
+#: boards/followline.xml.in.h:2
+#, fuzzy
+msgid "Fine motor coordination"
+msgstr "Coordination moteur"
+
+#: boards/followline.xml.in.h:3
+msgid ""
+"Move the mouse over the red part of the pipe. This will emerge it, part by "
+"part up to the flowers. If you move out of the pipe, the red part will go "
+"back."
+msgstr ""
+
+#: boards/followline.xml.in.h:4
+msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
+msgstr ""
+
 #: boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
@@ -943,7 +976,8 @@ msgstr ""
 
 #: boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
+msgstr ""
+"Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
@@ -966,10 +1000,14 @@ msgid "Place the lands"
 msgstr "Place les pays"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Continents"
+msgstr ""
+
+#: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "Amérique du Nord"
 
-#: boards/geography/board2_0.xml.in.h:1
+#: boards/geography/board2_1.xml.in.h:1
 msgid "South America"
 msgstr "Amérique du Sud"
 
@@ -977,11 +1015,11 @@ msgstr "Amérique du Sud"
 msgid "West Europe"
 msgstr "Europe de l'ouest"
 
-#: boards/geography/board4_0.xml.in.h:1
+#: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr "Europe de l'est"
 
-#: boards/geography/board5_0.xml.in.h:1
+#: boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Les régions de france"
 
@@ -1657,7 +1695,8 @@ msgstr "Apprends à manipuler de l'argent avec les centimes "
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Attrape et fais glisser les éléments pour reconstruire le tableau original"
+msgstr ""
+"Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
 #: boards/paintings.xml.in.h:2
 msgid ""
@@ -1780,8 +1819,10 @@ msgid "Test board for the python plugin"
 msgstr "Activité test pour le plugin python"
 
 #: boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Merci à Guido van Rossum et à l'équipe python pour ce language puissant!"
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr ""
+"Merci à Guido van Rossum et à l'équipe python pour ce language puissant!"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -2077,7 +2118,8 @@ msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux a caché plusieurs objets, retrouve les dans le bon ordre"
 
 #: boards/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Sait déplacer la souris, lire des nombres et compter jusqu'à 15\n"
 "pour le premier niveau"
@@ -2174,7 +2216,7 @@ msgstr "Suite éducative gcompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
-#: src/gcompris/gcompris.c:397 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2306,7 +2348,8 @@ msgstr "Clique sur l'ours %s"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
-msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
+msgstr ""
+"Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower as the one on the right"
@@ -2368,13 +2411,13 @@ msgstr "Activité Python"
 msgid "Special board that embeds python into gcompris."
 msgstr "Activité spéciale qui embarque python dans gcompris"
 
-#: src/boards/python/pythontest.py:67
+#: src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr "C'est une activité de test en language Python"
 
-#: src/boards/python/pythontest.py:76
+#: src/boards/python/pythontest.py:84
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
@@ -2382,7 +2425,7 @@ msgstr ""
 "Il est maintenant possible de développer des activité en C ou en Python "
 "grace à Olivier Samyn."
 
-#: src/boards/python/pythontest.py:85
+#: src/boards/python/pythontest.py:93
 msgid "This activity is not playable yet, just a test"
 msgstr "Cette activité n'est pas jouable, juste un test"
 
@@ -2560,7 +2603,8 @@ msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
 #: src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgid ""
+"This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
@@ -2569,13 +2613,13 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:201
+#: src/gcompris/about.c:316 src/gcompris/config.c:203
 #: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Valider"
 
-#: src/gcompris/board.c:41
+#: src/gcompris/board.c:170
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Chargement dynamique non supporté. gcompris ne peut pas charger.\n"
 
@@ -2708,88 +2752,110 @@ msgid "Slovenian"
 msgstr "Slovéne"
 
 #: src/gcompris/config.c:95
+#, fuzzy
+msgid "Albanian"
+msgstr "banane"
+
+#: src/gcompris/config.c:96
 msgid "Serbian (Latin)"
 msgstr "Serbes (Latin)"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Serbian"
 msgstr "Serbes"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:100
+#, fuzzy
+msgid "Walloon"
+msgstr "amande"
+
+#: src/gcompris/config.c:105
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:106
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:107
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:108
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:113
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:118
 msgid "No filter"
 msgstr "Aucun filtre"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:119
 msgid "Only this level"
 msgstr "Uniquement ce niveau"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:120
 msgid "Up to this level"
 msgstr "Jusqu'à ce niveau"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:121
 msgid "This level and above"
 msgstr "Ce niveau et au-dessus"
 
-#: src/gcompris/config.c:175
+#: src/gcompris/config.c:177
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:284
+#: src/gcompris/config.c:286
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:327
+#: src/gcompris/config.c:329
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:355
+#: src/gcompris/config.c:357
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:389
+#: src/gcompris/config.c:391
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:410
+#: src/gcompris/config.c:412
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Pas de thème trouvé dans %s\n"
 
-#: src/gcompris/config.c:425 src/gcompris/config.c:810
-#: src/gcompris/config.c:821
+#: src/gcompris/config.c:427 src/gcompris/config.c:812
+#: src/gcompris/config.c:823
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
+
+#: src/gcompris/file_selector.c:235
+msgid "CANCEL"
+msgstr ""
+
+#: src/gcompris/file_selector.c:266
+msgid "LOAD"
+msgstr ""
+
+#: src/gcompris/file_selector.c:266
+msgid "SAVE"
+msgstr ""
 
 #: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
@@ -2807,39 +2873,43 @@ msgstr ""
 "Quitte la et informe\n"
 "les auteurs du problème"
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:82
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance gcompris en mode plein écran"
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:84
 msgid "run gcompris in window mode."
 msgstr "lance gcompris en mode fenêtré"
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:86
 msgid "run gcompris with sound enabled."
 msgstr "lance gcompris avec le son."
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:88
 msgid "run gcompris without sound."
 msgstr "lance gcompris sans le son."
 
-#: src/gcompris/gcompris.c:81
+#: src/gcompris/gcompris.c:90
 msgid "run gcompris with the default gnome cursor."
 msgstr "lance gcompris avec le curseur par défaut de gnome."
 
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:92
 msgid "display only activities with this difficulty level."
 msgstr "affiche uniquement les activité avec ce niveau de difficulté"
 
-#: src/gcompris/gcompris.c:85
+#: src/gcompris/gcompris.c:94
+msgid "display debug informations on the console."
+msgstr ""
+
+#: src/gcompris/gcompris.c:96
 msgid "Print the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:87
+#: src/gcompris/gcompris.c:98
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:496
+#: src/gcompris/gcompris.c:522
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -2852,15 +2922,16 @@ msgid ""
 "http://www.fsf.org/philosophy"
 msgstr ""
 "GCompris est un logiciel libre distribué sous les termes de la licence GPL. "
-"Afin de supporter son développement, la version Windows ne propose que 12 des 45 activités. "
-"Vous pouvez obtenir la version complète contre une petite contribution sur "
-"http://www.ofset.org/order/gcompris "
-"La version Linux ne contient pas cette restriction. "
-"Notez que gcompris est développé pour libérer les écoles des vendeurs de logiciel monopolistiques. "
-"Si vous aussi pensez que nous devons apprendre la liberté à nos enfants, merci de considérer GNU/Linux. Obtenez plus d'information sur "
-"http://www.fsf.org/philosophy "
+"Afin de supporter son développement, la version Windows ne propose que 12 "
+"des 45 activités. Vous pouvez obtenir la version complète contre une petite "
+"contribution sur http://www.ofset.org/order/gcompris La version Linux ne "
+"contient pas cette restriction. Notez que gcompris est développé pour "
+"libérer les écoles des vendeurs de logiciel monopolistiques. Si vous aussi "
+"pensez que nous devons apprendre la liberté à nos enfants, merci de "
+"considérer GNU/Linux. Obtenez plus d'information sur http://www.fsf.org/"
+"philosophy "
 
-#: src/gcompris/gcompris.c:678
+#: src/gcompris/gcompris.c:717
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3157,4 +3228,3 @@ msgstr "Temps restant = %d"
 
 #~ msgid "You need to remove %d more."
 #~ msgstr "Tu dois en supprimer encore %d. "
-
