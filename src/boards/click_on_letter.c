@@ -178,7 +178,7 @@ static void repeat ()
   printf("REPEAT\n");
   if(gcomprisBoard!=NULL)
     {
-      gcompris_play_ogg(/*"clic_on_letter",*/right_letter, NULL);
+      gcompris_play_ogg(right_letter, NULL);
 
     }
 }
