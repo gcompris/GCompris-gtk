@@ -18,27 +18,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#ifndef GAMEUTIL_H
-#define GAMEUTIL_H
-
-#include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gdk-pixbuf/gnome-canvas-pixbuf.h>
+#ifndef SOUNDUTIL_H
+#define SOUNDUTIL_H
 
 #include "gcompris.h"
-#include "soundutil.h"
-
 #include "sys/wait.h"
 
-// returns a random integer in range [A,B]
-#define RAND(A,B) (A + (int)((float)(B-A+1)*rand()/(RAND_MAX+1.0)))
-
-
-GdkPixbuf	*gcompris_load_operation_pixmap(char operation);
-GdkPixbuf	*gcompris_load_number_pixmap(char number);
-GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);
-void		 gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus);
-gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, void *unused);
-GcomprisBoard	*gcompris_read_xml_file(char *fname);
-gchar		*convertUTF8Toisolat1(gchar * text);
+void		 gcompris_play_sound (const char *soundlistfile, const char *which);
+void 		 gcompris_play_ogg(char *, ...);
 
 #endif

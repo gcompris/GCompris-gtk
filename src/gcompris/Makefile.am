@@ -13,6 +13,7 @@ gcompris_SOURCES = \
 	gcompris.c gcompris.h gcompris-board.h \
 	properties.c properties.h \
 	gameutil.c gameutil.h \
+	soundutil.c soundutil.h \
 	bar.c \
 	help.c \
 	plugin.h \

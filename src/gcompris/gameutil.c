@@ -31,8 +31,13 @@
 
 /* default gnome pixmap directory in which this game tales the icon */
 static char *lettersdir = "letters/";
-static pid_t ogg_pid = 0;
-static gboolean ogg_playing = FALSE;
+//static pid_t ogg_pid = 0;
+//static gboolean ogg_playing = FALSE;
+
+static gboolean sound_playing_1 = FALSE;
+static gboolean sound_playing_2 = FALSE;
+static pid_t sound_pid_1 = 0;
+static pid_t sound_pid_2 = 0;
 
 extern GnomeCanvas *canvas;
 
@@ -169,7 +174,7 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
   gtk_object_get (GTK_OBJECT (item), "pixbuf", &pixbuf, NULL);
   g_return_if_fail (pixbuf != NULL);
 
-  switch (focus) 
+  switch (focus)
     {
     case TRUE:
       dest = make_hc_pixbuf(pixbuf, 30);
@@ -178,7 +183,7 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
 			     NULL);
 
       break;
-    case FALSE: 
+    case FALSE:
       dest = make_hc_pixbuf(pixbuf, -30);
       gnome_canvas_item_set (item,
 			     "pixbuf", dest,
@@ -200,12 +205,12 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
 gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, void *unused)
 {
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       gcompris_set_image_focus(item, TRUE);
       break;
-    case GDK_LEAVE_NOTIFY: 
+    case GDK_LEAVE_NOTIFY:
       gcompris_set_image_focus(item, FALSE);
       break;
     default:
@@ -214,137 +219,6 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, void *unu
 
   return FALSE;
 }
-
-/*
- * Generic code to remove zombie processes
- */
-void zombie_cleanup(void)
-{
-  int pid;
-  while((pid = waitpid(-1, NULL, WNOHANG)))
-    {
-      if(pid == -1)
-	{
-	  g_error("Error waitpid");
-	}
-    }
-}
-
-/*
- * Process the cleanup of the child (no zombies)
- * And update our status as not playing ogg
- */
-void child_end(int  signum)
-{
-  int pid;
-
-  pid = waitpid(-1, NULL, WNOHANG);
-  if(pid == -1)
-    {
-      g_error("Error waitpid");
-    }
-
-  ogg_playing = FALSE;
-}
-
-/* =====================================================================
- * Play a list of OGG sound files. The list must be NULL terminated
- * should have used threads instead of fork + exec calls
- * The given ogg files will be first tested as a locale dependant sound file:
- * sounds/<current gcompris locale>/<sound>
- * If it doesn't exists, then the test is done with a music file:
- * music/<sound>
- ======================================================================*/
-void gcompris_play_ogg(char *sound, ...) {
-  va_list ap;
-  char * s = NULL;
-  char *argv[20];
-  char locale[3];
-  int argc = 0;
-
-  if (!gcompris_get_properties()->fx)
-    return;
-
-  if(ogg_playing)
-      return;
-
-  /*
-   * We are not playing an ogg, play the requested one
-   */
-
-  /* Now we are playing an ogg */
-  ogg_playing = TRUE;
-
-  strncpy(locale,gcompris_get_locale(),2);
-  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
-
-  signal(SIGCHLD, child_end);
-
-  ogg_pid = fork ();
-
-  if (ogg_pid > 0) { // go back to gcompris
-    return;
-  } else if (ogg_pid == 0) { // child process
-    argc = 0;
-    argv[argc++] = "ogg123";
-    //    argv[argc++] = "-v";
-    argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
-    if (g_file_exists (argv[argc])) {
-      printf("trying to play %s\n", argv[argc]);
-      argc++;
-    } else {
-      g_free(argv[argc]);
-      argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", sound);
-      if (g_file_exists (argv[argc])) {
-	printf("trying to play %s\n", argv[argc]);
-	argc++;
-      } else 
-	g_free(argv[argc]);
-    }
-
-    va_start( ap, sound);
-    while( (s = va_arg (ap, char *))) {
-      argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
-      printf("trying to play %s\n", argv[argc]);
-      if (!g_file_exists (argv[argc]))
-	argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
-
-      if (!g_file_exists (argv[argc])) {
-	g_warning (_("Couldn't find file %s !"), argv[argc]);
-	g_free(argv[argc]);
-	//				continue;
-      }
-      else
-	argc ++;
-    }
-    va_end(ap);
-    argv[argc] = NULL;
-    execvp( "ogg123", argv);
-  } else {
-    fprintf(stderr, "Unable to fork\n");
-  }
-}
-
-/* Play a sound installed in the Gnome sound list */
-void gcompris_play_sound (const char *soundlistfile, const char *which)
-{
-  gchar *filename;
-
-  if (!gcompris_get_properties()->fx)
-    return;
-
-  filename = g_strdup_printf("%s/%s.wav", PACKAGE_SOUNDS_DIR, which);
-
-  if (!g_file_exists (filename)) {
-    g_error (_("Couldn't find file %s !"), filename);
-  }
-  if (gcompris_get_properties()->fx) {
-    gnome_sound_play (filename);
-  }
-
-  g_free (filename);
-}
-
 
 /*
  * Thanks for George Lebl <jirka@5z.com> for his Genealogy example
@@ -400,7 +274,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     if (!strcmp(xmlnode->name, "description")
 	&& (lang==NULL ||
 	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	gcomprisBoard->description = convertUTF8Toisolat1(gcomprisBoard->description);
@@ -410,7 +284,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     if (!strcmp(xmlnode->name, "prerequisite")
 	&& (lang==NULL ||
 	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->prerequisite = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	gcomprisBoard->prerequisite = convertUTF8Toisolat1(gcomprisBoard->prerequisite);
@@ -420,7 +294,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     if (!strcmp(xmlnode->name, "goal")
 	&& (lang==NULL ||
 	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->goal = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	gcomprisBoard->goal = convertUTF8Toisolat1(gcomprisBoard->goal);
@@ -430,7 +304,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     if (!strcmp(xmlnode->name, "manual")
 	&& (lang==NULL ||
 	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2))) 
+	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
 	gcomprisBoard->manual = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 	gcomprisBoard->manual = convertUTF8Toisolat1(gcomprisBoard->manual);
@@ -481,7 +355,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
       g_free(filename);
 
       /* if the file doesn't exist, try with our default prefix */
-      filename = g_strdup_printf("%s/%s",  
+      filename = g_strdup_printf("%s/%s",
 				 PACKAGE_DATA_DIR, fname);
 
       if(!g_file_exists(filename))
@@ -546,7 +420,7 @@ gchar * convertUTF8Toisolat1(gchar * text) {
   // this should never happen, it does often !!
   if (text == NULL)
     return NULL;
-  
+
   inptr   = (const char *) text;
   outptr  = (char *) g_malloc(MAX_LENGTH);
   inleft  = xmlUTF8Strsize(text, MAX_LENGTH);
@@ -570,7 +444,7 @@ gchar * convertUTF8Toisolat1(gchar * text) {
       }
   } else
     g_free(outptr);
-  
+
   return text;
 }
 

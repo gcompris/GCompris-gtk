@@ -1,3 +1,9 @@
+2002-02-15 Pascal Georges <pascal.georges1@free.fr>
+	* src/gcompris/gameutil.[ch] : removed sound related functions
+	* src/gcompris/soundutil.[ch] : new files contain sound related functions
+	  changed the way sound is played : we play the first (current sound)
+		and keep the last introduced one in the pending queue. Others are killed.
+
 2002-02-12 Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/babyshape.c : level starts now at 1, and ends at 4 (coherent to the 4 xml files for this level)
 
