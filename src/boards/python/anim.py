@@ -36,19 +36,21 @@ import time
 
 import os
 import tempfile
+import cPickle as pickle
 
 fles=None
 
 #class Gcompris_anim:
 class Gcompris_anim:
   """The cartoon activity"""
-    
+
   def __init__(self, gcomprisBoard):
 
     self.gcomprisBoard = gcomprisBoard
     self.empty="empty"
     global fles
     fles=self
+    self.file_type = "rien"
 
     # These are used to let us restart only after the bonux is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -86,7 +88,74 @@ class Gcompris_anim:
     self.anchors ['IMAGE'] =  self.anchors ['RECT']
 #    self.anchors ['TEXT'] =  self.anchors ['RECT']
 
+    self.types = { 'RECT' : gnome.canvas.CanvasRect,
+                   'FILL_RECT' : gnome.canvas.CanvasRect,
+                   'CIRCLE' : gnome.canvas.CanvasEllipse,
+                   'FILL_CIRCLE' : gnome.canvas.CanvasEllipse,
+                   'TEXT' : gnome.canvas.CanvasText,
+                   'IMAGE' : gnome.canvas.CanvasPixbuf,
+                   'LINE' : gnome.canvas.CanvasLine
+                   }
+    
+    self.attributs = { 'LINE' : [ "points",
+                                  "fill_color_rgba",
+                                  ],
+                       'RECT' : [ "x1",
+                                  "y1",
+                                  "x2",
+                                  "y2",
+                                  "outline_color_rgba",
+                                  ],
+                       'FILL_RECT' : [ "x1",
+                                       "y1",
+                                       "x2",
+                                       "y2",
+                                       "fill_color_rgba",
+                                       ],
+                       'CIRCLE' : [ "x1",
+                                    "y1",
+                                    "x2",
+                                    "y2",
+                                    "outline_color_rgba",
+                                    ],
+                       'FILL_CIRCLE' : [ "x1",
+                                         "y1",
+                                         "x2",
+                                         "y2",
+                                         "fill_color_rgba",
+                                         ],
+                       'TEXT' : [ "x",
+                                  "y",
+                                  "text",
+                                  "fill_color_rgba",
+                                  ],
+                       'IMAGE' : [ "x",
+                                   "y",
+                                   "width",
+                                   "height",
+                                   ]
+                       }
 
+    self.fixedattributs = { 'LINE' : { 'width-units': 8.0
+                                       },
+                            'RECT' : { 'width-units': 4.0
+                                       },
+                            'FILL_RECT' : { 'width-units': 1.0,
+                                            'outline_color_rgba': 0x000000FFL
+                                            },
+                            'CIRCLE' : { 'width-units': 4.0 },
+                            'FILL_CIRCLE' : { 'width-units': 1.0,
+                                              'outline_color_rgba': 0x000000FFL
+                                              },
+                            'TEXT' : { 'font': gcompris.FONT_BOARD_BIG_BOLD,
+                                       'anchor' : gtk.ANCHOR_CENTER
+                                       },
+                            'IMAGE' : { 'width_set': True,
+                                        'height_set': True
+                                        }
+                       }
+        
+    
     self.events = { 'LINE' : [ self.fillin_item_event,
                                self.move_item_event,
                                self.create_item_event,
@@ -169,6 +238,17 @@ class Gcompris_anim:
     # The root items
     self.root_coloritem = []
     self.root_toolitem  = []
+
+# list of items in current frame
+    self.framelist = []
+# list of items in the full animation
+    self.animlist = []
+# rank of the current frame being processed
+    self.current_frame = 0
+# list of z values in last shot
+    self.list_z_last_shot = []
+# list of actual z values
+    self.list_z_actual = []
     
   def start(self):  
     self.gcomprisBoard.level=1
@@ -201,7 +281,7 @@ class Gcompris_anim:
     if self.running:
       self.running = False
       gobject.source_remove(self.timeout)
-      self.run_anim()
+      self.run_anim2()
     
     # Remove the root item removes all the others inside it
     gcompris.set_cursor(gcompris.CURSOR_DEFAULT);
@@ -221,9 +301,9 @@ class Gcompris_anim:
   def key_press(self, keyval):
     
     if (keyval == gtk.keysyms.F1):
-      gcompris.file_selector_save( self.gcomprisBoard, "anim", "", svg_save)
+      gcompris.file_selector_save( self.gcomprisBoard, "anim2", self.file_type, anim2_save)
     elif (keyval == gtk.keysyms.F2):
-      gcompris.file_selector_load( self.gcomprisBoard, "anim", "", svg_restore)
+      gcompris.file_selector_load( self.gcomprisBoard, "anim2", self.file_type, anim2_restore)
 
     elif (keyval == gtk.keysyms.F3):
       self.ps_print(self.get_drawing(self.current_image))
@@ -370,11 +450,11 @@ class Gcompris_anim:
       if event.button == 1:
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
-          gcompris.file_selector_save( self.gcomprisBoard, "anim", "", svg_save)
+          gcompris.file_selector_save( self.gcomprisBoard, "anim2", self.file_type, anim2_save)
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "LOAD"):
-          gcompris.file_selector_load( self.gcomprisBoard, "anim", "", svg_restore)
+          gcompris.file_selector_load( self.gcomprisBoard, "anim2", self.file_type, anim2_restore)
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "IMAGE"):
@@ -387,7 +467,8 @@ class Gcompris_anim:
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "PICTURE"):
-          self.AnimShot(self.get_drawing(self.current_image))
+#          self.AnimShot(self.get_drawing(self.current_image))
+          self.Anim2Shot()
           return gtk.TRUE
         
         elif (self.tools[tool][0] == "MOVIE"):
@@ -622,7 +703,7 @@ class Gcompris_anim:
           self.anim_speed=self.anim_speed-1
 
       gobject.source_remove(self.timeout)
-      self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim)
+      self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
       self.speed_item.set(text=self.anim_speed)
   
   # Draw the grid
@@ -676,20 +757,14 @@ class Gcompris_anim:
   def move_item_event(self, item, event):
     if self.tools[self.current_tool][0] == "CCW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        gcompris.utils.item_rotate_relative(item, -10);
-        object = item.get_property("parent")
-        for anchor in object.item_list[1].item_list:
-          gcompris.utils.item_rotate_relative(anchor, -10);
+        gcompris.utils.item_rotate_relative(item.get_property("parent"), -10);
         return gtk.TRUE
       else:
         return gtk.FALSE
 
     if self.tools[self.current_tool][0] == "CW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        gcompris.utils.item_rotate_relative(item, 10);
-        object = item.get_property("parent")
-        for anchor in object.item_list[1].item_list:
-          gcompris.utils.item_rotate_relative(anchor, 10);
+        gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
         return gtk.TRUE
       else:
         return gtk.FALSE
@@ -702,7 +777,8 @@ class Gcompris_anim:
 
     if self.tools[self.current_tool][0] == "RAISE":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        item.get_property("parent").raise_to_top()
+        item.get_property("parent").raise_(1)
+        self.z_raise(item.get_data("AnimItem"))
         return gtk.TRUE
       else:
         return gtk.FALSE
@@ -710,6 +786,7 @@ class Gcompris_anim:
     if self.tools[self.current_tool][0] == "LOWER":
       if event.type == gtk.gdk.BUTTON_PRESS:
         item.get_property("parent").lower(1)
+        self.z_lower(item.get_data("AnimItem"))
         return gtk.TRUE
       else:
         return gtk.FALSE
@@ -810,6 +887,7 @@ class Gcompris_anim:
   # Del an item and internal struct cleanup
   def del_item(self, item):
     item.get_property("parent").destroy()
+    self.del_AnimItem(item.get_data("AnimItem"))
 
   # Event when a click on an item happen
   def del_item_event(self, item, event):
@@ -828,7 +906,7 @@ class Gcompris_anim:
     
     # Right button is a shortcup to Shot
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-      self.AnimShot(self.get_drawing(self.current_image))
+      self.Anim2Shot()
       return gtk.FALSE
     
     if (not (self.tools[self.current_tool][0] == "RECT" or
@@ -893,10 +971,10 @@ class Gcompris_anim:
             x2=x,
             y2=y,
             outline_color_rgba=self.colors[self.current_color],
-            width_units=4.0,
+            width_units=4.0
             )
           #          self.newitem.set_data('empty',True)
-          gcompris.utils.canvas_set_property(self.newitem, "empty", True)
+          gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
           
         elif self.tools[self.current_tool][0] == "FILL_RECT":
 
@@ -932,7 +1010,7 @@ class Gcompris_anim:
             width_units=5.0
             )
           #          self.newitem.set_data('empty',True)
-          gcompris.utils.canvas_set_property(self.newitem, "empty", True)
+          gcompris.utils.canvas_set_property(self.newitem, "empty", "True")
         
         elif self.tools[self.current_tool][0] == "FILL_CIRCLE":
 
@@ -969,6 +1047,14 @@ class Gcompris_anim:
                   
         if self.newitem != 0:
           self.anchorize(self.newitemgroup)
+          anAnimItem = self.AnimItem()
+          anAnimItem.z = self.new_z()
+          anAnimItem.canvas_item = self.newitem
+          anAnimItem.type = self.tools[self.current_tool][0]
+          anAnimItem.canvas_item.set_data("AnimItem", anAnimItem)
+          self.framelist.append(anAnimItem)
+          self.list_z_actual.append(anAnimItem.z)
+
         
         if self.tools[self.current_tool][0] == "TEXT":
           self.updated_text(self.newitem)
@@ -1135,32 +1221,9 @@ class Gcompris_anim:
 
     return cloned
 
-  def run_anim(self):
-    if self.running:
-      self.get_drawing(self.current_image).hide()
-      self.current_image=(self.current_image+1)%(len(self.root_anim.item_list))
-      self.get_drawing(self.current_image).show()
-      self.item_frame_counter.set(text=self.current_image + 1)
-    return self.running
-
-  def AnimRun(self):
-    if len(self.root_anim.item_list)==0:
-      print "Mmm... Need to make shots before run anim !!"
-      self.running=False
-      return
-    # Hide the current drawing
-    self.get_drawing(self.current_image).hide()
-
-    # Show the first drawing
-    self.current_image=0
-    self.get_drawing(self.current_image).show()
-    
-    self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim)
-
-
   def snapshot_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      self.AnimShot(self.get_drawing(self.current_image))
+      self.Anim2Shot(self.get_drawing(self.current_image))
 
   def run_flash(self):
     self.flash.hide()
@@ -1172,7 +1235,7 @@ class Gcompris_anim:
       self.root_coloritem.hide()
       self.root_toolitem.hide()
       self.root_playingitem.show()
-      self.AnimRun()
+      self.Anim2Run()
       
   def playing_stop(self):
     if self.running:
@@ -1715,11 +1778,354 @@ class Gcompris_anim:
       if(item.get_data('anchors')):
          print "    (This is an Anchor)"          
     
+###########################################
+# Anim 2 specific
+###########################################
+
+  class AnimItem:
+    def __init__(self):
+      self.z = None
+      self.frames_info = {}
+      self.canvas_item = None
+      self.z_previous = None
+    
+  def new_z(self):
+    if self.list_z_actual != []:
+      return int(self.list_z_actual[-1] + 1 )
+    else:
+      return 1
+
+  def del_AnimItem(self, AnimItem):
+    # AnimItem is really deleted only on shot.
+    self.list_z_actual.remove(AnimItem.z)
+    AnimItem.z = None
+    #AnimItem.frames_info[self.current_frame]['deleted']=True
+
+  def z_raise(self, anAnimItem):
+    index = self.list_z_actual.index(anAnimItem.z)
+    if index < len(self.list_z_actual) -1 :
+      if index < len(self.list_z_actual) - 2 :
+        anAnimItem.z = (self.list_z_actual[index + 1] + self.list_z_actual[index + 2])/2.0
+      else:
+        anAnimItem.z = self.list_z_actual[-1] + 1
+      self.list_z_actual.pop(index)
+      self.list_z_actual.insert(index+1, anAnimItem.z)
+
+  def z_lower(self, anAnimItem):
+    index = self.list_z_actual.index(anAnimItem.z)
+    if index > 0:
+      if index > 1:
+         anAnimItem.z = (self.list_z_actual[index - 1] + self.list_z_actual[index - 2])/2.0
+      else:
+        anAnimItem.z = self.list_z_actual[0] /2.0
+      self.list_z_actual.pop(index)
+      self.list_z_actual.insert(index-1, anAnimItem.z)
+
+  # Version 2: compare attributs and put those with difference in frames_info
+  #
+  # self.attributs is list of specific attributs usable for animation
+  # There is matrice (rotation, flip) and z position to check too
+  
+
+  def get_animitem_properties(self, anAnimItem):
+    properties = {'matrice' : anAnimItem.canvas_item.i2c_affine((0,0,0,0,0,0)) }
+    for property_name in self.attributs[anAnimItem.type]:
+      properties [property_name] = anAnimItem.canvas_item.get_property(property_name)
+    return properties
+
+  def z_reinit(self):
+    for anAnimItem in self.framelist:
+      anAnimItem.z = self.list_z_last_shot.index(anAnimItem.z)+1
+      anAnimItem.z_previous =  anAnimItem.z
+
+    self.list_z_last_shot= range(1, len(self.list_z_actual) + 1)
+    self.list_z_actual=self.list_z_last_shot[:]
+
+  def z_delete_on_shot(self, anAnimItem):
+    if anAnimItem.z_previous != None:
+        self.list_z_last_shot.remove(anAnimItem.z_previous)
+    
+  def Anim2Shot(self):
+    self.flash.show()
+    for anAnimItem in self.framelist[:]:
+      if anAnimItem.z == None:
+        # deleted 
+        self.z_delete_on_shot(anAnimItem)
+        modified = { 'delete': True }
+        self.framelist.remove(anAnimItem)
+        if self.animlist.count(anAnimItem) == 0:
+          # deleted without being in any shot
+          continue
+      else:      
+        modified= {}
+        dict_properties = self.get_animitem_properties(anAnimItem)
+        frames = anAnimItem.frames_info.keys()
+        if frames != []:
+          frames.sort()
+          frames.reverse()
+          
+          for property in dict_properties.keys():
+            for frame in frames:
+#              print anAnimItem.type, property, frame, anAnimItem.frames_info[frame]
+              if anAnimItem.frames_info[frame].has_key(property):
+                if not anAnimItem.frames_info[frame][property]==dict_properties[property]:
+                  modified[property]=dict_properties[property]
+                break
+        else:
+          modified = dict_properties
+          modified.update(self.fixedattributs[anAnimItem.type])
+          if anAnimItem.type == 'IMAGE':
+            modified['image_name']= gcompris.utils.canvas_get_property(anAnimItem.canvas_item, "filename")         
+          modified['create']=True
+          self.animlist.append(anAnimItem)
+
+        if anAnimItem.z != anAnimItem.z_previous:
+          if anAnimItem.z_previous != None:
+            self.list_z_last_shot.remove(anAnimItem.z_previous)
+          modified['z'] = self.z_find_index(anAnimItem)
+          self.list_z_last_shot.insert( modified['z'], anAnimItem.z)
+               
+      if len(modified) != 0:
+        anAnimItem.frames_info[self.current_frame] = modified
+
+    self.current_frame = self.current_frame + 1
+    self.frames_total =  self.current_frame 
+    self.z_reinit()
+    gtk.timeout_add(500, self.run_flash)
+    
+  def z_find_index(self, anAnimItem):
+    def f(x): return x < anAnimItem.z
+    
+    return len(filter(f, self.list_z_last_shot))
+    
+#    self.z_reinit()
+
+#  def anim2Run(self):
+    
+  def apply_frame(self, frame):
+    for item in self.playlist:
+      if not item.frames_info.has_key(frame):
+        continue
+      modif = item.frames_info[frame].copy()
+      if modif.has_key('delete'):
+        item.canvas_item.destroy()
+        continue
+      if modif.has_key('create'):
+        del modif['create']
+        z = modif['z']
+        del modif['z']
+        matrice = modif['matrice']
+        del modif['matrice']
+        if item.type == 'IMAGE':
+          image =  modif['image_name']
+          del modif['image_name']
+          pixmap = gcompris.utils.load_pixmap(image)
+          modif['pixbuf']= pixmap
+        item.canvas_item = self.playing.add(self.types[item.type], **modif)
+        delta = len(self.playing.item_list) - z -1
+        if delta != 0:
+          item.canvas_item.lower(delta)
+        item.canvas_item.affine_absolute(matrice)
+        continue
+      else:
+        if modif.has_key('z'):
+          z = modif['z']
+          del modif['z']
+          index = self.playing.item_list.index(item.canvas_item)
+          if index > z:
+            item.canvas_item.lower(index - z)
+          else:
+            item.canvas_item.raise_(z - index)
+        if  modif.has_key('matrice'):
+          matrice = modif['matrice']
+          del modif['matrice']
+          item.canvas_item.affine_absolute(matrice)
+        if len(modif) != 0:
+          item.canvas_item.set(**modif)
+            
+  def run_anim2(self):
+    if self.running:
+      if self.current_frame==0:
+        self.playing.destroy()
+        self.playing = self.root_anim.add(
+          gnome.canvas.CanvasGroup,
+          x=0.0,
+          y=0.0
+          )
+      self.apply_frame((self.current_frame)%(self.frames_total))
+      self.current_frame=(self.current_frame+1)%(self.frames_total)
+      self.item_frame_counter.set(text=self.current_frame + 1)
+    else:
+      self.playing.destroy()
+      self.current_image = 0
+      self.current_frame = self.frames_total
+      self.get_drawing(self.current_image).show()
+    return self.running
+
+  def Anim2Run(self):
+    if len(self.root_anim.item_list)==0:
+      print "Mmm... Need to make shots before run anim !!"
+      self.running=False
+      return
+    # Hide the current drawing
+    self.get_drawing(self.current_image).hide()
+    self.playing = self.root_anim.add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
+
+    self.playlist = []
+    for aItem in self.animlist:
+      playItem = self.AnimItem()
+      playItem.frames_info = aItem.frames_info.copy()
+      playItem.type = aItem.type
+      self.playlist.append(playItem)
+    
+    # Show the first drawing
+    self.apply_frame(0)
+    self.current_frame = 0
+   
+    self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
+
+
+def anim2_save(filename, filetype):
+  #print filetype
+  global fles
+
+  file =   open(filename, 'wb')
+
+  # save the total of frames
+  pickle.dump(fles.frames_total, file, True)
+
+  # save the animlist
+  Sanimlist = []
+  
+  for item in fles.animlist:
+    frames_info_copied = {}
+    for t, d  in item.frames_info.iteritems():
+      frames_info_copied[t] = d.copy(); 
+    Sitem = [ item.type, frames_info_copied]
+    list_frames = Sitem[1].keys()
+    list_frames.sort()
+    if ((Sitem[0] == 'TEXT') and (Sitem[1][list_frames[0]].has_key('anchor'))):
+        Sitem[1][list_frames[0]]['text-anchor']='middle'
+        del Sitem[1][list_frames[0]]['anchor']
+    Sanimlist.append(Sitem)
+    #print Sitem
+    #print item.type, item.frames_info
+
+  pickle.dump(Sanimlist, file, True)
+  file.close()
+
+def anim2_restore(filename, filetype):
+  print filetype
+  global fles
+
+  file =   open(filename, 'rb')
+  fles.frames_total = pickle.load(file)
+  picklelist = pickle.load(file)
+  file.close()
+
+  # Historic strate
+  fles.current_image = 0
+
+  for item in fles.framelist:
+    try:
+      # can have been destroyed before by a delete action. No matter
+      item.canvas_item.get_property("parent").destroy()
+    except:
+      pass
+    
+  fles.framelist = []
+  fles.animlist=[]
+  for Sitem in picklelist:
+    AItem = fles.AnimItem()
+    AItem.type = Sitem[0]
+    AItem.frames_info = Sitem[1]
+    #print AItem, AItem.type,  AItem.frames_info,
+    fles.animlist.append(AItem)
+    
+  for fles.current_frame in range(fles.frames_total):
+    for item in fles.animlist:
+      restore_item( item, fles.current_frame)
+
+  fles.list_z_last_shot= []
+  for item in fles.framelist:
+    fles.list_z_last_shot.append(item.z)
+  fles.list_z_last_shot.sort()
+  fles.list_z_actual = fles.list_z_last_shot[:]
+  fles.z_reinit()
+  fles.current_frame = fles.frames_total
+  fles.get_drawing(fles.current_image).show()
+  
+def restore_item(item, frame):
+  if not item.frames_info.has_key(frame):
+    return
+  modif = item.frames_info[frame].copy()
+  if modif.has_key('delete'):
+    item.canvas_item.get_property("parent").destroy()
+    fles.framelist.remove(item)
+    return
+  if modif.has_key('create'):
+    del modif['create']
+    item.z = modif['z']
+    del modif['z']
+    matrice = modif['matrice']
+    del modif['matrice']
+    if ((item.type == 'TEXT') and (modif.has_key('text-anchor'))):
+      del modif['text-anchor']
+      del item.frames_info[frame]['text-anchor']
+      item.frames_info[frame]['anchor']= gtk.ANCHOR_CENTER
+      modif['anchor']= gtk.ANCHOR_CENTER
+    if item.type == 'IMAGE':
+      image =  modif['image_name']
+      del modif['image_name']
+      pixmap = gcompris.utils.load_pixmap(image)
+      modif['pixbuf']= pixmap
+    newitemgroup = fles.root_anim.item_list[fles.current_image].add(
+        gnome.canvas.CanvasGroup,
+        x=0.0,
+        y=0.0
+        )
+    item.canvas_item = newitemgroup.add(fles.types[item.type], **modif)
+    if item.type == 'IMAGE':
+      gcompris.utils.canvas_set_property(item.canvas_item, "filename", image)
+    item.canvas_item.set_data("AnimItem", item)
+    fles.anchorize(newitemgroup)
+    delta = len(fles.root_anim.item_list[fles.current_image].item_list) - item.z -1
+    if delta != 0:
+      newitemgroup.lower(delta)
+    newitemgroup.affine_absolute(matrice)
+    fles.framelist.append(item)
+    return
+  else:
+    if modif.has_key('z'):
+      item.z = modif['z']
+      del modif['z']
+      index = fles.root_anim.item_list[fles.current_image].item_list.index(item.canvas_item.get_property("parent"))
+      if index > item.z:
+        item.canvas_item.get_property("parent").lower(index - item.z)
+      else:
+        item.canvas_item.get_property("parent").raise_(item.z - index)
+    if  modif.has_key('matrice'):
+      matrice = modif['matrice']
+      del modif['matrice']
+      item.canvas_item.get_property("parent").affine_absolute(matrice)
+    if len(modif) != 0:
+      # Bourrin: je supprime les ancres et je les remets apres les modifs
+      # Pas envie de me faire ch*** à retraiter les resize et les move
+      item.canvas_item.get_property("parent").item_list[1].destroy()
+      item.canvas_item.set(**modif)
+      fles.anchorize(item.canvas_item.get_property("parent"))
+    
+
+
 # ----------------------------------------
 # GLOBAL FUNCTIONS
 # ----------------------------------------
 
-def svg_restore(filename, file_type):
+def svg_restore(filename):
   print "svg_restore", filename
   
   global fles
@@ -1775,7 +2181,7 @@ def svg_restore(filename, file_type):
   gcompris.set_cursor(fles.tools[fles.current_tool][3]);
 
 
-def svg_save(filename, file_type):
+def svg_save(filename):
   print "svg_save", filename
 
   global fles
@@ -1813,13 +2219,21 @@ def image_selected(image):
     width=width,
     height=height,
     width_set = True,
-    height_set = True,
+    height_set = True
     )
 
   # Tell svg_save the filename
   # Write "filename=image" in the property of newitem
   # Can't do it here because in C python string are unreadable
   gcompris.utils.canvas_set_property(fles.newitem, "filename", image)
+
+  anAnimItem = fles.AnimItem()
+  anAnimItem.z = fles.new_z()
+  anAnimItem.canvas_item = fles.newitem
+  anAnimItem.canvas_item.set_data("AnimItem", anAnimItem)
+  anAnimItem.type = 'IMAGE'
+  fles.framelist.append(anAnimItem)
+  fles.list_z_actual.append(anAnimItem.z)
 
   fles.anchorize(fles.newitemgroup)
   fles.object_set_size_and_pos(fles.newitemgroup, x, y, x+width, y+height)

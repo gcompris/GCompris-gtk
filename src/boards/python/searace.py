@@ -34,33 +34,34 @@ class Boat:
   """The Boat Class"""
 
   # The Text View and Scrolled windows
-  tb   = None
-  tv   = None
-  sw   = None
-  x    = 0.0
-  y    = 0.0
-  angle  = 0
-  arrived = False
-  won     = False
+  tb          = None
+  tv          = None
+  sw          = None
+  x           = 0.0
+  y           = 0.0
+  angle       = 0
+  arrived     = False
+  won         = False
+  finish_time = 0
   
   # To move the ship
-  dx   = 0.0
-  dy   = 0.0
+  dx          = 0.0
+  dy          = 0.0
 
   # The user commands parsing
-  line = 0
+  line        = 0
   # The boat item
-  item = []
-  player = 0
+  item        = []
+  player      = 0
 
   # Store a timer object
-  timer  = 0
+  timer       = 0
 
   # Weather condition cache to avoid to find it each time
-  condition = []
+  condition   = []
 
   # Display the speed here
-  speeditem = []
+  speeditem   = []
   
 class Gcompris_searace:
   """The Boat Racing activity"""
@@ -81,6 +82,9 @@ class Gcompris_searace:
     
     self.right_boat = Boat()
     self.left_boat.player = 1
+
+    self.left_initial_boat_y  = 150
+    self.right_initial_boat_y = 150 + 28
     
     # The basic tick for object moves
     self.timerinc = 40
@@ -112,8 +116,7 @@ class Gcompris_searace:
     else:
       gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
     
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -123,6 +126,15 @@ class Gcompris_searace:
       x=0.0,
       y=0.0
       )
+
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x=0,
+      y=0,
+      )
+    item.connect("event", self.ruler_item_event)
 
     self.display_sea_area()
 
@@ -228,10 +240,6 @@ class Gcompris_searace:
               
   def key_press(self, keyval):
     #print("got key %i" % keyval)
-    # Just to debug
-    if (keyval == gtk.keysyms.Shift_L):
-      self.tux_move()
-
     return
 
   # ----------------------------------------------------------------------
@@ -242,9 +250,9 @@ class Gcompris_searace:
   def init_boats(self):
 
     self.left_boat.x      = self.border_x
-    self.left_boat.y      = 150
+    self.left_boat.y      = self.left_initial_boat_y
     self.right_boat.x     = self.left_boat.x
-    self.right_boat.y     = self.left_boat.y + 28
+    self.right_boat.y     = self.right_initial_boat_y
     self.left_boat.angle  = 0
     self.right_boat.angle = 0
     
@@ -261,6 +269,7 @@ class Gcompris_searace:
       anchor=gtk.ANCHOR_CENTER,
       )
     self.left_boat.item.raise_to_top()
+    self.left_boat.item.connect("event", self.ruler_item_event)
     
     if(self.right_boat.item):
       self.right_boat.item.destroy()
@@ -274,6 +283,8 @@ class Gcompris_searace:
       anchor=gtk.ANCHOR_CENTER,
       )
     self.right_boat.item.raise_to_top()
+    self.right_boat.item.connect("event", self.ruler_item_event)
+
     
     # Reset command line processing as well.
     self.left_boat.line     = 0
@@ -319,7 +330,7 @@ class Gcompris_searace:
       ci += 1
 
       # Shadow for text number
-      self.rootitem.add (
+      item = self.rootitem.add (
         gnome.canvas.CanvasText,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
@@ -327,8 +338,10 @@ class Gcompris_searace:
         y=y+1,
         fill_color_rgba=0x000000FFL
         )
+      item.connect("event", self.ruler_item_event)
+
       # Text number
-      self.rootitem.add (
+      item = self.rootitem.add (
         gnome.canvas.CanvasText,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
@@ -336,13 +349,16 @@ class Gcompris_searace:
         y=y,
         fill_color_rgba=cb
         )
+      item.connect("event", self.ruler_item_event)
 
-      self.rootitem.add(
+      item = self.rootitem.add(
         gnome.canvas.CanvasLine,
         points=(self.sea_area[0], y, self.sea_area[2], y),
         fill_color_rgba = color,
          width_units=1.0
         )
+      item.connect("event", self.ruler_item_event)
+
 
     ci = 0
     for x in range (self.sea_area[0], self.sea_area[2]+1, int(step_x)):
@@ -353,7 +369,7 @@ class Gcompris_searace:
       ci += 1
 
       # Shadow for text number
-      self.rootitem.add (
+      item = self.rootitem.add (
         gnome.canvas.CanvasText,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
@@ -361,8 +377,10 @@ class Gcompris_searace:
         y=text_y+1,
         fill_color_rgba=0x000000FFL
         )
+      item.connect("event", self.ruler_item_event)
+
       # Text number
-      self.rootitem.add (
+      item = self.rootitem.add (
         gnome.canvas.CanvasText,
         text=int(ci),
         font=gcompris.skin.get_font("gcompris/content"),
@@ -370,21 +388,25 @@ class Gcompris_searace:
         y=text_y,
         fill_color_rgba=cb
         )
-      self.rootitem.add(
+      item.connect("event", self.ruler_item_event)
+
+      item = self.rootitem.add(
         gnome.canvas.CanvasLine,
         points=(x, self.sea_area[1], x, self.sea_area[3]),
         fill_color_rgba = color,
          width_units=1.0
         )
+      item.connect("event", self.ruler_item_event)
 
 
     # The ARRIVAL LINE
-    self.rootitem.add(
+    item = self.rootitem.add(
       gnome.canvas.CanvasLine,
       points=(self.sea_area[2], self.sea_area[1]-5, self.sea_area[2], self.sea_area[3]+5),
       fill_color_rgba = 0xFF0000FFL,
       width_units=5.0
       )
+    item.connect("event", self.ruler_item_event)
     
     # The grid is done
     # ----------------
@@ -471,7 +493,7 @@ class Gcompris_searace:
       font=gcompris.skin.get_font("gcompris/content"),
       x=gcompris.BOARD_WIDTH/2,
       y=y-40,
-      fill_color_rgba=0XFF66FFFFL
+      fill_color_rgba=0X000a89FFL
       )
 
     # The decoration boats
@@ -559,15 +581,23 @@ class Gcompris_searace:
       for y in range (self.sea_area[1], stop_y, int(step_y)):
         #print x, step_x, self.sea_area[2]
         angle = 0
-        direction = random.randint(0,6)
-        if(direction < 3):
+        if(self.left_initial_boat_y>y and self.left_initial_boat_y<y+step_y):
+          # Bad weather condition on the straigh line
+          direction = random.randint(5,7)
+        elif(self.right_initial_boat_y>y and self.right_initial_boat_y<y+step_y):
+          # Bad weather condition on the straigh line
+          direction = random.randint(5,7)
+        else:
+          direction = random.randint(0,7)
+
+        if(direction < 4):
           # There is more chance to go forward than others
           angle = random.randint(-45,45)
-        elif(direction < 4):
+        elif(direction < 5):
           angle = random.randint(135,225)
-        elif(direction == 5):
-          angle = random.randint(80, 110)
         elif(direction == 6):
+          angle = random.randint(80, 110)
+        elif(direction == 7):
           angle = random.randint(260, 280)
 
         speed = random.randint(1,10)
@@ -595,9 +625,10 @@ class Gcompris_searace:
       anchor=gtk.ANCHOR_CENTER
       )
     gcompris.utils.item_rotate_relative(item, condition[1][0]);
+    item.connect("event", self.ruler_item_event)
 
     # Text number Shadow
-    self.root_weather_item.add (
+    item = self.root_weather_item.add (
       gnome.canvas.CanvasText,
       text=condition[1][1],
       font=gcompris.skin.get_font("gcompris/content"),
@@ -605,9 +636,10 @@ class Gcompris_searace:
       y=cy+1+pixmap.get_height()/2,
       fill_color_rgba=0x000000FFL
       )
-    
+    item.connect("event", self.ruler_item_event)
+
     # Text number
-    self.root_weather_item.add (
+    item = self.root_weather_item.add (
       gnome.canvas.CanvasText,
       text=condition[1][1],
       font=gcompris.skin.get_font("gcompris/content"),
@@ -615,6 +647,8 @@ class Gcompris_searace:
       y=cy+pixmap.get_height()/2,
       fill_color_rgba=0xFFFFFFFFL
       )
+    item.connect("event", self.ruler_item_event)
+
     return
 
   # Given a boat item, return it's weather condition
@@ -707,11 +741,20 @@ class Gcompris_searace:
       y = self.sea_area[1]
       (boat.x, boat.y)= boat.item.w2i( x, y)
     elif(x>self.sea_area[2]):
-      boat.arrived = True
-
+      boat.arrived     = True
+      boat.finish_time = time.time()
+      print "self.left_boat.finish_time" + str(self.left_boat.finish_time)
+      print "self.right_boat.finish_time" + str(self.right_boat.finish_time)
       if(not self.left_boat.won and not self.right_boat.won):
         boat.won = True
-           
+      elif(abs(self.left_boat.finish_time - self.right_boat.finish_time) < 1):
+        # The two boat arrived in a close time frame (1s), it's a draw
+        self.statusitem.set(text=_("This is a draw"))
+        self.left_boat.won  = False
+        self.right_boat.won = False
+        boat.speeditem.set(text="")
+        boat.speeditem.set(text="")
+
       if(self.left_boat.won):
         self.statusitem.set(text=_("The Red boat has won"))
         boat.speeditem.set(text="")
@@ -731,7 +774,10 @@ class Gcompris_searace:
     wind = self.get_wind_score(boat.angle, condition)
 
     #print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-    boat.speeditem.set(text = _("Angle:") + str(condition[0]) + " " + _("Wind:") + str(int(wind)*-1))
+    angle = condition[0]
+    if(angle>180):
+      angle = abs(angle-360)
+    boat.speeditem.set(text = _("Angle:") + str(angle) + " " + _("Wind:") + str(int(wind)*-1))
     boat.timer = gtk.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
 
     
@@ -855,7 +901,6 @@ class Gcompris_searace:
   # Will return a text string: the tux move
   def tux_move(self):
 
-    print "TUX MOVE"
     # The sea area is defined in the global self.sea_area
     step_x    = (self.sea_area[2]-self.sea_area[0])/20*2
     step_y    = (self.sea_area[3]-self.sea_area[1])/10
@@ -864,7 +909,6 @@ class Gcompris_searace:
     bx     = self.right_boat.x
     by     = self.right_boat.y
     ba     = 0
-    print "INITIAL BX,BY=", bx, by
     one_path = []
 
     # X loop
@@ -872,8 +916,7 @@ class Gcompris_searace:
       score = 10000
       # By default, go straight
       coord = (bx, by, ba, int(step_x))
-      print "BX,BY,BA=" + str(coord)
-      print "bx="+str(bx)
+
       # angle loop
       for boat_angle in [ -45, 0, 45 ]:
         a_pi = boat_angle * math.pi/180
@@ -890,7 +933,6 @@ class Gcompris_searace:
           y = self.sea_area[1] + (y - self.sea_area[3])
           line_style = gtk.gdk.LINE_DOUBLE_DASH
             
-        print "  a="+str(boat_angle)+" x,y=",x,y
         # Find shortest path to previous calculated point
         condition = self.get_absolute_weather_condition(x, y)
         wind = self.get_wind_score(boat_angle, condition)
@@ -898,7 +940,6 @@ class Gcompris_searace:
           score = wind
           coord = (x, y, boat_angle, step_x, line_style) # x y angle distance line_style
         
-        print "    Boat angle = " + str(boat_angle) + " Condition = " + str(condition) + " Wind = " + str(wind) + " Score = " + str(score)
         self.root_weather_item.add(
           gnome.canvas.CanvasText, text=int(wind),
           y=y, x=x,
@@ -953,3 +994,39 @@ class Gcompris_searace:
     self.right_boat.tb.set_text(tux_move)
     self.right_boat.tv.set_editable(False)
     
+
+  # ----------------------------------------
+  # The RULER
+  #
+  def ruler_item_event(self, widget, event=None):
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      if event.button == 1:
+        self.pos_x = event.x
+        self.pos_y = event.y
+        self.ruleritem = self.rootitem.add(
+          gnome.canvas.CanvasLine,
+          points=( self.pos_x, self.pos_y, event.x, event.y),
+          fill_color_rgba=0xFF0000FFL,
+          width_units=2.0
+          )
+        return gtk.TRUE
+    if event.type == gtk.gdk.MOTION_NOTIFY:
+      if event.state & gtk.gdk.BUTTON1_MASK:
+        # Calc the angle and distance and display them in the status bar
+        distance = math.sqrt((self.pos_x-event.x)*(self.pos_x-event.x)+(self.pos_y-event.y)*(self.pos_y-event.y))
+        distance = int(distance/self.sea_ratio)
+
+        angle = math.atan2(abs(self.pos_x-event.x), abs(self.pos_y-event.y))
+        angle = int(angle*180/math.pi)
+        angle = abs(angle - 90)
+        self.statusitem.set(text=_("Distance:") + " " + str(distance) + " " + _("Angle:") + " " + str(angle))
+        self.ruleritem.set(
+          points=( self.pos_x, self.pos_y, event.x, event.y)
+          )
+    if event.type == gtk.gdk.BUTTON_RELEASE:
+      if event.button == 1:
+        self.ruleritem.destroy()
+        self.statusitem.set(text="")
+        return gtk.TRUE
+    return gtk.FALSE
+

@@ -9,7 +9,7 @@
 	 icon="boardicons/searace1player.png"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="searace">
-	 <_title>Sea race (2 Players)</_title>
+	 <_title>Sea race (Single Player)</_title>
 	 <_description>Give good instructions to your ship in order to be first
 in the race.</_description>
 	<_prerequisite></_prerequisite>
@@ -27,6 +27,8 @@ forward 10 => Go forward for 10 units (as displayed in the ruler)
 The goal is to reach the right of the screen (the red line).
 When done, you can try to improve your program and start a new race with the same weather
  conditions by using the retry button.
+You can click and drag your mouse anywhere on the map to get a measurement in distance
+and angle.
 Going to the next level will give your more complex wether conditions.</_manual>
   </Board>
 </GCompris>

@@ -1,3 +1,15 @@
+2005-01-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/chronos/board4_1.xml.in: fixed Yager by Yeager (reported by Kelemen G~bor)
+	* boards/searace.xml.in: fixed typo on weather
+	* boards/searace1player.xml.in: -
+	* src/boards/python/anim.py: New version of anim by Yves. This version save the anim
+	in an incompatible format. Now anim are saved in anim2 directory to avoid confusion.
+	This new anim will be mozilla-svg compatible. It will be possible to publish our kids
+	creation on the web.
+	* src/boards/python/searace.py: Completed, it is now possible to make measurements by dragging
+	the mouse.
+
 2005-01-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added one player searace
