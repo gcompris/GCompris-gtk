@@ -1,41 +1,20 @@
 # translation of fi.po to Finnish
 # Copyright (C) 2001,2003,2004 Free Software Foundation, Inc.
-# Rami Aubourg-Kaires <rami at kaires.org>, 2003
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
 # Jyrki Kuoppala <jkp@kaapeli.fi>, 2001.
-# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2003-2004
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
-"POT-Creation-Date: 2004-05-30 21:49+0200\n"
-"PO-Revision-Date: 2004-05-31 22:25+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-11-10 23:30+0100\n"
+"PO-Revision-Date: 2004-11-14 17:19+0100\n"
 "Last-Translator: Rami Aubourg-Kaires <rami at kaires.org>\n"
-"kaires.org>\n"
-"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"kaires.org>\n"
 "X-Generator: KBabel 1.0.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
@@ -300,7 +279,7 @@ msgstr "pistaasi"
 msgid "platinum"
 msgstr "platina"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "purppura"
 
@@ -394,7 +373,8 @@ msgid ""
 "that give the specified result. The numbers and operators can be unselected "
 "by clicking on them."
 msgstr ""
-"Voidaksesi suorittaa laskutoimituksen, valitse numerosi ja laskutoimitukset taulun \n"
+"Voidaksesi suorittaa laskutoimituksen, valitse numerosi ja laskutoimitukset "
+"taulun \n"
 "yläosasta. Voit valita numerot ja laskutoimitukset klikkaamalla niihin."
 
 #: boards/algebra_guesscount.xml.in.h:3
@@ -482,10 +462,18 @@ msgstr "Osaa liikuttaa ja näpäyttää hiirtä"
 msgid "algorithm"
 msgstr "algoritmi"
 
+#: boards/anim.xml.in.h:1
+msgid "Create an animation"
+msgstr "Tee oma animaatiosi"
+
+#: boards/anim.xml.in.h:2
+msgid "Free drawing and animation tool."
+msgstr "Vapaa piirtämis- ja animaatio väline"
+
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
-#: boards/babymatch/board6_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1 boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Vie esineet vastaaville paikoille"
 
@@ -548,6 +536,14 @@ msgstr "Lock nurmella."
 #: boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
 msgstr "Lock värillisten muotojen ympäröimänä. "
+
+#: boards/ballcatch.xml.in.h:1
+msgid "Push the two shift keys together to send the ball straight"
+msgstr "Paina kumpaakin SHIFT-näppäintä samanaikaisesti heittääksesi pallon suoraan."
+
+#: boards/ballcatch.xml.in.h:2
+msgid "Send the ball to Tux"
+msgstr "Heitâ pallo Tux'ille"
 
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
@@ -636,7 +632,8 @@ msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
 "Dates of Transportation are based on those found in http://www.wikipedia.org"
 msgstr ""
-"Kuun kuva tulee NASA:lta. Avaruusäänet tulevat Tuxpaintistä ja Vegastrikesta.\n"
+"Kuun kuva tulee NASA:lta. Avaruusäänet tulevat Tuxpaintistä ja "
+"Vegastrikesta.\n"
 "Aikataulu on katsottu http://www.wikipedia.org 'ista."
 
 #: boards/chronos.xml.in.h:4
@@ -661,10 +658,13 @@ msgstr "Tux ja omenapuu"
 
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 msgstr ""
-"Pistä kuvat oikeaan aikajärjestykseen ja jokaisen keksimisen vuosiluvun kohdalle.\n"
+"Pistä kuvat oikeaan aikajärjestykseen ja jokaisen keksimisen vuosiluvun "
+"kohdalle.\n"
 "Jos et ole varma, voit tarkistaa täältä: http://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
@@ -673,9 +673,9 @@ msgstr ""
 msgid "Transportation"
 msgstr "Kulkuvälineet"
 
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
-msgstr "Kahdeksas vuosisata"
+#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+msgid "The aviation"
+msgstr "Ilmailu"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -823,11 +823,11 @@ msgstr "Lapsen täytyy siirtää esineet vasemmalta oikeaan kohtaan taulukkoon."
 msgid "Click on an item and listen to its target position"
 msgstr "Näpäytä esinettä ja kuuntele sen päämäärä."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: boards/draw.xml.in.h:1 src/boards/draw.c:215
 msgid "A simple vector drawing tool"
 msgstr "Vektori piirtäminen"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
+#: boards/draw.xml.in.h:2 src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
 msgstr "Voit piirtää mitä ikinä lystäät"
 
@@ -903,6 +903,27 @@ msgstr "Liikuta hiirtä kunnes paloja ei ole enää jäljellä."
 msgid "Go to experiences activities"
 msgstr "Askartelutehtävät"
 
+#: boards/followline.xml.in.h:1
+msgid "Emerge the pipe"
+msgstr "Selvitä letkun tukos"
+
+#: boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr "Hyvä moottorikoordinaatio"
+
+#: boards/followline.xml.in.h:3
+msgid ""
+"Move the mouse over the red part of the pipe. This will emerge it, part by "
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
+msgstr ""
+"Liikuta letkussa oleva punainen tukos ulos asti jotta Tux voisi kastella kukat. \n"
+"Ole varovainen, sillâ jos hiiri ei ole enäâ letkun päällä, tukos menee taaksepäin."
+
+#: boards/followline.xml.in.h:4
+msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
+msgstr "Tux halouaa kastella kukkia,mutta letku on tukossa."
+
 #: boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
@@ -936,22 +957,302 @@ msgid "Place the lands"
 msgstr "Laita maat oikeille paikoille"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Afrikka"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "Amerikka"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Etelämanner"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Aasia"
+
+#: boards/geography/board1_0.xml.in.h:5
+msgid "Continents"
+msgstr "Maanosat"
+
+#: boards/geography/board1_0.xml.in.h:6
+msgid "Europa"
+msgstr "Eurooppa"
+
+#: boards/geography/board1_0.xml.in.h:7
+msgid "Oceania"
+msgstr "Australia"
+
+#: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "Pohjois-Amerikka"
 
-#: boards/geography/board2_0.xml.in.h:1
+#: boards/geography/board2_0.xml.in.h:2
+msgid "alaska"
+msgstr "Alaska"
+
+#: boards/geography/board2_0.xml.in.h:3
+msgid "bahamas"
+msgstr "Bahama"
+
+#: boards/geography/board2_0.xml.in.h:4
+msgid "canada"
+msgstr "Kanada"
+
+#: boards/geography/board2_0.xml.in.h:5
+msgid "cuba"
+msgstr "Kuuba"
+
+#: boards/geography/board2_0.xml.in.h:6
+msgid "dominican republic"
+msgstr "Dominikaaninen tasavalta"
+
+#: boards/geography/board2_0.xml.in.h:7
+msgid "greenland"
+msgstr "Grônlanti"
+
+#: boards/geography/board2_0.xml.in.h:8
+msgid "haiti"
+msgstr "Haiti"
+
+#: boards/geography/board2_0.xml.in.h:9 boards/geography/board3_0.xml.in.h:8
+msgid "iceland"
+msgstr "Islanti"
+
+#: boards/geography/board2_0.xml.in.h:10
+msgid "jamaica"
+msgstr "Jamaika"
+
+#: boards/geography/board2_0.xml.in.h:11
+msgid "mexico"
+msgstr "Meksiko"
+
+#: boards/geography/board2_0.xml.in.h:12
+msgid "united state"
+msgstr "Yhdysvallat"
+
+#: boards/geography/board2_1.xml.in.h:1
 msgid "South America"
 msgstr "Etelä-Amerikka"
+
+#: boards/geography/board2_1.xml.in.h:2
+msgid "argentina"
+msgstr "Argentiina"
+
+#: boards/geography/board2_1.xml.in.h:3
+msgid "bolivia"
+msgstr "Bolivia"
+
+#: boards/geography/board2_1.xml.in.h:4
+msgid "brazil"
+msgstr "Brasilia"
+
+#: boards/geography/board2_1.xml.in.h:5
+msgid "chile"
+msgstr "Chile"
+
+#: boards/geography/board2_1.xml.in.h:6
+msgid "colombia"
+msgstr "Kolumbia"
+
+#: boards/geography/board2_1.xml.in.h:7
+msgid "ecuador"
+msgstr "Ecuador"
+
+#: boards/geography/board2_1.xml.in.h:8
+msgid "french guiana"
+msgstr "Ranskan Guayana"
+
+#: boards/geography/board2_1.xml.in.h:9
+msgid "guyana"
+msgstr "Guyana"
+
+#: boards/geography/board2_1.xml.in.h:10
+msgid "panama"
+msgstr "Panama"
+
+#: boards/geography/board2_1.xml.in.h:11
+msgid "paraguay"
+msgstr "Paraguay"
+
+#: boards/geography/board2_1.xml.in.h:12
+msgid "peru"
+msgstr "Peru"
+
+#: boards/geography/board2_1.xml.in.h:13
+msgid "suriname"
+msgstr "Suriname"
+
+#: boards/geography/board2_1.xml.in.h:14
+msgid "uruguay"
+msgstr "Uruguay"
+
+#: boards/geography/board2_1.xml.in.h:15
+msgid "venezuela"
+msgstr "Venezuela"
 
 #: boards/geography/board3_0.xml.in.h:1
 msgid "West Europe"
 msgstr "Länsi-Eurooppa"
 
-#: boards/geography/board4_0.xml.in.h:1
+#: boards/geography/board3_0.xml.in.h:2
+msgid "austria"
+msgstr "Itävalta"
+
+#: boards/geography/board3_0.xml.in.h:3
+msgid "belgium"
+msgstr "Belgia"
+
+#: boards/geography/board3_0.xml.in.h:4
+msgid "denmark"
+msgstr "Tanska"
+
+#: boards/geography/board3_0.xml.in.h:5
+msgid "finland"
+msgstr "Suomi"
+
+#: boards/geography/board3_0.xml.in.h:6
+msgid "france"
+msgstr "Ranska"
+
+#: boards/geography/board3_0.xml.in.h:7
+msgid "germany"
+msgstr "Saksa"
+
+#: boards/geography/board3_0.xml.in.h:9
+msgid "ireland"
+msgstr "Irlanti"
+
+#: boards/geography/board3_0.xml.in.h:10
+msgid "italy"
+msgstr "Italia"
+
+#: boards/geography/board3_0.xml.in.h:11
+msgid "luxembourg"
+msgstr "Luxemburg"
+
+#: boards/geography/board3_0.xml.in.h:12
+msgid "netherland"
+msgstr "Alankomaat"
+
+#: boards/geography/board3_0.xml.in.h:13
+msgid "norway"
+msgstr "Norja"
+
+#: boards/geography/board3_0.xml.in.h:14
+msgid "portugal"
+msgstr "Portugali"
+
+#: boards/geography/board3_0.xml.in.h:15
+msgid "spain"
+msgstr "Espanja"
+
+#: boards/geography/board3_0.xml.in.h:16
+msgid "sweden"
+msgstr "Ruotsi"
+
+#: boards/geography/board3_0.xml.in.h:17
+msgid "switz"
+msgstr "Sveitsi"
+
+#: boards/geography/board3_0.xml.in.h:18
+msgid "united kingdom"
+msgstr "Yhdistynyt kuningaskunta"
+
+#: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr "Itä-Eurooppa"
 
-#: boards/geography/board5_0.xml.in.h:1
+#: boards/geography/board3_1.xml.in.h:2
+msgid "albania"
+msgstr "Albania"
+
+#: boards/geography/board3_1.xml.in.h:3
+msgid "belarus"
+msgstr "Valko-Venäjâ"
+
+#: boards/geography/board3_1.xml.in.h:4
+msgid "bosnia herzegovina"
+msgstr "Bosnia ja Hertsegovina"
+
+#: boards/geography/board3_1.xml.in.h:5
+msgid "bulgaria"
+msgstr "Bulgaria"
+
+#: boards/geography/board3_1.xml.in.h:6
+msgid "croatia"
+msgstr "Kroatia"
+
+#: boards/geography/board3_1.xml.in.h:7
+msgid "cyprus"
+msgstr "Kypros"
+
+#: boards/geography/board3_1.xml.in.h:8
+msgid "czech"
+msgstr "Tsekki"
+
+#: boards/geography/board3_1.xml.in.h:9
+msgid "estonia"
+msgstr "Viro"
+
+#: boards/geography/board3_1.xml.in.h:10
+msgid "greece"
+msgstr "Kreikka"
+
+#: boards/geography/board3_1.xml.in.h:11
+msgid "hungary"
+msgstr "Unkari"
+
+#: boards/geography/board3_1.xml.in.h:12
+msgid "latvia"
+msgstr "Latvia"
+
+#: boards/geography/board3_1.xml.in.h:13
+msgid "lithuania"
+msgstr "Liettua"
+
+#: boards/geography/board3_1.xml.in.h:14
+msgid "macedonia"
+msgstr "Makedonia"
+
+#: boards/geography/board3_1.xml.in.h:15
+msgid "moldova"
+msgstr "Moldova"
+
+#: boards/geography/board3_1.xml.in.h:16
+msgid "poland"
+msgstr "Puola"
+
+#: boards/geography/board3_1.xml.in.h:17
+msgid "romania"
+msgstr "Romania"
+
+#: boards/geography/board3_1.xml.in.h:18
+msgid "russia"
+msgstr "Venäjä"
+
+#: boards/geography/board3_1.xml.in.h:19
+msgid "serbia montenegro"
+msgstr "Serbia ja Montenegro"
+
+#: boards/geography/board3_1.xml.in.h:20
+msgid "slovakia"
+msgstr "Slovakia"
+
+#: boards/geography/board3_1.xml.in.h:21
+msgid "slovenia"
+msgstr "Slovenia"
+
+#: boards/geography/board3_1.xml.in.h:22
+msgid "turkey"
+msgstr "Turkki"
+
+#: boards/geography/board3_1.xml.in.h:23
+msgid "ukraine"
+msgstr "Ukraina"
+
+#: boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Ranskan provinssit"
 
@@ -963,11 +1264,11 @@ msgstr "Näppäimiston käyttäminen"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Kirjaimen tunnistaminen näytön ja näppäimistön välillä"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Kirjaimet"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Kirjoita putoavat kirjaimet ennen kuin ne osuvat maahan"
 
@@ -989,7 +1290,9 @@ msgstr "Rakenna täsmälleen samanlainen torni"
 
 #: boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr "Rakenna samanlainen torni kuin oikealla vasemmalla olevan tyhjän tornin päälle."
+msgstr ""
+"Rakenna samanlainen torni kuin oikealla vasemmalla olevan tyhjän tornin "
+"päälle."
 
 #: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
@@ -1022,7 +1325,7 @@ msgstr "Harjoittele lukemista löytämällä kuvaa vastaava sana"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: src/boards/reading.c:107
 msgid "Reading"
 msgstr "Lukutaito"
 
@@ -1366,17 +1669,24 @@ msgstr "Harjoita muistiasi kunnes kaikki kortit ovat poissa pelilaudalta"
 
 #: boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool Box - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years "
-"old 3 Stars - 7 to 8 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current "
+"activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 msgstr ""
-"Käyttöohjeet.\n"
 "Sinun tarvitsee ainoastaan näpäyttää tehtävää vastaavaa kuvaa.\n"
 "Näytön alapuolella ovat kontrollinappulat joiden tarkoitus on seurraava:\n"
 "Koti - Takaisin edelliseen menuun\n"
@@ -1386,9 +1696,10 @@ msgstr ""
 "Kysmysmerkki - Apua\n"
 "Työkalulaatikko - gcompris konfiguraatio\n"
 "Tuxin lentokone - Tekijätietoja\n"
-"Tähtien merkitys: Yksi tähti - 3 tai 4 vuotiaille Kaksi tähteä - 5 tai 6 "
-"vuotiaille\n"
-"Kolme tähteä - 7 tai 8 vuotiaille"
+"Tähtien merkitys: \n"
+"Yksi tähti - 3 tai 4 vuotiaille \n"
+"Kaksi tähteä - 5 tai 6 vuotiaille\n"
+"Kolme tähteä - 7 tai 8 vuotiaille\n"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1615,7 +1926,7 @@ msgid ""
 "main board."
 msgstr "Vie vasemmalla olevat osat keskelle tehdäksesi maalauksen."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Kokoa palapeli"
 
@@ -1628,8 +1939,8 @@ msgid "Spatial representation"
 msgstr "Komiulotteinen hahmottaminen"
 
 #: boards/paintings/board1_0.xml.in.h:1
-msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr "Edgar Degas, Tanssitunti - 1873"
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas, Tanssitunti - 1873-75"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
@@ -1652,15 +1963,15 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, Aigues-Mortesin muurit - 1876"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr "Cassat, Kesä - 1895"
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Mary Cassat, Kesä - 1894"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Kylätie Auversissa - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
+msgid "Help Tux the parachuter land safely"
 msgstr "Auta laskuvarjohyppääjää laskeutumaan turvallistesti"
 
 #: boards/paratrooper.xml.in.h:2
@@ -1673,16 +1984,16 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
-"boat. He needs to take watch out for the wind direction and speed."
+"In this game, Tux the parachuter needs help to land safely on the fishing "
+"boat. He needs to take care of the wind direction and speed."
 msgstr ""
 "Tässä pelissä Tux laskuvarjohyppääjä laskeutuu turvallistesti kalastusveneen "
 "päälle.\n"
 "Lapsen täytyy varoa tuulen suuntaa sekä nopeutta."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
-msgstr "Laskuvarjohyppääjä"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
+msgstr "Laskuvarjohyppâäjâ"
 
 #: boards/paratrooper.xml.in.h:5
 msgid "This board is game oriented. No specific skills are needed to play."
@@ -1768,27 +2079,27 @@ msgstr "Lue värit"
 msgid "This board teaches basic colors."
 msgstr "Tämän osan tarkoitus on tunnistaa tavallisimmat värit"
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "musta"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "sininen"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "ruskea"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "vihreä"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "harmaa"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "oranssi"
 
@@ -1796,7 +2107,7 @@ msgstr "oranssi"
 msgid "pink"
 msgstr "vaaleanpunainen"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "punainen"
 
@@ -1804,11 +2115,11 @@ msgstr "punainen"
 msgid "violet"
 msgstr "violetti"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "valkoinen"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "keltainen"
 
@@ -1824,7 +2135,8 @@ msgid ""
 msgstr ""
 "Oikealla näet kirjoitetun sanan.\n"
 "Vasemmalla tulet näkemään häipyvän sanalistan.\n"
-" Sinun täytyy sanoa näitkö oikealla olevan sanan vasemmalla olevassa sanalistassa."
+" Sinun täytyy sanoa näitkö oikealla olevan sanan vasemmalla olevassa "
+"sanalistassa."
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -1857,9 +2169,12 @@ msgid ""
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but take care not to have unwanted objects under others."
 msgstr ""
-"Ensin, valitse oikea työkalu työkalupakista. Sitten, käytä hiirtä apunasi luodaksesi esineitä.\n"
-"Kun olet lopettanut, näpäytä OK nappulaa. Virheet hahmottuvat silloin punaisella ristillä.\n"
-"Esineitten järjetys (päällä/alla) ei ole tärkeä mutta varo ettet pistä vääriä esineitä toisten alle."
+"Ensin, valitse oikea työkalu työkalupakista. Sitten, käytä hiirtä apunasi "
+"luodaksesi esineitä.\n"
+"Kun olet lopettanut, näpäytä OK nappulaa. Virheet hahmottuvat silloin "
+"punaisella ristillä.\n"
+"Esineitten järjetys (päällä/alla) ei ole tärkeä mutta varo ettet pistä "
+"vääriä esineitä toisten alle."
 
 #: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
@@ -1883,7 +2198,7 @@ msgstr ""
 #: boards/reversecount.xml.in.h:2
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
-"fish. Click the dict with the right mouse button to coun backwards. When "
+"fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
 "Laske ensin montako jäälauttaa on Tuxin ja kalan välissä.\n"
@@ -1891,7 +2206,7 @@ msgstr ""
 "Voit myös käyttää hiiren oikeanpuoleista näppäintä laskeaksesi takaperin.\n"
 "Kun olet valmis, näpäytä OK nappulaa tai paina Enteriä."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
 msgstr "Harjoittele miinuslaskua hauskalla pelillä"
 
@@ -1934,8 +2249,8 @@ msgstr ""
 
 #: boards/scalesboard.xml.in.h:4
 msgid ""
-"To balance the scales, move the masses on the left. left side. The masses "
-"can be arranged in any order."
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
 msgstr ""
 "Tasapainottaaksesi vaaan sinun täytyy laskea painoja sen vasemmalle "
 "puolelle.\n"
@@ -2097,8 +2412,8 @@ msgid "Editor for gcompris"
 msgstr "gcompris-ediittori"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Opettavaisia pelejä kolmivuotiaasta ylöspäin"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Opettavaisia pelejä kahdesta kymmenen ikäisille"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
@@ -2106,9 +2421,9 @@ msgstr "Gcompris on opettavien pelien kokoelma"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:475 src/gcompris/gameutil.c:476
-#: src/gcompris/gcompris.c:392 src/gcompris/images_selector.c:477
+#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
+#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
+#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2116,7 +2431,7 @@ msgstr "Tiedostoa %s ei löydy"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1766
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "Tiedostoa %s ei löydy"
@@ -2134,15 +2449,15 @@ msgstr ""
 "Hänen täytyy mennä sulkujen läpi.\n"
 "Auta häntä ymmärtämään miten sulut toimivat."
 
-#: src/boards/chess.c:139
+#: src/boards/chess.c:137
 msgid "Learning Chess"
 msgstr "Opettele Shakkia"
 
-#: src/boards/chess.c:140
+#: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
 msgstr "Pelaa shakkia Tuxia vastaan opetusmoodissa"
 
-#: src/boards/chess.c:193
+#: src/boards/chess.c:191
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2154,7 +2469,7 @@ msgstr ""
 "gnuchess versio.\n"
 "Asenna gnuchess 5 tai korkeampi."
 
-#: src/boards/chess.c:200
+#: src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2167,43 +2482,43 @@ msgstr ""
 "Voit löytää sen vaikka http://www.rpmfind.net tai\n"
 "omilta GNU/Linux levyiltäsi"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Valkoisten vuoro"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Mustien vuoro"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Valkoinen shakki"
 
-#: src/boards/chess.c:722
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Musta shakki"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Mustat voittavat"
 
-#: src/boards/chess.c:1059
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Valkoiset voittavat"
 
-#: src/boards/chess.c:1064
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Tasapeli"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Lue kirjain"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Opettele kirjainten järjestämistä"
 
-#: src/boards/click_on_letter.c:225
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2211,7 +2526,7 @@ msgstr ""
 "Virhe: sinun täytyy ensin asentaa \n"
 "assetml-voices-alphabet- pelateksasi tätä tehtävää."
 
-#: src/boards/click_on_letter.c:232
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2223,25 +2538,64 @@ msgstr ""
 "Mahdollista ääniefektit\n"
 "konfiguraatio moduulissa (tyokalulaatikko)."
 
+#: src/boards/click_on_letter.c:280
+msgid "abcdefghijklmnopqrstufw"
+msgstr "abcdefghijklmnopqrstufw"
+
 #: src/boards/clickgame.c:182
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Pixmap-hakemistoa %s ei voi avata"
 
-#: src/boards/clockgame.c:530
+#: src/boards/clockgame.c:528
 msgid "Set the watch to:"
 msgstr "Käännä kellon viisarit aikaan:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Näpäytä %s n väristä"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Näpäytä sinistâ nukkea"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Näpäytä ruskeaa nukkea"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Näpäytä vihreâä nukkea"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Näpäytä harmaata nukkea"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Näpäytä oranssia nukkea"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Näpäytä purppuranväristä nukkea"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Näpäytä punaista nukkea"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Näpäytä keltaista nukkea"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Näpäytä mustaa nukkea"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Näpäytä valkoista nukkea"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Siirrä esineitä korkeusjärjestyksessä pienimmästä suurimpaan määrään"
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339 src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Rakenna tyhjään paikkaan täsmälleen samanlainen torni kuin oikealla"
 
@@ -2263,7 +2617,9 @@ msgstr "oikea"
 
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
-msgstr "Voit varmistaa missä olet ja mene sitten takaisin kolmiulotteiseen moodiin jotta voisit liikkua."
+msgstr ""
+"Voit varmistaa missä olet ja mene sitten takaisin kolmiulotteiseen moodiin "
+"jotta voisit liikkua."
 
 #: src/boards/memory.c:164
 msgid "Memory"
@@ -2273,11 +2629,11 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Löydä täsmäävä pari"
 
-#: src/boards/menu.c:80
+#: src/boards/menu.c:72
 msgid "Main Menu"
 msgstr "Pääosaan"
 
-#: src/boards/menu.c:81
+#: src/boards/menu.c:73
 msgid "Select a Board"
 msgstr "Valitse tehtävä"
 
@@ -2285,7 +2641,11 @@ msgstr "Valitse tehtävä"
 msgid "Pratice money usage"
 msgstr "Opettele käyttämään rahaa"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:102
+msgid "Paratrooper"
+msgstr "Laskuvarjohyppääjä"
+
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Auta laskuvarjohyppääjää laskeutumaan turvallistesti"
 
@@ -2301,14 +2661,13 @@ msgstr "Python osa"
 msgid "Special board that embeds python into gcompris."
 msgstr "Erikoisosa jossa käytetään Pythonia gcomprissa"
 
-#. PythonTest Board module
-#: src/boards/python/pythontest.py:67
+#: src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr "Tämä on ensimmäinen Gcompris'hin koodattu Python plugin."
 
-#: src/boards/python/pythontest.py:76
+#: src/boards/python/pythontest.py:84
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
@@ -2316,156 +2675,14 @@ msgstr ""
 "Nyt on mahdollista luoda myös Python-tauluja Gcompris'hin.\n"
 "kittos Olivier Samyn'ille."
 
-#: src/boards/python/pythontest.py:85
+#: src/boards/python/pythontest.py:93
 msgid "This activity is not playable yet, just a test"
 msgstr "Tämä taulu ei ole tarkoitettu käytettävaksi. Testi vain."
 
-#. Remove the canvas item we added during this plugin
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. These are used to let us restart only after the bonux is displayed.
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. the game is won
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. This is a WIN
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Taso"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Koordinaatit"
@@ -2486,62 +2703,58 @@ msgstr "Lue värit"
 msgid "Click on the corresponding color"
 msgstr "Näpäytä täsmäävää väriä"
 
-#: src/boards/reading.c:103
+#: src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lue sanalista ja kerro sitten onko etsittävä sana siinä."
 
-#: src/boards/reading.c:329
+#: src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Katso onko sana"
 
-#: src/boards/reading.c:349
+#: src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "näkyvissä"
 
-#: src/boards/reading.c:541
+#: src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "Olen valmis."
 
-#: src/boards/reading.c:581
+#: src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Aivan. Näin sen."
 
-#: src/boards/reading.c:611
+#: src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "Ei se siinä ollutkaan!"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:649
+#: src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Löydettävä sana oli '%s'"
 
-#: src/boards/reading.c:652
+#: src/boards/reading.c:645
 msgid "But it was not displayed"
 msgstr "Mutta se ei ollut näkyvissä"
 
-#: src/boards/reading.c:654
+#: src/boards/reading.c:647
 msgid "And it was displayed"
 msgstr "Oli näkyvissä"
 
-#: src/boards/reading.c:756 src/boards/reading.c:766
+#: src/boards/reading.c:748
 msgid "Cannot open file of words for your locale"
 msgstr "En voi löytää kielellesi sanastoa."
 
-#: src/boards/reading.c:795
-msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr "Virhe: kielellesi tehty sanasto on virheellinen."
-
-#: src/boards/reversecount.c:140
+#: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Laske toiseen suuntaan"
 
-#: src/boards/shapegame.c:162
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Siirrä paloja ja rakenna uudestaan"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:409
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2553,7 +2766,7 @@ msgstr ""
 "'s' tallentaaksesi\n"
 "'d' nähdäksesi kaikki muodot"
 
-#: src/boards/shapegame.c:417
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2619,7 +2832,7 @@ msgid "translator_credits"
 msgstr ""
 "Jyrki Kuoppala, 2001\n"
 "http://gnome-fi.org/\n"
-"Rami Aubourg-Kaires, 2003\n"
+"Rami Aubourg-Kaires, Merja Kaires, Satu Ellermaa, 2003-2004\n"
 "http://www.kaires.org"
 
 #: src/gcompris/about.c:105
@@ -2628,11 +2841,7 @@ msgstr "GComprista"
 
 #: src/gcompris/about.c:115
 msgid "Translators:"
-msgstr ""
-"Jyrki Kuoppala, 2001\n"
-"http://gnome-fi.org/\n"
-"Rami Aubourg-Kaires, 2003\n"
-"http://www.kaires.org"
+msgstr "Kääntäjät:"
 
 #: src/gcompris/about.c:230
 msgid "GCompris Home Page"
@@ -2646,221 +2855,273 @@ msgstr "Tämä ohjelma on GNU Public Licence'in alainen"
 msgid "Help"
 msgstr "Apua"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:187
-#: src/gcompris/gameutil.c:778 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:207
+#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/board.c:41
+#: src/gcompris/board.c:170
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynaaminen moduulin lataus ei toiminut. Gcompris ei voi startata.\n"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:63
 msgid "Your system default"
 msgstr "Tietokoneesi alkuperäiset määritykset"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:64
 msgid "Amharic"
 msgstr ""
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:65
 msgid "Arabic"
 msgstr "Arabiaksi"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:66
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijanin turkki"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Katalonjaksi"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:68
 msgid "Czech"
 msgstr "Tsekiksi"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:69
+msgid "Danish"
+msgstr "Tanskaksi"
+
+#: src/gcompris/config.c:70
 msgid "German"
 msgstr "Saksaksi"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:71
 msgid "Greek"
 msgstr "Kreikaksi"
 
-#: src/gcompris/config.c:65
-msgid "American English"
-msgstr "Amerikan Englanniksi"
+#: src/gcompris/config.c:72
+msgid "English (Canadian)"
+msgstr "Englanti (Kanada)"
 
-#: src/gcompris/config.c:66
-msgid "Great Britain English"
-msgstr "Englannin englanniksi"
+#: src/gcompris/config.c:73
+msgid "English (Great Britain)"
+msgstr "Englanti (Iso-Britannia)"
 
-#: src/gcompris/config.c:67
-msgid "Canadian English"
-msgstr "Kanadan Englanniksi"
+#: src/gcompris/config.c:74
+msgid "English (USA)"
+msgstr "Englanti (Yhdysvallat)"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "Espanjaksi"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:76
 msgid "Finnish"
 msgstr "Suomeksi"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:77
 msgid "French"
 msgstr "Ranskaksi"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:78
+msgid "Irish (Gaelic)"
+msgstr "Iiri (Gaeli)"
+
+#: src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "Hepreaksi"
 
-#: src/gcompris/config.c:72
-msgid "Indian"
-msgstr "Hinduksi"
+#: src/gcompris/config.c:80
+msgid "Indian (Hindi)"
+msgstr "Hindiksi"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:81
+msgid "Indian (Punjabi)"
+msgstr "Punjabi"
+
+#: src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Unkariksi"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Katalonjaksi"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italiaksi"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Liettuaksi"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Makedoniaksi"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:87
 msgid "Malayalam"
-msgstr ""
+msgstr "Malaiji"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malaiji"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Hollanniksi"
 
-#: src/gcompris/config.c:81
-msgid "Norwegian"
-msgstr "Norjaksi"
+#: src/gcompris/config.c:90
+msgid "Norwegian Bokmal"
+msgstr "Norjaksi (Bokmal)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:91
+msgid "Norwegian Nynorsk"
+msgstr "Norjaksi (Nynorsk)"
+
+#: src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Puolaksi"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portugaliksi"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Brasilian Portugaliksi"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Romaniaksi"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Venäjäksi"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:97
 msgid "Slovak"
 msgstr "Slovakiksi"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:98
 msgid "Slovenian"
 msgstr "Sloveniaksi"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:99
+msgid "Albanian"
+msgstr "Albania"
+
+#: src/gcompris/config.c:100
 msgid "Serbian (Latin)"
 msgstr "Serbi (latinalaiset aakkoset)"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:101
 msgid "Serbian"
 msgstr "Serbiksi"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:102
 msgid "Swedish"
 msgstr "Ruotsiksi"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:103
 msgid "Turkish"
 msgstr "Turkiksi"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:104
+msgid "Walloon"
+msgstr "Belgian hollanniksi"
+
+#: src/gcompris/config.c:109
 msgid "No time limit"
 msgstr "Ei aikarajaa"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:110
 msgid "Slow timer"
 msgstr "Hidas kello"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:111
 msgid "Normal timer"
 msgstr "Normaali kello"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:112
 msgid "Fast timer"
 msgstr "Nopea kello"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:117
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Gcompris'n tavallinen resoluutio)"
 
-#: src/gcompris/config.c:161
+#: src/gcompris/config.c:122
+msgid "No filter"
+msgstr "Ei suodatinta"
+
+#: src/gcompris/config.c:123
+msgid "Only this level"
+msgstr "Ainoastaan tämâ vaikeusaste"
+
+#: src/gcompris/config.c:124
+msgid "Up to this level"
+msgstr "Tähân vaikeusasteeseen asti"
+
+#: src/gcompris/config.c:125
+msgid "This level and above"
+msgstr "Tämä ja korkeammat vaikeusasteet "
+
+#: src/gcompris/config.c:181
 msgid "GCompris Configuration"
 msgstr "GCompris asetukset"
 
-#: src/gcompris/config.c:270
+#: src/gcompris/config.c:290
 msgid "Fullscreen"
 msgstr "Täysi näyttö"
 
-#: src/gcompris/config.c:313
+#: src/gcompris/config.c:333
 msgid "Music"
 msgstr "Musiikki"
 
-#: src/gcompris/config.c:341
+#: src/gcompris/config.c:361
 msgid "Effect"
 msgstr "Tehosteet"
 
-#: src/gcompris/config.c:375
+#: src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Pixmap-hakemistoa %s ei voi avata"
 
-#: src/gcompris/config.c:396
+#: src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "En löytänyt pohjakuvaa täältä: %s\n"
 
-#: src/gcompris/config.c:411 src/gcompris/config.c:746
-#: src/gcompris/config.c:757
+#: src/gcompris/config.c:431 src/gcompris/config.c:816
+#: src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Nahka : %s"
 
-#: src/gcompris/gameutil.c:128
+#: src/gcompris/file_selector.c:235
+msgid "CANCEL"
+msgstr "TAKAISIN"
+
+#: src/gcompris/file_selector.c:266
+msgid "LOAD"
+msgstr "LATAA"
+
+#: src/gcompris/file_selector.c:266
+msgid "SAVE"
+msgstr "TALLENNA"
+
+#: src/gcompris/gameutil.c:129
 msgid "Couldn't find file"
 msgstr "Tiedostoa ei löydy"
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid "This activity is incomplete."
 msgstr "Tämä taulu on keskeneräinen"
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:132
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2868,76 +3129,88 @@ msgstr ""
 "Pysäytä Gcompris ja\n"
 "lähetä virheilmoitus tekijöille."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:82
 msgid "run gcompris in fullscreen mode."
 msgstr "Täysi näyttö"
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:84
 msgid "run gcompris in window mode."
 msgstr "Ikkunassa"
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:86
 msgid "run gcompris with sound enabled."
 msgstr "Aänen kanssa"
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:88
 msgid "run gcompris without sound."
 msgstr "Ilman ääntä."
 
-#: src/gcompris/gcompris.c:81
+#: src/gcompris/gcompris.c:90
 msgid "run gcompris with the default gnome cursor."
 msgstr "Gcompris Gnomen tavallisella kursorilla"
 
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:92
 msgid "display only activities with this difficulty level."
 msgstr "näytä ainoastaan tätä vaikeusastetta vastaavat tehtävät."
 
-#: src/gcompris/gcompris.c:85
+#: src/gcompris/gcompris.c:94
+msgid "display debug informations on the console."
+msgstr "Näytä debug-tiedot konsolilla"
+
+#: src/gcompris/gcompris.c:96
 msgid "Print the version of "
 msgstr "Tulostaa version"
 
-#: src/gcompris/gcompris.c:87
+#: src/gcompris/gcompris.c:98
 msgid "Use the antialiased canvas (slower)."
 msgstr "Käytä hiottua kanvasia (hitaampi)"
 
-#: src/gcompris/gcompris.c:491
+#: src/gcompris/gcompris.c:522
 msgid ""
-"This is a Demo version of gcompris,\n"
-"only 12 on 45 activities are available.\n"
-"To get the full version,\n"
-"go to http://www.ofset.org/order/gcompris"
+"GCompris is free software released under the GPL License. In order to "
+"support the development, the Windows version provides only 12 of the 45 "
+"activities. You can get the full version for a small fee at\n"
+"http://gcompris.net\n"
+"The Linux version does not have this restriction. Note that gcompris is "
+"being developped to free schools from monopolistic software vendors. If you "
+"also believe that we should teach freedom to kids, please consider using GNU/"
+"Linux. Get more information on\n"
+"http://www.fsf.org/philosophy"
 msgstr ""
-"Tämä on demoversion Gcompris'ta.\n"
-"Ainoastaan kaksitoista 45:stä taulusta ovat käytettävissä.\n"
-"Saadaksesi täyden version, mene tänne: http://www.ofset.org/order/gcompris\n"
-"tai käytä Linuxia."
+"Gcompris on Linux-järjetelmällä ohjelmoitua vapaata ohjelmistoa.\n"
+"Maksuttomassa Windows-versiossa on ainoastaan 12 tehtävää noin viidestäkymmenestä.\n"
+"Voitte ostaa täyden Windows-version täältâ: http://gcompris.net.\n"
+"Linux-versio on taas täysin ilmainen kokonaisuudessaan.\n"
+"Kumpienkin versioiden lähdekoodi on avoin.\n"
+"Jos ajattelette että vapauden opettaminen lapsille on tärkeää, voitte miettiä mahdollisuutta\n"
+"käyttää esim. GNU / Linuxia. Lisää tietoja: http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:663
+#: src/gcompris/gcompris.c:717
 #, c-format
 msgid ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "Licence: GPL\n"
-"More info at http://ofset.sourceforge.net/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
-"Versio: %d\n"
+"Versio: %s\n"
 "Lisenssi: GPL\n"
-"Lisää tietoja löydätte täältä: http://ofset.sourceforge.net/gcompris\n"
+"Lisää tetoja täältä: http://gcompris.net\n"
 
-#: src/gcompris/help.c:173 src/gcompris/interface.c:243
+#: src/gcompris/help.c:170 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Edellytykset"
 
-#: src/gcompris/help.c:207 src/gcompris/interface.c:252
+#: src/gcompris/help.c:198 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Päämäärä"
 
-#: src/gcompris/help.c:241 src/gcompris/interface.c:261
+#: src/gcompris/help.c:226 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Selitys"
 
-#: src/gcompris/help.c:275 src/gcompris/interface.c:270
+#: src/gcompris/help.c:254 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Krediitit"
 
@@ -2987,7 +3260,7 @@ msgstr "GPL-lisenssi"
 msgid "%a %b %d %H:%M:%S %Z %Y"
 msgstr "%a %b %d %H:%M:%S %Z %Y"
 
-#: src/gcompris/soundutil.c:141
+#: src/gcompris/soundutil.c:140
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Musiikki-hakemistoa %s ei voi avata"
@@ -2997,7 +3270,9 @@ msgstr "Musiikki-hakemistoa %s ei voi avata"
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
 "vorbis OR the sound output failed"
-msgstr "Taustamusiikki on nyt pysäytetty. Voi olla että tiedostot %s eivät ole ogg vorbis'ia tai ääni ei toimi."
+msgstr ""
+"Taustamusiikki on nyt pysäytetty. Voi olla että tiedostot %s eivät ole ogg "
+"vorbis'ia tai ääni ei toimi."
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
@@ -3012,6 +3287,33 @@ msgstr "Aika loppui"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Aikaa jäljellä = %d"
+
+#~ msgid "VIII Century"
+#~ msgstr "Kahdeksas vuosisata"
+
+#~ msgid "Error: The wordfile package used for your locale is corrupted."
+#~ msgstr "Virhe: kielellesi tehty sanasto on virheellinen."
+
+#~ msgid "American English"
+#~ msgstr "Amerikan Englanniksi"
+
+#~ msgid "Great Britain English"
+#~ msgstr "Englannin englanniksi"
+
+#~ msgid "Canadian English"
+#~ msgstr "Kanadan Englanniksi"
+
+#~ msgid ""
+#~ "This is a Demo version of gcompris,\n"
+#~ "only 12 on 45 activities are available.\n"
+#~ "To get the full version,\n"
+#~ "go to http://www.ofset.org/order/gcompris"
+#~ msgstr ""
+#~ "Tämä on demoversion Gcompris'ta.\n"
+#~ "Ainoastaan kaksitoista 45:stä taulusta ovat käytettävissä.\n"
+#~ "Saadaksesi täyden version, mene tänne: http://www.ofset.org/order/"
+#~ "gcompris\n"
+#~ "tai käytä Linuxia."
 
 #~ msgid "This board is dedicated to recognize unusual colors."
 #~ msgstr ""
