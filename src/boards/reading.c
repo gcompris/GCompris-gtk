@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/02/01 21:06:36 bcoudoin>
+ * Time-stamp: <2004/02/07 19:17:24 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -621,14 +621,23 @@ static void player_win()
 
 static void player_loose()
 {
-  gchar *str;
+  gchar *expected;
+  gchar *got;
   gamewon = FALSE;
   wait_for_ready = TRUE;
 
   /* Report what was wrong in the log */
-  str = g_strdup_printf(_("The word to find was '%s'"), textToFind);
-  gcompris_log_set_comment (gcomprisBoard, str);
-  g_free(str);
+  expected = g_strdup_printf(_("The word to find was '%s'"), textToFind);
+
+  if(textToFindIndex == NOT_THERE)
+    got    = g_strdup_printf(_("But it was not displayed"));
+  else
+    got    = g_strdup_printf(_("And it was displayed"));
+
+  gcompris_log_set_comment (gcomprisBoard, expected, got);
+
+  g_free(expected);
+  g_free(got);
 
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
 

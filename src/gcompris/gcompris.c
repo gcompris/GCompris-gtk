@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/02/04 00:23:39 bcoudoin>
+ * Time-stamp: <2004/02/07 19:30:18 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -142,7 +142,8 @@ board_widget_key_press_callback (GtkWidget   *widget,
       /* If the board needs to receive key pressed */
       if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
 	{
-	  gcompris_log_set_key(get_current_board_plugin(), event->keyval);
+	  // Rmoved, Do hard to analyse.
+	  //	  gcompris_log_set_key(get_current_board_plugin(), event->keyval);
 
 	  return(get_current_board_plugin()->key_press (event->keyval));
 	}
@@ -543,6 +544,7 @@ char *gcompris_get_user_default_locale()
 void gcompris_set_locale(gchar *locale)
 {
 
+  printf("gcompris_set_locale %s\n", locale);
   if(gcompris_locale != NULL)
     g_free(gcompris_locale);
 

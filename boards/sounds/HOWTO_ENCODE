@@ -2,6 +2,7 @@ Provide here voice translation in boards/sounds/yy
 It is best to choose somebody that speaks and articulate well your language.
 
 - Record with rec, grecord, bcast2000, gnoise, audacity
+  (mono wav 16bit/44khz gives the best quality/space ratio)
 - Save as WAV file
 - Apply loudness transform with sox if necessary.
 	You may such script if the sound is too low :

@@ -49,7 +49,6 @@ else
 fi
 
 dnl For embedded ogg player
-dnl FIXME XIPH prefix are the one needed on Mandrake ?
 XIPH_PATH_OGG
 XIPH_PATH_AO
 XIPH_PATH_VORBIS
@@ -372,8 +371,27 @@ echo "***************************************************"
 echo ""
 echo configure complete,
 echo with options:
-echo python plugins = $build_python_plugin
-echo gcompris edit = $build_gcompris_edit
+echo "python plugins = $build_python_plugin"
+echo "gcompris edit  = $build_gcompris_edit"
+
+if test -x "${OGG_LIBS}"; then
+echo "OGG LIBS       = NOT DETECTED (install libogg-devel)"
+else
+echo "OGG LIBS       = FOUND"
+fi
+
+if test -x "${AO_LIBS}"; then
+echo "AO LIBS        = NOT DETECTED (install libao-devel)"
+else
+echo "AO LIBS        = FOUND"
+fi
+
+if test -x "${VORBIS_LIBS}"; then
+echo "VORBIS LIBS    = NOT DETECTED (install libvorbis-devel)"
+else
+echo "VORBIS LIBS    = FOUND"
+fi
+
 echo gcompris will be installed in ${prefix}
 echo to compile and install in in another directory
 echo type sh configure --prefix=/usr

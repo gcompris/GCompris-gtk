@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/12/20 14:20:08 bcoudoin>
+ * Time-stamp: <2004/02/04 01:36:34 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -87,6 +87,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->timer		= 1;
   tmp->skin		= "default";
   tmp->audio_output	= "";
+  tmp->locale           = NULL;
 
   config_file = g_strdup_printf("%s/.gcompris",g_get_home_dir());
 
@@ -137,6 +138,10 @@ GcomprisProperties *gcompris_properties_new ()
 	  tmp->audio_output = scan_get_string(scanner);
 	  if(!tmp->audio_output)
 	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "locale")) {
+	  tmp->locale = scan_get_string(scanner);
+	  if(!tmp->locale)
+	    g_warning("Config file parsing error on token %s", token);
 	}
 	break;
       }
@@ -162,21 +167,23 @@ GcomprisProperties *gcompris_properties_new ()
    * Warning, gcompris need a proper locale prefix to find suitable dataset
    * Some system use LOCALE 'C' for english. We have to set it explicitly
    */
-  locale = getenv("LC_ALL");
-  if(locale == NULL)
-    locale = getenv("LC_MESSAGES");
-  if(locale == NULL)
-    locale = getenv("LANG");
+  if(!tmp->locale) {
+    locale = getenv("LC_ALL");
+    if(locale == NULL)
+      locale = getenv("LC_MESSAGES");
+    if(locale == NULL)
+      locale = getenv("LANG");
 
-  if (locale != NULL && !strcmp(locale, "C"))
-    {
-      tmp->locale		= "en_US.UTF-8";
-    } 
-  else 
-    {
-      /* No user specified locale = '' */
-      tmp->locale		= "";
-    }
+    if (locale != NULL && !strcmp(locale, "C"))
+      {
+	tmp->locale		= "en_US.UTF-8";
+      } 
+    else 
+      {
+	/* No user specified locale = '' */
+	tmp->locale		= "";
+      }
+  }
 
   /*
    * Read the board status
@@ -219,6 +226,7 @@ void gcompris_properties_save (GcomprisProperties *props)
   
   fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
   fprintf(filefd, "%s=\"%s\"\n", "audio_output",	props->audio_output);
+  fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   
   fclose(filefd);
 }

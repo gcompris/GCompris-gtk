@@ -1,3 +1,29 @@
+2004-02-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/billard.xml.in: typo, title changed to billiards
+	* boards/flags/gcompris_flags.assetml.in: added croatian
+	* boards/sounds/HOWTO_ENCODE: added some hints
+	* boards/wordsgame/wordslevel3.fr: created by Catherine Lhomme
+	* configure.in: added info about lib ogg/ao/vorbis detection
+	* po/es.po: fixed errors in missing_letter bug in debian #228712
+	* src/boards/gletters.c: (add_char), (key_press): added log call on what letter we got vs expected
+	* src/boards/py-mod-gcompris.c: (py_gcompris_log_set_comment): changed gcompris.log_set_reason signature
+	* docs/C/python.xml: changed gcompris.log_set_reason signature
+	* src/boards/reading.c: (player_loose): adapted call to changed gcompris.log_set_reason
+	* src/boards/smallnumbers.c: (pause_board), (start_board),
+	(smallnumbers_next_level), (player_win): added call to bonus
+	* src/gcompris/about.c: (gcompris_about_start): added tranlator
+	* src/gcompris/config.c: (item_event_ok): fixed default locale not being saved
+	* src/gcompris/gameutil.c: (gcompris_read_xml_file),
+	(cleanup_menus), (gcompris_load_menus): added support for dynamic locale reload
+	* src/gcompris/gameutil.h: changed an internal func signature to support for dynamic locale
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(gcompris_set_locale): remove log key call (commented by now)
+	* src/gcompris/gcompris.h: changed gcompris_log_set_comment signature
+	* src/gcompris/log.c: (gcompris_log_set_comment): changed gcompris_log_set_comment signature
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save): fixed locale not being saved
+
 2004-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* TODO: added TODO for configuration of audio audput in a config dialog

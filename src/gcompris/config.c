@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/02/02 01:01:36 bcoudoin>
+ * Time-stamp: <2004/02/07 02:40:18 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -617,11 +617,17 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       if(!strcmp((char *)data, "ok"))
 	{
-	  gcompris_set_locale(current_locale);
+	  if(current_locale[0] == '\0') {
+	    /* Set the locale to the default user's locale */
+	    gcompris_set_locale(gcompris_get_user_default_locale());
+	  } else {
+	    gcompris_set_locale(current_locale);
+	  }
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
 	  gcompris_skin_load(properties->skin);
 	  gcompris_config_stop();
 	  gcompris_properties_save(properties);
+	  gcompris_load_menus();
 	}
       else if(!strcmp((char *)data, "fullscreen"))
 	{

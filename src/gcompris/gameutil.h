@@ -42,7 +42,7 @@ GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);
 void		 gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus);
 gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, 
 					   GnomeCanvasItem *dest_item);
-GcomprisBoard	*gcompris_read_xml_file(char *fname);
+GcomprisBoard	*gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname);
 
 GcomprisBoard   *gcompris_get_board_from_section(gchar *section);
 GList		*gcompris_get_menulist(gchar *section);

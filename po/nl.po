@@ -8,14 +8,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-30 19:43+0100\n"
+"POT-Creation-Date: 2004-02-02 01:45+0100\n"
 "PO-Revision-Date: 2004-01-31 00:46+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -534,7 +534,9 @@ msgstr "Het biljartspel"
 msgid ""
 "The click point on the ball will give the speed and direction to the ball. "
 "More you click in the center, slower is the ball."
-msgstr "Het klikpunt op de bal geeft de snelheid en de richting aan de bal. Hoe meer je in het centrum klikt, hoe langzamer de bal."
+msgstr ""
+"Het klikpunt op de bal geeft de snelheid en de richting aan de bal. Hoe meer "
+"je in het centrum klikt, hoe langzamer de bal."
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
@@ -1987,8 +1989,8 @@ msgstr "Educatief spel voor kinderen vanaf drie jaar"
 msgid "Educational suite gcompris"
 msgstr "Educatieve software GCompris"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:580
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:499
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
+#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
 #: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
 #: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
@@ -1997,8 +1999,8 @@ msgstr "Educatieve software GCompris"
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: src/boards/advanced_colors.c:543 src/boards/imageid.c:583
-#: src/boards/missingletter.c:593 src/boards/read_colors.c:502
+#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
+#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
@@ -2078,15 +2080,15 @@ msgstr "Wit schaakmat"
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:73
 msgid "Read a letter"
 msgstr "Lees een letter"
 
-#: src/boards/click_on_letter.c:75
+#: src/boards/click_on_letter.c:74
 msgid "Learn to recognize letters"
 msgstr "Leer letters herkennen"
 
-#: src/boards/click_on_letter.c:226
+#: src/boards/click_on_letter.c:225
 msgid ""
 "Error: this activity requires you to install first\n"
 "the package assetml-voices-alphabet-"
@@ -2094,7 +2096,7 @@ msgstr ""
 "Fout: voor deze activiteit moet u eerst het pakket\n"
 "assetml-voices-aphabet installeren"
 
-#: src/boards/click_on_letter.c:233
+#: src/boards/click_on_letter.c:232
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effect disabled.\n"
@@ -2164,11 +2166,152 @@ msgstr "Python-bord"
 msgid "Special board that embed python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
 
+#. gcompris - redraw
+#.
+#. Time-stamp: <2001/08/20 00:54:45 bruno>
+#.
+#. Copyright (C) 2003 Bruno Coudoin
+#.
+#. This program is free software; you can redistribute it and/or modify
+#. it under the terms of the GNU General Public License as published by
+#. the Free Software Foundation; either version 2 of the License, or
+#. (at your option) any later version.
+#.
+#. This program is distributed in the hope that it will be useful,
+#. but WITHOUT ANY WARRANTY; without even the implied warranty of
+#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#. GNU General Public License for more details.
+#.
+#. You should have received a copy of the GNU General Public License
+#. along with this program; if not, write to the Free Software
+#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#.
+#. PythonTest Board module
+#. These are used to let us restart only after the bonux is displayed.
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+#. TOOL SELECTION
+#. COLOR SELECTION
+#. Define the coord of each drawing area
+#. Global used for the select event
+#. The error root item
+#. Set it to 1 to let you create new forms
+#. Once set, draw your shape in the right area. Then clic on OK to display
+#. the data for the form (in the console). Then copy the data in the list at the end of
+#. this file in init_item_list
+#. Set self.editing_mode = None to forbid drawing in the right area
+#. self.editing_mode = 1
+#. Create our rootitem. We put each canvas item in it so at the end we
+#. only have to kill it. The canvas deletes all the items it contains automaticaly.
+#. Remove the root item removes all the others inside it
+#. Delete error previous mark if any
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+#. the game is won
+#. Save a copy of the target drawing future comparison
+#. Save a copy of the drawing cause we need to remove empty items
+#. Remove all empty items
+#. Need to check if target image equals drawing image
+#. This is a WIN
+#. Delete previous mark if any
+#. Create our rootitem for error items mark
+#. display where there is errors
+#. if in_target is set then error are displayed in the target area
+#. Bad Icon Width and Height / 2
+#. The images target are always drawn on the drawing area to ease the final comparison
+#. Called by gcompris when the user click on the level icon
+#. Erase any displayed items (drawing and target)
+#. Display the current level target
+#. Set the level in the control bar
+#. Calc the index in drawlist
+#. the current board is finished : bail out
+#. Prepare an item for the coord display
+#. Create our rootitem for drawing items
+#. Reset the drawing
+#. Code that increments the sublevel and level
+#. And bail out if no more levels are available
+#. return 1 if continue, 0 if bail out
+#. Try the next level
+#. the current board is finished : bail out
+#. display current/sublevel number
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Niveau"
 
 # coördineren ?
+#. Display the tools
+#. Display the tools
+#. The last item is select, we select it by default
+#. Event when a tool is selected
+#. Deactivate old button
+#. Activate new button
+#. Display the color selector
+#. Display the tools
+#. The last item is the one we select by default
+#. Color event
+#. Deactivate old button
+#. Activate new button
+#. Display the drawing area
+#.
+#. Given coord are returned swapped
+#. Work fine for rect and ellipse but not line
+#. so that y2 > y1 and x2 > x1
+#.
+#.
+#. Take a drawing and return a symmetrical one
+#.
+#. Make a deepcopy of the list
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
+#. Draw the image target
+#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+#.
+#. Save the drawing in image_target for future comparison
+#. Create our rootitem for target items
+#. The images target are always drawn on the drawing area to ease the final comparison
+#.
+#. Can specify the item type to draw via a real GTK type or a TOOL string
+#.
+#. Draw the grid
+#.
+#. Coord of the written numbers
+#. We manage a 2 colors grid
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Given x,y return a new x,y snapped to the grid
+#. Event when a click on any item. Perform the move
+#.
+#. MOUSE DRAG STOP
+#. ---------------
+#. Reset thein_select_ofx ofset
+#. Workaround for bad line positionning
+#. Save the ofset between the mouse pointer and the upper left corner of the object
+#. Check drawing boundaries
+#. We need to realign x cause the bounds values are not precise enough
+#. We need to realign y cause the bounds values are not precise enough
+#. Need to update current_drawing
+#. It's not a line
+#. It can only be a line
+#. Now perform the object move
+#. Workaround for bad line positionning
+#. Event when a click on an item happen on fill in type object
+#. Reset the item to our list
+#. Event when a click on an item happen on border fill type object
+#. Reset the item to our list
+#. Del an item and internal struct cleanup
+#. Warning, do not realy delete it or we bug the index of other items
+#. Event when a click on an item happen
+#.
+#. Display the mouse coord in the drawing or target area
+#. type:
+#. 1 = in drawing area
+#. 2 = in target area
+#. 3 = out of both area
+#.
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coördinaat"
@@ -2214,7 +2357,7 @@ msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:631
+#: src/boards/reading.c:629
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Het te vinden woord was: '%s'"
@@ -2308,7 +2451,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2377,120 +2520,125 @@ msgid "Hungarian"
 msgstr "Hongaars"
 
 #: src/gcompris/config.c:67
+#, fuzzy
+msgid "Croatian"
+msgstr "Catalaans"
+
+#: src/gcompris/config.c:68
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Norwegian"
 msgstr "Noors"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:153
+#: src/gcompris/config.c:154
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:262
+#: src/gcompris/config.c:263
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:305
+#: src/gcompris/config.c:306
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:371
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:720
-#: src/gcompris/config.c:731
+#: src/gcompris/config.c:404 src/gcompris/config.c:721
+#: src/gcompris/config.c:732
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2615,7 +2763,6 @@ msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
 
 #: src/gcompris/oggplayer.c:165
-#, c-format
 msgid ""
 "Possible audio output devices are:\n"
 "default "

@@ -66,13 +66,31 @@ void gcompris_log_start (GcomprisBoard *gcomprisBoard) {
 
 /** gcompris_log_set_comment
  * \param GcomprisBoard *gcomprisBoard: the board for which the event happen
- * \param comment: string describing what failed. this string is copied.
+ * \param expected: string describing what was expected. This string is copied.
+ * \param got: string describing what we got from the user. This string is copied.
+ *
+ * Note: Do not include the charater ';' in expected or got
  *
  */
-void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *comment) {
+void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got) {
 
-  if(comment != NULL && gcomprisBoard_set == gcomprisBoard)
-    comment_set = g_strdup(comment);
+  printf("gcompris_log_set_comment %s %s\n", expected, got);
+  if(gcomprisBoard_set != gcomprisBoard) {
+    return;
+  }
+
+  if(expected==NULL)
+    expected="";
+
+  if(got==NULL)
+    got="";
+
+  /* If We already had a comment, log the previous one */
+  if(comment_set[0] != '\0') {
+    gcompris_log_end(gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
+  }
+
+  comment_set = g_strdup_printf("%s;%s", expected, got);
 }
 
 /** gcompris_log_key

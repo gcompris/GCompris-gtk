@@ -271,8 +271,8 @@ attribute is readeable and/or writable.</para>
 		<entry></entry>
 	      </row>
 	      <row>
-		<entry>gcompris.log_set_reason (gcomprisBoard, comment)</entry>
-		<entry>gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *comment)</entry>
+		<entry>gcompris.log_set_reason (gcomprisBoard, expected, got)</entry>
+		<entry>gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got)</entry>
 		<entry></entry>
 	      </row>
 	      <row>

@@ -10,14 +10,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-22 08:37+0100\n"
+"POT-Creation-Date: 2004-02-02 01:45+0100\n"
 "PO-Revision-Date: 2003-12-22 08:39+0100\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -514,6 +514,29 @@ msgstr "Brana sa obojenim oblicima."
 msgid "Go to board based activities"
 msgstr "Idi na radnje na tabli"
 
+#: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
+#: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
+#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr "Baratanje mišem"
+
+#: boards/billard.xml.in.h:2
+msgid "Send the ball in the hole"
+msgstr ""
+
+# bug: unclear: "15th game" or "game of fifteen"
+#: boards/billard.xml.in.h:3
+#, fuzzy
+msgid "The billard game"
+msgstr "Igra petnaest"
+
+#: boards/billard.xml.in.h:4
+msgid ""
+"The click point on the ball will give the speed and direction to the ball. "
+"More you click in the center, slower is the ball."
+msgstr ""
+
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Radite sa branom na kanalu"
@@ -532,8 +555,8 @@ msgid ""
 "lockgates in the right order. Let Tux travel through the gates in the two "
 "ways."
 msgstr ""
-"Vi upravljate branom na kanalu. Morate da otvorite kapije u pravom redosledu. "
-"Omogućite Pingoslavu da prođe kroz kapije na dva načina."
+"Vi upravljate branom na kanalu. Morate da otvorite kapije u pravom "
+"redosledu. Omogućite Pingoslavu da prođe kroz kapije na dva načina."
 
 #: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -547,13 +570,6 @@ msgstr "Vežbajte šah"
 #: boards/chess_partyend.xml.in.h:1
 msgid "Learning chess"
 msgstr "Učenje šaha"
-
-#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
-#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
-#: boards/memory.xml.in.h:4
-msgid "Mouse manipulation"
-msgstr "Baratanje mišem"
 
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
@@ -569,9 +585,10 @@ msgid "Play end of chess game against the computer"
 msgstr "Igrajte kraj šahovske igre protiv računara"
 
 #: boards/click_on_letter.xml.in.h:1
+#, fuzzy
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the speaker icon in the bottom "
+"can hear again the letter by clicking on the mouth icon in the bottom "
 "horizontal frame."
 msgstr ""
 "Slovo je izgovoreno. Kliknite na odgovarajuće slovo na glavnoj površini. "
@@ -611,14 +628,15 @@ msgid ""
 "Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
 "Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
-"Riba je pokupljena iz Uniks alata xfishtank. Slike su pokupljene iz kolekcije "
-"„Državnog programa podvodnog istraživanja“ (NURP) sa http://www.photolib.noaa."
-"gov Sve zasluge za slike pripadaju OAR/NURP-u. Osim prve slike za koju je "
-"takođe zaslužan Univerzitet Severne Karoline u Vilmingtonu. Prema rasporedu "
-"nivoa, podaci o slikama su: Mesto: Tropski Atlanski okean, Ključevi Floride "
-"(slika nur00523) Fotograf: D. Kesling Mesto: Ključevi Floride (slika "
-"nur03006) Mesto: nepoznato (slika nur03505) Mesto: nepoznato (slika "
-"nur03010) Mesto: nepoznato (slika nur03011) Mesto: nepoznato (slika nur03013)"
+"Riba je pokupljena iz Uniks alata xfishtank. Slike su pokupljene iz "
+"kolekcije „Državnog programa podvodnog istraživanja“ (NURP) sa http://www."
+"photolib.noaa.gov Sve zasluge za slike pripadaju OAR/NURP-u. Osim prve slike "
+"za koju je takođe zaslužan Univerzitet Severne Karoline u Vilmingtonu. Prema "
+"rasporedu nivoa, podaci o slikama su: Mesto: Tropski Atlanski okean, "
+"Ključevi Floride (slika nur00523) Fotograf: D. Kesling Mesto: Ključevi "
+"Floride (slika nur03006) Mesto: nepoznato (slika nur03505) Mesto: nepoznato "
+"(slika nur03010) Mesto: nepoznato (slika nur03011) Mesto: nepoznato (slika "
+"nur03013)"
 
 #: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
 msgid ""
@@ -633,8 +651,8 @@ msgid ""
 "Motor coordination: mouse mouvement and mouse click. The goal is just to "
 "click with the left mouse button on the moving fish."
 msgstr ""
-"Upravljanje pokretima: kretanje i kliktanje miša. Cilj je samo da kliknete levi "
-"taster miša na pokretne ribe."
+"Upravljanje pokretima: kretanje i kliktanje miša. Cilj je samo da kliknete "
+"levi taster miša na pokretne ribe."
 
 #: boards/clockgame.xml.in.h:1
 msgid ""
@@ -653,12 +671,12 @@ msgstr ""
 "odgovarajuću kazaljku tako da sat pokazuje ispravno vreme. Sve kazaljke se "
 "mogu okretati tako što se izaberu i zatim se pomera miš"
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
+#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Naučite da gledate na sat"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
+#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Čitanje vremena"
@@ -774,7 +792,7 @@ msgstr "Uredi stavke za što lakše brojanje"
 msgid "Motor coordination"
 msgstr "Upravljanje pokretima"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Pomerajte miša"
 
@@ -888,7 +906,7 @@ msgstr "Vežba čitanja pronalaženjem reči koja odgovara slici"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Reading"
 msgstr "Čitanje"
 
@@ -1010,8 +1028,8 @@ msgstr ""
 "Na glavnoj površini table, iscran je skup crvenih mesta vezanih za rad. U "
 "uspravnom okviru — sa leve strane glavne površine — predstavljen je skup "
 "objekata, a svaki od ovih objekata odgovara jednoj reči sa glavne površine. "
-"Potrebno je pronaći ispravnu vezu za ove objekte. Ovo se postiže prevlačenjem "
-"objekata na crvena mesta na glavnoj površini."
+"Potrebno je pronaći ispravnu vezu za ove objekte. Ovo se postiže "
+"prevlačenjem objekata na crvena mesta na glavnoj površini."
 
 #: boards/imagename.xml.in.h:5
 msgid "Vocabulary and reading"
@@ -1183,13 +1201,21 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
 "switch between 2D and 3D mode. 2D mode gives you just an indication on your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr "Koristite strelice na tastaturi da dovučete Pingoslava do vrata. Koristite taster za razmak da se prebacite u 2D ili 3D režim. 2D režim vam jedino daje vaš položaj (nalik mapi). Pingoslava ne možete da pomerate u 2D režimu."
+msgstr ""
+"Koristite strelice na tastaturi da dovučete Pingoslava do vrata. Koristite "
+"taster za razmak da se prebacite u 2D ili 3D režim. 2D režim vam jedino daje "
+"vaš položaj (nalik mapi). Pingoslava ne možete da pomerate u 2D režimu."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
 msgstr "Igra uvežbavanja sluha"
 
 #: boards/melody.xml.in.h:2
+#, fuzzy
+msgid "Melody"
+msgstr "Pamćenje"
+
+#: boards/melody.xml.in.h:3
 msgid "Repeat a melody"
 msgstr "Ponovi melodiju"
 
@@ -1255,13 +1281,14 @@ msgid ""
 msgstr ""
 "Da koristite, jednostavan klik na ikonu vam prikazuje vežbu ili meni. U dnu "
 "ekrana se nalazi upravljačka traka gkomprisa. Sa desna na levo, ispod je "
-"značenje ikona. Obratite pažnju da se ove ikone prikazuju samo ako su dostupne "
-"u vežbi: Početak — nazad za prethodni meni ili izlaz iz gkomprisa ako nema "
-"više ništa. Palac — u redu, potvrda vašeg odgovora. Kockica — prikazuje "
-"tekući nivo (kliknite na njega da izaberete neki drugi nivo). Muzička nota — "
-"neka gkompris ponovi pitanje. Znak pitanja — pomoć. Alatnica — meni sa "
-"podešavanjima. Pingoslav u letu — o programu. Zvezde znače: 1 zvezda — 3 do 4 "
-"godine; 2 zvezde — 5 do 6 godina; 3 zvezde — 7 do 8 godina starosti"
+"značenje ikona. Obratite pažnju da se ove ikone prikazuju samo ako su "
+"dostupne u vežbi: Početak — nazad za prethodni meni ili izlaz iz gkomprisa "
+"ako nema više ništa. Palac — u redu, potvrda vašeg odgovora. Kockica — "
+"prikazuje tekući nivo (kliknite na njega da izaberete neki drugi nivo). "
+"Muzička nota — neka gkompris ponovi pitanje. Znak pitanja — pomoć. Alatnica "
+"— meni sa podešavanjima. Pingoslav u letu — o programu. Zvezde znače: 1 "
+"zvezda — 3 do 4 godine; 2 zvezde — 5 do 6 godina; 3 zvezde — 7 do 8 godina "
+"starosti"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -1606,8 +1633,8 @@ msgid ""
 msgstr ""
 "Voz — lokomotiva i vagoni — je prikazan na vrhu glavne površine. Nakon "
 "nekoliko sekundi voz odlazi. Zatim, treba da ga ponovo sagradite izborom "
-"odgovarajućih vagona i lokomotive. Uvek možete ostaviti stavku klikom na nju. "
-"Proverite kako ste sagradili vaš voz klikom na ruku u dnu."
+"odgovarajućih vagona i lokomotive. Uvek možete ostaviti stavku klikom na "
+"nju. Proverite kako ste sagradili vaš voz klikom na ruku u dnu."
 
 #: boards/railroad.xml.in.h:3
 msgid "Memory training"
@@ -1738,7 +1765,9 @@ msgstr "Ponovo iscrtajte datu stavku"
 msgid ""
 "At each level, a drawing is displayed in the right area. You must redraw its "
 "symmetry in the left area."
-msgstr "Na svakom nivou, crtež se prikazuje na desnoj strani. Morate ga ponovo nacrtati simetrično na levoj."
+msgstr ""
+"Na svakom nivou, crtež se prikazuje na desnoj strani. Morate ga ponovo "
+"nacrtati simetrično na levoj."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1867,8 +1896,8 @@ msgid ""
 msgstr ""
 "Kliknite na stvari dok ne dobijete ono što smatrate ispravnim odgovorom. "
 "Zatim, kliknite dugme „U redu“ u upravljačkoj traci. Na nižim nivoima, "
-"Pingoslav ukazuje ukoliko ste postavili na dobru poziciju označavanjem stavke "
-"crnim okvirom. Možete koristiti desno dugme miša da izvrnete boje u "
+"Pingoslav ukazuje ukoliko ste postavili na dobru poziciju označavanjem "
+"stavke crnim okvirom. Možete koristiti desno dugme miša da izvrnete boje u "
 "suprotnom redosledu."
 
 #: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
@@ -1964,19 +1993,18 @@ msgstr "Obrazovna igra za trogodišnjake i starije"
 msgid "Educational suite gcompris"
 msgstr "Obrazovni komplet gcompris"
 
-#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
-#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
-#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
-#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
+#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
+#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
+#: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
+#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne mogu da nađem datoteku: %s !"
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
+#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
+#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
@@ -2056,15 +2084,15 @@ msgstr "Šah-mat belog"
 msgid "Drawn game"
 msgstr "Nerešeno"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:73
 msgid "Read a letter"
 msgstr "Pročitaj slovo"
 
-#: src/boards/click_on_letter.c:75
+#: src/boards/click_on_letter.c:74
 msgid "Learn to recognize letters"
 msgstr "Naučite da prepoznajete slova"
 
-#: src/boards/click_on_letter.c:226
+#: src/boards/click_on_letter.c:225
 msgid ""
 "Error: this activity requires you to install first\n"
 "the package assetml-voices-alphabet-"
@@ -2072,7 +2100,7 @@ msgstr ""
 "Greška: ova vežba zahteva da prvo instalirate\n"
 "paket assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:233
+#: src/boards/click_on_letter.c:232
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effect disabled.\n"
@@ -2093,7 +2121,7 @@ msgstr "Ne mogu da otvorim direktorijum sa slikama: %s"
 msgid "Set the watch to:"
 msgstr "Postavi sat na:"
 
-#: src/boards/colors.c:216
+#: src/boards/colors.c:217
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Kliknite na svraku %s"
@@ -2102,19 +2130,15 @@ msgstr "Kliknite na svraku %s"
 msgid "Learn how to read"
 msgstr "Naučite da čitate"
 
-#: src/boards/leftright.c:247
+#: src/boards/leftright.c:248
 msgid "left"
 msgstr "levo"
 
-#: src/boards/leftright.c:257
+#: src/boards/leftright.c:258
 msgid "right"
 msgstr "desno"
 
-#: src/boards/machpuzzle.c:85
-msgid "Move the mouse to machpuzzle the area and discover the background"
-msgstr "Pomerite miša da biste sklonili slagalice i videli pozadinu"
-
-#: src/boards/maze.c:446
+#: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Pogledajte svoj položaj i prebacite se u 3D režim za kretanje"
 
@@ -2311,29 +2335,35 @@ msgstr "Pročitaj boje"
 msgid "Click on the corresponding color"
 msgstr "Kliknite na odgovarajuću boju"
 
-#: src/boards/reading.c:102
+#: src/boards/reading.c:103
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Pročitaj spisak reči a zatim pitaj da li je data reč u njemu"
 
-#: src/boards/reading.c:314
+#: src/boards/reading.c:322
 msgid "Please, check if the word"
 msgstr "Molim, proverite da li se reč"
 
-#: src/boards/reading.c:334
+#: src/boards/reading.c:342
 msgid "is being displayed"
 msgstr "prikazuje"
 
-#: src/boards/reading.c:517
+#: src/boards/reading.c:525
 msgid "I am Ready"
 msgstr "Spreman sam"
 
-#: src/boards/reading.c:554
+#: src/boards/reading.c:562
 msgid "Yes I saw it"
 msgstr "Da, video sam ga"
 
-#: src/boards/reading.c:584
+#: src/boards/reading.c:592
 msgid "No, it was not there"
 msgstr "Ne, nije bio tamo"
+
+#. Report what was wrong in the log
+#: src/boards/reading.c:629
+#, c-format
+msgid "The word to find was '%s'"
+msgstr ""
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2372,7 +2402,7 @@ msgstr "Podmornica"
 msgid "Control the depth of a submarine"
 msgstr "Upravljajte dubinom podmornice"
 
-#: src/boards/target.c:324 src/boards/target.c:572
+#: src/boards/target.c:323 src/boards/target.c:576
 #, c-format
 msgid "Points = %s"
 msgstr "Tačke = %s"
@@ -2425,7 +2455,7 @@ msgstr ""
 msgid "Help"
 msgstr "Pomoć"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "U redu"
@@ -2491,120 +2521,125 @@ msgid "Hungarian"
 msgstr "mađarski"
 
 #: src/gcompris/config.c:67
+#, fuzzy
+msgid "Croatian"
+msgstr "katalonski"
+
+#: src/gcompris/config.c:68
 msgid "Italian"
 msgstr "italijanski"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Lithuanian"
 msgstr "litvanski"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Macedonian"
 msgstr "makedonski"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malayalam"
 msgstr "malajamski"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malay"
 msgstr "malajski"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "holandski"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Norwegian"
 msgstr "norveški"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Polish"
 msgstr "poljski"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Portuguese"
 msgstr "portugalski"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Brazil Portuguese"
 msgstr "brazilski portugalski"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Romanian"
 msgstr "rumunski"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Russian"
 msgstr "ruski"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Slovak"
 msgstr "slovački"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Slovenian"
 msgstr "slovenački"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Serbian (Latin)"
 msgstr "srpski (latinica)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian"
 msgstr "srpski"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Swedish"
 msgstr "švedski"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Turkish"
 msgstr "turski"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "No time limit"
 msgstr "Bez vremenskog ograničenja"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Slow timer"
 msgstr "Sporo teče vreme"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Normal timer"
 msgstr "Obično teče vreme"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Fast timer"
 msgstr "Brzo teče vreme"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (podrazumevano za gcompris-a)"
 
-#: src/gcompris/config.c:153
+#: src/gcompris/config.c:154
 msgid "GCompris Configuration"
 msgstr "Podešavanje GCompris-a"
 
-#: src/gcompris/config.c:262
+#: src/gcompris/config.c:263
 msgid "Fullscreen"
 msgstr "Ceo ekran"
 
-#: src/gcompris/config.c:305
+#: src/gcompris/config.c:306
 msgid "Music"
 msgstr "Muzika"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Effect"
 msgstr "Efekat"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:371
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nisam mogao da otvorim direktorijum sa maskama: %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:720
-#: src/gcompris/config.c:731
+#: src/gcompris/config.c:404 src/gcompris/config.c:721
+#: src/gcompris/config.c:732
 #, c-format
 msgid "Skin : %s"
 msgstr "Maska : %s"
@@ -2761,6 +2796,9 @@ msgstr "Proteklo vreme"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Preostalo vreme = %d"
+
+#~ msgid "Move the mouse to machpuzzle the area and discover the background"
+#~ msgstr "Pomerite miša da biste sklonili slagalice i videli pozadinu"
 
 # bug: wha'???
 #~ msgid "GCompris I Have Understood"

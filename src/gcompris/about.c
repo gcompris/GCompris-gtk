@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2003/12/01 01:35:09 bcoudoin>
+ * Time-stamp: <2004/02/08 11:24:30 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -57,14 +57,15 @@ void gcompris_about_start ()
   gint y = 0;
   GnomeCanvasItem *item, *item2;
   static gchar *content =
-    N_("Credits:\n"
-       "Author: Bruno Coudoin\n"
+    N_("Author: Bruno Coudoin\n"
        "Contribution: Pascal Georges\n"
        "Graphics: Renaud Blanchard\n"
        "Intro Music: Djilali Sebihi\n"
        "Background Music: Rico Da Halvarez\n"
        );
 
+  /* TRANSLATORS: Replace this string with your names, one name per line. */
+  gchar *translators = _("translator_credits");
 
   /* Pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
@@ -104,6 +105,25 @@ void gcompris_about_start ()
 				"fill_color_rgba", gcompris_skin_color_title,
 				NULL);
 
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("Translators"), 
+			 "font", gcompris_skin_font_content,
+			 "x", (double) BOARDWIDTH/2-320,
+			 "y", (double) y_start + 90,
+			 "anchor", GTK_ANCHOR_NORTH_WEST,
+			 "fill_color_rgba", gcompris_skin_color_subtitle,
+			 NULL);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", gettext(translators),
+			 "font", gcompris_skin_font_content,
+			 "x", (double)  BOARDWIDTH/2-320,
+			 "y", (double)  y_start + 110,
+			 "anchor", GTK_ANCHOR_NORTH_WEST,
+			 "fill_color_rgba", gcompris_skin_color_content,
+			 NULL);
   // Version
   y_start += 100;
 
@@ -123,7 +143,7 @@ void gcompris_about_start ()
 				"text", gettext(content),
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
-				"y", (double)  y_start - 10,
+				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);

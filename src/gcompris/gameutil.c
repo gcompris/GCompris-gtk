@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/01/26 23:42:36 bcoudoin>
+ * Time-stamp: <2004/02/07 02:42:55 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -431,14 +431,11 @@ parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard)
    dump any old data we have in memory if we can load a new set
    Return a newly allocated GcomprisBoard or NULL if the parsing failed
 */
-GcomprisBoard *gcompris_read_xml_file(char *fname)
+GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
 {
   char *filename;
   /* pointer to the new doc */
   xmlDocPtr doc;
-  GcomprisBoard *gcomprisBoard = NULL;
-
-  gcomprisBoard = g_malloc (sizeof (GcomprisBoard));
 
   g_return_val_if_fail(fname!=NULL,FALSE);
 
@@ -458,6 +455,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
 	  g_warning(_("Couldn't find file %s !"), fname);
 	  g_warning(_("Couldn't find file %s !"), filename);
 	  g_free(filename);
+	  g_free(gcomprisBoard);
 	  return NULL;
 	}
 
@@ -479,6 +477,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
      /* if it isn't a GCompris node */
      g_strcasecmp(doc->children->name,"GCompris")!=0) {
     xmlFreeDoc(doc);
+    g_free(gcomprisBoard);
     g_warning("Oups, the file %s is not for gcompris", filename);
     return NULL;
   }
@@ -493,7 +492,6 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
   gcomprisBoard->board_ready=FALSE;
   gcomprisBoard->canvas=canvas;
   gcomprisBoard->previous_board=NULL;
-  gcomprisBoard->plugin=NULL;
 
 
   /* Fixed since I use the canvas own pixel_per_unit scheme */
@@ -571,6 +569,16 @@ int selectMenuXML(void *d)
   return (strncmp (&file[strlen(file)-4], ".xml", 4) == 0);
 }
 
+void cleanup_menus() {
+  GList *list = NULL;
+
+  for(list = boards_list; list != NULL; list = list->next) {
+    GcomprisBoard *gcomprisBoard = list->data;
+
+    gcompris_read_xml_file(gcomprisBoard, gcomprisBoard->filename);
+  }
+}
+
 /* load all the menus xml files in the gcompris path
  * into our memory structures.
  */
@@ -579,13 +587,26 @@ void gcompris_load_menus()
   struct dirent **namelist;
   int n;
 
+  if(boards_list) {
+    cleanup_menus();
+    return;
+  }
+
   n = scandir(PACKAGE_DATA_DIR, &namelist, &selectMenuXML, alphasort);
   if (n < 0)
     g_warning("gcompris_load_menus : scandir");
   else {
     while(n--) {
       /* add the board to the list */
-      boards_list = g_list_append(boards_list, gcompris_read_xml_file(namelist[n]->d_name));
+      GcomprisBoard *gcomprisBoard = NULL;
+
+      gcomprisBoard = g_malloc (sizeof (GcomprisBoard));
+
+      /* Need to be initialized here because gcompris_read_xml_file is used also to reread the locale data */
+      /* And we don't want in this case to loose the current plugin */
+      gcomprisBoard->plugin=NULL;
+
+      boards_list = g_list_append(boards_list, gcompris_read_xml_file(gcomprisBoard, namelist[n]->d_name));
 
       free (namelist [n]);
     }

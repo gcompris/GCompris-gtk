@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2003/08/22 10:10:29 bcoudoin>
+ * Time-stamp: <2004/02/05 23:56:12 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -32,6 +32,7 @@ static gint dummy_id = 0;
 static gint drop_items_id = 0;
 
 static char *numbers = "123456789";
+static  int  gamewon;
 
 /* Hash table of all displayed letters  */
 static GHashTable *letters_table= NULL;
@@ -119,6 +120,11 @@ static void pause_board (gboolean pause)
     }
   else
     {
+      if(gamewon == TRUE) /* the game is won */
+	{
+	  smallnumbers_next_level();
+	}
+
       if(!drop_items_id) {
 	drop_items_id = gtk_timeout_add (1000,
 					 (GtkFunction) smallnumbers_drop_items, NULL);
@@ -151,6 +157,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       smallnumbers_next_level();
 
+      gamewon = FALSE;
       pause_board(FALSE);
     }
 }
@@ -294,6 +301,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void smallnumbers_next_level() 
 {
 
+  gamewon = FALSE;
   gcompris_bar_set_level(gcomprisBoard);
 
   smallnumbers_destroy_all_items();
@@ -485,8 +493,9 @@ static void player_win(GnomeCanvasItem *item)
 				board_finished(BOARD_FINISHED_RANDOM);
 				return;
       }
-      smallnumbers_next_level();
-      gcompris_play_ogg ("bonus", NULL);
+      gamewon = TRUE;
+      smallnumbers_destroy_all_items();
+      gcompris_display_bonus(gamewon, BONUS_SMILEY);
     }
   else
     {

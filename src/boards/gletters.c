@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/02/04 00:56:49 bcoudoin>
+ * Time-stamp: <2004/02/08 10:44:15 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -188,6 +188,12 @@ set_level (guint level)
     }
 }
 
+/* Append in char_list one of the falling letter */
+static void add_char(char *key, char *value, char *char_list)
+{
+  strcat(char_list, key);
+}
+
 gint key_press(guint keyval)
 {
   gchar *old_value;
@@ -274,6 +280,18 @@ gint key_press(guint keyval)
     }
   else
     {
+      gchar *list_of_letters[255];
+
+      list_of_letters[0] = '\0';
+
+      /* We have to loop to concat the letters */
+      g_hash_table_foreach (letters_table,
+			    (GHFunc) add_char,
+			    list_of_letters);
+
+      /* Log what happened, what was expected, what we got */
+      gcompris_log_set_comment(gcomprisBoard, list_of_letters, str);
+
       player_loose();
     }
 

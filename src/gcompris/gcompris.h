@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/02/04 00:13:36 bcoudoin>
+ * Time-stamp: <2004/02/07 18:48:24 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -116,7 +116,7 @@ void gcompris_log_start (GcomprisBoard *gcomprisBoard);
 void gcompris_log_set_key (GcomprisBoard *gcomprisBoard, guint keyval);
 
 /* Use it to tell the teacher where the kid failed */
-void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *comment); 
+void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar* got); 
 
 /* Do not use it if you use the bonus API in your board */
 void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status);

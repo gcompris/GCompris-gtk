@@ -385,25 +385,27 @@ py_gcompris_images_selector_start(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *comment); */
+/* void gcompris_log_set_comment (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got); */
 static PyObject*
 py_gcompris_log_set_comment(PyObject* self, PyObject* args)
 {
   PyObject* pyGcomprisBoard;
   GcomprisBoard* cGcomprisBoard;
-  gchar* comment;
+  gchar* expected;
+  gchar* got;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
 		       "Os:gcompris_log_set_comment",
 		       &pyGcomprisBoard,
-		       &comment))
+		       &expected,
+		       &got))
     return NULL;
   cGcomprisBoard = ((pyGcomprisBoardObject*) pyGcomprisBoard)->cdata;
 
   /* Call the corresponding C function */
   gcompris_log_set_comment(cGcomprisBoard,
-			   comment);
+			   expected, got);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

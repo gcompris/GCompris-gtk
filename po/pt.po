@@ -1,12 +1,13 @@
 # translation of pt.po to português
 # GCOMPRIS PORTUGUESE.
 # Jose Jorge <jose.jorge@oreka.com>, 2003, 2004.
+# Jose Jorge <jjorge@free.fr>, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
-"POT-Creation-Date: 2004-01-16 08:10+0100\n"
-"PO-Revision-Date: 2004-01-19 22:54+0100\n"
-"Last-Translator: Jose Jorge <jose.jorge@oreka.com>\n"
+"POT-Creation-Date: 2004-02-02 01:45+0100\n"
+"PO-Revision-Date: 2004-02-04 17:39+0100\n"
+"Last-Translator: Jose Jorge <jjorge@free.fr>\n"
 "Language-Team: português <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -505,6 +506,27 @@ msgstr "Lock com peças coloridas"
 msgid "Go to board based activities"
 msgstr "Aceder às actividades de Tabela"
 
+#: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
+#: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
+#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr "Manipular o rato"
+
+#: boards/billard.xml.in.h:2
+msgid "Send the ball in the hole"
+msgstr "Envia a bola no buraco"
+
+#: boards/billard.xml.in.h:3
+msgid "The billard game"
+msgstr "O jogo do billard"
+
+#: boards/billard.xml.in.h:4
+msgid ""
+"The click point on the ball will give the speed and direction to the ball. "
+"More you click in the center, slower is the ball."
+msgstr "O ponto de clique na bola vai definir a velocidade e a direcção da bola. Quanto mais o clique está perto do centro, mais lenta será a bola."
+
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Fechar um canal"
@@ -539,13 +561,6 @@ msgstr "Treinar xadrez"
 msgid "Learning chess"
 msgstr "Aprender o Xadrez"
 
-#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
-#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
-#: boards/memory.xml.in.h:4
-msgid "Mouse manipulation"
-msgstr "Manipular o rato"
-
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is the gnuchess."
@@ -562,11 +577,11 @@ msgstr "Jogar o fim dum jogo de xadrez contra o computador"
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the speaker icon in the bottom "
+"can hear again the letter by clicking on the mouth icon in the bottom "
 "horizontal frame."
 msgstr ""
 "Uma letra é dita. Carrega na letra que corresponde. Podes ouvir outra vez a "
-"letra carregando no altifalante no barra de controlo."
+"letra carregando na boca da barra de controlo."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -646,12 +661,12 @@ msgstr ""
 "flecha que corresponde para regular o relógio. As flechas podem mexer "
 "carregando nelas e puxando o rato"
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
+#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Aprende como ler um relógio"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
+#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Aprender o Relógio"
@@ -765,7 +780,7 @@ msgstr "Mete os elementos da melhor maneira para os contar"
 msgid "Motor coordination"
 msgstr "Controlo dos movimentos"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Mover o rato"
 
@@ -876,7 +891,7 @@ msgstr "Treinar a ler encontrando a palavra que corresponde à imagem"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Reading"
 msgstr "Leitura"
 
@@ -1182,6 +1197,10 @@ msgid "Ear training activity"
 msgstr "Actividade de treino da escuta"
 
 #: boards/melody.xml.in.h:2
+msgid "Melody"
+msgstr "Melodia"
+
+#: boards/melody.xml.in.h:3
 msgid "Repeat a melody"
 msgstr "Repete um melodia"
 
@@ -1952,19 +1971,18 @@ msgstr "Jogo educativo a partir de 3 anos"
 msgid "Educational suite gcompris"
 msgstr "Gcompris sistema educativo"
 
-#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
-#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
-#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
-#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
+#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
+#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
+#: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
+#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Não pude encontrar o ficheiro %s !"
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
+#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
+#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
@@ -2045,15 +2063,15 @@ msgstr "Mate dos Brancos"
 msgid "Drawn game"
 msgstr "Jogo de desenho"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:73
 msgid "Read a letter"
 msgstr "Ler uma letra"
 
-#: src/boards/click_on_letter.c:75
+#: src/boards/click_on_letter.c:74
 msgid "Learn to recognize letters"
 msgstr "Aprender a reconhecer letras"
 
-#: src/boards/click_on_letter.c:226
+#: src/boards/click_on_letter.c:225
 msgid ""
 "Error: this activity requires you to install first\n"
 "the package assetml-voices-alphabet-"
@@ -2061,7 +2079,7 @@ msgstr ""
 "Erro : esta actividade precisa que você instale\n"
 "primeiro o pacote assetml-voices-alphabet-pt"
 
-#: src/boards/click_on_letter.c:233
+#: src/boards/click_on_letter.c:232
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effect disabled.\n"
@@ -2081,7 +2099,7 @@ msgstr "Não pude abrir a pasta dos pixmap : %s"
 msgid "Set the watch to:"
 msgstr "Regule o relógio para :"
 
-#: src/boards/colors.c:216
+#: src/boards/colors.c:217
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Carrega no desenho %s"
@@ -2090,19 +2108,15 @@ msgstr "Carrega no desenho %s"
 msgid "Learn how to read"
 msgstr "Aprender a ler"
 
-#: src/boards/leftright.c:247
+#: src/boards/leftright.c:248
 msgid "left"
 msgstr "esquerda"
 
-#: src/boards/leftright.c:257
+#: src/boards/leftright.c:258
 msgid "right"
 msgstr "direita"
 
-#: src/boards/machpuzzle.c:85
-msgid "Move the mouse to machpuzzle the area and discover the background"
-msgstr "Mover o rato para limpar a área e descobrir o que está detrás"
-
-#: src/boards/maze.c:446
+#: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Vê a tua posição e voltar à vista 3D para moveres"
 
@@ -2299,29 +2313,35 @@ msgstr "Ler Cores"
 msgid "Click on the corresponding color"
 msgstr "Carregue na cor que corresponde"
 
-#: src/boards/reading.c:102
+#: src/boards/reading.c:103
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Leia uma lista de palavras e diga se uma palavra indicada está nela"
 
-#: src/boards/reading.c:314
+#: src/boards/reading.c:322
 msgid "Please, check if the word"
 msgstr "Por favor, verifique se a palavra"
 
-#: src/boards/reading.c:334
+#: src/boards/reading.c:342
 msgid "is being displayed"
 msgstr "está a ser mostrada"
 
-#: src/boards/reading.c:517
+#: src/boards/reading.c:525
 msgid "I am Ready"
 msgstr "Eu estou Pronto"
 
-#: src/boards/reading.c:554
+#: src/boards/reading.c:562
 msgid "Yes I saw it"
 msgstr "Sim eu vi-o"
 
-#: src/boards/reading.c:584
+#: src/boards/reading.c:592
 msgid "No, it was not there"
 msgstr "Não, não estava aqui"
+
+#. Report what was wrong in the log
+#: src/boards/reading.c:629
+#, c-format
+msgid "The word to find was '%s'"
+msgstr "A palavra a encontrar era '%s'"
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2360,7 +2380,7 @@ msgstr "Submarino"
 msgid "Control the depth of a submarine"
 msgstr "Controla a profundidade dum submarino"
 
-#: src/boards/target.c:324 src/boards/target.c:572
+#: src/boards/target.c:323 src/boards/target.c:576
 #, c-format
 msgid "Points = %s"
 msgstr "Pontos = %s"
@@ -2411,7 +2431,7 @@ msgstr "Este programa é um Pacote GNU e é fornecido sob a Licença Publica GNU
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2477,120 +2497,124 @@ msgid "Hungarian"
 msgstr "Húngaro"
 
 #: src/gcompris/config.c:67
+msgid "Croatian"
+msgstr "Croata"
+
+#: src/gcompris/config.c:68
 msgid "Italian"
 msgstr "Italiano"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Macedonian"
 msgstr "Macedoniano"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malay"
 msgstr "Malaio"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "Holandês"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Norwegian"
 msgstr "Norueguês"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Polish"
 msgstr "Polaco"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Portuguese"
 msgstr "Português"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Brazil Portuguese"
 msgstr "Português do Brasil"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Romanian"
 msgstr "Romeno"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Russian"
 msgstr "Russo"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Serbian (Latin)"
 msgstr "Serbo (Latim)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian"
 msgstr "Serbo"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Swedish"
 msgstr "Sueco"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Turkish"
 msgstr "Turco"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "No time limit"
 msgstr "Nenhum limite de tempo"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Slow timer"
 msgstr "Tempo lento"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Normal timer"
 msgstr "Tempo normal"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Fast timer"
 msgstr "Tempo rápido"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Por omissão para GCompris)"
 
-#: src/gcompris/config.c:153
+#: src/gcompris/config.c:154
 msgid "GCompris Configuration"
 msgstr "Configuração do GCompris"
 
-#: src/gcompris/config.c:262
+#: src/gcompris/config.c:263
 msgid "Fullscreen"
 msgstr "Pleno Ecrã"
 
-#: src/gcompris/config.c:305
+#: src/gcompris/config.c:306
 msgid "Music"
 msgstr "Musica"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Effect"
 msgstr "Efeito"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:371
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Não pude abrir a pasta das peles : %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:720
-#: src/gcompris/config.c:731
+#: src/gcompris/config.c:404 src/gcompris/config.c:721
+#: src/gcompris/config.c:732
 #, c-format
 msgid "Skin : %s"
 msgstr "Pele : %s"
@@ -2623,7 +2647,9 @@ msgstr "só mostrar as actividades deste nível de dificuldade."
 msgid ""
 "select the audio output. Use '-A list' to get the list of available audio "
 "output"
-msgstr "escolhe a saída áudio. Utilize '-A list' para obter a lista das saidas disponíveis"
+msgstr ""
+"escolhe a saída áudio. Utilize '-A list' para obter a lista das saidas "
+"disponíveis"
 
 #: src/gcompris/gcompris.c:83
 msgid "Prints the version of "
@@ -2741,6 +2767,9 @@ msgstr "Tempo Decorrido"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tempo restante = %d"
+
+#~ msgid "Move the mouse to machpuzzle the area and discover the background"
+#~ msgstr "Mover o rato para limpar a área e descobrir o que está detrás"
 
 #~ msgid "GCompris I Have Understood"
 #~ msgstr "GCompris Eu Percebi"
