@@ -199,7 +199,7 @@ class Gcompris_redraw:
       self.erase_drawing_area()
       if (self.increment_level() == 1):
         self.gamewon = 1
-        gcompris.bonus.display(1, gcompris.bonus.FLOWER)
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
         self.display_current_level()
         self.root_targetitem.hide()
         

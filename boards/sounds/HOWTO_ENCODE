@@ -1,4 +1,16 @@
-Provide here voice translation in boards/sounds/yy
+
+This document describes howto create a localized version of the sounds.
+
+1) Create your sounds directory
+   ----------------------------
+First copy the english sounds as a template in a new directory with you locale name (e.g. my)
+cd boards/sounds
+cp -r en my
+
+Provide here voice translation in boards/sounds/my for each english sounds.
+
+2) Recording / Encoding
+   --------------------
 It is best to choose somebody that speaks and articulate well your language.
 
 - Record with rec, grecord, bcast2000, gnoise, audacity
@@ -22,3 +34,22 @@ It is best to choose somebody that speaks and articulate well your language.
 	the copyright in the author field
 - Copy OGG files in the corresponding directory
 
+Note that you won't be abble to test them until the integration with gcompris is comptete (step 4).
+
+3) Shipping
+   --------
+Once done, the easiest way is to tar all this files and send them to the gcompris maitainer.
+cd boards/sounds
+tar -cvzf sounds_my.tgz my
+
+4) Integration
+   -----------
+Change all .assetml.in file to include the locale name
+Change all the Makefile.am to reflect that change
+Add all the new Makefile in the configure.in in the AC_OUTPUT section
+rerun at top level:
+sh autogen.sh
+make
+make install
+
+Run gcompris in your locale and you should ear your voices.

@@ -50,7 +50,15 @@ static gchar *greetingsList[] =
   "super.ogg",
   "perfect.ogg"
 };
-#define NUMBER_OF_GREETINGS 3
+#define NUMBER_OF_GREETINGS 8
+
+/*
+ * Function definition
+ * -------------------
+ */
+void	 bonus_image(char *,BonusStatusList);
+void	 end_bonus(void);
+
 
 /* ==================================== */
 void end_board_finished() {
@@ -90,7 +98,7 @@ void end_board_finished() {
 }
 /* ==================================== */
 #define OFFSET 100
-void board_finished(int type) {
+void board_finished(BoardFinishedList type) {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
@@ -185,7 +193,7 @@ void board_finished(int type) {
 }
 
 /* ==================================== */
-void gcompris_display_bonus(int gamewon, int bonus_id)
+void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
   
@@ -196,7 +204,7 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
   else
     bonus_display_running = TRUE;
   
-  if(gamewon == TRUE) {
+  if(gamewon == BOARD_WIN || gamewon == BOARD_DRAW) {
     gchar *str = gcompris_get_asset_file("gcompris misc", NULL, 
 					 "audio/x-ogg", 
 					 greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
@@ -233,7 +241,7 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
 }
 
 /* ==================================== */
-void bonus_image(char *image, int gamewon)
+void bonus_image(char *image, BonusStatusList gamewon)
 {
   char *str= NULL;
   int x,y;
@@ -247,16 +255,24 @@ void bonus_image(char *image, int gamewon)
   }
 
 
-
-  if (gamewon == TRUE) {
+  switch (gamewon) {
+  case BOARD_WIN :
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
     /* Record the end of board */
     gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_PASSED);
-  } else {
+    break;
+  case BOARD_LOOSE :
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_bad.png");
     /* Record the end of board */
     gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_FAILED);
+    break;
+  case BOARD_DRAW :
+    str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_draw.png");
+    /* Record the end of board */
+    gcompris_log_end (gcomprisBoard, GCOMPRIS_LOG_STATUS_PASSED);
+    break;
   }
+
   /* Log the board start again*/
   gcompris_log_start(gcomprisBoard);
 

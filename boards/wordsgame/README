@@ -1,5 +1,5 @@
 Important: These files must be UTF-8 formated.
-	To do this, you can use gedit, oowrite or any text editor that supports UTF-8
+---------  To do this, you can use gedit, oowrite or any text editor that supports UTF-8
 
 To complete the translation, you must also provide a set of file in 
 boards/wordsgame/wordslevelx.yy
@@ -8,3 +8,10 @@ note that these words must be choosen to be simple in your language,
 don't necessary translate the english. Also, it is important to make sure
 that these words can be written with your keyboard in one key 
 (no alt gr stuff or compose key).
+
+GCompris will pick a file named wordslevelX.my where X is the current
+level in GCompris and 'my' your locale. If X is not found, it will take
+wordslevelmax.my.
+It's flexible enough. The minimum number of words is around 30. No upper
+limit. 
+If you can, pick the words from a school children book.

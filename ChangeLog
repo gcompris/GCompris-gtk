@@ -1,3 +1,17 @@
+2005-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/melody/guitar/background.png: new background by Frank
+	* boards/melody/guitar/cursor.png: -
+	* boards/sounds/HOWTO_ENCODE: Updated
+	* boards/wordsgame/README:  Updated
+	* docs/C/python.html:  Updated to reflect changes in bonus to support DRAW
+	* docs/C/python.xml: -
+	* src/boards/py-mod-bonus.c: (python_gcompris_bonus_module_init):
+	* src/boards/python/melody.py: Added constants for bonus to support draw
+	* src/gcompris/bonus.c: (board_finished), (gcompris_display_bonus),
+	(bonus_image): Added constants for bonus to support draw
+	* src/gcompris/bonus.h: -
+
 2005-03-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Jose Jorges is working again on melody. He bring us an intrument

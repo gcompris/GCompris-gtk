@@ -262,11 +262,11 @@ class Gcompris_ballcatch:
         # This is a win
         if (self.increment_level() == 1):
           self.gamewon = 1
-          gcompris.bonus.display(1, gcompris.bonus.TUX)
+          gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
       else:
         # This is a loose
         self.gamewon = 0
-        gcompris.bonus.display(0, gcompris.bonus.TUX)
+        gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
 
   def get_bounds(self, item):
     if gobject.type_name(item)=="GnomeCanvasPixbuf":

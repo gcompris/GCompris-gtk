@@ -61,8 +61,8 @@ class Gcompris_melody:
       # xylophon
       [
       {'theme': "xylofon", 'background': "melody/xylofon/background.png", 'hittool': "melody/xylofon/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon/son1.png", 'sound': "melody/xylofon/son1"},
-        {'x': 281.0, 'y': 122.0,  'image': "melody/xylofon/son2.png", 'sound': "melody/xylofon/son2"},
+      [ {'x': 150.0, 'y': 101.0, 'image': "melody/xylofon/son1.png", 'sound': "melody/xylofon/son1"},
+	{'x': 284.0, 'y': 118.0, 'image': "melody/xylofon/son2.png", 'sound': "melody/xylofon/son2"},
         {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon/son3.png", 'sound': "melody/xylofon/son3"},
         {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon/son4.png", 'sound': "melody/xylofon/son4"} ] ],
       

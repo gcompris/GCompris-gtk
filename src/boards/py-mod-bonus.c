@@ -73,6 +73,11 @@ void python_gcompris_bonus_module_init(void)
   PyModule_AddIntConstant(module, "FINISHED_TUXLOCO", BOARD_FINISHED_TUXLOCO ); 
   PyModule_AddIntConstant(module, "FINISHED_TOOMANYERRORS", BOARD_FINISHED_TOOMANYERRORS ); 
   PyModule_AddIntConstant(module, "FINISHED_LAST", BOARD_FINISHED_LAST ); 
+
+  /* BonusStatusList constants */
+  PyModule_AddIntConstant(module, "LOOSE", BOARD_LOOSE ); 
+  PyModule_AddIntConstant(module, "WIN",   BOARD_WIN ); 
+  PyModule_AddIntConstant(module, "DRAW",  BOARD_DRAW ); 
 }
 
 /* Some usefull code parts ... */

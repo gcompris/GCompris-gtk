@@ -53,9 +53,18 @@ typedef enum
   BOARD_FINISHED_LAST		= 3
 } BoardFinishedList;
 
-void	 gcompris_display_bonus(int, int);
-void	 board_finished(int);
-void	 bonus_image(char *,int);
-void	 end_bonus(void);
+typedef enum
+{
+  BOARD_LOOSE			= 0,
+  BOARD_WIN			= 1,
+  BOARD_DRAW			= 2,
+} BonusStatusList;
+
+/*
+ * Public BONUS API Entry
+ * ----------------------
+ */
+void	 gcompris_display_bonus(BonusStatusList, BonusList);
+void	 board_finished(BoardFinishedList);
 
 #endif

@@ -280,7 +280,7 @@ class Gcompris_followline:
         self.gamewon = 1
         self.water_spot.raise_to_top()
         self.water_spot.show()
-        gcompris.bonus.display(1, gcompris.bonus.FLOWER)
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
       
     return done
 

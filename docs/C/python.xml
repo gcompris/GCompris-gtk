@@ -585,13 +585,13 @@ attribute is readeable and/or writable.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>gcompris.bonus.display(gamewon, bonus_id)</entry>
-		<entry>void gcompris_display_bonus(int gamewon, int bonus_id)</entry>
+		<entry>gcompris.bonus.display(BonusStatusList, BonusList)</entry>
+		<entry>void gcompris_display_bonus(BonusStatusList, BonusList)</entry>
 		<entry></entry>
 	      </row>
 	      <row>
-		<entry>gcompris.bonus.board_finished(type)</entry>
-		<entry>void board_finished(int type)</entry>
+		<entry>gcompris.bonus.board_finished(BoardFinishedList)</entry>
+		<entry>void board_finished(BoardFinishedList)</entry>
 		<entry></entry>
 	      </row>
 	    </tbody>
@@ -601,7 +601,29 @@ attribute is readeable and/or writable.</para>
 
 
       <sect2>
-	<title>Constants mapping</title>
+	<title>Constants mapping (BonusStatusList)</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.bonus.LOOSE</entry>
+		<entry>BOARD_LOOSE</entry></row>
+	      <row><entry>gcompris.bonus.WIN</entry>
+		<entry>BOARD_WIN</entry></row>
+	      <row><entry>gcompris.bonus.DRAW</entry>
+		<entry>BOARD_DRAW</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+      <sect2>
+	<title>Constants mapping (BonusList)</title>
 	<informaltable>
 	  <tgroup cols="2">
 	    <thead>
@@ -623,6 +645,22 @@ attribute is readeable and/or writable.</para>
 		<entry>BONUS_TUX</entry></row>
 	      <row><entry>gcompris.bonus.LAST</entry>
 		<entry>BONUS_LAST</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+      <sect2>
+	<title>Constants mapping (BoardFinishedList)</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
 	      <row><entry>gcompris.bonus.FINISHED_RANDOM</entry>
 		<entry>BOARD_FINISHED_RANDOM</entry></row>
 	      <row><entry>gcompris.bonus.FINISHED_TUXPLANE</entry>
