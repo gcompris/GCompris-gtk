@@ -1,4 +1,4 @@
-SUBDIRS = read_colors advanced_colors babymatch babyshapes flags imageid imagename missing_letter paintings scales doubleentry geography sounds
+SUBDIRS = read_colors advanced_colors babymatch babyshapes flags imageid imagename missing_letter paintings scales doubleentry geography sounds chronos
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
@@ -18,6 +18,7 @@ xml_in_files = \
 	chess_computer.xml.in \
 	chess_movelearn.xml.in \
 	chess_partyend.xml.in \
+	chronos.xml.in \
 	clickgame.xml.in \
 	clockgame.xml.in \
 	computer.xml.in \

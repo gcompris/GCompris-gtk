@@ -1,3 +1,66 @@
+2004-02-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added chronos by Jose Jorge
+	* boards/chronos.xml.in:
+	* boards/chronos/Makefile.am:
+	* boards/chronos/bg.jpg:
+	* boards/chronos/board1_0.xml.in:
+	* boards/chronos/space/1.jpg:
+	* boards/chronos/space/2.jpg:
+	* boards/chronos/space/3.jpg:
+	* boards/chronos/space/4.jpg:
+	* boards/chronos/space/bg.jpg:
+	* boards/skins/linha_verde/about.png: Added lina-verde theme by Jose Jorge
+	* boards/skins/linha_verde/bad.png:
+	* boards/skins/linha_verde/bar_bg.jpg:
+	* boards/skins/linha_verde/button.png:
+	* boards/skins/linha_verde/button_backward.png:
+	* boards/skins/linha_verde/button_checked.png:
+	* boards/skins/linha_verde/button_exit.png:
+	* boards/skins/linha_verde/button_forward.png:
+	* boards/skins/linha_verde/button_large.png:
+	* boards/skins/linha_verde/button_large2.png:
+	* boards/skins/linha_verde/button_large_selected.png:
+	* boards/skins/linha_verde/button_redo.png:
+	* boards/skins/linha_verde/button_reload.png:
+	* boards/skins/linha_verde/button_selected.png:
+	* boards/skins/linha_verde/button_small.png:
+	* boards/skins/linha_verde/button_style2.png:
+	* boards/skins/linha_verde/button_unchecked.png:
+	* boards/skins/linha_verde/button_up.png:
+	* boards/skins/linha_verde/button_up_selected.png:
+	* boards/skins/linha_verde/config.png:
+	* boards/skins/linha_verde/dialogbox.png:
+	* boards/skins/linha_verde/gcompris-bg.jpg:
+	* boards/skins/linha_verde/gcompris-init.jpg:
+	* boards/skins/linha_verde/gcompris-shapebg.jpg:
+	* boards/skins/linha_verde/help.png:
+	* boards/skins/linha_verde/help_bg.png:
+	* boards/skins/linha_verde/home.png:
+	* boards/skins/linha_verde/images_selector_bg.png:
+	* boards/skins/linha_verde/level1.png:
+	* boards/skins/linha_verde/level2.png:
+	* boards/skins/linha_verde/level3.png:
+	* boards/skins/linha_verde/level4.png:
+	* boards/skins/linha_verde/level5.png:
+	* boards/skins/linha_verde/level6.png:
+	* boards/skins/linha_verde/level7.png:
+	* boards/skins/linha_verde/level8.png:
+	* boards/skins/linha_verde/level9.png:
+	* boards/skins/linha_verde/ok.png:
+	* boards/skins/linha_verde/repeat.png:
+	* boards/skins/linha_verde/skin.xml:
+	* boards/skins/linha_verde/voice.png:
+	* boards/skins/linha_verde/voice_bad.png:
+	* boards/sounds/chronos/space/1.ogg: added for chronos by Jose.
+	* boards/sounds/chronos/space/2.ogg:
+	* boards/sounds/chronos/space/3.ogg:
+	* configure.in: release 5.2
+	* gcompris.spec.in: added new sounds
+	* po/POTFILES.in: added chronos
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap): changed to display a dialog box instead of a direct exit when an image is missing.
+	* src/gcompris/log.c: (gcompris_log_end): fixed to compile with old gcc
+
 2004-02-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/es/geography/alaska.ogg: *.ogg created by M. en T.E. Alejandro Diaz Infante 2004 / GPL

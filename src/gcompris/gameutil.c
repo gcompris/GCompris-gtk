@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/02/07 02:42:55 bcoudoin>
+ * Time-stamp: <2004/02/16 00:38:50 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -121,7 +121,15 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pixmapfile);
 
   if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
-      g_error (_("Couldn't find file %s !"), filename);
+    g_warning (_("Couldn't find file %s !"), filename);
+
+    char *str = g_strdup_printf("%s\n%s\n%s\n%s", 
+				_("Couldn't find file"), 
+				pixmapfile,
+				_("This activity is incomplete."),
+				_("Exit it and report\nus the problem"));
+    gcompris_dialog (str, NULL);
+    g_free(str);
   }
 
   pixmap = gdk_pixbuf_new_from_file (filename, NULL);

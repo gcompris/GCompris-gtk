@@ -149,11 +149,12 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   time_t end_time = time(NULL);
   double duration = difftime(end_time,start_time);
 
+  struct tm *tp;
+
   if(gcomprisBoard_set != gcomprisBoard)
     return;
 
   /* and convert it to UTC or local time representation */
-  struct tm *tp;
   if (USE_UTC)
     tp = gmtime(&start_time);
   else

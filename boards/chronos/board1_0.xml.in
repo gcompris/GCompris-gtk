@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ShapeGame>
+  <Title x="600" y="495" justification="GTK_JUSTIFY_CENTER">
+    <_name>Moonwalker</_name>
+  </Title>
+  <Shape name="A" pixmapfile="chronos/space/1.jpg" x="230" y="150" zoomx="1" zoomy="1" position="0" sound="chronos/space/1"/>
+  <Title x="250" y="150" justification="GTK_JUSTIFY_CENTER"><name>1</name></Title>
+  <Shape name="B" pixmapfile="chronos/space/2.jpg" x="595" y="150" zoomx="1" zoomy="1" position="0" sound="chronos/space/2"/>
+  <Title x="615" y="150" justification="GTK_JUSTIFY_CENTER"><name>2</name></Title>
+  <Shape name="C" pixmapfile="chronos/space/3.jpg" x="230" y="375" zoomx="1" zoomy="1" position="0" sound="chronos/space/3"/>
+  <Title x="250" y="375" justification="GTK_JUSTIFY_CENTER"><name>3</name></Title>
+  <Shape name="D" pixmapfile="chronos/space/4.jpg" x="595" y="375" zoomx="1" zoomy="1" position="0" sound="chronos/space/2"/>
+  <Title x="615" y="375" justification="GTK_JUSTIFY_CENTER"><name>4</name></Title>
+  <Shape name="1" pixmapfile="chronos/space/bg.jpg" type="SHAPE_BACKGROUND"
+	  x="425" y="260" zoomx="1" zoomy="1" position="0"/>
+</ShapeGame>
+
