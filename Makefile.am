@@ -12,6 +12,8 @@ Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 Menudir=$(prefix)/lib/menu
 Menu_DATA=gcompris
 
+@INTLTOOL_DESKTOP_RULE@
+
 EXTRA_DIST = \
 	$(Games_DATA) \
 	$(icon_DATA) \
@@ -41,4 +43,4 @@ dist-hook:
 
 
 clean-local:
-	rm -f xml-i18n-extract xml-i18n-merge xml-i18n-update
+	rm -f intltool-extract intltool-merge intltool-update
