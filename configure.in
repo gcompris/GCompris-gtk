@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
-AM_INIT_AUTOMAKE(gcompris, 4.0PRE2)
+AM_INIT_AUTOMAKE(gcompris, 4.0PRE3)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -12,7 +12,7 @@ LIBGNOMEUI_REQUIRED=1.96.0
 GDK_PIXBUF_REQUIRED=2.0.6
 LIBGNOMECANVAS_REQUIRED=2.0.2
 
-PKG_CHECK_MODULES(GCOMPRIS, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0)
+PKG_CHECK_MODULES(GCOMPRIS, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0 libassetml)
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
 
@@ -203,10 +203,6 @@ fi
 AC_SUBST(REQUIRE_PYTHON)
 
 dnl For libassetml
-PKG_CHECK_MODULES(GOBJECT, gobject-2.0)
-AC_SUBST(GOBJECT_CFLAGS)
-AC_SUBST(GOBJECT_LIBS)
-
 ASSETML_DIR=assetml
 AC_SUBST(ASSETML_DIR)
 AC_DEFINE_UNQUOTED(ASSETML_DIR, "${myprefix}/${DATADIRNAME}/${ASSETML_DIR}", [Global assetml directory])
@@ -277,10 +273,6 @@ dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
 Makefile
 src/Makefile
-src/libassetml/Makefile
-src/libassetml/libassetml.pc
-src/libassetml/test/Makefile
-src/libassetml/tools/Makefile
 src/gcompris/Makefile
 src/boards/Makefile
 src/boards/python/Makefile

@@ -10,7 +10,6 @@ endif
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
-	-I$(top_srcdir)/src/libassetml \
 	-DDATADIR=\""$(datadir)"\" \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
@@ -58,8 +57,7 @@ gcompris_LDADD = \
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) \
 	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)\
-	$(python_ldadd) \
-	$(top_builddir)/src/libassetml/libassetml.la
+	$(python_ldadd)
 
 
 
@@ -76,5 +74,4 @@ gcompris_edit_SOURCES = \
 gcompris_edit_LDADD = \
 	$(GCOMPRIS_LIBS) \
 	$(XML_LIBS) $(INTLLIBS) \
-	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS) \
-	$(top_builddir)/src/libassetml/libassetml.la
+	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)

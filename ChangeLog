@@ -1,3 +1,23 @@
+2003-10-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/skins/default/button.png: better looking
+	* boards/skins/default/button_large.png: better looking
+	* boards/skins/default/button_large2.png: better looking
+	* boards/skins/default/button_small.png: better looking
+	* boards/skins/default/gcompris-shapebg.jpg: better looking
+	* configure.in: adapted to remove libassetml from the source of gcompris
+	* now assetml is an independant package 
+	* gcompris.spec.in: adapted to remove libassetml from the source of gcompris
+	* src/gcompris/Makefile.am: adapted to remove libassetml from the source of gcompris
+	* src/gcompris/gameutil.c: adapted to remove libassetml from the source of gcompris
+	* src/libassetml: removed. Now it's an independant package.
+
+2003-10-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/leftright.c: (item_event): fixed wrong click coord when gcompris is resized
+	* src/gcompris/soundutil.c: removed display of music title. It seems
+	* to have threading issues and makes gcompris unstable
+
 2003-09-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/colors.c: (item_event): fixed wrong click coord when gcompris is resized

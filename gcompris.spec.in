@@ -1,7 +1,6 @@
 %define ver      	@VERSION@
 %define RELEASE 	1
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
-%define verassetml     	1.0
 %define prefix		/usr
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
 
@@ -232,24 +231,6 @@ Version: 	1.0
 %description -n assetml-flags
 Contains png 60x40 country flags and an assetml description file
 
-%package -n libassetml
-Summary:        Library assetml to share image and audio file between project
-Group: 		System/Libraries
-Version: 	%verassetml
-Requires:       libxml2 glib
-
-%description -n libassetml
-AssetML Library
-
-%package -n libassetml-devel
-Summary:        Devel Library assetml to share image and audio file between project
-Group: 		System/Libraries
-Version: 	%verassetml
-Requires:       libassetml
-
-%description -n libassetml-devel
-AssetML Devel Library
-
 %prep
 %setup -q
 
@@ -410,14 +391,3 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/flags/*
 %{prefix}/share/@ASSETML_DIR@/gcompris_flags.assetml
 
-%files -n libassetml
-%defattr(-, root, root)
-%{prefix}/lib/libassetml.so.*
-%{prefix}/bin/assetml-query
-
-%files -n libassetml-devel
-%defattr(-, root, root)
-%{_libdir}/lib*.so
-%{_libdir}/*a
-%{_includedir}/libassetml*/*
-%{_libdir}/pkgconfig/libassetml.pc
