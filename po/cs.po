@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-07 03:19+0200\n"
-"PO-Revision-Date: 2004-04-07 13:20+0200\n"
+"POT-Creation-Date: 2004-04-16 14:36+0200\n"
+"PO-Revision-Date: 2004-04-16 18:21+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,19 +24,17 @@ msgstr "Pokročilé barvy"
 msgid "Can read"
 msgstr "Umí číst"
 
-#: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
-#: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:75
-msgid "Click on the right color"
+#: boards/advanced_colors.xml.in.h:3
+msgid "Click on the correct color"
 msgstr "Klikni na správnou barvu"
 
 #: boards/advanced_colors.xml.in.h:4
-msgid "Click on the right colored box."
+msgid "Click on the correct colored box."
 msgstr "Klikni na správně obarvenou krabičku."
 
 #: boards/advanced_colors.xml.in.h:5
-msgid "This board is dedicated to recognize unusual colors."
-msgstr "Tato deska je určena pro rozpoznávání neobvyklých barev."
+msgid "Learn to recognize unusual colors."
+msgstr "Nauč se rozpoznávat neobvyklé barvy."
 
 #: boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -322,21 +320,19 @@ msgstr ""
 
 #: boards/algebra_by.xml.in.h:1
 msgid ""
-"A multiplication of two numbers is displayed. At the right of the equal "
-"sign, give the answer. Use the left and right arrow to modify your answer, "
-"the return key to validate an answer"
-msgstr ""
-"Zobrazí se násobení dvou čísel. Na pravé straně rovnítka zadej odpověď. Svou "
-"odpověď můžeš upravit pomocí levé a pravé šipky nebo potvrdit klávesou Enter"
+"A multiplication with two numbers is displayed. At the right of the equal "
+"sign, give the product. Use the left and right arrows to modify the product, "
+"and press the Enter key to check your answer."
+msgstr "Zobrazí se násobení dvou čísel. Na pravé straně rovnítka zadej odpověď. Svou odpověď můžeš upravit pomocí levé a pravé šipky nebo zkontrolovat klávesou Enter"
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
-msgid "I Ask you some algebra questions"
-msgstr "Zeptám se tě na pár věcí z algebry"
+msgid "Answer some algebra questions"
+msgstr "Odpověz na pár věcí z algebry"
 
 #: boards/algebra_by.xml.in.h:3
-msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr "V omezeném čase uvést výsledek násobení dvou čísel"
+msgid "In a limited time, give the product of two numbers"
+msgstr "V omezeném čase zadej součin dvou čísel"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
@@ -353,7 +349,7 @@ msgstr "Jít na algebraické aktivity"
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Pro zvolení aktivity klikni levým tlačítkem myši"
 
@@ -369,50 +365,42 @@ msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:2
 msgid ""
+"Choose the numbers and arithmetic operators at the top of the board area "
+"that give the specified result. The numbers and operators can be unselected "
+"by clicking on them."
+msgstr "Zvol čísla a aritmetické operace na horní straně oblasti desky, které dávají určený výsledek. Výběr těchto čísel a operací může být zrušen kliknutím na ně."
+
+#: boards/algebra_guesscount.xml.in.h:3
+msgid ""
 "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Vymysli strategii pro uspořádání sady aritmetických operací pro nalezení "
 "hodnoty"
 
-#: boards/algebra_guesscount.xml.in.h:3
+#: boards/algebra_guesscount.xml.in.h:4
 msgid "Find the correct operations to get the result"
 msgstr "Najdi správné operace pro získání výsledku"
 
-#: boards/algebra_guesscount.xml.in.h:4
+#: boards/algebra_guesscount.xml.in.h:5
+msgid ""
+"Find the right combination of numbers and operations to obtain a specified "
+"result"
+msgstr "Najdi správnou kombinaci čísel a operací pro získání určeného výsledku"
+
+#: boards/algebra_guesscount.xml.in.h:6
 msgid "The four arithmetic operations. Combine several arithmetic operations"
 msgstr "Čtyři aritmetické operace. Kombinace několika aritmetických operací"
 
-#: boards/algebra_guesscount.xml.in.h:5
-msgid ""
-"To compose your operations, choose your numbers and arithmetic operators at "
-"the top of the board area. These numbers and operators can be unselected by "
-"clicking on them."
-msgstr ""
-"Pro složení svých operací zvol svá čísla a aritmetické operace na horní "
-"straně oblasti desky. Výběr těchto čísel a operací může být zrušen kliknutím "
-"na ně."
-
-#: boards/algebra_guesscount.xml.in.h:6
-msgid ""
-"With displayed numbers and operations, find the right combination to get the "
-"right result"
-msgstr ""
-"Najdi správnou kombinaci zobrazených čísel a operací pro získání správného "
-"výsledku"
-
 #: boards/algebra_minus.xml.in.h:1
 msgid ""
-"A substraction of two numbers is displayed. At the right of the equal sign, "
-"give the answer. Use the left and right arrow to modify your answer, the "
-"return key to validate an answer"
-msgstr ""
-"Je zobrazeno odčítání dvou čísel. Na pravé straně rovnítka uveď odpověď. Pro "
-"změnu své odpovědi použij levou a pravou šipku, pro potvrzení odpovědi "
-"klávesu Enter"
+"A substraction problem with two numbers is displayed. At the right of the "
+"equal sign, give the difference. Use the left and right arrows to modify "
+"your answer, and press the Enter key to check the result."
+msgstr "Je zobrazen problém odčítání dvou čísel. Na pravé straně rovnítka uveď rozdíl. Pro změnu své odpovědi použij levou a pravou šipku, pro zkontrolování odpovědi klávesu Enter."
 
 #: boards/algebra_minus.xml.in.h:3
-msgid "In a limited time, give the result to the substraction of two numbers"
-msgstr "V omezeném čase zadej výsledek odčítání dvou čísel"
+msgid "In a limited time, find the difference between two numbers"
+msgstr "V omezeném čase najdi rozdíl dvou čísel"
 
 #: boards/algebra_minus.xml.in.h:4
 msgid "Practice the substraction operation"
@@ -424,21 +412,16 @@ msgstr "Jednoduché odčítání"
 
 #: boards/algebra_plus.xml.in.h:1
 msgid ""
-"An addition of two numbers is displayed. At the right of the equal sign, "
-"give the answer. Use the left and right arrow to modify your answer, the "
-"return key to validate an answer"
-msgstr ""
-"Je zobrazeno sčítání dvou čísel. Na pravé straně rovnítka uveď odpověď. Pro "
-"změnu své odpovědi použij levou a pravou šipku, pro potvrzení odpovědi "
-"klávesu Enter"
+"A addition problem with two numbers is displayed. At the right of the equal "
+"sign, give the sum. Use the left and right arrows to modify the sum, and the "
+"Enter key to check your answer."
+msgstr "Je zobrazen problém sčítání dvou čísel. Na pravé straně rovnítka uveď odpověď. Pro změnu své odpovědi použij levou a pravou šipku, pro zkontrolování odpovědi klávesu Enter."
 
 #: boards/algebra_plus.xml.in.h:3
 msgid ""
-"In a limited time, give the result to the addition of two numbers. "
-"Introduction to simple in-line addition"
-msgstr ""
-"V omezeném čase zadej výsledek sčítání dvou čísel. Úvod do jednoduchého "
-"sčítání pod sebou"
+"In a limited time, find the sum of of two numbers. Introduction to simple in-"
+"line addition."
+msgstr "V omezeném čase najdi součet dvou čísel. Úvod do jednoduchého sčítání pod sebou."
 
 #: boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -452,16 +435,14 @@ msgstr "Jednoduché sčítání. Pozná psané číslice"
 msgid "Complete a list of symbols"
 msgstr "Doplnit seznam symbolů"
 
-#: boards/algorithm.xml.in.h:2 boards/hexagon.xml.in.h:2
+#: boards/algorithm.xml.in.h:2
+msgid "Find the next in a list of symbols."
+msgstr "Najdi další v seznamu symbolů."
+
+#: boards/algorithm.xml.in.h:3 boards/hexagon.xml.in.h:2
 #: boards/minouche.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Aktivita pro cvičení logiky"
-
-#: boards/algorithm.xml.in.h:3
-msgid ""
-"Look at the list with given symbols. Then try to complete it clicking on the "
-"right symbol."
-msgstr "Podívej se na seznam daných symbolů. Pak se jej pokus doplnit kliknutím na správný symbol."
 
 #: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
 #: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
@@ -481,17 +462,12 @@ msgstr "Pro přiřazení položek je táhni a pusť"
 
 #: boards/babymatch.xml.in.h:2
 msgid ""
-"In the main board area, a set of objects are printed. In the vertical frame "
-"- at the left of the main board area, another set of objects are printed, "
-"each of these objects match with exactly one object of the main board area. "
-"The logical link between these objects must be found. This is achieved by "
-"dragging the objects to the right red plots in the main area."
-msgstr ""
-"V oblasti hlavní desky je vytištěna sada objektů. Ve vertikálním rámu nalevo "
-"od oblasti hlavní desky je vytištěna jiná sada objektů, každý z nich "
-"odpovídá právě jednomu objektu oblasti hlavní desky. Musí být nalezeno "
-"logické spojení mezi těmito objekty. Toho lze dosáhnout přetažením objektů "
-"do správných červených polí v hlavní oblasti."
+"In the main board area, a set of objects is shown. In the vertical box (at "
+"the left of the main board), another set of objects is printed, each of "
+"which match exactly one object on the main board. The logical link between "
+"these objects must be found. Drag the objects to the correct red space in "
+"the main area."
+msgstr "V oblasti hlavní desky je zobrazena sada objektů. Ve svislém poli (nalevo od hlavní desky) je vytištěna jiná sada objektů, každý z nich odpovídá právě jednomu objektu na hlavní desce. Musí být nalezeno logické spojení mezi těmito objekty. Přetáhni objekty na správná červená místa v hlavní oblasti."
 
 #: boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -510,21 +486,18 @@ msgid "Complete the puzzle"
 msgstr "Dokonči skládačku"
 
 #: boards/babyshapes.xml.in.h:2
+msgid ""
+"Complete the puzzle by dragging the pieces from the set of pieces on the "
+"left."
+msgstr "Dokonči skládačku přetažením dílků ze sady dílků vlevo."
+
+#: boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
 msgstr "Táhni a pusť tvary na jim odpovídající cíl"
 
-#: boards/babyshapes.xml.in.h:3
+#: boards/babyshapes.xml.in.h:4
 msgid "Good mouse control"
 msgstr "Dobré ovládání myši"
-
-#: boards/babyshapes.xml.in.h:4
-msgid ""
-"In the main area, a puzzle set is proposed. In the left area, you have the "
-"set of pieces for this puzzle. To place the pieces, you must use the drag/"
-"drop mouvement with the mouse."
-msgstr ""
-"V hlavní oblasti je navržena sada skládačky. V levé oblasti máš sadu dílků "
-"této skládačky. Dílky umístíe přetažením myší."
 
 #: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
@@ -545,25 +518,23 @@ msgstr "Lock s barevnými tvary."
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
 #: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
-#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulace s myší"
 
 #: boards/billard.xml.in.h:2
-msgid "Send the ball in the hole"
-msgstr "Pošli kouli do díry"
+msgid ""
+"Point and click on the ball to set the speed and direction of the ball. The "
+"closer you click to the center, the slower the ball moves."
+msgstr "Nastav rychlost a směr koule ukázáním a klinutím na kouli. Čím blíž ke středu klikneš, tím je koule pomalejší."
 
 #: boards/billard.xml.in.h:3
-msgid "The billiards game"
-msgstr "Hra billiard"
+msgid "Shoot the ball into the hole"
+msgstr "Pošli kouli do díry"
 
 #: boards/billard.xml.in.h:4
-msgid ""
-"The click point on the ball will give the speed and direction to the ball. "
-"More you click in the center, slower is the ball."
-msgstr ""
-"Místo kliknutí na kouli určuje rychlost a směr koule. Čím blíž ke středu "
-"klikneš, tím je koule pomalejší."
+msgid "The game of billiards"
+msgstr "Hra billiard"
 
 #: boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -575,20 +546,15 @@ msgstr "Pracuj s plavební komorou"
 
 #: boards/canal_lock.xml.in.h:2
 msgid ""
-"Tux is in trouble in his ship, he needs to take through a lock. Help Tux and "
+"Tux is in trouble, and needs to take his ship through a lock. Help Tux and "
 "understand how a canal lock works."
-msgstr ""
-"Tux má ve své lodi problémy, potřebuje projet plavební komorou. Pomož Tuxovi "
-"a nauč se, jak pracuje plavební komora."
+msgstr "Tux má problémy a potřebuje svou lodí projet plavební komorou. Pomož Tuxovi a nauč se, jak pracuje plavební komora."
 
 #: boards/canal_lock.xml.in.h:3
 msgid ""
-"You are in charge of the canal lock. You have to open the gates and the "
-"lockgates in the right order. Let Tux travel through the gates in the two "
-"ways."
-msgstr ""
-"Máš na starosti plavební komoru. Musíš otevírat brány a stavidla ve správném "
-"pořadí. Nech Tuxe projít přes brány v obou směrech."
+"You are in charge of the canal lock. Open the gates and the locks in the "
+"right order, so Tux can travel through the gates in both directions."
+msgstr "Máš na starosti plavební komoru. Otevírej brány a stavidla ve správném pořadí, aby Tux prošel branami v obou směrech."
 
 #: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
@@ -605,8 +571,8 @@ msgstr "Učení šachů"
 
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
-msgid "The chess engine is the gnuchess."
-msgstr "Šachový program je gnuchess."
+msgid "The chess engine is from gnuchess."
+msgstr "Šachový engine je z gnuchess."
 
 #: boards/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
@@ -626,18 +592,16 @@ msgstr "Uspořádej příběh tažením a puštěním"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
-"Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
-"of Transportation are based on those found in http://www.wikipedia.org"
-msgstr ""
-"Fotografie měsíce je od NASA Vesmírné zvuky z Tuxpaint a Vegastrike. Data "
-"přepravy jsou založena na datech nalezených na http://www.wikipedia.org"
+"Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
+"Dates of Transportation are based on those found in http://www.wikipedia.org"
+msgstr "Fotografie měsíce je od NASA. Vesmírné zvuky z Tuxpaint a Vegastrike. Data přepravy jsou založena na datech nalezených na http://www.wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
 msgstr "Vyprávěj příběh uspořádáním obrázků"
 
 #: boards/chronos.xml.in.h:5
-msgid "Pick the pictures on the left and put them on the red points"
+msgid "Pick from the pictures on the left and put them on the red points"
 msgstr "Vyber obrázky nalevo a umísti je na červené body"
 
 #: boards/chronos.xml.in.h:6
@@ -672,9 +636,9 @@ msgstr "8. století"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
-"A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the mouth icon in the bottom "
-"horizontal frame."
+"A letter is spoken. Click on the corresponding letter in the main area. You "
+"can hear the letter again by clicking on the mouth icon in the bottom "
+"horizontal box."
 msgstr ""
 "Je hláskováno písmeno. Klikni na odpovídající písmeno v hlavní oblasti. "
 "Písmeno si můžeš poslechnout znovu po kliknutí na ikonu úst v dolním "
@@ -685,7 +649,7 @@ msgid "Click on a letter"
 msgstr "Klikni na písmeno"
 
 #: boards/click_on_letter.xml.in.h:3
-msgid "Hear a letter and click on the right letter"
+msgid "Hear a letter and click on the right one"
 msgstr "Poslechni si písmeno a klikni na správné písmeno"
 
 #: boards/click_on_letter.xml.in.h:4
@@ -708,29 +672,18 @@ msgstr "Klikně levým tlačítkem myši na hýbající se rybu."
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 "National Undersea Research Program (NURP) Collection at http://www.photolib."
-"noaa.gov All images credit bellongs to the OAR/National Undersea Research "
-"Program (NURP). Except for the first image that also credits the University "
-"of North Carolina at Wilmington. In the gcompris level order, images "
-"information is: Location: Tropical Atlantic Ocean, Florida Keys (image "
-"nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) "
-"Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
-"Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
-msgstr ""
-"Ryby jsou převzaty z nástroje Unixu xfishtank. Obrázky jsou převzaty ze "
-"sbírky Národního podmořského vývojového programu (NURP) na http://www."
-"photolib.noaa.gov Všechna poděkování za obrázky patří OAR/National Undersea "
-"Research Program (NURP), kromě prvního obrázku, za který také děkujeme "
-"University of North Carolina ve Wilmingtonu. Informace o obrázcích v pořadí "
-"úrovní gcompris jsou: Umístění: Tropický Atlantský oceán, Florida Keys "
-"(obrázek nur00523) Fotograf: D. Kesling Umístění: Florida Keys (obrázek "
-"nur03006) Umístění: Neznámé (obrázek nur03505) Umístění: Neznámé (obrázek "
-"nur03010) Umístění: Neznámé (obrázek nur03011) Umístění: Neznámé (obrázek "
-"nur03013)"
+"noaa.gov All image credits belong to the OAR/National Undersea Research "
+"Program (NURP), except for the first image, which is property of the "
+"University of North Carolina at Wilmington. The images used in each level "
+"are: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
+"Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: "
+"Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
+"Unknown (image nur03011) Location: Unknown (image nur03013)"
+msgstr "Ryby jsou převzaty z nástroje Unixu xfishtank. Obrázky jsou převzaty ze sbírky Národního podmořského výzkumného programu (NURP) na http://www.photolib.noaa.gov. Všechna poděkování za obrázky patří OAR/National Undersea Research Program (NURP), kromě prvního obrázku, za který je vlastnictvím University of North Carolina ve Wilmingtonu. Obrázky používané v jednotlivých úrovních jsou: Umístění: Tropický Atlantský oceán, Florida Keys (obrázek nur00523) Fotograf: D. Kesling Umístění: Florida Keys (obrázek nur03006) Umístění: Neznámé (obrázek nur03505) Umístění: Neznámé (obrázek nur03010) Umístění: Neznámé (obrázek nur03011) Umístění: Neznámé (obrázek nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
 msgid ""
-"Left-Click with the mouse on all swimming fishes before they leave the "
-"fishtank"
+"Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
 "Klikni levým tlačítkem myši na všechny plovoucí ryby, než opustí akvárium"
 
@@ -747,17 +700,14 @@ msgstr ""
 
 #: boards/clockgame.xml.in.h:2
 msgid ""
-"For each printed hour (hours:minutes or hours:minutes:seconds) manipulate "
-"the corresponding arrow to set the clock time matching the given hour. The "
+"For each printed hour (hours:minutes or hours:minutes:seconds) click the "
+"corresponding arrow to set the clock time to match the given hour. The "
 "different arrows can be turned by selecting them and moving the mouse"
-msgstr ""
-"Pro každý vytištěný čas (hodiny:minuty nebo hodiny:minuty:sekundy) uprav "
-"odpovídající ručičku pro nastavení času na hodinách podle zadaného času. "
-"Různé ručičky mohou být otáčeny po jejich vybrání a pohybu myší"
+msgstr "Pro každý vytištěný čas (hodiny:minuty nebo hodiny:minuty:sekundy) nastav čas na hodinách podle daného času kliknutím na odpovídající ručičku. Různé ručičky mohou být otáčeny po jejich vybrání a pohybu myší"
 
 #: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
-msgid "Learn how to read the time"
+msgid "Learn how to tell time"
 msgstr "Nauč se, jak číst čas"
 
 #: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
@@ -773,6 +723,11 @@ msgstr "Koncept času Čtení času"
 msgid "Can move the mouse."
 msgstr "Umí hýbat myší."
 
+#: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:3
+#: src/boards/advanced_colors.c:87 src/boards/colors.c:75
+msgid "Click on the right color"
+msgstr "Klikni na správnou barvu"
+
 #: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "Barvy"
@@ -783,9 +738,8 @@ msgstr ""
 
 #: boards/colors.xml.in.h:5
 msgid ""
-"This board is dedicated to train kids to recognize colors. Several colored "
-"toons are displayed and a color is spoken. The kid must select the proper "
-"toon."
+"This board teaches color recognition. Select the spoken color from the set "
+"of colored toons."
 msgstr ""
 
 #: boards/colors_group.xml.in.h:1
@@ -814,8 +768,8 @@ msgstr ""
 
 #: boards/doubleentry.xml.in.h:5
 msgid ""
-"The children must move the items on the left to their proper destination in "
-"the double entry table."
+"Move the items on the left to their proper position in the double entry "
+"table."
 msgstr ""
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
@@ -823,18 +777,15 @@ msgid "A simple vector drawing tool"
 msgstr "Jednoduchý vektorový kreslicí nástroj"
 
 #: boards/draw.xml.in.h:2 src/boards/draw.c:207
-msgid "Creative board where you can freely draw"
-msgstr "Kreativní hrací deska, kde si můžeš volně kreslit"
+msgid "Creative board where you can draw freely"
+msgstr "Kreativní deska, kde si můžeš volně kreslit"
 
 #: boards/draw.xml.in.h:3
 msgid ""
-"In this game, the children will be able to freely draw. The goal is just to "
-"discover how he can create pretty looking drawings based on basic shapes: "
-"rectangles, ellipses and lines."
-msgstr ""
-"V této hře si dítě bude moci volně kreslit. Cílem je jen objevit, jak může "
-"vytvářet hezké kresby založené na základních tvarech: obdélnících, elipsách "
-"a úsečkách."
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines."
+msgstr "V této hře si děti mohou volně kreslit. Cílem je jen objevit, jak vytvářet hezké kresby založené na základních tvarech: obdélnících, elipsách a úsečkách."
 
 #: boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
@@ -842,17 +793,14 @@ msgstr "Potřebuje snadno ovládat myš a klikání"
 
 #: boards/draw.xml.in.h:5
 msgid ""
-"On the left select a drawing tool, on the bottom select a color then click "
-"on the white area and drag to create a new shape. To go faster, you can use "
-"the middle mouse button to delete an object."
-msgstr ""
-"Nalevo vyber kreslicí nástroj, dole vyber barvu a pak klikni na bílou oblast "
-"a táhni pro vytvoření nového tvaru. Pro zrychlení můžeš použít prostřední "
-"tlačítko myši pro odstranění objektu."
+"Select a drawing tool on the left and a color on the bottom, and click and "
+"drag in the white area to create a new shape. To save time, you can use the "
+"middle mouse button to delete an object."
+msgstr "Nalevo vyber kreslicí nástroj, dole vyber barvu a pak klikni na bílou oblast a táhni pro vytvoření nového tvaru. Pro zrychlení můžeš použít prostřední tlačítko myši pro odstranění objektu."
 
 #: boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
-msgstr ""
+msgstr "Základní počítání"
 
 #: boards/enumerate.xml.in.h:2
 msgid "Count the items"
@@ -860,13 +808,10 @@ msgstr "Spočítej položky"
 
 #: boards/enumerate.xml.in.h:3
 msgid ""
-"First, organize properly the items so that you can count them. Then, select "
-"the item you want to answer for in the bottom right area. Enter the answer "
-"with the keyboard and press the OK button or the 'Enter' key."
-msgstr ""
-"Nejdříve správně zorganizuj položky, aby se daly spočítat. Pak vyber "
-"položku, na kterou chcešo odpovídat, v oblasti vpravo dole. Zadej odpověď "
-"klávesnicí a stiskni tlačítko OK nebo klávesu 'Enter'."
+"First, properly organize the items so that you can count them. Then, select "
+"the item you want to answer in the bottom right area. Enter the answer with "
+"the keyboard and press the OK button or the 'Enter' key."
+msgstr "Nejdříve správně zorganizuj položky, aby se daly spočítat. Pak vyber položku, na kterou chcešo odpovídat, v oblasti vpravo dole. Zadej odpověď klávesnicí a stiskni tlačítko OK nebo klávesu 'Enter'."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -890,7 +835,7 @@ msgid "Move the mouse to erase the area and discover the background"
 msgstr "Hýbej myší pro vymazání oblasti a objevení pozadí"
 
 #: boards/erase.xml.in.h:6
-msgid "Move the mouse until all the blocks disapear."
+msgid "Move the mouse until all the blocks disappear."
 msgstr "Hýbej myší, dokud všechny bloky nezmizí."
 
 #: boards/experience.xml.in.h:1
@@ -900,13 +845,13 @@ msgstr "Jít na čtecí aktivity"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
-"Click on any item that has a free block deside him. It will be swapped with "
+"Click on any item that has a free block beside it. It will be swapped with "
 "the empty block."
 msgstr ""
 "Klikni na libovolnou položku, která má vedle sebe volný blok. Bude prohozena "
 "s prázdným blokem."
 
-#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
+#: boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
 msgstr "Po jednom přesouvej položky, aby byly uspořádány podle velikosti"
 
@@ -950,7 +895,7 @@ msgstr "Východní Evropa"
 msgid "Regions of France"
 msgstr "Regiony Francie"
 
-#: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
+#: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
 msgstr "Manipulace s klávesnicí"
 
@@ -967,35 +912,36 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Napiš padající písmeno, než dopadne na zem"
 
 #: boards/hanoi.xml.in.h:1
-msgid "Drag and Drop the top piece only on an empty location"
-msgstr "Táhni a pusť horní kousek jen na prázdné místo"
+msgid "Concept taken from EPI games."
+msgstr "Koncept převzat z her EPI."
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
-msgid "Reproduce in the empty area the same tower than the one on the right"
-msgstr "Vytvoř v prázdné oblasti stejnou věž, jako je ta vpravo"
+#: boards/hanoi.xml.in.h:2
+msgid ""
+"Drag and Drop the top pieces only from one peg to another, to reproduce the "
+"tower on the right in the empty space on the left."
+msgstr "Přetahuj horní dílky z jedhono kolíku na druhý a zkopíruj věž vpravo ve volném místě vlevo."
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
 msgstr "Vytvoř kopii dané věže"
 
-#: boards/hanoi.xml.in.h:5 src/boards/hanoi.c:104
+#: boards/hanoi.xml.in.h:5
+msgid "Reproduce the tower on the right in the empty space on the left"
+msgstr "Zkopíruj věž vpravo ve volném místě vlevo."
+
+#: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
 msgstr "Zjednodušené Hanojské věže"
 
-#: boards/hanoi.xml.in.h:6
-msgid "Taken the concept from the EPI games."
-msgstr "Koncept převzat z her EPI."
-
-# FIXME: s/strwaberry/strawberry/
 #: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
-msgid "Find the strwaberry by clicking on the blue fields"
+msgid "Find the strawberry by clicking on the blue fields"
 msgstr "Najdi jahodu klikáním na modrá pole"
 
 #: boards/hexagon.xml.in.h:4
 msgid ""
-"Try to find the strawberry under the blue fields,as nearer as you come as "
-"more as red get the fields"
-msgstr "Zkus najít jahodu pod modrými poli, čím blíž přijdeš, tím červenější budou pole"
+"Try to find the strawberry under the blue fields. The fields become more red "
+"as you get closer."
+msgstr "Zkus najít jahodu pod modrými poli. Čím blíž přijdeš, tím červenější budou pole."
 
 #: boards/hexagon.xml.in.h:5
 msgid "hexagon"
@@ -1120,22 +1066,14 @@ msgid "Drag and Drop the items above their written name"
 msgstr "Táhni a pusť položky nad jejich napsaným jménem"
 
 #: boards/imagename.xml.in.h:2
-msgid "Image Name"
-msgstr "Název obrázku"
+msgid ""
+"Drag the images from the vertical box on the left to their corresponding "
+"name on the right. Click the OK button to check your answer."
+msgstr "Přetahuj obrázky ze svislého pole nalevo od jejich názvů vpravo. Zkontroluj svou odpověď kliknutím na tlačítko oK."
 
 #: boards/imagename.xml.in.h:3
-msgid ""
-"In the main board area, a set of red plots associated with work are printed. "
-"In the vertical frame - at the left of the main board area, a set of objects "
-"are represented, each of these objects match with one word of the main board "
-"area. The right association must be find for these objects. This is achieved "
-"by dragging the objects to the right red plot in the main area."
-msgstr ""
-"V oblasti hlavní desky je vytištěna sada červených kreseb asociovaných s "
-"prací. Ve svislém rámu nalevo od oblasti hlavní desky je reprezentována sada "
-"objektů, každý z nich odpovídá jednomu slovu v oblasti hlavní desky. Musí "
-"být nalezena správná asociace pro tyto objekty. Toho se dosáhne tažením "
-"objektů na správou červenou kresbu v hlavní oblasti."
+msgid "Image Name"
+msgstr "Název obrázku"
 
 #: boards/imagename.xml.in.h:5
 msgid "Vocabulary and reading"
@@ -1252,25 +1190,23 @@ msgstr "raketa"
 
 #: boards/leftright.xml.in.h:1
 msgid ""
-"A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right."
-msgstr ""
-"Je vytištěna ruka. Musíš poznat, jestli je to pravá nebo levá ruka. Klikni "
-"na červené tlačítko -  vlevo - nebo na zelené tlačítko - vpravo."
+"A hand is shown. Determine if it is a right or left hand. Click on the red "
+"button at the left, or on the green button at the right."
+msgstr "Je zobrazena ruka. Urči, jestli je to pravá nebo levá ruka. Klikni na červené tlačítko vlevo nebo na zelené tlačítko vpravo."
 
 #: boards/leftright.xml.in.h:2
-msgid ""
-"Distinguish from different point of view the left hand from the right hand. "
-"Spatial representation"
-msgstr "Rozpoznání levé ruky od pravé z různých pohledů. Prostorová orientace"
+msgid "Determine if a hand is a right or left hand"
+msgstr "Urči, jestli je ruka pravá nebo levá"
 
-#: boards/leftright.xml.in.h:3 src/boards/leftright.c:106
+#: boards/leftright.xml.in.h:3
+msgid ""
+"Distinguish right and left hands from different points of view. Spatial "
+"representation"
+msgstr "Rozpoznání levé ruky od pravé z různých pohledů. Prostorová reprezentace"
+
+#: boards/leftright.xml.in.h:4 src/boards/leftright.c:106
 msgid "Find your left and right hands"
 msgstr "Najdi svou levou a pravou ruku"
-
-#: boards/leftright.xml.in.h:4 src/boards/leftright.c:107
-msgid "Given hands pictures, find if it's a right or left one"
-msgstr "U daných obrázků ruky rozpoznej, jestli je to pravá nebo levá"
 
 #: boards/leftright.xml.in.h:5 boards/railroad.xml.in.h:4
 msgid "None"
@@ -1306,13 +1242,10 @@ msgstr "Najdi cestu z 3D bludiště"
 
 #: boards/maze3D.xml.in.h:5
 msgid ""
-"Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr ""
-"Použij šipky na klávesnici pro přesunutí Tuxe nahoru ke dveřím. Pro "
-"přepínání mezi režimy 2D a 3D použij klávesu 'mezera'. Režim 2D ti dává jen "
-"informace o tvé pozici jako na mapě. V režimu 2D nemůžete pohybovat Tuxem."
+msgstr "Použij šipky na klávesnici pro přesun Tuxe nahoru ke dveřím. Pro přepínání mezi režimy 2D a 3D použij mezerník. Režim 2D ti dává jen informace o tvé pozici jako na mapě. V režimu 2D nemůžeš Tuxem pohybovat."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -1320,11 +1253,9 @@ msgstr "Aktivita pro cvičení sluchu"
 
 #: boards/melody.xml.in.h:2
 msgid ""
-"Listen the sound sequence played. Then try to repeat it clicking on the "
-"elements. You can listen again clicking on the repeat button."
-msgstr ""
-"Poslouchej přehrávanou posloupnost zvuků. Pak ji zkus zopakovat klikáním na "
-"prvky. Můžeš znovu poslouchat kliknutím na tlačítko opakování."
+"Listen to the sound sequence played, and repeat it by clicking on the "
+"elements. You can listen again by clicking on the repeat button."
+msgstr "Poslouchej přehrávanou posloupnost zvuků a zopakuj ji klikáním na prvky. Můžeš si ji znovu poslouchat kliknutím na tlačítko opakování."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
@@ -1336,17 +1267,12 @@ msgstr "Opakuj melodii"
 
 #: boards/memory.xml.in.h:1
 msgid ""
-"A set of blink cards is printed. Each pair is associated by the same picture "
-"in their hidden faces. When clicking on a card, you can uncover the card and "
-"see its hidden picture. However you can only see two hidden pictures at "
-"once. You have to remember the position of the pictures to associate them. "
-"To remove a pair of card, uncover both of them."
-msgstr ""
-"Je vytištěna sada karet. Každý pár je spojen stejným obrázkem na skryté "
-"straně. Když klikneš na kartu, můžeš odkrýt kartu a vidět její skrytý "
-"obrázek. Najednou ale můžeš vidět jen dva skryté obrázky. Pro přiřazení "
-"obrázků si musíš pamatovat jejich pozici. Pro odstranění páru karet odkryj "
-"obě."
+"A set of blank cards is shown. Each pair is associated by the same picture "
+"in their hidden faces. Click on a card to can uncover it and see its hidden "
+"picture. However, you can only see two hidden pictures at once. You have to "
+"remember the position of the pictures to associate them. To remove a pair of "
+"cards, uncover both of them."
+msgstr "Je zobrazena sada prázdných karet. Každý pár je spojen stejným obrázkem na skryté straně. Když klikneš na kartu, můžeš odkrýt kartu a vidět její skrytý obrázek. Najednou ale můžeš vidět jen dva skryté obrázky. Pro přiřazení obrázků si musíš pamatovat jejich pozici. Pro odstranění páru karet odkryj obě."
 
 #: boards/memory.xml.in.h:2
 msgid "Discover the cards and find a matching pair"
@@ -1361,18 +1287,29 @@ msgid "Train your memory and remove all the cards"
 msgstr "Cvič svou paměť a odstraň všechny karty"
 
 #: boards/menu.xml.in.h:1
+msgid ""
+"A simple click on an icon brings you to an activity or a menu of activities. "
+"At the bottom of the screen is the gcompris control bar. The following icons "
+"are displayed from right to left. Note that each icon is displayed only if "
+"available in the current activity: Home - Back to previous menu or exit "
+"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
+"current level. Click to select another level Music note - Repeat the "
+"question Question Mark - Help Tool Box - The configuration menu Tux Plane - "
+"About game The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years "
+"old 3 Stars - 7 to 8 years old"
+msgstr "Jednoduché kliknutí na ikonu tě přivede k aktivitě nebo menu aktivit. Ve spodní části obrazovky je řídicí lištu gcompris. Následující ikony jsou zobrazen zprava doleva. Tyto ikony se zobrazují, jen pokud jsou v aktuální aktivitě k dispozici. Domů - Zpět do předchozího menu nebo ukončit gcompris, pokud už další není Palec - OK, potvrzení vaší odpovědi Kostka - zobrazit aktuální úroveň. Klikni na ni pro zvolení jiné úrovně Nota - Zopakovat otázku Otazník - nápověda Krabice s nářadím - konfigurační menu Tuxovo letadlo - o hře Hvězdičky znamenají: 1 hvězdička - 3 až 4 roky 2 hvědičky - 5 až 6 let 3 hvězdičky - 7 až 8 let"
+
+#: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
 msgstr "Hlavní menu GCompris"
 
-#: boards/menu.xml.in.h:2
+#: boards/menu.xml.in.h:3
 msgid ""
-"GCompris is an educational games that provides different activities to "
-"children from 3 to 8 years old."
-msgstr ""
-"GCompris jsou výukové hry, které poskytují různé aktivity dětem starým 3 až "
-"8 let."
+"GCompris is a collection of educational games that provides different "
+"activities to children from 3 to 8 years old."
+msgstr "GCompris je soubor výukových her, které poskytují různé aktivity dětem starým 3 až 8 let."
 
-#: boards/menu.xml.in.h:4
+#: boards/menu.xml.in.h:5
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -1380,33 +1317,11 @@ msgstr ""
 "Cílem gcompris je poskytnout volnou alternativu populárnímu proprietárnímu "
 "vzdělávacímu softwaru"
 
-#: boards/menu.xml.in.h:5
-msgid ""
-"To use it, a simple click on an icon brings you to an activity or a menu. At "
-"the bottom of the screen, you have the gcompris control bar. From right to "
-"left, bellow is the meaning of the icons. Note that these icons are "
-"displayed only when available in an activity: Home - Back to previous menu "
-"or exit gcompris if no more Thumb - OK, confirm your answer Dice - The "
-"current level is displayed. Click on it to select another level Music note - "
-"Ask gcompris to repeat the question Question Mark - The help Tool Box - The "
-"configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to "
-"4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
-msgstr ""
-"Jednoduché kliknutí na ikonu tě přivede k aktivitě nebo menu. Ve spodní "
-"části obrazovky máš řídicí lištu gcompris. Níže je vypsán význam ikon zprava "
-"doleva. Tyto ikony se zobrazují, jen pokud jsou v aktivitě k dispozici. Domů "
-"- Zpět do předchozího menu nebo ukončit gcompris, pokud už další není Palec "
-"- OK, potvrzení vaší odpovědi Kostka - zobrazuje se aktuální úroveň. Klikni "
-"na ni pro zvolení jiné úrovně Nota - Požádání gcompris o zopakování otázky "
-"Otazník - nápověda Krabice s nářadím - konfigurační menu Tuxovo letadlo - "
-"dialog o programu Hvězdičky znamenají: 1 hvězdička - 3 až 4 roky 2 hvědičky "
-"- 5 až 6 let 3 hvězdičky - 7 až 8 let"
-
 #: boards/minouche.xml.in.h:4
 msgid ""
-"Try to find the strawberry under the blue fields,as nearer you come as more "
-"red get the fields"
-msgstr "Zkus najít jahodu pod modrými poli, čím blíž přijdeš, tím červenější budou pole"
+"Try to find the strawberry under the blue fields. The closer you get, the "
+"more red the fields become."
+msgstr "Zkus najít jahodu pod modrými poli. Čím blíž přijdeš, tím červenější budou pole."
 
 #: boards/minouche.xml.in.h:5
 #, fuzzy
@@ -1415,11 +1330,9 @@ msgstr "okrová"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
-"An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word."
-msgstr ""
-"V hlavní oblasti se zobrazuje objekt. Pod obrázkem je vytištěno neúplné "
-"slovo. Vyber chybějící písmeno pro doplnění slova."
+"An object is displayed in the main area, and an incomplete word is printed "
+"under the picture. Select the missing letter to complete the word."
+msgstr "V hlavní oblasti je zobrazen objekt a pod obrázkem je vytištěno neúplné slovo. Vyber chybějící písmeno pro doplnění slova."
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
@@ -1588,11 +1501,8 @@ msgstr "Umí počítat"
 #: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
-"want to remove a coin or note, click on it on the upper screen area."
-msgstr ""
-"Zaplať kliknutím na mince nebo papírové peníze ve spodní části obrazovky. "
-"Pokud chceš odstranit minci nebo bankovku, klikni na ni v horní části "
-"obrazovky."
+"want to remove a coin or note, click on it in the upper screen area."
+msgstr "Zaplať kliknutím na mince nebo papírové peníze ve spodní části obrazovky. Pokud chceš odstranit minci nebo bankovku, klikni na ni v horní části obrazovky."
 
 #: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
@@ -1604,11 +1514,9 @@ msgstr "Procvič si používání peněz"
 
 #: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
 msgid ""
-"You must buy the different items and give the exact price. At higher level, "
-"several items are displayed, you must first calculate the total price."
-msgstr ""
-"Musíš kupovat různé věci a platit přesně. Ve vyšší úrovni je zobrazeno víc "
-"věcí, musíš nejdřív spočítat celkovou cenu."
+"You must buy the different items and give the exact price. At higher levels, "
+"several items are displayed, and you must first calculate the total price."
+msgstr "Musíš kupovat různé věci a platit přesně. Ve vyšších úrovních je zobrazeno víc věcí a musíš nejdřív spočítat celkovou cenu."
 
 #: boards/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
@@ -1620,11 +1528,9 @@ msgstr "Táhni a pusť položky pro znovusestavení původních kreseb"
 
 #: boards/paintings.xml.in.h:2
 msgid ""
-"In the main board area, a set of red plots are displayed. In the vertical "
-"frame - at the left of the main board area, a set of image parts of a "
-"painting are avalaible. Drag and drop these parts in the right plot to "
-"rebuild the original painting."
-msgstr ""
+"Drag the image parts from the box on the left to create a painting on the "
+"main board."
+msgstr "Vytvoř na hlavní desce kresbu přetažením částí obrázku z pole vlevo."
 
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
@@ -1671,34 +1577,28 @@ msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid ""
-"Click on any keyboard key to let Tux jump. Another keypress will open the "
-"parachute. Alternatively, a click on the plane and the tux also works."
-msgstr ""
-"Stiskni libovolnou klávesu, aby Tux vyskočil. Další stisk klávesy otevře "
-"padák. Funguje také kliknutí na letadlo a Tuxe."
+msgid "Help Tux the paratrooper land safely"
+msgstr "Pomož parašutistovi Tuxovi bezpečně přistát"
 
 #: boards/paratrooper.xml.in.h:2
 msgid ""
-"In this game, the children will try to make Tux the paratrooper lands safely "
-"on the fishing boat. He/She needs to take care of the wind side and speed."
-msgstr ""
-"V této hře se děti pokusí, aby parašutista Tux bezpečně přistál na rybářské "
-"loďce. Musí se postarat o směr a rychlost větru."
+"Hit any key or click on the plane to make Tux jump. Hit another key or click "
+"on Tux to open the parachute."
+msgstr "Stiskni libovolnou klávesu nebo klikni na letadlo, aby Tux vyskočil. Stiskni jinou klávesu nebo klikni na Tuxe, aby otevřel padák."
 
-#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
-msgid "Manage the paratrooper to let him safely land"
-msgstr "Veď parašutistu, aby bezpečně přistál"
+#: boards/paratrooper.xml.in.h:3
+msgid ""
+"In this game, Tux the paratrooper need help to land safely on the fishing "
+"boat. He needs to take watch out for the wind direction and speed."
+msgstr "V této hře parašutista Tux potřebuje pomoci bezpečně přistát na rybářské loďce. Musí dávat pozor na směr a rychlost větru."
 
 #: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
 msgid "Paratrooper"
 msgstr "Parašutista"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
-msgstr ""
-"Tato deska je zaměřená na hru. Pro hraní nepotřebuje konkrétní dovednosti."
+msgid "This board is game oriented. No specific skills are needed to play."
+msgstr "Tato deska je zaměřená na hru. Pro hraní nejsou potřeba konkrétní dovednosti."
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
@@ -1715,10 +1615,8 @@ msgstr "Čísla v pořadí"
 #: boards/planegame.xml.in.h:5
 msgid ""
 "Use the up, down, right and left keyboard keys to move the helicopter to "
-"catch the numbers in the incremental order"
-msgstr ""
-"Použij klávesy nahoru, dolů, doleva a doprava pro hýbání vrtulníku, abys "
-"chytil čísla ve vzestupném pořadí "
+"catch the numbers in increasing order."
+msgstr "Použij klávesy nahoru, dolů, doleva a doprava pro hýbání vrtulníku, abys chytil čísla ve vzestupném pořadí "
 
 #: boards/pythontest.xml.in.h:1
 msgid "Add a language binding to gcompris."
@@ -1738,7 +1636,7 @@ msgstr "Testovací deska pro zásuvný modul pythonu"
 
 #: boards/pythontest.xml.in.h:5
 msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
+"Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Díky Guido van Rossum a týmu pythonu za tento mocný jazyk!"
 
 #: boards/railroad.xml.in.h:1
@@ -1748,16 +1646,10 @@ msgstr "Hra s pamětí založená na vlacích"
 #: boards/railroad.xml.in.h:2
 msgid ""
 "A train - a locomotive and wagon(s) - is displayed at the top of the main "
-"area. After a few the second train go away. Then, you have to rebuild it at "
-"the top of the screen by selecting the appropriate wagons and locomotive. "
-"You can always unselect an item by clicking on it. Validate your "
-"construction by clicking on the hand at the bottom."
-msgstr ""
-"V horní části hlavní oblasti je zobrazen vlak - lokomotiva a vagón(y). Po "
-"několika vteřinách vlak odjede. Pak jej musíš v horní části obrazovky znovu "
-"sestavit vybráním správných vagónů a lokomotivy. Vybrání položky můžeš "
-"kdykoli zrušit kliknutím na ni. Potvrď svůj výběr kliknutím na ruku ve "
-"spodní části."
+"area for a few seconds. Rebuild it at the top of the screen by selecting the "
+"appropriate wagons and locomotive. Unselect an item by clicking on it again. "
+"Check your construction by clicking on the hand at the bottom."
+msgstr "V horní části hlavní oblasti je na několik sekund zobrazen vlak - lokomotiva a vagón(y). Znovu jej v horní části obrazovky sestav vybráním správných vagónů a lokomotivy. Zruš výběr položky kliknutím na ni. Potvrď svůj výběr kliknutím na ruku ve spodní části."
 
 #: boards/railroad.xml.in.h:3
 msgid "Memory training"
@@ -1767,8 +1659,8 @@ msgstr "Trénování paměti"
 msgid "Railroad"
 msgstr "Železnice"
 
-#: boards/read_colors.xml.in.h:3
-msgid "Click on the right colored object."
+#: boards/read_colors.xml.in.h:2
+msgid "Click on the correct colored object."
 msgstr "Klikni na objekt se správnou barvou."
 
 #: boards/read_colors.xml.in.h:4
@@ -1776,8 +1668,8 @@ msgid "Read colors"
 msgstr "Čtení barev"
 
 #: boards/read_colors.xml.in.h:5
-msgid "This board is dedicated to read basic colors."
-msgstr "Tato deska je určena pro čtení základních barev."
+msgid "This board teaches basic colors."
+msgstr "Tato deska učí základní barvy."
 
 #: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
@@ -1829,54 +1721,42 @@ msgstr "Jít na čtecí aktivity"
 
 #: boards/readingh.xml.in.h:1 boards/readingv.xml.in.h:1
 msgid ""
-"At the top and right of the board area, a word is printed. At the left a "
-"list of words will move in and out of the screen. Tell if you see the "
-"initial word in this list."
-msgstr ""
-"V horní a pravé části oblasti desky je vytištěno slov. Vlevo se objeví "
-"seznam slov. Řekni, jestli počáteční slovo vidíš v seznamu."
+"A word is shown at the top right of the board. A list of words will appear "
+"and disappear on left. Indicate whether or not the given word appeared in "
+"the list."
+msgstr "V pravé horní části desky je zobrazeno slovo. Vlevo se objeví a zmizí seznam slov. Ukaž, jestli se dané slovo objevilo v seznamu."
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
 msgstr "Procvičování vodorovného čtení"
 
 #: boards/readingh.xml.in.h:3
-msgid "Read a list of word and tell if the given word is in it"
-msgstr "Čtení seznamu slov a rozpoznání, jestli je v něm dané slovo"
+msgid "Read a list of words and tell if a given word is in it"
+msgstr "Přečti seznam slov a řekni, jestli je v něm dané slovo"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
 msgstr "Trénování čtení v omezeném čase"
 
 #: boards/readingv.xml.in.h:2
-msgid "Read a vertical list of word and tell if the given word is in it"
-msgstr ""
-"Čtení vertikálního seznamu slov a rozpoznání, jestli je v něm dané slovo"
+msgid "Read a vertical list of words and tell if a given word is in it"
+msgstr "Přečti svislý seznam slov a řekni, jestli je v něm dané slovo"
 
 #: boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
 msgstr "Procvičování vertikálního čtení"
 
 #: boards/redraw.xml.in.h:1
-msgid ""
-"At each level, a drawing is displayed in the right area. You must redraw it "
-"in the left area."
-msgstr ""
-"V každé úrovni je v oblasti vpravo zobrazena kresba. Musíš ji překreslit do "
-"levé oblasti."
+msgid "Copy a drawing from the box on the right into the box on the left."
+msgstr "Zkopíruj kresbu z pole vpravo do pole vlevo."
 
 #: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
-"First you must select the proper tool in the tool bar. Then, you must drag "
-"the mouse to create objects. When you are done, click on the OK button, you "
-"will be told were the errors are with little red cross. The order of objects "
-"(above/under) is not important but take care not to have unwanted object "
-"under others."
-msgstr ""
-"Nejdřív musíš vybrat správný nástroj v liště nástrojů. Pak musíš vytvořit "
-"objekty tažením myší. Až to bude hotovo, klikni na tlačítko OK, malý červený "
-"křížek ti ukáže, kde jsou chyby. Pořadí objektů (nad/pod) není důležité, ale "
-"dej si pozor, aby nezůstal nechtěný objekt pod jinými."
+"First, select the proper tool from the toolbar. Then, drag the mouse to "
+"create objects. When you are done, click on the OK button. Errors will be "
+"marked with a little red cross. The order of objects (above/under) is not "
+"important but take care not to have unwanted objects under others."
+msgstr "Nejdřív vyber správný nástroj z lišty nástrojů. Pak vytvoř objekty tažením myší. Až to bude hotovo, klikni na tlačítko OK. Chyby budou označeny malým červeným křížkem. Pořadí objektů (nad/pod) není důležité, ale dej si pozor, aby nezůstal nechtěný objekt pod jinými."
 
 #: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
@@ -1884,41 +1764,30 @@ msgstr "Překreslit danou položku"
 
 #: boards/redraw_symmetrical.xml.in.h:1
 msgid ""
-"At each level, a drawing is displayed in the right area. You must redraw its "
-"symmetry in the left area."
-msgstr ""
-"V každé úrovni je v oblasti vpravo zobrazena kresba. Musíš překreslit její "
-"obraz do levé oblasti."
+"Copy the mirror image of an object from the box on the right into the box on "
+"the left."
+msgstr "Zkopíruj zrcadlový obraz objektu v poli vpravo do pole vlevo."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
-"Can move the mouse, can read numbers and substract numbers up to 10 for the "
+"Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
-msgstr "První úroveň umí hýbat myší, umí číst čísla a odčítat čísla do 10"
+msgstr "Pro první úroveň umí hýbat myší, umí číst čísla a odčítat čísla do 10"
 
 #: boards/reversecount.xml.in.h:2
 msgid ""
-"First count how many ice spot are between tux and the fish. Then click on "
-"the dice to select the proper number. You can also use the right mouse "
-"button on the dices to count backward. When done, click on the OK button or "
-"hit the keyboard enter key."
-msgstr ""
-"Nejprve spočítej, kolik kusů ledu je mezi tuxem a rybou. Pak vyber správné "
-"číslo kliknutím na kostku. Na kostce můžeš také počítat zpět pomocí pravého "
-"tlačítka myši. Až budeš hotov, klikni na tlačítko OK nebo stiskni klávesu "
-"enter."
+"Click on the dice to show how many ice spots there are between Tux and the "
+"fish. Click the dict with the right mouse button to coun backwards. When "
+"done, click on the OK button or hit the Enter key."
+msgstr "Ukaž, kolik kusů ledu je mezi tuxem a rybou, kliknutím na kostku. Na kostce můžeš také počítat zpět pomocí pravého tlačítka myši. Až budeš hotov, klikni na tlačítko OK nebo stiskni klávesu Enter."
 
 #: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
-msgid "Practice the substraction with a funny game"
-msgstr "Procvičení odčítání v zábavné hře"
+msgid "Practice substraction with a funny game"
+msgstr "Procvič si odčítání v zábavné hře"
 
 #: boards/reversecount.xml.in.h:4
-msgid ""
-"Tux is hungry. Help him find fishes by counting the ice spot needed to reach "
-"them."
-msgstr ""
-"Tux má hlad. Pomoz mu najít ryby spočítáním kusů ledu potřebných na to, aby "
-"se k nim dostal.l"
+msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
+msgstr "Tux má hlad. Pomoz mu najít ryby počítáním ke správnému kusu ledu."
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -1929,27 +1798,28 @@ msgstr ""
 #: boards/scales/board3_0.xml.in.h:1 boards/scales/board3_1.xml.in.h:1
 #: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
 #: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
-#: boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
 msgstr "Táhni a pusť závaží pro vyrovnání vah"
 
+#: boards/scalesboard.xml.in.h:1
+msgid "Drag and Drop masses to balance the scales"
+msgstr "Táhni a pusť závaží pro vyrovnání vah"
+
 #: boards/scalesboard.xml.in.h:2
-msgid "Mental calculus, arithmetic equality"
+msgid "Mental calculation, arithmetic equality"
 msgstr "Výpočet v duchu, aritmetická rovnost"
 
 #: boards/scalesboard.xml.in.h:3
 msgid ""
 "The painting is an original painting made by Virginie MOREAU (virginie."
-"moreau@free.fr) in 2001. Its name is 'spices seller in egypt'. It is "
+"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL license."
-msgstr ""
-"Kresba je originální kresba, kterou Virginie MOREAU (virginie.moreau@free."
-"fr) nakreslil roku 2001. Jmenuje se 'prodavač koření v Egyptě. Je uvolněna "
-"pod podmínkami licence GPL."
+msgstr "Kresba je originální kresba, kterou Virginie MOREAU (virginie.moreau@free.fr) nakreslil roku 2001. Jmenuje se 'Prodavač koření v Egyptě'. Je uvolněna pod podmínkami licence GPL."
 
+# FIXME: s/left. left side./left side./
 #: boards/scalesboard.xml.in.h:4
 msgid ""
-"To equilibrate the scales, move the masses in its left plateau. The masses "
+"To balance the scales, move the masses on the left. left side. The masses "
 "can be arranged in any order."
 msgstr ""
 "Pro vyrovnání vah přesuň závaží na jejich levou misku. Závaží mohou být "
@@ -1960,35 +1830,32 @@ msgid "Well balance the scales"
 msgstr "Dobře vyrovnat váhy."
 
 #: boards/smallnumbers.xml.in.h:1
+msgid "Count the number of dots on dice before they reach the ground"
+msgstr "Spočítej číslo na na kostce než se dotkne země"
+
+#: boards/smallnumbers.xml.in.h:2
 msgid "Counting skill"
 msgstr "Schopnost počítat"
 
-#: boards/smallnumbers.xml.in.h:2
-msgid "In a limited time, count a number of dots"
+#: boards/smallnumbers.xml.in.h:3
+msgid "In a limited time, count the number of dots"
 msgstr "V omezeném čase spočítat počet teček"
 
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:70
-msgid "Numbers With Dices"
+#: boards/smallnumbers.xml.in.h:4
+msgid "Numbers With Dice"
 msgstr "Čísla s kostkami"
-
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:71
-msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Stiskni klávesu s číslem 1 až 9, než kostka dopadne na zem"
 
 #: boards/smallnumbers.xml.in.h:5
 msgid ""
-"With the keyboard, press the number corresponding to the number of dots in "
+"With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
-msgstr ""
-"Stiskni na klávesnici číslo odpovídající počtu teček na padající kostce."
+msgstr "Na klávesnici napiš číslo odpovídající počtu teček na padající kostce."
 
 #: boards/submarine.xml.in.h:1
 msgid ""
-"Click on different active elements : engine, rudders and air tanks in order "
-"to navigate at the ordered depth."
-msgstr ""
-"Klikej na různé aktivní elementy\" motor, kormidla a vzduchové nádrže, abys "
-"plaval v přikázané hloubce."
+"Click on different active elements : engine, rudders and air tanks, in order "
+"to navigate to the ordered depth."
+msgstr "Klikej na různé aktivní elementy: motor, kormidla a vzduchové nádrže, abys plaval v přikázané hloubce."
 
 #: boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -2009,23 +1876,19 @@ msgstr "Řiď ponorku pomocí vzduchových nádrží a výškových kormidel"
 #: boards/superbrain.xml.in.h:1
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
+"Then, click on the OK button in the control bar. In the lower levels, Tux "
+"gives you an indication if you found a hiding place by marking the item with "
 "a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
-msgstr ""
-"Klikej na položku, dokud nenajdeš to, o čem si myslíš, že je to správná "
-"odpověď. Pak klikni na tlačítko OK v řídicí liště. Na nižší úrovni ti Tux "
-"říká, jestli máš dobrou pozici, označením položky černou krabičkou. Pro "
-"přehození barev v opačném pořadí můžeš použít pravé tlačítko myši."
+"opposite order."
+msgstr "Klikej na položku, dokud nenajdeš to, o čem si myslíš, že je to správná odpověď. Pak klikni na tlačítko OK v řídicí liště. Na nižších úrovních ti Tux říká, jestli jsi našel skrýš, označením položky černou krabičkou. Pro přehození barev v opačném pořadí můžeš použít pravé tlačítko myši."
 
 #: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
 msgid "Super Brain"
 msgstr "Super mozek"
 
 #: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
-msgid "Tux has hidden several items, find them back in the correct order"
-msgstr "Tux skryl několik věcí, najdi je ve správném pořadí"
+msgid "Tux has hidden several items. Find them again in the correct order"
+msgstr "Tux skryl několik položek. Najdi je ve správném pořadí"
 
 #: boards/target.xml.in.h:1
 msgid ""
@@ -2034,43 +1897,38 @@ msgstr "Pro první úroveň umí hýbat myší, číst čísla a počítat do 15
 
 #: boards/target.xml.in.h:2
 msgid ""
-"First check the wind strength and direction, then click on the target to "
-"launch a dart, when all your darts are sent, a window appears requiring you "
-"to count your score. Enter the score with the keyboard then press the enter "
-"key or the OK icon."
-msgstr ""
-"Nejprve zkontroluj sílu a směr směru, pak vypusť šipku kliknutím na cíl. Až "
-"vypustíš všechny své šipky, objeví se okno, které tě požádá o spočítání "
-"svého skóre. Zadej skóre pomocí klávesnice a pak stiskni klávesu enter nebo "
-"klikni na ikonu OK."
+"Check the wind speed and direction, and then click on the target to launch a "
+"dart. When you have thrown all of your darts, a window appears asking you to "
+"count your score. Enter the score with the keyboard then press the Enter key "
+"or the OK button."
+msgstr "Zkontroluj sílu a směr směru, pak vypusť šipku kliknutím na cíl. Až vypustíš všechny své šipky, objeví se okno, které tě požádá o spočítání svého skóre. Zadej skóre pomocí klávesnice a pak stiskni klávesu Enter nebo klikni na tlačítko OK."
 
 #: boards/target.xml.in.h:3 src/boards/target.c:122
-msgid "Practice the addition with a target game"
+msgid "Practice addition with a target game"
 msgstr "Procvičení sčítání s hrou míření"
 
 #: boards/target.xml.in.h:4
-msgid "Send darts on a target and count your score."
-msgstr "Posílej šipky na cíl a spočítej své skóre."
+msgid "Throw darts at a target and count your score."
+msgstr "Házej šipky na cíl a spočítej své skóre."
 
 #: boards/target.xml.in.h:5 src/boards/target.c:123
-msgid "Touch the target and count your points"
-msgstr "Dotkni se cíle a spočítej své body."
+msgid "Touch the target and count the points"
+msgstr "Dotkni se cíle a spočítej body"
 
 #: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr "Hra s posouváním bloků"
 
 #: boards/traffic.xml.in.h:2
-msgid ""
-"The goal is to remove all of the red car(s) out of the grid through the slot "
-"on the right"
-msgstr "Cílem je odstranit všechna červená auta z mřížky mezerou vpravo."
+msgid "Remove all the red cars from the grid through the slot on the right"
+msgstr "Odstraň všechna červená auta z mřížky mezerou vpravo"
 
 #: boards/watercycle.xml.in.h:1
 msgid ""
-"Click on different active elements : sun, cloud, water pump station, water "
-"cleanup station in order to reactivate the whole water system. When done and "
-"Tux is in his shower, push the shower button for him."
+"Click on different active elements : sun, cloud, water pump station, and "
+"water cleanup station, in order to reactivate the entire water system. When "
+"the system is back up and Tux is in the shower, push the shower button for "
+"him."
 msgstr ""
 "Klikej na různé aktivní elementy: slunce, mrak, čerpadlo, čističku a "
 "reaktivuj celý vodní systém. Až to bude hotovo a Tux bude ve sprše, stiskni "
@@ -2080,25 +1938,21 @@ msgstr ""
 msgid "Learn the water cycle"
 msgstr "Naučit se vodní cyklus"
 
-#: boards/watercycle.xml.in.h:3
-msgid ""
-"You have to bring back the water system up. Tux comes from a long fishing "
-"party on his boat. Help him to have a shower."
-msgstr ""
-"Musíš znovu spustit vodní systém. Tux se vrací z dlouhého rybaření na své "
-"loďce. Pomoz mu osprchovat se."
-
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
 msgstr "Padající slovo"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
-msgid "Fully type the falling words before they reach the ground"
-msgstr "Napiš padající slova, než se dotknou země"
-
-#: boards/wordsgame.xml.in.h:4
+#: boards/wordsgame.xml.in.h:3
 msgid "Keyboard training"
 msgstr "Procvičení s klávesnicí"
+
+#: boards/wordsgame.xml.in.h:4
+msgid "Type the complete word as it falls, before it reachs the ground"
+msgstr "Napiš celé padající slovo, než se dotkne země"
+
+#: boards/wordsgame.xml.in.h:5
+msgid "Type the falling words before they reach the ground"
+msgstr "Napiš padající slova, než se dotknou země"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -2115,7 +1969,7 @@ msgstr "Naučná sada gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:464 src/gcompris/gameutil.c:465
+#: src/gcompris/gameutil.c:466 src/gcompris/gameutil.c:467
 #: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2135,10 +1989,10 @@ msgstr "Uhodni operace"
 
 #: src/boards/canal_lock.c:114
 msgid ""
-"Tux is in trouble in his ship, he needs to take through a lock.\n"
+"Tux is in trouble in his ship. He needs to take it through a lock.\n"
 "Help Tux and understand how a canal lock works."
 msgstr ""
-"Tux má ve své lodi problém, potřebuje projet plavební komorou.\n"
+"Tux má ve své lodi potíže. Potřebuje s ní projet plavební komorou.\n"
 "Pomoz Tuxovi a pochop, jak pracuje plavební komora."
 
 #: src/boards/chess.c:137
@@ -2152,14 +2006,14 @@ msgstr "Hrej šachy proti tuxovi ve výukovém režimu"
 #: src/boards/chess.c:191
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
-"which means you run an old version\n"
+"which means you have an old version\n"
 "of gnuchess.\n"
 "Please upgrade to gnuchess 5 or above."
 msgstr ""
 "Chyba: Je nainstalováno /usr/bin/gnuchessx,\n"
-"což znamená, že používáte starou verzi\n"
+"což znamená, že máte starou verzi\n"
 "gnuchess.\n"
-"Aktualizujte prosím gnuchess na verzi 5 nebo vyšší."
+"Aktualizujte prosím na gnuchess verze 5 nebo vyšší."
 
 #: src/boards/chess.c:198
 msgid ""
@@ -2213,16 +2067,16 @@ msgstr "Nauč se rozpoznávat písmena"
 
 #: src/boards/click_on_letter.c:225
 msgid ""
-"Error: this activity requires you to install first\n"
+"Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
 msgstr ""
-"Chyba: tato aktivita vyžaduje, abyste nejdříve\n"
-"nainstalovali balíček assetml-voices-alphabet-"
+"Chyba: tato aktivita vyžaduje, abyste nejdříve nainstalovali\n"
+"balíček assetml-voices-alphabet-"
 
 #: src/boards/click_on_letter.c:232
 msgid ""
 "Error: this activity cannot be played with the\n"
-"sound effect disabled.\n"
+"sound effects disabled.\n"
 "Go in the configuration dialog to\n"
 "enable the sound"
 msgstr ""
@@ -2245,9 +2099,21 @@ msgstr "Nastav hodiny na:"
 msgid "Click on the %s toon"
 msgstr ""
 
+#: src/boards/fifteen.c:57
+msgid "Move the items one by one to rearrange them in increasing order"
+msgstr "Po jednom přesouvej položky, aby byly uspořádány podle velikosti"
+
+#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+msgid "Reproduce in the empty area the same tower as the one on the right"
+msgstr "Vytvoř v prázdné oblasti stejnou věž, jako je ta vpravo"
+
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Nauč se číst"
+
+#: src/boards/leftright.c:107
+msgid "Given pictures of hands, find if it's a right or left one"
+msgstr "U daných obrázků ruky rozpoznej, jestli je to pravá nebo levá"
 
 #: src/boards/leftright.c:248
 msgid "left"
@@ -2281,6 +2147,10 @@ msgstr "Vyber si desku"
 msgid "Pratice money usage"
 msgstr "Procvič si používání peněz"
 
+#: src/boards/paratrooper.c:105
+msgid "Direct the paratrooper to help him land safely"
+msgstr "Veď parašutistu, aby bezpečně přistál"
+
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Hýbej letadlem, abys chytil mraky ve správném pořadí"
@@ -2290,7 +2160,7 @@ msgid "Python Board"
 msgstr "Deska Pythonu"
 
 #: src/boards/python.c:54
-msgid "Special board that embed python into gcompris."
+msgid "Special board that embeds python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
 
 #: src/boards/python/pythontest.py:67
@@ -2326,8 +2196,8 @@ msgid "Memory game"
 msgstr "Hra s pamětí"
 
 #: src/boards/railroad.c:97
-msgid "Build a train conforming to the model"
-msgstr "Sestav vlak odpovídající modelu"
+msgid "Build a train according to the model"
+msgstr "Sestav vlak podle modelu"
 
 #: src/boards/read_colors.c:85
 msgid "Read Colors"
@@ -2388,12 +2258,12 @@ msgstr "Táhni a pusť položky pro znovusestavení objektu"
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
-"'s' to save\n"
+"type 's' to save, and\n"
 "'d' to display all the shapes"
 msgstr ""
 "Vstoupili jste do režimu úprav\n"
 "Přesouvejte položky skládačky a\n"
-"'s' pro uložení\n"
+"stiskněte 's' pro uložení a\n"
 "'d' pro zobrazení všech tvarů"
 
 #: src/boards/shapegame.c:417
@@ -2403,6 +2273,14 @@ msgid ""
 msgstr ""
 "Data této desky jsou uložena pod\n"
 "/tmp/gcompris-board.xml"
+
+#: src/boards/smallnumbers.c:70
+msgid "Numbers With Dices"
+msgstr "Čísla s kostkami"
+
+#: src/boards/smallnumbers.c:71
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
+msgstr "Stiskni klávesu s číslem 1 až 9, než kostka dopadne na zem"
 
 #: src/boards/submarine.c:201
 msgid "Submarine"
@@ -2430,6 +2308,10 @@ msgstr ""
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Vzdálenost k cíli = %d metrů"
+
+#: src/boards/wordsgame.c:88
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Napiš padající slova, než se dotknou země"
 
 #: src/gcompris/about.c:60
 msgid ""
@@ -2464,9 +2346,8 @@ msgstr "Domovská stránka GCompris"
 
 #: src/gcompris/about.c:247
 msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
-msgstr ""
-"Toto software je balík GNU a je uvolněno za podmínek Gnu Public Licence"
+"This software is a GNU Package and is released under the GNU Public Licence"
+msgstr "Tento software je balík GNU a je uvolněn za podmínek GNU Public Licence"
 
 #: src/gcompris/about.c:275
 msgid "Help"
@@ -2662,6 +2543,11 @@ msgstr "Efekty"
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
+#: src/gcompris/config.c:391
+#, c-format
+msgid "No skin found in %s\n"
+msgstr "V %s nenalezen skin\n"
+
 #: src/gcompris/config.c:406 src/gcompris/config.c:729
 #: src/gcompris/config.c:740
 #, c-format
@@ -2679,10 +2565,10 @@ msgstr "Tato aktivita není dokončena."
 #: src/gcompris/gameutil.c:131
 msgid ""
 "Exit it and report\n"
-"us the problem"
+"the problem to the authors."
 msgstr ""
 "Ukončete ji a nahlaste\n"
-"nám tento problém"
+"problém autorům"
 
 #: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
@@ -2711,26 +2597,26 @@ msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 #: src/gcompris/gcompris.c:81
 msgid ""
 "select the audio output. Use '-A list' to get the list of available audio "
-"output"
+"outputs"
 msgstr ""
 "vybrat výstup zvuku. Seznam dostupných výstupů zvuku získáte použitím '-A "
 "list'"
 
 #: src/gcompris/gcompris.c:83
-msgid "Prints the version of "
+msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
 #: src/gcompris/gcompris.c:85
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:619
+#: src/gcompris/gcompris.c:621
 #, c-format
 msgid ""
 "GCompris\n"
 "Version: %d\n"
 "Licence: GPL\n"
-"More infos on http://ofset.sourceforge.net/gcompris\n"
+"More info at http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 "GCompris\n"
 "Verze: %d\n"
@@ -2793,6 +2679,22 @@ msgstr "Název"
 msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
 
+#: src/gcompris/oggplayer.c:99
+#, c-format
+msgid ""
+"Error unable to find a usable audio output device (%d)\n"
+"Try 'gcompris -A' to select an alternative audio output\n"
+"Use '-A list' to display the list of available devices"
+msgstr ""
+"Chyba nemohu najít vhodné zařízení pro výstup zvuku (%d)\n"
+"Zkuste 'gcompris -A' pro výběr alternativního výstupu zvuku\n"
+"Pro zobrazení seznamu dostupných zařízení použijte '-A list'"
+
+#: src/gcompris/oggplayer.c:119
+#, c-format
+msgid "Error opening audio device\n"
+msgstr "Chyba při otevírání zvukového zařízení\n"
+
 #: src/gcompris/oggplayer.c:165
 #, c-format
 msgid ""
@@ -2815,16 +2717,37 @@ msgstr "Umělec"
 msgid "Couldn't open music dir: %s"
 msgstr "Nemohu otevřít adresář hudby: %s"
 
+#: src/gcompris/soundutil.c:152
+#, c-format
+msgid ""
+"The background thread music is stopped now. The files in %s are not ogg "
+"vorbis OR the sound output failed"
+msgstr "Vlákno hudby na pozadí je nyní zastaveno. Soubory v %s nejsou ogg vorbis nebo selal výstup zvuku"
+
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "Nemohu nalézt soubor pixmapy: %s"
 
 #: src/gcompris/timer.c:237
-msgid "Time Ellapsed"
+msgid "Time Elapsed"
 msgstr "Čas vypršel"
 
 #: src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid "This board is dedicated to recognize unusual colors."
+#~ msgstr "Tato deska je určena pro rozpoznávání neobvyklých barev."
+
+#~ msgid ""
+#~ "In the main area, a puzzle set is proposed. In the left area, you have "
+#~ "the set of pieces for this puzzle. To place the pieces, you must use the "
+#~ "drag/drop mouvement with the mouse."
+#~ msgstr ""
+#~ "V hlavní oblasti je navržena sada skládačky. V levé oblasti máš sadu "
+#~ "dílků této skládačky. Dílky umístíe přetažením myší."
+
+#~ msgid "Drag and Drop the top piece only on an empty location"
+#~ msgstr "Táhni a pusť horní kousek jen na prázdné místo"
