@@ -1726,7 +1726,7 @@ def svg_restore(filename):
                              filename,
                              fles.root_anim
                              )
-#  fles.dump_group(fles.root_anim)
+  fles.dump_group(fles.root_anim)
 
   if (len(fles.root_anim.item_list) > 0):
     for item in fles.root_anim.item_list:

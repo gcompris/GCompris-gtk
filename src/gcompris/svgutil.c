@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/09/15 22:59:37 bcoudoin>
+ * Time-stamp: <2004/10/12 19:34:29 bruno>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -1097,9 +1097,44 @@ void *gcompris_restore_svg_line(GnomeCanvasGroup *parent, xmlNodePtr cur){
 void *gcompris_restore_svg_text(GnomeCanvasGroup *parent, xmlNodePtr cur){
   GnomeCanvasItem *text;
   xmlChar *value;
+  xmlChar *font;
+  xmlChar *fill;
   guint intval, r, g, b;
   gdouble x, y;
+  int i=0;
 
+  font = xmlGetProp( cur, BAD_CAST "font-family");
+  if(font==NULL) {
+    /* Do not create the object, should not happen */
+    return;
+  }
+
+  fill = xmlGetProp(cur, BAD_CAST "fill" );
+  if(fill==NULL) {
+    /* Do not create the object, should not happen */
+    return;
+  }
+
+  value = xmlGetProp(cur, BAD_CAST "x");
+  if(value) {
+    sscanf( value, "%lf", &x);
+    xmlFree(value);
+  } else {
+    /* Do not create the object, should not happen */
+    return;
+  }
+
+  value = xmlGetProp(cur, BAD_CAST "y");
+  if(value) {
+    sscanf( value, "%lf", &y);
+    xmlFree(value);
+  } else {
+    /* Do not create the object, should not happen */
+    return;
+  }
+
+  /* Create the object and set it's properties */
+  /* ------------------------------------------*/
 
   text = gnome_canvas_item_new (parent,
 				GNOME_TYPE_CANVAS_TEXT,
@@ -1107,30 +1142,30 @@ void *gcompris_restore_svg_text(GnomeCanvasGroup *parent, xmlNodePtr cur){
 
   svg_transform_to_canvas_matrix( cur, text );
 
-  value = xmlGetProp( cur, BAD_CAST "font-family");
-  g_object_set(G_OBJECT(text), "font", value, NULL);
-  /* do not xmlFree(value); */
 
-  value = xmlGetProp(cur, BAD_CAST "fill" );
-  sscanf(value, "rgb( %d, %d, %d )", &r, &g, &b);
-  xmlFree(value);
-  intval = (r << 24) + (g << 16) + (b << 8) + 0xFF;
-  g_object_set(G_OBJECT(text), "fill-color-rgba", intval, NULL);
+  g_object_set(G_OBJECT(text), "font", font, NULL);
+  /* do not xmlFree(font); */
 
-  value = xmlGetProp(cur, BAD_CAST "x");
-  sscanf( value, "%lf", &x);
-  xmlFree(value);
-
-  value = xmlGetProp(cur, BAD_CAST "y");
-  sscanf( value, "%lf", &y);
-  xmlFree(value);
+  if(!xmlStrcmp( fill , (const xmlChar *)"none")){
+    g_object_set(G_OBJECT(text), "fill-color", NULL, NULL);
+    g_object_set_data(G_OBJECT(text), "empty", &i);
+    xmlFree(fill);
+  } else {
+    sscanf(fill, "rgb( %d, %d, %d )", &r, &g, &b);
+    intval = (r << 24) + (g << 16) + (b << 8) + 0xFF;
+    g_object_set(G_OBJECT(text), "fill-color-rgba", intval, NULL);
+    xmlFree(fill);
+  }
 
   g_object_set(G_OBJECT(text), "x", x, "y", y, NULL);
 
   g_object_set(G_OBJECT(text), "anchor", GTK_ANCHOR_CENTER, NULL);
 
   value = xmlNodeGetContent(cur);
-  g_object_set(G_OBJECT(text), "text", value, NULL);
+  if(value) {
+    g_object_set(G_OBJECT(text), "text", value, NULL);
+  }
+
 }
 
 void *gcompris_restore_svg_image(GnomeCanvasGroup *parent, xmlNodePtr cur){
@@ -1296,6 +1331,7 @@ void *gcompris_restore_svg_group(GnomeCanvasGroup *parent, xmlNodePtr svgNode){
   
   cur = svgNode->xmlChildrenNode;
   while ( cur != NULL){
+    g_warning("cur='%s'\n", cur->name);
     if (!xmlStrcmp( cur->name , (const xmlChar *)"g"))
       gcompris_restore_svg_group(GNOME_CANVAS_GROUP(group), cur);
     else if (!xmlStrcmp( cur->name , (const xmlChar *)"rect"))
@@ -1306,10 +1342,8 @@ void *gcompris_restore_svg_group(GnomeCanvasGroup *parent, xmlNodePtr svgNode){
       gcompris_restore_svg_line(GNOME_CANVAS_GROUP(group), cur);
     else if (!xmlStrcmp( cur->name , (const xmlChar *)"text"))
       gcompris_restore_svg_text(GNOME_CANVAS_GROUP(group), cur);
-
-    /* SVG when is not the root element of file  is for an image */
-    else if (!xmlStrcmp( cur->name , (const xmlChar *)"svg")){
-      printf("Image %s détectée\n", cur->name);
+    else if (!xmlStrcmp( cur->name , (const xmlChar *)"svg")){    /* SVG when is not the root element of file is for an image */
+      g_warning("Image %s detected\n", cur->name);
       gcompris_restore_svg_image(GNOME_CANVAS_GROUP(group), cur);
     }
     cur = cur->next;

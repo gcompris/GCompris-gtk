@@ -1,3 +1,37 @@
+2004-10-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	added a white border to T_* files in order to let them play nice in
+	any skin background.
+	added maze wall themable color
+	svgutils made more robust (I hope) but still crashes
+
+	* boards/babyshapes/T_baby_bottle.png:
+	* boards/babyshapes/T_banana.png:
+	* boards/babyshapes/T_bread_slice.png:
+	* boards/babyshapes/T_butter.png:
+	* boards/babyshapes/T_chocolate.png:
+	* boards/babyshapes/T_chocolate_cake.png:
+	* boards/babyshapes/T_cookie.png:
+	* boards/babyshapes/T_french_croissant.png:
+	* boards/babyshapes/T_grapefruit.png:
+	* boards/babyshapes/T_marmelade.png:
+	* boards/babyshapes/T_milk_cup.png:
+	* boards/babyshapes/T_milk_shake.png:
+	* boards/babyshapes/T_orange.png:
+	* boards/babyshapes/T_pear.png:
+	* boards/babyshapes/T_round_cookie.png:
+	* boards/babyshapes/T_suggar_box.png:
+	* boards/babyshapes/T_yahourt.png:
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/default/skin.xml:
+	* boards/skins/linha_verde/skin.xml:
+	* boards/skins/pink/skin.xml:
+	* gcompris.spec.in:
+	* src/boards/maze.c: (draw_background):
+	* src/boards/python/anim.py:
+	* src/gcompris/svgutil.c: (gcompris_restore_svg_text),
+	(gcompris_restore_svg_group):
+
 2004-10-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	fixed many little issue in the new babytoy theme

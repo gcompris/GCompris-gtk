@@ -734,16 +734,16 @@ draw_background(void)
 	  y=cellsize*(y1)+board_border_y;
 	  x=cellsize*(x1)+board_border_x;
 	  if (x1==0)
-	    draw_a_line(boardRootItem,x, y, x, y+cellsize, gcompris_skin_color_content);
+	    draw_a_line(boardRootItem,x, y, x, y+cellsize, gcompris_skin_get_color("maze/wall color"));
 
 	  if (y1==0)
-	    draw_a_line(boardRootItem,x, y, x+cellsize, y, gcompris_skin_color_content);
+	    draw_a_line(boardRootItem,x, y, x+cellsize, y, gcompris_skin_get_color("maze/wall color"));
 
 	  if (wall&EAST)
-	    draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, gcompris_skin_color_content);
+	    draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
 
 	  if (wall&SOUTH)
-	    draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, gcompris_skin_color_content);
+	    draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
 
 	}
     }
