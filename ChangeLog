@@ -1,3 +1,31 @@
+2004-02-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* .cvsignore: added list_translators.sh
+	* boards/boardicons/chronos.png: added by Jose
+	* boards/flags/en_CA.png: added. taken from gkb.
+	* boards/flags/gcompris_flags.assetml.in: added en_CA.png
+	* boards/gletters/gletters.ja: created by Yan Seiner. It holds the japanese letters/key mapping.
+	* boards/melody.xml.in: added help
+	* configure.in: fixed bug 134838 python libm not detected
+	* list_translators.sh: added. used to list the last translators after a CVS TAG
+	* src/boards/clockgame.c: (display_hour), (display_minute),
+	(display_second), (clockgame_create_item): changed uint by guint. more portable
+	* src/boards/gletters.c: (level_set_score), (pause_board),
+	(fill_letters), (load_default_charset), (whitespace),
+	(load_charset_from_file), (get_charset), (start_board),
+	(end_board), (set_level), (is_falling_letter), (key_press),
+	(gletters_next_level), (gletters_create_item), (player_win),
+	(player_loose): added support for letters/key mapping in a specific file (by Yan Seiner)
+	* src/boards/memory.c: (memory_next_level), (get_image),
+	(create_item), (item_event): complete review to work without letter pixmap.
+	* src/boards/shapegame.c: (increment_sublevel): fixed for the logs
+	* src/gcompris/config.c: added en_CA
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap): moved a var declaration to work with old compiler.
+
+2004-02-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/melody.xml.in: added prerequisite and manual (by Jose)
+
 2004-02-24  Adam Weinberger  <adamw@FreeBSD.org>
 
 	* configure.in: Added "en_CA" (Canadian English) to ALL_LINGUAS.

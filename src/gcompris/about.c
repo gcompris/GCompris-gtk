@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/02/08 11:24:30 bcoudoin>
+ * Time-stamp: <2004/02/28 01:27:59 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -58,7 +58,7 @@ void gcompris_about_start ()
   GnomeCanvasItem *item, *item2;
   static gchar *content =
     N_("Author: Bruno Coudoin\n"
-       "Contribution: Pascal Georges\n"
+       "Contribution: Pascal Georges, Jose Jorge\n"
        "Graphics: Renaud Blanchard\n"
        "Intro Music: Djilali Sebihi\n"
        "Background Music: Rico Da Halvarez\n"

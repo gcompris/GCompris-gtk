@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2003/01/05 00:10:15 bruno>
+ * Time-stamp: <2004/02/24 01:33:01 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -50,8 +50,11 @@ typedef enum
   HIDDEN		= 2
 } CardStatus;
 
+static gchar *alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
 typedef struct {
   char *image;
+  char  text[2];
   guint status;
   GnomeCanvasItem *rootItem;
   GnomeCanvasItem *backcardItem;
@@ -150,74 +153,8 @@ static gchar *imageList[] =
   "gcompris/misc/windflag0.png",
   "gcompris/misc/windflag4.png",
   "gcompris/misc/windflag5.png",
-  "gcompris/letters/0.png",
-  "gcompris/letters/1.png",
-  "gcompris/letters/2.png",
-  "gcompris/letters/3.png",
-  "gcompris/letters/4.png",
-  "gcompris/letters/5.png",
-  "gcompris/letters/6.png",
-  "gcompris/letters/7.png",
-  "gcompris/letters/8.png",
-  "gcompris/letters/9.png",
-  "gcompris/letters/a.png",
-  "gcompris/letters/A.png",
-  "gcompris/letters/b.png",
-  "gcompris/letters/B.png",
-  "gcompris/letters/c.png",
-  "gcompris/letters/C.png",
-  "gcompris/letters/d.png",
-  "gcompris/letters/D.png",
-  "gcompris/letters/e.png",
-  "gcompris/letters/E.png",
-  "gcompris/letters/f.png",
-  "gcompris/letters/F.png",
-  "gcompris/letters/g.png",
-  "gcompris/letters/G.png",
-  "gcompris/letters/h.png",
-  "gcompris/letters/H.png",
-  "gcompris/letters/i.png",
-  "gcompris/letters/I.png",
-  "gcompris/letters/j.png",
-  "gcompris/letters/J.png",
-  "gcompris/letters/k.png",
-  "gcompris/letters/K.png",
-  "gcompris/letters/l.png",
-  "gcompris/letters/L.png",
-  "gcompris/letters/m.png",
-  "gcompris/letters/M.png",
-  "gcompris/letters/n.png",
-  "gcompris/letters/N.png",
-  "gcompris/letters/o.png",
-  "gcompris/letters/O.png",
-  "gcompris/letters/p.png",
-  "gcompris/letters/P.png",
-  "gcompris/letters/q.png",
-  "gcompris/letters/Q.png",
-  "gcompris/letters/r.png",
-  "gcompris/letters/R.png",
-  "gcompris/letters/s.png",
-  "gcompris/letters/S.png",
-  "gcompris/letters/t.png",
-  "gcompris/letters/T.png",
-  "gcompris/letters/u.png",
-  "gcompris/letters/U.png",
-  "gcompris/letters/v.png",
-  "gcompris/letters/V.png",
-  "gcompris/letters/w.png",
-  "gcompris/letters/W.png",
-  "gcompris/letters/x.png",
-  "gcompris/letters/X.png",
-  "gcompris/letters/y.png",
-  "gcompris/letters/Y.png",
-  "gcompris/letters/z.png",
-  "gcompris/letters/Z.png"
 };
-#define NUMBER_OF_IMAGES 103
-#define LETTERS_BEGIN_AT ( (NUMBER_OF_IMAGES) - 52 )
-
-// These index are use to select only a subset of the previous image list by level
-guint lowerImageIndex, upperImageIndex;
+#define NUMBER_OF_IMAGES 41
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -360,17 +297,6 @@ static void memory_next_level()
   numberOfLine   = levelDescription[gcomprisBoard->level*2+1];
   remainingCards = numberOfColumn * numberOfLine;
 
-  if(gcomprisBoard->level<5)
-    {
-      lowerImageIndex = 0;
-      upperImageIndex = LETTERS_BEGIN_AT;
-    }
-  else
-    {
-      lowerImageIndex = LETTERS_BEGIN_AT;
-      upperImageIndex = NUMBER_OF_IMAGES;
-    }
-  
   gcomprisBoard->number_of_sublevel=1;
   gcomprisBoard->sublevel=0;
 
@@ -419,13 +345,47 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
     {
       // Get the pair's image
       memoryItem->image = memoryArray[x][y]->image;
+      strcpy((char *)&memoryItem->text, (char *)&memoryArray[x][y]->text);
       memoryArray[x][y] = memoryItem;
       return;
     }
 
-  i = lowerImageIndex + (int)((upperImageIndex-lowerImageIndex)*((double)rand()/RAND_MAX));
   memoryArray[x][y] = memoryItem;
-  memoryItem->image = imageList[i];
+
+
+  switch(gcomprisBoard->level) {
+
+  case 0:
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+    /* Image mode */
+    i = rand()%NUMBER_OF_IMAGES;
+    memoryItem->image   = imageList[i];
+    memoryItem->text[0] = '\0';
+    break;
+
+  case 5:
+    /* Limited Text mode Numbers only */
+    memoryItem->image    = NULL;
+    memoryItem->text[0]  = alphabet[rand()%(strlen(alphabet)-52)];
+    memoryItem->text[1]  = '\0';
+    break;
+
+  case 6:
+    /* Limited Text mode Numbers + Capitals */
+    memoryItem->image    = NULL;
+    memoryItem->text[0]  = alphabet[rand()%(strlen(alphabet)-26)];
+    memoryItem->text[1]  = '\0';
+    break;
+
+  default:
+    /* Text mode ALL */
+    memoryItem->image    = NULL;
+    memoryItem->text[0]  = alphabet[rand()%strlen(alphabet)];
+    memoryItem->text[1]  = '\0';
+  }
 
   // Randomly set the pair
   rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
@@ -512,36 +472,54 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
   
 
 	  // Display the image itself while taking care of its size and maximize the ratio
-	  get_image(memoryItem, x, y);	  
-	  pixmap = gcompris_load_pixmap(memoryItem->image);
+	  get_image(memoryItem, x, y);
 
-	  yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
-	  xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
-	  yratio=xratio=MIN(xratio, yratio);
-	  card_shadow_w = width*0.07;
-	  card_shadow_h = height*0.07;
+	  if(memoryItem->image) {
+	    pixmap = gcompris_load_pixmap(memoryItem->image);
 
-	  memoryItem->frontcardItem = \
-	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf", pixmap, 
-				   "x", (double) ((width*0.9)-
-						  gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
-				   card_shadow_w,
-				   "y", (double) ((height*0.9)-
-						  gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2 -
-				   card_shadow_h,
-				   "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
-				   "height", (double) gdk_pixbuf_get_height(pixmap)*yratio*0.8,
-				   "width_set", TRUE, 
-				   "height_set", TRUE,
-				   NULL);
-	  gnome_canvas_item_hide(memoryItem->frontcardItem);
-	  gdk_pixbuf_unref(pixmap);
+	    yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
+	    xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
+	    yratio=xratio=MIN(xratio, yratio);
+	    card_shadow_w = width*0.07;
+	    card_shadow_h = height*0.07;
+
+	    memoryItem->frontcardItem =	\
+	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap, 
+				     "x", (double) ((width*0.9)-
+						    gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
+				     card_shadow_w,
+				     "y", (double) ((height*0.9)-
+						    gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2 -
+				     card_shadow_h,
+				     "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
+				     "height", (double) gdk_pixbuf_get_height(pixmap)*yratio*0.8,
+				     "width_set", TRUE, 
+				     "height_set", TRUE,
+				     NULL);
+	    gdk_pixbuf_unref(pixmap);
   
+	  } else {
+	    /* It's a letter */
+	    memoryItem->frontcardItem =	 \
+	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
+				     gnome_canvas_text_get_type (),
+				     "text", &memoryItem->text,
+				     "font", gcompris_skin_font_board_huge_bold,
+				     "x", (double) (width*0.8)/2,
+				     "y", (double) (height*0.8)/2,
+				     "anchor", GTK_ANCHOR_CENTER,
+				     "fill_color_rgba", 0x99CDFFFF,
+				     NULL);
+
+	  }
+
+	  gnome_canvas_item_hide(memoryItem->frontcardItem);
 	  gtk_signal_connect(GTK_OBJECT(memoryItem->rootItem), "event",
 			     (GtkSignalFunc) item_event,
 			     memoryItem);
+
 	}
     }
 
@@ -649,12 +627,23 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	       secondCard = memoryItem;
 
 	       // Check win
-	       if(strcmp(firstCard->image, secondCard->image)==0)
-		 {
-		   gcompris_play_ogg ("gobble", NULL);
-		   win_id = gtk_timeout_add (1000,
+	       if(firstCard->image && secondCard->image) {
+		 /* It's images in both cards */
+		 if(strcmp(firstCard->image, secondCard->image)==0)
+		   {
+		     gcompris_play_ogg ("gobble", NULL);
+		     win_id = gtk_timeout_add (1000,
 					     (GtkFunction) hide_card, NULL);
-		 }
+		   }
+	       } else if (!firstCard->image && !secondCard->image) {
+		 /* It's text in both cards */
+		  if(strcmp(&firstCard->text, &secondCard->text)==0)
+		   {
+		     gcompris_play_ogg ("gobble", NULL);
+		     win_id = gtk_timeout_add (1000,
+					     (GtkFunction) hide_card, NULL);
+		   }
+	       }
 	     }
 	   break;
 	 default:

@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2003/01/27 01:16:48 bruno>
+ * Time-stamp: <2004/02/27 00:41:19 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -289,7 +289,7 @@ static void display_hour(guint hour)
 			 "points", canvasPoints,
 			 "fill_color", "darkblue",
 			 "width_units", (double)1,
-			 "width_pixels", (uint) 4,
+			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) needle_size,
 			 "arrow_shape_b", (double) needle_size-20,
@@ -321,7 +321,7 @@ static void display_minute(guint minute)
 			 "points", canvasPoints,
 			 "fill_color", "red",
 			 "width_units", (double)1,
-			 "width_pixels", (uint) 4,
+			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) needle_size,
 			 "arrow_shape_b", (double) needle_size-10,
@@ -353,7 +353,7 @@ static void display_second(guint second)
 			 "points", canvasPoints,
 			 "fill_color_rgba", 0x68c46fFF,
 			 "width_units", (double)1,
-			 "width_pixels", (uint) 4,
+			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) 0,
 			 "arrow_shape_b", (double) 0,
@@ -410,7 +410,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 				    "points", canvasPoints,
 				    "fill_color", color,
 				    "width_units", (double)1,
-				    "width_pixels", (uint) 2,
+				    "width_pixels", (guint) 2,
 				    NULL);
       item_list = g_list_append (item_list, item);
 
@@ -485,7 +485,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 				     "points", canvasPoints,
 				     "fill_color", "darkblue",
 				     "width_units", (double)1,
-				     "width_pixels", (uint) 0,
+				     "width_pixels", (guint) 0,
 				     NULL);
   gtk_signal_connect(GTK_OBJECT(hour_item), "event",
 		     (GtkSignalFunc) item_event,
@@ -500,7 +500,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 				       "points", canvasPoints,
 				       "fill_color", "darkblue",
 				       "width_units", (double)1,
-				       "width_pixels", (uint) 0,
+				       "width_pixels", (guint) 0,
 				       NULL);
   gtk_signal_connect(GTK_OBJECT(minute_item), "event",
 		     (GtkSignalFunc) item_event,
@@ -515,7 +515,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 				       "points", canvasPoints,
 				       "fill_color", "darkblue",
 				       "width_units", (double)1,
-				       "width_pixels", (uint) 0,
+				       "width_pixels", (guint) 0,
 				       NULL);
   gtk_signal_connect(GTK_OBJECT(second_item), "event",
 		     (GtkSignalFunc) item_event,

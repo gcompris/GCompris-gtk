@@ -1,0 +1,134 @@
+# commands can appear in any order
+# comments begin with '#'
+# blank lines are ignored
+# all items in this file are optional and have program defaults
+
+# levels define the characters to be dropped for that level of play
+# note that the gletters keyboard is case-insensitive so the A key
+# will "pop" both A and a, no shifting or mapping is necessary
+
+level 1 ABCDEFGHIJKLMNOPQRSTUVWXYZ
+level 2 ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+level 3 ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz
+level 4 あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+level 5 アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン
+level 6 ABCDEFGHIJKLMNOPQRSTUVWXYZあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+level 7 ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン
+level 8 あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン
+level 9 あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz
+
+# key maps map keys on the keyboard to characters that are dropped
+# so for example for this japanese keyboard, we map the lower case
+# keys letters (a-z0-9) and some punctuation to hiragana and katakana 
+# gcompris at this point does not recognize alternate input methods
+# so kana input has to be done via mapping the romaji keyboard
+
+key 1ぬ
+key 2ふ
+key 3あ
+key 4う
+key 5え
+key 6お
+key 7や
+key 8ゆ
+key 9よ
+key 0わ
+key -ほ
+key ^へ
+key qた
+key wて
+key eい
+key rす
+key tか
+key yん
+key uな
+key iに
+key oら
+key pせ
+key aち
+key sと
+key dし
+key fは
+key gき
+key hく
+key jま
+key kの
+key lり
+key ;れ
+key :け
+key 」む
+key zつ
+key xさ
+key cそ
+key vひ
+key bこ
+key nみ
+key mも
+key ,ぬ
+key .る
+key /ぬ
+key \ろ
+key 1ヌ
+key 2フ
+key 3ア
+key 4ウ
+key 5エ
+key 6オ
+key 7ヤ
+key 8ユ
+key 9ヨ
+key 0ワ
+key -ホ
+key ^ヘ
+key qタ
+key wテ
+key eイ
+key rス
+key tカ
+key yン
+key uナ
+key iニ
+key oラ
+key pセ
+key aチ
+key sト
+key dシ
+key fハ
+key gキ
+key hク
+key jマ
+key kノ
+key lリ
+key ;レ
+key :ケ
+key 」ム
+key zツ
+key xサ
+key cソ
+key vヒ
+key bニ
+key nミ
+key mモ
+key ,ヌ
+key .ロ
+key /ヌ
+key \ロ
+
+# the fallrate is the rate at which letters fall
+# the smaller the numbers, the faster they fall
+# the first number is the base
+# the second number is the variability by level
+# the sum of the numbers should be around 140
+# use a slower fall rate for beginning typists
+# use a faster rate to keep the challenge for more
+# skilled typists
+
+fallrate 40 100
+
+# the droprate is the rate at which letters are dropped
+# the smaller the numbers, the more letters drop
+# the first number is the base
+# the second number is the variability by level
+# the sum of the numbers should be around 9000
+
+droprate 1000 8000

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/12/06 04:54:07 bcoudoin>
+ * Time-stamp: <2004/02/20 00:54:46 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -469,12 +469,13 @@ static gboolean increment_sublevel()
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->level++;
+    gcomprisBoard->sublevel=0;
+
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
       board_finished(BOARD_FINISHED_RANDOM);
       return FALSE;
     }
 
-    gcomprisBoard->sublevel=0;
   }
 
   gcompris_bar_set_level(gcomprisBoard);

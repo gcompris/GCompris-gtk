@@ -207,8 +207,9 @@ else
       python_localmodlibs=`sed -n -e 's/^LOCALMODLIBS=\(.*\)/\1/p' $python_makefile`
       python_basemodlibs=`sed -n -e 's/^BASEMODLIBS=\(.*\)/\1/p' $python_makefile`
       python_other_libs=`sed -n -e 's/^LIBS=\(.*\)/\1/p' $python_makefile`
+      python_libs_m=`sed -n -e 's/^LIBM=\(.*\)/\1/p' $python_makefile`
       python_libs_cflags=`sed -n -e 's/^LINKFORSHARED=\(.*\)/\1/p' $python_makefile`
-      python_libs="${python_localmodlibs} ${python_basemodlibs} ${python_other_libs}"
+      python_libs="${python_localmodlibs} ${python_basemodlibs} ${python_other_libs} ${python_libs_m}"
 
       python_old_ldflags=${LDFLAGS}
       LDFLAGS="${LDFLAGS} ${python_libs_cflags} -L${python_exec_prefix}/lib/python${python_version}/config ${python_libs}"
