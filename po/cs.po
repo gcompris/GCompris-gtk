@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-25 19:03+0100\n"
-"PO-Revision-Date: 2005-03-26 01:11+0100\n"
+"POT-Creation-Date: 2005-03-31 03:01+0200\n"
+"PO-Revision-Date: 2005-03-31 10:45+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -592,8 +592,9 @@ msgstr "Poslat kouli Tuxovi"
 
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
-#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
+#: boards/clickgame.xml.in.h:6 boards/connect4.xml.in.h:6
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulace s myší"
 
@@ -982,6 +983,29 @@ msgstr "Jít na aktivity s barvami"
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
 msgstr "Poznávat počítač"
+
+#: boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "Uspořádat čtyři mince do řady"
+
+#: boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr "Klikni kdekoli ve sloupci, kde chceš pustit kámen"
+
+#: boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "Spojit 4"
+
+#: boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr "Vytvořit řadu 4 kamenů buď vodorovně nebo svisle"
+
+#: boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
+msgstr "Laurent Lacheny. Obrázky a umělá inteligence převzaty z projektu 4stattack od Jeroen Vloothuis. Původní projekt najdete na http://forcedattack.sourceforge.net"
 
 #: boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2701,9 +2725,9 @@ msgstr "Několik činností pro děti"
 #: src/boards/advanced_colors.c:533 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:492
 #: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
-#: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
-#: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
-#: src/gcompris/images_selector.c:654 src/gcompris/skin.c:83
+#: src/gcompris/gameutil.c:130 src/gcompris/gameutil.c:519
+#: src/gcompris/gameutil.c:520 src/gcompris/gcompris.c:474
+#: src/gcompris/images_selector.c:754 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -3237,8 +3261,8 @@ msgid "Help"
 msgstr "Nápověda"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:210
-#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:261
+#: src/gcompris/gameutil.c:900 src/gcompris/help.c:329
+#: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
 
@@ -3503,15 +3527,15 @@ msgstr "NAČÍST"
 msgid "SAVE"
 msgstr "ULOŽIT"
 
-#: src/gcompris/gameutil.c:129
+#: src/gcompris/gameutil.c:133
 msgid "Couldn't find file"
 msgstr "Nemohu najít soubor"
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:135
 msgid "This activity is incomplete."
 msgstr "Tato aktivita není dokončena."
 
-#: src/gcompris/gameutil.c:132
+#: src/gcompris/gameutil.c:136
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3519,43 +3543,43 @@ msgstr ""
 "Ukončete ji a nahlaste\n"
 "problém autorům"
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:90
 msgid "run gcompris in fullscreen mode."
 msgstr "spustit gcompris v režimu přes celou obrazovku."
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:92
 msgid "run gcompris in window mode."
 msgstr "spustit gcompris v režimu okna."
 
-#: src/gcompris/gcompris.c:86
+#: src/gcompris/gcompris.c:94
 msgid "run gcompris with sound enabled."
 msgstr "spustit gcompris s povolenými zvuky."
 
-#: src/gcompris/gcompris.c:88
+#: src/gcompris/gcompris.c:96
 msgid "run gcompris without sound."
 msgstr "spustit gcompris bez zvuku."
 
-#: src/gcompris/gcompris.c:90
+#: src/gcompris/gcompris.c:98
 msgid "run gcompris with the default gnome cursor."
 msgstr "spustit gcompris s implicitním kurzorem gnome."
 
-#: src/gcompris/gcompris.c:92
+#: src/gcompris/gcompris.c:100
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: src/gcompris/gcompris.c:94
+#: src/gcompris/gcompris.c:102
 msgid "display debug informations on the console."
 msgstr "zobrazovat ladicí informace na konzole."
 
-#: src/gcompris/gcompris.c:96
+#: src/gcompris/gcompris.c:104
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: src/gcompris/gcompris.c:98
+#: src/gcompris/gcompris.c:106
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:583
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3568,7 +3592,7 @@ msgid ""
 "http://www.fsf.org/philosophy"
 msgstr ""
 
-#: src/gcompris/gcompris.c:736
+#: src/gcompris/gcompris.c:831
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3596,6 +3620,26 @@ msgstr "Manuál"
 #: src/gcompris/help.c:254 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Kredity"
+
+#: src/gcompris/images_selector.c:294
+#, c-format
+msgid "dataset %s is a directory. Trying to read xml "
+msgstr "dataset %s je adresář. Zkouším číst xml "
+
+#: src/gcompris/images_selector.c:629
+#, c-format
+msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
+msgstr "ImageSet %s cesta k domovu %s obrázek nenalezen. Přeskakuji ImageSet...\n"
+
+#: src/gcompris/images_selector.c:664
+#, c-format
+msgid "ImageSet %s image not found. Skipping ImageSet...\n"
+msgstr "ImageSet %s obrázek nenalezen. Přeskakuji ImageSet...\n"
+
+#: src/gcompris/images_selector.c:690
+#, c-format
+msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
+msgstr "ImageSet %s adresář %s nenalezen. Přeskakuji celou ImageSet...\n"
 
 #: src/gcompris/interface.c:104
 msgid "Gcompris Editor"
