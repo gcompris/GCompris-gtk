@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-09 10:54+0100\n"
-"PO-Revision-Date: 2004-11-09 14:31+0100\n"
+"POT-Creation-Date: 2004-11-18 10:54+0100\n"
+"PO-Revision-Date: 2004-11-18 14:18+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2391,7 +2391,7 @@ msgstr ""
 "Tux se vrátil z dlouhého rybaření na své lodi. Oprav vodovod, aby se mohl "
 "osprchovat."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Padající slovo"
 
@@ -2538,9 +2538,10 @@ msgstr ""
 "Zvuk povolte v dialogu\n"
 "nastavení"
 
-#: src/boards/click_on_letter.c:280
-msgid "abcdefghijklmnopqrstufw"
-msgstr "abcdefghijklmnopqrstufw"
+#. TRANSLATORS: Put here the alphabet in your language
+#: src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuvwxyýzž"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2751,7 +2752,7 @@ msgstr "Ale nebylo zobrazeno"
 msgid "And it was displayed"
 msgstr "A bylo zobrazeno"
 
-#: src/boards/reading.c:748
+#: src/boards/reading.c:748 src/boards/wordsgame.c:760
 msgid "Cannot open file of words for your locale"
 msgstr "Nemohu otevřít soubor slov pro vaše locale"
 
@@ -2819,7 +2820,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Vzdálenost k cíli = %d metrů"
 
-#: src/boards/wordsgame.c:88
+#: src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Napiš padající slova, než se dotknou země"
 
