@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-19 11:58+0200\n"
+"POT-Creation-Date: 2004-09-26 12:33+0200\n"
 "PO-Revision-Date: 2003-10-31 15:35+0100\n"
 "Last-Translator: Gnome PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -674,7 +674,6 @@ msgstr ""
 "Umieść wszystkie obrazy nad datami ich utworzenia. Jeżeli nie masz pewności, "
 "sprawdź w wikipedi pod adresem http://www.wikipedia.org"
 
-# FIXME - ciekawe czy nie skoliduje
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
 #: boards/chronos/board3_4.xml.in.h:1
@@ -844,11 +843,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr "Kliknij na elemencie i wysłuchaj jego pozycji docelowej"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:213
+#: boards/draw.xml.in.h:1 src/boards/draw.c:215
 msgid "A simple vector drawing tool"
 msgstr "Proste narzędzie do rysowania"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:214
+#: boards/draw.xml.in.h:2 src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
 msgstr "Pomysłowa tablica, na której możesz swobodnie rysować"
 
@@ -926,6 +925,28 @@ msgstr "Ruszaj myszką, aż znikną wszystkie prostokąty."
 msgid "Go to experiences activities"
 msgstr "Idź do gier zaawansowanych"
 
+#: boards/followline.xml.in.h:1
+msgid "Emerge the pipe"
+msgstr "Odetkaj rurę"
+
+#: boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr "Dobra koordynacja ruchowa"
+
+#: boards/followline.xml.in.h:3
+msgid ""
+"Move the mouse over the red part of the pipe. This will emerge it, part by "
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
+msgstr ""
+"Przesuń kursor myszy nad czerwoną część rury. Spowoduje to odetkanie jej, "
+"krok po kroku, aż do kwaitków. Uważaj, jeżeli przsuniesz się poza rurę, "
+"czerwona część powróci na swoje początkowe miejsce."
+
+#: boards/followline.xml.in.h:4
+msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
+msgstr "Tux musi podlać kwiaty, ale rura jest zatkana"
+
 #: boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
@@ -962,25 +983,297 @@ msgstr "Rozmieść lądy"
 msgid "Continents"
 msgstr "Kontynenty"
 
+#: boards/geography/board1_0.xml.in.h:2
+msgid "africa"
+msgstr "Afryka"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "america"
+msgstr "Ameryka"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "antartica"
+msgstr "Antarktyda"
+
+#: boards/geography/board1_0.xml.in.h:5
+msgid "asia"
+msgstr "Azja"
+
+#: boards/geography/board1_0.xml.in.h:6
+msgid "europa"
+msgstr "Europa"
+
+#: boards/geography/board1_0.xml.in.h:7
+msgid "oceania"
+msgstr "Oceania"
+
 #: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "Ameryka Północna"
+
+#: boards/geography/board2_0.xml.in.h:2
+msgid "alaska"
+msgstr "Alaska"
+
+#: boards/geography/board2_0.xml.in.h:3
+msgid "bahamas"
+msgstr "Wyspy Bahama"
+
+#: boards/geography/board2_0.xml.in.h:4
+msgid "canada"
+msgstr "Kanada"
+
+#: boards/geography/board2_0.xml.in.h:5
+msgid "cuba"
+msgstr "Kuba"
+
+#: boards/geography/board2_0.xml.in.h:6
+msgid "dominican republic"
+msgstr "Dominikana"
+
+#: boards/geography/board2_0.xml.in.h:7
+msgid "greenland"
+msgstr "Grenlandia"
+
+#: boards/geography/board2_0.xml.in.h:8
+msgid "haiti"
+msgstr "Haiti"
+
+#: boards/geography/board2_0.xml.in.h:9 boards/geography/board3_0.xml.in.h:8
+msgid "iceland"
+msgstr "Islandia"
+
+#: boards/geography/board2_0.xml.in.h:10
+msgid "jamaica"
+msgstr "Jamajka"
+
+#: boards/geography/board2_0.xml.in.h:11
+msgid "mexico"
+msgstr "Meksyk"
+
+#: boards/geography/board2_0.xml.in.h:12
+msgid "united state"
+msgstr "Stany Zjednoczone"
 
 #: boards/geography/board2_1.xml.in.h:1
 msgid "South America"
 msgstr "Ameryka Południowa"
 
+#: boards/geography/board2_1.xml.in.h:2
+msgid "argentina"
+msgstr "Argentyna"
+
+#: boards/geography/board2_1.xml.in.h:3
+msgid "bolivia"
+msgstr "Boliwia"
+
+#: boards/geography/board2_1.xml.in.h:4
+msgid "brazil"
+msgstr "Brazylia"
+
+#: boards/geography/board2_1.xml.in.h:5
+msgid "chile"
+msgstr "Chile"
+
+#: boards/geography/board2_1.xml.in.h:6
+msgid "colombia"
+msgstr "Kolumbia"
+
+#: boards/geography/board2_1.xml.in.h:7
+msgid "ecuador"
+msgstr "Ekwador"
+
+#: boards/geography/board2_1.xml.in.h:8
+msgid "french guiana"
+msgstr "Gujana Francuska"
+
+#: boards/geography/board2_1.xml.in.h:9
+msgid "guyana"
+msgstr "Gujana"
+
+#: boards/geography/board2_1.xml.in.h:10
+msgid "panama"
+msgstr "Panama"
+
+#: boards/geography/board2_1.xml.in.h:11
+msgid "paraguay"
+msgstr "Paragwaj"
+
+#: boards/geography/board2_1.xml.in.h:12
+msgid "peru"
+msgstr "Peru"
+
+#: boards/geography/board2_1.xml.in.h:13
+msgid "suriname"
+msgstr "Surinam"
+
+#: boards/geography/board2_1.xml.in.h:14
+msgid "uruguay"
+msgstr "Urugwaj"
+
+#: boards/geography/board2_1.xml.in.h:15
+msgid "venezuela"
+msgstr "Wenezuela"
+
 #: boards/geography/board3_0.xml.in.h:1
 msgid "West Europe"
 msgstr "Europa Zachodnia"
+
+#: boards/geography/board3_0.xml.in.h:2
+msgid "austria"
+msgstr "Austria"
+
+#: boards/geography/board3_0.xml.in.h:3
+msgid "belgium"
+msgstr "Belgia"
+
+#: boards/geography/board3_0.xml.in.h:4
+msgid "denmark"
+msgstr "Dania"
+
+#: boards/geography/board3_0.xml.in.h:5
+msgid "finland"
+msgstr "Finlandia"
+
+#: boards/geography/board3_0.xml.in.h:6
+msgid "france"
+msgstr "Francja"
+
+#: boards/geography/board3_0.xml.in.h:7
+msgid "germany"
+msgstr "Niemcy"
+
+#: boards/geography/board3_0.xml.in.h:9
+msgid "ireland"
+msgstr "Irlandia"
+
+#: boards/geography/board3_0.xml.in.h:10
+msgid "italy"
+msgstr "Włochy"
+
+#: boards/geography/board3_0.xml.in.h:11
+msgid "luxembourg"
+msgstr "Luksemburg"
+
+#: boards/geography/board3_0.xml.in.h:12
+msgid "netherland"
+msgstr "Holandia"
+
+#: boards/geography/board3_0.xml.in.h:13
+msgid "norway"
+msgstr "Norwegia"
+
+#: boards/geography/board3_0.xml.in.h:14
+msgid "portugal"
+msgstr "Portugalia"
+
+#: boards/geography/board3_0.xml.in.h:15
+msgid "spain"
+msgstr "Hiszpania"
+
+#: boards/geography/board3_0.xml.in.h:16
+msgid "sweden"
+msgstr "Szwecja"
+
+#: boards/geography/board3_0.xml.in.h:17
+msgid "switz"
+msgstr "Szwajcaria"
+
+#: boards/geography/board3_0.xml.in.h:18
+msgid "united kingdom"
+msgstr "Wielka Brytania"
 
 #: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr "Europa Wschodnia"
 
-#: boards/geography/board4_0.xml.in.h:1
-msgid "Regions of France"
-msgstr "Regiony Francji"
+#: boards/geography/board3_1.xml.in.h:2
+msgid "albania"
+msgstr "Albania"
+
+#: boards/geography/board3_1.xml.in.h:3
+msgid "belarus"
+msgstr "Białoruś"
+
+#: boards/geography/board3_1.xml.in.h:4
+msgid "bosnia herzegovina"
+msgstr "Bośnia i Hercegowina"
+
+#: boards/geography/board3_1.xml.in.h:5
+msgid "bulgaria"
+msgstr "Bułgaria"
+
+#: boards/geography/board3_1.xml.in.h:6
+msgid "croatia"
+msgstr "Chorwacja"
+
+#: boards/geography/board3_1.xml.in.h:7
+msgid "cyprus"
+msgstr "Cypr"
+
+#: boards/geography/board3_1.xml.in.h:8
+msgid "czech"
+msgstr "Czechy"
+
+#: boards/geography/board3_1.xml.in.h:9
+msgid "estonia"
+msgstr "Estonia"
+
+#: boards/geography/board3_1.xml.in.h:10
+msgid "greece"
+msgstr "Grecja"
+
+#: boards/geography/board3_1.xml.in.h:11
+msgid "hungary"
+msgstr "Węgry"
+
+#: boards/geography/board3_1.xml.in.h:12
+msgid "latvia"
+msgstr "Łotwa"
+
+#: boards/geography/board3_1.xml.in.h:13
+msgid "lithuania"
+msgstr "Litwa"
+
+#: boards/geography/board3_1.xml.in.h:14
+msgid "macedonia"
+msgstr "Macedonia"
+
+#: boards/geography/board3_1.xml.in.h:15
+msgid "moldova"
+msgstr "Mołdawia"
+
+#: boards/geography/board3_1.xml.in.h:16
+msgid "poland"
+msgstr "Polska"
+
+#: boards/geography/board3_1.xml.in.h:17
+msgid "romania"
+msgstr "Rumunia"
+
+#: boards/geography/board3_1.xml.in.h:18
+msgid "russia"
+msgstr "Rosja"
+
+#: boards/geography/board3_1.xml.in.h:19
+msgid "serbia montenegro"
+msgstr "Serbia i Czarnogóra"
+
+#: boards/geography/board3_1.xml.in.h:20
+msgid "slovakia"
+msgstr "Słowacja"
+
+#: boards/geography/board3_1.xml.in.h:21
+msgid "slovenia"
+msgstr "Słowenia"
+
+#: boards/geography/board3_1.xml.in.h:22
+msgid "turkey"
+msgstr "Turcja"
+
+#: boards/geography/board3_1.xml.in.h:23
+msgid "ukraine"
+msgstr "Ukraina"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1651,7 +1944,7 @@ msgstr ""
 "Przeciągnij elementy obrazka z lewej strony, by utworzyć obraz na głównej "
 "planszy."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
 msgid "Make the puzzle"
 msgstr "Zrób układankę"
 
@@ -1924,13 +2217,12 @@ msgstr ""
 #: boards/reversecount.xml.in.h:2
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
-"fish. Click the dict with the right mouse button to coun backwards. When "
+"fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
-"Najpierw policz ile przerębli dzieli Tuxa od ryb. Następnie kliknij na "
-"kostkę, by wybrać właściwą liczbę. Możesz użyć prawego przycisku myszki aby "
-"obrócić kostkę w drugą stronę. Kliknij przycisk\"OK\" lub naciśnij klawisz "
-"\"ENTER\" by potwierdzić swój wybór."
+"Kliknij na kostce aby pokazać ile przerębli dzieli Tuxa od ryb. Możesz użyć "
+"prawego przycisku myszki aby obrócić kostkę w drugą stronę. Kliknij przycisk "
+"\"OK\" lub naciśnij klawisz \"ENTER\" by potwierdzić swój wybór."
 
 #: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice substraction with a funny game"
@@ -1974,11 +2266,11 @@ msgstr ""
 
 #: boards/scalesboard.xml.in.h:4
 msgid ""
-"To balance the scales, move the masses on the left. left side. The masses "
-"can be arranged in any order."
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
 msgstr ""
-"Aby wyrównać ramię wagi przesuń odważniki na lewą szalkę. Odważniki mogą być "
-"ustawione w dowolnej kolejności."
+"Aby wyrównać ramię wagi, przesuń odważniki na lewą szalkę. Odważniki mogą "
+"być ustawione w dowolnej kolejności."
 
 #: boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
@@ -2150,7 +2442,7 @@ msgstr "Pakiet edukacyjny gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/boards/shapegame.c:1848 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2160,7 +2452,7 @@ msgstr "Nie można znaleźć pliku %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1766
+#: src/boards/shapegame.c:1851
 #, c-format
 msgid "find file %s !"
 msgstr "znajdź plik %s !"
@@ -2443,12 +2735,12 @@ msgstr "Błąd: Plik słów używany dla bieżących ustawień języka jest uszk
 msgid "Reverse count"
 msgstr "Liczenie w odwrotnej kolejności"
 
-#: src/boards/shapegame.c:162
+#: src/boards/shapegame.c:169
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Przeciągaj i upuszczaj elementy, by odbudować obiekt"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:409
+#: src/boards/shapegame.c:416
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2460,7 +2752,7 @@ msgstr ""
 "- wciśnij \"s\" by zachować,\n"
 "\"d\" by wyświetlić wszystkie kształty."
 
-#: src/boards/shapegame.c:417
+#: src/boards/shapegame.c:424
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2550,7 +2842,7 @@ msgid "Help"
 msgstr "Pomoc"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:203
-#: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
+#: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2872,12 +3164,12 @@ msgstr ""
 #, c-format
 msgid ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "Licence: GPL\n"
-"More info at http://ofset.sourceforge.net/gcompris\n"
+"More info at http://www.ofset.org/gcompris\n"
 msgstr ""
 "GCompris\n"
-"Wersja: %d\n"
+"Wersja: %s\n"
 "Licencja: GPL\n"
 "Więcej informacji na http://ofset.sourceforge.net/gcompris\n"
 
@@ -2970,6 +3262,9 @@ msgstr "Czas minął"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Pozostały czas = %d"
+
+#~ msgid "Regions of France"
+#~ msgstr "Regiony Francji"
 
 #~ msgid ""
 #~ "Try to find the strawberry under the blue fields. The closer you get, the "
