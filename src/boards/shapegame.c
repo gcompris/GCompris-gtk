@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/02/03 21:50:51 bruno>
+ * Time-stamp: <2002/02/17 20:43:49 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -172,6 +172,7 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+  gchar *filename = NULL;
 
   if(agcomprisBoard!=NULL)
     {
@@ -180,12 +181,32 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-shapebg.jpg");
 
       /* set initial values for this level */
-      gcomprisBoard->level = 0;
-      gcomprisBoard->maxlevel=4;
+      gcomprisBoard->level = 1;
+
+      /* Calculate the maxlevel based on the available data file for this board */
+      gcomprisBoard->maxlevel=1;
+      filename = g_strdup_printf("%s/%s/board%d_0.xml",
+				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
+				 gcomprisBoard->maxlevel);
+      while(g_file_exists(filename))
+	{
+	  gcomprisBoard->maxlevel++;
+	
+	  filename = g_strdup_printf("%s/%s/board%d_0.xml",
+				     PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
+				     gcomprisBoard->maxlevel);
+	}
+      gcomprisBoard->maxlevel--;
+      printf("maxlevel = %d\n", gcomprisBoard->maxlevel);
+
+      g_free(filename);
+      
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
-      gcomprisBoard->number_of_sublevel=6;
       gcomprisBoard->sublevel = 0;
+
+      /* In this board, the sublevels are dynamicaly discovered based on data files */
+      gcomprisBoard->number_of_sublevel=G_MAXINT;
 
       shapegame_next_level();
 

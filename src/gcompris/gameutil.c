@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/02/12 19:47:08 bcoudoin>
+ * Time-stamp: <2002/02/17 19:48:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -31,13 +31,6 @@
 
 /* default gnome pixmap directory in which this game tales the icon */
 static char *lettersdir = "letters/";
-//static pid_t ogg_pid = 0;
-//static gboolean ogg_playing = FALSE;
-
-static gboolean sound_playing_1 = FALSE;
-static gboolean sound_playing_2 = FALSE;
-static pid_t sound_pid_1 = 0;
-static pid_t sound_pid_2 = 0;
 
 extern GnomeCanvas *canvas;
 

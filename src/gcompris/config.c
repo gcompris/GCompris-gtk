@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/02/06 20:30:19 bcoudoin>
+ * Time-stamp: <2002/02/17 21:34:46 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -377,7 +377,7 @@ static gchar *get_locale_name(gchar *locale)
   while(linguas[i] != NULL)
     {
       if(!strncmp(locale, linguas[i], 2))
-	return(linguas[i+1]);
+	return(gettext(linguas[i+1]));
 
       i=i+2;
     }

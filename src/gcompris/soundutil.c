@@ -1,8 +1,8 @@
-/* gcompris - gameutil.c
+/* gcompris - soundutil.c
  *
- * Time-stamp: <2002/02/12 19:47:08 bcoudoin>
+ * Time-stamp: <2002/02/17 20:02:23 bruno>
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000 Pascal Georges
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -21,10 +21,10 @@
 
 #include "gcompris.h"
 
-static gboolean sound_playing_1 = FALSE;
-static gboolean sound_playing_2 = FALSE;
-static pid_t sound_pid_1 = 0;
-static pid_t sound_pid_2 = 0;
+static gboolean	 sound_playing_1 = FALSE;
+static gboolean	 sound_playing_2 = FALSE;
+static pid_t	 sound_pid_1 = 0;
+static pid_t	 sound_pid_2 = 0;
 
 typedef void (*sighandler_t)(int);
 
@@ -37,14 +37,14 @@ void zombie_cleanup(void)
 
   while((pid = waitpid(-1, NULL, WNOHANG)))
     {
-		  if (pid == sound_pid_1)
-				sound_playing_1 = FALSE;
+      if (pid == sound_pid_1)
+	sound_playing_1 = FALSE;
 
-		  if (pid == sound_pid_2)
-				sound_playing_2 = FALSE;
+      if (pid == sound_pid_2)
+	sound_playing_2 = FALSE;
 
       if(pid == -1)
-	  		g_error("Error waitpid");
+	g_error("Error waitpid");
 
     }
 }
@@ -57,15 +57,15 @@ void child_end(int  signum)
 {
   int pid;
 
-	pid = waitpid(-1, NULL, WNOHANG);
+  pid = waitpid(-1, NULL, WNOHANG);
   if (pid == sound_pid_1)
-		sound_playing_1 = FALSE;
-
+    sound_playing_1 = FALSE;
+  
   if (pid == sound_pid_2)
-		sound_playing_2 = FALSE;
-
-	if (pid == -1)
-      g_error("Error waitpid");
+    sound_playing_2 = FALSE;
+  
+  if (pid == -1)
+    g_error("Error waitpid");
 }
 
 /* =====================================================================
@@ -83,33 +83,33 @@ void gcompris_play_ogg(char *sound, ...) {
   char locale[3];
   int argc = 0;
   pid_t pid = 0;
-	pid_t *ppid = NULL;
+  pid_t *ppid = NULL;
 
-	if (!gcompris_get_properties()->fx)
+  if (!gcompris_get_properties()->fx)
     return;
 
-	/* Only 2 sounds can be played : the current one and a pending.
-	 * The pending sound is the last coming in.
- 	 */
-	assert( (!sound_playing_1) || (sound_playing_1 && !sound_playing_2) || (sound_playing_1 && sound_playing_2));
+  /* Only 2 sounds can be played : the current one and a pending.
+   * The pending sound is the last coming in.
+   */
+  assert( (!sound_playing_1) || (sound_playing_1 && !sound_playing_2) || (sound_playing_1 && sound_playing_2));
 
   if (!sound_playing_1) {
-		ppid = &sound_pid_1;
-		sound_playing_1 = TRUE;
-	} else {
-			ppid = &sound_pid_2;
-			if (sound_playing_2) { //sound_playing_1 && sound_playing_2
-				// kill the last pending sound
-				if (kill(sound_pid_2, SIGKILL) != 0) {
-					perror("Kill failed:");
-				}
-				sound_playing_2 = TRUE;
-			} else { //sound_playing_1 && !sound_playing_2
-					sound_playing_2 = TRUE;
-				}
-		}
+    ppid = &sound_pid_1;
+    sound_playing_1 = TRUE;
+  } else {
+    ppid = &sound_pid_2;
+    if (sound_playing_2) { //sound_playing_1 && sound_playing_2
+      // kill the last pending sound
+      if (kill(sound_pid_2, SIGKILL) != 0) {
+	perror("Kill failed:");
+      }
+      sound_playing_2 = TRUE;
+    } else { //sound_playing_1 && !sound_playing_2
+      sound_playing_2 = TRUE;
+    }
+  }
 
-	assert(ppid != NULL);
+  assert(ppid != NULL);
 
   strncpy(locale,gcompris_get_locale(),2);
   locale[2] = 0; // because strncpy does not put a '\0' at the end of the string

@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2002/01/13 22:42:18 bruno>
+ * Time-stamp: <2002/02/17 21:20:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -31,7 +31,6 @@ static GList *item2del_list = NULL;
 static GcomprisBoard *gcomprisBoard = NULL;
 
 static gint dummy_id = 0;
-static gint drop_cloud_id = 0;
 static gint drop_tux_id = 0;
 
 static GnomeCanvasItem *seaitem = NULL;
@@ -147,10 +146,6 @@ static void pause_board (gboolean pause)
 	gtk_timeout_remove (dummy_id);
 	dummy_id = 0;
       }
-      if (drop_cloud_id) {
-	gtk_timeout_remove (drop_cloud_id);
-	drop_cloud_id = 0;
-      }
       if (drop_tux_id) {
 	gtk_timeout_remove (drop_tux_id);
 	drop_tux_id = 0;
@@ -169,10 +164,6 @@ static void pause_board (gboolean pause)
 	}
 
       // Unpause code
-      if(!drop_cloud_id) {
-	drop_cloud_id = gtk_timeout_add (1000,
-					 (GtkFunction) paratrooper_drop_clouds, NULL);
-      }
       if(!dummy_id) {
 	dummy_id = gtk_timeout_add (1000, (GtkFunction) paratrooper_move_items, NULL);
       }
@@ -312,11 +303,11 @@ gint key_press(guint keyval)
     case GDK_Left:
       break;
     case GDK_Up:
-      if(paratrooperItem.speed > 3)
+      if(paratrooperItem.speed >= 3)
 	paratrooperItem.speed--;
       return TRUE;
     case GDK_Down:
-      if(paratrooperItem.speed < 6)
+      if(paratrooperItem.speed <= 6)
       paratrooperItem.speed++;
       return TRUE;
     }
@@ -391,12 +382,9 @@ static void paratrooper_next_level()
   if(rand()%2==0)
     windspeed *= -1;
 
-  /* Reset the cloud timer to be sure to launch a new cloud asap */
-  if(drop_cloud_id)
-    gtk_timeout_remove (drop_cloud_id);
-
-  drop_cloud_id = gtk_timeout_add (200,
-				   (GtkFunction) paratrooper_drop_clouds, NULL);
+  /* Drop a cloud */
+  gtk_timeout_add (200,
+		   (GtkFunction) paratrooper_drop_clouds, NULL);
 
   /* Display the target */
   g_free(str);
@@ -527,16 +515,16 @@ static void paratrooper_move_cloud(CloudItem *clouditem)
 				   &y1,
 				   &x2,
 				   &y2);
-  
-  if((windspeed<0 && x2<0) || (windspeed>0 && x1>gcomprisBoard->width))
+
+  /* Manage the wrapping for the cloud */  
+  if(windspeed<0 && x2<0)
     {
-      item2del_list = g_list_append (item2del_list, clouditem);
-
-      /* Move cloud rearm */
-      drop_cloud_id = gtk_timeout_add (200,
-				       (GtkFunction) paratrooper_drop_clouds, NULL);
+      gnome_canvas_item_move(item, gcomprisBoard->width, 0.0);
     }
-
+  else if(windspeed>0 && x1>gcomprisBoard->width)
+    {
+      gnome_canvas_item_move(item, -gcomprisBoard->width, 0.0);
+    }
 }
 
 static void paratrooper_destroy_item(CloudItem *clouditem)
