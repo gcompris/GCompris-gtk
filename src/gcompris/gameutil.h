@@ -48,6 +48,8 @@ void		 gcompris_load_menus();
 
 gchar		*convertUTF8Toisolat1(gchar * text);
 void		 item_absolute_move(GnomeCanvasItem *item, int x, int y);
+void	item_rotate(GnomeCanvasItem *item, double angle);
+void	item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y);
 
 typedef void     (*DialogBoxCallBack)     ();
 void		 gcompris_dialog(gchar *str, DialogBoxCallBack dbcb);
