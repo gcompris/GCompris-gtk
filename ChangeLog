@@ -1,3 +1,10 @@
+2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
+
+	* macros, intl: removed from CVS, use more up-to-ate ones from
+	gnome-common.
+	* intltool-*.in, ABOUT-NLS, aclocal.m4, config.h.in, ltmain.sh:
+	remove files from CVS, they are created by autogen.sh
+
 2002-02-24  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/draw.c: New cursors. Now lines can be moved in all directions.
