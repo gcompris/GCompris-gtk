@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-01-29 21:42+0100\n"
-"PO-Revision-Date: 2002-01-09 00:08+0100\n"
+"POT-Creation-Date: 2003-02-11 02:10+0100\n"
+"PO-Revision-Date: 2003-02-11 02:12+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -158,31 +158,31 @@ msgstr "ljust gulbrun"
 
 #: boards/advanced_colors/board4.xml.in.h:6
 msgid "fuchsia"
-msgstr ""
+msgstr "fuchsia"
 
 #: boards/advanced_colors/board4.xml.in.h:7
 msgid "glaucous"
-msgstr ""
+msgstr "sjögrön"
 
 #: boards/advanced_colors/board4.xml.in.h:8
 msgid "ruby"
-msgstr ""
+msgstr "rubin"
 
 #: boards/advanced_colors/board5.xml.in.h:2
 msgid "auburn"
-msgstr ""
+msgstr "kastanjebrun"
 
 #: boards/advanced_colors/board5.xml.in.h:3
 msgid "azure"
-msgstr ""
+msgstr "azurblå"
 
 #: boards/advanced_colors/board5.xml.in.h:4
 msgid "bistre"
-msgstr ""
+msgstr "bisterfärgad"
 
 #: boards/advanced_colors/board5.xml.in.h:5
 msgid "celadon"
-msgstr ""
+msgstr "blekgrön"
 
 #: boards/advanced_colors/board5.xml.in.h:6
 msgid "cerulean"
@@ -290,7 +290,7 @@ msgstr ""
 
 #: boards/advanced_colors/board9.xml.in.h:1
 msgid "dark purple"
-msgstr ""
+msgstr "mörklila"
 
 #: boards/advanced_colors/board9.xml.in.h:2
 msgid "plum"
@@ -464,7 +464,7 @@ msgstr "Passande föremål"
 
 #: boards/babymatch.xml.in.h:4
 msgid "Motor coordination. Concept match."
-msgstr ""
+msgstr "Motorik. Conceptmatchning."
 
 #: boards/babymatch.xml.in.h:5 boards/paintings.xml.in.h:4
 msgid "Mouse manipulation: movement, drag and drop"
@@ -484,19 +484,19 @@ msgstr "Bra muskontroll"
 
 #: boards/babyshapes.xml.in.h:4
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr ""
+msgstr "Hunden har tillhandahållits av Andre Connes och är släppt under GPL"
 
 #: boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr ""
+msgstr "Hej! Jag heter Sluss."
 
 #: boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on grass."
-msgstr ""
+msgstr "Sluss på gräs."
 
 #: boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
-msgstr ""
+msgstr "Sluss med färgade former."
 
 #: boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -504,7 +504,7 @@ msgstr "Gå till brädbaserade aktiviteter"
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
 msgid "Operate a canal lock"
-msgstr ""
+msgstr "Styr en sluss"
 
 #: boards/canal_lock.xml.in.h:2
 msgid ""
@@ -609,13 +609,12 @@ msgstr ""
 "Vänsterklicka med musen på alla simmande fiskar innan de lämnar akvariet"
 
 #: boards/clickgame.xml.in.h:4
-#, fuzzy
 msgid ""
 "Motor coordination: mouse mouvement and mouse click. The goal is just to "
 "click with the left mouse button on the moving fish."
 msgstr ""
-"I detta spel kommer barnen att upptäcka klicket på datormusen. Målet är bara "
-"att klicka med vänstra musknappen på fiskarna som rör sig."
+"Motorik: musrörelse och musklick. Målet är bara att klicka med vänstra "
+"musknappen på fiskarna som rör sig."
 
 #: boards/clockgame.xml.in.h:1
 msgid ""
@@ -675,24 +674,28 @@ msgstr "Upptäck datorn"
 msgid "Basic counting skills"
 msgstr "Grundläggande räknekunskaper"
 
+# Osäker
 #: boards/doubleentry.xml.in.h:2
 msgid "Double entry table"
-msgstr ""
+msgstr "Dubbelposttabell"
 
 #: boards/doubleentry.xml.in.h:3
 msgid "Drag and Drop proposed items to their destination"
 msgstr "Dra och släpp föremål till deras mål"
 
+# Osäker
 #: boards/doubleentry.xml.in.h:4
-#, fuzzy
 msgid "Drag and Drop the items in the double entry table"
-msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
+msgstr "Dra och släpp föremålen i dubbelposttabellen"
 
+# Osäker
 #: boards/doubleentry.xml.in.h:5
 msgid ""
 "The children must move the items on the left to their proper destination in "
 "the double entry table."
 msgstr ""
+"Barnen måste flytta objekten till vänster till deras riktiga plats i "
+"dubbelposttabellen."
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:197
 msgid "A simple vector drawing tool"
@@ -717,7 +720,6 @@ msgid "Needs to handle the mouse with the click easily"
 msgstr "Måste enkelt kunna hantera klicket med musen"
 
 #: boards/draw.xml.in.h:5
-#, fuzzy
 msgid ""
 "On the left select a drawing tool, on the bottom select a color then click "
 "on the white area and drag to create a new shape. To go faster, you can use "
@@ -725,8 +727,7 @@ msgid ""
 msgstr ""
 "På vänstra sidan väljer du ett ritverktyg, sedan väljer du en färg nederst, "
 "och sedan klickar du på den vita ytan och drar för att skapa en ny form. För "
-"att snabba upp kan du använda musens mittknapp för att ta bort ett objekt "
-"eller höger musknapp för att flytta ett objekt."
+"att snabba upp kan du använda musens mittknapp för att ta bort ett objekt."
 
 #: boards/enumerate.xml.in.h:1
 msgid "Count the items"
@@ -867,14 +868,12 @@ msgid "car"
 msgstr "bil"
 
 #: boards/imageid/board1.xml.in.h:13
-#, fuzzy
 msgid "cat"
-msgstr "slott"
+msgstr "katt"
 
 #: boards/imageid/board1.xml.in.h:14
-#, fuzzy
 msgid "catch"
-msgstr "skolväska"
+msgstr "fånga"
 
 #: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
@@ -886,16 +885,15 @@ msgstr "ko"
 
 #: boards/imageid/board1.xml.in.h:17
 msgid "dog"
-msgstr ""
+msgstr "hund"
 
 #: boards/imageid/board1.xml.in.h:18
-#, fuzzy
 msgid "finish"
-msgstr "Finska"
+msgstr "mål"
 
 #: boards/imageid/board1.xml.in.h:19
 msgid "fish"
-msgstr ""
+msgstr "fisk"
 
 #: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
@@ -906,9 +904,8 @@ msgid "pear"
 msgstr "päron"
 
 #: boards/imageid/board1.xml.in.h:22
-#, fuzzy
 msgid "plane"
-msgstr "äpple"
+msgstr "flygplan"
 
 #: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
@@ -1161,7 +1158,6 @@ msgstr ""
 "proprietära spel"
 
 #: boards/menu.xml.in.h:5
-#, fuzzy
 msgid ""
 "To use it, a simple click on an icon brings you to an activity or a menu. At "
 "the bottom of the screen, you have the gcompris control bar. From right to "
@@ -1211,167 +1207,144 @@ msgid "apple/_pple/a/i/o"
 msgstr "äpple/_pple/ä/i/ö"
 
 #: boards/missing_letter/board1.xml.in.h:2
-#, fuzzy
 msgid "apple/app_e/l/h/n"
-msgstr "äpple/_pple/ä/i/ö"
+msgstr "äpple/äpp_e/l/h/n"
 
 #: boards/missing_letter/board1.xml.in.h:3
-#, fuzzy
 msgid "apple/appl_/e/h/a"
-msgstr "äpple/_pple/ä/i/ö"
+msgstr "äpple/äppl_/e/h/a"
 
 #: boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
 msgstr "boll/_oll/b/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:5
-#, fuzzy
 msgid "ball/b_ll/a/u/o"
-msgstr "boll/_oll/b/p/d"
+msgstr "boll/b_ll/o/u/a"
 
 #: boards/missing_letter/board1.xml.in.h:6
-#, fuzzy
 msgid "ball/bal_/l/h/s"
-msgstr "boll/_oll/b/p/d"
+msgstr "boll/bol_/l/h/s"
 
 #: boards/missing_letter/board1.xml.in.h:7
-#, fuzzy
 msgid "banana/_anana/b/p/d"
-msgstr "banan/b_nan/a/o/i"
+msgstr "banan/_anan/b/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:8
 msgid "banana/b_nana/a/o/i"
 msgstr "banan/b_nan/a/o/i"
 
 #: boards/missing_letter/board1.xml.in.h:9
-#, fuzzy
 msgid "banana/ba_ana/n/m/b"
-msgstr "banan/b_nan/a/o/i"
+msgstr "banan/ba_an/n/m/b"
 
 #: boards/missing_letter/board1.xml.in.h:10
 msgid "bed/_ed/b/l/f"
 msgstr "säng/_äng/s/l/f"
 
 #: boards/missing_letter/board1.xml.in.h:11
-#, fuzzy
 msgid "bed/b_d/e/a/i"
-msgstr "säng/_äng/s/l/f"
+msgstr "säng/s_ng/ä/e/i"
 
 #: boards/missing_letter/board1.xml.in.h:12
-#, fuzzy
 msgid "bed/be_/d/p/b"
-msgstr "säng/_äng/s/l/f"
+msgstr "säng/sän_/g/p/b"
 
 #: boards/missing_letter/board1.xml.in.h:13
 msgid "bottle/_ottle/b/t/p"
 msgstr "flaska/_laska/f/t/k"
 
 #: boards/missing_letter/board1.xml.in.h:14
-#, fuzzy
 msgid "bottle/b_ttle/o/u/d"
-msgstr "flaska/_laska/f/t/k"
+msgstr "flaska/fl_ska/a/u/d"
 
 #: boards/missing_letter/board1.xml.in.h:15
-#, fuzzy
 msgid "bottle/bott_e/l/y/r"
-msgstr "flaska/_laska/f/t/k"
+msgstr "flaska/flas_a/k/y/r"
 
 #: boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
 msgstr "kaka/_aka/k/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:17
-#, fuzzy
 msgid "cake/c_ke/a/o/e"
-msgstr "kaka/_aka/k/p/d"
+msgstr "kaka/k_ka/a/ö/e"
 
 #: boards/missing_letter/board1.xml.in.h:18
-#, fuzzy
 msgid "cake/ca_e/k/q/c"
-msgstr "kaka/_aka/k/p/d"
+msgstr "kaka/ka_a/k/q/t"
 
 #: boards/missing_letter/board1.xml.in.h:19
-#, fuzzy
 msgid "car/_ar/c/k/b"
-msgstr "kaka/_aka/k/p/d"
+msgstr "bil/_il/b/v/c"
 
 #: boards/missing_letter/board1.xml.in.h:20
-#, fuzzy
 msgid "car/c_r/a/k/o"
-msgstr "kaka/_aka/k/p/d"
+msgstr "bil/b_l/i/k/o"
 
 #: boards/missing_letter/board1.xml.in.h:21
-#, fuzzy
 msgid "car/ca_/r/w/k"
-msgstr "kaka/_aka/k/p/d"
+msgstr "bil/bi_/l/r/k"
 
 #: boards/missing_letter/board1.xml.in.h:22
-#, fuzzy
 msgid "dog/_og/d/p/q"
-msgstr "säng/_äng/s/l/f"
+msgstr "hund/_und/h/d/f"
 
 #: boards/missing_letter/board1.xml.in.h:23
 msgid "dog/d_g/o/g/a"
-msgstr ""
+msgstr "hund/h_nd/u/g/o"
 
 #: boards/missing_letter/board1.xml.in.h:24
 msgid "dog/do_/g/p/q"
-msgstr ""
+msgstr "hund/hun_/d/l/p"
 
 #: boards/missing_letter/board1.xml.in.h:25
 msgid "fish/_ish/f/h/l"
-msgstr ""
+msgstr "fisk/_isk/f/h/l"
 
 #: boards/missing_letter/board1.xml.in.h:26
 msgid "fish/f_sh/i/u/l"
-msgstr ""
+msgstr "fisk/f_sk/i/a/l"
 
 #: boards/missing_letter/board1.xml.in.h:27
 msgid "fish/fis_/h/o/i"
-msgstr ""
+msgstr "fisk/fis_/k/o/i"
 
 #: boards/missing_letter/board1.xml.in.h:28
-#, fuzzy
 msgid "house/_ouse/h/e/j"
-msgstr "hus/h_s/u/ä/i"
+msgstr "hus/_us/h/e/j"
 
 #: boards/missing_letter/board1.xml.in.h:29
-#, fuzzy
 msgid "house/h_use/o/f/u"
 msgstr "hus/h_s/u/ä/i"
 
 #: boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
-msgstr "hus/h_s/u/ä/i"
+msgstr "hus/hu_/s/p/t"
 
 #: boards/missing_letter/board1.xml.in.h:31
-#, fuzzy
 msgid "plane/_lane/p/g/d"
-msgstr "kaka/_aka/k/p/d"
+msgstr "flygplan/flyg_lan/p/g/d"
 
 #: boards/missing_letter/board1.xml.in.h:32
-#, fuzzy
 msgid "plane/p_ane/l/j/i"
-msgstr "äpple/_pple/ä/i/ö"
+msgstr "flygplan/flygp_an/l/j/i"
 
 #: boards/missing_letter/board1.xml.in.h:33
-#, fuzzy
 msgid "plane/pl_ne/a/o/s"
-msgstr "äpple/_pple/ä/i/ö"
+msgstr "flygplan/flygpl_n/a/o/s"
 
 #: boards/missing_letter/board1.xml.in.h:34
-#, fuzzy
 msgid "satchel/_atchel/s/c/l"
-msgstr "skolväska/sk_lväska/o/a/i"
+msgstr "skolväska/_kolväska/s/t/l"
 
 #: boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
 msgstr "skolväska/sk_lväska/o/a/i"
 
 #: boards/missing_letter/board1.xml.in.h:36
-#, fuzzy
 msgid "satchel/sa_chel/t/p/c"
-msgstr "skolväska/sk_lväska/o/a/i"
+msgstr "skolväska/sko_väska/l/p/t"
 
 #: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
 msgid "Money"
@@ -1404,7 +1377,7 @@ msgstr "Lägg pusslet"
 
 #: boards/paintings.xml.in.h:5
 msgid "Spatial representation"
-msgstr ""
+msgstr "Spatiell representation"
 
 #: boards/paintings/board1_0.xml.in.h:1
 msgid "Edgar Degas, The Dancing Class - 1873"
@@ -1735,7 +1708,7 @@ msgstr "Redigerare för gcompris"
 #: src/boards/shapegame.c:1561 src/boards/traffic.c:622
 #: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
 #: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:255
+#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:265
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
@@ -1839,10 +1812,10 @@ msgstr "vänster"
 msgid "right"
 msgstr "höger"
 
+# Osäker
 #: src/boards/machpuzzle.c:85
-#, fuzzy
 msgid "Move the mouse to machpuzzle the area and discover the background"
-msgstr "Flytta musen för att radera området och upptäck bakgrunden"
+msgstr "Flytta musen för att avpussla området och upptäck bakgrunden"
 
 #: src/boards/memory.c:227
 msgid "Memory"
@@ -1908,7 +1881,7 @@ msgstr "Nej, det fanns inte där"
 
 #: src/boards/reversecount.c:129
 msgid "Reverse count"
-msgstr ""
+msgstr "Omvänd räkning"
 
 #: src/boards/shapegame.c:157
 msgid "Drag and Drop the items to rebuild the object"
@@ -1917,7 +1890,7 @@ msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
 #: src/boards/target.c:324 src/boards/target.c:572
 #, c-format
 msgid "Points = %s"
-msgstr ""
+msgstr "Punkter = %s"
 
 #: src/boards/target.c:441
 #, c-format
@@ -1925,11 +1898,13 @@ msgid ""
 "Wind speed = %d\n"
 "kilometers/hour"
 msgstr ""
+"Vindhastighet = %d\n"
+"kilometer/timme"
 
 #: src/boards/target.c:503
 #, c-format
 msgid "Distance to target = %d meters"
-msgstr ""
+msgstr "Avstånd till målet = %d meter"
 
 #: src/gcompris/about.c:57
 msgid ""
@@ -1962,14 +1937,14 @@ msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc Licens
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:156 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:157 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
 
 #: src/gcompris/config.c:44
 msgid "Amharic"
-msgstr ""
+msgstr "Amhariska"
 
 #: src/gcompris/config.c:45
 msgid "Azerbaijani Turkic"
@@ -2016,9 +1991,8 @@ msgid "Dutch"
 msgstr "Holländska"
 
 #: src/gcompris/config.c:56
-#, fuzzy
 msgid "Portuguese"
-msgstr "Brasiliansk portugisiska"
+msgstr "Portugisiska"
 
 #: src/gcompris/config.c:57
 msgid "Brazil Portuguese"
@@ -2037,42 +2011,46 @@ msgid "Slovak"
 msgstr "Slovakiska"
 
 #: src/gcompris/config.c:61
+msgid "Turkish"
+msgstr "Turkiska"
+
+#: src/gcompris/config.c:62
 msgid "Lithuanian"
 msgstr "Litauiska"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Standard för gcompris)"
 
-#: src/gcompris/config.c:130
+#: src/gcompris/config.c:131
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:236
+#: src/gcompris/config.c:237
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:279
+#: src/gcompris/config.c:280
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:308
 msgid "Effect"
 msgstr "Effekt"
 
@@ -2104,11 +2082,11 @@ msgstr "Skriver ut versionsnumret av "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Använd den kantutjämnade canvasen (långsammare)."
 
-#: src/gcompris/gcompris.c:328
+#: src/gcompris/gcompris.c:327
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:540
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2121,19 +2099,19 @@ msgstr ""
 "Licens: GPL\n"
 "Mer information på http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:168 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Förkunskap"
 
-#: src/gcompris/help.c:202 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Mål"
 
-#: src/gcompris/help.c:236 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:270 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Tack"
 
@@ -2197,6 +2175,120 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid "Azerbaijani"
+#~ msgstr "Azerbadjanska"
+
+#~ msgid "Arabic (Egypt)"
+#~ msgstr "Arabiska (Egypten)"
+
+#~ msgid "Arabic (Lebanon)"
+#~ msgstr "Arabiska (Libanon)"
+
+#~ msgid "Arabic"
+#~ msgstr "Arabiska"
+
+#~ msgid "Basque"
+#~ msgstr "Baskiska"
+
+#~ msgid "Bulgarian"
+#~ msgstr "Bulgariska"
+
+#~ msgid "Catalan"
+#~ msgstr "Katalanska"
+
+#~ msgid "Chinese (simplified)"
+#~ msgstr "Kinesiska (förenklad)"
+
+#~ msgid "Chinese (traditional)"
+#~ msgstr "Kinesiska (traditionell)"
+
+#~ msgid "Chinese"
+#~ msgstr "Kinesiska"
+
+#~ msgid "Croatian"
+#~ msgstr "Kroatiska"
+
+#~ msgid "Czech"
+#~ msgstr "Tjeckiska"
+
+#~ msgid "Danish"
+#~ msgstr "Danska"
+
+#~ msgid "Estonian"
+#~ msgstr "Estniska"
+
+#~ msgid "English (American)"
+#~ msgstr "Engelska (amerikansk)"
+
+#~ msgid "English (Australian)"
+#~ msgstr "Engelska (australiensisk)"
+
+#~ msgid "English (British)"
+#~ msgstr "Engelska (brittisk)"
+
+#~ msgid "English (Ireland)"
+#~ msgstr "Engelska (Irland)"
+
+#~ msgid "Galician"
+#~ msgstr "Galiciska"
+
+#~ msgid "Hebrew"
+#~ msgstr "Hebreiska"
+
+#~ msgid "Icelandic"
+#~ msgstr "Isländska"
+
+#~ msgid "Irish"
+#~ msgstr "Irländska"
+
+#~ msgid "Japanese"
+#~ msgstr "Japanska"
+
+#~ msgid "Korean"
+#~ msgstr "Koreanska"
+
+#~ msgid "Latvian"
+#~ msgstr "Lettiska"
+
+#~ msgid "Macedonian"
+#~ msgstr "Makedonska"
+
+#~ msgid "Norwegian (bokmal)"
+#~ msgstr "Norska (bokmål)"
+
+#~ msgid "Norwegian (nynorsk)"
+#~ msgstr "Norska (nynorsk)"
+
+#~ msgid "Polish"
+#~ msgstr "Polska"
+
+#~ msgid "Portuguese (Brazilian)"
+#~ msgstr "Portugisiska (brasiliansk)"
+
+#~ msgid "Russian"
+#~ msgstr "Ryska"
+
+#~ msgid "Slovenian"
+#~ msgstr "Slovenska"
+
+#~ msgid "Spanish (Mexico)"
+#~ msgstr "Spanska (Mexiko)"
+
+#~ msgid "Swedish (Finland)"
+#~ msgstr "Svenska (Finland)"
+
+#~ msgid "Tamil"
+#~ msgstr "Tamil"
+
+#~ msgid "Ukrainian"
+#~ msgstr "Ukrainska"
+
+#~ msgid "Vietnamese"
+#~ msgstr "Vietnamesiska"
+
+#~ msgid "Walloon"
+#~ msgstr "Vallonska"
 
 #~ msgid "Move the mouse until all the blocks disappear."
 #~ msgstr "Flytta musen till alla block försvinner."
