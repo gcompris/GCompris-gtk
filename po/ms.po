@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2002-08-31 02:08+0800\n"
+"POT-Creation-Date: 2002-09-03 20:59+0000\n"
 "PO-Revision-Date: 1980-01-04 01:58+0800\n"
 "Last-Translator: wawa <gbumla@yahoo.com>\n"
 "Language-Team:  <gabai-penyumbang@lists.sf.net>\n"
@@ -423,8 +423,9 @@ msgstr "Penambahan mudah"
 msgid "Go to Algebra boards"
 msgstr "Pergi ke papan Aljabar"
 
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
+#: boards/algebramenu.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr "Klik butang kiri tetikus untuk memilih papan"
 
@@ -590,7 +591,8 @@ msgstr "Konsep masa Pembacaan Waktu"
 msgid "Can move the mouse."
 msgstr "Boleh menggerakkan tetikus."
 
-#: boards/colors.xml.in.h:2 src/boards/colors.c:68
+#: boards/colors.xml.in.h:2 src/boards/advanced_colors.c:85
+#: src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr "Klik di atas warna yang betul"
 
@@ -609,6 +611,11 @@ msgid ""
 "toons are displayed and a color is spoken. The kid must select the proper "
 "toon."
 msgstr ""
+
+#: boards/colors_group.xml.in.h:1
+#, fuzzy
+msgid "Go to colors boards"
+msgstr "Pergi ke papan Aljabar"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -1351,6 +1358,27 @@ msgstr "latihan papan kekunci"
 msgid "Educational game starting at 3 years old"
 msgstr "Permainan pendidikan bermula dari umur 3 tahun"
 
+#: src/boards/advanced_colors.c:84
+msgid "Advanced colors"
+msgstr ""
+
+#: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
+#: src/boards/menu.c:538 src/boards/missingletter.c:599
+#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
+#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
+#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
+#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
+#: src/gcompris/soundutil.c:264
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "Tidak menjumpai fail %s!"
+
+#: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
+#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#, c-format
+msgid "find file %s !"
+msgstr "Cari fail %s!"
+
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
 msgstr "Operasi meneka"
@@ -1381,22 +1409,6 @@ msgstr "Set jam ke:"
 #: src/boards/imageid.c:110 src/boards/missingletter.c:104
 msgid "Learn how to read"
 msgstr "belajar bagaimana untuk membaca"
-
-#: src/boards/imageid.c:578 src/boards/menu.c:538
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1567
-#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
-#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
-#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Tidak menjumpai fail %s!"
-
-#: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1570
-#, c-format
-msgid "find file %s !"
-msgstr "Cari fail %s!"
 
 #: src/boards/leftright.c:106
 msgid "Find your left and right hands"

@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris-0.3.4\n"
-"POT-Creation-Date: 2002-08-29 22:39+0000\n"
+"POT-Creation-Date: 2002-09-03 20:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Isaías V. Prestes <isix@uol.com.br>\n"
 "Language-Team: pt_BR <pt_BR@li.org>\n"
@@ -416,8 +416,9 @@ msgstr ""
 msgid "Go to Algebra boards"
 msgstr ""
 
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
+#: boards/algebramenu.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr ""
 
@@ -586,7 +587,8 @@ msgstr ""
 msgid "Can move the mouse."
 msgstr ""
 
-#: boards/colors.xml.in.h:2 src/boards/colors.c:68
+#: boards/colors.xml.in.h:2 src/boards/advanced_colors.c:85
+#: src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr ""
 
@@ -603,6 +605,10 @@ msgid ""
 "This board is dedicated to train kids to recognize colors. Several colored "
 "toons are displayed and a color is spoken. The kid must select the proper "
 "toon."
+msgstr ""
+
+#: boards/colors_group.xml.in.h:1
+msgid "Go to colors boards"
 msgstr ""
 
 #: boards/computer.xml.in.h:1
@@ -1339,6 +1345,27 @@ msgstr ""
 msgid "Educational game starting at 3 years old"
 msgstr ""
 
+#: src/boards/advanced_colors.c:84
+msgid "Advanced colors"
+msgstr ""
+
+#: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
+#: src/boards/menu.c:538 src/boards/missingletter.c:599
+#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
+#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
+#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
+#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
+#: src/gcompris/soundutil.c:264
+#, fuzzy, c-format
+msgid "Couldn't find file %s !"
+msgstr "Impossível encontrar o arquivo pixmap %s !"
+
+#: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
+#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#, fuzzy, c-format
+msgid "find file %s !"
+msgstr "Impossível encontrar o arquivo pixmap %s !"
+
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
 msgstr ""
@@ -1372,22 +1399,6 @@ msgstr "Acerte o relógio para:"
 #, fuzzy
 msgid "Learn how to read"
 msgstr "Aprenda como acertar as horas do relógio"
-
-#: src/boards/imageid.c:578 src/boards/menu.c:538
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1567
-#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
-#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
-#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
-#, fuzzy, c-format
-msgid "Couldn't find file %s !"
-msgstr "Impossível encontrar o arquivo pixmap %s !"
-
-#: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1570
-#, fuzzy, c-format
-msgid "find file %s !"
-msgstr "Impossível encontrar o arquivo pixmap %s !"
 
 #: src/boards/leftright.c:106
 msgid "Find your left and right hands"

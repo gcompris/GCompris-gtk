@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2002-08-29 22:39+0000\n"
+"POT-Creation-Date: 2002-09-03 20:59+0000\n"
 "PO-Revision-Date: 2002-07-03 17:09+0200\n"
 "Last-Translator: Marcel Hilzinger <hili@suselinux.hu>\n"
 "Language-Team: hungarian <kde-lista@sophia.btk.pte.hu>\n"
@@ -435,8 +435,9 @@ msgstr ""
 msgid "Go to Algebra boards"
 msgstr "A matematikai táblákhoz"
 
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
+#: boards/algebramenu.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr "Egy tábla kiválasztásához kattintsál rá bal egérgombbal"
 
@@ -627,7 +628,8 @@ msgstr ""
 msgid "Can move the mouse."
 msgstr "Kezelni tudja az egeret"
 
-#: boards/colors.xml.in.h:2 src/boards/colors.c:68
+#: boards/colors.xml.in.h:2 src/boards/advanced_colors.c:85
+#: src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr "Kattintsál a megfelelő színre"
 
@@ -648,6 +650,11 @@ msgstr ""
 "Ez a játék arra szolgál, hogy a gyerekek megtanulják a színeket "
 "megkülönböztetni. Különböző színárnyalatok láthatók, melyeket a program "
 "hangosan ki is mond. A gyereknek ki kell választania a helyes árnyalatot."
+
+#: boards/colors_group.xml.in.h:1
+#, fuzzy
+msgid "Go to colors boards"
+msgstr "A matematikai táblákhoz"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -1434,6 +1441,27 @@ msgstr ""
 msgid "Educational game starting at 3 years old"
 msgstr "Oktatószoftver 3 éves kortól"
 
+#: src/boards/advanced_colors.c:84
+msgid "Advanced colors"
+msgstr ""
+
+#: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
+#: src/boards/menu.c:538 src/boards/missingletter.c:599
+#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
+#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
+#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
+#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
+#: src/gcompris/soundutil.c:264
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "Nem találtam meg a(z) %s fájlt!"
+
+#: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
+#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#, c-format
+msgid "find file %s !"
+msgstr "keresd meg a(z) %s fájlt! "
+
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
 msgstr "Találd ki a számítási műveleteket"
@@ -1467,22 +1495,6 @@ msgstr "Állítsd be az órát erre:"
 #: src/boards/imageid.c:110 src/boards/missingletter.c:104
 msgid "Learn how to read"
 msgstr "Tanulj meg olvasni"
-
-#: src/boards/imageid.c:578 src/boards/menu.c:538
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1567
-#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
-#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
-#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Nem találtam meg a(z) %s fájlt!"
-
-#: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1570
-#, c-format
-msgid "find file %s !"
-msgstr "keresd meg a(z) %s fájlt! "
 
 #: src/boards/leftright.c:106
 msgid "Find your left and right hands"

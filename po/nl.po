@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-08-29 22:39+0000\n"
+"POT-Creation-Date: 2002-09-03 20:59+0000\n"
 "PO-Revision-Date: 2002-03-30 22:34+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -434,8 +434,9 @@ msgstr ""
 msgid "Go to Algebra boards"
 msgstr "Ga naar de rekensommen"
 
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
+#: boards/algebramenu.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr "Klik met de linker muisknop om een bordspel te kiezen"
 
@@ -623,7 +624,8 @@ msgstr ""
 msgid "Can move the mouse."
 msgstr "Kan de muis laten bewegen"
 
-#: boards/colors.xml.in.h:2 src/boards/colors.c:68
+#: boards/colors.xml.in.h:2 src/boards/advanced_colors.c:85
+#: src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr "Klik op de juiste kleur"
 
@@ -642,6 +644,11 @@ msgid ""
 "toons are displayed and a color is spoken. The kid must select the proper "
 "toon."
 msgstr ""
+
+#: boards/colors_group.xml.in.h:1
+#, fuzzy
+msgid "Go to colors boards"
+msgstr "Ga naar de rekensommen"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -1429,6 +1436,27 @@ msgstr ""
 msgid "Educational game starting at 3 years old"
 msgstr "Educatief spel voor kinderen vanaf drie jaar"
 
+#: src/boards/advanced_colors.c:84
+msgid "Advanced colors"
+msgstr ""
+
+#: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
+#: src/boards/menu.c:538 src/boards/missingletter.c:599
+#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
+#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
+#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
+#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
+#: src/gcompris/soundutil.c:264
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "Kan bestand %s niet vinden !"
+
+#: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
+#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#, c-format
+msgid "find file %s !"
+msgstr "bestand %s vinden !"
+
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
 msgstr "Raad de bewerkingen"
@@ -1459,22 +1487,6 @@ msgstr "Zet de klok op:"
 #: src/boards/imageid.c:110 src/boards/missingletter.c:104
 msgid "Learn how to read"
 msgstr "Leer te lezen"
-
-#: src/boards/imageid.c:578 src/boards/menu.c:538
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1567
-#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
-#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
-#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Kan bestand %s niet vinden !"
-
-#: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1570
-#, c-format
-msgid "find file %s !"
-msgstr "bestand %s vinden !"
 
 #: src/boards/leftright.c:106
 msgid "Find your left and right hands"

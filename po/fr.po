@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-08-29 22:39+0000\n"
+"POT-Creation-Date: 2002-09-03 20:59+0000\n"
 "PO-Revision-Date: 2002-08-23 00:15+0200\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -434,8 +434,9 @@ msgstr "Addition simple"
 msgid "Go to Algebra boards"
 msgstr "Vers les tableaux d'algèbre"
 
-#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
+#: boards/algebramenu.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
 msgstr "Clique avec le bouton gauche pour sélectionner un tableau"
 
@@ -628,7 +629,8 @@ msgstr "Concept de l'heure, lecture de l'heure"
 msgid "Can move the mouse."
 msgstr "Pouvoir déplacer la souris"
 
-#: boards/colors.xml.in.h:2 src/boards/colors.c:68
+#: boards/colors.xml.in.h:2 src/boards/advanced_colors.c:85
+#: src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr "Clique sur la bonne couleur"
 
@@ -649,6 +651,10 @@ msgstr ""
 "Cette activité est dediée à l'apprentissage des couleurs.\n"
 "Plusieurs ours colorés sont proposés et la couleur est prononcée.\n"
 "L'enfant doit sélectionner la bonne couleur."
+
+#: boards/colors_group.xml.in.h:1
+msgid "Go to colors boards"
+msgstr "Vers les tableaux des couleurs"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -847,7 +853,7 @@ msgstr "poire"
 
 #: boards/imageid/board1.xml.in.h:17
 msgid "satchel"
-msgstr "sac"
+msgstr "cartable"
 
 #: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
 #: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
@@ -1459,6 +1465,27 @@ msgstr "Entraînement au clavier"
 msgid "Educational game starting at 3 years old"
 msgstr "Jeu éducatif à partir de 3 ans"
 
+#: src/boards/advanced_colors.c:84
+msgid "Advanced colors"
+msgstr "Couleurs complexes"
+
+#: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
+#: src/boards/menu.c:538 src/boards/missingletter.c:599
+#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
+#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
+#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
+#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
+#: src/gcompris/soundutil.c:264
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "Ne peux pas trouver le fichier %s !"
+
+#: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
+#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#, c-format
+msgid "find file %s !"
+msgstr "trouve le fichier %s !"
+
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
 msgstr "Trouve les opérations"
@@ -1491,22 +1518,6 @@ msgstr "Règle la montre sur :"
 #: src/boards/imageid.c:110 src/boards/missingletter.c:104
 msgid "Learn how to read"
 msgstr "Apprends à lire"
-
-#: src/boards/imageid.c:578 src/boards/menu.c:538
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1567
-#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
-#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
-#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
-#, c-format
-msgid "Couldn't find file %s !"
-msgstr "Ne peux pas trouver le fichier %s !"
-
-#: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1570
-#, c-format
-msgid "find file %s !"
-msgstr "trouve le fichier %s !"
 
 #: src/boards/leftright.c:106
 msgid "Find your left and right hands"
