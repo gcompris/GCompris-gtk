@@ -31,7 +31,6 @@ static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
 static int gamewon;
 
 static void process_ok(void);
@@ -78,7 +77,7 @@ BoardPlugin menu_bp =
     is_our_board,
     NULL,
     process_ok,
-    set_level,
+    NULL,//set_level,
     NULL,
     repeat
   };
@@ -149,19 +148,11 @@ static void end_board () {
       pause_board(TRUE);
       gcompris_score_end();
       colors_destroy_all_items();
-    }
+		// free list
+		while (g_list_length(listColors) > 0)
+ 			listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+  }
   gcomprisBoard = NULL;
-}
-
-/* =====================================================================
- *
- * =====================================================================*/
-static void set_level (guint level) {
-  if(gcomprisBoard!=NULL) {
-      gcomprisBoard->level=level;
-      gcomprisBoard->sublevel=1;
-      colors_next_level();
-    }
 }
 
 /* =====================================================================
@@ -181,8 +172,6 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
  * set initial values for the next level
  * =====================================================================*/
 static void colors_next_level() {
-	gcompris_bar_set_level(gcomprisBoard);
-
   colors_destroy_all_items();
   gamewon = FALSE;
 
@@ -257,16 +246,12 @@ static void game_won() {
 
 	listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
-	if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) {
-    /* Try the next level */
-    //gcomprisBoard->sublevel=1;
-    //gcomprisBoard->level++;
-    if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
-			board_finished(BOARD_FINISHED_TUXLOCO);
-			return;
-      }
+  if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
+		board_finished(BOARD_FINISHED_TUXLOCO);
+		return;
   }
-  colors_next_level();
+
+	colors_next_level();
 }
 /* =====================================================================
  *
