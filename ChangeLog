@@ -1,3 +1,8 @@
+2002-02-17 Pascal Georges <pascal.georges1@free.fr>
+  * src/boards/clickgame.c : level stop at 10/10 (formerly 11/10 ..)
+  * src/boards/gletters.c : fixed the bug at the end of the board (score at 11/10)
+  * src/boards/smallnumbers.c : fixed the bug at the end of the board (score at 11/10)
+
 2002-02-15 Pascal Georges <pascal.georges1@free.fr>
 	* src/gcompris/gameutil.[ch] : removed sound related functions
 	* src/gcompris/soundutil.[ch] : new files contain sound related functions
