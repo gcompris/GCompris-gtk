@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/09/22 23:35:52 bcoudoin>
+ * Time-stamp: <2004/10/02 02:05:57 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -107,8 +107,8 @@ static GList *shape_list	= NULL;
 static GList *shape_list_group	= NULL;
 static int current_shapelistgroup_index	= -1;
 
-static GnomeCanvasItem *next_shapelist_item;		/* Canvas item button for the next shapelist */
-static GnomeCanvasItem *previous_shapelist_item;   	/* Canvas item button for the previous shapelist */
+static GnomeCanvasItem *next_shapelist_item     = NULL;		/* Canvas item button for the next shapelist */
+static GnomeCanvasItem *previous_shapelist_item = NULL;   	/* Canvas item button for the previous shapelist */
 
 /* Let's define the structure for the shapebox list that contains the icons of the shapes */
 typedef struct _ShapeBox ShapeBox;
@@ -656,12 +656,13 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 
   /* Create the tooltip area */
   pixmap = gcompris_load_skin_pixmap("button_large.png");
-  tooltip_root_item = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
-			   "x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO + 60,
-			   "y", (double)0,
-			   NULL);
+  tooltip_root_item = GNOME_CANVAS_GROUP(
+					 gnome_canvas_item_new (parent,
+								gnome_canvas_group_get_type (),
+								"x", (double)gcomprisBoard->width/SHAPE_BOX_WIDTH_RATIO + 60,
+								"y", (double)0,
+								NULL)
+					 );
 
   tooltip_bg_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
@@ -685,7 +686,7 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   NULL);
 
   /* Hide the tooltip */
-  gnome_canvas_item_hide(tooltip_root_item);
+  gnome_canvas_item_hide(GNOME_CANVAS_ITEM(tooltip_root_item));
 
 }
 
@@ -980,22 +981,22 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      {
      case GDK_ENTER_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON) {
-	 gnome_canvas_item_set(tooltip_root_item,
+	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_root_item),
 			       "y", shape->y,
 			       NULL);
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
-	 gnome_canvas_item_set(tooltip_bg_item,
+	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
 			       "y", 0.0,
 			       NULL);
-	 gnome_canvas_item_set(tooltip_text_item,
+	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item),
 			       "text", shape->tooltip,
 			       NULL);
-	 gnome_canvas_item_show(tooltip_root_item);
+	 gnome_canvas_item_show(GNOME_CANVAS_ITEM(tooltip_root_item));
        }
        break;
      case GDK_LEAVE_NOTIFY:
        if(shape->tooltip && shape->type == SHAPE_ICON)
-       	 gnome_canvas_item_hide(tooltip_root_item);
+       	 gnome_canvas_item_hide(GNOME_CANVAS_ITEM(tooltip_root_item));
        break;
      case GDK_BUTTON_PRESS:
        switch(event->button.button) 
@@ -1015,7 +1016,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       switch(shape->type)
 		 {
 		 case SHAPE_TARGET:
-		   gnome_canvas_item_hide(item);
+		   gnome_canvas_item_hide(GNOME_CANVAS_ITEM(item));
 		   gcompris_set_image_focus(item, FALSE);
 
 		   if( shape->icon_shape!=NULL)
@@ -1808,14 +1809,15 @@ parse_doc(xmlDocPtr doc)
   g_list_free(shape_list_init);
   shape_list_init = NULL;
 
-  item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
-  gnome_canvas_item_hide(item); 
-  item = g_list_nth_data(shape_list_group, 0);
-  gnome_canvas_item_show(item);
-  gnome_canvas_item_hide(previous_shapelist_item); 
-  gnome_canvas_item_show(next_shapelist_item);
-  current_shapelistgroup_index = 0; 
-  
+  if(current_shapelistgroup_index>0) { /* If at least on shape group */
+    item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
+    gnome_canvas_item_hide(item); 
+    item = g_list_nth_data(shape_list_group, 0);
+    gnome_canvas_item_show(item);
+    gnome_canvas_item_hide(previous_shapelist_item); 
+    gnome_canvas_item_show(next_shapelist_item);
+    current_shapelistgroup_index = 0; 
+  }
 
   /* Loop through all the shapes and */
   /* Arrange the order (depth) of the shapes on the canvas */
