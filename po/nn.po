@@ -2,14 +2,14 @@
 # Translation of nn.po to Norwegian Nynorsk.
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Karl Ove Hufthammer <karl@huftis.org>, 2004.
+# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-14 00:39+0100\n"
-"PO-Revision-Date: 2004-11-14 01:11+0100\n"
+"POT-Creation-Date: 2005-01-06 12:20+0100\n"
+"PO-Revision-Date: 2005-01-06 13:22+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -347,14 +347,14 @@ msgstr "Gongetabellen. Du må kunna kjenna att skrivne tal."
 msgid "Practice the multiplication operation"
 msgstr "Øv på gongetabellen"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+#: boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Matte"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Venstreklikk med musa for å velja aktivitet."
 
@@ -443,6 +443,10 @@ msgstr "Øv på å leggja til"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Enkel addisjon. Du må kunna kjenna att skrivne tal."
+
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Maths activities"
+msgstr "Matte"
 
 #: boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -633,10 +637,9 @@ msgstr "Set gjenstandane i rett rekkjefølgje."
 #: boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
-msgstr ""
-"Månebileta er henta frå NASA, romlydane kjem frå Tux Paint og Vegastrike, og "
-"datoane er henta frå http://www.wikipedia.org/."
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
+msgstr "Månebileta er henta frå NASA, romlydane kjem frå Tux Paint og Vegastrike. Samferdselsdatoane er henta frå http://www.wikipedia.org/ og samferdselsbileta er teikna av Franck Doucet."
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -661,24 +664,98 @@ msgstr "Tux og epletreet"
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
 "Place each image in the order and\n"
-" on the date it has been invented.\n"
-" If not sure, check online in wikipedia at\n"
-" http://www.wikipedia.org"
+"on the date it has been invented.\n"
+"If not sure, check online in wikipedia at\n"
+"http://www.wikipedia.org"
 msgstr ""
-"Plasser bileta i rekkjefølgja\n"
-"gjenstandane vart oppfunne.\n"
+"Plasser bileta i rekkjefølgja og på\n"
+"datoane gjenstandane vart oppfunne.\n"
 "Om du ikkje veit svara, kan du sjå\n"
 "i leksikonet på http://nn.wikipedia.org/."
 
-#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Samferdsel"
 
-#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "1880 The Clement Ader's Eole"
+msgstr "1880 – Clément Aders Eole"
+
+#: boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers Flyer III"
+msgstr "1903 – Wright-brørnes Flyer III"
+
+#: boards/chronos/board4_0.xml.in.h:3
+msgid "1909 Louis Bleriot cross the Channel"
+msgstr "1903 – Louis Blériot kryssar Den engelske kanalen"
+
+#: boards/chronos/board4_0.xml.in.h:4 boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
 msgstr "Luftfart"
+
+#: boards/chronos/board4_1.xml.in.h:1
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 – Charles Lindbergh\n"
+"kryssar Atlanteren"
+
+#: boards/chronos/board4_1.xml.in.h:3
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 – Hélène Bouchers\n"
+"fartsrekord på 444 km/t"
+
+#: boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yager\n"
+"break the sound-wall"
+msgstr ""
+"1947 – Chuck Yager\n"
+"bryt lydmuren"
+
+#: boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 – Cugnots fardier"
+
+#: boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr "1878 – Léon Bollés «La Mancelle»"
+
+#: boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 – Den første bensindrevne\n"
+"bilen, konstruert av Carl Benz"
+
+#: boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "Bilen"
+
+#: boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899 – Renaults «voiturette»"
+
+#: boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923 – Lancia Lambda"
+
+#: boards/chronos/board4_3.xml.in.h:3
+#
+# Omsetjingsmerknad: Det *skal* vera DS 19, ikkje 199.
+msgid "1955 Citroën ds 199"
+msgstr "1955 – Citroën DS 19"
+
+#: boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Bilar"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1683,44 +1760,43 @@ msgstr "Tren på å hugsa alle korta."
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
-" At the bottom of the screen is the gcompris control bar.\n"
-" The following icons are displayed from right to left.\n"
-" Note that each icon is displayed only if available in the current "
-"activity:\n"
-" Home - Back to previous menu or exit gcompris if at the top\n"
-" Thumb - OK. Confirm your answer\n"
-" Dice - Display the current level. Click to select another level\n"
-" Music note - Repeat the question\n"
-" Question Mark - Help\n"
-" Tool - The configuration menu\n"
-" Tux Plane - About game\n"
-" The stars means:\n"
-" 1 Star - 2 to 3 years old\n"
-" 2 Stars - 4 to 5 years old\n"
-" 3 Stars - 6 to 7 years old\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"Note that each icon is displayed only if available in the current activity:\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About game\n"
+"The stars means:\n"
+"    1 Star  - 2 to 3 years old\n"
+"    2 Stars - 4 to 5 years old\n"
+"    3 Stars - 6 to 7 years old"
 msgstr ""
-"Trykk på eit av ikona for å komma til ein aktivitet eller ei oversikt over "
+"Trykk på eitt av ikona for å komma til ein aktivitet eller ei oversikt over "
 "aktivitetar.\n"
 "Nedst på skjermen ser du kontrollinja med desse ikona (frå høgre til "
-"venstre):\n"
-"Heim – Tilbake til førre meny, eller avslutt GCompris.\n"
-"Tommel – Stadfest svaret.\n"
-"Terning – Viser gjeldande nivå. Trykk på terningen for å byta nivå.\n"
-"Musikknote – Gjenta spørsmålet.\n"
-"Spørjeteikn – Hjelp.\n"
-"Skiftenøkkel – Oppsettmeny.\n"
-"Tux-flyet – Informasjon om spelet.\n"
+"venstre):\n\n"
+"    Heim – Tilbake til førre meny, eller avslutt GCompris.\n"
+"    Tommel – Stadfest svaret.\n"
+"    Terning – Viser gjeldande nivå. Trykk på terningen for å byta nivå.\n"
+"    Musikknote – Gjenta spørsmålet.\n"
+"    Spørjeteikn – Hjelp.\n"
+"    Skiftenøkkel – Oppsettmeny.\n"
+"    Tux-flyet – Informasjon om spelet.\n"
 "\n"
 "Stjernene viser tilrådd alderssteg:\n"
 "1 stjerne – 3 til 4 år.\n"
 "2 stjerner – 4 til 5 år.\n"
-"3 stjerner – 5 til 7 år.\n"
+"3 stjerner – 6 til 7 år."
 
-#: boards/menu.xml.in.h:2
+#: boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "Hovudmeny for GCompris"
 
-#: boards/menu.xml.in.h:3
+#: boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
@@ -1728,7 +1804,7 @@ msgstr ""
 "GCompris er eit leik og lær-spel med mange ulike aktivitetar for ungar "
 "mellom 2 og 10 år."
 
-#: boards/menu.xml.in.h:5
+#: boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -1995,7 +2071,7 @@ msgstr "Mary Stevenson Cassatt: Sommar (1894)"
 # Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr "Vincent Van Gogh: Landsbygater i Auvers (1890)"
+msgstr "Vincent van Gogh: Landsbygater i Auvers (1890)"
 
 #: boards/paratrooper.xml.in.h:1
 msgid "Help Tux the parachuter land safely"
@@ -2195,7 +2271,7 @@ msgstr ""
 "med små raude krossar. Rekkjefølgja på objekta (over/under) spelar inga "
 "rolle, men pass på at du ikkje har uønskja objekt under andre."
 
-#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Kopier teikning"
 
@@ -2206,6 +2282,10 @@ msgid ""
 msgstr ""
 "Kopier spegelbiletet av ei teikning frå feltet til høgre til feltet til "
 "venstre."
+
+#: boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "Spegelkopier teikninga"
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2233,6 +2313,22 @@ msgstr "Øv på å trekkja frå med eit artig spel"
 #: boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "Tux er svolten. Hjelp han å fanga fiskar ved å telja fram til rett isflak."
+
+#: boards/searace.xml.in.h:1
+msgid "A Sea race against Tux"
+msgstr "Eit sjøkappløp mot Tux"
+
+#: boards/searace.xml.in.h:2
+msgid ""
+"Give good instructions to your ship in order to be first in a race against "
+"Tux."
+msgstr "Gje gode instruksar til skipet, slik at du kjem fram før Tux."
+
+#: boards/searace.xml.in.h:3
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area."
+msgstr "I tekstfeltet skriv du inn instruksane til båten – éin kommando på kvar linje. Kommandoane du kan bruka vert vist mellom dei to tekstfelta."
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2402,7 +2498,7 @@ msgstr ""
 "Tux kjem heim etter ein lang båttur, og du må setja i gong vasskrinsløpet, "
 "slik at han kan få ein velfortent dusj."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Dalande ord"
 
@@ -2434,7 +2530,7 @@ msgstr "Leik og lær-samlinga GCompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2549,8 +2645,9 @@ msgstr ""
 "Gå til oppsettdialogen og slå\n"
 "på lydeffektane."
 
-#: src/boards/click_on_letter.c:280
-msgid "abcdefghijklmnopqrstufw"
+#. TRANSLATORS: Put here the alphabet in your language
+#: src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyzæøå"
 
 #: src/boards/clickgame.c:182
@@ -2698,6 +2795,31 @@ msgstr "Nivå"
 msgid "Coordinate"
 msgstr "Koordinat"
 
+#: src/boards/python/searace.py:159 src/boards/python/searace.py:164
+#: src/boards/python/searace.py:191
+msgid "Race is already running"
+msgstr "Sjøkappløpet er allereie i gang."
+
+#: src/boards/python/searace.py:570
+msgid "The Red boat has won"
+msgstr "Den raude båten vann."
+
+#: src/boards/python/searace.py:572
+msgid "The Green boat has won"
+msgstr "Den grøne båten vann."
+
+#: src/boards/python/searace.py:656
+msgid "forward"
+msgstr "fram"
+
+#: src/boards/python/searace.py:662
+msgid "turnleft"
+msgstr "tilvenstre"
+
+#: src/boards/python/searace.py:664
+msgid "turnright"
+msgstr "tilhøgre"
+
 #: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Hugsespel"
@@ -2752,7 +2874,7 @@ msgstr "Men det vart ikkje vist"
 msgid "And it was displayed"
 msgstr "Og det vart vist"
 
-#: src/boards/reading.c:748
+#: src/boards/reading.c:748 src/boards/wordsgame.c:760
 msgid "Cannot open file of words for your locale"
 msgstr "Klate ikkje opna ordfil for språket ditt"
 
@@ -2820,7 +2942,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Avstand til målskiva: %d meter"
 
-#: src/boards/wordsgame.c:88
+#: src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Skriv inn dei dalande orda før dei når bakken."
 
@@ -2863,8 +2985,8 @@ msgstr "GCompris er ein GNU-pakke og tilgjengeleg under GNU Public License."
 msgid "Help"
 msgstr "Hjelp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -3041,70 +3163,74 @@ msgstr "Tyrkisk"
 msgid "Walloon"
 msgstr " Vallonsk"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Kinesisk – forenkla"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "Inga tidsgrense"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Sakte tid"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Vanleg tid"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Rask tid"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standard for GCompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "Ingen filter"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Berre dette nivået"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Opp til dette nivået"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "Dette nivået og høgare"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris-oppsett"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Fullskjerm"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Musikk"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Lydeffektar"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Klarte ikkje opna draktmappa «%s»"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Fann inga drakt i «%s»\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Drakt: %s"
@@ -3173,7 +3299,7 @@ msgstr "Skriv ut versjonsnummer til "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Bruk kantutjamna lerret (tregare)."
 
-#: src/gcompris/gcompris.c:522
+#: src/gcompris/gcompris.c:532
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3195,7 +3321,7 @@ msgstr ""
 "finn meir informasjon på\n"
 "http://www.fsf.org/philosophy/."
 
-#: src/gcompris/gcompris.c:717
+#: src/gcompris/gcompris.c:727
 #, c-format
 msgid ""
 "GCompris\n"
