@@ -37,7 +37,8 @@ GdkPixbuf	*gcompris_load_operation_pixmap(char operation);
 GdkPixbuf	*gcompris_load_number_pixmap(char number);
 GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);
 void		 gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus);
-gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, void *unused);
+gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, 
+					   GnomeCanvasItem *dest_item);
 GcomprisBoard	*gcompris_read_xml_file(char *fname);
 gchar		*convertUTF8Toisolat1(gchar * text);
 void item_absolute_move(GnomeCanvasItem *item, int x, int y);

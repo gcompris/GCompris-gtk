@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/04/14 04:19:03 bruno>
+ * Time-stamp: <2002/05/05 21:46:44 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -197,10 +197,15 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
 
 /**
  * Callback over a canvas item, this function will highlight the focussed item
+ * or the given one
  *
  */
-gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, void *unused)
+gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
+			       GnomeCanvasItem *dest_item)
 {
+
+  if(dest_item!=NULL)
+    item = dest_item;
 
   switch (event->type)
     {

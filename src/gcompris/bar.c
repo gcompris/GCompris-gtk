@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/04/16 23:58:57 bruno>
+ * Time-stamp: <2002/05/06 00:50:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -284,7 +284,7 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
       gtk_signal_disconnect	(GTK_OBJECT(level_item), level_handler_id);
       level_handler_id = gtk_signal_connect(GTK_OBJECT(level_item), "event",
 					    (GtkSignalFunc) gcompris_item_event_focus,
-					    pixmap);
+					    NULL);
     }
   
   current_level=gcomprisBoard->level;

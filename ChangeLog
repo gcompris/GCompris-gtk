@@ -11,6 +11,8 @@
 	* src/boards/shapegame.c: added support for infinite puzzle pieces
 	* boards/scale/*.xml.in: fixed boards with 2 possible solution
 	thanks to Thomas Gebhart for profidind the fix.
+	* src/gcompris/gameutil.c: use of unused param in focus to allow the highlight
+	of button even when the mouse is over its internal text.
 
 2002-04-28 Bruno Coudoin <bruno.coudoin@free.fr>
 

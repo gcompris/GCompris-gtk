@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2002/04/02 18:25:32 bcoudoin>
+ * Time-stamp: <2002/05/05 22:25:25 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -55,7 +55,7 @@ void gcompris_about_start ()
   gint x_text_start = 0;
   gint x_flag_start = 0;
   gint y = 0;
-  GnomeCanvasItem *item;
+  GnomeCanvasItem *item, *item2;
   static gchar *content =
     N_("Credits:\n"
        "Author: Bruno Coudoin\n"
@@ -260,7 +260,7 @@ void gcompris_about_start ()
   gdk_pixbuf_unref(pixmap);
 
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("Help"),
 				"font_gdk", gdk_font,
@@ -269,9 +269,12 @@ void gcompris_about_start ()
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", COLOR_TITLE,
 				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     "help");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
 
   // OK
   pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
@@ -291,7 +294,7 @@ void gcompris_about_start ()
   gdk_pixbuf_unref(pixmap);
 
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
 				"font_gdk", gdk_font,
@@ -300,9 +303,12 @@ void gcompris_about_start ()
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", COLOR_TITLE,
 				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
 
   // About box content
   gdk_font_small = gdk_font_load (FONT_SUBTITLE);

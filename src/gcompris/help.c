@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/02/03 21:07:01 bruno>
+ * Time-stamp: <2002/05/05 22:32:20 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -73,7 +73,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 {
 
   GdkPixbuf   *pixmap = NULL;
-  GnomeCanvasItem *item;
+  GnomeCanvasItem *item, *item2;
   gint y = 0;
   gint y_start = 0;
   gint x_start = 0;
@@ -92,7 +92,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 	  gcomprisBoard->plugin->pause_board(TRUE);
     }
 
-  name = gcomprisBoard->name;
+  name = gcomprisBoard->title;
   gcompris_board_has_help(gcomprisBoard);
 
   rootitem = \
@@ -166,6 +166,9 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_help,
 		     "prerequisite");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item_prerequisite);
 
 
   // Goal Button
@@ -197,6 +200,9 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_help,
 		     "goal");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item_goal);
 
   // Manual Button
   item_manual = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -225,6 +231,9 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_help,
 		     "manual");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item_manual);
 
 
   // CONTENT
@@ -259,7 +268,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
 				"font_gdk", gdk_font,
@@ -268,9 +277,12 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", COLOR_TEXT_BUTTON,
 				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
   gdk_pixbuf_unref(pixmap);
 
 

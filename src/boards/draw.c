@@ -664,6 +664,7 @@ static guint get_tool_cursor(ToolList tool)
     case TOOL_FILLED_CIRCLE:
       return(GCOMPRIS_FILLCIRCLE_CURSOR);
       break;
+    case TOOL_IMAGE:
     case TOOL_LINE:
       return(GCOMPRIS_LINE_CURSOR);
       break;
@@ -738,6 +739,9 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	      display_grid((grid_step==0 ? TRUE : FALSE));
 	      return TRUE;
 	      break;
+	    case TOOL_IMAGE:
+	      gcompris_images_selector_start(gcomprisBoard, IMG_DATA_SET, image_selected);
+	    break;
 	    default:
 	      break;
 	    }
@@ -1256,6 +1260,8 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
     {
     case TOOL_IMAGE:
       // This is an image
+      x = (drawing_area_x2-drawing_area_x1)/2;
+      y = (drawing_area_y2-drawing_area_y1)/2;
       pixmap = gcompris_load_pixmap(imagename);
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 				    gnome_canvas_pixbuf_get_type (),
@@ -1945,11 +1951,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	  y = item_y;
 	   
 	  switch(currentTool) {
-	  case TOOL_IMAGE:
-	    clicked_x = x;
-	    clicked_y = y;
-	    gcompris_images_selector_start(gcomprisBoard, IMG_DATA_SET, image_selected);
-	    break;
 	  case TOOL_RECT:
 	  case TOOL_FILLED_RECT:
 	  case TOOL_CIRCLE: 

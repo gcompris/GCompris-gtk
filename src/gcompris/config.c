@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/05/01 22:12:43 bruno>
+ * Time-stamp: <2002/05/05 22:30:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -90,7 +90,7 @@ void gcompris_config_start ()
   gint x_text_start = 0;
   gint x_flag_start = 0;
   gint y = 0;
-  GnomeCanvasItem *item;
+  GnomeCanvasItem *item, *item2;
 
   /* Pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
@@ -152,7 +152,7 @@ void gcompris_config_start ()
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
 				"font_gdk", gdk_font,
@@ -161,9 +161,12 @@ void gcompris_config_start ()
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", COLOR_TITLE,
 				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     "ok");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
   gdk_pixbuf_unref(pixmap);
 
 

@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2002/05/01 23:05:46 bruno>
+ * Time-stamp: <2002/05/05 22:21:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -43,21 +43,19 @@ static gboolean		 images_selector_displayed = FALSE;
 static GnomeCanvasItem	*rootitem = NULL;
 static GnomeCanvasItem	*item_content = NULL;
 
-static GnomeCanvasItem	*item_selected = NULL;
-
 static ImageSelectorCallBack imageSelectorCallBack = NULL;
 
 /* Represent the limits of the image area */
-#define			 DRAWING_AREA_X1 111
-#define			 DRAWING_AREA_Y1 14
-#define			 DRAWING_AREA_X2 774
-#define			 DRAWING_AREA_Y2 500
+#define	DRAWING_AREA_X1	111
+#define DRAWING_AREA_Y1	14
+#define DRAWING_AREA_X2	774
+#define DRAWING_AREA_Y2	500
 
 /* Represent the limits of list area */
-#define			 LIST_AREA_X1 18
-#define			 LIST_AREA_Y1 16
-#define			 LIST_AREA_X2 80
-#define			 LIST_AREA_Y2 500
+#define	LIST_AREA_X1	18
+#define	LIST_AREA_Y1	16
+#define	LIST_AREA_X2	80
+#define	LIST_AREA_Y2	500
 
 #define HORIZONTAL_NUMBER_OF_IMAGE	10
 #define VERTICAL_NUMBER_OF_IMAGE	5
@@ -85,13 +83,13 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 				     ImageSelectorCallBack iscb)
 {
 
-  GdkPixbuf *pixmap = NULL;
-  GnomeCanvasItem *item;
-  gint y = 0;
-  gint y_start = 0;
-  gint x_start = 0;
-  GdkFont *gdk_font;
-  gchar   *name = NULL;
+  GnomeCanvasItem *item, *item2;
+  GdkPixbuf	*pixmap = NULL;
+  gint		 y = 0;
+  gint		 y_start = 0;
+  gint		 x_start = 0;
+  GdkFont	*gdk_font;
+  gchar		*name = NULL;
 
   if(rootitem)
     return;
@@ -151,7 +149,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
 				"font_gdk", gdk_font,
@@ -160,9 +158,12 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", COLOR_TEXT_BUTTON,
 				NULL);
-  gtk_signal_connect(GTK_OBJECT(item), "event",
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_images_selector,
-		     "ok");
+		     "/ok/");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
   gdk_pixbuf_unref(pixmap);
 
   images_selector_displayed = TRUE;
@@ -263,27 +264,6 @@ static void display_image(gchar *imagename)
       ix=DRAWING_AREA_X1;
       iy+=IMAGE_HEIGHT + IMAGE_GAP;
     }
-}
-
-static void select_item(GnomeCanvasItem *item)
-{
-  GdkPixbuf   *pixmap = NULL;
-  
-  if(item_selected)
-    {
-      pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
-      gnome_canvas_item_set(item_selected, 
-			    "pixbuf", pixmap,
-			    NULL);
-      gdk_pixbuf_unref(pixmap);
-    }
-
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large_selected.png");
-  gnome_canvas_item_set(item, 
-			"pixbuf", pixmap,
-			NULL);
-  gdk_pixbuf_unref(pixmap);
-  item_selected = item;
 }
 
 /* Callback when an image is selected */
