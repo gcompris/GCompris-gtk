@@ -281,7 +281,8 @@ libchess_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GNOME_XML_LIB) $(INTLLIBS) \
 	$(GDK_PIXBUF_LIBS)
 
-libchess_la_SOURCES = chess.c chess_position.c chess_notation.c
+libchess_la_SOURCES = chess.c chess_position.c chess_notation.c \
+	chess_notation.h chess_position.h chess_makros.h
 
 EXTRA_DIST = README
 

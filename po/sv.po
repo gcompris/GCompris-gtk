@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-09-12 00:13+0200\n"
+"POT-Creation-Date: 2002-09-19 12:58+0200\n"
 "PO-Revision-Date: 2002-01-14 00:07+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -507,22 +507,37 @@ msgid ""
 "ways."
 msgstr ""
 
-#: boards/chess.xml.in.h:1
+#: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
+msgid "Play chess against the computer in a learning mode"
+msgstr ""
+
+#: boards/chess.xml.in.h:2
+msgid "Practice chess"
+msgstr ""
+
+#: boards/chess_computer.xml.in.h:1 boards/chess_movelearn.xml.in.h:2
+#: boards/chess_partyend.xml.in.h:1
 #, fuzzy
 msgid "Learning chess"
 msgstr "Lär klockan"
 
-#: boards/chess.xml.in.h:2 boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
-#: boards/memory.xml.in.h:4
+#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
+#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
+#: boards/erase.xml.in.h:3 boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr ""
 
-#: boards/chess.xml.in.h:3 src/boards/chess.c:133
-msgid "Play chess against tux in a learning mode"
+#: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
+#: boards/chess_partyend.xml.in.h:4
+msgid "The chess engine is the gnuchess."
 msgstr ""
 
-#: boards/chess.xml.in.h:4
-msgid "The chess engine is the gnuchess."
+#: boards/chess_movelearn.xml.in.h:1
+msgid "Chess training. Catch the computer's pawns."
+msgstr ""
+
+#: boards/chess_partyend.xml.in.h:3
+msgid "Play end of chess game against the computer"
 msgstr ""
 
 #: boards/click_on_letter.xml.in.h:1
@@ -625,7 +640,7 @@ msgid "Can move the mouse."
 msgstr "Kan flytta musen"
 
 #: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:2
-#: src/boards/advanced_colors.c:86 src/boards/colors.c:68
+#: src/boards/advanced_colors.c:87 src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr ""
 
@@ -1499,11 +1514,11 @@ msgstr "Lärorikt spel för barn från 3 år och uppåt"
 msgid "Editor for gcompris"
 msgstr ""
 
-#: src/boards/advanced_colors.c:85
+#: src/boards/advanced_colors.c:86
 msgid "Advanced colors"
 msgstr ""
 
-#: src/boards/advanced_colors.c:528 src/boards/imageid.c:578
+#: src/boards/advanced_colors.c:529 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
 #: src/boards/read_colors.c:484 src/boards/shapegame.c:1567
 #: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
@@ -1514,7 +1529,7 @@ msgstr ""
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
-#: src/boards/advanced_colors.c:531 src/boards/imageid.c:581
+#: src/boards/advanced_colors.c:532 src/boards/imageid.c:581
 #: src/boards/missingletter.c:602 src/boards/read_colors.c:487
 #: src/boards/shapegame.c:1570
 #, c-format
@@ -1531,32 +1546,36 @@ msgid ""
 "Help Tux and understand how a canal lock works."
 msgstr ""
 
-#: src/boards/chess.c:132
+#: src/boards/chess.c:137
 #, fuzzy
 msgid "Learning Chess"
 msgstr "Lär klockan"
 
-#: src/boards/chess.c:469
+#: src/boards/chess.c:138
+msgid "Play chess against tux in a learning mode"
+msgstr ""
+
+#: src/boards/chess.c:525
 msgid "White Turn"
 msgstr ""
 
-#: src/boards/chess.c:469
+#: src/boards/chess.c:525
 msgid "Black Turn"
 msgstr ""
 
-#: src/boards/chess.c:581
+#: src/boards/chess.c:669
 msgid "White check"
 msgstr ""
 
-#: src/boards/chess.c:583
+#: src/boards/chess.c:671
 msgid "Black check"
 msgstr ""
 
-#: src/boards/chess.c:871
+#: src/boards/chess.c:1003
 msgid "Black mates"
 msgstr ""
 
-#: src/boards/chess.c:876
+#: src/boards/chess.c:1008
 msgid "White mates"
 msgstr ""
 
@@ -1821,40 +1840,40 @@ msgstr "Musik"
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris in fullscreen mode."
 msgstr "kör gcompris i helskärmsläge."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris in window mode."
 msgstr "kör gcompris i fönsterläge."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris with sound enabled."
 msgstr "kör gcompris med ljud aktiverat."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:76
 msgid "run gcompris without sound."
 msgstr "kör gcompris utan ljud."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:78
 #, fuzzy
 msgid "run gcompris with the default gnome cursor."
 msgstr "kör gcompris utan ljud."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:80
 msgid "Prints the version of "
 msgstr "Skriver ut versionsnumret av "
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:82
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:316
+#: src/gcompris/gcompris.c:320
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:499
+#: src/gcompris/gcompris.c:516
 #, c-format
 msgid ""
 "GCompris\n"

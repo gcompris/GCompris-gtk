@@ -9,6 +9,7 @@ It is best to choose somebody that speaks and articulate well your language.
 	for i; do
 			sox $i modif/$i vol 5.0 amplitude 0.05
 	done
-- In the directory where WAV files are run "oggenc *.wav"
+- In the directory where WAV files are run i
+oggenc -c "Copyright 2002 (name of author). This file is distributed under the terms of the GNU General Public License, either version 2 or ( at your option) any later version. See the file COPYING for details." *.wav
 - Copy OGG files in the corresponding directory
 

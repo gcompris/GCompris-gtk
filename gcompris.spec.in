@@ -176,7 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{prefix}/share/gcompris
 %dir %{prefix}/share/gcompris/boards
 %{prefix}/share/gcompris/boards/[^s]*
-%{prefix}/share/gcompris/boards/s[cm]*
+%{prefix}/share/gcompris/boards/s[cmu]*
 %dir %{prefix}/share/gcompris/boards/sounds
 %{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
 %{prefix}/share/gcompris/sounds

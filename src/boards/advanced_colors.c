@@ -40,7 +40,8 @@ static int gamewon, errors;
 static void		 process_ok(void);
 static void		 highlight_selected(int);
 static void		 game_won(void);
-static void	init_xml(void);
+static void		 init_xml(void);
+static gboolean		 read_xml_file(char *fname);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
