@@ -26,6 +26,13 @@ class Gcompris_followline:
     self.board_paused  = 0;
     self.gamewon       = 0;
 
+    self.loosing_count = 0
+
+    self.color_empty   = 0xcee871FFL
+    self.color_full    = 0x1a24cbffL
+    self.color_target  = 0xFF0000FFL
+    self.color_border  = 0x101010FFL
+    
     print("Gcompris_followline __init__.")
 
 
@@ -36,7 +43,7 @@ class Gcompris_followline:
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
     self.background_item = gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                                                  gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+                                                   "images/followline.png")
     self.background_item_connect_id = self.background_item.connect("event", self.loosing_item_event)
 
     gcompris.bar_set_level(self.gcomprisBoard)
@@ -113,9 +120,6 @@ class Gcompris_followline:
 
   def init_board(self):
 
-    # Number of hit outside of the line are allowed
-    self.loosing_count = 20 - self.gcomprisBoard.level
-
     self.state = "Ready"
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -134,26 +138,24 @@ class Gcompris_followline:
       y=0.0
       )
     
-    self.start_x    = 40
-    self.start_y    = gcompris.BOARD_HEIGHT/2
-
-    self.stop_x     = gcompris.BOARD_WIDTH - self.start_x
-    self.stop_y     = gcompris.BOARD_HEIGHT/2
+    start_x         = 40
+    start_y         = gcompris.BOARD_HEIGHT/2
+    stop_x          = gcompris.BOARD_WIDTH - 100
 
     # Line path (create several little line)
     min_boundary = 40
-    y            = self.start_y
+    y            = start_y
     line_width   = 45 - self.gcomprisBoard.level*2
-    step         = (self.stop_x-self.start_x)/(50)
+    step         = (stop_x-start_x)/(30)
 
     frequency = 1 + int(self.gcomprisBoard.level/4)
       
     xpi = math.pi/2*frequency
-    y   = self.start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
-    for x in range(self.start_x, self.stop_x, step):
+    y   = start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
+    for x in range(start_x, stop_x, step):
       
       xpi += (math.pi/2*frequency)/step
-      y2 = self.start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
+      y2 = start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
       
       # Check we stay within boundaries
       if(y2>=gcompris.BOARD_HEIGHT-min_boundary):
@@ -167,11 +169,24 @@ class Gcompris_followline:
                            y,
                            x + step,
                            y2),
-        fill_color_rgba = 0x0AA0F0FFL,
+        fill_color_rgba = self.color_empty,
         width_units     = line_width,
         cap_style       = gtk.gdk.CAP_ROUND
         )
       item.connect("event", self.line_item_event)
+      
+      if x > start_x and x < stop_x-step:
+        self.rootitem.add(
+          gnome.canvas.CanvasLine,
+          points          =( x,
+                             y,
+                             x + step,
+                             y2),
+          fill_color_rgba = self.color_border,
+          width_units     = line_width + 20,
+          cap_style       = gtk.gdk.CAP_ROUND
+          )
+        
       y = y2
 
     self.highlight_next_line()
@@ -193,14 +208,47 @@ class Gcompris_followline:
       
     return 1
 
+  #
+  # Highlight the next spot on the line
+  #
   def highlight_next_line(self):
     for item in self.lines_group.item_list:
       if(item.get_data("gotit") != True):
         item.set(
-          fill_color_rgba=0x11F212FFL,
+          fill_color_rgba = self.color_target,
           )
         item.set_data("iamnext", True);
         return
+
+  #
+  # Highlight the previous spot on the line
+  # Called on loose situation
+  #
+  def highlight_previous_line(self):
+    previous_item = []
+    
+    for item in self.lines_group.item_list:
+      
+      if(item.get_data("iamnext") == True):
+
+        if(previous_item):
+          # Remove the target info for this item
+          item.set_data("iamnext", False)
+          item.set(
+            fill_color_rgba = self.color_empty,
+            )
+
+          # Set the target info on the previous item
+          previous_item.set(
+            fill_color_rgba = self.color_target,
+            )
+          item.set_data("gotit", False)
+          previous_item.set_data("iamnext", True);
+        
+        return
+      
+      previous_item = item
+      
 
   def is_done(self):
     done = True
@@ -219,14 +267,9 @@ class Gcompris_followline:
 
   def loosing_item_event(self, widget, event=None):
     if(self.state == "Started"):
-      self.loosing_count -= 1
-      if(self.loosing_count<=0):
-        self.state = "Done"
-        self.gamewon = 0
-        gcompris.bonus.display(0, gcompris.bonus.FLOWER)
-        
-      print self.loosing_count
-      
+      self.loosing_count += 1
+      if(self.loosing_count % 10):
+        self.highlight_previous_line()
     return gtk.FALSE
 
 
@@ -235,7 +278,7 @@ class Gcompris_followline:
       # The first line touch means the game is started
       self.state = "Started"
       widget.set(
-        fill_color_rgba=0x11F2F2FFL,
+        fill_color_rgba = self.color_full,
         )
       widget.set_data("gotit", True);
       widget.set_data("iamnext", False);

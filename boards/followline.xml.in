@@ -4,15 +4,17 @@
         name="followline"
         type="python:followline"
         section="/computer/."
-        icon="boardicons/ballcatch.png"
-        difficulty="0"
+        icon="boardicons/followline.png"
+        difficulty="1"
         author="Bruno Coudoin (bruno.coudoin@free.fr)"
         boarddir="">
-        <_title>Follow the line</_title>
-        <_description>Move the mouse and take care to stay on the line</_description>
+        <_title>Emerge the pipe</_title>
+        <_description>Tux needs to sprinkle the flowers but the pipe is stopped</_description>
         <_prerequisite></_prerequisite>
-        <_goal></_goal>
-        <_manual></_manual>
+        <_goal>Fine motor coordination</_goal>
+        <_manual>Move the mouse over the red part of the pipe.
+This will emerge it, part by part up to the flowers. 
+If you move out of the pipe, the red part will go back.</_manual>
         <_credit></_credit>
   </Board>
   <Data directory=""/>
