@@ -1,3 +1,14 @@
+2005-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	implemented the scrollbar in the file selector
+
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/default/skin.xml:
+	* boards/skins/linha_verde/skin.xml:
+	* boards/skins/pink/skin.xml:
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(display_files):
+
 2005-02-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- added a new maze variant on Yves suggestion. The 2D invisible maze.

@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/01/27 01:41:03 bruno>
+ * Time-stamp: <2005/02/04 01:19:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -20,7 +20,7 @@
  */
 
 /**
- * An file selector for gcompris
+ * A file selector for gcompris
  *
  */
 
@@ -67,16 +67,16 @@ static gchar *current_rootdir = NULL;
 static GtkEntry *widget_entry = NULL;
 
 /* Represent the limits of control area */
-#define	CONTROL_AREA_X1	40
-#define	CONTROL_AREA_Y1	20
-#define	CONTROL_AREA_X2	760
-#define	CONTROL_AREA_Y2	80
+#define	CONTROL_AREA_X1	40.0
+#define	CONTROL_AREA_Y1	20.0
+#define	CONTROL_AREA_X2	760.0
+#define	CONTROL_AREA_Y2	80.0
 
 /* Represent the limits of the file area */
-#define	DRAWING_AREA_X1	40
-#define DRAWING_AREA_Y1	120
-#define DRAWING_AREA_X2	760
-#define DRAWING_AREA_Y2	500
+#define	DRAWING_AREA_X1	40.0
+#define DRAWING_AREA_Y1	120.0
+#define DRAWING_AREA_X2	760.0
+#define DRAWING_AREA_Y2	500.0
 
 #define HORIZONTAL_NUMBER_OF_IMAGE	6
 #define VERTICAL_NUMBER_OF_IMAGE	5
@@ -253,7 +253,14 @@ display_file_selector(int mode,
     g_free(file_types_string);
   }
 
+
   y_start += 110;
+
+
+  /*
+   * Buttons
+   * -------
+   */
 
   pixmap = gcompris_load_skin_pixmap("button_large.png");
 
@@ -380,9 +387,12 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   DIR *dir;
 
   /* Initial image position */
-  guint ix  = DRAWING_AREA_X1;
-  guint iy  = DRAWING_AREA_Y1;
-  guint isy = DRAWING_AREA_Y1;
+  guint ix  = 0.0;
+  guint iy  = 0.0;
+
+  GnomeCanvas     *canvas;
+  GtkWidget	  *w;
+  GnomeCanvasItem *bg_item;
 
   if(!rootitem)
     return;
@@ -408,6 +418,52 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
+
+  /*
+   * Create the scrollbar
+   * --------------------
+   */
+  canvas     = GNOME_CANVAS(gnome_canvas_new ());
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(canvas),
+			 "x", (double) DRAWING_AREA_X1,
+			 "y", (double) DRAWING_AREA_Y1,
+			 "width",  DRAWING_AREA_X2- DRAWING_AREA_X1 - 20.0,
+			 "height", DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 35.0,
+			 NULL);
+
+  gtk_widget_show (GTK_WIDGET(canvas));
+
+  /* Set the new canvas to the background color or it's white */
+  bg_item = gnome_canvas_item_new (gnome_canvas_root(canvas),
+			 gnome_canvas_rect_get_type (),
+			 "x1", (double) 0,
+			 "y1", (double) 0,
+			 "x2", (double) DRAWING_AREA_X2- DRAWING_AREA_X1,
+			 "y2", (double) DRAWING_AREA_Y2-DRAWING_AREA_Y1,
+			 "fill_color_rgba", gcompris_skin_get_color("gcompris/fileselectbg"),
+			 NULL);
+
+
+  w = gtk_vscrollbar_new (GTK_LAYOUT(canvas)->vadjustment);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(w),
+			 "x", (double) DRAWING_AREA_X2 - 15.0,
+			 "y", (double) DRAWING_AREA_Y1,
+			 "width", 30.0,
+			 "height", DRAWING_AREA_Y2-DRAWING_AREA_Y1 - 20.0,
+			 NULL);
+  gtk_widget_show (w);
+  gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas), FALSE);
+
+
+  /* Display the directory name
+   * --------------------------
+   */
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
 				gnome_canvas_text_get_type (),
@@ -444,7 +500,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
       pixmap_current  = pixmap_dir;
     }
 
-    item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
+    item = gnome_canvas_item_new (gnome_canvas_root(canvas),
 				  gnome_canvas_pixbuf_get_type (),
 				  "pixbuf", pixmap_current,
 				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP - gdk_pixbuf_get_width(pixmap_current))/2,
@@ -469,7 +525,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 		      G_CALLBACK (free_stuff),
 		      filename);
 
-    item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
+    item = gnome_canvas_item_new (gnome_canvas_root(canvas),
 				  gnome_canvas_text_get_type (),
 				  "text", g_path_get_basename(filename),
 				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
@@ -483,10 +539,21 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 		       filename);
 
     ix+=IMAGE_WIDTH + IMAGE_GAP;
-    if(ix>=DRAWING_AREA_X2-IMAGE_GAP)
+    if(ix>=DRAWING_AREA_X2 - DRAWING_AREA_X1 -IMAGE_GAP)
       {
-	ix=DRAWING_AREA_X1;
+	ix=0;
+
 	iy+=IMAGE_HEIGHT + IMAGE_GAP;
+
+	gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas), 0, 0, 
+					DRAWING_AREA_X2- DRAWING_AREA_X1, 
+					iy + IMAGE_HEIGHT + IMAGE_GAP);
+
+	if(iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
+	  gnome_canvas_item_set(bg_item,
+				"y2", (double)iy + IMAGE_HEIGHT + IMAGE_GAP,
+				NULL);
+	}
       }
 
   }
