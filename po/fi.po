@@ -8,6 +8,20 @@
 # Rami Aubourg-Kaires <rami at kaires.org>, 2004
 # Rami Aubourg-Kaires <rami at kaires.org>, 2004
 # Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
+# Rami Aubourg-Kaires <rami at kaires.org>, 2004
 # Jyrki Kuoppala <jkp@kaapeli.fi>, 2001.
 # Rami Aubourg-Kaires <rami at kaires.org>, 2004
 #
@@ -15,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "POT-Creation-Date: 2004-05-30 21:49+0200\n"
-"PO-Revision-Date: 2004-05-30 22:50+0200\n"
+"PO-Revision-Date: 2004-05-31 22:25+0200\n"
 "Last-Translator: Rami Aubourg-Kaires <rami at kaires.org>\n"
 "kaires.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -650,6 +664,8 @@ msgid ""
 "Place each image in the order and on the date it has been invented. If not "
 "sure, check online in wikipedia at http://www.wikipedia.org"
 msgstr ""
+"Pistä kuvat oikeaan aikajärjestykseen ja jokaisen keksimisen vuosiluvun kohdalle.\n"
+"Jos et ole varma, voit tarkistaa täältä: http://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -684,7 +700,7 @@ msgstr "Kirjainten tunnistaminen"
 
 #: boards/click_on_letter.xml.in.h:5
 msgid "Visual letters recognition. Can move the mouse."
-msgstr ""
+msgstr "Osaa tunnistaa kirjaimet. Osaa käyttää hiirtä."
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
 msgid "Click On Me"
@@ -770,6 +786,8 @@ msgid ""
 "This board teaches color recognition. Select the spoken color from the set "
 "of colored toons."
 msgstr ""
+"Tämä tehtävä opettaa värien tunnistamista.\n"
+"Kuuntele väri ja valitse oikean värinen nukke. "
 
 #: boards/colors_group.xml.in.h:1
 msgid "Go to colors activities"
@@ -803,7 +821,7 @@ msgstr "Lapsen täytyy siirtää esineet vasemmalta oikeaan kohtaan taulukkoon."
 
 #: boards/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
-msgstr ""
+msgstr "Näpäytä esinettä ja kuuntele sen päämäärä."
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
@@ -840,7 +858,7 @@ msgstr ""
 
 #: boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
-msgstr ""
+msgstr "Helppoa laskemista."
 
 #: boards/enumerate.xml.in.h:2
 msgid "Count the items"
@@ -852,6 +870,9 @@ msgid ""
 "the item you want to answer in the bottom right area. Enter the answer with "
 "the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
+"Ensin, sinun täytyy järjestää osat jotta voisit laskea ne.\n"
+"Sitten, valitse se osa johon haluat vastata alaosassa.\n"
+"Naputtele vastaus näppäimistön avulla ja paina OK nappulaa tai Enter'iä."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -959,6 +980,8 @@ msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
 msgstr ""
+"Vie rinkulat ainuastaan yhdestä tornista toiseen. \n"
+"Tee samanlainen torni kuin oikealla vasemmalle."
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
@@ -966,7 +989,7 @@ msgstr "Rakenna täsmälleen samanlainen torni"
 
 #: boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
+msgstr "Rakenna samanlainen torni kuin oikealla vasemmalla olevan tyhjän tornin päälle."
 
 #: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
@@ -974,17 +997,19 @@ msgstr "Helpot Hanoin tornit"
 
 #: boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr ""
+msgstr "Löydä vadelma näpäyttämällä sinisiä osia."
 
 #: boards/hexagon.xml.in.h:4
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become more red "
 "as you get closer."
 msgstr ""
+"Sinun täytyy löytää vadelma sinisien peltojen alapuolelta.\n"
+"Pellot tulevat koko ajan punaisemmiksi mitä lähemmällä olet."
 
 #: boards/hexagon.xml.in.h:5
 msgid "hexagon"
-msgstr ""
+msgstr "Kuusikulmio"
 
 #: boards/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
@@ -1109,6 +1134,8 @@ msgid ""
 "Drag the images from the vertical box on the left to their corresponding "
 "name on the right. Click the OK button to check your answer."
 msgstr ""
+"Vie vasemmalla olevat kuvat niitä vastaavien nimien päälle oikealle.\n"
+"Näpäytä OK nappulaa tarkistaaksesi vastauksesi."
 
 #: boards/imagename.xml.in.h:3
 msgid "Image Name"
@@ -1298,6 +1325,8 @@ msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
 msgstr ""
+"Kuuntele sävelmä ja yritä soittaa se uudestaan näpäyttämällä oikeita osia.\n"
+"Voit kuunnella sävelmän uudestaan näpäyttämällä REPEAT nappluaa."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
@@ -1584,7 +1613,7 @@ msgstr "Siirrä paloja ja kokoa maalaus"
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr ""
+msgstr "Vie vasemmalla olevat osat keskelle tehdäksesi maalauksen."
 
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
@@ -1793,6 +1822,9 @@ msgid ""
 "and disappear on left. Indicate whether or not the given word appeared in "
 "the list."
 msgstr ""
+"Oikealla näet kirjoitetun sanan.\n"
+"Vasemmalla tulet näkemään häipyvän sanalistan.\n"
+" Sinun täytyy sanoa näitkö oikealla olevan sanan vasemmalla olevassa sanalistassa."
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -1825,6 +1857,9 @@ msgid ""
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but take care not to have unwanted objects under others."
 msgstr ""
+"Ensin, valitse oikea työkalu työkalupakista. Sitten, käytä hiirtä apunasi luodaksesi esineitä.\n"
+"Kun olet lopettanut, näpäytä OK nappulaa. Virheet hahmottuvat silloin punaisella ristillä.\n"
+"Esineitten järjetys (päällä/alla) ei ole tärkeä mutta varo ettet pistä vääriä esineitä toisten alle."
 
 #: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
@@ -1834,7 +1869,7 @@ msgstr "Piirrä esine uudestaan"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr ""
+msgstr "Kopioioikealla olevan esineen peilikuva vasemmalle."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2228,7 +2263,7 @@ msgstr "oikea"
 
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
-msgstr ""
+msgstr "Voit varmistaa missä olet ja mene sitten takaisin kolmiulotteiseen moodiin jotta voisit liikkua."
 
 #: src/boards/memory.c:164
 msgid "Memory"
@@ -2271,17 +2306,19 @@ msgstr "Erikoisosa jossa käytetään Pythonia gcomprissa"
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
-msgstr ""
+msgstr "Tämä on ensimmäinen Gcompris'hin koodattu Python plugin."
 
 #: src/boards/python/pythontest.py:76
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
 msgstr ""
+"Nyt on mahdollista luoda myös Python-tauluja Gcompris'hin.\n"
+"kittos Olivier Samyn'ille."
 
 #: src/boards/python/pythontest.py:85
 msgid "This activity is not playable yet, just a test"
-msgstr ""
+msgstr "Tämä taulu ei ole tarkoitettu käytettävaksi. Testi vain."
 
 #. Remove the canvas item we added during this plugin
 #. gcompris - redraw
@@ -2489,11 +2526,11 @@ msgstr "Oli näkyvissä"
 
 #: src/boards/reading.c:756 src/boards/reading.c:766
 msgid "Cannot open file of words for your locale"
-msgstr ""
+msgstr "En voi löytää kielellesi sanastoa."
 
 #: src/boards/reading.c:795
 msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr ""
+msgstr "Virhe: kielellesi tehty sanasto on virheellinen."
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2617,11 +2654,11 @@ msgstr "OK"
 
 #: src/gcompris/board.c:41
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
+msgstr "Dynaaminen moduulin lataus ei toiminut. Gcompris ei voi startata.\n"
 
 #: src/gcompris/config.c:57
 msgid "Your system default"
-msgstr ""
+msgstr "Tietokoneesi alkuperäiset määritykset"
 
 #: src/gcompris/config.c:58
 msgid "Amharic"
@@ -2633,7 +2670,7 @@ msgstr "Arabiaksi"
 
 #: src/gcompris/config.c:60
 msgid "Azerbaijani Turkic"
-msgstr ""
+msgstr "Azerbaijanin turkki"
 
 #: src/gcompris/config.c:61
 msgid "Catalan"
@@ -2709,7 +2746,7 @@ msgstr ""
 
 #: src/gcompris/config.c:79
 msgid "Malay"
-msgstr ""
+msgstr "Malaiji"
 
 #: src/gcompris/config.c:80
 msgid "Dutch"
@@ -2749,7 +2786,7 @@ msgstr "Sloveniaksi"
 
 #: src/gcompris/config.c:89
 msgid "Serbian (Latin)"
-msgstr ""
+msgstr "Serbi (latinalaiset aakkoset)"
 
 #: src/gcompris/config.c:90
 msgid "Serbian"
@@ -2807,7 +2844,7 @@ msgstr "Pixmap-hakemistoa %s ei voi avata"
 #: src/gcompris/config.c:396
 #, c-format
 msgid "No skin found in %s\n"
-msgstr ""
+msgstr "En löytänyt pohjakuvaa täältä: %s\n"
 
 #: src/gcompris/config.c:411 src/gcompris/config.c:746
 #: src/gcompris/config.c:757
@@ -2817,17 +2854,19 @@ msgstr "Nahka : %s"
 
 #: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
-msgstr "Tiedostoa %s ei löydy"
+msgstr "Tiedostoa ei löydy"
 
 #: src/gcompris/gameutil.c:130
 msgid "This activity is incomplete."
-msgstr ""
+msgstr "Tämä taulu on keskeneräinen"
 
 #: src/gcompris/gameutil.c:131
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
 msgstr ""
+"Pysäytä Gcompris ja\n"
+"lähetä virheilmoitus tekijöille."
 
 #: src/gcompris/gcompris.c:73
 msgid "run gcompris in fullscreen mode."
@@ -2859,7 +2898,7 @@ msgstr "Tulostaa version"
 
 #: src/gcompris/gcompris.c:87
 msgid "Use the antialiased canvas (slower)."
-msgstr "Käytä hiotumpaa kanvassia (hitaampi)"
+msgstr "Käytä hiottua kanvasia (hitaampi)"
 
 #: src/gcompris/gcompris.c:491
 msgid ""
@@ -2868,6 +2907,10 @@ msgid ""
 "To get the full version,\n"
 "go to http://www.ofset.org/order/gcompris"
 msgstr ""
+"Tämä on demoversion Gcompris'ta.\n"
+"Ainoastaan kaksitoista 45:stä taulusta ovat käytettävissä.\n"
+"Saadaksesi täyden version, mene tänne: http://www.ofset.org/order/gcompris\n"
+"tai käytä Linuxia."
 
 #: src/gcompris/gcompris.c:663
 #, c-format
@@ -2942,7 +2985,7 @@ msgstr "GPL-lisenssi"
 #. The default format for time represenation.  See strftime(3)
 #: src/gcompris/log.c:157
 msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr ""
+msgstr "%a %b %d %H:%M:%S %Z %Y"
 
 #: src/gcompris/soundutil.c:141
 #, c-format
@@ -2954,7 +2997,7 @@ msgstr "Musiikki-hakemistoa %s ei voi avata"
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
 "vorbis OR the sound output failed"
-msgstr ""
+msgstr "Taustamusiikki on nyt pysäytetty. Voi olla että tiedostot %s eivät ole ogg vorbis'ia tai ääni ei toimi."
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
