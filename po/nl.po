@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-29 10:54+0200\n"
-"PO-Revision-Date: 2004-10-29 15:50+0200\n"
+"POT-Creation-Date: 2004-11-17 18:56+0100\n"
+"PO-Revision-Date: 2004-11-18 02:30+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -485,7 +485,7 @@ msgstr "Vrij teken-, en animatieprogramma."
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
-#: boards/babymatch/board6_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1 boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Sleep de prentjes naar de juiste plaats"
 
@@ -671,11 +671,15 @@ msgstr "Tux en de appelboom"
 
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 msgstr ""
-"Plaats elke afbeelding op volgorde en op de datum waarop het is uitgevonden. "
-"Indien u niet zeker bent, kunt u online op wikipedia informatie opzoeken: "
+"Plaats elke afbeelding op volgorde en\n"
+"op de datum waarop het is uitgevonden.\n"
+"Indien u niet zeker bent, kunt u online\n"
+"op wikipedia informatie opzoeken:\n"
 "http://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
@@ -979,35 +983,34 @@ msgstr "Sleep de onderdelen om de landkaart te maken"
 msgid "Place the lands"
 msgstr "Plaats de landen"
 
-# continenten
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Afrika"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "Amerika"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Antartica"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Azië"
+
+# continenten
+#: boards/geography/board1_0.xml.in.h:5
 msgid "Continents"
 msgstr "Werelddelen"
 
-# geen hoofdletters
-#: boards/geography/board1_0.xml.in.h:2
-msgid "africa"
-msgstr "afrika"
-
-#: boards/geography/board1_0.xml.in.h:3
-msgid "america"
-msgstr "amerika"
-
-#: boards/geography/board1_0.xml.in.h:4
-msgid "antartica"
-msgstr "antartica"
-
-#: boards/geography/board1_0.xml.in.h:5
-msgid "asia"
-msgstr "azië"
-
 #: boards/geography/board1_0.xml.in.h:6
-msgid "europa"
-msgstr "europa"
+msgid "Europa"
+msgstr "Europa"
 
 #: boards/geography/board1_0.xml.in.h:7
-msgid "oceania"
-msgstr "oceanië"
+msgid "Oceania"
+msgstr "Oceanië"
 
 #: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
@@ -1292,11 +1295,11 @@ msgstr "Toetsenbord-vaardigheden"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Herken letters op het scherm en het toetsenbord"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Eenvoudige Letters"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Typ de vallende letters voor ze de grond raken"
 
@@ -1353,7 +1356,7 @@ msgstr "Lees-oefening om woorden aan beelden te koppelen"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: src/boards/reading.c:107
 msgid "Reading"
 msgstr "Lezen"
 
@@ -1702,25 +1705,39 @@ msgstr "Train je geheugen en haal alle kaarten weg"
 
 #: boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
-"old 3 Stars - 6 to 7 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current "
+"activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 msgstr ""
-"Klikken op een pictogram geeft u een bordspel of een menu met bordspellen. "
-"Onderaan het scherm vindt u de bedieningsbalk van gcompris. Daarin vindt u "
-"van rechts naar links de volgende pictogrammen. Merk op dat de pictogrammen "
-"alleen zichtbaar zijn als ze in het bordspel een functie hebben. Huisje: "
-"Teruggaan naar het vorige menu of gcompris afsluiten.  Duim: OK, bevestig je "
-"antwoord.  Dobbelsteen: De moeilijkheidsgraad instellen. Muzieknoot: De "
-"vraag herhalen. Vraagteken: Hulp.  Gereedschapskist: Het configuratiemenu.  "
-"Vliegtuig: Informatie over het spel.  Betekenis van de sterren: 1 Ster: 2 "
-"tot 3 jaar oud.  2 Sterren: 4 tot 5 jaar oud.  3 Sterren: 6 tot 7 jaar oud."
+"Klikken op een pictogram geeft u een bordspel of een menu met bordspellen.\n"
+" Onderaan het scherm vindt u de bedieningsbalk van gcompris.\n"
+" Daarin vindt u van rechts naar links de volgende pictogrammen.\n"
+" Merk op dat de pictogrammen alleen zichtbaar zijn als ze in het bordspel een functie hebben.\n"
+" Huisje: Teruggaan naar het vorige menu of gcompris afsluiten.\n"
+" Duim: OK, bevestig je antwoord.\n"
+" Dobbelsteen: De moeilijkheidsgraad instellen.\n"
+" Muzieknoot: De vraag herhalen.\n"
+" Vraagteken: Hulp.\n"
+" Gereedschapskist: Het configuratiemenu.\n"
+" Vliegtuig: Informatie over het spel.\n"
+" Betekenis van de sterren:\n"
+" 1 Ster: 2 tot 3 jaar oud.\n"
+" 2 Sterren: 4 tot 5 jaar oud.\n"
+" 3 Sterren: 6 tot 7 jaar oud.\n"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1957,7 +1974,7 @@ msgstr ""
 "Sleep de stukken uit het linkergedeelte om een schilderij of het hoofdbord "
 "te maken."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Maak de puzzel"
 
@@ -2427,7 +2444,7 @@ msgstr ""
 "Tux komt terug van een lange visreis op zijn boot. Probeer de "
 "watervoorziening te herstellen zodat hij een douche kan nemen."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Vallende woorden"
 
@@ -2448,8 +2465,8 @@ msgid "Editor for gcompris"
 msgstr "Editor voor gcompris"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Educatief spel voor kinderen vanaf drie jaar"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Educatief spel voor kinderen van 2 tot 10 jaar"
 
 # vrij vertaald
 #: gcompris.desktop.in.h:2
@@ -2458,7 +2475,7 @@ msgstr "Educatieve software gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2468,7 +2485,7 @@ msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1853
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -2547,15 +2564,15 @@ msgstr "Wit schaakmat"
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Lees een letter"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Leer letters herkennen"
 
-#: src/boards/click_on_letter.c:223
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2563,7 +2580,7 @@ msgstr ""
 "Fout: voor deze activiteit moet u eerst het pakket\n"
 "assetml-voices-aphabet- installeren"
 
-#: src/boards/click_on_letter.c:230
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2574,6 +2591,10 @@ msgstr ""
 "als de geluidseffecten zijn uitgeschakeld.\n"
 "Ga naar het configuratiedialoogvenster om \n"
 "het geluid aan te zetten."
+
+#: src/boards/click_on_letter.c:280
+msgid "abcdefghijklmnopqrstufw"
+msgstr "abcdefghijklmnopqrstufw"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2628,7 +2649,7 @@ msgstr "Klik op het witte plaatje"
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Verplaats de vakjes één voor één zodat alle getallen netjes oplopen"
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339 src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Maak op een vrije plaats dezelfde toren als die rechts te zien is"
 
@@ -2739,62 +2760,58 @@ msgstr "Kleuren lezen"
 msgid "Click on the corresponding color"
 msgstr "Klik op de overeenkomstige kleur"
 
-#: src/boards/reading.c:103
+#: src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Zeg of een woord in de opgegeven lijst zit"
 
-#: src/boards/reading.c:315
+#: src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Ga na of het woord"
 
-#: src/boards/reading.c:335
+#: src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "getoond wordt"
 
-#: src/boards/reading.c:522
+#: src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "Ik ben klaar"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Ja, ik heb het gezien"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Het te vinden woord was: '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:645
 msgid "But it was not displayed"
 msgstr "Maar het zat er niet bij"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:647
 msgid "And it was displayed"
 msgstr "En het zat er bij"
 
-#: src/boards/reading.c:737 src/boards/reading.c:747
+#: src/boards/reading.c:748 src/boards/wordsgame.c:760
 msgid "Cannot open file of words for your locale"
 msgstr "Kan geen woordenbestand openen voor uw locale"
-
-#: src/boards/reading.c:776
-msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr "Fout: het woordbestand-pakket voor uw locale is beschadigd."
 
 #: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Omgekeerd tellen"
 
-#: src/boards/shapegame.c:169
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2806,7 +2823,7 @@ msgstr ""
 "geef 's' voor opslaan\n"
 "'d' om alle stukjes te tonen"
 
-#: src/boards/shapegame.c:424
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2851,7 +2868,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Afstand tot het doel = %d meter"
 
-#: src/boards/wordsgame.c:88
+#: src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Typ de woorden vooraleer ze de grond raken"
 
@@ -2902,7 +2919,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/about.c:316 src/gcompris/config.c:207
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2977,176 +2994,180 @@ msgid "French"
 msgstr "Frans"
 
 #: src/gcompris/config.c:78
+msgid "Irish (Gaelic)"
+msgstr "Iers (Gaelic)"
+
+#: src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
 # is dit indisch of indiaas?
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Indian (Hindi)"
 msgstr "Indisch (Hindi)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
 msgstr "Indisch (Punjabi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Norwegian Bokmal"
 msgstr "Noors Bokmal"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Nynorsk"
 msgstr "Noors Nynorsk"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Albanian"
 msgstr "Albanees"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Turkish"
 msgstr "Turks"
 
 # Vlaams?
 # Waals
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Walloon"
 msgstr "Walloons"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:117
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "No filter"
 msgstr "Geen filter"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "Only this level"
 msgstr "Alleen dit niveau"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Up to this level"
 msgstr "Tot aan dit niveau"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "This level and above"
 msgstr "Vanaf dit niveau en hoger"
 
-#: src/gcompris/config.c:180
+#: src/gcompris/config.c:181
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:289
+#: src/gcompris/config.c:290
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:332
+#: src/gcompris/config.c:333
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:360
+#: src/gcompris/config.c:361
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:394
+#: src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:415
+#: src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: src/gcompris/config.c:430 src/gcompris/config.c:815
-#: src/gcompris/config.c:826
+#: src/gcompris/config.c:431 src/gcompris/config.c:816
+#: src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3348,6 +3369,9 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "Error: The wordfile package used for your locale is corrupted."
+#~ msgstr "Fout: het woordbestand-pakket voor uw locale is beschadigd."
 
 # 8ste eeuw?
 #~ msgid "VIII Century"
