@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2004/07/30 02:00:27 bcoudoin>
+ * Time-stamp: <2004/07/31 02:06:56 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -57,7 +57,6 @@ static gboolean		 file_selector_displayed = FALSE;
 
 static GnomeCanvasItem	*rootitem = NULL;
 static GnomeCanvasItem	*file_root_item = NULL;
-static GnomeCanvasItem	*item_content = NULL;
 
 static FileSelectorCallBack fileSelectorCallBack = NULL;
 
@@ -128,6 +127,8 @@ void gcompris_file_selector_stop ()
   /* FIXME: Crashes randomly */
   if(rootitem!=NULL)
     gtk_object_destroy(GTK_OBJECT(rootitem));
+
+  printf("gcompris_file_selector_stop 2\n");
 
   rootitem = NULL;	  
 
@@ -248,7 +249,6 @@ display_file_selector(int mode,
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     item);
-  gdk_pixbuf_unref(pixmap);
 
   // OK
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -346,6 +346,9 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   guint ix  = DRAWING_AREA_X1;
   guint iy  = DRAWING_AREA_Y1;
   guint isy = DRAWING_AREA_Y1;
+
+  if(!rootitem)
+    return;
 
   /* Display the directory content */
   dir = opendir(rootdir);
@@ -463,6 +466,9 @@ static gint
 item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 {
 
+  if(!rootitem)
+    return;
+
   switch (event->type) 
     {
     case GDK_ENTER_NOTIFY:
@@ -490,6 +496,9 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 static gint
 item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
+
+  if(!rootitem)
+    return;
 
   switch (event->type) 
     {
@@ -529,6 +538,10 @@ static void entry_enter_callback( GtkWidget *widget,
 				  GtkWidget *entry )
 {
   gchar *entry_text;
+
+  if(!rootitem)
+    return;
+
   entry_text = gtk_entry_get_text(GTK_ENTRY(entry));
   printf("Entry contents: %s\n", entry_text);
 }
