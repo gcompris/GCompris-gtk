@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2001/11/06 22:22:16 bruno>
+ * Time-stamp: <2001/11/10 22:56:47 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -143,21 +143,16 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      printf("gletter:start_board 1\n");
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
-      printf("gletter:start_board 2\n");
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=6;
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
-      printf("gletter:start_board 3\n");
       gletters_next_level();
 
-      printf("gletter:start_board 4\n");
       pause_board(FALSE);
     }
-      printf("gletter:start_board 5\n");
 }
 
 static void
@@ -296,24 +291,20 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void gletters_next_level() 
 {
 
-  printf("gletter_next_level:start_board 1\n");
   gcompris_bar_set_level(gcomprisBoard);
-  printf("gletter_next_level:start_board 2\n");
 
   gletters_destroy_all_items();
-  printf("gletter_next_level:start_board 3\n");
 
   /* Try the next level */
   speed=100+(40/gcomprisBoard->level);
   fallSpeed=5000-gcomprisBoard->level*200;
   imageZoom=1.0;
   gcomprisBoard->number_of_sublevel=10;
-  printf("gletter_next_level:start_board 4\n");
+
   gcompris_bar_set_maxtimer(gcomprisBoard->number_of_sublevel);
   gcomprisBoard->sublevel=0;
-  printf("gletter_next_level:start_board 5\n");
+
   gcompris_bar_set_timer(gcomprisBoard->sublevel);
-  printf("gletter_next_level:start_board 6\n");
 }
 
 

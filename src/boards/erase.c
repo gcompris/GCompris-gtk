@@ -197,22 +197,40 @@ static void erase_destroy_all_items()
 static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
 {
   int i,j;
+  int object_x, object_y;
   GnomeCanvasItem *item = NULL;
+  GdkPixbuf *pixmap = NULL;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
+
 							    NULL));
+
+  /* Place randomly an object to add fun */
+  pixmap = gcompris_load_pixmap("gcompris/misc/tuxplane.png");
+
+  object_x = (rand()%(BOARDWIDTH-gdk_pixbuf_get_width(pixmap)));
+  object_y = (rand()%(BOARDHEIGHT-gdk_pixbuf_get_height(pixmap)));
+  item = gnome_canvas_item_new (boardRootItem,
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) object_x,
+				"y", (double) object_y,
+				"width", (double) gdk_pixbuf_get_width(pixmap),
+				"height", (double) gdk_pixbuf_get_height(pixmap),
+				NULL);
+  gdk_pixbuf_unref(pixmap);
+
   number_of_item = 0;
 
   for(i=0; i<BOARDWIDTH; i+=BOARDWIDTH/number_of_item_x)
     {
       for(j=0; j<BOARDHEIGHT; j+=BOARDHEIGHT/number_of_item_y)
 	{
-	  /* Insert random image */
-
+	  
 	  item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_rect_get_type (),
 					"x1", (double) i,
@@ -223,10 +241,12 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
 					"outline_color", "green",
 					"width_units", (double)1,
 					NULL);
+
 	  gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event, NULL);
 	  number_of_item++;
 	}
     }
+
   return NULL;
 }
 /* ==================================== */

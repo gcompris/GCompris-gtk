@@ -1,4 +1,8 @@
-2001-11-07  Bruno Coudoin  <bruno.coudoin@free.fr>
+2001-11-11  Zohra Coudoin  <zohra.coudoin@free.fr>
+
+	* po/es.po: updated
+	
+2001-11-11  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/reading.c: corrected button reference to use the correct one
 	* src/boards/click_on_letter.c: changed to use the new repeat button
@@ -6,6 +10,8 @@
 	* src/gcompris/plugin.h: changed to add a new repeat entry
 	* src/gcompris/gcompris.h: changed to add a repeat enum in the bar definition
 	* aclocal.m4: added gdk_pixbuf in GNOME_INCLUDEDIR for new gtk-pixbuf
+	* board/*.xml: CVS cleanup, only .xml.in need to be in
+	* src/boards/gletter.c: stdout printf message cleanup
 	
 2001-11-06  Bruno Coudoin  <bruno.coudoin@free.fr>
 

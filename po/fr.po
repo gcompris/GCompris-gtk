@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.4\n"
-"POT-Creation-Date: 2001-11-09 14:04+0100\n"
+"POT-Creation-Date: 2001-11-11 01:42+0100\n"
 "PO-Revision-Date: 2001-11-09 13:43+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -87,8 +87,17 @@ msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
 #: boards/draw.xml.in.h:2
-msgid "Creative board were you can freely draw"
+#, fuzzy
+msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative ou l'on peut dessiner librement"
+
+#: boards/erase.xml.in.h:1
+msgid "Move the mouse"
+msgstr "Déplace la souris de l'ordinateur"
+
+#: boards/erase.xml.in.h:2
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "Déplace la souris pour effacer l'emplacement et découvir le fond"
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement boards"
@@ -238,6 +247,28 @@ msgid ""
 "Location: Unknown (image nur03011)\n"
 "Location: Unknown (image nur03013)\n"
 msgstr ""
+"Objectif:\n"
+"Dans ce jeux, l'enfant découvre la souris de l'ordinateur\n"
+"L'objectif est simplement de cliquer avec le bouton gauche de la souris\n"
+"sur les poissons qui bougent\n"
+"\n"
+"Crédits:\n"
+"Les poissons viennent de l'utilitaire Unix xfishtank.\n"
+"Les images viennent de la collection du \"National Undersearch Research "
+"Program (NURP)\"\n"
+"Toutes les images appartiennent au \"OAR/National Undersea Research Program"
+"\"\n"
+"sauf pour la première qui vient aussi de l'Université de \"North Carolina at "
+"Wilmington\"\n"
+"\n"
+"Dans l'ordre de gcompris, la description des images est:\n"
+"Location: Océan Tropical Atlantique, Florida Keys (image nur00523)\\n\"\n"
+"\"Photographe: D. Kesling\\n\"\n"
+"Emplacement: Florida Keys (image nur03006)\n"
+"Emplacement: Unknown (image nur03505)\n"
+"Emplacement: Unknown (image nur03010)\n"
+"Emplacement: Unknown (image nur03011)\n"
+"Emplacement: Unknown (image nur03013)\n"
 
 #: src/boards/clockgame.c:519
 msgid "Set the clock to:"

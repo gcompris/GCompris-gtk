@@ -1,12 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2000 Free Software Foundation, Inc.
-# FIRST AUTHOR Zohra Coudoin <zohra.coudion@free.fr>, 2000.
+# FIRST AUTHOR Zohra Coudoin <zohra.coudoin@free.fr>, 2000.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-11-06 22:57+0100\n"
+"POT-Creation-Date: 2001-11-11 01:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Zohra Coudoin <zohra.coudion@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,76 +16,92 @@ msgstr ""
 #: boards/algebra_by.xml.in.h:1 boards/algebra_div.xml.in.h:1
 #: boards/algebra_minus.xml.in.h:1 boards/algebra_plus.xml.in.h:1
 msgid "I Ask you some algebra questions"
-msgstr ""
+msgstr "Te pregunto unas cuestiones de algebra"
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_div.xml.in.h:2
 #: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
-#, fuzzy
 msgid "Simple Algebra"
-msgstr "Juego de Letras"
+msgstr "Algebra simple"
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
-msgstr ""
+msgstr "Elige los cuadros de algebra"
 
 #: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:2 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select a board"
-msgstr ""
+msgstr "Usa el buton de izquierda del raton para seleccionar un cuadro"
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr ""
+msgstr "Selecciona y mueve los elementos para que se asocien"
 
 #: boards/babymatch.xml.in.h:2
 msgid "Matching Items"
-msgstr ""
+msgstr "Elementos a asociar"
 
 #: boards/babyshapes.xml.in.h:1
 msgid "Baby Shape Puzzle"
-msgstr ""
+msgstr "Asociacion de formas en puzzle"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
-msgstr ""
+msgstr "Selecciona y mueve las formas en sus propios sitios"
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:77
 msgid "Click On Me"
-msgstr ""
+msgstr "Click en mi"
 
 #: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:78
-#, fuzzy
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
 msgstr ""
-"Con el teclado del ordenador, coge las letras antes de que lleguen al suelo"
+"Click con el buton de izquierda del raton en los peces antes de que se "
+"escapen del cuadro"
+
+#: boards/click_on_letter.xml.in.h:1
+msgid "Click on a letter"
+msgstr "Click en una letra"
+
+#: boards/click_on_letter.xml.in.h:2
+msgid "Hear a letter and click on the right letter"
+msgstr "Escucha la letra y click en la buena"
 
 #: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
 #: src/boards/clockgame.c:74
 msgid "Learn how to read the time"
-msgstr ""
+msgstr "Aprende como leer el tiempo"
 
 #: boards/clockgame.xml.in.h:2 src/boards/algebra.c:93
 #: src/boards/clockgame.c:73
 msgid "Learning Clock"
-msgstr ""
+msgstr "Aprentisage de las horas"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr ""
+msgstr "Descubre el ordenador"
 
 #: boards/draw.xml.in.h:1
 msgid "A simple vector drawing tool"
-msgstr ""
+msgstr "Un simple juego de dibujo"
 
 #: boards/draw.xml.in.h:2
-msgid "Creative board were you can freely draw"
-msgstr ""
+#, fuzzy
+msgid "Creative board where you can freely draw"
+msgstr "Un cuadro de creacion libre de dibujo"
+
+#: boards/erase.xml.in.h:1
+msgid "Move the mouse"
+msgstr "Mueve el raton"
+
+#: boards/erase.xml.in.h:2
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "Mueve el raton para aclarar la zona y discubre el plano escondido"
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement boards"
-msgstr ""
+msgstr "Elige los cuadros de juegos"
 
 #: boards/gletters.xml.in.h:1 src/boards/gletters.c:76
 msgid "Simple Letters"
@@ -95,107 +110,112 @@ msgstr "Juego de Letras"
 #: boards/gletters.xml.in.h:2 src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
 msgstr ""
-"Con el teclado del ordenador, coge las letras antes de que lleguen al suelo"
+"Con el teclado del ordenador, apoya en las letras antes de que lleguen al "
+"suelo"
 
 #: boards/imageid.xml.in.h:1
-msgid "Pratice reading by finding the word matching an image"
-msgstr ""
+msgid "Practice reading by finding the word matching an image"
+msgstr "Ejercicio de lectura en que se debe asociar una palabra con una imagen"
 
 #: boards/imageid.xml.in.h:2
 msgid "Reading pratice"
-msgstr ""
+msgstr "Ejercicio de lectura"
 
 #: boards/imagename.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
-msgstr ""
+msgstr "Selecciona y mueve los elementos en su nombre"
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
-msgstr ""
+msgstr "Descubre las imagenes escondidas y busca a sus jemelas"
 
 #: boards/memory.xml.in.h:2
 msgid "Memory Game with images"
-msgstr ""
+msgstr "Juego de memoria con imagenes"
 
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
-msgstr ""
+msgstr "Menu principal de GCompris"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr ""
+msgstr "Selecciona y mueve los elementos para crear los cuadros originales"
 
 #: boards/paintings.xml.in.h:2 src/boards/shapegame.c:119
 msgid "Make the puzzle"
-msgstr ""
+msgstr "Juego de puzzle"
 
 #: boards/paratrooper.xml.in.h:1
 msgid "Manage the paratrooper to let him safely land"
-msgstr ""
+msgstr "Dirige al paracaidas para que acueste en securidad"
 
 #: boards/paratrooper.xml.in.h:2
 msgid "Paratrooper"
-msgstr ""
+msgstr "paracaidas"
 
 #: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr ""
+msgstr "Mueve los aviones y escoge los numeros en el orden correcto"
 
 #: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
 msgid "Numbers in Order"
-msgstr ""
+msgstr "Numeros en orden"
 
 #: boards/readingh.xml.in.h:1
 msgid "Horizontal reading practice"
-msgstr ""
+msgstr "Ejercicio de lectura horizontal"
 
 #: boards/readingh.xml.in.h:2
 msgid "Read a list of word and tell if the given word is in it"
 msgstr ""
+"Lee una seleccion de palabras y busca si la palabra propuesta esta en la "
+"lista"
 
 #: boards/readingv.xml.in.h:1
 msgid "Read a vertical list of word and tell if the given word is in it"
 msgstr ""
+"Lee una lista vertical de palabras y dice si la palabra propuesta esta en la "
+"lista"
 
 #: boards/readingv.xml.in.h:2
 msgid "Vertical reading practice"
-msgstr ""
+msgstr "Ejercicio de lectura vertical"
 
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
-msgstr ""
+msgstr "Escoge los cuadros de lectura"
 
 #: boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
-msgstr ""
+msgstr "Selecciona y mueve los pesos para equilibrar las balanzas"
 
 #: boards/scalesboard.xml.in.h:2
 msgid "Well balance the scales"
-msgstr ""
+msgstr "Equilibra las balanzas"
 
 #: boards/smallnumbers.xml.in.h:1 src/boards/smallnumbers.c:69
 msgid "Numbers With Dices"
-msgstr ""
+msgstr "Juegos de numeros"
 
 #: boards/smallnumbers.xml.in.h:2
-#, fuzzy
 msgid "Type the keyboard number 1 to 6 before the dices reach the ground"
 msgstr ""
-"Con el teclado del ordenador, coge las letras antes de que lleguen al suelo"
+"Con el teclado del ordenador, escribe los numeros de 1 a 6 antes de que "
+"lleguen al suelo"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
 msgid "Falling Words"
-msgstr ""
+msgstr "Palabras que caen"
 
 #: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:83
-#, fuzzy
 msgid "Fully type the falling words before they reach the ground"
 msgstr ""
-"Con el teclado del ordenador, coge las letras antes de que lleguen al suelo"
+"Con el teclado del ordenador, escribe las palabras antes de que lleguen al "
+"suelo"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
-msgstr "GCompris Game"
+msgstr "Juego para ninos desde 3 anos"
 
 #: gcompris.desktop.in.h:2
 msgid "GCompris"
@@ -208,7 +228,7 @@ msgstr "No se puede encontrar el fichero pixmap: %s"
 
 #: src/boards/clickgame.c:246
 msgid "Practice the computer mouse"
-msgstr ""
+msgstr "Practica el raton del ordenador"
 
 #: src/boards/clickgame.c:247
 msgid ""
@@ -234,42 +254,54 @@ msgid ""
 "Location: Unknown (image nur03011)\n"
 "Location: Unknown (image nur03013)\n"
 msgstr ""
+"En este juego, los ninos descubriran el raton del ordenador\n"
+"Solo tienen que apoyar en el buton de izquierda en los peces en movimiento\n"
+"\n"
+"Creditos:\n"
+"Los peces provienen del Unix utility xfishtank.\n"
+"Las imagenes provienen de National Undersearch Research Program (NURP)\n"
+"Colleccion\n"
+"\n"
+"Todas las imagenes pertenecen al OAR/National Undersearch Research Program\n"
+"(NURP)\n"
+"Excepto la primera imagen que pertenece a University of North\n"
+"Carolina en Wilmington\n"
 
 #: src/boards/clockgame.c:519
 msgid "Set the clock to:"
-msgstr ""
+msgstr "apunta la hora:"
 
 #: src/boards/reading.c:98
 msgid "Reading"
-msgstr ""
+msgstr "Lectura"
 
 #: src/boards/reading.c:99
 msgid "Read a list of words and then tell if the given word is in it"
-msgstr ""
+msgstr "Lee una lista de palabras y dice si la palabra propuesta esta en ella"
 
 #: src/boards/reading.c:308
 msgid "Please, check if the word"
-msgstr ""
+msgstr "Por favor, averigua si la palabra"
 
 #: src/boards/reading.c:328
 msgid "is being displayed"
-msgstr ""
+msgstr "aparece en el cuadro"
 
 #: src/boards/reading.c:519
 msgid "I am Ready"
-msgstr ""
+msgstr "Estoy listo/a"
 
 #: src/boards/reading.c:559
 msgid "Yes I saw it"
-msgstr ""
+msgstr "Si la he visto"
 
 #: src/boards/reading.c:589
 msgid "No, it was not there"
-msgstr ""
+msgstr "No, no la he visto"
 
 #: src/boards/shapegame.c:120
 msgid "Drag and Drop the items to rebuild the object"
-msgstr ""
+msgstr "Selecciona y mueve los elementos para crear los articulos"
 
 #: src/boards/shapegame.c:1142
 #, c-format
@@ -277,41 +309,35 @@ msgid "Couldn't find file %s !"
 msgstr "No se puede encontrar el fichero %s !"
 
 #: src/boards/shapegame.c:1145
-#, fuzzy, c-format
+#, c-format
 msgid "find file %s !"
-msgstr "No se puede encontrar el fichero %s !"
+msgstr "Encuentra el fichero %s !"
 
 #: src/boards/smallnumbers.c:70
-#, fuzzy
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr ""
-"Con el teclado del ordenador, coge las letras antes de que lleguen al suelo"
+"Con el teclado del ordenador, escoge los numeros 1 a 9  antes de que lleguen "
+"al suelo"
 
 #. GdkCursor *hand_cursor;
 #: src/gcompris/gcompris.c:179
 msgid "GCompris I Have Understood"
-msgstr ""
+msgstr "GCompris He comprendido"
 
 #: src/gcompris/gcompris.c:287
-#, fuzzy
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
-msgstr "Un simple juego de educacion para ninos a partir de 3 anosEnsena."
+msgstr "Un simple juego de educacion para ninos a partir de 3 anos."
 
 #: src/gcompris/gcompris.c:292
-#, fuzzy
 msgid "GCompris Home Page"
 msgstr "GCompris"
 
 #: src/gcompris/gcompris.c:295
 msgid "An OFSET development"
-msgstr ""
+msgstr "Un desarrollo OFSET"
 
 #: src/gcompris/gcompris.c:325
-#, fuzzy
 msgid "Do you really want to quit GCompris?"
 msgstr "Quieres realmente quitar el juego?"
-
-#~ msgid "Couldn't find pixmap file %s/%s !"
-#~ msgstr "No se puede encontrar el fichero %s/%s !"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-11-06 22:57+0100\n"
+"POT-Creation-Date: 2001-11-11 01:42+0100\n"
 "PO-Revision-Date: 2001-11-06 14:01+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -61,6 +61,15 @@ msgid ""
 msgstr ""
 "Vänsterklicka med musen på alla simmande fiskar innan de lämnar akvariet"
 
+#: boards/click_on_letter.xml.in.h:1
+#, fuzzy
+msgid "Click on a letter"
+msgstr "Klicka på mig"
+
+#: boards/click_on_letter.xml.in.h:2
+msgid "Hear a letter and click on the right letter"
+msgstr ""
+
 #: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
 #: src/boards/clockgame.c:74
 msgid "Learn how to read the time"
@@ -80,8 +89,18 @@ msgid "A simple vector drawing tool"
 msgstr "Ett enkelt vektorritverktyg"
 
 #: boards/draw.xml.in.h:2
-msgid "Creative board were you can freely draw"
+#, fuzzy
+msgid "Creative board where you can freely draw"
 msgstr "Kreativt bräde där du kan rita fritt"
+
+#: boards/erase.xml.in.h:1
+#, fuzzy
+msgid "Move the mouse"
+msgstr "Upptäck datorn"
+
+#: boards/erase.xml.in.h:2
+msgid "Move the mouse to erase the area and discover the background"
+msgstr ""
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement boards"
@@ -96,7 +115,7 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Skriv de fallande bokstäverna innan de når marken"
 
 #: boards/imageid.xml.in.h:1
-msgid "Pratice reading by finding the word matching an image"
+msgid "Practice reading by finding the word matching an image"
 msgstr "Träna läsning genom att hitta det ord som passar en bild"
 
 #: boards/imageid.xml.in.h:2
@@ -330,5 +349,5 @@ msgstr "En OFSET-utveckling"
 msgid "Do you really want to quit GCompris?"
 msgstr "Vill du verkligen avsluta GCompris?"
 
-#~ msgid "Practice reading by finding the word matching an image"
+#~ msgid "Pratice reading by finding the word matching an image"
 #~ msgstr "Träna läsning genom att hitta det ord som passar en bild"
