@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2003/10/08 17:50:58 bcoudoin>
+ * Time-stamp: <2004/01/19 02:06:06 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,7 +32,8 @@
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
-static gint drop_items_id = 0;
+static gint drop_items_id    = 0;
+static gint next_level_timer = 0;
 
 static char *textToFind = NULL;
 static gint textToFindIndex = 0;
@@ -81,7 +82,7 @@ static GnomeCanvasItem	*reading_create_item(GnomeCanvasGroup *parent);
 static gint		 reading_drop_items (void);
 //static void reading_destroy_item(LettersItem *item);
 static void		 reading_destroy_all_items(void);
-static void		 reading_next_level(void);
+static gint		 reading_next_level(void);
 
 static void		 player_win(void);
 static void		 player_loose(void);
@@ -230,11 +231,11 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void reading_next_level()
+static gint reading_next_level()
 {
   gcompris_bar_set_level(gcomprisBoard);
 
-	gamewon = FALSE;
+  gamewon = FALSE;
 
   reading_destroy_all_items();
 
@@ -266,6 +267,8 @@ static void reading_next_level()
 
   display_what_to_do(boardRootItem);
   ask_ready(TRUE);
+
+  return (FALSE);
 }
 
 /*
@@ -290,6 +293,11 @@ static void reading_destroy_all_items()
 
   if (drop_items_id) {
     gtk_timeout_remove (drop_items_id);
+    drop_items_id = 0;
+  }
+
+  if (next_level_timer) { 
+    gtk_timeout_remove (next_level_timer);
     drop_items_id = 0;
   }
 
@@ -608,16 +616,18 @@ static void player_win()
     board_finished(BOARD_FINISHED_RANDOM);
     return;
   }
-  reading_next_level();
+
+  next_level_timer = g_timeout_add(3000, reading_next_level, NULL);
 }
 
 static void player_loose()
 {
   gcompris_play_ogg ("crash", NULL);
-	gamewon = FALSE;
-	wait_for_ready = TRUE;
+  gamewon = FALSE;
+  wait_for_ready = TRUE;
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
-	reading_next_level();
+
+  next_level_timer = g_timeout_add(3000, reading_next_level, NULL);
 }
 
 /* Callback for the yes and no buttons */

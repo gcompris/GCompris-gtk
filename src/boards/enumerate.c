@@ -631,7 +631,9 @@ static void process_ok()
   if(win) {
     gamewon = TRUE;
     gcompris_display_bonus(gamewon, BONUS_SMILEY);
+  } else {
+    gamewon = FALSE;
+    gcompris_display_bonus(gamewon, BONUS_SMILEY);
   }
-
 }
 

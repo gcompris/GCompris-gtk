@@ -104,6 +104,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  gcompris_bar_hide(FALSE);
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -320,6 +321,7 @@ static gboolean process_ok_timeout() {
 }
 
 static void process_ok() {
+  gcompris_bar_hide(TRUE);
   // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }

@@ -543,7 +543,8 @@ static void process_ok()
     }
   else
     {
-      gcompris_play_ogg ("crash", NULL);
+      gamewon = FALSE;
+      gcompris_display_bonus(gamewon, BONUS_SMILEY);
     }
 
 

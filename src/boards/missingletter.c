@@ -137,6 +137,8 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  gcompris_bar_hide(FALSE);
+
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     {
       game_won();
@@ -412,14 +414,15 @@ static void game_won() {
 /* ==================================== */
 static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
-	return FALSE;
+  return FALSE;
 }
 
 static void process_ok() {
   if (gamewon) {
     gnome_canvas_item_set(text, "text", board->answer, NULL);
   }
-	// leave time to display the right answer
+  // leave time to display the right answer
+  gcompris_bar_hide(TRUE);
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 

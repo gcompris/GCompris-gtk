@@ -116,6 +116,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  gcompris_bar_hide(FALSE);
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
     game_won();
 
@@ -337,7 +338,7 @@ static void game_won() {
  *
  * =====================================================================*/
 static gboolean ok_timeout() {
-	printf("+++ ok_timeout errors = %d\n", errors);
+  printf("+++ ok_timeout errors = %d\n", errors);
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
   if (!gamewon)
     errors--;
@@ -353,7 +354,8 @@ static gboolean ok_timeout() {
 }
 
 static void ok() {
-	// leave time to display the right answer
+  gcompris_bar_hide(TRUE);
+  // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, ok_timeout, NULL);
 }
 

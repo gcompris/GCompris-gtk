@@ -81,22 +81,22 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static int answer;
 
 static char *hands[32] = {"main_droite_dessus_0.png","main_droite_paume_0.png",
-													"main_gauche_dessus_0.png","main_gauche_paume_0.png",
-													"main_droite_dessus_90.png","main_droite_paume_90.png",
-													"main_gauche_dessus_90.png","main_gauche_paume_90.png",
-													"main_droite_dessus_180.png","main_droite_paume_180.png",
-													"main_gauche_dessus_180.png","main_gauche_paume_180.png",
-													"main_droite_dessus_270.png","main_droite_paume_270.png",
-													"main_gauche_dessus_270.png","main_gauche_paume_270.png",
-													"poing_droit_dessus_0.png", "poing_droit_paume_0.png",
-													"poing_gauche_dessus_0.png", "poing_gauche_paume_0.png",
-													"poing_droit_dessus_90.png", "poing_droit_paume_90.png",
-													"poing_gauche_dessus_90.png", "poing_gauche_paume_90.png",
-													"poing_droit_dessus_180.png", "poing_droit_paume_180.png",
-													"poing_gauche_dessus_180.png", "poing_gauche_paume_180.png",
-													"poing_droit_dessus_270.png", "poing_droit_paume_270.png",
-													"poing_gauche_dessus_270.png", "poing_gauche_paume_270.png"
-													};
+			  "main_gauche_dessus_0.png","main_gauche_paume_0.png",
+			  "main_droite_dessus_90.png","main_droite_paume_90.png",
+			  "main_gauche_dessus_90.png","main_gauche_paume_90.png",
+			  "main_droite_dessus_180.png","main_droite_paume_180.png",
+			  "main_gauche_dessus_180.png","main_gauche_paume_180.png",
+			  "main_droite_dessus_270.png","main_droite_paume_270.png",
+			  "main_gauche_dessus_270.png","main_gauche_paume_270.png",
+			  "poing_droit_dessus_0.png", "poing_droit_paume_0.png",
+			  "poing_gauche_dessus_0.png", "poing_gauche_paume_0.png",
+			  "poing_droit_dessus_90.png", "poing_droit_paume_90.png",
+			  "poing_gauche_dessus_90.png", "poing_gauche_paume_90.png",
+			  "poing_droit_dessus_180.png", "poing_droit_paume_180.png",
+			  "poing_gauche_dessus_180.png", "poing_gauche_paume_180.png",
+			  "poing_droit_dessus_270.png", "poing_droit_paume_270.png",
+			  "poing_gauche_dessus_270.png", "poing_gauche_paume_270.png"
+};
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -136,8 +136,9 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  gcompris_bar_hide(FALSE);
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
-      game_won();
+    game_won();
 
   board_paused = pause;
 }
@@ -147,21 +148,21 @@ static void pause_board (gboolean pause)
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
   if(agcomprisBoard!=NULL) {
-      gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "leftright/leftright-bg.jpg");
-      gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
-      gcomprisBoard->sublevel=1;
+    gcomprisBoard=agcomprisBoard;
+    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "leftright/leftright-bg.jpg");
+    gcomprisBoard->level=1;
+    gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
+    gcomprisBoard->sublevel=1;
 
-      gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
-      gcompris_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+    gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
+    gcompris_score_start(SCORESTYLE_NOTE, 10, 50, gcomprisBoard->number_of_sublevel);
+    gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
-      leftright_next_level();
+    leftright_next_level();
 
-      gamewon = FALSE;
-      pause_board(FALSE);
-    }
+    gamewon = FALSE;
+    pause_board(FALSE);
+  }
 }
 
 /* =====================================================================
@@ -170,10 +171,10 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 static void end_board () {
 
   if(gcomprisBoard!=NULL){
-      pause_board(TRUE);
-      gcompris_score_end();
-      leftright_destroy_all_items();
-    }
+    pause_board(TRUE);
+    gcompris_score_end();
+    leftright_destroy_all_items();
+  }
   gcomprisBoard = NULL;
 }
 
@@ -182,22 +183,22 @@ static void end_board () {
  * =====================================================================*/
 static void set_level (guint level) {
   if(gcomprisBoard!=NULL) {
-      gcomprisBoard->level=level;
-      gcomprisBoard->sublevel=1;
-      leftright_next_level();
-    }
+    gcomprisBoard->level=level;
+    gcomprisBoard->sublevel=1;
+    leftright_next_level();
+  }
 }
 
 /* =====================================================================
  *
  * =====================================================================*/
 gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
-	if (gcomprisBoard) {
-      if(g_strcasecmp(gcomprisBoard->type, "leftright")==0) {
-	  		/* Set the plugin entry */
-	  		gcomprisBoard->plugin=&menu_bp;
-	  		return TRUE;
-			}
+  if (gcomprisBoard) {
+    if(g_strcasecmp(gcomprisBoard->type, "leftright")==0) {
+      /* Set the plugin entry */
+      gcomprisBoard->plugin=&menu_bp;
+      return TRUE;
+    }
   }
   return FALSE;
 }
@@ -221,7 +222,7 @@ static void leftright_next_level() {
  * =====================================================================*/
 static void leftright_destroy_all_items() {
   if(boardRootItem!=NULL)
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem = NULL;
 }
@@ -233,9 +234,9 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   GdkPixbuf *hand_pixmap = NULL;
   char *str = NULL;
-	int i;
+  int i;
 
-	boardRootItem = GNOME_CANVAS_GROUP(
+  boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
@@ -243,78 +244,78 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 							    NULL));
 
   left_text_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", _("left"),
-				      "font", gcompris_skin_font_board_big,
-				      "x", (double) CENTER_LEFT_X,
-				      "y", (double) CENTER_LEFT_Y,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", TEXT_COLOR,
-				      NULL);
+					  gnome_canvas_text_get_type (),
+					  "text", _("left"),
+					  "font", gcompris_skin_font_board_big,
+					  "x", (double) CENTER_LEFT_X,
+					  "y", (double) CENTER_LEFT_Y,
+					  "anchor", GTK_ANCHOR_CENTER,
+					  "fill_color", TEXT_COLOR,
+					  NULL);
 
   right_text_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_text_get_type (),
-				      "text", _("right"),
-				      "font", gcompris_skin_font_board_big,
-				      "x", (double) CENTER_RIGHT_X,
-				      "y", (double) CENTER_RIGHT_Y,
-				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", TEXT_COLOR,
-				      NULL);
+					   gnome_canvas_text_get_type (),
+					   "text", _("right"),
+					   "font", gcompris_skin_font_board_big,
+					   "x", (double) CENTER_RIGHT_X,
+					   "y", (double) CENTER_RIGHT_Y,
+					   "anchor", GTK_ANCHOR_CENTER,
+					   "fill_color", TEXT_COLOR,
+					   NULL);
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "highlight_torus.png");
   highlight_pixmap = gcompris_load_pixmap(str);
 
-	left_highlight_image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", highlight_pixmap,
-				      "x", (double) BUTTON_AREA_X1,
-				      "y", (double) BUTTON_AREA_Y1,
-				      "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-				      "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  left_highlight_image_item = gnome_canvas_item_new (boardRootItem,
+						     gnome_canvas_pixbuf_get_type (),
+						     "pixbuf", highlight_pixmap,
+						     "x", (double) BUTTON_AREA_X1,
+						     "y", (double) BUTTON_AREA_Y1,
+						     "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
+						     "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
+						     "width_set", TRUE,
+						     "height_set", TRUE,
+						     NULL);
 
-	right_highlight_image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", highlight_pixmap,
-				      "x", (double) BUTTON_AREA_X2,
-				      "y", (double) BUTTON_AREA_Y1,
-				      "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-				      "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  right_highlight_image_item = gnome_canvas_item_new (boardRootItem,
+						      gnome_canvas_pixbuf_get_type (),
+						      "pixbuf", highlight_pixmap,
+						      "x", (double) BUTTON_AREA_X2,
+						      "y", (double) BUTTON_AREA_Y1,
+						      "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
+						      "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
+						      "width_set", TRUE,
+						      "height_set", TRUE,
+						      NULL);
 
   g_free(str);
-	gnome_canvas_item_hide(right_highlight_image_item);
-	gnome_canvas_item_hide(left_highlight_image_item);
+  gnome_canvas_item_hide(right_highlight_image_item);
+  gnome_canvas_item_hide(left_highlight_image_item);
 
-	// make sure that next hand is not the same as previous
-	do {
-		i = RAND(0,gcomprisBoard->level*8-1);
-	} while ( i == last_hand );
+  // make sure that next hand is not the same as previous
+  do {
+    i = RAND(0,gcomprisBoard->level*8-1);
+  } while ( i == last_hand );
 
-	last_hand = i;
+  last_hand = i;
 
-	if ( ((int) (i/2)) % 2 == 1)
-		answer = LEFT;
-		else
-			answer = RIGHT;
+  if ( ((int) (i/2)) % 2 == 1)
+    answer = LEFT;
+  else
+    answer = RIGHT;
 
-	str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, hands[i]);
+  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, hands[i]);
   hand_pixmap = gcompris_load_pixmap(str);
-	hand_image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", hand_pixmap,
-				      "x", (double) HAND_X - (gdk_pixbuf_get_width(hand_pixmap)/2),
-				      "y", (double) HAND_Y - (gdk_pixbuf_get_height(hand_pixmap)/2),
-				      "width", (double) gdk_pixbuf_get_width(hand_pixmap),
-				      "height", (double) gdk_pixbuf_get_height(hand_pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  hand_image_item = gnome_canvas_item_new (boardRootItem,
+					   gnome_canvas_pixbuf_get_type (),
+					   "pixbuf", hand_pixmap,
+					   "x", (double) HAND_X - (gdk_pixbuf_get_width(hand_pixmap)/2),
+					   "y", (double) HAND_Y - (gdk_pixbuf_get_height(hand_pixmap)/2),
+					   "width", (double) gdk_pixbuf_get_width(hand_pixmap),
+					   "height", (double) gdk_pixbuf_get_height(hand_pixmap),
+					   "width_set", TRUE,
+					   "height_set", TRUE,
+					   NULL);
 
   g_free(str);
 
@@ -335,9 +336,9 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-			board_finished(BOARD_FINISHED_TUXLOCO);
-			return;
-      }
+      board_finished(BOARD_FINISHED_TUXLOCO);
+      return;
+    }
   }
   leftright_next_level();
 }
@@ -347,11 +348,12 @@ static void game_won() {
  * =====================================================================*/
 static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
-	return FALSE;
+  return FALSE;
 }
 
 static void process_ok() {
-	// leave time to display the right answer
+  gcompris_bar_hide(TRUE);
+  // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 /* =====================================================================
@@ -399,12 +401,12 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
  *
  * =====================================================================*/
 static void highlight_selected(int side) {
-	if (side == LEFT) {
-		gnome_canvas_item_hide(right_highlight_image_item);
-		gnome_canvas_item_show(left_highlight_image_item);
-	}
-	if (side == RIGHT) {
-		gnome_canvas_item_show(right_highlight_image_item);
-		gnome_canvas_item_hide(left_highlight_image_item);
-	}
+  if (side == LEFT) {
+    gnome_canvas_item_hide(right_highlight_image_item);
+    gnome_canvas_item_show(left_highlight_image_item);
+  }
+  if (side == RIGHT) {
+    gnome_canvas_item_show(right_highlight_image_item);
+    gnome_canvas_item_hide(left_highlight_image_item);
+  }
 }

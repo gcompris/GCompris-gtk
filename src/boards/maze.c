@@ -450,6 +450,12 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 					"anchor", GTK_ANCHOR_CENTER,
 					"fill_color", "white",
 					NULL);
+  if(modeIs2D) {
+    gnome_canvas_item_hide(warning_item);
+  } else {
+    gnome_canvas_item_show(warning_item);
+  }
+
   return NULL;
 }
 /* =====================================================================
