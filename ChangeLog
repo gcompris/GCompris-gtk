@@ -1,3 +1,14 @@
+2005-01-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/chronos/images/chronos-tuxtree1.png: fixed to include a background 
+	* boards/chronos/images/chronos-tuxtree2.png: -
+	* boards/chronos/images/chronos-tuxtree3.png: -
+	* boards/chronos/images/chronos-tuxtree4.png: -
+	* docs/Makefile.am: fixed
+	* gcompris.spec.in: fixed
+	* src/boards/python/searace.py: implemented one player mode (hidden for now)
+	activate it with the shift key to get a tux program
+
 2005-01-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/searace.py: improved the command parsing

@@ -228,6 +228,10 @@ class Gcompris_searace:
               
   def key_press(self, keyval):
     #print("got key %i" % keyval)
+    # Just to debug
+    if (keyval == gtk.keysyms.Shift_L):
+      self.tux_move()
+
     return
 
   # ----------------------------------------------------------------------
@@ -302,7 +306,7 @@ class Gcompris_searace:
     ca = 0xAACCFFFFL
     cb = 0x1D0DFFFFL
 
-    for y in range (self.sea_area[1], self.sea_area[3]+1, step_y):
+    for y in range (self.sea_area[1], self.sea_area[3]+1, int(step_y)):
       if(ci%2):
         color = ca
       else:
@@ -336,7 +340,7 @@ class Gcompris_searace:
         )
 
     ci = 0
-    for x in range (self.sea_area[0], self.sea_area[2]+1, step_x):
+    for x in range (self.sea_area[0], self.sea_area[2]+1, int(step_x)):
       if(ci%2):
         color = ca
       else:
@@ -395,7 +399,7 @@ class Gcompris_searace:
     self.left_boat.tv = gtk.TextView(self.left_boat.tb)
     self.left_boat.sw.add(self.left_boat.tv)
 
-    command_example = _("droite") + " 45\n" + _("forward") + " 5\n" + _("gauche") + " 45"
+    command_example = _("right") + " 45\n" + _("forward") + " 5\n" + _("left") + " 45"
     self.left_boat.tb.set_text(command_example)
     
     self.left_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
@@ -420,7 +424,7 @@ class Gcompris_searace:
     self.right_boat.tv = gtk.TextView(self.right_boat.tb)
     self.right_boat.sw.add(self.right_boat.tv)
 
-    command_example = _("gauche") + " 45\n" + _("forward") + " 5\n" + _("droite") + " 45"
+    command_example = _("left") + " 45\n" + _("forward") + " 5\n" + _("right") + " 45"
     self.right_boat.tb.set_text(command_example)
     
     self.right_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
@@ -546,8 +550,8 @@ class Gcompris_searace:
     stop_x  = self.sea_area[0]+step_x*slice_x
     stop_y  = self.sea_area[1]+step_y*slice_y
 
-    for x in range (self.sea_area[0], stop_x, step_x):
-      for y in range (self.sea_area[1], stop_y, step_y):
+    for x in range (self.sea_area[0], stop_x, int(step_x)):
+      for y in range (self.sea_area[1], stop_y, int(step_y)):
         #print x, step_x, self.sea_area[2]
         angle = 0
         direction = random.randint(0,6)
@@ -616,20 +620,55 @@ class Gcompris_searace:
     if(boat.condition):
       coord = boat.condition[0]
       condition = boat.condition[1]
-      if(boat.x > coord[0] and boat.x < coord[2] and boat.y > coord[1] and boat.y < coord[3]):
+      if(boat.x >= coord[0] and boat.x <= coord[2] and boat.y >= coord[1] and boat.y <= coord[3]):
         return(condition)
     
     for conditions in self.weather:
       coord = conditions[0]
       condition = conditions[1]
       #print "Testing coord="+str(coord)+" Boat coord x="+str(x)+" y="+str(y)
-      if(x > coord[0] and x < coord[2] and y > coord[1] and y < coord[3]):
+      if(x >= coord[0] and x <= coord[2] and y >= coord[1] and y <= coord[3]):
         boat.condition = conditions
         #print "Found: x="+str(x)+" y="+str(y)+" coord="+str(coord)
         #print "  angle=" + str(int(condition[0])) + "  speed=" + str(condition[1])
         return(condition)
     # Should not happen, return a normal condition anyway
     return(0,1)
+
+  # Given a x y coord, return it's weather condition (no caching)
+  def get_absolute_weather_condition(self, x, y):
+    for conditions in self.weather:
+      coord = conditions[0]
+      condition = conditions[1]
+      #print "Testing coord="+str(coord)+" Boat coord x="+str(x)+" y="+str(y)
+      if(x >= coord[0] and x <= coord[2] and y >= coord[1] and y <= coord[3]):
+        #print "Found: x="+str(x)+" y="+str(y)+" coord="+str(coord)
+        #print "  angle=" + str(int(condition[0])) + "  speed=" + str(condition[1])
+        return(condition)
+    # Should not happen, return a normal condition anyway
+    return(0,1)
+
+  # Return a wind score depending on an angle
+  def get_wind_score(self, boat_angle, condition):
+    # Calculate the timer inc depending on the wind angle + speed
+    wind_angle = condition[0] - boat_angle
+    if(wind_angle>360):
+      wind_angle-=360
+    elif(wind_angle<-360):
+      wind_angle+=360
+
+    if(abs(wind_angle)>180):
+      wind_angle=180-(abs(wind_angle)-180)
+
+    # Increase the timer depending on wind force and direction
+    angle_pi = wind_angle*math.pi/180
+
+    cx = math.cos(angle_pi)
+    penalty=3
+    if(cx<0):
+      penalty*=2
+      
+    return(cx*condition[1]*-1*penalty)
 
   #
   # Boat moving
@@ -654,6 +693,8 @@ class Gcompris_searace:
 
     # We need to convert the coord to the rootitem coordinate to check limits
     (x, y)= boat.item.i2w( boat.x, boat.y)
+
+    # Manage the wrapping
     if(y<self.sea_area[1]):
       y = self.sea_area[3]
       (boat.x, boat.y)= boat.item.w2i( x, y)
@@ -677,28 +718,13 @@ class Gcompris_searace:
       return
 
     condition = self.get_weather_condition(boat)
-
+    
     boat.item.set(x = boat.x,
                   y = boat.y)
 
-    # Calculate the timer inc depending on the wind angle + speed
-    wind_angle = condition[0] - boat.angle
-    if(wind_angle>360):
-      wind_angle-=360
-    elif(wind_angle<-360):
-      wind_angle+=360
 
-    if(abs(wind_angle)>180):
-      wind_angle=180-(abs(wind_angle)-180)
+    wind = self.get_wind_score(boat.angle, condition)
 
-    # Increase the timer depending on wind force and direction
-    angle_pi = wind_angle*math.pi/180
-
-    cx = math.cos(angle_pi)
-    penalty=3
-    if(cx<0):
-      penalty*=2
-    wind = cx*condition[1]*-1*penalty
     #print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
     boat.speeditem.set(text = _("Angle:") + str(condition[0]) + " " + _("Wind:") + str(int(wind)*-1))
     boat.timer = gtk.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
@@ -770,15 +796,15 @@ class Gcompris_searace:
       boat.timer = 0
       return
     
-    print "boat.line=" + str(boat.line)
-    print "Parsing command = " + cmd + "<<"
+    #print "boat.line=" + str(boat.line)
+    #print "Parsing command = " + cmd + "<<"
     cmds  = cmd.split()
     # Manage default cases (no params given)
     if ( len(cmds) == 1 and cmd.startswith(_("forward")) ):
       cmd += " 1"
-    elif ( len(cmds) == 1 and cmd.startswith(_("gauche")) ):
+    elif ( len(cmds) == 1 and cmd.startswith(_("left")) ):
       cmd += " 45"
-    elif ( len(cmds) == 1 and cmd.startswith(_("droite")) ):
+    elif ( len(cmds) == 1 and cmd.startswith(_("right")) ):
       cmd += " 45"
     elif ( len(cmds) > 2):
       boat.speeditem.set(text=_("Syntax error at line") + " " + str(boat.line) + "\n(" + cmd + ")")
@@ -824,20 +850,99 @@ class Gcompris_searace:
   # Will return a text string: the tux move
   def tux_move(self):
 
+    print "TUX MOVE"
     # The sea area is defined in the global self.sea_area
-    step_x    = (self.sea_area[2]-self.sea_area[0])/20/2
-    step_y    = (self.sea_area[3]-self.sea_area[1])/10/2
+    step_x    = (self.sea_area[2]-self.sea_area[0])/20*2
+    step_y    = (self.sea_area[3]-self.sea_area[1])/10
     
     # Original boat position
     bx     = self.right_boat.x
     by     = self.right_boat.y
-    
+    ba     = 0
+    print "INITIAL BX,BY=", bx, by
     one_path = []
 
-    # X Backward loop
-    for x in range( self.sea_area[2]-step_x, self.sea_area[0]+step_x, -step_x):
-      for y in range( self.sea_area[3]-step_y, self.sea_area[1]+step_y, -step_y):
+    # X loop
+    while (bx <= self.sea_area[2] and bx >= self.sea_area[0]):
+      score = 10000
+      # By default, go straight
+      coord = (bx, by, ba, int(step_x))
+      print "BX,BY,BA=" + str(coord)
+      print "bx="+str(bx)
+      # angle loop
+      for boat_angle in [ -45, 0, 45 ]:
+        a_pi = boat_angle * math.pi/180
+        # Find the point from current boat position with angle a and distance step_x
+        x = bx + math.cos(a_pi)*step_x
+        y = by + math.sin(a_pi)*step_x
+
+        # Manage the wrapping
+        line_style = gtk.gdk.LINE_SOLID
+        if(y<self.sea_area[1]):
+          y = self.sea_area[3] - (self.sea_area[1]-y)
+          line_style = gtk.gdk.LINE_DOUBLE_DASH
+        elif(y>self.sea_area[3]):
+          y = self.sea_area[1] + (y - self.sea_area[3])
+          line_style = gtk.gdk.LINE_DOUBLE_DASH
+            
+        print "  a="+str(boat_angle)+" x,y=",x,y
         # Find shortest path to previous calculated point
-        one_path.append([ (x, y) ])
+        condition = self.get_absolute_weather_condition(x, y)
+        wind = self.get_wind_score(boat_angle, condition)
+        if(wind<score):
+          score = wind
+          coord = (x, y, boat_angle, step_x, line_style) # x y angle distance line_style
+        
+        print "    Boat angle = " + str(boat_angle) + " Condition = " + str(condition) + " Wind = " + str(wind) + " Score = " + str(score)
+        self.root_weather_item.add(
+          gnome.canvas.CanvasText, text=int(wind),
+          y=y, x=x,
+          fill_color_rgba=0xFF0000FFL,
+          )
+
+      # ----------
+      self.root_weather_item.add(
+        gnome.canvas.CanvasLine,
+        points=(bx, by, coord[0], coord[1]),
+        fill_color_rgba=0x00CC00FFL,
+        width_units=2.0,
+        line_style=coord[4]
+        )
+      bx = coord[0]
+      by = coord[1]
+      ba = coord[2]
+      one_path.append(coord)
+
+    # --------------------------------------------------------------
+    # Translate the previous calculation in a string for Tux program
+    # --------------------------------------------------------------
+    
+    ba = 0                              # Boat angle
+    cumulative_distance = 0
+    tux_move = ""
+    for c in one_path:
+      #print "X,Y,A,D=" + str(c)
+      x=c[0]
+      y=c[1]
+      a=c[2]                            # angle
+      d=c[3]                            # distance
       
-    return
+      if(ba-a<0):
+        if(cumulative_distance):
+          tux_move += _("forward") + " " + str(cumulative_distance) + "\n"
+          cumulative_distance=0
+        tux_move += _("right") + " " + str(abs(int(ba-a))) + "\n"
+        ba += abs(int(ba-a)) 
+      elif(ba-a>0):
+        if(cumulative_distance):
+          tux_move += _("forward") + " " + str(cumulative_distance) + "\n"
+          cumulative_distance=0
+        tux_move += _("left") + " " + str(abs(int(ba-a))) + "\n"
+        ba -= abs(int(ba-a))
+
+      cumulative_distance += int(d/self.sea_ratio)
+
+    # Final move, add an ofset because we loose space in abs()
+    tux_move += _("forward") + " " + str(cumulative_distance+2) + "\n"
+
+    self.right_boat.tb.set_text(tux_move)
