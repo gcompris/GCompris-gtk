@@ -582,7 +582,7 @@ static void game_won()
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-      board_finished();
+      board_finished(BOARD_FINISHED_RANDOM);
       return;
     }
     gcompris_play_sound (SOUNDLISTFILE, "bonus");

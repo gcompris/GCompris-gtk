@@ -319,7 +319,7 @@ gint key_press(guint keyval)
     case TUX_LANDED:
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	board_finished();
+	board_finished(BOARD_FINISHED_RANDOM);
 	return TRUE;
       }
       paratrooper_next_level();

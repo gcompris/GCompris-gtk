@@ -37,8 +37,16 @@ typedef enum
   BONUS_LAST		= 2
 } BonusList;
 
+typedef enum
+{
+  BOARD_FINISHED_RANDOM		= 0,
+  BOARD_FINISHED_TUXPLANE	= 1,
+  BOARD_FINISHED_TUXLOCO	= 2,
+  BOARD_FINISHED_LAST		= 2
+} BoardFinishedList;
+
 void gcompris_display_bonus(int, int);
-void board_finished();
+void board_finished(int);
 void bonus_image(char *,int);
 void end_bonus();
 

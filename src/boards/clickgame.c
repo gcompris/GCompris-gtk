@@ -585,7 +585,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
 		 /* Try the next level */
 		 gcomprisBoard->level++;
 		 if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-		   board_finished();
+		   board_finished(BOARD_FINISHED_RANDOM);
 		   return;
 		 }
 		 clickgame_next_level();

@@ -409,7 +409,7 @@ static void game_won() {
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-	board_finished();
+	board_finished(BOARD_FINISHED_TUXPLANE);
 	return;
     }
   }

@@ -586,7 +586,7 @@ static void player_win(LettersItem *item)
       gcomprisBoard->level++;
       gcomprisBoard->sublevel = 1;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	board_finished();
+	board_finished(BOARD_FINISHED_RANDOM);
 	return;
       }
       wordsgame_next_level();

@@ -23,7 +23,7 @@
 
 #define SOUNDLISTFILE PACKAGE
 #define BONUS_DURATION 2000
-#define TUXPLANE_TIME_STEP 300
+#define TUX_TIME_STEP 300
 
 static GnomeCanvasItem *bonus_item = NULL;
 static GnomeCanvasItem *door1_item = NULL;
@@ -32,14 +32,16 @@ static GnomeCanvasItem *tuxplane_item = NULL;
 
 static gint end_bonus_id = 0, board_finished_id = 0;
 
-static gint end_board_count = 0;
+//static gint end_board_count = 0;
+static int left_door_limit = 0;
 
 /* ==================================== */
 void end_board_finished() {
-  end_board_count++;
-
+  double dx1, dy1, dx2, dy2;
+  //end_board_count++;
+  gnome_canvas_item_get_bounds(tuxplane_item,  &dx1, &dy1, &dx2, &dy2);
   // animates tuxplane
-  if (end_board_count < 9) {
+  if (/*end_board_count*/ dx2 +50.0 < (double) (left_door_limit)) {
     gnome_canvas_item_move(tuxplane_item, 50, 0);
     return;
   }
@@ -67,25 +69,43 @@ void end_board_finished() {
 }
 /* ==================================== */
 #define OFFSET 100
-void board_finished() {
+void board_finished(int type) {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
-
-  end_board_count = 0;
+  char * str = NULL;
+//  end_board_count = 0;
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
       gcomprisBoard->plugin->pause_board(TRUE);
 
+  if(type==BOARD_FINISHED_RANDOM)
+    type = rand() % BOARD_FINISHED_LAST;
+
+  switch (type) {
+	case BOARD_FINISHED_TUXPLANE :
+		str = g_strdup_printf("gcompris/misc/tuxplane.png");
+		break;
+	case BOARD_FINISHED_TUXLOCO :
+		str = g_strdup_printf("gcompris/misc/tuxloco.png");
+		break;
+	default :
+		str = g_strdup_printf("gcompris/misc/tuxplane.png");
+		break;
+  }
+
   pixmap_door1 = gcompris_load_pixmap("gcompris/misc/door1.png");
   pixmap_door2 = gcompris_load_pixmap("gcompris/misc/door2.png");
-  pixmap_tuxplane = gcompris_load_pixmap("gcompris/misc/tuxplane.png");
+  pixmap_tuxplane = gcompris_load_pixmap(str);
+  g_free(str);
 
   assert(gcomprisBoard != NULL);
 
   x = gcomprisBoard->width - OFFSET - gdk_pixbuf_get_width(pixmap_door1);
   y = OFFSET;
+  left_door_limit = x + gdk_pixbuf_get_width(pixmap_door1);
+
   door1_item = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 				      gnome_canvas_pixbuf_get_type (),
 				      "pixbuf", pixmap_door1,
@@ -127,7 +147,7 @@ void board_finished() {
   gdk_pixbuf_unref(pixmap_door2);
   gdk_pixbuf_unref(pixmap_tuxplane);
 
-  board_finished_id = gtk_timeout_add (TUXPLANE_TIME_STEP, (GtkFunction) end_board_finished, NULL);
+  board_finished_id = gtk_timeout_add (TUX_TIME_STEP, (GtkFunction) end_board_finished, NULL);
 }
 
 /* ==================================== */
