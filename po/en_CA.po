@@ -1,19 +1,20 @@
 # Canadian English translation for gcompris
 # Copyright (C) 2004 Adam Weinberger and the GNOME Foundation
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the gcompris package.
 # Maintainer: Adam Weinberger <adamw@FreeBSD.org>
-#
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-24 14:40+0100\n"
-"PO-Revision-Date: 2004-02-24 12:48-0500\n"
-"Last-Translator: Adam Weinberger <adamw@FreeBSD.org>\n"
+"POT-Creation-Date: 2004-03-30 22:18-0500\n"
+"PO-Revision-Date: 2004-03-30 22:19-0500\n"
+"Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -604,11 +605,11 @@ msgstr "Drag and Drop the items to organize the story"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
-"Moon photo comes from NASA\n"
-" Space sounds from Tuxpaint and Vegastrike"
+"Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
+"of Transportation are based on those found in http://www.wikipedia.org"
 msgstr ""
-"Moon photo comes from NASA\n"
-" Space sounds from Tuxpaint and Vegastrike"
+"Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
+"of Transportation are based on those found in http://www.wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -629,6 +630,24 @@ msgstr "Moonwalker"
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux and the apple tree"
+
+#: boards/chronos/board3_0.xml.in.h:1
+msgid ""
+"Place each image in the order and on the date it has been invented. If not "
+"sure, check online in wikipedia at http://www.wikipedia.org"
+msgstr ""
+"Place each image in the order and on the date it has been invented. If not "
+"sure, check online in wikipedia at http://www.wikipedia.org"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1
+msgid "Transportation"
+msgstr "Transportation"
+
+#: boards/chronos/board3_0.xml.in.h:3
+msgid "VIII Century"
+msgstr "VIII Century"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -911,6 +930,10 @@ msgstr "West Europe"
 msgid "East Europe"
 msgstr "East Europe"
 
+#: boards/geography/board5_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Regions of France"
+
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
 msgstr "Keyboard manipulation"
@@ -919,11 +942,11 @@ msgstr "Keyboard manipulation"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Letter recognition between the screen and the keyboard"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
 msgid "Simple Letters"
 msgstr "Simple Letters"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
 msgid "Type the falling letters before they reach the ground"
 msgstr "Type the falling letters before they reach the ground"
 
@@ -1267,10 +1290,22 @@ msgid "Ear training activity"
 msgstr "Ear training activity"
 
 #: boards/melody.xml.in.h:2
+msgid ""
+"Listen the sound sequence played. Then try to repeat it clicking on the "
+"elements. You can listen again clicking on the repeat button."
+msgstr ""
+"Listen to the sound sequence played. Then try to repeat it clicking on the "
+"elements. You can listen again clicking on the repeat button."
+
+#: boards/melody.xml.in.h:3
 msgid "Melody"
 msgstr "Melody"
 
-#: boards/melody.xml.in.h:3
+#: boards/melody.xml.in.h:4
+msgid "Move and click the mouse"
+msgstr "Move and click the mouse"
+
+#: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr "Repeat a melody"
 
@@ -2055,8 +2090,8 @@ msgstr "Educational suite gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:463 src/gcompris/gameutil.c:464
+#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/gcompris/gameutil.c:464 src/gcompris/gameutil.c:465
 #: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2065,7 +2100,7 @@ msgstr "Couldn't find file %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1738
+#: src/boards/shapegame.c:1766
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -2202,11 +2237,11 @@ msgstr "right"
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Look at your position and switch back to 3D mode to move"
 
-#: src/boards/memory.c:227
+#: src/boards/memory.c:164
 msgid "Memory"
 msgstr "Memory"
 
-#: src/boards/memory.c:228
+#: src/boards/memory.c:165
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
@@ -2226,11 +2261,11 @@ msgstr "Pratice money usage"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Move the plane to catch the clouds in the correct order"
 
-#: src/boards/python.c:52
+#: src/boards/python.c:53
 msgid "Python Board"
 msgstr "Python Board"
 
-#: src/boards/python.c:53
+#: src/boards/python.c:54
 msgid "Special board that embed python into gcompris."
 msgstr "Special board that embed python into gcompris."
 
@@ -2375,13 +2410,13 @@ msgstr "Distance to target = %d metres"
 #: src/gcompris/about.c:60
 msgid ""
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
@@ -2396,8 +2431,8 @@ msgid "About GCompris"
 msgstr "About GCompris"
 
 #: src/gcompris/about.c:110
-msgid "Translators"
-msgstr "Translators"
+msgid "Translators:"
+msgstr "Translators:"
 
 #: src/gcompris/about.c:225
 msgid "GCompris Home Page"
@@ -2413,7 +2448,7 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:180 src/gcompris/help.c:341
+#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2455,161 +2490,165 @@ msgid "English"
 msgstr "English"
 
 #: src/gcompris/config.c:61
+msgid "Canadian English"
+msgstr "Canadian English"
+
+#: src/gcompris/config.c:62
 msgid "Spanish"
 msgstr "Spanish"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Finnish"
 msgstr "Finnish"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "French"
 msgstr "French"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Indian"
 msgstr "Indian"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Croatian"
 msgstr "Croatian"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malay"
 msgstr "Malay"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:154
+#: src/gcompris/config.c:155
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:263
+#: src/gcompris/config.c:264
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:306
+#: src/gcompris/config.c:307
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:335
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:371
+#: src/gcompris/config.c:369
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:404 src/gcompris/config.c:727
-#: src/gcompris/config.c:738
+#: src/gcompris/config.c:405 src/gcompris/config.c:728
+#: src/gcompris/config.c:739
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/gameutil.c:127
+#: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
 msgstr "Couldn't find file"
 
-#: src/gcompris/gameutil.c:129
+#: src/gcompris/gameutil.c:130
 msgid "This activity is incomplete."
 msgstr "This activity is incomplete."
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid ""
 "Exit it and report\n"
 "us the problem"
@@ -2657,7 +2696,7 @@ msgstr "Prints the version of "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:618
+#: src/gcompris/gcompris.c:619
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2670,19 +2709,19 @@ msgstr ""
 "Licence: GPL\n"
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:167 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: src/gcompris/help.c:201 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Goal"
 
-#: src/gcompris/help.c:235 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:269 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Credit"
 
@@ -2761,3 +2800,4 @@ msgstr "Time Ellapsed"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
+
