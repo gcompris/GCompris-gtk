@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/02/16 23:33:11 bruno>
+ * Time-stamp: <2003/03/09 17:57:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1152,6 +1152,10 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       gnome_canvas_item_show(root_item);
+
+      /* FIXME : Workaround for bugged canvas */
+      gnome_canvas_update_now(gcomprisBoard->canvas);
+
     default:
       break;
     }
