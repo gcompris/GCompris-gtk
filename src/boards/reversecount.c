@@ -38,6 +38,7 @@ static int	 gamewon;
 static void	 game_won(void);
 
 #define TUX_IMG "gcompris/misc/tux.png"
+#define TUX_TO_BORDER_GAP 10
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -517,18 +518,18 @@ static void display_random_fish()
 
 /* ==================================== */
 /**
- * Display tux on the given ice block.
+ * Display given imagename on the given ice block.
  */
-
 static GnomeCanvasItem *display_item_at(gchar *imagename, int block)
 {
   double block_width, block_height;
+  double xratio, yratio;
   GnomeCanvasItem *item = NULL;
   GdkPixbuf   *pixmap = NULL;
   int i,j;
   //  GdkFont *gdk_font;
 
-  block_width =  BOARDWIDTH/number_of_item_x;
+  block_width  = BOARDWIDTH/number_of_item_x;
   block_height = BOARDHEIGHT/number_of_item_y;
 
   pixmap = gcompris_load_pixmap(imagename);
@@ -567,13 +568,20 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block)
 
   printf("display_tux %d i=%d j=%d\n", block, i, j);
 
+  /* Calculation to thrink the item while keeping the ratio */
+  xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
+  yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
+  xratio = yratio = MIN(xratio, yratio);
+
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) i,
-				"y", (double) j,
-				"width", (double) block_width,
-				"height", (double)  block_height,
+				"x", (double) i + (block_width -
+						   (gdk_pixbuf_get_width (pixmap) * xratio)) / 2,
+				"y", (double) j + (block_height -
+						   (gdk_pixbuf_get_height (pixmap) * yratio)) / 2,
+				"width", (double) gdk_pixbuf_get_width (pixmap) * xratio,
+				"height", (double)  gdk_pixbuf_get_height (pixmap) * yratio,
 				"width_set", TRUE, 
 				"height_set", TRUE,
 				NULL);

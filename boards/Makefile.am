@@ -10,6 +10,7 @@ xml_in_files = \
 	algebra_div.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
+	canal_lock.xml.in \
 	clickgame.xml.in \
 	clockgame.xml.in \
 	computer.xml.in \

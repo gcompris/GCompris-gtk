@@ -176,11 +176,22 @@ To be sure you're one is done, you can check the 'po' directory found within GCo
 If your language is not supported, you can provide help by doing it for GCompris. For instructions, contact the official project maintainer.
 
 @section How to translate GCompris for my language
-From the GCompris source file, get the file @file{gcompris.pot}, copy it to a file named @file{XX.po} where XX stands for your locale like 'it' for Italian.
+First, add your locale name in ALL_LINGUAS in configure.in
+recreate the configure file with
+@code{autoconf}
+
+Second, generate a fresh or new file @file{gcompris.pot} by using the command
+@code{cd gcompris/po}
+@code{make update-po}
+
+Now, get the file @file{gcompris.pot}, copy it to a file named @file{XX.po} where XX stands for your locale like 'it' for Italian.
 
 Read the file, it contains all the english text found in GCompris. You just need to write your translation in the empty area after each Engish sentence.
 
-Then, send the translation the the GCompris maintainer. He/She will add it into the next official release.
+To check your translation, you must install gcompris with
+@code{make install} at the top level.
+
+Then, send the translation to the GCompris maintainer. He/She will add it into the next official release.
 
 @node    Developers Guide, GNU Free Documentation License, Internationalization Issues, Top
 @chapter Developers Guide

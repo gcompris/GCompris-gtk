@@ -38,6 +38,7 @@
 #define BASE_X2 800
 #define BASE_Y2 500
 
+#define LINE_COLOR "white"
 
 /* array of the board */
 static int Maze[MAX_BREEDTE][MAX_HOOGTE];
@@ -628,19 +629,19 @@ draw_background(void)
 			y=cellsize*(y1)+board_border_y;
 			x=cellsize*(x1)+board_border_x;
 			if (x1==0)
-				draw_a_line(boardRootItem,x, y, x, y+cellsize, "black");
+				draw_a_line(boardRootItem,x, y, x, y+cellsize, LINE_COLOR);
 
 			if (y1==0)
-				draw_a_line(boardRootItem,x, y, x+cellsize, y, "black");
+				draw_a_line(boardRootItem,x, y, x+cellsize, y, LINE_COLOR);
 			if ((wall-EAST>=0))
 			{
-				draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, "black");			
+				draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, LINE_COLOR);			
 				wall=wall-EAST;
 			}
 
 			if ((wall-SOUTH)>=0)
 			{
-				draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, "black");
+				draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, LINE_COLOR);
 				wall=wall-SOUTH;
 			}
 

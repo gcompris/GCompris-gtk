@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/05/05 22:30:52 bruno>
+ * Time-stamp: <2002/05/26 22:12:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -63,9 +63,9 @@ static gchar *timername[] = {
 };
 
 static gchar *screenname[] = {
-  N_("640x480"),
+  "640x480",
   N_("800x600 (Default for gcompris)"),
-  N_("1024x768"),
+  "1024x768",
 };
 
 static void set_locale_flag(gchar *locale);

@@ -2,6 +2,7 @@
 lib_LTLIBRARIES = \
 	libalgebra.la \
 	libalgebra_guesscount.la \
+	libcanal_lock.la \
 	libclick_on_letter.la \
 	libclickgame.la \
 	libclockgame.la \
@@ -238,6 +239,14 @@ libreversecount_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libreversecount_la_SOURCES = reversecount.c
+
+libcanal_lock_la_LDFLAGS = -module -avoid-version
+libcanal_lock_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libcanal_lock_la_SOURCES = canal_lock.c
 
 EXTRA_DIST = README
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-05-06 08:56+0200\n"
+"POT-Creation-Date: 2002-05-26 22:17+0200\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -87,6 +87,28 @@ msgstr "Attrape et fais glisser les formes vers leur emplacement respectif"
 #: boards/babyshapes.xml.in.h:3
 msgid "Good mouse control"
 msgstr "Bien savoir manipuler la souris"
+
+#: boards/canal_lock.xml.in.h:1
+msgid "Operate a canal lock"
+msgstr "Fais fonctionner une écluse"
+
+#: boards/canal_lock.xml.in.h:2
+msgid ""
+"Tux is in trouble in his ship, he needs to take through a lock. Help Tux and "
+"understand how a canal lock works."
+msgstr ""
+"Tux a quelques difficultés dans son bateau pour passer l'écluse.\n"
+"Aides Tux et apprends comment une écluse fonctionne."
+
+#: boards/canal_lock.xml.in.h:3
+msgid ""
+"You are in charge of the canal lock. You have to open the gates and the "
+"lockgates in the right order. Let Tux travel through the gates in the two "
+"ways."
+msgstr ""
+"Tu es responsable de l'écluse. Tu dois ouvrir les porttes et les vannes\n"
+"dans le bon ordre.\n"
+"Fait traverser Tux à travers l'écluse dans les deux sens."
 
 #: boards/click_on_letter.xml.in.h:1
 msgid "Click on a letter"
@@ -236,6 +258,15 @@ msgstr "Déplace la souris pour tout effacer et découvir le fond"
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement boards"
 msgstr "Vers les tableaux de jeu"
+
+#: boards/geography.xml.in.h:1
+#, fuzzy
+msgid "Drag and Drop the items to redraw the complete map"
+msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
+
+#: boards/geography.xml.in.h:2
+msgid "Place the lands"
+msgstr "Places les pays"
 
 #: boards/gletters.xml.in.h:1 src/boards/gletters.c:76
 msgid "Simple Letters"
@@ -447,7 +478,7 @@ msgstr "raquette"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Sait utiliser les flêches du clavier"
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:105
+#: boards/maze.xml.in.h:2 src/boards/maze.c:106
 msgid "Find your way out of the maze"
 msgstr "Trouve ta voie hors du labyrinthe"
 
@@ -455,7 +486,7 @@ msgstr "Trouve ta voie hors du labyrinthe"
 msgid "Help Tux get out of this maze."
 msgstr "Aide Tux à trouver sa voie hors du labyrinthe"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:104
+#: boards/maze.xml.in.h:4 src/boards/maze.c:105
 msgid "Maze"
 msgstr "Labyrinthe"
 
@@ -570,7 +601,7 @@ msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr ""
 "Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
-#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:130
+#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:132
 msgid "Make the puzzle"
 msgstr "Construis le puzzle"
 
@@ -777,7 +808,7 @@ msgid "Learn how to read"
 msgstr "Apprends à lire"
 
 #: src/boards/imageid.c:578 src/boards/menu.c:538
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1423
+#: src/boards/missingletter.c:599 src/boards/shapegame.c:1443
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:367
 #: src/gcompris/gameutil.c:368
@@ -786,7 +817,7 @@ msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1426
+#: src/boards/shapegame.c:1446
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -839,7 +870,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/shapegame.c:131
+#: src/boards/shapegame.c:133
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
@@ -974,17 +1005,9 @@ msgstr "Compteur normal"
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:66
-msgid "640x480"
-msgstr "640x480"
-
 #: src/gcompris/config.c:67
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
-
-#: src/gcompris/config.c:68
-msgid "1024x768"
-msgstr ""
 
 #: src/gcompris/config.c:131
 msgid "GCompris Configuration"
@@ -1094,6 +1117,9 @@ msgstr "Objectif"
 #: src/gcompris/help.c:224
 msgid "Manual"
 msgstr "Manuel"
+
+#~ msgid "640x480"
+#~ msgstr "640x480"
 
 #~ msgid "firtree"
 #~ msgstr "sapin"
