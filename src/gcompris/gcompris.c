@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/03/06 15:44:44 bruno>
+ * Time-stamp: <2002/03/14 15:43:15 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -276,9 +276,9 @@ void gcompris_set_cursor(guint gdk_cursor_type)
     default : bits = big_red_arrow_cursor_bits;
     }
     
-    gdk_color_parse("rgb:0000/0000/0000",&fg);
+    gdk_color_parse("rgb:FFFF/FFFF/FFFF",&fg);
     gdk_color_parse("rgb:FFFF/3FFF/0000",&bg);
-    cursor = gdk_cursor_new_from_data(bits, 40, 40, &fg, &bg, 0, 0);
+    cursor = gdk_cursor_new_from_data(bits, 40 , 40, &fg, &bg, 0, 0);
     gdk_window_set_cursor(window->window, cursor);
     gdk_cursor_destroy(cursor);
   }
