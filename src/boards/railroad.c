@@ -462,8 +462,9 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double item_x, item_y;
   int item_number, i;
-  item_number = GPOINTER_TO_INT(data);
   GnomeCanvasItem *local_item;
+
+  item_number = GPOINTER_TO_INT(data);
 
   // we don't allow any input until train is gone
   if (animation_pending)
