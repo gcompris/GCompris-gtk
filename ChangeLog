@@ -1,3 +1,8 @@
+2003-02-10  Marius Andreiana <marius galuna.ro>
+
+	* configure.in: added 'ro' to ALL_LINGUAS
+	* boards/wordsgame/*.ro : added
+
 2003-02-09  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/read_colors.c : see below
   * src/gcompris/bonus.c : hardened code against multiple quick key press
@@ -643,7 +648,7 @@
 
 2002-03-12 Bruno Coudoin <bruno.coudoin@free.fr>
 
-	* po/sk.po: Zdeno Podobný <zdpo@mailbox.sk> created
+	* po/sk.po: Zdeno PodobnÃ½ <zdpo@mailbox.sk> created
 	the slovak translation.
 	* configure.in: added sk to all-lang
 
@@ -1009,7 +1014,7 @@
 2001-11-25 Pascal Georges <pascal.georges1@free.fr>
         * src/gcompris/gameutil.c : added convertUTF8Toisolat1 function
 
-2001-11-23 Reinhard Müller <reinhard.mueller@bytewise.at>
+2001-11-23 Reinhard MÃ¼ller <reinhard.mueller@bytewise.at>
         * src/boards/algebra.c change operation order and other fix
 
 2001-11-17 Renaud Blanchard <kisukama@chez.com>
@@ -1056,7 +1061,7 @@
 
         * configure.in: Sorted ALL_LINGUAS and added "sv" to it.
 
-2001-10-31  Carlos Perelló Marín <carlos@gnome-db.org>
+2001-10-31  Carlos PerellÃ³ MarÃ­n <carlos@gnome-db.org>
 
         * gcompris.desktop: converted to use xml-i18n-tools.
 
@@ -1309,8 +1314,8 @@
         
 2001-02-18  Bruno Coudoin  <bruno.coudoin@free.fr>
         * GCompris : Release 0.4.1
-        * pt_BR.po: Created by Isaías V. Prestes <isix@uol.com.br>
-        * wordslevel*.pt_BR: Created by Isaías V. Prestes <isix@uol.com.br>
+        * pt_BR.po: Created by IsaÃ­as V. Prestes <isix@uol.com.br>
+        * wordslevel*.pt_BR: Created by IsaÃ­as V. Prestes <isix@uol.com.br>
         * wordslevel*.de: Created by Gerhard Dieringer
         * shapegame.c: Created by bruno. This is a new board in the puzzle style.
         * wordsgame.c (get_wordfile): Replaced malloc by g_strdup_printf
