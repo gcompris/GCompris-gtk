@@ -114,7 +114,7 @@ AC_MSG_ERROR([You must have popt 1.5 or newer to compile gcompris.]))
 AM_ICONV
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az ca cs da de el en_CA en_GB es fi fr he hi hr hu it lt mk ml ms nl no pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa"
+ALL_LINGUAS="am ar az ca cs da de el en_CA en_GB es fi fr he hi hr hu it lt mk ml ms nl no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
