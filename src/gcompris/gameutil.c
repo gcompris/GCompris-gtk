@@ -118,8 +118,12 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   gchar *filename;
   GdkPixbuf *pixmap;
 
+
   /* Search it on the file system */
-  filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pixmapfile);
+  if (!g_path_is_absolute (pixmapfile))
+    filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pixmapfile);
+  else 
+    filename = pixmapfile;
 
   if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     char *str;
@@ -138,8 +142,6 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 
   if(!pixmap)
     g_warning("Loading image returned a null pointer");
-
-  g_free (filename);
 
   return(pixmap);
 }

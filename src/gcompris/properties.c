@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/11/09 23:56:46 bruno>
+ * Time-stamp: <2005/03/29 00:58:14 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -131,11 +131,27 @@ GcomprisProperties *gcompris_properties_new ()
     create_rootdir(full_rootdir);
     g_free(full_rootdir);
 
+    full_rootdir = g_strdup_printf("%s", "gcompris/user_data");
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+
+    full_rootdir = g_strdup_printf("%s", "gcompris/user_data/images");
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+
     config_file = g_strdup("gcompris/gcompris.cfg");
 
   } else {
 
     full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris", NULL);
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+
+    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data", NULL);
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+
+    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data/images", NULL);
     create_rootdir(full_rootdir);
     g_free(full_rootdir);
 

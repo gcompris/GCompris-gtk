@@ -1,3 +1,20 @@
+2005-03-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Yves made a change so that we can have private images under the
+	.gcompris/user_data/images (BTW, this directory is now created at gcompris
+	startup)
+	Just put some images here and they will be selectable in the image_selector
+	in anim or draw.
+	
+	* boards/dataset/user_pictures.xml:
+	* configure.in:
+	* gcompris.spec.in:
+	* src/boards/python/anim.py:
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap):
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(parseImage), (read_dataset_directory):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+
 2005-03-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Animation code reviewed and documented by Joe Neeman

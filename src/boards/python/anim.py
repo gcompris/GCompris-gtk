@@ -615,7 +615,7 @@ class Gcompris_anim:
           self.pos_y = gcompris.BOARD_HEIGHT/2
 
           gcompris.images_selector_start(self.gcomprisBoard,
-                                         gcompris.DATA_DIR + "/dataset/mrpatate.xml",
+                                         gcompris.DATA_DIR + "/dataset",
                                          image_selected);
           return gtk.TRUE
           

@@ -577,6 +577,13 @@ else
 echo "SDL LIBS       = FOUND"
 fi
 
+echo ""
+if test "x$found_randr" = "xno"; then
+echo "XRANDR option  = NO"
+else
+echo "XRANDR option  = YES"
+fi
+
 echo gcompris will be installed in ${prefix}
 echo to compile and install in in another directory
 echo type sh configure --prefix=/usr

@@ -408,7 +408,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/s[cemu]*
 %dir %{prefix}/share/gcompris/boards/sounds
 %{prefix}/share/gcompris/boards/sounds/*.ogg
-%{prefix}/share/gcompris/boards/sounds/melody/*.ogg
+%{prefix}/share/gcompris/boards/sounds/melody/*/*.ogg
 %{prefix}/share/gcompris/boards/sounds/chronos/space/*.ogg
 %{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
 %dir %{prefix}/share/gcompris/python

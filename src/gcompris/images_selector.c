@@ -42,6 +42,7 @@ static gint		 item_event_scroll(GnomeCanvasItem *item,
 					   GdkEvent *event,
 					   GnomeCanvas *canvas);
 static gboolean		 read_xml_file(gchar *fname);
+static gboolean                 read_dataset_directory(gchar *dataset_dir);
 static void		 display_image(gchar *imagename, GnomeCanvasItem *rootitem);
 static void		 free_stuff (GtkObject *obj, GList *data);
 
@@ -280,8 +281,23 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   iy  = 0;
   isy = 0;
 
-  /* Read the given data set */
-  read_xml_file(dataset);
+  /* I need  the following :
+     -> if dataset is a file read it.
+     -> if dataset is a directory, read all xml file in it.
+  */
+
+  g_return_val_if_fail(dataset!=NULL,FALSE);
+
+  /* if the file doesn't exist */
+  if(g_file_test ((dataset), G_FILE_TEST_IS_DIR) )
+    {
+      g_warning(_("dataset %s is a directory. Trying to read xml "), dataset);
+
+      read_dataset_directory(dataset);
+    }
+  else 
+    /* Read the given data set */
+    read_xml_file(dataset);
 
 }
 
@@ -593,24 +609,108 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 void
 parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   gchar *imageSetName = NULL;
-  gchar *filename;
+  gchar *filename, *pathname, *absolutepath;;
   GList	*imageList = NULL;	/* List of Images */
+  gboolean havePathName = FALSE, lsdir = FALSE;
+  gchar *type = NULL;
+  GDir *imageset_directory;
+  GError **error;
 
   /* get the filename of this ImageSet */
   imageSetName = xmlGetProp(cur,"filename");
-
-  cur = cur->xmlChildrenNode;
-  while (cur != NULL) {
-    if ((!xmlStrcmp(cur->name, (const xmlChar *)"Image"))) {
-      /* get the filename of this ImageSet */
-      filename = xmlGetProp(cur,"filename");
-      imageList = g_list_append (imageList, filename);
+  if (xmlHasProp(cur,"PathName")){
+    pathname = xmlGetProp(cur,"PathName");
+    havePathName = TRUE;
+  }
+  if (havePathName && pathname[0] == '~'){
+    /* replace '~' by home dir */
+    pathname = g_strdup_printf("%s%s",g_get_home_dir(),pathname+1);
+    if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
+       g_warning(_("ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"), imageSetName, pathname);
+      return;
     }
-    cur = cur->next;
+    havePathName = TRUE;
   }
 
-  display_image_set(imageSetName, imageList);
+  if (xmlHasProp(cur,"type")){
+    /* lsdir means try all file of directory */
+    /* list means just keep old behaviour */
+    /* others are extensions to look for */
+    type = xmlGetProp(cur,"type");
+  }
 
+  /* Looking for imageSetName */
+  /* absolute path -> we check it's here */
+  /* relative path -> we check for pathname/imagesetname */
+  /*               -> and else for PACKAGE_DATA_DIR/imagesetname */
+  if (havePathName) {
+    if (!g_path_is_absolute (imageSetName)){
+      absolutepath = g_strdup_printf("%s/%s",pathname,imageSetName);
+      if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) ){
+	g_free(absolutepath);
+	absolutepath = g_strdup_printf("%s/%s",PACKAGE_DATA_DIR,imageSetName);
+      }
+      else 
+	imageSetName = g_strdup(absolutepath);
+    }
+    else
+      absolutepath = g_strdup(imageSetName);
+  }
+  else
+    absolutepath = g_strdup_printf("%s/%s",PACKAGE_DATA_DIR,imageSetName);
+  
+  if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) )
+    {
+      g_warning(_("ImageSet %s image not found. Skipping ImageSet...\n"), absolutepath);
+      return;
+    }
+
+  if ((type == NULL) || (g_ascii_strcasecmp (type,"list")==0)) {
+    /* old behaviour : we read the filenames from xml files */
+
+    cur = cur->xmlChildrenNode;
+    while (cur != NULL) {
+      if ((!xmlStrcmp(cur->name, (const xmlChar *)"Image"))) {
+	/* get the filename of this ImageSet */
+	filename = xmlGetProp(cur,"filename");
+	if (havePathName){
+	  filename = g_strdup_printf("%s/%s",pathname,filename);
+	}
+	imageList = g_list_append (imageList, filename);
+      }
+      cur = cur->next;
+    }
+
+  }
+  else {
+    /* new behaviour : we read all file of a directory */
+    /* or all files with a given suffix */
+
+    if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
+      g_warning(_("ImageSet %s directory %s not found. Skipping all the ImageSet...\n"), absolutepath, pathname);
+      return;
+    }
+    imageset_directory = g_dir_open (pathname, 0, error);    
+    while (filename = g_dir_read_name(imageset_directory)){
+      if ((g_ascii_strcasecmp (type,"lsdir") != 0) && 
+	  (!g_str_has_suffix (filename,type))){
+	continue;
+      }
+      filename = g_strdup_printf("%s/%s",pathname,filename);
+      if (!g_file_test ((filename), G_FILE_TEST_EXISTS)){
+	continue;
+      }
+      imageList = g_list_append (imageList, filename);
+    }
+    g_dir_close(imageset_directory);
+  }
+
+  /* do not display if there is nothing to display */
+  if (imageList != NULL) /* g_list is not empty */
+    display_image_set(imageSetName, imageList);
+  
+  g_free(absolutepath);
+  
   return;
 }
 
@@ -680,6 +780,63 @@ read_xml_file(gchar *fname)
   return TRUE;
 }
 
+
+/* read an xml file into our memory structures and update our view,
+   dump any old data we have in memory if we can load a new set */
+static gboolean
+read_dataset_directory(gchar *dataset_dir)
+{
+
+
+  GError **error;
+  GDir *dataset_directory = g_dir_open (dataset_dir, 0, error);
+  gchar *fname, *absolute_fname;
+
+  while (fname = g_dir_read_name(dataset_directory)) {
+    /* skip files without ".xml" */
+    if (!g_str_has_suffix (fname,".xml")){
+      printf("skipping file not in .xml : %s\n", fname);
+      continue;
+    }
+
+    absolute_fname = g_strdup_printf("%s/%s",dataset_dir,fname);
+    printf("Reading dataset file %s\n",absolute_fname);
+   
+    if (!g_file_test ((absolute_fname), G_FILE_TEST_EXISTS))
+      continue;
+
+    /* parse the new file and put the result into newdoc */
+
+    /* pointer to the new doc */
+    xmlDocPtr doc;
+
+    doc = xmlParseFile(absolute_fname);
+
+    /* in case something went wrong */
+    if(!doc)
+      continue;
+  
+    if(/* if there is no root element */
+       !doc->children ||
+       /* if it doesn't have a name */
+       !doc->children->name ||
+       /* if it isn't the good node */
+       g_strcasecmp(doc->children->name,"ImageSetRoot")!=0) {
+      xmlFreeDoc(doc);
+      continue;
+    }
+  
+    /* parse our document and replace old data */
+    printf("Parsing dataset : %s \n",absolute_fname);
+    parse_doc(doc);
+    
+    xmlFreeDoc(doc);
+  }
+
+  g_dir_close(dataset_directory);
+
+  return TRUE;
+}
 
 
 
