@@ -152,6 +152,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=8;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
@@ -169,6 +173,7 @@ static void end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      gcompris_score_end();
       traffic_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -223,6 +228,8 @@ static void traffic_next_level()
 
   traffic_destroy_all_items();
   gamewon = FALSE;
+
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   traffic_create_item(gnome_canvas_root(gcomprisBoard->canvas));

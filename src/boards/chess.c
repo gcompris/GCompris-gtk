@@ -59,7 +59,7 @@ static void	 display_info	     (gchar *info);
 static int	 get_square          (double x, double y);
 static int	 get_square_from_coord (double x, double y);
 
-#define CHESSBOARD_X	100
+#define CHESSBOARD_X	50
 #define CHESSBOARD_Y	20
 #define SQUARE_WIDTH	60
 #define SQUARE_HEIGHT	60

@@ -1,3 +1,33 @@
+2003-01-06  bruno  <bruno.coudoin@free.fr>
+
+	* acconfig.h: removed an unused define for plugins
+	* boards/gcompris/gcompris-init.jpg: new design
+	* boards/gcompris/misc/backcard.png: new design
+	* boards/gcompris/misc/emptycard.png: new design
+	* boards/images/scenery2_background.jpg: new graphics
+	* boards/images/scenery3_background.jpg: new graphics
+	* boards/images/scenery_background.jpg: new graphics
+	* boards/images/superbrain_background.jpg: new graphics
+	* boards/images/target_background.jpg: new graphics
+	* src/boards/algebra.c: (start_board), (algebra_create_item),
+	(get_operand): fixed a bug where the same number could come out 2 times
+	* src/boards/chess.c: layout change
+	* src/boards/draw.c: (draw_destroy_all_items): fixed a gtk warning (perhaps core dump in some case)
+	* src/boards/gletters.c: (start_board): new graphic
+	* src/boards/memory.c: (start_board), (create_item): new graphics
+	* src/boards/menu.c: (create_info_area): new graphics
+	* src/boards/paratrooper.c: (start_board): new graphics
+	* src/boards/planegame.c: (start_board): new graphics
+	* src/boards/railroad.c: (process_ok): added debug trace to fix a bug where sometimes the correct answer is refused (not fixed yet)
+	* src/boards/reversecount.c: (reversecount_create_item): new graphics
+	* src/boards/smallnumbers.c: (start_board): new graphics
+	* src/boards/traffic.c: (start_board), (end_board),
+	(traffic_next_level): new graphics
+	* src/boards/wordsgame.c: (start_board), (wordsgame_create_item):
+	* src/gcompris/gcompris.h: added a huge font entry
+	* src/gcompris/pluginenum.c: (boardlist_compare_func),
+	(init_plugins), (add_plugin), (scan_plugins), (cleanup_plugins): changed so that plugin are searched in the devel directory first if the user is in them. (../boards; ; ./boards ; ./src/boards)
+
 2003-01-03  bruno  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added machpuzzle activity (uncomplete yet)

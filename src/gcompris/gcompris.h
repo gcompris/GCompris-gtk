@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/12/10 00:06:46 bruno>
+ * Time-stamp: <2003/01/06 22:14:27 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -117,6 +117,8 @@ void		 gcompris_exit();
 #define FONT_BOARD_FIXED	"Fixed 12"
 #define FONT_BOARD_TITLE	"Sans 20"
 #define FONT_BOARD_TITLE_BOLD	"Sans bold 20"
+#define FONT_BOARD_HUGE		"Sans 28"
+#define FONT_BOARD_HUGE_BOLD	"Sans bold 28"
 
 /*=========================================================*/
 // These are gcompris defined cursors

@@ -81,13 +81,11 @@ static gchar *imageList[] =
   "gcompris/animals/bear001.jpg",
   "gcompris/animals/malaybear002.jpg",
   "gcompris/animals/polabear011.jpg",
-  "gcompris/animals/spectbear001.jpg",
   "gcompris/animals/joybear001.jpg",
   "gcompris/animals/polarbear001.jpg",
   "gcompris/animals/joybear002.jpg",
-  "gcompris/animals/poolbears001.jpg"
 };
-#define NUMBER_OF_IMAGES 8
+#define NUMBER_OF_IMAGES 6
 
 // List of fish to use in the game
 static gchar *fishList[] =
@@ -538,6 +536,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 			 "y", (double) block_height + 20,
 			 NULL);
 
+  gdk_pixbuf_unref(pixmap);
 
   //----------------------------------------
   // Create the dices

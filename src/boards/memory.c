@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2002/06/09 02:04:36 bruno>
+ * Time-stamp: <2003/01/05 00:10:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -281,8 +281,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
-
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.jpg");
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
@@ -453,13 +452,20 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
   MemoryItem *memoryItem;
   gint x, y;
   gint height, width;
+  gint height2, width2;
   GdkPixbuf *pixmap = NULL;
   double xratio = 0;
   double yratio = 0;
+  double card_shadow_w, card_shadow_h;
 
   // Calc width and height of one card
   width  = (BASE_X2-BASE_X1)/numberOfColumn;
   height = (BASE_Y2-BASE_Y1)/numberOfLine;
+
+  /* Remove a little bit of space for the card shadow */
+  height2 = height * 0.9;
+  width2  = width  * 0.9;
+
 
   for(x=0; x<numberOfColumn; x++)
     {
@@ -509,18 +515,22 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 	  get_image(memoryItem, x, y);	  
 	  pixmap = gcompris_load_pixmap(memoryItem->image);
 
-	  yratio=(height*0.9)/(float)gdk_pixbuf_get_height(pixmap);
-	  xratio=(width*0.9)/(float)gdk_pixbuf_get_width(pixmap);
+	  yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
+	  xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
 	  yratio=xratio=MIN(xratio, yratio);
+	  card_shadow_w = width*0.07;
+	  card_shadow_h = height*0.07;
 
 	  memoryItem->frontcardItem = \
 	    gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				   gnome_canvas_pixbuf_get_type (),
 				   "pixbuf", pixmap, 
 				   "x", (double) ((width*0.9)-
-						  gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2,
+						  gdk_pixbuf_get_width(pixmap)*xratio*0.8)/2 -
+				   card_shadow_w,
 				   "y", (double) ((height*0.9)-
-						  gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2,
+						  gdk_pixbuf_get_height(pixmap)*yratio*0.8)/2 -
+				   card_shadow_h,
 				   "width", (double) gdk_pixbuf_get_width(pixmap)*xratio*0.8,
 				   "height", (double) gdk_pixbuf_get_height(pixmap)*yratio*0.8,
 				   "width_set", TRUE, 

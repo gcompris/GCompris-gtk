@@ -77,20 +77,6 @@ static void		 machpuzzle_move(GList *item_list);
 
 static MachItem		*create_machine_item(MachItemType machItemType, double x, double y);
 
-// List of images to use in the game
-static gchar *imageList[] =
-{
-  "gcompris/animals/bear001.jpg",
-  "gcompris/animals/malaybear002.jpg",
-  "gcompris/animals/polabear011.jpg",
-  "gcompris/animals/spectbear001.jpg",
-  "gcompris/animals/joybear001.jpg",
-  "gcompris/animals/polarbear001.jpg",
-  "gcompris/animals/joybear002.jpg",
-  "gcompris/animals/poolbears001.jpg"
-};
-#define NUMBER_OF_IMAGES 8
-
 /* Description of this plugin */
 BoardPlugin menu_bp =
   {
@@ -208,7 +194,7 @@ static void machpuzzle_next_level()
 {
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  imageList[RAND(0, NUMBER_OF_IMAGES-1)]);
+			  "gcompris/gcompris-bg.jpg");
 
   gcompris_bar_set_level(gcomprisBoard);
 

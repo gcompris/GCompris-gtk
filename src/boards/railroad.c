@@ -386,7 +386,7 @@ static void process_ok()
   gamewon = TRUE;
 
   // DEBUG
-  //  printf("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
+  printf("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
   if (g_list_length(int_answer_list) != g_list_length(int_model_list))
     gamewon = FALSE;
   else
@@ -398,18 +398,14 @@ static void process_ok()
       }
     }
   // DUMP lists
-  /*printf("answer:\n");
+  printf("answer:\n");
     for (i=0; i<g_list_length(int_answer_list); i++)
     printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) );
     printf("model:\n");
     for (i=0; i<g_list_length(int_model_list); i++)
     printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
-  */
+  
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
-  /*  if (gamewon) {
-      game_won();
-      gamewon = FALSE;
-      }*/
 }
 /* ==================================== */
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {

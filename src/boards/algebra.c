@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2002/11/06 20:13:19 bruno>
+ * Time-stamp: <2003/01/05 18:21:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -23,7 +23,7 @@
 
 #include "gcompris/gcompris.h"
 
-#define TIMER_X 150
+#define TIMER_X 400
 #define TIMER_Y 140
 
 #define PLUSSIGNFILE   '+'
@@ -160,7 +160,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery2_background.jpg");
 
       /* set initial values for this level */
       gcomprisBoard->level=1;
@@ -599,7 +599,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 
 
   /* Some globals for this board layout */
-  y_firstline = gcomprisBoard->height/3;
+  y_firstline = gcomprisBoard->height/5;
 
 
   get_random_number(&first_operand, &second_operand);
@@ -612,9 +612,9 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 
   if(vertical_layout)
     /* Vertical layout : Warning x_align is the right assigned value for display_operand */
-    x_align = gcomprisBoard->width - (gcomprisBoard->width - (longuest*NUMBERSWIDTH))/2 + 150;
+    x_align = gcomprisBoard->width - (gcomprisBoard->width - (longuest*NUMBERSWIDTH))/2 - 200;
   else
-    x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2 + NUMBERSWIDTH*(strlen(first_operand_str)) + 150;
+    x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2 + NUMBERSWIDTH*(strlen(first_operand_str)) - 200;
 
   /* First operand */
   display_operand(parent, x_align, y_firstline, first_operand_str, FALSE);
@@ -821,16 +821,15 @@ static gint get_operand()
   gint i = (1+rand()%10);
   
   // Get the next free slot
-  while(operation_done[i]==TRUE && j>0)
+  while(operation_done[i]==TRUE && j>=0)
     {
       j--;
       i++;
       if(i>10)
 	i=1;
-      printf("  get operand i=%d j=%d\n", i, j);
     }
   operation_done[i]=TRUE;
-  printf("get operand returns %d\n", i);
+  printf("get operand returns %d (j=%d)\n", i, j);
   return i;
 }
 

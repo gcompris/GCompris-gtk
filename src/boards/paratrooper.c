@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2002/04/14 00:25:03 bruno>
+ * Time-stamp: <2003/01/06 22:00:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -185,7 +185,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.jpg");
 
 
       /* set initial values for this level */

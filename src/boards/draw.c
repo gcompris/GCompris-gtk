@@ -746,12 +746,9 @@ static void draw_destroy_all_items()
   /* Deleting the root item automatically deletes children items */
   if(shape_root_item!=NULL)
     gtk_object_destroy (GTK_OBJECT(shape_root_item));
+
   shape_root_item = NULL;
-
-  if(grid_root_item!=NULL)
-    gtk_object_destroy (GTK_OBJECT(grid_root_item));
   grid_root_item = NULL;
-
   current_color_item = NULL;
 }
 

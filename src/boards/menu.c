@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/12/31 23:13:01 bruno>
+ * Time-stamp: <2003/01/06 21:59:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -441,7 +441,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 static void create_info_area(GnomeCanvasGroup *parent)
 {
   gint x = (double)gcomprisBoard->width/2;
-  gint y = 380;
+  gint y = 400;
 
   boardname_item = \
     gnome_canvas_item_new (parent,
@@ -460,7 +460,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "text", " ",
 			   "font", FONT_BOARD_MEDIUM,
 			   "x", (double) x,
-			   "y", (double) y + 30,
+			   "y", (double) y + 25,
 			   "anchor", GTK_ANCHOR_NORTH,
 			   "fill_color", "blue",
 			   "justification", GTK_JUSTIFY_CENTER,
@@ -472,7 +472,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "text", " ",
 			   "font", FONT_BOARD_TINY,
 			   "x", (double) x,
-			   "y", (double) y + 95,
+			   "y", (double) y + 90,
   			   "anchor", GTK_ANCHOR_NORTH,
   			   "fill_color", "blue",
   			   "justification", GTK_JUSTIFY_CENTER,

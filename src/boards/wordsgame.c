@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2002/12/12 00:07:16 bruno>
+ * Time-stamp: <2003/01/06 22:15:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -155,7 +155,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.jpg");
 
 
       gcomprisBoard->level = 1;
@@ -547,22 +547,22 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", lettersItem->word,
-			   "font", FONT_BOARD_BIG_BOLD,
+			   "font", FONT_BOARD_HUGE_BOLD,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", GTK_ANCHOR_NW,
-			   "fill_color", "white",
+			   "fill_color", "black",
 			   NULL);
 
   lettersItem->overwriteItem = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font", FONT_BOARD_BIG_BOLD,
+			   "font", FONT_BOARD_HUGE_BOLD,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", GTK_ANCHOR_NW,
-			   "fill_color", "green",
+			   "fill_color", "blue",
 			   NULL);
 
   item_list = g_list_append (item_list, lettersItem);
