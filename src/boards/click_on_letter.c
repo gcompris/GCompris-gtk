@@ -358,20 +358,20 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 
 
   l_items[i] = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_text_get_type (),
-				   "text", letters[i] ,
-				   "font", gcompris_skin_font_board_huge_bold,
-				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", 0x0000ffff,
-				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
-				   NULL);
+				      gnome_canvas_text_get_type (),
+				      "text", g_strdup(letters[i]),
+				      "font", gcompris_skin_font_board_huge_bold,
+				      "anchor", GTK_ANCHOR_CENTER,
+				      "fill_color_rgba", 0x0000ffff,
+				      "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
+				      "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
+				      NULL);
   g_free(letters[i]);
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
 
   gtk_signal_connect(GTK_OBJECT(l_items[i]), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
   gtk_signal_connect(GTK_OBJECT(buttons[i]), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(i));
-  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
+  //  gtk_signal_connect(GTK_OBJECT(buttons[i]), "event", (GtkSignalFunc) gcompris_item_event_focus, NULL);
   }
 
 

@@ -81,6 +81,8 @@ void end_board_finished() {
 
   board_finished_running = FALSE;
   
+  gcompris_bar_hide(FALSE);
+
   // go back to previous board layout
   if (get_current_board_plugin()->end_board)
     get_current_board_plugin()->end_board();
@@ -93,6 +95,8 @@ void board_finished(int type) {
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
   char * str = NULL;
+
+  gcompris_bar_hide(TRUE);
 
   if (board_finished_running)
     return;

@@ -1,26 +1,18 @@
 /* CSS Document */
 
-#HEADER {
-  position : absolute;
-  left : 5px;
-  right : 5px;
-  top : 10px;
-  width : 100%;
-  margin : 0px;
-  border: 0px solid #111;
-  background-color: #FFFFFF;
-  border-color : #FF0000;
-  padding: 5px;
-  #display: block;
-  #float: left;
-} 
-
 #HEADERRIGHT {
   position : absolute;
-  #width: 200px;
-  top : 5px;
-  #margin: 0;
-  right : 5%;
+  top : 0px;
+  right : 0%;
+  z-index: 1;
+  border: 0px solid;
+}
+#HEADERLOGO {
+  position : absolute;
+  left : 0%;
+  top : 0px;
+  z-index: 2;
+  border: 0px solid;
 }
 
 #MENU {
@@ -45,9 +37,6 @@
   border: 0px solid;
   background-color: #ffffff;
   border-color : #f27979;
-}
-#logo{
-margin:0em;
 }
 .imprimer {
   height: 50px;

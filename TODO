@@ -91,3 +91,55 @@ faut vider le tampon du clavier au début du tableau)
 - quand on est en mode plein écran, et qu'on clique sur "aide" dans
 l'écran "à propos", il lance un navigateur qui n'est pas visible.
 
+----------- PROFILE DESIGN -------------
+
+We need to create a profile and edition mecanism in gcompris. Here is a
+description of how we plan to implement this. This has been designed on
+an IRC chat session with Yves.
+
+Profiles can be edited when gcompris is started with 'gcompris -e'.
+
+Profile provides there features:
+- A profile can be associated with a list of kids name. In this case,
+gcompris will display a login selector with the list of names when run
+in this profile. No passwords are managed.
+- A profile can be associated a list of activities (currently done in
+gcompris_edit, gcompris_edit is deleted).
+- There is always at least one profile ('default' by default).
+
+The trace mecanism includes the profil (default is none selected) andhe gcompris kids name instead of the unix user name if available.
+
+when gcompris -e is run, if an activities is editable, the edit button
+in the gcompris bar will apprear.
+Each activity is in charge of editing its content. it's content is
+always savedn .gcompris/activities_data/<activity_name>/<profile>/<board specific
+here>
+GCompris core provides facilities to the edition. The first facility to
+be implemented is to edit text. in the api, we provideompris_edit("some explanation", validator_callback).
+The explanation will be display above the text entry. The teacher will
+edit the text (like list of words in the entry box). The validator
+callback returns an empty string if text is ok, an error message else.
+
+When a board is started it first check for a content
+in .gcompris/activities_data/<activity_name>/<profile>/
+if none avalaible here, then the default is usedhese new fatures are mandatory in gcompris is we want to go further,
+especialy in reading activities. There is many ideas we could implement
+easily in the reading area but we cannot until we have in place a goodowerfull and generic edition and profiling mecanism. 
+
+Teachers want to have some edit capability to adapt gcompris to their
+courses. We could make some dirty hack and go faster but in the end we
+will loose the maintainabilty of gcompris. I want to keep gcompris fun
+to code and continue the strong separation between the boards and the
+core.
+
+Now in term of planning, I cannot work on this now. My plan is to
+integrate gcompris with physicfs like we talked here a few monthes ago.
+Then make a new release for the windows version. This is most important
+because it will make it easier to distribute updates (python activities
+only) to all our users, whatever the platform they use.
+
+This will allows us to make gcompris a complete, full featuredducational software that rivals many proprietary ones.
+
+If somebody want to work on the profile concept, we will be abble to
+provide these features at least 6 monthes earlier than what I can do.
+

@@ -1,3 +1,61 @@
+2005-03-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Updated TODO related to the PROFILE DESIGN
+	Web site updated
+	Fixed major bug and crash in click_on_letter. One problem was a free 
+	on the text being passed to the wagon. The othe is a bad side effect of the 
+	focus on the wagon.
+	final bonus now hide the toolbar.
+	
+	* TODO:
+	* docs/website/article.html:
+	* docs/website/auteur.html:
+	* docs/website/footer.html:
+	* docs/website/forum.html:
+	* docs/website/gcompris.css:
+	* docs/website/header.html:
+	* docs/website/rubrique.html:
+	* docs/website/sommaire.html:
+	* src/boards/click_on_letter.c: (click_on_letter_create_item):
+	* src/gcompris/bonus.c: (end_board_finished), (board_finished):
+
+2005-03-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Updated the website (on a Aurelie Casties design)
+	improved docs/gcompris2spip.pl to detect if we miss locale
+	information
+
+	* docs/C/python.html:
+	* docs/gcompris2spip.pl:
+	* docs/website/article.html:
+	* docs/website/footer.html:
+	* docs/website/gcompris.css:
+	* docs/website/header.html:
+	* docs/website/inc_layer.php3:
+	* docs/website/menu.html:
+	* docs/website/rubrique.html:
+	* docs/website/sommaire.html:
+
+2005-03-06  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Preparing a new web site design by Aurelie Casties
+	Fixed anim.py to disable SVG if python xml is not available. (Thanks
+	Ronny for the test)
+	Chess, swapped white and black board color to be chess compliant
+	thanks to Granier Thomas (6 years old) for reporting that.
+
+	* docs/website/gcompris.css:
+	* docs/website/header.html:
+	* docs/website/menu.html:
+	* po_report.pl:
+	* src/boards/chess.c:
+	* src/boards/python/anim.py:
+
+2005-03-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* po_report.pl: created by Bruno, it's not gcompris specific. it is used to create
+	status report of .po translations
+
 2005-03-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed the filemanager for real this time.
