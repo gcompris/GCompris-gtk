@@ -1,10 +1,15 @@
 2004-11-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* boards/flags/gcompris_flags.assetml.in:
-	* boards/flags/zh.png:
-	* configure.in:
-	* docs/spipparser.pl:
-	* src/gcompris/config.c:
+	* gcompris-edit.desktop.in: fixed bad menu entry, now it's gcompris_edit
+	closes debian bug #281457
+
+2004-11-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/flags/gcompris_flags.assetml.in: added chinese support
+	* boards/flags/zh.png: taken from the CIA fact worldbook
+	* configure.in: added chinese
+	* docs/spipparser.pl: added one locale sections
+	* src/gcompris/config.c: added chinese
 
 2004-11-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
