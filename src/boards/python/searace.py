@@ -26,19 +26,29 @@ import gcompris.skin
 import gtk
 import gtk.gdk
 import random
+from gettext import gettext as _
 
 class Boat:
   """The Boat Class"""
-  tb   = []
-  tv   = []
+  tb   = None
+  tv   = None
   x    = 0
   y    = 0
   ang  = 0
+
+  # To move the ship
+  dx   = 0
+  dy   = 0
+  step = 0
+
   # The user commands parsing
   line = 0
   # The boat item
   item = []
+  player = 0
 
+  # Store a timer object
+  timer  = 0
     
 class Gcompris_searace:
   """The Boat Racing activity"""
@@ -53,7 +63,10 @@ class Gcompris_searace:
     self.weather   = []
 
     self.left_boat  = Boat()
+    self.left_boat.player = 0
+    
     self.right_boat = Boat()
+    self.left_boat.player = 1
     
     # The boat coordinate
     self.left_boat.x = border_x - 15
@@ -104,6 +117,12 @@ class Gcompris_searace:
     if self.timer :
       gtk.timeout_remove(self.timer)
     
+    if self.left_boat.timer :
+      gtk.timeout_remove(self.left_boat.timer)
+    
+    if self.right_boat.timer :
+      gtk.timeout_remove(self.right_boat.timer)
+    
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
@@ -115,7 +134,8 @@ class Gcompris_searace:
 
     # This is a real go
     # We set a timer. At each tick an entry in each user box is read analysed and run
-    self.timer = gtk.timeout_add(1000, self.race_one_step)
+    self.timer = gtk.timeout_add(1000, self.race_one_command, self.left_boat)
+    self.timer = gtk.timeout_add(1000, self.race_one_command, self.right_boat)
           
 
   def repeat(self):
@@ -362,30 +382,57 @@ class Gcompris_searace:
     
     return
 
-  def cmd_forward(self, value):
-    print "cmd_forward " + str(value)
+  def cmd_forward(self, boat, value):
+    print "Player " + str(boat.player) + " cmd_forward " + str(value)
+
+    if(boat.step == 0):
+      # Initialyse the move
+      boat.dx   = 1
+      boat.dy   = 0
+      boat.step = 500
+
+    boat.step-=1
+
+    if(boat.step > 0):
+      # Move it
+      boat.x += boat.dx
+      boat.y += boat.dy
+      boat.item.set(x=boat.x, y=boat.y)
+      self.timer = gtk.timeout_add(self.timerinc, self.cmd_forward, boat, value)
+    else:
+      # Process next command
+      self.race_one_command(boat)
 
   # Clock wise rotation
-  def cmd_turn_right(self, value):
-    print "turn right " + str(value)
+  def cmd_turn_right(self, boat, value):
+    print "Player " + str(boat.player) + " turn right " + str(value)
+    self.race_one_command(boat)
   
   # Counter Clock wise rotation
-  def cmd_turn_left(self, value):
-    print "turn left " + str(value)
+  def cmd_turn_left(self, boat, value):
+    print "Player " + str(boat.player) + " turn left " + str(value)
+    self.race_one_command(boat)
   
   # Run the race
-  def race_one_step(self):
+  def race_one_command(self, boat):
 
-    a = self.left_boat.tb.get_iter_at_line(self.left_boat.line)
-    b = self.left_boat.tb.get_iter_at_line(self.left_boat.line)
+    a = boat.tb.get_iter_at_line(boat.line)
+    b = boat.tb.get_iter_at_line(boat.line)
     b.forward_to_line_end()
-    self.left_boat.line+=1
-    cmd = self.left_boat.tb.get_text(a, b, gtk.FALSE)
-    if( cmd.startswith("forward")):
-      self.cmd_forward(cmd.split()[1]) 
-    elif( cmd.startswith("turnleft")):
-      self.cmd_turn_left(cmd.split()[1])      
-    elif( cmd.startswith("turnright")):
-      self.cmd_turn_right(cmd.split()[1])      
+    boat.line+=1
+    
+    if (boat.line > boat.tb.get_line_count()):
+      print "No more commands to process for player " + str(boat.player)
+      boat.line = 0
+      return
+    
+    cmd = boat.tb.get_text(a, b, gtk.FALSE)
+    if( cmd.startswith(_("forward"))):
+      self.cmd_forward(boat, cmd.split()[1]) 
+    elif( cmd.startswith(_("turnleft"))):
+      self.cmd_turn_left(boat, cmd.split()[1])      
+    elif( cmd.startswith(_("turnright"))):
+      self.cmd_turn_right(boat, cmd.split()[1])      
     else:
-      print "Unknown command" + cmd
+      print "Player " + str(boat.player) + " Unknown command: " + "'" + cmd + "'"
+      print "Player " + str(boat.player) + "Stop processing your commands"
