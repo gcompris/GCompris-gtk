@@ -73,6 +73,40 @@ Version: %version
 %description devel
 Development package for gcompris
 
+%package -n assetml-voices-alphabet-da
+Summary:        Danish voices in Danish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_DA@
+
+%description -n assetml-voices-alphabet-da
+Alphabet voices in Danish
+
+%package -n assetml-voices-colors-da
+Summary:        Colors voices in Danish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_DA@
+
+%description -n assetml-voices-colors-da
+Colors voices in Danish
+
+%package -n assetml-voices-geography-da
+Summary:        Country name voices in Danish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_DA@
+
+%description -n assetml-voices-geography-da
+Country name voices in Danish
+
+%package -n assetml-voices-misc-da
+Summary:        Miscelaneous voices in Danish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_DA@
+
+%description -n assetml-voices-misc-da
+Miscelaneous voices in Danish
+
+
+
 %package -n assetml-voices-alphabet-de
 Summary:        Alphabet voices in German
 Group: 		Amusements/Games
@@ -359,6 +393,27 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libgcompris-1.la
 %_libdir/libgcompris-1.so
 %_libdir/pkgconfig/libgcompris-1.0.pc
+
+%files -n assetml-voices-alphabet-da
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/da/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_da.assetml
+
+%files -n assetml-voices-colors-da
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/da/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_da.assetml
+
+%files -n assetml-voices-geography-da
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/da/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_da.assetml
+
+%files -n assetml-voices-misc-da
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/da/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_da.assetml
+
 
 %files -n assetml-voices-alphabet-de
 %defattr(-, root, root)

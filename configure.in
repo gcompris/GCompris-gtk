@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
-AM_INIT_AUTOMAKE(gcompris, 6.2)
+AM_INIT_AUTOMAKE(gcompris, 6.3)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -114,7 +114,7 @@ AC_MSG_ERROR([You must have popt 1.5 or newer to compile gcompris.]))
 AM_ICONV
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az ca cs de el en_CA en_GB es fi fr he hi hr hu it lt mk ml ms nl no pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa"
+ALL_LINGUAS="am ar az ca cs da de el en_CA en_GB es fi fr he hi hr hu it lt mk ml ms nl no pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
@@ -351,6 +351,19 @@ AC_SUBST(ASSETML_DIR)
 AC_DEFINE_UNQUOTED(ASSETML_DIR, "${myprefix}/${DATADIRNAME}/${ASSETML_DIR}", [Global assetml directory])
 
 dnl assetml version management
+# DA
+VERSION_VOICES_ALPHABET_DA=1.0
+AC_SUBST(VERSION_VOICES_ALPHABET_DA)
+
+VERSION_VOICES_COLORS_DA=1.0
+AC_SUBST(VERSION_VOICES_COLORS_DA)
+
+VERSION_VOICES_GEOGRAPHY_DA=0.0
+AC_SUBST(VERSION_VOICES_GEOGRAPHY_DA)
+
+VERSION_VOICES_MISC_DA=1.0
+AC_SUBST(VERSION_VOICES_MISC_DA)
+
 # DE
 VERSION_VOICES_ALPHABET_DE=1.0
 AC_SUBST(VERSION_VOICES_ALPHABET_DE)
@@ -473,6 +486,11 @@ boards/paintings/Makefile
 boards/read_colors/Makefile
 boards/scales/Makefile
 boards/sounds/Makefile
+boards/sounds/da/Makefile
+boards/sounds/da/alphabet/Makefile
+boards/sounds/da/colors/Makefile
+boards/sounds/da/geography/Makefile
+boards/sounds/da/misc/Makefile
 boards/sounds/de/Makefile
 boards/sounds/de/alphabet/Makefile
 boards/sounds/de/colors/Makefile
