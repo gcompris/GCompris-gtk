@@ -26,20 +26,21 @@ import gcompris.skin
 import gtk
 import gtk.gdk
 import random
+import math
+import time
 from gettext import gettext as _
 
 class Boat:
   """The Boat Class"""
   tb   = None
   tv   = None
-  x    = 0
-  y    = 0
-  ang  = 0
+  x    = 0.0
+  y    = 0.0
+  angle  = 0
 
   # To move the ship
-  dx   = 0
-  dy   = 0
-  step = 0
+  dx   = 0.0
+  dy   = 0.0
 
   # The user commands parsing
   line = 0
@@ -69,14 +70,15 @@ class Gcompris_searace:
     self.left_boat.player = 1
     
     # The boat coordinate
-    self.left_boat.x = border_x - 15
+    self.left_boat.x = border_x
     self.left_boat.y = 150
     self.right_boat.x = self.left_boat.x
     self.right_boat.y = self.left_boat.y + 30
 
     # The basic tick for object moves
     self.timerinc = 50
-    self.timer = 0
+    self.timer1 = 0
+    self.timer2 = 0
 
     print("Gcompris_searace __init__.")
   
@@ -87,13 +89,6 @@ class Gcompris_searace:
     self.gcomprisBoard.sublevel=1 
     self.gcomprisBoard.number_of_sublevel=1
 
-    # The basic tick for object moves
-    self.timerinc = 50
-
-    # Need to manage the timers to quit properly
-    self.kid_timer = 0
-    self.tux_timer = 0
-    
     gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
     #    gcompris.set_background(self.gcomprisBoard.canvas.root(),
     #                            "searace/background.png")
@@ -108,14 +103,17 @@ class Gcompris_searace:
       )
 
     self.display_sea_area()
-    
+
     print("Gcompris_searace start.")
 
     
   def end(self):
     # Remove all the timer first
-    if self.timer :
-      gtk.timeout_remove(self.timer)
+    if self.timer1 :
+      gtk.timeout_remove(self.timer1)
+    
+    if self.timer2 :
+      gtk.timeout_remove(self.timer2)
     
     if self.left_boat.timer :
       gtk.timeout_remove(self.left_boat.timer)
@@ -134,9 +132,11 @@ class Gcompris_searace:
 
     # This is a real go
     # We set a timer. At each tick an entry in each user box is read analysed and run
-    self.timer = gtk.timeout_add(1000, self.race_one_command, self.left_boat)
-    self.timer = gtk.timeout_add(1000, self.race_one_command, self.right_boat)
-          
+    if(not self.left_boat.timer and not self.right_boat.timer):
+      self.race_one_command(self.left_boat)
+      self.race_one_command(self.right_boat)
+    else:
+      print "Race is already running"
 
   def repeat(self):
     print("Gcompris_searace repeat.")
@@ -249,7 +249,7 @@ class Gcompris_searace:
     self.left_boat.tb = gtk.TextBuffer()
     self.left_boat.tv = gtk.TextView(self.left_boat.tb)
     sw.add(self.left_boat.tv)
-    self.left_boat.tb.set_text("forward 10")
+    self.left_boat.tb.set_text("turnleft 90\nforward 10")
     self.left_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
@@ -273,7 +273,7 @@ class Gcompris_searace:
     self.right_boat.tb = gtk.TextBuffer()
     self.right_boat.tv = gtk.TextView(self.right_boat.tb)
     sw.add(self.right_boat.tv)
-    self.right_boat.tb.set_text("forward 10")
+    self.right_boat.tb.set_text("turnleft 10")
     self.right_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
@@ -293,7 +293,8 @@ class Gcompris_searace:
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
       x=self.left_boat.x,
-      y=self.left_boat.y
+      y=self.left_boat.y,
+      anchor=gtk.ANCHOR_CENTER,
       )
       
     pixmap = gcompris.utils.load_pixmap("images/top_boat_green.png")
@@ -301,7 +302,8 @@ class Gcompris_searace:
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
       x=self.right_boat.x,
-      y=self.right_boat.y
+      y=self.right_boat.y,
+      anchor=gtk.ANCHOR_CENTER,
       )
       
 
@@ -383,35 +385,42 @@ class Gcompris_searace:
     return
 
   def cmd_forward(self, boat, value):
-    print "Player " + str(boat.player) + " cmd_forward " + str(value)
+    #    print "Player " + str(boat.player) + " cmd_forward " + str(value) + " dx=" + str(boat.dx) + " dy=" + str(boat.dy)
 
-    if(boat.step == 0):
-      # Initialyse the move
-      boat.dx   = 1
-      boat.dy   = 0
-      boat.step = 500
-
-    boat.step-=1
-
-    if(boat.step > 0):
-      # Move it
-      boat.x += boat.dx
-      boat.y += boat.dy
-      boat.item.set(x=boat.x, y=boat.y)
-      self.timer = gtk.timeout_add(self.timerinc, self.cmd_forward, boat, value)
-    else:
+    value -= 1
+    if value <= 0:
       # Process next command
       self.race_one_command(boat)
+      return
+    
+    
+    # Move it
+    boat.x += 1
+    boat.y += 0
+    #    print "  x=" + str(int(boat.x)) + "  y=" + str(int(boat.y))
+    boat.item.set(x = boat.x,
+                  y = boat.y)
+    boat.timer = gtk.timeout_add(self.timerinc, self.cmd_forward, boat, value)
 
-  # Clock wise rotation
-  def cmd_turn_right(self, boat, value):
-    print "Player " + str(boat.player) + " turn right " + str(value)
-    self.race_one_command(boat)
-  
-  # Counter Clock wise rotation
+
+  # Counter Clock wise rotation (use negative param to turn clock wise)
   def cmd_turn_left(self, boat, value):
-    print "Player " + str(boat.player) + " turn left " + str(value)
-    self.race_one_command(boat)
+    #    print "Player " + str(boat.player) + " turn left " + str(value)
+
+    if value == 0:
+      # Process next command
+      self.race_one_command(boat)
+      return
+
+    turn = 1
+    if value > 0:
+      turn = -1
+      
+    boat.angle += turn
+    value    += turn
+
+    gcompris.utils.item_rotate_relative(boat.item, turn);
+    boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value)
   
   # Run the race
   def race_one_command(self, boat):
@@ -424,15 +433,66 @@ class Gcompris_searace:
     if (boat.line > boat.tb.get_line_count()):
       print "No more commands to process for player " + str(boat.player)
       boat.line = 0
+      boat.timer = 0
       return
     
-    cmd = boat.tb.get_text(a, b, gtk.FALSE)
+    cmd   = boat.tb.get_text(a, b, gtk.FALSE)
+    cmds  = cmd.split()
+    if ( len(cmds) != 2):
+      print "Player " + str(boat.player) + " Syntax error command=" + cmd + " At line " + str(boat.line)
+      boat.line = 0
+      boat.timer = 0
+      return
+      
+    value = int(cmd.split()[1])
     if( cmd.startswith(_("forward"))):
-      self.cmd_forward(boat, cmd.split()[1]) 
+      # Initialize the move
+      boat.timer = gtk.timeout_add(self.timerinc, self.cmd_forward, boat, value)
     elif( cmd.startswith(_("turnleft"))):
-      self.cmd_turn_left(boat, cmd.split()[1])      
+      boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value)
     elif( cmd.startswith(_("turnright"))):
-      self.cmd_turn_right(boat, cmd.split()[1])      
+      boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value*-1)
     else:
+      boat.line = 0
+      boat.timer = 0
       print "Player " + str(boat.player) + " Unknown command: " + "'" + cmd + "'"
       print "Player " + str(boat.player) + "Stop processing your commands"
+
+
+  # ---- TEST ONLY ----
+  def test(self):
+    boat = self.left_boat
+    boat.x = 30
+    boat.y = 30
+    boat.angle = 45.0
+    boat.item.set(x = boat.x,
+                  y = boat.y)
+    boat.dx   = math.cos(boat.angle*(math.pi/180))
+    boat.dy   = math.sin(boat.angle*(math.pi/180))
+    self.rootitem.add(
+      gnome.canvas.CanvasLine,
+      points = (boat.x , boat.y,
+                boat.x + boat.dx * 100 , boat.y + boat.dy * 100),
+      fill_color_rgba = 0x0033FFFFL,
+      width_units = 2.0
+      )
+
+    for angle in range(1, 360, 10):
+      gcompris.utils.item_rotate_relative(boat.item, 10);
+      print "Angle=" + str(boat.angle) + " dx=" + str(boat.dx) + " dy=" + str(boat.dy)
+
+      for i in range(50):
+        while gtk.events_pending():
+          gtk.main_iteration()
+        boat.x += 1.0
+        boat.y += 0.0
+        print "  x=" + str(int(boat.x)) + "  y=" + str(int(boat.y))
+        boat.item.set(x = boat.x,
+                      y = boat.y)
+        self.rootitem.add(
+          gnome.canvas.CanvasLine,
+          points = (30.0 , 30.0,
+                    boat.x , boat.y),
+          fill_color_rgba = 0x0F331FFFL,
+          width_units = 4.0
+          )
