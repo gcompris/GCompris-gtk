@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2001/12/27 01:14:26 bruno>
+ * Time-stamp: <2002/01/20 01:08:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,13 +33,33 @@ GcomprisProperties *gcompris_get_properties ()
 GcomprisProperties *gcompris_properties_new ()
 {
   GcomprisProperties *tmp;
+  char *locale;
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
 
   tmp->music		= gnome_config_get_int ("/gcompris/Preferences/music=1");
   tmp->fx		= gnome_config_get_int ("/gcompris/Preferences/fx=1");
   tmp->fullscreen	= gnome_config_get_int ("/gcompris/Preferences/fullscreen=1");
-  tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en");
+
+  locale = getenv("LC_ALL");
+  if(locale == NULL)
+    locale = getenv("LANG");
+
+  if(locale == NULL)
+    {
+      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en");
+    }
+  else if (!strcmp(locale, "C"))
+    {
+      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en");
+    }
+  else	
+    {
+      gchar *strtmp;
+      strtmp = g_strdup_printf("/gcompris/Preferences/locale=%s", locale);
+      tmp->locale      	= gnome_config_get_string (strtmp);
+      g_free(strtmp);
+    }
 
   return (tmp);
 }

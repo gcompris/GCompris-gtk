@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/01/13 17:51:38 bruno>
+ * Time-stamp: <2002/01/20 01:31:07 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -32,7 +32,6 @@ GnomeCanvas *canvas_bg;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
-static gint end_board_box (void);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
 					    gpointer     client_data);
@@ -304,43 +303,6 @@ static void setup_window ()
   init_background();
 }
 
-/*
- * Confirmation dialog
- */
-static gint end_board_box ()
-{
-  static GtkWidget *box;
-  gint status;
-
-  if (box)
-    return 0;
-
-  board_pause();
-
-  box = gnome_message_box_new (
-			       _("Do you really want to quit GCompris?"),
-			       GNOME_MESSAGE_BOX_QUESTION,
-			       GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO,
-			       NULL);
-  gnome_dialog_set_parent (GNOME_DIALOG (box), GTK_WINDOW
-			   (window));
-  gnome_dialog_set_default (GNOME_DIALOG (box), 0);
-  status = gnome_dialog_run (GNOME_DIALOG (box));
-  box = NULL;
-  
-  board_pause();
-
-  return (status);
-}
-
-/*
-static gint pause_board_cb (GtkWidget *widget, gpointer data)
-{
-  board_pause();
-  return(TRUE);
-}
-*/
-
 void gcompris_end_board()
 {
   if (get_current_gcompris_board()->previous_board == NULL)
@@ -381,20 +343,21 @@ static void load_properties ()
  */
 gchar *gcompris_get_locale()
 {
+  char *locale;
 
-  /* First check gcompris got overrided by the user */
-  if(gcompris_locale !=NULL)
+  printf("gcompris_get_locale gcompris_locale=%s\n", gcompris_locale);
+  /* First check locale got overrided by the user */
+  if(gcompris_locale != NULL)
     return(gcompris_locale);
 
-  if(!strcmp(setlocale(0, NULL), "C"))
-    {
-      /* NO Locale, Try to use the English Locale */
-      return("en");
-    } 
-  else 
-    {
-      return(setlocale(0, NULL));
-    }
+  locale = getenv("LC_ALL");
+  if(locale == NULL)
+    locale = getenv("LANG");
+
+  if(locale!=NULL)
+    return(locale);
+
+  return("en");
 }
 
 /*
@@ -404,7 +367,7 @@ gchar *gcompris_get_locale()
 void gcompris_set_locale(gchar *locale)
 {
 
-  gcompris_locale = setlocale(LC_ALL, locale);
+  gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
   printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
   /* WARNING: This does not update gettext translation */
 }
@@ -420,19 +383,23 @@ main (int argc, char *argv[])
   int c;
   poptContext optCon;
 
+  /* To have some real random behaviour */
   srand (time (NULL));
 
   bindtextdomain (PACKAGE, PACKAGE_LOCALE_DIR);
   textdomain (PACKAGE);
+      printf("1 LOCALE = %s\n", getenv("LC_ALL"));
+
+  load_properties ();
+      printf("2 LOCALE = %s\n", getenv("LC_ALL"));
+
+  // Set the user's choice locale
+  gcompris_set_locale(properties->locale);
+      printf("3 LOCALE = %s\n", getenv("LC_ALL"));
 
   gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
 
   optCon = poptGetContext (NULL, argc, argv, command_line, 0);
-
-  load_properties ();
-
-  // Set the user's choice locale
-  gcompris_set_locale(properties->locale);
 
   /*------------------------------------------------------------*/
   while ((c = poptGetNextOpt (optCon)) != -1)

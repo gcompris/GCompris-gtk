@@ -427,6 +427,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
 
       if(!g_file_exists(filename))
 	{
+	  g_warning(_("Couldn't find file %s !"), fname);
 	  g_warning(_("Couldn't find file %s !"), filename);
 	  g_free(filename);
 	  return NULL;
