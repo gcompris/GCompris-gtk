@@ -1,6 +1,6 @@
 /* gcompris - missingletter.c
  *
- * Copyright (C) 2000 Pascal Georges
+ * Copyright (C) 2001 Pascal Georges
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -38,7 +38,9 @@ static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static int gamewon;
+static gint process_time_id = 0;
 static void process_ok(void);
+static void process_time(void);
 static void highlight_selected(GnomeCanvasItem *);
 static void game_won();
 
@@ -134,7 +136,7 @@ static void pause_board (gboolean pause)
     {
       game_won();
     }
-  
+
   board_paused = pause;
 }
 
@@ -142,11 +144,11 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-gnome_sound_init(NULL);
+
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "missing_letter/missingletter-bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=4;
@@ -306,7 +308,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   switch (place) {
   case 1 :
     buf[0] = board->l2;
-    buf[1] = board->l1;
+    buf[1] = board->l1;static gint end_bonus_id = 0;
     buf[2] = board->l3;
     break;
   case 2 :
@@ -388,7 +390,6 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 /* ==================================== */
 static void game_won()
 {
-
   gcomprisBoard->sublevel++;
 
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
@@ -405,14 +406,20 @@ static void game_won()
 /* ==================================== */
 static void process_ok()
 {
-
   if (gamewon) {
     gnome_canvas_item_set(text, "text", board->answer, NULL);
   }
-  gcompris_display_bonus(gamewon, FLOWER_BONUS);
-
+  process_time_id = gtk_timeout_add (2000, (GtkFunction) process_time, NULL);
 }
-
+/* ==================================== */
+static void process_time()
+{
+  if (process_time_id) {
+    gtk_timeout_remove (process_time_id);
+    process_time_id = 0;
+  }
+  gcompris_display_bonus(gamewon, FLOWER_BONUS);
+}
 /* ==================================== */
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
