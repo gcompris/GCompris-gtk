@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-28 00:22+0200\n"
-"PO-Revision-Date: 2003-08-28 00:24+0200\n"
+"POT-Creation-Date: 2003-09-26 16:46+0200\n"
+"PO-Revision-Date: 2003-09-26 16:48+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -852,7 +852,7 @@ msgstr "Skriv de fallande bokstäverna innan de når marken"
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Dra och släpp det översta föremålet endast på en tom plats"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Återskapa samma torn som till höger i den tomma ytan"
 
@@ -1415,15 +1415,36 @@ msgstr "skolväska/sk_lväska/o/a/i"
 msgid "satchel/sa_chel/t/p/c"
 msgstr "skolväska/sko_väska/l/p/t"
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "Kan räkna"
+
+#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+msgid ""
+"Click on the coins or paper money on the botton of the screen to pay. If you "
+"want to remove a coin or note, click on it on the upper screen area."
+msgstr ""
+"Klicka på mynten eller sedlarna i nederkanten på skärmen för att betala. Om "
+"du vill ta bort ett mynt eller en sedel klickar du på det i överkanten på "
+"skärmen."
+
+#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
 msgstr "Pengar"
 
-#: boards/money.xml.in.h:2 src/boards/money.c:88
+#: boards/money.xml.in.h:4 src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr "Träna att använda pengar"
 
-#: boards/money_cents.xml.in.h:2
+#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+msgid ""
+"You must buy the different items and give the exact price. At higher level, "
+"several items are displayed, you must first calculate the total price."
+msgstr ""
+"Du måste köpa olika föremål och ange exakt pris. Vid den högre nivån visas "
+"flera föremål och du måste först beräkna totalsumman."
+
+#: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
 msgstr "Träna att använda pengar inklusive cent"
 
@@ -1968,13 +1989,33 @@ msgstr "Vitt matt"
 msgid "Drawn game"
 msgstr "Ritat spel"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:74
 msgid "Read a letter"
 msgstr "Läs en bokstav"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:75
 msgid "Learn to recognize letters"
 msgstr "Lär dig känna igen bokstäver"
+
+#: src/boards/click_on_letter.c:226
+msgid ""
+"Error: this activity requires you to install first\n"
+"the package assetml-voices-alphabet-"
+msgstr ""
+"Fel: denna aktivitet kräver att du först installerar\n"
+"paketet assetml-voices-alphabet-"
+
+#: src/boards/click_on_letter.c:233
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effect disabled.\n"
+"Go in the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Fel: denna aktivitet kan inte spelas med\n"
+"ljudeffekten inaktiverad.\n"
+"Gå in i konfigurationsdialogen\n"
+"för att aktivera ljudet"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -1985,7 +2026,7 @@ msgstr "Kunde inte öppna bildfilskatalogen: %s"
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
 
-#: src/boards/colors.c:252
+#: src/boards/colors.c:210
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Klicka på färgen %s"
@@ -2164,7 +2205,7 @@ msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc Licens
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2256,76 +2297,88 @@ msgid "Norwegian"
 msgstr "Norska"
 
 #: src/gcompris/config.c:73
+msgid "Polish"
+msgstr "Polska"
+
+#: src/gcompris/config.c:74
 msgid "Portuguese"
 msgstr "Portugisiska"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Brazil Portuguese"
 msgstr "Brasiliansk portugisiska"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Romanian"
 msgstr "Rumänska"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Russian"
 msgstr "Ryska"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Slovak"
 msgstr "Slovakiska"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
+msgid "Serbian (Latin)"
+msgstr "Serbiska (Latin)"
+
+#: src/gcompris/config.c:80
+msgid "Serbian"
+msgstr "Serbiska"
+
+#: src/gcompris/config.c:81
 msgid "Swedish"
 msgstr "Svenska"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:82
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:87
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:88
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:89
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:90
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:95
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Standard för gcompris)"
 
-#: src/gcompris/config.c:148
+#: src/gcompris/config.c:151
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:254
+#: src/gcompris/config.c:257
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:297
+#: src/gcompris/config.c:300
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:325
+#: src/gcompris/config.c:328
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:695
-#: src/gcompris/config.c:706
+#: src/gcompris/config.c:399 src/gcompris/config.c:705
+#: src/gcompris/config.c:716
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2362,7 +2415,7 @@ msgstr "Använd den kantutjämnade canvasen (långsammare)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:546
+#: src/gcompris/gcompris.c:544
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2423,7 +2476,7 @@ msgstr "Författare"
 msgid "Directory"
 msgstr "Katalog"
 
-#: src/gcompris/interface.c:286
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
 msgid "Title"
 msgstr "Titel"
 
@@ -2438,9 +2491,13 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Släppt under GPL"
 
-#: src/gcompris/oggplayer.c:189
+#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
 msgid "Now Playing Music"
 msgstr "Spelar nu musik"
+
+#: src/gcompris/oggplayer.c:245
+msgid "Artist"
+msgstr "Artist"
 
 #: src/gcompris/soundutil.c:116
 #, c-format
@@ -2460,6 +2517,14 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid ""
+#~ "Click on the coins or paper money on the bottom of the screen to pay. If "
+#~ "you want to remove a coin or note, click on it on the upper screen area."
+#~ msgstr ""
+#~ "Klicka på mynten eller sedlarna i nederkanten på skärmen för att betala. "
+#~ "Om du vill ta bort ett mynt eller en sedel klickar du på det i överkanten "
+#~ "på skärmen."
 
 #~ msgid "Click on the word corresponding to the displayed image."
 #~ msgstr "Klicka på ordet som motsvarar den visade bilden."
@@ -2544,9 +2609,6 @@ msgstr "Återstående tid = %d"
 #~ msgid "Skin: %s"
 #~ msgstr "Skal: %s"
 
-#~ msgid "Azerbaijani"
-#~ msgstr "Azerbadjanska"
-
 #~ msgid "Arabic (Egypt)"
 #~ msgstr "Arabiska (Egypten)"
 
@@ -2609,9 +2671,6 @@ msgstr "Återstående tid = %d"
 
 #~ msgid "Norwegian (nynorsk)"
 #~ msgstr "Norska (nynorsk)"
-
-#~ msgid "Polish"
-#~ msgstr "Polska"
 
 #~ msgid "Portuguese (Brazilian)"
 #~ msgstr "Portugisiska (brasiliansk)"
