@@ -8,8 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-05-25 12:04+0200\n"
-"PO-Revision-Date: 2003-05-25 17:44+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-22 04:12+0200\n"
+"PO-Revision-Date: 2003-06-22 08:57+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -515,7 +516,7 @@ msgstr "Lock met gekleurde vormen."
 msgid "Go to board based activities"
 msgstr "Ga naar de bordspellen"
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
+#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Bedien een sluis"
 
@@ -839,7 +840,7 @@ msgstr "Typ de vallende letters voor ze de grond raken"
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Sleep het bovenste stuk naar een vrije plaats"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:323
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Maak op een vrije plaats dezelfde toren als die rechts te zien is"
 
@@ -1862,7 +1863,7 @@ msgstr "Editor voor GCompris"
 #: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
 #: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
 #: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:286
+#: src/gcompris/soundutil.c:351
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
@@ -1878,7 +1879,7 @@ msgstr "bestand %s zoeken !"
 msgid "Guess operations"
 msgstr "Raad de bewerkingen"
 
-#: src/boards/canal_lock.c:111
+#: src/boards/canal_lock.c:114
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
 "Help Tux and understand how a canal lock works."
@@ -2384,6 +2385,15 @@ msgstr ""
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
+
+#: src/gcompris/oggplayer.c:189
+msgid "Now Playing Music"
+msgstr "Muziek wordt nu afgespeeld"
+
+#: src/gcompris/soundutil.c:116
+#, c-format
+msgid "Couldn't open music dir: %s"
+msgstr "Kon muziek-map niet openen: %s"
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
