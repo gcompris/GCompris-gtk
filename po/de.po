@@ -3,6 +3,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-08 14:41+0100\n"
-"PO-Revision-Date: 2005-01-08 15:28+0100\n"
+"POT-Creation-Date: 2005-01-11 08:06+0100\n"
+"PO-Revision-Date: 2005-01-11 09:02+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -494,7 +495,11 @@ msgid ""
 "In this game, children can draw freely. The goal is just to discover how to "
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines. To make it more fun for kids, a set of images can also be used."
-msgstr "In diesem Spiel können die Kinder frei zeichnen. Das Ziel ist einfach zu entdecken, wie man gutaussehende Zeichnungen aus grundlegenden Formen erstellt: Rechtecke, Ellipsen und Linien. Um es für die Kinder lustiger zu machen, kann auch ein Satz vorgefertigter Bildelemente verwendet werden."
+msgstr ""
+"In diesem Spiel können die Kinder frei zeichnen. Das Ziel ist einfach zu "
+"entdecken, wie man gutaussehende Zeichnungen aus grundlegenden Formen "
+"erstellt: Rechtecke, Ellipsen und Linien. Um es für die Kinder lustiger zu "
+"machen, kann auch ein Satz vorgefertigter Bildelemente verwendet werden."
 
 #: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
@@ -512,7 +517,19 @@ msgid ""
 "drawing. You can then edit each image of your animation by using the image "
 "selector in the bottom left of the screen. You can save and reload your "
 "animations with the 'floppy' and 'folder' button."
-msgstr "Wähle ein Malwerkzeug auf der linken Seite und eine Farbe am unteren Rand aus. Dann klicke und ziehe die Maus im weißen Bereich, um eine neue Form zu erzeugen. Wenn das Bild fertig ist, kannst du davon einen Schnappschuss mit dem Kamera-Knopf machen. Danach wird ein neues Bild mit dem gleichen Inhalt erstellt. Du kannst dann die Gegenstände ein wenig bewegen, hinzufügen oder löschen. Erstelle mehrere Zeichnungen und klicke dann auf den Film-Knopf. Du wirst alle deine Bilder in einer Endlosschleife sehen. In diesem Modus kannst du die Abspielgeschwindigkeit ändern. Klicke auf die Farbpalette, um in den Zeichenmodus zurückzuschalten. Du kannst dann jedes einzelne Bild deines Trickfilms mit Hilfe der Bildauswahl unten links bearbeiten. Du kannst deine Trickfilme mit dem Diskettensymbol abspeichern und mit dem Ordnersymbol laden."
+msgstr ""
+"Wähle ein Malwerkzeug auf der linken Seite und eine Farbe am unteren Rand "
+"aus. Dann klicke und ziehe die Maus im weißen Bereich, um eine neue Form zu "
+"erzeugen. Wenn das Bild fertig ist, kannst du davon einen Schnappschuss mit "
+"dem Kamera-Knopf machen. Danach wird ein neues Bild mit dem gleichen Inhalt "
+"erstellt. Du kannst dann die Gegenstände ein wenig bewegen, hinzufügen oder "
+"löschen. Erstelle mehrere Zeichnungen und klicke dann auf den Film-Knopf. Du "
+"wirst alle deine Bilder in einer Endlosschleife sehen. In diesem Modus "
+"kannst du die Abspielgeschwindigkeit ändern. Klicke auf die Farbpalette, um "
+"in den Zeichenmodus zurückzuschalten. Du kannst dann jedes einzelne Bild "
+"deines Trickfilms mit Hilfe der Bildauswahl unten links bearbeiten. Du "
+"kannst deine Trickfilme mit dem Diskettensymbol abspeichern und mit dem "
+"Ordnersymbol laden."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -681,7 +698,11 @@ msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
 "Dates of Transportation are based on those found in http://www.wikipedia."
 "org. Transportations images by Franck Doucet"
-msgstr "Das Mondfoto kommt von der NASA Die Weltraum-Geräusche sind aus Tuxpaint und Vegastrike. Die Daten der Beförderungsmittel basieren auf Angaben aus http://www.wikipedia.org. Die Bilder der Beförderungsmittel stammen von Franck Doucet."
+msgstr ""
+"Das Mondfoto kommt von der NASA Die Weltraum-Geräusche sind aus Tuxpaint und "
+"Vegastrike. Die Daten der Beförderungsmittel basieren auf Angaben aus http://"
+"www.wikipedia.org. Die Bilder der Beförderungsmittel stammen von Franck "
+"Doucet."
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -703,7 +724,21 @@ msgstr "Spaziergang auf dem Mond"
 msgid "Tux and the apple tree"
 msgstr "Tux und der Apfelbaum"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnots Fardier"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephensons Rocket\n"
+"Dampflokomotive"
+
+#: boards/chronos/board3_0.xml.in.h:3
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -715,15 +750,40 @@ msgstr ""
 "Wenn Du Dir unsicher bist, kannst Du im Internet unter\n"
 "http://www.wikipedia.org nachschlagen."
 
-#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Verkehrsmittel"
 
-#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 Gebrüder Montgolfier\n"
+"Heißluftballon"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
 msgstr "1880 Eole von Clement Aders"
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"erster Hubschrauberflug"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Die Celerifere von\n"
+"Comte de Sivrac"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
@@ -760,10 +820,6 @@ msgid ""
 msgstr ""
 "1947 Chuck Yager\n"
 "durchbricht die Schallmauer"
-
-#: boards/chronos/board4_2.xml.in.h:1
-msgid "1769 Cugnot's fardier"
-msgstr "1769 Cugnots Fardier"
 
 #: boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
@@ -1019,11 +1075,11 @@ msgstr "Ordne die Gegenstände so an, dass man sie gut zählen kann"
 msgid "Motor coordination"
 msgstr "Motorische Fähigkeiten"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Bewege die Maus"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Bewege die Maus um Felder zu löschen und den Hintergrund freizulegen"
 
@@ -2369,20 +2425,42 @@ msgstr ""
 "Fische zu finden."
 
 #: boards/searace.xml.in.h:1
-msgid "A Sea race against Tux"
-msgstr "Eine Segelregatta gegen Tux"
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Steure dein Schiff gut, um eine Regatta zu gewinnen."
 
 #: boards/searace.xml.in.h:2
 msgid ""
-"Give good instructions to your ship in order to be first in a race against "
-"Tux."
-msgstr "Steure dein Schiff gut, um ein Rennen gegen Tux zu gewinnen."
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. Going to the next level "
+"will give your more complex wether conditions."
+msgstr ""
+"Gib in den Texteingabefeldern Zeile für Zeile die Kommandos zur Steuerung deines Bootes ein. Die unterstützten Kommandos sind zwischen den Eingabefeldern dargestellt. Die Befehle \"links\" und \"rechts\" müssen durch eine Winkelangabe in Grad ergänzt werden. Der Winkel wird auch \"Parameter\" der Befehle \"links\" und \"rechts\" genannt. Die Voreinstellung dafür ist 45 Grad. Der Befehl \"vorwärts\" nimmt einen Entfernungsparameter entgegen. Die Voreinstellung ist 1.\n"
+"\n"
+"Zum Beispiel:\n"
+"links 90 => steure im rechten Winkel nach links\n"
+"vorwärts 10 => gehe 10 Felder vorwärts (siehe Bildschirmlineal)\n"
+"\n"
+"Das Ziel ist es, den rechten Bildschirmrand zu erreichen (die rote Linie). Wenn das geschafft ist, kannst du versuchen, dein Programm zu verbessern. Mit dem Wiederholknopf kannst du ein neues Rennen mit den gleichen Wetterbedingungen starten. Die höheren Ebenen haben schwierigere Wetterbedingungen."
 
 #: boards/searace.xml.in.h:3
 msgid ""
-"In the text entry, enter line by line commands to give direction to your "
-"boat. Commands supported are displayed between the two entry area."
-msgstr "Gib in den Texteingabefeldern Zeile für Zeile die Kommandos zur Steuerung deines Bootes ein. Die unterstützten Kommandos sind zwischen den Eingabefeldern dargestellt."
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+msgstr "In dieser Aktivität lernt man, wie man Befehle in einen Rechner eingibt. Obwohl die Sprache sehr einfach ist, lernt man, vorausschauend zu denken und ein Programm einzugeben. Diese Aktivität kann verwendet werden, um Kindern die Idee eines Programmes vorzustellen."
+
+#: boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "Regatta (2 Spieler)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2786,11 +2864,13 @@ msgstr ""
 "Finde heraus, ob es sich bei den gegebenen Bildern um linke oder um rechte "
 "Hände handelt"
 
-#: src/boards/leftright.c:248
+#: src/boards/leftright.c:248 src/boards/python/searace.py:513
+#: src/boards/python/searace.py:789
 msgid "left"
 msgstr "links"
 
-#: src/boards/leftright.c:258
+#: src/boards/leftright.c:258 src/boards/python/searace.py:522
+#: src/boards/python/searace.py:791
 msgid "right"
 msgstr "rechts"
 
@@ -2867,30 +2947,56 @@ msgstr "Stufe"
 msgid "Coordinate"
 msgstr "Koordinate"
 
-#: src/boards/python/searace.py:181 src/boards/python/searace.py:186
-#: src/boards/python/searace.py:212
+#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
+#: src/boards/python/searace.py:220
 msgid "Race is already running"
 msgstr "Das Rennen läuft bereits"
 
-#: src/boards/python/searace.py:610
-msgid "The Red boat has won"
-msgstr "Das rote Boot hat gewonnen"
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:770
+msgid "droite"
+msgstr "rechts"
 
-#: src/boards/python/searace.py:612
-msgid "The Green boat has won"
-msgstr "Das grüne Boot hat gewonnen"
-
-#: src/boards/python/searace.py:705
+#. Manage default cases (no params given)
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:504 src/boards/python/searace.py:766
+#: src/boards/python/searace.py:783
 msgid "forward"
 msgstr "vorwärts"
 
-#: src/boards/python/searace.py:711
-msgid "turnleft"
-msgstr "links abbiegen"
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:768
+msgid "gauche"
+msgstr "links"
 
-#: src/boards/python/searace.py:713
-msgid "turnright"
-msgstr "rechts abbiegen"
+#: src/boards/python/searace.py:495
+msgid "COMMANDS ARE"
+msgstr "DIE KOMMANDOS SIND"
+
+#: src/boards/python/searace.py:670
+msgid "The Red boat has won"
+msgstr "Das rote Boot hat gewonnen"
+
+#: src/boards/python/searace.py:672
+msgid "The Green boat has won"
+msgstr "Das grüne Boot hat gewonnen"
+
+#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
+#: src/boards/python/searace.py:701
+msgid "Angle:"
+msgstr "Winkel:"
+
+#: src/boards/python/searace.py:701
+msgid "Wind:"
+msgstr "Wind:"
+
+#: src/boards/python/searace.py:773
+msgid "Syntax error at line"
+msgstr "Syntaxfehler auf Zeile"
+
+#: src/boards/python/searace.py:799
+msgid "Unknown command at line"
+msgstr "Unbekannter Befehl auf Zeile"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
