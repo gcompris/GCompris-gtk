@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/05/31 01:54:27 bcoudoin>
+ * Time-stamp: <2004/05/31 07:26:45 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -102,6 +102,14 @@ static struct poptOption options[] = {
 
 /****************************************************************************/
 
+/* Remove any dialog box */
+static void gcompris_close_all_dialog() {
+  gcompris_dialog_close();
+  gcompris_help_stop();
+  gcompris_config_stop();
+  gcompris_about_stop();
+}
+
 static gint
 board_widget_key_press_callback (GtkWidget   *widget,
 				GdkEventKey *event,
@@ -121,10 +129,7 @@ board_widget_key_press_callback (GtkWidget   *widget,
     gcompris_properties_save(properties);
     gcompris_load_menus();
 
-    /* Remove any dialog box */
-    gcompris_help_stop();
-    gcompris_config_stop();
-    gcompris_about_stop();
+    gcompris_close_all_dialog();
 
     board_stop();
     return TRUE;
@@ -139,10 +144,8 @@ board_widget_key_press_callback (GtkWidget   *widget,
   switch (event->keyval)
     {
     case GDK_Escape:
-      /* Remove any dialog box */
-      gcompris_help_stop();
-      gcompris_config_stop();
-      gcompris_about_stop();
+
+      gcompris_close_all_dialog();
 
       board_stop();
       return TRUE;
@@ -511,7 +514,12 @@ void gcompris_exit()
 
 static void quit_cb (GtkWidget *widget, gpointer data)
 {
+
+#ifdef DMALLOC
+  dmalloc_shutdown();
+#endif
   gcompris_exit();
+
 }
 
 /* =====================================================================

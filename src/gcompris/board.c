@@ -88,7 +88,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
     if(gmodule) {
       g_warning("opened module %s with name %s\n",gmodule_file , type);
     } else {
-      g_warning("Failed to open module %s with name %s\n",gmodule_file , type);
+      g_warning("Failed to open module %s with name %s (error=%s)\n",gmodule_file , type, g_module_error());
     }
     g_free(type);
   }

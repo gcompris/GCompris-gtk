@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/05/29 02:07:14 bcoudoin>
+ * Time-stamp: <2004/05/31 06:35:33 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -727,6 +727,19 @@ void	item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x
   art_affine_multiply( r, r, t);
 
   gnome_canvas_item_affine_relative(item, r );
+}
+
+/*
+ * Close the dialog box if it was open. It not, do nothing.
+ */
+void gcompris_dialog_close() {
+
+  /* If we already running delete the previous one */
+  printf("gcompris_dialog_close\n");
+  if(rootDialogItem)
+    gtk_object_destroy(GTK_OBJECT(rootDialogItem));
+  rootDialogItem = NULL;
+
 }
 
 /*

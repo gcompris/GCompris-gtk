@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/05/29 13:23:51 bcoudoin>
+ * Time-stamp: <2004/05/31 22:15:39 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -48,13 +48,16 @@ typedef enum
 } Mode;
 static Mode currentMode = MODE_VERTICAL;
 
+/* Store the moving words */
 typedef struct {
-  char *word;
-  char *overword;
-  GnomeCanvasItem *rootitem;
-  GnomeCanvasItem *overwriteItem;
-  GnomeCanvasItem *item;
+  GnomeCanvasGroup *rootItem;
+  GnomeCanvasItem  *overwriteItem;
+  GnomeCanvasItem  *item;
 } LettersItem;
+
+static LettersItem previousFocus;
+static LettersItem toDeleteFocus;
+
 
 /* Define the page area where text can be displayed */
 #define BASE_X1 70
@@ -67,18 +70,15 @@ gint current_x;
 gint current_y;
 gint numberOfLine;
 
-static LettersItem *currentFocus = NULL;
-static LettersItem *toHideItem = NULL;
-
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
 static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
-static int wait_for_ready;
-static int gamewon;
+static int		 wait_for_ready;
+static int		 gamewon;
 
-static GnomeCanvasItem	*reading_create_item(GnomeCanvasGroup *parent);
+static gboolean		 reading_create_item(GnomeCanvasGroup *parent);
 static gint		 reading_drop_items (void);
 //static void reading_destroy_item(LettersItem *item);
 static void		 reading_destroy_all_items(void);
@@ -92,7 +92,7 @@ static void		 ask_ready(gboolean status);
 static void		 ask_yes_no(void);
 static gint		 item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-static  guint32              fallSpeed = 0;
+static  guint32          fallSpeed = 0;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -270,25 +270,9 @@ static gint reading_next_level()
   return (FALSE);
 }
 
-/*
- * cleanup
- * FIXME: Never called. should find a way to cleanup these
- */
-#ifdef FIXMEHERE
-static void reading_destroy_item(LettersItem *item)
-{
-  /* The items are freed by player_win */
-  free(item->word);
-  free(item->overword);
-  free(item);
-}
-#endif
-
 /* Destroy all the items */
 static void reading_destroy_all_items()
 {
-  toHideItem = NULL;
-  currentFocus = NULL;
 
   if (drop_items_id) {
     gtk_timeout_remove (drop_items_id);
@@ -303,8 +287,10 @@ static void reading_destroy_all_items()
   if(boardRootItem!=NULL)
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
-  boardRootItem=NULL;
-  textToFind=NULL;
+  boardRootItem = NULL;
+  textToFind    = NULL;
+  previousFocus.rootItem = NULL;
+  toDeleteFocus.rootItem = NULL;
 }
 
 static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
@@ -365,92 +351,93 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   return NULL;
 }
 
-static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
+static gboolean reading_create_item(GnomeCanvasGroup *parent)
 {
-  LettersItem *lettersItem;
-  gint i;
-  gint anchor = GTK_ANCHOR_CENTER;
+  gint   i;
+  gint   anchor = GTK_ANCHOR_CENTER;
+  gchar *word;
+  gchar *overword;
 
   if(textToFind==NULL)
-    return;
+    return FALSE;
 
-  if(toHideItem)
+  if(toDeleteFocus.rootItem)
     {
-      gnome_canvas_item_hide(toHideItem->item);
-      gnome_canvas_item_hide(toHideItem->overwriteItem);
-      toHideItem = NULL;
+      gtk_object_destroy (GTK_OBJECT(toDeleteFocus.rootItem));
+      toDeleteFocus.rootItem = NULL;
     }
 
-  if(currentFocus)
+  if(previousFocus.rootItem)
     {
-      gnome_canvas_item_set (currentFocus->overwriteItem,
-			     "text", currentFocus->overword,
-			     NULL);
-      toHideItem = currentFocus;
+      gnome_canvas_item_show (previousFocus.overwriteItem);
+      toDeleteFocus.rootItem = previousFocus.rootItem;
     }
 
   if(numberOfLine<=0)
     {
-      gnome_canvas_item_hide(toHideItem->item);
-      gnome_canvas_item_hide(toHideItem->overwriteItem);
-      toHideItem = NULL;
-      ask_yes_no();
-      return NULL;
-    }
+      gtk_object_destroy (GTK_OBJECT(toDeleteFocus.rootItem));
+      toDeleteFocus.rootItem = NULL;
 
-  lettersItem = malloc(sizeof(LettersItem));
+      ask_yes_no();
+      return FALSE;
+    }
 
   if(textToFindIndex!=0)
     {
-      lettersItem->word = get_random_word();
+      word = get_random_word();
     }
   else
     {
-      lettersItem->word = textToFind;
+      word = g_strdup(textToFind);
     }
 
-  if(lettersItem->word==NULL)
-    return;
+  if(word==NULL)
+    return FALSE;
 
   if(textToFindIndex>=0)
     textToFindIndex--;
 
-  /* fill up the overword with zeros then with X */
-  lettersItem->overword=calloc(strlen(lettersItem->word), 1);
-  for(i=0; i<strlen(lettersItem->word); i++)
-    lettersItem->overword[i] = 'x';
+  /* fill up the overword with X */
+  overword = g_malloc(strlen(word));
+  for(i=0; i<strlen(word); i++)
+    overword[i] = 'x';
 
-  lettersItem->rootitem = \
-    gnome_canvas_item_new (parent,
-			   gnome_canvas_group_get_type (),
-			   "x", (double) current_x,
-			   "y", (double) current_y,
-			   NULL);
+  overword[i]='\0';
+
+  previousFocus.rootItem = \
+    GNOME_CANVAS_GROUP( gnome_canvas_item_new (parent,
+					       gnome_canvas_group_get_type (),
+					       "x", (double) current_x,
+					       "y", (double) current_y,
+					       NULL));
 
   if(currentMode==MODE_HORIZONTAL)
     anchor=GTK_ANCHOR_WEST;
 
-  lettersItem->item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
+  previousFocus.item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
-			   "text", lettersItem->word,
+			   "text", word,
 			   "font", gcompris_skin_font_board_fixed,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
 			   "fill_color", "black",
 			   NULL);
+  g_free(word);
 
-  lettersItem->overwriteItem = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
+  previousFocus.overwriteItem = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
-			   "text", "",
+			   "text", overword,
 			   "font", gcompris_skin_font_board_fixed,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
 			   "fill_color", "black",
 			   NULL);
+  gnome_canvas_item_hide(previousFocus.overwriteItem);
+  g_free(overword);
 
   // Calculate the next spot
   if(currentMode==MODE_VERTICAL)
@@ -462,17 +449,13 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
     {
       double x1, y1, x2, y2;
 
-      gnome_canvas_item_get_bounds    (lettersItem->rootitem,
-				       &x1,
-				       &y1,
-				       &x2,
-				       &y2);
+      gnome_canvas_item_get_bounds(GNOME_CANVAS_ITEM(previousFocus.rootItem), &x1, &y1, &x2, &y2);
 
       // Are we out of bound
       if(x2>BASE_X2)
 	{
 	  // Do the line Wrapping
-	  gnome_canvas_item_move(lettersItem->rootitem, BASE_X1-x1, 20);
+	  gnome_canvas_item_move(GNOME_CANVAS_ITEM(previousFocus.rootItem), BASE_X1-x1, 20);
 	  current_y += 20;
 	  current_x = BASE_X1;
 	  numberOfLine--;
@@ -480,9 +463,7 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
       current_x += x2-x1 + 12;
     }
 
-  currentFocus = lettersItem;
-
-  return (lettersItem->rootitem);
+  return (TRUE);
 }
 
 /*
@@ -703,7 +684,7 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 }
 
 
-static FILE *get_wordfile(char *locale)
+static FILE *get_wordfile(const char *locale)
 {
   char *filename;
   FILE *wordsfd = NULL;

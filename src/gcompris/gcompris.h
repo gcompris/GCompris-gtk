@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/03/07 13:22:23 bcoudoin>
+ * Time-stamp: <2004/05/31 07:26:54 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -46,6 +46,10 @@
 #include "timer.h"
 #include "score.h"
 #include "skin.h"
+
+#ifdef DMALLOC
+#include "dmalloc.h"
+#endif
 
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520

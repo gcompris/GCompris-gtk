@@ -1,3 +1,20 @@
+2004-06-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/menu.c: (menu_start), (menu_end),
+	(display_board_icon), (menu_create_item), (item_event),
+	(create_info_area), (free_stuff): Major changes to avoid memory leaks. Despite my efforts
+	I find that there is a stability issue. If you click on a menu item and the esc key at the
+	same time, it is easy to crash gcompris. Could not solve this yet.
+	* src/boards/reading.c: (reading_destroy_all_items),
+	(reading_create_item), (get_wordfile): Some rewrite to remove memory leaks.
+	* src/gcompris/board.c: (board_check_file): added error name when we cannot open the module
+	* src/gcompris/gameutil.c: (item_rotate_relative_with_center),
+	(gcompris_dialog_close): added a gcompris_dialog_close function
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gcompris.c: (gcompris_close_all_dialog),
+	(board_widget_key_press_callback), (quit_cb): added a call to gcompris_dialog_close
+	* src/gcompris/gcompris.h: added dmalloc.h include.
+
 2004-05-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/click_on_letter.png: remade by bruno
@@ -7,6 +24,7 @@
 	* boards/images/wagon-yellow.png: used now by click_on_letter. Could be used by others.
 	* src/boards/click_on_letter.c: (start_board),
 	(click_on_letter_create_item), (highlight_selected): reworked to use new background
+	* src/boards/menu.c: (menu_pause), (item_event): cleanup.Removed several memory leaks.
 	* src/gcompris/board.c: (board_stop): now 'esc' at upper level do not reload the menu.
 	* src/gcompris/gcompris.c: now 'esc' at upper level do not reload the menu.
 

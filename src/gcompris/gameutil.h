@@ -55,6 +55,7 @@ void		 item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int
 
 typedef void     (*DialogBoxCallBack)     ();
 void		 gcompris_dialog(gchar *str, DialogBoxCallBack dbcb);
+void		 gcompris_dialog_close();
 
 /*! \fn GdkPixbuf	*gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* name)
     \brief Returns a pixmap from the assetml base. 
