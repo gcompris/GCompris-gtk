@@ -41,6 +41,9 @@ static void		 process_ok(void);
 static void		 highlight_selected(int);
 static void		 game_won(void);
 
+static void 		 init_xml();
+static gboolean 	 read_xml_file(char *fname);
+
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasItem *highlight_image_item = NULL;
