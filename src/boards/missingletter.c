@@ -423,7 +423,8 @@ static void process_ok()
   if (gamewon) {
     gnome_canvas_item_set(text, "text", board->answer, NULL);
   }
-  process_time_id = gtk_timeout_add (2000, (GtkFunction) process_time, NULL);
+  if(!process_time_id)
+    process_time_id = gtk_timeout_add (2000, (GtkFunction) process_time, NULL);
 }
 /* ==================================== */
 static void process_time()

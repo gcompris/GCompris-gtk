@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2002/01/13 22:37:42 bruno>
+ * Time-stamp: <2002/02/03 21:30:02 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -27,6 +27,8 @@
 #include <libart_lgpl/art_affine.h>
 
 #define SOUNDLISTFILE PACKAGE
+
+gboolean board_paused = TRUE;
 
 static GList *item_list = NULL;
 static GList *item2del_list = NULL;
@@ -64,6 +66,9 @@ static void	 clickgame_destroy_all_items(void);
 static void	 setup_item(FishItem *fishitem);
 static void	 load_random_pixmap();
 static void	 clickgame_next_level(void);
+
+static int gamewon;
+static void	 game_won();
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
@@ -114,6 +119,11 @@ static void clickgame_pause (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
+    {
+      game_won();
+    }
+
   if(pause)
     {
       if (dummy_id) {
@@ -142,6 +152,8 @@ static void clickgame_pause (gboolean pause)
 	animate_id = gtk_timeout_add (200, (GtkFunction) clickgame_animate_items, NULL);
       }
     }
+
+  board_paused = pause;
 }
 
 /*
@@ -518,6 +530,24 @@ static gint clickgame_drop_items (GtkWidget *widget, gpointer data)
   return (FALSE);
 }
 
+/* ==================================== */
+static void game_won()
+{
+  gcomprisBoard->sublevel++;
+
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+    /* Try the next level */
+    gcomprisBoard->sublevel=1;
+    gcomprisBoard->level++;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      board_finished(BOARD_FINISHED_RANDOM);
+      return;
+    }
+    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+  }
+  clickgame_next_level();
+}
+
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
 {
@@ -528,7 +558,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
    double item_x, item_y;
 
    if(!gcomprisBoard)
-     return;
+     return FALSE;
+
+   if(board_paused)
+     return FALSE;
 
    item_x = event->button.x;
    item_y = event->button.y;
@@ -558,19 +591,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
              {
 	       clickgame_destroy_item(fishitem);
 	       gcompris_play_sound (SOUNDLISTFILE, "gobble");
-
+	       
 	       gcomprisBoard->sublevel++;
 	       gcompris_score_set(gcomprisBoard->sublevel);
-
+	       
 	       if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
-		 /* Try the next level */
-		 gcomprisBoard->level++;
-		 if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-		   board_finished(BOARD_FINISHED_RANDOM);
-		   return FALSE;
-		 }
-		 clickgame_next_level();
-		 gcompris_play_sound (SOUNDLISTFILE, "bonus");
+		 gamewon = TRUE;
+		 clickgame_destroy_all_items();
+		 gcompris_display_bonus(gamewon, BONUS_FLOWER);
 		 return FALSE;
 	       }
 	       /* Drop a new item now to speed up the game */

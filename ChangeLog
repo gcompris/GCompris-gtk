@@ -6,8 +6,14 @@
 	* boards/railroad/*.png: some pixmap cleanup to remove white borders.
 	* src/gcompris/bar.c: added gcompris_bar_hide entry to hide/restore the buttons bar.
 	* src/help.c: changed to use gcompris_bar_hide
+	*             changed the way button title are coded to make the i18n works
 	* src/config.c: changed to use gcompris_bar_hide
 	* src/about.c: changed to use gcompris_bar_hide
+	* src/boards/missingletter.c: Fixed doubleclick on OK infinite bonus loop
+	* src/board/clickgame.c: added the bonus API
+	* src/board/planegame.c: removed the sound when the wrong cloud is hit due to too much noise
+	*                        when the plane is in a storm ;)
+	*                        Fixed the cloud detection to work even when a cloud is hit in front
 	
 2002-01-19  Bruno Coudoin  <bruno.coudoin@free.fr>
 

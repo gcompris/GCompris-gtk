@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-01-24 19:09+0100\n"
+"POT-Creation-Date: 2002-02-03 19:59+0100\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -35,7 +35,9 @@ msgstr "Trouve l'opération correcte t'amenant au résultat"
 msgid ""
 "With displayed numbers and operations, find the right combination to get the "
 "right result"
-msgstr "Avec les nombres et les opérations affichées, trouve la bonne combinaison pour arriver au résultat"
+msgstr ""
+"Avec les nombres et les opérations affichées, trouve la bonne combinaison "
+"pour arriver au résultat"
 
 #: boards/algebra_minus.xml.in.h:2
 msgid "Pratice the substraction operation"
@@ -376,6 +378,14 @@ msgstr "Déplace l'avion pour attraper les nuages dans le bon ordre"
 msgid "Numbers in Order"
 msgstr "Les nombres dans l'ordre"
 
+#: boards/railroad.xml.in.h:1
+msgid "A memory game based on trains"
+msgstr "Un jeux de mémoire basée sur des trains"
+
+#: boards/railroad.xml.in.h:2
+msgid "Railroad"
+msgstr "Chemin de fer"
+
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
 msgstr "Vers les tableaux de lecture"
@@ -455,7 +465,7 @@ msgid "Learn how to read"
 msgstr "Apprends à lire"
 
 #: src/boards/imageid.c:570 src/boards/menu.c:502
-#: src/boards/missingletter.c:586 src/boards/shapegame.c:1270
+#: src/boards/missingletter.c:587 src/boards/shapegame.c:1270
 #: src/gcompris/gameutil.c:45 src/gcompris/gameutil.c:63
 #: src/gcompris/gameutil.c:82 src/gcompris/gameutil.c:254
 #: src/gcompris/gameutil.c:280 src/gcompris/gameutil.c:430
@@ -464,7 +474,7 @@ msgstr "Apprends à lire"
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/imageid.c:573 src/boards/missingletter.c:589
+#: src/boards/imageid.c:573 src/boards/missingletter.c:590
 #: src/boards/shapegame.c:1273
 #, c-format
 msgid "find file %s !"
@@ -540,26 +550,26 @@ msgstr ""
 "Graphiques: Renaud Blanchard\n"
 "Musique: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:96
+#: src/gcompris/about.c:98
 msgid "About GCompris"
 msgstr "Au sujet de GCompris"
 
-#: src/gcompris/about.c:204
+#: src/gcompris/about.c:206
 msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
-#: src/gcompris/about.c:226
+#: src/gcompris/about.c:228
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ce logiciel est un packetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
 
-#: src/gcompris/about.c:254
+#: src/gcompris/about.c:256
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:285 src/gcompris/config.c:137 src/gcompris/help.c:266
+#: src/gcompris/about.c:287 src/gcompris/config.c:139 src/gcompris/help.c:268
 msgid "OK"
 msgstr "Valider"
 
@@ -615,19 +625,19 @@ msgstr "Suédois"
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:113
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:239
+#: src/gcompris/config.c:241
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:267
+#: src/gcompris/config.c:269
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:295
+#: src/gcompris/config.c:297
 msgid "Effect"
 msgstr "Effet"
 
@@ -668,14 +678,14 @@ msgstr ""
 "License: GPL\n"
 "Plus d'informations sur http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:43 src/gcompris/help.c:150
+#: src/gcompris/help.c:43
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: src/gcompris/help.c:44 src/gcompris/help.c:179
+#: src/gcompris/help.c:44
 msgid "Goal"
 msgstr "Objectif"
 
-#: src/gcompris/help.c:45 src/gcompris/help.c:207
+#: src/gcompris/help.c:45
 msgid "Manual"
 msgstr "Manuel"

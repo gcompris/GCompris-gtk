@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/01/21 21:26:30 bruno>
+ * Time-stamp: <2002/02/03 21:50:51 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *

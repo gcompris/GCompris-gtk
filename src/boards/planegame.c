@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2002/01/13 23:21:25 bruno>
+ * Time-stamp: <2002/02/03 22:59:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -346,14 +346,13 @@ static void planegame_next_level()
 
 }
 
+#define ISIN(x1, y1, px1, py1, px2, py2) (x1>px1 && x1<px2 && y1>py1 && y2<py2 ? TRUE : FALSE)
 
 static void planegame_cloud_colision(CloudItem *clouditem)
 {
   double px1, px2, py1, py2;
   double x1, x2, y1, y2;
   GnomeCanvasItem *item;
-  static CloudItem *inCloudItem = NULL;
-
 
   if(clouditem==NULL)
     return;
@@ -363,10 +362,12 @@ static void planegame_cloud_colision(CloudItem *clouditem)
   gnome_canvas_item_get_bounds(planeitem,  &px1, &py1, &px2, &py2); 
   gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2); 
 
-  if(((px1>x1 && px1<x2) ||
-      (px2>x1 && px2<x2)) &&
-      (((py1>y1 && py1<y2) ||
-	(py2>y1 && py2<y2))))
+  if(
+     ISIN(x1, y1, px1, py1, px2, py2) ||
+     ISIN(x2, y1, px1, py1, px2, py2) ||
+     ISIN(x1, y2, px1, py1, px2, py2) ||
+     ISIN(x2, y2, px1, py1, px2, py2)
+     )
     {
       if(plane_target == clouditem->number)
 	{
@@ -387,19 +388,6 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 	      gcompris_play_sound (SOUNDLISTFILE, "bonus");
 	    }
 	}
-      else
-	{
-	  /* Oups, you get the wrong cloud */
-	  if(inCloudItem!=clouditem)
-	    gcompris_play_sound (SOUNDLISTFILE, "crash");
-	}
-      inCloudItem=clouditem;
-    }
-  else
-    {
-      /* OK, now we get out of the wrong cloud */
-      if(inCloudItem==clouditem)
-	inCloudItem=NULL;
     }
 }
 

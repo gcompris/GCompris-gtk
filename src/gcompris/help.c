@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/02/03 09:43:00 bruno>
+ * Time-stamp: <2002/02/03 21:07:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -39,11 +39,6 @@ static GnomeCanvasItem *item_content = NULL;
 static gchar   *prerequisite = NULL;
 static gchar   *goal = NULL;
 static gchar   *manual = NULL;
-
-static gchar   *prerequisite_title = N_("Prerequisite");
-static gchar   *goal_title = N_("Goal");
-static gchar   *manual_title = N_("Manual");
-
 
 /*
  * Main entry point 
@@ -149,7 +144,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", prerequisite_title,
+				"text", _("Prerequisite"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.25,
 				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
@@ -178,7 +173,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", goal_title,
+				"text", _("Goal"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
@@ -206,7 +201,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", manual_title,
+				"text", _("Manual"),
 				"font_gdk", gdk_font,
 				"x", (double)  BOARDWIDTH*0.75,
 				"y", (double)  y_start - gdk_pixbuf_get_height(pixmap) + 12,
@@ -225,7 +220,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   y_start += 20;
   item_title = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				      gnome_canvas_text_get_type (),
-				      "text", prerequisite_title,
+				      "text", _("Prerequisite"),
 				      "font_gdk", gdk_font,
 				      "x", (double)  BOARDWIDTH*0.5,
 				      "y", (double)  y_start,
@@ -337,7 +332,7 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				"text", prerequisite,
 				NULL);
 	  gnome_canvas_item_set(item_title, 
-				"text", prerequisite_title,
+				"text", _("Prerequisite"),
 				NULL);
 	}      
       else if(!strcmp((char *)data, "goal"))
@@ -346,7 +341,7 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				"text", goal,
 				NULL);
 	  gnome_canvas_item_set(item_title, 
-				"text", goal_title,
+				"text", _("Goal"),
 				NULL);
 	}      
       else if(!strcmp((char *)data, "manual"))
@@ -355,7 +350,7 @@ item_event_help(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				"text", manual,
 				NULL);
 	  gnome_canvas_item_set(item_title, 
-				"text", manual_title,
+				"text", _("Manual"),
 				NULL);
 	}      
     default:

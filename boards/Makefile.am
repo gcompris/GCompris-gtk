@@ -22,6 +22,7 @@ xml_in_files = \
 	paintings.xml.in \
 	paratrooper.xml.in \
 	planegame.xml.in \
+	railroad.xml.in \
 	readingh.xml.in \
 	readingv.xml.in \
 	reading.xml.in \
