@@ -20,8 +20,8 @@
  */
 
 /* libxml includes */
-#include <gnome-xml/tree.h>
-#include <gnome-xml/parser.h>
+#include <libxml/tree.h>
+#include <libxml/parser.h>
 
 #include <math.h>
 
