@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/12/06 21:18:14 bcoudoin>
+ * Time-stamp: <2001/12/06 23:41:22 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -114,7 +114,7 @@ static void init_background()
   double xratio, yratio;
   GtkWidget *vbox;
 
-  yratio=gdk_screen_height()/(float)BOARDHEIGHT;
+  yratio=gdk_screen_height()/(float)(BOARDHEIGHT+BARHEIGHT);
   xratio=gdk_screen_width()/(float)BOARDWIDTH;
     printf("The gdk_screen_width()=%f gdk_screen_height()=%f\n", 
   	 (double)gdk_screen_width(), (double)gdk_screen_height());
@@ -125,29 +125,35 @@ static void init_background()
   /* The canvas does not look pretty when resized above 1 ratio. Avoid that */
   xratio=MIN(1.0, xratio);
 
-    printf("Calculated x ratio xratio=%f\n", 
-  	 xratio);
-
-  /* Background area */
-  gnome_canvas_set_scroll_region (canvas_bg,
-				  0, 0,
-				  gdk_screen_width(),
-				  gdk_screen_height());
-
-  gtk_widget_set_usize (GTK_WIDGET(canvas_bg), gdk_screen_width(), gdk_screen_height());
-
-  /* Create a black box for the background */
-  gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
-			 gnome_canvas_rect_get_type (),
-			 "x1", (double) 0,
-			 "y1", (double) 0,
-			 "x2", (double) gdk_screen_width(),
-			 "y2", (double) gdk_screen_height(),
-			 "fill_color", "black",
-			 NULL);
+  printf("Calculated x ratio xratio=%f\n", xratio);
+  
+  /* Background area if ratio above 1 */
+  if(xratio>=1.0)
+    {
+      gnome_canvas_set_scroll_region (canvas_bg,
+				      0, 0,
+				      gdk_screen_width(),
+				      gdk_screen_height());
+      
+      gtk_widget_set_usize (GTK_WIDGET(canvas_bg), gdk_screen_width(), gdk_screen_height());
+      
+      /* Create a black box for the background */
+      gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
+			     gnome_canvas_rect_get_type (),
+			     "x1", (double) 0,
+			     "y1", (double) 0,
+			     "x2", (double) gdk_screen_width(),
+			     "y2", (double) gdk_screen_height(),
+			     "fill_color", "black",
+			     NULL);
+    }
 
   /* Create a vertical box in which I put first the play board area, then the button bar */
   vbox = gtk_vbox_new (FALSE, 0);
+
+  if(xratio<1.0)
+    gnome_app_set_contents (GNOME_APP (window), GTK_WIDGET(vbox));
+
   gtk_widget_show (GTK_WIDGET(vbox));
   gtk_widget_show (GTK_WIDGET(canvas));
   gtk_widget_show (GTK_WIDGET(canvas_bar));
@@ -155,13 +161,16 @@ static void init_background()
   gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas), TRUE, TRUE, 0);
   gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas_bar), TRUE, TRUE, 0);
 
-  gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
-			 gnome_canvas_widget_get_type (),
-			 "widget", vbox, 
-			 "x", (double) (gdk_screen_width()-BOARDWIDTH)/2,
-			 "y", (double) (gdk_screen_height()-BOARDHEIGHT-BARHEIGHT)/2,
-			 "size_pixels", TRUE,
-			 NULL);
+  if(xratio>=1.0)
+    {
+      gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
+			     gnome_canvas_widget_get_type (),
+			     "widget", vbox, 
+			     "x", (double) (gdk_screen_width()-BOARDWIDTH)/2,
+			     "y", (double) (gdk_screen_height()-BOARDHEIGHT-BARHEIGHT)/2,
+			     "size_pixels", TRUE,
+			     NULL);
+    }
 
   /* Create the drawing area */
   gnome_canvas_set_pixels_per_unit (canvas, xratio);

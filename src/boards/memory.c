@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2001/12/03 00:27:48 bruno>
+ * Time-stamp: <2001/12/06 23:54:02 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -66,7 +66,7 @@ static MemoryItem *secondCard = NULL;
 #define BASE_X1 50
 #define BASE_Y1 50
 #define BASE_X2 750
-#define BASE_Y2 550
+#define BASE_Y2 500
 
 gint current_x;
 gint current_y;

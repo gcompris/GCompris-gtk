@@ -47,8 +47,6 @@ static void erase_destroy_all_items(void);
 static void erase_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-static int board_number = 0;
-
 static int number_of_item = 0;
 static int number_of_item_x = 0;
 static int number_of_item_y = 0;
@@ -281,6 +279,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   if(--number_of_item == 0)
     {
       gamewon = TRUE;
+      erase_destroy_all_items();
       gcompris_display_bonus(gamewon, BONUS_FLOWER);
     }
   
