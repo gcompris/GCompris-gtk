@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2003/01/05 18:21:26 bruno>
+ * Time-stamp: <2003/02/16 23:25:20 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -530,7 +530,7 @@ static void display_operand(GnomeCanvasGroup *parent,
 
 	  item_list = g_list_append (item_list, focus_item);
 
-	  algebra_pixmap = gcompris_load_pixmap("gcompris/buttons/bad.png");
+	  algebra_pixmap = gcompris_load_skin_pixmap("bad.png");
 	  bad_item = gnome_canvas_item_new (parent,
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", algebra_pixmap, 

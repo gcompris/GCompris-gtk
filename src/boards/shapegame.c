@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/12/12 00:57:35 bruno>
+ * Time-stamp: <2003/02/16 23:33:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -256,7 +256,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if(default_background)
 	{
 	  // Default case, load the default background
-	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-shapebg.jpg");
+	  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+				  gcompris_image_to_skin("gcompris-shapebg.jpg"));
 	}
 
       gamewon = FALSE;
@@ -527,7 +528,7 @@ add_shape_to_list_of_shapes(Shape *shape)
   /* If the first list is full, add the previous/forward buttons          */
   if(g_hash_table_size(shapelist_table)==(shapeBox.nb_shape_x * shapeBox.nb_shape_y))
     {
-      pixmap = gcompris_load_pixmap("gcompris/buttons/button_backward.png");
+      pixmap = gcompris_load_skin_pixmap("button_backward.png");
       previous_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
 						       gnome_canvas_pixbuf_get_type (),
 						       "pixbuf", pixmap, 
@@ -544,7 +545,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 			 NULL);
       gdk_pixbuf_unref(pixmap);
       
-      pixmap = gcompris_load_pixmap("gcompris/buttons/button_forward.png");
+      pixmap = gcompris_load_skin_pixmap("button_forward.png");
       next_shapelist_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_list_root_item),
 						   gnome_canvas_pixbuf_get_type (),
 						   "pixbuf", pixmap, 

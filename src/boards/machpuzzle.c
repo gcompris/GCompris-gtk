@@ -193,7 +193,7 @@ static void machpuzzle_next_level()
 {
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  "gcompris/gcompris-bg.jpg");
+			  gcompris_image_to_skin("gcompris-bg.jpg"));
 
   gcompris_bar_set_level(gcomprisBoard);
 

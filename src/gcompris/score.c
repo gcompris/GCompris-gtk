@@ -1,6 +1,6 @@
 /* gcompris - score.c
  *
- * Time-stamp: <2001/12/02 22:19:10 bruno>
+ * Time-stamp: <2003/02/16 23:20:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -95,7 +95,7 @@ void gcompris_score_set(guint value)
       gchar *tmp;
       GdkPixbuf *button_pixmap = NULL;
 
-      button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+      button_pixmap = gcompris_load_skin_pixmap("button_large.png");
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_pixbuf_get_type (),
 			     "pixbuf",  button_pixmap,

@@ -1,8 +1,8 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/01/17 23:28:57 bruno>
+ * Time-stamp: <2003/02/16 01:09:49 bruno>
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000,2003 Bruno Coudoin
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,11 +37,12 @@ GcomprisProperties *gcompris_properties_new ()
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
 
-  tmp->music		= gnome_config_get_int ("/gcompris/Preferences/music=1");
-  tmp->fx		= gnome_config_get_int ("/gcompris/Preferences/fx=1");
-  tmp->screensize	= gnome_config_get_int ("/gcompris/Preferences/screensize=1");
-  tmp->fullscreen	= gnome_config_get_int ("/gcompris/Preferences/fullscreen=1");
-  tmp->timer		= gnome_config_get_int ("/gcompris/Preferences/timer=1");
+  tmp->music		= gnome_config_get_int    ("/gcompris/Preferences/music=1");
+  tmp->fx		= gnome_config_get_int    ("/gcompris/Preferences/fx=1");
+  tmp->screensize	= gnome_config_get_int    ("/gcompris/Preferences/screensize=1");
+  tmp->fullscreen	= gnome_config_get_int    ("/gcompris/Preferences/fullscreen=1");
+  tmp->timer		= gnome_config_get_int    ("/gcompris/Preferences/timer=1");
+  tmp->skin		= gnome_config_get_string ("/gcompris/Preferences/skin=default");
 
   locale = getenv("LC_ALL");
   if(locale == NULL)
@@ -80,30 +81,33 @@ GcomprisProperties *gcompris_properties_copy (GcomprisProperties *props)
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
 
-  tmp->music = props->music;
-  tmp->fx = props->fx;
-  tmp->screensize = props->screensize;
-  tmp->timer = props->timer;
-  tmp->fullscreen = props->fullscreen;
-  tmp->locale = g_strdup(props->locale);
-	
+  tmp->music		= props->music;
+  tmp->fx		= props->fx;
+  tmp->screensize	= props->screensize;
+  tmp->timer		= props->timer;
+  tmp->fullscreen	= props->fullscreen;
+  tmp->locale		= g_strdup(props->locale);
+  tmp->skin		= g_strdup(props->skin);
+
   return (tmp);
 }
 
 void gcompris_properties_save (GcomprisProperties *props)
 {
-  gnome_config_set_int ("/gcompris/Preferences/music",
-			props->music);
-  gnome_config_set_int ("/gcompris/Preferences/fx",
-			props->fx);
-  gnome_config_set_int ("/gcompris/Preferences/screensize",
-			props->screensize);
-  gnome_config_set_int ("/gcompris/Preferences/timer",
-			props->timer);
-  gnome_config_set_int ("/gcompris/Preferences/fullscreen",
-			props->fullscreen);
-  gnome_config_set_string ("/gcompris/Preferences/locale",
-			props->locale);
+  gnome_config_set_int		("/gcompris/Preferences/music",
+				 props->music);
+  gnome_config_set_int		("/gcompris/Preferences/fx",
+				 props->fx);
+  gnome_config_set_int		("/gcompris/Preferences/screensize",
+				 props->screensize);
+  gnome_config_set_int		("/gcompris/Preferences/timer",
+				 props->timer);
+  gnome_config_set_int		("/gcompris/Preferences/fullscreen",
+				 props->fullscreen);
+  gnome_config_set_string	("/gcompris/Preferences/locale",
+				 props->locale);
+  gnome_config_set_string	("/gcompris/Preferences/skin",
+				 props->skin);
 
   gnome_config_sync ();
 }

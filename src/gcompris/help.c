@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2003/02/05 18:32:39 bcoudoin>
+ * Time-stamp: <2003/02/14 01:14:53 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -119,7 +119,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_pixmap("gcompris/help_bg.png");
+  pixmap = gcompris_load_skin_pixmap("help_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -145,7 +145,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   y_start += 120;
 
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_up.png");
+  pixmap = gcompris_load_skin_pixmap("button_up.png");
 
   // Prerequisite Button
   if(prerequisite)
@@ -322,7 +322,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 					NULL);
 
   // OK
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+  pixmap = gcompris_load_skin_pixmap("button_large.png");
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
@@ -397,7 +397,7 @@ static void select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text)
   
   if(item_selected)
     {
-      pixmap = gcompris_load_pixmap("gcompris/buttons/button_up.png");
+      pixmap = gcompris_load_skin_pixmap("button_up.png");
       gnome_canvas_item_set(item_selected, 
 			    "pixbuf", pixmap,
 			    NULL);
@@ -407,7 +407,7 @@ static void select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text)
       gdk_pixbuf_unref(pixmap);
     }
 
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_up_selected.png");
+  pixmap = gcompris_load_skin_pixmap("button_up_selected.png");
   gnome_canvas_item_set(item, 
 			"pixbuf", pixmap,
 			NULL);

@@ -276,7 +276,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 							    "y", (double) 0,
 							    NULL));
 
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+  button_pixmap = gcompris_load_skin_pixmap("button_large.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
   assert(board != NULL);

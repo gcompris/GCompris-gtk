@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2003/01/11 10:55:34 bruno>
+ * Time-stamp: <2003/02/16 00:13:25 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -175,10 +175,10 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
       namelistlength = scandir(filename,
 			       &namelist, 0, alphasort);
 
-      g_free(filename);
-
       if (namelistlength < 0)
 	g_error (_("Couldn't open pixmap dir: %s"), filename);
+
+      g_free(filename);
 
       /* Fill up the pixmap list */
       for(i=2; i<namelistlength; i++)

@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/01/12 22:17:48 bruno>
+ * Time-stamp: <2003/02/16 23:27:35 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -131,9 +131,8 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-init.jpg");
-
-      //      read_xml_file(gcomprisBoard->filename);
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+			      gcompris_image_to_skin("gcompris-init.jpg"));
 
       boardRootItem = GNOME_CANVAS_GROUP(
 					 gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -298,7 +297,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 
 
   // display difficulty stars ========================== BEGIN
-  pixmap = gcompris_load_pixmap("gcompris/buttons/difficulty_star.png");
+  pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
   if (board->difficulty != NULL) {
   	int i, diff = 0;
 	diff = atoi(board->difficulty);
@@ -334,11 +333,11 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 
       if (!g_file_exists (soundfile)) 
 	{
-	  pixmap = gcompris_load_pixmap("gcompris/buttons/voice_bad.png");
+	  pixmap = gcompris_load_skin_pixmap("voice_bad.png");
 	}
       else
 	{
-	  pixmap = gcompris_load_pixmap("gcompris/buttons/voice.png");
+	  pixmap = gcompris_load_skin_pixmap("voice.png");
 	}
 
       star =  gnome_canvas_item_new (parent,
@@ -355,7 +354,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
     }
 
   // display menu icon ========================== BEGIN
-  pixmap = gcompris_load_pixmap("gcompris/buttons/menuicon.png");
+  pixmap = gcompris_load_skin_pixmap("menuicon.png");
   if(g_strcasecmp(board->type, "menu")==0)
     {
       item =  gnome_canvas_item_new (parent,

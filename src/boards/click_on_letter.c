@@ -125,8 +125,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "gcompris/gcompris-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+			      gcompris_image_to_skin("gcompris-bg.jpg"));
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -281,7 +281,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   }
 
   phone_note_pixmap = gcompris_load_pixmap("gcompris/misc/phone_note.png");
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button.png");
+  button_pixmap = gcompris_load_skin_pixmap("button.png");
 
   yOffset = (gcomprisBoard->height - gdk_pixbuf_get_height(phone_note_pixmap) - gdk_pixbuf_get_height(button_pixmap) - 2*VERTICAL_SEPARATION) / 3;
   phone_note_item = gnome_canvas_item_new (boardRootItem,
@@ -469,13 +469,13 @@ static void highlight_selected(GnomeCanvasItem * item) {
   assert( item == button1 || item == button2 || item == button3 || item == button4);
 
   if (selected_button != NULL) {
-  	button_pixmap = gcompris_load_pixmap("gcompris/buttons/button.png");
+  	button_pixmap = gcompris_load_skin_pixmap("button.png");
   	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
   	gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != item) {
-  	button_pixmap_selected = gcompris_load_pixmap("gcompris/buttons/button_selected.png");
+  	button_pixmap_selected = gcompris_load_skin_pixmap("button_selected.png");
   	gnome_canvas_item_set(item, "pixbuf", button_pixmap_selected, NULL);
   	selected_button = item;
   	gdk_pixbuf_unref(button_pixmap_selected);

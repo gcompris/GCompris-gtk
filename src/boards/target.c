@@ -559,7 +559,7 @@ static void request_score()
   double y_offset = 160;
   double x_offset = 245;
 
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
+  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_pixbuf_get_type (),
 			 "pixbuf",  button_pixmap, 

@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2002/12/09 22:42:57 bruno>
+ * Time-stamp: <2003/02/16 23:28:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -166,8 +166,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "reading/gcompris-bg.jpg");
-			wait_for_ready = FALSE;
-			gamewon = FALSE;
+      wait_for_ready = FALSE;
+      gamewon = FALSE;
 
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
@@ -498,7 +498,7 @@ static void ask_ready(gboolean status)
     }
 
   /*----- READY -----*/
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
+  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
   item1 = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap, 
@@ -535,7 +535,7 @@ static void ask_yes_no()
   double x_offset = 430;
 
   /*----- YES -----*/
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
+  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap,
@@ -565,7 +565,7 @@ static void ask_yes_no()
 
   /*----- NO -----*/
   y_offset += 100;
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
+  button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap,

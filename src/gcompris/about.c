@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2002/12/09 22:23:52 bruno>
+ * Time-stamp: <2003/02/16 23:18:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -77,7 +77,7 @@ void gcompris_about_start ()
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_pixmap("gcompris/help_bg.png");
+  pixmap = gcompris_load_skin_pixmap("help_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -124,7 +124,7 @@ void gcompris_about_start ()
 				NULL);
 
   // Ofset Reference
-  pixmap = gcompris_load_pixmap("gcompris/ofsetlogo.png");
+  pixmap = gcompris_load_skin_pixmap("ofsetlogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -151,7 +151,7 @@ void gcompris_about_start ()
 				NULL);
 
   // FSF Reference
-  pixmap = gcompris_load_pixmap("gcompris/fsflogo.png");
+  pixmap = gcompris_load_skin_pixmap("fsflogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -179,7 +179,7 @@ void gcompris_about_start ()
 
   // GCompris Reference
   y_start += 70;
-  pixmap = gcompris_load_pixmap("gcompris/gcomprislogo.png");
+  pixmap = gcompris_load_skin_pixmap("gcomprislogo.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -228,7 +228,7 @@ void gcompris_about_start ()
 				NULL);
 
   // GCompris HELP
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+  pixmap = gcompris_load_skin_pixmap("button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -262,7 +262,7 @@ void gcompris_about_start ()
 		     item);
 
   // OK
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large.png");
+  pixmap = gcompris_load_skin_pixmap("button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
@@ -295,7 +295,7 @@ void gcompris_about_start ()
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     item);
 
-  pixmap_about = gcompris_load_pixmap("gcompris/gcompris-about.png");
+  pixmap_about = gcompris_load_skin_pixmap("gcompris-about.png");
 
   plane_x = gdk_pixbuf_get_width(pixmap_about)/2;
   plane_y = gdk_pixbuf_get_height(pixmap_about)/2 + 40;

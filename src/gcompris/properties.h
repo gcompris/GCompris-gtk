@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2002/06/06 23:58:55 bruno>
+ * Time-stamp: <2003/02/13 23:50:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,6 +30,7 @@ typedef struct {
   gint		defaultcursor;
   gint		timer;
   gchar	       *locale;
+  gchar	       *skin;
 } GcomprisProperties;
 
 GcomprisProperties	*gcompris_get_properties (void);

@@ -1,3 +1,38 @@
+2003-02-17  bruno  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* boards/skins/*: Created the skins directory with images from boards/gcompris
+	* src/boards/advanced_colors.c: (item_event): added support for skins
+	* src/boards/algebra.c: (display_operand): added support for skins
+	* src/boards/chess.c: (chess_next_level): added support for skins
+	* src/boards/click_on_letter.c: (start_board),
+	(click_on_letter_create_item), (highlight_selected): added support for skins
+	* src/boards/clickgame.c: (clickgame_start): added support for skins
+	* src/boards/imageid.c: (imageid_create_item): added support for skins
+	* src/boards/machpuzzle.c: (machpuzzle_next_level): added support for skins
+	* src/boards/maze.c: (start_board), (twoDdisplay): added support for skins
+	* src/boards/menu.c: (menu_start), (menu_create_item): added support for skins
+	* src/boards/reading.c: (start_board), (ask_ready), (ask_yes_no): added support for skins
+	* src/boards/shapegame.c: (start_board),
+	(add_shape_to_list_of_shapes): added support for skins
+	* src/boards/target.c: (request_score): added support for skins
+	* src/gcompris/about.c: (gcompris_about_start): added support for skins
+	* src/gcompris/bar.c: (gcompris_bar_start),
+	(gcompris_bar_set_level): added support for skins
+	* src/gcompris/config.c: (gcompris_config_start),
+	(display_previous_next), (item_event_ok): added support for skins
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
+	(gcompris_image_to_skin), (gcompris_load_skin_pixmap): added support for skins
+	* src/gcompris/gameutil.h: added support for skins
+	* src/gcompris/gcompris.h: added support for skins
+	* src/gcompris/help.c: (gcompris_help_start), (select_item): added support for skins
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start): added support for skins
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_copy), (gcompris_properties_save): added support for skins
+	* src/gcompris/properties.h: added support for skins
+	* src/gcompris/score.c: (gcompris_score_set): added support for skins
+
 2003-02-16  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/advanced_colors.c : fixed a bug related to signal connections (thanks Bruno)
 

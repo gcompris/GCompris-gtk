@@ -176,7 +176,8 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+			    gcompris_image_to_skin("gcompris-bg.jpg"));
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=9;
 
@@ -1222,7 +1223,8 @@ static void draw3D()
 
 static void twoDdisplay()
 {
-  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+  gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+			  gcompris_image_to_skin("gcompris-bg.jpg"));
   if (threedgroup) 
     gnome_canvas_item_hide(GNOME_CANVAS_ITEM(threedgroup));
   gnome_canvas_item_show(GNOME_CANVAS_ITEM(boardRootItem));

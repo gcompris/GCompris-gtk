@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2002/12/09 23:07:46 bruno>
+ * Time-stamp: <2003/02/16 23:21:10 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -111,7 +111,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_pixmap("gcompris/images_selector_bg.png");
+  pixmap = gcompris_load_skin_pixmap("images_selector_bg.png");
   y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -125,7 +125,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 
   y_start += 110;
 
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_large_selected.png");
+  pixmap = gcompris_load_skin_pixmap("button_large_selected.png");
 
 
   // OK

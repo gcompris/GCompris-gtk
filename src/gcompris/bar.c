@@ -1,8 +1,8 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/07/01 01:25:01 bruno>
+ * Time-stamp: <2003/02/16 00:45:29 bruno>
  *
- * Copyright (C) 2000 Bruno Coudoin
+ * Copyright (C) 2000,2001,2002,2003 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -39,6 +39,7 @@ static void	 bar_reset_sound_id (void);
 
 static gint current_level = -1;
 static gint current_flags = -1;
+static GnomeCanvasItem *bar_item  = NULL;
 static GnomeCanvasItem *exit_item = NULL;
 static GnomeCanvasItem *home_item = NULL;
 static GnomeCanvasItem *level_item = NULL;
@@ -82,8 +83,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 			   "y", (double)0,
 			   NULL);
 
-  pixmap = gcompris_load_pixmap("gcompris/buttons/bar_bg.jpg");
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  pixmap = gcompris_load_skin_pixmap("bar_bg.jpg");
+  bar_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
 				"x", (double) 0,
@@ -94,7 +95,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   gdk_pixbuf_unref(pixmap);
 
   // EXIT
-  pixmap = gcompris_load_pixmap("gcompris/buttons/button_exit.png");
+  pixmap = gcompris_load_skin_pixmap("button_exit.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -118,7 +119,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 
   
   // HOME
-  pixmap = gcompris_load_pixmap("gcompris/buttons/home.png");
+  pixmap = gcompris_load_skin_pixmap("home.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   home_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -142,7 +143,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 
 
   // OK
-  pixmap = gcompris_load_pixmap("gcompris/buttons/ok.png");
+  pixmap = gcompris_load_skin_pixmap("ok.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   ok_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				   gnome_canvas_pixbuf_get_type (),
@@ -166,7 +167,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 
 
   // LEVEL
-  pixmap = gcompris_load_pixmap("gcompris/buttons/level1.png");
+  pixmap = gcompris_load_skin_pixmap("level1.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   level_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				      gnome_canvas_pixbuf_get_type (),
@@ -190,7 +191,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 					  NULL);
 
   // REPEAT
-  pixmap = gcompris_load_pixmap("gcompris/buttons/repeat.png");
+  pixmap = gcompris_load_skin_pixmap("repeat.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   repeat_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				       gnome_canvas_pixbuf_get_type (),
@@ -213,7 +214,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     NULL);
 
   // HELP
-  pixmap = gcompris_load_pixmap("gcompris/buttons/help.png");
+  pixmap = gcompris_load_skin_pixmap("help.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   help_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -236,7 +237,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     NULL);
 
   // CONFIG
-  pixmap = gcompris_load_pixmap("gcompris/buttons/config.png");
+  pixmap = gcompris_load_skin_pixmap("config.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   config_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -259,7 +260,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     NULL);
 
   // ABOUT
-  pixmap = gcompris_load_pixmap("gcompris/buttons/about.png");
+  pixmap = gcompris_load_skin_pixmap("about.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   about_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
@@ -307,8 +308,8 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
   if(gcomprisBoard!=NULL)
     {
 
-      str = g_strdup_printf("gcompris/buttons/level%d.png", gcomprisBoard->level);
-      pixmap = gcompris_load_pixmap(str);
+      str = g_strdup_printf("level%d.png", gcomprisBoard->level);
+      pixmap = gcompris_load_skin_pixmap(str);
       g_free(str);
       gnome_canvas_item_set (level_item,
       			     "pixbuf", pixmap,

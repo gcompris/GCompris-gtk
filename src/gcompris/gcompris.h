@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2003/01/12 02:42:45 bruno>
+ * Time-stamp: <2003/02/14 00:03:16 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -46,6 +46,8 @@
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520
 #define BARHEIGHT   80
+
+#define DEFAULT_SKIN "default"
 
 /*****************************************************************************/
 /* Method usefull for boards provided by gcompris */
