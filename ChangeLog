@@ -1,5 +1,13 @@
 2004-09-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* configure.in: changed to LIBGNOMECANVAS_REQUIRED=2.3.6
+	* src/gcompris/gameutil.c: (gcompris_dialog_close),
+	(gcompris_dialog): fixed richtext canvas instability with 
+	workaround from Jean Bréfort
+	* src/gcompris/help.c: (gcompris_help_stop): -
+
+2004-09-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* configure.in: adjusted dependancy version
 	* gcompris.spec.in: adjusted dependancy version, added libgnomecanvas
 	* src/boards/menu.c: (menu_start): re-added forced update

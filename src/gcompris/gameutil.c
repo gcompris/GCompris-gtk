@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/09/08 23:59:48 bcoudoin>
+ * Time-stamp: <2004/09/29 22:54:24 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -41,6 +41,7 @@ static char *lettersdir = "letters/";
 static GList *boards_list = NULL;
 
 static GnomeCanvasGroup *rootDialogItem = NULL;
+static GnomeCanvasItem *itemDialogText = NULL;
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb);
 
 extern GnomeCanvas *canvas;
@@ -795,8 +796,14 @@ void	item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x
 void gcompris_dialog_close() {
 
   /* If we already running delete the previous one */
-  if(rootDialogItem)
+  if(rootDialogItem) {
+    /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
+    while (g_idle_remove_by_data (itemDialogText));
+    gtk_object_destroy (itemDialogText);
+
     gtk_object_destroy(GTK_OBJECT(rootDialogItem));
+  }
+  
   rootDialogItem = NULL;
 
 }
@@ -808,7 +815,6 @@ void gcompris_dialog_close() {
 void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
   GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
-  GnomeCanvasItem *item_dialog = NULL;
   GnomeCanvasItem *item_text   = NULL;
   GnomeCanvasItem *item_text_ok   = NULL;
   GdkPixbuf       *pixmap_dialog = NULL;
@@ -837,7 +843,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
       
   pixmap_dialog = gcompris_load_skin_pixmap("dialogbox.png");
 
-  item_dialog = gnome_canvas_item_new (rootDialogItem,
+  itemDialogText = gnome_canvas_item_new (rootDialogItem,
 				       gnome_canvas_pixbuf_get_type (),
 				       "pixbuf", pixmap_dialog,
 				       "x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
@@ -858,7 +864,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   gdk_pixbuf_unref(pixmap_dialog);
 
-  gtk_signal_connect(GTK_OBJECT(item_dialog), "event",
+  gtk_signal_connect(GTK_OBJECT(itemDialogText), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     dbcb);
 

@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2004/05/28 00:51:54 bcoudoin>
+ * Time-stamp: <2004/09/29 22:50:26 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -372,7 +372,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
 /*
  * Remove the displayed help.
- * Do nothing is none is currently being dislayed
+ * Do nothing if none is currently being dislayed
  */
 void gcompris_help_stop ()
 {
@@ -385,6 +385,10 @@ void gcompris_help_stop ()
 	  // Destroy the help box
 	  if(rootitem!=NULL)
 	    {
+	      /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
+	      while (g_idle_remove_by_data (item_content));
+	      gtk_object_destroy (item_content);
+
 	      gtk_object_destroy(GTK_OBJECT(rootitem));
 	      gcomprisBoard->plugin->pause_board(FALSE);
 	    }
