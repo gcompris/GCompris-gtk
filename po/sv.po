@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-11-12 14:40+0100\n"
-"PO-Revision-Date: 2001-11-06 14:01+0100\n"
+"POT-Creation-Date: 2001-11-15 13:54+0100\n"
+"PO-Revision-Date: 2001-11-15 14:03+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,13 +62,12 @@ msgstr ""
 "Vänsterklicka med musen på alla simmande fiskar innan de lämnar akvariet"
 
 #: boards/click_on_letter.xml.in.h:1
-#, fuzzy
 msgid "Click on a letter"
-msgstr "Klicka på mig"
+msgstr "Klicka på en bokstav"
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Hear a letter and click on the right letter"
-msgstr ""
+msgstr "Hör en bokstav och klicka på rätt bokstav"
 
 #: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
 #: src/boards/clockgame.c:74
@@ -89,18 +88,16 @@ msgid "A simple vector drawing tool"
 msgstr "Ett enkelt vektorritverktyg"
 
 #: boards/draw.xml.in.h:2 src/boards/draw.c:96
-#, fuzzy
 msgid "Creative board where you can freely draw"
 msgstr "Kreativt bräde där du kan rita fritt"
 
 #: boards/erase.xml.in.h:1
-#, fuzzy
 msgid "Move the mouse"
-msgstr "Upptäck datorn"
+msgstr "Flytta musen"
 
 #: boards/erase.xml.in.h:2
 msgid "Move the mouse to erase the area and discover the background"
-msgstr ""
+msgstr "Flytta musen för att radera området och upptäck bakgrunden"
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement boards"
@@ -128,52 +125,51 @@ msgstr "Dra och släpp föremålen över deras namn"
 
 #: boards/locale.xml.in.h:1 src/boards/locale.c:51
 msgid "Select the language for the messages in GCompris"
-msgstr ""
+msgstr "Välj språket för meddelandena i GCompris"
 
 #: boards/locale.xml.in.h:2 src/boards/locale.c:50
-#, fuzzy
 msgid "Select the locale"
-msgstr "Ställ klockan till:"
+msgstr "Välj lokalen"
 
 #: boards/locale_de.xml.in.h:1
 msgid "GCompris will display all its messages in German"
-msgstr ""
+msgstr "GCompris kommer att visa alla dess meddelanden på tyska"
 
 #: boards/locale_de.xml.in.h:2
 msgid "German"
-msgstr ""
+msgstr "Tyska"
 
 #: boards/locale_en.xml.in.h:1
 msgid "English"
-msgstr ""
+msgstr "Engelska"
 
 #: boards/locale_en.xml.in.h:2
 msgid "GCompris will display all its messages in English"
-msgstr ""
+msgstr "GCompris kommer att visa alla dess meddelanden på engelska"
 
 #: boards/locale_es.xml.in.h:1
 msgid "GCompris will display all its messages in Spanish"
-msgstr ""
+msgstr "GCompris kommer att visa alla dess meddelanden på spanska"
 
 #: boards/locale_es.xml.in.h:2
 msgid "Spanish"
-msgstr ""
+msgstr "Spanska"
 
 #: boards/locale_fr.xml.in.h:1
 msgid "French"
-msgstr ""
+msgstr "Franska"
 
 #: boards/locale_fr.xml.in.h:2
 msgid "GCompris will display all its messages in French"
-msgstr ""
+msgstr "GCompris kommer att visa alla dess meddelanden på franska"
 
 #: boards/locale_sv.xml.in.h:1
 msgid "GCompris will display all its messages in Swedish"
-msgstr ""
+msgstr "GCompris kommer att visa alla dess meddelanden på svenska"
 
 #: boards/locale_sv.xml.in.h:2
 msgid "Swedish"
-msgstr ""
+msgstr "Svenska"
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
@@ -326,9 +322,8 @@ msgid "Set the clock to:"
 msgstr "Ställ klockan till:"
 
 #: src/boards/draw.c:207
-#, fuzzy
 msgid "Free vector drawing tool"
-msgstr "Ett enkelt vektorritverktyg"
+msgstr "Vektorritverktyg för frihandsritning"
 
 #: src/boards/draw.c:208
 msgid ""
@@ -344,17 +339,29 @@ msgid ""
 "To go faster, you can use the middle mouse button to delete an object\n"
 "or the right button to move an object.\n"
 msgstr ""
+"Mål:\n"
+"I detta spel kan barnen rita fritt.\n"
+"Målet är bara att barnet kan upptäcka hur det kan skapa vackra teckningar\n"
+"baserade på grundläggande former: rektanglar, ellipser och linjer.\n"
+"\n"
+"Användning:\n"
+"På vänstra sidan väljer du ett ritverktyg, sedan väljer du en färg nederst,\n"
+"och sedan klickar du på den vita ytan och drar för att skapa en ny form.\n"
+"För att snabba upp kan du använda musens mittknapp för att ta bort ett\n"
+"objekt eller höger musknapp för att flytta ett objekt.\n"
 
 #: src/boards/locale.c:130
 #, c-format
 msgid "GCompris will now display its messages in %s"
-msgstr ""
+msgstr "GCompris kommer att visa alla dess meddelanden på %s"
 
 #: src/boards/locale.c:151
 msgid ""
 "If this message is not translated, \n"
 "it means that probably GCompris is not translated in this language"
 msgstr ""
+"Om detta meddelande inte är översatt betyder\n"
+"det troligtvis att GCompris inte är översatt till detta språk"
 
 #: src/boards/reading.c:98
 msgid "Reading"
