@@ -46,7 +46,6 @@ xml_in_files = \
 	melody.xml.in \
 	memory.xml.in \
 	menu.xml.in \
-	minouche.xml.in \
 	missing_letter.xml.in \
 	money.xml.in \
 	money_cents.xml.in \

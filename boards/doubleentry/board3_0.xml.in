@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ShapeGame>
+  <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
+	 x="395" y="490" zoomx="1" zoomy="1" position="0"/>
+  <Title x="395" y="490" justification="GTK_JUSTIFY_CENTER">
+    <_name>Click on an item and listen to its target position</_name>
+  </Title>
   <Title x="231" y="90" justification="GTK_JUSTIFY_CENTER"><name>1</name></Title>
   <Title x="137" y="325" justification="GTK_JUSTIFY_CENTER"><name>C</name></Title>
-  <Shape name="A" pixmapfile="doubleentry/circle-red-1.png"  x="231" y="325"  zoomx="1" zoomy="1" position="0" sound="c 1"/>
-  <Shape name="B" pixmapfile="doubleentry/circle-red-2.png"  x="321" y="325"  zoomx="1" zoomy="1" position="0" sound="c 2"/>
-  <Shape name="C" pixmapfile="doubleentry/circle-red-3.png"  x="418" y="325"  zoomx="1" zoomy="1" position="0" sound="c 3"/>
+  <Shape name="A" pixmapfile="doubleentry/circle-red-1.png"  x="231" y="325"  zoomx="1" zoomy="1" position="0" sound="alphabet/c alphabet/1"/>
+  <Shape name="B" pixmapfile="doubleentry/circle-red-2.png"  x="321" y="325"  zoomx="1" zoomy="1" position="0" sound="alphabet/c alphabet/2"/>
+  <Shape name="C" pixmapfile="doubleentry/circle-red-3.png"  x="418" y="325"  zoomx="1" zoomy="1" position="0" sound="alphabet/c alphabet/3"/>
   <Title x="321" y="90" justification="GTK_JUSTIFY_CENTER"><name>2</name></Title>
   <Title x="137" y="170" justification="GTK_JUSTIFY_CENTER"><name>A</name></Title>
-  <Shape name="D" pixmapfile="doubleentry/circle-blue-1.png"   x="231" y="170"  zoomx="1" zoomy="1" position="0" sound="a 1"/>
-  <Shape name="E" pixmapfile="doubleentry/circle-blue-2.png"   x="321" y="170"  zoomx="1" zoomy="1" position="0" sound="a 2"/>
-  <Shape name="F" pixmapfile="doubleentry/circle-blue-3.png"   x="418" y="170"  zoomx="1" zoomy="1" position="0" sound="a 3"/>
+  <Shape name="D" pixmapfile="doubleentry/circle-blue-1.png"   x="231" y="170"  zoomx="1" zoomy="1" position="0" sound="alphabet/a alphabet/1"/>
+  <Shape name="E" pixmapfile="doubleentry/circle-blue-2.png"   x="321" y="170"  zoomx="1" zoomy="1" position="0" sound="alphabet/a alphabet/2"/>
+  <Shape name="F" pixmapfile="doubleentry/circle-blue-3.png"   x="418" y="170"  zoomx="1" zoomy="1" position="0" sound="alphabet/a alphabet/3"/>
   <Title x="418" y="90" justification="GTK_JUSTIFY_CENTER"><name>3</name></Title>
   <Title x="137" y="245" justification="GTK_JUSTIFY_CENTER"><name>B</name></Title>
-  <Shape name="G" pixmapfile="doubleentry/circle-green-1.png" x="231" y="245"  zoomx="1" zoomy="1" position="0" sound="b 1"/>
-  <Shape name="H" pixmapfile="doubleentry/circle-green-2.png" x="321" y="245"  zoomx="1" zoomy="1" position="0" sound="b 2"/>
-  <Shape name="I" pixmapfile="doubleentry/circle-green-3.png" x="418" y="245"  zoomx="1" zoomy="1" position="0" sound="b 3"/>
+  <Shape name="G" pixmapfile="doubleentry/circle-green-1.png" x="231" y="245"  zoomx="1" zoomy="1" position="0" sound="alphabet/b alphabet/1"/>
+  <Shape name="H" pixmapfile="doubleentry/circle-green-2.png" x="321" y="245"  zoomx="1" zoomy="1" position="0" sound="alphabet/b alphabet/2"/>
+  <Shape name="I" pixmapfile="doubleentry/circle-green-3.png" x="418" y="245"  zoomx="1" zoomy="1" position="0" sound="alphabet/b alphabet/3"/>
 </ShapeGame>
