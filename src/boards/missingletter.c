@@ -186,6 +186,7 @@ end_board ()
       missing_letter_destroy_all_items();
       destroy_board_list();
     }
+  gcomprisBoard = NULL;
 }
 
 static void

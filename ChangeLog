@@ -1,6 +1,10 @@
 2001-12-24  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* src/boards/planegame.c: replaced the plane by a brain new helico
 	                          designed by Renaud Blanchard
+	*  src/boards/click_on_letter.c: now clear gcomprisBoard in end_board
+	                                 this fixes a bug where the bonus is
+					 redisplayed endlessly in the menu
+	*  src/boards/missingletter.c: now clear gcomprisBoard in end_board
 
 2001-12-23  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* src/gcompris/gcompris.c: added gconf init for the gtkhtml

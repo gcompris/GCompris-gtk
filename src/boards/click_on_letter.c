@@ -150,6 +150,7 @@ static void end_board ()
       gcompris_score_end();
       click_on_letter_destroy_all_items();
     }
+    gcomprisBoard = NULL;
 }
 
 /* ======================================= */
