@@ -316,7 +316,6 @@ gint key_press(guint keyval)
     {
       answer_string[answer_string_index++] = c;
       answer_string[answer_string_index] = 0;
-      printf("answer_string_index=%d answer_string=%s\n", answer_string_index, answer_string);
     }
 
   if(answer_item)
@@ -596,13 +595,12 @@ static void add_points(double x, double y)
 
   // Calculate the distance
   diametre = sqrt(x*x+y*y);
-  printf("diametre = %f\n", diametre);
+
   for(i=0; i<MAX_NUMBER_OF_TARGET; i++)
     {
       if(diametre < targetDefinition[gcomprisBoard->level-1].target_width_value[i*2])
 	{
 	  user_points += targetDefinition[gcomprisBoard->level-1].target_width_value[i*2+1];
-	  printf("points = %d\n", user_points);
 	  break;
 	}
     }

@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = intl po macros src sounds docs boards
+SUBDIRS = intl po src sounds docs boards
 
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png
@@ -31,18 +31,14 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@; \
-	  find @PACKAGE_DATA_DIR@ -name \*~ -printf %f\\n >/tmp/GCOMPRIS_LIST.txt ; \
-	  find @PACKAGE_DATA_DIR@ -name \*.in  -printf %f\\n >>/tmp/GCOMPRIS_LIST.txt ; \
-	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude CVS --exclude .xvpics --exclude-from  /tmp/GCOMPRIS_LIST.txt * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*.in" --exclude "*~" --exclude CVS --exclude .xvpics * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 	fi
 
 dist-hook:
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(distdir)/@PACKAGE_DATA_DIR@; \
-	  find @PACKAGE_DATA_DIR@ -name \*~ -printf %f\\n >/tmp/GCOMPRIS_LIST.txt ; \
-	  find @PACKAGE_DATA_DIR@ -name \.\* -printf %f\\n >>/tmp/GCOMPRIS_LIST.txt ; \
-	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude CVS --exclude .xvpics --exclude-from  /tmp/GCOMPRIS_LIST.txt * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*~" --exclude ".*" --exclude CVS --exclude .xvpics * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 	fi
 

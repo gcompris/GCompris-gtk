@@ -20,6 +20,7 @@
  */
 
 #include "gcompris.h"
+#include <signal.h>
 
 static GList *pending_queue = NULL;
 static GList *playing_queue = NULL;
