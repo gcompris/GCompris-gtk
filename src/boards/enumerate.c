@@ -88,8 +88,8 @@ BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Move the mouse"),
-    N_("Move the mouse to enumerate the area and discover the background"),
+    N_("Numeration training"),
+    N_("Place the items in the best way to count them"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

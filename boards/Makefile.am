@@ -8,7 +8,6 @@ xml_in_files = \
 	algebra_plus.xml.in \
 	algebra_minus.xml.in \
 	algebra_by.xml.in \
-	algebra_div.xml.in \
 	algebra_group.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
