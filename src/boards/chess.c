@@ -511,9 +511,18 @@ static void move_piece_to(Square from, Square to)
   guint x, y;
   double ofset_x, ofset_y;
   double x1, y1, x2, y2;
+  Piece piece;
+  Square new_to;
       
 
   printf("move_piece_to %d %d\n", from, to);
+
+  /* If we are promoting a pawn */
+  if (to & 128) {
+    new_to = (to & 7) + A8;            
+    piece = ((to & 127) >> 3 ) + WP - 1;
+    printf("  WARNING promoting a pawn NOT IMPLEMENTED %d %d\n", from, to);
+  }
 
   x = from % 10;
   y = from / 10 -1;
