@@ -31,7 +31,7 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@; \
-	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics --exclude "*.assetml" * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	fi
 
 dist-hook:

@@ -41,9 +41,9 @@ static int left_door_limit = 0;
 // List of sounds to use for greetings
 static gchar *greetingsList[] =
 {
-  "congratulation",
-  "great",
-  "good"
+  "congratulation.ogg",
+  "great.ogg",
+  "good.ogg"
 };
 #define NUMBER_OF_GREETINGS 3
 
@@ -176,16 +176,21 @@ void board_finished(int type) {
 void gcompris_display_bonus(int gamewon, int bonus_id)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-
-	if (bonus_display_running)
-  	return;
-    else
-			bonus_display_running = TRUE;
-
-  if(gamewon == TRUE)
-    gcompris_play_ogg(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)], NULL);
+  
+  if (bonus_display_running)
+    return;
   else
+    bonus_display_running = TRUE;
+  
+  if(gamewon == TRUE) {
+    gchar *str = gcompris_get_asset_file("gcompris misc", NULL, 
+					 "audio/x-ogg", 
+					 greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)]);
+    gcompris_play_ogg(str, NULL);
+    g_free(str);
+  } else {
     gcompris_play_ogg ("crash", NULL);
+  }
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)

@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/09/26 03:11:35 bcoudoin>
+ * Time-stamp: <2003/09/28 22:30:19 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -330,18 +330,20 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
   if(board->mandatory_sound_file)
     {
       gchar *soundfile = NULL;
-      char locale[3];
-
-      strncpy(locale,gcompris_get_locale(),2);
-      locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
-
-      soundfile = g_strdup_printf("%s/%s/%s", PACKAGE_DATA_DIR "/sounds", locale, 
-				  board->mandatory_sound_file);
-      printf("Checking mandatory_sound_file %s\n", soundfile);
+      
+      if(board->mandatory_sound_dataset) {
+	/* We have to search for an assetml sound */
+	  soundfile = gcompris_get_asset_file(board->mandatory_sound_dataset, NULL, NULL, 
+					      board->mandatory_sound_file);
+      } else {
+	/* We search a fixed path sound file */
+	soundfile = g_strdup_printf("%s/%s/%s", PACKAGE_DATA_DIR "/sounds", 
+				    board->mandatory_sound_file);
+	g_warning("Checking mandatory_sound_file %s\n", soundfile);
+      }
 
       if (!g_file_exists (soundfile)) 
 	{
-	  /* FIXME: Second Chance, should check in assetml */
 	  pixmap = gcompris_load_skin_pixmap("voice_bad.png");
 	}
       else

@@ -147,9 +147,10 @@ int decode_ogg_file(char *infile)
  */
 static gint erase_credits (GtkWidget *widget, gpointer data)
 {
-  gtk_object_destroy (GTK_OBJECT(rootitem));
-  rootitem = NULL;
-
+  if(rootitem) {
+    gtk_object_destroy (GTK_OBJECT(rootitem));
+    rootitem = NULL;
+  }
   return(FALSE);
 }
 
@@ -294,8 +295,10 @@ item_event_ogginfo(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_LEAVE_NOTIFY:
       break;
     case GDK_BUTTON_PRESS:
-      gtk_object_destroy (GTK_OBJECT(rootitem));
-      rootitem = NULL;
+      if(rootitem) {
+	gtk_object_destroy (GTK_OBJECT(rootitem));
+	rootitem = NULL;
+      }
     default:
       break;
     }

@@ -1,3 +1,25 @@
+2003-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: remove .asset.in copy in install-data-local
+	* boards/click_on_letter.xml.in: added assetml dataset
+	* boards/geography.xml.in: added assetml dataset
+	* boards/money.xml.in: removed empty credits
+	* boards/money_cents.xml.in: removed empty credits
+	* boards/skins/default/button_style2.png: added here for maintenance
+	* boards/skins/default/repeat.png: changed to a mouth
+	* boards/sounds/de/colors/gcompris_colors_de.assetml.in: updated description field
+	* boards/sounds/en/colors/gcompris_colors_en.assetml.in: updated description field
+	* boards/sounds/fr/colors/gcompris_colors_fr.assetml.in: fixed yellow
+	* gcompris.spec.in: fixed python requirement
+	* src/boards/colors.c: (start_board): now the repeat icon is not display if sound is 
+	available
+	* src/boards/menu.c: (menu_create_item): manage assetml dataset in mandatory_sound_*
+	* src/gcompris/bonus.c: (gcompris_display_bonus): fixed "good job" sounds to use assetml
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data): added mandatory_sound_dataset
+	* src/gcompris/gcompris-board.h: added mandatory_sound_dataset
+	* src/gcompris/oggplayer.c: (erase_credits), (item_event_ogginfo): check rootitem before 
+	destroy in case
+
 2003-09-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: Release 4.0RC2
@@ -18,7 +40,7 @@
 	* gcompris.spec.in: removed python dependancies if not defined in configure.in
 	* po/fi.po: updated by Rami Aubourg-Kaires
 	* src/boards/click_on_letter.c: (start_board), (repeat),
-	(sounds_are_fine): added a test if sounds is available. is not can't enter the board
+	(sounds_are_fine): added a test if sounds is available. if not can't enter the board
 	* src/boards/hanoi.c: (hanoi_create_item): fixed plot width
 	* src/boards/menu.c: (menu_create_item): added a fixme: need to complete test of
 	mandatory_sound_file with assetml

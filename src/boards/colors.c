@@ -114,6 +114,7 @@ static void pause_board (gboolean pause)
  *
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
+  GcomprisProperties	*properties = gcompris_get_properties();
   GList * list = NULL;
   int * item;
   int i;
@@ -123,7 +124,12 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.jpg");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
-    gcompris_bar_set(GCOMPRIS_BAR_REPEAT);
+
+    if(properties->fx) {
+      gcompris_bar_set(GCOMPRIS_BAR_REPEAT);
+    } else {
+      gcompris_bar_set(0);
+    }
 
     gamewon = FALSE;
 

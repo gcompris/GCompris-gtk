@@ -17,8 +17,7 @@ URL: 		http://ofset.sf.net/gcompris
 Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
 Requires:       gnuchess >= 5.02
-Requires:       @REQUIRE_PYTHON@
-Requires:       gcompris-libassetml
+Requires:       libassetml @REQUIRE_PYTHON@
 Requires:	assetml-flags
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
@@ -411,12 +410,12 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/flags/*
 %{prefix}/share/@ASSETML_DIR@/gcompris_flags.assetml
 
-%files libassetml
+%files -n libassetml
 %defattr(-, root, root)
 %{prefix}/lib/libassetml.so.*
 %{prefix}/bin/assetml-query
 
-%files libassetml-devel
+%files -n libassetml-devel
 %defattr(-, root, root)
 %{_libdir}/lib*.so
 %{_libdir}/*a

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/08/23 00:21:29 bcoudoin>
+ * Time-stamp: <2003/09/28 22:16:37 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -363,13 +363,14 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->type = xmlGetProp(xmlnode,"type");
 
   /* get the specific mode for this board */
-  gcomprisBoard->mode			= xmlGetProp(xmlnode,"mode");
-  gcomprisBoard->name			= xmlGetProp(xmlnode,"name");
-  gcomprisBoard->icon_name		= xmlGetProp(xmlnode,"icon");
-  gcomprisBoard->author			= xmlGetProp(xmlnode,"author");
-  gcomprisBoard->boarddir		= xmlGetProp(xmlnode,"boarddir");
-  gcomprisBoard->mandatory_sound_file	= xmlGetProp(xmlnode,"mandatory_sound_file");
-  gcomprisBoard->section		= xmlGetProp(xmlnode,"section");
+  gcomprisBoard->mode			 = xmlGetProp(xmlnode,"mode");
+  gcomprisBoard->name			 = xmlGetProp(xmlnode,"name");
+  gcomprisBoard->icon_name		 = xmlGetProp(xmlnode,"icon");
+  gcomprisBoard->author			 = xmlGetProp(xmlnode,"author");
+  gcomprisBoard->boarddir		 = xmlGetProp(xmlnode,"boarddir");
+  gcomprisBoard->mandatory_sound_file	 = xmlGetProp(xmlnode,"mandatory_sound_file");
+  gcomprisBoard->mandatory_sound_dataset = xmlGetProp(xmlnode,"mandatory_sound_dataset");
+  gcomprisBoard->section		 = xmlGetProp(xmlnode,"section");
 
   gcomprisBoard->title = NULL;
   gcomprisBoard->description = NULL;
