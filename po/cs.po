@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-10 14:35+0100\n"
-"PO-Revision-Date: 2004-02-10 19:33+0100\n"
+"POT-Creation-Date: 2004-02-18 03:32+0100\n"
+"PO-Revision-Date: 2004-02-18 15:35+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -591,6 +591,42 @@ msgstr "Trénování šachů. Zajmi počítačovy pěšce."
 #: boards/chess_partyend.xml.in.h:3
 msgid "Play end of chess game against the computer"
 msgstr "Hrej konec šachové hry proti počítači"
+
+#: boards/chronos.xml.in.h:1
+msgid "Chronos"
+msgstr "Chronos"
+
+#: boards/chronos.xml.in.h:2
+msgid "Drag and Drop the items to organize the story"
+msgstr "Uspořádej příběh tažením a puštěním"
+
+#: boards/chronos.xml.in.h:3
+msgid ""
+"Moon photo comes from NASA\n"
+" Space sounds from Tuxpaint and Vegastrike"
+msgstr ""
+"Fotografie měsíce je od NASA\n"
+" Vesmírné zvuky z Tuxpaint a Vegastrike"
+
+#: boards/chronos.xml.in.h:4
+msgid "Order the pictures to tell the story"
+msgstr "Vyprávěj příběh uspořádáním obrázků"
+
+#: boards/chronos.xml.in.h:5
+msgid "Pick the pictures on the left and put them on the red points"
+msgstr "Vyber obrázky nalevo a umísti je na červené body"
+
+#: boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr "Vyprávěj krátký příběh"
+
+#: boards/chronos/board1_0.xml.in.h:1
+msgid "Moonwalker"
+msgstr "Náměsíčný"
+
+#: boards/chronos/board2_0.xml.in.h:1
+msgid "Tux and the apple tree"
+msgstr "Tux a jabloň"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1999,7 +2035,7 @@ msgstr "Naučná sada gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:455 src/gcompris/gameutil.c:456
+#: src/gcompris/gameutil.c:463 src/gcompris/gameutil.c:464
 #: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2523,6 +2559,22 @@ msgstr "Nemohu otevřít adresář skinů: %s"
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
+
+#: src/gcompris/gameutil.c:127
+msgid "Couldn't find file"
+msgstr "Nemohu najít soubor"
+
+#: src/gcompris/gameutil.c:129
+msgid "This activity is incomplete."
+msgstr "Tato aktivita není dokončena."
+
+#: src/gcompris/gameutil.c:130
+msgid ""
+"Exit it and report\n"
+"us the problem"
+msgstr ""
+"Ukončete ji a nahlaste\n"
+"nám tento problém"
 
 #: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
