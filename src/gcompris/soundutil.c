@@ -138,7 +138,8 @@ static void* scheduler_bgnd ()
     {
       for(i=0; i<g_list_length(musiclist); i++)
 	{
-	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i));
+	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
+	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
 	  decode_ogg_file((char *)g_list_nth_data(musiclist, i));
 	}
     }
