@@ -141,11 +141,13 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/menu/*
 %dir %{prefix}/share/gcompris
 %dir %{prefix}/share/gcompris/boards
-%dir %{prefix}/share/gcompris/boards/skins/*/*
+%dir %{prefix}/share/gcompris/boards/skins
+%{prefix}/share/gcompris/boards/skins/*
+%{prefix}/share/gcompris/boards/skins/*/*
 %{prefix}/share/gcompris/boards/[^s]*
 %{prefix}/share/gcompris/boards/s[cmu]*
 %dir %{prefix}/share/gcompris/boards/sounds
-%{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
+%{prefix}/share/gcompris/boards/sounds/*
 %{prefix}/share/gnome/apps/Games/*
 %{prefix}/share/gnome/help/*
 %{prefix}/info/*

@@ -14,7 +14,7 @@ Menu_DATA=gcompris
 
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST = config.rpath  \
+EXTRA_DIST = \
 	$(Games_DATA) \
 	$(Games_in_files) \
 	$(icon_DATA) \
