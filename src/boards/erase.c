@@ -251,7 +251,7 @@ static void game_won()
 {
   gcomprisBoard->sublevel++;
 
-  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;

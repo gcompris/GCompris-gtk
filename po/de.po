@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2001-11-29 04:14+0100\n"
+"POT-Creation-Date: 2001-12-06 12:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Martin Herweg <m.herweg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,12 +82,12 @@ msgid "Hear a letter and click on the right letter"
 msgstr ""
 
 #: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
-#: src/boards/clockgame.c:74
+#: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Lerne die Uhrzeit abzulesen"
 
 #: boards/clockgame.xml.in.h:2 src/boards/algebra.c:93
-#: src/boards/clockgame.c:73
+#: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Lerne die Uhrzeit"
 
@@ -296,11 +296,11 @@ msgstr "GCompris"
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Kann Grafik-Verzeichnis %s nicht öffnen"
 
-#: src/boards/clickgame.c:246
+#: src/boards/clickgame.c:248
 msgid "Practice the computer mouse"
 msgstr "Übe den Umgang mit der Computer-Maus"
 
-#: src/boards/clickgame.c:247
+#: src/boards/clickgame.c:249
 msgid ""
 "Goal:\n"
 "In this game, the children will discover the computer mouse\n"
@@ -333,16 +333,16 @@ msgstr ""
 "Die Bilder gehören zur Sammlung des National Undersearch Research Program (NURP)\n"
 " http://www.photolib.noaa.gov\n"
 
-#: src/boards/clockgame.c:519
+#: src/boards/clockgame.c:533
 msgid "Set the clock to:"
 msgstr "Stelle die Uhr auf:"
 
-#: src/boards/draw.c:207
+#: src/boards/draw.c:204
 #, fuzzy
 msgid "Free vector drawing tool"
 msgstr "Ein sehr einfaches Zeichenprogramm"
 
-#: src/boards/draw.c:208
+#: src/boards/draw.c:205
 msgid ""
 "Goal:\n"
 "In this game, the children will be able to freely draw.\n"
@@ -357,11 +357,11 @@ msgid ""
 "or the right button to move an object.\n"
 msgstr ""
 
-#: src/boards/locale.c:145
+#: src/boards/locale.c:143
 msgid "GCompris will now display its messages in the selected language"
 msgstr ""
 
-#: src/boards/locale.c:160
+#: src/boards/locale.c:158
 msgid ""
 "If this message is not translated, \n"
 "it means that probably GCompris is not translated in this language"
@@ -376,24 +376,24 @@ msgstr "Lesen"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lies eine Liste von Worten und sag mir, ob das gesuchte Wort vorkommt"
 
-#: src/boards/reading.c:308
+#: src/boards/reading.c:306
 #, fuzzy
 msgid "Please, check if the word"
 msgstr "Bitte sag mir, ob das Wort"
 
-#: src/boards/reading.c:328
+#: src/boards/reading.c:326
 msgid "is being displayed"
 msgstr "angezeigt wurde"
 
-#: src/boards/reading.c:519
+#: src/boards/reading.c:517
 msgid "I am Ready"
 msgstr "Los geht's!"
 
-#: src/boards/reading.c:559
+#: src/boards/reading.c:557
 msgid "Yes I saw it"
 msgstr "Ja, ich hab's gesehen"
 
-#: src/boards/reading.c:589
+#: src/boards/reading.c:587
 msgid "No, it was not there"
 msgstr "Nein, es kam nicht vor"
 
@@ -401,12 +401,12 @@ msgstr "Nein, es kam nicht vor"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Füge die Teile zusammen"
 
-#: src/boards/shapegame.c:1143
+#: src/boards/shapegame.c:1144
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kann Grafik-Datei %s nicht finden"
 
-#: src/boards/shapegame.c:1146
+#: src/boards/shapegame.c:1147
 #, c-format
 msgid "find file %s !"
 msgstr "Kann Datei %s nicht finden"
@@ -417,27 +417,26 @@ msgstr ""
 "Gebe die Zahl 1 bis 9 ein, die der Anzahl Augen auf\n"
 " den Würfeln entspricht bevor sie unten ankommen"
 
-#. GdkCursor *hand_cursor;
-#: src/gcompris/gcompris.c:180
+#: src/gcompris/gcompris.c:189
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Ich habe verstanden"
 
-#: src/gcompris/gcompris.c:288
+#: src/gcompris/gcompris.c:298
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
 msgstr "Ein einfaches Lernspiel für Kinder ab 3.Dieses Programm ist freie Software (www.gnu.org)"
 
-#: src/gcompris/gcompris.c:293
+#: src/gcompris/gcompris.c:303
 #, fuzzy
 msgid "GCompris Home Page"
 msgstr "GCompris"
 
-#: src/gcompris/gcompris.c:296
+#: src/gcompris/gcompris.c:306
 msgid "An OFSET development"
 msgstr ""
 
-#: src/gcompris/gcompris.c:326
+#: src/gcompris/gcompris.c:336
 msgid "Do you really want to quit GCompris?"
 msgstr "Möchtest Du GCompris wirklich beenden?"
 

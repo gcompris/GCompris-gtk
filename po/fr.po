@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.4\n"
-"POT-Creation-Date: 2001-11-29 04:14+0100\n"
+"POT-Creation-Date: 2001-12-06 12:28+0100\n"
 "PO-Revision-Date: 2001-11-09 13:43+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -80,12 +80,12 @@ msgid "Hear a letter and click on the right letter"
 msgstr "Écoute une lettre et clique sur la bonne lettre"
 
 #: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
-#: src/boards/clockgame.c:74
+#: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Apprends à lire l'heure"
 
 #: boards/clockgame.xml.in.h:2 src/boards/algebra.c:93
-#: src/boards/clockgame.c:73
+#: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Apprentissage de l'heure"
 
@@ -289,11 +289,11 @@ msgstr "GCompris"
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Ne peux pas trouver le répertoire d'immages: %s"
 
-#: src/boards/clickgame.c:246
+#: src/boards/clickgame.c:248
 msgid "Practice the computer mouse"
 msgstr "Utilise la souris de l'ordinateur"
 
-#: src/boards/clickgame.c:247
+#: src/boards/clickgame.c:249
 msgid ""
 "Goal:\n"
 "In this game, the children will discover the computer mouse\n"
@@ -340,15 +340,15 @@ msgstr ""
 "Emplacement: Unknown (image nur03011)\n"
 "Emplacement: Unknown (image nur03013)\n"
 
-#: src/boards/clockgame.c:519
+#: src/boards/clockgame.c:533
 msgid "Set the clock to:"
 msgstr "Régle l'horloge sur :"
 
-#: src/boards/draw.c:207
+#: src/boards/draw.c:204
 msgid "Free vector drawing tool"
 msgstr "Dessin vectoriel libre"
 
-#: src/boards/draw.c:208
+#: src/boards/draw.c:205
 msgid ""
 "Goal:\n"
 "In this game, the children will be able to freely draw.\n"
@@ -377,11 +377,11 @@ msgstr ""
 "un \n"
 "objet ou le bouton de droite pour déplacer un objet.\n"
 
-#: src/boards/locale.c:145
+#: src/boards/locale.c:143
 msgid "GCompris will now display its messages in the selected language"
 msgstr "GCompris affichera maintenant ses messages dans la langue sélectionée"
 
-#: src/boards/locale.c:160
+#: src/boards/locale.c:158
 msgid ""
 "If this message is not translated, \n"
 "it means that probably GCompris is not translated in this language"
@@ -397,23 +397,23 @@ msgstr "Lecture"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lis une liste de mots et dis si le mot donné en fait partie"
 
-#: src/boards/reading.c:308
+#: src/boards/reading.c:306
 msgid "Please, check if the word"
 msgstr "S'il te plait, vérifie si le mot"
 
-#: src/boards/reading.c:328
+#: src/boards/reading.c:326
 msgid "is being displayed"
 msgstr "est affiché"
 
-#: src/boards/reading.c:519
+#: src/boards/reading.c:517
 msgid "I am Ready"
 msgstr "Je suis prêt"
 
-#: src/boards/reading.c:559
+#: src/boards/reading.c:557
 msgid "Yes I saw it"
 msgstr "Oui je l'ai vu"
 
-#: src/boards/reading.c:589
+#: src/boards/reading.c:587
 msgid "No, it was not there"
 msgstr "Non, il n'y est pas"
 
@@ -421,12 +421,12 @@ msgstr "Non, il n'y est pas"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
-#: src/boards/shapegame.c:1143
+#: src/boards/shapegame.c:1144
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/shapegame.c:1146
+#: src/boards/shapegame.c:1147
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -435,12 +435,11 @@ msgstr "trouve le fichier %s !"
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
-#. GdkCursor *hand_cursor;
-#: src/gcompris/gcompris.c:180
+#: src/gcompris/gcompris.c:189
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:288
+#: src/gcompris/gcompris.c:298
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
@@ -448,15 +447,15 @@ msgstr ""
 "Un simple jeux d'apprentissage à partir de 3 ans. Ce logiciel fait partie du "
 "projet GNU"
 
-#: src/gcompris/gcompris.c:293
+#: src/gcompris/gcompris.c:303
 msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
-#: src/gcompris/gcompris.c:296
+#: src/gcompris/gcompris.c:306
 msgid "An OFSET development"
 msgstr "Un développement d'OFSET"
 
-#: src/gcompris/gcompris.c:326
+#: src/gcompris/gcompris.c:336
 msgid "Do you really want to quit GCompris?"
 msgstr "Veux tu vraiment quitter GCompris ?"
 

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/12/06 01:20:27 bruno>
+ * Time-stamp: <2001/12/06 21:18:14 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -158,8 +158,8 @@ static void init_background()
   gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
 			 gnome_canvas_widget_get_type (),
 			 "widget", vbox, 
-			 "x", (double) 100,
-			 "y", (double) 100,
+			 "x", (double) (gdk_screen_width()-BOARDWIDTH)/2,
+			 "y", (double) (gdk_screen_height()-BOARDHEIGHT-BARHEIGHT)/2,
 			 "size_pixels", TRUE,
 			 NULL);
 
