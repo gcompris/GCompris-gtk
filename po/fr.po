@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-11-12 00:09+0100\n"
+"POT-Creation-Date: 2002-11-25 16:25+0100\n"
 "PO-Revision-Date: 2002-11-12 00:41+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -772,6 +772,23 @@ msgstr ""
 "Pour aller plus vite, on peut utiliser la touche du milieu pour détruire un "
 "objet."
 
+#: boards/enumerate.xml.in.h:1
+msgid "Count the items"
+msgstr "Compter les éléments"
+
+#: boards/enumerate.xml.in.h:2 boards/planegame.xml.in.h:2
+msgid "Number"
+msgstr "Nombre"
+
+#: boards/enumerate.xml.in.h:3 boards/planegame.xml.in.h:4
+#: src/boards/enumerate.c:91
+msgid "Numeration training"
+msgstr "Entrainement à la numération"
+
+#: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
+msgid "Place the items in the best way to count them"
+msgstr "Déplace les éléments et arrange les de façon à pouvoir les compter"
+
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Coordination moteur"
@@ -1079,25 +1096,33 @@ msgid "Tux has hidden several items, find them back in the correct order"
 msgstr ""
 "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:1
+#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Sait utiliser les flêches du clavier"
 
-#: boards/maze.xml.in.h:2 boards/maze3D.xml.in.h:2 src/boards/maze.c:125
+#: boards/maze.xml.in.h:2 src/boards/maze.c:125
 msgid "Find your way out of the maze"
 msgstr "Trouve ta voie hors du labyrinthe"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:3
+#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
 msgid "Help Tux get out of this maze."
 msgstr "Aide Tux à trouver sa voie hors du labyrinthe"
 
-#: boards/maze.xml.in.h:4 boards/maze3D.xml.in.h:4 src/boards/maze.c:124
+#: boards/maze.xml.in.h:4 src/boards/maze.c:124
 msgid "Maze"
 msgstr "Labyrinthe"
 
 #: boards/maze.xml.in.h:5 boards/maze3D.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Utilise les flêches du clavier pour déplacer Tux jusqu'à la porte"
+
+#: boards/maze3D.xml.in.h:1
+msgid "3D Maze"
+msgstr "Labyrinthe en 3D"
+
+#: boards/maze3D.xml.in.h:3
+msgid "Find your way out of the 3D maze"
+msgstr "Trouve ta voie hors du labyrinthe en 3D"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1334,17 +1359,9 @@ msgstr ""
 msgid "Move the helicopter to catch the clouds in the correct order"
 msgstr "Déplace l'hélicoptère pour attraper les nuages dans le bon ordre"
 
-#: boards/planegame.xml.in.h:2
-msgid "Number"
-msgstr "Nombre"
-
 #: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Les nombres dans l'ordre"
-
-#: boards/planegame.xml.in.h:4
-msgid "Numeration training"
-msgstr "Entrainement à la numération"
 
 #: boards/planegame.xml.in.h:5
 msgid ""
@@ -1633,17 +1650,17 @@ msgstr "Couleurs complexes"
 
 #: src/boards/advanced_colors.c:529 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/read_colors.c:484 src/boards/shapegame.c:1537
+#: src/boards/read_colors.c:487 src/boards/shapegame.c:1537
 #: src/gcompris/gameutil.c:86 src/gcompris/gameutil.c:105
 #: src/gcompris/gameutil.c:398 src/gcompris/gameutil.c:399
 #: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:283
+#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:268
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/advanced_colors.c:532 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/read_colors.c:487
+#: src/boards/missingletter.c:602 src/boards/read_colors.c:490
 #: src/boards/shapegame.c:1540
 #, c-format
 msgid "find file %s !"
@@ -1791,11 +1808,11 @@ msgstr "Le jeu de mémoire"
 msgid "Build a train conforming to the model"
 msgstr "Construis un train correspondant au modèle"
 
-#: src/boards/read_colors.c:83
+#: src/boards/read_colors.c:86
 msgid "Read Colors"
 msgstr "Lire des couleurs"
 
-#: src/boards/read_colors.c:84
+#: src/boards/read_colors.c:87
 msgid "Click on the corresponding color"
 msgstr "Clique sur la bonne couleur lue"
 
@@ -2183,3 +2200,7 @@ msgstr "Temps écoulé"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
+
+#, fuzzy
+#~ msgid "Move the mouse to enumerate the area and discover the background"
+#~ msgstr "Déplace la souris pour tout effacer et découvir le fond"
