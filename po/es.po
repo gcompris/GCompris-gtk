@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-16 12:29+0100\n"
-"PO-Revision-Date: 2003-12-16 12:29+0100\n"
+"POT-Creation-Date: 2003-12-21 18:34+0100\n"
+"PO-Revision-Date: 2003-12-21 18:38+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1460,7 +1460,7 @@ msgstr "Practica de uso del dinero"
 msgid ""
 "You must buy the different items and give the exact price. At higher level, "
 "several items are displayed, you must first calculate the total price."
-msgstr ""
+msgstr "Debe comprar los elementos diferentes y dar el precio justo. en los niveles más altos se muestran varios elementos, debes calcular el precio total."
 
 #: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
@@ -1928,7 +1928,7 @@ msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
 "cleanup station in order to reactivate the whole water system. When done and "
 "Tux is in his shower, push the shower button for him."
-msgstr ""
+msgstr "Pulsa en los elementos activos diferentes: sol, nubes, estación de bombeo de agua, depuradora en orden para reactivar todo el sistema de aguas. Cuando lo hayas hecho y Tux esté en la ducha, pulsa el botón de ducha para que se lave."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
@@ -1938,7 +1938,7 @@ msgstr "Aprender el ciclo del agua"
 msgid ""
 "You have to bring back the water system up. Tux comes from a long fishing "
 "party on his boat. Help him to have a shower."
-msgstr ""
+msgstr "Tienes que reactivar el sistema de aguas. Tux viene de pescar en su barco. Ayúdale a ducharse."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
@@ -2080,6 +2080,10 @@ msgid ""
 "Go in the configuration dialog to\n"
 "enable the sound"
 msgstr ""
+"Error: esta actividad no puede jugarse con los efectos\n"
+"de sonido desactivados.\n"
+"Ve al diálogo de configuración para\n"
+"activar el sonido"
 
 #: src/boards/clickgame.c:183
 #, c-format
