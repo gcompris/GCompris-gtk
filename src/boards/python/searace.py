@@ -25,6 +25,7 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
+import random
 
 class Gcompris_searace:
   """The Boat Racing activity"""
@@ -35,8 +36,9 @@ class Gcompris_searace:
 
     # Some constants
     border_x  = 30
-    self.sea_area = (border_x , 30, gcompris.BOARD_WIDTH-3*border_x , 190)
-
+    self.sea_area = (border_x , 30, gcompris.BOARD_WIDTH-border_x , 350)
+    self.weather   = []
+    
     print("Gcompris_searace __init__.")
   
 
@@ -67,6 +69,7 @@ class Gcompris_searace:
       )
 
     self.display_sea_area()
+    self.display_weather()
     
     print("Gcompris_searace start.")
 
@@ -105,23 +108,19 @@ class Gcompris_searace:
 
   def display_sea_area(self):
     # Some constant to define the sea area
-    border_x1 = self.sea_area[0]
-    border_x2 = self.sea_area[2]
-    step_x    = (border_x2-border_x)/20
-    
-    border_y1 = self.sea_area[1]
-    border_y2 = self.sea_area[3]
-    step_y    = (border_y2-border_y)/12
+    # The sea area is defined in the global self.sea_area
+    step_x    = (self.sea_area[2]-self.sea_area[0])/20
+    step_y    = (self.sea_area[3]-self.sea_area[1])/10
 
-    text_x    = border_x - 15
-    text_y    = border_y - 15
+    text_x    = self.sea_area[0] - 15
+    text_y    = self.sea_area[1] - 15
 
     # We manage a 2 colors grid
     ci = 0
     ca = 0xAACCFFFFL
     cb = 0x1D0DFFFFL
 
-    for y in range (border_y, border_y2, step_y):
+    for y in range (self.sea_area[1], self.sea_area[3]+1, step_y):
       if(ci%2):
         color = ca
       else:
@@ -149,13 +148,13 @@ class Gcompris_searace:
 
       self.rootitem.add(
         gnome.canvas.CanvasLine,
-        points=(border_x, y, gcompris.BOARD_WIDTH-border_x, y),
+        points=(self.sea_area[0], y, self.sea_area[2], y),
         fill_color_rgba = color,
          width_units=1.0
         )
 
     ci = 0
-    for x in range (border_x1, border_x2, step_x):
+    for x in range (self.sea_area[0], self.sea_area[2]+1, step_x):
       if(ci%2):
         color = ca
       else:
@@ -182,12 +181,86 @@ class Gcompris_searace:
         )
       self.rootitem.add(
         gnome.canvas.CanvasLine,
-        points=(x, border_y, x, gcompris.BOARD_HEIGHT-border_y2),
+        points=(x, self.sea_area[1], x, self.sea_area[3]),
         fill_color_rgba = color,
          width_units=1.0
         )
   
 
+  # Weather condition is a 2 value pair (angle wind_speed)
+  # Weather is a list of the form:
+  # (rectangle coordinate) (weather)
   def display_weather(self):
-    return
+    # Some constant to define the sea area
+    # The sea area is defined in the global self.sea_area
+    slice_x = 5
+    slice_y = 3
     
+    step_x  = (self.sea_area[2]-self.sea_area[0])/slice_x
+    step_y  = (self.sea_area[3]-self.sea_area[1])/slice_y
+
+    stop_x  = self.sea_area[0]+step_x*slice_x
+    stop_y  = self.sea_area[1]+step_y*slice_y
+
+    for x in range (self.sea_area[0], stop_x, step_x):
+      for y in range (self.sea_area[1], stop_y, step_y):
+        print x, step_x, self.sea_area[2]
+        angle = 0
+        direction = random.randint(0,6)
+        if(direction < 3):
+          # There is more chance to go forward than others
+          angle = random.randint(-45,45)
+        elif(direction < 4):
+          angle = random.randint(135,225)
+        elif(direction == 5):
+          angle = random.randint(80, 110)
+        elif(direction == 6):
+          angle = random.randint(260, 280)
+
+        speed = random.randint(1,10)
+        condition = [ (x, y, x+step_x, y+step_y), (angle, speed) ]
+        self.display_condition(condition)
+        self.weather.append(condition)
+    
+    
+    return
+
+  # Display the given weather condition
+  def display_condition(self, condition):
+
+    print condition
+    # Calc the center
+    cx = condition[0][0]+(condition[0][2]-condition[0][0])/2
+    cy = condition[0][1]+(condition[0][3]-condition[0][1])/2
+    
+    pixmap = gcompris.utils.load_pixmap("images/arrow.png")
+    item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x=cx-pixmap.get_width()/2,
+      y=cy-pixmap.get_height()/2
+      )
+    gcompris.utils.item_rotate_relative(item, condition[1][0]);
+
+    # Text number
+    self.rootitem.add (
+      gnome.canvas.CanvasText,
+      text=condition[1][1],
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=cx+1,
+      y=cy+1,
+      fill_color_rgba=0x000000FFL
+      )
+    
+    # Text number
+    self.rootitem.add (
+      gnome.canvas.CanvasText,
+      text=condition[1][1],
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=cx,
+      y=cy,
+      fill_color_rgba=0xFFFFFFFFL
+      )
+    
+    return
+  
