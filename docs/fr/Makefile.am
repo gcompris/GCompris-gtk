@@ -8,7 +8,7 @@ EXTRA_DIST = gcompris.html \
 	     topic.dat \
 	     overview.dia
 
-gcompris_helpdir = $(datadir)/gnome/help/$(PACKAGE)/C
+gcompris_helpdir = $(datadir)/gnome/help/$(PACKAGE)/fr
 
 all: $(doc)
 
