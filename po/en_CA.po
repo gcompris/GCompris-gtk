@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-30 23:28-0500\n"
-"PO-Revision-Date: 2005-03-30 22:51-0500\n"
+"POT-Creation-Date: 2005-04-01 12:39-0500\n"
+"PO-Revision-Date: 2005-04-01 22:51-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2766,7 +2766,7 @@ msgstr "Multiple activities for kids"
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
 #: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
 #: ../src/gcompris/gameutil.c:130 ../src/gcompris/gameutil.c:519
-#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:474
+#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:482
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -3572,43 +3572,47 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: ../src/gcompris/gcompris.c:90
+#: ../src/gcompris/gcompris.c:91
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:92
+#: ../src/gcompris/gcompris.c:93
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:94
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:96
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:100
+#: ../src/gcompris/gcompris.c:101
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:102
+#: ../src/gcompris/gcompris.c:103
 msgid "display debug informations on the console."
 msgstr "display debugging information on the console."
 
-#: ../src/gcompris/gcompris.c:104
+#: ../src/gcompris/gcompris.c:105
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:106
+#: ../src/gcompris/gcompris.c:107
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:583
+#: ../src/gcompris/gcompris.c:109
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr "Disable XRANDR (No screen resolution change)."
+
+#: ../src/gcompris/gcompris.c:591
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3630,7 +3634,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:831
+#: ../src/gcompris/gcompris.c:839
 #, c-format
 msgid ""
 "GCompris\n"
