@@ -1,21 +1,23 @@
+# translation of de.po to 
 # translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
 # Martin Herweg <m.herweg@gmx.de>, 2001.
 # Ronny Standtke <Ronny.Standtke@gmx.de>, 2003, 2004.
+# Ronny Standtke <Ronny.Standtke@gmx.net>, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-02 09:13+0100\n"
-"PO-Revision-Date: 2004-08-16 09:18+0200\n"
-"Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.de>\n"
-"Language-Team: Deutsch <de@li.org>\n"
+"POT-Creation-Date: 2004-11-21 15:30+0100\n"
+"PO-Revision-Date: 2004-11-21 15:03+0100\n"
+"Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
+"Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3\n"
+"X-Generator: KBabel 1.3.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -379,7 +381,8 @@ msgstr ""
 "Anklicken wieder entfernt werden."
 
 #: boards/algebra_guesscount.xml.in.h:3
-msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Entwickle eine Strategie, einen Satz arithmetischer Operatoren anzuordnen, "
 "um ein\n"
@@ -483,7 +486,7 @@ msgstr "Zeichen und Animationswerkzeug"
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
-#: boards/babymatch/board6_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1 boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Stelle die Bilder passend zusammen"
 
@@ -522,7 +525,8 @@ msgstr "Vervollständige das Puzzle"
 msgid ""
 "Complete the puzzle by dragging the pieces from the set of pieces on the "
 "left."
-msgstr "Vervollständige das Puzzle durch Anlegen der Teile auf der linken Seite"
+msgstr ""
+"Vervollständige das Puzzle durch Anlegen der Teile auf der linken Seite"
 
 #: boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
@@ -552,7 +556,8 @@ msgstr "Schloss mit farbigen Formen."
 
 #: boards/ballcatch.xml.in.h:1
 msgid "Push the two shift keys together to send the ball straight"
-msgstr "Drücke die beiden Hochstelltasten gleichzeitig, um den Ball gerade zu werfen"
+msgstr ""
+"Drücke die beiden Hochstelltasten gleichzeitig, um den Ball gerade zu werfen"
 
 #: boards/ballcatch.xml.in.h:2
 msgid "Send the ball to Tux"
@@ -657,7 +662,8 @@ msgstr "Ordne die Bilder, um die Geschichte zu erzählen"
 
 #: boards/chronos.xml.in.h:5
 msgid "Pick from the pictures on the left and put them on the red points"
-msgstr "Wähle aus den Bilder auf der linken Seite und lege sie auf die roten Punkte"
+msgstr ""
+"Wähle aus den Bilder auf der linken Seite und lege sie auf die roten Punkte"
 
 #: boards/chronos.xml.in.h:6
 msgid "Tell a short story"
@@ -673,12 +679,15 @@ msgstr "Tux und der Apfelbaum"
 
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 msgstr ""
-"Plaziere jedes Bild auf dem Datum, an dem es erfunden wurde.\n"
-"Wenn Du Dir unsicher bist, kannst Du im Internet unter\n"
-"http://www.wikipedia.org nachschlagen."
+"Plaziere jedes Bild in der Reihenfolge und\n"
+" auf dem Datum, an dem es erfunden wurde.\n"
+" Wenn Du Dir unsicher bist, kannst Du im Internet unter\n"
+" http://www.wikipedia.org nachschlagen."
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -750,7 +759,8 @@ msgstr ""
 "Ort: unbekannt (Bild nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgid ""
+"Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
 "Klicke mit der linken Maustaste auf alle Fische, bevor sie aus dem Aquarium "
 "schwimmen"
@@ -987,31 +997,31 @@ msgid "Place the lands"
 msgstr "Platziere die Länder"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Afrika"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "Amerika"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Antarktis"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Asien"
+
+#: boards/geography/board1_0.xml.in.h:5
 msgid "Continents"
 msgstr "Kontinente"
 
-#: boards/geography/board1_0.xml.in.h:2
-msgid "africa"
-msgstr "Afrika"
-
-#: boards/geography/board1_0.xml.in.h:3
-msgid "america"
-msgstr "Amerika"
-
-#: boards/geography/board1_0.xml.in.h:4
-msgid "antartica"
-msgstr "Antarktis"
-
-#: boards/geography/board1_0.xml.in.h:5
-msgid "asia"
-msgstr "Asien"
-
 #: boards/geography/board1_0.xml.in.h:6
-msgid "europa"
+msgid "Europa"
 msgstr "Europa"
 
 #: boards/geography/board1_0.xml.in.h:7
-msgid "oceania"
+msgid "Oceania"
 msgstr "Ozeanien"
 
 #: boards/geography/board2_0.xml.in.h:1
@@ -1294,11 +1304,11 @@ msgstr "Tastatur-Handhabung"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Buchstaben-Erkennung zwischen Bildschirm und Tastatur"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Einfache Buchstaben"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Gib die fallenden Buchstaben ein, bevor sie unten ankommen"
 
@@ -1353,7 +1363,7 @@ msgstr "Finde das zu einem Bild gehörende Wort"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: src/boards/reading.c:107
 msgid "Reading"
 msgstr "Lesen"
 
@@ -1703,32 +1713,42 @@ msgstr "Trainiere Dein Gedächtnis und entferne alle Karten"
 
 #: boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
-"old 3 Stars - 6 to 7 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current "
+"activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 msgstr ""
 "Ein einfacher Mausklick auf ein Symbol führt zu einer Tafel oder einem "
-"weiteren Menü. Am unteren Rand befindet sich die Kontroll-Leiste von "
-"GCompris. Die folgenden Symbole werden von rechts nach links angezeigt "
-"(Beachte, dass die Symbole nur dann angezeigt werden, wenn sie auch in der "
-"aktuellen Tafel verwendet werden können.):\n"
-"Haus - Zurück zum übergeordneten Menü oder GCompris verlassen\n"
-"Daumen - OK oder Antwort bestätigen\n"
-"Würfel - Anzeige und Auswahl des momentanen Schwierigkeitsgrades\n"
-"Musiknote - Die Frage wiederholen\n"
-"Fragezeichen - Hilfefenster öffnen\n"
-"Werkzeugkiste - Konfigurationsfenster öffnen\n"
-"Tuxflieger - Infofenster zu GCompris öffnen\n"
-"Die Sterne bedeuten:\n"
-"Ein Stern - 3 bis 4 Jahre\n"
-"Zwei Sterne - 5 bis 6 Jahre\n"
-"Drei Sterne - 7 bis 8 Jahre"
+"weiteren Menü.\n"
+" Am unteren Rand befindet sich die Kontroll-Leiste von GCompris.\n"
+" Die folgenden Symbole werden von rechts nach links angezeigt. Beachte, dass "
+"die Symbole nur dann angezeigt werden, wenn sie auch in der aktuellen Tafel "
+"verwendet werden können.\n"
+" Haus - Zurück zum übergeordneten Menü oder GCompris verlassen, wenn ganz "
+"oben\n"
+" Daumen - OK. Antwort bestätigen\n"
+" Würfel - Anzeige der Ebene. Klicken, um eine andere Ebene auszuwählen\n"
+" Musiknote - Frage wiederholen\n"
+" Fragezeichen - Hilfe\n"
+" Werkzeugkiste - Das Konfigurationsmenü\n"
+" Tuxflieger - Über GCompris\n"
+" Die Sterne bedeuten:\n"
+" Ein Stern - 2 bis 3 Jahre\n"
+" Zwei Sterne - 4 bis 5 Jahre\n"
+" Drei Sterne - 6 bis 7 Jahre\n"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1963,7 +1983,7 @@ msgid ""
 "main board."
 msgstr "Lege die Bildteile zu einem Gemälde zusammen."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Gemäldepuzzle"
 
@@ -2040,7 +2060,8 @@ msgstr ""
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
+msgstr ""
+"Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
 
 #: boards/planegame.xml.in.h:2
 msgid "Number"
@@ -2075,7 +2096,8 @@ msgid "Test board for the python plugin"
 msgstr "Testtafel für das Python-Plugin"
 
 #: boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Dank an Guido van Rossum und die Python-Mannschaft für diese mächtige "
 "Sprache!"
@@ -2181,7 +2203,8 @@ msgstr "Horizontale Leseübung"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of words and tell if a given word is in it"
-msgstr "Lies eine Liste von Wörtern und sag, ob das gesuchte Wort darin vorkommt"
+msgstr ""
+"Lies eine Liste von Wörtern und sag, ob das gesuchte Wort darin vorkommt"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -2374,7 +2397,8 @@ msgstr ""
 "wieder."
 
 #: boards/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Kann die Maus bewegen, kann Nummern lesen und kann für die erste Ebene bis "
 "15 zählen"
@@ -2436,7 +2460,7 @@ msgstr ""
 "Tux ist mit seinem Boot von einem langen Fischfang zurückgekommen. Stelle "
 "den Wasserkreislauf wieder her, so dass er duschen kann."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Fallende Wörter"
 
@@ -2446,7 +2470,8 @@ msgstr "Tastatur-Training"
 
 #: boards/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr "Gib das vollständige Wort ein während es fäll, bevor es den Boden erreicht"
+msgstr ""
+"Gib das vollständige Wort ein während es fäll, bevor es den Boden erreicht"
 
 #: boards/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
@@ -2457,8 +2482,8 @@ msgid "Editor for gcompris"
 msgstr "Editor für GCompris"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Lernspiel ab 3 Jahren"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Lernspiel für Kinder von 2 bis 10 Jahren"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
@@ -2466,7 +2491,7 @@ msgstr "Bildungs-Sammlung gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2476,7 +2501,7 @@ msgstr "Kann Datei %s nicht finden!"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1853
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "finde Datei %s ! "
@@ -2555,15 +2580,15 @@ msgstr "Weiß Matt"
 msgid "Drawn game"
 msgstr "Unentschieden"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Lies einen Buchstaben"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Das Erkennen von Buchstaben lernen"
 
-#: src/boards/click_on_letter.c:223
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2571,7 +2596,7 @@ msgstr ""
 "Fehler: Diese Aktivität erfordert die Installation\n"
 "des Paketes \"assetml-voices-alphabet\"!"
 
-#: src/boards/click_on_letter.c:230
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2582,6 +2607,11 @@ msgstr ""
 "abgeschalteter Tonausgabe gespielt werden!\n"
 "Der Ton kann in der Konfiguration\n"
 "angeschalten werden."
+
+#. TRANSLATORS: Put here the alphabet in your language
+#: src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyz"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2636,7 +2666,7 @@ msgstr "Klicke auf die weiße Figur"
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Bewege die Gegenstände einzeln, um sie aufsteigend zu sortieren"
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339 src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Baue an der leeren Stelle den Turm auf der rechten Seite nach"
 
@@ -2660,7 +2690,8 @@ msgstr "rechts"
 
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
-msgstr "Betrachte Deine Position und schalte zum Weitermachen zum 3D-Modus zurück"
+msgstr ""
+"Betrachte Deine Position und schalte zum Weitermachen zum 3D-Modus zurück"
 
 #: src/boards/memory.c:164
 msgid "Memory"
@@ -2688,11 +2719,13 @@ msgstr "Fallschirmspringen"
 
 #: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
-msgstr "Führe den Fallschirmspringer um ihm bei einer sicheren Landung zu helfen"
+msgstr ""
+"Führe den Fallschirmspringer um ihm bei einer sicheren Landung zu helfen"
 
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
+msgstr ""
+"Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
 
 #: src/boards/python.c:53
 msgid "Python Board"
@@ -2747,62 +2780,58 @@ msgstr "Farben lesen"
 msgid "Click on the corresponding color"
 msgstr "Klicke auf die richtige Farbe"
 
-#: src/boards/reading.c:103
+#: src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lies eine Liste von Wörtern und sag mir, ob das gesuchte Wort vorkommt"
 
-#: src/boards/reading.c:315
+#: src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Bitte sag mir, ob das Wort"
 
-#: src/boards/reading.c:335
+#: src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "angezeigt wurde"
 
-#: src/boards/reading.c:522
+#: src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "Los geht's!"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Ja, ich hab's gesehen"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "Nein, es kam nicht vor"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Das gesuchte Wort war '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:645
 msgid "But it was not displayed"
 msgstr "aber es wurde nicht angezeigt"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:647
 msgid "And it was displayed"
 msgstr "und es wurde angezeigt"
 
-#: src/boards/reading.c:737 src/boards/reading.c:747
+#: src/boards/reading.c:748 src/boards/wordsgame.c:760
 msgid "Cannot open file of words for your locale"
 msgstr "Kann Wörterdatei für Ihre Sprache nicht öffnen"
-
-#: src/boards/reading.c:776
-msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr "Fehler: Das Wortdatei-Paket für Ihre Sprache ist beschädigt"
 
 #: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Rückwärts zählen"
 
-#: src/boards/shapegame.c:169
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Füge die Teile zusammen"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2814,7 +2843,7 @@ msgstr ""
 "\"s\" um abzuspeichern\n"
 "\"d\" um alle Formen anzuzeigen"
 
-#: src/boards/shapegame.c:424
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2828,7 +2857,8 @@ msgstr "Würfel und Zahlen"
 
 #: src/boards/smallnumbers.c:71
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
+msgstr ""
+"Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
 
 #: src/boards/submarine.c:201
 msgid "Submarine"
@@ -2857,7 +2887,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Entfernung zur Zielscheibe = %d Meter"
 
-#: src/boards/wordsgame.c:88
+#: src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Gib die Wörter vollständig ein bevor sie unten ankommen"
 
@@ -2893,7 +2923,8 @@ msgid "GCompris Home Page"
 msgstr "GCompris Webseite"
 
 #: src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgid ""
+"This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU Public Licence "
 "veröffentlicht"
@@ -2902,7 +2933,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/about.c:316 src/gcompris/config.c:207
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2975,173 +3006,177 @@ msgid "French"
 msgstr "Französisch"
 
 #: src/gcompris/config.c:78
+msgid "Irish (Gaelic)"
+msgstr "Irisch (Gälisch)"
+
+#: src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "Hebräisch"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Indian (Hindi)"
 msgstr "Indisch (Hindi)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
 msgstr "Indisch (Punjabi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italienisch"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Mazedonisch"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malaysisch"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Holländisch"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Norwegian Bokmal"
 msgstr "Norwegisch Bokmal"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Nynorsk"
 msgstr "Neunorwegisch"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Polnisch"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portugiesisch"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Brasilianisches Portugiesisch"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Rumänisch"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Albanian"
 msgstr "Albanisch"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Serbian (Latin)"
 msgstr "Serbisch (Latein)"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Serbian"
 msgstr "Serbisch"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Walloon"
 msgstr "Wallonisch"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:117
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "No filter"
 msgstr "Kein Filter"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "Only this level"
 msgstr "Nur diese Ebene"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Up to this level"
 msgstr "Bis zu dieser Ebene"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "This level and above"
 msgstr "Diese Ebene und höher"
 
-#: src/gcompris/config.c:180
+#: src/gcompris/config.c:181
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: src/gcompris/config.c:289
+#: src/gcompris/config.c:290
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: src/gcompris/config.c:332
+#: src/gcompris/config.c:333
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:360
+#: src/gcompris/config.c:361
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:394
+#: src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: src/gcompris/config.c:415
+#: src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Keine Verkleidung in %s gefunden\n"
 
-#: src/gcompris/config.c:430 src/gcompris/config.c:815
-#: src/gcompris/config.c:826
+#: src/gcompris/config.c:431 src/gcompris/config.c:816
+#: src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
@@ -3222,9 +3257,15 @@ msgid ""
 "Linux. Get more information on\n"
 "http://www.fsf.org/philosophy"
 msgstr ""
-"GCompris ist unter der GPL veröffentlichte freie Software. Um die Entwicklung zu unterstützen, bietet die Windows-Version nur 12 der 45 Aktivitäten. Sie können die Vollversion für eine kleine Gebühr unter\n"
+"GCompris ist unter der GPL veröffentlichte freie Software. Um die "
+"Entwicklung zu unterstützen, bietet die Windows-Version nur 12 der 45 "
+"Aktivitäten. Sie können die Vollversion für eine kleine Gebühr unter\n"
 "http://gcompris.net\n"
-"erhalten. Die Linux-Version hat diese Einschränkung nicht. Bitte beachten Sie, dass GCompris entwickelt wird, um Schulen von  monopolistischen Softwareanbietern zu entbinden. Wenn Sie auch glauben, dass wir Kindern Freiheit lehren sollen, ziehen Sie bitte die Benutzung von GNU/Linux in Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
+"erhalten. Die Linux-Version hat diese Einschränkung nicht. Bitte beachten "
+"Sie, dass GCompris entwickelt wird, um Schulen von  monopolistischen "
+"Softwareanbietern zu entbinden. Wenn Sie auch glauben, dass wir Kindern "
+"Freiheit lehren sollen, ziehen Sie bitte die Benutzung von GNU/Linux in "
+"Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
 #: src/gcompris/gcompris.c:717
@@ -3329,237 +3370,3 @@ msgstr "Zeit verstrichen"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Verbleibende Zeit = %d"
-
-#~ msgid "VIII Century"
-#~ msgstr "Achtes Jahrhundert"
-
-#~ msgid "American English"
-#~ msgstr "Amerikanisches Englisch"
-
-#~ msgid "Great Britain English"
-#~ msgstr "Britisches Englisch"
-
-#~ msgid "Canadian English"
-#~ msgstr "Kanadisches Englisch"
-
-#~ msgid ""
-#~ "This is a Demo version of gcompris,\n"
-#~ "only 12 on 45 activities are available.\n"
-#~ "To get the full version,\n"
-#~ "go to http://www.ofset.org/order/gcompris"
-#~ msgstr ""
-#~ "Dies ist eine Demo-Version von gcompris,\n"
-#~ "nur 12 von 45 Aktivitiäten stehen zur Verfügung.\n"
-#~ "Um die Vollversion zu erhalten,\n"
-#~ "öffnen Sie bitte http://www.ofset.org/order/gcompris"
-
-#~ msgid "This board is dedicated to recognize unusual colors."
-#~ msgstr "Diese Tafel ist der Erkennung ungewöhnlicher Farben gewidmet."
-
-#~ msgid ""
-#~ "In a limited time, give the result to the multiplication of two numbers"
-#~ msgstr ""
-#~ "Ermittle das Ergebnis der Multiplikation zweier Zahlen in begrenzter Zeit."
-
-#~ msgid ""
-#~ "With displayed numbers and operations, find the right combination to get "
-#~ "the right result"
-#~ msgstr ""
-#~ "Es werden verschiedene Rechenarten, Zahlen und das Ergebnis vorgegeben.\n"
-#~ "Finde die zu den Vorgaben passenden Rechenschritte."
-
-#~ msgid ""
-#~ "In the main area, a puzzle set is proposed. In the left area, you have "
-#~ "the set of pieces for this puzzle. To place the pieces, you must use the "
-#~ "drag/drop mouvement with the mouse."
-#~ msgstr ""
-#~ "Auf dem Bildschirm wird eine Puzzle dargestellt. Auf der linken Seite "
-#~ "hast Du die passenden Teile dazu. Um die Teile zu platzieren, musst Du "
-#~ "sie mit der Maus ziehen und fallenlassen."
-
-#~ msgid ""
-#~ "This board is dedicated to train kids to recognize colors. Several "
-#~ "colored toons are displayed and a color is spoken. The kid must select "
-#~ "the proper toon."
-#~ msgstr ""
-#~ "Diese Tafel ist der Farberkennung gewidmet. Verschiedenfarbige "
-#~ "Plüschtiere werden\n"
-#~ "dargestellt und eine Farbe wird angesagt. Du musst das richtige "
-#~ "Plüschtier auswählen."
-
-#~ msgid "Drag and Drop the top piece only on an empty location"
-#~ msgstr ""
-#~ "Um den Turm auf der rechten Seite nachzubauen, bewege die obersten Teile "
-#~ "der Türme\n"
-#~ "so lange von Turm zu Turm, bis du die benötigten Teile in der richtigen "
-#~ "Reihenfolge\n"
-#~ "zusammengebaut hast."
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots associated with work are "
-#~ "printed. In the vertical frame - at the left of the main board area, a "
-#~ "set of objects are represented, each of these objects match with one word "
-#~ "of the main board area. The right association must be find for these "
-#~ "objects. This is achieved by dragging the objects to the right red plot "
-#~ "in the main area."
-#~ msgstr ""
-#~ "Im Bereich der Haupttafel ist ein Satz von roten Punkten dargestellt. Im "
-#~ "vertikalen Rahmen\n"
-#~ "- links von der Haupttafel - werden verschiedene Gegenstände dargestellt. "
-#~ "Jeder dieser\n"
-#~ "Gegenstände passt exakt zu einem Wort in der Haupttafel. Die Zuordung der "
-#~ "Gegenstände\n"
-#~ "zu den Wörtern wird durch das Ziehen der Gegenstände auf den richtigen "
-#~ "roten Punkt\n"
-#~ "erreicht."
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots are displayed. In the vertical "
-#~ "frame - at the left of the main board area, a set of image parts of a "
-#~ "painting are avalaible. Drag and drop these parts in the right plot to "
-#~ "rebuild the original painting."
-#~ msgstr ""
-#~ "Im Bereich der Haupttafel sind einige rote Punkte dargestellt. Im "
-#~ "vertikalen Rahmen - links\n"
-#~ "von der Haupttafel - befinden sich ein paar Bildteile. Füge diese Teile "
-#~ "so zusammen, dass\n"
-#~ "das Originalbild entsteht."
-
-#~ msgid ""
-#~ "Click on any keyboard key to let Tux jump. Another keypress will open the "
-#~ "parachute. Alternatively, a click on the plane and the tux also works."
-#~ msgstr ""
-#~ "Drücke eine beliebige Taste um Tux springen zu lassen.\n"
-#~ "Der nächste Tastendruck öffnet den Fallschirm.\n"
-#~ "Als Alternative kannst Du auch mit der Maus auf das Flugzeug und Tux "
-#~ "klicken."
-
-#~ msgid ""
-#~ "At the top and right of the board area, a word is printed. At the left a "
-#~ "list of words will move in and out of the screen. Tell if you see the "
-#~ "initial word in this list."
-#~ msgstr ""
-#~ "Oben rechts wird ein Wort angezeigt. Auf der linken Seite wird eine Liste "
-#~ "von Wörtern\n"
-#~ "angezeigt und wieder gelöscht. Sag, ob du das Wort in der Liste gesehen "
-#~ "hast."
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "it in the left area."
-#~ msgstr ""
-#~ "In jeder Stufe wird auf der rechten Seite eine Zeichnung dargestellt. Du\n"
-#~ "musst sie auf der linken Seite nachzeichnen."
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "its symmetry in the left area."
-#~ msgstr ""
-#~ "In jeder Stufe wird auf der rechten Seite eine Zeichnung dargestellt. Du\n"
-#~ "musst ihre Symmetrie, das heisst spiegelverkehrt, auf der linken Seite "
-#~ "nachzeichnen."
-
-#~ msgid "Couldn't open pixmap dir: %s"
-#~ msgstr "Kann Grafik-Verzeichnis %s nicht öffnen"
-
-#~ msgid ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "output"
-#~ msgstr ""
-#~ "wähle die Tonausgabe. Benutze \"-A list\", um die Liste der verfügbaren "
-#~ "Tonausgaben zu\n"
-#~ "erhalten"
-
-#~ msgid ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-#~ msgstr ""
-#~ "Mögliche Tonausgabe-Geräte sind:\n"
-#~ "default"
-
-#~ msgid "Now Playing Music"
-#~ msgstr "Spiele jetzt Musik"
-
-#~ msgid "Artist"
-#~ msgstr "Künstler"
-
-#~ msgid "Simple addition"
-#~ msgstr "Einfache Addition"
-
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Formen Puzzle"
-
-#~ msgid ""
-#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
-#~ "click with the left mouse button on the moving fish."
-#~ msgstr ""
-#~ "Motorische Fähigkeiten: Maus-Bewegung und Maus-Klick. Das Ziel ist, "
-#~ "einfach mit der linken\n"
-#~ "Maustaste auf die schwimmenden Fische zu klicken."
-
-#~ msgid "Move the mouse to machpuzzle the area and discover the background"
-#~ msgstr ""
-#~ "Bewege die Maus um Felder zu löschen und den Hintergrund freizulegen"
-
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "GCompris - Ich habe verstanden"
-
-#~ msgid ""
-#~ "Click on the word corresponding to the printed image. When you are sure "
-#~ "of your choice click on the hand at the bottom"
-#~ msgstr "Klick auf das Wort, das zu dem dargestellten Bild gehört."
-
-#, fuzzy
-#~ msgid "Practice the division operation"
-#~ msgstr "Übe das Dividieren"
-
-#~ msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-#~ msgstr "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-
-#~ msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-
-#~ msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-#~ msgstr "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-
-#~ msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-
-#~ msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-#~ msgstr "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-
-#~ msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-
-#~ msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-
-#~ msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-
-#~ msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-#~ msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-
-#, fuzzy
-#~ msgid "Down"
-#~ msgstr "Krone"
-
-#, fuzzy
-#~ msgid "Couldn't create pixmap from file: %s"
-#~ msgstr "Kann Grafik-Verzeichnis %s nicht öffnen"
-
-#, fuzzy
-#~ msgid "cinabre"
-#~ msgstr "Auto"
-
-#, fuzzy
-#~ msgid "Move the mouse to reversecount the area and discover the background"
-#~ msgstr ""
-#~ "Bewege die Maus um Felder zu löschen und den Hintergrund freizulegen"
-
-#~ msgid "Set the masses in the decreasing order"
-#~ msgstr "Stelle die Gewichte in abnehmender Reihenfolge auf die Waage"
-
-#~ msgid "Do you really want to quit GCompris?"
-#~ msgstr "Möchtest Du GCompris wirklich beenden?"
-
