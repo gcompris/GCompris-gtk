@@ -718,7 +718,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 	  if(dicevalue_array[i]-- == 1)
 	    dicevalue_array[i] = max_dice_number;
 	  break;
-	  break;
 	default:
 	  break;
 	}
@@ -726,12 +725,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
       str = g_strdup_printf("gcompris/dice/gnome-dice%d.png", dicevalue_array[i]);
       
       pixmap = gcompris_load_pixmap(str);
-      
-      gnome_canvas_item_set(item,
-			    "pixbuf",pixmap,
-			    NULL);
-      
+
+      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+      g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixmap);
+      gnome_canvas_item_set (item,
+      			     "pixbuf", pixmap,
+      			     NULL);
       gdk_pixbuf_unref(pixmap);
+
       g_free(str);
       break;
 
