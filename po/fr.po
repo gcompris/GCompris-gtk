@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-02-11 22:50+0100\n"
+"POT-Creation-Date: 2002-02-18 10:00+0100\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -165,11 +165,11 @@ msgstr "Apprentissage de l'heure"
 msgid "Discover the Computer"
 msgstr "Découvre l'ordinateur"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:98
+#: boards/draw.xml.in.h:1 src/boards/draw.c:132
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:99
+#: boards/draw.xml.in.h:2 src/boards/draw.c:133
 msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative où l'on peut dessiner librement"
 
@@ -301,9 +301,10 @@ msgstr "poire"
 msgid "satchel"
 msgstr "sac"
 
-#: boards/imagename.xml.in.h:1 boards/imagename/board2_0.xml.in.h:1
-#: boards/imagename/board3_0.xml.in.h:1 boards/imagename/board4_0.xml.in.h:1
-#: boards/imagename/board5_0.xml.in.h:1 boards/imagename/board6_0.xml.in.h:1
+#: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
+#: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
+#: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
+#: boards/imagename/board6_0.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
 msgstr "Attrape et fais glisser les éléments au dessus de leurs noms"
 
@@ -311,27 +312,27 @@ msgstr "Attrape et fais glisser les éléments au dessus de leurs noms"
 msgid "Image Name"
 msgstr "Nom de l'image"
 
-#: boards/imagename/board1_0.xml.in.h:1
+#: boards/imagename/board1_0.xml.in.h:2
 msgid "bulb"
 msgstr "ampoule"
 
-#: boards/imagename/board1_0.xml.in.h:2
+#: boards/imagename/board1_0.xml.in.h:3
 msgid "fishing boat"
 msgstr "bateau de pêche"
 
-#: boards/imagename/board1_0.xml.in.h:3
+#: boards/imagename/board1_0.xml.in.h:4
 msgid "lamp"
 msgstr "lampe"
 
-#: boards/imagename/board1_0.xml.in.h:4
+#: boards/imagename/board1_0.xml.in.h:5
 msgid "mail box"
 msgstr "boîte au lettre"
 
-#: boards/imagename/board1_0.xml.in.h:5 boards/imagename/board5_0.xml.in.h:4
+#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:4
 msgid "postcard"
 msgstr "carte postale"
 
-#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board3_0.xml.in.h:5
+#: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
 #: boards/imagename/board6_0.xml.in.h:7
 msgid "sailing boat"
 msgstr "bateau à voile"
@@ -581,11 +582,11 @@ msgstr ""
 "dans le bateau de pêche.\n"
 "Il/Elle devra faire attention à la direction et force du vent."
 
-#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:106
+#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
 msgid "Manage the paratrooper to let him safely land"
 msgstr "Gère le parachutiste et fais le atterrir en douceur"
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:105
+#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
 msgid "Paratrooper"
 msgstr "Parachutiste"
 
@@ -703,17 +704,16 @@ msgid "Learn how to read"
 msgstr "Apprends à lire"
 
 #: src/boards/imageid.c:570 src/boards/menu.c:502
-#: src/boards/missingletter.c:587 src/boards/shapegame.c:1289
-#: src/gcompris/gameutil.c:49 src/gcompris/gameutil.c:67
-#: src/gcompris/gameutil.c:86 src/gcompris/gameutil.c:313
-#: src/gcompris/gameutil.c:339 src/gcompris/gameutil.c:489
-#: src/gcompris/gameutil.c:490
+#: src/boards/missingletter.c:587 src/boards/shapegame.c:1310
+#: src/gcompris/gameutil.c:47 src/gcompris/gameutil.c:65
+#: src/gcompris/gameutil.c:84 src/gcompris/gameutil.c:356
+#: src/gcompris/gameutil.c:357
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/imageid.c:573 src/boards/missingletter.c:590
-#: src/boards/shapegame.c:1292
+#: src/boards/shapegame.c:1313
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -923,6 +923,3 @@ msgstr "Objectif"
 #: src/gcompris/help.c:218
 msgid "Manual"
 msgstr "Manuel"
-
-#~ msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-#~ msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
