@@ -3,11 +3,12 @@
 # Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>, 2001, 2002.
 # Tino Meinen <a.t.meinen@chello.nl>, 2002, 2003
 # 
+#: src/boards/traffic.c:97
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-01-17 10:51+0100\n"
-"PO-Revision-Date: 2003-01-18 15:52+0100\n"
+"POT-Creation-Date: 2003-01-25 03:43+0100\n"
+"PO-Revision-Date: 2003-01-25 08:52+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -1883,7 +1884,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:154 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:155 src/gcompris/help.c:342
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -1933,57 +1934,66 @@ msgid "Dutch"
 msgstr "Nederlands"
 
 #: src/gcompris/config.c:55
+msgid "Portuguese"
+msgstr "Portugees"
+
+#: src/gcompris/config.c:56
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:57
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:58
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:59
 msgid "Slovak"
 msgstr "Slovaaks"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:60
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Slow timer"
 msgstr "Trage timer"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Normal timer"
 msgstr "Normale timer"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Fast timer"
 msgstr "Snelle timer"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:234
+#: src/gcompris/config.c:129
+msgid "GCompris Configuration"
+msgstr "GCompris configuratie"
+
+#: src/gcompris/config.c:235
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:277
+#: src/gcompris/config.c:278
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:305
+#: src/gcompris/config.c:306
 msgid "Effect"
 msgstr "Effect"
 
+# Beter: schermvullend?
 #: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm"
@@ -1994,7 +2004,7 @@ msgstr "gcompris uitvoeren in een venster"
 
 #: src/gcompris/gcompris.c:70
 msgid "run gcompris with sound enabled."
-msgstr "gcompris uitvoeren met geluid aan"
+msgstr "gcompris uitvoeren met geluid"
 
 #: src/gcompris/gcompris.c:72
 msgid "run gcompris without sound."
@@ -2010,7 +2020,7 @@ msgstr "Toont de versie van"
 
 #: src/gcompris/gcompris.c:78
 msgid "Use the antialiased canvas (slower)."
-msgstr "Gebruik het anti-aliasing doek (trager)"
+msgstr "Gebruik anti-aliasing (trager)"
 
 #: src/gcompris/gcompris.c:328
 msgid "GCompris I Have Understood"
