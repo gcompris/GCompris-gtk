@@ -331,9 +331,8 @@ In clockgame.c set the proper information for the new game:
   Set the icon file at the location given in clockgame.xml.
 
 @item
-In boards/menu.xml add the entry point for the new game:
-
-@code{<Data filename="clockgame.xml"/>}
+In boards/Makefile.am add your file in the list. Respect the alphanumeric order.
+Same step in po/POTFILES.in
 
 @item
 make should compile everything fine.

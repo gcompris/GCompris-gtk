@@ -147,6 +147,8 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+  GdkPixbuf *pixmap = NULL;
+  char *str;
 
   if(agcomprisBoard!=NULL)
     {
@@ -159,7 +161,17 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->width - 220, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+
+      str = gcompris_image_to_skin("button_reload.png");
+      pixmap = gcompris_load_pixmap(str);
+      g_free(str);
+      if(pixmap) {
+	gcompris_bar_set_repeat_icon(pixmap);
+	gdk_pixbuf_unref(pixmap);
+	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT_ICON);
+      } else {
+	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+      }
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "traffic/traffic-bg.jpg");

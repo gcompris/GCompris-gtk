@@ -1,17 +1,31 @@
 2003-12-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* boards/Makefile.am: added redraw_symmetrical
-	* boards/melody.xml.in: created
-	* boards/redraw.xml.in: minor fix
-	* boards/redraw_symmetrical.xml.in: created
+	* boards/images/maze-2d-bubble.png: Created by Ronny Standtke to have a contextual redo/help icon
+	* boards/images/maze-3d-bubble.png: Created by Ronny Standtke to have a contextual redo icon
+	* boards/skins/default/button_redo.png: Created by Ronny Standtke to have a contextual redo icon
+	* boards/skins/default/button_reload.png: Created by Ronny Standtke to have a contextual redo icon
+	* boards/maze3D.xml.in: added some help
 	* docs/C/gcompris.texi: updated development process
 	* docs/C/python.html: updated development process
 	* docs/fr/gcompris.texi: updated development process
 	* po/POTFILES.in: added redraw_symmetrical
-	* src/boards/python/redraw.py: added support for symmetrical mode
+	* src/boards/hanoi.c: (hanoi_create_item): removed console printout
+	* src/boards/maze.c: (start_board), (repeat), (maze_create_item): implemented a contectual help icon.
+	* src/boards/python/redraw.py: now display the icon of the mode. now the new board don not overlap the bonus icon.
+	* added support for symmetrical mode
+	* src/boards/railroad.c: (start_board):  implemented a contectual help icon.
+	* src/boards/traffic.c: (start_board): implemented a contectual help icon.
+	* src/gcompris/bar.c: (gcompris_bar_set_repeat_icon): fixed to work with the focus
 	* src/gcompris/bonus.h: indent fix
 	* src/gcompris/images_selector.c: (item_event_imageset_selector): fixed bad cast (gcc warning)
 	* src/gcompris/properties.c: (gcompris_properties_new): fixed core dump when no LANG ENV var are set
+
+2003-12-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added redraw_symmetrical
+	* boards/melody.xml.in: created
+	* boards/redraw.xml.in: minor fix
+	* boards/redraw_symmetrical.xml.in: created
 
 2003-12-16  Bruno coudoin  <bruno.coudoin@free.fr>
 

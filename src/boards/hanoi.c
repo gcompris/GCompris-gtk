@@ -401,10 +401,10 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	    {
 	      /* Take only a color that is not part of the goal */
 	      guint color = (guint)RAND(0, NUMBER_OF_COLOR);
-	      printf(" i,j=%d,%d random color = %d used_colors[color]=%d\n", i,j,color, used_colors[color]);
+	      //printf(" i,j=%d,%d random color = %d used_colors[color]=%d\n", i,j,color, used_colors[color]);
 	      while(used_colors[color])
 		{
-		  printf("  used_colors[%d]=%d\n", color, used_colors[color]);
+		  //printf("  used_colors[%d]=%d\n", color, used_colors[color]);
 		if(color++>NUMBER_OF_COLOR)
 		  color = 0;
 		}
@@ -413,7 +413,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	    }
 	}
     }
-  dump_solution();
+  //dump_solution();
 
   /* Mark the top pieces */
   for(i=0; i<(number_of_item_x); i++)

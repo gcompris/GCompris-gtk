@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2003/10/20 01:23:17 bcoudoin>
+ * Time-stamp: <2003/12/19 22:00:48 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -354,7 +354,7 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 	  g_return_if_fail (image_list != NULL);
 
 	  /* We must display the list of images for this set */
-	  rootitem_set = (GList *)g_object_get_data (G_OBJECT (item), "rootitem");
+	  rootitem_set = (GnomeCanvasItem *)g_object_get_data (G_OBJECT (item), "rootitem");
 	  g_return_if_fail (rootitem_set != NULL);
 
 	  imageset_done = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "imageset_done"));

@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/12/11 01:10:35 bcoudoin>
+ * Time-stamp: <2003/12/20 14:20:08 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -168,7 +168,7 @@ GcomprisProperties *gcompris_properties_new ()
   if(locale == NULL)
     locale = getenv("LANG");
 
-  if (!strcmp(locale, "C"))
+  if (locale != NULL && !strcmp(locale, "C"))
     {
       tmp->locale		= "en_US.UTF-8";
     } 

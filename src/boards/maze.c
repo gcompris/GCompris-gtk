@@ -75,9 +75,10 @@ static void repeat(void);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
-static GnomeCanvasGroup *mazegroup = NULL;
+static GnomeCanvasGroup *mazegroup     = NULL;
 
-static GnomeCanvasItem *tuxitem = NULL;
+static GnomeCanvasItem *warning_item   = NULL;
+static GnomeCanvasItem *tuxitem        = NULL;
 
 static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent);
 static void maze_destroy_all_items(void);
@@ -174,6 +175,8 @@ static void set_level (guint level) {
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
 
+  GdkPixbuf *pixmap = NULL;
+
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
@@ -190,10 +193,18 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     else if(g_strncasecmp(gcomprisBoard->mode, "3D", 2)==0)
       modeIs2D=FALSE;
 
-    if(modeIs2D)
+    if(modeIs2D) {
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
-    else
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+    } else {
+      pixmap = gcompris_load_pixmap("images/gcompris-2d-bubble.png");
+      if(pixmap) {
+	gcompris_bar_set_repeat_icon(pixmap);
+	gdk_pixbuf_unref(pixmap);
+	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT_ICON);
+      } else {
+	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
+      }
+    }
 
     gamewon = FALSE;
 
@@ -369,15 +380,33 @@ static void setlevelproperties(){
  * Repeat let the user get a help map in 3D mode
  *
  */
-static void repeat (){
+static void repeat () {
+  GdkPixbuf *pixmap = NULL;
 
   if(modeIs2D)
     return;
 
-  if(threeDactive)
+  if(threeDactive) {
+
+    pixmap = gcompris_load_pixmap("images/maze-3d-bubble.png");
+    if(pixmap) {
+      gcompris_bar_set_repeat_icon(pixmap);
+      gdk_pixbuf_unref(pixmap);
+    }
     twoDdisplay();
-  else
+    /* Display a warning that you can't move there */
+    gnome_canvas_item_show(warning_item);
+    
+  } else {
+
+    pixmap = gcompris_load_pixmap("images/maze-2d-bubble.png");
+    if(pixmap) {
+      gcompris_bar_set_repeat_icon(pixmap);
+      gdk_pixbuf_unref(pixmap);
+    }
+    gnome_canvas_item_hide(warning_item);
     threeDdisplay();
+  }
 
 }
 
@@ -411,6 +440,16 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 						     "x",(double)breedte,
 						     "y",(double)hoogte,
 						     NULL));
+
+  warning_item = gnome_canvas_item_new (boardRootItem,
+					gnome_canvas_text_get_type (),
+					"text", _("Look at your position and switch back to 3D mode to move"),
+					"font", gcompris_skin_font_board_big,
+					"x", (double) BOARDWIDTH/2,
+					"y", (double) BOARDHEIGHT-20,
+					"anchor", GTK_ANCHOR_CENTER,
+					"fill_color", "white",
+					NULL);
   return NULL;
 }
 /* =====================================================================

@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2003/12/11 00:43:30 bcoudoin>
+ * Time-stamp: <2003/12/21 17:44:37 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -336,7 +336,7 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
  *
  * Override the repeat icon to a new one specific to your current board.
  * This must be called before calling gcompris_bar_set with GCOMPRIS_BAR_REPEAT_ICON
- * the given pixmap is freed.
+ * the given pixmap is not freed.
  *
  * Next call to gcompris_bar_set with GCOMPRIS_BAR_REPEAT will restore the default icon.
  *
@@ -344,10 +344,11 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
 void
 gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap)
 {
+  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+  g_object_set_data (G_OBJECT (repeat_item), "pixbuf_ref", pixmap);
   gnome_canvas_item_set (repeat_item,
 			 "pixbuf", pixmap,
 			 NULL);
-  gdk_pixbuf_unref(pixmap);
 }
 
 /* Setting list of available icons in the control bar */

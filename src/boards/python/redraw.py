@@ -28,6 +28,8 @@ import gcompris.skin
 import gcompris.bonus
 import gtk
 import gtk.gdk
+import copy
+import math
 
 class Gcompris_redraw:
   """The Re-drawing activity"""
@@ -37,6 +39,11 @@ class Gcompris_redraw:
 
     self.gcomprisBoard = gcomprisBoard
 
+    # These are used to let us restart only after the bonux is displayed.
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    self.board_paused  = 0;
+    self.gamewon       = 0;
+    
     # TOOL SELECTION
     self.tools = [
       ["RECT",           "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",          gcompris.CURSOR_RECT],
@@ -73,7 +80,7 @@ class Gcompris_redraw:
 
     # Define the coord of each drawing area
     self.drawing_area = [140.0, 20.0, 420.0, 500.0]
-    self.target_area  = [460.0, 20.0, 740.0, 500.0]
+    self.target_area  = [440.0, 20.0, 720.0, 500.0]
 
     # Global used for the select event
     self.in_select_ofx = -1
@@ -110,6 +117,17 @@ class Gcompris_redraw:
       y=0.0
       )
 
+    self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = gcompris.utils.load_pixmap(self.gcomprisBoard.icon_name),
+      x = gcompris.BOARD_WIDTH - 60,
+      y = 5,
+      width = 60,
+      height = 60,
+      width_set = 1,
+      height_set = 1
+      )
+    
     self.draw_tools()
     self.draw_colors()
     self.draw_drawing_area(20)
@@ -117,6 +135,7 @@ class Gcompris_redraw:
     self.init_item_list()
     self.display_current_level()
 
+    self.pause(0);
     
   def end(self):
     # Remove the root item removes all the others inside it
@@ -130,8 +149,16 @@ class Gcompris_redraw:
         
 
 
-  def pause(self, pause):  
-    # Do nothing special
+  def pause(self, pause):
+    
+    self.board_paused = pause
+    
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    # the game is won
+    if(self.gamewon == 1 and pause == 0):
+      self.root_targetitem.show()
+      self.gamewon = 0
+
     return
                   
 
@@ -155,7 +182,7 @@ class Gcompris_redraw:
       print("-------------------------------------------------------------------------------")
       print source
       print("-------------------------------------------------------------------------------")
-
+      
     # Need to check if target image equals drawing image
     for i in source:
       for j in target:
@@ -168,10 +195,14 @@ class Gcompris_redraw:
           source.remove(j)
           
     if(len(target) == 0 and len(source) == 0):
+      # This is a WIN
       self.erase_drawing_area()
       if (self.increment_level() == 1):
+        self.gamewon = 1
         gcompris.bonus.display(1, gcompris.bonus.FLOWER)
         self.display_current_level()
+        self.root_targetitem.hide()
+        
     else:
       # Delete previous mark if any
       if(self.root_erroritem):
@@ -195,6 +226,9 @@ class Gcompris_redraw:
     # Bad Icon Width and Height / 2
     icw=8
     ich=8
+
+    if self.gcomprisBoard.mode == 'symmetrical' and in_target:
+      target = self.get_symmetry(target)
 
     # The images target are always drawn on the drawing area to ease the final comparison
     if in_target:
@@ -299,7 +333,7 @@ class Gcompris_redraw:
       # Try the next level
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
-      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
+      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel) or self.gcomprisBoard.level*self.gcomprisBoard.sublevel>=len(self.drawlist):
         # the current board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
         return 0
@@ -491,8 +525,55 @@ class Gcompris_redraw:
       p[3] = y1
     return p
 
-  
+
+  #
+  # Take a drawing and return a symmetrical one
+  #
+  def get_symmetry(self, drawing_source):
+    # Make a deepcopy of the list
+    drawing  = copy.deepcopy(drawing_source)
+
+    xofset = 0
+
+    for item in drawing:
+
+      for k, v in item.items():
+
+        if k == 'points' :
+          if self.gcomprisBoard.mode == 'normal':
+            v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])            
+          else:
+            # Symmetrical view
+            v2 = (self.drawing_area[2] - (v[0] - self.drawing_area[0])+xofset, v[1],
+                  self.drawing_area[2] - (v[2] - self.drawing_area[0])+xofset, v[3])
+          item[k] = v2
+
+        elif k == 'x' :
+          if self.gcomprisBoard.mode == 'normal':
+            item[k] = v + xofset
+          else:
+            # Symmetrical view
+            item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
+
+        elif k == 'x1' :
+          if self.gcomprisBoard.mode == 'normal':
+            item[k] = v + xofset
+          else:
+            # Symmetrical view
+            item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
+
+        elif k == 'x2' :
+          if self.gcomprisBoard.mode == 'normal':
+            item[k] = v + xofset
+          else:
+            # Symmetrical view
+            item[k] = self.drawing_area[2] - (v - self.drawing_area[0])  + xofset
+
+    return drawing
+    
   # Draw the image target
+  # depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+  #
   def draw_image_target(self, drawing):
 
     # Save the drawing in image_target for future comparison
@@ -505,9 +586,11 @@ class Gcompris_redraw:
       y=0.0
       )
 
+    if self.gcomprisBoard.mode == 'symmetrical':
+      drawing = self.get_symmetry(drawing)
+      
     # The images target are always drawn on the drawing area to ease the final comparison
     xofset = self.target_area[0] - self.drawing_area[0]
-    
     for i in drawing:
       #
       # Can specify the item type to draw via a real GTK type or a TOOL string 
@@ -544,7 +627,7 @@ class Gcompris_redraw:
         elif k == 'outline_color_rgba' :
           item.set ( outline_color_rgba = v )
         elif k == 'points' :
-          v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])
+          v2 = (v[0]+xofset, v[1], v[2]+xofset, v[3])            
           item.set ( points = v2)
         elif k == 'width_units' :
           item.set ( width_units = v )
@@ -575,7 +658,11 @@ class Gcompris_redraw:
   def draw_grid(self, x1, x2, y1, y2, step):
 
     # Coord of the written numbers
-    x_text = x1 - 14
+    if(x1<self.target_area[0]):
+      x_text = x1 - 14
+    else:
+      x_text = x2 + 14
+      
     y_text = y1 - 10
 
     # We manage a 2 colors grid
@@ -1076,9 +1163,11 @@ class Gcompris_redraw:
 
   # The list of items (data) for this game
   def init_item_list(self):
-    self.drawlist = \
-    [
-      # Two stripes
+
+    if self.gcomprisBoard.mode == 'normal':
+      self.drawlist = \
+                    [
+        # Two stripes
       [{'x2': 420.0, 'width_units': 1.0, 'y2': 100.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 440.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}]
       ,
       # Top centered box
@@ -1141,7 +1230,7 @@ class Gcompris_redraw:
       # Balloon (human)
       [{'x2': 380.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'tool': 'FILL_CIRCLE', 'x1': 200.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 320.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 320.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (320.0, 320.0, 360.0, 260.0),
 'width_units': 8.0, 'fill_color_rgba': 4287383039L}]
-    ,
+      ,
       # House
       [{'x2': 360.0, 'width_units': 1.0, 'y2': 340.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 340.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 280.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'tool': 'LINE', 'points': (200.0, 240.0, 280.0, 160.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (280.0, 160.0, 360.0, 240.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}]
       ,
@@ -1153,19 +1242,19 @@ class Gcompris_redraw:
       ,
       # Billard
       [
-      {'width_units': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
-      {'width_units': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'fill_color_rgba': 2199425535L},
-      {'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 300.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
-      {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 100.0, 'x1': 240.0, 'tool': 'FILL_CIRCLE'},
-      {'x2': 280.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
-      {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'},
-      {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 100.0, 'x1': 300.0, 'tool': 'FILL_CIRCLE'},
-      {'x2': 280.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 120.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
-      {'x2': 300.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'}
-      ]
+        {'width_units': 8.0, 'points': (180.0, 80.0, 180.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+        {'width_units': 8.0, 'points': (180.0, 460.0, 380.0, 460.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+        {'width_units': 8.0, 'points': (380.0, 80.0, 380.0, 440.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+        {'width_units': 8.0, 'points': (180.0, 60.0, 380.0, 60.0), 'tool': 'LINE', 'fill_color_rgba': 4042322175L},
+        {'width_units': 8.0, 'points': (280.0, 320.0, 280.0, 420.0), 'tool': 'LINE', 'fill_color_rgba': 2199425535L},
+        {'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 300.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
+        {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 100.0, 'x1': 240.0, 'tool': 'FILL_CIRCLE'},
+        {'x2': 280.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
+        {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 100.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'},
+        {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 100.0, 'x1': 300.0, 'tool': 'FILL_CIRCLE'},
+        {'x2': 280.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 120.0, 'x1': 260.0, 'tool': 'FILL_CIRCLE'},
+        {'x2': 300.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'}
+        ]
       ,
       # Clara (my daughter)
       [{'x2': 240.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 220.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'width_units': 1.0, 'y2': 480.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 400.0, 'x1': 300.0, 'tool': 'FILL_RECT'}, {'x2': 220.0, 'width_units': 1.0, 'y2': 200.0,'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 160.0, 'tool': 'FILL_RECT'}, {'x2': 380.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'x1': 320.0, 'tool': 'FILL_RECT'}, {'x2': 380.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 120.0, 'x1': 360.0, 'tool': 'FILL_RECT'}, {'x2': 180.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'x1': 160.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 60.0, 'x1': 220.0, 'tool': 'FILL_CIRCLE'}, {'x2': 260.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 240.0, 'tool': 'FILL_CIRCLE'}, {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 100.0, 'x1': 280.0, 'tool': 'FILL_CIRCLE'}, {'width_units': 8.0, 'points': (260.0, 140.0, 280.0, 140.0), 'tool': 'LINE', 'fill_color_rgba': 3992977663L}, {'x2': 300.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'x1': 240.0, 'tool': 'FILL_RECT'}, {'x2': 320.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 180.0, 'x1': 220.0, 'tool': 'FILL_RECT'}, {'x2': 340.0, 'width_units': 1.0, 'y2': 400.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 320.0, 'x1': 200.0, 'tool': 'FILL_RECT'}]
@@ -1175,13 +1264,59 @@ class Gcompris_redraw:
       ,
       # Sea boat and sun
       [{'x2': 420.0, 'width_units': 1.0, 'y2': 500.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 260.0, 'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 60.0, 'tool': 'FILL_CIRCLE', 'x1': 160.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 260.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 300.0}, {'x2': 400.0,'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba':4042322175L, 'y1': 140.0, 'tool': 'FILL_CIRCLE', 'x1': 360.0}, {'tool': 'LINE','points': (220.0, 400.0, 240.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (240.0, 420.0, 280.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (280.0, 420.0, 300.0, 400.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (220.0, 400.0, 300.0, 400.0), 'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points': (260.0, 280.0, 260.0, 400.0),'width_units': 8.0, 'fill_color_rgba': 3992977663L}, {'tool': 'LINE', 'points':(260.0, 280.0, 300.0, 380.0), 'width_units': 8.0, 'fill_color_rgba': 2199425535L}, {'tool': 'LINE', 'points': (260.0, 380.0, 300.0, 380.0), 'width_units': 8.0,'fill_color_rgba': 2199425535L}]
+      
+      ]
+    else:
+      # Symmetrical items
+      self.drawlist = \
+      [
+        # 3 white box in triangle
+        [{'x2': 420.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'x2': 380.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 380.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 340.0}]
+        ,
+        # Colored pyramid
+        [{'x2': 420.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 1717987071L, 'y1': 420.0, 'tool': 'FILL_RECT', 'x1': 140.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 420.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 380.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 340.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 340.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 707406591L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2085298687L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 380.0}]
+        ,
+        # Butterfly
+        [{'x2': 420.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'tool': 'LINE', 'points': (360.0, 80.0, 400.0, 180.0), 'width_units': 8.0, 'fill_color_rgba': 707406591L}, {'x2': 380.0, 'width_units': 1.0, 'y2': 440.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 100.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'tool': 'FILL_CIRCLE', 'x1': 260.0}]
+        ,
+        # Robot
+        [{'x2': 420.0, 'width_units': 1.0, 'y2': 360.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 380.0, 'width_units': 1.0, 'y2': 500.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 340.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 160.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 140.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 140.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2768221183L, 'y1': 60.0, 'tool': 'FILL_RECT', 'x1': 360.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3116109311L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 400.0}, {'x2': 400.0, 'width_units': 1.0, 'y2': 100.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4283674623L, 'y1': 80.0, 'tool': 'FILL_CIRCLE', 'x1': 380.0}]
+        ,
+        # Arrow
+        [{'x2': 420.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'tool': 'LINE', 'points': (180.0, 240.0, 300.0, 140.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (180.0, 240.0, 180.0, 260.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (180.0, 260.0, 300.0, 360.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}, {'tool': 'LINE', 'points': (300.0, 140.0, 300.0, 360.0), 'width_units': 8.0, 'fill_color_rgba': 4287383039L}]
+        ,
+        # House
+        [{'x2': 420.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 440.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 220.0, 'width_units': 1.0, 'y2': 440.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 280.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 260.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 440.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 380.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 400.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'tool': 'LINE', 'points': (200.0, 260.0, 420.0, 100.0), 'width_units': 8.0, 'fill_color_rgba': 4294905087L}]
+        ,
+        # Plane
+        [{'x2': 420.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 140.0, 'tool': 'FILL_RECT', 'x1': 360.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 220.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 260.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 707406591L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'tool': 'LINE', 'points': (180.0, 200.0, 320.0, 200.0), 'width_units': 8.0, 'fill_color_rgba': 4283674623L}, {'x2': 420.0, 'width_units': 1.0, 'y2': 420.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 360.0, 'tool': 'FILL_RECT', 'x1': 400.0}, {'x2': 420.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 380.0}]
+        ,        
+        # bipbip (big non flying bird)
+        [{'x2': 280.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 120.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 80.0, 'tool': 'FILL_RECT', 'x1': 260.0}, {'x2': 320.0, 'width_units': 1.0, 'y2': 120.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 100.0, 'tool': 'FILL_RECT', 'x1': 300.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 380.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 320.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 220.0, 'width_units': 1.0, 'y2': 320.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 300.0, 'tool': 'FILL_RECT', 'x1': 200.0}, {'x2': 260.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 380.0, 'tool': 'FILL_RECT', 'x1': 240.0}, {'x2': 280.0, 'width_units': 1.0, 'y2': 460.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 352271359L, 'y1': 440.0, 'tool': 'FILL_RECT', 'x1': 260.0}]
+        ,
+        # Dog
+        [{'x2': 180.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 240.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 200.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 180.0}, {'x2': 340.0,'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba':2199425535L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 320.0}, {'x2': 380.0, 'width_units': 1.0, 'y2': 200.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 2199425535L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 320.0}]
+        ,
+        # Fish
+        [{'x2': 360.0, 'width_units': 1.0, 'y2': 280.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 180.0}, {'x2': 340.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4042322175L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 320.0}, {'x2': 180.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4294905087L, 'y1': 180.0, 'tool': 'FILL_RECT', 'x1': 160.0}]
+        ,
+        # Boat
+        [{'tool': 'LINE', 'points': (260.0, 340.0, 420.0, 340.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 260.0, 260.0, 340.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 260.0, 420.0, 260.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 260.0, 360.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (360.0, 220.0, 420.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'x2': 320.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 280.0, 'tool': 'FILL_CIRCLE', 'x1': 300.0}, {'x2': 360.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 280.0, 'tool': 'FILL_CIRCLE', 'x1': 340.0}, {'x2': 400.0, 'width_units': 1.0, 'y2': 300.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 280.0, 'tool': 'FILL_CIRCLE', 'x1': 380.0}]
+        ,
+        # Spaceship
+        [{'tool': 'LINE', 'points': (220.0, 400.0, 340.0, 400.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 400.0, 360.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (360.0, 320.0, 360.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 300.0, 360.0, 320.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 100.0, 340.0, 300.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 420.0, 220.0, 400.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 320.0, 200.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (200.0, 320.0, 220.0, 300.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 100.0, 220.0, 300.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 100.0, 280.0, 20.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 20.0, 340.0, 100.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 100.0, 340.0, 100.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 120.0, 340.0, 120.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 300.0, 340.0, 300.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 300.0, 280.0, 420.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}]
+        ,
+        # Question mark
+        [{'tool': 'LINE', 'points': (280.0, 260.0, 280.0, 440.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 260.0, 340.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (340.0, 160.0, 340.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (280.0, 120.0, 340.0, 160.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 160.0, 280.0, 120.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 160.0, 220.0, 200.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 200.0, 260.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}]
+        ,
+        # Flying toy (cerf volant in french)
+        [{'tool': 'LINE', 'points': (160.0, 140.0, 260.0, 100.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (160.0, 140.0, 160.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (160.0, 220.0, 260.0, 380.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 380.0, 360.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (360.0, 140.0, 360.0, 220.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (260.0, 100.0, 360.0, 140.0), 'width_units': 8.0, 'fill_color_rgba': 4042322175L}, {'tool': 'LINE', 'points': (220.0, 500.0, 260.0, 380.0), 'width_units': 8.0, 'fill_color_rgba': 707406591L}, {'x2': 240.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 160.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 200.0, 'tool': 'FILL_RECT', 'x1': 280.0}, {'x2': 240.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 3992977663L, 'y1': 240.0, 'tool': 'FILL_RECT', 'x1': 220.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 180.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 160.0, 'tool': 'FILL_CIRCLE', 'x1': 280.0}, {'x2': 240.0, 'width_units': 1.0, 'y2': 220.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 200.0, 'tool': 'FILL_CIRCLE', 'x1': 220.0}, {'x2': 300.0, 'width_units': 1.0, 'y2': 260.0, 'outline_color_rgba': 255L, 'fill_color_rgba': 4287383039L, 'y1': 240.0, 'tool': 'FILL_CIRCLE', 'x1': 280.0}]
+        
+      ]
 
-    ]
-
-    # Warning: Take care here that there is no more than 10 levels
-    
-    self.gcomprisBoard.number_of_sublevel=4
-    self.gcomprisBoard.maxlevel=len(self.drawlist)/self.gcomprisBoard.number_of_sublevel
+    # No more than 9 level allowed in gcompris
+    self.gcomprisBoard.number_of_sublevel=math.ceil(len(self.drawlist)/9.0)
+    self.gcomprisBoard.maxlevel=min(9, math.ceil(float(len(self.drawlist))/self.gcomprisBoard.number_of_sublevel))
     print "Number of target=", len(self.drawlist)
     print "Maxlevel=", self.gcomprisBoard.maxlevel, " sublevel=", self.gcomprisBoard.number_of_sublevel
     
