@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/05/10 01:26:58 bruno>
+ * Time-stamp: <2002/06/11 00:59:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,6 +33,13 @@
 #define SQUARE_LIMIT_DISTANCE 50
 
 static int gamewon;
+
+static gint addedname;	/* Defined the rules to apply to determine if the
+			   board is done.
+			   - by default it is puzzle like, each piece at its place
+			   - If addedname is set, then this value is compared to the
+			     sum of each xml name value of the placed pieces 
+			*/
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -68,9 +75,11 @@ struct _Shape {
   GnomeCanvasGroup *shape_list_group_root;
   guint shapelistgroup_index;	  	/* Root index which this item is in the shapelist */
   Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
+  Shape *target_shape;			/* If this is an icon shape then point to its shape */
   GnomeCanvasItem *bad_item;		/* Temporary bad placed Canvas item for this shape */
 
   gboolean found;			/* The user found this item */
+  gboolean placed;			/* The user placed this item */
   GnomeCanvasItem *target_point;       	/* Target point item for this shape */
 };
 
@@ -359,16 +368,51 @@ static void process_ok()
   GList *list;
   gboolean done = TRUE;
 
-  /* Loop through all the shapes to find if all target are found */
-  for(list = shape_list; list != NULL; list = list->next) {
-    Shape *shape = list->data;
+  /*
+   * Here I implements the resolving rules.
+   */
+  if(addedname == INT_MAX)
+    {
+      /* - Default is to be puzzle like. Check that each piece is at its place */
 
-    if(shape->type==SHAPE_TARGET)
-      {
-	if(shape->found==FALSE)
-	  done=FALSE;
+      /* Loop through all the shapes to find if all target are found */
+      for(list = shape_list; list != NULL; list = list->next) {
+	Shape *shape = list->data;
+	
+	if(shape->type==SHAPE_TARGET)
+	  {
+	    if(shape->found==FALSE)
+	      done=FALSE;
+	  }
       }
-  }
+    }
+  else
+    {
+      /* - if addedname is set, then adding int name field of placed piece must 
+       *   equals addedname
+       */
+      gint total = 0;
+
+      for(list = shape_list; list != NULL; list = list->next) {
+	Shape *shape = list->data;
+	gint   intname = 0;
+
+	printf("   shape = %s\n", shape->name);
+	if(shape->type==SHAPE_TARGET && shape->placed==TRUE)
+	  {
+	    intname = atoi(shape->name);
+	    total += intname;
+	    printf("      shape = %s   placed=TRUE\n", shape->name);
+	  }
+
+      }
+
+      if(total != addedname)
+	done = FALSE;
+
+      printf("checking for addedname=%d done=%d total=%d\n", addedname, done, total);
+    }
+
 
   if(done)
     {
@@ -557,8 +601,8 @@ add_shape_to_list_of_shapes(Shape *shape)
 	  shape_list_group_root = GNOME_CANVAS_GROUP(g_list_nth_data(shape_list_group, 
 								     current_shapelistgroup_index-1));
 	  //gnome_canvas_item_hide(shape_list_group_root);
-      item = g_list_nth_data(shape_list_group, current_shapelistgroup_index-1);
-      gnome_canvas_item_hide(item);
+	  item = g_list_nth_data(shape_list_group, current_shapelistgroup_index-1);
+	  gnome_canvas_item_hide(item);
 	}
 
       // We need to start a new shape list group
@@ -632,6 +676,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 					(double)1, (double)1,
 					0, shape->soundfile);
 	      icon_shape->item = item;
+	      icon_shape->target_shape = shape;
 	      icon_shape->shapelistgroup_index = current_shapelistgroup_index;
 	      shape->shapelistgroup_index = current_shapelistgroup_index;
 	      printf(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", 
@@ -699,6 +744,14 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
   printf("shape_goes_back_to_list shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", shape->name, shape->shapelistgroup_index, current_shapelistgroup_index);
   if(shape->icon_shape!=NULL)
     {
+      if(shape->icon_shape->target_shape)
+	{
+	  shape->icon_shape->target_shape->placed = FALSE;
+	  printf("shape_goes_back_to_list setting shape->name=%s to placed=%d\n", 
+		 shape->icon_shape->target_shape->name,
+		 shape->icon_shape->target_shape->placed);
+	}
+
       /* There was a previous icon here, put it back to the list */
       gnome_canvas_item_move(shape->icon_shape->item, 
 			     shape->icon_shape->x - shape->x,
@@ -710,6 +763,8 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 
       gnome_canvas_item_hide(item);
       gcompris_play_sound (SOUNDLISTFILE, "gobble");
+
+
     }
 }
 
@@ -862,7 +917,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		       gtk_object_destroy (GTK_OBJECT(targetshape->bad_item));
 		       targetshape->bad_item=NULL;
 		     }
-		   targetshape->found = TRUE;
+		   targetshape->found  = TRUE;
+		   shape->target_shape->placed = TRUE;
+		   printf("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
+			  shape->target_shape->placed);
 		   gnome_canvas_item_show(targetshape->item);
 		 }
 	       else
@@ -872,6 +930,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		   GnomeCanvasItem *item;
 
 		   targetshape->found = FALSE;
+		   shape->target_shape->placed = TRUE;
+		   printf("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
+			  shape->target_shape->placed);
 		   gnome_canvas_item_hide(targetshape->item);
 
 		   /* There is already a bad item, delete it */
@@ -927,6 +988,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       gnome_canvas_item_move(item, 
 				      shape->x - x + offset_x,
 				      shape->y - y + offset_y);
+	       shape->target_shape->placed = FALSE;
+
 	     }
 	 }
        break;
@@ -1252,8 +1315,10 @@ create_shape(ShapeType type, char *name, char *pixmapfile, GnomeCanvasPoints* po
 
   shape->bad_item = NULL;
   shape->icon_shape = NULL;
+  shape->target_shape = NULL;
 
-  shape->found = FALSE;
+  shape->found  = FALSE;
+  shape->placed = FALSE;
 
   /* add the shape to the list */
   shape_list = g_list_append(shape_list, shape);
@@ -1433,7 +1498,8 @@ static gboolean
 read_xml_file(char *fname)
 {
   /* pointer to the new doc */
-  xmlDocPtr doc;
+  xmlDocPtr  doc;
+  gchar     *caddedname;
   
   g_return_val_if_fail(fname!=NULL,FALSE);
   
@@ -1460,7 +1526,14 @@ read_xml_file(char *fname)
     xmlFreeDoc(doc);
     return FALSE;
   }
-  
+
+  caddedname = xmlGetProp(doc->children,"OkIfAddedName");
+  /* if unspecified, make it MAXINT */
+  if(!caddedname) 
+      addedname = INT_MAX;
+  else
+      addedname = atoi(caddedname);
+  printf("addedname=%d\n", addedname);
   /* parse our document and replace old data */
   parse_doc(doc);
   

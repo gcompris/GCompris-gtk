@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ShapeGame>
+<ShapeGame OkIfAddedName="5">
   <Shape name="1" pixmapfile="gcompris/gcompris-shapelabel.jpg" type="SHAPE_BACKGROUND"
 	 x="405" y="460" zoomx="1" zoomy="1" position="0"/>
   <Title x="394" y="460" justification="GTK_JUSTIFY_CENTER">
-    <_name>Set the masses in the decreasing order</_name>
+    <_name>Drag and Drop masses to equilibrate the scales</_name>
   </Title>
   <Shape name="M" pixmapfile="scales/masse.png" x="585" y="172" zoomx="1" zoomy="1" position="0" type="SHAPE_BACKGROUND"/>
   <Title name="5" x="585" y="180" justification="GTK_JUSTIFY_CENTER"/>

@@ -7,6 +7,11 @@
 	intead of :+/*
 	* src/gcompris/timer.c: added a pause() entry in case of help request in a board
 	* src/bords/algebra.c: use the pause() entry for the timer to display the help
+	* src/boards/shapegame.c: changed to allow the scale board to work in any good
+	combination of solution. To do this, a new property in the .xml.in file for
+	shape board is OkIfAddedName="xx" where xx is the sum of expected. This sum is
+	calculated by adding the name property of a shape changed to an int of the shapes
+	dragged by the user.
 
 2002-05-28 Bruno Coudoin <bruno.coudoin@free.fr>
 	* configure.in: changed AM_GNU_GETTEXT by AM_GLIB_GNU_GETTEXT
