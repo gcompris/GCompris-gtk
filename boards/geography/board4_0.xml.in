@@ -1,30 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ShapeGame>
-  <Title x="280" y="40" justification="GTK_JUSTIFY_CENTER">
-    <_name>East Europe</_name>
-  </Title>
-  <Shape name="A" pixmapfile="geography/europe/albania.png" x="505" y="431" zoomx="1" zoomy="1" position="0" sound="geography/albania"/>
-  <Shape name="B" pixmapfile="geography/europe/belarus.png" x="577" y="239" zoomx="1" zoomy="1" position="0" sound="geography/belarus"/>
-  <Shape name="C" pixmapfile="geography/europe/bosnia_herzegovina.png" x="470" y="388" zoomx="1" zoomy="1" position="0" sound="geography/bosnia_herzegovina"/>
-  <Shape name="D" pixmapfile="geography/europe/bulgaria.png" x="567" y="404" zoomx="1" zoomy="1" position="0" sound="geography/bulgaria"/>
-  <Shape name="E" pixmapfile="geography/europe/croatia.png" x="454" y="375" zoomx="1" zoomy="1" position="0" sound="geography/croatia"/>
-  <Shape name="G" pixmapfile="geography/europe/czech.png" x="438" y="294" zoomx="1" zoomy="1" position="0" sound="geography/czech"/>
-  <Shape name="H" pixmapfile="geography/europe/estonia.png" x="528" y="167" zoomx="1" zoomy="1" position="0" sound="geography/estonia"/>
-  <Shape name="I" pixmapfile="geography/europe/hungary.png" x="487" y="336" zoomx="1" zoomy="1" position="0" sound="geography/hungary"/>
-  <Shape name="J" pixmapfile="geography/europe/latvia.png" x="531" y="193" zoomx="1" zoomy="1" position="0" sound="geography/latvia"/>
-  <Shape name="K" pixmapfile="geography/europe/lithuania.png" x="524" y="218" zoomx="1" zoomy="1" position="0" sound="geography/lithuania"/>
-  <Shape name="L" pixmapfile="geography/europe/macedonia.png" x="524" y="421" zoomx="1" zoomy="1" position="0" sound="geography/macedonia"/>
-  <Shape name="M" pixmapfile="geography/europe/moldova.png" x="596" y="339" zoomx="1" zoomy="1" position="0" sound="geography/moldova"/>
-  <Shape name="N" pixmapfile="geography/europe/poland.png" x="474" y="264" zoomx="1" zoomy="1" position="0" sound="geography/poland"/>
-  <Shape name="O" pixmapfile="geography/europe/romania.png" x="558" y="355" zoomx="1" zoomy="1" position="0" sound="geography/romania"/>
-  <Shape name="P" pixmapfile="geography/europe/russia.png" x="631" y="189" zoomx="1" zoomy="1" position="0" sound="geography/russia"/>
-  <Shape name="Q" pixmapfile="geography/europe/serbia_montenegro.png" x="510" y="385" zoomx="1" zoomy="1" position="0" sound="geography/serbia_montenegro"/>
-  <Shape name="R" pixmapfile="geography/europe/slovakia.png" x="488" y="314" zoomx="1" zoomy="1" position="0" sound="geography/slovakia"/>
-  <Shape name="S" pixmapfile="geography/europe/slovenia.png" x="432" y="351" zoomx="1" zoomy="1" position="0" sound="geography/slovenia"/>
-  <Shape name="T" pixmapfile="geography/europe/turkey.png" x="677" y="466" zoomx="1" zoomy="1" position="0" sound="geography/turkey"/>
-  <Shape name="U" pixmapfile="geography/europe/ukraine.png" x="626" y="318" zoomx="1" zoomy="1" position="0" sound="geography/ukraine"/>
-  <Shape name="V" pixmapfile="geography/europe/greece.png" x="550" y="472" zoomx="1" zoomy="1" position="0" sound="geography/greece"/>
-  <Shape name="F" pixmapfile="geography/europe/cyprus.png" type="SHAPE_BACKGROUND" x="683" y="521" zoomx="1" zoomy="1" position="0" sound="geography/cyprus"/>
-  <Shape name="Z" pixmapfile="geography/europe/europe.jpg" type="SHAPE_BACKGROUND"
-	 x="420" y="260" zoomx="1" zoomy="1" position="0"/>
+    <Title x="200" y="45" justification="GTK_JUSTIFY_CENTER">
+         <_name>Regions of France</_name>
+    </Title>
+
+<Shape name="A" pixmapfile="geography/france_region/alsace.png" sound="france_region/alsace" x="585" y="149" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Alsace</name>
+</Shape>
+<Shape name="B" pixmapfile="geography/france_region/aquitaine.png" sound="france_region/aquitaine" x="317" y="371" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Aquitaine</name>
+</Shape>
+<Shape name="C" pixmapfile="geography/france_region/auvergne.png" sound="france_region/auvergne" x="443" y="293" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Auvergne</name>
+</Shape>
+<Shape name="D" pixmapfile="geography/france_region/basse-normandie.png" sound="france_region/basse-normandie" x="315" y="115" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Basse-Normandie</name>
+</Shape>
+<Shape name="E" pixmapfile="geography/france_region/bourgogne.png" sound="france_region/bourgogne" x="473" y="207" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Bourgogne</name>
+</Shape>
+<Shape name="F" pixmapfile="geography/france_region/bretagne.png" sound="france_region/bretagne" x="226" y="158" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Bretagne</name>
+</Shape>
+<Shape name="G" pixmapfile="geography/france_region/centre.png" sound="france_region/centre" x="383" y="188" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Centre</name>
+</Shape>
+<Shape name="H" pixmapfile="geography/france_region/champagne-ardenne.png" sound="france_region/champagne-ardenne" x="487" y="120" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Champagne-Ardenne</name>
+</Shape>
+<Shape name="I" pixmapfile="geography/france_region/corse.png" sound="france_region/corse" x="662" y="472" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Corse</name>
+</Shape>
+<Shape name="J" pixmapfile="geography/france_region/franche-conte.png" sound="france_region/franche-conte" x="542" y="212" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Franche-Conté</name>
+</Shape>
+<Shape name="K" pixmapfile="geography/france_region/haute-normandie.png" sound="france_region/haute-normandie" x="363" y="95" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Normandie</name>
+</Shape>
+<Shape name="L" pixmapfile="geography/france_region/ile-de-france.png" sound="france_region/ile-de-france" x="415" y="132" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Ile-de-France</name>
+</Shape>
+<Shape name="M" pixmapfile="geography/france_region/languedoc-roussillon.png" sound="france_region/languedoc-roussillon" x="443" y="404" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Languedoc-Roussillon</name>
+</Shape>
+<Shape name="N" pixmapfile="geography/france_region/limousin.png" sound="france_region/limousin" x="384" y="294" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Limousin</name>
+</Shape>
+<Shape name="O" pixmapfile="geography/france_region/lorraine.png" sound="france_region/lorraine" x="540" y="127" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Lorraine</name>
+</Shape>
+<Shape name="P" pixmapfile="geography/france_region/midi-pyrenees.png" sound="france_region/midi-pyrenees" x="380" y="396" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Midi-Pyrénées</name>
+</Shape>
+<Shape name="Q" pixmapfile="geography/france_region/nord-pas-de-calais.png" sound="france_region/nord-pas-de-calais" x="427" y="33" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Nord-Pas-de-Calais</name>
+</Shape>
+<Shape name="R" pixmapfile="geography/france_region/pays-de-la-loire.png" sound="france_region/pays-de-la-loire" x="300" y="199" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Pays-de-la-Loire</name>
+</Shape>
+<Shape name="S" pixmapfile="geography/france_region/picardie.png" sound="france_region/picardie" x="424" y="83" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Picardie</name>
+</Shape>
+<Shape name="T" pixmapfile="geography/france_region/poitou-charentes.png" sound="france_region/poitou-charentes" x="321" y="269" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Poitou-Charentes</name>
+</Shape>
+<Shape name="U" pixmapfile="geography/france_region/provence-alpes-cote_d_azur.png" sound="france_region/provence-alpes-cote_d_azur" x="543" y="379" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Provence-Alpes-Côte d'Azur</name>
+</Shape>
+<Shape name="V" pixmapfile="geography/france_region/rhone-alpes.png" sound="france_region/rhone-alpes" x="520" y="312" zoomx="0.660000" zoomy="0.660000" position="0">
+	<name>Rhône-Alpes</name>
+</Shape>
+<Shape name="1" pixmapfile="geography/france_region/france-regions.png" type="SHAPE_BACKGROUND" sound="Undefined" x="420" y="260" zoomx="0.660000" zoomy="0.660000" position="0"/>
 </ShapeGame>
