@@ -4,17 +4,17 @@
 	 name="redraw"
 	 type="pythonboard"
 	 section="/fun/."
-	 mode="normal"
-	 difficulty="3"
-	 icon="boardicons/redraw.png"
+	 mode="symmetrical"
+	 difficulty="4"
+	 icon="boardicons/redraw_symmetry.png"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="">
 	 <_title>Redraw the given item</_title>
 	 <_description>At each level, a drawing is displayed in the right area.
-You must redraw it in the left area.</_description>
+You must redraw its symmetry in the left area.</_description>
 	<_prerequisite></_prerequisite>
 	<_goal>At each level, a drawing is displayed in the right area.
-You must redraw it in the left area.</_goal>
+You must redraw its symmetry in the left area.</_goal>
 	<_manual>First you must select the proper tool in the tool bar.
 Then, you must drag the mouse to create objects.
 When you are done, click on the OK button, you will be told were the
