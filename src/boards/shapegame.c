@@ -110,7 +110,8 @@ static Shape 		*find_closest_shape(double x, double y, double limit);
 static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  GnomeCanvasPoints* points,
 				      char *targetfile, double x, double y, double l, double h, double zoomx, 
 				      double zoomy, guint position);
-static gboolean 	 increment_sublevel();
+static gboolean 	 increment_sublevel(void);
+static void 		 create_title(char *name, double x, double y, char *justification);
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -552,7 +553,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 static Shape *find_closest_shape(double x, double y, double limit)
 {
   GList *list;
-  double goodDist = limit;
+  double goodDist = powf(limit,2);
   Shape *candidateShape = NULL;
 
   /* loop through all our shapes */
@@ -563,7 +564,7 @@ static Shape *find_closest_shape(double x, double y, double limit)
     if(shape->type==SHAPE_TARGET)
       {
 	/* Calc the distance between this shape and the given coord */
-	dist = sqrtf(powf((shape->x-x),2)*powf((shape->y-y),2));
+	dist = powf((shape->x-x),2) + powf((shape->y-y),2);
 	
 	if(dist<goodDist)
 	  {
@@ -646,6 +647,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	     {
 	       x = item_x;
 	       y = item_y;
+
+	       item_x = shape->x;
+	       item_y = shape->y;
 	       
 	       switch(shape->type)
 		 {
@@ -656,7 +660,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		   if( shape->icon_shape!=NULL)
 		     {
 		       item = shape->icon_shape->item;
-		       gnome_canvas_item_show(item);
+		       item_x = x - (x - shape->x) * shape->icon_shape->w /
+			  shape->w;
+		       item_y = y - (y - shape->y) * shape->icon_shape->h /
+			  shape->h;
+		       gnome_canvas_item_move( item,
+					       item_x - shape->x,
+					       item_y - shape->y );
+		       gnome_canvas_item_show( item );
 		       gcompris_set_image_focus(item, TRUE);
 		       shape->icon_shape=NULL;
 		     }
@@ -665,8 +676,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		   break;
 		 }
 	       /* This records the offset between the mouse pointer and the grabbed item center */
-	       offset_x = x - shape->x;
-	       offset_y = y - shape->y;
+	       offset_x = x - item_x;
+	       offset_y = y - item_y;
 	       
 	       if(item==NULL)
 		 return FALSE;
@@ -721,7 +732,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 	   gnome_canvas_item_reparent (item, (GnomeCanvasGroup *)shape_list_root_item);
 
-	   targetshape = find_closest_shape(item_x, item_y, 1000);
+	   targetshape = find_closest_shape(item_x, item_y, 100);
 	   if(targetshape!=NULL)
 	     {
 	       /* Finish the placement of the grabbed item anyway */
@@ -946,17 +957,16 @@ add_shape_to_canvas(Shape *shape)
       if(strcmp(shape->targetfile, UNDEFINED)!=0)
 	{
 	  targetpixmap = gcompris_load_pixmap(shape->targetfile);
+	  shape->w = (double)gdk_pixbuf_get_width(targetpixmap) * shape->zoomx;
+	  shape->h = (double)gdk_pixbuf_get_height(targetpixmap) *shape->zoomy;
+	  
 	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 					gnome_canvas_pixbuf_get_type (),
 					"pixbuf", targetpixmap, 
-					"x", (double)shape->x - 
-					(gdk_pixbuf_get_width(targetpixmap) * shape->zoomx)/2,
-					"y", (double)shape->y -
-					(gdk_pixbuf_get_height(targetpixmap) * shape->zoomy)/2,
-					"width", (double) gdk_pixbuf_get_width(targetpixmap) 
-					* shape->zoomx,
-					"height", (double) gdk_pixbuf_get_height(targetpixmap) 
-					* shape->zoomy,
+					"x", shape->x - shape->w / 2,
+					"y", shape->y - shape->h / 2,
+					"width",  shape->w,
+					"height", shape->h,
 					"width_set", TRUE, 
 					"height_set", TRUE,
 					NULL);
@@ -1002,16 +1012,19 @@ add_shape_to_canvas(Shape *shape)
 	  printf("  Yes it is an image \n");
 	  pixmap = gcompris_load_pixmap(shape->pixmapfile);
 	  if(pixmap)
-	    {	
+	    {
+	      shape->w = (double)gdk_pixbuf_get_width(pixmap) * shape->zoomx;
+	      shape->h = (double)gdk_pixbuf_get_height(pixmap) * shape->zoomy;
+	       
 	      /* Display the shape itself but hide it until the user puts the right shape on it */
 	      /* I have to do it this way for the positionning (lower/raise) complexity          */
 	      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 					    gnome_canvas_pixbuf_get_type (),
 					    "pixbuf", pixmap, 
-					    "x", (double)shape->x-(gdk_pixbuf_get_width(pixmap) * shape->zoomx)/2,
-					    "y", (double)shape->y-(gdk_pixbuf_get_height(pixmap) * shape->zoomy)/2,
-					    "width", (double) gdk_pixbuf_get_width(pixmap) * shape->zoomx,
-					    "height", (double) gdk_pixbuf_get_height(pixmap) * shape->zoomy,
+					    "x", shape->x - shape->w / 2,
+					    "y", shape->y - shape->h / 2,
+					    "width", shape->w,
+					    "height", shape->h,
 					    "width_set", TRUE, 
 					    "height_set", TRUE,
 					    NULL);
@@ -1040,7 +1053,7 @@ add_shape_to_canvas(Shape *shape)
 
 }
 
-void create_title(char *name, double x, double y, char *justification)
+static void create_title(char *name, double x, double y, char *justification)
 {
   GnomeCanvasItem *item;
   GdkFont *gdk_font;
