@@ -46,6 +46,7 @@ xml_in_files = \
 	smallnumbers.xml.in \
 	superbrain.xml.in \
 	target.xml.in \
+	traffic.xml.in \
 	wordsgame.xml.in \
 	imageid.xml.in \
 	missing_letter.xml.in \
