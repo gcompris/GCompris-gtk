@@ -1,3 +1,14 @@
+2003-11-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/redraw.py: added more target
+	* src/gcompris/config.c: (gcompris_config_start),
+	(set_locale_flag), (get_locale_name): changed locale init to support the default locale as is
+	* src/gcompris/gcompris.c: (gcompris_get_locale),
+	(gcompris_get_user_default_locale), (gcompris_set_locale),
+	(gcompris_init): changed locale init to support the default locale 
+	* src/gcompris/gcompris.h: added gcompris_get_user_default_locale
+	* src/gcompris/properties.c: (gcompris_properties_new): changed locale init to support the default locale
+
 2003-11-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/redraw.xml.in: added redraw.png. set level to 3

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2003/10/21 02:29:57 bcoudoin>
+ * Time-stamp: <2003/11/25 01:34:52 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -49,6 +49,7 @@ static gboolean is_displayed			= FALSE;
 #define SOUNDLISTFILE PACKAGE
 
 static gchar *linguas[] = {
+  "",			N_("Your system default"),
   "am_ET.UTF-8", 	N_("Amharic"),
   "ar_AE.UTF-8", 	N_("Arabic"),
   "az_AZ.UTF-8", 	N_("Azerbaijani Turkic"),
@@ -222,9 +223,12 @@ void gcompris_config_start ()
 					    NULL);
   gdk_pixbuf_unref(pixmap);
 
-  current_locale = gcompris_get_locale();
+  /*
+   * The current locale is the one found in the config file
+   */
+  current_locale = properties->locale;
   set_locale_flag(current_locale);
-
+ 
   item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", get_locale_name(current_locale), 
@@ -376,7 +380,6 @@ void gcompris_config_start ()
 	
 	/* Only directory here are skins */
 	filename = g_strdup_printf("%s/skins/%s", PACKAGE_DATA_DIR, str);
-	printf("testing %s str=%s\n", filename, str);
 	if (g_file_test ((filename), G_FILE_TEST_IS_DIR)) {
 	  skinlist = g_list_append (skinlist, str);
 	}
@@ -491,6 +494,15 @@ static void set_locale_flag(gchar *locale)
   char *str = NULL;
   GdkPixbuf *pixmap = NULL;
 
+  if(locale == NULL)
+    return;
+
+  if(locale[0] == '\0') {
+    /* Set the flag to the default user's locale */
+    locale = gcompris_get_user_default_locale();
+    printf("gcompris_get_user_default_locale = %s\n", locale);
+  }
+
   /* First try to find a flag for the long locale name */
   str = g_strdup_printf("%.5s.png", locale);
   pixmap = gcompris_load_pixmap_asset("gcompris flags", "flags", "image/png", str);
@@ -529,13 +541,14 @@ static gchar *get_locale_name(gchar *locale)
 
   while(linguas[i] != NULL)
     {
-      if(!strcmp(locale, linguas[i]))
+
+      if(!strncmp(locale, linguas[i], strlen(locale)))
 	return(gettext(linguas[i+1]));
 
       i=i+2;
     }
-  // Oups this locale is not in the table. Return the first one
-  return(linguas[0]);
+  // Oups this locale is not in the table. Return the first one (system default)
+  return(linguas[1]);
 }
 
 /**

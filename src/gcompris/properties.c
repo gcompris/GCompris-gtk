@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/11/04 22:25:17 bcoudoin>
+ * Time-stamp: <2003/11/25 00:03:55 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -51,24 +51,24 @@ GcomprisProperties *gcompris_properties_new ()
   /* Non persistant value */
   tmp->difficulty_filter = -1;		/* No difficulty filter by default */
 
+  /*
+   * Warning, gcompris need a proper locale prefix to find suitable dataset
+   * Some system use LOCALE 'C' for english. We have to set it explicitly
+   */
   locale = getenv("LC_ALL");
+  if(locale == NULL)
+    locale = getenv("LC_MESSAGES");
   if(locale == NULL)
     locale = getenv("LANG");
 
-  if(locale == NULL)
+  if (!strcmp(locale, "C"))
     {
       tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en_US.UTF-8");
-    }
-  else if (!strcmp(locale, "C"))
+    } 
+  else 
     {
-      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en_US.UTF-8");
-    }
-  else	
-    {
-      gchar *strtmp;
-      strtmp = g_strdup_printf("/gcompris/Preferences/locale=%s", locale);
-      tmp->locale      	= gnome_config_get_string (strtmp);
-      g_free(strtmp);
+      /* No user specified locale = '' */
+      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=");
     }
 
   return (tmp);
