@@ -52,10 +52,20 @@ static void game_won();
 #define BARRE_AR_Y 50
 #define BARRE_AV_X 530
 #define BARRE_AV_Y 100
-#define BALLAST_AV_AIR_X 440
-#define BALLAST_AV_AIR_Y 50
-#define BALLAST_AR_AIR_X 220
-#define BALLAST_AR_AIR_Y 50
+
+#define BALLAST_AV_AIR_TEXT_X 440
+#define BALLAST_AV_AIR_TEXT_Y 50
+#define BALLAST_AV_AIR_X1 393
+#define BALLAST_AV_AIR_Y1 20
+#define BALLAST_AV_AIR_X2 483
+#define BALLAST_AV_AIR_Y2 80
+
+#define BALLAST_AR_AIR_TEXT_X 220
+#define BALLAST_AR_AIR_TEXT_Y 50
+#define BALLAST_AR_AIR_X1 180
+#define BALLAST_AR_AIR_Y1 20
+#define BALLAST_AR_AIR_X2 270
+#define BALLAST_AR_AIR_Y2 80
 
 // taken from submarine.png
 #define SUBMARINE_WIDTH 122
@@ -91,8 +101,14 @@ static void game_won();
 #define AIR_Y 109
 #define BATTERY_X 285
 #define BATTERY_Y 156
-#define REGLEUR_X 330
-#define REGLEUR_Y 37
+
+#define REGLEUR_TEXT_X 330
+#define REGLEUR_TEXT_Y 37
+#define REGLEUR_X1 325
+#define REGLEUR_Y1 18
+#define REGLEUR_X2 337
+#define REGLEUR_Y2 56
+
 #define AIR_TRIGGER_X 154
 #define AIR_TRIGGER_Y 108
 #define BATTERY_TRIGGER_X 184
@@ -132,9 +148,11 @@ static GnomeCanvasItem *barre_av_item, *barre_ar_item,
   *speed_item_back, *speed_item_front,
   *air_item_back, *air_item_front,
   *regleur_item_back, *regleur_item_front,
+  *regleur_item_rect,
   *battery_item_back, *battery_item_front,
   *ballast_av_air_item_back, *ballast_av_air_item_front,
   *ballast_ar_air_item_back, *ballast_ar_air_item_front,
+  *ballast_av_air_item_rect, *ballast_ar_air_item_rect,
   *air_compressor_item, *battery_charger_item, *alert_submarine,
   *bubbling[3], *frigate_item, *big_explosion, *whale;
 
@@ -144,6 +162,7 @@ static double submarine_horizontal_speed, submarine_vertical_speed, speed_ordere
 static double ballast_av_air, ballast_ar_air;
 
 static double whale_x, whale_y;
+static guint schema_x, schema_y;
 
 static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent);
 static void submarine_destroy_all_items(void);
@@ -164,6 +183,8 @@ static void setSpeed(double value);
 static void setBattery(double value);
 static void setAir(double value);
 static void setRegleur(double value);
+static void setBallastAV(double value);
+static void setBallastAR(double value);
 
 static void submarine_explosion();
 
@@ -313,7 +334,7 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *pixmap = NULL;
   char *str = NULL;
   char s12[12];
-  int i, w, h, schema_x, schema_y;
+  int i, w, h;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -581,13 +602,23 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					    NULL);
 
   // displays the ballast_av_air value
+  ballast_av_air_item_rect = gnome_canvas_item_new (boardRootItem,
+						    gnome_canvas_rect_get_type (),
+						    "x1", (double) schema_x + BALLAST_AV_AIR_X1,
+						    "y1", (double) schema_y + BALLAST_AV_AIR_Y2,
+						    "x2", (double) schema_x + BALLAST_AV_AIR_X2,
+						    "y2", (double) schema_y + BALLAST_AV_AIR_Y2,
+						    "fill_color", "blue",
+						    "width_pixels", 0,
+						    NULL);
+
   sprintf(s12,"%d",(int)ballast_av_air);
   ballast_av_air_item_back = gnome_canvas_item_new (boardRootItem,
 						    gnome_canvas_text_get_type (),
 						    "text", s12,
 						    "font", gcompris_skin_font_board_title_bold,
-						    "x", (double) schema_x + BALLAST_AV_AIR_X + 1,
-						    "y", (double) schema_y + BALLAST_AV_AIR_Y + 1,
+						    "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X + 1,
+						    "y", (double) schema_y + BALLAST_AV_AIR_TEXT_Y + 1,
 						    "anchor", GTK_ANCHOR_CENTER,
 						    "fill_color", TEXT_COLOR_BACK,
 						    NULL);
@@ -595,20 +626,31 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						     gnome_canvas_text_get_type (),
 						     "text", s12,
 						     "font", gcompris_skin_font_board_title_bold,
-						     "x", (double) schema_x + BALLAST_AV_AIR_X,
-						     "y", (double) schema_y + BALLAST_AV_AIR_Y,
+						     "x", (double) schema_x + BALLAST_AV_AIR_TEXT_X,
+						     "y", (double) schema_y + BALLAST_AV_AIR_TEXT_Y,
 						     "anchor", GTK_ANCHOR_CENTER,
 						     "fill_color", TEXT_COLOR_FRONT,
 						     NULL);
+  setBallastAV(ballast_av_air);
 
   // displays the ballast_ar_air value
+  ballast_ar_air_item_rect = gnome_canvas_item_new (boardRootItem,
+						    gnome_canvas_rect_get_type (),
+						    "x1", (double) schema_x + BALLAST_AR_AIR_X1,
+						    "y1", (double) schema_y + BALLAST_AR_AIR_Y2,
+						    "x2", (double) schema_x + BALLAST_AR_AIR_X2,
+						    "y2", (double) schema_y + BALLAST_AR_AIR_Y2,
+						    "fill_color", "blue",
+						    "width_pixels", 0,
+						    NULL);
+
   sprintf(s12,"%d",(int)ballast_ar_air);
   ballast_ar_air_item_back = gnome_canvas_item_new (boardRootItem,
 						    gnome_canvas_text_get_type (),
 						    "text", s12,
 						    "font", gcompris_skin_font_board_title_bold,
-						    "x", (double) schema_x + BALLAST_AR_AIR_X + 1,
-						    "y", (double) schema_y + BALLAST_AR_AIR_Y + 1,
+						    "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X + 1,
+						    "y", (double) schema_y + BALLAST_AR_AIR_TEXT_Y + 1,
 						    "anchor", GTK_ANCHOR_CENTER,
 						    "fill_color", TEXT_COLOR_BACK,
 						    NULL);
@@ -616,11 +658,12 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 						     gnome_canvas_text_get_type (),
 						     "text", s12,
 						     "font", gcompris_skin_font_board_title_bold,
-						     "x", (double) schema_x + BALLAST_AR_AIR_X,
-						     "y", (double) schema_y + BALLAST_AR_AIR_Y,
+						     "x", (double) schema_x + BALLAST_AR_AIR_TEXT_X,
+						     "y", (double) schema_y + BALLAST_AR_AIR_TEXT_Y,
 						     "anchor", GTK_ANCHOR_CENTER,
 						     "fill_color", TEXT_COLOR_FRONT,
 						     NULL);
+    setBallastAR(ballast_ar_air);
 
   // displays the remaining air value
   sprintf(s12,"%d", (int)air);
@@ -665,13 +708,23 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					      NULL);
 
   // displays the remaining regleur value
+  regleur_item_rect = gnome_canvas_item_new (boardRootItem,
+					     gnome_canvas_rect_get_type (),
+					     "x1", (double) schema_x + REGLEUR_X1,
+					     "y1", (double) schema_y + REGLEUR_Y2,
+					     "x2", (double) schema_x + REGLEUR_X2,
+					     "y2", (double) schema_y + REGLEUR_Y2,
+					     "fill_color", "blue",
+					     "width_pixels", 0,
+					     NULL);
+
   sprintf(s12,"%d", (int)regleur);
   regleur_item_back = gnome_canvas_item_new (boardRootItem,
 					     gnome_canvas_text_get_type (),
 					     "text", s12,
 					     "font", gcompris_skin_font_board_title_bold,
-					     "x", (double) schema_x + REGLEUR_X +1,
-					     "y", (double) schema_y + REGLEUR_Y + 1,
+					     "x", (double) schema_x + REGLEUR_TEXT_X +1,
+					     "y", (double) schema_y + REGLEUR_TEXT_Y + 1,
 					     "anchor", GTK_ANCHOR_CENTER,
 					     "fill_color", TEXT_COLOR_BACK,
 					     NULL);
@@ -679,11 +732,12 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					      gnome_canvas_text_get_type (),
 					      "text", s12,
 					      "font", gcompris_skin_font_board_title_bold,
-					      "x", (double) schema_x + REGLEUR_X,
-					      "y", (double) schema_y + REGLEUR_Y,
+					      "x", (double) schema_x + REGLEUR_TEXT_X,
+					      "y", (double) schema_y + REGLEUR_TEXT_Y,
 					      "anchor", GTK_ANCHOR_CENTER,
 					      "fill_color", TEXT_COLOR_FRONT,
 					      NULL);
+  setRegleur(regleur);
 
   // displays an alert when some parameters are bad
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "alert_submarine.png");
@@ -1381,18 +1435,32 @@ static void setRegleur(double value) {
   sprintf(s12,"%d",(int)value);
   gnome_canvas_item_set(regleur_item_back, "text", s12, NULL);
   gnome_canvas_item_set(regleur_item_front, "text", s12, NULL);
+  gnome_canvas_item_set(regleur_item_rect,
+			"y1", (double) schema_y + REGLEUR_Y2 +
+			( value * (REGLEUR_Y1 - REGLEUR_Y2)) / MAX_REGLEUR,
+			NULL);
 }
 static void setBallastAV(double value) {
   char s12[12];
-  sprintf(s12,"%d",(int)value);
+  sprintf(s12,"%d", MAX_BALLAST - (int)value);
   gnome_canvas_item_set(ballast_av_air_item_back, "text", s12, NULL);
   gnome_canvas_item_set(ballast_av_air_item_front, "text", s12, NULL);
+  gnome_canvas_item_set(ballast_av_air_item_rect,
+			"y1", (double) schema_y + BALLAST_AV_AIR_Y2 +
+			( (MAX_BALLAST - value) * (BALLAST_AV_AIR_Y1 - BALLAST_AV_AIR_Y2)) / MAX_BALLAST,
+			NULL);
 }
 static void setBallastAR(double value) {
   char s12[12];
-  sprintf(s12,"%d",(int)value);
+  sprintf(s12,"%d", MAX_BALLAST - (int)value);
   gnome_canvas_item_set(ballast_ar_air_item_back, "text", s12, NULL);
   gnome_canvas_item_set(ballast_ar_air_item_front, "text", s12, NULL);
+  gnome_canvas_item_set(ballast_ar_air_item_rect,
+			"y1", (double) schema_y + BALLAST_AR_AIR_Y2 +
+			( (MAX_BALLAST - value) * (BALLAST_AR_AIR_Y1 - BALLAST_AR_AIR_Y2)) / MAX_BALLAST,
+			NULL);
+
+
 }
 /* =====================================================================
  *	Submarine explosion

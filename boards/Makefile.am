@@ -1,4 +1,4 @@
-SUBDIRS = read_colors advanced_colors babymatch babyshapes imageid imagename missing_letter paintings scales doubleentry geography
+SUBDIRS = read_colors advanced_colors babymatch babyshapes flags imageid imagename missing_letter paintings scales doubleentry geography
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
@@ -63,16 +63,6 @@ xml_in_files = \
 	pythontest.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
-
-
-%.assetml:       %.assetml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(INTLTOOL_MERGE) $(top_srcdir)/po $< $@ -x -u -c $(top_builddir)/po/.intltool-merge-cache
-
-assetmldir = $(datadir)/pixmaps
-
-assetml_in_files = \
-	gcompris_pixmaps.assetml.in
-
-assetml_DATA = $(assetml_in_files:.assetml.in=.assetml)
 
 @INTLTOOL_XML_RULE@
 

@@ -11,7 +11,7 @@ Version: 	%ver
 Release: 	%rel
 Copyright: 	GPL
 Group: 		Amusements/Games
-Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tgz
+Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tar.gz
 BuildRoot: 	/var/tmp/gcompris-%{PACKAGE_VERSION}-root
 URL: 		http://ofset.sf.net/gcompris
 Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
@@ -19,6 +19,7 @@ Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
 Requires:       gnuchess >= 5.02
 Requires:       python gnome-python gnome-python-canvas pygtk2.0
 Requires:       gcompris-libassetml
+Requires:	gcompris-assetml-flags
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
 %description
@@ -107,6 +108,14 @@ Requires:       %name
 %description sounds-pt
 Portuguese sounds for gcompris.
 
+%package assetml-flags
+Summary:        Contains png 60x40 country flags and an assetml description file
+Group: 		Pixmaps
+Version: 	1.0
+
+%description assetml-flags
+Contains png 60x40 country flags and an assetml description file
+
 %package libassetml
 Summary:        Library assetml to share image and audio file between project
 Group: 		System/Libraries
@@ -164,16 +173,17 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{prefix}/share/gcompris/boards
 %dir %{prefix}/share/gcompris/boards/skins
 %{prefix}/share/gcompris/boards/skins/*
-%{prefix}/share/gcompris/boards/skins/*/*
-%{prefix}/share/gcompris/boards/[^s]*
+%{prefix}/share/gcompris/boards/[^fs]*
+%{prefix}/share/gcompris/boards/f[iu]*
 %{prefix}/share/gcompris/boards/s[cmu]*
 %dir %{prefix}/share/gcompris/boards/sounds
-%{prefix}/share/gcompris/boards/sounds/*
+%{prefix}/share/gcompris/boards/sounds/*.ogg
+%{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
 %{prefix}/share/gnome/apps/Games/*
 %{prefix}/share/gnome/help/*
 %{prefix}/info/*
 %{prefix}/share/locale/*/*/*
-%{prefix}/share/pixmaps/*
+%{prefix}/share/pixmaps/*.png
 
 %files sounds-de
 %defattr(-, root, root)
@@ -199,6 +209,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/lib/libassetml.so.*
 %{prefix}/bin/assetml-query
+
+%files assetml-flags
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/flags/*
+%{prefix}/share/pixmaps/gcompris_flags.assetml
 
 %files libassetml-devel
 %defattr(-, root, root)
