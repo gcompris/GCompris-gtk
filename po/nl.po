@@ -2,15 +2,15 @@
 # Copyright (C) 2000,2003 Free Software Foundation, Inc.
 # Dirk Schouten <schoutdi@knoware.nl>, 2000.
 # Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>, 2001, 2002.
-# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2003, 2004
+# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2003, 2004, 2005
 # Sander Devrieze <s.devrieze@pandora.be>, 2003
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-05 11:09+0100\n"
-"PO-Revision-Date: 2004-12-05 18:51+0100\n"
+"POT-Creation-Date: 2005-01-07 18:52+0100\n"
+"PO-Revision-Date: 2005-01-08 01:49+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -479,12 +479,38 @@ msgid "algorithm"
 msgstr "algoritme"
 
 #: boards/anim.xml.in.h:1
-msgid "Create an animation"
-msgstr "Een filmpje maken"
+msgid "Create a drawing or an animation"
+msgstr "Maak een tekening of een filmpje"
 
 #: boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
-msgstr "Vrij teken-, en animatieprogramma."
+msgstr "Teken- en animatieprogramma."
+
+#: boards/anim.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines. To make it more fun for kids, a set of images can also be used."
+msgstr "In dit spel kunnen kinderen vrij tekenen. Het doel is te ontdekken hoe je mooie tekeningen kunt maken met de basisvormen rechthoek, ellips en lijn. Om het leuker te maken kunnen ook een aantal plaatjes worden gebruikt."
+
+#: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Goed met de muis om kunnen gaan (bewegen en klikken)"
+
+# floppy/diskette
+#: boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left and a color on the bottom. Then click and "
+"drag in the white area to create a new shape. Once one drawing is complete, "
+"you can take a snapshot of it with the 'camera' button. A new image with the "
+"same content is created. You can then move objects a little bit or add/"
+"delete objects. Create several drawings and then click on the 'film' button. "
+"You will see all your images in an infinite loop. You can change the viewing "
+"speed in this mode. In view mode, click on the 'drawing' button to return to "
+"drawing. You can then edit each image of your animation by using the image "
+"selector in the bottom left of the screen. You can save and reload your "
+"animations with the 'floppy' and 'folder' button."
+msgstr "Kies links een tekenvorm en onderaan een kleur. Klik en sleep dan in het witte gebied om een vorm aan te maken. Wanneer de tekening af is kun je er een foto van maken via de knop met de fotocamera. Er zal dan een nieuw plaatje met dezelfde inhoud worden aangemaakt. Je kunt dan de vormpjes een klein beetje verplaatsen of vormen toevoegen of verwijderen. Maak op die manier een aantal plaatjes en klik dan op de knop 'film'. Je zult dan al je plaatjes achter elkaar te zien krijgen, oneindig herhaald. Je kunt ook de snelheid veranderen. In de weergavestand kun je op de knop 'tekenen' klikken om terug te keren naar je tekening. Je kunt dan een tekening uit je filmpje bewerken door op de plaatjeskiezer te klikken links onderaan het scherm. Ju kunt je filmpjes opslaan en herladen met de knoppen 'floppy' en 'map'."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -647,11 +673,9 @@ msgstr "Sleep de prentjes zodat de verhaallijn klopt"
 #: boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
-msgstr ""
-"De maanfoto is afkomstig van NASA. Ruimtegeluiden van Tuxpaint en "
-"Vegastrike. Transportdata zijn gebaseerd op de gegevens van http://www."
-"wikipedia.org"
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
+msgstr "De maanfoto is afkomstig van NASA. Ruimtegeluiden van Tuxpaint en Vegastrike. Transportdata zijn gebaseerd op de gegevens van http://www.wikipedia.org. Transport-afbeeldingen zijn van Franck Doucet"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -705,21 +729,69 @@ msgid "1909 Louis Bleriot cross the Channel"
 msgstr "1909 Louis Bleriot over het kanaal"
 
 # is dit goed?
-#: boards/chronos/board4_0.xml.in.h:4
+#: boards/chronos/board4_0.xml.in.h:4 boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
 msgstr "Het vliegen"
 
 #: boards/chronos/board4_1.xml.in.h:1
-msgid "1927 Charles Lindbergh cross Atlantique ocean"
-msgstr "1927 Charles Lindbergh over de Atlantische oceaan"
-
-#: boards/chronos/board4_1.xml.in.h:2
-msgid "1934 Helene Boucher speed record 444km/h"
-msgstr "1934 Helene Boucher snelheidsrecord 444km/h"
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 Charles Lindbergh\n"
+"over de Atlantische oceaan"
 
 #: boards/chronos/board4_1.xml.in.h:3
-msgid "1947 Chuck Yager break the sound-wall"
-msgstr "1947 Chuck Yager doorbreken de geluidsbarrière"
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 Helene Boucher\n"
+"snelheidsrecord 444km/h"
+
+#: boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yager\n"
+"break the sound-wall"
+msgstr ""
+"1947 Chuck Yager\n"
+"doorbreken de geluidsbarrière"
+
+#: boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnot's fardier"
+
+#: boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr "1878 Léon Bollé \"La Mancelle\""
+
+#: boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 De eerste auto op\n"
+"benzine van Benz"
+
+#: boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "De auto"
+
+#: boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899 Renault \"voiturette\""
+
+#: boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923 Lancia Lambda"
+
+#: boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 199"
+msgstr "1955 Citroën ds 199"
+
+#: boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Auto's"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -895,10 +967,6 @@ msgid ""
 msgstr ""
 "In dit spel kunnen kinderen vrij tekenen. Het doel is te ontdekken hoe je "
 "mooie tekeningen kunt maken met de basisvormen rechthoek, ellips en lijn."
-
-#: boards/draw.xml.in.h:4
-msgid "Needs to handle the mouse with the click easily"
-msgstr "Goed met de muis om kunnen gaan (bewegen en klikken)"
 
 #: boards/draw.xml.in.h:5
 msgid ""
@@ -1753,7 +1821,8 @@ msgstr ""
 "Klikken op een pictogram geeft u een bordspel of een menu met bordspellen.\n"
 " Onderaan het scherm vindt u de bedieningsbalk van gcompris.\n"
 " Daarin vindt u van rechts naar links de volgende pictogrammen.\n"
-" Merk op dat de pictogrammen alleen zichtbaar zijn als ze in het bordspel een functie hebben.\n"
+" Merk op dat de pictogrammen alleen zichtbaar zijn als ze in het bordspel "
+"een functie hebben.\n"
 "    Huisje - Teruggaan naar het vorige menu of gcompris afsluiten.\n"
 "    Duim - OK, bevestig je antwoord.\n"
 "    Dobbelsteen - De moeilijkheidsgraad instellen.\n"
@@ -2300,6 +2369,22 @@ msgstr ""
 "Tux heeft honger. Help hem vissen te vinden door het aantal ijsschotsen te "
 "tellen om bij de vis te komen."
 
+#: boards/searace.xml.in.h:1
+msgid "A Sea race against Tux"
+msgstr "Een zeerace tegen Tux"
+
+#: boards/searace.xml.in.h:2
+msgid ""
+"Give good instructions to your ship in order to be first in a race against "
+"Tux."
+msgstr "Geef de juiste opdrachten aan je schip om als eerste te eindigen in een race tegen Tux."
+
+#: boards/searace.xml.in.h:3
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area."
+msgstr "In het invoerveld geef je regel voor regel opdrachten om je boot te besturen. De mogelijke opdrachten staan tussen de twee invoervelden."
+
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
 #: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
@@ -2509,7 +2594,7 @@ msgstr "Educatieve software gcompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2777,6 +2862,31 @@ msgstr "Niveau"
 msgid "Coordinate"
 msgstr "Coördinaat"
 
+#: src/boards/python/searace.py:181 src/boards/python/searace.py:186
+#: src/boards/python/searace.py:212
+msgid "Race is already running"
+msgstr "De race is al begonnen"
+
+#: src/boards/python/searace.py:610
+msgid "The Red boat has won"
+msgstr "De rode boot heeft gewonnen"
+
+#: src/boards/python/searace.py:612
+msgid "The Green boat has won"
+msgstr "De groene boot heeft gewonnen"
+
+#: src/boards/python/searace.py:705
+msgid "forward"
+msgstr "vooruit"
+
+#: src/boards/python/searace.py:711
+msgid "turnleft"
+msgstr "linksaf"
+
+#: src/boards/python/searace.py:713
+msgid "turnright"
+msgstr "rechtsaf"
+
 #: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Geheugenspel"
@@ -2953,7 +3063,7 @@ msgid "Help"
 msgstr "Hulp"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:208
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -3209,15 +3319,15 @@ msgstr "Geen skin gevonden in %s\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:235
+#: src/gcompris/file_selector.c:242
 msgid "CANCEL"
 msgstr "ANNULEREN"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "LOAD"
 msgstr "LADEN"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "SAVE"
 msgstr "OPSLAAN"
 
@@ -3274,7 +3384,7 @@ msgstr "Toont de versie van "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:522
+#: src/gcompris/gcompris.c:532
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3298,7 +3408,7 @@ msgstr ""
 "op\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:717
+#: src/gcompris/gcompris.c:727
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3406,6 +3516,9 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "Create an animation"
+#~ msgstr "Een filmpje maken"
 
 #~ msgid "Error: The wordfile package used for your locale is corrupted."
 #~ msgstr "Fout: het woordbestand-pakket voor uw locale is beschadigd."
