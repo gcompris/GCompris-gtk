@@ -1,4 +1,23 @@
-# PythonTest Board module
+#  gcompris - watercycle
+# 
+# Time-stamp: <2001/08/20 00:54:45 bruno>
+# 
+# Copyright (C) 2003 Bruno Coudoin
+# 
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+# 
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+# 
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+# 
 import gnome
 import gnome.canvas
 import gcompris
@@ -95,7 +114,7 @@ class Gcompris_watercycle:
       y1=89.0,
       x2=90.0,
       y2=155.0,
-      fill_color_rgba=0x0099FFFF,
+      fill_color_rgba=0x0099FFFFL,
       width_units=0.0
       )
 
@@ -240,7 +259,7 @@ class Gcompris_watercycle:
           gnome.canvas.CanvasLine,
           points = (655 , self.waterlevel,
                     655 , self.waterlevel_min),
-          fill_color_rgba = 0x0033FFFF,
+          fill_color_rgba = 0x0033FFFFL,
           width_units = 20.0
           )
 

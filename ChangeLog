@@ -1,3 +1,15 @@
+2003-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/redraw.py: nearly completed the implementation but not yet playable
+	* src/boards/python/watercycle.py: added file header
+	
+2003-11-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gcompris.c: (gcompris_set_locale), (gcompris_init): added display of ao devices
+	* src/gcompris/oggplayer.c: (decode_ogg_file),
+	(display_ao_devices): created display_ao_devices to display ao devices
+	* src/gcompris/soundutil.h: add of display_ao_devices
+
 2003-11-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* TODO: updated

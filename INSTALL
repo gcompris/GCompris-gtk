@@ -14,8 +14,18 @@ This will install gcompris and all its data files under
 
 Then, run /home/bruno/gcompris/bin/gcompris
 
-Gcompris requires gnome-libs, xmllib2, gdk-pixbuf-gnomecanvas
+Gcompris requires gnome-libs, xmlib2, gdk-pixbuf-gnomecanvas
 and gdk-pixbuf.
+
+gcompris also requires the gnuchess package for the chess activity to run.
+
+gcompris includes several activity written in python. To enable them, you need to have python installed on your system with the following packages:
+libpython
+python
+gnome-python-canvas
+libpython2.2-devel
+gnome-python
+python-base
 
 Now that the sound is managed internally, you also need:
 libvorbis libao libogg libao-devel libvorbis-devel libogg-devel
