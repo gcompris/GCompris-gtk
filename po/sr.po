@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-28 03:28+0100\n"
-"PO-Revision-Date: 2003-10-28 04:35+0100\n"
+"POT-Creation-Date: 2003-10-29 19:27+0100\n"
+"PO-Revision-Date: 2003-10-30 04:00+0100\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -722,11 +722,11 @@ msgstr ""
 "Деца морају да преместе ставке са леве стране на одговарајуће место у табели "
 "са двоструким уносом."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:199
 msgid "A simple vector drawing tool"
 msgstr "Једноставно векторско цртање"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:200
 msgid "Creative board where you can freely draw"
 msgstr "Уметничка табла на којој можете слободно да цртате"
 
@@ -1697,6 +1697,10 @@ msgstr "Прочитајте усправан списак речи и реци�
 msgid "Vertical reading practice"
 msgstr "Вежба читања усправно"
 
+#: boards/redraw.xml.in.h:1
+msgid "Redraw the given item"
+msgstr "Поново исцртајте дату ставку"
+
 #: boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
@@ -1875,18 +1879,6 @@ msgid ""
 "on the right"
 msgstr "Циљ је уклонити сва црвена кола из мреже кроз излаз десно"
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
-msgid "Falling Words"
-msgstr "Падајуће речи"
-
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
-msgid "Fully type the falling words before they reach the ground"
-msgstr "Потпуно укуцајте речи које падају пре него што стигну до земље"
-
-#: boards/wordsgame.xml.in.h:4
-msgid "Keyboard training"
-msgstr "Вежба куцања"
-
 #: boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
@@ -1908,6 +1900,18 @@ msgid ""
 msgstr ""
 "Треба да оспособите систем за воду. Пингослав се враћа са дуге пецарошке "
 "забаве на свом броду. Помозите му да се истушира."
+
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+msgid "Falling Words"
+msgstr "Падајуће речи"
+
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Потпуно укуцајте речи које падају пре него што стигну до земље"
+
+#: boards/wordsgame.xml.in.h:4
+msgid "Keyboard training"
+msgstr "Вежба куцања"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -2409,44 +2413,48 @@ msgstr "Нисам могао да отворим директоријум са 
 msgid "Skin : %s"
 msgstr "Маска : %s"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in fullscreen mode."
 msgstr "Покрени gcompris-а преко целог екрана."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in window mode."
 msgstr "Покрени гкомприса у прозору."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris with sound enabled."
 msgstr "Покрени гкомприса уз укључен звук."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris without sound."
 msgstr "Покрени гкомприса без звука."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris with the default gnome cursor."
 msgstr "Покрени гкомприса уз подразумеваног Гномовог показивача."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:77
 msgid "display only activities with this difficulty level."
 msgstr "прикажи само активности ове тежине."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:79
+msgid "select the audio output, one of 'default alsa09 arts esd oss'"
+msgstr "изаберите звучни излаз, један од „default“, „алса09“, „arts“, „esd“, „oss“"
+
+#: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
 msgstr "Испиши издање за "
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:83
 msgid "Use the antialiased canvas (slower)."
 msgstr "Користи улепшан приказ (спорије)."
 
 # bug: wha'???
-#: src/gcompris/gcompris.c:350
+#: src/gcompris/gcompris.c:353
 msgid "GCompris I Have Understood"
 msgstr "ГКомприс ког сам разумео"
 
-#: src/gcompris/gcompris.c:567
+#: src/gcompris/gcompris.c:570
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2507,7 +2515,7 @@ msgstr "Аутор"
 msgid "Directory"
 msgstr "Директоријум"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
 msgid "Title"
 msgstr "Наслов"
 
@@ -2523,11 +2531,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Објављено под ОЈЛ (GPL)"
 
-#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
+#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
 msgid "Now Playing Music"
 msgstr "Сада пуштам музику"
 
-#: src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:247
 msgid "Artist"
 msgstr "Извођач"
 

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-28 03:28+0100\n"
-"PO-Revision-Date: 2003-10-28 04:35+0100\n"
+"POT-Creation-Date: 2003-10-29 19:27+0100\n"
+"PO-Revision-Date: 2003-10-30 04:00+0100\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -722,11 +722,11 @@ msgstr ""
 "Deca moraju da premeste stavke sa leve strane na odgovarajuće mesto u tabeli "
 "sa dvostrukim unosom."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:199
 msgid "A simple vector drawing tool"
 msgstr "Jednostavno vektorsko crtanje"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:200
 msgid "Creative board where you can freely draw"
 msgstr "Umetnička tabla na kojoj možete slobodno da crtate"
 
@@ -1697,6 +1697,10 @@ msgstr "Pročitajte uspravan spisak reči i recite da li je data reč u njemu"
 msgid "Vertical reading practice"
 msgstr "Vežba čitanja uspravno"
 
+#: boards/redraw.xml.in.h:1
+msgid "Redraw the given item"
+msgstr "Ponovo iscrtajte datu stavku"
+
 #: boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
@@ -1875,18 +1879,6 @@ msgid ""
 "on the right"
 msgstr "Cilj je ukloniti sva crvena kola iz mreže kroz izlaz desno"
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
-msgid "Falling Words"
-msgstr "Padajuće reči"
-
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
-msgid "Fully type the falling words before they reach the ground"
-msgstr "Potpuno ukucajte reči koje padaju pre nego što stignu do zemlje"
-
-#: boards/wordsgame.xml.in.h:4
-msgid "Keyboard training"
-msgstr "Vežba kucanja"
-
 #: boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
@@ -1908,6 +1900,18 @@ msgid ""
 msgstr ""
 "Treba da osposobite sistem za vodu. Pingoslav se vraća sa duge pecaroške "
 "zabave na svom brodu. Pomozite mu da se istušira."
+
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+msgid "Falling Words"
+msgstr "Padajuće reči"
+
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Potpuno ukucajte reči koje padaju pre nego što stignu do zemlje"
+
+#: boards/wordsgame.xml.in.h:4
+msgid "Keyboard training"
+msgstr "Vežba kucanja"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -2409,44 +2413,48 @@ msgstr "Nisam mogao da otvorim direktorijum sa maskama: %s"
 msgid "Skin : %s"
 msgstr "Maska : %s"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in fullscreen mode."
 msgstr "Pokreni gcompris-a preko celog ekrana."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in window mode."
 msgstr "Pokreni gkomprisa u prozoru."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris with sound enabled."
 msgstr "Pokreni gkomprisa uz uključen zvuk."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris without sound."
 msgstr "Pokreni gkomprisa bez zvuka."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris with the default gnome cursor."
 msgstr "Pokreni gkomprisa uz podrazumevanog Gnomovog pokazivača."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:77
 msgid "display only activities with this difficulty level."
 msgstr "prikaži samo aktivnosti ove težine."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:79
+msgid "select the audio output, one of 'default alsa09 arts esd oss'"
+msgstr "izaberite zvučni izlaz, jedan od „default“, „alsa09“, „arts“, „esd“, „oss“"
+
+#: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
 msgstr "Ispiši izdanje za "
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:83
 msgid "Use the antialiased canvas (slower)."
 msgstr "Koristi ulepšan prikaz (sporije)."
 
 # bug: wha'???
-#: src/gcompris/gcompris.c:350
+#: src/gcompris/gcompris.c:353
 msgid "GCompris I Have Understood"
 msgstr "GKompris kog sam razumeo"
 
-#: src/gcompris/gcompris.c:567
+#: src/gcompris/gcompris.c:570
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2507,7 +2515,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Direktorijum"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
 msgid "Title"
 msgstr "Naslov"
 
@@ -2523,11 +2531,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Objavljeno pod OJL (GPL)"
 
-#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
+#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
 msgid "Now Playing Music"
 msgstr "Sada puštam muziku"
 
-#: src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:247
 msgid "Artist"
 msgstr "Izvođač"
 
