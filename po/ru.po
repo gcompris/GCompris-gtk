@@ -1,35 +1,39 @@
-# Copyright (C) 2001-2002 Free Software Foundation, Inc.
+# translation of ru.po to Russian
+# translation of ru.po to Finnish
+# Copyright (C) 2001-2002,2003 Free Software Foundation, Inc.
 # Valek Filippov <frob@df.ru>, 2001-2002.
+# Anna Polesskaya and Kirill Polesski <rami at kaires.org>, 2003
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-24 12:09+0200\n"
-"PO-Revision-Date: 2002-03-11 14:23+0300\n"
-"Last-Translator: Valek Filippov <frob@df.ru>\n"
-"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"Project-Id-Version: ru\n"
+"POT-Creation-Date: 2003-11-04 22:30+0100\n"
+"PO-Revision-Date: 2003-11-03 21:19+0100\n"
+"Last-Translator: Anna Polesskaya and Kirill Polesski <rami at kaires.org>\n"
+"Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=koi8-r\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
-msgstr ""
+msgstr "п╕п╡п╣я┌п╟ я│п╩п╬п╤п╫я▀п╣"
 
 #: boards/advanced_colors.xml.in.h:2 boards/read_colors.xml.in.h:1
 msgid "Can read"
-msgstr ""
+msgstr "пёп╪п╣п╣я┌ я┤п╦я┌п╟я┌я▄"
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
 #: src/boards/colors.c:75
 msgid "Click on the right color"
-msgstr "Щёлкните на правильном цвете"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╫п╟ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ я├п╡п╣я┌п╣"
 
 #: boards/advanced_colors.xml.in.h:4
 #, fuzzy
 msgid "Click on the right colored box."
-msgstr "Щёлкните на правильном цвете"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╫п╟ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ я├п╡п╣я┌п╣"
 
 #: boards/advanced_colors.xml.in.h:5
 msgid "This board is dedicated to recognize unusual colors."
@@ -46,22 +50,22 @@ msgstr ""
 #: boards/advanced_colors/board1.xml.in.h:3
 #, fuzzy
 msgid "claret"
-msgstr "морковка"
+msgstr "п╪п╬я─п╨п╬п╡п╨п╟"
 
 #: boards/advanced_colors/board1.xml.in.h:4
 #, fuzzy
 msgid "cobalt"
-msgstr "Цель"
+msgstr "п╕п╣п╩я▄"
 
 #: boards/advanced_colors/board1.xml.in.h:5
 #, fuzzy
 msgid "coral"
-msgstr "Цель"
+msgstr "п╕п╣п╩я▄"
 
 #: boards/advanced_colors/board1.xml.in.h:6
 #, fuzzy
 msgid "corn"
-msgstr "корона"
+msgstr "п╨п╬я─п╬п╫п╟"
 
 #: boards/advanced_colors/board1.xml.in.h:7
 msgid "cyan"
@@ -86,7 +90,7 @@ msgstr ""
 #: boards/advanced_colors/board2.xml.in.h:4
 #, fuzzy
 msgid "sapphire"
-msgstr "яблоко"
+msgstr "я▐п╠п╩п╬п╨п╬"
 
 #: boards/advanced_colors/board2.xml.in.h:5
 msgid "sepia"
@@ -115,7 +119,7 @@ msgstr ""
 #: boards/advanced_colors/board3.xml.in.h:3
 #, fuzzy
 msgid "amber"
-msgstr "верблюд"
+msgstr "п╡п╣я─п╠п╩я▌п╢"
 
 #: boards/advanced_colors/board3.xml.in.h:4
 msgid "amethyst"
@@ -124,7 +128,7 @@ msgstr ""
 #: boards/advanced_colors/board3.xml.in.h:5
 #, fuzzy
 msgid "anise"
-msgstr "Испанский"
+msgstr "п≤я│п©п╟п╫я│п╨п╦п╧"
 
 #: boards/advanced_colors/board3.xml.in.h:6
 msgid "aquamarine"
@@ -147,12 +151,12 @@ msgstr ""
 #: boards/advanced_colors/board4.xml.in.h:2
 #, fuzzy
 msgid "ceruse"
-msgstr "сыр"
+msgstr "я│я▀я─"
 
 #: boards/advanced_colors/board4.xml.in.h:3
 #, fuzzy
 msgid "chartreuse"
-msgstr "сыр"
+msgstr "я│я▀я─"
 
 #: boards/advanced_colors/board4.xml.in.h:4
 msgid "emerald"
@@ -185,7 +189,7 @@ msgstr ""
 #: boards/advanced_colors/board5.xml.in.h:4
 #, fuzzy
 msgid "bistre"
-msgstr "дерево"
+msgstr "п╢п╣я─п╣п╡п╬"
 
 #: boards/advanced_colors/board5.xml.in.h:5
 msgid "celadon"
@@ -198,7 +202,7 @@ msgstr ""
 #: boards/advanced_colors/board5.xml.in.h:7
 #, fuzzy
 msgid "crimson"
-msgstr "корона"
+msgstr "п╨п╬я─п╬п╫п╟"
 
 #: boards/advanced_colors/board5.xml.in.h:8
 msgid "greyish-brown"
@@ -211,7 +215,7 @@ msgstr ""
 #: boards/advanced_colors/board6.xml.in.h:2
 #, fuzzy
 msgid "garnet"
-msgstr "морковка"
+msgstr "п╪п╬я─п╨п╬п╡п╨п╟"
 
 #: boards/advanced_colors/board6.xml.in.h:3
 msgid "indigo"
@@ -292,7 +296,7 @@ msgstr ""
 #: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 #, fuzzy
 msgid "purple"
-msgstr "яблоко"
+msgstr "я▐п╠п╩п╬п╨п╬"
 
 #: boards/advanced_colors/board8.xml.in.h:7
 msgid "ultramarine"
@@ -301,7 +305,7 @@ msgstr ""
 #: boards/advanced_colors/board9.xml.in.h:1
 #, fuzzy
 msgid "dark purple"
-msgstr "яблоко"
+msgstr "я▐п╠п╩п╬п╨п╬"
 
 #: boards/advanced_colors/board9.xml.in.h:2
 msgid "plum"
@@ -337,37 +341,37 @@ msgid ""
 "sign, give the answer. Use the left and right arrow to modify your answer, "
 "the return key to validate an answer"
 msgstr ""
+"п÷п╬п╨п╟п╥п╟п╫п╬ я┐п╪п╫п╬п╤п╣п╫п╦п╣ п╢п╡я┐я┘ я┤п╣я│п╣п╩. п²п╟п©п╦я┬п╦я┌п╣ п╬я┌п╡п╣я┌ я│п©я─п╟п╡п╟ п╬я┌ п╥п╫п╟п╨п╟ я─п╟п╡п╣п╫я│я┌п╡п╟. "
+"п÷п╬п╩я▄п╥я┐п╧я┌п╣я│я▄ п©я─п╟п╡п╬п╧ п╦ п╩п╣п╡п╬п╧ я│я┌я─п╣п╩п╨п╬п╧, я┤я┌п╬п╠я▀ п╦п╥п╪п╣п╫п╦я┌я▄ я│п╡п╬п╧ п╬я┌п╡п╣я┌, п╦ "
+"п╨п╩п╟п╡п╦я┬п╣п╧п╡п╬п╥п╡я─п╟я┌п╟, я┤я┌п╬п╠я▀ п©п╬п╢я┌п╡п╣я─п╢п╦я┌я▄ я│п╡п╬п╧ п╬я┌п╡п╣я┌. "
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
 msgid "I Ask you some algebra questions"
-msgstr "Я задам несколько вопросов по алгебре"
+msgstr "п╞ п╥п╟п╢п╟п╪ п╫п╣я│п╨п╬п╩я▄п╨п╬ п╡п╬п©я─п╬я│п╬п╡ п©п╬ п╟п╩пЁп╣п╠я─п╣"
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr ""
+msgstr "п÷п╣я─п╣п╪п╫п╬п╤я▄ я█я┌п╦ я┤п╦я│п╩п╟. п╒п╡п╬п╣ п╡я─п╣п╪я▐ п╬пЁя─п╟п╫п╦я┤п╣п╫п╬!"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
-msgstr ""
+msgstr "п╒п╟п╠п╩п╦я├п╟ я┐п╪п╫п╬п╤п╣п╫п╦я▐."
 
 #: boards/algebra_by.xml.in.h:5
-#, fuzzy
 msgid "Practice the multiplication operation"
-msgstr "Упражнения на умножение"
+msgstr "пёп©я─п╟п╤п╫п╣п╫п╦я▐ п╫п╟ я┐п╪п╫п╬п╤п╣п╫п╦п╣"
 
 #: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-#, fuzzy
 msgid "Go to Algebra activities"
-msgstr "Перейти к алгебраическим доскам"
+msgstr "п÷п╣я─п╣п╧я┌п╦ п╨ п╟п╩пЁп╣п╠я─п╟п╦я┤п╣я│п╨п╦п╪ п╢п╬я│п╨п╟п╪"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
-#, fuzzy
+#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Щёлкните левой кнопкой мыши, чтобы выбрать доску"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╩п╣п╡п╬п╧ п╨п╫п╬п©п╨п╬п╧ п╪я▀я┬п╦, я┤я┌п╬п╠я▀ п╡я▀п╠я─п╟я┌я▄ п╢п╬я│п╨я┐"
 
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
@@ -375,6 +379,9 @@ msgid ""
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
 "his pictures. Thanks a lot Ralf."
 msgstr ""
+"п╓п╬я┌п╬пЁя─п╟я└п╦п╦ п╤п╦п╡п╬я┌п╫я▀я┘ п╡п╥я▐я┌я▀ я│п╬ я│я┌я─п╟п╫п╦я├я▀ Ralf Schmode (http://schmode.net). "
+"п═п╟п╩я▄я└ я┐п©п╬п╩п╫п╬ п╫п╬п╪п╬я┤п╦п╩ GCompris п╦я│п©п╬п╩я▄п╥п╬п╡п╟я┌я▄ я│п╡п╬п╦ я└п╬я┌п╬пЁя─п╟я└п╦п╦. п▒п╬п╩я▄я┬п╬п╣ я│п©п╟я│п╦п╠п╬, "
+"п═п╟п╩я▄я└!"
 
 #: boards/algebra_guesscount.xml.in.h:2
 msgid ""
@@ -383,7 +390,7 @@ msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:3
 msgid "Find the correct operations to get the result"
-msgstr "Найдите правильные действия для получения нужного результата"
+msgstr "п²п╟п╧п╢п╦я┌п╣ п©я─п╟п╡п╦п╩я▄п╫я▀п╣ п╢п╣п╧я│я┌п╡п╦я▐ п╢п╩я▐ п©п╬п╩я┐я┤п╣п╫п╦я▐ п╫я┐п╤п╫п╬пЁп╬ я─п╣п╥я┐п╩я▄я┌п╟я┌п╟"
 
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "The four arithmetic operations. Combine several arithmetic operations"
@@ -416,11 +423,11 @@ msgstr ""
 #: boards/algebra_minus.xml.in.h:4
 #, fuzzy
 msgid "Practice the substraction operation"
-msgstr "Упражнения на вычитание"
+msgstr "пёп©я─п╟п╤п╫п╣п╫п╦я▐ п╫п╟ п╡я▀я┤п╦я┌п╟п╫п╦п╣"
 
 #: boards/algebra_minus.xml.in.h:5
 msgid "Simple substraction"
-msgstr ""
+msgstr "п÷я─п╬я│я┌п╬п╣ п╡я▀я┤п╦я┌п╟п╫п╦п╣."
 
 #: boards/algebra_plus.xml.in.h:1
 msgid ""
@@ -436,7 +443,7 @@ msgstr ""
 #: boards/algebra_plus.xml.in.h:4
 #, fuzzy
 msgid "Practice the addition operation"
-msgstr "Упражнения на сложение"
+msgstr "пёп©я─п╟п╤п╫п╣п╫п╦я▐ п╫п╟ я│п╩п╬п╤п╣п╫п╦п╣"
 
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition"
@@ -460,7 +467,7 @@ msgstr ""
 
 #: boards/babymatch.xml.in.h:3
 msgid "Matching Items"
-msgstr "Совпадающие элементы"
+msgstr "п║п╬п╡п©п╟п╢п╟я▌я┴п╦п╣ я█п╩п╣п╪п╣п╫я┌я▀"
 
 #: boards/babymatch.xml.in.h:4
 msgid "Motor coordination. Concept match."
@@ -472,7 +479,7 @@ msgstr ""
 
 #: boards/babyshapes.xml.in.h:1
 msgid "Baby Shape Puzzle"
-msgstr "Головоломка в форме ребёнка"
+msgstr "п⌠п╬п╩п╬п╡п╬п╩п╬п╪п╨п╟ п╡ я└п╬я─п╪п╣ я─п╣п╠я▒п╫п╨п╟"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
@@ -480,7 +487,7 @@ msgstr ""
 
 #: boards/babyshapes.xml.in.h:3
 msgid "Good mouse control"
-msgstr "Хорошее управление мышью"
+msgstr "п╔п╬я─п╬я┬п╣п╣ я┐п©я─п╟п╡п╩п╣п╫п╦п╣ п╪я▀я┬я▄я▌"
 
 #: boards/babyshapes.xml.in.h:4
 msgid "The dog is provided by Andre Connes and released under the GPL"
@@ -501,7 +508,7 @@ msgstr ""
 #: boards/boards.xml.in.h:1
 #, fuzzy
 msgid "Go to board based activities"
-msgstr "Перейти к алгебраическим доскам"
+msgstr "п÷п╣я─п╣п╧я┌п╦ п╨ п╟п╩пЁп╣п╠я─п╟п╦я┤п╣я│п╨п╦п╪ п╢п╬я│п╨п╟п╪"
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
@@ -532,7 +539,7 @@ msgstr ""
 #: boards/chess_partyend.xml.in.h:1
 #, fuzzy
 msgid "Learning chess"
-msgstr "Изучение часов"
+msgstr "п≤п╥я┐я┤п╣п╫п╦п╣ я┤п╟я│п╬п╡"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
@@ -563,11 +570,11 @@ msgstr ""
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
-msgstr "Щёлкните на букве"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╫п╟ п╠я┐п╨п╡п╣"
 
 #: boards/click_on_letter.xml.in.h:3
 msgid "Hear a letter and click on the right letter"
-msgstr "Щёлкните по названной букве"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п©п╬ п╫п╟п╥п╡п╟п╫п╫п╬п╧ п╠я┐п╨п╡п╣"
 
 #: boards/click_on_letter.xml.in.h:4
 msgid "Letter recognition"
@@ -580,7 +587,7 @@ msgstr ""
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
 msgid "Click On Me"
-msgstr "Щёлкни по мне"
+msgstr "п╘я▒п╩п╨п╫п╦ п©п╬ п╪п╫п╣"
 
 #: boards/clickgame.xml.in.h:2
 msgid ""
@@ -600,8 +607,8 @@ msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
 msgstr ""
-"Щёлкните левой клавишей мыши по всем плавающим рыбкам пока они не уплыли из "
-"аквариума"
+"п╘я▒п╩п╨п╫п╦я┌п╣ п╩п╣п╡п╬п╧ п╨п╩п╟п╡п╦я┬п╣п╧ п╪я▀я┬п╦ п©п╬ п╡я│п╣п╪ п©п╩п╟п╡п╟я▌я┴п╦п╪ я─я▀п╠п╨п╟п╪ п©п╬п╨п╟ п╬п╫п╦ п╫п╣ я┐п©п╩я▀п╩п╦ п╦п╥ "
+"п╟п╨п╡п╟я─п╦я┐п╪п╟"
 
 #: boards/clickgame.xml.in.h:4
 #, fuzzy
@@ -609,8 +616,8 @@ msgid ""
 "Motor coordination: mouse mouvement and mouse click. The goal is just to "
 "click with the left mouse button on the moving fish."
 msgstr ""
-"В этой игре ребёнок научится щёлкать компьютерной мышью. Цель -- просто "
-"щёлкать левой клавишей мыши по проплывающим рыбкам."
+"п▓ я█я┌п╬п╧ п╦пЁя─п╣ я─п╣п╠я▒п╫п╬п╨ п╫п╟я┐я┤п╦я┌я│я▐ я┴я▒п╩п╨п╟я┌я▄ п╨п╬п╪п©я▄я▌я┌п╣я─п╫п╬п╧ п╪я▀я┬я▄я▌. п╕п╣п╩я▄ -- п©я─п╬я│я┌п╬ "
+"я┴я▒п╩п╨п╟я┌я▄ п╩п╣п╡п╬п╧ п╨п╩п╟п╡п╦я┬п╣п╧ п╪я▀я┬п╦ п©п╬ п©я─п╬п©п╩я▀п╡п╟я▌я┴п╦п╪ я─я▀п╠п╨п╟п╪."
 
 #: boards/clockgame.xml.in.h:1
 msgid ""
@@ -628,12 +635,12 @@ msgstr ""
 #: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
-msgstr "Научитесь определять время"
+msgstr "п²п╟я┐я┤п╦я┌п╣я│я▄ п╬п©я─п╣п╢п╣п╩я▐я┌я▄ п╡я─п╣п╪я▐"
 
 #: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
-msgstr "Изучение часов"
+msgstr "п≤п╥я┐я┤п╣п╫п╦п╣ я┤п╟я│п╬п╡"
 
 #: boards/clockgame.xml.in.h:5
 msgid "Time concept Time reading"
@@ -642,16 +649,16 @@ msgstr ""
 #: boards/colors.xml.in.h:1
 #, fuzzy
 msgid "Can move the mouse."
-msgstr "Могу переместить мышь"
+msgstr "п°п╬пЁя┐ п©п╣я─п╣п╪п╣я│я┌п╦я┌я▄ п╪я▀я┬я▄"
 
 #: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
-msgstr "Цвета"
+msgstr "п╕п╡п╣я┌п╟"
 
 #: boards/colors.xml.in.h:4
 #, fuzzy
 msgid "Hear the color and click on the toon."
-msgstr "Щёлкните по названной букве"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п©п╬ п╫п╟п╥п╡п╟п╫п╫п╬п╧ п╠я┐п╨п╡п╣"
 
 #: boards/colors.xml.in.h:5
 msgid ""
@@ -663,11 +670,11 @@ msgstr ""
 #: boards/colors_group.xml.in.h:1
 #, fuzzy
 msgid "Go to colors activities"
-msgstr "Перейти к алгебраическим доскам"
+msgstr "п÷п╣я─п╣п╧я┌п╦ п╨ п╟п╩пЁп╣п╠я─п╟п╦я┤п╣я│п╨п╦п╪ п╢п╬я│п╨п╟п╪"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr "Изучение компьютера"
+msgstr "п≤п╥я┐я┤п╣п╫п╦п╣ п╨п╬п╪п©я▄я▌я┌п╣я─п╟"
 
 #: boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -691,13 +698,13 @@ msgid ""
 "the double entry table."
 msgstr ""
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:205
 msgid "A simple vector drawing tool"
-msgstr "Простая векторная программа рисования"
+msgstr "п÷я─п╬я│я┌п╟я▐ п╡п╣п╨я┌п╬я─п╫п╟я▐ п©я─п╬пЁя─п╟п╪п╪п╟ я─п╦я│п╬п╡п╟п╫п╦я▐"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:206
 msgid "Creative board where you can freely draw"
-msgstr "Рисовальная доска, на которой можно что-нибудь нарисовать"
+msgstr "п═п╦я│п╬п╡п╟п╩я▄п╫п╟я▐ п╢п╬я│п╨п╟, п╫п╟ п╨п╬я┌п╬я─п╬п╧ п╪п╬п╤п╫п╬ я┤я┌п╬-п╫п╦п╠я┐п╢я▄ п╫п╟я─п╦я│п╬п╡п╟я┌я▄"
 
 #: boards/draw.xml.in.h:3
 msgid ""
@@ -734,15 +741,20 @@ msgstr ""
 msgid "Place the items in the best way to count them"
 msgstr ""
 
+#: boards/experience.xml.in.h:1
+#, fuzzy
+msgid "Go to experiences activities"
+msgstr "п÷п╣я─п╣п╧я┌п╦ п╨ п╟п╩пЁп╣п╠я─п╟п╦я┤п╣я│п╨п╦п╪ п╢п╬я│п╨п╟п╪"
+
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr ""
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
-msgstr "Переместить мышь"
+msgstr "п÷п╣я─п╣п╪п╣я│я┌п╦я┌я▄ п╪я▀я┬я▄"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5 src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
 msgstr ""
 
@@ -806,17 +818,17 @@ msgstr ""
 
 #: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
 msgid "Simple Letters"
-msgstr "Простые буквы"
+msgstr "п÷я─п╬я│я┌я▀п╣ п╠я┐п╨п╡я▀"
 
 #: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
-msgstr "Нажимайте падающие буквы пока они падают вниз"
+msgstr "п²п╟п╤п╦п╪п╟п╧я┌п╣ п©п╟п╢п╟я▌я┴п╦п╣ п╠я┐п╨п╡я▀ п©п╬п╨п╟ п╬п╫п╦ п©п╟п╢п╟я▌я┌ п╡п╫п╦п╥"
 
 #: boards/hanoi.xml.in.h:1
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr ""
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr ""
 
@@ -835,7 +847,7 @@ msgstr ""
 #: boards/imageid.xml.in.h:1
 #, fuzzy
 msgid "Click on the word corresponding to the printed image."
-msgstr "Щёлкните на правильном цвете"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╫п╟ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ я├п╡п╣я┌п╣"
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -846,77 +858,77 @@ msgstr ""
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
 msgid "Reading"
-msgstr "Чтение"
+msgstr "п╖я┌п╣п╫п╦п╣"
 
 #: boards/imageid.xml.in.h:4
 msgid "Reading pratice"
-msgstr "Упражнения в чтении"
+msgstr "пёп©я─п╟п╤п╫п╣п╫п╦я▐ п╡ я┤я┌п╣п╫п╦п╦"
 
 #: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
 msgid "apple"
-msgstr "яблоко"
+msgstr "я▐п╠п╩п╬п╨п╬"
 
 #: boards/imageid/board1.xml.in.h:2
 msgid "back"
-msgstr "назад"
+msgstr "п╫п╟п╥п╟п╢"
 
 #: boards/imageid/board1.xml.in.h:3
 msgid "bag"
-msgstr "сумка"
+msgstr "я│я┐п╪п╨п╟"
 
 #: boards/imageid/board1.xml.in.h:4 boards/imagename/board6_0.xml.in.h:2
 msgid "ball"
-msgstr "мяч"
+msgstr "п╪я▐я┤"
 
 #: boards/imageid/board1.xml.in.h:5
 msgid "banana"
-msgstr "банан"
+msgstr "п╠п╟п╫п╟п╫"
 
 #: boards/imageid/board1.xml.in.h:6
 msgid "bed"
-msgstr "кровать"
+msgstr "п╨я─п╬п╡п╟я┌я▄"
 
 #: boards/imageid/board1.xml.in.h:7
 msgid "boat"
-msgstr "лодка"
+msgstr "п╩п╬п╢п╨п╟"
 
 #: boards/imageid/board1.xml.in.h:8
 msgid "book"
-msgstr "книга"
+msgstr "п╨п╫п╦пЁп╟"
 
 #: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
 msgid "bottle"
-msgstr "бутылка"
+msgstr "п╠я┐я┌я▀п╩п╨п╟"
 
 #: boards/imageid/board1.xml.in.h:10
 msgid "cake"
-msgstr "пирожок"
+msgstr "п©п╦я─п╬п╤п╬п╨"
 
 #: boards/imageid/board1.xml.in.h:11
 msgid "camel"
-msgstr "верблюд"
+msgstr "п╡п╣я─п╠п╩я▌п╢"
 
 #: boards/imageid/board1.xml.in.h:12 boards/imagename/board4_0.xml.in.h:4
 msgid "car"
-msgstr "машина"
+msgstr "п╪п╟я┬п╦п╫п╟"
 
 #: boards/imageid/board1.xml.in.h:13
 #, fuzzy
 msgid "cat"
-msgstr "замок"
+msgstr "п╥п╟п╪п╬п╨"
 
 #: boards/imageid/board1.xml.in.h:14
 #, fuzzy
 msgid "catch"
-msgstr "ранец"
+msgstr "я─п╟п╫п╣я├"
 
 #: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
-msgstr "сыр"
+msgstr "я│я▀я─"
 
 #: boards/imageid/board1.xml.in.h:16
 msgid "cow"
-msgstr "корова"
+msgstr "п╨п╬я─п╬п╡п╟"
 
 #: boards/imageid/board1.xml.in.h:17
 msgid "dog"
@@ -925,7 +937,7 @@ msgstr ""
 #: boards/imageid/board1.xml.in.h:18
 #, fuzzy
 msgid "finish"
-msgstr "Финский"
+msgstr "п╓п╦п╫я│п╨п╦п╧"
 
 #: boards/imageid/board1.xml.in.h:19
 msgid "fish"
@@ -933,20 +945,20 @@ msgstr ""
 
 #: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
-msgstr "дом"
+msgstr "п╢п╬п╪"
 
 #: boards/imageid/board1.xml.in.h:21
 msgid "pear"
-msgstr "груша"
+msgstr "пЁя─я┐я┬п╟"
 
 #: boards/imageid/board1.xml.in.h:22
 #, fuzzy
 msgid "plane"
-msgstr "яблоко"
+msgstr "я▐п╠п╩п╬п╨п╬"
 
 #: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
-msgstr "ранец"
+msgstr "я─п╟п╫п╣я├"
 
 #: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
 #: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
@@ -957,7 +969,7 @@ msgstr ""
 
 #: boards/imagename.xml.in.h:2
 msgid "Image Name"
-msgstr "Название изображения"
+msgstr "п²п╟п╥п╡п╟п╫п╦п╣ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦я▐"
 
 #: boards/imagename.xml.in.h:3
 msgid ""
@@ -974,23 +986,23 @@ msgstr ""
 
 #: boards/imagename/board1_0.xml.in.h:2
 msgid "bulb"
-msgstr "пузырь"
+msgstr "п©я┐п╥я▀я─я▄"
 
 #: boards/imagename/board1_0.xml.in.h:3
 msgid "fishing boat"
-msgstr "траулер"
+msgstr "я┌я─п╟я┐п╩п╣я─"
 
 #: boards/imagename/board1_0.xml.in.h:4
 msgid "lamp"
-msgstr "лампа"
+msgstr "п╩п╟п╪п©п╟"
 
 #: boards/imagename/board1_0.xml.in.h:5
 msgid "mail box"
-msgstr "почтовый ящик"
+msgstr "п©п╬я┤я┌п╬п╡я▀п╧ я▐я┴п╦п╨"
 
 #: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:3
 msgid "postcard"
-msgstr "открытка"
+msgstr "п╬я┌п╨я─я▀я┌п╨п╟"
 
 #: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
 #: boards/imagename/board6_0.xml.in.h:7
@@ -999,15 +1011,15 @@ msgstr ""
 
 #: boards/imagename/board2_0.xml.in.h:3
 msgid "egg"
-msgstr "яйцо"
+msgstr "я▐п╧я├п╬"
 
 #: boards/imagename/board2_0.xml.in.h:4
 msgid "eggcup"
-msgstr "скорлупа"
+msgstr "я│п╨п╬я─п╩я┐п©п╟"
 
 #: boards/imagename/board2_0.xml.in.h:5
 msgid "flower"
-msgstr "цветок"
+msgstr "я├п╡п╣я┌п╬п╨"
 
 #: boards/imagename/board2_0.xml.in.h:6
 msgid "glass"
@@ -1023,7 +1035,7 @@ msgstr ""
 
 #: boards/imagename/board3_0.xml.in.h:4
 msgid "rocket"
-msgstr "ракета"
+msgstr "я─п╟п╨п╣я┌п╟"
 
 #: boards/imagename/board3_0.xml.in.h:6
 msgid "sofa"
@@ -1031,15 +1043,15 @@ msgstr ""
 
 #: boards/imagename/board3_0.xml.in.h:7 boards/imagename/board5_0.xml.in.h:5
 msgid "star"
-msgstr "звезда"
+msgstr "п╥п╡п╣п╥п╢п╟"
 
 #: boards/imagename/board4_0.xml.in.h:3
 msgid "bicycle"
-msgstr "велосипед"
+msgstr "п╡п╣п╩п╬я│п╦п©п╣п╢"
 
 #: boards/imagename/board4_0.xml.in.h:5
 msgid "carrot"
-msgstr "морковка"
+msgstr "п╪п╬я─п╨п╬п╡п╨п╟"
 
 #: boards/imagename/board4_0.xml.in.h:6
 msgid "grater"
@@ -1047,11 +1059,11 @@ msgstr ""
 
 #: boards/imagename/board4_0.xml.in.h:7
 msgid "tree"
-msgstr "дерево"
+msgstr "п╢п╣я─п╣п╡п╬"
 
 #: boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
-msgstr "карандаш"
+msgstr "п╨п╟я─п╟п╫п╢п╟я┬"
 
 #: boards/imagename/board5_0.xml.in.h:4
 msgid "spruce"
@@ -1067,15 +1079,15 @@ msgstr ""
 
 #: boards/imagename/board6_0.xml.in.h:3
 msgid "castle"
-msgstr "замок"
+msgstr "п╥п╟п╪п╬п╨"
 
 #: boards/imagename/board6_0.xml.in.h:4
 msgid "crown"
-msgstr "корона"
+msgstr "п╨п╬я─п╬п╫п╟"
 
 #: boards/imagename/board6_0.xml.in.h:5
 msgid "flag"
-msgstr "флаг"
+msgstr "я└п╩п╟пЁ"
 
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
@@ -1095,7 +1107,7 @@ msgstr ""
 
 #: boards/leftright.xml.in.h:3 src/boards/leftright.c:106
 msgid "Find your left and right hands"
-msgstr "Найдите вашу левую и правую руки"
+msgstr "п²п╟п╧п╢п╦я┌п╣ п╡п╟я┬я┐ п╩п╣п╡я┐я▌ п╦ п©я─п╟п╡я┐я▌ я─я┐п╨п╦"
 
 #: boards/leftright.xml.in.h:4 src/boards/leftright.c:107
 msgid "Given hands pictures, find if it's a right or left one"
@@ -1158,7 +1170,7 @@ msgstr ""
 
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
-msgstr "Главное меню GCompris"
+msgstr "п⌠п╩п╟п╡п╫п╬п╣ п╪п╣п╫я▌ GCompris"
 
 #: boards/menu.xml.in.h:2
 msgid ""
@@ -1193,11 +1205,11 @@ msgstr ""
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
-msgstr "Вставка пропущенных букв"
+msgstr "п▓я│я┌п╟п╡п╨п╟ п©я─п╬п©я┐я┴п╣п╫п╫я▀я┘ п╠я┐п╨п╡"
 
 #: boards/missing_letter.xml.in.h:3
 msgid "Missing Letter"
-msgstr "Пропущенные буквы"
+msgstr "п÷я─п╬п©я┐я┴п╣п╫п╫я▀п╣ п╠я┐п╨п╡я▀"
 
 #: boards/missing_letter.xml.in.h:4
 msgid "Train reading skill"
@@ -1206,7 +1218,7 @@ msgstr ""
 #: boards/missing_letter.xml.in.h:5
 #, fuzzy
 msgid "Word reading"
-msgstr "Чтение"
+msgstr "п╖я┌п╣п╫п╦п╣"
 
 #: boards/missing_letter/board1.xml.in.h:1
 msgid "apple/_pple/a/i/o"
@@ -1352,15 +1364,31 @@ msgstr ""
 msgid "satchel/sa_chel/t/p/c"
 msgstr ""
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr ""
+
+#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+msgid ""
+"Click on the coins or paper money on the botton of the screen to pay. If you "
+"want to remove a coin or note, click on it on the upper screen area."
+msgstr ""
+
+#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
 msgstr ""
 
-#: boards/money.xml.in.h:2 src/boards/money.c:88
+#: boards/money.xml.in.h:4 src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr ""
 
-#: boards/money_cents.xml.in.h:2
+#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+msgid ""
+"You must buy the different items and give the exact price. At higher level, "
+"several items are displayed, you must first calculate the total price."
+msgstr ""
+
+#: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
 msgstr ""
 
@@ -1378,7 +1406,7 @@ msgstr ""
 
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
 msgid "Make the puzzle"
-msgstr "Собрать головоломку"
+msgstr "п║п╬п╠я─п╟я┌я▄ пЁп╬п╩п╬п╡п╬п╩п╬п╪п╨я┐"
 
 #: boards/paintings.xml.in.h:5
 msgid "Spatial representation"
@@ -1386,19 +1414,19 @@ msgstr ""
 
 #: boards/paintings/board1_0.xml.in.h:1
 msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr "Эдгар Дега, \"Урок танцев\" - 1873"
+msgstr "п╜п╢пЁп╟я─ п■п╣пЁп╟, \"пёя─п╬п╨ я┌п╟п╫я├п╣п╡\" - 1873"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr "Пьер-Август Ренуар, \"Le Moulin de la Galette\" - 1876"
+msgstr "п÷я▄п╣я─-п░п╡пЁя┐я│я┌ п═п╣п╫я┐п╟я─, \"Le Moulin de la Galette\" - 1876"
 
 #: boards/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr "Пьер-Август Ренуар, \"Пианистка\" - 1892"
+msgstr "п÷я▄п╣я─-п░п╡пЁя┐я│я┌ п═п╣п╫я┐п╟я─, \"п÷п╦п╟п╫п╦я│я┌п╨п╟\" - 1892"
 
 #: boards/paintings/board3_1.xml.in.h:1
 msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr "Василий Кандинский, \"Композиция VIII\" - 1923"
+msgstr "п▓п╟я│п╦п╩п╦п╧ п п╟п╫п╢п╦п╫я│п╨п╦п╧, \"п п╬п╪п©п╬п╥п╦я├п╦я▐ VIII\" - 1923"
 
 #: boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
@@ -1414,7 +1442,7 @@ msgstr ""
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr "Винсент Ван-Гог, \"Village Street in Auvers\" - 1890"
+msgstr "п▓п╦п╫я│п╣п╫я┌ п▓п╟п╫-п⌠п╬пЁ, \"Village Street in Auvers\" - 1890"
 
 #: boards/paratrooper.xml.in.h:1
 msgid ""
@@ -1430,11 +1458,11 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
 msgid "Manage the paratrooper to let him safely land"
-msgstr "Управление парашютистом для обеспечения безопасного приземления"
+msgstr "пёп©я─п╟п╡п╩п╣п╫п╦п╣ п©п╟я─п╟я┬я▌я┌п╦я│я┌п╬п╪ п╢п╩я▐ п╬п╠п╣я│п©п╣я┤п╣п╫п╦я▐ п╠п╣п╥п╬п©п╟я│п╫п╬пЁп╬ п©я─п╦п╥п╣п╪п╩п╣п╫п╦я▐"
 
 #: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
 msgid "Paratrooper"
-msgstr "Парашютист"
+msgstr "п÷п╟я─п╟я┬я▌я┌п╦я│я┌"
 
 #: boards/paratrooper.xml.in.h:5
 msgid ""
@@ -1444,11 +1472,11 @@ msgstr ""
 #: boards/planegame.xml.in.h:1
 #, fuzzy
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Перемещайте самолёт так чтобы поймать облака в правильном порядке"
+msgstr "п÷п╣я─п╣п╪п╣я┴п╟п╧я┌п╣ я│п╟п╪п╬п╩я▒я┌ я┌п╟п╨ я┤я┌п╬п╠я▀ п©п╬п╧п╪п╟я┌я▄ п╬п╠п╩п╟п╨п╟ п╡ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ п©п╬я─я▐п╢п╨п╣"
 
 #: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
 msgid "Numbers in Order"
-msgstr "Числа в порядке"
+msgstr "п╖п╦я│п╩п╟ п╡ п©п╬я─я▐п╢п╨п╣"
 
 #: boards/planegame.xml.in.h:5
 msgid ""
@@ -1479,7 +1507,7 @@ msgstr ""
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
-msgstr "Игра с поездами для развития памяти"
+msgstr "п≤пЁя─п╟ я│ п©п╬п╣п╥п╢п╟п╪п╦ п╢п╩я▐ я─п╟п╥п╡п╦я┌п╦я▐ п©п╟п╪я▐я┌п╦"
 
 #: boards/railroad.xml.in.h:2
 msgid ""
@@ -1496,17 +1524,17 @@ msgstr ""
 
 #: boards/railroad.xml.in.h:5
 msgid "Railroad"
-msgstr "Железная дорога"
+msgstr "п√п╣п╩п╣п╥п╫п╟я▐ п╢п╬я─п╬пЁп╟"
 
 #: boards/read_colors.xml.in.h:3
 #, fuzzy
 msgid "Click on the right colored object."
-msgstr "Щёлкните на правильном цвете"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╫п╟ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ я├п╡п╣я┌п╣"
 
 #: boards/read_colors.xml.in.h:4
 #, fuzzy
 msgid "Read colors"
-msgstr "Цвета"
+msgstr "п╕п╡п╣я┌п╟"
 
 #: boards/read_colors.xml.in.h:5
 msgid "This board is dedicated to read basic colors."
@@ -1515,32 +1543,32 @@ msgstr ""
 #: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 #, fuzzy
 msgid "black"
-msgstr "назад"
+msgstr "п╫п╟п╥п╟п╢"
 
 #: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 #, fuzzy
 msgid "blue"
-msgstr "бутылка"
+msgstr "п╠я┐я┌я▀п╩п╨п╟"
 
 #: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 #, fuzzy
 msgid "brown"
-msgstr "корона"
+msgstr "п╨п╬я─п╬п╫п╟"
 
 #: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 #, fuzzy
 msgid "green"
-msgstr "дерево"
+msgstr "п╢п╣я─п╣п╡п╬"
 
 #: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 #, fuzzy
 msgid "grey"
-msgstr "морковка"
+msgstr "п╪п╬я─п╨п╬п╡п╨п╟"
 
 #: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 #, fuzzy
 msgid "orange"
-msgstr "корона"
+msgstr "п╨п╬я─п╬п╫п╟"
 
 #: boards/read_colors/board1.xml.in.h:7
 msgid "pink"
@@ -1549,7 +1577,7 @@ msgstr ""
 #: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 #, fuzzy
 msgid "red"
-msgstr "кровать"
+msgstr "п╨я─п╬п╡п╟я┌я▄"
 
 #: boards/read_colors/board1.xml.in.h:9
 msgid "violet"
@@ -1576,7 +1604,7 @@ msgstr ""
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
-msgstr "Чтение по-горизонтали"
+msgstr "п╖я┌п╣п╫п╦п╣ п©п╬-пЁп╬я─п╦п╥п╬п╫я┌п╟п╩п╦"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of word and tell if the given word is in it"
@@ -1592,7 +1620,11 @@ msgstr ""
 
 #: boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
-msgstr "Чтение по-вертикали"
+msgstr "п╖я┌п╣п╫п╦п╣ п©п╬-п╡п╣я─я┌п╦п╨п╟п╩п╦"
+
+#: boards/redraw.xml.in.h:1
+msgid "Redraw the given item"
+msgstr ""
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1608,10 +1640,10 @@ msgid ""
 "hit the keyboard enter key."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 #, fuzzy
 msgid "Practice the substraction with a funny game"
-msgstr "Упражнения на вычитание"
+msgstr "пёп©я─п╟п╤п╫п╣п╫п╦я▐ п╫п╟ п╡я▀я┤п╦я┌п╟п╫п╦п╣"
 
 #: boards/reversecount.xml.in.h:4
 msgid ""
@@ -1663,12 +1695,12 @@ msgstr ""
 
 #: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
 msgid "Numbers With Dices"
-msgstr "Числа и кости"
+msgstr "п╖п╦я│п╩п╟ п╦ п╨п╬я│я┌п╦"
 
 #: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr ""
-"Нажимайте на клавиатуре цифры совпадающие с падающими пока они падают вниз"
+"п²п╟п╤п╦п╪п╟п╧я┌п╣ п╫п╟ п╨п╩п╟п╡п╦п╟я┌я┐я─п╣ я├п╦я└я─я▀ я│п╬п╡п©п╟п╢п╟я▌я┴п╦п╣ я│ п©п╟п╢п╟я▌я┴п╦п╪п╦ п©п╬п╨п╟ п╬п╫п╦ п©п╟п╢п╟я▌я┌ п╡п╫п╦п╥"
 
 #: boards/smallnumbers.xml.in.h:5
 msgid ""
@@ -1731,7 +1763,7 @@ msgstr ""
 #: boards/target.xml.in.h:3 src/boards/target.c:122
 #, fuzzy
 msgid "Practice the addition with a target game"
-msgstr "Упражнения на сложение"
+msgstr "пёп©я─п╟п╤п╫п╣п╫п╦я▐ п╫п╟ я│п╩п╬п╤п╣п╫п╦п╣"
 
 #: boards/target.xml.in.h:4
 msgid "Send darts on a target and count your score."
@@ -1751,9 +1783,26 @@ msgid ""
 "on the right"
 msgstr ""
 
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system. When done and "
+"Tux is in his shower, push the shower button for him."
+msgstr ""
+
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr ""
+
+#: boards/watercycle.xml.in.h:3
+msgid ""
+"You have to bring back the water system up. Tux comes from a long fishing "
+"party on his boat. Help him to have a shower."
+msgstr ""
+
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
 msgid "Falling Words"
-msgstr "Падающие слова"
+msgstr "п÷п╟п╢п╟я▌я┴п╦п╣ я│п╩п╬п╡п╟"
 
 #: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
 msgid "Fully type the falling words before they reach the ground"
@@ -1769,29 +1818,29 @@ msgstr ""
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
-msgstr "Обучающая игра для детей от 3-х лет"
+msgstr "п·п╠я┐я┤п╟я▌я┴п╟я▐ п╦пЁя─п╟ п╢п╩я▐ п╢п╣я┌п╣п╧ п╬я┌ 3-я┘ п╩п╣я┌"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
 msgstr ""
 
-#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
-#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
+#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
 #, c-format
 msgid "Couldn't find file %s !"
-msgstr "Не удалось найти файл %s!"
+msgstr "п²п╣ я┐п╢п╟п╩п╬я│я▄ п╫п╟п╧я┌п╦ я└п╟п╧п╩ %s!"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
-msgstr "найти файл %s!"
+msgstr "п╫п╟п╧я┌п╦ я└п╟п╧п╩ %s!"
 
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
@@ -1806,7 +1855,7 @@ msgstr ""
 #: src/boards/chess.c:137
 #, fuzzy
 msgid "Learning Chess"
-msgstr "Изучение часов"
+msgstr "п≤п╥я┐я┤п╣п╫п╦п╣ я┤п╟я│п╬п╡"
 
 #: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
@@ -1856,29 +1905,43 @@ msgstr ""
 #: src/boards/chess.c:1062
 #, fuzzy
 msgid "Drawn game"
-msgstr "корона"
+msgstr "п╨п╬я─п╬п╫п╟"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:74
 msgid "Read a letter"
 msgstr ""
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:75
 msgid "Learn to recognize letters"
+msgstr ""
+
+#: src/boards/click_on_letter.c:226
+msgid ""
+"Error: this activity requires you to install first\n"
+"the package assetml-voices-alphabet-"
+msgstr ""
+
+#: src/boards/click_on_letter.c:233
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effect disabled.\n"
+"Go in the configuration dialog to\n"
+"enable the sound"
 msgstr ""
 
 #: src/boards/clickgame.c:182
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
-msgstr "Не удалось открыть каталог изображений: %s"
+msgstr "п²п╣ я┐п╢п╟п╩п╬я│я▄ п╬я┌п╨я─я▀я┌я▄ п╨п╟я┌п╟п╩п╬пЁ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦п╧: %s"
 
 #: src/boards/clockgame.c:530
 msgid "Set the watch to:"
-msgstr "Установите часы на:"
+msgstr "пёя│я┌п╟п╫п╬п╡п╦я┌п╣ я┤п╟я│я▀ п╫п╟:"
 
-#: src/boards/colors.c:252
+#: src/boards/colors.c:216
 #, fuzzy, c-format
 msgid "Click on the %s toon"
-msgstr "Щёлкните на правильном цвете"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╫п╟ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ я├п╡п╣я┌п╣"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -1898,15 +1961,15 @@ msgstr ""
 
 #: src/boards/memory.c:227
 msgid "Memory"
-msgstr "Память"
+msgstr "п÷п╟п╪я▐я┌я▄"
 
 #: src/boards/memory.c:228
 msgid "Find the matching pair"
-msgstr "Найти совпадающую пару"
+msgstr "п²п╟п╧я┌п╦ я│п╬п╡п©п╟п╢п╟я▌я┴я┐я▌ п©п╟я─я┐"
 
 #: src/boards/menu.c:79
 msgid "Main Menu"
-msgstr "Главное меню"
+msgstr "п⌠п╩п╟п╡п╫п╬п╣ п╪п╣п╫я▌"
 
 #: src/boards/menu.c:80
 msgid "Select a Board"
@@ -1914,7 +1977,7 @@ msgstr ""
 
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr "Перемещайте самолёт так чтобы поймать облака в правильном порядке"
+msgstr "п÷п╣я─п╣п╪п╣я┴п╟п╧я┌п╣ я│п╟п╪п╬п╩я▒я┌ я┌п╟п╨ я┤я┌п╬п╠я▀ п©п╬п╧п╪п╟я┌я▄ п╬п╠п╩п╟п╨п╟ п╡ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ п©п╬я─я▐п╢п╨п╣"
 
 #: src/boards/python.c:52
 msgid "Python Board"
@@ -1924,23 +1987,23 @@ msgstr ""
 msgid "Special board that embed python into gcompris."
 msgstr ""
 
-#: src/boards/railroad.c:95
+#: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr ""
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
 msgstr ""
 
 #: src/boards/read_colors.c:85
 #, fuzzy
 msgid "Read Colors"
-msgstr "Цвета"
+msgstr "п╕п╡п╣я┌п╟"
 
 #: src/boards/read_colors.c:86
 #, fuzzy
 msgid "Click on the corresponding color"
-msgstr "Щёлкните на правильном цвете"
+msgstr "п╘я▒п╩п╨п╫п╦я┌п╣ п╫п╟ п©я─п╟п╡п╦п╩я▄п╫п╬п╪ я├п╡п╣я┌п╣"
 
 #: src/boards/reading.c:101
 msgid "Read a list of words and then tell if the given word is in it"
@@ -1948,25 +2011,25 @@ msgstr ""
 
 #: src/boards/reading.c:313
 msgid "Please, check if the word"
-msgstr "Проверьте, что слово"
+msgstr "п÷я─п╬п╡п╣я─я▄я┌п╣, я┤я┌п╬ я│п╩п╬п╡п╬"
 
 #: src/boards/reading.c:333
 msgid "is being displayed"
-msgstr "показано"
+msgstr "п©п╬п╨п╟п╥п╟п╫п╬"
 
 #: src/boards/reading.c:516
 msgid "I am Ready"
-msgstr "Я готов!"
+msgstr "п╞ пЁп╬я┌п╬п╡!"
 
 #: src/boards/reading.c:553
 msgid "Yes I saw it"
-msgstr "Да, я видел его"
+msgstr "п■п╟, я▐ п╡п╦п╢п╣п╩ п╣пЁп╬"
 
 #: src/boards/reading.c:583
 msgid "No, it was not there"
-msgstr "Нет, его не было"
+msgstr "п²п╣я┌, п╣пЁп╬ п╫п╣ п╠я▀п╩п╬"
 
-#: src/boards/reversecount.c:129
+#: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr ""
 
@@ -2020,28 +2083,29 @@ msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
-"Music: Djilali Sebihi\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
 msgstr ""
 
-#: src/gcompris/about.c:97
+#: src/gcompris/about.c:99
 msgid "About GCompris"
-msgstr "О программе GCompris"
+msgstr "п· п©я─п╬пЁя─п╟п╪п╪п╣ GCompris"
 
-#: src/gcompris/about.c:203
+#: src/gcompris/about.c:205
 msgid "GCompris Home Page"
-msgstr "Домашняя страница GCompris"
+msgstr "п■п╬п╪п╟я┬п╫я▐я▐ я│я┌я─п╟п╫п╦я├п╟ GCompris"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:227
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 
-#: src/gcompris/about.c:253
+#: src/gcompris/about.c:255
 msgid "Help"
-msgstr "Справка"
+msgstr "п║п©я─п╟п╡п╨п╟"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
-#: src/gcompris/images_selector.c:148
+#: src/gcompris/about.c:289 src/gcompris/config.c:178 src/gcompris/help.c:341
+#: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Ok"
 
@@ -2055,12 +2119,12 @@ msgstr ""
 
 #: src/gcompris/config.c:54
 msgid "Azerbaijani Turkic"
-msgstr "Азербайджанский турецкий"
+msgstr "п░п╥п╣я─п╠п╟п╧п╢п╤п╟п╫я│п╨п╦п╧ я┌я┐я─п╣я├п╨п╦п╧"
 
 #: src/gcompris/config.c:55
 #, fuzzy
 msgid "Catalan"
-msgstr "Итальянский"
+msgstr "п≤я┌п╟п╩я▄я▐п╫я│п╨п╦п╧"
 
 #: src/gcompris/config.c:56
 msgid "Czech"
@@ -2068,27 +2132,27 @@ msgstr ""
 
 #: src/gcompris/config.c:57
 msgid "German"
-msgstr "Немецкий"
+msgstr "п²п╣п╪п╣я├п╨п╦п╧"
 
 #: src/gcompris/config.c:58
 msgid "Greek"
-msgstr "Греческий"
+msgstr "п⌠я─п╣я┤п╣я│п╨п╦п╧"
 
 #: src/gcompris/config.c:59
 msgid "English"
-msgstr "Английский"
+msgstr "п░п╫пЁп╩п╦п╧я│п╨п╦п╧"
 
 #: src/gcompris/config.c:60
 msgid "Spanish"
-msgstr "Испанский"
+msgstr "п≤я│п©п╟п╫я│п╨п╦п╧"
 
 #: src/gcompris/config.c:61
 msgid "Finnish"
-msgstr "Финский"
+msgstr "п╓п╦п╫я│п╨п╦п╧"
 
 #: src/gcompris/config.c:62
 msgid "French"
-msgstr "Французский"
+msgstr "п╓я─п╟п╫я├я┐п╥я│п╨п╦п╧"
 
 #: src/gcompris/config.c:63
 msgid "Hebrew"
@@ -2097,7 +2161,7 @@ msgstr ""
 #: src/gcompris/config.c:64
 #, fuzzy
 msgid "Indian"
-msgstr "Итальянский"
+msgstr "п≤я┌п╟п╩я▄я▐п╫я│п╨п╦п╧"
 
 #: src/gcompris/config.c:65
 msgid "Hungarian"
@@ -2105,11 +2169,11 @@ msgstr ""
 
 #: src/gcompris/config.c:66
 msgid "Italian"
-msgstr "Итальянский"
+msgstr "п≤я┌п╟п╩я▄я▐п╫я│п╨п╦п╧"
 
 #: src/gcompris/config.c:67
 msgid "Lithuanian"
-msgstr "Литовский"
+msgstr "п⌡п╦я┌п╬п╡я│п╨п╦п╧"
 
 #: src/gcompris/config.c:68
 msgid "Macedonian"
@@ -2125,7 +2189,7 @@ msgstr ""
 
 #: src/gcompris/config.c:71
 msgid "Dutch"
-msgstr "Голандский"
+msgstr "п⌠п╬п╩п╟п╫п╢я│п╨п╦п╧"
 
 #: src/gcompris/config.c:72
 msgid "Norwegian"
@@ -2133,114 +2197,140 @@ msgstr ""
 
 #: src/gcompris/config.c:73
 #, fuzzy
-msgid "Portuguese"
-msgstr "Бразильский португальский"
+msgid "Polish"
+msgstr "п░п╫пЁп╩п╦п╧я│п╨п╦п╧"
 
 #: src/gcompris/config.c:74
-msgid "Brazil Portuguese"
-msgstr "Бразильский португальский"
+#, fuzzy
+msgid "Portuguese"
+msgstr "п▒я─п╟п╥п╦п╩я▄я│п╨п╦п╧ п©п╬я─я┌я┐пЁп╟п╩я▄я│п╨п╦п╧"
 
 #: src/gcompris/config.c:75
-msgid "Romanian"
-msgstr "Румынский"
+msgid "Brazil Portuguese"
+msgstr "п▒я─п╟п╥п╦п╩я▄я│п╨п╦п╧ п©п╬я─я┌я┐пЁп╟п╩я▄я│п╨п╦п╧"
 
 #: src/gcompris/config.c:76
+msgid "Romanian"
+msgstr "п═я┐п╪я▀п╫я│п╨п╦п╧"
+
+#: src/gcompris/config.c:77
 msgid "Russian"
 msgstr ""
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Slovak"
 msgstr ""
 
-#: src/gcompris/config.c:78
-msgid "Swedish"
-msgstr "Шведский"
-
 #: src/gcompris/config.c:79
+msgid "Slovenian"
+msgstr ""
+
+#: src/gcompris/config.c:80
+msgid "Serbian (Latin)"
+msgstr ""
+
+#: src/gcompris/config.c:81
+#, fuzzy
+msgid "Serbian"
+msgstr "п²п╣п╪п╣я├п╨п╦п╧"
+
+#: src/gcompris/config.c:82
+msgid "Swedish"
+msgstr "п╗п╡п╣п╢я│п╨п╦п╧"
+
+#: src/gcompris/config.c:83
 msgid "Turkish"
 msgstr ""
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:88
 msgid "No time limit"
 msgstr ""
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:89
 #, fuzzy
 msgid "Slow timer"
-msgstr "цветок"
+msgstr "я├п╡п╣я┌п╬п╨"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:90
 msgid "Normal timer"
 msgstr ""
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:91
 msgid "Fast timer"
 msgstr ""
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:96
 msgid "800x600 (Default for gcompris)"
 msgstr ""
 
-#: src/gcompris/config.c:148
+#: src/gcompris/config.c:152
 msgid "GCompris Configuration"
-msgstr "Настройка GCompris"
+msgstr "п²п╟я│я┌я─п╬п╧п╨п╟ GCompris"
 
-#: src/gcompris/config.c:254
+#: src/gcompris/config.c:258
 msgid "Fullscreen"
-msgstr "Во весь экран"
+msgstr "п▓п╬ п╡п╣я│я▄ я█п╨я─п╟п╫"
 
-#: src/gcompris/config.c:297
+#: src/gcompris/config.c:301
 msgid "Music"
-msgstr "Музыка"
+msgstr "п°я┐п╥я▀п╨п╟"
 
-#: src/gcompris/config.c:325
+#: src/gcompris/config.c:329
 msgid "Effect"
-msgstr "Эффекты"
+msgstr "п╜я└я└п╣п╨я┌я▀"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:366
 #, fuzzy, c-format
 msgid "Couldn't open skin dir: %s"
-msgstr "Не удалось открыть каталог изображений: %s"
+msgstr "п²п╣ я┐п╢п╟п╩п╬я│я▄ п╬я┌п╨я─я▀я┌я▄ п╨п╟я┌п╟п╩п╬пЁ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦п╧: %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:685
-#: src/gcompris/config.c:696
+#: src/gcompris/config.c:400 src/gcompris/config.c:706
+#: src/gcompris/config.c:717
 #, c-format
 msgid "Skin : %s"
 msgstr ""
 
-#: src/gcompris/gcompris.c:65
-msgid "run gcompris in fullscreen mode."
-msgstr "запустить gcompris в полноэкранном режиме."
-
 #: src/gcompris/gcompris.c:67
-msgid "run gcompris in window mode."
-msgstr "запустить gcompris в окне."
+msgid "run gcompris in fullscreen mode."
+msgstr "п╥п╟п©я┐я│я┌п╦я┌я▄ gcompris п╡ п©п╬п╩п╫п╬я█п╨я─п╟п╫п╫п╬п╪ я─п╣п╤п╦п╪п╣."
 
 #: src/gcompris/gcompris.c:69
+msgid "run gcompris in window mode."
+msgstr "п╥п╟п©я┐я│я┌п╦я┌я▄ gcompris п╡ п╬п╨п╫п╣."
+
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris with sound enabled."
 msgstr ""
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris without sound."
 msgstr ""
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris with the default gnome cursor."
 msgstr ""
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:77
+msgid "display only activities with this difficulty level."
+msgstr ""
+
+#: src/gcompris/gcompris.c:79
+msgid "select the audio output, one of 'default alsa09 arts esd oss'"
+msgstr ""
+
+#: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
 msgstr ""
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:83
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:330
+#: src/gcompris/gcompris.c:357
 msgid "GCompris I Have Understood"
 msgstr ""
 
-#: src/gcompris/gcompris.c:546
+#: src/gcompris/gcompris.c:574
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2255,11 +2345,11 @@ msgstr ""
 
 #: src/gcompris/help.c:201 src/gcompris/interface.c:252
 msgid "Goal"
-msgstr "Цель"
+msgstr "п╕п╣п╩я▄"
 
 #: src/gcompris/help.c:235 src/gcompris/interface.c:261
 msgid "Manual"
-msgstr "Руководство"
+msgstr "п═я┐п╨п╬п╡п╬п╢я│я┌п╡п╬"
 
 #: src/gcompris/help.c:269 src/gcompris/interface.c:270
 msgid "Credit"
@@ -2268,17 +2358,17 @@ msgstr ""
 #: src/gcompris/interface.c:104
 #, fuzzy
 msgid "Gcompris Editor"
-msgstr "Главное меню GCompris"
+msgstr "п⌠п╩п╟п╡п╫п╬п╣ п╪п╣п╫я▌ GCompris"
 
 #: src/gcompris/interface.c:180
 #, fuzzy
 msgid "Icon"
-msgstr "корона"
+msgstr "п╨п╬я─п╬п╫п╟"
 
 #: src/gcompris/interface.c:189
 #, fuzzy
 msgid "Name"
-msgstr "верблюд"
+msgstr "п╡п╣я─п╠п╩я▌п╢"
 
 #: src/gcompris/interface.c:198 src/gcompris/interface.c:415
 msgid "Description"
@@ -2300,7 +2390,7 @@ msgstr ""
 msgid "Directory"
 msgstr ""
 
-#: src/gcompris/interface.c:286
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:247
 msgid "Title"
 msgstr ""
 
@@ -2313,19 +2403,23 @@ msgstr ""
 msgid "Released under GPL"
 msgstr ""
 
-#: src/gcompris/oggplayer.c:189
+#: src/gcompris/oggplayer.c:210 src/gcompris/oggplayer.c:221
 msgid "Now Playing Music"
 msgstr ""
 
-#: src/gcompris/soundutil.c:116
+#: src/gcompris/oggplayer.c:251
+msgid "Artist"
+msgstr ""
+
+#: src/gcompris/soundutil.c:113
 #, fuzzy, c-format
 msgid "Couldn't open music dir: %s"
-msgstr "Не удалось открыть каталог изображений: %s"
+msgstr "п²п╣ я┐п╢п╟п╩п╬я│я▄ п╬я┌п╨я─я▀я┌я▄ п╨п╟я┌п╟п╩п╬пЁ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦п╧: %s"
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, fuzzy, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Не удалось найти файл %s!"
+msgstr "п²п╣ я┐п╢п╟п╩п╬я│я▄ п╫п╟п╧я┌п╦ я└п╟п╧п╩ %s!"
 
 #: src/gcompris/timer.c:237
 msgid "Time Ellapsed"
@@ -2338,7 +2432,7 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Practice the division operation"
-#~ msgstr "Упражнения на деление"
+#~ msgstr "пёп©я─п╟п╤п╫п╣п╫п╦я▐ п╫п╟ п╢п╣п╩п╣п╫п╦п╣"
 
 #~ msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
 #~ msgstr "-*-times-medium-r-normal--*-240-*-*-*-*-*-*"
@@ -2360,12 +2454,12 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Down"
-#~ msgstr "корона"
+#~ msgstr "п╨п╬я─п╬п╫п╟"
 
 #, fuzzy
 #~ msgid "Couldn't create pixmap from file: %s"
-#~ msgstr "Не удалось открыть каталог изображений: %s"
+#~ msgstr "п²п╣ я┐п╢п╟п╩п╬я│я▄ п╬я┌п╨я─я▀я┌я▄ п╨п╟я┌п╟п╩п╬пЁ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦п╧: %s"
 
 #, fuzzy
 #~ msgid "cinabre"
-#~ msgstr "машина"
+#~ msgstr "п╪п╟я┬п╦п╫п╟"
