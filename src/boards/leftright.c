@@ -39,29 +39,7 @@ static void process_ok(void);
 static void highlight_selected(int);
 static void game_won();
 
-#define LEFT 0
-#define RIGHT 1
 
-// the values are taken from the backgound image leftright-bg.jpg
-#define BUTTON_AREA_X1 83
-#define BUTTON_AREA_X2 487
-#define BUTTON_AREA_Y1 380
-
-#define CENTER_LEFT_X 185
-#define CENTER_LEFT_Y 430
-#define CENTER_RIGHT_X 600
-#define CENTER_RIGHT_Y CENTER_LEFT_Y
-
-#define HAND_X 400
-#define HAND_Y 200
-
-// Defines the clickable areas
-#define CLICKABLE_X1 90
-#define CLICKABLE_X2 300
-#define CLICKABLE_X3 490
-#define CLICKABLE_X4 700
-#define CLICKABLE_Y1 390
-#define CLICKABLE_Y2 480
 
 #define NUMBER_OF_SUBLEVELS 6
 #define NUMBER_OF_LEVELS 3
@@ -80,14 +58,11 @@ static void leftright_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static int answer;
 
-static char *hands[16] = {"main_droite_dessus_0.png","main_droite_paume_0.png",
-													"main_gauche_dessus_0.png","main_gauche_paume_0.png",
-													"main_droite_dessus_90.png","main_droite_paume_90.png",
-													"main_gauche_dessus_90.png","main_gauche_paume_90.png",
-													"main_droite_dessus_180.png","main_droite_paume_180.png",
-													"main_gauche_dessus_180.png","main_gauche_paume_180.png",
-													"main_droite_dessus_270.png","main_droite_paume_270.png",
-													"main_gauche_dessus_270.png","main_gauche_paume_270.png"
+static char *colors[10] = {	"blue","brown",
+														"green","grey",
+														"orange","purple",
+														"red","yellow",
+														"black","white"
 													};
 
 /* Description of this plugin */
