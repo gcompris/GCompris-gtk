@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-04-29 19:52+0200\n"
-"PO-Revision-Date: 2003-04-30 03:36+0200\n"
+"POT-Creation-Date: 2003-05-25 12:04+0200\n"
+"PO-Revision-Date: 2003-05-25 17:44+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -811,6 +811,14 @@ msgstr "Noord-Amerika"
 msgid "South America"
 msgstr "Zuid-Amerika"
 
+#: boards/geography/board3_0.xml.in.h:1
+msgid "West Europe"
+msgstr "West Europa"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "East Europe"
+msgstr "Oost Europa"
+
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
 msgstr "Toetsenbord-vaardigheden"
@@ -1445,7 +1453,7 @@ msgstr ""
 "van een schilderij. Sleep deze delen naar de juiste puntjes en vorm zo het "
 "originele schilderij."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:156
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
 msgid "Make the puzzle"
 msgstr "Maak de puzzel"
 
@@ -1850,7 +1858,7 @@ msgstr "Editor voor GCompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1566 src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
 #: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
 #: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
@@ -1861,7 +1869,7 @@ msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1569
+#: src/boards/shapegame.c:1723
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -2037,9 +2045,30 @@ msgstr "Neen, het was er niet bij"
 msgid "Reverse count"
 msgstr "Omgekeerd tellen"
 
-#: src/boards/shapegame.c:157
+#: src/boards/shapegame.c:161
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
+
+#. Enter Edit Mode
+#: src/boards/shapegame.c:408
+msgid ""
+"You entered the Edit mode\n"
+"Move the puzzle items and\n"
+"'s' to save\n"
+"'d' to display all the shapes"
+msgstr ""
+"U zit nu in Edit-modus\n"
+"Verschuif de puzzelstukjes en\n"
+"geef 's' voor opslaan\n"
+"'d' om alle stukjes te tonen"
+
+#: src/boards/shapegame.c:416
+msgid ""
+"This board data are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"De gegevens van dit bord zijn opgeslagen\n"
+"onder /tmp/gcompris-board.xml"
 
 #: src/boards/submarine.c:174
 msgid "Submarine"
