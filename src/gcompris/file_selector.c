@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/02/08 23:11:49 bruno>
+ * Time-stamp: <2005/02/09 23:40:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -649,15 +649,29 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	}
 
 	if(fileSelectorCallBack!=NULL) {
-	  gchar *result;
-	  gchar *file_type;
+	  gchar *result=NULL;
+	  gchar *file_type=NULL;
+
+	  GtkTreeModel *model;
+	  GtkTreeIter iter;
+
+	  model = gtk_combo_box_get_model (gtk_combo_filetypes);
+	  if (gtk_combo_box_get_active_iter (gtk_combo_filetypes, &iter)) {
+	    gtk_tree_model_get (model, &iter, 0, &file_type, -1);
+	  }
 
 	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
 
-	  /* Need to grab and return the file type */
-	  file_type = gtk_entry_get_text (GTK_ENTRY (GTK_COMBO (gtk_combo_filetypes)->entry));
-
+	  /* Callback with the proper params */
 	  fileSelectorCallBack(result, file_type);
+
+	  if(file_type) {
+	    g_free(file_type);
+	  }
+
+	  if(result) {
+	    g_free(result);
+	  }
 	}
 	gcompris_file_selector_stop();
       } else if(!strcmp((char *)data, "/cancel/")) {

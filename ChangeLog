@@ -1,3 +1,17 @@
+2005-02-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Commited Hindi Gujarati translation by jignesh chaudhari
+	Commited update of anim.py plus mozilla svg export by Yve Combe
+	Fixed file_selector to return the correct file type
+	
+	* boards/anim/animation.js:
+	* boards/flags/gcompris_flags.assetml.in:
+	* boards/flags/gu.png:
+	* configure.in: added Hindi Gujarati translation by jignesh chaudhari
+	* src/boards/python/anim.py:
+	* src/gcompris/config.c:
+	* src/gcompris/file_selector.c: (item_event_file_selector):
+
 2005-02-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Implemented the scrollbars in the image selectors
