@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2002/02/06 20:31:52 bcoudoin>
+ * Time-stamp: <2002/04/02 18:25:32 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -37,6 +37,8 @@ static gint		 plane_speed		= 0;
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint move_plane (GtkWidget *widget, gpointer item);
 
+void gcompris_about_start (void);
+void gcompris_about_stop (void);
 
 /*
  * Do all the bar display and register the events
@@ -182,7 +184,7 @@ void gcompris_about_start ()
   
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "Free Software Fundation",
+				"text", "Free Software Foundation",
 				"font_gdk", gdk_font2,
 				"x", (double)  (BOARDWIDTH*0.75),
 				"y", (double)  y_start + 80,
