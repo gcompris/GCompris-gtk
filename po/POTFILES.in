@@ -1,4 +1,5 @@
 # List of source files containing translatable strings.
+# Please keep it in alphabetical order.
 
 boards/algebramenu.xml.in
 boards/algebra_plus.xml.in
@@ -27,6 +28,7 @@ boards/smallnumbers.xml.in
 boards/wordsgame.xml.in
 boards/imageid.xml.in
 boards/missing_letter.xml.in
+gcompris.desktop.in
 src/gcompris/gcompris.c
 src/gcompris/properties.c
 src/boards/gletters.c
@@ -39,6 +41,3 @@ src/boards/clockgame.c
 src/boards/shapegame.c
 src/boards/planegame.c
 src/boards/reading.c
-
-# files added by xml-i18n-prepare
-gcompris.desktop.in

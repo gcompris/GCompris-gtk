@@ -24,7 +24,7 @@ GNOME_XML_CHECK
 AM_PATH_GDK_PIXBUF
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="fr es nl it fi de pt_BR"
+ALL_LINGUAS="de es fi fr it nl pt_BR sv"
 AM_GNU_GETTEXT
 
 dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically
