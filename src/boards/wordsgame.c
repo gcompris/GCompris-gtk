@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2004/06/12 23:45:50 bcoudoin>
+ * Time-stamp: <2004/10/21 22:59:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -156,7 +156,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
 
 
       gcomprisBoard->level = 1;

@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/09/11 00:45:19 bcoudoin>
+ * Time-stamp: <2004/10/20 23:24:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -441,7 +441,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if (!strcmp((char *)data, "gcompris"))
 	{
 	  /* FIXME: Should inform the user that we don't find mozilla. */
-	  system("mozilla http://www.ofset.org/gcompris &");
+	  system("mozilla http://gcompris.net &");
 	}
       else if (!strcmp((char *)data, "help"))
 	{

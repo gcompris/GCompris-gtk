@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/10/10 20:46:41 bruno>
+ * Time-stamp: <2004/10/21 22:58:45 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -349,7 +349,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
       get_charset(gcompris_get_locale());
       gcomprisBoard->maxlevel=maxLevel;
       gcomprisBoard->level = 1;

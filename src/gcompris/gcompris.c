@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/09/11 00:44:47 bcoudoin>
+ * Time-stamp: <2004/10/20 23:25:19 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -519,7 +519,7 @@ static void setup_window ()
     }
     if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
       board_pause();
-      gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://www.ofset.org/order/gcompris\nThe Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\nhttp://www.fsf.org/philosophy"), NULL);
+      gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://gcompris.net\nThe Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\nhttp://www.fsf.org/philosophy"), NULL);
     }
   }
 #endif
@@ -715,7 +715,7 @@ gcompris_init (int argc, char *argv[])
   if (popt_version)
     {
       printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
-		"More info at http://www.ofset.org/gcompris\n"),
+		"More info at http://gcompris.net\n"),
 	      VERSION);
       exit (0);
     }

@@ -150,7 +150,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "images/enumerate_background.jpg");
+			      "images/enumerate_background.png");
 
       enumerate_next_level();
 

@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2004/10/09 00:43:58 bruno>
+ * Time-stamp: <2004/10/21 22:48:19 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,8 +32,6 @@ static GcomprisBoard *gcomprisBoard = NULL;
 
 static gint dummy_id = 0;
 static gint drop_tux_id = 0;
-
-static GnomeCanvasItem *seaitem = NULL;
 
 static GnomeCanvasItem *boatitem = NULL;
 static gint boat_x, boat_y, boat_landarea_y, boat_length;
@@ -185,7 +183,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
 
 
       /* set initial values for this level */
@@ -406,20 +404,6 @@ static void paratrooper_next_level()
 				    NULL);
   gdk_pixbuf_unref(pixmap);
 
-  /* Display the see */
-  g_free(str);
-  str = g_strdup_printf("%s%s", pixmapsdir, "sea.png");
-  pixmap = gcompris_load_pixmap(str);
-  seaitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
-				    "x", (double) 0,
-				    "y", (double) gcomprisBoard->height-gdk_pixbuf_get_height(pixmap),
-				    "width", (double) gdk_pixbuf_get_width(pixmap),
-				    "height", (double) gdk_pixbuf_get_height(pixmap),
-				    NULL);
-  gdk_pixbuf_unref(pixmap);
-
   /* Prepare the parachute */
   if (drop_tux_id) {
     gtk_timeout_remove (drop_tux_id);
@@ -470,9 +454,6 @@ static void paratrooper_next_level()
 						     NULL);
   gnome_canvas_item_hide(paratrooperItem.parachute);
   gdk_pixbuf_unref(pixmap);
-
-  /* The sea is always on top */
-  gnome_canvas_item_raise_to_top(seaitem);
 
   g_free (str);
 
@@ -571,12 +552,6 @@ static void paratrooper_destroy_all_items()
     {
       gtk_object_destroy (GTK_OBJECT(boatitem));
       boatitem = NULL;
-    }
-
-  if(seaitem)
-    {
-      gtk_object_destroy (GTK_OBJECT(seaitem));
-      seaitem = NULL;
     }
 
   if(paratrooperItem.rootitem)

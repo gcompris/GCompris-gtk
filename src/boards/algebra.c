@@ -154,7 +154,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery2_background.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery2_background.png");
 
       /* set initial values for this level */
       gcomprisBoard->level=1;

@@ -1,3 +1,51 @@
+2004-10-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Franck Doucet remade many graphism
+	new level by Franck in chronos concerning aviation
+	
+	* boards/boardicons/helicogame.png:
+	* boards/boardicons/reading.png:
+	* boards/boardicons/readingh.png:
+	* boards/boardicons/tuxpara.png:
+	* boards/chronos/Makefile.am:
+	* boards/chronos/board4_0.xml.in:
+	* boards/chronos/board4_1.xml.in:
+	* boards/chronos/images/README:
+	* boards/chronos/images/bell_X1.png:
+	* boards/chronos/images/bleriot.png:
+	* boards/chronos/images/lindbergh.png:
+	* boards/chronos/images/rafale.png:
+	* boards/chronos/images/wright_flyer.png:
+	* boards/doubleentry.xml.in:
+	* boards/doubleentry/doubleentry-bg.png:
+	* boards/doubleentry/gcompris-bg.png:
+	* boards/images/enumerate_background.jpg:
+	* boards/images/enumerate_background.png:
+	* boards/images/scenery2_background.jpg:
+	* boards/images/scenery2_background.png:
+	* boards/images/scenery3_background.jpg:
+	* boards/images/scenery3_background.png:
+	* boards/images/scenery_background.jpg:
+	* boards/images/scenery_background.png:
+	* boards/missing_letter/missingletter-bg.jpg:
+	* boards/railroad/railroad-bg.jpg:
+	* boards/reading/gcompris-bg.jpg:
+	* boards/reading/reading-bg.jpg:
+	* po/POTFILES.in:
+	* src/boards/algebra.c: (start_board):
+	* src/boards/colors.c: (repeat):
+	* src/boards/enumerate.c: (start_board):
+	* src/boards/gletters.c: (start_board):
+	* src/boards/memory.c: (start_board):
+	* src/boards/paratrooper.c: (start_board),
+	(paratrooper_next_level), (paratrooper_destroy_all_items):
+	* src/boards/planegame.c: (start_board):
+	* src/boards/reading.c: (start_board):
+	* src/boards/smallnumbers.c: (start_board):
+	* src/boards/wordsgame.c: (start_board):
+	* src/gcompris/about.c: (item_event_ok):
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_init):
+
 2004-10-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Franck Doucet remade the graphism of algebra_guesscount and doubleentry

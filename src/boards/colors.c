@@ -51,16 +51,16 @@ static GList * listColors = NULL;
 
 #define LAST_COLOR 10
 static gchar *colors[LAST_COLOR*2] = {
-  "blue", 	N_("blue"),
-  "brown",	N_("brown"),
-  "green",	N_("green"),
-  "grey",	N_("grey"),
-  "orange",	N_("orange"),
-  "purple",	N_("purple"),
-  "red",	N_("red"),
-  "yellow",	N_("yellow"),
-  "black",	N_("black"),
-  "white",	N_("white")
+  "blue", 	N_("Click on the blue toon"),
+  "brown",	N_("Click on the brown toon"),
+  "green",	N_("Click on the green toon"),
+  "grey",	N_("Click on the grey toon"),
+  "orange",	N_("Click on the orange toon"),
+  "purple",	N_("Click on the purple toon"),
+  "red",	N_("Click on the red toon"),
+  "yellow",	N_("Click on the yellow toon"),
+  "black",	N_("Click on the black toon"),
+  "white",	N_("Click on the white toon")
 };
 
 static int X[] = {75,212,242,368,414,533,578,709};
@@ -214,8 +214,7 @@ static void repeat (){
       }
       else
 	{
-	  str = g_strdup_printf(_("Click on the %s toon"),
-				gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2]));
+	  str = g_strdup_printf(gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2+1]));
 	  
 	  gnome_canvas_item_new (boardRootItem,
 				 gnome_canvas_text_get_type (),
