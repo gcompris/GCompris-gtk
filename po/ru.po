@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-24 17:40+0400\n"
-"PO-Revision-Date: 2004-10-24 17:50+0400\n"
+"POT-Creation-Date: 2004-10-31 19:49+0300\n"
+"PO-Revision-Date: 2004-11-01 03:36+0300\n"
 "Last-Translator: AVL <avl.altlinux.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1504,7 +1504,7 @@ msgstr "ваза"
 
 #: boards/imagename/board3_0.xml.in.h:3
 msgid "light house"
-msgstr "легкий дом"
+msgstr "маяк"
 
 #: boards/imagename/board3_0.xml.in.h:4
 msgid "rocket"
@@ -1765,15 +1765,15 @@ msgstr "яблоко/яблок_/о/ы/а"
 
 #: boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
-msgstr "шар/_ар/ш/п/д"
+msgstr "мяч/_яч/м/п/о"
 
 #: boards/missing_letter/board1.xml.in.h:5
 msgid "ball/b_ll/a/u/o"
-msgstr "шар/ш_р/а/ы/д"
+msgstr "мяч/м_ч/я/у/о"
 
 #: boards/missing_letter/board1.xml.in.h:6
 msgid "ball/bal_/l/h/s"
-msgstr "шар/ша_/р/г/м"
+msgstr "мяч/мя_/ч/г/л"
 
 #: boards/missing_letter/board1.xml.in.h:7
 msgid "banana/_anana/b/p/d"
@@ -2398,7 +2398,7 @@ msgstr ""
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
-msgstr "Изучение водного мотоцикла"
+msgstr "Круговорот воды в природе"
 
 #: boards/watercycle.xml.in.h:3
 msgid ""
@@ -2528,15 +2528,15 @@ msgstr "Белые мат"
 msgid "Drawn game"
 msgstr "Рисование"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Чтение букв"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Обучение распознаванию букв"
 
-#: src/boards/click_on_letter.c:223
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2544,7 +2544,7 @@ msgstr ""
 "Ошибка:·это задание требует установленного \n"
 "пакета·assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:230
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2554,6 +2554,10 @@ msgstr ""
 "Ошибка:·это задание не может быть использовано \n"
 "при выключенном звуке.\n"
 "Надо включить звук в диалоге конфигурации."
+
+#: src/boards/click_on_letter.c:280
+msgid "abcdefghijklmnopqrstufw"
+msgstr "абвгдеёжзийклмнопрстуфхцчшщэюя"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -3241,7 +3245,7 @@ msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
 "vorbis OR the sound output failed"
 msgstr ""
-"Нить с фоновая музыка сейчас остановлена. Файлы в %s не являются ogg·vorbis "
+"Нить с фоновой музыкой сейчас остановлена. Файлы в %s не являются ogg·vorbis "
 "ИЛИ вывод звука не получился."
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
