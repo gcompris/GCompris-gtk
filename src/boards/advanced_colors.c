@@ -35,7 +35,7 @@ static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
 static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
-static int gamewon;
+static int gamewon, errors;
 
 static void		 process_ok(void);
 static void		 highlight_selected(int);
@@ -45,6 +45,8 @@ static void	init_xml(void);
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasItem *highlight_image_item = NULL;
+static GnomeCanvasItem *clock_image_item = NULL;
+static GdkPixbuf *clock_pixmap = NULL;
 static GnomeCanvasItem *color_item = NULL;
 
 static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent);
@@ -57,6 +59,10 @@ static GList * listColors = NULL;
 
 #define LAST_COLOR 8
 #define LAST_BOARD 9
+#define MAX_ERRORS 10
+#define CLOCK_X 40
+#define CLOCK_Y 420
+
 
 static char* colors[LAST_COLOR];
 static char *backgroundFile = NULL;
@@ -132,6 +138,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
                gcomprisBoard->number_of_sublevel);
 
       gamewon = FALSE;
+			errors = MAX_ERRORS;
 			init_xml();
   		colors_next_level();
       pause_board(FALSE);
@@ -249,6 +256,7 @@ static void colors_destroy_all_items() {
  * =====================================================================*/
 static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
+
   char *str = NULL;
 	int i;
 
@@ -283,6 +291,23 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   gdk_pixbuf_unref(highlight_pixmap);
   gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
 
+	/* setup the clock */
+  str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
+  clock_pixmap = gcompris_load_pixmap(str);
+
+	clock_image_item = gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_pixbuf_get_type (),
+				      "pixbuf", clock_pixmap,
+				      "x", (double) CLOCK_X,
+				      "y", (double) CLOCK_Y,
+				      "width", (double) gdk_pixbuf_get_width(clock_pixmap),
+				      "height", (double) gdk_pixbuf_get_height(clock_pixmap),
+				      "width_set", TRUE,
+				      "height_set", TRUE,
+				      NULL);
+
+  g_free(str);
+
   return NULL;
 }
 /* =====================================================================
@@ -311,6 +336,11 @@ static void game_won() {
  * =====================================================================*/
 static void process_ok() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	if (!gamewon)
+		errors--;
+	if (errors <1)
+		errors = 1;
+	update_clock();
 }
 /* =====================================================================
  *
@@ -338,10 +368,6 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 			if (clicked >= 0) {
 				highlight_selected(clicked);
 				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
-/*				if (gamewon)
-					printf("true\n");
-						else
-						printf("false\n");*/
 				}
 			break;
 
@@ -351,6 +377,30 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   return FALSE;
 }
 
+/* =====================================================================
+ *
+ * =====================================================================*/
+static void update_clock() {
+  char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
+  
+	gtk_object_destroy (GTK_OBJECT(clock_image_item));
+
+  clock_pixmap = gcompris_load_pixmap(str);
+
+	clock_image_item = gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_pixbuf_get_type (),
+				      "pixbuf", clock_pixmap,
+				      "x", (double) CLOCK_X,
+				      "y", (double) CLOCK_Y,
+				      "width", (double) gdk_pixbuf_get_width(clock_pixmap),
+				      "height", (double) gdk_pixbuf_get_height(clock_pixmap),
+				      "width_set", TRUE,
+				      "height_set", TRUE,
+				      NULL);
+
+  gdk_pixbuf_unref(clock_pixmap);
+  g_free(str);
+}
 /* =====================================================================
  *
  * =====================================================================*/
@@ -374,7 +424,7 @@ static void highlight_selected(int c) {
 static void init_xml()
 {
   char *filename;
-  filename = g_strdup_printf("%s/%s/board%d.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir, 
+  filename = g_strdup_printf("%s/%s/board%d.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
 		gcomprisBoard->level);
 	printf("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
 
