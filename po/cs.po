@@ -6,14 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-18 04:06+0200\n"
+"POT-Creation-Date: 2003-08-24 12:09+0200\n"
 "PO-Revision-Date: 2003-06-18 20:54+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -25,7 +25,7 @@ msgstr "Umí číst"
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:68
+#: src/boards/colors.c:75
 msgid "Click on the right color"
 msgstr "Klikni na správnou barvu"
 
@@ -279,7 +279,7 @@ msgstr "pistáciová"
 msgid "platinum"
 msgstr "platinová"
 
-#: boards/advanced_colors/board8.xml.in.h:6
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 msgid "purple"
 msgstr "purpurová"
 
@@ -344,6 +344,17 @@ msgstr "Násobilka"
 #: boards/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Procvičení operace násobení"
+
+#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "Jít na algebraické aktivity"
+
+#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Pro zvolení aktivity klikni levým tlačítkem myši"
 
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
@@ -431,17 +442,6 @@ msgstr "Procvičení operace sčítání"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition"
 msgstr "Jednoduché sčítání"
-
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra activities"
-msgstr "Jít na algebraické aktivity"
-
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Pro zvolení aktivity klikni levým tlačítkem myši"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -544,7 +544,8 @@ msgstr "Učení šachů"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulace s myší"
 
@@ -665,7 +666,7 @@ msgstr "Koncept času Čtení času"
 msgid "Can move the mouse."
 msgstr "Umí hýbat myší."
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "Barvy"
 
@@ -775,6 +776,24 @@ msgstr "Hýbej myší pro vymazání oblasti a objevení pozadí"
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Hýbej myší, dokud všechny bloky nezmizí."
 
+#: boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block deside him. It will be swapped with "
+"the empty block."
+msgstr ""
+
+#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr ""
+
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
 msgstr "Jít na zábavné aktivity"
@@ -840,12 +859,9 @@ msgid "Taken the concept from the EPI games."
 msgstr "Koncept převzat z her EPI."
 
 #: boards/imageid.xml.in.h:1
-msgid ""
-"Click on the word corresponding to the printed image. When you are sure of "
-"your choice click on the hand at the bottom"
-msgstr ""
-"Klikni na slovo odpovídající vytištěnému obrázku. Když si jsi se svou volbou "
-"jistý, klikni na ruku dole"
+#, fuzzy
+msgid "Click on the word corresponding to the printed image."
+msgstr "Klikni na odpovídající barvu"
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -1093,10 +1109,10 @@ msgid "racket"
 msgstr "raketa"
 
 #: boards/leftright.xml.in.h:1
+#, fuzzy
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right, "
-"then click on the hand at the bottom to confirm your choice."
+"on the red button - at the left - or on the green button - at the right."
 msgstr ""
 "Je vytištěna ruka. Musíš poznat, jestli je to pravá nebo levá ruka. Klikni "
 "na levé tlačítko vlevo nebo na pravé tlačítko v pravo, pak potvrď svou volbu "
@@ -1115,27 +1131,6 @@ msgstr "Hajdi svou levou a pravou ruku"
 #: boards/leftright.xml.in.h:4 src/boards/leftright.c:107
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr "U daných obrázků ruky rozpoznej, jestli je to pravá nebo levá"
-
-#: boards/superbrain.xml.in.h:1
-msgid ""
-"Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
-"a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
-msgstr ""
-"Klikej na položku, dokud nenajdeš to, o čem si myslíš, že je to správná "
-"odpověď. Pak klikni na tlačítko OK v řídicí ilště. Na nižší úrovni ti Tux "
-"říká, jestli máš dobrou pozici, označením položky černou krabičkou. Pro "
-"přehození barev v opačném pořadí můžeš použít pravé tlačítko myši."
-
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
-msgid "Super Brain"
-msgstr "Super mozek"
-
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
-msgid "Tux has hidden several items, find them back in the correct order"
-msgstr "Tux skryl několik věcí, najdi je ve správném pořadí"
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
@@ -1242,10 +1237,10 @@ msgstr ""
 "- 5 až 6 let 3 hvězdičky - 7 až 8 let"
 
 #: boards/missing_letter.xml.in.h:1
+#, fuzzy
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word. Click on the "
-"hand at the bottom to validate your choice."
+"the picture. Select the missing letter to complete the word."
 msgstr ""
 "V hlavní oblasti se zobrazuje objekt. Pod obrázkem je vytištěno neúplné "
 "slovo. Vyber chybějící písmeno pro doplnění slova. Pro potvrzení své volby "
@@ -1521,6 +1516,27 @@ msgstr ""
 "Použij klávesy nahoru, dolů, doleva a doprava pro hýbání vrtulníku, abys "
 "chytil čísla ve vzestupném pořadí "
 
+#: boards/pythontest.xml.in.h:1
+msgid "Add a language binding to gcompris."
+msgstr "Přidat k gcompris obal pro jiný jazyk."
+
+#: boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "Pokročilý programátor v Pythonu :)"
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Test Pythonu"
+
+#: boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "Testovací deska pro zásuvný modul pythonu"
+
+#: boards/pythontest.xml.in.h:5
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr "Díky Guido van Rossum a týmu pythonu za tento mocný jazyk!"
+
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
 msgstr "Hra s pamětí založená na vlacích"
@@ -1559,27 +1575,27 @@ msgstr "Čtení barev"
 msgid "This board is dedicated to read basic colors."
 msgstr "Tato deska je určena pro čtení základních barev."
 
-#: boards/read_colors/board1.xml.in.h:1
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
 msgstr "černá"
 
-#: boards/read_colors/board1.xml.in.h:2
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 msgid "blue"
 msgstr "modrá"
 
-#: boards/read_colors/board1.xml.in.h:3
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 msgid "brown"
 msgstr "hnědá"
 
-#: boards/read_colors/board1.xml.in.h:4
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 msgid "green"
 msgstr "zelená"
 
-#: boards/read_colors/board1.xml.in.h:5
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 msgid "grey"
 msgstr "šedá"
 
-#: boards/read_colors/board1.xml.in.h:6
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 msgid "orange"
 msgstr "oranžová"
 
@@ -1587,7 +1603,7 @@ msgstr "oranžová"
 msgid "pink"
 msgstr "růžová"
 
-#: boards/read_colors/board1.xml.in.h:8
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 msgid "red"
 msgstr "červená"
 
@@ -1595,11 +1611,11 @@ msgstr "červená"
 msgid "violet"
 msgstr "fialová"
 
-#: boards/read_colors/board1.xml.in.h:10
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
 msgid "white"
 msgstr "bílá"
 
-#: boards/read_colors/board1.xml.in.h:11
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
 msgid "yellow"
 msgstr "žlužá"
 
@@ -1706,6 +1722,29 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Dobře vyrovnat vány."
 
+#: boards/smallnumbers.xml.in.h:1
+msgid "Counting skill"
+msgstr "Schopnost počítat"
+
+#: boards/smallnumbers.xml.in.h:2
+msgid "In a limited time, count a number of dots"
+msgstr "V omezeném čase spočítat počet teček"
+
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+msgid "Numbers With Dices"
+msgstr "Čísla s kostkami"
+
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
+msgstr "Stiskni klávesu s číslem 1 až 9, než kostka dopadne na zem"
+
+#: boards/smallnumbers.xml.in.h:5
+msgid ""
+"With the keyboard, press the number corresponding to the number of dots in "
+"the falling dice."
+msgstr ""
+"Stiskni na klávesnici číslo odpovídající počtu teček na padající kostce."
+
 #: boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks in order "
@@ -1730,28 +1769,26 @@ msgstr "Řiď ponorku"
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr "Řiď ponorku pomocí vzduchových nádrží a výškových kormidel"
 
-#: boards/smallnumbers.xml.in.h:1
-msgid "Counting skill"
-msgstr "Schopnost počítat"
-
-#: boards/smallnumbers.xml.in.h:2
-msgid "In a limited time, count a number of dots"
-msgstr "V omezeném čase spočítat počet teček"
-
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
-msgid "Numbers With Dices"
-msgstr "Čísla s kostkami"
-
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
-msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Stiskni klávesu s číslem 1 až 9, než kostka dopadne na zem"
-
-#: boards/smallnumbers.xml.in.h:5
+#: boards/superbrain.xml.in.h:1
 msgid ""
-"With the keyboard, press the number corresponding to the number of dots in "
-"the falling dice."
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. At the lower level, tux "
+"gives you an indication if you got a good position by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"oposite order."
 msgstr ""
-"Stiskni na klávesnici číslo odpovídající počtu teček na padající kostce."
+"Klikej na položku, dokud nenajdeš to, o čem si myslíš, že je to správná "
+"odpověď. Pak klikni na tlačítko OK v řídicí ilště. Na nižší úrovni ti Tux "
+"říká, jestli máš dobrou pozici, označením položky černou krabičkou. Pro "
+"přehození barev v opačném pořadí můžeš použít pravé tlačítko myši."
+
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr "Super mozek"
+
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+msgid "Tux has hidden several items, find them back in the correct order"
+msgstr "Tux skryl několik věcí, najdi je ve správném pořadí"
 
 #: boards/target.xml.in.h:1
 msgid ""
@@ -1804,49 +1841,33 @@ msgstr "Napiš padající slova, než se dotknou země"
 msgid "Keyboard training"
 msgstr "Procvičení s klávesnicí"
 
-#: boards/pythontest.xml.in.h:1
-msgid "Add a language binding to gcompris."
-msgstr "Přidat k gcompris obal pro jiný jazyk."
-
-#: boards/pythontest.xml.in.h:2
-msgid "Advanced Python Programmer :)"
-msgstr "Pokročilý programátor v Pythonu :)"
-
-#: boards/pythontest.xml.in.h:3
-msgid "Python Test"
-msgstr "Test Pythonu"
-
-#: boards/pythontest.xml.in.h:4
-msgid "Test board for the python plugin"
-msgstr "Testovací deska pro zásuvný modul pythonu"
-
-#: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr "Díky Guido van Rossum a týmu pythonu za tento mocný jazyk!"
+#: gcompris-edit.desktop.in.h:1
+msgid "Editor for gcompris"
+msgstr "Editor pro gcompris"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
 msgstr "Naučná hra od 3 let"
 
-#: gcompris-edit.desktop.in.h:1
-msgid "Editor for gcompris"
+#: gcompris.desktop.in.h:2
+#, fuzzy
+msgid "Educational suite gcompris"
 msgstr "Editor pro gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
-#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
-#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
-#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:351
+#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
+#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
+#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nemohu nalézt soubor %s !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1723
+#: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
 msgstr "nalézt soubor %s !"
@@ -1897,31 +1918,31 @@ msgstr ""
 "nebo ve své distribuci GNU/Linuxu\n"
 "a přesědčte se, že je nainstalován"
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Bílý na tahu"
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Černý na tahu"
 
-#: src/boards/chess.c:710
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Bílý v šachu"
 
-#: src/boards/chess.c:712
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Černý v šachu"
 
-#: src/boards/chess.c:1044
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Černý matuje"
 
-#: src/boards/chess.c:1049
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Bílý matuje"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Remíza"
 
@@ -1941,6 +1962,11 @@ msgstr "Nemohu otevřít adresář pixmap: %s"
 #: src/boards/clockgame.c:530
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
+
+#: src/boards/colors.c:252
+#, fuzzy, c-format
+msgid "Click on the %s toon"
+msgstr "Klikni na správnou barvu"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -1977,6 +2003,14 @@ msgstr "Vyber si desku"
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Hýbej letadlem, abys chytil mraky ve správném pořadí"
+
+#: src/boards/python.c:52
+msgid "Python Board"
+msgstr "Deska Pythonu"
+
+#: src/boards/python.c:53
+msgid "Special board that embed python into gcompris."
+msgstr "Speciální deska, která vkládá python do gcompris."
 
 #: src/boards/railroad.c:95
 msgid "Memory game"
@@ -2027,7 +2061,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "Táhni a pusť položky pro znovusestavení objektu"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:408
+#: src/boards/shapegame.c:407
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2035,7 +2069,7 @@ msgid ""
 "'d' to display all the shapes"
 msgstr ""
 
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:415
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2043,11 +2077,11 @@ msgstr ""
 "Data této desky jsou uložena pod\n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/submarine.c:174
+#: src/boards/submarine.c:201
 msgid "Submarine"
 msgstr "Ponorka"
 
-#: src/boards/submarine.c:175
+#: src/boards/submarine.c:202
 msgid "Control the depth of a submarine"
 msgstr "Ovládej hloubku ponorky"
 
@@ -2070,15 +2104,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Vzdálenost k cíli = %d metrů"
 
-#: src/boards/python.c:52
-msgid "Python Board"
-msgstr "Deska Pythonu"
-
-#: src/boards/python.c:53
-msgid "Special board that embed python into gcompris."
-msgstr "Speciální deska, která vkládá python do gcompris."
-
-#: src/gcompris/about.c:57
+#: src/gcompris/about.c:60
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -2092,193 +2118,224 @@ msgstr ""
 "Grafika: Renaud Blanchard\n"
 "Hudba: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:94
+#: src/gcompris/about.c:97
 msgid "About GCompris"
 msgstr "O GCompris"
 
-#: src/gcompris/about.c:200
+#: src/gcompris/about.c:203
 msgid "GCompris Home Page"
 msgstr "Domovská stránka GCompris"
 
-#: src/gcompris/about.c:222
+#: src/gcompris/about.c:225
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Toto software je balík GNU a je uvolněno za podmínek Gnu Public Licence"
 
-#: src/gcompris/about.c:250
+#: src/gcompris/about.c:253
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
+#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:52
 msgid "Amharic"
 msgstr "Amharic"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:53
 msgid "Arabic"
 msgstr "Arabština"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:54
 msgid "Azerbaijani Turkic"
 msgstr "Ázerbájdžánská turečtina"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:55
+#, fuzzy
+msgid "Catalan"
+msgstr "Italština"
+
+#: src/gcompris/config.c:56
+msgid "Czech"
+msgstr ""
+
+#: src/gcompris/config.c:57
 msgid "German"
 msgstr "Němčina"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:58
 msgid "Greek"
 msgstr "Řečtina"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:59
 msgid "English"
 msgstr "Angličtina"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:60
 msgid "Spanish"
 msgstr "Španělština"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:61
 msgid "Finnish"
 msgstr "Finština"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:62
 msgid "French"
 msgstr "Francouzština"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:63
+msgid "Hebrew"
+msgstr ""
+
+#: src/gcompris/config.c:64
+#, fuzzy
+msgid "Indian"
+msgstr "Italština"
+
+#: src/gcompris/config.c:65
 msgid "Hungarian"
 msgstr "Maďarština"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:66
 msgid "Italian"
 msgstr "Italština"
 
-#: src/gcompris/config.c:61
-msgid "Malay"
-msgstr "Malajština"
-
-#: src/gcompris/config.c:62
-msgid "Dutch"
-msgstr "Holandština"
-
-#: src/gcompris/config.c:63
-msgid "Portuguese"
-msgstr "Portugalština"
-
-#: src/gcompris/config.c:64
-msgid "Brazil Portuguese"
-msgstr "Brazilská portugalština"
-
-#: src/gcompris/config.c:65
-msgid "Romanian"
-msgstr "Rumunština"
-
-#: src/gcompris/config.c:66
-msgid "Russian"
-msgstr "Ruština"
-
 #: src/gcompris/config.c:67
-msgid "Swedish"
-msgstr "Švédština"
-
-#: src/gcompris/config.c:68
-msgid "Slovak"
-msgstr "Slovenština"
-
-#: src/gcompris/config.c:69
-msgid "Turkish"
-msgstr "Turečtina"
-
-#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Litevština"
 
+#: src/gcompris/config.c:68
+msgid "Macedonian"
+msgstr ""
+
+#: src/gcompris/config.c:69
+#, fuzzy
+msgid "Malayalam"
+msgstr "Malajština"
+
+#: src/gcompris/config.c:70
+msgid "Malay"
+msgstr "Malajština"
+
+#: src/gcompris/config.c:71
+msgid "Dutch"
+msgstr "Holandština"
+
+#: src/gcompris/config.c:72
+msgid "Norwegian"
+msgstr ""
+
+#: src/gcompris/config.c:73
+msgid "Portuguese"
+msgstr "Portugalština"
+
+#: src/gcompris/config.c:74
+msgid "Brazil Portuguese"
+msgstr "Brazilská portugalština"
+
 #: src/gcompris/config.c:75
+msgid "Romanian"
+msgstr "Rumunština"
+
+#: src/gcompris/config.c:76
+msgid "Russian"
+msgstr "Ruština"
+
+#: src/gcompris/config.c:77
+msgid "Slovak"
+msgstr "Slovenština"
+
+#: src/gcompris/config.c:78
+msgid "Swedish"
+msgstr "Švédština"
+
+#: src/gcompris/config.c:79
+msgid "Turkish"
+msgstr "Turečtina"
+
+#: src/gcompris/config.c:84
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:85
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:86
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:87
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:92
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:139
+#: src/gcompris/config.c:148
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:245
+#: src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:297
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:316
+#: src/gcompris/config.c:325
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:353
+#: src/gcompris/config.c:362
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:684
-#: src/gcompris/config.c:695
+#: src/gcompris/config.c:396 src/gcompris/config.c:685
+#: src/gcompris/config.c:696
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:65
 msgid "run gcompris in fullscreen mode."
 msgstr "spustit gcompris v režimu přes celou obrazovku."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in window mode."
 msgstr "spustit gcompris v režimu okna."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris with sound enabled."
 msgstr "spustit gcompris s povolenými zvuky."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris without sound."
 msgstr "spustit gcompris bez zvuku."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with the default gnome cursor."
 msgstr "spustit gcompris s implicitním kurzorem gnome."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:75
 msgid "Prints the version of "
 msgstr "Vytiskne verzi "
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:77
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:327
+#: src/gcompris/gcompris.c:330
 msgid "GCompris I Have Understood"
 msgstr "GCompris Pochopil jsem"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:546
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2291,19 +2348,19 @@ msgstr ""
 "Licence: GPL\n"
 "Více informací na http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:167 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Předpoklad"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:201 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Cíl"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:235 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuál"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:269 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Kredity"
 
@@ -2374,3 +2431,14 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid ""
+#~ "Click on the word corresponding to the printed image. When you are sure "
+#~ "of your choice click on the hand at the bottom"
+#~ msgstr ""
+#~ "Klikni na slovo odpovídající vytištěnému obrázku. Když si jsi se svou "
+#~ "volbou jistý, klikni na ruku dole"
+
+#, fuzzy
+#~ msgid "Move the mouse to fifteen the area and discover the background"
+#~ msgstr "Hýbej myší pro vymazání oblasti a objevení pozadí"

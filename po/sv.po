@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-21 22:44+0200\n"
+"POT-Creation-Date: 2003-08-24 12:09+0200\n"
 "PO-Revision-Date: 2003-08-21 22:46+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -869,12 +869,9 @@ msgid "Taken the concept from the EPI games."
 msgstr "Taget från konceptet i EPI-spelen."
 
 #: boards/imageid.xml.in.h:1
-msgid ""
-"Click on the word corresponding to the printed image. When you are sure of "
-"your choice click on the hand at the bottom"
-msgstr ""
-"Klicka på ordet som motsvarar den utskrivna bilden. När du är säker på ditt "
-"svar klickar du på handen längst ner"
+#, fuzzy
+msgid "Click on the word corresponding to the printed image."
+msgstr "Klicka på motsvarande färg"
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -1122,10 +1119,10 @@ msgid "racket"
 msgstr "racket"
 
 #: boards/leftright.xml.in.h:1
+#, fuzzy
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right, "
-"then click on the hand at the bottom to confirm your choice."
+"on the red button - at the left - or on the green button - at the right."
 msgstr ""
 "En hand visas. Du måste svara på om det är höger eller vänster hand. Klicka "
 "på den röda knappen till vänster eller den gröna knappen till höger och "
@@ -1254,10 +1251,10 @@ msgstr ""
 "3 till 4 år 2 stjärnor - 5 till 6 år 3 stjärnor - 7 till 8 år"
 
 #: boards/missing_letter.xml.in.h:1
+#, fuzzy
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word. Click on the "
-"hand at the bottom to validate your choice."
+"the picture. Select the missing letter to complete the word."
 msgstr ""
 "Ett objekt visas i huvudområdet. Ett ofullständigt ord visas under bilden. "
 "Välj den bokstav som saknas för att göra ordet komplett. Klicka på handen "
@@ -1887,10 +1884,10 @@ msgstr "Läroprogramssviten gcompris"
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:155
-#: src/gcompris/gameutil.c:488 src/gcompris/gameutil.c:489
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
+#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:355
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
@@ -1993,7 +1990,7 @@ msgstr "Kunde inte öppna bildfilskatalogen: %s"
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
 
-#: src/boards/colors.c:238
+#: src/boards/colors.c:252
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Klicka på färgen %s"
@@ -2094,7 +2091,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:408
+#: src/boards/shapegame.c:407
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2106,7 +2103,7 @@ msgstr ""
 "\"s\" för att spara\n"
 "\"d\" för att visa alla former"
 
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:415
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2172,7 +2169,7 @@ msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc Licens
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:171 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2190,138 +2187,151 @@ msgid "Azerbaijani Turkic"
 msgstr "Azerbadjansk turkiska"
 
 #: src/gcompris/config.c:55
+msgid "Catalan"
+msgstr "Katalanska"
+
+#: src/gcompris/config.c:56
+msgid "Czech"
+msgstr "Tjeckiska"
+
+#: src/gcompris/config.c:57
 msgid "German"
 msgstr "Tyska"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Greek"
 msgstr "Grekiska"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "English"
 msgstr "Engelska"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "Spanish"
 msgstr "Spanska"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
 msgid "Finnish"
 msgstr "Finska"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:62
 msgid "French"
 msgstr "Franska"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:63
 msgid "Hebrew"
 msgstr "Hebreiska"
 
 # "Indian" känner jag inte till ett språk som heter, det verkar som om detta
 # egentligen ska vara "Hindi".
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:64
 msgid "Indian"
 msgstr "Indiska"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:65
 msgid "Hungarian"
 msgstr "Ungerska"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:66
 msgid "Italian"
 msgstr "Italienska"
 
-#: src/gcompris/config.c:65
-msgid "Macedonian"
-msgstr "Makedonska"
-
-#: src/gcompris/config.c:66
-msgid "Malayalam"
-msgstr "Malayalam"
-
 #: src/gcompris/config.c:67
-msgid "Malay"
-msgstr "Malajiska"
-
-#: src/gcompris/config.c:68
-msgid "Dutch"
-msgstr "Holländska"
-
-#: src/gcompris/config.c:69
-msgid "Portuguese"
-msgstr "Portugisiska"
-
-#: src/gcompris/config.c:70
-msgid "Brazil Portuguese"
-msgstr "Brasiliansk portugisiska"
-
-#: src/gcompris/config.c:71
-msgid "Romanian"
-msgstr "Rumänska"
-
-#: src/gcompris/config.c:72
-msgid "Russian"
-msgstr "Ryska"
-
-#: src/gcompris/config.c:73
-msgid "Swedish"
-msgstr "Svenska"
-
-#: src/gcompris/config.c:74
-msgid "Slovak"
-msgstr "Slovakiska"
-
-#: src/gcompris/config.c:75
-msgid "Turkish"
-msgstr "Turkiska"
-
-#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Litauiska"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:68
+msgid "Macedonian"
+msgstr "Makedonska"
+
+#: src/gcompris/config.c:69
+msgid "Malayalam"
+msgstr "Malayalam"
+
+#: src/gcompris/config.c:70
+msgid "Malay"
+msgstr "Malajiska"
+
+#: src/gcompris/config.c:71
+msgid "Dutch"
+msgstr "Holländska"
+
+#: src/gcompris/config.c:72
+#, fuzzy
+msgid "Norwegian"
+msgstr "Norska (bokmål)"
+
+#: src/gcompris/config.c:73
+msgid "Portuguese"
+msgstr "Portugisiska"
+
+#: src/gcompris/config.c:74
+msgid "Brazil Portuguese"
+msgstr "Brasiliansk portugisiska"
+
+#: src/gcompris/config.c:75
+msgid "Romanian"
+msgstr "Rumänska"
+
+#: src/gcompris/config.c:76
+msgid "Russian"
+msgstr "Ryska"
+
+#: src/gcompris/config.c:77
+msgid "Slovak"
+msgstr "Slovakiska"
+
+#: src/gcompris/config.c:78
+msgid "Swedish"
+msgstr "Svenska"
+
+#: src/gcompris/config.c:79
+msgid "Turkish"
+msgstr "Turkiska"
+
+#: src/gcompris/config.c:84
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:85
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:86
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:87
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:92
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Standard för gcompris)"
 
-#: src/gcompris/config.c:145
+#: src/gcompris/config.c:148
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:251
+#: src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:294
+#: src/gcompris/config.c:297
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:322
+#: src/gcompris/config.c:325
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:359
+#: src/gcompris/config.c:362
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:393 src/gcompris/config.c:700
-#: src/gcompris/config.c:711
+#: src/gcompris/config.c:396 src/gcompris/config.c:685
+#: src/gcompris/config.c:696
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2358,7 +2368,7 @@ msgstr "Använd den kantutjämnade canvasen (långsammare)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:545
+#: src/gcompris/gcompris.c:546
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2457,6 +2467,13 @@ msgstr "Tiden har gått ut"
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
 
+#~ msgid ""
+#~ "Click on the word corresponding to the printed image. When you are sure "
+#~ "of your choice click on the hand at the bottom"
+#~ msgstr ""
+#~ "Klicka på ordet som motsvarar den utskrivna bilden. När du är säker på "
+#~ "ditt svar klickar du på handen längst ner"
+
 # Knepigt värre
 #~ msgid "Move the mouse to fifteen the area and discover the background"
 #~ msgstr "Flytta musen för att femtonspela området och upptäck bakgrunden"
@@ -2526,9 +2543,6 @@ msgstr "Återstående tid = %d"
 #~ msgid "Bulgarian"
 #~ msgstr "Bulgariska"
 
-#~ msgid "Catalan"
-#~ msgstr "Katalanska"
-
 #~ msgid "Chinese (simplified)"
 #~ msgstr "Kinesiska (förenklad)"
 
@@ -2540,9 +2554,6 @@ msgstr "Återstående tid = %d"
 
 #~ msgid "Croatian"
 #~ msgstr "Kroatiska"
-
-#~ msgid "Czech"
-#~ msgstr "Tjeckiska"
 
 #~ msgid "Danish"
 #~ msgstr "Danska"
@@ -2579,9 +2590,6 @@ msgstr "Återstående tid = %d"
 
 #~ msgid "Latvian"
 #~ msgstr "Lettiska"
-
-#~ msgid "Norwegian (bokmal)"
-#~ msgstr "Norska (bokmål)"
 
 #~ msgid "Norwegian (nynorsk)"
 #~ msgstr "Norska (nynorsk)"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris 1.1\n"
-"POT-Creation-Date: 2003-08-18 20:01+0200\n"
+"POT-Creation-Date: 2003-08-24 12:09+0200\n"
 "PO-Revision-Date: 2003-08-18 20:04+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -23,7 +23,7 @@ msgstr "Kan lese"
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:68
+#: src/boards/colors.c:75
 msgid "Click on the right color"
 msgstr "Klikk på høyre farge"
 
@@ -277,7 +277,7 @@ msgstr ""
 msgid "platinum"
 msgstr "platina"
 
-#: boards/advanced_colors/board8.xml.in.h:6
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 msgid "purple"
 msgstr "purpur"
 
@@ -515,7 +515,7 @@ msgstr "Lær sjakk"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:3 boards/hanoi.xml.in.h:2
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
 #: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr ""
@@ -617,7 +617,7 @@ msgstr ""
 msgid "Can move the mouse."
 msgstr "Kan bevege musen."
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "Farger"
 
@@ -705,12 +705,11 @@ msgstr ""
 msgid "Place the items in the best way to count them"
 msgstr ""
 
-#: boards/erase.xml.in.h:2 boards/fifteen.xml.in.h:2
+#: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr ""
 
-#: boards/erase.xml.in.h:4 boards/fifteen.xml.in.h:5 src/boards/erase.c:69
-#: src/boards/fifteen.c:56 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Beveg musen"
 
@@ -728,8 +727,16 @@ msgid ""
 "the empty block."
 msgstr ""
 
-#: boards/fifteen.xml.in.h:4
+#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
 msgid "Move the items one by one to reorder them in the increasing number"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+msgid "The fifteen game"
 msgstr ""
 
 #: boards/fun.xml.in.h:1
@@ -797,10 +804,9 @@ msgid "Taken the concept from the EPI games."
 msgstr ""
 
 #: boards/imageid.xml.in.h:1
-msgid ""
-"Click on the word corresponding to the printed image. When you are sure of "
-"your choice click on the hand at the bottom"
-msgstr ""
+#, fuzzy
+msgid "Click on the word corresponding to the printed image."
+msgstr "Klikk på riktig farge"
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -1045,8 +1051,7 @@ msgstr ""
 #: boards/leftright.xml.in.h:1
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right, "
-"then click on the hand at the bottom to confirm your choice."
+"on the red button - at the left - or on the green button - at the right."
 msgstr ""
 
 #: boards/leftright.xml.in.h:2
@@ -1150,8 +1155,7 @@ msgstr ""
 #: boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word. Click on the "
-"hand at the bottom to validate your choice."
+"the picture. Select the missing letter to complete the word."
 msgstr ""
 
 #: boards/missing_letter.xml.in.h:2
@@ -1471,27 +1475,27 @@ msgstr "Les farger"
 msgid "This board is dedicated to read basic colors."
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:1
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
 msgstr "sort"
 
-#: boards/read_colors/board1.xml.in.h:2
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 msgid "blue"
 msgstr "blå"
 
-#: boards/read_colors/board1.xml.in.h:3
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 msgid "brown"
 msgstr "brun"
 
-#: boards/read_colors/board1.xml.in.h:4
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 msgid "green"
 msgstr "grønn"
 
-#: boards/read_colors/board1.xml.in.h:5
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 msgid "grey"
 msgstr "grå"
 
-#: boards/read_colors/board1.xml.in.h:6
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 msgid "orange"
 msgstr "oransje"
 
@@ -1499,7 +1503,7 @@ msgstr "oransje"
 msgid "pink"
 msgstr "rosa"
 
-#: boards/read_colors/board1.xml.in.h:8
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 msgid "red"
 msgstr "rød"
 
@@ -1507,11 +1511,11 @@ msgstr "rød"
 msgid "violet"
 msgstr "fiolett"
 
-#: boards/read_colors/board1.xml.in.h:10
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
 msgid "white"
 msgstr "hvit"
 
-#: boards/read_colors/board1.xml.in.h:11
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
 msgid "yellow"
 msgstr "gul"
 
@@ -1726,18 +1730,18 @@ msgstr ""
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:155
-#: src/gcompris/gameutil.c:488 src/gcompris/gameutil.c:489
+#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
+#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:355
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunne ikke finne fil %s!"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1723
+#: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
 msgstr "finn fil %s!"
@@ -1822,9 +1826,10 @@ msgstr "Kunne ikke åpne bildekatalog: %s"
 msgid "Set the watch to:"
 msgstr ""
 
-#: src/boards/fifteen.c:57
-msgid "Move the mouse to fifteen the area and discover the background"
-msgstr ""
+#: src/boards/colors.c:252
+#, fuzzy, c-format
+msgid "Click on the %s toon"
+msgstr "Klikk på høyre farge"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -1919,7 +1924,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr ""
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:408
+#: src/boards/shapegame.c:407
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -1927,7 +1932,7 @@ msgid ""
 "'d' to display all the shapes"
 msgstr ""
 
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:415
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -1984,7 +1989,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hjelp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:171 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2002,136 +2007,149 @@ msgid "Azerbaijani Turkic"
 msgstr "Asserbajdsjansk tyrkisk"
 
 #: src/gcompris/config.c:55
+#, fuzzy
+msgid "Catalan"
+msgstr "Italiensk"
+
+#: src/gcompris/config.c:56
+msgid "Czech"
+msgstr ""
+
+#: src/gcompris/config.c:57
 msgid "German"
 msgstr "Tysk"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Greek"
 msgstr "Gresk"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "English"
 msgstr "Engelsk"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "Spanish"
 msgstr "Spansk"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
 msgid "Finnish"
 msgstr "Finsk"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:62
 msgid "French"
 msgstr "Fransk"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:63
 msgid "Hebrew"
 msgstr "Hebraisk"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:64
 msgid "Indian"
 msgstr "Indisk"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:65
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:66
 msgid "Italian"
 msgstr "Italiensk"
 
-#: src/gcompris/config.c:65
-msgid "Macedonian"
-msgstr "Makedonsk"
-
-#: src/gcompris/config.c:66
-msgid "Malayalam"
-msgstr "Malayalam"
-
 #: src/gcompris/config.c:67
-msgid "Malay"
-msgstr "Malaysisk"
-
-#: src/gcompris/config.c:68
-msgid "Dutch"
-msgstr "Nederlandsk"
-
-#: src/gcompris/config.c:69
-msgid "Portuguese"
-msgstr "Portugisisk"
-
-#: src/gcompris/config.c:70
-msgid "Brazil Portuguese"
-msgstr "Portugisisk, Brasil"
-
-#: src/gcompris/config.c:71
-msgid "Romanian"
-msgstr "Rumensk"
-
-#: src/gcompris/config.c:72
-msgid "Russian"
-msgstr ""
-
-#: src/gcompris/config.c:73
-msgid "Swedish"
-msgstr "Svensk"
-
-#: src/gcompris/config.c:74
-msgid "Slovak"
-msgstr "Slovaksisk"
-
-#: src/gcompris/config.c:75
-msgid "Turkish"
-msgstr ""
-
-#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:68
+msgid "Macedonian"
+msgstr "Makedonsk"
+
+#: src/gcompris/config.c:69
+msgid "Malayalam"
+msgstr "Malayalam"
+
+#: src/gcompris/config.c:70
+msgid "Malay"
+msgstr "Malaysisk"
+
+#: src/gcompris/config.c:71
+msgid "Dutch"
+msgstr "Nederlandsk"
+
+#: src/gcompris/config.c:72
+msgid "Norwegian"
+msgstr ""
+
+#: src/gcompris/config.c:73
+msgid "Portuguese"
+msgstr "Portugisisk"
+
+#: src/gcompris/config.c:74
+msgid "Brazil Portuguese"
+msgstr "Portugisisk, Brasil"
+
+#: src/gcompris/config.c:75
+msgid "Romanian"
+msgstr "Rumensk"
+
+#: src/gcompris/config.c:76
+msgid "Russian"
+msgstr ""
+
+#: src/gcompris/config.c:77
+msgid "Slovak"
+msgstr "Slovaksisk"
+
+#: src/gcompris/config.c:78
+msgid "Swedish"
+msgstr "Svensk"
+
+#: src/gcompris/config.c:79
+msgid "Turkish"
+msgstr ""
+
+#: src/gcompris/config.c:84
 msgid "No time limit"
 msgstr "Ingen tidsbegrensning"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:85
 msgid "Slow timer"
 msgstr "Treg teller"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:86
 msgid "Normal timer"
 msgstr "Normal teller"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:87
 msgid "Fast timer"
 msgstr "Rask teller"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:92
 msgid "800x600 (Default for gcompris)"
 msgstr ""
 
-#: src/gcompris/config.c:145
+#: src/gcompris/config.c:148
 msgid "GCompris Configuration"
 msgstr ""
 
-#: src/gcompris/config.c:251
+#: src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "Fullskjerm"
 
-#: src/gcompris/config.c:294
+#: src/gcompris/config.c:297
 msgid "Music"
 msgstr "Musikk"
 
-#: src/gcompris/config.c:322
+#: src/gcompris/config.c:325
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:359
+#: src/gcompris/config.c:362
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åpne katalog for tema: %s"
 
-#: src/gcompris/config.c:393 src/gcompris/config.c:700
-#: src/gcompris/config.c:711
+#: src/gcompris/config.c:396 src/gcompris/config.c:685
+#: src/gcompris/config.c:696
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
@@ -2168,7 +2186,7 @@ msgstr ""
 msgid "GCompris I Have Understood"
 msgstr ""
 
-#: src/gcompris/gcompris.c:545
+#: src/gcompris/gcompris.c:546
 #, c-format
 msgid ""
 "GCompris\n"

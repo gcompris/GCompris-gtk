@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD.hi\n"
-"POT-Creation-Date: 2003-08-16 19:29+0530\n"
+"POT-Creation-Date: 2003-08-24 12:09+0200\n"
 "PO-Revision-Date: 2003-08-16 16:54+0530\n"
 "Last-Translator: G Karunakar <karunakar@freedomink.org>\n"
 "Language-Team: Hindi <indlinux-hindi-gnome@lists.sourceforge.net>\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:68
+#: src/boards/colors.c:75
 msgid "Click on the right color"
 msgstr "सही रंग पर क्लिक करें"
 
@@ -280,7 +280,7 @@ msgstr ""
 msgid "platinum"
 msgstr ""
 
-#: boards/advanced_colors/board8.xml.in.h:6
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 msgid "purple"
 msgstr ""
 
@@ -518,7 +518,7 @@ msgstr ""
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:3 boards/hanoi.xml.in.h:2
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
 #: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr ""
@@ -620,7 +620,7 @@ msgstr ""
 msgid "Can move the mouse."
 msgstr ""
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "रंग"
 
@@ -708,12 +708,11 @@ msgstr ""
 msgid "Place the items in the best way to count them"
 msgstr ""
 
-#: boards/erase.xml.in.h:2 boards/fifteen.xml.in.h:2
+#: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr ""
 
-#: boards/erase.xml.in.h:4 boards/fifteen.xml.in.h:5 src/boards/erase.c:69
-#: src/boards/fifteen.c:56 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr ""
 
@@ -731,8 +730,16 @@ msgid ""
 "the empty block."
 msgstr ""
 
-#: boards/fifteen.xml.in.h:4
+#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
 msgid "Move the items one by one to reorder them in the increasing number"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+msgid "The fifteen game"
 msgstr ""
 
 #: boards/fun.xml.in.h:1
@@ -800,9 +807,7 @@ msgid "Taken the concept from the EPI games."
 msgstr ""
 
 #: boards/imageid.xml.in.h:1
-msgid ""
-"Click on the word corresponding to the printed image. When you are sure of "
-"your choice click on the hand at the bottom"
+msgid "Click on the word corresponding to the printed image."
 msgstr ""
 
 #: boards/imageid.xml.in.h:2
@@ -1048,8 +1053,7 @@ msgstr "रेकेट"
 #: boards/leftright.xml.in.h:1
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right, "
-"then click on the hand at the bottom to confirm your choice."
+"on the red button - at the left - or on the green button - at the right."
 msgstr ""
 
 #: boards/leftright.xml.in.h:2
@@ -1153,8 +1157,7 @@ msgstr ""
 #: boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word. Click on the "
-"hand at the bottom to validate your choice."
+"the picture. Select the missing letter to complete the word."
 msgstr ""
 
 #: boards/missing_letter.xml.in.h:2
@@ -1474,27 +1477,27 @@ msgstr ""
 msgid "This board is dedicated to read basic colors."
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:1
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
 msgstr "काला"
 
-#: boards/read_colors/board1.xml.in.h:2
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 msgid "blue"
 msgstr "नीला"
 
-#: boards/read_colors/board1.xml.in.h:3
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 msgid "brown"
 msgstr "भूरा"
 
-#: boards/read_colors/board1.xml.in.h:4
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 msgid "green"
 msgstr "हरा"
 
-#: boards/read_colors/board1.xml.in.h:5
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 msgid "grey"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:6
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 msgid "orange"
 msgstr "नारंगी"
 
@@ -1502,7 +1505,7 @@ msgstr "नारंगी"
 msgid "pink"
 msgstr "गुलाबी"
 
-#: boards/read_colors/board1.xml.in.h:8
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 msgid "red"
 msgstr "लाल"
 
@@ -1510,11 +1513,11 @@ msgstr "लाल"
 msgid "violet"
 msgstr "बेंगनी"
 
-#: boards/read_colors/board1.xml.in.h:10
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
 msgid "white"
 msgstr "सफेद"
 
-#: boards/read_colors/board1.xml.in.h:11
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
 msgid "yellow"
 msgstr "पीला"
 
@@ -1729,18 +1732,18 @@ msgstr "शेक्षणिक सूट जीकोंप्रिस "
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:155
-#: src/gcompris/gameutil.c:488 src/gcompris/gameutil.c:489
+#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
+#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:355
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "फाइल नही मिला %s !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1723
+#: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
 msgstr "फाइल ढूंढें %s !"
@@ -1825,9 +1828,10 @@ msgstr ""
 msgid "Set the watch to:"
 msgstr ""
 
-#: src/boards/fifteen.c:57
-msgid "Move the mouse to fifteen the area and discover the background"
-msgstr ""
+#: src/boards/colors.c:252
+#, fuzzy, c-format
+msgid "Click on the %s toon"
+msgstr "सही रंग पर क्लिक करें"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -1922,7 +1926,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr ""
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:408
+#: src/boards/shapegame.c:407
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -1930,17 +1934,17 @@ msgid ""
 "'d' to display all the shapes"
 msgstr ""
 
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:415
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
 msgstr ""
 
-#: src/boards/submarine.c:180
+#: src/boards/submarine.c:201
 msgid "Submarine"
 msgstr "पंडुब्बी"
 
-#: src/boards/submarine.c:181
+#: src/boards/submarine.c:202
 msgid "Control the depth of a submarine"
 msgstr ""
 
@@ -1994,7 +1998,7 @@ msgstr ""
 msgid "Help"
 msgstr "सहायता"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:170 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "ठीक है"
@@ -2012,132 +2016,150 @@ msgid "Azerbaijani Turkic"
 msgstr "अजरबैजानी तुर्किक"
 
 #: src/gcompris/config.c:55
+#, fuzzy
+msgid "Catalan"
+msgstr "इतालवी"
+
+#: src/gcompris/config.c:56
+msgid "Czech"
+msgstr ""
+
+#: src/gcompris/config.c:57
 msgid "German"
 msgstr "जर्मन"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Greek"
 msgstr "युनानी"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "English"
 msgstr "अंग्रेजी"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "Spanish"
 msgstr "स्पेनिश"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
 msgid "Finnish"
 msgstr "फिन्निश"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:62
 msgid "French"
 msgstr "फ्रांसी"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:63
 msgid "Hebrew"
 msgstr "हेब्रू"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:64
+#, fuzzy
+msgid "Indian"
+msgstr "इतालवी"
+
+#: src/gcompris/config.c:65
 msgid "Hungarian"
 msgstr "हंगेरीयाइ"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:66
 msgid "Italian"
 msgstr "इतालवी"
 
-#: src/gcompris/config.c:64
-msgid "Macedonian"
-msgstr "मेसेडोनी"
-
-#: src/gcompris/config.c:65
-msgid "Malayalam"
-msgstr "मलयालम"
-
-#: src/gcompris/config.c:66
-msgid "Malay"
-msgstr "मलाय"
-
 #: src/gcompris/config.c:67
-msgid "Dutch"
-msgstr "डच"
-
-#: src/gcompris/config.c:68
-msgid "Portuguese"
-msgstr "पुर्तगाली"
-
-#: src/gcompris/config.c:69
-msgid "Brazil Portuguese"
-msgstr "ब्राजिल पुर्तगाली"
-
-#: src/gcompris/config.c:70
-msgid "Romanian"
-msgstr "रोमेनियाई"
-
-#: src/gcompris/config.c:71
-msgid "Russian"
-msgstr "रूसी"
-
-#: src/gcompris/config.c:72
-msgid "Swedish"
-msgstr "स्विडिश"
-
-#: src/gcompris/config.c:73
-msgid "Slovak"
-msgstr "सेलोवाक"
-
-#: src/gcompris/config.c:74
-msgid "Turkish"
-msgstr "तुर्की"
-
-#: src/gcompris/config.c:75
 msgid "Lithuanian"
 msgstr "लितुएनियाइ"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:68
+msgid "Macedonian"
+msgstr "मेसेडोनी"
+
+#: src/gcompris/config.c:69
+msgid "Malayalam"
+msgstr "मलयालम"
+
+#: src/gcompris/config.c:70
+msgid "Malay"
+msgstr "मलाय"
+
+#: src/gcompris/config.c:71
+msgid "Dutch"
+msgstr "डच"
+
+#: src/gcompris/config.c:72
+msgid "Norwegian"
+msgstr ""
+
+#: src/gcompris/config.c:73
+msgid "Portuguese"
+msgstr "पुर्तगाली"
+
+#: src/gcompris/config.c:74
+msgid "Brazil Portuguese"
+msgstr "ब्राजिल पुर्तगाली"
+
+#: src/gcompris/config.c:75
+msgid "Romanian"
+msgstr "रोमेनियाई"
+
+#: src/gcompris/config.c:76
+msgid "Russian"
+msgstr "रूसी"
+
+#: src/gcompris/config.c:77
+msgid "Slovak"
+msgstr "सेलोवाक"
+
+#: src/gcompris/config.c:78
+msgid "Swedish"
+msgstr "स्विडिश"
+
+#: src/gcompris/config.c:79
+msgid "Turkish"
+msgstr "तुर्की"
+
+#: src/gcompris/config.c:84
 msgid "No time limit"
 msgstr "कोई समय सीमा नही"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:85
 msgid "Slow timer"
 msgstr "धीमा टाईमर"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:86
 msgid "Normal timer"
 msgstr "सामान्य टाईमर"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:87
 msgid "Fast timer"
 msgstr "तेज टाईमर"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:92
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (जिकोंप्रिस का डिफॉल्ट)"
 
-#: src/gcompris/config.c:144
+#: src/gcompris/config.c:148
 msgid "GCompris Configuration"
 msgstr ""
 
-#: src/gcompris/config.c:250
+#: src/gcompris/config.c:254
 msgid "Fullscreen"
 msgstr "पूरा सक्रीन"
 
-#: src/gcompris/config.c:293
+#: src/gcompris/config.c:297
 msgid "Music"
 msgstr "संगीत"
 
-#: src/gcompris/config.c:321
+#: src/gcompris/config.c:325
 msgid "Effect"
 msgstr "असर"
 
-#: src/gcompris/config.c:358
+#: src/gcompris/config.c:362
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr ""
 
-#: src/gcompris/config.c:392 src/gcompris/config.c:699
-#: src/gcompris/config.c:710
+#: src/gcompris/config.c:396 src/gcompris/config.c:685
+#: src/gcompris/config.c:696
 #, c-format
 msgid "Skin : %s"
 msgstr ""
@@ -2174,7 +2196,7 @@ msgstr ""
 msgid "GCompris I Have Understood"
 msgstr ""
 
-#: src/gcompris/gcompris.c:545
+#: src/gcompris/gcompris.c:546
 #, c-format
 msgid ""
 "GCompris\n"

@@ -10,14 +10,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-13 20:07+0200\n"
+"POT-Creation-Date: 2003-08-24 12:09+0200\n"
 "PO-Revision-Date: 2003-06-16 02:21+0000\n"
 "Last-Translator: Stojcev Darko <atom1c@linux.net.mk>\n"
 "Language-Team: Macedonian <lug@lists.linux.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
@@ -30,7 +30,7 @@ msgstr "Може да чита"
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:68
+#: src/boards/colors.c:75
 msgid "Click on the right color"
 msgstr "Кликни на десната боја"
 
@@ -284,7 +284,7 @@ msgstr "фстак"
 msgid "platinum"
 msgstr "платина"
 
-#: boards/advanced_colors/board8.xml.in.h:6
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 msgid "purple"
 msgstr "лилакова"
 
@@ -330,9 +330,9 @@ msgid ""
 "sign, give the answer. Use the left and right arrow to modify your answer, "
 "the return key to validate an answer"
 msgstr ""
-"Прикажан е збир од два броја. Лево од знакот за изедначување, внесете го одговорот. "
-"Искористете ја левата и десната стрелка за да го измените вашиот одговор, а тастерот "
-"ентер за да го потврдите одговорит"
+"Прикажан е збир од два броја. Лево од знакот за изедначување, внесете го "
+"одговорот. Искористете ја левата и десната стрелка за да го измените вашиот "
+"одговор, а тастерот ентер за да го потврдите одговорит"
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
@@ -351,18 +351,33 @@ msgstr "Таблица за множење"
 msgid "Practice the multiplication operation"
 msgstr "Вежбајте ја операцијата за множење"
 
+#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "Оди до алгебарските активности"
+
+#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Лев клик за избирање на активност"
+
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
 "his pictures. Thanks a lot Ralf."
 msgstr ""
-"Сликите од животни се земени од страницата на животни на Ралф Шмоде (http://schmode.net/) "
-"Ралф даде дозвола на gcompris да бидат вклучени овие слики. Му благодариме многу."
+"Сликите од животни се земени од страницата на животни на Ралф Шмоде (http://"
+"schmode.net/) Ралф даде дозвола на gcompris да бидат вклучени овие слики. Му "
+"благодариме многу."
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
-msgstr "Примени стратегија за подесување на сет од аритметички операции за изнаоѓање вредност"
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgstr ""
+"Примени стратегија за подесување на сет од аритметички операции за изнаоѓање "
+"вредност"
 
 #: boards/algebra_guesscount.xml.in.h:3
 msgid "Find the correct operations to get the result"
@@ -378,14 +393,17 @@ msgid ""
 "the top of the board area. These numbers and operators can be unselected by "
 "clicking on them."
 msgstr ""
-"За да ги вкомпонираш твоите операции, избери ги бројките и аритметичките операции "
-"на врвот на плочата. Овие бројки и операции можат да бидат одселектирани со кликнување"
+"За да ги вкомпонираш твоите операции, избери ги бројките и аритметичките "
+"операции на врвот на плочата. Овие бројки и операции можат да бидат "
+"одселектирани со кликнување"
 
 #: boards/algebra_guesscount.xml.in.h:6
 msgid ""
 "With displayed numbers and operations, find the right combination to get the "
 "right result"
-msgstr "Со прикажените бројки и операции, пронајди ја вистинската комбинација за добивање на резултат"
+msgstr ""
+"Со прикажените бројки и операции, пронајди ја вистинската комбинација за "
+"добивање на резултат"
 
 #: boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -393,9 +411,9 @@ msgid ""
 "give the answer. Use the left and right arrow to modify your answer, the "
 "return key to validate an answer"
 msgstr ""
-"Прикажана е разлика од два броја. Десно од знакот за равенство, изберете го одговорот. "
-"Користете ги левата и десната стрелка за да го измените вашиот одговор и тастерот "
-"ентер за потврдување на одговорот"
+"Прикажана е разлика од два броја. Десно од знакот за равенство, изберете го "
+"одговорот. Користете ги левата и десната стрелка за да го измените вашиот "
+"одговор и тастерот ентер за потврдување на одговорот"
 
 #: boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, give the result to the substraction of two numbers"
@@ -415,9 +433,9 @@ msgid ""
 "give the answer. Use the left and right arrow to modify your answer, the "
 "return key to validate an answer"
 msgstr ""
-"Прикажан е збир од два броја. Десно од знакот за равенство, изберете го одговорот. "
-"Користете ја левата и десната стрелка за да го измените вашиот одговор и тастерот ентер "
-"за да го потврдите одговорот"
+"Прикажан е збир од два броја. Десно од знакот за равенство, изберете го "
+"одговорот. Користете ја левата и десната стрелка за да го измените вашиот "
+"одговор и тастерот ентер за да го потврдите одговорот"
 
 #: boards/algebra_plus.xml.in.h:3
 msgid "In a limited time, give the result to the addition of two numbers"
@@ -430,17 +448,6 @@ msgstr "Вежбај ја операцијата за собирање"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition"
 msgstr "Проста операција за собирање"
-
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra activities"
-msgstr "Оди до алгебарските активности"
-
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Лев клик за избирање на активност"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -502,7 +509,7 @@ msgstr "Заклучи со обоени форми."
 msgid "Go to board based activities"
 msgstr "Оди до активностите поврзани со плочата"
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
+#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr ""
 
@@ -511,8 +518,8 @@ msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock. Help Tux and "
 "understand how a canal lock works."
 msgstr ""
-"Тукс и неговиот брод се во неволја, потребно е тие да поминат преку заклучена врата. "
-"Помогни му на Тукс да разбере како заклученото функционира"
+"Тукс и неговиот брод се во неволја, потребно е тие да поминат преку "
+"заклучена врата. Помогни му на Тукс да разбере како заклученото функционира"
 
 #: boards/canal_lock.xml.in.h:3
 msgid ""
@@ -536,7 +543,8 @@ msgstr "Шах за учење"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Работа со глувче"
 
@@ -575,7 +583,7 @@ msgstr "Препознавање на писмо"
 
 #: boards/click_on_letter.xml.in.h:5 boards/leftright.xml.in.h:5
 #: boards/railroad.xml.in.h:4
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "None"
 msgstr "Ништо"
 
@@ -595,13 +603,18 @@ msgid ""
 "nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) "
 "Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
 "Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
-msgstr "Риба од Слики од Програм Колекцијаhttp://www.photolib.noaa.gov Сите до Програм за Универзитет од Север Во Локација D Локација Локација Непознато Локација Непознато Локација Непознато Локација Непознато"
+msgstr ""
+"Риба од Слики од Програм Колекцијаhttp://www.photolib.noaa.gov Сите до "
+"Програм за Универзитет од Север Во Локација D Локација Локација Непознато "
+"Локација Непознато Локација Непознато Локација Непознато"
 
 #: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
-msgstr "Притисни на сите рипчиња со лев клик на глувчето, пред тие да излезат од аквариумот"
+msgstr ""
+"Притисни на сите рипчиња со лев клик на глувчето, пред тие да излезат од "
+"аквариумот"
 
 #: boards/clickgame.xml.in.h:4
 #, fuzzy
@@ -643,8 +656,8 @@ msgstr "Временски концепт. Читање на време"
 msgid "Can move the mouse."
 msgstr "Може да го мрда ова глувче"
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
+#, fuzzy
 msgid "Colors"
 msgstr "Бои"
 
@@ -718,14 +731,15 @@ msgid ""
 "On the left select a drawing tool, on the bottom select a color then click "
 "on the white area and drag to create a new shape. To go faster, you can use "
 "the middle mouse button to delete an object."
-msgstr "Вклучено лево избери а Вклучено доле избери а Вклучено и до а До до избриши."
+msgstr ""
+"Вклучено лево избери а Вклучено доле избери а Вклучено и до а До до избриши."
 
 #: boards/enumerate.xml.in.h:1
 msgid "Count the items"
 msgstr "Изброј ги елементите"
 
 #: boards/enumerate.xml.in.h:2 boards/planegame.xml.in.h:2
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Number"
 msgstr "Број"
 
@@ -753,6 +767,24 @@ msgstr "Мрдни го глувчето за да ја избришеш обл�
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Мрдај го глувчето додека не исчезнат сите коцки"
+
+#: boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block deside him. It will be swapped with "
+"the empty block."
+msgstr ""
+
+#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr ""
+
+#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr ""
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -821,10 +853,9 @@ msgid "Taken the concept from the EPI games."
 msgstr "Концептот е земен од ЕПИ игрите"
 
 #: boards/imageid.xml.in.h:1
-msgid ""
-"Click on the word corresponding to the printed image. When you are sure of "
-"your choice click on the hand at the bottom"
-msgstr "чено до од Вклучено"
+#, fuzzy
+msgid "Click on the word corresponding to the printed image."
+msgstr "Вклучено"
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -834,7 +865,7 @@ msgstr "Вежбај читање со помош на пронаоѓање на
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Reading"
 msgstr "Читање"
 
@@ -943,7 +974,7 @@ msgid "Drag and Drop the items above their written name"
 msgstr "и горе"
 
 #: boards/imagename.xml.in.h:2
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Image Name"
 msgstr "Име на Сликата"
 
@@ -1075,9 +1106,9 @@ msgstr ""
 #, fuzzy
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right, "
-"then click on the hand at the bottom to confirm your choice."
-msgstr "A Вие до десно или лево Вклучено лево или Вклучено десно Вклучено доле до."
+"on the red button - at the left - or on the green button - at the right."
+msgstr ""
+"A Вие до десно или лево Вклучено лево или Вклучено десно Вклучено доле до."
 
 #: boards/leftright.xml.in.h:2
 #, fuzzy
@@ -1096,26 +1127,6 @@ msgstr "Пронајди лево и десно"
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr "s а десно или лево"
 
-#: boards/superbrain.xml.in.h:1
-#, fuzzy
-msgid ""
-"Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
-"a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
-msgstr "Вклучено Тогаш Вклучено Во ред во control а позиција од а црно Вие десно до во."
-
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
-#, fuzzy
-msgid "Super Brain"
-msgstr "Супер"
-
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
-#, fuzzy
-msgid "Tux has hidden several items, find them back in the correct order"
-msgstr "скриени во"
-
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 #, fuzzy
 msgid "Can use the keyboard arrow to move an object."
@@ -1132,7 +1143,7 @@ msgid "Help Tux get out of this maze."
 msgstr "Помош од."
 
 #: boards/maze.xml.in.h:4 src/boards/maze.c:126
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Maze"
 msgstr "Подрум"
 
@@ -1166,7 +1177,9 @@ msgid ""
 "see its hidden picture. However you can only see two hidden pictures at "
 "once. You have to remember the position of the pictures to associate them. "
 "To remove a pair of card, uncover both of them."
-msgstr "A од картички од во скриени Вклучено а и скриени два скриени Вие до позиција од до До отстрани а од од."
+msgstr ""
+"A од картички од во скриени Вклучено а и скриени два скриени Вие до позиција "
+"од до До отстрани а од од."
 
 #: boards/memory.xml.in.h:2
 #, fuzzy
@@ -1213,14 +1226,16 @@ msgid ""
 "Ask gcompris to repeat the question Question Mark - The help Tool Box - The "
 "configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to "
 "4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
-msgstr "До а Вклучено до или а доле од control Од десно до лево од Забелешка достапен во Дома Назад до или не Во ред Вклучено до избери Прашај до повтори Прашање Кутија до до до"
+msgstr ""
+"До а Вклучено до или а доле од control Од десно до лево од Забелешка "
+"достапен во Дома Назад до или не Во ред Вклучено до избери Прашај до повтори "
+"Прашање Кутија до до до"
 
 #: boards/missing_letter.xml.in.h:1
 #, fuzzy
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word. Click on the "
-"hand at the bottom to validate your choice."
+"the picture. Select the missing letter to complete the word."
 msgstr "во Избор до Вклучено доле до."
 
 #: boards/missing_letter.xml.in.h:2
@@ -1493,7 +1508,8 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:5
 #, fuzzy
-msgid "This board is game oriented. It doesnt needs specific skills to play with."
+msgid ""
+"This board is game oriented. It doesnt needs specific skills to play with."
 msgstr "до пушти."
 
 #: boards/planegame.xml.in.h:1
@@ -1513,6 +1529,31 @@ msgid ""
 "catch the numbers in the incremental order"
 msgstr "Употреба горе долу десно и лево до до во"
 
+#: boards/pythontest.xml.in.h:1
+#, fuzzy
+msgid "Add a language binding to gcompris."
+msgstr "Додај а до."
+
+#: boards/pythontest.xml.in.h:2
+#, fuzzy
+msgid "Advanced Python Programmer :)"
+msgstr "Напредно"
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr ""
+
+#: boards/pythontest.xml.in.h:4
+#, fuzzy
+msgid "Test board for the python plugin"
+msgstr "Тест за"
+
+#: boards/pythontest.xml.in.h:5
+#, fuzzy
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr "до и за!"
+
 #: boards/railroad.xml.in.h:1
 #, fuzzy
 msgid "A memory game based on trains"
@@ -1526,7 +1567,9 @@ msgid ""
 "the top of the screen by selecting the appropriate wagons and locomotive. "
 "You can always unselect an item by clicking on it. Validate your "
 "construction by clicking on the hand at the bottom."
-msgstr "A а и s горе од После а секунда Тогаш до горе од од и Вие од Вклучено од Вклучено доле."
+msgstr ""
+"A а и s горе од После а секунда Тогаш до горе од од и Вие од Вклучено од "
+"Вклучено доле."
 
 #: boards/railroad.xml.in.h:3
 #, fuzzy
@@ -1552,28 +1595,28 @@ msgstr "Читање"
 msgid "This board is dedicated to read basic colors."
 msgstr "до."
 
-#: boards/read_colors/board1.xml.in.h:1
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#, fuzzy
 msgid "black"
 msgstr "црно"
 
-#: boards/read_colors/board1.xml.in.h:2
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 msgid "blue"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:3
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 msgid "brown"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:4
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 msgid "green"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:5
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 msgid "grey"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:6
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 msgid "orange"
 msgstr ""
 
@@ -1581,7 +1624,7 @@ msgstr ""
 msgid "pink"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:8
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 msgid "red"
 msgstr ""
 
@@ -1589,11 +1632,11 @@ msgstr ""
 msgid "violet"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:10
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
 msgid "white"
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:11
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
 msgid "yellow"
 msgstr ""
 
@@ -1649,7 +1692,9 @@ msgid ""
 "the dice to select the proper number. You can also use the right mouse "
 "button on the dices to count backward. When done, click on the OK button or "
 "hit the keyboard enter key."
-msgstr "Прв изброј помеѓу и Тогаш Вклучено до избери број Вие десно Вклучено до изброј Вклучено Во ред или."
+msgstr ""
+"Прв изброј помеѓу и Тогаш Вклучено до избери број Вие десно Вклучено до "
+"изброј Вклучено Во ред или."
 
 #: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
 #, fuzzy
@@ -1700,32 +1745,6 @@ msgstr "До во лево во."
 msgid "Well balance the scales"
 msgstr ""
 
-#: boards/submarine.xml.in.h:1
-#, fuzzy
-msgid ""
-"Click on different active elements : engine, rudders and air tanks in order "
-"to navigate at the ordered depth."
-msgstr "Вклучено активен и во до."
-
-#: boards/submarine.xml.in.h:2
-#, fuzzy
-msgid "Learn how a submarine works"
-msgstr "а"
-
-#: boards/submarine.xml.in.h:3
-msgid "Physics basics"
-msgstr ""
-
-#: boards/submarine.xml.in.h:4
-#, fuzzy
-msgid "Pilot a submarine"
-msgstr "а"
-
-#: boards/submarine.xml.in.h:5
-#, fuzzy
-msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "а и"
-
 #: boards/smallnumbers.xml.in.h:1
 msgid "Counting skill"
 msgstr ""
@@ -1752,9 +1771,58 @@ msgid ""
 "the falling dice."
 msgstr "број до број од во."
 
+#: boards/submarine.xml.in.h:1
+#, fuzzy
+msgid ""
+"Click on different active elements : engine, rudders and air tanks in order "
+"to navigate at the ordered depth."
+msgstr "Вклучено активен и во до."
+
+#: boards/submarine.xml.in.h:2
+#, fuzzy
+msgid "Learn how a submarine works"
+msgstr "а"
+
+#: boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr ""
+
+#: boards/submarine.xml.in.h:4
+#, fuzzy
+msgid "Pilot a submarine"
+msgstr "а"
+
+#: boards/submarine.xml.in.h:5
+#, fuzzy
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr "а и"
+
+#: boards/superbrain.xml.in.h:1
+#, fuzzy
+msgid ""
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. At the lower level, tux "
+"gives you an indication if you got a good position by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"oposite order."
+msgstr ""
+"Вклучено Тогаш Вклучено Во ред во control а позиција од а црно Вие десно до "
+"во."
+
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+#, fuzzy
+msgid "Super Brain"
+msgstr "Супер"
+
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+#, fuzzy
+msgid "Tux has hidden several items, find them back in the correct order"
+msgstr "скриени во"
+
 #: boards/target.xml.in.h:1
 #, fuzzy
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "и изброј горе до за"
 
 #: boards/target.xml.in.h:2
@@ -1807,55 +1875,35 @@ msgstr "вид"
 msgid "Keyboard training"
 msgstr "Тастатура"
 
-#: boards/pythontest.xml.in.h:1
-#, fuzzy
-msgid "Add a language binding to gcompris."
-msgstr "Додај а до."
-
-#: boards/pythontest.xml.in.h:2
-#, fuzzy
-msgid "Advanced Python Programmer :)"
-msgstr "Напредно"
-
-#: boards/pythontest.xml.in.h:3
-msgid "Python Test"
-msgstr ""
-
-#: boards/pythontest.xml.in.h:4
-#, fuzzy
-msgid "Test board for the python plugin"
-msgstr "Тест за"
-
-#: boards/pythontest.xml.in.h:5
-#, fuzzy
-msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr "до и за!"
-
-#: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr ""
-
 #: gcompris-edit.desktop.in.h:1
 #, fuzzy
 msgid "Editor for gcompris"
 msgstr "Уредувач за"
 
+#: gcompris.desktop.in.h:1
+msgid "Educational game starting at 3 years old"
+msgstr ""
+
+#: gcompris.desktop.in.h:2
+#, fuzzy
+msgid "Educational suite gcompris"
+msgstr "Уредувач за"
+
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
-#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
-#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
-#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:351
+#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
+#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
+#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr ""
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1723
-#, c-format
-#, fuzzy
+#: src/boards/shapegame.c:1728
+#, fuzzy, c-format
 msgid "find file %s !"
 msgstr "s!"
 
@@ -1864,7 +1912,7 @@ msgstr "s!"
 msgid "Guess operations"
 msgstr "Погоди"
 
-#: src/boards/canal_lock.c:111
+#: src/boards/canal_lock.c:114
 #, fuzzy
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
@@ -1897,39 +1945,41 @@ msgid ""
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
 "And check it is in "
-msgstr "Грешка програма пушти во програма Вклученоhttp://www.rpmfind.net или во Linux "
+msgstr ""
+"Грешка програма пушти во програма Вклученоhttp://www.rpmfind.net или во "
+"Linux "
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 #, fuzzy
 msgid "White Turn"
 msgstr "Бело"
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 #, fuzzy
 msgid "Black Turn"
 msgstr "Црно"
 
-#: src/boards/chess.c:710
+#: src/boards/chess.c:718
 #, fuzzy
 msgid "White check"
 msgstr "Бело"
 
-#: src/boards/chess.c:712
+#: src/boards/chess.c:720
 #, fuzzy
 msgid "Black check"
 msgstr "Црно"
 
-#: src/boards/chess.c:1044
+#: src/boards/chess.c:1052
 #, fuzzy
 msgid "Black mates"
 msgstr "Црно"
 
-#: src/boards/chess.c:1049
+#: src/boards/chess.c:1057
 #, fuzzy
 msgid "White mates"
 msgstr "Бело"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1062
 #, fuzzy
 msgid "Drawn game"
 msgstr "Подели"
@@ -1954,18 +2004,23 @@ msgstr ""
 msgid "Set the watch to:"
 msgstr "Постави до:"
 
+#: src/boards/colors.c:252
+#, fuzzy, c-format
+msgid "Click on the %s toon"
+msgstr "Кликни на десната боја"
+
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 #, fuzzy
 msgid "Learn how to read"
 msgstr "до"
 
 #: src/boards/leftright.c:247
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "left"
 msgstr "лево"
 
 #: src/boards/leftright.c:257
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "right"
 msgstr "десно"
 
@@ -1975,7 +2030,7 @@ msgid "Move the mouse to machpuzzle the area and discover the background"
 msgstr "Премести до и"
 
 #: src/boards/memory.c:227
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Memory"
 msgstr "Меморија"
 
@@ -1985,7 +2040,7 @@ msgid "Find the matching pair"
 msgstr "Пронајди"
 
 #: src/boards/menu.c:79
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Main Menu"
 msgstr "Главно мени"
 
@@ -1998,6 +2053,15 @@ msgstr "Избор а"
 #, fuzzy
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Премести до во"
+
+#: src/boards/python.c:52
+msgid "Python Board"
+msgstr ""
+
+#: src/boards/python.c:53
+#, fuzzy
+msgid "Special board that embed python into gcompris."
+msgstr "Специјално."
 
 #: src/boards/railroad.c:95
 #, fuzzy
@@ -2058,7 +2122,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "и до"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:408
+#: src/boards/shapegame.c:407
 #, fuzzy
 msgid ""
 "You entered the Edit mode\n"
@@ -2067,25 +2131,24 @@ msgid ""
 "'d' to display all the shapes"
 msgstr "Вие Уреди режим и н s до зачувај н до"
 
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:415
 #, fuzzy
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
 msgstr "податок н"
 
-#: src/boards/submarine.c:174
+#: src/boards/submarine.c:201
 msgid "Submarine"
 msgstr ""
 
-#: src/boards/submarine.c:175
+#: src/boards/submarine.c:202
 #, fuzzy
 msgid "Control the depth of a submarine"
 msgstr "Контрола од а"
 
 #: src/boards/target.c:324 src/boards/target.c:572
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "Points = %s"
 msgstr "Точки"
 
@@ -2097,21 +2160,11 @@ msgid ""
 msgstr ""
 
 #: src/boards/target.c:503
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "Distance to target = %d meters"
 msgstr "Растојание до"
 
-#: src/boards/python.c:52
-msgid "Python Board"
-msgstr ""
-
-#: src/boards/python.c:53
-#, fuzzy
-msgid "Special board that embed python into gcompris."
-msgstr "Специјално."
-
-#: src/gcompris/about.c:57
+#: src/gcompris/about.c:60
 #, fuzzy
 msgid ""
 "Credits:\n"
@@ -2121,231 +2174,260 @@ msgid ""
 "Music: Djilali Sebihi\n"
 msgstr "Заслуги"
 
-#: src/gcompris/about.c:94
+#: src/gcompris/about.c:97
 #, fuzzy
 msgid "About GCompris"
 msgstr "За"
 
-#: src/gcompris/about.c:200
+#: src/gcompris/about.c:203
 #, fuzzy
 msgid "GCompris Home Page"
 msgstr "Дома"
 
-#: src/gcompris/about.c:222
+#: src/gcompris/about.c:225
 #, fuzzy
-msgid "This software is a GNU Package and is released under the Gnu Public Licence"
+msgid ""
+"This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "а Пакет и Јавно"
 
-#: src/gcompris/about.c:250
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/about.c:253
+#, fuzzy
 msgid "Help"
 msgstr "Помош"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
+#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "OK"
 msgstr "Во ред"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:52
 msgid "Amharic"
 msgstr ""
 
-#: src/gcompris/config.c:51
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:53
+#, fuzzy
 msgid "Arabic"
 msgstr "Арапски"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:54
 msgid "Azerbaijani Turkic"
 msgstr ""
 
-#: src/gcompris/config.c:53
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:55
+#, fuzzy
+msgid "Catalan"
+msgstr "Италијански"
+
+#: src/gcompris/config.c:56
+msgid "Czech"
+msgstr ""
+
+#: src/gcompris/config.c:57
+#, fuzzy
 msgid "German"
 msgstr "Германски"
 
-#: src/gcompris/config.c:54
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:58
+#, fuzzy
 msgid "Greek"
 msgstr "Грчки"
 
-#: src/gcompris/config.c:55
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:59
+#, fuzzy
 msgid "English"
 msgstr "Англиски"
 
-#: src/gcompris/config.c:56
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:60
+#, fuzzy
 msgid "Spanish"
 msgstr "Шпански"
 
-#: src/gcompris/config.c:57
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:61
+#, fuzzy
 msgid "Finnish"
 msgstr "Финска"
 
-#: src/gcompris/config.c:58
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:62
+#, fuzzy
 msgid "French"
 msgstr "Француски"
 
-#: src/gcompris/config.c:59
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:63
+msgid "Hebrew"
+msgstr ""
+
+#: src/gcompris/config.c:64
+#, fuzzy
+msgid "Indian"
+msgstr "Италијански"
+
+#: src/gcompris/config.c:65
+#, fuzzy
 msgid "Hungarian"
 msgstr "Унгарски"
 
-#: src/gcompris/config.c:60
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:66
+#, fuzzy
 msgid "Italian"
 msgstr "Италијански"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:67
+#, fuzzy
+msgid "Lithuanian"
+msgstr "Литванска"
+
+#: src/gcompris/config.c:68
+msgid "Macedonian"
+msgstr ""
+
+#: src/gcompris/config.c:69
+#, fuzzy
+msgid "Malayalam"
+msgstr "Малајски"
+
+#: src/gcompris/config.c:70
 msgid "Malay"
 msgstr "Малајски"
 
-#: src/gcompris/config.c:62
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:71
+#, fuzzy
 msgid "Dutch"
 msgstr "Холандски"
 
-#: src/gcompris/config.c:63
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:72
+msgid "Norwegian"
+msgstr ""
+
+#: src/gcompris/config.c:73
+#, fuzzy
 msgid "Portuguese"
 msgstr "Португалски"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:74
 #, fuzzy
 msgid "Brazil Portuguese"
 msgstr "Бразил"
 
-#: src/gcompris/config.c:65
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:75
+#, fuzzy
 msgid "Romanian"
 msgstr "Романски"
 
-#: src/gcompris/config.c:66
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:76
+#, fuzzy
 msgid "Russian"
 msgstr "Руски"
 
-#: src/gcompris/config.c:67
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
-msgid "Swedish"
-msgstr "Шведски"
-
-#: src/gcompris/config.c:68
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:77
+#, fuzzy
 msgid "Slovak"
 msgstr "Словачка"
 
-#: src/gcompris/config.c:69
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:78
+#, fuzzy
+msgid "Swedish"
+msgstr "Шведски"
+
+#: src/gcompris/config.c:79
+#, fuzzy
 msgid "Turkish"
 msgstr "Турски"
 
-#: src/gcompris/config.c:70
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
-msgid "Lithuanian"
-msgstr "Литванска"
-
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:84
 #, fuzzy
 msgid "No time limit"
 msgstr "Не време"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:85
 #, fuzzy
 msgid "Slow timer"
 msgstr "Бавно"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:86
 #, fuzzy
 msgid "Normal timer"
 msgstr "Нормално"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:87
 #, fuzzy
 msgid "Fast timer"
 msgstr "Брзо"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:92
 #, fuzzy
 msgid "800x600 (Default for gcompris)"
 msgstr "Стандардно за"
 
-#: src/gcompris/config.c:139
+#: src/gcompris/config.c:148
 msgid "GCompris Configuration"
 msgstr ""
 
-#: src/gcompris/config.c:245
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:254
+#, fuzzy
 msgid "Fullscreen"
 msgstr "Цел Екран"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:297
 msgid "Music"
 msgstr ""
 
-#: src/gcompris/config.c:316
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/config.c:325
+#, fuzzy
 msgid "Effect"
 msgstr "Ефект"
 
-#: src/gcompris/config.c:353
-#, c-format
-#, fuzzy
+#: src/gcompris/config.c:362
+#, fuzzy, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "кожа"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:684
-#: src/gcompris/config.c:695
-#, c-format
-#, fuzzy
+#: src/gcompris/config.c:396 src/gcompris/config.c:685
+#: src/gcompris/config.c:696
+#, fuzzy, c-format
 msgid "Skin : %s"
 msgstr "Кожа"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:65
 #, fuzzy
 msgid "run gcompris in fullscreen mode."
 msgstr "во режим."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:67
 #, fuzzy
 msgid "run gcompris in window mode."
 msgstr "во режим."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:69
 #, fuzzy
 msgid "run gcompris with sound enabled."
 msgstr "овозможено."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris without sound."
 msgstr ""
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:73
 #, fuzzy
 msgid "run gcompris with the default gnome cursor."
 msgstr "стандардно."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:75
 msgid "Prints the version of "
 msgstr ""
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:77
 #, fuzzy
 msgid "Use the antialiased canvas (slower)."
 msgstr "Употреба."
 
-#: src/gcompris/gcompris.c:327
+#: src/gcompris/gcompris.c:330
 #, fuzzy
 msgid "GCompris I Have Understood"
 msgstr "I"
 
-#: src/gcompris/gcompris.c:541
-#, c-format
-#, fuzzy
+#: src/gcompris/gcompris.c:546
+#, fuzzy, c-format
 msgid ""
 "GCompris\n"
 "Version: %s\n"
@@ -2353,20 +2435,20 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr "s Вклученоhttp://ofset.sourceforge.net/gcompris"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:167 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr ""
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:201 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr ""
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#: src/gcompris/help.c:235 src/gcompris/interface.c:261
+#, fuzzy
 msgid "Manual"
 msgstr "Рачно"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:269 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr ""
 
@@ -2375,22 +2457,22 @@ msgid "Gcompris Editor"
 msgstr ""
 
 #: src/gcompris/interface.c:180
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Icon"
 msgstr "Икона"
 
 #: src/gcompris/interface.c:189
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Name"
 msgstr "Име"
 
 #: src/gcompris/interface.c:198 src/gcompris/interface.c:415
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Description"
 msgstr "Опис"
 
 #: src/gcompris/interface.c:207
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Type"
 msgstr "Тип"
 
@@ -2399,17 +2481,17 @@ msgid "Difficulty"
 msgstr ""
 
 #: src/gcompris/interface.c:225
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Author"
 msgstr "Автор"
 
 #: src/gcompris/interface.c:234
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Directory"
 msgstr "Директориум"
 
 #: src/gcompris/interface.c:286
-#, exfuzzy (по грешка беа обележани како fuzzy   --стојмир)
+#, fuzzy
 msgid "Title"
 msgstr "Наслов"
 
@@ -2426,14 +2508,17 @@ msgstr ""
 msgid "Released under GPL"
 msgstr ""
 
+#: src/gcompris/oggplayer.c:189
+msgid "Now Playing Music"
+msgstr ""
+
 #: src/gcompris/soundutil.c:116
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr ""
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "Неможе да ја пронајде pixmap датотеката: %s"
 
@@ -2443,8 +2528,16 @@ msgid "Time Ellapsed"
 msgstr "Време"
 
 #: src/gcompris/timer.c:323
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "Remaining Time = %d"
 msgstr "Време"
 
+#~ msgid ""
+#~ "Click on the word corresponding to the printed image. When you are sure "
+#~ "of your choice click on the hand at the bottom"
+#~ msgstr "чено до од Вклучено"
+
+#, fuzzy
+#~ msgid "Move the mouse to fifteen the area and discover the background"
+#~ msgstr ""
+#~ "Мрдни го глувчето за да ја избришеш областа и да ја откриеш позадината"
