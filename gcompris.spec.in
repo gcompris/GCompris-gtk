@@ -300,91 +300,111 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gnome/help/*
 %{prefix}/share/locale/*/*/*
 %{prefix}/share/pixmaps/*.png
-%{_infodir}/*
+%{prefix}/info/*
 
 %files assetml-voice-alphabet-de
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/de/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_de.assetml
 
 %files assetml-voice-colors-de
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/de/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_de.assetml
 
 %files assetml-voice-geography-de
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/de/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_de.assetml
 
 %files assetml-voice-misc-de
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/de/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_de.assetml
 
 
 %files assetml-voice-alphabet-en
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/en/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_en.assetml
 
 %files assetml-voice-colors-en
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/en/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_en.assetml
 
 %files assetml-voice-geography-en
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/en/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_en.assetml
 
 %files assetml-voice-misc-en
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/en/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_en.assetml
 
 
 %files assetml-voice-alphabet-es
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/es/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_es.assetml
 
 %files assetml-voice-colors-es
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/es/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_es.assetml
 
 %files assetml-voice-geography-es
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/es/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_es.assetml
 
 %files assetml-voice-misc-es
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/es/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_es.assetml
 
 
 %files assetml-voice-alphabet-fr
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_fr.assetml
 
 %files assetml-voice-colors-fr
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_fr.assetml
 
 %files assetml-voice-geography-fr
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_fr.assetml
 
 %files assetml-voice-misc-fr
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_fr.assetml
 
 
 %files assetml-voice-alphabet-pt
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_pt.assetml
 
 %files assetml-voice-colors-pt
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_pt.assetml
 
 %files assetml-voice-geography-pt
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_pt.assetml
 
 %files assetml-voice-misc-pt
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_pt.assetml
 
 
 %files libassetml
@@ -395,7 +415,7 @@ rm -rf $RPM_BUILD_ROOT
 %files assetml-flags
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/flags/*
-%{prefix}/share/pixmaps/gcompris_flags.assetml
+%{prefix}/share/@ASSETML_DIR@/gcompris_flags.assetml
 
 %files libassetml-devel
 %defattr(-, root, root)
@@ -403,39 +423,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*a
 %{_includedir}/libassetml*/*
 %{_libdir}/pkgconfig/libassetml.pc
-
-%define date	%(echo `LC_ALL="C" date +"%a %b %d %Y"`)
-%changelog
-* %{date} Gcompris <bruno.coudoin@free.fr>
-
-$Log$
-Revision 1.23  2003/08/27 21:42:47  bcoudoin
-* configure.in: added assetml.in file creation
-* gcompris.spec.in: added assetml package creation
-* src/boards/click_on_letter.c: (repeat),
-(click_on_letter_create_item), (phone_event): uses assetml
-* src/boards/colors.c: (repeat): uses assetml
-* src/boards/draw.c: (color_event): uses assetml
-* src/boards/gletters.c: (gletters_create_item): uses assetml
-* src/boards/smallnumbers.c: (smallnumbers_create_item): uses assetml
-* src/gcompris/bar.c: (gcompris_bar_start),
-(gcompris_bar_set_level), (bar_play_sound), (item_event_bar):  uses assetml
-* src/gcompris/config.c: (set_locale_flag), (item_event_ok):  uses assetml / fixed focus effect
-* src/gcompris/gameutil.c: (gcompris_get_asset_file),
-(gcompris_load_pixmap_asset), (gcompris_load_pixmap): assetml enhancements
-* src/gcompris/gameutil.h: assetml enhancements
-* src/gcompris/gcompris.c: (gcompris_init): uses assetml
-* src/gcompris/soundutil.c: (thread_play_ogg),
-(gcompris_play_sound): assetml enhancements
-* src/libassetml/assetml.c: (dump_asset),
-(assetml_add_xml_to_data), (matching), (parse_doc),
-(assetml_read_xml_file), (assetml_load_xml), (free_asset),
-(assetml_get_asset): removed the name field in assetml to use file as a key instead
-* src/libassetml/assetml.h: assetml enhancements
-* src/libassetml/test/test.c: (load_asset), (main): assetml enhancements
-* src/libassetml/test/test_assetml.assetml: assetml enhancements
-* src/libassetml/tools/assetml-query.c: (dump_asset), (main): assetml enhancements
-
-Revision 1.22  2003/08/18 23:25:06  bcoudoin
-added changelog from cvs
-

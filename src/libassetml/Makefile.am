@@ -10,7 +10,6 @@ INCLUDES = \
 	$(GLIB_CFLAGS)					\
 	$(GOBJECT_CFLAGS)				\
 	$(XML_CFLAGS)					\
-        -DASSETMLPIXMAPDIR=\""$(datadir)/pixmaps"\"	\
 	-DG_LOG_DOMAIN=\"Assetml\"			\
 	-DVERSION=\"$(VERSION)\"
 

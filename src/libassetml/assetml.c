@@ -123,8 +123,8 @@ static AssetML *assetml_add_xml_to_data(xmlDocPtr doc,
   tmpstr = xmlGetProp(xmlnode,"file");
   if(tmpstr && strlen(tmpstr)>0)
     if(rootdir[0]!='/')
-      /* This is a relative path, add ASSETMLPIXMAPDIR and rootdir prefix */
-      assetml->file		= g_build_filename(ASSETMLPIXMAPDIR, rootdir, tmpstr, NULL);
+      /* This is a relative path, add ASSETML_DIR and rootdir prefix */
+      assetml->file		= g_build_filename(ASSETML_DIR, rootdir, tmpstr, NULL);
     else
       assetml->file		= g_build_filename(rootdir, tmpstr, NULL);
   else
@@ -339,13 +339,13 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
   struct dirent **namelist;
   int n;
 
-  n = scandir(ASSETMLPIXMAPDIR, &namelist, &selectAssetML, 0);
+  n = scandir(ASSETML_DIR, &namelist, &selectAssetML, 0);
 
   if (n <= 0)
-    g_warning("scandir returns no files with extension %s in directory %s", FILE_EXT, ASSETMLPIXMAPDIR);
+    g_warning("scandir returns no files with extension %s in directory %s", FILE_EXT, ASSETML_DIR);
   else {
     while(n--) {
-      gchar *assetmlfile = g_strdup_printf("%s/%s", ASSETMLPIXMAPDIR, namelist[n]->d_name);
+      gchar *assetmlfile = g_strdup_printf("%s/%s", ASSETML_DIR, namelist[n]->d_name);
       
       assetml_read_xml_file(gl_result, assetmlfile,
       			    dataset, categories, mimetype, locale, name);
