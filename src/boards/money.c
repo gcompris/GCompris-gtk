@@ -42,7 +42,6 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 
 static void		 money_destroy_all_items(void);
 static void		 money_next_level(void);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 Money_Widget    *tux_money    = NULL;
 Money_Widget    *seller_money = NULL;
@@ -72,10 +71,9 @@ static gchar *imageList[] =
   "gcompris/misc/light.png",
   "gcompris/misc/peer.png",
   "gcompris/misc/pencil.png",
-  "gcompris/misc/raquette.png",
   "gcompris/misc/strawberry.png"
 };
-#define NUMBER_OF_IMAGES 15
+#define NUMBER_OF_IMAGES 14
 
 #define WITHOUT_CENTS	1
 #define WITH_CENTS	2
@@ -481,7 +479,7 @@ static void money_next_level()
 			    "pixbuf", pixmap,
 			    "x", (double) (i*BOARDWIDTH)/(number_of_item+1) 
 			    - gdk_pixbuf_get_width(pixmap)/2,
-			    "y", (double) 190,
+			    "y", (double) 200,
 			    NULL);
     
     /* Diplay the price */
@@ -557,28 +555,16 @@ static void game_won()
 }
 
 /* ==================================== */
-static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+static void process_ok()
 {
-  double item_x, item_y;
-  item_x = event->button.x;
-  item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;
 
-  return FALSE;
-}
-
-/* ==================================== */
-static void process_ok()
-{
-
-  printf("price_target = %f moneytotal=%f\n", price_target, money_widget_get_total(seller_money));
-  if(price_target == money_widget_get_total(seller_money))
+  /* FIXME: Why do I need this trick !! */
+  if(price_target >= money_widget_get_total(seller_money) - 0.001 &&
+     price_target <= money_widget_get_total(seller_money) + 0.001 )
     {
-      printf("GAME WON\n");
       gamewon = TRUE;
       money_destroy_all_items();
       gcompris_display_bonus(gamewon, BONUS_SMILEY);
