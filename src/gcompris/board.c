@@ -52,6 +52,11 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
   GList *node;
   BoardPlugin *bp;
 
+  if(gcomprisBoard->plugin!=NULL)
+    {
+      return TRUE;
+    }
+
   node = get_board_list();
   while (node)
     {
@@ -62,6 +67,10 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 	}
       node = node->next;
     }
+
+  g_warning("No plugin library found for board type '%s', requested by '%s'", 
+	    gcomprisBoard->type,  gcomprisBoard->filename);
+
   return FALSE;
 }
 
@@ -70,21 +79,19 @@ void board_play(GcomprisBoard *gcomprisBoard)
   GList *node;
   BoardPlugin *bp;
 
-  node = get_board_list();
-  while (node)
-    {
-      bp = (BoardPlugin *) node->data;
-      if (bp && bp->is_our_board(gcomprisBoard))
-	{
-	  set_current_board_plugin(bp);
-	  set_current_gcompris_board(gcomprisBoard);
-	  bp->start_board(gcomprisBoard);
-	  bp_data->playing = TRUE;
-	  return;
+  if(gcomprisBoard->plugin==NULL)
+    board_check_file(gcomprisBoard);
 
-	}
-      node = node->next;
+  if(gcomprisBoard->plugin!=NULL)
+    {
+      bp = gcomprisBoard->plugin;
+      set_current_board_plugin(bp);
+      set_current_gcompris_board(gcomprisBoard);
+      bp->start_board(gcomprisBoard);
+      bp_data->playing = TRUE;
+      return;
     }
+
   /* We set the playing flag even if no boardplugin
      recognizes the board. This way we are sure it will be skipped. */
   bp_data->playing = TRUE;

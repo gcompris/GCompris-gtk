@@ -1,3 +1,12 @@
+2003-07-14  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* boards/wordsgame/wordslevelmax.de: fixed Pfaume by Pflaume by Nicolas Kaiser
+	* src/gcompris/board.c: (board_check_file), (board_play),
+	(board_pause): Improved loading time. Matching parsing board xml -> plugin was overly done
+	* src/gcompris/config.c: added hebrew
+	* src/gcompris/gameutil.c: (gcompris_read_xml_file): initialised gcomprisBoard->plugin
+	* src/boards/menu.c: now if there is no plugin for a board type, it's icon is not displayed
+
 2003-07-08  Gil "Dolfin" Osher <dolfin@rpg.org.il>
 
 	* configure.in: Added "he" (Hebrew) to ALL_LINGUAS.

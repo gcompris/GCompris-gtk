@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/05/06 23:19:57 bcoudoin>
+ * Time-stamp: <2003/07/14 17:35:14 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -468,6 +468,8 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
   gcomprisBoard->board_ready=FALSE;
   gcomprisBoard->canvas=canvas;
   gcomprisBoard->previous_board=NULL;
+  gcomprisBoard->plugin=NULL;
+
 
   /* Fixed since I use the canvas own pixel_per_unit scheme */
   gcomprisBoard->width  = BOARDWIDTH;
