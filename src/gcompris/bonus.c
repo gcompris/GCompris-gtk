@@ -30,6 +30,9 @@ static GnomeCanvasItem *door1_item = NULL;
 static GnomeCanvasItem *door2_item = NULL;
 static GnomeCanvasItem *tuxplane_item = NULL;
 
+static gboolean board_finished_running = FALSE;
+static gboolean bonus_display_running = FALSE;
+
 static gint end_bonus_id = 0, board_finished_id = 0;
 
 //static gint end_board_count = 0;
@@ -71,6 +74,8 @@ void end_board_finished() {
   door2_item = NULL;
   tuxplane_item = NULL;
 
+  board_finished_running = FALSE;
+  
   // go back to previous board layout
   if (get_current_board_plugin()->end_board)
     get_current_board_plugin()->end_board();
@@ -83,6 +88,11 @@ void board_finished(int type) {
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
   char * str = NULL;
+
+  if (board_finished_running)
+  	return;
+    else
+			board_finished_running = TRUE;
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
@@ -164,6 +174,11 @@ void board_finished(int type) {
 /* ==================================== */
 void gcompris_display_bonus(int gamewon, int bonus_id)
 {
+	if (bonus_display_running)
+  	return;
+    else
+			bonus_display_running = TRUE;
+
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   if(gamewon == TRUE)
@@ -199,9 +214,11 @@ void bonus_image(char *image, int gamewon)
   GdkPixbuf *pixmap = NULL;
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
-  /* bonus_item must be a singleton */
-  if (bonus_item != NULL)
+  /* check that bonus_item is a singleton */
+  if (bonus_item != NULL) {
+  	bonus_display_running = FALSE;
     return;
+  }
 
   if (gamewon == TRUE)
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
@@ -244,6 +261,7 @@ void end_bonus()
     gtk_object_destroy (GTK_OBJECT(bonus_item));
 
   bonus_item = NULL;
+	bonus_display_running = FALSE;
 
   /* Re-Start the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
