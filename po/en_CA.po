@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-29 10:36-0500\n"
-"PO-Revision-Date: 2004-11-29 19:37-0400\n"
+"POT-Creation-Date: 2004-12-03 00:35-0500\n"
+"PO-Revision-Date: 2004-12-03 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -2911,7 +2911,7 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -3089,70 +3089,74 @@ msgstr "Turkish"
 msgid "Walloon"
 msgstr "Walloon"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Chinese (Simplified)"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "No filter"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Only this level"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "This level and above"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
