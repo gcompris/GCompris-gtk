@@ -180,8 +180,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-shapebg.jpg");
 
       /* set initial values for this level */
-      gcomprisBoard->level = 1;
-      gcomprisBoard->maxlevel=6;
+      gcomprisBoard->level = 0;
+      gcomprisBoard->maxlevel=4;
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
       gcomprisBoard->number_of_sublevel=6;
@@ -249,7 +249,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static gboolean increment_sublevel()
 {
   gcomprisBoard->sublevel++;
-  
+
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->level++;
@@ -257,7 +257,7 @@ static gboolean increment_sublevel()
       board_finished(BOARD_FINISHED_RANDOM);
       return FALSE;
     }
-    
+
     gcomprisBoard->sublevel=0;
   }
 
@@ -266,7 +266,7 @@ static gboolean increment_sublevel()
 }
 
 /* set initial values for the next level */
-static void shapegame_next_level() 
+static void shapegame_next_level()
 {
   char *filename;
 
@@ -276,8 +276,8 @@ static void shapegame_next_level()
 
   shapegame_init_canvas(gnome_canvas_root(gcomprisBoard->canvas));
 
-  filename = g_strdup_printf("%s/%s/board%d_%d.xml",  
-			     PACKAGE_DATA_DIR, gcomprisBoard->boarddir, 
+  filename = g_strdup_printf("%s/%s/board%d_%d.xml",
+			     PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
 
   printf("1 gcomprisBoard->level %d   filename=%s\n", gcomprisBoard->level, filename);
@@ -290,15 +290,15 @@ static void shapegame_next_level()
       gcomprisBoard->sublevel=gcomprisBoard->number_of_sublevel;
       if(!increment_sublevel())
 	return;
-      
+
       g_free(filename);
-      filename = g_strdup_printf("%s/%s/board%d_%d.xml",  
-				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir, 
+      filename = g_strdup_printf("%s/%s/board%d_%d.xml",
+				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir,
 				 gcomprisBoard->level, gcomprisBoard->sublevel);
   printf("3 gcomprisBoard->level %d   filename=%s\n", gcomprisBoard->level, filename);
     }
   read_xml_file(filename);
-  
+
   g_free(filename);
 }
 
