@@ -1,49 +1,53 @@
 # Lithuanian translation of GCompris.
 # Copyright (C) 2002 Free Software Foundation, Inc.
-# Mantas Kriauciunas <mantelis@centras.lt>, 2001.                               
-# Egle Girinaite <eglyte@centras.lt>                                            
+# Mantas KriauÄiÅ«nas <mantas@akl.lt>, 2001,2003
+# Liudas Dmitrijevas <liudacka@xxx.lt>, 2003
+# EglÄ— KriauÄiÅ«nienÄ— <egle@akl.lt>, 2001,2003
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
-"POT-Creation-Date: 2004-02-02 01:45+0100\n"
-"PO-Revision-Date: 2002-03-13 02:15-0000\n"
-"Last-Translator: Mantas Kriauciunas <mantelis@centras.lt>\n"
+"POT-Creation-Date: 2004-02-15 21:27+0200\n"
+"PO-Revision-Date: 2004-02-16 00:25+0300\n"
+"Last-Translator: Eglë Kriauèiûnienë <egle@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@lkonferencijos.lt>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-13\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
+#: boards/advanced_colors.xml.in.h:1
+#: src/boards/advanced_colors.c:86
 msgid "Advanced colors"
-msgstr ""
+msgstr "Ä®domios spalvos"
 
-#: boards/advanced_colors.xml.in.h:2 boards/read_colors.xml.in.h:1
+#: boards/advanced_colors.xml.in.h:2
+#: boards/read_colors.xml.in.h:1
 msgid "Can read"
-msgstr ""
+msgstr "MokÄ—ti skaityti"
 
-#: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
-#: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
+#: boards/advanced_colors.xml.in.h:3
+#: boards/colors.xml.in.h:2
+#: boards/read_colors.xml.in.h:2
+#: src/boards/advanced_colors.c:87
 #: src/boards/colors.c:75
 msgid "Click on the right color"
-msgstr "Spauskite ant teisingos spalvos"
+msgstr "Paspauskite ant teisingos spalvos"
 
 #: boards/advanced_colors.xml.in.h:4
-#, fuzzy
 msgid "Click on the right colored box."
-msgstr "Spauskite ant teisingos spalvos"
+msgstr "Paspauskite ant teisingos nuspalvintos dÄ—Å¾Ä—s."
 
 #: boards/advanced_colors.xml.in.h:5
 msgid "This board is dedicated to recognize unusual colors."
-msgstr ""
+msgstr "Å is Å¾aidimas skirtas atpaÅ¾inti neÄ¯prastas spalvas."
 
 #: boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
-msgstr ""
+msgstr "laÅ¡iÅ¡os"
 
 #: boards/advanced_colors/board1.xml.in.h:2
 msgid "chestnut"
-msgstr ""
+msgstr "kaÅ¡toninÄ—"
 
 #: boards/advanced_colors/board1.xml.in.h:3
 #, fuzzy
@@ -56,26 +60,25 @@ msgid "cobalt"
 msgstr "Tikslas"
 
 #: boards/advanced_colors/board1.xml.in.h:5
-#, fuzzy
 msgid "coral"
-msgstr "Tikslas"
+msgstr "koralo spalvos"
 
 #: boards/advanced_colors/board1.xml.in.h:6
-#, fuzzy
 msgid "corn"
-msgstr "karûna"
+msgstr "kaulo"
 
 #: boards/advanced_colors/board1.xml.in.h:7
 msgid "cyan"
-msgstr ""
+msgstr "Å¾ydra"
 
 #: boards/advanced_colors/board1.xml.in.h:8
+#, fuzzy
 msgid "sienna"
-msgstr ""
+msgstr "ochra"
 
 #: boards/advanced_colors/board2.xml.in.h:1
 msgid "lime"
-msgstr ""
+msgstr "citrinos"
 
 #: boards/advanced_colors/board2.xml.in.h:2
 msgid "sage"
@@ -83,7 +86,7 @@ msgstr ""
 
 #: boards/advanced_colors/board2.xml.in.h:3
 msgid "salmon"
-msgstr ""
+msgstr "laÅ¡iÅ¡os"
 
 #: boards/advanced_colors/board2.xml.in.h:4
 #, fuzzy
@@ -96,11 +99,11 @@ msgstr ""
 
 #: boards/advanced_colors/board2.xml.in.h:6
 msgid "sulphur"
-msgstr ""
+msgstr "sieros"
 
 #: boards/advanced_colors/board2.xml.in.h:7
 msgid "tea"
-msgstr ""
+msgstr "arbatos"
 
 #: boards/advanced_colors/board2.xml.in.h:8
 msgid "turquoise"
@@ -115,9 +118,8 @@ msgid "alabaster"
 msgstr ""
 
 #: boards/advanced_colors/board3.xml.in.h:3
-#, fuzzy
 msgid "amber"
-msgstr "kupranugaris"
+msgstr "gintaro"
 
 #: boards/advanced_colors/board3.xml.in.h:4
 msgid "amethyst"
@@ -126,7 +128,7 @@ msgstr ""
 #: boards/advanced_colors/board3.xml.in.h:5
 #, fuzzy
 msgid "anise"
-msgstr "Ispanø"
+msgstr "IspanÅ³"
 
 #: boards/advanced_colors/board3.xml.in.h:6
 msgid "aquamarine"
@@ -149,12 +151,12 @@ msgstr ""
 #: boards/advanced_colors/board4.xml.in.h:2
 #, fuzzy
 msgid "ceruse"
-msgstr "sûris"
+msgstr "sÅ«ris"
 
 #: boards/advanced_colors/board4.xml.in.h:3
 #, fuzzy
 msgid "chartreuse"
-msgstr "sûris"
+msgstr "sÅ«ris"
 
 #: boards/advanced_colors/board4.xml.in.h:4
 msgid "emerald"
@@ -171,7 +173,7 @@ msgstr ""
 #: boards/advanced_colors/board4.xml.in.h:7
 #, fuzzy
 msgid "glaucous"
-msgstr "stiklinë"
+msgstr "stiklinÄ—"
 
 #: boards/advanced_colors/board4.xml.in.h:8
 msgid "ruby"
@@ -188,7 +190,7 @@ msgstr ""
 #: boards/advanced_colors/board5.xml.in.h:4
 #, fuzzy
 msgid "bistre"
-msgstr "eglë"
+msgstr "eglÄ—"
 
 #: boards/advanced_colors/board5.xml.in.h:5
 msgid "celadon"
@@ -201,7 +203,7 @@ msgstr ""
 #: boards/advanced_colors/board5.xml.in.h:7
 #, fuzzy
 msgid "crimson"
-msgstr "karûna"
+msgstr "karÅ«na"
 
 #: boards/advanced_colors/board5.xml.in.h:8
 msgid "greyish-brown"
@@ -218,11 +220,11 @@ msgstr "morka"
 
 #: boards/advanced_colors/board6.xml.in.h:3
 msgid "indigo"
-msgstr ""
+msgstr "indigo"
 
 #: boards/advanced_colors/board6.xml.in.h:4
 msgid "ivory"
-msgstr ""
+msgstr "dramblio kaulo"
 
 #: boards/advanced_colors/board6.xml.in.h:5
 msgid "jade"
@@ -230,7 +232,7 @@ msgstr ""
 
 #: boards/advanced_colors/board6.xml.in.h:6
 msgid "lavender"
-msgstr ""
+msgstr "lavandÅ³"
 
 #: boards/advanced_colors/board6.xml.in.h:7
 msgid "lichen"
@@ -238,7 +240,7 @@ msgstr ""
 
 #: boards/advanced_colors/board6.xml.in.h:8
 msgid "wine"
-msgstr ""
+msgstr "vyno"
 
 #: boards/advanced_colors/board7.xml.in.h:1
 msgid "larch"
@@ -286,25 +288,24 @@ msgstr ""
 
 #: boards/advanced_colors/board8.xml.in.h:4
 msgid "pistachio"
-msgstr ""
+msgstr "pistacijÅ³"
 
 #: boards/advanced_colors/board8.xml.in.h:5
 msgid "platinum"
 msgstr ""
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
-#, fuzzy
+#: boards/advanced_colors/board8.xml.in.h:6
+#: src/boards/colors.c:59
 msgid "purple"
-msgstr "obuolys"
+msgstr "purpurinÄ—"
 
 #: boards/advanced_colors/board8.xml.in.h:7
 msgid "ultramarine"
 msgstr ""
 
 #: boards/advanced_colors/board9.xml.in.h:1
-#, fuzzy
 msgid "dark purple"
-msgstr "obuolys"
+msgstr "tamsiai purpurinÄ—"
 
 #: boards/advanced_colors/board9.xml.in.h:2
 msgid "plum"
@@ -323,7 +324,6 @@ msgid "saffron"
 msgstr ""
 
 #: boards/advanced_colors/board9.xml.in.h:6
-#, fuzzy
 msgid "vanilla"
 msgstr "autofurgonas"
 
@@ -336,87 +336,76 @@ msgid "veronese"
 msgstr ""
 
 #: boards/algebra_by.xml.in.h:1
-msgid ""
-"A multiplication of two numbers is displayed. At the right of the equal "
-"sign, give the answer. Use the left and right arrow to modify your answer, "
-"the return key to validate an answer"
+msgid "A multiplication of two numbers is displayed. At the right of the equal sign, give the answer. Use the left and right arrow to modify your answer, the return key to validate an answer"
 msgstr ""
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
+#: boards/algebra_by.xml.in.h:2
+#: boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
 msgid "I Ask you some algebra questions"
-msgstr "Uşduosiu keletà matematikos klausimø"
+msgstr "UÅ¾duosiu keletÄ… matematikos klausimÅ³"
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr ""
+msgstr "Sudaugink du skaiÄius per ribotÄ… laikÄ…"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
-msgstr ""
+msgstr "Daugybos lentelÄ—"
 
 #: boards/algebra_by.xml.in.h:5
-#, fuzzy
 msgid "Practice the multiplication operation"
-msgstr "Mokykis daugybos veiksmø"
+msgstr "Mokykis daugybos veiksmÅ³"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-#, fuzzy
+#: boards/algebra_group.xml.in.h:1
+#: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Matematikos pamokëlës"
+msgstr "Matematikos pamokÄ—lÄ—s"
 
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
-#, fuzzy
+#: boards/algebra_group.xml.in.h:2
+#: boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2
+#: boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2
+#: boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2
+#: boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Iğsirink pamokëlæ, paspausdamas ant jos kairá pelës klaviğà"
+msgstr "IÅ¡sirink pamokÄ—lÄ™, paspausdamas ant jos kairÄ¯ pelÄ—s klaviÅ¡Ä…"
 
-#: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
-#, fuzzy
-msgid ""
-"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) Ralf has given gcompris the authorization to include "
-"his pictures. Thanks a lot Ralf."
+#: boards/algebra_guesscount.xml.in.h:1
+#: boards/erase.xml.in.h:1
+msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (http://schmode.net/) Ralf has given gcompris the authorization to include his pictures. Thanks a lot Ralf."
 msgstr ""
-"Şvëreliø nuotraukos paimtos iğ Ralfo Schmode şvëreliø fotografijø puslapio\n"
-"(http://schmode.net/). Ralfas leido şaidime naudoti jo nuotraukas.\n"
-"Labai jam aèiû."
+"Å½vÄ—reliÅ³ nuotraukos paimtos iÅ¡ Ralfo Schmode Å¾vÄ—reliÅ³ fotografijÅ³ puslapio\n"
+"(http://schmode.net/). Ralfas leido Å¾aidime naudoti jo nuotraukas.\n"
+"Labai jam aÄiÅ«."
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:3
 msgid "Find the correct operations to get the result"
-msgstr "Gauk rezultatà, atlikdamas teisingus aritmetinius veiksmus"
+msgstr "Gauk rezultatÄ…, atlikdamas teisingus aritmetinius veiksmus"
 
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "The four arithmetic operations. Combine several arithmetic operations"
 msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:5
-msgid ""
-"To compose your operations, choose your numbers and arithmetic operators at "
-"the top of the board area. These numbers and operators can be unselected by "
-"clicking on them."
+msgid "To compose your operations, choose your numbers and arithmetic operators at the top of the board area. These numbers and operators can be unselected by clicking on them."
 msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:6
-msgid ""
-"With displayed numbers and operations, find the right combination to get the "
-"right result"
+msgid "With displayed numbers and operations, find the right combination to get the right result"
 msgstr ""
-"Naudodamas duotus skaièius bei veiksmus, sudaryk aritmetiná reiğkiná "
-"nurodytam atsakymui gauti"
+"Naudodamas duotus skaiÄius bei veiksmus, sudaryk aritmetinÄ¯ reiÅ¡kinÄ¯\n"
+" nurodytam atsakymui gauti"
 
 #: boards/algebra_minus.xml.in.h:1
-msgid ""
-"A substraction of two numbers is displayed. At the right of the equal sign, "
-"give the answer. Use the left and right arrow to modify your answer, the "
-"return key to validate an answer"
+msgid "A substraction of two numbers is displayed. At the right of the equal sign, give the answer. Use the left and right arrow to modify your answer, the return key to validate an answer"
 msgstr ""
 
 #: boards/algebra_minus.xml.in.h:3
@@ -424,48 +413,42 @@ msgid "In a limited time, give the result to the substraction of two numbers"
 msgstr ""
 
 #: boards/algebra_minus.xml.in.h:4
-#, fuzzy
 msgid "Practice the substraction operation"
-msgstr "Mokykis atimties veiksmø"
+msgstr "Mokykis atimties veiksmÅ³"
 
 #: boards/algebra_minus.xml.in.h:5
 msgid "Simple substraction"
 msgstr ""
 
 #: boards/algebra_plus.xml.in.h:1
-msgid ""
-"An addition of two numbers is displayed. At the right of the equal sign, "
-"give the answer. Use the left and right arrow to modify your answer, the "
-"return key to validate an answer"
+msgid "An addition of two numbers is displayed. At the right of the equal sign, give the answer. Use the left and right arrow to modify your answer, the return key to validate an answer"
 msgstr ""
 
 #: boards/algebra_plus.xml.in.h:3
-msgid "In a limited time, give the result to the addition of two numbers"
-msgstr ""
+#, fuzzy
+msgid "In a limited time, give the result to the addition of two numbers. Introduction to simple in-line addition"
+msgstr "Sudaugink du skaiÄius per ribotÄ… laikÄ…"
 
 #: boards/algebra_plus.xml.in.h:4
-#, fuzzy
 msgid "Practice the addition operation"
-msgstr "Mokykis sudëties veiksmø"
+msgstr "Mokykis sudÄ—ties veiksmÅ³"
 
 #: boards/algebra_plus.xml.in.h:5
-msgid "Simple addition"
+msgid "Simple addition. Can recognize written numbers"
 msgstr ""
 
-#: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
-#: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
-#: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
+#: boards/babymatch.xml.in.h:1
+#: boards/babymatch/board1_0.xml.in.h:1
+#: boards/babymatch/board2_0.xml.in.h:1
+#: boards/babymatch/board3_0.xml.in.h:1
+#: boards/babymatch/board4_0.xml.in.h:1
+#: boards/babymatch/board5_0.xml.in.h:1
 #: boards/babymatch/board6_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "Nutempk daiktà prie jam tinkamo"
+msgstr "Nutempk daiktÄ… prie jam tinkamo"
 
 #: boards/babymatch.xml.in.h:2
-msgid ""
-"In the main board area, a set of objects are printed. In the vertical frame "
-"- at the left of the main board area, another set of objects are printed, "
-"each of these objects match with exactly one object of the main board area. "
-"The logical link between these objects must be found. This is achieved by "
-"dragging the objects to the right red plots in the main area."
+msgid "In the main board area, a set of objects are printed. In the vertical frame - at the left of the main board area, another set of objects are printed, each of these objects match with exactly one object of the main board area. The logical link between these objects must be found. This is achieved by dragging the objects to the right red plots in the main area."
 msgstr ""
 
 #: boards/babymatch.xml.in.h:3
@@ -476,326 +459,323 @@ msgstr "Derantys daiktai"
 msgid "Motor coordination. Concept match."
 msgstr ""
 
-#: boards/babymatch.xml.in.h:5 boards/paintings.xml.in.h:4
-msgid "Mouse manipulation: movement, drag and drop"
+#: boards/babymatch.xml.in.h:5
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 
 #: boards/babyshapes.xml.in.h:1
-msgid "Baby Shape Puzzle"
-msgstr "Dëlionë (puzzle) iğ figûrø maşiems vaikams"
+msgid "Complete the puzzle"
+msgstr "Ä®vairios dÄ—lionÄ—s"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
-msgstr "Nutempk figûras á atitinkamas vietas"
+msgstr "Nutempk figÅ«ras Ä¯ atitinkamas vietas"
 
 #: boards/babyshapes.xml.in.h:3
 msgid "Good mouse control"
-msgstr "Mokëti naudotis pele"
+msgstr "MokÄ—ti naudotis pele"
 
 #: boards/babyshapes.xml.in.h:4
+msgid "In the main area, a puzzle set is proposed. In the left area, you have the set of pieces for this puzzle. To place the pieces, you must use the drag/drop mouvement with the mouse."
+msgstr ""
+
+#: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
 msgstr ""
 
 #: boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr ""
+msgstr "Labas! AÅ¡ vardu Brisius."
 
 #: boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on grass."
-msgstr ""
+msgstr "Brisius Å¾olÄ—je."
 
 #: boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
-msgstr ""
+msgstr "Brisius ir spalvotos figÅ«ros."
 
 #: boards/boards.xml.in.h:1
-#, fuzzy
 msgid "Go to board based activities"
-msgstr "Matematikos pamokëlës"
+msgstr "Stalo ir kiti Å¾aidimai"
 
-#: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
-#: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
-#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+#: boards/billard.xml.in.h:1
+#: boards/chess_computer.xml.in.h:2
+#: boards/chess_movelearn.xml.in.h:3
+#: boards/chess_partyend.xml.in.h:2
+#: boards/clickgame.xml.in.h:6
+#: boards/erase.xml.in.h:3
+#: boards/fifteen.xml.in.h:2
+#: boards/hanoi.xml.in.h:2
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
-msgstr ""
+msgstr "MokÄ—ti naudotis pele"
 
 #: boards/billard.xml.in.h:2
 msgid "Send the ball in the hole"
-msgstr ""
+msgstr "Pataikyk kamuolÄ¯ Ä¯ skylÄ™"
 
 #: boards/billard.xml.in.h:3
-msgid "The billard game"
-msgstr ""
+msgid "The billiards game"
+msgstr "Bilijardo Å¾aidimas"
 
 #: boards/billard.xml.in.h:4
-msgid ""
-"The click point on the ball will give the speed and direction to the ball. "
-"More you click in the center, slower is the ball."
+msgid "The click point on the ball will give the speed and direction to the ball. More you click in the center, slower is the ball."
 msgstr ""
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
+#: boards/canal_lock.xml.in.h:1
+#: src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
-msgstr ""
+msgstr "Valdyk kanalo Å¡liuzus"
 
 #: boards/canal_lock.xml.in.h:2
-msgid ""
-"Tux is in trouble in his ship, he needs to take through a lock. Help Tux and "
-"understand how a canal lock works."
+msgid "Tux is in trouble in his ship, he needs to take through a lock. Help Tux and understand how a canal lock works."
 msgstr ""
+"Tuksas su savo laivu pateko Ä¯ bÄ—dÄ… ir jam reikia persikelti per Å¡liuzÄ….\n"
+"IÅ¡siaiÅ¡kink kaip veikia kanalÅ³ Å¡liuzai ir padÄ—k Tuksui."
 
 #: boards/canal_lock.xml.in.h:3
-msgid ""
-"You are in charge of the canal lock. You have to open the gates and the "
-"lockgates in the right order. Let Tux travel through the gates in the two "
-"ways."
+msgid "You are in charge of the canal lock. You have to open the gates and the lockgates in the right order. Let Tux travel through the gates in the two ways."
 msgstr ""
 
-#: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
+#: boards/chess.xml.in.h:1
+#: boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
-msgstr ""
+msgstr "Å½aisk Å¡achmatais prieÅ¡ kompiuterÄ¯ mokymo reÅ¾imu"
 
 #: boards/chess.xml.in.h:2
 msgid "Practice chess"
-msgstr ""
+msgstr "Å achmatai"
 
-#: boards/chess_computer.xml.in.h:1 boards/chess_movelearn.xml.in.h:2
+#: boards/chess_computer.xml.in.h:1
+#: boards/chess_movelearn.xml.in.h:2
 #: boards/chess_partyend.xml.in.h:1
-#, fuzzy
 msgid "Learning chess"
-msgstr "Paşink laikrodá"
+msgstr "IÅ¡mok Å¾aisti Å¡achmatais"
 
-#: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
+#: boards/chess_computer.xml.in.h:4
+#: boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is the gnuchess."
-msgstr ""
+msgstr "Naudojama GnuChess Å¡achmatÅ³ programa."
 
 #: boards/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
-msgstr ""
+msgstr "Å achmatÅ³ pratybos. Nukirsk kompiuterio pÄ—stininkÄ…."
 
 #: boards/chess_partyend.xml.in.h:3
 msgid "Play end of chess game against the computer"
-msgstr ""
+msgstr "SuÅ¾aisk Å¡achmatÅ³ partijos pabaigÄ… prieÅ¡ kompiuterÄ¯"
 
 #: boards/click_on_letter.xml.in.h:1
-msgid ""
-"A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the mouth icon in the bottom "
-"horizontal frame."
+msgid "A letter is spelled. Click on the corresponding letter in the main area. You can hear again the letter by clicking on the mouth icon in the bottom horizontal frame."
 msgstr ""
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
-msgstr "Paspausk raidæ"
+msgstr "Paspausk raidÄ™"
 
 #: boards/click_on_letter.xml.in.h:3
 msgid "Hear a letter and click on the right letter"
-msgstr "Iğklausyk ir paspausk iğgirstà raidæ"
+msgstr "IÅ¡klausyk ir paspausk iÅ¡girstÄ… raidÄ™"
 
 #: boards/click_on_letter.xml.in.h:4
-msgid "Letter recognition"
+#, fuzzy
+msgid "Letter name recognition"
+msgstr "RaidÅ¾iÅ³ atpaÅ¾inimas"
+
+#: boards/click_on_letter.xml.in.h:5
+msgid "Visual letters recognition. Can move the mouse."
 msgstr ""
 
-#: boards/click_on_letter.xml.in.h:5 boards/leftright.xml.in.h:5
-#: boards/railroad.xml.in.h:4
-msgid "None"
-msgstr ""
-
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
+#: boards/clickgame.xml.in.h:1
+#: src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Spausk mane"
 
 #: boards/clickgame.xml.in.h:2
-#, fuzzy
-msgid ""
-"Fish are taken from the Unix utility xfishtank. Images are taken from the "
-"National Undersea Research Program (NURP) Collection at http://www.photolib."
-"noaa.gov All images credit bellongs to the OAR/National Undersea Research "
-"Program (NURP). Except for the first image that also credits the University "
-"of North Carolina at Wilmington. In the gcompris level order, images "
-"information is: Location: Tropical Atlantic Ocean, Florida Keys (image "
-"nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) "
-"Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
-"Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
+msgid "Click with the left mouse button on the moving fish."
 msgstr ""
-"Şuvelës yra iğ Unix programëlës xfishtank. Visi vaizdai - iğ \n"
-"National Undersearch Research Program (NURP) kolekcijos\n"
-" (http://www.photolib.noaa.gov)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fishes before they leave the "
-"fishtank"
+#: boards/clickgame.xml.in.h:3
+msgid "Fish are taken from the Unix utility xfishtank. Images are taken from the National Undersea Research Program (NURP) Collection at http://www.photolib.noaa.gov All images credit bellongs to the OAR/National Undersea Research Program (NURP). Except for the first image that also credits the University of North Carolina at Wilmington. In the gcompris level order, images information is: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: Unknown (image nur03505) Location: Unknown (image nur03010) Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
-"Kairiu pelës klaviğu paspauskite ant  plaukianèiø şuvø, kol jos dar ekrane"
+"Å½uvelÄ—s yra iÅ¡ Unix programÄ—lÄ—s xfishtank.\n"
+"Vaizdai - iÅ¡ NacionalinÄ—s povandeniniÅ³ tyrinÄ—jimÅ³ programos (NURP) kolekcijos\n"
+" (iÅ¡ http://www.photolib.noaa.gov)\n"
+"Visi vaizdai, iÅ¡skyrus pirmajÄ¯ priklauso OAR/NURP.\n"
+"Pastarasis priklauso ir Å iaurÄ—s Karolinos Universitetui esanÄiam Vilmingtone.\n"
+"VaizdÅ³ informacija pagal eiliÅ¡kumÄ… Å¡iame Å¾aidime:\n"
+"1. Tropinis Atlanto vandenynas, Floridos rifai (paveikslÄ—lis nur00523), fotografas D. Kesling\n"
+"2. Floridos rifai (paveikslÄ—lis nur03006)\n"
+"3. Vieta neÅ¾inoma (paveikslÄ—lis nur03505)\n"
+"4. Vieta neÅ¾inoma (paveikslÄ—lis nur03010)\n"
+"5. Vieta neÅ¾inoma (paveikslÄ—lis nur03011)\n"
+"6. Vieta neÅ¾inoma (paveikslÄ—lis nur03013)\n"
 
 #: boards/clickgame.xml.in.h:4
-#, fuzzy
-msgid ""
-"Motor coordination: mouse mouvement and mouse click. The goal is just to "
-"click with the left mouse button on the moving fish."
+#: src/boards/clickgame.c:87
+msgid "Left-Click with the mouse on all swimming fishes before they leave the fishtank"
+msgstr "Kairiu pelÄ—s klaviÅ¡u paspauskite ant  plaukianÄiÅ³ Å¾uvÅ³, kol jos dar ekrane"
+
+#: boards/clickgame.xml.in.h:5
+msgid "Motor coordination: mouse mouvement and mouse click."
 msgstr ""
-"Ğiame şaidime vaikai iğmoks dirbti su kompiuterio pele.\n"
-"Şaidimo tikslas yra kairiu pelës klaviğu paspausti ant judanèios şuvelës."
 
 #: boards/clockgame.xml.in.h:1
-msgid ""
-"Distinguish differences between hour, minute and second. Compose a time in a "
-"clock"
+msgid "Distinguish differences between hour, minute and second. Compose a time in a clock"
 msgstr ""
 
 #: boards/clockgame.xml.in.h:2
-msgid ""
-"For each printed hour (hours:minutes or hours:minutes:seconds) manipulate "
-"the corresponding arrow to set the clock time matching the given hour. The "
-"different arrows can be turned by selecting them and moving the mouse"
+msgid "For each printed hour (hours:minutes or hours:minutes:seconds) manipulate the corresponding arrow to set the clock time matching the given hour. The different arrows can be turned by selecting them and moving the mouse"
 msgstr ""
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
+#: boards/clockgame.xml.in.h:3
+#: src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
-msgstr "Iğmok paşinti laikrodá"
+msgstr "IÅ¡mok paÅ¾inti laikrodÄ¯"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
+#: boards/clockgame.xml.in.h:4
+#: src/boards/algebra.c:97
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
-msgstr "Paşink laikrodá"
+msgstr "PaÅ¾ink laikrodÄ¯"
 
 #: boards/clockgame.xml.in.h:5
 msgid "Time concept Time reading"
 msgstr ""
+"Suvokti laikÄ…\n"
+"PaÅ¾inti skaiÄius"
 
 #: boards/colors.xml.in.h:1
-#, fuzzy
 msgid "Can move the mouse."
-msgstr "Mokëti judinti pelæ"
+msgstr "MokÄ—ti judinti pelÄ™."
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:74
+#: boards/colors.xml.in.h:3
+#: src/boards/colors.c:74
 msgid "Colors"
 msgstr "Spalvos"
 
 #: boards/colors.xml.in.h:4
-#, fuzzy
 msgid "Hear the color and click on the toon."
-msgstr "Iğklausyk ir paspausk iğgirstà raidæ"
+msgstr "IÅ¡klausyk ir paspausk iÅ¡girstÄ… spalvÄ…."
 
 #: boards/colors.xml.in.h:5
-msgid ""
-"This board is dedicated to train kids to recognize colors. Several colored "
-"toons are displayed and a color is spoken. The kid must select the proper "
-"toon."
+msgid "This board is dedicated to train kids to recognize colors. Several colored toons are displayed and a color is spoken. The kid must select the proper toon."
 msgstr ""
 
 #: boards/colors_group.xml.in.h:1
-#, fuzzy
 msgid "Go to colors activities"
-msgstr "Matematikos pamokëlës"
+msgstr "SpalvÅ³ pamokÄ—lÄ—s"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr "Paşink kompiuterá"
+msgstr "PaÅ¾ink kompiuterÄ¯"
 
 #: boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
-msgstr ""
+msgstr "Pagrindiniai skaiÄiavimo Ä¯gÅ«dÅ¾iai"
 
 #: boards/doubleentry.xml.in.h:2
 msgid "Double entry table"
-msgstr ""
+msgstr "SusikirtimÅ³ lentelÄ—"
 
 #: boards/doubleentry.xml.in.h:3
 #, fuzzy
 msgid "Drag and Drop proposed items to their destination"
-msgstr "Nutempk daiktà prie jam tinkamo"
+msgstr "Nutempk daiktÄ… prie jam tinkamo"
 
 #: boards/doubleentry.xml.in.h:4
 #, fuzzy
 msgid "Drag and Drop the items in the double entry table"
-msgstr "Padëk figûras á atitinkamas vietas"
+msgstr "PadÄ—k figÅ«ras Ä¯ atitinkamas vietas"
 
 #: boards/doubleentry.xml.in.h:5
-msgid ""
-"The children must move the items on the left to their proper destination in "
-"the double entry table."
+msgid "The children must move the items on the left to their proper destination in the double entry table."
 msgstr ""
+"Vaikai turi perkelti kairÄ—je esanÄius elementus \n"
+"Ä¯ teisingas susikirtimo vietas lentelÄ—je."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: boards/draw.xml.in.h:1
+#: src/boards/draw.c:206
 msgid "A simple vector drawing tool"
-msgstr "Paprastas pieğimo árankis"
+msgstr "Paprastas pieÅ¡imo Ä¯rankis"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
+#: boards/draw.xml.in.h:2
+#: src/boards/draw.c:207
 msgid "Creative board where you can freely draw"
-msgstr "Pieğimo programëlë"
+msgstr "PieÅ¡imo programÄ—lÄ—"
 
 #: boards/draw.xml.in.h:3
-msgid ""
-"In this game, the children will be able to freely draw. The goal is just to "
-"discover how he can create pretty looking drawings based on basic shapes: "
-"rectangles, ellipses and lines."
+msgid "In this game, the children will be able to freely draw. The goal is just to discover how he can create pretty looking drawings based on basic shapes: rectangles, ellipses and lines."
 msgstr ""
-"Ğiame şaidime vaikai gali laisvai pieğti. Svarbu iğmokti kaip kurti graşius\n"
-"pieğinius iğ pagrindiniø geometriniø figûrø: staèiakampiø, ovalø ir linijø."
+"Å iame Å¾aidime vaikai gali laisvai pieÅ¡ti. Svarbu iÅ¡mokti kaip kurti graÅ¾ius\n"
+"pieÅ¡inius iÅ¡ pagrindiniÅ³ geometriniÅ³ figÅ«rÅ³: staÄiakampiÅ³, ovalÅ³ ir linijÅ³."
 
 #: boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
-msgstr "Mokëti laisvai elgtis su pele"
+msgstr "MokÄ—ti laisvai elgtis su pele"
 
 #: boards/draw.xml.in.h:5
-msgid ""
-"On the left select a drawing tool, on the bottom select a color then click "
-"on the white area and drag to create a new shape. To go faster, you can use "
-"the middle mouse button to delete an object."
+msgid "On the left select a drawing tool, on the bottom select a color then click on the white area and drag to create a new shape. To go faster, you can use the middle mouse button to delete an object."
 msgstr ""
-"Kairëje pasirinkite pieğimo áranká, o apaèioje - norimà spalvà. \n"
-"Pieğimo lape paspauskite, kad sukurtumëte naujà figûrà. \n"
-"Objektams iğtrinti galima naudoti viduriná pelytës klaviğà."
+"KairÄ—je pasirinkite pieÅ¡imo Ä¯rankÄ¯, o apaÄioje - norimÄ… spalvÄ…. \n"
+"PieÅ¡imo lape paspauskite, kad sukurtumÄ—te naujÄ… figÅ«rÄ…. \n"
+"Objektams iÅ¡trinti galima naudoti vidurinÄ¯ pelytÄ—s klaviÅ¡Ä…."
 
 #: boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr ""
+
+#: boards/enumerate.xml.in.h:2
 msgid "Count the items"
+msgstr "SuskaiÄiuok elementus"
+
+#: boards/enumerate.xml.in.h:3
+msgid "First, organize properly the items so that you can count them. Then, select the item you want to answer for in the bottom right area. Enter the answer with the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
 
-#: boards/enumerate.xml.in.h:2 boards/planegame.xml.in.h:2
-msgid "Number"
-msgstr ""
-
-#: boards/enumerate.xml.in.h:3 boards/planegame.xml.in.h:4
+#: boards/enumerate.xml.in.h:4
+#: boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
 msgid "Numeration training"
-msgstr ""
+msgstr "IÅ¡mokyti skaiÄiuoti iÅ¡ eilÄ—s"
 
-#: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
+#: boards/enumerate.xml.in.h:5
+#: src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
-msgstr ""
+msgstr "IÅ¡sidÄ—liok elementus taip, kad bÅ«tÅ³ patogu juos suskaiÄiuoti"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
-msgstr ""
+msgstr "JudesiÅ³ koordinavimas"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4
+#: src/boards/erase.c:70
+#: src/boards/machpuzzle.c:87
 msgid "Move the mouse"
-msgstr "Judink pelæ"
+msgstr "Judink pelÄ™"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5
+#: src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
-msgstr "Judindamas pelæ nuvalysi plotà ir pamatysi fonà"
+msgstr "Judindamas pelÄ™ nuvalysi plotÄ… ir pamatysi fonÄ…"
 
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
-msgstr ""
+msgstr "Judink pelÄ™ kol dings visi kvadratÄ—liai"
 
 #: boards/experience.xml.in.h:1
-#, fuzzy
 msgid "Go to experiences activities"
-msgstr "Skaitymo pamokëlës"
+msgstr "Panaudok Å¾inias eksperimentuodamas"
 
 #: boards/fifteen.xml.in.h:1
-msgid ""
-"Click on any item that has a free block deside him. It will be swapped with "
-"the empty block."
+msgid "Click on any item that has a free block deside him. It will be swapped with the empty block."
 msgstr ""
 
-#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
+#: boards/fifteen.xml.in.h:3
+#: src/boards/fifteen.c:57
 msgid "Move the items one by one to reorder them in the increasing number"
 msgstr ""
 
@@ -803,89 +783,96 @@ msgstr ""
 msgid "Original code taken from libgnomecanvas demo"
 msgstr ""
 
-#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+#: boards/fifteen.xml.in.h:5
+#: src/boards/fifteen.c:56
 msgid "The fifteen game"
-msgstr ""
+msgstr "Å½aidimas \"Penkiolika\""
 
 #: boards/fun.xml.in.h:1
-#, fuzzy
 msgid "Go to Amusement activities"
 msgstr "Eik linksmintis"
 
 #: boards/geography.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop the items to redraw the complete map"
-msgstr "Padëk figûras á atitinkamas vietas"
+msgstr "SudÄ—liok Å¡alis Ä¯ atitinkamas vietas, kad gautum pilnÄ… Å¾emÄ—lapÄ¯"
 
 #: boards/geography.xml.in.h:2
 msgid "Place the lands"
-msgstr ""
+msgstr "SudÄ—liok Å¡alis"
 
 #: boards/geography/board1_0.xml.in.h:1
 msgid "North America"
-msgstr ""
+msgstr "Å iaurÄ—s Amerika"
 
 #: boards/geography/board2_0.xml.in.h:1
 msgid "South America"
-msgstr ""
+msgstr "PietÅ³ Amerika"
 
 #: boards/geography/board3_0.xml.in.h:1
 msgid "West Europe"
-msgstr ""
+msgstr "VakarÅ³ Europa"
 
 #: boards/geography/board4_0.xml.in.h:1
 msgid "East Europe"
-msgstr ""
+msgstr "RytÅ³ Europa"
 
-#: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
+#: boards/gletters.xml.in.h:1
+#: boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
-msgstr ""
+msgstr "MokÄ—ti naudotis klaviatÅ«ra"
 
 #: boards/gletters.xml.in.h:2
 msgid "Letter recognition between the screen and the keyboard"
 msgstr ""
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
+#: boards/gletters.xml.in.h:3
+#: src/boards/gletters.c:76
 msgid "Simple Letters"
-msgstr "Paprastos raidës"
+msgstr "Paprastos raidÄ—s"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
+#: boards/gletters.xml.in.h:4
+#: src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
-msgstr "Surask klaviatûroje krintanèias raides, kol jos nenukrito"
+msgstr "Surask klaviatÅ«roje krintanÄias raides, kol jos nenukrito"
 
 #: boards/hanoi.xml.in.h:1
-#, fuzzy
 msgid "Drag and Drop the top piece only on an empty location"
-msgstr "Nutempk daiktà prie jam tinkamo"
+msgstr "Tempti tik virÅ¡utinÄ™ kaladÄ—lÄ™ Ä¯ tuÅ¡ÄiÄ… vietÄ…"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: boards/hanoi.xml.in.h:3
+#: src/boards/hanoi.c:324
+#: src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
-msgstr ""
+msgstr "Pastatyk tokÄ¯ patÄ¯ bokÅ¡tÄ… koks yra parodytas deÅ¡inÄ—je"
 
-#: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
+#: boards/hanoi.xml.in.h:4
+#: src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
-msgstr ""
+msgstr "Pastatyk bokÅ¡tÄ… pagal duotÄ… pavyzdÄ¯"
 
-#: boards/hanoi.xml.in.h:5 src/boards/hanoi.c:104
+#: boards/hanoi.xml.in.h:5
+#: src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
-msgstr ""
+msgstr "Paprastas Hanoi bokÅ¡tas"
 
 #: boards/hanoi.xml.in.h:6
 msgid "Taken the concept from the EPI games."
 msgstr ""
 
 #: boards/imageid.xml.in.h:1
-#, fuzzy
 msgid "Click on the word corresponding to the printed image."
-msgstr "Spauskite ant teisingos spalvos"
+msgstr "Spausk ant Å¾odÅ¾io, atitinkanÄio paveikslÄ—lÄ¯."
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
-msgstr "Mokykis skaityti, surasdamas paveikslëlá atitinkantá şodá"
+msgstr "Mokykis skaityti, surasdamas paveikslÄ—lÄ¯ atitinkantÄ¯ Å¾odÄ¯"
 
-#: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
-#: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:101
+#: boards/imageid.xml.in.h:3
+#: boards/imagename.xml.in.h:4
+#: boards/readingh.xml.in.h:5
+#: boards/readingv.xml.in.h:4
+#: src/boards/imageid.c:109
+#: src/boards/missingletter.c:101
 #: src/boards/reading.c:102
 msgid "Reading"
 msgstr "Skaitymas"
@@ -894,7 +881,8 @@ msgstr "Skaitymas"
 msgid "Reading pratice"
 msgstr "Mokykis skaityti"
 
-#: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:1
+#: boards/imagename/board4_0.xml.in.h:2
 msgid "apple"
 msgstr "obuolys"
 
@@ -904,9 +892,10 @@ msgstr "nugara"
 
 #: boards/imageid/board1.xml.in.h:3
 msgid "bag"
-msgstr "krepğys"
+msgstr "krepÅ¡ys"
 
-#: boards/imageid/board1.xml.in.h:4 boards/imagename/board6_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:4
+#: boards/imagename/board6_0.xml.in.h:2
 msgid "ball"
 msgstr "kamuolys"
 
@@ -926,7 +915,8 @@ msgstr "laivas"
 msgid "book"
 msgstr "knyga"
 
-#: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:9
+#: boards/imagename/board2_0.xml.in.h:2
 msgid "bottle"
 msgstr "butelis"
 
@@ -938,122 +928,120 @@ msgstr "tortas"
 msgid "camel"
 msgstr "kupranugaris"
 
-#: boards/imageid/board1.xml.in.h:12 boards/imagename/board4_0.xml.in.h:4
+#: boards/imageid/board1.xml.in.h:12
+#: boards/imagename/board4_0.xml.in.h:4
 msgid "car"
 msgstr "automobilis"
 
 #: boards/imageid/board1.xml.in.h:13
-#, fuzzy
 msgid "cat"
-msgstr "pilis"
+msgstr "katÄ—"
 
 #: boards/imageid/board1.xml.in.h:14
-#, fuzzy
 msgid "catch"
-msgstr "krepğys"
+msgstr "sklÄ…stis"
 
 #: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
-msgstr "sûris"
+msgstr "sÅ«ris"
 
 #: boards/imageid/board1.xml.in.h:16
 msgid "cow"
-msgstr "karvë"
+msgstr "karvÄ—"
 
 #: boards/imageid/board1.xml.in.h:17
 msgid "dog"
-msgstr ""
+msgstr "Å¡uo"
 
 #: boards/imageid/board1.xml.in.h:18
-#, fuzzy
 msgid "finish"
-msgstr "Suomiø"
+msgstr "pabaiga"
 
 #: boards/imageid/board1.xml.in.h:19
 msgid "fish"
-msgstr ""
+msgstr "Å¾uvis"
 
-#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:20
+#: boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "namas"
 
 #: boards/imageid/board1.xml.in.h:21
 msgid "pear"
-msgstr "kriauğë"
+msgstr "kriauÅ¡Ä—"
 
 #: boards/imageid/board1.xml.in.h:22
-#, fuzzy
 msgid "plane"
-msgstr "obuolys"
+msgstr "lÄ—ktuvas"
 
 #: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
-msgstr "krepğys"
+msgstr "krepÅ¡ys"
 
-#: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
-#: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
-#: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
+#: boards/imagename.xml.in.h:1
+#: boards/imagename/board1_0.xml.in.h:1
+#: boards/imagename/board2_0.xml.in.h:1
+#: boards/imagename/board3_0.xml.in.h:1
+#: boards/imagename/board4_0.xml.in.h:1
+#: boards/imagename/board5_0.xml.in.h:1
 #: boards/imagename/board6_0.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
-msgstr "Nutemk paveikslëlá prie jo pavadinimo"
+msgstr "Nutemk paveikslÄ—lÄ¯ prie jo pavadinimo"
 
 #: boards/imagename.xml.in.h:2
 msgid "Image Name"
-msgstr "Paveikslëlio pavadinimas"
+msgstr "PaveikslÄ—lio pavadinimas"
 
 #: boards/imagename.xml.in.h:3
-msgid ""
-"In the main board area, a set of red plots associated with work are printed. "
-"In the vertical frame - at the left of the main board area, a set of objects "
-"are represented, each of these objects match with one word of the main board "
-"area. The right association must be find for these objects. This is achieved "
-"by dragging the objects to the right red plot in the main area."
+msgid "In the main board area, a set of red plots associated with work are printed. In the vertical frame - at the left of the main board area, a set of objects are represented, each of these objects match with one word of the main board area. The right association must be find for these objects. This is achieved by dragging the objects to the right red plot in the main area."
 msgstr ""
 
 #: boards/imagename.xml.in.h:5
 msgid "Vocabulary and reading"
-msgstr ""
+msgstr "Å½odynas ir skaitymas"
 
 #: boards/imagename/board1_0.xml.in.h:2
 msgid "bulb"
-msgstr "lemputë"
+msgstr "lemputÄ—"
 
 #: boards/imagename/board1_0.xml.in.h:3
 msgid "fishing boat"
-msgstr "şvejybinis laivas"
+msgstr "Å¾vejybinis laivas"
 
 #: boards/imagename/board1_0.xml.in.h:4
 msgid "lamp"
-msgstr "ğviestuvas"
+msgstr "Å¡viestuvas"
 
 #: boards/imagename/board1_0.xml.in.h:5
 msgid "mail box"
-msgstr "pağto dëşutë"
+msgstr "paÅ¡to dÄ—Å¾utÄ—"
 
-#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:3
+#: boards/imagename/board1_0.xml.in.h:6
+#: boards/imagename/board5_0.xml.in.h:3
 msgid "postcard"
-msgstr "atvirlaiğkis"
+msgstr "atvirlaiÅ¡kis"
 
-#: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
+#: boards/imagename/board1_0.xml.in.h:7
+#: boards/imagename/board3_0.xml.in.h:5
 #: boards/imagename/board6_0.xml.in.h:7
 msgid "sailing boat"
 msgstr "burinis laivas"
 
 #: boards/imagename/board2_0.xml.in.h:3
 msgid "egg"
-msgstr "kiauğinis"
+msgstr "kiauÅ¡inis"
 
 #: boards/imagename/board2_0.xml.in.h:4
 msgid "eggcup"
-msgstr "indelis kiauğiniui"
+msgstr "indelis kiauÅ¡iniui"
 
 #: boards/imagename/board2_0.xml.in.h:5
 msgid "flower"
-msgstr "gëlë"
+msgstr "gÄ—lÄ—"
 
 #: boards/imagename/board2_0.xml.in.h:6
 msgid "glass"
-msgstr "stiklinë"
+msgstr "stiklinÄ—"
 
 #: boards/imagename/board2_0.xml.in.h:7
 msgid "vase"
@@ -1061,7 +1049,7 @@ msgstr "vaza"
 
 #: boards/imagename/board3_0.xml.in.h:3
 msgid "light house"
-msgstr "ğvyturys"
+msgstr "Å¡vyturys"
 
 #: boards/imagename/board3_0.xml.in.h:4
 msgid "rocket"
@@ -1071,9 +1059,10 @@ msgstr "raketa"
 msgid "sofa"
 msgstr "sofa"
 
-#: boards/imagename/board3_0.xml.in.h:7 boards/imagename/board5_0.xml.in.h:5
+#: boards/imagename/board3_0.xml.in.h:7
+#: boards/imagename/board5_0.xml.in.h:5
 msgid "star"
-msgstr "şvaigşdë"
+msgstr "Å¾vaigÅ¾dÄ—"
 
 #: boards/imagename/board4_0.xml.in.h:3
 msgid "bicycle"
@@ -1093,15 +1082,15 @@ msgstr "medis"
 
 #: boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
-msgstr "pieğtukas"
+msgstr "pieÅ¡tukas"
 
 #: boards/imagename/board5_0.xml.in.h:4
 msgid "spruce"
-msgstr ""
+msgstr "eglÄ—"
 
 #: boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
-msgstr "sunkveşimis"
+msgstr "sunkveÅ¾imis"
 
 #: boards/imagename/board5_0.xml.in.h:7
 msgid "van"
@@ -1113,390 +1102,345 @@ msgstr "pilis"
 
 #: boards/imagename/board6_0.xml.in.h:4
 msgid "crown"
-msgstr "karûna"
+msgstr "karÅ«na"
 
 #: boards/imagename/board6_0.xml.in.h:5
 msgid "flag"
-msgstr "vëliava"
+msgstr "vÄ—liava"
 
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
-msgstr "raketë"
+msgstr "raketÄ—"
 
 #: boards/leftright.xml.in.h:1
-msgid ""
-"A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right."
+msgid "A hand is printed. You have to tell if this is the right or left hand. Click on the red button - at the left - or on the green button - at the right."
 msgstr ""
 
 #: boards/leftright.xml.in.h:2
-msgid ""
-"Distinguish from different point of view the left hand from the right hand. "
-"Spatial representation"
+msgid "Distinguish from different point of view the left hand from the right hand. Spatial representation"
 msgstr ""
 
-#: boards/leftright.xml.in.h:3 src/boards/leftright.c:106
+#: boards/leftright.xml.in.h:3
+#: src/boards/leftright.c:106
 msgid "Find your left and right hands"
-msgstr "Nuspræsk değinë ar kairë ranka"
+msgstr "NusprÄ™sk deÅ¡inÄ— ar kairÄ— ranka"
 
-#: boards/leftright.xml.in.h:4 src/boards/leftright.c:107
+#: boards/leftright.xml.in.h:4
+#: src/boards/leftright.c:107
 msgid "Given hands pictures, find if it's a right or left one"
-msgstr "Iğ nuotraukø nuspræsk değinë ar kairë tai ranka"
+msgstr "IÅ¡ nuotraukÅ³ nusprÄ™sk deÅ¡inÄ— ar kairÄ— tai ranka"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#: boards/leftright.xml.in.h:5
+#: boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "nÄ—ra jokiÅ³"
+
+#: boards/maze.xml.in.h:1
+#: boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
-msgstr ""
+msgstr "MokÄ—ti judinti objektÄ… naudojantis klaviatÅ«ros rodyklÄ—mis."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#: boards/maze.xml.in.h:2
+#: src/boards/maze.c:128
 msgid "Find your way out of the maze"
-msgstr ""
+msgstr "Surask keliÄ… iÅ¡ labirinto"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#: boards/maze.xml.in.h:3
+#: boards/maze3D.xml.in.h:4
 msgid "Help Tux get out of this maze."
-msgstr ""
+msgstr "PadÄ—k Tuksui surasti keliÄ… iÅ¡ labirinto"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:127
+#: boards/maze.xml.in.h:4
+#: src/boards/maze.c:127
 msgid "Maze"
-msgstr ""
+msgstr "Labirintas"
 
 #: boards/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr ""
+msgstr "Naudodamasis klaviatÅ«ros rodyklÄ—mis iÅ¡vesk TuksÄ… pro duris"
 
 #: boards/maze3D.xml.in.h:1
 msgid "3D Maze"
-msgstr ""
+msgstr "3D labirintas"
 
 #: boards/maze3D.xml.in.h:3
 msgid "Find your way out of the 3D maze"
-msgstr ""
+msgstr "Surask keliÄ… iÅ¡ 3D labirinto"
 
 #: boards/maze3D.xml.in.h:5
-msgid ""
-"Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
-"position like a map. You cannot move tux in 2D mode."
+msgid "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to switch between 2D and 3D mode. 2D mode gives you just an indication on your position like a map. You cannot move tux in 2D mode."
 msgstr ""
+"Naudodamasis klaviatÅ«ros rodyklÄ—mis iÅ¡vesk TuksÄ… pro duris.\n"
+"\"Tarpo\" (ilgas) klaviÅ¡as perjungia tarp dvimatÄ—s (2D) ir trimatÄ—s (3D) erdvÄ—s.\n"
+"DvimatÄ—je erdvÄ—je galite pasiÅ¾iÅ«rÄ—ti kurioje vietoje esate, taÄiau negalite judÄ—ti."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
-msgstr ""
+msgstr "Klausos lavinimo pamokÄ—lÄ—"
 
 #: boards/melody.xml.in.h:2
-#, fuzzy
 msgid "Melody"
-msgstr "Atmintis"
+msgstr "Melodija"
 
 #: boards/melody.xml.in.h:3
 msgid "Repeat a melody"
-msgstr ""
+msgstr "Pakartok melodijÄ…"
 
 #: boards/memory.xml.in.h:1
-msgid ""
-"A set of blink cards is printed. Each pair is associated by the same picture "
-"in their hidden faces. When clicking on a card, you can uncover the card and "
-"see its hidden picture. However you can only see two hidden pictures at "
-"once. You have to remember the position of the pictures to associate them. "
-"To remove a pair of card, uncover both of them."
+msgid "A set of blink cards is printed. Each pair is associated by the same picture in their hidden faces. When clicking on a card, you can uncover the card and see its hidden picture. However you can only see two hidden pictures at once. You have to remember the position of the pictures to associate them. To remove a pair of card, uncover both of them."
 msgstr ""
 
 #: boards/memory.xml.in.h:2
 msgid "Discover the cards and find a matching pair"
-msgstr "Perşiûrëk kortas ir surask panağiø porà"
+msgstr "PerÅ¾iÅ«rÄ—k kortas ir surask panaÅ¡iÅ³ porÄ…"
 
 #: boards/memory.xml.in.h:3
 msgid "Memory Game with images"
-msgstr "Şaidimas su paveikslëliais atminèiai lavinti"
+msgstr "Å½aidimas su paveikslÄ—liais atminÄiai lavinti"
 
 #: boards/memory.xml.in.h:5
 msgid "Train your memory and remove all the cards"
-msgstr ""
+msgstr "Lavinti atmintÄ¯ ir paÅ¡alinti visas kortas "
 
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
 msgstr "GCompris pagrindinis meniu"
 
 #: boards/menu.xml.in.h:2
-msgid ""
-"GCompris is an educational games that provides different activities to "
-"children from 3 to 8 years old."
-msgstr ""
-"GCompris - tai ávairiø mokomøjø şaidimø sistema, vaikams nuo 3 iki 8 metø."
+msgid "GCompris is an educational games that provides different activities to children from 3 to 8 years old."
+msgstr "GCompris - tai Ä¯vairiÅ³ mokomÅ³jÅ³ Å¾aidimÅ³ sistema, vaikams nuo 3 iki 8 metÅ³."
 
 #: boards/menu.xml.in.h:4
-msgid ""
-"The goal of gcompris is to provide a free alternative to popular proprietary "
-"edutainment software"
-msgstr "Gcompris - tai laisva alternatyva komercinëms mokomosioms programoms"
+msgid "The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"
+msgstr "Gcompris - tai laisva alternatyva komercinÄ—ms mokomosioms programoms"
 
 #: boards/menu.xml.in.h:5
-#, fuzzy
-msgid ""
-"To use it, a simple click on an icon brings you to an activity or a menu. At "
-"the bottom of the screen, you have the gcompris control bar. From right to "
-"left, bellow is the meaning of the icons. Note that these icons are "
-"displayed only when available in an activity: Home - Back to previous menu "
-"or exit gcompris if no more Thumb - OK, confirm your answer Dice - The "
-"current level is displayed. Click on it to select another level Music note - "
-"Ask gcompris to repeat the question Question Mark - The help Tool Box - The "
-"configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to "
-"4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
+msgid "To use it, a simple click on an icon brings you to an activity or a menu. At the bottom of the screen, you have the gcompris control bar. From right to left, bellow is the meaning of the icons. Note that these icons are displayed only when available in an activity: Home - Back to previous menu or exit gcompris if no more Thumb - OK, confirm your answer Dice - The current level is displayed. Click on it to select another level Music note - Ask gcompris to repeat the question Question Mark - The help Tool Box - The configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
 msgstr ""
-"Naudojimas: paspaudus ant ikonos patenkama á pamokà arba á meniu. Lango\n"
-"apaèioje yra Gcompris valdymo juosta. Ikonø aprağymai valdymo juostoje\n"
-"(iğ değinës á kairæ): Namas - atgal á prieğtai buvusá meniu arba iğeiti iğ\n"
-"Gcompris jei esi pagrindiniame meniu. Nykğtys - OK, pasirinkimo "
-"patvirtinimas.\n"
-"Kauliukas - parodo dabartiná şaidimo sudëtingumo lygmená, paspauskite ant "
-"jo,\n"
-"jei norite pakeisti lygá. Muzikinë nata - jà spauskite, jei norite iğgirsti\n"
-"klausimà dar kartà. Klaustukas - pagalba. Árankiø dëşë - nustatymø meniu.\n"
-"Lëktuvëlis - informacija apie şaidimà. Şvaigşduèiø reikğmës:\n"
-"1 şvaigşdutë - 3 - 4 metø,\n"
-"2 şvaigşdutës - 5 - 6 metø,\n"
-"3 şvaigşdutës - 7 - 8 metø vaikams.   "
+"PaprasÄiausiai paspauskite ant ikonos ir pateksite Ä¯ pamokÄ—lÄ™ arba Ä¯ meniu.\n"
+"Lango apaÄioje yra Gcompris valdymo juosta. Valdymo juostos ikonÅ³\n"
+"apraÅ¡ymas (iÅ¡ deÅ¡inÄ—s Ä¯ kairÄ™, Å¡ios ikonos matomos tik pamokÄ—lÄ—se):\n"
+"  Namelis - atgal Ä¯ prieÅ¡ tai buvusÄ¯ meniu arba iÅ¡eiti iÅ¡ Gcompris\n"
+"  NykÅ¡tys - OK, pasirinkimo arba atsakymo patvirtinimas\n"
+"  Kauliukas - Å¾aidimo sudÄ—tingumo lygmuo, paspaudÄ™ ant jo pereisite Ä¯ kitÄ…\n"
+"  MuzikinÄ— nata - jÄ… spauskite, jei norite iÅ¡girsti klausimÄ… dar kartÄ…\n"
+"  Klaustukas - pagalba (informacija apie pamokÄ—lÄ™)\n"
+"  Ä®rankiÅ³ dÄ—Å¾Ä— - nustatymÅ³ meniu; LÄ—ktuvÄ—lis - informacija apie Å¾aidimÄ….\n"
+"Å½vaigÅ¾duÄiÅ³ reikÅ¡mÄ—s:\n"
+"  1 Å¾vaigÅ¾dutÄ— - 3 - 4 metÅ³,\n"
+"  2 Å¾vaigÅ¾dutÄ—s - 5 - 6 metÅ³,\n"
+"  3 Å¾vaigÅ¾dutÄ—s - 7 - 8 metÅ³ vaikams.   "
 
 #: boards/missing_letter.xml.in.h:1
-msgid ""
-"An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word."
+msgid "An object is displayed in the main area. An incomplete word is printed under the picture. Select the missing letter to complete the word."
 msgstr ""
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
-msgstr "Árağyk trûkstamà raidæ"
+msgstr "Ä®raÅ¡yk trÅ«kstamÄ… raidÄ™"
 
 #: boards/missing_letter.xml.in.h:3
 msgid "Missing Letter"
-msgstr "Árağyk raidæ"
+msgstr "Ä®raÅ¡yk raidÄ™"
 
 #: boards/missing_letter.xml.in.h:4
 msgid "Train reading skill"
-msgstr ""
+msgstr "Lavink skaitymo Ä¯gÅ«dÅ¾ius"
 
 #: boards/missing_letter.xml.in.h:5
-#, fuzzy
 msgid "Word reading"
 msgstr "Skaitymas"
 
 #: boards/missing_letter/board1.xml.in.h:1
-#, fuzzy
 msgid "apple/_pple/a/i/o"
 msgstr "obuolys/_buolys/o/a/u"
 
 #: boards/missing_letter/board1.xml.in.h:2
-#, fuzzy
 msgid "apple/app_e/l/h/n"
-msgstr "obuolys/_buolys/o/a/u"
+msgstr "obuolys/obuol_s/y/i/u"
 
 #: boards/missing_letter/board1.xml.in.h:3
-#, fuzzy
 msgid "apple/appl_/e/h/a"
-msgstr "obuolys/_buolys/o/a/u"
+msgstr "obuolys/obuoly_/s/z/Å¡"
 
 #: boards/missing_letter/board1.xml.in.h:4
-#, fuzzy
 msgid "ball/_all/b/p/d"
 msgstr "kamuolys/_amuolys/k/s/g"
 
 #: boards/missing_letter/board1.xml.in.h:5
-#, fuzzy
 msgid "ball/b_ll/a/u/o"
-msgstr "kamuolys/_amuolys/k/s/g"
+msgstr "kamuolys/ka_uolys/m/n/b"
 
 #: boards/missing_letter/board1.xml.in.h:6
-#, fuzzy
 msgid "ball/bal_/l/h/s"
-msgstr "kamuolys/_amuolys/k/s/g"
+msgstr "kamuolys/kamuol_s/y/i/a"
 
 #: boards/missing_letter/board1.xml.in.h:7
-#, fuzzy
 msgid "banana/_anana/b/p/d"
-msgstr "bananas/b_nanas/a/o/e"
+msgstr "bananas/_ananas/b/p/k"
 
 #: boards/missing_letter/board1.xml.in.h:8
-#, fuzzy
 msgid "banana/b_nana/a/o/i"
-msgstr "bananas/b_nanas/a/o/e"
+msgstr "bananas/bana_as/n/m/t"
 
 #: boards/missing_letter/board1.xml.in.h:9
-#, fuzzy
 msgid "banana/ba_ana/n/m/b"
 msgstr "bananas/b_nanas/a/o/e"
 
 #: boards/missing_letter/board1.xml.in.h:10
-#, fuzzy
 msgid "bed/_ed/b/l/f"
 msgstr "lova/_ova/l/m/k"
 
 #: boards/missing_letter/board1.xml.in.h:11
-#, fuzzy
 msgid "bed/b_d/e/a/i"
-msgstr "lova/_ova/l/m/k"
+msgstr "lova/l_va/o/a/Ä—"
 
 #: boards/missing_letter/board1.xml.in.h:12
-#, fuzzy
 msgid "bed/be_/d/p/b"
-msgstr "lova/_ova/l/m/k"
+msgstr "lova/lov_/a/e/Å³"
 
 #: boards/missing_letter/board1.xml.in.h:13
-#, fuzzy
 msgid "bottle/_ottle/b/t/p"
 msgstr "butelis/_utelis/b/k/p"
 
 #: boards/missing_letter/board1.xml.in.h:14
-#, fuzzy
 msgid "bottle/b_ttle/o/u/d"
-msgstr "butelis/_utelis/b/k/p"
+msgstr "butelis/b_telis/u/e/o"
 
 #: boards/missing_letter/board1.xml.in.h:15
-#, fuzzy
 msgid "bottle/bott_e/l/y/r"
-msgstr "butelis/_utelis/b/k/p"
+msgstr "butelis/butel_s/i/y/a"
 
 #: boards/missing_letter/board1.xml.in.h:16
-#, fuzzy
 msgid "cake/_ake/c/p/d"
 msgstr "tortas/_ortas/t/p/k"
 
 #: boards/missing_letter/board1.xml.in.h:17
-#, fuzzy
 msgid "cake/c_ke/a/o/e"
-msgstr "tortas/_ortas/t/p/k"
+msgstr "tortas/t_rtas/o/u/Å«"
 
 #: boards/missing_letter/board1.xml.in.h:18
-#, fuzzy
 msgid "cake/ca_e/k/q/c"
-msgstr "tortas/_ortas/t/p/k"
+msgstr "tortas/tor_as/t/k/s"
 
 #: boards/missing_letter/board1.xml.in.h:19
-#, fuzzy
 msgid "car/_ar/c/k/b"
-msgstr "tortas/_ortas/t/p/k"
+msgstr "maÅ¡ina/_aÅ¡ina/m/p/n"
 
 #: boards/missing_letter/board1.xml.in.h:20
-#, fuzzy
 msgid "car/c_r/a/k/o"
-msgstr "tortas/_ortas/t/p/k"
+msgstr "maÅ¡ina/ma_ina/Å¡/Å¾/s"
 
 #: boards/missing_letter/board1.xml.in.h:21
-#, fuzzy
 msgid "car/ca_/r/w/k"
-msgstr "tortas/_ortas/t/p/k"
+msgstr "maÅ¡ina/maÅ¡i_a/n/k/l"
 
 #: boards/missing_letter/board1.xml.in.h:22
-#, fuzzy
 msgid "dog/_og/d/p/q"
-msgstr "lova/_ova/l/m/k"
+msgstr "Å¡uo/_uo/Å¡/k/s"
 
 #: boards/missing_letter/board1.xml.in.h:23
 msgid "dog/d_g/o/g/a"
-msgstr ""
+msgstr "Å¡uo/Å¡_o/u/i/v"
 
 #: boards/missing_letter/board1.xml.in.h:24
 msgid "dog/do_/g/p/q"
-msgstr ""
+msgstr "Å¡uo/Å¡u_/o/v/i"
 
 #: boards/missing_letter/board1.xml.in.h:25
 msgid "fish/_ish/f/h/l"
-msgstr ""
+msgstr "Å¾uvis/_uvis/Å¾/Å¡/z"
 
 #: boards/missing_letter/board1.xml.in.h:26
 msgid "fish/f_sh/i/u/l"
-msgstr ""
+msgstr "Å¾uvis/Å¾_vis/u/a/Å«"
 
 #: boards/missing_letter/board1.xml.in.h:27
 msgid "fish/fis_/h/o/i"
-msgstr ""
+msgstr "Å¾uvis/Å¾uvi_/s/Å³/o"
 
 #: boards/missing_letter/board1.xml.in.h:28
-#, fuzzy
 msgid "house/_ouse/h/e/j"
-msgstr "namas/nama_/s/u/c"
+msgstr "namas/_amas/n/m/s"
 
 #: boards/missing_letter/board1.xml.in.h:29
-#, fuzzy
 msgid "house/h_use/o/f/u"
-msgstr "namas/nama_/s/u/c"
+msgstr "namas/n_mas/a/i/o"
 
 #: boards/missing_letter/board1.xml.in.h:30
-#, fuzzy
 msgid "house/hous_/e/a/i"
-msgstr "namas/nama_/s/u/c"
+msgstr "namas/nama_/s/i/m"
 
 #: boards/missing_letter/board1.xml.in.h:31
-#, fuzzy
 msgid "plane/_lane/p/g/d"
-msgstr "tortas/_ortas/t/p/k"
+msgstr "lÄ—ktuvas/_Ä—ktuvas/l/r/t"
 
 #: boards/missing_letter/board1.xml.in.h:32
-#, fuzzy
 msgid "plane/p_ane/l/j/i"
-msgstr "obuolys/_buolys/o/a/u"
+msgstr "lÄ—ktuvas/l_ktuvas/Ä—/i/e"
 
 #: boards/missing_letter/board1.xml.in.h:33
-#, fuzzy
 msgid "plane/pl_ne/a/o/s"
-msgstr "obuolys/_buolys/o/a/u"
+msgstr "lÄ—ktuvas/lÄ—_tuvas/k/s/n"
 
 #: boards/missing_letter/board1.xml.in.h:34
-#, fuzzy
 msgid "satchel/_atchel/s/c/l"
-msgstr "krepğys/k_epğys/r/i/l"
+msgstr "krepÅ¡ys/_repÅ¡ys/k/l/s"
 
 #: boards/missing_letter/board1.xml.in.h:35
-#, fuzzy
 msgid "satchel/s_tchel/a/o/i"
-msgstr "krepğys/k_epğys/r/i/l"
+msgstr "krepÅ¡ys/krep_ys/Å¡/s/Å¾"
 
 #: boards/missing_letter/board1.xml.in.h:36
-#, fuzzy
 msgid "satchel/sa_chel/t/p/c"
-msgstr "krepğys/k_epğys/r/i/l"
+msgstr "krepÅ¡ys/krepÅ¡_s/y/i/a"
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
+#: boards/money.xml.in.h:1
+#: boards/money_cents.xml.in.h:1
 msgid "Can count"
+msgstr "MokÄ—ti skaiÄiuoti"
+
+#: boards/money.xml.in.h:2
+#: boards/money_cents.xml.in.h:2
+msgid "Click on the coins or paper money on the botton of the screen to pay. If you want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
 
-#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
-msgid ""
-"Click on the coins or paper money on the botton of the screen to pay. If you "
-"want to remove a coin or note, click on it on the upper screen area."
-msgstr ""
-
-#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
+#: boards/money.xml.in.h:3
+#: boards/money_cents.xml.in.h:3
+#: src/boards/money.c:87
 msgid "Money"
-msgstr ""
+msgstr "Pinigai"
 
-#: boards/money.xml.in.h:4 src/boards/money.c:88
+#: boards/money.xml.in.h:4
+#: src/boards/money.c:88
 msgid "Pratice money usage"
-msgstr ""
+msgstr "Mokykis skaiÄiuoti pinigus"
 
-#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
-msgid ""
-"You must buy the different items and give the exact price. At higher level, "
-"several items are displayed, you must first calculate the total price."
+#: boards/money.xml.in.h:5
+#: boards/money_cents.xml.in.h:5
+msgid "You must buy the different items and give the exact price. At higher level, several items are displayed, you must first calculate the total price."
 msgstr ""
 
 #: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
-msgstr ""
+msgstr "Mokykis skaiÄiuoti pinigus (su centais)"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Sudëk paveikslëlá iğ figûrø"
+msgstr "SudÄ—k paveikslÄ—lÄ¯ iÅ¡ figÅ«rÅ³"
 
 #: boards/paintings.xml.in.h:2
-msgid ""
-"In the main board area, a set of red plots are displayed. In the vertical "
-"frame - at the left of the main board area, a set of image parts of a "
-"painting are avalaible. Drag and drop these parts in the right plot to "
-"rebuild the original painting."
+msgid "In the main board area, a set of red plots are displayed. In the vertical frame - at the left of the main board area, a set of image parts of a painting are avalaible. Drag and drop these parts in the right plot to rebuild the original painting."
 msgstr ""
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
+#: boards/paintings.xml.in.h:3
+#: src/boards/shapegame.c:161
 msgid "Make the puzzle"
-msgstr "Iğspræsk galvosûká"
+msgstr "SudÄ—liok paveikslÄ—lÄ¯ (puzzle)"
+
+#: boards/paintings.xml.in.h:4
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr ""
 
 #: boards/paintings.xml.in.h:5
 msgid "Spatial representation"
@@ -1535,50 +1479,48 @@ msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr ""
 
 #: boards/paratrooper.xml.in.h:1
-msgid ""
-"Click on any keyboard key to let Tux jump. Another keypress will open the "
-"parachute. Alternatively, a click on the plane and the tux also works."
+msgid "Click on any keyboard key to let Tux jump. Another keypress will open the parachute. Alternatively, a click on the plane and the tux also works."
 msgstr ""
-"Spauskite bet kurá klaviatûros klaviğà ir pingvinas Tuksas iğoks iğ "
-"lëktuvo.\n"
-"Antras paspaudimas iğskleis parağiutà. \n"
-"Kritimo greitá pabandykite valdyti klaviatûros rodyklëmis.\n"
-"Taipogi, galima paspausti ant lëktuvo ar pingvino su pele."
+"Spauskite bet kurÄ¯ klaviatÅ«ros klaviÅ¡Ä… ir pingvinas Tuksas iÅ¡oks iÅ¡ lÄ—ktuvo.\n"
+"Antras paspaudimas iÅ¡skleis paraÅ¡iutÄ…. \n"
+"Kritimo greitÄ¯ pabandykite valdyti klaviatÅ«ros rodyklÄ—mis.\n"
+"Taipogi, galima paspausti ant lÄ—ktuvo ar pingvino su pele."
 
 #: boards/paratrooper.xml.in.h:2
-msgid ""
-"In this game, the children will try to make Tux the paratrooper lands safely "
-"on the fishing boat. He/She needs to take care of the wind side and speed."
+msgid "In this game, the children will try to make Tux the paratrooper lands safely on the fishing boat. He/She needs to take care of the wind side and speed."
 msgstr ""
-"Ğiame şaidime vaikai padës parağiutininkui Tuksui saugiai nusileisti \n"
-"ant şvejybinio laivo. Svarbu atsişvelgti á vëjo kryptá bei greitá. "
+"Å iame Å¾aidime vaikai padÄ—s paraÅ¡iutininkui Tuksui saugiai nusileisti \n"
+"ant Å¾vejybinio laivo. Svarbu atsiÅ¾velgti Ä¯ vÄ—jo kryptÄ¯ bei greitÄ¯. "
 
-#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
+#: boards/paratrooper.xml.in.h:3
+#: src/boards/paratrooper.c:105
 msgid "Manage the paratrooper to let him safely land"
-msgstr "Padëk parağiutininkui saugiai nusileisti"
+msgstr "PadÄ—k paraÅ¡iutininkui saugiai nusileisti"
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
+#: boards/paratrooper.xml.in.h:4
+#: src/boards/paratrooper.c:104
 msgid "Paratrooper"
-msgstr "Parağiutininkas"
+msgstr "ParaÅ¡iutininkas"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
-msgstr "Ğis şaidimas nereikalauja specifiniø ágûdşiø."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
+msgstr "Å is Å¾aidimas nereikalauja specifiniÅ³ Ä¯gÅ«dÅ¾iÅ³."
 
 #: boards/planegame.xml.in.h:1
-#, fuzzy
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Teisinga tvarka nuskrisk prie debesëliø "
+msgstr "Teisinga tvarka nuskrisk prie debesÄ—liÅ³ "
 
-#: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
+#: boards/planegame.xml.in.h:2
+msgid "Number"
+msgstr "PaÅ¾inti skaiÄius"
+
+#: boards/planegame.xml.in.h:3
+#: src/boards/planegame.c:77
 msgid "Numbers in Order"
-msgstr "Skaièiai iğ eilës"
+msgstr "SkaiÄiai iÅ¡ eilÄ—s"
 
 #: boards/planegame.xml.in.h:5
-msgid ""
-"Use the up, down, right and left keyboard keys to move the helicopter to "
-"catch the numbers in the incremental order"
+msgid "Use the up, down, right and left keyboard keys to move the helicopter to catch the numbers in the incremental order"
 msgstr ""
 
 #: boards/pythontest.xml.in.h:1
@@ -1598,108 +1540,97 @@ msgid "Test board for the python plugin"
 msgstr ""
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
 msgstr ""
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
-msgstr "Şaidimas su traukiniais atminèiai lavinti"
+msgstr "Å½aidimas su traukiniais atminÄiai lavinti"
 
 #: boards/railroad.xml.in.h:2
-msgid ""
-"A train - a locomotive and wagon(s) - is displayed at the top of the main "
-"area. After a few the second train go away. Then, you have to rebuild it at "
-"the top of the screen by selecting the appropriate wagons and locomotive. "
-"You can always unselect an item by clicking on it. Validate your "
-"construction by clicking on the hand at the bottom."
+msgid "A train - a locomotive and wagon(s) - is displayed at the top of the main area. After a few the second train go away. Then, you have to rebuild it at the top of the screen by selecting the appropriate wagons and locomotive. You can always unselect an item by clicking on it. Validate your construction by clicking on the hand at the bottom."
 msgstr ""
 
 #: boards/railroad.xml.in.h:3
-#, fuzzy
 msgid "Memory training"
-msgstr "Şaidimas atminèiai lavinti"
+msgstr "Atminties lavinimas"
 
 #: boards/railroad.xml.in.h:5
 msgid "Railroad"
-msgstr "Geleşinkelis"
+msgstr "GeleÅ¾inkelis"
 
 #: boards/read_colors.xml.in.h:3
-#, fuzzy
 msgid "Click on the right colored object."
-msgstr "Spauskite ant teisingos spalvos"
+msgstr "Spauskite ant teisingai nuspalvinto daikto."
 
 #: boards/read_colors.xml.in.h:4
-#, fuzzy
 msgid "Read colors"
-msgstr "Spalvos"
+msgstr "PerskaitÄ™s iÅ¡sirink spalvÄ…"
 
 #: boards/read_colors.xml.in.h:5
 msgid "This board is dedicated to read basic colors."
 msgstr ""
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
-#, fuzzy
+#: boards/read_colors/board1.xml.in.h:1
+#: src/boards/colors.c:62
 msgid "black"
-msgstr "nugara"
+msgstr "juoda"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
-#, fuzzy
+#: boards/read_colors/board1.xml.in.h:2
+#: src/boards/colors.c:54
 msgid "blue"
-msgstr "butelis"
+msgstr "mÄ—lyna"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
-#, fuzzy
+#: boards/read_colors/board1.xml.in.h:3
+#: src/boards/colors.c:55
 msgid "brown"
-msgstr "karûna"
+msgstr "ruda"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
-#, fuzzy
+#: boards/read_colors/board1.xml.in.h:4
+#: src/boards/colors.c:56
 msgid "green"
-msgstr "medis"
+msgstr "Å¾alia"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
-#, fuzzy
+#: boards/read_colors/board1.xml.in.h:5
+#: src/boards/colors.c:57
 msgid "grey"
-msgstr "tarka"
+msgstr "pilka"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
-#, fuzzy
+#: boards/read_colors/board1.xml.in.h:6
+#: src/boards/colors.c:58
 msgid "orange"
-msgstr "karûna"
+msgstr "oranÅ¾inÄ—"
 
 #: boards/read_colors/board1.xml.in.h:7
 msgid "pink"
-msgstr ""
+msgstr "roÅ¾inÄ—"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
-#, fuzzy
+#: boards/read_colors/board1.xml.in.h:8
+#: src/boards/colors.c:60
 msgid "red"
-msgstr "lova"
+msgstr "raudona"
 
 #: boards/read_colors/board1.xml.in.h:9
-#, fuzzy
 msgid "violet"
-msgstr "kairë"
+msgstr "violetinÄ—"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
+#: src/boards/colors.c:63
 msgid "white"
-msgstr ""
+msgstr "balta"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
+#: src/boards/colors.c:61
 msgid "yellow"
-msgstr ""
+msgstr "geltona"
 
 #: boards/reading.xml.in.h:1
-#, fuzzy
 msgid "Go to the Reading activities"
-msgstr "Skaitymo pamokëlës"
+msgstr "Skaitymo pamokÄ—lÄ—s"
 
-#: boards/readingh.xml.in.h:1 boards/readingv.xml.in.h:1
-msgid ""
-"At the top and right of the board area, a word is printed. At the left a "
-"list of words will move in and out of the screen. Tell if you see the "
-"initial word in this list."
+#: boards/readingh.xml.in.h:1
+#: boards/readingv.xml.in.h:1
+msgid "At the top and right of the board area, a word is printed. At the left a list of words will move in and out of the screen. Tell if you see the initial word in this list."
 msgstr ""
 
 #: boards/readingh.xml.in.h:2
@@ -1708,98 +1639,88 @@ msgstr "Skaitymo eilute pratimai"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of word and tell if the given word is in it"
-msgstr "Perskaityk sàrağà ir paşiûrëk ar duotas şodis jame yra"
+msgstr "Perskaityk sÄ…raÅ¡Ä… ir paÅ¾iÅ«rÄ—k ar duotas Å¾odis jame yra"
 
-#: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
+#: boards/readingh.xml.in.h:4
+#: boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
-msgstr ""
+msgstr "Skaitymas per ribotÄ… laikÄ…"
 
 #: boards/readingv.xml.in.h:2
 msgid "Read a vertical list of word and tell if the given word is in it"
-msgstr "Perskaityk şodşiø stulpelá ir paşiûrëk ar duotas şodis jame yra"
+msgstr "Perskaityk Å¾odÅ¾iÅ³ stulpelÄ¯ ir paÅ¾iÅ«rÄ—k ar duotas Å¾odis jame yra"
 
 #: boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
 msgstr "Skaitymo stulpeliu pratimai"
 
 #: boards/redraw.xml.in.h:1
-msgid ""
-"At each level, a drawing is displayed in the right area. You must redraw it "
-"in the left area."
+msgid "At each level, a drawing is displayed in the right area. You must redraw it in the left area."
 msgstr ""
 
-#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
-msgid ""
-"First you must select the proper tool in the tool bar. Then, you must drag "
-"the mouse to create objects. When you are done, click on the OK button, you "
-"will be told were the errors are with little red cross. The order of objects "
-"(above/under) is not important but take care not to have unwanted object "
-"under others."
+#: boards/redraw.xml.in.h:2
+#: boards/redraw_symmetrical.xml.in.h:2
+msgid "First you must select the proper tool in the tool bar. Then, you must drag the mouse to create objects. When you are done, click on the OK button, you will be told were the errors are with little red cross. The order of objects (above/under) is not important but take care not to have unwanted object under others."
 msgstr ""
 
-#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#: boards/redraw.xml.in.h:3
+#: boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
 msgstr ""
 
 #: boards/redraw_symmetrical.xml.in.h:1
-msgid ""
-"At each level, a drawing is displayed in the right area. You must redraw its "
-"symmetry in the left area."
+msgid "At each level, a drawing is displayed in the right area. You must redraw its symmetry in the left area."
 msgstr ""
 
 #: boards/reversecount.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and substract numbers up to 10 for the "
-"first level"
+msgid "Can move the mouse, can read numbers and substract numbers up to 10 for the first level"
 msgstr ""
 
 #: boards/reversecount.xml.in.h:2
-msgid ""
-"First count how many ice spot are between tux and the fish. Then click on "
-"the dice to select the proper number. You can also use the right mouse "
-"button on the dices to count backward. When done, click on the OK button or "
-"hit the keyboard enter key."
+msgid "First count how many ice spot are between tux and the fish. Then click on the dice to select the proper number. You can also use the right mouse button on the dices to count backward. When done, click on the OK button or hit the keyboard enter key."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
-#, fuzzy
+#: boards/reversecount.xml.in.h:3
+#: src/boards/reversecount.c:141
 msgid "Practice the substraction with a funny game"
-msgstr "Mokykis atimties veiksmø"
+msgstr "Mokykis atimties veiksmÅ³ linksmai Å¾aisdamas"
 
 #: boards/reversecount.xml.in.h:4
-msgid ""
-"Tux is hungry. Help him find fishes by counting the ice spot needed to reach "
-"them."
+msgid "Tux is hungry. Help him find fishes by counting the ice spot needed to reach them."
 msgstr ""
 
-#: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
-#: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
-#: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
-#: boards/scales/board2_0.xml.in.h:1 boards/scales/board2_1.xml.in.h:1
-#: boards/scales/board2_2.xml.in.h:1 boards/scales/board2_3.xml.in.h:1
-#: boards/scales/board2_4.xml.in.h:1 boards/scales/board2_5.xml.in.h:1
-#: boards/scales/board3_0.xml.in.h:1 boards/scales/board3_1.xml.in.h:1
-#: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
-#: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
+#: boards/scales/board1_0.xml.in.h:1
+#: boards/scales/board1_1.xml.in.h:1
+#: boards/scales/board1_2.xml.in.h:1
+#: boards/scales/board1_3.xml.in.h:1
+#: boards/scales/board1_4.xml.in.h:1
+#: boards/scales/board1_5.xml.in.h:1
+#: boards/scales/board2_0.xml.in.h:1
+#: boards/scales/board2_1.xml.in.h:1
+#: boards/scales/board2_2.xml.in.h:1
+#: boards/scales/board2_3.xml.in.h:1
+#: boards/scales/board2_4.xml.in.h:1
+#: boards/scales/board2_5.xml.in.h:1
+#: boards/scales/board3_0.xml.in.h:1
+#: boards/scales/board3_1.xml.in.h:1
+#: boards/scales/board3_2.xml.in.h:1
+#: boards/scales/board3_3.xml.in.h:1
+#: boards/scales/board3_4.xml.in.h:1
+#: boards/scales/board3_5.xml.in.h:1
 #: boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Iğlygink svorius abiejose svarstykliø pusëse"
+msgstr "IÅ¡lygink svorius abiejose svarstykliÅ³ pusÄ—se"
 
 #: boards/scalesboard.xml.in.h:2
 msgid "Mental calculus, arithmetic equality"
 msgstr ""
 
 #: boards/scalesboard.xml.in.h:3
-msgid ""
-"The painting is an original painting made by Virginie MOREAU (virginie."
-"moreau@free.fr) in 2001. Its name is 'spices seller in egypt'. It is "
-"released under the GPL license."
+msgid "The painting is an original painting made by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'spices seller in egypt'. It is released under the GPL license."
 msgstr ""
 
 #: boards/scalesboard.xml.in.h:4
-msgid ""
-"To equilibrate the scales, move the masses in its left plateau. The masses "
-"can be arranged in any order."
+msgid "To equilibrate the scales, move the masses in its left plateau. The masses can be arranged in any order."
 msgstr ""
 
 #: boards/scalesboard.xml.in.h:5
@@ -1808,177 +1729,177 @@ msgstr "Gerai subalansuok svarstykles"
 
 #: boards/smallnumbers.xml.in.h:1
 msgid "Counting skill"
-msgstr ""
+msgstr "SkaiÄiavimo Ä¯gÅ«dÅ¾iai"
 
 #: boards/smallnumbers.xml.in.h:2
 msgid "In a limited time, count a number of dots"
 msgstr ""
 
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+#: boards/smallnumbers.xml.in.h:3
+#: src/boards/smallnumbers.c:70
 msgid "Numbers With Dices"
-msgstr "Kauliukai su skaièiais"
+msgstr "Kauliukai su skaiÄiais"
 
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+#: boards/smallnumbers.xml.in.h:4
+#: src/boards/smallnumbers.c:71
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Paspausk klaviatûroje skaièius nuo 1 iki 9 kol kauliukai nenukrito"
+msgstr "Paspausk klaviatÅ«roje skaiÄius nuo 1 iki 9 kol kauliukai nenukrito"
 
 #: boards/smallnumbers.xml.in.h:5
-msgid ""
-"With the keyboard, press the number corresponding to the number of dots in "
-"the falling dice."
+msgid "With the keyboard, press the number corresponding to the number of dots in the falling dice."
 msgstr ""
 
 #: boards/submarine.xml.in.h:1
-msgid ""
-"Click on different active elements : engine, rudders and air tanks in order "
-"to navigate at the ordered depth."
+msgid "Click on different active elements : engine, rudders and air tanks in order to navigate at the ordered depth."
 msgstr ""
 
 #: boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
-msgstr ""
+msgstr "Suprasti kaip valdomas povandeninis laivas"
 
 #: boards/submarine.xml.in.h:3
 msgid "Physics basics"
-msgstr ""
+msgstr "Fizikos pagrindai"
 
 #: boards/submarine.xml.in.h:4
 msgid "Pilot a submarine"
-msgstr ""
+msgstr "Povandeninis laivas"
 
 #: boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr ""
 
 #: boards/superbrain.xml.in.h:1
-msgid ""
-"Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
-"a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
+msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. At the lower level, tux gives you an indication if you got a good position by marking the item with a black box. You can use the right mouse button to flip the colors in the oposite order."
 msgstr ""
 
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+#: boards/superbrain.xml.in.h:2
+#: src/boards/superbrain.c:110
 msgid "Super Brain"
 msgstr ""
 
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+#: boards/superbrain.xml.in.h:3
+#: src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
-msgstr ""
+msgstr "Tuksas paslapÄ— keletÄ… daiktÅ³, surask juos teisinga tvarka "
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 
 #: boards/target.xml.in.h:2
-msgid ""
-"First check the wind strength and direction, then click on the target to "
-"launch a dart, when all your darts are sent, a window appears requiring you "
-"to count your score. Enter the score with the keyboard then press the enter "
-"key or the OK icon."
+msgid "First check the wind strength and direction, then click on the target to launch a dart, when all your darts are sent, a window appears requiring you to count your score. Enter the score with the keyboard then press the enter key or the OK icon."
 msgstr ""
 
-#: boards/target.xml.in.h:3 src/boards/target.c:122
-#, fuzzy
+#: boards/target.xml.in.h:3
+#: src/boards/target.c:122
 msgid "Practice the addition with a target game"
-msgstr "Mokykis sudëties veiksmø"
+msgstr "Mokykis sudÄ—ties veiksmÅ³ Å¾aisdamas taikinio Å¾aidimÄ…"
 
 #: boards/target.xml.in.h:4
 msgid "Send darts on a target and count your score."
-msgstr ""
+msgstr "Å auk strÄ—les Ä¯ taikinÄ¯ ir suskaiÄiuok savo rezultatÄ…."
 
-#: boards/target.xml.in.h:5 src/boards/target.c:123
+#: boards/target.xml.in.h:5
+#: src/boards/target.c:123
 msgid "Touch the target and count your points"
-msgstr ""
+msgstr "Å auk strÄ—les Ä¯ taikinÄ¯ ir suskaiÄiuok savo taÅ¡kus"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
+#: boards/traffic.xml.in.h:1
+#: src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr ""
 
 #: boards/traffic.xml.in.h:2
-msgid ""
-"The goal is to remove all of the red car(s) out of the grid through the slot "
-"on the right"
+msgid "The goal is to remove all of the red car(s) out of the grid through the slot on the right"
 msgstr ""
 
 #: boards/watercycle.xml.in.h:1
-msgid ""
-"Click on different active elements : sun, cloud, water pump station, water "
-"cleanup station in order to reactivate the whole water system. When done and "
-"Tux is in his shower, push the shower button for him."
+msgid "Click on different active elements : sun, cloud, water pump station, water cleanup station in order to reactivate the whole water system. When done and Tux is in his shower, push the shower button for him."
 msgstr ""
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
-msgstr ""
+msgstr "Suprask vandens judÄ—jimÄ… gamtoje"
 
 #: boards/watercycle.xml.in.h:3
-msgid ""
-"You have to bring back the water system up. Tux comes from a long fishing "
-"party on his boat. Help him to have a shower."
+#, fuzzy
+msgid "You have to bring back the water system up. Tux comes from a long fishing party on his boat. Help him to have a shower."
 msgstr ""
+"\n"
+"Tuksas su laivus grÄ¯Å¾o/ta iÅ¡ ilgos Å¾Å«klÄ—s. PadÄ—k jam iÅ¡simaudyti duÅ¡e."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:1
+#: src/boards/wordsgame.c:87
 msgid "Falling Words"
-msgstr "Krintantys şodşiai"
+msgstr "Krintantys Å¾odÅ¾iai"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
+#: boards/wordsgame.xml.in.h:2
+#: src/boards/wordsgame.c:88
 msgid "Fully type the falling words before they reach the ground"
-msgstr "Parağyk pilnus krintanèius şodşius, kol jie nenukrito"
+msgstr "ParaÅ¡yk pilnus krintanÄius Å¾odÅ¾ius, kol jie nenukrito"
 
 #: boards/wordsgame.xml.in.h:4
 msgid "Keyboard training"
-msgstr ""
+msgstr "Treniruotis dirbti klaviatÅ«ra"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
-msgstr ""
+msgstr "GCompris pamokÄ—liÅ³ kÅ«rimas ir tvarkymas"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
-msgstr "Mokomasis şaidimas, vyresniems nei trijø metø vaikams"
+msgstr "Mokomasis Å¾aidimas, vyresniems nei trijÅ³ metÅ³ vaikams"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
-msgstr ""
+msgstr "Mokomieji Å¾aidimai \"GCompris\""
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
-#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
-#: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
-#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/advanced_colors.c:541
+#: src/boards/imageid.c:605
+#: src/boards/missingletter.c:608
+#: src/boards/read_colors.c:500
+#: src/boards/shapegame.c:1735
+#: src/gcompris/gameutil.c:124
+#: src/gcompris/gameutil.c:455
+#: src/gcompris/gameutil.c:456
+#: src/gcompris/gcompris.c:372
+#: src/gcompris/images_selector.c:477
+#: src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Negaliu rasti bylos %s !"
 
-#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
-#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
+#: src/boards/advanced_colors.c:544
+#: src/boards/imageid.c:608
+#: src/boards/missingletter.c:611
+#: src/boards/read_colors.c:503
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
-msgstr "rasti bylà %s !"
+msgstr "rasti bylÄ… %s !"
 
-#: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
+#: src/boards/algebra_guesscount.c:143
+#: src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
-msgstr "Atspëk aritmetinius veiksmus"
+msgstr "AtspÄ—k aritmetinius veiksmus"
 
 #: src/boards/canal_lock.c:114
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
 "Help Tux and understand how a canal lock works."
 msgstr ""
+"Tuksas su savo laivu pateko Ä¯ bÄ—dÄ… ir jam reikia persikelti per Å¡liuzÄ….\n"
+"IÅ¡siaiÅ¡kink kaip veikia kanalÅ³ Å¡liuzai ir padÄ—k Tuksui."
 
 #: src/boards/chess.c:137
-#, fuzzy
 msgid "Learning Chess"
-msgstr "Paşink laikrodá"
+msgstr "IÅ¡mok Å¾aisti Å¡achmatais"
 
 #: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
-msgstr ""
+msgstr "Å½aisk Å¡achmatais prieÅ¡ TuksÄ… mokymo reÅ¾imu"
 
 #: src/boards/chess.c:191
 msgid ""
@@ -1989,6 +1910,7 @@ msgid ""
 msgstr ""
 
 #: src/boards/chess.c:198
+#, fuzzy
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -1996,43 +1918,45 @@ msgid ""
 "GNU/Linux distribution\n"
 "And check it is in "
 msgstr ""
+"Klaida: kad Å¾aisti Å¡achmatais trÅ«ksta gnuchess programos.\n"
+"Isidiekite Å¡iÄ… programÄ… Ä¯ savo kompiuterÄ¯. Gnuchess galite rasti jÅ«sÅ³ \n"
+"naudojamoje GNU/Linux distribucijoje arba "
 
 #: src/boards/chess.c:577
 msgid "White Turn"
-msgstr ""
+msgstr "BaltÅ³jÅ³ Ä—jimas"
 
 #: src/boards/chess.c:577
 msgid "Black Turn"
-msgstr ""
+msgstr "JuodÅ³jÅ³ Ä—jimas"
 
 #: src/boards/chess.c:718
 msgid "White check"
-msgstr ""
+msgstr "Baltieji skelbia Å¡achÄ…"
 
 #: src/boards/chess.c:720
 msgid "Black check"
-msgstr ""
+msgstr "Juodieji skelbia Å¡achÄ…"
 
 #: src/boards/chess.c:1052
 msgid "Black mates"
-msgstr ""
+msgstr "Matas baltiesiems"
 
 #: src/boards/chess.c:1057
 msgid "White mates"
-msgstr ""
+msgstr "Matas juodiesiems"
 
 #: src/boards/chess.c:1062
-#, fuzzy
 msgid "Drawn game"
-msgstr "karûna"
+msgstr "Lygiosios"
 
 #: src/boards/click_on_letter.c:73
 msgid "Read a letter"
-msgstr "Perskaityk raidæ"
+msgstr "Perskaityk raidÄ™"
 
 #: src/boards/click_on_letter.c:74
 msgid "Learn to recognize letters"
-msgstr "Iğmok atpaşinti raides"
+msgstr "IÅ¡mok atpaÅ¾inti raides"
 
 #: src/boards/click_on_letter.c:225
 msgid ""
@@ -2051,32 +1975,33 @@ msgstr ""
 #: src/boards/clickgame.c:183
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
-msgstr "Negaliu atidaryti pieğinëliø katalogo: %s"
+msgstr "Negaliu atidaryti pieÅ¡inÄ—liÅ³ katalogo: %s"
 
 #: src/boards/clockgame.c:530
 msgid "Set the watch to:"
-msgstr "Nustatyk laikrodá:"
+msgstr "Nustatyk laikrodÄ¯:"
 
 #: src/boards/colors.c:217
-#, fuzzy, c-format
+#, c-format
 msgid "Click on the %s toon"
-msgstr "Spauskite ant teisingos spalvos"
+msgstr "Paspauskite, kur yra %s spalva"
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:102
+#: src/boards/imageid.c:110
+#: src/boards/missingletter.c:102
 msgid "Learn how to read"
-msgstr "Iğmok skaityti"
+msgstr "IÅ¡mok skaityti"
 
 #: src/boards/leftright.c:248
 msgid "left"
-msgstr "kairë"
+msgstr "kairÄ—"
 
 #: src/boards/leftright.c:258
 msgid "right"
-msgstr "değinë"
+msgstr "deÅ¡inÄ—"
 
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
-msgstr ""
+msgstr "PasiÅ¾iÅ«rÄ—k kurioje vietoje esi ir grÄ¯Å¾k atgal Ä¯ trimatÄ¯ vaizdÄ…, kad eiti toliau."
 
 #: src/boards/memory.c:227
 msgid "Memory"
@@ -2084,7 +2009,7 @@ msgstr "Atmintis"
 
 #: src/boards/memory.c:228
 msgid "Find the matching pair"
-msgstr "Surask tinkamà porà"
+msgstr "Surask tinkamÄ… porÄ…"
 
 #: src/boards/menu.c:79
 msgid "Main Menu"
@@ -2092,11 +2017,11 @@ msgstr "Pagrindinis meniu"
 
 #: src/boards/menu.c:80
 msgid "Select a Board"
-msgstr "Iğsirink pamokëlæ"
+msgstr "IÅ¡sirink pamokÄ—lÄ™"
 
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr "Teisinga tvarka nuskrisk prie debesëliø "
+msgstr "Teisinga tvarka nuskrisk prie debesÄ—liÅ³ "
 
 #: src/boards/python.c:52
 msgid "Python Board"
@@ -2172,114 +2097,167 @@ msgstr ""
 #. Try the next level
 #. the current board is finished : bail out
 #. display current/sublevel number
-#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
+#: src/boards/python/redraw.py:348
+#: src/boards/python/redraw.py:358
 msgid "Level"
-msgstr ""
+msgstr "Lygis"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
-#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
+#  Display the tools
+#  Display the tools
+#  The last item is select, we select it by default
+#  Event when a tool is selected
+#  Deactivate old button
+#  Activate new button
+#  Display the color selector
+#  Display the tools
+#  The last item is the one we select by default
+#  Color event
+#  Deactivate old button
+#  Activate new button
+#  Display the drawing area
+#  Given coord are returned swapped
+#  Work fine for rect and ellipse but not line
+#  so that y2 > y1 and x2 > x1
+#  Take a drawing and return a symmetrical one
+#  Make a deepcopy of the list
+#  Symmetrical view
+#  Symmetrical view
+#  Symmetrical view
+#  Symmetrical view
+#  Draw the image target
+#  depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+#  Save the drawing in image_target for future comparison
+#  Create our rootitem for target items
+#  The images target are always drawn on the drawing area to ease the final comparison
+#  Can specify the item type to draw via a real GTK type or a TOOL string
+#  Draw the grid
+#  Coord of the written numbers
+#  We manage a 2 colors grid
+#  Shadow for text number
+#  Text number
+#  Clicking on lines let you create object
+#  Shadow for text number
+#  Text number
+#  Clicking on lines let you create object
+#  Given x,y return a new x,y snapped to the grid
+#  Event when a click on any item. Perform the move
+#  MOUSE DRAG STOP
+#  ---------------
+#  Reset thein_select_ofx ofset
+#  Workaround for bad line positionning
+#  Save the ofset between the mouse pointer and the upper left corner of the object
+#  Check drawing boundaries
+#  We need to realign x cause the bounds values are not precise enough
+#  We need to realign y cause the bounds values are not precise enough
+#  Need to update current_drawing
+#  It's not a line
+#  It can only be a line
+#  Now perform the object move
+#  Workaround for bad line positionning
+#  Event when a click on an item happen on fill in type object
+#  Reset the item to our list
+#  Event when a click on an item happen on border fill type object
+#  Reset the item to our list
+#  Del an item and internal struct cleanup
+#  Warning, do not realy delete it or we bug the index of other items
+#  Event when a click on an item happen
+#  Display the mouse coord in the drawing or target area
+#  type:
+#  1 = in drawing area
+#  2 = in target area
+#  3 = out of both area
+#  Display the tools
+#  Display the tools
+#  The last item is select, we select it by default
+#  Event when a tool is selected
+#  Deactivate old button
+#  Activate new button
+#  Display the color selector
+#  Display the tools
+#  The last item is the one we select by default
+#  Color event
+#  Deactivate old button
+#  Activate new button
+#  Display the drawing area
+#  Given coord are returned swapped
+#  Work fine for rect and ellipse but not line
+#  so that y2 > y1 and x2 > x1
+#  Take a drawing and return a symmetrical one
+#  Make a deepcopy of the list
+#  Symmetrical view
+#  Symmetrical view
+#  Symmetrical view
+#  Symmetrical view
+#  Draw the image target
+#  depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+#  Save the drawing in image_target for future comparison
+#  Create our rootitem for target items
+#  The images target are always drawn on the drawing area to ease the final comparison
+#  Can specify the item type to draw via a real GTK type or a TOOL string
+#  Draw the grid
+#  Coord of the written numbers
+#  We manage a 2 colors grid
+#  Shadow for text number
+#  Text number
+#  Clicking on lines let you create object
+#  Shadow for text number
+#  Text number
+#  Clicking on lines let you create object
+#  Given x,y return a new x,y snapped to the grid
+#  Event when a click on any item. Perform the move
+#  MOUSE DRAG STOP
+#  ---------------
+#  Reset thein_select_ofx ofset
+#  Workaround for bad line positionning
+#  Save the ofset between the mouse pointer and the upper left corner of the object
+#  Check drawing boundaries
+#  We need to realign x cause the bounds values are not precise enough
+#  We need to realign y cause the bounds values are not precise enough
+#  Need to update current_drawing
+#  It's not a line
+#  It can only be a line
+#  Now perform the object move
+#  Workaround for bad line positionning
+#  Event when a click on an item happen on fill in type object
+#  Reset the item to our list
+#  Event when a click on an item happen on border fill type object
+#  Reset the item to our list
+#  Del an item and internal struct cleanup
+#  Warning, do not realy delete it or we bug the index of other items
+#  Event when a click on an item happen
+#  Display the mouse coord in the drawing or target area
+#  type:
+#  1 = in drawing area
+#  2 = in target area
+#  3 = out of both area
+#: src/boards/python/redraw.py:902
+#: src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr ""
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
-msgstr "Şaidimas atminèiai lavinti"
+msgstr "Å½aidimas atminÄiai lavinti"
 
 #: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
-msgstr "Padaryk traukiná pagal pateiktà pavyzdá "
+msgstr "Sukonstruok traukinÄ¯ pagal pateiktÄ… pavyzdÄ¯"
 
 #: src/boards/read_colors.c:85
-#, fuzzy
 msgid "Read Colors"
-msgstr "Spalvos"
+msgstr "PerskaitÄ™s iÅ¡sirink spalvÄ…"
 
 #: src/boards/read_colors.c:86
-#, fuzzy
 msgid "Click on the corresponding color"
-msgstr "Spauskite ant teisingos spalvos"
+msgstr "Paspauskite ant atitinkamos spalvos"
 
 #: src/boards/reading.c:103
 msgid "Read a list of words and then tell if the given word is in it"
-msgstr "Perskaityk sàrağà ir paşiûrëk ar duotas şodis jame yra"
+msgstr "Perskaityk sÄ…raÅ¡Ä… ir paÅ¾iÅ«rÄ—k ar duotas Å¾odis jame yra"
 
 #: src/boards/reading.c:322
 msgid "Please, check if the word"
-msgstr "Patikrink ar şodis"
+msgstr "Patikrink ar Å¾odis"
 
 #: src/boards/reading.c:342
 msgid "is being displayed"
@@ -2287,31 +2265,44 @@ msgstr "yra ekrane"
 
 #: src/boards/reading.c:525
 msgid "I am Ready"
-msgstr "Ağ pasiruoğæs"
+msgstr "AÅ¡ pasiruoÅ¡Ä™s"
 
 #: src/boards/reading.c:562
 msgid "Yes I saw it"
-msgstr "Taip, ağ maèiau tai"
+msgstr "Taip, aÅ¡ maÄiau tai"
 
 #: src/boards/reading.c:592
 msgid "No, it was not there"
-msgstr "Ne, tai ne èia"
+msgstr "Ne, tai ne Äia"
 
-#. Report what was wrong in the log
-#: src/boards/reading.c:629
+#  Report what was wrong in the log
+#  Report what was wrong in the log
+#  Report what was wrong in the log
+#: src/boards/reading.c:630
 #, c-format
 msgid "The word to find was '%s'"
 msgstr ""
 
+#: src/boards/reading.c:633
+#, fuzzy
+msgid "But it was not displayed"
+msgstr "yra ekrane"
+
+#: src/boards/reading.c:635
+#, fuzzy
+msgid "And it was displayed"
+msgstr "yra ekrane"
+
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
-msgstr ""
+msgstr "AtvirkÅ¡Äias skaiÄiavimas"
 
 #: src/boards/shapegame.c:162
 msgid "Drag and Drop the items to rebuild the object"
-msgstr "Padëk figûras á atitinkamas vietas"
+msgstr "PadÄ—k figÅ«ras Ä¯ atitinkamas vietas"
 
-#. Enter Edit Mode
+#  Enter Edit Mode
+#  Enter Edit Mode
 #: src/boards/shapegame.c:409
 msgid ""
 "You entered the Edit mode\n"
@@ -2325,19 +2316,22 @@ msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
 msgstr ""
+"Å io Å¾aidimo duomenys iÅ¡saugoti\n"
+"/tmp/gcompris-board.xml"
 
 #: src/boards/submarine.c:201
 msgid "Submarine"
-msgstr ""
+msgstr "Povandeninis laivas"
 
 #: src/boards/submarine.c:202
 msgid "Control the depth of a submarine"
-msgstr ""
+msgstr "Valdyti "
 
-#: src/boards/target.c:323 src/boards/target.c:576
+#: src/boards/target.c:323
+#: src/boards/target.c:576
 #, c-format
 msgid "Points = %s"
-msgstr ""
+msgstr "TaÅ¡kai = %s"
 
 #: src/boards/target.c:441
 #, c-format
@@ -2345,16 +2339,16 @@ msgid ""
 "Wind speed = %d\n"
 "kilometers/hour"
 msgstr ""
+"VÄ—jo greitis = %d\n"
+"kilometrai/valandÄ…"
 
 #: src/boards/target.c:503
 #, c-format
 msgid "Distance to target = %d meters"
-msgstr ""
+msgstr "Atstumas iki tikslo = %d metrai"
 
 #: src/gcompris/about.c:60
-#, fuzzy
 msgid ""
-"Credits:\n"
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
@@ -2364,35 +2358,51 @@ msgstr ""
 "Autorius: Bruno Coudoin\n"
 "Bendradarbis: Pascal Georges\n"
 "Grafika: Renaud Blanchard\n"
-"Muzika: Djilali Sebihi\n"
+"Ä®Å¾anginÄ— muzika: Djilali Sebihi\n"
+"FoninÄ— muzika: Rico Da Halvarez\n"
 
-#: src/gcompris/about.c:99
+#  TRANSLATORS: Replace this string with your names, one name per line.
+#  TRANSLATORS: Replace this string with your names, one name per line.
+#  TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/about.c:68
+#: src/gcompris/interface.c:484
+msgid "translator_credits"
+msgstr ""
+"Mantas KriauÄiÅ«nas <mantas@akl.lt>\n"
+"EglÄ— KriauÄiÅ«nienÄ— <egle@akl.lt>"
+
+#: src/gcompris/about.c:100
 msgid "About GCompris"
 msgstr "Apie Gcompris"
 
-#: src/gcompris/about.c:205
+#  TRANSLATORS: Replace this string with your names, one name per line.
+#  TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/about.c:110
+msgid "Translators"
+msgstr "Ä® lietuviÅ³ kalbÄ… iÅ¡vertÄ—:"
+
+#: src/gcompris/about.c:225
 msgid "GCompris Home Page"
-msgstr "GCompris namø svetainë"
+msgstr "GCompris namÅ³ svetainÄ—"
 
-#: src/gcompris/about.c:227
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
-msgstr ""
-"Ğita programa yra GNU paketas. Ji yra iğleista pagal Gnu bendràjà licenzijà "
-"(GPL)."
+#: src/gcompris/about.c:247
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
+msgstr "Å ita programa yra GNU paketas. Ji yra iÅ¡leista pagal Gnu bendrÄ…jÄ… licenzijÄ… (GPL)."
 
-#: src/gcompris/about.c:255
+#: src/gcompris/about.c:275
 msgid "Help"
 msgstr "Pagalba"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
+#: src/gcompris/about.c:309
+#: src/gcompris/config.c:180
+#: src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Gerai"
 
 #: src/gcompris/config.c:52
 msgid "Your system default"
-msgstr ""
+msgstr "Nustatyta jÅ«sÅ³ sistemoje"
 
 #: src/gcompris/config.c:53
 msgid "Amharic"
@@ -2400,74 +2410,71 @@ msgstr ""
 
 #: src/gcompris/config.c:54
 msgid "Arabic"
-msgstr ""
+msgstr "ArabÅ³"
 
 #: src/gcompris/config.c:55
 msgid "Azerbaijani Turkic"
-msgstr "Azerbaidşanieèiø Turkø"
+msgstr "AzerbaidÅ¾anieÄiÅ³ TurkÅ³"
 
 #: src/gcompris/config.c:56
-#, fuzzy
 msgid "Catalan"
-msgstr "Italø"
+msgstr "KatalonieÄiÅ³"
 
 #: src/gcompris/config.c:57
 msgid "Czech"
-msgstr ""
+msgstr "ÄŒekÅ³"
 
 #: src/gcompris/config.c:58
 msgid "German"
-msgstr "Vokieèiø"
+msgstr "VokieÄiÅ³"
 
 #: src/gcompris/config.c:59
 msgid "Greek"
-msgstr "Graikø"
+msgstr "GraikÅ³"
 
 #: src/gcompris/config.c:60
 msgid "English"
-msgstr "Anglø"
+msgstr "AnglÅ³"
 
 #: src/gcompris/config.c:61
 msgid "Spanish"
-msgstr "Ispanø"
+msgstr "IspanÅ³"
 
 #: src/gcompris/config.c:62
 msgid "Finnish"
-msgstr "Suomiø"
+msgstr "SuomiÅ³"
 
 #: src/gcompris/config.c:63
 msgid "French"
-msgstr "Prancûzø"
+msgstr "PrancÅ«zÅ³"
 
 #: src/gcompris/config.c:64
 msgid "Hebrew"
-msgstr ""
+msgstr "HebrajÅ³"
 
 #: src/gcompris/config.c:65
-#, fuzzy
 msgid "Indian"
-msgstr "Italø"
+msgstr "IndÅ³"
 
 #: src/gcompris/config.c:66
 msgid "Hungarian"
-msgstr ""
+msgstr "VengrÅ³"
 
 #: src/gcompris/config.c:67
-#, fuzzy
 msgid "Croatian"
-msgstr "Italø"
+msgstr "KroatÅ³"
 
 #: src/gcompris/config.c:68
 msgid "Italian"
-msgstr "Italø"
+msgstr "ItalÅ³"
 
 #: src/gcompris/config.c:69
 msgid "Lithuanian"
-msgstr "Lietuviø"
+msgstr "LietuviÅ³"
 
 #: src/gcompris/config.c:70
 msgid "Macedonian"
-msgstr ""
+msgstr "MakedonieÄiÅ³"
 
 #: src/gcompris/config.c:71
 msgid "Malayalam"
@@ -2475,83 +2482,79 @@ msgstr ""
 
 #: src/gcompris/config.c:72
 msgid "Malay"
-msgstr ""
+msgstr "MalajieÄiÅ³"
 
 #: src/gcompris/config.c:73
 msgid "Dutch"
-msgstr "Olandø"
+msgstr "OlandÅ³"
 
 #: src/gcompris/config.c:74
 msgid "Norwegian"
-msgstr ""
+msgstr "NorvegÅ³"
 
 #: src/gcompris/config.c:75
-#, fuzzy
 msgid "Polish"
-msgstr "Anglø"
+msgstr "LenkÅ³"
 
 #: src/gcompris/config.c:76
-#, fuzzy
 msgid "Portuguese"
-msgstr "Brazilø (Portugalø)"
+msgstr "PortugalÅ³"
 
 #: src/gcompris/config.c:77
 msgid "Brazil Portuguese"
-msgstr "Brazilø (Portugalø)"
+msgstr "BrazilÅ³ (PortugalÅ³)"
 
 #: src/gcompris/config.c:78
 msgid "Romanian"
-msgstr "Rumunø"
+msgstr "RumunÅ³"
 
 #: src/gcompris/config.c:79
 msgid "Russian"
-msgstr ""
+msgstr "RusÅ³"
 
 #: src/gcompris/config.c:80
 msgid "Slovak"
-msgstr ""
+msgstr "SlovakÅ³"
 
 #: src/gcompris/config.c:81
 msgid "Slovenian"
-msgstr ""
+msgstr "SlovÄ—nÅ³"
 
 #: src/gcompris/config.c:82
 msgid "Serbian (Latin)"
-msgstr ""
+msgstr "SerbÅ³ (LotyniÅ¡ka)"
 
 #: src/gcompris/config.c:83
-#, fuzzy
 msgid "Serbian"
-msgstr "Vokieèiø"
+msgstr "SerbÅ³"
 
 #: src/gcompris/config.c:84
 msgid "Swedish"
-msgstr "Ğvedø"
+msgstr "Å vedÅ³"
 
 #: src/gcompris/config.c:85
 msgid "Turkish"
-msgstr ""
+msgstr "TurkÅ³"
 
 #: src/gcompris/config.c:90
 msgid "No time limit"
-msgstr ""
+msgstr "Be laiko limito"
 
 #: src/gcompris/config.c:91
-#, fuzzy
 msgid "Slow timer"
-msgstr "gëlë"
+msgstr "LÄ—tas laikas"
 
 #: src/gcompris/config.c:92
 msgid "Normal timer"
-msgstr ""
+msgstr "Normalus laikas"
 
 #: src/gcompris/config.c:93
 msgid "Fast timer"
-msgstr ""
+msgstr "Pagreitintas laikas"
 
 #: src/gcompris/config.c:98
 msgid "800x600 (Default for gcompris)"
-msgstr ""
+msgstr "800x600 (Ä®prastas gcompris)"
 
 #: src/gcompris/config.c:154
 msgid "GCompris Configuration"
@@ -2570,19 +2573,20 @@ msgid "Effect"
 msgstr "Efektai"
 
 #: src/gcompris/config.c:371
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't open skin dir: %s"
-msgstr "Negaliu atidaryti pieğinëliø katalogo: %s"
+msgstr "Negaliu atidaryti iÅ¡vaizdos katalogo: %s"
 
-#: src/gcompris/config.c:404 src/gcompris/config.c:721
-#: src/gcompris/config.c:732
+#: src/gcompris/config.c:404
+#: src/gcompris/config.c:727
+#: src/gcompris/config.c:738
 #, c-format
 msgid "Skin : %s"
-msgstr ""
+msgstr "Tema: %s"
 
 #: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
-msgstr "Paleisti GCompris pilno ekrano reşimu"
+msgstr "Paleisti GCompris pilno ekrano reÅ¾imu"
 
 #: src/gcompris/gcompris.c:71
 msgid "run gcompris in window mode."
@@ -2594,33 +2598,30 @@ msgstr "Paleisti GCompris su garsais"
 
 #: src/gcompris/gcompris.c:75
 msgid "run gcompris without sound."
-msgstr "Paleisti GCompris be garsø"
+msgstr "Paleisti GCompris be garsÅ³"
 
 #: src/gcompris/gcompris.c:77
-#, fuzzy
 msgid "run gcompris with the default gnome cursor."
-msgstr "Paleisti GCompris be garsø"
+msgstr "naudoti standartinÄ¯ pelÄ—s Å¾ymeklÄ¯ GCompris programoje"
 
 #: src/gcompris/gcompris.c:79
 msgid "display only activities with this difficulty level."
-msgstr ""
+msgstr "rodyti tik pasirinkto sunkumo lygio pamokÄ—les."
 
 #: src/gcompris/gcompris.c:81
-msgid ""
-"select the audio output. Use '-A list' to get the list of available audio "
-"output"
-msgstr ""
+msgid "select the audio output. Use '-A list' to get the list of available audio output"
+msgstr "pasirenkti garso grojimo Ä¯renginÄ¯. Naudokite '-A list' kad suÅ¾inoti visus Ä¯manomus garso Ä¯renginius."
 
 #: src/gcompris/gcompris.c:83
 msgid "Prints the version of "
-msgstr "Parodo programos versijà"
+msgstr "Parodo programos versijÄ…"
 
 #: src/gcompris/gcompris.c:85
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:614
-#, fuzzy, c-format
+#: src/gcompris/gcompris.c:618
+#, c-format
 msgid ""
 "GCompris\n"
 "Version: %d\n"
@@ -2628,164 +2629,106 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 "GCompris\n"
-"Versija: %s\n"
-"Licenzija: GPL\n"
+"Versija: %d\n"
+"Licencija: GPL\n"
 "Daugiau informacijos - http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:167 src/gcompris/interface.c:243
+#: src/gcompris/help.c:167
+#: src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Reikalavimai"
 
-#: src/gcompris/help.c:201 src/gcompris/interface.c:252
+#: src/gcompris/help.c:201
+#: src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Tikslas"
 
-#: src/gcompris/help.c:235 src/gcompris/interface.c:261
+#: src/gcompris/help.c:235
+#: src/gcompris/interface.c:261
 msgid "Manual"
-msgstr "Şinynas"
+msgstr "Å½inynas"
 
-#: src/gcompris/help.c:269 src/gcompris/interface.c:270
+#: src/gcompris/help.c:269
+#: src/gcompris/interface.c:270
 msgid "Credit"
-msgstr ""
+msgstr "PadÄ—ka"
 
 #: src/gcompris/interface.c:104
-#, fuzzy
 msgid "Gcompris Editor"
-msgstr "GCompris pagrindinis meniu"
+msgstr "GCompris dirbtuvÄ—s"
 
 #: src/gcompris/interface.c:180
-#, fuzzy
 msgid "Icon"
-msgstr "karûna"
+msgstr "Ikona"
 
 #: src/gcompris/interface.c:189
-#, fuzzy
 msgid "Name"
-msgstr "kupranugaris"
+msgstr "Vardas"
 
-#: src/gcompris/interface.c:198 src/gcompris/interface.c:415
+#: src/gcompris/interface.c:198
+#: src/gcompris/interface.c:415
 msgid "Description"
-msgstr ""
+msgstr "ApraÅ¡ymas"
 
 #: src/gcompris/interface.c:207
 msgid "Type"
-msgstr ""
+msgstr "RÅ«Å¡is"
 
 #: src/gcompris/interface.c:216
 msgid "Difficulty"
-msgstr ""
+msgstr "Sunkumas"
 
 #: src/gcompris/interface.c:225
 msgid "Author"
-msgstr ""
+msgstr "Autorius"
 
 #: src/gcompris/interface.c:234
 msgid "Directory"
-msgstr ""
+msgstr "Katalogas"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
+#: src/gcompris/interface.c:286
+#: src/gcompris/oggplayer.c:274
 msgid "Title"
-msgstr ""
-
-#. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/interface.c:484
-msgid "translator_credits"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
-msgstr ""
+msgstr "IÅ¡leista pagal GPL"
 
 #: src/gcompris/oggplayer.c:165
 msgid ""
 "Possible audio output devices are:\n"
 "default "
 msgstr ""
+"Galimi garso grojimo Ä¯renginiai yra:\n"
+"default "
 
-#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:237
+#: src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
-msgstr ""
+msgstr "Dabar grojanti muzika"
 
 #: src/gcompris/oggplayer.c:278
 msgid "Artist"
-msgstr ""
+msgstr "AtlikÄ—jas"
 
 #: src/gcompris/soundutil.c:113
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't open music dir: %s"
-msgstr "Negaliu atidaryti pieğinëliø katalogo: %s"
+msgstr "Negaliu atidaryti muzikos katalogo: %s"
 
-#: src/gcompris/support.c:60 src/gcompris/support.c:85
-#, fuzzy, c-format
+#: src/gcompris/support.c:60
+#: src/gcompris/support.c:85
+#, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Negaliu rasti bylos %s !"
+msgstr "Negaliu rasti paveikslÄ—lio bylos: %s"
 
 #: src/gcompris/timer.c:237
 msgid "Time Ellapsed"
-msgstr ""
+msgstr "PraÄ—jÄ™s laikas"
 
 #: src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
-msgstr ""
+msgstr "LikÄ™s laikas = %d"
 
-#, fuzzy
-#~ msgid "Move the mouse to machpuzzle the area and discover the background"
-#~ msgstr "Judindamas pelæ nuvalysi plotà ir pamatysi fonà"
-
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "Gcompris - Ağ supratau"
-
-#, fuzzy
-#~ msgid "Move the mouse to fifteen the area and discover the background"
-#~ msgstr "Judindamas pelæ nuvalysi plotà ir pamatysi fonà"
-
-#, fuzzy
-#~ msgid "Practice the division operation"
-#~ msgstr "Mokykis dalybos veiksmø"
-
-#~ msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-#~ msgstr "-adobe-times-bold-r-normal-*-*-240-*-*-p-*-iso8859-13"
-
-#~ msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-240-*-*-*-*-iso8859-13"
-
-#~ msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-#~ msgstr "-adobe-times-medium-r-normal-*-*-180-*-*-p-*-iso8859-13"
-
-#~ msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-iso8859-13"
-
-#~ msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-#~ msgstr "-adobe-times-medium-r-normal-*-*-140-*-*-p-*-iso8859-13"
-
-#~ msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-140-*-*-*-*-iso8859-13"
-
-#~ msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-120-*-*-*-*-iso8859-13"
-
-#~ msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-iso8859-13"
-
-#~ msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-#~ msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-iso8859-13"
-
-#, fuzzy
-#~ msgid "Down"
-#~ msgstr "karûna"
-
-#, fuzzy
-#~ msgid "Couldn't create pixmap from file: %s"
-#~ msgstr "Negaliu atidaryti pieğinëliø katalogo: %s"
-
-#, fuzzy
-#~ msgid "cinabre"
-#~ msgstr "automobilis"
-
-#, fuzzy
-#~ msgid "Move the mouse to reversecount the area and discover the background"
-#~ msgstr "Judindamas pelæ nuvalysi plotà ir pamatysi fonà"
-
-#~ msgid "Set the masses in the decreasing order"
-#~ msgstr "Sudëk svarsèius maşëjanèia tvarka"
