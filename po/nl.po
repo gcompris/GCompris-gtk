@@ -8,14 +8,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-24 12:09+0200\n"
-"PO-Revision-Date: 2003-08-23 00:12+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-09-03 11:41+0200\n"
+"PO-Revision-Date: 2003-09-03 18:57+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -877,9 +877,8 @@ msgid "Taken the concept from the EPI games."
 msgstr "Concept afgekeken van EPI games."
 
 #: boards/imageid.xml.in.h:1
-#, fuzzy
 msgid "Click on the word corresponding to the printed image."
-msgstr "Klik op de overeenkomstige kleur"
+msgstr "Klik op het woord dat bij het plaatje past."
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -1126,14 +1125,12 @@ msgid "racket"
 msgstr "raket"
 
 #: boards/leftright.xml.in.h:1
-#, fuzzy
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
 "on the red button - at the left - or on the green button - at the right."
 msgstr ""
 "Er wordt een hand getoond. Jij moet zeggen of het een rechter- of een "
-"linkerhand is.  Klik op de rode knop links, of de groene knop rechts. "
-"Bevestig je keuze door op de hand te klikken onderaan."
+"linkerhand is.  Klik op de rode knop links, of de groene knop rechts."
 
 #: boards/leftright.xml.in.h:2
 msgid ""
@@ -1254,13 +1251,12 @@ msgstr ""
 "7 tot 8 jaar oud."
 
 #: boards/missing_letter.xml.in.h:1
-#, fuzzy
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
 "the picture. Select the missing letter to complete the word."
 msgstr ""
 "Je ziet een object op het bord, met een onvolledig woord eronder.  Zoek de "
-"ontbrekende letters. Klik op het handje om je keuze te controleren."
+"ontbrekende letters."
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
@@ -1692,7 +1688,7 @@ msgstr ""
 "muisknop tel je af. Controleer je keuze door op OK te klikken, of door de "
 "Enter toets in te drukken."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
 msgid "Practice the substraction with a funny game"
 msgstr "Oefenen met aftrekken met een leuk spel"
 
@@ -1988,7 +1984,7 @@ msgstr "Kan pixmap's map niet openen: %s"
 msgid "Set the watch to:"
 msgstr "Stel de klok in op:"
 
-#: src/boards/colors.c:252
+#: src/boards/colors.c:210
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Klik op het %s plaatje"
@@ -2077,7 +2073,7 @@ msgstr "Ja, ik heb het gezien"
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
-#: src/boards/reversecount.c:129
+#: src/boards/reversecount.c:136
 msgid "Reverse count"
 msgstr "Omgekeerd tellen"
 
@@ -2184,13 +2180,12 @@ msgid "Azerbaijani Turkic"
 msgstr "Azerbeijaans Turks"
 
 #: src/gcompris/config.c:55
-#, fuzzy
 msgid "Catalan"
-msgstr "Italiaans"
+msgstr "Catalaans"
 
 #: src/gcompris/config.c:56
 msgid "Czech"
-msgstr ""
+msgstr "Tsjechisch"
 
 #: src/gcompris/config.c:57
 msgid "German"
@@ -2255,7 +2250,7 @@ msgstr "Nederlands"
 
 #: src/gcompris/config.c:72
 msgid "Norwegian"
-msgstr ""
+msgstr "Noors"
 
 #: src/gcompris/config.c:73
 msgid "Portuguese"
@@ -2326,8 +2321,8 @@ msgstr "Effect"
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:685
-#: src/gcompris/config.c:696
+#: src/gcompris/config.c:396 src/gcompris/config.c:695
+#: src/gcompris/config.c:706
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2465,10 +2460,3 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
-
-#~ msgid ""
-#~ "Click on the word corresponding to the printed image. When you are sure "
-#~ "of your choice click on the hand at the bottom"
-#~ msgstr ""
-#~ "Klik op het woord dat past bij het prentje. Om je keuze te testen klik je "
-#~ "op het handje onderaan"
