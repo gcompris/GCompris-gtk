@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
-"POT-Creation-Date: 2003-10-15 20:59+0200\n"
-"PO-Revision-Date: 2003-10-15 21:14+0200\n"
+"POT-Creation-Date: 2003-11-29 12:34+0100\n"
+"PO-Revision-Date: 2003-12-03 21:38+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -354,8 +354,8 @@ msgstr "Zu den Algebratafeln"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Klicke mit der linken Maustaste um eine Tafel anzuwählen"
 
@@ -747,11 +747,11 @@ msgid ""
 "the double entry table."
 msgstr "Die Kinder müssen die linken Bilder passend zusammenstellen."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:205
 msgid "A simple vector drawing tool"
 msgstr "Ein einfaches Zeichenprogramm"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:206
 msgid "Creative board where you can freely draw"
 msgstr "freie Fläche zum Zeichnen"
 
@@ -798,15 +798,19 @@ msgstr "Nummern-Training"
 msgid "Place the items in the best way to count them"
 msgstr "Ordne die Gegenstände so an, dass man sie gut zählen kann"
 
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Zu den Erlebnis-Aktivitäten"
+
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Motorische Fähigkeiten"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:66 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Bewege die Maus"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:67
+#: boards/erase.xml.in.h:5 src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Bewege die Maus um Felder zu löschen und den Hintergrund freizulegen"
 
@@ -1481,8 +1485,10 @@ msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
-"Klicke auf die Münzen oder die Geldscheine im unteren Bereich um zu bezahlen.\n"
-"Wenn Du eine Münze oder einen Schein wieder entfernen willst, klicke wieder auf ihn."
+"Klicke auf die Münzen oder die Geldscheine im unteren Bereich um zu "
+"bezahlen.\n"
+"Wenn Du eine Münze oder einen Schein wieder entfernen willst, klicke wieder "
+"auf ihn."
 
 #: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
@@ -1497,8 +1503,10 @@ msgid ""
 "You must buy the different items and give the exact price. At higher level, "
 "several items are displayed, you must first calculate the total price."
 msgstr ""
-"Du musst die verschiedenen Gegenstände kaufen und die exakte Geldmenge geben.\n"
-"In höheren Ebenen werden mehrere Gegenstände gezeigt, da musst Du zuerst die\n"
+"Du musst die verschiedenen Gegenstände kaufen und die exakte Geldmenge "
+"geben.\n"
+"In höheren Ebenen werden mehrere Gegenstände gezeigt, da musst Du zuerst "
+"die\n"
 "Summe ausrechnen."
 
 #: boards/money_cents.xml.in.h:4
@@ -1755,6 +1763,10 @@ msgstr ""
 msgid "Vertical reading practice"
 msgstr "Vertikale Leseübung"
 
+#: boards/redraw.xml.in.h:1
+msgid "Redraw the given item"
+msgstr "Zeichne den gegebenen Gegenstand nach"
+
 #: boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
@@ -1959,6 +1971,29 @@ msgid ""
 "on the right"
 msgstr "Das Ziel ist, alle roten Autos durch die rechte Öffnung zu schieben"
 
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system. When done and "
+"Tux is in his shower, push the shower button for him."
+msgstr ""
+"Klicke auf verschiedene aktive Elemente (Sonne, Wolke, Wasserpumpe, "
+"Klärstation) \n"
+"um den Wasserkreislauf wieder zu aktivieren. Wenn Du fertig bist und Tux unter seiner"
+"Dusche ist kannst Du den Duschknopf für ihn drücken."
+
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr "Lerne den Wasserkreislauf"
+
+#: boards/watercycle.xml.in.h:3
+msgid ""
+"You have to bring back the water system up. Tux comes from a long fishing "
+"party on his boat. Help him to have a shower."
+msgstr ""
+"Du musst den Wasserkreislauf wieder herstellen. Tux kommt mit seinem Boot von einem\n"
+"langen Fischfang zurück. Hilf ihm, sich zu duschen."
+
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
 msgid "Falling Words"
 msgstr "Fallende Wörter"
@@ -1970,22 +2005,6 @@ msgstr "Gib die Wörter vollständig ein bevor sie unten ankommen"
 #: boards/wordsgame.xml.in.h:4
 msgid "Keyboard training"
 msgstr "Tastatur-Training"
-
-#: boards/watercycle.xml.in.h:1
-msgid ""
-"Click on different active elements : sun, cloud, water pump station, water "
-"cleanup station in order to reactivate the whole water system."
-msgstr ""
-"Klicke auf verschiedene aktive Elemente (Sonne, Wolke, Wasserpumpe, Klärstation) \n"
-"um den Wasserkreislauf wieder zu aktivieren."
-
-#: boards/watercycle.xml.in.h:2
-msgid "Learn the water cycle"
-msgstr "Lerne den Wasserkreislauf"
-
-#: boards/watercycle.xml.in.h:3
-msgid "You have to bring back the water system up before Tux goes home"
-msgstr "Du musst das Wasser wieder anstellen, bevor Tux nach Hause geht"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -2000,18 +2019,18 @@ msgid "Educational suite gcompris"
 msgstr "Bildungs-Sammlung gcompris"
 
 #: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
 #: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
-#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
+#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kann Datei %s nicht finden!"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
@@ -2177,11 +2196,11 @@ msgstr "Python Tafel"
 msgid "Special board that embed python into gcompris."
 msgstr "Spezial-Tafel, die Python in gcompris einbettet"
 
-#: src/boards/railroad.c:95
+#: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Gedächtnistraining"
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
 msgstr "Erstelle einen Zug nach der Vorgabe"
 
@@ -2279,241 +2298,263 @@ msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
-"Music: Djilali Sebihi\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Danksagungen:\n"
 "Autor: Bruno Coudoin\n"
 "Beiträge: Pascal Georges\n"
 "Graphik: Renaud Blanchard\n"
-"Musik: Djilali Sebihi\n"
+"Intro Musik: Djilali Sebihi\n"
+"Hintergrund-Musik: Rico Da Halvarez\n"
 
-#: src/gcompris/about.c:97
+#: src/gcompris/about.c:99
 msgid "About GCompris"
 msgstr "Über GCompris"
 
-#: src/gcompris/about.c:203
+#: src/gcompris/about.c:205
 msgid "GCompris Home Page"
 msgstr "GCompris Webseite"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:227
 msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU Public Licence "
 "veröffentlicht"
 
-#: src/gcompris/about.c:253
+#: src/gcompris/about.c:255
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
-#: src/gcompris/images_selector.c:148
+#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
+#: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
 #: src/gcompris/config.c:52
+msgid "Your system default"
+msgstr "Deine System-Voreinstellung"
+
+#: src/gcompris/config.c:53
 msgid "Amharic"
 msgstr "Amharic"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:54
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:55
 msgid "Azerbaijani Turkic"
 msgstr "Aserbaidschanisches Türkisch"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:56
 msgid "Catalan"
 msgstr "Katalanisch"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:57
 msgid "Czech"
 msgstr "Tschechisch"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:58
 msgid "German"
 msgstr "Deutsch"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:59
 msgid "Greek"
 msgstr "Griechisch"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:60
 msgid "English"
 msgstr "Englisch"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:61
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:62
 msgid "Finnish"
 msgstr "Finnisch"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "French"
 msgstr "Französisch"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Hebrew"
 msgstr "Hebräisch"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Indian"
 msgstr "Indisch"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Italian"
 msgstr "Italienisch"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Macedonian"
 msgstr "Mazedonisch"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malay"
 msgstr "Malaysisch"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Dutch"
 msgstr "Holländisch"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Norwegian"
 msgstr "Norwegisch"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Polish"
 msgstr "Polnisch"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Portuguese"
 msgstr "Portugiesisch"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Brazil Portuguese"
 msgstr "Brasilianisches Portugiesisch"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Romanian"
 msgstr "Rumänisch"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
+msgid "Slovenian"
+msgstr "Slowenisch"
+
+#: src/gcompris/config.c:81
 msgid "Serbian (Latin)"
 msgstr "Serbisch (Latein)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:82
 msgid "Serbian"
 msgstr "Serbisch"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:83
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:84
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:89
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:90
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:91
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:92
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:97
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: src/gcompris/config.c:151
+#: src/gcompris/config.c:153
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: src/gcompris/config.c:257
+#: src/gcompris/config.c:262
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: src/gcompris/config.c:300
+#: src/gcompris/config.c:305
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:328
+#: src/gcompris/config.c:333
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:365
+#: src/gcompris/config.c:370
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: src/gcompris/config.c:399 src/gcompris/config.c:705
-#: src/gcompris/config.c:716
+#: src/gcompris/config.c:403 src/gcompris/config.c:719
+#: src/gcompris/config.c:730
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: src/gcompris/gcompris.c:65
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in fullscreen mode."
 msgstr "GCompris im Vollbildmodus ausführen"
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris in window mode."
 msgstr "GCompris im Fenstermodus ausführen"
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris with sound enabled."
 msgstr "GCompris mit Klängen ausführen"
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris without sound."
 msgstr "GCompris ohne Klänge ausführen"
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:76
 msgid "run gcompris with the default gnome cursor."
 msgstr "GCompris mit dem voreingestellten Gnome-Mauszeiger ausführen"
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:78
+msgid "display only activities with this difficulty level."
+msgstr "zeige nur Aktivitäten mit dieser Schwierigkeitsstufe an"
+
+#: src/gcompris/gcompris.c:80
+msgid ""
+"select the audio output. Use '-A list' to get the list of available audio "
+"output"
+msgstr ""
+"wähle die Tonausgabe. Benutze \"-A list\", um die Liste der verfügbaren Tonausgaben zu\n"
+"erhalten"
+
+#: src/gcompris/gcompris.c:82
 msgid "Prints the version of "
 msgstr "Versionsanzeige von"
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:84
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
-#: src/gcompris/gcompris.c:347
+#: src/gcompris/gcompris.c:358
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Ich habe verstanden"
 
-#: src/gcompris/gcompris.c:561
+#: src/gcompris/gcompris.c:597
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2574,7 +2615,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Verzeichnis"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
 msgid "Title"
 msgstr "Titel"
 
@@ -2587,15 +2628,23 @@ msgstr "Ronny Standtke"
 msgid "Released under GPL"
 msgstr "Unter der GPL veröffentlicht"
 
-#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
+#: src/gcompris/oggplayer.c:165
+msgid ""
+"Possible audio output devices are:\n"
+"default "
+msgstr ""
+"Mögliche Tonausgabe-Geräte sind:\n"
+"default"
+
+#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
 msgstr "Spiele jetzt Musik"
 
-#: src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:278
 msgid "Artist"
 msgstr "Künstler"
 
-#: src/gcompris/soundutil.c:116
+#: src/gcompris/soundutil.c:113
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Kann Musik-Verzeichnis %s nicht öffnen"
