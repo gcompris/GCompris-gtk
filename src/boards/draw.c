@@ -58,7 +58,7 @@ typedef enum
     TOOL_CIRCLE		= 2,
     TOOL_FILLED_CIRCLE	= 3,
     TOOL_LINE		= 4,
-    TOOL_POINT		= 5,
+    TOOL_FLIP		= 5,
     TOOL_TEXT		= 6,
     TOOL_GRID		= 7,
     TOOL_DELETE		= 8,
@@ -67,9 +67,11 @@ typedef enum
     TOOL_LOWER		= 11,
     TOOL_SELECT		= 12,
     TOOL_IMAGE		= 13,
+    TOOL_ROTATE_CCW	= 14,
+    TOOL_ROTATE_CW	= 15,
   } ToolList;
 
-#define NUMBER_OF_TOOL	TOOL_IMAGE + 1
+#define NUMBER_OF_TOOL	TOOL_ROTATE_CW + 1
 
 static ToolList		 currentTool = TOOL_RECT;
 static GnomeCanvasItem	*currentToolItem = NULL;
@@ -78,20 +80,22 @@ static GnomeCanvasItem	*selectionToolItem = NULL;
 // Used to cross reference pixmap for the tools
 static char *tool_pixmap_name[] =
   {
-    "draw/tool-rectangle.png", "draw/tool-rectangle_on.png",
+    "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",
     "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
-    "draw/tool-circle.png", "draw/tool-circle_on.png",
-    "draw/tool-filledcircle.png", "draw/tool-filledcircle_on.png",
-    "draw/tool-line.png", "draw/tool-line_on.png",
-    "draw/tool-point.png", "draw/tool-point_on.png",
-    "draw/tool-text.png", "draw/tool-text_on.png",
-    "draw/tool-grid.png", "draw/tool-grid_on.png",
-    "draw/tool-del.png", "draw/tool-del_on.png",
-    "draw/tool-fill.png", "draw/tool-fill_on.png",
-    "draw/tool-up.png", "draw/tool-up_on.png",
-    "draw/tool-down.png", "draw/tool-down_on.png",
-    "draw/tool-select.png", "draw/tool-select_on.png",
-    "draw/tool-image.png", "draw/tool-image_on.png"
+    "draw/tool-circle.png",          "draw/tool-circle_on.png",
+    "draw/tool-filledcircle.png",    "draw/tool-filledcircle_on.png",
+    "draw/tool-line.png",            "draw/tool-line_on.png",
+    "draw/tool-flip.png",           "draw/tool-flip_on.png",
+    "draw/tool-text.png",            "draw/tool-text_on.png",
+    "draw/tool-grid.png",            "draw/tool-grid_on.png",
+    "draw/tool-del.png",             "draw/tool-del_on.png",
+    "draw/tool-fill.png",            "draw/tool-fill_on.png",
+    "draw/tool-up.png",              "draw/tool-up_on.png",
+    "draw/tool-down.png",            "draw/tool-down_on.png",
+    "draw/tool-select.png",          "draw/tool-select_on.png",
+    "draw/tool-image.png",           "draw/tool-image_on.png",
+    "draw/tool-rotation-ccw.png",    "draw/tool-rotation-ccw_on.png",
+    "draw/tool-rotation-cw.png",     "draw/tool-rotation-cw_on.png"
   };
 
 #define PIXMAP_OFF 0
@@ -146,6 +150,8 @@ static AnchorsItem *selected_anchors_item = NULL;
 #define DRAW_WIDTH_PIXELS	6
 
 #define GRID_COLOR		0x00000000
+
+#define MAX_TEXT_CHAR		50
 
 /* Defines the displayed colors in the color selector */
 static guint ext_colorlist [] =
@@ -291,6 +297,8 @@ end_board ()
 gint key_press(guint keyval)
 {
   char str[2];
+  char utf8char[6];
+
   GnomeCanvasItem	*item = NULL;
 
   if(!gcomprisBoard)
@@ -352,6 +360,11 @@ gint key_press(guint keyval)
       break;
     }
 
+  sprintf(utf8char, "%c", gdk_keyval_to_unicode(keyval));
+
+  g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
+		     utf8char);
+
   sprintf(str, "%c", keyval);
 
   item = selected_anchors_item->item;
@@ -367,10 +380,12 @@ gint key_press(guint keyval)
 	{
 	case GDK_BackSpace:
 	case GDK_Delete:
-
-	  if(oldtext[1] != '\0')
-	    newtext = g_strndup(oldtext, strlen(oldtext)-1);
-	  else
+	  if(oldtext[1] != '\0') {
+	    gchar *ptr;
+	    ptr = g_utf8_prev_char(oldtext+g_utf8_strlen(oldtext, MAX_TEXT_CHAR)+1);
+	    *ptr = '\0';
+	    newtext = g_strdup(oldtext);
+	  } else
 	    newtext = "?";
 
 	  break;
@@ -383,8 +398,8 @@ gint key_press(guint keyval)
 	      g_strstrip(oldtext);
 	    }
 
-	  if(strlen(oldtext)<50)
-	    newtext = g_strconcat(oldtext, &str, NULL);
+	  if(strlen(oldtext)<MAX_TEXT_CHAR)
+	    newtext = g_strconcat(oldtext, &utf8char, NULL);
 	  else
 	    newtext = g_strdup(oldtext);
 	  break;
@@ -471,7 +486,7 @@ static void display_drawing_area(GnomeCanvasGroup *parent)
 		     (GtkSignalFunc) item_event,
 		     NULL);
 
-  display_grid(TRUE);
+  display_grid(FALSE);
 
   draw_root_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
@@ -585,8 +600,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
   if(pixmap)
     {
       x = 3;
-      y = (drawing_area_y2 - drawing_area_y1 - gdk_pixbuf_get_height(pixmap)) / 2
-	+  drawing_area_y1;
+      y = drawing_area_y1;
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap,
@@ -815,9 +829,6 @@ static guint get_tool_cursor(ToolList tool)
     case TOOL_LINE:
     case TOOL_TEXT:
       return(GCOMPRIS_LINE_CURSOR);
-      break;
-    case TOOL_POINT:
-      return(GCOMPRIS_CIRCLE_CURSOR);
       break;
     case TOOL_FILL:
       return(GCOMPRIS_FILL_CURSOR);
@@ -1417,7 +1428,7 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
  * created
  *
  */
-static void set_item_color(AnchorsItem *anchorsItem, guint *color)
+static void set_item_color(AnchorsItem *anchorsItem, guint color)
 {
   GnomeCanvasItem *item = anchorsItem->item;
 
@@ -1431,7 +1442,6 @@ static void set_item_color(AnchorsItem *anchorsItem, guint *color)
       break;
     case TOOL_FILLED_RECT:
     case TOOL_FILLED_CIRCLE:
-    case TOOL_POINT:
     case TOOL_TEXT:
       gnome_canvas_item_set (GNOME_CANVAS_ITEM(item),
 			     "fill_color_rgba", color,
@@ -1483,6 +1493,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "width_set", TRUE,
 				    "height_set", TRUE,
 				NULL);
+      //				    "anchor", GTK_ANCHOR_CENTER,
       gdk_pixbuf_unref(pixmap);
       break;
     case TOOL_RECT:
@@ -1513,17 +1524,6 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
       /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
       /*         without it, at anchors creation, item bound is always 0,0,0,0 */
       gnome_canvas_update_now (gcomprisBoard->canvas);
-      break;
-    case TOOL_POINT:
-      // This is a point
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-				    gnome_canvas_ellipse_get_type (),
-				    "x1", (double) x - DRAW_WIDTH_PIXELS,
-				    "y1", (double) y - DRAW_WIDTH_PIXELS,
-				    "x2", (double) x + DRAW_WIDTH_PIXELS,
-				    "y2", (double) y + DRAW_WIDTH_PIXELS,
-				    "fill_color_rgba", currentColor,
-				    NULL);
       break;
     case TOOL_CIRCLE:
       // This is an ellipse
@@ -1893,40 +1893,23 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
       switch(event->button.button)
 	{
 	case 1:
-	  switch(currentTool) {
-	  case TOOL_RECT:
-	  case TOOL_FILLED_RECT:
-	  case TOOL_CIRCLE:
-	  case TOOL_FILLED_CIRCLE:
-	  case TOOL_LINE:
-	  case TOOL_POINT:
-	  case TOOL_TEXT:
-	    /* In this case, we simply redirect to the item creation */
-	    item_event(item, event, NULL);
-	    break;
-	  case TOOL_SELECT:
-	    fleur = gdk_cursor_new(get_resize_cursor(anchor));
+	  fleur = gdk_cursor_new(get_resize_cursor(anchor));
+	  
+	  gnome_canvas_item_grab(item,
+				 GDK_POINTER_MOTION_MASK |
+				 GDK_BUTTON_RELEASE_MASK,
+				 fleur,
+				 event->button.time);
+	  gdk_cursor_destroy(fleur);
+	  draggingItem = item;
+	  dragging = TRUE;
 
-	    gnome_canvas_item_grab(item,
-				   GDK_POINTER_MOTION_MASK |
-				   GDK_BUTTON_RELEASE_MASK,
-				   fleur,
-				   event->button.time);
-	    gdk_cursor_destroy(fleur);
-	    draggingItem = item;
-	    dragging = TRUE;
-
-	    item_x = event->button.x;
-	    item_y = event->button.y;
-	    gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
-	    snap_to_grid(&item_x, &item_y);
-	    x = item_x;
-	    y = item_y;
-	    break;
-
-	  default:
-	    break;
-	  }
+	  item_x = event->button.x;
+	  item_y = event->button.y;
+	  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+	  snap_to_grid(&item_x, &item_y);
+	  x = item_x;
+	  y = item_y;
 	  break;
 	default:
 	  break;
@@ -1951,7 +1934,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
     case GDK_MOTION_NOTIFY:
       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
 	{
-	  double			 parent_x, parent_y;
+	  double parent_x, parent_y;
 
 	  item_x = event->button.x;
 	  item_y = event->button.y;
@@ -2004,7 +1987,6 @@ static void image_selected(gchar *image)
 {
   GnomeCanvasItem *item = NULL;
   item = create_item(clicked_x, clicked_y, image);
-  // gnome_canvas_item_rotate (item, 100.0, 100.0, 90.0);
   set_current_tool(selectionToolItem, TOOL_SELECT);
 }
 
@@ -2038,7 +2020,6 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  case TOOL_CIRCLE:
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
-	  case TOOL_POINT:
 	  case TOOL_TEXT:
 	    /* In this case, we simply redirect to the item creation */
 	    item_event(item, event, NULL);
@@ -2092,6 +2073,32 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    gnome_canvas_item_lower(item, 1);
 	    break;
 
+	  case TOOL_ROTATE_CW:
+	    item_rotate_relative(item, 10);
+	    break;
+
+	  case TOOL_ROTATE_CCW:
+	    item_rotate_relative(item, -10);
+	    break;
+
+	  case TOOL_FLIP:
+	    {
+	      GdkPixbuf *pixbuf;
+	      /* Only implemented for images */
+	      if(anchorsItem->tool == TOOL_IMAGE) {
+		gtk_object_get (GTK_OBJECT (anchorsItem->item), "pixbuf", &pixbuf, NULL);
+		if(pixbuf) {
+		  GdkPixbuf *pixbuf2;
+		  pixbuf2 = (GdkPixbuf *)pixbuf_copy_mirror(pixbuf, TRUE, FALSE);
+		  gdk_pixbuf_unref(pixbuf);
+		  gnome_canvas_item_set (anchorsItem->item,
+					 "pixbuf", pixbuf2,
+					 NULL);
+		  gdk_pixbuf_unref(pixbuf2);
+		}
+	      }
+	    }
+	    break;
 	  default:
 	    break;
 	  }
@@ -2107,8 +2114,26 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  break;
 
 	case 3:
-	  // Shortcut for the Raise operation
-	  gnome_canvas_item_raise_to_top(item);
+	  switch(currentTool) {
+	    /* Perform the reverse operation when it makes sense */
+	  case TOOL_ROTATE_CW:
+	    item_rotate_relative(item, -10);
+	    break;
+	  case TOOL_ROTATE_CCW:
+	    item_rotate_relative(item, 10);
+	    break;
+	  case TOOL_RAISE:
+	    gnome_canvas_item_lower(item, 1);
+	    break;
+	  case TOOL_LOWER:
+	    gnome_canvas_item_raise(item, 1);
+	    break;
+
+	  default:
+	    // Shortcut for the Raise operation
+	    gnome_canvas_item_raise_to_top(item);
+	    break;
+	  }
 	  break;
 
 	default:
@@ -2134,7 +2159,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
       case TOOL_CIRCLE:
       case TOOL_FILLED_CIRCLE:
       case TOOL_LINE:
-      case TOOL_POINT:
+      case TOOL_FLIP:
       case TOOL_DELETE:
       case TOOL_FILL:
       case TOOL_TEXT:
@@ -2229,7 +2254,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	  case TOOL_CIRCLE:
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
-	  case TOOL_POINT:
 	  case TOOL_TEXT:
 	    // Create a new item
 	    if(event->button.button==1)

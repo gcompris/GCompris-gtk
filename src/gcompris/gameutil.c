@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/10/06 00:03:41 bcoudoin>
+ * Time-stamp: <2003/10/29 18:55:55 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -660,30 +660,66 @@ void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
    IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
    rotation is clockwise if angle > 0 */
 void item_rotate(GnomeCanvasItem *item, double angle) {
-	double r[6],t[6], x1, x2, y1, y2;
+  double r[6],t[6], x1, x2, y1, y2;
 
   gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
   art_affine_translate( t , -(x2+x1)/2, -(y2+y1)/2 );
   art_affine_rotate( r, angle );
   art_affine_multiply( r, t, r);
-	art_affine_translate( t , (x2+x1)/2, (y2+y1)/2 );
+  art_affine_translate( t , (x2+x1)/2, (y2+y1)/2 );
   art_affine_multiply( r, r, t);
 
-  gnome_canvas_item_affine_absolute( item, r );
+  gnome_canvas_item_affine_absolute(item, r );
+}
+
+/* As gnome does not implement its own API : gnome_canvas_item_rotate
+   we have to do it ourselves ....
+   IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
+   rotation is clockwise if angle > 0 */
+void item_rotate_relative(GnomeCanvasItem *item, double angle) {
+  double r[6],t[6], x1, x2, y1, y2;
+
+  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
+  art_affine_translate( t , -(x2+x1)/2, -(y2+y1)/2 );
+  art_affine_rotate( r, angle );
+  art_affine_multiply( r, t, r);
+  art_affine_translate( t , (x2+x1)/2, (y2+y1)/2 );
+  art_affine_multiply( r, r, t);
+
+  gnome_canvas_item_affine_relative(item, r );
 }
 
 /* rotates an item around the center (x,y), relative to the widget's coordinates */
 void	item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
-	double r[6],t[6], x1, x2, y1, y2, tx, ty;
+  double r[6],t[6], x1, x2, y1, y2, tx, ty;
+
   gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
-	tx = x1 + x;
+  tx = x1 + x;
   ty = y1 + y;
   art_affine_translate( t , -tx, -ty );
   art_affine_rotate( r, angle );
   art_affine_multiply( r, t, r);
-	art_affine_translate( t , tx, ty );
+  art_affine_translate( t , tx, ty );
   art_affine_multiply( r, r, t);
-  gnome_canvas_item_affine_absolute( item, r );
+
+  gnome_canvas_item_affine_absolute(item, r );
+}
+
+/* rotates an item around the center (x,y), relative to the widget's coordinates */
+/* The rotation is relative to the previous rotation */
+void	item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y) {
+  double r[6],t[6], x1, x2, y1, y2, tx, ty;
+
+  gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
+  tx = x1 + x;
+  ty = y1 + y;
+  art_affine_translate( t , -tx, -ty );
+  art_affine_rotate( r, angle );
+  art_affine_multiply( r, t, r);
+  art_affine_translate( t , tx, ty );
+  art_affine_multiply( r, r, t);
+
+  gnome_canvas_item_affine_relative(item, r );
 }
 
 /*

@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2003/02/13 15:23:16 bcoudoin>
+ * Time-stamp: <2003/10/30 00:04:29 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -297,8 +297,6 @@ gint key_press(guint keyval)
   g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
 		     utf8char);
 
-  printf("utf8char=%s\n", utf8char);
-
   if(currentFocus==NULL) 
     {
       LettersItem *searchitem;
@@ -338,10 +336,9 @@ gint key_press(guint keyval)
 	  }
 	    
 	  nextCurrentChar = g_utf8_next_char(currentChar);
-	  printf("currentChar=%s utf8char=%s size=%d\n", currentChar, utf8char, nextCurrentChar-currentChar);
+
 	  if(strncmp(currentChar, utf8char, nextCurrentChar-currentChar)==0)
 	    {
-	      printf("strncmp DONE\n");
 	      currentFocus->charcounter++;
 
 	      /* Increment the overword */
@@ -381,7 +378,6 @@ gint key_press(guint keyval)
       /* Anyway kid you clicked on the wrong key */
       player_loose();
     }
-   printf("wordsgame key DONE\n");
   return FALSE;
 }
 

@@ -151,7 +151,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      "railroad/railroad-bg.png");
+			      "railroad/railroad-bg.jpg");
 
       for (i=0; i<ENGINES; i++) {
       	str = g_strdup_printf("railroad/loco%d.png", i+1);

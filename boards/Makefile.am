@@ -23,6 +23,7 @@ xml_in_files = \
 	draw.xml.in \
 	doubleentry.xml.in \
 	enumerate.xml.in \
+	experience.xml.in \
 	fun.xml.in \
 	fifteen.xml.in \
 	geography.xml.in \
