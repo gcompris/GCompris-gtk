@@ -46,6 +46,9 @@ class Gcompris_watercycle:
     # The basic tick for object moves
     self.timerinc = 50
 
+    # The tick for the boat is variable
+    self.boat_timerinc = self.timerinc
+    
     # Need to manage the timers to quit properly
     self.boat_timer = 0
     self.sun_timer = 0
@@ -194,16 +197,12 @@ class Gcompris_watercycle:
 
     # The tuxboat
     self.tuxboatanim = gcompris.anim.Animation("watercycle/tuxboat.txt")
-    self.tuxboatitem = self.tuxboatanim.activate(self.rootitem)
-    self.tuxboatitem.set( x=10.0, y=470.0 )
+    self.tuxboatitem = gcompris.anim.CanvasItem( self.tuxboatanim, self.rootitem );
+    numstates = self.tuxboatitem.num_states
+    print "numstates: " + str(numstates)
+    self.tuxboatcanvas = self.tuxboatitem.gnome_canvas
+    self.tuxboatcanvas.set( x=-100.0, y=430.0 )
   
-#    self.tuxboatitem = self.rootitem.add(
-#      self.tuxboatanim.activate(self.rootitem),
-#      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tuxboat.png"),
-#      x=10.0,
-#      y=470.0
-#      )
-
     # Tux in the shower (without water)
     self.tuxshoweritem = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
@@ -357,28 +356,31 @@ class Gcompris_watercycle:
     
     
   def move_boat(self):
-    if( self.tuxboatitem.get_bounds()[2] < 745 ) :
-      #Tried to make the boat slow down when arriving
-      if( self.tuxboatitem.get_bounds()[2] < 600 ) :
-        self.tuxboatitem.move(3, 0)
-      else:
-        self.tuxboatitem.move(2, 0)
-      self.boat_timer = gtk.timeout_add(self.timerinc, self.move_boat)
+    if( self.tuxboatcanvas.get_bounds()[2] < 770 ) :
+      
+      # Make the boat slow down when arriving
+      if(self.tuxboatcanvas.get_bounds()[2]==700 or self.tuxboatcanvas.get_bounds()[2]==701):
+        self.boat_timerinc+=50
+        
+      self.tuxboatcanvas.move(2, 0)
+      self.boat_timer = gtk.timeout_add(self.boat_timerinc, self.move_boat)
     else:
-      if self.tuxboatitem.get_bounds()[2] < 790 :
+      if self.tuxboatcanvas.get_bounds()[2] < 800 :
         # Park the boat
-        self.tuxboatitem.move(1, -1)
+        self.tuxboatcanvas.move(0.7, -0.7)
+        self.tuxboatitem.setState(1)
         self.boat_timer = gtk.timeout_add(self.timerinc, self.move_boat)
       else :
         # We are parked, change the boat to remove tux
-        self.tuxboatanim.deactivate(self.tuxboatitem)
-        self.tuxboatitem.set(
-          pixbuf = gcompris.utils.load_pixmap("gcompris/misc/fishingboat.png"),
-          width = 100.0,
-          height = 48.0,
-          width_set = 1, 
-          height_set = 1,
-          )
+        #self.tuxboatcanvas.set(
+        #  pixbuf = gcompris.utils.load_pixmap("gcompris/misc/fishingboat.png"),
+        #  width = 100.0,
+        #  height = 48.0,
+        #  width_set = 1, 
+        #  height_set = 1,
+        #  )
+        self.tuxboatitem.setState(2)
+
         # Now display tux in the shower
         self.tuxshoweritem.show()
         self.tuxisinshower = 1

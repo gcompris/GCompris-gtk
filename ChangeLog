@@ -1,5 +1,53 @@
 2005-03-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	- Animation code reviewed and documented by Joe Neeman
+	- Improved wartercycle to use latest animation code. Made a new
+	  boat animation based on Frank's fishing boat.
+	- Implemented XRANDR support in gcompris.c
+	
+	* boards/watercycle/fishingboat.gif:
+	* boards/watercycle/fishingboat.png:
+	* boards/watercycle/fishingboat_tux.png:
+	* boards/watercycle/tuxboat.gif:
+	* boards/watercycle/tuxboat.png:
+	* boards/watercycle/tuxboat.txt:
+	* docs/C/python.xml:
+	* src/boards/py-mod-anim.c: (Animation_free), (AnimCanvas_init),
+	(AnimCanvas_free), (AnimCanvas_getattr),
+	(py_gcompris_animcanvas_setstate),
+	(python_gcompris_anim_module_init):
+	* src/boards/py-mod-anim.h:
+	* src/boards/python/watercycle.py:
+	* src/gcompris/anim.c: (gcompris_load_animation),
+	(gcompris_activate_animation), (gcompris_deactivate_animation),
+	(gcompris_free_animation), (gcompris_set_anim_state), (anim_tick):
+	* src/gcompris/anim.h:
+	* src/gcompris/gcompris.c:
+
+2005-03-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* boards/watercycle/fishingboat.gif:
+	* boards/watercycle/fishingboat.png:
+	* boards/watercycle/fishingboat_tux.png:
+	* boards/watercycle/tuxboat.gif:
+	* boards/watercycle/tuxboat.png:
+	* boards/watercycle/tuxboat.txt:
+	* docs/C/python.xml:
+	* src/boards/py-mod-anim.c: (Animation_free), (AnimCanvas_init),
+	(AnimCanvas_free), (AnimCanvas_getattr),
+	(py_gcompris_animcanvas_setstate),
+	(python_gcompris_anim_module_init):
+	* src/boards/py-mod-anim.h:
+	* src/boards/python/watercycle.py:
+	* src/gcompris/anim.c: (gcompris_load_animation),
+	(gcompris_activate_animation), (gcompris_deactivate_animation),
+	(gcompris_free_animation), (gcompris_set_anim_state), (anim_tick):
+	* src/gcompris/anim.h:
+
+2005-03-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Fixed by Jose to have a decreasing boat speed.
 	Stopped animation.
 	

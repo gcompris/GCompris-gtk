@@ -843,6 +843,69 @@ attribute is readeable and/or writable.</para>
       </sect2>
     </sect1>
 
+    <sect1>
+      <title>anim.h structures Mapping</title>
+      <para>The gcompris.anim module supplies two objects, Animation and CanvasItems, corresponding to GcomprisAnimation and GcomprisAnimCanvasItem respectively.</para>
+      <sect2>
+        <title>Animation</title>
+        <para>The Animation object represents a set of animation files loaded into memory; it has no methods or members, only a constructor and a destructor. The constructor takes a single argument, the name of a text file containing a space-separated list of animation files. Each animation file in the text file corresponds to an animation state; the animations states are numbered from 0 to n-1.</para>
+      </sect2>
+      <sect2>
+        <title>CanvasItem</title>
+        <para>The CanvasItem object is a bit more interesting than the Animation object. It represents an active instance of an animation file. Its constructor takes two arguments, an Animation and a GnomeCanvasGroup (the parent of the desired active animation).</para>
+        <sect3>
+          <title>Members</title>
+          <informaltable>
+            <tgroup cols="4">
+              <thead>
+                <row>
+                  <entry>Structure member</entry>
+                  <entry>Type</entry>
+                  <entry>Readable</entry>
+                  <entry>Writable</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>gnome_canvas</entry>
+                  <entry>gnome.canvas.CanvasPixbuf</entry>
+                  <entry>Y</entry>
+                  <entry>N</entry>
+                </row>
+                <row>
+                  <entry>num_states</entry>
+                  <entry>int</entry>
+                  <entry>Y</entry>
+                  <entry>N</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </sect3>
+        <sect3>
+        <title>Functions</title>
+          <informaltable>
+            <tgroup cols="3">
+              <thead>
+                <row>
+                  <entry>Python function</entry>
+                  <entry>C equivalent</entry>
+                  <entry>Notes</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>gcompris.anim.CanvasItem.setState(int)</entry>
+                  <entry>gcompris_set_anim_state(GcomprisAnimCanvasItem*, int)</entry>
+                  <entry></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </sect3>
+      </sect2>
+    </sect1>
+
 </article>
 
 <!-- Keep this comment at the end of the file

@@ -11,4 +11,10 @@ typedef struct {
   GcomprisAnimation *a;
 } py_GcomprisAnimation;
 
+typedef struct {
+  PyObject_HEAD
+  PyObject *anim;
+  GcomprisAnimCanvasItem *item;
+} py_GcomprisAnimCanvas;
+
 #endif

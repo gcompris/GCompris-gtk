@@ -32,9 +32,16 @@ typedef struct {
   int numstates;
 } GcomprisAnimation;
 
+typedef struct {
+  GnomeCanvasPixbuf *canvas;
+  GcomprisAnimation *anim;
+  GdkPixbufAnimationIter *iter;
+  int state;
+} GcomprisAnimCanvasItem;
+
 GcomprisAnimation *gcompris_load_animation(char *filename);
 
-/*! \fn GcomprisAnimatino       *gcompris_load_animation_asset(gchar *dataset, gchar* categories, gchar* name)
+/*! \fn GcomprisAnimation       *gcompris_load_animation_asset(gchar *dataset, gchar* categories, gchar* name)
     \brief Returns an animation from the assetml base.
     \warning If there is more than one answer, the first animation is returned
 
@@ -48,9 +55,10 @@ GcomprisAnimation *gcompris_load_animation_asset(gchar *dataset,
                                                  gchar *mimetype,
                                                  gchar *name);
 
-GnomeCanvasPixbuf *gcompris_activate_animation(GnomeCanvasGroup *parent,
-                                               GcomprisAnimation*);
-void gcompris_deactivate_animation(GnomeCanvasItem*);
-gboolean gcompris_free_animation(GcomprisAnimation*);
+GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
+                                                    GcomprisAnimation*);
+void gcompris_set_anim_state(GcomprisAnimCanvasItem*, int);
+void gcompris_deactivate_animation(GcomprisAnimCanvasItem*);
+void gcompris_free_animation(GcomprisAnimation*);
 
 #endif

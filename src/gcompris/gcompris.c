@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/02/27 17:28:12 bruno>
+ * Time-stamp: <2005/03/27 01:30:45 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -31,6 +31,14 @@
 #include <locale.h>
 
 #include "cursor.h"
+
+/* For XRANDR Support */
+#ifdef XRANDR
+#include <gdk/gdkx.h>
+#include <X11/Xlib.h>
+#include <X11/extensions/Xrandr.h>
+#include <X11/extensions/Xrender.h>
+#endif
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -110,6 +118,29 @@ static struct poptOption options[] = {
   }
 };
 
+/* XRandr Stuff */
+#ifdef XRANDR
+typedef struct 
+{
+  gboolean                xr_lock_updates;
+
+  XRRScreenConfiguration *xr_screen_conf;
+
+  XRRScreenSize          *xr_sizes;
+  int                     xr_nsize;
+  SizeID	          xr_current_size;
+
+  Rotation                xr_rotations;
+  Rotation                xr_current_rotation;
+
+} XRANDRData; 
+
+static SizeID xr_previous_size;
+static XRANDRData   *xrandr;
+
+static void xrandr_get_config ( XRANDRData *data );
+gboolean xrandr_set_config( XRANDRData  *grandr );
+#endif
 
 /****************************************************************************/
 
@@ -240,12 +271,36 @@ GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)
 static void init_background()
 {
   double xratio, yratio, max;
+  gint screen_height, screen_width;
   GtkWidget *vbox;
+  int i;
 
-  yratio=gdk_screen_height()/(float)(BOARDHEIGHT+BARHEIGHT);
-  xratio=gdk_screen_width()/(float)BOARDWIDTH;
-    g_message("The gdk_screen_width()=%f gdk_screen_height()=%f\n",
-  	 (double)gdk_screen_width(), (double)gdk_screen_height());
+#ifdef XRANDR
+  xrandr = g_new0 (XRANDRData, 1);
+  xrandr_get_config ( xrandr );
+  xr_previous_size = (SizeID)xrandr->xr_current_size;
+
+  /* Search the 800x600 Resolution */
+  if(properties->fullscreen) {
+    for (i = 0; i < xrandr->xr_nsize; i++) {
+      if(xrandr->xr_sizes[i].width == BOARDWIDTH, xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
+	xrandr->xr_current_size = (SizeID)i;
+	xrandr_set_config( xrandr );
+	break;
+      }
+    }
+  }
+  screen_height = xrandr->xr_sizes[xrandr->xr_current_size].height;
+  screen_width  = xrandr->xr_sizes[xrandr->xr_current_size].width;
+#else
+  screen_height = gdk_screen_height();
+  screen_width  = gdk_screen_width();
+#endif
+
+  yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
+  xratio=screen_width/(float)BOARDWIDTH;
+    g_message("The screen_width=%f screen_height=%f\n",
+  	 (double)screen_width, (double)screen_height);
     g_message("The xratio=%f yratio=%f\n", xratio, yratio);
 
   yratio=xratio=MIN(xratio, yratio);
@@ -275,23 +330,22 @@ static void init_background()
       /* WARNING : I add 30 here for windows. don't know why it's needed. Doesn't hurt the Linux version */
       gnome_canvas_set_scroll_region (canvas_bg,
 				      0, 0,
-				      gdk_screen_width(),
-				      gdk_screen_height() + 30);
+				      screen_width,
+				      screen_height + 30);
       
-      gtk_widget_set_usize (GTK_WIDGET(canvas_bg), gdk_screen_width(), gdk_screen_height());
+      gtk_widget_set_usize (GTK_WIDGET(canvas_bg), screen_width, screen_height);
       
       /* Create a black box for the background */
       gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
 			     gnome_canvas_rect_get_type (),
 			     "x1", (double) 0,
 			     "y1", (double) 0,
-			     "x2", (double) gdk_screen_width(),
-			     "y2", (double) gdk_screen_height() + 30,
+			     "x2", (double) screen_width,
+			     "y2", (double) screen_height + 30,
 			     "fill_color", "black",
 			     "outline_color", "black",
 			     "width_units", (double)0,
 			     NULL);
-      
     }
 
   /* Create a vertical box in which I put first the play board area, then the button bar */
@@ -311,9 +365,9 @@ static void init_background()
       gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
 			     gnome_canvas_widget_get_type (),
 			     "widget", vbox, 
-			     "x", (double) (gdk_screen_width()-
+			     "x", (double) (screen_width-
 					    BOARDWIDTH*xratio)/2,
-			     "y", (double) (gdk_screen_height()-
+			     "y", (double) (screen_height-
 					    BOARDHEIGHT*xratio-BARHEIGHT*xratio)/2,
 			     "width",  (double)BOARDWIDTH*xratio,
 			     "height", (double)BOARDHEIGHT*xratio+BARHEIGHT*xratio,
@@ -407,8 +461,8 @@ void gcompris_set_cursor(guint gdk_cursor_type)
 
 static void setup_window ()
 {
-  GdkPixbuf *gcompris_icon_pixbuf;
-  GError *error = NULL;
+  GdkPixbuf    *gcompris_icon_pixbuf;
+  GError       *error = NULL;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
@@ -524,18 +578,6 @@ static void setup_window ()
 
 #ifdef WIN32
   {
-    time_t	 ctime;
-    gchar	*prog;
-    struct stat  buf;
-
-    ctime = time(NULL);
-    prog = g_find_program_in_path("gcompris");
-    if(stat(prog, &buf)==0) {
-      if(difftime(ctime, buf.st_mtime)<2592000) {
-	grace_period = 1;
-	return;
-      }
-    }
     if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
       board_pause();
       gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://gcompris.net\nThe Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\nhttp://www.fsf.org/philosophy"), NULL);
@@ -557,7 +599,19 @@ void gcompris_end_board()
 void gcompris_exit()
 {
   board_stop();
+
+#ifdef XRANDR
+  /* Set back the original screen size */
+  if(properties->fullscreen) {
+    xrandr_get_config ( xrandr );	/* Need to refresh our config or xrandr api will reject us */
+    xrandr->xr_current_size = (SizeID)xr_previous_size;
+    xrandr_set_config( xrandr );
+  }
+#endif
+
   gtk_main_quit ();
+
+
 }
 
 static void quit_cb (GtkWidget *widget, gpointer data)
@@ -674,6 +728,47 @@ void gcompris_log_handler (const gchar *log_domain,
   if(gcompris_debug)
     g_printerr ("%s: %s\n\n", "gcompris", message);
 }
+
+#ifdef XRANDR
+/*
+ * XRANDR STUFF
+ * ------------
+ */
+static void
+xrandr_get_config ( XRANDRData *data )
+{
+  data->xr_screen_conf = XRRGetScreenInfo (GDK_DISPLAY(), GDK_ROOT_WINDOW());
+  
+  data->xr_current_size = XRRConfigCurrentConfiguration (data->xr_screen_conf, 
+							 &data->xr_current_rotation);
+
+  data->xr_sizes = XRRConfigSizes(data->xr_screen_conf, &data->xr_nsize);
+  
+  data->xr_rotations = XRRConfigRotations(data->xr_screen_conf,
+					  &data->xr_current_rotation);
+}
+
+gboolean
+xrandr_set_config( XRANDRData  *data )
+{
+  Status  status = RRSetConfigFailed;
+
+  if (data->xr_lock_updates) return FALSE;
+  
+  status = XRRSetScreenConfig (GDK_DISPLAY(), 
+			       data->xr_screen_conf, 
+			       GDK_ROOT_WINDOW(), 
+			       data->xr_current_size, 
+			       data->xr_current_rotation, 
+			       CurrentTime);
+
+  if(status) {
+    printf("ERROR: Failed to set back the original resolution XRRSetScreenConfig returned status = %d\n", (int)status);
+  }
+  return TRUE;
+
+}
+#endif
 
 /*****************************************
  * Main

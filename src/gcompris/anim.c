@@ -24,57 +24,41 @@
 
 #define TICK_TIME 20
 
-/* used for keeping track of active animations */
-typedef struct {
-  GnomeCanvasGroup *parent;
-  GnomeCanvasPixbuf *item;
-  GcomprisAnimation *anim;
-  GdkPixbufAnimationIter *iter;
-} ActiveAnim;
-
-/* a list of ActiveAnim*s */
-static GSList *active_list;
+/* the list of active animations; we need to update it if active != NULL */
+static GSList *active;
 
 /* private callback */
-static gboolean anim_tick(ActiveAnim*);
-
-/* compare function to test if an ActiveAnim has a particular CanvasPixbuf */
-static gint anim_item_cmpr(const ActiveAnim*, const ActiveAnim*);
-static gint anim_anim_cmpr(const ActiveAnim*, const ActiveAnim*);
+static gboolean anim_tick(void*);
 
 GcomprisAnimation *gcompris_load_animation(char *filename)
 {
-  GIOChannel *ch;
+  FILE *f;
   if(filename[0] == '/')  /* we were probably called by load_animation_asset */
     {
-      ch = g_io_channel_new_file(filename, "r", NULL);
+      f = fopen(filename, "r");
     }
   else
     {
       gchar *tmp = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, filename);
-      ch = g_io_channel_new_file(tmp, "r", NULL);
+      f = fopen(tmp, "r");
       g_free(tmp);
     }
 
-  if(!ch)
+  if(!f)
     {
       g_warning("Couldn't open animation-spec file\n");
       return NULL;
     }
 
-  gchar *tmp = NULL;
+  char tmp[100];
   GSList *files = NULL;
   GcomprisAnimation *anim = NULL;
 
-  /* read whitespace-separated filenames form the animation spec-file */
-  while(g_io_channel_read_line(ch, &tmp, NULL, NULL, NULL)==G_IO_STATUS_NORMAL)
+  /* read filenames, one per line, from the animation spec-file */
+  while(fscanf(f, "%99s", tmp) == 1)
     {
-      char *c;
-      for(c=tmp; *c && !isspace(*c); c++) /* get rid of everything from the
-                                           * first whitespace onwards */
-          ;
-      *c = '\0';
-      files = g_slist_append(files, tmp);
+      files = g_slist_append(files, 
+                             g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, tmp));
     }
 
   anim = g_malloc(sizeof(GcomprisAnimation));
@@ -84,22 +68,21 @@ GcomprisAnimation *gcompris_load_animation(char *filename)
   /* open the animations and assign them */
   GError *error = NULL;
   GSList *cur;
+  char *name;
   int i;
   for(cur=files, i=0; cur; cur = g_slist_next(cur), i++)
     {
-      tmp = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, (char*)cur->data);
-      anim->anim[i] = gdk_pixbuf_animation_new_from_file(tmp, &error);
-      printf("Opened animation %s\n", tmp);
-      g_free(tmp);
+      name = (char*) cur->data;
+      anim->anim[i] = gdk_pixbuf_animation_new_from_file(name, &error);
+      printf("Opened animation %s\n", name);
       if(!anim->anim[i])
         {
-          tmp = g_strdup_printf("Couldn't open animation %s: %s\n",
-                                (char*)cur->data,
-                                error->message);
-          printf("%s\n", tmp);
-          g_free(tmp);
+          g_critical("Couldn't open animation %s: %s\n", name, error->message);
+          return NULL;
         }
+      g_free(name);
     }
+  g_slist_free(files);
   return anim;
 }
 
@@ -118,89 +101,87 @@ GcomprisAnimation *gcompris_load_animation_asset(gchar *dataset,
   return NULL;
 }
 
-GnomeCanvasPixbuf *gcompris_activate_animation(GnomeCanvasGroup *parent,
-                                               GcomprisAnimation *anim)
+GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
+                                                    GcomprisAnimation *anim)
 {
-  ActiveAnim *active = g_malloc(sizeof(ActiveAnim));
+  GcomprisAnimCanvasItem *item = g_malloc(sizeof(GcomprisAnimCanvasItem));
 
-  active->parent = parent;
-  active->anim = anim;
-  active->iter = gdk_pixbuf_animation_get_iter(anim->anim[0], NULL);
-  active->item = (GnomeCanvasPixbuf*) gnome_canvas_item_new(
+  item->state = 0;
+  item->anim = anim;
+  item->iter = gdk_pixbuf_animation_get_iter(anim->anim[0], NULL);
+  item->canvas = (GnomeCanvasPixbuf*) gnome_canvas_item_new(
                             parent,
                             GNOME_TYPE_CANVAS_PIXBUF,
                             "pixbuf",
-                            gdk_pixbuf_animation_iter_get_pixbuf(active->iter),
+                            gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
                             NULL);
 
-  if(active_list == NULL)
+  if(active == NULL)
       g_timeout_add(TICK_TIME, (GSourceFunc)anim_tick, NULL);
 
-  /* update the active list */
-  active_list = g_slist_append(active_list, active);
-
-  return active->item;
+  active = g_slist_append(active, item);
+  return item;
 }
 
-void gcompris_deactivate_animation(GnomeCanvasItem *item)
+void gcompris_deactivate_animation(GcomprisAnimCanvasItem *item)
 {
-  ActiveAnim dummy;
-  dummy.item = (GnomeCanvasPixbuf*)item;
+  GSList *node = g_slist_find( active, item );
+  if( !node )
+  {
+    g_critical( "Tried to deactive non-existant animation" );
+    return;
+  }
 
-  GSList *active_node = g_slist_find_custom(active_list,
-                                            &dummy,
-                                            (GCompareFunc)anim_item_cmpr);
-
-  if(!active_node)
-    {
-      g_warning("tried to deactivate inactive animation\n");
-      return;
-    }
-
-  ActiveAnim *active = (ActiveAnim*) active_node->data;
-  g_object_unref(active->iter);
-  g_object_unref(active->item);
-  g_free(active);
-
-  active_list = g_slist_delete_link(active_list, active_node);
+  active = g_slist_delete_link(active, node);
+  g_object_unref(item->iter);
+  g_free(item);
 }
 
-gboolean gcompris_free_animation(GcomprisAnimation *anim)
+void gcompris_free_animation(GcomprisAnimation *anim)
 {
-  ActiveAnim dummy;
-  dummy.anim = anim;
-
-  /* if any active animations are using anim, abort */
-  if(g_slist_find_custom(active_list, &dummy, (GCompareFunc)anim_anim_cmpr)
-      != NULL)
-    {
-      g_warning("Tried to free an active animation\n");
-      return FALSE;
-    }
-
   int i;
   for(i=0; i<anim->numstates; i++)
     {
       g_object_unref(anim->anim[i]);
     }
   g_free(anim);
-  return TRUE;
+}
+
+void gcompris_set_anim_state(GcomprisAnimCanvasItem *item, int state)
+{
+  if(state < item->anim->numstates)
+    {
+      item->state = state;
+    }
+  else
+    {
+      item->state = 0;
+    }
+  g_object_unref( item->iter );
+  item->iter = gdk_pixbuf_animation_get_iter( item->anim->anim[item->state],
+                                              NULL );
+  gnome_canvas_item_set( (GnomeCanvasItem*)item->canvas, "pixbuf",
+                         gdk_pixbuf_animation_iter_get_pixbuf(item->iter),
+                         NULL);
 }
 
 /* private callback functions */
 
-static gboolean anim_tick(ActiveAnim *ignore)
+static gboolean anim_tick(void *ignore)
 {
-  if(active_list == NULL)
+  if(active == NULL)
+    {
+      printf("deactivating anim_tick\n");
       return FALSE;
+    }
 
   GSList *cur;
-  for(cur=active_list; cur; cur = g_slist_next(cur))
+  for(cur=active; cur; cur = g_slist_next(cur))
     {
-      ActiveAnim *a = (ActiveAnim*)cur->data;
+      GcomprisAnimCanvasItem *a = (GcomprisAnimCanvasItem*)cur->data;
       if( gdk_pixbuf_animation_iter_advance( a->iter, NULL) )
         {
-          gnome_canvas_item_set((GnomeCanvasItem*)a->item, "pixbuf", 
+          gnome_canvas_item_set((GnomeCanvasItem*)a->canvas, "pixbuf", 
                                 gdk_pixbuf_animation_iter_get_pixbuf(a->iter),
                                 NULL);
         }
@@ -208,16 +189,3 @@ static gboolean anim_tick(ActiveAnim *ignore)
   return TRUE;
 }
 
-static gint anim_item_cmpr(const ActiveAnim *a1, const ActiveAnim *a2)
-{
-  if(a1->item == a2->item)
-      return 0;
-  return 1;
-}
-
-static gint anim_anim_cmpr(const ActiveAnim *a1, const ActiveAnim *a2)
-{
-  if(a1->anim == a2->anim)
-      return 0;
-  return 1;
-}
