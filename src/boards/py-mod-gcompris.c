@@ -561,6 +561,11 @@ void python_gcompris_module_init(void)
   /* Some non gcompris.h constants. */
   PyModule_AddStringConstant(gcomprisModule, "DATA_DIR", PACKAGE_DATA_DIR);
 
+  /* GetText constants. */
+  PyModule_AddStringConstant(gcomprisModule, "GETTEXT_PACKAGE", GETTEXT_PACKAGE);
+  PyModule_AddStringConstant(gcomprisModule, "PACKAGE_LOCALE_DIR",  PACKAGE_LOCALE_DIR);
+
+
   /* Initialize the sub modules */
   python_gcompris_bonus_module_init();
   python_gcompris_score_module_init();

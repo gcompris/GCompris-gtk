@@ -1,3 +1,9 @@
+2004-01-26  Olivier Samyn  <osamyn@ulb.ac.be>
+
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init): Added gettext variables
+	* src/boards/python/gcompris/__init__.py: Added gettext binding
+	* src/boards/python/pythontest.py: Sample gettext use
+
 2004-01-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/gletters.c: (pause_board), (start_board),
