@@ -201,3 +201,8 @@ rm -rf $RPM_BUILD_ROOT
 %files sounds-fr
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr
+
+%files sounds-pt
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/pt
+

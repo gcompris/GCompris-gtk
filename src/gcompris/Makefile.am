@@ -43,8 +43,7 @@ gcompris_SOURCES = \
 
 
 gcompris_LDFLAGS = \
-	-export-dynamic \
-	-lvorbisfile
+	-export-dynamic 
 
 gcompris_LDADD = \
 	$(LIBICONV)		\
@@ -55,8 +54,7 @@ gcompris_LDADD = \
 
 
 gcompris_edit_LDFLAGS = \
-	-export-dynamic \
-	-lvorbisfile
+	-export-dynamic 
 
 gcompris_edit_SOURCES = \
 	gcompris-edit.c gcompris-edit.h \

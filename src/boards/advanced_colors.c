@@ -363,6 +363,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gnome_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
       clicked = -1;
       for (i=0; i<4; i++) {
 	for (j=0; j<2; j++) {

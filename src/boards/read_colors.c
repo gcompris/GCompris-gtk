@@ -116,7 +116,7 @@ static void pause_board (gboolean pause)
     return;
 
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
-      game_won();
+    game_won();
 
   board_paused = pause;
 }
@@ -125,38 +125,38 @@ static void pause_board (gboolean pause)
  *
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
-	GList * list = NULL;
-	int * item;
-	int i;
+  GList * list = NULL;
+  int * item;
+  int i;
 
   if(agcomprisBoard!=NULL) {
-      gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "read_colors/read_colors_background.png");
-      gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(GCOMPRIS_BAR_OK);
+    gcomprisBoard=agcomprisBoard;
+    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "read_colors/read_colors_background.png");
+    gcomprisBoard->level=1;
+    gcomprisBoard->maxlevel=1;
+    gcompris_bar_set(GCOMPRIS_BAR_OK);
 
-      gamewon = FALSE;
-      errors = MAX_ERRORS;
+    gamewon = FALSE;
+    errors = MAX_ERRORS;
 
-      init_xml();
+    init_xml();
       
-      // we generate a list of color indexes in a random order
-      while (g_list_length(listColors) > 0)
-	listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+    // we generate a list of color indexes in a random order
+    while (g_list_length(listColors) > 0)
+      listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
       
-      for (i=0; i<LAST_COLOR; i++)
-	list = g_list_append(list, GINT_TO_POINTER(i));
+    for (i=0; i<LAST_COLOR; i++)
+      list = g_list_append(list, GINT_TO_POINTER(i));
       
-      while ((g_list_length(list) > 0)) {
-	i = RAND(0,g_list_length(list)-1);
-	item = g_list_nth_data(list, i);
-	listColors = g_list_append(listColors, item);
-	list = g_list_remove(list, item);
-      }
+    while ((g_list_length(list) > 0)) {
+      i = RAND(0,g_list_length(list)-1);
+      item = g_list_nth_data(list, i);
+      listColors = g_list_append(listColors, item);
+      list = g_list_remove(list, item);
+    }
       
-      read_colors_next_level();
-      pause_board(FALSE);
+    read_colors_next_level();
+    pause_board(FALSE);
   }
 }
 
@@ -166,12 +166,12 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 static void end_board () {
 
   if(gcomprisBoard!=NULL){
-      pause_board(TRUE);
-      gcompris_score_end();
-      read_colors_destroy_all_items();
-		// free list
-		while (g_list_length(listColors) > 0)
- 			listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+    pause_board(TRUE);
+    gcompris_score_end();
+    read_colors_destroy_all_items();
+    // free list
+    while (g_list_length(listColors) > 0)
+      listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
   }
   gcomprisBoard = NULL;
 }
@@ -180,12 +180,12 @@ static void end_board () {
  *
  * =====================================================================*/
 gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
-	if (gcomprisBoard) {
-      if(g_strcasecmp(gcomprisBoard->type, "read_colors")==0) {
-	  		/* Set the plugin entry */
-	  		gcomprisBoard->plugin=&menu_bp;
-	  		return TRUE;
-			}
+  if (gcomprisBoard) {
+    if(g_strcasecmp(gcomprisBoard->type, "read_colors")==0) {
+      /* Set the plugin entry */
+      gcomprisBoard->plugin=&menu_bp;
+      return TRUE;
+    }
   }
   return FALSE;
 }
@@ -200,7 +200,7 @@ static void read_colors_next_level() {
   /* Try the next level */
   read_colors_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 
-	/* show text of color to find */
+  /* show text of color to find */
   color_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
@@ -217,7 +217,7 @@ static void read_colors_next_level() {
  * =====================================================================*/
 static void read_colors_destroy_all_items() {
   if(boardRootItem!=NULL)
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem = NULL;
 }
@@ -229,7 +229,7 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   char *str = NULL;
 
-	boardRootItem = GNOME_CANVAS_GROUP(
+  boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
@@ -239,40 +239,40 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "read_colors_highlight.png");
   highlight_pixmap = gcompris_load_pixmap(str);
 
-	highlight_image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", highlight_pixmap,
-				      "x", (double) 0,
-				      "y", (double) 0,
-				      "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-				      "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  highlight_image_item = gnome_canvas_item_new (boardRootItem,
+						gnome_canvas_pixbuf_get_type (),
+						"pixbuf", highlight_pixmap,
+						"x", (double) 0,
+						"y", (double) 0,
+						"width", (double) gdk_pixbuf_get_width(highlight_pixmap),
+						"height", (double) gdk_pixbuf_get_height(highlight_pixmap),
+						"width_set", TRUE,
+						"height_set", TRUE,
+						NULL);
 
-	highlight_width = gdk_pixbuf_get_width(highlight_pixmap);
-	highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
+  highlight_width = gdk_pixbuf_get_width(highlight_pixmap);
+  highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
 
   g_free(str);
-	gnome_canvas_item_hide(highlight_image_item);
+  gnome_canvas_item_hide(highlight_image_item);
 
   gdk_pixbuf_unref(highlight_pixmap);
   gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
 
-	/* setup the clock */
+  /* setup the clock */
   str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
   clock_pixmap = gcompris_load_pixmap(str);
 
-	clock_image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", clock_pixmap,
-				      "x", (double) CLOCK_X,
-				      "y", (double) CLOCK_Y,
-				      "width", (double) gdk_pixbuf_get_width(clock_pixmap),
-				      "height", (double) gdk_pixbuf_get_height(clock_pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  clock_image_item = gnome_canvas_item_new (boardRootItem,
+					    gnome_canvas_pixbuf_get_type (),
+					    "pixbuf", clock_pixmap,
+					    "x", (double) CLOCK_X,
+					    "y", (double) CLOCK_Y,
+					    "width", (double) gdk_pixbuf_get_width(clock_pixmap),
+					    "height", (double) gdk_pixbuf_get_height(clock_pixmap),
+					    "width_set", TRUE,
+					    "height_set", TRUE,
+					    NULL);
 
   g_free(str);
 
@@ -284,20 +284,20 @@ static GnomeCanvasItem *read_colors_create_item(GnomeCanvasGroup *parent) {
 static void update_clock() {
   char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",errors);
 
-	gtk_object_destroy (GTK_OBJECT(clock_image_item));
+  gtk_object_destroy (GTK_OBJECT(clock_image_item));
 
   clock_pixmap = gcompris_load_pixmap(str);
 
-	clock_image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", clock_pixmap,
-				      "x", (double) CLOCK_X,
-				      "y", (double) CLOCK_Y,
-				      "width", (double) gdk_pixbuf_get_width(clock_pixmap),
-				      "height", (double) gdk_pixbuf_get_height(clock_pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  clock_image_item = gnome_canvas_item_new (boardRootItem,
+					    gnome_canvas_pixbuf_get_type (),
+					    "pixbuf", clock_pixmap,
+					    "x", (double) CLOCK_X,
+					    "y", (double) CLOCK_Y,
+					    "width", (double) gdk_pixbuf_get_width(clock_pixmap),
+					    "height", (double) gdk_pixbuf_get_height(clock_pixmap),
+					    "width_set", TRUE,
+					    "height_set", TRUE,
+					    NULL);
 
   gdk_pixbuf_unref(clock_pixmap);
   g_free(str);
@@ -308,30 +308,30 @@ static void update_clock() {
 static void game_won() {
   gcomprisBoard->sublevel++;
 
-	listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+  listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
   if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
-		board_finished(BOARD_FINISHED_TUXLOCO);
-		return;
+    board_finished(BOARD_FINISHED_TUXLOCO);
+    return;
   }
 
-	read_colors_next_level();
+  read_colors_next_level();
 }
 /* =====================================================================
  *
  * =====================================================================*/
 static void process_ok() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
-	if (!gamewon)
-		errors--;
-	if (errors <1)
-		errors = 1;
-	update_clock();
+  if (!gamewon)
+    errors--;
+  if (errors <1)
+    errors = 1;
+  update_clock();
 	
-	if (errors <= 1) {
-		board_finished(BOARD_FINISHED_TOOMANYERRORS);
-		return;
-	}
+  if (errors <= 1) {
+    board_finished(BOARD_FINISHED_TOOMANYERRORS);
+    return;
+  }
 
 }
 
@@ -341,28 +341,30 @@ static void process_ok() {
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int i, j, clicked;
-	x = event->button.x;
+  
+  x = event->button.x;
   y = event->button.y;
 
-	if(board_paused)
+  if(board_paused)
     return FALSE;
-
+  
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-			clicked = -1;
-			for (i=0; i<LAST_COLOR; i++) {
-				if (hypot((double) (X[i]-x),(double)(Y[i]-y)) < RADIUS) {
-					clicked = i;
-					break;
-				}
-			}
+      gnome_canvas_c2w (gcomprisBoard->canvas, x, y, &x, &y);
+      clicked = -1;
+      for (i=0; i<LAST_COLOR; i++) {
+	if (hypot((double) (X[i]-x),(double)(Y[i]-y)) < RADIUS) {
+	  clicked = i;
+	  break;
+	}
+      }
 
-			if (clicked >= 0) {
-				highlight_selected(clicked);
-				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
-				}
-			break;
+      if (clicked >= 0) {
+	highlight_selected(clicked);
+	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+      }
+      break;
 
     default:
       break;
@@ -374,17 +376,17 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
  *
  * =====================================================================*/
 static void highlight_selected(int c) {
-	int x, y;
+  int x, y;
 
-	assert(c>=0 && c<LAST_COLOR);
+  assert(c>=0 && c<LAST_COLOR);
 
-	x = X[c];
-	y = Y[c];
+  x = X[c];
+  y = Y[c];
 
-	x -= highlight_width/2;
-	y -= highlight_height/2;
-	gnome_canvas_item_show(highlight_image_item);
-	item_absolute_move(highlight_image_item, x, y);
+  x -= highlight_width/2;
+  y -= highlight_height/2;
+  gnome_canvas_item_show(highlight_image_item);
+  item_absolute_move(highlight_image_item, x, y);
 }
 /* ===================================
  *                XML stuff
@@ -393,7 +395,7 @@ static void init_xml()
 {
   char *filename;
   filename = g_strdup_printf("%s/%s/board1.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);
-	printf("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
+  printf("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
 
   assert(g_file_exists(filename));
   assert(read_xml_file(filename)== TRUE);
@@ -412,49 +414,49 @@ static void dump_xml() {
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *text = NULL;
-	char * tmp = NULL;
+  char * tmp = NULL;
   char *sColor = NULL;
-	int color = 0;
-	int i;
-	gchar *lang;
+  int color = 0;
+  int i;
+  gchar *lang;
 
-	xmlnode = xmlnode->xmlChildrenNode;
+  xmlnode = xmlnode->xmlChildrenNode;
 
   xmlnode = xmlnode->next;
 
   while (xmlnode != NULL) {
 
-	  	lang = xmlGetProp(xmlnode,"lang");
+    lang = xmlGetProp(xmlnode,"lang");
 
-			// try to match color[i]
-			for (i=0; i<LAST_COLOR; i++) {
-				sColor = g_strdup_printf("color%d", i+1);
-				if (!strcmp(xmlnode->name, sColor)) {
-					if (lang == NULL) { // get default value
-							text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-							colors[i] = text;
-					} else // get correct language
-						if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
-							text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-							printf("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
-							colors[i] = text;
-							color++;
-							}
-					break;
-					}
-			g_free(sColor);
-			} // end for
-		xmlnode = xmlnode->next;
-	}
+    // try to match color[i]
+    for (i=0; i<LAST_COLOR; i++) {
+      sColor = g_strdup_printf("color%d", i+1);
+      if (!strcmp(xmlnode->name, sColor)) {
+	if (lang == NULL) { // get default value
+	  text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  colors[i] = text;
+	} else // get correct language
+	  if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
+	    text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    printf("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
+	    colors[i] = text;
+	    color++;
+	  }
+	break;
+      }
+      g_free(sColor);
+    } // end for
+    xmlnode = xmlnode->next;
+  }
 
-	printf("colors found in XML = %d\n", color);
-	for (color=0; color<LAST_COLOR; color++)
-		printf("%d %s\n", color, colors[color]);
+  printf("colors found in XML = %d\n", color);
+  for (color=0; color<LAST_COLOR; color++)
+    printf("%d %s\n", color, colors[color]);
 
-	// I really don't know why this test, but otherwise, the list is doubled
-	// with 1 line on 2 filled with NULL elements
-	if ( text == NULL)
-		return;
+  // I really don't know why this test, but otherwise, the list is doubled
+  // with 1 line on 2 filled with NULL elements
+  if ( text == NULL)
+    return;
 
 }
 
@@ -465,7 +467,7 @@ static void parse_doc(xmlDocPtr doc)
 
   for(node = doc->children->children; node != NULL; node = node->next) {
     if ( g_strcasecmp(node->name, "Board") == 0 )
-    	add_xml_data(doc, node,NULL);
+      add_xml_data(doc, node,NULL);
   }
 
 }
