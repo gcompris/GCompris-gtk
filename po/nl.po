@@ -1,92 +1,117 @@
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Dirk Schouten <schoutdi@knoware.nl>, 2000.
 # Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>, 2001.
-#
-#, fuzzy
+# Tino Meinen <a.t.meinen@chello.nl>, 2002
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.2\n"
-"POT-Creation-Date: 2002-01-07 02:25+0100\n"
-"PO-Revision-Date: 2000-11-12 21:13+0200\n"
-"Last-Translator: Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: gcompris\n"
+"POT-Creation-Date: 2002-01-27 10:26-0500\n"
+"PO-Revision-Date: 2002-01-28 04:02+0100\n"
+"Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
+"Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-#: src/boards/algebra.c:93 src/boards/clockgame.c:77
-msgid "Learning Clock"
-msgstr "Kloklezen"
+#: boards/algebra_by.xml.in.h:1 boards/algebra_div.xml.in.h:1
+#: boards/algebra_minus.xml.in.h:1 boards/algebra_plus.xml.in.h:1
+msgid "I Ask you some algebra questions"
+msgstr "Ik vraag je een paar sommen"
 
-#: src/boards/algebra.c:94 src/boards/clockgame.c:78
-msgid "Learn how to read the time"
-msgstr "Leer de klok lezen"
+#: boards/algebra_by.xml.in.h:2
+msgid "Pratice the multiplication operation"
+msgstr "Oefenen met vermenigvuldigen"
 
-#: src/boards/algebra_guesscount.c:141 src/boards/algebra_guesscount.c:142
-msgid "Guess operations"
+#: boards/algebra_div.xml.in.h:2
+msgid "Pratice the division operation"
+msgstr "Oefenen met delen"
+
+#: boards/algebra_guesscount.xml.in.h:1
+msgid "Find the correct operations to get the result"
+msgstr "Zoek de juiste bewerkingen om het antwoord te krijgen"
+
+#: boards/algebra_guesscount.xml.in.h:2
+msgid ""
+"With displayed numbers and operations, find the right combination to get the "
+"right result"
 msgstr ""
+"Zoek, met de getoonde getallen en bewerkingen, de juiste combinatie om het "
+"goede resultaat te verkrijgen"
 
-#: src/boards/click_on_letter.c:71
-#, fuzzy
-msgid "Read a letter"
+#: boards/algebra_minus.xml.in.h:2
+msgid "Pratice the substraction operation"
+msgstr "Oefenen met aftrekken"
+
+#: boards/algebra_plus.xml.in.h:2
+msgid "Pratice the addition operation"
+msgstr "Oefenen met optellen"
+
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra boards"
+msgstr "Ga naar de rekensommen"
+
+#: boards/algebramenu.xml.in.h:2 boards/computer.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select a board"
+msgstr "Klik met de linker muisknop om een bordspel te kiezen"
+
+#: boards/babymatch.xml.in.h:1
+msgid "Drag and Drop the items to make them match"
+msgstr "Sleep de prentjes naar de juiste plaats"
+
+#: boards/babymatch.xml.in.h:2
+msgid "Matching Items"
+msgstr "Wat hoort bij elkaar?"
+
+#: boards/babyshapes.xml.in.h:1
+msgid "Baby Shape Puzzle"
+msgstr "Baby puzzel"
+
+#: boards/babyshapes.xml.in.h:2
+msgid "Drag and Drop the shapes on their respective target"
+msgstr "Sleep de vormen naar de juiste plaats"
+
+#: boards/babyshapes.xml.in.h:3
+msgid "Good mouse control"
+msgstr "Goede muisbeheersing"
+
+#: boards/click_on_letter.xml.in.h:1
+msgid "Click on a letter"
 msgstr "Klik op een letter"
 
-#: src/boards/click_on_letter.c:72
-msgid "Learn to recognize letters"
-msgstr ""
+#: boards/click_on_letter.xml.in.h:2
+msgid "Hear a letter and click on the right letter"
+msgstr "Klik op de letter die je hoort"
 
-#: src/boards/clickgame.c:77
+#: boards/clickgame.xml.in.h:1
+msgid "Can move the mouse"
+msgstr "Kan de muis laten bewegen"
+
+#: boards/clickgame.xml.in.h:2 src/boards/clickgame.c:77
 msgid "Click On Me"
 msgstr "Klik Op Mij"
 
-#: src/boards/clickgame.c:78
+#: boards/clickgame.xml.in.h:3
 msgid ""
-"Left-Click with the mouse on all swimming fishes before they leave the "
-"fishtank"
-msgstr "Klik met de muis op alle vissen vooraleer ze weg zwemmen"
-
-#: src/boards/clickgame.c:169
-#, c-format
-msgid "Couldn't open pixmap dir: %s"
-msgstr "Kan pixmap directory niet openen: %s"
-
-#: src/boards/clickgame.c:249
-msgid "Practice the computer mouse"
-msgstr "Oefen met de muis"
-
-#: src/boards/clickgame.c:250
-#, fuzzy
-msgid ""
-"<b>Goal:</b>\n"
-"<br>In this game, the children will discover the computer mouse.\n"
-"<br>The goal is just to click with the left mouse button on the moving "
-"fish.\n"
-"<p>\n"
-"<b>Credits:</b>\n"
-"<br>Fish are taken from the Unix utility xfishtank.\n"
-"<br>Images are taken from the National Undersearch Research Program (NURP) "
-"Collection at <a href=\"http://www.photolib.noaa.gov\">http://www.photolib."
-"noaa.gov</a>.\n"
-"<br>All images credit bellongs to the OAR/National Undersea Research Program "
-"(NURP).\n"
-"<br>Except for the first image that also credits the University of North "
-"Carolina at Wilmington.\n"
-"<br>In the gcompris level order, images information is:\n"
-"<ul><li>Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
-"Photographer: D. Kesling</li>\n"
-"<li>Location: Florida Keys (image nur03006)</li>\n"
-"<li>Location: Unknown (image nur03505)</li>\n"
-"<li>Location: Unknown (image nur03010)</li>\n"
-"<li>Location: Unknown (image nur03011)</li>\n"
-"<li>Location: Unknown (image nur03013)</li></ul>"
+"Credits: Fish are taken from the Unix utility xfishtank. Images are taken "
+"from the National Undersearch Research Program (NURP) Collection at "
+"http://www.photolib.noaa.gov All images credit bellongs to the OAR/National "
+"Undersea Research Program (NURP). Except for the first image that also "
+"credits the University of North Carolina at Wilmington. In the gcompris level "
+"order, images information is: Location: Tropical Atlantic Ocean, Florida Keys "
+"(image nur00523) Photographer: D. Kesling Location: Florida Keys (image "
+"nur03006) Location: Unknown (image nur03505) Location: Unknown (image "
+"nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
+"nur03013)"
 msgstr ""
 "In dit spel ontdekken de kinderen de computer-muis\n"
 "Klik met de linkerknop op de bewegende vissen.\n"
 "\n"
 "Bronvermelding:\n"
 "De vissen komen uit het Unix programma xfishtank.\n"
-"Foto's komen van het National Undersearch Research Program (NURP)http://www."
-"photolib.noaa.gov\n"
+"Foto's komen van het National Undersearch Research Program (NURP) "
+"http://www.photolib.noaa.gov\n"
 "Alle beeldrechten behoren aan het OAR/National Undersea Research Program "
 "behalve het eerste beeld, dat komt van de University of North Carolina at "
 "Wilmington\n"
@@ -97,38 +122,64 @@ msgstr ""
 "Locatie: Onbekend (beeld nur03505)\n"
 "Locatie: Onbekend (beeld nur03010)\n"
 "Locatie: Onbekend (beeld nur03011)\n"
-"Locatie: Onbekend (beeld nur03013)\n"
+"Locatie: Onbekend (beeld nur03013)"
 
-#: src/boards/clockgame.c:534
-msgid "Set the clock to:"
-msgstr "Zet de klok op:"
+#: boards/clickgame.xml.in.h:4
+msgid ""
+"In this game, the children will discover the click on the computer mouse. The "
+"goal is just to click with the left mouse button on the moving fish."
+msgstr ""
+"In dit spel leren kinderen het klikken met de muis. Het doel is zuiver en "
+"alleen om met de linker muisknop op de bewegende vissen te klikken. "
 
-#: src/boards/draw.c:96
+#: boards/clickgame.xml.in.h:5 src/boards/clickgame.c:78
+msgid ""
+"Left-Click with the mouse on all swimming fishes before they leave the "
+"fishtank"
+msgstr "Klik met de linker muisknop op alle vissen voordat ze weg zwemmen"
+
+#: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
+#: src/boards/clockgame.c:78
+msgid "Learn how to read the time"
+msgstr "Leer de klok lezen"
+
+#: boards/clockgame.xml.in.h:2 src/boards/algebra.c:93
+#: src/boards/clockgame.c:77
+msgid "Learning Clock"
+msgstr "Kloklezen"
+
+#: boards/computer.xml.in.h:1
+msgid "Discover the Computer"
+msgstr "Ontdek de Computer"
+
+#: boards/draw.xml.in.h:1 src/boards/draw.c:98
 msgid "A simple vector drawing tool"
 msgstr "Een eenvoudig tekenprogramma"
 
-#: src/boards/draw.c:97
+#: boards/draw.xml.in.h:2 src/boards/draw.c:99
 msgid "Creative board where you can freely draw"
 msgstr "Laat je tekentalenten de vrije loop"
 
-#: src/boards/draw.c:206
-#, fuzzy
-msgid "Free vector drawing tool"
-msgstr "Een eenvoudig tekenprogramma"
-
-#: src/boards/draw.c:207
-#, fuzzy
+#: boards/draw.xml.in.h:3
 msgid ""
-"<b>Goal:</b>\n"
-"<br>In this game, the children will be able to freely draw.\n"
-"<br>The goal is just to discover how he can create pretty looking drawings "
-"based on basic shapes: rectangles, ellipses and lines.\n"
-"<p>\n"
-"<b>Usage:</b>\n"
-"<br>On the left select a drawing tool, on the bottom select a color then "
-"click on the white area and drag to create a new shape.\n"
-"<br>To go faster, you can use the middle mouse button to delete an object or "
-"the right button to move an object.\n"
+"In this game, the children will be able to freely draw. The goal is just to "
+"discover how he can create pretty looking drawings based on basic shapes: "
+"rectangles, ellipses and lines."
+msgstr ""
+"In dit spel kunnen kinderen vrij tekenen. Het doel is te ontdekken hoe je "
+"mooie tekeningen kunt maken gebruik makend van de basisvormen: rechthoek, "
+"ellips en lijn."
+
+#: boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Moet de muis en de muisklik goed beheersen"
+
+#: boards/draw.xml.in.h:5
+msgid ""
+"On the left select a drawing tool, on the bottom select a color then click on "
+"the white area and drag to create a new shape. To go faster, you can use the "
+"middle mouse button to delete an object or the right button to move an "
+"object."
 msgstr ""
 "Doel:\n"
 "In dit spel kan je vrijuit tekeningen maken.\n"
@@ -137,27 +188,254 @@ msgstr ""
 "rechthoeken, ellipsen en lijnen.\n"
 "\n"
 "Gebruik:\n"
-"Kies een teken-wijze aan de linker kant, en een kleur aan de onderkant.\n"
+"Kies een tekenvorm aan de linker kant, en een kleur aan de onderkant.\n"
 "Klik dan in het witte veld en sleep de muis om een vorm te maken.\n"
-"Je kan sneller werken door de middelste muisknop te gebruiken om\n"
-"een object te verwijderen, en de rechter muisknop om een object\n"
-"te verplaatsen.\n"
+"Met de middelste muisknop kun je een object verwijderen en met de rechter "
+"muisknop kun je een object verplaatsen."
 
-#: src/boards/erase.c:73
+#: boards/erase.xml.in.h:1 src/boards/erase.c:73
 msgid "Move the mouse"
-msgstr "Beweeg De Muis"
+msgstr "Beweeg de muis"
 
-#: src/boards/erase.c:74
+#: boards/erase.xml.in.h:2 src/boards/erase.c:74
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
-#: src/boards/gletters.c:76
+#: boards/fun.xml.in.h:1
+msgid "Go to Amusement boards"
+msgstr "Ga naar de pret-borden"
+
+#: boards/gletters.xml.in.h:1 src/boards/gletters.c:76
 msgid "Simple Letters"
 msgstr "Eenvoudige Letters"
 
-#: src/boards/gletters.c:77
+#: boards/gletters.xml.in.h:2 src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
 msgstr "Typ de vallende letters voor ze de grond raken"
+
+#: boards/imageid.xml.in.h:1
+msgid "Practice reading by finding the word matching an image"
+msgstr "Lees-oefening om woorden aan beelden te koppelen"
+
+#: boards/imageid.xml.in.h:2
+msgid "Reading pratice"
+msgstr "Lees-oefening"
+
+#: boards/imagename.xml.in.h:1
+msgid "Drag and Drop the items above their written name"
+msgstr "Sleep de objecten naar hun geschreven naam"
+
+#: boards/imagename.xml.in.h:2
+msgid "Image Name"
+msgstr "Plaatjes Noemen"
+
+#: boards/memory.xml.in.h:1
+msgid "Discover the cards and find a matching pair"
+msgstr "Vind de passende kaarten"
+
+#: boards/memory.xml.in.h:2
+msgid "Memory Game with images"
+msgstr "Geheugenspel met beelden"
+
+#: boards/menu.xml.in.h:1
+msgid "GCompris Main Menu"
+msgstr "GCompris Hoofdmenu"
+
+#: boards/menu.xml.in.h:2
+msgid ""
+"GCompris is an educational games that provides different activities to "
+"children from 3 to 8 years old."
+msgstr ""
+"Gcompris is een leerzaam spel voor kinderen in de leeftijd van 3 to 8 jaar. "
+"Met het spel kunnen ze verschillende vaardigheden leren."
+
+#: boards/menu.xml.in.h:4
+msgid ""
+"The goal of gcompris is to provide a free alternative to popular proprietary "
+"edutainment software"
+msgstr ""
+"Het doel van gcompris is een Vrij alternatief te bieden voor populaire "
+"edutainment software."
+
+#: boards/menu.xml.in.h:5
+msgid ""
+"To use it, a simple click on an icon brings you to a board or a menu. At the "
+"bottom of the screen, you have the gcompris control bar. From right to left, "
+"bellow is the meaning of the icons. Note that these icons are displayed only "
+"when available in a board: Home - Back to previous menu or exit gcompris if "
+"no more Thumb - OK, confirm your answer Dice - The current level is "
+"displayed. Click on it to select another level Music note - Ask gcompris to "
+"repeat the question Question Mark - The help Tool Box - The configuration "
+"menu Tux Plane - The about box The stars means: 1 Star - 3 to 4 years old 2 "
+"Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
+msgstr ""
+"Het gebruik is als volgt: klik op een icoontje en je krijgt een bordspel of "
+"een menu te zien. Onderaan het scherm vind je de gcompris controlebalk. De "
+"icoontjes worden alleen getoont als ze beschikbaar zijn in een bordspel. Huis "
+"- Terug naar het vorige menu of beeindig gcompris. Duim - OK, bevestig je "
+"antwoord. Dobbelsteen - Het huidige niveau wordt getoond. Klik erop om een "
+"ander niveau te kiezen. Muzieknoot - Herhaal de vraag Vraagteken - De help "
+"Gereedschapskist - Het instellingen menu Tux Vliegtuig - De informatie over "
+"het spel De sterren betekenen: 1 Ster- 3 tot 4 jaar oud 2 Sterren 5 tot 6 "
+"jaar oud 3 Sterren 7 tot 8 jaar oud.  "
+
+#: boards/missing_letter.xml.in.h:1
+msgid "Fill up the missing letter"
+msgstr "Vul de ontbrekende letter in"
+
+#: boards/missing_letter.xml.in.h:2
+msgid "Missing Letter"
+msgstr "Ontbrekende Letter"
+
+#: boards/missing_letter/board1.xml.in.h:1
+msgid "apple _pple a i o"
+msgstr "appel _ppel a i o"
+
+#: boards/missing_letter/board1.xml.in.h:2
+msgid "ball _all b p d"
+msgstr "bal _al b p d"
+
+#: boards/missing_letter/board1.xml.in.h:3
+msgid "banana b_nana a o i"
+msgstr "banaan b_naan a o i"
+
+#: boards/missing_letter/board1.xml.in.h:4
+msgid "bed _ed b l f"
+msgstr "bed _ed b l f"
+
+#: boards/missing_letter/board1.xml.in.h:5
+msgid "bottle _ottle b t p"
+msgstr "fles _les f t p"
+
+#: boards/missing_letter/board1.xml.in.h:6
+msgid "cake _ake c p d"
+msgstr "taart _aart t p d"
+
+#: boards/missing_letter/board1.xml.in.h:7
+msgid "house hous_ e a i"
+msgstr "huis hui_ s z f"
+
+#: boards/missing_letter/board1.xml.in.h:8
+msgid "satchel s_tchel a o i"
+msgstr "schooltas scho_ltas o a i"
+
+#: boards/paintings.xml.in.h:1
+msgid "Drag and Drop the items to rebuild the original paintings"
+msgstr "Sleep de plaatjes naar de juiste plaats in het schilderij"
+
+#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:123
+msgid "Make the puzzle"
+msgstr "Maak de puzzel"
+
+#: boards/paratrooper.xml.in.h:1
+msgid ""
+"Click on any keyboard key to let Tux jump. Another keypress will open the "
+"parachute. Alternatively, a click on the plane and the tux also works."
+msgstr ""
+"Klik op een willekeurige toets om Tux te laten springen. Nog een keer drukken "
+"en de parachute opent zich. Je kunt in plaats daarvan ook op het vliegtuig "
+"klikken."
+
+#: boards/paratrooper.xml.in.h:2
+msgid ""
+"In this game, the children will try to make Tux the paratrooper lands safely "
+"on the fishing boat. He/She needs to take care of the wind side and speed."
+msgstr ""
+"In dit spel proberen de kinderen Tux, de parachutist, veilig te laten landen "
+"op de vissersboot. Ze moeten rekening houden met de windrichting en snelheid."
+
+#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:106
+msgid "Manage the paratrooper to let him safely land"
+msgstr "Probeer de parachutist op de boot te laten landen"
+
+#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:105
+msgid "Paratrooper"
+msgstr "Parachutist"
+
+#: boards/paratrooper.xml.in.h:5
+msgid ""
+"This board is game oriented. It doesnt needs specific skills to play with."
+msgstr ""
+"Dit spel is spel-georienteerd. Je hebt geen speciale vaardigheden nodig."
+
+#: boards/planegame.xml.in.h:1 src/boards/planegame.c:76
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr "Stuur het vliegtuig naar de wolken in de juiste volgorde"
+
+#: boards/planegame.xml.in.h:2 src/boards/planegame.c:75
+msgid "Numbers in Order"
+msgstr "Getallen in Volgorde"
+
+#: boards/reading.xml.in.h:1
+msgid "Go to the Reading boards"
+msgstr "Ga naar de lees-drils"
+
+#: boards/readingh.xml.in.h:1
+msgid "Horizontal reading practice"
+msgstr "Horizontale lees-dril"
+
+#: boards/readingh.xml.in.h:2
+msgid "Read a list of word and tell if the given word is in it"
+msgstr "Zeg of het gevraagde woord in de lijst zit"
+
+#: boards/readingv.xml.in.h:1
+msgid "Read a vertical list of word and tell if the given word is in it"
+msgstr "Zeg of het gevraagde woord in de lijst zit"
+
+#: boards/readingv.xml.in.h:2
+msgid "Vertical reading practice"
+msgstr "Verticale lees-dril"
+
+#: boards/scalesboard.xml.in.h:1
+msgid "Drag and Drop masses to equilibrate the scales"
+msgstr "Sleep de gewichten om de schaal in evenwicht te brengen"
+
+#: boards/scalesboard.xml.in.h:2
+msgid "Well balance the scales"
+msgstr "Breng de schaal in evenwicht"
+
+#: boards/smallnumbers.xml.in.h:1 src/boards/smallnumbers.c:69
+msgid "Numbers With Dices"
+msgstr "Getallen Met Dobbelstenen"
+
+#: boards/smallnumbers.xml.in.h:2
+msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
+msgstr ""
+"Kies uit de getallen 1 tot 9 van het toetsenbord voordat de dobbelstenen de "
+"grond raken"
+
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
+msgid "Falling Words"
+msgstr "Vallende Woorden"
+
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:83
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Typ de woorden vooraleer ze de grond raken"
+
+#: gcompris.desktop.in.h:1
+msgid "Educational game starting at 3 years old"
+msgstr "Educatief spel voor kinderen vanaf drie jaar"
+
+#: src/boards/algebra_guesscount.c:141 src/boards/algebra_guesscount.c:142
+msgid "Guess operations"
+msgstr "Raad de bewerkingen"
+
+#: src/boards/click_on_letter.c:71
+msgid "Read a letter"
+msgstr "Kies een letter"
+
+#: src/boards/click_on_letter.c:72
+msgid "Learn to recognize letters"
+msgstr "Leer letters te herkennen"
+
+#: src/boards/clickgame.c:169
+#, c-format
+msgid "Couldn't open pixmap dir: %s"
+msgstr "Kan pixmap directory niet openen: %s"
+
+#: src/boards/clockgame.c:534
+msgid "Set the watch to:"
+msgstr "Zet de klok op:"
 
 #: src/boards/imageid.c:109 src/boards/missingletter.c:103
 #: src/boards/reading.c:98
@@ -165,114 +443,48 @@ msgid "Reading"
 msgstr "Lezen"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:104
-#, fuzzy
 msgid "Learn how to read"
-msgstr "Leer de klok lezen"
+msgstr "Leer te lezen"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:527
-#: src/boards/missingletter.c:586 src/boards/shapegame.c:1263
+#: src/boards/imageid.c:570 src/boards/menu.c:502
+#: src/boards/missingletter.c:586 src/boards/shapegame.c:1270
+#: src/gcompris/gameutil.c:45 src/gcompris/gameutil.c:63
+#: src/gcompris/gameutil.c:82 src/gcompris/gameutil.c:254
+#: src/gcompris/gameutil.c:280 src/gcompris/gameutil.c:430
+#: src/gcompris/gameutil.c:431
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/imageid.c:573 src/boards/missingletter.c:589
-#: src/boards/shapegame.c:1266
-#, fuzzy, c-format
+#: src/boards/shapegame.c:1273
+#, c-format
 msgid "find file %s !"
 msgstr "bestand %s vinden !"
 
 #: src/boards/memory.c:232
 msgid "Memory"
-msgstr ""
+msgstr "Memorie"
 
 #: src/boards/memory.c:233
 msgid "Find the matching pair"
-msgstr ""
-
-#: src/boards/menu.c:78
-#, fuzzy
-msgid "Main Menu"
-msgstr "GCompris Hoofdmenu"
+msgstr "Zoek het gelijke paar"
 
 #: src/boards/menu.c:79
-#, fuzzy
+msgid "Main Menu"
+msgstr "Hoofdmenu"
+
+#: src/boards/menu.c:80
 msgid "Select a Board"
-msgstr "Selecteer je taal"
-
-#: src/boards/menu.c:208
-#, fuzzy
-msgid "GCompris Help"
-msgstr "GCompris"
-
-#: src/boards/menu.c:209
-msgid ""
-"<b>Goal:</b>\n"
-"<br>GCompris is an educational games that provides different activities to "
-"children starting at 3.\n"
-"<p>\n"
-"<b>Usage:</b>\n"
-"<br>To use it, a simple click on an icon brings you to a board or a menu.\n"
-"<br>At the bottom of the screen, you have the gcompris control bar.\n"
-"<br>From right to left, bellow is the meaning of the icons. Note that these "
-"icons are displayed only when available in a board:\n"
-"<ul><li>Home - Back to previous menu or exit gcompris if no more</li>\n"
-"<li>Thumb - OK, confirm your answer</li>\n"
-"<li>Dice - The current level is displayed. Click on it to select another "
-"level</li>\n"
-"<li>Question Mark - The help</li>\n"
-"<li>Music note - Ask gcompris to repeat the question</li></ul>\n"
-"<br>The stars means:\n"
-"<ul><li>1 Star  - 3 to 4 years old</li>\n"
-"<li>2 Stars - 5 to 6 years old</li>\n"
-"<li>3 Stars - 7 to 8 years old</li></ul>\n"
-"<p>\n"
-"<b>Credits:</b>\n"
-"<br>Author: Bruno Coudoin\n"
-"<br>Contribution: Pascal Georges\n"
-"<br>Graphics: Renaud Blanchard\n"
-"<br>Music: Djilali Sebihi\n"
-msgstr ""
-
-#: src/boards/paratrooper.c:106
-msgid "Paratrooper"
-msgstr "Valschermspringer"
-
-#: src/boards/paratrooper.c:107
-msgid "Manage the paratrooper to let him safely land"
-msgstr "Laat de valschermspringer op de boot landen"
-
-#: src/boards/paratrooper.c:352
-#, fuzzy
-msgid "The paratrooper game"
-msgstr "Valschermspringer"
-
-#: src/boards/paratrooper.c:353
-msgid ""
-"<b>Goal:</b>\n"
-"<br>In this game, the children will try to make Tux the paratrooper lands "
-"safely on the fishing boat. He/She needs to take care of the wind side and "
-"speed.\n"
-"<p>\n"
-"<b>Usage:</b>\n"
-"<br>Click on any keyboard key to let Tux jump. Another keypress will open "
-"the 'parachute'."
-msgstr ""
-
-#: src/boards/planegame.c:75
-msgid "Numbers in Order"
-msgstr "Getallen in Volgorde"
-
-#: src/boards/planegame.c:76
-msgid "Move the plane to catch the clouds in the correct order"
-msgstr "Stuur het vliegtuig naar de wolken in de juiste volgorde"
+msgstr "Selecteer een Spel"
 
 #: src/boards/railroad.c:95
 msgid "Memory game"
-msgstr ""
+msgstr "Memorie spel"
 
 #: src/boards/railroad.c:96
 msgid "Build a train conforming to the model"
-msgstr ""
+msgstr "Bouw een trein dat met het voorbeeld overeenkomt"
 
 #: src/boards/reading.c:99
 msgid "Read a list of words and then tell if the given word is in it"
@@ -298,90 +510,55 @@ msgstr "Ja, ik heb het gezien"
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
-#: src/boards/shapegame.c:120
-msgid "Make the puzzle"
-msgstr "Maak de puzzel"
-
-#: src/boards/shapegame.c:121
+#: src/boards/shapegame.c:124
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
 
-#: src/boards/smallnumbers.c:69
-msgid "Numbers With Dices"
-msgstr "Getallen Met Dobbelstenen"
-
 #: src/boards/smallnumbers.c:70
-#, fuzzy
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr ""
-"Type het getal 1 tot 6 van het toetsenbord \n"
-"voor de dobbelstenen de grond raken"
+"Kies uit de getallen 1 tot 9 van het toetsenbord \n"
+"voordat de dobbelstenen de grond raken"
 
-#: src/boards/wordsgame.c:82
-msgid "Falling Words"
-msgstr "Vallende Woorden"
-
-#: src/boards/wordsgame.c:83
-msgid "Fully type the falling words before they reach the ground"
-msgstr "Typ de woorden vooraleer ze de grond raken"
-
-#: src/gcompris/gcompris.c:62
-msgid "run gcompris in fullscreen mode."
-msgstr ""
-
-#: src/gcompris/gcompris.c:64
-msgid "run gcompris in window mode."
-msgstr ""
-
-#: src/gcompris/gcompris.c:66
-msgid "run gcompris with sound enabled."
-msgstr ""
-
-#: src/gcompris/gcompris.c:68
-msgid "run gcompris without sound."
-msgstr ""
-
-#: src/gcompris/gcompris.c:70
-msgid "Prints the version of "
-msgstr ""
-
-#: src/gcompris/gcompris.c:227
-msgid "GCompris I Have Understood"
-msgstr "GCompris Ik heb het begrepen"
-
-#: src/gcompris/gcompris.c:334
-#, fuzzy
+#: src/gcompris/about.c:58
 msgid ""
-"A simple educational board based game for children starting at 3. This "
-"software is a GNU Package"
+"Credits:\n"
+"Author: Bruno Coudoin\n"
+"Contribution: Pascal Georges\n"
+"Graphics: Renaud Blanchard\n"
+"Music: Djilali Sebihi\n"
 msgstr ""
-"Een eenvoudig leerspel voor kinderen vanaf drie jaar.\n"
-"Dit programma is een GNU pakket."
+"Makers:\n"
+"Auteur: Bruno Coudoin\n"
+"Toevoegingen: Pascal Georges\n"
+"Plaatjes: Renaud Blanchard\n"
+"Muziek: Djilali Sebihi\n"
 
-#: src/gcompris/gcompris.c:339
+#: src/gcompris/about.c:96
+msgid "About GCompris"
+msgstr "Over GCompris"
+
+#: src/gcompris/about.c:204
 msgid "GCompris Home Page"
 msgstr "GCompris Startpagina"
 
-#: src/gcompris/gcompris.c:342
-msgid "An OFSET development"
-msgstr "Een OFSET ontwikkeling"
-
-#: src/gcompris/gcompris.c:372
-msgid "Do you really want to quit GCompris?"
-msgstr "Wil je echt GCompris verlaten?"
-
-#: src/gcompris/gcompris.c:500
-#, c-format
+#: src/gcompris/about.c:226
 msgid ""
-"GCompris\n"
-"Version: %s\n"
-"Licence: GPL\n"
-"More infos on http://ofset.sourceforge.net/gcompris\n"
+"This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
+"Deze software is een onderdeel van GNU en valt onder de Gnu Public Licence."
+
+#: src/gcompris/about.c:254
+msgid "Help"
+msgstr "Help"
+
+#: src/gcompris/about.c:285 src/gcompris/config.c:137 src/gcompris/help.c:266
+msgid "OK"
+msgstr "OK"
 
 #: src/gcompris/config.c:40
 msgid "Azerbaijani Turkic"
-msgstr ""
+msgstr "Azerbeijaans Turks"
 
 #: src/gcompris/config.c:41
 msgid "German"
@@ -389,7 +566,7 @@ msgstr "Duits"
 
 #: src/gcompris/config.c:42
 msgid "Greek"
-msgstr ""
+msgstr "Grieks"
 
 #: src/gcompris/config.c:43
 msgid "English"
@@ -401,7 +578,7 @@ msgstr "Spaans"
 
 #: src/gcompris/config.c:45
 msgid "Finnish"
-msgstr ""
+msgstr "Fins"
 
 #: src/gcompris/config.c:46
 msgid "French"
@@ -409,208 +586,90 @@ msgstr "Frans"
 
 #: src/gcompris/config.c:47
 msgid "Italian"
-msgstr ""
+msgstr "Italiaans"
 
 #: src/gcompris/config.c:48
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlands"
 
 #: src/gcompris/config.c:49
 msgid "Brazil Portuguese"
-msgstr ""
+msgstr "Braziliaans"
 
 #: src/gcompris/config.c:50
 msgid "Romanian"
-msgstr ""
+msgstr "Roemeens"
 
 #: src/gcompris/config.c:51
-msgid "Slovenian"
-msgstr ""
+msgid "Swedish"
+msgstr "Zweeds"
 
 #: src/gcompris/config.c:52
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lithous"
 
 #: src/gcompris/config.c:111
-#, fuzzy
 msgid "GCompris Configuration"
-msgstr "GCompris Hoofdmenu"
-
-#: src/gcompris/config.c:139
-msgid "OK"
-msgstr ""
+msgstr "GCompris Instellingen"
 
 #: src/gcompris/config.c:239
 msgid "Fullscreen"
-msgstr ""
+msgstr "Volledig scherm"
 
 #: src/gcompris/config.c:267
 msgid "Music"
-msgstr ""
+msgstr "Muziek"
 
 #: src/gcompris/config.c:295
 msgid "Effect"
+msgstr "Effect"
+
+#: src/gcompris/gcompris.c:59
+msgid "run gcompris in fullscreen mode."
+msgstr "voer gcompris uit in volledig scherm"
+
+#: src/gcompris/gcompris.c:61
+msgid "run gcompris in window mode."
+msgstr "voer gcompris uit in een venster"
+
+#: src/gcompris/gcompris.c:63
+msgid "run gcompris with sound enabled."
+msgstr "voer gcompris uit met geluid aan"
+
+#: src/gcompris/gcompris.c:65
+msgid "run gcompris without sound."
+msgstr "voer gcompris uit zonder geluid"
+
+#: src/gcompris/gcompris.c:67
+msgid "Prints the version of "
+msgstr "Toont de versie van"
+
+#: src/gcompris/gcompris.c:227
+msgid "GCompris I Have Understood"
+msgstr "GCompris Ik heb het begrepen"
+
+#: src/gcompris/gcompris.c:406
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
+"GCompris\n"
+"Versie: %s\n"
+"Licencie: GPL\n"
+"Meer informatie op http://ofset.sourceforge.net/gcompris\n"
 
-#, fuzzy
-#~ msgid "Select the locale"
-#~ msgstr "Selecteer je taal"
+#: src/gcompris/help.c:43 src/gcompris/help.c:150
+msgid "Prerequisite"
+msgstr "Vereisten"
 
-#~ msgid "Select the language for the messages in GCompris"
-#~ msgstr "Selecteer de taal voor boodschappen in GCompris"
+#: src/gcompris/help.c:44 src/gcompris/help.c:179
+msgid "Goal"
+msgstr "Doel"
 
-#, fuzzy
-#~ msgid "GCompris will now display its messages in the selected language"
-#~ msgstr "GCompris zal zijn boodschappen nu tonen in het %s"
+#: src/gcompris/help.c:45 src/gcompris/help.c:207
+msgid "Manual"
+msgstr "Handleiding"
 
-#~ msgid ""
-#~ "If this message is not translated, \n"
-#~ "it means that probably GCompris is not translated in this language"
-#~ msgstr ""
-#~ "Indien deze boodschap niet vertaald is, dan is waarschijnlijk\n"
-#~ "GCompris nog helemaal niet vertaald naar deze taal."
-
-#~ msgid "I Ask you some algebra questions"
-#~ msgstr "Ik vraag je een paar sommen"
-
-#~ msgid "Pratice the multiplication operation"
-#~ msgstr "Oefenen met vermenigvuldigingen"
-
-#~ msgid "Pratice the division operation"
-#~ msgstr "Oefenen met delingen"
-
-#~ msgid "Pratice the substraction operation"
-#~ msgstr "Oefenen met aftrekkingen"
-
-#~ msgid "Pratice the addition operation"
-#~ msgstr "Oefenen met optellingen"
-
-#~ msgid "Go to Algebra boards"
-#~ msgstr "Ga naar de rekensommen"
-
-#~ msgid "Left-Click with the mouse to select a board"
-#~ msgstr "Klik met de linker muisknop om bord te kiezen"
-
-#~ msgid "Drag and Drop the items to make them match"
-#~ msgstr "Sleep de prentjes naar de juiste plaats"
-
-#~ msgid "Matching Items"
-#~ msgstr "Wat hoort bij elkaar?"
-
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Baby puzzel"
-
-#~ msgid "Drag and Drop the shapes on their respective target"
-#~ msgstr "Sleep de vormen naar hun passende plaats"
-
-#, fuzzy
-#~ msgid "Click on a letter"
-#~ msgstr "Klik Op Mij"
-
-#~ msgid "Hear a letter and click on the right letter"
-#~ msgstr "Klik op de letter die je hoort"
-
-#~ msgid "Discover the Computer"
-#~ msgstr "Ontdek de computer"
-
-#~ msgid "Go to Amusement boards"
-#~ msgstr "Ga naar de pret-borden"
-
-#~ msgid "Practice reading by finding the word matching an image"
-#~ msgstr "Lees-oefening om woorden aan beelden te koppelen"
-
-#~ msgid "Reading pratice"
-#~ msgstr "Lees-oefening"
-
-#~ msgid "Drag and Drop the items above their written name"
-#~ msgstr "Sleep de objecten naar hun geschreven naam"
-
-#~ msgid "Image Name"
-#~ msgstr "Beeldjes Noemen"
-
-#~ msgid "GCompris will display all its messages in German"
-#~ msgstr "GCompris zal alle boodschappen in het Duits weergeven"
-
-#, fuzzy
-#~ msgid "GCompris will display all its messages in Greek"
-#~ msgstr "GCompris zal alle boodschappen in het Frans weergeven"
-
-#~ msgid "GCompris will display all its messages in English"
-#~ msgstr "GCompris zal alle boodschappen in het Engels weergeven"
-
-#~ msgid "GCompris will display all its messages in Spanish"
-#~ msgstr "GCompris zal alle boodschappen in het Spaans weergeven"
-
-#~ msgid "GCompris will display all its messages in French"
-#~ msgstr "GCompris zal alle boodschappen in het Frans weergeven"
-
-#, fuzzy
-#~ msgid "GCompris will display all its messages in Lithuanian"
-#~ msgstr "GCompris zal alle boodschappen in het Spaans weergeven"
-
-#~ msgid "GCompris will display all its messages in Swedish"
-#~ msgstr "GCompris zal alle boodschappen in het Zweeds weergeven"
-
-#~ msgid "Swedish"
-#~ msgstr "Zweeds"
-
-#~ msgid "Discover the cards and find a matching pair"
-#~ msgstr "Vind de passende kaarten"
-
-#~ msgid "Memory Game with images"
-#~ msgstr "Geheugenspel met beelden"
-
-#~ msgid "Fill up the missing letter"
-#~ msgstr "Vul de ontbrekende letter in"
-
-#~ msgid "Missing Letter"
-#~ msgstr "Ontbrekende Letter"
-
-#~ msgid "Drag and Drop the items to rebuild the original paintings"
-#~ msgstr "Sleep de beeldjes naar de juiste plaats in het schilderij"
-
-#~ msgid "Go to the Reading boards"
-#~ msgstr "Ga naar de lees-drils"
-
-#~ msgid "Horizontal reading practice"
-#~ msgstr "Horizontale lees-dril"
-
-#~ msgid "Read a list of word and tell if the given word is in it"
-#~ msgstr "Zeg of het gevraagde woord in de lijst zit"
-
-#~ msgid "Read a vertical list of word and tell if the given word is in it"
-#~ msgstr "Zeg of het gevraagde woord in de lijst zit"
-
-#~ msgid "Vertical reading practice"
-#~ msgstr "Verticale lees-dril"
-
-#~ msgid "Drag and Drop masses to equilibrate the scales"
-#~ msgstr "Sleep de gewichten om de schaal in evenwicht te brengen"
-
-#~ msgid "Well balance the scales"
-#~ msgstr "Breng de schaal in evenwicht"
-
-#, fuzzy
-#~ msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
-#~ msgstr ""
-#~ "Type het getal 1 tot 6 van het toetsenbord \n"
-#~ "voor de dobbelstenen de grond raken"
-
-#~ msgid "Educational game starting at 3 years old"
-#~ msgstr "Educatief spel voor kinderen vanaf drie jaar"
-
-#, fuzzy
-#~ msgid "GCompris"
-#~ msgstr "GCompris"
-
-#, fuzzy
-#~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
-#~ msgstr ""
-#~ "Typ het getal 1 tot 6 van het toetsenbord \n"
-#~ "vooraleer de dobbelstenen de grond raken"
-
-#~ msgid "Simple Algebra"
-#~ msgstr "Eenvoudige Sommen"
-
-#~ msgid "Couldn't find pixmap file %s/%s !"
-#~ msgstr "Kan bestand niet vinden %s/%s !"
