@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE(gcompris, 6.3)
+AM_INIT_AUTOMAKE(gcompris, 6.4)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -115,7 +115,7 @@ AC_MSG_ERROR([You must have popt 1.5 or newer to compile gcompris.]))
 AM_ICONV
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az ca cs da de el en_CA en_GB es fi fr ga he hi hr hu it lt mk ml ms nl nb nn pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa"
+ALL_LINGUAS="am ar az ca cs da de el en_CA en_GB es fi fr ga he hi hr hu it lt mk ml ms nl nb nn pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa zh_CN"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
