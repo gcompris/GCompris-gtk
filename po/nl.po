@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-07 18:52+0100\n"
-"PO-Revision-Date: 2005-01-08 01:49+0100\n"
+"POT-Creation-Date: 2005-01-19 10:51+0100\n"
+"PO-Revision-Date: 2005-01-19 18:08+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -491,7 +491,10 @@ msgid ""
 "In this game, children can draw freely. The goal is just to discover how to "
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines. To make it more fun for kids, a set of images can also be used."
-msgstr "In dit spel kunnen kinderen vrij tekenen. Het doel is te ontdekken hoe je mooie tekeningen kunt maken met de basisvormen rechthoek, ellips en lijn. Om het leuker te maken kunnen ook een aantal plaatjes worden gebruikt."
+msgstr ""
+"In dit spel kunnen kinderen vrij tekenen. Het doel is te ontdekken hoe je "
+"mooie tekeningen kunt maken met de basisvormen rechthoek, ellips en lijn. Om "
+"het leuker te maken kunnen ook een aantal plaatjes worden gebruikt."
 
 #: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
@@ -510,7 +513,18 @@ msgid ""
 "drawing. You can then edit each image of your animation by using the image "
 "selector in the bottom left of the screen. You can save and reload your "
 "animations with the 'floppy' and 'folder' button."
-msgstr "Kies links een tekenvorm en onderaan een kleur. Klik en sleep dan in het witte gebied om een vorm aan te maken. Wanneer de tekening af is kun je er een foto van maken via de knop met de fotocamera. Er zal dan een nieuw plaatje met dezelfde inhoud worden aangemaakt. Je kunt dan de vormpjes een klein beetje verplaatsen of vormen toevoegen of verwijderen. Maak op die manier een aantal plaatjes en klik dan op de knop 'film'. Je zult dan al je plaatjes achter elkaar te zien krijgen, oneindig herhaald. Je kunt ook de snelheid veranderen. In de weergavestand kun je op de knop 'tekenen' klikken om terug te keren naar je tekening. Je kunt dan een tekening uit je filmpje bewerken door op de plaatjeskiezer te klikken links onderaan het scherm. Ju kunt je filmpjes opslaan en herladen met de knoppen 'floppy' en 'map'."
+msgstr ""
+"Kies links een tekenvorm en onderaan een kleur. Klik en sleep dan in het "
+"witte gebied om een vorm aan te maken. Wanneer de tekening af is kun je er "
+"een foto van maken via de knop met de fotocamera. Er zal dan een nieuw "
+"plaatje met dezelfde inhoud worden aangemaakt. Je kunt dan de vormpjes een "
+"klein beetje verplaatsen of vormen toevoegen of verwijderen. Maak op die "
+"manier een aantal plaatjes en klik dan op de knop 'film'. Je zult dan al je "
+"plaatjes achter elkaar te zien krijgen, oneindig herhaald. Je kunt ook de "
+"snelheid veranderen. In de weergavestand kun je op de knop 'tekenen' klikken "
+"om terug te keren naar je tekening. Je kunt dan een tekening uit je filmpje "
+"bewerken door op de plaatjeskiezer te klikken links onderaan het scherm. Ju "
+"kunt je filmpjes opslaan en herladen met de knoppen 'floppy' en 'map'."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -675,7 +689,10 @@ msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
 "Dates of Transportation are based on those found in http://www.wikipedia."
 "org. Transportations images by Franck Doucet"
-msgstr "De maanfoto is afkomstig van NASA. Ruimtegeluiden van Tuxpaint en Vegastrike. Transportdata zijn gebaseerd op de gegevens van http://www.wikipedia.org. Transport-afbeeldingen zijn van Franck Doucet"
+msgstr ""
+"De maanfoto is afkomstig van NASA. Ruimtegeluiden van Tuxpaint en "
+"Vegastrike. Transportdata zijn gebaseerd op de gegevens van http://www."
+"wikipedia.org. Transport-afbeeldingen zijn van Franck Doucet"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -697,7 +714,21 @@ msgstr "Maanwandelen"
 msgid "Tux and the apple tree"
 msgstr "Tux en de appelboom"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnot's fardier"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephenson's Rocket\n"
+"Stoomlocomotief"
+
+#: boards/chronos/board3_0.xml.in.h:3
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -710,15 +741,41 @@ msgstr ""
 "op wikipedia informatie opzoeken:\n"
 "http://www.wikipedia.org"
 
-#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Vervoer"
 
-#: boards/chronos/board4_0.xml.in.h:1
+# de hetelucht-ballon van de broers Montgolfier
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 Montgolfier broers'\n"
+"Hetelucht-ballon"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
 msgstr "1880 The Clement Ader's Eole"
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"Eerste helicoptervlucht"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
@@ -756,10 +813,6 @@ msgid ""
 msgstr ""
 "1947 Chuck Yager\n"
 "doorbreken de geluidsbarrière"
-
-#: boards/chronos/board4_2.xml.in.h:1
-msgid "1769 Cugnot's fardier"
-msgstr "1769 Cugnot's fardier"
 
 #: boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
@@ -1009,11 +1062,11 @@ msgstr "Zet de dingen in de beste volgorde om ze te tellen"
 msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
@@ -2369,21 +2422,36 @@ msgstr ""
 "Tux heeft honger. Help hem vissen te vinden door het aantal ijsschotsen te "
 "tellen om bij de vis te komen."
 
-#: boards/searace.xml.in.h:1
-msgid "A Sea race against Tux"
-msgstr "Een zeerace tegen Tux"
+#: boards/searace.xml.in.h:1 boards/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Geef goede opdrachten aan je schip om als eerste te eindigen in de race."
 
-#: boards/searace.xml.in.h:2
-msgid ""
-"Give good instructions to your ship in order to be first in a race against "
-"Tux."
-msgstr "Geef de juiste opdrachten aan je schip om als eerste te eindigen in een race tegen Tux."
-
-#: boards/searace.xml.in.h:3
+#: boards/searace.xml.in.h:2 boards/searace1player.xml.in.h:2
 msgid ""
 "In the text entry, enter line by line commands to give direction to your "
-"boat. Commands supported are displayed between the two entry area."
-msgstr "In het invoerveld geef je regel voor regel opdrachten om je boot te besturen. De mogelijke opdrachten staan tussen de twee invoervelden."
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. Going to the next level "
+"will give your more complex wether conditions."
+msgstr ""
+
+#: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
+msgid ""
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+msgstr "In deze activiteit leer je hoe je opdrachten geeft aan een computer. Zelfs al is de taal heel erg simpel, leer je hoe je vooruit moet denken en een programma moet invoeren. Deze activiteit kan worden gebruikt om kinderen het principe van programmeren te leren."
+
+#: boards/searace.xml.in.h:4 boards/searace1player.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "Zeerace (2 spelers)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2780,11 +2848,17 @@ msgid "Given pictures of hands, find if it's a right or left one"
 msgstr ""
 "Geef aan of op de plaatjes een rechterhand of een linkerhand te zien is"
 
-#: src/boards/leftright.c:248
+#: src/boards/leftright.c:248 src/boards/python/searace.py:407
+#: src/boards/python/searace.py:432 src/boards/python/searace.py:522
+#: src/boards/python/searace.py:810 src/boards/python/searace.py:843
+#: src/boards/python/searace.py:945
 msgid "left"
 msgstr "links"
 
-#: src/boards/leftright.c:258
+#: src/boards/leftright.c:258 src/boards/python/searace.py:407
+#: src/boards/python/searace.py:432 src/boards/python/searace.py:531
+#: src/boards/python/searace.py:812 src/boards/python/searace.py:845
+#: src/boards/python/searace.py:939
 msgid "right"
 msgstr "rechts"
 
@@ -2862,30 +2936,52 @@ msgstr "Niveau"
 msgid "Coordinate"
 msgstr "Coördinaat"
 
-#: src/boards/python/searace.py:181 src/boards/python/searace.py:186
-#: src/boards/python/searace.py:212
+#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
+#: src/boards/python/searace.py:220
 msgid "Race is already running"
 msgstr "De race is al begonnen"
 
-#: src/boards/python/searace.py:610
-msgid "The Red boat has won"
-msgstr "De rode boot heeft gewonnen"
-
-#: src/boards/python/searace.py:612
-msgid "The Green boat has won"
-msgstr "De groene boot heeft gewonnen"
-
-#: src/boards/python/searace.py:705
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: src/boards/python/searace.py:407 src/boards/python/searace.py:432
+#: src/boards/python/searace.py:513 src/boards/python/searace.py:808
+#: src/boards/python/searace.py:837 src/boards/python/searace.py:937
+#: src/boards/python/searace.py:943 src/boards/python/searace.py:951
 msgid "forward"
 msgstr "vooruit"
 
-#: src/boards/python/searace.py:711
-msgid "turnleft"
-msgstr "linksaf"
+#: src/boards/python/searace.py:504
+msgid "COMMANDS ARE"
+msgstr "OPDRACHTEN ZIJN"
 
-#: src/boards/python/searace.py:713
-msgid "turnright"
-msgstr "rechtsaf"
+#: src/boards/python/searace.py:716
+msgid "The Red boat has won"
+msgstr "De rode boot heeft gewonnen"
+
+#: src/boards/python/searace.py:719
+msgid "The Green boat has won"
+msgstr "De groene boot heeft gewonnen"
+
+#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
+#: src/boards/python/searace.py:734
+msgid "Angle:"
+msgstr "Hoek:"
+
+#: src/boards/python/searace.py:734
+msgid "Wind:"
+msgstr "Wind:"
+
+#: src/boards/python/searace.py:815
+msgid "Syntax error at line"
+msgstr "Syntaxfout op regel"
+
+#: src/boards/python/searace.py:833
+msgid "The command"
+msgstr "De opdracht"
+
+#: src/boards/python/searace.py:852
+msgid "Unknown command at line"
+msgstr "Onbekende opdracht op regel"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -3516,6 +3612,22 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "A Sea race against Tux"
+#~ msgstr "Een zeerace tegen Tux"
+
+#~ msgid ""
+#~ "In the text entry, enter line by line commands to give direction to your "
+#~ "boat. Commands supported are displayed between the two entry area."
+#~ msgstr ""
+#~ "In het invoerveld geef je regel voor regel opdrachten om je boot te "
+#~ "besturen. De mogelijke opdrachten staan tussen de twee invoervelden."
+
+#~ msgid "turnleft"
+#~ msgstr "linksaf"
+
+#~ msgid "turnright"
+#~ msgstr "rechtsaf"
 
 #~ msgid "Create an animation"
 #~ msgstr "Een filmpje maken"
