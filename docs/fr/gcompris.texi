@@ -72,12 +72,6 @@ L'objectif de gcompris est de fournir une plate forme de développement pour des 
 
 Gcompris fait parti du projet GNU.
 
-@ifhtml
-<!-- Background white, links blue (unvisited), navy (visited), red (active) -->
-<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#000080" alink="#FF0000">
-</body>
-@end ifhtml
-
 @cindex Objectif de Gcompris
 
 @node    Manuel utilisateur, Notes sur l'internationalisation, Introduction, Top
@@ -156,8 +150,8 @@ At the menu level, just click on the board icon.
 @subsection Ending a game
 In the control bar, select the right most icon.
 
-@node    Internationalization Issues, Developers Guide, User Manual, Top
-@chapter Internationalization Issues
+@node    Notes sur l'internationalisation, Guide pour les développeurs, Manuel utilisateur, Top
+@chapter Notes sur l'internationalisation
 @section Is my language supported?
 GCompris is internationalized and today it already supports different languages.
 
@@ -183,8 +177,8 @@ To check your translation, you must install gcompris with
 
 Then, send the translation to the GCompris maintainer. He/She will add it into the next official release.
 
-@node    Developers Guide, GNU Free Documentation License, Internationalization Issues, Top
-@chapter Developers Guide
+@node    Guide pour les développeurs, GNU Free Documentation License, Notes sur l'internationalisation, Top
+@chapter Guide pour les développeurs
 @section Why adding boards to GCompris
 If you have a game idea that you feel suitable for children, you can create a new project, let's call it gIdea. If you start from scratch, you will have to implement a menu, a status bar, user feedback mecanism and so on.
 
@@ -368,7 +362,7 @@ Now you can add the translation in the po files.
 
 @end enumerate
 
-@node GNU Free Documentation License, Concept Index, Developers Guide, Top
+@node GNU Free Documentation License, Concept Index, Guide pour les développeurs, Top
 @appendix GNU Free Documentation License
 
 @cindex FDL, GNU Free Documentation License

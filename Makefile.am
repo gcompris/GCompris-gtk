@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = intl po src sounds docs boards
+SUBDIRS = po src sounds docs boards
 
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png
@@ -56,4 +56,4 @@ dist-core:
 	gzip --best $(distcore).tar
 	@echo Created $(distcore).tar.gz
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = 

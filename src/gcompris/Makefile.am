@@ -45,7 +45,7 @@ gcompris_LDADD = \
 
 
 gcompris_edit_SOURCES = \
-	gcompris-edit.c \
+	gcompris-edit.c gcompris-edit.h on.xpm off.xpm \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
