@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/05/07 00:02:16 bcoudoin>
+ * Time-stamp: <2003/05/08 02:00:19 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -914,6 +914,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      return FALSE;
    }
 
+   /* This event is a non sense in the edit mode. Also, it will crash since the data structure are */
+   /* filled differently in edit mode                                                              */
+   /* Redirect this event to the edit mode one so that the user can drag the object directly       */
+   if(edit_mode) 
+     {
+       item_event_edition(item, event, shape);
+       return FALSE;
+     }
+
    item_x = event->button.x;
    item_y = event->button.y;
    gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
@@ -1163,6 +1172,9 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
      g_warning("Shape is NULL : Should not happen");
      return FALSE;
    }
+
+   if(shape->type != SHAPE_TARGET)
+     return FALSE;
 
    item_x = event->button.x;
    item_y = event->button.y;

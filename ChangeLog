@@ -1,3 +1,14 @@
+2003-05-08  Bruno Coudoin  <set EMAIL_ADDRESS environment variable>
+
+	* boards/geography/board3_0.xml.in: completed properly
+	* boards/geography/board4_0.xml.in: completed properly
+	* boards/geography/europe/europe.jpg: completed properly
+	* boards/skins/default/skin.xml: added skin colors for the erase board
+	* boards/skins/pink/skin.xml: added skin colors for the erase board
+	* po/POTFILES.in: added europe boards
+	* src/boards/erase.c: (erase_create_item): added skin colors
+	* src/boards/shapegame.c: (item_event), (item_event_edition): fixed edit mode bug
+
 2003-05-06  Bruno Coudoin  <set EMAIL_ADDRESS environment variable>
 
 	* boards/geography/board3_0.xml.in: now puzzle is ordered

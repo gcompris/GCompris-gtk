@@ -250,8 +250,8 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
 					"y1", (double) j,
 					"x2", (double) i+BOARDWIDTH/number_of_item_x,
 					"y2", (double)  j+BOARDHEIGHT/number_of_item_y,
-					"fill_color", "blue",
-					"outline_color", "green",
+					"fill_color_rgba", gcompris_skin_get_color("erase/rectangle in"),
+					"outline_color_rgba", gcompris_skin_get_color("erase/rectangle out"),
 					"width_units", (double)1,
 					NULL);
 
