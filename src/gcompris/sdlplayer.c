@@ -28,6 +28,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#include <glib.h>
+
 Sint16 stream[2][4096];
 int len=4096, bits=0, which=0;
 
@@ -127,15 +129,9 @@ int sdlplayer(char *filename, int volume)
   Mix_Chunk *sample;
   int channel;
   int i;
-  printf("sdlplayer %s\n", filename);
 
- 	
+  g_warning("sdlplayer %s\n", filename);
 
-  // fade out music
-/*   for(i=128; i<32; i-=10) { */
-/*     Mix_VolumeMusic(i); */
-/*     SDL_Delay(20); */
-/*   } */
   Mix_PauseMusic();
 
   sample=Mix_LoadWAV_RW(SDL_RWFromFile(filename, "rb"), 1);
@@ -168,7 +164,7 @@ int sdlplayer(char *filename, int volume)
   // Mix_Chunk *sample;
   Mix_FreeChunk(sample);
 
-  printf("sdlplayer complete playing of %s\n", filename);
+  g_warning("sdlplayer complete playing of %s\n", filename);
 
   return(0);
 }

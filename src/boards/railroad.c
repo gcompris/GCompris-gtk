@@ -422,7 +422,7 @@ static void process_ok()
   gamewon = TRUE;
 
   // DEBUG
-  printf("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
+  g_warning("l answer = %d\tl model = %d\n", g_list_length(int_answer_list), g_list_length(int_model_list));
   if (g_list_length(int_answer_list) != g_list_length(int_model_list))
     gamewon = FALSE;
   else
@@ -434,12 +434,12 @@ static void process_ok()
       }
     }
   // DUMP lists
-  printf("answer:\n");
+  g_warning("answer:\n");
   for (i=0; i<g_list_length(int_answer_list); i++)
-    printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) );
-  printf("model:\n");
+    g_warning(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_answer_list,i)) );
+  g_warning("model:\n");
   for (i=0; i<g_list_length(int_model_list); i++)
-    printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
+    g_warning(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
 
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
 }
@@ -467,7 +467,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      printf("GDK_BUTTON_PRESS item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
+      g_warning("GDK_BUTTON_PRESS item %d\tlength answer = %d\n",item_number,g_list_length(item_answer_list));
       xOffset = 0;
       for (i=0; i<g_list_length(item_answer_list); i++) {
 	gnome_canvas_item_get_bounds(g_list_nth_data(item_answer_list,i), &dx1, &dy1, &dx2, &dy2);
@@ -516,7 +516,7 @@ static gint answer_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      printf("Deleting %d\n",item_number);
+      g_warning("Deleting %d\n",item_number);
       local_item = g_list_nth_data(item_answer_list,item_number);
       item_answer_list = g_list_remove( item_answer_list, local_item );
       //	gtk_signal_disconnect(GTK_OBJECT(local_item), (GtkSignalFunc) answer_event, NULL);
@@ -546,7 +546,7 @@ static void reposition_answer() {
   if(!gcomprisBoard)
     return;
 
-  printf("+++ reposition_answer\n");
+  g_warning("+++ reposition_answer\n");
   for (i=0; i<g_list_length(item_answer_list); i++) {
     item = g_list_nth_data(item_answer_list,i);
     gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
@@ -564,7 +564,7 @@ static void reposition_model() {
   if(!gcomprisBoard)
     return;
 
-  printf("+++ reposition_model\n");
+  g_warning("+++ reposition_model\n");
   for (i=0; i<model_size; i++) {
     item = item_model[i];
     gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);

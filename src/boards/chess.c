@@ -70,8 +70,6 @@ static int	 get_square_from_coord (double x, double y);
 #define BLACK_COLOR_H	0x6B96A2FF
 #define WHITE_COLOR_H	0xA6E7FFFF
 
-#define INFO_COLOR	0xA0303FFF
-
 #define TURN_X		(BOARDWIDTH-(BOARDWIDTH-(CHESSBOARD_X+(SQUARE_WIDTH*8)))/2)
 #define TURN_Y		(CHESSBOARD_Y+15)
 
@@ -510,7 +508,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	    str = g_strdup_printf("chess/%c.png", piece_to_ascii(piece));
 	    
 	    pixmap = gcompris_load_pixmap(str);
-	    //	    printf("loading piece %s\n",   str);
+	    //	    g_warning("loading piece %s\n",   str);
 	    g_free(str);
 	    item = gnome_canvas_item_new (boardRootItem,
 					  gnome_canvas_pixbuf_get_type (),
@@ -572,7 +570,7 @@ static void display_white_turn(gboolean whiteturn)
 					 "x", (double) TURN_X,
 					 "y", (double) TURN_Y,
 					 "anchor",     GTK_ANCHOR_CENTER,
-					 "fill_color", "white",
+					 "fill_color_rgba", gcompris_skin_color_content,
 					 NULL);
     }
 
@@ -593,7 +591,7 @@ static void display_info(gchar *info)
 					 "x", (double) INFO_X,
 					 "y", (double) INFO_Y,
 					 "anchor",     GTK_ANCHOR_CENTER,
-					 "fill_color_rgba", INFO_COLOR,
+					 "fill_color_rgba", gcompris_skin_color_subtitle,
 					 NULL);
     }
 
@@ -616,7 +614,7 @@ static void move_piece_to(Square from, Square to)
   Piece piece = NONE;
       
 
-  printf("move_piece_to from=%d to=%d\n", from, to);
+  g_warning("move_piece_to from=%d to=%d\n", from, to);
 
   source_square = chessboard[from];
   item = source_square->piece_item;
@@ -624,7 +622,7 @@ static void move_piece_to(Square from, Square to)
 
   if(item == NULL)
     {
-      printf("Warning: Problem in chess.c, bad move request in move_piece_to\n");
+      g_warning("Warning: Problem in chess.c, bad move request in move_piece_to\n");
       return;
     }
 
@@ -657,7 +655,7 @@ static void move_piece_to(Square from, Square to)
   x = to % 10;
   y = to / 10 -1;
   
-  printf("   move_piece_to to    x=%d y=%d\n", x, y);
+  g_warning("   move_piece_to to    x=%d y=%d\n", x, y);
 
   dest_square = chessboard[to];
 
@@ -701,14 +699,14 @@ static void move_piece_to(Square from, Square to)
     {
       GdkPixbuf *pixmap = NULL;
       char *str;
-      printf("  WARNING promoting a pawn from=%d to=%d piece=%d\n", from, to, piece);
-      printf("  piece_to_ascii returns %c\n", piece_to_ascii(piece));
+      g_warning("  WARNING promoting a pawn from=%d to=%d piece=%d\n", from, to, piece);
+      g_warning("  piece_to_ascii returns %c\n", piece_to_ascii(piece));
 
       str = g_strdup_printf("chess/%c.png", piece_to_ascii(piece));
 	      
       pixmap = gcompris_load_pixmap(str);
       g_free(str);
-      printf("loading piece %c\n",  piece_to_ascii(piece));
+      g_warning("loading piece %c\n",  piece_to_ascii(piece));
       gnome_canvas_item_set (dest_square->piece_item,
 			     "pixbuf", pixmap, 
 			     NULL);
@@ -877,7 +875,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   Square to;
 
 	   to = get_square_from_coord(event->button.x, event->button.y);
-	   printf("===== Source square = %d Destination square = %d\n", gsquare->square, 
+	   g_warning("===== Source square = %d Destination square = %d\n", gsquare->square, 
 		  to);
 
 	   to = position_move_normalize (position, gsquare->square, to);
@@ -895,7 +893,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   }
 	   else
 	     {
-	       printf("====== MOVE from %d REFUSED\n", gsquare->square);
+	       g_warning("====== MOVE from %d REFUSED\n", gsquare->square);
 	   
 	       /* Find the ofset to move the piece back to where it was*/
 	       gnome_canvas_item_get_bounds  (item,
@@ -909,7 +907,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	       
 	       ofset_x = (CHESSBOARD_X + SQUARE_WIDTH  * (x-1)) - x1 + (SQUARE_WIDTH  - (x2-x1))/2;
 	       ofset_y = (CHESSBOARD_Y + SQUARE_HEIGHT * (8-y)) - y1 + (SQUARE_HEIGHT - (y2-y1))/2;
-	       printf("ofset = x=%f y=%f\n", ofset_x, ofset_y);
+	       g_warning("ofset = x=%f y=%f\n", ofset_x, ofset_y);
 	       
 	       gnome_canvas_item_move(item, ofset_x, ofset_y);
 	     }
@@ -962,7 +960,7 @@ static void
 engine_local_destroy () 
 {
 
-  printf("engine_local_destroy () \n");
+  g_warning("engine_local_destroy () \n");
   //  write_child (write_chan, "quit\n");
 
   g_source_remove(read_cb);
@@ -1006,7 +1004,7 @@ engine_local_cb (GIOChannel *source,
     *q=0;
     *(q+1) = tmp;
     
-    printf("engine_local_cb read=%s\n", &buf);
+    g_warning("engine_local_cb read=%s\n", &buf);
     
     /* parse for  NUMBER ... MOVE */
     if (isdigit (*buf))
@@ -1014,7 +1012,7 @@ engine_local_cb (GIOChannel *source,
 	{
 	  Square from, to;
 	  
-	  printf("computer number moves to %s\n", p+4);
+	  g_warning("computer number moves to %s\n", p+4);
 	  
 	  if (san_to_move (position, p+4, &from, &to))
 	    ascii_to_move (position, p+4, &from, &to);
@@ -1025,7 +1023,7 @@ engine_local_cb (GIOChannel *source,
       else if ((p = strstr (buf, " ")))
 	{
 	  /* It's a legal move case */
-	  printf("Legal move to %s\n", p+1);
+	  g_warning("Legal move to %s\n", p+1);
 	}
     
     /* parse for move MOVE */
@@ -1107,10 +1105,10 @@ void chess_child_end(int  signum)
 {
   pid_t pid;
 
-  printf("chess child_end signal=%d\n", signum);
+  g_warning("chess child_end signal=%d\n", signum);
 
   pid = waitpid(childpid, NULL, WNOHANG);
-  printf("chess child_end pid=%d\n", pid);
+  g_warning("chess child_end pid=%d\n", pid);
 
   if (pid == -1)
     g_error("chess_child_end Error waitpid");
@@ -1187,7 +1185,7 @@ write_child (GIOChannel *write_chan, char *format, ...)
   if (err != G_IO_ERROR_NONE)
     g_warning ("Writing to child process failed");
 
-  printf ("%s", buf);  
+  g_warning ("%s", buf);  
 
   va_end (ap);
 
@@ -1199,7 +1197,7 @@ static int
 stop_child (pid_t childpid) 
 {
 
-  printf("stop_child (childpid=%d) () \n", childpid);
+  g_warning("stop_child (childpid=%d) () \n", childpid);
 
   if (childpid && kill (childpid, SIGTERM) ) { 
     g_message ("Failed to kill child!\n");

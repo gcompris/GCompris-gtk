@@ -14,10 +14,8 @@ Copyright: 	GPL
 Group: 		Games/Other
 Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tar.gz
 BuildRoot: 	%_tmppath/%name-%version-buildroot
-Buildrequires: gnuchess libogg-devel
+Buildrequires: gnuchess
 Buildrequires: libxml2-devel libgnomeui2-devel
-Buildrequires: libvorbis-devel libao-devel 
-Buildrequires: liblinc-devel 
 Buildrequires: texinfo 
 # (misc) needed for python support
 Buildrequires: gnome-python python-devel pygtk2.0-devel

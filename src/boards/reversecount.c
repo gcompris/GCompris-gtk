@@ -605,21 +605,21 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
   if(block < number_of_item_x)
     {
       // Upper line
-      printf("      // Upper line\n");
+      g_warning("      // Upper line\n");
       i = block_width * block;
       j = 0;
     } 
   else if(block < number_of_item_x + number_of_item_y - 2)
     {
       // Right line
-      printf("      // Right line\n");
+      g_warning("      // Right line\n");
       i = block_width * (number_of_item_x - 1);
       j = block_height * (block - (number_of_item_x-1));
     }
   else if(block < number_of_item_x*2 + number_of_item_y - 2)
     {
       // Bottom line
-      printf("      // Bottom line\n");
+      g_warning("      // Bottom line\n");
       i = block_width * (number_of_item_x - (block-
 					     (number_of_item_x+number_of_item_y-1))-2);
       j = block_height * (number_of_item_y-1);
@@ -627,13 +627,13 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double rati
   else
     {
       // Left line
-      printf("      // Left line\n");
+      g_warning("      // Left line\n");
       i = 0;
       j = block_height * (number_of_item_y - (block - (number_of_item_x*2 + 
 						      number_of_item_y-4)));
     }
 
-  printf("display_tux %d i=%d j=%d\n", block, i, j);
+  g_warning("display_tux %d i=%d j=%d\n", block, i, j);
 
   /* Calculation to thrink the item while keeping the ratio */
   if(ratio==-1)
@@ -791,7 +791,7 @@ static gint animate_tux()
 
   tux_index++;
 
-  printf("=========== tux_index=%d tux_destination=%d fish_index=%d\n", tux_index, tux_destination, fish_index);
+  g_warning("=========== tux_index=%d tux_destination=%d fish_index=%d\n", tux_index, tux_destination, fish_index);
 
   // Wrapping
   if(tux_index >= number_of_item)

@@ -1,3 +1,49 @@
+2004-10-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	fixed many little issue in the new babytoy theme
+
+	* INSTALL: added depedancies list to compile on mandrake 10.1
+	* boards/flags/gcompris_flags.assetml.in:
+	* boards/images/maze-2d-bubble.png:
+	* boards/images/maze-3d-bubble.png:
+	* boards/skins/README:
+	* boards/skins/babytoy/gcompris-bg.jpg:
+	* boards/skins/babytoy/gcompris-init.jpg:
+	* boards/skins/babytoy/skin.xml:
+	* configure.in:
+	* gcompris.spec.in: removed unneeded dependancies
+	* src/boards/advanced_colors.c: (colors_next_level), (ok_timeout),
+	(init_xml), (add_xml_data):
+	* src/boards/algebra_guesscount.c: (start_board), (token_result),
+	(generate_numbers):
+	* src/boards/chess.c: (chess_create_item), (display_white_turn),
+	(display_info), (move_piece_to), (item_event),
+	(engine_local_destroy), (engine_local_cb), (chess_child_end),
+	(write_child), (stop_child):
+	* src/boards/chess_position.c: (position_display):
+	* src/boards/gletters.c: (level_set_score), (fill_letters),
+	(load_default_charset), (load_charset_from_file), (end_board),
+	(key_press), (gletters_create_item), (player_win), (player_loose):
+	* src/boards/hanoi.c: (dump_solution), (print_piece),
+	(hanoi_create_item):
+	* src/boards/imageid.c: (init_xml), (dump_xml):
+	* src/boards/maze.c: (maze_create_item), (draw_a_line),
+	(draw_background):
+	* src/boards/missingletter.c: (dump_xml):
+	* src/boards/python/anim.py:
+	* src/boards/railroad.c: (process_ok), (item_event),
+	(answer_event), (reposition_answer), (reposition_model):
+	* src/boards/read_colors.c: (init_xml), (add_xml_data):
+	* src/boards/reversecount.c: (display_item_at), (animate_tux):
+	* src/boards/shapegame.c: (process_ok), (shapegame_init_canvas),
+	(add_shape_to_list_of_shapes), (find_closest_shape), (dump_shape),
+	(shape_goes_back_to_list), (item_event), (item_event_ok),
+	(add_shape_to_canvas), (create_title), (read_xml_file):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/sdlplayer.c: (sdlplayer):
+	* src/gcompris/soundutil.c: (scheduler_bgnd), (thread_play_ogg),
+	(get_next_sound_to_play), (gcompris_play_ogg_list):
+
 2004-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Include new theme from Franck Doucet <franckdoucet on wanadoo point fr>

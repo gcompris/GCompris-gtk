@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/06/05 01:27:34 bcoudoin>
+ * Time-stamp: <2004/10/10 20:37:58 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -92,7 +92,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->screensize	 = 1;
   tmp->fullscreen	 = 1;
   tmp->timer		 = 1;
-  tmp->skin		 = "default";
+  tmp->skin		 = "babytoy";
   tmp->key		 = "default";
   tmp->locale            = NULL;
   tmp->difficulty_max    = 0;

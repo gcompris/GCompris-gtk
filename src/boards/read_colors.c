@@ -408,7 +408,7 @@ static void init_xml()
 {
   char *filename;
   filename = g_strdup_printf("%s/%s/board1.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);
-  printf("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
+  g_warning("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
 
   assert(g_file_test(filename, G_FILE_TEST_EXISTS));
   assert(read_xml_file(filename)== TRUE);
@@ -451,7 +451,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	} else // get correct language
 	  if ( !strcmp(lang, gcompris_get_locale())	|| !strncmp(lang, gcompris_get_locale(), 2) ) {
 	    text = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	    printf("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
+	    g_warning("color prop::lang=%s locale=%s text=%s\n", lang, gcompris_get_locale(), text);
 	    colors[i] = text;
 	    color++;
 	  }
@@ -462,9 +462,9 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     xmlnode = xmlnode->next;
   }
 
-  printf("colors found in XML = %d\n", color);
+  g_warning("colors found in XML = %d\n", color);
   for (color=0; color<LAST_COLOR; color++)
-    printf("%d %s\n", color, colors[color]);
+    g_warning("%d %s\n", color, colors[color]);
 
   // I really don't know why this test, but otherwise, the list is doubled
   // with 1 line on 2 filled with NULL elements

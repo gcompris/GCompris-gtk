@@ -282,22 +282,22 @@ static void dump_solution()
 {
   guint i, j;
 
-  printf("Dumping solution\n");
+  g_warning("Dumping solution\n");
   for(i=0; i<(number_of_item_x+2); i++)
     {
       for(j=0; j<number_of_item_y; j++)
 	{
-	  printf("(%d,%d=%2d/%d) ",  position[i][j]->i,  position[i][j]->j, position[i][j]->color, 
+	  g_warning("(%d,%d=%2d/%d) ",  position[i][j]->i,  position[i][j]->j, position[i][j]->color, 
 		 position[i][j]->on_top);
 	}
-      printf("\n");
+      g_warning("\n");
     }
 
 }
 
 static void print_piece(PieceItem *piece)
 {
-  printf("Piece: (%d,%d=%2d/%d)\n",  piece->i,  piece->j, piece->color, piece->on_top);
+  g_warning("Piece: (%d,%d=%2d/%d)\n",  piece->i,  piece->j, piece->color, piece->on_top);
 }
 
 /* ==================================== */
@@ -337,7 +337,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) BOARDHEIGHT - 50,
 			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color", "white",
+			 "fill_color_rgba", gcompris_skin_color_content,
 			 "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 

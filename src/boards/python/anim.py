@@ -840,7 +840,7 @@ class Gcompris_anim:
         self.newitem = None
         print "----------------------------------------"
         print "Current image = " + str(self.current_image)
-        self.dump_group(self.root_anim)
+        #self.dump_group(self.root_anim)
         self.newitemgroup = self.root_anim.item_list[self.current_image].add(
           gnome.canvas.CanvasGroup,
           x=0.0,

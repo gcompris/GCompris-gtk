@@ -147,7 +147,8 @@ static gpointer scheduler_bgnd (gpointer user_data)
   /* Fill up the music list */
   while((one_dirent = readdir(dir)) != NULL) {
 
-    if (one_dirent->d_name[0] != '.') {
+    if (one_dirent->d_name[0] != '.' &&
+	!strcmp(one_dirent->d_name, "COPYRIGHT")) {
       str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", one_dirent->d_name);
 
       musiclist = g_list_append (musiclist, str);
@@ -234,26 +235,26 @@ static void* thread_play_ogg (void *s)
       
       if (g_file_test ((file), G_FILE_TEST_EXISTS))
 	{
-	  printf("trying to play %s\n", file);
+	  g_warning("trying to play %s\n", file);
 	} else
 	  {
 	    g_free(file);
 	    file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
 	    if (g_file_test ((file), G_FILE_TEST_EXISTS))
 	      {
-		printf("trying to play %s\n", file);
+		g_warning("trying to play %s\n", file);
 	      } else {
 		/* Try to find a sound file that does not need to be localized 
 		   (ie directly in root /sounds directory) */
 		g_free(file);
 		file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
 		if (g_file_test ((file), G_FILE_TEST_EXISTS)) {
-		  printf("trying to play %s\n", file);
+		  g_warning("trying to play %s\n", file);
 		} else {
 		  g_free(file);
 		  file = g_strdup_printf("%s", s);
 		  if (g_file_test ((file), G_FILE_TEST_EXISTS)) {
-		    printf("trying to play %s\n", file);
+		    g_warning("trying to play %s\n", file);
 		  } else {
 		    g_free(file);
 		    g_warning("Can't find sound %s", s);
@@ -266,7 +267,7 @@ static void* thread_play_ogg (void *s)
 
   if ( file )
     {
-      printf("Calling gcompris internal sdlplayer_file(%s)\n", file);
+      g_warning("Calling gcompris internal sdlplayer_file(%s)\n", file);
       sdlplayer(file, 128);
       g_free( file );
     }
@@ -287,7 +288,7 @@ char* get_next_sound_to_play( )
     {
       tmpSound = g_list_nth_data( pending_queue, 0 );
       pending_queue = g_list_remove( pending_queue, tmpSound );
-      printf( "... get_next_sound_to_play : %s\n", tmpSound );
+      g_warning( "... get_next_sound_to_play : %s\n", tmpSound );
     }
 
   g_mutex_unlock (lock);
@@ -355,7 +356,7 @@ void gcompris_play_ogg_list( GList* files )
   g_mutex_unlock (lock);
 
   // Tell the scheduler to check for new sounds to play
-  printf("Tell the scheduler to check for new sounds to play\n");
+  g_warning("Tell the scheduler to check for new sounds to play\n");
   g_cond_signal (cond);
 
 }

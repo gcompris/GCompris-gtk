@@ -87,7 +87,7 @@ static void set_level (guint level);
 static gint key_press(guint keyval);
 /*--------------------*/
 static void draw_a_rect(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color);
-static void draw_a_line(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color);
+static void draw_a_line(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, guint32 color);
 static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap);
 static void move_image(GnomeCanvasGroup *group, int x,int y, GnomeCanvasItem *item);
 static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color);
@@ -447,7 +447,7 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 					"x", (double) BOARDWIDTH/2,
 					"y", (double) BOARDHEIGHT-20,
 					"anchor", GTK_ANCHOR_CENTER,
-					"fill_color", "white",
+					"fill_color_rgba", gcompris_skin_color_content,
 					NULL);
   if(modeIs2D) {
     gnome_canvas_item_hide(warning_item);
@@ -492,7 +492,7 @@ draw_a_rect(GnomeCanvasGroup *group,
 
 static void
 draw_a_line(GnomeCanvasGroup *group,
-	    int x1, int y1, int x2, int y2, char *color)
+	    int x1, int y1, int x2, int y2, guint32 color)
 {
   GnomeCanvasPoints *points;
 
@@ -505,7 +505,7 @@ draw_a_line(GnomeCanvasGroup *group,
   gnome_canvas_item_new(group,
 			gnome_canvas_line_get_type(),
 			"points", points,
-			"fill_color", color,
+			"fill_color_rgba", color,
 			"width_units", (double)thickness,
 			NULL);
 
@@ -734,16 +734,16 @@ draw_background(void)
 	  y=cellsize*(y1)+board_border_y;
 	  x=cellsize*(x1)+board_border_x;
 	  if (x1==0)
-	    draw_a_line(boardRootItem,x, y, x, y+cellsize, LINE_COLOR);
+	    draw_a_line(boardRootItem,x, y, x, y+cellsize, gcompris_skin_color_content);
 
 	  if (y1==0)
-	    draw_a_line(boardRootItem,x, y, x+cellsize, y, LINE_COLOR);
+	    draw_a_line(boardRootItem,x, y, x+cellsize, y, gcompris_skin_color_content);
 
 	  if (wall&EAST)
-	    draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, LINE_COLOR);
+	    draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, gcompris_skin_color_content);
 
 	  if (wall&SOUTH)
-	    draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, LINE_COLOR);
+	    draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, gcompris_skin_color_content);
 
 	}
     }

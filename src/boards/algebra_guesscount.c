@@ -189,7 +189,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard=agcomprisBoard;
 
     // load pixmap files
-    printf("loading pixmaps in start_board\n");
+    g_warning("loading pixmaps in start_board\n");
     for (i=0; i<NUM_VALUES; i++) {
       str = g_strdup_printf("%s/%d.png", gcomprisBoard->boarddir,num_values[i]);
       num_pixmap[i] = gcompris_load_pixmap(str);
@@ -303,7 +303,7 @@ static int token_result() {
       return NO_RESULT;
       result /= num_values[ptr_token_selected[i]->num];
       break;
-    default : printf("bug in token_result()\n"); break;
+    default : g_warning("bug in token_result()\n"); break;
     }
   }
   return result;
@@ -376,7 +376,7 @@ static int generate_numbers() {
       result /= num_values[answer_num_index[i+1]];
     }
       break;
-    default : printf("Bug in guesscount\n"); break;
+    default : g_warning("Bug in guesscount\n"); break;
     }
   }
   return result;

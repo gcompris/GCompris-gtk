@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/09/28 00:50:44 bcoudoin>
+ * Time-stamp: <2004/10/10 20:46:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -163,10 +163,8 @@ BoardPlugin
 static void level_set_score() {
   int l;
 
-#ifdef DEBUG
   g_message("letters_array length for level %d is %d\n",gcomprisBoard->level,
 	    g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1));
-#endif
   l = g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1)/3;
   gcomprisBoard->number_of_sublevel=(DEFAULT_SUBLEVEL>l?DEFAULT_SUBLEVEL:l);
 
@@ -212,17 +210,13 @@ static void pause_board (gboolean pause)
 }
 
 int fill_letters(char **letterString,char *buffer) {
-#ifdef DEBUG
   g_message("in fill_letters\n");
-#endif
   *letterString = g_malloc(strlen(buffer)+1);
   sprintf(*letterString,"%s",buffer);
 }
 
 int load_default_charset() {
-#ifdef DEBUG
   g_message("in load_default_charset\n");
-#endif
   fill_letters(&letters_array[0],"ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   fill_letters(&letters_array[1],"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
   fill_letters(&letters_array[2],"abcdefghijklmnopqrstuvwxyz");
@@ -250,15 +244,11 @@ int load_charset_from_file(FILE *fp) {
   char lineBuffer[4096], strBuffer[4096], charBuffer[12];
 
   /* keymap size is dynamically allocated */
-#ifdef DEBUG
   g_message("scanning line\n");
-#endif
   keyMapSize = 64;
   currKeyMap = 0;
   keyMap = (char **)g_malloc((sizeof (char *))*keyMapSize);
-#ifdef DEBUG   
-  printf("in load_charset_from_file\n");
-#endif
+  g_warning("in load_charset_from_file\n");
   /* first read each line into a buffer */
   while( fgets(lineBuffer,4095,fp) ) {
     /* if it's a comment or blank (empty), skip line */
@@ -270,9 +260,7 @@ int load_charset_from_file(FILE *fp) {
      * fall rate, which starts with "fallrate" and format is "fallrate %f %f"
      * drop rate, which starts with "droprate" and format is "droprate %f %f"
      */
-#ifdef DEBUG
     g_message("scanning line\n");
-#endif
     if( sscanf(lineBuffer,"level %d %s",&level, strBuffer) == 2 ) {
       /* we have a level charset */
       if (level > MAXLEVEL || level < 1) {
@@ -281,9 +269,7 @@ int load_charset_from_file(FILE *fp) {
       }
       fill_letters(&letters_array[level-1],strBuffer);
       if(maxLevel < level) maxLevel = level;
-#ifdef DEBUG
       g_message("maxLevel: %d\n",maxLevel);
-#endif
     }
     else if( sscanf(lineBuffer,"key %11s",charBuffer) == 1) {
       /* we potentially have a keymap */
@@ -385,9 +371,7 @@ end_board ()
       pause_board(TRUE);
       gcompris_score_end();
       gletters_destroy_all_items();
-#ifdef DEBUG
       g_message("freeing memory");
-#endif      
       for (i = 0; i < maxLevel; i++) 
 	g_free(letters_array[i]);
 
@@ -440,9 +424,7 @@ static gint key_press(guint keyval) {
   int i;
   gchar list_of_letters[255];
 
-#ifdef DEBUG
   g_message("in key_press: %d, %c, %lc",keyval,keyval,keyval);
-#endif
 
   if(!gcomprisBoard)
     return TRUE;
@@ -516,25 +498,19 @@ static gint key_press(guint keyval) {
      check direct match
      check upper case match
   */
-#ifdef DEBUG
   g_message("checking keymap: %d\n",keyMapSize);
-#endif
 
   i = g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),utf8char);
   utf8char[i]='\0';
 
 
   for (i = 0; i < keyMapSize; i++) {
-#ifdef DEBUG
     g_message("keymap: %d: %s\n",i,keyMap[i]);
-#endif
 
     sprintf(keyChar, "%lc", g_utf8_get_char(keyMap[i]));
     sprintf(mapChar, "%lc", g_utf8_get_char(g_utf8_find_next_char(keyMap[i], NULL)));
 
-#ifdef DEBUG
     g_message("char1: %s, char2: %s",keyChar, mapChar);
-#endif
 
     if (strcmp(utf8char, keyChar) == 0) {
 
@@ -547,23 +523,17 @@ static gint key_press(guint keyval) {
     }
   }
 
-#ifdef DEBUG
   g_message("no match-moving on\n");
-#endif
 
   /* no match in keymap */
   if (i == keyMapSize) {
 
-#ifdef DEBUG
     g_message("i == keyMapSize\n");
-#endif
 
     sprintf(lcStr,"%s",g_utf8_strdown(utf8char,-1));
     sprintf(ucStr,"%s",g_utf8_strup(utf8char,-1));
-#ifdef DEBUG
     g_message("lcStr = %s\n", lcStr);
     g_message("ucStr = %s\n", ucStr);
-#endif
     if ( is_falling_letter(lcStr) ) {
       str = lcStr;
     }
@@ -587,9 +557,7 @@ static gint key_press(guint keyval) {
 
   gcompris_log_set_comment(gcomprisBoard, list_of_letters, str);
 
-#ifdef DEBUG
   g_message("leaving key_press\n");
-#endif
 
   return TRUE;
 }
@@ -738,9 +706,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
      element to choose
   */
 
-#ifdef DEBUG
-  printf("dump: %d, %s\n",gcomprisBoard->level,letters_array[gcomprisBoard->level-1]);
-#endif
+  g_warning("dump: %d, %s\n",gcomprisBoard->level,letters_array[gcomprisBoard->level-1]);
 
   k=g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1);
   do {
@@ -795,9 +761,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   /* Add letter to hash table of all falling letters. */
   g_hash_table_insert (letters_table, lettersItem, item);
 
-#ifdef DEBUG
-  printf("done\n");
-#endif
+  g_warning("done\n");
 
   return (item);
 }
@@ -822,9 +786,7 @@ static gint gletters_drop_items (GtkWidget *widget, gpointer data)
 
 static void player_win(GnomeCanvasItem *item)
 {
-#ifdef DEBUG
   g_message("in player_win\n");
-#endif
 
   gletters_destroy_item(item);
   gcompris_play_ogg ("gobble", NULL);
@@ -863,21 +825,15 @@ static void player_win(GnomeCanvasItem *item)
 	  }
 	}
     }
-#ifdef DEBUG
-  printf("leaving player_win\n");
-#endif
+  g_warning("leaving player_win\n");
 }
 
 static void player_loose()
 {
-#ifdef DEBUG
-  printf("entering player_loose\n");
-#endif
+  g_warning("entering player_loose\n");
 
   gcompris_play_ogg ("crash", NULL);
-#ifdef DEBUG
-  printf("leaving player_loose\n");
-#endif
+  g_warning("leaving player_loose\n");
 }
 
 /* Return in item the key if the value equals the item */

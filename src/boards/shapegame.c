@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/10/09 02:29:12 bruno>
+ * Time-stamp: <2004/10/10 22:14:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -563,12 +563,12 @@ static void process_ok()
 	Shape *shape = list->data;
 	gint   intname = 0;
 
-	printf("   shape = %s\n", shape->name);
+	g_warning("   shape = %s\n", shape->name);
 	if(shape->type==SHAPE_TARGET && shape->placed==TRUE)
 	  {
 	    intname = atoi(shape->name);
 	    total += intname;
-	    printf("      shape = %s   placed=TRUE\n", shape->name);
+	    g_warning("      shape = %s   placed=TRUE\n", shape->name);
 	  }
 
       }
@@ -576,7 +576,7 @@ static void process_ok()
       if(total != addedname)
 	done = FALSE;
 
-      printf("checking for addedname=%d done=%d total=%d\n", addedname, done, total);
+      g_warning("checking for addedname=%d done=%d total=%d\n", addedname, done, total);
     }
 
 
@@ -682,7 +682,7 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   "y", 24.0,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", GTK_JUSTIFY_CENTER,
-			   "fill_color", "white",
+			   "fill_color_rgba", gcompris_skin_color_text_button,
 			   NULL);
 
   /* Hide the tooltip */
@@ -755,13 +755,13 @@ add_shape_to_list_of_shapes(Shape *shape)
   if(g_hash_table_size(shapelist_table)%(shapeBox.nb_shape_x * shapeBox.nb_shape_y)==0)
     {
       current_shapelistgroup_index++;
-      printf("Creation of the group of shape current_shapelistgroup_index=%d\n", 
+      g_warning("Creation of the group of shape current_shapelistgroup_index=%d\n", 
 	     current_shapelistgroup_index);
 
       // Hide the previous group
       if(current_shapelistgroup_index>=1)
 	{
-	  printf(" Hide previous group\n");
+	  g_warning(" Hide previous group\n");
 	  shape_list_group_root = GNOME_CANVAS_GROUP(g_list_nth_data(shape_list_group, 
 								     current_shapelistgroup_index-1));
 	  //gnome_canvas_item_hide(shape_list_group_root);
@@ -778,13 +778,13 @@ add_shape_to_list_of_shapes(Shape *shape)
 						 NULL));
 
       shape_list_group = g_list_append (shape_list_group, shape_list_group_root);
-      printf(" current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+      g_warning(" current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
 
     }
   else
     {
       // Get the current shapelist group
-      printf(" get the current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+      g_warning(" get the current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       shape_list_group_root = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
     }
 
@@ -805,8 +805,8 @@ add_shape_to_list_of_shapes(Shape *shape)
 				 ( shapeBox.nb_shape_x * shapeBox.nb_shape_y)) /
 				shapeBox.nb_shape_y) *
 			       ICON_WIDTH);
-      printf("  ICON_WIDTH = %f   ICON_HEIGHT = %f\n", ICON_WIDTH, ICON_HEIGHT);
-      printf("x_offset = %f   y_offset = %f\n", x_offset, y_offset);
+      g_warning("  ICON_WIDTH = %f   ICON_HEIGHT = %f\n", ICON_WIDTH, ICON_HEIGHT);
+      g_warning("x_offset = %f   y_offset = %f\n", x_offset, y_offset);
 
       /* So this shape is not yet in, let's put it in now */
       g_hash_table_insert (shapelist_table, shape->pixmapfile, shape);
@@ -853,7 +853,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 	      icon_shape->target_shape = shape;
 	      icon_shape->shapelistgroup_index = current_shapelistgroup_index;
 	      shape->shapelistgroup_index = current_shapelistgroup_index;
-	      printf(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", 
+	      g_warning(" creation shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", 
 		     shape->name, 
 		     shape->shapelistgroup_index, current_shapelistgroup_index);
 	      icon_shape->shape_list_group_root = shape_list_group_root;
@@ -885,8 +885,8 @@ static Shape *find_closest_shape(double x, double y, double limit)
       {
 	/* Calc the distance between this shape and the given coord */
 	dist = sqrt(pow((shape->x-x),2) + pow((shape->y-y),2));
-	printf("DIST=%f shapename=%s\n", dist, shape->name);
-	printf("   x=%f y=%f shape->x=%f shape->y=%f\n", x, y, shape->x, shape->y);
+	g_warning("DIST=%f shapename=%s\n", dist, shape->name);
+	g_warning("   x=%f y=%f shape->x=%f shape->y=%f\n", x, y, shape->x, shape->y);
 	if(dist<goodDist)
 	  {
 	    goodDist=dist;
@@ -901,12 +901,12 @@ static Shape *find_closest_shape(double x, double y, double limit)
 //#if 0
 static void dump_shape(Shape *shape)
 {
-  printf("dump_shape name=%s found=%d type=%d ", shape->name, shape->found, shape->type);
+  g_warning("dump_shape name=%s found=%d type=%d ", shape->name, shape->found, shape->type);
   if(shape->bad_item)
-    printf("bad_item=TRUE ");
+    g_warning("bad_item=TRUE ");
   if(shape->icon_shape)
-    printf("icon_shape=%s", shape->icon_shape->name);
-  printf("\n");
+    g_warning("icon_shape=%s", shape->icon_shape->name);
+  g_warning("\n");
 }
 //#endif
 
@@ -916,14 +916,14 @@ static void dump_shape(Shape *shape)
  */
 static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 {
-  printf("shape_goes_back_to_list shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", shape->name, shape->shapelistgroup_index, current_shapelistgroup_index);
+  g_warning("shape_goes_back_to_list shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", shape->name, shape->shapelistgroup_index, current_shapelistgroup_index);
 
   if(shape->icon_shape!=NULL)
     {
       if(shape->icon_shape->target_shape)
 	{
 	  shape->icon_shape->target_shape->placed = FALSE;
-	  printf("shape_goes_back_to_list setting shape->name=%s to placed=%d\n", 
+	  g_warning("shape_goes_back_to_list setting shape->name=%s to placed=%d\n", 
 		 shape->icon_shape->target_shape->name,
 		 shape->icon_shape->target_shape->placed);
 	}
@@ -1049,7 +1049,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 			 *p='\0';
 			 gcompris_play_ogg(soundfile, NULL);
 			 soundfile=p+1;
-			 printf("soundfile = %s\n", soundfile);
+			 g_warning("soundfile = %s\n", soundfile);
 		       }
 
 		     gcompris_play_ogg(soundfile, NULL);
@@ -1062,7 +1062,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       /* This records the offset between the mouse pointer and the grabbed item center */
 	       offset_x = x - item_x;
 	       offset_y = y - item_y;
-	       printf("offsetx=%f offsetx=%f\n", offset_x, offset_y);
+	       g_warning("offsetx=%f offsetx=%f\n", offset_x, offset_y);
 	       if(item==NULL)
 		 return FALSE;
 	       
@@ -1138,7 +1138,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		     }
 		   targetshape->found  = TRUE;
 		   shape->target_shape->placed = TRUE;
-		   printf("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
+		   g_warning("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
 			  shape->target_shape->placed);
 		   gnome_canvas_item_show(targetshape->item);
 		   gnome_canvas_item_raise_to_top(targetshape->item);
@@ -1151,7 +1151,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 
 		   targetshape->found = FALSE;
 		   shape->target_shape->placed = TRUE;
-		   printf("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
+		   g_warning("setting shape->name=%s to placed=%d\n", shape->target_shape->name,
 			  shape->target_shape->placed);
 		   gnome_canvas_item_hide(targetshape->item);
 
@@ -1340,7 +1340,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       root_item = g_list_nth_data(shape_list_group, current_shapelistgroup_index);
       gnome_canvas_item_hide(root_item);
 
-      printf(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
+      g_warning(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       if(!strcmp((char *)data, "previous_shapelist"))
 	{
 
@@ -1436,7 +1436,7 @@ add_shape_to_canvas(Shape *shape)
 	}
       else
 	{
-	  int point_size = 5;
+	  int point_size = 6;
 
 	  /* Display a point to highlight the target location of this shape */
 	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
@@ -1459,7 +1459,7 @@ add_shape_to_canvas(Shape *shape)
   
   if(shape->points!=NULL)
     {
-      printf("it's a point \n");
+      g_warning("it's a point \n");
       item = gnome_canvas_item_new(GNOME_CANVAS_GROUP(shape_root_item),
 				   gnome_canvas_polygon_get_type (),
 				   "points", shape->points,
@@ -1470,10 +1470,10 @@ add_shape_to_canvas(Shape *shape)
     }
   else
     {
-      printf("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
+      g_warning("it's an image ? shape->pixmapfile=%s\n", shape->pixmapfile);
       if(strcmp(shape->pixmapfile, UNDEFINED)!=0)
 	{
-	  printf("  Yes it is an image \n");
+	  g_warning("  Yes it is an image \n");
 	  pixmap = gcompris_load_pixmap(shape->pixmapfile);
 	  if(pixmap)
 	    {
@@ -1542,7 +1542,7 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			   "y", y,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", justification,
-			   "fill_color", "red",
+			   "fill_color_rgba", gcompris_skin_color_subtitle,
 			   NULL);
 
   gnome_canvas_item_raise_to_top(item);
@@ -1876,7 +1876,7 @@ read_xml_file(char *fname)
       addedname = INT_MAX;
   else
       addedname = atoi(tmpstr);
-  printf("addedname=%d\n", addedname);
+  g_warning("addedname=%d\n", addedname);
 
   /*--------------------------------------------------*/
   /* Read ShapeBox property */
@@ -1886,7 +1886,7 @@ read_xml_file(char *fname)
       shapeBox.x = 15;
   else
       shapeBox.x = atof(tmpstr);
-  printf("shapeBox.x=%f\n", shapeBox.x);
+  g_warning("shapeBox.x=%f\n", shapeBox.x);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_y");
   /* if unspecified, use the default value */
@@ -1894,7 +1894,7 @@ read_xml_file(char *fname)
       shapeBox.y = 25;
   else
       shapeBox.y = atof(tmpstr);
-  printf("shapeBox.y=%f\n", shapeBox.y);
+  g_warning("shapeBox.y=%f\n", shapeBox.y);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_w");
   /* if unspecified, use the default value */
@@ -1902,7 +1902,7 @@ read_xml_file(char *fname)
       shapeBox.w = 80;
   else
       shapeBox.w = atof(tmpstr);
-  printf("shapeBox.w=%f\n", shapeBox.w);
+  g_warning("shapeBox.w=%f\n", shapeBox.w);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_h");
   /* if unspecified, use the default value */
@@ -1910,7 +1910,7 @@ read_xml_file(char *fname)
       shapeBox.h = 430;
   else
       shapeBox.h = atof(tmpstr);
-  printf("shapeBox.h=%f\n", shapeBox.h);
+  g_warning("shapeBox.h=%f\n", shapeBox.h);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_nb_shape_x");
   /* if unspecified, use the default value */
@@ -1918,7 +1918,7 @@ read_xml_file(char *fname)
       shapeBox.nb_shape_x = 1;
   else
       shapeBox.nb_shape_x = atoi(tmpstr);
-  printf("shapeBox.nb_shape_x=%d\n", shapeBox.nb_shape_x);
+  g_warning("shapeBox.nb_shape_x=%d\n", shapeBox.nb_shape_x);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_nb_shape_y");
   /* if unspecified, use the default value */
@@ -1926,7 +1926,7 @@ read_xml_file(char *fname)
       shapeBox.nb_shape_y = 5;
   else
       shapeBox.nb_shape_y = atoi(tmpstr);
-  printf("shapeBox.nb_shape_y=%d\n", shapeBox.nb_shape_y);
+  g_warning("shapeBox.nb_shape_y=%d\n", shapeBox.nb_shape_y);
 
 
   /* parse our document and replace old data */

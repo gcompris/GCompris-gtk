@@ -504,7 +504,7 @@ static void init_xml()
 {
   char *filename;
   filename = g_strdup_printf("%s/%s/board1.xml", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);
-  printf("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
+  g_warning("filename = %s %s %s\n", filename,PACKAGE_DATA_DIR,gcomprisBoard->boarddir);
 
   assert(g_file_test(filename, G_FILE_TEST_EXISTS));
   assert(read_xml_file(filename)== TRUE);
@@ -517,11 +517,11 @@ static void init_xml()
 #ifdef DEBUG
 static void dump_xml() {
   GList *list;
-  printf("XML lentgh = %d\n", g_list_length(board_list));
+  g_warning("XML lentgh = %d\n", g_list_length(board_list));
 
   for(list = board_list; list != NULL; list = list->next) {
     Board * board = list->data;
-    printf("xml = %s %s %s %s\n", board->pixmapfile, board->text1, board->text2, board->text3);
+    g_warning("xml = %s %s %s %s\n", board->pixmapfile, board->text1, board->text2, board->text3);
     }
 }
 #endif

@@ -392,9 +392,9 @@ position_display (Position *pos)
 	 square <= H1 + ((rank - 1) * 10);
 	 square++) {
 
-	    printf("%c ", piece_to_ascii(pos->square [square]));
+	    g_warning("%c ", piece_to_ascii(pos->square [square]));
     }
-    printf("\n");
+    g_warning("\n");
   }
 }
 /* 

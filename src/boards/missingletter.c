@@ -507,11 +507,11 @@ static void highlight_selected(GnomeCanvasItem * item) {
 /* ======  for DEBUG ========  */
 static void dump_xml() {
   GList *list;
-  printf("XML lentgh = %d\n", g_list_length(board_list));
+  g_warning("XML lentgh = %d\n", g_list_length(board_list));
 
   for(list = board_list; list != NULL; list = list->next) {
     Board * board = list->data;
-    printf("xml = %s %s %s %s %s %s\n", board->pixmapfile, board->answer, board->question, board->l1, board->l2, board->l3);
+    g_warning("xml = %s %s %s %s %s %s\n", board->pixmapfile, board->answer, board->question, board->l1, board->l2, board->l3);
   }
 }
 /* ==================================== */
