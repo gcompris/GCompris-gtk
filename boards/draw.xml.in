@@ -2,12 +2,13 @@
 <GCompris>
   <Board 
 	 name="draw"
-	 type="draw" 
+	 type="python:anim"
 	 section="/fun/."
 	 icon="boardicons/draw.png" 
-	 difficulty="0"
-	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
-	 boarddir="colornforms">
+	 mode="draw"
+	 difficulty="2"
+	 author="Yves Combe (yves@ycombe.net)"
+	 boarddir="">
 	 <_title>A simple vector drawing tool</_title>
 	 <_description>Creative board where you can draw freely</_description>
 	<_prerequisite>Needs to handle the mouse with the click easily</_prerequisite>

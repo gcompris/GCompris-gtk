@@ -47,6 +47,7 @@ xml_in_files = \
 	maze.xml.in \
 	maze2DRelative.xml.in \
 	maze3D.xml.in \
+	mazeInvisible.xml.in \
 	melody.xml.in \
 	memory.xml.in \
 	menu.xml.in \

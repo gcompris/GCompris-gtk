@@ -59,6 +59,7 @@ static gboolean run_fast=FALSE;
 
 static gboolean modeIs2D=TRUE;
 static gboolean modeRelative=FALSE;
+static gboolean modeIsInvisible=FALSE;
 /*-----------------------*/
 
 static GcomprisBoard *gcomprisBoard = NULL;
@@ -77,6 +78,7 @@ static void repeat(void);
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup *mazegroup     = NULL;
+static GnomeCanvasGroup *wallgroup     = NULL;
 
 static GnomeCanvasItem *warning_item   = NULL;
 static GnomeCanvasItem *tuxitem        = NULL;
@@ -98,7 +100,7 @@ static int check(int x,int y);
 static int* isPossible(int x, int y);
 static void generateMaze(int x, int y);
 static void removeSet(void);
-static void draw_background(void);
+static void draw_background(GnomeCanvasGroup *rootItem);
 static void setlevelproperties(void);
 static gint tux_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint target_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
@@ -108,6 +110,7 @@ static void update_tux(gint direction);
 static GnomeCanvasGroup *threedgroup = NULL;
 static gint viewing_direction=EAST;
 static gboolean threeDactive=FALSE;
+static gboolean mapActive=FALSE;
 typedef float eyepos_t;
 
 // x,y e ]-1 ... 1[
@@ -189,21 +192,23 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     /* The mode defines if we run 2D or 3D */
     /* Default mode is 2D */
     modeRelative=FALSE;
+    modeIsInvisible=FALSE;
     if(!gcomprisBoard->mode)
       modeIs2D=TRUE;
     else if(g_strncasecmp(gcomprisBoard->mode, "2DR", 3)==0) {
       /* 2D Relative */
       modeIs2D=TRUE;
       modeRelative=TRUE;
+    } else if(g_strncasecmp(gcomprisBoard->mode, "2DI", 3)==0) {
+      modeIs2D=TRUE;
+      modeIsInvisible=TRUE;
     } else if(g_strncasecmp(gcomprisBoard->mode, "2D", 2)==0) {
       modeIs2D=TRUE;
     } else if(g_strncasecmp(gcomprisBoard->mode, "3D", 2)==0) {
       modeIs2D=FALSE;
     }
 
-    if(modeIs2D) {
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
-    } else {
+    if(!modeIs2D || modeIsInvisible) {
       pixmap = gcompris_load_skin_pixmap("maze-2d-bubble.png");
       if(pixmap) {
 	gcompris_bar_set_repeat_icon(pixmap);
@@ -212,6 +217,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       } else {
 	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
       }
+    } else {
+      /* 2D Regular mode */
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
     }
 
     gamewon = FALSE;
@@ -256,13 +264,20 @@ static void maze_next_level() {
   gcompris_bar_set_level(gcomprisBoard);
   setlevelproperties();
 
+  mapActive = FALSE;
+
   gamewon = FALSE;
   initMaze();
   generateMaze((rand()%breedte),(rand()%hoogte));
   removeSet();	
   /* Try the next level */
   maze_create_item(gnome_canvas_root(gcomprisBoard->canvas));
-  draw_background();
+  draw_background(wallgroup);
+
+  if(modeIsInvisible) {
+    gnome_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+  }
+
   /* make a new group for the items */
   begin=rand()%hoogte;
   end=rand()%hoogte;
@@ -390,6 +405,20 @@ static void setlevelproperties(){
 static void repeat () {
   GdkPixbuf *pixmap = NULL;
 
+  if(modeIsInvisible) {
+    if(mapActive) {
+      gnome_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+      /* Hide the warning */
+      gnome_canvas_item_hide(warning_item);
+      mapActive = FALSE;
+    } else {
+      gnome_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
+      /* Display a warning that you can't move there */
+      gnome_canvas_item_show(warning_item);      
+      mapActive = TRUE;
+    }
+  }
+
   if(modeIs2D)
     return;
 
@@ -421,13 +450,12 @@ static void repeat () {
  * Destroy all the items
  * =====================================================================*/
 static void maze_destroy_all_items() {
-  if (mazegroup!=NULL)
-    gtk_object_destroy (GTK_OBJECT(mazegroup));
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
   if (threedgroup!=NULL)
     gtk_object_destroy(GTK_OBJECT(threedgroup));
   mazegroup = NULL;
+  wallgroup = NULL;
   boardRootItem = NULL;
   threedgroup=NULL;
 }
@@ -436,6 +464,8 @@ static void maze_destroy_all_items() {
  *
  * =====================================================================*/
 static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
+  gchar *message;
+
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
@@ -448,20 +478,28 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 						     "y",(double)hoogte,
 						     NULL));
 
+  wallgroup=GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
+						     gnome_canvas_group_get_type(),
+						     "x",(double) 0,
+						     "y",(double) 0,
+						     NULL));
+
+  if(modeIsInvisible) {
+    message = _("Look at your position and switch back to invisible mode to move");
+  } else {
+    message = _("Look at your position and switch back to 3D mode to move");
+  }
+
   warning_item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_text_get_type (),
-					"text", _("Look at your position and switch back to 3D mode to move"),
+					"text", message,
 					"font", gcompris_skin_font_board_big,
 					"x", (double) BOARDWIDTH/2,
 					"y", (double) BOARDHEIGHT-20,
 					"anchor", GTK_ANCHOR_CENTER,
 					"fill_color_rgba", gcompris_skin_color_content,
 					NULL);
-  if(modeIs2D) {
-    gnome_canvas_item_hide(warning_item);
-  } else {
-    gnome_canvas_item_show(warning_item);
-  }
+  gnome_canvas_item_hide(warning_item);
 
   return NULL;
 }
@@ -729,7 +767,7 @@ static void removeSet(void)
 
 /* draw the background of the playing board */
 static void
-draw_background(void)
+draw_background(GnomeCanvasGroup *rootItem)
 {
   int x,y,x1,y1;
   int wall;
@@ -742,16 +780,16 @@ draw_background(void)
 	  y=cellsize*(y1)+board_border_y;
 	  x=cellsize*(x1)+board_border_x;
 	  if (x1==0)
-	    draw_a_line(boardRootItem,x, y, x, y+cellsize, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x, y, x, y+cellsize, gcompris_skin_get_color("maze/wall color"));
 
 	  if (y1==0)
-	    draw_a_line(boardRootItem,x, y, x+cellsize, y, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x, y, x+cellsize, y, gcompris_skin_get_color("maze/wall color"));
 
 	  if (wall&EAST)
-	    draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x+cellsize, y, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
 
 	  if (wall&SOUTH)
-	    draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
+	    draw_a_line(rootItem,x, y+cellsize, x+cellsize, y+cellsize, gcompris_skin_get_color("maze/wall color"));
 
 	}
     }
@@ -853,34 +891,48 @@ static gint key_press(guint keyval)
     {
     case GDK_Left:
       /* When In 3D Mode, can't move tux in the 2D mode */
-      if(!modeIs2D)
+      if(!modeIs2D || mapActive)
 	return TRUE;
 
       richting=WEST;
       break;
     case GDK_Right: 
       /* When In 3D Mode, can't move tux in the 2D mode */
-      if(!modeIs2D)
+      if(!modeIs2D || mapActive)
 	return TRUE;
 
       richting=EAST; 
       break;
     case GDK_Up: 
       /* When In 3D Mode, can't move tux in the 2D mode */
-      if(!modeIs2D)
+      if(!modeIs2D || mapActive)
 	return TRUE;
 
       richting=NORTH; 
       break;
     case GDK_Down: 
       /* When In 3D Mode, can't move tux in the 2D mode */
-      if(!modeIs2D)
+      if(!modeIs2D || mapActive)
 	return TRUE;
 
       richting=SOUTH; 
       break;
     case GDK_3:
     case GDK_space:
+      if(modeIsInvisible) {
+	if(mapActive) {
+	  gnome_canvas_item_hide(GNOME_CANVAS_ITEM(wallgroup));
+	  /* Hide the warning */
+	  gnome_canvas_item_hide(warning_item);
+	  mapActive = FALSE;
+	} else {
+	  gnome_canvas_item_show(GNOME_CANVAS_ITEM(wallgroup));
+	  /* Display a warning that you can't move there */
+	  gnome_canvas_item_show(warning_item);      
+	  mapActive = TRUE;
+	}
+      }
+      
       /* switch to 3D only if allowed in the mode */
       if(!modeIs2D)
 	threeDdisplay(); 
@@ -974,6 +1026,8 @@ static gint key_press_3D(guint keyval)
       break;
     case GDK_2: 
     case GDK_space: 
+      /* Display a warning that you can't move there */
+      gnome_canvas_item_show(warning_item);      
       twoDdisplay();
       return TRUE;
     case GDK_E: case GDK_e: eye_pos_y+=0.1; if (eye_pos_y>0.9) eye_pos_y=0.9; break;

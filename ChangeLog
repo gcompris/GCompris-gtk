@@ -1,3 +1,16 @@
+2005-02-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- added a new maze variant on Yves suggestion. The 2D invisible maze.
+	- changed anim to support the draw mode
+	
+	* boards/Makefile.am: 
+	* boards/draw.xml.in:
+	* po/POTFILES.in:
+	* src/boards/maze.c: (start_board), (maze_next_level), (repeat),
+	(maze_destroy_all_items), (maze_create_item), (draw_background),
+	(key_press), (key_press_3D):
+	* src/boards/python/anim.py: now can support the draw mode.
+
 2005-02-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* gcompris.desktop.in: updated

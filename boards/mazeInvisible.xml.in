@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board
+	 name="maze"
+	 type="maze"
+	 section="/fun/."
+	 mode="2DI"
+	 icon="boardicons/mazeInvisible.png"
+	 difficulty="4"
+	 author="Bastiaan Verhoef (b.f.verhoef@student.utwente.nl)"
+	 boarddir="maze">
+	 <_title>Maze</_title>
+	 <_description>Find your way out of the invisible maze</_description>
+	<_prerequisite>Can use the keyboard arrow to move an object.</_prerequisite>
+	<_goal>Help Tux get out of this maze.</_goal>
+	<_manual>Use the keyboard arrows to move Tux up to the door.
+Use the spacebar to switch between invisible and visible modes. Visible mode gives you
+just an indication of your position like a map. You cannot move tux in
+visible mode.</_manual>
+  </Board>
+</GCompris>

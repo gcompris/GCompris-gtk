@@ -17,7 +17,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-# 
+#
 from gettext import gettext as _
 # PythonTest Board module
 import gobject
@@ -39,6 +39,9 @@ import tempfile
 import cPickle as pickle
 
 fles=None
+
+# When anim is passed the mode 'draw', animation is disabled.
+#
 
 #class Gcompris_anim:
 class Gcompris_anim:
@@ -249,7 +252,8 @@ class Gcompris_anim:
     self.list_z_last_shot = []
 # list of actual z values
     self.list_z_actual = []
-    
+
+
   def start(self):  
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
@@ -268,9 +272,14 @@ class Gcompris_anim:
       y=0.0
       )
 
+    if self.gcomprisBoard.mode == 'draw':
+      self.selector_section = "draw2"
+    else:
+      self.selector_section = "anim2"
+
     # initialisation
     self.draw_tools()
-    self.draw_animtools()
+    self.draw_animtools()  
     self.draw_colors()
     self.draw_drawing_area(10)
     self.draw_playing_area()
@@ -301,9 +310,9 @@ class Gcompris_anim:
   def key_press(self, keyval):
     
     if (keyval == gtk.keysyms.F1):
-      gcompris.file_selector_save( self.gcomprisBoard, "anim2", self.file_type, anim2_save)
+      gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, anim2_save)
     elif (keyval == gtk.keysyms.F2):
-      gcompris.file_selector_load( self.gcomprisBoard, "anim2", self.file_type, anim2_restore)
+      gcompris.file_selector_load( self.gcomprisBoard, self.selector_section, self.file_type, anim2_restore)
 
     elif (keyval == gtk.keysyms.F3):
       self.ps_print(self.get_drawing(self.current_image))
@@ -417,6 +426,12 @@ class Gcompris_anim:
 
     # Display the tools
     for i in range(0,len(self.tools)):
+
+      # Exclude the anim specific buttons
+      if self.gcomprisBoard.mode == 'draw':
+        if self.tools[i][0]=="MOVIE" or self.tools[i][0]=="PICTURE":
+          continue
+          
       if(i%2):
         theX = x2
       else:
@@ -450,11 +465,12 @@ class Gcompris_anim:
       if event.button == 1:
         # Some button have instant effects
         if (self.tools[tool][0] == "SAVE"):
-          gcompris.file_selector_save( self.gcomprisBoard, "anim2", self.file_type, anim2_save)
+          self.Anim2Shot()
+          gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, anim2_save)
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "LOAD"):
-          gcompris.file_selector_load( self.gcomprisBoard, "anim2", self.file_type, anim2_restore)
+          gcompris.file_selector_load( self.gcomprisBoard, self.selector_section, self.file_type, anim2_restore)
           return gtk.TRUE
           
         elif (self.tools[tool][0] == "IMAGE"):
@@ -1283,6 +1299,10 @@ class Gcompris_anim:
     minibutton_width = 32
     minibutton_height = 20
 
+    if self.gcomprisBoard.mode == 'draw':
+      self.running = False
+      return
+    
     # Draw the background area
     self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
