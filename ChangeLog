@@ -1,3 +1,13 @@
+2004-01-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* po/Makefile.in.in: no idea why it as changed
+	* src/boards/reading.c: (player_win), (player_loose): added call to log for failed comment
+	* src/gcompris/Makefile.am: added log.c
+	* src/gcompris/board.c: (board_play), (board_stop): added log API call
+	* src/gcompris/bonus.c: (bonus_image): added log API call
+	* src/gcompris/gcompris.h: added log API
+	* src/gcompris/log.c: created the log API
+
 2004-01-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/missing_letter.c: now hide the bar just after the ok

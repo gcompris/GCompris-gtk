@@ -84,6 +84,9 @@ void board_play(GcomprisBoard *gcomprisBoard)
 
   if(gcomprisBoard->plugin!=NULL)
     {
+      /* Log the board start */
+      gcompris_log_start(gcomprisBoard);
+
       bp = gcomprisBoard->plugin;
       set_current_board_plugin(bp);
       set_current_gcompris_board(gcomprisBoard);
@@ -117,7 +120,7 @@ void board_stop(void)
 	board_pause();
       if (get_current_board_plugin()->end_board)
 	get_current_board_plugin()->end_board();
-      
+
       bp_data->paused = FALSE;
       gcompris_end_board();
       return;

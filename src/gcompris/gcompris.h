@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2003/12/10 23:51:30 bcoudoin>
+ * Time-stamp: <2004/01/20 00:53:26 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -105,6 +105,19 @@ void		 gcompris_images_selector_start (GcomprisBoard *gcomprisBoard,
 						 ImageSelectorCallBack imscb);
 void		 gcompris_images_selector_stop (void);
 void		 gcompris_exit();
+
+/* Trace Log */
+#define GCOMPRIS_LOG_STATUS_PASSED "PASSED"
+#define GCOMPRIS_LOG_STATUS_FAILED "FAILED"
+
+/* gcompris internal only */
+void gcompris_log_start (GcomprisBoard *gcomprisBoard); 
+
+/* Use it to tell the teacher where the kid failed */
+void gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *comment); 
+
+/* Do not use it if you use the bonus API in your board */
+void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
 
 /*=========================================================*/
 /* Some global definition to keep a constant look and feel */

@@ -228,10 +228,17 @@ void bonus_image(char *image, int gamewon)
     return;
   }
 
-  if (gamewon == TRUE)
+
+
+  if (gamewon == TRUE) {
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");
-  else
+    /* Record the end of board */
+    gcompris_log_end (get_current_gcompris_board(), GCOMPRIS_LOG_STATUS_PASSED);
+  } else {
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_bad.png");
+    /* Record the end of board */
+    gcompris_log_end (get_current_gcompris_board(), GCOMPRIS_LOG_STATUS_FAILED);
+  }
 
   pixmap = gcompris_load_pixmap(str);
 

@@ -51,7 +51,8 @@ libgcompris_a_SOURCES = \
 	score.c score.h \
 	skin.c skin.h \
 	config.c gcompris_config.h \
-	about.c about.h 
+	about.c about.h \
+	log.c
 
 
 gcompris_SOURCES = \

@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/01/19 02:06:06 bcoudoin>
+ * Time-stamp: <2004/01/20 00:37:26 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -617,17 +617,24 @@ static void player_win()
     return;
   }
 
-  next_level_timer = g_timeout_add(3000, reading_next_level, NULL);
+  next_level_timer = g_timeout_add(3000, (GtkFunction)reading_next_level, NULL);
 }
 
 static void player_loose()
 {
+  gchar *str;
   gcompris_play_ogg ("crash", NULL);
   gamewon = FALSE;
   wait_for_ready = TRUE;
+
+  /* Report what was wrong in the log */
+  str = g_strdup_printf(_("The word to find was '%s'"), textToFind);
+  gcompris_log_set_comment (gcomprisBoard, str);
+  g_free(str);
+
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
 
-  next_level_timer = g_timeout_add(3000, reading_next_level, NULL);
+  next_level_timer = g_timeout_add(3000, (GtkFunction)reading_next_level, NULL);
 }
 
 /* Callback for the yes and no buttons */

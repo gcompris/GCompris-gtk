@@ -220,7 +220,6 @@ static void end_board () {
 
   if(gcomprisBoard!=NULL){
     pause_board(TRUE);
-    gcompris_score_end();
     maze_destroy_all_items();
   }
   gcomprisBoard = NULL;
