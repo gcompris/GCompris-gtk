@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-06 18:52+0100\n"
-"PO-Revision-Date: 2005-01-06 20:43+0100\n"
+"POT-Creation-Date: 2005-01-09 10:51+0100\n"
+"PO-Revision-Date: 2005-01-09 15:17+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -471,12 +471,37 @@ msgid "algorithm"
 msgstr "algoritmus"
 
 #: boards/anim.xml.in.h:1
-msgid "Create an animation"
-msgstr "Vytvořit animaci"
+msgid "Create a drawing or an animation"
+msgstr "Vytvořit kresbu nebo animaci"
 
 #: boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
 msgstr "Nástroj pro volné kreslení a animace."
+
+#: boards/anim.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines. To make it more fun for kids, a set of images can also be used."
+msgstr "V této hře si děti mohou volně kreslit. Cílem je jen objevit, jak vytvářet hezké kresby založené na základních tvarech: obdélnících, elipsách a úsečkách. Aby to pro děti byla větší zábava, lze také použit sadu obrázků."
+
+#: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Potřebuje snadno ovládat myš a klikání"
+
+#: boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left and a color on the bottom. Then click and "
+"drag in the white area to create a new shape. Once one drawing is complete, "
+"you can take a snapshot of it with the 'camera' button. A new image with the "
+"same content is created. You can then move objects a little bit or add/"
+"delete objects. Create several drawings and then click on the 'film' button. "
+"You will see all your images in an infinite loop. You can change the viewing "
+"speed in this mode. In view mode, click on the 'drawing' button to return to "
+"drawing. You can then edit each image of your animation by using the image "
+"selector in the bottom left of the screen. You can save and reload your "
+"animations with the 'floppy' and 'folder' button."
+msgstr "Zvole kreslicí nástroj vlevo a barvu dole. Pak vytvoř nový tvar kliknutím a tažením v bílé oblasti. Až bude kresba hotova, můžeš získat její snímek tlačítkem 'fotoaparát'. Bude vytvořen nový obrázek se stejným obsahem. Můžeš pak objekty o trochu posunout nebo je přidávat/odebírat. Vytvoř několik kreseb a pak klikni na tlačíko 'film'. Uvidíš všechny své obrázky v nekonečné smyčce. V tomto režimu můžeš měnit rychlost prohlížení. V režimu prohlížení se ke kreslení vrať kliknutím na tlačítko 'kreslení'. Pak můžeš upravit každý obrázek své animace upravit pomocí výběru obázků v levé dolní části obrazovky. Své animace můžeš ukládat a obnovovat pomocí tlačítek 'disketa' a 'adresář'."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -929,10 +954,6 @@ msgstr ""
 "V této hře si děti mohou volně kreslit. Cílem je jen objevit, jak vytvářet "
 "hezké kresby založené na základních tvarech: obdélnících, elipsách a "
 "úsečkách."
-
-#: boards/draw.xml.in.h:4
-msgid "Needs to handle the mouse with the click easily"
-msgstr "Potřebuje snadno ovládat myš a klikání"
 
 #: boards/draw.xml.in.h:5
 msgid ""
@@ -2318,7 +2339,9 @@ msgstr "Dávej své lodi správné instrukce, abys byl první v závodu s Tuxem.
 msgid ""
 "In the text entry, enter line by line commands to give direction to your "
 "boat. Commands supported are displayed between the two entry area."
-msgstr "Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované příkazy jsou zobrazeny mezi vstupními oblastmi."
+msgstr ""
+"Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované "
+"příkazy jsou zobrazeny mezi vstupními oblastmi."
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2796,28 +2819,28 @@ msgstr "Úroveň"
 msgid "Coordinate"
 msgstr "Koordinace"
 
-#: src/boards/python/searace.py:159 src/boards/python/searace.py:164
-#: src/boards/python/searace.py:191
+#: src/boards/python/searace.py:181 src/boards/python/searace.py:186
+#: src/boards/python/searace.py:212
 msgid "Race is already running"
 msgstr "Závod již běží"
 
-#: src/boards/python/searace.py:570
+#: src/boards/python/searace.py:610
 msgid "The Red boat has won"
 msgstr "Červená loď vyhrála"
 
-#: src/boards/python/searace.py:572
+#: src/boards/python/searace.py:612
 msgid "The Green boat has won"
 msgstr "Zelená loď vyhrála"
 
-#: src/boards/python/searace.py:656
+#: src/boards/python/searace.py:705
 msgid "forward"
 msgstr "vpřed"
 
-#: src/boards/python/searace.py:662
+#: src/boards/python/searace.py:711
 msgid "turnleft"
 msgstr "zatočit doleva"
 
-#: src/boards/python/searace.py:664
+#: src/boards/python/searace.py:713
 msgid "turnright"
 msgstr "zatočit doprava"
 
@@ -3239,15 +3262,15 @@ msgstr "V %s nenalezen skin\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:235
+#: src/gcompris/file_selector.c:242
 msgid "CANCEL"
 msgstr "ZRUŠIT"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "LOAD"
 msgstr "NAČÍST"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "SAVE"
 msgstr "ULOŽIT"
 
@@ -3418,6 +3441,9 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid "Create an animation"
+#~ msgstr "Vytvořit animaci"
 
 #~ msgid "Error: The wordfile package used for your locale is corrupted."
 #~ msgstr "Chyba: balíček wordfile používaný pro vaše locale je poškozen."
