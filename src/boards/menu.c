@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2001/10/15 02:26:27 bruno>
+ * Time-stamp: <2001/11/06 00:42:24 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -237,7 +237,7 @@ static gboolean next_spot()
 
 static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard *board)
 {
-  GdkPixbuf *menu_pixmap = NULL, *star_pixmap = NULL;
+  GdkPixbuf *menu_pixmap = NULL, *pixmap = NULL;
   GnomeCanvasItem *item, *star;
   MenuItem *menuitem;
 
@@ -256,40 +256,19 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
   gcompris_set_image_focus(menu_pixmap, FALSE);
   // FIXME Unref of the pixmap will make gcompris_item_event_focus fails
   //       when it will be fixed.
+  gdk_pixbuf_unref(menu_pixmap);
+
   item_list = g_list_append (item_list, item);
 
-  // display difficulty stars ========================== BEGIN
-  star_pixmap = gcompris_load_pixmap("gcompris/difficulty_star.png");
-  if (board->difficulty != NULL) {
-  	int i, diff = 0;
-	if (strcmp("1",board->difficulty) == 0) diff = 1;
-	if (strcmp("2",board->difficulty) == 0) diff = 2;
-	if (strcmp("3",board->difficulty) == 0) diff = 3;
-	for (i=0; i<diff; i++) {
-		star =  gnome_canvas_item_new (parent,
-						gnome_canvas_pixbuf_get_type (),
-						"pixbuf", star_pixmap,
-						"x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2  - gdk_pixbuf_get_width(star_pixmap) + 5,
-						"y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2 + gdk_pixbuf_get_height(star_pixmap) * (i-1),
-						"width", (double) gdk_pixbuf_get_width(star_pixmap),
-						"height", (double) gdk_pixbuf_get_height(star_pixmap),
-						NULL);
-  	item_list = g_list_append (item_list, star);
-	}
-  }
-// display difficulty stars ========================== END
-
-  gdk_pixbuf_unref(star_pixmap);
-  gdk_pixbuf_unref(menu_pixmap);
+  menuitem->board=board;
+  menuitem->item=item;
+  menuitem->image=menu_pixmap;
 
   if (!menu_table)
     {
       menu_table= g_hash_table_new (g_direct_hash, g_direct_equal);
     }
 
-  menuitem->board=board;
-  menuitem->item=item;
-  menuitem->image=menu_pixmap;
   g_hash_table_insert (menu_table, item, menuitem);
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
@@ -299,6 +278,48 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     menu_pixmap);
+
+
+
+  // display difficulty stars ========================== BEGIN
+  pixmap = gcompris_load_pixmap("gcompris/buttons/difficulty_star.png");
+  if (board->difficulty != NULL) {
+  	int i, diff = 0;
+	diff = atoi(board->difficulty);
+	for (i=0; i<diff; i++) {
+		star =  gnome_canvas_item_new (parent,
+					       gnome_canvas_pixbuf_get_type (),
+					       "pixbuf", pixmap,
+					       "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
+					       - gdk_pixbuf_get_width(pixmap) + 5,
+					       "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2
+					       + gdk_pixbuf_get_height(pixmap) * (i-1),
+					       "width", (double) gdk_pixbuf_get_width(pixmap),
+					       "height", (double) gdk_pixbuf_get_height(pixmap),
+					       NULL);
+		item_list = g_list_append (item_list, star);
+	}
+  }
+  gdk_pixbuf_unref(pixmap);
+  // display difficulty stars ========================== END
+  
+  // display menu icon ========================== BEGIN
+  pixmap = gcompris_load_pixmap("gcompris/buttons/menuicon.png");
+  if(g_strcasecmp(board->type, "menu")==0)
+    {
+      item =  gnome_canvas_item_new (parent,
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap,
+				     "x", (double)current_x + gdk_pixbuf_get_width(menu_pixmap)/2
+				     - gdk_pixbuf_get_width(pixmap) - 5,
+				     "y", (double)current_y + gdk_pixbuf_get_height(menu_pixmap)/2,
+				     "width", (double) gdk_pixbuf_get_width(pixmap),
+				     "height", (double) gdk_pixbuf_get_height(pixmap),
+				     NULL);
+      item_list = g_list_append (item_list, item);
+    }
+  gdk_pixbuf_unref(pixmap);
+// display menu icon ========================== END
 
   return (item);
 }
