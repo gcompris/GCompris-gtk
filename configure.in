@@ -22,7 +22,7 @@ AM_PROG_LIBTOOL
 GNOME_X_CHECKS
 AM_PATH_GLIB
 AM_PATH_GDK_PIXBUF
-#AM_PATH_XML2
+AM_PATH_XML2
 AM_ICONV
 
 dnl Add the languages which your application supports here.
@@ -32,7 +32,7 @@ dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
 AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}")
 
-AM_GNU_GETTEXT
+AM_GLIB_GNU_GETTEXT
 
 dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically
 dnl FIXME : should use gnome-config gnomecanvaspixbuf --libs
