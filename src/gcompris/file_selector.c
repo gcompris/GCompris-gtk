@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/02/04 01:19:36 bruno>
+ * Time-stamp: <2005/02/08 23:11:49 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -38,6 +38,9 @@
 static gint		 item_event_file_selector(GnomeCanvasItem *item, 
 						  GdkEvent *event, 
 						  gpointer data);
+static gint		 item_event_scroll(GnomeCanvasItem *item,
+					   GdkEvent *event,
+					   GnomeCanvas *canvas);
 static gint		 item_event_fileset_selector(GnomeCanvasItem *item, 
 						     GdkEvent *event, 
 						     gpointer data);
@@ -390,9 +393,10 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   guint ix  = 0.0;
   guint iy  = 0.0;
 
-  GnomeCanvas     *canvas;
   GtkWidget	  *w;
   GnomeCanvasItem *bg_item;
+
+  GnomeCanvas	  *canvas; /* The scrolled part */
 
   if(!rootitem)
     return;
@@ -460,6 +464,11 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   gtk_widget_show (w);
   gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas), FALSE);
 
+  /* FIXME: Doesn't work. the scroll is fine but the display is buggy
+  gtk_signal_connect(GNOME_CANVAS(canvas), "event",
+		     (GtkSignalFunc) item_event_scroll,
+		     GNOME_CANVAS(canvas));
+  */
 
   /* Display the directory name
    * --------------------------
@@ -593,6 +602,28 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
     }
   return FALSE;
 
+}
+
+/* Callback when a scroll event happens */
+/* FIXME This doesn't work. */
+static gint
+item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
+{
+  int x, y;
+  if(!rootitem)
+    return;
+
+  switch (event->type) 
+    {
+    case GDK_SCROLL:
+      gnome_canvas_get_scroll_offsets (canvas, &x, &y);
+      if ( event->scroll.direction == GDK_SCROLL_UP )
+	gnome_canvas_scroll_to (canvas, x, y - 20);
+      else if ( event->scroll.direction == GDK_SCROLL_DOWN )
+	gnome_canvas_scroll_to (canvas, x, y + 20);
+
+      break;
+    }
 }
 
 /* Callback when a file is selected */

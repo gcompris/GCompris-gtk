@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2003/12/19 22:00:48 bcoudoin>
+ * Time-stamp: <2005/02/09 00:56:51 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -38,6 +38,9 @@ static gint		 item_event_images_selector(GnomeCanvasItem *item,
 static gint		 item_event_imageset_selector(GnomeCanvasItem *item, 
 						      GdkEvent *event, 
 						      gpointer data);
+static gint		 item_event_scroll(GnomeCanvasItem *item,
+					   GdkEvent *event,
+					   GnomeCanvas *canvas);
 static gboolean		 read_xml_file(gchar *fname);
 static void		 display_image(gchar *imagename, GnomeCanvasItem *rootitem);
 static void		 free_stuff (GtkObject *obj, GList *data);
@@ -48,30 +51,40 @@ static GnomeCanvasItem	*rootitem = NULL;
 static GnomeCanvasItem	*current_root_set = NULL;
 static GnomeCanvasItem	*item_content = NULL;
 
+static GnomeCanvas	*canvas_list_selector; /* The scrolled left part */
+static GnomeCanvasItem  *list_bg_item;
+
+static GnomeCanvas	*canvas_image_selector; /* The scrolled right part */
+static GnomeCanvasItem  *image_bg_item;
+
 static ImageSelectorCallBack imageSelectorCallBack = NULL;
 
 /* Represent the limits of the image area */
-#define	DRAWING_AREA_X1	111
-#define DRAWING_AREA_Y1	14
-#define DRAWING_AREA_X2	774
-#define DRAWING_AREA_Y2	500
+#define	DRAWING_AREA_X1	111.0
+#define DRAWING_AREA_Y1	14.0
+#define DRAWING_AREA_X2	774.0
+#define DRAWING_AREA_Y2	500.0
 
 /* Represent the limits of list area */
-#define	LIST_AREA_X1	18
-#define	LIST_AREA_Y1	16
-#define	LIST_AREA_X2	80
-#define	LIST_AREA_Y2	500
+#define	LIST_AREA_X1	18.0
+#define	LIST_AREA_Y1	16.0
+#define	LIST_AREA_X2	80.0
+#define	LIST_AREA_Y2	500.0
+#define VERTICAL_NUMBER_OF_LIST_IMAGE	6
 
-#define HORIZONTAL_NUMBER_OF_IMAGE	10
-#define VERTICAL_NUMBER_OF_IMAGE	5
+#define HORIZONTAL_NUMBER_OF_IMAGE	8
+#define VERTICAL_NUMBER_OF_IMAGE	4
 #define IMAGE_GAP			10
 
 #define IMAGE_WIDTH  (DRAWING_AREA_X2-DRAWING_AREA_X1)/HORIZONTAL_NUMBER_OF_IMAGE-IMAGE_GAP
 #define IMAGE_HEIGHT (DRAWING_AREA_Y2-DRAWING_AREA_Y1)/VERTICAL_NUMBER_OF_IMAGE-IMAGE_GAP
 
-static guint		 ix  = DRAWING_AREA_X1;
-static guint		 iy  = DRAWING_AREA_Y1;
-static guint		 isy = DRAWING_AREA_Y1;
+#define LIST_IMAGE_WIDTH  LIST_AREA_X2-LIST_AREA_X1-IMAGE_GAP
+#define LIST_IMAGE_HEIGHT (LIST_AREA_Y2-LIST_AREA_Y1)/VERTICAL_NUMBER_OF_LIST_IMAGE-IMAGE_GAP
+
+static guint		 ix;
+static guint		 iy;
+static guint		 isy;
 
 /*
  * Main entry point 
@@ -93,6 +106,8 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   gint		 y_start = 0;
   gint		 x_start = 0;
   gchar		*name = NULL;
+
+  GtkWidget	  *w;
 
   if(rootitem)
     return;
@@ -131,13 +146,98 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 
   pixmap = gcompris_load_skin_pixmap("button_large.png");
 
+  /*
+   * Create the list scrollbar
+   * -------------------------
+   */
+  canvas_list_selector     = GNOME_CANVAS(gnome_canvas_new ());
 
-  // OK
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(canvas_list_selector),
+			 "x", (double) LIST_AREA_X1,
+			 "y", (double) LIST_AREA_Y1,
+			 "width",  LIST_AREA_X2 - LIST_AREA_X1,
+			 "height", LIST_AREA_Y2 - LIST_AREA_Y1 - 35.0,
+			 NULL);
+
+  gtk_widget_show (GTK_WIDGET(canvas_list_selector));
+
+  /* Set the new canvas to the background color or it's white */
+  list_bg_item = gnome_canvas_item_new (gnome_canvas_root(canvas_list_selector),
+					gnome_canvas_rect_get_type (),
+					"x1", (double) 0,
+					"y1", (double) 0,
+					"x2", (double) LIST_AREA_X2 - LIST_AREA_X1,
+					"y2", (double) LIST_AREA_Y2 - LIST_AREA_Y1,
+					"fill_color_rgba", gcompris_skin_get_color("gcompris/imageselectbg"),
+					NULL);
+
+
+  w = gtk_vscrollbar_new (GTK_LAYOUT(canvas_list_selector)->vadjustment);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(w),
+			 "x", (double) LIST_AREA_X2 - 5.0,
+			 "y", (double) LIST_AREA_Y1,
+			 "width", 30.0,
+			 "height", LIST_AREA_Y2 - LIST_AREA_Y1 - 20.0,
+			 NULL);
+  gtk_widget_show (w);
+  gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas_list_selector), FALSE);
+
+  /*
+   * Create the image scrollbar
+   * --------------------------
+   */
+  canvas_image_selector     = GNOME_CANVAS(gnome_canvas_new ());
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(canvas_image_selector),
+			 "x", (double) DRAWING_AREA_X1,
+			 "y", (double) DRAWING_AREA_Y1,
+			 "width",  DRAWING_AREA_X2 - DRAWING_AREA_X1,
+			 "height", DRAWING_AREA_Y2 - DRAWING_AREA_Y1 - 35.0,
+			 NULL);
+
+  gtk_widget_show (GTK_WIDGET(canvas_image_selector));
+
+  /* Set the new canvas to the background color or it's white */
+  image_bg_item = gnome_canvas_item_new (gnome_canvas_root(canvas_image_selector),
+					gnome_canvas_rect_get_type (),
+					"x1", (double) 0,
+					"y1", (double) 0,
+					"x2", (double) DRAWING_AREA_X2 - DRAWING_AREA_X1,
+					"y2", (double) DRAWING_AREA_Y2 - DRAWING_AREA_Y1,
+					 "fill_color_rgba", gcompris_skin_get_color("gcompris/imageselectbg"),
+					NULL);
+
+
+  w = gtk_vscrollbar_new (GTK_LAYOUT(canvas_image_selector)->vadjustment);
+
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", GTK_WIDGET(w),
+			 "x", (double) DRAWING_AREA_X2 - 5.0,
+			 "y", (double) DRAWING_AREA_Y1,
+			 "width", 30.0,
+			 "height", DRAWING_AREA_Y2 - DRAWING_AREA_Y1 - 20.0,
+			 NULL);
+  gtk_widget_show (w);
+  gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas_image_selector), FALSE);
+
+
+  /*
+   * OK Button
+   * ---------
+   */
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
 				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 10,
 				NULL);
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
@@ -152,7 +252,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 				"text", _("OK"),
 				"font", gcompris_skin_font_title,
 				"x", (double)  BOARDWIDTH*0.5,
-				"y", (double)  y - gdk_pixbuf_get_height(pixmap),
+				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 15,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_text_button,
 				NULL);
@@ -167,9 +267,9 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   images_selector_displayed = TRUE;
 
   /* Initial image position */
-  ix  = DRAWING_AREA_X1;
-  iy  = DRAWING_AREA_Y1;
-  isy = DRAWING_AREA_Y1;
+  ix  = 0;
+  iy  = 0;
+  isy = 0;
 
   /* Read the given data set */
   read_xml_file(dataset);
@@ -252,10 +352,24 @@ static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
 		     NULL);
 
   ix+=IMAGE_WIDTH + IMAGE_GAP;
-  if(ix>=DRAWING_AREA_X2-IMAGE_GAP)
+  if(ix>=DRAWING_AREA_X2-DRAWING_AREA_X1-IMAGE_GAP)
     {
-      ix=DRAWING_AREA_X1;
+      guint iy_calc;
+      ix=0;
       iy+=IMAGE_HEIGHT + IMAGE_GAP;
+      gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_image_selector), 0, 0, 
+				      DRAWING_AREA_X2- DRAWING_AREA_X1, 
+				      iy + IMAGE_HEIGHT + IMAGE_GAP);
+
+      /* Cannot use GINT_TO_POINTER with a constant calculation */
+      iy_calc = iy + IMAGE_HEIGHT + IMAGE_GAP;
+      g_object_set_data (G_OBJECT (root_item), "iy", GINT_TO_POINTER (iy_calc));
+
+      if(iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
+	gnome_canvas_item_set(image_bg_item,
+			      "y2", (double) iy + IMAGE_HEIGHT + IMAGE_GAP,
+			      NULL);
+      }
     }
 }
 
@@ -277,18 +391,18 @@ static void display_image_set(gchar *imagename, GList *imagelist)
 
   pixmap = gcompris_load_pixmap(imagename);
 
-  iw = IMAGE_WIDTH;
-  ih = IMAGE_HEIGHT;
+  iw = LIST_IMAGE_WIDTH;
+  ih = LIST_IMAGE_HEIGHT;
 
   /* Calc the max to resize width or height */
   xratio = (double) (((double)gdk_pixbuf_get_width(pixmap))/iw);
   yratio = (double) (((double)gdk_pixbuf_get_height(pixmap))/ih);
   xratio = MAX(yratio,xratio);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item = gnome_canvas_item_new (gnome_canvas_root(canvas_list_selector),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,
-				"x", (double)20,
+				"x", (double)5,
 				"y", (double)isy,
 				"width", (double) gdk_pixbuf_get_width(pixmap)/xratio,
 				"height", (double) gdk_pixbuf_get_height(pixmap)/xratio,
@@ -305,15 +419,26 @@ static void display_image_set(gchar *imagename, GList *imagelist)
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
-  isy+=IMAGE_HEIGHT + IMAGE_GAP;
+  isy+=LIST_IMAGE_HEIGHT + IMAGE_GAP;
+
+  gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_list_selector), 0, 0, 
+				  LIST_AREA_X2- LIST_AREA_X1, 
+				  isy - IMAGE_GAP);
+
+  if(isy>=LIST_AREA_Y2-LIST_AREA_Y1) {
+    gnome_canvas_item_set(list_bg_item,
+			  "y2", (double)isy + LIST_IMAGE_HEIGHT + IMAGE_GAP,
+			  NULL);
+  }
 
   /* Create a root item to put the image list in it */
   rootitem_set = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+    gnome_canvas_item_new (gnome_canvas_root(canvas_image_selector),
 			   gnome_canvas_group_get_type (),
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
+
   g_object_set_data (G_OBJECT (item), "rootitem", rootitem_set);
   g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (0));
   g_signal_connect (item, "destroy",
@@ -349,6 +474,8 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
       break;
     case GDK_BUTTON_PRESS:
 	{
+	  guint last_iy;
+
 	  /* We must display the list of images for this set */
 	  image_list = (GList *)g_object_get_data (G_OBJECT (item), "imagelist");
 	  g_return_if_fail (image_list != NULL);
@@ -369,12 +496,25 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 	    g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (1));
 	  }
 
+	  /* Set the image scrollbar back to its max position */
+	  last_iy = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (rootitem_set), "iy"));
+	  gnome_canvas_set_scroll_region (GNOME_CANVAS (canvas_image_selector), 0, 0, 
+					  DRAWING_AREA_X2- DRAWING_AREA_X1, 
+					  last_iy - IMAGE_GAP);
+	  
+	  if(last_iy>=DRAWING_AREA_Y2-DRAWING_AREA_Y1) {
+	    gnome_canvas_item_set(image_bg_item,
+				  "y2", (double) last_iy + IMAGE_HEIGHT + IMAGE_GAP,
+				  NULL);
+	  }
+
+
 	  gnome_canvas_item_show(rootitem_set);
 	  current_root_set = rootitem_set;
 
 	  /* Back to the initial image position */
-	  ix  = DRAWING_AREA_X1;
-	  iy  = DRAWING_AREA_Y1;
+	  ix  = 0;
+	  iy  = 0;
 	}
     default:
       break;
@@ -412,6 +552,33 @@ item_event_images_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data
   return FALSE;
 
 }
+
+/* Callback when a scroll event happens */
+/* FIXME This doesn't work. */
+static gint
+item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
+{
+  int x, y;
+  if(!rootitem)
+    return;
+
+  switch (event->type) 
+    {
+    case GDK_SCROLL:
+      gnome_canvas_get_scroll_offsets (canvas, &x, &y);
+      if ( event->scroll.direction == GDK_SCROLL_UP )
+	gnome_canvas_scroll_to (canvas, x, y - 20);
+      else if ( event->scroll.direction == GDK_SCROLL_DOWN )
+	gnome_canvas_scroll_to (canvas, x, y + 20);
+
+      break;
+    }
+}
+
+/*
+ * Images PARSING
+ * --------------
+ */
 
 void
 parseImage (xmlDocPtr doc, xmlNodePtr cur) {

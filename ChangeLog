@@ -1,3 +1,17 @@
+2005-02-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Implemented the scrollbars in the image selectors
+
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/default/skin.xml:
+	* boards/skins/linha_verde/skin.xml:
+	* boards/skins/pink/skin.xml:
+	* src/gcompris/file_selector.c: (display_files),
+	(item_event_directory), (item_event_scroll):
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(display_image), (display_image_set),
+	(item_event_imageset_selector), (item_event_scroll):
+
 2005-02-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	A new level from Frank Doucet in Chronos, the seasons.
