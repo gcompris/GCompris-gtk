@@ -148,7 +148,7 @@ static gpointer scheduler_bgnd (gpointer user_data)
   while((one_dirent = readdir(dir)) != NULL) {
 
     if (one_dirent->d_name[0] != '.' &&
-	!strcmp(one_dirent->d_name, "COPYRIGHT")) {
+	strcmp(one_dirent->d_name, "COPYRIGHT")) {
       str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", one_dirent->d_name);
 
       musiclist = g_list_append (musiclist, str);
