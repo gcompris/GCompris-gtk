@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
-"POT-Creation-Date: 2003-08-25 08:19+0200\n"
-"PO-Revision-Date: 2003-08-25 08:38+0200\n"
+"POT-Creation-Date: 2003-09-18 20:00+0200\n"
+"PO-Revision-Date: 2003-09-18 20:03+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -819,7 +819,8 @@ msgid ""
 "Click on any item that has a free block deside him. It will be swapped with "
 "the empty block."
 msgstr ""
-"Klicke auf eine Zahl, die ein freies Feld neben sich hat. Die Zahl wird mit dem freien Feld\n"
+"Klicke auf eine Zahl, die ein freies Feld neben sich hat. Die Zahl wird mit "
+"dem freien Feld\n"
 "vertauscht."
 
 #: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
@@ -904,10 +905,8 @@ msgid "Taken the concept from the EPI games."
 msgstr "Konzept von den EPI-Spielen übernommen."
 
 #: boards/imageid.xml.in.h:1
-msgid ""
-"Click on the word corresponding to the printed image. When you are sure of "
-"your choice click on the hand at the bottom"
-msgstr "Klick auf das Wort, das zu dem dargestellten Bild gehört."
+msgid "Click on the word corresponding to the printed image."
+msgstr "Klicke auf das zum Bild gehörende Wort"
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -1161,11 +1160,9 @@ msgstr "Schläger"
 #: boards/leftright.xml.in.h:1
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
-"on the red button - at the left - or on the green button - at the right, "
-"then click on the hand at the bottom to confirm your choice."
+"on the red button - at the left - or on the green button - at the right."
 msgstr ""
-"Eine Hand wird angezeigt. Du musst sagen, ob es eine rechte oder linke Hand "
-"ist. Klicke\n"
+"Eine Hand wird angezeigt. Du musst sagen, ob es eine rechte oder linke Hand ist. Klicke\n"
 "dazu auf den linken roten oder den rechten grünen Knopf."
 
 #: boards/leftright.xml.in.h:2
@@ -1308,11 +1305,9 @@ msgstr ""
 #: boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word. Click on the "
-"hand at the bottom to validate your choice."
+"the picture. Select the missing letter to complete the word."
 msgstr ""
-"Ein Gegenstand wird angezeigt. Ein unvollständiges Wort wird darunter "
-"dargestellt. Wähle\n"
+"Ein Gegenstand wird angezeigt. Ein unvollständiges Wort wird darunter dargestellt. Wähle\n"
 "den fehlenden Buchstaben aus, der das Wort vervollständigt."
 
 #: boards/missing_letter.xml.in.h:2
@@ -1761,7 +1756,7 @@ msgstr ""
 "Eingabetaste oder\n"
 "klicke auf die Hand am unteren Bildschirmrand."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
 msgid "Practice the substraction with a funny game"
 msgstr "Übe das Subtrahieren mit einem lustigen Spiel"
 
@@ -1968,10 +1963,10 @@ msgstr "Bildungs-Sammlung gcompris"
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:155
-#: src/gcompris/gameutil.c:488 src/gcompris/gameutil.c:489
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
+#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:355
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kann Datei %s nicht finden!"
@@ -2074,7 +2069,7 @@ msgstr "Kann Grafik-Verzeichnis %s nicht öffnen"
 msgid "Set the watch to:"
 msgstr "Stelle die Uhr auf:"
 
-#: src/boards/colors.c:238
+#: src/boards/colors.c:210
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Klicke auf %s"
@@ -2163,7 +2158,7 @@ msgstr "Ja, ich hab's gesehen"
 msgid "No, it was not there"
 msgstr "Nein, es kam nicht vor"
 
-#: src/boards/reversecount.c:129
+#: src/boards/reversecount.c:136
 msgid "Reverse count"
 msgstr "Rückwärts zählen"
 
@@ -2251,7 +2246,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:171 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:175 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2269,136 +2264,152 @@ msgid "Azerbaijani Turkic"
 msgstr "Aserbaidschanisches Türkisch"
 
 #: src/gcompris/config.c:55
+msgid "Catalan"
+msgstr "Katalanisch"
+
+#: src/gcompris/config.c:56
+msgid "Czech"
+msgstr "Tschechisch"
+
+#: src/gcompris/config.c:57
 msgid "German"
 msgstr "Deutsch"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Greek"
 msgstr "Griechisch"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "English"
 msgstr "Englisch"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
 msgid "Finnish"
 msgstr "Finnisch"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:62
 msgid "French"
 msgstr "Französisch"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:63
 msgid "Hebrew"
 msgstr "Hebräisch"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:64
 msgid "Indian"
 msgstr "Indisch"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:65
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:66
 msgid "Italian"
 msgstr "Italienisch"
 
-#: src/gcompris/config.c:65
-msgid "Macedonian"
-msgstr "Mazedonisch"
-
-#: src/gcompris/config.c:66
-msgid "Malayalam"
-msgstr "Malayalam"
-
 #: src/gcompris/config.c:67
-msgid "Malay"
-msgstr "Malaysisch"
-
-#: src/gcompris/config.c:68
-msgid "Dutch"
-msgstr "Holländisch"
-
-#: src/gcompris/config.c:69
-msgid "Portuguese"
-msgstr "Portugiesisch"
-
-#: src/gcompris/config.c:70
-msgid "Brazil Portuguese"
-msgstr "Brasilianisches Portugiesisch"
-
-#: src/gcompris/config.c:71
-msgid "Romanian"
-msgstr "Rumänisch"
-
-#: src/gcompris/config.c:72
-msgid "Russian"
-msgstr "Russisch"
-
-#: src/gcompris/config.c:73
-msgid "Swedish"
-msgstr "Schwedisch"
-
-#: src/gcompris/config.c:74
-msgid "Slovak"
-msgstr "Slowakisch"
-
-#: src/gcompris/config.c:75
-msgid "Turkish"
-msgstr "Türkisch"
-
-#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:68
+msgid "Macedonian"
+msgstr "Mazedonisch"
+
+#: src/gcompris/config.c:69
+msgid "Malayalam"
+msgstr "Malayalam"
+
+#: src/gcompris/config.c:70
+msgid "Malay"
+msgstr "Malaysisch"
+
+#: src/gcompris/config.c:71
+msgid "Dutch"
+msgstr "Holländisch"
+
+#: src/gcompris/config.c:72
+msgid "Norwegian"
+msgstr "Norwegisch"
+
+#: src/gcompris/config.c:73
+msgid "Polish"
+msgstr "Polnisch"
+
+#: src/gcompris/config.c:74
+msgid "Portuguese"
+msgstr "Portugiesisch"
+
+#: src/gcompris/config.c:75
+msgid "Brazil Portuguese"
+msgstr "Brasilianisches Portugiesisch"
+
+#: src/gcompris/config.c:76
+msgid "Romanian"
+msgstr "Rumänisch"
+
+#: src/gcompris/config.c:77
+msgid "Russian"
+msgstr "Russisch"
+
+#: src/gcompris/config.c:78
+msgid "Slovak"
+msgstr "Slowakisch"
+
+#: src/gcompris/config.c:79
+msgid "Swedish"
+msgstr "Schwedisch"
+
+#: src/gcompris/config.c:80
+msgid "Turkish"
+msgstr "Türkisch"
+
+#: src/gcompris/config.c:85
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:86
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:87
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:88
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:93
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: src/gcompris/config.c:145
+#: src/gcompris/config.c:149
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: src/gcompris/config.c:251
+#: src/gcompris/config.c:255
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: src/gcompris/config.c:294
+#: src/gcompris/config.c:298
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:322
+#: src/gcompris/config.c:326
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:359
+#: src/gcompris/config.c:363
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: src/gcompris/config.c:393 src/gcompris/config.c:700
-#: src/gcompris/config.c:711
+#: src/gcompris/config.c:397 src/gcompris/config.c:696
+#: src/gcompris/config.c:707
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
@@ -2435,7 +2446,7 @@ msgstr "Kantenglättung verwenden (langsamer)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Ich habe verstanden"
 
-#: src/gcompris/gcompris.c:545
+#: src/gcompris/gcompris.c:546
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2531,6 +2542,11 @@ msgstr "Zeit abgelaufen"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Verbleibende Zeit = %d"
+
+#~ msgid ""
+#~ "Click on the word corresponding to the printed image. When you are sure "
+#~ "of your choice click on the hand at the bottom"
+#~ msgstr "Klick auf das Wort, das zu dem dargestellten Bild gehört."
 
 #, fuzzy
 #~ msgid "Practice the division operation"
