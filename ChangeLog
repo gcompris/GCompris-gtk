@@ -1,3 +1,12 @@
+2004-03-03  set REAL_NAME environment variable  <set EMAIL_ADDRESS environment variable>
+
+	* boards/melody.xml.in: Modified type for the new naming scheme
+	* boards/pythontest.xml.in: Modified type for the new naming scheme
+	* boards/redraw.xml.in: Modified type for the new naming scheme
+	* boards/watercycle.xml.in: Modified type for the new naming scheme
+	* src/boards/python.c: (pythonboard_start),
+	(pythonboard_is_our_board): Modify the python boards naming scheme to pythonboard:boardfile in place of type=pythonboard, name=filename.
+
 2004-02-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chronos.xml.in: added transportation levels

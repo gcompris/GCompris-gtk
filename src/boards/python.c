@@ -1,3 +1,4 @@
+
 /* gcompris - python.c
  *
  * Copyright (C) 2003 GCompris Developpement Team
@@ -175,6 +176,7 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
   static char* python_prog_name="gcompris";
   char* boarddir;
   char* boardclass;
+  char* board_file_name;
   gchar *userplugindir;
 
   if(agcomprisBoard!=NULL){
@@ -214,10 +216,11 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
     python_gcompris_module_init();
 
     /* Python is now initialized we create some usefull variables */
-    boardclass = g_strdup_printf("Gcompris_%s", agcomprisBoard->name);
+    board_file_name = strchr(agcomprisBoard->type, ':')+1;
+    boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
 
     /* Insert the board module into the python's interpreter */
-    python_board_module = PyImport_ImportModuleEx(agcomprisBoard->name,
+    python_board_module = PyImport_ImportModuleEx(board_file_name,
  						  globals,
  						  globals,
  						  NULL);
@@ -295,19 +298,17 @@ void pythonboard_end (void){
  * Return TRUE if the board is a python one.
  */
 gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
-  if(pythonboard_is_ready){
-    if (agcomprisBoard!=NULL)
-      {
-	if(g_strcasecmp(agcomprisBoard->type, "pythonboard")==0)
-	  {
-	    /* Set the plugin entry */
-	    agcomprisBoard->plugin=&pythonboard_bp;
-
-	    g_print("pythonboard: is our board = TRUE\n");
-
-	    return TRUE;
-	  }
+  if(pythonboard_is_ready) {
+    if (agcomprisBoard!=NULL) {
+      if (g_ascii_strncasecmp(agcomprisBoard->type, "pythonboard:", 12)==0) {
+	/* Set the plugin entry */
+	agcomprisBoard->plugin=&pythonboard_bp;
+	
+	//g_print("pythonboard: is our board = TRUE\n");
+	
+	return TRUE;
       }
+    }
   }
   return FALSE;
 }
