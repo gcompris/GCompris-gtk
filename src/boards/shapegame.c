@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/10/06 23:35:27 bruno>
+ * Time-stamp: <2002/11/25 23:36:42 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -764,7 +764,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    GdkCursor *fleur;
    static int dragging;
    double item_x, item_y;
-   gchar *soundfile=NULL;
 
    if(!get_board_playing())
      return FALSE;
@@ -821,8 +820,23 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		 case SHAPE_ICON:
 		   if (strcmp(shape->soundfile,UNDEFINED) != 0)
 		   {
-		   	soundfile=g_strdup(shape->soundfile);
-			gcompris_play_ogg(soundfile, NULL);
+		     /* If the soundfile has space ' ' in it, then it is assumed that it is a list
+		      * of sound rather than a single one
+		      */
+
+		     char *p = NULL;
+		     char *soundfile = g_strdup(shape->soundfile);
+
+		     while (p = strstr (soundfile, " "))
+		       {
+			 *p='\0';
+			 gcompris_play_ogg(soundfile, NULL);
+			 soundfile=p+1;
+			 printf("soundfile = %s\n", soundfile);
+		       }
+
+		     gcompris_play_ogg(soundfile, NULL);
+
 		   }
 		   break;
 		 default:
@@ -1249,9 +1263,6 @@ add_shape_to_canvas(Shape *shape)
 	}
     }
 
-  if(shape->position>=1)
-    gnome_canvas_item_lower(item, ABS(shape->position)); 
-  
   /* Associate this item to this shape */
   shape->item = item;
 
@@ -1423,7 +1434,11 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   if(!czoomy) czoomy = "1";
   zoomy = atof(czoomy);
 
-  /* get the POSITION coord of the shape */
+  /* get the POSITION of the shape */
+  /* Position in the xml means:
+   * 0 = BOTTOM
+   * 1 or more = TOP
+   */
   cposition = xmlGetProp(xmlnode,"position");
   if(!cposition) cposition = "0";
   position = atoi(cposition);
@@ -1492,7 +1507,8 @@ static void
 parse_doc(xmlDocPtr doc)
 {
   xmlNodePtr node;
-  
+  GList *list;
+
   /* find <Shape> nodes and add them to the list, this just
      loops through all the children of the root of the document */
   for(node = doc->children->children; node != NULL; node = node->next) {
@@ -1500,6 +1516,8 @@ parse_doc(xmlDocPtr doc)
        we pass NULL as the node of the child */
     add_xml_shape_to_data(doc, node, NULL);
   }
+
+  shape_list = g_list_copy(shape_list_init);
 
   /* Insert each of the shapes randomly */
   while(g_list_length(shape_list_init)>0) 
@@ -1515,7 +1533,16 @@ parse_doc(xmlDocPtr doc)
   g_list_free(shape_list_init);
   shape_list_init = NULL;
   
-
+  /* Loop through all the shapes and */
+  /* Arrange the order (depth) of the shapes on the canvas */
+  /* Depending on the xml given definition in the position property */
+  for(list = shape_list; list != NULL; list = list->next) {
+    Shape *shape = list->data;
+    
+    gnome_canvas_item_lower_to_bottom(shape->item);
+    if(shape->position>=1)
+      gnome_canvas_item_raise(shape->item, ABS(shape->position)); 
+  }
 }
 
 

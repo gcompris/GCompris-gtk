@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2002/02/03 09:00:52 bruno>
+ * Time-stamp: <2002/11/25 21:41:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -187,6 +187,7 @@ gint key_press(guint keyval)
   gchar *old_value;
   gchar *old_name;
   char c;
+  char str[2];
 
   if(!gcomprisBoard)
     return TRUE;
@@ -254,13 +255,15 @@ gint key_press(guint keyval)
     }
 
   c = tolower(keyval); 
+  str[0] = c;
+  str[1] = '\0';
   if (g_hash_table_lookup_extended (letters_table,
-				    (char *)&c,
+				    (char *)&str,
 				    (gpointer) &old_name,
 				    (gpointer) &old_value))
     {
 
-      player_win(item_find_by_title((char *)&c));
+      player_win(item_find_by_title((char *)&str));
 
     }
   else

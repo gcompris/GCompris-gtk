@@ -1,3 +1,12 @@
+2002-11-26  bruno  <bruno.coudoin@free.fr>
+
+	* boards/scales/board1_0.xml.in: fixed random bad display of the image
+	* src/boards/gletters.c: (key_press): fixed in i386, keys was not working anymore
+	* src/boards/shapegame.c: (item_event), (add_shape_to_canvas),
+	(add_xml_shape_to_data), (parse_doc): now support the position property in the xml to specify the 
+	depth of the shape :back/front. Fixed the sound support for the level 3 of doublentry board.
+	* src/gcompris/soundutil.c: reindented
+
 2002-11-12  bruno  <bruno.coudoin@free.fr>
 
 	* boards/fun.xml.in: added maze 3D
