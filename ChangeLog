@@ -1,3 +1,6 @@
+2002-02-22 Pascal Georges <pascal.georges1@free.fr>
+  * src/gcompris/bar.c : bar_play_sound is played only if no other sound is played or pending
+
 2002-02-21 Pascal Georges <pascal.georges1@free.fr>
 	* src/gcompris/soundutil.[ch] : changed the way ogg sounds are played. Several policies are implemented,
 	  but only the currently used (PLAY_AFTER_CURRENT) has been tested (very quickly tested).

@@ -51,6 +51,12 @@ void setSoundPolicy(int policy) {
 	}
 }
 /* =====================================================================
+ *
+ * =====================================================================*/
+int getSoundPolicy() {
+	return sound_policy;
+}
+/* =====================================================================
  * Process the cleanup of the child (no zombies)
  * =====================================================================*/
 void child_end(int  signum)
@@ -168,7 +174,7 @@ void gcompris_play_ogg(char *sound, ...) {
 	if (!gcompris_get_properties()->fx)
     return;
 
-	if (sound_policy == PLAY_ONLY_IF_IDLE && sound_channels_used > 0)
+	if (sound_policy == PLAY_ONLY_IF_IDLE && (g_list_length(playing_queue) > 0 || g_list_length(pending_queue) > 0))
 		return;
 
 	if (sound_policy == PLAY_OVERRIDE_ALL) {

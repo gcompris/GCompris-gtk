@@ -260,7 +260,7 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
 {
   char *str = NULL;
   GdkPixbuf *pixmap = NULL;
-      
+
   /* Non yet initialized : Something Wrong */
   if(level_item==NULL)
     {
@@ -363,9 +363,11 @@ gcompris_bar_hide (gboolean hide)
  */
 static gint bar_play_sound (gchar *data)
 {
+	int policy = getSoundPolicy();
+	setSoundPolicy(PLAY_ONLY_IF_IDLE);
   gcompris_play_ogg(data, NULL);
-  sound_play_id = 0;
-
+	setSoundPolicy(policy);
+	sound_play_id = 0;
   return (FALSE);
 }
 
@@ -373,7 +375,7 @@ static void bar_reset_sound_id ()
 {
   if(sound_play_id)
     gtk_timeout_remove (sound_play_id);
-  
+
   sound_play_id=0;
 }
 
@@ -383,7 +385,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       bar_reset_sound_id();
@@ -399,7 +401,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	 by clicking on any button in the bar */
       if(strcmp((char *)data, "help"))
 	gcompris_help_stop ();
-      
+
       if(!strcmp((char *)data, "ok"))
 	{
 	  if(gcomprisBoard!=NULL)
@@ -418,10 +420,10 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	  current_level++;
 	  if(current_level>gcomprisBoard->maxlevel)
 	    current_level=1;
-	  
+
 	  if(tmp!=current_level)
 	    {
-	      current_level_str = g_strdup_printf("%d", current_level);
+				current_level_str = g_strdup_printf("%d", current_level);
 	      gcompris_play_ogg("level", current_level_str, NULL);
 	      g_free(current_level_str);
 	    }
