@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-26 20:16+0100\n"
-"PO-Revision-Date: 2004-01-27 04:20+0100\n"
+"POT-Creation-Date: 2004-01-30 19:43+0100\n"
+"PO-Revision-Date: 2004-01-31 00:46+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -515,6 +515,27 @@ msgstr "Lock met gekleurde vormen."
 msgid "Go to board based activities"
 msgstr "Ga naar de bordspellen"
 
+#: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
+#: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
+#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr "Omgaan met de muis"
+
+#: boards/billard.xml.in.h:2
+msgid "Send the ball in the hole"
+msgstr "Stoot de bal in het gat"
+
+#: boards/billard.xml.in.h:3
+msgid "The billard game"
+msgstr "Het biljartspel"
+
+#: boards/billard.xml.in.h:4
+msgid ""
+"The click point on the ball will give the speed and direction to the ball. "
+"More you click in the center, slower is the ball."
+msgstr "Het klikpunt op de bal geeft de snelheid en de richting aan de bal. Hoe meer je in het centrum klikt, hoe langzamer de bal."
+
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Bedien een sluis"
@@ -549,13 +570,6 @@ msgstr "Oefenen met schaken"
 msgid "Learning chess"
 msgstr "Leren schaken"
 
-#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
-#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
-#: boards/memory.xml.in.h:4
-msgid "Mouse manipulation"
-msgstr "Omgaan met de muis"
-
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is the gnuchess."
@@ -574,7 +588,10 @@ msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
 "can hear again the letter by clicking on the mouth icon in the bottom "
 "horizontal frame."
-msgstr "Er wordt een letter gespeld. Klik op de overeenkomende letter op het bord. Je kunt de letter opnieuw beluisteren door op het mondje onderaan het scherm te klikken."
+msgstr ""
+"Er wordt een letter gespeld. Klik op de overeenkomende letter op het bord. "
+"Je kunt de letter opnieuw beluisteren door op het mondje onderaan het scherm "
+"te klikken."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -659,12 +676,12 @@ msgstr ""
 "Beweeg de wijzers zodat de klok het opgegeven uur aangeeft. Je beweegt een "
 "wijzer door erop te klikken en dan te slepen."
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
+#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Leer kloklezen"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
+#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Kloklezen"
@@ -777,7 +794,7 @@ msgstr "Zet de dingen in de beste volgorde om ze te tellen"
 msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
@@ -1972,11 +1989,10 @@ msgstr "Educatieve software GCompris"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:580
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:499
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
-#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
-#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
-#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
+#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
+#: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
+#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
@@ -2115,10 +2131,6 @@ msgstr "links"
 #: src/boards/leftright.c:258
 msgid "right"
 msgstr "rechts"
-
-#: src/boards/machpuzzle.c:85
-msgid "Move the mouse to machpuzzle the area and discover the background"
-msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
@@ -2637,6 +2649,9 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "Move the mouse to machpuzzle the area and discover the background"
+#~ msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
 #~ msgid "GCompris I Have Understood"
 #~ msgstr "GCompris Ik heb het begrepen"
