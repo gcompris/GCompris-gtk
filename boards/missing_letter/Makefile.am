@@ -6,6 +6,7 @@ xml_in_files = \
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
-@XML_I18N_MERGE_XML_RULE@
+@INTLTOOL_XML_RULE@
+
 
 
