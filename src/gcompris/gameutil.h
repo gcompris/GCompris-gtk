@@ -40,6 +40,6 @@ gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
 					   GnomeCanvasItem *dest_item);
 GcomprisBoard	*gcompris_read_xml_file(char *fname);
 gchar		*convertUTF8Toisolat1(gchar * text);
-void item_absolute_move(GnomeCanvasItem *item, int x, int y);
+void		 item_absolute_move(GnomeCanvasItem *item, int x, int y);
 
 #endif

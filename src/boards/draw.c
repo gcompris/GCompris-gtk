@@ -61,9 +61,10 @@ typedef enum
     TOOL_POINT		= 5,
     TOOL_DELETE		= 6,
     TOOL_FILL		= 7,
-    TOOL_SELECT		= 8,
-    TOOL_GRID		= 9,
-    TOOL_IMAGE		= 10,
+    TOOL_RAISE		= 8,
+    TOOL_SELECT		= 9,
+    TOOL_GRID		= 10,
+    TOOL_IMAGE		= 11,
   } ToolList;
 
 #define NUMBER_OF_TOOL	TOOL_IMAGE + 1
@@ -83,6 +84,7 @@ static char *tool_pixmap_name[] =
     "draw/tool-point.png", "draw/tool-point_on.png", 
     "draw/tool-del.png", "draw/tool-del_on.png", 
     "draw/tool-fill.png", "draw/tool-fill_on.png",
+    "draw/tool-up.png", "draw/tool-up_on.png",
     "draw/tool-select.png", "draw/tool-select_on.png",
     "draw/tool-grid.png", "draw/tool-grid_on.png",
     "draw/tool-image.png", "draw/tool-image_on.png"
@@ -742,6 +744,12 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	    case TOOL_IMAGE:
 	      gcompris_images_selector_start(gcomprisBoard, IMG_DATA_SET, image_selected);
 	    break;
+	    case TOOL_RAISE:
+	      if(selected_anchors_item)
+		display_anchors(selected_anchors_item, FALSE);
+      
+	      selected_anchors_item = NULL;
+	      break;
 	    default:
 	      break;
 	    }
@@ -1818,6 +1826,10 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 
 	  case TOOL_FILL:
 	    set_item_color(anchorsItem, currentColor);
+	    break;
+
+	  case TOOL_RAISE:
+	    gnome_canvas_item_raise(item, 1); 	    
 	    break;
 
 	  default:
