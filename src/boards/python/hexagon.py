@@ -34,9 +34,8 @@ class Gcompris_hexagon:
   
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
-    print("Gcompris_minouche __init__.")
     self.rootitem = None
-
+    self.timer    = 0
 
   def start(self): 
     gcompris.bar_set (0)
@@ -51,17 +50,28 @@ class Gcompris_hexagon:
     self.random_catx = random.randrange(21)
     self.random_caty = random.randrange(15)
 
-    print("Gcompris_minouche start.")
 
   def end(self):
     self.cleanup()
-    print("Gcompris_minouche end.")
         
   def ok(self):
     print("Gcompris_minouche ok.")
 
+  def key_press(self, keyval):
+    #print("got key %i" % keyval)
+    return
+
+  
+  # ----------------------------------------------------------------------
+  # ----------------------------------------------------------------------
+  # ----------------------------------------------------------------------
+
+
   def cleanup(self):
-    
+
+    if(self.timer):
+      gtk.timeout_remove(self.timer)
+
     # Remove the root item removes all the others inside it
     if self.rootitem != None: 
      self.rootitem.destroy()
@@ -116,19 +126,24 @@ class Gcompris_hexagon:
     color = r*0x1000000+g*0x10000+b*0x100+0xFF
     return color
     
+  def finished(self):
+    gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+    self.timer = 0
+    
   def on_click (self, widget, event=None, x=0, y=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1 :
       
      catdistance = self.distance_cat(x,y)
-     print self.random_catx, self.random_caty,x,y,catdistance
+     #print self.random_catx, self.random_caty,x,y,catdistance
                              
-     color = self.coloring (catdistance/30.0)
-     widget.set(fill_color_rgba=color);
-     
      if catdistance<0.1:
       self.paint_cat()
-      gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+      self.timer = gtk.timeout_add(5000, self.finished) 
+     else:
+       color = self.coloring (catdistance/30.0)
+       widget.set(fill_color_rgba=color);
      
+
   def paint_cat(self):
     position =19+self.sqrt3*self.r*self.random_catx
     if self.random_caty%2:
@@ -138,10 +153,10 @@ class Gcompris_hexagon:
     h2 = 30
     w2 = pixbuf2.get_width()*h2/pixbuf2.get_height()
     self.rootitem.add(gnome.canvas.CanvasPixbuf, 
-     pixbuf=pixbuf2.scale_simple(w2, h2,
-                         gtk.gdk.INTERP_BILINEAR),
-    x=position,
-    y=14+1.5*self.random_caty*self.r)
+                      pixbuf=pixbuf2.scale_simple(w2, h2,
+                                                  gtk.gdk.INTERP_BILINEAR),
+                      x=position,
+                      y=14+1.5*self.random_caty*self.r)
     
   def distance_cat (self,x,y):
     dx = self.random_catx-x-int(self.random_caty/2)

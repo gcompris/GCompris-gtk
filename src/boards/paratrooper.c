@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2004/10/21 22:48:19 bruno>
+ * Time-stamp: <2005/01/09 02:56:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -352,7 +352,7 @@ static void paratrooper_next_level()
   speed=100+(30/(gcomprisBoard->level));
   gcomprisBoard->number_of_sublevel=0;
   /* Make the images tend to 0.5 ratio */
-  imageZoom=0.3+(0.4/(gcomprisBoard->level));
+  imageZoom=0.4+(0.4/(gcomprisBoard->level));
 
   /* Setup and Display the plane */
   planespeed_y = 0;

@@ -1,20 +1,39 @@
+2005-01-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/tuxpara.png: added the boat to make it easier to catch
+	* boards/chronos/board3_0.xml.in: added more info on each item
+	* boards/chronos/board3_1.xml.in: -
+	* boards/chronos/board3_2.xml.in: -
+	* boards/chronos/board3_3.xml.in: -
+	* boards/chronos/board3_4.xml.in: -
+	* boards/searace.xml.in: updated the help
+	* docs/C/python.xml: added a missing #define for BAR_REPEAT_ICON
+	* src/boards/paratrooper.c: (paratrooper_next_level): make the boat larger initialy
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init): added missing BAR_REPEAT_ICON
+	* src/boards/python/hexagon.py: removed useless comments. added a timeout on a win to let the kid see the strawberry
+	* src/boards/python/searace.py: updated and completed.
+	* src/boards/traffic.c: (cars_from_strv): changed a color too close to the background
+
+2005-01-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/searace.xml.in: updated
+	* src/boards/python/searace.py:
+
 2005-01-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
-
-	* boards/anim.xml.in:
-	* boards/boardicons/searace.png:
-	* boards/draw.xml.in:
-	* docs/C/python.xml:
-	* src/boards/draw.c: (key_press), (tool_event):
+	* boards/anim.xml.in: updated the help
+	* boards/boardicons/searace.png: updated
+	* boards/draw.xml.in: moved to difficulty 0. no more needed, replaced by anim.
+	* docs/C/python.xml: API change in the file selector to have a file type passed
+	* src/boards/draw.c: (key_press), (tool_event): API change in the file selector to have a file type passed
 	* src/boards/py-mod-gcompris.c: (pyFileSelectorCallBack),
-	(py_gcompris_file_selector_load), (py_gcompris_file_selector_save):
-	* src/boards/python/anim.py:
-	* src/boards/python/searace.py:
+	(py_gcompris_file_selector_load), (py_gcompris_file_selector_save): API change in the file selector to have a file type passed
+	* src/boards/python/anim.py: API change in the file selector to have a file type passed
+	* src/boards/python/searace.py: fixed all remaining bug. Still need to display the commands
 	* src/gcompris/file_selector.c: (gcompris_file_selector_save),
 	(gcompris_file_selector_load), (display_file_selector),
-	(item_event_file_selector):
-	* src/gcompris/gcompris.h:
+	(item_event_file_selector): API change in the file selector to have a file type passed
+	* src/gcompris/gcompris.h: API change in the file selector to have a file type passed
 
 2005-01-05  Bruno coudoin  <bruno.coudoin@free.fr>
 

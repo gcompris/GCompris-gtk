@@ -711,7 +711,7 @@ gint cars_from_strv(char *strv)
     else if (id == 'E') ccar->color = 0xC00000FF;
     else if (id == 'F') ccar->color = 0x008000FF;
     else if (id == 'G') ccar->color = 0xC0C0C0FF;
-    else if (id == 'H') ccar->color = 0xFFCC51FF;
+    else if (id == 'H') ccar->color = 0x6000efFF;
     else if (id == 'I') ccar->color = 0xFFFF00FF;
     else if (id == 'J') ccar->color = 0xFFA801FF;
     else if (id == 'K') ccar->color = 0x00FF00FF;

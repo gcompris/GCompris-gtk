@@ -105,7 +105,13 @@ class Gcompris_searace:
 
     self.board_paused = False
 
-    gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
+    if(pixmap):
+      gcompris.bar_set_repeat_icon(pixmap)
+      gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
+    else:
+	gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL|gcompris.BAR_REPEAT);
+    
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
@@ -374,16 +380,22 @@ class Gcompris_searace:
       
     w = 250.0
     h = 100.0
-    y = 400.0
+    y = 400.0 # The upper limit of the text boxes
+    x_left  = gcompris.BOARD_WIDTH/4 - 30
+    x_right = (gcompris.BOARD_WIDTH/4)*3 + 30
+
     self.left_boat.tb = gtk.TextBuffer()
     self.left_boat.tv = gtk.TextView(self.left_boat.tb)
     self.left_boat.sw.add(self.left_boat.tv)
-    self.left_boat.tb.set_text("turnleft 45\nforward 1\nturnright 45")
+
+    command_example = _("droite") + " 45\n" + _("forward") + " 5\n" + _("gauche") + " 45"
+    self.left_boat.tb.set_text(command_example)
+    
     self.left_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
       widget=self.left_boat.sw,
-      x=gcompris.BOARD_WIDTH/4,
+      x=x_left,
       y=y,
       width=w,
       height= h,
@@ -397,17 +409,18 @@ class Gcompris_searace:
     self.right_boat.sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
     self.right_boat.sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
       
-    w = 250.0
-    h = 100.0
     self.right_boat.tb = gtk.TextBuffer()
     self.right_boat.tv = gtk.TextView(self.right_boat.tb)
     self.right_boat.sw.add(self.right_boat.tv)
-    self.right_boat.tb.set_text("turnright 45\nforward 1\nturnleft 45")
+
+    command_example = _("gauche") + " 45\n" + _("forward") + " 5\n" + _("droite") + " 45"
+    self.right_boat.tb.set_text(command_example)
+    
     self.right_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
       widget=self.right_boat.sw,
-      x=(gcompris.BOARD_WIDTH/4)*3,
+      x=x_right,
       y=y,
       width=w,
       height= h,
@@ -421,7 +434,7 @@ class Gcompris_searace:
       gnome.canvas.CanvasText,
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
-      x=gcompris.BOARD_WIDTH/4,
+      x=x_left,
       y=y-15,
       fill_color_rgba=0xFF0000FFL
       )
@@ -430,7 +443,7 @@ class Gcompris_searace:
       gnome.canvas.CanvasText,
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
-      x=(gcompris.BOARD_WIDTH/4)*3,
+      x=x_right,
       y=y-15,
       fill_color_rgba=0X027308FFL
       )
@@ -450,7 +463,7 @@ class Gcompris_searace:
     item = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
-      x=50,
+      x=25,
       y=y+40,
       anchor=gtk.ANCHOR_CENTER,
       )
@@ -460,12 +473,52 @@ class Gcompris_searace:
     item = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
       pixbuf = pixmap,
-      x=gcompris.BOARD_WIDTH-50,
+      x=gcompris.BOARD_WIDTH-25,
       y=y+40,
       anchor=gtk.ANCHOR_CENTER,
       )
     gcompris.utils.item_rotate_relative(item, -90);
 
+    # The commands
+    hl = 18
+    y += 7
+    text_color = 0x0000FFFFL
+    self.rootitem.add (
+      gnome.canvas.CanvasText,
+      text=_("COMMANDS ARE"),
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH/2,
+      y=y,
+      fill_color_rgba=text_color
+      )
+    
+    self.rootitem.add (
+      gnome.canvas.CanvasText,
+      text=_("forward"),
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH/2,
+      y=y+hl,
+      fill_color_rgba=text_color
+      )
+    
+    self.rootitem.add (
+      gnome.canvas.CanvasText,
+      text=_("left"),
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH/2,
+      y=y+hl*2,
+      fill_color_rgba=text_color
+      )
+    
+    self.rootitem.add (
+      gnome.canvas.CanvasText,
+      text=_("right"),
+      font=gcompris.skin.get_font("gcompris/content"),
+      x=gcompris.BOARD_WIDTH/2,
+      y=y+hl*3,
+      fill_color_rgba=text_color
+      )
+    
 
   # Weather condition is a 2 value pair (angle wind_speed)
   # Weather is a list of the form:
@@ -638,7 +691,7 @@ class Gcompris_searace:
       penalty*=2
     wind = cx*condition[1]*-1*penalty
     #print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-    boat.speeditem.set(text = "Angle:" + str(condition[0]) + " Wind:" + str(int(wind)*-1))
+    boat.speeditem.set(text = _("Angle:") + str(condition[0]) + " " + _("Wind:") + str(int(wind)*-1))
     boat.timer = gtk.timeout_add(int(self.timerinc+wind), self.cmd_forward, boat, value)
 
     
@@ -687,7 +740,7 @@ class Gcompris_searace:
     boat.line+=1
     
     if (boat.line > boat.tb.get_line_count()):
-      print "No more commands to process for player " + str(boat.player)
+      # No more commands to process for this player
       boat.line = 0
       boat.timer = 0
       return
@@ -695,25 +748,32 @@ class Gcompris_searace:
     cmd   = boat.tb.get_text(a, b, gtk.FALSE)
     cmd   = cmd.lstrip("\n\t ")
     cmds  = cmd.split()
-    if ( len(cmds) != 2):
-      boat.speeditem.set(text=" Syntax error command at line " + str(boat.line) + " (" + cmd + ")")
+    # Manage default cases (no params given)
+    if ( len(cmds) == 1 and cmd.startswith(_("forward")) ):
+      cmd += " 1"
+    elif ( len(cmds) == 1 and cmd.startswith(_("gauche")) ):
+      cmd += " 45"
+    elif ( len(cmds) == 1 and cmd.startswith(_("droite")) ):
+      cmd += " 45"
+    elif ( len(cmds) > 2):
+      boat.speeditem.set(text=_("Syntax error at line") + " " + str(boat.line) + " (" + cmd + ")")
       boat.line = 0
       boat.timer = 0
       return
       
     value = int(cmd.split()[1])
     if( cmd.startswith(_("forward"))):
-      # Transform the value from user visiblee sea size to pixels
+      # Transform the value from user visible sea size to pixels
       value *= self.sea_ratio
 
       # Initialize the move
       boat.timer = gtk.timeout_add(self.timerinc, self.cmd_forward, boat, value)
-    elif( cmd.startswith(_("turnleft"))):
+    elif( cmd.startswith(_("left"))):
       boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value)
-    elif( cmd.startswith(_("turnright"))):
+    elif( cmd.startswith(_("right"))):
       boat.timer = gtk.timeout_add(self.timerinc, self.cmd_turn_left, boat, value*-1)
     else:
       boat.line = 0
       boat.timer = 0
-      boat.speeditem.set(text="Unknown command at line " + str(boat.line) + "(" + cmd + ")")
+      boat.speeditem.set(text=_("Unknown command at line") + " " + str(boat.line) + "(" + cmd + ")")
 

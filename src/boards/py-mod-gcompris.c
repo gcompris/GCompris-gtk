@@ -633,11 +633,12 @@ void python_gcompris_module_init(void)
   PyModule_AddStringConstant(gcomprisModule, "DEFAULT_SKIN", DEFAULT_SKIN);
 
   /* The GComprisBarFlags enum constants */
-  PyModule_AddIntConstant(gcomprisModule, "BAR_LEVEL",  GCOMPRIS_BAR_LEVEL);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_OK",     GCOMPRIS_BAR_OK);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT", GCOMPRIS_BAR_REPEAT);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_CONFIG", GCOMPRIS_BAR_CONFIG);
-  PyModule_AddIntConstant(gcomprisModule, "BAR_ABOUT",  GCOMPRIS_BAR_ABOUT);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_LEVEL",       GCOMPRIS_BAR_LEVEL);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_OK",          GCOMPRIS_BAR_OK);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT",      GCOMPRIS_BAR_REPEAT);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_REPEAT_ICON", GCOMPRIS_BAR_REPEAT_ICON);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_CONFIG",      GCOMPRIS_BAR_CONFIG);
+  PyModule_AddIntConstant(gcomprisModule, "BAR_ABOUT",       GCOMPRIS_BAR_ABOUT);
 
   /* Colors constants */
   PyModule_AddIntConstant(gcomprisModule, "COLOR_TITLE",       COLOR_TITLE);
