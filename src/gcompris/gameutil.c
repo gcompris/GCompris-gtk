@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2001/12/09 23:50:45 bruno>
+ * Time-stamp: <2001/12/23 23:59:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -235,17 +235,28 @@ void gcompris_play_ogg(char *sound, ...) {
         } else if (pid == 0) { // child process
 		argv[0] = "ogg123";
 		argv[1] = "-v";
+
+		argc = 2;
 		argv[2] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
-		argc = 3;
+		if (g_file_exists (argv[2])) {
+		  printf("trying to play %s\n", argv[argc]);
+		  argc = 3;
+		}
+		else 
+		  g_free(argv[2]);
+
 		va_start( ap, sound);
 		while( (s = va_arg (ap, char *))) {
 			argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
+			printf("trying to play %s\n", argv[argc]);
+
 			if (!g_file_exists (argv[argc])) {
-				g_error (_("Couldn't find file %s !"), argv[argc]);
+				g_warning (_("Couldn't find file %s !"), argv[argc]);
 				g_free(argv[argc]);
-				continue;
+				//				continue;
 			}
-			argc ++;
+			else
+			  argc ++;
 		}
 		va_end(ap);
 		argv[argc] = NULL;

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/12/14 00:47:21 bruno>
+ * Time-stamp: <2001/12/16 20:37:22 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -175,7 +175,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
       gcomprisBoard->number_of_sublevel=6;
-      gcomprisBoard->sublevel = 1;
+      gcomprisBoard->sublevel = 0;
 
       shapegame_next_level();
 
@@ -204,7 +204,7 @@ set_level (guint level)
   if(gcomprisBoard!=NULL)
     {
       gcomprisBoard->level=level;
-      gcomprisBoard->sublevel=1;
+      gcomprisBoard->sublevel=0;
       shapegame_next_level();
     }
 }
@@ -269,9 +269,12 @@ static void shapegame_next_level()
 			     PACKAGE_DATA_DIR, gcomprisBoard->boarddir, 
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
 
+  printf("1 gcomprisBoard->level %d   filename=%s\n", gcomprisBoard->level, filename);
+
   while(!g_file_exists(filename)
 	&& ((gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0)))
     {
+  printf("2 gcomprisBoard->level %d\n", gcomprisBoard->level);
       /* Try the next level */
       gcomprisBoard->sublevel=gcomprisBoard->number_of_sublevel;
       if(!increment_sublevel())
@@ -281,6 +284,7 @@ static void shapegame_next_level()
       filename = g_strdup_printf("%s/%s/board%d_%d.xml",  
 				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir, 
 				 gcomprisBoard->level, gcomprisBoard->sublevel);
+  printf("3 gcomprisBoard->level %d   filename=%s\n", gcomprisBoard->level, filename);
     }
   read_xml_file(filename);
   
@@ -647,10 +651,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		 {
 		 case SHAPE_TARGET:
 		   gnome_canvas_item_hide(item);
+		   gcompris_set_image_focus(item, FALSE);
+
 		   if( shape->icon_shape!=NULL)
 		     {
 		       item = shape->icon_shape->item;
 		       gnome_canvas_item_show(item);
+		       gcompris_set_image_focus(item, TRUE);
 		       shape->icon_shape=NULL;
 		     }
 		   break;
@@ -667,7 +674,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	       fleur = gdk_cursor_new(GDK_FLEUR);
 
 	       /* In order to have our item above the others, I need to reparent it */
-	       gnome_canvas_item_reparent (item, shape_root_item);
+	       gnome_canvas_item_reparent (item, (GnomeCanvasGroup *)shape_root_item);
 	       gnome_canvas_item_raise_to_top(item);
 
 	       gnome_canvas_item_grab(item,
@@ -712,7 +719,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	   gnome_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
 
-	   gnome_canvas_item_reparent (item, shape_list_root_item);
+	   gnome_canvas_item_reparent (item, (GnomeCanvasGroup *)shape_list_root_item);
 
 	   targetshape = find_closest_shape(item_x, item_y, 1000);
 	   if(targetshape!=NULL)

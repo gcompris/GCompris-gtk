@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2001/10/28 20:50:34 bruno>
+ * Time-stamp: <2001/12/19 00:29:19 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -25,6 +25,7 @@
  */
 
 #include "gcompris.h"
+#include <gtkhtml/gtkhtml.h>
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -51,8 +52,20 @@ void gcompris_help_start (gchar *title, gchar *content)
   gint y = 0;
   gint y_start = 0;
   gint x_start = 0;
+  gint yhtml_start = 0;
+  gint xhtml_start = 0;
   GdkFont *gdk_font;
-  GdkFont *gdk_font2;
+  GtkHTML *gtkHtml;
+  gchar *tmp;
+  gchar *htmlHeader = "<html>
+<head>
+<title>GCompris Help</title>
+</head>
+<body text=\"#000000\" bgcolor=\"#00b7fe\" MARGINHEIGHT=\"0\" MARGINWIDTH=\"0\" 
+TOPMARGIN=\"0\" LEFTMARGIN=\"0\">";
+  gchar * htmlFooter = "</body></html>";
+
+
 
   if(rootitem)
     return;
@@ -89,19 +102,6 @@ void gcompris_help_start (gchar *title, gchar *content)
 				"fill_color", "white",
 				NULL);
 
-  // CONTENT
-  gdk_font2 = gdk_font_load ("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*");
-
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", content,
-				"font_gdk", gdk_font2,
-				"x", (double)  x_start + 45,
-				"y", (double)  y_start + 100,
-				"anchor", GTK_ANCHOR_NW,
-				"fill_color", "white",
-				NULL);
-
   // OK
   pixmap = gcompris_load_pixmap("gcompris/buttons/button_small.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -114,6 +114,9 @@ void gcompris_help_start (gchar *title, gchar *content)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
   gdk_pixbuf_unref(pixmap);
 
 
@@ -130,6 +133,26 @@ void gcompris_help_start (gchar *title, gchar *content)
 		     (GtkSignalFunc) item_event_help,
 		     "ok");
 
+  // GTKHTML Content
+
+  tmp = g_strconcat(htmlHeader, content, htmlFooter);
+  gtkHtml = GTK_HTML(gtk_html_new_from_string (tmp, strlen(tmp)));
+  g_free(tmp);
+
+  xhtml_start = x_start + 40;
+  yhtml_start = y_start + 90;
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_widget_get_type (),
+			 "widget", gtkHtml, 
+			 "x", (double) xhtml_start,
+			 "y", (double) yhtml_start,
+			 "width", (double) BOARDWIDTH - xhtml_start*2,
+			 "height", (double) BOARDHEIGHT - yhtml_start*2,
+			 "size_pixels", TRUE,
+			 NULL);
+  
+
+  gtk_widget_show (GTK_WIDGET(gtkHtml));
 
 }
 

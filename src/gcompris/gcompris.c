@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/12/09 02:01:27 bruno>
+ * Time-stamp: <2001/12/24 00:08:10 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -21,6 +21,7 @@
 
 #include "gcompris.h"
 #include <popt-gnome.h>
+#include <gconf/gconf.h>
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -475,6 +476,7 @@ main (int argc, char *argv[])
 {
   int c;
   poptContext optCon;
+  GError *gconf_error = NULL;
 
   srand (time (NULL));
 
@@ -483,6 +485,11 @@ main (int argc, char *argv[])
 
   gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
 
+  /* Init gconf for gtkhtml */
+  gconf_init        (argc, argv, &gconf_error);
+  if (gconf_error)
+    g_error ("gconf error: %s\n", gconf_error->message);
+  
   optCon = poptGetContext (NULL, argc, argv, command_line, 0);
 
   load_properties ();
@@ -541,6 +548,14 @@ main (int argc, char *argv[])
   setup_window ();
 
   gtk_widget_show (window);
+
+  if (properties->music)
+    {
+      gcompris_play_ogg("../intro", NULL);
+      sleep(1);
+    }
+
+  gcompris_play_ogg("welcome", NULL);
 
   gtk_main ();
   return 0;

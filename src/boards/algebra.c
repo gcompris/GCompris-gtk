@@ -553,6 +553,7 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
   guint first_operand, second_operand;
   char *first_operand_str = NULL;
   char *second_operand_str = NULL;
+  char *audioOperand = NULL;
   guint longuest;
   double x_align;
   double x, y;
@@ -645,15 +646,19 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     {
     case PLUSSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand+second_operand);
+      audioOperand = "plus";
       break;
     case MINUSSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand-second_operand);
+      audioOperand = "minus";
       break;
     case BYSIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand*second_operand);
+      audioOperand = "by";
       break;
     case DIVIDESIGNFILE:
       expected_result = g_strdup_printf("%d", first_operand/second_operand);
+      audioOperand = "outof";
       break;
     default:
       g_error("Bad Operation");
@@ -664,6 +669,9 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
     display_operand(parent, x_align + NUMBERSWIDTH*(strlen(second_operand_str)+
 						    strlen(expected_result)+2),
 		    y_firstline, expected_result, TRUE);
+
+
+  gcompris_play_ogg(first_operand_str, audioOperand , second_operand_str, "equal", NULL);
 
   g_free(first_operand_str);
   g_free(second_operand_str);

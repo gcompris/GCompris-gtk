@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2001/12/03 23:35:25 bruno>
+ * Time-stamp: <2001/12/19 01:48:13 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -365,13 +365,13 @@ help ()
       pause_board(TRUE);
       gcompris_help_start(N_("The paratrooper game"), 
 			  N_("\
-Goal:\n\
-In this game, the children will try to make Tux the paratrooper lands safely on the\n\
-fishing boat. He/She needs to take care of the wind side and speed.\n\
-\n\
-Usage:\n\
+<b>Goal:</b>
+In this game, the children will try to make Tux the paratrooper lands safely on the
+fishing boat. He/She needs to take care of the wind side and speed.
+<br>
+<b>Usage:</b>
 Click on any keyboard key to let Tux jump. Another keypress will open the
-'parachute'.\n
+'parachute'.
 "));
 			  
     }

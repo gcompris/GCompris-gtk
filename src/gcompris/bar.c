@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2001/12/09 23:40:13 bruno>
+ * Time-stamp: <2001/12/23 23:46:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,7 +30,8 @@
 
 #define BAR_GAP 15		/* Value used to fill space above and under icons in the bar */
 
-static gint item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data);
+static void bar_reset_sound_id ();
 
 static gint current_level = -1;
 static GnomeCanvasItem *level_item = NULL;
@@ -39,6 +40,7 @@ static GnomeCanvasItem *help_item = NULL;
 static GnomeCanvasItem *repeat_item = NULL;
 static guint level_handler_id;
 
+static gint sound_play_id = 0;
 
 /*
  * Main entry point 
@@ -61,6 +63,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 
   width  = BOARDWIDTH-1;
   height = BARHEIGHT-2;
+
+  bar_reset_sound_id();
 
   rootitem = \
     gnome_canvas_item_new (gnome_canvas_root(theCanvas),
@@ -97,7 +101,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_bar,
-		     "home");
+		     "back");
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -267,21 +271,44 @@ gcompris_bar_set (const GComprisBarFlags flags)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
+/*
+ * This is called to play sound
+ *
+ */
+static gint bar_play_sound (gchar *data)
+{
+  gcompris_play_ogg(data, NULL);
+  sound_play_id = 0;
 
+  return (FALSE);
+}
+
+static void bar_reset_sound_id ()
+{
+  if(sound_play_id)
+    gtk_timeout_remove (sound_play_id);
+  
+  sound_play_id=0;
+}
 
 /* Callback for the bar operations */
 static gint
-item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   switch (event->type) 
     {
     case GDK_ENTER_NOTIFY:
+      bar_reset_sound_id();
+      sound_play_id = gtk_timeout_add (1000, (GtkFunction) bar_play_sound, data);
       break;
     case GDK_LEAVE_NOTIFY:
+      bar_reset_sound_id();
       break;
     case GDK_BUTTON_PRESS:
+      bar_reset_sound_id();
+
       /* This is not perfect clean but it makes it easy to remove the help window
 	 by clicking on any button in the bar */
       if(strcmp((char *)data, "help"))
@@ -300,20 +327,26 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       else if(!strcmp((char *)data, "level"))
 	{
 	  gint tmp = current_level;
+	  gchar *current_level_str;
 
 	  current_level++;
 	  if(current_level>gcomprisBoard->maxlevel)
 	    current_level=1;
 	  
 	  if(tmp!=current_level)
-	    gcompris_play_sound (SOUNDLISTFILE, "level");
+	    {
+	      current_level_str = g_strdup_printf("%d", current_level);
+	      printf("level=%s\n", current_level_str);
+	      gcompris_play_ogg("level", current_level_str, NULL);
+	      g_free(current_level_str);
+	    }
 
 	  if(gcomprisBoard->plugin->set_level != NULL)
 	    {
 	      gcomprisBoard->plugin->set_level(current_level);
 	    }
 	}
-      else if(!strcmp((char *)data, "home"))
+      else if(!strcmp((char *)data, "back"))
 	{
 	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
 	  board_stop();

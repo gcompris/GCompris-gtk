@@ -19,7 +19,7 @@ lib_LTLIBRARIES = \
 	librailroad.la \
 	liberase.la \
 	liblocale.la \
-  libalgebra_guesscount.la
+	libalgebra_guesscount.la
 
 libdir = $(plugindir)
 INCLUDES = -I$(top_builddir)/intl $(GNOME_INCLUDEDIR) -I..

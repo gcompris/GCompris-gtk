@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2001/12/10 00:01:07 bruno>
+ * Time-stamp: <2001/12/19 00:35:20 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -247,24 +247,23 @@ clickgame_help ()
       clickgame_pause(TRUE);
       gcompris_help_start(N_("Practice the computer mouse"), 
 			  N_("\
-Goal:\n\
-In this game, the children will discover the computer mouse\n\
-The goal is just to click with the left mouse button on the moving fish.\n\
-\n\
-Credits:\n\
-Fish are taken from the Unix utility xfishtank.\n\
-Images are taken from the National Undersearch Research Program (NURP) Collection\n\
-at http://www.photolib.noaa.gov\n\
-All images credit bellongs to the OAR/National Undersea Research Program (NURP)\n\
-Except for the first image that also credits the University of North Carolina at Wilmington\n\
-In the gcompris level order, images information is:\n\
-Location: Tropical Atlantic Ocean, Florida Keys (image nur00523)\n\
-Photographer: D. Kesling\n\
-Location: Florida Keys (image nur03006)\n\
-Location: Unknown (image nur03505)\n\
-Location: Unknown (image nur03010)\n\
-Location: Unknown (image nur03011)\n\
-Location: Unknown (image nur03013)\n"));
+<b>Goal:</b>
+In this game, the children will discover the computer mouse
+The goal is just to click with the left mouse button on the moving fish.
+<p>
+<b>Credits:</b>
+Fish are taken from the Unix utility xfishtank.<br>
+Images are taken from the National Undersearch Research Program (NURP) Collection
+at <a href=\"http://www.photolib.noaa.gov\">http://www.photolib.noaa.gov</a>
+<br>All images credit bellongs to the OAR/National Undersea Research Program (NURP)
+Except for the first image that also credits the University of North Carolina at Wilmington
+In the gcompris level order, images information is:
+<li>Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling
+<li>Location: Florida Keys (image nur03006)</li>
+<li>Location: Unknown (image nur03505)</li>
+<li>Location: Unknown (image nur03010)</li>
+<li>Location: Unknown (image nur03011)</li>
+<li>Location: Unknown (image nur03013)</li>"));
     }
 }
 

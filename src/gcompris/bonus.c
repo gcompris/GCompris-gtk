@@ -35,6 +35,15 @@ static gint end_bonus_id = 0, board_finished_id = 0;
 //static gint end_board_count = 0;
 static int left_door_limit = 0;
 
+// List of sounds to use for greetings
+static gchar *greetingsList[] =
+{
+  "congratulation",
+  "great",
+  "good"
+};
+#define NUMBER_OF_GREETINGS 3
+
 /* ==================================== */
 void end_board_finished() {
   double dx1, dy1, dx2, dy2;
@@ -156,9 +165,9 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   if(gamewon == TRUE)
-      gcompris_play_sound (SOUNDLISTFILE, "gobble");
-     else
-      gcompris_play_sound (SOUNDLISTFILE, "crash");
+    gcompris_play_ogg(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)], NULL);
+  else
+    gcompris_play_sound (SOUNDLISTFILE, "crash");
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
@@ -190,7 +199,7 @@ void bonus_image(char *image, int gamewon)
 
   /* bonus_item must be a singleton */
   if (bonus_item != NULL)
-  	return;
+    return;
 
   if (gamewon == TRUE)
     str = g_strdup_printf("%s%s%s", "gcompris/bonus/",image,"_good.png");

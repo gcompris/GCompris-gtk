@@ -68,6 +68,10 @@ DATADIRNAME = @DATADIRNAME@
 DLLTOOL = @DLLTOOL@
 ECHO = @ECHO@
 EXEEXT = @EXEEXT@
+GCONF_CFLAGS = @GCONF_CFLAGS@
+GCONF_CONFIG = @GCONF_CONFIG@
+GCONF_LIBS = @GCONF_LIBS@
+GCONF_SCHEMA_CONFIG_SOURCE = @GCONF_SCHEMA_CONFIG_SOURCE@
 GDK_PIXBUF_CFLAGS = @GDK_PIXBUF_CFLAGS@
 GDK_PIXBUF_CONFIG = @GDK_PIXBUF_CONFIG@
 GDK_PIXBUF_LIBS = @GDK_PIXBUF_LIBS@
@@ -87,6 +91,7 @@ GNOME_XML_LIB = @GNOME_XML_LIB@
 GNOME_XML_LIBS = @GNOME_XML_LIBS@
 GNORBA_CFLAGS = @GNORBA_CFLAGS@
 GNORBA_LIBS = @GNORBA_LIBS@
+GTKHTML_LIBS = @GTKHTML_LIBS@
 GTKXMHTML_LIBS = @GTKXMHTML_LIBS@
 GTK_CFLAGS = @GTK_CFLAGS@
 GTK_CONFIG = @GTK_CONFIG@
@@ -130,7 +135,7 @@ cflags_set = @cflags_set@
 cxxflags_set = @cxxflags_set@
 plugindir = @plugindir@
 
-INCLUDES =  	-I$(top_srcdir)/intl 	$(GNOME_INCLUDEDIR)
+INCLUDES =  	-I$(top_srcdir)/intl 	$(GNOME_INCLUDEDIR) $(GCONF_CFLAGS)
 
 
 bin_PROGRAMS = gcompris
@@ -138,7 +143,7 @@ bin_PROGRAMS = gcompris
 gcompris_SOURCES =  	pixbuf_util.c pixbuf_util.h 	gcompris.c gcompris.h gcompris-board.h 	properties.c properties.h 	gameutil.c gameutil.h 	bar.c 	help.c 	plugin.h 	pluginenum.c pluginenum.h board.h board.c 	bonus.c bonus.h 	score.c score.h
 
 
-gcompris_LDADD =  	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) 	$(GNOME_XML_LIB) $(INTLLIBS) 	$(GDK_PIXBUF_LIBS)
+gcompris_LDADD =  	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) 	$(GNOME_XML_LIB) $(INTLLIBS) 	$(GDK_PIXBUF_LIBS) 	$(GCONF_LIBS) $(GTKHTML_LIBS)
 
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = ../../config.h
@@ -168,6 +173,9 @@ DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 
 TAR = gtar
 GZIP_ENV = --best
+DEP_FILES =  .deps/bar.P .deps/board.P .deps/bonus.P .deps/gameutil.P \
+.deps/gcompris.P .deps/help.P .deps/pixbuf_util.P .deps/pluginenum.P \
+.deps/properties.P .deps/score.P
 SOURCES = $(gcompris_SOURCES)
 OBJECTS = $(gcompris_OBJECTS)
 
@@ -175,9 +183,9 @@ all: all-redirect
 .SUFFIXES:
 .SUFFIXES: .S .c .lo .o .obj .s
 $(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
-	cd $(top_srcdir) && $(AUTOMAKE) --gnu --include-deps src/gcompris/Makefile
+	cd $(top_srcdir) && $(AUTOMAKE) --gnu src/gcompris/Makefile
 
-Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
 	cd $(top_builddir) \
 	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
@@ -207,9 +215,6 @@ uninstall-binPROGRAMS:
 	  rm -f $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
 	done
 
-.c.o:
-	$(COMPILE) -c $<
-
 # FIXME: We should only use cygpath when building on Windows,
 # and only if it is available.
 .c.obj:
@@ -231,9 +236,6 @@ distclean-compile:
 	-rm -f *.tab.c
 
 maintainer-clean-compile:
-
-.c.lo:
-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
 
 .s.lo:
 	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
@@ -289,6 +291,11 @@ distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
 subdir = src/gcompris
 
 distdir: $(DISTFILES)
+	here=`cd $(top_builddir) && pwd`; \
+	top_distdir=`cd $(top_distdir) && pwd`; \
+	distdir=`cd $(distdir) && pwd`; \
+	cd $(top_srcdir) \
+	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --gnu src/gcompris/Makefile
 	@for file in $(DISTFILES); do \
 	  d=$(srcdir); \
 	  if test -d $$d/$$file; then \
@@ -299,6 +306,38 @@ distdir: $(DISTFILES)
 	    || cp -p $$d/$$file $(distdir)/$$file || :; \
 	  fi; \
 	done
+
+DEPS_MAGIC := $(shell mkdir .deps > /dev/null 2>&1 || :)
+
+-include $(DEP_FILES)
+
+mostlyclean-depend:
+
+clean-depend:
+
+distclean-depend:
+	-rm -rf .deps
+
+maintainer-clean-depend:
+
+%.o: %.c
+	@echo '$(COMPILE) -c $<'; \
+	$(COMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
+
+%.lo: %.c
+	@echo '$(LTCOMPILE) -c $<'; \
+	$(LTCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-sed -e 's/^\([^:]*\)\.o[ 	]*:/\1.lo \1.o :/' \
+	  < .deps/$(*F).pp > .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm -f .deps/$(*F).pp
 info-am:
 info: info-am
 dvi-am:
@@ -336,26 +375,27 @@ distclean-generic:
 
 maintainer-clean-generic:
 mostlyclean-am:  mostlyclean-binPROGRAMS mostlyclean-compile \
-		mostlyclean-libtool mostlyclean-tags \
+		mostlyclean-libtool mostlyclean-tags mostlyclean-depend \
 		mostlyclean-generic
 
 mostlyclean: mostlyclean-am
 
 clean-am:  clean-binPROGRAMS clean-compile clean-libtool clean-tags \
-		clean-generic mostlyclean-am
+		clean-depend clean-generic mostlyclean-am
 
 clean: clean-am
 
 distclean-am:  distclean-binPROGRAMS distclean-compile distclean-libtool \
-		distclean-tags distclean-generic clean-am
+		distclean-tags distclean-depend distclean-generic \
+		clean-am
 	-rm -f libtool
 
 distclean: distclean-am
 
 maintainer-clean-am:  maintainer-clean-binPROGRAMS \
 		maintainer-clean-compile maintainer-clean-libtool \
-		maintainer-clean-tags maintainer-clean-generic \
-		distclean-am
+		maintainer-clean-tags maintainer-clean-depend \
+		maintainer-clean-generic distclean-am
 	@echo "This command is intended for maintainers to use;"
 	@echo "it deletes files that may require special tools to rebuild."
 
@@ -366,12 +406,14 @@ maintainer-clean-binPROGRAMS uninstall-binPROGRAMS install-binPROGRAMS \
 mostlyclean-compile distclean-compile clean-compile \
 maintainer-clean-compile mostlyclean-libtool distclean-libtool \
 clean-libtool maintainer-clean-libtool tags mostlyclean-tags \
-distclean-tags clean-tags maintainer-clean-tags distdir info-am info \
-dvi-am dvi check check-am installcheck-am installcheck install-exec-am \
-install-exec install-data-am install-data install-am install \
-uninstall-am uninstall all-redirect all-am all installdirs \
-mostlyclean-generic distclean-generic clean-generic \
-maintainer-clean-generic clean mostlyclean distclean maintainer-clean
+distclean-tags clean-tags maintainer-clean-tags distdir \
+mostlyclean-depend distclean-depend clean-depend \
+maintainer-clean-depend info-am info dvi-am dvi check check-am \
+installcheck-am installcheck install-exec-am install-exec \
+install-data-am install-data install-am install uninstall-am uninstall \
+all-redirect all-am all installdirs mostlyclean-generic \
+distclean-generic clean-generic maintainer-clean-generic clean \
+mostlyclean distclean maintainer-clean
 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

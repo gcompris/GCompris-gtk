@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2001/12/09 23:40:31 bruno>
+ * Time-stamp: <2001/12/23 23:41:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -207,31 +207,33 @@ menu_help ()
       menu_pause(TRUE);
       gcompris_help_start(N_("GCompris Help"), 
 			  N_("\
-Goal:
+<b>Goal:</b>
+<p>
 GCompris is an educational games that provides different activities to
 children starting at 3.
-
+<p>
 To use it, a simple click on an icon brings you to a board or a menu.
-
+<p>
 At the bottom of the screen, you have the gcompris control bar.
-
+<p>
 From right to left, bellow is the meaning of the icons. Note that these
 icons are displayed only when available in a board:
-Home - Back to previous menu or exit gcompris if no more
-Thumb - OK, confirm your answer
-Dice - The current level is displayed. Click on it to select another level
-Question Mark - The help
-Music note - Ask gcompris to repeat the question
-
+<li>Home - Back to previous menu or exit gcompris if no more</li>
+<li>Thumb - OK, confirm your answer</li>
+<li>Dice - The current level is displayed. Click on it to select another level</li>
+<li>Question Mark - The help</li>
+<li>Music note - Ask gcompris to repeat the question</li>
+<p>
 The stars means:
-1 Star  - 3 to 4 years old
-2 Stars - 5 to 6 years old
-3 Stars - 7 to 8 years old
-
-Credits:
+<li>1 Star  - 3 to 4 years old</li>
+<li>2 Stars - 5 to 6 years old</li>
+<li>3 Stars - 7 to 8 years old</li>
+<p>
+<b>Credits:</b>
 Author: Bruno Coudoin
 Contribution: Pascal Georges
 Graphics: Renaud Blanchard
+Music: Djilali Sebihi
 "));
     }
 }
