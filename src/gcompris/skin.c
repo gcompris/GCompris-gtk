@@ -290,8 +290,6 @@ void gcompris_skin_xml_load (gchar* skin)
     return;
   }
 
-  g_warning("Loading Skin...");
-  
   node = skinNode->children;
   while(node !=NULL)
     {

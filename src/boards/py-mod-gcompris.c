@@ -5,6 +5,11 @@
 #include "py-gcompris-board.h"
 
 /* submodules includes */
+#include "py-mod-bonus.h"
+#include "py-mod-score.h"
+#include "py-mod-skin.h"
+#include "py-mod-sound.h"
+#include "py-mod-timer.h"
 #include "py-mod-utils.h"
 
 /* All functions provided by this python module
@@ -463,11 +468,12 @@ void python_gcompris_module_init(void)
   PyModule_AddStringConstant(gcomprisModule, "DATA_DIR", PACKAGE_DATA_DIR);
 
   /* Initialize the sub modules */
-  python_gcompris_utils_module_init();
-  python_gcompris_sound_module_init();
   python_gcompris_bonus_module_init();
   python_gcompris_score_module_init();
+  python_gcompris_skin_module_init();
+  python_gcompris_sound_module_init();
   python_gcompris_timer_module_init();
+  python_gcompris_utils_module_init();
 }
 
 /* Some usefull code parts ... */

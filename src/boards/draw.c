@@ -78,15 +78,15 @@ static GnomeCanvasItem	*selectionToolItem = NULL;
 // Used to cross reference pixmap for the tools
 static char *tool_pixmap_name[] =
   {
-    "draw/tool-rectangle.png", "draw/tool-rectangle_on.png", 
-    "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png", 
-    "draw/tool-circle.png", "draw/tool-circle_on.png", 
-    "draw/tool-filledcircle.png", "draw/tool-filledcircle_on.png", 
-    "draw/tool-line.png", "draw/tool-line_on.png", 
-    "draw/tool-point.png", "draw/tool-point_on.png", 
-    "draw/tool-text.png", "draw/tool-text_on.png", 
+    "draw/tool-rectangle.png", "draw/tool-rectangle_on.png",
+    "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
+    "draw/tool-circle.png", "draw/tool-circle_on.png",
+    "draw/tool-filledcircle.png", "draw/tool-filledcircle_on.png",
+    "draw/tool-line.png", "draw/tool-line_on.png",
+    "draw/tool-point.png", "draw/tool-point_on.png",
+    "draw/tool-text.png", "draw/tool-text_on.png",
     "draw/tool-grid.png", "draw/tool-grid_on.png",
-    "draw/tool-del.png", "draw/tool-del_on.png", 
+    "draw/tool-del.png", "draw/tool-del_on.png",
     "draw/tool-fill.png", "draw/tool-fill_on.png",
     "draw/tool-up.png", "draw/tool-up_on.png",
     "draw/tool-down.png", "draw/tool-down_on.png",
@@ -147,7 +147,7 @@ static AnchorsItem *selected_anchors_item = NULL;
 
 #define GRID_COLOR		0x00000000
 
-static gchar *colorlist [] = 
+static gchar *colorlist [] =
   {
     "black",
     "brown",
@@ -218,7 +218,7 @@ BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
+BoardPlugin
 *get_bplugin_info(void)
 {
   return &menu_bp;
@@ -294,7 +294,7 @@ gint key_press(guint keyval)
   if(!gcomprisBoard)
     return TRUE;
 
-  if(selected_anchors_item == NULL) 
+  if(selected_anchors_item == NULL)
     return TRUE;
 
   /* Add some filter for control and shift key */
@@ -317,7 +317,7 @@ gint key_press(guint keyval)
     case GDK_Mode_switch:
     case GDK_dead_circumflex:
     case GDK_Num_Lock:
-      return FALSE; 
+      return FALSE;
     case GDK_KP_0:
       keyval=GDK_0;
       break;
@@ -353,7 +353,7 @@ gint key_press(guint keyval)
   sprintf(str, "%c", keyval);
 
   item = selected_anchors_item->item;
-      
+
   if(GNOME_IS_CANVAS_TEXT(item))
     {
       gchar *oldtext;
@@ -392,7 +392,7 @@ gint key_press(guint keyval)
       gnome_canvas_item_set (item,
 			     "text", newtext,
 			     NULL);
-	      
+
       g_free(oldtext);
     }
 
@@ -432,7 +432,7 @@ config ()
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void draw_next_level() 
+static void draw_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
@@ -468,7 +468,7 @@ static void display_drawing_area(GnomeCanvasGroup *parent)
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event,
 		     NULL);
-  
+
   display_grid(TRUE);
 
   draw_root_item = \
@@ -493,14 +493,14 @@ static void display_color_selector(GnomeCanvasGroup *parent)
   if(pixmap)
     {
       x = (drawing_area_x2 - drawing_area_x1
-	   - gdk_pixbuf_get_width(pixmap))/2 
+	   - gdk_pixbuf_get_width(pixmap))/2
 	+ drawing_area_x1;
-      
+
       y = gcomprisBoard->height - gdk_pixbuf_get_height(pixmap) - 5;
 
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) x,
 				    "y", (double) y,
 				    NULL);
@@ -550,7 +550,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 	+  drawing_area_y1;
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) x,
 				    "y", (double) y,
 				    NULL);
@@ -565,7 +565,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
     {
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
+				    "pixbuf", pixmap,
 				    "x", (double) x,
 				    "y", (double) y,
 				    NULL);
@@ -588,7 +588,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 	{
 	  item = gnome_canvas_item_new (parent,
 					gnome_canvas_pixbuf_get_type (),
-					"pixbuf", pixmap, 
+					"pixbuf", pixmap,
 					"x", (double) (toolIndex%2 == 0 ? x : x2),
 					"y", (double) y,
 					NULL);
@@ -622,7 +622,7 @@ static void display_grid(gboolean status)
   guint x, y;
   GdkPixbuf *pixmap = NULL;
 
-  pixmap = gcompris_load_pixmap(tool_pixmap_name[(TOOL_GRID*2) + 
+  pixmap = gcompris_load_pixmap(tool_pixmap_name[(TOOL_GRID*2) +
 						 (status == TRUE ? PIXMAP_ON : PIXMAP_OFF)]);
   if(pixmap)
     {
@@ -667,26 +667,26 @@ static void display_grid(gboolean status)
 
       for( y = drawing_area_y1 ; y < drawing_area_y2 ; y += grid_step)
 	{
-	  
+
 	  points = gnome_canvas_points_new(2);
 	  points->coords[0] = (double) x;
 	  points->coords[1] = (double) y;
 	  points->coords[2] = (double) x;
 	  points->coords[3] = (double) y + 1;
-	  
+
 	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(grid_root_item),
 					gnome_canvas_line_get_type (),
 					"points", points,
 					"fill_color_rgba", GRID_COLOR,
 					"width_pixels", 1,
 					NULL);
-	  
+
 	  gtk_signal_connect(GTK_OBJECT(item), "event",
 			     (GtkSignalFunc) item_event,
 			     NULL);
-	  
+
 	  gnome_canvas_points_unref(points);
-	  
+
 	}
     }
 }
@@ -703,19 +703,19 @@ static void realign_to_grid(GnomeCanvasItem *item)
     {
       double x1, y1, x2, y2;
       double xsnap1, ysnap1;
-      
+
       gnome_canvas_item_get_bounds  (item,
 				     &x1,
 				     &y1,
 				     &x2,
 				     &y2);
-      
+
       xsnap1 = x1;
       ysnap1 = y1;
       snap_to_grid(&xsnap1, &ysnap1);
-      
+
       // Realign our object on the grid
-      gnome_canvas_item_move(item, 
+      gnome_canvas_item_move(item,
 			     x1 - xsnap1,
 			     y1 - ysnap1);
     }
@@ -742,7 +742,7 @@ static void snap_to_grid(double *x, double *y)
 /* Destroy all the items */
 static void draw_destroy_all_items()
 {
-  
+
   /* Deleting the root item automatically deletes children items */
   if(shape_root_item!=NULL)
     gtk_object_destroy (GTK_OBJECT(shape_root_item));
@@ -814,10 +814,10 @@ static void set_current_tool(GnomeCanvasItem *item, gint tool)
 	  gdk_pixbuf_unref(pixmap);
 	}
     }
-  
+
   currentTool = tool;
   currentToolItem = item;
-  
+
   pixmap = gcompris_load_pixmap(tool_pixmap_name[(currentTool*2) + PIXMAP_ON]);
   if(pixmap)
     {
@@ -835,14 +835,14 @@ static gint
 tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 {
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 
-	  switch(tool) 
+	  switch(tool)
 	    {
 	    case TOOL_GRID:
 	      display_grid((grid_step==0 ? TRUE : FALSE));
@@ -855,7 +855,7 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	    case TOOL_LOWER:
 	      if(selected_anchors_item)
 		display_anchors(selected_anchors_item, FALSE);
-      
+
 	      selected_anchors_item = NULL;
 	      break;
 	    default:
@@ -895,10 +895,10 @@ color_event(GnomeCanvasItem *item, GdkEvent *event, gchar *color)
   if(color==NULL)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 	  currentColor = color;
@@ -974,22 +974,22 @@ static void display_anchors(AnchorsItem *anchorsItem, gboolean visible)
 
       if(anchorsItem->n)
 	gnome_canvas_item_hide(anchorsItem->n);
-      
+
       if(anchorsItem->ne)
 	gnome_canvas_item_hide(anchorsItem->ne);
-      
+
       if(anchorsItem->w)
 	gnome_canvas_item_hide(anchorsItem->w);
-      
+
       if(anchorsItem->e)
 	gnome_canvas_item_hide(anchorsItem->e);
-      
+
       if(anchorsItem->sw)
 	gnome_canvas_item_hide(anchorsItem->sw);
-      
+
       if(anchorsItem->s)
 	gnome_canvas_item_hide(anchorsItem->s);
-      
+
       if(anchorsItem->se)
 	gnome_canvas_item_hide(anchorsItem->se);
     }
@@ -999,8 +999,8 @@ static void reset_anchors_text(AnchorsItem *anchorsItem)
 {
 
   double x1, x2, y1, y2;
-  
-  gnome_canvas_item_get_bounds(anchorsItem->item,  &x1, &y1, &x2, &y2); 
+
+  gnome_canvas_item_get_bounds(anchorsItem->item,  &x1, &y1, &x2, &y2);
 
   if(anchorsItem->nw)
   gnome_canvas_item_set (anchorsItem->nw,
@@ -1037,8 +1037,8 @@ static void reset_anchors_line(AnchorsItem *anchorsItem)
 static void reset_anchors_bounded(AnchorsItem *anchorsItem)
 {
   double x1, x2, y1, y2;
-  
-  gnome_canvas_item_get_bounds(anchorsItem->item,  &x1, &y1, &x2, &y2); 
+
+  gnome_canvas_item_get_bounds(anchorsItem->item,  &x1, &y1, &x2, &y2);
 
   if(anchorsItem->nw)
   gnome_canvas_item_set (anchorsItem->nw,
@@ -1118,7 +1118,7 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
 				 &y1,
 				 &x2,
 				 &y2);
-  
+
   if(GNOME_IS_CANVAS_PIXBUF(item))
     {
       switch(anchor)
@@ -1341,20 +1341,20 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
 	default:
 	  break;
 	}
-  
+
       if(points)
 	{
 	  anchorsItem->ref_x1 = points->coords[0];
 	  anchorsItem->ref_y1 = points->coords[1];
 	  anchorsItem->ref_x2 = points->coords[2];
 	  anchorsItem->ref_y2 = points->coords[3];
-	  
+
 	  gnome_canvas_item_set (item,
 				 "points", points,
 				 NULL);
-	  
+
 	  gnome_canvas_points_unref(points);
-	  
+
 	  reset_anchors_line(anchorsItem);
 	}
     }
@@ -1373,7 +1373,7 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
 /*
  * Set the color of the item based on the tool with with it has been
  * created
- * 
+ *
  */
 static void set_item_color(AnchorsItem *anchorsItem, gchar *color)
 {
@@ -1438,7 +1438,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y", (double)y-gdk_pixbuf_get_height(pixmap)/2,
 				    "width", (double) gdk_pixbuf_get_width(pixmap),
 				    "height", (double) gdk_pixbuf_get_height(pixmap),
-				    "width_set", TRUE, 
+				    "width_set", TRUE,
 				    "height_set", TRUE,
 				NULL);
       gdk_pixbuf_unref(pixmap);
@@ -1454,7 +1454,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "outline_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
       /*         without it, at anchors creation, item bound is always 0,0,0,0 */
       gnome_canvas_update_now (gcomprisBoard->canvas);
       break;
@@ -1468,10 +1468,10 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y2", (double) y + item_size_y,
 				    "fill_color", currentColor,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
       /*         without it, at anchors creation, item bound is always 0,0,0,0 */
       gnome_canvas_update_now (gcomprisBoard->canvas);
-      break;      
+      break;
     case TOOL_POINT:
       // This is a point
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
@@ -1482,7 +1482,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y2", (double) y + DRAW_WIDTH_PIXELS,
 				    "fill_color", currentColor,
 				    NULL);
-      break;      
+      break;
     case TOOL_CIRCLE:
       // This is an ellipse
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
@@ -1494,7 +1494,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "outline_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
       /*         without it, at anchors creation, item bound is always 0,0,0,0 */
       gnome_canvas_update_now (gcomprisBoard->canvas);
       break;
@@ -1508,10 +1508,10 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y2", (double) y + item_size_y,
 				    "fill_color", currentColor,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */ 
+      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
       /*         without it, at anchors creation, item bound is always 0,0,0,0 */
       gnome_canvas_update_now (gcomprisBoard->canvas);
-      break;      
+      break;
     case TOOL_LINE:
       // This is a line
       points = gnome_canvas_points_new(2);
@@ -1529,21 +1529,21 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "fill_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
-      break;      
+      break;
     case TOOL_TEXT:
       // This is text
       {
 	item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 				      gnome_canvas_text_get_type (),
 				      "text", "?",
-				      "font", FONT_BOARD_BIG_BOLD,
+				      "font", gcompris_skin_font_board_big_bold,
 				      "x", (double) x,
 				      "y", (double) y,
 				      "anchor", GTK_ANCHOR_CENTER,
 				      "fill_color", currentColor,
 				      NULL);
       }
-      break;      
+      break;
     default:
       break;
     }
@@ -1592,7 +1592,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
 			     (GtkSignalFunc) item_event_resize,
 			     anchorsItem);
-	  
+
 	  /*----------------------------------------*/
 	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 					      gnome_canvas_rect_get_type (),
@@ -1732,7 +1732,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
 			     (GtkSignalFunc) item_event_resize,
 			     anchorsItem);
-      
+
 	  reset_anchors_bounded(anchorsItem);
 	  break;
 
@@ -1777,10 +1777,10 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 
       if(selected_anchors_item)
 	display_anchors(selected_anchors_item, FALSE);
-      
+
       selected_anchors_item = anchorsItem;
       display_anchors(anchorsItem, TRUE);
-      
+
       /* Move is performed on the item itself */
       gtk_signal_connect(GTK_OBJECT(anchorsItem->rootitem), "event",
 			 (GtkSignalFunc) item_event_move,
@@ -1796,7 +1796,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
  */
 static guint get_resize_cursor(AnchorType anchor)
 {
-  switch(anchor) 
+  switch(anchor)
     {
     case  ANCHOR_NW:
       return(GDK_TOP_LEFT_CORNER);
@@ -1845,16 +1845,16 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 
   anchor = (AnchorType)gtk_object_get_user_data(GTK_OBJECT(item));
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 	  switch(currentTool) {
 	  case TOOL_RECT:
 	  case TOOL_FILLED_RECT:
-	  case TOOL_CIRCLE: 
+	  case TOOL_CIRCLE:
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
 	  case TOOL_POINT:
@@ -1864,16 +1864,16 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 	    break;
 	  case TOOL_SELECT:
 	    fleur = gdk_cursor_new(get_resize_cursor(anchor));
-	    
+
 	    gnome_canvas_item_grab(item,
-				   GDK_POINTER_MOTION_MASK | 
+				   GDK_POINTER_MOTION_MASK |
 				   GDK_BUTTON_RELEASE_MASK,
 				   fleur,
 				   event->button.time);
 	    gdk_cursor_destroy(fleur);
 	    draggingItem = item;
 	    dragging = TRUE;
-	    
+
 	    item_x = event->button.x;
 	    item_y = event->button.y;
 	    gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
@@ -1891,7 +1891,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 	}
       break;
     case GDK_BUTTON_RELEASE:
-      if(dragging) 
+      if(dragging)
 	{
 	  gnome_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
@@ -1910,7 +1910,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
       if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
 	{
 	  double			 parent_x, parent_y;
-	  
+
 	  item_x = event->button.x;
 	  item_y = event->button.y;
 	  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
@@ -1922,7 +1922,7 @@ item_event_resize(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsIt
 	  snap_to_grid(&x, &y);
 	  resize_item(anchorsItem, anchor, x, y);
 
-	  /* Manage border limits */	  	       
+	  /* Manage border limits */
 	  if((parent_x > drawing_area_x1) && (parent_x < drawing_area_x2))
 	    x = item_x;
 
@@ -1983,17 +1983,17 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
   if(!gcomprisBoard)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 	  switch(currentTool) {
 	  case TOOL_IMAGE:
 	  case TOOL_RECT:
 	  case TOOL_FILLED_RECT:
-	  case TOOL_CIRCLE: 
+	  case TOOL_CIRCLE:
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
 	  case TOOL_POINT:
@@ -2004,23 +2004,23 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  case TOOL_SELECT:
 	    // Move an item
 	    set_selected_item(anchorsItem);
-	     
+
 	    fleur = gdk_cursor_new(GDK_FLEUR);
-	     
+
 	    gnome_canvas_item_grab(item,
-				   GDK_POINTER_MOTION_MASK | 
+				   GDK_POINTER_MOTION_MASK |
 				   GDK_BUTTON_RELEASE_MASK,
 				   fleur,
 				   event->button.time);
 	    gdk_cursor_destroy(fleur);
 	    draggingItem = item;
 	    dragging = TRUE;
-	     
+
 	    item_x = event->button.x;
 	    item_y = event->button.y;
 	    gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 	    snap_to_grid(&item_x, &item_y);
-	    
+
 	    x = item_x;
 	    y = item_y;
 	    start_x = item_x;
@@ -2043,11 +2043,11 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    break;
 
 	  case TOOL_RAISE:
-	    gnome_canvas_item_raise(item, 1); 	    
+	    gnome_canvas_item_raise(item, 1);
 	    break;
 
 	  case TOOL_LOWER:
-	    gnome_canvas_item_lower(item, 1); 	    
+	    gnome_canvas_item_lower(item, 1);
 	    break;
 
 	  default:
@@ -2059,14 +2059,14 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  // Shortcut for the Delete operation
 	  if(selected_anchors_item == anchorsItem)
 	    selected_anchors_item = NULL;
-	   
+
 	  gtk_object_destroy (GTK_OBJECT(anchorsItem->rootitem));
 	  g_free(anchorsItem);
 	  break;
 
 	case 3:
 	  // Shortcut for the Raise operation
-	  gnome_canvas_item_raise_to_top(item); 
+	  gnome_canvas_item_raise_to_top(item);
 	  break;
 
 	default:
@@ -2074,11 +2074,11 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	}
       break;
     case GDK_BUTTON_RELEASE:
-      if(dragging) 
+      if(dragging)
 	{
 	  gnome_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
-	  draggingItem = NULL;	   
+	  draggingItem = NULL;
 
 	  /* Moving back the anchors around their shape */
 	  display_anchors(anchorsItem, TRUE);
@@ -2089,7 +2089,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
       switch(currentTool) {
       case TOOL_RECT:
       case TOOL_FILLED_RECT:
-      case TOOL_CIRCLE: 
+      case TOOL_CIRCLE:
       case TOOL_FILLED_CIRCLE:
       case TOOL_LINE:
       case TOOL_POINT:
@@ -2127,17 +2127,17 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 					 &x2,
 					 &y2);
 
-	  /* Manage border limits */	  	       
+	  /* Manage border limits */
 	  if((x1 + new_x - x) < drawing_area_x1 && (new_x - x)<0)
 	    new_x = x;
 	  else if((x2 + new_x -x) > drawing_area_x2 && (new_x - x)>0)
 	    new_x = x;
-	   
+
 	  if((y1 + new_y - y) < drawing_area_y1 && (new_y - y)<0)
 	    new_y = y;
 	  else if((y2 + new_y - y) > drawing_area_y2 && (new_y - y)>0)
 	    new_y = y;
-	  
+
 	  snap_to_grid(&new_x, &new_y);
 	  gnome_canvas_item_move(item, new_x - x, new_y - y);
 
@@ -2166,10 +2166,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
   if(!gcomprisBoard)
     return FALSE;
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-      switch(event->button.button) 
+      switch(event->button.button)
 	{
 	case 1:
 	case 2:
@@ -2180,11 +2180,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 
 	  x = item_x;
 	  y = item_y;
-	   
+
 	  switch(currentTool) {
 	  case TOOL_RECT:
 	  case TOOL_FILLED_RECT:
-	  case TOOL_CIRCLE: 
+	  case TOOL_CIRCLE:
 	  case TOOL_FILLED_CIRCLE:
 	  case TOOL_LINE:
 	  case TOOL_POINT:
@@ -2222,13 +2222,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 
     case GDK_MOTION_NOTIFY:
       break;
-           
+
     case GDK_BUTTON_RELEASE:
       break;
 
     default:
       break;
     }
-         
+
   return TRUE;
 }

@@ -469,7 +469,7 @@ static GnomeCanvasItem *enumerate_create_item(GnomeCanvasGroup *parent)
 	gnome_canvas_item_new (boardRootItem,
 			       gnome_canvas_text_get_type (),
 			       "text", "?",
-			       "font", FONT_BOARD_BIG,
+			       "font", gcompris_skin_font_board_big,
 			       "x", (double) ANSWER_X + 2*ANSWER_WIDTH,
 			       "y", (double) current_y + ANSWER_HEIGHT/2,
 			       "anchor", GTK_ANCHOR_EAST,

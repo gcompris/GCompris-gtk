@@ -217,7 +217,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
     algebra_guesscount_next_level();
-    
+
     gcompris_set_cursor(GCOMPRIS_BIRD_CURSOR);
 
     gamewon = FALSE;
@@ -403,7 +403,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item_back[i*2] = gnome_canvas_item_new (boardRootItem,
 							gnome_canvas_text_get_type (),
 							"text", BLANK,
-							"font", FONT_BOARD_TITLE_BOLD,
+							"font", gcompris_skin_font_board_title_bold,
 							"x", (double) X_EQUAL+BUTTON_WIDTH*1.5 + 1,
 							"y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2 + 1,
 							"anchor", GTK_ANCHOR_CENTER,
@@ -412,7 +412,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item[i*2] = gnome_canvas_item_new (boardRootItem,
 						   gnome_canvas_text_get_type (),
 						   "text", BLANK,
-						   "font", FONT_BOARD_TITLE_BOLD,
+						   "font", gcompris_skin_font_board_title_bold,
 						   "x", (double) X_EQUAL+BUTTON_WIDTH*1.5,
 						   "y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2,
 						   "anchor", GTK_ANCHOR_CENTER,
@@ -424,7 +424,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item_back[i*2+1] = gnome_canvas_item_new (boardRootItem,
 							  gnome_canvas_text_get_type (),
 							  "text", BLANK,
-							  "font", FONT_BOARD_TITLE_BOLD,
+							  "font", gcompris_skin_font_board_title_bold,
 							  "x", (double) X_NUM1+BUTTON_WIDTH/2 + 1,
 							  "y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2 + 1,
 							  "anchor", GTK_ANCHOR_CENTER,
@@ -433,7 +433,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
     calcul_line_item[i*2+1] = gnome_canvas_item_new (boardRootItem,
 						     gnome_canvas_text_get_type (),
 						     "text", BLANK,
-						     "font", FONT_BOARD_TITLE_BOLD,
+						     "font", gcompris_skin_font_board_title_bold,
 						     "x", (double) X_NUM1+BUTTON_WIDTH/2,
 						     "y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2,
 						     "anchor", GTK_ANCHOR_CENTER,
@@ -465,7 +465,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
   result_item_back = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_text_get_type (),
 					    "text", str,
-					    "font", FONT_BOARD_TITLE_BOLD,
+					    "font", gcompris_skin_font_board_title_bold,
 					    "x", (double) xOffset+BUTTON_WIDTH +1,
 					    "y", (double) Y_OPE+BUTTON_HEIGHT/2 +1,
 					    "anchor", GTK_ANCHOR_CENTER,
@@ -474,7 +474,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
   result_item_front = gnome_canvas_item_new (boardRootItem,
 					     gnome_canvas_text_get_type (),
 					     "text", str,
-					     "font", FONT_BOARD_TITLE_BOLD,
+					     "font", gcompris_skin_font_board_title_bold,
 					     "x", (double) xOffset+BUTTON_WIDTH,
 					     "y", (double) Y_OPE+BUTTON_HEIGHT/2,
 					     "anchor", GTK_ANCHOR_CENTER,

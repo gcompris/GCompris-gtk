@@ -99,7 +99,7 @@ BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
+BoardPlugin
 *get_bplugin_info(void)
 {
   return &menu_bp;
@@ -144,9 +144,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=3; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+      gcompris_score_start(SCORESTYLE_NOTE,
+			   gcomprisBoard->width - 220,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
@@ -209,7 +209,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 
 /* set initial values for the next level */
-static void clockgame_next_level() 
+static void clockgame_next_level()
 {
 
   gcompris_bar_set_level(gcomprisBoard);
@@ -237,7 +237,7 @@ static void clockgame_destroy_all_items()
 {
   GnomeCanvasItem *item;
 
-  while(g_list_length(item_list)>0) 
+  while(g_list_length(item_list)>0)
     {
       item = g_list_nth_data(item_list, 0);
       clockgame_destroy_item(item);
@@ -276,7 +276,7 @@ static void display_hour(guint hour)
   /* Calc the needle angle */
   ang = ((hour > 12) ? hour-12 : hour) * M_PI / 6;
 
-  /* Depending on the level, work like a real clock, add the minute offset 
+  /* Depending on the level, work like a real clock, add the minute offset
      to the hour needle */
   if(gcomprisBoard->level>3)
     ang += currentTime.minute * M_PI / 360;
@@ -391,7 +391,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	  canvasPoints->coords[1]=cy - (needle_size-hour_point_size) * cos(ang);
 	  color="darkblue";
 	  color_text="red";
-	  font = FONT_BOARD_SMALL;
+	  font = gcompris_skin_font_board_small;
 	}
       else
 	{
@@ -400,7 +400,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	  canvasPoints->coords[1]=cy - (needle_size-min_point_size) * cos(ang);
 	  color="red";
 	  color_text="red";
-	  font = FONT_BOARD_TINY;
+	  font = gcompris_skin_font_board_tiny;
 	}
 
       canvasPoints->coords[2]=cx + needle_size * sin(ang);
@@ -456,11 +456,11 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
   /* Create the text area for the digital time display */
   if(gcomprisBoard->level<4)
     {
-      digital_time_item = 
+      digital_time_item =
 	gnome_canvas_item_new (parent,
 			       gnome_canvas_text_get_type (),
 			       "text", "",
-			       "font", FONT_BOARD_MEDIUM,
+			       "font", gcompris_skin_font_board_medium,
 			       "x", (double) cx,
 			       "y", (double) cy +  needle_size/2,
 			       "anchor", GTK_ANCHOR_CENTER,
@@ -524,23 +524,23 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
   display_second(currentTime.second);
 
   /* Create the text area for the time to find display */
-  item = 
+  item =
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", _("Set the watch to:"),
-			   "font", FONT_BOARD_SMALL,
+			   "font", gcompris_skin_font_board_small,
 			   "x", (double) gcomprisBoard->width*0.15,
 			   "y", (double) cy + needle_size +  needle_size / 3 - 30,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "fill_color", "white",
 			   NULL);
   item_list = g_list_append (item_list, item);
-  
-  time_to_find_item = 
+
+  time_to_find_item =
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", "",
-			   "font", FONT_BOARD_BIG_BOLD,
+			   "font", gcompris_skin_font_board_big_bold,
 			   "x", (double) gcomprisBoard->width*0.15,
 			   "y", (double) cy + needle_size +  needle_size / 3,
 			   "anchor", GTK_ANCHOR_CENTER,
@@ -548,7 +548,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 			   NULL);
   display_digital_time(time_to_find_item, &timeToFind);
   item_list = g_list_append (item_list, time_to_find_item);
-  
+
   return (item);
 }
 
@@ -619,25 +619,25 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   item_x = event->button.x;
   item_y = event->button.y;
   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
-  
-  switch (event->type) 
+
+  switch (event->type)
     {
     case GDK_BUTTON_PRESS:
       x = item_x;
       y = item_y;
-      
+
       fleur = gdk_cursor_new(GDK_FLEUR);
       gnome_canvas_item_grab(item,
-			     GDK_POINTER_MOTION_MASK | 
+			     GDK_POINTER_MOTION_MASK |
 			     GDK_BUTTON_RELEASE_MASK,
 			     fleur,
 			     event->button.time);
       gdk_cursor_destroy(fleur);
       dragging = TRUE;
       break;
-      
+
     case GDK_MOTION_NOTIFY:
-      if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+      if (dragging && (event->motion.state & GDK_BUTTON1_MASK))
 	{
 
           double angle;
@@ -663,15 +663,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
           y = new_y + cy;
 	}
       break;
-           
+
     case GDK_BUTTON_RELEASE:
-      if(dragging) 
+      if(dragging)
 	{
 	  gnome_canvas_item_ungrab(item, event->button.time);
 	  dragging = FALSE;
 	}
       break;
-      
+
     default:
       break;
     }
@@ -698,7 +698,7 @@ static void get_random_hour(Time *time)
     default:
       break;
     }
-  
+
 }
 
 

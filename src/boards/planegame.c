@@ -559,7 +559,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(itemgroup),
 			 gnome_canvas_text_get_type (),
 			 "text", number,
-			 "font", FONT_BOARD_BIG,
+			 "font", gcompris_skin_font_board_big,
 			 "x", (double) 0,
 			 "y", (double) 0,
 			 "fill_color", "red",

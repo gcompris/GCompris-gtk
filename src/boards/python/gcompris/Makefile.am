@@ -1,4 +1,4 @@
-SUBDIRS=utils score bonus timer sound
+SUBDIRS=utils score bonus timer sound skin
 
 pythondir = $(plugindir)/python/gcompris
 

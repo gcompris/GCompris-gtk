@@ -329,7 +329,8 @@ libpython_la_SOURCES = python.c \
 	py-mod-bonus.c		py-mod-bonus.h		\
 	py-mod-score.c		py-mod-score.h		\
 	py-mod-timer.c		py-mod-timer.h		\
-	py-mod-sound.c		py-mod-sound.h
+	py-mod-sound.c		py-mod-sound.h		\
+	py-mod-skin.c		py-mod-skin.h
 
 
 EXTRA_DIST = README

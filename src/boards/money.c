@@ -507,7 +507,7 @@ static void money_next_level()
     gnome_canvas_item_new(boardRootItem,
 			  gnome_canvas_text_get_type (),
 			  "text", g_strdup_printf(display_format, object_price),
-			  "font", FONT_BOARD_BIG,
+			  "font", gcompris_skin_font_board_big,
 			  "x", (double) (i*BOARDWIDTH)/(number_of_item+1),
 			  "y", (double) 180,
 			  "anchor", GTK_ANCHOR_CENTER,

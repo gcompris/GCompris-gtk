@@ -3,6 +3,7 @@ import gnome
 import gnome.canvas
 import gcompris
 import gcompris.utils
+import gcompris.skin
 import gtk
 import gtk.gdk
 
@@ -12,7 +13,15 @@ class Gcompris_pythontest:
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
-    self.canvasitems = []
+    self.canvasitems = {}
+    
+    self.colors = {}
+    self.colors['circle_in'] = gcompris.skin.get_color("pythontest/circle in")
+    self.colors['circle_out'] = gcompris.skin.get_color("pythontest/circle out")
+    self.colors['line'] = gcompris.skin.get_color("pythontest/line")
+
+    self.movingline='none'
+    
     print("Gcompris_pythontest __init__.")
   
 
@@ -23,27 +32,39 @@ class Gcompris_pythontest:
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(0)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            gcompris.utils.image_to_skin("gcompris-bg.jpg"))
+                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
-    
-    self.canvasitems.append(self.gcomprisBoard.canvas.root().add(
+
+    self.canvasitems[1] = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasEllipse,
-      x1=0.0,
-      y1=0.0,
-      x2=100.0,
-      y2=100.0,
-      fill_color='red',
-      outline_color='white',
+      x1=300.0,
+      y1=200.0,
+      x2=280.0,
+      y2=220.0,
+      fill_color_rgba= self.colors['circle_in'],
+      outline_color_rgba= self.colors['circle_out'],
       width_units=1.0
-      ))
-    self.canvasitems[-1].connect("event", self.item_event)
+      )
+    self.canvasitems[1].connect("event", self.circle_item_event)
     
+    self.canvasitems[2] = self.gcomprisBoard.canvas.root().add(
+      gnome.canvas.CanvasEllipse,
+      x1=500.0,
+      y1=200.0,
+      x2=520.0,
+      y2=220.0,
+      fill_color_rgba= self.colors['circle_in'],
+      outline_color_rgba= self.colors['circle_out'],
+      width_units=1.0
+      )
+    self.canvasitems[2].connect("event", self.circle_item_event)
+
     print("Gcompris_pythontest start.")
 
     
   def end(self):
     # Remove the canvas item we added during this plugin
-    for item in self.canvasitems:
+    for item in self.canvasitems.values():
       item.destroy()
       print("Gcompris_pythontest end.")
         
@@ -71,25 +92,32 @@ class Gcompris_pythontest:
   def set_level(self, level):  
     print("Gcompris_pythontest set level. %i" % level)
 
-  def item_event(self, widget, event=None):
+  def circle_item_event(self, widget, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-        widget.set(fill_color='blue')
-        widget.raise_to_top()
-        self.pos_x=event.x
-        self.pos_y=event.y
+        bounds = widget.get_bounds()
+        self.pos_x = (bounds[0]+bounds[2])/2
+        self.pos_y = (bounds[1]+bounds[3])/2
+        if 'line 1' in self.canvasitems:
+          self.canvasitems['line 1'].destroy()
+        self.canvasitems['line 1'] = self.gcomprisBoard.canvas.root().add(
+          gnome.canvas.CanvasLine,
+          points=( self.pos_x, self.pos_y, event.x, event.y),          
+          fill_color_rgba=self.colors['circle_in'],
+          width_units=5.0          
+          )
+        self.movingline='line 1'
+        print "Button press"
         return gtk.TRUE
     if event.type == gtk.gdk.MOTION_NOTIFY:
-      if event.state & gtk.gdk.BUTTON1_MASK:
-        x = event.x
-        y = event.y
-        widget.move(x - self.pos_x, y - self.pos_y)
-        self.pos_x = x
-        self.pos_y = y
+      if event.state & gtk.gdk.BUTTON1_MASK:        
+        self.canvasitems[self.movingline].set(
+          points=( self.pos_x, self.pos_y, event.x, event.y)
+          )
     if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
-        widget.set(fill_color='red')
-        
+        self.movingline='line 1'
+        print "Button release"
         return gtk.TRUE
     return gtk.FALSE
 

@@ -205,7 +205,7 @@ static void read_colors_next_level() {
   color_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", colors[GPOINTER_TO_INT(g_list_nth_data(listColors,0))],
-				      "font", FONT_BOARD_TITLE_BOLD,
+				      "font", gcompris_skin_font_board_title_bold,
 				      "x", (double) (color_x1+color_x2)/2,
 				      "y", (double) (color_y1+color_y2)/2,
 				      "anchor", GTK_ANCHOR_CENTER,

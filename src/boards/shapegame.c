@@ -1295,7 +1295,7 @@ static void create_title(char *name, double x, double y, char *justification)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 			   gnome_canvas_text_get_type (),
 			   "text", name,
-			   "font", FONT_BOARD_MEDIUM,
+			   "font", gcompris_skin_font_board_medium,
 			   "x", x,
 			   "y", y,
 			   "anchor", GTK_ANCHOR_CENTER,
