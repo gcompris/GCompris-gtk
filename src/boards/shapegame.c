@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/01/13 17:56:32 bruno>
+ * Time-stamp: <2002/01/13 23:45:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,6 +30,8 @@
 #define SOUNDLISTFILE PACKAGE
 
 #define UNDEFINED "Undefined"
+
+static int gamewon;
 
 static GList *item_list = NULL;
 
@@ -156,6 +158,12 @@ static void pause_board (gboolean pause)
 
   if(gcomprisBoard==NULL)
     return;
+
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
+    {
+      increment_sublevel();
+      shapegame_next_level();
+    }
 
 }
 
@@ -312,10 +320,8 @@ static void process_ok()
 
   if(done)
     {
-      increment_sublevel();
-
-      gcompris_play_sound (SOUNDLISTFILE, "bonus");
-      shapegame_next_level();
+      gamewon = TRUE;
+      gcompris_display_bonus(gamewon, BONUS_FLOWER);
     }
   else
     gcompris_play_sound (SOUNDLISTFILE, "crash");
@@ -831,8 +837,8 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    static int dragging;
    double item_x, item_y;
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return;
 
    if(shape==NULL) {
      g_warning("Shape is NULL : Should not happen");

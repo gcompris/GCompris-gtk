@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2002/01/13 17:57:26 bruno>
+ * Time-stamp: <2002/01/13 22:42:18 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -141,7 +141,6 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  printf("paratrooper pause = %d   won=%d\n", pause, gamewon);
   if(pause)
     {
       if (dummy_id) {
@@ -241,8 +240,9 @@ set_level (guint level)
 gint key_press(guint keyval)
 {
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return TRUE;
+
 
   /* Add some filter for control and shift key */
   switch (keyval)
@@ -790,8 +790,8 @@ static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, void *data)
 {
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return FALSE;
 
    switch (event->type) 
      {

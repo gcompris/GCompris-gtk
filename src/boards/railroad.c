@@ -523,6 +523,10 @@ static void reposition_answer() {
   int i;
   int xOffset = 0;
   GnomeCanvasItem * item = NULL;
+
+  if(!gcomprisBoard)
+    return;
+
   printf("+++ reposition_answer\n");
   for (i=0; i<g_list_length(item_answer_list); i++) {
     item = g_list_nth_data(item_answer_list,i);
@@ -537,6 +541,10 @@ static void reposition_model() {
   int i;
   int xOffset = 0;
   GnomeCanvasItem * item = NULL;
+
+  if(!gcomprisBoard)
+    return;
+
   printf("+++ reposition_model\n");
   for (i=0; i<model_size; i++) {
     item = item_model[i];
@@ -578,9 +586,12 @@ static gboolean animate_step() {
   int i;
   double step = 1.0;
   // this defines how the train waits before start
-#define MODEL_PAUSE 60
+#define MODEL_PAUSE 30
   //	printf("+++animate_step %d \n",animation_count);
   animation_count++;
+
+  if(!gcomprisBoard)
+    return;
 
   if (animation_count < MODEL_PAUSE)
     return TRUE;
@@ -610,7 +621,7 @@ static void animate_model() {
   animation_count = 0;
   gcompris_play_sound (SOUNDLISTFILE, "train");
   // warning : if timeout is too low, the model will not be displayed
-  timer_id = gtk_timeout_add (50, (GtkFunction) animate_step, NULL);
+  timer_id = gtk_timeout_add (100, (GtkFunction) animate_step, NULL);
 }
 /* ==================================== */
 static void reset_all_lists(void) {

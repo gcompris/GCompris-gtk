@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2002/01/13 17:58:56 bruno>
+ * Time-stamp: <2002/01/13 22:37:42 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -527,8 +527,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
    static int dragging;
    double item_x, item_y;
 
-   if(!get_board_playing())
-     return FALSE;
+   if(!gcomprisBoard)
+     return;
 
    item_x = event->button.x;
    item_y = event->button.y;

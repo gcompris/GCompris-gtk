@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2002/01/13 17:57:52 bruno>
+ * Time-stamp: <2002/01/13 22:38:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -609,8 +609,8 @@ static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 {
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return;
 
    switch (event->type) 
      {

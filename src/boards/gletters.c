@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2002/01/13 17:58:09 bruno>
+ * Time-stamp: <2002/01/13 22:43:10 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -188,8 +188,8 @@ gint key_press(guint keyval)
   gchar *old_name;
   guint c;
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return TRUE;
 
   /* Add some filter for control and shift key */
   switch (keyval)

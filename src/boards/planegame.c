@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2002/01/13 17:57:09 bruno>
+ * Time-stamp: <2002/01/13 23:21:25 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -187,8 +187,8 @@ set_level (guint level)
 gint key_press(guint keyval)
 {
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return TRUE;
 
   /* Add some filter for control and shift key */
   switch (keyval)
@@ -591,8 +591,8 @@ static gint planegame_drop_items (GtkWidget *widget, gpointer data)
 {
   planegame_add_new_item();
 
-  //  drop_items_id = gtk_timeout_add (fallSpeed,
-  //				   (GtkFunction) planegame_drop_items, NULL);
+  drop_items_id = gtk_timeout_add (fallSpeed,
+  				   (GtkFunction) planegame_drop_items, NULL);
   return (FALSE);
 }
 

@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2002/01/13 17:56:21 bruno>
+ * Time-stamp: <2002/01/13 22:42:35 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -184,8 +184,8 @@ gint key_press(guint keyval)
   gchar *old_name;
   char str[2];
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return TRUE;
 
   /* Add some filter for control and shift key */
   switch (keyval)

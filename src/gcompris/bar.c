@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/01/12 22:03:38 bruno>
+ * Time-stamp: <2002/01/13 22:34:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -396,7 +396,6 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	  if(tmp!=current_level)
 	    {
 	      current_level_str = g_strdup_printf("%d", current_level);
-	      printf("level=%s\n", current_level_str);
 	      gcompris_play_ogg("level", current_level_str, NULL);
 	      g_free(current_level_str);
 	    }

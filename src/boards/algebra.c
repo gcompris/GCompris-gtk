@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2002/01/13 17:59:05 bruno>
+ * Time-stamp: <2002/01/13 23:11:49 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -212,8 +212,8 @@ gint key_press(guint keyval)
   guint c;
   gboolean stop = FALSE;
 
-   if(!get_board_playing())
-     return FALSE;
+  if(!gcomprisBoard)
+    return TRUE;
 
   /* Add some filter for control and shift key */
   switch (keyval)
@@ -741,8 +741,6 @@ static void process_ok()
 	gcomprisBoard->sublevel=1;
 	init_operation();
 	gcompris_play_sound (SOUNDLISTFILE, "bonus");
-      } else {
-	gcompris_play_sound (SOUNDLISTFILE, "gobble");
       }
 
       algebra_next_level();

@@ -72,6 +72,8 @@ typedef enum
 static ToolList		 currentTool = TOOL_RECT;
 static GnomeCanvasItem	*currentToolItem = NULL;
 
+static gboolean doubleclick_lock = FALSE;
+
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
@@ -703,6 +705,12 @@ static GnomeCanvasItem *create_item(double x, double y)
   return item;
 }
 
+static gint release_doubleclick_lock (GtkWidget *widget, gpointer data)
+{
+  doubleclick_lock = FALSE;
+  return (FALSE);
+}
+
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 {
@@ -713,7 +721,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
    double item_x, item_y;
    GnomeCanvasItem *newItem = NULL;
 
-   if(!get_board_playing())
+   if(!gcomprisBoard)
      return FALSE;
 
    item_x = event->button.x;
@@ -727,6 +735,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
          {
          case 1:
          case 3:
+	   if(doubleclick_lock)
+	     return FALSE;
+
 	   // FIXME: Should not happen but actually helps
 	   if(dragging) 
 	     {
@@ -746,10 +757,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	   case TOOL_FILLED_CIRCLE:
 	   case TOOL_LINE:
 	       // Create a new item
-	       newItem = create_item(x, y);
-	       if(newItem==NULL)
-		 return FALSE;
-	       break;
+	     if(event->button.button==1)
+	       {
+		 newItem = create_item(x, y);
+		 if(newItem==NULL)
+		   return FALSE;
+	       }
+	     break;
 
 	   case TOOL_DELETE:
 	     if(item!=draw_root_item)
@@ -758,7 +772,13 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	     break;
 
 	   case TOOL_RESIZE:
+	     break;
+
 	   case TOOL_MOVE:
+	     break;
+	   }
+
+	 if(currentTool==TOOL_MOVE || event->button.button==3)
 	     {
 	       double x1, y1, x2, y2;
 
@@ -778,11 +798,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
 	       resize_item_ref_x = x1;
 	       resize_item_ref_y = y1;
 	     }
-	     break;
-	   }
 
 	   gnome_canvas_item_raise_to_top(newItem);
 	   fleur = gdk_cursor_new(GDK_FLEUR);
+
+	   // Double click never send us the release. Workaround with a timer
+	   gtk_timeout_add (1200,
+			    (GtkFunction) release_doubleclick_lock, NULL);
+	   doubleclick_lock = TRUE;
+
 	   gnome_canvas_item_grab(newItem,
 				  GDK_POINTER_MOTION_MASK | 
 				  GDK_BUTTON_RELEASE_MASK,
