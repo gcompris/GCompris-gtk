@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-04-02 12:04+0200\n"
-"PO-Revision-Date: 2003-04-11 03:26+0200\n"
+"POT-Creation-Date: 2003-04-29 19:52+0200\n"
+"PO-Revision-Date: 2003-04-30 03:36+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1717,6 +1717,30 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Breng de weegschaal in evenwicht"
 
+#: boards/submarine.xml.in.h:1
+msgid ""
+"Click on different active elements : engine, rudders and air tanks in order "
+"to navigate at the ordered depth."
+msgstr ""
+"Klik op de verschillende actieve elementen: motor, roeren en luchttanks om "
+"naar de gevraagde diepte te manoeuvreren."
+
+#: boards/submarine.xml.in.h:2
+msgid "Learn how a submarine works"
+msgstr "Leren hoe een onderzeeër werkt"
+
+#: boards/submarine.xml.in.h:3
+msgid "Physics basics"
+msgstr "Elementaire natuurkunde"
+
+#: boards/submarine.xml.in.h:4
+msgid "Pilot a submarine"
+msgstr "Een onderzeeër besturen"
+
+#: boards/submarine.xml.in.h:5
+msgid "Pilot a submarine using air tanks and dive rudders"
+msgstr "Bestuur een onderzeeër door middel van luchttanks en duikroeren"
+
 #: boards/smallnumbers.xml.in.h:1
 msgid "Counting skill"
 msgstr "Telvaardigheden"
@@ -1826,10 +1850,10 @@ msgstr "Editor voor GCompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1566 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:157 src/gcompris/gameutil.c:493
-#: src/gcompris/gameutil.c:494 src/gcompris/images_selector.c:347
+#: src/boards/shapegame.c:1566 src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
+#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
+#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
 #: src/gcompris/soundutil.c:286
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2044,11 +2068,11 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Afstand tot het doel = %d meter"
 
-#: src/boards/python.c:47
+#: src/boards/python.c:52
 msgid "Python Board"
 msgstr "Python-bord"
 
-#: src/boards/python.c:48
+#: src/boards/python.c:53
 msgid "Special board that embed python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
 
@@ -2215,8 +2239,8 @@ msgstr "Effect"
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:683
-#: src/gcompris/config.c:694
+#: src/gcompris/config.c:387 src/gcompris/config.c:684
+#: src/gcompris/config.c:695
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2254,7 +2278,7 @@ msgstr "Gebruik anti-aliasing (trager)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:540
+#: src/gcompris/gcompris.c:541
 #, c-format
 msgid ""
 "GCompris\n"
