@@ -591,7 +591,7 @@ static gboolean animate_step() {
   animation_count++;
 
   if(!gcomprisBoard)
-    return;
+    return FALSE;
 
   if (animation_count < MODEL_PAUSE)
     return TRUE;

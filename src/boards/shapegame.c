@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/01/13 23:45:09 bruno>
+ * Time-stamp: <2002/01/21 21:26:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -113,6 +113,7 @@ static Shape *create_shape(ShapeType type, char *name, char *pixmapfile,  GnomeC
 			   char *targetfile, double x, double y, double l, double h, double zoomx, 
 			   double zoomy, guint position);
 static void display_color_selector(GnomeCanvasGroup *parent);
+static gboolean increment_sublevel();
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -838,7 +839,7 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    double item_x, item_y;
 
   if(!gcomprisBoard)
-    return;
+    return FALSE;
 
    if(shape==NULL) {
      g_warning("Shape is NULL : Should not happen");
