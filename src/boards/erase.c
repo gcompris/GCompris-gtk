@@ -51,6 +51,11 @@ static int number_of_item = 0;
 static int number_of_item_x = 0;
 static int number_of_item_y = 0;
 
+static char* image_files[] = {"bear001.jpg","malaybear002.jpg",
+	"polabear011.jpg","spectbear001.jpg","joybear001.jpg",
+	"polarbear001.jpg","joybear002.jpg","poolbears001.jpg"};
+#define ANIMAL_FILES 8
+
 /* Description of this plugin */
 BoardPlugin menu_bp =
   {
@@ -195,6 +200,7 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
   int object_x, object_y;
   GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap = NULL;
+	gchar *str;
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -204,28 +210,31 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
 
 							    NULL));
 
+	str = g_strdup_printf("gcompris/animals/%s", image_files[RAND(0,ANIMAL_FILES-1)]);
+	gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),str);
   /* Place randomly an object to add fun */
+	/*
   pixmap = gcompris_load_pixmap("gcompris/misc/tuxplane.png");
 
   object_x = (rand()%(BOARDWIDTH-gdk_pixbuf_get_width(pixmap)));
   object_y = (rand()%(BOARDHEIGHT-gdk_pixbuf_get_height(pixmap)));
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
+				"pixbuf", pixmap,
 				"x", (double) object_x,
 				"y", (double) object_y,
 				"width", (double) gdk_pixbuf_get_width(pixmap),
 				"height", (double) gdk_pixbuf_get_height(pixmap),
 				NULL);
   gdk_pixbuf_unref(pixmap);
-
+*/
   number_of_item = 0;
 
   for(i=0; i<BOARDWIDTH; i+=BOARDWIDTH/number_of_item_x)
     {
       for(j=0; j<BOARDHEIGHT; j+=BOARDHEIGHT/number_of_item_y)
 	{
-	  
+
 	  item = gnome_canvas_item_new (boardRootItem,
 					gnome_canvas_rect_get_type (),
 					"x1", (double) i,

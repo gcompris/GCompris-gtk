@@ -46,7 +46,7 @@ static void destroy_board();
  * 1evel 3 : 4 numbers and 3 operations
  * 1evel 4 : 5 numbers and 4 operations
  */
-#define NUMBER_OF_SUBLEVELS 1 // 3
+#define NUMBER_OF_SUBLEVELS 3 // 3
 #define NUMBER_OF_LEVELS 4 // 4
 #define MAX_NUMBER 5
 
