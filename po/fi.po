@@ -1,14 +1,13 @@
-# translation of fi.po to Russian
 # translation of fi.po to Finnish
 # Copyright (C) 2001,2003 Free Software Foundation, Inc.
-# Jyrki Kuoppala <jkp@kaapeli.fi>, 2001.
 # Rami Aubourg-Kaires <rami at kaires.org>, 2003
+# Jyrki Kuoppala <jkp@kaapeli.fi>, 2001.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
-"POT-Creation-Date: 2003-11-04 22:30+0100\n"
-"PO-Revision-Date: 2003-11-03 21:54+0100\n"
+"POT-Creation-Date: 2003-11-11 10:10+0100\n"
+"PO-Revision-Date: 2003-11-11 12:26+0100\n"
 "Last-Translator: Rami Aubourg-Kaires <rami at kaires.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,12 +56,10 @@ msgid "cobalt"
 msgstr ""
 
 #: boards/advanced_colors/board1.xml.in.h:5
-#, fuzzy
 msgid "coral"
 msgstr "korallinpunainen"
 
 #: boards/advanced_colors/board1.xml.in.h:6
-#, fuzzy
 msgid "corn"
 msgstr "maissinkeltainen"
 
@@ -115,12 +112,10 @@ msgid "alabaster"
 msgstr ""
 
 #: boards/advanced_colors/board3.xml.in.h:3
-#, fuzzy
 msgid "amber"
 msgstr "meripihka"
 
 #: boards/advanced_colors/board3.xml.in.h:4
-#, fuzzy
 msgid "amethyst"
 msgstr "ametisti"
 
@@ -200,7 +195,7 @@ msgstr ""
 
 #: boards/advanced_colors/board5.xml.in.h:8
 msgid "greyish-brown"
-msgstr ""
+msgstr "harmaanruskea"
 
 #: boards/advanced_colors/board6.xml.in.h:1
 msgid "dove"
@@ -215,7 +210,6 @@ msgid "indigo"
 msgstr ""
 
 #: boards/advanced_colors/board6.xml.in.h:4
-#, fuzzy
 msgid "ivory"
 msgstr "norsunluu"
 
@@ -224,7 +218,6 @@ msgid "jade"
 msgstr ""
 
 #: boards/advanced_colors/board6.xml.in.h:6
-#, fuzzy
 msgid "lavender"
 msgstr "laventeli"
 
@@ -270,7 +263,7 @@ msgstr ""
 
 #: boards/advanced_colors/board8.xml.in.h:1
 msgid "greyish blue"
-msgstr ""
+msgstr "harmaansininen"
 
 #: boards/advanced_colors/board8.xml.in.h:2
 msgid "mauve"
@@ -364,8 +357,7 @@ msgstr "Mennään laskutehtäviin"
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
 #: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
-msgstr ""
-"Näpäytä vastaavaa kuvaa hiiren vasemmalla näppäimellä valitaksesi tehtävän."
+msgstr "Näpäytä vastaavaa kuvaa hiiren vasemmalla näppäimellä valitaksesi tehtävän."
 
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
@@ -378,8 +370,7 @@ msgstr ""
 "Paljon kiitoksia Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr "Löydä oikea tapa päästä lopputulokseen"
 
 #: boards/algebra_guesscount.xml.in.h:3
@@ -619,8 +610,7 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
-msgstr ""
-"Näpäytä uivia kaloja hiiren vasemmalla näppäimellä ennen kuin ne karkaavat"
+msgstr "Näpäytä uivia kaloja hiiren vasemmalla näppäimellä ennen kuin ne karkaavat"
 
 #: boards/clickgame.xml.in.h:4
 msgid ""
@@ -634,8 +624,7 @@ msgstr ""
 msgid ""
 "Distinguish differences between hour, minute and second. Compose a time in a "
 "clock"
-msgstr ""
-"Erota tunnit, minuutit sekä sekunnit. Näytä aika kellon viisareitten avulla."
+msgstr "Erota tunnit, minuutit sekä sekunnit. Näytä aika kellon viisareitten avulla."
 
 #: boards/clockgame.xml.in.h:2
 msgid ""
@@ -761,9 +750,8 @@ msgid "Place the items in the best way to count them"
 msgstr "Laita esineet oikeaan järjestykseen"
 
 #: boards/experience.xml.in.h:1
-#, fuzzy
 msgid "Go to experiences activities"
-msgstr "Lukuharjoittelua"
+msgstr "Askartelutehtävät"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
@@ -938,7 +926,7 @@ msgstr "kissa"
 
 #: boards/imageid/board1.xml.in.h:14
 msgid "catch"
-msgstr ""
+msgstr "reppu"
 
 #: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
@@ -1134,8 +1122,7 @@ msgstr "Löydä vasen sekä oikea käsi"
 
 #: boards/leftright.xml.in.h:4 src/boards/leftright.c:107
 msgid "Given hands pictures, find if it's a right or left one"
-msgstr ""
-"Käsien kuvista täytyy päätellä mitkä ovat oikean- ja mitkä vasemmanpuoleisia"
+msgstr "Käsien kuvista täytyy päätellä mitkä ovat oikean- ja mitkä vasemmanpuoleisia"
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
@@ -1409,13 +1396,15 @@ msgstr "reppu/rep_u/p/b/g"
 
 #: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
 msgid "Can count"
-msgstr ""
+msgstr "Osaa laskea"
 
 #: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
+"Näpäytä alhaalla olevia kolikoita tai seteleitä maksaaksesi.\n"
+"Jos haluat poistaa kolikon tai setelin yläpuolelta, näpäytä sitä."
 
 #: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
@@ -1430,6 +1419,8 @@ msgid ""
 "You must buy the different items and give the exact price. At higher level, "
 "several items are displayed, you must first calculate the total price."
 msgstr ""
+"Sinun täytyy ostaa kaikki esineet antamalla oikean hinnan.\n"
+"Vaikeimmilla tasoilla ostetaan useita esineitä joitten kokonaishinta sinun tulee laskea."
 
 #: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
@@ -1519,8 +1510,7 @@ msgid "Paratrooper"
 msgstr "Laskuvarjohyppääjä"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr "Tämä osa on leikkitehtävä. Mitään erikoisia edellytyksiä ei tarvita."
 
 #: boards/planegame.xml.in.h:1
@@ -1556,8 +1546,7 @@ msgid "Test board for the python plugin"
 msgstr "Testaa Python plugin"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
 msgstr "Kiitos Guido Van Rossumille ja Python-tiimille."
 
 #: boards/railroad.xml.in.h:1
@@ -1680,9 +1669,8 @@ msgid "Vertical reading practice"
 msgstr "Pystysuoralukemis harjoittelu"
 
 #: boards/redraw.xml.in.h:1
-#, fuzzy
 msgid "Redraw the given item"
-msgstr "Rakenna täsmälleen samanlainen torni"
+msgstr "Piirrä esine uudestaan"
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1823,12 +1811,10 @@ msgstr "Superaivot"
 
 #: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
-msgstr ""
-"Tux on piiloittanut muutamia esineitä. Löydä ne oikeassa järjestyksessä"
+msgstr "Tux on piiloittanut muutamia esineitä. Löydä ne oikeassa järjestyksessä"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Osaa käyttää hiirtä, osaa lukea numerot ja osaa laskea viiteentoista asti\n"
 "ensimmäisellä vaikeusasteella"
@@ -1865,25 +1851,27 @@ msgstr "Palapelin tapainen"
 msgid ""
 "The goal is to remove all of the red car(s) out of the grid through the slot "
 "on the right"
-msgstr ""
-"Tarkoitus on viedä kaikki punaiset autot pois oikealla olevan reiän kautta."
+msgstr "Tarkoitus on viedä kaikki punaiset autot pois oikealla olevan reiän kautta."
 
 #: boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
 "cleanup station in order to reactivate the whole water system. When done and "
 "Tux is in his shower, push the shower button for him."
-msgstr ""
+msgstr "N"
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
-msgstr ""
+msgstr "Opettele veden kiertokulkua"
 
 #: boards/watercycle.xml.in.h:3
 msgid ""
 "You have to bring back the water system up. Tux comes from a long fishing "
 "party on his boat. Help him to have a shower."
 msgstr ""
+"Sinun täytyy korjata veden jakelusysteemi. \n"
+"Tux tulee takaisin pitkältä kalastusretkeltä. \n"
+"Auta häntä ottamaan suihkun."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
 msgid "Falling Words"
@@ -2014,6 +2002,8 @@ msgid ""
 "Error: this activity requires you to install first\n"
 "the package assetml-voices-alphabet-"
 msgstr ""
+"Virhe: sinun täytyy ensin asentaa \n"
+"assetml-voices-alphabet- pelateksasi tätä tehtävää."
 
 #: src/boards/click_on_letter.c:233
 msgid ""
@@ -2022,6 +2012,10 @@ msgid ""
 "Go in the configuration dialog to\n"
 "enable the sound"
 msgstr ""
+"Virhe: tätä osaa ei voi pelata jos\n"
+"ääni ei toimi.\n"
+"Mahdollista ääniefektit\n"
+"konfiguraatio moduulissa (tyokalulaatikko)."
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2176,7 +2170,6 @@ msgid "Distance to target = %d meters"
 msgstr "%d metriä maaliin."
 
 #: src/gcompris/about.c:60
-#, fuzzy
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -2189,7 +2182,8 @@ msgstr ""
 "Pääohjelmoja: Bruno Coudoin\n"
 "Contribuutio: Pascal George\n"
 "Grafiikka: Renaud Blanchard\n"
-"Musiikki: Djilaly Sebihi\n"
+"Intro-musiikki: Djilaly Sebihi\n"
+"Taustamusiikki: Rico Da Halvarez\n"
 
 #: src/gcompris/about.c:99
 msgid "About GCompris"
@@ -2200,8 +2194,7 @@ msgid "GCompris Home Page"
 msgstr "GCompris Kotisivut"
 
 #: src/gcompris/about.c:227
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Tämä ohjelma on GNU Public Licence'in alainen"
 
 #: src/gcompris/about.c:255
@@ -2298,9 +2291,8 @@ msgid "Norwegian"
 msgstr "Norjaksi"
 
 #: src/gcompris/config.c:73
-#, fuzzy
 msgid "Polish"
-msgstr "Englanniksi"
+msgstr "Puolaksi"
 
 #: src/gcompris/config.c:74
 msgid "Portuguese"
@@ -2323,18 +2315,16 @@ msgid "Slovak"
 msgstr "Slovakiksi"
 
 #: src/gcompris/config.c:79
-#, fuzzy
 msgid "Slovenian"
-msgstr "Slovakiksi"
+msgstr "Sloveniaksi"
 
 #: src/gcompris/config.c:80
 msgid "Serbian (Latin)"
 msgstr ""
 
 #: src/gcompris/config.c:81
-#, fuzzy
 msgid "Serbian"
-msgstr "Saksaksi"
+msgstr "Serbiksi"
 
 #: src/gcompris/config.c:82
 msgid "Swedish"
@@ -2413,11 +2403,13 @@ msgstr "Gcompris Gnomen tavallisella kursorilla"
 
 #: src/gcompris/gcompris.c:77
 msgid "display only activities with this difficulty level."
-msgstr ""
+msgstr "näytä ainoastaan tätä vaikeusastetta vastaavat tehtävät."
 
 #: src/gcompris/gcompris.c:79
-msgid "select the audio output, one of 'default alsa09 arts esd oss'"
-msgstr ""
+msgid ""
+"select the audio output. Use '-A list' to get the list of available audio "
+"output"
+msgstr "Valitse äänitulostus. Käytä '-A list' tietääksesi mahdolliset äänitulostimet."
 
 #: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
@@ -2431,7 +2423,7 @@ msgstr "Käytä hiotumpaa kanvassia (hitaampi)"
 msgid "GCompris I Have Understood"
 msgstr "GCompris, Ymmärrän"
 
-#: src/gcompris/gcompris.c:574
+#: src/gcompris/gcompris.c:579
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2492,7 +2484,7 @@ msgstr "Ohjelmoija"
 msgid "Directory"
 msgstr "Hakemisto"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:247
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
 msgid "Title"
 msgstr "Otsikko"
 
@@ -2509,13 +2501,21 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "GPL-lisenssi"
 
-#: src/gcompris/oggplayer.c:210 src/gcompris/oggplayer.c:221
+#: src/gcompris/oggplayer.c:165
+msgid ""
+"Possible audio output devices are:\n"
+"default "
+msgstr ""
+"Mahdolliset äänitulostimet ovat:\n"
+"default "
+
+#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
 msgstr "Pelaamassa musiikkia"
 
-#: src/gcompris/oggplayer.c:251
+#: src/gcompris/oggplayer.c:278
 msgid "Artist"
-msgstr ""
+msgstr "Taiteilija"
 
 #: src/gcompris/soundutil.c:113
 #, c-format
@@ -2561,3 +2561,4 @@ msgstr "Aikaa jäljellä = %d"
 #, fuzzy
 #~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
 #~ msgstr "Kirjoita nopassa oleva numero ennen kuin noppa osuu maahan"
+
