@@ -69,7 +69,6 @@ libalgebra_la_LDFLAGS = -module -avoid-version
 libalgebra_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libalgebra_la_SOURCES = algebra.c
 
-
 libclockgame_la_LDFLAGS = -module -avoid-version
 libclockgame_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libclockgame_la_SOURCES = clockgame.c
@@ -226,7 +225,8 @@ libpython_la_SOURCES = python.c \
 	py-mod-score.c		py-mod-score.h		\
 	py-mod-timer.c		py-mod-timer.h		\
 	py-mod-sound.c		py-mod-sound.h		\
-	py-mod-skin.c		py-mod-skin.h
+	py-mod-skin.c		py-mod-skin.h		\
+	py-mod-anim.c		py-mod-anim.h
 
 
 EXTRA_DIST = README boards2static.pl

@@ -104,7 +104,8 @@ libgcomprisinclude_HEADERS =			\
 	skin.h \
 	gcompris_config.h \
 	about.h \
-	assetml.h
+	assetml.h \
+	anim.h
 
 libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
@@ -128,7 +129,8 @@ libgcompris_1_la_SOURCES =			\
 	about.c \
 	log.c \
 	sdlplayer.c \
-	assetml.c
+	assetml.c \
+	anim.c
 
 $(libgcompris_1_la_OBJECTS): $(marshal_sources)
 

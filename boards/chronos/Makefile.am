@@ -4,6 +4,7 @@ xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/chronos
 xml_in_files = \
 	board1_0.xml.in \
 	board1_1.xml.in \
+	board1_2.xml.in \
 	board2_0.xml.in \
 	board3_0.xml.in \
 	board3_1.xml.in \

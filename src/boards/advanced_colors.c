@@ -452,15 +452,7 @@ static void init_xml()
   assert(g_file_test(filename, G_FILE_TEST_EXISTS));
   assert(read_xml_file(filename)== TRUE);
   g_free(filename);
-#ifdef DEBUG
-  dump_xml();
-#endif
 }
-/* ======  for DEBUG ========  */
-#ifdef DEBUG
-static void dump_xml() {
-}
-#endif
 
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)

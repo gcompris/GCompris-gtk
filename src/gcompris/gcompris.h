@@ -47,6 +47,7 @@
 #include "timer.h"
 #include "score.h"
 #include "skin.h"
+#include "anim.h"
 
 #ifdef DMALLOC
 #include "dmalloc.h"

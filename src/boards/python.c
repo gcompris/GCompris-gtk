@@ -139,7 +139,7 @@ pythonboard_init (){
 	  execstr = g_strdup("import gcompris; import gcompris.bonus; "
 			     "import gcompris.score; import gcompris.sound;"
 			     "import gcompris.skin; import gcompris.timer;"
-			     "import gcompris.utils");
+			     "import gcompris.utils; import gcompris.anim");
 	  if(PyRun_SimpleString(execstr)!=0){
 	    pythonboard_is_ready = FALSE;
 	    g_warning("! Python disabled: Cannot import gcompris modules\n");

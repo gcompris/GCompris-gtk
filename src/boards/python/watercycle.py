@@ -22,6 +22,7 @@ import gnome
 import gnome.canvas
 import gcompris
 import gcompris.utils
+import gcompris.anim
 import gcompris.skin
 import gtk
 import gtk.gdk
@@ -192,12 +193,16 @@ class Gcompris_watercycle:
     self.watercleaning_on = 0
 
     # The tuxboat
-    self.tuxboatitem = self.rootitem.add(
-      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tuxboat.png"),
-      x=10.0,
-      y=470.0
-      )
+    self.tuxboatanim = gcompris.anim.Animation("watercycle/tuxboat.txt")
+    self.tuxboatitem = self.tuxboatanim.activate(self.rootitem)
+    self.tuxboatitem.set( x=10.0, y=470.0 )
+  
+#    self.tuxboatitem = self.rootitem.add(
+#      self.tuxboatanim.activate(self.rootitem),
+#      pixbuf = gcompris.utils.load_pixmap("gcompris/misc/tuxboat.png"),
+#      x=10.0,
+#      y=470.0
+#      )
 
     # Tux in the shower (without water)
     self.tuxshoweritem = self.rootitem.add(

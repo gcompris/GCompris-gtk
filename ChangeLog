@@ -1,3 +1,53 @@
+2005-03-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Joe Neeman implemented the animation API (C and python)
+	Added a test case for that in watercycle.
+	Added a Garden chronos level by Frank
+	
+	* boards/chronos/Makefile.am: added a Garden chronos level by Frank
+	* boards/chronos/images/garden1.png:
+	* boards/chronos/images/garden2.png:
+	* boards/chronos/images/garden3.png:
+	* boards/chronos/images/garden4.png:
+	* boards/clockgame/clockgame-bg.jpg: rework by bruno to look like babytoy theme
+	* boards/draw/tool-camera.png: fixed by Frank
+	* boards/draw/tool-camera_on.png: -
+	* boards/geography/board2_0.xml.in: Fixed switz to Switzeraland. 
+	* boards/geography/board2_1.xml.in: Added capital letters in front of each contry
+	* boards/geography/board3_0.xml.in: -
+	* boards/geography/board3_1.xml.in: -
+	* boards/skins/default/file_selector_bg.png: fixed by Frank
+	* boards/watercycle/tuxboat.gif: animation testcase by Joe
+	* boards/watercycle/tuxboat.txt: -
+	* configure.in: fixes by Joe for gentoo
+	* po/POTFILES.in: added garden
+	* src/boards/Makefile.am:
+	* src/boards/advanced_colors.c: (init_xml): compile warning fix
+	* src/boards/animtest.c: (get_bplugin_info), (start_board),
+	(end_board), (is_our_board):
+	* src/boards/clockgame.c: (clockgame_create_item):
+	* src/boards/py-mod-anim.c: (Animation_init), (Animation_free),
+	(py_gcompris_activate_animation_m),
+	(py_gcompris_deactivate_animation),
+	(py_gcompris_activate_animation),
+	(python_gcompris_anim_module_init):
+	* src/boards/py-mod-anim.h:
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
+	* src/boards/python.c: (pythonboard_init):
+	* src/boards/python/gcompris/Makefile.am:
+	* src/boards/python/gcompris/anim/Makefile.am:
+	* src/boards/python/gcompris/anim/__init__.py:
+	* src/boards/python/watercycle.py:
+	* src/boards/read_colors.c: (init_xml): compile warning fix
+	* src/gcompris/Makefile.am:
+	* src/gcompris/anim.c: (gcompris_load_animation),
+	(gcompris_load_animation_asset), (gcompris_activate_animation),
+	(gcompris_deactivate_animation), (gcompris_free_animation),
+	(anim_tick), (anim_item_cmpr), (anim_anim_cmpr):
+	* src/gcompris/anim.h:
+	* src/gcompris/gcompris.h:
+
+
 2005-03-19  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Rework of many graphism by Frank

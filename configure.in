@@ -5,6 +5,7 @@ AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE(gcompris, 6.5.1)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
+CFLAGS=
 
 # Making releases:
 #   LIBGCOMPRIS_MICRO_VERSION += 1;
@@ -141,7 +142,7 @@ AC_ARG_ENABLE(debug,
           USE_DEBUG="$enableval", USE_DEBUG="no")
 if test "x$USE_DEBUG" == "xyes" ; then
     AC_DEFINE_UNQUOTED(DEBUG, 1, "Enable debug messages.")
-    CFLAGS="$CFLAGS -Wall -Werror"]
+    CFLAGS="$CFLAGS -Wall -g"
 fi
 
 dnl WIN32 Specifics
@@ -236,7 +237,7 @@ AC_DEFINE_UNQUOTED(GNOME_ICONDIR, "${myprefix}/${DATADIRNAME}/pixmaps", [Gnome i
 
 
 dnl Test for gnuchess
-AC_PATH_PROG(GNUCHESS, gnuchess,no,[/usr/bin:/usr/games:/usr/local/bin])
+AC_PATH_PROG(GNUCHESS, gnuchess,no,[/usr/bin:/usr/games:/usr/local/bin:$PATH])
 
 if test x$GNUCHESS = xno; then
   AC_MSG_ERROR(Couldn't find gnuchess, please install the gnuchess package version 5 or above)
@@ -463,6 +464,7 @@ AC_SUBST(VERSION_VOICES_MISC_RU)
 VERSION_FLAGS=1.8
 AC_SUBST(VERSION_FLAGS)
 
+AC_SUBST(CFLAGS)
 
 dnl Autoconf output
 AC_OUTPUT([ gcompris.spec
@@ -474,6 +476,7 @@ src/gcompris/libgcompris-1.0-uninstalled.pc
 src/boards/Makefile
 src/boards/python/Makefile
 src/boards/python/gcompris/Makefile
+src/boards/python/gcompris/anim/Makefile
 src/boards/python/gcompris/bonus/Makefile
 src/boards/python/gcompris/score/Makefile
 src/boards/python/gcompris/skin/Makefile

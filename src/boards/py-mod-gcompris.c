@@ -11,6 +11,7 @@
 #include "py-mod-sound.h"
 #include "py-mod-timer.h"
 #include "py-mod-utils.h"
+#include "py-mod-anim.h"
 
 /* All functions provided by this python module
  * wraps a gcompris function. Each "py_*" function wraps the
@@ -695,6 +696,7 @@ void python_gcompris_module_init(void)
   python_gcompris_sound_module_init();
   python_gcompris_timer_module_init();
   python_gcompris_utils_module_init();
+  python_gcompris_anim_module_init();
 }
 
 /* Some usefull code parts ... */
