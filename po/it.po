@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 01:36+0200\n"
-"PO-Revision-Date: 2004-06-16 17:29+0200\n"
+"POT-Creation-Date: 2004-11-01 10:31+0100\n"
+"PO-Revision-Date: 2004-11-03 22:29+0100\n"
 "Last-Translator: Immacolata Arenga <imma@eppesuigoccas.homedns.org>\n"
 "Language-Team: IT <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -276,7 +276,7 @@ msgstr "pistacchio"
 msgid "platinum"
 msgstr "platino"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "porpora"
 
@@ -548,6 +548,14 @@ msgstr "Lock sull'erba."
 msgid "Lock with colored shapes."
 msgstr "Lock con le forme colorate."
 
+#: boards/ballcatch.xml.in.h:1
+msgid "Push the two shift keys together to send the ball straight"
+msgstr "Premi insieme i due tasti maiuscolo (shift) per lanciare dritto la palla"
+
+#: boards/ballcatch.xml.in.h:2
+msgid "Send the ball to Tux"
+msgstr "Manda la palla a Tux"
+
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
 #: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
@@ -675,9 +683,9 @@ msgstr ""
 msgid "Transportation"
 msgstr "Trasporto"
 
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
-msgstr "VIII secolo"
+#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+msgid "The aviation"
+msgstr "L'aviazione"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -843,11 +851,11 @@ msgstr "Spostare gli oggetti a sinistra nell'incrocio giusto."
 msgid "Click on an item and listen to its target position"
 msgstr "Fai clic su un oggetto e ascolta quale è la posizione in cui metterlo"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: boards/draw.xml.in.h:1 src/boards/draw.c:215
 msgid "A simple vector drawing tool"
 msgstr "Un semplice strumento per la grafica vettoriale"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
+#: boards/draw.xml.in.h:2 src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
 msgstr "Sezione creativa dove puoi disegnare liberamente"
 
@@ -925,6 +933,28 @@ msgstr "Muovi il mouse affinché tutti i blocchi spariscano."
 msgid "Go to experiences activities"
 msgstr "Vai alle attività pratiche"
 
+#: boards/followline.xml.in.h:1
+msgid "Emerge the pipe"
+msgstr " Stappa il tubo"
+
+#: boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr "Buona coordinazione motoria"
+
+#: boards/followline.xml.in.h:3
+msgid ""
+"Move the mouse over the red part of the pipe. This will emerge it, part by "
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
+msgstr ""
+"Sposta col mouse il tappo rosso che ostruisce il tubo. Così ne libererai un pezzo alla volta, fino ai fiori.\n"
+"Attento, se fai uscire il tappo,\n"
+"questo ritornerà subito indietro."
+
+#: boards/followline.xml.in.h:4
+msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
+msgstr "Tux deve innaffiare i fiori ma il tubo è ostruito"
+
 #: boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
@@ -958,22 +988,302 @@ msgid "Place the lands"
 msgstr "Metti a posto i paesi"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Continents"
+msgstr "Continenti"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "africa"
+msgstr "Africa"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "america"
+msgstr "America"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "antartica"
+msgstr "Antartide"
+
+#: boards/geography/board1_0.xml.in.h:5
+msgid "asia"
+msgstr "Asia"
+
+#: boards/geography/board1_0.xml.in.h:6
+msgid "europa"
+msgstr "Europa"
+
+#: boards/geography/board1_0.xml.in.h:7
+msgid "oceania"
+msgstr "Oceania"
+
+#: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "America del nord"
 
-#: boards/geography/board2_0.xml.in.h:1
+#: boards/geography/board2_0.xml.in.h:2
+msgid "alaska"
+msgstr "Alaska"
+
+#: boards/geography/board2_0.xml.in.h:3
+msgid "bahamas"
+msgstr "Bahama"
+
+#: boards/geography/board2_0.xml.in.h:4
+msgid "canada"
+msgstr "Canada"
+
+#: boards/geography/board2_0.xml.in.h:5
+msgid "cuba"
+msgstr "Cuba"
+
+#: boards/geography/board2_0.xml.in.h:6
+msgid "dominican republic"
+msgstr "Repubblica Dominicana"
+
+#: boards/geography/board2_0.xml.in.h:7
+msgid "greenland"
+msgstr "Groenlandia"
+
+#: boards/geography/board2_0.xml.in.h:8
+msgid "haiti"
+msgstr "Haiti"
+
+#: boards/geography/board2_0.xml.in.h:9 boards/geography/board3_0.xml.in.h:8
+msgid "iceland"
+msgstr "Islanda"
+
+#: boards/geography/board2_0.xml.in.h:10
+msgid "jamaica"
+msgstr "Giamaica"
+
+#: boards/geography/board2_0.xml.in.h:11
+msgid "mexico"
+msgstr "Messico"
+
+#: boards/geography/board2_0.xml.in.h:12
+msgid "united state"
+msgstr "Stati Uniti"
+
+#: boards/geography/board2_1.xml.in.h:1
 msgid "South America"
 msgstr "America del sud"
+
+#: boards/geography/board2_1.xml.in.h:2
+msgid "argentina"
+msgstr "Argentina"
+
+#: boards/geography/board2_1.xml.in.h:3
+msgid "bolivia"
+msgstr "Bolivia"
+
+#: boards/geography/board2_1.xml.in.h:4
+msgid "brazil"
+msgstr "Brasile"
+
+#: boards/geography/board2_1.xml.in.h:5
+msgid "chile"
+msgstr "Cile"
+
+#: boards/geography/board2_1.xml.in.h:6
+msgid "colombia"
+msgstr "Colombia"
+
+#: boards/geography/board2_1.xml.in.h:7
+msgid "ecuador"
+msgstr "Ecuador"
+
+#: boards/geography/board2_1.xml.in.h:8
+msgid "french guiana"
+msgstr "Guyana francese"
+
+#: boards/geography/board2_1.xml.in.h:9
+msgid "guyana"
+msgstr "Guyana"
+
+#: boards/geography/board2_1.xml.in.h:10
+msgid "panama"
+msgstr "Panama"
+
+#: boards/geography/board2_1.xml.in.h:11
+msgid "paraguay"
+msgstr "Paraguay"
+
+#: boards/geography/board2_1.xml.in.h:12
+msgid "peru"
+msgstr "Perù"
+
+#: boards/geography/board2_1.xml.in.h:13
+msgid "suriname"
+msgstr "Suriname"
+
+#: boards/geography/board2_1.xml.in.h:14
+msgid "uruguay"
+msgstr "Uruguay"
+
+#: boards/geography/board2_1.xml.in.h:15
+msgid "venezuela"
+msgstr "Venezuela"
 
 #: boards/geography/board3_0.xml.in.h:1
 msgid "West Europe"
 msgstr "Europa occidentale"
 
-#: boards/geography/board4_0.xml.in.h:1
+#: boards/geography/board3_0.xml.in.h:2
+msgid "austria"
+msgstr "Austria"
+
+#: boards/geography/board3_0.xml.in.h:3
+msgid "belgium"
+msgstr "Belgio"
+
+#: boards/geography/board3_0.xml.in.h:4
+msgid "denmark"
+msgstr "Danimarca"
+
+#: boards/geography/board3_0.xml.in.h:5
+msgid "finland"
+msgstr "Finlandia"
+
+#: boards/geography/board3_0.xml.in.h:6
+msgid "france"
+msgstr "Francia"
+
+#: boards/geography/board3_0.xml.in.h:7
+msgid "germany"
+msgstr "Germania"
+
+#: boards/geography/board3_0.xml.in.h:9
+msgid "ireland"
+msgstr "Irlanda"
+
+#: boards/geography/board3_0.xml.in.h:10
+msgid "italy"
+msgstr "Italia"
+
+#: boards/geography/board3_0.xml.in.h:11
+msgid "luxembourg"
+msgstr "Lussemburgo"
+
+#: boards/geography/board3_0.xml.in.h:12
+msgid "netherland"
+msgstr "Olanda"
+
+#: boards/geography/board3_0.xml.in.h:13
+msgid "norway"
+msgstr "Norvegia"
+
+#: boards/geography/board3_0.xml.in.h:14
+msgid "portugal"
+msgstr "Portogallo"
+
+#: boards/geography/board3_0.xml.in.h:15
+msgid "spain"
+msgstr "Spagna"
+
+#: boards/geography/board3_0.xml.in.h:16
+msgid "sweden"
+msgstr "Svezia"
+
+#: boards/geography/board3_0.xml.in.h:17
+msgid "switz"
+msgstr "Svizzera"
+
+#: boards/geography/board3_0.xml.in.h:18
+msgid "united kingdom"
+msgstr "Regno Unito"
+
+#: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr "Europa orientale"
 
-#: boards/geography/board5_0.xml.in.h:1
+#: boards/geography/board3_1.xml.in.h:2
+msgid "albania"
+msgstr "Albania"
+
+#: boards/geography/board3_1.xml.in.h:3
+msgid "belarus"
+msgstr "Bielorussia"
+
+#: boards/geography/board3_1.xml.in.h:4
+msgid "bosnia herzegovina"
+msgstr "Bosnia Erzegovina"
+
+#: boards/geography/board3_1.xml.in.h:5
+msgid "bulgaria"
+msgstr "Bulgaria"
+
+#: boards/geography/board3_1.xml.in.h:6
+msgid "croatia"
+msgstr "Croazia"
+
+#: boards/geography/board3_1.xml.in.h:7
+msgid "cyprus"
+msgstr "Cipro"
+
+#: boards/geography/board3_1.xml.in.h:8
+msgid "czech"
+msgstr "Repubblica Ceca"
+
+#: boards/geography/board3_1.xml.in.h:9
+msgid "estonia"
+msgstr "Estonia"
+
+#: boards/geography/board3_1.xml.in.h:10
+msgid "greece"
+msgstr "Grecia"
+
+#: boards/geography/board3_1.xml.in.h:11
+msgid "hungary"
+msgstr "Ungheria"
+
+#: boards/geography/board3_1.xml.in.h:12
+msgid "latvia"
+msgstr "Lettonia"
+
+#: boards/geography/board3_1.xml.in.h:13
+msgid "lithuania"
+msgstr "Lituania"
+
+#: boards/geography/board3_1.xml.in.h:14
+msgid "macedonia"
+msgstr "Macedonia"
+
+#: boards/geography/board3_1.xml.in.h:15
+msgid "moldova"
+msgstr "Moldavia"
+
+#: boards/geography/board3_1.xml.in.h:16
+msgid "poland"
+msgstr "Polonia"
+
+#: boards/geography/board3_1.xml.in.h:17
+msgid "romania"
+msgstr "Romania"
+
+#: boards/geography/board3_1.xml.in.h:18
+msgid "russia"
+msgstr "Russia"
+
+#: boards/geography/board3_1.xml.in.h:19
+msgid "serbia montenegro"
+msgstr "Serbia e Montenegro"
+
+#: boards/geography/board3_1.xml.in.h:20
+msgid "slovakia"
+msgstr "Slovacchia"
+
+#: boards/geography/board3_1.xml.in.h:21
+msgid "slovenia"
+msgstr "Slovenia"
+
+#: boards/geography/board3_1.xml.in.h:22
+msgid "turkey"
+msgstr "Turchia"
+
+#: boards/geography/board3_1.xml.in.h:23
+msgid "ukraine"
+msgstr "Ucraina"
+
+#: boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regioni della Francia"
 
@@ -1660,7 +1970,7 @@ msgstr ""
 "Trascina le parti dell'immagine dalla cornice a sinistra per comporre\n"
 "il dipinto nell'area principale."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
 msgid "Make the puzzle"
 msgstr "Ricostruisci il puzzle"
 
@@ -1673,8 +1983,8 @@ msgid "Spatial representation"
 msgstr "Rappresentazione dello spazio"
 
 #: boards/paintings/board1_0.xml.in.h:1
-msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr "Edgar Degas, La lezione di danza - 1873"
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas, La lezione di danza - 1873-75"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
@@ -1697,15 +2007,15 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, Le mura di Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr "Cassat, L'estate - 1895"
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Cassatt, Mary - L'estate - 1894"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, La strada di paese in Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
+msgid "Help Tux the parachuter land safely"
 msgstr "Aiuta Tux il paracadutista ad atterrare illeso"
 
 #: boards/paratrooper.xml.in.h:2
@@ -1718,15 +2028,15 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
-"boat. He needs to take watch out for the wind direction and speed."
+"In this game, Tux the parachuter needs help to land safely on the fishing "
+"boat. He needs to take care of the wind direction and speed."
 msgstr ""
 "In questo gioco, si proverà a far atterrare illeso il paracadutista Tux\n"
 "sul peschereccio. Bisogna fare attenzione alla direzione\n"
 "ed alla velocità del vento."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
 msgstr "Paracadutista"
 
 #: boards/paratrooper.xml.in.h:5
@@ -1816,27 +2126,27 @@ msgstr "Conoscere i colori"
 msgid "This board teaches basic colors."
 msgstr "Questa tavola è dedicata alla conoscenza dei colori di base"
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "nero"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "blu"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "marrone"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "verde"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "grigio"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "arancione"
 
@@ -1844,7 +2154,7 @@ msgstr "arancione"
 msgid "pink"
 msgstr "rosa"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "rosso"
 
@@ -1852,11 +2162,11 @@ msgstr "rosso"
 msgid "violet"
 msgstr "viola"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "bianco"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "giallo"
 
@@ -1934,7 +2244,7 @@ msgstr ""
 #: boards/reversecount.xml.in.h:2
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
-"fish. Click the dict with the right mouse button to coun backwards. When "
+"fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
 "Clicca sul dado per mostrare quanti pezzi di ghiaccio ci sono tra Tux e il "
@@ -1943,7 +2253,7 @@ msgstr ""
 "Quando hai finito, fai clic sul bottone OK o premi il tasto invio della "
 "tastiera."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
 msgstr "Esercizi di sottrazione con un gioco divertente"
 
@@ -1985,8 +2295,8 @@ msgstr ""
 
 #: boards/scalesboard.xml.in.h:4
 msgid ""
-"To balance the scales, move the masses on the left. left side. The masses "
-"can be arranged in any order."
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
 msgstr ""
 "Per equilibrare la bilancia muovi i pesi sul piatto di sinistra.\n"
 "I pesi possono essere sistemati in qualsiasi ordine."
@@ -2165,9 +2475,9 @@ msgstr "Materiale didattico di gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
-#: src/gcompris/gcompris.c:397 src/gcompris/images_selector.c:477
+#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
+#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2176,7 +2486,7 @@ msgstr "Impossibile trovare il file %s !"
 # c-format
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1766
+#: src/boards/shapegame.c:1853
 #, c-format
 msgid "find file %s !"
 msgstr "trovare il file %s !"
@@ -2194,15 +2504,15 @@ msgstr ""
 "chiusa.\n"
 "Aiutalo a capire come funziona la chiusa di un canale."
 
-#: src/boards/chess.c:139
+#: src/boards/chess.c:137
 msgid "Learning Chess"
 msgstr "Conoscere gli scacchi"
 
-#: src/boards/chess.c:140
+#: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
 msgstr "Gioca a scacchi contro Tux in modo semplice"
 
-#: src/boards/chess.c:193
+#: src/boards/chess.c:191
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2214,7 +2524,7 @@ msgstr ""
 "di gnuchess.\n"
 "Per favore aggiorna gnuchess almeno alla versione 5 o successiva."
 
-#: src/boards/chess.c:200
+#: src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2228,31 +2538,31 @@ msgstr ""
 "tua distribuzione GNU/Linux.\n"
 "Poi verifica che sia in "
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Tocca al bianco"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Tocca al nero"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Scacco al bianco"
 
-#: src/boards/chess.c:722
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Scacco al nero"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Scacco matto al nero"
 
-#: src/boards/chess.c:1059
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Scacco matto al bianco"
 
-#: src/boards/chess.c:1064
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Pareggio"
 
@@ -2288,14 +2598,49 @@ msgstr ""
 msgid "Couldn't open dir: %s"
 msgstr "Impossibile aprire la directory %s"
 
-#: src/boards/clockgame.c:530
+#: src/boards/clockgame.c:528
 msgid "Set the watch to:"
 msgstr "Imposta l'ora:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Fai clic sul pupazzo %s"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Fai clic sul pupazzo blu"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Fai clic sul pupazzo marrone"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Fai clic sul pupazzo verde"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Fai clic sul pupazzo grigio"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Fai clic sul pupazzo arancione"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Fai clic sul pupazzo porpora"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Fai clic sul pupazzo rosso"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Fai clic sul pupazzo giallo"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Fai clic sul pupazzo nero"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Fai clic sul pupazzo bianco"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2348,7 +2693,11 @@ msgstr "Scegli una sezione"
 msgid "Pratice money usage"
 msgstr "Esercizi con l'impiego dei soldi"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:102
+msgid "Paratrooper"
+msgstr "Paracadutista"
+
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Dirigi il paracadutista in modo che atterri illeso"
 
@@ -2364,13 +2713,13 @@ msgstr "Tavola Python"
 msgid "Special board that embeds python into gcompris."
 msgstr "Tavola speciale che utilizza Python in gcompris."
 
-#: src/boards/python/pythontest.py:67
+#: src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr "Questo è il primo plugin scritto nel linguaggio Python."
 
-#: src/boards/python/pythontest.py:76
+#: src/boards/python/pythontest.py:84
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
@@ -2378,7 +2727,7 @@ msgstr ""
 "Ora è possibile sviluppare le attività di gcompris in C o in Python.\n"
 "Grazie ad Olivier Samys che l'ha reso possibile."
 
-#: src/boards/python/pythontest.py:85
+#: src/boards/python/pythontest.py:93
 msgid "This activity is not playable yet, just a test"
 msgstr "Questa attività non è ancora disponibile, è solo una prova"
 
@@ -2453,16 +2802,16 @@ msgid "Error: The wordfile package used for your locale is corrupted."
 msgstr ""
 "Errore: Il pacchetto wordfile usato per la tua \"locale\" non è corretto."
 
-#: src/boards/reversecount.c:140
+#: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Conto alla rovescia"
 
-#: src/boards/shapegame.c:162
+#: src/boards/shapegame.c:169
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Trascina e lascia le parti per ricostruire l'oggetto"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:409
+#: src/boards/shapegame.c:416
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2474,7 +2823,7 @@ msgstr ""
 "\"s\" per salvare e\n"
 "\"d\" per mostrare tutte le forme"
 
-#: src/boards/shapegame.c:417
+#: src/boards/shapegame.c:424
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2564,13 +2913,13 @@ msgstr ""
 msgid "Help"
 msgstr "Aiuto"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:201
-#: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/board.c:41
+#: src/gcompris/board.c:170
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Il caricamento dinamico dei moduli non è supportato.\n"
@@ -2582,221 +2931,253 @@ msgstr "Impostazione di sistema"
 
 #: src/gcompris/config.c:64
 msgid "Amharic"
-msgstr "Amarico"
+msgstr "amarico"
 
 #: src/gcompris/config.c:65
 msgid "Arabic"
-msgstr "Arabo"
+msgstr "arabo"
 
 #: src/gcompris/config.c:66
 msgid "Azerbaijani Turkic"
-msgstr "Turco azero"
+msgstr "turco azero"
 
 #: src/gcompris/config.c:67
 msgid "Catalan"
-msgstr "Catalano"
+msgstr "catalano"
 
 #: src/gcompris/config.c:68
 msgid "Czech"
-msgstr "Ceco"
+msgstr "ceco"
 
 #: src/gcompris/config.c:69
-msgid "German"
-msgstr "Tedesco"
+msgid "Danish"
+msgstr "danese"
 
 #: src/gcompris/config.c:70
-msgid "Greek"
-msgstr "Greco"
+msgid "German"
+msgstr "tedesco"
 
 #: src/gcompris/config.c:71
-msgid "American English"
-msgstr "Inglese americano"
+msgid "Greek"
+msgstr "greco"
 
 #: src/gcompris/config.c:72
-msgid "Great Britain English"
-msgstr "Inglese della Gran Bretagna"
+msgid "English (Canadian)"
+msgstr "inglese (canadese)"
 
 #: src/gcompris/config.c:73
-msgid "Canadian English"
-msgstr "Inglese canadese"
+msgid "English (Great Britain)"
+msgstr "inglese (Gran Bretagna)"
 
 #: src/gcompris/config.c:74
-msgid "Spanish"
-msgstr "Spagnolo"
+msgid "English (USA)"
+msgstr "inglese (USA)"
 
 #: src/gcompris/config.c:75
-msgid "Finnish"
-msgstr "Finlandese"
+msgid "Spanish"
+msgstr "spagnolo"
 
 #: src/gcompris/config.c:76
-msgid "French"
-msgstr "Francese"
+msgid "Finnish"
+msgstr "finlandese"
 
 #: src/gcompris/config.c:77
-msgid "Hebrew"
-msgstr "Ebraico"
+msgid "French"
+msgstr "francese"
 
 #: src/gcompris/config.c:78
-msgid "Indian"
-msgstr "Indiano"
+msgid "Hebrew"
+msgstr "ebraico"
 
 #: src/gcompris/config.c:79
-msgid "Hungarian"
-msgstr "Ungherese"
+msgid "Indian (Hindi)"
+msgstr "indiano (Hindi)"
 
 #: src/gcompris/config.c:80
-msgid "Croatian"
-msgstr "Croato"
+msgid "Indian (Punjabi)"
+msgstr "indiano (Punjabi)"
 
 #: src/gcompris/config.c:81
-msgid "Italian"
-msgstr "Italiano"
+msgid "Hungarian"
+msgstr "ungherese"
 
 #: src/gcompris/config.c:82
-msgid "Lithuanian"
-msgstr "Lituano"
+msgid "Croatian"
+msgstr "croato"
 
 #: src/gcompris/config.c:83
-msgid "Macedonian"
-msgstr "Macedone"
+msgid "Italian"
+msgstr "italiano"
 
 #: src/gcompris/config.c:84
-msgid "Malayalam"
-msgstr "Malayalam"
+msgid "Lithuanian"
+msgstr "lituano"
 
 #: src/gcompris/config.c:85
-msgid "Malay"
-msgstr "Malese"
+msgid "Macedonian"
+msgstr "macedone"
 
 #: src/gcompris/config.c:86
-msgid "Dutch"
-msgstr "Olandese"
+msgid "Malayalam"
+msgstr "malayalam"
 
 #: src/gcompris/config.c:87
-msgid "Norwegian"
-msgstr "Norvegese"
+msgid "Malay"
+msgstr "malese"
 
 #: src/gcompris/config.c:88
-msgid "Polish"
-msgstr "Polacco"
+msgid "Dutch"
+msgstr "olandese"
 
 #: src/gcompris/config.c:89
-msgid "Portuguese"
-msgstr "Portoghese"
+msgid "Norwegian Bokmal"
+msgstr "norvegese bokmal"
 
 #: src/gcompris/config.c:90
-msgid "Brazil Portuguese"
-msgstr "Portoghese brasiliano"
+msgid "Norwegian Nynorsk"
+msgstr "norvegese nynorsk"
 
 #: src/gcompris/config.c:91
-msgid "Romanian"
-msgstr "Rumeno"
+msgid "Polish"
+msgstr "polacco"
 
 #: src/gcompris/config.c:92
-msgid "Russian"
-msgstr "Russo"
+msgid "Portuguese"
+msgstr "portoghese"
 
 #: src/gcompris/config.c:93
-msgid "Slovak"
-msgstr "Slovacco"
+msgid "Brazil Portuguese"
+msgstr "portoghese brasiliano"
 
 #: src/gcompris/config.c:94
-msgid "Slovenian"
-msgstr "Sloveno"
+msgid "Romanian"
+msgstr "rumeno"
 
 #: src/gcompris/config.c:95
-msgid "Serbian (Latin)"
-msgstr "Serbo (Latin)"
+msgid "Russian"
+msgstr "russo"
 
 #: src/gcompris/config.c:96
-msgid "Serbian"
-msgstr "Serbo"
+msgid "Slovak"
+msgstr "slovacco"
 
 #: src/gcompris/config.c:97
-msgid "Swedish"
-msgstr "Svedese"
+msgid "Slovenian"
+msgstr "sloveno"
 
 #: src/gcompris/config.c:98
+msgid "Albanian"
+msgstr "albanese"
+
+#: src/gcompris/config.c:99
+msgid "Serbian (Latin)"
+msgstr "serbo (Latin)"
+
+#: src/gcompris/config.c:100
+msgid "Serbian"
+msgstr "serbo"
+
+#: src/gcompris/config.c:101
+msgid "Swedish"
+msgstr "svedese"
+
+#: src/gcompris/config.c:102
 msgid "Turkish"
-msgstr "Turco"
+msgstr "turco"
 
 #: src/gcompris/config.c:103
+msgid "Walloon"
+msgstr "vallone"
+
+#: src/gcompris/config.c:108
 msgid "No time limit"
 msgstr "Nessun limite di tempo"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:109
 msgid "Slow timer"
 msgstr "Timer lento"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:110
 msgid "Normal timer"
 msgstr "Timer normale"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:111
 msgid "Fast timer"
 msgstr "Timer veloce"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:116
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (predefinito per gcompris)"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:121
 msgid "No filter"
 msgstr "Nessun filtro"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:122
 msgid "Only this level"
 msgstr "Solo questo livello"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:123
 msgid "Up to this level"
 msgstr "Fino a questo livello"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:124
 msgid "This level and above"
 msgstr "Questo livello e i successivi"
 
-#: src/gcompris/config.c:175
+#: src/gcompris/config.c:180
 msgid "GCompris Configuration"
 msgstr "Configurazione di GCompris"
 
-#: src/gcompris/config.c:284
+#: src/gcompris/config.c:289
 msgid "Fullscreen"
 msgstr "Schermo intero"
 
-#: src/gcompris/config.c:327
+#: src/gcompris/config.c:332
 msgid "Music"
 msgstr "Musica"
 
-#: src/gcompris/config.c:355
+#: src/gcompris/config.c:360
 msgid "Effect"
 msgstr "Effetto"
 
-#: src/gcompris/config.c:389
+#: src/gcompris/config.c:394
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Impossibile aprire la directory %s con le skin"
 
-#: src/gcompris/config.c:410
+#: src/gcompris/config.c:415
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Nessuno skin trovato in %s\n"
 
-#: src/gcompris/config.c:425 src/gcompris/config.c:810
-#: src/gcompris/config.c:821
+#: src/gcompris/config.c:430 src/gcompris/config.c:815
+#: src/gcompris/config.c:826
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/gameutil.c:128
+#: src/gcompris/file_selector.c:235
+msgid "CANCEL"
+msgstr "CANCELLA"
+
+#: src/gcompris/file_selector.c:266
+msgid "LOAD"
+msgstr "APRI"
+
+#: src/gcompris/file_selector.c:266
+msgid "SAVE"
+msgstr "SALVA"
+
+#: src/gcompris/gameutil.c:129
 msgid "Couldn't find file"
 msgstr "Impossibile trovare il file"
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid "This activity is incomplete."
 msgstr "Questa attività è incompleta."
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:132
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -2804,44 +3185,48 @@ msgstr ""
 "Esci e segnala\n"
 "il problema agli autori."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:82
 msgid "run gcompris in fullscreen mode."
 msgstr "esegui gcompris a schermo intero."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:84
 msgid "run gcompris in window mode."
 msgstr "esegui gcompris all'interno di una finestra."
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:86
 msgid "run gcompris with sound enabled."
 msgstr "esegui gcompris con il sonoro abilitato."
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:88
 msgid "run gcompris without sound."
 msgstr "esegui gcompris senza sonoro."
 
-#: src/gcompris/gcompris.c:81
+#: src/gcompris/gcompris.c:90
 msgid "run gcompris with the default gnome cursor."
 msgstr "esegui gcompris con il cursore di gnome."
 
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:92
 msgid "display only activities with this difficulty level."
 msgstr "mostra solo attività con questo livello di difficoltà."
 
-#: src/gcompris/gcompris.c:85
+#: src/gcompris/gcompris.c:94
+msgid "display debug informations on the console."
+msgstr "mostra le informazioni debug sulla console."
+
+#: src/gcompris/gcompris.c:96
 msgid "Print the version of "
 msgstr "Stampa la versione di "
 
-#: src/gcompris/gcompris.c:87
+#: src/gcompris/gcompris.c:98
 msgid "Use the antialiased canvas (slower)."
 msgstr "Usa gli sfondi con antialias (più lento)"
 
-#: src/gcompris/gcompris.c:496
+#: src/gcompris/gcompris.c:522
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -2851,41 +3236,38 @@ msgstr ""
 "GCompris è free software rilasciato sotto licenza GPL. Per supportare\n"
 "lo sviluppo, la versione Windows fornisce solo 12 delle 45 attività.\n"
 "Puoi ottenere la versione completa con un piccolo contributo all'indirizzo\n"
-"http://www.ofset.org/order/gcompris\n"
-"La versione Linux non ha restrizioni. Si noti che gcompris viene sviluppato\n"
+"http://gcompris.net\n"
+"La versione Linux non ha questa restrizione. Si noti che gcompris viene sviluppato\n"
 "per liberare le scuole dai venditori di software monopolistico. Se anche\n"
-"tu credi che noi dovremmo insegnare la libertà ai bambini, per favore "
-"considera\n"
-"l'uso di GNU/Linux. Per ulteriori informazioni http://www.fsf.org/"
-"philosophy\n"
-" "
+"tu credi che noi dovremmo insegnare la libertà ai bambini, per favore considera\n"
+"l'uso di GNU/Linux. Per ulteriori informazioni http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:673
+#: src/gcompris/gcompris.c:717
 #, c-format
 msgid ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "Licence: GPL\n"
-"More info at http://ofset.sourceforge.net/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
-"Versione: %d\n"
+"Versione: %s\n"
 "Licenza: GPL\n"
-"Maggiori informazioni su http://ofset.sourceforge.net/gcompris\n"
+"Maggiori informazioni su http://gcompris.net\n"
 
-#: src/gcompris/help.c:173 src/gcompris/interface.c:243
+#: src/gcompris/help.c:170 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prerequisito"
 
-#: src/gcompris/help.c:207 src/gcompris/interface.c:252
+#: src/gcompris/help.c:198 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Scopo"
 
-#: src/gcompris/help.c:241 src/gcompris/interface.c:261
+#: src/gcompris/help.c:226 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuale"
 
-#: src/gcompris/help.c:275 src/gcompris/interface.c:270
+#: src/gcompris/help.c:254 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Ringraziamento"
 
@@ -2940,7 +3322,7 @@ msgstr "%a %b %d %H:%M:%S %Z %Y"
 msgid "Couldn't open music dir: %s"
 msgstr "Impossibile aprire la directory %s con i suoni"
 
-#: src/gcompris/soundutil.c:182
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -2963,147 +3345,3 @@ msgstr "Tempo trascorso"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tempo restante = %d"
-
-#~ msgid "This board is dedicated to recognize unusual colors."
-#~ msgstr "Questa tavola è dedicata alla conoscenza dei colori poco diffusi."
-
-#~ msgid ""
-#~ "In a limited time, give the result to the multiplication of two numbers"
-#~ msgstr ""
-#~ "Entro il tempo limite, dai il risultato della moltiplicazione tra due "
-#~ "numeri"
-
-#~ msgid ""
-#~ "With displayed numbers and operations, find the right combination to get "
-#~ "the right result"
-#~ msgstr ""
-#~ "Con i numeri e le operazioni mostrate, trova la combinazione giusta \n"
-#~ "per ottenere il risultato richiesto"
-
-#~ msgid ""
-#~ "In the main area, a puzzle set is proposed. In the left area, you have "
-#~ "the set of pieces for this puzzle. To place the pieces, you must use the "
-#~ "drag/drop mouvement with the mouse."
-#~ msgstr ""
-#~ "Nell'area principale è proposta una serie di forme. Nell'area sinistra,\n"
-#~ "avrai la serie di pezzi corrispondenti alle forme. Per posizionare i "
-#~ "pezzi, \n"
-#~ "dovrai trascinarli e lasciarli col mouse."
-
-#~ msgid ""
-#~ "This board is dedicated to train kids to recognize colors. Several "
-#~ "colored toons are displayed and a color is spoken. The kid must select "
-#~ "the proper toon."
-#~ msgstr ""
-#~ "Questa tavola si propone di aiutare a riconoscere i colori. Sono "
-#~ "mostrati \n"
-#~ "vari pupazzi colorati e viene pronunciato il nome di un colore. \n"
-#~ "Si dovrà selezionare il pupazzo del colore corrispondente."
-
-#~ msgid "Drag and Drop the top piece only on an empty location"
-#~ msgstr "Trascina e lascia il pezzo che sta in cima solo in un posto libero"
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots associated with work are "
-#~ "printed. In the vertical frame - at the left of the main board area, a "
-#~ "set of objects are represented, each of these objects match with one word "
-#~ "of the main board area. The right association must be find for these "
-#~ "objects. This is achieved by dragging the objects to the right red plot "
-#~ "in the main area."
-#~ msgstr ""
-#~ "Nell'area principale, è stampata una serie di punti rossi associati a "
-#~ "delle parole.\n"
-#~ "Nella cornice verticale - alla sinistra dell'area principale - è "
-#~ "rappresentato\n"
-#~ "un insieme di oggetti, ciascuno dei quali corrisponde ad una parola "
-#~ "dell'area\n"
-#~ "principale. Deve essere trovata l'associazione giusta delle coppie.\n"
-#~ "Questo si ottiene trasportando gli oggetti sul punto rosso "
-#~ "corrispondente\n"
-#~ "all'interno dell'area principale."
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots are displayed. In the vertical "
-#~ "frame - at the left of the main board area, a set of image parts of a "
-#~ "painting are avalaible. Drag and drop these parts in the right plot to "
-#~ "rebuild the original painting."
-#~ msgstr ""
-#~ "Nell'area principale c'è una serie di punti rossi. Nella cornice "
-#~ "verticale - \n"
-#~ "alla sinistra dell'area principale - ci sono delle parti di un dipinto.\n"
-#~ "Trascina le parti e lasciale sul punto giusto al fine di ricostruire il \n"
-#~ "dipinto originale."
-
-#~ msgid ""
-#~ "Click on any keyboard key to let Tux jump. Another keypress will open the "
-#~ "parachute. Alternatively, a click on the plane and the tux also works."
-#~ msgstr ""
-#~ "Premi un tasto sulla tastiera per far saltare il pinguino Tux.\n"
-#~ "Premendone un altro si aprirà il paracadute.\n"
-#~ "In alternativa, un clic sull'aereo o sul pinguino funzionano lo stesso."
-
-#~ msgid ""
-#~ "At the top and right of the board area, a word is printed. At the left a "
-#~ "list of words will move in and out of the screen. Tell if you see the "
-#~ "initial word in this list."
-#~ msgstr ""
-#~ "Sopra e a destra dell'area principale è scritta una parola.\n"
-#~ "A sinistra una lista di parole entrerà e uscirà dallo schermo.\n"
-#~ "Devi dire se hai visto la parola inziale in questa lista."
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "it in the left area."
-#~ msgstr ""
-#~ "Ad ogni livello, viene mostrato un dipinto nell'area di destra. Devi "
-#~ "riprodurlo nell'area di sinistra. "
-
-#~ msgid ""
-#~ "At each level, a drawing is displayed in the right area. You must redraw "
-#~ "its symmetry in the left area."
-#~ msgstr ""
-#~ "Ad ogni livello, viene mostrato un dipinto nell'area di destra. \n"
-#~ "Devi riprodurlo in maniera simmetrica nell'area di sinistra. "
-
-#~ msgid "Couldn't open pixmap dir: %s"
-#~ msgstr "Impossibile aprire la directory %s con le immagini"
-
-#~ msgid ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "output"
-#~ msgstr ""
-#~ "Seleziona il driver audio. Usa \"-A list\" per avere l'elenco dei driver "
-#~ "audio disponibili"
-
-#~ msgid ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-#~ msgstr ""
-#~ "I driver audio disponibili sono:\n"
-#~ "predefinito"
-
-#~ msgid "Now Playing Music"
-#~ msgstr "Riproduzione della musica in corso"
-
-#~ msgid "Artist"
-#~ msgstr "Artista"
-
-#~ msgid "Simple addition"
-#~ msgstr "Addizioni semplici"
-
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Gioco ad incastro"
-
-#~ msgid ""
-#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
-#~ "click with the left mouse button on the moving fish."
-#~ msgstr ""
-#~ "Coordinazione motoria: muovere il mouse e fare clic. Lo scopo è quello "
-#~ "di \n"
-#~ "premere il pulsante sinistro del mouse sul pesce che si muove."
-
-#~ msgid "Move the mouse to machpuzzle the area and discover the background"
-#~ msgstr "Muovi il mouse per scoprire lo sfondo"
-
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "GCompris ho capito"
