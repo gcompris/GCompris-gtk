@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-24 18:52+0200\n"
-"PO-Revision-Date: 2004-10-24 23:24+0200\n"
+"POT-Creation-Date: 2004-10-29 10:54+0200\n"
+"PO-Revision-Date: 2004-10-29 15:50+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -685,7 +685,7 @@ msgid "Transportation"
 msgstr "Vervoer"
 
 # is dit goed?
-#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
 msgid "The aviation"
 msgstr "Het vliegen"
 
@@ -2902,8 +2902,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:205
-#: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2982,167 +2982,171 @@ msgstr "Hebreeuws"
 
 # is dit indisch of indiaas?
 #: src/gcompris/config.c:79
-msgid "Indian"
-msgstr "Indiaas"
+msgid "Indian (Hindi)"
+msgstr "Indisch (Hindi)"
 
 #: src/gcompris/config.c:80
+msgid "Indian (Punjabi)"
+msgstr "Indisch (Punjabi)"
+
+#: src/gcompris/config.c:81
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Norwegian Bokmal"
 msgstr "Noors Bokmal"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Norwegian Nynorsk"
 msgstr "Noors Nynorsk"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Albanian"
 msgstr "Albanees"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Turkish"
 msgstr "Turks"
 
 # Vlaams?
 # Waals
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Walloon"
 msgstr "Walloons"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:115
+#: src/gcompris/config.c:116
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "No filter"
 msgstr "Geen filter"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "Only this level"
 msgstr "Alleen dit niveau"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "Up to this level"
 msgstr "Tot aan dit niveau"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "This level and above"
 msgstr "Vanaf dit niveau en hoger"
 
-#: src/gcompris/config.c:179
+#: src/gcompris/config.c:180
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:289
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:331
+#: src/gcompris/config.c:332
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:359
+#: src/gcompris/config.c:360
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:393
+#: src/gcompris/config.c:394
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:414
+#: src/gcompris/config.c:415
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: src/gcompris/config.c:429 src/gcompris/config.c:814
-#: src/gcompris/config.c:825
+#: src/gcompris/config.c:430 src/gcompris/config.c:815
+#: src/gcompris/config.c:826
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3250,19 +3254,19 @@ msgstr ""
 "Meer informatie op http://gcompris.net\n"
 "\n"
 
-#: src/gcompris/help.c:173 src/gcompris/interface.c:243
+#: src/gcompris/help.c:170 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Vereisten"
 
-#: src/gcompris/help.c:207 src/gcompris/interface.c:252
+#: src/gcompris/help.c:198 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Doelstelling"
 
-#: src/gcompris/help.c:241 src/gcompris/interface.c:261
+#: src/gcompris/help.c:226 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Handleiding"
 
-#: src/gcompris/help.c:275 src/gcompris/interface.c:270
+#: src/gcompris/help.c:254 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Dank aan"
 
