@@ -1,3 +1,19 @@
+2005-03-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Better icons. Completed the fileselector to use the icons based on their extension
+	and the mimetype.
+	Need testing.
+	
+	* boards/gcompris/mimetypes/icons/gcompris+draw.png:
+	* boards/gcompris/mimetypes/icons/gcompris.png:
+	* boards/gcompris/mimetypes/icons/svg+xml+javascript.png:
+	* boards/gcompris/mimetypes/mime_type.xml.in:
+	* boards/skins/default/file.png:
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(display_files), (item_event_directory),
+	(item_event_file_selector), (parseMime),
+	(gcompris_load_mime_types):
+
 2005-03-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Yves fixed dialog call from python and anim

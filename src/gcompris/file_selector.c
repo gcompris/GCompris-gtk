@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/03/02 01:36:57 bruno>
+ * Time-stamp: <2005/03/03 00:47:31 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -107,7 +107,8 @@ typedef struct {
 } GcomprisMimeType;
 
 static GHashTable* mimetypes_hash = NULL;
-static GHashTable* mimetypes_ext_hash = NULL; /* Mime type with the key being the extension */
+static GHashTable* mimetypes_ext_hash  = NULL; /* Mime type with the key being the extension   */
+static GHashTable* mimetypes_desc_hash = NULL; /* Mime type with the key being the description */
 
 /*
  * Main entry point 
@@ -260,15 +261,37 @@ display_file_selector(int the_mode,
    * Create the combo with the file types 
    * ------------------------------------
    */
-  if(file_types_string && *file_types_string!='\0') {
+  if(mode==MODE_SAVE && file_types_string && *file_types_string!='\0') {
+    GcomprisMimeType *mimeType = NULL;
+    char *str;
+    gchar *result;
+
     gtk_combo_filetypes = gtk_combo_box_new_text();
 
-    /* Extract first string	*/
-    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), (char *)strtok(file_types_string, " "));
+    /* Extract first string */
+    str = (char *)strtok(file_types_string, " ");
+    /* Extract the mime type */
+    mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, str));
+    if(mimeType) {
+      result = strdup(mimeType->description);
+    } else {
+      result = str;
+    }
+
+
+    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), result);
 
     while ( (sub_string=(char *)strtok(NULL, " ")) != NULL)
       {
-	gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), sub_string);
+	/* Extract the mime type */
+	mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, sub_string));
+	if(mimeType) {
+	  result = strdup(mimeType->description);
+	} else {
+	  result = str;
+	}
+
+	gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), result);
       }
 
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
@@ -563,9 +586,6 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
 
 
-    if(ext)
-      printf("filename=%s extension=%s\n", filename, ext);
-
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {
       pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("directory.png"));
     } else if(ext) {
@@ -574,10 +594,22 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
       /* Extract the mime type for this extension */
       mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_ext_hash, ext));
-      if(mimeType)
-	printf("display_file_selector mimetype=%s\n", mimeType->description);
-
-      pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+      if(mimeType) {
+	if(mimeType->icon) {
+	  pixmap_current  = gcompris_load_pixmap(mimeType->icon);
+	  if(pixmap_current==NULL) {
+	    g_warning("Cannot find icon %s for mimetype %s", mimeType->icon, mimeType->description);
+	    pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+	  } else {
+	    /* We can remove the extension now that we have an icon */
+	    *ext='\0';
+	  }
+	} else {
+	  pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+	}
+      } else {
+	pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
+      }
     } else {
       pixmap_current  = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
     }
@@ -605,7 +637,6 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 		       (GtkSignalFunc) gcompris_item_event_focus,
 		       NULL);
 
-    g_object_set_data (G_OBJECT (item), "path", filename);
     g_signal_connect (item, "destroy",
 		      G_CALLBACK (free_stuff),
 		      allfilename);
@@ -668,7 +699,6 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
     case GDK_LEAVE_NOTIFY:
       break;
     case GDK_BUTTON_PRESS:
-      printf("directory selected=%s\n", dir);
       if(strcmp(g_path_get_basename(dir), "..")==0) {
 	/* Up one level. Remove .. and one directory on the right of the path */
 	dir[strlen(dir)-3] = '\0';
@@ -732,27 +762,40 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  gchar *result=NULL;
 	  gchar *file_type=NULL;
 
-	  GtkTreeModel *model;
-	  GtkTreeIter iter;
-
-	  model = gtk_combo_box_get_model ((GtkComboBox *)gtk_combo_filetypes);
-	  if (gtk_combo_box_get_active_iter ((GtkComboBox *)gtk_combo_filetypes, &iter)) {
-	    gtk_tree_model_get (model, &iter, 0, &file_type, -1);
-	  }
-
 	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
 	  
 	  if(mode==MODE_SAVE) {
 	    GcomprisMimeType *mimeType = NULL;
+	    GtkTreeModel *model;
+	    GtkTreeIter iter;
+
+	    model = gtk_combo_box_get_model ((GtkComboBox *)gtk_combo_filetypes);
+	    if (gtk_combo_box_get_active_iter ((GtkComboBox *)gtk_combo_filetypes, &iter)) {
+	      gtk_tree_model_get (model, &iter, 0, &file_type, -1);
+	    }
 
 	    /* Extract the mime type */
-	    mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, file_type));
-	    printf("display_file_selector mimetype=%s\n", mimeType->extension);
+	    mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_desc_hash, file_type));
+	    file_type = strdup(mimeType->mimetype);
 	    if(!g_str_has_suffix(result,mimeType->extension)) {
 	      gchar *old_result = result;
 	      result = g_strconcat(result, mimeType->extension, NULL);
 	      g_free(old_result);
 	    }
+	  } else {
+	    /* LOAD Mode, get the file_type from the extension in the mimetype */
+	    GcomprisMimeType *mimeType = NULL;
+	    gchar *ext         = rindex(result, '.');
+
+	    /* Extract the mime type */
+	    if(ext) {
+	      mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_ext_hash, ext));
+	      if(file_type) {
+		g_free(file_type);
+	      }
+	      file_type = strdup(mimeType->mimetype);
+	    }
+
 	  }
 
 	  /* Callback with the proper params */
@@ -839,8 +882,9 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 	    gcomprisMime->extension,
 	    gcomprisMime->icon);
 
-  g_hash_table_insert(mimetypes_hash, gcomprisMime->mimetype, gcomprisMime);
-  g_hash_table_insert(mimetypes_ext_hash, gcomprisMime->extension, gcomprisMime);
+  g_hash_table_insert(mimetypes_hash,      gcomprisMime->mimetype,    gcomprisMime);
+  g_hash_table_insert(mimetypes_ext_hash,  gcomprisMime->extension,   gcomprisMime);
+  g_hash_table_insert(mimetypes_desc_hash, gcomprisMime->description, gcomprisMime);
 
   return;
 }
@@ -926,9 +970,10 @@ void gcompris_load_mime_types()
     return;
   }
 
-  mimetypes_hash     = g_hash_table_new (g_str_hash, g_str_equal);
-  mimetypes_ext_hash = g_hash_table_new (g_str_hash, g_str_equal);
-  printf("ICI\n");
+  mimetypes_hash      = g_hash_table_new (g_str_hash, g_str_equal);
+  mimetypes_ext_hash  = g_hash_table_new (g_str_hash, g_str_equal);
+  mimetypes_desc_hash = g_hash_table_new (g_str_hash, g_str_equal);
+
   /* Load the Pixpmaps directory file names */
   dir = opendir(PACKAGE_DATA_DIR"/gcompris/mimetypes/");
 
@@ -943,15 +988,12 @@ void gcompris_load_mime_types()
       filename = g_strdup_printf("%s/%s",
 				 PACKAGE_DATA_DIR"/gcompris/mimetypes/", one_dirent->d_name);
 
-      printf("ICI file =%s\n", filename);
       if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
 	g_free(filename);
 	continue;
       }
 
-      printf("ICI file is regular %s\n", one_dirent->d_name);
       if(selectMenuXML(one_dirent->d_name)) {
-	printf("  calling load_mime_type_from_file\n");
 	load_mime_type_from_file(filename);
       }
       g_free(filename);
