@@ -25,8 +25,9 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+GcomprisBoard	*gcomprisBoard = NULL;
+gboolean	 board_paused = TRUE;
+static int	 leavenow;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 gint		 key_press(guint keyval);
@@ -50,13 +51,16 @@ static GnomeCanvasItem	*reversecount_create_item(GnomeCanvasGroup *parent);
 static void		 reversecount_destroy_all_items(void);
 static void		 reversecount_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index);
-static GnomeCanvasItem	*display_item_at(gchar *imagename, int block);
+static GnomeCanvasItem	*display_item_at(gchar *imagename, int block, double ratio);
 static void		 display_random_fish();
+static void		 create_clock(double x, double y, int value);
+static void		 update_clock(int value);
 
 static int number_of_item = 0;
 static int number_of_item_x = 0;
 static int number_of_item_y = 0;
 
+static int errors = 0;
 static int number_of_dices = 0;
 static int max_dice_number = 0;
 static int number_of_fish = 0;
@@ -64,9 +68,12 @@ static int number_of_fish = 0;
 static int tux_index = 0;
 static int fish_index = 0;
 
+static double tux_ratio = 0;
+
 static int dicevalue_array[10];
 static GnomeCanvasItem *fishItem;
 static GnomeCanvasItem *tuxItem;
+static GnomeCanvasItem *clock_image_item;
 
 // List of images to use in the game
 static gchar *imageList[] =
@@ -165,6 +172,10 @@ static void pause_board (gboolean pause)
       game_won();
     }
 
+  if(leavenow == TRUE && pause == FALSE)
+    board_finished(BOARD_FINISHED_TOOMANYERRORS);
+
+
   board_paused = pause;
 }
 
@@ -185,6 +196,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       reversecount_next_level();
 
       gamewon = FALSE;
+      leavenow = FALSE;
       pause_board(FALSE);
     }
 }
@@ -282,13 +294,13 @@ static void process_ok()
 
   /* Caclulate which tux should be displayed */
   if(tux_index<number_of_item_x-1)
-    tuxItem = display_item_at(TUX_IMG_EAST, tux_index);
+    tuxItem = display_item_at(TUX_IMG_EAST, tux_index, tux_ratio);
   else if(tux_index<number_of_item_x+number_of_item_y-2)
-    tuxItem = display_item_at(TUX_IMG_SOUTH, tux_index);
+    tuxItem = display_item_at(TUX_IMG_SOUTH, tux_index, tux_ratio);
   else if(tux_index<2*number_of_item_x+number_of_item_y-3)
-    tuxItem = display_item_at(TUX_IMG_WEST, tux_index);
+    tuxItem = display_item_at(TUX_IMG_WEST, tux_index, tux_ratio);
   else
-    tuxItem = display_item_at(TUX_IMG_NORTH, tux_index);
+    tuxItem = display_item_at(TUX_IMG_NORTH, tux_index, tux_ratio);
 
   if(tux_index == fish_index)
     {
@@ -312,11 +324,24 @@ static void process_ok()
   else
     {
       gcompris_play_sound (SOUNDLISTFILE, "crash");
+      errors--;
+      if(errors==0)
+	{
+	  gamewon = FALSE;
+	  leavenow = TRUE;
+	  reversecount_destroy_all_items();
+	  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+	}
+      else
+	{
+	  update_clock(errors);
+	}
     }
 }
 
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
+
 /* set initial values for the next level */
 static void reversecount_next_level()
 {
@@ -392,6 +417,9 @@ static void reversecount_next_level()
 /* Destroy all the items */
 static void reversecount_destroy_all_items()
 {
+
+  gcompris_timer_end();
+
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
@@ -404,6 +432,9 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
   GnomeCanvasItem *item = NULL;
   GdkPixbuf   *pixmap = NULL;
   double block_width, block_height;
+  double dice_area_x;
+  double xratio, yratio;
+  GcomprisProperties	*properties = gcompris_get_properties();
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -415,6 +446,25 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   block_width =  BOARDWIDTH/number_of_item_x;
   block_height = BOARDHEIGHT/number_of_item_y;
+
+  /* Timer is not requested */
+  if(properties->timer>0)
+    {
+      errors = number_of_dices + 4 - (MIN(properties->timer, 4));
+      create_clock(BOARDWIDTH - block_width - 100, BOARDHEIGHT - block_height - 100,
+		   errors) ;
+    }
+  else
+    {
+      errors = -1;
+    }
+
+  /* Calc the tux best ratio to display it */
+  pixmap = gcompris_load_pixmap(TUX_IMG_EAST);
+  xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
+  yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
+  tux_ratio = yratio = MIN(xratio, yratio);
+  gdk_pixbuf_unref(pixmap);
 
   pixmap = gcompris_load_pixmap("reversecount/iceblock.png");
 
@@ -474,6 +524,21 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   gdk_pixbuf_unref(pixmap);
 
+
+  //----------------------------------------
+  // Create the dice area
+  pixmap = gcompris_load_pixmap("reversecount/dice_area.jpg");
+
+  dice_area_x = BOARDWIDTH - block_width - gdk_pixbuf_get_width (pixmap) - 20;
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_pixbuf_get_type (),
+			 "pixbuf", pixmap, 
+			 "x", (double) dice_area_x,
+			 "y", (double) block_height + 20,
+			 NULL);
+
+
   //----------------------------------------
   // Create the dices
   pixmap = gcompris_load_pixmap("gcompris/dice/gnome-dice1.png");
@@ -482,8 +547,8 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
     {
       int *val;
 
-      i = BOARDWIDTH  * 0.4 + gdk_pixbuf_get_width(pixmap) * d + 20;
-      j = BOARDHEIGHT * 0.6;
+      i = dice_area_x + gdk_pixbuf_get_width(pixmap) * d + 30;
+      j = block_height + 25;
 
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
@@ -504,7 +569,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
   gdk_pixbuf_unref(pixmap);
 
   tux_index = 0;
-  tuxItem = display_item_at(TUX_IMG_EAST, tux_index);
+  tuxItem = display_item_at(TUX_IMG_EAST, tux_index, tux_ratio);
 
   // Display the first fish
   display_random_fish();
@@ -524,14 +589,14 @@ static void display_random_fish()
     fish_index = fish_index - (number_of_item);
 
   fishItem = display_item_at(fishList[rand()%NUMBER_OF_FISHES],
-			     fish_index);
+			     fish_index, -1);
 }
 
 /* ==================================== */
 /**
  * Display given imagename on the given ice block.
  */
-static GnomeCanvasItem *display_item_at(gchar *imagename, int block)
+static GnomeCanvasItem *display_item_at(gchar *imagename, int block, double ratio)
 {
   double block_width, block_height;
   double xratio, yratio;
@@ -580,9 +645,16 @@ static GnomeCanvasItem *display_item_at(gchar *imagename, int block)
   printf("display_tux %d i=%d j=%d\n", block, i, j);
 
   /* Calculation to thrink the item while keeping the ratio */
-  xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
-  yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
-  xratio = yratio = MIN(xratio, yratio);
+  if(ratio==-1)
+    {
+      xratio =  block_width  / (gdk_pixbuf_get_width (pixmap) + TUX_TO_BORDER_GAP);
+      yratio =  block_height / (gdk_pixbuf_get_height(pixmap) + TUX_TO_BORDER_GAP);
+      xratio = yratio = MIN(xratio, yratio);
+    }
+  else
+    {
+      xratio = yratio = ratio;
+    }
 
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
@@ -683,4 +755,48 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
     }
 
   return FALSE;
+}
+
+/*
+ * Clock management
+ */
+static void create_clock(double x, double y, int value) 
+{
+  GdkPixbuf   *pixmap = NULL;
+
+  if(value<0)
+    return;
+
+  char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
+
+  pixmap = gcompris_load_pixmap(str);
+
+  clock_image_item = gnome_canvas_item_new (boardRootItem,
+					    gnome_canvas_pixbuf_get_type (),
+					    "pixbuf", pixmap,
+					    "x", (double) x,
+					    "y", (double) y,
+					    NULL);
+  
+  gdk_pixbuf_unref(pixmap);
+  g_free(str);
+}
+
+static void update_clock(int value) 
+{
+  GdkPixbuf   *pixmap = NULL;
+
+  if(value<0)
+    return;
+
+  char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
+
+  pixmap = gcompris_load_pixmap(str);
+
+  gnome_canvas_item_set (clock_image_item,
+			 "pixbuf", pixmap,
+			 NULL);
+  
+  gdk_pixbuf_unref(pixmap);
+  g_free(str);
 }

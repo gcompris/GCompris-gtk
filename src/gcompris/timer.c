@@ -30,7 +30,6 @@ static double		 y;
 static double		 ystep;
 static int		 timer;
 static double		 subratio;
-static double		 ratio;
 static TimerList	 type;
 GnomeCanvasItem		*item;
 static gint		 timer_increment (GtkWidget *widget, gpointer data);
@@ -68,7 +67,6 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
   y = ay;
   second = second / properties->timer;
   timer = second;
-  ratio = second / 10;
 
   type = atype;
   gcomprisTimerEnd = agcomprisTimerEnd;
@@ -77,18 +75,34 @@ void gcompris_timer_display(int ax, int ay, TimerList atype, int second, Gcompri
     {
     case GCOMPRIS_TIMER_SAND:
     case GCOMPRIS_TIMER_CLOCK:
-      if(type==GCOMPRIS_TIMER_SAND)
-	pixmap = gcompris_load_pixmap("gcompris/timers/sablier10.png");
-      else
-	pixmap = gcompris_load_pixmap("gcompris/timers/clock10.png");
+      {
+	gchar		*filefull = NULL;
+	gchar		*filename = NULL;
+	gint		fileid;
+	
+	fileid = (gint)timer;
+	if(type==GCOMPRIS_TIMER_SAND)
+	  filename = g_strdup_printf("gcompris/timers/sablier%d.png", fileid);
+	else
+	  filename = g_strdup_printf("gcompris/timers/clock%d.png", fileid);
+	
+	filefull = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, filename);
+	if (g_file_exists (filefull))
+	  {
+	    pixmap = gcompris_load_pixmap(filename);
 
-      item = gnome_canvas_item_new (boardRootItem,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", pixmap, 
-				    "x", x,
-				    "y", y,
-				    NULL);
-      gdk_pixbuf_unref(pixmap);
+	    item = gnome_canvas_item_new (boardRootItem,
+					  gnome_canvas_pixbuf_get_type (),
+					  "pixbuf", pixmap, 
+					  "x", x,
+					  "y", y,
+					  NULL);
+	    
+	    gdk_pixbuf_unref(pixmap);
+	  }
+	g_free(filename);
+	g_free(filefull);
+      }
       break;
     case GCOMPRIS_TIMER_TEXT:
       /* Display the value for this timer */
@@ -282,13 +296,14 @@ static gint timer_increment(GtkWidget *widget, gpointer data)
 	  gchar		*filename = NULL;
 	  gint		fileid;
 
-	  fileid = (gint)timer/ratio;
+	  fileid = (gint)timer;
 	  if(type==GCOMPRIS_TIMER_SAND)
 	    filename = g_strdup_printf("gcompris/timers/sablier%d.png", fileid);
 	  else
 	    filename = g_strdup_printf("gcompris/timers/clock%d.png", fileid);
 
 	  filefull = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, filename);
+	  printf("timer: filefull = %s\n", filefull);
 	  if (g_file_exists (filefull))
 	    {
 	      pixmap = gcompris_load_pixmap(filename);
