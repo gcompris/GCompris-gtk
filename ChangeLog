@@ -1,3 +1,25 @@
+2005-03-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added or improved images in anim (By Frank)
+
+	* boards/anim/camera.png:
+	* boards/anim/minibutton.png:
+	* boards/chronos/board1_2.xml.in:
+	* boards/draw/camera.png:
+	* boards/draw/color-selector.png:
+	* boards/draw/counter.png:
+	* boards/draw/down.png:
+	* boards/draw/little-tool-selector.png:
+	* boards/draw/tool-selector.png:
+	* boards/draw/up.png:
+	* boards/gcompris/timers/sablier.gif:
+	* configure.in:
+	* docs/website/gcomprisblack.css:
+	* docs/website/sommaire-black.html:
+	* src/boards/chess.c: (start_board), (engine_local_destroy),
+	(start_child): changed the fork call by a g_spawn_async_with_pipes that is portable.
+	* src/boards/python/gcompris/anim/.cvsignore:
+
 2005-03-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Joe Neeman implemented the animation API (C and python)

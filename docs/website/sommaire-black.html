@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="fr">
+
+<head>
+<INCLURE(meta.php3)>
+
+<link href="gcomprisblack.css" rel="stylesheet" type="text/css">
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+
+</head>
+
+<body BGCOLOR="black" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0">
+
+<!-- Titre du site et lien vers l'accueil -->
+<!-- 
+<div>
+	 <INCLURE (header.php3)>	
+</div>
+-->
+
+<div id="WARNING"> 
+<p>Aujourd'hui en Europe les logiciels comme GCompris, sont prot&eacute;g&eacute;s par le droit d'auteur, comme un livre.</p>
+<p>
+Avec les brevets logiciels, c'est le l'id&eacute;e de programme qui est prot&eacute;g&eacute;e. Par exemple, l'id&eacute;e de la barre de d&eacute;filement quand on installe un programme, est d&eacute;j&agrave; brevet&eacute;e en Europe.
+</p>
+<p>
+Concr&egrave;tement cela signifie qu'avec les brevets logiciels votre logiciel GCompris ne pourra plus &ecirc;tre maintenu car nous n'avons pas de financement possible pour nous d&eacute;fendre en cas de proc&egrave;s.
+</p>
+<p>
+Le parlement europ&eacute;en s'&eacute;tait prononc&eacute; dans son immense majorit&eacute; pour un amendement qui restreignait les brevets logiciels uniquement &agrave; ceux ayant un impact mat&eacute;riel (calcul de freinage ABS par exemple).
+</p>
+<p>
+Mais en Mars 2005, le conseil europ&eacute;en a fait pass&eacute; en force une version du projet qui les instaure, &agrave; la grande satifaction des multinationales. Le parlement europ&eacute;en et les partisans du logiciel libre d&eacute;noncent le non respect des proc&eacute;dures d&eacute;mocratiques pr&eacute;vues et les cons&eacute;quences pour l'&eacute;conomie du logiciel en Europe.
+</p>
+</div>
+
+<div id="MENU"> 
+  <!--Menu de navigation -->
+<img src="IMG/mini-poster.jpg" alt="gcompris poster" width="200">
+</div>
+ 
+<div id="MAIN"> 
+  <div class="intro"><B>Welcome to #NOM_SITE_SPIP. Please, select your language...  </B> 
+	<br>
+  </div>
+
+  <div class="conteneur">
+  	<BOUCLE_locale(RUBRIQUES){racine}>
+	    <p class="flottante">
+             <a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE)]</a><br>
+             <a href="#URL_RUBRIQUE">[(#DESCRIPTIF)]</a>
+	    </p>
+  	</BOUCLE_locale> 
+	<div class="spacer">&nbsp;</div>
+  </div>
+  
+  <div class="copyright"> 
+   <INCLURE (footer.php3)>
+  </div>
+  
+  <!-- Formulaire administrateur -->
+  <div> [(#FORMULAIRE_ADMIN)] </div>
+</div>
+ 
+</body>
+</html>

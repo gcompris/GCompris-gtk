@@ -127,7 +127,6 @@ static void		 write_child (GIOChannel  *write_chan,
 				      char        *format,
 				      ...);
 
-static int		 stop_child  (pid_t        childpid);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -235,8 +234,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gcompris_bar_set(0);
 	}
       
-      start_child (GNUCHESS, param, &read_chan,
-		   &write_chan, &childpid);
+      if(start_child (GNUCHESS, param, &read_chan,
+		      &write_chan, &childpid)==-1) {
+	gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gcompris_end_board);
+	return;
+      }
       
       read_cb = g_io_add_watch (read_chan, G_IO_IN,
 				engine_local_cb, NULL);
@@ -961,7 +963,7 @@ engine_local_destroy ()
 {
 
   g_warning("engine_local_destroy () \n");
-  //  write_child (write_chan, "quit\n");
+  write_child (write_chan, "quit\n");
 
   g_source_remove(read_cb);
   g_source_remove(err_cb);
@@ -972,7 +974,6 @@ engine_local_destroy ()
   g_io_channel_close (write_chan);
   g_io_channel_unref (write_chan);
   
-  stop_child (childpid);  
 }
 
 static gboolean
@@ -1091,30 +1092,6 @@ engine_local_err_cb (GIOChannel *source,
   return FALSE;
 }
 
-/*
- * FIXME : This should be centralised in gcompris core because only 
- *         the last signal command is kept at system level
- *         there is a potential risk because signal child is also used
- *         to manage ogg123 sounds.
- */
-
-/* =====================================================================
- * Process the cleanup of the child (no zombies)
- * =====================================================================*/
-void chess_child_end(int  signum)
-{
-  pid_t pid;
-
-  g_warning("chess child_end signal=%d\n", signum);
-
-  pid = waitpid(childpid, NULL, WNOHANG);
-  g_warning("chess child_end pid=%d\n", pid);
-
-  if (pid == -1)
-    g_error("chess_child_end Error waitpid");
-
-}
-
 /*----------------------------------------
  * Subprocess creation
  *----------------------------------------*/
@@ -1126,48 +1103,32 @@ start_child (char *cmd,
 	     GIOChannel **write_chan, 
 	     pid_t *childpid)
 {
-  int pipe1[2], pipe2[2];
+  /*spawn program*/
+  gint Child_Process=0;
+  gint Child_In=0, Child_Out=0, Child_Err=0;
 
-  if ((pipe (pipe1) <0) || (pipe (pipe2) < 0)) {
-    perror ("pipe");
-    exit (-1);
+  gchar *Child_Argv[]={ "gnuchess" };
+
+  gint Bytes_Read=0;
+  gchar Read_Data[300];
+
+  if (!g_spawn_async_with_pipes(NULL, Child_Argv, NULL,
+				G_SPAWN_SEARCH_PATH,
+				NULL, NULL, &Child_Process, &Child_In, &Child_Out,
+				&Child_Err, NULL)) {
+    g_warning("In order to play chess, you need to have gnuchess installed as " GNUCHESS);
+    return(-1);
+
   }
 
-  signal(SIGCHLD, chess_child_end);
+  g_warning("gnuchess subprocess is started");
 
-  if ((*childpid = fork ()) < 0) {
-    perror ("fork");
-    exit (-1);
-  } else if (*childpid > 0) /* Parent */ {
-    close (pipe1[0]);
-    close (pipe2[1]);
+  *read_chan = g_io_channel_unix_new (Child_Out);
+  *write_chan = g_io_channel_unix_new (Child_In);
 
-    *read_chan = g_io_channel_unix_new (pipe2[0]);
-    *write_chan = g_io_channel_unix_new (pipe1[1]);
-
-    return *childpid;
-  } else   /* Child */ {
-    close (pipe1[1]);
-    close (pipe2[0]);
-
-    dup2 (pipe1[0],0);
-    dup2 (pipe2[1],1);
-
-    close (pipe1[0]);
-    close (pipe2[1]);
-
-    if (execvp (cmd, arg) < 0)
-      {
-	g_warning("In order to play chess, you need to have gnuchess installed as " GNUCHESS);
-	perror (cmd);
-      }
-    _exit (1);
-  }
-
-  g_assert_not_reached ();
-
-  return 0;
+  return(0);
 }
+
 
 static void 
 write_child (GIOChannel *write_chan, char *format, ...) 
@@ -1192,17 +1153,3 @@ write_child (GIOChannel *write_chan, char *format, ...)
   g_free (buf);
 }
 
-/* Kill Child */
-static int 
-stop_child (pid_t childpid) 
-{
-
-  g_warning("stop_child (childpid=%d) () \n", childpid);
-
-  if (childpid && kill (childpid, SIGTERM) ) { 
-    g_message ("Failed to kill child!\n");
-    return 1;
-  }
-
-  return 0;
-}
