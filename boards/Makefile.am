@@ -45,6 +45,7 @@ xml_in_files = \
 	reversecount.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \
+	submarine.xml.in \
 	superbrain.xml.in \
 	target.xml.in \
 	traffic.xml.in \

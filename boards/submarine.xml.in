@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
-  <Board 
+  <Board
 	 name="submarine"
 	 type="submarine"
-	 section="/boards/."
-	 icon="boardicons/erase.png" 
-	 difficulty="2"
-	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
+	 section="/fun/."
+	 difficulty="5"
+	 icon="boardicons/submarine.png"
+	 author="Pascal Georges (pascal.georges1@free.fr)"
 	 boarddir="submarine">
-	 <_title>Simplified Tower of Hanoi</_title>
-	 <_description>Reproduce the given tower</_description>
-	<_prerequisite>Mouse manipulation</_prerequisite>
-	<_goal>Reproduce in the empty area the same tower than the one on the right</_goal>
-	 <_manual>Drag and Drop the top piece only on an empty location
-	 </_manual>
-	 <_credit>Taken the concept from the EPI games.
-	 </_credit>
+	 <_title>Pilot a submarine</_title>
+	 <_description>Pilot a submarine using air tanks and dive rudders</_description>
+	<_prerequisite>Physics basics</_prerequisite>
+	<_goal>Learn how a submarine works</_goal>
+	<_manual>Click on different active elements : engine, rudders and air tanks
+	in order to navigate at the ordered depth.</_manual>
   </Board>
 </GCompris>
