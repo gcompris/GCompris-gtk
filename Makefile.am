@@ -15,7 +15,6 @@ Menu_DATA=gcompris
 @INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST = \
-	$(Applications_DATA) \
 	$(Applications_in_files) \
 	$(icon_DATA) \
 	$(Menu_DATA) \
