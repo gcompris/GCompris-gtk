@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-10-24 01:11+0200\n"
-"PO-Revision-Date: 2003-10-24 01:12+0200\n"
+"POT-Creation-Date: 2003-10-28 14:15+0100\n"
+"PO-Revision-Date: 2003-10-28 14:16+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1691,6 +1691,10 @@ msgstr ""
 msgid "Vertical reading practice"
 msgstr "Lodrät läsövning"
 
+#: boards/redraw.xml.in.h:1
+msgid "Redraw the given item"
+msgstr "Rita om det givna objektet"
+
 #: boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
@@ -1873,18 +1877,6 @@ msgid ""
 msgstr ""
 "Målet är att flytta alla röda bilar ut från rutnätet genom luckan till höger"
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
-msgid "Falling Words"
-msgstr "Fallande ord"
-
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
-msgid "Fully type the falling words before they reach the ground"
-msgstr "Skriv in hela de fallande orden innan de når marken"
-
-#: boards/wordsgame.xml.in.h:4
-msgid "Keyboard training"
-msgstr "Tangentbordsträning"
-
 #: boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
@@ -1906,6 +1898,18 @@ msgid ""
 msgstr ""
 "Du måste få igång vattensystemet igen. Tux kommer från en lång fisketur med "
 "båten. Hjälp honom att få en dusch."
+
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+msgid "Falling Words"
+msgstr "Fallande ord"
+
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Skriv in hela de fallande orden innan de når marken"
+
+#: boards/wordsgame.xml.in.h:4
+msgid "Keyboard training"
+msgstr "Tangentbordsträning"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -2202,32 +2206,34 @@ msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
-"Music: Djilali Sebihi\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Tack till:\n"
 "Författare: Bruno Coudoin\n"
 "Bidrag: Pascal Georges\n"
 "Grafik: Renaud Blanchard\n"
-"Musik: Djilali Sebihi\n"
+"Introduktionsmusik: Djilali Sebihi\n"
+"Bakgrundsmusik: Rico Da Halvarez\n"
 
-#: src/gcompris/about.c:97
+#: src/gcompris/about.c:99
 msgid "About GCompris"
 msgstr "Om GCompris"
 
-#: src/gcompris/about.c:203
+#: src/gcompris/about.c:205
 msgid "GCompris Home Page"
 msgstr "Hemsida för GCompris"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:227
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc License"
 
-#: src/gcompris/about.c:253
+#: src/gcompris/about.c:255
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:178 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:178 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
