@@ -28,6 +28,8 @@ static int sound_policy;
 static int sound_channels_used;
 static int max_sound_channels;
 
+static gboolean ogg_avalaible;
+
 typedef void (*sighandler_t)(int);
 
 /* =====================================================================
@@ -37,6 +39,11 @@ void initSound() {
 	sound_policy = PLAY_AFTER_CURRENT;
 	sound_channels_used = 0;
 	max_sound_channels = 1;
+	if (gnome_is_program_in_path("ogg123") == NULL) {
+		ogg_avalaible = FALSE;
+		} else {
+			ogg_avalaible = TRUE;
+			}
 }
 
 /* =====================================================================
@@ -150,7 +157,7 @@ pid_t exec_play(char *s) {
 		} // WHILE
 
     argv[argc] = NULL;
-    execvp( "ogg123", argv);
+		execvp( "ogg123", argv);
   } else {
     fprintf(stderr, "Unable to fork\n");
   }
@@ -171,7 +178,7 @@ void gcompris_play_ogg(char *sound, ...) {
 	pid_t pid;
 	tsSound * tmpSound = NULL;
 
-	if (!gcompris_get_properties()->fx)
+	if (!gcompris_get_properties()->fx || !ogg_avalaible)
     return;
 
 	if (sound_policy == PLAY_ONLY_IF_IDLE && (g_list_length(playing_queue) > 0 || g_list_length(pending_queue) > 0))
