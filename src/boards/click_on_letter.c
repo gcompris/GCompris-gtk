@@ -41,6 +41,10 @@ static void repeat();
 
 #define VERTICAL_SEPARATION 30
 #define HORIZONTAL_SEPARATION 30
+
+#define NUMBER_OF_SUBLEVELS 3
+#define NUMBER_OF_LEVELS 5
+
 #define TEXT_COLOR "white"
 
 static GnomeCanvasGroup *boardRootItem = NULL;
@@ -56,7 +60,7 @@ static void click_on_letter_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
-static int right_position, board_number = 0;
+static int right_position;
 static char right_letter[2] = "";
 
 /* Description of this plugin */
@@ -122,13 +126,13 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "gcompris/gcompris-bg.jpg");
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=3;
+      gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
+      gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
-      gcompris_score_start(SCORESTYLE_NOTE, 
-			   50, 
-			   50, 
+      gcompris_score_start(SCORESTYLE_NOTE,
+			   50,
+			   50,
 			   gcomprisBoard->number_of_sublevel);
 
       click_on_letter_next_level();
@@ -388,8 +392,6 @@ static void game_won()
 /* ==================================== */
 static void process_ok()
 {
-  if (gamewon) {
-  }
   gcompris_display_bonus(gamewon, BONUS_FLOWER);
 }
 /* ==================================== */
@@ -397,7 +399,7 @@ static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-  	gcompris_play_ogg(/*"clic_on_letter",*/right_letter, NULL);
+  	gcompris_play_ogg(right_letter, NULL);
 	break;
     default:
       break;

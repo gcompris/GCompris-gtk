@@ -70,6 +70,11 @@ static GList *board_list = NULL;
 
 #define VERTICAL_SEPARATION 30
 #define HORIZONTAL_SEPARATION 30
+
+//NUMBER_OF_SUBLEVELS*NUMBER_OF_LEVELS must equal the number of boards in XML file
+#define NUMBER_OF_SUBLEVELS 2
+#define NUMBER_OF_LEVELS 4
+
 #define TEXT_COLOR "white"
 
 /* ================================================================ */
@@ -146,19 +151,19 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      "missing_letter/missingletter-bg.jpg");
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=4;
+      gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
-      gcomprisBoard->number_of_sublevel=2; /* Go to next level after this number of 'play' */
-      gcompris_score_start(SCORESTYLE_NOTE, 
-			   50, 
-			   gcomprisBoard->height - 50, 
+      gcomprisBoard->number_of_sublevel=NUMBER_OF_SUBLEVELS; /* Go to next level after this number of 'play' */
+      assert(NUMBER_OF_LEVELS*NUMBER_OF_SUBLEVELS == g_list_length(board_list));
+      gcompris_score_start(SCORESTYLE_NOTE,
+			   50,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
       init_xml();
@@ -259,10 +264,10 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 
-  board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel;
-  if (board_number >= g_list_length(board_list))
+  board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel-1;
+/*  if (board_number >= g_list_length(board_list))
 	board_number = g_list_length(board_list)-1;
-
+*/
   assert(board_number >= 0  && board_number < g_list_length(board_list));
   place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
   assert(place >= 0  && place < 3);

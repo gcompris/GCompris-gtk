@@ -78,6 +78,10 @@ static GList *board_list = NULL;
 #define IMAGE_AREA_Y1 90
 #define IMAGE_AREA_Y2 430
 
+//NUMBER_OF_SUBLEVELS*NUMBER_OF_LEVELS must equal the number of boards in XML file
+#define NUMBER_OF_SUBLEVELS 2
+#define NUMBER_OF_LEVELS 4
+
 #define TEXT_COLOR "white"
 
 /* ================================================================ */
@@ -158,15 +162,16 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard=agcomprisBoard;
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "imageid/imageid-bg.jpg");
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=4;
+      gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
 
       init_xml();
 
-      gcomprisBoard->number_of_sublevel=g_list_length(board_list);
-      gcompris_score_start(SCORESTYLE_NOTE, 
-			   50, 
-			   gcomprisBoard->height - 50, 
+      gcomprisBoard->number_of_sublevel = NUMBER_OF_SUBLEVELS;
+      assert(NUMBER_OF_LEVELS*NUMBER_OF_SUBLEVELS == g_list_length(board_list));
+      gcompris_score_start(SCORESTYLE_NOTE,
+			   50,
+			   gcomprisBoard->height - 50,
 			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
 
@@ -247,17 +252,17 @@ static void imageid_destroy_all_items()
 static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 {
   char *buf[3];
-  int x, y, xp, yp, dx, place;
+  int x, y, xp, yp, place;
   GdkFont *gdk_font;
   GdkPixbuf *pixmap = NULL;
   GdkPixbuf *button_pixmap = NULL;
   char *str = NULL;
   Board * board;
 
-  board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel;
-  if (board_number >= g_list_length(board_list))
+  board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel-1;
+/*  if (board_number >= g_list_length(board_list))
 	board_number = g_list_length(board_list)-1;
-
+*/
   assert(board_number >= 0  && board_number < g_list_length(board_list));
   place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
   assert(place >= 0  && place < 3);
@@ -278,12 +283,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, board->pixmapfile);
   pixmap = gcompris_load_pixmap(str);
-  /*
-  dx = (gcomprisBoard->width -
-	HORIZONTAL_SEPARATION -
-	gdk_pixbuf_get_width(button_pixmap) -
-	gdk_pixbuf_get_width(pixmap))/2;
-*/
+
   x = IMAGE_AREA_X1 + ( IMAGE_AREA_X2 - IMAGE_AREA_X1 - gdk_pixbuf_get_width(pixmap))/2;
   y = IMAGE_AREA_Y1 + ( IMAGE_AREA_Y2 - IMAGE_AREA_Y1 - gdk_pixbuf_get_height(pixmap))/2;
 
@@ -393,13 +393,11 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 static void game_won()
 {
   gcomprisBoard->sublevel++;
-
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-printf("game_won : level = %d max = %d\n",gcomprisBoard->level,gcomprisBoard->maxlevel);
-  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
 	board_finished();
 	return;
       }

@@ -36,7 +36,6 @@ static gint end_board_count = 0;
 
 /* ==================================== */
 void end_board_finished() {
-printf("end_board_finished\n");
   end_board_count++;
 
   // animates tuxplane
@@ -73,7 +72,6 @@ void board_finished() {
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
 
-printf("board_finished\n");
   end_board_count = 0;
 
   /* First pause the board */

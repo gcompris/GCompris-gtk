@@ -1,3 +1,7 @@
+2001-12-07 Pascal Georges <pascal.georges1@free.fr>
+        * fixed some bugs in railroad, imageid, click_on_letter and missingletter boards
+        * fixed railroad board to fit new fullscreen layout
+
 2001-12-07  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* src/gcompris/gcompris.c: implemented fullscreen
 	* po/es.po: updated by Robinson Rodrigo Maureira Castillo
@@ -5,460 +9,460 @@
 	* boards/boardsicon/locale_[de en sv].png: created or updated by Herman
 
 2001-12-03  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* src/boards/paratrooper.c: boat is back
+        * src/boards/paratrooper.c: boat is back
 
 2001-12-02  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* src/gcompris/score.c: creation of the gcompris_score API to replace gcompris_point API
-	* src/gcompris/point.[ch]: removed
-	* src/boards/*.c: changed the pause algo to fullfill the boardfinish needs
-	
+        * src/gcompris/score.c: creation of the gcompris_score API to replace gcompris_point API
+        * src/gcompris/point.[ch]: removed
+        * src/boards/*.c: changed the pause algo to fullfill the boardfinish needs
+
 2001-12-02  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* src/boards/clockgame.c: modified to use board_finished(). Fixed max timer.
-	                          modified to use gcompris_point API
-	* src/board/algebra.c: modified to use gcompris_point API
-	* src/board/wordsgame.c: modified to use gcompris_point API
-	* src/boards/*.c: modified to use board_finished().
-	* boards/paintings/board6_1.xml: deleted, was incomplete.
-	* src/gcompris/bonus.h: removed entry gcompris_bar_set_message()
-	* src/gcompris/point.c: creation of the gcompris_point API to replace gcompris_bar_timer
-	
+        * src/boards/clockgame.c: modified to use board_finished(). Fixed max timer.
+                                  modified to use gcompris_point API
+        * src/board/algebra.c: modified to use gcompris_point API
+        * src/board/wordsgame.c: modified to use gcompris_point API
+        * src/boards/*.c: modified to use board_finished().
+        * boards/paintings/board6_1.xml: deleted, was incomplete.
+        * src/gcompris/bonus.h: removed entry gcompris_bar_set_message()
+        * src/gcompris/point.c: creation of the gcompris_point API to replace gcompris_bar_timer
+
 2001-12-01 Pascal Georges <pascal.georges1@free.fr>
-	* added board_finished() function in bonus.c, called when a sequential board is done
-	It displays tux in a plane flying toward a door (!)
-	* corrected the XML accent bug, that still remained in missingletter (but I had already corrected in imageid)
+        * added board_finished() function in bonus.c, called when a sequential board is done
+        It displays tux in a plane flying toward a door (!)
+        * corrected the XML accent bug, that still remained in missingletter (but I had already corrected in imageid)
 
 2001-11-29  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* Makefile.am: added remove of xml-i18n generated files
-	* src/boards/shapegame.c: fixed the last board file loading. now the boards loops.
-	* src/boards/algebra.c: fixed minus rules to match + and * rules
+        * Makefile.am: added remove of xml-i18n generated files
+        * src/boards/shapegame.c: fixed the last board file loading. now the boards loops.
+        * src/boards/algebra.c: fixed minus rules to match + and * rules
 
 2001-11-25  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* boards/scales/*.png: Complete redraw by Renaud Blanchard
-	* src/gcompris/bar.c: shifted all buttons on the left to free the home
-	* src/gcompris/bonus.[ch]: implemented BONUS_RANDOM, changed bonus.h to be an enum
-	* src/boards/Makefile.am: changed PTHREAD_LIBS by PTHREAD_LIB as it should be
-	* src/gcompris/pluginenum.c: changed to avoid a // in the plugin file path
-	* src/boards/menu.c: changed to add more space between the two menu lines
-	* boards/boardicons/railroad.png: made it smaller to be closed to other icons
+        * boards/scales/*.png: Complete redraw by Renaud Blanchard
+        * src/gcompris/bar.c: shifted all buttons on the left to free the home
+        * src/gcompris/bonus.[ch]: implemented BONUS_RANDOM, changed bonus.h to be an enum
+        * src/boards/Makefile.am: changed PTHREAD_LIBS by PTHREAD_LIB as it should be
+        * src/gcompris/pluginenum.c: changed to avoid a // in the plugin file path
+        * src/boards/menu.c: changed to add more space between the two menu lines
+        * boards/boardicons/railroad.png: made it smaller to be closed to other icons
 
 2001-11-25 Pascal Georges <pascal.georges1@free.fr>
-	* src/gcompris/gameutil.c : added convertUTF8Toisolat1 function
+        * src/gcompris/gameutil.c : added convertUTF8Toisolat1 function
 
 2001-11-23 Reinhard Müller <reinhard.mueller@bytewise.at>
-	* src/boards/algebra.c change operation order and other fix
+        * src/boards/algebra.c change operation order and other fix
 
 2001-11-17 Renaud Blanchard <kisukama@chez.com>
-	* boards/gcompris/gcompris-about.jpg: new gcompris logo
+        * boards/gcompris/gcompris-about.jpg: new gcompris logo
 
 2001-11-17 Pascal Georges <pascal.georges1@free.fr>
-	* Added railroad board
+        * Added railroad board
 
 2001-11-13  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* src/boards/draw.c: Corrected a bug where you can delete the white background
+        * src/boards/draw.c: Corrected a bug where you can delete the white background
 
 2001-11-11  Bruno Coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/reading.c: corrected button reference to use the correct one
-	* src/boards/draw.c: changed so that you can still draw on other items
-	* src/boards/local.c: created the local selection board
-	* src/boards/gcompris.c: added gcompris_set_locale()
-	* boards/local*.xml.in: created the local selection board
-	* boards/boardicons/local*.png: created the local selection board
-	* po/POTFILE.in: added missing draw.c, added local*
-	* boards/*.xml.in: corrected a few missing translation thanks Herman	
+        * src/boards/reading.c: corrected button reference to use the correct one
+        * src/boards/draw.c: changed so that you can still draw on other items
+        * src/boards/local.c: created the local selection board
+        * src/boards/gcompris.c: added gcompris_set_locale()
+        * boards/local*.xml.in: created the local selection board
+        * boards/boardicons/local*.png: created the local selection board
+        * po/POTFILE.in: added missing draw.c, added local*
+        * boards/*.xml.in: corrected a few missing translation thanks Herman        
 
 2001-11-11  Zohra Coudoin  <zohra.coudoin@free.fr>
 
-	* po/es.po: updated
-	
+        * po/es.po: updated
+        
 2001-11-11  Bruno Coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/reading.c: corrected button reference to use the correct one
-	* src/boards/click_on_letter.c: changed to use the new repeat button
-	* src/gcompris/bar.c: changed to add a new repeat button
-	* src/gcompris/plugin.h: changed to add a new repeat entry
-	* src/gcompris/gcompris.h: changed to add a repeat enum in the bar definition
-	* aclocal.m4: added gdk_pixbuf in GNOME_INCLUDEDIR for new gtk-pixbuf
-	* board/*.xml: CVS cleanup, only .xml.in need to be in
-	* src/boards/gletter.c: stdout printf message cleanup
-	
+        * src/boards/reading.c: corrected button reference to use the correct one
+        * src/boards/click_on_letter.c: changed to use the new repeat button
+        * src/gcompris/bar.c: changed to add a new repeat button
+        * src/gcompris/plugin.h: changed to add a new repeat entry
+        * src/gcompris/gcompris.h: changed to add a repeat enum in the bar definition
+        * aclocal.m4: added gdk_pixbuf in GNOME_INCLUDEDIR for new gtk-pixbuf
+        * board/*.xml: CVS cleanup, only .xml.in need to be in
+        * src/boards/gletter.c: stdout printf message cleanup
+        
 2001-11-06  Bruno Coudoin  <bruno.coudoin@free.fr>
 
-	* src/boards/menu.c: implemented an automatic menu arrow instead of icon harddrawed
-	* boards/boardsicon/*: removed all harddrawed arrow that were representing a menu
+        * src/boards/menu.c: implemented an automatic menu arrow instead of icon harddrawed
+        * boards/boardsicon/*: removed all harddrawed arrow that were representing a menu
 
 2001-11-05  Christian Rose  <menthos@menthos.com>
 
-	* configure.in: Sorted ALL_LINGUAS and added "sv" to it.
+        * configure.in: Sorted ALL_LINGUAS and added "sv" to it.
 
 2001-10-31  Carlos Perelló Marín <carlos@gnome-db.org>
 
-	* gcompris.desktop: converted to use xml-i18n-tools.
+        * gcompris.desktop: converted to use xml-i18n-tools.
 
 2001-10-31  Bruno Coudoin  <bruno.coudoin@free.fr>, Pascal Georges <pascal.georges1@free.fr>
-	* src/gcompris/bonus.[ch]: better API, added one image type
-	* src/boards/menu.c: implemented the star system ;) Thanks Pascal, its great.
-	* src/boards/imageid.c: changed to use the new bonus API
-	* src/boards/missingletter.c: changed to use the new bonus API
-	* src/board/click_on_letter.c: new board created by Pascal Georges. This is the first
-	                               with educational sounds.
-		
+        * src/gcompris/bonus.[ch]: better API, added one image type
+        * src/boards/menu.c: implemented the star system ;) Thanks Pascal, its great.
+        * src/boards/imageid.c: changed to use the new bonus API
+        * src/boards/missingletter.c: changed to use the new bonus API
+        * src/board/click_on_letter.c: new board created by Pascal Georges. This is the first
+                                       with educational sounds.
+                
 2001-10-26  Bruno Coudoin  <bruno.coudoin@free.fr>, Pascal Georges <pascal.georges1@free.fr>
-	* GCompris: Release 0.9.3
-	* gcompris.spec: fixed changelog date
-	* TODO: updated
-	* boards/missing_letter.xml.in: creation of the missing letter board by Pascal George
-	* src/boards/missingletter.c: creation of the missing letter board by Pascal George
-	* src/boards/draw.c: corrected a bug at startup, I was destroying a non inited
-	                     object pointer. It seems that it makes it crash on PPC.
-	* src/boards/clickgame.c: changed next level so that fishes stays at level change
-	                          added functions to all mouse buttons including the weel
-	                          This should make this board more fun and let the child
-	                          discover all the mouse buttons can be usefull.
-	* src/gcompris/gcompris.c: changes set_background to force the pixmap to be at
-	                           the bottom
-	                           Added gnome_sound_init(NULL); to make the sound works
-	                           on different platform (eg KDE). Thanks to Pascal Georges.
-	                           Added hyper link to gcompris and osfet web site in the 
-	                           about box. No more spam from hilaire ;)
-	* src/boards/imageid.c: corrected a bug that could cause a crash at startup
-	                        moved the button image to the global dir gcompris/button
-	* src/boards/shape.c: corrected a bug in deletion of points that could be null
-	* src/boards/algebra.c: rework to make the board work by operation. A mode param
-	                        is given in the board.xml to select the operation
-	* src/boards/clockgame.c: bug fix, div by zero. Thanks a lot to Martin Herweg for his
-	                          time and patience on this one.
-	* aclocal.m4: changed GNOME_INCLUDEDIR to add libxml2 (thanks to Heiko Degenhardt)
-	* src/gcompris/bar.c: corrected management of the help window
-	* src/gcompris/help.c: corrected management of the help window
-	* src/gcompris/gameutil.c: Added UTF-8 to Latin-1 conversion. This was causing bad
-	                           name and description display in gcompris.
+        * GCompris: Release 0.9.3
+        * gcompris.spec: fixed changelog date
+        * TODO: updated
+        * boards/missing_letter.xml.in: creation of the missing letter board by Pascal George
+        * src/boards/missingletter.c: creation of the missing letter board by Pascal George
+        * src/boards/draw.c: corrected a bug at startup, I was destroying a non inited
+                             object pointer. It seems that it makes it crash on PPC.
+        * src/boards/clickgame.c: changed next level so that fishes stays at level change
+                                  added functions to all mouse buttons including the weel
+                                  This should make this board more fun and let the child
+                                  discover all the mouse buttons can be usefull.
+        * src/gcompris/gcompris.c: changes set_background to force the pixmap to be at
+                                   the bottom
+                                   Added gnome_sound_init(NULL); to make the sound works
+                                   on different platform (eg KDE). Thanks to Pascal Georges.
+                                   Added hyper link to gcompris and osfet web site in the 
+                                   about box. No more spam from hilaire ;)
+        * src/boards/imageid.c: corrected a bug that could cause a crash at startup
+                                moved the button image to the global dir gcompris/button
+        * src/boards/shape.c: corrected a bug in deletion of points that could be null
+        * src/boards/algebra.c: rework to make the board work by operation. A mode param
+                                is given in the board.xml to select the operation
+        * src/boards/clockgame.c: bug fix, div by zero. Thanks a lot to Martin Herweg for his
+                                  time and patience on this one.
+        * aclocal.m4: changed GNOME_INCLUDEDIR to add libxml2 (thanks to Heiko Degenhardt)
+        * src/gcompris/bar.c: corrected management of the help window
+        * src/gcompris/help.c: corrected management of the help window
+        * src/gcompris/gameutil.c: Added UTF-8 to Latin-1 conversion. This was causing bad
+                                   name and description display in gcompris.
 
 2001-10-23  Bruno Coudoin  <bruno.coudoin@free.fr>, Pascal Georges <pascal.georges1@free.fr>
-	* GCompris: Release 0.9.2
-	* boards/imageid.xml.in: creation of the imageid board by Pascal George
-	* src/boards/imageid.c: creation of the imageid board by Pascal George
-	* src/gcompris/bonus.[ch]: creation of the bonus API for gcompris by Pascal George
-	                           (smileys)
+        * GCompris: Release 0.9.2
+        * boards/imageid.xml.in: creation of the imageid board by Pascal George
+        * src/boards/imageid.c: creation of the imageid board by Pascal George
+        * src/gcompris/bonus.[ch]: creation of the bonus API for gcompris by Pascal George
+                                   (smileys)
 
 2001-10-06  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.9.1
-	* boards/imagename.xml.in.c: corrected boarddir
-	* src/gcompris/bar.c: fixed by zero divide on the scale bar thanks to Martin Herweg
-	* src/gcompris/gcompris.c: fixed to delete properly the background image
-	                           after each call to gcompris_set_background
-	                           split of gcompris_set_background to create a
-	                           specific init_background for canvas initialisation
-	                           - Added the Escape key support to shortcut to the 
-	                             home button bar
-	* src/boards/menu.c: fixed to delete icons after each menu exit
-	* src/boards/algebra.c: fixed to deleted properly the buttons on board end
-	* boards/gcompris/buttons/level1.png: !!!! I had to increase the size of this icon
-	                                      of 1x1 pixel to remove the SEGFAULT in 
-	                                      gnome-canvas-pixbuf.c of gdk-pixbuf-0.11.0
-	                                      in transform_pixbuf at line 644
-	                                      *d++ = *src++;
-	* src/board/memory.c: bug fix: a casecmp was done so a pair tT was a win
+        * GCompris: Release 0.9.1
+        * boards/imagename.xml.in.c: corrected boarddir
+        * src/gcompris/bar.c: fixed by zero divide on the scale bar thanks to Martin Herweg
+        * src/gcompris/gcompris.c: fixed to delete properly the background image
+                                   after each call to gcompris_set_background
+                                   split of gcompris_set_background to create a
+                                   specific init_background for canvas initialisation
+                                   - Added the Escape key support to shortcut to the 
+                                     home button bar
+        * src/boards/menu.c: fixed to delete icons after each menu exit
+        * src/boards/algebra.c: fixed to deleted properly the buttons on board end
+        * boards/gcompris/buttons/level1.png: !!!! I had to increase the size of this icon
+                                              of 1x1 pixel to remove the SEGFAULT in 
+                                              gnome-canvas-pixbuf.c of gdk-pixbuf-0.11.0
+                                              in transform_pixbuf at line 644
+                                              *d++ = *src++;
+        * src/board/memory.c: bug fix: a casecmp was done so a pair tT was a win
 
 2001-09-29  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.7.6
-	* src/board/memory.c: now wait 1 seconds when a pair is found
-	* aclocal.m4: Changed to use libxml2 instead of libxml
-	* src/gcompris/gameutil.c: Changed to use libxml2 instead of libxml
-	                           Changed to implement xml-i18n
-	                           Changed to use gcompris_get_locale()
-	* src/boards/menu.c: Changed to use libxml2 instead of libxml
-	* src/boards/shapegame.c: Changed to use libxml2 instead of libxml
-	* boards/*.xml.in: creation of these files to implement xml i18n
-	* src/gcompris/gcompris.c: added the method gcompris_get_locale()
-	                           this way it will be easy to implement an
-	                           internal setup of the locale to let the user 
-	                           change the locale for training purpose
-	* boards/wordsgame.c: Changed to use gcompris_get_locale()
-	* board/reading.c: Changed to use gcompris_get_locale()
-	* gcompris.desktop.in: created to use xml i18n and po files
-	* xml-i18n-merge: changed to avoid char above 127 to be encoded
-	                  added a print error when the case with a multiline msgid is
-	                  encountered
+        * GCompris: Release 0.7.6
+        * src/board/memory.c: now wait 1 seconds when a pair is found
+        * aclocal.m4: Changed to use libxml2 instead of libxml
+        * src/gcompris/gameutil.c: Changed to use libxml2 instead of libxml
+                                   Changed to implement xml-i18n
+                                   Changed to use gcompris_get_locale()
+        * src/boards/menu.c: Changed to use libxml2 instead of libxml
+        * src/boards/shapegame.c: Changed to use libxml2 instead of libxml
+        * boards/*.xml.in: creation of these files to implement xml i18n
+        * src/gcompris/gcompris.c: added the method gcompris_get_locale()
+                                   this way it will be easy to implement an
+                                   internal setup of the locale to let the user 
+                                   change the locale for training purpose
+        * boards/wordsgame.c: Changed to use gcompris_get_locale()
+        * board/reading.c: Changed to use gcompris_get_locale()
+        * gcompris.desktop.in: created to use xml i18n and po files
+        * xml-i18n-merge: changed to avoid char above 127 to be encoded
+                          added a print error when the case with a multiline msgid is
+                          encountered
 
 2001-09-21  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.7.5
-	* docs/C/gcompris.texi: correction for overview image reference
+        * GCompris: Release 0.7.5
+        * docs/C/gcompris.texi: correction for overview image reference
 
 2001-09-19  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.7.4
-	* src/boards/draw.c: Corrected bug that was creating a random crash.
-	                     when loading this board the current_color_item was 
-	                     not nulled between two board call.
-	* aclocal.m4: added option -Werror to gcc to the whole project to be clean
-	* src/gcompris/gcompris.c: cleanup, gcompris_get_canvas do no more return
-	                           a canvasgroup but a canvas
-	* boards/*.xml: reorganisation of the menu tree plus creation of some icons
-	* boards/imagename/*.xml: correction of english thanks to my wife zohra
-	                          correction of board 4 that could not be parsed
-	* src/board/memory.c: creation of this board
-	* boards/memory.xml: creation of this board
-	
+        * GCompris: Release 0.7.4
+        * src/boards/draw.c: Corrected bug that was creating a random crash.
+                             when loading this board the current_color_item was 
+                             not nulled between two board call.
+        * aclocal.m4: added option -Werror to gcc to the whole project to be clean
+        * src/gcompris/gcompris.c: cleanup, gcompris_get_canvas do no more return
+                                   a canvasgroup but a canvas
+        * boards/*.xml: reorganisation of the menu tree plus creation of some icons
+        * boards/imagename/*.xml: correction of english thanks to my wife zohra
+                                  correction of board 4 that could not be parsed
+        * src/board/memory.c: creation of this board
+        * boards/memory.xml: creation of this board
+        
 2001-09-13  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.7.3
-	* docs/C/overview.txt: Creation of this file because it crashes
-	                       info file creation.
-	* src/boards/shapegame.c: changed text title color to white
-	* src/boards/reading.c: add of horizontal writting support
-	* boards/imagename/*.xml: creation of this new board
-	* boards/imagename.xml: creation of this new board
-	* boards/menu.xml: add of imagename board
-	* boards/readingh.xml: add of this board
-	* src/gcompris/gameutil.c: add of the mode property in the menu xml file
-	                           this is used to pass a mode to a board and to
-	                           avoid to force it to implement its own xml
-	                           data set and load it.
-	* src/gcompris/gcompris-board.h: add of the property mode
-	
+        * GCompris: Release 0.7.3
+        * docs/C/overview.txt: Creation of this file because it crashes
+                               info file creation.
+        * src/boards/shapegame.c: changed text title color to white
+        * src/boards/reading.c: add of horizontal writting support
+        * boards/imagename/*.xml: creation of this new board
+        * boards/imagename.xml: creation of this new board
+        * boards/menu.xml: add of imagename board
+        * boards/readingh.xml: add of this board
+        * src/gcompris/gameutil.c: add of the mode property in the menu xml file
+                                   this is used to pass a mode to a board and to
+                                   avoid to force it to implement its own xml
+                                   data set and load it.
+        * src/gcompris/gcompris-board.h: add of the property mode
+        
 2001-09-12  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.7.2
-	* boards/gcompris/gcompris-shapelabel.jpg: added back this file
-	* boards/boardicons/draw.png: changed color to be less flashy
-	* src/boards/algebra.c: Now has 9 level with level x = table of x in add and 
-	                        by operation
-	                        Now each operand is proposed only once by level in
-	                        add and by operation
-	* src/boards/*.c: added void in declaration of end_board to please the compiler
-	* src/gcompris/plugin.h: added prototype declaration of get_bplugin_info to
-	                         please the compiler
-	* sounds/crash.wav: changed it because my dauther clara is afraid by this noise ;)
-	
+        * GCompris: Release 0.7.2
+        * boards/gcompris/gcompris-shapelabel.jpg: added back this file
+        * boards/boardicons/draw.png: changed color to be less flashy
+        * src/boards/algebra.c: Now has 9 level with level x = table of x in add and 
+                                by operation
+                                Now each operand is proposed only once by level in
+                                add and by operation
+        * src/boards/*.c: added void in declaration of end_board to please the compiler
+        * src/gcompris/plugin.h: added prototype declaration of get_bplugin_info to
+                                 please the compiler
+        * sounds/crash.wav: changed it because my dauther clara is afraid by this noise ;)
+        
 2001-09-08  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.7.1
-	* src/boards/draw.c: Corrected bug on ellipse creation
+        * GCompris: Release 0.7.1
+        * src/boards/draw.c: Corrected bug on ellipse creation
 
 2001-09-07  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.7.0
-	* INSTALL: Added info of what libs are required to compile
-	* src/boards/planegame.c: Changed to use tuxplane instead of plane. Corrected to
-	                          have the size thrink with level increase
-	* src/boards/draw.c: Creation of the draw board (vector based)
-	* src/boards/paratrooper.c: Implementation of the help
-	* boards/draw/*: Creation of the buttons for the draw board
-	* boards/boardicons/planegame.png: Change to use the flying tux
-	
+        * GCompris: Release 0.7.0
+        * INSTALL: Added info of what libs are required to compile
+        * src/boards/planegame.c: Changed to use tuxplane instead of plane. Corrected to
+                                  have the size thrink with level increase
+        * src/boards/draw.c: Creation of the draw board (vector based)
+        * src/boards/paratrooper.c: Implementation of the help
+        * boards/draw/*: Creation of the buttons for the draw board
+        * boards/boardicons/planegame.png: Change to use the flying tux
+        
 2001-08-13  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.6.6
-	* boards/gcompris/nur*.jpg: - added these images to be used as the
-	                              clickgame background.
-	  Thanks to the National Undersearch Research Program (NURP) 
-	  other images can be accessed through http://www.photolib.noaa.gov
-	* src/boards/clickgame.c: - modified to include new backgrounds
-	                            added board help.
-	* src/boards/reading.c: - cleanup, fonts bigger, a GO button added, 
-	                          board has 9 levels now
-	* src/gcompris/bar.c - Height of the bar now thinner
-	                       implemented the help button in the bar
-	* docs/C/gcompris.texi: Corrected a sentence were I was telling gcompris 
-	                        will support plugin but it already does for a while.
-				Thanks abuledu for noticing it.
+        * GCompris: Release 0.6.6
+        * boards/gcompris/nur*.jpg: - added these images to be used as the
+                                      clickgame background.
+          Thanks to the National Undersearch Research Program (NURP) 
+          other images can be accessed through http://www.photolib.noaa.gov
+        * src/boards/clickgame.c: - modified to include new backgrounds
+                                    added board help.
+        * src/boards/reading.c: - cleanup, fonts bigger, a GO button added, 
+                                  board has 9 levels now
+        * src/gcompris/bar.c - Height of the bar now thinner
+                               implemented the help button in the bar
+        * docs/C/gcompris.texi: Corrected a sentence were I was telling gcompris 
+                                will support plugin but it already does for a while.
+                                Thanks abuledu for noticing it.
 
 2001-08-13  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.6.5
-	* src/boards/paratrooper.c: - removed a trace
-	* sounds/Makefile.am: - added the README in the extra dist
-	* src/boards/reading.c - created, this boards is a reading training
+        * GCompris: Release 0.6.5
+        * src/boards/paratrooper.c: - removed a trace
+        * sounds/Makefile.am: - added the README in the extra dist
+        * src/boards/reading.c - created, this boards is a reading training
 
 2001-08-05  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.6.4
-	* src/boards/paratrooper.c: - adjusted timers to lower CPU consumption
-	*                           - corrected bug when last level was complete
-	*                           - now the boat and plane width becomes level dependant
-	* src/boards/clickgame.c: adjusted timers to lower CPU consumption
-	* src/boards/wordsgame.c: adjusted timers to lower CPU consumption
-	* src/boards/gletters.c: adjusted timers to lower CPU consumption
-	* src/boards/smallnumbers.c: adjusted timers to lower CPU consumption
-	* src/boards/planegame.c: adjusted timers to lower CPU consumption
-	* src/boards/smallnumbers.c: - adjusted timers to lower CPU consumption
-	*                            - added dice 7,8 and 9
-	*                            - bug fixes: infinite loop when all dices are displayed
-	* src/gcompris/bar.c: added gcompris_bar_set(status) to make the bar
-	                      being context sensitive
-	* src/boards/*.c: modified to use gcompris_bar_set(status)
-	* src/gcompris/gcompris.c: corrected bug where max ration display was 0.8 instead of 1
-	* sounds/*: changed all the sounds	
+        * GCompris: Release 0.6.4
+        * src/boards/paratrooper.c: - adjusted timers to lower CPU consumption
+        *                           - corrected bug when last level was complete
+        *                           - now the boat and plane width becomes level dependant
+        * src/boards/clickgame.c: adjusted timers to lower CPU consumption
+        * src/boards/wordsgame.c: adjusted timers to lower CPU consumption
+        * src/boards/gletters.c: adjusted timers to lower CPU consumption
+        * src/boards/smallnumbers.c: adjusted timers to lower CPU consumption
+        * src/boards/planegame.c: adjusted timers to lower CPU consumption
+        * src/boards/smallnumbers.c: - adjusted timers to lower CPU consumption
+        *                            - added dice 7,8 and 9
+        *                            - bug fixes: infinite loop when all dices are displayed
+        * src/gcompris/bar.c: added gcompris_bar_set(status) to make the bar
+                              being context sensitive
+        * src/boards/*.c: modified to use gcompris_bar_set(status)
+        * src/gcompris/gcompris.c: corrected bug where max ration display was 0.8 instead of 1
+        * sounds/*: changed all the sounds        
 
 2001-07-01  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.6.3
-	* src/boards/paratrooper.c: Add of this board
-	* boards/paratrooper.xml: Add of this board
+        * GCompris: Release 0.6.3
+        * src/boards/paratrooper.c: Add of this board
+        * boards/paratrooper.xml: Add of this board
 
 2001-06-04  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.6.2
-	* Makefile.am: Added .spec and .spec.in files in extra_dist (thanks Yann)
-	* docs/C/Makefile.am: Can now create gcompris.pdf (make gcompris.pdf)
-	* docs/C/gcompris.texi: Minor change by Yann Dirson
-	* boards/scales/board2_5.xml: This board was impossible: corrected now (thanks Yann)
-	* boards/babyshapes/*: Add of this board
-	* boards/babymatch/*: Add of this board
-	* src/boards/shapegame.c: Corrected a bug to make the dragged item non
-	                          visible under the target item.
+        * GCompris: Release 0.6.2
+        * Makefile.am: Added .spec and .spec.in files in extra_dist (thanks Yann)
+        * docs/C/Makefile.am: Can now create gcompris.pdf (make gcompris.pdf)
+        * docs/C/gcompris.texi: Minor change by Yann Dirson
+        * boards/scales/board2_5.xml: This board was impossible: corrected now (thanks Yann)
+        * boards/babyshapes/*: Add of this board
+        * boards/babymatch/*: Add of this board
+        * src/boards/shapegame.c: Corrected a bug to make the dragged item non
+                                  visible under the target item.
 
 2001-03-11  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.6.1
-	* WARNING: THE TRANSLATION IS BROKEN.
-	* WARNING: THE HIGHLIGHTING IS BROKEN
-	* ALL: Replace the imlib for images by the gdk-pixbuf library
-	* gcompris.spec.in: Added back the gcompris icon pixmap
-	* clickgame.c: Limit the number of fish to 5
-	* clickgame.c: Simplified the code by removing one hashtable.
-	* shapegame.c: Changed the board order to have the most difficult
-	               at the higher level (as suggested by Yann Dirson)
-		       Added the method shuffle_shape_list()
-	* gcompris.c (end_game): reset the timer in the status bar
-	* Makefile.am: Added DESTDIR prefix in the install hooks
-	* ALL: Boards are now separated from gcompris in src/
-	* boards/*: All boards are defined as independant plugins
-	* gcompris/*: Added the necessary glue to load the plugins
-	* configure.in: Removed PACKAGE_PIXMAPS_DIR
-	* data/*: The data directory has been renamed in boards
-	* pixmaps/*: The pixmaps directory has been moved to board/gcompris
-	             This will be the default gcompris icons. Other icons
-	             have been moved in a dir specific to their boards.
-	* boards/planegame.c: Set a max speed for the plane because children
-			      have difficulties to manipulate it.
-	* docs/C/gcompris.texi: Update of the doc to explain the new plugin
-	                        mecanism
-	
+        * GCompris: Release 0.6.1
+        * WARNING: THE TRANSLATION IS BROKEN.
+        * WARNING: THE HIGHLIGHTING IS BROKEN
+        * ALL: Replace the imlib for images by the gdk-pixbuf library
+        * gcompris.spec.in: Added back the gcompris icon pixmap
+        * clickgame.c: Limit the number of fish to 5
+        * clickgame.c: Simplified the code by removing one hashtable.
+        * shapegame.c: Changed the board order to have the most difficult
+                       at the higher level (as suggested by Yann Dirson)
+                       Added the method shuffle_shape_list()
+        * gcompris.c (end_game): reset the timer in the status bar
+        * Makefile.am: Added DESTDIR prefix in the install hooks
+        * ALL: Boards are now separated from gcompris in src/
+        * boards/*: All boards are defined as independant plugins
+        * gcompris/*: Added the necessary glue to load the plugins
+        * configure.in: Removed PACKAGE_PIXMAPS_DIR
+        * data/*: The data directory has been renamed in boards
+        * pixmaps/*: The pixmaps directory has been moved to board/gcompris
+                     This will be the default gcompris icons. Other icons
+                     have been moved in a dir specific to their boards.
+        * boards/planegame.c: Set a max speed for the plane because children
+                              have difficulties to manipulate it.
+        * docs/C/gcompris.texi: Update of the doc to explain the new plugin
+                                mecanism
+        
 2001-03-10  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris: Release 0.5.1
-	* gcompris.c: adjusted main window size calculation.
-	              it fixes a bug was making gcompris hardly
-	              unusable under 640x400
-	              Changed to not use the Gnome standard menu for loading
-	              help. Implemented my own to be able to be relocatable.
-	              This hack does not implement I18N for the help file.
-	* fi.po: Created by Jyrki Kuoppala <jkp@kaapeli.fi>
-	* data/wordsgame/*.fi:Created by Jyrki Kuoppala <jkp@kaapeli.fi>
-	* gcompris.soundlist: deleted. I now use direct sound call instead
-	                      of gnome .soundlist API
-	* sounds/*: now sounds are local to gcompris.
-	* configure.in: Changed to use local relative pixmaps and sounds
-	                instead of gnome api
-	* src/*.c: Changed to use relative pixmaps and sounds
-	
+        * GCompris: Release 0.5.1
+        * gcompris.c: adjusted main window size calculation.
+                      it fixes a bug was making gcompris hardly
+                      unusable under 640x400
+                      Changed to not use the Gnome standard menu for loading
+                      help. Implemented my own to be able to be relocatable.
+                      This hack does not implement I18N for the help file.
+        * fi.po: Created by Jyrki Kuoppala <jkp@kaapeli.fi>
+        * data/wordsgame/*.fi:Created by Jyrki Kuoppala <jkp@kaapeli.fi>
+        * gcompris.soundlist: deleted. I now use direct sound call instead
+                              of gnome .soundlist API
+        * sounds/*: now sounds are local to gcompris.
+        * configure.in: Changed to use local relative pixmaps and sounds
+                        instead of gnome api
+        * src/*.c: Changed to use relative pixmaps and sounds
+        
 2001-02-18  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris : Release 0.4.1
-	* pt_BR.po: Created by Isaías V. Prestes <isix@uol.com.br>
-	* wordslevel*.pt_BR: Created by Isaías V. Prestes <isix@uol.com.br>
-	* wordslevel*.de: Created by Gerhard Dieringer
-	* shapegame.c: Created by bruno. This is a new board in the puzzle style.
-	* wordsgame.c (get_wordfile): Replaced malloc by g_strdup_printf
-	* src/*.c: removed a lot of old hard coded traces
-	* src/algebra.c: set the horizontal layout by default	
-	* src/main.c: removed pause and end from the menu
-	* src/status.c: removed and moved to bar.c
-	* src/player.c: removed and moved to bar.c
-	* docs/gcompris.texi: Creation of the doc
-	* src/shapegame.c: Creation of the shape board
-	* src/planegame.c: Creation of the plane game board
-	* src/clickgame.c: Complete review to use fish instead of animals
-	
+        * GCompris : Release 0.4.1
+        * pt_BR.po: Created by Isaías V. Prestes <isix@uol.com.br>
+        * wordslevel*.pt_BR: Created by Isaías V. Prestes <isix@uol.com.br>
+        * wordslevel*.de: Created by Gerhard Dieringer
+        * shapegame.c: Created by bruno. This is a new board in the puzzle style.
+        * wordsgame.c (get_wordfile): Replaced malloc by g_strdup_printf
+        * src/*.c: removed a lot of old hard coded traces
+        * src/algebra.c: set the horizontal layout by default        
+        * src/main.c: removed pause and end from the menu
+        * src/status.c: removed and moved to bar.c
+        * src/player.c: removed and moved to bar.c
+        * docs/gcompris.texi: Creation of the doc
+        * src/shapegame.c: Creation of the shape board
+        * src/planegame.c: Creation of the plane game board
+        * src/clickgame.c: Complete review to use fish instead of animals
+        
 2000-12-16  Bruno Coudoin  <bruno.coudoin@free.fr>
-	* GCompris : Release 0.3.5
-	* ChangeLog : Changed the order of the file and made adjustment
-	  to follow the GNU ChangeLogs rules
-	* INSTALL README : Moved Install instruction from README to INSTALL
-	* AUTHORS THANKS : Created the THANKS file and updated AUTHORS
-	* de.po : Created by Gerhard Dieringer <GDieringer@compuserve.com>
-	* wordsgame.c (get_random_word): Now it should default to english
-	  locale if the user locale wordlist file is not implemented
-	  Thanks to Vladimir Tamara <vtamara@gnu.org>
-	* algebra.c (get_random_number): Changed the rules for level strength
-	  the game is now easier.
-	* removed the life.wav sound
-	* clockgame.c (clockgame_create_item): Changed the font of the hour to
-	  140 because it is not rendered on my new Mandrake 7.2. Don't know why.
-	* ALL : thanks to Gerhard Dieringer replaced malloc+sprintf by the
-	        safer g_strdup_printf
-	  
+        * GCompris : Release 0.3.5
+        * ChangeLog : Changed the order of the file and made adjustment
+          to follow the GNU ChangeLogs rules
+        * INSTALL README : Moved Install instruction from README to INSTALL
+        * AUTHORS THANKS : Created the THANKS file and updated AUTHORS
+        * de.po : Created by Gerhard Dieringer <GDieringer@compuserve.com>
+        * wordsgame.c (get_random_word): Now it should default to english
+          locale if the user locale wordlist file is not implemented
+          Thanks to Vladimir Tamara <vtamara@gnu.org>
+        * algebra.c (get_random_number): Changed the rules for level strength
+          the game is now easier.
+        * removed the life.wav sound
+        * clockgame.c (clockgame_create_item): Changed the font of the hour to
+          140 because it is not rendered on my new Mandrake 7.2. Don't know why.
+        * ALL : thanks to Gerhard Dieringer replaced malloc+sprintf by the
+                safer g_strdup_printf
+          
 2000-11-22 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.3.4
-	* Corrected the small offset bug in the clock game when dragging the needles.
-	  Bug found by Chris Ellec of LinuxForKids (http://www.linuxforkids.org)
-	* Added key enter/return to be defaulted to OK in all boards
-	* Now the dice level in the control bar is correctly updated.
+        * GCompris : 0.3.4
+        * Corrected the small offset bug in the clock game when dragging the needles.
+          Bug found by Chris Ellec of LinuxForKids (http://www.linuxforkids.org)
+        * Added key enter/return to be defaulted to OK in all boards
+        * Now the dice level in the control bar is correctly updated.
 
 2000-10-25 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.3.3
-	* Added the teaching analog clock board
-	* Removed empty jpg directory in animals that was creating an 
-	  image not found (why jpg does not support transparency !!)
-	* Added bar icon selection highlighting	system
-	* Added algebra operation icon selection highlighting system
-	* Added a toggle button in algebra to select horizontal/vertical layout
-	* Implemented bar dice level for all boards (before only algebra was done)
-	* Corrected locale selection in the falling words. Now calling setlocale()
-	  instead of using the LANGUAGE or LANG variable which varies too much
-	  between distributions. (Hope it is fixed now. Thanks to Yann Dirson)
-	* Removed the scoring system in the status bar.
-	* Set the number of lives to 1000 in all boards. Play as you want now...
-	* Changed Makefile.am so that CVS dir are not copyied at install time in pixmap
-	  and data directory
+        * GCompris : 0.3.3
+        * Added the teaching analog clock board
+        * Removed empty jpg directory in animals that was creating an 
+          image not found (why jpg does not support transparency !!)
+        * Added bar icon selection highlighting        system
+        * Added algebra operation icon selection highlighting system
+        * Added a toggle button in algebra to select horizontal/vertical layout
+        * Implemented bar dice level for all boards (before only algebra was done)
+        * Corrected locale selection in the falling words. Now calling setlocale()
+          instead of using the LANGUAGE or LANG variable which varies too much
+          between distributions. (Hope it is fixed now. Thanks to Yann Dirson)
+        * Removed the scoring system in the status bar.
+        * Set the number of lives to 1000 in all boards. Play as you want now...
+        * Changed Makefile.am so that CVS dir are not copyied at install time in pixmap
+          and data directory
 
 2000-09-22 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.3.2
-	* Correction of display zooming for low screen resolution
-	* Added the a background to the bar
-	* Added support for multiline text for game description
-	* Translation of the game title
-	* Added Italian words By Mauro Colorio <linuxbox@interfree.it>
-	* Changed some images to jpg to reduce GCompris footprint
+        * GCompris : 0.3.2
+        * Correction of display zooming for low screen resolution
+        * Added the a background to the bar
+        * Added support for multiline text for game description
+        * Translation of the game title
+        * Added Italian words By Mauro Colorio <linuxbox@interfree.it>
+        * Changed some images to jpg to reduce GCompris footprint
 
 2000-09-16 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.3.1
-	* Complete rework of the User Interface
-	* Added the algebra board
-	* Added Italian translation (no words)  By Mauro Colorio <linuxbox@interfree.it>
-	* Added Dutch translation and words By Dirk Schouten <schoutdi@knoware.nl>
+        * GCompris : 0.3.1
+        * Complete rework of the User Interface
+        * Added the algebra board
+        * Added Italian translation (no words)  By Mauro Colorio <linuxbox@interfree.it>
+        * Added Dutch translation and words By Dirk Schouten <schoutdi@knoware.nl>
 
 2000-07-22 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.2.4
-	* added spanish
+        * GCompris : 0.2.4
+        * added spanish
 
 2000-07-03 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.2.3
-	* Added the smallnumbers game with dice pixmaps.
-	* Slowed the basic speed and word number of the words game
-	* added the first attempt to implement properties
-	  At this stage, properties let the user play a board by clicking
-	  it in the board list.
-	* In the letters game, lowercase are accepted even for upercase letter
-	* Added numbers and lower case char in the letters game
-	* Changed all games falling strategy upon user success. Now a new item
-	  is send only when there is no more item displayed.	
+        * GCompris : 0.2.3
+        * Added the smallnumbers game with dice pixmaps.
+        * Slowed the basic speed and word number of the words game
+        * added the first attempt to implement properties
+          At this stage, properties let the user play a board by clicking
+          it in the board list.
+        * In the letters game, lowercase are accepted even for upercase letter
+        * Added numbers and lower case char in the letters game
+        * Changed all games falling strategy upon user success. Now a new item
+          is send only when there is no more item displayed.        
 
 2000-06-25 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.2.2
-	* In gletters.c game, the letters hashtable was not freed
-	  upon user good key. In result, an infinite loop was happening
-	  after a while due to the fact that I do not allow to have 2
-	  times the same letter.
-	* In main.c corrected a bug in cleanup that was crashing gcompris upon
-	  game end then new game. (Probably Bug #108462)
-	* Added the falling word level
-	* Review of the letters to make them more visible
-	
+        * GCompris : 0.2.2
+        * In gletters.c game, the letters hashtable was not freed
+          upon user good key. In result, an infinite loop was happening
+          after a while due to the fact that I do not allow to have 2
+          times the same letter.
+        * In main.c corrected a bug in cleanup that was crashing gcompris upon
+          game end then new game. (Probably Bug #108462)
+        * Added the falling word level
+        * Review of the letters to make them more visible
+        
 2000-06-20 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.2.1
-	* Now main window can't be resized
-	* In the letters game, when paused entering a letter is no more
-	  allowed
-   	* Fixed bug in the main that was occuring when the user was loosing
-	  in the second level. It was not ended properly and there was a crash
-	  at the next new game.
-	* Changed background images to have something more clear.
+        * GCompris : 0.2.1
+        * Now main window can't be resized
+        * In the letters game, when paused entering a letter is no more
+          allowed
+           * Fixed bug in the main that was occuring when the user was loosing
+          in the second level. It was not ended properly and there was a crash
+          at the next new game.
+        * Changed background images to have something more clear.
 
 2000-06-19 Bruno Coudoin <bruno.coudoin@free.fr>
-	* GCompris : 0.2
-	  Corrected sounds file now goes to the proper gnome dir
+        * GCompris : 0.2
+          Corrected sounds file now goes to the proper gnome dir
 
 2000-06-12 Bruno Coudoin <bruno.coudoin@free.fr>
-	* Creation of the first version
-	  First Release 0.1 
-	  Only two boards available, properties not implemented.
+        * Creation of the first version
+          First Release 0.1 
+          Only two boards available, properties not implemented.
