@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/01/07 00:10:01 bruno>
+ * Time-stamp: <2005/01/27 01:41:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -60,7 +60,8 @@ static gboolean		 file_selector_displayed = FALSE;
 static GnomeCanvasItem	*rootitem = NULL;
 static GnomeCanvasItem	*file_root_item = NULL;
 
-static FileSelectorCallBack fileSelectorCallBack = NULL;
+static FileSelectorCallBack  fileSelectorCallBack = NULL;
+static GtkWidget            *gtk_combo_filetypes = NULL;
 
 static gchar *current_rootdir = NULL;
 static GtkEntry *widget_entry = NULL;
@@ -164,6 +165,11 @@ display_file_selector(int mode,
   gint		   x_start = 0;
   gchar		  *name = NULL;
   gchar           *full_rootdir;
+  gchar           *sub_string;
+  gchar           *file_types_string = NULL;
+
+  if(file_types)
+    file_types_string = g_strdup(file_types);
 
   if(rootitem)
     return;
@@ -199,24 +205,53 @@ display_file_selector(int mode,
   gdk_pixbuf_unref(pixmap);
 
   /* Entry area */
-  widget_entry = gtk_entry_new_with_max_length (50);
+  widget_entry = (GtkEntry *)gtk_entry_new_with_max_length (50);
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_widget_get_type (),
 				"widget", GTK_WIDGET(widget_entry),
 				"x", (double) CONTROL_AREA_X1 + 10,
 				"y", (double) y_start + 30,
 				"width", 250.0,
-				"height", 20.0,
+				"height", 30.0,
 				"anchor", GTK_ANCHOR_NW,
 				"size_pixels", FALSE,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(widget_entry), "activate",
 		     GTK_SIGNAL_FUNC(entry_enter_callback),
 		     widget_entry);
-  /* Mandatory to have the keyboard keys going to our entry */
-  gtk_grab_add(GTK_OBJECT (widget_entry));
 
-  gtk_widget_show (widget_entry);
+  gtk_widget_show(GTK_WIDGET(widget_entry));
+
+  /*
+   * Create the combo with the file types 
+   * ------------------------------------
+   */
+  if(file_types_string && *file_types_string!='\0') {
+    gtk_combo_filetypes = gtk_combo_box_new_text();
+
+    /* Extract first string	*/
+    gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), (char *)strtok(file_types_string, " "));
+
+    while ( (sub_string=(char *)strtok(NULL, " ")) != NULL)
+      {
+	gtk_combo_box_append_text(GTK_COMBO_BOX(gtk_combo_filetypes), sub_string);
+      }
+
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			   gnome_canvas_widget_get_type (),
+			   "widget", GTK_WIDGET(gtk_combo_filetypes),
+			   "x", (double) CONTROL_AREA_X1 + 300,
+			   "y", (double) y_start + 30,
+			   "width", 250.0,
+			   "height", 30.0,
+			   "anchor", GTK_ANCHOR_NW,
+			   "size_pixels", FALSE,
+			   NULL);
+
+    gtk_widget_show(GTK_WIDGET(gtk_combo_filetypes));
+    gtk_combo_box_set_active(GTK_COMBO_BOX(gtk_combo_filetypes), 0);
+    g_free(file_types_string);
+  }
 
   y_start += 110;
 
@@ -517,9 +552,14 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	if(fileSelectorCallBack!=NULL) {
 	  gchar *result;
+	  gchar *file_type;
+
 	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
-	  /* FIXME: Need to grab and return the file type */
-	  fileSelectorCallBack(result, "");
+
+	  /* Need to grab and return the file type */
+	  file_type = gtk_entry_get_text (GTK_ENTRY (GTK_COMBO (gtk_combo_filetypes)->entry));
+
+	  fileSelectorCallBack(result, file_type);
 	}
 	gcompris_file_selector_stop();
       } else if(!strcmp((char *)data, "/cancel/")) {

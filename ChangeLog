@@ -1,3 +1,15 @@
+2005-01-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/dataset/mrpatate.xml: removed double entry
+	* src/boards/python/anim.py: minor, added file types to test them
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(item_event_file_selector): implemented file type combobox
+	* src/gcompris/gcompris.c: (setup_window): changed the key event by using the _after
+	from gtk_signal_connect by gtk_signal_connect_after
+	It if mandatory to implement the selector without dragging exclusively the focus like
+	it was before. It was impossible to have 2 widget without this change.
+	Please check there is no side issues.
+
 2005-01-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/click_on_letter.xml.in: fixed bad assetml reference that was making the 

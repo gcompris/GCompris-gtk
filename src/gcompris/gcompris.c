@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/12/29 23:44:18 bruno>
+ * Time-stamp: <2005/01/27 00:28:51 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -445,8 +445,8 @@ static void setup_window ()
 
   gtk_signal_connect (GTK_OBJECT (window), "delete_event",
 		      GTK_SIGNAL_FUNC (quit_cb), NULL);
-  gtk_signal_connect (GTK_OBJECT (window), "key_press_event",
-		      GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+  gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
+			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
 
   /* For non anti alias canvas */

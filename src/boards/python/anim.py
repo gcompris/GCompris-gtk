@@ -50,7 +50,7 @@ class Gcompris_anim:
     self.empty="empty"
     global fles
     fles=self
-    self.file_type = "rien"
+    self.file_type = "gcompris svg"
 
     # These are used to let us restart only after the bonux is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -2114,7 +2114,7 @@ def restore_item(item, frame):
       item.canvas_item.get_property("parent").affine_absolute(matrice)
     if len(modif) != 0:
       # Bourrin: je supprime les ancres et je les remets apres les modifs
-      # Pas envie de me faire ch*** à retraiter les resize et les move
+      # Pas envie de me faire ch*** a retraiter les resize et les move
       item.canvas_item.get_property("parent").item_list[1].destroy()
       item.canvas_item.set(**modif)
       fles.anchorize(item.canvas_item.get_property("parent"))
