@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-18 14:06+0200\n"
-"PO-Revision-Date: 2003-08-18 14:08+0200\n"
+"POT-Creation-Date: 2003-08-21 22:44+0200\n"
+"PO-Revision-Date: 2003-08-21 22:46+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Kan läsa"
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:68
+#: src/boards/colors.c:75
 msgid "Click on the right color"
 msgstr "Klicka på rätt färg"
 
@@ -280,7 +280,7 @@ msgstr "pistaschgrön"
 msgid "platinum"
 msgstr "platina"
 
-#: boards/advanced_colors/board8.xml.in.h:6
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 msgid "purple"
 msgstr "lila"
 
@@ -546,7 +546,7 @@ msgstr "Lär schack"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:3 boards/hanoi.xml.in.h:2
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
 #: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Musmanipulering"
@@ -666,7 +666,7 @@ msgstr "Tidskonceptet och tidsläsning"
 msgid "Can move the mouse."
 msgstr "Kan flytta musen."
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "Färger"
 
@@ -767,12 +767,11 @@ msgstr "Numreringsträning"
 msgid "Place the items in the best way to count them"
 msgstr "Placera föremålen så att de kan räknas på bäst sätt"
 
-#: boards/erase.xml.in.h:2 boards/fifteen.xml.in.h:2
+#: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Motorik"
 
-#: boards/erase.xml.in.h:4 boards/fifteen.xml.in.h:5 src/boards/erase.c:69
-#: src/boards/fifteen.c:56 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Flytta musen"
 
@@ -792,10 +791,18 @@ msgstr ""
 "Klicka på något objekt som har ett ledigt block bredvid honom. Det kommer "
 "att bytas ut mot det lediga blocket."
 
-#: boards/fifteen.xml.in.h:4
+#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
 msgid "Move the items one by one to reorder them in the increasing number"
 msgstr ""
 "Flytta på objekten ett och ett för att arrangera om dem i stigande ordning"
+
+#: boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr "Ursprunglig kod tagen från libgnomecanvas-demot"
+
+#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr "Femtonspelet"
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1590,27 +1597,27 @@ msgstr "Läs färger"
 msgid "This board is dedicated to read basic colors."
 msgstr "Detta bräde är avsett för läsning av grundläggande färger."
 
-#: boards/read_colors/board1.xml.in.h:1
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
 msgstr "svart"
 
-#: boards/read_colors/board1.xml.in.h:2
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 msgid "blue"
 msgstr "blå"
 
-#: boards/read_colors/board1.xml.in.h:3
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 msgid "brown"
 msgstr "brun"
 
-#: boards/read_colors/board1.xml.in.h:4
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 msgid "green"
 msgstr "grön"
 
-#: boards/read_colors/board1.xml.in.h:5
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 msgid "grey"
 msgstr "grå"
 
-#: boards/read_colors/board1.xml.in.h:6
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 msgid "orange"
 msgstr "orange"
 
@@ -1618,7 +1625,7 @@ msgstr "orange"
 msgid "pink"
 msgstr "rosa"
 
-#: boards/read_colors/board1.xml.in.h:8
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 msgid "red"
 msgstr "röd"
 
@@ -1626,11 +1633,11 @@ msgstr "röd"
 msgid "violet"
 msgstr "lila"
 
-#: boards/read_colors/board1.xml.in.h:10
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
 msgid "white"
 msgstr "vit"
 
-#: boards/read_colors/board1.xml.in.h:11
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
 msgid "yellow"
 msgstr "gul"
 
@@ -1879,7 +1886,7 @@ msgstr "Läroprogramssviten gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/boards/traffic.c:623
+#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:155
 #: src/gcompris/gameutil.c:488 src/gcompris/gameutil.c:489
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
@@ -1890,7 +1897,7 @@ msgstr "Kunde inte hitta filen %s!"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1723
+#: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -1986,10 +1993,10 @@ msgstr "Kunde inte öppna bildfilskatalogen: %s"
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
 
-# Knepigt värre
-#: src/boards/fifteen.c:57
-msgid "Move the mouse to fifteen the area and discover the background"
-msgstr "Flytta musen för att femtonspela området och upptäck bakgrunden"
+#: src/boards/colors.c:238
+#, c-format
+msgid "Click on the %s toon"
+msgstr "Klicka på färgen %s"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -2450,6 +2457,10 @@ msgstr "Tiden har gått ut"
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
 
+# Knepigt värre
+#~ msgid "Move the mouse to fifteen the area and discover the background"
+#~ msgstr "Flytta musen för att femtonspela området och upptäck bakgrunden"
+
 #~ msgid "Hindi"
 #~ msgstr "Hindi"
 
@@ -2638,9 +2649,6 @@ msgstr "Återstående tid = %d"
 
 #~ msgid "GCompris Help"
 #~ msgstr "Hjälp för GCompris"
-
-#~ msgid "The paratrooper game"
-#~ msgstr "Fallskärmsjägarspelet"
 
 #~ msgid ""
 #~ "A simple educational board based game for children starting at 3. This "
