@@ -233,22 +233,22 @@ Version: 	1.0
 %description -n assetml-flags
 Contains png 60x40 country flags and an assetml description file
 
-%package libassetml
+%package -n libassetml
 Summary:        Library assetml to share image and audio file between project
 Group: 		System/Libraries
 Version: 	%verassetml
 Requires:       libxml2 glib
 
-%description libassetml
+%description -n libassetml
 AssetML Library
 
-%package libassetml-devel
+%package -n libassetml-devel
 Summary:        Devel Library assetml to share image and audio file between project
 Group: 		System/Libraries
 Version: 	%verassetml
 Requires:       libassetml
 
-%description libassetml-devel
+%description -n libassetml-devel
 AssetML Devel Library
 
 %prep

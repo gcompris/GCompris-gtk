@@ -1,3 +1,18 @@
+2003-09-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* gcompris.spec.in: replaced gcompris-libassetml by libassetml
+
+2003-09-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: Changed release number of voice package to 0.0 when empty
+	* gcompris.spec.in: fixed the assetml-flags dependancy
+	* src/gcompris/config.c: added Polish
+
+2003-09-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: completed assetml resource file creation in spec file / Release 4.0PRE1
+	* gcompris.spec.in:  completed assetml resource file creation in spec file
+
 2003-09-15  Artur Flinta  <aflinta@cvs.gnome.org>
 
         * configure.in: Added "pl" to ALL_LINGUAS.
@@ -91,64 +106,10 @@
 	(barre_av_event), (barre_ar_event), (engine_event),
 	(air_compressor_event), (battery_charger_event), (setSpeed),
 	(setBattery), (setAir), (setRegleur), (setBallastAV),
-	(setBallastAR), (submarine_explosion): removed explotion and mine. Added display of the air
+	(setBallastAR), (submarine_explosion): removed explosion and mine. Added display of the air
 	* value in the tankers
 	* src/libassetml/assetml.h: fixed comment
 	* src/libassetml/tools/assetml-query.c: removed reference to gcompris in version display
-
-2003-08-15  Bruno coudoin  <bruno.coudoin@free.fr>
-
-	reviewed by: <delete if not using a buddy>
-
-	* Makefile.am:
-	* boards/submarine/big_explosion.png:
-	* boards/submarine/explosion.png:
-	* boards/submarine/mine.png:
-	* boards/submarine/whale.png:
-	* boards/submarine/whale_hit.png:
-	* gcompris.desktop.in:
-	* gcompris.spec.in:
-	* po/am.po:
-	* po/ar.po:
-	* po/az.po:
-	* po/ca.po:
-	* po/cs.po:
-	* po/de.po:
-	* po/el.po:
-	* po/es.po:
-	* po/fi.po:
-	* po/fr.po:
-	* po/he.po:
-	* po/hu.po:
-	* po/it.po:
-	* po/lt.po:
-	* po/mk.po:
-	* po/ml.po:
-	* po/ms.po:
-	* po/nl.po:
-	* po/no.po:
-	* po/pt.po:
-	* po/pt_BR.po:
-	* po/ro.po:
-	* po/ru.po:
-	* po/sk.po:
-	* po/sv.po:
-	* po/tr.po:
-	* src/boards/submarine.c: (pause_board), (start_board),
-	(end_board), (set_level), (is_our_board), (submarine_next_level),
-	(submarine_destroy_all_items), (submarine_create_item),
-	(update_timeout), (update_timeout_slow),
-	(update_timeout_very_slow), (game_won), (ok),
-	(ballast_av_purge_event), (ballast_ar_purge_event),
-	(regleur_purge_event), (ballast_ar_chasse_event),
-	(ballast_av_chasse_event), (regleur_chasse_event),
-	(barre_av_event), (barre_ar_event), (engine_event),
-	(air_compressor_event), (battery_charger_event), (setSpeed),
-	(setBattery), (setAir), (setRegleur), (setBallastAV),
-	(setBallastAR), (submarine_explosion):
-	* src/libassetml/.cvsignore:
-	* src/libassetml/assetml.h:
-	* src/libassetml/tools/assetml-query.c:
 
 2003-08-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
