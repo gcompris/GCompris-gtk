@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-27 03:34+0200\n"
-"PO-Revision-Date: 2003-07-27 06:59+0200\n"
+"POT-Creation-Date: 2003-08-22 20:22+0200\n"
+"PO-Revision-Date: 2003-08-23 00:12+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Kunnen lezen"
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:68
+#: src/boards/colors.c:75
 msgid "Click on the right color"
 msgstr "Klik op de juiste kleur"
 
@@ -281,7 +281,7 @@ msgstr "pistache"
 msgid "platinum"
 msgstr "platinum"
 
-#: boards/advanced_colors/board8.xml.in.h:6
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 msgid "purple"
 msgstr "paars"
 
@@ -551,7 +551,8 @@ msgstr "Leren schaken"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Omgaan met de muis"
 
@@ -679,7 +680,7 @@ msgstr "Tijdsbegrip. Kloklezen"
 msgid "Can move the mouse."
 msgstr "Kan de muis bewegen"
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "Kleuren"
 
@@ -779,8 +780,7 @@ msgstr "Zet de dingen in de beste volgorde om ze te tellen"
 msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/fifteen.c:56
-#: src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
@@ -791,6 +791,26 @@ msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Beweeg de muis tot alle blokken verdwijnen."
+
+#: boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block deside him. It will be swapped with "
+"the empty block."
+msgstr ""
+"Klik op een vakje dat een vrije buur heeft. Het zal van plaats verwisselen "
+"met het vrije vak."
+
+#: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr "Verplaats de vakjes één voor één zodat alle getallen netjes oplopen"
+
+#: boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr "Oorspronkelijke code afgekeken van een libgnomecanvas demo"
+
+#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr "Het vijftien-spel"
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1579,27 +1599,27 @@ msgstr "Kleuren lezen"
 msgid "This board is dedicated to read basic colors."
 msgstr "Dit bord wordt gebruikt om eenvoudige kleuren te lezen."
 
-#: boards/read_colors/board1.xml.in.h:1
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
 msgstr "zwart"
 
-#: boards/read_colors/board1.xml.in.h:2
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 msgid "blue"
 msgstr "blauw"
 
-#: boards/read_colors/board1.xml.in.h:3
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 msgid "brown"
 msgstr "bruin"
 
-#: boards/read_colors/board1.xml.in.h:4
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 msgid "green"
 msgstr "groen"
 
-#: boards/read_colors/board1.xml.in.h:5
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 msgid "grey"
 msgstr "grijs"
 
-#: boards/read_colors/board1.xml.in.h:6
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 msgid "orange"
 msgstr "oranje"
 
@@ -1607,7 +1627,7 @@ msgstr "oranje"
 msgid "pink"
 msgstr "roze"
 
-#: boards/read_colors/board1.xml.in.h:8
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 msgid "red"
 msgstr "rood"
 
@@ -1615,11 +1635,11 @@ msgstr "rood"
 msgid "violet"
 msgstr "violet"
 
-#: boards/read_colors/board1.xml.in.h:10
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
 msgid "white"
 msgstr "wit"
 
-#: boards/read_colors/board1.xml.in.h:11
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
 msgid "yellow"
 msgstr "geel"
 
@@ -1857,20 +1877,25 @@ msgstr "Editor voor GCompris"
 msgid "Educational game starting at 3 years old"
 msgstr "Educatief spel voor kinderen vanaf drie jaar"
 
+# vrij vertaald
+#: gcompris.desktop.in.h:2
+msgid "Educational suite gcompris"
+msgstr "Educatieve software GCompris"
+
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:450 src/gcompris/gameutil.c:451
+#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:155
+#: src/gcompris/gameutil.c:488 src/gcompris/gameutil.c:489
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:351
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:355
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1723
+#: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -1966,10 +1991,10 @@ msgstr "Kan pixmap's map niet openen: %s"
 msgid "Set the watch to:"
 msgstr "Stel de klok in op:"
 
-# dit is een rare zin om te vertalen: to fifteen the area?
-#: src/boards/fifteen.c:57
-msgid "Move the mouse to fifteen the area and discover the background"
-msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
+#: src/boards/colors.c:238
+#, c-format
+msgid "Click on the %s toon"
+msgstr "Klik op het %s plaatje"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -2084,11 +2109,11 @@ msgstr ""
 "De gegevens van dit bord zijn opgeslagen\n"
 "onder /tmp/gcompris-board.xml"
 
-#: src/boards/submarine.c:174
+#: src/boards/submarine.c:201
 msgid "Submarine"
 msgstr "Onderzeeër"
 
-#: src/boards/submarine.c:175
+#: src/boards/submarine.c:202
 msgid "Control the depth of a submarine"
 msgstr "De diepte van een onderzeeër controleren"
 
@@ -2142,7 +2167,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:170 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:171 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2189,139 +2214,144 @@ msgstr "Frans"
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
+# is dit indisch of indiaas?
 #: src/gcompris/config.c:62
+msgid "Indian"
+msgstr "Indiaas"
+
+#: src/gcompris/config.c:63
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:144
+#: src/gcompris/config.c:145
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:250
+#: src/gcompris/config.c:251
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:293
+#: src/gcompris/config.c:294
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:321
+#: src/gcompris/config.c:322
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:358
+#: src/gcompris/config.c:359
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:392 src/gcompris/config.c:699
-#: src/gcompris/config.c:710
+#: src/gcompris/config.c:393 src/gcompris/config.c:700
+#: src/gcompris/config.c:711
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
 # Beter: schermvullend?
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:65
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:75
 msgid "Prints the version of "
 msgstr "Toont de versie van"
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:77
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:331
+#: src/gcompris/gcompris.c:330
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
@@ -2419,9 +2449,9 @@ msgstr "Kon pixmapbestand niet vinden: %s!"
 
 #: src/gcompris/timer.c:237
 msgid "Time Ellapsed"
-msgstr "Verstreken Tijd"
+msgstr "Verstreken tijd"
 
 #: src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
-msgstr "Resterende Tijd = %d"
+msgstr "Resterende tijd = %d"
