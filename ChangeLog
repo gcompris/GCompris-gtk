@@ -1,3 +1,15 @@
+2004-05-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/click_on_letter.png: remade by bruno
+	* boards/gcompris/misc/phone_note.png: removed, no more used
+	* boards/images/scenery4_background.png: new background
+	* boards/images/wagon-green.png: used now by click_on_letter. Could be used by others.
+	* boards/images/wagon-yellow.png: used now by click_on_letter. Could be used by others.
+	* src/boards/click_on_letter.c: (start_board),
+	(click_on_letter_create_item), (highlight_selected): reworked to use new background
+	* src/gcompris/board.c: (board_stop): now 'esc' at upper level do not reload the menu.
+	* src/gcompris/gcompris.c: now 'esc' at upper level do not reload the menu.
+
 2004-05-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	(AFTER RELEASE 6.0)

@@ -41,8 +41,8 @@ static void		 highlight_selected(GnomeCanvasItem *);
 static void		 game_won(void);
 static void		 repeat(void);
 
-#define VERTICAL_SEPARATION 30
-#define HORIZONTAL_SEPARATION 30
+#define VERTICAL_SEPARATION 408
+#define HORIZONTAL_SEPARATION 0
 
 #define NUMBER_OF_SUBLEVELS 3
 #define NUMBER_OF_LEVELS 5
@@ -128,8 +128,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
-			      gcompris_image_to_skin("gcompris-bg.jpg"));
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery4_background.png");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;
@@ -270,7 +269,6 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 {
   int xOffset,yOffset,i,j;
   GdkPixbuf *button_pixmap = NULL;
-  GdkPixbuf *phone_note_pixmap = NULL;
   char *str[4];
   char l[4];
   int numberOfLetters = 4;
@@ -332,19 +330,10 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 	str[i] =g_strdup_printf("%c", l[i]);
   }
 
-  phone_note_pixmap = gcompris_load_pixmap("gcompris/misc/phone_note.png");
-  button_pixmap = gcompris_load_skin_pixmap("button.png");
+  button_pixmap = gcompris_load_pixmap("images/wagon-yellow.png");
 
-  yOffset = (gcomprisBoard->height - gdk_pixbuf_get_height(phone_note_pixmap) - gdk_pixbuf_get_height(button_pixmap) - 2*VERTICAL_SEPARATION) / 3;
-  phone_note_item = gnome_canvas_item_new (boardRootItem,
-				   gnome_canvas_pixbuf_get_type (),
-				   "pixbuf",  phone_note_pixmap,
-				   "x",  (double) (gcomprisBoard->width - gdk_pixbuf_get_width(phone_note_pixmap))/2,
-				   "y",  (double)  yOffset,
-				   NULL);
-
-  yOffset += gdk_pixbuf_get_height(phone_note_pixmap) + VERTICAL_SEPARATION;
-  xOffset = (gcomprisBoard->width - (numberOfLetters-1) * HORIZONTAL_SEPARATION - numberOfLetters * gdk_pixbuf_get_width(button_pixmap))/2;
+  yOffset = VERTICAL_SEPARATION;
+  xOffset = 5;
 
   button1 = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_pixbuf_get_type (),
@@ -358,9 +347,9 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   "text",  str[0],
 				   "font", gcompris_skin_font_board_huge_bold,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", 0xefef43FF,
+				   "fill_color_rgba", 0x0000ffff,
 				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
 				   NULL);
 
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
@@ -376,9 +365,9 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   "text",  str[1],
 				   "font", gcompris_skin_font_board_huge_bold,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", 0xefef43FF,
+				   "fill_color_rgba", 0x0000ffff,
 				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
 				   NULL);
 
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
@@ -394,9 +383,9 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   "text",  str[2],
 				   "font", gcompris_skin_font_board_huge_bold,
 				   "anchor", GTK_ANCHOR_CENTER,
-				   "fill_color_rgba", 0xefef43FF,
+				   "fill_color_rgba", 0x0000ffff,
 				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
 				   NULL);
 
   xOffset +=HORIZONTAL_SEPARATION +gdk_pixbuf_get_width(button_pixmap);
@@ -411,10 +400,10 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
 				   gnome_canvas_text_get_type (),
 				   "text",  str[3],
 				   "font", gcompris_skin_font_board_huge_bold,
-				   "fill_color_rgba", 0xefef43FF,
 				   "anchor", GTK_ANCHOR_CENTER,
+				   "fill_color_rgba", 0x0000ffff,
 				   "x",  (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
-				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
+				   "y",  (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2 - 5,
 				   NULL);
 
   for (i=0; i<numberOfLetters; i++) {
@@ -422,7 +411,6 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   }
 
   gdk_pixbuf_unref(button_pixmap);
-  gdk_pixbuf_unref(phone_note_pixmap);
 
   gtk_signal_connect(GTK_OBJECT(l1_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(1));
   gtk_signal_connect(GTK_OBJECT(l2_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(2));
@@ -430,9 +418,21 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   gtk_signal_connect(GTK_OBJECT(l4_item), "event", (GtkSignalFunc) item_event, GINT_TO_POINTER(4));
 
   gtk_signal_connect(GTK_OBJECT(button1), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(1));
+  gtk_signal_connect(GTK_OBJECT(button1), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
   gtk_signal_connect(GTK_OBJECT(button2), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(2));
+  gtk_signal_connect(GTK_OBJECT(button2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
   gtk_signal_connect(GTK_OBJECT(button3), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(3));
+  gtk_signal_connect(GTK_OBJECT(button3), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
   gtk_signal_connect(GTK_OBJECT(button4), "event",  (GtkSignalFunc) item_event, GINT_TO_POINTER(4));
+  gtk_signal_connect(GTK_OBJECT(button4), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
 
   gtk_signal_connect(GTK_OBJECT(phone_note_item), "event",  (GtkSignalFunc) phone_event, NULL);
   return NULL;
@@ -527,13 +527,17 @@ static void highlight_selected(GnomeCanvasItem * item) {
   }
 
   if (selected_button != NULL && selected_button != button) {
-  	button_pixmap = gcompris_load_skin_pixmap("button.png");
+  	button_pixmap = gcompris_load_pixmap("images/wagon-yellow.png");
+	/* Warning changing the image needs to update pixbuf_ref for the focus usage */
+	g_object_set_data (G_OBJECT (selected_button), "pixbuf_ref", button_pixmap);
   	gnome_canvas_item_set(selected_button, "pixbuf", button_pixmap, NULL);
   	gdk_pixbuf_unref(button_pixmap);
   }
 
   if (selected_button != button) {
-  	button_pixmap_selected = gcompris_load_skin_pixmap("button_selected.png");
+  	button_pixmap_selected = gcompris_load_pixmap("images/wagon-green.png");
+	/* Warning changing the image needs to update pixbuf_ref for the focus usage */
+	g_object_set_data (G_OBJECT (button), "pixbuf_ref", button_pixmap_selected);
   	gnome_canvas_item_set(button, "pixbuf", button_pixmap_selected, NULL);
   	selected_button = button;
   	gdk_pixbuf_unref(button_pixmap_selected);
