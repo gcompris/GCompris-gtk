@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-14 12:31+0200\n"
-"PO-Revision-Date: 2003-06-14 18:25+0200\n"
+"POT-Creation-Date: 2003-06-18 04:06+0200\n"
+"PO-Revision-Date: 2003-06-18 20:54+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -508,7 +508,7 @@ msgstr "Lock s barevnými tvary."
 msgid "Go to board based activities"
 msgstr "Jít na aktivity založené na hrací desce"
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
+#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Pracuj s plavební komorou"
 
@@ -1855,7 +1855,7 @@ msgstr "nalézt soubor %s !"
 msgid "Guess operations"
 msgstr "Uhodni operace"
 
-#: src/boards/canal_lock.c:111
+#: src/boards/canal_lock.c:114
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
 "Help Tux and understand how a canal lock works."
@@ -2351,6 +2351,10 @@ msgstr "Miloslav Trmač"
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
+
+#: src/gcompris/oggplayer.c:189
+msgid "Now Playing Music"
+msgstr "Nyní přehrávám hudbu"
 
 #: src/gcompris/soundutil.c:116
 #, c-format
