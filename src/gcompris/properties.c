@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/03/07 13:21:11 bcoudoin>
+ * Time-stamp: <2004/05/08 01:01:29 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -86,7 +86,6 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->fullscreen	= 1;
   tmp->timer		= 1;
   tmp->skin		= "default";
-  tmp->audio_output	= "";
   tmp->locale           = NULL;
 
   config_file = g_strdup_printf("%s/.gcompris",g_get_home_dir());
@@ -133,10 +132,6 @@ GcomprisProperties *gcompris_properties_new ()
 	} else if(!strcmp(value.v_identifier, "skin")) {
 	  tmp->skin = scan_get_string(scanner);
 	  if(!tmp->skin)
-	    g_warning("Config file parsing error on token %s", token);
-	} else if(!strcmp(value.v_identifier, "audio_output")) {
-	  tmp->audio_output = scan_get_string(scanner);
-	  if(!tmp->audio_output)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "locale")) {
 	  tmp->locale = scan_get_string(scanner);
@@ -225,7 +220,6 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=%d\n", "timer",		props->timer);
   
   fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
-  fprintf(filefd, "%s=\"%s\"\n", "audio_output",	props->audio_output);
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   
   fclose(filefd);

@@ -30,6 +30,11 @@ static GList	*pending_queue = NULL;
 static int	 sound_policy;
 static gboolean	 is_playing;
 
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
+
 /* mutex */
 GMutex		*lock = NULL;
 GCond		*cond = NULL;
@@ -108,7 +113,11 @@ static gpointer scheduler_bgnd (gpointer user_data)
   struct dirent *one_dirent;
 
   /* Sleep to let gcompris intialisation and intro music to complete */
+#if defined WIN32
+  sleep(20000);
+#else
   sleep(20);
+#endif
 
   /* Load the Music directory file names */
   filename = g_strdup_printf("%s", PACKAGE_DATA_DIR "/music/background");
@@ -221,22 +230,25 @@ static void* thread_play_ogg (void *s)
 	    if (g_file_test ((file), G_FILE_TEST_EXISTS))
 	      {
 		printf("trying to play %s\n", file);
-	      } else
+	      } else {
 		/* Try to find a sound file that does not need to be localized 
 		   (ie directly in root /sounds directory) */
-		{
+		g_free(file);
+		file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
+		if (g_file_test ((file), G_FILE_TEST_EXISTS)) {
+		  printf("trying to play %s\n", file);
+		} else {
 		  g_free(file);
-		  file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
-		  if (g_file_test ((file), G_FILE_TEST_EXISTS))
-		    {
-		      printf("trying to play %s\n", file);
-		    } else
-		      {
-			g_free(file);
-			g_warning("Can't find sound %s", s);
-			return NULL;
-		      }
+		  file = g_strdup_printf("%s", s);
+		  if (g_file_test ((file), G_FILE_TEST_EXISTS)) {
+		    printf("trying to play %s\n", file);
+		  } else {
+		    g_free(file);
+		    g_warning("Can't find sound %s", s);
+		    return NULL;
+		  }
 		}
+	      }
 	  }
     }
 

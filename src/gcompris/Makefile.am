@@ -40,20 +40,20 @@ INCLUDES = \
 	$(GCOMPRIS_CFLAGS) \
 	$(GNOME_INCLUDEDIR) \
 	$(XML_CFLAGS) \
+	$(SDL_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED \
-	$(gcompris_edit_cflags) $(shell sdl-config --cflags)
+	$(gcompris_edit_cflags)
 
 gcompris_SOURCES = \
 	main.c
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(python_ldflags) $(shell sdl-config --libs) -lSDL_mixer
+	-export-dynamic $(python_ldflags) $(SDL_LIBS)
 
 gcompris_LDADD = \
 	$(LIBICONV)		\
 	$(GCOMPRIS_LIBS)	\
 	$(XML_LIBS) $(INTLLIBS) \
-	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS) \
 	$(python_ldadd) \
 	$(top_builddir)/src/gcompris/libgcompris-1.la \
 	$(LIBPOPT)
@@ -75,8 +75,7 @@ gcompris_edit_LDADD = \
 	$(GCOMPRIS_LIBS) \
 	$(GCOMPRIS_EDIT_LIBS) \
 	$(XML_LIBS) $(INTLLIBS) \
-	$(top_builddir)/src/gcompris/libgcompris-1.la \
-	$(VORBISFILE_LIBS) $(VORBIS_LIBS) $(OGG_LIBS) $(AO_LIBS)
+	$(top_builddir)/src/gcompris/libgcompris-1.la
 
 #
 # Gcompris library
@@ -113,7 +112,6 @@ libgcompris_1_la_SOURCES =			\
 	properties.c \
 	bar.c \
 	images_selector.c \
-	oggplayer.c \
 	help.c \
 	pixbuf_util.c \
 	board.h board.c \

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/05/04 23:01:47 bcoudoin>
+ * Time-stamp: <2004/05/08 22:03:16 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -62,7 +62,6 @@ static int popt_cursor		  = FALSE;
 static int popt_version		  = FALSE;
 static int popt_aalias		  = FALSE;
 static int popt_difficulty_filter = FALSE;
-static gchar *popt_audio_output   = NULL;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -77,8 +76,6 @@ static struct poptOption options[] = {
    N_("run gcompris with the default gnome cursor."), NULL},
   {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
    N_("display only activities with this difficulty level."), NULL},
-  {"audio", 'A', POPT_ARG_STRING, &popt_audio_output, 0,
-   N_("select the audio output. Use '-A list' to get the list of available audio outputs"), NULL},
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
    N_("Print the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
@@ -225,10 +222,11 @@ static void init_background()
       /* First, Remove the gnome crash dialog because it locks the user when in full screen */
       signal(SIGSEGV, SIG_DFL);
 
+      /* WARNING : I add 30 here for windows. don't know why it's needed. Doesn't hurt the Linux version */
       gnome_canvas_set_scroll_region (canvas_bg,
 				      0, 0,
 				      gdk_screen_width(),
-				      gdk_screen_height());
+				      gdk_screen_height() + 30);
       
       gtk_widget_set_usize (GTK_WIDGET(canvas_bg), gdk_screen_width(), gdk_screen_height());
       
@@ -238,7 +236,7 @@ static void init_background()
 			     "x1", (double) 0,
 			     "y1", (double) 0,
 			     "x2", (double) gdk_screen_width(),
-			     "y2", (double) gdk_screen_height(),
+			     "y2", (double) gdk_screen_height() + 30,
 			     "fill_color", "black",
 			     NULL);
       
@@ -357,8 +355,6 @@ void gcompris_set_cursor(guint gdk_cursor_type)
 
 static void setup_window ()
 {
-  GtkWidget* frame;
-
   GdkPixbuf *gcompris_icon_pixbuf;
   GError *error = NULL;
 
@@ -388,7 +384,6 @@ static void setup_window ()
    * Set the main window
    * -------------------
    */
-  frame = gtk_frame_new(NULL);
 
   gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
   gtk_window_set_default_size(GTK_WINDOW(window), 250, 350);
@@ -664,22 +659,6 @@ gcompris_init (int argc, char *argv[])
     {
       g_warning("Display only activities of level %d", popt_difficulty_filter);
       properties->difficulty_filter = popt_difficulty_filter;
-    }
-
-  if (popt_audio_output)
-    {
-      if(!strcmp(popt_audio_output, "list")) {
-	
-	display_ao_devices();
-	exit(0);
-
-      } else {
-	g_warning("Selected audio output %s", popt_audio_output);
-	if(!strcmp(popt_audio_output, "default"))
-	  properties->audio_output = "";
-	else
-	  properties->audio_output = popt_audio_output;
-      }
     }
 
   poptFreeContext(pctx); 
