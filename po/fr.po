@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-09-03 20:59+0000\n"
+"POT-Creation-Date: 2002-09-05 18:25+0000\n"
 "PO-Revision-Date: 2002-08-23 00:15+0200\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -1295,6 +1295,50 @@ msgstr "Entraînement de la mémoire"
 msgid "Railroad"
 msgstr "Chemin de fer"
 
+#: boards/read_colors/board1.xml.in.h:1
+msgid "black"
+msgstr "noir"
+
+#: boards/read_colors/board1.xml.in.h:2
+msgid "blue"
+msgstr "bleu"
+
+#: boards/read_colors/board1.xml.in.h:3
+msgid "brown"
+msgstr "marron"
+
+#: boards/read_colors/board1.xml.in.h:4
+msgid "green"
+msgstr "vert"
+
+#: boards/read_colors/board1.xml.in.h:5
+msgid "grey"
+msgstr "gris"
+
+#: boards/read_colors/board1.xml.in.h:6
+msgid "orange"
+msgstr "orange"
+
+#: boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr "rose"
+
+#: boards/read_colors/board1.xml.in.h:8
+msgid "red"
+msgstr "rouge"
+
+#: boards/read_colors/board1.xml.in.h:9
+msgid "violet"
+msgstr "violet"
+
+#: boards/read_colors/board1.xml.in.h:10
+msgid "white"
+msgstr "blanc"
+
+#: boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr "jaune"
+
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
 msgstr "Vers les tableaux de lecture"
@@ -1471,17 +1515,18 @@ msgstr "Couleurs complexes"
 
 #: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
-#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
-#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
-#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
-#: src/gcompris/soundutil.c:264
+#: src/boards/read_colors.c:402 src/boards/shapegame.c:1567
+#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
+#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
+#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
+#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#: src/boards/missingletter.c:602 src/boards/read_colors.c:405
+#: src/boards/shapegame.c:1570
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -1564,6 +1609,14 @@ msgstr "Le jeu de mémoire"
 #: src/boards/railroad.c:96
 msgid "Build a train conforming to the model"
 msgstr "Construis un train correspondant au modèle"
+
+#: src/boards/read_colors.c:68
+msgid "Read Colors"
+msgstr "Lire des couleurs"
+
+#: src/boards/read_colors.c:69
+msgid "Click on the corresponding color"
+msgstr "Clique sur la bonne couleur lue"
 
 #: src/boards/reading.c:101
 msgid "Read a list of words and then tell if the given word is in it"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2002-09-03 20:59+0000\n"
+"POT-Creation-Date: 2002-09-05 18:25+0000\n"
 "PO-Revision-Date: 2002-03-30 22:34+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -1279,6 +1279,58 @@ msgstr "Memorie spel"
 msgid "Railroad"
 msgstr "Spoorweg"
 
+#: boards/read_colors/board1.xml.in.h:1
+#, fuzzy
+msgid "black"
+msgstr "terug"
+
+#: boards/read_colors/board1.xml.in.h:2
+#, fuzzy
+msgid "blue"
+msgstr "fles"
+
+#: boards/read_colors/board1.xml.in.h:3
+#, fuzzy
+msgid "brown"
+msgstr "kroon"
+
+#: boards/read_colors/board1.xml.in.h:4
+#, fuzzy
+msgid "green"
+msgstr "boom"
+
+#: boards/read_colors/board1.xml.in.h:5
+#, fuzzy
+msgid "grey"
+msgstr "rasp"
+
+#: boards/read_colors/board1.xml.in.h:6
+#, fuzzy
+msgid "orange"
+msgstr "kroon"
+
+#: boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr ""
+
+#: boards/read_colors/board1.xml.in.h:8
+#, fuzzy
+msgid "red"
+msgstr "bed"
+
+#: boards/read_colors/board1.xml.in.h:9
+#, fuzzy
+msgid "violet"
+msgstr "links"
+
+#: boards/read_colors/board1.xml.in.h:10
+msgid "white"
+msgstr ""
+
+#: boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr ""
+
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
 msgstr "Ga naar de lees-drils"
@@ -1442,17 +1494,18 @@ msgstr ""
 
 #: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
-#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
-#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
-#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
-#: src/gcompris/soundutil.c:264
+#: src/boards/read_colors.c:402 src/boards/shapegame.c:1567
+#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
+#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
+#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
+#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#: src/boards/missingletter.c:602 src/boards/read_colors.c:405
+#: src/boards/shapegame.c:1570
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s vinden !"
@@ -1531,6 +1584,16 @@ msgstr "Memorie spel"
 #: src/boards/railroad.c:96
 msgid "Build a train conforming to the model"
 msgstr "Bouw een trein zoals in het voorbeeld"
+
+#: src/boards/read_colors.c:68
+#, fuzzy
+msgid "Read Colors"
+msgstr "Kleuren"
+
+#: src/boards/read_colors.c:69
+#, fuzzy
+msgid "Click on the corresponding color"
+msgstr "Klik op de juiste kleur"
 
 #: src/boards/reading.c:101
 msgid "Read a list of words and then tell if the given word is in it"
@@ -1921,10 +1984,6 @@ msgstr ""
 #, c-format
 msgid "Remaining Time = %d"
 msgstr ""
-
-#, fuzzy
-#~ msgid "brown"
-#~ msgstr "kroon"
 
 #, fuzzy
 #~ msgid "cinabre"

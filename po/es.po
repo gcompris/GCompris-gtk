@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-09-03 20:59+0000\n"
+"POT-Creation-Date: 2002-09-05 18:25+0000\n"
 "PO-Revision-Date: 2002-04-01 18:48-0400\n"
 "Last-Translator: Robinson Maureira Castillo <r_maureira@inacap.cl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1258,6 +1258,58 @@ msgstr "Juego de memoria"
 msgid "Railroad"
 msgstr "Vía de trenes"
 
+#: boards/read_colors/board1.xml.in.h:1
+#, fuzzy
+msgid "black"
+msgstr "atrás"
+
+#: boards/read_colors/board1.xml.in.h:2
+#, fuzzy
+msgid "blue"
+msgstr "botella"
+
+#: boards/read_colors/board1.xml.in.h:3
+#, fuzzy
+msgid "brown"
+msgstr "corona"
+
+#: boards/read_colors/board1.xml.in.h:4
+#, fuzzy
+msgid "green"
+msgstr "árbol"
+
+#: boards/read_colors/board1.xml.in.h:5
+#, fuzzy
+msgid "grey"
+msgstr "zanahoria"
+
+#: boards/read_colors/board1.xml.in.h:6
+#, fuzzy
+msgid "orange"
+msgstr "corona"
+
+#: boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr ""
+
+#: boards/read_colors/board1.xml.in.h:8
+#, fuzzy
+msgid "red"
+msgstr "cama"
+
+#: boards/read_colors/board1.xml.in.h:9
+#, fuzzy
+msgid "violet"
+msgstr "izquierda"
+
+#: boards/read_colors/board1.xml.in.h:10
+msgid "white"
+msgstr ""
+
+#: boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr ""
+
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
 msgstr "Ir a los tableros de lectura"
@@ -1424,17 +1476,18 @@ msgstr ""
 
 #: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
-#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
-#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
-#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
-#: src/gcompris/soundutil.c:264
+#: src/boards/read_colors.c:402 src/boards/shapegame.c:1567
+#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
+#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
+#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
+#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "No se puede encontrar el archivo %s !"
 
 #: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#: src/boards/missingletter.c:602 src/boards/read_colors.c:405
+#: src/boards/shapegame.c:1570
 #, fuzzy, c-format
 msgid "find file %s !"
 msgstr "Encuentra el archivo %s !"
@@ -1516,6 +1569,16 @@ msgstr "Juego de memoria"
 #: src/boards/railroad.c:96
 msgid "Build a train conforming to the model"
 msgstr "Construye un tren de acuerdo al modelo"
+
+#: src/boards/read_colors.c:68
+#, fuzzy
+msgid "Read Colors"
+msgstr "Colores"
+
+#: src/boards/read_colors.c:69
+#, fuzzy
+msgid "Click on the corresponding color"
+msgstr "Apunta el color correcto"
 
 #: src/boards/reading.c:101
 msgid "Read a list of words and then tell if the given word is in it"
@@ -1908,10 +1971,6 @@ msgstr ""
 #, c-format
 msgid "Remaining Time = %d"
 msgstr ""
-
-#, fuzzy
-#~ msgid "brown"
-#~ msgstr "corona"
 
 #, fuzzy
 #~ msgid "cinabre"

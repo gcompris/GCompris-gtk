@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2002-09-03 20:59+0000\n"
+"POT-Creation-Date: 2002-09-05 18:25+0000\n"
 "PO-Revision-Date: 1980-01-04 01:58+0800\n"
 "Last-Translator: wawa <gbumla@yahoo.com>\n"
 "Language-Team:  <gabai-penyumbang@lists.sf.net>\n"
@@ -1201,6 +1201,58 @@ msgstr "Latihan memori"
 msgid "Railroad"
 msgstr "Landasan keretapi"
 
+#: boards/read_colors/board1.xml.in.h:1
+#, fuzzy
+msgid "black"
+msgstr "belakang"
+
+#: boards/read_colors/board1.xml.in.h:2
+#, fuzzy
+msgid "blue"
+msgstr "botol"
+
+#: boards/read_colors/board1.xml.in.h:3
+#, fuzzy
+msgid "brown"
+msgstr "mahkota"
+
+#: boards/read_colors/board1.xml.in.h:4
+#, fuzzy
+msgid "green"
+msgstr "pokok"
+
+#: boards/read_colors/board1.xml.in.h:5
+msgid "grey"
+msgstr ""
+
+#: boards/read_colors/board1.xml.in.h:6
+#, fuzzy
+msgid "orange"
+msgstr "Tiada"
+
+#: boards/read_colors/board1.xml.in.h:7
+msgid "pink"
+msgstr ""
+
+#: boards/read_colors/board1.xml.in.h:8
+#, fuzzy
+msgid "red"
+msgstr "Kredit"
+
+#: boards/read_colors/board1.xml.in.h:9
+#, fuzzy
+msgid "violet"
+msgstr "kiri"
+
+#: boards/read_colors/board1.xml.in.h:10
+#, fuzzy
+msgid "white"
+msgstr "Tajuk"
+
+#: boards/read_colors/board1.xml.in.h:11
+msgid "yellow"
+msgstr ""
+
 #: boards/reading.xml.in.h:1
 msgid "Go to the Reading boards"
 msgstr "Pergi ke Papan Bacaan"
@@ -1364,17 +1416,18 @@ msgstr ""
 
 #: src/boards/advanced_colors.c:520 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/shapegame.c:1567 src/gcompris/gameutil.c:83
-#: src/gcompris/gameutil.c:102 src/gcompris/gameutil.c:395
-#: src/gcompris/gameutil.c:396 src/gcompris/gcompris-edit.c:361
-#: src/gcompris/gcompris-edit.c:362 src/gcompris/images_selector.c:353
-#: src/gcompris/soundutil.c:264
+#: src/boards/read_colors.c:402 src/boards/shapegame.c:1567
+#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
+#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
+#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
+#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Tidak menjumpai fail %s!"
 
 #: src/boards/advanced_colors.c:523 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/shapegame.c:1570
+#: src/boards/missingletter.c:602 src/boards/read_colors.c:405
+#: src/boards/shapegame.c:1570
 #, c-format
 msgid "find file %s !"
 msgstr "Cari fail %s!"
@@ -1454,6 +1507,16 @@ msgstr "Permainan memori"
 #, fuzzy
 msgid "Build a train conforming to the model"
 msgstr "Bina keretapi berdasarkan kepada model"
+
+#: src/boards/read_colors.c:68
+#, fuzzy
+msgid "Read Colors"
+msgstr "Warna"
+
+#: src/boards/read_colors.c:69
+#, fuzzy
+msgid "Click on the corresponding color"
+msgstr "Klik di atas warna yang betul"
 
 #: src/boards/reading.c:101
 msgid "Read a list of words and then tell if the given word is in it"

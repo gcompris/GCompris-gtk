@@ -1,4 +1,4 @@
-SUBDIRS = advanced_colors babymatch imageid imagename missing_letter paintings scales doubleentry geography
+SUBDIRS = read_colors advanced_colors babymatch imageid imagename missing_letter paintings scales doubleentry geography
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
@@ -33,6 +33,7 @@ xml_in_files = \
 	readingh.xml.in \
 	readingv.xml.in \
 	reading.xml.in \
+	read_colors.xml.in \
 	reversecount.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \

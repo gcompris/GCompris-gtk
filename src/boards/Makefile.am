@@ -26,7 +26,8 @@ lib_LTLIBRARIES = \
 	libsmallnumbers.la \
 	libtarget.la \
 	libwordsgame.la \
-	libadvanced_colors.la
+	libadvanced_colors.la \
+	libread_colors.la
 
 libdir = $(plugindir)
 INCLUDES = \
@@ -265,6 +266,14 @@ libmastermind_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libmastermind_la_SOURCES = mastermind.c
+
+libread_colors_la_LDFLAGS = -module -avoid-version
+libread_colors_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libread_colors_la_SOURCES = read_colors.c
 
 libchess_la_LDFLAGS = -module -avoid-version
 libchess_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
