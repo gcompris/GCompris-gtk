@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/12/04 01:59:07 bruno>
+ * Time-stamp: <2001/12/06 01:20:27 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -25,6 +25,7 @@ GtkWidget *window;
 GtkWidget *drawing_area;
 GnomeCanvas *canvas;
 GnomeCanvas *canvas_bar;
+GnomeCanvas *canvas_bg;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
@@ -111,25 +112,58 @@ GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)
 static void init_background()
 {
   double xratio, yratio;
-  guint yminus = 0;
-  guint xminus = 0;
-  //  guint yminus = BARHEIGHT+30;
-  //  guint xminus = 30;
+  GtkWidget *vbox;
 
-  yratio=(gdk_screen_height()-yminus)/(float)BOARDHEIGHT;
-  xratio=(gdk_screen_width()-xminus)/(float)BOARDWIDTH;
-  //  printf("The gdk_screen_width()=%f gdk_screen_height()=%f\n", 
-  //	 (double)gdk_screen_width(), (double)gdk_screen_height());
-  //  printf("The xratio=%f yratio=%f\n", xratio, yratio);
+  yratio=gdk_screen_height()/(float)BOARDHEIGHT;
+  xratio=gdk_screen_width()/(float)BOARDWIDTH;
+    printf("The gdk_screen_width()=%f gdk_screen_height()=%f\n", 
+  	 (double)gdk_screen_width(), (double)gdk_screen_height());
+    printf("The xratio=%f yratio=%f\n", xratio, yratio);
 
   yratio=xratio=MIN(xratio, yratio);
 
   /* The canvas does not look pretty when resized above 1 ratio. Avoid that */
-  //  xratio=MIN(1.0, xratio);
+  xratio=MIN(1.0, xratio);
 
-  //  printf("Calculated x ratio xratio=%f\n", 
-  //	 xratio);
+    printf("Calculated x ratio xratio=%f\n", 
+  	 xratio);
 
+  /* Background area */
+  gnome_canvas_set_scroll_region (canvas_bg,
+				  0, 0,
+				  gdk_screen_width(),
+				  gdk_screen_height());
+
+  gtk_widget_set_usize (GTK_WIDGET(canvas_bg), gdk_screen_width(), gdk_screen_height());
+
+  /* Create a black box for the background */
+  gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
+			 gnome_canvas_rect_get_type (),
+			 "x1", (double) 0,
+			 "y1", (double) 0,
+			 "x2", (double) gdk_screen_width(),
+			 "y2", (double) gdk_screen_height(),
+			 "fill_color", "black",
+			 NULL);
+
+  /* Create a vertical box in which I put first the play board area, then the button bar */
+  vbox = gtk_vbox_new (FALSE, 0);
+  gtk_widget_show (GTK_WIDGET(vbox));
+  gtk_widget_show (GTK_WIDGET(canvas));
+  gtk_widget_show (GTK_WIDGET(canvas_bar));
+
+  gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas), TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas_bar), TRUE, TRUE, 0);
+
+  gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
+			 gnome_canvas_widget_get_type (),
+			 "widget", vbox, 
+			 "x", (double) 100,
+			 "y", (double) 100,
+			 "size_pixels", TRUE,
+			 NULL);
+
+  /* Create the drawing area */
   gnome_canvas_set_pixels_per_unit (canvas, xratio);
 
   gnome_canvas_set_scroll_region (canvas,
@@ -151,14 +185,10 @@ static void init_background()
 
 static void setup_window ()
 {
-  GtkWidget *vbox;
 
   window = gnome_app_new (PACKAGE, _("GCompris I Have Understood"));
 
-
-  gtk_widget_set_uposition (window, 0, 0);
   gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
-
 
   gtk_widget_realize (window);
 
@@ -170,6 +200,8 @@ static void setup_window ()
 
   // Full screen
   gnome_win_hints_set_layer (GTK_WIDGET (window),  WIN_LAYER_ABOVE_DOCK);
+  //  gnome_win_hints_set_state(GTK_WIDGET (window),  WIN_STATE_FIXED_POSITION);
+
 
   /*  GdkCursor *hand_cursor; */
   /*  hand_cursor = gdk_cursor_new(GDK_HAND2);
@@ -192,6 +224,7 @@ static void setup_window ()
   /* For non anti alias canvas */
   canvas     = GNOME_CANVAS(gnome_canvas_new ());
   canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
+  canvas_bg  = GNOME_CANVAS(gnome_canvas_new ());
 
   /* For anti alias canvas */
   /*
@@ -199,25 +232,18 @@ static void setup_window ()
   canvas_bar = GNOME_CANVAS(gnome_canvas_new_aa ());
   */
 
-  /* Create a vertical box in which I put first the play board area, then the button bar */
-  vbox = gtk_vbox_new (FALSE, 0);
 
-  gnome_app_set_contents (GNOME_APP (window), GTK_WIDGET(vbox));
-
-  gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas), TRUE, TRUE, 0);
-  gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas_bar), TRUE, TRUE, 0);
+  gnome_app_set_contents (GNOME_APP (window), GTK_WIDGET(canvas_bg));
 
   gtk_widget_pop_colormap ();
   gtk_widget_pop_visual ();
 
 
-  gtk_widget_show (GTK_WIDGET(vbox));
-  gtk_widget_show (GTK_WIDGET(canvas));
-  gtk_widget_show (GTK_WIDGET(canvas_bar));
+  gtk_widget_show (GTK_WIDGET(canvas_bg));
 
   gdk_window_set_decorations (window->window, 0);
   gdk_window_set_functions (window->window, 0);
-  
+  gtk_widget_set_uposition (window, 0, 0);  
 
   init_plugins();
 
@@ -348,8 +374,9 @@ void gcompris_end_board()
 
 static void quit_cb (GtkWidget *widget, gpointer data)
 {
-  if (end_board_box ())
-    return;
+  // FIXME: Should be implemented as a canvas dialog window
+  //  if (end_board_box ())
+  //    return;
 
   /*      cleanup_plugins(); */
   gcompris_properties_save(properties);
