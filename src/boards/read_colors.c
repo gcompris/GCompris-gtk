@@ -154,8 +154,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       listColors = g_list_append(listColors, item);
       list = g_list_remove(list, item);
     }
+    g_list_free(list);
 
-	  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
+    gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
     read_colors_next_level();
     pause_board(FALSE);
   }
@@ -173,6 +174,9 @@ static void end_board () {
     // free list
     while (g_list_length(listColors) > 0)
       listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+
+    g_list_free(listColors);
+    listColors = NULL;
   }
   gcomprisBoard = NULL;
 }

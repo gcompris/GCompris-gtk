@@ -1,48 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GCompris>
-  <Board 
-	 name="mrpatate"
-	 type="dataset"
-	 icon="mrpatate/mrpatate_icon.png"
-	 author="Bruno Coudoin (bruno.coudoin@free.fr)">
-	 <title>Mister Patatoe</title>
-	 <description>Mister Patatoe Image data set</description>
-  </Board>
-  <Image filename="mrpatate/barbe12.png"/>
-  <Image filename="mrpatate/barbe1.png"/>
-  <Image filename="mrpatate/body.png"/>
-  <Image filename="mrpatate/bouc1.png"/>
-  <Image filename="mrpatate/bouche1.png"/>
-  <Image filename="mrpatate/bouche2.png"/>
-  <Image filename="mrpatate/bouche3.png"/>
-  <Image filename="mrpatate/bouche4.png"/>
-  <Image filename="mrpatate/bouche9.png"/>
-  <Image filename="mrpatate/cheveux1.png"/>
-  <Image filename="mrpatate/cheveux2.png"/>
-  <Image filename="mrpatate/cheveux3.png"/>
-  <Image filename="mrpatate/cheveux4.png"/>
-  <Image filename="mrpatate/cheveux5.png"/>
-  <Image filename="mrpatate/cil1.png"/>
-  <Image filename="mrpatate/larme.png"/>
-  <Image filename="mrpatate/lunette1.png"/>
-  <Image filename="mrpatate/lunette1_sun.png"/>
-  <Image filename="mrpatate/lunette_girl.png"/>
-  <Image filename="mrpatate/lunette_girl_sun.png"/>
-  <Image filename="mrpatate/mousta1.png"/>
-  <Image filename="mrpatate/nez1.png"/>
-  <Image filename="gcompris/misc/egg.png"/>
-  <Image filename="gcompris/misc/peer.png"/>
-  <Image filename="mrpatate/noeye.png"/>
-  <Image filename="mrpatate/eyeball.png"/>
-  <Image filename="mrpatate/oeuil1.png"/>
-  <Image filename="mrpatate/oeuil2.png"/>
-  <Image filename="mrpatate/oeuil3.png"/>
-  <Image filename="mrpatate/oeuil4.png"/>
-  <Image filename="gcompris/misc/raquette.png"/>
-  <Image filename="gcompris/misc/flower.png"/>
-  <Image filename="imageid/cartable.png"/>
-  <Image filename="mrpatate/watch.png"/>
-  <Image filename="mrpatate/ear_jewell.png"/>
-  <Image filename="mrpatate/hat.png"/>
-  <Image filename="mrpatate/sherif.png"/>
-</GCompris>
+<ImageSetRoot>
+  <ImageSet filename="mrpatate/body.png">
+    <Image filename="mrpatate/barbe12.png"/>
+    <Image filename="mrpatate/barbe1.png"/>
+    <Image filename="mrpatate/body.png"/>
+    <Image filename="mrpatate/bouc1.png"/>
+    <Image filename="mrpatate/bouche1.png"/>
+    <Image filename="mrpatate/bouche2.png"/>
+    <Image filename="mrpatate/bouche3.png"/>
+    <Image filename="mrpatate/bouche4.png"/>
+    <Image filename="mrpatate/bouche9.png"/>
+    <Image filename="mrpatate/cheveux1.png"/>
+    <Image filename="mrpatate/cheveux2.png"/>
+    <Image filename="mrpatate/cheveux3.png"/>
+    <Image filename="mrpatate/cheveux4.png"/>
+    <Image filename="mrpatate/cheveux5.png"/>
+    <Image filename="mrpatate/cil1.png"/>
+    <Image filename="mrpatate/larme.png"/>
+    <Image filename="mrpatate/lunette1.png"/>
+    <Image filename="mrpatate/lunette1_sun.png"/>
+    <Image filename="mrpatate/lunette_girl.png"/>
+    <Image filename="mrpatate/lunette_girl_sun.png"/>
+    <Image filename="mrpatate/mousta1.png"/>
+    <Image filename="mrpatate/nez1.png"/>
+    <Image filename="gcompris/misc/egg.png"/>
+    <Image filename="gcompris/misc/peer.png"/>
+    <Image filename="mrpatate/noeye.png"/>
+    <Image filename="mrpatate/eyeball.png"/>
+    <Image filename="mrpatate/oeuil1.png"/>
+    <Image filename="mrpatate/oeuil2.png"/>
+    <Image filename="mrpatate/oeuil3.png"/>
+    <Image filename="mrpatate/oeuil4.png"/>
+    <Image filename="gcompris/misc/raquette.png"/>
+    <Image filename="gcompris/misc/flower.png"/>
+    <Image filename="imageid/cartable.png"/>
+    <Image filename="mrpatate/watch.png"/>
+    <Image filename="mrpatate/ear_jewell.png"/>
+    <Image filename="mrpatate/hat.png"/>
+    <Image filename="mrpatate/sherif.png"/>
+    <Image filename="gcompris/misc/tux.png"/>
+    <Image filename="gcompris/misc/parachute.png"/>
+  </ImageSet>
+  <ImageSet filename="gcompris/misc/car.png">
+    <Image filename="gcompris/misc/car.png"/>
+    <Image filename="gcompris/misc/minivan.png"/>
+    <Image filename="gcompris/misc/bicycle.png"/>
+    <Image filename="gcompris/misc/tuxboat.png"/>
+    <Image filename="gcompris/misc/fishingboat.png"/>
+    <Image filename="gcompris/misc/sailingboat.png"/>
+    <Image filename="gcompris/misc/fusee.png"/>
+    <Image filename="gcompris/misc/tuxhelico.png"/>
+    <Image filename="gcompris/misc/tuxloco.png"/>
+    <Image filename="gcompris/misc/tuxplane.png"/>
+  </ImageSet>
+  <ImageSet filename="gcompris/misc/house.png">
+    <Image filename="gcompris/misc/house.png"/>
+    <Image filename="gcompris/misc/lighthouse.png"/>
+    <Image filename="gcompris/misc/castle.png"/>
+    <Image filename="gcompris/misc/crown.png"/>
+    <Image filename="gcompris/misc/flowerpot.png"/>
+    <Image filename="gcompris/misc/eggpot.png"/>
+    <Image filename="gcompris/misc/football.png"/>
+    <Image filename="gcompris/misc/glass.png"/>
+    <Image filename="gcompris/misc/lamp.png"/>
+    <Image filename="gcompris/misc/light.png"/>
+    <Image filename="gcompris/misc/pencil.png"/>
+    <Image filename="gcompris/misc/plane.png"/>
+    <Image filename="gcompris/misc/postcard.png"/>
+    <Image filename="gcompris/misc/postpoint.png"/>
+    <Image filename="gcompris/misc/rape.png"/>
+    <Image filename="gcompris/misc/raquette.png"/>
+    <Image filename="gcompris/misc/sofa.png"/>
+  </ImageSet>
+  <ImageSet filename="gcompris/misc/apple.png">
+    <Image filename="gcompris/misc/apple.png"/>
+    <Image filename="gcompris/misc/peer.png"/>
+    <Image filename="gcompris/misc/carot.png"/>
+    <Image filename="gcompris/misc/bottle.png"/>
+    <Image filename="gcompris/misc/cerise.png"/>
+    <Image filename="gcompris/misc/cocotier.png"/>
+    <Image filename="gcompris/misc/cloud.png"/>
+    <Image filename="gcompris/misc/star.png"/>
+    <Image filename="gcompris/misc/egg.png"/>
+    <Image filename="gcompris/misc/flower.png"/>
+    <Image filename="gcompris/misc/sapin.png"/>
+    <Image filename="gcompris/misc/tree.png"/>
+    <Image filename="gcompris/misc/strawberry.png"/>
+  </ImageSet>
+</ImageSetRoot>

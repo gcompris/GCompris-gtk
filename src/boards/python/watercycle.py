@@ -13,7 +13,6 @@ class Gcompris_watercycle:
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
-    self.canvasitems = {}
     
     print("Gcompris_watercycle __init__.")
   

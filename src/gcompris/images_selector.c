@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2003/02/16 23:21:10 bruno>
+ * Time-stamp: <2003/10/20 01:23:17 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -35,12 +35,17 @@
 static gint		 item_event_images_selector(GnomeCanvasItem *item, 
 						    GdkEvent *event, 
 						    gpointer data);
+static gint		 item_event_imageset_selector(GnomeCanvasItem *item, 
+						      GdkEvent *event, 
+						      gpointer data);
 static gboolean		 read_xml_file(gchar *fname);
-static void		 display_image(gchar *imagename);
+static void		 display_image(gchar *imagename, GnomeCanvasItem *rootitem);
+static void		 free_stuff (GtkObject *obj, GList *data);
 
 static gboolean		 images_selector_displayed = FALSE;
 
 static GnomeCanvasItem	*rootitem = NULL;
+static GnomeCanvasItem	*current_root_set = NULL;
 static GnomeCanvasItem	*item_content = NULL;
 
 static ImageSelectorCallBack imageSelectorCallBack = NULL;
@@ -64,10 +69,9 @@ static ImageSelectorCallBack imageSelectorCallBack = NULL;
 #define IMAGE_WIDTH  (DRAWING_AREA_X2-DRAWING_AREA_X1)/HORIZONTAL_NUMBER_OF_IMAGE-IMAGE_GAP
 #define IMAGE_HEIGHT (DRAWING_AREA_Y2-DRAWING_AREA_Y1)/VERTICAL_NUMBER_OF_IMAGE-IMAGE_GAP
 
-static GList		*imagelist;	/* List of Images */
-
-static guint		 ix = DRAWING_AREA_X1;
-static guint		 iy = DRAWING_AREA_Y1;
+static guint		 ix  = DRAWING_AREA_X1;
+static guint		 iy  = DRAWING_AREA_Y1;
+static guint		 isy = DRAWING_AREA_Y1;
 
 /*
  * Main entry point 
@@ -125,7 +129,7 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
 
   y_start += 110;
 
-  pixmap = gcompris_load_skin_pixmap("button_large_selected.png");
+  pixmap = gcompris_load_skin_pixmap("button_large.png");
 
 
   // OK
@@ -163,14 +167,12 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   images_selector_displayed = TRUE;
 
   /* Initial image position */
-  ix = DRAWING_AREA_X1;
-  iy = DRAWING_AREA_Y1;
+  ix  = DRAWING_AREA_X1;
+  iy  = DRAWING_AREA_Y1;
+  isy = DRAWING_AREA_Y1;
 
   /* Read the given data set */
   read_xml_file(dataset);
-
-  /* Display the images */
-  g_list_foreach (imagelist, (GFunc) display_image, NULL);
 
 }
 
@@ -196,9 +198,7 @@ void gcompris_images_selector_stop ()
       gtk_object_destroy(GTK_OBJECT(rootitem));
     }
   rootitem = NULL;	  
-
-  g_list_free(imagelist);
-  imagelist=NULL;
+  current_root_set = NULL;
 
   gcompris_bar_hide(FALSE);
   images_selector_displayed = FALSE;
@@ -211,7 +211,7 @@ void gcompris_images_selector_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
-static void display_image(gchar *imagename)
+static void display_image(gchar *imagename, GnomeCanvasItem *root_item)
 {
 
   GdkPixbuf *pixmap = NULL;
@@ -221,7 +221,6 @@ static void display_image(gchar *imagename)
 
   if (imagename==NULL)
     return;
-
 
   pixmap = gcompris_load_pixmap(imagename);
 
@@ -233,7 +232,7 @@ static void display_image(gchar *imagename)
   yratio = (double) (((double)gdk_pixbuf_get_height(pixmap))/ih);
   xratio = MAX(yratio,xratio);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(root_item),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap,
 				"x", (double)ix,
@@ -258,6 +257,130 @@ static void display_image(gchar *imagename)
       ix=DRAWING_AREA_X1;
       iy+=IMAGE_HEIGHT + IMAGE_GAP;
     }
+}
+
+/*
+ * Same as display_image but for the dataset
+ * The imagelist contains the list of images to be displayed when this dataset is selected
+ */
+static void display_image_set(gchar *imagename, GList *imagelist)
+{
+
+  GdkPixbuf *pixmap = NULL;
+  GnomeCanvasItem *item;
+  GnomeCanvasItem *rootitem_set;
+  double xratio, yratio;
+  double iw, ih;
+
+  if (imagename==NULL)
+    return;
+
+  pixmap = gcompris_load_pixmap(imagename);
+
+  iw = IMAGE_WIDTH;
+  ih = IMAGE_HEIGHT;
+
+  /* Calc the max to resize width or height */
+  xratio = (double) (((double)gdk_pixbuf_get_width(pixmap))/iw);
+  yratio = (double) (((double)gdk_pixbuf_get_height(pixmap))/ih);
+  xratio = MAX(yratio,xratio);
+
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap,
+				"x", (double)20,
+				"y", (double)isy,
+				"width", (double) gdk_pixbuf_get_width(pixmap)/xratio,
+				"height", (double) gdk_pixbuf_get_height(pixmap)/xratio,
+				"width_set", TRUE, 
+				"height_set", TRUE,
+				NULL);
+  gdk_pixbuf_unref(pixmap);
+  g_object_set_data (G_OBJECT (item), "imagelist", imagelist);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_imageset_selector,
+		     imagename);
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  isy+=IMAGE_HEIGHT + IMAGE_GAP;
+
+  /* Create a root item to put the image list in it */
+  rootitem_set = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
+  g_object_set_data (G_OBJECT (item), "rootitem", rootitem_set);
+  g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (0));
+  g_signal_connect (item, "destroy",
+		    G_CALLBACK (free_stuff),
+		    imagelist);
+
+}
+
+static void
+free_stuff (GtkObject *obj, GList *list)
+{
+  while (g_list_length(list) > 0) {
+    g_free(g_list_nth_data(list,0));
+    list = g_list_remove(list, g_list_nth_data(list,0));
+  }
+  g_list_free(list);
+}
+
+
+/* Callback when an image set is selected */
+static gint
+item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
+{
+  GList *image_list;
+  GnomeCanvasItem *rootitem_set;
+  guint imageset_done;
+
+  switch (event->type) 
+    {
+    case GDK_ENTER_NOTIFY:
+      break;
+    case GDK_LEAVE_NOTIFY:
+      break;
+    case GDK_BUTTON_PRESS:
+	{
+	  /* We must display the list of images for this set */
+	  image_list = (GList *)g_object_get_data (G_OBJECT (item), "imagelist");
+	  g_return_if_fail (image_list != NULL);
+
+	  /* We must display the list of images for this set */
+	  rootitem_set = (GList *)g_object_get_data (G_OBJECT (item), "rootitem");
+	  g_return_if_fail (rootitem_set != NULL);
+
+	  imageset_done = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "imageset_done"));
+
+	  /* Hide the previous image set if any */
+	  if (current_root_set != NULL) {
+	    gnome_canvas_item_hide(current_root_set);
+	  }
+	  /* Not yet displayed this set */
+	  if(!imageset_done) {
+	    g_list_foreach (image_list, (GFunc) display_image, rootitem_set);
+	    g_object_set_data (G_OBJECT (item), "imageset_done", GINT_TO_POINTER (1));
+	  }
+
+	  gnome_canvas_item_show(rootitem_set);
+	  current_root_set = rootitem_set;
+
+	  /* Back to the initial image position */
+	  ix  = DRAWING_AREA_X1;
+	  iy  = DRAWING_AREA_Y1;
+	}
+    default:
+      break;
+    }
+  return FALSE;
+
 }
 
 /* Callback when an image is selected */
@@ -290,45 +413,52 @@ item_event_images_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 
 }
 
-/*
- * Thanks for George Lebl <jirka@5z.com> for his Genealogy example
- * for all the XML stuff there
- */
+void
+parseImage (xmlDocPtr doc, xmlNodePtr cur) {
+  gchar *imageSetName = NULL;
+  gchar *filename;
+  GList	*imageList = NULL;	/* List of Images */
 
-static void
-add_image(xmlNodePtr xmlnode, GNode * child)
-{
-  char *filename;
+  /* get the filename of this ImageSet */
+  imageSetName = xmlGetProp(cur,"filename");
 
-  if(/* if the node has no name */
-     !xmlnode->name ||
-     /* or if the name is not "Data" */
-     (g_strcasecmp(xmlnode->name,"Image")!=0)
-     )
-    return;
-  
-  /* get the filename of this data */
-  filename = xmlGetProp(xmlnode,"filename");
-
-  imagelist = g_list_append (imagelist, filename);
-  
-}
-
-/* parse the doc, add it to our internal structures and to the clist */
-static void
-parse_doc(xmlDocPtr doc)
-{
-  xmlNodePtr node;
-  
-  /* find <Shape> nodes and add them to the list, this just
-     loops through all the children of the root of the document */
-  for(node = doc->children->children; node != NULL; node = node->next) {
-    /* add the shape to the list, there are no children so
-       we pass NULL as the node of the child */
-    add_image(node,NULL);
+  cur = cur->xmlChildrenNode;
+  while (cur != NULL) {
+    if ((!xmlStrcmp(cur->name, (const xmlChar *)"Image"))) {
+      /* get the filename of this ImageSet */
+      filename = xmlGetProp(cur,"filename");
+      imageList = g_list_append (imageList, filename);
+    }
+    cur = cur->next;
   }
+
+  display_image_set(imageSetName, imageList);
+
+  return;
 }
 
+static void
+parse_doc(xmlDocPtr doc) {
+  xmlNodePtr cur;
+
+  cur = xmlDocGetRootElement(doc);	
+  if (cur == NULL) {
+    fprintf(stderr,"empty document\n");
+    xmlFreeDoc(doc);
+    return;
+  }
+  cur = cur->xmlChildrenNode;
+
+  while (cur != NULL) {
+    if ((!xmlStrcmp(cur->name, (const xmlChar *)"ImageSet"))){
+      parseImage (doc, cur);
+    }
+    
+    cur = cur->next;
+  }
+	
+  return;
+}
 
 
 /* read an xml file into our memory structures and update our view,
@@ -359,8 +489,8 @@ read_xml_file(gchar *fname)
      !doc->children ||
      /* if it doesn't have a name */
      !doc->children->name ||
-     /* if it isn't a GCompris node */
-     g_strcasecmp(doc->children->name,"GCompris")!=0) {
+     /* if it isn't the good node */
+     g_strcasecmp(doc->children->name,"ImageSetRoot")!=0) {
     xmlFreeDoc(doc);
     return FALSE;
   }
