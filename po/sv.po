@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-08-02 01:30+0200\n"
-"PO-Revision-Date: 2003-08-02 01:31+0200\n"
+"POT-Creation-Date: 2003-08-15 14:00+0200\n"
+"PO-Revision-Date: 2003-08-15 14:01+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -546,7 +546,8 @@ msgstr "Lär schack"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:3 boards/hanoi.xml.in.h:2
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Musmanipulering"
 
@@ -766,12 +767,12 @@ msgstr "Numreringsträning"
 msgid "Place the items in the best way to count them"
 msgstr "Placera föremålen så att de kan räknas på bäst sätt"
 
-#: boards/erase.xml.in.h:2
+#: boards/erase.xml.in.h:2 boards/fifteen.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Motorik"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/fifteen.c:56
-#: src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 boards/fifteen.xml.in.h:5 src/boards/erase.c:69
+#: src/boards/fifteen.c:56 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Flytta musen"
 
@@ -782,6 +783,19 @@ msgstr "Flytta musen för att radera området och upptäck bakgrunden"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Flytta musen till alla block försvinner."
+
+#: boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block deside him. It will be swapped with "
+"the empty block."
+msgstr ""
+"Klicka på något objekt som har ett ledigt block bredvid honom. Det kommer "
+"att bytas ut mot det lediga blocket."
+
+#: boards/fifteen.xml.in.h:4
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr ""
+"Flytta på objekten ett och ett för att arrangera om dem i stigande ordning"
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1859,13 +1873,17 @@ msgstr "Redigerare för gcompris"
 msgid "Educational game starting at 3 years old"
 msgstr "Lärorikt spel för barn från 3 år och uppåt"
 
+#: gcompris.desktop.in.h:2
+msgid "Educational suite gcompris"
+msgstr "Läroprogramssviten gcompris"
+
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
 #: src/boards/shapegame.c:1720 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:450 src/gcompris/gameutil.c:451
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:155
+#: src/gcompris/gameutil.c:488 src/gcompris/gameutil.c:489
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:351
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:355
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
@@ -2089,11 +2107,11 @@ msgstr ""
 "Denna brädesdata sparas under\n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/submarine.c:174
+#: src/boards/submarine.c:180
 msgid "Submarine"
 msgstr "Ubåt"
 
-#: src/boards/submarine.c:175
+#: src/boards/submarine.c:181
 msgid "Control the depth of a submarine"
 msgstr "Styr djupet på en ubåt"
 
@@ -2295,35 +2313,35 @@ msgstr "Kunde inte öppna skalkatalogen: %s"
 msgid "Skin : %s"
 msgstr "Skal: %s"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:65
 msgid "run gcompris in fullscreen mode."
 msgstr "kör gcompris i helskärmsläge."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in window mode."
 msgstr "kör gcompris i fönsterläge."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris with sound enabled."
 msgstr "kör gcompris med ljud aktiverat."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris without sound."
 msgstr "kör gcompris utan ljud."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with the default gnome cursor."
 msgstr "kör gcompris med gnomes standardmuspekare."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:75
 msgid "Prints the version of "
 msgstr "Skriver ut versionsnumret av "
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:77
 msgid "Use the antialiased canvas (slower)."
 msgstr "Använd den kantutjämnade canvasen (långsammare)."
 
-#: src/gcompris/gcompris.c:331
+#: src/gcompris/gcompris.c:330
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
@@ -2425,6 +2443,17 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid ""
+#~ "Click on any item that has a free block beside it. It will be swapped "
+#~ "with the empty block."
+#~ msgstr ""
+#~ "Klicka på något objekt som har ett ledigt block bredvid sig. Det kommer "
+#~ "att bytas ut mot det lediga blocket."
+
+#~ msgid "Move the items one by one to reorder them in increasing order"
+#~ msgstr ""
+#~ "Flytta på objekten ett och ett för att arrangera om dem i stigande ordning"
 
 #~ msgid "Move the mouse to clear the area and discover the background"
 #~ msgstr "Flytta musen för att tömma området och upptäck bakgrunden"
