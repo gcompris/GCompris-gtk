@@ -2,7 +2,7 @@
 # 
 # Time-stamp: <2001/08/20 00:54:45 bruno>
 # 
-# Copyright (C) 2003 Bruno Coudoin
+# Copyright (C) 2004 Bruno Coudoin
 # 
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -27,6 +27,19 @@ import gtk
 import gtk.gdk
 import random
 
+class Boat:
+  """The Boat Class"""
+  tb   = []
+  tv   = []
+  x    = 0
+  y    = 0
+  ang  = 0
+  # The user commands parsing
+  line = 0
+  # The boat item
+  item = []
+
+    
 class Gcompris_searace:
   """The Boat Racing activity"""
   
@@ -38,8 +51,20 @@ class Gcompris_searace:
     border_x  = 30
     self.sea_area = (border_x , 30, gcompris.BOARD_WIDTH-border_x , 350)
     self.weather   = []
-    self.current_TB = []
+
+    self.left_boat  = Boat()
+    self.right_boat = Boat()
     
+    # The boat coordinate
+    self.left_boat.x = border_x - 15
+    self.left_boat.y = 150
+    self.right_boat.x = self.left_boat.x
+    self.right_boat.y = self.left_boat.y + 30
+
+    # The basic tick for object moves
+    self.timerinc = 50
+    self.timer = 0
+
     print("Gcompris_searace __init__.")
   
 
@@ -56,7 +81,7 @@ class Gcompris_searace:
     self.kid_timer = 0
     self.tux_timer = 0
     
-    gcompris.bar_set(0)
+    gcompris.bar_set(gcompris.BAR_OK|gcompris.BAR_LEVEL)
     #    gcompris.set_background(self.gcomprisBoard.canvas.root(),
     #                            "searace/background.png")
     gcompris.bar_set_level(self.gcomprisBoard)
@@ -70,17 +95,14 @@ class Gcompris_searace:
       )
 
     self.display_sea_area()
-    self.display_weather()
     
     print("Gcompris_searace start.")
 
     
   def end(self):
     # Remove all the timer first
-    if self.kid_timer :
-      gtk.timeout_remove(self.kid_timer)
-    if self.tux_timer :
-      gtk.timeout_remove(self.tux_timer)
+    if self.timer :
+      gtk.timeout_remove(self.timer)
     
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
@@ -90,7 +112,10 @@ class Gcompris_searace:
 
   def ok(self):
     print("Gcompris_searace ok.")
-    self.current_TB.insert_at_cursor("\n")
+
+    # This is a real go
+    # We set a timer. At each tick an entry in each user box is read analysed and run
+    self.timer = gtk.timeout_add(1000, self.race_one_step)
           
 
   def repeat(self):
@@ -101,7 +126,7 @@ class Gcompris_searace:
     print("Gcompris_searace config.")
               
   def key_press(self, keyval):
-    print("got key %i" % keyval)
+    #print("got key %i" % keyval)
     return
 
   # ----------------------------------------------------------------------
@@ -188,46 +213,77 @@ class Gcompris_searace:
          width_units=1.0
         )
 
-      # The GO Button
-      w = 100.0
-      b = gtk.Button()
-      b.set_label("GO")
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-                             widget=b,
-                             x=gcompris.BOARD_WIDTH/2,
-                             y=330.0,
-                             width=w,
-                             height= 40.0,
-                             anchor=gtk.ANCHOR_N,
-                             size_pixels=gtk.FALSE);
-      b.show();
+    # Display the weather now
+    self.display_weather()
 
+    # The grid is done
+    # ----------------
+    
+    # The Programming input area LEFT
+    sw = gtk.ScrolledWindow()
+    sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
+    sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
+      
+    w = 250.0
+    h = 100.0
+    self.left_boat.tb = gtk.TextBuffer()
+    self.left_boat.tv = gtk.TextView(self.left_boat.tb)
+    sw.add(self.left_boat.tv)
+    self.left_boat.tb.set_text("forward 10")
+    self.left_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
+    self.rootitem.add(
+      gnome.canvas.CanvasWidget,
+      widget=sw,
+      x=gcompris.BOARD_WIDTH/4,
+      y=400,
+      width=w,
+      height= h,
+      anchor=gtk.ANCHOR_N,
+      size_pixels=gtk.FALSE);
+    self.left_boat.tv.show();
+    sw.show();
 
-      # The Programming input area
-      sw = gtk.ScrolledWindow()
-      sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+    # The Programming input area RIGHT
+    sw = gtk.ScrolledWindow()
+    sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)
+    sw.set_shadow_type(gtk.SHADOW_ETCHED_OUT)
+      
+    w = 250.0
+    h = 100.0
+    self.right_boat.tb = gtk.TextBuffer()
+    self.right_boat.tv = gtk.TextView(self.right_boat.tb)
+    sw.add(self.right_boat.tv)
+    self.right_boat.tb.set_text("forward 10")
+    self.right_boat.tv.set_wrap_mode(gtk.WRAP_CHAR)
+    self.rootitem.add(
+      gnome.canvas.CanvasWidget,
+      widget=sw,
+      x=(gcompris.BOARD_WIDTH/4)*3,
+      y=400,
+      width=w,
+      height= h,
+      anchor=gtk.ANCHOR_N,
+      size_pixels=gtk.FALSE);
+    self.right_boat.tv.show();
+    sw.show();
 
-      w = 250.0
-      h = 100.0
-      tb = gtk.TextBuffer()
-      self.current_TB = tb
-      tv = gtk.TextView(tb)
-      sw.add(tv)
-      tb.set_text("forward 10")
-      tv.set_wrap_mode(gtk.WRAP_CHAR)
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-                             widget=sw,
-                             x=gcompris.BOARD_WIDTH/4,
-                             y=400,
-                             width=w,
-                             height= h,
-                             anchor=gtk.ANCHOR_N,
-                             size_pixels=gtk.FALSE);
-      sw.show();
-      tv.show();
-
+    # Display the player boats
+    pixmap = gcompris.utils.load_pixmap("images/top_boat_red.png")
+    self.left_boat.item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x=self.left_boat.x,
+      y=self.left_boat.y
+      )
+      
+    pixmap = gcompris.utils.load_pixmap("images/top_boat_green.png")
+    self.right_boat.item = self.rootitem.add(
+      gnome.canvas.CanvasPixbuf,
+      pixbuf = pixmap,
+      x=self.right_boat.x,
+      y=self.right_boat.y
+      )
+      
 
   # Weather condition is a 2 value pair (angle wind_speed)
   # Weather is a list of the form:
@@ -305,4 +361,31 @@ class Gcompris_searace:
       )
     
     return
+
+  def cmd_forward(self, value):
+    print "cmd_forward " + str(value)
+
+  # Clock wise rotation
+  def cmd_turn_right(self, value):
+    print "turn right " + str(value)
   
+  # Counter Clock wise rotation
+  def cmd_turn_left(self, value):
+    print "turn left " + str(value)
+  
+  # Run the race
+  def race_one_step(self):
+
+    a = self.left_boat.tb.get_iter_at_line(self.left_boat.line)
+    b = self.left_boat.tb.get_iter_at_line(self.left_boat.line)
+    b.forward_to_line_end()
+    self.left_boat.line+=1
+    cmd = self.left_boat.tb.get_text(a, b, gtk.FALSE)
+    if( cmd.startswith("forward")):
+      self.cmd_forward(cmd.split()[1]) 
+    elif( cmd.startswith("turnleft")):
+      self.cmd_turn_left(cmd.split()[1])      
+    elif( cmd.startswith("turnright")):
+      self.cmd_turn_right(cmd.split()[1])      
+    else:
+      print "Unknown command" + cmd
