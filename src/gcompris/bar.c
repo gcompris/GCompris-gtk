@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2003/07/20 19:04:54 bcoudoin>
+ * Time-stamp: <2003/08/11 17:34:41 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002,2003 Bruno Coudoin
  *
@@ -114,7 +114,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "exit");
 
-  g_object_set_data (G_OBJECT (exit_item), "image", "button_exit.png");
   gtk_signal_connect(GTK_OBJECT(exit_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -140,7 +139,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "back");
 
-  g_object_set_data (G_OBJECT (home_item), "image", "home.png");
   gtk_signal_connect(GTK_OBJECT(home_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -166,7 +164,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "ok");
 
-  g_object_set_data (G_OBJECT (ok_item), "image", "ok.png");
   gtk_signal_connect(GTK_OBJECT(ok_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -193,7 +190,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "level");
 
-  g_object_set_data (G_OBJECT (level_item), "image", "level1.png");
   level_handler_id =   gtk_signal_connect(GTK_OBJECT(level_item), "event",
 					  (GtkSignalFunc) gcompris_item_event_focus,
 					  NULL);
@@ -218,7 +214,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "repeat");
 
-  g_object_set_data (G_OBJECT (repeat_item), "image", "repeat.png");
   gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -243,7 +238,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "help");
 
-  g_object_set_data (G_OBJECT (help_item), "image", "help.png");
   gtk_signal_connect(GTK_OBJECT(help_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -268,7 +262,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "config");
 
-  g_object_set_data (G_OBJECT (config_item), "image", "config.png");
   gtk_signal_connect(GTK_OBJECT(config_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -293,7 +286,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 		     (GtkSignalFunc) item_event_bar,
 		     "about");
 
-  g_object_set_data (G_OBJECT (about_item), "image", "about.png");
   gtk_signal_connect(GTK_OBJECT(about_item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -326,8 +318,9 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
 
       str = g_strdup_printf("level%d.png", gcomprisBoard->level);
       pixmap = gcompris_load_skin_pixmap(str);
-      g_object_set_data (G_OBJECT (level_item), "image", g_strdup(str));
       g_free(str);
+      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+      g_object_set_data (G_OBJECT (level_item), "pixbuf_ref", pixmap);
       gnome_canvas_item_set (level_item,
       			     "pixbuf", pixmap,
       			     NULL);

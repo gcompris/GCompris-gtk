@@ -1,3 +1,13 @@
+2003-08-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: added AC_HEADER_DIRENT
+	* po/POTFILES.skip: added assetml files
+	* src/boards/canal_lock.c: (move_boat), (animate_step): fixed bug and screen refresh
+	* src/gcompris/bar.c: (gcompris_bar_start),
+	(gcompris_bar_set_level): changed focus call
+	* src/gcompris/gameutil.c: (gcompris_set_image_focus),
+	(gcompris_item_event_focus): the focus api now handles the darkness issue
+
 2003-08-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added libassetml

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/07/30 01:24:27 bcoudoin>
+ * Time-stamp: <2003/08/11 16:03:33 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -237,9 +237,19 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
 {
   GdkPixbuf *dest = NULL;
   GdkPixbuf *pixbuf;
+  GdkPixbuf *pixbuf_ref;
 
   gtk_object_get (GTK_OBJECT (item), "pixbuf", &pixbuf, NULL);
   g_return_if_fail (pixbuf != NULL);
+
+  /* Store the first pixbuf */
+  pixbuf_ref = (GdkPixbuf *)g_object_get_data (G_OBJECT (item), "pixbuf_ref");
+  if(!pixbuf_ref)
+    {
+      g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixbuf);
+      pixbuf_ref = pixbuf;
+    }
+  
 
   switch (focus)
     {
@@ -251,9 +261,8 @@ void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)
 
       break;
     case FALSE:
-      dest = make_hc_pixbuf(pixbuf, -30);
       gnome_canvas_item_set (item,
-			     "pixbuf", dest,
+			     "pixbuf", pixbuf_ref,
 			     NULL);
       break;
     default:
@@ -283,25 +292,8 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
       gcompris_set_image_focus(item, TRUE);
       break;
     case GDK_LEAVE_NOTIFY:
-      {
-	GdkPixbuf   *pixmap = NULL;
-	gchar *image = g_object_get_data (G_OBJECT (item), "image");
-
-	if(image==NULL)
-	  {
-	    /* Old way => after time image is completly dark */
-	    gcompris_set_image_focus(item, FALSE);
-	  }
-	else
-	  {
-	    pixmap = gcompris_load_skin_pixmap(image);
-	    gnome_canvas_item_set (item,
-				   "pixbuf", pixmap,
-				   NULL);
-	    gdk_pixbuf_unref(pixmap);
-	  }
-	break;
-      }
+      gcompris_set_image_focus(item, FALSE);
+      break;
     default:
       break;
     }

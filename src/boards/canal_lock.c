@@ -500,6 +500,7 @@ static void move_boat()
     {
       /* No possible move */
       gcompris_play_ogg ("crash", NULL);
+      animation = FALSE;
       return;
     }
 
@@ -653,7 +654,6 @@ static gboolean animate_step()
       timer_id = 0;
       animation = FALSE;
       update_water();
-      gnome_canvas_update_now(gcomprisBoard->canvas);
     }
   else if((timer_item_x1 >= timer_item_limit_x && timer_step_x1 > 0) ||
      (timer_item_x1 <= timer_item_limit_x && timer_step_x1 < 0))
@@ -662,8 +662,9 @@ static gboolean animate_step()
       timer_id = 0;
       animation = FALSE;
       update_water();
-      gnome_canvas_update_now(gcomprisBoard->canvas);
     }
+
+  gnome_canvas_update_now(gcomprisBoard->canvas);
 
   return TRUE;
 }
