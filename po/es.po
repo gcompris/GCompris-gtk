@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-21 18:34+0100\n"
-"PO-Revision-Date: 2003-12-21 18:38+0100\n"
+"POT-Creation-Date: 2003-12-27 19:13+0100\n"
+"PO-Revision-Date: 2003-12-27 19:18+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -778,10 +778,6 @@ msgstr "Entrenamiento de numeración"
 msgid "Place the items in the best way to count them"
 msgstr "Coloca los elementos de la mejor forma para luego contarlos"
 
-#: boards/experience.xml.in.h:1
-msgid "Go to experiences activities"
-msgstr "Ir a las actividades de experiencias"
-
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Coordinación motriz"
@@ -797,6 +793,10 @@ msgstr "Mueve el ratón para aclarar la zona y descubre el dibujo escondido"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Mueve el ratón hasta que todos los bloques desparezcan."
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Ir a las actividades de experiencias"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
@@ -1164,7 +1164,7 @@ msgstr ""
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Puedes usar las flechas del teclado para mover un objeto."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:127
+#: boards/maze.xml.in.h:2 src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "Encuentra tu salida del laberinto"
 
@@ -1172,7 +1172,7 @@ msgstr "Encuentra tu salida del laberinto"
 msgid "Help Tux get out of this maze."
 msgstr "Ayuda a Tux a salir de este laberinto."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:126
+#: boards/maze.xml.in.h:4 src/boards/maze.c:127
 msgid "Maze"
 msgstr "Laberinto"
 
@@ -1191,10 +1191,17 @@ msgstr "Encuentra tu salida del laberinto 3D"
 #: boards/maze3D.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode"
-msgstr ""
-"Utiliza las flechas del teclado para mover a Tux hacia la puerta. Utiliza la "
-"tecla «espacio» para cambiar entre los modos 2D y 3D"
+"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
+"position like a map. You cannot move tux in 2D mode."
+msgstr "Utiliza las flechas del teclado para mover a Tux hacia la puerta. Utiliza la tecla «espacio» para cambiar entre los modos 2D y 3D. el modo 2D te da una indicación de tu posición como en un mapa. No puedes mover a tux en modo 2D."
+
+#: boards/melody.xml.in.h:1
+msgid "Ear training activity"
+msgstr "Actividad de entrenamiento del oído"
+
+#: boards/melody.xml.in.h:2
+msgid "Repeat a melody"
+msgstr "Repetir una melodía"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1460,7 +1467,9 @@ msgstr "Practica de uso del dinero"
 msgid ""
 "You must buy the different items and give the exact price. At higher level, "
 "several items are displayed, you must first calculate the total price."
-msgstr "Debe comprar los elementos diferentes y dar el precio justo. en los niveles más altos se muestran varios elementos, debes calcular el precio total."
+msgstr ""
+"Debe comprar los elementos diferentes y dar el precio justo. en los niveles "
+"más altos se muestran varios elementos, debes calcular el precio total."
 
 #: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
@@ -1722,18 +1731,24 @@ msgstr ""
 "En cada nivel, un dibujo se muestra en el área derecha. Debes dibujarlo en "
 "el área izquierda."
 
-#: boards/redraw.xml.in.h:2
+#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First you must select the proper tool in the tool bar. Then, you must drag "
 "the mouse to create objects. When you are done, click on the OK button, you "
 "will be told were the errors are with little red cross. The order of objects "
 "(above/under) is not important but take care not to have unwanted object "
 "under others."
-msgstr ""
+msgstr "Primero debes seleccionear la hettamienta apropiada en la barra de herramientas. Después debes arrastrar el ratón para crear objetos. Cuando lo haya hecho, pulse sobre el botón Aceptar. Se le dirán los errores con una crucecita roja. El orden de los objetos no es importante pero ten en cuenta que no debe tener un objeto no necesitado debajo de otros."
 
-#: boards/redraw.xml.in.h:3
+#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Redibujar el ememento dado"
+
+#: boards/redraw_symmetrical.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw its "
+"symmetry in the left area."
+msgstr "En cada nivel, un dibujo se muestra en el área derecha. Debes dibujar su simétrico en el área izquierda."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1928,7 +1943,10 @@ msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
 "cleanup station in order to reactivate the whole water system. When done and "
 "Tux is in his shower, push the shower button for him."
-msgstr "Pulsa en los elementos activos diferentes: sol, nubes, estación de bombeo de agua, depuradora en orden para reactivar todo el sistema de aguas. Cuando lo hayas hecho y Tux esté en la ducha, pulsa el botón de ducha para que se lave."
+msgstr ""
+"Pulsa en los elementos activos diferentes: sol, nubes, estación de bombeo de "
+"agua, depuradora en orden para reactivar todo el sistema de aguas. Cuando lo "
+"hayas hecho y Tux esté en la ducha, pulsa el botón de ducha para que se lave."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
@@ -1938,7 +1956,9 @@ msgstr "Aprender el ciclo del agua"
 msgid ""
 "You have to bring back the water system up. Tux comes from a long fishing "
 "party on his boat. Help him to have a shower."
-msgstr "Tienes que reactivar el sistema de aguas. Tux viene de pescar en su barco. Ayúdale a ducharse."
+msgstr ""
+"Tienes que reactivar el sistema de aguas. Tux viene de pescar en su barco. "
+"Ayúdale a ducharse."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
@@ -2115,6 +2135,10 @@ msgstr "derecha"
 msgid "Move the mouse to machpuzzle the area and discover the background"
 msgstr "Mueve el ratón para hacer coincidir la zona y descubrir el fondo"
 
+#: src/boards/maze.c:446
+msgid "Look at your position and switch back to 3D mode to move"
+msgstr "Mira a tu posición y vuelva a modo 3D para moverse."
+
 #: src/boards/memory.c:227
 msgid "Memory"
 msgstr "Memoria"
@@ -2164,6 +2188,8 @@ msgstr "Tablero especial que incrusta a python dentro de gcompris."
 #. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #.
 #. PythonTest Board module
+#. These are used to let us restart only after the bonux is displayed.
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
 #. TOOL SELECTION
 #. COLOR SELECTION
 #. Define the coord of each drawing area
@@ -2179,11 +2205,13 @@ msgstr "Tablero especial que incrusta a python dentro de gcompris."
 #. only have to kill it. The canvas deletes all the items it contains automaticaly.
 #. Remove the root item removes all the others inside it
 #. Delete error previous mark if any
-#. Do nothing special
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+#. the game is won
 #. Save a copy of the target drawing future comparison
 #. Save a copy of the drawing cause we need to remove empty items
 #. Remove all empty items
 #. Need to check if target image equals drawing image
+#. This is a WIN
 #. Delete previous mark if any
 #. Create our rootitem for error items mark
 #. display where there is errors
@@ -2205,7 +2233,7 @@ msgstr "Tablero especial que incrusta a python dentro de gcompris."
 #. Try the next level
 #. the current board is finished : bail out
 #. display current/sublevel number
-#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Nivel"
 
@@ -2227,7 +2255,17 @@ msgstr "Nivel"
 #. Work fine for rect and ellipse but not line
 #. so that y2 > y1 and x2 > x1
 #.
+#.
+#. Take a drawing and return a symmetrical one
+#.
+#. Make a deepcopy of the list
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
 #. Draw the image target
+#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+#.
 #. Save the drawing in image_target for future comparison
 #. Create our rootitem for target items
 #. The images target are always drawn on the drawing area to ease the final comparison
@@ -2274,7 +2312,7 @@ msgstr "Nivel"
 #. 2 = in target area
 #. 3 = out of both area
 #.
-#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coordenada"
 
