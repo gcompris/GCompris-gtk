@@ -49,7 +49,7 @@ static void destroy_board();
  * 1evel 3 : 4 numbers and 3 operations
  * 1evel 4 : 5 numbers and 4 operations
  */
-#define NUMBER_OF_SUBLEVELS 2
+#define NUMBER_OF_SUBLEVELS 3
 #define NUMBER_OF_LEVELS 4
 #define MAX_NUMBER 5
 
@@ -275,7 +275,7 @@ static void algebra_guesscount_destroy_all_items() {
 static int token_result() {
 	int result, i;
 
-	if (token_count == 0)
+	if (token_count < 2)
 		return NO_RESULT;
 
 	assert(ptr_token_selected[0]->isNumber);
@@ -287,11 +287,15 @@ static int token_result() {
 		switch (ptr_token_selected[i-1]->oper) {
 			case '+' : 	result += num_values[ptr_token_selected[i]->num];
 									break;
-			case '-' : 	result -= num_values[ptr_token_selected[i]->num];// printf(" - %d\n",num_values[token_value[i].num]);
+			case '-' :		if (result - num_values[ptr_token_selected[i]->num] < 0)
+										return NO_RESULT;
+									result -= num_values[ptr_token_selected[i]->num];
 									break;
 			case 'x' : 	result *= num_values[ptr_token_selected[i]->num];
 									break;
-			case ':' : 	result /= num_values[ptr_token_selected[i]->num];
+			case ':' :		if (result%num_values[ptr_token_selected[i]->num] != 0)
+										return NO_RESULT;
+									result /= num_values[ptr_token_selected[i]->num];
 									break;
 			default : printf("bug in token_result()\n"); break;
 		}
@@ -602,11 +606,18 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 			} else { // the item is at its original place
 				if (token_count % 2 == 1 || token_count > 2*gcomprisBoard->level+1)
 					return FALSE;
-				item_absolute_move(item, x_token_offset[token_count], y_token_offset[token_count]);
-				t->isMoved = TRUE;
-				ptr_token_selected[token_count] = t;
 				token_count++;
-				// update result text items
+				ptr_token_selected[token_count-1] = t;
+				// some operations are illegal A - B must be > 0 and A/B an integer
+				if (token_result() == NO_RESULT && token_count != 1) {
+					token_count--;
+					return FALSE;
+					}
+
+				item_absolute_move(item, x_token_offset[token_count-1], y_token_offset[token_count-1]);
+				t->isMoved = TRUE;
+
+		// update result text items
 				if (token_count != 1 && token_count % 2 == 1) {
 					sprintf(str,"%d",token_result());
 					printf("token_result = %s\n", str);
