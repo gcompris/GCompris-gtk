@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/gcompris/gcompris.c)
-AM_INIT_AUTOMAKE(gcompris, 4.0)
+AM_INIT_AUTOMAKE(gcompris, 4.1)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -114,7 +114,7 @@ dnl Tests for the python plugin
 PYTHON_CFLAGS=
 PYTHON_LIBS=
 dnl By default, dont build python until we have something usefull to show
-PYTHON_PATH=no
+PYTHON_PATH=yes
 build_python_plugin=yes
 AC_ARG_WITH(python,
   AC_HELP_STRING(
@@ -197,7 +197,7 @@ else
   PKG_CHECK_MODULES(PYGTK, pygtk-2.0 gnome-python-2.0)	
   AC_SUBST(PYGTK_CFLAGS)
   AC_SUBST(PYGTK_LIBS)
-  REQUIRE_PYHTON="python gnome-python gnome-python-canvas pygtk2.0"
+  REQUIRE_PYTHON="python gnome-python gnome-python-canvas pygtk2.0"
 fi
 
 AC_SUBST(REQUIRE_PYTHON)

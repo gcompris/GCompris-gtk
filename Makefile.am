@@ -22,8 +22,7 @@ EXTRA_DIST = \
 	gcompris.spec \
 	intltool-extract.in \
 	intltool-merge.in \
-	intltool-update.in \
-	po-checktrans.py po-checktrans
+	intltool-update.in
 
 distcore = $(PACKAGE)-core-$(VERSION)
 
@@ -31,7 +30,7 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@; \
-	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "Makefile.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics --exclude "*.assetml" * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
+	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics --exclude "*.assetml" * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	fi
 
 dist-hook:
@@ -58,11 +57,7 @@ dist-core:
 	gzip --best $(distcore).tar
 	@echo Created $(distcore).tar.gz
 
-# Display stats on translation
-core-translation-report: po-checktrans.py po-checktrans
-	-([ -f po/gcompris.pot ] && cd $(srcdir) && ./po-checktrans po/gcompris.pot po/*.po)
-
-all-local: core-translation-report
+all-local: 
 
 
 ACLOCAL_AMFLAGS = 
