@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-28 11:37+0200\n"
-"PO-Revision-Date: 2003-09-28 21:54+0200\n"
+"POT-Creation-Date: 2003-10-23 19:30+0200\n"
+"PO-Revision-Date: 2003-10-24 04:34+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -780,11 +780,11 @@ msgstr "Zet de dingen in de beste volgorde om ze te tellen"
 msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5 src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
@@ -1709,7 +1709,7 @@ msgstr ""
 "muisknop tel je af. Controleer je keuze door op OK te klikken, of door de "
 "Enter toets in te drukken."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice the substraction with a funny game"
 msgstr "Oefenen met aftrekken met een leuk spel"
 
@@ -1883,6 +1883,29 @@ msgstr "Typ de woorden vooraleer ze de grond raken"
 msgid "Keyboard training"
 msgstr "Toetsenbordtraining"
 
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system. When done and "
+"Tux is in his shower, push the shower button for him."
+msgstr ""
+"Klik op de verschillende actieve elementen: zon, wolk, waterpomp, "
+"waterzuivering om de watervoorziening op gang te krijgen. Als je klaar bent "
+"en Tux in de douche staat, kun je voor hem op de douchknop drukken."
+
+# watervoorziening beter?
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr "De waterkringloop verkennen"
+
+#: boards/watercycle.xml.in.h:3
+msgid ""
+"You have to bring back the water system up. Tux comes from a long fishing "
+"party on his boat. Help him to have a shower."
+msgstr ""
+"Je moet proberen de watervoorziening te herstellen. Tux komt terug van een "
+"lange vis-reist op zijn boot. Help hem een douche te krijgen."
+
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
 msgstr "Editor voor GCompris"
@@ -1896,19 +1919,19 @@ msgstr "Educatief spel voor kinderen vanaf drie jaar"
 msgid "Educational suite gcompris"
 msgstr "Educatieve software GCompris"
 
-#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
-#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
+#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
@@ -2025,7 +2048,7 @@ msgstr "Kan pixmap's map niet openen: %s"
 msgid "Set the watch to:"
 msgstr "Stel de klok in op:"
 
-#: src/boards/colors.c:210
+#: src/boards/colors.c:216
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Klik op het %s plaatje"
@@ -2074,11 +2097,11 @@ msgstr "Python-bord"
 msgid "Special board that embed python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
 
-#: src/boards/railroad.c:95
+#: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Geheugenspel"
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
 msgstr "Bouw een trein zoals in het voorbeeld"
 
@@ -2114,7 +2137,7 @@ msgstr "Ja, ik heb het gezien"
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
-#: src/boards/reversecount.c:136
+#: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr "Omgekeerd tellen"
 
@@ -2201,8 +2224,8 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
-#: src/gcompris/images_selector.c:148
+#: src/gcompris/about.c:287 src/gcompris/config.c:178 src/gcompris/help.c:341
+#: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
@@ -2318,102 +2341,110 @@ msgid "Slovak"
 msgstr "Slowaaks"
 
 #: src/gcompris/config.c:79
+msgid "Slovenian"
+msgstr "Sloveens"
+
+#: src/gcompris/config.c:80
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:151
+#: src/gcompris/config.c:152
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:257
+#: src/gcompris/config.c:258
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:300
+#: src/gcompris/config.c:301
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:328
+#: src/gcompris/config.c:329
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:365
+#: src/gcompris/config.c:366
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:399 src/gcompris/config.c:705
-#: src/gcompris/config.c:716
+#: src/gcompris/config.c:400 src/gcompris/config.c:706
+#: src/gcompris/config.c:717
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
 # Beter: schermvullend?
-#: src/gcompris/gcompris.c:65
+#: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:76
+msgid "display only activities with this difficulty level."
+msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
+
+#: src/gcompris/gcompris.c:78
 msgid "Prints the version of "
 msgstr "Toont de versie van"
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:80
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:330
+#: src/gcompris/gcompris.c:350
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:544
+#: src/gcompris/gcompris.c:567
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2474,7 +2505,7 @@ msgstr "Auteur"
 msgid "Directory"
 msgstr "Map"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
 msgid "Title"
 msgstr "Titel"
 
@@ -2491,11 +2522,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
 
-#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
+#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
 msgid "Now Playing Music"
 msgstr "Muziek wordt nu afgespeeld"
 
-#: src/gcompris/oggplayer.c:245
+#: src/gcompris/oggplayer.c:248
 msgid "Artist"
 msgstr "Artiest"
 
