@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-12 03:38+0200\n"
-"PO-Revision-Date: 2004-05-12 13:25+0200\n"
+"POT-Creation-Date: 2004-05-27 03:32+0200\n"
+"PO-Revision-Date: 2004-05-27 13:59+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2087,8 +2087,8 @@ msgstr "Naučná sada gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:470 src/gcompris/gameutil.c:471
-#: src/gcompris/gcompris.c:368 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:475 src/gcompris/gameutil.c:476
+#: src/gcompris/gcompris.c:392 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2253,11 +2253,11 @@ msgstr "Paměť"
 msgid "Find the matching pair"
 msgstr "Najdi odpovídající si pár"
 
-#: src/boards/menu.c:79
+#: src/boards/menu.c:80
 msgid "Main Menu"
 msgstr "Hlavní menu"
 
-#: src/boards/menu.c:80
+#: src/boards/menu.c:81
 msgid "Select a Board"
 msgstr "Vyber si desku"
 
@@ -2431,7 +2431,7 @@ msgstr "Vzdálenost k cíli = %d metrů"
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Napiš padající slova, než se dotknou země"
 
-#: src/gcompris/about.c:60
+#: src/gcompris/about.c:65
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -2446,33 +2446,33 @@ msgstr ""
 "Hudba na pozadí: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+#: src/gcompris/about.c:73 src/gcompris/interface.c:484
 msgid "translator_credits"
 msgstr "Miloslav Trmač"
 
-#: src/gcompris/about.c:100
+#: src/gcompris/about.c:105
 msgid "About GCompris"
 msgstr "O GCompris"
 
-#: src/gcompris/about.c:110
+#: src/gcompris/about.c:115
 msgid "Translators:"
 msgstr "Překladatelé:"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:230
 msgid "GCompris Home Page"
 msgstr "Domovská stránka GCompris"
 
-#: src/gcompris/about.c:247
+#: src/gcompris/about.c:252
 msgid ""
 "This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "Tento software je balík GNU a je uvolněn za podmínek GNU Public Licence"
 
-#: src/gcompris/about.c:275
+#: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
+#: src/gcompris/about.c:316 src/gcompris/config.c:187 src/gcompris/help.c:367
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2482,198 +2482,198 @@ msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Dynamické načítání modulů není podporováno. gcompris se nemůže spustit.\n"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:57
 msgid "Your system default"
 msgstr "Implicitní nastavení vašeho systému"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:58
 msgid "Amharic"
 msgstr "Amharic"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:59
 msgid "Arabic"
 msgstr "Arabština"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:60
 msgid "Azerbaijani Turkic"
 msgstr "Ázerbájdžánská turečtina"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:61
 msgid "Catalan"
 msgstr "Katalánština"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:62
 msgid "Czech"
 msgstr "Čeština"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:63
 msgid "German"
 msgstr "Němčina"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:64
 msgid "Greek"
 msgstr "Řečtina"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:65
 msgid "American English"
 msgstr "Americká angličtina"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:66
 msgid "Great Britain English"
 msgstr "Britská angličtina"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:67
 msgid "Canadian English"
 msgstr "Kanadská angličtina"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:68
 msgid "Spanish"
 msgstr "Španělština"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:69
 msgid "Finnish"
 msgstr "Finština"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:70
 msgid "French"
 msgstr "Francouzština"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:71
 msgid "Hebrew"
 msgstr "Hebrejština"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:72
 msgid "Indian"
 msgstr "Hindština"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:73
 msgid "Hungarian"
 msgstr "Maďarština"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:74
 msgid "Croatian"
 msgstr "Chorvatština"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:75
 msgid "Italian"
 msgstr "Italština"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:77
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:78
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:79
 msgid "Malay"
 msgstr "Malajština"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:80
 msgid "Dutch"
 msgstr "Holandština"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:81
 msgid "Norwegian"
 msgstr "Norština"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:82
 msgid "Polish"
 msgstr "Polština"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:83
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:84
 msgid "Brazil Portuguese"
 msgstr "Brazilská portugalština"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:85
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:86
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:87
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:88
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:89
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:90
 msgid "Serbian"
 msgstr "Srbština"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:91
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:92
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:97
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:98
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:99
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:100
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:105
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:156
+#: src/gcompris/config.c:161
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:265
+#: src/gcompris/config.c:270
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:308
+#: src/gcompris/config.c:313
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:336
+#: src/gcompris/config.c:341
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:375
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:391
+#: src/gcompris/config.c:396
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "V %s nenalezen skin\n"
 
-#: src/gcompris/config.c:406 src/gcompris/config.c:729
-#: src/gcompris/config.c:740
+#: src/gcompris/config.c:411 src/gcompris/config.c:746
+#: src/gcompris/config.c:757
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2694,39 +2694,51 @@ msgstr ""
 "Ukončete ji a nahlaste\n"
 "problém autorům"
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris in fullscreen mode."
 msgstr "spustit gcompris v režimu přes celou obrazovku."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris in window mode."
 msgstr "spustit gcompris v režimu okna."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:77
 msgid "run gcompris with sound enabled."
 msgstr "spustit gcompris s povolenými zvuky."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:79
 msgid "run gcompris without sound."
 msgstr "spustit gcompris bez zvuku."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:81
 msgid "run gcompris with the default gnome cursor."
 msgstr "spustit gcompris s implicitním kurzorem gnome."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:83
 msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:85
 msgid "Print the version of "
 msgstr "Vytiskne verzi "
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:87
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:616
+#: src/gcompris/gcompris.c:491
+msgid ""
+"This is a Demo version of gcompris,\n"
+"only 12 on 45 activities are available.\n"
+"To get the full version,\n"
+"go to http://ofset.sf.net/gcompris/order.html"
+msgstr ""
+"Toto je demoverze gcompris,\n"
+"k dispozici je jen 12 z 45 aktivit.\n"
+"Pro získání plné verze navštivte\n"
+"http://ofset.sf.net/gcompris/order.html"
+
+#: src/gcompris/gcompris.c:663
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2739,19 +2751,19 @@ msgstr ""
 "Licence: GPL\n"
 "Více informací na http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:174 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Předpoklad"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:208 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Cíl"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:242 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuál"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:276 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Kredity"
 
@@ -2797,16 +2809,16 @@ msgstr "Uvolněno pod podmínkami GPL"
 
 #. Prepare our log
 #. The default format for time represenation.  See strftime(3)
-#: src/gcompris/log.c:144
+#: src/gcompris/log.c:157
 msgid "%a %b %d %H:%M:%S %Z %Y"
 msgstr "%a %d. %b %Y, %H:%M:%S %Z"
 
-#: src/gcompris/soundutil.c:128
+#: src/gcompris/soundutil.c:141
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Nemohu otevřít adresář hudby: %s"
 
-#: src/gcompris/soundutil.c:170
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
