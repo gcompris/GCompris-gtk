@@ -1,3 +1,32 @@
+2004-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	many icons remade by Franck Doucet
+	
+	* boards/boardicons/babymatch.png: 
+	* boards/boardicons/babyshapes.png:
+	* boards/boardicons/chronos.png:
+	* boards/boardicons/maze3D.png:
+	* boards/boardicons/reversecount.png:
+	* boards/chronos/board3_0.xml.in:
+	* boards/chronos/board3_1.xml.in:
+	* boards/chronos/board3_2.xml.in:
+	* boards/chronos/board3_3.xml.in:
+	* boards/chronos/board3_4.xml.in:
+	* boards/chronos/images/Eole.png:
+	* boards/chronos/images/README:
+	* boards/chronos/images/celerifere.png:
+	* boards/chronos/images/fardier.png:
+	* boards/chronos/images/helico_cornu.png:
+	* boards/chronos/images/mongolfiere.png:
+	* boards/chronos/images/st_rocket.png:
+	* boards/chronos/images/viking_boat.png:
+	* boards/reversecount/dice_area.jpg:
+	* boards/reversecount/dice_area.png:
+	* boards/reversecount/iceblock.png:
+	* po/fr.po:
+	* src/boards/reversecount.c: (reversecount_create_item): replaced an image to png
+	* src/gcompris/soundutil.c: (scheduler_bgnd): fixed COPYRIHT reading as ogg file issue
+
 2004-10-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	added a white border to T_* files in order to let them play nice in
