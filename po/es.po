@@ -1,17 +1,19 @@
+# translation of es.po to Spanish
 # translation of gcompris.HEADto Spanish
 # Copyright © 2000-2003 the Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
 # Zohra Coudoin <zohra.coudoin@free.fr>, 2000.
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2003.
 # Francisco Javier F. Serrador <serrador@arrakis.es>, 2003.
+# Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris.HEAD\n"
+"Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-24 21:32+0100\n"
-"PO-Revision-Date: 2004-01-24 21:34+0100\n"
-"Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
+"POT-Creation-Date: 2004-01-26 01:48+0100\n"
+"PO-Revision-Date: 2004-01-26 01:49+0100\n"
+"Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -371,8 +373,7 @@ msgstr ""
 "para incluir sus fotografías. Muchas gracias Ralf"
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Desarrolla una estrategia para resolver un conjunto de operaciones "
 "aritméticas para encontrar un valor"
@@ -383,8 +384,7 @@ msgstr "Encuentra las operaciones correctas para obtener el resultado"
 
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr ""
-"La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
+msgstr "La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
 
 #: boards/algebra_guesscount.xml.in.h:5
 msgid ""
@@ -574,7 +574,10 @@ msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
 "can hear again the letter by clicking on the mouth icon in the bottom "
 "horizontal frame."
-msgstr "Se pronuncia una letra. Pulse sobre la letra correspondiente en el área principal. Puede oír nuevamente la letra pulsando sobre el icono con la boca en marco horizontal inferior."
+msgstr ""
+"Se pronuncia una letra. Pulse sobre la letra correspondiente en el área "
+"principal. Puede oír nuevamente la letra pulsando sobre el icono con la boca "
+"en marco horizontal inferior."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -865,8 +868,7 @@ msgstr "Arrastra y suelta la pieza superior sólo sobre una posición vacía"
 
 #: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
-msgstr ""
-"Reproduce en el área vacía la misma torre que se encuentra hacia la derecha"
+msgstr "Reproduce en el área vacía la misma torre que se encuentra hacia la derecha"
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
@@ -1200,6 +1202,10 @@ msgid "Ear training activity"
 msgstr "Actividad de entrenamiento del oído"
 
 #: boards/melody.xml.in.h:2
+msgid "Melody"
+msgstr "Melodía"
+
+#: boards/melody.xml.in.h:3
 msgid "Repeat a melody"
 msgstr "Repetir una melodía"
 
@@ -1559,8 +1565,7 @@ msgid "Paratrooper"
 msgstr "Paracaidista"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 "Este tablero es un juego. No necesita conocimientos específicos para poder "
 "jugar."
@@ -1598,10 +1603,8 @@ msgid "Test board for the python plugin"
 msgstr "Tablero de prueba para la extensión de Python"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr ""
-"¡Gracias a Guido van Rossum y al equipo de python por este poderoso lenguaje!"
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr "¡Gracias a Guido van Rossum y al equipo de python por este poderoso lenguaje!"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -1706,8 +1709,7 @@ msgstr "Ejercicio de lectura horizontal"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of word and tell if the given word is in it"
-msgstr ""
-"Lee una lista de palabras y busca si la palabra propuesta esta en la lista"
+msgstr "Lee una lista de palabras y busca si la palabra propuesta esta en la lista"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -1842,8 +1844,7 @@ msgstr "Juegos de números"
 
 #: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr ""
-"Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
+msgstr "Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
 
 #: boards/smallnumbers.xml.in.h:5
 msgid ""
@@ -1902,8 +1903,7 @@ msgstr ""
 "correcto"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Puede mover el ratón, puede leer números y contar hasta 15 para el primer "
 "nivel"
@@ -1973,8 +1973,7 @@ msgstr "Palabras que caen"
 
 #: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
 msgid "Fully type the falling words before they reach the ground"
-msgstr ""
-"Escribe completamente las palabras que caen antes de que lleguen al suelo"
+msgstr "Escribe completamente las palabras que caen antes de que lleguen al suelo"
 
 #: boards/wordsgame.xml.in.h:4
 msgid "Keyboard training"
@@ -2309,8 +2308,7 @@ msgid "GCompris Home Page"
 msgstr "Página de GCompris"
 
 #: src/gcompris/about.c:227
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública GNU (GPL)"
@@ -2652,3 +2650,4 @@ msgstr "Tiempo terminado"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tiempo disponible = %d"
+
