@@ -186,7 +186,7 @@ gint key_press(guint keyval)
 {
   gchar *old_value;
   gchar *old_name;
-  guint c;
+  char c;
 
   if(!gcomprisBoard)
     return TRUE;
