@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-17 11:35+0200\n"
-"PO-Revision-Date: 2003-09-17 20:48+0200\n"
+"POT-Creation-Date: 2003-09-28 11:37+0200\n"
+"PO-Revision-Date: 2003-09-28 21:54+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -860,7 +860,7 @@ msgstr "Typ de vallende letters voor ze de grond raken"
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Sleep het bovenste stuk naar een vrije plaats"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Maak op een vrije plaats dezelfde toren als die rechts te zien is"
 
@@ -1418,15 +1418,36 @@ msgstr "schooltas/schoolt_s/a/o/u"
 msgid "satchel/sa_chel/t/p/c"
 msgstr "schooltas/schoo_tas/l/r/t"
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr "Kan tellen"
+
+#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+msgid ""
+"Click on the coins or paper money on the botton of the screen to pay. If you "
+"want to remove a coin or note, click on it on the upper screen area."
+msgstr ""
+"Klik op de muntjes of de briefjes onderaan het scherm om te betalen. Als je "
+"muntje of briefje wilt weghalen klik je erop in het bovenste schermgebied."
+
+#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
 msgstr "Geld"
 
-#: boards/money.xml.in.h:2 src/boards/money.c:88
+#: boards/money.xml.in.h:4 src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr "Leer met geld omgaan"
 
-#: boards/money_cents.xml.in.h:2
+#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+msgid ""
+"You must buy the different items and give the exact price. At higher level, "
+"several items are displayed, you must first calculate the total price."
+msgstr ""
+"Je moet de verschillende spullen kopen en de exacte prijs geven. Op een "
+"hoger niveay worden verschillende goederen getoond en moet je eerst de "
+"totale prijs berekenen."
+
+#: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
 msgstr "Leer met geld en kleingeld omgaan"
 
@@ -1967,13 +1988,33 @@ msgstr "Wit schaakmat"
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:74
 msgid "Read a letter"
 msgstr "Lees een letter"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:75
 msgid "Learn to recognize letters"
 msgstr "Leer letters herkennen"
+
+#: src/boards/click_on_letter.c:226
+msgid ""
+"Error: this activity requires you to install first\n"
+"the package assetml-voices-alphabet-"
+msgstr ""
+"Fout: voor deze activiteit moet u eerst het pakket\n"
+"assetml-voices-aphabet installeren"
+
+#: src/boards/click_on_letter.c:233
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effect disabled.\n"
+"Go in the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"Fout: deze activiteit kan niet gespeeld worden\n"
+"met het geluid uitgeschakeld.\n"
+"Ga naar het configuratiedialoogvenster om \n"
+"het geluid aan te zetten."
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2160,7 +2201,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:175 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2277,56 +2318,64 @@ msgid "Slovak"
 msgstr "Slowaaks"
 
 #: src/gcompris/config.c:79
+msgid "Serbian (Latin)"
+msgstr "Servisch (latijns)"
+
+#: src/gcompris/config.c:80
+msgid "Serbian"
+msgstr "Servisch"
+
+#: src/gcompris/config.c:81
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:82
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:87
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:88
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:89
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:90
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:95
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:149
+#: src/gcompris/config.c:151
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:255
+#: src/gcompris/config.c:257
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:298
+#: src/gcompris/config.c:300
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:326
+#: src/gcompris/config.c:328
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:363
+#: src/gcompris/config.c:365
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:397 src/gcompris/config.c:696
-#: src/gcompris/config.c:707
+#: src/gcompris/config.c:399 src/gcompris/config.c:705
+#: src/gcompris/config.c:716
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2364,7 +2413,7 @@ msgstr "Gebruik anti-aliasing (trager)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:546
+#: src/gcompris/gcompris.c:544
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2425,7 +2474,7 @@ msgstr "Auteur"
 msgid "Directory"
 msgstr "Map"
 
-#: src/gcompris/interface.c:286
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
 msgid "Title"
 msgstr "Titel"
 
@@ -2442,9 +2491,13 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
 
-#: src/gcompris/oggplayer.c:189
+#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
 msgid "Now Playing Music"
 msgstr "Muziek wordt nu afgespeeld"
+
+#: src/gcompris/oggplayer.c:245
+msgid "Artist"
+msgstr "Artiest"
 
 #: src/gcompris/soundutil.c:116
 #, c-format
