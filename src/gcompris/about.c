@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2003/10/07 00:05:10 bcoudoin>
+ * Time-stamp: <2003/10/25 13:25:52 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -61,7 +61,9 @@ void gcompris_about_start ()
        "Author: Bruno Coudoin\n"
        "Contribution: Pascal Georges\n"
        "Graphics: Renaud Blanchard\n"
-       "Music: Djilali Sebihi\n");
+       "Intro Music: Djilali Sebihi\n"
+       "Background Music: Rico Da Halvarez\n"
+       );
 
 
   /* Pause the board */
@@ -121,7 +123,7 @@ void gcompris_about_start ()
 				"text", gettext(content),
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
-				"y", (double)  y_start,
+				"y", (double)  y_start - 10,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);

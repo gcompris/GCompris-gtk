@@ -43,6 +43,7 @@ xml_in_files = \
 	readingv.xml.in \
 	reading.xml.in \
 	read_colors.xml.in \
+	redraw.xml.in \
 	reversecount.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \

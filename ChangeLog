@@ -1,7 +1,91 @@
+2003-10-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: readded missing gcompris-edit.desktop.in
+	* boards/Makefile.am: added experimental redraw.py board
+	* boards/redraw.xml.in: added experimental redraw.py
+	* src/boards/python/redraw.py: added experimental redraw.py
+	* src/gcompris/about.c: (gcompris_about_start): added Background Music: Rico Da Halvarez.
+
+2003-10-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: re-removed installation of *.in files
+	* configure.in: fixed creation of REQUIRE_PYTHON. Now python is compiled by default.
+
+2003-10-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am:
+	* configure.in: release 4.1
+
 2003-10-24  Christian Rose  <menthos@menthos.com>
 
 	* po-checktrans, po-checktrans.py: Removed. No need to have these
 	in the module, just use "intltool-update --report" instead.
+
+2003-10-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/pythontest.xml.in: set to difficulty 0
+	* configure.in: flags and pt-geography set to version 1.1
+	* gcompris.spec.in: flags now uses configure.in
+	* po/fr.po: wrapped lines
+	* src/boards/menu.c: (display_board_icon), (menu_create_item):
+	* src/boards/python/Makefile.am: added support for gcompris --dificulty option
+	* src/gcompris/gcompris.c: (gcompris_init): added support for -d option
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_copy): added support for -d option
+	* src/gcompris/properties.h: added support for -d option
+
+2003-10-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: Now include boards/*.in files in the dist so that translator
+	  can test their po file without getting the cvs
+	* boards/dataset/mrpatate.xml: added images
+	* boards/flags/sl.png: added slovenian flag
+	* boards/flags/gcompris_flags.xml.in: added slovenian flag
+	* boards/gcompris/animals/elephanteauxgc.jpg: animal image given by 
+	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
+	* boards/gcompris/animals/hypogc.jpg: animal image given by 
+	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
+	* boards/gcompris/animals/jumentmulassieregc.jpg: animal image given by 
+	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
+	* boards/gcompris/animals/readme.txt: updated
+	* boards/gcompris/animals/tetegorillegc.jpg: animal image given by 
+	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
+	* boards/geography/board4_0.xml.in: fixed link to serbia audio
+	* configure.in: Set now to gcompris 4.0 : Added sl
+	* gcompris: Changed to section Applications/Edutainment/Miscellanous
+	* po/sl.po: created by damjan kovac <damjan@o-bakovci.ms.edus.si>
+	* src/boards/erase.c: added new images
+	* src/gcompris/config.c: added sl (slovanian)
+
+2003-10-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* TODO: removed train goes faster and arrow issue cause its fixed.
+	* boards/dataset/mrpatate.xml: added much more images. Now uses imageset.
+	* boards/watercycle.xml.in: changed help text
+	* src/boards/python/watercycle.py: little cleanup
+	* src/boards/read_colors.c: (start_board), (end_board): memory leak: added g_list_free 
+	  where needed
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(gcompris_images_selector_stop), (display_image),
+	(display_image_set), (free_stuff), (item_event_imageset_selector),
+	(parseImage), (parse_doc), (read_xml_file): complete rework to support dataset in the xml 
+	 file and display them.
+
+2003-10-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/watercycle.py: now tux must have a shower.
+	
+2003-10-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/railroad.c: use item group to simplify code. Fixed bug where train goes 
+	  faster and faster after each 'repeat'.
+	
+2003-10-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* TODO: added xrender and gtk
+	* configure.in: changed to to PRE4
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback): added F5 and ctrl-r for 
+	refresh and ctrl-q to quit gcompris.
 
 2003-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
 

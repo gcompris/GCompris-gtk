@@ -6,8 +6,8 @@ icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png gcompris-edit.png
 
 Applicationsdir = $(datadir)/applications/
-Applications_in_files = gcompris.desktop.in
-Applications_DATA = gcompris.desktop
+Applications_in_files = gcompris.desktop.in gcompris-edit.desktop.in
+Applications_DATA = gcompris.desktop gcompris-edit.desktop
 
 Menudir=$(prefix)/lib/menu
 Menu_DATA=gcompris
