@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-15 19:03+0100\n"
-"PO-Revision-Date: 2005-02-15 19:15+0100\n"
+"POT-Creation-Date: 2005-02-17 20:33+0100\n"
+"PO-Revision-Date: 2005-02-19 01:10+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -1136,6 +1136,18 @@ msgstr "Spelet 15"
 msgid "Go to Amusement activities"
 msgstr "Moro"
 
+#: ../boards/gcompris/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "GCompris-animasjon"
+
+#: ../boards/gcompris/mime_type.xml.in.h:2
+msgid "svg drawing"
+msgstr "SVG-teikning"
+
+#: ../boards/gcompris/mime_type.xml.in.h:3
+msgid "svg mozilla animation"
+msgstr "SVG-Mozilla-animasjon"
+
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
 msgstr "Dra og slepp dei geografiske områda på rett plass på kartet."
@@ -1836,7 +1848,8 @@ msgid ""
 "indication of your position like a map. You cannot move tux in visible mode."
 msgstr ""
 "Bruk piltastane på tastaturet til å flytta Tux fram til døra. Bruk "
-"mellomromstasten til å byta mellom synlege og usynlege veggar. Du kan berre flytta deg når veggane er usynlege."
+"mellomromstasten til å byta mellom synlege og usynlege veggar. Du kan berre "
+"flytta deg når veggane er usynlege."
 
 #: ../boards/mazeMenu.xml.in.h:1
 msgid "Find your way out different type of mazes"
@@ -2708,10 +2721,11 @@ msgstr "Fleire aktivitetar for unga"
 
 #: ../src/boards/advanced_colors.c:541 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:500
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/gameutil.c:126
-#: ../src/gcompris/gameutil.c:517 ../src/gcompris/gameutil.c:518
-#: ../src/gcompris/gcompris.c:420 ../src/gcompris/images_selector.c:645
-#: ../src/gcompris/skin.c:83 ../src/gcompris/skin.c:261
+#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:848
+#: ../src/gcompris/gameutil.c:126 ../src/gcompris/gameutil.c:517
+#: ../src/gcompris/gameutil.c:518 ../src/gcompris/gcompris.c:420
+#: ../src/gcompris/images_selector.c:645 ../src/gcompris/skin.c:83
+#: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Fann ikkje fila «%s»."
@@ -3460,15 +3474,15 @@ msgstr "Fann inga drakt i «%s»\n"
 msgid "Skin : %s"
 msgstr "Drakt: %s"
 
-#: ../src/gcompris/file_selector.c:296
+#: ../src/gcompris/file_selector.c:312
 msgid "CANCEL"
 msgstr "Avbryt"
 
-#: ../src/gcompris/file_selector.c:327
+#: ../src/gcompris/file_selector.c:343
 msgid "LOAD"
 msgstr "Opna"
 
-#: ../src/gcompris/file_selector.c:327
+#: ../src/gcompris/file_selector.c:343
 msgid "SAVE"
 msgstr "Lagra"
 
@@ -3524,7 +3538,7 @@ msgstr "Skriv ut versjonsnummer til "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Bruk kantutjamna lerret (tregare)."
 
-#: ../src/gcompris/gcompris.c:538
+#: ../src/gcompris/gcompris.c:541
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3546,7 +3560,7 @@ msgstr ""
 "finn meir informasjon på\n"
 "http://www.fsf.org/philosophy/."
 
-#: ../src/gcompris/gcompris.c:733
+#: ../src/gcompris/gcompris.c:736
 #, c-format
 msgid ""
 "GCompris\n"

@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-29 21:17+0100\n"
-"PO-Revision-Date: 2005-01-30 23:19+0100\n"
+"POT-Creation-Date: 2005-02-17 20:33+0100\n"
+"PO-Revision-Date: 2005-02-17 22:17+0100\n"
 "Last-Translator: Klaus Ade Johnstad <klaus@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmål < <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #: ../boards/advanced_colors.xml.in.h:1 ../src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -706,6 +706,26 @@ msgstr "Fortelle en kort historie"
 msgid "Moonwalker"
 msgstr "Reisen til Månen"
 
+#: ../boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Høst"
+
+#: ../boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Vår"
+
+#: ../boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "sommer"
+
+#: ../boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "De fire årstider"
+
+#: ../boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Vinter"
+
 #: ../boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux og epletreet"
@@ -1116,6 +1136,18 @@ msgstr "Femtenspillet"
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
 msgstr "Gå til aktiviteter med moro"
+
+#: ../boards/gcompris/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "gcompris animasjon"
+
+#: ../boards/gcompris/mime_type.xml.in.h:2
+msgid "svg drawing"
+msgstr "svg tegning"
+
+#: ../boards/gcompris/mime_type.xml.in.h:3
+msgid "svg mozilla animation"
+msgstr "svg mozilla tegning"
 
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
@@ -1759,21 +1791,21 @@ msgid "None"
 msgstr "Ingen"
 
 #: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
-#: ../boards/maze3D.xml.in.h:2
+#: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kunne bruke piltastene for å bevege et objekt."
 
-#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:130
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Finn veien ut av labyrinten"
 
 #: ../boards/maze.xml.in.h:3 ../boards/maze2DRelative.xml.in.h:3
-#: ../boards/maze3D.xml.in.h:4
+#: ../boards/maze3D.xml.in.h:4 ../boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Hjelp Tux med å komme seg ut av labyrinten."
 
 #: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
-#: ../src/boards/maze.c:129
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:132
 msgid "Maze"
 msgstr "Labyrint"
 
@@ -1802,6 +1834,28 @@ msgstr ""
 "Bruk piltastene for å bevege Tux opp til døra. Bruke mellomromsknappen for å "
 "bytte mellom 2D og 3D modus. 2D gir deg en indikasjon på din posisjon, "
 "omtrent som på et kart. Du kan ikke bevege på Tux når du er i 2D modus."
+
+#: ../boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Finn veien ut av den usynlige labyrinten"
+
+#: ../boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr ""
+"Bruk piltastene for å bevege Tux opp til døra. Bruk mellomromsknappen for å "
+"bytte mellom synlig og usynlig modus. Synlig gir deg en indikasjon på din posisjon, "
+"omtrent som på et kart. Du kan ikke bevege på Tux når du er i synlig modus."
+
+#: ../boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Finn veien ut av forskjellige typer labyrinter"
+
+#: ../boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Gå til aktiviteter med labyrinter"
 
 #: ../boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2442,8 +2496,9 @@ msgstr ""
 "forover 10 enheter (som vist på linjalen). Målet er å komme frem til den "
 "røde streken på høyre side. Når du har klart det, så kan du velge å prøve å "
 "gjøre ditt program enda bedre, ved å bruke 'prøv pånytt'-knappen så kan du "
-"prøve på nytt med samme værforhold. Ved å klikke og dra med musa et sted på kartet, så kan du måle en distanse i lengde og vinkel. Når du går til neste vanskelighetsnivå "
-"så blir værforholdet mer komplisert."
+"prøve på nytt med samme værforhold. Ved å klikke og dra med musa et sted på "
+"kartet, så kan du måle en distanse i lengde og vinkel. Når du går til neste "
+"vanskelighetsnivå så blir værforholdet mer komplisert."
 
 #: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
 msgid ""
@@ -2506,15 +2561,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Balanser vektene"
 
-#: ../boards/smallnumbers.xml.in.h:1
+#: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Tell antall prikker på terningen før den treffer bakken."
 
-#: ../boards/smallnumbers.xml.in.h:2
+#: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Telleferdighet"
 
-#: ../boards/smallnumbers.xml.in.h:3
+#: ../boards/smallnumbers.xml.in.h:3 ../boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Tell antall punkter på begrenset tid"
 
@@ -2522,11 +2577,15 @@ msgstr "Tell antall punkter på begrenset tid"
 msgid "Numbers With Dice"
 msgstr "Tall med terninger"
 
-#: ../boards/smallnumbers.xml.in.h:5
+#: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr "Skriv med tastaturet det antallet prikker du ser på terningen som faller."
+
+#: ../boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Tall med 2 terninger"
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
@@ -2661,12 +2720,17 @@ msgstr "Pedagogiske spill for alderen 2 til 10 år"
 msgid "Educational suite gcompris"
 msgstr "Pedagogisk programpakke GCompris"
 
+#: ../gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Flere aktiviteter for barn"
+
 #: ../src/boards/advanced_colors.c:541 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:500
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/gameutil.c:126
-#: ../src/gcompris/gameutil.c:517 ../src/gcompris/gameutil.c:518
-#: ../src/gcompris/gcompris.c:420 ../src/gcompris/images_selector.c:477
-#: ../src/gcompris/skin.c:83 ../src/gcompris/skin.c:261
+#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:848
+#: ../src/gcompris/gameutil.c:126 ../src/gcompris/gameutil.c:517
+#: ../src/gcompris/gameutil.c:518 ../src/gcompris/gcompris.c:420
+#: ../src/gcompris/images_selector.c:645 ../src/gcompris/skin.c:83
+#: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunne ikke finne filen %s !"
@@ -2867,7 +2931,11 @@ msgstr "venstre"
 msgid "right"
 msgstr "høyre"
 
-#: ../src/boards/maze.c:453
+#: ../src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Se på din posisjon og bytt tilbake til usynlig modus for å bevege Tux"
+
+#: ../src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Se på din posisjon og bytt tilbake til 3D modus for å bevege Tux"
 
@@ -3081,11 +3149,11 @@ msgstr ""
 "Dataene fra dette brettet blir lagret i\n"
 "/tmp/gcompris-board.xml"
 
-#: ../src/boards/smallnumbers.c:70
+#: ../src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Tall med terninger"
 
-#: ../src/boards/smallnumbers.c:71
+#: ../src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Skriv inn verdien på terningen før den treffer bakken"
 
@@ -3124,13 +3192,13 @@ msgstr "Skriv inn ordene før de rekker å treffe bakken"
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Forfatter: Bruno Coudoin\n"
 "Bidragsytere: Pascal Georges, Jose Jorge\n"
-"Grafikk: Renaud Blanchard\n"
+"Grafikk: Renaud Blanchard, Franck Doucet\n"
 "Introduksjonsmusikk: Djilali Sebihi\n"
 "Bakgrunnsmusikk: Rico Da Halvarez\n"
 
@@ -3154,16 +3222,16 @@ msgid "GCompris Home Page"
 msgstr "GCompris hjemmeside"
 
 #: ../src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU Public License"
 msgstr "Denne programvaren er en GNU pakke, og er frigitt med en GNU Public License"
 
 #: ../src/gcompris/about.c:281
 msgid "Help"
 msgstr "Hjelp"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:208
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:209
 #: ../src/gcompris/gameutil.c:898 ../src/gcompris/help.c:329
-#: ../src/gcompris/images_selector.c:152
+#: ../src/gcompris/images_selector.c:252
 msgid "OK"
 msgstr "Greit"
 
@@ -3244,182 +3312,186 @@ msgid "Indian (Hindi)"
 msgstr "Indisk (Hindu)"
 
 #: ../src/gcompris/config.c:81
+msgid "Indian (Gujarati)"
+msgstr "Indisk (Gujarati)"
+
+#: ../src/gcompris/config.c:82
 msgid "Indian (Punjabi)"
 msgstr "Indisk (Punjab)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Italian"
 msgstr "Italiensk"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Macedonian"
 msgstr "Makedonsk"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Malay"
 msgstr "Malaysisk"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Nederlandsk"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Norsk (bokmål)"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Norsk (nynorsk)"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Polsk"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Portugisisk"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Brazil Portuguese"
 msgstr "Portugisisk (Brasil)"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Rumensk"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Russisk"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Albanian"
 msgstr "Albansk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Serbian (Latin)"
 msgstr "Serbisk (Latin)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Swedish"
 msgstr "Svensk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Walloon"
 msgstr "Vallonsk"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Chinese (Simplified)"
 msgstr "Kinesisk (forenklet)"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "No time limit"
 msgstr "Ingen tidsbegrensning"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Slow timer"
 msgstr "Treg teller"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Normal timer"
 msgstr "Normal teller"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Fast timer"
 msgstr "Rask teller"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standard for GCompris)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "No filter"
 msgstr "Alle nivåer"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Only this level"
 msgstr "Bare dette nivået"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Up to this level"
 msgstr "Opp til dette nivået"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "This level and above"
 msgstr "Dette nivået og høyere"
 
-#: ../src/gcompris/config.c:182
+#: ../src/gcompris/config.c:183
 msgid "GCompris Configuration"
 msgstr "Konfigurasjon av GCompris"
 
-#: ../src/gcompris/config.c:291
+#: ../src/gcompris/config.c:292
 msgid "Fullscreen"
 msgstr "Hele skjermen"
 
-#: ../src/gcompris/config.c:334
+#: ../src/gcompris/config.c:335
 msgid "Music"
 msgstr "Musikk"
 
-#: ../src/gcompris/config.c:362
+#: ../src/gcompris/config.c:363
 msgid "Effect"
 msgstr "Effekter"
 
-#: ../src/gcompris/config.c:396
+#: ../src/gcompris/config.c:397
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åpne katalog for tema: %s"
 
-#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:418
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Fant ikke noe tema i %s\n"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:817
-#: ../src/gcompris/config.c:828
+#: ../src/gcompris/config.c:433 ../src/gcompris/config.c:818
+#: ../src/gcompris/config.c:829
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
 
-#: ../src/gcompris/file_selector.c:277
+#: ../src/gcompris/file_selector.c:312
 msgid "CANCEL"
 msgstr "Avbryt"
 
-#: ../src/gcompris/file_selector.c:308
+#: ../src/gcompris/file_selector.c:343
 msgid "LOAD"
 msgstr "Last opp"
 
-#: ../src/gcompris/file_selector.c:308
+#: ../src/gcompris/file_selector.c:343
 msgid "SAVE"
 msgstr "Lagre"
 
@@ -3475,7 +3547,7 @@ msgstr "Skriv ut versjonen av"
 msgid "Use the antialiased canvas (slower)."
 msgstr "Bruk utjevnet kanvas (tregere)."
 
-#: ../src/gcompris/gcompris.c:538
+#: ../src/gcompris/gcompris.c:541
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3497,7 +3569,7 @@ msgstr ""
 "elevene om frihet, så burde du vurdere å bruke GNU/Linux.\n"
 "For mer informasjon se http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:733
+#: ../src/gcompris/gcompris.c:736
 #, c-format
 msgid ""
 "GCompris\n"
