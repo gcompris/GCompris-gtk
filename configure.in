@@ -45,7 +45,7 @@ AC_SUBST(XML_LIBS)
 AM_ICONV
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az ca de el es fi fr hu it lt ms nl no pt pt_BR ro ru sk sv tr"
+ALL_LINGUAS="am ar az ca cs de el es fi fr hu it lt ms nl no pt pt_BR ro ru sk sv tr"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
