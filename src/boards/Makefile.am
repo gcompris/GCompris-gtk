@@ -11,6 +11,7 @@ lib_LTLIBRARIES = \
 	libsmallnumbers.la \
 	libparatrooper.la \
 	libreading.la \
+	libmaze.la \
 	libmemory.la \
 	libdraw.la \
 	libimageid.la \
@@ -211,6 +212,14 @@ libcolors_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libcolors_la_SOURCES = colors.c
+
+libmaze_la_LDFLAGS = -module -avoid-version
+libmaze_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libmaze_la_SOURCES = maze.c
 
 EXTRA_DIST = README
 

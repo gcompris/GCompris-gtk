@@ -17,6 +17,7 @@ xml_in_files = \
 	fun.xml.in \
 	gletters.xml.in \
 	imagename.xml.in \
+	maze.xml.in \
 	memory.xml.in \
 	menu.xml.in \
 	paintings.xml.in \
