@@ -1,3 +1,10 @@
+2003-02-05  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: added po stats (python tool taken from dia)
+	* boards/machpuzzle.xml.in: removed until it does something usefull
+	* po-checktrans: a nive tool from Cyrille Chepelov to get stats on po files
+	* po-checktrans.py: a nive tool from Cyrille Chepelov to get stats on po files
+
 2003-02-04  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/config.c: Added "tr" (Turkish) to the languages' list.

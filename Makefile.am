@@ -23,7 +23,8 @@ EXTRA_DIST = config.rpath  \
 	gcompris.spec \
 	intltool-extract.in \
 	intltool-merge.in \
-	intltool-update.in
+	intltool-update.in \
+	core-translation-report po-checktrans.py po-checktrans
 
 distcore = $(PACKAGE)-core-$(VERSION)
 
@@ -41,6 +42,8 @@ dist-hook:
 	fi
 
 
+CLEANFILES = core-translation-report gcompris.desktop
+
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update
 
@@ -55,5 +58,12 @@ dist-core:
 	tar f $(distcore).tar --delete $(distdir)/boards/sounds
 	gzip --best $(distcore).tar
 	@echo Created $(distcore).tar.gz
+
+# Display stats on translation
+core-translation-report: po/gcompris.pot po-checktrans.py po-checktrans
+	-(cd $(srcdir) && ./po-checktrans po/gcompris.pot po/*.po)
+
+all-local: core-translation-report
+
 
 ACLOCAL_AMFLAGS = 
