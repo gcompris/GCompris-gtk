@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-05-09 11:59+0200\n"
-"PO-Revision-Date: 2003-05-09 12:00+0200\n"
+"POT-Creation-Date: 2003-06-09 14:48+0200\n"
+"PO-Revision-Date: 2003-06-09 14:48+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -830,7 +830,7 @@ msgstr "Skriv de fallande bokstäverna innan de når marken"
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Dra och släpp det översta föremålet endast på en tom plats"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:323
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Återskapa samma torn som till höger i den tomma ytan"
 
@@ -1451,7 +1451,7 @@ msgstr ""
 "huvudbrädområdet visas en samling bilddelar från målning. Dra och släpp "
 "dessa delar på rätt plats för att återskapa den ursprungliga målningen."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:159
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
 msgid "Make the puzzle"
 msgstr "Lägg pusslet"
 
@@ -1860,18 +1860,18 @@ msgstr "Redigerare för gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1718 src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
 #: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
 #: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:286
+#: src/gcompris/soundutil.c:351
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1721
+#: src/boards/shapegame.c:1723
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -2050,12 +2050,12 @@ msgstr "Nej, det fanns inte där"
 msgid "Reverse count"
 msgstr "Omvänd räkning"
 
-#: src/boards/shapegame.c:160
+#: src/boards/shapegame.c:161
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:407
+#: src/boards/shapegame.c:408
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2067,7 +2067,7 @@ msgstr ""
 "\"s\" för att spara\n"
 "\"d\" för att visa alla former"
 
-#: src/boards/shapegame.c:415
+#: src/boards/shapegame.c:416
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2385,6 +2385,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Släppt under GPL"
 
+#: src/gcompris/soundutil.c:116
+#, c-format
+msgid "Couldn't open music dir: %s"
+msgstr "Kunde inte öppna musikkatalogen: %s"
+
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
 msgid "Couldn't find pixmap file: %s"
@@ -2398,6 +2403,9 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid "Couldn't open music directory: %s"
+#~ msgstr "Kunde inte öppna musikkatalogen: %s"
 
 #~ msgid "Europe"
 #~ msgstr "Europa"
