@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/05/24 02:14:02 bcoudoin>
+ * Time-stamp: <2004/05/31 03:24:12 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -35,19 +35,8 @@
 #define SOUNDLISTFILE PACKAGE
 #define MENU_PER_LINE 5
 
-static GList *item_list = NULL;
-
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
-
-/* Hash table of all displayed images  */
-static GHashTable *menu_table= NULL;
-
-typedef struct {
-  GcomprisBoard *board;
-  GnomeCanvasItem *item;
-  GdkPixbuf *image;
-} MenuItem;
 
 static void		 menu_start (GcomprisBoard *agcomprisBoard);
 static void		 menu_pause (gboolean pause);
@@ -58,9 +47,10 @@ static void		 menu_config(void);
 static GnomeCanvasItem	*menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard *board);
 static gboolean		 next_spot();
 static void		 create_info_area(GnomeCanvasGroup *parent);
-static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem);
+static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, GcomprisBoard *board);
 static void		 display_board_icon(GcomprisBoard *board);
 static gboolean		 read_xml_file(char *fname);
+static void		 free_stuff (GtkObject *obj, gpointer data);
 
 static double current_x = 0.0;
 static double current_y = 0.0;
@@ -74,26 +64,26 @@ static GnomeCanvasItem *boardname_item, *description_item, *author_item;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
-{
-   NULL,
-   NULL,
-   N_("Main Menu"),
-   N_("Select a Board"),
-   "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
-   NULL,
-   menu_start,
-   menu_pause,
-   menu_end,
-   menu_is_our_board,
-   NULL,
-   NULL,
-   NULL,
-   menu_config,
-   NULL
-};
+  {
+    NULL,
+    NULL,
+    N_("Main Menu"),
+    N_("Select a Board"),
+    "Bruno Coudoin <bruno.coudoin@free.fr>",
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    menu_start,
+    menu_pause,
+    menu_end,
+    menu_is_our_board,
+    NULL,
+    NULL,
+    NULL,
+    menu_config,
+    NULL
+  };
 
 /*
  * Main entry point mandatory for each Gcompris's board
@@ -145,9 +135,10 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 
       printf("menu_start section=%s\n", gcomprisBoard->section);
       boardlist = gcompris_get_menulist(gcomprisBoard->section);
-      g_list_foreach (boardlist, (GFunc) display_board_icon, NULL);
 
       create_info_area(boardRootItem);
+
+      g_list_foreach (boardlist, (GFunc) display_board_icon, NULL);
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;
@@ -155,7 +146,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_ABOUT);
 
       /* FIXME : Workaround for bugged canvas */
-      gnome_canvas_update_now(gcomprisBoard->canvas);
+      //      gnome_canvas_update_now(gcomprisBoard->canvas);
 
       menu_pause(FALSE);
 
@@ -166,26 +157,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 static void
 menu_end ()
 {
-  GcomprisBoard *board;
-
-  /* Erase the boardlist */
-  while(g_list_length(boardlist)>0)
-    {
-      board = g_list_nth_data(boardlist, 0);
-      boardlist = g_list_remove (boardlist, board);
-
-      /* FIXME : We need a better cleanup */
-      /*
-      g_free(board->name);
-      g_free(board->title);
-      g_free(board->description);
-      g_free(board->icon_name);
-      g_free(board->author);
-      g_free(board->boarddir);
-      g_free(board->filename);
-      g_free(board);
-      */
-    }
+  g_list_free(boardlist);
 
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -241,7 +213,7 @@ static void display_board_icon(GcomprisBoard *board)
       if(g_strcasecmp(board->type, "menu")==0) {
 	menu_create_item(boardRootItem, board);
       } else if((properties->difficulty_filter==-1 && difficulty>0) 
-	 || properties->difficulty_filter==difficulty) {
+		|| properties->difficulty_filter==difficulty) {
 	/* If the difficulty_filter is set check its value */
 	menu_create_item(boardRootItem, board);
       }
@@ -276,9 +248,7 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 {
   GdkPixbuf *menu_pixmap = NULL, *pixmap = NULL;
   GnomeCanvasItem *item, *star;
-  MenuItem *menuitem;
 
-  menuitem = malloc(sizeof(MenuItem));
   menu_pixmap = gcompris_load_pixmap(board->icon_name);
   next_spot();
 
@@ -292,22 +262,9 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 				NULL);
   gdk_pixbuf_unref(menu_pixmap);
 
-  item_list = g_list_append (item_list, item);
-
-  menuitem->board=board;
-  menuitem->item=item;
-  menuitem->image=menu_pixmap;
-
-  if (!menu_table)
-    {
-      menu_table= g_hash_table_new (g_direct_hash, g_direct_equal);
-    }
-
-  g_hash_table_insert (menu_table, item, menuitem);
-
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event,
-		     menuitem);
+		     board);
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
@@ -320,25 +277,24 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
     int i, diff = 0;
     diff = atoi(board->difficulty);
     if (diff > 3) {
-	  	pixmap = gcompris_load_skin_pixmap("difficulty_star2.png");
+      pixmap = gcompris_load_skin_pixmap("difficulty_star2.png");
       diff -= 3;
     } else {
-	  	pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
+      pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
     }
-		for (i=0; i<diff; i++) {
-			star =  gnome_canvas_item_new (parent,
-					       gnome_canvas_pixbuf_get_type (),
-					       "pixbuf", pixmap,
-					       "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
-					       - gdk_pixbuf_get_width(pixmap) + 25,
-					       "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2
-					       + gdk_pixbuf_get_height(pixmap) * (i-1) + 20,
-					       "width", (double) gdk_pixbuf_get_width(pixmap),
-					       "height", (double) gdk_pixbuf_get_height(pixmap),
-					       NULL);
-			item_list = g_list_append (item_list, star);
-		}
-  	gdk_pixbuf_unref(pixmap);
+    for (i=0; i<diff; i++) {
+      star =  gnome_canvas_item_new (parent,
+				     gnome_canvas_pixbuf_get_type (),
+				     "pixbuf", pixmap,
+				     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
+				     - gdk_pixbuf_get_width(pixmap) + 25,
+				     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2
+				     + gdk_pixbuf_get_height(pixmap) * (i-1) + 20,
+				     "width", (double) gdk_pixbuf_get_width(pixmap),
+				     "height", (double) gdk_pixbuf_get_height(pixmap),
+				     NULL);
+    }
+    gdk_pixbuf_unref(pixmap);
   }
   // display difficulty stars ========================== END
 
@@ -349,8 +305,8 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
       
       if(board->mandatory_sound_dataset) {
 	/* We have to search for an assetml sound */
-	  soundfile = gcompris_get_asset_file(board->mandatory_sound_dataset, NULL, NULL, 
-					      board->mandatory_sound_file);
+	soundfile = gcompris_get_asset_file(board->mandatory_sound_dataset, NULL, NULL, 
+					    board->mandatory_sound_file);
       } else {
 	/* We search a fixed path sound file */
 	soundfile = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/sounds", 
@@ -376,7 +332,6 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 				     "width", (double) gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
 				     NULL);
-      item_list = g_list_append (item_list, star);
       gdk_pixbuf_unref(pixmap);
       g_free(soundfile);
     }
@@ -394,16 +349,15 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 				     "width", (double) gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
 				     NULL);
-      item_list = g_list_append (item_list, item);
       gdk_pixbuf_unref(pixmap);
     }
-// display menu icon ========================== END
+  // display menu icon ========================== END
 
   return (item);
 }
 
 static gint
-item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
+item_event(GnomeCanvasItem *item, GdkEvent *event,  GcomprisBoard *board)
 {
   GtkTextIter    iter_start, iter_end;
   GtkTextBuffer *buffer;
@@ -417,15 +371,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
     case GDK_ENTER_NOTIFY:
       /* HACK : If I don't set the color here, then the 3 text are not visible !!!
        *        just add again white here and it works again !!!! */
-      if(menuitem->board->title)
+      if(board->title)
 	gnome_canvas_item_set (boardname_item,
-			       "text", menuitem->board->title,
+			       "text", board->title,
 			       "fill_color", "white",
 			       NULL);
 
-      if(menuitem->board->description) {
+      if(board->description) {
 	gnome_canvas_item_set (description_item,
-			       "text",  menuitem->board->description,
+			       "text",  board->description,
 			       NULL);
 
 	buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(description_item));
@@ -438,9 +392,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 	gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);	
       }
 
-      if(menuitem->board->author)
+      if(board->author)
 	gnome_canvas_item_set (author_item,
-			       "text",  menuitem->board->author,
+			       "text",  board->author,
 			       NULL);
 
       break;
@@ -459,17 +413,18 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 
       break;
     case GDK_BUTTON_PRESS:
-      gcompris_play_ogg ("gobble", NULL);
+      {
+	/* Back Reference the current board in the next one */
+	board->previous_board = gcomprisBoard;
+
+	gcompris_play_ogg ("gobble", NULL);
 	  
-      /* Take care to not remove the next board */
-      boardlist = g_list_remove (boardlist, menuitem->board);
+	/* End this board */
+	menu_end();
 
-      /* End this board */
-      menu_end();
-
-      /* Start the user's one */
-      menuitem->board->previous_board = gcomprisBoard;
-      board_play (menuitem->board);
+	/* Start the user's one */
+	board_play (board);
+      };
       break;
       
     default:
