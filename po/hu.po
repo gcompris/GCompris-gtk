@@ -6,15 +6,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris\n"
+"Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-26 11:02+0100\n"
-"PO-Revision-Date: 2005-02-26 16:32+0100\n"
+"POT-Creation-Date: 2005-03-20 11:25+0100\n"
+"PO-Revision-Date: 2005-03-20 20:13+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
+"Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -377,8 +379,7 @@ msgstr ""
 "visszavonható, ha rájuk kattintasz."
 
 #: boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Stratégia kifejlesztése egy érték előállításához aritmetikai műveletek\n"
 "halmazának rendezésével"
@@ -550,8 +551,7 @@ msgstr "Mozgáskoordináció. Fogalmak összekapcsolása."
 
 #: boards/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr ""
-"Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
+msgstr "Egérkezelés: mozgatás, húzd és ejtsd ismerete. Kulturális vonatkozások."
 
 #: boards/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -573,8 +573,7 @@ msgstr "Jól kezeled a egeret"
 
 #: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr ""
-"A kutyát Andre Connes bocsátotta rendelkezésre a GPL feltételei szerint"
+msgstr "A kutyát Andre Connes bocsátotta rendelkezésre a GPL feltételei szerint"
 
 #: boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
@@ -921,10 +920,8 @@ msgstr ""
 "Hely: ismeretlen ( nur03013-as kép)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
-msgstr ""
-"Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgstr "Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
 
 #: boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
@@ -934,8 +931,7 @@ msgstr "Mozgáskoordináció: egérmozgatás és kattintás."
 msgid ""
 "Distinguish differences between hour, minute and second. Compose a time in a "
 "clock"
-msgstr ""
-"Különböztesd meg az órát, percet és másodpercet. Állítsd be az időt egy órán"
+msgstr "Különböztesd meg az órát, percet és másodpercet. Állítsd be az időt egy órán"
 
 #: boards/clockgame.xml.in.h:2
 msgid ""
@@ -1091,8 +1087,7 @@ msgstr "Mozgasd az egeret"
 
 #: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
-msgstr ""
-"Mozgasd az egeret, hogy kiradírozd a mezőket és lásd a képet a háttérben"
+msgstr "Mozgasd az egeret, hogy kiradírozd a mezőket és lásd a képet a háttérben"
 
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
@@ -1148,15 +1143,19 @@ msgstr "A tizenötös játék"
 msgid "Go to Amusement activities"
 msgstr "A játékokhoz ;-)"
 
-#: boards/gcompris/mime_type.xml.in.h:1
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
 msgstr "gcompris animáció"
 
-#: boards/gcompris/mime_type.xml.in.h:2
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "gcompris rajz"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:3
 msgid "svg drawing"
 msgstr "svg rajz"
 
-#: boards/gcompris/mime_type.xml.in.h:3
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:4
 msgid "svg mozilla animation"
 msgstr "svg mozilla animáció"
 
@@ -1503,8 +1502,7 @@ msgstr "Építsd fel a megadott tornyot"
 
 #: boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
-"Építsd fel a jobb oldalon látható tornyot a bal oldalon lévő üres helyen"
+msgstr "Építsd fel a jobb oldalon látható tornyot a bal oldalon lévő üres helyen"
 
 #: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
@@ -2219,8 +2217,7 @@ msgstr "Kandinsky, Wassily, Composition VIII - 1923"
 
 #: boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr ""
-"Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
+msgstr "Olajfestmény vásznon, 140 x 201 cm; Solomon R. Guggenheim Múzeum, New York"
 
 #: boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
@@ -2262,13 +2259,11 @@ msgstr "Ejtőernyős ugrás"
 
 #: boards/paratrooper.xml.in.h:5
 msgid "This board is game oriented. No specific skills are needed to play."
-msgstr ""
-"Ez a tábla játékközpontú. A játékhoz nem szükségesek megadott képességek."
+msgstr "Ez a tábla játékközpontú. A játékhoz nem szükségesek megadott képességek."
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr ""
-"Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
+msgstr "Mozgasd a helikoptert, hogy a helyes sorrendben repülhess át a felhőkön"
 
 #: boards/planegame.xml.in.h:2
 msgid "Number"
@@ -2303,8 +2298,7 @@ msgid "Test board for the python plugin"
 msgstr "Teszttábla a Python bővítményhez"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Köszönet Guido van Rossumnak és a Python csapatnak ezért az erőteljes "
 "nyelvért!"
@@ -2419,8 +2413,7 @@ msgstr "Olvasási gyakorlat behatárolt időben"
 
 #: boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and tell if a given word is in it"
-msgstr ""
-"Olvass el egy függőleges szólistát és mondd meg, egy adott szó benne volt-e"
+msgstr "Olvass el egy függőleges szólistát és mondd meg, egy adott szó benne volt-e"
 
 #: boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
@@ -2453,8 +2446,7 @@ msgstr "Rajzold újra az adott tárgyat"
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr ""
-"Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
+msgstr "Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
 
 #: boards/redraw_symmetrical.xml.in.h:3
 msgid "Mirror the given item"
@@ -2484,8 +2476,7 @@ msgstr "Gyakorold a kivonást egy vidám játékkal"
 
 #: boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr ""
-"Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
+msgstr "Tux éhes. A megfelelő jégkockáig számolva segíthetsz neki halakat találni."
 
 #: boards/searace.xml.in.h:1 boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -2661,8 +2652,7 @@ msgstr ""
 "sorrendben"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kezelni tudja az egeret, számolni tud 15-ig (az első szinthez)"
 
 #: boards/target.xml.in.h:2
@@ -2695,8 +2685,7 @@ msgstr "Egy tologatós kirakójáték"
 
 #: boards/traffic.xml.in.h:2
 msgid "Remove all the red cars from the grid through the slot on the right"
-msgstr ""
-"Távolítsd el az összes piros autót a rácsról a jobb oldali nyíláson keresztül"
+msgstr "Távolítsd el az összes piros autót a rácsról a jobb oldali nyíláson keresztül"
 
 #: boards/watercycle.xml.in.h:1
 msgid ""
@@ -2757,7 +2746,7 @@ msgstr "Változatos tevékenységek gyerekeknek"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:847
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
 #: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
 #: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
 #: src/gcompris/images_selector.c:654 src/gcompris/skin.c:83
@@ -3008,6 +2997,29 @@ msgstr "Python tábla"
 msgid "Special board that embeds python into gcompris."
 msgstr "Különleges tábla ami beágyazza a GCompris-ba a Python-t."
 
+#: src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "A python xml modul szükséges. Az SVG-t kikapcsolom."
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: src/boards/python/anim.py:415
+msgid ""
+"Python xml module bot found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr "A Python xml modulja nem található. Az SVG-t kikapcsolom. Telepítse a python xml modult az SVG mentés/betöltés bekapcsolásához."
+
+#: src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "Az SVG ki van kapcsolva. A bekapcsolásához telepítse a python xml modult."
+
+#: src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "Figyelmeztetés: a következő képekhez nem lehet hozzáférni a rendszerén.\n"
+
+#: src/boards/python/anim.py:2363
+msgid "The corresponding items have been skiped."
+msgstr "A megfelelő elemek ki lesznek hagyva."
+
 #: src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
@@ -3250,15 +3262,14 @@ msgid "GCompris Home Page"
 msgstr "A GCompris honlapja"
 
 #: src/gcompris/about.c:252
-msgid ""
-"This software is a GNU Package and is released under the GNU Public License"
+msgid "This software is a GNU Package and is released under the GNU Public License"
 msgstr "Ez a program GNU szoftver és a GNU Public Licence alatt van kiadva"
 
 #: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Segítség"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:209
+#: src/gcompris/about.c:316 src/gcompris/config.c:210
 #: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:261
 msgid "OK"
@@ -3266,8 +3277,7 @@ msgstr "OK"
 
 #: src/gcompris/board.c:170
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
-"Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
+msgstr "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
 
 #: src/gcompris/config.c:63
 msgid "Your system default"
@@ -3286,242 +3296,246 @@ msgid "Azerbaijani Turkic"
 msgstr "Azerbajdzsáni török"
 
 #: src/gcompris/config.c:67
+msgid "Bulgarian"
+msgstr "Bolgár"
+
+#: src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Katalán"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Czech"
 msgstr "Cseh"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Danish"
 msgstr "Dán"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "German"
 msgstr "Német"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Görög"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "English (Canadian)"
 msgstr "Angol (Kanadai)"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Angol (Brit)"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "English (USA)"
 msgstr "Angol (USA)"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Finnish"
 msgstr "Finn"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "French"
 msgstr "Francia"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Irish (Gaelic)"
 msgstr "Ír (Gael)"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Hebrew"
 msgstr "Héber"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Hindi)"
 msgstr "Indiai (Hindi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Indian (Gujarati)"
 msgstr "Indiai (Gujarati)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Indian (Punjabi)"
 msgstr "Indiai (Pandzsábi)"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "Magyar"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Horvát"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Italian"
 msgstr "Olasz"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Lithuanian"
 msgstr "Litván"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Macedonian"
 msgstr "Macedón"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Malay"
 msgstr "Maláj"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Dutch"
 msgstr "Holland"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Norwegian Bokmal"
 msgstr "Norvég Bokmal"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Norwegian Nynorsk"
 msgstr "Norvég Nyorsk"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Polish"
 msgstr "Lengyel"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Portuguese"
 msgstr "Portugál"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Brazil Portuguese"
 msgstr "Brazil portugál"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Romanian"
 msgstr "Román"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Russian"
 msgstr "Orosz"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Slovenian"
 msgstr "Szlovén"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Albanian"
 msgstr "Albán"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Serbian (Latin)"
 msgstr "Szerb (latin)"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Serbian"
 msgstr "Szerb"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Swedish"
 msgstr "Svéd"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Turkish"
 msgstr "Török"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Walloon"
 msgstr "Vallon"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Chinese (Simplified)"
 msgstr "Egyszerűsített kínai"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "No time limit"
 msgstr "Nincs időkorlátozás"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Slow timer"
 msgstr "Sok idő"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "Normal timer"
 msgstr "Átlagos idő"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "Fast timer"
 msgstr "Kevés idő"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (a GCompris alapértelmezettje)"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "No filter"
 msgstr "Nincs szűrő"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "Only this level"
 msgstr "Csak ezen a szinten"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid "Up to this level"
 msgstr "Eddig a szintig"
 
-#: src/gcompris/config.c:127
+#: src/gcompris/config.c:128
 msgid "This level and above"
 msgstr "Ez a szint és fölötte"
 
-#: src/gcompris/config.c:183
+#: src/gcompris/config.c:184
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: src/gcompris/config.c:292
+#: src/gcompris/config.c:293
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: src/gcompris/config.c:335
+#: src/gcompris/config.c:336
 msgid "Music"
 msgstr "Zene"
 
-#: src/gcompris/config.c:363
+#: src/gcompris/config.c:364
 msgid "Effect"
 msgstr "Effektusok"
 
-#: src/gcompris/config.c:397
+#: src/gcompris/config.c:398
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s témakönyvtárat"
 
-#: src/gcompris/config.c:418
+#: src/gcompris/config.c:419
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "%s helyen nem található téma\n"
 
-#: src/gcompris/config.c:433 src/gcompris/config.c:818
-#: src/gcompris/config.c:829
+#: src/gcompris/config.c:434 src/gcompris/config.c:819
+#: src/gcompris/config.c:830
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
 
-#: src/gcompris/file_selector.c:312
+#: src/gcompris/file_selector.c:341
 msgid "CANCEL"
 msgstr "MÉGSEM"
 
-#: src/gcompris/file_selector.c:343
+#: src/gcompris/file_selector.c:372
 msgid "LOAD"
 msgstr "BETÖLTÉS"
 
-#: src/gcompris/file_selector.c:343
+#: src/gcompris/file_selector.c:372
 msgid "SAVE"
 msgstr "MENTÉS"
 
@@ -3702,3 +3716,4 @@ msgstr "Eltelt idő"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Hátralévő idő = %d"
+
