@@ -24,6 +24,7 @@
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
+#define MAX_RAND_ATTEMPTS 5
 
 static GList *item_list = NULL;
 static GList *item2del_list = NULL;
@@ -687,44 +688,50 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 {
   GdkPixbuf *gletters_pixmap = NULL;
   GnomeCanvasItem *item;
-  char *str  = NULL;
-  char *str2 = NULL;
-  int i,j,k;
+  gchar *str  = NULL;
+  gchar *str2 = NULL;
+  gint i,j,k;
   guint c, x;
-  char *lettersItem, *str_p;
+  gchar *lettersItem, *str_p;
 
   if (!letters_table)
     {
       letters_table= g_hash_table_new (g_str_hash, g_str_equal);
     }
 
-  lettersItem = g_malloc (6);
 
   /* Beware, since we put the letters in a hash table, we do not allow the same
      letter to be displayed two times 
-     WARNING : This can cause an infinite loop if there is not enough
-     element to choose
   */
 
   g_warning("dump: %d, %s\n",gcomprisBoard->level,letters_array[gcomprisBoard->level-1]);
 
   k=g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1);
+
+  lettersItem = g_new(gchar,6);
+  gint attempt=0;
   do {
+
+    attempt++;
     str_p=letters_array[gcomprisBoard->level-1];
-    i=1+(int)((float)k*rand()/(RAND_MAX+1.0));
+    i=(int)((float)k*rand()/(RAND_MAX+1.0));
 
     for( j = 0; j < i; j++) {
       str_p=g_utf8_find_next_char(str_p,NULL);
     }
-    sprintf(lettersItem, "%lc",
-	    g_utf8_get_char(str_p));
 
-  } while(item_find_by_title(lettersItem)!=NULL);
+    g_utf8_strncpy (lettersItem, str_p,1);
 
-  str = g_strdup_printf("%s%s", lettersItem, ".ogg");
+  } while((attempt<MAX_RAND_ATTEMPTS) && (item_find_by_title(lettersItem)!=NULL));
+
+  if (item_find_by_title(lettersItem)!=NULL)  {g_free(lettersItem); return NULL;}
+
+  gchar *letter_no_caps=g_utf8_strdown(lettersItem,-1);
+  str = g_strdup_printf("%s%s", letter_no_caps, ".ogg");
   str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str);
   gcompris_play_ogg(str2, NULL);
 
+  g_free(letter_no_caps);
   g_free(str);
   g_free(str2);
 

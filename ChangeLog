@@ -1,3 +1,12 @@
+2004-11-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/gletters.c: (gletters_create_item): By Alexey Lubimov 
+	1)  fix find voices for letters. (convert to lowercase, as filenames in 
+	    assetml)
+	2) fix range in random generator (at this time first letter in alphabet 
+	   never used and may use len(alphabet) +1 ).
+	3) remove limit for alphabet. (fix infinite loop).
+
 2004-11-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: added AC_CANONICAL_TARGET to avoid the warning in AC_ARG_PROGRAM was called before AC_CANONICAL_TARGET	
