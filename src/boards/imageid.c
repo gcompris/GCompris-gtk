@@ -335,7 +335,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				NULL);
   text1_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
-				      "text", _(buf[0]),
+				      "text", buf[0],
 				      "font_gdk", gdk_font,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
@@ -352,7 +352,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				NULL);
   text2_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
-				      "text", _(buf[1]),
+				      "text", buf[1],
 				      "font_gdk", gdk_font,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
@@ -370,7 +370,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   text3_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
-				      "text", _(buf[2]),
+				      "text", buf[2],
 				      "font_gdk", gdk_font,
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
@@ -512,22 +512,30 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	if (!strcmp(xmlnode->name, "pixmapfile") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
-		pixmapfile = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  {
+	    pixmapfile = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	  }
 	if (!strcmp(xmlnode->name, "text1") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
+	  {
 		text1 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
 		text1 = convertUTF8Toisolat1(text1);
+	  }
 	if (!strcmp(xmlnode->name, "text2") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
-		text2 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-		text2 = convertUTF8Toisolat1(text2);
+	  {
+	    text2 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    text2 = convertUTF8Toisolat1(text2);
+	  }
 	if (!strcmp(xmlnode->name, "text3") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
-		text3 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-		text3 = convertUTF8Toisolat1(text3);
+	  {
+	    text3 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	    text3 = convertUTF8Toisolat1(text3);
+	  }
 	xmlnode = xmlnode->next;
 	}
 	// I really don't know why this test, but otherwise, the list is doubled

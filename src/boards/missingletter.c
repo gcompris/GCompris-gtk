@@ -347,7 +347,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 				   NULL);
   l1_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
-				   "text", _(buf[0]),
+				   "text", buf[0],
 				   "font_gdk", gdk_font,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
@@ -364,7 +364,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 				   NULL);
   l2_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
-				   "text", _(buf[1]),
+				   "text", buf[1],
 				   "font_gdk", gdk_font,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
@@ -382,7 +382,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 				   NULL);
   l3_item = gnome_canvas_item_new (boardRootItem,
 				   gnome_canvas_text_get_type (),
-				   "text", _(buf[2]),
+				   "text", buf[2],
 				   "font_gdk", gdk_font,
 				   "x", (double) xOffset + gdk_pixbuf_get_width(button_pixmap)/2,
 				   "y", (double) yOffset + gdk_pixbuf_get_height(button_pixmap)/2,
@@ -537,8 +537,10 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
     if (!strcmp(xmlnode->name, "data") && (lang==NULL
 					   || !strcmp(lang, gcompris_get_locale())
 					   || !strncmp(lang, gcompris_get_locale(), 2)))
-      data = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-      data = convertUTF8Toisolat1(data);
+      {
+	data = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	data = convertUTF8Toisolat1(data);
+      }
     xmlnode = xmlnode->next;
   }
 
