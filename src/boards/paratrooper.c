@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2005/01/09 02:56:01 bruno>
+ * Time-stamp: <2005/03/30 22:04:44 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -230,7 +230,7 @@ static gint key_press(guint keyval)
 {
 
   if(!gcomprisBoard)
-    return TRUE;
+    return FALSE;
 
 
   /* Add some filter for control and shift key */

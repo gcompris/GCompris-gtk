@@ -240,7 +240,7 @@ class Gcompris_searace:
               
   def key_press(self, keyval):
     #print("got key %i" % keyval)
-    return
+    return gtk.FALSE
 
   # ----------------------------------------------------------------------
   # ----------------------------------------------------------------------

@@ -68,7 +68,7 @@ int sdlplayer_init()
   int audio_rate,audio_channels,
     // set this to any of 512,1024,2048,4096
     // the higher it is, the more FPS shown and CPU needed
-    audio_buffers=512;
+    audio_buffers=2048;
   Uint16 audio_format;
 
   // initialize SDL for audio
@@ -76,7 +76,7 @@ int sdlplayer_init()
     return(cleanExit("SDL_Init"));
 	
   // initialize sdl mixer, open up the audio device
-  if(Mix_OpenAudio(22050,MIX_DEFAULT_FORMAT,1,audio_buffers)<0)
+  if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers)<0)
     return(cleanExit("Mix_OpenAudio"));
 
   // print out some info on the audio device and stream

@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2004/03/08 00:01:15 bcoudoin>
+ * Time-stamp: <2005/03/30 22:05:27 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -190,7 +190,7 @@ static gint key_press(guint keyval)
 {
 
   if(!gcomprisBoard)
-    return TRUE;
+    return FALSE;
 
   /* Add some filter for control and shift key */
   switch (keyval)

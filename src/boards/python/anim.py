@@ -534,7 +534,7 @@ class Gcompris_anim:
     textItem.set(text=newtext.encode('UTF-8'))
     self.updated_text(textItem)
 
-    return True
+    return gtk.TRUE
   
   # Display the tools
   def draw_tools(self):

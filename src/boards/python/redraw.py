@@ -270,7 +270,7 @@ class Gcompris_redraw:
               
   def key_press(self, keyval):
     print("got key %i" % keyval)
-    return
+    return gtk.FALSE
 
   # Erase any displayed items (drawing and target)
   def erase_drawing_area(self):

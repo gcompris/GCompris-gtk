@@ -29,6 +29,7 @@ xml_in_files = \
 	colors.xml.in \
 	colors_group.xml.in \
 	computer.xml.in \
+	connect4.xml.in \
 	doubleentry.xml.in \
 	draw.xml.in \
 	enumerate.xml.in \

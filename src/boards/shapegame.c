@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/11/09 00:29:43 bruno>
+ * Time-stamp: <2005/03/30 22:06:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -335,7 +335,7 @@ static gint key_press(guint keyval)
   gboolean stop = FALSE;
 
   if(!gcomprisBoard)
-    return TRUE;
+    return FALSE;
 
   /* Add some filter for control and shift key */
   switch (keyval)

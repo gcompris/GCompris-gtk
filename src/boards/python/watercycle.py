@@ -309,7 +309,7 @@ class Gcompris_watercycle:
               
   def key_press(self, keyval):
     print("got key %i" % keyval)
-    return
+    return gtk.FALSE
 
   # This is called each second to update to castle water level
   def update_waterlevel(self):

@@ -881,7 +881,7 @@ static gint key_press(guint keyval)
   guint richting=0,level=gcomprisBoard->level;
 
   if(board_paused)
-    return TRUE;
+    return FALSE;
 
   if (threeDactive) return key_press_3D(keyval);
 

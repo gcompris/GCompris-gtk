@@ -75,7 +75,7 @@ class Gcompris_followline:
 
 
   def key_press(self, keyval):
-    print("Gcompris_followline key press. %i" % keyval)
+    return gtk.FALSE
 
       
   # Called by gcompris core 

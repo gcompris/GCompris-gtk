@@ -201,11 +201,11 @@ class Gcompris_pythontest:
 
     if(not self.left_continue and not self.right_continue):
       if(self.counter_left == self.counter_right):
-        self.canvasitems[6].set(text="GAGNE",
+        self.canvasitems[6].set(text="WIN",
                                 fill_color_rgba=0x2bf9f2FFL)
         win=True
       else:
-        self.canvasitems[6].set(text="PERDU",
+        self.canvasitems[6].set(text="LOOSE",
                                 fill_color_rgba=0xFF0000FFL)
         
     if ((keyval == gtk.keysyms.BackSpace) or
@@ -235,7 +235,12 @@ class Gcompris_pythontest:
       self.canvasitems[6].set(text="")
 
     self.canvasitems[7].set(text="Speed="+str(self.timerinc)+" ms")
-      
+
+    # Return  gtk.TRUE  if you did process a key
+    # Return  gtk.FALSE if you did not processed a key
+    #         (gtk need to send it to next widget)
+    return gtk.TRUE
+
   def pause(self, pause):
     print("Gcompris_pythontest pause. %i" % pause)
 

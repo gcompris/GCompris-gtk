@@ -151,7 +151,7 @@ class Gcompris_algorithm:
     
   def key_press(self, keyval):
     print("got key %i" % keyval)
-    return
+    return gtk.FALSE
 
   def set_level(self, level):  
     print("Gcompris_algorithm set level. %i" % level)

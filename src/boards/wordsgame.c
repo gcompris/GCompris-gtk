@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2004/11/14 15:13:11 bruno>
+ * Time-stamp: <2005/03/30 21:40:02 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -227,10 +227,10 @@ static gint key_press(guint keyval)
     LettersItem *item;
 
     if(!gcomprisBoard)
-	return TRUE;
+	return FALSE;
 
     if(!g_unichar_isalnum (gdk_keyval_to_unicode (keyval)))
-	return TRUE;
+	return FALSE;
 
 
   /* Add some filter for control and shift key */
@@ -361,7 +361,7 @@ static gint key_press(guint keyval)
 	}
 
   g_free(letter);
-  return FALSE;
+  return TRUE;
 }
 
 static gboolean

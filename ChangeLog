@@ -1,3 +1,55 @@
+2005-03-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Laurent Lacheny has created a new activity in gcompris. 
+	It's the classic connect4. You have to connect 4 lines in a row.
+	You play against the computer.
+	The IA code comes from the project 4stattack by Jeroen Vloothuis
+	http://forcedattack.sourceforge.net/
+	It's the first commit and it's a work in progress.
+
+	Bruno reviewed all key_press return value like explained here:
+
+	It doesn't explain us why we get event twice but at least we know what
+	has changed. Anyway, the return value in all key_press function of each
+	plugins are not well set. We should return:
+	TRUE  = We handled the key
+	FALSE = We did not handled the key, gtk need to send it to next widget
+
+	* boards/Makefile.am:
+	* boards/connect4/back.png:
+	* boards/connect4/grid.png:
+	* boards/connect4/prof.png:
+	* boards/connect4/sablier.txt:
+	* boards/connect4/selector.png:
+	* boards/connect4/stone_1.png:
+	* boards/connect4/stone_2.png:
+	* configure.in:
+	* po/POTFILES.in:
+	* src/boards/algebra.c: (key_press):
+	* src/boards/enumerate.c: (key_press):
+	* src/boards/gletters.c: (key_press):
+	* src/boards/maze.c: (key_press):
+	* src/boards/paratrooper.c: (key_press):
+	* src/boards/planegame.c: (key_press):
+	* src/boards/python/Makefile.am:
+	* src/boards/python/algorithm.py:
+	* src/boards/python/connect4.py:
+	* src/boards/python/connect4p/.cvsignore:
+	* src/boards/python/connect4p/Makefile.am:
+	* src/boards/python/connect4p/__init__.py:
+	* src/boards/python/connect4p/board.py:
+	* src/boards/python/connect4p/human.py:
+	* src/boards/python/connect4p/minmax.py:
+	* src/boards/python/connect4p/player.py:
+	* src/boards/python/connect4p/rules.py:
+	* src/boards/python/melody.py:
+	* src/boards/python/redraw.py:
+	* src/boards/shapegame.c: (key_press):
+	* src/boards/smallnumbers.c: (key_press):
+	* src/boards/target.c: (key_press):
+	* src/boards/wordsgame.c: (key_press):
+	* src/gcompris/sdlplayer.c: (sdlplayer_init):
+
 2005-03-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Yves made a change so that we can have private images under the

@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/10/21 22:58:45 bruno>
+ * Time-stamp: <2005/03/30 21:41:45 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -428,7 +428,7 @@ static gint key_press(guint keyval) {
   g_message("in key_press: %d, %c, %lc",keyval,keyval,keyval);
 
   if(!gcomprisBoard)
-    return TRUE;
+    return FALSE;
 
   /* Add some filter for control and shift key */
   switch (keyval)
@@ -557,8 +557,6 @@ static gint key_press(guint keyval) {
   /* Log what happened, what was expected, what we got */
 
   gcompris_log_set_comment(gcomprisBoard, list_of_letters, str);
-
-  g_message("leaving key_press\n");
 
   return TRUE;
 }

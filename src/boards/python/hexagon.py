@@ -59,7 +59,7 @@ class Gcompris_hexagon:
 
   def key_press(self, keyval):
     #print("got key %i" % keyval)
-    return
+    return gtk.FALSE
 
   
   # ----------------------------------------------------------------------

@@ -231,7 +231,7 @@ static gint key_press(guint keyval)
   guint c;
 
   if(!gcomprisBoard)
-    return TRUE;
+    return FALSE;
 
   /* Add some filter for control and shift key */
   switch (keyval)
