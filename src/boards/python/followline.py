@@ -3,12 +3,12 @@ import gobject
 import gnome
 import gnome.canvas
 import gcompris
-import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
 import gtk
 import gtk.gdk
 import random
+import math
 from gettext import gettext as _
 
 # ----------------------------------------
@@ -35,45 +35,12 @@ class Gcompris_followline:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    self.background_item = gcompris.set_background(self.gcomprisBoard.canvas.root(),
+                                                  gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+    self.background_item_connect_id = self.background_item.connect("event", self.loosing_item_event)
+
     gcompris.bar_set_level(self.gcomprisBoard)
 
-
-    self.ballinc    = 20        # Event loop timer for the ball move
-    self.timer_diff = 0         # Store the time diff between left and right key
-    
-    # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains automaticaly.
-    self.rootitem = self.gcomprisBoard.canvas.root().add(
-      gnome.canvas.CanvasGroup,
-      x=0.0,
-      y=0.0
-      )
-
-    # Start spot
-    self.start_item = self.rootitem.add(
-      gnome.canvas.CanvasEllipse,
-      x1=0.0,
-      y1=0.0,
-      x2=0.0,
-      y2=0.0
-      )
-
-    # Stop spot
-    self.stop_item = self.rootitem.add(
-      gnome.canvas.CanvasEllipse,
-      x1=0.0,
-      y1=0.0,
-      x2=0.0,
-      y2=0.0
-      )
-    
-    # Line path
-    self.path_item = self.rootitem.add(
-      gnome.canvas.CanvasBpath
-      )
-    
     self.init_board()    
     
     print("Gcompris_followline start.")
@@ -82,8 +49,10 @@ class Gcompris_followline:
   def end(self):
 
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.cleanup()
 
+    # Disconnect from the background item
+    self.background_item.disconnect(self.background_item_connect_id)
 
   def ok(self):
     print("Gcompris_followline ok.")
@@ -123,88 +92,89 @@ class Gcompris_followline:
 
   # End of Initialisation
   # ---------------------
-  
+
+  def cleanup(self):
+    # Remove the root item removes all the others inside it
+    self.state = "Done"
+
+    self.rootitem.destroy()
+    self.lines_group.destroy()
+    
   def next_level(self):
 
+    self.cleanup()
+    
     # Set the level in the control bar
     gcompris.bar_set_level(self.gcomprisBoard);
     
     self.init_board()
-    self.left_continue  = True
-    self.right_continue = True
-    self.counter_left  = 0
-    self.counter_right = 0
 
-    if(self.gcomprisBoard.level == 1):
-      self.timerinc = 900
-    elif(self.gcomprisBoard.level == 2):
-      self.timerinc = 350
-    elif(self.gcomprisBoard.level == 3):
-      self.timerinc = 300
-    elif(self.gcomprisBoard.level == 4):
-      self.timerinc = 200
-    elif(self.gcomprisBoard.level == 5):
-      self.timerinc = 150
-    elif(self.gcomprisBoard.level == 6):
-      self.timerinc = 100
-    elif(self.gcomprisBoard.level == 7):
-      self.timerinc = 60
-    elif(self.gcomprisBoard.level == 8):
-      self.timerinc = 30
-    elif(self.gcomprisBoard.level == 9):
-      self.timerinc = 15
-
-    if(self.timerinc<1):
-      self.timerinc = 1
           
 
   def init_board(self):
-    self.start_size = 160
-    self.start_width_units = 5.0
-    self.start_x    = self.start_size - 40
-    self.start_y    = self.start_size/2 + random.randint(0, gcompris.BOARD_HEIGHT-self.start_size)
 
-    self.stop_size = self.start_size
-    self.stop_width_units = self.start_width_units
-    self.stop_x    = gcompris.BOARD_WIDTH - self.stop_size + 20
-    self.stop_y    = self.start_size/2 + random.randint(0, gcompris.BOARD_HEIGHT-self.start_size)
+    # Number of hit outside of the line are allowed
+    self.loosing_count = 20 - self.gcomprisBoard.level
 
-    # Line path
-    self.path_def = gnome.canvas.path_def_new([(gnome.canvas.MOVETO_OPEN, self.stop_x, self.stop_y),
-                                               (gnome.canvas.CURVETO,
-                                                self.start_x + random.randint(10, gcompris.BOARD_WIDTH - 20),
-                                                self.start_y + random.randint(10, gcompris.BOARD_HEIGHT - 20),
-                                                self.start_x + random.randint(10, 50),
-                                                self.start_y + random.randint(10, 50),
-                                                self.start_x, self.start_y),
-                                               (gnome.canvas.MOVETO_OPEN, self.start_x, self.start_y),])
-    self.path_item.set(
-      outline_color_rgba = 0x0C1010FFL,
-      width_pixels  =  30
-      )
-    self.path_item.set_bpath(self.path_def)
+    self.state = "Ready"
 
-    self.start_item.set(
-      x1=self.start_x - self.start_size/2,
-      y1=self.start_y - self.start_size/2,
-      x2=self.start_x + self.start_size/2,
-      y2=self.start_y + self.start_size/2,
-      fill_color_rgba=0xFF1212FFL,
-      outline_color_rgba=0x000000FFL,
-      width_units=self.start_width_units
+    # Create our rootitem. We put each canvas item in it so at the end we
+    # only have to kill it. The canvas deletes all the items it contains automaticaly.
+    self.rootitem = self.gcomprisBoard.canvas.root().add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
       )
 
-    self.stop_item.set(
-      x1=self.stop_x - self.stop_size/2,
-      y1=self.stop_y - self.stop_size/2,
-      x2=self.stop_x + self.stop_size/2,
-      y2=self.stop_y + self.stop_size/2,
-      fill_color_rgba=0xFF1212FFL,
-      outline_color_rgba=0x000000FFL,
-      width_units=self.stop_width_units
+    
+    # Another group where we put each canvas line item in it
+    self.lines_group = self.gcomprisBoard.canvas.root().add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
       )
+    
+    self.start_x    = 40
+    self.start_y    = gcompris.BOARD_HEIGHT/2
 
+    self.stop_x     = gcompris.BOARD_WIDTH - self.start_x
+    self.stop_y     = gcompris.BOARD_HEIGHT/2
 
+    # Line path (create several little line)
+    min_boundary = 40
+    y            = self.start_y
+    line_width   = 45 - self.gcomprisBoard.level*2
+    step         = (self.stop_x-self.start_x)/(50)
+
+    frequency = 1 + int(self.gcomprisBoard.level/4)
+      
+    xpi = math.pi/2*frequency
+    y   = self.start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
+    for x in range(self.start_x, self.stop_x, step):
+      
+      xpi += (math.pi/2*frequency)/step
+      y2 = self.start_y + math.cos(xpi)*(self.gcomprisBoard.level*10)
+      
+      # Check we stay within boundaries
+      if(y2>=gcompris.BOARD_HEIGHT-min_boundary):
+        y2=gcompris.BOARD_HEIGHT-min_boundary
+      elif(y2<=min_boundary):
+        y2=min_boundary
+
+      item = self.lines_group.add(
+        gnome.canvas.CanvasLine,
+        points          =( x,
+                           y,
+                           x + step,
+                           y2),
+        fill_color_rgba = 0x0AA0F0FFL,
+        width_units     = line_width,
+        cap_style       = gtk.gdk.CAP_ROUND
+        )
+      item.connect("event", self.line_item_event)
+      y = y2
+
+    self.highlight_next_line()
 
   # Code that increments the sublevel and level
   # And bail out if no more levels are available
@@ -222,4 +192,55 @@ class Gcompris_followline:
         return 0
       
     return 1
+
+  def highlight_next_line(self):
+    for item in self.lines_group.item_list:
+      if(item.get_data("gotit") != True):
+        item.set(
+          fill_color_rgba=0x11F212FFL,
+          )
+        item.set_data("iamnext", True);
+        return
+
+  def is_done(self):
+    done = True
+    for item in self.lines_group.item_list:
+      if(item.get_data("gotit") != True):
+        done = False
+
+    if(done):
+      # This is a win
+      if (self.increment_level() == 1):
+        self.state = "Done"
+        self.gamewon = 1
+        gcompris.bonus.display(1, gcompris.bonus.FLOWER)
+      
+    return done
+
+  def loosing_item_event(self, widget, event=None):
+    if(self.state == "Started"):
+      self.loosing_count -= 1
+      if(self.loosing_count<=0):
+        self.state = "Done"
+        self.gamewon = 0
+        gcompris.bonus.display(0, gcompris.bonus.FLOWER)
         
+      print self.loosing_count
+      
+    return gtk.FALSE
+
+
+  def line_item_event(self, widget, event=None):
+    if not self.board_paused and widget.get_data("iamnext") == True:
+      # The first line touch means the game is started
+      self.state = "Started"
+      widget.set(
+        fill_color_rgba=0x11F2F2FFL,
+        )
+      widget.set_data("gotit", True);
+      widget.set_data("iamnext", False);
+      self.highlight_next_line()
+      self.is_done()
+      
+    return gtk.FALSE
+
