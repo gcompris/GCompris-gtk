@@ -45,12 +45,12 @@ mama
 malo
 mata
 mar
-monería
+monerÎ½a
 mesa
 moto
 ocho
 padre
-papá
+papÎ±
 pez
 piso
 playa
@@ -59,7 +59,7 @@ sal
 sed
 seis
 sitio
-sofá
+sofÎ±
 sol
 tapas
 toro

@@ -15,7 +15,7 @@ mama
 malo
 mata
 mar
-monerÌa
+moner√≠a
 mesa
 moto
 ocho
@@ -29,7 +29,7 @@ sal
 sed
 seis
 sitio
-sof·
+sof√°
 sol
 tapas
 toro
