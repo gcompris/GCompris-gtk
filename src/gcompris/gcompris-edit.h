@@ -21,5 +21,13 @@
 
 
 
-void		gcompris_edit_display_description(GcomprisBoard *gcomprisBoard);
-void		gcompris_edit_display_iconlist();
+void		 gcompris_edit_display_description(GcomprisBoard *gcomprisBoard);
+void		 gcompris_edit_display_iconlist();
+void		 gcompris_ctree_selection_add(GcomprisBoard *gcomprisBoard, GtkCTreeNode *node);
+void		 gcompris_ctree_selection_del(GcomprisBoard *gcomprisBoard, GtkCTreeNode *node);
+GcomprisBoard	*gcompris_ctree_get_selected_board();
+GtkCTreeNode	*gcompris_ctree_get_selected_node();
+void		 gcompris_ctree_set_board_status(GcomprisBoard *gcomprisBoard,
+						 GtkCTreeNode *node,
+						 gboolean status);
+void		 gcompris_ctree_update_status(gcomprisBoard, node);

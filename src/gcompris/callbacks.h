@@ -86,3 +86,35 @@ on_about2_activate                     (GtkMenuItem     *menuitem,
 void
 on_buttonIconList_clicked              (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_ctree1_tree_unselect_row            (GtkCTree        *ctree,
+                                        GList           *node,
+                                        gint             column,
+                                        gpointer         user_data);
+
+void
+on_button1_clicked                     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button2_clicked                     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_buttonDel_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_buttonAdd_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_ctree1_tree_collapse                (GtkCTree        *ctree,
+                                        GList           *node,
+                                        gpointer         user_data);
+
+void
+on_ctree1_tree_expand                  (GtkCTree        *ctree,
+                                        GList           *node,
+                                        gpointer         user_data);

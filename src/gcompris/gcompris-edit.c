@@ -36,20 +36,23 @@
 #include "gcompris.h"
 #include "gcompris-edit.h"
 
-#include "dir-open.xpm"
-#include "dir-close.xpm"
+#include "on.xpm"
+#include "off.xpm"
 
 static GtkWidget	*gcompris_edit	= NULL;
 static GtkWidget	*ctree1		= NULL;
 
-static GdkPixmap	*pixmap_open;
-static GdkPixmap	*pixmap_close;
-static GdkPixmap	*pixmap_open_mask;
-static GdkPixmap	*pixmap_close_mask;
-static GdkPixmap	*pixmap_open_transp;
-static GdkPixmap	*pixmap_close_transp;
+static GdkPixmap	*pixmap_on;
+static GdkPixmap	*pixmap_on_mask;
+static GdkPixmap	*pixmap_on_transp;
+static GdkPixmap	*pixmap_off;
+static GdkPixmap	*pixmap_off_mask;
+static GdkPixmap	*pixmap_off_transp;
 
 static gboolean		 read_xml_file(GtkCTreeNode *parentNode, char *fname);
+
+static GcomprisBoard	*selectedBoard = NULL;
+static GtkCTreeNode	*selectedNode = NULL;
 
 void gcompris_edit_display_iconlist()
 {
@@ -65,6 +68,36 @@ void gcompris_edit_display_iconlist()
   gnome_icon_selection_add_directory (GNOME_ICON_SELECTION(tmpWidget), 
 				      PACKAGE_DATA_DIR "/boardicons");
   gnome_icon_selection_show_icons (GNOME_ICON_SELECTION(tmpWidget));
+}
+
+/*
+ * Redisplay the icon representing the status of the board
+ */
+void gcompris_ctree_update_status(GcomprisBoard *gcomprisBoard, 
+				  GtkCTreeNode *node)
+{
+  if(gcompris_properties_get_board_status(gcomprisBoard->name))
+    gcompris_ctree_set_board_status(gcomprisBoard, node, TRUE);
+  else
+    gcompris_ctree_set_board_status(gcomprisBoard, node, FALSE);
+}
+
+/*
+ * Set the icon in the tree depending on the given status
+ */
+void gcompris_ctree_set_board_status(GcomprisBoard *gcomprisBoard,
+				     GtkCTreeNode *node,
+				     gboolean status)
+{
+  if(status)
+    gtk_ctree_node_set_pixtext(GTK_CTREE(ctree1), node, 0, 
+			       gcomprisBoard->name, 8,
+			       pixmap_on, pixmap_on_mask);
+  else
+    gtk_ctree_node_set_pixtext(GTK_CTREE(ctree1), node, 0, 
+			       gcomprisBoard->name, 8,
+			       pixmap_off, pixmap_off_mask);
+
 }
 
 /*
@@ -90,18 +123,18 @@ void gcompris_edit_display_description(GcomprisBoard *gcomprisBoard)
 				   "entryName");
       
   if(gcomprisBoard->name)
-      gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->name);
+    gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->name);
   else
-      gtk_entry_set_text(GTK_ENTRY(tmpWidget), "");
+    gtk_entry_set_text(GTK_ENTRY(tmpWidget), "");
 
 
   /* Title */
   tmpWidget = gtk_object_get_data (GTK_OBJECT (gcompris_edit),
 				   "entryTitle");
   if(gcomprisBoard->title)
-      gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->title);
+    gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->title);
   else
-      gtk_entry_set_text(GTK_ENTRY(tmpWidget), "");
+    gtk_entry_set_text(GTK_ENTRY(tmpWidget), "");
 
 
   /* Description */
@@ -111,22 +144,22 @@ void gcompris_edit_display_description(GcomprisBoard *gcomprisBoard)
   gtk_text_backward_delete(GTK_TEXT(tmpWidget), gtk_text_get_length(GTK_TEXT(tmpWidget)));
 
   if(gcomprisBoard->description)
-      gtk_text_insert(GTK_TEXT(tmpWidget), NULL, NULL, NULL, gcomprisBoard->description,
-		      strlen(gcomprisBoard->description));
+    gtk_text_insert(GTK_TEXT(tmpWidget), NULL, NULL, NULL, gcomprisBoard->description,
+		    strlen(gcomprisBoard->description));
 
   /* Difficulty */
   tmpWidget = gtk_object_get_data (GTK_OBJECT (gcompris_edit),
 				   "spinbuttonDifficulty");
   if(gcomprisBoard->difficulty)
-      gtk_spin_button_set_value(GTK_SPIN_BUTTON(tmpWidget), atof(gcomprisBoard->difficulty));
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(tmpWidget), atof(gcomprisBoard->difficulty));
   else
-      gtk_spin_button_set_value(GTK_SPIN_BUTTON(tmpWidget), (double)0);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(tmpWidget), (double)0);
 
   /* Author */
   tmpWidget = gtk_object_get_data (GTK_OBJECT (gcompris_edit),
 				   "entryAuthor");
   if(gcomprisBoard->author)
-      gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->author);
+    gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->author);
   else
     gtk_entry_set_text(GTK_ENTRY(tmpWidget), "");
 
@@ -135,7 +168,7 @@ void gcompris_edit_display_description(GcomprisBoard *gcomprisBoard)
 				   "entryBoardDir");
       
   if(gcomprisBoard->boarddir)
-      gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->boarddir);
+    gtk_entry_set_text(GTK_ENTRY(tmpWidget), gcomprisBoard->boarddir);
   else
     gtk_entry_set_text(GTK_ENTRY(tmpWidget), "");
 
@@ -213,15 +246,17 @@ GtkCTreeNode *add_node_to_ctree ( GtkWidget *ctree1,
 				  NULL,
 				  text,
 				  2,
-				  pixmap_open,
-				  pixmap_open_mask,
-				  pixmap_close,
-				  pixmap_close_mask,
+				  NULL,
+				  NULL,
+				  NULL,
+				  NULL,
 				  FALSE,
 				  TRUE);
-  
+
   /* Associaste our data to the node */
   gtk_ctree_node_set_row_data(GTK_CTREE(ctree1), newNode, gcomprisBoardMenu);
+  
+  gcompris_ctree_update_status(gcomprisBoardMenu, newNode);  
   
   return(newNode);
 }
@@ -233,14 +268,14 @@ void init_tree()
 				"ctree1");
 
   /* Init pixmaps */
-  pixmap_open = gdk_pixmap_create_from_xpm_d(gcompris_edit->window,
-					     &pixmap_open_mask,
-					     &pixmap_open_transp,
-					     DIRECTORY_OPEN_XPM);
-  pixmap_close = gdk_pixmap_create_from_xpm_d(gcompris_edit->window,
-					     &pixmap_close_mask,
-					     &pixmap_close_transp,
-					     DIRECTORY_CLOSE_XPM);
+  pixmap_on    = gdk_pixmap_create_from_xpm_d(gcompris_edit->window,
+					      &pixmap_on_mask,
+					      &pixmap_on_transp,
+					      BOARD_ON_XPM);
+  pixmap_off   = gdk_pixmap_create_from_xpm_d(gcompris_edit->window,
+					      &pixmap_off_mask,
+					      &pixmap_off_transp,
+					      BOARD_OFF_XPM);
 
   read_xml_file(NULL, PACKAGE_DATA_DIR INITIAL_MENU);
 }
@@ -357,7 +392,39 @@ read_xml_file(GtkCTreeNode *parentNode, char *fname)
 }
 
 
+/*
+ * Manage the tree selection : add the selection
+ */
+void gcompris_ctree_selection_add(GcomprisBoard *gcomprisBoard, GtkCTreeNode *node)
+{
+  selectedBoard = gcomprisBoard;
+  selectedNode  = node;
+}
 
+/*
+ * Manage the tree selection : del the selection
+ */
+void gcompris_ctree_selection_del(GcomprisBoard *gcomprisBoard, GtkCTreeNode *node)
+{
+  selectedBoard = NULL;
+  selectedNode  = NULL;
+}
+
+/*
+ * Manage the tree selection : return it
+ */
+GcomprisBoard *gcompris_ctree_get_selected_board()
+{
+  return (selectedBoard);
+}
+
+/*
+ * Manage the tree selection : return it
+ */
+GtkCTreeNode *gcompris_ctree_get_selected_node()
+{
+  return (selectedNode);
+}
 
 
 
@@ -379,6 +446,12 @@ main (int argc, char *argv[])
    */
   gcompris_edit = create_gcompris_edit ();
   gtk_widget_show (gcompris_edit);
+
+  /* connect exit code */
+  gtk_signal_connect (GTK_OBJECT (gcompris_edit), "delete_event",
+		      GTK_SIGNAL_FUNC (gtk_exit), NULL);
+  gtk_signal_connect (GTK_OBJECT (gcompris_edit), "destroy",
+		      GTK_SIGNAL_FUNC (gtk_exit), NULL);
 
   init_plugins();
 

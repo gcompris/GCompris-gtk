@@ -57,11 +57,11 @@ create_gcompris_edit (void)
   GtkWidget *dock1;
   GtkWidget *toolbar1;
   GtkWidget *tmp_toolbar_icon;
-  GtkWidget *button1;
-  GtkWidget *button2;
-  GtkWidget *button4;
-  GtkWidget *button5;
-  GtkWidget *button3;
+  GtkWidget *buttonAdd;
+  GtkWidget *buttonDel;
+  GtkWidget *buttonUp;
+  GtkWidget *buttonDown;
+  GtkWidget *buttonSave;
   GtkWidget *hpaned1;
   GtkWidget *scrolledwindow1;
   GtkWidget *ctree1;
@@ -88,6 +88,8 @@ create_gcompris_edit (void)
   GtkWidget *entryBoardDir;
   GtkWidget *hbox1;
   GtkWidget *pixmapBoardIcon;
+  GtkWidget *vbox1;
+  GtkWidget *vbuttonbox1;
   GtkWidget *buttonIconList;
   GtkWidget *label20;
   GtkWidget *label12;
@@ -113,10 +115,11 @@ create_gcompris_edit (void)
 
   tooltips = gtk_tooltips_new ();
 
-  gcompris_edit = gnome_app_new ("Edit", _("Edit"));
+  gcompris_edit = gnome_app_new ("Edit", _("GCompris Edit"));
   gtk_widget_set_name (gcompris_edit, "gcompris_edit");
   gtk_object_set_data (GTK_OBJECT (gcompris_edit), "gcompris_edit", gcompris_edit);
-  gtk_window_set_default_size (GTK_WINDOW (gcompris_edit), 610, 450);
+  gtk_window_set_default_size (GTK_WINDOW (gcompris_edit), 706, 450);
+  gtk_window_set_policy (GTK_WINDOW (gcompris_edit), TRUE, TRUE, FALSE);
 
   dock1 = GNOME_APP (gcompris_edit)->dock;
   gtk_widget_set_name (dock1, "dock1");
@@ -214,69 +217,69 @@ create_gcompris_edit (void)
   gtk_toolbar_set_button_relief (GTK_TOOLBAR (toolbar1), GTK_RELIEF_NONE);
 
   tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_ADD);
-  button1 = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
+  buttonAdd = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
                                 _("Ajouter"),
                                 _("Nouveau fichier"), NULL,
                                 tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (button1, "button1");
-  gtk_widget_ref (button1);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "button1", button1,
+  gtk_widget_set_name (buttonAdd, "buttonAdd");
+  gtk_widget_ref (buttonAdd);
+  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonAdd", buttonAdd,
                             (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (button1);
+  gtk_widget_show (buttonAdd);
 
   tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_REMOVE);
-  button2 = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
+  buttonDel = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
                                 _("Supprimer"),
                                 _("Ouvrir un fichier"), NULL,
                                 tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (button2, "button2");
-  gtk_widget_ref (button2);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "button2", button2,
+  gtk_widget_set_name (buttonDel, "buttonDel");
+  gtk_widget_ref (buttonDel);
+  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonDel", buttonDel,
                             (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (button2);
+  gtk_widget_show (buttonDel);
 
   tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_UP);
-  button4 = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
+  buttonUp = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
                                 _("Monter"),
                                 NULL, NULL,
                                 tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (button4, "button4");
-  gtk_widget_ref (button4);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "button4", button4,
+  gtk_widget_set_name (buttonUp, "buttonUp");
+  gtk_widget_ref (buttonUp);
+  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonUp", buttonUp,
                             (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (button4);
+  gtk_widget_show (buttonUp);
 
   tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_DOWN);
-  button5 = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
+  buttonDown = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
                                 _("Descendre"),
                                 NULL, NULL,
                                 tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (button5, "button5");
-  gtk_widget_ref (button5);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "button5", button5,
+  gtk_widget_set_name (buttonDown, "buttonDown");
+  gtk_widget_ref (buttonDown);
+  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonDown", buttonDown,
                             (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (button5);
+  gtk_widget_show (buttonDown);
 
   tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_SAVE);
-  button3 = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
+  buttonSave = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
                                 _("Enregistrer"),
                                 _("Enregistrer le fichier"), NULL,
                                 tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (button3, "button3");
-  gtk_widget_ref (button3);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "button3", button3,
+  gtk_widget_set_name (buttonSave, "buttonSave");
+  gtk_widget_ref (buttonSave);
+  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonSave", buttonSave,
                             (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (button3);
+  gtk_widget_show (buttonSave);
 
   hpaned1 = gtk_hpaned_new ();
   gtk_widget_set_name (hpaned1, "hpaned1");
@@ -352,6 +355,7 @@ create_gcompris_edit (void)
                             (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (scrolledwindow_description);
   gtk_container_add (GTK_CONTAINER (notebook1), scrolledwindow_description);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow_description), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
   viewport1 = gtk_viewport_new (NULL, NULL);
   gtk_widget_set_name (viewport1, "viewport1");
@@ -527,13 +531,29 @@ create_gcompris_edit (void)
   gtk_widget_show (pixmapBoardIcon);
   gtk_box_pack_start (GTK_BOX (hbox1), pixmapBoardIcon, TRUE, TRUE, 0);
 
+  vbox1 = gtk_vbox_new (FALSE, 0);
+  gtk_widget_set_name (vbox1, "vbox1");
+  gtk_widget_ref (vbox1);
+  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "vbox1", vbox1,
+                            (GtkDestroyNotify) gtk_widget_unref);
+  gtk_widget_show (vbox1);
+  gtk_box_pack_end (GTK_BOX (hbox1), vbox1, FALSE, FALSE, 0);
+
+  vbuttonbox1 = gtk_vbutton_box_new ();
+  gtk_widget_set_name (vbuttonbox1, "vbuttonbox1");
+  gtk_widget_ref (vbuttonbox1);
+  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "vbuttonbox1", vbuttonbox1,
+                            (GtkDestroyNotify) gtk_widget_unref);
+  gtk_widget_show (vbuttonbox1);
+  gtk_box_pack_start (GTK_BOX (vbox1), vbuttonbox1, TRUE, TRUE, 0);
+
   buttonIconList = gtk_button_new_with_label (_("..."));
   gtk_widget_set_name (buttonIconList, "buttonIconList");
   gtk_widget_ref (buttonIconList);
   gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonIconList", buttonIconList,
                             (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (buttonIconList);
-  gtk_box_pack_start (GTK_BOX (hbox1), buttonIconList, FALSE, FALSE, 0);
+  gtk_box_pack_end (GTK_BOX (vbox1), buttonIconList, FALSE, FALSE, 0);
   GTK_WIDGET_UNSET_FLAGS (buttonIconList, GTK_CAN_FOCUS);
   gtk_tooltips_set_tip (tooltips, buttonIconList, _("Enregistrer le fichier"), NULL);
 
@@ -731,9 +751,24 @@ create_gcompris_edit (void)
   gnome_app_set_statusbar (GNOME_APP (gcompris_edit), appbar1);
 
   gnome_app_install_menu_hints (GNOME_APP (gcompris_edit), menubar1_uiinfo);
+  gtk_signal_connect (GTK_OBJECT (buttonAdd), "clicked",
+                      GTK_SIGNAL_FUNC (on_buttonAdd_clicked),
+                      NULL);
+  gtk_signal_connect (GTK_OBJECT (buttonDel), "clicked",
+                      GTK_SIGNAL_FUNC (on_buttonDel_clicked),
+                      NULL);
   gtk_signal_connect (GTK_OBJECT (ctree1), "tree_select_row",
                       GTK_SIGNAL_FUNC (on_ctree1_tree_select_row),
                       NULL);
+  gtk_signal_connect (GTK_OBJECT (ctree1), "tree_unselect_row",
+                      GTK_SIGNAL_FUNC (on_ctree1_tree_unselect_row),
+                      NULL);
+  gtk_signal_connect_after (GTK_OBJECT (ctree1), "tree_collapse",
+                            GTK_SIGNAL_FUNC (on_ctree1_tree_collapse),
+                            NULL);
+  gtk_signal_connect_after (GTK_OBJECT (ctree1), "tree_expand",
+                            GTK_SIGNAL_FUNC (on_ctree1_tree_expand),
+                            NULL);
   gtk_signal_connect (GTK_OBJECT (buttonIconList), "clicked",
                       GTK_SIGNAL_FUNC (on_buttonIconList_clicked),
                       NULL);

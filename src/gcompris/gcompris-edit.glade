@@ -18,13 +18,13 @@
 <widget>
   <class>GnomeApp</class>
   <name>gcompris-edit</name>
-  <title>Edit</title>
+  <title>GCompris Edit</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
   <modal>False</modal>
-  <default_width>610</default_width>
+  <default_width>706</default_width>
   <default_height>450</default_height>
-  <allow_shrink>False</allow_shrink>
+  <allow_shrink>True</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
   <enable_layout_config>True</enable_layout_config>
@@ -213,8 +213,13 @@
 	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
-	  <name>button1</name>
+	  <name>buttonAdd</name>
 	  <tooltip>Nouveau fichier</tooltip>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_buttonAdd_clicked</handler>
+	    <last_modification_time>Thu, 06 Jun 2002 21:44:16 GMT</last_modification_time>
+	  </signal>
 	  <label>Ajouter</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_ADD</stock_pixmap>
 	</widget>
@@ -222,8 +227,13 @@
 	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
-	  <name>button2</name>
+	  <name>buttonDel</name>
 	  <tooltip>Ouvrir un fichier</tooltip>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_buttonDel_clicked</handler>
+	    <last_modification_time>Thu, 06 Jun 2002 21:43:58 GMT</last_modification_time>
+	  </signal>
 	  <label>Supprimer</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_REMOVE</stock_pixmap>
 	</widget>
@@ -231,7 +241,7 @@
 	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
-	  <name>button4</name>
+	  <name>buttonUp</name>
 	  <label>Monter</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_UP</stock_pixmap>
 	</widget>
@@ -239,7 +249,7 @@
 	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
-	  <name>button5</name>
+	  <name>buttonDown</name>
 	  <label>Descendre</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_DOWN</stock_pixmap>
 	</widget>
@@ -247,7 +257,7 @@
 	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
-	  <name>button3</name>
+	  <name>buttonSave</name>
 	  <tooltip>Enregistrer le fichier</tooltip>
 	  <label>Enregistrer</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_SAVE</stock_pixmap>
@@ -288,6 +298,23 @@
 	    <name>tree_select_row</name>
 	    <handler>on_ctree1_tree_select_row</handler>
 	    <last_modification_time>Tue, 04 Jun 2002 23:31:35 GMT</last_modification_time>
+	  </signal>
+	  <signal>
+	    <name>tree_unselect_row</name>
+	    <handler>on_ctree1_tree_unselect_row</handler>
+	    <last_modification_time>Thu, 06 Jun 2002 21:36:45 GMT</last_modification_time>
+	  </signal>
+	  <signal>
+	    <name>tree_collapse</name>
+	    <handler>on_ctree1_tree_collapse</handler>
+	    <after>True</after>
+	    <last_modification_time>Sat, 08 Jun 2002 07:11:37 GMT</last_modification_time>
+	  </signal>
+	  <signal>
+	    <name>tree_expand</name>
+	    <handler>on_ctree1_tree_expand</handler>
+	    <after>True</after>
+	    <last_modification_time>Sat, 08 Jun 2002 07:11:43 GMT</last_modification_time>
 	  </signal>
 	  <columns>3</columns>
 	  <column_widths>80,80,80</column_widths>
@@ -358,8 +385,8 @@
 	<widget>
 	  <class>GtkScrolledWindow</class>
 	  <name>scrolledwindow_description</name>
-	  <hscrollbar_policy>GTK_POLICY_ALWAYS</hscrollbar_policy>
-	  <vscrollbar_policy>GTK_POLICY_ALWAYS</vscrollbar_policy>
+	  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 	  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 	  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 
@@ -732,21 +759,51 @@
 		</widget>
 
 		<widget>
-		  <class>GtkButton</class>
-		  <name>buttonIconList</name>
-		  <tooltip>Enregistrer le fichier</tooltip>
-		  <signal>
-		    <name>clicked</name>
-		    <handler>on_buttonIconList_clicked</handler>
-		    <last_modification_time>Wed, 05 Jun 2002 21:47:16 GMT</last_modification_time>
-		  </signal>
-		  <label>...</label>
-		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <class>GtkVBox</class>
+		  <name>vbox1</name>
+		  <homogeneous>False</homogeneous>
+		  <spacing>0</spacing>
 		  <child>
 		    <padding>0</padding>
 		    <expand>False</expand>
 		    <fill>False</fill>
+		    <pack>GTK_PACK_END</pack>
 		  </child>
+
+		  <widget>
+		    <class>GtkVButtonBox</class>
+		    <name>vbuttonbox1</name>
+		    <layout_style>GTK_BUTTONBOX_DEFAULT_STYLE</layout_style>
+		    <spacing>10</spacing>
+		    <child_min_width>85</child_min_width>
+		    <child_min_height>27</child_min_height>
+		    <child_ipad_x>7</child_ipad_x>
+		    <child_ipad_y>0</child_ipad_y>
+		    <child>
+		      <padding>0</padding>
+		      <expand>True</expand>
+		      <fill>True</fill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <name>buttonIconList</name>
+		    <tooltip>Enregistrer le fichier</tooltip>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_buttonIconList_clicked</handler>
+		      <last_modification_time>Wed, 05 Jun 2002 21:47:16 GMT</last_modification_time>
+		    </signal>
+		    <label>...</label>
+		    <relief>GTK_RELIEF_NORMAL</relief>
+		    <child>
+		      <padding>0</padding>
+		      <expand>False</expand>
+		      <fill>False</fill>
+		      <pack>GTK_PACK_END</pack>
+		    </child>
+		  </widget>
 		</widget>
 	      </widget>
 

@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/06/01 02:27:27 bruno>
+ * Time-stamp: <2002/06/07 00:18:25 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -184,10 +184,10 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "anchor", GTK_ANCHOR_CENTER,
 				    "fill_color_rgba", COLOR_TEXT_BUTTON,
 				    NULL);
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_prerequisite_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "prerequisite");
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_prerequisite_text), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 item_prerequisite);
     }
@@ -218,10 +218,10 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "anchor", GTK_ANCHOR_CENTER,
 				    "fill_color_rgba", COLOR_TEXT_BUTTON,
 				    NULL);
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_goal_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "goal");
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_goal_text), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 item_goal);
     }
@@ -252,10 +252,10 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "anchor", GTK_ANCHOR_CENTER,
 				    "fill_color_rgba", COLOR_TEXT_BUTTON,
 				    NULL);
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_manual_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "manual");
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_manual_text), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 item_manual);
     }
@@ -286,10 +286,10 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "anchor", GTK_ANCHOR_CENTER,
 				    "fill_color_rgba", COLOR_TEXT_BUTTON,
 				    NULL);
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_credit_text), "event",
 			 (GtkSignalFunc) item_event_help,
 			 "credit");
-      gtk_signal_connect(GTK_OBJECT(item), "event",
+      gtk_signal_connect(GTK_OBJECT(item_credit_text), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 item_credit);
     }

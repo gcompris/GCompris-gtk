@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2002/05/01 22:30:19 bruno>
+ * Time-stamp: <2002/06/07 00:16:20 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -106,6 +106,41 @@ void gcompris_properties_save (GcomprisProperties *props)
 			props->locale);
 
   gnome_config_sync ();
+}
+
+/*
+ * Management of the status of the boards
+ */
+void gcompris_properties_enable_board(gchar *boardName)
+{
+  gchar *tmp = g_strdup_printf("/gcompris/BoardStatus/%s=1", boardName);
+  gnome_config_set_int (tmp, 1);
+  g_free(tmp);
+
+  gnome_config_sync ();
+}
+
+void gcompris_properties_disable_board(gchar *boardName)
+{
+  gchar *tmp = g_strdup_printf("/gcompris/BoardStatus/%s=0", boardName);
+  gnome_config_set_int (tmp, 0);
+  g_free(tmp);
+
+  gnome_config_sync ();
+}
+
+gboolean gcompris_properties_get_board_status(gchar *boardName)
+{
+  gboolean status;
+  gchar *tmp = g_strdup_printf("/gcompris/BoardStatus/%s=1", boardName);
+
+  status = ((gnome_config_get_int (tmp) == 1) ? TRUE : FALSE);
+
+  g_free(tmp);
+
+  return(status);
+
+
 }
 
 

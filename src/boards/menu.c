@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/04/14 00:27:08 bruno>
+ * Time-stamp: <2002/06/07 01:16:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -220,7 +220,7 @@ menu_config ()
 
 static void display_board_icon(GcomprisBoard *board)
 {
-  if (board!=NULL)
+  if (board!=NULL && gcompris_properties_get_board_status(board->name))
     {
       menu_create_item(boardRootItem, board);
     }
