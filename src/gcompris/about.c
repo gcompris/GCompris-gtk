@@ -194,7 +194,7 @@ void gcompris_about_start ()
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
   gdk_pixbuf_unref(pixmap);
-  
+
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("GCompris Home Page"),
@@ -381,7 +381,7 @@ static gint
 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
 
-  switch (event->type) 
+  switch (event->type)
     {
     case GDK_ENTER_NOTIFY:
       break;

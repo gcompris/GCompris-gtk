@@ -398,7 +398,7 @@ static gboolean process_ok_timeout() {
 
 static void process_ok() {
 	// leave time to display the right answer
-  g_timeout_add(1000, process_ok_timeout, NULL);
+  g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 /* ==================================== */
 static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {

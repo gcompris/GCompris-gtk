@@ -420,7 +420,7 @@ static void process_ok() {
     gnome_canvas_item_set(text, "text", board->answer, NULL);
   }
 	// leave time to display the right answer
-  g_timeout_add(1000, process_ok_timeout, NULL);
+  g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 
 /* ==================================== */

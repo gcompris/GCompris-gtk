@@ -27,6 +27,11 @@
 #include <assert.h>
 #include "gcompris.h"
 
+/* The time, in ms, between the click of the player, making a choice
+		and the moment the bonus appears. Only used when there is no thumb 
+    in the board */
+#define TIME_CLICK_TO_BONUS 800
+
 /* BONUS_LAST is equals to the last available bonus type */
 
 typedef enum
