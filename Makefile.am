@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = intl po src sounds docs boards
+SUBDIRS = po src sounds docs boards
 
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png
@@ -14,7 +14,7 @@ Menu_DATA=gcompris
 
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST = \
+EXTRA_DIST = config.rpath  \
 	$(Games_DATA) \
 	$(Games_in_files) \
 	$(icon_DATA) \
@@ -55,3 +55,5 @@ dist-core:
 	tar f $(distcore).tar --delete $(distdir)/boards/sounds
 	gzip --best $(distcore).tar
 	@echo Created $(distcore).tar.gz
+
+ACLOCAL_AMFLAGS = -I m4
