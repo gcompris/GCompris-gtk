@@ -4,11 +4,13 @@ xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
 	advanced_colors.xml.in \
-	algebramenu.xml.in \
-	algebra_plus.xml.in \
-	algebra_minus.xml.in \
 	algebra_by.xml.in \
 	algebra_group.xml.in \
+	algebra_guesscount.xml.in \
+	algebra_minus.xml.in \
+	algebra_plus.xml.in \
+	algebramenu.xml.in \
+	algorithm.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
 	billard.xml.in \
@@ -19,34 +21,45 @@ xml_in_files = \
 	chess_movelearn.xml.in \
 	chess_partyend.xml.in \
 	chronos.xml.in \
+	click_on_letter.xml.in \
 	clickgame.xml.in \
 	clockgame.xml.in \
+	colors.xml.in \
+	colors_group.xml.in \
 	computer.xml.in \
-	draw.xml.in \
 	doubleentry.xml.in \
+	draw.xml.in \
 	enumerate.xml.in \
+	erase.xml.in \
 	experience.xml.in \
-	fun.xml.in \
 	fifteen.xml.in \
+	fun.xml.in \
 	geography.xml.in \
 	gletters.xml.in \
 	hanoi.xml.in \
+	hexagon.xml.in \
+	imageid.xml.in \
 	imagename.xml.in \
+	leftright.xml.in \
 	maze.xml.in \
 	maze3D.xml.in \
 	melody.xml.in \
 	memory.xml.in \
 	menu.xml.in \
+	minouche.xml.in \
+	missing_letter.xml.in \
 	money.xml.in \
 	money_cents.xml.in \
 	paintings.xml.in \
 	paratrooper.xml.in \
 	planegame.xml.in \
+	pythontest.xml.in \
 	railroad.xml.in \
+	railroad.xml.in \
+	read_colors.xml.in \
+	reading.xml.in \
 	readingh.xml.in \
 	readingv.xml.in \
-	reading.xml.in \
-	read_colors.xml.in \
 	redraw.xml.in \
 	redraw_symmetrical.xml.in \
 	reversecount.xml.in \
@@ -56,18 +69,8 @@ xml_in_files = \
 	superbrain.xml.in \
 	target.xml.in \
 	traffic.xml.in \
-	wordsgame.xml.in \
-	imageid.xml.in \
-	missing_letter.xml.in \
-	click_on_letter.xml.in \
-	railroad.xml.in \
-	erase.xml.in \
-	algebra_guesscount.xml.in \
-	leftright.xml.in \
-	colors.xml.in \
-	colors_group.xml.in \
-	pythontest.xml.in \
-	watercycle.xml.in
+	watercycle.xml.in \
+	wordsgame.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

@@ -1,3 +1,23 @@
+2004-04-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added hexagon, manouche and algorithm.
+	* boards/flags/en.png: changed to english flag
+	* configure.in: added windows dll creation macro and libgcompris creation
+	* src/boards/Makefile.am: link against libgcompris-1.la so suit windows issue
+	* src/boards/python/Makefile.am: added hexagon, manouche and algorithm.
+	* src/gcompris/Makefile.am: creation of libgcompris-1.la
+	* src/gcompris/config.c: added en_uk.
+	* boards/algorithm.xml.in: created by Christof Petig and Ingo Konrad
+	* boards/hexagon.xml.in: created by Christof Petig and Ingo Konrad
+	* boards/minouche.xml.in: created by Christof Petig and Ingo Konrad
+	* oards/boardicons/algorithm.png: created by Christof Petig and Ingo Konrad
+	* boards/boardicons/hexagon.png: created by Christof Petig and Ingo Konrad
+	* boards/boardicons/minouche.png: created by Christof Petig and Ingo Konrad
+	* src/boards/python/algorithm.py: created by Christof Petig and Ingo Konrad
+	* src/boards/python/hexagon.py: created by Christof Petig and Ingo Konrad
+	* src/boards/python/minouche.py: created by Christof Petig and Ingo Konrad
+
+
 2004-03-24  Gareth Owen  <gowen72@yahoo.com>
 
 	* configure.in: Added en_GB to ALL_LINGUAS
