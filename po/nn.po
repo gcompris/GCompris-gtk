@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-28 22:51+0200\n"
-"PO-Revision-Date: 2004-10-28 23:14+0200\n"
+"POT-Creation-Date: 2004-11-14 00:39+0100\n"
+"PO-Revision-Date: 2004-11-14 01:11+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9\n"
+"X-Generator: KBabel 1.9.1\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
@@ -333,7 +333,7 @@ msgstr ""
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2
 msgid "Answer some algebra questions"
-msgstr "Svar på nokre algebraspørsmål."
+msgstr "Svar på nokre reknestykke."
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the product of two numbers"
@@ -349,7 +349,7 @@ msgstr "Øv på gongetabellen"
 
 #: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Algebra"
+msgstr "Matte"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
@@ -476,7 +476,7 @@ msgstr "Frihandsteikning- og teiknefilmverktøy."
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
-#: boards/babymatch/board6_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1 boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Flytt gjenstandane til andre som dei passar saman med."
 
@@ -660,11 +660,15 @@ msgstr "Tux og epletreet"
 
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 msgstr ""
-"Plasser bileta i rekkjefølgja gjenstadane vart oppfunne.Om du ikkje er "
-"sikker kan du sjå i leksikonet på http://nn.wikipedia.org/."
+"Plasser bileta i rekkjefølgja\n"
+"gjenstandane vart oppfunne.\n"
+"Om du ikkje veit svara, kan du sjå\n"
+"i leksikonet på http://nn.wikipedia.org/."
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -964,31 +968,31 @@ msgid "Place the lands"
 msgstr "Plasser landa"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Afrika"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "Amerika"
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Antarktika"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Asia"
+
+#: boards/geography/board1_0.xml.in.h:5
 msgid "Continents"
 msgstr "Verdsdelar"
 
-#: boards/geography/board1_0.xml.in.h:2
-msgid "africa"
-msgstr "Afrika"
-
-#: boards/geography/board1_0.xml.in.h:3
-msgid "america"
-msgstr "Amerika"
-
-#: boards/geography/board1_0.xml.in.h:4
-msgid "antartica"
-msgstr "Antarktika"
-
-#: boards/geography/board1_0.xml.in.h:5
-msgid "asia"
-msgstr "Asia"
-
 #: boards/geography/board1_0.xml.in.h:6
-msgid "europa"
+msgid "Europa"
 msgstr "Europa"
 
 #: boards/geography/board1_0.xml.in.h:7
-msgid "oceania"
+msgid "Oceania"
 msgstr "Oseania"
 
 #: boards/geography/board2_0.xml.in.h:1
@@ -1271,11 +1275,11 @@ msgstr "Du må kunna bruka tastaturet."
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Bokstavattkjenning og bruk av tastatur."
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Enkle bokstavar"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Skriv inn dei dalande bokstavane før dei når bakken."
 
@@ -1330,7 +1334,7 @@ msgstr "Øv på å lesa ved å finna kva ord som høyrer til bileta."
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: src/boards/reading.c:107
 msgid "Reading"
 msgstr "Du må kunna lesa."
 
@@ -1677,24 +1681,40 @@ msgstr "Tren på å hugsa alle korta."
 
 #: boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
-"old 3 Stars - 6 to 7 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current "
+"activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 msgstr ""
-"Trykk på eitt av ikona for å komma til ein aktivitet eller ein meny. Nedst "
-"på skjermen ser du kontrollinja med desse ikona (frå høgre til venstre): "
-"Heim (tilbake til førre meny), OK (stadfest svaret) og terning (gjeldande "
-"nivå). Du kan trykkja på terningen for å byta nivå. Vidare har me: "
-"Musikknote (gjenta spørsmålet), spørsmålsteikn (hjelp), skiftenøkkel "
-"(oppsett) og fly (informasjon om GCompris). Merk at ikkje alle ikona er "
-"synlege i alle aktivitetane. Stjernene viser vanskegraden: 1 stjerne (3–4 "
-"år), 2 stjerner (5–6 år) og 3 stjerner (7–8 år)."
+"Trykk på eit av ikona for å komma til ein aktivitet eller ei oversikt over "
+"aktivitetar.\n"
+"Nedst på skjermen ser du kontrollinja med desse ikona (frå høgre til "
+"venstre):\n"
+"Heim – Tilbake til førre meny, eller avslutt GCompris.\n"
+"Tommel – Stadfest svaret.\n"
+"Terning – Viser gjeldande nivå. Trykk på terningen for å byta nivå.\n"
+"Musikknote – Gjenta spørsmålet.\n"
+"Spørjeteikn – Hjelp.\n"
+"Skiftenøkkel – Oppsettmeny.\n"
+"Tux-flyet – Informasjon om spelet.\n"
+"\n"
+"Stjernene viser tilrådd alderssteg:\n"
+"1 stjerne – 3 til 4 år.\n"
+"2 stjerner – 4 til 5 år.\n"
+"3 stjerner – 5 til 7 år.\n"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1706,7 +1726,7 @@ msgid ""
 "activities to children from 3 to 8 years old."
 msgstr ""
 "GCompris er eit leik og lær-spel med mange ulike aktivitetar for ungar "
-"mellom 3 og 8 år."
+"mellom 2 og 10 år."
 
 #: boards/menu.xml.in.h:5
 msgid ""
@@ -1927,7 +1947,7 @@ msgid ""
 "main board."
 msgstr "Dra puslespelbitane frå feltet til venstre og gjenskap måleriet."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Løys puslespelet"
 
@@ -1959,21 +1979,21 @@ msgstr "Wassily Kandinsky: Komposisjon VIII (1923)"
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr "Olje på lerret – 140 × 201 cm"
 
-#: boards/paintings/board4_0.xml.in.h:1
 #
 # Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille: Festningsvollane ved Aigues-Mortes (1867)"
 
-#: boards/paintings/board5_0.xml.in.h:1
 #
 # Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: boards/paintings/board5_0.xml.in.h:1
 msgid "Cassatt, Mary - Summertime - 1894"
 msgstr "Mary Stevenson Cassatt: Sommar (1894)"
 
-#: boards/paintings/board6_0.xml.in.h:1
 #
 # Merk: Uoffisiell omsetting! Prøv å finna offisielt namn i kunstleksikon e.l.
+#: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh: Landsbygater i Auvers (1890)"
 
@@ -2403,8 +2423,8 @@ msgid "Editor for gcompris"
 msgstr "Redigeringsprogram for GCompris"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Leik og lær-spel for ungar frå 3 år og oppover"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Leik og lær-spel for ungar frå 2 til 10 år"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
@@ -2412,7 +2432,7 @@ msgstr "Leik og lær-samlinga GCompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2422,7 +2442,7 @@ msgstr "Fann ikkje fila «%s»."
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1853
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "Finn fila «%s»."
@@ -2501,15 +2521,15 @@ msgstr "Kvit set matt"
 msgid "Drawn game"
 msgstr "Remis"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Les ein bokstav"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Lær å kjenna att bokstavar"
 
-#: src/boards/click_on_letter.c:223
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2517,7 +2537,7 @@ msgstr ""
 "Feil: Du må først installera pakken \n"
 "assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:230
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2528,6 +2548,10 @@ msgstr ""
 "aktiviteten utan lydeffektar.\n"
 "Gå til oppsettdialogen og slå\n"
 "på lydeffektane."
+
+#: src/boards/click_on_letter.c:280
+msgid "abcdefghijklmnopqrstufw"
+msgstr "abcdefghijklmnopqrstuvwxyzæøå"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2582,7 +2606,7 @@ msgstr "Trykk på den kvite figuren"
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Flytt gjenstandane éin etter éin for å ordna dei i aukande rekkjefølgje"
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339 src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Bygg opp tårnet til høgre på den ledige plassen til venstre."
 
@@ -2690,62 +2714,58 @@ msgstr "Les fargar"
 msgid "Click on the corresponding color"
 msgstr "Trykk på tilhøyrande farge"
 
-#: src/boards/reading.c:103
+#: src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Les ei liste over ord og sjå om det oppgjevne ordet er med i denne"
 
-#: src/boards/reading.c:315
+#: src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Sjå etter om ordet"
 
-#: src/boards/reading.c:335
+#: src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "vert vist no"
 
-#: src/boards/reading.c:522
+#: src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "Eg er klar"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Ja, eg såg det"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "Nei, det var ikkje der"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Ordet som skulle finnast var «%s»"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:645
 msgid "But it was not displayed"
 msgstr "Men det vart ikkje vist"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:647
 msgid "And it was displayed"
 msgstr "Og det vart vist"
 
-#: src/boards/reading.c:737 src/boards/reading.c:747
+#: src/boards/reading.c:748
 msgid "Cannot open file of words for your locale"
 msgstr "Klate ikkje opna ordfil for språket ditt"
-
-#: src/boards/reading.c:776
-msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr "Feil: Ordfilpakken for språket ditt er ugyldig."
 
 #: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Tel baklengs"
 
-#: src/boards/shapegame.c:169
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra og slepp gjenstandane for å gjenoppbyggja gjenstanden"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2757,7 +2777,7 @@ msgstr ""
 "bruk «s» for å lagra og\n"
 "«d» for å visa alle figurane."
 
-#: src/boards/shapegame.c:424
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2843,7 +2863,7 @@ msgstr "GCompris er ein GNU-pakke og tilgjengeleg under GNU Public License."
 msgid "Help"
 msgstr "Hjelp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:206
+#: src/gcompris/about.c:316 src/gcompris/config.c:207
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2914,173 +2934,177 @@ msgid "French"
 msgstr "Fransk"
 
 #: src/gcompris/config.c:78
+msgid "Irish (Gaelic)"
+msgstr "Irsk"
+
+#: src/gcompris/config.c:79
 msgid "Hebrew"
 msgstr "Hebraisk"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Indian (Hindi)"
 msgstr "Indisk (Hindi)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
 msgstr "Indisk (panjabi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italiensk"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Makedonsk"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malayisk"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Nederlandsk"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Norwegian Bokmal"
 msgstr "Norsk (bokmål)"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Nynorsk"
 msgstr "Norsk (nynorsk)"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Polsk"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portugisisk (Portugal)"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Portugisisk (Brasil)"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Rumensk"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Russisk"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Albanian"
 msgstr "Albansk"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Serbian (Latin)"
 msgstr "Serbisk (latinsk alfabet)"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Swedish"
 msgstr "Svensk"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Walloon"
 msgstr " Vallonsk"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "No time limit"
 msgstr "Inga tidsgrense"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Slow timer"
 msgstr "Sakte tid"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Normal timer"
 msgstr "Vanleg tid"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Fast timer"
 msgstr "Rask tid"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:117
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standard for GCompris)"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "No filter"
 msgstr "Ingen filter"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "Only this level"
 msgstr "Berre dette nivået"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Up to this level"
 msgstr "Opp til dette nivået"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "This level and above"
 msgstr "Dette nivået og høgare"
 
-#: src/gcompris/config.c:180
+#: src/gcompris/config.c:181
 msgid "GCompris Configuration"
 msgstr "GCompris-oppsett"
 
-#: src/gcompris/config.c:289
+#: src/gcompris/config.c:290
 msgid "Fullscreen"
 msgstr "Fullskjerm"
 
-#: src/gcompris/config.c:332
+#: src/gcompris/config.c:333
 msgid "Music"
 msgstr "Musikk"
 
-#: src/gcompris/config.c:360
+#: src/gcompris/config.c:361
 msgid "Effect"
 msgstr "Lydeffektar"
 
-#: src/gcompris/config.c:394
+#: src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Klarte ikkje opna draktmappa «%s»"
 
-#: src/gcompris/config.c:415
+#: src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Fann inga drakt i «%s»\n"
 
-#: src/gcompris/config.c:430 src/gcompris/config.c:815
-#: src/gcompris/config.c:826
+#: src/gcompris/config.c:431 src/gcompris/config.c:816
+#: src/gcompris/config.c:827
 #, c-format
 msgid "Skin : %s"
 msgstr "Drakt: %s"
