@@ -1,3 +1,10 @@
+2003-01-26  bruno  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: Added babyshapes (thanks Pascal)
+	* boards/gcompris/misc/.cvsignore: needed
+	* configure.in: added pt and the Amharic Language
+	* src/boards/traffic.c: fixed null gettect string
+
 2003-01-26  Daniel Yacob  <locales@geez.org>
 
 	* configure.in: Added "am" to ALL_LINGUAS.

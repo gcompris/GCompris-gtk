@@ -94,7 +94,7 @@ BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("A sliding block puzzle game"),
-    N_(""),
+    "",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

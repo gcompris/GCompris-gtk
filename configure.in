@@ -45,7 +45,7 @@ AM_PATH_XML2
 AM_ICONV
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am az de el es fi fr hu it ms nl no pt_BR ru sv sk lt"
+ALL_LINGUAS="am az de el es fi fr hu it ms nl pt pt_BR ru sv sk lt"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
