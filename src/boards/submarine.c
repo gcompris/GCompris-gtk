@@ -61,19 +61,19 @@ static void game_won();
 #define SURFACE_DEPTH 7.0
 #define IP_DEPTH 13.0
 #define SECURITY_DEPTH 55.0
-#define MAX_DEPTH 300.0
+#define MAX_DEPTH 250.0
 #define SPEED_MAX 10
 #define SPEED_STEP 1
 #define AIR_INITIAL 50000
 #define BATTERY_INITIAL 5000
 #define MAX_BALLAST 10000
 #define MAX_REGLEUR 800
-#define REGLEUR_INITIAL 100.0
+#define REGLEUR_INITIAL 500.0
 #define WEIGHT_INITIAL -300.0
 
 #define SUBMARINE_INITIAL_X 150
 #define WRAP_X 800
-#define SUBMARINE_INITIAL_DEPTH 270.0// DEBUG SURFACE_DEPTH
+#define SUBMARINE_INITIAL_DEPTH SURFACE_DEPTH
 
 #define RUDDER_STEP 5
 #define RUDDER_MAX 15
@@ -89,11 +89,20 @@ static void game_won();
 #define BATTERY_Y 156
 #define REGLEUR_X 330
 #define REGLEUR_Y 37
+#define AIR_TRIGGER_X 154
+#define AIR_TRIGGER_Y 108
+#define BATTERY_TRIGGER_X 184
+#define BATTERY_TRIGGER_Y 108
+#define TRIGGER_CENTER_X 7
+#define TRIGGER_CENTER_Y 23
+#define ALERT_SUBMARINE_X 719
+#define ALERT_SUBMARINE_Y 368
+
 #define UP 1
 #define DOWN 0
 
 #define UPDATE_DELAY 200
-#define UPDATE_DELAY_SLOW 500
+#define UPDATE_DELAY_SLOW 300
 #define UPDATE_DELAY_VERY_SLOW 1500
 
 #define TEXT_COLOR_FRONT "red"
@@ -107,6 +116,7 @@ static GnomeCanvasItem *sub_schema_image_item, *submarine_item,
 static GnomeCanvasItem *ballast_av_chasse_item, *ballast_ar_chasse_item, *regleur_chasse_item;
 gboolean ballast_av_purge_open, ballast_ar_purge_open, regleur_purge_open;
 gboolean ballast_av_chasse_open, ballast_ar_chasse_open, regleur_chasse_open;
+gboolean air_charging, battery_charging;
 
 static GnomeCanvasItem *barre_av_item, *barre_ar_item,
 	*barre_av_up_item, *barre_av_down_item, *barre_ar_up_item, *barre_ar_down_item,
@@ -114,7 +124,8 @@ static GnomeCanvasItem *barre_av_item, *barre_ar_item,
   *speed_item_back, *speed_item_front,
 	*air_item_back, *air_item_front,
 	*regleur_item_back, *regleur_item_front,
-  *battery_item_back, *battery_item_front;
+  *battery_item_back, *battery_item_front,
+  *air_compressor_item, *battery_charger_item, *alert_submarine;
 
 /* submarine parameters */
 static double barre_av_angle, barre_ar_angle, depth, weight, resulting_weight, submarine_x, air, battery, regleur;
@@ -133,12 +144,13 @@ static gint regleur_chasse_event(GnomeCanvasItem *item, GdkEvent *event, gpointe
 static gint barre_av_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint barre_ar_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint engine_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint air_compressor_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint battery_charger_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 static void setSpeed(double value);
 static void setBattery(double value);
 static void setAir(double value);
 static void setRegleur(double value);
-static void setAssiette(double value);
 
 static gboolean update_timeout();
 static gboolean update_timeout_slow();
@@ -250,6 +262,7 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
 static void submarine_next_level() {
 	ballast_av_purge_open = ballast_ar_purge_open = regleur_purge_open = FALSE;
 	ballast_av_chasse_open = ballast_ar_chasse_open = regleur_chasse_open = FALSE;
+  air_charging = battery_charging = FALSE;
 	barre_av_angle = barre_ar_angle = 0.0;
   depth = SUBMARINE_INITIAL_DEPTH;
   submarine_horizontal_speed = speed_ordered = 0.0;
@@ -258,7 +271,7 @@ static void submarine_next_level() {
   regleur = REGLEUR_INITIAL;
   air = AIR_INITIAL;
   battery = BATTERY_INITIAL;
-	ballast_av_air = ballast_ar_air = 0.0;
+	ballast_av_air = ballast_ar_air = MAX_BALLAST/10.0;
 
   submarine_destroy_all_items();
   gamewon = FALSE;
@@ -614,10 +627,59 @@ static GnomeCanvasItem *submarine_create_item(GnomeCanvasGroup *parent) {
 					     "fill_color", TEXT_COLOR_FRONT,
 					     NULL);
 
+	// displays an alert when some parameters are bad
+  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "alert_submarine.png");
+  pixmap = gcompris_load_pixmap(str);
+  alert_submarine = gnome_canvas_item_new (boardRootItem,
+						gnome_canvas_pixbuf_get_type (),
+						"pixbuf", pixmap,
+						"x", (double) ALERT_SUBMARINE_X,
+						"y", (double) ALERT_SUBMARINE_Y,
+						"width", (double) gdk_pixbuf_get_width(pixmap),
+						"height", (double) gdk_pixbuf_get_height(pixmap),
+						"width_set", TRUE,
+						"height_set", TRUE,
+            "anchor", GTK_ANCHOR_CENTER,
+						NULL);
+  g_free(str);
+  gdk_pixbuf_unref(pixmap);
+  gnome_canvas_item_hide(alert_submarine);
+
+  // the triggers for air compressor and battery charger
+  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "manette.png");
+  pixmap = gcompris_load_pixmap(str);
+  air_compressor_item = gnome_canvas_item_new (boardRootItem,
+						gnome_canvas_pixbuf_get_type (),
+						"pixbuf", pixmap,
+						"x", (double) schema_x + AIR_TRIGGER_X,
+						"y", (double) schema_y + AIR_TRIGGER_Y,
+						"width", (double) gdk_pixbuf_get_width(pixmap),
+						"height", (double) gdk_pixbuf_get_height(pixmap),
+						"width_set", TRUE,
+						"height_set", TRUE,
+            "anchor", GTK_ANCHOR_CENTER,
+						NULL);
+  battery_charger_item = gnome_canvas_item_new (boardRootItem,
+						gnome_canvas_pixbuf_get_type (),
+						"pixbuf", pixmap,
+						"x", (double) schema_x + BATTERY_TRIGGER_X,
+						"y", (double) schema_y + BATTERY_TRIGGER_Y,
+						"width", (double) gdk_pixbuf_get_width(pixmap),
+						"height", (double) gdk_pixbuf_get_height(pixmap),
+						"width_set", TRUE,
+						"height_set", TRUE,
+            "anchor", GTK_ANCHOR_CENTER,
+						NULL);
+  g_free(str);
+  gdk_pixbuf_unref(pixmap);
+
+  gtk_signal_connect(GTK_OBJECT(air_compressor_item), "event",  (GtkSignalFunc) air_compressor_event, NULL);
+  gtk_signal_connect(GTK_OBJECT(battery_charger_item), "event",  (GtkSignalFunc) battery_charger_event, NULL);
+
   timer_id = g_timeout_add(UPDATE_DELAY, update_timeout, NULL);
   timer_slow_id = g_timeout_add(UPDATE_DELAY_SLOW, update_timeout_slow, NULL);
   timer_very_slow_id = g_timeout_add(UPDATE_DELAY_VERY_SLOW, update_timeout_very_slow, NULL);
-  
+
   return NULL;
 }
 /* =====================================================================
@@ -709,8 +771,6 @@ static gboolean update_timeout_slow() {
   if (assiette > 30.0)
   	assiette = 30.0;
 
-  //setAssiette(assiette);
-
   /* If surfacing, diminish the 'assiette' */
   if ( depth <= 5.0 + SURFACE_DEPTH) {
   	assiette *= depth/(depth+1.0);
@@ -731,13 +791,31 @@ static gboolean update_timeout_slow() {
       }
   }
 
-  /* position */
+  /* position & depth */
   submarine_x += submarine_horizontal_speed * cos(DEG_TO_RAD(assiette));
   depth += submarine_vertical_speed;
   if (depth < SURFACE_DEPTH)
   	depth = SURFACE_DEPTH;
   if (depth > MAX_DEPTH)
   	depth = MAX_DEPTH;
+
+  // show an alert if some parameters reach the limit
+  if (depth == MAX_DEPTH || assiette == -30.0 || assiette == 30.0 || air == 0.0 || battery == 0.0)
+  	gnome_canvas_item_show(alert_submarine);
+  	else
+		gnome_canvas_item_hide(alert_submarine);
+
+  /* if the submarine dives, stop charging air tanks and batteries */
+  if ( depth >= SURFACE_DEPTH+10.0 ) {
+  	if (air_charging) {
+    	air_charging = FALSE;
+      item_rotate_with_center(air_compressor_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+     }
+   	if (battery_charging) {
+    	battery_charging = FALSE;
+      item_rotate_with_center(battery_charger_item, 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+    }
+  }
 
   /* if the submarine is too close from right, put it at left */
   if ( submarine_x > WRAP_X )
@@ -761,7 +839,26 @@ static gboolean update_timeout_slow() {
  * Periodically recalculate some submarine parameters, with a slow delay
  * =====================================================================*/
 static gboolean update_timeout_very_slow() {
-	/* battery */
+  /* charging */
+  if (air_charging && depth < SURFACE_DEPTH+5.0) {
+		air += 100.0*UPDATE_DELAY_VERY_SLOW/1000.0;
+    setAir(air);
+  }
+
+  if (battery_charging && depth < SURFACE_DEPTH+5.0) {
+		if (battery < 0.3*battery)
+    	battery += 300.0*UPDATE_DELAY_VERY_SLOW/1000.0;
+      else
+      if (battery < 0.6*battery)
+      battery += 100.0*UPDATE_DELAY_VERY_SLOW/1000.0;
+			else
+      if (battery < 0.8*battery)
+      battery += 50.0*UPDATE_DELAY_VERY_SLOW/1000.0;
+      else
+	      battery += 20.0*UPDATE_DELAY_VERY_SLOW/1000.0;
+  }
+
+  /* battery */
   setBattery(battery -= submarine_horizontal_speed*submarine_horizontal_speed/10.0);
 
   return TRUE;
@@ -1014,6 +1111,48 @@ static gint engine_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) 
   return FALSE;
 }
 /* =====================================================================
+ *		air_compressor_event
+ * =====================================================================*/
+static gint air_compressor_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+  if(board_paused)
+    return FALSE;
+  switch (event->type)
+    {
+    case GDK_BUTTON_PRESS:
+    	if (air_charging)
+      	air_charging = FALSE;
+        else
+					air_charging = TRUE;
+      item_rotate_with_center(item, air_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+			break;
+
+    default:
+      break;
+    }
+  return FALSE;
+}
+/* =====================================================================
+ *		battery_charger_event
+ * =====================================================================*/
+static gint battery_charger_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
+  if(board_paused)
+    return FALSE;
+  switch (event->type)
+    {
+    case GDK_BUTTON_PRESS:
+    	if (battery_charging)
+      	battery_charging = FALSE;
+        else
+					battery_charging = TRUE;
+      item_rotate_with_center(item, battery_charging ? 180 : 0 , TRIGGER_CENTER_X, TRIGGER_CENTER_Y );
+			break;
+
+    default:
+      break;
+    }
+  return FALSE;
+}
+/* =====================================================================
  * Helper functions to update the graphical display
  * =====================================================================*/
 static void setSpeed(double value) {
@@ -1039,7 +1178,4 @@ static void setRegleur(double value) {
   sprintf(s12,"%d",(int)value);
 	gnome_canvas_item_set(regleur_item_back, "text", s12, NULL);
 	gnome_canvas_item_set(regleur_item_front, "text", s12, NULL);
-}
-static void setAssiette(double value) {
-	item_rotate( submarine_item, -value );
 }
