@@ -61,8 +61,6 @@ typedef gchar   Piece;
 #define	ANALYSE		4
 #define	HUMANS		5
 
-#define PIECE_SIZE 40
-
 #define  OL            9     /********************************************/
 #define  OM           10     /*                                          */
 #define  OR           11     /*            OL |  OM  | OR                */

@@ -1,3 +1,15 @@
+2002-09-15  Bruno Coudoin  <bcoudoin@anfora.fr>
+
+	* boards/read_colors/.cvsignore: added
+	* src/boards/chess.c: (display_info), (move_piece_to),
+	(hightlight_possible_moves), (chess_child_end): implemented the promotion
+	* src/boards/chess_makros.h:implemented the promotion
+	* src/boards/chess_movlist.h: deleted, not needed
+	* src/boards/chess_notation.c: (move_to_ascii), (piece_to_ascii),
+	(piece_move_to_ascii), (move_to_san):implemented the promotion
+	* src/boards/chess_notation.h:implemented the promotion
+	* src/gcompris/gcompris.c: (gcompris_terminate), (gcompris_init):catched singint to clean subprocesses
+
 2002-09-12 Bruno Coudoin  <bcoudoin@anfora.fr>
 	* boards/menu.xml.in: Whole menu reviewed
 	* boards/scale/tabepice.png: added painting provided by Virginie Moreau

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/09/05 22:20:35 bruno>
+ * Time-stamp: <2002/09/15 00:10:58 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -412,6 +412,17 @@ static void quit_cb (GtkWidget *widget, gpointer data)
   gcompris_exit();
 }
 
+/* =====================================================================
+ * Process the cleanup of the child (no zombies)
+ * =====================================================================*/
+void gcompris_terminate(int  signum)
+{
+
+  g_warning("gcompris got the SIGINT signal, starting exit procedure");
+  gcompris_exit();
+  
+}
+
 static void load_properties ()
 {
   properties = gcompris_properties_new ();
@@ -475,6 +486,8 @@ gcompris_init (int argc, char *argv[])
 
   /* To have some real random behaviour */
   srand (time (NULL));
+
+  signal(SIGINT, gcompris_terminate);
 
   load_properties ();
 

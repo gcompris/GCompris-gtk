@@ -22,7 +22,9 @@
 #include "chess_position.h"
 #include "chess_notation.h"
 
-static char piece_to_ascii[]= {' ','N','B','R','Q','K'};
+static char piece_to_ascii_t[]= {' ','N','B','R','Q','K'};
+
+static int norm_piece (Piece piece);
 
 static void
 file_to_ascii (char **move, Square square)
@@ -152,7 +154,7 @@ move_to_ascii (char *p, Square from, Square to)
 		*p++    = a - a / 10 * 10 + 96;     /*  a - h       */
 		*p++    = a / 10 + 47 ;             /*  1 - 8       */
 		*p++    = '=';
-		*p++ = piece_to_ascii[((to >> 3) & 7)-1];
+		*p++ = piece_to_ascii_t[((to >> 3) & 7)-1];
 	} else {
 		file_to_ascii (&p, to);
 		rank_to_ascii (&p, to);
@@ -163,7 +165,7 @@ move_to_ascii (char *p, Square from, Square to)
 	return p;
 }
 
-static int
+int
 ascii_to_piece (char p)
 {
 	if (p == 'q')
@@ -186,6 +188,23 @@ ascii_to_piece (char p)
 	g_assert_not_reached ();
 
 	return -1;
+}
+
+char
+piece_to_ascii (int piece)
+{
+  int i;
+
+  i = norm_piece (piece);
+
+  if(WPIECE(piece))
+    return piece_to_ascii_t[i];
+  else
+    return tolower(piece_to_ascii_t[i]);
+
+  g_assert_not_reached ();
+  
+  return -1;
 }
 
 void
@@ -365,7 +384,7 @@ piece_move_to_ascii (char *p, Piece piece, Square from, Square to)
 	}
 
         i = norm_piece (piece);
-        *p++ = piece_to_ascii[i];
+        *p++ = piece_to_ascii_t[i];
         move_to_ascii (p, from, to);
 }
 
@@ -523,7 +542,7 @@ move_to_san (Position *pos, Square from, Square to)
 		/* The piece letter */
 	        norm = norm_piece(piece);
 		if (norm > 0)
-		        *temp++ = piece_to_ascii[norm];
+		        *temp++ = piece_to_ascii_t[norm];
 
 		/* The rank/file designators */
 		if (desfile)
@@ -545,7 +564,7 @@ move_to_san (Position *pos, Square from, Square to)
 		if (promote) {
 			*temp++ = '=';
 			norm = norm_piece(promote);
-			*temp++ = piece_to_ascii[norm];
+			*temp++ = piece_to_ascii_t[norm];
 		}
 
 		*temp = '\0';

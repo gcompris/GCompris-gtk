@@ -21,7 +21,6 @@
 
 #include "chess_makros.h"
 #include "chess_position.h"
-#include "chess_movlist.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,6 +31,8 @@ extern "C" {
 void piece_move_to_ascii (char *p, Piece piece, Square from, Square to);
 char * move_to_ascii (char *p, Square from, Square to);
 void ascii_to_move (Position *pos, char *p, Square *from, Square *to);
+int  ascii_to_piece (char p);
+char piece_to_ascii (int piece);
 
 /* Standard Algebraic Notation Functions */
 char * move_to_san (Position *pos, Square from, Square to);

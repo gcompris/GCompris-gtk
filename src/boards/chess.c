@@ -28,7 +28,6 @@
 #include <unistd.h>
 #include <signal.h>
 
-#include "chess_position.h"
 #include "chess_notation.h"
 
 #include "gcompris/gcompris.h"
@@ -68,6 +67,8 @@ static int	 get_square_from_coord (double x, double y);
 #define WHITE_COLOR	0x4ACCFAFF
 #define BLACK_COLOR_H	0x6B96A2FF
 #define WHITE_COLOR_H	0xA6E7FFFF
+
+#define INFO_COLOR	0xA0303FFF
 
 #define TURN_X		(BOARDWIDTH-(BOARDWIDTH-(CHESSBOARD_X+(SQUARE_WIDTH*8)))/2)
 #define TURN_Y		(CHESSBOARD_Y+15)
@@ -490,7 +491,7 @@ static void display_info(gchar *info)
 					 "x", (double) INFO_X,
 					 "y", (double) INFO_Y,
 					 "anchor",     GTK_ANCHOR_CENTER,
-					 "fill_color", "red",
+					 "fill_color_rgba", INFO_COLOR,
 					 NULL);
     }
 
@@ -511,18 +512,10 @@ static void move_piece_to(Square from, Square to)
   guint x, y;
   double ofset_x, ofset_y;
   double x1, y1, x2, y2;
-  Piece piece;
-  Square new_to;
+  Piece piece = NONE;
       
 
   printf("move_piece_to %d %d\n", from, to);
-
-  /* If we are promoting a pawn */
-  if (to & 128) {
-    new_to = (to & 7) + A8;            
-    piece = ((to & 127) >> 3 ) + WP - 1;
-    printf("  WARNING promoting a pawn NOT IMPLEMENTED %d %d\n", from, to);
-  }
 
   x = from % 10;
   y = from / 10 -1;
@@ -539,9 +532,27 @@ static void move_piece_to(Square from, Square to)
       return;
     }
 
+  /* If we are promoting a pawn */
+  if(IS_WHITE_PIECE(source_square->piece))
+    {
+      if (to & 128) {
+	piece = ((to & 127) >> 3 ) + WP - 1;
+	to = (to & 7) + A8;            
+      }
+    }
+  else
+    {
+      if (to & 128) {
+	piece = ((to & 127) >> 3) + BP - 1;
+	to = (to & 7) + A1;
+	printf("  Promoting black piece to %d\n", piece);
+      }
+    }
+
   /* Show the moved piece */
   gnome_canvas_item_set(source_square->square_item,
-			"outline_color", "red",
+			"outline_color",
+			(!IS_WHITE_PIECE(source_square->piece)?"red":"green"),
 			NULL);
 
   display_white_turn(!IS_WHITE_PIECE(source_square->piece));
@@ -555,7 +566,8 @@ static void move_piece_to(Square from, Square to)
 
   /* Show the moved piece */
   gnome_canvas_item_set(dest_square->square_item,
-			"outline_color", "red",
+			"outline_color", 
+			(!IS_WHITE_PIECE(source_square->piece)?"red":"green"),
 			NULL);
 
   if(dest_square->piece_item != NULL)
@@ -588,6 +600,26 @@ static void move_piece_to(Square from, Square to)
     move_piece_to(A8, D8);
   else if(dest_square->piece=='k' && source_square->from==E8 && dest_square->from==G8)
     move_piece_to(H8, F8);
+
+  /* Manage promotion */
+  if(piece != NONE)
+    {
+      GdkPixbuf *pixmap = NULL;
+      char *str;
+      printf("  WARNING promoting a pawn from=%d to=%d piece=%d\n", from, to, piece);
+      printf("  piece_to_ascii returns %c\n", piece_to_ascii(piece));
+      dest_square->piece=piece_to_ascii(piece);
+
+      str = g_strdup_printf("chess/%c.png", dest_square->piece);
+	      
+      pixmap = gcompris_load_pixmap(str);
+      g_free(str);
+      printf("loading piece %c\n",  dest_square->piece);
+      gnome_canvas_item_set (dest_square->piece_item,
+			     "pixbuf", pixmap, 
+			     NULL);
+
+    }
 
   /* Display check info */
   if(position_white_king_attack(position))
@@ -658,7 +690,8 @@ void hightlight_possible_moves(GSquare *square)
 
   /* Show the current piece */
   gnome_canvas_item_set(square->square_item,
-			"outline_color", "red",
+			"outline_color",
+			(!IS_WHITE_PIECE(square->piece)?"red":"green"),
 			NULL);
   
 }
@@ -919,8 +952,6 @@ engine_local_err_cb (GIOChannel *source,
 void chess_child_end(int  signum)
 {
   pid_t pid;
-  int i;
-  tsSound * tmpSound;
 
   printf("chess child_end signal=%d\n", signum);
 
