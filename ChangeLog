@@ -1,3 +1,16 @@
+2002-06-30 Bruno Coudoin <bruno.coudoin@free.fr>
+	* src/gcompris/gcompris.c: added setenv for LANGs vars to force gcompris in the
+	user given locale.
+	Now you can dynamically change the locale with gcompris's config menu without
+	having to quit ;) this is a long standing enhancement request.
+	* src/gcompris/bar.c: thanks to Nabil Ben Khalifa, the home is not displayed at
+	upper level.
+	* src/gcompris/config.c: added a bad icon when the locale is not available.
+	The user must install the locale on its computer if they are not available.
+	* src/boards/shapegame.c: fixed highlighting too much the list buttons over time
+	changed the calculation of shape icons so that small one fill the space like it was before
+	* src/boards/erase.c: For Ben Armstrong daughter, added more levels.
+
 2002-06-26 Bruno Coudoin <bruno.coudoin@free.fr>
 	* boards/gcompris/buttons/button_exit.png: added an exit button
 	* src/gcompris/bar.c: added the exit button

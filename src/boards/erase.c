@@ -126,7 +126,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=2;
+      gcomprisBoard->maxlevel=6;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
@@ -190,8 +190,30 @@ static void erase_next_level()
   gamewon = FALSE;
 
   /* Select level difficulty */
-  number_of_item_x = gcomprisBoard->level*5;
-  number_of_item_y = gcomprisBoard->level*5;
+  switch(gcomprisBoard->level)
+    {
+    case 1:
+      number_of_item_x = gcomprisBoard->level*5;
+      number_of_item_y = gcomprisBoard->level*5;
+      break;
+    case 2:
+      number_of_item_x = gcomprisBoard->level*5;
+      number_of_item_y = gcomprisBoard->level*5;
+      break;
+    case 3: 
+    case 4:
+      number_of_item_x = 4*5;
+      number_of_item_y = 4*5;
+      break;
+    case 5:
+      number_of_item_x = gcomprisBoard->level*5;
+      number_of_item_y = gcomprisBoard->level*5;
+      break;
+    default:
+      number_of_item_x = 5*5;
+      number_of_item_y = 5*5;
+    }
+      
 
   /* Try the next level */
   erase_create_item(gnome_canvas_root(gcomprisBoard->canvas));
