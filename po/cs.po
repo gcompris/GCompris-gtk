@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-05 11:05+0100\n"
-"PO-Revision-Date: 2005-03-05 13:27+0100\n"
+"POT-Creation-Date: 2005-03-11 11:18+0100\n"
+"PO-Revision-Date: 2005-03-11 15:30+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2956,6 +2956,29 @@ msgstr "Deska Pythonu"
 #: src/boards/python.c:54
 msgid "Special board that embeds python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
+
+#: src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "Potřebujete modul pythonu xml. Zakazuji SVG."
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: src/boards/python/anim.py:415
+msgid ""
+"Python xml module bot found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr "Modul pythonu xml nenalezen. SVG je zakázána. Pro povolení uložení/obnovení SVG nainstalujte modul pythonu xml."
+
+#: src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG je zakázána. Povolte ji nainstalováním modulu pythonu xml"
+
+#: src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr ""
+
+#: src/boards/python/anim.py:2363
+msgid "The corresponding items have been skiped."
+msgstr ""
 
 #: src/boards/python/pythontest.py:75
 msgid ""
