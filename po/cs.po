@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-24 03:53+0100\n"
-"PO-Revision-Date: 2004-01-27 20:55+0100\n"
+"POT-Creation-Date: 2004-02-02 14:40+0100\n"
+"PO-Revision-Date: 2004-02-02 18:39+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -370,7 +370,9 @@ msgstr ""
 #: boards/algebra_guesscount.xml.in.h:2
 msgid ""
 "Deploy a strategy to arrange a set of arithmetic operations to find a value"
-msgstr "Vymysli strategii pro uspořádání sady aritmetických operací pro nalezení hodnoty"
+msgstr ""
+"Vymysli strategii pro uspořádání sady aritmetických operací pro nalezení "
+"hodnoty"
 
 #: boards/algebra_guesscount.xml.in.h:3
 msgid "Find the correct operations to get the result"
@@ -385,7 +387,10 @@ msgid ""
 "To compose your operations, choose your numbers and arithmetic operators at "
 "the top of the board area. These numbers and operators can be unselected by "
 "clicking on them."
-msgstr "Pro složení svých operací zvol svá čísla a aritmetické operace na horní straně oblasti desky. Výběr těchto čísel a operací může být zrušen kliknutím na ně."
+msgstr ""
+"Pro složení svých operací zvol svá čísla a aritmetické operace na horní "
+"straně oblasti desky. Výběr těchto čísel a operací může být zrušen kliknutím "
+"na ně."
 
 #: boards/algebra_guesscount.xml.in.h:6
 msgid ""
@@ -400,7 +405,10 @@ msgid ""
 "A substraction of two numbers is displayed. At the right of the equal sign, "
 "give the answer. Use the left and right arrow to modify your answer, the "
 "return key to validate an answer"
-msgstr "Je zobrazeno odčítání dvou čísel. Na pravé straně rovnítka uveď odpověď. Pro změnu své odpovědi použij levou a pravou šipku, pro potvrzení odpovědi klávesu Enter"
+msgstr ""
+"Je zobrazeno odčítání dvou čísel. Na pravé straně rovnítka uveď odpověď. Pro "
+"změnu své odpovědi použij levou a pravou šipku, pro potvrzení odpovědi "
+"klávesu Enter"
 
 #: boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, give the result to the substraction of two numbers"
@@ -419,7 +427,10 @@ msgid ""
 "An addition of two numbers is displayed. At the right of the equal sign, "
 "give the answer. Use the left and right arrow to modify your answer, the "
 "return key to validate an answer"
-msgstr "Je zobrazeno sčítání dvou čísel. Na pravé straně rovnítka uveď odpověď. Pro změnu své odpovědi použij levou a pravou šipku, pro potvrzení odpovědi klávesu Enter"
+msgstr ""
+"Je zobrazeno sčítání dvou čísel. Na pravé straně rovnítka uveď odpověď. Pro "
+"změnu své odpovědi použij levou a pravou šipku, pro potvrzení odpovědi "
+"klávesu Enter"
 
 #: boards/algebra_plus.xml.in.h:3
 msgid "In a limited time, give the result to the addition of two numbers"
@@ -498,6 +509,27 @@ msgstr "Lock s barevnými tvary."
 msgid "Go to board based activities"
 msgstr "Jít na aktivity založené na hrací desce"
 
+#: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
+#: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
+#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr "Manipulace s myší"
+
+#: boards/billard.xml.in.h:2
+msgid "Send the ball in the hole"
+msgstr "Pošli kouli do díry"
+
+#: boards/billard.xml.in.h:3
+msgid "The billard game"
+msgstr "Hra billiard"
+
+#: boards/billard.xml.in.h:4
+msgid ""
+"The click point on the ball will give the speed and direction to the ball. "
+"More you click in the center, slower is the ball."
+msgstr "Místo kliknutí na kouli určuje rychlost a směr koule. Čím blíž ke středu klikneš, tím je koule pomalejší."
+
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Pracuj s plavební komorou"
@@ -531,13 +563,6 @@ msgstr "Procvič si šachy"
 #: boards/chess_partyend.xml.in.h:1
 msgid "Learning chess"
 msgstr "Učení šachů"
-
-#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
-#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
-#: boards/memory.xml.in.h:4
-msgid "Mouse manipulation"
-msgstr "Manipulace s myší"
 
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
@@ -594,7 +619,17 @@ msgid ""
 "nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) "
 "Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
 "Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
-msgstr "Ryby jsou převzaty z nástroje Unixu xfishtank. Obrázky jsou převzaty ze sbírky Národního podmořského vývojového programu (NURP) na http://www.photolib.noaa.gov Všechna poděkování za obrázky patří OAR/National Undersea Research Program (NURP), kromě prvního obrázku, za který také děkujeme University of North Carolina ve Wilmingtonu. Informace o obrázcích v pořadí úrovní gcompris jsou: Umístění: Tropický Atlantský oceán, Florida Keys (obrázek nur00523) Fotograf: D. Kesling Umístění: Florida Keys (obrázek nur03006) Umístění: Neznámé (obrázek nur03505) Umístění: Neznámé (obrázek nur03010) Umístění: Neznámé (obrázek nur03011) Umístění: Neznámé (obrázek nur03013)"
+msgstr ""
+"Ryby jsou převzaty z nástroje Unixu xfishtank. Obrázky jsou převzaty ze "
+"sbírky Národního podmořského vývojového programu (NURP) na http://www."
+"photolib.noaa.gov Všechna poděkování za obrázky patří OAR/National Undersea "
+"Research Program (NURP), kromě prvního obrázku, za který také děkujeme "
+"University of North Carolina ve Wilmingtonu. Informace o obrázcích v pořadí "
+"úrovní gcompris jsou: Umístění: Tropický Atlantský oceán, Florida Keys "
+"(obrázek nur00523) Fotograf: D. Kesling Umístění: Florida Keys (obrázek "
+"nur03006) Umístění: Neznámé (obrázek nur03505) Umístění: Neznámé (obrázek "
+"nur03010) Umístění: Neznámé (obrázek nur03011) Umístění: Neznámé (obrázek "
+"nur03013)"
 
 #: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
 msgid ""
@@ -628,12 +663,12 @@ msgstr ""
 "odpovídající ručičku pro nastavení času na hodinách podle zadaného času. "
 "Různé ručičky mohou být otáčeny po jejich vybrání a pohybu myší"
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
+#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Nauč se, jak číst čas"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
+#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Učení se hodin"
@@ -744,7 +779,7 @@ msgstr "Umísti položky nejlepším způsobem pro jejich počítání"
 msgid "Motor coordination"
 msgstr "Koordinace pohybů"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Hýbej myší"
 
@@ -1159,6 +1194,10 @@ msgid "Ear training activity"
 msgstr "Aktivita pro cvičení sluchu"
 
 #: boards/melody.xml.in.h:2
+msgid "Melody"
+msgstr "Melodie"
+
+#: boards/melody.xml.in.h:3
 msgid "Repeat a melody"
 msgstr "Opakuj melodii"
 
@@ -1487,7 +1526,9 @@ msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgid ""
 "Click on any keyboard key to let Tux jump. Another keypress will open the "
 "parachute. Alternatively, a click on the plane and the tux also works."
-msgstr "Stiskni libovolnou klávesu, aby Tux vyskočil. Další stisk klávesy otevře padák. Funguje také kliknutí na letadlo a Tuxe."
+msgstr ""
+"Stiskni libovolnou klávesu, aby Tux vyskočil. Další stisk klávesy otevře "
+"padák. Funguje také kliknutí na letadlo a Tuxe."
 
 #: boards/paratrooper.xml.in.h:2
 msgid ""
@@ -1559,7 +1600,12 @@ msgid ""
 "the top of the screen by selecting the appropriate wagons and locomotive. "
 "You can always unselect an item by clicking on it. Validate your "
 "construction by clicking on the hand at the bottom."
-msgstr "V horní části hlavní oblasti je zobrazen vlak - lokomotiva a vagón(y). Po několika vteřinách vlak odjede. Pak jej musíš v horní části obrazovky znovu sestavit vybráním správných vagónů a lokomotivy. Vybrání položky můžeš kdykoli zrušit kliknutím na ni. Potvrď svůj výběr kliknutím na ruku ve spodní části."
+msgstr ""
+"V horní části hlavní oblasti je zobrazen vlak - lokomotiva a vagón(y). Po "
+"několika vteřinách vlak odjede. Pak jej musíš v horní části obrazovky znovu "
+"sestavit vybráním správných vagónů a lokomotivy. Vybrání položky můžeš "
+"kdykoli zrušit kliknutím na ni. Potvrď svůj výběr kliknutím na ruku ve "
+"spodní části."
 
 #: boards/railroad.xml.in.h:3
 msgid "Memory training"
@@ -1634,7 +1680,9 @@ msgid ""
 "At the top and right of the board area, a word is printed. At the left a "
 "list of words will move in and out of the screen. Tell if you see the "
 "initial word in this list."
-msgstr "V horní a pravé části oblasti desky je vytištěno slov. Vlevo se objeví seznam slov. Řekni, jestli počáteční slovo vidíš v seznamu."
+msgstr ""
+"V horní a pravé části oblasti desky je vytištěno slov. Vlevo se objeví "
+"seznam slov. Řekni, jestli počáteční slovo vidíš v seznamu."
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -1751,7 +1799,9 @@ msgstr ""
 msgid ""
 "To equilibrate the scales, move the masses in its left plateau. The masses "
 "can be arranged in any order."
-msgstr "Pro vyrovnání vah přesuň závaží na jejich levou misku. Závaží mohou být uspořádána v libovolném pořadí."
+msgstr ""
+"Pro vyrovnání vah přesuň závaží na jejich levou misku. Závaží mohou být "
+"uspořádána v libovolném pořadí."
 
 #: boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
@@ -1811,7 +1861,11 @@ msgid ""
 "gives you an indication if you got a good position by marking the item with "
 "a black box. You can use the right mouse button to flip the colors in the "
 "oposite order."
-msgstr "Klikej na položku, dokud nenajdeš to, o čem si myslíš, že je to správná odpověď. Pak klikni na tlačítko OK v řídicí liště. Na nižší úrovni ti Tux říká, jestli máš dobrou pozici, označením položky černou krabičkou. Pro přehození barev v opačném pořadí můžeš použít pravé tlačítko myši."
+msgstr ""
+"Klikej na položku, dokud nenajdeš to, o čem si myslíš, že je to správná "
+"odpověď. Pak klikni na tlačítko OK v řídicí liště. Na nižší úrovni ti Tux "
+"říká, jestli máš dobrou pozici, označením položky černou krabičkou. Pro "
+"přehození barev v opačném pořadí můžeš použít pravé tlačítko myši."
 
 #: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
 msgid "Super Brain"
@@ -1906,19 +1960,18 @@ msgstr "Naučná hra od 3 let"
 msgid "Educational suite gcompris"
 msgstr "Naučná sada gcompris"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:580
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:499
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
-#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
-#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
-#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
+#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
+#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
+#: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
+#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nemohu nalézt soubor %s !"
 
-#: src/boards/advanced_colors.c:543 src/boards/imageid.c:583
-#: src/boards/missingletter.c:593 src/boards/read_colors.c:502
+#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
+#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
@@ -1998,15 +2051,15 @@ msgstr "Bílý matuje"
 msgid "Drawn game"
 msgstr "Remíza"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:73
 msgid "Read a letter"
 msgstr "Přečti písmeno"
 
-#: src/boards/click_on_letter.c:75
+#: src/boards/click_on_letter.c:74
 msgid "Learn to recognize letters"
 msgstr "Nauč se rozpoznávat písmena"
 
-#: src/boards/click_on_letter.c:226
+#: src/boards/click_on_letter.c:225
 msgid ""
 "Error: this activity requires you to install first\n"
 "the package assetml-voices-alphabet-"
@@ -2014,7 +2067,7 @@ msgstr ""
 "Chyba: tato aktivita vyžaduje, abyste nejdříve\n"
 "nainstalovali balíček assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:233
+#: src/boards/click_on_letter.c:232
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effect disabled.\n"
@@ -2052,13 +2105,9 @@ msgstr "doleva"
 msgid "right"
 msgstr "doprava"
 
-#: src/boards/machpuzzle.c:85
-msgid "Move the mouse to machpuzzle the area and discover the background"
-msgstr ""
-
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
-msgstr ""
+msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
 
 #: src/boards/memory.c:227
 msgid "Memory"
@@ -2137,7 +2186,7 @@ msgid "No, it was not there"
 msgstr "Ne, nebylo tam"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:631
+#: src/boards/reading.c:629
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Hledané slovo bylo '%s'"
@@ -2175,7 +2224,7 @@ msgstr "Ponorka"
 msgid "Control the depth of a submarine"
 msgstr "Ovládej hloubku ponorky"
 
-#: src/boards/target.c:324 src/boards/target.c:573
+#: src/boards/target.c:323 src/boards/target.c:576
 #, c-format
 msgid "Points = %s"
 msgstr "Body = %s"
@@ -2228,7 +2277,7 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2294,120 +2343,124 @@ msgid "Hungarian"
 msgstr "Maďarština"
 
 #: src/gcompris/config.c:67
+msgid "Croatian"
+msgstr "Chorvatština"
+
+#: src/gcompris/config.c:68
 msgid "Italian"
 msgstr "Italština"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malay"
 msgstr "Malajština"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "Holandština"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Norwegian"
 msgstr "Norština"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Polish"
 msgstr "Polština"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Brazil Portuguese"
 msgstr "Brazilská portugalština"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian"
 msgstr "Srbština"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:153
+#: src/gcompris/config.c:154
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:262
+#: src/gcompris/config.c:263
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:305
+#: src/gcompris/config.c:306
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:371
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:720
-#: src/gcompris/config.c:731
+#: src/gcompris/config.c:404 src/gcompris/config.c:721
+#: src/gcompris/config.c:732
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
