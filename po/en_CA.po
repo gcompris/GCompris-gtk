@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-28 10:02-0400\n"
-"PO-Revision-Date: 2004-09-28 19:37-0400\n"
+"POT-Creation-Date: 2004-10-18 10:37-0400\n"
+"PO-Revision-Date: 2004-10-18 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -674,10 +674,6 @@ msgstr ""
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Transportation"
-
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
-msgstr "VIII Century"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -2213,7 +2209,7 @@ msgstr ""
 "fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
 msgstr "Practise substraction with a funny game"
 
@@ -2425,8 +2421,8 @@ msgstr "Educational suite gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1848 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
+#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2435,7 +2431,7 @@ msgstr "Couldn't find file %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1851
+#: src/boards/shapegame.c:1853
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -2452,15 +2448,15 @@ msgstr ""
 "Tux is in trouble in his ship. He needs to take it through a lock.\n"
 "Help Tux and understand how a canal lock works."
 
-#: src/boards/chess.c:139
+#: src/boards/chess.c:137
 msgid "Learning Chess"
 msgstr "Learning Chess"
 
-#: src/boards/chess.c:140
+#: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
 msgstr "Play chess against tux in a learning mode"
 
-#: src/boards/chess.c:193
+#: src/boards/chess.c:191
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2472,7 +2468,7 @@ msgstr ""
 "of gnuchess.\n"
 "Please upgrade to gnuchess 5 or above."
 
-#: src/boards/chess.c:200
+#: src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2486,31 +2482,31 @@ msgstr ""
 "GNU/Linux distribution\n"
 "And check it is in "
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "White Turn"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Black Turn"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "White check"
 
-#: src/boards/chess.c:722
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Black check"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Black mates"
 
-#: src/boards/chess.c:1059
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "White mates"
 
-#: src/boards/chess.c:1064
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Drawn game"
 
@@ -2710,7 +2706,7 @@ msgstr "Cannot open wordlist for your locale"
 msgid "Error: The wordfile package used for your locale is corrupted."
 msgstr "Error: The wordfile package used for your locale is corrupted."
 
-#: src/boards/reversecount.c:140
+#: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Reverse count"
 
@@ -2821,8 +2817,8 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:204
-#: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:205
+#: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2932,125 +2928,129 @@ msgid "Dutch"
 msgstr "Dutch"
 
 #: src/gcompris/config.c:88
-msgid "Norwegian"
-msgstr "Norwegian"
+msgid "Norwegian Bokmal"
+msgstr "Norwegian Bokmal"
 
 #: src/gcompris/config.c:89
+msgid "Norwegian Nynorsk"
+msgstr "Norwegian Nynorsk"
+
+#: src/gcompris/config.c:90
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Albanian"
 msgstr "Albanian"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Walloon"
 msgstr "Walloon"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "No filter"
 msgstr "No filter"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "Only this level"
 msgstr "Only this level"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "This level and above"
 msgstr "This level and above"
 
-#: src/gcompris/config.c:178
+#: src/gcompris/config.c:179
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:287
+#: src/gcompris/config.c:288
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:330
+#: src/gcompris/config.c:331
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:358
+#: src/gcompris/config.c:359
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:392
+#: src/gcompris/config.c:393
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:413
+#: src/gcompris/config.c:414
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:428 src/gcompris/config.c:813
-#: src/gcompris/config.c:824
+#: src/gcompris/config.c:429 src/gcompris/config.c:814
+#: src/gcompris/config.c:825
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3067,15 +3067,15 @@ msgstr "LOAD"
 msgid "SAVE"
 msgstr "SAVE"
 
-#: src/gcompris/gameutil.c:128
+#: src/gcompris/gameutil.c:129
 msgid "Couldn't find file"
 msgstr "Couldn't find file"
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid "This activity is incomplete."
 msgstr "This activity is incomplete."
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:132
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3221,7 +3221,7 @@ msgstr "%a %d %b %H:%M:%S %Z %Y"
 msgid "Couldn't open music dir: %s"
 msgstr "Couldn't open music dir: %s"
 
-#: src/gcompris/soundutil.c:182
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
