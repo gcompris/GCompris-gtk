@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-03 02:54+0100\n"
-"PO-Revision-Date: 2004-11-03 13:20+0100\n"
+"POT-Creation-Date: 2004-11-09 10:54+0100\n"
+"PO-Revision-Date: 2004-11-09 14:31+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -477,7 +477,7 @@ msgstr "Nástroj pro volné kreslení a animace."
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
-#: boards/babymatch/board6_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1 boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Pro přiřazení položek je táhni a pusť"
 
@@ -659,11 +659,15 @@ msgstr "Tux a jabloň"
 
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 msgstr ""
-"Umísti každý obrázek na datum, kdy byl vynalezen. Pokud si nejsi jist, "
-"podívej se online na wikipedii na http://www.wikipedia.org"
+"Umísti každý obrázek v pořadí a na\n"
+" datum, kdy byl vynalezen.  Pokud\n"
+" si nejsi jist, podívej se online na\n"
+" wikipedii na http://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -1272,11 +1276,11 @@ msgstr "Manipulace s klávesnicí"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Rozpoznávání písmen mezi obrazovkou a klávesnicí"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Jednoduchá písmena"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Napiš padající písmeno, než dopadne na zem"
 
@@ -1331,7 +1335,7 @@ msgstr "Procvič si čtení nalezením slova odpovídajícího obrázku"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: src/boards/reading.c:107
 msgid "Reading"
 msgstr "Čtení"
 
@@ -1676,25 +1680,39 @@ msgstr "Cvič svou paměť a odstraň všechny karty"
 
 #: boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
-"old 3 Stars - 6 to 7 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current "
+"activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 msgstr ""
-"Jednoduché kliknutí na ikonu tě přivede k aktivitě nebo menu aktivit. Ve "
-"spodní části obrazovky je řídicí lišta gcompris. Následující ikony jsou "
-"zobrazeny zprava doleva. Tyto ikony se zobrazují, jen pokud jsou v aktuální "
-"aktivitě k dispozici. Domů - Zpět do předchozího menu nebo ukončit gcompris, "
-"pokud už další není Palec - OK, potvrzení vaší odpovědi Kostka - zobrazit "
-"aktuální úroveň. Klikni na ni pro zvolení jiné úrovně Nota - Zopakovat "
-"otázku Otazník - nápověda Krabice s nářadím - konfigurační menu Tuxovo "
-"letadlo - o hře Hvězdičky znamenají: 1 hvězdička - 2 až 3 roky 2 hvědičky - "
-"4 až 5 let 3 hvězdičky - 6 až 7 let"
+"Jednoduché kliknutí na ikonu tě přivede k aktivitě nebo menu aktivit.\n"
+" Ve spodní části obrazovky je řídicí lišta gcompris.\n"
+" Následující ikony jsou zobrazeny zprava doleva.\n"
+" Tyto ikony se zobrazují, jen pokud jsou v aktuální aktivitě k dispozici.\n"
+" Domů - Zpět do předchozího menu nebo ukončit gcompris, pokud už další není\n"
+" Palec - OK, potvrzení vaší odpovědi\n"
+" Kostka - zobrazit aktuální úroveň. Klikni na ni pro zvolení jiné úrovně\n"
+" Nota - Zopakovat otázku\n"
+" Otazník - nápověda\n"
+" Krabice s nářadím - konfigurační menu\n"
+" Tuxovo letadlo - o hře\n"
+" Hvězdičky znamenají:\n"
+" 1 hvězdička - 2 až 3 roky\n"
+" 2 hvědičky - 4 až 5 let\n"
+" 3 hvězdičky - 6 až 7 let\n"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1927,7 +1945,7 @@ msgid ""
 "main board."
 msgstr "Vytvoř na hlavní desce kresbu přetažením částí obrázku z pole vlevo."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Sestav skládačku"
 
@@ -2394,8 +2412,8 @@ msgid "Editor for gcompris"
 msgstr "Editor pro gcompris"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Naučná hra od 3 let"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Naučná hra od 2 do 10 let"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
@@ -2403,7 +2421,7 @@ msgstr "Naučná sada gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2413,7 +2431,7 @@ msgstr "Nemohu nalézt soubor %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1853
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "nalézt soubor %s !"
@@ -2492,15 +2510,15 @@ msgstr "Bílý matuje"
 msgid "Drawn game"
 msgstr "Remíza"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Přečti písmeno"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Nauč se rozpoznávat písmena"
 
-#: src/boards/click_on_letter.c:223
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2508,7 +2526,7 @@ msgstr ""
 "Chyba: tato aktivita vyžaduje, abyste nejdříve nainstalovali\n"
 "balíček assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:230
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2519,6 +2537,10 @@ msgstr ""
 "zvukovými efekty.\n"
 "Zvuk povolte v dialogu\n"
 "nastavení"
+
+#: src/boards/click_on_letter.c:280
+msgid "abcdefghijklmnopqrstufw"
+msgstr "abcdefghijklmnopqrstufw"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2583,7 +2605,7 @@ msgstr "Klikni na správnou barvu"
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Po jednom přesouvej položky, aby byly uspořádány podle velikosti"
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339 src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Vytvoř v prázdné oblasti stejnou věž, jako je ta vpravo"
 
@@ -2691,62 +2713,58 @@ msgstr "Číst barvy"
 msgid "Click on the corresponding color"
 msgstr "Klikni na odpovídající barvu"
 
-#: src/boards/reading.c:103
+#: src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Přečíst seznam slov a říct, jestli v něm je dané slovo"
 
-#: src/boards/reading.c:315
+#: src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Zkontroluj prosím, jestli je slovo"
 
-#: src/boards/reading.c:335
+#: src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "zobrazeno"
 
-#: src/boards/reading.c:522
+#: src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "Jsem připraven"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Ano, viděl jsem je"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "Ne, nebylo tam"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Hledané slovo bylo '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:645
 msgid "But it was not displayed"
 msgstr "Ale nebylo zobrazeno"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:647
 msgid "And it was displayed"
 msgstr "A bylo zobrazeno"
 
-#: src/boards/reading.c:737 src/boards/reading.c:747
+#: src/boards/reading.c:748
 msgid "Cannot open file of words for your locale"
 msgstr "Nemohu otevřít soubor slov pro vaše locale"
-
-#: src/boards/reading.c:776
-msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr "Chyba: balíček wordfile používaný pro vaše locale je poškozen."
 
 #: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Počítání pozpátku"
 
-#: src/boards/shapegame.c:169
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Táhni a pusť položky pro znovusestavení objektu"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2758,7 +2776,7 @@ msgstr ""
 "stiskněte 's' pro uložení a\n"
 "'d' pro zobrazení všech tvarů"
 
-#: src/boards/shapegame.c:424
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -3272,6 +3290,9 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid "Error: The wordfile package used for your locale is corrupted."
+#~ msgstr "Chyba: balíček wordfile používaný pro vaše locale je poškozen."
 
 #~ msgid "VIII Century"
 #~ msgstr "8. století"
