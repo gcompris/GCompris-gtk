@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/02/16 01:09:49 bruno>
+ * Time-stamp: <2003/10/23 00:02:59 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -44,6 +44,9 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->timer		= gnome_config_get_int    ("/gcompris/Preferences/timer=1");
   tmp->skin		= gnome_config_get_string ("/gcompris/Preferences/skin=default");
 
+  /* Non persistant value */
+  tmp->difficulty_filter = -1;		/* No difficulty filter by default */
+
   locale = getenv("LC_ALL");
   if(locale == NULL)
     locale = getenv("LANG");
@@ -81,13 +84,15 @@ GcomprisProperties *gcompris_properties_copy (GcomprisProperties *props)
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
 
-  tmp->music		= props->music;
-  tmp->fx		= props->fx;
-  tmp->screensize	= props->screensize;
-  tmp->timer		= props->timer;
-  tmp->fullscreen	= props->fullscreen;
-  tmp->locale		= g_strdup(props->locale);
-  tmp->skin		= g_strdup(props->skin);
+  tmp->music		 = props->music;
+  tmp->fx		 = props->fx;
+  tmp->screensize	 = props->screensize;
+  tmp->timer		 = props->timer;
+  tmp->fullscreen	 = props->fullscreen;
+  tmp->locale		 = g_strdup(props->locale);
+  tmp->skin		 = g_strdup(props->skin);
+
+  tmp->difficulty_filter = g_strdup(props->difficulty_filter);
 
   return (tmp);
 }

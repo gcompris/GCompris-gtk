@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2003/09/28 22:30:19 bcoudoin>
+ * Time-stamp: <2003/10/23 00:49:46 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -226,9 +226,23 @@ menu_config ()
 
 static void display_board_icon(GcomprisBoard *board)
 {
-  if (board!=NULL && gcompris_properties_get_board_status(board->name) && board_check_file(board))
+  gint difficulty = 0;
+  GcomprisProperties	*properties = gcompris_get_properties();
+
+  difficulty = atoi(board->difficulty);
+
+  if (board!=NULL 
+      && gcompris_properties_get_board_status(board->name) 
+      && board_check_file(board))
     {
-      menu_create_item(boardRootItem, board);
+      /* Always display menu items or we risk to have unaccessible boards */
+      if(g_strcasecmp(board->type, "menu")==0) {
+	menu_create_item(boardRootItem, board);
+      } else if((properties->difficulty_filter==-1 && difficulty>0) 
+	 || properties->difficulty_filter==difficulty) {
+	/* If the difficulty_filter is set check its value */
+	menu_create_item(boardRootItem, board);
+      }
     }
 }
 
@@ -301,8 +315,8 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 
   // display difficulty stars ========================== BEGIN
   if (board->difficulty != NULL) {
-  	int i, diff = 0;
-		diff = atoi(board->difficulty);
+    int i, diff = 0;
+    diff = atoi(board->difficulty);
     if (diff > 3) {
 	  	pixmap = gcompris_load_skin_pixmap("difficulty_star2.png");
       diff -= 3;
@@ -366,9 +380,9 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
     }
 
   // display menu icon ========================== BEGIN
-  pixmap = gcompris_load_skin_pixmap("menuicon.png");
   if(g_strcasecmp(board->type, "menu")==0)
     {
+      pixmap = gcompris_load_skin_pixmap("menuicon.png");
       item =  gnome_canvas_item_new (parent,
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap,
@@ -379,8 +393,8 @@ static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
 				     NULL);
       item_list = g_list_append (item_list, item);
+      gdk_pixbuf_unref(pixmap);
     }
-  gdk_pixbuf_unref(pixmap);
 // display menu icon ========================== END
 
   return (item);

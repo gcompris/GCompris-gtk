@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/10/15 02:23:51 bcoudoin>
+ * Time-stamp: <2003/10/23 00:49:30 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -52,13 +52,14 @@ static gchar           *gcompris_locale = NULL;
 /* Command line params */
 
 /*** gcompris-popttable */
-static int popt_fullscreen	= FALSE;
-static int popt_window		= FALSE;
-static int popt_sound		= FALSE;
-static int popt_mute		= FALSE;
-static int popt_cursor		= FALSE;
-static int popt_version		= FALSE;
-static int popt_aalias		= FALSE;
+static int popt_fullscreen	 = FALSE;
+static int popt_window		 = FALSE;
+static int popt_sound		 = FALSE;
+static int popt_mute		 = FALSE;
+static int popt_cursor		 = FALSE;
+static int popt_version		 = FALSE;
+static int popt_aalias		 = FALSE;
+static int popt_difficulty_filter = FALSE;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -71,6 +72,8 @@ static struct poptOption options[] = {
    N_("run gcompris without sound."), NULL},
   {"cursor", 'c', POPT_ARG_NONE, &popt_cursor, 0,
    N_("run gcompris with the default gnome cursor."), NULL},
+  {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
+   N_("display only activities with this difficulty level."), NULL},
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
    N_("Prints the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
@@ -532,6 +535,9 @@ gcompris_init (int argc, char *argv[])
 
   signal(SIGINT, gcompris_terminate);
 
+  /* Default difficulty filter value = NONE */
+  popt_difficulty_filter = -1;
+
   gnome_gcompris = gnome_program_init(PACKAGE, VERSION, LIBGNOMEUI_MODULE,
 				      argc, argv, 
 				      GNOME_PARAM_POPT_TABLE, options, 
@@ -541,7 +547,7 @@ gcompris_init (int argc, char *argv[])
   g_value_init (&value, G_TYPE_POINTER);
   g_object_get_property (G_OBJECT(gnome_gcompris), 
 			   GNOME_PARAM_POPT_CONTEXT, &value);
-  
+
   (poptContext)pctx = g_value_get_pointer (&value);
 
   /* Argument parsing */
@@ -598,6 +604,12 @@ gcompris_init (int argc, char *argv[])
     {
       g_warning("Slower Antialiased canvas used");
       antialiased = TRUE;
+    }
+
+  if (popt_difficulty_filter>=0 && args == NULL)
+    {
+      g_warning("Display only activities of level %d", popt_difficulty_filter);
+      properties->difficulty_filter = popt_difficulty_filter;
     }
 
   poptFreeContext(pctx); 
