@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-12-07 19:41+0100\n"
-"PO-Revision-Date: 2001-11-27 04:40+0100\n"
+"POT-Creation-Date: 2001-12-09 15:50+0100\n"
+"PO-Revision-Date: 2001-12-09 15:50+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -432,11 +432,31 @@ msgstr "sök filen %s!"
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
 
-#: src/gcompris/gcompris.c:198
+#: src/gcompris/gcompris.c:61
+msgid "run gcompris in fullscreen mode."
+msgstr "kör gcompris i helskärmsläge."
+
+#: src/gcompris/gcompris.c:63
+msgid "run gcompris in window mode."
+msgstr "kör gcompris i fönsterläge."
+
+#: src/gcompris/gcompris.c:65
+msgid "run gcompris with sound enabled."
+msgstr "kör gcompris med ljud aktiverat."
+
+#: src/gcompris/gcompris.c:67
+msgid "run gcompris without sound."
+msgstr "kör gcompris utan ljud."
+
+#: src/gcompris/gcompris.c:69
+msgid "Prints the version of "
+msgstr "Skriver ut versionsnumret av "
+
+#: src/gcompris/gcompris.c:226
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:307
+#: src/gcompris/gcompris.c:339
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
@@ -444,17 +464,30 @@ msgstr ""
 "Ett enkelt och lärorikt brädbaserat spel för barn från 3 år och uppåt. Denna "
 "programvara är ett GNU-paket"
 
-#: src/gcompris/gcompris.c:312
+#: src/gcompris/gcompris.c:344
 msgid "GCompris Home Page"
 msgstr "Hemsida för GCompris"
 
-#: src/gcompris/gcompris.c:315
+#: src/gcompris/gcompris.c:347
 msgid "An OFSET development"
 msgstr "En OFSET-utveckling"
 
-#: src/gcompris/gcompris.c:345
+#: src/gcompris/gcompris.c:377
 msgid "Do you really want to quit GCompris?"
 msgstr "Vill du verkligen avsluta GCompris?"
+
+#: src/gcompris/gcompris.c:496
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More infos on http://ofset.sourceforge.net/gcompris\n"
+msgstr ""
+"GCompris\n"
+"Version: %s\n"
+"Licens: GPL\n"
+"Mer information på http://ofset.sourceforge.net/gcompris\n"
 
 #~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
 #~ msgstr "Skriv in tangentbordssiffran 1 till 6 innan tärningarna når marken"
