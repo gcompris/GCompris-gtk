@@ -38,6 +38,7 @@ typedef enum
 } BonusList;
 
 void gcompris_display_bonus(int, int);
+void board_finished();
 void bonus_image(char *,int);
 void end_bonus();
 

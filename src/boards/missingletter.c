@@ -257,6 +257,9 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 
   board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel;
+  if (board_number >= g_list_length(board_list))
+	board_number = g_list_length(board_list)-1;
+
   assert(board_number >= 0  && board_number < g_list_length(board_list));
   place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
   assert(place >= 0  && place < 3);
@@ -390,17 +393,17 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   return NULL;
 }
 /* ==================================== */
-static void game_won()
-{
+static void game_won() {
   gcomprisBoard->sublevel++;
 
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->sublevel=0;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-      gcomprisBoard->level=gcomprisBoard->maxlevel;
-    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
+	board_finished();
+	return;
+    }
   }
   missing_letter_next_level();
 }
@@ -525,6 +528,7 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 					   || !strcmp(lang, gcompris_get_locale())
 					   || !strncmp(lang, gcompris_get_locale(), 2)))
       data = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+      data = convertUTF8Toisolat1(data);
     xmlnode = xmlnode->next;
   }
 

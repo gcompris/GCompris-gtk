@@ -1,6 +1,6 @@
 /* gcompris - imageid.c
  *
- * Copyright (C) 2000 Pascal Georges
+ * Copyright (C) 2001 Pascal Georges
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -244,6 +244,9 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   Board * board;
 
   board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel;
+  if (board_number >= g_list_length(board_list))
+	board_number = g_list_length(board_list)-1;
+
   assert(board_number >= 0  && board_number < g_list_length(board_list));
   place = ((int)(3.0*rand()/(RAND_MAX+1.0)));
   assert(place >= 0  && place < 3);
@@ -377,23 +380,23 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 /* ==================================== */
 static void game_won()
 {
-
   gcomprisBoard->sublevel++;
 
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->sublevel=0;
     gcomprisBoard->level++;
-    if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-      gcomprisBoard->level=gcomprisBoard->maxlevel;
-    gcompris_play_sound (SOUNDLISTFILE, "bonus");
+
+  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+	board_finished();
+	return;
+      }
   }
   imageid_next_level();
 }
 
 /* ==================================== */
-static void process_ok()
-{
+static void process_ok() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
 }
 /* ==================================== */

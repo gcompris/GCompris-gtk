@@ -1,8 +1,13 @@
+2001-12-01 Pascal Georges <pascal.georges1@free.fr
+	* added board_finished() function in bonus.c, called when a sequential board is done
+	It displays tux in a plane flying toward a door (!)
+	* corrected the XML accent bug, that still remained in missingletter (but I had already corrected in imageid)
+
 2001-11-29  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* Makefile.am: added remove of xml-i18n generated files
 	* src/boards/shapegame.c: fixed the last board file loading. now the boards loops.
 	* src/boards/algebra.c: fixed minus rules to match + and * rules
-	
+
 2001-11-25  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* boards/scales/*.png: Complete redraw by Renaud Blanchard
 	* src/gcompris/bar.c: shifted all buttons on the left to free the home
@@ -14,7 +19,7 @@
 
 2001-11-25 Pascal Georges <pascal.georges1@free.fr
 	* src/gcompris/gameutil.c : added convertUTF8Toisolat1 function
-	
+
 2001-11-23 Reinhard Müller <reinhard.mueller@bytewise.at>
 	* src/boards/algebra.c change operation order and other fix
 
