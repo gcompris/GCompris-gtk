@@ -4,6 +4,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-11 08:06+0100\n"
-"PO-Revision-Date: 2005-01-11 09:02+0100\n"
+"POT-Creation-Date: 2005-01-23 10:39+0100\n"
+"PO-Revision-Date: 2005-01-23 10:45+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -815,10 +816,10 @@ msgstr ""
 
 #: boards/chronos/board4_1.xml.in.h:5
 msgid ""
-"1947 Chuck Yager\n"
+"1947 Chuck Yeager\n"
 "break the sound-wall"
 msgstr ""
-"1947 Chuck Yager\n"
+"1947 Chuck Yeager\n"
 "durchbricht die Schallmauer"
 
 #: boards/chronos/board4_2.xml.in.h:2
@@ -2424,7 +2425,7 @@ msgstr ""
 "Tux ist hungrig. Hilf ihm durch Zählen bis zur richtigen Eisscholle, die "
 "Fische zu finden."
 
-#: boards/searace.xml.in.h:1
+#: boards/searace.xml.in.h:1 boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Steure dein Schiff gut, um eine Regatta zu gewinnen."
 
@@ -2439,28 +2440,80 @@ msgid ""
 "perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
 "in the ruler) The goal is to reach the right of the screen (the red line). "
 "When done, you can try to improve your program and start a new race with the "
-"same weather conditions by using the retry button. Going to the next level "
-"will give your more complex wether conditions."
+"same weather conditions by using the retry button. You can click and drag "
+"your mouse anywhere on the map to get a measurement in distance and angle. "
+"Going to the next level will give your more complex weather conditions."
 msgstr ""
-"Gib in den Texteingabefeldern Zeile für Zeile die Kommandos zur Steuerung deines Bootes ein. Die unterstützten Kommandos sind zwischen den Eingabefeldern dargestellt. Die Befehle \"links\" und \"rechts\" müssen durch eine Winkelangabe in Grad ergänzt werden. Der Winkel wird auch \"Parameter\" der Befehle \"links\" und \"rechts\" genannt. Die Voreinstellung dafür ist 45 Grad. Der Befehl \"vorwärts\" nimmt einen Entfernungsparameter entgegen. Die Voreinstellung ist 1.\n"
+"Gib in den Texteingabefeldern Zeile für Zeile die Kommandos zur Steuerung "
+"deines Bootes ein. Die unterstützten Kommandos sind zwischen den "
+"Eingabefeldern dargestellt. Die Befehle \"links\" und \"rechts\" müssen "
+"durch eine Winkelangabe in Grad ergänzt werden. Der Winkel wird auch "
+"\"Parameter\" der Befehle \"links\" und \"rechts\" genannt. Die "
+"Voreinstellung dafür ist 45 Grad. Der Befehl \"vorwärts\" nimmt einen "
+"Entfernungsparameter entgegen. Die Voreinstellung ist 1.\n"
 "\n"
 "Zum Beispiel:\n"
 "links 90 => steure im rechten Winkel nach links\n"
 "vorwärts 10 => gehe 10 Felder vorwärts (siehe Bildschirmlineal)\n"
 "\n"
-"Das Ziel ist es, den rechten Bildschirmrand zu erreichen (die rote Linie). Wenn das geschafft ist, kannst du versuchen, dein Programm zu verbessern. Mit dem Wiederholknopf kannst du ein neues Rennen mit den gleichen Wetterbedingungen starten. Die höheren Ebenen haben schwierigere Wetterbedingungen."
+"Das Ziel ist es, den rechten Bildschirmrand zu erreichen (die rote Linie). "
+"Wenn das geschafft ist, kannst du versuchen, dein Programm zu verbessern. "
+"Mit dem Wiederholknopf kannst du ein neues Rennen mit den gleichen "
+"Wetterbedingungen starten. Du kannst die Maus irgendwo auf der Karte klicken und ziehen, um eine Entfernung und Winkel zu messen. Die höheren Ebenen haben schwierigere "
+"Wetterbedingungen."
 
-#: boards/searace.xml.in.h:3
+#: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
 msgid ""
 "In this activity, you will learn how to enter commands to a computer. Even "
 "if the language is extremely basic, you learn here how to think ahead and "
 "enter a program. This activity can be used to introduce the programming "
 "concept to kids."
-msgstr "In dieser Aktivität lernt man, wie man Befehle in einen Rechner eingibt. Obwohl die Sprache sehr einfach ist, lernt man, vorausschauend zu denken und ein Programm einzugeben. Diese Aktivität kann verwendet werden, um Kindern die Idee eines Programmes vorzustellen."
+msgstr ""
+"In dieser Aktivität lernt man, wie man Befehle in einen Rechner eingibt. "
+"Obwohl die Sprache sehr einfach ist, lernt man, vorausschauend zu denken und "
+"ein Programm einzugeben. Diese Aktivität kann verwendet werden, um Kindern "
+"die Idee eines Programmes vorzustellen."
 
 #: boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
 msgstr "Regatta (2 Spieler)"
+
+#: boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. You can click and drag "
+"your mouse anywhere on the map to get a measurement in distance and angle. "
+"Going to the next level will give your more complex wether conditions."
+msgstr ""
+"Gib in den Texteingabefeldern Zeile für Zeile die Kommandos zur Steuerung "
+"deines Bootes ein. Die unterstützten Kommandos sind zwischen den "
+"Eingabefeldern dargestellt. Die Befehle \"links\" und \"rechts\" müssen "
+"durch eine Winkelangabe in Grad ergänzt werden. Der Winkel wird auch "
+"\"Parameter\" der Befehle \"links\" und \"rechts\" genannt. Die "
+"Voreinstellung dafür ist 45 Grad. Der Befehl \"vorwärts\" nimmt einen "
+"Entfernungsparameter entgegen. Die Voreinstellung ist 1.\n"
+"\n"
+"Zum Beispiel:\n"
+"links 90 => steure im rechten Winkel nach links\n"
+"vorwärts 10 => gehe 10 Felder vorwärts (siehe Bildschirmlineal)\n"
+"\n"
+"Das Ziel ist es, den rechten Bildschirmrand zu erreichen (die rote Linie). "
+"Wenn das geschafft ist, kannst du versuchen, dein Programm zu verbessern. "
+"Mit dem Wiederholknopf kannst du ein neues Rennen mit den gleichen "
+"Wetterbedingungen starten. Du kannst die Maus irgendwo auf der Karte klicken und ziehen, um eine Entfernung und Winkel zu messen. Die höheren Ebenen haben schwierigere "
+"Wetterbedingungen."
+
+#: boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "Regatta (1 Spieler)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2864,13 +2917,17 @@ msgstr ""
 "Finde heraus, ob es sich bei den gegebenen Bildern um linke oder um rechte "
 "Hände handelt"
 
-#: src/boards/leftright.c:248 src/boards/python/searace.py:513
-#: src/boards/python/searace.py:789
+#: src/boards/leftright.c:248 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:544
+#: src/boards/python/searace.py:856 src/boards/python/searace.py:889
+#: src/boards/python/searace.py:986
 msgid "left"
 msgstr "links"
 
-#: src/boards/leftright.c:258 src/boards/python/searace.py:522
-#: src/boards/python/searace.py:791
+#: src/boards/leftright.c:258 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:553
+#: src/boards/python/searace.py:858 src/boards/python/searace.py:891
+#: src/boards/python/searace.py:980
 msgid "right"
 msgstr "rechts"
 
@@ -2947,56 +3004,60 @@ msgstr "Stufe"
 msgid "Coordinate"
 msgstr "Koordinate"
 
-#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
-#: src/boards/python/searace.py:220
+#: src/boards/python/searace.py:201 src/boards/python/searace.py:206
+#: src/boards/python/searace.py:232
 msgid "Race is already running"
 msgstr "Das Rennen läuft bereits"
 
-#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
-#: src/boards/python/searace.py:770
-msgid "droite"
-msgstr "rechts"
-
 #. Manage default cases (no params given)
-#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
-#: src/boards/python/searace.py:504 src/boards/python/searace.py:766
-#: src/boards/python/searace.py:783
+#. Final move, add an ofset because we loose space in abs()
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:535 src/boards/python/searace.py:854
+#: src/boards/python/searace.py:883 src/boards/python/searace.py:978
+#: src/boards/python/searace.py:984 src/boards/python/searace.py:992
 msgid "forward"
 msgstr "vorwärts"
 
-#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
-#: src/boards/python/searace.py:768
-msgid "gauche"
-msgstr "links"
-
-#: src/boards/python/searace.py:495
+#: src/boards/python/searace.py:526
 msgid "COMMANDS ARE"
 msgstr "DIE KOMMANDOS SIND"
 
-#: src/boards/python/searace.py:670
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr "Gleichstand!"
+
+#: src/boards/python/searace.py:759
 msgid "The Red boat has won"
 msgstr "Das rote Boot hat gewonnen"
 
-#: src/boards/python/searace.py:672
+#: src/boards/python/searace.py:762
 msgid "The Green boat has won"
 msgstr "Das grüne Boot hat gewonnen"
 
-#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-#: src/boards/python/searace.py:701
+#: src/boards/python/searace.py:780 src/boards/python/searace.py:1022
 msgid "Angle:"
 msgstr "Winkel:"
 
-#: src/boards/python/searace.py:701
+#: src/boards/python/searace.py:780
 msgid "Wind:"
 msgstr "Wind:"
 
-#: src/boards/python/searace.py:773
+#: src/boards/python/searace.py:861
 msgid "Syntax error at line"
 msgstr "Syntaxfehler auf Zeile"
 
-#: src/boards/python/searace.py:799
+#: src/boards/python/searace.py:879
+msgid "The command"
+msgstr "Der Befehl"
+
+#: src/boards/python/searace.py:898
 msgid "Unknown command at line"
 msgstr "Unbekannter Befehl auf Zeile"
+
+#: src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr "Entfernung:"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
