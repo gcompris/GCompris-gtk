@@ -72,6 +72,12 @@ static GList *board_list = NULL;
 
 #define VERTICAL_SEPARATION 30
 #define HORIZONTAL_SEPARATION 30
+// the values are taken from the backgound image imageid-bg.jpg
+#define IMAGE_AREA_X1 280
+#define IMAGE_AREA_X2 750
+#define IMAGE_AREA_Y1 90
+#define IMAGE_AREA_Y2 430
+
 #define TEXT_COLOR "white"
 
 /* ================================================================ */
@@ -272,13 +278,14 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, board->pixmapfile);
   pixmap = gcompris_load_pixmap(str);
+  /*
   dx = (gcomprisBoard->width -
 	HORIZONTAL_SEPARATION -
 	gdk_pixbuf_get_width(button_pixmap) -
 	gdk_pixbuf_get_width(pixmap))/2;
-  x = HORIZONTAL_SEPARATION + gdk_pixbuf_get_width(button_pixmap) + dx;
-
-  y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap))/2;
+*/
+  x = IMAGE_AREA_X1 + ( IMAGE_AREA_X2 - IMAGE_AREA_X1 - gdk_pixbuf_get_width(pixmap))/2;
+  y = IMAGE_AREA_Y1 + ( IMAGE_AREA_Y2 - IMAGE_AREA_Y1 - gdk_pixbuf_get_height(pixmap))/2;
 
   image_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_pixbuf_get_type (),
@@ -391,7 +398,7 @@ static void game_won()
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
-
+printf("game_won : level = %d max = %d\n",gcomprisBoard->level,gcomprisBoard->maxlevel);
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
 	board_finished();
 	return;

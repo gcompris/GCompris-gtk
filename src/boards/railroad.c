@@ -48,7 +48,7 @@ static void show_engines_wagons(gboolean);
 #define WAGONS 13
 #define MODEL_MAX_SIZE 4
 
-static const int line[] = { 103,223,303,380, 460, 540};
+static const int line[] = { 100,180,260,340, 420, 500};
 static gboolean animation_pending;
 static gint animation_count = 0;
 
@@ -148,7 +148,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),  "railroad/railroad-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),  "railroad/railroad-bg.png");
 
       for (i=0; i<ENGINES; i++) {
       	str = g_strdup_printf("railroad/loco%d.png", i+1);
