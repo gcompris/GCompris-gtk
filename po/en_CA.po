@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-24 14:46-0700\n"
-"PO-Revision-Date: 2004-05-24 14:49-0700\n"
+"POT-Creation-Date: 2004-05-25 13:50-0700\n"
+"PO-Revision-Date: 2004-05-25 13:51-0700\n"
 "Last-Translator: Adam Weinberger  <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -2116,8 +2116,8 @@ msgstr "Educational suite gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:479 src/gcompris/gameutil.c:480
-#: src/gcompris/gcompris.c:377 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:475 src/gcompris/gameutil.c:476
+#: src/gcompris/gcompris.c:392 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2282,11 +2282,11 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
-#: src/boards/menu.c:79
+#: src/boards/menu.c:80
 msgid "Main Menu"
 msgstr "Main Menu"
 
-#: src/boards/menu.c:80
+#: src/boards/menu.c:81
 msgid "Select a Board"
 msgstr "Select a Board"
 
@@ -2460,7 +2460,7 @@ msgstr "Distance to target = %d metres"
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Fully type the falling words before they reach the ground"
 
-#: src/gcompris/about.c:60
+#: src/gcompris/about.c:65
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -2475,35 +2475,35 @@ msgstr ""
 "Background Music: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+#: src/gcompris/about.c:73 src/gcompris/interface.c:484
 msgid "translator_credits"
 msgstr ""
 "Maintainer: Adam Weinberger <adamw@gnome.org>\n"
 "Alexander Winston <alexander.winston@comcast.net>"
 
-#: src/gcompris/about.c:100
+#: src/gcompris/about.c:105
 msgid "About GCompris"
 msgstr "About GCompris"
 
-#: src/gcompris/about.c:110
+#: src/gcompris/about.c:115
 msgid "Translators:"
 msgstr "Translators:"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:230
 msgid "GCompris Home Page"
 msgstr "GCompris Home Page"
 
-#: src/gcompris/about.c:247
+#: src/gcompris/about.c:252
 msgid ""
 "This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "This software is a GNU Package and is released under the GNU Public Licence"
 
-#: src/gcompris/about.c:275
+#: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:187 src/gcompris/help.c:367
+#: src/gcompris/about.c:316 src/gcompris/config.c:187 src/gcompris/help.c:367
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2756,7 +2756,19 @@ msgstr "Print the version of "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:636
+#: src/gcompris/gcompris.c:491
+msgid ""
+"This is a Demo version of gcompris,\n"
+"only 12 on 45 activities are available.\n"
+"To get the full version,\n"
+"go to http://ofset.sf.net/gcompris/order.html"
+msgstr ""
+"This is a Demo version of gcompris,\n"
+"only 12 on 45 activities are available.\n"
+"To get the full version,\n"
+"go to http://ofset.sf.net/gcompris/order.html"
+
+#: src/gcompris/gcompris.c:663
 #, c-format
 msgid ""
 "GCompris\n"
