@@ -268,8 +268,7 @@ void gcompris_play_sound (const char *soundlistfile, const char *which)
   if (!g_file_test ((filename), G_FILE_TEST_EXISTS))
     g_error (_("Couldn't find file %s !"), filename);
 
-  if (gcompris_get_properties()->fx)
-    gnome_sound_play (filename);
+  gnome_sound_play (filename);
 
   g_free (filename);
 }

@@ -1,116 +1,101 @@
 ================================================
-| Please help us fill this test report :
-| It lists all bugs we need to fix before a 1.0
-| release of gcompris
+ Please help us fill this test report :
+ Tested version : CVS
+ Example :
+ advanced_colors
+	- tested by Pascal Georges (pascal.georges1@free.fr
+  - sometimes crash near the end (hard to reproduce)
 ================================================
 
-algebra_by
-  - tested (pascal georges)
-
 ----------------------------------------------
-algebra_div
-  - tested (pascal georges)
-
+	advanced_colors
 ----------------------------------------------
-algebra_guesscount
-  - app crash after passing the last board.
-    Can't reproduce it after adding a waitpid call in the play ogg
-procedure (pascal georges).
-
+	algebra_plus
 ----------------------------------------------
-algebra_minus
-  - tested (pascal georges).
-	Sometimes, when answer is given quicly, sound is late, unsynchonised with the currrent operation
-
+	algebra_minus
 ----------------------------------------------
-algebra_plus
-  - tested (pascal georges)
-
+	algebra_by
 ----------------------------------------------
-babymatch
-Bruno: tested
+	babymatch
 ----------------------------------------------
-babyshapes
-  - Tested (pascal georges)
-
+	babyshapes
 ----------------------------------------------
-clickgame
-  - tested (pascal georges).
-
+	canal_lock
 ----------------------------------------------
-click_on_letter
-  - tested (pascal georges).
-
+	chess_computer
 ----------------------------------------------
-clockgame
-  - tested by bruno
-
+	chess_movelearn
 ----------------------------------------------
-draw
-  - tested (pascal georges).
-
+	chess_partyend
 ----------------------------------------------
-erase
-  - tested (pascal georges)
-
+	clickgame
 ----------------------------------------------
-gletters
-  - tested by bruno.
-
+	clockgame
 ----------------------------------------------
-imageid
-  - tested for FR & ENG (pascal georges)
-  - sounds are not translated and appear in french. As they are not
-mandatory, they should not be played
-
+	draw
 ----------------------------------------------
-imagename
-  - tested : French translation completed (Bruno)
-
+	doubleentry
 ----------------------------------------------
-memory
-  - tested by bruno up to level 9.
-
+	enumerate
 ----------------------------------------------
-missing_letter
-  - tested for FR & ENG (pascal georges)
-  - sounds are not translated and appear in french. As they are not
-mandatory, they should not be played
-
+	geography
 ----------------------------------------------
-paintings
-  - Sometimes badly crash (X does not respond, cursor moves but is
-blocked in NE/SW cross shape). Pascal Georges
-
+	gletters
 ----------------------------------------------
-paratrooper
-  - tested (pascal georges)
-
+	imagename
 ----------------------------------------------
-planegame
-  - tested (fully tested : long !) (pascal georges).
-
+	machpuzzle
 ----------------------------------------------
-railroad
-  - tested (pascal georges).
-
+	maze
 ----------------------------------------------
-readingh
-  - tested (pascal georges).
-
+	maze3D
 ----------------------------------------------
-readingv
-  - tested (pascal georges).
-
+	memory
 ----------------------------------------------
-scalesboard
-  - tested by bruno. fixed 2 boards which were uncorrrect
-
+	money
 ----------------------------------------------
-smallnumbers
-  - tested (pascal georges).
-
+	money_cents
 ----------------------------------------------
-wordsgame
-  - tested (in French) : words should not disappear behind the score display (pascal georges)
+	paintings
 ----------------------------------------------
+	paratrooper
+----------------------------------------------
+	planegame
+----------------------------------------------
+	railroad
+----------------------------------------------
+	readingh
+----------------------------------------------
+	readingv
+----------------------------------------------
+	read_colors
+----------------------------------------------
+	reversecount
+----------------------------------------------
+	scalesboard
+----------------------------------------------
+	smallnumbers
+----------------------------------------------
+	superbrain
+----------------------------------------------
+	target
+----------------------------------------------
+	traffic
+----------------------------------------------
+	wordsgame
+----------------------------------------------
+	imageid
+----------------------------------------------
+	missing_letter
+----------------------------------------------
+	click_on_letter
+----------------------------------------------
+	railroad
+----------------------------------------------
+	erase
+----------------------------------------------
+	algebra_guesscount
+----------------------------------------------
+	leftright
+----------------------------------------------
+	colors
