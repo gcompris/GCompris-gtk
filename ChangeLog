@@ -1,3 +1,12 @@
+2005-03-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Completed the filemanager for real this time.
+	Added file type detection in anim
+	Removed debug traces in anim
+
+	* src/boards/python/anim.py:
+	* src/gcompris/file_selector.c: (item_event_file_selector):
+
 2005-03-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Better icons. Completed the fileselector to use the icons based on their extension

@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/03/03 00:47:31 bruno>
+ * Time-stamp: <2005/03/03 22:52:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -790,10 +790,12 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    /* Extract the mime type */
 	    if(ext) {
 	      mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_ext_hash, ext));
-	      if(file_type) {
-		g_free(file_type);
+	      if(mimeType && mimeType->mimetype) {
+		if(file_type) {
+		  g_free(file_type);
+		}
+		file_type = strdup(mimeType->mimetype);
 	      }
-	      file_type = strdup(mimeType->mimetype);
 	    }
 
 	  }
