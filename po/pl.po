@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-17 22:57+0200\n"
+"POT-Creation-Date: 2004-04-19 14:26+0200\n"
 "PO-Revision-Date: 2003-10-31 15:35+0100\n"
 "Last-Translator: Gnome PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -2102,6 +2102,14 @@ msgstr ""
 msgid "Learn the water cycle"
 msgstr "Dowiedz się o obiegu wody"
 
+#: boards/watercycle.xml.in.h:3
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
+msgstr ""
+"Tux właśnie powrócił z długiego wędkowania na swojej łodzi. Przywróć do "
+"działania instalację wodną, aby mógł wziąć prysznic."
+
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
 msgstr "Spadające słowa"
@@ -2248,10 +2256,10 @@ msgstr ""
 "Przejdź do okna konfiguracji aby\n"
 "włączyć dźwięk."
 
-#: src/boards/clickgame.c:183
+#: src/boards/clickgame.c:182
 #, c-format
-msgid "Couldn't open pixmap dir: %s"
-msgstr "Nie można otworzyć katalogu piksmapy: %s"
+msgid "Couldn't open dir: %s"
+msgstr "Nie można otworzyć katalogu: %s"
 
 #: src/boards/clockgame.c:530
 msgid "Set the watch to:"
@@ -2841,7 +2849,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Ścieżka dostępu"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:272
 msgid "Title"
 msgstr "Tytuł"
 
@@ -2849,7 +2857,7 @@ msgstr "Tytuł"
 msgid "Released under GPL"
 msgstr "Rozprowadzany na licencji GPL"
 
-#: src/gcompris/oggplayer.c:99
+#: src/gcompris/oggplayer.c:97
 #, c-format
 msgid ""
 "Error unable to find a usable audio output device (%d)\n"
@@ -2860,12 +2868,12 @@ msgstr ""
 "Uruchom \"gcompris -A\" aby wybrać inne urządzenie wyjściowe\n"
 "Użyj \"-A list\" aby wyświetlić listę dostępnych urządzeń"
 
-#: src/gcompris/oggplayer.c:119
+#: src/gcompris/oggplayer.c:117
 #, c-format
 msgid "Error opening audio device\n"
 msgstr "Błąd otwarcia urządzenia dźwiękowego\n"
 
-#: src/gcompris/oggplayer.c:165
+#: src/gcompris/oggplayer.c:163
 #, c-format
 msgid ""
 "Possible audio output devices are:\n"
@@ -2874,20 +2882,20 @@ msgstr ""
 "Możliwymi urządzeniami wyjściowymi są:\n"
 "domyślne "
 
-#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:235 src/gcompris/oggplayer.c:246
 msgid "Now Playing Music"
 msgstr "Teraz odtwarza muzykę"
 
-#: src/gcompris/oggplayer.c:278
+#: src/gcompris/oggplayer.c:276
 msgid "Artist"
 msgstr "Artysta"
 
-#: src/gcompris/soundutil.c:113
+#: src/gcompris/soundutil.c:118
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Nie można otworzyć ścieżki dostępu do muzyki: %s"
 
-#: src/gcompris/soundutil.c:152
+#: src/gcompris/soundutil.c:159
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -2909,3 +2917,6 @@ msgstr "Czas minął"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Pozostały czas = %d"
+
+#~ msgid "Couldn't open pixmap dir: %s"
+#~ msgstr "Nie można otworzyć katalogu piksmapy: %s"
