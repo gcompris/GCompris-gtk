@@ -337,8 +337,8 @@ add_menu(GtkTreeIter *parentNode, GcomprisBoard *gcomprisBoardMenu, GNode * chil
   GtkTreeIter		 iter;
 
   printf("add_menu %s\n", gcomprisBoardMenu->name);
-  gtk_tree_store_append (model, &iter, parentNode);
-  gtk_tree_store_set (model, &iter,
+  gtk_tree_store_append ( GTK_TREE_STORE (model), &iter, parentNode);
+  gtk_tree_store_set ( GTK_TREE_STORE (model), &iter,
 		      VISIBLE_COLUMN, 
 		      (gcompris_properties_get_board_status(gcomprisBoardMenu->name)? TRUE : FALSE),
 		      NAME_COLUMN, gcomprisBoardMenu->name,
@@ -368,7 +368,7 @@ parse_doc(GtkCTreeNode *parentNode, GList *boards_list)
     GcomprisBoard *board = list->data;
 
     printf("   parse_doc board=%s\n", board->name);
-    add_menu(parentNode, board, NULL);
+    add_menu( (GtkTreeIter *)parentNode, board, NULL);
   }
 }
 
@@ -382,7 +382,7 @@ read_xml_file(GtkTreeIter *parentNode, char *fname)
 
   printf("read_xml_file section=%s\n", fname);
   /* parse our document and replace old data */
-  parse_doc(parentNode, gcompris_get_menulist(fname));
+  parse_doc( (GtkCTreeNode *)parentNode, gcompris_get_menulist(fname));
 
 }
 
@@ -419,7 +419,7 @@ main (int argc, char *argv[])
   /* Set the directory for the pixmaps in the description */
   tmpWidget = gtk_object_get_data (GTK_OBJECT (gcompris_edit),
 				   "iconentry");
-  gnome_icon_entry_set_pixmap_subdir(tmpWidget, PACKAGE_DATA_DIR"/boardicons");
+  gnome_icon_entry_set_pixmap_subdir( (GnomeIconEntry *)tmpWidget, PACKAGE_DATA_DIR"/boardicons");
 
   /* Load all the menu once */
   gcompris_load_menus();

@@ -310,6 +310,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   guint color_to_place;
   guint used_colors[NUMBER_OF_COLOR];
   GnomeCanvasPathDef *path;
+
+  guint w = 10;
       
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -454,7 +456,6 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	}
 
       /* Create the vertical line */
-      guint w = 10;
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_rect_get_type (),
 			     "x1", (double) item_width * i + item_width/2 - w,

@@ -1,3 +1,18 @@
+2003-06-03  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in : removed gnome-common-init, added gnome-compile-warning
+
+	
+2003-06-03  Uwe Koloska <uwe@koloro.de>
+
+	reviewed by: Bruno Coudoin
+
+	* src/boards/hanoi.c: (hanoi_create_item): code cleanup
+	* src/boards/money.c: (process_ok): code cleanup
+	* src/gcompris/bonus.c: (gcompris_display_bonus): code cleanup
+	* src/gcompris/gcompris-edit.c: (add_menu), (parse_doc),
+	(read_xml_file), (main): code cleanup
+
 2003-05-25  Jose JORGE  <jose.jorge@oreka.com>
 
 	* configure.in : released version 3.1

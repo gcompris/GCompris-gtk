@@ -174,12 +174,12 @@ void board_finished(int type) {
 /* ==================================== */
 void gcompris_display_bonus(int gamewon, int bonus_id)
 {
+  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+
 	if (bonus_display_running)
   	return;
     else
 			bonus_display_running = TRUE;
-
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   if(gamewon == TRUE)
     gcompris_play_ogg(greetingsList[RAND(0, NUMBER_OF_GREETINGS-1)], NULL);

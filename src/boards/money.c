@@ -559,7 +559,7 @@ static void process_ok()
 {
 
   if(board_paused)
-    return FALSE;
+    /*return FALSE*/;
 
   /* FIXME: Why do I need this trick !! */
   if(price_target >= money_widget_get_total(seller_money) - 0.001 &&
