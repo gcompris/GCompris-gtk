@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:20+0100\n"
-"PO-Revision-Date: 2005-01-31 22:42+0100\n"
+"POT-Creation-Date: 2005-02-17 20:45+0100\n"
+"PO-Revision-Date: 2005-02-17 21:11+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -710,6 +710,26 @@ msgstr "Een kort verhaal vertellen"
 msgid "Moonwalker"
 msgstr "Maanwandelen"
 
+#: boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Herfst"
+
+#: boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Lente"
+
+#: boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Zomer"
+
+#: boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "De 4 seizoenen"
+
+#: boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Winter"
+
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux en de appelboom"
@@ -1123,6 +1143,18 @@ msgstr "Het vijftien-spel"
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
 msgstr "Ga naar de spelletjes"
+
+#: boards/gcompris/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "gcompris filmpje"
+
+#: boards/gcompris/mime_type.xml.in.h:2
+msgid "svg drawing"
+msgstr "svg-tekening"
+
+#: boards/gcompris/mime_type.xml.in.h:3
+msgid "svg mozilla animation"
+msgstr "svg mozilla-filmpje"
 
 #: boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
@@ -1766,21 +1798,21 @@ msgid "None"
 msgstr "Geen"
 
 #: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
-#: boards/maze3D.xml.in.h:2
+#: boards/maze3D.xml.in.h:2 boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kan de pijltjes op het toetsenbord gebruiken om een object te bewegen."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:130
+#: boards/maze.xml.in.h:2 src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Vind de uitgang van de doolhof"
 
 #: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
-#: boards/maze3D.xml.in.h:4
+#: boards/maze3D.xml.in.h:4 boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Haal Tux uit de doolhof"
 
 #: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
-#: src/boards/maze.c:129
+#: boards/mazeInvisible.xml.in.h:4 src/boards/maze.c:132
 msgid "Maze"
 msgstr "Doolhof"
 
@@ -1805,11 +1837,26 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr ""
-"Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de "
-"spatiebalk om te wisselen tussen weergave in twee dimensies of drie "
-"dimensies. Weergave in 2D geeft een idee van je positie net als bij een "
-"landkaart. Je kunt Tux niet bewegen in tweedimensionale weergave."
+msgstr "Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de spatiebalk om te wisselen tussen weergave in twee dimensies of drie dimensies. Weergave in 2D geeft een idee van je positie net bij een landkaart. Je kunt Tux niet bewegen in tweedimensionale weergave."
+
+#: boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Vind de weg door het onzichtare doolhof"
+
+#: boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr "Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de spatiebalk om de weergave te wisselen tussen onzichtbaar en onzichtbaar. Zichtbare weergave geeft een idee van je positie als bij een landkaart. Je kunt Tux niet bewegen in zichtbare weergave."
+
+#: boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Vind de weg door verschillende soorten doolhoven"
+
+#: boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Ga naar de doolhoven"
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2448,7 +2495,20 @@ msgid ""
 "same weather conditions by using the retry button. You can click and drag "
 "your mouse anywhere on the map to get a measurement in distance and angle. "
 "Going to the next level will give your more complex weather conditions."
-msgstr "In de tekstinvoer geef je regel voor regel, besturingsopdrachten aan je boot. De mogelijke opdrachten worden getoond in de twee invoervelden. De opdrachten 'links' en 'rechts' moeten worden gevolgd door een hoek in graden. Deze hoek wordt ook wel een 'parameter' genoemd. Standaard wordt 45 graden gebruikt. De opdracht 'vooruit' mag gevolgd worden door een afstand. Standaard wordt 1 gebruikt. Bijvoorbeeld: links 90 betekent: draai een kwartslag naar links. Vooruit 10 betekent: Ga tien eenheden vooruit (zoals te zien is op de lineaal). Het doel is om de rechterkant van het scherm te bereiken (de rode lijn). Bij voltooiing kun je proberen je programma te verbeteren en een nieuwe race te starten onder dezelfde weersomstandigheden. Hiervoor druk je op de knop 'opnieuw'. Je kunt op de kaart klikken en slepen om afstanden en hoeken te meten. In het volgende level zul je moeilijker weersomstandigheden te maken krijgen. "
+msgstr ""
+"In de tekstinvoer geef je regel voor regel, besturingsopdrachten aan je "
+"boot. De mogelijke opdrachten worden getoond in de twee invoervelden. De "
+"opdrachten 'links' en 'rechts' moeten worden gevolgd door een hoek in "
+"graden. Deze hoek wordt ook wel een 'parameter' genoemd. Standaard wordt 45 "
+"graden gebruikt. De opdracht 'vooruit' mag gevolgd worden door een afstand. "
+"Standaard wordt 1 gebruikt. Bijvoorbeeld: links 90 betekent: draai een "
+"kwartslag naar links. Vooruit 10 betekent: Ga tien eenheden vooruit (zoals "
+"te zien is op de lineaal). Het doel is om de rechterkant van het scherm te "
+"bereiken (de rode lijn). Bij voltooiing kun je proberen je programma te "
+"verbeteren en een nieuwe race te starten onder dezelfde weersomstandigheden. "
+"Hiervoor druk je op de knop 'opnieuw'. Je kunt op de kaart klikken en slepen "
+"om afstanden en hoeken te meten. In het volgende level zul je moeilijker "
+"weersomstandigheden te maken krijgen. "
 
 #: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
 msgid ""
@@ -2513,15 +2573,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Breng de weegschaal in evenwicht"
 
-#: boards/smallnumbers.xml.in.h:1
+#: boards/smallnumbers.xml.in.h:1 boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Tel het aantal puntjes op de dobbelstenen voordat ze de grond raken"
 
-#: boards/smallnumbers.xml.in.h:2
+#: boards/smallnumbers.xml.in.h:2 boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Telvaardigheden"
 
-#: boards/smallnumbers.xml.in.h:3
+#: boards/smallnumbers.xml.in.h:3 boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Tel een aantal puntjes in een beperkte tijd"
 
@@ -2529,13 +2589,17 @@ msgstr "Tel een aantal puntjes in een beperkte tijd"
 msgid "Numbers With Dice"
 msgstr "Getallen met dobbelstenen"
 
-#: boards/smallnumbers.xml.in.h:5
+#: boards/smallnumbers.xml.in.h:5 boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr ""
 "Toets het getal in dat overeenkomt met het aantal puntjes op de vallende "
 "dobbelsteen."
+
+#: boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Getallen met 2 dobbelstenen"
 
 # navigeren ipv manoeuvreren
 #: boards/submarine.xml.in.h:1
@@ -2675,12 +2739,18 @@ msgstr "Educatief spel voor kinderen van 2 tot 10 jaar"
 msgid "Educational suite gcompris"
 msgstr "Educatieve software gcompris"
 
+# tooltip voor de desktop
+#: gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Verschillende activiteiten voor kinderen"
+
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
-#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
-#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:848
+#: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
+#: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
+#: src/gcompris/images_selector.c:645 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
@@ -2879,7 +2949,12 @@ msgstr "links"
 msgid "right"
 msgstr "rechts"
 
-#: src/boards/maze.c:453
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Bekijk je positie en ga terug naar onzichtbare weergave om te kunnen bewegen"
+
+# modus/weergave
+#: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Bekijk je positie en ga terug naar 3D-modus om te kunnen bewegen"
 
@@ -3095,11 +3170,11 @@ msgstr ""
 "De gegevens van dit bord zijn opgeslagen\n"
 "onder /tmp/gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:62
+#: src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Getallen met dobbelstenen"
 
-#: src/boards/smallnumbers.c:63
+#: src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr ""
 "Typ de getallen 1 tot 9 op het toetsenbord voordat de dobbelsteen de grond "
@@ -3140,13 +3215,13 @@ msgstr "Typ de woorden vooraleer ze de grond raken"
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Auteur: Bruno Coudoin\n"
 "Bijdragen: Pascal Georges, Jose Jorge\n"
-"Plaatjes: Renaud Blanchard\n"
+"Plaatjes: Renaud Blanchard, Franck Doucet\n"
 "Intromuziek: Djilali Sebihi\n"
 "Achtergrondmuziek: Rico Da Halvarez\n"
 
@@ -3175,17 +3250,16 @@ msgstr "GCompris Startpagina"
 
 #: src/gcompris/about.c:252
 msgid ""
-"This software is a GNU Package and is released under the GNU Public Licence"
-msgstr ""
-"Deze software is een GNU pakket, uitgebracht onder de Gnu Public Licence"
+"This software is a GNU Package and is released under the GNU Public License"
+msgstr "Deze software is een GNU pakket en is uitgebracht onder de Gnu Public Licence"
 
 #: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:208
+#: src/gcompris/about.c:316 src/gcompris/config.c:209
 #: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:152
+#: src/gcompris/images_selector.c:252
 msgid "OK"
 msgstr "OK"
 
@@ -3271,184 +3345,188 @@ msgid "Indian (Hindi)"
 msgstr "Indisch (Hindi)"
 
 #: src/gcompris/config.c:81
+msgid "Indian (Gujarati)"
+msgstr "Indisch (Gujarati)"
+
+#: src/gcompris/config.c:82
 msgid "Indian (Punjabi)"
 msgstr "Indisch (Punjabi)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Noors Bokmal"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Noors Nynorsk"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Albanian"
 msgstr "Albanees"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Turkish"
 msgstr "Turks"
 
 # Vlaams?
 # Waals
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Walloon"
 msgstr "Walloons"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Chinese (Simplified)"
 msgstr "Chinees (Simpel)"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "No filter"
 msgstr "Geen filter"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Only this level"
 msgstr "Alleen dit niveau"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "Up to this level"
 msgstr "Tot aan dit niveau"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid "This level and above"
 msgstr "Vanaf dit niveau en hoger"
 
-#: src/gcompris/config.c:182
+#: src/gcompris/config.c:183
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:291
+#: src/gcompris/config.c:292
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:335
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:363
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:396
+#: src/gcompris/config.c:397
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:417
+#: src/gcompris/config.c:418
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: src/gcompris/config.c:432 src/gcompris/config.c:817
-#: src/gcompris/config.c:828
+#: src/gcompris/config.c:433 src/gcompris/config.c:818
+#: src/gcompris/config.c:829
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:277
+#: src/gcompris/file_selector.c:312
 msgid "CANCEL"
 msgstr "ANNULEREN"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:343
 msgid "LOAD"
 msgstr "LADEN"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:343
 msgid "SAVE"
 msgstr "OPSLAAN"
 
@@ -3505,7 +3583,7 @@ msgstr "Toont de versie van "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:538
+#: src/gcompris/gcompris.c:541
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3529,7 +3607,7 @@ msgstr ""
 "op\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:733
+#: src/gcompris/gcompris.c:736
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3653,9 +3731,6 @@ msgstr "Resterende tijd = %d"
 
 #~ msgid "turnright"
 #~ msgstr "rechtsaf"
-
-#~ msgid "Create an animation"
-#~ msgstr "Een filmpje maken"
 
 #~ msgid "Error: The wordfile package used for your locale is corrupted."
 #~ msgstr "Fout: het woordbestand-pakket voor uw locale is beschadigd."
