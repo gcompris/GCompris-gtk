@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/02/11 23:33:43 bruno>
+ * Time-stamp: <2002/02/12 19:47:08 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -295,7 +295,7 @@ void gcompris_play_ogg(char *sound, ...) {
     } else {
       g_free(argv[argc]);
       argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", sound);
-      if (g_file_exists (argv[2])) {
+      if (g_file_exists (argv[argc])) {
 	printf("trying to play %s\n", argv[argc]);
 	argc++;
       } else 
