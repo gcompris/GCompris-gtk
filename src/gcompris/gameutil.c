@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/02/17 19:48:40 bruno>
+ * Time-stamp: <2002/04/14 04:19:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -86,6 +86,9 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   }
 
   smallnumbers_pixmap = gdk_pixbuf_new_from_file (filename);
+
+  if(!smallnumbers_pixmap)
+    g_warning("Loading image returned a null pointer");
 
   g_free (filename);
 
@@ -235,6 +238,8 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   /* get the specific mode for this board */
   gcomprisBoard->mode = xmlGetProp(xmlnode,"mode");
 
+  gcomprisBoard->name = xmlGetProp(xmlnode,"name");
+
   gcomprisBoard->icon_name = xmlGetProp(xmlnode,"icon");
 
   gcomprisBoard->author = xmlGetProp(xmlnode,"author");
@@ -245,7 +250,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 
   gcomprisBoard->mandatory_sound_file = xmlGetProp(xmlnode,"mandatory_sound_file");
 
-  gcomprisBoard->name = NULL;
+  gcomprisBoard->title = NULL;
   gcomprisBoard->description = NULL;
   gcomprisBoard->prerequisite = NULL;
   gcomprisBoard->goal = NULL;
@@ -254,14 +259,14 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
     gchar *lang = xmlGetProp(xmlnode,"lang");
-    /* get the name of the board */
-    if (!strcmp(xmlnode->name, "name")
+    /* get the title of the board */
+    if (!strcmp(xmlnode->name, "title")
 	&& (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	gcomprisBoard->name = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-	gcomprisBoard->name = convertUTF8Toisolat1(gcomprisBoard->name);
+	gcomprisBoard->title = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->title = convertUTF8Toisolat1(gcomprisBoard->title);
       }
 
     /* get the description of the board */

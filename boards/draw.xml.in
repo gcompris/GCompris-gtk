@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
   <Board 
+	 name="draw"
 	 type="draw" 
 	 icon="boardicons/draw.png" 
 	 difficulty="1"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="colornforms">
-	 <_name>A simple vector drawing tool</_name>
+	 <_title>A simple vector drawing tool</_title>
 	 <_description>Creative board where you can freely draw</_description>
 	<_prerequisite>Needs to handle the mouse with the click easily</_prerequisite>
 	<_goal>In this game, the children will be able to freely draw.

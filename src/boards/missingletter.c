@@ -32,17 +32,17 @@
 GcomprisBoard *gcomprisBoard = NULL;
 gboolean board_paused = TRUE;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
 static int gamewon;
 static gint process_time_id = 0;
-static void process_ok(void);
-static void process_time(void);
-static void highlight_selected(GnomeCanvasItem *);
-static void game_won();
+static void		 process_ok(void);
+static void		 process_time(void);
+static void		 highlight_selected(GnomeCanvasItem *);
+static void		 game_won(void);
 
 typedef struct _Board Board;
 struct _Board {
@@ -57,13 +57,13 @@ struct _Board {
 static Board * board;
 
 /* XML */
-static gboolean read_xml_file(char *fname);
-static void init_xml();
-static void add_xml_data(xmlDocPtr, xmlNodePtr, GNode *);
-static void parse_doc(xmlDocPtr doc);
-static gboolean read_xml_file(char *fname);
-static void destroy_board_list();
-static void destroy_board(Board * board);
+static gboolean		 read_xml_file(char *fname);
+static void		 init_xml(void);
+static void		 add_xml_data(xmlDocPtr, xmlNodePtr, GNode *);
+static void		 parse_doc(xmlDocPtr doc);
+static gboolean		 read_xml_file(char *fname);
+static void		 destroy_board_list();
+static void		 destroy_board(Board * board);
 
 /* This is the list of boards */
 static GList *board_list = NULL;

@@ -28,21 +28,21 @@
 GcomprisBoard *gcomprisBoard = NULL;
 gboolean board_paused = TRUE;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
 static int gamewon;
-static void process_ok(void);
-static void game_won();
-static void repeat();
-static void animate_model();
-static gboolean animate_step();
+static void		 process_ok(void);
+static void		 game_won(void);
+static void		 repeat(void);
+static void		 animate_model(void);
+static gboolean		 animate_step(void);
 
-static void show_model(gboolean);
-static void show_answer(gboolean);
-static void show_engines_wagons(gboolean);
+static void		 show_model(gboolean);
+static void		 show_answer(gboolean);
+static void		 show_engines_wagons(gboolean);
 
 #define ENGINES 9
 #define WAGONS 13

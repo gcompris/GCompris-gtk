@@ -1,6 +1,6 @@
 /* gcompris - gcompris-board.h
  *
- * Time-stamp: <2002/01/11 00:03:14 bruno>
+ * Time-stamp: <2002/04/06 00:22:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -37,6 +37,7 @@ struct _GcomprisBoard
 
   /* Name of this board */
   gchar               *name;
+  gchar               *title;
   gchar               *description;
   gchar               *icon_name;
   gchar		      *author;

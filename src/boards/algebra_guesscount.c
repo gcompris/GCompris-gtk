@@ -28,17 +28,19 @@
 GcomprisBoard *gcomprisBoard = NULL;
 gboolean board_paused = TRUE;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
+
 static int gamewon;
 static gint process_time_id = 0;
-static void process_ok(void);
-static void process_time(void);
-static void game_won();
-static void destroy_board();
+
+static void		 process_ok(void);
+static void		 process_time(void);
+static void		 game_won(void);
+static void		 destroy_board(void);
 
 /* 4 levels :
  * 1evel 1 : 2 numbers and 1 operation

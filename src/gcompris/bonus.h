@@ -45,9 +45,9 @@ typedef enum
   BOARD_FINISHED_LAST		= 2
 } BoardFinishedList;
 
-void gcompris_display_bonus(int, int);
-void board_finished(int);
-void bonus_image(char *,int);
-void end_bonus();
+void	 gcompris_display_bonus(int, int);
+void	 board_finished(int);
+void	 bonus_image(char *,int);
+void	 end_bonus(void);
 
 #endif

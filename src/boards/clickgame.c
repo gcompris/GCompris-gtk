@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2002/02/03 21:30:02 bruno>
+ * Time-stamp: <2002/04/14 00:20:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -64,11 +64,11 @@ static void	 clickgame_destroy_item(FishItem *fishitem);
 static void	 clickgame_destroy_items(void);
 static void	 clickgame_destroy_all_items(void);
 static void	 setup_item(FishItem *fishitem);
-static void	 load_random_pixmap();
+static void	 load_random_pixmap(void);
 static void	 clickgame_next_level(void);
 
 static int gamewon;
-static void	 game_won();
+static void	 game_won(void);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;

@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2002/03/19 22:49:10 bruno>
+ * Time-stamp: <2002/04/14 01:10:37 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,8 +30,8 @@ typedef struct {
   gchar	       *locale;
 } GcomprisProperties;
 
-GcomprisProperties	*gcompris_get_properties ();
-GcomprisProperties	*gcompris_properties_new ();
+GcomprisProperties	*gcompris_get_properties (void);
+GcomprisProperties	*gcompris_properties_new (void);
 void			 gcompris_properties_destroy (GcomprisProperties *props);
 GcomprisProperties	*gcompris_properties_copy (GcomprisProperties *props);
 void			 gcompris_properties_save (GcomprisProperties *props);

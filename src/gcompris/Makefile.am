@@ -20,6 +20,7 @@ gcompris_SOURCES = \
 	plugin.h \
 	pluginenum.c pluginenum.h board.h board.c \
 	bonus.c bonus.h \
+	timer.c timer.h \
 	score.c score.h \
 	config.c gcompris_config.h \
 	about.c about.h \

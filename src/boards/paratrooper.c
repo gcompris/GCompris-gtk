@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2002/02/17 21:20:58 bruno>
+ * Time-stamp: <2002/04/14 00:25:03 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -74,23 +74,23 @@ static  ParatrooperItem	     paratrooperItem;
 /* default gnome pixmap directory in which this game tales the icon */
 static char *pixmapsdir = "gcompris/misc/";
 
-static void	 start_board (GcomprisBoard *agcomprisBoard);
-static void	 pause_board (gboolean pause);
-static void	 end_board (void);
-static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
-static void	 set_level (guint level);
-gint		 key_press(guint keyval);
+static void	 	 start_board (GcomprisBoard *agcomprisBoard);
+static void	 	 pause_board (gboolean pause);
+static void	 	 end_board (void);
+static gboolean	 	 is_our_board (GcomprisBoard *gcomprisBoard);
+static void	 	 set_level (guint level);
+gint		 	 key_press(guint keyval);
 
-static GnomeCanvasItem *paratrooper_create_cloud(GnomeCanvasGroup *parent);
-static gint paratrooper_drop_clouds (GtkWidget *widget, gpointer data);
-static gint paratrooper_move_items (GtkWidget *widget, gpointer data);
-static gint paratrooper_move_tux (GtkWidget *widget, gpointer data);
-static void paratrooper_destroy_item(CloudItem *clouditem);
-static void paratrooper_destroy_items(void);
-static void paratrooper_destroy_all_items(void);
-static void paratrooper_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, void *data);
-static void next_state();
+static GnomeCanvasItem	*paratrooper_create_cloud(GnomeCanvasGroup *parent);
+static gint		 paratrooper_drop_clouds (GtkWidget *widget, gpointer data);
+static gint		 paratrooper_move_items (GtkWidget *widget, gpointer data);
+static gint		 paratrooper_move_tux (GtkWidget *widget, gpointer data);
+static void		 paratrooper_destroy_item(CloudItem *clouditem);
+static void		 paratrooper_destroy_items(void);
+static void		 paratrooper_destroy_all_items(void);
+static void		 paratrooper_next_level(void);
+static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, void *data);
+static void		 next_state(void);
 
 
 static  double               speed = 0.0;

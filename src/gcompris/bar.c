@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/02/22 23:13:52 bruno>
+ * Time-stamp: <2002/04/16 23:58:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,7 +33,7 @@
 #define BAR_GAP 15		/* Value used to fill space above and under icons in the bar */
 
 static gint item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data);
-static void bar_reset_sound_id ();
+static void bar_reset_sound_id (void);
 
 static gint current_level = -1;
 static gint current_flags = -1;
@@ -424,7 +424,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 
 	  if(tmp!=current_level)
 	    {
-				current_level_str = g_strdup_printf("%d", current_level);
+	      current_level_str = g_strdup_printf("%d", current_level);
 	      gcompris_play_ogg("level", current_level_str, NULL);
 	      g_free(current_level_str);
 	    }

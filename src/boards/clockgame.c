@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2002/01/13 17:58:35 bruno>
+ * Time-stamp: <2002/04/16 23:56:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -49,25 +49,25 @@ typedef struct {
 } Time;
 static Time timeToFind, currentTime;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
-static void process_ok(void);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
+static void		 process_ok(void);
 
 static int gamewon;
-static void game_won();
+static void		 game_won(void);
 
-static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent);
-static void clockgame_destroy_item(GnomeCanvasItem *item);
-static void clockgame_destroy_all_items(void);
-static void get_random_hour(Time *time);
-static void clockgame_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static void display_hour(guint hour);
-static void display_minute(guint minute);
-static void display_second(guint second);
+static GnomeCanvasItem	*clockgame_create_item(GnomeCanvasGroup *parent);
+static void		 clockgame_destroy_item(GnomeCanvasItem *item);
+static void		 clockgame_destroy_all_items(void);
+static void		 get_random_hour(Time *time);
+static void		 clockgame_next_level(void);
+static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void		 display_hour(guint hour);
+static void		 display_minute(guint minute);
+static void		 display_second(guint second);
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -154,6 +154,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gamewon = FALSE;
       pause_board(FALSE);
+
+      gcompris_set_cursor(GCOMPRIS_LINE_CURSOR);
     }
 
 }
@@ -169,6 +171,7 @@ end_board ()
       clockgame_destroy_all_items();
     }
   gcomprisBoard = NULL;
+  gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
 }
 
 static void

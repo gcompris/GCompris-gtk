@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2002/02/03 10:36:50 bruno>
+ * Time-stamp: <2002/04/14 00:26:10 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -68,27 +68,27 @@ gint numberOfLine;
 static LettersItem *currentFocus = NULL;
 static LettersItem *toHideItem = NULL;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
 static int wait_for_ready;
 static int gamewon;
 
-static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent);
-static gint reading_drop_items ();
+static GnomeCanvasItem	*reading_create_item(GnomeCanvasGroup *parent);
+static gint		 reading_drop_items (void);
 //static void reading_destroy_item(LettersItem *item);
-static void reading_destroy_all_items(void);
-static void reading_next_level(void);
+static void		 reading_destroy_all_items(void);
+static void		 reading_next_level(void);
 
-static void player_win();
-static void player_loose(void);
-static char *get_random_word();
-static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent);
-static void ask_ready(gboolean status);
-static void ask_yes_no();
-static gint item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void		 player_win(void);
+static void		 player_loose(void);
+static char		*get_random_word();
+static GnomeCanvasItem	*display_what_to_do(GnomeCanvasGroup *parent);
+static void		 ask_ready(gboolean status);
+static void		 ask_yes_no(void);
+static gint		 item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 static  guint32              fallSpeed = 0;
 

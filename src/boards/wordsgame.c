@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2002/02/06 20:37:18 bcoudoin>
+ * Time-stamp: <2002/04/14 00:29:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -47,27 +47,27 @@ typedef struct {
 
 static LettersItem *currentFocus = NULL;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
-gint key_press(guint keyval);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void 		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
+gint			 key_press(guint keyval);
 
-static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent);
-static gint wordsgame_drop_items (GtkWidget *widget, gpointer data);
-static gint wordsgame_move_items (GtkWidget *widget, gpointer data);
-static void wordsgame_destroy_item(LettersItem *item);
-static void wordsgame_destroy_items(void);
-static void wordsgame_destroy_all_items(void);
-static void wordsgame_next_level(void);
-static void wordsgame_add_new_item(void);
+static GnomeCanvasItem	 *wordsgame_create_item(GnomeCanvasGroup *parent);
+static gint		 wordsgame_drop_items (GtkWidget *widget, gpointer data);
+static gint		 wordsgame_move_items (GtkWidget *widget, gpointer data);
+static void		 wordsgame_destroy_item(LettersItem *item);
+static void		 wordsgame_destroy_items(void);
+static void		 wordsgame_destroy_all_items(void);
+static void		 wordsgame_next_level(void);
+static void		 wordsgame_add_new_item(void);
 
-static void player_win(LettersItem *item);
-static void player_loose(void);
-static LettersItem *item_find_by_title (const gchar *title);
-static char *get_random_word();
-static void wordsgame_check_focus (char	*key,
+static void		 player_win(LettersItem *item);
+static void		 player_loose(void);
+static LettersItem 	*item_find_by_title (const gchar *title);
+static char		 *get_random_word(void);
+static void		 wordsgame_check_focus (char	*key,
 				   LettersItem *value,
 				   LettersItem **user_data);
 

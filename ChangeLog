@@ -1,6 +1,14 @@
-2002-03-28 Thomas Gebhardt <gebhardt@HRZ.Uni-Marburg.DE>
+2002-04-28 Bruno Coudoin <bruno.coudoin@free.fr>
 
-	* boards/scales/baord3_0.xml.in: changed because there was 2 solutions
+	* src/board/*.c: fixed compilation warnings where prototyte f() must be f(void)
+	* src/gcompris/timer.[ch]: creation of the timer api for gcompris
+	* boards/*.xml.in: added the name property and change name entity to title
+	* src/boards/algebra.c: implemented the use of the new timer api
+	* src/boards/clockgame.c: changed the cursor to ease the selection
+	
+2002-04-28 Thomas Gebhardt <gebhardt@HRZ.Uni-Marburg.DE>
+
+	* boards/scales/board3_0.xml.in: changed because there was 2 solutions
 
 2002-04-04 Imre Ehreth
 

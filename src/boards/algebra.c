@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2002/01/13 23:11:49 bruno>
+ * Time-stamp: <2002/04/17 00:25:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -35,6 +35,13 @@
 
 #define SOUNDLISTFILE PACKAGE
 
+gboolean	 board_paused = TRUE;
+static int	 leavenow;
+static int	 gamewon;
+static void	 game_won(void);
+
+static int	 maxtime;
+
 static GList *item_list = NULL;
 
 static GcomprisBoard *gcomprisBoard = NULL;
@@ -63,27 +70,27 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 
 static char currentOperation = PLUSSIGNFILE;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
-gint key_press(guint keyval);
-static void process_ok(void);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
+gint			 key_press(guint keyval);
+static void		 process_ok(void);
 
-static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent);
-static void algebra_destroy_item(GnomeCanvasItem *item);
-static void algebra_destroy_all_items(void);
-static void display_operand(GnomeCanvasGroup *parent, 
-			    double x_align,
-			    double y, 
-			    char *operand_str,
-			    gboolean masked);
-static void get_random_number(guint *first_operand, guint *second_operand);
-static void algebra_next_level(void);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static void set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status);
-static void init_operation();
+static GnomeCanvasItem	*algebra_create_item(GnomeCanvasGroup *parent);
+static void		 algebra_destroy_item(GnomeCanvasItem *item);
+static void		 algebra_destroy_all_items(void);
+static void		 display_operand(GnomeCanvasGroup *parent, 
+					 double x_align,
+					 double y, 
+					 char *operand_str,
+					 gboolean masked);
+static void		 get_random_number(guint *first_operand, guint *second_operand);
+static void		 algebra_next_level(void);
+static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void		 set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status);
+static void		 init_operation(void);
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -126,10 +133,18 @@ BoardPlugin
  */
 static void pause_board (gboolean pause)
 {
-
   if(gcomprisBoard==NULL)
     return;
 
+  if(gamewon == TRUE && pause == FALSE) /* the game is won */
+    {
+      algebra_next_level();
+    }
+
+  if(leavenow == TRUE && pause == FALSE)
+    board_finished(BOARD_FINISHED_RANDOM);
+
+  board_paused = pause;
 }
 
 /*
@@ -177,6 +192,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       init_operation();
       algebra_next_level();
 
+      gamewon = FALSE;
+      leavenow = FALSE;
       pause_board(FALSE);
     }
 
@@ -366,6 +383,15 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
+static void timer_end()
+{
+  gamewon = FALSE;
+  leavenow = TRUE;
+  algebra_destroy_all_items();
+  gcompris_display_bonus(gamewon, BONUS_SMILEY);
+}
+
+
 /* set initial values for the next level */
 static void algebra_next_level() 
 {
@@ -381,6 +407,9 @@ static void algebra_next_level()
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
+
+  maxtime = 10;
+  gcompris_timer_display(150, 140, GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
 
   /* Try the next level */
   algebra_create_item(boardRootItem);
@@ -399,6 +428,8 @@ static void algebra_destroy_all_items()
 {
   GnomeCanvasItem *item;
   gboolean stop = FALSE;
+
+  gcompris_timer_end();
 
   while(g_list_length(item_list)>0) 
     {
@@ -574,9 +605,9 @@ static GnomeCanvasItem *algebra_create_item(GnomeCanvasGroup *parent)
 
   if(vertical_layout)
     /* Vertical layout : Warning x_align is the right assigned value for display_operand */
-    x_align = gcomprisBoard->width - (gcomprisBoard->width - (longuest*NUMBERSWIDTH))/2;
+    x_align = gcomprisBoard->width - (gcomprisBoard->width - (longuest*NUMBERSWIDTH))/2 + 150;
   else
-    x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2 + NUMBERSWIDTH*(strlen(first_operand_str));
+    x_align = (gcomprisBoard->width - (longuest*3*NUMBERSWIDTH))/2 + NUMBERSWIDTH*(strlen(first_operand_str)) + 150;
 
   /* First operand */
   display_operand(parent, x_align, y_firstline, first_operand_str, FALSE);
@@ -728,22 +759,7 @@ static void process_ok()
   
   if(hasfail==NULL)
     {
-      gcomprisBoard->sublevel++;
-
-      if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
-	/* Try the next level */
-	gcomprisBoard->level++;
-	if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	  board_finished(BOARD_FINISHED_RANDOM);
-	  return;
-	}
-
-	gcomprisBoard->sublevel=1;
-	init_operation();
-	gcompris_play_sound (SOUNDLISTFILE, "bonus");
-      }
-
-      algebra_next_level();
+      game_won();
     }
   else
     {
@@ -759,6 +775,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   ToBeFoundItem *toBeFoundItem;
 
   toBeFoundItem=(ToBeFoundItem *)data;
+
+  if(board_paused)
+    return FALSE;
 
   switch (event->type) 
     {
@@ -871,6 +890,29 @@ static void get_random_number(guint *first_operand, guint *second_operand)
     default:
       g_error("Bad Operation");
     }
+}
+
+/* ==================================== */
+static void game_won()
+{
+  gcomprisBoard->sublevel++;
+
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+    /* Try the next level */
+    gcomprisBoard->sublevel=1;
+    gcomprisBoard->level++;
+    if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+      board_finished(BOARD_FINISHED_RANDOM);
+      return;
+    }
+
+    gamewon = TRUE;
+    algebra_destroy_all_items();
+    gcompris_display_bonus(gamewon, BONUS_SMILEY);
+    init_operation();
+    return;
+  }
+  algebra_next_level();
 }
 
 

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/03/19 22:55:45 bruno>
+ * Time-stamp: <2002/04/14 00:17:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -40,6 +40,7 @@
 #include "gameutil.h"
 #include "pluginenum.h"
 #include "bonus.h"
+#include "timer.h"
 #include "score.h"
 
 #define BOARDWIDTH  800
@@ -50,7 +51,7 @@
 /*****************************************************************************/
 /* Method usefull for boards provided by gcompris */
 
-void		 gcompris_end_board();
+void		 gcompris_end_board(void);
 
 /* Control Bar methods */
 void		 gcompris_bar_start (GnomeCanvas *theCanvas);
@@ -74,13 +75,13 @@ void		 gcompris_bar_hide (gboolean hide);
 /* Help window */
 gboolean	 gcompris_board_has_help (GcomprisBoard *gcomprisBoard);
 void		 gcompris_help_start (GcomprisBoard *gcomprisBoard);
-void		 gcompris_help_stop ();
+void		 gcompris_help_stop (void);
 
 /* General */
-GnomeCanvas     *gcompris_get_canvas();
-GtkWidget * gcompris_get_window();
+GnomeCanvas     *gcompris_get_canvas(void);
+GtkWidget	*gcompris_get_window(void);
 
-gchar	        *gcompris_get_locale();
+gchar	        *gcompris_get_locale(void);
 void		 gcompris_set_locale(gchar *locale);
 
 void		 gcompris_set_cursor(guint gdk_cursor_type);

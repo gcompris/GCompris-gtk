@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/03/07 01:09:41 bruno>
+ * Time-stamp: <2002/04/14 00:27:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -48,18 +48,18 @@ typedef struct {
   GdkPixbuf *image;
 } MenuItem;
 
-static void	 menu_start (GcomprisBoard *agcomprisBoard);
-static void	 menu_pause (gboolean pause);
-static void	 menu_end ();
-static gboolean	 menu_is_our_board (GcomprisBoard *gcomprisBoard);
-static void	 menu_config(void);
+static void		 menu_start (GcomprisBoard *agcomprisBoard);
+static void		 menu_pause (gboolean pause);
+static void		 menu_end (void);
+static gboolean		 menu_is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 menu_config(void);
 
-static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard *board);
-static gboolean next_spot();
-static void create_info_area(GnomeCanvasGroup *parent);
-static gint item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem);
-static void display_board_icon(GcomprisBoard *board);
-static gboolean read_xml_file(char *fname);
+static GnomeCanvasItem	*menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard *board);
+static gboolean		 next_spot();
+static void		 create_info_area(GnomeCanvasGroup *parent);
+static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem);
+static void		 display_board_icon(GcomprisBoard *board);
+static gboolean		 read_xml_file(char *fname);
 
 static double current_x = 0.0;
 static double current_y = 0.0;
@@ -170,6 +170,7 @@ menu_end ()
 
       /* FIXME : We need a better cleanup */
       g_free(board->name);
+      g_free(board->title);
       g_free(board->description);
       g_free(board->icon_name);
       g_free(board->author);
@@ -380,7 +381,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
       /* HACK : If I don't set the color here, then the 3 text are not visible !!!
        *        just add again white here and it works again !!!! */
       gnome_canvas_item_set (boardname_item,
-			     "text", menuitem->board->name,
+			     "text", menuitem->board->title,
 			     "fill_color", "white",
 			     NULL);
       gnome_canvas_item_set (description_item,

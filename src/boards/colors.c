@@ -27,16 +27,16 @@
 GcomprisBoard *gcomprisBoard = NULL;
 gboolean board_paused = TRUE;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static int gamewon;
 
-static void process_ok(void);
-static void highlight_selected(int);
-static void game_won();
-static void repeat();
+static void		 process_ok(void);
+static void		 highlight_selected(int);
+static void		 game_won(void);
+static void		 repeat(void);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;

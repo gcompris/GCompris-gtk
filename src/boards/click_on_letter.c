@@ -28,16 +28,18 @@
 GcomprisBoard *gcomprisBoard = NULL;
 gboolean board_paused = TRUE;
 
-static void start_board (GcomprisBoard *agcomprisBoard);
-static void pause_board (gboolean pause);
-static void end_board (void);
-static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static void set_level (guint level);
+static void		 start_board (GcomprisBoard *agcomprisBoard);
+static void		 pause_board (gboolean pause);
+static void		 end_board (void);
+static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
+static void		 set_level (guint level);
+
 static int gamewon;
-static void process_ok(void);
-static void highlight_selected(GnomeCanvasItem *);
-static void game_won();
-static void repeat();
+
+static void		 process_ok(void);
+static void		 highlight_selected(GnomeCanvasItem *);
+static void		 game_won(void);
+static void		 repeat(void);
 
 #define VERTICAL_SEPARATION 30
 #define HORIZONTAL_SEPARATION 30
