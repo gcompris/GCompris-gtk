@@ -1,5 +1,6 @@
 # translation of fr.po to 
 # translation of fr.po to
+# translation of fr.po to
 # gcompris fr.po.
 # Copyright (C) 2000-2003, 2004 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2003.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-25 00:05+0200\n"
-"PO-Revision-Date: 2004-06-03 01:39+0200\n"
+"POT-Creation-Date: 2004-06-05 18:45+0200\n"
+"PO-Revision-Date: 2004-06-05 18:53+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -382,8 +383,7 @@ msgstr ""
 "Ces nombres et opérateurs peuvent être dé-sélectionnés en cliquant dessus."
 
 #: boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Déployer une stratégie pour arranges un ensemble d'opérations arithmétique\n"
 "pour trouver une valeur cible"
@@ -626,8 +626,7 @@ msgstr "Le Temps"
 
 #: boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr ""
-"Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre"
+msgstr "Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
@@ -711,8 +710,7 @@ msgstr "Clique sur moi"
 
 #: boards/clickgame.xml.in.h:2
 msgid "Click with the left mouse button on the moving fish."
-msgstr ""
-"Clique avec le bouton gauche de la souris sur les poissons qui bougent."
+msgstr "Clique avec le bouton gauche de la souris sur les poissons qui bougent."
 
 #: boards/clickgame.xml.in.h:3
 msgid ""
@@ -744,10 +742,8 @@ msgstr ""
 "Emplacement : Inconnu (image nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
-msgstr ""
-"Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgstr "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
 
 #: boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
@@ -938,8 +934,7 @@ msgstr ""
 
 #: boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr ""
-"Déplace les éléments un par un pour les replacer dans l'ordre croissant."
+msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
@@ -1653,8 +1648,7 @@ msgstr "Apprends à manipuler de l'argent avec les centimes "
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr ""
-"Attrape et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
 #: boards/paintings.xml.in.h:2
 msgid ""
@@ -1777,10 +1771,8 @@ msgid "Test board for the python plugin"
 msgstr "Activité test pour le plugin python"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr ""
-"Merci à Guido van Rossum et à l'équipe python pour ce language puissant!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "Merci à Guido van Rossum et à l'équipe python pour ce language puissant!"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -2076,8 +2068,7 @@ msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux a caché plusieurs objets, retrouve les dans le bon ordre"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Sait déplacer la souris, lire des nombres et compter jusqu'à 15\n"
 "pour le premier niveau"
@@ -2122,7 +2113,11 @@ msgid ""
 "water cleanup station, in order to reactivate the entire water system. When "
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
-msgstr "Clique sur différents éléments actif : soleil, nuage, eau, station de pompage et station d'épuration afin de remettre en route la distribution d'eau. Quand c'est fait et que Tux est dans sa douche, appuis sur le bouton de la douche pour lui."
+msgstr ""
+"Clique sur différents éléments actif : soleil, nuage, eau, station de "
+"pompage et station d'épuration afin de remettre en route la distribution "
+"d'eau. Quand c'est fait et que Tux est dans sa douche, appuis sur le bouton "
+"de la douche pour lui."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
@@ -2169,8 +2164,8 @@ msgstr "Suite éducative gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:475 src/gcompris/gameutil.c:476
-#: src/gcompris/gcompris.c:392 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
+#: src/gcompris/gcompris.c:397 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2195,15 +2190,15 @@ msgstr ""
 "Tux a quelques difficultés dans son bateau. Il doit passer une écluse.\n"
 "Aide Tux et apprends comment une écluse fonctionne."
 
-#: src/boards/chess.c:137
+#: src/boards/chess.c:139
 msgid "Learning Chess"
 msgstr "Apprentissage des échecs"
 
-#: src/boards/chess.c:138
+#: src/boards/chess.c:140
 msgid "Play chess against tux in a learning mode"
 msgstr "Joue aux échecs contre l'ordinateur dans un mode d'apprentissage"
 
-#: src/boards/chess.c:191
+#: src/boards/chess.c:193
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2216,7 +2211,7 @@ msgstr ""
 "Vous devez mettre à jour gnuchess avec une version\n"
 "5 ou plus."
 
-#: src/boards/chess.c:198
+#: src/boards/chess.c:200
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2230,43 +2225,43 @@ msgstr ""
 "dans votre distribution GNU/Linux.\n"
 "Ensuite vérifiez qu'il est dans "
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "White Turn"
 msgstr "Les blancs jouent"
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "Black Turn"
 msgstr "Les noirs jouent"
 
-#: src/boards/chess.c:718
+#: src/boards/chess.c:720
 msgid "White check"
 msgstr "Echec au blancs"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:722
 msgid "Black check"
 msgstr "Echec au noirs"
 
-#: src/boards/chess.c:1052
+#: src/boards/chess.c:1054
 msgid "Black mates"
 msgstr "Blancs échec et mat"
 
-#: src/boards/chess.c:1057
+#: src/boards/chess.c:1059
 msgid "White mates"
 msgstr "Noirs échec et mat"
 
-#: src/boards/chess.c:1062
+#: src/boards/chess.c:1064
 msgid "Drawn game"
 msgstr "Echec et pat"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:72
 msgid "Read a letter"
 msgstr "Lis une lettre"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:73
 msgid "Learn to recognize letters"
 msgstr "Apprends à reconnaitre les lettres"
 
-#: src/boards/click_on_letter.c:225
+#: src/boards/click_on_letter.c:223
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2274,7 +2269,7 @@ msgstr ""
 "Erreur : cette activité nécessite l'installation du packet\n"
 "assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:232
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2302,8 +2297,7 @@ msgstr "Clique sur l'ours %s"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
-msgstr ""
-"Déplace les éléments un par un pour les replacer dans l'ordre croissant."
+msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower as the one on the right"
@@ -2337,11 +2331,11 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Trouve les paires correspondantes"
 
-#: src/boards/menu.c:80
+#: src/boards/menu.c:72
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/boards/menu.c:81
+#: src/boards/menu.c:73
 msgid "Select a Board"
 msgstr "Sélectionne un tableau"
 
@@ -2411,15 +2405,15 @@ msgstr "Clique sur la bonne couleur lue"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lis une liste de mots et dis si le mot donné en fait partie"
 
-#: src/boards/reading.c:322
+#: src/boards/reading.c:315
 msgid "Please, check if the word"
 msgstr "S'il te plaît, vérifie si le mot"
 
-#: src/boards/reading.c:342
+#: src/boards/reading.c:335
 msgid "is being displayed"
 msgstr "est affiché"
 
-#: src/boards/reading.c:525
+#: src/boards/reading.c:522
 msgid "I am Ready"
 msgstr "Je suis prêt"
 
@@ -2444,6 +2438,14 @@ msgstr "Mais il n'etait pas affiché"
 #: src/boards/reading.c:635
 msgid "And it was displayed"
 msgstr "Et il était affiché"
+
+#: src/boards/reading.c:737 src/boards/reading.c:747
+msgid "Cannot open file of words for your locale"
+msgstr "Ne peut ouvrir le fichier de mots pour votre locale"
+
+#: src/boards/reading.c:776
+msgid "Error: The wordfile package used for your locale is corrupted."
+msgstr "Erreur: Le fichier de mot utilisé dans votre locale est corrompu"
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2549,8 +2551,7 @@ msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
 #: src/gcompris/about.c:252
-msgid ""
-"This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
@@ -2559,7 +2560,8 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:187 src/gcompris/help.c:367
+#: src/gcompris/about.c:316 src/gcompris/config.c:201
+#: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Valider"
@@ -2568,198 +2570,214 @@ msgstr "Valider"
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Chargement dynamique non supporté. gcompris ne peut pas charger.\n"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:63
 msgid "Your system default"
 msgstr "Par défaut (système)"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:64
 msgid "Amharic"
 msgstr "Amharique"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:65
 msgid "Arabic"
 msgstr "Arabe"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:66
 msgid "Azerbaijani Turkic"
 msgstr "Turc azerbaïdjanais"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:67
 msgid "Catalan"
 msgstr "Catalan"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:68
 msgid "Czech"
 msgstr "Tchèque"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:69
 msgid "German"
 msgstr "Allemand"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:70
 msgid "Greek"
 msgstr "Grec"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:71
 msgid "American English"
 msgstr "Anglais Américain"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:72
 msgid "Great Britain English"
 msgstr "Anglais Grande Bretagne"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:73
 msgid "Canadian English"
 msgstr "Anglais Canadien"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:74
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:75
 msgid "Finnish"
 msgstr "Finnois"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:76
 msgid "French"
 msgstr "Français"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:77
 msgid "Hebrew"
 msgstr "Hébreu"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:78
 msgid "Indian"
 msgstr "Indien"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:79
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:80
 msgid "Croatian"
 msgstr "Croate"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:81
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:82
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:83
 msgid "Macedonian"
 msgstr "Macédonien"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:84
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:85
 msgid "Malay"
 msgstr "Malaisien"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:86
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:87
 msgid "Norwegian"
 msgstr "Norvégien"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:88
 msgid "Polish"
 msgstr "Polonais"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:89
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:90
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:91
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:92
 msgid "Russian"
 msgstr "Russe"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:93
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:94
 msgid "Slovenian"
 msgstr "Slovéne"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:95
 msgid "Serbian (Latin)"
 msgstr "Serbes (Latin)"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:96
 msgid "Serbian"
 msgstr "Serbes"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:97
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:98
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:103
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:104
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:105
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:106
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:111
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:161
+#: src/gcompris/config.c:116
+msgid "No filter"
+msgstr "Aucun filtre"
+
+#: src/gcompris/config.c:117
+msgid "Only this level"
+msgstr "Uniquement ce niveau"
+
+#: src/gcompris/config.c:118
+msgid "Up to this level"
+msgstr "Jusqu'à ce niveau"
+
+#: src/gcompris/config.c:119
+msgid "This level and above"
+msgstr "Ce niveau et au-dessus"
+
+#: src/gcompris/config.c:175
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:270
+#: src/gcompris/config.c:284
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:313
+#: src/gcompris/config.c:327
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:341
+#: src/gcompris/config.c:355
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:375
+#: src/gcompris/config.c:389
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:396
+#: src/gcompris/config.c:410
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Pas de thème trouvé dans %s\n"
 
-#: src/gcompris/config.c:411 src/gcompris/config.c:746
-#: src/gcompris/config.c:757
+#: src/gcompris/config.c:425 src/gcompris/config.c:808
+#: src/gcompris/config.c:819
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -2812,18 +2830,19 @@ msgstr "Affiche la version de "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:491
+#: src/gcompris/gcompris.c:496
 msgid ""
 "This is a Demo version of gcompris,\n"
 "only 12 on 45 activities are available.\n"
 "To get the full version,\n"
-"go to http://ofset.sf.net/gcompris/order.html"
+"go to http://www.ofset.org/order/gcompris"
 msgstr ""
-"Ceci est une version de démonstration de gcompris. Uniquement 12 sur 45 "
-"activités sont disponibles. Pour obtenir la version complète rendez-vous sur "
-"http://ofset.sf.net/gcompris/orderfr.html"
+"Ceci est une version de démonstration de gcompris. \n"
+"Uniquement 12 sur 45 activités sont disponibles. \n"
+"Pour obtenir la version complète rendez-vous sur \n"
+"http://www.ofset.org/order/gcompris"
 
-#: src/gcompris/gcompris.c:663
+#: src/gcompris/gcompris.c:673
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2836,19 +2855,19 @@ msgstr ""
 "License: GPL\n"
 "Plus d'informations sur http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:174 src/gcompris/interface.c:243
+#: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: src/gcompris/help.c:208 src/gcompris/interface.c:252
+#: src/gcompris/help.c:207 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Objectif"
 
-#: src/gcompris/help.c:242 src/gcompris/interface.c:261
+#: src/gcompris/help.c:241 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuel"
 
-#: src/gcompris/help.c:276 src/gcompris/interface.c:270
+#: src/gcompris/help.c:275 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Crédit"
 
@@ -2898,12 +2917,12 @@ msgstr "Sous Licence GPL"
 msgid "%a %b %d %H:%M:%S %Z %Y"
 msgstr "%a %d %b %H:%M:%S %Z %Y"
 
-#: src/gcompris/soundutil.c:141
+#: src/gcompris/soundutil.c:140
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Ne peut pas trouver le répertoire de musique : %s"
 
-#: src/gcompris/soundutil.c:183
+#: src/gcompris/soundutil.c:182
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -3109,3 +3128,4 @@ msgstr "Temps restant = %d"
 
 #~ msgid "You need to remove %d more."
 #~ msgstr "Tu dois en supprimer encore %d. "
+
