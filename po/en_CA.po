@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-06 11:37-0500\n"
-"PO-Revision-Date: 2004-11-06 19:37-0400\n"
+"POT-Creation-Date: 2004-11-09 17:21-0500\n"
+"PO-Revision-Date: 2004-11-09 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -663,11 +663,15 @@ msgstr "Tux and the apple tree"
 
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"Place each image in the order and\n"
+" on the date it has been invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 msgstr ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"Place each image in order and\n"
+" on the date it was invented.\n"
+" If not sure, check online in wikipedia at\n"
+" http://www.wikipedia.org"
 
 #: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
@@ -1282,11 +1286,11 @@ msgstr "Keyboard manipulation"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Letter recognition between the screen and the keyboard"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Simple Letters"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Type the falling letters before they reach the ground"
 
@@ -1687,29 +1691,41 @@ msgstr "Train your memory and remove all the cards"
 
 #: boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
-"old 3 Stars - 6 to 7 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left.\n"
+" Note that each icon is displayed only if available in the current "
+"activity:\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 msgstr ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity:\n"
-"Home - Back to previous menu or exit gcompris if at the top\n"
-"Thumb - OK. Confirm your answer\n"
-"Dice - Display the current level. Click to select another level\n"
-"Music note - Repeat the question\n"
-"Question Mark - Help\n"
-"Tool - The configuration menu\n"
-"Tux Plane - About game\n"
-"The stars mean: 1 Star - 2 to 3 years old; 2 Stars - 4 to 5 years old; 3 "
-"Stars - 6 to 7 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+" At the bottom of the screen is the gcompris control bar.\n"
+" The following icons are displayed from right to left:\n"
+" (Note that each icon is displayed only if available in the current "
+"activity)\n"
+" Home - Back to previous menu or exit gcompris if at the top\n"
+" Thumb - OK. Confirm your answer\n"
+" Dice - Display the current level. Click to select another level\n"
+" Music note - Repeat the question\n"
+" Question Mark - Help\n"
+" Tool - The configuration menu\n"
+" Tux Plane - About game\n"
+" The stars means:\n"
+" 1 Star - 2 to 3 years old\n"
+" 2 Stars - 4 to 5 years old\n"
+" 3 Stars - 6 to 7 years old\n"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1943,7 +1959,7 @@ msgstr ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Make the puzzle"
 
@@ -2420,8 +2436,8 @@ msgid "Editor for gcompris"
 msgstr "Editor for gcompris"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Educational game starting at 3 years old"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Educational game for children 2 to 10 years old"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
@@ -2429,7 +2445,7 @@ msgstr "Educational suite gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1859 src/gcompris/gameutil.c:126
+#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2439,7 +2455,7 @@ msgstr "Couldn't find file %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1862
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -2603,7 +2619,7 @@ msgstr "Click on the white toon"
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Move the items one by one to rearrange them in increasing order"
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339 src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Reproduce in the empty area the same tower as the one on the right"
 
@@ -2757,12 +2773,12 @@ msgstr "Cannot open wordlist for your locale"
 msgid "Reverse count"
 msgstr "Reverse count"
 
-#: src/boards/shapegame.c:169
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Drag and Drop the items to rebuild the object"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2774,7 +2790,7 @@ msgstr ""
 "type 's' to save, and\n"
 "'d' to display all the shapes"
 
-#: src/boards/shapegame.c:424
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
