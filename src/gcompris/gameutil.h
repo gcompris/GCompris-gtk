@@ -32,6 +32,7 @@ GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);
 void		 gcompris_set_image_focus(GdkPixbuf *pixmap, gboolean focus);
 gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GdkPixbuf *pixmap);
 void		 gcompris_play_sound (const char *soundlistfile, const char *which);
+void 		gcompris_play_ogg(char *, ...);
 GcomprisBoard	*gcompris_read_xml_file(char *fname);
 
 #endif

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2001/10/29 00:48:02 bruno>
+ * Time-stamp: <2001/11/05 20:45:23 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,9 +46,9 @@ GdkPixbuf *gcompris_load_operation_pixmap(char operation)
   }
 
   pixmap = gdk_pixbuf_new_from_file (filename);
-  
+
   g_free (filename);
-  
+
   return(pixmap);
 }
 
@@ -64,7 +64,7 @@ GdkPixbuf *gcompris_load_number_pixmap(char number)
   }
 
   pixmap = gdk_pixbuf_new_from_file (filename);
-  
+
   g_free (filename);
 
   return(pixmap);
@@ -85,7 +85,7 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   smallnumbers_pixmap = gdk_pixbuf_new_from_file (filename);
 
   g_free (filename);
-  
+
   return(smallnumbers_pixmap);
 }
 
@@ -154,6 +154,50 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GdkPixbuf
   return FALSE;
 }
 
+/* =====================================================================
+ * Play a list of OGG sound files. The list must be NULL terminated
+ * should have used threads instead of fork + exec calls
+   ======================================================================*/
+void gcompris_play_ogg(char *sound, ...) {
+	va_list ap;
+	char * s = NULL;
+	char *argv[20];
+	char locale[3];
+	pid_t   pid;
+	int argc = 0;
+
+	if (!gcompris_get_properties()->fx)
+		return;
+
+	strncpy(locale,gcompris_get_locale(),2);
+	locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+
+	pid = fork ();
+        if (pid > 0) { // go back to gcompris
+                return;
+        } else if (pid == 0) { // child process
+		argv[0] = "ogg123";
+		argv[1] = "-v";
+		argv[2] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
+		argc = 3;
+		va_start( ap, sound);
+		while( (s = va_arg (ap, char *))) {
+			argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
+			if (!g_file_exists (argv[argc])) {
+				g_error (_("Couldn't find file %s !"), argv[argc]);
+				g_free(argv[argc]);
+				continue;
+			}
+			argc ++;
+		}
+		va_end(ap);
+		argv[argc] = NULL;
+		execvp( "ogg123", argv);
+        } else {
+                fprintf(stderr, "Unable to fork\n");
+        }
+}
+
 /* Play a sound installed in the Gnome sound list */
 void gcompris_play_sound (const char *soundlistfile, const char *which)
 {
@@ -200,6 +244,8 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->boarddir = xmlGetProp(xmlnode,"boarddir");
 
   gcomprisBoard->difficulty = xmlGetProp(xmlnode,"difficulty");
+
+  gcomprisBoard->mandatory_sound_file = xmlGetProp(xmlnode,"mandatory_sound_file");
 
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
@@ -313,7 +359,7 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
       filename = g_strdup_printf("%s/%s",  
 				 PACKAGE_DATA_DIR, fname);
 
-      if(!g_file_exists(filename)) 
+      if(!g_file_exists(filename))
 	{
 	  g_warning(_("Couldn't find file %s !"), filename);
 	  g_free(filename);

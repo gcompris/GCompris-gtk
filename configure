@@ -889,7 +889,7 @@ fi
 
 PACKAGE=gcompris
 
-VERSION=0.9.3
+VERSION=0.9.4
 
 if test "`cd $srcdir && pwd`" != "`pwd`" && test -f $srcdir/config.status; then
   { echo "configure: error: source directory already configured; run "make distclean" there first" 1>&2; exit 1; }
@@ -9175,4 +9175,4 @@ echo to compile and install in in another directory
 echo type sh configure --prefix=/usr
 echo
 echo type \'make\' to compile gcompris
-echo type \'make\' install to install it
+echo type \'make install\' to install it

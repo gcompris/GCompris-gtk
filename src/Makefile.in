@@ -265,30 +265,6 @@ distdir: $(DISTFILES)
 	      || exit 1; \
 	  fi; \
 	done
-algebra.o: algebra.c ../config.h gcompris-board.h gameutil.h
-bar.o: bar.c ../config.h gcompris.h properties.h gcompris-board.h \
-	gameutil.h
-clickgame.o: clickgame.c ../config.h gcompris-board.h gameutil.h \
-	pixbuf_util.h
-clockgame.o: clockgame.c ../config.h gcompris-board.h properties.h \
-	gameutil.h
-gameutil.o: gameutil.c ../config.h gcompris.h properties.h \
-	gcompris-board.h gameutil.h
-gcompris.o: gcompris.c ../config.h gcompris.h properties.h \
-	gcompris-board.h games.h gameutil.h
-gletters.o: gletters.c ../config.h gcompris-board.h gameutil.h
-menu.o: menu.c ../config.h gcompris.h properties.h gcompris-board.h \
-	gameutil.h games.h
-pixbuf_util.o: pixbuf_util.c pixbuf_util.h
-planegame.o: planegame.c ../config.h gcompris-board.h gameutil.h games.h
-properties.o: properties.c ../config.h games.h gcompris-board.h \
-	properties.h
-shapegame.o: shapegame.c ../config.h gcompris-board.h gameutil.h
-smallnumbers.o: smallnumbers.c ../config.h gcompris-board.h properties.h \
-	gameutil.h
-wordsgame.o: wordsgame.c ../config.h gcompris-board.h properties.h \
-	gameutil.h
-
 info-am:
 info: info-recursive
 dvi-am:

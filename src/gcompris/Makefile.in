@@ -299,28 +299,6 @@ distdir: $(DISTFILES)
 	    || cp -p $$d/$$file $(distdir)/$$file || :; \
 	  fi; \
 	done
-bar.o: bar.c gcompris.h ../../config.h plugin.h gcompris-board.h board.h \
-	properties.h gameutil.h pluginenum.h bonus.h
-board.o: board.c gcompris.h ../../config.h plugin.h gcompris-board.h \
-	board.h properties.h gameutil.h pluginenum.h bonus.h
-bonus.o: bonus.c bonus.h gcompris.h ../../config.h plugin.h \
-	gcompris-board.h board.h properties.h gameutil.h pluginenum.h
-gameutil.o: gameutil.c gcompris.h ../../config.h plugin.h \
-	gcompris-board.h board.h properties.h gameutil.h pluginenum.h \
-	bonus.h
-gcompris.o: gcompris.c gcompris.h ../../config.h plugin.h \
-	gcompris-board.h board.h properties.h gameutil.h pluginenum.h \
-	bonus.h
-help.o: help.c gcompris.h ../../config.h plugin.h gcompris-board.h \
-	board.h properties.h gameutil.h pluginenum.h bonus.h
-pixbuf_util.o: pixbuf_util.c pixbuf_util.h
-pluginenum.o: pluginenum.c gcompris.h ../../config.h plugin.h \
-	gcompris-board.h board.h properties.h gameutil.h pluginenum.h \
-	bonus.h
-properties.o: properties.c gcompris.h ../../config.h plugin.h \
-	gcompris-board.h board.h properties.h gameutil.h pluginenum.h \
-	bonus.h
-
 info-am:
 info: info-am
 dvi-am:

@@ -1,6 +1,6 @@
 /* gcompris - gcompris-board.h
  *
- * Time-stamp: <2001/09/18 23:30:07 bruno>
+ * Time-stamp: <2001/11/05 20:27:59 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -42,7 +42,8 @@ struct _GcomprisBoard
   gchar		      *author;
   gchar		      *boarddir;
   gchar		      *filename;
-  gchar		*difficulty;
+  gchar		      *difficulty;
+  gchar		      *mandatory_sound_file;
 
   /* Size of the window in which we have to run */
   gint16               width;

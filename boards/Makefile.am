@@ -27,7 +27,8 @@ xml_in_files = \
 	smallnumbers.xml.in \
 	wordsgame.xml.in \
 	imageid.xml.in \
-	missing_letter.xml.in
+	missing_letter.xml.in \
+	click_on_letter.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
