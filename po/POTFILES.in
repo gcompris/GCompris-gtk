@@ -1,22 +1,25 @@
 # List of source files containing translatable strings.
 # Please keep it in alphabetical order.
 
-boards/algebramenu.xml.in
-boards/algebra_plus.xml.in
-boards/algebra_minus.xml.in
 boards/algebra_by.xml.in
 boards/algebra_div.xml.in
+boards/algebramenu.xml.in
+boards/algebra_minus.xml.in
+boards/algebra_plus.xml.in
 boards/babymatch.xml.in
 boards/babyshapes.xml.in
 boards/clickgame.xml.in
+boards/click_on_letter.xml.in
 boards/clockgame.xml.in
 boards/computer.xml.in
 boards/draw.xml.in
 boards/fun.xml.in
 boards/gletters.xml.in
+boards/imageid.xml.in
 boards/imagename.xml.in
 boards/memory.xml.in
 boards/menu.xml.in
+boards/missing_letter.xml.in
 boards/paintings.xml.in
 boards/paratrooper.xml.in
 boards/planegame.xml.in
@@ -26,19 +29,16 @@ boards/reading.xml.in
 boards/scalesboard.xml.in
 boards/smallnumbers.xml.in
 boards/wordsgame.xml.in
-boards/imageid.xml.in
-boards/missing_letter.xml.in
-boards/click_on_letter.xml.in
 gcompris.desktop.in
-src/gcompris/gcompris.c
-src/gcompris/properties.c
-src/boards/gletters.c
-src/boards/gletters.c
-src/boards/clickgame.c
-src/boards/wordsgame.c
-src/boards/smallnumbers.c
 src/boards/algebra.c
+src/boards/clickgame.c
 src/boards/clockgame.c
-src/boards/shapegame.c
+src/boards/gletters.c
+src/boards/gletters.c
 src/boards/planegame.c
 src/boards/reading.c
+src/boards/shapegame.c
+src/boards/smallnumbers.c
+src/boards/wordsgame.c
+src/gcompris/gcompris.c
+src/gcompris/properties.c
