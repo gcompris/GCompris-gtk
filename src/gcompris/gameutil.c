@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/04/27 23:01:59 bcoudoin>
+ * Time-stamp: <2004/05/11 01:15:55 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -308,6 +308,9 @@ gchar *reactivate_newline(gchar *str)
 static void
 gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GcomprisBoard *gcomprisBoard)
 {
+
+  g_message("gcompris_add_xml_to_data xmlnode->name=%s\n", xmlnode->name);
+
   if(/* if the node has no name */
      !xmlnode->name ||
      /* or if the name is not "Board" */
@@ -321,6 +324,7 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   /* get the specific mode for this board */
   gcomprisBoard->mode			 = xmlGetProp(xmlnode,"mode");
   gcomprisBoard->name			 = xmlGetProp(xmlnode,"name");
+  g_message("gcompris_add_xml_to_data found name=%s\n", gcomprisBoard->name);
   gcomprisBoard->icon_name		 = xmlGetProp(xmlnode,"icon");
   gcomprisBoard->author			 = xmlGetProp(xmlnode,"author");
   gcomprisBoard->boarddir		 = xmlGetProp(xmlnode,"boarddir");
@@ -499,6 +503,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
   xmlFreeDoc(doc);
 
   /* Store the file that belong to this board for trace and further need */
+  g_message("gcompris_read_xml_file for %s found name %s\n", fname, gcomprisBoard->name);
   gcomprisBoard->filename=filename;
   gcomprisBoard->board_ready=FALSE;
   gcomprisBoard->canvas=canvas;
