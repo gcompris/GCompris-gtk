@@ -25,6 +25,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
+#define ANIMATE_SPEED 30
+
 #define CANAL_COLOR		0x0010FFFF
 #define LOCK_COLOR		0x8cc679FF
 #define LOCK_COLOR_H		0x71A65FFF
@@ -61,6 +63,7 @@ static int	 gamewon;
 static void	 game_won(void);
 
 static gint timer_id;
+static gboolean animation;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -171,6 +174,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gcompris_bar_set(0);
 
+      animation = FALSE;
+
       gamewon = FALSE;
       pause_board(FALSE);
     }
@@ -183,6 +188,7 @@ static void end_board ()
     gtk_timeout_remove (timer_id);
     timer_id = 0;
   }
+  animation = FALSE;
 
   if(gcomprisBoard!=NULL)
     {
@@ -461,6 +467,11 @@ static void move_boat()
   double y1 = 0;
   gint min = LEFT_CANAL_HEIGHT;
 
+  /* If there is already an animation do nothing else set animation to avoid deadlock */
+  if(animation)
+    return;
+  animation = TRUE;
+
   if(boat_position == BOAT_POS_LEFT && !lock_left_up)
     {
       boat_position = BOAT_POS_MIDDLE;
@@ -498,7 +509,7 @@ static void move_boat()
   timer_item = tuxboat_item;
   timer_step_y1 = 0;
 
-  timer_id = gtk_timeout_add (70, (GtkFunction) animate_step, NULL);
+  timer_id = gtk_timeout_add (ANIMATE_SPEED, (GtkFunction) animate_step, NULL);
 }
 
 /* ==================================== */
@@ -508,6 +519,11 @@ static void update_water()
   gboolean status = TRUE;
   double y1 = 0;
   gint min = LEFT_CANAL_HEIGHT;
+
+  /* If there is already an animation do nothing else set animation to avoid deadlock */
+  if(animation)
+    return;
+  animation = TRUE;
 
   if((!canallock_left_up && !lock_water_low) ||
      (!canallock_right_up && lock_water_low))
@@ -519,6 +535,7 @@ static void update_water()
   else 
     {
       /* The water level is correct */
+      animation = FALSE;
       return;
     }
 
@@ -531,7 +548,7 @@ static void update_water()
   timer_step_y1 = (status ? 2 : -2);
   timer_step_x1 = 0;
 
-  timer_id = gtk_timeout_add (100, (GtkFunction) animate_step, NULL);
+  timer_id = gtk_timeout_add (ANIMATE_SPEED, (GtkFunction) animate_step, NULL);
 }
 
 /* ==================================== */
@@ -541,10 +558,12 @@ static void toggle_lock(GnomeCanvasItem *item)
   gboolean status = TRUE;
   double y1 = 0;
   gint min;
+  guint animate_speed;
 
-  /* If there is already an animation do nothing */
-  if(timer_id)
+  /* If there is already an animation do nothing else set animation to avoid deadlock */
+  if(animation)
     return;
+  animation = TRUE;
 
   gnome_canvas_item_get_bounds(item, &timer_item_x1, &timer_item_y1, 
 			       &timer_item_x2, &timer_item_y2);
@@ -555,6 +574,7 @@ static void toggle_lock(GnomeCanvasItem *item)
       lock_left_up = !lock_left_up;
       y1 = BASE_LINE - LOCK_HEIGHT_MAX;
       min = LOCK_HEIGHT_MIN;
+      animate_speed = ANIMATE_SPEED;
     }
   else if(item == lock_right_item)
     {
@@ -562,6 +582,7 @@ static void toggle_lock(GnomeCanvasItem *item)
       lock_right_up = !lock_right_up;
       y1 = BASE_LINE - LOCK_HEIGHT_MAX;
       min = LOCK_HEIGHT_MIN;
+      animate_speed = ANIMATE_SPEED;
     }
   else if(item == canallock_left_item)
     {
@@ -569,6 +590,7 @@ static void toggle_lock(GnomeCanvasItem *item)
       canallock_left_up = !canallock_left_up;
       y1 = SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT;
       min = CANALLOCK_HEIGHT_MIN;
+      animate_speed = ANIMATE_SPEED;
     }
   else if(item == canallock_right_item)
     {
@@ -576,6 +598,7 @@ static void toggle_lock(GnomeCanvasItem *item)
       canallock_right_up = !canallock_right_up;
       y1 = SUBCANAL_BASE_LINE - SUBCANAL_HEIGHT;
       min = CANALLOCK_HEIGHT_MIN;
+      animate_speed = ANIMATE_SPEED;
     }
 
   timer_item = item;
@@ -584,7 +607,7 @@ static void toggle_lock(GnomeCanvasItem *item)
   timer_step_y1 = (status ? 2 : -2);
   timer_step_x1 = 0;
 
-  timer_id = gtk_timeout_add (80, (GtkFunction) animate_step, NULL);
+  timer_id = gtk_timeout_add (animate_speed, (GtkFunction) animate_step, NULL);
 
 }
 
@@ -628,14 +651,18 @@ static gboolean animate_step()
     {
       gtk_timeout_remove (timer_id);
       timer_id = 0;
+      animation = FALSE;
       update_water();
+      gnome_canvas_update_now(gcomprisBoard->canvas);
     }
   else if((timer_item_x1 >= timer_item_limit_x && timer_step_x1 > 0) ||
      (timer_item_x1 <= timer_item_limit_x && timer_step_x1 < 0))
     {
       gtk_timeout_remove (timer_id);
       timer_id = 0;
+      animation = FALSE;
       update_water();
+      gnome_canvas_update_now(gcomprisBoard->canvas);
     }
 
   return TRUE;
@@ -691,9 +718,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       break;
     case GDK_BUTTON_PRESS:
 
-      /* Do nothing if there is already an animation */
-      if (timer_id)
-	return TRUE;
+      /* If there is already an animation do nothing */
+      if(animation)
+	return;
 	   
       if(item == lock_left_item)
 	{
