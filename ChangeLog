@@ -1,9 +1,20 @@
+2002-02-23  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/draw.c: New draw completed including new icons and cursors
+	* src/gcompris/gcompris.c: Added gcompris_set_cursor in the gcompris API
+
 2002-02-22 Pascal Georges <pascal.georges1@free.fr>
-  * src/gcompris/bar.c : bar_play_sound is played only if no other sound is played or pending
+
+	* src/gcompris/bar.c : bar_play_sound is played only if no other sound is played or pending
 
 2002-02-21 Pascal Georges <pascal.georges1@free.fr>
+
 	* src/gcompris/soundutil.[ch] : changed the way ogg sounds are played. Several policies are implemented,
 	  but only the currently used (PLAY_AFTER_CURRENT) has been tested (very quickly tested).
+
+2002-02-19  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/draw.c: anchor improved. New fill tool added (replace old move tool)
 
 2002-02-17  Bruno Coudoin  <bruno.coudoin@free.fr>
 
