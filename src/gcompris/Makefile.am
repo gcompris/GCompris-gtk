@@ -2,7 +2,9 @@
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
-	$(GNOME_INCLUDEDIR)
+	$(GNOME_INCLUDEDIR) \
+	$(GDK_PIXBUF_CFLAGS) \
+	$(GNOME_XML_CFLAGS)
 
 bin_PROGRAMS = gcompris
 
