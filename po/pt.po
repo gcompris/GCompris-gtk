@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-09 21:41+0100\n"
-"PO-Revision-Date: 2005-01-09 23:21+0100\n"
+"POT-Creation-Date: 2005-02-14 23:13+0100\n"
+"PO-Revision-Date: 2005-02-16 11:39+0100\n"
 "Last-Translator: Jose Jorge <jjorge@free.fr>\n"
 "Language-Team: português <pt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -486,9 +486,10 @@ msgid ""
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines. To make it more fun for kids, a set of images can also be used."
 msgstr ""
-"Nesta actividade, a criança vai poder desenhar livremente. O objectivo é "
-"só de descobrir como se podem criar desenhos bonitos com formas básicas : "
-"rectângulos, elipses e linhas. Para que seja mais engraçado para as crianças, algumas imagens são fornecidas."
+"Nesta actividade, a criança vai poder desenhar livremente. O objectivo é só "
+"de descobrir como se podem criar desenhos bonitos com formas básicas : "
+"rectângulos, elipses e linhas. Para que seja mais engraçado para as "
+"crianças, algumas imagens são fornecidas."
 
 #: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
@@ -507,10 +508,16 @@ msgid ""
 "selector in the bottom left of the screen. You can save and reload your "
 "animations with the 'floppy' and 'folder' button."
 msgstr ""
-"Seleciona uma ferramenta de desenho na esquerda e uma cor em baixo. Carrega e puxa então na zona branca para criar uma nova forma. Quando o desenho estiver pronto, podes tomar uma fotografia dele com o botão 'câmera'. Uma nova imagem com o mesmo desenho é criada. "
-"Podes então mover um pouco ou adicionar/tirar os objectos. Faz assim vários desenhos e carrega então no botão 'filme'."
-"Vais ver todas as tuas imagens passarem em repetição infinita. Podes mudar a velocidade de vista neste modo. Carrega no botão 'desenhar' para voltar ao modo edição. "
-"Podes então mudar cada imagem da tua animação usando o selector em baixo do ecrã. Podes gravar e abrir as tuas animações com os botões 'disquete' e 'pasta'."
+"Seleciona uma ferramenta de desenho na esquerda e uma cor em baixo. Carrega "
+"e puxa então na zona branca para criar uma nova forma. Quando o desenho "
+"estiver pronto, podes tomar uma fotografia dele com o botão 'câmera'. Uma "
+"nova imagem com o mesmo desenho é criada. Podes então mover um pouco ou "
+"adicionar/tirar os objectos. Faz assim vários desenhos e carrega então no "
+"botão 'filme'.Vais ver todas as tuas imagens passarem em repetição infinita. "
+"Podes mudar a velocidade de vista neste modo. Carrega no botão 'desenhar' "
+"para voltar ao modo edição. Podes então mudar cada imagem da tua animação "
+"usando o selector em baixo do ecrã. Podes gravar e abrir as tuas animações "
+"com os botões 'disquete' e 'pasta'."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -675,8 +682,8 @@ msgid ""
 "org. Transportations images by Franck Doucet"
 msgstr ""
 "A foto da lua vem da NASA. Os sons do espaço do Tuxpaint e do Vegastrike. As "
-"datas nos transportes são as encontradas em http://www.wikipedia.org. "
-"As imagens dos transportes são do Franck Doucet"
+"datas nos transportes são as encontradas em http://www.wikipedia.org. As "
+"imagens dos transportes são do Franck Doucet"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -694,11 +701,45 @@ msgstr "Conta uma pequena historia"
 msgid "Moonwalker"
 msgstr "Passeio na Lua"
 
+#: boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Outono"
+
+#: boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Primavera"
+
+#: boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Verão"
+
+#: boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "As 4 estações"
+
+#: boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Inverno"
+
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux e a macieira"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 o \"fardier\" a vapor do Cugnot"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephenson "
+"Locomotiva a Vapor Rocket"
+
+#: boards/chronos/board3_0.xml.in.h:3
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -711,15 +752,40 @@ msgstr ""
 "na wikipedia em \n"
 "http://www.wikipedia.org"
 
-#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Transportes"
 
-#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 Irmãos Montgolfier\n"
+"Balão tripulado"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
-msgstr "1880 O Eole do Clement Ader"
+msgstr "1880 O Eole do Clément Ader"
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"Primeiro voo de helicóptero"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Conde de Sivrac\n"
+"Celerífero"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
@@ -751,15 +817,11 @@ msgstr ""
 
 #: boards/chronos/board4_1.xml.in.h:5
 msgid ""
-"1947 Chuck Yager\n"
+"1947 Chuck Yeager\n"
 "break the sound-wall"
 msgstr ""
-"1947 Chuck Yager\n"
+"1947 Chuck Yeager\n"
 "ultrapassa o muro do som"
-
-#: boards/chronos/board4_2.xml.in.h:1
-msgid "1769 Cugnot's fardier"
-msgstr "1769 o \"fardier\" a vapor do Cugnot"
 
 #: boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
@@ -1008,11 +1070,11 @@ msgstr "Mete os elementos da melhor maneira para os contar"
 msgid "Motor coordination"
 msgstr "Controlo dos movimentos"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Mover o rato"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Move o rato para apagar o quadro e descobrir o que está detrás"
 
@@ -1705,25 +1767,32 @@ msgstr "Encontra a tua mão esquerda e direita"
 msgid "None"
 msgstr "Nenhum"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
+#: boards/maze3D.xml.in.h:2 boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Podes utilizar as flechas do teclado para mover um objecto."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#: boards/maze.xml.in.h:2 src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Encontra o caminho para sair do labirinto"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
+#: boards/maze3D.xml.in.h:4 boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Ajuda o Tux a sair do labirinto."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:127
+#: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
+#: boards/mazeInvisible.xml.in.h:4 src/boards/maze.c:132
 msgid "Maze"
 msgstr "Labirinto"
 
-#: boards/maze.xml.in.h:5
+#: boards/maze.xml.in.h:5 boards/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Utiliza as flechas do teclado para guiar o Tux até à saída."
+
+#: boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Encontra o caminho para sair do labirinto (os movimentos são relativos)"
 
 #: boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -1742,6 +1811,27 @@ msgstr ""
 "Utiliza as flechas do teclado para levar o Tux até à porta. Utiliza a barra "
 "espaço para mudar entre os modos 2D e 3D. O modo 2D só indica a tua posição "
 "como um mapa. Não podes mover o Tux no modo 2D."
+
+#: boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Encontra o caminho para sair do labirinto invisível"
+
+#: boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr ""
+"Utiliza as flechas do teclado para levar o Tux até à porta. Utiliza a barra "
+"espaço para mudar entre os modos visível e invisível. O modo visível só indica a tua posição como um mapa. Não podes mover o Tux no modo visível."
+
+#: boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Encontra o caminho para sair dos diferentes tipos de labirintos"
+
+#: boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Aceder ás actividades de Labirinto"
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -1811,10 +1901,13 @@ msgstr ""
 "Um simples clique numa imagem propõe-lhe uma acção ou um menu de acções.\n"
 "Em baixo do écran fica situada a barra de controlo do gcompris.\n"
 "As ícones seguintes são apresentadas da direita para a esquerda.\n"
-"Tenha-se em conta que cada imagem só aparece se for válida na actividade executada:\n"
-"    Casa - Retorno ao menu precedente ou sair do gcompris se estiver no cimo\n"
+"Tenha-se em conta que cada imagem só aparece se for válida na actividade "
+"executada:\n"
+"    Casa - Retorno ao menu precedente ou sair do gcompris se estiver no "
+"cimo\n"
 "    Punho - OK. Confirma a sua resposta\n"
-"    Dado - Mostra o nível actual. Carregue nele para seleccionar outro nível\n"
+"    Dado - Mostra o nível actual. Carregue nele para seleccionar outro "
+"nível\n"
 "    Nota de música - Repetir a pergunta\n"
 "    Ponto de interrogação - Ajuda\n"
 "    Ferramentas - Configuração\n"
@@ -2347,11 +2440,11 @@ msgstr ""
 "O Tux tem fome. Ajuda-o a encontrar peixes contando os gelos necessários "
 "para os atingir."
 
-#: boards/searace.xml.in.h:1
+#: boards/searace.xml.in.h:1 boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Indica as boas ordens para que o teu barco ganhe a corrida."
 
-#: boards/searace.xml.in.h:2
+#: boards/searace.xml.in.h:2 boards/searace1player.xml.in.h:2
 msgid ""
 "In the text entry, enter line by line commands to give direction to your "
 "boat. Commands supported are displayed between the two entry area. The "
@@ -2362,21 +2455,30 @@ msgid ""
 "perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
 "in the ruler) The goal is to reach the right of the screen (the red line). "
 "When done, you can try to improve your program and start a new race with the "
-"same weather conditions by using the retry button. Going to the next level "
-"will give your more complex wether conditions."
-msgstr "Na zona de escritura, escreve linha por linha os comandos para indicar a direção ao barco. Os comandos aceites estão mostrados entre as duas zonas de escritura. Os comandos 'esquerda' e 'direita' devem ser seguidos dum ângulo em graus. O valor do ângulo é chamado um 'parâmetro' do comando esquerdo ou direito. Por omissão o valor é 45 graus. O comando 'avança' aceita uma distância em parâmetro. Por omissão vale 1. Por exemplo: esquerda 90 => Vira perpendicularmente à esquerda; avança 10 => Avança de 10 unidades (como indicadas na régua). O objectivo é de atingir a direita do ecrã (a linha vermelha). Quando conseguiste, podes tentar melhorar o teu programa e correr outra vês com as mesmas condições de vento carregando no botão Recomeçar. Ao avançares para um nível superior, obtens condições mais complexas de vento."
+"same weather conditions by using the retry button. You can click and drag "
+"your mouse anywhere on the map to get a measurement in distance and angle. "
+"Going to the next level will give your more complex weather conditions."
+msgstr "Na zona de escritura, escreve linha por linha os comandos para dirigir o barco. Os comandos aceites estão mostrados entre as duas zonas de escritura. Os comandos 'esquerda' e 'direita' devem ser seguidos dum ângulo em graus. O valor do ângulo é chamado um 'parâmetro' do comando esquerdo ou direito. Por omissão o valor é 45 graus. O comando 'avança' aceita uma distância em parâmetro. Por omissão vale 1. Por exemplo: esquerda 90 => Vira perpendicularmente à esquerda; avança 10 => Avança de 10 unidades (como indicadas na régua). O objectivo é de atingir a direita do ecrã (a linha vermelha). Quando conseguiste, podes tentar melhorar o teu programa e correr outra vês com as mesmas condições de vento carregando no botão Recomeçar. Ao avançares para um nível superior, obtens condições mais complexas de vento."
 
-#: boards/searace.xml.in.h:3
+#: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
 msgid ""
 "In this activity, you will learn how to enter commands to a computer. Even "
 "if the language is extremely basic, you learn here how to think ahead and "
 "enter a program. This activity can be used to introduce the programming "
 "concept to kids."
-msgstr "Nesta actividade, vais aprender como mandar ordens ao computador. Mesmo se a lingua é extremamente simples, podes aprender aqui como pensar e escrever um programa. Esta actividade pode ser usada para introduzir as crianças á escritura de programas."
+msgstr ""
+"Nesta actividade, vais aprender como mandar ordens ao computador. Mesmo se a "
+"lingua é extremamente simples, podes aprender aqui como pensar e escrever um "
+"programa. Esta actividade pode ser usada para introduzir as crianças á "
+"escritura de programas."
 
 #: boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
 msgstr "Corrida em Alto Mar (2 Jogadores)"
+
+#: boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "Corrida em Alto Mar (1 Jogador)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2420,15 +2522,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Equilibrar as balanças"
 
-#: boards/smallnumbers.xml.in.h:1
+#: boards/smallnumbers.xml.in.h:1 boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Conta os pontos nos dados antes que eles caiam no chão"
 
-#: boards/smallnumbers.xml.in.h:2
+#: boards/smallnumbers.xml.in.h:2 boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Saber contar"
 
-#: boards/smallnumbers.xml.in.h:3
+#: boards/smallnumbers.xml.in.h:3 boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Num tempo limitado, conta o número de pontos"
 
@@ -2436,13 +2538,17 @@ msgstr "Num tempo limitado, conta o número de pontos"
 msgid "Numbers With Dice"
 msgstr "Números Com Dados"
 
-#: boards/smallnumbers.xml.in.h:5
+#: boards/smallnumbers.xml.in.h:5 boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr ""
 "Com o teclado, escreve o número que corresponde ao número de pontos no dado "
 "que cai."
+
+#: boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Números Com 2 Dados"
 
 #: boards/submarine.xml.in.h:1
 msgid ""
@@ -2579,11 +2685,15 @@ msgstr "Jogo educativo de 2 a 10 anos"
 msgid "Educational suite gcompris"
 msgstr "Gcompris sistema educativo"
 
+#: gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Actividades múltiplas para crianças"
+
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:645
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2769,17 +2879,25 @@ msgstr "Aprender a ler"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Dadas imagens de mãos, encontra se é uma mão esquerda ou direita"
 
-#: src/boards/leftright.c:248 src/boards/python/searace.py:506
-#: src/boards/python/searace.py:771
+#: src/boards/leftright.c:248 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:544
+#: src/boards/python/searace.py:856 src/boards/python/searace.py:889
+#: src/boards/python/searace.py:986
 msgid "left"
 msgstr "esquerda"
 
-#: src/boards/leftright.c:258 src/boards/python/searace.py:515
-#: src/boards/python/searace.py:773
+#: src/boards/leftright.c:258 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:553
+#: src/boards/python/searace.py:858 src/boards/python/searace.py:891
+#: src/boards/python/searace.py:980
 msgid "right"
 msgstr "direita"
 
-#: src/boards/maze.c:445
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Ver a tua posição e voltar ao modo invisível para mover"
+
+#: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Vê a tua posição e voltar à vista 3D para moveres"
 
@@ -2851,47 +2969,60 @@ msgstr "Nível"
 msgid "Coordinate"
 msgstr "Coordenada"
 
-#: src/boards/python/searace.py:187 src/boards/python/searace.py:192
-#: src/boards/python/searace.py:218
+#: src/boards/python/searace.py:201 src/boards/python/searace.py:206
+#: src/boards/python/searace.py:232
 msgid "Race is already running"
 msgstr "O corrida já começou"
 
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:756
-msgid "droite"
-msgstr "direita"
-
 #. Manage default cases (no params given)
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:497 src/boards/python/searace.py:752
-#: src/boards/python/searace.py:765
+#. Final move, add an ofset because we loose space in abs()
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:535 src/boards/python/searace.py:854
+#: src/boards/python/searace.py:883 src/boards/python/searace.py:978
+#: src/boards/python/searace.py:984 src/boards/python/searace.py:992
 msgid "forward"
 msgstr "avança"
 
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:754
-msgid "gauche"
-msgstr "esquerda"
-
-#: src/boards/python/searace.py:488
+#: src/boards/python/searace.py:526
 msgid "COMMANDS ARE"
 msgstr "O COMANDOS SÃO"
 
-#: src/boards/python/searace.py:663
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr "Empatados"
+
+#: src/boards/python/searace.py:759
 msgid "The Red boat has won"
 msgstr "O Barco Vermelho ganhou"
 
-#: src/boards/python/searace.py:665
+#: src/boards/python/searace.py:762
 msgid "The Green boat has won"
 msgstr "O Barco Verde ganhou"
 
-#: src/boards/python/searace.py:759
+#: src/boards/python/searace.py:780 src/boards/python/searace.py:1022
+msgid "Angle:"
+msgstr "Ângulo:"
+
+#: src/boards/python/searace.py:780
+msgid "Wind:"
+msgstr "Vento:"
+
+#: src/boards/python/searace.py:861
 msgid "Syntax error at line"
 msgstr "Erro de sintaxe na linha "
 
-#: src/boards/python/searace.py:778
+#: src/boards/python/searace.py:879
+msgid "The command"
+msgstr "O comando"
+
+#: src/boards/python/searace.py:898
 msgid "Unknown command at line"
 msgstr "Comando desconhecido na linha"
+
+#: src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr "Distância:"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -2980,11 +3111,11 @@ msgstr ""
 "Os dados desta actividade são\n"
 "gravados em /tmp/Gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:70
+#: src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Números Com Dados"
 
-#: src/boards/smallnumbers.c:71
+#: src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Carrega na tecla 1 a 9 antes que os dados toquem o chão"
 
@@ -3023,15 +3154,15 @@ msgstr "Escreva a palavras que descem antes que toquem o chão"
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
-"Autor : Bruno Coudoin\n"
-"Contribuição : Pascal Georges, José Jorge\n"
-"Desenhos : Renaud Blanchard\n"
-"Música  Introdutória : Djilali Sebihi\n"
-"Música  de Acompanhamento : Rico Da Halvarez\n"
+"Autor: Bruno Coudoin\n"
+"Contribuição: Pascal Georges, José Jorge\n"
+"Gráficos: Renaud Blanchard, Franck Doucet\n"
+"Música de Introdução: Djilali Sebihi\n"
+"Música de acompanhamento: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: src/gcompris/about.c:73 src/gcompris/interface.c:484
@@ -3051,16 +3182,16 @@ msgid "GCompris Home Page"
 msgstr "Pagina do GCompris"
 
 #: src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU Public License"
 msgstr "Este programa é um Pacote GNU e é fornecido sob a Licença Publica GNU"
 
 #: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:208
+#: src/gcompris/about.c:316 src/gcompris/config.c:209
 #: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:152
+#: src/gcompris/images_selector.c:252
 msgid "OK"
 msgstr "OK"
 
@@ -3143,182 +3274,186 @@ msgid "Indian (Hindi)"
 msgstr "Indiano (Hindi)"
 
 #: src/gcompris/config.c:81
+msgid "Indian (Gujarati)"
+msgstr "Indiano (Gujarati)"
+
+#: src/gcompris/config.c:82
 msgid "Indian (Punjabi)"
 msgstr "Indiano (Punjabi)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "Croata"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Italian"
 msgstr "Italiano"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Macedonian"
 msgstr "Macedoniano"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Malay"
 msgstr "Malaio"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Holandês"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Norueguês (Bokmal)"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Norueguês (Nynorsk)"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Polaco"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Português"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Brazil Portuguese"
 msgstr "Português do Brasil"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Romeno"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Russo"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Albanian"
 msgstr "Albanês"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Serbian (Latin)"
 msgstr "Serbo (Latim)"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Serbian"
 msgstr "Serbo"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Swedish"
 msgstr "Sueco"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Turkish"
 msgstr "Turco"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Walloon"
 msgstr "Walloon"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Chinese (Simplified)"
 msgstr "Chinês (Simplificado)"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "No time limit"
 msgstr "Nenhum limite de tempo"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Slow timer"
 msgstr "Tempo lento"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Normal timer"
 msgstr "Tempo normal"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "Fast timer"
 msgstr "Tempo rápido"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Por omissão para GCompris)"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "No filter"
 msgstr "Nenhum filtro"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Only this level"
 msgstr "Só este nível"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "Up to this level"
 msgstr "Até este nível"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid "This level and above"
 msgstr "Este nível e acima"
 
-#: src/gcompris/config.c:182
+#: src/gcompris/config.c:183
 msgid "GCompris Configuration"
 msgstr "Configuração do GCompris"
 
-#: src/gcompris/config.c:291
+#: src/gcompris/config.c:292
 msgid "Fullscreen"
 msgstr "Pleno Ecrã"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:335
 msgid "Music"
 msgstr "Musica"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:363
 msgid "Effect"
 msgstr "Efeito"
 
-#: src/gcompris/config.c:396
+#: src/gcompris/config.c:397
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Não pude abrir a pasta das peles : %s"
 
-#: src/gcompris/config.c:417
+#: src/gcompris/config.c:418
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Nenhum tema encontrado em %s\n"
 
-#: src/gcompris/config.c:432 src/gcompris/config.c:817
-#: src/gcompris/config.c:828
+#: src/gcompris/config.c:433 src/gcompris/config.c:818
+#: src/gcompris/config.c:829
 #, c-format
 msgid "Skin : %s"
 msgstr "Pele : %s"
 
-#: src/gcompris/file_selector.c:242
+#: src/gcompris/file_selector.c:296
 msgid "CANCEL"
 msgstr "ANULAR"
 
-#: src/gcompris/file_selector.c:273
+#: src/gcompris/file_selector.c:327
 msgid "LOAD"
 msgstr "CARREGAR"
 
-#: src/gcompris/file_selector.c:273
+#: src/gcompris/file_selector.c:327
 msgid "SAVE"
 msgstr "GRAVAR"
 
@@ -3374,7 +3509,7 @@ msgstr "Imprimir a versão de "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utilizar o canvas alisado (mais lento)."
 
-#: src/gcompris/gcompris.c:532
+#: src/gcompris/gcompris.c:538
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3396,7 +3531,7 @@ msgstr ""
 "em utilizar GNU/Linux. Obtenha mais informações em\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:727
+#: src/gcompris/gcompris.c:733
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3498,6 +3633,12 @@ msgstr "Tempo Passado"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tempo restante = %d"
+
+#~ msgid "droite"
+#~ msgstr "direita"
+
+#~ msgid "gauche"
+#~ msgstr "esquerda"
 
 #~ msgid "Create an animation"
 #~ msgstr "Criar uma animação"
