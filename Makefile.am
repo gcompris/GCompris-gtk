@@ -32,14 +32,12 @@ install-data-local:
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@; \
 	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*.in" --exclude "*~" --exclude CVS --exclude .xvpics * | ( cd $(DESTDIR)/$(pkgdatadir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
-	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 	fi
 
 dist-hook:
 	if test -d @PACKAGE_DATA_DIR@; then \
 	  $(mkinstalldirs) $(distdir)/@PACKAGE_DATA_DIR@; \
 	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude "*~" --exclude ".*" --exclude CVS --exclude .xvpics * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
-	  rm -f /tmp/GCOMPRIS_LIST.txt ; \
 	fi
 
 

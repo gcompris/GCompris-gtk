@@ -408,7 +408,7 @@ static void algebra_next_level()
 							    "y", (double) 0,
 							    NULL));
 
-  maxtime = 10;
+  maxtime = 20;
   gcompris_timer_display(150, 140, GCOMPRIS_TIMER_BALLOON, maxtime, timer_end);
 
   /* Try the next level */

@@ -30,9 +30,9 @@
 #define EAST 8
 #define SET 16
 #define BAD 32
-#define WON 64
-#define MAX_BREEDTE 37
-#define MAX_HOOGTE 20
+#define DOOR 64
+#define MAX_WIDTH 37
+#define MAX_HEIGHT 20
 #define BASE_X1 50
 #define BASE_Y1 50
 #define BASE_X2 800
@@ -40,20 +40,22 @@
 
 
 /* array of the board */
-static int Maze[MAX_BREEDTE][MAX_HOOGTE];
-static int position[MAX_BREEDTE*MAX_HOOGTE][2];
+static int Maze[MAX_WIDTH][MAX_HEIGHT];
+/* historyarray */
+static int pathhistory[MAX_WIDTH*MAX_HEIGHT][2];
+static int p_index=0;
 
-
-static int ind=0;
 static int begin;
 static int end; 
-static int breedte=10;
-static int hoogte=20;
+static int width=10;
+static int height=20;
 static int cellsize=20;
 static int buffer=4;
 static int board_border_x=20;
 static int board_border_y=3;
 static int thickness=2;
+static int speed=120;
+static int don=0;
 /*-----------------------*/
 
 GcomprisBoard *gcomprisBoard = NULL;
@@ -63,16 +65,15 @@ static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
-static int gamewon;
+static gboolean won=FALSE;
+static gboolean computer_solving=FALSE;
 
-static void process_ok(void);
-static void game_won(void);
 static void repeat(void);
+static void game_won(gboolean computersolve);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup *mazegroup = NULL;
-
 static GnomeCanvasItem *tuxitem = NULL;
 
 static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent);
@@ -92,8 +93,12 @@ static int check(int x,int y);
 static int* isPossible(int x, int y);
 static void generateMaze(int x, int y);
 static void removeSet(void);
-static void draw_background(void);
+static void draw_maze(void);
 static void setlevelproperties(void);
+static void solveMaze(void);
+static gboolean movePos(int x1, int y1, int x2,int y2,gboolean computersolve);
+static int* checkPos(int x, int y);
+static gint solvM(GtkWidget *widget, gpointer data);
 /*----------------------*/
 
 /* Description of this plugin */
@@ -101,8 +106,8 @@ BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Maze"),
-    N_("Find your way out of the maze"),
+    N_("maze"),
+    N_("Click on the right color"),
     "Bastiaan Verhoef <b.f.verhoef@student.utwente.nl>",
     NULL,
     NULL,
@@ -113,7 +118,7 @@ BoardPlugin menu_bp =
     end_board,
     is_our_board,
     key_press,
-    process_ok,
+    NULL,
     set_level,//set_level,
     NULL,
     repeat
@@ -134,8 +139,8 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
-  if(gamewon == TRUE && pause == FALSE) /* the game is won */
-      game_won();
+//  if(gamewon == TRUE && pause == FALSE) /* the game is won */
+//      game_won(FALSE);
 
   board_paused = pause;
 }
@@ -157,11 +162,9 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=9;
-      gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+      gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
 
-      gamewon = FALSE;
-
-      maze_next_level();
+		maze_next_level();
       pause_board(FALSE);
     }
 }
@@ -196,126 +199,128 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
  * set initial values for the next level
  * =====================================================================*/
 static void maze_next_level() {
-	GdkPixbuf *pixmap = NULL;
-
-	maze_destroy_all_items();
-	gcompris_bar_set_level(gcomprisBoard);
-	setlevelproperties();
-
-	gamewon = FALSE;
-	initMaze();
-	generateMaze((random()%breedte),(random()%hoogte));
-	removeSet();	
-	/* Try the next level */
-	maze_create_item(gnome_canvas_root(gcomprisBoard->canvas));
-	draw_background();
-	/* make a new group for the items */
-	begin=random()%hoogte;
-	end=random()%hoogte;
-
-	/* Draw the tux */
-	pixmap = gcompris_load_pixmap("gcompris/misc/tux.png");
-	if(pixmap)
-	  {
-	    tuxitem = draw_image(mazegroup,0,begin,pixmap);
-	    gdk_pixbuf_unref(pixmap);
+	GdkPixbuf *pixmap = NULL;	
+	if (!computer_solving)
+	{
+		maze_destroy_all_items();
+		gcompris_bar_set_level(gcomprisBoard);
+		setlevelproperties();
+		
+		/* generate maze */
+		initMaze();
+		generateMaze((random()%width),(random()%height));
+		removeSet();	
+		
+		/* Try the next level */
+		maze_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+		draw_maze();
+		
+		/* make a new group for the items */
+		begin=random()%height;
+		end=random()%height;
+		
+		/* Draw the tux */
+		pixmap = gcompris_load_pixmap("gcompris/misc/tux.png");
+		if(pixmap)
+		  {
+			tuxitem = draw_image(mazegroup,0,begin,pixmap);
+			gdk_pixbuf_unref(pixmap);
+		  }
+		
+		/* Draw the target */
+		pixmap = gcompris_load_pixmap("gcompris/misc/door.png");
+		if(pixmap)
+		  {
+			draw_image(mazegroup,width-1,end,pixmap);
+			gdk_pixbuf_unref(pixmap);
+		  }
+		pathhistory[p_index][0]=0;
+		pathhistory[p_index][1]=begin;
+		Maze[0][begin]=Maze[0][begin]+SET;	
+		Maze[width-1][end]=Maze[width-1][end]+DOOR;
 	  }
-	
-	/* Draw the target */
-	pixmap = gcompris_load_pixmap("gcompris/misc/door.png");
-	if(pixmap)
-	  {
-	    draw_image(mazegroup,breedte-1,end,pixmap);
-	    gdk_pixbuf_unref(pixmap);
-	  }
-
-	position[ind][0]=0;
-	position[ind][1]=begin;
-	Maze[0][begin]=Maze[0][begin]+SET;	
 }
 /* ======================================= */
 static void setlevelproperties(){
 	if (gcomprisBoard->level==1)
 	{
-		breedte=5;
-		hoogte=4;
+		width=5;
+		height=4;
 		cellsize=70;
 		buffer=8;
 		
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;
 	}
 	else if (gcomprisBoard->level==2)
 	{
 		
-		breedte=9;
-		hoogte=6;
+		width=9;
+		height=6;
 		cellsize=70;
 		buffer=7;
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;		
 	}	
 	else if (gcomprisBoard->level==3)
 	{
-		breedte=13;
-		hoogte=8;
+		width=13;
+		height=8;
 		cellsize=60;
 		buffer=6;
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;		
 	}	
 	else if (gcomprisBoard->level==4)
 	{
-		breedte=17;
-		hoogte=10;
+		width=17;
+		height=10;
 		cellsize=45;
 		buffer=5;
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;		
 	}
 	else if (gcomprisBoard->level==5)
 	{
-		breedte=21;
-		hoogte=12;
+		width=21;
+		height=12;
 		cellsize=35;		
 		buffer=4;
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;		
 	}
 	else if (gcomprisBoard->level==6)
 	{
-		breedte=25;
-		hoogte=14;
+		width=25;
+		height=14;
 		cellsize=30;		
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;
 	}	
 	else if (gcomprisBoard->level==7)
 	{
-		breedte=29;
-		hoogte=16;
+		width=29;
+		height=16;
 		cellsize=25;		
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;		
 	}	
 	else if (gcomprisBoard->level==8)
 	{
-		breedte=33;
-		hoogte=18;
+		width=33;
+		height=18;
 		cellsize=23;		
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;		
 	}	
 	else if (gcomprisBoard->level==9)
 	{
-		breedte=37;
-		hoogte=20;
+		width=37;
+		height=20;
 		cellsize=20;		
-		board_border_x=(int) (BASE_X2-breedte*cellsize)/2;
-		board_border_y=(int) (BASE_Y2-hoogte*cellsize)/2;		
+		board_border_x=(int) (BASE_X2-width*cellsize)/2;
+		board_border_y=(int) (BASE_Y2-height*cellsize)/2;		
 	}		
-}
-static void repeat (){
 }
 /* =====================================================================
  * Destroy all the items
@@ -327,6 +332,8 @@ static void maze_destroy_all_items() {
 		gtk_object_destroy (GTK_OBJECT(boardRootItem));
 	mazegroup = NULL;
 	boardRootItem = NULL;
+	
+
 }
 
 /* =====================================================================
@@ -341,8 +348,8 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 							    NULL));
 	mazegroup=GNOME_CANVAS_GROUP(gnome_canvas_item_new(boardRootItem,
 				     gnome_canvas_group_get_type(),
-				     "x",(double)breedte,
-				     "y",(double)hoogte,
+				     "x",(double)width,
+				     "y",(double)height,
 				     NULL));
 
   return NULL;
@@ -350,10 +357,12 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 /* =====================================================================
  *
  * =====================================================================*/
-static void game_won() {
+static void game_won(gboolean computersolve) {
 	gcompris_play_sound (SOUNDLISTFILE, "bonus");
   /* Try the next level */
-	gcomprisBoard->level++;
+	if (!computersolve)
+		gcomprisBoard->level++;
+	else computer_solving=FALSE;
 	if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
 		board_finished(BOARD_FINISHED_RANDOM);
 		return;
@@ -363,76 +372,127 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static void process_ok() {
+static void repeat() {
+	if (!computer_solving)
+	{
+		won=FALSE;
+		computer_solving=TRUE;
+		don = gtk_timeout_add (speed, (GtkFunction) solvM, NULL);
+	}
 }
 
-static void
-draw_a_rect(GnomeCanvasGroup *group,
-	    int x1, int y1, int x2, int y2, char *color)
+/* =====================================================================
+ * Draw a rectangle
+ * =====================================================================*/
+static void draw_a_rect(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color)
 {
-	gnome_canvas_item_new(group,gnome_canvas_rect_get_type(),
-			      "x1",(double)x1,
-			      "y1",(double)y1,
-			      "x2",(double)x2,
-			      "y2",(double)y2,
-					"fill_color", color,
-			      NULL);
+	if (group!=NULL)
+		gnome_canvas_item_show(gnome_canvas_item_new(group,gnome_canvas_rect_get_type(),
+					  "x1",(double)x1,
+					  "y1",(double)y1,
+					  "x2",(double)x2,
+					  "y2",(double)y2,
+						"fill_color", color,
+					  NULL));
 }
 
-static void
-draw_a_line(GnomeCanvasGroup *group,
-	    int x1, int y1, int x2, int y2, char *color)
+/* =====================================================================
+ * Draw a line
+ * =====================================================================*/
+static void draw_a_line(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color)
 {
 	GnomeCanvasPoints *points;
-
-	points = gnome_canvas_points_new (2);
-
-	points->coords[0] = x1;
-	points->coords[1] = y1;
-	points->coords[2] = x2;
-	points->coords[3] = y2;
-	gnome_canvas_item_new(group,
-			      gnome_canvas_line_get_type(),
-			      "points", points,
-			      "fill_color", color,
-			      "width_units", (double)thickness,
-			      NULL);
-
-	gnome_canvas_points_free(points);
+	if (group!=NULL)
+	{	
+			points = gnome_canvas_points_new (2);
+		
+			points->coords[0] = x1;
+			points->coords[1] = y1;
+			points->coords[2] = x2;
+			points->coords[3] = y2;
+			gnome_canvas_item_new(group,
+						  gnome_canvas_line_get_type(),
+						  "points", points,
+						  "fill_color", color,
+						  "width_units", (double)thickness,
+						  NULL);
+		
+			gnome_canvas_points_free(points);
+	}
 }
 
+/* =====================================================================
+ * Draw a rectangle on the right position
+ * =====================================================================*/
 static void draw_rect(GnomeCanvasGroup *group, int x,int y,char *color)
 {
 	int x1,y1;
-	y1=cellsize*(y)-hoogte + board_border_y;
-	x1=cellsize*(x)-breedte + board_border_x;
-	draw_a_rect(group,x1+buffer,y1+buffer ,x1+cellsize-buffer ,y1+cellsize-buffer ,color);
+	if (group!=NULL)
+	{
+		y1=cellsize*(y)-height + board_border_y;
+		x1=cellsize*(x)-width + board_border_x;
+		draw_a_rect(group,x1+buffer,y1+buffer ,x1+cellsize-buffer ,y1+cellsize-buffer ,color);
+	}
 }
 
-/*
- * Same as draw rect but for an image
- * Returns the created item
- */
+/* =====================================================================
+ * Combines rectangles
+ * =====================================================================*/
+static void draw_combined_rect(GnomeCanvasGroup *group, int x1,int y1,int x2,int y2,char *color)
+{
+	int xx1,yy1,xx2,yy2;
+	if (group!=NULL)
+	{
+		yy1=cellsize*(y1)-height + board_border_y;
+		xx1=cellsize*(x1)-width + board_border_x;
+		yy2=cellsize*(y2)-height + board_border_y;
+		xx2=cellsize*(x2)-width + board_border_x;
+		if (y1==y2 && x1<x2)
+		{
+			draw_a_rect(group,xx1+cellsize-buffer,yy1+buffer,xx2+buffer,yy2+cellsize-buffer,color);
+		}
+		else if (y1==y2 && x1>x2)
+		{
+			draw_a_rect(group,xx2+cellsize-buffer,yy2+buffer,xx1+buffer,yy1+cellsize-buffer,color);		
+		}
+		else if (x1==x2 && y1<y2)
+		{
+			draw_a_rect(group,xx1+buffer,yy1+cellsize-buffer,xx2+cellsize-buffer,yy2+buffer,color);
+		}
+		else if (x1==x2 && y1>y2)
+		{
+			draw_a_rect(group,xx2+buffer,yy2+cellsize-buffer,xx1+cellsize-buffer,yy1+buffer,color);
+		}
+	}
+
+}
+
+/* =====================================================================
+ * Draw a image
+ * =====================================================================*/
 static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixbuf *pixmap)
 {
 	GnomeCanvasItem *item = NULL;
 	int x1,y1;
-
-	y1=cellsize*(y)-hoogte + board_border_y;
-	x1=cellsize*(x)-breedte + board_border_x;
-
-	item = gnome_canvas_item_new (group,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", pixmap, 
-				      "x",	(double)x1+buffer,
-				      "y",	(double)y1+buffer,
-				      "width",	(double)cellsize-buffer*2,
-				      "height",(double)cellsize-buffer*2,
-				      "width_set", TRUE, 
-				      "height_set", TRUE,
-				      NULL);
-
-	return(item);
+	if (group!=NULL)
+	{
+		y1=cellsize*(y)-height + board_border_y;
+		x1=cellsize*(x)-width + board_border_x;
+	
+		item = gnome_canvas_item_new (group,
+						  gnome_canvas_pixbuf_get_type (),
+						  "pixbuf", pixmap, 
+						  "x",	(double)x1+buffer,
+						  "y",	(double)y1+buffer,
+						  "width",	(double)cellsize-buffer*2,
+						  "height",(double)cellsize-buffer*2,
+						  "width_set", TRUE, 
+						  "height_set", TRUE,
+						  NULL);
+	
+		return(item);
+	}
+	else return NULL;
 }
 
 /*
@@ -441,65 +501,91 @@ static GnomeCanvasItem *draw_image(GnomeCanvasGroup *group, int x,int y, GdkPixb
 static void move_image(GnomeCanvasGroup *group, int x,int y, GnomeCanvasItem *item)
 {
 	int x1,y1;
-	y1=cellsize*(y)-hoogte + board_border_y;
-	x1=cellsize*(x)-breedte + board_border_x;
-
-	gnome_canvas_item_set (item,
-			       "x",	(double)x1+buffer,
-			       "y",	(double)y1+buffer,
-			       NULL);
-	gnome_canvas_item_raise_to_top(item);
+	if (group!=NULL)
+	{
+		y1=cellsize*(y)-height + board_border_y;
+		x1=cellsize*(x)-width + board_border_x;
+	
+		gnome_canvas_item_set (item,
+					   "x",	(double)x1+buffer,
+					   "y",	(double)y1+buffer,
+					   NULL);
+		gnome_canvas_item_raise_to_top(item);
+	}
 }
 
-static void draw_combined_rect(GnomeCanvasGroup *group, int x1,int y1,int x2,int y2,char *color)
-{
-	int xx1,yy1,xx2,yy2;
-	yy1=cellsize*(y1)-hoogte + board_border_y;
-	xx1=cellsize*(x1)-breedte + board_border_x;
-	yy2=cellsize*(y2)-hoogte + board_border_y;
-	xx2=cellsize*(x2)-breedte + board_border_x;
-	if (y1==y2 && x1<x2)
-	{
-		draw_a_rect(group,xx1+cellsize-buffer,yy1+buffer,xx2+buffer,yy2+cellsize-buffer,color);
-	}
-	else if (y1==y2 && x1>x2)
-	{
-		draw_a_rect(group,xx2+cellsize-buffer,yy2+buffer,xx1+buffer,yy1+cellsize-buffer,color);		
-	}
-	else if (x1==x2 && y1<y2)
-	{
-		draw_a_rect(group,xx1+buffer,yy1+cellsize-buffer,xx2+cellsize-buffer,yy2+buffer,color);
-	}
-	else if (x1==x2 && y1>y2)
-	{
-		draw_a_rect(group,xx2+buffer,yy2+cellsize-buffer,xx1+cellsize-buffer,yy1+buffer,color);
-	}
-
-}
-
+/* =====================================================================
+ * Init of the mazeboard.
+ * set initvalue to 15= NORTH+SOUTH+WEST+EAST
+ * So each cell in the bord have four walls
+ * =====================================================================*/
 static void initMaze(void)
 {
 	int x,y;
-	for (x=0; x<breedte;x++)
+	for (x=0; x<width;x++)
 	{
-	    for (y=0; y <hoogte; y++)
+	    for (y=0; y <height; y++)
 	    {
 			Maze[x][y]=15;
 	    }
 	}
 }
 
+/* =====================================================================
+ * Draw the maze
+ * =====================================================================*/
+static void draw_maze(void)
+{
+	int x,y,x1,y1;
+	int wall;
+	/*draw the lines*/
+	for (x1=0; x1< width; x1++)
+	{
+	    for (y1=0; y1 < height; y1++)
+	    {
+			wall=Maze[x1][y1];;
+			y=cellsize*(y1)+board_border_y;
+			x=cellsize*(x1)+board_border_x;
+			if (x1==0)
+				draw_a_line(boardRootItem,x, y, x, y+cellsize, "black");
+
+			if (y1==0)
+				draw_a_line(boardRootItem,x, y, x+cellsize, y, "black");
+			if ((wall-EAST>=0))
+			{
+				draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, "black");			
+				wall=wall-EAST;
+			}
+
+			if ((wall-SOUTH)>=0)
+			{
+				draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, "black");
+				wall=wall-SOUTH;
+			}
+
+	    }
+	}
+}
+
 static int check(int x,int y)
 {
+	if ((Maze[x][y]-DOOR)>=0)
+	{
+		return 2;
+	}
+	if ((Maze[x][y]-BAD)>=0)
+		return 1;
 	if ((Maze[x][y]-SET)>=0)
 	    return 1;
 	else return 0;
 }
-    
+/* =====================================================================
+ * checks what are the possibilities to move
+ * =====================================================================*/    
 static int* isPossible(int x, int y)
 {
 	int wall=Maze[x][y];
-	static int pos[5];
+	int pos[5];
 	wall=wall-SET;
 	pos[0]=0;
 	if(x==0)
@@ -510,11 +596,11 @@ static int* isPossible(int x, int y)
 	{
 	    wall=wall-NORTH;
 	}
-	if(x==(breedte-1))
+	if(x==(width-1))
 	{
 	    wall=wall-EAST;
 	}
-	if (y==(hoogte-1))
+	if (y==(height-1))
 	{
 	    wall=wall-SOUTH;
 	}
@@ -557,54 +643,176 @@ static int* isPossible(int x, int y)
 	return &pos[0];
 }
 
+/* =====================================================================
+ * Generate a maze
+ * =====================================================================*/
 static void generateMaze(int x, int y)
 {
-	int *po;
+	int *possible;
 	Maze[x][y]= Maze[x][y] + SET;
-	po = isPossible(x,y);
-	while (*po>0)
+	possible = isPossible(x,y);
+	while (*possible>0)
 	{
-	    int nr = *po;
+	    int nr = *possible;
 	    int ran, in;
 	    in=(random()%nr)+1;
-		//printf("random: %d en %d mogelijkheden\n", in, *po);
-	    ran=*(po + in);
+	    ran=*(possible + in);
 	    if (nr>=1)
-	    switch (ran)
-	    {
-		case EAST:
-		    Maze[x][y]=Maze[x][y]-EAST;
-		    Maze[x+1][y]=Maze[x+1][y]-WEST;
-		    generateMaze(x+1,y);
-		    break;
-		case SOUTH:
-		    Maze[x][y]=Maze[x][y]-SOUTH;
-		    Maze[x][y+1]=Maze[x][y+1]-NORTH;
-		    generateMaze(x,y+1);
-		    break;
-		case WEST:
-		    Maze[x][y]=Maze[x][y]-WEST;
-		    Maze[x-1][y]=Maze[x-1][y]-EAST;		
-		    generateMaze(x-1,y);
-		    break;
-		case NORTH:
-		    Maze[x][y]=Maze[x][y]-NORTH;
-		    Maze[x][y-1]=Maze[x][y-1]-SOUTH;
-		    generateMaze(x,y-1);
-		    break;
-		
-	    }
-		po=isPossible(x,y);
+			switch (ran)
+			{
+			case EAST:
+				Maze[x][y]=Maze[x][y]-EAST;
+				Maze[x+1][y]=Maze[x+1][y]-WEST;
+				generateMaze(x+1,y);
+				break;
+			case SOUTH:
+				Maze[x][y]=Maze[x][y]-SOUTH;
+				Maze[x][y+1]=Maze[x][y+1]-NORTH;
+				generateMaze(x,y+1);
+				break;
+			case WEST:
+				Maze[x][y]=Maze[x][y]-WEST;
+				Maze[x-1][y]=Maze[x-1][y]-EAST;		
+				generateMaze(x-1,y);
+				break;
+			case NORTH:
+				Maze[x][y]=Maze[x][y]-NORTH;
+				Maze[x][y-1]=Maze[x][y-1]-SOUTH;
+				generateMaze(x,y-1);
+				break;
+			
+			}
+		possible=isPossible(x,y);
 	}
 
+}
+
+static int* checkPos(int x, int y)
+{
+	int wall=Maze[x][y];
+	gboolean found_door=FALSE;
+	int pos[5];
+	wall=wall-SET;
+	pos[0]=0;
+	if (wall-EAST>=0)
+		wall=wall-EAST;
+	else 
+	{
+		if(check(x+1,y)==0)
+		{
+			pos[0]=pos[0]+1;
+			pos[(pos[0])]=EAST;
+		}
+		else if(check(x+1,y)==2)
+		{
+			pos[0]=1;
+			pos[1]=EAST;
+			found_door=TRUE;
+		}		
+	}
+	if (wall-SOUTH>=0)
+	    wall=wall-SOUTH;
+	else
+	{
+	    if (check(x,y+1)==0)
+	    {		
+			pos[0]=pos[0]+1;
+			pos[(pos[0])]=SOUTH;
+		}
+		else if(check(x,y+1)==2)
+		{
+			pos[0]=1;
+			pos[1]=SOUTH;
+			found_door=TRUE;
+		}			
+	}
+	if (wall-WEST>=0)
+	    wall=wall-WEST;
+	else
+	{
+		if(check(x-1,y)==0)
+		{
+			pos[0]=pos[0]+1;
+			pos[(pos[0])]=WEST;		
+		}
+		else if(check(x-1,y)==2)
+		{
+			pos[0]=1;
+			pos[1]=WEST;
+			found_door=TRUE;
+		}			
+	}
+	if (wall-NORTH>=0)
+	    wall=wall-NORTH;
+	else
+	{
+	    if (check(x,y-1)==0)
+		{
+			pos[0]=pos[0]+1;
+			pos[(pos[0])]=NORTH;
+		}
+		else if(check(x,y-1)==2)
+		{
+			pos[0]=1;
+			pos[1]=NORTH;
+			found_door=TRUE;
+		}			
+	}
+	if (found_door)
+		pos[0]=1;
+	return &pos[0];
+}
+
+static gint solvM(GtkWidget *widget, gpointer data)
+{
+	solveMaze();
+	if (!won && mazegroup!=NULL)
+		don = gtk_timeout_add (speed, (GtkFunction) solvM, NULL);	
+  return FALSE;
+}
+
+/* =====================================================================
+ * computersolving algoritme
+ * =====================================================================*/
+static void solveMaze()
+{
+	int *possible;
+	possible = checkPos(pathhistory[p_index][0],pathhistory[p_index][1]);
+	if (*possible>0 && !won)
+	{
+	    int nr = *possible;
+	    int ran, in;
+	    in=(random()%nr)+1;
+	    ran=*(possible+in);
+	    if (nr>=1)
+			switch (ran)
+			{
+			case EAST:
+
+				movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0]+1,pathhistory[p_index][1],TRUE);
+				break;
+			case SOUTH:
+				movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0],pathhistory[p_index][1]+1,TRUE);
+				break;
+			case WEST:
+				movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0]-1,pathhistory[p_index][1],TRUE);
+				break;
+			case NORTH:
+				movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0],pathhistory[p_index][1]-1,TRUE);
+				break;
+			}
+		possible=checkPos(pathhistory[p_index][0],pathhistory[p_index][1]);
+	}
+	else 
+		movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index-1][0],pathhistory[p_index-1][1],TRUE);
 }
 
 static void removeSet(void)
 {
 	int x,y;
-	for (x=0; x< breedte;x++)
+	for (x=0; x< width;x++)
 	{
-	    for (y=0; y < hoogte; y++)
+	    for (y=0; y < height; y++)
 	    {
 		if (Maze[x][y]>=16)
 		    Maze[x][y]=Maze[x][y]-SET;
@@ -612,110 +820,95 @@ static void removeSet(void)
 	}
 }
 
-
-/* draw the background of the playing board */
-static void
-draw_background(void)
+/* =====================================================================
+ * move from position (x1,y1) to (x2,y2) if possible
+ * =====================================================================*/
+static gboolean movePos(int x1, int y1, int x2,int y2, gboolean computersolve)
 {
-	int x,y,x1,y1;
-	int wall;
-	/*draw the lines*/
-	for (x1=0; x1< breedte; x1++)
-	{
-	    for (y1=0; y1 < hoogte; y1++)
-	    {
-			wall=Maze[x1][y1];;
-			y=cellsize*(y1)+board_border_y;
-			x=cellsize*(x1)+board_border_x;
-			if (x1==0)
-				draw_a_line(boardRootItem,x, y, x, y+cellsize, "black");
-
-			if (y1==0)
-				draw_a_line(boardRootItem,x, y, x+cellsize, y, "black");
-			if ((wall-EAST>=0))
-			{
-				draw_a_line(boardRootItem,x+cellsize, y, x+cellsize, y+cellsize, "black");			
-				wall=wall-EAST;
-			}
-
-			if ((wall-SOUTH)>=0)
-			{
-				draw_a_line(boardRootItem,x, y+cellsize, x+cellsize, y+cellsize, "black");
-				wall=wall-SOUTH;
-			}
-
-	    }
-	}
-}
-static void movePos(int x1, int y1, int x2,int y2)
-{
-	int richting,ret,wall,i,bo=1;
-	richting=0;
-	ret=1;
+	int direction,wall,i;
+	gboolean pos_to_move,found_cycle;
+	found_cycle=FALSE;
+	direction=0;
+	pos_to_move=TRUE;
 	wall=Maze[x1][y1];
+	/* looking for what is the direction */
 	if (x1==x2 && y1>y2)
 	{	
-		richting=NORTH;
+		direction=NORTH;
 	}
 	if (x1==x2 && y1<y2)
 	{	
-		richting=SOUTH;
+		direction=SOUTH;
 	}
 	if (x1>x2 && y1==y2)
 	{
-		richting=WEST;
+		direction=WEST;
 	}
 	if (x1<x2 && y1==y2)
 	{
-		richting=EAST;
+		direction=EAST;
 	}
 	if((wall-SET)>=0)
 	{
 		wall=wall-SET;
 	}
+	
+	/* check if move to that direction is possible */
 	if((wall-EAST)>=0)
 	{
 		wall=wall-EAST;
-		if (richting==EAST)
-			ret=0;
+		if (direction==EAST)
+			pos_to_move=FALSE;
 	}
 	if((wall-SOUTH)>=0)
 	{
 		wall=wall-SOUTH;
-		if (richting==SOUTH)
-			ret=0;
+		if (direction==SOUTH)
+			pos_to_move=FALSE;
 	}
 	if((wall-WEST)>=0)
 	{
 		wall=wall-WEST;
-		if (richting==WEST)
-			ret=0;
+		if (direction==WEST)
+			pos_to_move=FALSE;
 	}
 	if((wall-NORTH)>=0)
 	{
 		wall=wall-NORTH;
-		if (richting==NORTH)
-			ret=0;
+		if (direction==NORTH)
+			pos_to_move=FALSE;
 	}
-	if (ret)
+	/* move position */
+	if (pos_to_move)
 	{
-		if (Maze[x2][y2]-SET>=0)
+		if (Maze[x2][y2]-DOOR>=0)
 		{
-			for (i=(ind); i>=0 && bo; i--)
+			if (computersolve)
+			{
+				won=TRUE;
+				gtk_timeout_remove(don);
+				game_won(computersolve);
+			}
+			else
+				game_won(FALSE);
+		}
+		else if (Maze[x2][y2]-SET>=0)
+		{
+			for (i=(p_index); i>=0 && !found_cycle; i--)
 			{
 
-				if(position[i][0]==x2 && position[i][1]==y2)
+				if(pathhistory[i][0]==x2 && pathhistory[i][1]==y2)
 				{	
-					bo=0;
+					found_cycle=TRUE;
 					move_image(mazegroup,x2,y2,tuxitem);
-					//					draw_rect(mazegroup,x2,y2,"blue");
 				}
 				else
 				{
-					Maze[position[i][0]][position[i][1]]=Maze[position[i][0]][position[i][1]]-SET;
-					draw_rect(mazegroup,position[i][0],position[i][1],"red");
-					draw_combined_rect(mazegroup,position[i-1][0],position[i-1][1],position[i][0],position[i][1],"red");
-					ind--;
+					Maze[pathhistory[i][0]][pathhistory[i][1]]=Maze[pathhistory[i][0]][pathhistory[i][1]]-SET;
+					draw_rect(mazegroup,pathhistory[i][0],pathhistory[i][1],"red");
+					Maze[pathhistory[i][0]][pathhistory[i][1]]=Maze[pathhistory[i][0]][pathhistory[i][1]]+BAD;
+					draw_combined_rect(mazegroup,pathhistory[i-1][0],pathhistory[i-1][1],pathhistory[i][0],pathhistory[i][1],"red");
+					p_index--;
 				}
 				
 				
@@ -723,45 +916,46 @@ static void movePos(int x1, int y1, int x2,int y2)
 		}
 		else
 		{
-			ind++;
-			position[ind][0]=x2;
-			position[ind][1]=y2;
+			p_index++;
+			pathhistory[p_index][0]=x2;
+			pathhistory[p_index][1]=y2;
 			Maze[x2][y2]=Maze[x2][y2]+SET;
-			if (position[ind][0]==(breedte-1) && position[ind][1]==(end))
-				game_won();
-			else
-			{
-				move_image(mazegroup,x2,y2,tuxitem);
-				draw_combined_rect(mazegroup,x1,y1,x2,y2,"green");
-				draw_rect(mazegroup,x1,y1,"green");
-			}
+			move_image(mazegroup,x2,y2,tuxitem);
+			draw_combined_rect(mazegroup,x1,y1,x2,y2,"green");
+			draw_rect(mazegroup,x1,y1,"green");
 		}
+		return TRUE;
 	}
+	else
+		return FALSE;
 	
 }
-
 
 
 gint key_press(guint keyval){
 
 	if ( keyval== GDK_Left)
 	{
-		movePos(position[ind][0],position[ind][1],position[ind][0]-1,position[ind][1]);
+		if (!computer_solving)
+			movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0]-1,pathhistory[p_index][1],FALSE);
 		return TRUE;
 	}
 	else if (keyval==GDK_Right)
 	{
-		movePos(position[ind][0],position[ind][1],position[ind][0]+1,position[ind][1]);
+		if (!computer_solving)
+			movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0]+1,pathhistory[p_index][1],FALSE);
 		return TRUE;		
 	}
 	else if (keyval==GDK_Up)
 	{
-		movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]-1);
+		if (!computer_solving)
+			movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0],pathhistory[p_index][1]-1,FALSE);
 		return TRUE;		
 	}
 	else if (keyval==GDK_Down)
 	{
-		movePos(position[ind][0],position[ind][1],position[ind][0],position[ind][1]+1);
+		if (!computer_solving)
+			movePos(pathhistory[p_index][0],pathhistory[p_index][1],pathhistory[p_index][0],pathhistory[p_index][1]+1,FALSE);
 		return TRUE;		
 	}
   return FALSE;
