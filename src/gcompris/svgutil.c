@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/07/15 22:44:41 bcoudoin>
+ * Time-stamp: <2004/07/15 23:51:59 bcoudoin>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -540,7 +540,9 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
     rc = xmlTextWriterWriteString(imageWriter, BAD_CAST "data:image/png;base64,");
 
+    /* FIXME REMOVED TO COMPILE ON MDK 9.2     
     rc = xmlTextWriterWriteBase64(imageWriter, buffer, 0, buffer_size);
+    */
 
     rc = xmlTextWriterEndAttribute(imageWriter);
 
