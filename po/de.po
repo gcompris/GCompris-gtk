@@ -1,5 +1,6 @@
 # translation of de.po to 
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-21 15:30+0100\n"
-"PO-Revision-Date: 2004-11-21 15:03+0100\n"
+"POT-Creation-Date: 2004-11-30 19:17+0100\n"
+"PO-Revision-Date: 2004-11-30 19:28+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -349,14 +350,14 @@ msgstr "Multiplikationstabelle"
 msgid "Practice the multiplication operation"
 msgstr "Übe das Multiplizieren"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+#: boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Zu den Algebratafeln"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Klicke mit der linken Maustaste um eine Tafel anzuwählen"
 
@@ -381,8 +382,7 @@ msgstr ""
 "Anklicken wieder entfernt werden."
 
 #: boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Entwickle eine Strategie, einen Satz arithmetischer Operatoren anzuordnen, "
 "um ein\n"
@@ -453,6 +453,10 @@ msgstr "Übe das Addieren"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Einfache Addition. Kann geschriebene Zahlen erkennen"
+
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Maths activities"
+msgstr "Gehe zu dem Mathe-Aktivitäten"
 
 #: boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -525,8 +529,7 @@ msgstr "Vervollständige das Puzzle"
 msgid ""
 "Complete the puzzle by dragging the pieces from the set of pieces on the "
 "left."
-msgstr ""
-"Vervollständige das Puzzle durch Anlegen der Teile auf der linken Seite"
+msgstr "Vervollständige das Puzzle durch Anlegen der Teile auf der linken Seite"
 
 #: boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
@@ -556,8 +559,7 @@ msgstr "Schloss mit farbigen Formen."
 
 #: boards/ballcatch.xml.in.h:1
 msgid "Push the two shift keys together to send the ball straight"
-msgstr ""
-"Drücke die beiden Hochstelltasten gleichzeitig, um den Ball gerade zu werfen"
+msgstr "Drücke die beiden Hochstelltasten gleichzeitig, um den Ball gerade zu werfen"
 
 #: boards/ballcatch.xml.in.h:2
 msgid "Send the ball to Tux"
@@ -662,8 +664,7 @@ msgstr "Ordne die Bilder, um die Geschichte zu erzählen"
 
 #: boards/chronos.xml.in.h:5
 msgid "Pick from the pictures on the left and put them on the red points"
-msgstr ""
-"Wähle aus den Bilder auf der linken Seite und lege sie auf die roten Punkte"
+msgstr "Wähle aus den Bilder auf der linken Seite und lege sie auf die roten Punkte"
 
 #: boards/chronos.xml.in.h:6
 msgid "Tell a short story"
@@ -680,24 +681,48 @@ msgstr "Tux und der Apfelbaum"
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
 "Place each image in the order and\n"
-" on the date it has been invented.\n"
-" If not sure, check online in wikipedia at\n"
-" http://www.wikipedia.org"
+"on the date it has been invented.\n"
+"If not sure, check online in wikipedia at\n"
+"http://www.wikipedia.org"
 msgstr ""
 "Plaziere jedes Bild in der Reihenfolge und\n"
-" auf dem Datum, an dem es erfunden wurde.\n"
+" auf das Datum, an dem es erfunden wurde.\n"
 " Wenn Du Dir unsicher bist, kannst Du im Internet unter\n"
 " http://www.wikipedia.org nachschlagen."
 
-#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Verkehrsmittel"
 
-#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "1880 The Clement Ader's Eole"
+msgstr "1880 Eole von Clement Aders"
+
+#: boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers Flyer III"
+msgstr "1903 Flyer III der Gebrüder Wright"
+
+#: boards/chronos/board4_0.xml.in.h:3
+msgid "1909 Louis Bleriot cross the Channel"
+msgstr "1909 Louis Bleriot überquert den Kanal"
+
+#: boards/chronos/board4_0.xml.in.h:4
 msgid "The aviation"
 msgstr "Die Luftfahrt"
+
+#: boards/chronos/board4_1.xml.in.h:1
+msgid "1927 Charles Lindbergh cross Atlantique ocean"
+msgstr "1927 Charles Lindbergh überquert den Atlantik"
+
+#: boards/chronos/board4_1.xml.in.h:2
+msgid "1934 Helene Boucher speed record 444km/h"
+msgstr "1934 Helene Bouchers Geschwindigkeitsrekord von 444km/h"
+
+#: boards/chronos/board4_1.xml.in.h:3
+msgid "1947 Chuck Yager break the sound-wall"
+msgstr "1947 Chuck Yager durchbricht die Schallmauer"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -759,8 +784,7 @@ msgstr ""
 "Ort: unbekannt (Bild nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
 "Klicke mit der linken Maustaste auf alle Fische, bevor sie aus dem Aquarium "
 "schwimmen"
@@ -1715,46 +1739,44 @@ msgstr "Trainiere Dein Gedächtnis und entferne alle Karten"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
-" At the bottom of the screen is the gcompris control bar.\n"
-" The following icons are displayed from right to left.\n"
-" Note that each icon is displayed only if available in the current "
-"activity:\n"
-" Home - Back to previous menu or exit gcompris if at the top\n"
-" Thumb - OK. Confirm your answer\n"
-" Dice - Display the current level. Click to select another level\n"
-" Music note - Repeat the question\n"
-" Question Mark - Help\n"
-" Tool - The configuration menu\n"
-" Tux Plane - About game\n"
-" The stars means:\n"
-" 1 Star - 2 to 3 years old\n"
-" 2 Stars - 4 to 5 years old\n"
-" 3 Stars - 6 to 7 years old\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"Note that each icon is displayed only if available in the current activity:\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About game\n"
+"The stars means:\n"
+"    1 Star  - 2 to 3 years old\n"
+"    2 Stars - 4 to 5 years old\n"
+"    3 Stars - 6 to 7 years old"
 msgstr ""
-"Ein einfacher Mausklick auf ein Symbol führt zu einer Tafel oder einem "
+"Ein einfacher Klick auf ein Symbol führt zu einer Tafel oder einem "
 "weiteren Menü.\n"
-" Am unteren Rand befindet sich die Kontroll-Leiste von GCompris.\n"
-" Die folgenden Symbole werden von rechts nach links angezeigt. Beachte, dass "
+"Am unteren Rand befindet sich die Kontroll-Leiste von GCompris.\n"
+"Die folgenden Symbole werden von rechts nach links angezeigt. Beachte, dass "
 "die Symbole nur dann angezeigt werden, wenn sie auch in der aktuellen Tafel "
 "verwendet werden können.\n"
-" Haus - Zurück zum übergeordneten Menü oder GCompris verlassen, wenn ganz "
-"oben\n"
-" Daumen - OK. Antwort bestätigen\n"
-" Würfel - Anzeige der Ebene. Klicken, um eine andere Ebene auszuwählen\n"
-" Musiknote - Frage wiederholen\n"
-" Fragezeichen - Hilfe\n"
-" Werkzeugkiste - Das Konfigurationsmenü\n"
-" Tuxflieger - Über GCompris\n"
-" Die Sterne bedeuten:\n"
-" Ein Stern - 2 bis 3 Jahre\n"
-" Zwei Sterne - 4 bis 5 Jahre\n"
-" Drei Sterne - 6 bis 7 Jahre\n"
+"    Haus - Zurück zum vorigen Menü oder GCompris verlassen, wenn ganz oben\n"
+"    Daumen - OK. Antwort bestätigen\n"
+"    Würfel - Anzeige der Ebene. Klicken, um eine andere Ebene auszuwählen\n"
+"    Musiknote - Frage wiederholen\n"
+"    Fragezeichen - Hilfe\n"
+"    Werkzeugkiste - Das Konfigurationsmenü\n"
+"    Tuxflieger - Über GCompris\n"
+"Die Sterne bedeuten:\n"
+"    Ein Stern - 2 bis 3 Jahre\n"
+"    Zwei Sterne - 4 bis 5 Jahre\n"
+"    Drei Sterne - 6 bis 7 Jahre"
 
-#: boards/menu.xml.in.h:2
+#: boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "GCompris Hauptmenü"
 
-#: boards/menu.xml.in.h:3
+#: boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
@@ -1762,7 +1784,7 @@ msgstr ""
 "GCompris ist eine Sammlung von Lernspielen, die verschiedene Aktivitäten für "
 "Kinder von 3 bis 8 Jahren anbieten."
 
-#: boards/menu.xml.in.h:5
+#: boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -2060,8 +2082,7 @@ msgstr ""
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr ""
-"Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
+msgstr "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
 
 #: boards/planegame.xml.in.h:2
 msgid "Number"
@@ -2096,8 +2117,7 @@ msgid "Test board for the python plugin"
 msgstr "Testtafel für das Python-Plugin"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 "Dank an Guido van Rossum und die Python-Mannschaft für diese mächtige "
 "Sprache!"
@@ -2203,8 +2223,7 @@ msgstr "Horizontale Leseübung"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of words and tell if a given word is in it"
-msgstr ""
-"Lies eine Liste von Wörtern und sag, ob das gesuchte Wort darin vorkommt"
+msgstr "Lies eine Liste von Wörtern und sag, ob das gesuchte Wort darin vorkommt"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -2237,7 +2256,7 @@ msgstr ""
 "(drunter/drüber) ist nicht wichtig. Achte jedoch darauf, dass Du nicht "
 "unerwünschte Objekte unter anderen Objekten hast."
 
-#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Zeichne den gegebenen Gegenstand nach"
 
@@ -2246,6 +2265,10 @@ msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
 msgstr "Kopiere das Spiegelbild eines Gegenstandes von rechts nach links."
+
+#: boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "Spiegele den gegebenen Gegenstand"
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2397,8 +2420,7 @@ msgstr ""
 "wieder."
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Kann die Maus bewegen, kann Nummern lesen und kann für die erste Ebene bis "
 "15 zählen"
@@ -2470,8 +2492,7 @@ msgstr "Tastatur-Training"
 
 #: boards/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr ""
-"Gib das vollständige Wort ein während es fäll, bevor es den Boden erreicht"
+msgstr "Gib das vollständige Wort ein während es fäll, bevor es den Boden erreicht"
 
 #: boards/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
@@ -2690,8 +2711,7 @@ msgstr "rechts"
 
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
-msgstr ""
-"Betrachte Deine Position und schalte zum Weitermachen zum 3D-Modus zurück"
+msgstr "Betrachte Deine Position und schalte zum Weitermachen zum 3D-Modus zurück"
 
 #: src/boards/memory.c:164
 msgid "Memory"
@@ -2719,13 +2739,11 @@ msgstr "Fallschirmspringen"
 
 #: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
-msgstr ""
-"Führe den Fallschirmspringer um ihm bei einer sicheren Landung zu helfen"
+msgstr "Führe den Fallschirmspringer um ihm bei einer sicheren Landung zu helfen"
 
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
-msgstr ""
-"Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
+msgstr "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
 
 #: src/boards/python.c:53
 msgid "Python Board"
@@ -2857,8 +2875,7 @@ msgstr "Würfel und Zahlen"
 
 #: src/boards/smallnumbers.c:71
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr ""
-"Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
+msgstr "Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
 
 #: src/boards/submarine.c:201
 msgid "Submarine"
@@ -2923,8 +2940,7 @@ msgid "GCompris Home Page"
 msgstr "GCompris Webseite"
 
 #: src/gcompris/about.c:252
-msgid ""
-"This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU Public Licence "
 "veröffentlicht"
@@ -3370,3 +3386,4 @@ msgstr "Zeit verstrichen"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Verbleibende Zeit = %d"
+
