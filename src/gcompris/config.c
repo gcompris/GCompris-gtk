@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2002/06/28 17:32:40 bcoudoin>
+ * Time-stamp: <2002/06/30 23:38:33 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -29,6 +29,7 @@
 static GnomeCanvasItem	*rootitem		= NULL;
 static GnomeCanvasItem	*item_locale_text	= NULL;
 static GnomeCanvasItem	*item_locale_flag	= NULL;
+static GnomeCanvasItem	*item_bad_flag		= NULL;
 static GnomeCanvasItem	*item_screen_text	= NULL;
 static GnomeCanvasItem	*item_timer_text	= NULL;
 static GdkPixbuf	*pixmap_checked		= NULL;
@@ -42,7 +43,7 @@ static gchar *linguas[] = {
   "az", 	N_("Azerbaijani Turkic"),
   "de", 	N_("German"),
   "el", 	N_("Greek"),
-  "en", 	N_("English"),
+  "en",		N_("English"),
   "es", 	N_("Spanish"),
   "fi", 	N_("Finnish"),
   "fr", 	N_("French"),
@@ -197,6 +198,16 @@ void gcompris_config_start ()
 					    "x", (double) x_flag_start,
 					    "y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
 					    NULL);
+
+  /* Display a bad icon if this locale is not available */
+  pixmap   = gcompris_load_pixmap("gcompris/buttons/mini_bad.png");
+  item_bad_flag = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					    gnome_canvas_pixbuf_get_type (),
+					    "pixbuf", pixmap,
+					    "x", (double) x_flag_start - 20,
+					    "y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
+					    NULL);
+  gdk_pixbuf_unref(pixmap);
 
   current_locale = gcompris_get_locale();
   set_locale_flag(current_locale);
@@ -414,7 +425,13 @@ static void set_locale_flag(gchar *locale)
   gnome_canvas_item_set (item_locale_flag,
 			 "pixbuf", pixmap,
 			 NULL);
-  
+
+  /* Check wether or not the locale is available */
+  if(setlocale(LC_ALL, locale)==NULL)
+    gnome_canvas_item_show (item_bad_flag);
+  else
+    gnome_canvas_item_hide (item_bad_flag);
+
   g_free(str);
   g_free(filename);
 

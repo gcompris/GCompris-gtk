@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2002/06/26 01:01:04 bruno>
+ * Time-stamp: <2002/07/01 01:25:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -30,7 +30,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-#define BAR_GAP 15		/* Value used to fill space above and under icons in the bar */
+#define BAR_GAP		15	/* Value used to fill space above and under icons in the bar */
+#define NUMBER_OF_ITEMS 10	/* Number of buttons in the bar                              */
 
 static void	 update_exit_button();
 static gint	 item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data);
@@ -69,7 +70,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   gint16           width, height;
   double           zoom;
 
-  width  = BOARDWIDTH-1;
+  width  = BOARDWIDTH;
   height = BARHEIGHT-2;
 
   bar_reset_sound_id();
@@ -98,7 +99,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   exit_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) width*0,
+				     "x", (double) (width/NUMBER_OF_ITEMS) * 1 -
+				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     "width", (double)  gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
@@ -121,7 +123,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   home_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) width*0.9,
+				     "x", (double) (width/NUMBER_OF_ITEMS) * 9 - 
+				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     "width", (double)  gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
@@ -142,15 +145,16 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   pixmap = gcompris_load_pixmap("gcompris/buttons/ok.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   ok_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) width*0.7,
-				"y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				"width", (double)  gdk_pixbuf_get_width(pixmap),
-				"height", (double) gdk_pixbuf_get_height(pixmap),
-				"width_set", TRUE, 
-				"height_set", TRUE,
-				NULL);
+				   gnome_canvas_pixbuf_get_type (),
+				   "pixbuf", pixmap, 
+				   "x", (double) (width/NUMBER_OF_ITEMS) * 7 -
+				   gdk_pixbuf_get_width(pixmap)/2,
+				   "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				   "width", (double)  gdk_pixbuf_get_width(pixmap),
+				   "height", (double) gdk_pixbuf_get_height(pixmap),
+				   "width_set", TRUE, 
+				   "height_set", TRUE,
+				   NULL);
   gdk_pixbuf_unref(pixmap);
 
   gtk_signal_connect(GTK_OBJECT(ok_item), "event",
@@ -167,7 +171,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   level_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				      gnome_canvas_pixbuf_get_type (),
 				      "pixbuf", pixmap, 
-				      "x", (double) width*0.6,
+				      "x", (double) (width/NUMBER_OF_ITEMS) * 5 -
+				      gdk_pixbuf_get_width(pixmap)/2,
 				      "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				      "width", (double)  gdk_pixbuf_get_width(pixmap),
 				      "height", (double) gdk_pixbuf_get_height(pixmap),
@@ -188,17 +193,18 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   pixmap = gcompris_load_pixmap("gcompris/buttons/repeat.png");
   zoom = (double)(height-BAR_GAP)/(double)gdk_pixbuf_get_height(pixmap);
   repeat_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap, 
-				     "x", (double) width*0.5,
-				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     "width", (double)  gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     "width_set", TRUE, 
-				     "height_set", TRUE,
-				     NULL);
+				       gnome_canvas_pixbuf_get_type (),
+				       "pixbuf", pixmap, 
+				       "x", (double) (width/NUMBER_OF_ITEMS) * 6 -
+				       gdk_pixbuf_get_width(pixmap)/2,
+				       "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
+				       "width", (double)  gdk_pixbuf_get_width(pixmap),
+				       "height", (double) gdk_pixbuf_get_height(pixmap),
+				       "width_set", TRUE, 
+				       "height_set", TRUE,
+				       NULL);
   gdk_pixbuf_unref(pixmap);
-
+  
   gtk_signal_connect(GTK_OBJECT(repeat_item), "event",
 		     (GtkSignalFunc) item_event_bar,
 		     "repeat");
@@ -212,7 +218,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   help_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) width*0.4,
+				     "x", (double) (width/NUMBER_OF_ITEMS) * 4 -
+				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     "width", (double)  gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
@@ -234,7 +241,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   config_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) width*0.3,
+				     "x", (double) (width/NUMBER_OF_ITEMS) * 3 -
+				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     "width", (double)  gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
@@ -256,7 +264,8 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
   about_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) width*0.2,
+				     "x", (double) (width/NUMBER_OF_ITEMS) * 2 -
+				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     "width", (double)  gdk_pixbuf_get_width(pixmap),
 				     "height", (double) gdk_pixbuf_get_height(pixmap),
@@ -400,10 +409,12 @@ static void update_exit_button()
     {
       /* We are in the upper menu: show it */
       gnome_canvas_item_show(exit_item);
+      gnome_canvas_item_hide(home_item);
     }
   else
     {
       gnome_canvas_item_hide(exit_item);
+      gnome_canvas_item_show(home_item);
     }
 }
 
@@ -491,6 +502,7 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
       else if(!strcmp((char *)data, "help"))
 	{
 	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
+	  //	  gcompris_set_image_focus(item, FALSE);
 	  gcompris_help_start(gcomprisBoard);
 	}
       else if(!strcmp((char *)data, "repeat"))
@@ -504,11 +516,13 @@ item_event_bar(GnomeCanvasItem *item, GdkEvent *event, gchar *data)
 	{
 	  if(gcomprisBoard->plugin->config != NULL)
 	    {
+	      //	      gcompris_set_image_focus(item, FALSE);
 	      gcomprisBoard->plugin->config();
 	    }
 	}
       else if(!strcmp((char *)data, "about"))
 	{
+	  //	  gcompris_set_image_focus(item, FALSE);
 	  gcompris_about_start();
 	}
       else if(!strcmp((char *)data, "exit"))

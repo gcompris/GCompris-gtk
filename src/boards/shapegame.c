@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/06/28 14:36:38 bcoudoin>
+ * Time-stamp: <2002/07/01 00:58:46 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -676,23 +676,18 @@ add_shape_to_list_of_shapes(Shape *shape)
 	  if(pixmap)
 	    {
 	      double w, h;
+	      double ratio;
 	      Shape *icon_shape;
 	      
 	      /* Calc a zoom factor so that the shape will fit in the shapelist
 		 whatever its current size */
-	      w = gdk_pixbuf_get_width(pixmap);
-	      h = gdk_pixbuf_get_height(pixmap);
+	      w = ICON_WIDTH;
+	      h = gdk_pixbuf_get_height(pixmap) * (w / gdk_pixbuf_get_width(pixmap));
 	      
 	      if(h > ICON_HEIGHT)
 		{
 		  h = ICON_HEIGHT;
 		  w = gdk_pixbuf_get_width(pixmap) * ( h / gdk_pixbuf_get_height(pixmap));
-		}
-	      
-	      if(w > ICON_WIDTH)
-		{
-		  w = ICON_WIDTH;
-		  h = gdk_pixbuf_get_height(pixmap) * ( w / gdk_pixbuf_get_width(pixmap));
 		}
 	      
 	      item = gnome_canvas_item_new (shape_list_group_root,
@@ -1153,7 +1148,6 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       printf(" item event current_shapelistgroup_index=%d\n", current_shapelistgroup_index);
       if(!strcmp((char *)data, "previous_shapelist"))
 	{
-	  gcompris_set_image_focus(item, TRUE);
 
 	  if(current_shapelistgroup_index>0)
 	    {
@@ -1161,21 +1155,25 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	    }
 
 	  if(current_shapelistgroup_index == 0)
-	    gnome_canvas_item_hide(previous_shapelist_item);
+	    {
+	      gcompris_set_image_focus(item, TRUE);
+	      gnome_canvas_item_hide(previous_shapelist_item);
+	    } 
 
 	  gnome_canvas_item_show(next_shapelist_item);
 	}
       else if(!strcmp((char *)data, "next_shapelist"))
 	{	
-	  gcompris_set_image_focus(item, TRUE);
-
 	  if(current_shapelistgroup_index<g_list_length(shape_list_group)-1)
 	    {
 	      current_shapelistgroup_index++;
 	    }
 
 	  if(current_shapelistgroup_index == g_list_length(shape_list_group)-1)
-	    gnome_canvas_item_hide(next_shapelist_item);
+	    {
+	      gcompris_set_image_focus(item, TRUE);
+	      gnome_canvas_item_hide(next_shapelist_item);
+	    }
 
 	  gnome_canvas_item_show(previous_shapelist_item);
 

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/06/26 01:13:47 bruno>
+ * Time-stamp: <2002/06/30 23:28:15 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -447,7 +447,18 @@ void gcompris_set_locale(gchar *locale)
 
   gcompris_locale = g_strdup(setlocale(LC_ALL, locale));
   printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
-  /* WARNING: This does not update gettext translation */
+
+  /* Override the env locale to what the user requested */
+  setenv ("LC_ALL", gcompris_get_locale(), TRUE);
+  setenv ("LC_MESSAGES", gcompris_get_locale(), TRUE);
+  setenv ("LANGUAGE", gcompris_get_locale(), TRUE);
+  setenv ("LANG", gcompris_get_locale(), TRUE);
+ 
+ /* WARNING: This does not update gettext translation */
+  /* Call for localization startup */
+  bindtextdomain (PACKAGE, PACKAGE_LOCALE_DIR);
+  textdomain (PACKAGE);
+
 }
 
 /*****************************************
@@ -464,9 +475,6 @@ gcompris_init (int argc, char *argv[])
   /* To have some real random behaviour */
   srand (time (NULL));
 
-  bindtextdomain (PACKAGE, PACKAGE_LOCALE_DIR);
-  textdomain (PACKAGE);
-
   load_properties ();
 
   // Set the default gcompris cursor
@@ -474,7 +482,7 @@ gcompris_init (int argc, char *argv[])
 
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);
-  
+
   initSound();
   
   gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
