@@ -310,6 +310,8 @@ static void submarine_next_level() {
   ballast_av_air = ballast_ar_air = MAX_BALLAST/10.0;
   submarine_destroyed = FALSE;
 
+  gcompris_bar_set(0);
+
   submarine_destroy_all_items();
   gamewon = FALSE;
 
@@ -877,6 +879,9 @@ static gboolean update_timeout() {
   gboolean regleur_dirty = FALSE;
   gboolean air_dirty = FALSE;
 
+  if(board_paused)
+    return;
+
   /* air in ballasts */
   if (ballast_av_purge_open) {
     ballast_av_air -= UPDATE_DELAY/1000.0 *500.0; // 500 liters go out per second
@@ -946,6 +951,9 @@ static gboolean update_timeout() {
 static gboolean update_timeout_slow() {
   double delta_assiette;
 
+  if(board_paused)
+    return;
+ 
   /* speed : don't reach instantly the ordered speed */
   if (speed_ordered != submarine_horizontal_speed) {
     submarine_horizontal_speed += (speed_ordered-submarine_horizontal_speed)/10.0;
@@ -1064,6 +1072,10 @@ static gboolean update_timeout_slow() {
  * =====================================================================*/
 static gboolean update_timeout_very_slow() {
   /* charging */
+
+  if(board_paused)
+    return;
+
   if (air_charging && depth < SURFACE_DEPTH+5.0) {
     air += 100.0*UPDATE_DELAY_VERY_SLOW/1000.0;
     setAir(air);
