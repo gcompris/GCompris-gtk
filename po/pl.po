@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-26 12:33+0200\n"
+"POT-Creation-Date: 2004-09-28 20:08+0200\n"
 "PO-Revision-Date: 2003-10-31 15:35+0100\n"
 "Last-Translator: Gnome PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -2841,7 +2841,7 @@ msgstr ""
 msgid "Help"
 msgstr "Pomoc"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:203
+#: src/gcompris/about.c:316 src/gcompris/config.c:204
 #: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2878,197 +2878,201 @@ msgid "Czech"
 msgstr "czeski"
 
 #: src/gcompris/config.c:69
+msgid "Danish"
+msgstr "duński"
+
+#: src/gcompris/config.c:70
 msgid "German"
 msgstr "niemiecki"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Greek"
 msgstr "grecki"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "American English"
 msgstr "angielski amerykański"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Great Britain English"
 msgstr "angielski brytyjski"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Canadian English"
 msgstr "angielski kandyjski"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "hiszpański"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Finnish"
 msgstr "fiński"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "French"
 msgstr "francuski"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Hebrew"
 msgstr "hebrajski"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Indian"
 msgstr "hinduski"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Hungarian"
 msgstr "węgierski"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Croatian"
 msgstr "chorwacki"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Italian"
 msgstr "włoski"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Lithuanian"
 msgstr "litewski"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Macedonian"
 msgstr "macedoński"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Malayalam"
 msgstr "malajalam"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Malay"
 msgstr "malajski"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Dutch"
 msgstr "holenderski"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Norwegian"
 msgstr "norweski"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Polish"
 msgstr "polski"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Portuguese"
 msgstr "portugalski"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Brazil Portuguese"
 msgstr "portugalski (brazylijski)"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Romanian"
 msgstr "rumuński"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Russian"
 msgstr "rosyjski"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Slovak"
 msgstr "słowacki"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Slovenian"
 msgstr "słoweński"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Albanian"
 msgstr "albański"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Serbian (Latin)"
 msgstr "serbski (łacina)"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Serbian"
 msgstr "serbski"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Swedish"
 msgstr "szwedzki"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Turkish"
 msgstr "turecki"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Walloon"
 msgstr "walijski"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "No time limit"
 msgstr "Bez ograniczeń czasowych"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Slow timer"
 msgstr "Wolny stoper"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Normal timer"
 msgstr "Normalny stoper"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Fast timer"
 msgstr "Szybki stoper"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (domyślna dla GCompris)"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "No filter"
 msgstr "Bez filtru"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "Only this level"
 msgstr "Tylko ten poziom"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "Up to this level"
 msgstr "Do tego poziomu"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "This level and above"
 msgstr "Ten poziom i wyższe"
 
-#: src/gcompris/config.c:177
+#: src/gcompris/config.c:178
 msgid "GCompris Configuration"
 msgstr "Ustawienia GCompris"
 
-#: src/gcompris/config.c:286
+#: src/gcompris/config.c:287
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
-#: src/gcompris/config.c:329
+#: src/gcompris/config.c:330
 msgid "Music"
 msgstr "Muzyka"
 
-#: src/gcompris/config.c:357
+#: src/gcompris/config.c:358
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:391
+#: src/gcompris/config.c:392
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nie można otworzyć ścieżki do szaty graficznej: %s"
 
-#: src/gcompris/config.c:412
+#: src/gcompris/config.c:413
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Nie znaleziono szaty graficznej w %s\n"
 
-#: src/gcompris/config.c:427 src/gcompris/config.c:812
-#: src/gcompris/config.c:823
+#: src/gcompris/config.c:428 src/gcompris/config.c:813
+#: src/gcompris/config.c:824
 #, c-format
 msgid "Skin : %s"
 msgstr "Szata graficzna: %s"
