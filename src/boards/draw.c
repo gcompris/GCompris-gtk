@@ -535,6 +535,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
 				    "x2", (double) x1 + 24,
 				    "y2", (double) y + color_pixmap_height/2,
 				    "fill_color_rgba", ext_colorlist[c*4],
+				    "outline_color_rgba", 0x07a3e080,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) ext_color_event,
@@ -550,6 +551,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
 				    "x2", (double) x1 + 50,
 				    "y2", (double) y + color_pixmap_height/2,
 				    "fill_color_rgba", ext_colorlist[c*4+1],
+				    "outline_color_rgba", 0x07a3e080,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) ext_color_event,
@@ -562,6 +564,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
 				    "x2", (double) x1 + 24,
 				    "y2", (double) y + color_pixmap_height - 8,
 				    "fill_color_rgba", ext_colorlist[c*4+2],
+				    "outline_color_rgba", 0x07a3e080,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) ext_color_event,
@@ -574,6 +577,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
 				    "x2", (double) x1 + 50,
 				    "y2", (double) y + color_pixmap_height - 8,
 				    "fill_color_rgba", ext_colorlist[c*4+3],
+				    "outline_color_rgba", 0x07a3e080,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) ext_color_event,
@@ -585,7 +589,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
   currentColor = ext_colorlist[0];
 }
 
-#define SELECTOR_VERTICAL_SPACING 60
+#define SELECTOR_VERTICAL_SPACING 55
 
 static void display_tool_selector(GnomeCanvasGroup *parent)
 {

@@ -1,3 +1,15 @@
+2003-11-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/draw/color-selector.jpg: changed color
+	* boards/draw/tool-selector.jpg: changed color
+	* boards/geography/board1_0.xml.in: moved map on the right
+	* boards/geography/board2_0.xml.in: moved map on the right
+	* boards/geography/europe/italy.png: changed color
+	* boards/geography/europe/russia.png: changed color
+	* boards/skins/default/gcompris-shapebg.jpg: changed color
+	* src/boards/draw.c: (display_color_selector): looking improvements
+	* src/boards/python/redraw.py: completed the board. Now playable
+
 2003-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/redraw.py: nearly completed the implementation but not yet playable
