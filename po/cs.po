@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-20 18:59+0200\n"
-"PO-Revision-Date: 2004-10-20 21:35+0200\n"
+"POT-Creation-Date: 2004-10-24 10:52+0200\n"
+"PO-Revision-Date: 2004-10-24 17:47+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -278,7 +278,7 @@ msgstr "pistáciová"
 msgid "platinum"
 msgstr "platinová"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "purpurová"
 
@@ -670,6 +670,10 @@ msgstr ""
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Doprava"
+
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "The aviation"
+msgstr "Letectví"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1255,6 +1259,10 @@ msgstr "Turecko"
 #: boards/geography/board3_1.xml.in.h:23
 msgid "ukraine"
 msgstr "Ukrajina"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Regiony Francie"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1979,7 +1987,9 @@ msgstr ""
 msgid ""
 "In this game, Tux the parachuter needs help to land safely on the fishing "
 "boat. He needs to take care of the wind direction and speed."
-msgstr "V této hře parašutista Tux potřebuje pomoci bezpečně přistát na rybářské loďce. Musí dávat pozor na směr a rychlost větru."
+msgstr ""
+"V této hře parašutista Tux potřebuje pomoci bezpečně přistát na rybářské "
+"loďce. Musí dávat pozor na směr a rychlost větru."
 
 #: boards/paratrooper.xml.in.h:4
 msgid "Parachute jumper"
@@ -2067,27 +2077,27 @@ msgstr "Čtení barev"
 msgid "This board teaches basic colors."
 msgstr "Tato deska učí základní barvy."
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "černá"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "modrá"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "hnědá"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "zelená"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "šedá"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "oranžová"
 
@@ -2095,7 +2105,7 @@ msgstr "oranžová"
 msgid "pink"
 msgstr "růžová"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "červená"
 
@@ -2103,11 +2113,11 @@ msgstr "červená"
 msgid "violet"
 msgstr "fialová"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "bílá"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "žlutá"
 
@@ -2519,10 +2529,55 @@ msgstr "Nemohu otevřít adresář: %s"
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr ""
+#: src/boards/colors.c:54
+#, fuzzy
+msgid "Click on the blue toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:55
+#, fuzzy
+msgid "Click on the brown toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:56
+#, fuzzy
+msgid "Click on the green toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:57
+#, fuzzy
+msgid "Click on the grey toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:58
+#, fuzzy
+msgid "Click on the orange toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:59
+#, fuzzy
+msgid "Click on the purple toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:60
+#, fuzzy
+msgid "Click on the red toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:61
+#, fuzzy
+msgid "Click on the yellow toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:62
+#, fuzzy
+msgid "Click on the black toon"
+msgstr "Klikni na správnou barvu"
+
+#: src/boards/colors.c:63
+#, fuzzy
+msgid "Click on the white toon"
+msgstr "Klikni na správnou barvu"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2572,11 +2627,11 @@ msgstr "Vyber si desku"
 msgid "Pratice money usage"
 msgstr "Procvič si používání peněz"
 
-#: src/boards/paratrooper.c:104
+#: src/boards/paratrooper.c:102
 msgid "Paratrooper"
 msgstr "Parašutista"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Veď parašutistu, aby bezpečně přistál"
 
@@ -3099,7 +3154,7 @@ msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -3113,12 +3168,12 @@ msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Verze: %s\n"
 "Licence: GPL\n"
-"Více informací na http://www.ofset.org/gcompris\n"
+"Více informací na http://gcompris.net\n"
 
 #: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
@@ -3212,9 +3267,6 @@ msgstr "Zbývající čas = %d"
 
 #~ msgid "VIII Century"
 #~ msgstr "8. století"
-
-#~ msgid "Regions of France"
-#~ msgstr "Regiony Francie"
 
 #~ msgid ""
 #~ "select the audio output. Use '-A list' to get the list of available audio "
