@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-29 21:17+0100\n"
-"PO-Revision-Date: 2005-01-29 23:16+0100\n"
+"POT-Creation-Date: 2005-02-15 19:03+0100\n"
+"PO-Revision-Date: 2005-02-15 19:15+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -703,6 +703,26 @@ msgstr "Du må kunna fortelja ei kort forteljing."
 msgid "Moonwalker"
 msgstr "Månevandrar"
 
+#: ../boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Haust"
+
+#: ../boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Vår"
+
+#: ../boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Sommar"
+
+#: ../boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "Dei fire årstidene"
+
+#: ../boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Vinter"
+
 #: ../boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tux og epletreet"
@@ -728,10 +748,10 @@ msgid ""
 "If not sure, check online in wikipedia at\n"
 "http://www.wikipedia.org"
 msgstr ""
-"Plasser bileta i rekkjefølgja og på\n"
-"datoane gjenstandane vart oppfunne.\n"
-"Om du ikkje veit svara, kan du sjå\n"
-"i leksikonet på http://nn.wikipedia.org/."
+"Plasser gjenstandane på datoane\n"
+"dei vart oppfunne. Om du ikkje veit\n"
+"svara, kan du sjå i leksikonet på\n"
+"http://nn.wikipedia.org/."
 
 #: ../boards/chronos/board3_0.xml.in.h:7 ../boards/chronos/board3_1.xml.in.h:4
 #: ../boards/chronos/board3_2.xml.in.h:4 ../boards/chronos/board3_3.xml.in.h:4
@@ -774,7 +794,9 @@ msgstr "1903 – Wright-brørne sin Flyer III"
 
 #: ../boards/chronos/board4_0.xml.in.h:3
 msgid "1909 Louis Bleriot cross the Channel"
-msgstr "1903 – Louis Blériot kryssar Den engelske kanalen"
+msgstr ""
+"1903 – Louis Blériot kryssar\n"
+"Den engelske kanalen"
 
 #: ../boards/chronos/board4_0.xml.in.h:4 ../boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
@@ -1759,21 +1781,21 @@ msgid "None"
 msgstr "Ingen."
 
 #: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
-#: ../boards/maze3D.xml.in.h:2
+#: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Du må kunna bruka piltastane på tastaturet."
 
-#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:130
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Finn vegen ut av labyrinten."
 
 #: ../boards/maze.xml.in.h:3 ../boards/maze2DRelative.xml.in.h:3
-#: ../boards/maze3D.xml.in.h:4
+#: ../boards/maze3D.xml.in.h:4 ../boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Hjelp Tux å komma ut av labyrinten."
 
 #: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
-#: ../src/boards/maze.c:129
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:132
 msgid "Maze"
 msgstr "Labyrint"
 
@@ -1802,6 +1824,27 @@ msgstr ""
 "Bruk piltastane på tastaturet til å flytta Tux fram til døra. Bruk "
 "mellomromstasten til å byta mellom 2D- og 3D-modus. I 2D-modus får du berre "
 "sett kor du er på kartet, og kan ikkje flytta."
+
+#: ../boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Finn vegen ut den usynlege labyrinten."
+
+#: ../boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr ""
+"Bruk piltastane på tastaturet til å flytta Tux fram til døra. Bruk "
+"mellomromstasten til å byta mellom synlege og usynlege veggar. Du kan berre flytta deg når veggane er usynlege."
+
+#: ../boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Finn vegen ut forskjellige typar labyrintar."
+
+#: ../boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Labyrintar"
 
 #: ../boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2427,7 +2470,18 @@ msgid ""
 "same weather conditions by using the retry button. You can click and drag "
 "your mouse anywhere on the map to get a measurement in distance and angle. "
 "Going to the next level will give your more complex weather conditions."
-msgstr "Skriv inn kommandoar til båten din i tekstfeltet. Kommandoane som er støtta er vist mellom dei to tekstfelta. Kommandoane «venstre» og «høgre» må etterfølgjast av ein vinkel i gradar, og som standard vert 45 gradar brukt. Kommandoen «fram» flyttar båten framover, og du kan velja kor langt fram han skal gå, som standard éi eining (målt etter linjalen). Eksempelvis kan du skriva «venstre 90» for å snu heilt mot venstre og «fram 10» for å gå fram 10 einingar. Målet er nå den raude linja til høgre. Når du er ferdig kan du prøva å forbetra programmet, og starta eit nytt kappløp med same vêrforhold som før ved å trykkja på «om igjen»-knappen. Du kan òg trykkja og dra kor som helst på kartet for å måla avstandar og vinklar. På høgare nivå får du meir kompliserte vêrforhold."
+msgstr ""
+"Skriv inn kommandoar til båten din i tekstfeltet. Kommandoane som er støtta "
+"er vist mellom dei to tekstfelta. Kommandoane «venstre» og «høgre» må "
+"etterfølgjast av ein vinkel i gradar, og som standard vert 45 gradar brukt. "
+"Kommandoen «fram» flyttar båten framover, og du kan velja kor langt fram han "
+"skal gå, som standard éi eining (målt etter linjalen). Eksempelvis kan du "
+"skriva «venstre 90» for å snu heilt mot venstre og «fram 10» for å gå fram "
+"10 einingar. Målet er nå den raude linja til høgre. Når du er ferdig kan du "
+"prøva å forbetra programmet, og starta eit nytt kappløp med same vêrforhold "
+"som før ved å trykkja på «om igjen»-knappen. Du kan òg trykkja og dra kor "
+"som helst på kartet for å måla avstandar og vinklar. På høgare nivå får du "
+"meir kompliserte vêrforhold."
 
 #: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
 msgid ""
@@ -2490,15 +2544,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Få vekta i likevekt"
 
-#: ../boards/smallnumbers.xml.in.h:1
+#: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Tel kor mange prikkar det er på terningen før han når bakken."
 
-#: ../boards/smallnumbers.xml.in.h:2
+#: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Du må kunna telja."
 
-#: ../boards/smallnumbers.xml.in.h:3
+#: ../boards/smallnumbers.xml.in.h:3 ../boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Tel talet på punkt innan tidsfristen går ut."
 
@@ -2506,11 +2560,15 @@ msgstr "Tel talet på punkt innan tidsfristen går ut."
 msgid "Numbers With Dice"
 msgstr "Talet og terningar"
 
-#: ../boards/smallnumbers.xml.in.h:5
+#: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr "Skriv inn talet på prikkar på terningen før han når bakken."
+
+#: ../boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Tal med to terningar"
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
@@ -2644,11 +2702,15 @@ msgstr "Leik og lær-spel for ungar frå 2 til 10 år"
 msgid "Educational suite gcompris"
 msgstr "Leik og lær-samlinga GCompris"
 
+#: ../gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Fleire aktivitetar for unga"
+
 #: ../src/boards/advanced_colors.c:541 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:500
 #: ../src/boards/shapegame.c:1880 ../src/gcompris/gameutil.c:126
 #: ../src/gcompris/gameutil.c:517 ../src/gcompris/gameutil.c:518
-#: ../src/gcompris/gcompris.c:420 ../src/gcompris/images_selector.c:477
+#: ../src/gcompris/gcompris.c:420 ../src/gcompris/images_selector.c:645
 #: ../src/gcompris/skin.c:83 ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2848,7 +2910,11 @@ msgstr "venstre"
 msgid "right"
 msgstr "høgre"
 
-#: ../src/boards/maze.c:453
+#: ../src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Sjå kor du er, og byt så tilbake til usynlege veggar for å flytta deg."
+
+#: ../src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Sjå kor du er, og byt så tilbake til 3D-modus."
 
@@ -3062,11 +3128,11 @@ msgstr ""
 "Brettdataa vert lagra i fila\n"
 "/tmp/gcompris-board.xml"
 
-#: ../src/boards/smallnumbers.c:70
+#: ../src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Talet med terningar"
 
-#: ../src/boards/smallnumbers.c:71
+#: ../src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Trykk på tala 1 til 9 på tastaturet for terningen når bakken"
 
@@ -3105,13 +3171,13 @@ msgstr "Skriv inn dei dalande orda før dei når bakken."
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Forfattar: Bruno Coudoin\n"
-"Bidrag frå: Pascal Georges, José Jorge\n"
-"Bilete: Renaud Blanchard\n"
+"Bidrag frå: Pascal Georges og José Jorge\n"
+"Bilete: Renaud Blanchard og Frank Doucet\n"
 "Startmusikk: Djilali Sebihi\n"
 "Bakgrunnsmusikk: Rico da Halvarez\n"
 
@@ -3133,16 +3199,16 @@ msgid "GCompris Home Page"
 msgstr "Heimesida til GCompris"
 
 #: ../src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU Public License"
 msgstr "GCompris er ein GNU-pakke og tilgjengeleg under GNU Public License."
 
 #: ../src/gcompris/about.c:281
 msgid "Help"
 msgstr "Hjelp"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:208
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:209
 #: ../src/gcompris/gameutil.c:898 ../src/gcompris/help.c:329
-#: ../src/gcompris/images_selector.c:152
+#: ../src/gcompris/images_selector.c:252
 msgid "OK"
 msgstr "OK"
 
@@ -3223,182 +3289,186 @@ msgid "Indian (Hindi)"
 msgstr "Indisk (Hindi)"
 
 #: ../src/gcompris/config.c:81
+msgid "Indian (Gujarati)"
+msgstr "Indisk (gujarati)"
+
+#: ../src/gcompris/config.c:82
 msgid "Indian (Punjabi)"
 msgstr "Indisk (panjabi)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Italian"
 msgstr "Italiensk"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Macedonian"
 msgstr "Makedonsk"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Malay"
 msgstr "Malayisk"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Nederlandsk"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Norsk (bokmål)"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Norsk (nynorsk)"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Polsk"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Portugisisk (Portugal)"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Brazil Portuguese"
 msgstr "Portugisisk (Brasil)"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Rumensk"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Russisk"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Albanian"
 msgstr "Albansk"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Serbian (Latin)"
 msgstr "Serbisk (latinsk alfabet)"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Swedish"
 msgstr "Svensk"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Walloon"
 msgstr " Vallonsk"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Chinese (Simplified)"
 msgstr "Kinesisk – forenkla"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "No time limit"
 msgstr "Inga tidsgrense"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Slow timer"
 msgstr "Sakte tid"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Normal timer"
 msgstr "Vanleg tid"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Fast timer"
 msgstr "Rask tid"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standard for GCompris)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "No filter"
 msgstr "Ingen filter"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Only this level"
 msgstr "Berre dette nivået"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Up to this level"
 msgstr "Opp til dette nivået"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "This level and above"
 msgstr "Dette nivået og høgare"
 
-#: ../src/gcompris/config.c:182
+#: ../src/gcompris/config.c:183
 msgid "GCompris Configuration"
 msgstr "GCompris-oppsett"
 
-#: ../src/gcompris/config.c:291
+#: ../src/gcompris/config.c:292
 msgid "Fullscreen"
 msgstr "Fullskjerm"
 
-#: ../src/gcompris/config.c:334
+#: ../src/gcompris/config.c:335
 msgid "Music"
 msgstr "Musikk"
 
-#: ../src/gcompris/config.c:362
+#: ../src/gcompris/config.c:363
 msgid "Effect"
 msgstr "Lydeffektar"
 
-#: ../src/gcompris/config.c:396
+#: ../src/gcompris/config.c:397
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Klarte ikkje opna draktmappa «%s»"
 
-#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:418
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Fann inga drakt i «%s»\n"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:817
-#: ../src/gcompris/config.c:828
+#: ../src/gcompris/config.c:433 ../src/gcompris/config.c:818
+#: ../src/gcompris/config.c:829
 #, c-format
 msgid "Skin : %s"
 msgstr "Drakt: %s"
 
-#: ../src/gcompris/file_selector.c:277
+#: ../src/gcompris/file_selector.c:296
 msgid "CANCEL"
 msgstr "Avbryt"
 
-#: ../src/gcompris/file_selector.c:308
+#: ../src/gcompris/file_selector.c:327
 msgid "LOAD"
 msgstr "Opna"
 
-#: ../src/gcompris/file_selector.c:308
+#: ../src/gcompris/file_selector.c:327
 msgid "SAVE"
 msgstr "Lagra"
 
