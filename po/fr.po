@@ -1,6 +1,7 @@
 # translation of fr.po to 
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
 # gcompris fr.po.
 # Copyright (C) 2000-2002,2003 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
@@ -10,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"POT-Creation-Date: 2003-07-19 09:26+0200\n"
-"PO-Revision-Date: 2003-08-21 15:45+0200\n"
+"POT-Creation-Date: 2003-08-21 17:27+0200\n"
+"PO-Revision-Date: 2003-08-21 17:39+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +30,7 @@ msgstr "Savoir lire"
 
 #: boards/advanced_colors.xml.in.h:3 boards/colors.xml.in.h:2
 #: boards/read_colors.xml.in.h:2 src/boards/advanced_colors.c:87
-#: src/boards/colors.c:68
+#: src/boards/colors.c:75
 msgid "Click on the right color"
 msgstr "Clique sur la bonne couleur"
 
@@ -283,7 +284,7 @@ msgstr "pistache"
 msgid "platinum"
 msgstr "platine"
 
-#: boards/advanced_colors/board8.xml.in.h:6
+#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
 msgid "purple"
 msgstr "pourpre"
 
@@ -352,6 +353,17 @@ msgstr "Table de multiplication"
 #: boards/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
 msgstr "Entraînement à l'opération de multiplication"
+
+#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "Vers les activités d'algèbre"
+
+#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Clique avec le bouton gauche pour sélectionner une activité"
 
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
@@ -439,17 +451,6 @@ msgstr "Entraînement à l'opération d'addition"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition"
 msgstr "Addition simple"
-
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra activities"
-msgstr "Vers les activités d'algèbre"
-
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Clique avec le bouton gauche pour sélectionner une activité"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -554,7 +555,8 @@ msgstr "Apprentissage des échecs"
 
 #: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
 #: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:3 boards/hanoi.xml.in.h:2
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulation de la souris"
 
@@ -685,7 +687,7 @@ msgstr "Concept de l'heure, lecture de l'heure"
 msgid "Can move the mouse."
 msgstr "Pouvoir déplacer la souris"
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+#: boards/colors.xml.in.h:3 src/boards/colors.c:74
 msgid "Colors"
 msgstr "Couleurs"
 
@@ -788,11 +790,12 @@ msgstr "Entraînement à la numération"
 msgid "Place the items in the best way to count them"
 msgstr "Déplace les éléments et arrange les de façon à pouvoir les compter"
 
-#: boards/erase.xml.in.h:2
+#: boards/erase.xml.in.h:2 boards/fifteen.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Coordination moteur"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 boards/fifteen.xml.in.h:5 src/boards/erase.c:69
+#: src/boards/fifteen.c:56 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Déplace la souris de l'ordinateur"
 
@@ -803,6 +806,16 @@ msgstr "Déplace la souris pour tout effacer et découvrir le fond"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Bougez la souris jusqu'à ce que les blocks disparaissent"
+
+#: boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block deside him. It will be swapped with "
+"the empty block."
+msgstr "Clique sur un élément avec un espace vide près de lui. Ils seront interchangés."
+
+#: boards/fifteen.xml.in.h:4
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1157,31 +1170,6 @@ msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 "L'image d'une main est montrée, il faut déterminer si c'est la gauche ou la "
 "droite"
-
-#: boards/superbrain.xml.in.h:1
-msgid ""
-"Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
-"a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
-msgstr ""
-"Cliquez sur les éléments jusqu'à trouver la position qui vous semble "
-"correcte.\n"
-"Ensuite, cliquez sur OK dans la barre de contrôle. \n"
-"Dans les niveaux inférieurs, tux vous donnes une indication si vous avez \n"
-"trouvé la bonne position en marquant la case en noir.\n"
-"Vous pouvez utiliser le bouton droit de la souris pour faire avancer les "
-"couleurs\n"
-"dans l'autre sens."
-
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
-msgid "Super Brain"
-msgstr "Super Cerveau"
-
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
-msgid "Tux has hidden several items, find them back in the correct order"
-msgstr "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
@@ -1586,6 +1574,26 @@ msgstr ""
 "Utilises les touches flèches de direction du clavier pour déplacer\n"
 "l'hélicoptère dans l'ordre croissant."
 
+#: boards/pythontest.xml.in.h:1
+msgid "Add a language binding to gcompris."
+msgstr "Ajout du support d'un language dans gcompris"
+
+#: boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "Programmeur Python avancé"
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Test Python"
+
+#: boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "Activité test pour le plugin python"
+
+#: boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr "Merci à Guido van Rossum et à l'équipe python pour ce language puissant"
+
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
 msgstr "Un jeu de mémoire basé sur des trains"
@@ -1626,27 +1634,27 @@ msgstr "Lire des couleurs"
 msgid "This board is dedicated to read basic colors."
 msgstr "L'objectif de cette activité est de lire les couleurs de base."
 
-#: boards/read_colors/board1.xml.in.h:1
+#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
 msgid "black"
 msgstr "noir"
 
-#: boards/read_colors/board1.xml.in.h:2
+#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
 msgid "blue"
 msgstr "bleu"
 
-#: boards/read_colors/board1.xml.in.h:3
+#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
 msgid "brown"
 msgstr "marron"
 
-#: boards/read_colors/board1.xml.in.h:4
+#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
 msgid "green"
 msgstr "vert"
 
-#: boards/read_colors/board1.xml.in.h:5
+#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
 msgid "grey"
 msgstr "gris"
 
-#: boards/read_colors/board1.xml.in.h:6
+#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
 msgid "orange"
 msgstr "orange"
 
@@ -1654,7 +1662,7 @@ msgstr "orange"
 msgid "pink"
 msgstr "rose"
 
-#: boards/read_colors/board1.xml.in.h:8
+#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
 msgid "red"
 msgstr "rouge"
 
@@ -1662,11 +1670,11 @@ msgstr "rouge"
 msgid "violet"
 msgstr "violet"
 
-#: boards/read_colors/board1.xml.in.h:10
+#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
 msgid "white"
 msgstr "blanc"
 
-#: boards/read_colors/board1.xml.in.h:11
+#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
 msgid "yellow"
 msgstr "jaune"
 
@@ -1780,6 +1788,30 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Equilibre correctement la balance"
 
+#: boards/smallnumbers.xml.in.h:1
+msgid "Counting skill"
+msgstr "Savoir compter"
+
+#: boards/smallnumbers.xml.in.h:2
+msgid "In a limited time, count a number of dots"
+msgstr "En en temps limité, compter un nombre de points"
+
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+msgid "Numbers With Dices"
+msgstr "Les nombres avec les dés"
+
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
+msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
+
+#: boards/smallnumbers.xml.in.h:5
+msgid ""
+"With the keyboard, press the number corresponding to the number of dots in "
+"the falling dice."
+msgstr ""
+"Avec le clavier, presse le nombre correspondant aux nombres de points dans \n"
+"le dé qui tombe."
+
 #: boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks in order "
@@ -1806,29 +1838,30 @@ msgstr ""
 "Piltote un sous-marin avec les réservoirs d'air et les gouvernails\n"
 "de direction de piqué"
 
-#: boards/smallnumbers.xml.in.h:1
-msgid "Counting skill"
-msgstr "Savoir compter"
-
-#: boards/smallnumbers.xml.in.h:2
-msgid "In a limited time, count a number of dots"
-msgstr "En en temps limité, compter un nombre de points"
-
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
-msgid "Numbers With Dices"
-msgstr "Les nombres avec les dés"
-
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
-msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
-
-#: boards/smallnumbers.xml.in.h:5
+#: boards/superbrain.xml.in.h:1
 msgid ""
-"With the keyboard, press the number corresponding to the number of dots in "
-"the falling dice."
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. At the lower level, tux "
+"gives you an indication if you got a good position by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"oposite order."
 msgstr ""
-"Avec le clavier, presse le nombre correspondant aux nombres de points dans \n"
-"le dé qui tombe."
+"Cliquez sur les éléments jusqu'à trouver la position qui vous semble "
+"correcte.\n"
+"Ensuite, cliquez sur OK dans la barre de contrôle. \n"
+"Dans les niveaux inférieurs, tux vous donnes une indication si vous avez \n"
+"trouvé la bonne position en marquant la case en noir.\n"
+"Vous pouvez utiliser le bouton droit de la souris pour faire avancer les "
+"couleurs\n"
+"dans l'autre sens."
+
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr "Super Cerveau"
+
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+msgid "Tux has hidden several items, find them back in the correct order"
+msgstr "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
 
 #: boards/target.xml.in.h:1
 msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
@@ -1884,48 +1917,32 @@ msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 msgid "Keyboard training"
 msgstr "Entraînement au clavier"
 
-#: boards/pythontest.xml.in.h:1
-msgid "Add a language binding to gcompris."
-msgstr "Ajout du support d'un language dans gcompris"
-
-#: boards/pythontest.xml.in.h:2
-msgid "Advanced Python Programmer :)"
-msgstr "Programmeur Python avancé"
-
-#: boards/pythontest.xml.in.h:3
-msgid "Python Test"
-msgstr "Test Python"
-
-#: boards/pythontest.xml.in.h:4
-msgid "Test board for the python plugin"
-msgstr "Activité test pour le plugin python"
-
-#: boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr "Merci à Guido van Rossum et à l'équipe python pour ce language puissant"
+#: gcompris-edit.desktop.in.h:1
+msgid "Editor for gcompris"
+msgstr "Editeur de gcompris"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
 msgstr "Jeu éducatif à partir de 3 ans"
 
-#: gcompris-edit.desktop.in.h:1
-msgid "Editor for gcompris"
-msgstr "Editeur de gcompris"
+#: gcompris.desktop.in.h:2
+msgid "Educational suite gcompris"
+msgstr "Suite éducative gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
-#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
-#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
-#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:351
+#: src/boards/shapegame.c:1723 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:173
+#: src/gcompris/gameutil.c:506 src/gcompris/gameutil.c:507
+#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1723
+#: src/boards/shapegame.c:1726
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -2022,6 +2039,16 @@ msgstr "Ne peut pas trouver le répertoire d'images: %s"
 msgid "Set the watch to:"
 msgstr "Règle la montre sur :"
 
+#: src/boards/colors.c:238
+#, c-format
+msgid "Click on the %s toon"
+msgstr "Clique sur l'ours %s"
+
+#: src/boards/fifteen.c:57
+#, fuzzy
+msgid "Move the mouse to fifteen the area and discover the background"
+msgstr "Déplace la souris pour tout effacer et découvrir le fond"
+
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Apprends à lire"
@@ -2057,6 +2084,14 @@ msgstr "Sélectionne un tableau"
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Déplace l'avion pour attraper les nuages dans le bon ordre"
+
+#: src/boards/python.c:52
+msgid "Python Board"
+msgstr "Activité Python"
+
+#: src/boards/python.c:53
+msgid "Special board that embed python into gcompris."
+msgstr "Activité spéciale qui embarque python dans gcompris"
 
 #: src/boards/railroad.c:95
 msgid "Memory game"
@@ -2128,11 +2163,11 @@ msgstr ""
 "sont sauvées dans \n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/submarine.c:174
+#: src/boards/submarine.c:201
 msgid "Submarine"
 msgstr "Sous-marin"
 
-#: src/boards/submarine.c:175
+#: src/boards/submarine.c:202
 msgid "Control the depth of a submarine"
 msgstr "Contrôle la profondeur d'un sous-marin"
 
@@ -2155,15 +2190,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Distance de la cible = %d metres"
 
-#: src/boards/python.c:52
-msgid "Python Board"
-msgstr "Activité Python"
-
-#: src/boards/python.c:53
-msgid "Special board that embed python into gcompris."
-msgstr "Activité spéciale qui embarque python dans gcompris"
-
-#: src/gcompris/about.c:57
+#: src/gcompris/about.c:60
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -2177,205 +2204,209 @@ msgstr ""
 "Graphiques: Renaud Blanchard\n"
 "Musique: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:94
+#: src/gcompris/about.c:97
 msgid "About GCompris"
 msgstr "Au sujet de GCompris"
 
-#: src/gcompris/about.c:200
+#: src/gcompris/about.c:203
 msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
-#: src/gcompris/about.c:222
+#: src/gcompris/about.c:225
 msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
 
-#: src/gcompris/about.c:250
+#: src/gcompris/about.c:253
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:168 src/gcompris/help.c:343
+#: src/gcompris/about.c:287 src/gcompris/config.c:171 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "Valider"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:52
 msgid "Amharic"
 msgstr "Amharique"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:53
 msgid "Arabic"
 msgstr "Arabe"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:54
 msgid "Azerbaijani Turkic"
 msgstr "Turc azerbaïdjanais"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:55
 msgid "German"
 msgstr "Allemand"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:56
 msgid "Greek"
 msgstr "Grec"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:57
 msgid "English"
 msgstr "Anglais"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "Finnish"
 msgstr "Finnois"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "French"
 msgstr "Français"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
 msgid "Hebrew"
 msgstr "Hébreu"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:62
+msgid "Indian"
+msgstr "Indien"
+
+#: src/gcompris/config.c:63
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:64
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:65
 msgid "Macedonian"
 msgstr "Macédonien"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:66
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:67
 msgid "Malay"
 msgstr "Malaisien"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:68
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:69
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:70
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:71
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:72
 msgid "Russian"
 msgstr "Russe"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:73
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:74
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:75
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:81
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:82
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:83
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:84
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:89
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:142
+#: src/gcompris/config.c:145
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:248
+#: src/gcompris/config.c:251
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:291
+#: src/gcompris/config.c:294
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:319
+#: src/gcompris/config.c:322
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:356
+#: src/gcompris/config.c:359
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:390 src/gcompris/config.c:687
-#: src/gcompris/config.c:698
+#: src/gcompris/config.c:393 src/gcompris/config.c:682
+#: src/gcompris/config.c:693
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:65
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance gcompris en mode plein écran"
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in window mode."
 msgstr "lance gcompris en mode fenêtré"
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris with sound enabled."
 msgstr "lance gcompris avec le son."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris without sound."
 msgstr "lance gcompris sans le son."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with the default gnome cursor."
 msgstr "lance gcompris avec le curseur par défaut de gnome."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:75
 msgid "Prints the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:77
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:327
+#: src/gcompris/gcompris.c:330
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2388,19 +2419,19 @@ msgstr ""
 "License: GPL\n"
 "Plus d'informations sur http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:167 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:201 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Objectif"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:235 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuel"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:269 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Crédit"
 

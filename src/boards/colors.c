@@ -50,12 +50,19 @@ static int highlight_width, highlight_height;
 static GList * listColors = NULL;
 
 #define LAST_COLOR 10
-static gchar *colors[LAST_COLOR] = {	"blue","brown",
-														"green","grey",
-														"orange","purple",
-														"red","yellow",
-														"black","white"
-													};
+static gchar *colors[LAST_COLOR*2] = {
+  "blue", 	N_("blue"),
+  "brown",	N_("brown"),
+  "green",	N_("green"),
+  "grey",	N_("grey"),
+  "orange",	N_("orange"),
+  "purple",	N_("purple"),
+  "red",	N_("red"),
+  "yellow",	N_("yellow"),
+  "black",	N_("black"),
+  "white",	N_("white")
+};
+
 static int X[] = {75,212,242,368,414,533,578,709};
 static int Y[] = {25,170,180,335,337,500};
 
@@ -98,7 +105,7 @@ static void pause_board (gboolean pause)
     return;
 
   if(gamewon == TRUE && pause == FALSE) /* the game is won */
-      game_won();
+    game_won();
 
   board_paused = pause;
 }
@@ -107,37 +114,35 @@ static void pause_board (gboolean pause)
  *
  * =====================================================================*/
 static void start_board (GcomprisBoard *agcomprisBoard) {
-	GList * list = NULL;
-	int * item;
-	int i;
+  GList * list = NULL;
+  int * item;
+  int i;
 
   if(agcomprisBoard!=NULL) {
-      gcomprisBoard=agcomprisBoard;
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.jpg");
-      gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(GCOMPRIS_BAR_REPEAT);
+    gcomprisBoard=agcomprisBoard;
+    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.jpg");
+    gcomprisBoard->level=1;
+    gcomprisBoard->maxlevel=1;
+    gcompris_bar_set(GCOMPRIS_BAR_REPEAT);
 
-      gamewon = FALSE;
+    gamewon = FALSE;
 
-			// we generate a list of color indexes in a random order
-  		while (g_list_length(listColors) > 0)
-    		listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+    // we generate a list of color indexes in a random order
+    for (i=0; i<LAST_COLOR; i++)
+      list = g_list_append(list, GINT_TO_POINTER(i));
 
-			for (i=0; i<LAST_COLOR; i++)
-				list = g_list_append(list, GINT_TO_POINTER(i));
-
-			while ((g_list_length(list) > 0)) {
-				i = RAND(0,g_list_length(list)-1);
-				item = g_list_nth_data(list, i);
-				listColors = g_list_append(listColors, item);
-				list = g_list_remove(list, item);
-			}
-
-		  gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
-			colors_next_level();
-      pause_board(FALSE);
+    while ((g_list_length(list) > 0)) {
+      i = RAND(0,g_list_length(list)-1);
+      item = g_list_nth_data(list, i);
+      listColors = g_list_append(listColors, item);
+      list = g_list_remove(list, item);
     }
+    g_list_free(list);
+
+    gtk_signal_connect(GTK_OBJECT(gcomprisBoard->canvas), "event",  (GtkSignalFunc) item_event, NULL);
+    colors_next_level();
+    pause_board(FALSE);
+  }
 }
 
 /* =====================================================================
@@ -146,12 +151,14 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 static void end_board () {
 
   if(gcomprisBoard!=NULL){
-      pause_board(TRUE);
-      gcompris_score_end();
-      colors_destroy_all_items();
-		// free list
-		while (g_list_length(listColors) > 0)
- 			listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+    pause_board(TRUE);
+    gcompris_score_end();
+    colors_destroy_all_items();
+    // free list
+    while (g_list_length(listColors) > 0)
+      listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+    g_list_free(listColors);
+    listColors=NULL;
   }
   gcomprisBoard = NULL;
 }
@@ -160,12 +167,12 @@ static void end_board () {
  *
  * =====================================================================*/
 gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
-	if (gcomprisBoard) {
-      if(g_strcasecmp(gcomprisBoard->type, "colors")==0) {
-	  		/* Set the plugin entry */
-	  		gcomprisBoard->plugin=&menu_bp;
-	  		return TRUE;
-			}
+  if (gcomprisBoard) {
+    if(g_strcasecmp(gcomprisBoard->type, "colors")==0) {
+      /* Set the plugin entry */
+      gcomprisBoard->plugin=&menu_bp;
+      return TRUE;
+    }
   }
   return FALSE;
 }
@@ -178,19 +185,19 @@ static void colors_next_level() {
 
   /* Try the next level */
   colors_create_item(gnome_canvas_root(gcomprisBoard->canvas));
-	repeat();
+  repeat();
 }
 /* ======================================= */
 static void repeat (){
   if(gcomprisBoard!=NULL)
-      gcompris_play_ogg(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))], NULL);
+    gcompris_play_ogg(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2], NULL);
 }
 /* =====================================================================
  * Destroy all the items
  * =====================================================================*/
 static void colors_destroy_all_items() {
   if(boardRootItem!=NULL)
-      gtk_object_destroy (GTK_OBJECT(boardRootItem));
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem = NULL;
 }
@@ -201,9 +208,8 @@ static void colors_destroy_all_items() {
 static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   GdkPixbuf *highlight_pixmap = NULL;
   char *str = NULL;
-	int i;
 
-	boardRootItem = GNOME_CANVAS_GROUP(
+  boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
@@ -213,23 +219,47 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
   str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, "colors_highlight.png");
   highlight_pixmap = gcompris_load_pixmap(str);
 
-	highlight_image_item = gnome_canvas_item_new (boardRootItem,
-				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", highlight_pixmap,
-				      "x", (double) 0,
-				      "y", (double) 0,
-				      "width", (double) gdk_pixbuf_get_width(highlight_pixmap),
-				      "height", (double) gdk_pixbuf_get_height(highlight_pixmap),
-				      "width_set", TRUE,
-				      "height_set", TRUE,
-				      NULL);
+  highlight_image_item = gnome_canvas_item_new (boardRootItem,
+						gnome_canvas_pixbuf_get_type (),
+						"pixbuf", highlight_pixmap,
+						"x", (double) 0,
+						"y", (double) 0,
+						"width", (double) gdk_pixbuf_get_width(highlight_pixmap),
+						"height", (double) gdk_pixbuf_get_height(highlight_pixmap),
+						"width_set", TRUE,
+						"height_set", TRUE,
+						NULL);
 
-	highlight_width = gdk_pixbuf_get_width(highlight_pixmap);
-	highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
+  highlight_width = gdk_pixbuf_get_width(highlight_pixmap);
+  highlight_height = gdk_pixbuf_get_height(highlight_pixmap);
 
   g_free(str);
-	gnome_canvas_item_hide(highlight_image_item);
-	i = RAND(0,LAST_COLOR);
+
+  str = g_strdup_printf(_("Click on the %s toon"), gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2]));
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", str,
+			 "font", gcompris_skin_font_board_huge_bold,
+			 "x", (double) BOARDWIDTH/2+2,
+			 "y", (double) BOARDHEIGHT-25+2,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", "black",
+			 NULL);
+
+  gnome_canvas_item_new (boardRootItem,
+			 gnome_canvas_text_get_type (),
+			 "text", str,
+			 "font", gcompris_skin_font_board_huge_bold,
+			 "x", (double) BOARDWIDTH/2,
+			 "y", (double) BOARDHEIGHT-25,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color", "blue",
+			 NULL);
+
+
+  g_free(str);
+  gnome_canvas_item_hide(highlight_image_item);
 
   gdk_pixbuf_unref(highlight_pixmap);
 
@@ -241,25 +271,25 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 static void game_won() {
   gcomprisBoard->sublevel++;
 
-	listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
+  listColors = g_list_remove(listColors, g_list_nth_data(listColors,0));
 
   if( g_list_length(listColors) <= 0 ) { // the current board is finished : bail out
-		board_finished(BOARD_FINISHED_TUXLOCO);
-		return;
+    board_finished(BOARD_FINISHED_TUXLOCO);
+    return;
   }
 
-	colors_next_level();
+  colors_next_level();
 }
 /* =====================================================================
  *
  * =====================================================================*/
 static gboolean process_ok_timeout() {
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
-	return FALSE;
+  return FALSE;
 }
 
 static void process_ok() {
-	// leave time to display the right answer
+  // leave time to display the right answer
   g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
 }
 /* =====================================================================
@@ -268,34 +298,34 @@ static void process_ok() {
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int i, j, clicked;
-	x = event->button.x;
+  x = event->button.x;
   y = event->button.y;
 
-	if(board_paused)
+  if(board_paused)
     return FALSE;
 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
-			clicked = -1;
-			for (i=0; i<4; i++) {
-				for (j=0; j<2; j++) {
-					if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
-						clicked = j*4 + i;
-					}
-				}
-			}
-			if (x>X[2] && x<X[3] && y>Y[4] && y<Y[5])
-				clicked = 8;
-			if (x>X[4] && x<X[5] && y>Y[4] && y<Y[5])
-				clicked = 9;
+      clicked = -1;
+      for (i=0; i<4; i++) {
+	for (j=0; j<2; j++) {
+	  if (x>X[i*2] && x<X[i*2+1] && y>Y[j*2] && y<Y[j*2+1]) {
+	    clicked = j*4 + i;
+	  }
+	}
+      }
+      if (x>X[2] && x<X[3] && y>Y[4] && y<Y[5])
+	clicked = 8;
+      if (x>X[4] && x<X[5] && y>Y[4] && y<Y[5])
+	clicked = 9;
 
-			if (clicked >= 0) {
-				highlight_selected(clicked);
-				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+      if (clicked >= 0) {
+	highlight_selected(clicked);
+	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
         process_ok();
-				}
-			break;
+      }
+      break;
 
     default:
       break;
@@ -307,22 +337,22 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
  *
  * =====================================================================*/
 static void highlight_selected(int c) {
-	int x, y;
+  int x, y;
 
-	assert(c>=0 && c<=9);
+  assert(c>=0 && c<=9);
 
-	if (c<8) {
-		x = (X[(c%4)*2] + X[(c%4)*2+1]) /2;
-		y = (Y[(int)(c/4)*2] + Y[(int)(c/4)*2+1]) /2;
-	} else {
-		y = (Y[4]+Y[5]) /2;
-		if (c==8)
-			x = (X[2] + X[3]) /2;
-			else
-				x = (X[4] + X[5]) /2;
-	}
-	x -= highlight_width/2;
-	y -= highlight_height/2;
-	gnome_canvas_item_show(highlight_image_item);
-	item_absolute_move(highlight_image_item, x, y);
+  if (c<8) {
+    x = (X[(c%4)*2] + X[(c%4)*2+1]) /2;
+    y = (Y[(int)(c/4)*2] + Y[(int)(c/4)*2+1]) /2;
+  } else {
+    y = (Y[4]+Y[5]) /2;
+    if (c==8)
+      x = (X[2] + X[3]) /2;
+    else
+      x = (X[4] + X[5]) /2;
+  }
+  x -= highlight_width/2;
+  y -= highlight_height/2;
+  gnome_canvas_item_show(highlight_image_item);
+  item_absolute_move(highlight_image_item, x, y);
 }

@@ -53,8 +53,8 @@ BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Move the mouse"),
-    N_("Move the mouse to fifteen the area and discover the background"),
+    N_("The fifteen game"),
+    N_("Move the items one by one to reorder them in the increasing number"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

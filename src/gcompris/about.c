@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2003/07/20 18:01:43 bcoudoin>
+ * Time-stamp: <2003/08/21 16:36:39 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -118,7 +118,7 @@ void gcompris_about_start ()
   y_start += 180;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", content,
+				"text", gettext(content),
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y_start,
@@ -211,7 +211,7 @@ void gcompris_about_start ()
   // Copyright
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "Copyright 2000,2001,2002 Bruno Coudoin",
+				"text", "Copyright 2000-2003 Bruno Coudoin",
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 85,

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/08/21 16:42:34 bcoudoin>
+ * Time-stamp: <2003/08/21 17:41:22 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -576,7 +576,9 @@ static void process_ok()
       gcompris_display_bonus(gamewon, BONUS_FLOWER);
     }
   else
-    gcompris_play_ogg ("crash", NULL);
+    {
+      gcompris_display_bonus(gamewon, BONUS_FLOWER);
+    }
 
 }
 
