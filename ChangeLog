@@ -1,3 +1,19 @@
+2003-01-18  bruno  <bruno.coudoin@free.fr>
+
+	* boards/algebra_group.xml.in: removed no more needed data tags
+	* boards/algebramenu.xml.in: removed no more needed data tags
+	* boards/chess.xml.in: removed no more needed data tags
+	* boards/computer.xml.in: removed no more needed data tags
+	* boards/flags/fr.png: added bevel
+	* boards/flags/pt.png: added bevel
+	* boards/flags/pt_BR.png: created
+	* boards/reading.xml.in: removed no more needed data tags
+	* src/gcompris/config.c: (gcompris_config_start),
+	(set_locale_flag), (get_locale_name), (get_next_locale),
+	(get_previous_locale): fixed locale management to support style fr_FR.UTF-8
+	* src/gcompris/gcompris.c: (gcompris_get_locale): fixed locale management to support style fr_FR.UTF-8
+	* src/gcompris/properties.c: (gcompris_properties_new): fixed locale management to support style fr_FR.UTF-8
+
 2003-01-12  bruno  <bruno.coudoin@free.fr>
 
 	* boards/*.xml.in: Changed to use the new menu system. Now submenu are discovered dynamically

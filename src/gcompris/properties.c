@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2002/06/07 00:16:20 bruno>
+ * Time-stamp: <2003/01/17 23:28:57 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -49,11 +49,11 @@ GcomprisProperties *gcompris_properties_new ()
 
   if(locale == NULL)
     {
-      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en");
+      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en_US.UTF-8");
     }
   else if (!strcmp(locale, "C"))
     {
-      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en");
+      tmp->locale		= gnome_config_get_string ("/gcompris/Preferences/locale=en_US.UTF-8");
     }
   else	
     {

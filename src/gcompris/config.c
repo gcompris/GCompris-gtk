@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2003/01/17 13:25:45 bcoudoin>
+ * Time-stamp: <2003/01/17 23:47:22 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -41,23 +41,23 @@ static gchar		*current_locale		= NULL;
 #define SOUNDLISTFILE PACKAGE
 
 static gchar *linguas[] = {
-  "az", 	N_("Azerbaijani Turkic"),
-  "de_DE", 	N_("German"),
-  "el_GR", 	N_("Greek"),
-  "en_GB",	N_("English"),
-  "es_ES", 	N_("Spanish"),
-  "fi_FI", 	N_("Finnish"),
-  "fr_FR", 	N_("French"),
-  "hu_HU",	N_("Hungarian"),
-  "it_IT", 	N_("Italian"),
-  "ms_MY",	N_("Malay"),
-  "nl_NL",	N_("Dutch"),
-  "pt_PT",	N_("Portuguese"),
-  "pt_BR",	N_("Brazil Portuguese"),
-  "ru_RU",	N_("Romanian"),
-  "sv_FI",	N_("Swedish"),
-  "sk_SK",	N_("Slovak"),
-  "lt_LT",	N_("Lithuanian"),
+  "az_AZ.UTF-8", 	N_("Azerbaijani Turkic"),
+  "de_DE.UTF-8", 	N_("German"),
+  "el_GR.UTF-8", 	N_("Greek"),
+  "en_GB.UTF-8",	N_("English"),
+  "es_ES.UTF-8", 	N_("Spanish"),
+  "fi_FI.UTF-8", 	N_("Finnish"),
+  "fr_FR.UTF-8", 	N_("French"),
+  "hu_HU.UTF-8",	N_("Hungarian"),
+  "it_IT.UTF-8", 	N_("Italian"),
+  "ms_MY.UTF-8",	N_("Malay"),
+  "nl_NL.UTF-8",	N_("Dutch"),
+  "pt_PT.UTF-8",	N_("Portuguese"),
+  "pt_BR.UTF-8",	N_("Brazil Portuguese"),
+  "ru_RU.UTF-8",	N_("Romanian"),
+  "sv_FI.UTF-8",	N_("Swedish"),
+  "sk_SK.UTF-8",	N_("Slovak"),
+  "lt_LT.UTF-8",	N_("Lithuanian"),
   NULL, NULL
 };
 
@@ -126,7 +126,7 @@ void gcompris_config_start ()
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "GCompris Configuraté $ àn", 
+				"text", _("GCompris Configuration"),
 				"font", FONT_TITLE,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
@@ -402,8 +402,18 @@ static void set_locale_flag(gchar *locale)
   char *filename = NULL;
   GdkPixbuf *pixmap = NULL;
 
-  str = g_strdup_printf("flags/%.2s.png", locale);
+  /* First try to find a flag for the long locale name */
+  str = g_strdup_printf("flags/%.5s.png", locale);
   filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, str);
+
+  if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) 
+    {
+      g_free(str);
+      g_free(filename);
+
+      str = g_strdup_printf("flags/%.2s.png", locale);
+      filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, str);
+    }
 
   g_warning("Trying to load flag %s", filename);
 
@@ -431,8 +441,8 @@ static void set_locale_flag(gchar *locale)
 
 
 /**
- * Given the short locale name, return the full translated name
- * If not found, simply return the short given locale
+ * Given the locale name, return the full translated name
+ * If not found, simply return the name
  */
 static gchar *get_locale_name(gchar *locale)
 {
@@ -440,7 +450,7 @@ static gchar *get_locale_name(gchar *locale)
 
   while(linguas[i] != NULL)
     {
-      if(!strncmp(locale, linguas[i], 2))
+      if(!strncmp(locale, linguas[i], 5))
 	return(gettext(linguas[i+1]));
 
       i=i+2;
@@ -458,7 +468,7 @@ static gchar *get_next_locale(gchar *locale)
 
   while(linguas[i] != NULL)
     {
-      if(!strncmp(locale, linguas[i], 2))
+      if(!strcmp(locale, linguas[i]))
 	{
 	  // Found it
 	  if(linguas[i+2]!=NULL)
@@ -482,7 +492,7 @@ static gchar *get_previous_locale(gchar *locale)
 
   while(linguas[i] != NULL)
     {
-      if(!strncmp(locale, linguas[i], 2))
+      if(!strcmp(locale, linguas[i]))
 	{
 	  // Found it
 	  if(i!=0)
