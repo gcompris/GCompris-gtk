@@ -360,33 +360,35 @@ static void process_ok() {
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int side;
-	x = event->button.x;
+
+  x = event->button.x;
   y = event->button.y;
 
-	if(board_paused)
+  if (!gcomprisBoard || board_paused)
     return FALSE;
 
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
+      gnome_canvas_c2w(gcomprisBoard->canvas, x, y, &x, &y);
 
-			if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2) {
-				if (x>CLICKABLE_X1 && x<CLICKABLE_X2) { // the left button is clicked
-					side = LEFT;
-					highlight_selected(side);
-					gamewon = (side == answer);
+      if (y>CLICKABLE_Y1 && y<CLICKABLE_Y2) {
+	if (x>CLICKABLE_X1 && x<CLICKABLE_X2) { // the left button is clicked
+	  side = LEFT;
+	  highlight_selected(side);
+	  gamewon = (side == answer);
           process_ok();
-				}
-				if (x>CLICKABLE_X3 && x<CLICKABLE_X4) { // the left button is clicked
-					side = RIGHT;
-					highlight_selected(side);
-					gamewon = (side == answer);
+	}
+	if (x>CLICKABLE_X3 && x<CLICKABLE_X4) { // the left button is clicked
+	  side = RIGHT;
+	  highlight_selected(side);
+	  gamewon = (side == answer);
           process_ok();
-				}
-			}
-
-			break;
-
+	}
+      }
+      
+      break;
+      
     default:
       break;
     }
