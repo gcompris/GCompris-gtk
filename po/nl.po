@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-03 11:41+0200\n"
-"PO-Revision-Date: 2003-09-03 18:57+0200\n"
+"POT-Creation-Date: 2003-09-17 11:35+0200\n"
+"PO-Revision-Date: 2003-09-17 20:48+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -2160,7 +2160,7 @@ msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:175 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2253,76 +2253,80 @@ msgid "Norwegian"
 msgstr "Noors"
 
 #: src/gcompris/config.c:73
+msgid "Polish"
+msgstr "Pools"
+
+#: src/gcompris/config.c:74
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:148
+#: src/gcompris/config.c:149
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:254
+#: src/gcompris/config.c:255
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:297
+#: src/gcompris/config.c:298
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:325
+#: src/gcompris/config.c:326
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:363
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:695
-#: src/gcompris/config.c:706
+#: src/gcompris/config.c:397 src/gcompris/config.c:696
+#: src/gcompris/config.c:707
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
