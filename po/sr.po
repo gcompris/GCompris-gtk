@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-09 12:48+0100\n"
-"PO-Revision-Date: 2003-11-09 12:50+0100\n"
+"POT-Creation-Date: 2003-12-03 05:31+0100\n"
+"PO-Revision-Date: 2003-12-03 05:31+0100\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -2237,230 +2237,236 @@ msgstr ""
 msgid "Help"
 msgstr "Помоћ"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:178 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "У реду"
 
 #: src/gcompris/config.c:52
+msgid "Your system default"
+msgstr "Подразумевано са система"
+
+#: src/gcompris/config.c:53
 msgid "Amharic"
 msgstr "амхарски"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:54
 msgid "Arabic"
 msgstr "арапски"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:55
 msgid "Azerbaijani Turkic"
 msgstr "азербејџански турски"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:56
 msgid "Catalan"
 msgstr "каталонски"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:57
 msgid "Czech"
 msgstr "чешки"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:58
 msgid "German"
 msgstr "немачки"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:59
 msgid "Greek"
 msgstr "грчки"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:60
 msgid "English"
 msgstr "енглески"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:61
 msgid "Spanish"
 msgstr "шпански"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:62
 msgid "Finnish"
 msgstr "фински"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "French"
 msgstr "француски"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Hebrew"
 msgstr "хебрејски"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Indian"
 msgstr "индијски"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Hungarian"
 msgstr "мађарски"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Italian"
 msgstr "италијански"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Lithuanian"
 msgstr "литвански"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Macedonian"
 msgstr "македонски"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Malayalam"
 msgstr "малајамски"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malay"
 msgstr "малајски"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Dutch"
 msgstr "холандски"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Norwegian"
 msgstr "норвешки"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Polish"
 msgstr "пољски"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Portuguese"
 msgstr "португалски"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Brazil Portuguese"
 msgstr "бразилски португалски"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Romanian"
 msgstr "румунски"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Russian"
 msgstr "руски"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Slovak"
 msgstr "словачки"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Slovenian"
 msgstr "словеначки"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Serbian (Latin)"
 msgstr "српски (латиница)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Serbian"
 msgstr "српски"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Swedish"
 msgstr "шведски"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Turkish"
 msgstr "турски"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "No time limit"
 msgstr "Без временског ограничења"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Slow timer"
 msgstr "Споро тече време"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Normal timer"
 msgstr "Обично тече време"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Fast timer"
 msgstr "Брзо тече време"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (подразумевано за gcompris-а)"
 
-#: src/gcompris/config.c:152
+#: src/gcompris/config.c:153
 msgid "GCompris Configuration"
 msgstr "Подешавање GCompris-а"
 
-#: src/gcompris/config.c:258
+#: src/gcompris/config.c:262
 msgid "Fullscreen"
 msgstr "Цео екран"
 
-#: src/gcompris/config.c:301
+#: src/gcompris/config.c:305
 msgid "Music"
 msgstr "Музика"
 
-#: src/gcompris/config.c:329
+#: src/gcompris/config.c:333
 msgid "Effect"
 msgstr "Ефекат"
 
-#: src/gcompris/config.c:366
+#: src/gcompris/config.c:370
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Нисам могао да отворим директоријум са маскама: %s"
 
-#: src/gcompris/config.c:400 src/gcompris/config.c:706
-#: src/gcompris/config.c:717
+#: src/gcompris/config.c:403 src/gcompris/config.c:719
+#: src/gcompris/config.c:730
 #, c-format
 msgid "Skin : %s"
 msgstr "Маска : %s"
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in fullscreen mode."
 msgstr "Покрени gcompris-а преко целог екрана."
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris in window mode."
 msgstr "Покрени гкомприса у прозору."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris with sound enabled."
 msgstr "Покрени гкомприса уз укључен звук."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris without sound."
 msgstr "Покрени гкомприса без звука."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:76
 msgid "run gcompris with the default gnome cursor."
 msgstr "Покрени гкомприса уз подразумеваног Гномовог показивача."
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:78
 msgid "display only activities with this difficulty level."
 msgstr "прикажи само активности ове тежине."
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:80
 msgid ""
 "select the audio output. Use '-A list' to get the list of available audio "
 "output"
-msgstr "изаберите звучни излаз. Користите „-A list“ да добијете списак свих доступних звучних излаза"
+msgstr ""
+"изаберите звучни излаз. Користите „-A list“ да добијете списак свих "
+"доступних звучних излаза"
 
-#: src/gcompris/gcompris.c:81
+#: src/gcompris/gcompris.c:82
 msgid "Prints the version of "
 msgstr "Испиши издање за "
 
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:84
 msgid "Use the antialiased canvas (slower)."
 msgstr "Користи улепшан приказ (спорије)."
 
 # bug: wha'???
-#: src/gcompris/gcompris.c:357
+#: src/gcompris/gcompris.c:358
 msgid "GCompris I Have Understood"
 msgstr "ГКомприс ког сам разумео"
 
-#: src/gcompris/gcompris.c:579
+#: src/gcompris/gcompris.c:597
 #, c-format
 msgid ""
 "GCompris\n"
