@@ -23,7 +23,7 @@ algebra_plus
 
 ----------------------------------------------
 babymatch
-
+Bruno: tested
 ----------------------------------------------
 babyshapes
   - Tested (minor bug : First level starts at 2, and when clicking on the
@@ -41,6 +41,7 @@ click_on_letter
 
 ----------------------------------------------
 clockgame
+  - tested by bruno
 
 ----------------------------------------------
 draw
@@ -52,6 +53,7 @@ erase
 
 ----------------------------------------------
 gletters
+  - tested by bruno. minor bug: level goes to 11/10 at the very end
 
 ----------------------------------------------
 imageid
@@ -61,10 +63,11 @@ mandatory, they should not be played
 
 ----------------------------------------------
 imagename
-  - not tested : no French translation (pascal georges)
+  - tested : French translation completed (Bruno)
 
 ----------------------------------------------
 memory
+  - tested by bruno up to level 9.
 
 ----------------------------------------------
 missing_letter
@@ -99,9 +102,12 @@ readingv
 
 ----------------------------------------------
 scalesboard
+  - tested by bruno. fixed 2 boards which were uncorrrect
 
 ----------------------------------------------
 smallnumbers
+
+  - tested by bruno minor bug at the end where we have 36/35 in the counter
 
 ----------------------------------------------
 wordsgame
