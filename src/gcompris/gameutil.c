@@ -31,6 +31,7 @@
 
 /* default gnome pixmap directory in which this game tales the icon */
 static char *lettersdir = "letters/";
+static pid_t ogg_pid = 0;
 
 extern GnomeCanvas *canvas;
 
@@ -220,7 +221,6 @@ void gcompris_play_ogg(char *sound, ...) {
 	char * s = NULL;
 	char *argv[20];
 	char locale[3];
-	pid_t   pid;
 	int argc = 0;
 
 	if (!gcompris_get_properties()->fx)
@@ -229,22 +229,27 @@ void gcompris_play_ogg(char *sound, ...) {
 	strncpy(locale,gcompris_get_locale(),2);
 	locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
 
-	pid = fork ();
-        if (pid > 0) { // go back to gcompris
+	// first kill the previous process playing an ogg file
+	if (ogg_pid)
+			kill(ogg_pid, SIGKILL);
+
+	ogg_pid = fork ();
+
+	if (ogg_pid > 0) { // go back to gcompris
 								waitpid(-1, NULL, WNOHANG);
                 return;
-        } else if (pid == 0) { // child process
+        } else if (ogg_pid == 0) { // child process
+
 		argv[0] = "ogg123";
 		argv[1] = "-v";
-
 		argc = 2;
-		argv[2] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
-		if (g_file_exists (argv[2])) {
+		argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
+		if (g_file_exists (argv[argc])) {
 		  printf("trying to play %s\n", argv[argc]);
-		  argc = 3;
+		  argc++;
 		}
 		else
-		  g_free(argv[2]);
+		  g_free(argv[argc]);
 
 		va_start( ap, sound);
 		while( (s = va_arg (ap, char *))) {
