@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-09 10:51+0100\n"
-"PO-Revision-Date: 2005-01-09 15:17+0100\n"
+"POT-Creation-Date: 2005-01-10 18:53+0100\n"
+"PO-Revision-Date: 2005-01-10 21:42+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -483,7 +483,10 @@ msgid ""
 "In this game, children can draw freely. The goal is just to discover how to "
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines. To make it more fun for kids, a set of images can also be used."
-msgstr "V této hře si děti mohou volně kreslit. Cílem je jen objevit, jak vytvářet hezké kresby založené na základních tvarech: obdélnících, elipsách a úsečkách. Aby to pro děti byla větší zábava, lze také použit sadu obrázků."
+msgstr ""
+"V této hře si děti mohou volně kreslit. Cílem je jen objevit, jak vytvářet "
+"hezké kresby založené na základních tvarech: obdélnících, elipsách a "
+"úsečkách. Aby to pro děti byla větší zábava, lze také použit sadu obrázků."
 
 #: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
@@ -501,7 +504,17 @@ msgid ""
 "drawing. You can then edit each image of your animation by using the image "
 "selector in the bottom left of the screen. You can save and reload your "
 "animations with the 'floppy' and 'folder' button."
-msgstr "Zvole kreslicí nástroj vlevo a barvu dole. Pak vytvoř nový tvar kliknutím a tažením v bílé oblasti. Až bude kresba hotova, můžeš získat její snímek tlačítkem 'fotoaparát'. Bude vytvořen nový obrázek se stejným obsahem. Můžeš pak objekty o trochu posunout nebo je přidávat/odebírat. Vytvoř několik kreseb a pak klikni na tlačíko 'film'. Uvidíš všechny své obrázky v nekonečné smyčce. V tomto režimu můžeš měnit rychlost prohlížení. V režimu prohlížení se ke kreslení vrať kliknutím na tlačítko 'kreslení'. Pak můžeš upravit každý obrázek své animace upravit pomocí výběru obázků v levé dolní části obrazovky. Své animace můžeš ukládat a obnovovat pomocí tlačítek 'disketa' a 'adresář'."
+msgstr ""
+"Zvole kreslicí nástroj vlevo a barvu dole. Pak vytvoř nový tvar kliknutím a "
+"tažením v bílé oblasti. Až bude kresba hotova, můžeš získat její snímek "
+"tlačítkem 'fotoaparát'. Bude vytvořen nový obrázek se stejným obsahem. Můžeš "
+"pak objekty o trochu posunout nebo je přidávat/odebírat. Vytvoř několik "
+"kreseb a pak klikni na tlačíko 'film'. Uvidíš všechny své obrázky v "
+"nekonečné smyčce. V tomto režimu můžeš měnit rychlost prohlížení. V režimu "
+"prohlížení se ke kreslení vrať kliknutím na tlačítko 'kreslení'. Pak můžeš "
+"upravit každý obrázek své animace upravit pomocí výběru obázků v levé dolní "
+"části obrazovky. Své animace můžeš ukládat a obnovovat pomocí tlačítek "
+"'disketa' a 'adresář'."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -688,7 +701,21 @@ msgstr "Náměsíčný"
 msgid "Tux and the apple tree"
 msgstr "Tux a jabloň"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnotův vůz"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephensonova parní\n"
+"lokomotiva Rocket"
+
+#: boards/chronos/board3_0.xml.in.h:3
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -700,15 +727,40 @@ msgstr ""
 "si nejsi jist, podívej se online na\n"
 "wikipedii na http://www.wikipedia.org"
 
-#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Doprava"
 
-#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 Horkovzdušný balón\n"
+"bratří Montgolfierů"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
 msgstr "1880 Eole Clementa Adera"
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"První let helikoptéry"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Rychlochod hraběte\n"
+"de Sivrac"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
@@ -745,10 +797,6 @@ msgid ""
 msgstr ""
 "1947 Chuck Yager\n"
 "překročil rychlost zvuku"
-
-#: boards/chronos/board4_2.xml.in.h:1
-msgid "1769 Cugnot's fardier"
-msgstr "1769 Cugnotův vůz"
 
 #: boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
@@ -2326,22 +2374,36 @@ msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "Tux má hlad. Pomoz mu najít ryby počítáním ke správnému kusu ledu."
 
 #: boards/searace.xml.in.h:1
-msgid "A Sea race against Tux"
-msgstr "Námořní závod s Tuxem"
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Dávej své lodi správné instrukce, abys byl první v závodu."
 
+# FIXME: s/wether/weather/
 #: boards/searace.xml.in.h:2
 msgid ""
-"Give good instructions to your ship in order to be first in a race against "
-"Tux."
-msgstr "Dávej své lodi správné instrukce, abys byl první v závodu s Tuxem."
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. Going to the next level "
+"will give your more complex wether conditions."
+msgstr "Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované příkazy jsou zobrazeny mezi vstupními oblastmi. Za příkazy 'doleva' a 'doprava' musí být úhel ve stupních. Hodnota úhlu se také nazývá 'parametr' příkazu doleva nebo doprava. Implicitně se používá 45 stupňů. Příkaz 'vpřed' přijímá parametr vzdálenosti. Implicitně se používá 1. Například: left 90 => otočit se pravoúhle doleva vpřed 10 => jít vpřed o 10 jednotek (podle pravítka) Cíl je dojet do pravé části obrazovky (červená čára). Až budeš hotov, můžeš zkusit svůj program vylepšit a začít nový závod se stejnými podmínkami počasí pomocí tlačítka opakovat. Přechod na další úroveň ti dá složitější podmínky počasí."
 
 #: boards/searace.xml.in.h:3
 msgid ""
-"In the text entry, enter line by line commands to give direction to your "
-"boat. Commands supported are displayed between the two entry area."
-msgstr ""
-"Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované "
-"příkazy jsou zobrazeny mezi vstupními oblastmi."
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+msgstr "V této aktivitě se naučíš, jak zadávat počítači příkazy. I když je tento jazyk extrémně základní, naučíš se tady, jak myslet dopředu a zadávat program. Tuto aktivitu lze použít pro představení pojmu programování dětem."
+
+#: boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "Námořní závod (2 hráči)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2739,11 +2801,13 @@ msgstr "Nauč se číst"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "U daných obrázků ruky rozpoznej, jestli je to pravá nebo levá"
 
-#: src/boards/leftright.c:248
+#: src/boards/leftright.c:248 src/boards/python/searace.py:506
+#: src/boards/python/searace.py:771
 msgid "left"
 msgstr "doleva"
 
-#: src/boards/leftright.c:258
+#: src/boards/leftright.c:258 src/boards/python/searace.py:515
+#: src/boards/python/searace.py:773
 msgid "right"
 msgstr "doprava"
 
@@ -2819,30 +2883,57 @@ msgstr "Úroveň"
 msgid "Coordinate"
 msgstr "Koordinace"
 
-#: src/boards/python/searace.py:181 src/boards/python/searace.py:186
-#: src/boards/python/searace.py:212
+#: src/boards/python/searace.py:187 src/boards/python/searace.py:192
+#: src/boards/python/searace.py:218
 msgid "Race is already running"
 msgstr "Závod již běží"
 
-#: src/boards/python/searace.py:610
-msgid "The Red boat has won"
-msgstr "Červená loď vyhrála"
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:756
+msgid "droite"
+msgstr "doprava"
 
-#: src/boards/python/searace.py:612
-msgid "The Green boat has won"
-msgstr "Zelená loď vyhrála"
-
-#: src/boards/python/searace.py:705
+#. Manage default cases (no params given)
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:497 src/boards/python/searace.py:752
+#: src/boards/python/searace.py:765
 msgid "forward"
 msgstr "vpřed"
 
-#: src/boards/python/searace.py:711
-msgid "turnleft"
-msgstr "zatočit doleva"
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:754
+#, fuzzy
+msgid "gauche"
+msgstr "aktovka"
 
-#: src/boards/python/searace.py:713
-msgid "turnright"
-msgstr "zatočit doprava"
+#: src/boards/python/searace.py:488
+msgid "COMMANDS ARE"
+msgstr "PŘÍKAZY JSOU"
+
+#: src/boards/python/searace.py:663
+msgid "The Red boat has won"
+msgstr "Červená loď vyhrála"
+
+#: src/boards/python/searace.py:665
+msgid "The Green boat has won"
+msgstr "Zelená loď vyhrála"
+
+#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
+#: src/boards/python/searace.py:694
+msgid "Angle:"
+msgstr "Úhel:"
+
+#: src/boards/python/searace.py:694
+msgid "Wind:"
+msgstr "Vítr:"
+
+#: src/boards/python/searace.py:759
+msgid "Syntax error at line"
+msgstr "Chyba syntaxe na řádku"
+
+#: src/boards/python/searace.py:778
+msgid "Unknown command at line"
+msgstr "Neznámý příkaz na řádku"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -3441,6 +3532,22 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid "A Sea race against Tux"
+#~ msgstr "Námořní závod s Tuxem"
+
+#~ msgid ""
+#~ "In the text entry, enter line by line commands to give direction to your "
+#~ "boat. Commands supported are displayed between the two entry area."
+#~ msgstr ""
+#~ "Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované "
+#~ "příkazy jsou zobrazeny mezi vstupními oblastmi."
+
+#~ msgid "turnleft"
+#~ msgstr "zatočit doleva"
+
+#~ msgid "turnright"
+#~ msgstr "zatočit doprava"
 
 #~ msgid "Create an animation"
 #~ msgstr "Vytvořit animaci"
