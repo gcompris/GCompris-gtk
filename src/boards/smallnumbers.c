@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2005/01/31 03:23:49 bruno>
+ * Time-stamp: <2005/02/01 00:39:36 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -30,6 +30,7 @@ static gint drop_items_id = 0;
 
 static char *numbers = "123456";
 static  int  gamewon;
+static guint number_of_dices=1;
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
@@ -146,6 +147,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+
+
+      number_of_dices=1;
+      if(!gcomprisBoard->mode)
+	number_of_dices=1;
+      else if(g_strncasecmp(gcomprisBoard->mode, "2_DICES", 7)==0) {
+	/* 2 Dices mode */
+	number_of_dices=2;
+      }
 
       smallnumbers_next_level();
 
@@ -372,13 +382,9 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
   char *lettersItem;
   char *str1 = NULL;
   char *str2 = NULL;
-  guint number_of_dice = 1;
   guint total_number = 0;
-  double x = 0;
-
-  if(gcomprisBoard->level>=5) {
-    number_of_dice = 2;
-  }
+  double x = 0.0;
+  guint number_of_dice = number_of_dices;
 
   group_item = GNOME_CANVAS_GROUP(
 				  gnome_canvas_item_new (parent,
@@ -416,13 +422,11 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 
     g_free(str);
 
-    if(x==0) {
+    if(x==0.0) {
       x = (double)(rand()%(gcomprisBoard->width-
-			   (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)*
-				   imageZoom)));
+			   (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)));
     } else {
-      x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*
-	    imageZoom);
+      x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*imageZoom);
     }
 
     item = gnome_canvas_item_new (group_item,

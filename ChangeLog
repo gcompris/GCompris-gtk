@@ -1,3 +1,27 @@
+2005-02-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Created a new smallnumbers2 activity that play with 2 dices (in section math)
+	smallnumbers uses only one dice (in section computer)
+
+	* boards/Makefile.am:
+	* boards/boardicons/smallnumbers2.png:
+	* boards/maze2DRelative.xml.in:
+	* boards/smallnumbers2.xml.in:
+	* po/POTFILES.in:
+	* src/boards/smallnumbers.c: (start_board),
+	(smallnumbers_create_item):
+
+2005-01-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/erase.c: (erase_create_item): typo in comment
+	* src/boards/smallnumbers.c: (start_board), (key_press),
+	(smallnumbers_next_level), (smallnumbers_destroy_all_items),
+	(smallnumbers_gotkey_item), (smallnumbers_move_item),
+	(smallnumbers_move_items), (smallnumbers_create_item),
+	(smallnumbers_drop_items), (player_win):changed to have dive numbers up to 6 max
+	On a suggestion of Yves, I changed the falling dices to have dices up to the number 6 max.
+After level 5, 2 dices fall with total numbers up to 9. With the simplistic entry scheme we have, we cannot enter 2 digit numbers.
+
 2005-01-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Welcome to life to Nicolas Combes.

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board 
+	 name="smallnumbers2"
+	 type="smallnumbers" 
+	 section="/algebra/."
+	 mode="2_DICES"
+	 icon="boardicons/smallnumbers2.png" 
+	 difficulty="1"
+	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
+	 boarddir="">
+	 <_title>Numbers With 2 Dices</_title>
+	 <_description>Count the number of dots on dice before they reach the ground</_description>
+	<_prerequisite>Counting skill</_prerequisite>
+	<_goal>In a limited time, count the number of dots</_goal>
+	<_manual>With the keyboard, type the number corresponding
+to the number of dots on the falling dice.</_manual>
+  </Board>
+</GCompris>

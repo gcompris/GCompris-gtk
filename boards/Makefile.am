@@ -70,6 +70,7 @@ xml_in_files = \
 	searace1player.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \
+	smallnumbers2.xml.in \
 	submarine.xml.in \
 	superbrain.xml.in \
 	target.xml.in \
