@@ -1,3 +1,31 @@
+2004-12-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Franck Doucet remade all the euro coins and paper to be more kiddy
+	and more generic
+
+
+	* boards/Makefile.am:
+	* boards/chronos.xml.in:
+	* boards/money/euro/c10c.png:
+	* boards/money/euro/c1c.png:
+	* boards/money/euro/c1e.png:
+	* boards/money/euro/c20c.png:
+	* boards/money/euro/c2c.png:
+	* boards/money/euro/c2e.png:
+	* boards/money/euro/c50c.png:
+	* boards/money/euro/c5c.png:
+	* boards/money/euro/p100e.jpg:
+	* boards/money/euro/p200e.jpg:
+	* boards/money/euro/p500e.jpg:
+	* boards/searace.xml.in: start of a searace activity
+	* docs/website/auteur.html: added spip menus
+	* docs/website/footer.html:
+	* docs/website/header.html:
+	* docs/website/menu.html:
+	* src/boards/money_widget.c:
+	* src/boards/money_widget.h:
+	* src/boards/python/searace.py: far from playable yet
+
 2004-12-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/gcompris2spip.pl: renamed from spipparser.pl

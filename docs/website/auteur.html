@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE><BOUCLE0(AUTEURS){id_auteur}>#NOM</BOUCLE0>Pas d'auteur<//B0></TITLE>
+<link rel="stylesheet" href="spip_style.css" type="text/css" />
+<link href="gcompris.css" rel="stylesheet" type="text/css">
+</HEAD>
+<!-- Insertion des meta pour le référencement via meta.html, à personnaliser -->
+<INCLURE(meta.php3)>
+
+<BODY>
+<!-- Titre du site et lien vers l'accueil -->
+<div id="HEADER">
+	 <INCLURE(header.php3)>
+</div>
+
+
+<div id="MENU"> 
+
+    <BOUCLE_rubriquemenu(RUBRIQUES){id_rubrique}>
+    <!--Menu de navigation -->
+    <INCLURE(menu.php3){id_rubrique}>
+   </BOUCLE_rubriquemenu>
+</div>
+
+<div id="MAIN">
+<B1>
+ <BOUCLE1(AUTEURS){id_auteur}{unique}>
+
+     <div class="rubriquesummary"> 
+       <div class="titrearticle">
+         <span class="titre">[(#NOM)]</span><BR>
+           [(#BIO)<BR>]
+           [(#PGP)<BR>]
+       </div>
+
+     <BOUCLE4(ARTICLES){id_auteur}{par date}{inverse}>
+        <div class="contenu">
+          <B><A HREF="#URL_ARTICLE">[(#SURTITRE)<BR>][(#TITRE|majuscules)][<BR>(#SOUSTITRE)]</A></B>
+          <B>[<BR>(#DATE_REDAC|affdate)][, <:par_auteur:> (#NOM)]</B>
+          [<BR>(#DESCRIPTIF)]
+        </div>
+     </BOUCLE4>
+
+   </div>
+
+ </BOUCLE1>
+ <H2>Il n'y a pas d'auteur &agrave; cette adresse</H2>
+<//B1>
+
+  <div class="copyright">
+     <INCLURE(footer.php3)>
+  </div>
+
+  <!-- Formulaire administrateur -->
+  <div> [(#FORMULAIRE_ADMIN)]</div>
+
+</div>
+</BODY>
+</HTML>

@@ -32,7 +32,11 @@ class Gcompris_searace:
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
-    
+
+    # Some constants
+    border_x  = 30
+    self.sea_area = (border_x , 30, gcompris.BOARD_WIDTH-3*border_x , 190)
+
     print("Gcompris_searace __init__.")
   
 
@@ -101,12 +105,13 @@ class Gcompris_searace:
 
   def display_sea_area(self):
     # Some constant to define the sea area
-    border_x  = 30
-    step_x    = (gcompris.BOARD_WIDTH-border_x-border_x)/20
+    border_x1 = self.sea_area[0]
+    border_x2 = self.sea_area[2]
+    step_x    = (border_x2-border_x)/20
     
-    border_y  = 30
-    border_y2 = 190
-    step_y    = (gcompris.BOARD_HEIGHT-border_y2-border_y)/12
+    border_y1 = self.sea_area[1]
+    border_y2 = self.sea_area[3]
+    step_y    = (border_y2-border_y)/12
 
     text_x    = border_x - 15
     text_y    = border_y - 15
@@ -116,7 +121,7 @@ class Gcompris_searace:
     ca = 0xAACCFFFFL
     cb = 0x1D0DFFFFL
 
-    for y in range (border_y, gcompris.BOARD_HEIGHT-border_y2+1, step_y):
+    for y in range (border_y, border_y2, step_y):
       if(ci%2):
         color = ca
       else:
@@ -150,7 +155,7 @@ class Gcompris_searace:
         )
 
     ci = 0
-    for x in range (border_x, gcompris.BOARD_WIDTH-border_x+1, step_x):
+    for x in range (border_x1, border_x2, step_x):
       if(ci%2):
         color = ca
       else:

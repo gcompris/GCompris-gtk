@@ -62,13 +62,10 @@ static const MoneyList euroList[] =
   { "money/euro/c50c.png",		0.5   },
   { "money/euro/c1e.png",		1.0   },
   { "money/euro/c2e.png",		2.0   },
-  { "money/euro/p5e.jpg",		5.0   },
-  { "money/euro/p10e.jpg",		10.0  },
-  { "money/euro/p20e.jpg",		20.0  },
-  { "money/euro/p50e.jpg",		50.0  },
-  { "money/euro/p100e.jpg",		100.0 },
-  { "money/euro/p200e.jpg",		200.0 },
-  { "money/euro/p500e.jpg",		500.0 },
+  { "money/euro/p5e.png",		5.0   },
+  { "money/euro/p10e.png",		10.0  },
+  { "money/euro/p20e.png",		20.0  },
+  { "money/euro/p50e.png",		50.0  },
   { NULL,				-1.0  }
 };
 
