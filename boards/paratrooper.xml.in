@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <GCompris>
   <Board 
 	 type="paratrooper" 
@@ -7,6 +7,11 @@
 	 author="Bruno Coudoin (bruno.coudoin at free.fr)">
 	 <_name>Paratrooper</_name>
 	 <_description>Manage the paratrooper to let him safely land</_description>
+	 <_prerequisite>This board is game oriented. It doesnt needs specific skills to play with.</_prerequisite>
+	 <_goal>In this game, the children will try to make Tux the paratrooper lands safely on the
+fishing boat. He/She needs to take care of the wind side and speed.</_goal>
+	 <_manual>Click on any keyboard key to let Tux jump. Another keypress will open the
+parachute. Alternatively, a click on the plane and the tux also works.</_manual>
   </Board>
   <Data directory=""/>
 </GCompris>
