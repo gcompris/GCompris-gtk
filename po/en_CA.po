@@ -7,14 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2004-04-19 17:39-0400\n"
-"PO-Revision-Date: 2004-04-19 15:59-0400\n"
-"Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-05-22 22:13-0400\n"
+"PO-Revision-Date: 2004-05-22 22:14-0400\n"
+"Last-Translator: Alexander Winston <alexander.winston@comcast.net>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -455,12 +455,11 @@ msgid "Find the next in a list of symbols."
 msgstr "Find the next in a list of symbols"
 
 #: boards/algorithm.xml.in.h:3 boards/hexagon.xml.in.h:2
-#: boards/minouche.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Logic training activity"
 
 #: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
-#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
+#: boards/melody.xml.in.h:4
 msgid "Move and click the mouse"
 msgstr "Move and click the mouse"
 
@@ -823,6 +822,10 @@ msgstr ""
 "Move the items on the left to their proper position in the double entry "
 "table."
 
+#: boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr "Click on an item and listen to its target position"
+
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
 msgstr "A simple vector drawing tool"
@@ -994,7 +997,7 @@ msgstr "Reproduce the tower on the right in the empty space on the left"
 msgid "Simplified Tower of Hanoi"
 msgstr "Simplified Tower of Hanoi"
 
-#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+#: boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
 msgstr "Find the strawberry by clicking on the blue fields"
 
@@ -1413,18 +1416,6 @@ msgid ""
 msgstr ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-
-#: boards/minouche.xml.in.h:4
-msgid ""
-"Try to find the strawberry under the blue fields. The closer you get, the "
-"more red the fields become."
-msgstr ""
-"Try to find the strawberry under the blue fields. The closer you get, the "
-"more red the fields become."
-
-#: boards/minouche.xml.in.h:5
-msgid "minouche"
-msgstr "minouche"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -2125,8 +2116,8 @@ msgstr "Educational suite gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:466 src/gcompris/gameutil.c:467
-#: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:479 src/gcompris/gameutil.c:480
+#: src/gcompris/gcompris.c:377 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2319,7 +2310,6 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
-#. PythonTest Board module
 #: src/boards/python/pythontest.py:67
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
@@ -2340,152 +2330,10 @@ msgstr ""
 msgid "This activity is not playable yet, just a test"
 msgstr "This activity is not playable yet, just a test"
 
-#. Remove the canvas item we added during this plugin
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. These are used to let us restart only after the bonux is displayed.
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. the game is won
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. This is a WIN
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Level"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coordinate"
@@ -2629,7 +2477,9 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: src/gcompris/about.c:68 src/gcompris/interface.c:484
 msgid "translator_credits"
-msgstr "Adam Weinberger <adamw@gnome.org>"
+msgstr ""
+"Adam Weinberger <adamw@gnome.org>\n"
+"Alexander Winston <alexander.winston@comcast.net>"
 
 #: src/gcompris/about.c:100
 msgid "About GCompris"
@@ -2653,203 +2503,207 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
+#: src/gcompris/about.c:309 src/gcompris/config.c:187 src/gcompris/help.c:367
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/board.c:41
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
+
+#: src/gcompris/config.c:57
 msgid "Your system default"
 msgstr "Your system default"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:58
 msgid "Amharic"
 msgstr "Amharic"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:59
 msgid "Arabic"
 msgstr "Arabic"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:60
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijani Turkic"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:61
 msgid "Catalan"
 msgstr "Catalan"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:62
 msgid "Czech"
 msgstr "Czech"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:63
 msgid "German"
 msgstr "German"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:64
 msgid "Greek"
 msgstr "Greek"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:65
 msgid "American English"
 msgstr "American English"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:66
 msgid "Great Britain English"
 msgstr "Great Britain English"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:67
 msgid "Canadian English"
 msgstr "Canadian English"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:68
 msgid "Spanish"
 msgstr "Spanish"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:69
 msgid "Finnish"
 msgstr "Finnish"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:70
 msgid "French"
 msgstr "French"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:71
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:72
 msgid "Indian"
 msgstr "Indian"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:73
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:74
 msgid "Croatian"
 msgstr "Croatian"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:75
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:77
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:78
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:79
 msgid "Malay"
 msgstr "Malay"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:80
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:81
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:82
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:83
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:84
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:85
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:86
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:87
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:88
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:89
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:90
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:91
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:92
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:97
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:98
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:99
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:100
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:105
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:156
+#: src/gcompris/config.c:161
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:265
+#: src/gcompris/config.c:270
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:308
+#: src/gcompris/config.c:313
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:336
+#: src/gcompris/config.c:341
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:375
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:391
+#: src/gcompris/config.c:396
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:406 src/gcompris/config.c:729
-#: src/gcompris/config.c:740
+#: src/gcompris/config.c:411 src/gcompris/config.c:746
+#: src/gcompris/config.c:757
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2870,47 +2724,39 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:77
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:79
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:81
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:79
+#: src/gcompris/gcompris.c:83
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:81
-msgid ""
-"select the audio output. Use '-A list' to get the list of available audio "
-"outputs"
-msgstr ""
-"select the audio output. Use '-A list' to get the list of available audio "
-"outputs"
-
-#: src/gcompris/gcompris.c:83
+#: src/gcompris/gcompris.c:85
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:85
+#: src/gcompris/gcompris.c:87
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:621
+#: src/gcompris/gcompris.c:636
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2923,19 +2769,19 @@ msgstr ""
 "Licence: GPL\n"
 "More info on http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:174 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:208 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Goal"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:242 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:276 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Credit"
 
@@ -2971,7 +2817,7 @@ msgstr "Author"
 msgid "Directory"
 msgstr "Directory"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:272
+#: src/gcompris/interface.c:286
 msgid "Title"
 msgstr "Title"
 
@@ -2979,43 +2825,18 @@ msgstr "Title"
 msgid "Released under GPL"
 msgstr "Released under GPL"
 
-#: src/gcompris/oggplayer.c:97
-#, c-format
-msgid ""
-"Error unable to find a usable audio output device (%d)\n"
-"Try 'gcompris -A' to select an alternative audio output\n"
-"Use '-A list' to display the list of available devices"
+#. Prepare our log
+#. The default format for time represenation.  See strftime(3)
+#: src/gcompris/log.c:157
+msgid "%a %b %d %H:%M:%S %Z %Y"
 msgstr ""
-"Error unable to find a usable audio output device (%d)\n"
-"Try 'gcompris -A' to select an alternative audio output\n"
-"Use '-A list' to display the list of available devices"
 
-#: src/gcompris/oggplayer.c:117
-msgid "Error opening audio device\n"
-msgstr "Error opening audio device\n"
-
-#: src/gcompris/oggplayer.c:163
-msgid ""
-"Possible audio output devices are:\n"
-"default "
-msgstr ""
-"Possible audio output devices are:\n"
-"default "
-
-#: src/gcompris/oggplayer.c:235 src/gcompris/oggplayer.c:246
-msgid "Now Playing Music"
-msgstr "Now Playing Music"
-
-#: src/gcompris/oggplayer.c:276
-msgid "Artist"
-msgstr "Artist"
-
-#: src/gcompris/soundutil.c:118
+#: src/gcompris/soundutil.c:141
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Couldn't open music dir: %s"
 
-#: src/gcompris/soundutil.c:159
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -3037,6 +2858,48 @@ msgstr "Time Elapsed"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Remaining Time = %d"
+
+#~ msgid ""
+#~ "Try to find the strawberry under the blue fields. The closer you get, the "
+#~ "more red the fields become."
+#~ msgstr ""
+#~ "Try to find the strawberry under the blue fields. The closer you get, the "
+#~ "more red the fields become."
+
+#~ msgid "minouche"
+#~ msgstr "minouche"
+
+#~ msgid ""
+#~ "select the audio output. Use '-A list' to get the list of available audio "
+#~ "outputs"
+#~ msgstr ""
+#~ "select the audio output. Use '-A list' to get the list of available audio "
+#~ "outputs"
+
+#~ msgid ""
+#~ "Error unable to find a usable audio output device (%d)\n"
+#~ "Try 'gcompris -A' to select an alternative audio output\n"
+#~ "Use '-A list' to display the list of available devices"
+#~ msgstr ""
+#~ "Error unable to find a usable audio output device (%d)\n"
+#~ "Try 'gcompris -A' to select an alternative audio output\n"
+#~ "Use '-A list' to display the list of available devices"
+
+#~ msgid "Error opening audio device\n"
+#~ msgstr "Error opening audio device\n"
+
+#~ msgid ""
+#~ "Possible audio output devices are:\n"
+#~ "default "
+#~ msgstr ""
+#~ "Possible audio output devices are:\n"
+#~ "default "
+
+#~ msgid "Now Playing Music"
+#~ msgstr "Now Playing Music"
+
+#~ msgid "Artist"
+#~ msgstr "Artist"
 
 #~ msgid "Couldn't open pixmap dir: %s"
 #~ msgstr "Couldn't open pixmap dir: %s"
