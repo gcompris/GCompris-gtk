@@ -41,3 +41,21 @@ About You:
   Translate GCompris.
   Just giving your ideas.
 
+
+-------------------------------------------------------------------------------
+                           NOTE TO TRANSLATORS
+
+Gcompris is a little bit special in terms of translation needs. The best is done
+to bring back everything to .po files but it is not exaustive.
+
+To complete the translation, you must also provide:
+
+A set of file in boards/wordsgame/wordslevelx.yy
+Where x is the level or max and yy your target locale.
+note that these words must be choosen to be simple in your language, don't necessary
+translate the english. Also, it is important to make sure that these words can be 
+written with your keyboard in one key (no alt gr stuff or compose key).
+
+A complete voice translation in boards/sounds/yy
+It is best to choose somebody that speaks and articulate well your language.
+What is great with gcompris is that you can use it to practice a foreign language.

@@ -1,3 +1,21 @@
+2001-12-23  Bruno Coudoin  <bruno.coudoin@free.fr>
+	* src/gcompris/gcompris.c: added gconf init for the gtkhtml
+	* src/boards/shapegame.c: fixed highlight out of sync and loosing odd number boards
+	* src/boards/erase.c: changed background to display animals instead of tux plane
+	* src/gcompris/help.c: changed to use gtkhtml instead of straigh text
+	* src/board/menu.c: changed to add format help in html
+	* src/board/clickgame.c: changed to add format help in html
+	* src/board/paratrooper.c: changed to add format help in html
+	* src/board/draw.c: changed to add format help in html. Color are now speaken if translated.
+	* macros/gnome.m4: added gtkhtml definition
+	* configure.in: added AM_PATH_GCONF
+	* boards/sounds/intro.ogg: intro for gcompris created by Djilali Sebihi
+	* boards/sounds/fr/*.ogg: regeneration of sounds by Zohra Sebihi to have more volume
+	* boards/sounds/es/*.ogg: created by Zohra Sebihi
+	* boards/sounds/en/*.ogg: created by Zohra Sebihi
+	* src/gcompris/bar.c: now has voice tooltip after 1 sec on a bar item
+	* src/gcompris/gameutil.c: changed play_ogg to bypass file that are not there but play others
+
 2001-12-23 Pascal Georges <pascal.georges1@free.fr>
 	* modified erase board to display animal pictures
 
@@ -5,7 +23,7 @@
 	* finished new board in algebra group : guess count
 
 2001-12-16 Pascal Georges <pascal.georges1@free.fr>
-  * added gcompris/animals directory for nice pictures taken from http://schmode.net (we are granted by author to use its photos)
+	* added gcompris/animals directory for nice pictures taken from http://schmode.net (we are granted by author to use its photos)
 	* added RAND(A,B) utility macro in gameutil.h, which returns a number in [A,B] range
 	* added a new board in algebra group. Not finished yet but starts to be playable (needs a lot of clean up and polish)
 
