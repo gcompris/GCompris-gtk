@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2003/02/16 00:13:25 bruno>
+ * Time-stamp: <2003/10/12 22:49:24 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -310,7 +310,7 @@ static void clickgame_next_level()
   fallSpeed=5000-gcomprisBoard->level*200;
   /* Make the images tend to 0.5 ratio */
   imageZoom=0.5+(0.5/(gcomprisBoard->level));
-  gcomprisBoard->sublevel=1;
+  gcomprisBoard->sublevel=0;
   gcompris_score_set(gcomprisBoard->sublevel);
 
 }
@@ -543,7 +543,7 @@ static void game_won()
 
   if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
-    gcomprisBoard->sublevel=1;
+    gcomprisBoard->sublevel=0;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
       board_finished(BOARD_FINISHED_RANDOM);

@@ -62,14 +62,14 @@ int decode_ogg_file(char *infile)
   input = fopen((char *)infile, "rb");
   if(!input) {
       fprintf(stderr, "cannot open %s\n",(char *) infile);
-      return 0;
+      return -1;
     }
 
   if((ov_status = ov_open(input, &vf, NULL, 0)) < 0) 
     {
       fclose(input);
       fprintf(stderr, "ov_open failed for %s (%d)\n",(char *) infile, ov_status);
-      return 0;
+      return -1;
     }
   vc = ov_comment(&vf, -1);
   vi=ov_info(&vf,-1);
@@ -91,7 +91,9 @@ int decode_ogg_file(char *infile)
   driver_id = ao_driver_id("esd");
   printf("\n!!! Audio output device set to esd by default on Mac Os 10.2 !!!!\n\n");
   #else
-  driver_id = ao_default_driver_id();      
+  /* Seen the recent problems with the sounds, I test to use esd for all */
+  /* driver_id = ao_default_driver_id();      */
+  driver_id = ao_driver_id("esd");
   #endif
   
   if ( driver_id < 0 ){
@@ -112,7 +114,7 @@ int decode_ogg_file(char *infile)
     {
       fclose(input);
       fprintf(stderr, "Error opening audio device\n");
-      return 0;
+      return -1;
     }
 
   

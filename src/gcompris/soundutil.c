@@ -140,10 +140,15 @@ static void* scheduler_bgnd ()
 	{
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
 	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
-	  decode_ogg_file((char *)g_list_nth_data(musiclist, i));
+	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
+	    goto exit;
 	}
     }
 
+
+ exit:
+  g_list_free(musiclist);
+  g_warning("The background thread music is stopped now. The files in %s are not ogg vorbis OR the sound output failed", PACKAGE_DATA_DIR "/music/background");
   return NULL;
 }
 /* =====================================================================

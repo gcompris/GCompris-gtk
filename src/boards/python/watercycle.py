@@ -327,7 +327,7 @@ class Gcompris_watercycle:
           self.waterpump_on = 1
           self.pumpwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/pumpwater.png"));
           # Set the water to the house after a timeout to simulate the water castle refill
-          self.cleanwater_timer = gtk.timeout_add(1000, self.set_cleanwater)
+          self.cleanwater_timer = gtk.timeout_add(3000, self.set_cleanwater)
         return gtk.TRUE
     return gtk.FALSE
 

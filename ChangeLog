@@ -1,3 +1,13 @@
+2003-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/submarine.png: added shadow 
+	* boards/boardicons/watercycle.png: added shadow 
+	* src/boards/clickgame.c: (clickgame_next_level), (game_won): Patch by PUYDT Julien 
+	  <julien.puydt@laposte.net>. The counter now starts at 0 and 10 fishes must be hit.
+	* src/boards/python/watercycle.py: increased timer : minor change
+	* src/gcompris/oggplayer.c: added -1 return value when it fails to play
+	* src/gcompris/soundutil.c: in background music, stop the thread if music fails to play
+
 2003-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* .cvsignore: added config.rpath
