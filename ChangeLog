@@ -1,3 +1,20 @@
+2004-06-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: added config.h.windows
+	* README.mingw: added more specific informations
+	* README.windows: fixed project link
+	* config.h.windows: create. use it to compile on mingw
+	* configure.in: changed to release 6.1
+	* src/boards/Makefile.am: added boards2static.pl utility for mingw
+	* src/gcompris/assetml.c: (assetml_get_locale): replaced getenv by g_getenv
+	* src/gcompris/board.c: (init_plugins), (board_check_file): merged mingw version and linux version
+	* src/gcompris/gameutil.c: (gcompris_read_xml_file),
+	(gcompris_load_menus): fixed bugs in which you cannot go back to upper menu if you enter
+	the configuration dialog while you are in a submenu.
+	* src/gcompris/gcompris-board.h: reindent
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_init): implemented the grace period stuff for
+	mingw
+
 2004-06-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/boards2static.pl: created. Allow to transform the boards to static notation used in the

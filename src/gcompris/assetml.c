@@ -50,9 +50,12 @@ gchar *assetml_get_locale()
 {
   char *locale;
 
-  locale = getenv("LC_ALL");
+  locale = g_getenv("LC_ALL");
   if(locale == NULL)
-    locale = getenv("LANG");
+    locale = g_getenv("LC_MESSAGES");
+  if(locale == NULL)
+    locale = g_getenv("LANG");
+
 
   if(locale!=NULL)
     return(locale);

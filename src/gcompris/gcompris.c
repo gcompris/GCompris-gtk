@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/06/07 23:47:16 bcoudoin>
+ * Time-stamp: <2004/06/16 23:53:29 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -22,6 +22,11 @@
 #include <signal.h>
 #include <popt.h>
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <time.h>
+
 #include "gcompris.h"
 #include <locale.h>
 
@@ -37,6 +42,8 @@ GtkWidget *drawing_area;
 GnomeCanvas *canvas;
 GnomeCanvas *canvas_bar;
 GnomeCanvas *canvas_bg;
+
+gboolean grace_period = FALSE;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
@@ -491,9 +498,23 @@ static void setup_window ()
   init_background();
 
 #ifdef WIN32
-  if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
-    board_pause();
-    gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://www.ofset.org/order/gcompris\nThe Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\nhttp://www.fsf.org/philosophy"), NULL);
+  {
+    time_t	 ctime;
+    gchar	*prog;
+    struct stat  buf;
+
+    ctime = time(NULL);
+    prog = g_find_program_in_path("gcompris");
+    if(stat(prog, &buf)==0) {
+      if(difftime(ctime, buf.st_mtime)<2592000) {
+	grace_period = 1;
+	return;
+      }
+    }
+    if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
+      board_pause();
+      gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://www.ofset.org/order/gcompris\nThe Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\nhttp://www.fsf.org/philosophy"), NULL);
+    }
   }
 #endif
 }
@@ -660,12 +681,17 @@ gcompris_init (int argc, char *argv[])
   /* Save the default locale */
 #if defined WIN32
   gcompris_user_default_locale = g_win32_getlocale();
+  // Set the user's choice locale
+  if(properties->locale[0]=='\0') {
+    gcompris_set_locale(gcompris_user_default_locale);
+  } else {
+    gcompris_set_locale(properties->locale);
+  }
 #else
   gcompris_user_default_locale = g_strdup(setlocale(LC_MESSAGES, NULL));
-#endif
-
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);
+#endif
 
   /*------------------------------------------------------------*/
   if (popt_version)

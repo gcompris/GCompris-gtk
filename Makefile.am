@@ -23,7 +23,7 @@ EXTRA_DIST = \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
-	README.mingw
+	README.mingw config.h.windows
 
 distcore = $(PACKAGE)-core-$(VERSION)
 

@@ -229,5 +229,5 @@ libpython_la_SOURCES = python.c \
 	py-mod-skin.c		py-mod-skin.h
 
 
-EXTRA_DIST = README
+EXTRA_DIST = README boards2static.pl
 

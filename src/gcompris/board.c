@@ -21,6 +21,107 @@
 
 static struct BoardPluginData *bp_data;
 
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
+
+
+#ifdef WIN32
+extern gboolean    grace_period;
+extern BoardPlugin advanced_colors_menu_bp;
+extern BoardPlugin algebra_menu_bp;
+extern BoardPlugin algebra_guesscount_menu_bp;
+extern BoardPlugin canal_lock_menu_bp;
+extern BoardPlugin clickgame_menu_bp;
+extern BoardPlugin click_on_letter_menu_bp;
+extern BoardPlugin clockgame_menu_bp;
+extern BoardPlugin colors_menu_bp;
+extern BoardPlugin draw_menu_bp;
+extern BoardPlugin enumerate_menu_bp;
+extern BoardPlugin erase_menu_bp;
+extern BoardPlugin fifteen_menu_bp;
+extern BoardPlugin gletters_menu_bp;
+extern BoardPlugin hanoi_menu_bp;
+extern BoardPlugin imageid_menu_bp;
+extern BoardPlugin leftright_menu_bp;
+extern BoardPlugin machpuzzle_menu_bp;
+extern BoardPlugin maze_menu_bp;
+extern BoardPlugin memory_menu_bp;
+extern BoardPlugin menu_menu_bp;
+extern BoardPlugin missingletter_menu_bp;
+extern BoardPlugin money_menu_bp;
+extern BoardPlugin paratrooper_menu_bp;
+extern BoardPlugin planegame_menu_bp;
+extern BoardPlugin railroad_menu_bp;
+extern BoardPlugin read_colors_menu_bp;
+extern BoardPlugin reading_menu_bp;
+extern BoardPlugin reversecount_menu_bp;
+extern BoardPlugin shapegame_menu_bp;
+extern BoardPlugin smallnumbers_menu_bp;
+extern BoardPlugin submarine_menu_bp;
+extern BoardPlugin superbrain_menu_bp;
+extern BoardPlugin target_menu_bp;
+extern BoardPlugin traffic_menu_bp;
+extern BoardPlugin wordsgame_menu_bp;
+
+static BoardPlugin *static_boards_demo[] = {
+  &algebra_menu_bp,
+  &click_on_letter_menu_bp,
+  &colors_menu_bp,
+  &clickgame_menu_bp,
+  &draw_menu_bp,
+  &enumerate_menu_bp,
+  &erase_menu_bp,
+  &gletters_menu_bp,
+  &hanoi_menu_bp,
+  &menu_menu_bp,
+  &reading_menu_bp,
+  &submarine_menu_bp,
+  &superbrain_menu_bp,
+  &target_menu_bp,
+};
+
+static BoardPlugin *static_boards[] = {
+  &advanced_colors_menu_bp,
+  &algebra_guesscount_menu_bp,
+  &imageid_menu_bp,
+  &leftright_menu_bp,
+  &machpuzzle_menu_bp,
+  &maze_menu_bp,
+  &memory_menu_bp,
+  &missingletter_menu_bp,
+  &money_menu_bp,
+  &paratrooper_menu_bp,
+  &planegame_menu_bp,
+  &read_colors_menu_bp,
+  &reversecount_menu_bp,
+  &shapegame_menu_bp,
+  &smallnumbers_menu_bp,
+  &traffic_menu_bp,
+  &wordsgame_menu_bp,
+  &fifteen_menu_bp,
+  &algebra_menu_bp,
+  &click_on_letter_menu_bp,
+  &colors_menu_bp,
+  &canal_lock_menu_bp,
+  &clickgame_menu_bp,
+  &clockgame_menu_bp,
+  &draw_menu_bp,
+  &enumerate_menu_bp,
+  &erase_menu_bp,
+  &gletters_menu_bp,
+  &hanoi_menu_bp,
+  &menu_menu_bp,
+  &railroad_menu_bp,
+  &reading_menu_bp,
+  &submarine_menu_bp,
+  &superbrain_menu_bp,
+  &target_menu_bp,
+  NULL
+};
+#endif
+
 /*
  * The directory in which we will search for plugins
  * (In that order)
@@ -32,7 +133,35 @@ static gchar *plugin_paths[] = {
   NULL
 };
 
+#ifdef WIN32
+void init_plugins(void)
+{
+  guint i=0;
+  BoardPlugin **boards_list = NULL;
+  printf(">init_plugins\n");
+  /* First make sure the module loading is supported on this platform */
+  if (!g_module_supported())
+    g_error("Dynamic module loading is not supported. gcompris cannot work.\n");
 
+  bp_data = g_malloc0(sizeof (struct BoardPluginData));
+
+  while(static_boards[i++] != NULL) {
+    /* If this plugin defines an initialisation entry point, call it */
+    BoardPlugin *bp;
+      
+    /* Get the BoardPlugin Info */
+    bp = (BoardPlugin *) static_boards[i-1];
+      
+    printf("Initializing plugin %s\n", bp->name);
+    if(bp->init != NULL) {
+      bp->init();
+    }
+  }
+
+  printf("<init_plugins\n");
+
+}
+#else
 void init_plugins(void)
 {
 
@@ -43,6 +172,7 @@ void init_plugins(void)
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 
 }
+#endif
 
 BoardPlugin *get_current_board_plugin(void)
 {
@@ -59,6 +189,64 @@ void set_current_gcompris_board(GcomprisBoard * gcomprisBoard)
   bp_data->current_gcompris_board = gcomprisBoard;
 }
 
+#ifdef WIN32
+gboolean board_check_file(GcomprisBoard *gcomprisBoard)
+{
+  GcomprisProperties	*properties = gcompris_get_properties();
+  BoardPlugin *bp;
+  guint        i=0;
+
+  g_assert(gcomprisBoard!=NULL);
+  g_assert(properties->key!=NULL);
+
+  /* Check Already loaded */  
+  if(gcomprisBoard->plugin!=NULL) {
+    return TRUE;
+  }
+
+  if(strncmp(properties->key, "thanks_for_your_help", 20)==0 || grace_period==TRUE) {
+    while(static_boards[i++] != NULL) {
+
+      BoardPlugin *bp;
+
+      /* Get the BoardPlugin Info */
+      bp = (BoardPlugin *) static_boards[i-1];
+
+      if(bp->is_our_board(gcomprisBoard)) {
+	/* Great, we found our plugin */
+	g_warning("We found the correct plugin for board %s (type=%s)\n", gcomprisBoard->name, gcomprisBoard->type);
+
+	gcomprisBoard->plugin = bp;
+
+	return TRUE;
+      }
+    }
+  } else {
+    while(static_boards_demo[i++] != NULL) {
+
+      BoardPlugin *bp;
+
+      /* Get the BoardPlugin Info */
+      bp = (BoardPlugin *) static_boards_demo[i-1];
+
+      if(bp->is_our_board(gcomprisBoard)) {
+	/* Great, we found our plugin */
+	g_warning("We found the correct plugin for board %s (type=%s)\n", gcomprisBoard->name, gcomprisBoard->type);
+
+	gcomprisBoard->plugin = bp;
+
+	return TRUE;
+      }
+    }
+  }
+
+
+  g_warning("No plugin library found for board type '%s', requested by '%s'", 
+	    gcomprisBoard->type,  gcomprisBoard->filename);
+
+  return FALSE;
+}
+#else
 gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 {
   BoardPlugin *bp;
@@ -135,6 +323,7 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
   return FALSE;
 }
+#endif
 
 void board_play(GcomprisBoard *gcomprisBoard)
 {

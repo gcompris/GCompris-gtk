@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/06/05 22:55:17 bcoudoin>
+ * Time-stamp: <2004/06/18 00:28:51 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -552,7 +552,6 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
   gcomprisBoard->filename=filename;
   gcomprisBoard->board_ready=FALSE;
   gcomprisBoard->canvas=canvas;
-  gcomprisBoard->previous_board=NULL;
 
   gcomprisBoard->gmodule      = NULL;
   gcomprisBoard->gmodule_file = NULL;
@@ -564,7 +563,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
   return gcomprisBoard;
 }
 
-/* Return the boards with the given section
+/* Return the first board with the given section
  */
 GcomprisBoard *gcompris_get_board_from_section(gchar *section)
 {  
@@ -682,6 +681,7 @@ void gcompris_load_menus()
 	/* the locale data									*/
 	/* And we don't want in this case to loose the current plugin				*/
 	gcomprisBoard->plugin=NULL;
+	gcomprisBoard->previous_board=NULL;
 
 	boards_list = g_list_append(boards_list, gcompris_read_xml_file(gcomprisBoard, 
 									filename));
