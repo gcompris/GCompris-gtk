@@ -6,14 +6,16 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2004-11-29 22:20+0100\n"
+"Project-Id-Version: gcompris 6.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-13 00:04+0100\n"
 "PO-Revision-Date: 2004-12-07 23:18+0100\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@get2net.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -377,8 +379,8 @@ msgstr ""
 #: boards/algebra_guesscount.xml.in.h:3
 msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
-"Opstil en strategi til at arrangere et sæt af regnefunktioner, til at finde et "
-"angivet resultat."
+"Opstil en strategi til at arrangere et sæt af regnefunktioner, til at finde "
+"et angivet resultat."
 
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "Find the correct operations to get the result"
@@ -470,12 +472,50 @@ msgid "algorithm"
 msgstr "Algoritme"
 
 #: boards/anim.xml.in.h:1
-msgid "Create an animation"
-msgstr "Skab en animation"
+msgid "Create a drawing or an animation"
+msgstr "Lav en tegning eller en animation."
 
 #: boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
 msgstr "Fritegnings- og animations-værktøj."
+
+#: boards/anim.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines. To make it more fun for kids, a set of images can also be used."
+msgstr ""
+"I dette program kan børn tegne frit. Målet er at opdage hvordan man skaber "
+"pæne tegninger, baseret på grundlæggende former: firkanter, elipser og linier. "
+"For at gøre det sjovere for børnene, kan de også bruge et sæt billeder."
+
+#: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Skal være trænet i at bruge mus med klik."
+
+#: boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left and a color on the bottom. Then click and "
+"drag in the white area to create a new shape. Once one drawing is complete, "
+"you can take a snapshot of it with the 'camera' button. A new image with the "
+"same content is created. You can then move objects a little bit or add/"
+"delete objects. Create several drawings and then click on the 'film' button. "
+"You will see all your images in an infinite loop. You can change the viewing "
+"speed in this mode. In view mode, click on the 'drawing' button to return to "
+"drawing. You can then edit each image of your animation by using the image "
+"selector in the bottom left of the screen. You can save and reload your "
+"animations with the 'floppy' and 'folder' button."
+msgstr ""
+"Vælg et tegneredskab i venstre side, og en farve i bunden. Derefter klik og træk "
+"i det hvide område for at lave en ny form. Når tegningen er færdig, kan du tage "
+"et billede af det med \"kamera\"-knappen. Et nyt billede med det samme "
+"indhold bliver lavet. Du kan derefter flytte på billedet, føje noget til billedet, "
+"eller slette dele af indholdet. Lav flere billeder, og klik på \"film\"-knappen. "
+"Dine billeder bliver vist i en uendelig løkke. Du kan ændre på visningshastigheden "
+"i denne indstilling. Tryk på \"tegning\"-knappen, for at vende tilbage til tegning. "
+"Du kan rette i de enkelte billeder, eller i animationen, ved at bruge billedvælgeren "
+"i bunden til venstre af skærmen. Du kan gemme og hente dine animationer med "
+"\"diskette\" og \"mappe\"-knapperne."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -635,10 +675,12 @@ msgstr "Træk og slip elementerne for at organisere historien"
 #: boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
 msgstr ""
-"Månefoto fra NASA. Rumlyde fra 'Tuxpaint' og 'Vegastrike'. Data om "
-"transport er baseret på angivelserne på: http://da.wikipedia.org/wiki/Forside"
+"Månefoto fra NASA. Rumlyde fra \"Tuxpaint\" og \"Vegastrike\". Data om transport "
+"er baseret på angivelserne på: http://da.wikipedia.org/wiki/Forside"
+"Transportbilleder ved Franck Doucet."
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -660,7 +702,21 @@ msgstr "Månevandrer"
 msgid "Tux and the apple tree"
 msgstr "Tux og æbletræet"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnot's fardier"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephenson's Raket\n"
+"damplokomotiv"
+
+#: boards/chronos/board3_0.xml.in.h:3
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -672,15 +728,40 @@ msgstr ""
 "Hvis du er usikker, kan du få mere at vide på\n"
 "http://da.wikipedia.org/wiki/Forside"
 
-#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Transport-maskiner"
 
-#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 Montgolfier brødrenes'\n"
+"Varmluftsballon"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
 msgstr "1880 Clement Ader's Eole"
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"Første helikopterflyvning"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
@@ -690,21 +771,65 @@ msgstr "1903 Brødrene Wrights fly III"
 msgid "1909 Louis Bleriot cross the Channel"
 msgstr "1909 Louis Bleriot krydser den Engelske kanal"
 
-#: boards/chronos/board4_0.xml.in.h:4
+#: boards/chronos/board4_0.xml.in.h:4 boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
 msgstr "Flyvning"
 
 #: boards/chronos/board4_1.xml.in.h:1
-msgid "1927 Charles Lindbergh cross Atlantique ocean"
-msgstr "1927 Charles Lindberg krydser Atlanterhavet"
-
-#: boards/chronos/board4_1.xml.in.h:2
-msgid "1934 Helene Boucher speed record 444km/h"
-msgstr "1934 Helene Boucher sætter fart rekord med 444 km/h"
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 Charles Lindberg\n"
+"krydser Atlanterhavet"
 
 #: boards/chronos/board4_1.xml.in.h:3
-msgid "1947 Chuck Yager break the sound-wall"
-msgstr "1947 Chuck Yager bryder lydmuren"
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 Helene Boucher sætter\n"
+"fartrekord med 444 km/h"
+
+#: boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yager\n"
+"break the sound-wall"
+msgstr ""
+"1947 Chuck Yager\n"
+"bryder lydmuren"
+
+#: boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr "1878 Léon Bollé \"La Mancelle\""
+
+#: boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 Den første benzin-\n"
+"drevne bil fra Benz."
+
+#: boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "Bilen"
+
+#: boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899 Renault \"voiturette\""
+
+#: boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923 Lancia Lambda"
+
+#: boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 199"
+msgstr "1955 Citroën ds 199"
+
+#: boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Biler"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -712,8 +837,8 @@ msgid ""
 "can hear the letter again by clicking on the mouth icon in the bottom "
 "horizontal box."
 msgstr ""
-"Klik på det bogstav der bliver læst op. Du kan høre bogstavet "
-"igen ved at klikke på tegningen af munden i bunden af siden."
+"Klik på det bogstav der bliver læst op. Du kan høre bogstavet igen ved at "
+"klikke på tegningen af munden i bunden af siden."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -752,7 +877,7 @@ msgid ""
 "Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
 "Fiskene er hentet fra 'Unix utility xfishtank'. Billeder er hentet fra "
-"National Undersea Research Program (NURP) Collection på http://www.photolib."
+"National Under Research Program (NURP) Collection på http://www.photolib."
 "noaa.gov. Alle billedrettigheder tilhører OAR/National Undersea Research "
 "Program (NURP), undtagen det første billede, der tilhører University of "
 "North Carolina at Wilmington. Billederne brugt i hvert niveau er: Sted: "
@@ -877,10 +1002,6 @@ msgstr ""
 "pænt-udseende tegninger, baseret på grundlæggende former: firkanter, elipser "
 "og linier."
 
-#: boards/draw.xml.in.h:4
-msgid "Needs to handle the mouse with the click easily"
-msgstr "Skal være trænet i at bruge mus med klik."
-
 #: boards/draw.xml.in.h:5
 msgid ""
 "Select a drawing tool on the left and a color on the bottom, and click and "
@@ -903,11 +1024,11 @@ msgstr "Tæl delene"
 msgid ""
 "First, properly organize the items so that you can count them. Then, select "
 "the item you want to answer in the bottom right area. Enter the answer with "
-"the keyboard and press the O.k. button or the 'Enter' key."
+"the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
 "Først skal du sortere delene så du kan tælle dem. Pas på - store dele kan "
-"godt dække mindre dele. Dernæst vælger du den del du vil tælle, ved at klikke "
-"på delens boks i højre side. Skriv svaret med tastaturet og tryk Retur eller "
+"godt dække mindre dele. Dernæst vælger du den del du vil tælle, ved at "
+"klikke på delens boks i højre side. Indtast svaret og tryk på Retur eller "
 "på O.k.-knappen."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
@@ -923,11 +1044,11 @@ msgstr "Flyt delene så de er lettest at tælle."
 msgid "Motor coordination"
 msgstr "Motorisk koordination"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Bevæg musen"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Bevæg musen og slet dækfelter, og opdag baggrunden."
 
@@ -1295,7 +1416,7 @@ msgstr "Frankrigs regioner"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
-msgstr "Brug af tastatur."
+msgstr "Brug af tastatur"
 
 #: boards/gletters.xml.in.h:2
 msgid "Letter recognition between the screen and the keyboard"
@@ -1303,7 +1424,7 @@ msgstr "Bogstav-genkendelse mellem skærm og tastatur."
 
 #: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
-msgstr "Enkelte bogstaver."
+msgstr "Enkelte bogstaver"
 
 #: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
@@ -1318,8 +1439,8 @@ msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
 msgstr ""
-"Træk og slip det øverste stykke fra en pind til en anden, så du kan "
-"bygge et tårn der svarer til det færdige til højre."
+"Træk og slip det øverste stykke fra en pind til en anden, så du kan bygge et "
+"tårn der svarer til det færdige til højre."
 
 #: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
@@ -1470,7 +1591,7 @@ msgstr "Træk og slip delene over deres skrevne navne."
 #: boards/imagename.xml.in.h:2
 msgid ""
 "Drag the images from the vertical box on the left to their corresponding "
-"name on the right. Click the O.k. button to check your answer."
+"name on the right. Click the OK button to check your answer."
 msgstr ""
 "Træk billederne fra kassen til venstre hen til det tilsvarende navn til "
 "højre. Klik på O.k.-knappen for at kontrollere svaret."
@@ -1710,7 +1831,7 @@ msgid ""
 "The following icons are displayed from right to left.\n"
 "Note that each icon is displayed only if available in the current activity:\n"
 "    Home - Back to previous menu or exit gcompris if at the top\n"
-"    Thumb - O.k.. Confirm your answer\n"
+"    Thumb - OK. Confirm your answer\n"
 "    Dice - Display the current level. Click to select another level\n"
 "    Music note - Repeat the question\n"
 "    Question Mark - Help\n"
@@ -1723,14 +1844,14 @@ msgid ""
 msgstr ""
 "Et enkelt klik på en ikon viser en ny skærm med en aktivitet, eller en ny "
 "menu af aktiviteter. I bunden af skærmen er GCompris kontrolmenu.\n"
-"Følgende ikoner vises fra højre mod venstre, "
-"men kun hvis de er aktive til det enkelte skærmbillede:\n"
+"Følgende ikoner vises fra højre mod venstre, men kun hvis de er aktive til "
+"det enkelte skærmbillede:\n"
 "    Hjem - Tilbage til forrige menu.\n"
-"    Tommeltot - O.k.\n"
+"    Tommeltot - O.k. Kontroller svar.\n"
 "    Terning - Angiver nuværende niveau, klik for at vælge et andet niveau.\n"
 "    Node - Gentag spørgsmålet.\n"
 "    Mund - Gentag det spillede/talte.\n"
-"    Redningskrans - Hjælp.\n"
+"    Spørgsmålstegn - Hjælp.\n"
 "    Skruenøgle - Indstillinger.\n"
 "    Tux fly - Om spillet.\n"
 "    Nat skærm - Afslut spillet.\n"
@@ -1747,21 +1868,25 @@ msgstr "GCompris hovedmenu"
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
-msgstr "GCompris er en samling aktiviteter til indlæring for børn i alderen fra 2 til 10 år."
+msgstr ""
+"GCompris er en samling aktiviteter til indlæring for børn i alderen fra 2 "
+"til 10 år."
 
 #: boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-msgstr "Målet med GCompris er at tilbyde et frit alternativ til proprietære læringsprogrammer."
+msgstr ""
+"Målet med GCompris er at tilbyde et frit alternativ til proprietære "
+"læringsprogrammer."
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
 msgstr ""
-"Et objekt vises på skærmen, og et ufærdigt navn står under billedet. "
-"Klik på det manglende bogstav."
+"Et objekt vises på skærmen, og et ufærdigt navn står under billedet. Klik på "
+"det manglende bogstav."
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
@@ -2026,8 +2151,8 @@ msgid ""
 "In this game, Tux the parachuter needs help to land safely on the fishing "
 "boat. He needs to take care of the wind direction and speed."
 msgstr ""
-"I dette spil med Tux som faldskærms-udspringer, skal du hjælpe Tux med at lande "
-"på båden. Du skal tage højde for vindretning og vindhastighed."
+"I dette spil med Tux som faldskærms-udspringer, skal du hjælpe Tux med at "
+"lande på båden. Du skal tage højde for vindretning og vindhastighed."
 
 #: boards/paratrooper.xml.in.h:4
 msgid "Parachute jumper"
@@ -2197,15 +2322,15 @@ msgstr "Kopier en tegning fra rammen i højre side, ind i rammen til venstre."
 #: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then, drag the mouse to "
-"create objects. When you are done, click on the O.k. button. Errors will be "
+"create objects. When you are done, click on the OK button. Errors will be "
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but take care not to have unwanted objects under others."
 msgstr ""
 "Først, vælg et passende værktøj fra værktøjskassen. Derefter, klik og træk "
-"med musen og skab objektet. Når du er færdig klik på O.k.-knappen. Fejl bliver "
-"markeret med kryds i små røde cirkler. Det er lige meget om objekterne "
-"ligger over eller under, men pas på med uønskede/ekstra objekter under andre "
-"(større!) objekter."
+"med musen og skab objektet. Når du er færdig klik på O.k.-knappen. Fejl "
+"bliver markeret med kryds i små røde cirkler. Det er lige meget om "
+"objekterne ligger over eller under, men pas på med uønskede/ekstra objekter "
+"under andre (større!) objekter."
 
 #: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
@@ -2233,7 +2358,7 @@ msgstr "Kan bruge musen, kan læse tal og fratrække tal op til 10 i første niv
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
 "fish. Click the dice with the right mouse button to count backwards. When "
-"done, click on the O.k. button or hit the Enter key."
+"done, click on the OK button or hit the Enter key."
 msgstr ""
 "Klik på terningen for at vise, hvor mange isflager der er fra Tux og frem "
 "til og med fisken. Klik på terningen med højre musetast for at tælle "
@@ -2248,6 +2373,53 @@ msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr ""
 "Tux er sulten. Hjælp ham med at finde fisk ved at tælle frem til den rigtige "
 "isflage."
+
+#: boards/searace.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Indtast gode instruktioner til dit skib, for at vinde kapsejladsen."
+
+#: boards/searace.xml.in.h:2
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. Going to the next level "
+"will give your more complex wether conditions."
+msgstr ""
+"Du skal skrive kommandoer til din båd i tekstfeltet nederst. De kommandoer "
+"du kan bruge står i feltet mellem de to tekstfelter. \"venstre\" og \"højre\" "
+"kommandoerne skal have en vinkelangivelse i grader. Vinkelangivelsen kaldes "
+"også en \"parameter\" til venstre og højre kommandoerne. Som forvalgt værdi "
+"bruges 45 grader. \"fremad\" kommandoen accepterer en afstands-parameter."
+"Som standardværdi bruges 1. For eksempel:\n"
+"venstre 90 => lav en vinkelret drejning til venstre\n"
+"fremad 10 => fremad i 10 felter (som vist på afstandsskalaen øverst)\n"
+"Målet er højre side (den røde linie). Når du har nået den røde streg, kan du prøve "
+"at forbedre dit program, og starte en ny kapsejlads med de samme vejrbetingelser, "
+"ved at bruge \"nyt forsøg\"-knappen. Når du går videre til næste niveau, får du "
+"mere sammensatte vejrbetingelser."
+
+#: boards/searace.xml.in.h:3
+msgid ""
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+msgstr ""
+"I denne aktivitet lærer du hvordan man giver kommandoer til en maskine. "
+"Selv med så enkelt et sprog som her, lærer du at tænke fremad, og hvordan "
+"man påvirker et program. Denne aktivitet kan bruges til at introducere "
+"programmeringsbegreber til børn."
+
+#: boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "Kapsejlads (2 spillere)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2342,7 +2514,7 @@ msgstr "Styr en ubåd ved hjælp af lufttanke og sideror"
 #: boards/superbrain.xml.in.h:1
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
-"Then, click on the O.k. button in the control bar. In the lower levels, Tux "
+"Then, click on the OK button in the control bar. In the lower levels, Tux "
 "gives you an indication if you found a hiding place by marking the item with "
 "a black box. You can use the right mouse button to flip the colors in the "
 "opposite order."
@@ -2369,7 +2541,7 @@ msgid ""
 "Check the wind speed and direction, and then click on the target to launch a "
 "dart. When you have thrown all of your darts, a window appears asking you to "
 "count your score. Enter the score with the keyboard then press the Enter key "
-"or the O.k. button."
+"or the OK button."
 msgstr ""
 "Kontrollér vindhastigheden, retningen og afstanden, og klik så på målet for "
 "at kaste en pil. Når du har kastet alle dine pile, åbner et vindue, hvor du "
@@ -2390,7 +2562,7 @@ msgstr "Ram målet, og tæl dine points."
 
 #: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
-msgstr "Et skyde-blok problemspil."
+msgstr "Et skyde-blok problemspil"
 
 #: boards/traffic.xml.in.h:2
 msgid "Remove all the red cars from the grid through the slot on the right"
@@ -2409,7 +2581,7 @@ msgstr ""
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
-msgstr "Lær om vandets kredsløb."
+msgstr "Lær om vandets kredsløb"
 
 #: boards/watercycle.xml.in.h:3
 msgid ""
@@ -2421,7 +2593,7 @@ msgstr ""
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:110
 msgid "Falling Words"
-msgstr "Faldende ord."
+msgstr "Faldende ord"
 
 #: boards/wordsgame.xml.in.h:3
 msgid "Keyboard training"
@@ -2451,7 +2623,7 @@ msgstr "GCompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2636,13 +2808,15 @@ msgstr "Lær at læse."
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Se på den viste hånd. Er det en højre eller venstre hånd?"
 
-#: src/boards/leftright.c:248
+#: src/boards/leftright.c:248 src/boards/python/searace.py:513
+#: src/boards/python/searace.py:825
 msgid "left"
-msgstr "Venstre."
+msgstr "venstre"
 
-#: src/boards/leftright.c:258
+#: src/boards/leftright.c:258 src/boards/python/searace.py:522
+#: src/boards/python/searace.py:827
 msgid "right"
-msgstr "Højre."
+msgstr "højre"
 
 #: src/boards/maze.c:445
 msgid "Look at your position and switch back to 3D mode to move"
@@ -2715,6 +2889,61 @@ msgstr "Niveau."
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Koordineret."
+
+#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
+#: src/boards/python/searace.py:220
+msgid "Race is already running"
+msgstr "Kapsejladsen er begyndt"
+
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:794
+msgid "droite"
+msgstr "venstre"
+
+#. Manage default cases (no params given)
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:504 src/boards/python/searace.py:790
+#: src/boards/python/searace.py:819
+msgid "forward"
+msgstr "fremad"
+
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:792
+msgid "gauche"
+msgstr "højre"
+
+#: src/boards/python/searace.py:495
+msgid "COMMANDS ARE"
+msgstr "KOMMANDOER:"
+
+#: src/boards/python/searace.py:683
+msgid "The Red boat has won"
+msgstr "Den røde båd vandt."
+
+#: src/boards/python/searace.py:686
+msgid "The Green boat has won"
+msgstr "Den grønne båd vandt."
+
+#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
+#: src/boards/python/searace.py:716
+msgid "Angle:"
+msgstr "Vinkel:"
+
+#: src/boards/python/searace.py:716
+msgid "Wind:"
+msgstr "Vindhastighed:"
+
+#: src/boards/python/searace.py:797
+msgid "Syntax error at line"
+msgstr "Syntaksfejl i linie"
+
+#: src/boards/python/searace.py:815
+msgid "The command"
+msgstr "Kommandoen"
+
+#: src/boards/python/searace.py:834
+msgid "Unknown command at line"
+msgstr "Ukendt kommando i linie"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -2886,10 +3115,10 @@ msgstr "Dette program er en GNU pakke, der er frigivet under GNU GPL."
 msgid "Help"
 msgstr "Hjælp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
-msgid "O.k."
+msgid "OK"
 msgstr "O.k."
 
 #: src/gcompris/board.c:170
@@ -3064,83 +3293,87 @@ msgstr "Tyrkisk"
 msgid "Walloon"
 msgstr "Vallonsk"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Kinesisk (simplificeret)"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "Ingen tidsgrænse"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Langsomt tidsforløb"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Normalt tidsforløb"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Hurtigt tidsforløb"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800*600 (standard for GCompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "Intet filter"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Kun dette niveau"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Op til dette niveau"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "Dette niveau og højere"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris-konfiguration"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Fuldskærm"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Baggrundsmusik"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Lydeffekter"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åbne tema-bibliotek: %s"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Intet tema fundet i %s\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
 
-#: src/gcompris/file_selector.c:235
+#: src/gcompris/file_selector.c:242
 msgid "CANCEL"
 msgstr "AFBRYD"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "LOAD"
 msgstr "INDLÆS"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "SAVE"
 msgstr "GEM"
 
@@ -3196,12 +3429,12 @@ msgstr "Udskriv versionen af "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Brug antialiased lærred (langsommere)."
 
-#: src/gcompris/gcompris.c:522
+#: src/gcompris/gcompris.c:532
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://gcompris.free.fr\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -3218,13 +3451,13 @@ msgstr ""
 "Se:\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:717
+#: src/gcompris/gcompris.c:727
 #, c-format
 msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://gcompris.free.fr\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Version: %s\n"
@@ -3320,5 +3553,4 @@ msgstr "Tid forløbet"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tid tilbage = %d"
-
 
