@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-18 03:32+0100\n"
-"PO-Revision-Date: 2004-02-18 15:35+0100\n"
+"POT-Creation-Date: 2004-02-21 03:33+0100\n"
+"PO-Revision-Date: 2004-02-21 09:53+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -518,10 +518,6 @@ msgstr "Lock na trávě."
 msgid "Lock with colored shapes."
 msgstr "Lock s barevnými tvary."
 
-#: boards/boards.xml.in.h:1
-msgid "Go to board based activities"
-msgstr "Jít na aktivity založené na hrací desce"
-
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
 #: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
@@ -544,6 +540,10 @@ msgid ""
 msgstr ""
 "Místo kliknutí na kouli určuje rychlost a směr koule. Čím blíž ke středu "
 "klikneš, tím je koule pomalejší."
+
+#: boards/boards.xml.in.h:1
+msgid "Go to board based activities"
+msgstr "Jít na aktivity založené na hrací desce"
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
@@ -2212,6 +2212,26 @@ msgstr "Deska Pythonu"
 #: src/boards/python.c:53
 msgid "Special board that embed python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
+
+#: src/boards/python/pythontest.py:67
+msgid ""
+"This is the first plugin in gcompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Toto je první zásuvný modul gcompris napsaný\n"
+"v programovacím jazyce Python."
+
+#: src/boards/python/pythontest.py:76
+msgid ""
+"It is now possible to develop gcompris activies in C or in Python.\n"
+" Thanks to Olivier Samys who makes this possible."
+msgstr ""
+"Nyní je možné vyvíjet aktivity gcompris v C nebo Pythonu.\n"
+" Díky Olivieru Samys, který to umožnil."
+
+#: src/boards/python/pythontest.py:85
+msgid "This activity is not playable yet, just a test"
+msgstr "Tato aktivita se ještě nedá hrát, jen test"
 
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
