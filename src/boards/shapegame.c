@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/01/11 01:26:05 bruno>
+ * Time-stamp: <2002/01/13 17:56:32 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -120,9 +120,6 @@ BoardPlugin menu_bp =
    N_("Make the puzzle"),
    N_("Drag and Drop the items to rebuild the object"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

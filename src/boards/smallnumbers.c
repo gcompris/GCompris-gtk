@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2002/01/11 01:26:02 bruno>
+ * Time-stamp: <2002/01/13 17:56:21 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -69,9 +69,6 @@ BoardPlugin menu_bp =
    N_("Numbers With Dices"),
    N_("Type the keyboard number 1 to 9 before the dices reach the ground"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

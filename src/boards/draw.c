@@ -96,14 +96,6 @@ BoardPlugin menu_bp =
    N_("A simple vector drawing tool"),
    N_("Creative board where you can freely draw"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   N_("Needs to handle the mouse with the click easily"),
-   N_("In this game, the children will be able to freely draw.\n"
-      "The goal is just to discover how he can create pretty looking drawings based on "
-      "basic shapes: rectangles, ellipses and lines.\n"),
-   N_("On the left select a drawing tool, on the bottom select a color then click "
-      "on the white area and drag to create a new shape.\n"
-      "To go faster, you can use the middle mouse button to delete an object "
-      "or the right button to move an object.\n"),
    NULL,
    NULL,
    NULL,

@@ -107,7 +107,7 @@ xml-i18n-tools, gdk-pixbuf doivent être installés.
 %package sounds-fr
 Summary:        French sounds for GCompris
 Group: 		Amusements/Games
-Requires:       %name = %version
+Requires:       %name
 
 %description sounds-fr
 French sounds for gcompris.
@@ -115,7 +115,7 @@ French sounds for gcompris.
 %package sounds-es
 Summary:        Spanish sounds for GCompris
 Group: 		Amusements/Games
-Requires:       %name = %version
+Requires:       %name
 
 %description sounds-es
 Spanish sounds for gcompris.
@@ -123,7 +123,7 @@ Spanish sounds for gcompris.
 %package sounds-de
 Summary:        German sounds for GCompris
 Group: 		Amusements/Games
-Requires:       %name = %version
+Requires:       %name
 
 %description sounds-de
 German sounds for gcompris.
@@ -131,7 +131,7 @@ German sounds for gcompris.
 %package sounds-en
 Summary:        English sounds for GCompris
 Group: 		Amusements/Games
-Requires:       %name = %version
+Requires:       %name
 
 %description sounds-en
 English sounds for gcompris.
@@ -179,7 +179,6 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/babyshapes/*
 %{prefix}/share/gcompris/boards/boardicons/*
 %{prefix}/share/gcompris/boards/clockgame/*
-%{prefix}/share/gcompris/boards/CVS/*
 %{prefix}/share/gcompris/boards/draw/*
 %{prefix}/share/gcompris/boards/fishes/*
 %{prefix}/share/gcompris/boards/flags/*
@@ -198,13 +197,13 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/menu/*
 
 %files sounds-de
-%{prefix}/share/gcompris/boards/sounds/fr
+%{prefix}/share/gcompris/boards/sounds/de
 
 %files sounds-en
-%{prefix}/share/gcompris/boards/sounds/fr
+%{prefix}/share/gcompris/boards/sounds/en
 
 %files sounds-es
-%{prefix}/share/gcompris/boards/sounds/fr
+%{prefix}/share/gcompris/boards/sounds/es
 
 %files sounds-fr
 %{prefix}/share/gcompris/boards/sounds/fr

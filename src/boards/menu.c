@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/01/13 01:13:45 bruno>
+ * Time-stamp: <2002/01/13 17:57:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -79,24 +79,6 @@ BoardPlugin menu_bp =
    N_("Main Menu"),
    N_("Select a Board"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   N_("GCompris is an educational games that provides different activities to "
-      "children from 3 to 8 years old.\n"),
-   N_("The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"),
-   N_("To use it, a simple click on an icon brings you to a board or a menu.\n"
-      "At the bottom of the screen, you have the gcompris control bar.\n"
-      "From right to left, bellow is the meaning of the icons.\n"
-      "Note that these icons are displayed only when available in a board:\n"
-      "Home - Back to previous menu or exit gcompris if no more\n"
-      "Thumb - OK, confirm your answer\n"
-      "Dice - The current level is displayed. Click on it to select another level\n"
-      "Music note - Ask gcompris to repeat the question\n"
-      "Question Mark - The help\n"
-      "Tool Box - The configuration menu\n"
-      "Tux Plane - The about box\n"
-      "The stars means:\n"
-      "1 Star  - 3 to 4 years old\n"
-      "2 Stars - 5 to 6 years old\n"
-      "3 Stars - 7 to 8 years old"),
    NULL,
    NULL,
    NULL,

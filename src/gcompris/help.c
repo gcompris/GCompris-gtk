@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/01/13 01:07:55 bruno>
+ * Time-stamp: <2002/01/13 18:02:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -58,12 +58,9 @@ static gchar   *manual_title = N_("Manual");
 gboolean gcompris_board_has_help (GcomprisBoard *gcomprisBoard)
 {
 
-  prerequisite	= (gcomprisBoard->plugin->prerequisite ? gcomprisBoard->plugin->prerequisite :
-		   gcomprisBoard->prerequisite);
-  goal		= (gcomprisBoard->plugin->goal ? gcomprisBoard->plugin->goal :
-		   gcomprisBoard->goal);
-  manual	= (gcomprisBoard->plugin->manual ? gcomprisBoard->plugin->manual :
-		   gcomprisBoard->manual);
+  prerequisite	= gcomprisBoard->prerequisite;
+  goal		= gcomprisBoard->goal;
+  manual	= gcomprisBoard->manual;
   return(prerequisite!=NULL || goal!=NULL || manual!=NULL);
 }
 
@@ -82,9 +79,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   GdkFont *gdk_font;
   GdkFont *gdk_font2;
   gchar   *name = NULL;
-  gchar   *prerequisite = NULL;
-  gchar   *goal = NULL;
-  gchar   *manual = NULL;
 
   if(rootitem)
     return;
@@ -95,15 +89,8 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 	  gcomprisBoard->plugin->pause_board(TRUE);
     }
 
-  /* Each of these fields can be overriden by the user xml menu file that describe its board */
-  name		= gcomprisBoard->name;
-  prerequisite	= (gcomprisBoard->plugin->prerequisite ? gcomprisBoard->plugin->prerequisite :
-		   gcomprisBoard->prerequisite);
-  goal		= (gcomprisBoard->plugin->goal ? gcomprisBoard->plugin->goal :
-		   gcomprisBoard->goal);
-  manual	= (gcomprisBoard->plugin->manual ? gcomprisBoard->plugin->manual :
-		   gcomprisBoard->manual);
-
+  name = gcomprisBoard->name;
+  gcompris_board_has_help(gcomprisBoard);
 
   rootitem = \
     gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),

@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2002/01/12 22:59:28 bruno>
+ * Time-stamp: <2002/01/13 17:58:56 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -77,22 +77,6 @@ BoardPlugin clickgame_bp =
    N_("Click On Me"),
    N_("Left-Click with the mouse on all swimming fishes before they leave the fishtank"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   N_("Can move the mouse\n"),
-   N_("In this game, the children will discover the click on the computer mouse.\n"
-      "The goal is just to click with the left mouse button on the moving fish."),
-   N_("Credits:\n"
-      "Fish are taken from the Unix utility xfishtank.\n"
-      "Images are taken from the National Undersearch Research Program (NURP) Collection "
-      "at http://www.photolib.noaa.gov\n"
-      "All images credit bellongs to the OAR/National Undersea Research Program (NURP).\n"
-      "Except for the first image that also credits the University of North Carolina at Wilmington.\n"
-      "In the gcompris level order, images information is:\n"
-      "Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling\n"
-      "Location: Florida Keys (image nur03006)\n"
-      "Location: Unknown (image nur03505)\n"
-      "Location: Unknown (image nur03010)\n"
-      "Location: Unknown (image nur03011)\n"
-      "Location: Unknown (image nur03013)"),
    NULL,
    NULL,
    NULL,

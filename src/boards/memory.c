@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2002/01/11 01:26:11 bruno>
+ * Time-stamp: <2002/01/13 17:57:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -232,9 +232,6 @@ BoardPlugin menu_bp =
    N_("Memory"),
    N_("Find the matching pair"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/01/12 22:55:39 bruno>
+ * Time-stamp: <2002/01/13 20:50:32 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -475,12 +475,14 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
 /* ==================================== */
 /* translates UTF8 charset to iso Latin1 */
 gchar * convertUTF8Toisolat1(gchar * text) {
-#define MAX_LENGTH 512
+#define MAX_LENGTH 1024
   const char *inptr;
   size_t inleft;
   char *outptr;
   size_t outleft;
   gint retval;
+  gint i;
+
   // this should never happen, it does often !!
   if (text == NULL)
     return NULL;
@@ -495,6 +497,17 @@ gchar * convertUTF8Toisolat1(gchar * text) {
     g_free(text);
     text = outptr;
     text[outleft]='\0';
+
+    // if we find \n on 2 char, recreate a real \n
+    i=0;
+    while(text[i++]!='\0')
+      {
+	if(text[i]=='\\' && text[i+1]=='n')
+	  {
+	    text[i]=' ';
+	    text[i+1]='\n';
+	  }
+      }
   } else
     g_free(outptr);
   

@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2002/01/11 02:03:54 bruno>
+ * Time-stamp: <2002/01/13 17:57:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -75,9 +75,6 @@ BoardPlugin menu_bp =
    N_("Numbers in Order"),
    N_("Move the plane to catch the clouds in the correct order"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

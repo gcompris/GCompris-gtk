@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2002/01/11 01:26:20 bruno>
+ * Time-stamp: <2002/01/13 17:59:05 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -93,9 +93,6 @@ BoardPlugin menu_bp =
    N_("Learning Clock"),
    N_("Learn how to read the time"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

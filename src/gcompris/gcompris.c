@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/01/12 22:58:27 bruno>
+ * Time-stamp: <2002/01/13 17:51:38 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -32,7 +32,6 @@ GnomeCanvas *canvas_bg;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
-static void help_cb (GtkWidget *widget, gpointer data);
 static gint end_board_box (void);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    GdkEventKey *event,
@@ -303,15 +302,6 @@ static void setup_window ()
   board_play (gcomprisBoardMenu);
 
   init_background();
-}
-
-/* It implements gcompris's own way to load help in order to be
- * Package relocatable.
- * Unfortunatly, this does not supports I18N
- */
-static void help_cb (GtkWidget *widget, gpointer data)
-{
-  gnome_help_goto(NULL, PACKAGE_HELP_DIR "/C/gcompris.html");
 }
 
 /*

@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2002/01/11 01:25:50 bruno>
+ * Time-stamp: <2002/01/13 17:56:12 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -82,9 +82,6 @@ BoardPlugin menu_bp =
    N_("Falling Words"),
    N_("Fully type the falling words before they reach the ground"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

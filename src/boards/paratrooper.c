@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2002/01/11 00:34:58 bruno>
+ * Time-stamp: <2002/01/13 17:57:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -105,12 +105,6 @@ BoardPlugin menu_bp =
    N_("Paratrooper"),
    N_("Manage the paratrooper to let him safely land"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   N_("This board is game oriented. It doesnt needs specific skills to play with"),
-   N_("In this game, the children will try to make Tux the paratrooper lands safely on the "
-      "fishing boat. He/She needs to take care of the wind side and speed.\n"
-      "\n"),
-   N_("Click on any keyboard key to let Tux jump. Another keypress will open the "
-      "'parachute'. Alternatively, a click on the plane and the tux also works."),
    NULL,
    NULL,
    NULL,

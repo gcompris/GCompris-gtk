@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2002/01/11 02:53:29 bruno>
+ * Time-stamp: <2002/01/13 17:58:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -76,9 +76,6 @@ BoardPlugin menu_bp =
    N_("Simple Letters"),
    N_("Type the falling letters before they reach the ground"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

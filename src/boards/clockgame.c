@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2002/01/12 21:59:09 bruno>
+ * Time-stamp: <2002/01/13 17:58:35 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -77,9 +77,6 @@ BoardPlugin menu_bp =
    N_("Learning Clock"),
    N_("Learn how to read the time"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
-   NULL,
-   NULL,
-   NULL,
    NULL,
    NULL,
    NULL,

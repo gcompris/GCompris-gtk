@@ -1,6 +1,6 @@
 /* gcompris - plugin.h
  *
- * Time-stamp: <2002/01/11 00:29:06 bruno>
+ * Time-stamp: <2002/01/13 17:50:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -43,9 +43,6 @@ typedef struct
   char *name;			/* The name that describes this board */
   char *description;		/* The description that describes this board */
   char *author;			/* The author of this board */
-  char *prerequisite;		/* Help information */
-  char *goal;
-  char *manual;
 
   void (*init) (void);		/* Called when the plugin is loaded */
   void (*cleanup) (void);      	/* Called when gcompris exit */
