@@ -232,8 +232,8 @@ position_set_initial_partyend (Position *pos, int level)
 	default:
 		/* The white pieces */
 		pos->square [A1] = WK;
-		pos->square [B4] = WQ;
-		pos->square [B5] = WQ;
+		pos->square [G1] = WQ;
+		pos->square [F1] = WQ;
 		
 		/* The black pieces */
 		pos->square [E8] = BK;
@@ -245,15 +245,15 @@ position_set_initial_partyend (Position *pos, int level)
 	case 2:
 		/* The white pieces */
 		pos->square [E1] = WK;
-		pos->square [B4] = WR;
-		pos->square [B5] = WR;
+		pos->square [F1] = WR;
+		pos->square [G1] = WR;
 		
 		/* The black pieces */
-		pos->square [A1] = BK;
+		pos->square [A8] = BK;
 
 		/* The kings */
 		pos->priv->wk_square = E1;
-		pos->priv->bk_square = A1;
+		pos->priv->bk_square = A8;
 		break;
 	case 3:
 		/* The white pieces */
@@ -312,7 +312,7 @@ position_set_initial_movelearn (Position *pos, int level)
 	case 2:
 		/* The white pieces */
 		pos->square [E1] = WK;
-		pos->square [B4] = WQ;
+		pos->square [G1] = WQ;
 		
 		/* The black pieces */
 		pos->square [A1] = BK;

@@ -343,6 +343,8 @@ static void chess_destroy_all_items()
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem = NULL;
+  turn_item     = NULL;
+  info_item     = NULL;
 
   if(position!=NULL)
     gtk_object_destroy (GTK_OBJECT (position));
@@ -407,6 +409,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   }
 
   /* Enter the gnuchessx edit mode */
+  write_child (write_chan, "new\n");
   write_child (write_chan, "edit\n");
   write_child (write_chan, "#\n");
 
@@ -1006,6 +1009,11 @@ engine_local_cb (GIOChannel *source,
     if (!strncmp ("White mates!",buf,12))
       {
 	display_info(_("White mates"));
+      }
+
+    if (!strncmp ("Drawn game!",buf,11))
+      {
+	display_info(_("Drawn game"));
       }
 
     memmove (buf, q+1, sizeof(buf) - ( q + 1 - buf));
