@@ -1,3 +1,19 @@
+2004-05-17  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: removed assetml dependancy
+	* src/gcompris/Makefile.am: added assetml, removed localename
+	* src/gcompris/assetml.c: (assetml_get_locale),
+	(reactivate_newline), (dump_asset), (assetml_add_xml_to_data),
+	(matching), (parse_doc), (assetml_read_xml_file), (selectAssetML),
+	(assetml_load_xml), (free_asset), (assetml_free_assetlist),
+	(assetml_get_asset): re-added there to avoid dependancy
+	* src/gcompris/assetml.h: re-added there to avoid dependancy
+	* src/gcompris/gameutil.c: assetml header change
+	* src/gcompris/gcompris.c: (gcompris_init): include win32 locale dep
+	* src/gcompris/localename.c: removed
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(my_setenv): include win32 locale dep
+
 2004-05-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data): added checks on missing fiels in the xml boards files.

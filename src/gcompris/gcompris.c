@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/05/08 22:03:16 bcoudoin>
+ * Time-stamp: <2004/05/17 00:27:54 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -26,6 +26,16 @@
 #include <locale.h>
 
 #include "cursor.h"
+
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
+
+#ifdef WIN32
+# define WIN32_LEAN_AND_MEAN
+# include <windows.h>
+#endif
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -605,7 +615,11 @@ gcompris_init (int argc, char *argv[])
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
 
   /* Save the default locale */
+#if defined WIN32
+  gcompris_user_default_locale = g_win32_getlocale();
+#else
   gcompris_user_default_locale = g_strdup(setlocale(LC_MESSAGES, NULL));
+#endif
 
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);

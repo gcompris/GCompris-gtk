@@ -103,7 +103,8 @@ libgcomprisinclude_HEADERS =			\
 	score.h \
 	skin.h \
 	gcompris_config.h \
-	about.h
+	about.h \
+	assetml.h
 
 libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
@@ -124,8 +125,8 @@ libgcompris_1_la_SOURCES =			\
 	config.c \
 	about.c \
 	log.c \
-	localename.c \
-	sdlplayer.c
+	sdlplayer.c \
+	assetml.c
 
 $(libgcompris_1_la_OBJECTS): $(marshal_sources)
 

@@ -38,7 +38,7 @@ GTK_REQUIRED=2.0.3
 GDK_PIXBUF_REQUIRED=2.0.6
 LIBGNOMECANVAS_REQUIRED=2.0.2
 
-PKG_CHECK_MODULES(GCOMPRIS, gtk+-2.0 >= $GTK_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0 libassetml)
+PKG_CHECK_MODULES(GCOMPRIS, gtk+-2.0 >= $GTK_REQUIRED gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED libgnomecanvas-2.0 >= $LIBGNOMECANVAS_REQUIRED gthread-2.0)
 AC_CHECK_LIB(SDL_mixer, Mix_OpenAudio,, AC_MSG_ERROR([*** SDL_mixer not found. Visit http://www.libsdl.org and get it]))
 
 AC_SUBST(GCOMPRIS_CFLAGS)

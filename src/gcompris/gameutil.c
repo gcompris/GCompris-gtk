@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/05/14 00:45:36 bcoudoin>
+ * Time-stamp: <2004/05/16 23:08:46 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -28,7 +28,7 @@
 
 #include "gcompris.h"
 
-#include <libassetml/assetml.h>
+#include "assetml.h"
 
 #define IMAGEEXTENSION ".png"
 
