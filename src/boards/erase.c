@@ -38,7 +38,7 @@ static void	 game_won(void);
 
 static GnomeCanvasGroup *boardRootItem = NULL;
 
-static GnomeCanvasItem	*erase_create_item(GnomeCanvasGroup *parent);
+static GnomeCanvasItem	*erase_create_item();
 static void		 erase_destroy_all_items(void);
 static void		 erase_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
@@ -215,7 +215,7 @@ static void erase_destroy_all_items()
   boardRootItem = NULL;
 }
 /* ==================================== */
-static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
+static GnomeCanvasItem *erase_create_item()
 {
   int i,j;
   GnomeCanvasItem *item = NULL;
@@ -225,7 +225,6 @@ static GnomeCanvasItem *erase_create_item(GnomeCanvasGroup *parent)
 							    gnome_canvas_group_get_type (),
 							    "x", (double) 0,
 							    "y", (double) 0,
-
 							    NULL));
 
   number_of_item = 0;

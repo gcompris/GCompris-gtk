@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2004/03/08 00:02:14 bcoudoin>
+ * Time-stamp: <2005/01/31 03:23:49 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -23,19 +23,15 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-static GList *item_list = NULL;
-static GList *item2del_list = NULL;
-
 static GcomprisBoard *gcomprisBoard = NULL;
 
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
 
-static char *numbers = "123456789";
+static char *numbers = "123456";
 static  int  gamewon;
 
-/* Hash table of all displayed letters  */
-static GHashTable *letters_table= NULL;
+static GnomeCanvasGroup *boardRootItem = NULL;
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -44,19 +40,15 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 static gint key_press(guint keyval);
 
-static GnomeCanvasItem *smallnumbers_create_item(GnomeCanvasGroup *parent);
+static void smallnumbers_create_item(GnomeCanvasGroup *parent);
 static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data);
 static gint smallnumbers_move_items (GtkWidget *widget, gpointer data);
-static void smallnumbers_destroy_item(GnomeCanvasItem *item);
-static void smallnumbers_destroy_items(void);
 static void smallnumbers_destroy_all_items(void);
 static void smallnumbers_next_level(void);
-static void smallnumbers_add_new_item(void);
+static void smallnumbers_gotkey_item(GnomeCanvasItem *item, guint key);
 
 static void player_win(GnomeCanvasItem *item);
 static void player_loose(void);
-static GnomeCanvasItem *item_find_by_title (const gchar *title);
-static char *key_find_by_item (const GnomeCanvasItem *item);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
@@ -147,7 +139,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
 
       gcomprisBoard->level = 1;
-      gcomprisBoard->maxlevel = 6;
+      gcomprisBoard->maxlevel = 9;
       gcomprisBoard->number_of_sublevel=10;
       gcompris_score_start(SCORESTYLE_NOTE, 
 			   gcomprisBoard->width - 220, 
@@ -191,7 +183,7 @@ static gint key_press(guint keyval)
   gchar *old_name;
   char str[2];
 
-  if(!gcomprisBoard)
+  if(!gcomprisBoard || !boardRootItem)
     return TRUE;
 
   /* Add some filter for control and shift key */
@@ -258,19 +250,10 @@ static gint key_press(guint keyval)
     }
 
   sprintf(str, "%c", keyval);
-  if (g_hash_table_lookup_extended (letters_table,
-				    str,
-				    (gpointer) &old_name,
-				    (gpointer) &old_value))
-    {
 
-      player_win(item_find_by_title(str));
+  keyval = atoi(str);
 
-    }
-  else
-    {
-      player_loose();
-    }
+  g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list, (GFunc) smallnumbers_gotkey_item, (void *)keyval);
 
   return TRUE;
 }
@@ -306,6 +289,13 @@ static void smallnumbers_next_level()
 
   smallnumbers_destroy_all_items();
 
+  boardRootItem = GNOME_CANVAS_GROUP(
+				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+							    gnome_canvas_group_get_type (),
+							    "x", (double) 0,
+							    "y", (double) 0,
+							    NULL));
+
   /* Try the next level */
   speed=100+(40/gcomprisBoard->level);
   fallSpeed=5000-gcomprisBoard->level*200;
@@ -315,66 +305,44 @@ static void smallnumbers_next_level()
 }
 
 
-static void smallnumbers_move_item(GnomeCanvasItem *item)
-{
-  double x1, y1, x2, y2;
-
-  gnome_canvas_item_move(item, 0, 2.0);
-
-  gnome_canvas_item_get_bounds    (item,
-				   &x1,
-				   &y1,
-				   &x2,
-				   &y2);
-  
-  if(y1>gcomprisBoard->height) {
-    item2del_list = g_list_append (item2del_list, item);
-    player_loose();
-  }
-}
-
-static void smallnumbers_destroy_item(GnomeCanvasItem *item)
-{
-  char *key;
-
-  key = key_find_by_item(item);
-  /* Remove old letter  */
-  g_hash_table_remove (letters_table, key);
-  g_free (key);
-
-  item_list = g_list_remove (item_list, item);
-  item2del_list = g_list_remove (item2del_list, item);
-  gtk_object_destroy (GTK_OBJECT(item));
-}
-
-/* Destroy items that falls out of the canvas */
-static void smallnumbers_destroy_items()
-{
-  GnomeCanvasItem *item;
-
-  while(g_list_length(item2del_list)>0) 
-    {
-      item = g_list_nth_data(item2del_list, 0);
-      smallnumbers_destroy_item(item);
-    }
-}
-
 /* Destroy all the items */
 static void smallnumbers_destroy_all_items()
 {
   GnomeCanvasItem *item;
 
-  if(item_list)
-    while(g_list_length(item_list)>0) 
-      {
-	item = g_list_nth_data(item_list, 0);
-	smallnumbers_destroy_item(item);
-      }
+  if(boardRootItem!=NULL)
+    gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
-  /* Delete the letters_table */
-  if(letters_table) {
-    g_hash_table_destroy (letters_table);
-    letters_table=NULL;
+  boardRootItem = NULL;
+
+}
+static void smallnumbers_gotkey_item(GnomeCanvasItem *item, guint key)
+{
+  guint number;
+  
+  if(G_OBJECT (item)) {
+    number = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "dice_number"));
+
+    if(number==key) {
+      player_win(item);
+    }
+  }
+}
+
+static void smallnumbers_move_item(GnomeCanvasItem *item)
+{
+  double x1, y1, x2, y2;
+  gnome_canvas_item_move(item, 0, 2.0);
+
+  gnome_canvas_item_get_bounds (item,
+				&x1,
+				&y1,
+				&x2,
+				&y2);
+  
+  if(y1>gcomprisBoard->height) {
+    player_loose();
+    gtk_object_destroy (GTK_OBJECT(item));
   }
 }
 
@@ -384,10 +352,9 @@ static void smallnumbers_destroy_all_items()
  */
 static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
 {
-  g_list_foreach (item_list, (GFunc) smallnumbers_move_item, NULL);
 
-  /* Destroy iterm that falls out of the canvas */
-  smallnumbers_destroy_items();
+  /* For each item we need to move */
+  g_list_foreach(GNOME_CANVAS_GROUP(boardRootItem)->item_list, (GFunc) smallnumbers_move_item, NULL);
 
   dummy_id = gtk_timeout_add (speed, 
 			      (GtkFunction) smallnumbers_move_items, NULL);
@@ -395,72 +362,83 @@ static gint smallnumbers_move_items (GtkWidget *widget, gpointer data)
   return(FALSE);
 }
 
-static GnomeCanvasItem *smallnumbers_create_item(GnomeCanvasGroup *parent)
+static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 {
   GdkPixbuf *smallnumbers_pixmap = NULL;
   GnomeCanvasItem *item;
+  GnomeCanvasGroup *group_item;
   char *str;
-  int i;
+  guint i;
   char *lettersItem;
   char *str1 = NULL;
   char *str2 = NULL;
+  guint number_of_dice = 1;
+  guint total_number = 0;
+  double x = 0;
 
-  if (!letters_table)
-    {
-      letters_table= g_hash_table_new (g_str_hash, g_str_equal);
+  if(gcomprisBoard->level>=5) {
+    number_of_dice = 2;
+  }
+
+  group_item = GNOME_CANVAS_GROUP(
+				  gnome_canvas_item_new (parent,
+							 gnome_canvas_group_get_type (),
+							 "x", (double) 0,
+							 "y", (double) 40,
+							 NULL));
+
+  while(number_of_dice-- > 0) {
+
+    lettersItem = g_malloc (2);
+
+    /* Take care not to go above 9 anyway */
+    if(total_number==0) {
+      i=rand()%6;
+    } else {
+      int rando = rand()%(9-total_number);
+      i=MIN(rando, 5);
     }
 
-  lettersItem = g_malloc (2);
+    total_number += i + 1;
+    sprintf(lettersItem, "%c", numbers[i]);
 
-  /* Beware, since we put the letters in a hash table, we do not allow the same
-     letter to be displayed two times */
-  i=rand()%strlen(numbers);
-  sprintf(lettersItem, "%c", numbers[i]);
-  if(item_find_by_title(lettersItem)!=NULL)
-    {
-      g_free(lettersItem);
-      return NULL;
+    lettersItem[1] = '\0';
+
+    str1 = g_strdup_printf("%s%s", lettersItem, ".ogg");
+    str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+
+    g_free(str1);
+    g_free(str2);
+
+    str = g_strdup_printf("gcompris/dice/gnome-dice%c.png", numbers[i]);
+
+    smallnumbers_pixmap = gcompris_load_pixmap(str);
+
+    g_free(str);
+
+    if(x==0) {
+      x = (double)(rand()%(gcomprisBoard->width-
+			   (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)*
+				   imageZoom)));
+    } else {
+      x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*
+	    imageZoom);
     }
 
-  lettersItem[1] = '\0';
+    item = gnome_canvas_item_new (group_item,
+				  gnome_canvas_pixbuf_get_type (),
+				  "pixbuf", smallnumbers_pixmap, 
+				  "x", x,
+				  "y", (double) -gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
+				  "width", (double) gdk_pixbuf_get_width(smallnumbers_pixmap)*imageZoom,
+				  "height", (double) gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
+				  "width_set", TRUE, 
+				  "height_set", TRUE,
+				  NULL);
+    gdk_pixbuf_unref(smallnumbers_pixmap);
+  }
+  g_object_set_data (G_OBJECT (group_item), "dice_number", GINT_TO_POINTER (total_number));
 
-  str1 = g_strdup_printf("%s%s", lettersItem, ".ogg");
-  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
-
-  gcompris_play_ogg(str2, NULL);
-
-  g_free(str1);
-  g_free(str2);
-
-  str = g_strdup_printf("gcompris/dice/gnome-dice%c.png", numbers[i]);
-
-  smallnumbers_pixmap = gcompris_load_pixmap(str);
-  g_free(str);
-
-  item = gnome_canvas_item_new (parent,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", smallnumbers_pixmap, 
-				"x", (double)(rand()%(gcomprisBoard->width-
-						      (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)*
-						       imageZoom))),
-				"y", (double) -gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
-				"width", (double) gdk_pixbuf_get_width(smallnumbers_pixmap)*imageZoom,
-				"height", (double) gdk_pixbuf_get_height(smallnumbers_pixmap)*imageZoom,
-				"width_set", TRUE, 
-				"height_set", TRUE,
-				NULL);
-  gdk_pixbuf_unref(smallnumbers_pixmap);
-  item_list = g_list_append (item_list, item);
-
-  /* Add letter to hash table of all falling letters. */
-  g_hash_table_insert (letters_table, lettersItem, item);
-
-  return (item);
-}
-
-static void smallnumbers_add_new_item() 
-{
-  smallnumbers_create_item(gnome_canvas_root(gcomprisBoard->canvas));
 }
 
 /*
@@ -469,7 +447,7 @@ static void smallnumbers_add_new_item()
  */
 static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 {
-  smallnumbers_add_new_item();
+  smallnumbers_create_item(boardRootItem);
 
   drop_items_id = gtk_timeout_add (fallSpeed,
 				   (GtkFunction) smallnumbers_drop_items, NULL);
@@ -478,7 +456,7 @@ static gint smallnumbers_drop_items (GtkWidget *widget, gpointer data)
 
 static void player_win(GnomeCanvasItem *item)
 {
-  smallnumbers_destroy_item(item);
+  gtk_object_destroy (GTK_OBJECT(item));
   gcompris_play_ogg ("gobble", NULL);
 
   gcomprisBoard->sublevel++;
@@ -489,9 +467,9 @@ static void player_win(GnomeCanvasItem *item)
       /* Try the next level */
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-				gcompris_score_end();
-				board_finished(BOARD_FINISHED_RANDOM);
-				return;
+	gcompris_score_end();
+	board_finished(BOARD_FINISHED_RANDOM);
+	return;
       }
       gamewon = TRUE;
       smallnumbers_destroy_all_items();
@@ -499,19 +477,7 @@ static void player_win(GnomeCanvasItem *item)
     }
   else
     {
-      /* Drop a new item now to speed up the game */
-      if(g_list_length(item_list)==0)
-	{
-	  if (drop_items_id) {
-	    /* Remove pending new item creation to sync the falls */
-	    gtk_timeout_remove (drop_items_id);
-	    drop_items_id = 0;
-	  }
-	  if(!drop_items_id) {
-	    drop_items_id = gtk_timeout_add (0,
-					     (GtkFunction) smallnumbers_drop_items, NULL);
-	  }
-	}
+      gcompris_score_set(gcomprisBoard->sublevel);
     }
 }
 
@@ -520,41 +486,6 @@ static void player_loose()
   gcompris_play_ogg ("crash", NULL);
 }
 
-
-/* Return in item the key if the value equals the item */
-static void get_item(char *key, char *value, char **item)
-{
-  if(value==*item) {
-    *item=key;
-  }
-}
-
-static char *
-key_find_by_item (const GnomeCanvasItem *item)
-{
-  static char *key_found;
-
-  key_found = (char *)item;
-
-  if (!letters_table)
-    return NULL;
-  
-  /* We have to loop to find this item's key */
-  g_hash_table_foreach (letters_table,
-			(GHFunc) get_item,
-			&key_found);
-
-  return key_found;
-}
-
-static GnomeCanvasItem *
-item_find_by_title (const gchar *title)
-{
-  if (!letters_table)
-    return NULL;
-  
-  return g_hash_table_lookup (letters_table, title);
-}
 
 
 
