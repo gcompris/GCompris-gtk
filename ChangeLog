@@ -1,3 +1,9 @@
+2003-03-04  Gregory Leblanc  <gleblanc@linuxweasel.com>
+
+	* boards/algebra_guesscount/dash.png:
+	* boards/gcompris/letters/dash.png: murder these two files, per a 9 
+	month old request.  Must be a CVS bug. (they were -.png)
+
 2003-03-01  Pascal Georges <pascal.georges1@free.fr>
 	* src/boards/advanced_colors.c : fixed a bug (several points were substracted for one
   mere error). Corrected by removing "process_ok" function.
