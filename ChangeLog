@@ -1,3 +1,16 @@
+2004-06-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/menu.c: (display_board_icon): -A- implemented better board filtering
+	* src/gcompris/config.c: (gcompris_config_start),
+	(gcompris_config_stop), (display_difficulty_level),
+	(item_event_ok): -A-
+	* src/gcompris/gameutil.c: (gcompris_display_difficulty_stars): added highlight to stars
+	* src/gcompris/gcompris.c: (gcompris_init): -A-
+	* src/gcompris/gcompris.h: -A-
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save): -A-
+	* src/gcompris/properties.h: -A-
+
 2004-06-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/README:  new image from http://www.openclipart.org in public domain

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/06/04 01:49:23 bcoudoin>
+ * Time-stamp: <2004/06/05 02:09:46 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -41,7 +41,7 @@ static GnomeCanvasItem	*item_bad_flag		= NULL;
 static GnomeCanvasItem	*item_screen_text	= NULL;
 static GnomeCanvasItem	*item_timer_text	= NULL;
 static GnomeCanvasItem	*item_skin_text		= NULL;
-static GnomeCanvasItem	*item_difficulty_text	= NULL;
+static GnomeCanvasItem	*item_filter_text	= NULL;
 static GdkPixbuf	*pixmap_checked		= NULL;
 static GdkPixbuf	*pixmap_unchecked	= NULL;
 
@@ -112,10 +112,18 @@ static gchar *screenname[] = {
   "1024x768",
 };
 
+static gchar *filtername[] = {
+  N_("No filter"),
+  N_("Only this level"),
+  N_("Up to this level"),
+  N_("This level and above")
+};
+
 static void set_locale_flag(gchar *locale);
 static gchar *get_locale_name(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
 static gchar *get_previous_locale(gchar *locale);
+static void   display_difficulty_level();
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 
@@ -427,14 +435,14 @@ void gcompris_config_start ()
   // Difficulty Filter
   y_start += Y_GAP;
 
-  display_previous_next(x_start, y_start, "difficulty_previous", "difficulty_next");
+  display_previous_next(x_start, y_start, "filter_style_previous", "filter_style_next");
 
   stars_group_x = x_start + 60;
   stars_group_y = y_start - 25;
 
-  item_difficulty_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+  item_filter_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 						gnome_canvas_text_get_type (),
-						"text", gettext("Difficulty filter"),
+						"text", gettext(filtername[properties->filter_style]), 
 						"font", gcompris_skin_font_subtitle,
 						"x", (double) x_text_start,
 						"y", (double) y_start,
@@ -443,10 +451,8 @@ void gcompris_config_start ()
 						NULL);
 
 
-  stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
-						  (double) stars_group_x,
-						  (double) stars_group_y,
-						  properties->difficulty_filter);
+  // Difficulty star action button
+  display_difficulty_level();
 
   is_displayed = TRUE;
 }
@@ -462,6 +468,8 @@ void gcompris_config_stop ()
       gcomprisBoard->plugin->pause_board(FALSE);
     }
   rootitem = NULL;	  
+
+  stars_group = NULL;
 
   if(pixmap_unchecked)
     gdk_pixbuf_unref(pixmap_unchecked);
@@ -645,6 +653,29 @@ static gchar *get_previous_locale(gchar *locale)
   return(locale);
 }
 
+static void display_difficulty_level() 
+{
+  GcomprisProperties	*properties = gcompris_get_properties();
+
+  if(properties->filter_style != GCOMPRIS_FILTER_NONE) {
+    if(properties->difficulty_filter == 0)	/* If it was the devel mode, exit it */
+      properties->difficulty_filter = 1;
+
+    if(stars_group)
+      gtk_object_destroy(GTK_OBJECT(stars_group));
+	    
+    stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
+						    (double) stars_group_x,
+						    (double) stars_group_y,
+						    properties->difficulty_filter);
+    gtk_signal_connect(GTK_OBJECT(stars_group), "event",
+		       (GtkSignalFunc) item_event_ok,
+		       "difficulty_next");
+  } else {
+    gnome_canvas_item_hide(stars_group);
+  }
+}
+
 /* Callback for the bar operations */
 static gint
 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
@@ -789,32 +820,32 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 							 (char *)g_list_nth_data(skinlist, skin_index)),
 				 NULL);
 	}
-      else if(!strcmp((char *)data, "difficulty_previous"))
-	{
-	  if(properties->difficulty_filter-- < 1)
-	    properties->difficulty_filter = properties->difficulty_max;
-
-	  if(stars_group)
-	    gtk_object_destroy(GTK_OBJECT(stars_group));
-	    
-
-	  stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
-							  (double)stars_group_x,
-							  (double)stars_group_y,
-							  properties->difficulty_filter);
-	}
       else if(!strcmp((char *)data, "difficulty_next"))
 	{
 	  if(properties->difficulty_filter++ >= properties->difficulty_max)
-	    properties->difficulty_filter = 0;
+	    properties->difficulty_filter = 1;
 
-	  if(stars_group)
-	    gtk_object_destroy(GTK_OBJECT(stars_group));
-	    
-	  stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
-							  (double)stars_group_x,
-							  (double)stars_group_y,
-							  properties->difficulty_filter);
+	  display_difficulty_level();
+	}
+      else if(!strcmp((char *)data, "filter_style_previous"))
+	{
+	  if(properties->filter_style-- < 1)
+	    properties->filter_style = GCOMPRIS_FILTER_ABOVE;
+
+	  gnome_canvas_item_set (item_filter_text,
+				 "text", gettext(filtername[properties->filter_style]), 
+				 NULL);
+	  display_difficulty_level();
+	}
+      else if(!strcmp((char *)data, "filter_style_next"))
+	{
+	  if(properties->filter_style++ >= GCOMPRIS_FILTER_ABOVE)
+	    properties->filter_style = 0;
+
+	  gnome_canvas_item_set (item_filter_text,
+				 "text", gettext(filtername[properties->filter_style]), 
+				 NULL);
+	  display_difficulty_level();
 	}
     default:
       break;

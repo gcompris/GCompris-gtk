@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/06/01 01:19:55 bcoudoin>
+ * Time-stamp: <2004/06/05 01:22:57 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -642,7 +642,7 @@ gcompris_init (int argc, char *argv[])
 
   signal(SIGINT, gcompris_terminate);
 
-  /* Default difficulty filter value = NONE */
+  /* Default difficulty filter: non specified */
   popt_difficulty_filter = -1;
 
   gtk_init (&argc, &argv);
@@ -714,8 +714,10 @@ gcompris_init (int argc, char *argv[])
 
   if (popt_difficulty_filter>=0)
     {
+      /* This option provide less capacity than the GUI since we cannot set the filter_style */
       g_warning("Display only activities of level %d", popt_difficulty_filter);
       properties->difficulty_filter = popt_difficulty_filter;
+      properties->filter_style      = GCOMPRIS_FILTER_EQUAL;
     }
 
   poptFreeContext(pctx); 

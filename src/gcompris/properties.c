@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/06/04 01:37:08 bcoudoin>
+ * Time-stamp: <2004/06/05 01:27:34 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -87,15 +87,18 @@ GcomprisProperties *gcompris_properties_new ()
   boards_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
-  tmp->music		= 1;
-  tmp->fx		= 1;
-  tmp->screensize	= 1;
-  tmp->fullscreen	= 1;
-  tmp->timer		= 1;
-  tmp->skin		= "default";
-  tmp->key		= "default";
-  tmp->locale           = NULL;
-  tmp->difficulty_max   = 0;
+  tmp->music		 = 1;
+  tmp->fx		 = 1;
+  tmp->screensize	 = 1;
+  tmp->fullscreen	 = 1;
+  tmp->timer		 = 1;
+  tmp->skin		 = "default";
+  tmp->key		 = "default";
+  tmp->locale            = NULL;
+  tmp->difficulty_max    = 0;
+  tmp->filter_style      = GCOMPRIS_FILTER_NONE;	/* No difficulty filter by default */
+  tmp->difficulty_filter = 1;				/* No difficulty filter by default */
+
 
   home_dir = g_get_home_dir();
 
@@ -144,6 +147,12 @@ GcomprisProperties *gcompris_properties_new ()
 	} else if(!strcmp(value.v_identifier, "timer")) {
 	  if(!scan_get_int(scanner, &tmp->timer))
 	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "difficulty_filter")) {
+	  if(!scan_get_int(scanner, &tmp->difficulty_filter))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "filter_style")) {
+	  if(!scan_get_int(scanner, &tmp->filter_style))
+	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "skin")) {
 	  tmp->skin = scan_get_string(scanner);
 	  if(!tmp->skin)
@@ -173,9 +182,6 @@ GcomprisProperties *gcompris_properties_new ()
 
   /* By default audio is said to work until libao fails to load it */
   tmp->audio_works	= TRUE;
-
-  /* Non persistant value */
-  tmp->difficulty_filter = -1;		/* No difficulty filter by default */
 
   /*
    * Warning, gcompris need a proper locale prefix to find suitable dataset
@@ -244,15 +250,17 @@ void gcompris_properties_save (GcomprisProperties *props)
 
   g_free(config_file);
 
-  fprintf(filefd, "%s=%d\n", "music",		props->music);
-  fprintf(filefd, "%s=%d\n", "fx",		props->fx);
-  fprintf(filefd, "%s=%d\n", "screensize",	props->screensize);
-  fprintf(filefd, "%s=%d\n", "fullscreen",	props->fullscreen);
-  fprintf(filefd, "%s=%d\n", "timer",		props->timer);
+  fprintf(filefd, "%s=%d\n", "music",			props->music);
+  fprintf(filefd, "%s=%d\n", "fx",			props->fx);
+  fprintf(filefd, "%s=%d\n", "screensize",		props->screensize);
+  fprintf(filefd, "%s=%d\n", "fullscreen",		props->fullscreen);
+  fprintf(filefd, "%s=%d\n", "timer",			props->timer);
+  fprintf(filefd, "%s=%d\n", "difficulty_filter",	props->difficulty_filter);
+  fprintf(filefd, "%s=%d\n", "filter_style",		props->filter_style);
   
-  fprintf(filefd, "%s=\"%s\"\n", "skin",	props->skin);
-  fprintf(filefd, "%s=\"%s\"\n", "locale",	props->locale);
-  fprintf(filefd, "%s=\"%s\"\n", "key",		props->key);
+  fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
+  fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
+  fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
   
   fclose(filefd);
 }

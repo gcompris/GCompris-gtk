@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/06/04 01:32:41 bcoudoin>
+ * Time-stamp: <2004/06/05 01:32:28 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -223,10 +223,28 @@ static void display_board_icon(GcomprisBoard *board, MenuItems *menuitems)
       /* Always display menu items or we risk to have unaccessible boards */
       if(g_strcasecmp(board->type, "menu")==0) {
 	menu_create_item(boardRootItem, menuitems, board);
-      } else if((properties->difficulty_filter==-1 && difficulty>0) 
-		|| properties->difficulty_filter==difficulty) {
-	/* If the difficulty_filter is set check its value */
-	menu_create_item(boardRootItem, menuitems, board);
+      } else {
+	/* Implements the level filtering system */
+	switch (properties->filter_style) {
+	case GCOMPRIS_FILTER_NONE:
+	  if(difficulty>0)	/* Skip in development boards */
+	    menu_create_item(boardRootItem, menuitems, board);
+	  break;
+	case GCOMPRIS_FILTER_EQUAL:
+	  if(properties->difficulty_filter==difficulty)
+	    menu_create_item(boardRootItem, menuitems, board);
+	  break;
+	case GCOMPRIS_FILTER_UNDER:
+	  if(difficulty<=properties->difficulty_filter && difficulty>0)
+	    menu_create_item(boardRootItem, menuitems, board);
+	  break;
+	case GCOMPRIS_FILTER_ABOVE:
+	  if(difficulty>=properties->difficulty_filter)
+	    menu_create_item(boardRootItem, menuitems, board);
+	  break;
+	default:
+	  /* Hum, should not happen, let's display the board anyway */
+	}
       }
     }
 }

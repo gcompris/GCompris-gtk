@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/05/31 07:26:54 bcoudoin>
+ * Time-stamp: <2004/06/05 00:16:08 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -83,6 +83,14 @@ typedef enum
   GCOMPRIS_BAR_ABOUT	   = 1 << 4,
   GCOMPRIS_BAR_REPEAT_ICON = 1 << 5,
 } GComprisBarFlags;
+
+/* Difficulty filtering */
+typedef enum {
+  GCOMPRIS_FILTER_NONE,
+  GCOMPRIS_FILTER_EQUAL,
+  GCOMPRIS_FILTER_UNDER,
+  GCOMPRIS_FILTER_ABOVE,
+} GcomprisFilterType;
 
 void		 gcompris_bar_set (const GComprisBarFlags flags);
 void		 gcompris_bar_hide (gboolean hide);

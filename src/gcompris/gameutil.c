@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/06/04 01:51:00 bcoudoin>
+ * Time-stamp: <2004/06/05 01:56:14 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -903,6 +903,7 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
   GdkPixbuf *pixmap = NULL;
   int i;
   GnomeCanvasGroup *stars_group = NULL;
+  GnomeCanvasGroup *item = NULL;
 
   stars_group = GNOME_CANVAS_GROUP(
 				  gnome_canvas_item_new (parent,
@@ -918,12 +919,16 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
     pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
   }
   for (i=0; i<difficulty; i++) {
-    gnome_canvas_item_new (stars_group,
-			   gnome_canvas_pixbuf_get_type (),
-			   "pixbuf", pixmap,
-			   "x", x,
-			   "y", y + (i*20),
-			   NULL);
+    item = gnome_canvas_item_new (stars_group,
+				  gnome_canvas_pixbuf_get_type (),
+				  "pixbuf", pixmap,
+				  "x", x,
+				  "y", y + (i*20),
+				  NULL);
+    
+    gtk_signal_connect(GTK_OBJECT(item), "event",
+		       (GtkSignalFunc) gcompris_item_event_focus,
+		       NULL);
   }
   gdk_pixbuf_unref(pixmap);
 
