@@ -7,6 +7,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -17,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-10 21:22+0100\n"
-"PO-Revision-Date: 2005-02-10 21:26+0100\n"
+"POT-Creation-Date: 2005-02-19 09:56+0100\n"
+"PO-Revision-Date: 2005-02-19 09:58+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1159,6 +1160,18 @@ msgstr "Das Fünfzehn Spiel"
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
 msgstr "Zu den Spieletafeln"
+
+#: boards/gcompris/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "GCompris Trickfilm"
+
+#: boards/gcompris/mime_type.xml.in.h:2
+msgid "svg drawing"
+msgstr "SVG Zeichnung"
+
+#: boards/gcompris/mime_type.xml.in.h:3
+msgid "svg mozilla animation"
+msgstr "SVG Mozilla Trickfilm"
 
 #: boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
@@ -2756,10 +2769,11 @@ msgstr "Mehrere Aktivitäten für Kinder"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
-#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:644
-#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:848
+#: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
+#: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
+#: src/gcompris/images_selector.c:645 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kann Datei %s nicht finden!"
@@ -3223,13 +3237,13 @@ msgstr "Gib die Wörter vollständig ein bevor sie unten ankommen"
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Autor: Bruno Coudoin\n"
 "Beiträge: Pascal Georges, Jose Jorge\n"
-"Graphik: Renaud Blanchard\n"
+"Graphik: Renaud Blanchard, Franck Doucet\n"
 "Intro Musik: Djilali Sebihi\n"
 "Hintergrund-Musik: Rico Da Halvarez\n"
 
@@ -3251,10 +3265,8 @@ msgid "GCompris Home Page"
 msgstr "GCompris Webseite"
 
 #: src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
-msgstr ""
-"Dieses Programm ist ein GNU-Paket und wird unter der GNU Public Licence "
-"veröffentlicht"
+msgid "This software is a GNU Package and is released under the GNU Public License"
+msgstr "Dieses Programm ist ein GNU-Paket und wird unter der GNU Public Licence veröffentlicht"
 
 #: src/gcompris/about.c:281
 msgid "Help"
@@ -3516,15 +3528,15 @@ msgstr "Keine Verkleidung in %s gefunden\n"
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: src/gcompris/file_selector.c:287
+#: src/gcompris/file_selector.c:312
 msgid "CANCEL"
 msgstr "Abbrechen"
 
-#: src/gcompris/file_selector.c:318
+#: src/gcompris/file_selector.c:343
 msgid "LOAD"
 msgstr "Laden"
 
-#: src/gcompris/file_selector.c:318
+#: src/gcompris/file_selector.c:343
 msgid "SAVE"
 msgstr "Speichern"
 
@@ -3580,7 +3592,7 @@ msgstr "Ausgabe der Version von "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
-#: src/gcompris/gcompris.c:538
+#: src/gcompris/gcompris.c:541
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3603,7 +3615,7 @@ msgstr ""
 "Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:733
+#: src/gcompris/gcompris.c:736
 #, c-format
 msgid ""
 "GCompris\n"
