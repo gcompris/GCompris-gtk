@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(configure.in)
-AM_INIT_AUTOMAKE(gcompris, 0.9.6)
+AM_INIT_AUTOMAKE(gcompris, 0.9.7)
 AM_CONFIG_HEADER(config.h)
 
 AM_PROG_XML_I18N_TOOLS
@@ -24,7 +24,7 @@ GNOME_XML_CHECK
 AM_PATH_GDK_PIXBUF
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="de el es fi fr it nl pt_BR ru sv"
+ALL_LINGUAS="de el es fi fr it nl pt_BR ru sv lt"
 AM_GNU_GETTEXT
 
 dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically

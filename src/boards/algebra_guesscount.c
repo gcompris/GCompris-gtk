@@ -604,8 +604,8 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 // causes a segfault, why ?
 // FIXME : potential memory leak ?
 static void destroy_board() {
-	return;
 	int i;
+	return;
 	for (i=0; i<NUM_VALUES; i++)
   	gdk_pixbuf_unref(num_pixmap[i]);
 	for (i=0; i<5; i++)

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/12/09 23:45:54 bruno>
+ * Time-stamp: <2001/12/14 00:47:21 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -239,7 +239,7 @@ static gboolean increment_sublevel()
 {
   gcomprisBoard->sublevel++;
   
-  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
@@ -554,6 +554,7 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 			     shape->icon_shape->x - shape->x,
 			     shape->icon_shape->y - shape->y);
       gnome_canvas_item_show(shape->icon_shape->item);
+      gcompris_set_image_focus(shape->icon_shape->item, TRUE);
       shape->icon_shape=NULL;
 
       gnome_canvas_item_hide(item);
