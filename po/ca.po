@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-05 22:52+0200\n"
-"PO-Revision-Date: 2004-04-29 14:50+0100\n"
+"POT-Creation-Date: 2004-06-08 14:33+0200\n"
+"PO-Revision-Date: 2004-06-08 14:50+0100\n"
 "Last-Translator: Xavier A. Conde Rueda <xaviconde@eresmas.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -827,7 +827,7 @@ msgstr ""
 
 #: boards/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
-msgstr ""
+msgstr "Cliqueu en un element i escolteu la seva posició destí"
 
 #: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
@@ -1382,21 +1382,21 @@ msgid ""
 "available in the current activity: Home - Back to previous menu or exit "
 "gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
 "current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool Box - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years "
-"old 3 Stars - 7 to 8 years old"
+"question Question Mark - Help Tool - The configuration menu Tux Plane - "
+"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
+"old 3 Stars - 6 to 7 years old"
 msgstr ""
 "Fent un clic en una icona us porta a una activitat o a un menú. A la part "
-"inferior de la pantalla, teniu la barra de control del gcompris. De dreta a "
-"esquerra, a sota es troba el significat de les icones. Tingueu en compte que "
-"aquestes icones es mostren només quan siguin disponibles en una activitat: "
+"inferior de la pantalla teniu la barra de control del gcompris. De dreta a "
+"esquerra es mostren les següents icones. Tingueu en compte que "
+"aquestes icones es mostren només quan siguin disponibles en l'activitat actual: "
 "Inici - Retorna al menú anterior o surt de gcompris, Dit gros - D'acord, "
 "confirma la vostra resposta, Dau - Es mostra el nivell actual. Feu-hi clic "
-"per seleccionar un altre nivell, Nota musical - Demana el gcompris que "
-"repeteixi la pregunta Marca de pregunta - La caixa d'eines d'ajuda - El menú "
-"de configuració del menú del Tux Aviador - El diàleg Sobre Les estrelles "
-"signifiquen: 1 estrella - de 3 a 4 anys 2 estrelles - de 5 a 6 anys 3 "
-"estrelles - 7 a 8 anys"
+"per seleccionar un altre nivell, Nota musical - "
+"Repeteix la pregunta, Marca de pregunta - L'eina d'ajuda - El menú "
+"de configuració del Tux Aviador - Quant al joc - Les estrelles "
+"signifiquen: 1 estrella - de 2 a 3 anys, 2 estrelles - de 4 a 5 anys, 3 "
+"estrelles - 6 a 7 anys"
 
 #: boards/menu.xml.in.h:2
 msgid "GCompris Main Menu"
@@ -1907,6 +1907,9 @@ msgid ""
 "fish. Click the dict with the right mouse button to coun backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
+"Cliqueu en el dau per mostrar quants glaçons hi ha entre el Tux i el peix. "
+"Cliqueu en el dau amb el botó dret del ratolí per contar endarrere. Quan "
+"hagueu acabat, cliqueu en el botó D'acord o premeu la tecla d'entrar."
 
 #: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice substraction with a funny game"
@@ -2127,7 +2130,7 @@ msgstr "Conjunt de jocs educatius"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:495 src/gcompris/gameutil.c:496
+#: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
 #: src/gcompris/gcompris.c:397 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2406,11 +2409,12 @@ msgstr "S'ha mostrat"
 
 #: src/boards/reading.c:737 src/boards/reading.c:747
 msgid "Cannot open file of words for your locale"
-msgstr ""
+msgstr "No s'ha pogut obrir cap fitxer de paraules per a la vostra localització"
 
 #: src/boards/reading.c:776
 msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr ""
+msgstr "S'ha produït un error: el paquet de wordfile usat per a la vostra "
+"localització està corrumput."
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2524,14 +2528,14 @@ msgid "Help"
 msgstr "Ajuda"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:201
-#: src/gcompris/gameutil.c:810 src/gcompris/help.c:353
+#: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "D'acord"
 
 #: src/gcompris/board.c:41
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
+msgstr "No se suporta la càrrega de mòduls dinàmica. El gcompris no pot carregar.\n"
 
 #: src/gcompris/config.c:63
 msgid "Your system default"
@@ -2699,19 +2703,19 @@ msgstr "800x600 (Per defecte per a gcompris)"
 
 #: src/gcompris/config.c:116
 msgid "No filter"
-msgstr ""
+msgstr "Cap filtre"
 
 #: src/gcompris/config.c:117
 msgid "Only this level"
-msgstr ""
+msgstr "Només aquest nivell"
 
 #: src/gcompris/config.c:118
 msgid "Up to this level"
-msgstr ""
+msgstr "Fins aquest nivell"
 
 #: src/gcompris/config.c:119
 msgid "This level and above"
-msgstr ""
+msgstr "Aquest nivell i per sobre"
 
 #: src/gcompris/config.c:175
 msgid "GCompris Configuration"
@@ -2739,8 +2743,8 @@ msgstr "No es pot obrir el directori d'aparences: %s"
 msgid "No skin found in %s\n"
 msgstr "No s'ha trobat cap aparença a %s\n"
 
-#: src/gcompris/config.c:425 src/gcompris/config.c:808
-#: src/gcompris/config.c:819
+#: src/gcompris/config.c:425 src/gcompris/config.c:810
+#: src/gcompris/config.c:821
 #, c-format
 msgid "Skin : %s"
 msgstr "Aparença: %s"
@@ -2795,11 +2799,26 @@ msgstr "Feu servir una àrea de dibuix amb traços suavitzats (més lent)."
 
 #: src/gcompris/gcompris.c:496
 msgid ""
-"This is a Demo version of gcompris,\n"
-"only 12 on 45 activities are available.\n"
-"To get the full version,\n"
-"go to http://www.ofset.org/order/gcompris"
+"GCompris is free software released under the GPL License. In order to "
+"support the development, the Windows version provides only 12 of the 45 "
+"activities. You can get the full version for a small fee at\n"
+"http://www.ofset.org/order/gcompris\n"
+"The Linux version does not have this restriction. Note that gcompris is "
+"being developped to free schools from monopolistic software vendors. If you "
+"also believe that we should teach freedom to kids, please consider using GNU/"
+"Linux. Get more information on\n"
+"http://www.fsf.org/philosophy"
 msgstr ""
+"GCompris és programari lliure desenvolupat sota la llicència GPL. Per\n"
+"donar suport al desenvolupament, la versió per a Windows proporciona només\n"
+"12 de les 45 activitats. Podeu obtenir la versió completa per un cost petit\n"
+"a http://www.ofset.org/order/gcompris\n."
+"La versió per a Linux no té aquesta restricció. Tingueu en compte que el\n"
+"gcompris s'ha desenvolupat per alliberar les escoles dels fabricants de\n"
+"programari monopolístics. Si també creieu que s'ha d'ensenyar la llibertat\n"
+"als nens i nenes, llavors penseu en fer servir GNU/Linux. Podeu obtenir més\n"
+"informació a:\n"
+"http://www.fsf.org/philosophy"
 
 #: src/gcompris/gcompris.c:673
 #, c-format
@@ -2874,7 +2893,7 @@ msgstr "Alliberat sota la llicència GPL"
 #. The default format for time represenation.  See strftime(3)
 #: src/gcompris/log.c:157
 msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr ""
+msgstr "%A, %e de %B del %Y a les %H:%M:%S"
 
 #: src/gcompris/soundutil.c:140
 #, c-format
@@ -2903,46 +2922,3 @@ msgstr "Temps transcorregut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
-
-#~ msgid ""
-#~ "Try to find the strawberry under the blue fields. The closer you get, the "
-#~ "more red the fields become."
-#~ msgstr ""
-#~ "Intenteu trobar la maduixa sota els camps blaus. Com més us apropeu, els "
-#~ "camps es mostraran més vermells."
-
-#~ msgid "minouche"
-#~ msgstr "minouche"
-
-#~ msgid ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "outputs"
-#~ msgstr ""
-#~ "selecciona la sortida de so. Useu '-A list' per obtenir la llista de "
-#~ "sortides de so disponibles"
-
-#~ msgid ""
-#~ "Error unable to find a usable audio output device (%d)\n"
-#~ "Try 'gcompris -A' to select an alternative audio output\n"
-#~ "Use '-A list' to display the list of available devices"
-#~ msgstr ""
-#~ "S'ha produït un error: no s'ha trobat una sortida de so vàlida\n"
-#~ "(%d). Proveu amb el 'gcompris -A' per seleccionar una sortida\n"
-#~ "de so alternativa. Useu '-A list' per visualitzar la llista\n"
-#~ "de dispositius disponibles."
-
-#~ msgid "Error opening audio device\n"
-#~ msgstr "S'ha produït un error en obrir el dispositiu de so\n"
-
-#~ msgid ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-#~ msgstr ""
-#~ "Dispositius de sortida de so posibles:\n"
-#~ "default "
-
-#~ msgid "Now Playing Music"
-#~ msgstr "S'està reproduint música"
-
-#~ msgid "Artist"
-#~ msgstr "Artista"
