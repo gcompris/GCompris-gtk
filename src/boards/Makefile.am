@@ -25,7 +25,8 @@ lib_LTLIBRARIES = \
 	libshapegame.la \
 	libsmallnumbers.la \
 	libtarget.la \
-	libwordsgame.la
+	libwordsgame.la \
+	libadvanced_colors.la
 
 libdir = $(plugindir)
 INCLUDES = \
@@ -248,6 +249,14 @@ libcanal_lock_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libcanal_lock_la_SOURCES = canal_lock.c
+
+libadvanced_colors_la_LDFLAGS = -module -avoid-version
+libadvanced_colors_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libadvanced_colors_la_SOURCES = advanced_colors.c
 
 libmastermind_la_LDFLAGS = -module -avoid-version
 libmastermind_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-08-19 00:31+0200\n"
+"POT-Creation-Date: 2002-08-28 17:39+0200\n"
 "PO-Revision-Date: 2002-08-23 00:15+0200\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -14,14 +14,80 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: boards/advanced_colors/board1.xml.in.h:1
+msgid "almond"
+msgstr "amande"
+
+#: boards/advanced_colors/board1.xml.in.h:2
+msgid "chestnut"
+msgstr "alezan"
+
+#: boards/advanced_colors/board1.xml.in.h:3
+msgid "claret"
+msgstr "bordeaux"
+
+#: boards/advanced_colors/board1.xml.in.h:4
+msgid "cobalt"
+msgstr "cobalt"
+
+#: boards/advanced_colors/board1.xml.in.h:5
+msgid "coral"
+msgstr "corail"
+
+#: boards/advanced_colors/board1.xml.in.h:6
+msgid "corn"
+msgstr "blé"
+
+#: boards/advanced_colors/board1.xml.in.h:7
+msgid "cyan"
+msgstr "cyan"
+
+#: boards/advanced_colors/board1.xml.in.h:8
+msgid "sienna"
+msgstr "terre de sienne"
+
+#: boards/advanced_colors/board2.xml.in.h:1
+msgid "lime"
+msgstr "tilleul"
+
+#: boards/advanced_colors/board2.xml.in.h:2
+msgid "sage"
+msgstr "sauge"
+
+#: boards/advanced_colors/board2.xml.in.h:3
+msgid "salmon"
+msgstr "saumon"
+
+#: boards/advanced_colors/board2.xml.in.h:4
+msgid "sapphire"
+msgstr "saphir"
+
+#: boards/advanced_colors/board2.xml.in.h:5
+msgid "sepia"
+msgstr "sépia"
+
+#: boards/advanced_colors/board2.xml.in.h:6
+msgid "sulphur"
+msgstr "soufre"
+
+#: boards/advanced_colors/board2.xml.in.h:7
+msgid "tea"
+msgstr "thé"
+
+#: boards/advanced_colors/board2.xml.in.h:8
+msgid "turquoise"
+msgstr "turquoise"
+
 #: boards/algebra_by.xml.in.h:1
 msgid ""
 "A multiplication of two numbers is displayed. At the right of the equal "
 "sign, give the answer. Use the left and right arrow to modify your answer, "
 "the return key to validate an answer"
 msgstr ""
-"La multiplication de deux nombres est affichée. Sur la droite du signe égale,\n"
-"vous devez entrer la réponse. Utiliser les touches gauche et droite pour modifier\n"
+"La multiplication de deux nombres est affichée. Sur la droite du signe "
+"égale,\n"
+"vous devez entrer la réponse. Utiliser les touches gauche et droite pour "
+"modifier\n"
 "la réponse.\n"
 "La touche 'entrée' valide la réponse."
 
@@ -32,7 +98,8 @@ msgstr "Je te pose quelques questions simples d'algèbre"
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr "En en temps limité, donnez la réponse à la multiplication de deux nombres"
+msgstr ""
+"En en temps limité, donnez la réponse à la multiplication de deux nombres"
 
 #: boards/algebra_by.xml.in.h:4 boards/algebra_div.xml.in.h:4
 msgid "Multiplication table"
@@ -50,7 +117,8 @@ msgid ""
 "gcompris general configuration."
 msgstr ""
 "La division de deux nombres est affichée. Sur la droite du signe égale,\n"
-"vous devez entrer la réponse. Utiliser les touches gauche et droite pour modifier\n"
+"vous devez entrer la réponse. Utiliser les touches gauche et droite pour "
+"modifier\n"
 "la réponse.\n"
 "La touche 'entrée' valide la réponse."
 
@@ -108,7 +176,8 @@ msgid ""
 "return key to validate an answer"
 msgstr ""
 "La soustraction de deux nombres est affichée. Sur la droite du signe égale,\n"
-"vous devez entrer la réponse. Utiliser les touches gauche et droite pour modifier\n"
+"vous devez entrer la réponse. Utiliser les touches gauche et droite pour "
+"modifier\n"
 "la réponse.\n"
 "La touche 'entrée' valide la réponse."
 
@@ -192,6 +261,22 @@ msgstr "Attrape et fais glisser les formes vers leur emplacement respectif"
 msgid "Good mouse control"
 msgstr "Bien savoir manipuler la souris"
 
+#: boards/babyshapes.xml.in.h:4
+msgid "The dog is provided by Andre Connes and released under the GPL"
+msgstr ""
+
+#: boards/babyshapes/board5_0.xml.in.h:1
+msgid "Hello ! My name is Lock."
+msgstr ""
+
+#: boards/babyshapes/board6_0.xml.in.h:1
+msgid "Lock on grass."
+msgstr ""
+
+#: boards/babyshapes/board7_0.xml.in.h:1
+msgid "Lock with colored shapes."
+msgstr ""
+
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
 msgid "Operate a canal lock"
 msgstr "Fais fonctionner une écluse"
@@ -254,12 +339,16 @@ msgid ""
 "Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
 "Les poissons viennent de l'utilitaire Unix xfishtank.\n"
-"Les images viennent de la collection du \"National Undersearch Research Program (NURP)\"\n"
+"Les images viennent de la collection du \"National Undersearch Research "
+"Program (NURP)\"\n"
 "à http://www.photolib.noaa.gov.\n"
-"Toutes les images appartiennent au \"OAR/National Undersea Research Program\"\n"
-"sauf pour la première qui vient aussi de l'Université de \"North Carolina at Wilmington\"\n"
+"Toutes les images appartiennent au \"OAR/National Undersea Research Program"
+"\"\n"
+"sauf pour la première qui vient aussi de l'Université de \"North Carolina at "
+"Wilmington\"\n"
 "Dans l'ordre de gcompris, la description des images est :\n"
-"Emplacement : Océan Tropical Atlantique, Florida Keys (image nur00523) Photographe : D. Kesling\n"
+"Emplacement : Océan Tropical Atlantique, Florida Keys (image nur00523) "
+"Photographe : D. Kesling\n"
 "Emplacement : Florida Keys (image nur03006)\n"
 "Emplacement : Inconnu (image nur03505)\n"
 "Emplacement : Inconnu (image nur03010)\n"
@@ -279,7 +368,8 @@ msgid ""
 "click with the left mouse button on the moving fish."
 msgstr ""
 "Coordination moteur: déplacement de la souris et clique.\n"
-"L'objectif est juste de cliquer avec le bouton gauche de la souris sur les poissons\n"
+"L'objectif est juste de cliquer avec le bouton gauche de la souris sur les "
+"poissons\n"
 "en mouvement"
 
 #: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
@@ -410,7 +500,7 @@ msgstr ""
 msgid "Motor coordination"
 msgstr "Coordination moteur"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:73 src/boards/reversecount.c:121
+#: boards/erase.xml.in.h:4 src/boards/erase.c:73
 msgid "Move the mouse"
 msgstr "Déplace la souris de l'ordinateur"
 
@@ -674,29 +764,33 @@ msgstr "drapeau"
 msgid "racket"
 msgstr "raquette"
 
-#: boards/mastermind.xml.in.h:1
-msgid "Simplified Master Mind"
-msgstr "Master Mind Simplifié"
+#: boards/mastermind.xml.in.h:1 src/boards/mastermind.c:122
+msgid "Master Mind"
+msgstr "Master Mind"
 
 #: boards/mastermind.xml.in.h:2
+#, fuzzy
 msgid ""
-"This game is a simplified version of the original mastermind game. Click on "
-"the items until you find what you think is the correct answer. Then, click "
-"on the OK button in the control bar. Tux gives you an indication if you got "
-"a good position by marking the item with a black box. You can use the right "
-"mouse button to flip the colors in the oposite order."
+"This game is an implementation of the original mastermind game. Click on the "
+"items until you find what you think is the correct answer. Then, click on "
+"the OK button in the control bar. At the lower level, tux gives you an "
+"indication if you got a good position by marking the item with a black box. "
+"You can use the right mouse button to flip the colors in the oposite order."
 msgstr ""
 "Ce jeu est une version du mastermind.\n"
-"Cliquez sur les éléments jusqu'à trouver la position qui vous semble correcte.\n"
+"Cliquez sur les éléments jusqu'à trouver la position qui vous semble "
+"correcte.\n"
 "Ensuite, cliquez sur OK dans la barre de contrôle. \n"
 "Dans les niveaux inférieurs, tux vous donnes une indication si vous avez \n"
 "trouvé la bonne position en marquant la case en noir.\n"
-"Vous pouvez utiliser le boutton droit de la souris pour faire avancer les couleurs\n"
+"Vous pouvez utiliser le boutton droit de la souris pour faire avancer les "
+"couleurs\n"
 "dans l'autre sens."
 
-#: boards/mastermind.xml.in.h:3 src/boards/mastermind.c:116
+#: boards/mastermind.xml.in.h:3 src/boards/mastermind.c:123
 msgid "Tux has hidden several items, find them back in the correct order"
-msgstr "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
+msgstr ""
+"Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
 
 #: boards/maze.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
@@ -1029,7 +1123,7 @@ msgstr ""
 "l'envers.\n"
 "Quand tu as terminé, clique sur le boutton OK ou utilise la touche entrée."
 
-#: boards/reversecount.xml.in.h:3
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:122
 msgid "Practice the substraction with a funny game"
 msgstr "Entraînement à la soustraction avec un jeu amusant"
 
@@ -1214,15 +1308,11 @@ msgstr "gauche"
 msgid "right"
 msgstr "droite"
 
-#: src/boards/mastermind.c:115
-msgid "Master Mind"
-msgstr "Master Mind"
-
-#: src/boards/memory.c:226
+#: src/boards/memory.c:227
 msgid "Memory"
 msgstr "Memory"
 
-#: src/boards/memory.c:227
+#: src/boards/memory.c:228
 msgid "Find the matching pair"
 msgstr "Trouve les paires correspondantes"
 
@@ -1270,10 +1360,9 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/reversecount.c:122
-#, fuzzy
-msgid "Move the mouse to reversecount the area and discover the background"
-msgstr "Déplace la souris pour tout effacer et découvir le fond"
+#: src/boards/reversecount.c:121
+msgid "Reverse count"
+msgstr ""
 
 #: src/boards/shapegame.c:156
 msgid "Drag and Drop the items to rebuild the object"
@@ -1635,6 +1724,13 @@ msgstr "Temps écoulé"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
+
+#~ msgid "Simplified Master Mind"
+#~ msgstr "Master Mind Simplifié"
+
+#, fuzzy
+#~ msgid "Move the mouse to reversecount the area and discover the background"
+#~ msgstr "Déplace la souris pour tout effacer et découvir le fond"
 
 #~ msgid "Can move the mouse"
 #~ msgstr "Pouvoir déplacer la souris"

@@ -1,8 +1,9 @@
-SUBDIRS = babymatch babyshapes imageid imagename missing_letter paintings scales doubleentry geography
+SUBDIRS = advanced_colors babymatch imageid imagename missing_letter paintings scales doubleentry geography
 
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
+	advanced_colors.xml.in \
 	algebramenu.xml.in \
 	algebra_plus.xml.in \
 	algebra_minus.xml.in \
@@ -43,7 +44,8 @@ xml_in_files = \
 	erase.xml.in \
 	algebra_guesscount.xml.in \
 	leftright.xml.in \
-	colors.xml.in 
+	colors.xml.in \
+	colors_group.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

@@ -1,13 +1,82 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2002-07-30 02:26+0800\n"
+"POT-Creation-Date: 2002-08-28 17:21+0000\n"
 "PO-Revision-Date: 1980-01-04 01:40+0800\n"
 "Last-Translator: wawa <gbumla@yahoo.com>\n"
 "Language-Team:  <gabai-penyumbang@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: boards/advanced_colors/board1.xml.in.h:1
+msgid "almond"
+msgstr ""
+
+#: boards/advanced_colors/board1.xml.in.h:2
+msgid "chestnut"
+msgstr ""
+
+#: boards/advanced_colors/board1.xml.in.h:3
+#, fuzzy
+msgid "claret"
+msgstr "lobak"
+
+#: boards/advanced_colors/board1.xml.in.h:4
+#, fuzzy
+msgid "cobalt"
+msgstr "Matlamat"
+
+#: boards/advanced_colors/board1.xml.in.h:5
+#, fuzzy
+msgid "coral"
+msgstr "Matlamat"
+
+#: boards/advanced_colors/board1.xml.in.h:6
+#, fuzzy
+msgid "corn"
+msgstr "mahkota"
+
+#: boards/advanced_colors/board1.xml.in.h:7
+msgid "cyan"
+msgstr ""
+
+#: boards/advanced_colors/board1.xml.in.h:8
+msgid "sienna"
+msgstr ""
+
+#: boards/advanced_colors/board2.xml.in.h:1
+msgid "lime"
+msgstr ""
+
+#: boards/advanced_colors/board2.xml.in.h:2
+msgid "sage"
+msgstr ""
+
+#: boards/advanced_colors/board2.xml.in.h:3
+msgid "salmon"
+msgstr ""
+
+#: boards/advanced_colors/board2.xml.in.h:4
+#, fuzzy
+msgid "sapphire"
+msgstr "epal"
+
+#: boards/advanced_colors/board2.xml.in.h:5
+msgid "sepia"
+msgstr ""
+
+#: boards/advanced_colors/board2.xml.in.h:6
+msgid "sulphur"
+msgstr ""
+
+#: boards/advanced_colors/board2.xml.in.h:7
+msgid "tea"
+msgstr ""
+
+#: boards/advanced_colors/board2.xml.in.h:8
+msgid "turquoise"
+msgstr ""
 
 #: boards/algebra_by.xml.in.h:1
 msgid ""
@@ -176,6 +245,22 @@ msgstr "Drag and drop bentuk ke sasaran masing-masing"
 msgid "Good mouse control"
 msgstr "Pengawalan tetikus yang baik"
 
+#: boards/babyshapes.xml.in.h:4
+msgid "The dog is provided by Andre Connes and released under the GPL"
+msgstr ""
+
+#: boards/babyshapes/board5_0.xml.in.h:1
+msgid "Hello ! My name is Lock."
+msgstr ""
+
+#: boards/babyshapes/board6_0.xml.in.h:1
+msgid "Lock on grass."
+msgstr ""
+
+#: boards/babyshapes/board7_0.xml.in.h:1
+msgid "Lock with colored shapes."
+msgstr ""
+
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
 msgid "Operate a canal lock"
 msgstr ""
@@ -327,11 +412,11 @@ msgid ""
 "the double entry table."
 msgstr ""
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:191
+#: boards/draw.xml.in.h:1 src/boards/draw.c:192
 msgid "A simple vector drawing tool"
 msgstr "Perkakasan lukisan vektor mudah"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:192
+#: boards/draw.xml.in.h:2 src/boards/draw.c:193
 msgid "Creative board where you can freely draw"
 msgstr "Papan kreatif dimana anda boleh melukis dengan mudah"
 
@@ -357,7 +442,7 @@ msgstr ""
 msgid "Motor coordination"
 msgstr "Koordinasi motor"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:73 src/boards/reversecount.c:121
+#: boards/erase.xml.in.h:4 src/boards/erase.c:73
 msgid "Move the mouse"
 msgstr "Gerakkan tetikus"
 
@@ -620,6 +705,23 @@ msgstr "bendera"
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
 msgstr "reket"
+
+#: boards/mastermind.xml.in.h:1 src/boards/mastermind.c:122
+msgid "Master Mind"
+msgstr ""
+
+#: boards/mastermind.xml.in.h:2
+msgid ""
+"This game is an implementation of the original mastermind game. Click on the "
+"items until you find what you think is the correct answer. Then, click on "
+"the OK button in the control bar. At the lower level, tux gives you an "
+"indication if you got a good position by marking the item with a black box. "
+"You can use the right mouse button to flip the colors in the oposite order."
+msgstr ""
+
+#: boards/mastermind.xml.in.h:3 src/boards/mastermind.c:123
+msgid "Tux has hidden several items, find them back in the correct order"
+msgstr ""
 
 #: boards/maze.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
@@ -918,7 +1020,7 @@ msgid ""
 "hit the keyboard enter key."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:3
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:122
 msgid "Practice the substraction with a funny game"
 msgstr "Latih penolakan dengan permaian yang lawak"
 
@@ -1088,11 +1190,11 @@ msgstr "kiri"
 msgid "right"
 msgstr "kanan"
 
-#: src/boards/memory.c:226
+#: src/boards/memory.c:227
 msgid "Memory"
 msgstr "Memori"
 
-#: src/boards/memory.c:227
+#: src/boards/memory.c:228
 msgid "Find the matching pair"
 msgstr "Cari pasangan berpadanan"
 
@@ -1143,11 +1245,9 @@ msgstr "Ya, saya nampak akan ia"
 msgid "No, it was not there"
 msgstr "Tidak, ia tiada disitu"
 
-#: src/boards/reversecount.c:122
-#, fuzzy
-msgid "Move the mouse to reversecount the area and discover the background"
+#: src/boards/reversecount.c:121
+msgid "Reverse count"
 msgstr ""
-"Gerakkan tetikus untuk memadam kawasan tersebut dan menjumpai latar belakang"
 
 #: src/boards/shapegame.c:156
 msgid "Drag and Drop the items to rebuild the object"
@@ -1201,7 +1301,7 @@ msgstr ""
 msgid "Help"
 msgstr "Bantuan"
 
-#: src/gcompris/about.c:299 src/gcompris/config.c:160 src/gcompris/help.c:355
+#: src/gcompris/about.c:299 src/gcompris/config.c:161 src/gcompris/help.c:355
 #: src/gcompris/images_selector.c:154
 msgid "OK"
 msgstr "OK"
@@ -1243,62 +1343,66 @@ msgid "Italian"
 msgstr "Italian"
 
 #: src/gcompris/config.c:52
+msgid "Malay"
+msgstr ""
+
+#: src/gcompris/config.c:53
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:54
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:55
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:56
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:57
 msgid "Slovak"
 msgstr ""
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:58
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "No time limit"
 msgstr "Tiada kekangan masa"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Slow timer"
 msgstr ""
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Normal timer"
 msgstr ""
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Fast timer"
 msgstr ""
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default kepada gcompris)"
 
-#: src/gcompris/config.c:134
+#: src/gcompris/config.c:135
 msgid "GCompris Configuration"
 msgstr "Konfigurasi GCompris"
 
-#: src/gcompris/config.c:246
+#: src/gcompris/config.c:247
 msgid "Fullscreen"
 msgstr "Skrinpenuh"
 
-#: src/gcompris/config.c:289
+#: src/gcompris/config.c:290
 msgid "Music"
 msgstr "Muzik"
 
-#: src/gcompris/config.c:317
+#: src/gcompris/config.c:318
 #, fuzzy
 msgid "Effect"
 msgstr "Kesan/Efek"
@@ -1506,3 +1610,21 @@ msgstr ""
 #, c-format
 msgid "Remaining Time = %d"
 msgstr ""
+
+#, fuzzy
+#~ msgid "brown"
+#~ msgstr "mahkota"
+
+#, fuzzy
+#~ msgid "crimson"
+#~ msgstr "mahkota"
+
+#, fuzzy
+#~ msgid "cinabre"
+#~ msgstr "kereta"
+
+#, fuzzy
+#~ msgid "Move the mouse to reversecount the area and discover the background"
+#~ msgstr ""
+#~ "Gerakkan tetikus untuk memadam kawasan tersebut dan menjumpai latar "
+#~ "belakang"
