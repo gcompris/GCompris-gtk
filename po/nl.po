@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-16 00:45+0100\n"
-"PO-Revision-Date: 2004-02-16 17:35+0100\n"
+"POT-Creation-Date: 2004-02-24 04:11+0100\n"
+"PO-Revision-Date: 2004-02-26 11:33+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -442,7 +442,9 @@ msgstr ""
 msgid ""
 "In a limited time, give the result to the addition of two numbers. "
 "Introduction to simple in-line addition"
-msgstr "Geef in een beperkte tijd het resultaat van een optelling van twee getallen.  Introductie tot eenvoudige optellingen"
+msgstr ""
+"Geef in een beperkte tijd het resultaat van een optelling van twee "
+"getallen.  Introductie tot eenvoudige optellingen"
 
 #: boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
@@ -482,7 +484,8 @@ msgstr "Bewegingscoördinatie. Overeenkomsten zoeken."
 
 #: boards/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr "Bediening van de muis: bewegen, klikken en slepen. Culturele referenties."
+msgstr ""
+"Bediening van de muis: bewegen, klikken en slepen. Culturele referenties."
 
 #: boards/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -501,7 +504,10 @@ msgid ""
 "In the main area, a puzzle set is proposed. In the left area, you have the "
 "set of pieces for this puzzle. To place the pieces, you must use the drag/"
 "drop mouvement with the mouse."
-msgstr "In het hoofdvenster staat een puzzel. In het linker gedeelte staan de stukjes voor de puzzel. Met klikken en slepen kun je de stukjes op hun plaats zetten."
+msgstr ""
+"In het hoofdvenster staat een puzzel. In het linker gedeelte staan de "
+"stukjes voor de puzzel. Met klikken en slepen kun je de stukjes op hun "
+"plaats zetten."
 
 #: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
@@ -518,10 +524,6 @@ msgstr "Lock op gras."
 #: boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
 msgstr "Lock met gekleurde vormen."
-
-#: boards/boards.xml.in.h:1
-msgid "Go to board based activities"
-msgstr "Ga naar de bordspellen"
 
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
@@ -545,6 +547,10 @@ msgid ""
 msgstr ""
 "Het klikpunt op de bal geeft de snelheid en de richting aan de bal. Hoe meer "
 "je in het centrum klikt, hoe langzamer de bal."
+
+#: boards/boards.xml.in.h:1
+msgid "Go to board based activities"
+msgstr "Ga naar de bordspellen"
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
@@ -592,6 +598,43 @@ msgstr "Schaaktraining; Sla de pionnen van de computer."
 #: boards/chess_partyend.xml.in.h:3
 msgid "Play end of chess game against the computer"
 msgstr "Eindspel spelen tegen de computer"
+
+# tijd?
+#: boards/chronos.xml.in.h:1
+msgid "Chronos"
+msgstr "Chronos"
+
+#: boards/chronos.xml.in.h:2
+msgid "Drag and Drop the items to organize the story"
+msgstr "Sleep de prentjes zodat de verhaallijn klopt"
+
+#: boards/chronos.xml.in.h:3
+msgid ""
+"Moon photo comes from NASA\n"
+" Space sounds from Tuxpaint and Vegastrike"
+msgstr ""
+"Maanfoto afkomstig van NASA\n"
+"Ruimtegeluiden van Tuxpaint en Vegastrike"
+
+#: boards/chronos.xml.in.h:4
+msgid "Order the pictures to tell the story"
+msgstr "Zet de plaatjes op volgorde om het verhaal te vertellen"
+
+#: boards/chronos.xml.in.h:5
+msgid "Pick the pictures on the left and put them on the red points"
+msgstr "Kies de plaatjes links en zet ze op de rode punten"
+
+#: boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr "Een kort verhaal vertellen"
+
+#: boards/chronos/board1_0.xml.in.h:1
+msgid "Moonwalker"
+msgstr "Maanwandelen"
+
+#: boards/chronos/board2_0.xml.in.h:1
+msgid "Tux and the apple tree"
+msgstr "Tux en de appelboom"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -795,7 +838,10 @@ msgid ""
 "First, organize properly the items so that you can count them. Then, select "
 "the item you want to answer for in the bottom right area. Enter the answer "
 "with the keyboard and press the OK button or the 'Enter' key."
-msgstr "Zet de figuurtjes eerst netjes bij elkaar zodat je ze kunt tellen. Daarna kies je het figuurtje waar je het antwoord van weet rechts onderaan. Typ het antwoord met het toetsenbord en druk op OK of op de 'Enter'-toets."
+msgstr ""
+"Zet de figuurtjes eerst netjes bij elkaar zodat je ze kunt tellen. Daarna "
+"kies je het figuurtje waar je het antwoord van weet rechts onderaan. Typ het "
+"antwoord met het toetsenbord en druk op OK of op de 'Enter'-toets."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -2018,7 +2064,7 @@ msgstr "Educatieve software GCompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:455 src/gcompris/gameutil.c:456
+#: src/gcompris/gameutil.c:463 src/gcompris/gameutil.c:464
 #: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2195,6 +2241,27 @@ msgstr "Python-bord"
 #: src/boards/python.c:53
 msgid "Special board that embed python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
+
+#: src/boards/python/pythontest.py:67
+msgid ""
+"This is the first plugin in gcompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"Dit is de eerste plugin van gcompris die in Python is \n"
+"geprogrammeerd."
+
+#: src/boards/python/pythontest.py:76
+msgid ""
+"It is now possible to develop gcompris activies in C or in Python.\n"
+" Thanks to Olivier Samys who makes this possible."
+msgstr ""
+"Het is nu mogelijk om gcompris activiteiten te ontwikkelen in C of in "
+"Python.\n"
+"Met dank aan Olivier Samys die dit mogelijk heeft gemaakt."
+
+#: src/boards/python/pythontest.py:85
+msgid "This activity is not playable yet, just a test"
+msgstr "Deze activiteit is nog niet speelbaar, alleen een test"
 
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
@@ -2554,6 +2621,22 @@ msgstr "Kon skin-map niet openen: %s"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
+#: src/gcompris/gameutil.c:127
+msgid "Couldn't find file"
+msgstr "Kan bestand niet vinden!"
+
+#: src/gcompris/gameutil.c:129
+msgid "This activity is incomplete."
+msgstr "Deze activiteit is niet voltooid."
+
+#: src/gcompris/gameutil.c:130
+msgid ""
+"Exit it and report\n"
+"us the problem"
+msgstr ""
+"Sluit het af en meldt\n"
+"ons het probleem"
+
 # Beter: schermvullend?
 #: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
@@ -2700,22 +2783,21 @@ msgstr "Verstreken tijd"
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
 
-#~ msgid "Simple addition"
-#~ msgstr "Eenvoudige optelling"
+msgid "Simple addition"
+msgstr "Eenvoudige optelling"
 
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Baby puzzel"
+msgid "Baby Shape Puzzle"
+msgstr "Baby puzzel"
 
-#~ msgid ""
-#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
-#~ "click with the left mouse button on the moving fish."
-#~ msgstr ""
-#~ "Motoriek: In dit spel leren kinderen klikken met de muis. Het doel is "
-#~ "zuiver en alleen om met de linkermuisknop op de bewegende vissen te "
-#~ "klikken. "
+msgid ""
+"Motor coordination: mouse mouvement and mouse click. The goal is just to "
+"click with the left mouse button on the moving fish."
+msgstr ""
+"Motoriek: In dit spel leren kinderen klikken met de muis. Het doel is zuiver "
+"en alleen om met de linkermuisknop op de bewegende vissen te klikken. "
 
-#~ msgid "Move the mouse to machpuzzle the area and discover the background"
-#~ msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
+msgid "Move the mouse to machpuzzle the area and discover the background"
+msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "GCompris Ik heb het begrepen"
+msgid "GCompris I Have Understood"
+msgstr "GCompris Ik heb het begrepen"
