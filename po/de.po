@@ -2,18 +2,19 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
-# Copyright (C) 2003, 2004 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
 # Martin Herweg <m.herweg@gmx.de>, 2001.
 # Ronny Standtke <Ronny.Standtke@gmx.de>, 2003, 2004.
-# Ronny Standtke <Ronny.Standtke@gmx.net>, 2004.
+# Ronny Standtke <Ronny.Standtke@gmx.net>, 2004, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-05 12:16+0100\n"
-"PO-Revision-Date: 2004-12-05 12:22+0100\n"
+"POT-Creation-Date: 2005-01-08 14:41+0100\n"
+"PO-Revision-Date: 2005-01-08 15:28+0100\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -481,12 +482,37 @@ msgid "algorithm"
 msgstr "Algorithmus"
 
 #: boards/anim.xml.in.h:1
-msgid "Create an animation"
-msgstr "Erstelle einen Trickfilm"
+msgid "Create a drawing or an animation"
+msgstr "Erstelle eine Zeichnung oder einen Trickfilm"
 
 #: boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
 msgstr "Zeichen und Animationswerkzeug"
+
+#: boards/anim.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines. To make it more fun for kids, a set of images can also be used."
+msgstr "In diesem Spiel können die Kinder frei zeichnen. Das Ziel ist einfach zu entdecken, wie man gutaussehende Zeichnungen aus grundlegenden Formen erstellt: Rechtecke, Ellipsen und Linien. Um es für die Kinder lustiger zu machen, kann auch ein Satz vorgefertigter Bildelemente verwendet werden."
+
+#: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Gute Beherrschung von Maus und Maustasten"
+
+#: boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left and a color on the bottom. Then click and "
+"drag in the white area to create a new shape. Once one drawing is complete, "
+"you can take a snapshot of it with the 'camera' button. A new image with the "
+"same content is created. You can then move objects a little bit or add/"
+"delete objects. Create several drawings and then click on the 'film' button. "
+"You will see all your images in an infinite loop. You can change the viewing "
+"speed in this mode. In view mode, click on the 'drawing' button to return to "
+"drawing. You can then edit each image of your animation by using the image "
+"selector in the bottom left of the screen. You can save and reload your "
+"animations with the 'floppy' and 'folder' button."
+msgstr "Wähle ein Malwerkzeug auf der linken Seite und eine Farbe am unteren Rand aus. Dann klicke und ziehe die Maus im weißen Bereich, um eine neue Form zu erzeugen. Wenn das Bild fertig ist, kannst du davon einen Schnappschuss mit dem Kamera-Knopf machen. Danach wird ein neues Bild mit dem gleichen Inhalt erstellt. Du kannst dann die Gegenstände ein wenig bewegen, hinzufügen oder löschen. Erstelle mehrere Zeichnungen und klicke dann auf den Film-Knopf. Du wirst alle deine Bilder in einer Endlosschleife sehen. In diesem Modus kannst du die Abspielgeschwindigkeit ändern. Klicke auf die Farbpalette, um in den Zeichenmodus zurückzuschalten. Du kannst dann jedes einzelne Bild deines Trickfilms mit Hilfe der Bildauswahl unten links bearbeiten. Du kannst deine Trickfilme mit dem Diskettensymbol abspeichern und mit dem Ordnersymbol laden."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -653,11 +679,9 @@ msgstr ""
 #: boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
-msgstr ""
-"Das Mondfoto kommt von der NASA Die Weltraum-Geräusche sind aus Tuxpaint und "
-"Vegastrike. Die Daten der Beförderungsmittel basieren auf Angaben aus http://"
-"www.wikipedia.org"
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
+msgstr "Das Mondfoto kommt von der NASA Die Weltraum-Geräusche sind aus Tuxpaint und Vegastrike. Die Daten der Beförderungsmittel basieren auf Angaben aus http://www.wikipedia.org. Die Bilder der Beförderungsmittel stammen von Franck Doucet."
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -709,21 +733,69 @@ msgstr "1903 Flyer III der Gebrüder Wright"
 msgid "1909 Louis Bleriot cross the Channel"
 msgstr "1909 Louis Bleriot überquert den Kanal"
 
-#: boards/chronos/board4_0.xml.in.h:4
+#: boards/chronos/board4_0.xml.in.h:4 boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
 msgstr "Die Luftfahrt"
 
 #: boards/chronos/board4_1.xml.in.h:1
-msgid "1927 Charles Lindbergh cross Atlantique ocean"
-msgstr "1927 Charles Lindbergh überquert den Atlantik"
-
-#: boards/chronos/board4_1.xml.in.h:2
-msgid "1934 Helene Boucher speed record 444km/h"
-msgstr "1934 Helene Bouchers Geschwindigkeitsrekord von 444km/h"
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 Charles Lindbergh\n"
+"überquert den Atlantik"
 
 #: boards/chronos/board4_1.xml.in.h:3
-msgid "1947 Chuck Yager break the sound-wall"
-msgstr "1947 Chuck Yager durchbricht die Schallmauer"
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 Helene Bouchers\n"
+"Geschwindigkeitsrekord von 444km/h"
+
+#: boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yager\n"
+"break the sound-wall"
+msgstr ""
+"1947 Chuck Yager\n"
+"durchbricht die Schallmauer"
+
+#: boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnots Fardier"
+
+#: boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr "1878 Léon Bollé \"La Mancelle\""
+
+#: boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 Das erste Benzinauto\n"
+"von Carl Benz"
+
+#: boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "Das Auto"
+
+#: boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899 Renault \"Voiturette\""
+
+#: boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923 Lancia Lambda"
+
+#: boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 199"
+msgstr "1955 Citroën ds 199"
+
+#: boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Autos"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -904,10 +976,6 @@ msgstr ""
 "In diesem Spiel können die Kinder frei zeichnen. Das Ziel ist einfach zu "
 "entdecken, wie man gutaussehende Zeichnungen aus grundlegenden Formen "
 "erstellt: Rechtecke, Ellipsen und Linien."
-
-#: boards/draw.xml.in.h:4
-msgid "Needs to handle the mouse with the click easily"
-msgstr "Gute Beherrschung von Maus und Maustasten"
 
 #: boards/draw.xml.in.h:5
 msgid ""
@@ -2300,6 +2368,22 @@ msgstr ""
 "Tux ist hungrig. Hilf ihm durch Zählen bis zur richtigen Eisscholle, die "
 "Fische zu finden."
 
+#: boards/searace.xml.in.h:1
+msgid "A Sea race against Tux"
+msgstr "Eine Segelregatta gegen Tux"
+
+#: boards/searace.xml.in.h:2
+msgid ""
+"Give good instructions to your ship in order to be first in a race against "
+"Tux."
+msgstr "Steure dein Schiff gut, um ein Rennen gegen Tux zu gewinnen."
+
+#: boards/searace.xml.in.h:3
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area."
+msgstr "Gib in den Texteingabefeldern Zeile für Zeile die Kommandos zur Steuerung deines Bootes ein. Die unterstützten Kommandos sind zwischen den Eingabefeldern dargestellt."
+
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
 #: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
@@ -2515,7 +2599,7 @@ msgstr "Bildungs-Sammlung gcompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2783,6 +2867,31 @@ msgstr "Stufe"
 msgid "Coordinate"
 msgstr "Koordinate"
 
+#: src/boards/python/searace.py:181 src/boards/python/searace.py:186
+#: src/boards/python/searace.py:212
+msgid "Race is already running"
+msgstr "Das Rennen läuft bereits"
+
+#: src/boards/python/searace.py:610
+msgid "The Red boat has won"
+msgstr "Das rote Boot hat gewonnen"
+
+#: src/boards/python/searace.py:612
+msgid "The Green boat has won"
+msgstr "Das grüne Boot hat gewonnen"
+
+#: src/boards/python/searace.py:705
+msgid "forward"
+msgstr "vorwärts"
+
+#: src/boards/python/searace.py:711
+msgid "turnleft"
+msgstr "links abbiegen"
+
+#: src/boards/python/searace.py:713
+msgid "turnright"
+msgstr "rechts abbiegen"
+
 #: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Gedächtnistraining"
@@ -2951,7 +3060,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:208
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -3202,15 +3311,15 @@ msgstr "Keine Verkleidung in %s gefunden\n"
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: src/gcompris/file_selector.c:235
+#: src/gcompris/file_selector.c:242
 msgid "CANCEL"
 msgstr "Abbrechen"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "LOAD"
 msgstr "Laden"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "SAVE"
 msgstr "Speichern"
 
@@ -3266,7 +3375,7 @@ msgstr "Ausgabe der Version von "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
-#: src/gcompris/gcompris.c:522
+#: src/gcompris/gcompris.c:532
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3289,7 +3398,7 @@ msgstr ""
 "Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:717
+#: src/gcompris/gcompris.c:727
 #, c-format
 msgid ""
 "GCompris\n"
