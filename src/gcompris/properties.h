@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2004/05/20 01:07:31 bcoudoin>
+ * Time-stamp: <2004/06/04 00:55:01 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -31,6 +31,7 @@ typedef struct {
   gint		defaultcursor;
   gint		timer;
   gint		difficulty_filter;
+  gint		difficulty_max;
   gchar	       *locale;
   gchar	       *skin;
   gchar	       *key;
@@ -55,7 +56,8 @@ typedef enum {
   GCOMPRIS_PROP_FULLSCREEN,
   GCOMPRIS_PROP_LOCALE,
   GCOMPRIS_PROP_SKIN,
-  GCOMPRIS_PROP_AUDIO
+  GCOMPRIS_PROP_AUDIO,
+  GCOMPRIS_PROP_DIFFICULTY
 } GcomprisTokenType;
 
 #endif

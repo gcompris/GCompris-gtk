@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/05/31 06:26:00 bcoudoin>
+ * Time-stamp: <2004/06/04 01:32:41 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -126,7 +126,6 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       MenuItems		*menuitems;
       GList		*boardlist;	/* List of Board */
 
-
       gcomprisBoard=agcomprisBoard;
       menuitems = g_new(MenuItems, 1);
 
@@ -146,7 +145,6 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 			G_CALLBACK (free_stuff),
 			menuitems);
 
-      printf("menu_start section=%s\n", gcomprisBoard->section);
       boardlist = gcompris_get_menulist(gcomprisBoard->section);
 
       create_info_area(boardRootItem, menuitems);
@@ -260,7 +258,8 @@ static gboolean next_spot()
 static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, GcomprisBoard *board)
 {
   GdkPixbuf *menu_pixmap = NULL, *pixmap = NULL;
-  GnomeCanvasItem *item, *star, *menu_button;
+  GnomeCanvasItem *item, *menu_button;
+  int difficulty;
 
   menu_pixmap = gcompris_load_pixmap(board->icon_name);
   next_spot();
@@ -276,31 +275,16 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   gdk_pixbuf_unref(menu_pixmap);
 
 
-  // display difficulty stars ========================== BEGIN
+  // display difficulty stars
   if (board->difficulty != NULL) {
-    int i, diff = 0;
-    diff = atoi(board->difficulty);
-    if (diff > 3) {
-      pixmap = gcompris_load_skin_pixmap("difficulty_star2.png");
-      diff -= 3;
-    } else {
-      pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
-    }
-    for (i=0; i<diff; i++) {
-      star =  gnome_canvas_item_new (parent,
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
-				     - gdk_pixbuf_get_width(pixmap) + 25,
-				     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2
-				     + gdk_pixbuf_get_height(pixmap) * (i-1) + 20,
-				     "width", (double) gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     NULL);
-    }
-    gdk_pixbuf_unref(pixmap);
+    difficulty = atoi(board->difficulty);
+    gcompris_display_difficulty_stars(parent,
+				      (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
+				      - gdk_pixbuf_get_width(pixmap) - 5,
+				      (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2
+				      + gdk_pixbuf_get_height(pixmap) + 20,
+				      difficulty);
   }
-  // display difficulty stars ========================== END
 
   // display board availability due to sound voice not present
   if(board->mandatory_sound_file)
@@ -327,15 +311,15 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
 	  pixmap = gcompris_load_skin_pixmap("voice.png");
 	}
 
-      star =  gnome_canvas_item_new (parent,
-				     gnome_canvas_pixbuf_get_type (),
-				     "pixbuf", pixmap,
-				     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
-				     - gdk_pixbuf_get_width(pixmap) + 5,
-				     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
-				     "width", (double) gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     NULL);
+      gnome_canvas_item_new (parent,
+			     gnome_canvas_pixbuf_get_type (),
+			     "pixbuf", pixmap,
+			     "x", (double)current_x - gdk_pixbuf_get_width(menu_pixmap)/2
+			     - gdk_pixbuf_get_width(pixmap) + 5,
+			     "y", (double)current_y - gdk_pixbuf_get_height(menu_pixmap)/2,
+			     "width", (double) gdk_pixbuf_get_width(pixmap),
+			     "height", (double) gdk_pixbuf_get_height(pixmap),
+			     NULL);
       gdk_pixbuf_unref(pixmap);
       g_free(soundfile);
     }
@@ -358,10 +342,9 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   // display menu icon ========================== END
 
   /*
-   * Now every think ready, map the events
+   * Now everything ready, map the events
    * -------------------------------------
    */
-
   g_object_set_data (G_OBJECT (menu_button), "board", board);
   gtk_signal_connect(GTK_OBJECT(menu_button), "event",
 		     (GtkSignalFunc) item_event,
@@ -480,7 +463,7 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
   menuitems->description_item = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_rich_text_get_type (),
-			   "text", " ",
+			   "text", "",
 			   "x", (double) x,
 			   "y", (double) y + 25,
 			   "width", (double)BOARDWIDTH - 100,

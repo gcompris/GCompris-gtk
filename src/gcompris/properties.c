@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/05/27 00:55:04 bcoudoin>
+ * Time-stamp: <2004/06/04 01:37:08 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -95,6 +95,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->skin		= "default";
   tmp->key		= "default";
   tmp->locale           = NULL;
+  tmp->difficulty_max   = 0;
 
   home_dir = g_get_home_dir();
 

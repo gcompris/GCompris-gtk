@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2004/05/28 00:41:21 bcoudoin>
+ * Time-stamp: <2004/06/04 01:49:23 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -41,12 +41,18 @@ static GnomeCanvasItem	*item_bad_flag		= NULL;
 static GnomeCanvasItem	*item_screen_text	= NULL;
 static GnomeCanvasItem	*item_timer_text	= NULL;
 static GnomeCanvasItem	*item_skin_text		= NULL;
+static GnomeCanvasItem	*item_difficulty_text	= NULL;
 static GdkPixbuf	*pixmap_checked		= NULL;
 static GdkPixbuf	*pixmap_unchecked	= NULL;
 
 static gchar		*current_locale		= NULL;
 static GList		*skinlist		= NULL;
 static guint		skin_index;
+
+static GnomeCanvasGroup	*stars_group		= NULL;
+static double           stars_group_x;
+static double           stars_group_y;
+
 #define Y_GAP	45
 
 static gboolean is_displayed			= FALSE;
@@ -206,11 +212,11 @@ void gcompris_config_start ()
 
   x_start += 150;
   x_flag_start = x_start + 50;
-  x_text_start = x_start + 120;
+  x_text_start = x_start + 115;
 
   //--------------------------------------------------
   // Locale
-  y_start += 130;
+  y_start += 105;
 
   display_previous_next(x_start, y_start, "locale_previous", "locale_next");
 
@@ -268,7 +274,7 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Fullscreen"), 
-			 "font", gcompris_skin_font_content,
+			 "font", gcompris_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
@@ -283,7 +289,7 @@ void gcompris_config_start ()
   item_screen_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", gettext(screenname[properties->screensize]), 
-					    "font", gcompris_skin_font_content,
+					    "font", gcompris_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
@@ -311,7 +317,7 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Music"), 
-			 "font", gcompris_skin_font_content,
+			 "font", gcompris_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
@@ -339,7 +345,7 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Effect"), 
-			 "font", gcompris_skin_font_content,
+			 "font", gcompris_skin_font_subtitle,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
@@ -354,7 +360,7 @@ void gcompris_config_start ()
   item_timer_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					   gnome_canvas_text_get_type (),
 					   "text", gettext(timername[properties->timer]),
-					   "font", gcompris_skin_font_content,
+					   "font", gcompris_skin_font_subtitle,
 					   "x", (double) x_text_start,
 					   "y", (double) y_start,
 					   "anchor", GTK_ANCHOR_WEST,
@@ -410,13 +416,38 @@ void gcompris_config_start ()
 					    gnome_canvas_text_get_type (),
 					    "text", g_strdup_printf(_("Skin : %s"), 
 								    (char *)g_list_nth_data(skinlist, skin_index)),
-					    "font", gcompris_skin_font_content,
+					    "font", gcompris_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
 					    "fill_color_rgba", gcompris_skin_color_content,
 					    NULL);
   }
+
+  // Difficulty Filter
+  y_start += Y_GAP;
+
+  display_previous_next(x_start, y_start, "difficulty_previous", "difficulty_next");
+
+  stars_group_x = x_start + 60;
+  stars_group_y = y_start - 25;
+
+  item_difficulty_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+						gnome_canvas_text_get_type (),
+						"text", gettext("Difficulty filter"),
+						"font", gcompris_skin_font_subtitle,
+						"x", (double) x_text_start,
+						"y", (double) y_start,
+						"anchor", GTK_ANCHOR_WEST,
+						"fill_color_rgba", gcompris_skin_color_content,
+						NULL);
+
+
+  stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
+						  (double) stars_group_x,
+						  (double) stars_group_y,
+						  properties->difficulty_filter);
+
   is_displayed = TRUE;
 }
 
@@ -757,6 +788,33 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				 "text", g_strdup_printf(_("Skin : %s"), 
 							 (char *)g_list_nth_data(skinlist, skin_index)),
 				 NULL);
+	}
+      else if(!strcmp((char *)data, "difficulty_previous"))
+	{
+	  if(properties->difficulty_filter-- < 1)
+	    properties->difficulty_filter = properties->difficulty_max;
+
+	  if(stars_group)
+	    gtk_object_destroy(GTK_OBJECT(stars_group));
+	    
+
+	  stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
+							  (double)stars_group_x,
+							  (double)stars_group_y,
+							  properties->difficulty_filter);
+	}
+      else if(!strcmp((char *)data, "difficulty_next"))
+	{
+	  if(properties->difficulty_filter++ >= properties->difficulty_max)
+	    properties->difficulty_filter = 0;
+
+	  if(stars_group)
+	    gtk_object_destroy(GTK_OBJECT(stars_group));
+	    
+	  stars_group = gcompris_display_difficulty_stars(GNOME_CANVAS_GROUP(rootitem),
+							  (double)stars_group_x,
+							  (double)stars_group_y,
+							  properties->difficulty_filter);
 	}
     default:
       break;

@@ -24,7 +24,6 @@
 #include "gcompris.h"
 #include <signal.h>
 #include <glib.h>
-#include <ao/ao.h>
 
 static GList	*pending_queue = NULL;
 static int	 sound_policy;

@@ -1,6 +1,6 @@
 SUBDIRS=gcompris
 
-pythondir = $(plugindir)/python
+pythondir = $(PYTHON_PLUGIN_DIR)
 
 dist_python_DATA= \
 	algorithm.py \

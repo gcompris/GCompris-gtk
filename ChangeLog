@@ -1,3 +1,33 @@
+2004-06-04  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/README:  new image from http://www.openclipart.org in public domain
+	* boards/boardicons/draw.png: new image from http://www.openclipart.org in public domain
+	* boards/boardicons/globe.png: new image from http://www.openclipart.org in public domain
+	* boards/skins/default/README: fixed text color
+	* boards/skins/default/help.png: new image from http://www.openclipart.org in public domain
+	* boards/skins/linha_verde/skin.xml: fixed text color
+	* boards/skins/pink/skin.xml: fixed text color
+	* configure.in: now python plugins are in share/gcompris/python
+	* src/boards/menu.c: (menu_start), (menu_create_item),
+	(create_info_area): changed to use the new api entry gcompris_display_difficulty_stars
+	* src/boards/python.c: (pythonboard_init), (pythonboard_start):
+	* src/boards/python/Makefile.am: -A- now python plugins are in share/gcompris/python
+	* src/boards/python/gcompris/Makefile.am: now python plugins are in share/gcompris/python
+	* src/boards/python/gcompris/bonus/Makefile.am: -A- 
+	* src/boards/python/gcompris/score/Makefile.am: -A- 
+	* src/boards/python/gcompris/skin/Makefile.am: -A- 
+	* src/boards/python/gcompris/sound/Makefile.am: -A- 
+	* src/boards/python/gcompris/timer/Makefile.am: -A- 
+	* src/boards/python/gcompris/utils/Makefile.am: -A- 
+	* src/gcompris/config.c: (gcompris_config_start), (item_event_ok):
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data),
+	(gcompris_load_menus), (gcompris_dialog_close), (item_event_ok),
+	(gcompris_display_difficulty_stars): added support for difficulty filtering. Not complete yet.
+	* src/gcompris/gameutil.h: added api entry gcompris_display_difficulty_stars
+	* src/gcompris/properties.c: (gcompris_properties_new): added support for difficulty filtering
+	* src/gcompris/properties.h: added support for difficulty filtering
+	* src/gcompris/soundutil.c: removed useless ao.h
+
 2004-06-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/click_on_letter.c: (end_board),

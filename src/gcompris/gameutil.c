@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/06/01 01:08:19 bcoudoin>
+ * Time-stamp: <2004/06/04 01:51:00 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -323,6 +323,7 @@ gchar *reactivate_newline(gchar *str)
 static void
 gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GcomprisBoard *gcomprisBoard)
 {
+  GcomprisProperties	*properties = gcompris_get_properties();
 
   if(/* if the node has no name */
      !xmlnode->name ||
@@ -354,6 +355,10 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->difficulty		= xmlGetProp(xmlnode,"difficulty");
   if(gcomprisBoard->difficulty == NULL)
     gcomprisBoard->difficulty		= "0";
+
+  /* Update the difficulty max */
+  if(properties->difficulty_max < atoi(gcomprisBoard->difficulty))
+    properties->difficulty_max = atoi(gcomprisBoard->difficulty);
 
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
@@ -650,7 +655,7 @@ void gcompris_load_menus()
       }
 
       if(selectMenuXML(one_dirent->d_name)) {
-	gcomprisBoard = g_malloc (sizeof (GcomprisBoard));
+	gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
 
 	/* Need to be initialized here because gcompris_read_xml_file is used also to reread 	*/
 	/* the locale data									*/
@@ -750,7 +755,6 @@ void	item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x
 void gcompris_dialog_close() {
 
   /* If we already running delete the previous one */
-  printf("gcompris_dialog_close\n");
   if(rootDialogItem)
     gtk_object_destroy(GTK_OBJECT(rootDialogItem));
   rootDialogItem = NULL;
@@ -884,6 +888,46 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
     default:
       break;
     }
+}
+
+/**
+ * Display the number of stars representing the difficulty level at the x,y location
+ * The stars are created in a group 'parent'
+ * The new group in which the stars are created is returned.
+ * This is only usefull for the menu plugin and the configuration dialog box.
+ */
+GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent, 
+						    double x, double y, 
+						    gint difficulty)
+{
+  GdkPixbuf *pixmap = NULL;
+  int i;
+  GnomeCanvasGroup *stars_group = NULL;
+
+  stars_group = GNOME_CANVAS_GROUP(
+				  gnome_canvas_item_new (parent,
+							 gnome_canvas_group_get_type (),
+							 "x", (double) 0,
+							 "y", (double) 0,
+							 NULL));
+
+  if (difficulty > 3) {
+    pixmap = gcompris_load_skin_pixmap("difficulty_star2.png");
+    difficulty -= 3;
+  } else {
+    pixmap = gcompris_load_skin_pixmap("difficulty_star.png");
+  }
+  for (i=0; i<difficulty; i++) {
+    gnome_canvas_item_new (stars_group,
+			   gnome_canvas_pixbuf_get_type (),
+			   "pixbuf", pixmap,
+			   "x", x,
+			   "y", y + (i*20),
+			   NULL);
+  }
+  gdk_pixbuf_unref(pixmap);
+
+  return(stars_group);
 }
 
 /* Local Variables: */
