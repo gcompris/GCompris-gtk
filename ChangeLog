@@ -1,3 +1,16 @@
+2004-05-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/chess_computer.xml.in: fixed messages
+	* boards/chess_movelearn.xml.in: fixed messages
+	* boards/chess_partyend.xml.in: fixed messages
+	* boards/images/scenery3_background.jpg: cleanup jpeg fuzzy
+	* boards/images/scenery_background.jpg: cleanup jpeg fuzzy
+	* boards/images/superbrain_background.jpg: cleanup jpeg fuzzy
+	* boards/skins/default/help_bg.png: now bigger
+	* boards/superbrain.xml.in: fixed messages
+	* configure.in: changed french alphabet version VERSION_VOICES_ALPHABET_FR=1.1
+	* src/gcompris/help.c: (gcompris_help_start): fixed layout
+
 2004-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/skins/default/help_bg.png: remade this image cause it was bugging winxp

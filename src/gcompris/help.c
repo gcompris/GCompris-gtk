@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2004/02/28 16:03:20 bcoudoin>
+ * Time-stamp: <2004/05/11 23:54:44 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -314,7 +314,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item_content_shadow = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					gnome_canvas_rich_text_get_type (),
-					"x", (double)  x_start + 45 + 1,
+					"x", (double)  x_start + 40 + 1,
 					"y", (double)  y_start + 1,
 					"width", 620.0,
 					"height", 400.0,
@@ -327,7 +327,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 
   item_content = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					gnome_canvas_rich_text_get_type (),
-					"x", (double)  x_start + 45,
+					"x", (double)  x_start + 40,
 					"y", (double)  y_start,
 					"width", 620.0,
 					"height", 400.0,
