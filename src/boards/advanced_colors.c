@@ -133,7 +133,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcomprisBoard->sublevel = 1;
     gcomprisBoard->number_of_sublevel = 8;
 
-    gcompris_bar_set(GCOMPRIS_BAR_OK | GCOMPRIS_BAR_LEVEL);
+    gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
     gcompris_score_start(SCORESTYLE_NOTE,
 			 gcomprisBoard->width - 220,
 			 gcomprisBoard->height - 50,
@@ -373,8 +373,9 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 	}
       }
       if (clicked >= 0) {
-	highlight_selected(clicked);
-	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+				highlight_selected(clicked);
+				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+  			process_ok();
       }
       break;
 

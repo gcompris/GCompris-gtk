@@ -116,7 +116,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.jpg");
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
+      gcompris_bar_set(GCOMPRIS_BAR_REPEAT);
 
       gamewon = FALSE;
 
@@ -287,6 +287,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
 			if (clicked >= 0) {
 				highlight_selected(clicked);
 				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+        process_ok();
 				}
 			break;
 

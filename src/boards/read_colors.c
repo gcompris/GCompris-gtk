@@ -134,7 +134,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "read_colors/read_colors_background.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
-    gcompris_bar_set(GCOMPRIS_BAR_OK);
+    gcompris_bar_set(0);
 
     gamewon = FALSE;
     errors = MAX_ERRORS;
@@ -341,13 +341,13 @@ static void process_ok() {
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
   int i, j, clicked;
-  
+
   x = event->button.x;
   y = event->button.y;
 
   if(board_paused)
     return FALSE;
-  
+
   switch (event->type)
     {
     case GDK_BUTTON_PRESS:
@@ -361,8 +361,9 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       }
 
       if (clicked >= 0) {
-	highlight_selected(clicked);
-	gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+				highlight_selected(clicked);
+				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
+  			process_ok();
       }
       break;
 
