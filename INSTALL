@@ -16,8 +16,24 @@ Then, run /home/bruno/gcompris/bin/gcompris
 
 Gcompris requires gnome-libs, xmllib2, gdk-pixbuf-gnomecanvas
 and gdk-pixbuf.
+
+Now that the sound is managed internally, you also need:
+libvorbis libao libogg libao-devel libvorbis-devel libogg-devel
+
 On a Mandrake, you will need to install their -devel counterpart package in
 order to be abble to compile it plus  intltool, tetex.
+
+In order to compile gcompris on a mandrake 9.1, you must install :
+urpmi pkgconfig
+urpmi autoconf2
+urpmi glib-gettext
+urpmi intltool
+urpmi automake1.6
+urpmi libglib2-devel
+urpmi libgnome2-devel libgnomeui2-devel gdk-pixbuf2-devel libgnomecanvas2-devel
+urpmi gnuchess
+urpmi texinfo
+urpmi tetex
 
 
 Basic Installation
