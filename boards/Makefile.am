@@ -12,6 +12,7 @@ xml_in_files = \
 	babymatch.xml.in \
 	babyshapes.xml.in \
 	canal_lock.xml.in \
+	chess.xml.in \
 	clickgame.xml.in \
 	clockgame.xml.in \
 	computer.xml.in \
