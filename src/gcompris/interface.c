@@ -220,8 +220,8 @@ create_gcompris_edit (void)
   buttonAdd = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
-                                _("Ajouter"),
-                                _("Nouveau fichier"), NULL,
+                                _("Add"),
+                                _("New file"), NULL,
                                 tmp_toolbar_icon, NULL, NULL);
   gtk_widget_set_name (buttonAdd, "buttonAdd");
   gtk_widget_ref (buttonAdd);
@@ -233,8 +233,8 @@ create_gcompris_edit (void)
   buttonDel = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
-                                _("Supprimer"),
-                                _("Ouvrir un fichier"), NULL,
+                                _("Del"),
+                                _("Open a file"), NULL,
                                 tmp_toolbar_icon, NULL, NULL);
   gtk_widget_set_name (buttonDel, "buttonDel");
   gtk_widget_ref (buttonDel);
@@ -246,7 +246,7 @@ create_gcompris_edit (void)
   buttonUp = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
-                                _("Monter"),
+                                _("Up"),
                                 NULL, NULL,
                                 tmp_toolbar_icon, NULL, NULL);
   gtk_widget_set_name (buttonUp, "buttonUp");
@@ -259,7 +259,7 @@ create_gcompris_edit (void)
   buttonDown = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
-                                _("Descendre"),
+                                _("Down"),
                                 NULL, NULL,
                                 tmp_toolbar_icon, NULL, NULL);
   gtk_widget_set_name (buttonDown, "buttonDown");
@@ -272,8 +272,8 @@ create_gcompris_edit (void)
   buttonSave = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
-                                _("Enregistrer"),
-                                _("Enregistrer le fichier"), NULL,
+                                _("Save"),
+                                _("Record the file"), NULL,
                                 tmp_toolbar_icon, NULL, NULL);
   gtk_widget_set_name (buttonSave, "buttonSave");
   gtk_widget_ref (buttonSave);
@@ -547,7 +547,7 @@ create_gcompris_edit (void)
   gtk_widget_show (vbuttonbox1);
   gtk_box_pack_start (GTK_BOX (vbox1), vbuttonbox1, TRUE, TRUE, 0);
 
-  buttonIconList = gtk_button_new_with_label (_("..."));
+  buttonIconList = gtk_button_new_with_label (("..."));
   gtk_widget_set_name (buttonIconList, "buttonIconList");
   gtk_widget_ref (buttonIconList);
   gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonIconList", buttonIconList,

@@ -214,13 +214,13 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>buttonAdd</name>
-	  <tooltip>Nouveau fichier</tooltip>
+	  <tooltip>New file</tooltip>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_buttonAdd_clicked</handler>
 	    <last_modification_time>Thu, 06 Jun 2002 21:44:16 GMT</last_modification_time>
 	  </signal>
-	  <label>Ajouter</label>
+	  <label>Add</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_ADD</stock_pixmap>
 	</widget>
 
@@ -228,7 +228,7 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>buttonDel</name>
-	  <tooltip>Ouvrir un fichier</tooltip>
+	  <tooltip>Open a file</tooltip>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_buttonDel_clicked</handler>
@@ -242,7 +242,7 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>buttonUp</name>
-	  <label>Monter</label>
+	  <label>Up</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_UP</stock_pixmap>
 	</widget>
 
@@ -250,7 +250,7 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>buttonDown</name>
-	  <label>Descendre</label>
+	  <label>Down</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_DOWN</stock_pixmap>
 	</widget>
 
@@ -258,8 +258,8 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>buttonSave</name>
-	  <tooltip>Enregistrer le fichier</tooltip>
-	  <label>Enregistrer</label>
+	  <tooltip>Save the file</tooltip>
+	  <label>Save</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_SAVE</stock_pixmap>
 	</widget>
       </widget>

@@ -331,6 +331,8 @@ static void chess_next_level()
 /* Destroy all the items */
 static void chess_destroy_all_items()
 {
+  guint x, y;
+
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
@@ -340,6 +342,12 @@ static void chess_destroy_all_items()
     gtk_object_destroy (GTK_OBJECT (position));
 
   position = NULL;
+
+  for(x=1; x<=8; x++)
+    for(y=1; y<=8; y++)
+	g_free(chessboard[x][y]);
+
+
 }
 
 /* ==================================== */
@@ -884,6 +892,13 @@ engine_local_err_cb (GIOChannel *source,
   
   return FALSE;
 }
+
+/*
+ * FIXME : This should be centralised in gcompris core because only 
+ *         the last signal command is kept at system level
+ *         there is a potential risk because signal child is also used
+ *         to manage ogg123 sounds.
+ */
 
 /* =====================================================================
  * Process the cleanup of the child (no zombies)
