@@ -2066,19 +2066,21 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    break;
 
 	  case TOOL_RAISE:
-	    gnome_canvas_item_raise(item, 1);
+	    gnome_canvas_item_raise(anchorsItem->item, 1);
 	    break;
 
 	  case TOOL_LOWER:
-	    gnome_canvas_item_lower(item, 1);
+	    gnome_canvas_item_lower(anchorsItem->item, 1);
 	    break;
 
 	  case TOOL_ROTATE_CW:
-	    item_rotate_relative(item, 10);
+	    item_rotate_relative(anchorsItem->item, 10);
+	    reset_anchors_bounded(anchorsItem);
 	    break;
 
 	  case TOOL_ROTATE_CCW:
-	    item_rotate_relative(item, -10);
+	    item_rotate_relative(anchorsItem->item, -10);
+	    reset_anchors_bounded(anchorsItem);
 	    break;
 
 	  case TOOL_FLIP:
@@ -2117,16 +2119,20 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  switch(currentTool) {
 	    /* Perform the reverse operation when it makes sense */
 	  case TOOL_ROTATE_CW:
-	    item_rotate_relative(item, -10);
+	    item_rotate_relative(anchorsItem->item, -10);
+	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_ROTATE_CCW:
-	    item_rotate_relative(item, 10);
+	    item_rotate_relative(anchorsItem->item, 10);
+	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_RAISE:
-	    gnome_canvas_item_lower(item, 1);
+	    gnome_canvas_item_lower(anchorsItem->item, 1);
+	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_LOWER:
-	    gnome_canvas_item_raise(item, 1);
+	    gnome_canvas_item_raise(anchorsItem->item, 1);
+	    reset_anchors_bounded(anchorsItem);
 	    break;
 
 	  default:

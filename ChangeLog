@@ -1,5 +1,10 @@
 2003-10-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/draw.c: chaged to rotate only item not group and recalc anchors
+	resizing an image works fine but it is not easy to resize it after
+	
+2003-10-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/Makefile.am: added experience menu
 	* boards/boardicons/experience.png: create by bruno
 	* boards/canal_lock.xml.in: moved to experiece menu
@@ -21,7 +26,7 @@
 	(display_tool_selector), (get_tool_cursor), (set_item_color),
 	(create_item), (item_event_resize), (image_selected),
 	(item_event_move), (item_event): added flip and rotate option. fixed text to support utf8
-	* src/boards/railroad.c: (start_board): uses jpg backgroud now
+	* src/boards/railroad.c: (start_board): uses jpg background now
 	* src/boards/wordsgame.c: (key_press): removed printf
 	* src/gcompris/gameutil.c: (item_rotate), (item_rotate_relative),
 	(item_rotate_with_center), (item_rotate_relative_with_center):
