@@ -1,3 +1,12 @@
+2003-10-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: Release 4.0PRE3
+	* gcompris.desktop.in: added bugzilla, category and startup notifier information
+	* src/gcompris/about.c: (gcompris_about_start), (item_event_ok): fixed fsf and gcompris help 
+	* loading
+	* gcompris: menu entry changed to section Applications/Edutainment instead of game/toy
+	* boards/skins/default/ofsetlogo.png: replaced by the new official jumping gnu
+	
 2003-10-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/skins/default/button.png: better looking
@@ -38,7 +47,7 @@
 	* boards/sounds/fr/colors/gcompris_colors_fr.assetml.in: fixed yellow
 	* gcompris.spec.in: fixed python requirement
 	* src/boards/colors.c: (start_board): now the repeat icon is not display if sound is 
-	available
+	* available
 	* src/boards/menu.c: (menu_create_item): manage assetml dataset in mandatory_sound_*
 	* src/gcompris/bonus.c: (gcompris_display_bonus): fixed "good job" sounds to use assetml
 	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data): added mandatory_sound_dataset
@@ -48,7 +57,7 @@
 
 2003-09-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	* configure.in: Release 4.0RC2
+	* configure.in: Release 4.0PRE2
 	* src/gcompris/soundutil.c: fixed a printf
 
 2003-09-26  Bruno coudoin  <bruno.coudoin@free.fr>

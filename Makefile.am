@@ -5,9 +5,9 @@ SUBDIRS = po src docs boards
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png gcompris-edit.png
 
-Gamesdir=$(datadir)/gnome/apps/Games
-Games_in_files = gcompris.desktop.in gcompris-edit.desktop.in
-Games_DATA = $(Games_in_files:.desktop.in=.desktop)
+Applicationsdir = $(datadir)/applications/
+Applications_in_files = gcompris.desktop.in
+Applications_DATA = gcompris.desktop
 
 Menudir=$(prefix)/lib/menu
 Menu_DATA=gcompris
@@ -15,8 +15,8 @@ Menu_DATA=gcompris
 @INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST = \
-	$(Games_DATA) \
-	$(Games_in_files) \
+	$(Applications_DATA) \
+	$(Applications_in_files) \
 	$(icon_DATA) \
 	$(Menu_DATA) \
 	gcompris.spec \

@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2003/08/21 16:36:39 bcoudoin>
+ * Time-stamp: <2003/10/07 00:05:10 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -164,7 +164,7 @@ void gcompris_about_start ()
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_ok,
-		     "ofset");
+		     "fsf");
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -403,7 +403,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  gnome_url_show("http://ofset.sourceforge.net", NULL);
 	}
-      else if (!strcmp((char *)data, "ofset"))
+      else if (!strcmp((char *)data, "fsf"))
 	{
 	  gnome_url_show("http://www.fsf.org", NULL);
 	}
@@ -418,7 +418,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   * Package relocatable.
 	   * Unfortunatly, this does not supports I18N
 	   */
-	  gnome_help_display(PACKAGE_HELP_DIR "/C/gcompris.html", NULL, NULL);
+	  gnome_url_show(PACKAGE_HELP_DIR "/C/gcompris.html", NULL);
 	}
     default:
       break;
