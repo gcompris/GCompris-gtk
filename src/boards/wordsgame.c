@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2004/10/21 22:59:17 bruno>
+ * Time-stamp: <2004/11/14 15:13:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -23,31 +23,49 @@
 #include <stdio.h>
 
 #include "gcompris/gcompris.h"
+#include "gcompris/gameutil.h"
 
 
 #define SOUNDLISTFILE PACKAGE
 #define MAXWORDSLENGTH 50
+static GPtrArray *words=NULL;
 
-static GList *item_list = NULL;
-static GList *item2del_list = NULL;
+GStaticRWLock items_lock = G_STATIC_RW_LOCK_INIT;
+GStaticRWLock items2del_lock = G_STATIC_RW_LOCK_INIT;
+
+/*
+word - word to type
+overword - part of word allready typed 
+count - number of allready typed letters in word
+pos - pointer to current position in word
+letter - current expected letter to type
+*/
+typedef struct {
+  GnomeCanvasItem *rootitem;
+  GnomeCanvasItem *overwriteItem;
+  gchar *word;
+  gchar *overword;
+  gint  count;
+  gchar *pos;
+  gchar *letter;
+} LettersItem;
+
+/*
+items - array of displayed items 
+items2del - array of items where moved offscreen
+item_on_focus -  item on focus in array items. NULL - not set.
+*/
+
+static GPtrArray 	*items=NULL;
+static GPtrArray 	*items2del=NULL;
+static LettersItem 	*item_on_focus=NULL;
+
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
 
-/* Hash table of all displayed letters  */
-static GHashTable *words_table= NULL;
-
-typedef struct {
-  gchar *word;
-  gchar *overword;
-  gint  charcounter;
-  GnomeCanvasItem *rootitem;
-  GnomeCanvasItem *overwriteItem;
-} LettersItem;
-
-static LettersItem *currentFocus = NULL;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -56,25 +74,18 @@ static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
 static gint		 key_press(guint keyval);
 
+static gboolean  	 wordsgame_read_wordfile();
 static GnomeCanvasItem	 *wordsgame_create_item(GnomeCanvasGroup *parent);
 static gint		 wordsgame_drop_items (GtkWidget *widget, gpointer data);
 static gint		 wordsgame_move_items (GtkWidget *widget, gpointer data);
 static void		 wordsgame_destroy_item(LettersItem *item);
-static void		 wordsgame_destroy_items(void);
+static gboolean		 wordsgame_destroy_items(GPtrArray *items);
 static void		 wordsgame_destroy_all_items(void);
 static void		 wordsgame_next_level(void);
 static void		 wordsgame_add_new_item(void);
 
 static void		 player_win(LettersItem *item);
 static void		 player_loose(void);
-static LettersItem 	*item_find_by_title (const gchar *title);
-static char		 *get_random_word(void);
-static void		 wordsgame_check_focus (gchar	*key,
-				   LettersItem *value,
-				   LettersItem **user_data);
-static gboolean words_table_foreach_remove (char *key,
-					    LettersItem *value,
-					    LettersItem *user_data);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
@@ -127,22 +138,22 @@ static void pause_board (gboolean pause)
   if(pause)
     {
       if (dummy_id) {
-	gtk_timeout_remove (dummy_id);
+	g_source_remove (dummy_id);
 	dummy_id = 0;
       }
       if (drop_items_id) {
-	gtk_timeout_remove (drop_items_id);
+	g_source_remove (drop_items_id);
 	drop_items_id = 0;
       }
     }
   else
     {
       if(!drop_items_id) {
-	drop_items_id = gtk_timeout_add (100,
+	drop_items_id = g_timeout_add (100,
 					 (GtkFunction) wordsgame_drop_items, NULL);
       }
       if(!dummy_id) {
-	dummy_id = gtk_timeout_add (100, (GtkFunction) wordsgame_move_items, NULL);
+	dummy_id = g_timeout_add (100, (GtkFunction) wordsgame_move_items, NULL);
       }
     }
 }
@@ -164,17 +175,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel = 1;
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
+
       wordsgame_next_level();
     }
-}
-
-static gboolean words_table_foreach_remove (char *key,
-					    LettersItem *value,
-					    LettersItem *user_data)
-{
-  g_free(value->word);
-  g_free(value->overword);
-  return TRUE;
 }
 
 static void
@@ -186,16 +189,8 @@ end_board ()
       pause_board(TRUE);
       gcompris_score_end();
       wordsgame_destroy_all_items();
-      if (words_table)
-	{
-	  g_hash_table_foreach_remove (words_table,
-				       (GHRFunc)words_table_foreach_remove,
-				       NULL);
-	  g_hash_table_destroy (words_table);
-	  words_table=NULL;
-	}
+      gcomprisBoard = NULL;
     }
-  gcomprisBoard = NULL;
 }
 
 static void
@@ -209,172 +204,148 @@ set_level (guint level)
     }
 }
 
-static void wordsgame_check_focus (gchar       *key,
-				   LettersItem *value,
-				   LettersItem **user_data)
-{
-  LettersItem *usrdata = *user_data;
-  gchar *nextCurrentChar;
-
-  if(usrdata->rootitem!=NULL)
-    return;
-
-  nextCurrentChar = g_utf8_next_char(key);
-
-  if(strncmp(key, usrdata->word, nextCurrentChar-key)==0)
-    {
-      free(*user_data);
-      *user_data = value;
-    }
-
-}
 
 static gint key_press(guint keyval)
 {
-  char utf8char[6];
-  guint utf8_length;
+    gchar *letter; 
+    gint i;
+    LettersItem *item;
 
-  if(!gcomprisBoard)
-    return TRUE;
+    if(!gcomprisBoard)
+	return TRUE;
 
-  if(!g_unichar_isalnum (gdk_keyval_to_unicode (keyval)))
-    return TRUE;
+    if(!g_unichar_isalnum (gdk_keyval_to_unicode (keyval)))
+	return TRUE;
+
 
   /* Add some filter for control and shift key */
-  switch (keyval)
-    {
-    case GDK_Shift_L:
-    case GDK_Shift_R:
-    case GDK_Control_L:
-    case GDK_Control_R:
-    case GDK_Caps_Lock:
-    case GDK_Shift_Lock:
-    case GDK_Meta_L:
-    case GDK_Meta_R:
-    case GDK_Alt_L:
-    case GDK_Alt_R:
-    case GDK_Super_L:
-    case GDK_Super_R:
-    case GDK_Hyper_L:
-    case GDK_Hyper_R:
-    case GDK_Mode_switch:
-    case GDK_dead_circumflex:
-    case GDK_Num_Lock:
-      return FALSE; 
-    case GDK_KP_0:
-      keyval=GDK_0;
-      break;
-    case GDK_KP_1:
-      keyval=GDK_1;
-      break;
-    case GDK_KP_2:
-      keyval=GDK_2;
-      break;
-    case GDK_KP_3:
-      keyval=GDK_3;
-      break;
-    case GDK_KP_4:
-      keyval=GDK_4;
-      break;
-    case GDK_KP_5:
-      keyval=GDK_5;
-      break;
-    case GDK_KP_6:
-      keyval=GDK_6;
-      break;
-    case GDK_KP_7:
-      keyval=GDK_7;
-      break;
-    case GDK_KP_8:
-      keyval=GDK_8;
-      break;
-    case GDK_KP_9:
-      keyval=GDK_9;
-      break;
-    }
-
-  utf8_length = g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
-				   utf8char);
-
-  if(currentFocus==NULL) 
-    {
-      LettersItem *searchitem;
-
-      searchitem = malloc(sizeof(LettersItem));
-
-      /* Try to see if this letter matches the first one of any words */
-      searchitem->word        = utf8char;
-      searchitem->rootitem    = NULL;
-      searchitem->overword    = "";
-      searchitem->charcounter = 0;
-
-      g_hash_table_foreach (words_table, (GHFunc) wordsgame_check_focus, &searchitem);
-
-      
-      if(searchitem->rootitem!=NULL) 
+    switch (keyval)
 	{
-	  currentFocus=searchitem;
-	}
-      else
+	case GDK_Shift_L:
+	case GDK_Shift_R:
+        case GDK_Control_L:
+	case GDK_Control_R:
+        case GDK_Caps_Lock:
+	case GDK_Shift_Lock:
+        case GDK_Meta_L:
+        case GDK_Meta_R:
+        case GDK_Alt_L:
+        case GDK_Alt_R:
+        case GDK_Super_L:
+        case GDK_Super_R:
+        case GDK_Hyper_L:
+        case GDK_Hyper_R:
+        case GDK_Mode_switch:
+        case GDK_dead_circumflex:
+        case GDK_Num_Lock:
+          return FALSE; 
+        case GDK_KP_0:
+          keyval=GDK_0;
+          break;
+        case GDK_KP_1:
+          keyval=GDK_1;
+          break;
+        case GDK_KP_2:
+          keyval=GDK_2;
+          break;
+        case GDK_KP_3:
+          keyval=GDK_3;
+          break;
+        case GDK_KP_4:
+          keyval=GDK_4;
+          break;
+        case GDK_KP_5:
+          keyval=GDK_5;
+          break;
+        case GDK_KP_6:
+          keyval=GDK_6;
+	  break;
+        case GDK_KP_7:
+	  keyval=GDK_7;
+          break;
+        case GDK_KP_8:
+	  keyval=GDK_8;
+          break;
+        case GDK_KP_9:
+          keyval=GDK_9;
+          break;
+        }
+
+    letter=g_strnfill(6,'\0');
+    g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval), letter);
+
+    
+    if(item_on_focus==NULL) 
 	{
-	  free(searchitem);
-	}
-    }
+	g_static_rw_lock_reader_lock (&items_lock);
+	gint count=items->len;
+	g_static_rw_lock_reader_unlock (&items_lock);
 
-  if(currentFocus!=NULL) 
-    {
-      if(currentFocus->rootitem!=NULL) 
-	{
-	  gchar *currentChar;
-	  gchar *nextCurrentChar;
-	  gint   i;
-
-	  /* Find the next Char */
-	  currentChar = currentFocus->word + currentFocus->charcounter;
-
-	  if(strncmp(currentChar, utf8char, utf8_length)==0)
-	    {
-	      currentFocus->charcounter += utf8_length;
-
-	      /* Increment the overword */
-	      strncpy(currentFocus->overword, currentFocus->word, currentFocus->charcounter);
-	      currentFocus->overword[currentFocus->charcounter] = '\0';
-
-	      gnome_canvas_item_set (currentFocus->overwriteItem,
-				     "text", currentFocus->overword,
-				     NULL);
-
-	      if(g_utf8_strlen(currentFocus->overword, MAXWORDSLENGTH) ==
-		 g_utf8_strlen(currentFocus->word, MAXWORDSLENGTH))
+	for (i=0;i<count;i++)
+	    { 
+	    g_static_rw_lock_reader_lock (&items_lock);
+	    item=g_ptr_array_index(items,i);
+	    g_static_rw_lock_reader_unlock (&items_lock);
+	    assert (item!=NULL);
+	    if (strcmp(item->letter,letter)==0) 
 		{
-		  LettersItem *item = item_find_by_title(currentFocus->word);
-
-		  /* You won Guy */
-		  player_win(item);
-
-		  currentFocus=NULL;
+		item_on_focus=item;
+	    	break;	     
 		}
 	    }
-	  else
-	    {
-	      /* It is a loose : unselect the word and defocus */
-	      currentFocus->overword[0]='\0';
-	      currentFocus->charcounter=0;
-	      gnome_canvas_item_set (currentFocus->overwriteItem,
-				     "text", currentFocus->overword,
-				     NULL);
-	      
-	      currentFocus=NULL;
-	      player_loose();
-	    }
 	}
-    }
-  else
-    {
-      /* Anyway kid you clicked on the wrong key */
-      player_loose();
-    }
 
+
+    if(item_on_focus!=NULL) 
+	{
+	
+	if(strcmp(item_on_focus->letter, letter)==0)
+	    {
+	    item_on_focus->count++;
+	    g_free(item_on_focus->overword);
+	    item_on_focus->overword=g_utf8_strndup(item_on_focus->word,item_on_focus->count);
+	    gnome_canvas_item_set (item_on_focus->overwriteItem,
+				     "text", item_on_focus->overword,
+				     NULL);
+		
+
+	    if (item_on_focus->count<g_utf8_strlen(item_on_focus->word,-1))
+	        {
+	        g_free(item_on_focus->letter);
+	        item_on_focus->letter=g_utf8_strndup(item_on_focus->pos,1);
+		item_on_focus->pos=g_utf8_find_next_char(item_on_focus->pos,NULL);
+	        }
+	    else
+	        {
+	        player_win(item_on_focus);
+	        item_on_focus=NULL;
+	        }
+	    }
+	else
+	    {
+	     /* It is a loose : unselect the word and defocus */
+	    g_free(item_on_focus->overword);
+	    item_on_focus->overword=g_strdup(" ");
+	    item_on_focus->count=0;
+	    g_free(item_on_focus->letter);
+	    item_on_focus->letter=g_utf8_strndup(item_on_focus->word,1);
+	    
+	    item_on_focus->pos=g_utf8_find_next_char(item_on_focus->word,NULL);
+
+	    gnome_canvas_item_set (item_on_focus->overwriteItem,
+			     "text", item_on_focus->overword,
+				     NULL);
+ 	    item_on_focus=NULL;
+	    player_loose();
+	    }	
+	}
+    else
+	{
+        /* Anyway kid you clicked on the wrong key */
+        player_loose();
+	}
+
+  g_free(letter);
   return FALSE;
 }
 
@@ -404,6 +375,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void wordsgame_next_level() 
 {
 
+
   gcomprisBoard->number_of_sublevel = 10 + 
     ((gcomprisBoard->level-1) * 5);
   gcompris_score_start(SCORESTYLE_NOTE, 
@@ -414,7 +386,11 @@ static void wordsgame_next_level()
   gcompris_bar_set_level(gcomprisBoard);
   gcompris_score_set(gcomprisBoard->sublevel);
 
+
   wordsgame_destroy_all_items();
+  wordsgame_read_wordfile();
+  items=g_ptr_array_new();
+  items2del=g_ptr_array_new();
 
   /* Default speed */
   speed=150;
@@ -429,73 +405,36 @@ static void wordsgame_next_level()
   pause_board(FALSE);
 }
 
-static void remove_old_word(LettersItem *item)
-{
-  /* Remove old word */
-  g_hash_table_remove (words_table, (item->word));
-  /* The items are freed by player_win */
-  g_free(item->word);
-  g_free(item->overword);		  
-  g_free(item);
-}
 
 static void wordsgame_move_item(LettersItem *item)
 {
-  double x1, y1, x2, y2;
+    double x1, y1, x2, y2;
 
-  gnome_canvas_item_move(item->rootitem, 0, 2.0);
 
-  gnome_canvas_item_get_bounds    (item->rootitem,
+    gnome_canvas_item_move(item->rootitem, 0, 2.0);
+
+    gnome_canvas_item_get_bounds    (item->rootitem,
 				   &x1,
 				   &y1,
 				   &x2,
 				   &y2);
   
-  if(y1>gcomprisBoard->height) {
-    item2del_list = g_list_append (item2del_list, item);
-    player_loose();
-  }
-}
+      if(y1>gcomprisBoard->height) {
 
-static void wordsgame_destroy_item(LettersItem *item)
-{
+	if (item == item_on_focus)   
+	    item_on_focus = NULL;
 
-  /* Andrew Stribblehill <ads@debian.org> -- clear current focus if
-       it goes off the canvas */
-  if (currentFocus == item) {
-    currentFocus = NULL;
-  }
+	g_static_rw_lock_writer_lock (&items_lock);
+	g_ptr_array_remove (items, item);
+	g_static_rw_lock_writer_unlock (&items_lock);
 
-  item_list = g_list_remove (item_list, item);
-  item2del_list = g_list_remove (item2del_list, item);
-  gtk_object_destroy (GTK_OBJECT(item->rootitem));
-  remove_old_word(item);
-}
+	g_static_rw_lock_writer_lock (&items2del_lock);
+	g_ptr_array_add (items2del, item);
+	g_static_rw_lock_writer_unlock (&items2del_lock);
 
-/* Destroy items that falls out of the canvas */
-static void wordsgame_destroy_items()
-{
-  LettersItem *item;
+        g_timeout_add (500,(GtkFunction) wordsgame_destroy_items, items2del);
 
-  while(g_list_length(item2del_list)>0) 
-    {
-      item = g_list_nth_data(item2del_list, 0);
-      wordsgame_destroy_item(item);
-    }
-}
-
-/* Destroy all the items */
-static void wordsgame_destroy_all_items()
-{
-  LettersItem *item;
-
-  if(item_list == NULL)
-    return;
-
-  while(g_list_length(item_list)>0) 
-    {
-      item = g_list_nth_data(item_list, 0);
-      wordsgame_destroy_item(item);
+	player_loose();
     }
 }
 
@@ -505,47 +444,113 @@ static void wordsgame_destroy_all_items()
  */
 static gint wordsgame_move_items (GtkWidget *widget, gpointer data)
 {
-  g_list_foreach (item_list, (GFunc) wordsgame_move_item, NULL);
-
-  /* Destroy items that falls out of the canvas */
-  wordsgame_destroy_items();
-
-  dummy_id = gtk_timeout_add (speed, 
-			      (GtkFunction) wordsgame_move_items, NULL);
-
-  return(FALSE);
+    if (items==NULL) return (TRUE);
+    gint i;
+    LettersItem *item;
+    
+    for (i=items->len-1;i>=0;i--)
+	{
+	
+	g_static_rw_lock_reader_lock (&items_lock);
+	item=g_ptr_array_index(items,i);
+	g_static_rw_lock_reader_unlock (&items_lock);
+	wordsgame_move_item(item);
+	}
+  return(TRUE);
 }
+
+
+
+static void wordsgame_destroy_item(LettersItem *item)
+{
+ 
+  /* The items are freed by player_win */
+  gtk_object_destroy (GTK_OBJECT(item->rootitem));
+  g_free(item->word);
+  g_free(item->overword);
+  g_free(item->letter);
+  g_free(item);
+}
+
+/* Destroy items that falls out of the canvas */
+static gboolean wordsgame_destroy_items(GPtrArray *item_list)
+{
+    LettersItem *item;
+
+    assert(item_list!=NULL);
+    
+
+
+    if  (item_list==items) {
+	g_static_rw_lock_writer_lock (&items_lock);
+	while (item_list->len>0) 
+	    {
+	    item = g_ptr_array_index(item_list,0);
+    	    g_ptr_array_remove_index_fast(item_list,0);
+	    wordsgame_destroy_item(item);
+	    }
+	g_static_rw_lock_writer_unlock (&items_lock);
+	}
+
+    if  (item_list==items2del) {
+	g_static_rw_lock_writer_lock (&items2del_lock);
+	while (item_list->len>0) 
+	    {
+	    item = g_ptr_array_index(item_list,0);
+    	    g_ptr_array_remove_index_fast(item_list,0);
+	    wordsgame_destroy_item(item);
+	    }
+	g_static_rw_lock_writer_unlock (&items2del_lock);
+	}
+
+    return (FALSE);
+}
+
+/* Destroy all the items */
+static void wordsgame_destroy_all_items()
+{
+    
+  if (items!=NULL){
+    if(items->len > 0) {
+	wordsgame_destroy_items(items);
+	}
+    g_ptr_array_free (items, TRUE);
+    items=NULL;
+    }
+
+  if (items2del!=NULL){
+    if(items2del->len > 0) {
+	wordsgame_destroy_items(items2del);
+	}
+    g_ptr_array_free (items2del, TRUE);
+    items2del=NULL;
+    }
+    
+  if (words!=NULL){
+    g_ptr_array_free (words, TRUE);
+    words=NULL;
+    }
+
+}
+
 
 static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 {
-  GnomeCanvasItem *item2;
-  LettersItem *lettersItem;
-  guint maxtry = 10;
+ 
 
-  lettersItem = malloc(sizeof(LettersItem));
+    GnomeCanvasItem *item2;
+    LettersItem *item;
 
-  if (!words_table)
-    {
-      words_table= g_hash_table_new (g_str_hash, g_str_equal);
-    }
-
-  /* Beware, since we put the words in a hash table, we do not allow the same
-     letter to be displayed two times */
-
-  do {
-    lettersItem->word = get_random_word();
-  } while(item_find_by_title(lettersItem->word)!=NULL && maxtry--);
-
-  if(maxtry==0) {
-    return NULL;
-  }
-
-  /* fill up the overword with zeros */
-  lettersItem->overword=calloc(strlen(lettersItem->word), 1);
-  lettersItem->charcounter=0;
-
-  lettersItem->rootitem = \
-    gnome_canvas_item_new (parent,
+    // create and init item
+    item = g_new(LettersItem,1);
+    item->word = g_strdup(g_ptr_array_index(words,rand()%words->len));
+    item->overword=g_strdup("");
+    item->count=0;
+    item->letter=g_utf8_strndup(item->word,1);
+    item->pos=g_utf8_find_next_char(item->word,NULL);
+     
+    item->rootitem = \
+	gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
 			   "x", (double)(rand()%(gcomprisBoard->width-170)),
 			   "y", (double) -12,
@@ -553,21 +558,21 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 
   /* To 'erase' words, I create 2 times the text item. One is empty now */
   /* It will be filled each time the user enters the right key         */  
-  item2 = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
+    item2 = \
+	gnome_canvas_item_new (GNOME_CANVAS_GROUP(item->rootitem),
 			   gnome_canvas_text_get_type (),
-			   "text", lettersItem->word,
+			   "text", item->word,
 			   "font", gcompris_skin_font_board_huge_bold,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", GTK_ANCHOR_NW,
-			   "fill_color", "black",
+			   "fill_color_rgba", 0xba00ffff,
 			   NULL);
 
-  lettersItem->overwriteItem = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(lettersItem->rootitem),
+    item->overwriteItem = \
+	gnome_canvas_item_new (GNOME_CANVAS_GROUP(item->rootitem),
 			   gnome_canvas_text_get_type (),
-			   "text", "",
+			   "text", item->overword,
 			   "font", gcompris_skin_font_board_huge_bold,
 			   "x", (double) 0,
 			   "y", (double) 0,
@@ -575,17 +580,19 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
 			   "fill_color", "blue",
 			   NULL);
 
-  item_list = g_list_append (item_list, lettersItem);
+    g_static_rw_lock_writer_lock (&items_lock);
+    g_ptr_array_add(items, item);
+    g_static_rw_lock_writer_unlock (&items_lock);
 
-  /* Add word to hash table of all falling words. */
-  g_hash_table_insert (words_table, lettersItem->word, lettersItem);
-
-  return (lettersItem->rootitem);
+    return (item->rootitem);
 }
 
 static void wordsgame_add_new_item() 
 {
+
+ assert(gcomprisBoard->canvas!=NULL); 
   wordsgame_create_item(gnome_canvas_root(gcomprisBoard->canvas));
+
 }
 
 /*
@@ -595,9 +602,9 @@ static void wordsgame_add_new_item()
 static gint wordsgame_drop_items (GtkWidget *widget, gpointer data)
 {
   wordsgame_add_new_item();
-
-  drop_items_id = gtk_timeout_add (fallSpeed,
-				   (GtkFunction) wordsgame_drop_items, NULL);
+  g_source_remove(drop_items_id);
+  drop_items_id = g_timeout_add (fallSpeed,(GtkFunction) wordsgame_drop_items, NULL);
+ 
   return (FALSE);
 }
 
@@ -606,13 +613,28 @@ static void player_win(LettersItem *item)
 
   gcompris_play_ogg ("gobble", NULL);
 
+  assert(gcomprisBoard!=NULL);
+
   gcomprisBoard->sublevel++;
   gcompris_score_set(gcomprisBoard->sublevel);
 
-  wordsgame_destroy_item(item);
 
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) 
+    g_static_rw_lock_writer_lock (&items_lock);
+    g_ptr_array_remove(items,item);
+    g_static_rw_lock_writer_unlock (&items_lock);
+
+    g_static_rw_lock_writer_lock (&items2del_lock);
+    g_ptr_array_add(items2del,item);
+    g_static_rw_lock_writer_unlock (&items2del_lock);
+
+    gnome_canvas_item_hide(item->rootitem);
+    g_timeout_add (500,(GtkFunction) wordsgame_destroy_items, items2del);
+
+
+
+  if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel) 
     {
+
       /* Try the next level */
       gcomprisBoard->level++;
       gcomprisBoard->sublevel = 1;
@@ -625,20 +647,28 @@ static void player_win(LettersItem *item)
     }
   else
     {
+
       /* Drop a new item now to speed up the game */
-      if(g_list_length(item_list)==0)
+    g_static_rw_lock_reader_lock (&items_lock);
+    gint count=items->len;
+    g_static_rw_lock_reader_unlock (&items_lock);
+
+    
+    
+      if(count==0)
 	{
 	  if (drop_items_id) {
 	    /* Remove pending new item creation to sync the falls */
-	    gtk_timeout_remove (drop_items_id);
+	    g_source_remove (drop_items_id);
 	    drop_items_id = 0;
 	  }
 	  if(!drop_items_id) {
-	    drop_items_id = gtk_timeout_add (0,
+	    drop_items_id = g_timeout_add (100,
 					     (GtkFunction) wordsgame_drop_items, NULL);
 	  }
 	}
     }
+
 }
 
 static void player_loose()
@@ -646,16 +676,8 @@ static void player_loose()
   gcompris_play_ogg ("crash", NULL);
 }
 
-static LettersItem *
-item_find_by_title (const gchar *title)
-{
-  if (!words_table)
-    return NULL;
-  
-  return g_hash_table_lookup (words_table, title);
-}
 
-static FILE *get_wordfile(char *locale)
+static FILE *get_wordfile(const char *locale)
 {
   char *filename;
   FILE *wordsfd = NULL;
@@ -686,45 +708,43 @@ static FILE *get_wordfile(char *locale)
  * Return a random word from a set of text file depending on 
  * the current level and language
  */
-static gchar *get_random_word()
+                                                                                                                              
+static gboolean  wordsgame_read_wordfile()
 {
+                                                                                                                              
   FILE *wordsfd;
-  long size, i;
-  gchar *str;
-
-  str = g_malloc(MAXWORDSLENGTH);
-
+  gchar *buf;
+  int len;
+                                                                                                                              
   wordsfd = get_wordfile(gcompris_get_locale());
-
+                                                                                                                              
   if(wordsfd==NULL)
     {
       /* Try to open the english locale by default */
       wordsfd = get_wordfile("en");
-      
+                                                                                                                              
       /* Too bad, even english is not there. Check your Install */
-      if(wordsfd==NULL)
-	g_error("Cannot open file %s : Check your GCompris install", strerror(errno));
+      if(wordsfd==NULL) {
+        gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
+        return FALSE;
+      }
     }
-
-  fseek (wordsfd, 0L, SEEK_END);
-  size = ftell (wordsfd);
-
-  i=rand()%size;
-  fseek(wordsfd, i, SEEK_SET);
-
-  /* Read 2 times so that we are sure to sync on an end of line */
-  fgets(str, MAXWORDSLENGTH, wordsfd);
-  if(ftell(wordsfd)==size)
-    rewind(wordsfd);
-  fgets(str, MAXWORDSLENGTH, wordsfd);
-
-  /* Chop the return */
-  str[strlen(str)-1]='\0';
-
-  fclose(wordsfd);
-
-  return (str);
+                                                                                                                              
+   words=g_ptr_array_new ();
+   while (buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH, wordsfd)) {
+        assert(g_utf8_validate(buf,-1,NULL));
+                                                                                                                              
+        //remove \n from end of line
+        len = strlen(buf);
+        if((0 < len)&&('\n'==buf[len-1]))
+            buf[len-1] = '\0';
+                                                                                                                              
+        g_ptr_array_add(words,buf);
+        }
+   fclose(wordsfd);
+                                                                                                                              
 }
+
 
 
 /* Local Variables: */

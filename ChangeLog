@@ -1,3 +1,15 @@
+2004-11-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/wordsgame.c: (pause_board), (start_board),
+	(end_board), (key_press), (wordsgame_next_level),
+	(wordsgame_move_item), (wordsgame_move_items),
+	(wordsgame_destroy_item), (wordsgame_destroy_items),
+	(wordsgame_destroy_all_items), (wordsgame_create_item),
+	(wordsgame_add_new_item), (wordsgame_drop_items), (player_win),
+	(get_wordfile), (wordsgame_read_wordfile): thread save, rock stable version by Alexey Lubimov
+	* src/gcompris/gameutil.c: (g_utf8_strndup): added g_utf8_strndup
+	* src/gcompris/gameutil.h: added g_utf8_strndup
+
 2004-11-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Italian sounds resampled to 44100 by Marcello Missiroli

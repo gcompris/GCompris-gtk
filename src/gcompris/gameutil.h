@@ -35,6 +35,7 @@
 // returns a random integer in range [A,B]
 #define RAND(A,B) (A + (int)((float)(B-A+1)*rand()/(RAND_MAX+1.0)))
 
+gchar 		*g_utf8_strndup(gchar*,gint);
 
 GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);
 void		 gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus);
