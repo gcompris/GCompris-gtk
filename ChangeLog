@@ -1,3 +1,11 @@
+2004-07-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/svgutil.c: (gcompris_clone_item),
+	(gcompris_transform_canvas_to_svg_file),
+	(gcompris_re_colors_to_svg_file), (gcompris_rect_to_svg_file),
+	(gcompris_pixbuf_to_svg_file): reindented. uncommented gdk_pixbuf_save_to_buffer. Do not work for me.
+	Yves, I need help !!
+
 2004-07-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/file_selector.c: (gcompris_file_selector_stop),

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/07/15 23:51:59 bcoudoin>
+ * Time-stamp: <2004/07/31 00:55:31 bcoudoin>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -91,7 +91,7 @@ void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)
 
   /* get all the properties and copy them */
   properties = g_object_class_list_properties (G_OBJECT_GET_CLASS(item),
-                                             &n_properties);
+					       &n_properties);
 
   /* anchors are hidden to play without them */
   anchors = g_object_get_data(G_OBJECT(item), "anchors");
@@ -134,8 +134,8 @@ void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)
 
 
 /**************
-* SVG saving *
-**************/
+ * SVG saving *
+ **************/
 
 /* number of second before begin animation */
 #define WAIT_FOR_BEGIN 1
@@ -167,9 +167,9 @@ void *gcompris_transform_canvas_to_svg_file(GnomeCanvasItem *item, xmlNodePtr sv
 	     item->xform[0],
 	     item->xform[1]);
 
-    xmlNewProp( svgNode, 
-		BAD_CAST "transform",
-		BAD_CAST tmp);
+  xmlNewProp( svgNode, 
+	      BAD_CAST "transform",
+	      BAD_CAST tmp);
 }
 
 
@@ -192,8 +192,8 @@ void *gcompris_re_colors_to_svg_file(GnomeCanvasItem *item,  xmlNodePtr svgNode 
   }
   
     
-    xmlNewProp ( svgNode, BAD_CAST "fill",
-		    BAD_CAST (empty==NULL ? tmp : "none"));
+  xmlNewProp ( svgNode, BAD_CAST "fill",
+	       BAD_CAST (empty==NULL ? tmp : "none"));
   
   g_object_get(G_OBJECT(item), "outline-color-rgba", &intval, NULL);
   
@@ -276,8 +276,8 @@ void *gcompris_rect_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
   rc = snprintf(tmp, 127,"%lf", width);
   xmlNewProp( cur,
-		   BAD_CAST "width",
-		   BAD_CAST tmp);
+	      BAD_CAST "width",
+	      BAD_CAST tmp);
   
 }
 
@@ -474,7 +474,7 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
   while ( defs != NULL ){
     if (!xmlStrcmp(defs->name, (const xmlChar *)"defs")){
-	 break;
+      break;
     }
     defs = defs->next;
   }
@@ -493,11 +493,11 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
   img = gcomprisPrivateData->xmlChildrenNode;
   while ( img != NULL ){
     if (!xmlStrcmp(img->name, (const xmlChar *)"gcompris:image")){
-       imageName = xmlGetProp(img, "filename");
-       printf("Filename %s : %s \n", imageName, itemName);
-       if (!xmlStrcmp((xmlChar*)  itemName, imageName)){
-	 break;}
-       i++;
+      imageName = xmlGetProp(img, "filename");
+      printf("Filename %s : %s \n", imageName, itemName);
+      if (!xmlStrcmp((xmlChar*)  itemName, imageName)){
+	break;}
+      i++;
     }
     img = img->next;
   }
@@ -528,24 +528,17 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
       return;
     }
 
-    /* FIXME REMOVED TO COMPILE ON MDK 9.2     
     rc = gdk_pixbuf_save_to_buffer ( pixbuf,
 				     &buffer,
 				     &buffer_size,
 				     "png",
 				     error, NULL);
-    */
 
     rc = xmlTextWriterStartAttribute(imageWriter, BAD_CAST "base64");
 
-    /* FIXME REMOVED TO COMPILE ON MDK 9.2     
-       rc = xmlTextWriterWriteString(imageWriter, BAD_CAST "data:image/png;base64,");
-    */
+    rc = xmlTextWriterWriteString(imageWriter, BAD_CAST "data:image/png;base64,");
 
-
-    /* FIXME REMOVED TO COMPILE ON MDK 9.2     
     rc = xmlTextWriterWriteBase64(imageWriter, buffer, 0, buffer_size);
-    */
 
     rc = xmlTextWriterEndAttribute(imageWriter);
 
@@ -557,14 +550,14 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
     /* writer is no more interesting */
 
     cur = xmlNewChild ( defs,
-		      NULL,
-		      BAD_CAST "image",
-		      NULL);
+			NULL,
+			BAD_CAST "image",
+			NULL);
 
     gc_img = xmlNewChild ( gcomprisPrivateData,
-		      NULL,
-		      BAD_CAST "gcompris:image",
-		      NULL);
+			   NULL,
+			   BAD_CAST "gcompris:image",
+			   NULL);
 
 
     id = malloc(12*sizeof(char));
