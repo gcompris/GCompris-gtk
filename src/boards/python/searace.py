@@ -185,7 +185,20 @@ class Gcompris_searace:
         fill_color_rgba = color,
          width_units=1.0
         )
-  
+
+      b = gtk.Button()
+      b.set_label("bang!")
+      self.rootitem.add(
+        gnome.canvas.CanvasWidget,
+                             widget=b,
+                             x=420.0,
+                             y=330.0,
+                             width=100.0,
+                             height= 40.0,
+                             anchor=gtk.ANCHOR_N,
+                             size_pixels=gtk.FALSE);
+      b.show();
+
 
   # Weather condition is a 2 value pair (angle wind_speed)
   # Weather is a list of the form:

@@ -1,3 +1,23 @@
+2004-12-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Franck Doucet made again some vehicles.
+	They are added in chronos and the drawings utilities
+	
+	* boards/chronos/Makefile.am: 
+	* boards/chronos/board4_1.xml.in:
+	* boards/chronos/images/1955ds19.png:
+	* boards/chronos/images/benz1885.png:
+	* boards/chronos/images/bolle1878.png:
+	* boards/chronos/images/lancia1923.png:
+	* boards/chronos/images/renault1899.png:
+	* boards/dataset/mrpatate.xml:
+	* docs/website/article.html: fixed the forum
+	* docs/website/forum.html: -
+	* docs/website/rubrique.html: -
+	* gcompris.spec.in: added dependancy SDL_Mixer
+	* po/POTFILES.in: added chromos
+	* src/boards/python/searace.py: updated, not playable yet
+
 2004-12-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/images/arrow.png: added from openclipart.com for searace
