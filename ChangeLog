@@ -1,3 +1,186 @@
+2004-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Include new theme from Franck Doucet <franckdoucet on wanadoo point fr>
+	* INSTALL: updated
+	* boards/babyshapes/T_baby_bottle.png:
+	* boards/babyshapes/T_banana.png:
+	* boards/babyshapes/T_bread_slice.png:
+	* boards/babyshapes/T_butter.png:
+	* boards/babyshapes/T_chocolate.png:
+	* boards/babyshapes/T_chocolate_cake.png:
+	* boards/babyshapes/T_circle.png:
+	* boards/babyshapes/T_colonne.png:
+	* boards/babyshapes/T_cone.png:
+	* boards/babyshapes/T_cookie.png:
+	* boards/babyshapes/T_coupole.png:
+	* boards/babyshapes/T_cube.png:
+	* boards/babyshapes/T_french_croissant.png:
+	* boards/babyshapes/T_grapefruit.png:
+	* boards/babyshapes/T_half_sphere.png:
+	* boards/babyshapes/T_hexagone.png:
+	* boards/babyshapes/T_hyperstar.png:
+	* boards/babyshapes/T_losange.png:
+	* boards/babyshapes/T_marmelade.png:
+	* boards/babyshapes/T_milk_cup.png:
+	* boards/babyshapes/T_milk_shake.png:
+	* boards/babyshapes/T_orange.png:
+	* boards/babyshapes/T_ovale.png:
+	* boards/babyshapes/T_pacman.png:
+	* boards/babyshapes/T_pear.png:
+	* boards/babyshapes/T_pyramid.png:
+	* boards/babyshapes/T_rectangle.png:
+	* boards/babyshapes/T_rectangle_triangle.png:
+	* boards/babyshapes/T_round_cookie.png:
+	* boards/babyshapes/T_sphere.png:
+	* boards/babyshapes/T_star.png:
+	* boards/babyshapes/T_suggar_box.png:
+	* boards/babyshapes/T_toron.png:
+	* boards/babyshapes/T_triangle.png:
+	* boards/babyshapes/T_yahourt.png:
+	* boards/babyshapes/banana.png:
+	* boards/babyshapes/board1_0.xml.in:
+	* boards/babyshapes/board2_0.xml.in:
+	* boards/babyshapes/board3_0.xml.in:
+	* boards/babyshapes/board4_0.xml.in:
+	* boards/babyshapes/circle.png:
+	* boards/babyshapes/colonne.png:
+	* boards/babyshapes/cone.png:
+	* boards/babyshapes/coupole.png:
+	* boards/babyshapes/cube.png:
+	* boards/babyshapes/half_sphere.png:
+	* boards/babyshapes/hexagone.png:
+	* boards/babyshapes/hyperstar.png:
+	* boards/babyshapes/losange.png:
+	* boards/babyshapes/ovale.png:
+	* boards/babyshapes/pacman.png:
+	* boards/babyshapes/pyramid.png:
+	* boards/babyshapes/rectangle.png:
+	* boards/babyshapes/rectangle_triangle.png:
+	* boards/babyshapes/sphere.png:
+	* boards/babyshapes/star.png:
+	* boards/babyshapes/toron.png:
+	* boards/babyshapes/triangle.png:
+	* boards/dataset/mrpatate.xml:
+	* boards/gcompris/bonus/README:
+	* boards/gcompris/bonus/tux_bad.png:
+	* boards/gcompris/bonus/tux_good.png:
+	* boards/gcompris/food/README:
+	* boards/gcompris/food/baby_bottle.png:
+	* boards/gcompris/food/banana.png:
+	* boards/gcompris/food/bread_slice.png:
+	* boards/gcompris/food/butter.png:
+	* boards/gcompris/food/chocolate.png:
+	* boards/gcompris/food/chocolate_cake.png:
+	* boards/gcompris/food/cookie.png:
+	* boards/gcompris/food/french_croissant.png:
+	* boards/gcompris/food/grapefruit.png:
+	* boards/gcompris/food/marmelade.png:
+	* boards/gcompris/food/milk_cup.png:
+	* boards/gcompris/food/milk_shake.png:
+	* boards/gcompris/food/orange.png:
+	* boards/gcompris/food/pear.png:
+	* boards/gcompris/food/round_cookie.png:
+	* boards/gcompris/food/suggar_box.png:
+	* boards/gcompris/food/yahourt.png:
+	* boards/gcompris/misc/apple.png:
+	* boards/gcompris/misc/bicycle.png:
+	* boards/gcompris/misc/bottle.png:
+	* boards/gcompris/misc/car.png:
+	* boards/gcompris/misc/carot.png:
+	* boards/gcompris/misc/castle.png:
+	* boards/gcompris/misc/cerise.png:
+	* boards/gcompris/misc/crown.png:
+	* boards/gcompris/misc/egg.png:
+	* boards/gcompris/misc/eggpot.png:
+	* boards/gcompris/misc/fishingboat.png:
+	* boards/gcompris/misc/flower.png:
+	* boards/gcompris/misc/flowerpot.png:
+	* boards/gcompris/misc/house.png:
+	* boards/gcompris/misc/lamp.png:
+	* boards/gcompris/misc/light.png:
+	* boards/gcompris/misc/lighthouse.png:
+	* boards/gcompris/misc/minitux.png:
+	* boards/gcompris/misc/minivan.png:
+	* boards/gcompris/misc/parachute.png:
+	* boards/gcompris/misc/pencil.png:
+	* boards/gcompris/misc/postcard.png:
+	* boards/gcompris/misc/postpoint.png:
+	* boards/gcompris/misc/rape.png:
+	* boards/gcompris/misc/raquette.png:
+	* boards/gcompris/misc/sailingboat.png:
+	* boards/gcompris/misc/sapin.png:
+	* boards/gcompris/misc/sofa.png:
+	* boards/gcompris/misc/star.png:
+	* boards/gcompris/misc/strawberry.png:
+	* boards/gcompris/misc/tree.png:
+	* boards/gcompris/misc/truck.png:
+	* boards/gcompris/misc/tux.png:
+	* boards/gcompris/misc/tux_top_east.png:
+	* boards/gcompris/misc/tux_top_north.png:
+	* boards/gcompris/misc/tux_top_south.png:
+	* boards/gcompris/misc/tux_top_west.png:
+	* boards/gcompris/misc/tuxballoon.png:
+	* boards/gcompris/misc/tuxboat.png:
+	* boards/gcompris/misc/tuxhelico.png:
+	* boards/gcompris/misc/tuxplane.png:
+	* boards/imageid/imageid-bg.jpg:
+	* boards/images/enumerate_answer.png:
+	* boards/images/enumerate_answer_focus.png:
+	* boards/skins/babytoy/.cvsignore:
+	* boards/skins/babytoy/README:
+	* boards/skins/babytoy/about.png:
+	* boards/skins/babytoy/bad.png:
+	* boards/skins/babytoy/bar_bg.jpg:
+	* boards/skins/babytoy/button.png:
+	* boards/skins/babytoy/button_backward.png:
+	* boards/skins/babytoy/button_checked.png:
+	* boards/skins/babytoy/button_exit.png:
+	* boards/skins/babytoy/button_forward.png:
+	* boards/skins/babytoy/button_large.png:
+	* boards/skins/babytoy/button_large_selected.png:
+	* boards/skins/babytoy/button_redo.png:
+	* boards/skins/babytoy/button_reload.png:
+	* boards/skins/babytoy/button_selected.png:
+	* boards/skins/babytoy/button_unchecked.png:
+	* boards/skins/babytoy/button_up.png:
+	* boards/skins/babytoy/button_up_selected.png:
+	* boards/skins/babytoy/config.png:
+	* boards/skins/babytoy/gcompris-bg.jpg:
+	* boards/skins/babytoy/gcompris-init.jpg:
+	* boards/skins/babytoy/gcompris-shapebg.jpg:
+	* boards/skins/babytoy/gcompris-shapelabel.png:
+	* boards/skins/babytoy/help.png:
+	* boards/skins/babytoy/help_bg.png:
+	* boards/skins/babytoy/home.png:
+	* boards/skins/babytoy/level1.png:
+	* boards/skins/babytoy/level2.png:
+	* boards/skins/babytoy/level3.png:
+	* boards/skins/babytoy/level4.png:
+	* boards/skins/babytoy/level5.png:
+	* boards/skins/babytoy/level6.png:
+	* boards/skins/babytoy/level7.png:
+	* boards/skins/babytoy/level8.png:
+	* boards/skins/babytoy/level9.png:
+	* boards/skins/babytoy/maze-2d-bubble.png:
+	* boards/skins/babytoy/maze-3d-bubble.png:
+	* boards/skins/babytoy/ok.png:
+	* boards/skins/babytoy/repeat.png:
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/default/maze-2d-bubble.png:
+	* boards/skins/default/maze-3d-bubble.png:
+	* docs/C/python.xml: added a new tux bonus
+	* src/boards/enumerate.c: uses the new bonus
+	* src/boards/maze.c: (start_board), (repeat): uses the new theme
+	* src/boards/paratrooper.c: (next_state): uses the new bonus
+	* src/boards/py-mod-bonus.c: (python_gcompris_bonus_module_init): added a new bonus
+	* src/boards/python/ballcatch.py: uses the new bonus
+	* src/boards/shapegame.c: (add_shape_to_canvas), (create_title): changed default text color
+	* src/gcompris/bonus.c: (gcompris_display_bonus): added tux bonus
+	* src/gcompris/bonus.h: added tux bonus
+	* src/gcompris/gameutil.c: (gcompris_dialog_close),
+	(gcompris_dialog): fixed multi dialog call crash
+	* src/gcompris/gcompris-marshal.c: updated automagicaly
+
 2004-10-05 Amanpreet Singh Alam <amanpreetalam@yahoo.com>
 
 	* configure: ALL_LINGUS-> pa.po Punjabi Language is added

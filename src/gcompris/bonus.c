@@ -216,6 +216,9 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
   case BONUS_FLOWER :
     bonus_image("flower",gamewon);
     break;
+  case BONUS_TUX :
+    bonus_image("tux",gamewon);
+    break;
   default :
     bonus_image("smiley",gamewon);
     break;

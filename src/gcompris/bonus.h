@@ -39,6 +39,7 @@ typedef enum
   BONUS_RANDOM		= 0,
   BONUS_SMILEY		= 1,
   BONUS_FLOWER		= 2,
+  BONUS_TUX		= 3,
   BONUS_LAST		= 2
 } BonusList;
 

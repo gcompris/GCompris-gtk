@@ -196,7 +196,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
     if(modeIs2D) {
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
     } else {
-      pixmap = gcompris_load_pixmap("images/maze-2d-bubble.png");
+      pixmap = gcompris_load_skin_pixmap("maze-2d-bubble.png");
       if(pixmap) {
 	gcompris_bar_set_repeat_icon(pixmap);
 	gdk_pixbuf_unref(pixmap);
@@ -387,7 +387,7 @@ static void repeat () {
 
   if(threeDactive) {
 
-    pixmap = gcompris_load_pixmap("images/maze-3d-bubble.png");
+    pixmap = gcompris_load_skin_pixmap("maze-3d-bubble.png");
     if(pixmap) {
       gcompris_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);
@@ -398,7 +398,7 @@ static void repeat () {
     
   } else {
 
-    pixmap = gcompris_load_pixmap("images/maze-2d-bubble.png");
+    pixmap = gcompris_load_skin_pixmap("maze-2d-bubble.png");
     if(pixmap) {
       gcompris_bar_set_repeat_icon(pixmap);
       gdk_pixbuf_unref(pixmap);

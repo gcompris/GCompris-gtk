@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/09/29 22:54:24 bcoudoin>
+ * Time-stamp: <2004/10/09 02:28:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -800,6 +800,7 @@ void gcompris_dialog_close() {
     /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
     while (g_idle_remove_by_data (itemDialogText));
     gtk_object_destroy (itemDialogText);
+    itemDialogText = NULL;
 
     gtk_object_destroy(GTK_OBJECT(rootDialogItem));
   }
@@ -822,9 +823,19 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
   GtkTextBuffer   *buffer;
   GtkTextTag      *txt_tag;
 
+  printf("Dialog=%s\n", str);
+
   /* If we are already running delete the previous one */
-  if(rootDialogItem)
+  if(rootDialogItem) {
+    /* WORKAROUND: There is a bug in the richtex item and we need to remove it first */
+    if(itemDialogText) {
+      while (g_idle_remove_by_data (itemDialogText));
+      gtk_object_destroy (itemDialogText);
+      itemDialogText = NULL;
+    }
+
     gtk_object_destroy(GTK_OBJECT(rootDialogItem));
+  }
   rootDialogItem = NULL;
 
 

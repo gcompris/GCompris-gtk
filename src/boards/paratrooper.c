@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2004/03/10 23:18:11 bcoudoin>
+ * Time-stamp: <2004/10/09 00:43:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -757,7 +757,7 @@ void next_state()
       break;
     case TUX_LANDED:
       gamewon = TRUE;
-      gcompris_display_bonus(gamewon, BONUS_RANDOM);
+      gcompris_display_bonus(gamewon, BONUS_TUX);
       break;
     case TUX_CRASHED:
       /* Restart */

@@ -1,7 +1,7 @@
 GCompris Specific Instructions
 ==============================
 
-Since Gcompris 0.4.2,it can be installed anywhere on your hard drive.
+Gcompris can be installed anywhere on your hard drive.
 
 for example, you can use:
 
@@ -14,8 +14,8 @@ This will install gcompris and all its data files under
 
 Then, run /home/bruno/gcompris/bin/gcompris
 
-Gcompris requires gnome-libs, xmlib2, gdk-pixbuf-gnomecanvas
-and gdk-pixbuf.
+Gcompris requires gtk-libs (and gnome-libs for gcompris-edit),
+xmlib2, gdk-pixbuf-gnomecanvas and gdk-pixbuf.
 
 gcompris also requires the gnuchess package for the chess activity to run.
 
@@ -28,22 +28,31 @@ gnome-python
 python-base
 
 Now that the sound is managed internally, you also need:
-libvorbis libao libogg libao-devel libvorbis-devel libogg-devel
+libSDL libSDL-mixer
 
 On a Mandrake, you will need to install their -devel counterpart package in
 order to be abble to compile it plus  intltool, tetex.
 
-In order to compile gcompris on a mandrake 9.1, you must install :
+In order to compile gcompris on a mandrake 10.1 you must install :
 urpmi pkgconfig
-urpmi autoconf2
+urpmi autoconf2.5
 urpmi glib-gettext
 urpmi intltool
-urpmi automake1.6
-urpmi libglib2-devel
-urpmi libgnome2-devel libgnomeui2-devel gdk-pixbuf2-devel libgnomecanvas2-devel
-urpmi gnuchess
+urpmi automake1.7
+urpmi libglib2.0_0-devel
+urpmi libgnome2_0-devel
+urpmi libgnomecanvas2_0-devel libgdk_pixbuf2.0_0-devel
+urpmi libgnomeui2_0-devel
+urpmi libSDL_mixer1.2-devel libSDL1.2-devel 
+urpmi python-gtk-devel gnome-python-canvas
+urpmi libpython2.3-devel
+urpmi pygtk2.0-devel
 urpmi texinfo
+urpmi texi2html
 urpmi tetex
+urpmi gnuchess
+
+
 
 
 Basic Installation
