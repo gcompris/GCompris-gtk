@@ -34,7 +34,7 @@ class Gcompris_redraw:
   
 
   def __init__(self, gcomprisBoard):
-    bindtextdomain("gcompris")
+
     self.gcomprisBoard = gcomprisBoard
 
     # TOOL SELECTION
