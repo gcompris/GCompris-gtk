@@ -311,6 +311,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   guint used_colors[NUMBER_OF_COLOR];
   GnomeCanvasPathDef *path;
   guint w;
+  GdkPixbuf *pixmap = NULL;
       
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -318,6 +319,20 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
+
+  pixmap = gcompris_load_skin_pixmap("gcompris-shapelabel.png");
+  if(pixmap) {
+    gnome_canvas_item_new (boardRootItem,
+			   gnome_canvas_pixbuf_get_type (),
+			   "pixbuf", pixmap, 
+			   "x",	(double)BOARDWIDTH/2,
+			   "y",	(double)BOARDHEIGHT - 35,
+			   "width", (double) BOARDWIDTH - 20,
+			   "width_set", TRUE,
+			   "anchor", GTK_ANCHOR_CENTER,
+			   NULL);
+    gdk_pixbuf_unref(pixmap);
+  }
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
@@ -337,7 +352,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) BOARDHEIGHT - 50,
 			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color_rgba", gcompris_skin_color_content,
+			 "fill_color_rgba", gcompris_skin_color_text_button,
 			 "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 

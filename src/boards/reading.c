@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/10/23 15:06:01 bruno>
+ * Time-stamp: <2004/11/06 23:14:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -415,7 +415,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
 
   /* fill up the overword with X */
 
-  overword = g_strnfill (g_utf8_strlen(word,-1)-1,'x');
+  overword = g_strnfill (g_utf8_strlen(word,-1),'x');
 
   previousFocus.rootItem = \
     GNOME_CANVAS_GROUP( gnome_canvas_item_new (parent,
@@ -734,7 +734,7 @@ static gboolean  read_wordfile()
 
   FILE *wordsfd;
   gchar *buf;
-                                                                                                                                
+  int len;                                                                                                                                
 
   wordsfd = get_wordfile(gcompris_get_locale());
                                                                                                                               
@@ -751,8 +751,14 @@ static gboolean  read_wordfile()
     }
                                                                                                                               
    words=g_ptr_array_new ();
-   while (buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH-1, wordsfd)) {
-	assert(g_utf8_validate(buf,-1,NULL));
+   while (buf=fgets(g_new(gchar,MAXWORDSLENGTH), MAXWORDSLENGTH, wordsfd)) {
+ 	assert(g_utf8_validate(buf,-1,NULL));
+
+	//remove \n from end of line
+        len = strlen(buf);
+        if((0 < len)&&('\n'==buf[len-1]))
+            buf[len-1] = '\0';
+	    
 	g_ptr_array_add(words,buf);
 	}
    fclose(wordsfd);
