@@ -16,6 +16,7 @@ URL: 		http://savannah.gnu.org
 Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
 Requires:       gnuchess >= 5.02
+Requires:       python gnome-python gnome-python-canvas pygtk2.0
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
 %description

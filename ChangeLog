@@ -1,4 +1,14 @@
-2003-05-08  Bruno Coudoin  <set EMAIL_ADDRESS environment variable>
+2003-05-18  Bruno Coudoin  bruno.coudoin@free.fr
+
+	* configure.in: now release 3.0
+	* gcompris.spec.in: added references to python
+	* src/boards/hanoi.c: (item_event): added a canvas update
+	* src/boards/python/pythontest.py: added a text presenting python
+	* src/boards/shapegame.c: (item_event_ok): removed canvas update
+	* src/gcompris/bar.c: (gcompris_bar_set): removed canvas update
+	* src/boards/missingletter.c: fixed button.png reference to skins now
+
+2003-05-08  Bruno Coudoin  bruno.coudoin@free.fr
 
 	* boards/geography/board3_0.xml.in: completed properly
 	* boards/geography/board4_0.xml.in: completed properly
@@ -9,7 +19,7 @@
 	* src/boards/erase.c: (erase_create_item): added skin colors
 	* src/boards/shapegame.c: (item_event), (item_event_edition): fixed edit mode bug
 
-2003-05-06  Bruno Coudoin  <set EMAIL_ADDRESS environment variable>
+2003-05-06  Bruno Coudoin  bruno.coudoin@free.fr
 
 	* boards/geography/board3_0.xml.in: now puzzle is ordered
 	* boards/geography/board4_0.xml.in: now puzzle is ordered
@@ -19,7 +29,7 @@
 	This is a very big improvement over the old way of doing.
 	* src/gcompris/gameutil.c: (gcompris_dialog): Fixed to use the skin path
 
-2003-05-06  Bruno Coudoin  <set EMAIL_ADDRESS environment variable>
+2003-05-06  Bruno Coudoin  bruno.coudoin@free.fr
 
 	* boards/geography/Makefile.am: created the europe map
 	* boards/geography/board3_0.xml.in: created the europe map

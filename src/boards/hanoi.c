@@ -672,6 +672,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      /* Return to the original position */
 	      item_absolute_move (data->item     , data->x , data->y);
 	      item_absolute_move (data->item_text, data->xt, data->yt);
+
+	      /* FIXME : Workaround for bugged canvas */
+	      gnome_canvas_update_now(gcomprisBoard->canvas);
+
 	      return FALSE;
 	    }
 
@@ -688,6 +692,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      /* Return to the original position */
 	      item_absolute_move (data->item     , data->x , data->y);
 	      item_absolute_move (data->item_text, data->xt, data->yt);
+
+	      /* FIXME : Workaround for bugged canvas */
+	      gnome_canvas_update_now(gcomprisBoard->canvas);
+
 	      return FALSE;
 	    }
 
@@ -705,6 +713,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  item_absolute_move (data->item     , piece_dst->x , piece_dst->y);
 	  item_absolute_move (data->item_text, piece_dst->xt, piece_dst->yt);
 	  
+	  /* FIXME : Workaround for bugged canvas */
+	  gnome_canvas_update_now(gcomprisBoard->canvas);
+
 	  /* Swap values in the pieces */
 	  tmpx    = data->x;
 	  tmpy    = data->y;
@@ -730,7 +741,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  position[piece_src->i][piece_src->j] = piece_src;
 	  position[piece_dst->i][piece_dst->j] = piece_dst;
 
-	  dump_solution();
+	  //	  dump_solution();
 	  if(is_completed())
 	    {
 	      gamewon = TRUE;

@@ -273,7 +273,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 							    "x", (double) 0,
 							    "y", (double) 0,
 							    NULL));
-  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button.png");
+  button_pixmap = gcompris_load_skin_pixmap("button.png");
   /* display the image */
   board = g_list_nth_data(board_list, board_number);
   assert(board != NULL);

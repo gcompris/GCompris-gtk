@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/05/08 02:00:19 bcoudoin>
+ * Time-stamp: <2003/05/18 01:33:36 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -150,6 +150,7 @@ static Shape 		*create_shape(ShapeType type, char *name, char *pixmapfile,  Gnom
 static gboolean 	 increment_sublevel(void);
 static void 		 create_title(char *name, double x, double y, char *justification);
 static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint		 item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape);
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -1306,7 +1307,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       gnome_canvas_item_show(root_item);
 
       /* FIXME : Workaround for bugged canvas */
-      gnome_canvas_update_now(gcomprisBoard->canvas);
+      //      gnome_canvas_update_now(gcomprisBoard->canvas);
 
     default:
       break;
