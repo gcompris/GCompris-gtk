@@ -1,19 +1,19 @@
 # Catalan translation of gcompris.
-# Copyright © 2003 Free Software Foundation, Inc.
+# Copyright © 2003, 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
-# Xavier A. Conde Rueda <xaviconde@eresmas.com>, 2003.
+# Xavier A. Conde Rueda <xaviconde@eresmas.com>, 2003, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-12-15 21:10+0100\n"
-"PO-Revision-Date: 2003-10-15 20:53+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-05 14:49+0100\n"
+"PO-Revision-Date: 2004-02-05 14:50+0100\n"
 "Last-Translator: Xavier A. Conde Rueda <xaviconde@eresmas.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -35,7 +35,7 @@ msgstr "Feu clic en la caixa colorejada correcta."
 
 #: boards/advanced_colors.xml.in.h:5
 msgid "This board is dedicated to recognize unusual colors."
-msgstr "Aquesta taula es fa servir per reconèixer colors poc habituals."
+msgstr "Aquesta taula es fa servir per reconéixer colors poc habituals."
 
 #: boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -367,7 +367,7 @@ msgid ""
 "his pictures. Thanks a lot Ralf."
 msgstr ""
 "Les fotografies d'animals provenen de la pàgina de fotografies animals de "
-"Ralf Schmode (http://schmode.net/) En Ralf ha autoritzat a gcompris a "
+"Ralf Schmode (http://schmode.net/). En Ralf ha autoritzat al gcompris a "
 "incloure les seves fotografies. Moltes gràcies, Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
@@ -384,7 +384,7 @@ msgstr "Troba les operacions correctes per obtenir el resultat"
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "The four arithmetic operations. Combine several arithmetic operations"
 msgstr ""
-"Les quatres operacions aritmètiques. Es combinen diferents operacions "
+"Les quatre operacions aritmètiques. Es combinen diferents operacions "
 "aritmètiques"
 
 #: boards/algebra_guesscount.xml.in.h:5
@@ -393,8 +393,8 @@ msgid ""
 "the top of the board area. These numbers and operators can be unselected by "
 "clicking on them."
 msgstr ""
-"Per construir les vostres operacions, escolliu els números i els operadors "
-"aritmètics al damunt de l'àrea de la taula. Aquests números i operadors "
+"Per construir les vostres operacions, escolliu els nombres i els operadors "
+"aritmètics al damunt de l'àrea de la taula. Aquests nombres i operadors "
 "poden ser desactivats fent clic en ells."
 
 #: boards/algebra_guesscount.xml.in.h:6
@@ -403,7 +403,7 @@ msgid ""
 "right result"
 msgstr ""
 "Trobeu la combinació adecuada per obtenir el resultat correcte, amb els "
-"números i les xifres mostrades"
+"nombres i les xifres mostrades"
 
 #: boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -411,13 +411,13 @@ msgid ""
 "give the answer. Use the left and right arrow to modify your answer, the "
 "return key to validate an answer"
 msgstr ""
-"Es mostra la resta de dos números. Doneu la resposta a l'esquerra del signe "
+"Es mostra la resta de dos nombres. Doneu la resposta a l'esquerra del signe "
 "igual. Feu servir les fletxes esquerra i dreta per modificar la vostra "
-"resposta, i confirmeu el resultat amb la tecla de retorn"
+"resposta, i confirmeu el resultat amb la tecla d'entrada"
 
 #: boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, give the result to the substraction of two numbers"
-msgstr "Doneu la resta dels dos números en un temps limitat"
+msgstr "Doneu la resta dels dos nombres en un temps limitat"
 
 #: boards/algebra_minus.xml.in.h:4
 msgid "Practice the substraction operation"
@@ -433,21 +433,24 @@ msgid ""
 "give the answer. Use the left and right arrow to modify your answer, the "
 "return key to validate an answer"
 msgstr ""
-"Es mostra la suma de dos números. Doneu la resposta a l'esquerra del signe "
+"Es mostra la suma de dos nombres. Doneu la resposta a l'esquerra del signe "
 "igual. Feu servir les fletxes esquerra i dreta per modificar la vostra "
-"resposta, i confirmeu el resultat amb la tecla de retorn"
+"resposta, i confirmeu el resultat amb la tecla d'entrada"
 
 #: boards/algebra_plus.xml.in.h:3
-msgid "In a limited time, give the result to the addition of two numbers"
-msgstr "Doneu la suma dels dos números en un temps limitat"
+#, fuzzy
+msgid ""
+"In a limited time, give the result to the addition of two numbers. "
+"Introduction to simple in-line addition"
+msgstr "Doneu la suma dels dos nombres en un temps limitat"
 
 #: boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
 msgstr "Practica l'operació de suma"
 
 #: boards/algebra_plus.xml.in.h:5
-msgid "Simple addition"
-msgstr "Suma senzilla"
+msgid "Simple addition. Can recognize written numbers"
+msgstr ""
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -479,13 +482,14 @@ msgstr "Elements concordants"
 msgid "Motor coordination. Concept match."
 msgstr "Coordinació motriu. Correspondència de conceptes."
 
-#: boards/babymatch.xml.in.h:5 boards/paintings.xml.in.h:4
-msgid "Mouse manipulation: movement, drag and drop"
+#: boards/babymatch.xml.in.h:5
+#, fuzzy
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr "Manipulació del ratolí: moviment, arrossegar i deixar anar"
 
 #: boards/babyshapes.xml.in.h:1
-msgid "Baby Shape Puzzle"
-msgstr "Trenca-closques de formes per nens i nenes"
+msgid "Complete the puzzle"
+msgstr "Completeu el trenca-closques"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
@@ -496,13 +500,20 @@ msgid "Good mouse control"
 msgstr "Bon control del ratolí"
 
 #: boards/babyshapes.xml.in.h:4
+msgid ""
+"In the main area, a puzzle set is proposed. In the left area, you have the "
+"set of pieces for this puzzle. To place the pieces, you must use the drag/"
+"drop mouvement with the mouse."
+msgstr ""
+
+#: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
 msgstr "Andre Connes ha proporcionat el gos i l'ha licenciat sota la GPL"
 
 # Lock es el gos, que diu aquí a sobre?
 #: boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr "Hola! El meu nom és Lock."
+msgstr "Hola! Em dic Lock."
 
 #: boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on grass."
@@ -515,6 +526,28 @@ msgstr "El Lock amb formes acolorides."
 #: boards/boards.xml.in.h:1
 msgid "Go to board based activities"
 msgstr "Vés a les activitats basades en taules"
+
+#: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
+#: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
+#: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
+#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr "Manipulació del ratolí"
+
+#: boards/billard.xml.in.h:2
+msgid "Send the ball in the hole"
+msgstr ""
+
+#: boards/billard.xml.in.h:3
+#, fuzzy
+msgid "The billard game"
+msgstr "El joc del quinze"
+
+#: boards/billard.xml.in.h:4
+msgid ""
+"The click point on the ball will give the speed and direction to the ball. "
+"More you click in the center, slower is the ball."
+msgstr ""
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
@@ -551,13 +584,6 @@ msgstr "Practiqueu escacs"
 msgid "Learning chess"
 msgstr "Apreneu escacs"
 
-#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
-#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2
-#: boards/memory.xml.in.h:4
-msgid "Mouse manipulation"
-msgstr "Manipulació del ratolí"
-
 #: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is the gnuchess."
@@ -572,9 +598,10 @@ msgid "Play end of chess game against the computer"
 msgstr "Jugueu a acabar una partida d'escacs amb l'ordinador."
 
 #: boards/click_on_letter.xml.in.h:1
+#, fuzzy
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the speaker icon in the bottom "
+"can hear again the letter by clicking on the mouth icon in the bottom "
 "horizontal frame."
 msgstr ""
 "Es pronuncia una lletra. Feu clic en la lletra corresponent a l'àrea "
@@ -590,19 +617,22 @@ msgid "Hear a letter and click on the right letter"
 msgstr "Escolteu una lletra i feu clic en la lletra correcta"
 
 #: boards/click_on_letter.xml.in.h:4
-msgid "Letter recognition"
-msgstr "Reconeixement de lletra"
+msgid "Letter name recognition"
+msgstr "Reconeixement de noms de lletres"
 
-#: boards/click_on_letter.xml.in.h:5 boards/leftright.xml.in.h:5
-#: boards/railroad.xml.in.h:4
-msgid "None"
-msgstr "Cap"
+#: boards/click_on_letter.xml.in.h:5
+msgid "Visual letters recognition. Can move the mouse."
+msgstr ""
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Feu clic en mí"
 
 #: boards/clickgame.xml.in.h:2
+msgid "Click with the left mouse button on the moving fish."
+msgstr ""
+
+#: boards/clickgame.xml.in.h:3
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 "National Undersea Research Program (NURP) Collection at http://www.photolib."
@@ -625,7 +655,7 @@ msgstr ""
 "Desconeguda (imatge nur03010) Ubicació: Desconeguda (imatge nur03011) "
 "Ubicació: Desconeguda (imatge nur03013)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
+#: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -633,13 +663,10 @@ msgstr ""
 "Feu clic amb el botó esquerre del ratolí en tots els peixos que neden abans "
 "que abandonin l'aquari."
 
-#: boards/clickgame.xml.in.h:4
-msgid ""
-"Motor coordination: mouse mouvement and mouse click. The goal is just to "
-"click with the left mouse button on the moving fish."
-msgstr ""
-"Coordinació motriu: moviment del ratolí i clic del ratolí. L'objectiu és fer "
-"clic amb el botó esquerre del ratolí en el peix que es mou."
+#: boards/clickgame.xml.in.h:5
+#, fuzzy
+msgid "Motor coordination: mouse mouvement and mouse click."
+msgstr "Coordinació motriu. Correspondència de conceptes."
 
 #: boards/clockgame.xml.in.h:1
 msgid ""
@@ -658,12 +685,12 @@ msgstr ""
 "fletxa corresponent per posar el rellotge en l'hora donada. Es poden girar "
 "les diferents fletxes seleccionant-les i movent el ratolí"
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
+#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Apreneu com es llegeix els temps"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
+#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Aprenentatge de rellotge"
@@ -759,32 +786,34 @@ msgstr ""
 "ràpid si feu servir el botó central del ratolí per esborrar un objecte."
 
 #: boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr ""
+
+#: boards/enumerate.xml.in.h:2
 msgid "Count the items"
 msgstr "Conta els elements"
 
-#: boards/enumerate.xml.in.h:2 boards/planegame.xml.in.h:2
-msgid "Number"
-msgstr "Número"
+#: boards/enumerate.xml.in.h:3
+msgid ""
+"First, organize properly the items so that you can count them. Then, select "
+"the item you want to answer for in the bottom right area. Enter the answer "
+"with the keyboard and press the OK button or the 'Enter' key."
+msgstr ""
 
-#: boards/enumerate.xml.in.h:3 boards/planegame.xml.in.h:4
+#: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
 msgid "Numeration training"
 msgstr "Aprenentatge de numeració"
 
-#: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
+#: boards/enumerate.xml.in.h:5 src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr "Situa els elements en la millor manera per contar-los"
-
-#: boards/experience.xml.in.h:1
-#, fuzzy
-msgid "Go to experiences activities"
-msgstr "Vés a les activitats de lectura"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Coordinació motriu"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Moure el ratolí"
 
@@ -795,6 +824,10 @@ msgstr "Moveu el ratolí per esborrar l'àrea i descobrir el fons"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Moveu el ratolí fins que tots els blocs despareguin."
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Vés a les activitats d'experiència"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
@@ -891,7 +924,7 @@ msgstr "Practiqueu la lectura trobant la paraula que concorda amb la imatge"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Reading"
 msgstr "Lectura"
 
@@ -1155,11 +1188,15 @@ msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 "Descobriu si els dibuixos de les mans corresponen a una mà esquerra o dreta"
 
+#: boards/leftright.xml.in.h:5 boards/railroad.xml.in.h:4
+msgid "None"
+msgstr "Cap"
+
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Saber fer servir el teclat per moure un objecte."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:127
+#: boards/maze.xml.in.h:2 src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "Trobeu el camí de sortida del laberint"
 
@@ -1167,7 +1204,7 @@ msgstr "Trobeu el camí de sortida del laberint"
 msgid "Help Tux get out of this maze."
 msgstr "Ajudeu en Tux a trobrar el camí de sortida del laberint."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:126
+#: boards/maze.xml.in.h:4 src/boards/maze.c:127
 msgid "Maze"
 msgstr "Laberint"
 
@@ -1186,10 +1223,26 @@ msgstr "Trobeu el camí de sortida del laberint 3D"
 #: boards/maze3D.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode"
+"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
+"position like a map. You cannot move tux in 2D mode."
 msgstr ""
 "Feu servir les fletxes de teclat per moure en Tux fins la porta. Feu servir "
-"la tecla d'espai per alternar entre els modes 2D i 3D"
+"la tecla d'espai per alternar entre els modes 2D i 3D. El mode 2D us dóna "
+"una indicació de la vostra posició com en un mapa. No podeu moure el Tux en "
+"el mode 2D."
+
+#: boards/melody.xml.in.h:1
+msgid "Ear training activity"
+msgstr "Activitats d'entrenament de l'oida"
+
+#: boards/melody.xml.in.h:2
+#, fuzzy
+msgid "Melody"
+msgstr "Memòria"
+
+#: boards/melody.xml.in.h:3
+msgid "Repeat a melody"
+msgstr "Repetiu una melodia"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1485,6 +1538,10 @@ msgstr ""
 msgid "Make the puzzle"
 msgstr "Construïu el trenca-closques"
 
+#: boards/paintings.xml.in.h:4
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr "Manipulació del ratolí: moviment, arrossegar i deixar anar"
+
 #: boards/paintings.xml.in.h:5
 msgid "Spatial representation"
 msgstr "Representació espaial"
@@ -1556,6 +1613,10 @@ msgstr ""
 msgid "Move the helicopter to catch the clouds in the correct order"
 msgstr "Moveu l'helicòpter per atrapar els núvols en l'ordre correcte"
 
+#: boards/planegame.xml.in.h:2
+msgid "Number"
+msgstr "Número"
+
 #: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Números en ordre"
@@ -1589,7 +1650,7 @@ msgid ""
 "Thanks to Guido van Rossum and the python team for this powerfull language !"
 msgstr ""
 "Moltes gràcies a en Guido van Rossum i l'equip del Python pel seu poderòs "
-"llenguatge!"
+"llenguatge"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -1713,8 +1774,10 @@ msgid ""
 "At each level, a drawing is displayed in the right area. You must redraw it "
 "in the left area."
 msgstr ""
+"A cada nivell, es mostra un dibuix en l'àrea dreta. Heu de dibuixar-lo en "
+"l'àrea esquerra."
 
-#: boards/redraw.xml.in.h:2
+#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First you must select the proper tool in the tool bar. Then, you must drag "
 "the mouse to create objects. When you are done, click on the OK button, you "
@@ -1722,11 +1785,23 @@ msgid ""
 "(above/under) is not important but take care not to have unwanted object "
 "under others."
 msgstr ""
+"Primer heu de seleccionar l'eina apropiada a la barra d'eines. Després, heu "
+"d'arrossegar el ratolí per crear objectes. Quan hagueu acabat cliqueu el "
+"botó D'acord, i se us indicarà on són els errors amb una petita creu "
+"vermella. No importa l'ordre dels objectes (a sobre o a sota), però tingueu "
+"en compte que no heu de tenir objectes no desitjats a sota d'altres."
 
-#: boards/redraw.xml.in.h:3
-#, fuzzy
+#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
-msgstr "Reproduïu la torre donada"
+msgstr "Dibuixeu l'element donat"
+
+#: boards/redraw_symmetrical.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw its "
+"symmetry in the left area."
+msgstr ""
+"A cada nivell, es mostra un dibuix en l'àrea dreta. Heu de dibuixar-lo "
+"reflexat en l'àrea esquerra."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1920,16 +1995,22 @@ msgid ""
 "cleanup station in order to reactivate the whole water system. When done and "
 "Tux is in his shower, push the shower button for him."
 msgstr ""
+"Cliqueu en els diferents elements actius: sol, núvol, estació de bombeig "
+"d'aigua i estació de neteja d'aigües per reactivar el sistema d'aigües "
+"sencer. Quan hagueu acabat i el Tux sigui a la dutxa, premeu el botó de la "
+"dutxa per dutxar-lo."
 
 #: boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
-msgstr ""
+msgstr "Apreneu el cicle d'aigua"
 
 #: boards/watercycle.xml.in.h:3
 msgid ""
 "You have to bring back the water system up. Tux comes from a long fishing "
 "party on his boat. Help him to have a shower."
 msgstr ""
+"Heu de tornar a posar en marxa el sistema de l'aigua. El Tux torna d'una "
+"festa al seu vaixell. Ajudeu-lo perquè es dutxi."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
@@ -1956,23 +2037,22 @@ msgstr "Joc educatiu a partir dels 3 anys"
 msgid "Educational suite gcompris"
 msgstr "Conjunt de jocs educatius"
 
-#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
-#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
-#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
-#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
+#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
+#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
+#: src/gcompris/gcompris.c:371 src/gcompris/images_selector.c:477
+#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
-msgstr "No es pot trobar el fitxer %s!"
+msgstr "No es pot trobar el fitxer %s"
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
+#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
+#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
-msgstr "troba el fitxer %s!"
+msgstr "troba el fitxer %s"
 
 #: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
@@ -2048,15 +2128,15 @@ msgstr "Escac i mat de les blanques"
 msgid "Drawn game"
 msgstr "Taules. Joc empatat"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:73
 msgid "Read a letter"
 msgstr "Llegeix una lletra"
 
-#: src/boards/click_on_letter.c:75
+#: src/boards/click_on_letter.c:74
 msgid "Learn to recognize letters"
 msgstr "Apreneu a reconèixer lletres"
 
-#: src/boards/click_on_letter.c:226
+#: src/boards/click_on_letter.c:225
 msgid ""
 "Error: this activity requires you to install first\n"
 "the package assetml-voices-alphabet-"
@@ -2064,7 +2144,7 @@ msgstr ""
 "S'ha produït un error. Aquesta activitat requereix que instal·leu\n"
 "el paquet assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:233
+#: src/boards/click_on_letter.c:232
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effect disabled.\n"
@@ -2085,7 +2165,7 @@ msgstr "No es pot obrir el directori de mapes de píxels: %s"
 msgid "Set the watch to:"
 msgstr "Poseu el rellotge en la següent hora:"
 
-#: src/boards/colors.c:216
+#: src/boards/colors.c:217
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Feu clic en el dibuix de %s"
@@ -2094,17 +2174,17 @@ msgstr "Feu clic en el dibuix de %s"
 msgid "Learn how to read"
 msgstr "Aprendre a llegir"
 
-#: src/boards/leftright.c:247
+#: src/boards/leftright.c:248
 msgid "left"
 msgstr "esquerra"
 
-#: src/boards/leftright.c:257
+#: src/boards/leftright.c:258
 msgid "right"
 msgstr "dreta"
 
-#: src/boards/machpuzzle.c:85
-msgid "Move the mouse to machpuzzle the area and discover the background"
-msgstr ""
+#: src/boards/maze.c:445
+msgid "Look at your position and switch back to 3D mode to move"
+msgstr "Mira la teva posició i torna al mode 3D per moure't"
 
 #: src/boards/memory.c:227
 msgid "Memory"
@@ -2134,141 +2214,13 @@ msgstr "Taula Python"
 msgid "Special board that embed python into gcompris."
 msgstr "Taula especial que incrusta el python al gcompris."
 
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. Do nothing special
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
-#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
-msgstr ""
+msgstr "Nivell"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#. Draw the image target
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
-#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
-#, fuzzy
+#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
-msgstr "Reconeixements"
+msgstr "Coordina"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -2286,29 +2238,35 @@ msgstr "Llegir els colors"
 msgid "Click on the corresponding color"
 msgstr "Feu clic en els colors corresponents"
 
-#: src/boards/reading.c:102
+#: src/boards/reading.c:103
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Llegiu una llista de paraules i digueu si la paraula donada hi és"
 
-#: src/boards/reading.c:314
+#: src/boards/reading.c:322
 msgid "Please, check if the word"
 msgstr "Per favor, comproveu si la paraula"
 
-#: src/boards/reading.c:334
+#: src/boards/reading.c:342
 msgid "is being displayed"
 msgstr "s'està mostrant"
 
-#: src/boards/reading.c:517
+#: src/boards/reading.c:525
 msgid "I am Ready"
 msgstr "Estic llest"
 
-#: src/boards/reading.c:554
+#: src/boards/reading.c:562
 msgid "Yes I saw it"
 msgstr "Sí, ho he vist"
 
-#: src/boards/reading.c:584
+#: src/boards/reading.c:592
 msgid "No, it was not there"
 msgstr "No, no era allà"
+
+#. Report what was wrong in the log
+#: src/boards/reading.c:629
+#, c-format
+msgid "The word to find was '%s'"
+msgstr ""
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2347,7 +2305,7 @@ msgstr "Submarí"
 msgid "Control the depth of a submarine"
 msgstr "Controleu la profunditat del submarí"
 
-#: src/boards/target.c:324 src/boards/target.c:572
+#: src/boards/target.c:323 src/boards/target.c:576
 #, c-format
 msgid "Points = %s"
 msgstr "Punts = %s"
@@ -2367,7 +2325,6 @@ msgid "Distance to target = %d meters"
 msgstr "Distància a l'objectiu = %d metres"
 
 #: src/gcompris/about.c:60
-#, fuzzy
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -2379,8 +2336,9 @@ msgstr ""
 "Reconeixements:\n"
 "Autor: Bruno Coudoin\n"
 "Contribució: Pascal Georges\n"
-"Gràfics: Renaud Blanchard\n"
-"Música: Djilali Sebihi\n"
+"Imatges: Renaud Blanchard\n"
+"Música introductòria: Djilali Sebihi\n"
+"Música de fons: Rico Da Halvarez\n"
 
 #: src/gcompris/about.c:99
 msgid "About GCompris"
@@ -2400,18 +2358,18 @@ msgstr ""
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "D'acord"
 
 #: src/gcompris/config.c:52
 msgid "Your system default"
-msgstr ""
+msgstr "El valor predeterminat del vostre sistema"
 
 #: src/gcompris/config.c:53
 msgid "Amharic"
-msgstr "Amharic"
+msgstr "Amhàric"
 
 #: src/gcompris/config.c:54
 msgid "Arabic"
@@ -2466,121 +2424,125 @@ msgid "Hungarian"
 msgstr "Hongarès"
 
 #: src/gcompris/config.c:67
+#, fuzzy
+msgid "Croatian"
+msgstr "Català"
+
+#: src/gcompris/config.c:68
 msgid "Italian"
 msgstr "Italià"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Lithuanian"
 msgstr "Lituà"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Macedonian"
 msgstr "Macedoni"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malay"
 msgstr "Malai"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "Holandès"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Norwegian"
 msgstr "Norueg"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Polish"
 msgstr "Polac"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Portuguese"
 msgstr "Portuguès"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Brazil Portuguese"
 msgstr "Portugès de Brasil"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Romanian"
 msgstr "Romanès"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Russian"
 msgstr "Rus"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Slovak"
 msgstr "Eslovac"
 
-#: src/gcompris/config.c:80
-#, fuzzy
-msgid "Slovenian"
-msgstr "Eslovac"
-
 #: src/gcompris/config.c:81
+msgid "Slovenian"
+msgstr "Eslovè"
+
+#: src/gcompris/config.c:82
 msgid "Serbian (Latin)"
 msgstr "Serbi (Latí)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian"
 msgstr "Serbi"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Swedish"
 msgstr "Suec"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "No time limit"
 msgstr "Sense límit de temps"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Slow timer"
 msgstr "Temporitzador lent"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Normal timer"
 msgstr "Temporitzador normal"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Fast timer"
 msgstr "Temporitzador ràpid"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Per defecte per a gcompris)"
 
-#: src/gcompris/config.c:153
+#: src/gcompris/config.c:154
 msgid "GCompris Configuration"
 msgstr "Configuració del GCompris"
 
-#: src/gcompris/config.c:262
+#: src/gcompris/config.c:263
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: src/gcompris/config.c:305
+#: src/gcompris/config.c:306
 msgid "Music"
 msgstr "Música"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Effect"
 msgstr "Efecte"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:371
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "No es pot obrir el directori d'aparences: %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:720
-#: src/gcompris/config.c:731
+#: src/gcompris/config.c:404 src/gcompris/config.c:721
+#: src/gcompris/config.c:732
 #, c-format
 msgid "Skin : %s"
 msgstr "Aparença: %s"
@@ -2607,13 +2569,15 @@ msgstr "executa gcompris amb el cursor per defecte del GNOME."
 
 #: src/gcompris/gcompris.c:79
 msgid "display only activities with this difficulty level."
-msgstr ""
+msgstr "visualitza només les activitats amb aquest nivell de dificultat."
 
 #: src/gcompris/gcompris.c:81
 msgid ""
 "select the audio output. Use '-A list' to get the list of available audio "
 "output"
 msgstr ""
+"seleccioneu la sortida de so. Useu '-A list' per obtenir la llista de "
+"sortides de so disponibles"
 
 #: src/gcompris/gcompris.c:83
 msgid "Prints the version of "
@@ -2623,8 +2587,8 @@ msgstr "Imprimeix la versió de "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Feu servir una àrea de dibuix amb traços suavitzats (més lent)."
 
-#: src/gcompris/gcompris.c:614
-#, fuzzy, c-format
+#: src/gcompris/gcompris.c:616
+#, c-format
 msgid ""
 "GCompris\n"
 "Version: %d\n"
@@ -2632,7 +2596,7 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 "GCompris\n"
-"Versió: %s\n"
+"Versió: %d\n"
 "Llicència: GPL\n"
 "Més informació a http://ofset.sourceforge.net/gcompris\n"
 
@@ -2698,10 +2662,13 @@ msgid "Released under GPL"
 msgstr "Alliberat sota la llicència GPL"
 
 #: src/gcompris/oggplayer.c:165
+#, c-format
 msgid ""
 "Possible audio output devices are:\n"
 "default "
 msgstr ""
+"Dispositius de sortida de so posibles:\n"
+"default "
 
 #: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
@@ -2729,6 +2696,19 @@ msgstr "Temps transcorregut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
+
+#~ msgid "Simple addition"
+#~ msgstr "Suma senzilla"
+
+#~ msgid "Baby Shape Puzzle"
+#~ msgstr "Trenca-closques de formes per a nens i nenes"
+
+#~ msgid ""
+#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
+#~ "click with the left mouse button on the moving fish."
+#~ msgstr ""
+#~ "Coordinació motriu: moviment del ratolí i clic del ratolí. L'objectiu és "
+#~ "fer clic amb el botó esquerre del ratolí en el peix que es mou."
 
 #~ msgid "GCompris I Have Understood"
 #~ msgstr "GCompris, ho he entès"
