@@ -2,6 +2,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-06 10:24+0100\n"
-"PO-Revision-Date: 2005-03-06 10:25+0100\n"
+"POT-Creation-Date: 2005-04-05 20:30+0200\n"
+"PO-Revision-Date: 2005-04-05 20:52+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -613,9 +614,9 @@ msgstr "Wirf den Ball zu Tux"
 
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:6 ../boards/erase.xml.in.h:3
-#: ../boards/fifteen.xml.in.h:2 ../boards/hanoi.xml.in.h:3
-#: ../boards/memory.xml.in.h:4
+#: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
+#: ../boards/erase.xml.in.h:3 ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Maus-Handhabung"
 
@@ -742,6 +743,10 @@ msgstr "Die vier Jahreszeiten"
 #: ../boards/chronos/board1_1.xml.in.h:5
 msgid "Winter"
 msgstr "Winter"
+
+#: ../boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "Gartenarbeit"
 
 #: ../boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -1010,6 +1015,29 @@ msgstr "Zu den Farbspielen"
 msgid "Discover the Computer"
 msgstr "Entdecke den Computer"
 
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "Ordne vier Münzen in einer Reihe"
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr "Klicke irgendwo in der Reihe, in der du einen Spielstein fallenlassen möchtest"
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "Vier gewinnt"
+
+#: ../boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr "Bilde eine wagerechte oder senkrechte Linie mit vier Spielsteinen"
+
+#: ../boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
+msgstr "Laurent Lacheny. Bilder und künstliche Intelligenz aus dem Projekt 4stattack von Jeroen Vloothuis entnommen. Das Original-Projekt befindet sich unter http://forcedattack.sourceforge.net"
+
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
 msgstr "Einfaches Zählen"
@@ -1214,272 +1242,272 @@ msgid "Oceania"
 msgstr "Ozeanien"
 
 #: ../boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "Alaska"
+
+#: ../boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: ../boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "Kanada"
+
+#: ../boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "Kuba"
+
+#: ../boards/geography/board2_0.xml.in.h:5
+msgid "Dominican republic"
+msgstr "Dominikanische Republik"
+
+#: ../boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "Grönland"
+
+#: ../boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "Haiti"
+
+#: ../boards/geography/board2_0.xml.in.h:8
+#: ../boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "Island"
+
+#: ../boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "Jamaika"
+
+#: ../boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "Mexiko"
+
+#: ../boards/geography/board2_0.xml.in.h:11
 msgid "North America"
 msgstr "Nordamerika"
 
-#: ../boards/geography/board2_0.xml.in.h:2
-msgid "alaska"
-msgstr "Alaska"
-
-#: ../boards/geography/board2_0.xml.in.h:3
-msgid "bahamas"
-msgstr "Bahamas"
-
-#: ../boards/geography/board2_0.xml.in.h:4
-msgid "canada"
-msgstr "Kanada"
-
-#: ../boards/geography/board2_0.xml.in.h:5
-msgid "cuba"
-msgstr "Kuba"
-
-#: ../boards/geography/board2_0.xml.in.h:6
-msgid "dominican republic"
-msgstr "Dominikanische Republik"
-
-#: ../boards/geography/board2_0.xml.in.h:7
-msgid "greenland"
-msgstr "Grönland"
-
-#: ../boards/geography/board2_0.xml.in.h:8
-msgid "haiti"
-msgstr "Haiti"
-
-#: ../boards/geography/board2_0.xml.in.h:9
-#: ../boards/geography/board3_0.xml.in.h:8
-msgid "iceland"
-msgstr "Island"
-
-#: ../boards/geography/board2_0.xml.in.h:10
-msgid "jamaica"
-msgstr "Jamaika"
-
-#: ../boards/geography/board2_0.xml.in.h:11
-msgid "mexico"
-msgstr "Mexiko"
-
 #: ../boards/geography/board2_0.xml.in.h:12
-msgid "united state"
+msgid "United state"
 msgstr "USA"
 
 #: ../boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "Argentinien"
+
+#: ../boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "Bolivien"
+
+#: ../boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "Brasilien"
+
+#: ../boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "Chile"
+
+#: ../boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "Kolumbien"
+
+#: ../boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: ../boards/geography/board2_1.xml.in.h:7
+msgid "French guiana"
+msgstr "Französisch Guyana"
+
+#: ../boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "Guyana"
+
+#: ../boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "Panama"
+
+#: ../boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: ../boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "Peru"
+
+#: ../boards/geography/board2_1.xml.in.h:12
 msgid "South America"
 msgstr "Südamerika"
 
-#: ../boards/geography/board2_1.xml.in.h:2
-msgid "argentina"
-msgstr "Argentinien"
-
-#: ../boards/geography/board2_1.xml.in.h:3
-msgid "bolivia"
-msgstr "Bolivien"
-
-#: ../boards/geography/board2_1.xml.in.h:4
-msgid "brazil"
-msgstr "Brasilien"
-
-#: ../boards/geography/board2_1.xml.in.h:5
-msgid "chile"
-msgstr "Chile"
-
-#: ../boards/geography/board2_1.xml.in.h:6
-msgid "colombia"
-msgstr "Kolumbien"
-
-#: ../boards/geography/board2_1.xml.in.h:7
-msgid "ecuador"
-msgstr "Ecuador"
-
-#: ../boards/geography/board2_1.xml.in.h:8
-msgid "french guiana"
-msgstr "Französisch Guyana"
-
-#: ../boards/geography/board2_1.xml.in.h:9
-msgid "guyana"
-msgstr "Guyana"
-
-#: ../boards/geography/board2_1.xml.in.h:10
-msgid "panama"
-msgstr "Panama"
-
-#: ../boards/geography/board2_1.xml.in.h:11
-msgid "paraguay"
-msgstr "Paraguay"
-
-#: ../boards/geography/board2_1.xml.in.h:12
-msgid "peru"
-msgstr "Peru"
-
 #: ../boards/geography/board2_1.xml.in.h:13
-msgid "suriname"
+msgid "Suriname"
 msgstr "Surinam"
 
 #: ../boards/geography/board2_1.xml.in.h:14
-msgid "uruguay"
+msgid "Uruguay"
 msgstr "Uruguay"
 
 #: ../boards/geography/board2_1.xml.in.h:15
-msgid "venezuela"
+msgid "Venezuela"
 msgstr "Venezuela"
 
 #: ../boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "Österreich"
+
+#: ../boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "Belgien"
+
+#: ../boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "Dänemark"
+
+#: ../boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "Finnland"
+
+#: ../boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "Frankreich"
+
+#: ../boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "Deutschland"
+
+#: ../boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "Irland"
+
+#: ../boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "Italien"
+
+#: ../boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: ../boards/geography/board3_0.xml.in.h:11
+msgid "Netherland"
+msgstr "Niederlande"
+
+#: ../boards/geography/board3_0.xml.in.h:12
+msgid "Norway"
+msgstr "Norwegen"
+
+#: ../boards/geography/board3_0.xml.in.h:13
+msgid "Portugal"
+msgstr "Portugal"
+
+#: ../boards/geography/board3_0.xml.in.h:14
+msgid "Spain"
+msgstr "Spanien"
+
+#: ../boards/geography/board3_0.xml.in.h:15
+msgid "Sweden"
+msgstr "Schweden"
+
+#: ../boards/geography/board3_0.xml.in.h:16
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: ../boards/geography/board3_0.xml.in.h:17
+msgid "United kingdom"
+msgstr "Großbritannien"
+
+#: ../boards/geography/board3_0.xml.in.h:18
 msgid "West Europe"
 msgstr "West-Europa"
 
-#: ../boards/geography/board3_0.xml.in.h:2
-msgid "austria"
-msgstr "Österreich"
-
-#: ../boards/geography/board3_0.xml.in.h:3
-msgid "belgium"
-msgstr "Belgien"
-
-#: ../boards/geography/board3_0.xml.in.h:4
-msgid "denmark"
-msgstr "Dänemark"
-
-#: ../boards/geography/board3_0.xml.in.h:5
-msgid "finland"
-msgstr "Finnland"
-
-#: ../boards/geography/board3_0.xml.in.h:6
-msgid "france"
-msgstr "Frankreich"
-
-#: ../boards/geography/board3_0.xml.in.h:7
-msgid "germany"
-msgstr "Deutschland"
-
-#: ../boards/geography/board3_0.xml.in.h:9
-msgid "ireland"
-msgstr "Irland"
-
-#: ../boards/geography/board3_0.xml.in.h:10
-msgid "italy"
-msgstr "Italien"
-
-#: ../boards/geography/board3_0.xml.in.h:11
-msgid "luxembourg"
-msgstr "Luxemburg"
-
-#: ../boards/geography/board3_0.xml.in.h:12
-msgid "netherland"
-msgstr "Niederlande"
-
-#: ../boards/geography/board3_0.xml.in.h:13
-msgid "norway"
-msgstr "Norwegen"
-
-#: ../boards/geography/board3_0.xml.in.h:14
-msgid "portugal"
-msgstr "Portugal"
-
-#: ../boards/geography/board3_0.xml.in.h:15
-msgid "spain"
-msgstr "Spanien"
-
-#: ../boards/geography/board3_0.xml.in.h:16
-msgid "sweden"
-msgstr "Schweden"
-
-#: ../boards/geography/board3_0.xml.in.h:17
-msgid "switz"
-msgstr "Schweiz"
-
-#: ../boards/geography/board3_0.xml.in.h:18
-msgid "united kingdom"
-msgstr "Großbritannien"
-
 #: ../boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "Albanien"
+
+#: ../boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "Weißrussland"
+
+#: ../boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia herzegovina"
+msgstr "Bosnien-Herzegowina"
+
+#: ../boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "Bulgarien"
+
+#: ../boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "Kroatien"
+
+#: ../boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "Zypern"
+
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+msgid "Czech"
+msgstr "Tschechisch"
+
+#: ../boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
 msgstr "Ost-Europa"
 
-#: ../boards/geography/board3_1.xml.in.h:2
-msgid "albania"
-msgstr "Albanien"
-
-#: ../boards/geography/board3_1.xml.in.h:3
-msgid "belarus"
-msgstr "Weißrussland"
-
-#: ../boards/geography/board3_1.xml.in.h:4
-msgid "bosnia herzegovina"
-msgstr "Bosnien-Herzegowina"
-
-#: ../boards/geography/board3_1.xml.in.h:5
-msgid "bulgaria"
-msgstr "Bulgarien"
-
-#: ../boards/geography/board3_1.xml.in.h:6
-msgid "croatia"
-msgstr "Kroatien"
-
-#: ../boards/geography/board3_1.xml.in.h:7
-msgid "cyprus"
-msgstr "Zypern"
-
-#: ../boards/geography/board3_1.xml.in.h:8
-msgid "czech"
-msgstr "Tschechei"
-
 #: ../boards/geography/board3_1.xml.in.h:9
-msgid "estonia"
+msgid "Estonia"
 msgstr "Estland"
 
 #: ../boards/geography/board3_1.xml.in.h:10
-msgid "greece"
+msgid "Greece"
 msgstr "Griechenland"
 
 #: ../boards/geography/board3_1.xml.in.h:11
-msgid "hungary"
+msgid "Hungary"
 msgstr "Ungarn"
 
 #: ../boards/geography/board3_1.xml.in.h:12
-msgid "latvia"
+msgid "Latvia"
 msgstr "Lettland"
 
 #: ../boards/geography/board3_1.xml.in.h:13
-msgid "lithuania"
+msgid "Lithuania"
 msgstr "Litauen"
 
 #: ../boards/geography/board3_1.xml.in.h:14
-msgid "macedonia"
+msgid "Macedonia"
 msgstr "Mazedonien"
 
 #: ../boards/geography/board3_1.xml.in.h:15
-msgid "moldova"
+msgid "Moldova"
 msgstr "Moldavien"
 
 #: ../boards/geography/board3_1.xml.in.h:16
-msgid "poland"
+msgid "Poland"
 msgstr "Polen"
 
 #: ../boards/geography/board3_1.xml.in.h:17
-msgid "romania"
+msgid "Romania"
 msgstr "Rumänien"
 
 #: ../boards/geography/board3_1.xml.in.h:18
-msgid "russia"
+msgid "Russia"
 msgstr "Russland"
 
 #: ../boards/geography/board3_1.xml.in.h:19
-msgid "serbia montenegro"
+msgid "Serbia montenegro"
 msgstr "Serbien-Montenegro"
 
 #: ../boards/geography/board3_1.xml.in.h:20
-msgid "slovakia"
+msgid "Slovakia"
 msgstr "Slowakei"
 
 #: ../boards/geography/board3_1.xml.in.h:21
-msgid "slovenia"
+msgid "Slovenia"
 msgstr "Slowenien"
 
 #: ../boards/geography/board3_1.xml.in.h:22
-msgid "turkey"
+msgid "Turkey"
 msgstr "Türkei"
 
 #: ../boards/geography/board3_1.xml.in.h:23
-msgid "ukraine"
+msgid "Ukraine"
 msgstr "Ukraine"
 
 #: ../boards/geography/board4_0.xml.in.h:1
@@ -2780,19 +2808,19 @@ msgstr "Bildungs-Sammlung gcompris"
 msgid "Multiple activities for kids"
 msgstr "Mehrere Aktivitäten für Kinder"
 
-#: ../src/boards/advanced_colors.c:541 ../src/boards/imageid.c:605
-#: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:500
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
+#: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
 #: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:126 ../src/gcompris/gameutil.c:517
-#: ../src/gcompris/gameutil.c:518 ../src/gcompris/gcompris.c:420
-#: ../src/gcompris/images_selector.c:654 ../src/gcompris/skin.c:83
+#: ../src/gcompris/gameutil.c:130 ../src/gcompris/gameutil.c:519
+#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:482
+#: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kann Datei %s nicht finden!"
 
-#: ../src/boards/advanced_colors.c:544 ../src/boards/imageid.c:608
-#: ../src/boards/missingletter.c:611 ../src/boards/read_colors.c:503
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:608
+#: ../src/boards/missingletter.c:611 ../src/boards/read_colors.c:495
 #: ../src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
@@ -2811,15 +2839,15 @@ msgstr ""
 "Tux ist in Schwierigkeiten auf seinem Schiff. Er muss durch eine Schleuse.\n"
 "Hilf Tux und verstehe, wie eine Schleuse funktioniert."
 
-#: ../src/boards/chess.c:137
+#: ../src/boards/chess.c:136
 msgid "Learning Chess"
 msgstr "Lerne Schach"
 
-#: ../src/boards/chess.c:138
+#: ../src/boards/chess.c:137
 msgid "Play chess against tux in a learning mode"
 msgstr "Spiel Schach gegen Tux im Lernmodus"
 
-#: ../src/boards/chess.c:191
+#: ../src/boards/chess.c:190
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2831,7 +2859,7 @@ msgstr ""
 "von gnuchess installiert haben.\n"
 "Bitte aktualisieren Sie auf gnuchess 5 oder höher."
 
-#: ../src/boards/chess.c:198
+#: ../src/boards/chess.c:197 ../src/boards/chess.c:239
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2845,31 +2873,31 @@ msgstr ""
 "oder in Ihrere GNU/Linux Distribution\n"
 "Und überprüfen Sie, dass es in "
 
-#: ../src/boards/chess.c:577
+#: ../src/boards/chess.c:579
 msgid "White Turn"
 msgstr "Weiß am Zug"
 
-#: ../src/boards/chess.c:577
+#: ../src/boards/chess.c:579
 msgid "Black Turn"
 msgstr "Schwarz am Zug"
 
-#: ../src/boards/chess.c:718
+#: ../src/boards/chess.c:720
 msgid "White check"
 msgstr "Weiß Schach"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:722
 msgid "Black check"
 msgstr "Schwarz Schach"
 
-#: ../src/boards/chess.c:1052
+#: ../src/boards/chess.c:1053
 msgid "Black mates"
 msgstr "Schwarz Matt"
 
-#: ../src/boards/chess.c:1057
+#: ../src/boards/chess.c:1058
 msgid "White mates"
 msgstr "Weiß Matt"
 
-#: ../src/boards/chess.c:1062
+#: ../src/boards/chess.c:1063
 msgid "Drawn game"
 msgstr "Unentschieden"
 
@@ -3034,6 +3062,29 @@ msgstr "Python Tafel"
 #: ../src/boards/python.c:54
 msgid "Special board that embeds python into gcompris."
 msgstr "Spezial-Tafel, die Python in gcompris einbettet."
+
+#: ../src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "Sie benötigen das Python-XML-Modul. Deaktiviere SVG."
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: ../src/boards/python/anim.py:415
+msgid ""
+"Python xml module bot found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr "Python-XML-Modul nicht gefunden. SVG wird deaktiviert. Installieren Sie das Python-XML-Modul, um SVG Laden/Speichern zu ermöglichen."
+
+#: ../src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG ist deaktiviert. Installieren Sie das Python-XML-Modul, um es zu aktivieren"
+
+#: ../src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "Warnung: Auf die folgenden Bilder kann von Ihrem System aus nicht zugegriffen werden.\n"
+
+#: ../src/boards/python/anim.py:2363
+msgid "The corresponding items have been skiped."
+msgstr "Die entsprechenden Elemente wurden übersprungen."
 
 #: ../src/boards/python/pythontest.py:75
 msgid ""
@@ -3286,9 +3337,9 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:209
-#: ../src/gcompris/gameutil.c:898 ../src/gcompris/help.c:329
-#: ../src/gcompris/images_selector.c:261
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:210
+#: ../src/gcompris/gameutil.c:900 ../src/gcompris/help.c:329
+#: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
 
@@ -3315,229 +3366,229 @@ msgid "Azerbaijani Turkic"
 msgstr "Aserbaidschanisches Türkisch"
 
 #: ../src/gcompris/config.c:67
+msgid "Bulgarian"
+msgstr "Bulgarisch"
+
+#: ../src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Katalanisch"
 
-#: ../src/gcompris/config.c:68
-msgid "Czech"
-msgstr "Tschechisch"
-
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:70
 msgid "Danish"
 msgstr "Dänisch"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "German"
 msgstr "Deutsch"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Griechisch"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "English (Canadian)"
 msgstr "Englisch (Kanada)"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Englisch (Großbritannien)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "English (USA)"
 msgstr "Englisch (USA)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "Finnish"
 msgstr "Finnisch"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "French"
 msgstr "Französisch"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "Irish (Gaelic)"
 msgstr "Irisch (Gälisch)"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "Hebrew"
 msgstr "Hebräisch"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
 msgid "Indian (Hindi)"
 msgstr "Indisch (Hindi)"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:82
 msgid "Indian (Gujarati)"
 msgstr "Indisch (Gujarati)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Indian (Punjabi)"
 msgstr "Indisch (Punjabi)"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Italian"
 msgstr "Italienisch"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Macedonian"
 msgstr "Mazedonisch"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Malay"
 msgstr "Malaysisch"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Dutch"
 msgstr "Holländisch"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Norwegian Bokmal"
 msgstr "Norwegisch Bokmal"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Norwegian Nynorsk"
 msgstr "Neunorwegisch"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Polish"
 msgstr "Polnisch"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Portuguese"
 msgstr "Portugiesisch"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Brazil Portuguese"
 msgstr "Brasilianisches Portugiesisch"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Romanian"
 msgstr "Rumänisch"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Russian"
 msgstr "Russisch"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Albanian"
 msgstr "Albanisch"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Serbian (Latin)"
 msgstr "Serbisch (Latein)"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Serbian"
 msgstr "Serbisch"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Walloon"
 msgstr "Wallonisch"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Chinese (Simplified)"
 msgstr "Chinesisch (Vereinfacht)"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "No filter"
 msgstr "Kein Filter"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Only this level"
 msgstr "Nur diese Ebene"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Up to this level"
 msgstr "Bis zu dieser Ebene"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "This level and above"
 msgstr "Diese Ebene und höher"
 
-#: ../src/gcompris/config.c:183
+#: ../src/gcompris/config.c:184
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:293
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:336
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:363
+#: ../src/gcompris/config.c:364
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:397
+#: ../src/gcompris/config.c:398
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: ../src/gcompris/config.c:418
+#: ../src/gcompris/config.c:419
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Keine Verkleidung in %s gefunden\n"
 
-#: ../src/gcompris/config.c:433 ../src/gcompris/config.c:818
-#: ../src/gcompris/config.c:829
+#: ../src/gcompris/config.c:434 ../src/gcompris/config.c:819
+#: ../src/gcompris/config.c:830
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
@@ -3554,15 +3605,15 @@ msgstr "Laden"
 msgid "SAVE"
 msgstr "Speichern"
 
-#: ../src/gcompris/gameutil.c:129
+#: ../src/gcompris/gameutil.c:133
 msgid "Couldn't find file"
 msgstr "Kann Datei nicht finden"
 
-#: ../src/gcompris/gameutil.c:131
+#: ../src/gcompris/gameutil.c:135
 msgid "This activity is incomplete."
 msgstr "Diese Aktivität ist unvollständig."
 
-#: ../src/gcompris/gameutil.c:132
+#: ../src/gcompris/gameutil.c:136
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3570,43 +3621,47 @@ msgstr ""
 "Beende und berichte\n"
 "den Autoren über das Problem."
 
-#: ../src/gcompris/gcompris.c:82
+#: ../src/gcompris/gcompris.c:91
 msgid "run gcompris in fullscreen mode."
 msgstr "GCompris im Vollbildmodus ausführen"
 
-#: ../src/gcompris/gcompris.c:84
+#: ../src/gcompris/gcompris.c:93
 msgid "run gcompris in window mode."
 msgstr "GCompris im Fenstermodus ausführen"
 
-#: ../src/gcompris/gcompris.c:86
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris with sound enabled."
 msgstr "GCompris mit Klängen ausführen"
 
-#: ../src/gcompris/gcompris.c:88
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris without sound."
 msgstr "GCompris ohne Klänge ausführen"
 
-#: ../src/gcompris/gcompris.c:90
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with the default gnome cursor."
 msgstr "GCompris mit dem voreingestellten Gnome-Mauszeiger ausführen"
 
-#: ../src/gcompris/gcompris.c:92
+#: ../src/gcompris/gcompris.c:101
 msgid "display only activities with this difficulty level."
 msgstr "zeige nur Aktivitäten mit dieser Schwierigkeitsstufe an"
 
-#: ../src/gcompris/gcompris.c:94
+#: ../src/gcompris/gcompris.c:103
 msgid "display debug informations on the console."
 msgstr "gib Debug-Informationen auf der Konsole aus"
 
-#: ../src/gcompris/gcompris.c:96
+#: ../src/gcompris/gcompris.c:105
 msgid "Print the version of "
 msgstr "Ausgabe der Version von "
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:107
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
-#: ../src/gcompris/gcompris.c:541
+#: ../src/gcompris/gcompris.c:109
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr "XRANDR deaktivieren (Keine Auflösungsänderung)."
+
+#: ../src/gcompris/gcompris.c:591
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3629,7 +3684,7 @@ msgstr ""
 "Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:736
+#: ../src/gcompris/gcompris.c:839
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3657,6 +3712,26 @@ msgstr "Handbuch"
 #: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Dank"
+
+#: ../src/gcompris/images_selector.c:294
+#, c-format
+msgid "dataset %s is a directory. Trying to read xml "
+msgstr "Der Datensatz %s ist ein Verzeichnis. Versuche XML zu lesen "
+
+#: ../src/gcompris/images_selector.c:629
+#, c-format
+msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
+msgstr "Bildersatz %s Wurzelverzeichnis %s Bild nicht gefunden. Überspringe Bildersatz...\n"
+
+#: ../src/gcompris/images_selector.c:664
+#, c-format
+msgid "ImageSet %s image not found. Skipping ImageSet...\n"
+msgstr "Bildersatz %s Bild nicht gefunden. Überspringe Bildersatz...\n"
+
+#: ../src/gcompris/images_selector.c:690
+#, c-format
+msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
+msgstr "Bildersatz %s Verzeichnis %s nicht gefunden. Überspringe alle Bildersätze...\n"
 
 #: ../src/gcompris/interface.c:104
 msgid "Gcompris Editor"
