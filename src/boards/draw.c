@@ -84,8 +84,8 @@ static GnomeCanvasItem	*selectionToolItem = NULL;
 // Used to cross reference pixmap for the tools
 static char *tool_pixmap_name[] =
   {
-    "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",
-    "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
+    "skins/default/button_load.png", "skins/default/button_load.png",
+    "skins/default/button_save.png", "skins/default/button_save.png",
     "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",
     "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
     "draw/tool-circle.png",          "draw/tool-circle_on.png",
@@ -99,7 +99,7 @@ static char *tool_pixmap_name[] =
     "draw/tool-up.png",              "draw/tool-up_on.png",
     "draw/tool-down.png",            "draw/tool-down_on.png",
     "draw/tool-select.png",          "draw/tool-select_on.png",
-    "draw/tool-flip.png",           "draw/tool-flip_on.png",
+    "draw/tool-flip.png",            "draw/tool-flip_on.png",
     "draw/tool-rotation-ccw.png",    "draw/tool-rotation-ccw_on.png",
     "draw/tool-rotation-cw.png",     "draw/tool-rotation-cw_on.png"
   };
@@ -607,7 +607,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
   currentColor = ext_colorlist[0];
 }
 
-#define SELECTOR_VERTICAL_SPACING 55
+#define SELECTOR_VERTICAL_SPACING 52
 
 static void display_tool_selector(GnomeCanvasGroup *parent)
 {
@@ -643,6 +643,10 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 				    "pixbuf", pixmap,
 				    "x", (double) x,
 				    "y", (double) y,
+				    "width", (double) 40.0,
+				    "height", (double) 40.0,
+				    "width_set", TRUE,
+				    "height_set", TRUE,
 				    NULL);
       gdk_pixbuf_unref(pixmap);
 
@@ -666,6 +670,10 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 					"pixbuf", pixmap,
 					"x", (double) (toolIndex%2 == 0 ? x : x2),
 					"y", (double) y,
+					"width", (double) 40.0,
+					"height", (double) 40.0,
+					"width_set", TRUE,
+					"height_set", TRUE,
 					NULL);
 	  gdk_pixbuf_unref(pixmap);
 
