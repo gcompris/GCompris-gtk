@@ -46,8 +46,8 @@ static void destroy_board();
  * 1evel 3 : 4 numbers and 3 operations
  * 1evel 4 : 5 numbers and 4 operations
  */
-#define NUMBER_OF_SUBLEVELS 3
-#define NUMBER_OF_LEVELS 4
+#define NUMBER_OF_SUBLEVELS 1 // 3
+#define NUMBER_OF_LEVELS 4 // 4
 #define MAX_NUMBER 5
 
 #define TEXT_COLOR_FRONT "yellow"
@@ -187,6 +187,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
       gcomprisBoard=agcomprisBoard;
 
 			// load pixmap files
+printf("loading pixmaps in start_board\n");
 			for (i=0; i<NUM_VALUES; i++) {
   			str = g_strdup_printf("%s/%d.png", gcomprisBoard->boarddir,num_values[i]);
 				num_pixmap[i] = gcompris_load_pixmap(str);
@@ -282,7 +283,6 @@ static int token_result() {
 
 	assert(ptr_token_selected[0]->isNumber);
 	result = num_values[ptr_token_selected[0]->num];
-  printf("result = %d ", result);
 
 	for (i=2; i<token_count; i+=2) {
 		assert(!ptr_token_selected[i-1]->isNumber);
@@ -301,9 +301,7 @@ static int token_result() {
 									break;
 			default : printf("bug in token_result()\n"); break;
 		}
-		printf("result = %d ", result);
 	}
-	printf("\n");
 	return result;
 }
 /* ==================================== */
@@ -345,8 +343,14 @@ static int generate_numbers() {
 						case 1 : 	answer_oper[i] = '+';
 											result += num_values[answer_num_index[i+1]];
 											break;
-						case 2 : 	answer_oper[i] = 'x';
-											result *= num_values[answer_num_index[i+1]];
+						case 2 :		// prevent result from getting too big
+											if (result*num_values[answer_num_index[i+1]] < 1000 ) {
+												answer_oper[i] = 'x';
+												result *= num_values[answer_num_index[i+1]];
+											} else {
+												answer_oper[i] = '+';
+												result += num_values[answer_num_index[i+1]];
+											}
 											break;
 						case 3 : 	if (minus) {
 							answer_oper[i] = '-';
@@ -595,7 +599,6 @@ static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpoint
   // we only allow the undo of an operation if it is the last element displayed
   switch (event->type) {
     case GDK_BUTTON_PRESS:
-		printf("count=%d token_count=%d\n", count,token_count);
 			if (count == token_count) {
 				gtk_object_destroy (GTK_OBJECT(item));
 				token_count--;
@@ -615,7 +618,6 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 
   switch (event->type){
     case GDK_BUTTON_PRESS:
-			printf("clicked token_count = %d for value = %d ismoved=%d\n", token_count,num_values[t->num], t->isMoved);
 			if (t->isMoved) {
 				if (item != ptr_token_selected[token_count-1]->item)
 					return FALSE;
@@ -641,7 +643,6 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 		// update result text items
 				if (token_count != 1 && token_count % 2 == 1) {
 					sprintf(str,"%d",token_result());
-					printf("token_result = %s\n", str);
 					gnome_canvas_item_set(calcul_line_item[token_count-3], "text", str, NULL);
 					gnome_canvas_item_set(calcul_line_item_back[token_count-3], "text", str, NULL);
 					gnome_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
