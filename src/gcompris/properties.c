@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2001/05/08 19:51:36 bruno>
+ * Time-stamp: <2001/12/09 01:59:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -36,8 +36,9 @@ GcomprisProperties *gcompris_properties_new ()
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
 
-  tmp->music	= gnome_config_get_int ("/gcompris/Preferences/music=1");
-  tmp->fx	= gnome_config_get_int ("/gcompris/Preferences/fx=1");
+  tmp->music		= gnome_config_get_int ("/gcompris/Preferences/music=1");
+  tmp->fx		= gnome_config_get_int ("/gcompris/Preferences/fx=1");
+  tmp->fullscreen	= gnome_config_get_int ("/gcompris/Preferences/fullscreen=1");
 
   return (tmp);
 }
@@ -65,6 +66,8 @@ void gcompris_properties_save (GcomprisProperties *props)
 			props->music);
   gnome_config_set_int ("/gcompris/Preferences/fx",
 			props->fx);
+  gnome_config_set_int ("/gcompris/Preferences/fullscreen",
+			props->fullscreen);
 
   gnome_config_sync ();
 }

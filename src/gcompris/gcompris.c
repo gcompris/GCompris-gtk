@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/12/06 23:41:22 bruno>
+ * Time-stamp: <2001/12/09 02:01:27 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -20,6 +20,7 @@
  */
 
 #include "gcompris.h"
+#include <popt-gnome.h>
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -45,6 +46,33 @@ GcomprisBoard		*gcomprisBoardMenu = NULL;
 
 static GnomeCanvasItem *backgroundimg = NULL;
 static gchar           *gcompris_locale = NULL;
+
+/****************************************************************************/
+/* Command line params */
+
+#define P_FULLSCREEN	101
+#define P_WINDOW	102
+#define P_SOUND		103
+#define P_MUTE		104
+#define P_VERSION	105
+
+struct poptOption command_line[] = {
+  {"fullscreen", 'f', POPT_ARGFLAG_ONEDASH, NULL, P_FULLSCREEN,
+   N_("run gcompris in fullscreen mode.")},
+  {"window", 'w', POPT_ARGFLAG_ONEDASH, NULL, P_WINDOW,
+   N_("run gcompris in window mode.")},
+  {"sound", 's', POPT_ARGFLAG_ONEDASH, NULL, P_SOUND,
+   N_("run gcompris with sound enabled.")},
+  {"mute", 'm', POPT_ARGFLAG_ONEDASH, NULL, P_MUTE,
+   N_("run gcompris without sound.")},
+  {"version", 'v', POPT_ARGFLAG_ONEDASH, NULL, P_VERSION,
+   N_("Prints the version of " PACKAGE)},
+  POPT_AUTOHELP {NULL, 0, 0, NULL, 0}
+};
+
+
+
+/****************************************************************************/
 
 static gint
 board_widget_key_press_callback (GtkWidget   *widget,
@@ -128,7 +156,7 @@ static void init_background()
   printf("Calculated x ratio xratio=%f\n", xratio);
   
   /* Background area if ratio above 1 */
-  if(xratio>=1.0)
+  if(xratio>=1.0 && properties->fullscreen)
     {
       gnome_canvas_set_scroll_region (canvas_bg,
 				      0, 0,
@@ -151,7 +179,7 @@ static void init_background()
   /* Create a vertical box in which I put first the play board area, then the button bar */
   vbox = gtk_vbox_new (FALSE, 0);
 
-  if(xratio<1.0)
+  if(xratio<1.0 || properties->fullscreen==FALSE)
     gnome_app_set_contents (GNOME_APP (window), GTK_WIDGET(vbox));
 
   gtk_widget_show (GTK_WIDGET(vbox));
@@ -161,7 +189,7 @@ static void init_background()
   gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas), TRUE, TRUE, 0);
   gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET(canvas_bar), TRUE, TRUE, 0);
 
-  if(xratio>=1.0)
+  if(xratio>=1.0 && properties->fullscreen)
     {
       gnome_canvas_item_new (gnome_canvas_root(canvas_bg),
 			     gnome_canvas_widget_get_type (),
@@ -208,7 +236,8 @@ static void setup_window ()
 
 
   // Full screen
-  gnome_win_hints_set_layer (GTK_WIDGET (window),  WIN_LAYER_ABOVE_DOCK);
+  if(properties->fullscreen)
+    gnome_win_hints_set_layer (GTK_WIDGET (window),  WIN_LAYER_ABOVE_DOCK);
   //  gnome_win_hints_set_state(GTK_WIDGET (window),  WIN_STATE_FIXED_POSITION);
 
 
@@ -250,9 +279,12 @@ static void setup_window ()
 
   gtk_widget_show (GTK_WIDGET(canvas_bg));
 
-  gdk_window_set_decorations (window->window, 0);
-  gdk_window_set_functions (window->window, 0);
-  gtk_widget_set_uposition (window, 0, 0);  
+  if(properties->fullscreen)
+    {
+      gdk_window_set_decorations (window->window, 0);
+      gdk_window_set_functions (window->window, 0);
+      gtk_widget_set_uposition (window, 0, 0);  
+    }
 
   init_plugins();
 
@@ -433,24 +465,78 @@ void gcompris_set_locale(gchar *locale)
   /* FIXME: This does not update gettext translation */
 }
 
+/*****************************************
+ * Main
+ *
+ */
 
 int
 main (int argc, char *argv[])
 {
+  int c;
+  poptContext optCon;
 
   srand (time (NULL));
 
   bindtextdomain (PACKAGE, PACKAGE_LOCALE_DIR);
   textdomain (PACKAGE);
 
-  gnome_init ("GCompris", VERSION, argc, argv);
+  gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
+
+  optCon = poptGetContext (NULL, argc, argv, command_line, 0);
+
+  load_properties ();
+
+  /*------------------------------------------------------------*/
+  while ((c = poptGetNextOpt (optCon)) != -1)
+    {
+      switch (c)
+	{
+	case P_VERSION:
+	  printf (_("GCompris\nVersion: %s\nLicence: GPL\n"
+		    "More infos on http://ofset.sourceforge.net/gcompris\n"),
+		  VERSION);
+	  exit (0);
+	  break;
+	  
+	case P_FULLSCREEN:
+	  properties->fullscreen = TRUE;
+	  break;
+
+	case P_WINDOW:
+	  properties->fullscreen = FALSE;
+	  break;
+
+	case P_MUTE:
+	  g_warning("Sound disabled");
+	  properties->music = FALSE;
+	  properties->fx = FALSE;
+	  break;
+
+	case P_SOUND:
+	  g_warning("Sound enabled");
+	  properties->music = TRUE;
+	  properties->fx = TRUE;
+	  break;
+	}
+    }
+
+  if (c < -1)
+    {
+      /* an error occurred during option processing */
+      fprintf (stderr, "%s: %s\n",
+	       poptBadOption (optCon, POPT_BADOPTION_NOALIAS),
+	       poptStrerror (c));
+      return (-1);
+    }
+
+  /*------------------------------------------------------------*/
+
 
   gnome_sound_init(NULL);
 
   /* Gdk-Pixbuf */
   gdk_rgb_init();
-
-  load_properties ();
 
   setup_window ();
 

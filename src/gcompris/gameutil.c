@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2001/11/05 20:45:23 bcoudoin>
+ * Time-stamp: <2001/12/09 01:31:26 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -202,6 +202,9 @@ void gcompris_play_ogg(char *sound, ...) {
 void gcompris_play_sound (const char *soundlistfile, const char *which)
 {
   gchar *filename;
+
+  if (!gcompris_get_properties()->fx)
+    return;
 
   filename = g_strdup_printf("%s/%s.wav", PACKAGE_SOUNDS_DIR, which);
 
