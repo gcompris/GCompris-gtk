@@ -233,6 +233,23 @@ py_gcompris_dialog(PyObject* self, PyObject* args)
 }
 
 
+/* void	gcompris_dialog_close(); */
+static PyObject*
+py_gcompris_dialog_close(PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_dialog"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gcompris_dialog_close();
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
 /* GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, */
 /*                                       gchar* mimetype, gchar* name);     */
 static PyObject*
@@ -279,6 +296,29 @@ py_gcompris_get_asset_file(PyObject* self, PyObject* args)
 }
 
 
+/* void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent);*/
+static PyObject*
+py_gcompris_clone_item(PyObject* self, PyObject* args)
+{
+  PyObject* pyitem;
+  PyObject* pygroup;
+  GnomeCanvasItem* item;
+  GnomeCanvasGroup* group;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "OO:gcompris_clone_item", &pyitem, &pygroup))
+    return NULL;
+  item = (GnomeCanvasItem*) pygobject_get(pyitem);
+  group = (GnomeCanvasGroup*) pygobject_get(pygroup);
+
+  /* Call the corresponding C function */
+  gcompris_clone_item(item, group);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
 static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "load_pixmap",  py_gcompris_load_pixmap, METH_VARARGS, "gcompris_load_pixmap" },
   { "set_image_focus",  py_gcompris_set_image_focus, METH_VARARGS, "gcompris_set_image_focus" },
@@ -291,8 +331,10 @@ static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "item_rotate_with_center",  py_gcompris_item_rotate_with_center, METH_VARARGS,
     "item_rotate_with_center" },
   { "dialog",  py_gcompris_dialog, METH_VARARGS, "gcompris_dialog" },
+  { "dialog_close",  py_gcompris_dialog_close, METH_VARARGS, "gcompris_dialog_close" },
   { "load_pixmap_asset",  py_gcompris_load_pixmap_asset, METH_VARARGS, "gcompris_load_pixmap_asset" },
   { "get_asset_file",  py_gcompris_get_asset_file, METH_VARARGS, "gcompris_get_asset_file" },
+  { "clone_item",  py_gcompris_clone_item, METH_VARARGS, "gcompris_clone_item" },
   { NULL, NULL, 0, NULL}
 };
 

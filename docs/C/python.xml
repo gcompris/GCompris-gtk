@@ -514,6 +514,11 @@ attribute is readeable and/or writable.</para>
 		<entry>The callback must be a callable object</entry>
 	      </row>
 	      <row>
+		<entry>gcompris.utils.dialog_close()</entry>
+		<entry>void gcompris_dialog_close()</entry>
+		<entry></entry>
+	      </row>
+	      <row>
 		<entry>gcompris.utils.load_pixmap_asset(dataset, categories, mimetype, name)</entry>
 		<entry>GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry>
 		<entry>return a gtk.gdk.Pixbuf</entry>
@@ -522,6 +527,11 @@ attribute is readeable and/or writable.</para>
 		<entry>gcompris.utils.get_asset_file(dataset, categories, mimetype, name)</entry>
 		<entry>gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry>
 		<entry>return a string</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.clone_item(item, parent)</entry>
+		<entry>void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)</entry>
+		<entry></entry>
 	      </row>
 	    </tbody>
 	  </tgroup>

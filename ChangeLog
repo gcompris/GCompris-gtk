@@ -1,3 +1,10 @@
+2004-06-30  Olivier Samyn  <osamyn@easynet.be>
+
+	* docs/C/python.xml: Documents the new bindings
+	* src/boards/py-mod-gcompris.c: (py_gcompris_get_locale): Added a missing cast.
+	* src/boards/py-mod-utils.c: (py_gcompris_dialog_close),
+	(py_gcompris_clone_item): Added the new gcompris-utils functions in the python binding
+
 2004-06-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/assetml.c: (assetml_get_locale), (matching),

@@ -272,7 +272,7 @@ py_gcompris_get_locale(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  result = gcompris_get_locale();
+  result = (gchar*)gcompris_get_locale();
 
   /* Create and return the result */
   return Py_BuildValue("s", result);
