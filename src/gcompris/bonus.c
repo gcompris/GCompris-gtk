@@ -177,6 +177,8 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
   
+  gcompris_bar_hide(TRUE);
+
   if (bonus_display_running)
     return;
   else
@@ -268,6 +270,8 @@ void end_bonus()
 
   bonus_item = NULL;
 	bonus_display_running = FALSE;
+
+  gcompris_bar_hide(FALSE);
 
   /* Re-Start the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
