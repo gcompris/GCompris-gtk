@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-29 14:37+0100\n"
-"PO-Revision-Date: 2003-10-29 20:41+0100\n"
+"POT-Creation-Date: 2003-11-10 03:26+0100\n"
+"PO-Revision-Date: 2003-11-10 14:15+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -351,8 +351,8 @@ msgstr "Jít na algebraické aktivity"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Pro zvolení aktivity klikni levým tlačítkem myši"
 
@@ -711,11 +711,11 @@ msgid ""
 "the double entry table."
 msgstr ""
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:199
+#: boards/draw.xml.in.h:1 src/boards/draw.c:205
 msgid "A simple vector drawing tool"
 msgstr "Jednoduchý vektorový kreslicí nástroj"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:200
+#: boards/draw.xml.in.h:2 src/boards/draw.c:206
 msgid "Creative board where you can freely draw"
 msgstr "Kreativní hrací deska, kde si můžeš volně kreslit"
 
@@ -759,6 +759,11 @@ msgstr "Trénování počítání"
 #: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr "Umísti položky nejlepším způsobem pro jejich počítání"
+
+#: boards/experience.xml.in.h:1
+#, fuzzy
+msgid "Go to experiences activities"
+msgstr "Jít na čtecí aktivity"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
@@ -1898,7 +1903,7 @@ msgstr "Naučná sada gcompris"
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
 #: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
 #: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nemohu nalézt soubor %s !"
@@ -2401,8 +2406,10 @@ msgid "display only activities with this difficulty level."
 msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
 
 #: src/gcompris/gcompris.c:79
-msgid "select the audio output, one of 'default alsa09 arts esd oss'"
-msgstr "výběr výstupu zvuku, jedno z 'default alsa09 arts esd oss'"
+msgid ""
+"select the audio output. Use '-A list' to get the list of available audio "
+"output"
+msgstr "vybrat výstup zvuku. Seznam dostupných výstupů zvuku získáte použitím '-A list'"
 
 #: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
@@ -2412,11 +2419,11 @@ msgstr "Vytiskne verzi "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:353
+#: src/gcompris/gcompris.c:357
 msgid "GCompris I Have Understood"
 msgstr "GCompris Pochopil jsem"
 
-#: src/gcompris/gcompris.c:570
+#: src/gcompris/gcompris.c:579
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2477,7 +2484,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Adresář"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
 msgid "Title"
 msgstr "Název"
 
@@ -2490,15 +2497,23 @@ msgstr "Miloslav Trmač"
 msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
 
-#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
+#: src/gcompris/oggplayer.c:165
+msgid ""
+"Possible audio output devices are:\n"
+"default "
+msgstr ""
+"Možná zařízení výstupu zvuku jsou:\n"
+"default "
+
+#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
 msgstr "Nyní přehrávám hudbu"
 
-#: src/gcompris/oggplayer.c:247
+#: src/gcompris/oggplayer.c:278
 msgid "Artist"
 msgstr "Umělec"
 
-#: src/gcompris/soundutil.c:116
+#: src/gcompris/soundutil.c:113
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Nemohu otevřít adresář hudby: %s"
