@@ -1,6 +1,6 @@
 #  gcompris - melody
 # 
-# Time-stamp: <2003/12/09 20:54:45 jose>
+# Time-stamp: <2005/03/05 jose>
 # 
 # Copyright (C) 2003 Jose Jorge
 # 
@@ -50,84 +50,44 @@ class Gcompris_melody:
     self.timers = []
     self.solution = []
     self.kidstry = []
-    self.in_repeat = 0;
+    self.in_repeat = 0
+    self.theme = 0
 
-    # Play an intro sound
-    gcompris.sound.play_ogg("melody/melody")
-    
     #
     # This list contains the 'theme' for each melody level.
     #
     self.melodylist = \
                       [
+      # xylophon
+      [
+      {'theme': "xylofon", 'background': "melody/xylofon/background.png", 'hittool': "melody/xylofon/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 101.0,  'image': "melody/xylofon/son1.png", 'sound': "melody/xylofon/son1"},
+        {'x': 281.0, 'y': 122.0,  'image': "melody/xylofon/son2.png", 'sound': "melody/xylofon/son2"},
+        {'x': 412.0, 'y': 140.0, 'image': "melody/xylofon/son3.png", 'sound': "melody/xylofon/son3"},
+        {'x': 546.0, 'y': 157.0, 'image': "melody/xylofon/son4.png", 'sound': "melody/xylofon/son4"} ] ],
+      
+      # guitar
+      [
+      {'theme': "guitar", 'background': "melody/guitar/background.png", 'hittool': "melody/guitar/cursor.png", 'hitofset_x': 400, 'hitofset_y': -5},
+      [ {'x': 0, 'y': 170.0,  'image': "melody/guitar/son1.png", 'sound': "melody/guitar/son1"},
+        {'x': 0, 'y': 230.0,  'image': "melody/guitar/son2.png", 'sound': "melody/guitar/son2"},
+        {'x': 0, 'y': 290.0, 'image': "melody/guitar/son3.png", 'sound': "melody/guitar/son3"},
+        {'x': 0, 'y': 350.0, 'image': "melody/guitar/son4.png", 'sound': "melody/guitar/son4"} ] ],
+      
       # Kitchen
       [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
-      
-      # Kitchen2
-      [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
+      {'theme': "tachos", 'background': "melody/tachos/background.jpg", 'hittool': "melody/tachos/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
+      [ {'x': 150.0, 'y': 50.0,  'image': "melody/tachos/son1.png", 'sound': "melody/tachos/son1"},
+        {'x': 550.0, 'y': 50.0,  'image': "melody/tachos/son2.png", 'sound': "melody/tachos/son2"},
+        {'x': 150.0, 'y': 250.0, 'image': "melody/tachos/son3.png", 'sound': "melody/tachos/son3"},
+        {'x': 550.0, 'y': 250.0, 'image': "melody/tachos/son4.png", 'sound': "melody/tachos/son4"} ] ] ]
 
-      # Kitchen3
-      [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
-      
-      # Kitchen4
-      [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
-      
-      # Kitchen5
-      [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
-      
-      # Kitchen6
-      [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
-      
-      # Kitchen7
-      [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
-      
-      # Kitchen8
-      [
-      {'background': "melody/background.jpg", 'hittool': "melody/cursor.png", 'hitofset_x': 50, 'hitofset_y': 50},
-      [ {'x': 150.0, 'y': 50.0,  'image': "melody/son1.png", 'sound': "melody/son1"},
-        {'x': 550.0, 'y': 50.0,  'image': "melody/son2.png", 'sound': "melody/son2"},
-        {'x': 150.0, 'y': 250.0, 'image': "melody/son3.png", 'sound': "melody/son3"},
-        {'x': 550.0, 'y': 250.0, 'image': "melody/son4.png", 'sound': "melody/son4"} ] ],
-      
-      ]
+    self.maxtheme = len(self.melodylist)-1
+    self.gcomprisBoard.maxlevel = 9
 
-    self.gcomprisBoard.maxlevel = len(self.melodylist)
-
+    # Play an intro sound
+    gcompris.sound.play_ogg("melody/" + self.melodylist[self.theme][0]['theme'] + "/melody")
+    
     gcompris.bar_set(gcompris.BAR_REPEAT|gcompris.BAR_LEVEL)
 
     self.display_current_level()
@@ -160,7 +120,7 @@ class Gcompris_melody:
   def display_current_level(self):
 
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            self.melodylist[self.gcomprisBoard.level-1][0]['background'])
+                            self.melodylist[self.theme][0]['background'])
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -171,7 +131,20 @@ class Gcompris_melody:
       y=0.0
       )
 
-    self.sound_list = self.melodylist[self.gcomprisBoard.level-1][1]
+    # Put the theme switcher button
+    self.switch_item = self.rootitem.add(
+        gnome.canvas.CanvasPixbuf,
+        pixbuf = gcompris.utils.load_pixmap("melody/switch.png"),
+        x=10,
+        y=10
+        )
+    self.switch_item.connect("event", self.switch_item_event)
+    # This item is clickeable and it must be seen
+    self.switch_item.connect("event", gcompris.utils.item_event_focus)
+
+	
+    # Put the sound buttons      
+    self.sound_list = self.melodylist[self.theme][1]
     
     for i in self.sound_list:
       self.sound_item = self.rootitem.add(
@@ -187,14 +160,14 @@ class Gcompris_melody:
     
     self.bang_item = self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap(self.melodylist[self.gcomprisBoard.level-1][0]['hittool']),
+      pixbuf = gcompris.utils.load_pixmap(self.melodylist[self.theme][0]['hittool']),
       x=0,
       y=0
       )
     self.bang_item.hide()
     
-    self.hitofset_x = self.melodylist[self.gcomprisBoard.level-1][0]['hitofset_x']
-    self.hitofset_y = self.melodylist[self.gcomprisBoard.level-1][0]['hitofset_y']
+    self.hitofset_x = self.melodylist[self.theme][0]['hitofset_x']
+    self.hitofset_y = self.melodylist[self.theme][0]['hitofset_y']
 
     self.populate(self.sound_list)
 
@@ -284,6 +257,20 @@ class Gcompris_melody:
               
   def key_press(self, keyval):
     print("got key %i" % keyval)
+    # Play sounds with the keys
+    if ((keyval == gtk.keysyms.KP_1) or (keyval == gtk.keysyms._1)):
+      print "son1"
+      self.sound_play(self.melodylist[self.theme][1][0])
+    if ((keyval == gtk.keysyms.KP_2) or (keyval == gtk.keysyms._2)):
+      print "son2"
+      self.sound_play(self.melodylist[self.theme][1][1])
+    if ((keyval == gtk.keysyms.KP_3) or (keyval == gtk.keysyms._3)):
+      print "son3"
+      self.sound_play(self.melodylist[self.theme][1][2])
+    if ((keyval == gtk.keysyms.KP_4) or (keyval == gtk.keysyms._4)):
+      print "son4"
+      self.sound_play(self.melodylist[self.theme][1][3])
+
     return
 
 
@@ -333,7 +320,33 @@ class Gcompris_melody:
     
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
-          gcompris.sound.play_ogg(sound_struct['sound'])
-          self.tried(sound_struct)
+          self.sound_play(sound_struct)
+    return gtk.FALSE
+  
+  # ---------------- sound is effectively played -----------------------
+  def sound_play(self, sound_struct):
+    gcompris.sound.play_ogg(sound_struct['sound'])
+    self.tried(sound_struct)
+    return
+  
+  # ---------------- theme change on switch events -----------------------
+  def switch_item_event(self, widget, event):
+
+    if self.board_paused or self.in_repeat:
+      return
+    # switch the theme
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      if event.button == 1:
+      	if self.theme < self.maxtheme:
+	  self.theme += 1
+	else:
+	  self.theme = 0
+	  
+	print("New melody theme : " + self.melodylist[self.theme][0]['theme'] + ".")  
+    # Apply the changes
+      	self.cleanup()
+      	self.display_current_level()
+
+    
     return gtk.FALSE
   
