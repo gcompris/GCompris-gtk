@@ -55,13 +55,15 @@ py_gcompris_set_image_focus(PyObject* self, PyObject* args)
   GnomeCanvasItem* item;
   gint pyfocus;
   gboolean focus;
-
+  printf("ICIC1\n");
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "Oi:gcompris_set_image_focus"), &pyitem, &pyfocus)
+  if(!PyArg_ParseTuple(args, "Oi:gcompris_set_image_focus", &pyitem, &pyfocus))
     return NULL;
+  printf("ICIC2\n");
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
   if(pyfocus>0) focus = TRUE;
   else focus = FALSE;
+  printf("ICIC3 focus =%d\n", focus);
 
   /* Call the corresponding C function */
   gcompris_set_image_focus(item, focus);
@@ -84,18 +86,16 @@ py_gcompris_item_event_focus(PyObject* self, PyObject* args)
   PyObject* pyevent;
   GdkEvent* event;
   PyObject* pydest_item;
-  GnomeCanvasItem* dest_item;
   gint result;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OOO:gcompris_item_event_focus", &pyitem, &pyevent, &pydest_item))
+  if(!PyArg_ParseTuple(args, "OO:gcompris_item_event_focus", &pyitem, &pyevent))
     return NULL;
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
   event = (GdkEvent*) pygobject_get(pyevent);
-  dest_item = (GnomeCanvasItem*) pygobject_get(pydest_item);
 
   /* Call the corresponding C function */
-  result = gcompris_item_event_focus(item, event, dest_item);
+  result = gcompris_item_event_focus(item, event, NULL);
 
   /* Create and return the result */
   return Py_BuildValue("i", result);

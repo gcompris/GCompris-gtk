@@ -1,5 +1,32 @@
 2003-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* .cvsignore: added config.rpath
+	* boards/boardicons/watercycle.png: new created by bruno for watercycle
+	* boards/watercycle.xml.in: new created by bruno for watercycle
+	* boards/watercycle/.cvsignore: new created by bruno for watercycle
+	* boards/watercycle/README: new created by bruno for watercycle
+	* boards/watercycle/background.png: new created by bruno for watercycle
+	* boards/watercycle/badwater.png: new created by bruno for watercycle
+	* boards/watercycle/badwater_off.png: new created by bruno for watercycle
+	* boards/watercycle/cleanwater.png: new created by bruno for watercycle
+	* boards/watercycle/cleanwater_off.png: new created by bruno for watercycle
+	* boards/watercycle/pumpwater.png: new created by bruno for watercycle
+	* boards/watercycle/pumpwater_off.png: new created by bruno for watercycle
+	* boards/watercycle/rain.png: new created by bruno for watercycle
+	* boards/watercycle/riverempty.png: new created by bruno for watercycle
+	* boards/watercycle/riverfull.png: new created by bruno for watercycle
+	* boards/watercycle/snow.png: new created by bruno for watercycle
+	* boards/watercycle/sun.png: new created by bruno for watercycle
+	* boards/watercycle/tuxboat.png: new created by bruno for watercycle
+	* boards/watercycle/vapor.png: new created by bruno for watercycle
+	* boards/watercycle/watercleaning.png: new created by bruno for watercycle
+	* boards/watercycle/waterpump.png: new created by bruno for watercycle
+	* src/boards/py-mod-utils.c: (py_gcompris_set_image_focus),
+	(py_gcompris_item_event_focus):  fixed
+	* src/boards/python/watercycle.py: completed, now can perform a complete cycle
+
+2003-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/Makefile.am: added watercycle
 	* boards/gcompris/animals/flamentrosegc.jpg: animal image given by 
 	* LE BERRE Daniel <le.berred@free.fr> : released under GPL
