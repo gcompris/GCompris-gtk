@@ -442,7 +442,7 @@ class Gcompris_searace:
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=x_left,
-      y=y-15,
+      y=y-20,
       fill_color_rgba=0xFF0000FFL
       )
 
@@ -451,7 +451,7 @@ class Gcompris_searace:
       text="",
       font=gcompris.skin.get_font("gcompris/content"),
       x=x_right,
-      y=y-15,
+      y=y-20,
       fill_color_rgba=0X027308FFL
       )
 
@@ -668,8 +668,10 @@ class Gcompris_searace:
            
       if(self.left_boat.won):
         self.statusitem.set(text=_("The Red boat has won"))
+        boat.speeditem.set(text="")
       elif(self.right_boat.won):
         self.statusitem.set(text=_("The Green boat has won"))
+        boat.speeditem.set(text="")
            
       boat.timer = 0
       return
@@ -743,24 +745,33 @@ class Gcompris_searace:
       boat.line = 0
       boat.timer = 0
       return
-    
-    a = boat.tb.get_iter_at_line(boat.line)
-    b = boat.tb.get_iter_at_line(boat.line)
-    b.forward_to_line_end()
-    boat.line+=1
-    
-    if (boat.line > boat.tb.get_line_count()):
-      # No more commands to process for this player
 
+    valid_cmd = False
+    cmd = ""
+    while(boat.line < boat.tb.get_line_count() and not valid_cmd):
+      a = boat.tb.get_iter_at_line(boat.line)
+      b = boat.tb.get_iter_at_line(boat.line)
+      b.forward_to_line_end()
+      cmd   = boat.tb.get_text(a, b, gtk.FALSE)
+      boat.line+=1
+      if(cmd and cmd[0] == "\n"):
+        boat.line+=1
+      print "Processing cmd = " + cmd
+      cmd   = cmd.strip("\n\t ")
+      if(cmd != "" and cmd[0] != "#"):
+        valid_cmd = True
+    
+    # No more commands to process for this player
+    if (boat.line > boat.tb.get_line_count() or not valid_cmd):
       # Let the user enter commands
       boat.tv.set_editable(True)
-      
+      # Ready to Restart
       boat.line = 0
       boat.timer = 0
       return
     
-    cmd   = boat.tb.get_text(a, b, gtk.FALSE)
-    cmd   = cmd.lstrip("\n\t ")
+    print "boat.line=" + str(boat.line)
+    print "Parsing command = " + cmd + "<<"
     cmds  = cmd.split()
     # Manage default cases (no params given)
     if ( len(cmds) == 1 and cmd.startswith(_("forward")) ):
@@ -770,7 +781,7 @@ class Gcompris_searace:
     elif ( len(cmds) == 1 and cmd.startswith(_("droite")) ):
       cmd += " 45"
     elif ( len(cmds) > 2):
-      boat.speeditem.set(text=_("Syntax error at line") + " " + str(boat.line) + " (" + cmd + ")")
+      boat.speeditem.set(text=_("Syntax error at line") + " " + str(boat.line) + "\n(" + cmd + ")")
 
       # Let the user enter commands
       boat.tv.set_editable(True)
@@ -778,8 +789,20 @@ class Gcompris_searace:
       boat.line = 0
       boat.timer = 0
       return
+
+    value = 0
+    if(len(cmds) == 2):
+      try:
+        value = int(cmd.split()[1])
+      except ValueError:
+        # Let the user enter commands
+        boat.tv.set_editable(True)
       
-    value = int(cmd.split()[1])
+        boat.timer = 0
+        boat.speeditem.set(text=_("The command") + " '" + cmd.split()[0] + "' " + "at line" + " " + str(boat.line) + "\n" + "requires a number parameter")
+        boat.line = 0
+        return
+      
     if( cmd.startswith(_("forward"))):
       # Transform the value from user visible sea size to pixels
       value *= self.sea_ratio
@@ -794,9 +817,9 @@ class Gcompris_searace:
       # Let the user enter commands
       boat.tv.set_editable(True)
       
-      boat.line = 0
       boat.timer = 0
-      boat.speeditem.set(text=_("Unknown command at line") + " " + str(boat.line) + "(" + cmd + ")")
+      boat.speeditem.set(text=_("Unknown command at line") + " " + str(boat.line) + "\n(" +  cmd.split()[0] + ")")
+      boat.line = 0
 
   # Will return a text string: the tux move
   def tux_move(self):
@@ -805,8 +828,16 @@ class Gcompris_searace:
     step_x    = (self.sea_area[2]-self.sea_area[0])/20/2
     step_y    = (self.sea_area[3]-self.sea_area[1])/10/2
     
-    #for y in range (self.sea_area[1], self.sea_area[3]+1, step_y):
-    #for x in range (self.sea_area[0], self.sea_area[2]+1, step_x):
-        
+    # Original boat position
+    bx     = self.right_boat.x
+    by     = self.right_boat.y
+    
+    one_path = []
 
+    # X Backward loop
+    for x in range( self.sea_area[2]-step_x, self.sea_area[0]+step_x, -step_x):
+      for y in range( self.sea_area[3]-step_y, self.sea_area[1]+step_y, -step_y):
+        # Find shortest path to previous calculated point
+        one_path.append([ (x, y) ])
+      
     return
