@@ -34,5 +34,6 @@ gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GdkPixb
 void		 gcompris_play_sound (const char *soundlistfile, const char *which);
 void 		gcompris_play_ogg(char *, ...);
 GcomprisBoard	*gcompris_read_xml_file(char *fname);
+gchar * convertUTF8Toisolat1(gchar * text);
 
 #endif

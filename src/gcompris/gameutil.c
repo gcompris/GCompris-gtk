@@ -406,7 +406,35 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
   return gcomprisBoard;
 }
 
-
+/* ==================================== */
+/* translates UTF8 charset to iso Latin1 */
+gchar * convertUTF8Toisolat1(gchar * text) {
+#define MAX_LENGTH 512
+  const char *inptr;
+  size_t inleft;
+  char *outptr;
+  size_t outleft;
+  gint retval;
+ // this should never happen, it does often !!
+  if (text == NULL)
+  	return NULL;
+
+  inptr   = (const char *) text;
+  outptr  = (char *) g_malloc(MAX_LENGTH);
+  inleft  = xmlUTF8Strsize(text, MAX_LENGTH);
+  outleft = MAX_LENGTH;
+  // Conversion to ISO-8859-1
+  retval = UTF8Toisolat1(outptr, &outleft, text, &inleft);
+  if(retval==0)  {
+ 	    g_free(text);
+	    text = outptr;
+	    text[outleft]='\0';
+	  } else
+	  	g_free(outptr);
+
+  return text;
+}
+
 /* Local Variables: */
 /* mode:c */
 /* eval:(load-library "time-stamp") */

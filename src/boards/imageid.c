@@ -45,6 +45,11 @@ static void process_ok(void);
 static void highlight_selected(GnomeCanvasItem *);
 static void game_won();
 
+#ifdef DEBUG
+static void dump_xml();
+#endif
+
+
 typedef struct _Board Board;
 struct _Board {
   char  *pixmapfile;
@@ -58,7 +63,6 @@ static gboolean read_xml_file(char *fname);
 static void init_xml();
 static void add_xml_data(xmlDocPtr doc,xmlNodePtr xmlnode, GNode * child);
 static void parse_doc(xmlDocPtr doc);
-static gchar * readUTF8Toisolat1(gchar * text);
 static gboolean read_xml_file(char *fname);
 static void destroy_board_list();
 static void destroy_board(Board * board);
@@ -477,34 +481,6 @@ static void dump_xml() {
     }
 }
 #endif
-/* ==================================== */
-/* Taken partly from gameutil.c, translates UTF8 charset to iso Latin1 */
-static gchar * readUTF8Toisolat1(gchar * text) {
-#define MAX_LENGTH 128
-  const char *inptr;
-  size_t inleft;
-  char *outptr;
-  size_t outleft;
-  gint retval;
- // this should never happen, it does often !!
-  if (text == NULL)
-  	return NULL;
-
-  inptr   = (const char *) text;
-  outptr  = (char *) g_malloc(MAX_LENGTH);
-  inleft  = xmlUTF8Strsize(text, MAX_LENGTH);
-  outleft = MAX_LENGTH;
-  // Conversion to ISO-8859-1
-  retval = UTF8Toisolat1(outptr, &outleft, text, &inleft);
-  if(retval==0)  {
- 	    g_free(text);
-	    text = outptr;
-	    text[outleft]='\0';
-	  } else
-	  	g_free(outptr);
-
-  return text;
-}
 
 /* ==================================== */
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
@@ -527,17 +503,17 @@ static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 		text1 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-		text1 = readUTF8Toisolat1(text1);
+		text1 = convertUTF8Toisolat1(text1);
 	if (!strcmp(xmlnode->name, "text2") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 		text2 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-		text2 = readUTF8Toisolat1(text2);
+		text2 = convertUTF8Toisolat1(text2);
 	if (!strcmp(xmlnode->name, "text3") && (lang==NULL
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
 		text3 = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
-		text3 = readUTF8Toisolat1(text3);
+		text3 = convertUTF8Toisolat1(text3);
 	xmlnode = xmlnode->next;
 	}
 	// I really don't know why this test, but otherwise, the list is doubled
