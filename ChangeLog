@@ -1,3 +1,11 @@
+2003-01-27  bruno  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/gletters.png: better icon
+	* boards/boardicons/wordsgame.png: better icon
+	* boards/wordsgame/wordslevelmax.fr: re-added removed words
+	* src/boards/clockgame.c: (clockgame_create_item): changed title size
+	* src/boards/wordsgame.c: (key_press), (wordsgame_create_item): fixed utf-8 input issue
+
 2003-01-26  bruno  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: Added babyshapes (thanks Pascal)

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/01/17 23:31:50 bruno>
+ * Time-stamp: <2003/01/27 01:30:24 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *

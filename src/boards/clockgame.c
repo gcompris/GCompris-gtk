@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2002/12/10 00:04:32 bruno>
+ * Time-stamp: <2003/01/27 01:16:48 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -528,7 +528,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (parent,
 			   gnome_canvas_text_get_type (),
 			   "text", _("Set the watch to:"),
-			   "font", FONT_BOARD_MEDIUM,
+			   "font", FONT_BOARD_SMALL,
 			   "x", (double) gcomprisBoard->width*0.15,
 			   "y", (double) cy + needle_size +  needle_size / 3 - 30,
 			   "anchor", GTK_ANCHOR_CENTER,

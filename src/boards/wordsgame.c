@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2003/01/06 22:15:03 bruno>
+ * Time-stamp: <2003/01/27 00:46:56 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -231,11 +231,13 @@ static void wordsgame_check_focus (gchar       *key,
 gint key_press(guint keyval)
 {
   char str[2];
-  gchar *utf8char;
+  char utf8char[6];
 
   if(!gcomprisBoard)
     return TRUE;
 
+  if(!g_unichar_isalnum (gdk_keyval_to_unicode (keyval)))
+    return TRUE;
 
   /* Add some filter for control and shift key */
   switch (keyval)
@@ -290,9 +292,12 @@ gint key_press(guint keyval)
       break;
     }
 
-  sprintf(str, "%c", keyval);
+  sprintf(utf8char, "%c", gdk_keyval_to_unicode(keyval));
 
-  utf8char = g_locale_to_utf8(str, 1, NULL, NULL, NULL);
+  g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),
+		     utf8char);
+
+  printf("utf8char=%s\n", utf8char);
 
   if(currentFocus==NULL) 
     {
@@ -333,10 +338,10 @@ gint key_press(guint keyval)
 	  }
 	    
 	  nextCurrentChar = g_utf8_next_char(currentChar);
-
+	  printf("currentChar=%s utf8char=%s size=%d\n", currentChar, utf8char, nextCurrentChar-currentChar);
 	  if(strncmp(currentChar, utf8char, nextCurrentChar-currentChar)==0)
 	    {
-
+	      printf("strncmp DONE\n");
 	      currentFocus->charcounter++;
 
 	      /* Increment the overword */
@@ -376,8 +381,8 @@ gint key_press(guint keyval)
       /* Anyway kid you clicked on the wrong key */
       player_loose();
     }
-  
-  return TRUE;
+   printf("wordsgame key DONE\n");
+  return FALSE;
 }
 
 gboolean
@@ -537,7 +542,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
   lettersItem->rootitem = \
     gnome_canvas_item_new (parent,
 			   gnome_canvas_group_get_type (),
-			   "x", (double)(rand()%(gcomprisBoard->width-100)),
+			   "x", (double)(rand()%(gcomprisBoard->width-170)),
 			   "y", (double) -12,
 			   NULL);
 
