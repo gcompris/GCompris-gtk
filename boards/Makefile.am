@@ -35,6 +35,7 @@ xml_in_files = \
 	erase.xml.in \
 	experience.xml.in \
 	fifteen.xml.in \
+	followline.xml.in \
 	fun.xml.in \
 	geography.xml.in \
 	gletters.xml.in \

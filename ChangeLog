@@ -1,3 +1,23 @@
+2004-08-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added new followline.xml.in board
+	* boards/followline.xml.in: created by bruno for new followline board. Not yet playable.
+	* boards/sounds/en/alphabet/0.ogg: added by Susan Rich
+	* boards/sounds/en/alphabet/gcompris_alphabet_en.assetml.in: added new sounds
+	* boards/sounds/en/geography/france.ogg: added by Susan Rich
+	* boards/sounds/en/geography/gcompris_geography_en.assetml.in: added new sounds
+	* boards/sounds/en/geography/germany.ogg: added by Susan Rich
+	* boards/sounds/en/misc/awesome.ogg: added by Susan Rich
+	* boards/sounds/en/misc/fantastic.ogg: added by Susan Rich
+	* boards/sounds/en/misc/gcompris_misc_en.assetml.in: added new sounds
+	* boards/sounds/en/misc/perfect.ogg: added by Susan Rich
+	* boards/sounds/en/misc/waytogo.ogg: added by Susan Rich
+	* configure.in: increased en sounds version. gcompris is now maked 6.2.
+	* src/boards/python/Makefile.am:
+	* src/gcompris/bonus.c: added more congratulation sounds:
+	"awesome.ogg",  "fantastic.ogg",  "waytogo.ogg",  "super.ogg",  "perfect.ogg"
+	* src/boards/python/followline.py: created by Bruno
+
 2004-08-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/ballcatch.xml.in: now moved level 1 in computer section

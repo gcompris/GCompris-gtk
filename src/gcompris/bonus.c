@@ -43,7 +43,12 @@ static gchar *greetingsList[] =
 {
   "congratulation.ogg",
   "great.ogg",
-  "good.ogg"
+  "good.ogg",
+  "awesome.ogg",
+  "fantastic.ogg",
+  "waytogo.ogg",
+  "super.ogg",
+  "perfect.ogg"
 };
 #define NUMBER_OF_GREETINGS 3
 

@@ -5,6 +5,7 @@ pythondir = $(PYTHON_PLUGIN_DIR)
 dist_python_DATA= \
 	algorithm.py \
 	anim.py \
+	followline.py \
 	hexagon.py \
 	melody.py \
 	pythontest.py \
