@@ -192,14 +192,49 @@ static void repeat (){
 
   if(gcomprisBoard!=NULL)
     {
+      char *str  = NULL;
       char *str1 = NULL;
       char *str2 = NULL;
+      GcomprisProperties	*properties = gcompris_get_properties();
 
       str1 = g_strdup_printf("%s%s", colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2],
 			     ".ogg");
       str2 = gcompris_get_asset_file("gcompris colors", NULL, "audio/x-ogg", str1);
 
-      gcompris_play_ogg(str2, NULL);
+      /* If we don't find a sound in our locale or the sounds are disabled */
+      if(str2 && properties->fx) {
+	gcompris_play_ogg(str2, NULL);
+      }
+      else
+	{
+	  str = g_strdup_printf(_("Click on the %s toon"),
+				gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2]));
+	  
+	  gnome_canvas_item_new (boardRootItem,
+				 gnome_canvas_text_get_type (),
+				 "text", str,
+				 "font", gcompris_skin_font_board_huge_bold,
+				 "x", (double) BOARDWIDTH/2+2,
+				 "y", (double) BOARDHEIGHT-25+2,
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color", "black",
+				 NULL);
+	  
+	  gnome_canvas_item_new (boardRootItem,
+				 gnome_canvas_text_get_type (),
+				 "text", str,
+				 "font", gcompris_skin_font_board_huge_bold,
+				 "x", (double) BOARDWIDTH/2,
+				 "y", (double) BOARDHEIGHT-25,
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color", "blue",
+				 NULL);
+	  
+	  
+	  g_free(str);
+	}
+      
+
 
       g_free(str1);
       g_free(str2);
@@ -249,30 +284,6 @@ static GnomeCanvasItem *colors_create_item(GnomeCanvasGroup *parent) {
 
   g_free(str);
 
-  str = g_strdup_printf(_("Click on the %s toon"), gettext(colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2]));
-
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
-			 "text", str,
-			 "font", gcompris_skin_font_board_huge_bold,
-			 "x", (double) BOARDWIDTH/2+2,
-			 "y", (double) BOARDHEIGHT-25+2,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "black",
-			 NULL);
-
-  gnome_canvas_item_new (boardRootItem,
-			 gnome_canvas_text_get_type (),
-			 "text", str,
-			 "font", gcompris_skin_font_board_huge_bold,
-			 "x", (double) BOARDWIDTH/2,
-			 "y", (double) BOARDHEIGHT-25,
-			 "anchor", GTK_ANCHOR_CENTER,
-			 "fill_color", "blue",
-			 NULL);
-
-
-  g_free(str);
   gnome_canvas_item_hide(highlight_image_item);
 
   gdk_pixbuf_unref(highlight_pixmap);

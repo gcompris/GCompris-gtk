@@ -1,3 +1,8 @@
+2003-08-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/reversecount.c: (item_event): Now zero value no more displayed if one dice only
+	* src/boards/colors.c: now text is displayed is no voice available or sounds fx are disabled
+
 2003-08-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: added assetml.in file creation

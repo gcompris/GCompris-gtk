@@ -701,11 +701,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 	{
 	case 1:
 	  if(dicevalue_array[i]++ >= max_dice_number)
-	    dicevalue_array[i] = 0;
+	    dicevalue_array[i] = (number_of_dices==1 ? 1 : 0);
 	  break;
 	case 2:
 	case 3:
-	  if(dicevalue_array[i]-- == 0)
+	  if(dicevalue_array[i]-- == (number_of_dices==1 ? 1 : 0))
 	    dicevalue_array[i] = max_dice_number;
 	  break;
 	default:
