@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-29 19:50+0200\n"
-"PO-Revision-Date: 2003-08-30 14:40+0200\n"
+"POT-Creation-Date: 2003-09-18 19:41+0200\n"
+"PO-Revision-Date: 2003-09-19 01:40+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1111,7 +1111,9 @@ msgstr "raketa"
 msgid ""
 "A hand is printed. You have to tell if this is the right or left hand. Click "
 "on the red button - at the left - or on the green button - at the right."
-msgstr "Je vytištěna ruka. Musíš poznat, jestli je to pravá nebo levá ruka. Klikni na červené tlačítko -  vlevo - nebo na zelené tlačítko - vpravo."
+msgstr ""
+"Je vytištěna ruka. Musíš poznat, jestli je to pravá nebo levá ruka. Klikni "
+"na červené tlačítko -  vlevo - nebo na zelené tlačítko - vpravo."
 
 #: boards/leftright.xml.in.h:2
 msgid ""
@@ -1235,7 +1237,9 @@ msgstr ""
 msgid ""
 "An object is displayed in the main area. An incomplete word is printed under "
 "the picture. Select the missing letter to complete the word."
-msgstr "V hlavní oblasti se zobrazuje objekt. Pod obrázkem je vytištěno neúplné slovo. Vyber chybějící písmeno pro doplnění slova."
+msgstr ""
+"V hlavní oblasti se zobrazuje objekt. Pod obrázkem je vytištěno neúplné "
+"slovo. Vyber chybějící písmeno pro doplnění slova."
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
@@ -1953,7 +1957,7 @@ msgstr "Nemohu otevřít adresář pixmap: %s"
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
 
-#: src/boards/colors.c:252
+#: src/boards/colors.c:210
 #, c-format
 msgid "Click on the %s toon"
 msgstr ""
@@ -2126,7 +2130,7 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
+#: src/gcompris/about.c:287 src/gcompris/config.c:175 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
@@ -2216,76 +2220,80 @@ msgid "Norwegian"
 msgstr "Norština"
 
 #: src/gcompris/config.c:73
+msgid "Polish"
+msgstr "Polština"
+
+#: src/gcompris/config.c:74
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Brazil Portuguese"
 msgstr "Brazilská portugalština"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:148
+#: src/gcompris/config.c:149
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:254
+#: src/gcompris/config.c:255
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:297
+#: src/gcompris/config.c:298
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:325
+#: src/gcompris/config.c:326
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:363
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:695
-#: src/gcompris/config.c:706
+#: src/gcompris/config.c:397 src/gcompris/config.c:696
+#: src/gcompris/config.c:707
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
