@@ -42,7 +42,7 @@ dist-hook:
 	fi
 
 
-CLEANFILES = core-translation-report gcompris.desktop
+CLEANFILES = core-translation-report gcompris.desktop gcompris.spec
 
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update

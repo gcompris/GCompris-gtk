@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2003/01/27 00:46:56 bruno>
+ * Time-stamp: <2003/02/13 15:23:16 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -466,6 +466,12 @@ static void wordsgame_move_item(LettersItem *item)
 
 static void wordsgame_destroy_item(LettersItem *item)
 {
+
+  /* Andrew Stribblehill <ads@debian.org> -- clear current focus if
+       it goes off the canvas */
+  if (currentFocus == item) {
+    currentFocus = NULL;
+  }
 
   item_list = g_list_remove (item_list, item);
   item2del_list = g_list_remove (item2del_list, item);
