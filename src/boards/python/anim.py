@@ -2726,9 +2726,9 @@ class BaseProcess:
                         'text-anchor',
                         'middle')
                     continue
-                if (attr == 'text'):
-                  self.frame.appendChild(self.document.createTextNode(item[1][frame_no]['text'].encode('UTF-8')))
-                  continue
+#                if (attr == 'text'):
+#                  self.frame.appendChild(self.document.createTextNode(item[1][frame_no]['text'].encode('UTF-8')))
+#                  continue
 
               if ( attr == 'font' ):
                   font = item[1][frame_no]['font']
@@ -2860,7 +2860,7 @@ class DOMProcess(BaseProcess):
           # html buttons included
           self.foreign = self.document.createElement("foreignObject")
           self.svg.appendChild(self.foreign)
-          self.foreign.setAttribute("x","200")
+          self.foreign.setAttribute("x","300")
           self.foreign.setAttribute("y","520")
           self.foreign.setAttribute("width","800")
           self.foreign.setAttribute("height","30")
@@ -3025,7 +3025,6 @@ class Outputter:
           keys = attrs.keys()
           for k in keys:
              if (k == 'create'):
-               frame_info.update(self.fixedattributs[self.item_getting[0]])
                if (self.item_getting[0] == 'IMAGE'):
                  frame_info['image_name'] = self.image_getting
                if ('fill' in keys):
@@ -3034,30 +3033,34 @@ class Outputter:
                      self.item_getting[0] = 'RECT'
                    if (self.item_getting[0] == 'FILL_CIRCLE'):
                      self.item_getting[0] = 'CIRCLE'
-             else:
-               if (k == 'transform'):
+               frame_info.update(self.fixedattributs[self.item_getting[0]])
+             if (k == 'transform'):
                  frame_info['matrice'] =  eval(attrs[k])
                  continue
-               if (k == 'stroke'):
-                 # used in CIRCLE LINE and RECT
-                 if (self.item_getting[0] in ['CIRCLE','RECT','LINE']):
-                   # CIRCLE RECT -> outline_color_rgba
-                   # LINE -> fill_color_rgba
-                   if (self.item_getting[0] == 'LINE'):
-                     frame_info['fill_color_rgba'] = eval(attrs[k])
-                   else:
-                     frame_info['outline_color_rgba'] = eval(attrs[k])
-                 continue
-               if (k == 'fill'):
-                 #used in FILL_CIRCLE and FILL_RECT
-                 if (self.item_getting[0] in ['FILL_CIRCLE','FILL_RECT','TEXT']):
+             if (k == 'stroke'):
+               # used in CIRCLE LINE and RECT
+               if (self.item_getting[0] in ['CIRCLE','RECT','LINE','FILL_RECT','FILL_CIRCLE']):
+                 # CIRCLE RECT -> outline_color_rgba
+                 # LINE -> fill_color_rgba
+                 if (self.item_getting[0] == 'LINE'):
                    frame_info['fill_color_rgba'] = eval(attrs[k])
+                 else:
+                   frame_info['outline_color_rgba'] = eval(attrs[k])
                  continue
-               if (k in ['stroke-width', 'font-size', 'font-family', 'font', 'text-anchor']):
-                 continue
-               if (k in ['x1', 'y1', 'x2', 'y2','x','y','width','height', 'cx', 'cy', 'rx', 'ry']):
-                 self.points[k] =  eval(attrs[k])
+             if (k == 'fill'):
+               #used in FILL_CIRCLE and FILL_RECT
+               if (self.item_getting[0] in ['FILL_CIRCLE','FILL_RECT','TEXT']):
+                 frame_info['fill_color_rgba'] = eval(attrs[k])
+               continue
+             if (k in ['stroke-width', 'font-size', 'font-family', 'font', 'text-anchor']):
+               continue
+             if (k in ['x1', 'y1', 'x2', 'y2','x','y','width','height', 'cx', 'cy', 'rx', 'ry']):
+               self.points[k] =  eval(attrs[k])
+               continue
 
+             if (k == 'text'):
+                frame_info['text']=attrs[k]
+                continue
              if (k == 'xlink:href'):
                # in draw, this is in attrs becaus the frame is directly in element.
                frame_info['image_name'] = self.image_getting
@@ -3286,14 +3289,15 @@ class Outputter:
         #print 'End element:\n\t', name
 
     def CharacterDataHandler(self, data):
-      if (self.in_element != []):
-        if ((self.in_element[-1] == 'gcompris:frame') and  (self.item_getting[0] == 'TEXT')):
-          print "DATA = ",data,"."
-          keys = self.item_getting[1].keys()
-          keys.sort()
-          print self.item_getting
-          # data is already in unicode
-          self.item_getting[1][keys[-1]]['text']=data
+      pass
+#      if (self.in_element != []):
+#        if ((self.in_element[-1] == 'gcompris:frame') and  (self.item_getting[0] == 'TEXT')):
+#          print "DATA = ",data,"."
+#          keys = self.item_getting[1].keys()
+#          keys.sort()
+#          #print self.item_getting
+#          # data is already in unicode
+#          #self.item_getting[1][keys[-1]]['text']=data
           
     def ProcessingInstructionHandler(self, target, data):
         print 'PI:\n\t', target, data
