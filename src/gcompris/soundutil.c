@@ -135,6 +135,8 @@ static void* thread_play_ogg (void *s)
 	  {
 	    printf("trying to play %s\n", file);
 	  } else
+    /* Try to find a sound file that does not need to be localized 
+    (ie directly in root /sounds directory) */
     {
     	g_free(file);
 		  file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
