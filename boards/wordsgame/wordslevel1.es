@@ -15,7 +15,7 @@ mama
 malo
 mata
 mar
-moneria
+monería
 mesa
 moto
 ocho
@@ -29,7 +29,7 @@ sal
 sed
 seis
 sitio
-sofa
+sofá
 sol
 tapas
 toro

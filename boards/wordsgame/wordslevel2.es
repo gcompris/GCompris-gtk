@@ -1,3 +1,4 @@
+cuatro
 falda
 golpe
 guapa
@@ -10,13 +11,12 @@ lluvia
 maestra
 monta
 negro
-nuebe
+nueve
 ordenador
 paella
 perro
 pierna
 pintura
-quatro
 reloj
 remero
 rueda
@@ -45,12 +45,12 @@ mama
 malo
 mata
 mar
-moneria
+monería
 mesa
 moto
 ocho
 padre
-papa
+papá
 pez
 piso
 playa
@@ -59,7 +59,7 @@ sal
 sed
 seis
 sitio
-sofa
+sofá
 sol
 tapas
 toro

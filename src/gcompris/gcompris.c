@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/06/04 21:40:44 bruno>
+ * Time-stamp: <2002/06/17 01:11:56 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -20,8 +20,10 @@
  */
 
 #include <signal.h>
+#include <locale.h>
 
 #include "gcompris.h"
+#include <locale.h>
 #include <popt-gnome.h>
 
 #include "cursor.h"

@@ -5,7 +5,7 @@ bamba
 barca
 blanco
 bosque
-botito
+bonito
 bruma
 bueno
 bueno
@@ -16,6 +16,7 @@ clima
 coche
 comer
 cuadro
+cuatro
 escuela
 falda
 golpe
@@ -29,13 +30,12 @@ lluvia
 maestra
 monta
 negro
-nuebe
+nueve
 ordenador
 paella
 perro
 pierna
 pintura
-quatro
 reloj
 remero
 rueda
@@ -64,7 +64,7 @@ mama
 malo
 mata
 mar
-moneria
+monería
 mesa
 moto
 ocho
@@ -78,7 +78,7 @@ sal
 sed
 seis
 sitio
-sofa
+sofá
 sol
 tapas
 toro
