@@ -7,7 +7,8 @@ xml_in_files = \
 	board3_0.xml.in \
 	board4_0.xml.in \
 	board5_0.xml.in \
-	board6_0.xml.in
+	board6_0.xml.in \
+	board7_0.xml.in
 
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
