@@ -48,11 +48,14 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
       gcomprisBoard->plugin->pause_board(TRUE);
     }
 
+  if(bonus_id==BONUS_RANDOM)
+    bonus_id = rand() % BONUS_LAST;
+
   switch(bonus_id) {
-  case SMILEY_BONUS :
+  case BONUS_SMILEY :
     bonus_image("smiley",gamewon);
     break;
-  case FLOWER_BONUS :
+  case BONUS_FLOWER :
     bonus_image("flower",gamewon);
     break;
   default :

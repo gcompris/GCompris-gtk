@@ -27,9 +27,15 @@
 #include <assert.h>
 #include "gcompris.h"
 
-#define RANDOM_BONUS 0
-#define SMILEY_BONUS 1
-#define FLOWER_BONUS 2
+/* BONUS_LAST is equals to the last available bonus type */
+
+typedef enum
+{
+  BONUS_RANDOM		= 0,
+  BONUS_SMILEY		= 1,
+  BONUS_FLOWER		= 2,
+  BONUS_LAST		= 2
+} BonusList;
 
 void gcompris_display_bonus(int, int);
 void bonus_image(char *,int);

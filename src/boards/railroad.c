@@ -402,7 +402,7 @@ static void process_ok()
   for (i=0; i<g_list_length(int_model_list); i++)
   	printf(" i = \t%d val = \t%d\n", i, GPOINTER_TO_INT(g_list_nth_data(int_model_list,i)) );
 
-  gcompris_display_bonus(gamewon, FLOWER_BONUS);
+  gcompris_display_bonus(gamewon, BONUS_FLOWER);
   if (gamewon) {
       railroad_next_level();
       gamewon = FALSE;

@@ -394,7 +394,7 @@ static void game_won()
 /* ==================================== */
 static void process_ok()
 {
-  gcompris_display_bonus(gamewon, SMILEY_BONUS);
+  gcompris_display_bonus(gamewon, BONUS_SMILEY);
 }
 /* ==================================== */
 static gint

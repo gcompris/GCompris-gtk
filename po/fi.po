@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-11-14 15:31+0100\n"
+"POT-Creation-Date: 2001-11-25 21:35+0100\n"
 "PO-Revision-Date: 2001-03-22 10:20EET\n"
 "Last-Translator: Jyrki Kuoppala <jkp@kaapeli.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -272,7 +272,7 @@ msgstr "Noppapeli"
 
 #: boards/smallnumbers.xml.in.h:2
 #, fuzzy
-msgid "Type the keyboard number 1 to 6 before the dices reach the ground"
+msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
 msgstr "Kirjoita nopassa oleva numero ennen kuin noppa osuu maahan"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
@@ -348,12 +348,11 @@ msgid ""
 "or the right button to move an object.\n"
 msgstr ""
 
-#: src/boards/locale.c:130
-#, c-format
-msgid "GCompris will now display its messages in %s"
+#: src/boards/locale.c:145
+msgid "GCompris will now display its messages in the selected language"
 msgstr ""
 
-#: src/boards/locale.c:151
+#: src/boards/locale.c:160
 msgid ""
 "If this message is not translated, \n"
 "it means that probably GCompris is not translated in this language"
@@ -432,6 +431,10 @@ msgstr ""
 #, fuzzy
 msgid "Do you really want to quit GCompris?"
 msgstr "Haluatko lopettaa pelin?"
+
+#, fuzzy
+#~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
+#~ msgstr "Kirjoita nopassa oleva numero ennen kuin noppa osuu maahan"
 
 #~ msgid "Simple Algebra"
 #~ msgstr "Laske"

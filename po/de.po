@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2001-11-14 15:31+0100\n"
+"POT-Creation-Date: 2001-11-25 21:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Martin Herweg <m.herweg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -269,9 +269,10 @@ msgid "Numbers With Dices"
 msgstr "Würfel und Zahlen"
 
 #: boards/smallnumbers.xml.in.h:2
-msgid "Type the keyboard number 1 to 6 before the dices reach the ground"
+#, fuzzy
+msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
 msgstr ""
-"Gebe die Zahl 1 bis 6 ein die der Anzahl Augen auf\n"
+"Gebe die Zahl 1 bis 9 ein, die der Anzahl Augen auf\n"
 " den Würfeln entspricht bevor sie unten ankommen"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
@@ -356,12 +357,11 @@ msgid ""
 "or the right button to move an object.\n"
 msgstr ""
 
-#: src/boards/locale.c:130
-#, c-format
-msgid "GCompris will now display its messages in %s"
+#: src/boards/locale.c:145
+msgid "GCompris will now display its messages in the selected language"
 msgstr ""
 
-#: src/boards/locale.c:151
+#: src/boards/locale.c:160
 msgid ""
 "If this message is not translated, \n"
 "it means that probably GCompris is not translated in this language"
@@ -440,6 +440,12 @@ msgstr ""
 #: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Möchtest Du GCompris wirklich beenden?"
+
+#, fuzzy
+#~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
+#~ msgstr ""
+#~ "Gebe die Zahl 1 bis 6 ein die der Anzahl Augen auf\n"
+#~ " den Würfeln entspricht bevor sie unten ankommen"
 
 #~ msgid "Simple Algebra"
 #~ msgstr "Einfache Rechenaufgaben"

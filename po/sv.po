@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-11-17 14:58+0100\n"
+"POT-Creation-Date: 2001-11-25 21:35+0100\n"
 "PO-Revision-Date: 2001-11-17 14:59+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -267,8 +267,9 @@ msgid "Numbers With Dices"
 msgstr "Tal med tärningar"
 
 #: boards/smallnumbers.xml.in.h:2
-msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
-msgstr "Skriv in tangentbordssiffran 1 till 6 innan tärningarna når marken"
+#, fuzzy
+msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
+msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
 msgid "Falling Words"
@@ -372,12 +373,12 @@ msgstr ""
 "För att snabba upp kan du använda musens mittknapp för att ta bort ett\n"
 "objekt eller höger musknapp för att flytta ett objekt.\n"
 
-#: src/boards/locale.c:130
-#, c-format
-msgid "GCompris will now display its messages in %s"
+#: src/boards/locale.c:145
+#, fuzzy
+msgid "GCompris will now display its messages in the selected language"
 msgstr "GCompris kommer att visa alla dess meddelanden på %s"
 
-#: src/boards/locale.c:151
+#: src/boards/locale.c:160
 msgid ""
 "If this message is not translated, \n"
 "it means that probably GCompris is not translated in this language"
@@ -457,6 +458,9 @@ msgstr "En OFSET-utveckling"
 #: src/gcompris/gcompris.c:326
 msgid "Do you really want to quit GCompris?"
 msgstr "Vill du verkligen avsluta GCompris?"
+
+#~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
+#~ msgstr "Skriv in tangentbordssiffran 1 till 6 innan tärningarna når marken"
 
 #~ msgid "Practice the multiplication operation"
 #~ msgstr "Träna på multiplikation"

@@ -95,7 +95,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
   GdkFont *gdk_font;
   GdkFont *gdk_font_small;
-  gchar   *tmp;
+  GdkPixbuf *menu_pixmap = NULL;
 
   if(agcomprisBoard!=NULL)
     {
@@ -125,22 +125,31 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 								NULL));
 
 
-      gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+      menu_pixmap = gcompris_load_pixmap(gcomprisBoard->icon_name);
 
-      tmp = g_strdup_printf(_("GCompris will now display its messages in %s"),  
-			    gcomprisBoard->name);
+      gnome_canvas_item_new (boardRootItem,
+			     gnome_canvas_pixbuf_get_type (),
+			     "pixbuf", menu_pixmap,
+			     "x", (double)BOARDWIDTH/2 
+			     - gdk_pixbuf_get_width(menu_pixmap)/2,
+			     "y", (double)BOARDHEIGHT/3 
+			     - gdk_pixbuf_get_height(menu_pixmap)/2,
+			     "width", (double) gdk_pixbuf_get_width(menu_pixmap),
+			     "height", (double) gdk_pixbuf_get_height(menu_pixmap),
+			     NULL);
+
+      gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 
       gnome_canvas_item_new (boardRootItem,
 			     gnome_canvas_text_get_type (),
-			     "text", tmp,
+			     "text", _("GCompris will now display its messages in the selected language"),
 			     "font_gdk", gdk_font,
 			     "x", (double) BOARDWIDTH/2,
-			     "y", (double) BOARDHEIGHT/3,
+			     "y", (double) BOARDHEIGHT/3 + 80,
 			     "anchor", GTK_ANCHOR_CENTER,
 			     "fill_color", "white",
 			     NULL);
 
-      g_free(tmp);
 
 
       /* Load a gdk font */
@@ -151,7 +160,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 			     "text", _("If this message is not translated, \nit means that probably GCompris is not translated in this language"),
 			     "font_gdk", gdk_font_small,
 			     "x", (double) BOARDWIDTH/2,
-			     "y", (double) BOARDHEIGHT/3 + 80,
+			     "y", (double) BOARDHEIGHT/3 + 160,
 			     "anchor", GTK_ANCHOR_CENTER,
 			     "fill_color", "white",
 			     NULL);

@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2001/11/06 22:25:23 bruno>
+ * Time-stamp: <2001/11/18 22:25:54 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -112,7 +112,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
   ok_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) width*0.8,
+				"x", (double) width*0.7,
 				"y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				"width", (double)  gdk_pixbuf_get_width(pixmap)*zoom,
 				"height", (double) gdk_pixbuf_get_height(pixmap)*zoom,
@@ -135,7 +135,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
   level_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				      gnome_canvas_pixbuf_get_type (),
 				      "pixbuf", pixmap, 
-				      "x", (double) width*0.7,
+				      "x", (double) width*0.6,
 				      "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				      "width", (double)  gdk_pixbuf_get_width(pixmap)*zoom,
 				      "height", (double) gdk_pixbuf_get_height(pixmap)*zoom,
@@ -158,7 +158,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
   help_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) width*0.6,
+				     "x", (double) width*0.5,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     "width", (double)  gdk_pixbuf_get_width(pixmap)*zoom,
 				     "height", (double) gdk_pixbuf_get_height(pixmap)*zoom,
@@ -179,7 +179,7 @@ void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
   repeat_item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				     gnome_canvas_pixbuf_get_type (),
 				     "pixbuf", pixmap, 
-				     "x", (double) width*0.5,
+				     "x", (double) width*0.4,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
 				     "width", (double)  gdk_pixbuf_get_width(pixmap)*zoom,
 				     "height", (double) gdk_pixbuf_get_height(pixmap)*zoom,

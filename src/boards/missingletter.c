@@ -420,7 +420,7 @@ static void process_time()
     gtk_timeout_remove (process_time_id);
     process_time_id = 0;
   }
-  gcompris_display_bonus(gamewon, FLOWER_BONUS);
+  gcompris_display_bonus(gamewon, BONUS_FLOWER);
 }
 /* ==================================== */
 static gint

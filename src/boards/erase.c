@@ -282,7 +282,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   if(--number_of_item == 0)
     {
       gamewon = TRUE;
-      gcompris_display_bonus(gamewon, FLOWER_BONUS);
+      gcompris_display_bonus(gamewon, BONUS_FLOWER);
     }
   
   return FALSE;

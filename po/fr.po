@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.4\n"
-"POT-Creation-Date: 2001-11-14 15:31+0100\n"
+"POT-Creation-Date: 2001-11-25 21:35+0100\n"
 "PO-Revision-Date: 2001-11-09 13:43+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -21,11 +21,11 @@ msgstr "Je te pose quelques questions simples d'algèbre"
 
 #: boards/algebra_by.xml.in.h:2
 msgid "Pratice the multiplication operation"
-msgstr ""
+msgstr "Entraînement à l'opération de multiplication"
 
 #: boards/algebra_div.xml.in.h:2
 msgid "Pratice the division operation"
-msgstr ""
+msgstr "Entraînement à l'opération de division"
 
 #: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra boards"
@@ -38,11 +38,11 @@ msgstr "Clique avec le bouton gauche pour sélectionner un tableau"
 
 #: boards/algebra_minus.xml.in.h:2
 msgid "Pratice the substraction operation"
-msgstr ""
+msgstr "Entraînement à l'opération de soustraction"
 
 #: boards/algebra_plus.xml.in.h:2
 msgid "Pratice the addition operation"
-msgstr ""
+msgstr "Entraînement à l'opération de l'addition"
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
@@ -137,7 +137,7 @@ msgstr "Attrape et fais glisser les éléments sous leur nom écrit"
 
 #: boards/imagename.xml.in.h:2
 msgid "Image Name"
-msgstr ""
+msgstr "Nom de l'image"
 
 #: boards/locale.xml.in.h:1 src/boards/locale.c:51
 msgid "Select the language for the messages in GCompris"
@@ -201,11 +201,11 @@ msgstr "Menu principal de GCompris"
 
 #: boards/missing_letter.xml.in.h:1
 msgid "Fill up the missing letter"
-msgstr ""
+msgstr "Trouve la lettre manquante"
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Missing Letter"
-msgstr ""
+msgstr "Lettre manquante"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -265,8 +265,9 @@ msgid "Numbers With Dices"
 msgstr "Les nombres avec les dés"
 
 #: boards/smallnumbers.xml.in.h:2
-msgid "Type the keyboard number 1 to 6 before the dices reach the ground"
-msgstr "Appuie sur les touches 1 à 6 avant que les dés ne touchent le sol"
+#, fuzzy
+msgid "Type the keyboard number 1 to 9 before the dice reach the ground"
+msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
 msgid "Falling Words"
@@ -377,12 +378,11 @@ msgstr ""
 "un \n"
 "objet ou le bouton de droite pour déplacer un objet.\n"
 
-#: src/boards/locale.c:130
-#, fuzzy, c-format
-msgid "GCompris will now display its messages in %s"
-msgstr "GCompris affichera maintenant ses messages en %s"
+#: src/boards/locale.c:145
+msgid "GCompris will now display its messages in the selected language"
+msgstr "GCompris affichera maintenant ses messages dans la langue sélectionée"
 
-#: src/boards/locale.c:151
+#: src/boards/locale.c:160
 msgid ""
 "If this message is not translated, \n"
 "it means that probably GCompris is not translated in this language"
@@ -461,5 +461,5 @@ msgstr "Un développement d'OFSET"
 msgid "Do you really want to quit GCompris?"
 msgstr "Veux tu vraiment quitter GCompris ?"
 
-#~ msgid "Simple Algebra"
-#~ msgstr "Algèbre Simple"
+#~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
+#~ msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"

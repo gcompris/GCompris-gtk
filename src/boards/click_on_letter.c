@@ -385,7 +385,7 @@ static void process_ok()
 {
   if (gamewon) {
   }
-  gcompris_display_bonus(gamewon, FLOWER_BONUS);
+  gcompris_display_bonus(gamewon, BONUS_FLOWER);
 }
 /* ==================================== */
 static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {

@@ -889,7 +889,7 @@ fi
 
 PACKAGE=gcompris
 
-VERSION=0.9.4
+VERSION=0.9.5
 
 if test "`cd $srcdir && pwd`" != "`pwd`" && test -f $srcdir/config.status; then
   { echo "configure: error: source directory already configured; run "make distclean" there first" 1>&2; exit 1; }
@@ -5450,7 +5450,7 @@ fi
 	        GTKXMHTML_LIBS="`$GNOME_CONFIG --libs-only-l gtkxmhtml`"
 		ZVT_LIBS="`$GNOME_CONFIG --libs-only-l zvt`"
 	        GNOME_LIBDIR="`$GNOME_CONFIG --libs-only-L gnorba gnomeui`"
-	        GNOME_INCLUDEDIR="`$GNOME_CONFIG --cflags gnorba gnomeui gdk_pixbuf `"
+	        GNOME_INCLUDEDIR="`$GNOME_CONFIG --cflags gnorba gnomeui`"
                 
 	      else
 	        echo "$ac_t""no" 1>&6
@@ -6960,7 +6960,7 @@ rm -f conftest*
   rm -f conf.gdk_pixbuftest
 
 
-ALL_LINGUAS="de es fi fr it nl pt_BR sv"
+ALL_LINGUAS="de es fi fr it nl pt_BR ru sv"
 # Extract the first word of "ranlib", so it can be a program name with args.
 set dummy ranlib; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/11/12 01:07:17 bruno>
+ * Time-stamp: <2001/11/18 23:37:30 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -403,7 +403,6 @@ gchar *gcompris_get_locale()
 
 /*
  * This set the locale for which text must be displayed
- * locale = NULL to tell gcompris to use the default system local again
  *
  */
 void gcompris_set_locale(gchar *locale)
@@ -411,6 +410,7 @@ void gcompris_set_locale(gchar *locale)
 
   gcompris_locale = setlocale(LC_ALL, locale);
   printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
+  /* FIXME: This does not update gettext translation */
 }
 
 
