@@ -943,13 +943,11 @@ static gboolean update_timeout_slow() {
   	gnome_canvas_item_get_bounds(frigate_item, &x1, &y1, &x2, &y2);
     gnome_canvas_item_move(frigate_item, - FRIGATE_SPEED * UPDATE_DELAY_SLOW/1000.0, 0.0);
     /* detects a collision betwwen the frigate and the submarine */
-    printf("depth=%d submarine_x = %.1f x1=%d x2=%d\n", (int)depth, submarine_x, (int)x1, (int)x2);
     if (depth <= 30.0 && !submarine_destroyed)
       if ( (submarine_x - SUBMARINE_WIDTH <= x1 && submarine_x >= x2) ||
           (submarine_x - SUBMARINE_WIDTH >= x1 && submarine_x - SUBMARINE_WIDTH <= x2) ||
           (submarine_x >= x1 && submarine_x <= x2) ) {
         submarine_explosion();
-        printf("éperonnage\n");
       }
     /* wraps the destroyer if it reached the left side (and disappeared for a long time)*/
     if (x2 < -300.0)
@@ -962,7 +960,6 @@ static gboolean update_timeout_slow() {
     dist1 = hypot( submarine_x -SUBMARINE_WIDTH/2 -mine_x, depth+SURFACE_IN_BACKGROUND-mine_y);
     dist2 = hypot(submarine_x - SUBMARINE_WIDTH - mine_x, depth+SURFACE_IN_BACKGROUND-mine_y);
     dist3 = hypot(submarine_x - mine_x, depth+SURFACE_IN_BACKGROUND-mine_y);
-    printf("distance mine=%.1f\n", dist1);
     /* magnetic detection (dist1) or collision with the mine (dist2 & dist3) */
     if ( (dist1 < MINE_DETECTION_RADIUS || dist2 < MINE_DETECTION_RADIUS ||dist3 < MINE_DETECTION_RADIUS)
     			&& !submarine_destroyed ) {
