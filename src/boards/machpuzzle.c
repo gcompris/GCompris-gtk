@@ -241,7 +241,7 @@ static GnomeCanvasItem *machpuzzle_create_item(GnomeCanvasGroup *parent)
 							    NULL));
   //  machItem = create_machine_item(MACH_BASKET_BALL, 20.0, 20.0);
   machItem = create_machine_item(MACH_BASKET_BALL, 200.0, 100.0);
-  machItem = create_machine_item(MACH_BILLARD_BALL, 250.0, 100.0);
+  //  machItem = create_machine_item(MACH_BILLARD_BALL, 250.0, 100.0);
 
   //  machItem = create_machine_item(MACH_FLYING_BALL, 450.0, 400.0);
 
@@ -625,16 +625,19 @@ static void machpuzzle_move(GList *item_list)
 
 	    }
 
-	  machItem->ypos=machItem->yposo 
-	    + (machItem->vyo*machItem->times) 
-	    + (.5*machItem->ay * (machItem->times*machItem->times));
-	  
-	  machItem->xpos=machItem->xposo 
-	    + (machItem->vxo*machItem->times) 
-	    + (.5*machItem->ax * (machItem->times*machItem->times));
-	  
-	  
-	  item_absolute_move(item, machItem->xpos, machItem->ypos);
+	  if(!collision)
+	    {
+	      machItem->ypos=machItem->yposo 
+		+ (machItem->vyo*machItem->times) 
+		+ (.5*machItem->ay * (machItem->times*machItem->times));
+	      
+	      machItem->xpos=machItem->xposo 
+		+ (machItem->vxo*machItem->times) 
+		+ (.5*machItem->ax * (machItem->times*machItem->times));
+	      
+	      
+	      item_absolute_move(item, machItem->xpos, machItem->ypos);
+	    }
 	  
 	  if(y2>=BOARDHEIGHT-5 && (y1 - machItem->ypos)<=0 || collision == TRUE)
 	    {
@@ -647,7 +650,7 @@ static void machpuzzle_move(GList *item_list)
 	      machItem->vxo *= 0.9;
 	    }
 	  
-	  if(y1<=5 && (y1 - machItem->ypos)>0)
+	  if(y1<=5 && (y1 - machItem->ypos)>0 || collision == TRUE)
 	    {
 	      machItem->vyo = (y1 - machItem->ypos) * machItem->bounce;
 	      machItem->times=0;
@@ -660,7 +663,8 @@ static void machpuzzle_move(GList *item_list)
 				     NULL);
 	      
 	    }
-	  if(x1<=5 && (x1 - machItem->xpos)>0)
+
+	  if(x1<=5 && (x1 - machItem->xpos)>0 || collision == TRUE)
 	    {
 	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->bounce;
 	      machItem->vxo = (x1 - machItem->xpos) * machItem->bounce;
@@ -668,7 +672,8 @@ static void machpuzzle_move(GList *item_list)
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
 	    }
-	  if(x2>=BOARDWIDTH-5 && machItem->vxo>0)
+
+	  if(x2>=BOARDWIDTH-5 && machItem->vxo>0 || collision == TRUE)
 	    {
 	      machItem->vyo = -1 * (y1 - machItem->ypos) * machItem->bounce;
 	      machItem->vxo = (x1 - machItem->xpos) * machItem->bounce;
@@ -676,6 +681,29 @@ static void machpuzzle_move(GList *item_list)
 	      machItem->yposo=machItem->ypos;
 	      machItem->xposo=machItem->xpos;
 	    }
+
+	  if(collision)
+	    {
+	      printf("1- in collision\n");
+	      dump_machItem(machItem);
+
+	      machItem->times += times_inc;
+
+	      machItem->ypos=machItem->yposo 
+		+ (machItem->vyo*machItem->times) 
+		+ (.5*machItem->ay * (machItem->times*machItem->times));
+	      
+	      machItem->xpos=machItem->xposo 
+		+ (machItem->vxo*machItem->times) 
+		+ (.5*machItem->ax * (machItem->times*machItem->times));
+	      
+	      
+	      printf("2- in collision\n");
+	      dump_machItem(machItem);
+
+	      item_absolute_move(item, machItem->xpos, machItem->ypos);
+	    }
+
 	}
 
     }
