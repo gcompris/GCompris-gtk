@@ -1,3 +1,18 @@
+2002-11-12  bruno  <bruno.coudoin@free.fr>
+
+	* boards/fun.xml.in: added maze 3D
+	* boards/maze.xml.in: added maze 2D force
+	* gcompris.spec.in: added gnuchess requirement
+	* po/POTFILES.in: updated
+	* src/boards/algebra.c: (key_press), (get_operand),
+	(init_operation): added backspace support
+	* src/boards/chess.c: (start_board), (chess_create_item),
+	(item_event), (engine_local_cb), (write_child): now works with gnuchess 5 only
+	* src/boards/maze.c: Christof Petig <christof@petig-baender.de> implemented a 3D mode
+	* src/boards/reversecount.c: (process_ok),
+	(reversecount_create_item): Changed the tux to a top view 4 direction one
+	* src/gcompris/soundutil.c: (scheduler), (gcompris_play_ogg): removed comments
+
 2002-10-13  bruno  <bruno.coudoin@free.fr>
 
 	* boards/Makefile.am: added enumerate board

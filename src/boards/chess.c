@@ -186,15 +186,27 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
   
-  if (!g_file_exists ("/usr/bin/gnuchessx")) {
+  if (g_file_exists ("/usr/bin/gnuchessx")) {
     
-    gcompris_dialog(_("Error: The external program gnuchessx is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in /usr/bin/gnuchessx"), gcompris_end_board);
+    gcompris_dialog(_("Error: /usr/bin/gnuchessx is installed\nwhich means you run an old version\nof gnuchess.\nPlease upgrade to gnuchess 5 or above."), gcompris_end_board);
+    
+    return;
+  }
+  
+  if (!g_file_exists ("/usr/bin/gnuchess")) {
+    
+    gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in /usr/bin/gnuchess"), gcompris_end_board);
     
     return;
   }
   
   if(agcomprisBoard!=NULL)
     {
+      char *param[2];
+
+      param[0] = "xboard";
+      param[1] = NULL;
+
       gcomprisBoard=agcomprisBoard;
       
       /* Default mode */
@@ -223,7 +235,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gcompris_bar_set(0);
 	}
       
-      start_child ("gnuchessx", NULL, &read_chan,
+      start_child ("gnuchess", param, &read_chan,
 		   &write_chan, &childpid);
       
       read_cb = g_io_add_watch (read_chan, G_IO_IN,
@@ -231,11 +243,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       err_cb = g_io_add_watch (read_chan, G_IO_HUP,
 			       engine_local_err_cb, NULL);
       
+      write_child (write_chan, "xboard\n");
+      write_child (write_chan, "protover 2\n");
       write_child (write_chan, "post\n");
       write_child (write_chan, "easy\n");
       write_child (write_chan, "level 100 1 0\n");
-      write_child (write_chan, "depth\n");
-      write_child (write_chan, "1\n");
+      write_child (write_chan, "depth 1\n");
       
       chess_next_level();
       
@@ -381,6 +394,8 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   Piece piece;
   gshort rank;
   gboolean white_side = TRUE;
+  guint empty_case = 0;
+
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -416,12 +431,14 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   }
 
   /* Enter the gnuchessx edit mode */
+  write_child (write_chan, "force\n");
   write_child (write_chan, "new\n");
-  write_child (write_chan, "edit\n");
-  write_child (write_chan, "#\n");
+  write_child (write_chan, "setboard ");
+
+  empty_case = 0;
 
   /* Display the pieces */
-  for (rank = 1; rank <= 8; rank++) { 
+  for (rank = 8; rank >= 1; rank--) { 
     for (square = A1 + ((rank - 1) * 10); 
 	 square <= H1 + ((rank - 1) * 10);
 	 square++) 
@@ -441,7 +458,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	san = g_new0 (char, 12);
 	temp = san;
 	square_to_ascii (&temp, square);
-	printf ( "%c%s\n", piece_to_ascii(piece), san);
+	//	printf ( "%c%s\n", piece_to_ascii(piece), san);
 	if(piece!=NONE)
 	  {
 	    
@@ -449,21 +466,41 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	       !white_side && WPIECE(piece)) 
 	      {
 		white_side = !white_side;
-		write_child (write_chan, "c\n");
+		//		write_child (write_chan, "c\n");
 	      }
-	    write_child (write_chan, "%c%s\n", piece_to_ascii(piece), san);
+	    if(empty_case>0)
+	      write_child (write_chan, "%d", empty_case);
+
+	    empty_case=0;
+
+	    write_child (write_chan, "%c", piece_to_ascii(piece));
 	  }
+	else
+	  {
+	    empty_case++;
+	  }
+
+	if(x==7)
+	  {
+	    if(empty_case>0)
+	      write_child (write_chan, "%d", empty_case);
+
+	    empty_case=0;
+
+	    write_child (write_chan, "/");
+	  }
+
   	temp = san;
 	san = g_strdup (temp);
 	g_free (temp);
 
-	printf("square=%d piece=%d x=%d y=%d\n", square, piece, x, y);
+	//	printf("square=%d piece=%d x=%d y=%d\n", square, piece, x, y);
 	if(piece != EMPTY)
 	  {
 	    str = g_strdup_printf("chess/%c.png", piece_to_ascii(piece));
 	    
 	    pixmap = gcompris_load_pixmap(str);
-	    printf("loading piece %s\n",   str);
+	    //	    printf("loading piece %s\n",   str);
 	    g_free(str);
 	    item = gnome_canvas_item_new (boardRootItem,
 					  gnome_canvas_pixbuf_get_type (),
@@ -488,8 +525,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   }
 
   /* Quit the gnuchessx edit mode */
-  write_child (write_chan, ".\n");
-  write_child (write_chan, "bd\n");
+  write_child (write_chan, " w - - 0 1\n");
 
   display_white_turn(TRUE);
 
@@ -877,7 +913,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	   dragging = FALSE;
 
 	   position_display(position);
-	   write_child (write_chan, "bd\n");
 
 	 }
        break;
@@ -989,14 +1024,15 @@ engine_local_cb (GIOChannel *source,
 	}
     
     /* parse for move MOVE */
-    if (!strncmp ("move",buf,4))
+    if (!strncmp ("My move is : ",buf,13))
       {
 	Square from, to;
 
-	printf("computer moves to %s\n", p+5);
+	p = strstr (buf, ":");
+	printf("computer moves to %s\n", p+1);
 
-	if (san_to_move (position, p+5, &from, &to))
-	  ascii_to_move (position, p+5, &from, &to);
+	if (san_to_move (position, p+1, &from, &to))
+	  ascii_to_move (position, p+1, &from, &to);
 
 	position_move (position, from, to);
 	move_piece_to(from , to);
@@ -1008,19 +1044,31 @@ engine_local_cb (GIOChannel *source,
 	g_warning("Illegal move to %s : SHOULD NOT HAPPEN", buf+31);
       }
 
-    if (!strncmp ("Black mates!",buf,12))
+    if (!strncmp ("0-1",buf,3))
       {
 	display_info(_("Black mates"));
       }
 
-    if (!strncmp ("White mates!",buf,12))
+    if (!strncmp ("1-0",buf,3))
       {
 	display_info(_("White mates"));
       }
 
-    if (!strncmp ("Drawn game!",buf,11))
+    if (!strncmp ("1/2-1/2",buf,7))
       {
 	display_info(_("Drawn game"));
+      }
+
+    /* parse for feature */
+    if (!strncmp ("feature",buf,7))
+      {
+	write_child(write_chan, "accepted setboard\n");
+	write_child(write_chan, "accepted analyze\n");
+	write_child(write_chan, "accepted ping\n");
+	write_child(write_chan, "accepted draw\n");
+	write_child(write_chan, "accepted variants\n");
+	write_child(write_chan, "accepted myname\n");
+	write_child(write_chan, "accepted done\n");
       }
 
     memmove (buf, q+1, sizeof(buf) - ( q + 1 - buf));
@@ -1134,7 +1182,7 @@ write_child (GIOChannel *write_chan, char *format, ...)
   if (err != G_IO_ERROR_NONE)
     g_warning ("Writing to child process failed");
 
-  g_message (buf);  
+  printf ("%s", buf);  
 
   va_end (ap);
 

@@ -14,7 +14,7 @@ Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tgz
 BuildRoot: 	/var/tmp/gcompris-%{PACKAGE_VERSION}-root
 URL: 		http://savannah.gnu.org
 Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
-Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
+Requires:	gnome-libs libxml2 gdk-pixbuf gnuchess %canvaspackage
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
 %description

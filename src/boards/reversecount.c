@@ -37,7 +37,10 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-#define TUX_IMG "gcompris/misc/tux.png"
+#define TUX_IMG_NORTH "gcompris/misc/tux_top_north.png"
+#define TUX_IMG_SOUTH "gcompris/misc/tux_top_south.png"
+#define TUX_IMG_WEST  "gcompris/misc/tux_top_west.png"
+#define TUX_IMG_EAST  "gcompris/misc/tux_top_east.png"
 #define TUX_TO_BORDER_GAP 10
 
 static GnomeCanvasGroup *boardRootItem = NULL;
@@ -277,7 +280,15 @@ static void process_ok()
   if(tuxItem!=NULL)
     gtk_object_destroy(GTK_OBJECT(tuxItem));
 
-  tuxItem = display_item_at(TUX_IMG, tux_index);
+  /* Caclulate which tux should be displayed */
+  if(tux_index<number_of_item_x-1)
+    tuxItem = display_item_at(TUX_IMG_EAST, tux_index);
+  else if(tux_index<number_of_item_x+number_of_item_y-2)
+    tuxItem = display_item_at(TUX_IMG_SOUTH, tux_index);
+  else if(tux_index<2*number_of_item_x+number_of_item_y-3)
+    tuxItem = display_item_at(TUX_IMG_WEST, tux_index);
+  else
+    tuxItem = display_item_at(TUX_IMG_NORTH, tux_index);
 
   if(tux_index == fish_index)
     {
@@ -493,7 +504,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
   gdk_pixbuf_unref(pixmap);
 
   tux_index = 0;
-  tuxItem = display_item_at(TUX_IMG, tux_index);
+  tuxItem = display_item_at(TUX_IMG_EAST, tux_index);
 
   // Display the first fish
   display_random_fish();

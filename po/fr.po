@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-10-13 18:08+0200\n"
-"PO-Revision-Date: 2002-10-13 18:38+0200\n"
+"POT-Creation-Date: 2002-11-12 00:09+0100\n"
+"PO-Revision-Date: 2002-11-12 00:41+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -928,6 +928,17 @@ msgid ""
 "area. The right association must be find for these objects. This is achieved "
 "by dragging the objects to the right red plot in the main area."
 msgstr ""
+"Dans la zone principale, un ensemble de points rouges associés avec "
+"l'exercice\n"
+"sont affichés.\n"
+"Dans la zone verticale (à gauche de la zone principale), un ensemble "
+"d'objets\n"
+"sont représentés, chacun de ces objets correpondent à un mot de la zone\n"
+"principale.\n"
+"La bonne association doit être trouvée pour ces objets. Pour le faire, il\n"
+"faut utiliser le mouvement 'glisser déplacer' sur le bon point rouge dans "
+"la\n"
+"zone principale."
 
 #: boards/imagename.xml.in.h:5
 msgid "Vocabulary and reading"
@@ -1068,23 +1079,23 @@ msgid "Tux has hidden several items, find them back in the correct order"
 msgstr ""
 "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
 
-#: boards/maze.xml.in.h:1
+#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Sait utiliser les flêches du clavier"
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:106
+#: boards/maze.xml.in.h:2 boards/maze3D.xml.in.h:2 src/boards/maze.c:125
 msgid "Find your way out of the maze"
 msgstr "Trouve ta voie hors du labyrinthe"
 
-#: boards/maze.xml.in.h:3
+#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Aide Tux à trouver sa voie hors du labyrinthe"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:105
+#: boards/maze.xml.in.h:4 boards/maze3D.xml.in.h:4 src/boards/maze.c:124
 msgid "Maze"
 msgstr "Labyrinthe"
 
-#: boards/maze.xml.in.h:5
+#: boards/maze.xml.in.h:5 boards/maze3D.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Utilise les flêches du clavier pour déplacer Tux jusqu'à la porte"
 
@@ -1096,6 +1107,13 @@ msgid ""
 "once. You have to remember the position of the pictures to associate them. "
 "To remove a pair of card, uncover both of them."
 msgstr ""
+"Un ensemble de cartes est affichés. Chaque paire est associée par la même "
+"image\n"
+"dans sa face cachée. En cliquant sur une carte, on découvre la carte et on "
+"voit\n"
+"sa face caché. Cependant, on ne peut voir que deux faces cachées à la fois.\n"
+"Il faut se rapeller de la position des images pour les associer.\n"
+"Une paire de carte est enlevée lorsque elle est découverte."
 
 #: boards/memory.xml.in.h:2
 msgid "Discover the cards and find a matching pair"
@@ -1233,6 +1251,11 @@ msgid ""
 "painting are avalaible. Drag and drop these parts in the right plot to "
 "rebuild the original painting."
 msgstr ""
+"Dans la zone principale d'affichage, en ensemble de points rouges sont "
+"affichées.Dans la zone vericale (à gauche de l'écran), un ensemble de "
+"parties d'image sontdisponibles. Utiliser le 'glisser déplacer' pour "
+"positionner les parties d'imagesur le bon point rouge pour reconstruire la "
+"peinture originale."
 
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:156
 msgid "Make the puzzle"
@@ -1343,6 +1366,13 @@ msgid ""
 "You can always unselect an item by clicking on it. Validate your "
 "construction by clicking on the hand at the bottom."
 msgstr ""
+"Un train (une locomotive et ses wagons) est affiché en haut de la zone\n"
+"principale. Après quelques secondes, le train part. Ensuite vous devez le \n"
+"reconstruire en haut de l'écran en selectionnant les wagons et locomotives\n"
+"appropriées.\n"
+"Vous pouvez toujours déselectionner un élément en cliquant dessus.\n"
+"Pour valider votre construction, cliquez sur le pouce dans la barre de\n"
+"contrôle."
 
 #: boards/railroad.xml.in.h:3
 msgid "Memory training"
@@ -1422,6 +1452,11 @@ msgid ""
 "list of words will move in and out of the screen. Tell if you see the "
 "initial word in this list."
 msgstr ""
+"En haut et à gauche de la zone principale, un mot est affiché. Sur la "
+"gauche\n"
+"une liste de mots va passer et clignoter sur l'écran. Il s'agit de dire si "
+"le\n"
+"mot demandé et passé dans la liste."
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -1464,7 +1499,7 @@ msgstr ""
 "l'envers.\n"
 "Quand tu as terminé, clique sur le boutton OK ou utilise la touche entrée."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:122
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:125
 msgid "Practice the substraction with a funny game"
 msgstr "Entraînement à la soustraction avec un jeu amusant"
 
@@ -1602,7 +1637,7 @@ msgstr "Couleurs complexes"
 #: src/gcompris/gameutil.c:86 src/gcompris/gameutil.c:105
 #: src/gcompris/gameutil.c:398 src/gcompris/gameutil.c:399
 #: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:288
+#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:283
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
@@ -1636,43 +1671,56 @@ msgstr "Joue aux échecs contre l'ordinateur dans un mode d'apprentissage"
 
 #: src/boards/chess.c:191
 msgid ""
-"Error: The external program gnuchessx is mandatory\n"
+"Error: /usr/bin/gnuchessx is installed\n"
+"which means you run an old version\n"
+"of gnuchess.\n"
+"Please upgrade to gnuchess 5 or above."
+msgstr ""
+"Erreur: /usr/bin/gnuchessx est installé\n"
+"cela signifie que vous avez une vieille version\n"
+"de gnuchess.\n"
+"Vous devez mettre à jour gnuchess avec une version\n"
+"5 ou plus."
+
+#: src/boards/chess.c:198
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
-"And check it is in /usr/bin/gnuchessx"
+"And check it is in /usr/bin/gnuchess"
 msgstr ""
-"Erreur: Le programme externe gnuchessx est nécessaire\n"
+"Erreur: Le programme externe gnuchess est nécessaire\n"
 "pour jouer aux échecs dans gcompris.\n"
 "Trouvez ce programme sur http://www.rpmfind.net ou \n"
 "dans votre distribution GNU/Linux.\n"
 "Ensuite vérifiez qu'il est dans /usr/bin/gnuchessx"
 
-#: src/boards/chess.c:535
+#: src/boards/chess.c:571
 msgid "White Turn"
 msgstr "Les blancs jouent"
 
-#: src/boards/chess.c:535
+#: src/boards/chess.c:571
 msgid "Black Turn"
 msgstr "Les noirs jouent"
 
-#: src/boards/chess.c:679
+#: src/boards/chess.c:715
 msgid "White check"
 msgstr "Echec au blancs"
 
-#: src/boards/chess.c:681
+#: src/boards/chess.c:717
 msgid "Black check"
 msgstr "Echec au noirs"
 
-#: src/boards/chess.c:1013
+#: src/boards/chess.c:1049
 msgid "Black mates"
 msgstr "Blancs échec et mat"
 
-#: src/boards/chess.c:1018
+#: src/boards/chess.c:1054
 msgid "White mates"
 msgstr "Noirs échec et mat"
 
-#: src/boards/chess.c:1023
+#: src/boards/chess.c:1059
 msgid "Drawn game"
 msgstr "Echec et pat"
 
@@ -1775,7 +1823,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/reversecount.c:121
+#: src/boards/reversecount.c:124
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
@@ -2103,7 +2151,7 @@ msgstr "..."
 
 #: src/gcompris/interface.c:544
 msgid "Enregistrer le fichier"
-msgstr ""
+msgstr "Enregistrer le fichier"
 
 #: src/gcompris/interface.c:557 src/gcompris/interface.c:711
 msgid "Description"

@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2002/06/09 03:34:59 bruno>
+ * Time-stamp: <2002/11/06 20:13:19 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -54,7 +54,7 @@ static char *expected_result = NULL;
 /* Default layout for the algebra operation */
 static gboolean vertical_layout = FALSE;
 
-static gboolean operation_done[10];
+static gboolean operation_done[11];
 
 typedef struct {
   guint index;
@@ -308,6 +308,8 @@ gint key_press(guint keyval)
 	  set_focus_item(currentToBeFoundItem, TRUE);
 	}
       return TRUE;
+    case GDK_Delete:
+    case GDK_BackSpace:
     case GDK_Left:
       if(currentToBeFoundItem->next!=NULL)
 	{
@@ -823,11 +825,12 @@ static gint get_operand()
     {
       j--;
       i++;
-      if(i>9)
-	i=0;
+      if(i>10)
+	i=1;
+      printf("  get operand i=%d j=%d\n", i, j);
     }
   operation_done[i]=TRUE;
-
+  printf("get operand returns %d\n", i);
   return i;
 }
 
@@ -835,7 +838,7 @@ static void init_operation()
 {
   int i;
 
-  for(i=0; i<10; i++)
+  for(i=1; i<=10; i++)
     operation_done[i] = FALSE;
 }
 
