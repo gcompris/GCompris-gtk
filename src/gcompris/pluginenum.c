@@ -188,7 +188,7 @@ void scan_plugins(char *dirname)
 
 	while ((ent = readdir(dir)) != NULL)
 	{
-		filename = g_strdup_printf("%s/%s", dirname, ent->d_name);
+		filename = g_strdup_printf("%s%s", dirname, ent->d_name);
 		if (!stat(filename, &statbuf) && S_ISREG(statbuf.st_mode) &&
 		    (ext = strrchr(ent->d_name, '.')) != NULL)
 			if (!strcmp(ext, SHARED_LIB_EXT))

@@ -3,6 +3,9 @@
 	* src/gcompris/bar.c: shifted all buttons on the left to free the home
 	* src/gcompris/bonus.[ch]: implemented BONUS_RANDOM, changed bonus.h to be an enum
 	* src/boards/Makefile.am: changed PTHREAD_LIBS by PTHREAD_LIB as it should be
+	* src/gcompris/pluginenum.c: changed to avoid a // in the plugin file path
+	* src/boards/menu.c: changed to add more space between the two menu lines
+	* boards/boardicons/railroad.png: made it smaller to be closed to other icons
 
 2001-11-25 Pascal Georges <pascal.georges1@free.fr
 	* src/gcompris/gameutil.c : added convertUTF8Toisolat1 function

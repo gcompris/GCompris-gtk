@@ -1,4 +1,4 @@
-xmldir = $(datadir)/xml
+xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
 	algebramenu.xml.in \
@@ -42,4 +42,4 @@ xml_DATA = $(xml_in_files:.xml.in=.xml)
 
 @XML_I18N_MERGE_XML_RULE@
 
-EXTRA_DIST=$(xml_in_files) $(xml_DATA)
+

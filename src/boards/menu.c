@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2001/11/06 22:21:59 bruno>
+ * Time-stamp: <2001/11/26 00:00:14 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -231,7 +231,7 @@ static gboolean next_spot()
   if(current_x>=gcomprisBoard->width-100)
     {
       current_x = gcomprisBoard->width/MENU_PER_LINE;
-      current_y += 100;
+      current_y += 120;
     }
 
   return(TRUE);
