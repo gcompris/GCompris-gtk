@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2003/08/22 09:53:58 bcoudoin>
+ * Time-stamp: <2004/01/24 23:27:05 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -66,7 +66,7 @@ static char *key_find_by_item (const GnomeCanvasItem *item);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
-static  double               imageZoom = 0.0;
+static  int		     gamewon;
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -125,6 +125,11 @@ static void pause_board (gboolean pause)
     }
   else
     {
+      if(gamewon == TRUE) /* the game is won */
+	{
+	  gletters_next_level();
+	}
+
       if(!drop_items_id) {
 	drop_items_id = gtk_timeout_add (1000,
 					 (GtkFunction) gletters_drop_items, NULL);
@@ -155,6 +160,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gletters_next_level();
 
+      gamewon = FALSE;
       pause_board(FALSE);
     }
 }
@@ -300,6 +306,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void gletters_next_level() 
 {
 
+  gamewon = FALSE;
   gcompris_bar_set_level(gcomprisBoard);
 
   gletters_destroy_all_items();
@@ -307,7 +314,6 @@ static void gletters_next_level()
   /* Try the next level */
   speed=100+(40/gcomprisBoard->level);
   fallSpeed=5000-gcomprisBoard->level*200;
-  imageZoom=1.0;
 
   gcomprisBoard->sublevel=1;
   gcompris_score_set(gcomprisBoard->sublevel);
@@ -402,7 +408,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   char *str  = NULL;
   char *str2 = NULL;
   int i;
-  guint c;
+  guint c, x;
   char *lettersItem;
 
   if (!letters_table)
@@ -437,29 +443,39 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   g_free(str);
   g_free(str2);
 
-  str = g_strdup_printf("gcompris/letters/%c.png",
-			letters_array[gcomprisBoard->level%LETTERS_ARRAY_LENGTH][i]);
 
-  gletters_pixmap = gcompris_load_pixmap(str);
-  item = gnome_canvas_item_new (parent,
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", gletters_pixmap, 
-				"x", (double)(rand()%(gcomprisBoard->width-
-						      (guint)(gdk_pixbuf_get_width(gletters_pixmap)*
-						       imageZoom))),
-				"y", (double) -gdk_pixbuf_get_height(gletters_pixmap)*imageZoom,
-				"width", (double) gdk_pixbuf_get_width(gletters_pixmap)*imageZoom,
-				"height", (double) gdk_pixbuf_get_height(gletters_pixmap)*imageZoom,
-				"width_set", TRUE, 
-				"height_set", TRUE,
-				NULL);
-  gdk_pixbuf_unref(gletters_pixmap);
+  item =					\
+    gnome_canvas_item_new (parent,
+			   gnome_canvas_group_get_type (),
+			   "x", (double)(rand()%(gcomprisBoard->width-170)),
+			   "y", (double) -12,
+			   NULL);
+
+  x = 80 + (rand()%(gcomprisBoard->width-160));
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
+			 gnome_canvas_text_get_type (),
+			 "text", lettersItem,
+			 "font", gcompris_skin_font_board_huge_bold,
+			 "x", (double) x,
+			 "y", (double) -20,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", 0x8c8cFFFF,
+			 NULL);
+  x -= 2;
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
+			 gnome_canvas_text_get_type (),
+			 "text", lettersItem,
+			 "font", gcompris_skin_font_board_huge_bold,
+			 "x", (double) x,
+			 "y", (double) -22,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", 0x254c87FF,
+			 NULL);
+
   item_list = g_list_append (item_list, item);
 
   /* Add letter to hash table of all falling letters. */
   g_hash_table_insert (letters_table, lettersItem, item);
-
-  g_free(str);
 
   return (item);
 }
@@ -488,7 +504,6 @@ static void player_win(GnomeCanvasItem *item)
   gcompris_play_ogg ("gobble", NULL);
 
   gcomprisBoard->sublevel++;
-  gcompris_score_set(gcomprisBoard->sublevel);
 
   if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel)
     {
@@ -496,14 +511,18 @@ static void player_win(GnomeCanvasItem *item)
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
         gcompris_score_end();
-				board_finished(BOARD_FINISHED_RANDOM);
-				return;
+	board_finished(BOARD_FINISHED_RANDOM);
+	return;
       }
-      gletters_next_level();
-      gcompris_play_ogg ("bonus", NULL);
+
+      gamewon = TRUE;
+      gletters_destroy_all_items();
+      gcompris_display_bonus(gamewon, BONUS_SMILEY);
     }
   else
     {
+      gcompris_score_set(gcomprisBoard->sublevel);
+
       /* Drop a new item now to speed up the game */
       if(g_list_length(item_list)==0)
 	{

@@ -1,3 +1,10 @@
+2004-01-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/gletters.c: (pause_board), (start_board),
+	(gletters_next_level), (gletters_create_item), (player_win): changed to use fonts instead of fixed pixmaps for letters
+	* src/gcompris/score.c: (display_number): changed to use fonts instead of fixed pixmaps for letters
+	* boards/melody.xml.in: added _ to title, added mandatory_sound_file.	
+
 2004-01-24  Olivier Samyn  <osamyn@ulb.ac.be>
 
 	* src/boards/py-mod-gcompris.c: (py_gcompris_bar_set_repeat_icon),

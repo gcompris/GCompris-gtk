@@ -1,6 +1,6 @@
 /* gcompris - score.c
  *
- * Time-stamp: <2003/02/16 23:20:04 bruno>
+ * Time-stamp: <2004/01/24 22:44:16 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -120,42 +120,34 @@ void gcompris_score_set(guint value)
 /*-------------------------------------------------------------------------------*/
 
 
-#define NUMBERSWIDTH       35
-#define NUMBERGAP          0
-#define ZOOMFACTOR         0.8
+#define NUMBERSWIDTH       110
 
 static void display_number(GnomeCanvasGroup *parent, 
 			   guint x,
 			   guint y, 
 			   char *operand_str)
 {
-  GdkPixbuf *algebra_pixmap = NULL;
-  GnomeCanvasItem *item;
-  int i;
 
-  x -= NUMBERSWIDTH/2 + 15;
+  x -= NUMBERSWIDTH;
 
-  for(i=strlen(operand_str)-1; i>=0; i--)
-    {
-      guint gap;
-
-      algebra_pixmap = gcompris_load_number_pixmap(operand_str[i]);
-
-      // Calculate a gap to center the text
-      gap = (5-strlen(operand_str))*(NUMBERSWIDTH+NUMBERGAP)/2;
-
-      item = gnome_canvas_item_new (parent,
-				    gnome_canvas_pixbuf_get_type (),
-				    "pixbuf", algebra_pixmap, 
-				    "x", (double)x-gap-((strlen(operand_str)-i)*(NUMBERSWIDTH+NUMBERGAP)),
-				    "y", (double)y - gdk_pixbuf_get_height(algebra_pixmap)*ZOOMFACTOR/2,
-				    "width", (double) NUMBERSWIDTH,
-				    "height", (double) gdk_pixbuf_get_height(algebra_pixmap)*ZOOMFACTOR,
-				    "width_set", TRUE, 
-				    "height_set", TRUE,
-				    NULL);
-      gdk_pixbuf_unref(algebra_pixmap);
-    }
+  gnome_canvas_item_new (parent,
+			 gnome_canvas_text_get_type (),
+			 "text", operand_str,
+			 "font", gcompris_skin_font_board_huge_bold,
+			 "x", (double) x+2,
+			 "y", (double) y+2,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", 0x7a8699FF,
+			 NULL);
+  gnome_canvas_item_new (parent,
+			 gnome_canvas_text_get_type (),
+			 "text", operand_str,
+			 "font", gcompris_skin_font_board_huge_bold,
+			 "x", (double) x,
+			 "y", (double) y,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", 0xe5e532FF,
+			 NULL);
 }
 
 
