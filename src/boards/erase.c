@@ -36,10 +36,6 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-#define VERTICAL_SEPARATION 30
-#define HORIZONTAL_SEPARATION 30
-#define TEXT_COLOR "white"
-
 static GnomeCanvasGroup *boardRootItem = NULL;
 
 static GnomeCanvasItem	*erase_create_item(GnomeCanvasGroup *parent);

@@ -1,8 +1,8 @@
-
 lib_LTLIBRARIES = \
 	libalgebra.la \
 	libalgebra_guesscount.la \
 	libcanal_lock.la \
+	libchess.la \
 	libclick_on_letter.la \
 	libclickgame.la \
 	libclockgame.la \
@@ -265,6 +265,14 @@ libmastermind_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libmastermind_la_SOURCES = mastermind.c
+
+libchess_la_LDFLAGS = -module -avoid-version
+libchess_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libchess_la_SOURCES = chess.c chess_position.c chess_notation.c
 
 EXTRA_DIST = README
 

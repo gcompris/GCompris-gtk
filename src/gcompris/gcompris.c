@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/06/30 23:28:15 bruno>
+ * Time-stamp: <2002/09/05 22:20:35 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -402,6 +402,7 @@ void gcompris_end_board()
 
 void gcompris_exit()
 {
+  board_stop();
   gcompris_properties_save(properties);
   gtk_main_quit ();
 }

@@ -1,3 +1,14 @@
+2002-09-06  Bruno Coudoin  <bcoudoin@anfora.fr>
+
+	* boards/Makefile.am: added Chess
+	* boards/fun.xml.in: added Chess
+	* configure.in: added advanced_colors
+	* po/POTFILES.in: updated
+	* src/boards/Makefile.am: added advanced_colors
+	* src/boards/erase.c: code cleanup
+	* src/boards/mastermind.c: implemented easy / complex level
+	* src/gcompris/gcompris.c: (gcompris_exit): added a call to board_stop
+
 2002-09-03 Pascal Georges <pascal.georges1@free.fr>
 	* po/fr.po : small changes
 
