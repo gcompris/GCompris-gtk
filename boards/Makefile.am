@@ -20,6 +20,7 @@ xml_in_files = \
 	geography.xml.in \
 	gletters.xml.in \
 	imagename.xml.in \
+	mastermind.xml.in \
 	maze.xml.in \
 	memory.xml.in \
 	menu.xml.in \

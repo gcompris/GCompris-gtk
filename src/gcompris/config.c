@@ -49,6 +49,7 @@ static gchar *linguas[] = {
   "fr", 	N_("French"),
   "hu",		N_("Hungarian"),
   "it",	 	N_("Italian"),
+  "ms",		N_("Malay"),
   "nl",		N_("Dutch"),
   "pt_BR",	N_("Brazil Portuguese"),
   "ru",		N_("Romanian"),

@@ -165,6 +165,7 @@ static void	 config(void);
 
 static void	 draw_destroy_all_items(void);
 static void	 draw_next_level(void);
+static void	 display_anchors(AnchorsItem *anchorsItem, gboolean visible);
 static void	 display_color_selector(GnomeCanvasGroup *parent);
 static void	 display_tool_selector(GnomeCanvasGroup *parent);
 static void	 display_drawing_area(GnomeCanvasGroup *parent);

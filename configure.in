@@ -32,6 +32,7 @@ dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
 AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}")
 
+dnl AM_GLIB_GNU_GETTEXT
 AM_GLIB_GNU_GETTEXT
 
 dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically

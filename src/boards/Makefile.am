@@ -12,6 +12,7 @@ lib_LTLIBRARIES = \
 	libgletters.la \
 	libimageid.la \
 	libleftright.la \
+	libmastermind.la \
 	libmaze.la \
 	libmemory.la \
 	libmenu.la \
@@ -247,6 +248,14 @@ libcanal_lock_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 	$(GDK_PIXBUF_LIBS)
 
 libcanal_lock_la_SOURCES = canal_lock.c
+
+libmastermind_la_LDFLAGS = -module -avoid-version
+libmastermind_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libmastermind_la_SOURCES = mastermind.c
 
 EXTRA_DIST = README
 
