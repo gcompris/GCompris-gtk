@@ -3,23 +3,34 @@
 #HEADER {
   position : absolute;
   left : 5px;
-  top : 15px;
-  width : 200px;
-  margin : 6px;
-  border: 3px solid #111;
-  background-color: #C9FFFF;
-  border-color : #5D61C5;
-  padding: 15px;
-  display: block;
+  right : 5px;
+  top : 10px;
+  width : 100%;
+  margin : 0px;
+  border: 0px solid #111;
+  background-color: #FFFFFF;
+  border-color : #FF0000;
+  padding: 5px;
+  #display: block;
+  #float: left;
 } 
+
+#jaune {
+  position : absolute;
+  #width: 200px;
+  top : 5px;
+  #margin: 0;
+  left : 90%;
+}
+
 #MENU {
   position : absolute;
   left : 5px;
-  top : 110px;
+  top : 140px;
   width : 200px;
   margin : 6px;
-  border: 3px solid #111;
-  background-color: #FFFFC9;
+  border: 0px solid #111;
+  background-color: #FFFFFF;
   border-color : #5D61C5;
   padding: 15px;
   display: block;
@@ -27,12 +38,12 @@
 #MAIN {
   position : absolute;
   left : 250px;
-  top : 15px;
+  top : 140px;
   margin : 6px;
   padding : 15px;
   width: 69%;
-  border: 3px solid;
-  background-color: #d1dafc;
+  border: 0px solid;
+  background-color: #ffffff;
   border-color : #f27979;
 }
 #logo{
@@ -51,15 +62,15 @@ margin:0em;
 
 a:link {
   text-decoration : none; 
-  color : #ff0000; 
+  color : #000000; 
 } 
 a:visited {
   text-decoration : none; 
-  color : #ff0000; 
+  color : #000000; 
 } 
 a:hover {
   text-decoration: none; 
-  color : #ff0000; 
+  color : #000000; 
 } 
 a:active {
 } 

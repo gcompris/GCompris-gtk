@@ -1,4 +1,9 @@
-
+<style>
+.secteuroff { font-weight: normal; }
+.rubriqueoff { font-weight: normal; }
+.secteuron, .rubriqueon { font-weight: bold; }
+.secteur, .rubrique { font-weight: bold; }
+</style>
 <?php
 if(floor(phpversion()) < 4)	{
 	// La version de PHP est inférieure à 4,
@@ -12,6 +17,7 @@ if(floor(phpversion()) < 4)	{
 		return false;
 	}
 }
+
 
 // récupération de la hiérarchie courante
 $hierarchie = array();
@@ -29,25 +35,15 @@ include 'ecrire/inc_layer.php3';
 afficher_script_layer();
 ?>
 <table border="0" cellpadding="2" cellspacing="0">
-<BOUCLE_secteurs(RUBRIQUES){id_parent=0}{par titre}>
+
+<BOUCLE_principale2(RUBRIQUES){id_rubrique}>
+<BOUCLE_hierarchie2(HIERARCHIE){id_rubrique}{0,1}>
+
+<BOUCLE_secteurs(RUBRIQUES){id_rubrique} {par num titre}>
 	<?php $id = #ID_RUBRIQUE; ?>
 	<BOUCLE_nb_rubriques(RUBRIQUES){id_parent}><?php ${'nb'.$id} = #TOTAL_BOUCLE; ?></BOUCLE_nb_rubriques>
 	<tr>
 		<td valign="top">
-			<?php
-			if ($nb#ID_RUBRIQUE > 0) {
-				if (in_array(#ID_RUBRIQUE, $hierarchie)) {
-					echo bouton_block_visible('rub#ID_RUBRIQUE');
-				} else {
-					echo bouton_block_invisible('rub#ID_RUBRIQUE');
-				}
-			} else {
-				echo '&nbsp;';
-			}
-			?>
-		</td>
-		<td valign="top">
-			<a href="#URL_RUBRIQUE" class="secteur<?php echo (#ID_RUBRIQUE == $actuelle ? '' : (in_array(#ID_RUBRIQUE, $hierarchie) ? 'on' : 'off')); ?>" >[(#TITRE|supprimer_numero)]</a>
 			<?php
 			if ($nb#ID_RUBRIQUE > 0) {
 				if (in_array(#ID_RUBRIQUE, $hierarchie)) {
@@ -57,9 +53,9 @@ afficher_script_layer();
 				}
 				?>
 				<table border="0" cellpadding="2" cellspacing="0">
-				<BOUCLE_rubriques(RUBRIQUES){id_parent}{par titre}>
+				<BOUCLE_rubriques(RUBRIQUES){id_parent}{par num titre}>
 					<?php $id = #ID_RUBRIQUE; ?>
-					<BOUCLE_nb_sous_rubriques(RUBRIQUES){id_parent}><?php ${'nb'.$id} = #TOTAL_BOUCLE; ?></BOUCLE_nb_sous_rubriques>
+					<BOUCLE_nb_sous_rubriques(RUBRIQUES){id_parent} {par num titre}><?php ${'nb'.$id} = #TOTAL_BOUCLE; ?></BOUCLE_nb_sous_rubriques>
 					<tr>
 						<td valign="top">
 							<?php
@@ -70,7 +66,7 @@ afficher_script_layer();
 									echo bouton_block_invisible('rub#ID_RUBRIQUE');
 								}
 							} else {
-								echo '<img src="img_pack/puce'.(#ID_RUBRIQUE == $actuelle ? 'on' : 'off').'.gif" alt=""/>';
+								echo '<img src="img_pack/puce'.(#ID_RUBRIQUE == $actuelle ? 'on' : 'off').'.gif" />';
 							}
 							?>
 						</td>
@@ -102,4 +98,67 @@ afficher_script_layer();
 		</td>
 	</tr>
 </BOUCLE_secteurs>
+</BOUCLE_hierarchie2>
+</B_hierarchie2>
+<BOUCLE_secteurs2(RUBRIQUES){id_rubrique} {par num titre}>
+	<?php $id = #ID_RUBRIQUE; ?>
+	<BOUCLE_nb_rubriques2(RUBRIQUES){id_parent}><?php ${'nb'.$id} = #TOTAL_BOUCLE; ?></BOUCLE_nb_rubriques2>
+	<tr>
+		<td valign="top">
+			<?php
+			if ($nb#ID_RUBRIQUE > 0) {
+				if (in_array(#ID_RUBRIQUE, $hierarchie)) {
+					echo debut_block_visible('rub#ID_RUBRIQUE');
+				} else {
+					echo debut_block_invisible('rub#ID_RUBRIQUE');
+				}
+				?>
+				<table border="0" cellpadding="2" cellspacing="0">
+				<BOUCLE_rubriques2(RUBRIQUES){id_parent}{par num titre}>
+					<?php $id = #ID_RUBRIQUE; ?>
+					<BOUCLE_nb_sous_rubriques2(RUBRIQUES){id_parent} {par num titre}><?php ${'nb'.$id} = #TOTAL_BOUCLE; ?></BOUCLE_nb_sous_rubriques2>
+					<tr>
+						<td valign="top">
+							<?php
+							if ($nb#ID_RUBRIQUE > 0) {
+								if (in_array(#ID_RUBRIQUE, $hierarchie)) {
+									echo bouton_block_visible('rub#ID_RUBRIQUE');
+								} else {
+									echo bouton_block_invisible('rub#ID_RUBRIQUE');
+								}
+							} else {
+								echo '<img src="img_pack/puce'.(#ID_RUBRIQUE == $actuelle ? 'on' : 'off').'.gif" />';
+							}
+							?>
+						</td>
+						<td valign="top">
+							<a href="#URL_RUBRIQUE" class="rubrique<?php echo (#ID_RUBRIQUE == $actuelle ? '' : (in_array(#ID_RUBRIQUE, $hierarchie) ? 'on' : 'off')); ?>" >[(#TITRE|supprimer_numero)]</a>
+							<?php
+							if ($nb#ID_RUBRIQUE > 0) {
+								if (in_array(#ID_RUBRIQUE, $hierarchie)) {
+									echo debut_block_visible('rub#ID_RUBRIQUE');
+								} else {
+									echo debut_block_invisible('rub#ID_RUBRIQUE');
+								}
+								?>
+								<table border="0" cellpadding="2" cellspacing="0"><BOUCLE_sous_rubriques2(BOUCLE_rubriques2)></BOUCLE_sous_rubriques2></table>
+								<?php
+								echo fin_block('rub#ID_RUBRIQUE');
+							}
+							?>
+						</td>
+					</tr>
+					<?php
+					echo fin_block('rub#ID_RUBRIQUE');
+					?>
+				</BOUCLE_rubriques2>
+				</table>
+			<?php
+			}
+			?>
+		</td>
+	</tr>
+</BOUCLE_secteurs2>
+<//B_hierarchie2>
+</BOUCLE_principale2>
 </table>

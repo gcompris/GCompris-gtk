@@ -127,8 +127,10 @@ my %COUNTRY = (
 
 
 print STDERR "Please WAIT, running 'cd po && ../intltool-update --report'\n";
-#my $report = `cd po && ../intltool-update --report 2>&1`;
-my $report = `export LC_ALL=C && cd po && cat report`;
+my $report = `cd po && ../intltool-update --report 2>&1`;
+
+#For test to speed up create a fixed report file with the previous command output
+#my $report = `export LC_ALL=C && cd po && cat report`;
 
 my @report_list = split("\n", $report);
 

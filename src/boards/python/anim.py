@@ -44,6 +44,19 @@ import os
 import sys
 import tempfile
 import cPickle as pickle
+import base64
+
+# Note that we only need one of these for any given version of the
+# processing class.
+#
+python_xml = True
+try:
+  from xml.dom.DOMImplementation import implementation
+  import xml.sax.writer
+  import xml.utils
+except:
+  python_xml = False
+  print _('You need the python xml module. Disabling SVG.')
 
 fles=None
 
@@ -125,11 +138,15 @@ class Gcompris_anim:
     # gcompris is cPickle python saved data
     #
     # svg in draw mode is normal svg file with base64 included images
+    global python_xml
     if self.gcomprisBoard.mode == 'draw':
-      self.file_type = "image/gcompris+draw image/svg+xml"
+      self.file_type = "image/gcompris+draw"
+      if python_xml:
+        self.file_type = self.file_type + " image/svg+xml"
     else:
-      self.file_type = "image/gcompris+anim image/svg+xml+javascript"
-
+      self.file_type = "image/gcompris+anim"
+      if python_xml:
+        self.file_type = self.file_type +"  image/svg+xml+javascript"
 
     # These are used to let us restart only after the bonux is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
@@ -392,6 +409,11 @@ class Gcompris_anim:
     self.draw_playing_area()
     self.pause(0)
 
+    global python_xml
+    if not python_xml:
+      #gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+      print _('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.')
+
   def end(self):
     # stop the animation
     if self.running:
@@ -490,6 +512,7 @@ class Gcompris_anim:
     
     if ((keyval == gtk.keysyms.BackSpace) or
         (keyval == gtk.keysyms.Delete)):
+      print "DEL", oldtext, len(oldtext)
       if (len(oldtext) != 1):
         newtext = oldtext[:-1]
       else:
@@ -1050,7 +1073,9 @@ class Gcompris_anim:
       return gtk.FALSE
     
     # Right button is a shortcup to Shot
-    if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+    if (self.gcomprisBoard.mode != 'draw' and
+        event.type == gtk.gdk.BUTTON_PRESS and
+        event.button == 3):
       self.Anim2Shot()
       return gtk.FALSE
     
@@ -2004,6 +2029,8 @@ class Gcompris_anim:
         return modified
 
   def Anim2Shot(self):
+    if self.gcomprisBoard.mode == 'draw':
+      return
     self.flash.show()
     for anAnimItem in self.framelist[:]:
       if anAnimItem.z == None:
@@ -2139,13 +2166,9 @@ class Gcompris_anim:
 def general_save(filename, filetype):
   global fles
 
-  # Normally empty if draw
-  for item in fles.framelist:
-     print item.type, item.z
-
   fles.z_reinit()
 
-  print "general_save : ", filename, " type ",filetype
+  #print "general_save : ", filename, " type ",filetype
   if filetype == None:
     filetype = filename.split('.')[-1]
   if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
@@ -2157,7 +2180,7 @@ def general_save(filename, filetype):
   print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
 
 def general_restore(filename, filetype):
-  print "general_restore : ", filename, " type ",filetype
+  #print "general_restore : ", filename, " type ",filetype
   if filetype == None:
     filetype = filename.split('.')[-1]
 
@@ -2172,15 +2195,19 @@ def general_restore(filename, filetype):
   elif(line == "<?xml version='1.0' enco"):
     filetype = 'image/svg+xml'
   
-  print " Detected type ",filetype
+  #   print " Detected type ",filetype
 
   if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
-    svg_to_anim2(filename)
+    global python_xml
+    if python_xml:
+      svg_to_anim2(filename)
+    else:
+      gcompris.utils.dialog(_('SVG is disabled. Install python xml module to enable it'),None)
     return
   if (filetype in ['image/gcompris+anim','image/gcompris+draw']):
     file_to_anim2(filename)
     return
-  print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
+  print "Error File selector return unknown filetype :",filetype, "!!!"
  
 
 def anim2_to_file(filename):
@@ -2228,10 +2255,7 @@ def anim2_to_file(filename):
         Sitem[1][list_frames[0]]['text-anchor']='middle'
         del Sitem[1][list_frames[0]]['anchor']
     list_to.append(Sitem)
-    #print Sitem
-    #print item.type, item.frames_info
 
-  print list_to, fles.frames_total
   pickle.dump(list_to, file, True)
   file.close()
 
@@ -2245,7 +2269,7 @@ def file_to_anim2(filename):
     file.close()
     print 'Cannot load ', filename , " as a GCompris animation"
     return
-  
+
   if type(desc) == type('str'):
     # string
     if 'desc' != fles.format_string['gcompris']:
@@ -2260,8 +2284,9 @@ def file_to_anim2(filename):
       print "ERROR: Unrecognized file format (desc), file", filename, ' has description : ', desc
       file.close()
       return
+
   elif type(desc) == type(1):
-    print filename, ' has no description. Sure is ', fles.format_string['gcompris'],' ?'
+    print filename, 'has no description. Are you sure it\'s', fles.format_string['gcompris'],'?'
     # int
     fles.frames_total = desc
     
@@ -2292,8 +2317,6 @@ def list_restore(picklelist):
       param = data['parent'], data['points'][0], data['points'][1], data['points'][2], data['points'][3],
     elif item.type == 'TEXT':
       bounds = item.canvas_item.get_bounds()
-      #print 'Text bounds :', bounds, ' center ', (data['x'],data['y']) 
-      #param = data['parent'], data['x'], data['y'], data['x'], data['y']
       param = data['parent'], bounds[0],bounds[1],bounds[2],bounds[3]
     elif item.type == 'IMAGE':
       param = data['parent'], data['x'], data['y'], data['x']+data['width'], data['y']+data['height']
@@ -2317,12 +2340,11 @@ def list_restore(picklelist):
     
   fles.framelist = []
   fles.animlist=[]
-  #print "Restore", picklelist
+
   for Sitem in picklelist:
     AItem = fles.AnimItem()
     AItem.type = Sitem[0]
     AItem.frames_info = Sitem[1]
-    #print AItem, AItem.type,  AItem.frames_info,
     fles.animlist.append(AItem)
 
   missing_images = []
@@ -2332,7 +2354,6 @@ def list_restore(picklelist):
         item.z = fles.animlist.index(item)
       restore_item( item, fles.current_frame, missing_images)
       
-  #print 'missing_images',  missing_images
   if missing_images:
     list_images = ''
     for im in missing_images:
@@ -2349,18 +2370,18 @@ def list_restore(picklelist):
   fles.list_z_actual = fles.list_z_last_shot[:]
   fles.z_reinit()
   fles.current_frame = fles.frames_total
-  fles.item_frame_counter.set(text=fles.current_frame + 1)
+
   fles.root_anim.show()
 
   # now each item needs to get it's frames_info cleared
-  if fles.gcomprisBoard.mode == 'draw':
+  if fles.gcomprisBoard.mode != 'draw':
+    fles.item_frame_counter.set(text=fles.current_frame + 1)
+  else:
     for anAnimItem in fles.animlist[:]:
-      del anAnimItem.frames_info[fles.current_frame]
-
+      anAnimItem.frames_info = {}
  
 def restore_item(item, frame, missing):
   global fles
-  #print item.type, frame
   if not item.frames_info.has_key(frame):
     return
   modif = item.frames_info[frame].copy()
@@ -2369,6 +2390,7 @@ def restore_item(item, frame, missing):
     fles.framelist.remove(item)
     return False
   if (modif.has_key('create') or (fles.gcomprisBoard.mode == 'draw')):
+
     if modif.has_key('create'):
       del modif['create']
     if modif.has_key('z'):
@@ -2385,9 +2407,8 @@ def restore_item(item, frame, missing):
       modif['anchor']= gtk.ANCHOR_CENTER
     if item.type == 'IMAGE':
       item.image_name =  modif['image_name']
-      #print 'Testing l\'image :', item.image_name
+
       if not os.access(gcompris.DATA_DIR + '/' + item.image_name, os.R_OK):
-        #print 'Missing image:', item.image_name
         missing.append(item.image_name)
         fles.animlist.remove(item)
         return False
@@ -2434,17 +2455,6 @@ def restore_item(item, frame, missing):
 #  SVG anim 2 export
 #
 ##############################################
-
-#import cPickle as pickle
-#import Image
-import base64
-
-# Note that we only need one of these for any given version of the
-# processing class.
-#
-from xml.dom.DOMImplementation import implementation
-import xml.sax.writer
-import xml.utils
 
 def anim2_to_svg(filename):
 
@@ -2517,9 +2527,6 @@ class BaseProcess:
         else:
           self.list_from = fles.animlist
 
-        #print "List gcb is :", self.list_from
-      
-
         for item in self.list_from:
           frames_info_copied = {}
           for t, d  in item.frames_info.iteritems():
@@ -2532,7 +2539,6 @@ class BaseProcess:
 #            del Sitem[1][list_frames[0]]['anchor']
           self.list_to.append(Sitem)
 
-        #print self.list_to, fles.frames_total
 
     def get_last_rectel_bounds(self, item, frame_no):
         listkeys = item[1].keys()
@@ -2570,7 +2576,6 @@ class BaseProcess:
         red = int ( ( rgba >> 24 ) & 255 )
         green = int ( ( rgba >> 16 ) & 255 )
         blue = int ( ( rgba >> 8 ) & 255 )
-        #print  rgba, red, green, blue, red*256*256*256 + green* 256*256 + blue*256
         return 'rgb(' + str(red) +',' + str(green) + ',' + str(blue) + ')' 
         
     def run(self):
@@ -2601,7 +2606,6 @@ class BaseProcess:
              self.element.appendChild(self.frame)
 
             for attr in item[1][frame_no].keys():
-#              print item[0], attr
               if (self.types[item[0]] == 'rect'):
 
                 if (item[0] == 'RECT') and item[1][frame_no].has_key('create'):
@@ -2731,7 +2735,7 @@ class BaseProcess:
                     else:
                         last_points = self.get_last_line_points(item, frame_no)
                         points = item[1][frame_no]['points']
-                        #print item, frame_no, last_points, points 
+
                         if points[0] != last_points[0]:
                             self.frame.setAttribute('x1', str(points[0]))
                         if points[1] != last_points[1]:
@@ -2760,7 +2764,7 @@ class BaseProcess:
               if ( attr == 'font' ):
                   font = item[1][frame_no]['font']
                   list = font.split()
-#                  print list
+
                   self.frame.setAttribute(
                       'font-size',list[-1] + 'pt')
                   self.frame.setAttribute(
@@ -3094,7 +3098,7 @@ class Outputter:
                continue
 
              if (not (k in ['x1', 'y1', 'x2', 'y2','x','y','width','height', 'cx', 'cy', 'rx', 'ry'])):
-               #print 'Attribut non processed :', self.item_getting[0], " ", k, "=", attrs[k]
+               #print u'Attribut non trait\xe9 :', self.item_getting[0], " ", k, "=", attrs[k]
                frame_info[k] = eval(attrs[k])
 
           if (self.points != {}): 
@@ -3184,7 +3188,7 @@ class Outputter:
            return
 
         if not (name in self.wait_element_list):
-           print "Error : wait ", self.wait_element_list, " get ", name
+           #print "Error : wait ", self.wait_element_list, " get ", name
            return
         self.in_element.append(name)
         if (name == 'svg'):
@@ -3198,8 +3202,6 @@ class Outputter:
            return
         if (name == 'gcompris:description'):
            desc = attrs['value']
-           #if 'desc' != fles.format_string['gcompris']:
-           #print fles.filename, ' has description : ', desc
            return
         if (name == 'script'):
            self.wait_end_of = name
@@ -3209,7 +3211,6 @@ class Outputter:
            return
         if (name == 'gcompris:frames_total'):
            fles.frames_total = eval(attrs['value'])
-           #print "gcompris:frames_total : ", fles.frames_total
            return
         if (name == 'defs'):
            self.wait_element_list = ['symbol']
@@ -3218,7 +3219,6 @@ class Outputter:
            # just get the id. 
            self.wait_element_list = ['image']
            self.image_getting = attrs['id']
-           #print "Symbol element with id : ", self.image_getting   
         if (name == 'image'):
            #the only interresting thing is the name in gcompris tree of this image. This the child element <gcompris:image_name /> value attribut.
            self.wait_element_list = ['gcompris:image_name']
@@ -3226,7 +3226,6 @@ class Outputter:
         if (name == 'gcompris:image_name'):
            #the only interresting thing is the name in gcompris tree of this image. This the child element <gcompris:image_name /> value attribut.
            image_id = attrs['value']
-           #print "GCompris name of ", self.image_getting, " is ",  image_id
            self.images['#' + self.image_getting] =  image_id
            return
         if (name in self.svg_element):
@@ -3243,7 +3242,6 @@ class Outputter:
              self.item_getting = ['IMAGE',{}]
              # We will put image_name when we meet 'create' attr, in frame_info spec. For that we need to keep the name of that image.
              self.image_getting = self.images[attrs['xlink:href']]
-             #print 'use element is ', self.image_getting, ' image.'
            if (name == 'text'):
              self.item_getting = ['TEXT',{}]
            if (name == 'line'):
@@ -3274,13 +3272,12 @@ class Outputter:
           else: return
 
         if (name != self.in_element[-1]):
-            #print "Error close ", name, " but ", self.in_element[-1], " waited."
-            return
+          # Let this print it can handle error
+          print "Error close ", name, " but ", self.in_element[-1], " waited."
+          return
         self.in_element.pop()
         
         if (name == 'svg'):
-            #print "End of svg."
-            #print self.picklelist
             list_restore(self.picklelist)
             return
         if (name == 'metadata'):
@@ -3312,72 +3309,48 @@ class Outputter:
             self.picklelist.append([self.item_getting[0],self.item_getting[1].copy()])
             self.item_getting = None
             return
-        
-        #print 'End element:\n\t', name
 
     def CharacterDataHandler(self, data):
       pass
-#      if (self.in_element != []):
-#        if ((self.in_element[-1] == 'gcompris:frame') and  (self.item_getting[0] == 'TEXT')):
-#          print "DATA = ",data,"."
-#          keys = self.item_getting[1].keys()
-#          keys.sort()
-#          #print self.item_getting
-#          # data is already in unicode
-#          #self.item_getting[1][keys[-1]]['text']=data
           
     def ProcessingInstructionHandler(self, target, data):
-        #print 'PI:\n\t', target, data
-        return
-        
+      pass
+
     def StartNamespaceDeclHandler(self, prefix, uri):
-        #print 'NS decl:\n\t', prefix, uri
-        return
+      pass
 
     def EndNamespaceDeclHandler(self, prefix):
-        #print 'End of NS decl:\n\t', repr(prefix)
-        return
+      pass
 
     def StartCdataSectionHandler(self):
-        #print 'Start of CDATA section'
-        return
+      pass
 
     def EndCdataSectionHandler(self):
-        #print 'End of CDATA section'
-        return
+      pass 
 
     def CommentHandler(self, text):
-        #print 'Comment:\n\t', repr(text)
-        return
+      pass
 
     def NotationDeclHandler(self, *args):
-        name, base, sysid, pubid = args
-        #print 'Notation declared:', args
-        return
-
+      pass
+    
     def UnparsedEntityDeclHandler(self, *args):
-        entityName, base, systemId, publicId, notationName = args
-        #print 'Unparsed entity decl:\n\t', args
-        return
+      pass
 
     def NotStandaloneHandler(self, userData):
-        #print 'Not standalone'
-        return 1
+      return 1
 
     def ExternalEntityRefHandler(self, *args):
-        context, base, sysId, pubId = args
-        #print 'External entity ref:', args[1:]
-        return 1
+      return 1
 
     def SkippedEntityHandler(self, *args):
-        #print 'Skipped entity ref:', args
-        return
+      pass
 
     def DefaultHandler(self, userData):
-        pass
+      pass
 
     def DefaultHandlerExpand(self, userData):
-        pass
+      pass
 
 
 
@@ -3430,5 +3403,4 @@ def image_selected(image):
 
   fles.newitem = None
   fles.newitemgroup = None
-
 
