@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-27 03:32+0200\n"
-"PO-Revision-Date: 2004-05-27 13:59+0200\n"
+"POT-Creation-Date: 2004-05-30 03:28+0200\n"
+"PO-Revision-Date: 2004-05-30 16:07+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2113,15 +2113,15 @@ msgstr ""
 "Tux má ve své lodi potíže. Potřebuje s ní projet plavební komorou.\n"
 "Pomoz Tuxovi a pochop, jak pracuje plavební komora."
 
-#: src/boards/chess.c:137
+#: src/boards/chess.c:139
 msgid "Learning Chess"
 msgstr "Učení se hrát šachy"
 
-#: src/boards/chess.c:138
+#: src/boards/chess.c:140
 msgid "Play chess against tux in a learning mode"
 msgstr "Hrej šachy proti tuxovi ve výukovém režimu"
 
-#: src/boards/chess.c:191
+#: src/boards/chess.c:193
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2133,7 +2133,7 @@ msgstr ""
 "gnuchess.\n"
 "Aktualizujte prosím na gnuchess verze 5 nebo vyšší."
 
-#: src/boards/chess.c:198
+#: src/boards/chess.c:200
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2147,31 +2147,31 @@ msgstr ""
 "nebo ve své distribuci GNU/Linuxu\n"
 "a přesvědčte se, že je nainstalován"
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "White Turn"
 msgstr "Bílý na tahu"
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "Black Turn"
 msgstr "Černý na tahu"
 
-#: src/boards/chess.c:718
+#: src/boards/chess.c:720
 msgid "White check"
 msgstr "Bílý v šachu"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:722
 msgid "Black check"
 msgstr "Černý v šachu"
 
-#: src/boards/chess.c:1052
+#: src/boards/chess.c:1054
 msgid "Black mates"
 msgstr "Černý matuje"
 
-#: src/boards/chess.c:1057
+#: src/boards/chess.c:1059
 msgid "White mates"
 msgstr "Bílý matuje"
 
-#: src/boards/chess.c:1062
+#: src/boards/chess.c:1064
 msgid "Drawn game"
 msgstr "Remíza"
 
@@ -2329,39 +2329,47 @@ msgstr "Klikni na odpovídající barvu"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Přečíst seznam slov a říct, jestli v něm je dané slovo"
 
-#: src/boards/reading.c:322
+#: src/boards/reading.c:329
 msgid "Please, check if the word"
 msgstr "Zkontroluj prosím, jestli je slovo"
 
-#: src/boards/reading.c:342
+#: src/boards/reading.c:349
 msgid "is being displayed"
 msgstr "zobrazeno"
 
-#: src/boards/reading.c:525
+#: src/boards/reading.c:541
 msgid "I am Ready"
 msgstr "Jsem připraven"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:581
 msgid "Yes I saw it"
 msgstr "Ano, viděl jsem je"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:611
 msgid "No, it was not there"
 msgstr "Ne, nebylo tam"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:649
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Hledané slovo bylo '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:652
 msgid "But it was not displayed"
 msgstr "Ale nebylo zobrazeno"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:654
 msgid "And it was displayed"
 msgstr "A bylo zobrazeno"
+
+#: src/boards/reading.c:756 src/boards/reading.c:766
+msgid "Cannot open file of words for your locale"
+msgstr "Nemohu otevřít soubor slov pro vaše locale"
+
+#: src/boards/reading.c:795
+msgid "Error: The wordfile package used for your locale is corrupted."
+msgstr "Chyba: balíček wordfile používaný pro vaše locale je poškozen."
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2472,7 +2480,8 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:187 src/gcompris/help.c:367
+#: src/gcompris/about.c:316 src/gcompris/config.c:187
+#: src/gcompris/gameutil.c:778 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2731,12 +2740,12 @@ msgid ""
 "This is a Demo version of gcompris,\n"
 "only 12 on 45 activities are available.\n"
 "To get the full version,\n"
-"go to http://ofset.sf.net/gcompris/order.html"
+"go to http://www.ofset.org/order/gcompris"
 msgstr ""
 "Toto je demoverze gcompris,\n"
 "k dispozici je jen 12 z 45 aktivit.\n"
 "Pro získání plné verze navštivte\n"
-"http://ofset.sf.net/gcompris/order.html"
+"http://www.ofset.org/order/gcompris"
 
 #: src/gcompris/gcompris.c:663
 #, c-format
@@ -2751,19 +2760,19 @@ msgstr ""
 "Licence: GPL\n"
 "Více informací na http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:174 src/gcompris/interface.c:243
+#: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Předpoklad"
 
-#: src/gcompris/help.c:208 src/gcompris/interface.c:252
+#: src/gcompris/help.c:207 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Cíl"
 
-#: src/gcompris/help.c:242 src/gcompris/interface.c:261
+#: src/gcompris/help.c:241 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuál"
 
-#: src/gcompris/help.c:276 src/gcompris/interface.c:270
+#: src/gcompris/help.c:275 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Kredity"
 
