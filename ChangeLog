@@ -1,3 +1,23 @@
+2002-10-13  bruno  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added enumerate board
+	* boards/algebramenu.xml.in: added enumerate board
+	* boards/boardicons/enumerate.png: added enumerate board
+	* boards/enumerate.xml.in: added enumerate board
+	* src/boards/enumerate.c: added enumerate board
+	* boards/images/enumerate_answer.png: added enumerate board
+	* boards/images/enumerate_answer_focus.png: added enumerate board
+	* boards/images/enumerate_background.jpg: added enumerate board
+	* boards/scales/board1_0.xml.in: added enumerate board
+	* src/boards/Makefile.am: added enumerate board
+	* boards/gcompris/dialogbox.png: added a dialog box in gcompris API
+	* src/gcompris/gameutil.h: added a dialog box in gcompris API
+	* src/boards/chess.c: (start_board), (chess_child_end):
+	* src/gcompris/gameutil.c: (item_absolute_move), (gcompris_dialog),
+	(item_event_ok): added a call to the dialog box if gnuchessx is not there
+	* boards/scales/tabepice.jpg:  delete and converted to jpg to free space
+	* boards/scales/tabepice.png: delete and converted to jpg to free space
+
 2002-10-09  bruno  <bruno.coudoin@free.fr>
 
 	* configure.in: added support to compile internal ogg player

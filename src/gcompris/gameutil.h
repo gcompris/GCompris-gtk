@@ -42,4 +42,7 @@ GcomprisBoard	*gcompris_read_xml_file(char *fname);
 gchar		*convertUTF8Toisolat1(gchar * text);
 void		 item_absolute_move(GnomeCanvasItem *item, int x, int y);
 
+typedef void     (*DialogBoxCallBack)     ();
+void		 gcompris_dialog(gchar *str, DialogBoxCallBack dbcb);
+
 #endif

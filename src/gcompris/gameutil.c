@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/06/09 02:56:53 bruno>
+ * Time-stamp: <2002/10/13 17:53:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,6 +32,9 @@
 
 /* default gnome pixmap directory in which this game tales the icon */
 static char *lettersdir = "letters/";
+
+static GnomeCanvasGroup *rootDialogItem = NULL;
+static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb);
 
 extern GnomeCanvas *canvas;
 
@@ -475,6 +478,105 @@ void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
   double dx1, dy1, dx2, dy2;
   gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
   gnome_canvas_item_move(item, ((double)x)-dx1, ((double)y)-dy1);
+}
+
+/*
+ * Display a dialog box and an OK button
+ * When the box is closed, the given callback is called if any
+ */
+void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
+{
+  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GnomeCanvasItem *item_dialog = NULL;
+  GnomeCanvasItem *item_text   = NULL;
+  GdkPixbuf *pixmap_dialog = NULL;
+  GtkWidget *gtktext;
+  GdkFont *gdk_font;
+
+  /* If we already running delete the previous one */
+  if(rootDialogItem)
+    gtk_object_destroy(GTK_OBJECT(rootDialogItem));
+  rootDialogItem = NULL;
+  
+
+  /* First pause the board */
+  if(gcomprisBoard->plugin->pause_board != NULL)
+      gcomprisBoard->plugin->pause_board(TRUE);
+
+  gcompris_bar_hide(TRUE);
+
+  rootDialogItem = GNOME_CANVAS_GROUP(
+				      gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+							     gnome_canvas_group_get_type (),
+							     "x", (double) 0,
+							     "y", (double) 0,
+							     NULL));
+      
+  pixmap_dialog = gcompris_load_pixmap("gcompris/dialogbox.png");
+
+  item_dialog = gnome_canvas_item_new (rootDialogItem,
+				       gnome_canvas_pixbuf_get_type (),
+				       "pixbuf", pixmap_dialog,
+				       "x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
+				       "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
+				      NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item_dialog), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     dbcb);
+
+  gdk_font = gdk_font_load (FONT_SUBTITLE);
+  if(!gdk_font)
+    // Fallback to a more usual font
+    gdk_font = gdk_font_load (FONT_SUBTITLE_FALLBACK);
+
+  item_text = gnome_canvas_item_new (rootDialogItem,
+			 gnome_canvas_text_get_type (),
+			 "text", str,
+			 "font_gdk", gdk_font,
+			 "x", (double) (BOARDWIDTH/2),
+			 "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
+			 100,
+			 "anchor", GTK_ANCHOR_NORTH,
+			 "fill_color", "white",
+			 "justification", GTK_JUSTIFY_CENTER,
+			 NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item_text), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     dbcb);
+
+}
+
+/* Callback for the bar operations */
+static gint
+item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
+{
+  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+
+  switch (event->type) 
+    {
+    case GDK_ENTER_NOTIFY:
+      break;
+    case GDK_LEAVE_NOTIFY:
+      break;
+    case GDK_BUTTON_PRESS:
+      if(rootDialogItem)
+	gtk_object_destroy(GTK_OBJECT(rootDialogItem));
+      rootDialogItem = NULL;
+      
+      /* restart the board */
+      if(gcomprisBoard->plugin->pause_board != NULL)
+	gcomprisBoard->plugin->pause_board(FALSE);
+      
+      gcompris_bar_hide(FALSE);
+
+      if(dbcb != NULL)
+	dbcb();
+	  
+    default:
+      break;
+    }
 }
 
 /* Local Variables: */

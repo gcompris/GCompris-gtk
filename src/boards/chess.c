@@ -185,11 +185,18 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-
+  
+  if (!g_file_exists ("/usr/bin/gnuchessx")) {
+    
+    gcompris_dialog(_("Error: The external program gnuchessx is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in /usr/bin/gnuchessx"), gcompris_end_board);
+    
+    return;
+  }
+  
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
-
+      
       /* Default mode */
       if(!gcomprisBoard->mode)
 	gameType=COMPUTER;
@@ -199,12 +206,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gameType=PARTYEND;
       else if(g_strncasecmp(gcomprisBoard->mode, "movelearn", 1)==0)
 	gameType=MOVELEARN;
-
+      
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=1;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
-
+      
       switch(gameType)
 	{
 	case PARTYEND:
@@ -215,15 +222,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	default:
 	  gcompris_bar_set(0);
 	}
-
+      
       start_child ("gnuchessx", NULL, &read_chan,
 		   &write_chan, &childpid);
-
+      
       read_cb = g_io_add_watch (read_chan, G_IO_IN,
 				engine_local_cb, NULL);
       err_cb = g_io_add_watch (read_chan, G_IO_HUP,
 			       engine_local_err_cb, NULL);
-
+      
       write_child (write_chan, "post\n");
       write_child (write_chan, "easy\n");
       write_child (write_chan, "level 100 1 0\n");
@@ -231,12 +238,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       write_child (write_chan, "1\n");
       
       chess_next_level();
-
+      
       gamewon = FALSE;
       pause_board(FALSE);
-
     }
 }
+
 /* ======================================= */
 static void end_board ()
 {
@@ -1054,6 +1061,7 @@ void chess_child_end(int  signum)
 
   if (pid == -1)
     g_error("chess_child_end Error waitpid");
+
 }
 
 /*----------------------------------------

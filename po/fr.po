@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-09-19 12:58+0200\n"
-"PO-Revision-Date: 2002-09-18 22:19+0200\n"
+"POT-Creation-Date: 2002-10-13 18:08+0200\n"
+"PO-Revision-Date: 2002-10-13 18:38+0200\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -462,6 +462,12 @@ msgid ""
 "The logical link between these objects must be found. This is achieved by "
 "dragging the objects to the right red plots in the main area."
 msgstr ""
+"Dans le zone principale, un ensemble d'objet est présenté. Dans la\n"
+"zone verticale à gauche, un autre ensemble est présenté, chacun de\n"
+"ces objets correspond exactement à un objet de la zone principale.\n"
+"Le lien logique entre ces objets doit être découvert.\n"
+"Pour déplacer les objets, il faut utiliser le mouvement glisser/déplacer\n"
+"avec la souris."
 
 #: boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -530,7 +536,6 @@ msgstr ""
 "Fait traverser Tux à travers l'écluse dans les deux sens."
 
 #: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
-#, fuzzy
 msgid "Play chess against the computer in a learning mode"
 msgstr "Joue aux échecs contre l'ordinateur dans un mode d'apprentissage"
 
@@ -653,6 +658,10 @@ msgid ""
 "the corresponding arrow to set the clock time matching the given hour. The "
 "different arrows can be turned by selecting them and moving the mouse"
 msgstr ""
+"Pour chaque heure affichée (heures:minutes ou heures:minutes:secondes),\n"
+"manipulez les aiguilles correspondantes pour les positionner correctement.\n"
+"Les aiguilles peuvent être tournés en les sélectionnant et en bougeant\n"
+"la souris (mouvement glisser déplacer)."
 
 #: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
 #: src/boards/clockgame.c:78
@@ -727,11 +736,11 @@ msgstr ""
 "L'enfant doit déplacer les éléments sur la gauche et les placer\n"
 "sur la bonne destination dans la table à double entrée"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:192
+#: boards/draw.xml.in.h:1 src/boards/draw.c:197
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:193
+#: boards/draw.xml.in.h:2 src/boards/draw.c:198
 msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative où l'on peut dessiner librement"
 
@@ -1225,7 +1234,7 @@ msgid ""
 "rebuild the original painting."
 msgstr ""
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:155
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:156
 msgid "Make the puzzle"
 msgstr "Construis le puzzle"
 
@@ -1319,6 +1328,8 @@ msgid ""
 "Use the up, down, right and left keyboard keys to move the helicopter to "
 "catch the numbers in the incremental order"
 msgstr ""
+"Utilises les touches flêches de direction du clavier pour déplacer\n"
+"l'hélicopter dans l'ordre croissant."
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -1587,18 +1598,18 @@ msgstr "Couleurs complexes"
 
 #: src/boards/advanced_colors.c:529 src/boards/imageid.c:578
 #: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/read_colors.c:484 src/boards/shapegame.c:1567
-#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
-#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
+#: src/boards/read_colors.c:484 src/boards/shapegame.c:1537
+#: src/gcompris/gameutil.c:86 src/gcompris/gameutil.c:105
+#: src/gcompris/gameutil.c:398 src/gcompris/gameutil.c:399
 #: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
+#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:288
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/advanced_colors.c:532 src/boards/imageid.c:581
 #: src/boards/missingletter.c:602 src/boards/read_colors.c:487
-#: src/boards/shapegame.c:1570
+#: src/boards/shapegame.c:1540
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -1623,29 +1634,47 @@ msgstr "Apprentissage des échecs"
 msgid "Play chess against tux in a learning mode"
 msgstr "Joue aux échecs contre l'ordinateur dans un mode d'apprentissage"
 
-#: src/boards/chess.c:525
+#: src/boards/chess.c:191
+msgid ""
+"Error: The external program gnuchessx is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is in /usr/bin/gnuchessx"
+msgstr ""
+"Erreur: Le programme externe gnuchessx est nécessaire\n"
+"pour jouer aux échecs dans gcompris.\n"
+"Trouvez ce programme sur http://www.rpmfind.net ou \n"
+"dans votre distribution GNU/Linux.\n"
+"Ensuite vérifiez qu'il est dans /usr/bin/gnuchessx"
+
+#: src/boards/chess.c:535
 msgid "White Turn"
 msgstr "Les blancs jouent"
 
-#: src/boards/chess.c:525
+#: src/boards/chess.c:535
 msgid "Black Turn"
 msgstr "Les noirs jouent"
 
-#: src/boards/chess.c:669
+#: src/boards/chess.c:679
 msgid "White check"
 msgstr "Echec au blancs"
 
-#: src/boards/chess.c:671
+#: src/boards/chess.c:681
 msgid "Black check"
 msgstr "Echec au noirs"
 
-#: src/boards/chess.c:1003
+#: src/boards/chess.c:1013
 msgid "Black mates"
 msgstr "Blancs échec et mat"
 
-#: src/boards/chess.c:1008
+#: src/boards/chess.c:1018
 msgid "White mates"
 msgstr "Noirs échec et mat"
+
+#: src/boards/chess.c:1023
+msgid "Drawn game"
+msgstr "Echec et pat"
 
 #: src/boards/click_on_letter.c:73
 msgid "Read a letter"
@@ -1750,7 +1779,7 @@ msgstr "Non, il n'y était pas"
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
-#: src/boards/shapegame.c:156
+#: src/boards/shapegame.c:157
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
@@ -1806,144 +1835,144 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:299 src/gcompris/config.c:161 src/gcompris/help.c:355
+#: src/gcompris/about.c:299 src/gcompris/config.c:162 src/gcompris/help.c:355
 #: src/gcompris/images_selector.c:154
 msgid "OK"
 msgstr "Valider"
 
-#: src/gcompris/config.c:43
+#: src/gcompris/config.c:44
 msgid "Azerbaijani Turkic"
 msgstr "Turc azerbaïdjanais"
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:45
 msgid "German"
 msgstr "Allemand"
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:46
 msgid "Greek"
 msgstr "Grec"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:47
 msgid "English"
 msgstr "Anglais"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:48
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:49
 msgid "Finnish"
 msgstr "Finnois"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:50
 msgid "French"
 msgstr "Français"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:51
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:52
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:53
 msgid "Malay"
 msgstr "Malaisien"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:54
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:55
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:56
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:57
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:58
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:59
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:135
+#: src/gcompris/config.c:136
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:247
+#: src/gcompris/config.c:248
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:318
+#: src/gcompris/config.c:319
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance gcompris en mode plein écran"
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in window mode."
 msgstr "lance gcompris en mode fenêtré"
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris with sound enabled."
 msgstr "lance gcompris avec le son."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris without sound."
 msgstr "lance gcompris sans le son."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris with the default gnome cursor."
 msgstr "lance gcompris avec le curseur par défaut de gnome."
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:76
 msgid "Prints the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:78
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:320
+#: src/gcompris/gcompris.c:316
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:516
+#: src/gcompris/gcompris.c:512
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2070,7 +2099,7 @@ msgstr "Type"
 
 #: src/gcompris/interface.c:536
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/gcompris/interface.c:544
 msgid "Enregistrer le fichier"

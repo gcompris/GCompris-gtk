@@ -9,6 +9,7 @@ lib_LTLIBRARIES = \
 	libcolors.la \
 	libdraw.la \
 	liberase.la \
+	libenumerate.la \
 	libgletters.la \
 	libimageid.la \
 	libleftright.la \
@@ -283,6 +284,14 @@ libchess_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
 
 libchess_la_SOURCES = chess.c chess_position.c chess_notation.c \
 	chess_notation.h chess_position.h chess_makros.h
+
+libenumerate_la_LDFLAGS = -module -avoid-version
+libenumerate_la_LIBADD = @GTK_LIBS@ @PTHREAD_LIB@
+	$(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+	$(GNOME_XML_LIB) $(INTLLIBS) \
+	$(GDK_PIXBUF_LIBS)
+
+libenumerate_la_SOURCES = enumerate.c
 
 EXTRA_DIST = README
 
