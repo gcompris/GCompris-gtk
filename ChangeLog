@@ -1,3 +1,8 @@
+2002-01-02  Bruno Coudoin  <bruno.coudoin@free.fr>
+	* src/gcompris/config.c: added support for locale selection
+	* boards/locale*: removed locale selection by boards
+	* src/boards/locale.c: removed locale selection by boards
+
 2001-12-26  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* boards/missing_letter: added support for xmli18n
 	* boards/scales: added support for xmli18n (preparation only since shapegame needs xml rewrite)

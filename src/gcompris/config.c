@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2001/12/27 01:25:27 bruno>
+ * Time-stamp: <2002/01/02 23:15:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -27,11 +27,36 @@
 #include "gcompris_config.h"
 
 static GnomeCanvasItem	*rootitem		= NULL;
+static GnomeCanvasItem	*item_locale_text	= NULL;
+static GnomeCanvasItem	*item_locale_flag	= NULL;
 static GdkPixbuf	*pixmap_checked		= NULL;
 static GdkPixbuf	*pixmap_unchecked	= NULL;
 
+static gchar		*current_locale		= NULL;
+
 #define SOUNDLISTFILE PACKAGE
 
+static gchar *linguas[] = {
+  "az", N_("Azerbaijani Turkic"),
+  "de", N_("German"),
+  "el", N_("Greek"),
+  "en", N_("English"),
+  "es", N_("Spanish"),
+  "fi", N_("Finnish"),
+  "fr", N_("French"),
+  "it", N_("Italian"),
+  "nl",N_("Dutch"),
+  "pt_BR",N_("Brazil Portuguese"),
+  "ru",N_("Romanian"),
+  "sv",N_("Slovenian"),
+  "lt",N_("Lithuanian"),
+  NULL, NULL
+};
+
+static void set_locale_flag(gchar *locale);
+static gchar *get_locale_name(gchar *locale);
+static gchar *get_next_locale(gchar *locale);
+static gchar *get_previous_locale(gchar *locale);
 static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 
@@ -48,6 +73,7 @@ void gcompris_config_start ()
   gint y_start = 0;
   gint x_start = 0;
   gint x_text_start = 0;
+  gint x_flag_start = 0;
   gint y = 0;
   GnomeCanvasItem *item;
 
@@ -129,7 +155,8 @@ void gcompris_config_start ()
 
 
   x_start += 150;
-  x_text_start = x_start + 50;
+  x_flag_start = x_start + 50;
+  x_text_start = x_start + 120;
 
   //--------------------------------------------------
   // Locale
@@ -145,7 +172,7 @@ void gcompris_config_start ()
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_ok,
-		     "locale_backward");
+		     "locale_previous");
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
@@ -162,22 +189,32 @@ void gcompris_config_start ()
 
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) item_event_ok,
-		     "locale_forward");
+		     "locale_next");
   gtk_signal_connect(GTK_OBJECT(item), "event",
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
   gdk_pixbuf_unref(pixmap);
 
+  
+  item_locale_flag = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					    gnome_canvas_pixbuf_get_type (),
+					    "pixbuf", NULL, 
+					    "x", (double) x_flag_start,
+					    "y", (double) y_start - gdk_pixbuf_get_width(pixmap_checked)/2,
+					    NULL);
 
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_text_get_type (),
-			 "text", N_("Locale"), 
-			 "font_gdk", gdk_font_small,
-			 "x", (double) x_text_start,
-			 "y", (double) y_start,
-			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color", "white",
-			 NULL);
+  current_locale = gcompris_get_locale();
+  set_locale_flag(current_locale);
+
+  item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+					    gnome_canvas_text_get_type (),
+					    "text", get_locale_name(current_locale), 
+					    "font_gdk", gdk_font_small,
+					    "x", (double) x_text_start,
+					    "y", (double) y_start,
+					    "anchor", GTK_ANCHOR_WEST,
+					    "fill_color", "white",
+					    NULL);
 
   // Fullscreen / Window
   y_start += 50;
@@ -292,7 +329,101 @@ void gcompris_config_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
+static void set_locale_flag(gchar *locale)
+{
+  char *str = NULL;
+  char *filename = NULL;
+  GdkPixbuf *pixmap = NULL;
 
+  str = g_strdup_printf("flags/%.2s.png", locale);
+  filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, str);
+
+  g_warning("Trying to load flag %s", filename);
+
+  if (g_file_exists (filename)) 
+    {
+      pixmap = gcompris_load_pixmap(str);
+    } 
+
+  gnome_canvas_item_set (item_locale_flag,
+			 "pixbuf", pixmap,
+			 NULL);
+  
+  g_free(str);
+  g_free(filename);
+
+  if(pixmap)
+    gdk_pixbuf_unref(pixmap);
+}
+
+
+/**
+ * Given the short locale name, return the full translated name
+ * If not found, simply return the short given locale
+ */
+static gchar *get_locale_name(gchar *locale)
+{
+  guint i = 0;
+
+  while(linguas[i] != NULL)
+    {
+      if(!strncmp(locale, linguas[i], 2))
+	return(linguas[i+1]);
+
+      i=i+2;
+    }
+
+  return(locale);
+}
+
+/**
+ * Given the short locale name, return the next one in our linguas table
+ */
+static gchar *get_next_locale(gchar *locale)
+{
+  guint i = 0;
+
+  while(linguas[i] != NULL)
+    {
+      if(!strncmp(locale, linguas[i], 2))
+	{
+	  // Found it
+	  if(linguas[i+2]!=NULL)
+	    return(linguas[i+2]);
+	  else
+	    return(linguas[0]);
+	  
+	}
+      i=i+2;
+    }
+  return(locale);
+}
+
+/**
+ * Given the short locale name, return the previous one in our linguas table
+ */
+static gchar *get_previous_locale(gchar *locale)
+{
+  guint i = 0;
+
+  while(linguas[i] != NULL)
+    {
+      if(!strncmp(locale, linguas[i], 2))
+	{
+	  // Found it
+	  if(i!=0)
+	    return(linguas[i-2]);
+	  else
+	    {
+	      // Go to the end of the list
+	      while(linguas[i]!=NULL) { i=i+2; };
+	      return(linguas[i-2]);
+	    }	  
+	}
+      i=i+2;
+    }
+  return(locale);
+}
 
 /* Callback for the bar operations */
 static gint
@@ -309,6 +440,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_BUTTON_PRESS:
       if(!strcmp((char *)data, "ok"))
 	{
+	  gcompris_set_locale(current_locale);
 	  gcompris_config_stop();
 	}
       else if(!strcmp((char *)data, "fullscreen"))
@@ -334,6 +466,25 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 				 "pixbuf", (properties->fx ? pixmap_checked : pixmap_unchecked),
 				 NULL);
 
+	}
+      else if(!strcmp((char *)data, "locale_previous"))
+	{
+	  current_locale = get_previous_locale(current_locale);
+	  gnome_canvas_item_set (item_locale_text,
+				 "text", get_locale_name(current_locale),
+				 NULL);
+	  set_locale_flag(current_locale);
+	  properties->locale = current_locale;
+	}
+      else if(!strcmp((char *)data, "locale_next"))
+	{
+	  current_locale = get_next_locale(current_locale);
+	  gnome_canvas_item_set (item_locale_text,
+				 "text", get_locale_name(current_locale),
+				 NULL);
+
+	  set_locale_flag(current_locale);
+	  properties->locale = current_locale;
 	}
     default:
       break;

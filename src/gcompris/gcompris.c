@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/12/27 01:34:33 bruno>
+ * Time-stamp: <2002/01/02 22:55:48 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -299,12 +299,6 @@ static void setup_window ()
 
   board_play (gcomprisBoardMenu);
 
-  /* Menu creation */  
-
-  //  gnome_app_create_menus (GNOME_APP (window), main_menu);
-  
-  //  gnome_app_install_menu_hints (GNOME_APP (window), main_menu);
-
   init_background();
 }
 
@@ -463,7 +457,7 @@ void gcompris_set_locale(gchar *locale)
 
   gcompris_locale = setlocale(LC_ALL, locale);
   printf("gcompris_set_locale requested %s got %s\n", locale, gcompris_locale);
-  /* FIXME: This does not update gettext translation */
+  /* WARNING: This does not update gettext translation */
 }
 
 /*****************************************
