@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-01 02:26-0500\n"
-"PO-Revision-Date: 2005-02-01 22:51-0500\n"
+"POT-Creation-Date: 2005-02-02 20:14-0500\n"
+"PO-Revision-Date: 2005-02-02 22:51-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -1753,21 +1753,21 @@ msgid "None"
 msgstr "None"
 
 #: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
-#: boards/maze3D.xml.in.h:2
+#: boards/maze3D.xml.in.h:2 boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Can use the keyboard arrow to move an object."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:130
+#: boards/maze.xml.in.h:2 src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Find your way out of the maze"
 
 #: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
-#: boards/maze3D.xml.in.h:4
+#: boards/maze3D.xml.in.h:4 boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Help Tux get out of this maze."
 
 #: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
-#: src/boards/maze.c:129
+#: boards/mazeInvisible.xml.in.h:4 src/boards/maze.c:132
 msgid "Maze"
 msgstr "Maze"
 
@@ -1796,6 +1796,20 @@ msgstr ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
+
+#: boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Find your way out of the invisible maze"
+
+#: boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2655,6 +2669,10 @@ msgstr "Educational game for children 2 to 10 years old"
 msgid "Educational suite gcompris"
 msgstr "Educational suite gcompris"
 
+#: gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Multiple activities for kids"
+
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
@@ -2858,7 +2876,11 @@ msgstr "left"
 msgid "right"
 msgstr "right"
 
-#: src/boards/maze.c:453
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Look at your position and switch back to invisible mode to move"
+
+#: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Look at your position and switch back to 3D mode to move"
 
