@@ -1,5 +1,10 @@
 2004-09-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/python/anim.py: fixed, can load/save drawings
+	* src/gcompris/svgutil.c: (gcompris_anim_to_svg_file): typo change
+
+2004-09-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/draw.c: (create_item), (recreate_item): completed image load/save
 	* src/boards/python/anim.py: completed image by image re-editing. Warning, multi drawings
 	load is broken.

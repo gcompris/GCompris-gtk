@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/09/15 00:13:52 bcoudoin>
+ * Time-stamp: <2004/09/15 22:59:37 bcoudoin>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -781,13 +781,13 @@ void *gcompris_anim_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode ){
 
     sdelay = xmlGetProp(animation, "delay");
     
-    printf("delay lu %s \n",sdelay);
+    printf("delay read %s \n",sdelay);
     
     sscanf(sdelay,"%d", &delay);
 
     sdelay = xmlGetProp(animation, "length");
     
-    printf("total lu %s \n",sdelay);
+    printf("total read %s \n",sdelay);
     
     sscanf(sdelay,"%d", &total);
 

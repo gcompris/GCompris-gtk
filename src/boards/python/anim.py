@@ -1680,11 +1680,20 @@ class Gcompris_anim:
   def dump_group(self, item):
 
     if(self.item_type(item) == "GROUP"):
-      print "Group size = " + str(len(item.item_list))
-      for item in item.item_list:
-        self.dump_group(item)
+      print "This Group ItemList number of items = " + str(len(item.item_list))
+      for item2 in item.item_list:
+        if(self.item_type(item2) == "GROUP"):
+          print "  FOUND A GROUP HERE"
+          self.dump_group(item2)
+        else:
+          print "  " + self.item_type(item2)
+          if(item2.get_data('anchors')):
+             print "    (This is an Anchor)"
+      print "Group dump done"
     else:
       print "  " + self.item_type(item)
+      if(item.get_data('anchors')):
+         print "    (This is an Anchor)"          
     
 # ----------------------------------------
 # GLOBAL FUNCTIONS
@@ -1695,6 +1704,9 @@ def svg_restore(filename):
   
   global fles
 
+  # We will display the first image
+  fles.current_image = 0
+  
   # unselect object if necessary
   if (fles.selected != None):
     fles.selected.item_list[1].hide()
@@ -1709,9 +1721,7 @@ def svg_restore(filename):
                              filename,
                              fles.root_anim
                              )
-
-#  if (len(fles.root_anim.item_list) > 0):
-#    last_picture = fles.root_anim.item_list[-1]
+#  fles.dump_group(fles.root_anim)
 
   if (len(fles.root_anim.item_list) > 0):
     for item in fles.root_anim.item_list:
@@ -1719,6 +1729,22 @@ def svg_restore(filename):
       if gobject.type_name(item)=="GnomeCanvasGroup":
         fles.recursive_anchorize(item)
 
+  #
+  # Fix the show/hide status as create by the import
+
+  # FIXME: This should not happen. There is an extra group level that is hidden.
+  #        Probably a problem in gcompris.utils.svg_restore
+  for item in fles.root_anim.item_list:
+    for item2 in item.item_list:
+      item2.show()
+
+  # Re-Hide all drawings (They were hidden by default)
+  for item in fles.root_anim.item_list:
+    item.hide()
+
+  # Show the first drawing
+  fles.root_anim.item_list[0].show()
+  
   # Deactivate old button
   fles.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(fles.tools[fles.current_tool][1]))
         
