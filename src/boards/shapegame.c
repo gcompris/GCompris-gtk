@@ -228,6 +228,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       pause_board(FALSE);
 
+      gcompris_set_cursor(GCOMPRIS_LINE_CURSOR);
+
     }
 
 }
@@ -243,6 +245,7 @@ end_board ()
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
   gcomprisBoard = NULL;
+  gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
 }
 
 static void
