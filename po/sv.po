@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-09-26 16:46+0200\n"
-"PO-Revision-Date: 2003-09-26 16:48+0200\n"
+"POT-Creation-Date: 2003-10-11 23:02+0200\n"
+"PO-Revision-Date: 2003-10-11 23:04+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -771,11 +771,11 @@ msgstr "Placera föremålen så att de kan räknas på bäst sätt"
 msgid "Motor coordination"
 msgstr "Motorik"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:66 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Flytta musen"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5 src/boards/erase.c:67
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Flytta musen för att radera området och upptäck bakgrunden"
 
@@ -1711,7 +1711,7 @@ msgstr ""
 "tärningarna för att räkna baklänges. När du är klar klickar du på OK-knappen "
 "eller trycker på returtangenten på tangentbordet."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice the substraction with a funny game"
 msgstr "Träna på subtraktion med ett roligt spel"
 
@@ -1885,6 +1885,22 @@ msgstr "Skriv in hela de fallande orden innan de når marken"
 msgid "Keyboard training"
 msgstr "Tangentbordsträning"
 
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system."
+msgstr ""
+"Klicka på olika aktiva element: sol, moln, vattenpumpstation, "
+"vattenreningsverk för att att återaktivera hela vattensystemet."
+
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr "Lär vattnets kretslopp"
+
+#: boards/watercycle.xml.in.h:3
+msgid "You have to bring back the water system up before Tux goes home"
+msgstr "Du måste få igång vattensystemet igen innan Tux kan gå hem"
+
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
 msgstr "Redigerare för gcompris"
@@ -1897,18 +1913,18 @@ msgstr "Lärorikt spel för barn från 3 år och uppåt"
 msgid "Educational suite gcompris"
 msgstr "Läroprogramssviten gcompris"
 
-#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
+#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:364
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
 #: src/boards/shapegame.c:1728
 #, c-format
@@ -2026,7 +2042,7 @@ msgstr "Kunde inte öppna bildfilskatalogen: %s"
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
 
-#: src/boards/colors.c:210
+#: src/boards/colors.c:216
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Klicka på färgen %s"
@@ -2118,7 +2134,7 @@ msgstr "Ja, jag såg det"
 msgid "No, it was not there"
 msgstr "Nej, det fanns inte där"
 
-#: src/boards/reversecount.c:136
+#: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr "Omvänd räkning"
 
@@ -2476,7 +2492,7 @@ msgstr "Författare"
 msgid "Directory"
 msgstr "Katalog"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:242
 msgid "Title"
 msgstr "Titel"
 
@@ -2491,11 +2507,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Släppt under GPL"
 
-#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
+#: src/gcompris/oggplayer.c:205 src/gcompris/oggplayer.c:216
 msgid "Now Playing Music"
 msgstr "Spelar nu musik"
 
-#: src/gcompris/oggplayer.c:245
+#: src/gcompris/oggplayer.c:246
 msgid "Artist"
 msgstr "Artist"
 
