@@ -2,6 +2,9 @@
 # translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
+# translation of fr.po to
+# translation of fr.po to
 # translation of fr.po to Français
 # translation of fr.po to
 # translation of fr.po to
@@ -11,18 +14,18 @@
 # translation of fr.po to
 # translation of fr.po to
 # gcompris fr.po.
-# Copyright (C) 2000-2003, 2004 Free Software Foundation, Inc.
+# Copyright (C) 2000-2003, 2004, 2005 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2003.
 # Christophe Merlet (RedFox) <redfox@eikonex.org>, 2002.
 # Laurent Richard <laurent.richard@lilit.be>, 2003, 2004.
-# Renaud de Colombel <renaud.decolombel@free.fr>, 2004.
+# Renaud de Colombel <renaud.decolombel@free.fr>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-15 00:59+0100\n"
-"PO-Revision-Date: 2004-12-15 01:04+0100\n"
+"POT-Creation-Date: 2005-01-09 22:07+0100\n"
+"PO-Revision-Date: 2005-01-09 22:20+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -489,12 +492,54 @@ msgid "algorithm"
 msgstr "algorithme"
 
 #: boards/anim.xml.in.h:1
-msgid "Create an animation"
-msgstr "Créer une animation"
+msgid "Create a drawing or an animation"
+msgstr "Outil libre de dessin et d'animation"
 
 #: boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
 msgstr "Outil libre de dessin et d'animation"
+
+#: boards/anim.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines. To make it more fun for kids, a set of images can also be used."
+msgstr ""
+"Dans ce jeu, les enfants peuvent dessiner librement.\n"
+"L'objectif est juste de découvrir comment créer de jolis dessins à partir\n"
+"de formes simples :\n"
+"rectangles, ellipses et lignes.\n"
+"Pour rendre le jeu encore plus amusant, un ensemble d'images peut aussi être "
+"utilisé."
+
+#: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Doit être capable de manipuler la souris et de cliquer facilement."
+
+#: boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left and a color on the bottom. Then click and "
+"drag in the white area to create a new shape. Once one drawing is complete, "
+"you can take a snapshot of it with the 'camera' button. A new image with the "
+"same content is created. You can then move objects a little bit or add/"
+"delete objects. Create several drawings and then click on the 'film' button. "
+"You will see all your images in an infinite loop. You can change the viewing "
+"speed in this mode. In view mode, click on the 'drawing' button to return to "
+"drawing. You can then edit each image of your animation by using the image "
+"selector in the bottom left of the screen. You can save and reload your "
+"animations with the 'floppy' and 'folder' button."
+msgstr ""
+"Sélectionne un outil de dessin sur la gauche et une couleur en bas. Ensuite "
+"clique et glisse dans la zone blanche pour créer une nouvelle forme. Lorsque "
+"une image est terminée, tu peux prendre un photo avec le boutton 'appareil "
+"photo'. Une nouvelle image avec le même contenu est créée. Tu peux ensuite "
+"déplacer les objets légèrement ou ajouter et enlever des objets. Lorsque tu "
+"as créé plusieurs images, appuis sur le boutton 'film'. Tu verras tes images "
+"défiler dans une boucle infinie. Tu peux changer la rapidité de défilement "
+"dans ce mode. En mode visualisation, appuis sur le bouton 'dessiner' pour "
+"revenir au mode dessin. Tu peux ensuite modifier chaque image en utilisant "
+"le sélecteur d'image en bas à gauche de l'écran. Tu peux sauver et recharger "
+"ton travail avec les boutons 'disquette' et 'dossier'."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -688,7 +733,23 @@ msgstr "On a marché sur la lune"
 msgid "Tux and the apple tree"
 msgstr "Tux et le pommier"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr ""
+"1769 le fardier\n"
+"de Cugnot"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 La Rocket de Stephenson\n"
+"Locomotive à vapeur"
+
+#: boards/chronos/board3_0.xml.in.h:3
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -700,15 +761,40 @@ msgstr ""
 "Si tu n'es pas sûr(e), vérifie sur Internet à\n"
 "l'adresse http://www.wikipedia.org"
 
-#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Les transports"
 
-#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 Les frères Mongolfier\n"
+"La mongolfière"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
 msgstr "1880 l'Eole de Clement Ader"
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"Premier vol d'hélicoptère"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Compte de Sivrac\n"
+"Le Célérifère"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
@@ -749,12 +835,6 @@ msgid ""
 msgstr ""
 "1947 Chuck Yager\n"
 "passe le mur du son"
-
-#: boards/chronos/board4_2.xml.in.h:1
-msgid "1769 Cugnot's fardier"
-msgstr ""
-"1769 le fardier\n"
-"de Cugnot"
 
 #: boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
@@ -972,10 +1052,6 @@ msgstr ""
 "L'objectif est juste de découvrir comment créer de jolis dessins à partir\n"
 "de formes simples :\n"
 "rectangles, ellipses et lignes."
-
-#: boards/draw.xml.in.h:4
-msgid "Needs to handle the mouse with the click easily"
-msgstr "Doit être capable de manipuler la souris et de cliquer facilement."
 
 #: boards/draw.xml.in.h:5
 msgid ""
@@ -2374,6 +2450,59 @@ msgstr ""
 "Tux a faim. Aide-le à trouver des poissons en comptant\n"
 "les glaçons nécessaires pour les atteindre."
 
+#: boards/searace.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr ""
+"Donne les bonnes instructions à ton bateau afin qu'il termine la course le "
+"premier."
+
+#: boards/searace.xml.in.h:2
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. Going to the next level "
+"will give your more complex wether conditions."
+msgstr ""
+"Dans la zone de texte, entre ligne par ligne des commandes pour donner la "
+"direction à ton bateau. Les commandes supportées sont affichées entre les "
+"deux zones de saisie de texte. Les commandes 'gauche' et 'droite' doivent "
+"être suivies par une valeur d'angle en degré. La valeur de l'angle est aussi "
+"appelée un 'paramètre' pour les commandes 'gauche' et 'droite'. Par défaut, "
+"la valeur 45 degré est utilisée. Le commande 'avance' accepte un paramètre "
+"de distance. Par défaut 1 est utilisé.\n"
+"Par exemple :\n"
+"gauche 90   => Tourne perpendiculairement à gauche \n"
+"avance 10   => Avance de 10 unités (comme indiqué dans le jeu)\n"
+"L'objectif est d'atteindre la droite de l'écran (la ligne rouge). Lorsque tu "
+"es arrivé, tu peux essayer d'améliorer ton programme en recommençant une "
+"course avec les mêmes conditions météo en utilisant le boutton "
+"'recommencer'. Tu peux aussi tenter ta chance dans les niveaux suivants qui "
+"ont des conditions météo plus complexes."
+
+#: boards/searace.xml.in.h:3
+msgid ""
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+msgstr ""
+"Dans cette activité, tu vas apprendre comment entrer des commandes dans un "
+"ordinateur. Même si le langage est très simple, cela t'apprend à penser à "
+"l'avance et à entrer un programme.\n"
+"Cette activité peux être utilisé pour introduire la programmation aux "
+"enfants."
+
+#: boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "Course de bateaux (2 joueurs)"
+
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
 #: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
@@ -2587,7 +2716,7 @@ msgstr "Suite éducative GCompris"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
 #: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2773,11 +2902,13 @@ msgstr "Apprends à lire."
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "A partir de photos de mains, détermine si c'est la gauche ou la droite."
 
-#: src/boards/leftright.c:248
+#: src/boards/leftright.c:248 src/boards/python/searace.py:506
+#: src/boards/python/searace.py:771
 msgid "left"
 msgstr "gauche"
 
-#: src/boards/leftright.c:258
+#: src/boards/leftright.c:258 src/boards/python/searace.py:515
+#: src/boards/python/searace.py:773
 msgid "right"
 msgstr "droite"
 
@@ -2850,6 +2981,48 @@ msgstr "Niveau"
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coordonnées"
+
+#: src/boards/python/searace.py:187 src/boards/python/searace.py:192
+#: src/boards/python/searace.py:218
+msgid "Race is already running"
+msgstr "La course est déjà commencée"
+
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:756
+msgid "droite"
+msgstr "droite"
+
+#. Manage default cases (no params given)
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:497 src/boards/python/searace.py:752
+#: src/boards/python/searace.py:765
+msgid "forward"
+msgstr "avance"
+
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:754
+msgid "gauche"
+msgstr "gauche"
+
+#: src/boards/python/searace.py:488
+msgid "COMMANDS ARE"
+msgstr "LES COMMANDES SONT"
+
+#: src/boards/python/searace.py:663
+msgid "The Red boat has won"
+msgstr "Le bateau ROUGE à gagné"
+
+#: src/boards/python/searace.py:665
+msgid "The Green boat has won"
+msgstr "Le bateau VERT à gagné"
+
+#: src/boards/python/searace.py:759
+msgid "Syntax error at line"
+msgstr "Erreur de syntaxe à la ligne"
+
+#: src/boards/python/searace.py:778
+msgid "Unknown command at line"
+msgstr "Commande inconnue à la ligne"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -3023,7 +3196,7 @@ msgid "Help"
 msgstr "Aide"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:208
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Valider"
@@ -3272,15 +3445,15 @@ msgstr "Pas de thème trouvé dans %s\n"
 msgid "Skin : %s"
 msgstr "Thème : %s"
 
-#: src/gcompris/file_selector.c:235
+#: src/gcompris/file_selector.c:242
 msgid "CANCEL"
 msgstr "ANNULER"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "LOAD"
 msgstr "CHARGER"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:273
 msgid "SAVE"
 msgstr "SAUVER"
 
@@ -3336,7 +3509,7 @@ msgstr "Affiche la version de "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:522
+#: src/gcompris/gcompris.c:532
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3357,7 +3530,7 @@ msgstr ""
 "apprendre la liberté à nos enfants, merci de considérer GNU/Linux. Obtenez "
 "plus d'information sur http://www.fsf.org/philosophy "
 
-#: src/gcompris/gcompris.c:717
+#: src/gcompris/gcompris.c:727
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3459,6 +3632,9 @@ msgstr "Temps écoulé"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
+
+#~ msgid "Create an animation"
+#~ msgstr "Créer une animation"
 
 #~ msgid "Error: The wordfile package used for your locale is corrupted."
 #~ msgstr "Erreur: Le fichier de mots utilisé dans votre locale est corrompu."
