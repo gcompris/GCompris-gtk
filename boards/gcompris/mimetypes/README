@@ -1,0 +1,7 @@
+This directory contains mime types supported by gcompris.
+The format is XML Based, it is internationalized through XMLI18N.
+All files in this directory ending with .xml will be parsed by GCompris.
+You can put several MineType entities in a single .xml file.
+
+This is used by the file selector in gcompris to display the proper icons
+for the file extensions.

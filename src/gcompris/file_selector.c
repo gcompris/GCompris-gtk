@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/02/24 21:41:00 bruno>
+ * Time-stamp: <2005/02/28 01:22:38 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -38,6 +38,7 @@
 
 #define MODE_LOAD 1
 #define MODE_SAVE 2
+static gint mode;
 
 static gint		 item_event_file_selector(GnomeCanvasItem *item, 
 						  GdkEvent *event, 
@@ -99,12 +100,13 @@ static GList  *file_list = NULL;
  * --------------------
  */
 typedef struct {
+  gchar	       *mimetype;
   gchar	       *description;
   gchar	       *extension;
   gchar	       *icon;
 } GcomprisMimeType;
 
-static GList  *mime_list = NULL;
+static GHashTable* mimetypes_hash = NULL;
 
 /*
  * Main entry point 
@@ -179,25 +181,28 @@ void gcompris_file_selector_stop ()
 
 
 static int 
-display_file_selector(int mode, 
+display_file_selector(int the_mode, 
 		      GcomprisBoard *gcomprisBoard,
 		      gchar *rootdir,
 		      gchar *file_types,
 		      FileSelectorCallBack iscb) {
 
 
-  GnomeCanvasItem *item, *item2;
-  GdkPixbuf	  *pixmap = NULL;
-  gint		   y = 0;
-  gint		   y_start = 0;
-  gint		   x_start = 0;
-  gchar		  *name = NULL;
-  gchar           *full_rootdir;
-  gchar           *sub_string;
-  gchar           *file_types_string = NULL;
+  GnomeCanvasItem  *item, *item2;
+  GdkPixbuf	   *pixmap = NULL;
+  gint		    y = 0;
+  gint		    y_start = 0;
+  gint		    x_start = 0;
+  gchar		   *name = NULL;
+  gchar            *full_rootdir;
+  gchar            *sub_string;
+  gchar            *file_types_string = NULL;
 
-  if(file_types)
+  mode = the_mode;
+
+  if(file_types) {
     file_types_string = g_strdup(file_types);
+  }
 
   if(rootitem)
     return;
@@ -728,6 +733,19 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  }
 
 	  result = g_strdup_printf("%s/%s", current_rootdir, gtk_entry_get_text(widget_entry));
+	  
+	  if(mode==MODE_SAVE) {
+	    GcomprisMimeType *mimeType = NULL;
+
+	    /* Extract the mime type */
+	    mimeType = (GcomprisMimeType *)(g_hash_table_lookup(mimetypes_hash, file_type));
+	    printf("display_file_selector mimetype=%s\n", mimeType->extension);
+	    if(!g_str_has_suffix(result,mimeType->extension)) {
+	      gchar *old_result = result;
+	      result = g_strconcat(result, mimeType->extension, NULL);
+	      g_free(old_result);
+	    }
+	  }
 
 	  /* Callback with the proper params */
 	  fileSelectorCallBack(result, file_type);
@@ -778,6 +796,7 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 
   GcomprisMimeType *gcomprisMime = g_malloc0 (sizeof (GcomprisMimeType));
 
+  gcomprisMime->mimetype    = xmlGetProp(xmlnode,"mimetype");
   gcomprisMime->extension   = xmlGetProp(xmlnode,"extension");
   gcomprisMime->icon        = xmlGetProp(xmlnode,"icon");
   gcomprisMime->description = NULL;
@@ -800,11 +819,19 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
     xmlnode = xmlnode->next;
   }
 
-  printf("Mime type description=%s extension=%s icon=%s\n",
-	 gcomprisMime->description,
-	 gcomprisMime->extension,
-	 gcomprisMime->icon);
-  mime_list = g_list_append(mime_list, gcomprisMime);
+  if(!gcomprisMime->mimetype || !gcomprisMime->extension || !gcomprisMime->description ) {
+    g_warning("Incomplete mimetype description\n");
+    g_free(gcomprisMime);
+    return;
+  }
+
+  g_message("Mime type mimetype=%s description=%s extension=%s icon=%s\n",
+	    gcomprisMime->mimetype,
+	    gcomprisMime->description,
+	    gcomprisMime->extension,
+	    gcomprisMime->icon);
+
+  g_hash_table_insert(mimetypes_hash, gcomprisMime->mimetype, gcomprisMime);
 
   return;
 }
@@ -873,6 +900,55 @@ gboolean load_mime_type_from_file(gchar *fname)
   return TRUE;
 }
 
+/**
+ * gcompris_load_mime_types
+ * Load all the mime type in PACKAGE_DATA_DIR"/gcompris/mimetypes/*.xml"
+ *
+ * Must be called once at GCompris startup.
+ *
+ */
+void gcompris_load_mime_types() 
+{
+  struct dirent *one_dirent;
+  DIR *dir;
+  int n;
+
+  if(mimetypes_hash) {
+    return;
+  }
+
+  mimetypes_hash = g_hash_table_new (g_str_hash, g_str_equal);
+  printf("ICI\n");
+  /* Load the Pixpmaps directory file names */
+  dir = opendir(PACKAGE_DATA_DIR"/gcompris/mimetypes/");
+
+  if (!dir) {
+    g_warning("gcompris_load_mime_types : no mime types found in %s", PACKAGE_DATA_DIR"/gcompris/mimetypes/");
+  } else {
+
+    while((one_dirent = readdir(dir)) != NULL) {
+      /* add the board to the list */
+      gchar *filename;
+      
+      filename = g_strdup_printf("%s/%s",
+				 PACKAGE_DATA_DIR"/gcompris/mimetypes/", one_dirent->d_name);
+
+      printf("ICI file =%s\n", filename);
+      if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
+	g_free(filename);
+	continue;
+      }
+
+      printf("ICI file is regular %s\n", one_dirent->d_name);
+      if(selectMenuXML(one_dirent->d_name)) {
+	printf("  calling load_mime_type_from_file\n");
+	load_mime_type_from_file(filename);
+      }
+      g_free(filename);
+    }
+  }
+  closedir(dir);
+}
 
 
 /* Local Variables: */

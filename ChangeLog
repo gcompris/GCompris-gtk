@@ -1,3 +1,30 @@
+2005-02-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved support for mimetype.
+	Now it's possible to provide a signle .xml file by mimetype definition.
+	Add icons from the gnome stock default icons.
+	At least, extension are added on save.
+	
+	* boards/gcompris/Makefile.am:
+	* boards/gcompris/mime_type.xml.in:
+	* boards/gcompris/mimetypes/.cvsignore:
+	* boards/gcompris/mimetypes/Makefile.am:
+	* boards/gcompris/mimetypes/README:
+	* boards/gcompris/mimetypes/icons/.cvsignore:
+	* boards/gcompris/mimetypes/icons/gcompris+anim.png:
+	* boards/gcompris/mimetypes/icons/gcompris+draw.png:
+	* boards/gcompris/mimetypes/icons/gcompris.png:
+	* boards/gcompris/mimetypes/icons/svg+xml+javascript.png:
+	* boards/gcompris/mimetypes/icons/svg+xml.png:
+	* boards/gcompris/mimetypes/mime_type.xml.in:
+	* configure.in:
+	* src/boards/python/anim.py:
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(item_event_file_selector), (parseMime),
+	(gcompris_load_mime_types):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/gcompris.c: (setup_window):
+
 2005-02-24  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/read_colors/read_colors_background.png: Cleaned up by Karl Ove Hufthammer

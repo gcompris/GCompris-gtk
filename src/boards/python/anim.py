@@ -125,7 +125,10 @@ class Gcompris_anim:
     # gcompris is cPickle python saved data
     #
     # svg in draw mode is normal svg file with base64 included images
-    self.file_type = "gcompris svg"
+    if self.gcomprisBoard.mode == 'draw':
+      self.file_type = "image/gcompris+draw image/svg+xml"
+    else:
+      self.file_type = "image/gcompris+anim image/svg+xml+javascript"
 
 
     # These are used to let us restart only after the bonux is displayed.
@@ -2162,10 +2165,10 @@ def general_save(filename, filetype):
   print "general_save : ", filename, " type ",filetype
   if filetype == None:
     filetype = filename.split('.')[-1]
-  if (filetype == 'svg'):
+  if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
     anim2_to_svg(filename)
     return
-  if (filetype in ['gcompris','gcb']):
+  if (filetype in ['image/gcompris+draw+anim','image/gcompris+draw']):
     anim2_to_file(filename)
     return
   print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
@@ -2174,10 +2177,10 @@ def general_restore(filename, filetype):
   print "general_restore : ", filename, " type ",filetype
   if filetype == None:
     filetype = filename.split('.')[-1]
-  if (filetype == 'svg'):
+  if (filetype in ['image/svg+xml+javascript','image/svg+xml']):
     svg_to_anim2(filename)
     return
-  if (filetype in ['gcompris','gcb']):
+  if (filetype in ['image/gcompris+draw+anim','image/gcompris+draw']):
     file_to_anim2(filename)
     return
   print "Error File selector return unknown filetype :",'|' + filetype + '|', "!!!"
