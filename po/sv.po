@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-12-26 02:23+0100\n"
-"PO-Revision-Date: 2001-12-09 15:50+0100\n"
+"POT-Creation-Date: 2001-12-28 19:07+0100\n"
+"PO-Revision-Date: 2001-12-28 19:08+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,9 +62,8 @@ msgid "Drag and Drop the shapes on their respective target"
 msgstr "Dra och släpp formerna på deras respektive mål"
 
 #: boards/click_on_letter.xml.in.h:1
-#, fuzzy
 msgid "Click on a letter"
-msgstr "Klicka på mig"
+msgstr "Klicka på en bokstav"
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Hear a letter and click on the right letter"
@@ -103,11 +102,11 @@ msgstr "Ett enkelt vektorritverktyg"
 msgid "Creative board where you can freely draw"
 msgstr "Kreativt bräde där du kan rita fritt"
 
-#: boards/erase.xml.in.h:1
+#: boards/erase.xml.in.h:1 src/boards/erase.c:73
 msgid "Move the mouse"
 msgstr "Flytta musen"
 
-#: boards/erase.xml.in.h:2
+#: boards/erase.xml.in.h:2 src/boards/erase.c:74
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Flytta musen för att radera området och upptäck bakgrunden"
 
@@ -156,13 +155,12 @@ msgid "German"
 msgstr "Tyska"
 
 #: boards/locale_el.xml.in.h:1
-#, fuzzy
 msgid "GCompris will display all its messages in Greek"
-msgstr "GCompris kommer att visa alla dess meddelanden på franska"
+msgstr "GCompris kommer att visa alla dess meddelanden på grekiska"
 
 #: boards/locale_el.xml.in.h:2
 msgid "Greek"
-msgstr ""
+msgstr "Grekiska"
 
 #: boards/locale_en.xml.in.h:1
 msgid "English"
@@ -189,13 +187,12 @@ msgid "GCompris will display all its messages in French"
 msgstr "GCompris kommer att visa alla dess meddelanden på franska"
 
 #: boards/locale_lt.xml.in.h:1
-#, fuzzy
 msgid "GCompris will display all its messages in Lithuanian"
-msgstr "GCompris kommer att visa alla dess meddelanden på spanska"
+msgstr "GCompris kommer att visa alla dess meddelanden på litauiska"
 
 #: boards/locale_lt.xml.in.h:2
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litauiska"
 
 #: boards/locale_sv.xml.in.h:1
 msgid "GCompris will display all its messages in Swedish"
@@ -214,7 +211,6 @@ msgid "Memory Game with images"
 msgstr "Memoryspel med bilder"
 
 #: boards/menu.xml.in.h:1
-#, fuzzy
 msgid "GCompris Main Menu"
 msgstr "GCompris-huvudmeny"
 
@@ -228,35 +224,35 @@ msgstr "Saknad bokstav"
 
 #: boards/missing_letter/board1.xml.in.h:1
 msgid "apple _pple a i o"
-msgstr ""
+msgstr "äpple _pple ä i ö"
 
 #: boards/missing_letter/board1.xml.in.h:2
 msgid "ball _all b p d"
-msgstr ""
+msgstr "boll _oll b p d"
 
 #: boards/missing_letter/board1.xml.in.h:3
 msgid "banana b_nana a o i"
-msgstr ""
+msgstr "banan b_nan a o i"
 
 #: boards/missing_letter/board1.xml.in.h:4
 msgid "bed _ed b l f"
-msgstr ""
+msgstr "säng _äng s l f"
 
 #: boards/missing_letter/board1.xml.in.h:5
 msgid "bottle _ottle b t p"
-msgstr ""
+msgstr "flaska _laska f t k"
 
 #: boards/missing_letter/board1.xml.in.h:6
 msgid "cake _ake c p d"
-msgstr ""
+msgstr "kaka _aka k p d"
 
 #: boards/missing_letter/board1.xml.in.h:7
 msgid "house hous_ e a i"
-msgstr ""
+msgstr "hus h_s u ä i"
 
 #: boards/missing_letter/board1.xml.in.h:8
 msgid "satchel s_tchel a o i"
-msgstr ""
+msgstr "skolväska sk_lväska o a i"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
@@ -335,42 +331,40 @@ msgid "Educational game starting at 3 years old"
 msgstr "Lärorikt spel för barn från 3 år och uppåt"
 
 #: gcompris.desktop.in.h:2
-#, fuzzy
 msgid "GCompris"
 msgstr "GCompris"
 
 #: src/boards/algebra_guesscount.c:141 src/boards/algebra_guesscount.c:142
 msgid "Guess operations"
-msgstr ""
+msgstr "Gissningsövningar"
 
-#: src/boards/click_on_letter.c:71 src/boards/erase.c:73
-#, fuzzy
+#: src/boards/click_on_letter.c:71
 msgid "Read a letter"
-msgstr "Klicka på en bokstav"
+msgstr "Läs en bokstav"
 
-#: src/boards/click_on_letter.c:72 src/boards/erase.c:74
+#: src/boards/click_on_letter.c:72
 msgid "Learn to recognize letters"
-msgstr ""
+msgstr "Lär dig känna igen bokstäver"
 
 #: src/boards/clickgame.c:169
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Kunde inte öppna bildfilskatalogen: %s"
 
-#: src/boards/clickgame.c:248
+#: src/boards/clickgame.c:249
 msgid "Practice the computer mouse"
 msgstr "Träna att använda datormusen"
 
-#: src/boards/clickgame.c:249 src/boards/draw.c:206 src/boards/menu.c:209
-#: src/boards/paratrooper.c:367
+#: src/boards/clickgame.c:250 src/boards/draw.c:207 src/boards/menu.c:209
+#: src/boards/paratrooper.c:368
 msgid "<b>Goal:</b>"
-msgstr ""
+msgstr "<b>Mål:</b>"
 
-#: src/boards/clockgame.c:533
+#: src/boards/clockgame.c:534
 msgid "Set the clock to:"
 msgstr "Ställ klockan till:"
 
-#: src/boards/draw.c:205
+#: src/boards/draw.c:206
 msgid "Free vector drawing tool"
 msgstr "Vektorritverktyg för frihandsritning"
 
@@ -380,18 +374,17 @@ msgid "Reading"
 msgstr "Läsning"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:104
-#, fuzzy
 msgid "Learn how to read"
-msgstr "Lär dig läsa klockan"
+msgstr "Lär dig läsa"
 
-#: src/boards/imageid.c:569 src/boards/menu.c:530
-#: src/boards/missingletter.c:586 src/boards/shapegame.c:1160
+#: src/boards/imageid.c:570 src/boards/menu.c:530
+#: src/boards/missingletter.c:586 src/boards/shapegame.c:1161
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
-#: src/boards/imageid.c:572 src/boards/missingletter.c:589
-#: src/boards/shapegame.c:1163
+#: src/boards/imageid.c:573 src/boards/missingletter.c:589
+#: src/boards/shapegame.c:1164
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -410,39 +403,35 @@ msgstr ""
 
 #: src/boards/memory.c:232
 msgid "Memory"
-msgstr ""
+msgstr "Memory"
 
 #: src/boards/memory.c:233
 msgid "Find the matching pair"
-msgstr ""
+msgstr "Hitta det passande paret"
 
 #: src/boards/menu.c:78
-#, fuzzy
 msgid "Main Menu"
-msgstr "GCompris-huvudmeny"
+msgstr "Huvudmeny"
 
 #: src/boards/menu.c:79
-#, fuzzy
 msgid "Select a Board"
-msgstr "Välj lokalen"
+msgstr "Välj ett bräde"
 
 #: src/boards/menu.c:208
-#, fuzzy
 msgid "GCompris Help"
-msgstr "GCompris"
+msgstr "Hjälp för GCompris"
 
-#: src/boards/paratrooper.c:366
-#, fuzzy
+#: src/boards/paratrooper.c:367
 msgid "The paratrooper game"
-msgstr "Fallskärmsjägare"
+msgstr "Fallskärmsjägarspelet"
 
 #: src/boards/railroad.c:95
 msgid "Memory game"
-msgstr ""
+msgstr "Memory-spel"
 
 #: src/boards/railroad.c:96
 msgid "Build a train conforming to the model"
-msgstr ""
+msgstr "Bygg ett tåg som överensstämmer med modellen"
 
 #: src/boards/reading.c:99
 msgid "Read a list of words and then tell if the given word is in it"
@@ -450,23 +439,23 @@ msgstr ""
 "Läs en lista med ord och tala sedan om ifall det angivna ordet finns bland "
 "dem"
 
-#: src/boards/reading.c:306
+#: src/boards/reading.c:307
 msgid "Please, check if the word"
 msgstr "Kontrollera om ordet"
 
-#: src/boards/reading.c:326
+#: src/boards/reading.c:327
 msgid "is being displayed"
 msgstr "visas"
 
-#: src/boards/reading.c:517
+#: src/boards/reading.c:518
 msgid "I am Ready"
 msgstr "Jag är redo"
 
-#: src/boards/reading.c:557
+#: src/boards/reading.c:558
 msgid "Yes I saw it"
 msgstr "Ja, jag såg det"
 
-#: src/boards/reading.c:587
+#: src/boards/reading.c:588
 msgid "No, it was not there"
 msgstr "Nej, det fanns inte där"
 
@@ -534,6 +523,9 @@ msgstr ""
 "Version: %s\n"
 "Licens: GPL\n"
 "Mer information på http://ofset.sourceforge.net/gcompris\n"
+
+#~ msgid "Goal:"
+#~ msgstr "Mål:"
 
 #~ msgid ""
 #~ "Goal:\n"
