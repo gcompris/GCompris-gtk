@@ -1,10 +1,12 @@
 # gcompris - greek translation
 # Copyright (C) 2001 Free Software Foundation, Inc.
-# AARG! Anonymous <remailer@aarg.net>
-# Simos Xenitellis <simos@hellug.gr>
+# AARG! Anonymous <remailer@aarg.net>, 2001.
+# Simos Xenitellis <simos@hellug.gr>, 2001.
+# Panayotis Pakos <aeikineton@yahoo.com>, 2001.
 #
 # aarg: 89 messages, initial translation
 # simos: review - 89 messages.
+# panayotis: review - 80 messages.
 # 
 msgid ""
 msgstr ""
@@ -49,7 +51,7 @@ msgstr "Εξάσκηση στην πράξη της πρόσθεσης"
 
 #: boards/babymatch.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "Σύρτε και Ρίξτε κομμάτια για να τα κάνετε να ταιριάξουν"
+msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια για να τα κάνετε να ταιριάξουν"
 
 #: boards/babymatch.xml.in.h:2
 msgid "Matching Items"
@@ -57,11 +59,11 @@ msgstr "Ταιριαστά Αντικείμενα"
 
 #: boards/babyshapes.xml.in.h:1
 msgid "Baby Shape Puzzle"
-msgstr "Παιδικός Γρίφος Σχημάτων"
+msgstr "Παιδικός Εικονογρίφος Σχημάτων"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
-msgstr "Σύρτε και Ρίξτε τα σχήματα στους αντίστοιχους στόχους"
+msgstr "Μετακινείστε και Αποθέσατε τα σχήματα στους αντίστοιχους στόχους"
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:77
 msgid "Click On Me"
@@ -136,7 +138,7 @@ msgstr "Εξάσκηση ανάγνωσης"
 
 #: boards/imagename.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
-msgstr "Σύρτε και Ρίξτε τα κομμάτια πάνω από το γραμμένο όνομά τους"
+msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια πάνω από το γραμμένο όνομά τους"
 
 #: boards/imagename.xml.in.h:2
 msgid "Image Name"
@@ -148,7 +150,7 @@ msgstr "Επιλογή γλώσσας μηνυμάτων του GCompris"
 
 #: boards/locale.xml.in.h:2 src/boards/locale.c:50
 msgid "Select the locale"
-msgstr "Επιλογή τοπικότητας"
+msgstr "Επιλογή τοπικών ρυθμίσεων"
 
 #: boards/locale_de.xml.in.h:1
 msgid "GCompris will display all its messages in German"
@@ -212,7 +214,7 @@ msgstr "Γράμμα που Λείπει"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Σύρτε και Ρίξτε τα κομμάτια για να ξαναφτιάξετε τις αρχικές ζωγραφιές"
+msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια για να ξαναφτιάξετε τις αρχικές ζωγραφιές"
 
 #: boards/paintings.xml.in.h:2 src/boards/shapegame.c:119
 msgid "Make the puzzle"
@@ -259,7 +261,7 @@ msgstr "Μετάβαση στις πινακίδες Ανάγνωσης"
 
 #: boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Σύρτε και Ρίξτε βαράκια για να ισορροπήσει η ζυγαριά"
+msgstr "Μετακινείστε και Αποθέσατε βαράκια για να ισορροπήσει η ζυγαριά"
 
 #: boards/scalesboard.xml.in.h:2
 msgid "Well balance the scales"
@@ -327,13 +329,13 @@ msgstr ""
 "Ο σκοπός είναι να πατήσουν το αριστερό πλήκτρο του ποντικιού πάνω στα\n"
 "κινούμενα ψάρια.\n"
 "\n"
-"Πιστώσεις:\n"
+"Συντελεστές:\n"
 "Τα ψάρια έχουν ληφθεί από την εφαρμογή xfishtank του unix.\n"
 "Οι φωτογραφίες έχουν ληφθεί από το National Undersearch Research Program "
 "(NURP) Collection\n"
 "στο http://www.photolib.noaa.gov\n"
-"Όλες οι εικόνες πιστώνονται στο OAR/National Undersea Research Program "
-"(NURP)\nΕκτός από την πρώτη εικόνα η οποία επίσης πιστώνεται στο University "
+"Όλες οι εικόνες προέρχονται από το OAR/National Undersea Research Program "
+"(NURP)\nΕκτός από την πρώτη εικόνα η οποία επίσης προέρχεται University "
 "of North Carolina at Wilmington\n"
 "Στη σειρά επιπέδου του gcompris, η πληροφορία των εικόνων είναι:\n"
 "Τοποθεσία: Tropical Atlantic Ocean, Florida Keys (εικόνα nur00523)\n"
@@ -425,7 +427,7 @@ msgstr "Όχι, δεν υπήρχε"
 
 #: src/boards/shapegame.c:120
 msgid "Drag and Drop the items to rebuild the object"
-msgstr "Σύρτε και Ρίξτε τα κομμάτια για να ξαναδημιουργήσετε το αντικείμενο"
+msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια για να ξαναδημιουργήσετε το αντικείμενο"
 
 #: src/boards/shapegame.c:1144
 #, c-format
