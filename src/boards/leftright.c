@@ -64,7 +64,7 @@ static void game_won();
 #define CLICKABLE_Y2 480
 
 #define NUMBER_OF_SUBLEVELS 6
-#define NUMBER_OF_LEVELS 3
+#define NUMBER_OF_LEVELS 4
 
 #define TEXT_COLOR "yellow"
 
@@ -80,14 +80,22 @@ static void leftright_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static int answer;
 
-static char *hands[16] = {"main_droite_dessus_0.png","main_droite_paume_0.png",
+static char *hands[32] = {"main_droite_dessus_0.png","main_droite_paume_0.png",
 													"main_gauche_dessus_0.png","main_gauche_paume_0.png",
 													"main_droite_dessus_90.png","main_droite_paume_90.png",
 													"main_gauche_dessus_90.png","main_gauche_paume_90.png",
 													"main_droite_dessus_180.png","main_droite_paume_180.png",
 													"main_gauche_dessus_180.png","main_gauche_paume_180.png",
 													"main_droite_dessus_270.png","main_droite_paume_270.png",
-													"main_gauche_dessus_270.png","main_gauche_paume_270.png"
+													"main_gauche_dessus_270.png","main_gauche_paume_270.png",
+													"poing_droit_dessus_0.png", "poing_droit_paume_0.png",
+													"poing_gauche_dessus_0.png", "poing_gauche_paume_0.png",
+													"poing_droit_dessus_90.png", "poing_droit_paume_90.png",
+													"poing_gauche_dessus_90.png", "poing_gauche_paume_90.png",
+													"poing_droit_dessus_180.png", "poing_droit_paume_180.png",
+													"poing_gauche_dessus_180.png", "poing_gauche_paume_180.png",
+													"poing_droit_dessus_270.png", "poing_droit_paume_270.png",
+													"poing_gauche_dessus_270.png", "poing_gauche_paume_270.png"
 													};
 
 /* Description of this plugin */
@@ -289,7 +297,7 @@ static GnomeCanvasItem *leftright_create_item(GnomeCanvasGroup *parent) {
 
 	// make sure that next hand is not the same as previous
 	do {
-		i = RAND(0,gcomprisBoard->level*4+3);
+		i = RAND(0,gcomprisBoard->level*8-1);
 	} while ( i == last_hand );
 
 	last_hand = i;
