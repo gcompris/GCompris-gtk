@@ -18,10 +18,6 @@
  */
 
 #include "gcompris.h"
-#include "cursor.h"
-
-static GdkCursor *hand_cursor;
-GtkWidget *window;
 
 /* =====================================================================
  * This function is taken from stickers game

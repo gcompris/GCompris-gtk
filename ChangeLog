@@ -1,5 +1,12 @@
+2002-02-24  Bruno Coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/draw.c: New cursors. Now lines can be moved in all directions.
+	* src/gcompris/gcompris.c: Added cursors for draw board
+	* src/gcompris/cursor.[ch]: Added cursors for draw board
+	* boards/sounds/en/*: cleanup, removed sounds that are in french
+
 2002-02-23 Pascal Georges <pascal.georges1@free.fr>
-  * src/gcompris/gcompris.c: modified gcompris_set_cursor to use custom cursors. A big red arrow is the default,
+	* src/gcompris/gcompris.c: modified gcompris_set_cursor to use custom cursors. A big red arrow is the default,
 	  a red bird is for the moment only used for algebra_guesscount
 	* src/gcompris/cursor.[ch] : definitions and handling of custom cursors
 

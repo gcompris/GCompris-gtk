@@ -86,6 +86,10 @@ typedef struct {
   GnomeCanvasItem *sw;
   GnomeCanvasItem *s;
   GnomeCanvasItem *se;
+  double	   ref_x1;
+  double	   ref_y1;
+  double	   ref_x2;
+  double	   ref_y2;
 } AnchorsItem;
 
 typedef enum
@@ -445,24 +449,25 @@ static guint get_tool_cursor(ToolList tool)
   switch(tool)
     {
     case TOOL_RECT:
+      return(GCOMPRIS_FILLRECT_CURSOR);
+      break;
     case TOOL_FILLED_RECT:
-      return(GDK_DOTBOX);
+      return(GCOMPRIS_RECT_CURSOR);
       break;
     case TOOL_CIRCLE:
-      return(GDK_CIRCLE);
+      return(GCOMPRIS_CIRCLE_CURSOR);
       break;
     case TOOL_FILLED_CIRCLE:
-      return(GDK_DOT);
+      return(GCOMPRIS_FILLCIRCLE_CURSOR);
       break;
     case TOOL_LINE:
-      // WARNING : 13 Is fine even if it is not defined. Can be a trouble perhaps on some platform
-      return(13);
+      return(GCOMPRIS_LINE_CURSOR);
       break;
     case TOOL_FILL:
-      return(GDK_SPRAYCAN);
+      return(GCOMPRIS_FILL_CURSOR);
       break;
     case TOOL_DELETE:
-      return(GDK_PIRATE);
+      return(GCOMPRIS_DEL_CURSOR);
       break;
     default:
       return(GCOMPRIS_DEFAULT_CURSOR);
@@ -760,89 +765,72 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
       switch(anchor)
 	{
 	case ANCHOR_E:
-	  if(x>x1+1)
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x1;
-	      points->coords[1] = (double) y1;
-	      points->coords[2] = (double) x;
-	      points->coords[3] = (double) y2;
-	    } 
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) anchorsItem->ref_x1;
+	  points->coords[1] = (double) anchorsItem->ref_y1;
+	  points->coords[2] = (double) x;
+	  points->coords[3] = (double) anchorsItem->ref_y2;
 	  break;
 	case ANCHOR_W:
-	  if(x<x2-1)
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x;
-	      points->coords[1] = (double) y1;
-	      points->coords[2] = (double) x2;
-	      points->coords[3] = (double) y2;
-	    }
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) x;
+	  points->coords[1] = (double) anchorsItem->ref_y1;
+	  points->coords[2] = (double) anchorsItem->ref_x2;
+	  points->coords[3] = (double) anchorsItem->ref_y2;
 	  break;
 	case ANCHOR_N:
-	  if(y<y2-1)
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x1;
-	      points->coords[1] = (double) y;
-	      points->coords[2] = (double) x2;
-	      points->coords[3] = (double) y2;
-	    }
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) anchorsItem->ref_x1;
+	  points->coords[1] = (double) y;
+	  points->coords[2] = (double) anchorsItem->ref_x2;
+	  points->coords[3] = (double) anchorsItem->ref_y2;
 	  break;
 	case ANCHOR_S:
-	  if(y>y1+1)
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x1;
-	      points->coords[1] = (double) y1;
-	      points->coords[2] = (double) x2;
-	      points->coords[3] = (double) y;
-	    }
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) anchorsItem->ref_x1;
+	  points->coords[1] = (double) anchorsItem->ref_y1;
+	  points->coords[2] = (double) anchorsItem->ref_x2;
+	  points->coords[3] = (double) y;
 	  break;
 	case ANCHOR_NW:
-	  if((y<y2-1) && (x<x2-1))
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x;
-	      points->coords[1] = (double) y;
-	      points->coords[2] = (double) x2;
-	      points->coords[3] = (double) y2;
-	    }
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) x;
+	  points->coords[1] = (double) y;
+	  points->coords[2] = (double) anchorsItem->ref_x2;
+	  points->coords[3] = (double) anchorsItem->ref_y2;
 	  break;
 	case ANCHOR_NE:
-	  if((y<y2-1) && (x>x1+1))
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x1;
-	      points->coords[1] = (double) y;
-	      points->coords[2] = (double) x;
-	      points->coords[3] = (double) y2;
-	    }
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) anchorsItem->ref_x1;
+	  points->coords[1] = (double) y;
+	  points->coords[2] = (double) x;
+	  points->coords[3] = (double) anchorsItem->ref_y2;
 	  break;
 	case ANCHOR_SW:
-	  if((y>y1+1) && (x<x2-1))
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x;
-	      points->coords[1] = (double) y1;
-	      points->coords[2] = (double) x2;
-	      points->coords[3] = (double) y;
-	    }
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) x;
+	  points->coords[1] = (double) anchorsItem->ref_y1;
+	  points->coords[2] = (double) anchorsItem->ref_x2;
+	  points->coords[3] = (double) y;
 	  break;
 	case ANCHOR_SE:
-	  if((y>y1+1) && (x>x1+1))
-	    {
-	      points = gnome_canvas_points_new(2);
-	      points->coords[0] = (double) x1;
-	      points->coords[1] = (double) y1;
-	      points->coords[2] = (double) x;
-	      points->coords[3] = (double) y;
-	    }
+	  points = gnome_canvas_points_new(2);
+	  points->coords[0] = (double) anchorsItem->ref_x1;
+	  points->coords[1] = (double) anchorsItem->ref_y1;
+	  points->coords[2] = (double) x;
+	  points->coords[3] = (double) y;
 	  break;
 	}
 
       if(points)
 	{
+	  printf("point x1=%f y1=%f x2=%f y2=%f\n",
+		 points->coords[0], points->coords[1],  points->coords[2], points->coords[3]);
+	  anchorsItem->ref_x1 = points->coords[0];
+	  anchorsItem->ref_y1 = points->coords[1];
+	  anchorsItem->ref_x2 = points->coords[2];
+	  anchorsItem->ref_y2 = points->coords[3];
+
 	  gnome_canvas_item_set (item,
 				 "points", points,
 				 NULL);
@@ -892,6 +880,8 @@ static GnomeCanvasItem *create_item(double x, double y)
   GnomeCanvasItem *item = NULL;
   GnomeCanvasPoints* points = NULL;
   GnomeCanvasItem *item_root_item = NULL;
+  guint item_size_x = 0;
+  guint item_size_y = 0;
 
   item_root_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
@@ -899,6 +889,9 @@ static GnomeCanvasItem *create_item(double x, double y)
 			   "x", (double)0,
 			   "y", (double)0,
 			   NULL);
+
+  item_size_x = MIN(DEFAULT_ITEM_SIZE, drawing_area_x2 - x);
+  item_size_y = MIN(DEFAULT_ITEM_SIZE, drawing_area_y2 - y);
 
   switch(currentTool)
     {
@@ -908,8 +901,8 @@ static GnomeCanvasItem *create_item(double x, double y)
 				    gnome_canvas_rect_get_type (),
 				    "x1", (double) x,
 				    "y1", (double) y,
-				    "x2", (double) x + DEFAULT_ITEM_SIZE,
-				    "y2", (double) y + DEFAULT_ITEM_SIZE,
+				    "x2", (double) x + item_size_x,
+				    "y2", (double) y + item_size_y,
 				    "outline_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
@@ -920,8 +913,8 @@ static GnomeCanvasItem *create_item(double x, double y)
 				    gnome_canvas_rect_get_type (),
 				    "x1", (double) x,
 				    "y1", (double) y,
-				    "x2", (double) x + DEFAULT_ITEM_SIZE,
-				    "y2", (double) y + DEFAULT_ITEM_SIZE,
+				    "x2", (double) x + item_size_x,
+				    "y2", (double) y + item_size_y,
 				    "fill_color", currentColor,
 				    NULL);
       break;      
@@ -931,8 +924,8 @@ static GnomeCanvasItem *create_item(double x, double y)
 				    gnome_canvas_ellipse_get_type (),
 				    "x1", (double) x,
 				    "y1", (double) y,
-				    "x2", (double) x + DEFAULT_ITEM_SIZE,
-				    "y2", (double) y + DEFAULT_ITEM_SIZE,
+				    "x2", (double) x + item_size_x,
+				    "y2", (double) y + item_size_y,
 				    "outline_color", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
@@ -943,8 +936,8 @@ static GnomeCanvasItem *create_item(double x, double y)
 				    gnome_canvas_ellipse_get_type (),
 				    "x1", (double) x,
 				    "y1", (double) y,
-				    "x2", (double) x + DEFAULT_ITEM_SIZE,
-				    "y2", (double) y + DEFAULT_ITEM_SIZE,
+				    "x2", (double) x + item_size_x,
+				    "y2", (double) y + item_size_y,
 				    "fill_color", currentColor,
 				    NULL);
       break;      
@@ -953,8 +946,8 @@ static GnomeCanvasItem *create_item(double x, double y)
       points = gnome_canvas_points_new(2);
       points->coords[0] = (double) x;
       points->coords[1] = (double) y;
-      points->coords[2] = (double) x + DEFAULT_ITEM_SIZE;
-      points->coords[3] = (double) y + DEFAULT_ITEM_SIZE;
+      points->coords[2] = (double) x + item_size_x;
+      points->coords[3] = (double) y + item_size_y;
 
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 				    gnome_canvas_line_get_type (),
@@ -986,6 +979,12 @@ static GnomeCanvasItem *create_item(double x, double y)
       anchorsItem->tool = currentTool;
 
       gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2); 
+
+      // Keep track of the original size. It helps the resize operation
+      anchorsItem->ref_x1 = x1;
+      anchorsItem->ref_y1 = y1;
+      anchorsItem->ref_x2 = x2;
+      anchorsItem->ref_y2 = y2;
 
       /*----------------------------------------*/
       anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
@@ -1209,7 +1208,22 @@ item_event_resize(GnomeCanvasItem *item2move, GdkEvent *event, AnchorsItem *anch
 	 {
 	   gnome_canvas_item_ungrab(item2move, event->button.time);
 	   dragging = FALSE;
-	   draggingItem = NULL;	   
+	   draggingItem = NULL;
+
+	   // We have to put back the coords in the correct order or next resize won't work
+	   if(anchorsItem->ref_x1 > anchorsItem->ref_x2 ||
+	      anchorsItem->ref_y1 > anchorsItem->ref_y2  )
+	     {
+	       double tmp_x1, tmp_y1;
+
+	       tmp_x1 = anchorsItem->ref_x1;
+	       tmp_y1 = anchorsItem->ref_y1;
+	       anchorsItem->ref_x1 = anchorsItem->ref_x2;
+	       anchorsItem->ref_y1 = anchorsItem->ref_y2;
+	       anchorsItem->ref_x2 = tmp_x1;
+	       anchorsItem->ref_y2 = tmp_y1;
+	     }
+
 	 }
        break;
      case GDK_ENTER_NOTIFY:
@@ -1278,7 +1292,9 @@ item_event_move(GnomeCanvasItem *item2move, GdkEvent *event, AnchorsItem *anchor
 	     // Move an item
 	     if(selected_anchors_item!=anchorsItem)
 	       {
-		 display_anchors(selected_anchors_item, FALSE);
+		 if(selected_anchors_item)
+		   display_anchors(selected_anchors_item, FALSE);
+
 		 display_anchors(anchorsItem, TRUE);
 		 selected_anchors_item = anchorsItem;
 	       }
@@ -1322,6 +1338,16 @@ item_event_move(GnomeCanvasItem *item2move, GdkEvent *event, AnchorsItem *anchor
 	     break;
 	   }
 	   break;
+
+         case 2:
+	   // Shortcut for the Delete operation
+	   if(selected_anchors_item == anchorsItem)
+	     selected_anchors_item = NULL;
+	   
+	   gtk_object_destroy (GTK_OBJECT(anchorsItem->rootitem));
+	   g_free(anchorsItem);
+	   break;
+
 	 default:
 	   break;
 	 }
@@ -1337,6 +1363,13 @@ item_event_move(GnomeCanvasItem *item2move, GdkEvent *event, AnchorsItem *anchor
 	   gnome_canvas_item_move(item, x - start_x, y - start_y);
 	   gnome_canvas_item_move(item2move, start_x - x, start_y - y);
 	   display_anchors(anchorsItem, TRUE);
+
+	   // Set back the reference coord
+	   anchorsItem->ref_x1 = anchorsItem->ref_x1 + start_x - x;
+	   anchorsItem->ref_y1 = anchorsItem->ref_y1 + start_y - y;
+	   anchorsItem->ref_x2 = anchorsItem->ref_x2 + start_x - x;
+	   anchorsItem->ref_y2 = anchorsItem->ref_y2 + start_y - y;
+
 	 }
        break;
      case GDK_ENTER_NOTIFY:
@@ -1405,7 +1438,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape)
    static double x, y;
    double item_x, item_y;
    GnomeCanvasItem *newItem = NULL;
-   static guint ttt = 0;
 
    if(!gcomprisBoard)
      return FALSE;

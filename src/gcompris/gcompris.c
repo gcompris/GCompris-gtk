@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2002/02/22 22:51:32 bruno>
+ * Time-stamp: <2002/02/24 19:12:11 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -23,6 +23,8 @@
 
 #include "gcompris.h"
 #include <popt-gnome.h>
+
+#include "cursor.h"
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -230,27 +232,53 @@ static void init_background()
 void gcompris_set_cursor(guint gdk_cursor_type)
 {
   GdkCursor *cursor;
-	// I suppose there is less than 1000 cursors defined in gdkcursors.h !
-	if (gdk_cursor_type < FIRST_CUSTOM_CURSOR) {
-  	cursor = gdk_cursor_new(gdk_cursor_type);
-  	gdk_window_set_cursor	 (window->window, cursor);
-  	gdk_cursor_destroy(cursor);
-		} else { // we use a custom cursor
-			GdkColor fg, bg;
-			static const gchar * cursor;
-			gchar * bits;
-			switch (gdk_cursor_type) {
-				case BIG_RED_ARROW_CURSOR : bits = big_red_arrow_cursor_bits; break;
-				case BIRD_CURSOR : bits = bird_cursor_bits; break;
-				default : bits = big_red_arrow_cursor_bits;
-			}
-
-  		gdk_color_parse("rgb:0000/0000/0000",&fg);
-  		gdk_color_parse("rgb:FFFF/3FFF/0000",&bg);
-			cursor = gdk_cursor_new_from_data(bits, 40, 40, &fg, &bg, 0, 0);
-			gdk_window_set_cursor(window->window, cursor);
-			gdk_cursor_destroy(cursor);
-		}
+  // I suppose there is less than 1000 cursors defined in gdkcursors.h !
+  if (gdk_cursor_type < GCOMPRIS_FIRST_CUSTOM_CURSOR) {
+    cursor = gdk_cursor_new(gdk_cursor_type);
+    gdk_window_set_cursor	 (window->window, cursor);
+    gdk_cursor_destroy(cursor);
+  } else { // we use a custom cursor
+    GdkColor fg, bg;
+    //    static const gchar * cursor;
+    static const gchar ** bits;
+    
+    switch (gdk_cursor_type) {
+    case GCOMPRIS_BIG_RED_ARROW_CURSOR : 
+      bits = big_red_arrow_cursor_bits; 
+      break;
+    case GCOMPRIS_BIRD_CURSOR : 
+      bits = bird_cursor_bits; 
+      break;
+    case GCOMPRIS_LINE_CURSOR : 
+      bits = big_red_line_cursor_bits; 
+      break;
+    case GCOMPRIS_RECT_CURSOR : 
+      bits = big_red_rectangle_cursor_bits; 
+      break;
+    case GCOMPRIS_FILLRECT_CURSOR : 
+      bits = big_red_filledrectangle_cursor_bits; 
+      break;
+    case GCOMPRIS_CIRCLE_CURSOR : 
+      bits = big_red_circle_cursor_bits; 
+      break;
+    case GCOMPRIS_FILLCIRCLE_CURSOR : 
+      bits = big_red_filledcircle_cursor_bits; 
+      break;
+    case GCOMPRIS_FILL_CURSOR : 
+      bits = big_red_fill_cursor_bits; 
+      break;
+    case GCOMPRIS_DEL_CURSOR : 
+      bits = big_red_del_cursor_bits; 
+      break;
+    default : bits = big_red_arrow_cursor_bits;
+    }
+    
+    gdk_color_parse("rgb:0000/0000/0000",&fg);
+    gdk_color_parse("rgb:FFFF/3FFF/0000",&bg);
+    cursor = gdk_cursor_new_from_data(bits, 40, 40, &fg, &bg, 0, 0);
+    gdk_window_set_cursor(window->window, cursor);
+    gdk_cursor_destroy(cursor);
+  }
 }
 
 static void setup_window ()

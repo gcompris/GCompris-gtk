@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2002/02/23 02:19:03 bruno>
+ * Time-stamp: <2002/02/24 15:15:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -41,7 +41,6 @@
 #include "pluginenum.h"
 #include "bonus.h"
 #include "score.h"
-#include "cursor.h"
 
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520
@@ -101,8 +100,22 @@ void		 gcompris_set_cursor(guint gdk_cursor_type);
 #define FONT_CONTENT		"-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
 #define FONT_CONTENT_FALLBACK	"-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
 
+/*=========================================================*/
+// These are gcompris defined cursors
+// cursor defines must be over the last gnome cursor defined in gdkcursors.h
+#define GCOMPRIS_FIRST_CUSTOM_CURSOR	1000
+#define GCOMPRIS_BIG_RED_ARROW_CURSOR	1001
+#define GCOMPRIS_BIRD_CURSOR		1002
+#define GCOMPRIS_LINE_CURSOR		1003
+#define GCOMPRIS_FILLRECT_CURSOR	1004
+#define GCOMPRIS_RECT_CURSOR		1005
+#define GCOMPRIS_FILLCIRCLE_CURSOR	1006
+#define GCOMPRIS_CIRCLE_CURSOR		1007
+#define GCOMPRIS_DEL_CURSOR		1008
+#define GCOMPRIS_FILL_CURSOR		1009
+
 //#define GCOMPRIS_DEFAULT_CURSOR	GDK_LEFT_PTR
-#define GCOMPRIS_DEFAULT_CURSOR BIG_RED_ARROW_CURSOR
+#define GCOMPRIS_DEFAULT_CURSOR		GCOMPRIS_BIG_RED_ARROW_CURSOR
 
 #endif
 
