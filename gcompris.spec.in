@@ -2,6 +2,7 @@
 %define RELEASE 	1
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
 %define prefix		/usr
+%define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
 
 Summary: GCompris / I Have Understood.
 Name: 		gcompris
@@ -13,7 +14,7 @@ Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tgz
 BuildRoot: 	/var/tmp/gcompris-%{PACKAGE_VERSION}-root
 URL: 		http://savannah.gnu.org
 Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
-Requires:	gnome-libs libxml2 gdk-pixbuf-gnomecanvas gdk-pixbuf
+Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
 %description
@@ -33,8 +34,6 @@ Today several Boards are implemented:
 The Game is included in the Gnome Desktop under the Game menu.
 
 You should install it only if you have children using this computer.
-You will also need to install the gnome-libs package,  gdk-pixbuf-gnomecanvas,
-xml-i18n-tools, gdk-pixbuf and the libxml.
 
 %description -l fr
 GCompris / J'ai Compris est un logiciel éducatif pour les enfants 
@@ -54,10 +53,13 @@ Aujourd'hui, plusieurs tableau sont implémentés:
 Le jeux est inclus dans le bureau Gnome sous le menu Jeux.
 
 A installer si vous avez des enfants utilisant cet ordinateur.
-Les packetages gnome-libs, libxml, gdk-pixbuf-gnomecanvas,
-xml-i18n-tools, gdk-pixbuf doivent être installés.
 
 %changelog
+* Thu Dec 27 2001  Christian Rose  <menthos@menthos.com>
+- gcompris.spec.in: Added fix for the different namings of
+-                   the gnomecanvas packages on Mandrake
+-                   and Red Hat systems. Also removed references
+-                   to dependencies in the descriptions.
 * Sun Sep 30 2001  Bruno Coudoin  <bruno.coudoin@free.fr>
 - GCompris: Release 0.7.5
 - TRANSLATION IS FIXED
