@@ -1,3 +1,8 @@
+2004-05-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data): added checks on missing fiels in the xml boards files.
+	gcompris won't start if some mandatory fields are missing.
+
 2004-05-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/log.c: (gcompris_log_start), (gcompris_log_end): fixed bugs on the win32 side

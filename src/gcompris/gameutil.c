@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/05/11 01:15:55 bcoudoin>
+ * Time-stamp: <2004/05/14 00:45:36 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -324,7 +324,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   /* get the specific mode for this board */
   gcomprisBoard->mode			 = xmlGetProp(xmlnode,"mode");
   gcomprisBoard->name			 = xmlGetProp(xmlnode,"name");
-  g_message("gcompris_add_xml_to_data found name=%s\n", gcomprisBoard->name);
   gcomprisBoard->icon_name		 = xmlGetProp(xmlnode,"icon");
   gcomprisBoard->author			 = xmlGetProp(xmlnode,"author");
   gcomprisBoard->boarddir		 = xmlGetProp(xmlnode,"boarddir");
@@ -421,6 +420,16 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
     xmlnode = xmlnode->next;
   }
 
+
+  /* Check all mandatory field are specified */
+  if(gcomprisBoard->name        == NULL ||
+     gcomprisBoard->type        == NULL ||
+     gcomprisBoard->icon_name   == NULL ||
+     gcomprisBoard->section     == NULL ||
+     gcomprisBoard->title       == NULL ||
+     gcomprisBoard->description == NULL) {
+    g_error("failed to read a mandatory field for this board (mandatory fields are name type icon_name difficulty section title description). check the board xml file is complete, perhaps xml-i18n-tools did not generate the file properly");
+  }
 }
 
 /* parse the doc, add it to our internal structures and to the clist */
