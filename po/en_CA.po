@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-07 08:55-0400\n"
-"PO-Revision-Date: 2004-09-07 19:37-0400\n"
-"Last-Translator: Adam Weinberger  <adamw@gnome.org>\n"
+"POT-Creation-Date: 2004-09-15 16:32-0400\n"
+"PO-Revision-Date: 2004-09-15 19:37-0400\n"
+"Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2153,7 +2153,7 @@ msgstr "Educational suite gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1765 src/gcompris/gameutil.c:125
+#: src/boards/shapegame.c:1775 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2163,7 +2163,7 @@ msgstr "Couldn't find file %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1768
+#: src/boards/shapegame.c:1778
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -2550,7 +2550,7 @@ msgid "Help"
 msgstr "Help"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:203
-#: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
+#: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2869,14 +2869,14 @@ msgstr ""
 #, c-format
 msgid ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "Licence: GPL\n"
-"More info at http://ofset.sourceforge.net/gcompris\n"
+"More info at http://www.ofset.org/gcompris\n"
 msgstr ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "Licence: GPL\n"
-"More info on http://ofset.sourceforge.net/gcompris\n"
+"More info at http://www.ofset.org/gcompris\n"
 
 #: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
