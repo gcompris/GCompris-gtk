@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board
+	 name="searace"
+	 type="python:searace"
+	 section="/experience/."
+	 mode="1player"
+	 difficulty="6"
+	 icon="boardicons/searace1player.png"
+	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
+	 boarddir="searace">
+	 <_title>Sea race (2 Players)</_title>
+	 <_description>Give good instructions to your ship in order to be first
+in the race.</_description>
+	<_prerequisite></_prerequisite>
+	<_goal>In this activity, you will learn how to enter commands to a computer.
+Even if the language is extremely basic, you learn here how to think ahead and enter a program.
+This activity can be used to introduce the programming concept to kids.</_goal>
+	<_manual>In the text entry, enter line by line commands to give direction to your boat.
+Commands supported are displayed between the two entry area.
+The 'left' and 'right' commands must be suffixed by an angle in degree. The angle value is also
+called a 'parameter' to the left or right command. By default 45 degree is used.
+The 'forward' command accept a distance parameter. By default 1 is used.
+For example:
+left 90    => Make a perpendicular left turn
+forward 10 => Go forward for 10 units (as displayed in the ruler)
+The goal is to reach the right of the screen (the red line).
+When done, you can try to improve your program and start a new race with the same weather
+ conditions by using the retry button.
+Going to the next level will give your more complex wether conditions.</_manual>
+  </Board>
+</GCompris>
