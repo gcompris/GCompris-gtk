@@ -59,8 +59,8 @@ dist-core:
 	@echo Created $(distcore).tar.gz
 
 # Display stats on translation
-core-translation-report: po/gcompris.pot po-checktrans.py po-checktrans
-	-(cd $(srcdir) && ./po-checktrans po/gcompris.pot po/*.po)
+core-translation-report: po-checktrans.py po-checktrans
+	-([ -f po/gcompris.pot ] && cd $(srcdir) && ./po-checktrans po/gcompris.pot po/*.po)
 
 all-local: core-translation-report
 

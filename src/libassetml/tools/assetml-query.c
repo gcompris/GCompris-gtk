@@ -40,7 +40,7 @@ void	 dump_asset(AssetML *assetml);
 /****************************************************************************/
 /* Command line params */
 
-/*** gcompris-popttable */
+/*** assetml-query-popttable */
 static gchar *dataset	= NULL;
 static gchar *name		= NULL;
 static gchar *categories	= NULL;
@@ -57,7 +57,7 @@ static struct poptOption options[] = {
   {"mimetype", 'm', POPT_ARG_STRING, &mimetype, 0,
    N_("Specify a mimetype to search in (eg: image/png)"), NULL},
   {"version", '\0', POPT_ARG_NONE, &showVersion, 0,
-   N_("Prints the version of " PACKAGE), NULL},
+   N_("Prints the version of assetml-query"), NULL},
   POPT_AUTOHELP
   {
     NULL,

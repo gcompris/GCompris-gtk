@@ -24,7 +24,8 @@
 
 /* Returns a list of AssetML struct
    dataset: the name of the dataset, NULL for ANY dataset
-   categories: a list of categorie columns ';' separated
+   categories: a list of categorie columns ';' separated (NULL for all)
+   mimetype: an official mimetype describing the content (NULL for all)
    name: the asset name to get or NULL for any name
 */
    

@@ -5,7 +5,7 @@
 %define prefix		/usr
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
 
-Summary: GCompris / I Have Understood.
+Summary: GCompris : Educational suite for kids 3-10 years old
 Name: 		gcompris
 Version: 	%ver
 Release: 	%rel
