@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-27 11:41+0200\n"
-"PO-Revision-Date: 2003-09-27 15:55+0200\n"
+"POT-Creation-Date: 2003-10-29 14:37+0100\n"
+"PO-Revision-Date: 2003-10-29 20:41+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -711,11 +711,11 @@ msgid ""
 "the double entry table."
 msgstr ""
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:199
 msgid "A simple vector drawing tool"
 msgstr "Jednoduchý vektorový kreslicí nástroj"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:200
 msgid "Creative board where you can freely draw"
 msgstr "Kreativní hrací deska, kde si můžeš volně kreslit"
 
@@ -764,11 +764,11 @@ msgstr "Umísti položky nejlepším způsobem pro jejich počítání"
 msgid "Motor coordination"
 msgstr "Koordinace pohybů"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Hýbej myší"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5 src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Hýbej myší pro vymazání oblasti a objevení pozadí"
 
@@ -1671,6 +1671,10 @@ msgstr ""
 msgid "Vertical reading practice"
 msgstr "Procvičování vertikálního čtení"
 
+#: boards/redraw.xml.in.h:1
+msgid "Redraw the given item"
+msgstr "Překreslit danou položku"
+
 #: boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
@@ -1689,7 +1693,7 @@ msgstr ""
 "tlačítka myši. Až budeš hotov, klikni na tlačítko OK nebo stiskni klávesu "
 "enter."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice the substraction with a funny game"
 msgstr "Procvičení odčítání v zábavné hře"
 
@@ -1847,6 +1851,23 @@ msgid ""
 "on the right"
 msgstr "Cílem je odstranit všechna červená auta z mřížky mezerou vpravo."
 
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system. When done and "
+"Tux is in his shower, push the shower button for him."
+msgstr ""
+
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr ""
+
+#: boards/watercycle.xml.in.h:3
+msgid ""
+"You have to bring back the water system up. Tux comes from a long fishing "
+"party on his boat. Help him to have a shower."
+msgstr ""
+
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
 msgid "Falling Words"
 msgstr "Padající slovo"
@@ -1871,19 +1892,19 @@ msgstr "Naučná hra od 3 let"
 msgid "Educational suite gcompris"
 msgstr "Naučná sada gcompris"
 
-#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
 #: src/boards/shapegame.c:1725 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
-#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
+#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nemohu nalézt soubor %s !"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1728
 #, c-format
 msgid "find file %s !"
@@ -2000,7 +2021,7 @@ msgstr "Nemohu otevřít adresář pixmap: %s"
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
 
-#: src/boards/colors.c:210
+#: src/boards/colors.c:216
 #, c-format
 msgid "Click on the %s toon"
 msgstr ""
@@ -2049,11 +2070,11 @@ msgstr "Deska Pythonu"
 msgid "Special board that embed python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
 
-#: src/boards/railroad.c:95
+#: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Hra s pamětí"
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
 msgstr "Sestav vlak odpovídající modelu"
 
@@ -2089,7 +2110,7 @@ msgstr "Ano, viděl jsem je"
 msgid "No, it was not there"
 msgstr "Ne, nebylo tam"
 
-#: src/boards/reversecount.c:136
+#: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr "Počítání pozpátku"
 
@@ -2147,34 +2168,36 @@ msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
-"Music: Djilali Sebihi\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Kredity:\n"
 "Autor: Bruno Coudoin\n"
 "Spolupráce: Pascal Georges\n"
 "Grafika: Renaud Blanchard\n"
-"Hudba: Djilali Sebihi\n"
+"Úvodní hudba: Djilali Sebihi\n"
+"Hudba na pozadí: Rico Da Halvarez\n"
 
-#: src/gcompris/about.c:97
+#: src/gcompris/about.c:99
 msgid "About GCompris"
 msgstr "O GCompris"
 
-#: src/gcompris/about.c:203
+#: src/gcompris/about.c:205
 msgid "GCompris Home Page"
 msgstr "Domovská stránka GCompris"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:227
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Toto software je balík GNU a je uvolněno za podmínek Gnu Public Licence"
 
-#: src/gcompris/about.c:253
+#: src/gcompris/about.c:255
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:177 src/gcompris/help.c:341
-#: src/gcompris/images_selector.c:148
+#: src/gcompris/about.c:289 src/gcompris/config.c:178 src/gcompris/help.c:341
+#: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
 
@@ -2287,101 +2310,113 @@ msgid "Slovak"
 msgstr "Slovenština"
 
 #: src/gcompris/config.c:79
+msgid "Slovenian"
+msgstr "Slovinština"
+
+#: src/gcompris/config.c:80
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Serbian"
 msgstr "Srbština"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:151
+#: src/gcompris/config.c:152
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:257
+#: src/gcompris/config.c:258
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:300
+#: src/gcompris/config.c:301
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:328
+#: src/gcompris/config.c:329
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:365
+#: src/gcompris/config.c:366
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:399 src/gcompris/config.c:705
-#: src/gcompris/config.c:716
+#: src/gcompris/config.c:400 src/gcompris/config.c:706
+#: src/gcompris/config.c:717
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/gcompris.c:65
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in fullscreen mode."
 msgstr "spustit gcompris v režimu přes celou obrazovku."
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in window mode."
 msgstr "spustit gcompris v režimu okna."
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris with sound enabled."
 msgstr "spustit gcompris s povolenými zvuky."
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris without sound."
 msgstr "spustit gcompris bez zvuku."
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris with the default gnome cursor."
 msgstr "spustit gcompris s implicitním kurzorem gnome."
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:77
+msgid "display only activities with this difficulty level."
+msgstr "zobrazovat jen aktivity s touto úrovní obtížnosti."
+
+#: src/gcompris/gcompris.c:79
+msgid "select the audio output, one of 'default alsa09 arts esd oss'"
+msgstr "výběr výstupu zvuku, jedno z 'default alsa09 arts esd oss'"
+
+#: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
 msgstr "Vytiskne verzi "
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:83
 msgid "Use the antialiased canvas (slower)."
 msgstr "Používat vyhlazovaný canvas (pomalejší)"
 
-#: src/gcompris/gcompris.c:330
+#: src/gcompris/gcompris.c:353
 msgid "GCompris I Have Understood"
 msgstr "GCompris Pochopil jsem"
 
-#: src/gcompris/gcompris.c:544
+#: src/gcompris/gcompris.c:570
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2442,7 +2477,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Adresář"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:241
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
 msgid "Title"
 msgstr "Název"
 
@@ -2455,11 +2490,11 @@ msgstr "Miloslav Trmač"
 msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
 
-#: src/gcompris/oggplayer.c:204 src/gcompris/oggplayer.c:215
+#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
 msgid "Now Playing Music"
 msgstr "Nyní přehrávám hudbu"
 
-#: src/gcompris/oggplayer.c:245
+#: src/gcompris/oggplayer.c:247
 msgid "Artist"
 msgstr "Umělec"
 
