@@ -26,6 +26,7 @@
 static GcomprisBoard *gcomprisBoard = NULL;
 static PyObject* python_gcomprisBoard = NULL;
 static PyObject* python_board_module = NULL;
+static PyObject* python_board_instance = NULL;
 
 static void	 pythonboard_start (GcomprisBoard *agcomprisBoard);
 static void	 pythonboard_pause (gboolean pause);
@@ -74,37 +75,6 @@ BoardPlugin
    return &pythonboard_bp;
 }
 
-/* 
- * Helper function to:
- * - create the name of the function (boardname_function)
- * - locate the python function.
- * - call the function
- * - get the result
- */
-PyObject* python_simple_call(const char* fcn, PyObject* args){
-  PyObject* py_function;
-  PyObject* py_function_result = NULL;
-  PyObject* module_dict;
-  char* boardfunction;
-  
-  if(python_board_module!=NULL){ 
-    /* Get a python function reference */
-    module_dict = PyModule_GetDict(python_board_module); 
-    boardfunction = g_strdup_printf("%s_%s", gcomprisBoard->name, fcn);
-    py_function = PyDict_GetItemString(module_dict, boardfunction);
-
-    if ( py_function && PyCallable_Check(py_function) ){
-      /* Call the function */ 
-      py_function_result = PyObject_CallObject(py_function, args);
-      if( py_function_result == NULL){
-	PyErr_Print(); 
-      }
-    } 
-    g_free(boardfunction);
-  }
-  return py_function_result;
-}
-
 
 /*
  * Start the board. 
@@ -117,14 +87,15 @@ PyObject* python_simple_call(const char* fcn, PyObject* args){
  */
 void pythonboard_start (GcomprisBoard *agcomprisBoard){
   PyObject* main_module;
-  PyObject* py_function;
   PyObject* py_function_result;
   PyObject* module_dict;
+  PyObject* py_boardclass;
+  PyObject* py_boardclass_args;
   PyObject* globals;
   static char *python_args[]={ "" };
   static char* python_prog_name="gcompris";
   char* boarddir;
-  char* boardfunction;
+  char* boardclass;
   
   if(agcomprisBoard!=NULL){
     /* Initialize the python interpreter */
@@ -154,11 +125,8 @@ void pythonboard_start (GcomprisBoard *agcomprisBoard){
     python_gcompris_module_init();
 
     /* Python is now initialized we create some usefull variables */
-    boardfunction = g_strdup_printf("%s_start", agcomprisBoard->name);
+    boardclass = g_strdup_printf("Gcompris_%s", agcomprisBoard->name);
 
-    /* Run an interactive python command line for debugging purposes */
-    //    PyRun_InteractiveLoop(stdin, NULL);
-    
     /* Insert the board module into the python's interpreter */
     python_board_module = PyImport_ImportModuleEx(agcomprisBoard->name,  
  						  globals,
@@ -169,27 +137,31 @@ void pythonboard_start (GcomprisBoard *agcomprisBoard){
       /* Get the module dictionnary */
       module_dict = PyModule_GetDict(python_board_module); 
 
-      /* Add the current board to the python module defs */
+      /* Get the python board class */
+      py_boardclass = PyDict_GetItemString(module_dict, boardclass);
+
+      /* Create a python gcompris board */
       python_gcomprisBoard=gcompris_new_pyGcomprisBoardObject(agcomprisBoard); 
-      PyDict_SetItemString(module_dict, "gcomprisBoard", python_gcomprisBoard); 
-
-      /* Get a python function reference */
-      py_function = PyDict_GetItemString(module_dict, boardfunction);
-
-      if ( py_function && PyCallable_Check(py_function) ){
-	/* Call the function */ 
-	py_function_result = PyObject_CallObject(py_function, NULL);
-	if( py_function_result != NULL){
-	  Py_DECREF(py_function_result);
-	} else {
-	  PyErr_Print(); 
-	}
-      } 
+      
+      /* Create an instance of the board class */
+      py_boardclass_args = PyTuple_New(1);
+      Py_INCREF(python_gcomprisBoard);
+      PyTuple_SetItem(py_boardclass_args, 0, python_gcomprisBoard);
+      python_board_instance = PyInstance_New(py_boardclass, py_boardclass_args, NULL);
+      Py_DECREF(py_boardclass_args);
+      
+      /* Call the function */ 
+      py_function_result = PyObject_CallMethod(python_board_instance, "start", NULL);
+      if( py_function_result != NULL){
+	Py_DECREF(py_function_result);
+      } else {
+	PyErr_Print(); 
+      }
     } else { 
       PyErr_Print(); 
     }
     
-    g_free(boardfunction); 
+    g_free(boardclass); 
   }
 }
 
@@ -198,12 +170,13 @@ void pythonboard_start (GcomprisBoard *agcomprisBoard){
  */
 void pythonboard_pause (gboolean pause){
   PyObject* result = NULL;
-  PyObject* args = PyTuple_New(1);
-  PyObject* value = PyInt_FromLong(pause);
 
-  PyTuple_SetItem(args, 0, value);
-  result = python_simple_call("pause", args);
-  Py_XDECREF(result);
+  result = PyObject_CallMethod(python_board_instance, "pause", "i", pause);
+  if( result != NULL){
+    Py_DECREF(result);
+  } else {
+    PyErr_Print(); 
+  }
 }
 
 /*
@@ -214,10 +187,16 @@ void pythonboard_pause (gboolean pause){
  */
 void pythonboard_end (void){
   PyObject* result = NULL;
+
   if(python_gcomprisBoard!=NULL){
-    result = python_simple_call("end", NULL);
-    Py_XDECREF(result);
+    result = PyObject_CallMethod(python_board_instance, "end", NULL);
+    if( result == NULL){
+      PyErr_Print(); 
+    } else {
+      Py_DECREF(result);
+    }
     Py_XDECREF(python_board_module);
+    Py_XDECREF(python_board_instance);
     Py_XDECREF(python_gcomprisBoard);
     Py_Finalize();
   }
@@ -247,11 +226,8 @@ gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
  */
 gint pythonboard_key_press (guint keyval){
   PyObject* result = NULL;
-  PyObject* args = PyTuple_New(1);
-  PyObject* value = PyInt_FromLong(keyval);
 
-  PyTuple_SetItem(args, 0, value);
-  result = python_simple_call("key_press", args);
+  result = PyObject_CallMethod(python_board_instance, "key_press", "i", keyval);
 
   if (result==NULL) return FALSE;
 
@@ -269,8 +245,12 @@ gint pythonboard_key_press (guint keyval){
  */
 void pythonboard_ok (void){
   PyObject* result = NULL;
-  result = python_simple_call("ok", NULL);
-  Py_XDECREF(result);
+  result = PyObject_CallMethod(python_board_instance, "ok", NULL);
+  if( result != NULL){
+    Py_DECREF(result);
+  } else {
+    PyErr_Print(); 
+  }
 }
 
 /*
@@ -278,12 +258,13 @@ void pythonboard_ok (void){
  */
 void pythonboard_set_level (guint level){
   PyObject* result = NULL;
-  PyObject* args = PyTuple_New(1);
-  PyObject* value = PyInt_FromLong(level);
 
-  PyTuple_SetItem(args, 0, value);
-  result = python_simple_call("set_level", args);
-  Py_XDECREF(result);
+  result = PyObject_CallMethod(python_board_instance, "set_level", "i", level);
+  if( result != NULL){
+    Py_DECREF(result);
+  } else {
+    PyErr_Print(); 
+  }
 }
 
 /*
@@ -291,8 +272,12 @@ void pythonboard_set_level (guint level){
  */
 void pythonboard_config(void){
   PyObject* result = NULL;
-  result = python_simple_call("config", NULL);
-  Py_XDECREF(result);
+  result = PyObject_CallMethod(python_board_instance, "config", NULL);
+  if( result != NULL){
+    Py_DECREF(result);
+  } else {
+    PyErr_Print(); 
+  }
 }
 
 /*
@@ -300,6 +285,10 @@ void pythonboard_config(void){
  */
 void pythonboard_repeat (void){
   PyObject* result = NULL;
-  result = python_simple_call("repeat", NULL);
-  Py_XDECREF(result);
+  result = PyObject_CallMethod(python_board_instance, "repeat", NULL);
+  if( result != NULL){
+    Py_DECREF(result);
+  } else {
+    PyErr_Print(); 
+  }
 }

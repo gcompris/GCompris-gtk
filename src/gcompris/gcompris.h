@@ -42,6 +42,7 @@
 #include "bonus.h"
 #include "timer.h"
 #include "score.h"
+#include "skin.h"
 
 #define BOARDWIDTH  800
 #define BOARDHEIGHT 520

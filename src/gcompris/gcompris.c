@@ -439,6 +439,7 @@ void gcompris_terminate(int  signum)
 static void load_properties ()
 {
   properties = gcompris_properties_new ();
+  gcompris_skin_load(properties->skin);
 }
 
 /*

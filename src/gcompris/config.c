@@ -137,11 +137,11 @@ void gcompris_config_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("GCompris Configuration"),
-				"font", FONT_TITLE,
+				"font", gcompris_skin_font_title,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TITLE,
+				"fill_color_rgba", gcompris_skin_color_title,
 				NULL);
 
   // OK
@@ -163,11 +163,11 @@ void gcompris_config_start ()
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font", FONT_TITLE,
+				"font", gcompris_skin_font_title,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TITLE,
+				"fill_color_rgba", gcompris_skin_color_title,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,
@@ -215,11 +215,11 @@ void gcompris_config_start ()
   item_locale_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", get_locale_name(current_locale), 
-					    "font", FONT_SUBTITLE,
+					    "font", gcompris_skin_font_subtitle,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
-					    "fill_color_rgba", COLOR_CONTENT,
+					    "fill_color_rgba", gcompris_skin_color_content,
 					    NULL);
 
   // Fullscreen / Window
@@ -243,11 +243,11 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Fullscreen"), 
-			 "font", FONT_CONTENT,
+			 "font", gcompris_skin_font_content,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", COLOR_CONTENT,
+			 "fill_color_rgba", gcompris_skin_color_content,
 			 NULL);
 
   // Screen size
@@ -258,11 +258,11 @@ void gcompris_config_start ()
   item_screen_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					    gnome_canvas_text_get_type (),
 					    "text", gettext(screenname[properties->screensize]), 
-					    "font", FONT_CONTENT,
+					    "font", gcompris_skin_font_content,
 					    "x", (double) x_text_start,
 					    "y", (double) y_start,
 					    "anchor", GTK_ANCHOR_WEST,
-					    "fill_color_rgba", COLOR_CONTENT,
+					    "fill_color_rgba", gcompris_skin_color_content,
 					    NULL);
 
   // Music
@@ -286,11 +286,11 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Music"), 
-			 "font", FONT_CONTENT,
+			 "font", gcompris_skin_font_content,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", COLOR_CONTENT,
+			 "fill_color_rgba", gcompris_skin_color_content,
 			 NULL);
 
   // Effect
@@ -314,11 +314,11 @@ void gcompris_config_start ()
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Effect"), 
-			 "font", FONT_CONTENT,
+			 "font", gcompris_skin_font_content,
 			 "x", (double) x_text_start,
 			 "y", (double) y_start,
 			 "anchor", GTK_ANCHOR_WEST,
-			 "fill_color_rgba", COLOR_CONTENT,
+			 "fill_color_rgba", gcompris_skin_color_content,
 			 NULL);
 
   // Timer
@@ -329,11 +329,11 @@ void gcompris_config_start ()
   item_timer_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					   gnome_canvas_text_get_type (),
 					   "text", gettext(timername[properties->timer]),
-					   "font", FONT_CONTENT,
+					   "font", gcompris_skin_font_content,
 					   "x", (double) x_text_start,
 					   "y", (double) y_start,
 					   "anchor", GTK_ANCHOR_WEST,
-					   "fill_color_rgba", COLOR_CONTENT,
+					   "fill_color_rgba", gcompris_skin_color_content,
 					   NULL);
 
   // Skin
@@ -386,11 +386,11 @@ void gcompris_config_start ()
 					  gnome_canvas_text_get_type (),
 					  "text", g_strdup_printf(_("Skin : %s"), 
 								  (char *)g_list_nth_data(skinlist, skin_index)),
-					  "font", FONT_CONTENT,
+					  "font", gcompris_skin_font_content,
 					  "x", (double) x_text_start,
 					  "y", (double) y_start,
 					  "anchor", GTK_ANCHOR_WEST,
-					  "fill_color_rgba", COLOR_CONTENT,
+					  "fill_color_rgba", gcompris_skin_color_content,
 					  NULL);
   
 }
@@ -593,6 +593,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	{
 	  gcompris_set_locale(current_locale);
 	  properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
+	  gcompris_skin_load(properties->skin);
 	  gcompris_config_stop();
 	}
       else if(!strcmp((char *)data, "fullscreen"))

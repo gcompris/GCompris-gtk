@@ -81,7 +81,7 @@ py_gcompris_play_ogg(PyObject* self, PyObject* args)
 }
 
 static PyMethodDef PythonGcomprisSoundModule[] = {
-  { "play_sound",  py_gcompris_play_sound, METH_VARARGS, "gcompris_play_sound" },
+  { "play",  py_gcompris_play_sound, METH_VARARGS, "gcompris_play_sound" },
   { "play_ogg_list",  py_gcompris_play_ogg_list, METH_VARARGS, "gcompris_play_ogg_list" },
   { "play_ogg",  py_gcompris_play_ogg, METH_VARARGS, "gcompris_play_ogg" },
   { NULL, NULL, 0, NULL}

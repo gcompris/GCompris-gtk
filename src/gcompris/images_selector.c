@@ -146,11 +146,11 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font", FONT_TITLE,
+				"font", gcompris_skin_font_title,
 				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap),
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TEXT_BUTTON,
+				"fill_color_rgba", gcompris_skin_color_text_button,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_images_selector,

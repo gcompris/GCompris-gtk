@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
                       "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<!--
+This file is in the xml docbook format. It can be translated to many formats
+(including HTML) using the stylesheets available at: http://docbook.sourceforge.net.
+
+If you have a good libxslt installation, you may use the following command to
+translate this file to html:
+xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl python.xml
+-->
+
 <article>
     <articleinfo>
       <author>
@@ -15,16 +24,62 @@
 	  <revnumber>0.1</revnumber>
 	  <date>February 2003</date>
 	</revision>
+	<revision>
+	  <revnumber>0.2</revnumber>
+	  <date>April 2003</date>
+	</revision>
       </revhistory>
     </articleinfo>
     <title>Python wrapper for Gcompris</title>
-    <sect1>
-      <title>GcomprisBoard structure mapping </title> 
 
-      <para>
-An instance of this structure in Python will act like an instance of the C
-one. Here a some Python call samples:
-      </para>
+
+    <sect1>
+      <title>Notes about this wrapper</title>
+<para>Generaly speaking, all C gcompris_xxx functions are wrapped to a
+corresponding gcompris.xxx function; parameters and return types remains the same.
+Some structures have also been wrapped. See below particular notes about this.</para>
+
+<para>The wrapped functions are divided into packages. Every package correponds to a
+gcompris header file (gameutil.h, score.h, ...)</para>
+
+<para>For each package/header not all functions have been wrapped.
+Only functions that are used/usefull for plugins are wrapped.</para>
+
+<para>Notice also that not all functions have been tested (with time and new python
+plugins implemented they will be, but...). The wrappers have been written, they compiles,
+but there is no warranty on their behaviour... I you find a bug report it!</para>
+    </sect1>
+
+    <sect1>
+      <title>Python board structure</title> 
+<para>Each board written in python must contains a class which name is
+"Gcompris_xxx" where xxx is the name of the board. Let's take an example: I made
+a gcompris board written in python and called "pythontest".</para>
+<para>For this board there is a gcompris pythontest.xml file containing
+"pythontest" for the board name and "pythonboard" for the board type. There's
+also a pythontest.py file containing the board code. And to finish, this file
+contains a "Gcompris_pythontest" class definition which in turns contains the
+needed gcompris board functions.</para>
+<para>The class defined in the python board must contains the following methods:<itemizedlist>
+	  <listitem>__init__(self, gcomprisBoard)</listitem>
+	  <listitem>start(self)</listitem>
+	  <listitem>end(self)</listitem>
+	  <listitem>ok(self)</listitem>
+	  <listitem>repeat(self)</listitem>
+	  <listitem>config(self)</listitem>
+	  <listitem>key_press(self, keyval)</listitem>
+	  <listitem>pause(self, pause)</listitem>
+	  <listitem>set_level(self, level)</listitem>
+	</itemizedlist>
+</para>
+<para>For the method role and use, please consult the sample pythontest.py board
+and other C boards.</para>
+    </sect1>
+
+    <sect1>
+      <title>GcomprisBoard structure mapping </title>
+<para>An instance of this structure in Python will act like an instance of the C
+one. Here a some Python call samples:</para>
 <programlisting>
 ...
   gcomprisBoard.level = 1
@@ -33,10 +88,8 @@ one. Here a some Python call samples:
   gcompris.bar_start(gcomprisBoard.canvas)
 ...
 </programlisting>
-      <para>
-Here are the Python structure member name and type, and a note indicating if the
-attribute is readeable and/or writable.
-      </para>
+<para>Here are the Python structure member name and type, and a note indicating if the
+attribute is readeable and/or writable.</para>
       
       <informaltable>
 	<tgroup cols="4">
@@ -371,6 +424,328 @@ attribute is readeable and/or writable.
       </sect2>
 
     </sect1>
+
+    <sect1>
+      <title>gameutil.h functions and constants Mapping</title>
+      <sect2>
+	<title>Functions mapping</title>
+	<informaltable>
+	  <tgroup cols="3">
+	    <thead>
+	      <row>
+		<entry>Python function</entry>
+		<entry>C equivalent</entry>
+		<entry>Notes</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>gcompris.utils.load_number_pixmap(number)</entry>
+		<entry>GdkPixbuf *gcompris_load_number_pixmap(char number)</entry>
+		<entry>return a gtk.gdk.Pixbuf</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.image_to_skin(imagename)</entry>
+		<entry>gchar *gcompris_image_to_skin(gchar *imagename)</entry>
+		<entry>return a string</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.load_skin_pixmap(pixmapfile)</entry>
+		<entry>GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)</entry>
+		<entry>return a gtk.gdk.Pixbuf</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.load_pixmap(pixmapfile)</entry>
+		<entry>GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)</entry>
+		<entry>return a gtk.gdk.Pixbuf</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.set_image_focus(item, focus)</entry>
+		<entry>void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.item_event_focus(item, event, dest_item)</entry>
+		<entry>gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvasItem *dest_item)</entry>
+		<entry>return an integer</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.item_absolute_move(item, x, y)</entry>
+		<entry>void item_absolute_move(GnomeCanvasItem *item, int x, int y)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.item_rotate(item, angle)</entry>
+		<entry>void item_rotate(GnomeCanvasItem *item, double angle)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.item_rotate_with_center(item, angle, x, y)</entry>
+		<entry>void item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.utils.dialog(str, callback)</entry>
+		<entry>void gcompris_dialog(gchar *str, DialogBoxCallBack callback)</entry>
+		<entry>The callback must be a callable object</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+
+      <sect2>
+	<title>Constants mapping</title>
+        <para>
+          There is no constants in this package.
+        </para>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>bonus.h functions and constants Mapping</title>
+      <sect2>
+	<title>Functions mapping</title>
+	<informaltable>
+	  <tgroup cols="3">
+	    <thead>
+	      <row>
+		<entry>Python function</entry>
+		<entry>C equivalent</entry>
+		<entry>Notes</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>gcompris.bonus.display(gamewon, bonus_id)</entry>
+		<entry>void gcompris_display_bonus(int gamewon, int bonus_id)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.bonus.board_finished(type)</entry>
+		<entry>void board_finished(int type)</entry>
+		<entry></entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+
+      <sect2>
+	<title>Constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.bonus.TIME_CLICK_TO</entry>
+		<entry>TIME_CLICK_TO_BONUS</entry></row>
+	      <row><entry>gcompris.bonus.RANDOM</entry>
+		<entry>BONUS_RANDOM</entry></row>
+	      <row><entry>gcompris.bonus.SMILEY</entry>
+		<entry>BONUS_SMILEY</entry></row>
+	      <row><entry>gcompris.bonus.FLOWER</entry>
+		<entry>BONUS_FLOWER</entry></row>
+	      <row><entry>gcompris.bonus.LAST</entry>
+		<entry>BONUS_LAST</entry></row>
+	      <row><entry>gcompris.bonus.FINISHED_RANDOM</entry>
+		<entry>BOARD_FINISHED_RANDOM</entry></row>
+	      <row><entry>gcompris.bonus.FINISHED_TUXPLANE</entry>
+		<entry>BOARD_FINISHED_TUXPLANE</entry></row>
+	      <row><entry>gcompris.bonus.FINISHED_TUXLOCO</entry>
+		<entry>BOARD_FINISHED_TUXLOCO</entry></row>
+	      <row><entry>gcompris.bonus.FINISHED_TOOMANYERRORS</entry>
+		<entry>BOARD_FINISHED_TOOMANYERRORS</entry></row>
+	      <row><entry>gcompris.bonus.FINISHED_LAST</entry>
+		<entry>BOARD_FINISHED_LAST</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>score.h functions and constants Mapping</title>
+      <sect2>
+	<title>Functions mapping</title>
+	<informaltable>
+	  <tgroup cols="3">
+	    <thead>
+	      <row>
+		<entry>Python function</entry>
+		<entry>C equivalent</entry>
+		<entry>Notes</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>gcompris.score.start(style, x, y, max)</entry>
+		<entry>void gcompris_score_start(ScoreStyleList style, guint x, guint y, guint max)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.score.end()</entry>
+		<entry>void gcompris_score_end()</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.score.set(value)</entry>
+		<entry>void gcompris_score_set(guint value)</entry>
+		<entry></entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+
+      <sect2>
+	<title>Constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.score.STYLE_NOTE</entry>
+		<entry>SCORESTYLE_NOTE</entry></row>
+	      <row><entry>gcompris.score.STYLE_LIFE</entry>
+		<entry>SCORESTYLE_LIFE</entry></row>
+	      <row><entry>gcompris.score.LAST</entry>
+		<entry>SCORE_LAST</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>sound.h functions and constants Mapping</title>
+      <sect2>
+	<title>Functions mapping</title>
+	<informaltable>
+	  <tgroup cols="3">
+	    <thead>
+	      <row>
+		<entry>Python function</entry>
+		<entry>C equivalent</entry>
+		<entry>Notes</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>gcompris.sound.play(soundlistfile, which)</entry>
+		<entry>void gcompris_play_sound (const char *soundlistfile, const char *which)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.sound.play_ogg_list(list)</entry>
+		<entry>void gcompris_play_ogg_list( GList* files )</entry>
+		<entry>The list argument is a GList</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.sound.play_ogg(list)</entry>
+		<entry>void gcompris_play_ogg(char *, ...)</entry>
+		<entry>The list argument is a python list containing strings</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.sound.</entry>
+		<entry></entry>
+		<entry></entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+
+      <sect2>
+	<title>Constants mapping</title>
+	<para>
+          There is no constants in this package.
+        </para>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>timer.h functions and constants Mapping</title>
+      <sect2>
+	<title>Functions mapping</title>
+	<informaltable>
+	  <tgroup cols="3">
+	    <thead>
+	      <row>
+		<entry>Python function</entry>
+		<entry>C equivalent</entry>
+		<entry>Notes</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>gcompris.timer.display(x, y, type, second, callback)</entry>
+		<entry>void gcompris_timer_display (int x, int y, TimerList type, int second, GcomprisTimerEnd gcomprisTimerEnd);</entry>
+		<entry>The callback must be a callable object</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.timer.add(second)</entry>
+		<entry>void gcompris_timer_add(int second)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.timer.end()</entry>
+		<entry>void gcompris_timer_end(void)</entry>
+		<entry></entry>
+	      </row>
+	      <row>
+		<entry>gcompris.timer.get_remaining()</entry>
+		<entry>guint gcompris_timer_get_remaining()</entry>
+		<entry>Return an integer</entry>
+	      </row>
+	      <row>
+		<entry>gcompris.timer.pause(pause)</entry>
+		<entry>void gcompris_timer_pause(gboolean pause)</entry>
+		<entry></entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+
+
+      <sect2>
+	<title>Constants mapping</title>
+	<informaltable>
+	  <tgroup cols="2">
+	    <thead>
+	      <row>
+		<entry>Python constant</entry>
+		<entry>C equivalent</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.timer.TEXT</entry>
+		<entry>GCOMPRIS_TIMER_TEXT</entry></row>
+	      <row><entry>gcompris.timer.SAND</entry>
+		<entry>GCOMPRIS_TIMER_SAND</entry></row>
+	      <row><entry>gcompris.timer.BALLOON</entry>
+		<entry>GCOMPRIS_TIMER_BALLOON</entry></row>
+	      <row><entry>gcompris.timer.CLOCK</entry>
+		<entry>GCOMPRIS_TIMER_CLOCK</entry></row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </sect2>
+    </sect1>
+
 </article>
 
 <!-- Keep this comment at the end of the file

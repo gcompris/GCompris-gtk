@@ -34,8 +34,6 @@
 
 
 GdkPixbuf	*gcompris_load_number_pixmap(char number);
-gchar		*gcompris_image_to_skin(gchar *imagename);
-GdkPixbuf	*gcompris_load_skin_pixmap(char *pixmapfile);
 GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);
 void		 gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus);
 gint		 gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, 

@@ -40,6 +40,7 @@ libgcompris_a_SOURCES = \
 	bonus.c bonus.h \
 	timer.c timer.h \
 	score.c score.h \
+	skin.c skin.h \
 	config.c gcompris_config.h \
 	about.c about.h 
 

@@ -92,11 +92,11 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("About GCompris"), 
-				"font", FONT_TITLE,
+				"font", gcompris_skin_font_title,
 				"x", (double) BOARDWIDTH/2,
 				"y", (double) y_start + 40,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TITLE,
+				"fill_color_rgba", gcompris_skin_color_title,
 				NULL);
 
   // Version
@@ -105,22 +105,22 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "GCompris V" VERSION,
-				"font", FONT_TITLE,
+				"font", gcompris_skin_font_title,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_SUBTITLE,
+				"fill_color_rgba", gcompris_skin_color_subtitle,
 				NULL);
 
   y_start += 180;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", content,
-				"font", FONT_CONTENT,
+				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_CONTENT,
+				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);
 
   // Ofset Reference
@@ -143,11 +143,11 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "OFSET",
-				"font", FONT_CONTENT,
+				"font", gcompris_skin_font_content,
 				"x", (double)  (BOARDWIDTH*0.25),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_SUBTITLE,
+				"fill_color_rgba",gcompris_skin_color_subtitle, 
 				NULL);
 
   // FSF Reference
@@ -170,11 +170,11 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "Free Software Foundation",
-				"font", FONT_CONTENT,
+				"font", gcompris_skin_font_content,
 				"x", (double)  (BOARDWIDTH*0.75),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_SUBTITLE,
+				"fill_color_rgba", gcompris_skin_color_subtitle,
 				NULL);
 
   // GCompris Reference
@@ -198,33 +198,33 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("GCompris Home Page"),
-				"font", FONT_CONTENT,
+				"font", gcompris_skin_font_content,
 				"x", (double)  (BOARDWIDTH*0.5),
 				"y", (double)  y_start + 30,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_SUBTITLE,
+				"fill_color_rgba", gcompris_skin_color_subtitle,
 				NULL);
 
   // Copyright
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", "Copyright 2000,2001,2002 Bruno Coudoin",
-				"font", FONT_CONTENT,
+				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 85,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_CONTENT,
+				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);
 
   // License
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("This software is a GNU Package and is released under the Gnu Public Licence"),
-				"font", FONT_CONTENT,
+				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 70,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_CONTENT,
+				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);
 
   // GCompris HELP
@@ -248,11 +248,11 @@ void gcompris_about_start ()
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("Help"),
-				"font", FONT_TITLE,
+				"font", gcompris_skin_font_title,
 				"x", (double)  BOARDWIDTH*0.3,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TITLE,
+				"fill_color_rgba", gcompris_skin_color_title,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,
@@ -282,11 +282,11 @@ void gcompris_about_start ()
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
-				"font", FONT_TITLE,
+				"font", gcompris_skin_font_title,
 				"x", (double)  BOARDWIDTH*0.7,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", COLOR_TITLE,
+				"fill_color_rgba", gcompris_skin_color_title,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,

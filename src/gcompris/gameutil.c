@@ -119,66 +119,6 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   return(smallnumbers_pixmap);
 }
 
-/*
- * Given an image name, return an image name
- * that includes the skin path
- * eg : xx.png -> skins/default/xx.png
- *
- * The caller must free the returned string
- */
-gchar *gcompris_image_to_skin(gchar *pixmapfile)
-{
-  GcomprisProperties	*properties = gcompris_get_properties();
-  gchar *filename;
-
-  /* First, test if pixmapfile is in the current skin dir */
-  filename = g_strdup_printf("%s/skins/%s/%s", PACKAGE_DATA_DIR, properties->skin, pixmapfile);
-
-  if (g_file_test ((filename), G_FILE_TEST_EXISTS)) {
-    g_free(filename);
-    
-    filename = g_strdup_printf("skins/%s/%s", properties->skin, pixmapfile);
-
-    return(filename);
-  }
-
-  /* Now check if pixmapfile is in the default skin dir */
-
-  filename = g_strdup_printf("%s/skins/%s/%s", PACKAGE_DATA_DIR, DEFAULT_SKIN, pixmapfile);
-    
-  if (g_file_test ((filename), G_FILE_TEST_EXISTS)) {
-    g_free(filename);
-
-    filename = g_strdup_printf("skins/%s/%s", DEFAULT_SKIN, pixmapfile);
-
-    return(filename);
-  }
-
-  g_error (_("Couldn't find file %s !"), filename);
-
-  return(NULL);
-}
-
-/*
- * Load a pixmap from the current skin directory
- * If not found, try in the default skin directory
- * If not found abort gcompris
- */
-GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)
-{
-  gchar *filename;
-  GcomprisProperties	*properties = gcompris_get_properties();
-  GdkPixbuf *result_pixbuf;
-
-  filename = gcompris_image_to_skin(pixmapfile);
-
-  result_pixbuf = gcompris_load_pixmap (filename);
-  
-  g_free(filename);
-  
-  return (result_pixbuf);
-}
-
 /*************************************************************
  * colorshift a pixbuf
  * code taken from the gnome-panel of gnome-core
@@ -711,7 +651,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 		     (GtkSignalFunc) item_event_ok,
 		     dbcb);
 
-  gdk_font = gdk_font_load (FONT_SUBTITLE);
+  gdk_font = gdk_font_load (gcompris_skin_font_subtitle);
   if(!gdk_font)
     // Fallback to a more usual font
     gdk_font = gdk_font_load (FONT_SUBTITLE_FALLBACK);
