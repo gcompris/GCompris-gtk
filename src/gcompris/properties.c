@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2003/10/23 00:02:59 bcoudoin>
+ * Time-stamp: <2003/10/29 00:45:38 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -43,6 +43,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->fullscreen	= gnome_config_get_int    ("/gcompris/Preferences/fullscreen=1");
   tmp->timer		= gnome_config_get_int    ("/gcompris/Preferences/timer=1");
   tmp->skin		= gnome_config_get_string ("/gcompris/Preferences/skin=default");
+  tmp->audio_output	= gnome_config_get_string ("/gcompris/Preferences/audio_output=esd");
 
   /* Non persistant value */
   tmp->difficulty_filter = -1;		/* No difficulty filter by default */
@@ -91,6 +92,7 @@ GcomprisProperties *gcompris_properties_copy (GcomprisProperties *props)
   tmp->fullscreen	 = props->fullscreen;
   tmp->locale		 = g_strdup(props->locale);
   tmp->skin		 = g_strdup(props->skin);
+  tmp->audio_output	 = g_strdup(props->audio_output);
 
   tmp->difficulty_filter = g_strdup(props->difficulty_filter);
 
@@ -113,6 +115,8 @@ void gcompris_properties_save (GcomprisProperties *props)
 				 props->locale);
   gnome_config_set_string	("/gcompris/Preferences/skin",
 				 props->skin);
+  gnome_config_set_string	("/gcompris/Preferences/audio_output",
+				 props->audio_output);
 
   gnome_config_sync ();
 }

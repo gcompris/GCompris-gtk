@@ -59,6 +59,8 @@ int decode_ogg_file(char *infile)
   int eof=0;
   int bs=0;
   
+  GcomprisProperties	*properties = gcompris_get_properties();
+
   input = fopen((char *)infile, "rb");
   if(!input) {
       fprintf(stderr, "cannot open %s\n",(char *) infile);
@@ -87,17 +89,14 @@ int decode_ogg_file(char *infile)
     printf("duration = %f seconds\n\n", ov_time_total(&vf, -1));
   }
 
-  #ifdef __APPLE__
-  driver_id = ao_driver_id("esd");
-  printf("\n!!! Audio output device set to esd by default on Mac Os 10.2 !!!!\n\n");
-  #else
-  /* Seen the recent problems with the sounds, I test to use esd for all */
-  /* driver_id = ao_default_driver_id();      */
-  driver_id = ao_driver_id("esd");
-  #endif
-  
+  /* Get the audio output from the gcompris properties */
+  if(!strcmp(properties->audio_output, ""))
+    driver_id = ao_default_driver_id();
+  else
+    driver_id = ao_driver_id(properties->audio_output);
+
   if ( driver_id < 0 ){
-     fprintf(stderr, "Error unable to find a usable audio output device (%d)\n", driver_id);
+     fprintf(stderr, "Error unable to find a usable audio output device (%d)\nTry gcompris -A to select an alternative audio output", driver_id);
      return 0;
   }
   

@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2003/10/22 23:24:22 bcoudoin>
+ * Time-stamp: <2003/10/29 00:44:27 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -32,6 +32,7 @@ typedef struct {
   gint		difficulty_filter;
   gchar	       *locale;
   gchar	       *skin;
+  gchar	       *audio_output;
 } GcomprisProperties;
 
 GcomprisProperties	*gcompris_get_properties (void);

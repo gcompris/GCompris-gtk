@@ -1,3 +1,14 @@
+2003-10-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/Makefile.am: removed all library link to boards: Not needed.
+	* src/boards/draw.c: (display_color_selector), (ext_color_event),
+	(set_item_color), (create_item): changed to provide 4 times colors choices
+	* src/gcompris/gcompris.c: (gcompris_init): added support for -A to select the sound output
+	* src/gcompris/oggplayer.c: (decode_ogg_file): added support for -A to select the sound output
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_copy), (gcompris_properties_save): added support for -A to select the sound output
+	* src/gcompris/properties.h: added support for -A to select the sound output
+
 2003-10-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* Makefile.am: readded missing gcompris-edit.desktop.in

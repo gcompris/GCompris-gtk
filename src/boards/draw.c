@@ -49,7 +49,7 @@ static GcomprisBoard	*gcomprisBoard = NULL;
 static GnomeCanvasItem	*shape_root_item = NULL;
 static GnomeCanvasItem	*draw_root_item = NULL;
 static GnomeCanvasItem	*current_color_item = NULL;
-static gchar		*currentColor = NULL;
+static guint		 currentColor = 0;
 
 typedef enum
   {
@@ -147,18 +147,19 @@ static AnchorsItem *selected_anchors_item = NULL;
 
 #define GRID_COLOR		0x00000000
 
-static gchar *colorlist [] =
+/* Defines the displayed colors in the color selector */
+static guint ext_colorlist [] =
   {
-    "black",
-    "brown",
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "purple",
-    "grey",
-    "white",
+    0x000000FF, 0x202020FF, 0x404040FF, 0x505050FF, 
+    0x815a38FF, 0xb57c51FF, 0xe5a370FF, 0xfcc69cFF, 
+    0xb20c0cFF, 0xea2c2cFF, 0xf26363FF, 0xf7a3a3FF, 
+    0xff6600FF, 0xff8a3dFF, 0xfcaf7bFF, 0xf4c8abFF, 
+    0x9b8904FF, 0xd3bc10FF, 0xf4dd2cFF, 0xfcee85FF, 
+    0x255b0cFF, 0x38930eFF, 0x56d11dFF, 0x8fe268FF, 
+    0x142f9bFF, 0x2d52e5FF, 0x667eddFF, 0xa6b4eaFF, 
+    0x328989FF, 0x37b2b2FF, 0x3ae0e0FF, 0x96e0e0FF, 
+    0x831891FF, 0xc741d8FF, 0xde81eaFF, 0xeecdf2FF, 
+    0x666666FF, 0x838384FF, 0xc4c4c4FF, 0xffffffFF, 
   };
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
@@ -176,6 +177,7 @@ static void	 display_tool_selector(GnomeCanvasGroup *parent);
 static void	 display_drawing_area(GnomeCanvasGroup *parent);
 static void	 display_grid(gboolean status);
 static gint	 color_event(GnomeCanvasItem *item, GdkEvent *event, gchar *color);
+static gint	 ext_color_event(GnomeCanvasItem *item, GdkEvent *event, gpointer color_rgba);
 static void	 set_current_tool(GnomeCanvasItem *item, gint tool);
 static gint	 tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool);
 static void	 set_selected_item(AnchorsItem *anchorsItem);
@@ -488,6 +490,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
   gint y  = 0;
   gint x1 = 0;
   gint c  = 0;
+  guint color_pixmap_height = 0;
 
   pixmap = gcompris_load_pixmap("draw/color-selector.jpg");
   if(pixmap)
@@ -496,7 +499,8 @@ static void display_color_selector(GnomeCanvasGroup *parent)
 	   - gdk_pixbuf_get_width(pixmap))/2
 	+ drawing_area_x1;
 
-      y = gcomprisBoard->height - gdk_pixbuf_get_height(pixmap) - 5;
+      color_pixmap_height = gdk_pixbuf_get_height(pixmap);
+      y = gcomprisBoard->height - color_pixmap_height - 5;
 
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_pixbuf_get_type (),
@@ -507,28 +511,63 @@ static void display_color_selector(GnomeCanvasGroup *parent)
       gdk_pixbuf_unref(pixmap);
     }
 
-  for(x1=x+26; x1<(x+26)+55*10; x1+=55)
+  for(x1=x+26; x1<(x+26)+55*10; x1+=56)
     {
       item = gnome_canvas_item_new (parent,
 				    gnome_canvas_rect_get_type (),
 				    "x1", (double) x1,
 				    "y1", (double) y + 8,
-				    "x2", (double) x1 + 50,
-				    "y2", (double) y + gdk_pixbuf_get_height(pixmap) - 8,
-				    "fill_color", colorlist[c],
+				    "x2", (double) x1 + 24,
+				    "y2", (double) y + color_pixmap_height/2,
+				    "fill_color_rgba", ext_colorlist[c*4],
 				    NULL);
-
       gtk_signal_connect(GTK_OBJECT(item), "event",
-			 (GtkSignalFunc) color_event,
-			 colorlist[c]);
+			 (GtkSignalFunc) ext_color_event,
+			 GINT_TO_POINTER(ext_colorlist[c*4]));
 
       if(c==0)
 	highlight_color_item(item);
 
+      item = gnome_canvas_item_new (parent,
+				    gnome_canvas_rect_get_type (),
+				    "x1", (double) x1 + 26,
+				    "y1", (double) y + 8,
+				    "x2", (double) x1 + 50,
+				    "y2", (double) y + color_pixmap_height/2,
+				    "fill_color_rgba", ext_colorlist[c*4+1],
+				    NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) ext_color_event,
+			 GINT_TO_POINTER(ext_colorlist[c*4+1]));
+
+      item = gnome_canvas_item_new (parent,
+				    gnome_canvas_rect_get_type (),
+				    "x1", (double) x1,
+				    "y1", (double) y + color_pixmap_height/2 + 2,
+				    "x2", (double) x1 + 24,
+				    "y2", (double) y + color_pixmap_height - 8,
+				    "fill_color_rgba", ext_colorlist[c*4+2],
+				    NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) ext_color_event,
+			 GINT_TO_POINTER(ext_colorlist[c*4+2]));
+
+      item = gnome_canvas_item_new (parent,
+				    gnome_canvas_rect_get_type (),
+				    "x1", (double) x1 + 26,
+				    "y1", (double) y + color_pixmap_height/2 + 2,
+				    "x2", (double) x1 + 50,
+				    "y2", (double) y + color_pixmap_height - 8,
+				    "fill_color_rgba", ext_colorlist[c*4+3],
+				    NULL);
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) ext_color_event,
+			 GINT_TO_POINTER(ext_colorlist[c*4+3]));
+
       c++;
     }
 
-  currentColor = colorlist[0];
+  currentColor = ext_colorlist[0];
 }
 
 #define SELECTOR_VERTICAL_SPACING 60
@@ -890,9 +929,11 @@ static void highlight_color_item(GnomeCanvasItem *item)
 }
 
 static gint
-color_event(GnomeCanvasItem *item, GdkEvent *event, gchar *color)
+ext_color_event(GnomeCanvasItem *item, GdkEvent *event, gpointer color_rgba)
 {
-  if(color==NULL)
+  guint color = GPOINTER_TO_INT(color_rgba);
+
+  if(color_rgba==NULL)
     return FALSE;
 
   switch (event->type)
@@ -902,19 +943,8 @@ color_event(GnomeCanvasItem *item, GdkEvent *event, gchar *color)
 	{
 	case 1:
 	  {
-	    char *str1 = NULL;
-	    char *str2 = NULL;
-
 	    currentColor = color;
 	    highlight_color_item(item);
-
-	    str1 = g_strdup_printf("%s%s", color, ".ogg");
-	    str2 = gcompris_get_asset_file("gcompris colors", NULL, "audio/x-ogg", str1);
-
-	    gcompris_play_ogg(str2, NULL);
-
-	    g_free(str1);
-	    g_free(str2);
 	  }
 	  break;
 	default:
@@ -1383,11 +1413,11 @@ static void resize_item(AnchorsItem *anchorsItem, AnchorType anchor, double x, d
 }
 
 /*
- * Set the color of the item based on the tool with with it has been
+ * Set the color of the item based on the tool with which it has been
  * created
  *
  */
-static void set_item_color(AnchorsItem *anchorsItem, gchar *color)
+static void set_item_color(AnchorsItem *anchorsItem, guint *color)
 {
   GnomeCanvasItem *item = anchorsItem->item;
 
@@ -1396,7 +1426,7 @@ static void set_item_color(AnchorsItem *anchorsItem, gchar *color)
     case TOOL_RECT:
     case TOOL_CIRCLE:
       gnome_canvas_item_set (GNOME_CANVAS_ITEM(item),
-			     "outline_color", currentColor,
+			     "outline_color_rgba", color,
 			     NULL);
       break;
     case TOOL_FILLED_RECT:
@@ -1404,12 +1434,12 @@ static void set_item_color(AnchorsItem *anchorsItem, gchar *color)
     case TOOL_POINT:
     case TOOL_TEXT:
       gnome_canvas_item_set (GNOME_CANVAS_ITEM(item),
-			     "fill_color", currentColor,
+			     "fill_color_rgba", color,
 			     NULL);
       break;
     case TOOL_LINE:
       gnome_canvas_item_set (GNOME_CANVAS_ITEM(item),
-			     "fill_color", currentColor,
+			     "fill_color_rgba", color,
 			     NULL);
       break;
     default:
@@ -1463,7 +1493,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y1", (double) y,
 				    "x2", (double) x + item_size_x,
 				    "y2", (double) y + item_size_y,
-				    "outline_color", currentColor,
+				    "outline_color_rgba", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
       /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
@@ -1478,7 +1508,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y1", (double) y,
 				    "x2", (double) x + item_size_x,
 				    "y2", (double) y + item_size_y,
-				    "fill_color", currentColor,
+				    "fill_color_rgba", currentColor,
 				    NULL);
       /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
       /*         without it, at anchors creation, item bound is always 0,0,0,0 */
@@ -1492,7 +1522,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y1", (double) y - DRAW_WIDTH_PIXELS,
 				    "x2", (double) x + DRAW_WIDTH_PIXELS,
 				    "y2", (double) y + DRAW_WIDTH_PIXELS,
-				    "fill_color", currentColor,
+				    "fill_color_rgba", currentColor,
 				    NULL);
       break;
     case TOOL_CIRCLE:
@@ -1503,7 +1533,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y1", (double) y,
 				    "x2", (double) x + item_size_x,
 				    "y2", (double) y + item_size_y,
-				    "outline_color", currentColor,
+				    "outline_color_rgba", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
       /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
@@ -1518,7 +1548,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y1", (double) y,
 				    "x2", (double) x + item_size_x,
 				    "y2", (double) y + item_size_y,
-				    "fill_color", currentColor,
+				    "fill_color_rgba", currentColor,
 				    NULL);
       /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
       /*         without it, at anchors creation, item bound is always 0,0,0,0 */
@@ -1538,7 +1568,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
 				    gnome_canvas_line_get_type (),
 				    "points", points,
-				    "fill_color", currentColor,
+				    "fill_color_rgba", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
       break;
@@ -1552,7 +1582,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				      "x", (double) x,
 				      "y", (double) y,
 				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", currentColor,
+				      "fill_color_rgba", currentColor,
 				      NULL);
       }
       break;

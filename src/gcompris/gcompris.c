@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2003/10/23 00:49:30 bcoudoin>
+ * Time-stamp: <2003/10/29 01:00:20 bcoudoin>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -52,14 +52,15 @@ static gchar           *gcompris_locale = NULL;
 /* Command line params */
 
 /*** gcompris-popttable */
-static int popt_fullscreen	 = FALSE;
-static int popt_window		 = FALSE;
-static int popt_sound		 = FALSE;
-static int popt_mute		 = FALSE;
-static int popt_cursor		 = FALSE;
-static int popt_version		 = FALSE;
-static int popt_aalias		 = FALSE;
+static int popt_fullscreen	  = FALSE;
+static int popt_window		  = FALSE;
+static int popt_sound		  = FALSE;
+static int popt_mute		  = FALSE;
+static int popt_cursor		  = FALSE;
+static int popt_version		  = FALSE;
+static int popt_aalias		  = FALSE;
 static int popt_difficulty_filter = FALSE;
+static gchar *popt_audio_output   = NULL;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -74,6 +75,8 @@ static struct poptOption options[] = {
    N_("run gcompris with the default gnome cursor."), NULL},
   {"difficulty", 'd', POPT_ARG_INT, &popt_difficulty_filter, 0,
    N_("display only activities with this difficulty level."), NULL},
+  {"audio", 'A', POPT_ARG_STRING, &popt_audio_output, 0,
+   N_("select the audio output, one of 'default alsa09 arts esd oss'"), NULL},
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
    N_("Prints the version of " PACKAGE), NULL},
   {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
@@ -610,6 +613,16 @@ gcompris_init (int argc, char *argv[])
     {
       g_warning("Display only activities of level %d", popt_difficulty_filter);
       properties->difficulty_filter = popt_difficulty_filter;
+    }
+
+  if (popt_audio_output && args == NULL)
+    {
+      g_warning("Selected audio output %s", popt_audio_output);
+      if(!strcmp(popt_audio_output, "default"))
+	properties->audio_output = "";
+      else
+	properties->audio_output = popt_audio_output;
+
     }
 
   poptFreeContext(pctx); 
