@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2002/06/25 23:59:08 bruno>
+ * Time-stamp: <2002/06/28 14:36:38 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -711,7 +711,7 @@ add_shape_to_list_of_shapes(Shape *shape)
 					shape->pixmapfile, shape->points, shape->targetfile,
 					(double)0, (double)y_offset,
 					(double)w, (double)h, 
-					(double)1, (double)1,
+					(double)shape->zoomx, (double)shape->zoomy,
 					0, shape->soundfile);
 	      icon_shape->item = item;
 	      icon_shape->target_shape = shape;
@@ -978,16 +978,15 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 		     gtk_object_destroy (GTK_OBJECT(targetshape->bad_item));
 
 		   pixmap = gcompris_load_pixmap(shape->pixmapfile);
-
 		   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 						 gnome_canvas_pixbuf_get_type (),
 						 "pixbuf", pixmap, 
 						 "x", (double)targetshape->x - (gdk_pixbuf_get_width(pixmap) 
-										* targetshape->zoomx)/2,
+										* shape->zoomx)/2,
 						 "y", (double)targetshape->y - (gdk_pixbuf_get_height(pixmap) 
-										* targetshape->zoomy/2),
-						 "width", (double) gdk_pixbuf_get_width(pixmap) * targetshape->zoomx,
-						 "height", (double) gdk_pixbuf_get_height(pixmap) * targetshape->zoomy,
+										* shape->zoomy/2),
+						 "width", (double) gdk_pixbuf_get_width(pixmap) * shape->zoomx,
+						 "height", (double) gdk_pixbuf_get_height(pixmap) * shape->zoomy,
 						 "width_set", TRUE, 
 						 "height_set", TRUE,
 						 NULL);
@@ -1395,6 +1394,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   ShapeType type = SHAPE_TARGET;
   Shape *shape;
   xmlNodePtr xmlnamenode;
+  char *locale;
 
   if(/* if the node has no name */
      !xmlnode->name ||
@@ -1457,6 +1457,10 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   if(!cy) cy = "100";
   y = atof(cy);
 
+  /* Back up the current locale to be sure to load well C formated numbers */
+  locale = gcompris_get_locale();
+  gcompris_set_locale("C");
+
   /* get the ZOOMX coord of the shape */
   czoomx = xmlGetProp(xmlnode,"zoomx");
   if(!czoomx) czoomx = "1";
@@ -1471,6 +1475,9 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   cposition = xmlGetProp(xmlnode,"position");
   if(!cposition) cposition = "0";
   position = atoi(cposition);
+
+  /* Back to the user locale */
+  gcompris_set_locale(locale);
 
   /* get the TYPE of the shape */
   ctype = xmlGetProp(xmlnode,"type");
