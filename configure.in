@@ -4,6 +4,8 @@ AC_INIT(configure.in)
 AM_INIT_AUTOMAKE(gcompris, 1.1.0)
 AM_CONFIG_HEADER(config.h)
 
+AC_ISC_POSIX
+
 GNOME_INIT
 
 AC_PROG_CC
@@ -15,12 +17,12 @@ AC_PROG_INTLTOOL
 AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
 
-AC_ISC_POSIX
+
 
 GNOME_X_CHECKS
 AM_PATH_GLIB
 AM_PATH_GDK_PIXBUF
-AM_PATH_XML2
+#AM_PATH_XML2
 AM_ICONV
 
 dnl Add the languages which your application supports here.
