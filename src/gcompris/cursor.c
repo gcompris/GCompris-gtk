@@ -31,6 +31,13 @@ GtkWidget *window;
  * a text layout with '1' for foreground, '0' for background and ' '
  * for transparent.
  */
+ /* If I got a function to generate mask, I could have used in gdk.h :
+ GdkCursor* gdk_cursor_new_from_pixmap    (GdkPixmap   *source,
+                      GdkPixmap   *mask,
+                      GdkColor    *fg,
+                      GdkColor    *bg,
+                      gint         x,
+                      gint         y);*/
 GdkCursor *gdk_cursor_new_from_data(const gchar *bits[],
 				    gint width, gint height,
 				    GdkColor *fg, GdkColor *bg,
