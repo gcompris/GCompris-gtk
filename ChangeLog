@@ -1,3 +1,8 @@
+2001-11-29  Bruno Coudoin  <bruno.coudoin@free.fr>
+	* Makefile.am: added remove of xml-i18n generated files
+	* src/boards/shapegame.c: fixed the last board file loading. now the boards loops.
+	* src/boards/algebra.c: fixed minus rules to match + and * rules
+	
 2001-11-25  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* boards/scales/*.png: Complete redraw by Renaud Blanchard
 	* src/gcompris/bar.c: shifted all buttons on the left to free the home

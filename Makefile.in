@@ -458,7 +458,7 @@ mostlyclean-am:  mostlyclean-hdr mostlyclean-tags mostlyclean-generic
 
 mostlyclean: mostlyclean-recursive
 
-clean-am:  clean-hdr clean-tags clean-generic mostlyclean-am
+clean-am:  clean-hdr clean-tags clean-generic mostlyclean-am clean-local
 
 clean: clean-recursive
 
@@ -508,6 +508,9 @@ dist-hook:
 	  $(mkinstalldirs) $(distdir)/@PACKAGE_DATA_DIR@; \
 	  cd @PACKAGE_DATA_DIR@ ; tar cf -  --exclude CVS --exclude .xvpics * | ( cd ../$(distdir)/@PACKAGE_DATA_DIR@ ; tar xf -) ; cd .. ; \
 	fi
+
+clean-local:
+	rm -f xml-i18n-extract xml-i18n-merge xml-i18n-update
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2001/11/06 22:23:00 bruno>
+ * Time-stamp: <2001/11/29 03:56:31 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -822,38 +822,8 @@ static void get_random_number(guint *first_operand, guint *second_operand)
       *second_operand = get_operand();
       break;
     case MINUSSIGNFILE:
-      switch(gcomprisBoard->level)
-	{
-	case 1 :
-	  min = 0;
-	  max = 2;
-	  break;
-	case 2 :
-	  min = 2;
-	  max = 3;
-	  break;
-	case 3 :
-	  min = 4;
-	  max = 5;
-	  break;
-	case 4 :
-	  min = 6;
-	  max = 7;
-	  break;
-	case 5 :
-	  min = 8;
-	  max = 9;
-	  break;
-	case 6 :
-	  min = 1;
-	  max = 10;
-	  break;
-	default :
-	  min = 1;
-	  max = 10;
-	}
-      *second_operand = (min+rand()%(max-min+1));
-      *first_operand  = *second_operand+rand()%(20-*second_operand);
+      *first_operand  = gcomprisBoard->level+9;
+      *second_operand = get_operand();
       break;
     case DIVIDESIGNFILE:
       switch(gcomprisBoard->level)

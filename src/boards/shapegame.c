@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/11/06 22:20:54 bruno>
+ * Time-stamp: <2001/11/29 03:34:04 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -245,7 +245,7 @@ static void increment_sublevel()
     /* Try the next level */
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel)
-      gcomprisBoard->level=gcomprisBoard->maxlevel;
+      gcomprisBoard->level=1;
     
     gcomprisBoard->sublevel=0;
   }
@@ -269,19 +269,20 @@ static void shapegame_next_level()
 			     PACKAGE_DATA_DIR, gcomprisBoard->boarddir, 
 			     gcomprisBoard->level, gcomprisBoard->sublevel);
 
-  if(!g_file_exists(filename)) 
+  while(!g_file_exists(filename)
+	&& (gcomprisBoard->level != 1) || (gcomprisBoard->sublevel!=0))
     {
       /* Try the next level */
       gcomprisBoard->sublevel=gcomprisBoard->number_of_sublevel;
       increment_sublevel();
-
+      
       g_free(filename);
       filename = g_strdup_printf("%s/%s/board%d_%d.xml",  
 				 PACKAGE_DATA_DIR, gcomprisBoard->boarddir, 
 				 gcomprisBoard->level, gcomprisBoard->sublevel);
     }
   read_xml_file(filename);
-
+  
   g_free(filename);
 }
 
