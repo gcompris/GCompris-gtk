@@ -65,6 +65,7 @@ static void destroy_board();
 #define HORIZONTAL_SEPARATION 20
 #define VERTICAL_SEPARATION 20
 
+static const char* background_images[] = {"gcompris/animals/tiger1_by_Ralf_Schmode","gcompris/animals/tigerdrink001.jpg","gcompris/animals/tigercub003.jpg", "gcompris/animals/tigerplay001.jpg"};
 static const char oper_values[] = {'+', '-', 'x', ':', '='};
 static const int num_values[] = {1,2,3,4,5,6,7,8,9,10,25,50,100};
 #define NUM_VALUES 13
@@ -519,11 +520,13 @@ static void game_won() {
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
+
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) {
-	board_finished(BOARD_FINISHED_TUXPLANE);
-	return;
+			board_finished(BOARD_FINISHED_TUXPLANE);
+			return;
     }
-  }
+    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),background_images[gcomprisBoard->level-1]);
+	}
   algebra_guesscount_next_level();
 }
 
