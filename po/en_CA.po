@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-14 00:39-0500\n"
-"PO-Revision-Date: 2005-02-14 22:51-0500\n"
+"POT-Creation-Date: 2005-02-16 11:55-0500\n"
+"PO-Revision-Date: 2005-02-16 22:51-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -1136,6 +1136,18 @@ msgstr "The fifteen game"
 #: boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
 msgstr "Go to Amusement activities"
+
+#: boards/gcompris/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "GCompris animation"
+
+#: boards/gcompris/mime_type.xml.in.h:2
+msgid "svg drawing"
+msgstr "SVG drawing"
+
+#: boards/gcompris/mime_type.xml.in.h:3
+msgid "svg mozilla animation"
+msgstr "SVG Mozilla animation"
 
 #: boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
@@ -2703,10 +2715,11 @@ msgstr "Multiple activities for kids"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
-#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:645
-#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:848
+#: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
+#: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
+#: src/gcompris/images_selector.c:645 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Couldn't find file %s !"
@@ -3456,15 +3469,15 @@ msgstr "No skin found in %s\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:296
+#: src/gcompris/file_selector.c:312
 msgid "CANCEL"
 msgstr "CANCEL"
 
-#: src/gcompris/file_selector.c:327
+#: src/gcompris/file_selector.c:343
 msgid "LOAD"
 msgstr "LOAD"
 
-#: src/gcompris/file_selector.c:327
+#: src/gcompris/file_selector.c:343
 msgid "SAVE"
 msgstr "SAVE"
 
@@ -3520,7 +3533,7 @@ msgstr "Print the version of "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:538
+#: src/gcompris/gcompris.c:541
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3542,7 +3555,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:733
+#: src/gcompris/gcompris.c:736
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3628,8 +3641,8 @@ msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
 "vorbis OR the sound output failed"
 msgstr ""
-"The background thread music is stopped now. The files in %s are not ogg "
-"vorbis OR the sound output failed"
+"The background thread music is stopped now. The files in %s are not OGG "
+"Vorbis or the sound output failed"
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
