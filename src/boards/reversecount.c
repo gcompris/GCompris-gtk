@@ -749,11 +749,12 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gint *dice_index)
 static void create_clock(double x, double y, int value) 
 {
   GdkPixbuf   *pixmap = NULL;
+  char	      *str = NULL;
 
   if(value<0)
     return;
 
-  char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
+  str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
 
   pixmap = gcompris_load_pixmap(str);
 
@@ -771,11 +772,12 @@ static void create_clock(double x, double y, int value)
 static void update_clock(int value) 
 {
   GdkPixbuf   *pixmap = NULL;
+  char        *str = NULL;
 
   if(value<0)
     return;
 
-  char *str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
+  str = g_strdup_printf("%s%d.png", "gcompris/timers/clock",value);
 
   pixmap = gcompris_load_pixmap(str);
 
