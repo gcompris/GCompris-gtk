@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2001/10/28 16:29:26 bruno>
+ * Time-stamp: <2001/10/30 22:48:27 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -96,7 +96,7 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    N_("Reading"),
-   N_("Read a list of word and then tell if the given word is in it"),
+   N_("Read a list of words and then tell if the given word is in it"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

@@ -206,15 +206,15 @@ help ()
       gcompris_help_start(N_("Free vector drawing tool"), 
 			  N_("\
 Goal:\n\
-In this game, the children will be abble to freely draw\n\
-The goal is just to discover how he can create pretty looking drawings base on\n\
+In this game, the children will be able to freely draw.\n\
+The goal is just to discover how he can create pretty looking drawings based on\n\
 basic shapes: rectangles, ellipses and lines.\n\
 \n\
 Usage:\n\
 On the left select a drawing tool, on the bottom select a color then click\n\
 on the white area and drag to create a new shape.\n\
 To go faster, you can use the middle mouse button to delete an object\n\
-or on the right button to move an object.\n\
+or the right button to move an object.\n\
 "));
 			  
     }
