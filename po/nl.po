@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-17 18:56+0100\n"
-"PO-Revision-Date: 2004-11-18 02:30+0100\n"
+"POT-Creation-Date: 2004-12-05 11:09+0100\n"
+"PO-Revision-Date: 2004-12-05 18:51+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -349,14 +349,14 @@ msgstr "Tafel van vermenigvuldiging"
 msgid "Practice the multiplication operation"
 msgstr "Oefenen met vermenigvuldigen"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+#: boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Ga naar de rekensommen"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Klik met de linker muisknop om een bordspel te kiezen"
 
@@ -450,6 +450,10 @@ msgstr "Oefenen met optellen"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Eenvoudige optellingen. Kan getallen herkennen"
+
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Maths activities"
+msgstr "Ga naar de rekenoefeningen"
 
 # voortzetten
 #: boards/algorithm.xml.in.h:1
@@ -672,26 +676,50 @@ msgstr "Tux en de appelboom"
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
 "Place each image in the order and\n"
-" on the date it has been invented.\n"
-" If not sure, check online in wikipedia at\n"
-" http://www.wikipedia.org"
+"on the date it has been invented.\n"
+"If not sure, check online in wikipedia at\n"
+"http://www.wikipedia.org"
 msgstr ""
 "Plaats elke afbeelding op volgorde en\n"
 "op de datum waarop het is uitgevonden.\n"
-"Indien u niet zeker bent, kunt u online\n"
+"Indien je niet zeker bent, kun je online\n"
 "op wikipedia informatie opzoeken:\n"
 "http://www.wikipedia.org"
 
-#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Vervoer"
 
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "1880 The Clement Ader's Eole"
+msgstr "1880 The Clement Ader's Eole"
+
+#: boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers Flyer III"
+msgstr "1903 De gebroeders Wright Flyer III"
+
+#: boards/chronos/board4_0.xml.in.h:3
+msgid "1909 Louis Bleriot cross the Channel"
+msgstr "1909 Louis Bleriot over het kanaal"
+
 # is dit goed?
-#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+#: boards/chronos/board4_0.xml.in.h:4
 msgid "The aviation"
 msgstr "Het vliegen"
+
+#: boards/chronos/board4_1.xml.in.h:1
+msgid "1927 Charles Lindbergh cross Atlantique ocean"
+msgstr "1927 Charles Lindbergh over de Atlantische oceaan"
+
+#: boards/chronos/board4_1.xml.in.h:2
+msgid "1934 Helene Boucher speed record 444km/h"
+msgstr "1934 Helene Boucher snelheidsrecord 444km/h"
+
+#: boards/chronos/board4_1.xml.in.h:3
+msgid "1947 Chuck Yager break the sound-wall"
+msgstr "1947 Chuck Yager doorbreken de geluidsbarrière"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1707,43 +1735,42 @@ msgstr "Train je geheugen en haal alle kaarten weg"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
-" At the bottom of the screen is the gcompris control bar.\n"
-" The following icons are displayed from right to left.\n"
-" Note that each icon is displayed only if available in the current "
-"activity:\n"
-" Home - Back to previous menu or exit gcompris if at the top\n"
-" Thumb - OK. Confirm your answer\n"
-" Dice - Display the current level. Click to select another level\n"
-" Music note - Repeat the question\n"
-" Question Mark - Help\n"
-" Tool - The configuration menu\n"
-" Tux Plane - About game\n"
-" The stars means:\n"
-" 1 Star - 2 to 3 years old\n"
-" 2 Stars - 4 to 5 years old\n"
-" 3 Stars - 6 to 7 years old\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"Note that each icon is displayed only if available in the current activity:\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About game\n"
+"The stars means:\n"
+"    1 Star  - 2 to 3 years old\n"
+"    2 Stars - 4 to 5 years old\n"
+"    3 Stars - 6 to 7 years old"
 msgstr ""
 "Klikken op een pictogram geeft u een bordspel of een menu met bordspellen.\n"
 " Onderaan het scherm vindt u de bedieningsbalk van gcompris.\n"
 " Daarin vindt u van rechts naar links de volgende pictogrammen.\n"
 " Merk op dat de pictogrammen alleen zichtbaar zijn als ze in het bordspel een functie hebben.\n"
-" Huisje: Teruggaan naar het vorige menu of gcompris afsluiten.\n"
-" Duim: OK, bevestig je antwoord.\n"
-" Dobbelsteen: De moeilijkheidsgraad instellen.\n"
-" Muzieknoot: De vraag herhalen.\n"
-" Vraagteken: Hulp.\n"
-" Gereedschapskist: Het configuratiemenu.\n"
-" Vliegtuig: Informatie over het spel.\n"
+"    Huisje - Teruggaan naar het vorige menu of gcompris afsluiten.\n"
+"    Duim - OK, bevestig je antwoord.\n"
+"    Dobbelsteen - De moeilijkheidsgraad instellen.\n"
+"    Muzieknoot - De vraag herhalen.\n"
+"    Vraagteken - Hulp.\n"
+"    Gereedschapskist - Het configuratiemenu.\n"
+"    Vliegtuig - Informatie over het spel.\n"
 " Betekenis van de sterren:\n"
-" 1 Ster: 2 tot 3 jaar oud.\n"
-" 2 Sterren: 4 tot 5 jaar oud.\n"
-" 3 Sterren: 6 tot 7 jaar oud.\n"
+"    1 Ster - 2 tot 3 jaar oud.\n"
+"    2 Sterren - 4 tot 5 jaar oud.\n"
+"    3 Sterren - 6 tot 7 jaar oud."
 
-#: boards/menu.xml.in.h:2
+#: boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "GCompris hoofdmenu"
 
-#: boards/menu.xml.in.h:3
+#: boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
@@ -1752,7 +1779,7 @@ msgstr ""
 "jaar oud. Er zijn diverse opdrachten en spelletjes voor de verschillende "
 "leeftijden."
 
-#: boards/menu.xml.in.h:5
+#: boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -2226,7 +2253,7 @@ msgstr ""
 "gemaakt. De volgorde van de vormen (boven/onder) doet er niet toe, maar kijk "
 "uit dat er geen ongewilde vormen onder de andere staan."
 
-#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Teken het gegeven item opnieuw"
 
@@ -2237,6 +2264,11 @@ msgid ""
 msgstr ""
 "Kopieer het spiegelbeeld van een object uit het rechtergedeelte naar het "
 "linkergedeelte."
+
+# gespiegeld weergeven
+#: boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "Het item spiegelen"
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2592,9 +2624,10 @@ msgstr ""
 "Ga naar het configuratiedialoogvenster om \n"
 "het geluid aan te zetten."
 
-#: src/boards/click_on_letter.c:280
-msgid "abcdefghijklmnopqrstufw"
-msgstr "abcdefghijklmnopqrstufw"
+#. TRANSLATORS: Put here the alphabet in your language
+#: src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstufwxyz"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2919,7 +2952,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -3104,70 +3137,74 @@ msgstr "Turks"
 msgid "Walloon"
 msgstr "Walloons"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Chinees (Simpel)"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "Geen filter"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Alleen dit niveau"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Tot aan dit niveau"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "Vanaf dit niveau en hoger"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
