@@ -6,14 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
-"POT-Creation-Date: 2003-12-15 21:10+0100\n"
-"PO-Revision-Date: 2003-12-12 18:27+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-21 03:41+0100\n"
+"PO-Revision-Date: 2004-01-21 17:13+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -565,12 +565,9 @@ msgstr "Hrej konec šachové hry proti počítači"
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the speaker icon in the bottom "
+"can hear again the letter by clicking on the mouth icon in the bottom "
 "horizontal frame."
-msgstr ""
-"Je hláskováno písmeno. Klikni na odpovídající písmeno v hlavní oblasti. "
-"Písmeno si můžeš poslechnout znovu po kliknutí na ikonu reproduktoru v "
-"dolním vodorovném rámu."
+msgstr "Je hláskováno písmeno. Klikni na odpovídající písmeno v hlavní oblasti. Písmeno si můžeš poslechnout znovu po kliknutí na ikonu úst v dolním vodorovném rámu."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -760,11 +757,6 @@ msgstr "Trénování počítání"
 msgid "Place the items in the best way to count them"
 msgstr "Umísti položky nejlepším způsobem pro jejich počítání"
 
-#: boards/experience.xml.in.h:1
-#, fuzzy
-msgid "Go to experiences activities"
-msgstr "Jít na čtecí aktivity"
-
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Koordinace pohybů"
@@ -780,6 +772,11 @@ msgstr "Hýbej myší pro vymazání oblasti a objevení pozadí"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Hýbej myší, dokud všechny bloky nezmizí."
+
+#: boards/experience.xml.in.h:1
+#, fuzzy
+msgid "Go to experiences activities"
+msgstr "Jít na čtecí aktivity"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
@@ -876,7 +873,7 @@ msgstr "Procvič si čtení nalezením slova odpovídajícího obrázku"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Reading"
 msgstr "Čtení"
 
@@ -1140,7 +1137,7 @@ msgstr "U daných obrázků ruky rozpoznej, jestli je to pravá nebo levá"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Umí používat šipky na klávesnici pro pohyb objektu."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:127
+#: boards/maze.xml.in.h:2 src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "Najdi cestu z bludiště"
 
@@ -1148,7 +1145,7 @@ msgstr "Najdi cestu z bludiště"
 msgid "Help Tux get out of this maze."
 msgstr "Pomoz Tuxovi dostat se z tohoto bludiště."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:126
+#: boards/maze.xml.in.h:4 src/boards/maze.c:127
 msgid "Maze"
 msgstr "Bludiště"
 
@@ -1167,10 +1164,17 @@ msgstr "Najdi cestu z 3D bludiště"
 #: boards/maze3D.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode"
-msgstr ""
-"Použij šipky na klávesnici pro přesunutí Tuxe nahoru ke dveřím. Pro "
-"přepínání mezi 2D a 3D režimem použij klávesu 'mezera'."
+"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
+"position like a map. You cannot move tux in 2D mode."
+msgstr "Použij šipky na klávesnici pro přesunutí Tuxe nahoru ke dveřím. Pro přepínání mezi režimy 2D a 3D použij klávesu 'mezera'. Režim 2D ti dává jen informace o tvé pozici jako na mapě. V režimu 2D nemůžete pohybovat Tuxem."
+
+#: boards/melody.xml.in.h:1
+msgid "Ear training activity"
+msgstr "Aktivita pro cvičení sluchu"
+
+#: boards/melody.xml.in.h:2
+msgid "Repeat a melody"
+msgstr "Opakuj melodii"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1684,7 +1688,7 @@ msgstr ""
 "V každé úrovni je v oblasti vpravo zobrazena kresba. Musíš ji překreslit do "
 "levé oblasti."
 
-#: boards/redraw.xml.in.h:2
+#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First you must select the proper tool in the tool bar. Then, you must drag "
 "the mouse to create objects. When you are done, click on the OK button, you "
@@ -1697,9 +1701,15 @@ msgstr ""
 "křížek ti ukáže, kde jsou chyby. Pořadí objektů (nad/pod) není důležité, ale "
 "dej si pozor, aby nezůstal nechtěný objekt pod jinými."
 
-#: boards/redraw.xml.in.h:3
+#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Překreslit danou položku"
+
+#: boards/redraw_symmetrical.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw its "
+"symmetry in the left area."
+msgstr "V každé úrovni je v oblasti vpravo zobrazena kresba. Musíš překreslit její obraz do levé oblasti."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -1923,8 +1933,8 @@ msgstr "Naučná hra od 3 let"
 msgid "Educational suite gcompris"
 msgstr "Naučná sada gcompris"
 
-#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:580
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:499
 #: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
 #: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
 #: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
@@ -1934,8 +1944,8 @@ msgstr "Naučná sada gcompris"
 msgid "Couldn't find file %s !"
 msgstr "Nemohu nalézt soubor %s !"
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
+#: src/boards/advanced_colors.c:543 src/boards/imageid.c:583
+#: src/boards/missingletter.c:593 src/boards/read_colors.c:502
 #: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
@@ -2052,7 +2062,7 @@ msgstr "Nemohu otevřít adresář pixmap: %s"
 msgid "Set the watch to:"
 msgstr "Nastav hodiny na:"
 
-#: src/boards/colors.c:216
+#: src/boards/colors.c:217
 #, c-format
 msgid "Click on the %s toon"
 msgstr ""
@@ -2061,16 +2071,20 @@ msgstr ""
 msgid "Learn how to read"
 msgstr "Nauč se číst"
 
-#: src/boards/leftright.c:247
+#: src/boards/leftright.c:248
 msgid "left"
 msgstr "doleva"
 
-#: src/boards/leftright.c:257
+#: src/boards/leftright.c:258
 msgid "right"
 msgstr "doprava"
 
 #: src/boards/machpuzzle.c:85
 msgid "Move the mouse to machpuzzle the area and discover the background"
+msgstr ""
+
+#: src/boards/maze.c:445
+msgid "Look at your position and switch back to 3D mode to move"
 msgstr ""
 
 #: src/boards/memory.c:227
@@ -2101,138 +2115,11 @@ msgstr "Deska Pythonu"
 msgid "Special board that embed python into gcompris."
 msgstr "Speciální deska, která vkládá python do gcompris."
 
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. Do nothing special
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
-#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Úroveň"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#. Draw the image target
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
-#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Koordinace"
 
@@ -2252,29 +2139,35 @@ msgstr "Číst barvy"
 msgid "Click on the corresponding color"
 msgstr "Klikni na odpovídající barvu"
 
-#: src/boards/reading.c:102
+#: src/boards/reading.c:103
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Přečíst seznam slov a říct, jestli v něm je dané slovo"
 
-#: src/boards/reading.c:314
+#: src/boards/reading.c:322
 msgid "Please, check if the word"
 msgstr "Zkontroluj prosím, jestli je slovo"
 
-#: src/boards/reading.c:334
+#: src/boards/reading.c:342
 msgid "is being displayed"
 msgstr "zobrazeno"
 
-#: src/boards/reading.c:517
+#: src/boards/reading.c:525
 msgid "I am Ready"
 msgstr "Jsem připraven"
 
-#: src/boards/reading.c:554
+#: src/boards/reading.c:562
 msgid "Yes I saw it"
 msgstr "Ano, viděl jsem je"
 
-#: src/boards/reading.c:584
+#: src/boards/reading.c:592
 msgid "No, it was not there"
 msgstr "Ne, nebylo tam"
+
+#. Report what was wrong in the log
+#: src/boards/reading.c:631
+#, c-format
+msgid "The word to find was '%s'"
+msgstr "Hledané slovo bylo '%s'"
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2309,7 +2202,7 @@ msgstr "Ponorka"
 msgid "Control the depth of a submarine"
 msgstr "Ovládej hloubku ponorky"
 
-#: src/boards/target.c:324 src/boards/target.c:572
+#: src/boards/target.c:324 src/boards/target.c:573
 #, c-format
 msgid "Points = %s"
 msgstr "Body = %s"
@@ -2661,6 +2554,7 @@ msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
 
 #: src/gcompris/oggplayer.c:165
+#, c-format
 msgid ""
 "Possible audio output devices are:\n"
 "default "
@@ -2694,6 +2588,3 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
-
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "GCompris Pochopil jsem"
