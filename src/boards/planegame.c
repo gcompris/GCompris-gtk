@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2002/02/03 22:59:41 bruno>
+ * Time-stamp: <2002/03/13 23:09:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -34,6 +34,8 @@ static gint drop_items_id = 0;
 static GnomeCanvasItem *planeitem = NULL;
 static gint plane_x, plane_y;
 static gint planespeed_x, planespeed_y;
+
+#define MAXSPEED 7
 
 /* These are the index for managing the game rule */
 static gint plane_target, plane_last_target;
@@ -148,7 +150,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;
-      gcomprisBoard->maxlevel = 6;
+      gcomprisBoard->maxlevel = 2;
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       planegame_next_level();
@@ -254,19 +256,19 @@ gint key_press(guint keyval)
       keyval=GDK_9;
       break;
     case GDK_Right:
-      if(planespeed_x < 3)
+      if(planespeed_x < MAXSPEED)
 	planespeed_x++;
       return TRUE;
     case GDK_Left:
-      if(planespeed_x > -3)
+      if(planespeed_x > -MAXSPEED)
 	planespeed_x--;
       return TRUE;
     case GDK_Up:
-      if(planespeed_y > -3)
+      if(planespeed_y > -MAXSPEED)
       planespeed_y--;
       return TRUE;
     case GDK_Down:
-      if(planespeed_y < 3)
+      if(planespeed_y < MAXSPEED)
       planespeed_y++;
       return TRUE;
     }
@@ -307,9 +309,9 @@ static void planegame_next_level()
 
   /* Try the next level */
   speed=100+(40/(gcomprisBoard->level));
-  fallSpeed=7000-gcomprisBoard->level*200;
+  fallSpeed=10000-gcomprisBoard->level*200;
   /* Make the images tend to 0.5 ratio */
-  imageZoom=0.5+(0.5/(gcomprisBoard->level));
+  imageZoom=0.3+(0.5/(gcomprisBoard->level));
 
   /* Setup and Display the plane */
   planespeed_y = 0;
@@ -332,15 +334,26 @@ static void planegame_next_level()
 
   /* Game rules */
   plane_target = 1;
-  plane_last_target = gcomprisBoard->level*10;
+  plane_last_target = 10;
 
   gcomprisBoard->number_of_sublevel=plane_last_target;
-  gcompris_score_start(SCORESTYLE_NOTE, 
-		       gcomprisBoard->width - 220, 
-		       gcomprisBoard->height - 50, 
-		       gcomprisBoard->number_of_sublevel);
+
   gcomprisBoard->sublevel=plane_target;
-  gcompris_score_set(gcomprisBoard->sublevel);
+
+  if(gcomprisBoard->level>1)
+    {
+      /* No scoring after level 1 */
+      gcompris_score_end();
+    }
+  else
+    {
+      gcompris_score_start(SCORESTYLE_NOTE, 
+			   gcomprisBoard->width - 220, 
+			   gcomprisBoard->height - 50, 
+			   gcomprisBoard->number_of_sublevel);
+      gcompris_score_set(gcomprisBoard->sublevel);
+    }
+
 
   g_free (str);
 
@@ -374,8 +387,12 @@ static void planegame_cloud_colision(CloudItem *clouditem)
 	  gcompris_play_sound (SOUNDLISTFILE, "gobble");
 	  item2del_list = g_list_append (item2del_list, clouditem);
 	  plane_target++;
-	  gcompris_score_set(plane_target);
-	  
+
+	  if(gcomprisBoard->level==1)
+	    {
+	      gcompris_score_set(plane_target);
+	    }
+
 	  if(plane_target==plane_last_target)
 	    {
 	      /* Try the next level */

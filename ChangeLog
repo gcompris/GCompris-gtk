@@ -6,6 +6,11 @@
 
 2002-03-09  Bruno Coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/planegame.c: limited to 2 levels. One with score on one without.
+	made some tuning to improve speed.
+
+2002-03-09  Bruno Coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/draw.c: Fixed positionning, it was not rounded properly.
 	Thanks to Olivier Fourdan and his expert eye as the XFCE Leader for having
 	noticing that.
