@@ -284,10 +284,6 @@ static void game_won()
 static gint
 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
-  double item_x, item_y;
-  item_x = event->button.x;
-  item_y = event->button.y;
-  gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 
   if(board_paused)
     return FALSE;

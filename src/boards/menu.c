@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2002/12/09 23:13:46 bruno>
+ * Time-stamp: <2002/12/24 17:57:55 lucette>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -236,7 +236,7 @@ static gboolean next_spot()
     {
       /* Initialisation case */
       current_x = gcomprisBoard->width/MENU_PER_LINE;
-      current_y = gcomprisBoard->height/MENU_PER_LINE;
+      current_y = gcomprisBoard->height/MENU_PER_LINE - 40;
       return(TRUE);
     }
 
@@ -382,7 +382,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
        *        just add again white here and it works again !!!! */
       gnome_canvas_item_set (boardname_item,
 			     "text", menuitem->board->title,
-			     "fill_color", "white",
+			     "fill_color", "blue",
 			     NULL);
       gnome_canvas_item_set (description_item,
 			     "text",  menuitem->board->description,
@@ -436,7 +436,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MenuItem *menuitem)
 static void create_info_area(GnomeCanvasGroup *parent)
 {
   gint x = (double)gcomprisBoard->width/2;
-  gint y = 350;
+  gint y = 380;
 
   boardname_item = \
     gnome_canvas_item_new (parent,
@@ -446,7 +446,7 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "x", (double) x,
 			   "y", (double) y,
 			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color", "white",
+			   "fill_color", "blue",
 			   NULL);
 
   description_item = \
@@ -455,9 +455,9 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "text", " ",
 			   "font", FONT_BOARD_MEDIUM,
 			   "x", (double) x,
-			   "y", (double) y + 35,
+			   "y", (double) y + 30,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color", "white",
+			   "fill_color", "blue",
 			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 
@@ -467,9 +467,9 @@ static void create_info_area(GnomeCanvasGroup *parent)
 			   "text", " ",
 			   "font", FONT_BOARD_TINY,
 			   "x", (double) x,
-			   "y", (double) y + 80,
+			   "y", (double) y + 95,
   			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color", "white",
+  			   "fill_color", "blue",
   			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 

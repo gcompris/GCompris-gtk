@@ -71,6 +71,8 @@ boards/memory.xml.in
 boards/menu.xml.in
 boards/missing_letter.xml.in
 boards/missing_letter/board1.xml.in
+boards/money.xml.in
+boards/money_cents.xml.in
 boards/paintings.xml.in
 boards/paintings/board1_0.xml.in
 boards/paintings/board2_0.xml.in
@@ -133,6 +135,7 @@ src/boards/maze.c
 src/boards/memory.c
 src/boards/menu.c
 src/boards/missingletter.c
+src/boards/money.c
 src/boards/paratrooper.c
 src/boards/planegame.c
 src/boards/railroad.c

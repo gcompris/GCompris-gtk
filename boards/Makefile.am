@@ -31,6 +31,8 @@ xml_in_files = \
 	maze3D.xml.in \
 	memory.xml.in \
 	menu.xml.in \
+	money.xml.in \
+	money_cents.xml.in \
 	paintings.xml.in \
 	paratrooper.xml.in \
 	planegame.xml.in \

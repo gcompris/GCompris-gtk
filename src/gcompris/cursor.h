@@ -20,7 +20,6 @@
 #define CURSOR_H
 
 #include <gtk/gtk.h>
-#include <gdk_imlib.h>
 
 #include <stdio.h>
 

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2002/12/15 23:05:15 bruno>
+ * Time-stamp: <2002/12/23 13:42:33 lucette>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -251,9 +251,10 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
 gchar *reactivate_newline(gchar *str)
 {
   gchar *newstr;
- printf("reactivate_newline %s\n", str); 
+
   if(str==NULL)
-	return(NULL);
+    return NULL;
+
   newstr = g_strcompress(str);
   
   g_free(str);
@@ -310,7 +311,8 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    || !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	gcomprisBoard->title = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->title = reactivate_newline(xmlNodeListGetString(doc, 
+								       xmlnode->xmlChildrenNode, 1));
       }
 
     /* get the description of the board */
@@ -319,7 +321,8 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 	    !strcmp(lang, gcompris_get_locale())
 	    || !strncmp(lang, gcompris_get_locale(), 2)))
       {
-	gcomprisBoard->description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->description = reactivate_newline(xmlNodeListGetString(doc, 
+									     xmlnode->xmlChildrenNode, 1));
       }
 
     /* get the help prerequisite help of the board */
@@ -468,38 +471,6 @@ GcomprisBoard *gcompris_read_xml_file(char *fname)
   gcomprisBoard->height = BOARDHEIGHT;
 
   return gcomprisBoard;
-}
-
-/* ==================================== */
-/* translates UTF8 charset to iso Latin1 */
-gchar * convertUTF8Toisolat1(gchar * text) {
-  gchar *retval;
-  gint i;
-
-  // this should never happen, it does often !!
-  if (text == NULL)
-    return NULL;
-
-  //  retval = e_utf8_to_locale_string (text);
-
-  if(retval != NULL)  {
-    g_free(text);
-    text = retval;
-
-    // if we find \n on 2 char, recreate a real \n
-    i=0;
-    while(text[i]!='\0')
-      {
-	if(text[i]=='\\' && text[i+1]=='n')
-	  {
-	    text[i]=' ';
-	    text[i+1]='\n';
-	  }
-	++i;
-      }
-  }
-
-  return text;
 }
 
 /* ======================================= */

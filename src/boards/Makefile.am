@@ -18,6 +18,7 @@ lib_LTLIBRARIES = \
 	libmemory.la \
 	libmenu.la \
 	libmissingletter.la \
+	libmoney.la \
 	libparatrooper.la \
 	libplanegame.la \
 	librailroad.la \
@@ -261,6 +262,13 @@ libenumerate_la_LIBADD = @PTHREAD_LIB@
 	$(GNOME_XML_LIB) $(INTLLIBS)
 
 libenumerate_la_SOURCES = enumerate.c
+
+libmoney_la_LDFLAGS = -module -avoid-version
+libmoney_la_LIBADD = @PTHREAD_LIB@
+	$(GCOMPRIS_LIBS)	\
+	$(GNOME_XML_LIB) $(INTLLIBS)
+
+libmoney_la_SOURCES = money.c money_widget.c money_widget.h
 
 EXTRA_DIST = README
 
