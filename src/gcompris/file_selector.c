@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2004/07/09 01:18:50 bcoudoin>
+ * Time-stamp: <2004/07/16 01:37:27 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -24,10 +24,16 @@
  *
  */
 
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <dirent.h>
+
 #include "gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
+
+#define MODE_LOAD 1
+#define MODE_SAVE 2
 
 static gint		 item_event_file_selector(GnomeCanvasItem *item, 
 						  GdkEvent *event, 
@@ -38,7 +44,11 @@ static gint		 item_event_fileset_selector(GnomeCanvasItem *item,
 static gint		 item_event_directory(GnomeCanvasItem *item, 
 					      GdkEvent *event, 
 					      char *dir);
-static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir, gchar *filter);
+static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir);
+static int		 display_file_selector(int mode, 
+					       GcomprisBoard *gcomprisBoard, gchar *rootdir,
+					       FileSelectorCallBack iscb);
+static int		 create_rootdir (gchar *rootdir);
 static void		 free_stuff (GtkObject *obj, gchar* data);
 
 static gboolean		 file_selector_displayed = FALSE;
@@ -49,8 +59,7 @@ static GnomeCanvasItem	*item_content = NULL;
 
 static FileSelectorCallBack fileSelectorCallBack = NULL;
 
-static gchar *current_filter = NULL;
-static gchar *top_directory  = NULL;
+static gchar *current_rootdir = NULL;
 
 /* Represent the limits of control area */
 #define	CONTROL_AREA_X1	40
@@ -81,107 +90,18 @@ static gchar *top_directory  = NULL;
  * Do all the file_selector display and register the events
  */
 
-void gcompris_file_selector_save (GcomprisBoard *gcomprisBoard, gchar *filter,
+void gcompris_file_selector_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
 				  FileSelectorCallBack iscb)
 {
-  printf("gcompris_file_selector_save\n");
+  display_file_selector(MODE_SAVE, gcomprisBoard, rootdir,
+			iscb);
 }
 
-void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *filter,
+void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
 				  FileSelectorCallBack iscb)
 {
-
-  GnomeCanvasItem *item, *item2;
-  GdkPixbuf	  *pixmap = NULL;
-  gint		   y = 0;
-  gint		   y_start = 0;
-  gint		   x_start = 0;
-  gchar		  *name = NULL;
-  gchar           *gc_rootdir;
-
-  if(rootitem)
-    return;
-
-  gcompris_bar_hide(TRUE);
-
-  if(gcomprisBoard!=NULL)
-    {
-      if(gcomprisBoard->plugin->pause_board != NULL)
-	gcomprisBoard->plugin->pause_board(TRUE);
-    }
-
-  name = gcomprisBoard->name;
-  fileSelectorCallBack=iscb;
-
-  rootitem = \
-    gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
-			   gnome_canvas_group_get_type (),
-			   "x", (double)0,
-			   "y", (double)0,
-			   NULL);
-
-  pixmap = gcompris_load_skin_pixmap("file_selector_bg.png");
-  y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
-  x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) x_start,
-				"y", (double) y_start,
-				NULL);
-  y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2 + 20;
-  gdk_pixbuf_unref(pixmap);
-
-  y_start += 110;
-
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
-
-
-  // OK
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH*0.5) - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
-				NULL);
-
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_file_selector,
-		     "/ok/");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-
-  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				 gnome_canvas_text_get_type (),
-				 "text", _("OK"),
-				 "font", gcompris_skin_font_title,
-				 "x", (double)  BOARDWIDTH*0.5,
-				 "y", (double)  y - gdk_pixbuf_get_height(pixmap),
-				 "anchor", GTK_ANCHOR_CENTER,
-				 "fill_color_rgba", gcompris_skin_color_text_button,
-				 NULL);
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) item_event_file_selector,
-		     "/ok/");
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     item);
-  gdk_pixbuf_unref(pixmap);
-
-  file_selector_displayed = TRUE;
-
-  if(g_get_home_dir()) {
-    gc_rootdir = g_strconcat(g_get_home_dir(), "/gcompris", NULL);
-  } else {
-    /* On WIN98, No home dir */
-    gc_rootdir = g_strdup("gcompris");
-  }
- 
-  current_filter = filter;
-  top_directory  = gc_rootdir;
-  display_files(rootitem, gc_rootdir, current_filter);
-
+  display_file_selector(MODE_LOAD, gcomprisBoard, rootdir,
+			iscb);
 }
 
 /*
@@ -223,6 +143,166 @@ void gcompris_file_selector_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
+
+static int 
+display_file_selector(int mode, 
+		      GcomprisBoard *gcomprisBoard, gchar *rootdir,
+		      FileSelectorCallBack iscb) {
+
+
+  GnomeCanvasItem *item, *item2;
+  GdkPixbuf	  *pixmap = NULL;
+  gint		   y = 0;
+  gint		   y_start = 0;
+  gint		   x_start = 0;
+  gchar		  *name = NULL;
+  gchar           *full_rootdir;
+
+  if(rootitem)
+    return;
+
+  gcompris_bar_hide(TRUE);
+
+  if(gcomprisBoard!=NULL)
+    {
+      if(gcomprisBoard->plugin->pause_board != NULL)
+	gcomprisBoard->plugin->pause_board(TRUE);
+    }
+
+  name = gcomprisBoard->name;
+  fileSelectorCallBack=iscb;
+
+  rootitem = \
+    gnome_canvas_item_new (gnome_canvas_root(gcompris_get_canvas()),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
+
+  pixmap = gcompris_load_skin_pixmap("file_selector_bg.png");
+  y_start = (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
+  x_start = (BOARDWIDTH - gdk_pixbuf_get_width(pixmap))/2;
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) x_start,
+				"y", (double) y_start,
+				NULL);
+  y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2 + 20;
+  gdk_pixbuf_unref(pixmap);
+
+  y_start += 110;
+
+  pixmap = gcompris_load_skin_pixmap("button_large.png");
+
+
+  // CANCEL
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.33) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_file_selector,
+		     "/cancel/");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				 gnome_canvas_text_get_type (),
+				 "text", _("CANCEL"),
+				 "font", gcompris_skin_font_title,
+				 "x", (double)  BOARDWIDTH*0.33,
+				 "y", (double)  y - gdk_pixbuf_get_height(pixmap),
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 NULL);
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) item_event_file_selector,
+		     "/cancel/");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
+  gdk_pixbuf_unref(pixmap);
+
+  // OK
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				gnome_canvas_pixbuf_get_type (),
+				"pixbuf", pixmap, 
+				"x", (double) (BOARDWIDTH*0.66) - gdk_pixbuf_get_width(pixmap)/2,
+				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 25,
+				NULL);
+
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) item_event_file_selector,
+		     "/ok/");
+  gtk_signal_connect(GTK_OBJECT(item), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     NULL);
+
+  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				 gnome_canvas_text_get_type (),
+				 "text", (mode==MODE_LOAD ? _("LOAD") : _("SAVE")),
+				 "font", gcompris_skin_font_title,
+				 "x", (double)  BOARDWIDTH*0.66,
+				 "y", (double)  y - gdk_pixbuf_get_height(pixmap),
+				 "anchor", GTK_ANCHOR_CENTER,
+				 "fill_color_rgba", gcompris_skin_color_text_button,
+				 NULL);
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) item_event_file_selector,
+		     "/ok/");
+  gtk_signal_connect(GTK_OBJECT(item2), "event",
+		     (GtkSignalFunc) gcompris_item_event_focus,
+		     item);
+  gdk_pixbuf_unref(pixmap);
+
+
+
+  file_selector_displayed = TRUE;
+
+  if(g_get_home_dir()) {
+    full_rootdir = g_strconcat(g_get_home_dir(), "/gcompris", NULL);
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+
+    full_rootdir = g_strconcat(g_get_home_dir(), "/gcompris/", rootdir, NULL);
+  } else {
+    /* On WIN98, No home dir */
+    full_rootdir = g_strdup_printf("%s", "gcompris");
+    create_rootdir(full_rootdir);
+    g_free(full_rootdir);
+  
+    full_rootdir = g_strdup_printf("%s/%s", "gcompris", rootdir);
+  }
+
+  create_rootdir(full_rootdir);
+
+  current_rootdir = full_rootdir;
+  display_files(rootitem, full_rootdir);
+
+}
+
+
+/*
+ * create the root dir if needed
+ *
+ * return 0 if OK, -1 if ERROR
+ */
+static int
+create_rootdir (gchar *rootdir)
+{
+
+  if(g_file_test(rootdir, G_FILE_TEST_IS_DIR)) {
+    return 0;
+  }
+
+  return(mkdir(rootdir, 0755));
+}
+
 static void
 free_stuff (GtkObject *obj, gchar *data)
 {
@@ -230,7 +310,7 @@ free_stuff (GtkObject *obj, gchar *data)
   g_free(data);
 }
 
-static void display_files(GnomeCanvasItem *root_item, gchar* rootdir, gchar *filter)
+static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 {
 
   GdkPixbuf *pixmap_dir  = NULL;
@@ -288,7 +368,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar* rootdir, gchar *fil
     GdkPixbuf *pixmap_current  = pixmap_file;
       
     if((strcmp(one_dirent->d_name, "..")==0) &&
-       strcmp(rootdir, top_directory)==0)
+       strcmp(current_rootdir, rootdir)==0)
       continue;
 
     if(strcmp(one_dirent->d_name, ".")==0)
@@ -373,7 +453,7 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 	dir[strlen(dir)-3] = '\0';
 	dir=g_path_get_dirname(dir);
       }
-      display_files(rootitem, g_strdup(dir), current_filter);
+      display_files(rootitem, g_strdup(dir));
       break;
     default:
       break;
@@ -394,17 +474,16 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
     case GDK_LEAVE_NOTIFY:
       break;
     case GDK_BUTTON_PRESS:
-      if(!strcmp((char *)data, "/ok/"))
-	{
-	  gcompris_file_selector_stop();
-	}
-      else
-	{
-	  if(fileSelectorCallBack!=NULL)
-	    fileSelectorCallBack(data);
-
-	  gcompris_file_selector_stop();
-	}
+      if(!strcmp((char *)data, "/ok/"))	{
+	gcompris_file_selector_stop();
+      } else if(!strcmp((char *)data, "/cancel/")) {
+	gcompris_file_selector_stop();
+      } else {
+	if(fileSelectorCallBack!=NULL)
+	  fileSelectorCallBack(data);
+	
+	gcompris_file_selector_stop();
+      }
       break;
     default:
       break;

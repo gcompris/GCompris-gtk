@@ -1,3 +1,13 @@
+2004-07-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/file_selector.c: (gcompris_file_selector_save),
+	(gcompris_file_selector_load), (gcompris_file_selector_stop),
+	(display_file_selector), (create_rootdir), (display_files),
+	(item_event_directory), (item_event_file_selector): implemented save/load windows.
+	now create the root directory if not present.
+	* src/gcompris/svgutil.c: (gcompris_pixbuf_to_svg_file):  updated by Yves Combe
+	* src/gcompris/svgutil.h: added prototype
+
 2004-07-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* po/POTFILES.in: added missing files

@@ -31,5 +31,8 @@
 
 #include "gcompris.h"
 
+void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent);
+void gcompris_svg_save(char *module, char *file, GnomeCanvasItem *item, int hsize, int vsize, int anim);
+void gcompris_svg_restore(char *module, char *filename, GnomeCanvasGroup *parent);
 
 #endif

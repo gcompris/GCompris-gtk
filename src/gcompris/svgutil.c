@@ -538,7 +538,10 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
     rc = xmlTextWriterStartAttribute(imageWriter, BAD_CAST "base64");
 
-    rc = xmlTextWriterWriteString(imageWriter, BAD_CAST "data:image/png;base64,");
+    /* FIXME REMOVED TO COMPILE ON MDK 9.2     
+       rc = xmlTextWriterWriteString(imageWriter, BAD_CAST "data:image/png;base64,");
+    */
+
 
     /* FIXME REMOVED TO COMPILE ON MDK 9.2     
     rc = xmlTextWriterWriteBase64(imageWriter, buffer, 0, buffer_size);
@@ -603,17 +606,25 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
 
     /* This is the base64 transformed image */
+    /* FIXME
     img = xmlDocGetRootElement( imageDoc );
 
     buffer = xmlGetProp ( img, 
 			  BAD_CAST "base64");
 
     xmlFreeNode(img);
+    */
     img = NULL;
 
+    /* FIXME
     xmlNewProp ( cur,
 		 "xlink:href",
 		 BAD_CAST buffer );
+    */
+    xmlNewProp ( cur,
+		 "xlink:href",
+		 BAD_CAST itemName );
+
 
   }
   else {
