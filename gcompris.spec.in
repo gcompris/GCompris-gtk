@@ -175,8 +175,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gnome/apps/Games/*
 %{prefix}/share/pixmaps/*
 %{prefix}/share/gcompris/sounds/*
-%{prefix}/share/gcompris/boards/sounds/*.ogg
-%{prefix}/share/gcompris/boards/*
+%{prefix}/share/gcompris/boards/*.xml
 %{prefix}/share/gcompris/boards/algebra_guesscount/*
 %{prefix}/share/gcompris/boards/babymatch/*
 %{prefix}/share/gcompris/boards/babyshapes/*
@@ -189,6 +188,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/share/gcompris/boards/imageid/*
 %{prefix}/share/gcompris/boards/imagename/*
 %{prefix}/share/gcompris/boards/missing_letter/*
+%{prefix}/share/gcompris/boards/music/*
 %{prefix}/share/gcompris/boards/paintings/*
 %{prefix}/share/gcompris/boards/railroad/*
 %{prefix}/share/gcompris/boards/reading/*
