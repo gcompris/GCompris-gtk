@@ -22,7 +22,6 @@ xml_in_files = \
 	geography.xml.in \
 	gletters.xml.in \
 	imagename.xml.in \
-	mastermind.xml.in \
 	maze.xml.in \
 	memory.xml.in \
 	menu.xml.in \
@@ -37,6 +36,7 @@ xml_in_files = \
 	reversecount.xml.in \
 	scalesboard.xml.in \
 	smallnumbers.xml.in \
+	superbrain.xml.in \
 	target.xml.in \
 	wordsgame.xml.in \
 	imageid.xml.in \
