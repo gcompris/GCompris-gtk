@@ -6,8 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
-"POT-Creation-Date: 2003-05-23 12:03+0200\n"
-"PO-Revision-Date: 2003-05-23 14:13+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-14 12:31+0200\n"
+"PO-Revision-Date: 2003-06-14 18:25+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -822,7 +823,7 @@ msgstr "Napiš padající písmeno, než dopadne na zem"
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Táhni a pusť horní kousek jen na prázdné místo"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:323
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Vytvoř v prázdné oblasti stejnou věž, jako je ta vpravo"
 
@@ -1838,7 +1839,7 @@ msgstr "Editor pro gcompris"
 #: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
 #: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
 #: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:286
+#: src/gcompris/soundutil.c:351
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nemohu nalézt soubor %s !"
@@ -2350,6 +2351,11 @@ msgstr "Miloslav Trmač"
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
+
+#: src/gcompris/soundutil.c:116
+#, c-format
+msgid "Couldn't open music dir: %s"
+msgstr "Nemohu otevřít adresář hudby: %s"
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
