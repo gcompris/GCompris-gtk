@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-17 20:45+0100\n"
-"PO-Revision-Date: 2005-02-17 21:11+0100\n"
+"POT-Creation-Date: 2005-03-04 19:05+0100\n"
+"PO-Revision-Date: 2005-03-05 02:16+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -1144,15 +1144,19 @@ msgstr "Het vijftien-spel"
 msgid "Go to Amusement activities"
 msgstr "Ga naar de spelletjes"
 
-#: boards/gcompris/mime_type.xml.in.h:1
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
 msgstr "gcompris filmpje"
 
-#: boards/gcompris/mime_type.xml.in.h:2
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "gcompris tekening"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:3
 msgid "svg drawing"
 msgstr "svg-tekening"
 
-#: boards/gcompris/mime_type.xml.in.h:3
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:4
 msgid "svg mozilla animation"
 msgstr "svg mozilla-filmpje"
 
@@ -1837,7 +1841,11 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr "Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de spatiebalk om te wisselen tussen weergave in twee dimensies of drie dimensies. Weergave in 2D geeft een idee van je positie net bij een landkaart. Je kunt Tux niet bewegen in tweedimensionale weergave."
+msgstr ""
+"Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de "
+"spatiebalk om te wisselen tussen weergave in twee dimensies of drie "
+"dimensies. Weergave in 2D geeft een idee van je positie net bij een "
+"landkaart. Je kunt Tux niet bewegen in tweedimensionale weergave."
 
 #: boards/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
@@ -1848,7 +1856,11 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between invisible and visible modes. Visible mode gives you just an "
 "indication of your position like a map. You cannot move tux in visible mode."
-msgstr "Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de spatiebalk om de weergave te wisselen tussen onzichtbaar en onzichtbaar. Zichtbare weergave geeft een idee van je positie als bij een landkaart. Je kunt Tux niet bewegen in zichtbare weergave."
+msgstr ""
+"Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de "
+"spatiebalk om de weergave te wisselen tussen onzichtbaar en onzichtbaar. "
+"Zichtbare weergave geeft een idee van je positie als bij een landkaart. Je "
+"kunt Tux niet bewegen in zichtbare weergave."
 
 #: boards/mazeMenu.xml.in.h:1
 msgid "Find your way out different type of mazes"
@@ -2746,10 +2758,10 @@ msgstr "Verschillende activiteiten voor kinderen"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:848
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
 #: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
 #: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
-#: src/gcompris/images_selector.c:645 src/gcompris/skin.c:83
+#: src/gcompris/images_selector.c:654 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2951,7 +2963,8 @@ msgstr "rechts"
 
 #: src/boards/maze.c:488
 msgid "Look at your position and switch back to invisible mode to move"
-msgstr "Bekijk je positie en ga terug naar onzichtbare weergave om te kunnen bewegen"
+msgstr ""
+"Bekijk je positie en ga terug naar onzichtbare weergave om te kunnen bewegen"
 
 # modus/weergave
 #: src/boards/maze.c:490
@@ -3251,7 +3264,8 @@ msgstr "GCompris Startpagina"
 #: src/gcompris/about.c:252
 msgid ""
 "This software is a GNU Package and is released under the GNU Public License"
-msgstr "Deze software is een GNU pakket en is uitgebracht onder de Gnu Public Licence"
+msgstr ""
+"Deze software is een GNU pakket en is uitgebracht onder de Gnu Public Licence"
 
 #: src/gcompris/about.c:281
 msgid "Help"
@@ -3259,7 +3273,7 @@ msgstr "Hulp"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:209
 #: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:252
+#: src/gcompris/images_selector.c:261
 msgid "OK"
 msgstr "OK"
 
@@ -3518,15 +3532,15 @@ msgstr "Geen skin gevonden in %s\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:312
+#: src/gcompris/file_selector.c:341
 msgid "CANCEL"
 msgstr "ANNULEREN"
 
-#: src/gcompris/file_selector.c:343
+#: src/gcompris/file_selector.c:372
 msgid "LOAD"
 msgstr "LADEN"
 
-#: src/gcompris/file_selector.c:343
+#: src/gcompris/file_selector.c:372
 msgid "SAVE"
 msgstr "OPSLAAN"
 
