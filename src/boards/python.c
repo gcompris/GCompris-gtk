@@ -88,6 +88,7 @@ pythonboard_init (){
   PyObject* main_module;
   PyObject* globals;
   gchar* execstr;
+  gchar* userplugindir;
 
   /* Initialize the python interpreter */
   Py_Initialize();
@@ -103,6 +104,14 @@ pythonboard_init (){
   } else {
     /* Add the python plugins dir to the python's search path */
     execstr = g_strdup_printf("import sys; sys.path.append('%s/python')",PLUGIN_DIR); 
+#ifndef DISABLE_USER_PLUGIN_DIR
+    userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
+    execstr = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s/python')", 
+      userplugindir, PLUGIN_DIR); 
+    g_free(userplugindir);
+#else
+    execstr = g_strdup_printf("import sys; sys.path.append('%s/python')",PLUGIN_DIR ); 
+#endif
     if(PyRun_SimpleString(execstr)!=0){
       pythonboard_is_ready = FALSE;
       g_warning("! Python disabled: Cannot add plugins dir into search path\n");  
@@ -166,7 +175,8 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
   static char* python_prog_name="gcompris";
   char* boarddir;
   char* boardclass;
-  
+  gchar *userplugindir;
+
   if(agcomprisBoard!=NULL){
     /* Initialize the python interpreter */
     Py_SetProgramName(python_prog_name);
@@ -187,9 +197,18 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
     }
 
     /* Add the python plugins dir to the python's search path */
-    boarddir = g_strdup_printf("import sys; sys.path.append('%s/python')",PLUGIN_DIR); 
+#ifndef DISABLE_USER_PLUGIN_DIR
+    userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s/python')", 
+      userplugindir, PLUGIN_DIR); 
+#else
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s/python')",PLUGIN_DIR ); 
+#endif
     PyRun_SimpleString(boarddir); 
     g_free(boarddir); 
+#ifndef DISABLE_USER_PLUGIN_DIR
+    g_free(userplugindir);
+#endif
 
     /* Load the gcompris modules */
     python_gcompris_module_init();
