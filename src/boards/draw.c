@@ -29,6 +29,7 @@
 
 #define SOUNDLISTFILE PACKAGE
 #define IMG_DATA_SET PACKAGE_DATA_DIR "/dataset/mrpatate.xml"
+#define FILE_SELECTOR_ROOT "drawings"
 
 /* Represent the drawing area */
 static gint drawing_area_x1 = 0;
@@ -197,6 +198,8 @@ static guint	 get_resize_cursor(AnchorType anchor);
 static void	 realign_to_grid(GnomeCanvasItem *item);
 static void	 snap_to_grid(double *x, double *y);
 static void	 image_selected(gchar *image);
+static void	 load_image(gchar *file);
+static void	 save_image(gchar *file);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -309,12 +312,15 @@ static gint key_press(guint keyval)
   if(!gcomprisBoard)
     return TRUE;
 
-  if(selected_anchors_item == NULL)
-    return TRUE;
-
   /* Add some filter for control and shift key */
   switch (keyval)
     {
+    case GDK_F1:
+      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_image);
+      break;
+    case GDK_F2:
+      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_image);
+      break;
     case GDK_Shift_L:
     case GDK_Shift_R:
     case GDK_Control_L:
@@ -364,6 +370,9 @@ static gint key_press(guint keyval)
       keyval=GDK_9;
       break;
     }
+
+  if(selected_anchors_item == NULL)
+    return TRUE;
 
   sprintf(utf8char, "%c", gdk_keyval_to_unicode(keyval));
 
@@ -2005,6 +2014,20 @@ static void image_selected(gchar *image)
   GnomeCanvasItem *item = NULL;
   item = create_item(clicked_x, clicked_y, image);
   set_current_tool(selectionToolItem, TOOL_SELECT);
+}
+
+/**
+ * Callback for the image load
+ */
+static void load_image(gchar *image)
+{
+}
+
+/**
+ * Callback for the image save
+ */
+static void save_image(gchar *image)
+{
 }
 
 /*

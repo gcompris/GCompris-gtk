@@ -1,3 +1,34 @@
+2004-07-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/geography/board1_0.xml.in: -A- updated, cleaned the images, better looking maps.
+	* boards/geography/board3_0.xml.in: -A-
+	* boards/geography/continents/back.png: -A-
+	* boards/geography/europe/europe.jpg: -A-
+	* boards/geography/europe/europe.png: -A-
+	* boards/geography/france_region/bourgogne.png: -A-
+	* boards/geography/france_region/bretagne.png: -A-
+	* boards/geography/france_region/champagne-ardenne.png: -A-
+	* boards/geography/france_region/france-regions.png: -A-
+	* boards/geography/france_region/franche-conte.png: -A-
+	* boards/geography/france_region/languedoc-roussillon.png: -A-
+	* boards/geography/france_region/limousin.png: -A-
+	* boards/geography/france_region/lorraine.png: -A-
+	* boards/geography/france_region/midi-pyrenees.png: -A-
+	* boards/geography/france_region/nord-pas-de-calais.png: -A-
+	* boards/geography/france_region/pays-de-la-loire.png: -A-
+	* boards/geography/france_region/picardie.png: -A-
+	* boards/geography/france_region/poitou-charentes.png: -A-
+	* boards/geography/france_region/provence-alpes-cote_d_azur.png: -A-
+	* boards/geography/northamerica/north_america.png: -A-
+	* boards/geography/southamerica/south_america.png: -A-
+	* src/boards/draw.c: (key_press), (image_selected), (load_image),
+	(save_image): experimental implementation of the file_selector API
+	* src/gcompris/Makefile.am: added file_selector.c
+	* src/gcompris/file_selector.c: (gcompris_file_selector_save),
+	(gcompris_file_selector_load), (gcompris_file_selector_stop),
+	(display_files), (free_stuff), (item_event_file_selector): created on the model ofimage_selector
+	* src/gcompris/gcompris.h: added file_selector API.
+
 2004-07-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/flags/sq.png: created from CIA world fact book.

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2004/06/05 00:16:08 bcoudoin>
+ * Time-stamp: <2004/07/07 22:47:15 bcoudoin>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -115,6 +115,16 @@ void		 gcompris_images_selector_start (GcomprisBoard *gcomprisBoard,
 						 gchar *dataset, 
 						 ImageSelectorCallBack imscb);
 void		 gcompris_images_selector_stop (void);
+
+typedef void     (*FileSelectorCallBack)     (gchar* file);
+void		 gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, 
+					      gchar *rootdir, 
+					      FileSelectorCallBack fscb);
+void		 gcompris_file_selector_save (GcomprisBoard *gcomprisBoard,
+					      gchar *rootdir,
+					      FileSelectorCallBack fscb);
+void		 gcompris_file_selector_stop (void);
+
 void		 gcompris_exit();
 
 /* Trace Log */

@@ -111,6 +111,7 @@ libgcompris_1_la_SOURCES =			\
 	gameutil.c \
 	properties.c \
 	bar.c \
+	file_selector.c \
 	images_selector.c \
 	help.c \
 	pixbuf_util.c \
