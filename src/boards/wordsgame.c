@@ -503,8 +503,7 @@ static GnomeCanvasItem *wordsgame_create_item(GnomeCanvasGroup *parent)
     }
 
   /* Load a gdk font */
-  //  gdk_font = gdk_font_load ("-misc-fixed-medium-r-*-*-*-140-*-*-*-*-*-*");
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /* Beware, since we put the words in a hash table, we do not allow the same
      letter to be displayed two times */

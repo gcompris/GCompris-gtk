@@ -388,7 +388,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
   int i, xOffset, sid;
   char str[10];
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-100-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   result_to_find = generate_numbers();
 

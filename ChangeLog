@@ -1,5 +1,12 @@
 2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
 
+	* src/gcompris/gcompris.h: add defines for all fonts used in boards,
+	let translate the font so that strings will be displayed correctly
+	in all locales.
+	* src/boards/*.c: use defines for fonts.
+
+2002-02-26  Gediminas Paulauskas <menesis@delfi.lt>
+
 	* configure.in: fix libxml2 checks, add iconv and glib checks.
 	* src/boards/Makefile.am, src/gcompris/Makefile.am: use correct XML_LIBS,
 	added XML_CFLAGS to INCLUDES.

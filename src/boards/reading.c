@@ -305,7 +305,7 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gint base_X = 580;
   gint i;
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /* Load the text to find */
   textToFind = "*";
@@ -386,7 +386,7 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
   lettersItem = malloc(sizeof(LettersItem));
 
   /* Load a gdk font */
-  gdk_font = gdk_font_load ("-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-iso8859-1");
+  gdk_font = gdk_font_load (FONT_BOARD_FIXED);
 
 
   if(textToFindIndex!=0)
@@ -506,7 +506,7 @@ static void ask_ready(gboolean status)
       return;
     }
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /*----- READY -----*/
   button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
@@ -546,7 +546,7 @@ static void ask_yes_no()
   double x_offset = 430;
   GdkFont *gdk_font;
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /*----- YES -----*/
   button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");

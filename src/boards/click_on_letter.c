@@ -226,7 +226,7 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   char l[4];
   int numberOfLetters = 4;
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /*  */
   right_position = ((int)(((float)numberOfLetters)*rand()/(RAND_MAX+1.0))) +1;

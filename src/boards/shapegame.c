@@ -1077,7 +1077,7 @@ void create_title(char *name, double x, double y, char *justification)
   GdkFont *gdk_font;
 
   /* Load a gdk font */
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
 
   item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),

@@ -501,7 +501,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
   int i, min;
   CloudItem *clouditem;
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   /* Random cloud number */
   if(rand()%2==0)

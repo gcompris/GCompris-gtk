@@ -377,11 +377,11 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
   gchar *mtext = NULL;
 
   /* Load a gdk font */
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*");
-  gdk_font_small = gdk_font_load ("-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*");
-  gdk_font_big = gdk_font_load ("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*");
-  gdk_font_big2 = gdk_font_load ("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*");
-  gdk_font_big3 = gdk_font_load ("-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_SMALL);
+  gdk_font_small = gdk_font_load (FONT_BOARD_TINY);
+  gdk_font_big = gdk_font_load (FONT_BOARD_SMALL);
+  gdk_font_big2 = gdk_font_load (FONT_BOARD_MEDIUM);
+  gdk_font_big3 = gdk_font_load (FONT_BOARD_BIG_BOLD);
 
   canvasPoints = gnome_canvas_points_new (2);
 

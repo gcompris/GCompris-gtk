@@ -305,7 +305,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   /* display the 3 words */
   /* the right word is at position 0 : it is swapped with any position depending of place value */
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
   switch (place) {
   case 1 :
     buf[0] = board->text2;

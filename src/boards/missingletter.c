@@ -263,7 +263,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
   gint txt_area_x = 515;
   gint txt_area_y = 430;
 
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_BIG);
 
   board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel-1;
 /*  if (board_number >= g_list_length(board_list))

@@ -93,12 +93,19 @@ void		 gcompris_set_cursor(guint gdk_cursor_type);
 #define COLOR_CONTENT		0x0D0DFA00
 #define COLOR_SUBTITLE		0xB0040000
 
-#define FONT_TITLE		"-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-#define FONT_TITLE_FALLBACK	"-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-#define FONT_SUBTITLE		"-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-#define FONT_SUBTITLE_FALLBACK	"-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-#define FONT_CONTENT		"-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-#define FONT_CONTENT_FALLBACK	"-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
+#define FONT_TITLE		_("-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1")
+#define FONT_TITLE_FALLBACK	_("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*")
+#define FONT_SUBTITLE		_("-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1")
+#define FONT_SUBTITLE_FALLBACK	_("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*")
+#define FONT_CONTENT		_("-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1")
+#define FONT_CONTENT_FALLBACK	_("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*")
+
+#define FONT_BOARD_TINY		_("-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*")
+#define FONT_BOARD_SMALL	_("-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*")
+#define FONT_BOARD_MEDIUM	_("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*")
+#define FONT_BOARD_BIG		_("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*")
+#define FONT_BOARD_BIG_BOLD	_("-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*")
+#define FONT_BOARD_FIXED	_("-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*")
 
 /*=========================================================*/
 // These are gcompris defined cursors

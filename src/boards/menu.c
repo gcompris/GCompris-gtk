@@ -404,9 +404,9 @@ static void create_info_area(GnomeCanvasGroup *parent)
   gint y = 350;
 
   /* Load a gdk font */
-  gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*");
-  gdk_font_small = gdk_font_load ("-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*");
-  gdk_font_big = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
+  gdk_font = gdk_font_load (FONT_BOARD_MEDIUM);
+  gdk_font_small = gdk_font_load (FONT_BOARD_TINY);
+  gdk_font_big = gdk_font_load (FONT_BOARD_BIG);
 
   boardname_item = \
     gnome_canvas_item_new (parent,
