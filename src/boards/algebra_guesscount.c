@@ -38,9 +38,6 @@ static gint process_time_id = 0;
 static void process_ok(void);
 static void process_time(void);
 static void game_won();
-
-void dump_token(); // FIXME DEBUG ONLY
-
 static void destroy_board();
 
 /* 4 levels :
@@ -53,8 +50,12 @@ static void destroy_board();
 #define NUMBER_OF_LEVELS 4
 #define MAX_NUMBER 5
 
-#define TEXT_COLOR "yellow"
-#define TEXT_RESULT_COLOR "red"
+#define TEXT_COLOR_FRONT "yellow"
+#define TEXT_COLOR_BACK "black"
+
+#define TEXT_RESULT_COLOR_FRONT "red"
+#define TEXT_RESULT_COLOR_BACK "orange"
+
 #define BLANK "___"
 
 #define NO_RESULT -1
@@ -83,7 +84,6 @@ struct _token {
 	gboolean isMoved;
 	char oper;
 	int num;
-	int original_num_item_place;
 	int xOffset_original;
 	int signal_id;
 	GnomeCanvasItem * item;
@@ -118,7 +118,8 @@ static GnomeCanvasItem *oper_item[4];
 static GnomeCanvasItem *num_item[MAX_NUMBER];
 static GnomeCanvasItem *equal_item[NUMBER_OF_LEVELS];
 static GnomeCanvasItem *calcul_line_item[NUMBER_OF_LEVELS*2];
-static GnomeCanvasItem *result_item;
+static GnomeCanvasItem *calcul_line_item_back[NUMBER_OF_LEVELS*2];
+static GnomeCanvasItem *result_item_front, *result_item_back;
 
 static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent);
 static void algebra_guesscount_destroy_all_items(void);
@@ -241,11 +242,11 @@ static void set_level (guint level) {
 gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
   if (gcomprisBoard) {
       if(g_strcasecmp(gcomprisBoard->type, "algebra_guesscount")==0) {
-	  /* Set the plugin entry */
-	  gcomprisBoard->plugin=&menu_bp;
-	  return TRUE;
-	}
-    }
+	  		/* Set the plugin entry */
+	  		gcomprisBoard->plugin=&menu_bp;
+	  		return TRUE;
+			}
+  }
   return FALSE;
 }
 
@@ -317,7 +318,9 @@ static void update_line_calcul() {
 
 	sprintf(str, "%d",token_result());
 	gnome_canvas_item_set(calcul_line_item[line*2], "text", BLANK, NULL);
+	gnome_canvas_item_set(calcul_line_item_back[line*2], "text", BLANK, NULL);
 	gnome_canvas_item_set(calcul_line_item[line*2+1], "text", BLANK, NULL);
+	gnome_canvas_item_set(calcul_line_item_back[line*2+1], "text", BLANK, NULL);
 }
 /* ==================================== */
 static int generate_numbers() {
@@ -336,7 +339,6 @@ static int generate_numbers() {
     divide = (result % num_values[answer_num_index[i+1]] == 0);
 
     r = 2 + (minus ? 1 : 0) + (divide ? 1 : 0);
-		printf("r = %d\n", r);
 
     switch (RAND(1,r)) {
 						case 1 : 	answer_oper[i] = '+';
@@ -368,15 +370,6 @@ static int generate_numbers() {
 						default : printf("Bug in guesscount\n"); break;
     }
   }
-// dump for DEBUG
-printf("-----------------------------------\n");
-  printf("num:%d ",num_values[answer_num_index[0]]);
-  for (i=0; i<gcomprisBoard->level; i++) {
-		printf("oper:%c ",answer_oper[i]);
-		printf("num:%d ",num_values[answer_num_index[i+1]]);
-	}
-	printf("\n");
-// end DEBUG
 	return result;
 }
 /* ==================================== */
@@ -396,8 +389,17 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 							    "y", (double) 0,
 							    NULL));
 
-	// the intermediate result, line by line, when empty is "_"
+	// the intermediate result, line by line, when empty is BLANK
 	for (i=0; i<gcomprisBoard->level; i++) {
+		calcul_line_item_back[i*2] = gnome_canvas_item_new (boardRootItem,
+				gnome_canvas_text_get_type (),
+				"text", BLANK,
+				"font_gdk", gdk_font,
+				"x", (double) X_EQUAL+BUTTON_WIDTH*1.5 + 1,
+				"y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2 + 1,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", TEXT_COLOR_BACK,
+				NULL);
 		calcul_line_item[i*2] = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", BLANK,
@@ -405,11 +407,20 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 				"x", (double) X_EQUAL+BUTTON_WIDTH*1.5,
 				"y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", TEXT_COLOR,
+				"fill_color", TEXT_COLOR_FRONT,
 				NULL);
 	}
 
 	for (i=0; i<gcomprisBoard->level-1; i++) {
+		calcul_line_item_back[i*2+1] = gnome_canvas_item_new (boardRootItem,
+				gnome_canvas_text_get_type (),
+				"text", BLANK,
+				"font_gdk", gdk_font,
+				"x", (double) X_NUM1+BUTTON_WIDTH/2 + 1,
+				"y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2 + 1,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", TEXT_COLOR_BACK,
+				NULL);
 		calcul_line_item[i*2+1] = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", BLANK,
@@ -417,7 +428,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 				"x", (double) X_NUM1+BUTTON_WIDTH/2,
 				"y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", TEXT_COLOR,
+				"fill_color", TEXT_COLOR_FRONT,
 				NULL);
 	}
 
@@ -442,14 +453,23 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 
 	// displays the target result
 	sprintf(str,"%d",result_to_find);
-	result_item = gnome_canvas_item_new (boardRootItem,
+	result_item_back = gnome_canvas_item_new (boardRootItem,
+				gnome_canvas_text_get_type (),
+				"text", str,
+				"font_gdk", gdk_font,
+				"x", (double) xOffset+BUTTON_WIDTH +1,
+				"y", (double) Y_OPE+BUTTON_HEIGHT/2 +1,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color", TEXT_RESULT_COLOR_BACK,
+				NULL);
+	result_item_front = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
 				"text", str,
 				"font_gdk", gdk_font,
 				"x", (double) xOffset+BUTTON_WIDTH,
 				"y", (double) Y_OPE+BUTTON_HEIGHT/2,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color", TEXT_RESULT_COLOR,
+				"fill_color", TEXT_RESULT_COLOR_FRONT,
 				NULL);
 
 	xOffset = (gcomprisBoard->width - (gcomprisBoard->level+1) * BUTTON_WIDTH - gcomprisBoard->level * HORIZONTAL_SEPARATION)/2;
@@ -471,7 +491,6 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 		token_value[i*2].signal_id = sid;
 		token_value[i*2].item = num_item[i];
 		token_value[i*2].isMoved = FALSE;
-		token_value[i*2].original_num_item_place = i;
 		token_value[i*2].xOffset_original = xOffset;
 		xOffset += BUTTON_WIDTH+HORIZONTAL_SEPARATION;
 		}
@@ -524,7 +543,7 @@ static void process_time(){
 /* ==================================== */
 static int oper_char_to_pixmap_index(char oper) {
 	int i;
-	printf("oper = %c\n", oper);
+
 	assert(oper == '+' || oper == '-' || oper == 'x' || oper == ':' || oper == '=');
 
 	for (i=0; i<5; i++)
@@ -547,7 +566,6 @@ static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 
   switch (event->type) {
     case GDK_BUTTON_PRESS:
-printf("token_count = %d clicked on %c\n",token_count,t->oper);
 			ptr_token_selected[token_count] = t;
 			tmp_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_pixbuf_get_type (),
@@ -622,7 +640,9 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 					sprintf(str,"%d",token_result());
 					printf("token_result = %s\n", str);
 					gnome_canvas_item_set(calcul_line_item[token_count-3], "text", str, NULL);
+					gnome_canvas_item_set(calcul_line_item_back[token_count-3], "text", str, NULL);
 					gnome_canvas_item_set(calcul_line_item[token_count-2], "text", str, NULL);
+					gnome_canvas_item_set(calcul_line_item_back[token_count-2], "text", str, NULL);
 					}
 				}
 			break;
@@ -646,18 +666,4 @@ void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
 	double dx1, dy1, dx2, dy2;
 	gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);
 	gnome_canvas_item_move(item, ((double)x)-dx1, ((double)y)-dy1);
-}
-/* ======================================= */
-// FIXME : here for debug only
-void dump_token() {
-	int i;
-	token *t;
-	printf("+++++ dump_token +++++\n");
-	for (i=0; i<MAX_NUMBER*2-1; i++) {
-		t = &token_value[i];
-		if (t->isNumber) {
-			printf("i = %d num = %d value = %d\n", i, t->num, num_values[t->num]);
-		}
-	}
-	printf("----- dump_token -----\n");
 }
