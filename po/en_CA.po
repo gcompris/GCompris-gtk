@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-18 10:37-0400\n"
-"PO-Revision-Date: 2004-10-18 19:37-0400\n"
+"POT-Creation-Date: 2004-10-19 10:48-0400\n"
+"PO-Revision-Date: 2004-10-19 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -1972,16 +1972,16 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, The Ramparts at Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr "Cassat, Summertime - 1895"
+msgid "Cassatt, Mary - Summertime - 1895"
+msgstr "Cassatt, Mary - Summertime - 1895"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
-msgstr "Help Tux the paratrooper land safely"
+msgid "Help Tux the parachuter land safely"
+msgstr "Help Tux the parachuter land safely"
 
 #: boards/paratrooper.xml.in.h:2
 msgid ""
@@ -1993,15 +1993,15 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
+"In this game, Tux the parachuter need help to land safely on the fishing "
 "boat. He needs to take watch out for the wind direction and speed."
 msgstr ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
+"In this game, Tux the parachuter need help to land safely on the fishing "
 "boat. He needs to watch out for the wind direction and speed."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
-msgstr "Paratrooper"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
+msgstr "Parachute jumper"
 
 #: boards/paratrooper.xml.in.h:5
 msgid "This board is game oriented. No specific skills are needed to play."
@@ -2600,6 +2600,10 @@ msgstr "Select a Board"
 msgid "Pratice money usage"
 msgstr "Pratice money usage"
 
+#: src/boards/paratrooper.c:104
+msgid "Paratrooper"
+msgstr "Paratrooper"
+
 #: src/boards/paratrooper.c:105
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Direct the paratrooper to help him land safely"
@@ -2864,16 +2868,16 @@ msgid "Greek"
 msgstr "Greek"
 
 #: src/gcompris/config.c:72
-msgid "American English"
-msgstr "American English"
+msgid "English (Canadian)"
+msgstr "English (Canada)"
 
 #: src/gcompris/config.c:73
-msgid "Great Britain English"
-msgstr "Great Britain English"
+msgid "English (Great Britain)"
+msgstr "English (Great Britain)"
 
 #: src/gcompris/config.c:74
-msgid "Canadian English"
-msgstr "Canadian English"
+msgid "English (USA)"
+msgstr "English (USA)"
 
 #: src/gcompris/config.c:75
 msgid "Spanish"
