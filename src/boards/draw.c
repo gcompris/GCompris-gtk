@@ -37,12 +37,15 @@ static gint drawing_area_y2 = 0;
 
 /* Set the grid size. If 0 then no grid */
 static gint grid_step = 0;
+static GnomeCanvasItem	*gridItem = NULL;
+static GnomeCanvasItem	*grid_root_item = NULL;
+#define DEFAULT_GRID_STEP 20
 
-static GcomprisBoard *gcomprisBoard = NULL;
-static GnomeCanvasItem *shape_root_item = NULL;
-static GnomeCanvasItem *draw_root_item = NULL;
-static GnomeCanvasItem *current_color_item = NULL;
-static gchar *currentColor = NULL;
+static GcomprisBoard	*gcomprisBoard = NULL;
+static GnomeCanvasItem	*shape_root_item = NULL;
+static GnomeCanvasItem	*draw_root_item = NULL;
+static GnomeCanvasItem	*current_color_item = NULL;
+static gchar		*currentColor = NULL;
 
 typedef enum
   {
@@ -55,9 +58,10 @@ typedef enum
     TOOL_DELETE		= 6,
     TOOL_FILL		= 7,
     TOOL_SELECT		= 8,
+    TOOL_GRID		= 9,
   } ToolList;
 
-#define NUMBER_Of_TOOL	TOOL_SELECT + 1
+#define NUMBER_Of_TOOL	TOOL_GRID + 1
 
 static ToolList		 currentTool = TOOL_RECT;
 static GnomeCanvasItem	*currentToolItem = NULL;
@@ -73,7 +77,8 @@ static char *tool_pixmap_name[] =
     "draw/tool-point.png", "draw/tool-point_on.png", 
     "draw/tool-del.png", "draw/tool-del_on.png", 
     "draw/tool-fill.png", "draw/tool-fill_on.png",
-    "draw/tool-select.png", "draw/tool-select_on.png"
+    "draw/tool-select.png", "draw/tool-select_on.png",
+    "draw/tool-grid.png", "draw/tool-grid_on.png"
   };
 
 #define PIXMAP_OFF 0
@@ -122,10 +127,10 @@ typedef enum
 
 #define ANCHOR_COLOR		0x36ede400
 #define DEFAULT_ITEM_SIZE	40
-#define DEFAULT_ANCHOR_SIZE	5
+#define DEFAULT_ANCHOR_SIZE	8
 static AnchorsItem *selected_anchors_item = NULL;
 
-#define DRAW_WIDTH_PIXELS	5
+#define DRAW_WIDTH_PIXELS	6
 
 #define GRID_COLOR		0x267da400
 
@@ -154,7 +159,7 @@ static void	 draw_next_level(void);
 static void	 display_color_selector(GnomeCanvasGroup *parent);
 static void	 display_tool_selector(GnomeCanvasGroup *parent);
 static void	 display_drawing_area(GnomeCanvasGroup *parent);
-static void	 display_grid(GnomeCanvasGroup *parent);
+static void	 display_grid(gboolean status);
 static gint	 color_event(GnomeCanvasItem *item, GdkEvent *event, gchar *color);
 static gint	 tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool);
 static gint	 item_event(GnomeCanvasItem *item, GdkEvent *event, void *shape);
@@ -163,6 +168,8 @@ static gint	 item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem
 static void	 highlight_color_item(GnomeCanvasItem *item);
 static guint	 get_tool_cursor(ToolList tool);
 static guint	 get_resize_cursor(AnchorType anchor);
+static void	 realign_to_grid(GnomeCanvasItem *item);
+static void	 snap_to_grid(double *x, double *y);
 
 /* Description of this plugin */
 BoardPlugin menu_bp =
@@ -310,8 +317,7 @@ static void draw_next_level()
   display_tool_selector(GNOME_CANVAS_GROUP(shape_root_item));
   display_drawing_area(GNOME_CANVAS_GROUP(shape_root_item));
 
-  grid_step = 20;
-  display_grid(GNOME_CANVAS_GROUP(shape_root_item));
+  display_grid(TRUE);
 }
 
 
@@ -444,7 +450,10 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 					"y", (double) y,
 					NULL);
 	  gdk_pixbuf_unref(pixmap);
-	  
+
+	  if(toolIndex == TOOL_GRID)
+	    gridItem = item;
+
 	  gtk_signal_connect(GTK_OBJECT(item), "event",
 			     (GtkSignalFunc) tool_event,
 			     (void *)toolIndex);
@@ -452,9 +461,52 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
     }
 }
 
-static void display_grid(GnomeCanvasGroup *parent)
+/*
+ * Request the display of the grid if status is true
+ *
+ */
+static void display_grid(gboolean status)
 {
   guint x, y;
+  GdkPixbuf *pixmap = NULL;
+
+  pixmap = gcompris_load_pixmap(tool_pixmap_name[(TOOL_GRID*2) + 
+						 (status == TRUE ? PIXMAP_ON : PIXMAP_OFF)]);
+  if(pixmap)
+    {
+      gnome_canvas_item_set (gridItem,
+			     "pixbuf", pixmap,
+			     NULL);
+      gdk_pixbuf_unref(pixmap);
+    }
+
+  if(!status)
+    {
+      grid_step = 0;
+
+      if(grid_root_item!=NULL)
+	gnome_canvas_item_hide(grid_root_item);
+      return;
+    }
+
+  grid_step = DEFAULT_GRID_STEP;
+
+  if(grid_root_item!=NULL)
+    {
+      gnome_canvas_item_show(grid_root_item);
+      return;
+    }
+
+  /* Creation of the grid */
+
+  grid_root_item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
+  gnome_canvas_item_raise_to_top(grid_root_item);
+  //  gnome_canvas_item_raise(grid_root_item, 50);
 
   for( x = drawing_area_x1 ; x < drawing_area_x2 ; x += grid_step)
     {
@@ -467,7 +519,7 @@ static void display_grid(GnomeCanvasGroup *parent)
       points->coords[2] = (double) x;
       points->coords[3] = (double) drawing_area_y2;
       
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(grid_root_item),
 				    gnome_canvas_line_get_type (),
 				    "points", points,
 				    "fill_color_rgba", GRID_COLOR,
@@ -494,7 +546,7 @@ static void display_grid(GnomeCanvasGroup *parent)
       points->coords[2] = (double) drawing_area_x2;
       points->coords[3] = (double) y;
       
-      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(grid_root_item),
 				    gnome_canvas_line_get_type (),
 				    "points", points,
 				    "fill_color_rgba", GRID_COLOR,
@@ -507,6 +559,36 @@ static void display_grid(GnomeCanvasGroup *parent)
 
       gnome_canvas_points_unref(points);
 
+    }
+}
+
+/*
+ * Given an object, realign it to the grid
+ * if the grid is on
+ * FIXME: Does not work yet as expected
+ */
+static void realign_to_grid(GnomeCanvasItem *item)
+{
+
+  if(grid_step!=0)
+    {
+      double x1, y1, x2, y2;
+      double xsnap1, ysnap1;
+      
+      gnome_canvas_item_get_bounds  (item,
+				     &x1,
+				     &y1,
+				     &x2,
+				     &y2);
+      
+      xsnap1 = x1;
+      ysnap1 = y1;
+      snap_to_grid(&xsnap1, &ysnap1);
+      
+      // Realign our object on the grid
+      gnome_canvas_item_move(item, 
+			     x1 - xsnap1,
+			     y1 - ysnap1);
     }
 }
 
@@ -536,6 +618,10 @@ static void draw_destroy_all_items()
   if(shape_root_item!=NULL)
     gtk_object_destroy (GTK_OBJECT(shape_root_item));
   shape_root_item = NULL;
+
+  if(grid_root_item!=NULL)
+    gtk_object_destroy (GTK_OBJECT(grid_root_item));
+  grid_root_item = NULL;
 
   current_color_item = NULL;
 }
@@ -593,6 +679,13 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
       switch(event->button.button) 
 	{
 	case 1:
+
+	  if(tool == TOOL_GRID)
+	    {
+	      display_grid((grid_step==0 ? TRUE : FALSE));
+	      return TRUE;
+	    }
+
 	  if(currentToolItem)
 	    {
 	      pixmap = gcompris_load_pixmap(tool_pixmap_name[(currentTool*2) + PIXMAP_OFF]);
@@ -1501,6 +1594,7 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    item_y = event->button.y;
 	    gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
 	    snap_to_grid(&item_x, &item_y);
+	    
 	    x = item_x;
 	    y = item_y;
 	    start_x = item_x;
@@ -1571,6 +1665,8 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	break;
       case TOOL_SELECT:
 	gcompris_set_cursor(GDK_FLEUR);
+	break;
+      default:
 	break;
       }
       break;
