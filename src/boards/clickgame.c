@@ -535,7 +535,7 @@ static void game_won()
 {
   gcomprisBoard->sublevel++;
 
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
     gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
@@ -595,7 +595,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, FishItem *fishitem)
 	       gcomprisBoard->sublevel++;
 	       gcompris_score_set(gcomprisBoard->sublevel);
 	       
-	       if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
+	       if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
 		 gamewon = TRUE;
 		 clickgame_destroy_all_items();
 		 gcompris_display_bonus(gamewon, BONUS_FLOWER);

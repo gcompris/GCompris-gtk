@@ -485,7 +485,7 @@ static void player_win(GnomeCanvasItem *item)
       /* Try the next level */
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-        /* FIXME */gcompris_score_end();
+        gcompris_score_end();
 				board_finished(BOARD_FINISHED_RANDOM);
 				return;
       }

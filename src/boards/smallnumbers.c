@@ -467,13 +467,14 @@ static void player_win(GnomeCanvasItem *item)
   gcomprisBoard->sublevel++;
   gcompris_score_set(gcomprisBoard->sublevel);
 
-  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) 
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel)
     {
       /* Try the next level */
       gcomprisBoard->level++;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	board_finished(BOARD_FINISHED_RANDOM);
-	return;
+				gcompris_score_end();
+				board_finished(BOARD_FINISHED_RANDOM);
+				return;
       }
       smallnumbers_next_level();
       gcompris_play_sound (SOUNDLISTFILE, "bonus");

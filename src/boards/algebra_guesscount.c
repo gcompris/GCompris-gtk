@@ -546,7 +546,7 @@ static void process_time(){
     gtk_timeout_remove (process_time_id);
     process_time_id = 0;
   }
-  gcompris_display_bonus(gamewon, BONUS_FLOWER);
+  gcompris_display_bonus(gamewon, BONUS_RANDOM);
 }
 /* ==================================== */
 static int oper_char_to_pixmap_index(char oper) {

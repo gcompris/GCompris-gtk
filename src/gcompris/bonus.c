@@ -90,7 +90,7 @@ void board_finished(int type) {
       gcomprisBoard->plugin->pause_board(TRUE);
 
   if(type==BOARD_FINISHED_RANDOM)
-    type = rand() % BOARD_FINISHED_LAST;
+    type = RAND(1,BOARD_FINISHED_LAST);
 
   switch (type) {
 	case BOARD_FINISHED_TUXPLANE :
@@ -174,7 +174,7 @@ void gcompris_display_bonus(int gamewon, int bonus_id)
       gcomprisBoard->plugin->pause_board(TRUE);
 
   if(bonus_id==BONUS_RANDOM)
-    bonus_id = rand() % BONUS_LAST;
+    bonus_id = RAND(1, BONUS_LAST);
 
   switch(bonus_id) {
   case BONUS_SMILEY :
