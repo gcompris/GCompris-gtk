@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-28 19:28+0100\n"
-"PO-Revision-Date: 2003-10-29 01:37+0100\n"
+"POT-Creation-Date: 2003-11-04 03:26+0100\n"
+"PO-Revision-Date: 2003-11-04 12:52+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -355,8 +355,8 @@ msgstr "Ga naar de rekensommen"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Klik met de linker muisknop om een bordspel te kiezen"
 
@@ -727,11 +727,11 @@ msgid ""
 "the double entry table."
 msgstr "Je moet de voorwerpen links naar de juiste plaats slepen."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:205
 msgid "A simple vector drawing tool"
 msgstr "Een eenvoudig tekenprogramma"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:206
 msgid "Creative board where you can freely draw"
 msgstr "Laat je tekentalenten de vrije loop"
 
@@ -775,6 +775,10 @@ msgstr "Leren tellen"
 #: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr "Zet de dingen in de beste volgorde om ze te tellen"
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Ga naar de ervaringsoefeningen"
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
@@ -2414,43 +2418,47 @@ msgid "Skin : %s"
 msgstr "Skin : %s"
 
 # Beter: schermvullend?
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:67
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:77
 msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:79
+msgid "select the audio output, one of 'default alsa09 arts esd oss'"
+msgstr "selecteer de audio-uitgang, kies uit 'standaard alsa09 arts esd oss'"
+
+#: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
 msgstr "Toont de versie van"
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:83
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:350
+#: src/gcompris/gcompris.c:353
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:567
+#: src/gcompris/gcompris.c:570
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2511,7 +2519,7 @@ msgstr "Auteur"
 msgid "Directory"
 msgstr "Map"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:243
 msgid "Title"
 msgstr "Titel"
 
@@ -2528,11 +2536,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
 
-#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
+#: src/gcompris/oggplayer.c:206 src/gcompris/oggplayer.c:217
 msgid "Now Playing Music"
 msgstr "Muziek wordt nu afgespeeld"
 
-#: src/gcompris/oggplayer.c:248
+#: src/gcompris/oggplayer.c:247
 msgid "Artist"
 msgstr "Artiest"
 
