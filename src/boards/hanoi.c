@@ -47,8 +47,10 @@ static void		 hanoi_next_level(void);
  */
 typedef struct {
   GnomeCanvasItem *item;
-  gint x;
-  gint y;
+  gint i;
+  gint j;
+  double x;
+  double y;
   gboolean on_top;
   gint color;
 } PieceItem;
@@ -255,7 +257,7 @@ static void dump_solution()
     {
       for(j=0; j<number_of_item_y; j++)
 	{
-	  printf("%2d ", position[i][j]->color);
+	  printf("(%d,%d=%2d) ",  position[i][j]->i,  position[i][j]->j, position[i][j]->color);
 	}
       printf("\n");
     }
@@ -279,8 +281,8 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	{
 	  position[i][j] = g_malloc(sizeof(PieceItem));
 	  position[i][j]->color  = -1;
-	  position[i][j]->x      = i;
-	  position[i][j]->y      = j;
+	  position[i][j]->i      = i;
+	  position[i][j]->j      = j;
 	  position[i][j]->on_top = FALSE;
 	}
     }
@@ -345,7 +347,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   item_height = 30;
 
   gap_x = item_width  * 0.1;
-  gap_y = item_height * 0.1;
+  gap_y = item_height * 0.25;
 
   baseline = BOARDHEIGHT/2 + item_height * number_of_item_y/2;
 
@@ -397,6 +399,10 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
       for(j=0; j<number_of_item_y; j++)
 	{
+
+	  position[i][j]->x = item_width * i + gap_x;
+	  position[i][j]->y = baseline - item_height * j - item_height + gap_y;
+
 	  if(position[i][j]->color != -1)
 	    {
 	      item = gnome_canvas_item_new (boardRootItem,
@@ -500,8 +506,67 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
      case GDK_BUTTON_RELEASE:
        if(dragging) 
 	 {
+	   gint i,j;
+	   gint tmpi, tmpj;
+	   double tmpx, tmpy;
+	   PieceItem *tmpp;
+	   gint col, line;
+
 	   gnome_canvas_item_ungrab(item, event->button.time);
 	   dragging = FALSE;
+
+	   /* Search the column (x) where this item is ungrabbed */
+	   for(i=0; i<=number_of_item_x; i++)
+	     if(position[i][0]->x   < item_x &&
+		position[i+1][0]->x > item_x)
+	       col = i;
+	   
+	   /* Update ontop values for the piece under the grabbed one */
+	   if(data->j>0)
+	     position[data->i][data->j-1]->on_top = TRUE;
+
+
+	   /* Now search the free line (y) */
+	   for(i=number_of_item_y-1; i>=0; i--)
+	     if(position[col][i]->color == -1)
+	       line = i;
+
+	   /* Move the piece */
+	   item_absolute_move (item, position[col][line]->x, position[col][line]->y);
+
+	   /* Swap values in the pieces */
+	   printf("Found col=%d line=%d\n", col, line);
+	   printf("1 swapping %d,%d and %d,%d\n", 
+		  position[data->i][data->j]->i, position[data->i][data->j]->j,
+		  position[col][line]->i, position[col][line]->j);
+
+	   tmpx    = data->x;
+	   tmpy    = data->y;
+	   position[data->i][data->j]->x = position[col][line]->x;
+	   position[data->i][data->j]->y = position[col][line]->y;
+	   position[col][line]->x = tmpx;
+	   position[col][line]->y = tmpy;
+
+	   tmpi    = data->i;
+	   tmpj    = data->j;
+	   position[data->i][data->j]->i = position[col][line]->i;
+	   position[data->i][data->j]->j = position[col][line]->j;
+	   position[col][line]->i = tmpi;
+	   position[col][line]->j = tmpj;
+
+	   dump_solution();
+	   printf("2 swapping %d,%d and %d,%d\n", 
+		  position[data->i][data->j]->i, position[data->i][data->j]->j, 
+		  position[col][line]->i, position[col][line]->j);
+
+
+	   tmpp = position[data->i][data->j];
+	   position[data->i][data->j] = position[col][line];
+	   position[col][line] = tmpp;
+
+	   printf("4 swapping %d,%d and %d,%d\n", position[data->i][data->j]->i, position[data->i][data->j]->j, position[col][line]->i, position[col][line]->j);
+	   
+	   dump_solution();
 	 }
        break;
 
