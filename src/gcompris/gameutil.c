@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/01/02 00:43:43 bruno>
+ * Time-stamp: <2005/01/24 00:57:11 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -75,7 +75,7 @@ gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories,
     }
   else
     {
-      g_warning("Asset not found (dataset=%s category=%s mimetype=%s locale=%s file=%s)\n", 
+      g_warning("Asset not found (dataset='%s' category='%s' mimetype='%s' locale='%s' file='%s')\n", 
 		dataset, categories, mimetype, gcompris_get_locale(), file);
     }
   assetml_free_assetlist(gl_result);
