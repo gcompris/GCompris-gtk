@@ -1,3 +1,13 @@
+2002-11-28  bruno  <bruno.coudoin@free.fr>
+
+	* boards/reversecount/dice_area.jpg: created
+	* src/boards/reversecount.c: (pause_board), (start_board),
+	(process_ok), (reversecount_destroy_all_items),
+	(reversecount_create_item), (display_random_fish),
+	(display_item_at), (item_event), (create_clock), (update_clock): added tan error limit
+	* src/gcompris/timer.c: (gcompris_timer_display),
+	(timer_increment): fixed for the clock and sand
+
 2002-11-26  bruno  <bruno.coudoin@free.fr>
 
 	* boards/scales/board1_0.xml.in: fixed random bad display of the image
