@@ -4,7 +4,7 @@
 %define rel     	%{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
 %define prefix		/usr
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
-%define canvaslib	%(if rpm -q mandrake-release &> /dev/null; then echo libgnomecanvas2; else echo libgnomecanvas; fi)
+%define canvaslib	%(if rpm -q mandrakelinux-release &> /dev/null; then echo libgnomecanvas2; else echo libgnomecanvas; fi)
 
 Summary: Educational suite for kids 3-10 years old
 Name: 		%name
@@ -312,6 +312,39 @@ Version: @VERSION_VOICES_MISC_PT@
 Miscelaneous voices in Portuguese
 
 
+%package -n assetml-voices-alphabet-ru
+Summary:        Alphabet voices in Russian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_RU@
+
+%description -n assetml-voices-alphabet-ru
+Alphabet voices in Russian
+
+%package -n assetml-voices-colors-ru
+Summary:        Colors voices in Russian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_RU@
+
+%description -n assetml-voices-colors-ru
+Colors voices in Russian
+
+%package -n assetml-voices-geography-ru
+Summary:        Country name voices in Russian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_RU@
+
+%description -n assetml-voices-geography-ru
+Country name voices in Russian
+
+%package -n assetml-voices-misc-ru
+Summary:        Miscelaneous voices in Russian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_RU@
+
+%description -n assetml-voices-misc-ru
+Miscelaneous voices in Russian
+
+
 %package -n assetml-flags
 Summary:        Contains png 60x40 country flags and an assetml description file
 Group: 		Pixmaps
@@ -543,6 +576,27 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/pt/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_pt.assetml
+
+
+%files -n assetml-voices-alphabet-ru
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/ru/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_ru.assetml
+
+%files -n assetml-voices-colors-ru
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/ru/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_ru.assetml
+
+%files -n assetml-voices-geography-ru
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/ru/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_ru.assetml
+
+%files -n assetml-voices-misc-ru
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/ru/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_ru.assetml
 
 %files -n assetml-flags
 %defattr(-, root, root)

@@ -113,13 +113,6 @@ AC_MSG_ERROR([You must have popt 1.5 or newer to compile gcompris.]))
 
 AM_ICONV
 
-dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az ca cs da de el en_CA en_GB es fi fr he hi hr hu it lt mk ml ms nl nb nn pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv tr wa"
-
-dnl GCompris needs to know which locale are supported
-AC_SUBST(ALL_LINGUAS)
-AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}", [Supported languages])
-
 GETTEXT_PACKAGE=gcompris
 AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
@@ -445,6 +438,20 @@ AC_SUBST(VERSION_VOICES_GEOGRAPHY_PT)
 VERSION_VOICES_MISC_PT=1.1
 AC_SUBST(VERSION_VOICES_MISC_PT)
 
+# RU
+VERSION_VOICES_ALPHABET_RU=1.0
+AC_SUBST(VERSION_VOICES_ALPHABET_RU)
+
+VERSION_VOICES_COLORS_RU=1.0
+AC_SUBST(VERSION_VOICES_COLORS_RU)
+
+VERSION_VOICES_GEOGRAPHY_RU=1.0
+AC_SUBST(VERSION_VOICES_GEOGRAPHY_RU)
+
+VERSION_VOICES_MISC_RU=1.0
+AC_SUBST(VERSION_VOICES_MISC_RU)
+
+#FLAGS
 VERSION_FLAGS=1.6
 AC_SUBST(VERSION_FLAGS)
 
@@ -520,6 +527,11 @@ boards/sounds/pt/alphabet/Makefile
 boards/sounds/pt/colors/Makefile
 boards/sounds/pt/geography/Makefile
 boards/sounds/pt/misc/Makefile
+boards/sounds/ru/Makefile
+boards/sounds/ru/alphabet/Makefile
+boards/sounds/ru/colors/Makefile
+boards/sounds/ru/geography/Makefile
+boards/sounds/ru/misc/Makefile
 ])
 
 echo ""

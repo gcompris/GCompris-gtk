@@ -1,3 +1,13 @@
+2004-11-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/flags/gcompris_flags.assetml.in: added ga.png
+	* boards/geography/board1_0.xml.in: added Continent Capitals
+	* boards/sounds/Makefile.am: added russian
+	* configure.in: removed linguas, moved to po/LINGUAS
+	* gcompris.spec.in: added russian
+	* po/LINGUAS: added 
+	* src/gcompris/config.c: added ga locale Irish (Gaelic)
+
 2004-10-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	changed to use ~/.gcompris as a directory and store all created files in it.
