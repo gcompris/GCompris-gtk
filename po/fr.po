@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2003-02-09 13:52+0100\n"
+"POT-Creation-Date: 2003-02-17 15:50+0100\n"
 "PO-Revision-Date: 2002-12-31 00:40+0100\n"
 "Last-Translator: Laurent RICHARD <laurent.richard@lilit.be>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -856,7 +856,7 @@ msgstr "Exercices de lecture pour trouver le mot correspondant à une image"
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:103
+#: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
 msgid "Reading"
 msgstr "Lecture"
@@ -1810,7 +1810,7 @@ msgstr "Envoie des flèches sur la cible et compte ton score"
 msgid "Touch the target and count your points"
 msgstr "Touche la cible et compte tes points"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:96
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
 msgid "A sliding block puzzle game"
 msgstr "Un puzzle avec des pièces qui glissent"
 
@@ -1842,19 +1842,20 @@ msgstr "Jeu éducatif à partir de 3 ans"
 msgid "Editor for gcompris"
 msgstr "Editeur de gcompris"
 
-#: src/boards/advanced_colors.c:527 src/boards/imageid.c:573
-#: src/boards/missingletter.c:592 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1561 src/boards/traffic.c:622
-#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:265
+#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/shapegame.c:1562 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:108
+#: src/gcompris/gameutil.c:156 src/gcompris/gameutil.c:492
+#: src/gcompris/gameutil.c:493 src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:265
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/advanced_colors.c:530 src/boards/imageid.c:576
-#: src/boards/missingletter.c:595 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1564
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/shapegame.c:1565
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -1893,12 +1894,13 @@ msgstr ""
 "5 ou plus."
 
 #: src/boards/chess.c:198
+#, fuzzy
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
-"And check it is in /usr/bin/gnuchess"
+"And check it is in "
 msgstr ""
 "Erreur: Le programme externe gnuchess est nécessaire\n"
 "pour jouer aux échecs dans gcompris.\n"
@@ -1942,7 +1944,7 @@ msgstr "Lis une lettre"
 msgid "Learn to recognize letters"
 msgstr "Apprends à reconnaitre les lettres"
 
-#: src/boards/clickgame.c:181
+#: src/boards/clickgame.c:179
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Ne peut pas trouver le répertoire d'images: %s"
@@ -1951,7 +1953,7 @@ msgstr "Ne peut pas trouver le répertoire d'images: %s"
 msgid "Set the watch to:"
 msgstr "Règle la montre sur :"
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:104
+#: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Apprends à lire"
 
@@ -1995,11 +1997,11 @@ msgstr "Le jeu de mémoire"
 msgid "Build a train conforming to the model"
 msgstr "Construis un train correspondant au modèle"
 
-#: src/boards/read_colors.c:87
+#: src/boards/read_colors.c:85
 msgid "Read Colors"
 msgstr "Lire des couleurs"
 
-#: src/boards/read_colors.c:88
+#: src/boards/read_colors.c:86
 msgid "Click on the corresponding color"
 msgstr "Clique sur la bonne couleur lue"
 
@@ -2087,122 +2089,142 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:157 src/gcompris/help.c:343
+#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "Valider"
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:50
 msgid "Amharic"
 msgstr "Amharique"
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:51
+#, fuzzy
+msgid "Arabic"
+msgstr "Amharique"
+
+#: src/gcompris/config.c:52
 msgid "Azerbaijani Turkic"
 msgstr "Turc azerbaïdjanais"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:53
 msgid "German"
 msgstr "Allemand"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:54
 msgid "Greek"
 msgstr "Grec"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:55
 msgid "English"
 msgstr "Anglais"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:56
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:57
 msgid "Finnish"
 msgstr "Finnois"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:58
 msgid "French"
 msgstr "Français"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:59
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:60
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:61
 msgid "Malay"
 msgstr "Malaisien"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:62
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:63
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:64
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:65
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:66
+msgid "Russian"
+msgstr ""
+
+#: src/gcompris/config.c:67
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:68
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:69
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:75
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:76
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:77
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:78
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:83
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:131
+#: src/gcompris/config.c:139
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:237
+#: src/gcompris/config.c:245
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:280
+#: src/gcompris/config.c:288
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:308
+#: src/gcompris/config.c:316
 msgid "Effect"
 msgstr "Effet"
+
+#: src/gcompris/config.c:353
+#, fuzzy, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "Ne peut pas trouver le répertoire d'images: %s"
+
+#: src/gcompris/config.c:387 src/gcompris/config.c:683
+#: src/gcompris/config.c:694
+#, c-format
+msgid "Skin : %s"
+msgstr ""
 
 #: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."

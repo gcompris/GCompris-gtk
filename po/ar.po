@@ -2,11 +2,10 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#: src/boards/traffic.c:115
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-02-13 11:03+0100\n"
+"POT-Creation-Date: 2003-02-17 15:50+0100\n"
 "PO-Revision-Date: 2003-02-13 11:06+0100\n"
 "Last-Translator: Nabil Ben Khalifa <nabil_benkhalifa@yahoo.fr>\n"
 "Language-Team:  <ar@li.org>\n"
@@ -355,7 +354,8 @@ msgstr ""
 "( أعطى رالف Gcompris الإذن لاستعمال رسومه "
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr "خطط لترتيب جملة من العمليات الحسابية للحصول على قيمة معينة"
 
 #: boards/algebra_guesscount.xml.in.h:3
@@ -379,7 +379,8 @@ msgstr ""
 msgid ""
 "With displayed numbers and operations, find the right combination to get the "
 "right result"
-msgstr "باستعمال الأعداد و العمليات المعروضة, جد التركيبة المناسبة للحصول على النتيجة"
+msgstr ""
+"باستعمال الأعداد و العمليات المعروضة, جد التركيبة المناسبة للحصول على النتيجة"
 
 #: boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -715,7 +716,7 @@ msgstr ""
 msgid "Motor coordination"
 msgstr ""
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "حرك الفأرة"
 
@@ -775,7 +776,7 @@ msgstr ""
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:103
+#: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
 msgid "Reading"
 msgstr "القراءة"
@@ -833,22 +834,49 @@ msgid "car"
 msgstr "سيارة"
 
 #: boards/imageid/board1.xml.in.h:13
+#, fuzzy
+msgid "cat"
+msgstr "أرجواني"
+
+#: boards/imageid/board1.xml.in.h:14
+#, fuzzy
+msgid "catch"
+msgstr "محفظة"
+
+#: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
 msgstr "جبنة"
 
-#: boards/imageid/board1.xml.in.h:14
+#: boards/imageid/board1.xml.in.h:16
 msgid "cow"
 msgstr "بقرة"
 
-#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:18
+#, fuzzy
+msgid "finish"
+msgstr "فنلندي"
+
+#: boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "منزل"
 
-#: boards/imageid/board1.xml.in.h:16
+#: boards/imageid/board1.xml.in.h:21
 msgid "pear"
 msgstr "كمثرى"
 
-#: boards/imageid/board1.xml.in.h:17
+#: boards/imageid/board1.xml.in.h:22
+msgid "plane"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
 msgstr "محفظة"
 
@@ -1015,11 +1043,11 @@ msgid ""
 "oposite order."
 msgstr ""
 
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:122
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
 msgid "Super Brain"
 msgstr ""
 
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:123
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
 msgstr ""
 
@@ -1135,31 +1163,143 @@ msgid "apple/_pple/a/i/o"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:2
-msgid "ball/_all/b/p/d"
+msgid "apple/app_e/l/h/n"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:3
-msgid "banana/b_nana/a/o/i"
+msgid "apple/appl_/e/h/a"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:4
-msgid "bed/_ed/b/l/f"
+msgid "ball/_all/b/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:5
-msgid "bottle/_ottle/b/t/p"
+msgid "ball/b_ll/a/u/o"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:6
-msgid "cake/_ake/c/p/d"
+msgid "ball/bal_/l/h/s"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:7
-msgid "house/hous_/e/a/i"
+msgid "banana/_anana/b/p/d"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:8
+msgid "banana/b_nana/a/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:9
+msgid "banana/ba_ana/n/m/b"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:10
+msgid "bed/_ed/b/l/f"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:11
+msgid "bed/b_d/e/a/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:12
+msgid "bed/be_/d/p/b"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:13
+msgid "bottle/_ottle/b/t/p"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:14
+msgid "bottle/b_ttle/o/u/d"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:15
+msgid "bottle/bott_e/l/y/r"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:16
+msgid "cake/_ake/c/p/d"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:17
+msgid "cake/c_ke/a/o/e"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:18
+msgid "cake/ca_e/k/q/c"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:19
+msgid "car/_ar/c/k/b"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:20
+msgid "car/c_r/a/k/o"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:21
+msgid "car/ca_/r/w/k"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:22
+msgid "dog/_og/d/p/q"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:23
+msgid "dog/d_g/o/g/a"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:24
+msgid "dog/do_/g/p/q"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:28
+msgid "house/_ouse/h/e/j"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:29
+msgid "house/h_use/o/f/u"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:30
+msgid "house/hous_/e/a/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:31
+msgid "plane/_lane/p/g/d"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:32
+msgid "plane/p_ane/l/j/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:33
+msgid "plane/pl_ne/a/o/s"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:34
+msgid "satchel/_atchel/s/c/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:36
+msgid "satchel/sa_chel/t/p/c"
 msgstr ""
 
 #: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
@@ -1247,7 +1387,8 @@ msgid "Paratrooper"
 msgstr "المظلي"
 
 #: boards/paratrooper.xml.in.h:5
-msgid "This board is game oriented. It doesnt needs specific skills to play with."
+msgid ""
+"This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 
 #: boards/planegame.xml.in.h:1
@@ -1386,7 +1527,7 @@ msgid ""
 "hit the keyboard enter key."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:132
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
 msgid "Practice the substraction with a funny game"
 msgstr ""
 
@@ -1453,7 +1594,8 @@ msgid ""
 msgstr ""
 
 #: boards/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 
 #: boards/target.xml.in.h:2
@@ -1476,7 +1618,7 @@ msgstr ""
 msgid "Touch the target and count your points"
 msgstr ""
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:114
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
 msgid "A sliding block puzzle game"
 msgstr ""
 
@@ -1506,21 +1648,20 @@ msgstr ""
 msgid "Editor for gcompris"
 msgstr ""
 
-#: src/boards/advanced_colors.c:526 src/boards/imageid.c:573
-#: src/boards/menu.c:533 src/boards/missingletter.c:595
-#: src/boards/read_colors.c:485 src/boards/shapegame.c:1561
-#: src/boards/traffic.c:671 src/gcompris/gameutil.c:85
-#: src/gcompris/gameutil.c:104 src/gcompris/gameutil.c:430
-#: src/gcompris/gameutil.c:431 src/gcompris/gcompris-edit.c:414
-#: src/gcompris/gcompris-edit.c:415 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:269
+#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/shapegame.c:1562 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:108
+#: src/gcompris/gameutil.c:156 src/gcompris/gameutil.c:492
+#: src/gcompris/gameutil.c:493 src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:265
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr ""
 
-#: src/boards/advanced_colors.c:529 src/boards/imageid.c:576
-#: src/boards/missingletter.c:598 src/boards/read_colors.c:488
-#: src/boards/shapegame.c:1564
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/shapegame.c:1565
 #, c-format
 msgid "find file %s !"
 msgstr ""
@@ -1557,7 +1698,7 @@ msgid ""
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
-"And check it is in /usr/bin/gnuchess"
+"And check it is in "
 msgstr ""
 
 #: src/boards/chess.c:569
@@ -1596,7 +1737,7 @@ msgstr "أقرأ حرفا"
 msgid "Learn to recognize letters"
 msgstr "تعلم تمييز الحروف"
 
-#: src/boards/clickgame.c:181
+#: src/boards/clickgame.c:179
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr ""
@@ -1605,7 +1746,7 @@ msgstr ""
 msgid "Set the watch to:"
 msgstr ""
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:104
+#: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "تعلم القراءة"
 
@@ -1616,6 +1757,11 @@ msgstr "يسار"
 #: src/boards/leftright.c:257
 msgid "right"
 msgstr "يمين"
+
+#: src/boards/machpuzzle.c:85
+#, fuzzy
+msgid "Move the mouse to machpuzzle the area and discover the background"
+msgstr "حرك الفأرة لمحو الشاشة و اكتشاف الخلفية"
 
 #: src/boards/memory.c:227
 msgid "Memory"
@@ -1677,7 +1823,7 @@ msgstr ""
 msgid "No, it was not there"
 msgstr ""
 
-#: src/boards/reversecount.c:131
+#: src/boards/reversecount.c:129
 msgid "Reverse count"
 msgstr ""
 
@@ -1702,26 +1848,6 @@ msgstr "سرعة الريح = %d /n كم/س"
 msgid "Distance to target = %d meters"
 msgstr ""
 
-#: src/boards/traffic.c:748
-#, c-format
-msgid "You've taken %d moves."
-msgstr ""
-
-#: src/boards/traffic.c:754
-#, c-format
-msgid "The best you can do is %d."
-msgstr ""
-
-#: src/boards/traffic.c:764
-#, c-format
-msgid "You've removed %d cars."
-msgstr ""
-
-#: src/boards/traffic.c:770
-#, c-format
-msgid "You need to remove %d more."
-msgstr ""
-
 #: src/gcompris/about.c:57
 msgid ""
 "Credits:\n"
@@ -1740,116 +1866,149 @@ msgid "GCompris Home Page"
 msgstr ""
 
 #: src/gcompris/about.c:222
-msgid "This software is a GNU Package and is released under the Gnu Public Licence"
+msgid ""
+"This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 
 #: src/gcompris/about.c:250
 msgid "Help"
 msgstr "مساعدة"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:155 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "موافق"
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:50
+#, fuzzy
+msgid "Amharic"
+msgstr "عربي"
+
+#: src/gcompris/config.c:51
 msgid "Arabic"
 msgstr "عربي"
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:52
 msgid "Azerbaijani Turkic"
 msgstr "تركي أذربيجاني"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:53
 msgid "German"
 msgstr "ألماني"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:54
 msgid "Greek"
 msgstr "يوناني"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:55
 msgid "English"
 msgstr ""
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:56
 msgid "Spanish"
 msgstr "إسباني"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:57
 msgid "Finnish"
 msgstr "فنلندي"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:58
 msgid "French"
 msgstr "فرنسي"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:59
 msgid "Hungarian"
 msgstr "مجري"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:60
 msgid "Italian"
 msgstr "إيطالي"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:61
 msgid "Malay"
 msgstr "ماليزي"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:62
 msgid "Dutch"
 msgstr "هولندي"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:63
+msgid "Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:64
 msgid "Brazil Portuguese"
 msgstr ""
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:65
 msgid "Romanian"
 msgstr "روماني"
 
-#: src/gcompris/config.c:58
-msgid "Swedish"
-msgstr "سويدي"
-
-#: src/gcompris/config.c:59
-msgid "Slovak"
-msgstr ""
-
-#: src/gcompris/config.c:60
-msgid "Lithuanian"
-msgstr ""
-
-#: src/gcompris/config.c:65
-msgid "No time limit"
-msgstr ""
-
 #: src/gcompris/config.c:66
-msgid "Slow timer"
+msgid "Russian"
 msgstr ""
 
 #: src/gcompris/config.c:67
+msgid "Swedish"
+msgstr "سويدي"
+
+#: src/gcompris/config.c:68
+msgid "Slovak"
+msgstr ""
+
+#: src/gcompris/config.c:69
+msgid "Turkish"
+msgstr ""
+
+#: src/gcompris/config.c:70
+msgid "Lithuanian"
+msgstr ""
+
+#: src/gcompris/config.c:75
+msgid "No time limit"
+msgstr ""
+
+#: src/gcompris/config.c:76
+msgid "Slow timer"
+msgstr ""
+
+#: src/gcompris/config.c:77
 msgid "Normal timer"
 msgstr ""
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:78
 msgid "Fast timer"
 msgstr ""
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:83
 msgid "800x600 (Default for gcompris)"
 msgstr ""
 
-#: src/gcompris/config.c:235
+#: src/gcompris/config.c:139
+msgid "GCompris Configuration"
+msgstr ""
+
+#: src/gcompris/config.c:245
 msgid "Fullscreen"
 msgstr ""
 
-#: src/gcompris/config.c:278
+#: src/gcompris/config.c:288
 msgid "Music"
 msgstr "موسيقى"
 
-#: src/gcompris/config.c:306
+#: src/gcompris/config.c:316
 msgid "Effect"
+msgstr ""
+
+#: src/gcompris/config.c:353
+#, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr ""
+
+#: src/gcompris/config.c:387 src/gcompris/config.c:683
+#: src/gcompris/config.c:694
+#, c-format
+msgid "Skin : %s"
 msgstr ""
 
 #: src/gcompris/gcompris.c:66
@@ -1880,11 +2039,11 @@ msgstr ""
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:328
+#: src/gcompris/gcompris.c:327
 msgid "GCompris I Have Understood"
 msgstr ""
 
-#: src/gcompris/gcompris.c:539
+#: src/gcompris/gcompris.c:540
 #, c-format
 msgid ""
 "GCompris\n"
@@ -1893,19 +2052,19 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 
-#: src/gcompris/help.c:168 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "متطلبات"
 
-#: src/gcompris/help.c:202 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "الهدف"
 
-#: src/gcompris/help.c:236 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr ""
 
-#: src/gcompris/help.c:270 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr ""
 
@@ -1967,4 +2126,3 @@ msgstr "انتهى الوقت"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "الوقت المتبقي = %d"
-

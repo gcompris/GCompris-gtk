@@ -525,7 +525,7 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
   }
 
   /* Quit the gnuchessx edit mode */
-  write_child (write_chan, " w - - 0 1\n");
+  write_child (write_chan, " w KQkq - 0 1\n");
 
   display_white_turn(TRUE);
 

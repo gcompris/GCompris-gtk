@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2003-01-29 21:42+0100\n"
+"POT-Creation-Date: 2003-02-17 15:50+0100\n"
 "PO-Revision-Date: 2003-01-23 02:11+0800\n"
 "Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
 "Language-Team:  <gabai-penyumbang@lists.sf.net>\n"
@@ -786,7 +786,7 @@ msgstr "Berlatih membaca dengan mencari perkataan yang padan dengan imej"
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:103
+#: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
 msgid "Reading"
 msgstr "Membaca"
@@ -1648,7 +1648,7 @@ msgstr "Hantar dart ke sasaran dan kira markah anda"
 msgid "Touch the target and count your points"
 msgstr "Sentuh sasaran dan kira markah anda"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:96
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
 msgid "A sliding block puzzle game"
 msgstr ""
 
@@ -1678,19 +1678,20 @@ msgstr "Permainan pendidikan bermula dari umur 3 tahun"
 msgid "Editor for gcompris"
 msgstr "Editor bagi gcompris"
 
-#: src/boards/advanced_colors.c:527 src/boards/imageid.c:573
-#: src/boards/missingletter.c:592 src/boards/read_colors.c:487
-#: src/boards/shapegame.c:1561 src/boards/traffic.c:622
-#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:255
+#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/shapegame.c:1562 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:108
+#: src/gcompris/gameutil.c:156 src/gcompris/gameutil.c:492
+#: src/gcompris/gameutil.c:493 src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:265
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Tidak menjumpai fail %s!"
 
-#: src/boards/advanced_colors.c:530 src/boards/imageid.c:576
-#: src/boards/missingletter.c:595 src/boards/read_colors.c:490
-#: src/boards/shapegame.c:1564
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/shapegame.c:1565
 #, c-format
 msgid "find file %s !"
 msgstr "Cari fail %s!"
@@ -1727,7 +1728,7 @@ msgid ""
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
-"And check it is in /usr/bin/gnuchess"
+"And check it is in "
 msgstr ""
 
 #: src/boards/chess.c:569
@@ -1767,7 +1768,7 @@ msgstr "Baca satu huruf"
 msgid "Learn to recognize letters"
 msgstr "Belajar untuk mengenalpasti huruff-huruf"
 
-#: src/boards/clickgame.c:181
+#: src/boards/clickgame.c:179
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Tidak boleh membuka pixmap dir: %s"
@@ -1776,7 +1777,7 @@ msgstr "Tidak boleh membuka pixmap dir: %s"
 msgid "Set the watch to:"
 msgstr "Set jam ke:"
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:104
+#: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "belajar bagaimana untuk membaca"
 
@@ -1915,118 +1916,141 @@ msgstr "Perisian in ialah Pakej GNU dan dikeluarkan dibawah Lesen Umum Gnu"
 msgid "Help"
 msgstr "Bantuan"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:156 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:50
 msgid "Amharic"
 msgstr ""
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:51
+msgid "Arabic"
+msgstr ""
+
+#: src/gcompris/config.c:52
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijani Turkic"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:53
 msgid "German"
 msgstr "German"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:54
 msgid "Greek"
 msgstr "Greek"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:55
 msgid "English"
 msgstr "Bahasa Inggeris"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:56
 msgid "Spanish"
 msgstr "Spanish"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:57
 msgid "Finnish"
 msgstr "Finnish"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:58
 msgid "French"
 msgstr "Bahasa Perancis"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:59
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:60
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:61
 msgid "Malay"
 msgstr "B. Melayu"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:62
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:63
 msgid "Portuguese"
 msgstr "Portugis"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:64
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:65
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:66
+msgid "Russian"
+msgstr ""
+
+#: src/gcompris/config.c:67
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:68
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:69
+msgid "Turkish"
+msgstr ""
+
+#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:75
 msgid "No time limit"
 msgstr "Tiada kekangan masa"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:76
 msgid "Slow timer"
 msgstr "Pemasa Perlahan"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:77
 msgid "Normal timer"
 msgstr "Pemasa Normal"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:78
 msgid "Fast timer"
 msgstr "Pemasa pantas"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:83
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default kepada gcompris)"
 
-#: src/gcompris/config.c:130
+#: src/gcompris/config.c:139
 msgid "GCompris Configuration"
 msgstr "Konfigurasi GCompris"
 
-#: src/gcompris/config.c:236
+#: src/gcompris/config.c:245
 msgid "Fullscreen"
 msgstr "Skrinpenuh"
 
-#: src/gcompris/config.c:279
+#: src/gcompris/config.c:288
 msgid "Music"
 msgstr "Muzik"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:316
 msgid "Effect"
 msgstr "Kesan"
+
+#: src/gcompris/config.c:353
+#, fuzzy, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "Tidak boleh membuka pixmap dir: %s"
+
+#: src/gcompris/config.c:387 src/gcompris/config.c:683
+#: src/gcompris/config.c:694
+#, c-format
+msgid "Skin : %s"
+msgstr ""
 
 #: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
@@ -2056,11 +2080,11 @@ msgstr "Cetak versi "
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:328
+#: src/gcompris/gcompris.c:327
 msgid "GCompris I Have Understood"
 msgstr "GCompris I Sudah difahami"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:540
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2073,19 +2097,19 @@ msgstr ""
 "Lesen: GPL\n"
 "Info selanjutnya boleh didapati di http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:168 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Keperluan"
 
-#: src/gcompris/help.c:202 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Matlamat"
 
-#: src/gcompris/help.c:236 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:270 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Kredit"
 

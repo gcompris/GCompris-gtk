@@ -19,7 +19,7 @@ EXTRA_DIST = config.rpath  \
 	$(Games_in_files) \
 	$(icon_DATA) \
 	$(Menu_DATA) \
-	gcompris.spec.in \
+	gcompris.spec \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \

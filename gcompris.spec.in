@@ -14,7 +14,8 @@ Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tgz
 BuildRoot: 	/var/tmp/gcompris-%{PACKAGE_VERSION}-root
 URL: 		http://savannah.gnu.org
 Docdir: 	%{prefix}/share/doc/gcompris-%{PACKAGE_VERSION}
-Requires:	gnome-libs libxml2 gdk-pixbuf gnuchess %canvaspackage
+Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage
+Requires:       gnuchess >= 5.02
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 
 %description
@@ -140,11 +141,11 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/menu/*
 %dir %{prefix}/share/gcompris
 %dir %{prefix}/share/gcompris/boards
+%dir %{prefix}/share/gcompris/boards/skins/*/*
 %{prefix}/share/gcompris/boards/[^s]*
 %{prefix}/share/gcompris/boards/s[cmu]*
 %dir %{prefix}/share/gcompris/boards/sounds
 %{prefix}/share/gcompris/boards/sounds/HOWTO_ENCODE
-%{prefix}/share/gcompris/sounds
 %{prefix}/share/gnome/apps/Games/*
 %{prefix}/share/gnome/help/*
 %{prefix}/info/*

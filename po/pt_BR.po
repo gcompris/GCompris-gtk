@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris-0.3.4\n"
-"POT-Creation-Date: 2003-01-29 21:42+0100\n"
+"POT-Creation-Date: 2003-02-17 15:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Isaías V. Prestes <isix@uol.com.br>\n"
 "Language-Team: pt_BR <pt_BR@li.org>\n"
@@ -782,7 +782,7 @@ msgstr ""
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:103
+#: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
 msgid "Reading"
 msgstr ""
@@ -1624,7 +1624,7 @@ msgstr ""
 msgid "Touch the target and count your points"
 msgstr ""
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:96
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
 msgid "A sliding block puzzle game"
 msgstr ""
 
@@ -1654,19 +1654,20 @@ msgstr ""
 msgid "Editor for gcompris"
 msgstr ""
 
-#: src/boards/advanced_colors.c:527 src/boards/imageid.c:573
-#: src/boards/missingletter.c:592 src/boards/read_colors.c:487
-#: src/boards/shapegame.c:1561 src/boards/traffic.c:622
-#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:255
+#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/shapegame.c:1562 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:108
+#: src/gcompris/gameutil.c:156 src/gcompris/gameutil.c:492
+#: src/gcompris/gameutil.c:493 src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:265
 #, fuzzy, c-format
 msgid "Couldn't find file %s !"
 msgstr "Impossível encontrar o arquivo pixmap %s !"
 
-#: src/boards/advanced_colors.c:530 src/boards/imageid.c:576
-#: src/boards/missingletter.c:595 src/boards/read_colors.c:490
-#: src/boards/shapegame.c:1564
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/shapegame.c:1565
 #, fuzzy, c-format
 msgid "find file %s !"
 msgstr "Impossível encontrar o arquivo pixmap %s !"
@@ -1704,7 +1705,7 @@ msgid ""
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
-"And check it is in /usr/bin/gnuchess"
+"And check it is in "
 msgstr ""
 
 #: src/boards/chess.c:569
@@ -1744,7 +1745,7 @@ msgstr "Clique em mim"
 msgid "Learn to recognize letters"
 msgstr ""
 
-#: src/boards/clickgame.c:181
+#: src/boards/clickgame.c:179
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Impossível abrir diretório de pixmap: %s"
@@ -1754,7 +1755,7 @@ msgstr "Impossível abrir diretório de pixmap: %s"
 msgid "Set the watch to:"
 msgstr "Acerte o relógio para:"
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:104
+#: src/boards/imageid.c:110 src/boards/missingletter.c:102
 #, fuzzy
 msgid "Learn how to read"
 msgstr "Aprenda como acertar as horas do relógio"
@@ -1883,117 +1884,140 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:156 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr ""
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:50
 msgid "Amharic"
 msgstr ""
 
-#: src/gcompris/config.c:45
-msgid "Azerbaijani Turkic"
-msgstr ""
-
-#: src/gcompris/config.c:46
-msgid "German"
-msgstr ""
-
-#: src/gcompris/config.c:47
-msgid "Greek"
-msgstr ""
-
-#: src/gcompris/config.c:48
-msgid "English"
-msgstr ""
-
-#: src/gcompris/config.c:49
-msgid "Spanish"
-msgstr ""
-
-#: src/gcompris/config.c:50
-msgid "Finnish"
-msgstr ""
-
 #: src/gcompris/config.c:51
-msgid "French"
+msgid "Arabic"
 msgstr ""
 
 #: src/gcompris/config.c:52
-msgid "Hungarian"
+msgid "Azerbaijani Turkic"
 msgstr ""
 
 #: src/gcompris/config.c:53
-msgid "Italian"
+msgid "German"
 msgstr ""
 
 #: src/gcompris/config.c:54
-msgid "Malay"
+msgid "Greek"
 msgstr ""
 
 #: src/gcompris/config.c:55
-msgid "Dutch"
+msgid "English"
 msgstr ""
 
 #: src/gcompris/config.c:56
-msgid "Portuguese"
+msgid "Spanish"
 msgstr ""
 
 #: src/gcompris/config.c:57
-msgid "Brazil Portuguese"
+msgid "Finnish"
 msgstr ""
 
 #: src/gcompris/config.c:58
-msgid "Romanian"
+msgid "French"
 msgstr ""
 
 #: src/gcompris/config.c:59
-msgid "Swedish"
+msgid "Hungarian"
 msgstr ""
 
 #: src/gcompris/config.c:60
-msgid "Slovak"
+msgid "Italian"
 msgstr ""
 
 #: src/gcompris/config.c:61
-msgid "Lithuanian"
+msgid "Malay"
+msgstr ""
+
+#: src/gcompris/config.c:62
+msgid "Dutch"
+msgstr ""
+
+#: src/gcompris/config.c:63
+msgid "Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:64
+msgid "Brazil Portuguese"
+msgstr ""
+
+#: src/gcompris/config.c:65
+msgid "Romanian"
 msgstr ""
 
 #: src/gcompris/config.c:66
-msgid "No time limit"
+msgid "Russian"
 msgstr ""
 
 #: src/gcompris/config.c:67
-msgid "Slow timer"
+msgid "Swedish"
 msgstr ""
 
 #: src/gcompris/config.c:68
-msgid "Normal timer"
+msgid "Slovak"
 msgstr ""
 
 #: src/gcompris/config.c:69
+msgid "Turkish"
+msgstr ""
+
+#: src/gcompris/config.c:70
+msgid "Lithuanian"
+msgstr ""
+
+#: src/gcompris/config.c:75
+msgid "No time limit"
+msgstr ""
+
+#: src/gcompris/config.c:76
+msgid "Slow timer"
+msgstr ""
+
+#: src/gcompris/config.c:77
+msgid "Normal timer"
+msgstr ""
+
+#: src/gcompris/config.c:78
 msgid "Fast timer"
 msgstr ""
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:83
 msgid "800x600 (Default for gcompris)"
 msgstr ""
 
-#: src/gcompris/config.c:130
+#: src/gcompris/config.c:139
 msgid "GCompris Configuration"
 msgstr ""
 
-#: src/gcompris/config.c:236
+#: src/gcompris/config.c:245
 msgid "Fullscreen"
 msgstr ""
 
-#: src/gcompris/config.c:279
+#: src/gcompris/config.c:288
 msgid "Music"
 msgstr ""
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:316
 msgid "Effect"
+msgstr ""
+
+#: src/gcompris/config.c:353
+#, fuzzy, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "Impossível abrir diretório de pixmap: %s"
+
+#: src/gcompris/config.c:387 src/gcompris/config.c:683
+#: src/gcompris/config.c:694
+#, c-format
+msgid "Skin : %s"
 msgstr ""
 
 #: src/gcompris/gcompris.c:66
@@ -2024,11 +2048,11 @@ msgstr ""
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:328
+#: src/gcompris/gcompris.c:327
 msgid "GCompris I Have Understood"
 msgstr "GCompris Eu Já Entendi"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:540
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2037,19 +2061,19 @@ msgid ""
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 
-#: src/gcompris/help.c:168 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr ""
 
-#: src/gcompris/help.c:202 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr ""
 
-#: src/gcompris/help.c:236 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr ""
 
-#: src/gcompris/help.c:270 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr ""
 

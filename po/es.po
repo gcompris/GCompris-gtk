@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gCompris\n"
-"POT-Creation-Date: 2003-02-01 18:53+0100\n"
+"POT-Creation-Date: 2003-02-17 15:50+0100\n"
 "PO-Revision-Date: 2003-02-01 21:11-0300\n"
 "Last-Translator: Pablo Gonzalo del Campo <pablodc@bigfoot.com>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
@@ -357,7 +357,8 @@ msgstr ""
 "para incluir sus fotografías. Muchas gracias Ralf"
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Desarrolla una estrategia para resolver un conjunto de operaciones "
 "aritméticas para encontrar un valor"
@@ -368,7 +369,8 @@ msgstr "Encuentra las operaciones correctas para obtener el resultado"
 
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr "La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
+msgstr ""
+"La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
 
 #: boards/algebra_guesscount.xml.in.h:5
 msgid ""
@@ -839,7 +841,7 @@ msgstr "Ejercicio de lectura en que se debe asociar una palabra con una imagen"
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:103
+#: src/boards/imageid.c:109 src/boards/missingletter.c:101
 #: src/boards/reading.c:100
 msgid "Reading"
 msgstr "Lectura"
@@ -1505,8 +1507,10 @@ msgid "Paratrooper"
 msgstr "Paracaídista"
 
 #: boards/paratrooper.xml.in.h:5
-msgid "This board is game oriented. It doesnt needs specific skills to play with."
-msgstr "Este tablero es un juego. No necesita conocimientos específicos para jugarse."
+msgid ""
+"This board is game oriented. It doesnt needs specific skills to play with."
+msgstr ""
+"Este tablero es un juego. No necesita conocimientos específicos para jugarse."
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
@@ -1627,7 +1631,8 @@ msgstr "Ejercicio de lectura horizontal"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of word and tell if the given word is in it"
-msgstr "Lee una lista de palabras y busca si la palabra propuesta esta en la lista"
+msgstr ""
+"Lee una lista de palabras y busca si la palabra propuesta esta en la lista"
 
 #: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -1728,7 +1733,8 @@ msgstr "Juegos de números"
 
 #: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
+msgstr ""
+"Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
 
 #: boards/smallnumbers.xml.in.h:5
 msgid ""
@@ -1739,7 +1745,8 @@ msgstr ""
 "puntos en el dado que cae."
 
 #: boards/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Puede mover el ratón, puede leer números y contar hasta 15 para el primer "
 "nivel"
@@ -1768,7 +1775,7 @@ msgstr "Lanza dardos sobre un blanco y cuenta tu puntaje."
 msgid "Touch the target and count your points"
 msgstr "Toca el blanco y cuenta tus puntos"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:96
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
 msgid "A sliding block puzzle game"
 msgstr "Un juego de rompecabezas deslizante"
 
@@ -1786,7 +1793,8 @@ msgstr "Palabras que caen"
 
 #: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
 msgid "Fully type the falling words before they reach the ground"
-msgstr "Escribe completamente las palabras que caen antes de que lleguen al suelo"
+msgstr ""
+"Escribe completamente las palabras que caen antes de que lleguen al suelo"
 
 #: boards/wordsgame.xml.in.h:4
 msgid "Keyboard training"
@@ -1800,19 +1808,20 @@ msgstr "Juego para niños desde 3 años"
 msgid "Editor for gcompris"
 msgstr "Editor para gcompris"
 
-#: src/boards/advanced_colors.c:527 src/boards/imageid.c:573
-#: src/boards/missingletter.c:592 src/boards/read_colors.c:487
-#: src/boards/shapegame.c:1561 src/boards/traffic.c:622
-#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:433 src/gcompris/gameutil.c:434
-#: src/gcompris/images_selector.c:347 src/gcompris/soundutil.c:255
+#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
+#: src/boards/shapegame.c:1562 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:90 src/gcompris/gameutil.c:108
+#: src/gcompris/gameutil.c:156 src/gcompris/gameutil.c:492
+#: src/gcompris/gameutil.c:493 src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:265
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "¡No se ha podido encontrar el archivo %s!"
 
-#: src/boards/advanced_colors.c:530 src/boards/imageid.c:576
-#: src/boards/missingletter.c:595 src/boards/read_colors.c:490
-#: src/boards/shapegame.c:1564
+#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
+#: src/boards/shapegame.c:1565
 #, c-format
 msgid "find file %s !"
 msgstr "¡Busque el archivo %s!"
@@ -1850,12 +1859,13 @@ msgstr ""
 "Por favor actualice a la versión 5 o superior de gnuchess."
 
 #: src/boards/chess.c:198
+#, fuzzy
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
 "Find this program on http://www.rpmfind.net or in your\n"
 "GNU/Linux distribution\n"
-"And check it is in /usr/bin/gnuchess"
+"And check it is in "
 msgstr ""
 "Error: El programa externo gnuchess es indispensable\n"
 "para jugar ajedrez en gcompris.\n"
@@ -1899,7 +1909,7 @@ msgstr "Lee una letra"
 msgid "Learn to recognize letters"
 msgstr "Aprende a reconocer las letras"
 
-#: src/boards/clickgame.c:181
+#: src/boards/clickgame.c:179
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "No se puede encontrar el archivo pixmap: %s"
@@ -1908,7 +1918,7 @@ msgstr "No se puede encontrar el archivo pixmap: %s"
 msgid "Set the watch to:"
 msgstr "Pon la hora en:"
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:104
+#: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Aprende como leer la hora"
 
@@ -2034,7 +2044,8 @@ msgid "GCompris Home Page"
 msgstr "Página de GCompris"
 
 #: src/gcompris/about.c:222
-msgid "This software is a GNU Package and is released under the Gnu Public Licence"
+msgid ""
+"This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública GNU (GPL)"
@@ -2043,118 +2054,142 @@ msgstr ""
 msgid "Help"
 msgstr "Ayuda"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:156 src/gcompris/help.c:342
+#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:50
 msgid "Amharic"
 msgstr "Amharic"
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:51
+#, fuzzy
+msgid "Arabic"
+msgstr "Amharic"
+
+#: src/gcompris/config.c:52
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijani Turkic"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:53
 msgid "German"
 msgstr "Alemán"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:54
 msgid "Greek"
 msgstr "Griego"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:55
 msgid "English"
 msgstr "Inglés"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:56
 msgid "Spanish"
 msgstr "Español"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:57
 msgid "Finnish"
 msgstr "Finlandés"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:58
 msgid "French"
 msgstr "Francés"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:59
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:60
 msgid "Italian"
 msgstr "Italiano"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:61
 msgid "Malay"
 msgstr "Malayo"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:62
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:63
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:64
 msgid "Brazil Portuguese"
 msgstr "Portugués de Brasil"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:65
 msgid "Romanian"
 msgstr "Rumano"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:66
+msgid "Russian"
+msgstr ""
+
+#: src/gcompris/config.c:67
 msgid "Swedish"
 msgstr "Sueco"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:68
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:69
+msgid "Turkish"
+msgstr ""
+
+#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:75
 msgid "No time limit"
 msgstr "Si límite de tiempo"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:76
 msgid "Slow timer"
 msgstr "Temporizador lento"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:77
 msgid "Normal timer"
 msgstr "Temporizador normal"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:78
 msgid "Fast timer"
 msgstr "Temporizador rápido"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:83
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (predeterminado para gcompris)"
 
-#: src/gcompris/config.c:130
+#: src/gcompris/config.c:139
 msgid "GCompris Configuration"
 msgstr "Menú de Configuración de GCompris"
 
-#: src/gcompris/config.c:236
+#: src/gcompris/config.c:245
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: src/gcompris/config.c:279
+#: src/gcompris/config.c:288
 msgid "Music"
 msgstr "Música"
 
-#: src/gcompris/config.c:307
+#: src/gcompris/config.c:316
 msgid "Effect"
 msgstr "Efecto"
+
+#: src/gcompris/config.c:353
+#, fuzzy, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "No se puede encontrar el archivo pixmap: %s"
+
+#: src/gcompris/config.c:387 src/gcompris/config.c:683
+#: src/gcompris/config.c:694
+#, c-format
+msgid "Skin : %s"
+msgstr ""
 
 #: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
@@ -2184,11 +2219,11 @@ msgstr "Imprime la versión de "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Usar el lienzo suavizado (mas lento)."
 
-#: src/gcompris/gcompris.c:328
+#: src/gcompris/gcompris.c:327
 msgid "GCompris I Have Understood"
 msgstr "GCompris, He comprendido"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:540
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2201,19 +2236,19 @@ msgstr ""
 "Licencia: GPL\n"
 "Más información en http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:168 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Pre-requisito"
 
-#: src/gcompris/help.c:202 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Objetivo"
 
-#: src/gcompris/help.c:236 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:270 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Crédito"
 
@@ -2325,4 +2360,3 @@ msgstr "Tiempo disponible = %d"
 
 #~ msgid "Set the masses in the decreasing order"
 #~ msgstr "Ordena las pesas de mayor a menor"
-

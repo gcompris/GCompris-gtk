@@ -1,6 +1,11 @@
-2003-02-17  bruno  <bruno.coudoin@free.fr>
+2003-02-17  Bruno Coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
+	* Makefile.am: re-added gcompris.spec instead of .spec.in
+	* configure.in: Release 2.3
+	* gcompris.spec.in: added requires gnuchess 5.04
+	* src/boards/chess.c: (chess_create_item): fixed castling issue
+
+2003-02-17  bruno  <bruno.coudoin@free.fr>
 
 	* boards/skins/*: Created the skins directory with images from boards/gcompris
 	* src/boards/advanced_colors.c: (item_event): added support for skins
