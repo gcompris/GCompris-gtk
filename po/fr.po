@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-03-06 21:16+0100\n"
+"POT-Creation-Date: 2002-03-12 10:40+0100\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -165,11 +165,11 @@ msgstr "Apprentissage de l'heure"
 msgid "Discover the Computer"
 msgstr "Découvre l'ordinateur"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:168
+#: boards/draw.xml.in.h:1 src/boards/draw.c:179
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:169
+#: boards/draw.xml.in.h:2 src/boards/draw.c:180
 msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative où l'on peut dessiner librement"
 
@@ -189,15 +189,17 @@ msgid "Needs to handle the mouse with the click easily"
 msgstr "Doit être capable de manipuler la souris et de cliquer facilement"
 
 #: boards/draw.xml.in.h:5
-#, fuzzy
 msgid ""
 "On the left select a drawing tool, on the bottom select a color then click "
 "on the white area and drag to create a new shape. To go faster, you can use "
 "the middle mouse button to delete an object."
 msgstr ""
-"Sur la gauche, sélectionner un outil de dessin, en bas sélectionner une couleur\n"
-"puis cliquer dans la zone blanche en glissant pour créer une nouvelle forme.\n"
-"Pour aller plus vite, on peut utiliser la touche du milieu pour détruire un objet."
+"Sur la gauche, sélectionner un outil de dessin, en bas sélectionner une "
+"couleur\n"
+"puis cliquer dans la zone blanche en glissant pour créer une nouvelle "
+"forme.\n"
+"Pour aller plus vite, on peut utiliser la touche du milieu pour détruire un "
+"objet."
 
 #: boards/erase.xml.in.h:2 src/boards/erase.c:73
 msgid "Move the mouse"
@@ -699,7 +701,7 @@ msgstr "Lecture"
 msgid "Learn how to read"
 msgstr "Apprends à lire"
 
-#: src/boards/imageid.c:570 src/boards/menu.c:502
+#: src/boards/imageid.c:570 src/boards/menu.c:537
 #: src/boards/missingletter.c:587 src/boards/shapegame.c:1306
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
 #: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
@@ -784,11 +786,11 @@ msgstr "gauche"
 msgid "right"
 msgstr "droite"
 
-#: src/boards/colors.c:68
+#: src/boards/colors.c:67
 msgid "Colors"
 msgstr "Couleurs"
 
-#: src/boards/colors.c:69
+#: src/boards/colors.c:68
 msgid "Click on the right color"
 msgstr "Clique sur la bonne couleur"
 
@@ -917,11 +919,11 @@ msgstr "lance gcompris sans le son."
 msgid "Prints the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:286
+#: src/gcompris/gcompris.c:289
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:463
+#: src/gcompris/gcompris.c:466
 #, c-format
 msgid ""
 "GCompris\n"
