@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-29 11:28+0200\n"
-"PO-Revision-Date: 2004-09-29 16:01+0200\n"
+"POT-Creation-Date: 2004-10-19 19:00+0200\n"
+"PO-Revision-Date: 2004-10-19 21:59+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -683,11 +683,6 @@ msgstr ""
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Vervoer"
-
-# 8ste eeuw?
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
-msgstr "VIII eeuw"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1990,8 +1985,8 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, De Versterkingen te Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr "Cassat, Zomer - 1895"
+msgid "Cassatt, Mary - Summertime - 1895"
+msgstr "Cassatt, Mary - Zomer - 1895"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -1999,7 +1994,7 @@ msgstr "Vincent Van Gogh, Dorpsstraat in Auvers - 1890"
 
 # Probeer de parachutist op de boot te laten landen
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
+msgid "Help Tux the parachuter land safely"
 msgstr "Help Tux de parachutist veilig te landen"
 
 #: boards/paratrooper.xml.in.h:2
@@ -2012,16 +2007,17 @@ msgstr ""
 "openen."
 
 # engels taalfout: He needs to take watch out for the wind....
+# .. the parachuter need help to....
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
+"In this game, Tux the parachuter need help to land safely on the fishing "
 "boat. He needs to take watch out for the wind direction and speed."
 msgstr ""
 "In dit spel heeft Tux de parachutist hulp nodig om veilig te landen op de "
 "vissersboot. Hij moet rekening houden met de windrichting en snelheid."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
 msgstr "Parachutist"
 
 #: boards/paratrooper.xml.in.h:5
@@ -2238,7 +2234,7 @@ msgstr ""
 "muisknop tel je af. Controleer je keuze door op OK te klikken, of door de "
 "Enter-toets in te drukken."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
 msgstr "Oefenen met aftrekken in een leuk spel"
 
@@ -2455,8 +2451,8 @@ msgstr "Educatieve software gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1848 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
+#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
+#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2465,7 +2461,7 @@ msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1851
+#: src/boards/shapegame.c:1853
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -2482,15 +2478,15 @@ msgstr ""
 "Tux heeft een probleem met zijn boot. Hij moet ermee door een sluis.\n"
 "Help Tux en leer hoe een sluis werkt."
 
-#: src/boards/chess.c:139
+#: src/boards/chess.c:137
 msgid "Learning Chess"
 msgstr "Leer schaken"
 
-#: src/boards/chess.c:140
+#: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
 msgstr "Schaken tegen Tux in leermodus"
 
-#: src/boards/chess.c:193
+#: src/boards/chess.c:191
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2502,7 +2498,7 @@ msgstr ""
 "gnuchess heeft.\n"
 "Doe een upgrade naar gnuchess 5 of hoger."
 
-#: src/boards/chess.c:200
+#: src/boards/chess.c:198
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2516,31 +2512,31 @@ msgstr ""
 "of in uw GNU/Linux distributie.\n"
 "Controleer ook of het staat in "
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Wit's beurt"
 
-#: src/boards/chess.c:579
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Zwart's beurt"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Wit schaak"
 
-#: src/boards/chess.c:722
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Zwart schaak"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Zwart schaakmat"
 
-#: src/boards/chess.c:1059
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Wit schaakmat"
 
-#: src/boards/chess.c:1064
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
@@ -2634,6 +2630,10 @@ msgstr "Selecteer een spel"
 #: src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr "Leer met geld omgaan"
+
+#: src/boards/paratrooper.c:104
+msgid "Paratrooper"
+msgstr "Parachutist"
 
 #: src/boards/paratrooper.c:105
 msgid "Direct the paratrooper to help him land safely"
@@ -2743,7 +2743,7 @@ msgstr "Kan geen woordenbestand openen voor uw locale"
 msgid "Error: The wordfile package used for your locale is corrupted."
 msgstr "Fout: het woordbestand-pakket voor uw locale is beschadigd."
 
-#: src/boards/reversecount.c:140
+#: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Omgekeerd tellen"
 
@@ -2831,10 +2831,12 @@ msgstr ""
 #: src/gcompris/about.c:73 src/gcompris/interface.c:484
 msgid "translator_credits"
 msgstr ""
-"Tino Meinen <a.t.meinen@chello.nl>\n"
-"Dirk Schouten <schoutdi@knoware.nl>\n"
-"Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>\n"
-"Sander Devrieze <s.devrieze@pandora.be>"
+"Tino Meinen\n"
+"Dirk Schouten\n"
+"Herman Bruyninckx\n"
+"Sander Devrieze\n"
+"\n"
+"Bezoek http://nl.gnome.org voor meer informatie"
 
 #: src/gcompris/about.c:105
 msgid "About GCompris"
@@ -2858,8 +2860,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:204
-#: src/gcompris/gameutil.c:850 src/gcompris/help.c:353
+#: src/gcompris/about.c:316 src/gcompris/config.c:205
+#: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2908,16 +2910,17 @@ msgid "Greek"
 msgstr "Grieks"
 
 #: src/gcompris/config.c:72
-msgid "American English"
-msgstr "Amerikaans Engels"
+msgid "English (Canadian)"
+msgstr "Engels (Canadees)"
 
 #: src/gcompris/config.c:73
-msgid "Great Britain English"
-msgstr "Brits Engels"
+msgid "English (Great Britain)"
+msgstr "Engels (Groot Britannië)"
 
+# amerikaans?
 #: src/gcompris/config.c:74
-msgid "Canadian English"
-msgstr "Canadees Engels"
+msgid "English (USA)"
+msgstr "Engels (USA)"
 
 #: src/gcompris/config.c:75
 msgid "Spanish"
@@ -2973,127 +2976,131 @@ msgid "Dutch"
 msgstr "Nederlands"
 
 #: src/gcompris/config.c:88
-msgid "Norwegian"
-msgstr "Noors"
+msgid "Norwegian Bokmal"
+msgstr "Noors Bokmal"
 
 #: src/gcompris/config.c:89
+msgid "Norwegian Nynorsk"
+msgstr "Noors Nynorsk"
+
+#: src/gcompris/config.c:90
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Albanian"
 msgstr "Albanees"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Turkish"
 msgstr "Turks"
 
 # Vlaams?
 # Waals
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Walloon"
 msgstr "Walloons"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "No filter"
 msgstr "Geen filter"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "Only this level"
 msgstr "Alleen dit niveau"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "Up to this level"
 msgstr "Tot aan dit niveau"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "This level and above"
 msgstr "Vanaf dit niveau en hoger"
 
-#: src/gcompris/config.c:178
+#: src/gcompris/config.c:179
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:287
+#: src/gcompris/config.c:288
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:330
+#: src/gcompris/config.c:331
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:358
+#: src/gcompris/config.c:359
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:392
+#: src/gcompris/config.c:393
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:413
+#: src/gcompris/config.c:414
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: src/gcompris/config.c:428 src/gcompris/config.c:813
-#: src/gcompris/config.c:824
+#: src/gcompris/config.c:429 src/gcompris/config.c:814
+#: src/gcompris/config.c:825
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3110,15 +3117,15 @@ msgstr "LADEN"
 msgid "SAVE"
 msgstr "OPSLAAN"
 
-#: src/gcompris/gameutil.c:128
+#: src/gcompris/gameutil.c:129
 msgid "Couldn't find file"
 msgstr "Kan bestand niet vinden!"
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid "This activity is incomplete."
 msgstr "Deze activiteit is niet voltooid."
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:132
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3272,7 +3279,7 @@ msgstr "%a %d %b %H:%M:%S %Z %Y"
 msgid "Couldn't open music dir: %s"
 msgstr "Kon muziek-map niet openen: %s"
 
-#: src/gcompris/soundutil.c:182
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -3294,6 +3301,19 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+# 8ste eeuw?
+#~ msgid "VIII Century"
+#~ msgstr "VIII eeuw"
+
+#~ msgid "American English"
+#~ msgstr "Amerikaans Engels"
+
+#~ msgid "Great Britain English"
+#~ msgstr "Brits Engels"
+
+#~ msgid "Canadian English"
+#~ msgstr "Canadees Engels"
 
 #~ msgid "Regions of France"
 #~ msgstr "Franse regios"
@@ -3458,9 +3478,6 @@ msgstr "Resterende tijd = %d"
 #~ msgstr ""
 #~ "Bij elk niveau wordt een tekening getoond aan de rechterzijde. Je moet "
 #~ "hiervan de symmetrie in het linkergedeelte natekenen."
-
-#~ msgid "English"
-#~ msgstr "Engels"
 
 #~ msgid "Simple addition"
 #~ msgstr "Eenvoudige optelling"
