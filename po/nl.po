@@ -2,15 +2,15 @@
 # Copyright (C) 2000,2003 Free Software Foundation, Inc.
 # Dirk Schouten <schoutdi@knoware.nl>, 2000.
 # Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>, 2001, 2002.
-# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2003
+# Tino Meinen <a.t.meinen@chello.nl>, 2002, 2003, 2004
 # Sander Devrieze <s.devrieze@pandora.be>, 2003
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-18 19:34+0100\n"
-"PO-Revision-Date: 2003-12-19 04:05+0100\n"
+"POT-Creation-Date: 2004-01-05 14:46+0100\n"
+"PO-Revision-Date: 2004-01-05 17:03+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -776,10 +776,6 @@ msgstr "Leren tellen"
 msgid "Place the items in the best way to count them"
 msgstr "Zet de dingen in de beste volgorde om ze te tellen"
 
-#: boards/experience.xml.in.h:1
-msgid "Go to experiences activities"
-msgstr "Ga naar de ervaringsoefeningen"
-
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
@@ -795,6 +791,10 @@ msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Beweeg de muis tot alle blokken verdwijnen."
+
+#: boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Ga naar de ervaringsoefeningen"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
@@ -1156,7 +1156,7 @@ msgstr "Zeggen of het een rechterhand of een linkerhand is"
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kan de pijltjes op het toetsenbord gebruiken om een object te bewegen."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:127
+#: boards/maze.xml.in.h:2 src/boards/maze.c:128
 msgid "Find your way out of the maze"
 msgstr "Vind de uitgang van de doolhof"
 
@@ -1164,7 +1164,7 @@ msgstr "Vind de uitgang van de doolhof"
 msgid "Help Tux get out of this maze."
 msgstr "Haal Tux uit de doolhof"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:126
+#: boards/maze.xml.in.h:4 src/boards/maze.c:127
 msgid "Maze"
 msgstr "Doolhof"
 
@@ -1183,10 +1183,17 @@ msgstr "Vind de uitgang van de doolhof"
 #: boards/maze3D.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to "
-"switch between 2D and 3D mode"
-msgstr ""
-"Gebruik de pijltjes op het toetsenbord om Tux naar de deur te brengen. "
-"Gebruik de spatiebalk om te wisselen tussen 2D en 3D"
+"switch between 2D and 3D mode. 2D mode gives you just an indication on your "
+"position like a map. You cannot move tux in 2D mode."
+msgstr "Gebruik de pijltjestoetsen om Tux naar de deur te brengen. Gebruik de spatiebalk om te wisselen tussen weergave in twee dimensies of drie dimensies. Weergave in 2D geeft een indicatie van je positie als op een landkaart. Je kunt Tux niet bewegen in tweedimensionale weergave."
+
+#: boards/melody.xml.in.h:1
+msgid "Ear training activity"
+msgstr "Gehoortraining"
+
+#: boards/melody.xml.in.h:2
+msgid "Repeat a melody"
+msgstr "Een melodie herhalen"
 
 #: boards/memory.xml.in.h:1
 msgid ""
@@ -1703,7 +1710,7 @@ msgstr ""
 "in het linkergedeelte natekenen."
 
 # vormen ipv objecten?
-#: boards/redraw.xml.in.h:2
+#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First you must select the proper tool in the tool bar. Then, you must drag "
 "the mouse to create objects. When you are done, click on the OK button, you "
@@ -1717,9 +1724,15 @@ msgstr ""
 "fouten hebt gemaakt. De volgorde van de objecten (boven/onder) doet er niet "
 "toe, maar kijk uit dat je geen ongewilde objecten onder andere hebt."
 
-#: boards/redraw.xml.in.h:3
+#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Teken het gegeven item opnieuw"
+
+#: boards/redraw_symmetrical.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw its "
+"symmetry in the left area."
+msgstr "Bij elk niveau wordt een tekening getoond aan de rechterzijde. Je moet hiervan de symmetrie in het linkergedeelte natekenen."
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2100,6 +2113,10 @@ msgstr "rechts"
 msgid "Move the mouse to machpuzzle the area and discover the background"
 msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
+#: src/boards/maze.c:446
+msgid "Look at your position and switch back to 3D mode to move"
+msgstr "Bekijk je positie en ga terug naar 3D-modus om te kunnen bewegen"
+
 #: src/boards/memory.c:227
 msgid "Memory"
 msgstr "Geheugen"
@@ -2149,6 +2166,8 @@ msgstr "Speciaal bord dat python in gcompris inbed."
 #. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #.
 #. PythonTest Board module
+#. These are used to let us restart only after the bonux is displayed.
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
 #. TOOL SELECTION
 #. COLOR SELECTION
 #. Define the coord of each drawing area
@@ -2164,11 +2183,13 @@ msgstr "Speciaal bord dat python in gcompris inbed."
 #. only have to kill it. The canvas deletes all the items it contains automaticaly.
 #. Remove the root item removes all the others inside it
 #. Delete error previous mark if any
-#. Do nothing special
+#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+#. the game is won
 #. Save a copy of the target drawing future comparison
 #. Save a copy of the drawing cause we need to remove empty items
 #. Remove all empty items
 #. Need to check if target image equals drawing image
+#. This is a WIN
 #. Delete previous mark if any
 #. Create our rootitem for error items mark
 #. display where there is errors
@@ -2190,7 +2211,7 @@ msgstr "Speciaal bord dat python in gcompris inbed."
 #. Try the next level
 #. the current board is finished : bail out
 #. display current/sublevel number
-#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Niveau"
 
@@ -2213,7 +2234,17 @@ msgstr "Niveau"
 #. Work fine for rect and ellipse but not line
 #. so that y2 > y1 and x2 > x1
 #.
+#.
+#. Take a drawing and return a symmetrical one
+#.
+#. Make a deepcopy of the list
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
+#. Symmetrical view
 #. Draw the image target
+#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
+#.
 #. Save the drawing in image_target for future comparison
 #. Create our rootitem for target items
 #. The images target are always drawn on the drawing area to ease the final comparison
@@ -2260,7 +2291,7 @@ msgstr "Niveau"
 #. 2 = in target area
 #. 3 = out of both area
 #.
-#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr "Coördinaat"
 
