@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/06/15 01:33:41 bcoudoin>
+ * Time-stamp: <2004/09/04 00:22:18 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1380,16 +1380,18 @@ add_shape_to_canvas(Shape *shape)
 	}
       else
 	{
+	  int point_size = 4;
+
 	  /* Display a point to highlight the target location of this shape */
 	  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
 					gnome_canvas_ellipse_get_type(),
-					"x1", (double)shape->x-2.5,
-					"y1", (double)shape->y-2.5,
-					"x2", (double)shape->x+2.5,
-					"y2", (double)shape->y+2.5,
+					"x1", (double)shape->x-point_size,
+					"y1", (double)shape->y-point_size,
+					"x2", (double)shape->x+point_size,
+					"y2", (double)shape->y+point_size,
 					"fill_color_rgba", 0xEf000080,
 					"outline_color", "black",
-					"width_pixels", 0,
+					"width_pixels", 1,
 					NULL);
 	  shape->target_point = item;
 	  gtk_signal_connect(GTK_OBJECT(item), "event",

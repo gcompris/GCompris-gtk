@@ -55,8 +55,8 @@ static gboolean		 board_paused = TRUE;
 
 typedef enum
   {
-    TOOL_LOAD		= 0,
-    TOOL_SAVE		= 1,
+    TOOL_SAVE		= 0,
+    TOOL_LOAD		= 1,
     TOOL_RECT		= 2,
     TOOL_FILLED_RECT	= 3,
     TOOL_CIRCLE		= 4,
@@ -84,8 +84,8 @@ static GnomeCanvasItem	*selectionToolItem = NULL;
 // Used to cross reference pixmap for the tools
 static char *tool_pixmap_name[] =
   {
-    "draw/tool-load.png",            "draw/tool-load.png",
     "draw/tool-save.png",            "draw/tool-save.png",
+    "draw/tool-load.png",            "draw/tool-load.png",
     "draw/tool-rectangle.png",       "draw/tool-rectangle_on.png",
     "draw/tool-filledrectangle.png", "draw/tool-filledrectangle_on.png",
     "draw/tool-circle.png",          "draw/tool-circle_on.png",
@@ -183,6 +183,8 @@ static void	 config(void);
 
 static void	 draw_destroy_all_items(void);
 static void	 draw_next_level(void);
+static ToolList	 get_tool(GnomeCanvasItem *item);
+static void	 create_anchors(GnomeCanvasItem *item);
 static void	 display_anchors(AnchorsItem *anchorsItem, gboolean visible);
 static void	 display_color_selector(GnomeCanvasGroup *parent);
 static void	 display_tool_selector(GnomeCanvasGroup *parent);
@@ -202,8 +204,8 @@ static guint	 get_resize_cursor(AnchorType anchor);
 static void	 realign_to_grid(GnomeCanvasItem *item);
 static void	 snap_to_grid(double *x, double *y);
 static void	 image_selected(gchar *image);
-static void	 load_image(gchar *file);
-static void	 save_image(gchar *file);
+static void	 load_drawing(gchar *file);
+static void	 save_drawing(gchar *file);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -320,10 +322,10 @@ static gint key_press(guint keyval)
   switch (keyval)
     {
     case GDK_F1:
-      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_image);
+      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_drawing);
       break;
     case GDK_F2:
-      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_image);
+      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_drawing);
       break;
     case GDK_Shift_L:
     case GDK_Shift_R:
@@ -652,10 +654,10 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
 
       gtk_signal_connect(GTK_OBJECT(item), "event",
 			 (GtkSignalFunc) tool_event,
-			 (void *)TOOL_LOAD);
+			 (void *)TOOL_SAVE);
 
     }
-  currentTool = TOOL_LOAD;
+  currentTool = TOOL_SAVE;
   currentToolItem = item;
 
   for( toolIndex = 1 ; toolIndex < NUMBER_OF_TOOL ; toolIndex++)
@@ -930,10 +932,10 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	  switch(tool)
 	    {
 	    case TOOL_LOAD:
-	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_image);
+	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, load_drawing);
 	      break;
 	    case TOOL_SAVE:
-	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_image);
+	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, save_drawing);
 	      break;
 	    case TOOL_GRID:
 	      display_grid((grid_step==0 ? TRUE : FALSE));
@@ -1013,51 +1015,54 @@ ext_color_event(GnomeCanvasItem *item, GdkEvent *event, gpointer color_rgba)
 
 static void display_anchors(AnchorsItem *anchorsItem, gboolean visible)
 {
+
+  g_assert(anchorsItem != NULL);
+
   if(visible)
     {
-      if(anchorsItem->nw)
+      if(anchorsItem->nw && GNOME_IS_CANVAS_RECT(anchorsItem->nw))
 	{
 	  gnome_canvas_item_show(anchorsItem->nw);
 	  gnome_canvas_item_raise_to_top(anchorsItem->nw);
 	}
 
-      if(anchorsItem->n)
+      if(anchorsItem->n && GNOME_IS_CANVAS_RECT(anchorsItem->n))
 	{
 	  gnome_canvas_item_show(anchorsItem->n);
 	  gnome_canvas_item_raise_to_top(anchorsItem->n);
 	}
 
-      if(anchorsItem->ne)
+      if(anchorsItem->ne && GNOME_IS_CANVAS_RECT(anchorsItem->ne))
 	{
 	  gnome_canvas_item_show(anchorsItem->ne);
 	  gnome_canvas_item_raise_to_top(anchorsItem->ne);
 	}
 
-      if(anchorsItem->w)
+      if(anchorsItem->w && GNOME_IS_CANVAS_RECT(anchorsItem->w))
 	{
 	  gnome_canvas_item_show(anchorsItem->w);
 	  gnome_canvas_item_raise_to_top(anchorsItem->w);
 	}
 
-      if(anchorsItem->e)
+      if(anchorsItem->e && GNOME_IS_CANVAS_RECT(anchorsItem->e))
 	{
 	  gnome_canvas_item_show(anchorsItem->e);
 	  gnome_canvas_item_raise_to_top(anchorsItem->e);
 	}
 
-      if(anchorsItem->sw)
+      if(anchorsItem->sw && GNOME_IS_CANVAS_RECT(anchorsItem->sw))
 	{
 	  gnome_canvas_item_show(anchorsItem->sw);
 	  gnome_canvas_item_raise_to_top(anchorsItem->sw);
 	}
 
-      if(anchorsItem->s)
+      if(anchorsItem->s && GNOME_IS_CANVAS_RECT(anchorsItem->s))
 	{
 	  gnome_canvas_item_show(anchorsItem->s);
 	  gnome_canvas_item_raise_to_top(anchorsItem->s);
 	}
 
-      if(anchorsItem->se)
+      if(anchorsItem->se && GNOME_IS_CANVAS_RECT(anchorsItem->se))
 	{
 	  gnome_canvas_item_show(anchorsItem->se);
 	  gnome_canvas_item_raise_to_top(anchorsItem->se);
@@ -1066,28 +1071,28 @@ static void display_anchors(AnchorsItem *anchorsItem, gboolean visible)
     }
   else
     {
-      if(anchorsItem->nw)
+      if(anchorsItem->nw && GNOME_IS_CANVAS_RECT(anchorsItem->nw))
 	gnome_canvas_item_hide(anchorsItem->nw);
 
-      if(anchorsItem->n)
+      if(anchorsItem->n && GNOME_IS_CANVAS_RECT(anchorsItem->n))
 	gnome_canvas_item_hide(anchorsItem->n);
 
-      if(anchorsItem->ne)
+      if(anchorsItem->ne && GNOME_IS_CANVAS_RECT(anchorsItem->ne))
 	gnome_canvas_item_hide(anchorsItem->ne);
 
-      if(anchorsItem->w)
+      if(anchorsItem->w && GNOME_IS_CANVAS_RECT(anchorsItem->w))
 	gnome_canvas_item_hide(anchorsItem->w);
 
-      if(anchorsItem->e)
+      if(anchorsItem->e && GNOME_IS_CANVAS_RECT(anchorsItem->e))
 	gnome_canvas_item_hide(anchorsItem->e);
 
-      if(anchorsItem->sw)
+      if(anchorsItem->sw && GNOME_IS_CANVAS_RECT(anchorsItem->sw))
 	gnome_canvas_item_hide(anchorsItem->sw);
 
-      if(anchorsItem->s)
+      if(anchorsItem->s && GNOME_IS_CANVAS_RECT(anchorsItem->s))
 	gnome_canvas_item_hide(anchorsItem->s);
 
-      if(anchorsItem->se)
+      if(anchorsItem->se && GNOME_IS_CANVAS_RECT(anchorsItem->se))
 	gnome_canvas_item_hide(anchorsItem->se);
     }
 }
@@ -1100,106 +1105,142 @@ static void reset_anchors_text(AnchorsItem *anchorsItem)
   gnome_canvas_item_get_bounds(anchorsItem->item,  &x1, &y1, &x2, &y2);
 
   if(anchorsItem->nw)
-  gnome_canvas_item_set (anchorsItem->nw,
-			 "x1", (double) x1+(x2-x1)/2 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x1+(x2-x1)/2 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->nw,
+			   "x1", (double) x1+(x2-x1)/2 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x1+(x2-x1)/2 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
 }
 
 static void reset_anchors_line(AnchorsItem *anchorsItem)
 {
+  GnomeCanvasItem *item;
+  double x1, x2, y1, y2;
+  double x, y;
+  GnomeCanvasPoints *points;
+
+  item = anchorsItem->item;
+
+  g_object_get(G_OBJECT(item), "points", &points, NULL);
+  if (points == NULL){
+    g_warning ("ERROR: LINE points NULL\n");
+    return;
+  }
+  x1 = points->coords[0];
+  y1 = points->coords[1];
+  x2 = points->coords[2];
+  y2 = points->coords[3];
 
   if(anchorsItem->nw)
-  gnome_canvas_item_set (anchorsItem->nw,
-			 "x1", (double) anchorsItem->ref_x1 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) anchorsItem->ref_y1 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) anchorsItem->ref_x1 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) anchorsItem->ref_y1 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->nw,
+			   "x1", (double) x1 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y1 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x1 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y1 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->se)
-  gnome_canvas_item_set (anchorsItem->se,
-			 "x1", (double) anchorsItem->ref_x2 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) anchorsItem->ref_y2 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) anchorsItem->ref_x2 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) anchorsItem->ref_y2 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->se,
+			   "x1", (double) x2 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x2 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
 }
 
 
 static void reset_anchors_bounded(AnchorsItem *anchorsItem)
 {
+  GnomeCanvasItem *item;
   double x1, x2, y1, y2;
 
-  gnome_canvas_item_get_bounds(anchorsItem->item,  &x1, &y1, &x2, &y2);
+  item = anchorsItem->item;
+
+  //gnome_canvas_item_get_bounds(item,  &x1, &y1, &x2, &y2);
+
+  /* For each type of item, get the bounding box
+   * We do not use gnome_canvas_item_get_bounds because it creates lags
+   */
+  if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_RECT || 
+      G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_ELLIPSE) {
+
+    g_object_get(G_OBJECT(item), "x1", &x1, "y1", &y1, "x2", &x2, "y2", &y2, NULL);
+
+  } else if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_PIXBUF ) {
+    double width, height;
+
+    g_object_get(G_OBJECT(item), "x", &x1, "y", &y1, NULL);
+    g_object_get(G_OBJECT(item), "width", &width, "height", &height, NULL);
+    x2 = x1 + width;
+    y2 = y1 + height;
+  }
 
   if(anchorsItem->nw)
-  gnome_canvas_item_set (anchorsItem->nw,
-			 "x1", (double) x1 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y1 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x1 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y1 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->nw,
+			   "x1", (double) x1 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y1 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x1 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y1 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->n)
-  gnome_canvas_item_set (anchorsItem->n,
-			 "x1", (double) x1+(x2-x1)/2 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y1 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x1+(x2-x1)/2 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y1 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->n,
+			   "x1", (double) x1+(x2-x1)/2 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y1 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x1+(x2-x1)/2 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y1 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->ne)
-  gnome_canvas_item_set (anchorsItem->ne,
-			 "x1", (double) x2 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y1 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x2 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y1 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->ne,
+			   "x1", (double) x2 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y1 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x2 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y1 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->e)
-  gnome_canvas_item_set (anchorsItem->e,
-			 "x1", (double) x2 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y1+(y2-y1)/2 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x2 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y1+(y2-y1)/2 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->e,
+			   "x1", (double) x2 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y1+(y2-y1)/2 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x2 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y1+(y2-y1)/2 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->w)
-  gnome_canvas_item_set (anchorsItem->w,
-			 "x1", (double) x1 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y1+(y2-y1)/2 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x1 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y1+(y2-y1)/2 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->w,
+			   "x1", (double) x1 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y1+(y2-y1)/2 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x1 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y1+(y2-y1)/2 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->sw)
-  gnome_canvas_item_set (anchorsItem->sw,
-			 "x1", (double) x1 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x1 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->sw,
+			   "x1", (double) x1 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x1 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->se)
-  gnome_canvas_item_set (anchorsItem->se,
-			 "x1", (double) x2 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x2 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->se,
+			   "x1", (double) x2 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x2 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
   if(anchorsItem->s)
-  gnome_canvas_item_set (anchorsItem->s,
-			 "x1", (double) x1+(x2-x1)/2 - DEFAULT_ANCHOR_SIZE,
-			 "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
-			 "x2", (double) x1+(x2-x1)/2 + DEFAULT_ANCHOR_SIZE,
-			 "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
-			 NULL);
+    gnome_canvas_item_set (anchorsItem->s,
+			   "x1", (double) x1+(x2-x1)/2 - DEFAULT_ANCHOR_SIZE,
+			   "y1", (double) y2 - DEFAULT_ANCHOR_SIZE,
+			   "x2", (double) x1+(x2-x1)/2 + DEFAULT_ANCHOR_SIZE,
+			   "y2", (double) y2 + DEFAULT_ANCHOR_SIZE,
+			   NULL);
 
 }
 
@@ -1501,6 +1542,293 @@ static void set_item_color(AnchorsItem *anchorsItem, guint color)
     }
 }
 
+/*
+ * Given an item, return the tool as a ToolList used to create it
+ *
+ */
+static ToolList get_tool(GnomeCanvasItem *item)
+{
+  if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_GROUP )
+    return -1;
+  else if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_RECT )
+    return TOOL_RECT;
+  else if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_ELLIPSE )
+    return TOOL_CIRCLE;
+  else if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_LINE )
+    return TOOL_LINE;
+  else if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_TEXT )
+    return TOOL_TEXT;
+  else if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_PIXBUF )
+    return TOOL_IMAGE;
+
+  return -1;
+}
+
+/*
+ * Create the anchors
+ * (The item MUST BE in a group. The anchors are created in this group also)
+ */
+static void create_anchors(GnomeCanvasItem *item)
+{
+  GnomeCanvasGroup	*item_root_item = NULL;
+  GnomeCanvasItem	*anchorItem = NULL;
+  AnchorsItem		*anchorsItem = NULL;
+  ToolList		 currentTool;
+
+  g_assert(item != NULL);
+
+  item_root_item = GNOME_CANVAS_GROUP(item->parent);
+
+  /* Let the new item be on top */
+  gnome_canvas_item_raise_to_top(item);
+
+  currentTool = get_tool(item);
+
+  /* Create the Anchors */
+  anchorsItem = g_new0(AnchorsItem, 1);
+
+  anchorsItem->rootitem = GNOME_CANVAS_ITEM(item_root_item);
+  anchorsItem->item = item;
+  anchorsItem->tool = currentTool;
+
+
+  /*----------------------------------------*/
+  switch(currentTool)
+    {
+    case TOOL_LINE:
+      {
+	GnomeCanvasPoints* points = NULL;
+
+	// Keep track of the original size. It helps the resize operation for the line
+	g_object_get(G_OBJECT(item), "points", &points, NULL);
+	if (points == NULL){
+	  g_warning ("ERROR: LINE points NULL \n");
+	  return;
+	} else {
+	  anchorsItem->ref_x1 = points->coords[0];
+	  anchorsItem->ref_y1 = points->coords[1];
+	  anchorsItem->ref_x2 = points->coords[2];
+	  anchorsItem->ref_y2 = points->coords[3];
+	}
+
+	anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					    gnome_canvas_rect_get_type (),
+					    "fill_color_rgba", ANCHOR_COLOR,
+					    "outline_color", "black",
+					    "width_pixels", 1,
+					    NULL);
+	anchorsItem->nw = anchorItem;
+	gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NW);
+	gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+	
+	gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+	/*----------------------------------------*/
+	anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					    gnome_canvas_rect_get_type (),
+					    "fill_color_rgba", ANCHOR_COLOR,
+					    "outline_color", "black",
+					    "width_pixels", 1,
+					    NULL);
+	anchorsItem->se = anchorItem;
+	gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_SE);
+	gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+	gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			   (GtkSignalFunc) item_event_resize,
+			   anchorsItem);
+
+	anchorsItem->n  = NULL;
+	anchorsItem->s  = NULL;
+	anchorsItem->e  = NULL;
+	anchorsItem->w  = NULL;
+	anchorsItem->ne = NULL;
+	anchorsItem->sw = NULL;
+
+	reset_anchors_line(anchorsItem);
+	break;
+      }
+    case TOOL_IMAGE:
+    case TOOL_RECT:
+    case TOOL_CIRCLE:
+    case TOOL_FILLED_RECT:
+    case TOOL_FILLED_CIRCLE:
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->nw = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NW);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      /*----------------------------------------*/
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->n = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_N);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      /*----------------------------------------*/
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->ne = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NE);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      /*----------------------------------------*/
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->sw = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_SW);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      /*----------------------------------------*/
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->s = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_S);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      /*----------------------------------------*/
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->se = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_SE);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      /*----------------------------------------*/
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->w = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_W);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      /*----------------------------------------*/
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->e = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_E);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      reset_anchors_bounded(anchorsItem);
+      break;
+
+      /* Anchors is needed to show the text widget that has the focus */
+    case TOOL_TEXT:
+      anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
+					  gnome_canvas_rect_get_type (),
+					  "fill_color_rgba", ANCHOR_COLOR,
+					  "outline_color", "black",
+					  "width_pixels", 1,
+					  NULL);
+      anchorsItem->nw = anchorItem;
+      gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NW);
+      gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", GINT_TO_POINTER(TRUE));
+
+      gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
+			 (GtkSignalFunc) item_event_resize,
+			 anchorsItem);
+
+      anchorsItem->n  = NULL;
+      anchorsItem->s  = NULL;
+      anchorsItem->e  = NULL;
+      anchorsItem->w  = NULL;
+      anchorsItem->ne = NULL;
+      anchorsItem->se = NULL;
+      anchorsItem->sw = NULL;
+
+      reset_anchors_text(anchorsItem);
+      break;
+
+    default:
+      /* No anchors in these cases */
+      anchorsItem->n  = NULL;
+      anchorsItem->s  = NULL;
+      anchorsItem->e  = NULL;
+      anchorsItem->w  = NULL;
+      anchorsItem->ne = NULL;
+      anchorsItem->sw = NULL;
+      anchorsItem->nw = NULL;
+      anchorsItem->se = NULL;
+      break;
+    }
+
+  if(selected_anchors_item)
+    display_anchors(selected_anchors_item, FALSE);
+
+  selected_anchors_item = anchorsItem;
+  display_anchors(anchorsItem, TRUE);
+
+  /* Move is performed on the item itself */
+  gtk_signal_connect(GTK_OBJECT(anchorsItem->rootitem), "event",
+		     (GtkSignalFunc) item_event_move,
+		     anchorsItem);
+}
+
 static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 {
   GnomeCanvasItem *item = NULL;
@@ -1551,9 +1879,8 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "outline_color_rgba", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
-      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
-      gnome_canvas_update_now (gcomprisBoard->canvas);
+      /* Tell svg_save this is a transparent item */
+      gtk_object_set_data(GTK_OBJECT(item),"empty", GINT_TO_POINTER(TRUE));
       break;
     case TOOL_FILLED_RECT:
       // This is a filled rectangle
@@ -1565,9 +1892,6 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y2", (double) y + item_size_y,
 				    "fill_color_rgba", currentColor,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
-      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
-      gnome_canvas_update_now (gcomprisBoard->canvas);
       break;
     case TOOL_CIRCLE:
       // This is an ellipse
@@ -1580,9 +1904,8 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "outline_color_rgba", currentColor,
 				    "width_pixels", DRAW_WIDTH_PIXELS,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
-      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
-      gnome_canvas_update_now (gcomprisBoard->canvas);
+      /* Tell svg_save this is a transparent item */
+      gtk_object_set_data(GTK_OBJECT(item),"empty", GINT_TO_POINTER(TRUE));
       break;
     case TOOL_FILLED_CIRCLE:
       // This is a filled ellipse
@@ -1594,9 +1917,6 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
 				    "y2", (double) y + item_size_y,
 				    "fill_color_rgba", currentColor,
 				    NULL);
-      /* FIXME : Was not needed in gnome1.2: needed in gnome 2                 */
-      /*         without it, at anchors creation, item bound is always 0,0,0,0 */
-      gnome_canvas_update_now (gcomprisBoard->canvas);
       break;
     case TOOL_LINE:
       // This is a line
@@ -1639,238 +1959,7 @@ static GnomeCanvasItem *create_item(double x, double y, gchar *imagename)
    */
   if(item)
     {
-      GnomeCanvasItem		*anchorItem = NULL;
-      AnchorsItem		*anchorsItem = NULL;
-
-      /* Let the new item be on top */
-      gnome_canvas_item_raise_to_top(item);
-
-      /* Create the Anchors */
-      anchorsItem = g_new(AnchorsItem, 1);
-
-      anchorsItem->rootitem = item_root_item;
-      anchorsItem->item = item;
-      anchorsItem->tool = currentTool;
-
-      // Keep track of the original size. It helps the resize operation for the line
-      if(points)
-	{
-	  anchorsItem->ref_x1 = points->coords[0];
-	  anchorsItem->ref_y1 = points->coords[1];
-	  anchorsItem->ref_x2 = points->coords[2];
-	  anchorsItem->ref_y2 = points->coords[3];
-	  gnome_canvas_points_unref(points);
-	}
-
-      /*----------------------------------------*/
-      switch(currentTool)
-	{
-	case TOOL_LINE:
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->nw = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NW);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->se = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_SE);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  anchorsItem->n  = NULL;
-	  anchorsItem->s  = NULL;
-	  anchorsItem->e  = NULL;
-	  anchorsItem->w  = NULL;
-	  anchorsItem->ne = NULL;
-	  anchorsItem->sw = NULL;
-
-	  reset_anchors_line(anchorsItem);
-	  break;
-
-	case TOOL_IMAGE:
-	case TOOL_RECT:
-	case TOOL_CIRCLE:
-	case TOOL_FILLED_RECT:
-	case TOOL_FILLED_CIRCLE:
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->nw = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NW);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->n = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_N);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->ne = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NE);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->sw = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_SW);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->s = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_S);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->se = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_SE);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->w = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_W);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  /*----------------------------------------*/
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->e = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_E);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  reset_anchors_bounded(anchorsItem);
-	  break;
-
-	  /* Anchors is needed to show the text widget that has the focus */
- 	case TOOL_TEXT:
-	  anchorItem = gnome_canvas_item_new (GNOME_CANVAS_GROUP(item_root_item),
-					      gnome_canvas_rect_get_type (),
-					      "fill_color_rgba", ANCHOR_COLOR,
-					      "outline_color", "black",
-					      "width_pixels", 1,
-					      NULL);
-	  anchorsItem->nw = anchorItem;
-	  gtk_object_set_user_data(GTK_OBJECT(anchorItem), (void *)ANCHOR_NW);
-
-	  gtk_signal_connect(GTK_OBJECT(anchorItem), "event",
-			     (GtkSignalFunc) item_event_resize,
-			     anchorsItem);
-
-	  anchorsItem->n  = NULL;
-	  anchorsItem->s  = NULL;
-	  anchorsItem->e  = NULL;
-	  anchorsItem->w  = NULL;
-	  anchorsItem->ne = NULL;
-	  anchorsItem->se = NULL;
-	  anchorsItem->sw = NULL;
-
-	  reset_anchors_text(anchorsItem);
-	  break;
-
-	default:
-	  /* No anchors in these cases */
-	  anchorsItem->n  = NULL;
-	  anchorsItem->s  = NULL;
-	  anchorsItem->e  = NULL;
-	  anchorsItem->w  = NULL;
-	  anchorsItem->ne = NULL;
-	  anchorsItem->sw = NULL;
-	  anchorsItem->nw = NULL;
-	  anchorsItem->se = NULL;
-	  break;
-	}
-
-      if(selected_anchors_item)
-	display_anchors(selected_anchors_item, FALSE);
-
-      selected_anchors_item = anchorsItem;
-      display_anchors(anchorsItem, TRUE);
-
-      /* Move is performed on the item itself */
-      gtk_signal_connect(GTK_OBJECT(anchorsItem->rootitem), "event",
-			 (GtkSignalFunc) item_event_move,
-			 anchorsItem);
+      create_anchors(item);
     }
 
   return item;
@@ -2034,21 +2123,59 @@ static void image_selected(gchar *image)
   set_current_tool(selectionToolItem, TOOL_SELECT);
 }
 
-/**
- * Callback for the image load
+/*
+ * Recreate an item after it has been saved and is being reloaded
+ *
  */
-static void load_image(gchar *file)
+static void recreate_item(GnomeCanvasItem *item)
 {
-  printf("callback in draw, load_image got image %s\n", file);
-  gcompris_svg_restore(FILE_SELECTOR_ROOT, file, GNOME_CANVAS_GROUP(draw_root_item));
+
+  g_assert(item != NULL);
+
+  if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_GROUP ) {
+    /* If it's a group, then the first object is the real object to create the anchor for */
+    recreate_item(GNOME_CANVAS_ITEM(g_list_nth_data(GNOME_CANVAS_GROUP(item)->item_list, 0)));
+    return;
+  }
+
+  /* Rebuild the anchors */
+  create_anchors(item);
 }
 
 /**
- * Callback for the image save
+ * Callback for the drawing load
  */
-static void save_image(gchar *file)
+static void load_drawing(gchar *file)
 {
-  printf("callback in draw, save_image got image %s\n", file);
+  printf("callback in draw, load_drawing got image %s\n", file);
+
+  /* Delete the current drawing */
+  /* WARNING: We should have a YES/NO Dialog box */
+  gtk_object_destroy (GTK_OBJECT(draw_root_item));
+  draw_root_item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
+
+
+  gcompris_svg_restore(FILE_SELECTOR_ROOT, file, GNOME_CANVAS_GROUP(draw_root_item));
+
+  /* For each item we need to recreate the anchors */
+  g_list_foreach(GNOME_CANVAS_GROUP(draw_root_item)->item_list, (GFunc) recreate_item, NULL);
+
+  /* Set current_tool */
+  set_current_tool(selectionToolItem, TOOL_SELECT);
+
+}
+
+/**
+ * Callback for the drawing save
+ */
+static void save_drawing(gchar *file)
+{
+  printf("callback in draw, save_drawing got image %s\n", file);
   gcompris_svg_save(FILE_SELECTOR_ROOT, file, draw_root_item, BOARDWIDTH, BOARDHEIGHT, 0);
 }
 
@@ -2136,12 +2263,12 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	    break;
 
 	  case TOOL_ROTATE_CW:
-	    item_rotate_relative(anchorsItem->item, 10);
+	    item_rotate_relative(anchorsItem->rootitem, 10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 
 	  case TOOL_ROTATE_CCW:
-	    item_rotate_relative(anchorsItem->item, -10);
+	    item_rotate_relative(anchorsItem->rootitem, -10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 

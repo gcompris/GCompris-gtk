@@ -1,3 +1,56 @@
+2004-09-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Major image review. I took several images from openclipart (http://www.openclipart.org).
+	I made some new images with inkscape in SVG. For those I felt they have an acceptable
+	quality, I sent them to openclipart and so released them as public domain.
+	
+	* boards/boardicons/ballcatch.png: openclipart
+	* boards/boardicons/book.png:openclipart
+	* boards/boardicons/fun.png:openclipart
+	* boards/boardicons/leftright.png: bruno
+	* boards/followline.xml.in: updated text
+	* boards/gcompris/misc/apple.png: openclipart
+	* boards/gcompris/misc/bottle.png: bruno, released under public domain
+	* boards/gcompris/misc/cerise.png: openclipart
+	* boards/gcompris/misc/cloud.png: openclipart
+	* boards/gcompris/misc/football.png: openclipart
+	* boards/gcompris/misc/fusee.png: openclipart
+	* boards/gcompris/misc/glass.png: bruno, released under public domain
+	* boards/gcompris/misc/house.png: openclipart
+	* boards/gcompris/misc/light.png: openclipart
+	* boards/gcompris/misc/peer.png: openclipart
+	* boards/gcompris/misc/sapin.png: openclipart
+	* boards/gcompris/misc/star.png: openclipart
+	* boards/gcompris/misc/strawberry.png:
+	* boards/imageid/ballon.png: openclipart
+	* boards/imageid/banana.png: openclipart
+	* boards/imageid/biberon.png: removed. too confusing, bottle in english means both biberon (french) 
+	and bouteille. translations are so impossible to handle.
+	* boards/imageid/board1.xml.in:
+	* boards/imageid/bottle.png: bruno, released under public domain
+	* boards/imageid/cake.png: openclipart
+	* boards/imageid/car.png: openclipart
+	* boards/imageid/maison.png: openclipart
+	* boards/imageid/pomme.png: openclipart 
+	* boards/images/followline.png: improved by bruno
+	* boards/watercycle/rain.png: openclipart
+	* boards/watercycle/sun.png: openclipart
+	* src/boards/draw.c: (key_press), (display_tool_selector),
+	(tool_event), (display_anchors), (reset_anchors_text),
+	(reset_anchors_line), (reset_anchors_bounded), (get_tool),
+	(create_anchors), (create_item), (recreate_item), (load_drawing),
+	(save_drawing), (item_event_move): many changes to handle load/save. still rotation is not fully functionnal
+	and need rework.
+	* src/boards/python/anim.py: added some missing casts int()
+	* src/boards/python/watercycle.py: changed sun, cloud and rain to be more cartoon like.
+	It follows Cedric recomendation <cedric@le-radar.com>
+	* src/boards/shapegame.c: (add_shape_to_canvas): made the red spot a little bigger
+	* src/gcompris/gameutil.c: (gcompris_dialog): comment typo
+	* src/gcompris/svgutil.c: (gcompris_line_to_svg_file),
+	(gcompris_item_to_svg_file), (gcompris_svg_save),
+	(gcompris_svg_restore): added some changes to support the svg load. now in svg load, each item is in a group
+	for itself. This makes it easy for the drawing app to add the anchors.
+
 2004-09-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/followline.png: created by Bruno.

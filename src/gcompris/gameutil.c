@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/07/15 22:21:26 bcoudoin>
+ * Time-stamp: <2004/09/04 18:46:23 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -797,7 +797,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
   GtkTextBuffer   *buffer;
   GtkTextTag      *txt_tag;
 
-  /* If we already running delete the previous one */
+  /* If we are already running delete the previous one */
   if(rootDialogItem)
     gtk_object_destroy(GTK_OBJECT(rootDialogItem));
   rootDialogItem = NULL;

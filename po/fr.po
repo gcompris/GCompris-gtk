@@ -2,6 +2,7 @@
 # translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
 # gcompris fr.po.
 # Copyright (C) 2000-2003, 2004 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2003.
@@ -13,13 +14,13 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-09-03 21:43+0200\n"
-"PO-Revision-Date: 2004-08-10 22:56+0200\n"
+"PO-Revision-Date: 2004-09-05 23:17+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.3.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -384,8 +385,7 @@ msgstr ""
 "Ces nombres et opérateurs peuvent être dé-sélectionnés en cliquant dessus."
 
 #: boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Déployer une stratégie pour arranges un ensemble d'opérations arithmétique\n"
 "pour trouver une valeur cible"
@@ -558,11 +558,11 @@ msgstr "Lock avec des formes colorées"
 
 #: boards/ballcatch.xml.in.h:1
 msgid "Push the two shift keys together to send the ball straight"
-msgstr ""
+msgstr "Appuie sur les deux touches 'shift' en même temps pour envoyer la balle droit"
 
 #: boards/ballcatch.xml.in.h:2
 msgid "Send the ball to Tux"
-msgstr ""
+msgstr "Envoie la balle à Tux"
 
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
@@ -644,8 +644,7 @@ msgstr "Le Temps"
 
 #: boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr ""
-"Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre"
+msgstr "Attrape et fais glisser les éléments pour remettre l'histoire dans l'ordre"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
@@ -729,8 +728,7 @@ msgstr "Clique sur moi"
 
 #: boards/clickgame.xml.in.h:2
 msgid "Click with the left mouse button on the moving fish."
-msgstr ""
-"Clique avec le bouton gauche de la souris sur les poissons qui bougent."
+msgstr "Clique avec le bouton gauche de la souris sur les poissons qui bougent."
 
 #: boards/clickgame.xml.in.h:3
 msgid ""
@@ -762,10 +760,8 @@ msgstr ""
 "Emplacement : Inconnu (image nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
-msgstr ""
-"Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgstr "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
 
 #: boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
@@ -948,10 +944,9 @@ msgstr "Vers les activités d'expérimentation"
 
 #: boards/followline.xml.in.h:1
 msgid "Emerge the pipe"
-msgstr ""
+msgstr "Débouche le tuyau"
 
 #: boards/followline.xml.in.h:2
-#, fuzzy
 msgid "Fine motor coordination"
 msgstr "Coordination moteur"
 
@@ -960,11 +955,11 @@ msgid ""
 "Move the mouse over the red part of the pipe. This will emerge it, part by "
 "part up to the flowers. If you move out of the pipe, the red part will go "
 "back."
-msgstr ""
+msgstr "Déplace la souris au dessus du bouchon (la partie rouge du tuyau). Cela te permet de le déboucher, morceau après morceau. Attention, si tu sort la sourie du tuyau, le bouchon recule."
 
 #: boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
-msgstr ""
+msgstr "Tux a besoin d'arroser les fleurs mais le tuyau est bouché"
 
 #: boards/fifteen.xml.in.h:1
 msgid ""
@@ -976,8 +971,7 @@ msgstr ""
 
 #: boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr ""
-"Déplace les éléments un par un pour les replacer dans l'ordre croissant."
+msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
@@ -1001,7 +995,7 @@ msgstr "Place les pays"
 
 #: boards/geography/board1_0.xml.in.h:1
 msgid "Continents"
-msgstr ""
+msgstr "Continents"
 
 #: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
@@ -1134,7 +1128,7 @@ msgstr "livre"
 
 #: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
 msgid "bottle"
-msgstr "biberon"
+msgstr "bouteille"
 
 #: boards/imageid/board1.xml.in.h:10
 msgid "cake"
@@ -1566,15 +1560,15 @@ msgstr "lit/li_/t/n/e"
 
 #: boards/missing_letter/board1.xml.in.h:13
 msgid "bottle/_ottle/b/t/p"
-msgstr "biberon/_iberon/b/p/d"
+msgstr "bouteille/_outeille/b/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:14
 msgid "bottle/b_ttle/o/u/d"
-msgstr "biberon/b_beron/i/v/u"
+msgstr "bouteille/b_uteille/o/u/i"
 
 #: boards/missing_letter/board1.xml.in.h:15
 msgid "bottle/bott_e/l/y/r"
-msgstr "biberon/biber_n/o/e/b"
+msgstr "bouteille/boute_lle/i/e/a"
 
 #: boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
@@ -1695,8 +1689,7 @@ msgstr "Apprends à manipuler de l'argent avec les centimes "
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr ""
-"Attrape et fais glisser les éléments pour reconstruire le tableau original"
+msgstr "Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
 #: boards/paintings.xml.in.h:2
 msgid ""
@@ -1819,10 +1812,8 @@ msgid "Test board for the python plugin"
 msgstr "Activité test pour le plugin python"
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr ""
-"Merci à Guido van Rossum et à l'équipe python pour ce language puissant!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "Merci à Guido van Rossum et à l'équipe python pour ce language puissant!"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -2118,8 +2109,7 @@ msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux a caché plusieurs objets, retrouve les dans le bon ordre"
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Sait déplacer la souris, lire des nombres et compter jusqu'à 15\n"
 "pour le premier niveau"
@@ -2348,8 +2338,7 @@ msgstr "Clique sur l'ours %s"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
-msgstr ""
-"Déplace les éléments un par un pour les replacer dans l'ordre croissant."
+msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower as the one on the right"
@@ -2603,8 +2592,7 @@ msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
 #: src/gcompris/about.c:252
-msgid ""
-"This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
@@ -2752,9 +2740,8 @@ msgid "Slovenian"
 msgstr "Slovéne"
 
 #: src/gcompris/config.c:95
-#, fuzzy
 msgid "Albanian"
-msgstr "banane"
+msgstr "Albanie"
 
 #: src/gcompris/config.c:96
 msgid "Serbian (Latin)"
@@ -2773,9 +2760,8 @@ msgid "Turkish"
 msgstr "Turc"
 
 #: src/gcompris/config.c:100
-#, fuzzy
 msgid "Walloon"
-msgstr "amande"
+msgstr "Wallon"
 
 #: src/gcompris/config.c:105
 msgid "No time limit"
@@ -2847,15 +2833,15 @@ msgstr "Thème : %s"
 
 #: src/gcompris/file_selector.c:235
 msgid "CANCEL"
-msgstr ""
+msgstr "ANNULER"
 
 #: src/gcompris/file_selector.c:266
 msgid "LOAD"
-msgstr ""
+msgstr "CHARGER"
 
 #: src/gcompris/file_selector.c:266
 msgid "SAVE"
-msgstr ""
+msgstr "SAUVER"
 
 #: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
@@ -2899,7 +2885,7 @@ msgstr "affiche uniquement les activité avec ce niveau de difficulté"
 
 #: src/gcompris/gcompris.c:94
 msgid "display debug informations on the console."
-msgstr ""
+msgstr "affiche les informations de debogage dans la console"
 
 #: src/gcompris/gcompris.c:96
 msgid "Print the version of "
@@ -3228,3 +3214,4 @@ msgstr "Temps restant = %d"
 
 #~ msgid "You need to remove %d more."
 #~ msgstr "Tu dois en supprimer encore %d. "
+

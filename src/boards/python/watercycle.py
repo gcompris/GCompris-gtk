@@ -132,7 +132,7 @@ class Gcompris_watercycle:
       gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("watercycle/rain.png"),
       x=40.0,
-      y=40.0
+      y=70.0
       )
     self.rainitem.hide()
     self.rain_on = 0
@@ -263,7 +263,9 @@ class Gcompris_watercycle:
           width_units = 20.0
           )
 
-
+    # Some item ordering
+    self.rainitem.raise_to_top()
+    
     # Ready GO
     self.move_boat()
     

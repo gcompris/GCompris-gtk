@@ -607,8 +607,8 @@ class Gcompris_anim:
       )
 
     gcompris.utils.item_absolute_move(self.root_anim,
-                                      self.playing_area[0]-self.drawing_area[0],
-                                      self.playing_area[1]-self.drawing_area[1]
+                                      int(self.playing_area[0]-self.drawing_area[0]),
+                                      int(self.playing_area[1]-self.drawing_area[1])
                                       )
 
   def speed_event(self, item, event, up):
@@ -644,7 +644,7 @@ class Gcompris_anim:
       )
     self.grid.hide()
       
-    for i in range(x1,x2,step):
+    for i in range(int(x1), int(x2), step):
       item = self.grid.add (
         gnome.canvas.CanvasLine,
         points=(i , y1, i , y2),
@@ -654,7 +654,7 @@ class Gcompris_anim:
       # Clicking on lines let you create object
       item.connect("event", self.create_item_event)
  
-    for i in range(y1,y2,step):
+    for i in range(int(y1), int(y2), step):
       item = self.grid.add (
         gnome.canvas.CanvasLine,
         points=(x1, i, x2 , i),
@@ -1058,7 +1058,7 @@ class Gcompris_anim:
 
   # tous les objets de premiers niveau sont des canvasGroup;
   # il contiennent soit les listes d'objets,
-  # soit des associations poignées-objets
+  # soit des associations poignees-objets
   def AnimShot(self, modele):
     self.flash.show()
     
@@ -1604,7 +1604,7 @@ class Gcompris_anim:
 
     # This matrix rotate around ( cx, cy )
 
-    #     This is the résult of the product:
+    #     This is the result of the product:
 
 
     #            T_{-c}             Rot (t)                 T_c

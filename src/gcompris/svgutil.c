@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/07/31 23:44:55 bcoudoin>
+ * Time-stamp: <2004/09/04 16:44:32 bcoudoin>
  *
  * Copyright (C) 2004 Yves Combe
  *
@@ -46,6 +46,13 @@ typedef void (*sighandler_t)(int);
  * recursive c func to clone GnomeCanvasItem
  * parent is parent for new item
  * item is item to clone 
+ */
+/*
+ * Clone an item.
+ * Items that contains the property "anchors" will not be saved.
+ * To mark an item use:
+ *    gtk_object_set_data(GTK_OBJECT(anchorItem),"anchors", TRUE);
+ *
  */
 
 void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)
@@ -362,8 +369,8 @@ void *gcompris_line_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode ){
 
 
   g_object_get(G_OBJECT(item), "points", &points, NULL);
-  if (&points == NULL){
-    printf ("LINE points NULL \n");
+  if (points == NULL){
+    g_warning("ERROR: LINE points NULL \n");
     return;
   }
 
@@ -675,8 +682,11 @@ void *gcompris_pixbuf_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode){
 
 }
 
-  
 void *gcompris_item_to_svg_file( GnomeCanvasItem *item, xmlNodePtr svgNode ){
+
+  /* anchors are not saved  */
+  if (g_object_get_data(G_OBJECT(item), "anchors") != NULL)
+    return;
 
   if (G_OBJECT_TYPE(item) == GNOME_TYPE_CANVAS_GROUP )
     gcompris_group_to_svg_file( item, svgNode );
@@ -871,7 +881,7 @@ void gcompris_svg_save(char *module, char *file, GnomeCanvasItem *item, int hsiz
     /* animation is set here : */
     /*   every top level group is an image for the animation */
 
-    printf ("Anim %d  et list %d \n", anim, g_list_length(GNOME_CANVAS_GROUP(item)->item_list));
+    printf ("Anim %d and list %d \n", anim, g_list_length(GNOME_CANVAS_GROUP(item)->item_list));
 
     if ( (anim > 0) && (g_list_length(GNOME_CANVAS_GROUP(item)->item_list)>1)){
       rc = snprintf(tmp, 127, "%d", anim);
@@ -1346,7 +1356,8 @@ void gcompris_svg_restore(char *module, char *filename, GnomeCanvasGroup *parent
   /* find "gcompris:module" */
   cur = cur->xmlChildrenNode;
   while ( cur != NULL ){
-      if ((cur->nsDef != NULL) && (!xmlStrcmp(cur->name, (const xmlChar *) module)) && (!xmlStrcmp(cur->nsDef->prefix, (const xmlChar *) "gcompris"))){
+      if ((cur->nsDef != NULL) && (!xmlStrcmp(cur->name, (const xmlChar *) module)) &&
+	  (!xmlStrcmp(cur->nsDef->prefix, (const xmlChar *) "gcompris"))){
 	break;
       }
     cur = cur->next;
@@ -1363,7 +1374,16 @@ void gcompris_svg_restore(char *module, char *filename, GnomeCanvasGroup *parent
   cur = svgNode->xmlChildrenNode;
   while (cur != NULL){
     if (!xmlStrcmp(cur->name, (const xmlChar *) "g")){
-      gcompris_restore_svg_group(parent, cur);
+      GnomeCanvasItem *group;
+
+      /* We put each item in a group. This will help drawing application to add their anchors */
+      group = gnome_canvas_item_new (parent,
+				     GNOME_TYPE_CANVAS_GROUP,
+				     "x", (double)0,
+				     "y", (double)0,
+				     NULL);
+
+      gcompris_restore_svg_group(group, cur);
     }
     cur = cur->next;
   }
