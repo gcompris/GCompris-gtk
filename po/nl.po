@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.2\n"
-"POT-Creation-Date: 2001-12-07 19:41+0100\n"
+"POT-Creation-Date: 2001-12-13 19:21+0100\n"
 "PO-Revision-Date: 2000-11-12 21:13+0200\n"
 "Last-Translator: Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,11 +92,11 @@ msgstr "Kloklezen"
 msgid "Discover the Computer"
 msgstr "Ontdek de computer"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:95
+#: boards/draw.xml.in.h:1 src/boards/draw.c:96
 msgid "A simple vector drawing tool"
 msgstr "Een eenvoudig tekenprogramma"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:96
+#: boards/draw.xml.in.h:2 src/boards/draw.c:97
 msgid "Creative board where you can freely draw"
 msgstr "Laat je tekentalenten de vrije loop"
 
@@ -152,6 +152,15 @@ msgstr "GCompris zal alle boodschappen in het Duits weergeven"
 #: boards/locale_de.xml.in.h:2
 msgid "German"
 msgstr "Duits"
+
+#: boards/locale_el.xml.in.h:1
+#, fuzzy
+msgid "GCompris will display all its messages in Greek"
+msgstr "GCompris zal alle boodschappen in het Frans weergeven"
+
+#: boards/locale_el.xml.in.h:2
+msgid "Greek"
+msgstr ""
 
 #: boards/locale_en.xml.in.h:1
 msgid "English"
@@ -340,12 +349,12 @@ msgstr ""
 msgid "Set the clock to:"
 msgstr "Zet de klok op:"
 
-#: src/boards/draw.c:204
+#: src/boards/draw.c:205
 #, fuzzy
 msgid "Free vector drawing tool"
 msgstr "Een eenvoudig tekenprogramma"
 
-#: src/boards/draw.c:205
+#: src/boards/draw.c:206
 msgid ""
 "Goal:\n"
 "In this game, the children will be able to freely draw.\n"
@@ -417,12 +426,12 @@ msgstr "Neen, het was er niet bij"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
 
-#: src/boards/shapegame.c:1144
+#: src/boards/shapegame.c:1152
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: src/boards/shapegame.c:1147
+#: src/boards/shapegame.c:1155
 #, fuzzy, c-format
 msgid "find file %s !"
 msgstr "bestand %s vinden !"
@@ -434,11 +443,31 @@ msgstr ""
 "Type het getal 1 tot 6 van het toetsenbord \n"
 "voor de dobbelstenen de grond raken"
 
-#: src/gcompris/gcompris.c:198
+#: src/gcompris/gcompris.c:61
+msgid "run gcompris in fullscreen mode."
+msgstr ""
+
+#: src/gcompris/gcompris.c:63
+msgid "run gcompris in window mode."
+msgstr ""
+
+#: src/gcompris/gcompris.c:65
+msgid "run gcompris with sound enabled."
+msgstr ""
+
+#: src/gcompris/gcompris.c:67
+msgid "run gcompris without sound."
+msgstr ""
+
+#: src/gcompris/gcompris.c:69
+msgid "Prints the version of "
+msgstr ""
+
+#: src/gcompris/gcompris.c:226
 msgid "GCompris I Have Understood"
 msgstr "GCompris Ik heb het begrepen"
 
-#: src/gcompris/gcompris.c:307
+#: src/gcompris/gcompris.c:339
 #, fuzzy
 msgid ""
 "A simple educational board based game for children starting at 3. This "
@@ -447,17 +476,26 @@ msgstr ""
 "Een eenvoudig leerspel voor kinderen vanaf drie jaar.\n"
 "Dit programma is een GNU pakket."
 
-#: src/gcompris/gcompris.c:312
+#: src/gcompris/gcompris.c:344
 msgid "GCompris Home Page"
 msgstr "GCompris Startpagina"
 
-#: src/gcompris/gcompris.c:315
+#: src/gcompris/gcompris.c:347
 msgid "An OFSET development"
 msgstr "Een OFSET ontwikkeling"
 
-#: src/gcompris/gcompris.c:345
+#: src/gcompris/gcompris.c:377
 msgid "Do you really want to quit GCompris?"
 msgstr "Wil je echt GCompris verlaten?"
+
+#: src/gcompris/gcompris.c:496
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More infos on http://ofset.sourceforge.net/gcompris\n"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"

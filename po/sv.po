@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-12-09 15:50+0100\n"
+"POT-Creation-Date: 2001-12-13 19:21+0100\n"
 "PO-Revision-Date: 2001-12-09 15:50+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -94,11 +94,11 @@ msgstr "Lär klockan"
 msgid "Discover the Computer"
 msgstr "Upptäck datorn"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:95
+#: boards/draw.xml.in.h:1 src/boards/draw.c:96
 msgid "A simple vector drawing tool"
 msgstr "Ett enkelt vektorritverktyg"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:96
+#: boards/draw.xml.in.h:2 src/boards/draw.c:97
 msgid "Creative board where you can freely draw"
 msgstr "Kreativt bräde där du kan rita fritt"
 
@@ -153,6 +153,15 @@ msgstr "GCompris kommer att visa alla dess meddelanden på tyska"
 #: boards/locale_de.xml.in.h:2
 msgid "German"
 msgstr "Tyska"
+
+#: boards/locale_el.xml.in.h:1
+#, fuzzy
+msgid "GCompris will display all its messages in Greek"
+msgstr "GCompris kommer att visa alla dess meddelanden på franska"
+
+#: boards/locale_el.xml.in.h:2
+msgid "Greek"
+msgstr ""
 
 #: boards/locale_en.xml.in.h:1
 msgid "English"
@@ -343,11 +352,11 @@ msgstr ""
 msgid "Set the clock to:"
 msgstr "Ställ klockan till:"
 
-#: src/boards/draw.c:204
+#: src/boards/draw.c:205
 msgid "Free vector drawing tool"
 msgstr "Vektorritverktyg för frihandsritning"
 
-#: src/boards/draw.c:205
+#: src/boards/draw.c:206
 msgid ""
 "Goal:\n"
 "In this game, the children will be able to freely draw.\n"
@@ -418,12 +427,12 @@ msgstr "Nej, det fanns inte där"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
 
-#: src/boards/shapegame.c:1144
+#: src/boards/shapegame.c:1152
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
 
-#: src/boards/shapegame.c:1147
+#: src/boards/shapegame.c:1155
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"

@@ -313,7 +313,7 @@ static void planegame_next_level()
   /* Setup and Display the plane */
   planespeed_y = 0;
   planespeed_x = 0;
-  str = g_strdup_printf("%s%s", pixmapsdir, "tuxplane.png");
+  str = g_strdup_printf("%s%s", pixmapsdir, "tuxhelico.png");
   pixmap = gcompris_load_pixmap(str);
   plane_x = 50;
   plane_y = 300;

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2001-12-07 19:41+0100\n"
+"POT-Creation-Date: 2001-12-13 19:21+0100\n"
 "PO-Revision-Date: 2001-11-24 16:26+03:00\n"
 "Last-Translator: Valek Filippov <frob@df.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -95,11 +95,11 @@ msgstr "Изучение часов"
 msgid "Discover the Computer"
 msgstr "Упражнения с компьютерной мышью"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:95
+#: boards/draw.xml.in.h:1 src/boards/draw.c:96
 msgid "A simple vector drawing tool"
 msgstr "Простая векторная программа рисования"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:96
+#: boards/draw.xml.in.h:2 src/boards/draw.c:97
 msgid "Creative board where you can freely draw"
 msgstr "Рисовальная доска, на которой можно что-нибудь нарисовать"
 
@@ -156,6 +156,15 @@ msgstr "GCompris будет теперь показывать свои сообщения на %s"
 
 #: boards/locale_de.xml.in.h:2
 msgid "German"
+msgstr ""
+
+#: boards/locale_el.xml.in.h:1
+#, fuzzy
+msgid "GCompris will display all its messages in Greek"
+msgstr "GCompris будет теперь показывать свои сообщения на %s"
+
+#: boards/locale_el.xml.in.h:2
+msgid "Greek"
 msgstr ""
 
 #: boards/locale_en.xml.in.h:1
@@ -331,11 +340,11 @@ msgstr ""
 msgid "Set the clock to:"
 msgstr "Установить часы на:"
 
-#: src/boards/draw.c:204
+#: src/boards/draw.c:205
 msgid "Free vector drawing tool"
 msgstr ""
 
-#: src/boards/draw.c:205
+#: src/boards/draw.c:206
 msgid ""
 "Goal:\n"
 "In this game, the children will be able to freely draw.\n"
@@ -395,12 +404,12 @@ msgstr "Нет, его не было"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr ""
 
-#: src/boards/shapegame.c:1144
+#: src/boards/shapegame.c:1152
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Не удалось найти файл %s!"
 
-#: src/boards/shapegame.c:1147
+#: src/boards/shapegame.c:1155
 #, c-format
 msgid "find file %s !"
 msgstr "найти файл %s!"
@@ -409,24 +418,53 @@ msgstr "найти файл %s!"
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr ""
 
-#: src/gcompris/gcompris.c:198
+#: src/gcompris/gcompris.c:61
+msgid "run gcompris in fullscreen mode."
+msgstr ""
+
+#: src/gcompris/gcompris.c:63
+msgid "run gcompris in window mode."
+msgstr ""
+
+#: src/gcompris/gcompris.c:65
+msgid "run gcompris with sound enabled."
+msgstr ""
+
+#: src/gcompris/gcompris.c:67
+msgid "run gcompris without sound."
+msgstr ""
+
+#: src/gcompris/gcompris.c:69
+msgid "Prints the version of "
+msgstr ""
+
+#: src/gcompris/gcompris.c:226
 msgid "GCompris I Have Understood"
 msgstr ""
 
-#: src/gcompris/gcompris.c:307
+#: src/gcompris/gcompris.c:339
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
 msgstr ""
 
-#: src/gcompris/gcompris.c:312
+#: src/gcompris/gcompris.c:344
 msgid "GCompris Home Page"
 msgstr "Домашняя страница GCompris"
 
-#: src/gcompris/gcompris.c:315
+#: src/gcompris/gcompris.c:347
 msgid "An OFSET development"
 msgstr ""
 
-#: src/gcompris/gcompris.c:345
+#: src/gcompris/gcompris.c:377
 msgid "Do you really want to quit GCompris?"
 msgstr "Вы действительно хотите выйти из GCompris?"
+
+#: src/gcompris/gcompris.c:496
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More infos on http://ofset.sourceforge.net/gcompris\n"
+msgstr ""

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.4\n"
-"POT-Creation-Date: 2001-12-07 19:41+0100\n"
+"POT-Creation-Date: 2001-12-13 19:21+0100\n"
 "PO-Revision-Date: 2001-11-09 13:43+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -93,11 +93,11 @@ msgstr "Apprentissage de l'heure"
 msgid "Discover the Computer"
 msgstr "Utilise la souris de l'ordinateur"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:95
+#: boards/draw.xml.in.h:1 src/boards/draw.c:96
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:96
+#: boards/draw.xml.in.h:2 src/boards/draw.c:97
 msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative ou l'on peut dessiner librement"
 
@@ -154,6 +154,15 @@ msgstr "GCompris affichera tous ses messages en Allemand"
 #: boards/locale_de.xml.in.h:2
 msgid "German"
 msgstr "Allemand"
+
+#: boards/locale_el.xml.in.h:1
+#, fuzzy
+msgid "GCompris will display all its messages in Greek"
+msgstr "GCompris affichera tous ses messages en Greque"
+
+#: boards/locale_el.xml.in.h:2
+msgid "Greek"
+msgstr "Greque"
 
 #: boards/locale_en.xml.in.h:1
 msgid "English"
@@ -344,11 +353,11 @@ msgstr ""
 msgid "Set the clock to:"
 msgstr "Régle l'horloge sur :"
 
-#: src/boards/draw.c:204
+#: src/boards/draw.c:205
 msgid "Free vector drawing tool"
 msgstr "Dessin vectoriel libre"
 
-#: src/boards/draw.c:205
+#: src/boards/draw.c:206
 msgid ""
 "Goal:\n"
 "In this game, the children will be able to freely draw.\n"
@@ -421,12 +430,12 @@ msgstr "Non, il n'y est pas"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
-#: src/boards/shapegame.c:1144
+#: src/boards/shapegame.c:1152
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
-#: src/boards/shapegame.c:1147
+#: src/boards/shapegame.c:1155
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -435,11 +444,31 @@ msgstr "trouve le fichier %s !"
 msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
-#: src/gcompris/gcompris.c:198
+#: src/gcompris/gcompris.c:61
+msgid "run gcompris in fullscreen mode."
+msgstr "Lance gcompris en mode plein écran"
+
+#: src/gcompris/gcompris.c:63
+msgid "run gcompris in window mode."
+msgstr "lance gcompris en mode fenetré"
+
+#: src/gcompris/gcompris.c:65
+msgid "run gcompris with sound enabled."
+msgstr "lance gcompris avec le son"
+
+#: src/gcompris/gcompris.c:67
+msgid "run gcompris without sound."
+msgstr "lance gcompris sans le son"
+
+#: src/gcompris/gcompris.c:69
+msgid "Prints the version of "
+msgstr "Affiche la version de "
+
+#: src/gcompris/gcompris.c:226
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:307
+#: src/gcompris/gcompris.c:339
 msgid ""
 "A simple educational board based game for children starting at 3. This "
 "software is a GNU Package"
@@ -447,17 +476,27 @@ msgstr ""
 "Un simple jeux d'apprentissage à partir de 3 ans. Ce logiciel fait partie du "
 "projet GNU"
 
-#: src/gcompris/gcompris.c:312
+#: src/gcompris/gcompris.c:344
 msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
-#: src/gcompris/gcompris.c:315
+#: src/gcompris/gcompris.c:347
 msgid "An OFSET development"
 msgstr "Un développement d'OFSET"
 
-#: src/gcompris/gcompris.c:345
+#: src/gcompris/gcompris.c:377
 msgid "Do you really want to quit GCompris?"
 msgstr "Veux tu vraiment quitter GCompris ?"
 
-#~ msgid "Type the keyboard number 1 to 6 before the dice reach the ground"
-#~ msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
+#: src/gcompris/gcompris.c:496
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More infos on http://ofset.sourceforge.net/gcompris\n"
+msgstr ""
+"GCompris\\n\n"
+"Version: %s\\n\n"
+"License: GPL\\n\n"
+"Plus d'information sur http://ofset.sourceforge.net/gcompris\\n"
