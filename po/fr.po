@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-10 23:40+0200\n"
-"PO-Revision-Date: 2004-10-14 00:49+0200\n"
+"POT-Creation-Date: 2004-10-20 22:02+0200\n"
+"PO-Revision-Date: 2004-10-20 22:20+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -696,10 +696,6 @@ msgstr ""
 msgid "Transportation"
 msgstr "Les transports"
 
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
-msgstr "VIIIème Siècle"
-
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spoken. Click on the corresponding letter in the main area. You "
@@ -1300,6 +1296,10 @@ msgstr "Turquie"
 #: boards/geography/board3_1.xml.in.h:23
 msgid "ukraine"
 msgstr "Ukraine"
+
+#: boards/geography/board4_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Les régions de france"
 
 #: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
@@ -1997,8 +1997,8 @@ msgid "Spatial representation"
 msgstr "Représentation spatiale"
 
 #: boards/paintings/board1_0.xml.in.h:1
-msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr "Edgar Degas, La classe de danse - 1873"
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas, La classe de danse - 1873-75"
 
 #: boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
@@ -2021,15 +2021,15 @@ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille, Les remparts à Aigues-Mortes - 1867"
 
 #: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr "Cassat, l'été - 1895"
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Marie Cassat, l'été - 1894"
 
 #: boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Rue de village à Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid "Help Tux the paratrooper land safely"
+msgid "Help Tux the parachuter land safely"
 msgstr "Aide Tux le parachutiste à atterrir en douceur"
 
 #: boards/paratrooper.xml.in.h:2
@@ -2043,15 +2043,15 @@ msgstr ""
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
-"boat. He needs to take watch out for the wind direction and speed."
+"In this game, Tux the parachuter needs help to land safely on the fishing "
+"boat. He needs to take care of the wind direction and speed."
 msgstr ""
 "Dans ce jeu, l'enfant devra essayer de faire atterrir Tux le parachutiste "
 "dans le bateau de pêche.\n"
 "Il/Elle devra faire attention à la direction et à la force du vent."
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
+#: boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
 msgstr "Parachutiste"
 
 #: boards/paratrooper.xml.in.h:5
@@ -2270,7 +2270,7 @@ msgstr ""
 "l'envers.\n"
 "Quand tu as terminé, clique sur le bouton OK ou utilise la touche entrée."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
 msgstr "Entraînement à la soustraction avec un jeu amusant"
 
@@ -2615,7 +2615,7 @@ msgstr ""
 msgid "Couldn't open dir: %s"
 msgstr "Ne peut ouvrir le répertoire : %s"
 
-#: src/boards/clockgame.c:530
+#: src/boards/clockgame.c:528
 msgid "Set the watch to:"
 msgstr "Règle la montre sur :"
 
@@ -2672,6 +2672,10 @@ msgstr "Sélectionne un tableau"
 #: src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr "Manipulation des billets et pièces"
+
+#: src/boards/paratrooper.c:104
+msgid "Paratrooper"
+msgstr "Parachutiste"
 
 #: src/boards/paratrooper.c:105
 msgid "Direct the paratrooper to help him land safely"
@@ -2777,7 +2781,7 @@ msgstr "Ne peut ouvrir le fichier de mots pour votre locale"
 msgid "Error: The wordfile package used for your locale is corrupted."
 msgstr "Erreur: Le fichier de mot utilisé dans votre locale est corrompu"
 
-#: src/boards/reversecount.c:140
+#: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
@@ -2891,7 +2895,7 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:204
+#: src/gcompris/about.c:316 src/gcompris/config.c:205
 #: src/gcompris/gameutil.c:867 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2938,16 +2942,16 @@ msgid "Greek"
 msgstr "Grec"
 
 #: src/gcompris/config.c:72
-msgid "American English"
-msgstr "Anglais Américain"
+msgid "English (Canadian)"
+msgstr "Anglais (Canadien)"
 
 #: src/gcompris/config.c:73
-msgid "Great Britain English"
-msgstr "Anglais Grande Bretagne"
+msgid "English (Great Britain)"
+msgstr "Anglais (Royaume Uni)"
 
 #: src/gcompris/config.c:74
-msgid "Canadian English"
-msgstr "Anglais Canadien"
+msgid "English (USA)"
+msgstr "Anglais (Etats-Unis)"
 
 #: src/gcompris/config.c:75
 msgid "Spanish"
@@ -3002,125 +3006,129 @@ msgid "Dutch"
 msgstr "Hollandais"
 
 #: src/gcompris/config.c:88
-msgid "Norwegian"
-msgstr "Norvégien"
+msgid "Norwegian Bokmal"
+msgstr "Norvégien Bokmal"
 
 #: src/gcompris/config.c:89
+msgid "Norwegian Nynorsk"
+msgstr "Norvégien Nynorsk"
+
+#: src/gcompris/config.c:90
 msgid "Polish"
 msgstr "Polonais"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Russian"
 msgstr "Russe"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Slovenian"
 msgstr "Slovéne"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Albanian"
 msgstr "Albanie"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Serbian (Latin)"
 msgstr "Serbes (Latin)"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Serbian"
 msgstr "Serbes"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Walloon"
 msgstr "Wallon"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:110
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "No filter"
 msgstr "Aucun filtre"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "Only this level"
 msgstr "Uniquement ce niveau"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "Up to this level"
 msgstr "Jusqu'à ce niveau"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "This level and above"
 msgstr "Ce niveau et au-dessus"
 
-#: src/gcompris/config.c:178
+#: src/gcompris/config.c:179
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:287
+#: src/gcompris/config.c:288
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:330
+#: src/gcompris/config.c:331
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:358
+#: src/gcompris/config.c:359
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:392
+#: src/gcompris/config.c:393
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:413
+#: src/gcompris/config.c:414
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Pas de thème trouvé dans %s\n"
 
-#: src/gcompris/config.c:428 src/gcompris/config.c:813
-#: src/gcompris/config.c:824
+#: src/gcompris/config.c:429 src/gcompris/config.c:814
+#: src/gcompris/config.c:825
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -3314,11 +3322,52 @@ msgstr "Temps écoulé"
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
 
+#, fuzzy
+#~ msgid "Alsace"
+#~ msgstr "cartable"
+
+#, fuzzy
+#~ msgid "Aquitaine"
+#~ msgstr "aigue-marine"
+
+#, fuzzy
+#~ msgid "Auvergne"
+#~ msgstr "aubergine"
+
+#, fuzzy
+#~ msgid "Centre"
+#~ msgstr "arbre"
+
+#, fuzzy
+#~ msgid "Corse"
+#~ msgstr "Couleurs"
+
+#, fuzzy
+#~ msgid "Ile de France"
+#~ msgstr "Les régions de france"
+
+#, fuzzy
+#~ msgid "Lorraine"
+#~ msgstr "orange"
+
+#, fuzzy
+#~ msgid "Normandie"
+#~ msgstr "Compteur normal"
+
+#~ msgid "VIII Century"
+#~ msgstr "VIIIème Siècle"
+
+#~ msgid "American English"
+#~ msgstr "Anglais Américain"
+
+#~ msgid "Great Britain English"
+#~ msgstr "Anglais Grande Bretagne"
+
+#~ msgid "Canadian English"
+#~ msgstr "Anglais Canadien"
+
 #~ msgid "usa"
 #~ msgstr "Etats unis"
-
-#~ msgid "Regions of France"
-#~ msgstr "Les régions de france"
 
 #~ msgid ""
 #~ "This is a Demo version of gcompris,\n"
@@ -3462,9 +3511,6 @@ msgstr "Temps restant = %d"
 
 #~ msgid "Couldn't open pixmap dir: %s"
 #~ msgstr "Ne peut pas trouver le répertoire d'images: %s"
-
-#~ msgid "English"
-#~ msgstr "Anglais"
 
 #~ msgid "Simple addition"
 #~ msgstr "Addition simple"
