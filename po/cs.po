@@ -1,15 +1,15 @@
 # Czech translation of gcompris
-# Copyright (C) 2003, 2004 gcompris' COPYRIGHT HOLDER
-# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
+# Copyright (C) 2003, 2004, 2005 gcompris' COPYRIGHT HOLDER
+# Copyright (C) 2004, 2005 Miloslav Trmac <mitr@volny.cz>
 # This file is distributed under the same license as the gcompris package.
-# Miloslav Trmac <mitr@volny.cz>, 2003, 2004.
+# Miloslav Trmac <mitr@volny.cz>, 2003, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-02 10:51+0100\n"
-"PO-Revision-Date: 2005-01-02 14:51+0100\n"
+"POT-Creation-Date: 2005-01-06 18:52+0100\n"
+"PO-Revision-Date: 2005-01-06 20:43+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2314,6 +2314,12 @@ msgid ""
 "Tux."
 msgstr "Dávej své lodi správné instrukce, abys byl první v závodu s Tuxem."
 
+#: boards/searace.xml.in.h:3
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area."
+msgstr "Do textového pole postupně zadávej příkazy pro řízení lodi. Podporované příkazy jsou zobrazeny mezi vstupními oblastmi."
+
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
 #: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
@@ -2790,15 +2796,28 @@ msgstr "Úroveň"
 msgid "Coordinate"
 msgstr "Koordinace"
 
-#: src/boards/python/searace.py:449
+#: src/boards/python/searace.py:159 src/boards/python/searace.py:164
+#: src/boards/python/searace.py:191
+msgid "Race is already running"
+msgstr "Závod již běží"
+
+#: src/boards/python/searace.py:570
+msgid "The Red boat has won"
+msgstr "Červená loď vyhrála"
+
+#: src/boards/python/searace.py:572
+msgid "The Green boat has won"
+msgstr "Zelená loď vyhrála"
+
+#: src/boards/python/searace.py:656
 msgid "forward"
 msgstr "vpřed"
 
-#: src/boards/python/searace.py:452
+#: src/boards/python/searace.py:662
 msgid "turnleft"
 msgstr "zatočit doleva"
 
-#: src/boards/python/searace.py:454
+#: src/boards/python/searace.py:664
 msgid "turnright"
 msgstr "zatočit doprava"
 
