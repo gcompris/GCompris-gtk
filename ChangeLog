@@ -1,3 +1,22 @@
+2005-02-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	A new level from Frank Doucet in Chronos, the seasons.
+	reorganized all mazes in a submenu in the computer section
+
+	* boards/Makefile.am:
+	* boards/chronos/Makefile.am:
+	* boards/chronos/board1_1.xml.in:
+	* boards/chronos/images/autumn.png:
+	* boards/chronos/images/spring.png:
+	* boards/chronos/images/summer.png:
+	* boards/chronos/images/winter.png:
+	* boards/maze.xml.in:
+	* boards/maze2DRelative.xml.in:
+	* boards/maze3D.xml.in:
+	* boards/mazeInvisible.xml.in:
+	* boards/mazeMenu.xml.in:
+	* po/POTFILES.in:
+
 2005-02-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	implemented the scrollbar in the file selector
