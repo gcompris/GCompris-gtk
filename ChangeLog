@@ -7,6 +7,17 @@
 	* src/gcompris/config.c: added support for locale selection
 	* boards/locale*: removed locale selection by boards
 	* src/boards/locale.c: removed locale selection by boards
+	* src/boards/shapegame.c: added capability to edit a puzzle (click on a red point)
+	                          save is done with shift+click on any puzzle. The file
+	                          /tmp/gcompris-board.xml contains the edited board
+	* boards/paintings/kandinky.comp8: creation of this puzzle
+	* boards/paintings/board3_1.xml: creation of this puzzle. Make sure to click OK to see it
+	* boards/clockgame/clockgame-bg.jpg: creation of this new background by Renaud Blanchard.
+	* src/boards/clockgame.c: updated to fit in the new background
+	* boards/gcompris/misc/fishingboat.png: redrawed by Renaud
+	* src/boards/paratrooper.c: now, a click on the plane and the tux
+	* flies
+
 
 2001-12-26  Bruno Coudoin  <bruno.coudoin@free.fr>
 	* boards/missing_letter: added support for xmli18n

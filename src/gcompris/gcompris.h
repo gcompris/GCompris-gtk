@@ -66,6 +66,7 @@ typedef enum
   GCOMPRIS_BAR_HELP	= 1 << 2,
   GCOMPRIS_BAR_REPEAT	= 1 << 3,
   GCOMPRIS_BAR_CONFIG	= 1 << 4,
+  GCOMPRIS_BAR_ABOUT	= 1 << 5,
 } GComprisBarFlags;
 
 void		 gcompris_bar_set (const GComprisBarFlags flags);
