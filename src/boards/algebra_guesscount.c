@@ -53,8 +53,8 @@ static void destroy_board();
 #define NUMBER_OF_LEVELS 4
 #define MAX_NUMBER 5
 
-#define TEXT_COLOR "white"
-#define TEXT_RESULT_COLOR "white"
+#define TEXT_COLOR "yellow"
+#define TEXT_RESULT_COLOR "red"
 
 #define NO_RESULT -1
 
@@ -274,8 +274,6 @@ static void algebra_guesscount_destroy_all_items() {
 static int token_result() {
 	int result, i;
 
-dump_token(); //FIXME
-
 	if (token_count == 0)
 		return NO_RESULT;
 
@@ -285,7 +283,7 @@ dump_token(); //FIXME
 
 	for (i=2; i<token_count; i+=2) {
 		assert(!ptr_token_selected[i-1]->isNumber);
-		switch (token_value[i-1].oper) {
+		switch (/*token_value[i-1].oper*/ptr_token_selected[i-1]->oper) {
 			case '+' : 	result += num_values[ptr_token_selected[i]->num];
 									break;
 			case '-' : 	result -= num_values[ptr_token_selected[i]->num];// printf(" - %d\n",num_values[token_value[i].num]);
@@ -416,7 +414,10 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 				      "height_set", TRUE,
 				      NULL);
 		xOffset += BUTTON_WIDTH+HORIZONTAL_SEPARATION;
-  	gtk_signal_connect(GTK_OBJECT(oper_item[i]), "event", (GtkSignalFunc) item_event_oper, (void *) &oper_values[i]);
+  	gtk_signal_connect(GTK_OBJECT(oper_item[i]), "event", (GtkSignalFunc) item_event_oper, (void *) &(token_value[i*2+1]));
+		token_value[i*2+1].isNumber = FALSE;
+		token_value[i*2+1].isMoved = FALSE;
+		token_value[i*2+1].oper = oper_values[i];
 		}
 
 	// displays the target result
@@ -514,7 +515,8 @@ static int oper_char_to_pixmap_index(char oper) {
 }
 /* ==================================== */
 static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
-	char oper;
+	token *t = (	token *)data;
+
 	GnomeCanvasItem * tmp_item;
 
 	if(board_paused)
@@ -523,17 +525,13 @@ static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 	if (token_count % 2 == 0 || token_count > 2*gcomprisBoard->level+1)
 		return FALSE;
 
-	oper = *((char*)data);
-
   switch (event->type) {
     case GDK_BUTTON_PRESS:
-printf("token_count = %d clicked on %c\n",token_count,oper);
-			token_value[token_count].isNumber = FALSE;
-			token_value[token_count].oper = oper;
-			ptr_token_selected[token_count] = &token_value[token_count];
+printf("token_count = %d clicked on %c\n",token_count,t->oper);
+			ptr_token_selected[token_count] = t;
 			tmp_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_pixbuf_get_type (),
-				      "pixbuf", oper_pixmap[oper_char_to_pixmap_index(oper)],
+				      "pixbuf", oper_pixmap[oper_char_to_pixmap_index(t->oper)],
 				      "x", (double) x_token_offset[token_count],
 				      "y", (double) y_token_offset[token_count],
 				      "width", (double) BUTTON_WIDTH,
@@ -541,48 +539,49 @@ printf("token_count = %d clicked on %c\n",token_count,oper);
 				      "width_set", TRUE,
 				      "height_set", TRUE,
 				      NULL);
-  		gtk_signal_connect(GTK_OBJECT(tmp_item), "event", (GtkSignalFunc) item_event_oper_moved, GINT_TO_POINTER(token_count));
 			token_count++;
+  		gtk_signal_connect(GTK_OBJECT(tmp_item), "event", (GtkSignalFunc) item_event_oper_moved, GINT_TO_POINTER(token_count));
       break;
     }
   return FALSE;
 }
 /* ==================================== */
 static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
-	char oper;
-  if(board_paused)
-    return FALSE;
+	int count = GPOINTER_TO_INT(data);
 
-	oper = *((char*)data);
+	if(board_paused)
+    return FALSE;
+  // we only allow the undo of an operation if it is the last element displayed
   switch (event->type) {
     case GDK_BUTTON_PRESS:
-			gtk_object_destroy (GTK_OBJECT(item));
-			token_count--;
+		printf("count=%d token_count=%d\n", count,token_count);
+			if (count == token_count) {
+				gtk_object_destroy (GTK_OBJECT(item));
+				token_count--;
+				}
 			break;
     }
   return FALSE;
 }
 /* ==================================== */
 static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data){
-	token *t;
+	token *t = (token *)data;
   char str[12];
 
-  if(board_paused)
+	if(board_paused)
     return FALSE;
-	// first verify it is num turn
-	if (token_count % 2 != 0 || token_count > 2*gcomprisBoard->level+1)
-		return FALSE;
 
-	t = (token *)data;
   switch (event->type){
     case GDK_BUTTON_PRESS:
 			printf("clicked token_count = %d for value = %d\n", token_count,num_values[t->num]);
-			if (t->isMoved) {
+			if (t->isMoved && item == ptr_token_selected[token_count-1]->item) {
 			// we put back in its original place a number item
 				item_absolute_move(item, t->xOffset_original, Y_NUM);
 				token_count--;
 				t->isMoved = FALSE;
-			} else {
+			} else { // the item is at its original place
+				if (token_count % 2 == 1 || token_count > 2*gcomprisBoard->level+1)
+					return FALSE;
 				item_absolute_move(item, x_token_offset[token_count], y_token_offset[token_count]);
 				t->isMoved = TRUE;
 				ptr_token_selected[token_count] = t;
@@ -622,11 +621,12 @@ void item_absolute_move(GnomeCanvasItem *item, int x, int y) {
 void dump_token() {
 	int i;
 	token *t;
-
+	printf("+++++ dump_token +++++\n");
 	for (i=0; i<MAX_NUMBER*2-1; i++) {
 		t = &token_value[i];
 		if (t->isNumber) {
 			printf("i = %d num = %d value = %d\n", i, t->num, num_values[t->num]);
 		}
 	}
+	printf("----- dump_token -----\n");
 }
