@@ -1,3 +1,27 @@
+2004-10-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* README: fixed by J~r~me Warnier jwarnier at beeznest.net
+	* boards/flags/gcompris_flags.assetml.in: fixed for no=>nb/nn
+	* boards/flags/nb.png: fixed for no=>nb/nn
+	* boards/flags/nn.png: fixed for no=>nb/nn
+	* boards/flags/no.png: fixed for no=>nb/nn
+	* boards/reversecount/README: new set of images created by Franck Doucet
+	* boards/reversecount/baleine.png:
+	* boards/reversecount/elephant_mer.png:
+	* boards/reversecount/epaulard.png:
+	* boards/reversecount/morse.png:
+	* boards/reversecount/narval.png:
+	* boards/reversecount/ourspolaire.png:
+	* boards/reversecount/phoque.png:
+	* configure.in: assemlt flag increated, fixed for no=>nb/nn
+	* po/ChangeLog: fixed for no=>nb/nn
+	* po/nb.po:fixed for no=>nb/nn 
+	* po/nn.po:fixed for no=>nb/nn
+	* po/no.po:fixed for no=>nb/nn
+	* src/boards/reversecount.c: (reversecount_next_level),
+	(reversecount_create_item): includes new images by Franck Doucet
+	* src/gcompris/config.c:  fixed for no=>nb/nn
+
 2004-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	many icons remade by Franck Doucet
