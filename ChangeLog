@@ -1,3 +1,11 @@
+2004-06-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/images/scenery5_background.png: fixed the edge
+	* boards/menu.xml.in: updated help
+	* boards/missing_letter.xml.in: fixed name for web site
+	* src/boards/python/algorithm.py: moved the ? a little bit
+	* src/gcompris/gcompris.c: (setup_window): changed the intro message for win users
+
 2004-06-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/images/scenery5_background.png: created. used by the hexagon board
@@ -11,7 +19,8 @@
 	* boards/skins/default/difficulty_star6.png:
 	* src/boards/menu.c: (display_board_icon), (menu_create_item),
 	(item_event), (create_info_area): removed the use of the rich text canvas cause it crashes
-	* src/boards/python/algorithm.py: use the new scenery background with a bridge
+	* src/boards/python/algorithm.py: use the new scenery background with a bridge. Fixed the too
+	much randomness of the board. It was possible to have all example in the algo being the same object.
 	* src/gcompris/config.c: (gcompris_config_start),
 	(display_difficulty_level): adjusted for the new difficulty icons
 	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data),

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/06/05 01:22:57 bcoudoin>
+ * Time-stamp: <2004/06/06 23:18:09 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -490,12 +490,12 @@ static void setup_window ()
 
   init_background();
 
-#ifdef WIN32
+  //#ifdef WIN32
   if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
     board_pause();
-    gcompris_dialog(_("This is a Demo version of gcompris,\nonly 12 on 45 activities are available.\nTo get the full version,\ngo to http://www.ofset.org/order/gcompris"), NULL);
+    gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://www.ofset.org/order/gcompris\nThe Linux version has not this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\nhttp://www.fsf.org/philosophy"), NULL);
   }
-#endif
+  //#endif
 }
 
 void gcompris_end_board()
