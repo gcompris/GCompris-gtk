@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-06-24 23:46+0200\n"
-"PO-Revision-Date: 2003-06-24 23:47+0200\n"
+"POT-Creation-Date: 2003-08-02 01:30+0200\n"
+"PO-Revision-Date: 2003-08-02 01:31+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -347,6 +347,17 @@ msgstr "Multiplikationstabell"
 msgid "Practice the multiplication operation"
 msgstr "Träna på multiplikation"
 
+#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "Gå till algebraaktiviteterna"
+
+#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Vänsterklicka med musen för att välja en aktivitet"
+
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
@@ -433,17 +444,6 @@ msgstr "Träna på addition"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition"
 msgstr "Enkel addition"
-
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra activities"
-msgstr "Gå till algebraaktiviteterna"
-
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Vänsterklicka med musen för att välja en aktivitet"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -770,7 +770,8 @@ msgstr "Placera föremålen så att de kan räknas på bäst sätt"
 msgid "Motor coordination"
 msgstr "Motorik"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/fifteen.c:56
+#: src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Flytta musen"
 
@@ -1125,28 +1126,6 @@ msgstr "Hitta din vänster- och högerhand"
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr ""
 "Ett antal handbilder visas. Ta reda på om det är höger eller vänster hand"
-
-#: boards/superbrain.xml.in.h:1
-msgid ""
-"Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
-"a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
-msgstr ""
-"Klicka på objekten till dess att du hittar vad du tror är rätt svar. Sedan "
-"klickar du på OK-knappen i styrraden. På den lägre nivån ger tux dig en "
-"indikation om du har en bra plats genom att markera objektet med en svart "
-"ruta. Du kan använda den högra musknappen för att vända färgerna i omvänd "
-"ordning."
-
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
-msgid "Super Brain"
-msgstr "Superhjärna"
-
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
-msgid "Tux has hidden several items, find them back in the correct order"
-msgstr "Tux har gömt flera föremål, hitta dem i rätt ordning"
 
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
@@ -1537,6 +1516,28 @@ msgstr ""
 "Använd upp-, ned-, höger- och vänstertangenterna för att flytta helikoptern "
 "för att fånga talen i stigande ordning"
 
+#: boards/pythontest.xml.in.h:1
+msgid "Add a language binding to gcompris."
+msgstr "Lägg till en språkbindning till gcompris."
+
+#: boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "Avancerad Python-programmerare :)"
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Pythontest"
+
+#: boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "Testbräde för python-insticksmodulen"
+
+#: boards/pythontest.xml.in.h:5
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr ""
+"Tack till Guido van Rossum och python-teamet för detta kraftfulla språk!"
+
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
 msgstr "Ett minnesspel som bygger på tåg"
@@ -1727,6 +1728,30 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Balansera skalorna"
 
+#: boards/smallnumbers.xml.in.h:1
+msgid "Counting skill"
+msgstr "Räknekunskaper"
+
+#: boards/smallnumbers.xml.in.h:2
+msgid "In a limited time, count a number of dots"
+msgstr "Räkna antalet punkter under begränsad tid"
+
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+msgid "Numbers With Dices"
+msgstr "Tal med tärningar"
+
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
+msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
+
+#: boards/smallnumbers.xml.in.h:5
+msgid ""
+"With the keyboard, press the number corresponding to the number of dots in "
+"the falling dice."
+msgstr ""
+"Tryck på siffran på tangentbordet som motsvarar antalet prickar på den "
+"fallande tärningen."
+
 #: boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks in order "
@@ -1751,29 +1776,27 @@ msgstr "Styr en ubåt"
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr "Styr en ubåt genom att använda lufttankar och dykroder"
 
-#: boards/smallnumbers.xml.in.h:1
-msgid "Counting skill"
-msgstr "Räknekunskaper"
-
-#: boards/smallnumbers.xml.in.h:2
-msgid "In a limited time, count a number of dots"
-msgstr "Räkna antalet punkter under begränsad tid"
-
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
-msgid "Numbers With Dices"
-msgstr "Tal med tärningar"
-
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
-msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Skriv in numret 1 till 9 på tangentbordet innan tärningen når marken"
-
-#: boards/smallnumbers.xml.in.h:5
+#: boards/superbrain.xml.in.h:1
 msgid ""
-"With the keyboard, press the number corresponding to the number of dots in "
-"the falling dice."
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. At the lower level, tux "
+"gives you an indication if you got a good position by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"oposite order."
 msgstr ""
-"Tryck på siffran på tangentbordet som motsvarar antalet prickar på den "
-"fallande tärningen."
+"Klicka på objekten till dess att du hittar vad du tror är rätt svar. Sedan "
+"klickar du på OK-knappen i styrraden. På den lägre nivån ger tux dig en "
+"indikation om du har en bra plats genom att markera objektet med en svart "
+"ruta. Du kan använda den högra musknappen för att vända färgerna i omvänd "
+"ordning."
+
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr "Superhjärna"
+
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+msgid "Tux has hidden several items, find them back in the correct order"
+msgstr "Tux har gömt flera föremål, hitta dem i rätt ordning"
 
 #: boards/target.xml.in.h:1
 msgid ""
@@ -1828,43 +1851,21 @@ msgstr "Skriv in hela de fallande orden innan de når marken"
 msgid "Keyboard training"
 msgstr "Tangentbordsträning"
 
-#: boards/pythontest.xml.in.h:1
-msgid "Add a language binding to gcompris."
-msgstr "Lägg till en språkbindning till gcompris."
-
-#: boards/pythontest.xml.in.h:2
-msgid "Advanced Python Programmer :)"
-msgstr "Avancerad Python-programmerare :)"
-
-#: boards/pythontest.xml.in.h:3
-msgid "Python Test"
-msgstr "Pythontest"
-
-#: boards/pythontest.xml.in.h:4
-msgid "Test board for the python plugin"
-msgstr "Testbräde för python-insticksmodulen"
-
-#: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr ""
-"Tack till Guido van Rossum och python-teamet för detta kraftfulla språk!"
+#: gcompris-edit.desktop.in.h:1
+msgid "Editor for gcompris"
+msgstr "Redigerare för gcompris"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
 msgstr "Lärorikt spel för barn från 3 år och uppåt"
 
-#: gcompris-edit.desktop.in.h:1
-msgid "Editor for gcompris"
-msgstr "Redigerare för gcompris"
-
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1720 src/gcompris/skin.c:83 src/gcompris/skin.c:261
-#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
-#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
-#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:351
+#: src/boards/shapegame.c:1720 src/boards/traffic.c:623
+#: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
+#: src/gcompris/gameutil.c:450 src/gcompris/gameutil.c:451
+#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:351
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunde inte hitta filen %s!"
@@ -1922,31 +1923,31 @@ msgstr ""
 "i din GNU/Linux-distribution.\n"
 "Och kontrollera att det är i "
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Vitt drag"
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Svart drag"
 
-#: src/boards/chess.c:710
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Vitt schack"
 
-#: src/boards/chess.c:712
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Svart schack"
 
-#: src/boards/chess.c:1044
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Svart matt"
 
-#: src/boards/chess.c:1049
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Vitt matt"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Ritat spel"
 
@@ -1966,6 +1967,11 @@ msgstr "Kunde inte öppna bildfilskatalogen: %s"
 #: src/boards/clockgame.c:530
 msgid "Set the watch to:"
 msgstr "Ställ klockan till:"
+
+# Knepigt värre
+#: src/boards/fifteen.c:57
+msgid "Move the mouse to fifteen the area and discover the background"
+msgstr "Flytta musen för att femtonspela området och upptäck bakgrunden"
 
 #: src/boards/imageid.c:110 src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -2003,6 +2009,14 @@ msgstr "Välj ett bräde"
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Flytta planet så att det når molnen i rätt följd"
+
+#: src/boards/python.c:52
+msgid "Python Board"
+msgstr "Pythonbräde"
+
+#: src/boards/python.c:53
+msgid "Special board that embed python into gcompris."
+msgstr "Specialbräde som bäddar in python i gcompris."
 
 #: src/boards/railroad.c:95
 msgid "Memory game"
@@ -2102,15 +2116,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Avstånd till målet = %d meter"
 
-#: src/boards/python.c:52
-msgid "Python Board"
-msgstr "Pythonbräde"
-
-#: src/boards/python.c:53
-msgid "Special board that embed python into gcompris."
-msgstr "Specialbräde som bäddar in python i gcompris."
-
-#: src/gcompris/about.c:57
+#: src/gcompris/about.c:60
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -2124,163 +2130,167 @@ msgstr ""
 "Grafik: Renaud Blanchard\n"
 "Musik: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:94
+#: src/gcompris/about.c:97
 msgid "About GCompris"
 msgstr "Om GCompris"
 
-#: src/gcompris/about.c:200
+#: src/gcompris/about.c:203
 msgid "GCompris Home Page"
 msgstr "Hemsida för GCompris"
 
-#: src/gcompris/about.c:222
+#: src/gcompris/about.c:225
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Detta program är ett GNU-paket och är släppt under Gnu Publilc License"
 
-#: src/gcompris/about.c:250
+#: src/gcompris/about.c:253
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:167 src/gcompris/help.c:343
+#: src/gcompris/about.c:287 src/gcompris/config.c:170 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:52
 msgid "Amharic"
 msgstr "Amhariska"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:53
 msgid "Arabic"
 msgstr "Arabiska"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:54
 msgid "Azerbaijani Turkic"
 msgstr "Azerbadjansk turkiska"
 
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:55
 msgid "German"
 msgstr "Tyska"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:56
 msgid "Greek"
 msgstr "Grekiska"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:57
 msgid "English"
 msgstr "Engelska"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Spanish"
 msgstr "Spanska"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "Finnish"
 msgstr "Finska"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "French"
 msgstr "Franska"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:61
+msgid "Hebrew"
+msgstr "Hebreiska"
+
+#: src/gcompris/config.c:62
 msgid "Hungarian"
 msgstr "Ungerska"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:63
 msgid "Italian"
 msgstr "Italienska"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:64
 msgid "Macedonian"
 msgstr "Makedonska"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:65
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:66
 msgid "Malay"
 msgstr "Malajiska"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:67
 msgid "Dutch"
 msgstr "Holländska"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:68
 msgid "Portuguese"
 msgstr "Portugisiska"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:69
 msgid "Brazil Portuguese"
 msgstr "Brasiliansk portugisiska"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:70
 msgid "Romanian"
 msgstr "Rumänska"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:71
 msgid "Russian"
 msgstr "Ryska"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:72
 msgid "Swedish"
 msgstr "Svenska"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:73
 msgid "Slovak"
 msgstr "Slovakiska"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:74
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:75
 msgid "Lithuanian"
 msgstr "Litauiska"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:80
 msgid "No time limit"
 msgstr "Ingen tidsbegränsning"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:81
 msgid "Slow timer"
 msgstr "Långsam tidtagare"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:82
 msgid "Normal timer"
 msgstr "Normal tidtagare"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:83
 msgid "Fast timer"
 msgstr "Snabb tidtagare"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:88
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Standard för gcompris)"
 
-#: src/gcompris/config.c:141
+#: src/gcompris/config.c:144
 msgid "GCompris Configuration"
 msgstr "Konfiguration av GCompris"
 
-#: src/gcompris/config.c:247
+#: src/gcompris/config.c:250
 msgid "Fullscreen"
 msgstr "Helskärmsläge"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:293
 msgid "Music"
 msgstr "Musik"
 
-#: src/gcompris/config.c:318
+#: src/gcompris/config.c:321
 msgid "Effect"
 msgstr "Effekt"
 
-#: src/gcompris/config.c:355
+#: src/gcompris/config.c:358
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:389 src/gcompris/config.c:686
-#: src/gcompris/config.c:697
+#: src/gcompris/config.c:392 src/gcompris/config.c:699
+#: src/gcompris/config.c:710
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2313,11 +2323,11 @@ msgstr "Skriver ut versionsnumret av "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Använd den kantutjämnade canvasen (långsammare)."
 
-#: src/gcompris/gcompris.c:327
+#: src/gcompris/gcompris.c:331
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:541
+#: src/gcompris/gcompris.c:545
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2330,19 +2340,19 @@ msgstr ""
 "Licens: GPL\n"
 "Mer information på http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:167 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Förkunskap"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:201 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Mål"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:235 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:269 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Tack"
 
@@ -2415,6 +2425,9 @@ msgstr "Tiden har gått ut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Återstående tid = %d"
+
+#~ msgid "Move the mouse to clear the area and discover the background"
+#~ msgstr "Flytta musen för att tömma området och upptäck bakgrunden"
 
 #~ msgid "Couldn't open music directory: %s"
 #~ msgstr "Kunde inte öppna musikkatalogen: %s"
@@ -2502,9 +2515,6 @@ msgstr "Återstående tid = %d"
 
 #~ msgid "Galician"
 #~ msgstr "Galiciska"
-
-#~ msgid "Hebrew"
-#~ msgstr "Hebreiska"
 
 #~ msgid "Icelandic"
 #~ msgstr "Isländska"
