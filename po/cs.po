@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 03:29+0200\n"
-"PO-Revision-Date: 2004-04-19 10:07+0200\n"
+"POT-Creation-Date: 2004-05-06 03:35+0200\n"
+"PO-Revision-Date: 2004-05-06 14:12+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -454,12 +454,11 @@ msgid "Find the next in a list of symbols."
 msgstr "Najdi další v seznamu symbolů."
 
 #: boards/algorithm.xml.in.h:3 boards/hexagon.xml.in.h:2
-#: boards/minouche.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Aktivita pro cvičení logiky"
 
 #: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
-#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
+#: boards/melody.xml.in.h:4
 msgid "Move and click the mouse"
 msgstr "Hýbej a klikej myší"
 
@@ -983,7 +982,7 @@ msgstr "Zkopíruj věž vpravo ve volném místě vlevo."
 msgid "Simplified Tower of Hanoi"
 msgstr "Zjednodušené Hanojské věže"
 
-#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+#: boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
 msgstr "Najdi jahodu klikáním na modrá pole"
 
@@ -1394,19 +1393,6 @@ msgid ""
 msgstr ""
 "Cílem gcompris je poskytnout volnou alternativu populárnímu proprietárnímu "
 "vzdělávacímu softwaru"
-
-#: boards/minouche.xml.in.h:4
-msgid ""
-"Try to find the strawberry under the blue fields. The closer you get, the "
-"more red the fields become."
-msgstr ""
-"Zkus najít jahodu pod modrými poli. Čím blíž přijdeš, tím červenější budou "
-"pole."
-
-#: boards/minouche.xml.in.h:5
-#, fuzzy
-msgid "minouche"
-msgstr "okrová"
 
 #: boards/missing_letter.xml.in.h:1
 msgid ""
@@ -2062,7 +2048,9 @@ msgstr "Naučit se vodní cyklus"
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
-msgstr "Tux se vrátil z dlouhého rybaření na své lodi. Oprav vodovod, aby se mohl osprchovat."
+msgstr ""
+"Tux se vrátil z dlouhého rybaření na své lodi. Oprav vodovod, aby se mohl "
+"osprchovat."
 
 #: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
@@ -2485,6 +2473,10 @@ msgstr "Nápověda"
 msgid "OK"
 msgstr "OK"
 
+#: src/gcompris/board.c:41
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr "Dynamické načítání modulů není podporováno. gcompris se nemůže spustit.\n"
+
 #: src/gcompris/config.c:52
 msgid "Your system default"
 msgstr "Implicitní nastavení vašeho systému"
@@ -2806,7 +2798,13 @@ msgstr "Název"
 msgid "Released under GPL"
 msgstr "Uvolněno pod podmínkami GPL"
 
-#: src/gcompris/oggplayer.c:97
+#. Prepare our log
+#. The default format for time represenation.  See strftime(3)
+#: src/gcompris/log.c:144
+msgid "%a %b %d %H:%M:%S %Z %Y"
+msgstr "%a %d. %b %Y, %H:%M:%S %Z"
+
+#: src/gcompris/oggplayer.c:69
 #, c-format
 msgid ""
 "Error unable to find a usable audio output device (%d)\n"
@@ -2839,12 +2837,12 @@ msgstr "Nyní přehrávám hudbu"
 msgid "Artist"
 msgstr "Umělec"
 
-#: src/gcompris/soundutil.c:118
+#: src/gcompris/soundutil.c:119
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Nemohu otevřít adresář hudby: %s"
 
-#: src/gcompris/soundutil.c:159
+#: src/gcompris/soundutil.c:161
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -2866,6 +2864,13 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
+
+#~ msgid ""
+#~ "Try to find the strawberry under the blue fields. The closer you get, the "
+#~ "more red the fields become."
+#~ msgstr ""
+#~ "Zkus najít jahodu pod modrými poli. Čím blíž přijdeš, tím červenější "
+#~ "budou pole."
 
 #~ msgid "This board is dedicated to recognize unusual colors."
 #~ msgstr "Tato deska je určena pro rozpoznávání neobvyklých barev."
