@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/03/17 16:53:11 bcoudoin>
+ * Time-stamp: <2003/05/07 00:02:16 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,6 +33,8 @@
 #define SQUARE_LIMIT_DISTANCE 50.0
 
 static int gamewon;
+
+static gboolean edit_mode = FALSE;
 
 static gint addedname;	/* Defined the rules to apply to determine if the
 			   board is done.
@@ -133,6 +135,7 @@ static void 		 end_board (void);
 static gboolean 	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void 		 set_level (guint level);
 static void 		 process_ok(void);
+gint			 key_press(guint keyval);
 
 static GnomeCanvasItem 	*shapegame_init_canvas(GnomeCanvasGroup *parent);
 static void 		 shapegame_destroy_all_items(void);
@@ -164,7 +167,7 @@ BoardPlugin menu_bp =
    pause_board,
    end_board,
    is_our_board,
-   NULL,
+   key_press,
    process_ok,
    set_level,
    NULL,
@@ -313,6 +316,140 @@ is_our_board (GcomprisBoard *gcomprisBoard)
   return FALSE;
 }
 
+/*
+ * Keypress here are use for entering the editing mode
+ */
+gint key_press(guint keyval)
+{
+  guint c;
+  gboolean stop = FALSE;
+
+  if(!gcomprisBoard)
+    return TRUE;
+
+  /* Add some filter for control and shift key */
+  switch (keyval)
+    {
+      /* Avoid all this keys to be interpreted by this game */
+    case GDK_Shift_L:
+    case GDK_Shift_R:
+    case GDK_Control_L:
+    case GDK_Control_R:
+    case GDK_Caps_Lock:
+    case GDK_Shift_Lock:
+    case GDK_Meta_L:
+    case GDK_Meta_R:
+    case GDK_Alt_L:
+    case GDK_Alt_R:
+    case GDK_Super_L:
+    case GDK_Super_R:
+    case GDK_Hyper_L:
+    case GDK_Hyper_R:
+    case GDK_Num_Lock:
+      return FALSE; 
+    case GDK_KP_Enter:
+    case GDK_Return:
+      process_ok();
+      return TRUE;
+    case GDK_KP_0:
+    case GDK_KP_Insert:
+      keyval=GDK_0;
+      break;
+    case GDK_KP_1:
+    case GDK_KP_End:
+      keyval=GDK_1;
+      break;
+    case GDK_KP_2:
+    case GDK_KP_Down:
+      keyval=GDK_2;
+      break;
+    case GDK_KP_3:
+    case GDK_KP_Page_Down:
+      keyval=GDK_3;
+      break;
+    case GDK_KP_4:
+    case GDK_KP_Left:
+      keyval=GDK_4;
+      break;
+    case GDK_KP_5:
+    case GDK_KP_Begin:
+      keyval=GDK_5;
+      break;
+    case GDK_KP_6:
+    case GDK_KP_Right:
+      keyval=GDK_6;
+      break;
+    case GDK_KP_7:
+    case GDK_KP_Home:
+      keyval=GDK_7;
+      break;
+    case GDK_KP_8:
+    case GDK_KP_Up:
+      keyval=GDK_8;
+      break;
+    case GDK_KP_9:
+    case GDK_KP_Page_Up:
+      keyval=GDK_9;
+      break;
+    case GDK_Right:
+    case GDK_Delete:
+    case GDK_BackSpace:
+    case GDK_Left:
+      break;
+    }
+
+  c = tolower(keyval); 
+  
+  switch (c) 
+    {
+    case 'e':
+      /* Enter Edit Mode */
+      gcompris_dialog(_("You entered the Edit mode\nMove the puzzle items and\n's' to save\n'd' to display all the shapes"), NULL);
+      edit_mode = TRUE;
+      break;
+    case 's':
+      /* Save the current board */ 
+      if(edit_mode)
+	{
+	  write_xml_file("/tmp/gcompris-board.xml");
+	  gcompris_dialog(_("This board data are saved under\n/tmp/gcompris-board.xml"), NULL);
+	}
+      break;
+    case 'd':
+      /* Display all the shapes */ 
+      if(edit_mode)
+	{
+	  GList *list;
+	  Shape *candidateShape = NULL;
+	  
+	  /* loop through all our shapes */
+	  for(list = shape_list; list != NULL; list = list->next) {
+	    Shape *shape = list->data;
+	    
+	    if(shape->type==SHAPE_TARGET)
+	      {
+		   /* You got it right perfect */
+		   if(shape->bad_item!=NULL)
+		     {
+		       gnome_canvas_item_hide(shape->bad_item);
+		       gtk_object_destroy (GTK_OBJECT(shape->bad_item));
+		       shape->bad_item=NULL;
+		     }
+		   shape->found  = TRUE;
+		   gnome_canvas_item_show(shape->item);
+		   gnome_canvas_item_raise_to_top(shape->item);
+		   gnome_canvas_item_raise_to_top(shape->target_point);
+	      }
+	  }
+	}
+      break;
+    default:
+      break;
+    }
+  
+  return TRUE;
+}
+
 
 
 /*-------------------------------------------------------------------------------*/
@@ -346,6 +483,8 @@ static gboolean increment_sublevel()
 static void shapegame_next_level()
 {
   char *filename;
+
+  edit_mode = FALSE;
 
   gcompris_bar_set_level(gcomprisBoard);
 
@@ -787,8 +926,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
          case 1:
            if (event->button.state & GDK_SHIFT_MASK)
              {
-	       /* Cheat code to save an XML file */
-	       write_xml_file("/tmp/gcompris-board.xml");
 	     }
 	   else
 	     {
@@ -1017,6 +1154,9 @@ item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    double item_x, item_y;
 
   if(!gcomprisBoard)
+    return FALSE;
+
+  if(!edit_mode)
     return FALSE;
 
    if(shape==NULL) {

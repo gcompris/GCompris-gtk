@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2003/02/14 01:35:41 bruno>
+ * Time-stamp: <2003/05/06 23:19:57 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -638,7 +638,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 							     "y", (double) 0,
 							     NULL));
       
-  pixmap_dialog = gcompris_load_pixmap("gcompris/dialogbox.png");
+  pixmap_dialog = gcompris_load_skin_pixmap("dialogbox.png");
 
   item_dialog = gnome_canvas_item_new (rootDialogItem,
 				       gnome_canvas_pixbuf_get_type (),
@@ -651,15 +651,10 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 		     (GtkSignalFunc) item_event_ok,
 		     dbcb);
 
-  gdk_font = gdk_font_load (gcompris_skin_font_subtitle);
-  if(!gdk_font)
-    // Fallback to a more usual font
-    gdk_font = gdk_font_load (FONT_SUBTITLE_FALLBACK);
-
   item_text = gnome_canvas_item_new (rootDialogItem,
 			 gnome_canvas_text_get_type (),
 			 "text", str,
-			 "font_gdk", gdk_font,
+			 "font", gcompris_skin_font_subtitle,
 			 "x", (double) (BOARDWIDTH/2),
 			 "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
 			 100,
