@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2003/12/19 22:00:48 bcoudoin>
+ * Time-stamp: <2004/07/09 01:18:50 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -35,16 +35,22 @@ static gint		 item_event_file_selector(GnomeCanvasItem *item,
 static gint		 item_event_fileset_selector(GnomeCanvasItem *item, 
 						     GdkEvent *event, 
 						     gpointer data);
-static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir);
-static void		 free_stuff (GtkObject *obj, GList *data);
+static gint		 item_event_directory(GnomeCanvasItem *item, 
+					      GdkEvent *event, 
+					      char *dir);
+static void		 display_files(GnomeCanvasItem *rootitem, gchar *rootdir, gchar *filter);
+static void		 free_stuff (GtkObject *obj, gchar* data);
 
 static gboolean		 file_selector_displayed = FALSE;
 
 static GnomeCanvasItem	*rootitem = NULL;
-static GnomeCanvasItem	*current_root_set = NULL;
+static GnomeCanvasItem	*file_root_item = NULL;
 static GnomeCanvasItem	*item_content = NULL;
 
 static FileSelectorCallBack fileSelectorCallBack = NULL;
+
+static gchar *current_filter = NULL;
+static gchar *top_directory  = NULL;
 
 /* Represent the limits of control area */
 #define	CONTROL_AREA_X1	40
@@ -58,16 +64,12 @@ static FileSelectorCallBack fileSelectorCallBack = NULL;
 #define DRAWING_AREA_X2	760
 #define DRAWING_AREA_Y2	500
 
-#define HORIZONTAL_NUMBER_OF_IMAGE	10
+#define HORIZONTAL_NUMBER_OF_IMAGE	6
 #define VERTICAL_NUMBER_OF_IMAGE	5
-#define IMAGE_GAP			10
+#define IMAGE_GAP			18
 
 #define IMAGE_WIDTH  (DRAWING_AREA_X2-DRAWING_AREA_X1)/HORIZONTAL_NUMBER_OF_IMAGE-IMAGE_GAP
 #define IMAGE_HEIGHT (DRAWING_AREA_Y2-DRAWING_AREA_Y1)/VERTICAL_NUMBER_OF_IMAGE-IMAGE_GAP
-
-static guint		 ix  = DRAWING_AREA_X1;
-static guint		 iy  = DRAWING_AREA_Y1;
-static guint		 isy = DRAWING_AREA_Y1;
 
 /*
  * Main entry point 
@@ -79,22 +81,23 @@ static guint		 isy = DRAWING_AREA_Y1;
  * Do all the file_selector display and register the events
  */
 
-void gcompris_file_selector_save (GcomprisBoard *gcomprisBoard, gchar *rootdir,
+void gcompris_file_selector_save (GcomprisBoard *gcomprisBoard, gchar *filter,
 				  FileSelectorCallBack iscb)
 {
   printf("gcompris_file_selector_save\n");
 }
 
-void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
+void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *filter,
 				  FileSelectorCallBack iscb)
 {
 
   GnomeCanvasItem *item, *item2;
-  GdkPixbuf	*pixmap = NULL;
-  gint		 y = 0;
-  gint		 y_start = 0;
-  gint		 x_start = 0;
-  gchar		*name = NULL;
+  GdkPixbuf	  *pixmap = NULL;
+  gint		   y = 0;
+  gint		   y_start = 0;
+  gint		   x_start = 0;
+  gchar		  *name = NULL;
+  gchar           *gc_rootdir;
 
   if(rootitem)
     return;
@@ -168,12 +171,16 @@ void gcompris_file_selector_load (GcomprisBoard *gcomprisBoard, gchar *rootdir,
 
   file_selector_displayed = TRUE;
 
-  /* Initial image position */
-  ix  = DRAWING_AREA_X1;
-  iy  = DRAWING_AREA_Y1;
-  isy = DRAWING_AREA_Y1;
-
-  display_files(rootitem, rootdir);
+  if(g_get_home_dir()) {
+    gc_rootdir = g_strconcat(g_get_home_dir(), "/gcompris", NULL);
+  } else {
+    /* On WIN98, No home dir */
+    gc_rootdir = g_strdup("gcompris");
+  }
+ 
+  current_filter = filter;
+  top_directory  = gc_rootdir;
+  display_files(rootitem, gc_rootdir, current_filter);
 
 }
 
@@ -193,16 +200,20 @@ void gcompris_file_selector_stop ()
 	}
     }
 
+  printf("gcompris_file_selector_stop\n");
   // Destroy the file_selector box
   if(rootitem!=NULL)
     {
       gtk_object_destroy(GTK_OBJECT(rootitem));
     }
   rootitem = NULL;	  
-  current_root_set = NULL;
+
+  /* No need to destroy it since it's in rootitem but just clear it */
+  file_root_item = NULL;
 
   gcompris_bar_hide(FALSE);
   file_selector_displayed = FALSE;
+  printf("gcompris_file_selector_stop end\n");
 }
 
 
@@ -212,32 +223,58 @@ void gcompris_file_selector_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
-static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
+static void
+free_stuff (GtkObject *obj, gchar *data)
+{
+  printf("freestuff %s\n", data);
+  g_free(data);
+}
+
+static void display_files(GnomeCanvasItem *root_item, gchar* rootdir, gchar *filter)
 {
 
   GdkPixbuf *pixmap_dir  = NULL;
   GdkPixbuf *pixmap_file = NULL;
   GnomeCanvasItem *item;
   double iw, ih;
-  gchar *gc_rootdir;
   struct dirent *one_dirent;
   DIR *dir;
 
-  if(g_get_home_dir()) {
-    gc_rootdir = g_strconcat(g_get_home_dir(), "/gcompris", NULL);
-  } else {
-    /* On WIN98, No home dir */
-    gc_rootdir = g_strdup("gcompris");
-  }
+  /* Initial image position */
+  guint ix  = DRAWING_AREA_X1;
+  guint iy  = DRAWING_AREA_Y1;
+  guint isy = DRAWING_AREA_Y1;
 
   /* Display the directory content */
-  dir = opendir(gc_rootdir);
+  dir = opendir(rootdir);
 
   if (!dir) {
-    g_warning("gcompris_file_selector : no root directory found in %s", gc_rootdir);
-    g_free(gc_rootdir);
+    g_warning("gcompris_file_selector : no root directory found in %s", rootdir);
+    g_free(rootdir);
     return;
   }
+
+  /* Delete the previous file root if any */
+  if(file_root_item!=NULL) {
+    gtk_object_destroy(GTK_OBJECT(file_root_item));
+  }
+
+  /* Create a root item to put the image list in it */
+  file_root_item = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(root_item),
+			   gnome_canvas_group_get_type (),
+			   "x", (double)0,
+			   "y", (double)0,
+			   NULL);
+
+  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
+				gnome_canvas_text_get_type (),
+				"text", rootdir,
+				"x", (double)CONTROL_AREA_X1 + 100,
+				"y", (double)CONTROL_AREA_Y1 + 50,
+				"fill_color_rgba", 0x0000FFFF,
+				NULL);
+
 
   pixmap_dir  = gcompris_load_pixmap(gcompris_image_to_skin("directory.png"));
   pixmap_file = gcompris_load_pixmap(gcompris_image_to_skin("file.png"));
@@ -250,36 +287,50 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
     gchar *filename;
     GdkPixbuf *pixmap_current  = pixmap_file;
       
-    if((strcmp(one_dirent->d_name, "..")==0) ||
-       (strcmp(one_dirent->d_name, ".")==0))
+    if((strcmp(one_dirent->d_name, "..")==0) &&
+       strcmp(rootdir, top_directory)==0)
+      continue;
+
+    if(strcmp(one_dirent->d_name, ".")==0)
       continue;
 
     filename = g_strdup_printf("%s/%s",
-			       gc_rootdir, one_dirent->d_name);
+			       rootdir, one_dirent->d_name);
     
     if(g_file_test(filename, G_FILE_TEST_IS_DIR)) {
       pixmap_current  = pixmap_dir;
     }
 
-    item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(root_item),
+    item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
 				  gnome_canvas_pixbuf_get_type (),
 				  "pixbuf", pixmap_current,
-				  "x", (double)ix,
+				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP - gdk_pixbuf_get_width(pixmap_current))/2,
 				  "y", (double)iy,
 				  NULL);
 
-    gtk_signal_connect(GTK_OBJECT(item), "event",
-		       (GtkSignalFunc) item_event_file_selector,
-		       filename);
+    if(g_file_test(filename, G_FILE_TEST_IS_DIR)) {
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_directory,
+			 filename);
+    } else {
+      gtk_signal_connect(GTK_OBJECT(item), "event",
+			 (GtkSignalFunc) item_event_file_selector,
+			 filename);
+    }
     gtk_signal_connect(GTK_OBJECT(item), "event",
 		       (GtkSignalFunc) gcompris_item_event_focus,
 		       NULL);
 
-    item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(root_item),
+    g_object_set_data (G_OBJECT (item), "path", filename);
+    g_signal_connect (item, "destroy",
+		      G_CALLBACK (free_stuff),
+		      filename);
+
+    item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
 				  gnome_canvas_text_get_type (),
 				  "text", g_path_get_basename(filename),
 				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
-				  "y", (double)iy + IMAGE_HEIGHT - 15,
+				  "y", (double)iy + IMAGE_HEIGHT - 5,
 				  "anchor", GTK_ANCHOR_CENTER,
 				  "fill_color_rgba", 0x0000FFFF,
 				  NULL);
@@ -295,7 +346,6 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 	iy+=IMAGE_HEIGHT + IMAGE_GAP;
       }
 
-    g_free(filename);
   }
 
   closedir(dir);
@@ -305,18 +355,34 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
 }
 
-static void
-free_stuff (GtkObject *obj, GList *list)
+/* Callback when a directory is selected */
+static gint
+item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 {
-  while (g_list_length(list) > 0) {
-    g_free(g_list_nth_data(list,0));
-    list = g_list_remove(list, g_list_nth_data(list,0));
-  }
-  g_list_free(list);
+
+  switch (event->type) 
+    {
+    case GDK_ENTER_NOTIFY:
+      break;
+    case GDK_LEAVE_NOTIFY:
+      break;
+    case GDK_BUTTON_PRESS:
+      printf("item_event_directory %s\n", dir);
+      if(strcmp(g_path_get_basename(dir), "..")==0) {
+	/* Up one level. Remove .. and one directory on the right of the path */
+	dir[strlen(dir)-3] = '\0';
+	dir=g_path_get_dirname(dir);
+      }
+      display_files(rootitem, g_strdup(dir), current_filter);
+      break;
+    default:
+      break;
+    }
+  return FALSE;
+
 }
 
-
-/* Callback when an image is selected */
+/* Callback when a file is selected */
 static gint
 item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
@@ -339,6 +405,7 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 	  gcompris_file_selector_stop();
 	}
+      break;
     default:
       break;
     }

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/06/16 23:53:29 bcoudoin>
+ * Time-stamp: <2004/07/09 00:10:53 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -115,6 +115,8 @@ static void gcompris_close_all_dialog() {
   gcompris_help_stop();
   gcompris_config_stop();
   gcompris_about_stop();
+  gcompris_file_selector_stop();
+  gcompris_images_selector_stop();
 }
 
 static gint

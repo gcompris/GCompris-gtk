@@ -1,3 +1,11 @@
+2004-07-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/file_selector.c: (gcompris_file_selector_save),
+	(gcompris_file_selector_load), (gcompris_file_selector_stop),
+	(free_stuff), (display_files), (item_event_directory),
+	(item_event_file_selector): can now move up/down in directories
+	* src/gcompris/gcompris.c: (gcompris_close_all_dialog): added call to close image_selector and file_selector.
+
 2004-07-08  Olivier Samyn  <osamyn@easynet.be>
 
 	* docs/C/python.xml: Added the new file selector API to the python binding.
