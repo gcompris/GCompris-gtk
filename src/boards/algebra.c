@@ -156,6 +156,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       /* Default mode */
       if(!gcomprisBoard->mode)
 	currentOperation=PLUSSIGNFILE;
+      else if(g_strncasecmp(gcomprisBoard->mode, "+", 1)==0)
+	currentOperation=PLUSSIGNFILE;
       else if(g_strncasecmp(gcomprisBoard->mode, "-", 1)==0)
 	currentOperation=MINUSSIGNFILE;
       else if(g_strncasecmp(gcomprisBoard->mode, "*", 1)==0)
@@ -812,6 +814,9 @@ static void get_random_number(guint *first_operand, guint *second_operand)
   switch(currentOperation)
     {
     case PLUSSIGNFILE:
+      *first_operand = get_operand();
+      *second_operand  = gcomprisBoard->level;
+      break;
     case BYSIGNFILE:
       *first_operand  = gcomprisBoard->level;
       *second_operand = get_operand();
@@ -848,8 +853,7 @@ static void get_random_number(guint *first_operand, guint *second_operand)
 	  max = 10;
 	}
       *second_operand = (min+rand()%(max-min+1));
-      *first_operand  = MAX((min+rand()%(20-min)), *second_operand);
-      *first_operand  = MAX((min+rand()%(20-min)), *second_operand);
+      *first_operand  = *second_operand+rand()%(20-*second_operand);
       break;
     case DIVIDESIGNFILE:
       switch(gcomprisBoard->level)
