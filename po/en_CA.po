@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-09 17:21-0500\n"
-"PO-Revision-Date: 2004-11-09 19:37-0400\n"
+"POT-Creation-Date: 2004-11-18 17:52-0500\n"
+"PO-Revision-Date: 2004-11-18 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -2415,7 +2415,7 @@ msgstr ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Falling Words"
 
@@ -2562,8 +2562,9 @@ msgstr ""
 "Use the configuration dialogue to\n"
 "enable sound."
 
-#: src/boards/click_on_letter.c:280
-msgid "abcdefghijklmnopqrstufw"
+#. TRANSLATORS: Put here the alphabet in your language
+#: src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
 #: src/boards/clickgame.c:182
@@ -2765,7 +2766,7 @@ msgstr "But it was not displayed"
 msgid "And it was displayed"
 msgstr "And it was displayed"
 
-#: src/boards/reading.c:748
+#: src/boards/reading.c:748 src/boards/wordsgame.c:760
 msgid "Cannot open file of words for your locale"
 msgstr "Cannot open wordlist for your locale"
 
@@ -2833,7 +2834,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
 
-#: src/boards/wordsgame.c:88
+#: src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Fully type the falling words before they reach the ground"
 
