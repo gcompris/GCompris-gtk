@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-14 14:50+0200\n"
-"PO-Revision-Date: 2004-05-14 19:54+0200\n"
+"POT-Creation-Date: 2004-05-30 19:31+0200\n"
+"PO-Revision-Date: 2004-05-31 03:12+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -2140,8 +2140,8 @@ msgstr "Educatieve software gcompris"
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:479 src/gcompris/gameutil.c:480
-#: src/gcompris/gcompris.c:368 src/gcompris/images_selector.c:477
+#: src/gcompris/gameutil.c:475 src/gcompris/gameutil.c:476
+#: src/gcompris/gcompris.c:392 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2166,15 +2166,15 @@ msgstr ""
 "Tux heeft een probleem met zijn boot. Hij moet ermee door een sluis.\n"
 "Help Tux en leer hoe een sluis werkt."
 
-#: src/boards/chess.c:137
+#: src/boards/chess.c:139
 msgid "Learning Chess"
 msgstr "Leer schaken"
 
-#: src/boards/chess.c:138
+#: src/boards/chess.c:140
 msgid "Play chess against tux in a learning mode"
 msgstr "Schaken tegen Tux in leermodus"
 
-#: src/boards/chess.c:191
+#: src/boards/chess.c:193
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2186,7 +2186,7 @@ msgstr ""
 "gnuchess heeft.\n"
 "Doe een upgrade naar gnuchess 5 of hoger."
 
-#: src/boards/chess.c:198
+#: src/boards/chess.c:200
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2200,31 +2200,31 @@ msgstr ""
 "of in uw GNU/Linux distributie.\n"
 "Controleer ook of het staat in "
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "White Turn"
 msgstr "Wit's beurt"
 
-#: src/boards/chess.c:577
+#: src/boards/chess.c:579
 msgid "Black Turn"
 msgstr "Zwart's beurt"
 
-#: src/boards/chess.c:718
+#: src/boards/chess.c:720
 msgid "White check"
 msgstr "Wit schaak"
 
-#: src/boards/chess.c:720
+#: src/boards/chess.c:722
 msgid "Black check"
 msgstr "Zwart schaak"
 
-#: src/boards/chess.c:1052
+#: src/boards/chess.c:1054
 msgid "Black mates"
 msgstr "Zwart schaakmat"
 
-#: src/boards/chess.c:1057
+#: src/boards/chess.c:1059
 msgid "White mates"
 msgstr "Wit schaakmat"
 
-#: src/boards/chess.c:1062
+#: src/boards/chess.c:1064
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
@@ -2307,11 +2307,11 @@ msgstr "Geheugen"
 msgid "Find the matching pair"
 msgstr "Zoek het gelijke paar"
 
-#: src/boards/menu.c:79
+#: src/boards/menu.c:80
 msgid "Main Menu"
 msgstr "Hoofdmenu"
 
-#: src/boards/menu.c:80
+#: src/boards/menu.c:81
 msgid "Select a Board"
 msgstr "Selecteer een spel"
 
@@ -2385,39 +2385,47 @@ msgstr "Klik op de overeenkomstige kleur"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Zeg of een woord in de opgegeven lijst zit"
 
-#: src/boards/reading.c:322
+#: src/boards/reading.c:329
 msgid "Please, check if the word"
 msgstr "Ga na of het woord"
 
-#: src/boards/reading.c:342
+#: src/boards/reading.c:349
 msgid "is being displayed"
 msgstr "getoond wordt"
 
-#: src/boards/reading.c:525
+#: src/boards/reading.c:541
 msgid "I am Ready"
 msgstr "Ik ben klaar"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:581
 msgid "Yes I saw it"
 msgstr "Ja, ik heb het gezien"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:611
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:649
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Het te vinden woord was: '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:652
 msgid "But it was not displayed"
 msgstr "Maar het zat er niet bij"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:654
 msgid "And it was displayed"
 msgstr "En het zat er bij"
+
+#: src/boards/reading.c:756 src/boards/reading.c:766
+msgid "Cannot open file of words for your locale"
+msgstr "Kan geen woordenbestand openen voor uw locale"
+
+#: src/boards/reading.c:795
+msgid "Error: The wordfile package used for your locale is corrupted."
+msgstr "Fout: het woordbestand-pakket voor uw locale is beschadigd."
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2489,7 +2497,7 @@ msgstr "Afstand tot het doel = %d meter"
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Typ de woorden vooraleer ze de grond raken"
 
-#: src/gcompris/about.c:60
+#: src/gcompris/about.c:65
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -2504,7 +2512,7 @@ msgstr ""
 "Achtergrondmuziek: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+#: src/gcompris/about.c:73 src/gcompris/interface.c:484
 msgid "translator_credits"
 msgstr ""
 "Tino Meinen <a.t.meinen@chello.nl>\n"
@@ -2512,29 +2520,30 @@ msgstr ""
 "Herman Bruyninckx <herman.bruyninckx@mech.kuleuven.ac.be>\n"
 "Sander Devrieze <s.devrieze@pandora.be>"
 
-#: src/gcompris/about.c:100
+#: src/gcompris/about.c:105
 msgid "About GCompris"
 msgstr "Over GCompris"
 
-#: src/gcompris/about.c:110
+#: src/gcompris/about.c:115
 msgid "Translators:"
 msgstr "Vertalers:"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:230
 msgid "GCompris Home Page"
 msgstr "GCompris Startpagina"
 
-#: src/gcompris/about.c:247
+#: src/gcompris/about.c:252
 msgid ""
 "This software is a GNU Package and is released under the GNU Public Licence"
 msgstr ""
 "Deze software is een GNU pakket, uitgebracht onder de Gnu Public Licence"
 
-#: src/gcompris/about.c:275
+#: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
+#: src/gcompris/about.c:316 src/gcompris/config.c:187
+#: src/gcompris/gameutil.c:778 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2544,201 +2553,201 @@ msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Dynamisch modules laden wordt niet ondersteund. gcompris kan niet laden.\n"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:57
 msgid "Your system default"
 msgstr "Uw systeemstandaard"
 
 # moet mogelijk vertaald worden als Abisinisch
-#: src/gcompris/config.c:53
+#: src/gcompris/config.c:58
 msgid "Amharic"
 msgstr "Ethiopisch"
 
 # moet mogelijk vertaald worden als Abisinisch
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:59
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:60
 msgid "Azerbaijani Turkic"
 msgstr "Azerbeijaans Turks"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:61
 msgid "Catalan"
 msgstr "Catalaans"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:62
 msgid "Czech"
 msgstr "Tsjechisch"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:63
 msgid "German"
 msgstr "Duits"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:64
 msgid "Greek"
 msgstr "Grieks"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:65
 msgid "American English"
 msgstr "Amerikaans Engels"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:66
 msgid "Great Britain English"
 msgstr "Brits Engels"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:67
 msgid "Canadian English"
 msgstr "Canadees Engels"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:68
 msgid "Spanish"
 msgstr "Spaans"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:69
 msgid "Finnish"
 msgstr "Fins"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:70
 msgid "French"
 msgstr "Frans"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:71
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
 # is dit indisch of indiaas?
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:72
 msgid "Indian"
 msgstr "Indiaas"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:73
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:74
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:75
 msgid "Italian"
 msgstr "Italiaans"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:76
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:77
 msgid "Macedonian"
 msgstr "Macedonisch"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:78
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:79
 msgid "Malay"
 msgstr "Maleisisch"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:80
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:81
 msgid "Norwegian"
 msgstr "Noors"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:82
 msgid "Polish"
 msgstr "Pools"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:83
 msgid "Portuguese"
 msgstr "Portugees"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:84
 msgid "Brazil Portuguese"
 msgstr "Braziliaans"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:85
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:86
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:87
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:88
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:89
 msgid "Serbian (Latin)"
 msgstr "Servisch (latijns)"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:90
 msgid "Serbian"
 msgstr "Servisch"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:91
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:92
 msgid "Turkish"
 msgstr "Turks"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:97
 msgid "No time limit"
 msgstr "Geen tijdslimiet"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:98
 msgid "Slow timer"
 msgstr "Trage tijdopnemer"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:99
 msgid "Normal timer"
 msgstr "Normale tijdopnemer"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:100
 msgid "Fast timer"
 msgstr "Snelle tijdopnemer"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:105
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
-#: src/gcompris/config.c:156
+#: src/gcompris/config.c:161
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: src/gcompris/config.c:265
+#: src/gcompris/config.c:270
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: src/gcompris/config.c:308
+#: src/gcompris/config.c:313
 msgid "Music"
 msgstr "Muziek"
 
-#: src/gcompris/config.c:336
+#: src/gcompris/config.c:341
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:370
+#: src/gcompris/config.c:375
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:391
+#: src/gcompris/config.c:396
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: src/gcompris/config.c:406 src/gcompris/config.c:729
-#: src/gcompris/config.c:740
+#: src/gcompris/config.c:411 src/gcompris/config.c:746
+#: src/gcompris/config.c:757
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -2760,39 +2769,52 @@ msgstr ""
 "ons het probleem."
 
 # Beter: schermvullend?
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:77
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:79
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:81
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:83
 msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:85
 msgid "Print the version of "
 msgstr "Toont de versie van "
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:87
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:616
+#: src/gcompris/gcompris.c:491
+msgid ""
+"This is a Demo version of gcompris,\n"
+"only 12 on 45 activities are available.\n"
+"To get the full version,\n"
+"go to http://www.ofset.org/order/gcompris"
+msgstr ""
+"Dit is een demoversie van gcompris,\n"
+"slechts 12 van de 45 activiteiten zijn\n"
+"beschikbaar.\n"
+"Om een volledige versie te krijgen, ga\n"
+"naar http://www.ofset.org/order/gcompris"
+
+#: src/gcompris/gcompris.c:663
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2805,19 +2827,19 @@ msgstr ""
 "Licentie: GPL\n"
 "Meer informatie op http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Vereisten"
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
+#: src/gcompris/help.c:207 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Doelstelling"
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
+#: src/gcompris/help.c:241 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Handleiding"
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
+#: src/gcompris/help.c:275 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Dank aan"
 
@@ -2872,12 +2894,12 @@ msgstr "Uitgebracht onder de GPL"
 msgid "%a %b %d %H:%M:%S %Z %Y"
 msgstr "%a %d %b %H:%M:%S %Z %Y"
 
-#: src/gcompris/soundutil.c:132
+#: src/gcompris/soundutil.c:141
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Kon muziek-map niet openen: %s"
 
-#: src/gcompris/soundutil.c:174
+#: src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
