@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/02/28 01:22:38 bruno>
+ * Time-stamp: <2005/03/01 00:26:43 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -107,6 +107,7 @@ typedef struct {
 } GcomprisMimeType;
 
 static GHashTable* mimetypes_hash = NULL;
+static GHashTable* mimetypes_ext_hash = NULL; /* Mime type with the key being the extension */
 
 /*
  * Main entry point 
@@ -505,7 +506,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   gnome_canvas_set_center_scroll_region (GNOME_CANVAS (canvas), FALSE);
 
   /* Set the scrollwheel event */
-  gtk_signal_connect(GNOME_CANVAS(canvas), "event",
+  gtk_signal_connect(GTK_OBJECT(canvas), "event",
 		     (GtkSignalFunc) item_event_scroll,
 		     GNOME_CANVAS(canvas));
 
@@ -832,6 +833,7 @@ void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
 	    gcomprisMime->icon);
 
   g_hash_table_insert(mimetypes_hash, gcomprisMime->mimetype, gcomprisMime);
+  g_hash_table_insert(mimetypes_ext_hash, gcomprisMime->extension, gcomprisMime);
 
   return;
 }

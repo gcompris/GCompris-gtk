@@ -2316,13 +2316,21 @@ def list_restore(picklelist):
     AItem.frames_info = Sitem[1]
     #print AItem, AItem.type,  AItem.frames_info,
     fles.animlist.append(AItem)
-    
+
+  missing_images = []
   for fles.current_frame in range(fles.frames_total+1):
     for item in fles.animlist:
       if fles.gcomprisBoard.mode == 'draw':
         item.z = fles.animlist.index(item)
       restore_item( item, fles.current_frame)
 
+  if missing_images:
+    list_images = ''
+    for im in missing_images:
+      list_images = list_images + im + '\n'
+    gcompris.utils.dialog(_('Warning: the following images cannot be accessed on your system.\n')+
+                          list_images + _('The corresponding items have been skiped.'), None)
+ 
   fles.list_z_last_shot= []
   for item in fles.framelist:
     fles.list_z_last_shot.append(item.z)
@@ -2367,6 +2375,11 @@ def restore_item(item, frame):
       modif['anchor']= gtk.ANCHOR_CENTER
     if item.type == 'IMAGE':
       item.image_name =  modif['image_name']
+      # TODO stock the image name and display only the list of all images once/
+      if not access(item.image_name, R_OK):
+        missing_images.append(item.image_name)
+        fles.framelist.remove(item)
+        return
       del modif['image_name']
       pixmap = gcompris.utils.load_pixmap(item.image_name)
       modif['pixbuf']= pixmap
