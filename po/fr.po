@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-09-06 22:56+0000\n"
-"PO-Revision-Date: 2002-09-10 00:35+0200\n"
+"POT-Creation-Date: 2002-09-12 00:13+0200\n"
+"PO-Revision-Date: 2002-09-12 00:24+0200\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -324,7 +324,7 @@ msgid "Multiplication table"
 msgstr "Table de multiplication"
 
 #: boards/algebra_by.xml.in.h:5
-msgid "Pratice the multiplication operation"
+msgid "Practice the multiplication operation"
 msgstr "Entraînement à l'opération de multiplication"
 
 #: boards/algebra_div.xml.in.h:1
@@ -345,7 +345,7 @@ msgid "In a limited time, give the result to the division of two numbers"
 msgstr "En en temps limité, donnez la réponse à la division de deux nombres"
 
 #: boards/algebra_div.xml.in.h:5
-msgid "Pratice the division operation"
+msgid "Practice the division operation"
 msgstr "Entraînement à l'opération de division"
 
 #: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
@@ -378,6 +378,9 @@ msgid ""
 "the top of the board area. These numbers and operators can be unselected by "
 "clicking on them."
 msgstr ""
+"Pour composer vos opérations, choisir vos nombres et les opérateurs \n"
+"arithmétiques en haut de la zone de l'activité.\n"
+"Ces nombres et opérateurs peuvent être déselectionnés en cliquant dessus."
 
 #: boards/algebra_guesscount.xml.in.h:6
 msgid ""
@@ -404,7 +407,7 @@ msgid "In a limited time, give the result to the substraction of two numbers"
 msgstr "En en temps limité, donnez la réponse à la division de deux nombres"
 
 #: boards/algebra_minus.xml.in.h:4
-msgid "Pratice the substraction operation"
+msgid "Practice the substraction operation"
 msgstr "Entraînement à l'opération de soustraction"
 
 #: boards/algebra_minus.xml.in.h:5
@@ -417,28 +420,32 @@ msgid ""
 "give the answer. Use the left and right arrow to modify your answer, the "
 "return key to validate an answer"
 msgstr ""
+"Une addition de deux nombre est proposée. A la droite du signe égale,\n"
+"donne la réponse. Utilise les flêches gauche et droite pour modifier\n"
+"la réponse. Le touche entrée valide la réponse."
 
 #: boards/algebra_plus.xml.in.h:3
 msgid "In a limited time, give the result to the addition of two numbers"
 msgstr "En en temps limité, donnez la réponse à l'addition de deux nombres"
 
 #: boards/algebra_plus.xml.in.h:4
-msgid "Pratice the addition operation"
+msgid "Practice the addition operation"
 msgstr "Entraînement à l'opération d'addition"
 
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition"
 msgstr "Addition simple"
 
-#: boards/algebramenu.xml.in.h:1
-msgid "Go to Algebra boards"
-msgstr "Vers les tableaux d'algèbre"
+#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+msgid "Go to Algebra activities"
+msgstr "Vers les activités d'algèbre"
 
-#: boards/algebramenu.xml.in.h:2 boards/colors_group.xml.in.h:2
+#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
 #: boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select a board"
-msgstr "Clique avec le bouton gauche pour sélectionner un tableau"
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Clique avec le bouton gauche pour sélectionner une activité"
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -452,7 +459,7 @@ msgid ""
 "In the main board area, a set of objects are printed. In the vertical frame "
 "- at the left of the main board area, another set of objects are printed, "
 "each of these objects match with exactly one object of the main board area. "
-"The logical link between these objects must be find. This is achieved by "
+"The logical link between these objects must be found. This is achieved by "
 "dragging the objects to the right red plots in the main area."
 msgstr ""
 
@@ -496,6 +503,10 @@ msgstr "Lock sur l'herbe"
 msgid "Lock with colored shapes."
 msgstr "Lock avec des formes colorées"
 
+#: boards/boards.xml.in.h:1
+msgid "Go to board based activities"
+msgstr "Vers les activités basées sur les jeux de plateau"
+
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
 msgid "Operate a canal lock"
 msgstr "Fais fonctionner une écluse"
@@ -519,9 +530,8 @@ msgstr ""
 "Fait traverser Tux à travers l'écluse dans les deux sens."
 
 #: boards/chess.xml.in.h:1
-#, fuzzy
 msgid "Learning chess"
-msgstr "Apprentissage de l'heure"
+msgstr "Apprentissage des échecs"
 
 #: boards/chess.xml.in.h:2 boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
 #: boards/memory.xml.in.h:4
@@ -540,8 +550,12 @@ msgstr "Le moteur d'échec est gnuchess"
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
 "can hear again the letter by clicking on the speaker icon in the bottom "
-"horizonl frame."
+"horizontal frame."
 msgstr ""
+"Une lettre est prononcée. Clique sur la lettre correspondante dans la zone\n"
+"principale.\n"
+"Tu peux réécouter la lettre en appuyant sur le boutton du haut parleur dans\n"
+"la zone de contrôle."
 
 #: boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -666,8 +680,8 @@ msgstr ""
 "L'enfant doit sélectionner la bonne couleur."
 
 #: boards/colors_group.xml.in.h:1
-msgid "Go to colors boards"
-msgstr "Vers les tableaux des couleurs"
+msgid "Go to colors activities"
+msgstr "Vers les activités des couleurs"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -750,8 +764,8 @@ msgid "Move the mouse until all the blocks disapear."
 msgstr "Bougez la souris jusqu'à ce que les blocks disparraissent"
 
 #: boards/fun.xml.in.h:1
-msgid "Go to Amusement boards"
-msgstr "Vers les tableaux de jeu"
+msgid "Go to Amusement activities"
+msgstr "Vers les activités ludiques"
 
 #: boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
@@ -784,6 +798,8 @@ msgid ""
 "Click on the word corresponding to the printed image. When you are sure of "
 "your choice click on the hand at the bottom"
 msgstr ""
+"Clique sur le mot correspondant à l'image affichée.\n"
+"Quand tu es sure de ton choix, clique sur la main dans la barre de contrôle"
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
@@ -1001,20 +1017,14 @@ msgstr "drapeau"
 msgid "racket"
 msgstr "raquette"
 
-#: boards/mastermind.xml.in.h:1 src/boards/mastermind.c:122
-msgid "Master Mind"
-msgstr "Master Mind"
-
-#: boards/mastermind.xml.in.h:2
-#, fuzzy
+#: boards/superbrain.xml.in.h:1
 msgid ""
-"This game is an implementation of the original mastermind game. Click on the "
-"items until you find what you think is the correct answer. Then, click on "
-"the OK button in the control bar. At the lower level, tux gives you an "
-"indication if you got a good position by marking the item with a black box. "
-"You can use the right mouse button to flip the colors in the oposite order."
+"Click on the items until you find what you think is the correct answer. "
+"Then, click on the OK button in the control bar. At the lower level, tux "
+"gives you an indication if you got a good position by marking the item with "
+"a black box. You can use the right mouse button to flip the colors in the "
+"oposite order."
 msgstr ""
-"Ce jeu est une version du mastermind.\n"
 "Cliquez sur les éléments jusqu'à trouver la position qui vous semble "
 "correcte.\n"
 "Ensuite, cliquez sur OK dans la barre de contrôle. \n"
@@ -1024,7 +1034,11 @@ msgstr ""
 "couleurs\n"
 "dans l'autre sens."
 
-#: boards/mastermind.xml.in.h:3 src/boards/mastermind.c:123
+#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:122
+msgid "Super Brain"
+msgstr "Super Cerveau"
+
+#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:123
 msgid "Tux has hidden several items, find them back in the correct order"
 msgstr ""
 "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
@@ -1051,11 +1065,11 @@ msgstr "Utilise les flêches du clavier pour déplacer Tux jusqu'à la porte"
 
 #: boards/memory.xml.in.h:1
 msgid ""
-"A set of blink cards is printed. Each pair are associated by the same "
-"picture in their hidden faces. When clicking on a card, you can uncover the "
-"card and see its hidden picture. However you can only see two hidden "
-"pictures at once. You have to remember the position of the pictures to "
-"associate them. To remove a pair of card, uncover both of them."
+"A set of blink cards is printed. Each pair is associated by the same picture "
+"in their hidden faces. When clicking on a card, you can uncover the card and "
+"see its hidden picture. However you can only see two hidden pictures at "
+"once. You have to remember the position of the pictures to associate them. "
+"To remove a pair of card, uncover both of them."
 msgstr ""
 
 #: boards/memory.xml.in.h:2
@@ -1067,8 +1081,8 @@ msgid "Memory Game with images"
 msgstr "Jeu de mémoire avec des images et des lettres"
 
 #: boards/memory.xml.in.h:5
-msgid "Train your memory and remove all the card"
-msgstr ""
+msgid "Train your memory and remove all the cards"
+msgstr "Entraînement de la mémoire, enlèves toutes les cartes"
 
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
@@ -1092,15 +1106,15 @@ msgstr ""
 
 #: boards/menu.xml.in.h:5
 msgid ""
-"To use it, a simple click on an icon brings you to a board or a menu. At the "
-"bottom of the screen, you have the gcompris control bar. From right to left, "
-"bellow is the meaning of the icons. Note that these icons are displayed only "
-"when available in a board: Home - Back to previous menu or exit gcompris if "
-"no more Thumb - OK, confirm your answer Dice - The current level is "
-"displayed. Click on it to select another level Music note - Ask gcompris to "
-"repeat the question Question Mark - The help Tool Box - The configuration "
-"menu Tux Plane - The about box The stars means: 1 Star - 3 to 4 years old 2 "
-"Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
+"To use it, a simple click on an icon brings you to an activity or a menu. At "
+"the bottom of the screen, you have the gcompris control bar. From right to "
+"left, bellow is the meaning of the icons. Note that these icons are "
+"displayed only when available in an activity: Home - Back to previous menu "
+"or exit gcompris if no more Thumb - OK, confirm your answer Dice - The "
+"current level is displayed. Click on it to select another level Music note - "
+"Ask gcompris to repeat the question Question Mark - The help Tool Box - The "
+"configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to "
+"4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
 msgstr ""
 "Pour l'utiliser, un simple clic sur une icône vous amènera vers une activité "
 "ou un menu.\n"
@@ -1130,6 +1144,9 @@ msgid ""
 "the picture. Select the missing letter to complete the word. Click on the "
 "hand at the bottom to validate your choice."
 msgstr ""
+"Un objet est affiché dans la zone principale. Un mot incomplêt est inscrit\n"
+"sous l'image. Sélectionnes la lettre manquante pour complêter le mot.\n"
+"Cliques sur la main dans la barre de contrôle pour valider ton choix."
 
 #: boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
@@ -1310,12 +1327,11 @@ msgstr "Chemin de fer"
 
 #: boards/read_colors.xml.in.h:1
 msgid "Can read"
-msgstr ""
+msgstr "Savoir lire"
 
 #: boards/read_colors.xml.in.h:3
-#, fuzzy
 msgid "Click on the right colored object."
-msgstr "Clique sur la bonne couleur"
+msgstr "Clique sur le bon objet coloré."
 
 #: boards/read_colors.xml.in.h:4
 msgid "Read colors"
@@ -1323,7 +1339,7 @@ msgstr "Lire des couleurs"
 
 #: boards/read_colors.xml.in.h:5
 msgid "This board is dedicated to read basic colors."
-msgstr ""
+msgstr "L'objectif de cette activité est de lire les couleurs de base."
 
 #: boards/read_colors/board1.xml.in.h:1
 msgid "black"
@@ -1370,12 +1386,12 @@ msgid "yellow"
 msgstr "jaune"
 
 #: boards/reading.xml.in.h:1
-msgid "Go to the Reading boards"
-msgstr "Vers les tableaux de lecture"
+msgid "Go to the Reading activities"
+msgstr "Vers les activités de lecture"
 
 #: boards/readingh.xml.in.h:1 boards/readingv.xml.in.h:1
 msgid ""
-"At the top and right of the baord area, a word is printed. At the left a "
+"At the top and right of the board area, a word is printed. At the left a "
 "list of words will move in and out of the screen. Tell if you see the "
 "initial word in this list."
 msgstr ""
@@ -1428,15 +1444,6 @@ msgstr "Entraînement à la soustraction avec un jeu amusant"
 #: boards/reversecount.xml.in.h:4
 msgid ""
 "Tux is hungry. Help him find fishes by counting the ice spot needed to reach "
-"the fish."
-msgstr ""
-"Tux à faim. Aide-le à trouver des poissons en comptant les glaçons "
-"nécessaires\n"
-"pour les atteindre."
-
-#: boards/reversecount.xml.in.h:5
-msgid ""
-"Tux is hungry. Help him find fishes by counting the ice spot needed to reach "
 "them."
 msgstr ""
 "Tux à faim. Aide-le à trouver des poissons en comptant les glaçons "
@@ -1462,11 +1469,24 @@ msgstr "Calcul mental, égalité arithmétique"
 
 #: boards/scalesboard.xml.in.h:3
 msgid ""
-"To equilibrate the scales, move the masses in its left plateau. The masses "
-"must be arranged in decreasing order."
+"The painting is an original painting made by Virginie MOREAU (virginie."
+"moreau@free.fr) in 2001. Its name is 'spices seller in egypt'. It is "
+"released under the GPL license."
 msgstr ""
+"Le tableau est une peinture original créee par Virginie Moreau\n"
+"(virginie.moreau@free.fr) en 2001. \n"
+"Il s'appelle 'vendeur d'épices en Egypte'.\n"
+"Il est placé sous la license GPL"
 
 #: boards/scalesboard.xml.in.h:4
+msgid ""
+"To equilibrate the scales, move the masses in its left plateau. The masses "
+"can be arranged in any order."
+msgstr ""
+"Pour équilibrer la balance, déplace les masses sur le plateau de gauche.\n"
+"Les masses peuvent être placées dans n'importe quel ordre."
+
+#: boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
 msgstr "Equilibre correctement la balance"
 
@@ -1478,19 +1498,21 @@ msgstr "Savoir compter"
 msgid "In a limited time, count a number of dots"
 msgstr "En en temps limité, compter un nombre de points"
 
-#: boards/smallnumbers.xml.in.h:3
-msgid ""
-"In the keyboard, press the number corresponding to the number of dot in the "
-"fowling dice."
-msgstr ""
-
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:69
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
 msgid "Numbers With Dices"
 msgstr "Les nombres avec les dés"
 
-#: boards/smallnumbers.xml.in.h:5 src/boards/smallnumbers.c:70
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
+
+#: boards/smallnumbers.xml.in.h:5
+msgid ""
+"With the keyboard, press the number corresponding to the number of dots in "
+"the falling dice."
+msgstr ""
+"Avec le clavier, presse le nombre correspondant aux nombres de points dans \n"
+"le dé qui tombe."
 
 #: boards/target.xml.in.h:1
 msgid ""
@@ -1501,10 +1523,10 @@ msgstr ""
 
 #: boards/target.xml.in.h:2
 msgid ""
-"First check the wind strengh and direction, then click on the target to "
-"launch a dart, when all your darts are sent, a window appear requiring you "
+"First check the wind strength and direction, then click on the target to "
+"launch a dart, when all your darts are sent, a window appears requiring you "
 "to count your score. Enter the score with the keyboard then press the enter "
-"key ok or the OK icon."
+"key or the OK icon."
 msgstr ""
 "Pour commencer, vérifie la force et la direction du vent. Ensuite clique\n"
 "sur la cible pour lancer une flêche. Quand toutes tes flêches sont lancées,\n"
@@ -1538,6 +1560,10 @@ msgstr "Entraînement au clavier"
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
 msgstr "Jeu éducatif à partir de 3 ans"
+
+#: gcompris-edit.desktop.in.h:1
+msgid "Editor for gcompris"
+msgstr "Editeur de gcompris"
 
 #: src/boards/advanced_colors.c:85
 msgid "Advanced colors"
@@ -1574,31 +1600,30 @@ msgstr ""
 "Aide Tux et apprends comment une écluse fonctionne."
 
 #: src/boards/chess.c:132
-#, fuzzy
 msgid "Learning Chess"
-msgstr "Apprentissage des echecs"
+msgstr "Apprentissage des échecs"
 
-#: src/boards/chess.c:461
+#: src/boards/chess.c:469
 msgid "White Turn"
 msgstr "Les blancs jouent"
 
-#: src/boards/chess.c:461
+#: src/boards/chess.c:469
 msgid "Black Turn"
 msgstr "Les noirs jouent"
 
-#: src/boards/chess.c:573
+#: src/boards/chess.c:581
 msgid "White check"
 msgstr "Echec au blancs"
 
-#: src/boards/chess.c:575
+#: src/boards/chess.c:583
 msgid "Black check"
 msgstr "Echec au noirs"
 
-#: src/boards/chess.c:863
+#: src/boards/chess.c:871
 msgid "Black mates"
 msgstr "Noirs echec et mat"
 
-#: src/boards/chess.c:868
+#: src/boards/chess.c:876
 msgid "White mates"
 msgstr "Blanc echec et mat"
 
@@ -1709,12 +1734,12 @@ msgstr "Compte à rebours"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
-#: src/boards/target.c:323 src/boards/target.c:580
+#: src/boards/target.c:324 src/boards/target.c:581
 #, c-format
 msgid "Points = %s"
 msgstr "Points = %s"
 
-#: src/boards/target.c:443
+#: src/boards/target.c:444
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -1723,7 +1748,7 @@ msgstr ""
 "Vitesse du vent = %d\n"
 "kilometres/heure"
 
-#: src/boards/target.c:508
+#: src/boards/target.c:509
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance de la cible = %d metres"
@@ -1947,105 +1972,101 @@ msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
 msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
 msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
 
-#: src/gcompris/help.c:181 src/gcompris/interface.c:449
+#: src/gcompris/help.c:181 src/gcompris/interface.c:435
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: src/gcompris/help.c:215 src/gcompris/interface.c:460
+#: src/gcompris/help.c:215 src/gcompris/interface.c:446
 msgid "Goal"
 msgstr "Objectif"
 
-#: src/gcompris/help.c:249 src/gcompris/interface.c:471
+#: src/gcompris/help.c:249 src/gcompris/interface.c:457
 msgid "Manual"
 msgstr "Manuel"
 
-#: src/gcompris/help.c:283 src/gcompris/interface.c:560
+#: src/gcompris/help.c:283 src/gcompris/interface.c:546
 msgid "Credit"
 msgstr "Crédit"
 
-#: src/gcompris/interface.c:118
+#: src/gcompris/interface.c:117
 msgid "GCompris Edit"
 msgstr "GCompris Editeur"
 
-#: src/gcompris/interface.c:223
-msgid "Ajouter"
-msgstr ""
+#: src/gcompris/interface.c:222
+msgid "Add"
+msgstr "Ajouter"
 
-#: src/gcompris/interface.c:224
-msgid "Nouveau fichier"
-msgstr ""
+#: src/gcompris/interface.c:223
+msgid "New file"
+msgstr "Nouveau fichier"
+
+#: src/gcompris/interface.c:235
+msgid "Remove"
+msgstr "Efface"
 
 #: src/gcompris/interface.c:236
-msgid "Supprimer"
-msgstr ""
+msgid "Open a file"
+msgstr "Ouvrir un fichier"
 
-#: src/gcompris/interface.c:237
-msgid "Ouvrir un fichier"
-msgstr ""
+#: src/gcompris/interface.c:248
+msgid "Up"
+msgstr "Monter"
 
-#: src/gcompris/interface.c:249
-msgid "Monter"
-msgstr ""
+#: src/gcompris/interface.c:261
+msgid "Down"
+msgstr "Bas"
 
-#: src/gcompris/interface.c:262
-msgid "Descendre"
-msgstr ""
-
-#: src/gcompris/interface.c:275
-msgid "Enregistrer"
-msgstr ""
-
-#: src/gcompris/interface.c:276 src/gcompris/interface.c:558
-msgid "Enregistrer le fichier"
-msgstr ""
-
-#: src/gcompris/interface.c:310
+#: src/gcompris/interface.c:296
 msgid "List of activities"
-msgstr ""
+msgstr "Liste des activités"
 
-#: src/gcompris/interface.c:316 src/gcompris/interface.c:582
+#: src/gcompris/interface.c:302 src/gcompris/interface.c:568
 msgid "Name"
 msgstr "Nom"
 
-#: src/gcompris/interface.c:325 src/gcompris/interface.c:604
+#: src/gcompris/interface.c:311 src/gcompris/interface.c:590
 msgid "Title"
 msgstr "Titre"
 
-#: src/gcompris/interface.c:334 src/gcompris/interface.c:409
+#: src/gcompris/interface.c:320 src/gcompris/interface.c:395
 msgid "Difficulty"
 msgstr "Difficulté"
 
-#: src/gcompris/interface.c:376
+#: src/gcompris/interface.c:362
 msgid "Icon"
 msgstr "Icone"
 
-#: src/gcompris/interface.c:387
+#: src/gcompris/interface.c:373
 msgid "Board dir"
-msgstr ""
+msgstr "Répertoire"
 
-#: src/gcompris/interface.c:398
+#: src/gcompris/interface.c:384
 msgid "Author"
 msgstr "Auteur"
 
-#: src/gcompris/interface.c:420
+#: src/gcompris/interface.c:406
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
-#: src/gcompris/interface.c:550
+#: src/gcompris/interface.c:536
 msgid "..."
 msgstr ""
 
-#: src/gcompris/interface.c:571 src/gcompris/interface.c:725
+#: src/gcompris/interface.c:544
+msgid "Enregistrer le fichier"
+msgstr ""
+
+#: src/gcompris/interface.c:557 src/gcompris/interface.c:711
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
-#: src/gcompris/interface.c:737
+#: src/gcompris/interface.c:723
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
-#: src/gcompris/interface.c:792
+#: src/gcompris/interface.c:778
 msgid "Icon List"
-msgstr ""
+msgstr "Liste des icones"
 
 #: src/gcompris/support.c:100 src/gcompris/support.c:138
 #, c-format
@@ -2053,9 +2074,9 @@ msgid "Couldn't find pixmap file: %s"
 msgstr "Ne peux pas trouver l'image %s !"
 
 #: src/gcompris/support.c:116
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't create pixmap from file: %s"
-msgstr "Ne peut pas trouver le répertoire d'images: %s"
+msgstr "Ne peut pas trouver l'image: %s"
 
 #: src/gcompris/timer.c:223
 msgid "Time Ellapsed"
@@ -2065,19 +2086,3 @@ msgstr "Temps écoulé"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
-
-#~ msgid "Simplified Master Mind"
-#~ msgstr "Master Mind Simplifié"
-
-#, fuzzy
-#~ msgid "Move the mouse to reversecount the area and discover the background"
-#~ msgstr "Déplace la souris pour tout effacer et découvir le fond"
-
-#~ msgid "Can move the mouse"
-#~ msgstr "Pouvoir déplacer la souris"
-
-#~ msgid "Set the masses in the decreasing order"
-#~ msgstr "Positionne les masses en ordre décroissant"
-
-#~ msgid "640x480"
-#~ msgstr "640x480"

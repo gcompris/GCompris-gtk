@@ -14,6 +14,7 @@ boards/algebra_div.xml.in
 boards/algebra_guesscount.xml.in
 boards/algebra_minus.xml.in
 boards/algebra_plus.xml.in
+boards/algebra_group.xml.in
 boards/algebramenu.xml.in
 boards/babymatch.xml.in
 boards/babymatch/board1_0.xml.in
@@ -30,6 +31,7 @@ boards/babyshapes/board4_0.xml.in
 boards/babyshapes/board5_0.xml.in
 boards/babyshapes/board6_0.xml.in
 boards/babyshapes/board7_0.xml.in
+boards/boards.xml.in
 boards/canal_lock.xml.in
 boards/chess.xml.in
 boards/click_on_letter.xml.in
@@ -57,7 +59,7 @@ boards/imagename/board3_0.xml.in
 boards/imagename/board4_0.xml.in
 boards/imagename/board5_0.xml.in
 boards/imagename/board6_0.xml.in
-boards/mastermind.xml.in
+boards/superbrain.xml.in
 boards/maze.xml.in
 boards/memory.xml.in
 boards/menu.xml.in
@@ -103,6 +105,7 @@ boards/smallnumbers.xml.in
 boards/target.xml.in
 boards/wordsgame.xml.in
 gcompris.desktop.in
+gcompris-edit.desktop.in
 src/boards/advanced_colors.c
 src/boards/algebra.c
 src/boards/algebra_guesscount.c
@@ -118,7 +121,7 @@ src/boards/gletters.c
 src/boards/gletters.c
 src/boards/imageid.c
 src/boards/leftright.c
-src/boards/mastermind.c
+src/boards/superbrain.c
 src/boards/maze.c
 src/boards/memory.c
 src/boards/menu.c

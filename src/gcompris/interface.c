@@ -61,7 +61,6 @@ create_gcompris_edit (void)
   GtkWidget *buttonDel;
   GtkWidget *buttonUp;
   GtkWidget *buttonDown;
-  GtkWidget *buttonSave;
   GtkWidget *hpaned1;
   GtkWidget *scrolledwindow1;
   GtkWidget *ctree1;
@@ -233,7 +232,7 @@ create_gcompris_edit (void)
   buttonDel = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
                                 GTK_TOOLBAR_CHILD_BUTTON,
                                 NULL,
-                                _("Del"),
+                                _("Remove"),
                                 _("Open a file"), NULL,
                                 tmp_toolbar_icon, NULL, NULL);
   gtk_widget_set_name (buttonDel, "buttonDel");
@@ -267,19 +266,6 @@ create_gcompris_edit (void)
   gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonDown", buttonDown,
                             (GtkDestroyNotify) gtk_widget_unref);
   gtk_widget_show (buttonDown);
-
-  tmp_toolbar_icon = gnome_stock_pixmap_widget (gcompris_edit, GNOME_STOCK_PIXMAP_SAVE);
-  buttonSave = gtk_toolbar_append_element (GTK_TOOLBAR (toolbar1),
-                                GTK_TOOLBAR_CHILD_BUTTON,
-                                NULL,
-                                _("Save"),
-                                _("Record the file"), NULL,
-                                tmp_toolbar_icon, NULL, NULL);
-  gtk_widget_set_name (buttonSave, "buttonSave");
-  gtk_widget_ref (buttonSave);
-  gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonSave", buttonSave,
-                            (GtkDestroyNotify) gtk_widget_unref);
-  gtk_widget_show (buttonSave);
 
   hpaned1 = gtk_hpaned_new ();
   gtk_widget_set_name (hpaned1, "hpaned1");
@@ -547,7 +533,7 @@ create_gcompris_edit (void)
   gtk_widget_show (vbuttonbox1);
   gtk_box_pack_start (GTK_BOX (vbox1), vbuttonbox1, TRUE, TRUE, 0);
 
-  buttonIconList = gtk_button_new_with_label (("..."));
+  buttonIconList = gtk_button_new_with_label (_("..."));
   gtk_widget_set_name (buttonIconList, "buttonIconList");
   gtk_widget_ref (buttonIconList);
   gtk_object_set_data_full (GTK_OBJECT (gcompris_edit), "buttonIconList", buttonIconList,

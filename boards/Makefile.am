@@ -9,8 +9,10 @@ xml_in_files = \
 	algebra_minus.xml.in \
 	algebra_by.xml.in \
 	algebra_div.xml.in \
+	algebra_group.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
+	boards.xml.in \
 	canal_lock.xml.in \
 	chess.xml.in \
 	clickgame.xml.in \

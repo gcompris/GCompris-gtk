@@ -119,7 +119,7 @@ BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Master Mind"),
+    N_("Super Brain"),
     N_("Tux has hidden several items, find them back in the correct order"),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,

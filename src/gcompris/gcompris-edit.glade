@@ -234,7 +234,7 @@
 	    <handler>on_buttonDel_clicked</handler>
 	    <last_modification_time>Thu, 06 Jun 2002 21:43:58 GMT</last_modification_time>
 	  </signal>
-	  <label>Supprimer</label>
+	  <label>Remove</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_REMOVE</stock_pixmap>
 	</widget>
 
@@ -252,15 +252,6 @@
 	  <name>buttonDown</name>
 	  <label>Down</label>
 	  <stock_pixmap>GNOME_STOCK_PIXMAP_DOWN</stock_pixmap>
-	</widget>
-
-	<widget>
-	  <class>GtkButton</class>
-	  <child_name>Toolbar:button</child_name>
-	  <name>buttonSave</name>
-	  <tooltip>Save the file</tooltip>
-	  <label>Save</label>
-	  <stock_pixmap>GNOME_STOCK_PIXMAP_SAVE</stock_pixmap>
 	</widget>
       </widget>
     </widget>
@@ -789,7 +780,7 @@
 		  <widget>
 		    <class>GtkButton</class>
 		    <name>buttonIconList</name>
-		    <tooltip>Enregistrer le fichier</tooltip>
+		    <tooltip>Save the file</tooltip>
 		    <signal>
 		      <name>clicked</name>
 		      <handler>on_buttonIconList_clicked</handler>

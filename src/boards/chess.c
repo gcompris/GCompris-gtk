@@ -345,9 +345,13 @@ static void chess_destroy_all_items()
 
   for(x=1; x<=8; x++)
     for(y=1; y<=8; y++)
-	g_free(chessboard[x][y]);
-
-
+      {
+	if(chessboard[x][y]!=NULL)
+	  {
+	    g_free(chessboard[x][y]);
+	    chessboard[x][y]=NULL;
+	  }
+      }
 }
 
 /* ==================================== */
@@ -909,11 +913,13 @@ void chess_child_end(int  signum)
   int i;
   tsSound * tmpSound;
 
-  pid = waitpid(-1, NULL, WNOHANG);
-  printf("chess child_end pid=%d", pid);
+  printf("chess child_end signal=%d\n", signum);
+
+  pid = waitpid(childpid, NULL, WNOHANG);
+  printf("chess child_end pid=%d\n", pid);
 
   if (pid == -1)
-    g_error("Error waitpid");
+    g_error("chess_child_end Error waitpid");
 }
 
 /*----------------------------------------

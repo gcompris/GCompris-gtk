@@ -312,7 +312,8 @@ gint key_press(guint keyval)
 
   c = tolower(keyval); 
 
-  if(c>='0' && c<='9')
+  /* Limit the user entry to 5 digits */
+  if(c>='0' && c<='9' && answer_string_index<5)
     {
       answer_string[answer_string_index++] = c;
       answer_string[answer_string_index] = 0;
