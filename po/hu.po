@@ -1,18 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
+# gcompris.po fordítása Hungarianra
+# Copyright (C) 2004 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
-# Martin Herweg <m.herweg@gmx.de>, 2001
+# Martin Herweg <m.herweg@gmx.de>, 2001.
+# Gabor Kelemen <kg0021@stud.unideb.hu>, 2004.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2004-02-02 01:45+0100\n"
-"PO-Revision-Date: 2002-07-03 17:09+0200\n"
-"Last-Translator: Marcel Hilzinger <hili@suselinux.hu>\n"
-"Language-Team: hungarian <kde-lista@sophia.btk.pte.hu>\n"
+"Project-Id-Version: gcompris\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-03-23 03:30+0100\n"
+"PO-Revision-Date: 2004-04-10 11:02+0200\n"
+"Last-Translator: Gabor Kelemen <kg0021@stud.unideb.hu>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.6\n"
+"X-Generator: KBabel 1.3.1\n"
+"Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -387,8 +390,7 @@ msgstr ""
 "Nagyon szépen köszönjük, Ralf!"
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:3
@@ -442,7 +444,9 @@ msgid ""
 msgstr ""
 
 #: boards/algebra_plus.xml.in.h:3
-msgid "In a limited time, give the result to the addition of two numbers"
+msgid ""
+"In a limited time, give the result to the addition of two numbers. "
+"Introduction to simple in-line addition"
 msgstr ""
 
 #: boards/algebra_plus.xml.in.h:4
@@ -451,7 +455,7 @@ msgid "Practice the addition operation"
 msgstr "Gyakorold meg az összeadást"
 
 #: boards/algebra_plus.xml.in.h:5
-msgid "Simple addition"
+msgid "Simple addition. Can recognize written numbers"
 msgstr ""
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
@@ -478,13 +482,14 @@ msgstr "Hozzátartozó elemek"
 msgid "Motor coordination. Concept match."
 msgstr ""
 
-#: boards/babymatch.xml.in.h:5 boards/paintings.xml.in.h:4
-msgid "Mouse manipulation: movement, drag and drop"
+#: boards/babymatch.xml.in.h:5
+msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
 
 #: boards/babyshapes.xml.in.h:1
-msgid "Baby Shape Puzzle"
-msgstr "Alakzat kirakó"
+#, fuzzy
+msgid "Complete the puzzle"
+msgstr "Kirakó játék"
 
 #: boards/babyshapes.xml.in.h:2
 msgid "Drag and Drop the shapes on their respective target"
@@ -495,6 +500,13 @@ msgid "Good mouse control"
 msgstr "Jól kezeled a egeret"
 
 #: boards/babyshapes.xml.in.h:4
+msgid ""
+"In the main area, a puzzle set is proposed. In the left area, you have the "
+"set of pieces for this puzzle. To place the pieces, you must use the drag/"
+"drop mouvement with the mouse."
+msgstr ""
+
+#: boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
 msgstr ""
 
@@ -510,14 +522,9 @@ msgstr ""
 msgid "Lock with colored shapes."
 msgstr ""
 
-#: boards/boards.xml.in.h:1
-#, fuzzy
-msgid "Go to board based activities"
-msgstr "A matematikai táblákhoz"
-
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:5 boards/erase.xml.in.h:3
+#: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
 #: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:2 boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr ""
@@ -527,7 +534,7 @@ msgid "Send the ball in the hole"
 msgstr ""
 
 #: boards/billard.xml.in.h:3
-msgid "The billard game"
+msgid "The billiards game"
 msgstr ""
 
 #: boards/billard.xml.in.h:4
@@ -535,6 +542,11 @@ msgid ""
 "The click point on the ball will give the speed and direction to the ball. "
 "More you click in the center, slower is the ball."
 msgstr ""
+
+#: boards/boards.xml.in.h:1
+#, fuzzy
+msgid "Go to board based activities"
+msgstr "A matematikai táblákhoz"
 
 #: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
@@ -584,6 +596,58 @@ msgstr ""
 msgid "Play end of chess game against the computer"
 msgstr ""
 
+#: boards/chronos.xml.in.h:1
+#, fuzzy
+msgid "Chronos"
+msgstr "Színek"
+
+#: boards/chronos.xml.in.h:2
+#, fuzzy
+msgid "Drag and Drop the items to organize the story"
+msgstr "Fogd és vidd a megfelelő képeket a megfelelő helyre"
+
+#: boards/chronos.xml.in.h:3
+msgid ""
+"Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
+"of Transportation are based on those found in http://www.wikipedia.org"
+msgstr ""
+
+#: boards/chronos.xml.in.h:4
+msgid "Order the pictures to tell the story"
+msgstr ""
+
+#: boards/chronos.xml.in.h:5
+msgid "Pick the pictures on the left and put them on the red points"
+msgstr ""
+
+#: boards/chronos.xml.in.h:6
+msgid "Tell a short story"
+msgstr ""
+
+#: boards/chronos/board1_0.xml.in.h:1
+msgid "Moonwalker"
+msgstr ""
+
+#: boards/chronos/board2_0.xml.in.h:1
+msgid "Tux and the apple tree"
+msgstr ""
+
+#: boards/chronos/board3_0.xml.in.h:1
+msgid ""
+"Place each image in the order and on the date it has been invented. If not "
+"sure, check online in wikipedia at http://www.wikipedia.org"
+msgstr ""
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1
+msgid "Transportation"
+msgstr ""
+
+#: boards/chronos/board3_0.xml.in.h:3
+msgid "VIII Century"
+msgstr ""
+
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spelled. Click on the corresponding letter in the main area. You "
@@ -600,12 +664,11 @@ msgid "Hear a letter and click on the right letter"
 msgstr "Hallgasd meg a betűt, majd kattintsál rá"
 
 #: boards/click_on_letter.xml.in.h:4
-msgid "Letter recognition"
+msgid "Letter name recognition"
 msgstr ""
 
-#: boards/click_on_letter.xml.in.h:5 boards/leftright.xml.in.h:5
-#: boards/railroad.xml.in.h:4
-msgid "None"
+#: boards/click_on_letter.xml.in.h:5
+msgid "Visual letters recognition. Can move the mouse."
 msgstr ""
 
 #: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
@@ -613,6 +676,10 @@ msgid "Click On Me"
 msgstr "Kattintsál rám"
 
 #: boards/clickgame.xml.in.h:2
+msgid "Click with the left mouse button on the moving fish."
+msgstr ""
+
+#: boards/clickgame.xml.in.h:3
 #, fuzzy
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
@@ -642,7 +709,7 @@ msgstr ""
 "Hely: ismeretlen ( nur03011-es kép)\n"
 "Hely: ismeretlen ( nur03013-as kép)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
+#: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -650,14 +717,9 @@ msgstr ""
 "Kattintsál bal egérgombbal a halakra, mielőtt kiúsznának\n"
 "az akváriumból."
 
-#: boards/clickgame.xml.in.h:4
-#, fuzzy
-msgid ""
-"Motor coordination: mouse mouvement and mouse click. The goal is just to "
-"click with the left mouse button on the moving fish."
+#: boards/clickgame.xml.in.h:5
+msgid "Motor coordination: mouse mouvement and mouse click."
 msgstr ""
-"Ebben a játékban a gyerekek a számítógépes egér kezelését tanulhatják .\n"
-"A játék lényege, hogy bal egérgombbal rá kell kattintani a mozgó halakra."
 
 #: boards/clockgame.xml.in.h:1
 msgid ""
@@ -775,19 +837,26 @@ msgstr ""
 "egérgombbal lehet, mozgatni a jobb egérgombbal."
 
 #: boards/enumerate.xml.in.h:1
+msgid "Basic enumeration"
+msgstr ""
+
+#: boards/enumerate.xml.in.h:2
 msgid "Count the items"
 msgstr ""
 
-#: boards/enumerate.xml.in.h:2 boards/planegame.xml.in.h:2
-msgid "Number"
+#: boards/enumerate.xml.in.h:3
+msgid ""
+"First, organize properly the items so that you can count them. Then, select "
+"the item you want to answer for in the bottom right area. Enter the answer "
+"with the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
 
-#: boards/enumerate.xml.in.h:3 boards/planegame.xml.in.h:4
+#: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
 msgid "Numeration training"
 msgstr ""
 
-#: boards/enumerate.xml.in.h:4 src/boards/enumerate.c:92
+#: boards/enumerate.xml.in.h:5 src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr ""
 
@@ -869,11 +938,11 @@ msgstr ""
 msgid "Letter recognition between the screen and the keyboard"
 msgstr ""
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
 msgid "Simple Letters"
 msgstr "Egyszerű betűk"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
 msgid "Type the falling letters before they reach the ground"
 msgstr "Nyomd meg a billentűt, mielőtt a betű leérne a földre"
 
@@ -915,7 +984,8 @@ msgid "Reading"
 msgstr "Olvasás"
 
 #: boards/imageid.xml.in.h:4
-msgid "Reading pratice"
+#, fuzzy
+msgid "Reading practice"
 msgstr "Olvasógyakorlat"
 
 #: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
@@ -1167,6 +1237,10 @@ msgstr "Találd a jobb és a bal kezedet"
 msgid "Given hands pictures, find if it's a right or left one"
 msgstr "Találd ki, hogy a képen lévő kéz egy jobb kéz vagy egy bal kéz. "
 
+#: boards/leftright.xml.in.h:5 boards/railroad.xml.in.h:4
+msgid "None"
+msgstr ""
+
 #: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kezelni tudja a billentyűzeten lévő nyilakat egy elem mozgatásához"
@@ -1210,11 +1284,22 @@ msgid "Ear training activity"
 msgstr ""
 
 #: boards/melody.xml.in.h:2
+msgid ""
+"Listen the sound sequence played. Then try to repeat it clicking on the "
+"elements. You can listen again clicking on the repeat button."
+msgstr ""
+
+#: boards/melody.xml.in.h:3
 #, fuzzy
 msgid "Melody"
 msgstr "Memória játék"
 
-#: boards/melody.xml.in.h:3
+#: boards/melody.xml.in.h:4
+#, fuzzy
+msgid "Move and click the mouse"
+msgstr "Mozgasd meg az egeret"
+
+#: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr ""
 
@@ -1279,7 +1364,7 @@ msgstr ""
 "azokat. Íme egy rövid magyarázat az egyes ikonokhoz:\n"
 "Házikó - Kilépés a játékból illetve a GCompris programból\n"
 "Hüvelykujj - OK illetve a javaslat elfogadása\n"
-"Dobókocka - Az aktuális nehézségi fok kiválasztása illetve megjelenítése\n"
+"Dobókocka - A jelenlegi nehézségi fok kiválasztása illetve megjelenítése\n"
 "Kotta - A kérdés megismétlése\n"
 "Kérdőjel - Segítséget nyújt\n"
 "Szerszámos láda - A program beállítása\n"
@@ -1494,8 +1579,8 @@ msgstr ""
 msgid "Money"
 msgstr ""
 
-#: boards/money.xml.in.h:4 src/boards/money.c:88
-msgid "Pratice money usage"
+#: boards/money.xml.in.h:4
+msgid "Practice money usage"
 msgstr ""
 
 #: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
@@ -1505,7 +1590,7 @@ msgid ""
 msgstr ""
 
 #: boards/money_cents.xml.in.h:4
-msgid "Pratice money usage including cents"
+msgid "Practice money usage including cents"
 msgstr ""
 
 #: boards/paintings.xml.in.h:1
@@ -1523,6 +1608,10 @@ msgstr ""
 #: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
 msgstr "Kirakó játék"
+
+#: boards/paintings.xml.in.h:4
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr ""
 
 #: boards/paintings.xml.in.h:5
 msgid "Spatial representation"
@@ -1586,14 +1675,17 @@ msgid "Paratrooper"
 msgstr "Tux, az ejtőernyős pingvin"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr "Egyszerűen próbáld ki."
 
 #: boards/planegame.xml.in.h:1
 #, fuzzy
 msgid "Move the helicopter to catch the clouds in the correct order"
 msgstr "Mozgasd a repülőt, hogy átrepülhessél a felőkön helyes sorrendben"
+
+#: boards/planegame.xml.in.h:2
+msgid "Number"
+msgstr ""
 
 #: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
 msgid "Numbers in Order"
@@ -1622,8 +1714,7 @@ msgid "Test board for the python plugin"
 msgstr ""
 
 #: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
 msgstr ""
 
 #: boards/railroad.xml.in.h:1
@@ -1775,8 +1866,7 @@ msgstr ""
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
 "first level"
-msgstr ""
-"Kezelni tudja az egeret, tudja a számokat 10-ig, és ki is tud vonni belőle."
+msgstr "Kezelni tudja az egeret, tudja a számokat 10-ig, és ki is tud vonni belőle."
 
 #: boards/reversecount.xml.in.h:2
 msgid ""
@@ -1845,11 +1935,11 @@ msgstr "Alapvető számolási műveletek"
 msgid "In a limited time, count a number of dots"
 msgstr ""
 
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:70
 msgid "Numbers With Dices"
 msgstr "Kockák és számok"
 
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
+#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:71
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Írd be, hogy hány szeme van a kockának (1-9), mielőtt leesik a földre"
 
@@ -1899,8 +1989,7 @@ msgid "Tux has hidden several items, find them back in the correct order"
 msgstr ""
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Kezelni tudja az egeret, számolni tud 15-ig (az első szinthez)"
 
 #: boards/target.xml.in.h:2
@@ -1981,9 +2070,9 @@ msgstr ""
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:458 src/gcompris/gameutil.c:459
-#: src/gcompris/gcompris.c:369 src/gcompris/images_selector.c:477
+#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/gcompris/gameutil.c:464 src/gcompris/gameutil.c:465
+#: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -1991,7 +2080,7 @@ msgstr "Nem találtam meg a(z) %s fájlt!"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1738
+#: src/boards/shapegame.c:1766
 #, c-format
 msgid "find file %s !"
 msgstr "keresd meg a(z) %s fájlt! "
@@ -2116,11 +2205,11 @@ msgstr "jobb"
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr ""
 
-#: src/boards/memory.c:227
+#: src/boards/memory.c:164
 msgid "Memory"
 msgstr "Memória játék"
 
-#: src/boards/memory.c:228
+#: src/boards/memory.c:165
 msgid "Find the matching pair"
 msgstr "Találd meg a párját"
 
@@ -2132,163 +2221,42 @@ msgstr "Fűmenü"
 msgid "Select a Board"
 msgstr "Válasszál játékot"
 
+#: src/boards/money.c:88
+msgid "Pratice money usage"
+msgstr ""
+
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Mozgasd a repülőt, hogy átrepülhessél a felőkön helyes sorrendben"
 
-#: src/boards/python.c:52
+#: src/boards/python.c:53
 msgid "Python Board"
 msgstr ""
 
-#: src/boards/python.c:53
+#: src/boards/python.c:54
 msgid "Special board that embed python into gcompris."
 msgstr ""
 
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. These are used to let us restart only after the bonux is displayed.
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. the game is won
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. This is a WIN
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
+#: src/boards/python/pythontest.py:67
+msgid ""
+"This is the first plugin in gcompris coded in the Python\n"
+"Programming language."
+msgstr ""
+
+#: src/boards/python/pythontest.py:76
+msgid ""
+"It is now possible to develop gcompris activies in C or in Python.\n"
+" Thanks to Olivier Samys who makes this possible."
+msgstr ""
+
+#: src/boards/python/pythontest.py:85
+msgid "This activity is not playable yet, just a test"
+msgstr ""
+
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
 msgstr ""
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
 #: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
 msgid "Coordinate"
 msgstr ""
@@ -2336,10 +2304,20 @@ msgid "No, it was not there"
 msgstr "Nem, nem szerepelt"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:629
+#: src/boards/reading.c:630
 #, c-format
 msgid "The word to find was '%s'"
 msgstr ""
+
+#: src/boards/reading.c:633
+#, fuzzy
+msgid "But it was not displayed"
+msgstr "szó szerepelt-e a listán?"
+
+#: src/boards/reading.c:635
+#, fuzzy
+msgid "And it was displayed"
+msgstr "szó szerepelt-e a listán?"
 
 #: src/boards/reversecount.c:140
 msgid "Reverse count"
@@ -2392,9 +2370,8 @@ msgstr ""
 #: src/gcompris/about.c:60
 #, fuzzy
 msgid ""
-"Credits:\n"
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
@@ -2405,24 +2382,32 @@ msgstr ""
 "Grafika: Renaud Blanchard\n"
 "Zene: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:99
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+msgid "translator_credits"
+msgstr ""
+
+#: src/gcompris/about.c:100
 msgid "About GCompris"
 msgstr "A GCompris névjegye"
 
-#: src/gcompris/about.c:205
+#: src/gcompris/about.c:110
+msgid "Translators:"
+msgstr ""
+
+#: src/gcompris/about.c:225
 msgid "GCompris Home Page"
 msgstr "A GCompris honlapja"
 
-#: src/gcompris/about.c:227
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+#: src/gcompris/about.c:247
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Ez a program GNU szoftver és a GNU Public Licence alatt áll."
 
-#: src/gcompris/about.c:255
+#: src/gcompris/about.c:275
 msgid "Help"
 msgstr "Segítség"
 
-#: src/gcompris/about.c:289 src/gcompris/config.c:180 src/gcompris/help.c:341
+#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2465,157 +2450,177 @@ msgid "English"
 msgstr "Angol"
 
 #: src/gcompris/config.c:61
+#, fuzzy
+msgid "Canadian English"
+msgstr "Angol"
+
+#: src/gcompris/config.c:62
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Finnish"
 msgstr "Finn"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "French"
 msgstr "Francia"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Hebrew"
 msgstr ""
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 #, fuzzy
 msgid "Indian"
 msgstr "Olasz"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Hungarian"
 msgstr ""
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 #, fuzzy
 msgid "Croatian"
 msgstr "Olasz"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Italian"
 msgstr "Olasz"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Litván"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Macedonian"
 msgstr ""
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malayalam"
 msgstr ""
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malay"
 msgstr ""
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Dutch"
 msgstr "Holland"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Norwegian"
 msgstr ""
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 #, fuzzy
 msgid "Polish"
 msgstr "Angol"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 #, fuzzy
 msgid "Portuguese"
 msgstr "Brazil portugál"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Brazil Portuguese"
 msgstr "Brazil portugál"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Romanian"
 msgstr "Román"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Russian"
 msgstr ""
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 #, fuzzy
 msgid "Slovak"
 msgstr "Slowenisch"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 #, fuzzy
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian (Latin)"
 msgstr ""
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 #, fuzzy
 msgid "Serbian"
 msgstr "Német"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Swedish"
 msgstr "Svéd"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Turkish"
 msgstr ""
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "No time limit"
 msgstr "Nincs időkorlátozás"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Slow timer"
 msgstr "Sok idő"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Normal timer"
 msgstr "Átlagos idő"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Fast timer"
 msgstr "Kevés idő"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (a gcompris alapértelmezettje)"
 
-#: src/gcompris/config.c:154
+#: src/gcompris/config.c:155
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: src/gcompris/config.c:263
+#: src/gcompris/config.c:264
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: src/gcompris/config.c:306
+#: src/gcompris/config.c:307
 msgid "Music"
 msgstr "Zene"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:335
 msgid "Effect"
 msgstr "Effektusok"
 
-#: src/gcompris/config.c:371
+#: src/gcompris/config.c:369
 #, fuzzy, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült kinyitnom a %s könyvtárat"
 
-#: src/gcompris/config.c:404 src/gcompris/config.c:721
-#: src/gcompris/config.c:732
+#: src/gcompris/config.c:405 src/gcompris/config.c:728
+#: src/gcompris/config.c:739
 #, c-format
 msgid "Skin : %s"
+msgstr ""
+
+#: src/gcompris/gameutil.c:128
+#, fuzzy
+msgid "Couldn't find file"
+msgstr "Nem találtam meg a(z) %s fájlt!"
+
+#: src/gcompris/gameutil.c:130
+msgid "This activity is incomplete."
+msgstr ""
+
+#: src/gcompris/gameutil.c:131
+msgid ""
+"Exit it and report\n"
+"us the problem"
 msgstr ""
 
 #: src/gcompris/gcompris.c:69
@@ -2656,7 +2661,7 @@ msgstr "Verziószáma megtekintése:"
 msgid "Use the antialiased canvas (slower)."
 msgstr "Élsimított vászon (lassú)"
 
-#: src/gcompris/gcompris.c:614
+#: src/gcompris/gcompris.c:619
 #, fuzzy, c-format
 msgid ""
 "GCompris\n"
@@ -2669,19 +2674,19 @@ msgstr ""
 "Licenc: GPL\n"
 "További információ: http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:167 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Feltételek"
 
-#: src/gcompris/help.c:201 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Cél"
 
-#: src/gcompris/help.c:235 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Kézikönyv"
 
-#: src/gcompris/help.c:269 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr ""
 
@@ -2724,16 +2729,12 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/interface.c:484
-msgid "translator_credits"
-msgstr ""
-
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
 msgstr ""
 
 #: src/gcompris/oggplayer.c:165
+#, c-format
 msgid ""
 "Possible audio output devices are:\n"
 "default "
@@ -2766,76 +2767,3 @@ msgstr ""
 msgid "Remaining Time = %d"
 msgstr ""
 
-#, fuzzy
-#~ msgid "Move the mouse to machpuzzle the area and discover the background"
-#~ msgstr ""
-#~ "Mozgasd meg az egeret, hogy kiradírozd a mezőket és hogy lásd a képet a "
-#~ "háttérben."
-
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "GCompris - Értettem!"
-
-#, fuzzy
-#~ msgid "Move the mouse to fifteen the area and discover the background"
-#~ msgstr ""
-#~ "Mozgasd meg az egeret, hogy kiradírozd a mezőket és hogy lásd a képet a "
-#~ "háttérben."
-
-#, fuzzy
-#~ msgid "Practice the division operation"
-#~ msgstr "Gyakorold meg az osztást"
-
-#~ msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-#~ msgstr "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-2"
-
-#~ msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-
-#~ msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-#~ msgstr "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-2"
-
-#~ msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-
-#~ msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-#~ msgstr "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-2"
-
-#~ msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-
-#~ msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-
-#~ msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-#~ msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-
-#~ msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-#~ msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-
-#, fuzzy
-#~ msgid "Down"
-#~ msgstr "korona"
-
-#, fuzzy
-#~ msgid "Couldn't create pixmap from file: %s"
-#~ msgstr "Nem sikerült kinyitnom a %s könyvtárat"
-
-#~ msgid ""
-#~ "Tux is hungry. Help him find fishes by counting the ice spot needed to "
-#~ "reach the fish."
-#~ msgstr ""
-#~ "Tux éhes. Segítsél neki, hogy megtalálja a halakat. Ehhez ki kell "
-#~ "számítanod, hogy hány jégkocka van Tux és a hal között."
-
-#~ msgid "Can move the mouse"
-#~ msgstr "Kezelni tudja az egeret"
-
-#~ msgid "Set the masses in the decreasing order"
-#~ msgstr "Helyezd a súlyokat csökkenő sorrendben a mérlegre"
-
-#~ msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-#~ msgstr ""
-#~ "Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
-
-#~ msgid "Do you really want to quit GCompris?"
-#~ msgstr "Möchtest Du GCompris wirklich beenden?"
