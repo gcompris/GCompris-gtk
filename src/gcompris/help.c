@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2002/12/08 15:47:49 bruno>
+ * Time-stamp: <2003/02/05 18:32:39 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -106,6 +106,9 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 	  gcomprisBoard->plugin->pause_board(TRUE);
     }
 
+  item_selected = NULL;
+  item_selected_text = NULL;
+
   name = gcomprisBoard->title;
   gcompris_board_has_help(gcomprisBoard);
 
@@ -160,8 +163,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
       gtk_signal_connect(GTK_OBJECT(item_prerequisite), "event",
 			 (GtkSignalFunc) gcompris_item_event_focus,
 			 NULL);
-      
-      item_selected = item_prerequisite;
       
       item_prerequisite_text = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_text_get_type (),
