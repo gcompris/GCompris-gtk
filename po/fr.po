@@ -1,4 +1,5 @@
 # translation of fr.po to 
+# translation of fr.po to
 # gcompris fr.po.
 # Copyright (C) 2000-2002,2003 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2001.
@@ -8,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"POT-Creation-Date: 2003-05-22 00:31+0200\n"
-"PO-Revision-Date: 2003-05-22 00:57+0200\n"
+"POT-Creation-Date: 2003-07-19 09:26+0200\n"
+"PO-Revision-Date: 2003-07-21 22:37+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -515,7 +516,7 @@ msgstr "Lock avec des formes colorées"
 msgid "Go to board based activities"
 msgstr "Vers les activités basées sur les jeux de plateau"
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
+#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Fais fonctionner une écluse"
 
@@ -852,7 +853,7 @@ msgstr ""
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Attrape et fais glisser les pièces du haut sur des emplacements libres"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:323
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr "Reproduit dans la zone vide la même tour que celle de droite"
 
@@ -1782,7 +1783,9 @@ msgstr "Equilibre correctement la balance"
 msgid ""
 "Click on different active elements : engine, rudders and air tanks in order "
 "to navigate at the ordered depth."
-msgstr "Clique sur différents éléments actif : moteur, gouvernails et  réservoir d'air pour navigeur à la bonne profondeur"
+msgstr ""
+"Clique sur différents éléments actif : moteur, gouvernails et  réservoir "
+"d'air pour navigeur à la bonne profondeur"
 
 #: boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
@@ -1799,8 +1802,8 @@ msgstr "Pilote un sous-marin"
 #: boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr ""
-"Piltote un sous-marin avec les réservoirs d'air "
-"et les gouvernails de direction de piqué"
+"Piltote un sous-marin avec les réservoirs d'air et les gouvernails de "
+"direction de piqué"
 
 #: boards/smallnumbers.xml.in.h:1
 msgid "Counting skill"
@@ -1882,7 +1885,7 @@ msgstr "Entraînement au clavier"
 
 #: boards/pythontest.xml.in.h:1
 msgid "Add a language binding to gcompris."
-msgstr ""
+msgstr "Ajout du support d'un language dans gcompris"
 
 #: boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
@@ -1914,7 +1917,7 @@ msgstr "Editeur de gcompris"
 #: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
 #: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
 #: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:286
+#: src/gcompris/soundutil.c:351
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
@@ -1930,7 +1933,7 @@ msgstr "trouve le fichier %s !"
 msgid "Guess operations"
 msgstr "Trouve les opérations"
 
-#: src/boards/canal_lock.c:111
+#: src/boards/canal_lock.c:114
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
 "Help Tux and understand how a canal lock works."
@@ -1973,31 +1976,31 @@ msgstr ""
 "dans votre distribution GNU/Linux.\n"
 "Ensuite vérifiez qu'il est dans "
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Les blancs jouent"
 
-#: src/boards/chess.c:569
+#: src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Les noirs jouent"
 
-#: src/boards/chess.c:710
+#: src/boards/chess.c:718
 msgid "White check"
 msgstr "Echec au blancs"
 
-#: src/boards/chess.c:712
+#: src/boards/chess.c:720
 msgid "Black check"
 msgstr "Echec au noirs"
 
-#: src/boards/chess.c:1044
+#: src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Blancs échec et mat"
 
-#: src/boards/chess.c:1049
+#: src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Noirs échec et mat"
 
-#: src/boards/chess.c:1054
+#: src/boards/chess.c:1062
 msgid "Drawn game"
 msgstr "Echec et pat"
 
@@ -2191,7 +2194,7 @@ msgstr ""
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:284 src/gcompris/config.c:165 src/gcompris/help.c:343
+#: src/gcompris/about.c:284 src/gcompris/config.c:168 src/gcompris/help.c:343
 #: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "Valider"
@@ -2233,96 +2236,108 @@ msgid "French"
 msgstr "Français"
 
 #: src/gcompris/config.c:59
+msgid "Hebrew"
+msgstr "Hébreu"
+
+#: src/gcompris/config.c:60
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:61
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:62
+msgid "Macedonian"
+msgstr "Macédonien"
+
+#: src/gcompris/config.c:63
+msgid "Malayalam"
+msgstr "Malayalam"
+
+#: src/gcompris/config.c:64
 msgid "Malay"
 msgstr "Malaisien"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:65
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:66
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:67
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:68
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:69
 msgid "Russian"
 msgstr "Russe"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:70
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:71
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:72
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:73
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:78
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:79
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:80
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:81
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:86
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour gcompris)"
 
-#: src/gcompris/config.c:139
+#: src/gcompris/config.c:142
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:245
+#: src/gcompris/config.c:248
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:288
+#: src/gcompris/config.c:291
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:316
+#: src/gcompris/config.c:319
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:353
+#: src/gcompris/config.c:356
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:684
-#: src/gcompris/config.c:695
+#: src/gcompris/config.c:390 src/gcompris/config.c:687
+#: src/gcompris/config.c:698
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -2435,6 +2450,15 @@ msgstr ""
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
 msgstr "Sous Licence GPL"
+
+#: src/gcompris/oggplayer.c:189
+msgid "Now Playing Music"
+msgstr "Joue de la musique actuellement"
+
+#: src/gcompris/soundutil.c:116
+#, c-format
+msgid "Couldn't open music dir: %s"
+msgstr "Ne peut pas trouver le répertoire de musique : %s"
 
 #: src/gcompris/support.c:60 src/gcompris/support.c:85
 #, c-format
