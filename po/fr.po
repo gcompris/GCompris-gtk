@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2002-03-28 19:26+0100\n"
+"POT-Creation-Date: 2002-05-06 08:56+0200\n"
 "PO-Revision-Date: 2002-01-06 14:18+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -151,12 +151,12 @@ msgid ""
 msgstr ""
 "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
 
-#: boards/clockgame.xml.in.h:1 src/boards/algebra.c:94
+#: boards/clockgame.xml.in.h:1 src/boards/algebra.c:101
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Apprends à lire l'heure"
 
-#: boards/clockgame.xml.in.h:2 src/boards/algebra.c:93
+#: boards/clockgame.xml.in.h:2 src/boards/algebra.c:100
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Apprentissage de l'heure"
@@ -166,18 +166,34 @@ msgid "Discover the Computer"
 msgstr "Découvre l'ordinateur"
 
 #: boards/doubleentry.xml.in.h:1
+msgid "Basic counting skills"
+msgstr "Savoir compter"
+
+#: boards/doubleentry.xml.in.h:2
 msgid "Double entry table"
 msgstr "Table à double entrée"
 
-#: boards/doubleentry.xml.in.h:2
+#: boards/doubleentry.xml.in.h:3
+msgid "Drag and Drop proposed items to their destination"
+msgstr "Attrape et fais glisser les éléments vers leur destination"
+
+#: boards/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double entry table"
 msgstr "Attrape et fais glisser les éléments dans la table à double entrée"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:179
+#: boards/doubleentry.xml.in.h:5
+msgid ""
+"The children must move the items on the left to their proper destination in "
+"the double entry table."
+msgstr ""
+"L'enfant doit déplacer les éléments sur la gauche et les placer\n"
+"sur la bonne destination dans la table à double entrée"
+
+#: boards/draw.xml.in.h:1 src/boards/draw.c:189
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:180
+#: boards/draw.xml.in.h:2 src/boards/draw.c:190
 msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative où l'on peut dessiner librement"
 
@@ -427,13 +443,25 @@ msgstr "drapeau"
 msgid "racket"
 msgstr "raquette"
 
-#: boards/maze.xml.in.h:1 src/boards/maze.c:105
+#: boards/maze.xml.in.h:1
+msgid "Can use the keyboard arrow to move an object."
+msgstr "Sait utiliser les flêches du clavier"
+
+#: boards/maze.xml.in.h:2 src/boards/maze.c:105
 msgid "Find your way out of the maze"
 msgstr "Trouve ta voie hors du labyrinthe"
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:104
+#: boards/maze.xml.in.h:3
+msgid "Help Tux get out of this maze."
+msgstr "Aide Tux à trouver sa voie hors du labyrinthe"
+
+#: boards/maze.xml.in.h:4 src/boards/maze.c:104
 msgid "Maze"
 msgstr "Labyrinthe"
+
+#: boards/maze.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door."
+msgstr "Utilise les flêches du clavier pour déplacer Tux jusqu'a la porte"
 
 #: boards/memory.xml.in.h:1
 msgid "Discover the cards and find a matching pair"
@@ -542,7 +570,7 @@ msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr ""
 "Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
-#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:120
+#: boards/paintings.xml.in.h:2 src/boards/shapegame.c:130
 msgid "Make the puzzle"
 msgstr "Construis le puzzle"
 
@@ -676,18 +704,41 @@ msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Appuie sur les touches 1 à 9 avant que les dés ne touchent le sol"
 
 #: boards/target.xml.in.h:1
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgstr ""
+"Sait déplacer la souris, lire des nombres et compter jusqu'à 15\n"
+"pour le premier niveau"
+
+#: boards/target.xml.in.h:2
+msgid ""
+"First check the wind strengh and direction, then click on the target to "
+"launch a dart, when all your darts are sent, a window appear requiring you "
+"to count your score. Enter the score with the keyboard then press the enter "
+"key ok or the OK icon."
+msgstr ""
+"Pour commencer, vérifies la force et la direction du vent. Ensuite cliques\n"
+"sur la cible pour lancer une flêche. Quant toutes tes flêches sont lancées,\n"
+"une fenêtre apparait te demandant de compter ton score. Entre le score\n"
+"avec le clavier et appuies sur entrée ou sur l'icone OK."
+
+#: boards/target.xml.in.h:3
 msgid "Practice the addition with a target game"
 msgstr "Entraînement à l'opération d'addition avec un jeu de fléchette"
 
-#: boards/target.xml.in.h:2
+#: boards/target.xml.in.h:4
+msgid "Send darts on a target and count your score."
+msgstr "Envois des flêches sur la cible et compte ton score"
+
+#: boards/target.xml.in.h:5
 msgid "Touch the target and count your points"
 msgstr "Touche la cible et compte tes points"
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:82
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:85
 msgid "Falling Words"
 msgstr "Les mots qui tombent"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:83
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:86
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 
@@ -695,15 +746,15 @@ msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 msgid "Educational game starting at 3 years old"
 msgstr "Jeu éducatif à partir de 3 ans"
 
-#: src/boards/algebra_guesscount.c:140 src/boards/algebra_guesscount.c:141
+#: src/boards/algebra_guesscount.c:142 src/boards/algebra_guesscount.c:143
 msgid "Guess operations"
 msgstr "Trouve les opérations"
 
-#: src/boards/click_on_letter.c:71
+#: src/boards/click_on_letter.c:73
 msgid "Read a letter"
 msgstr "Lis une lettre"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:74
 msgid "Learn to recognize letters"
 msgstr "Apprends à reconnaitre les lettres"
 
@@ -712,7 +763,7 @@ msgstr "Apprends à reconnaitre les lettres"
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Ne peux pas trouver le répertoire d'images: %s"
 
-#: src/boards/clockgame.c:534
+#: src/boards/clockgame.c:537
 msgid "Set the watch to:"
 msgstr "Règle la montre sur :"
 
@@ -725,17 +776,17 @@ msgstr "Lecture"
 msgid "Learn how to read"
 msgstr "Apprends à lire"
 
-#: src/boards/imageid.c:578 src/boards/menu.c:537
-#: src/boards/missingletter.c:599 src/boards/shapegame.c:1275
+#: src/boards/imageid.c:578 src/boards/menu.c:538
+#: src/boards/missingletter.c:599 src/boards/shapegame.c:1423
 #: src/gcompris/gameutil.c:48 src/gcompris/gameutil.c:66
-#: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:357
-#: src/gcompris/gameutil.c:358
+#: src/gcompris/gameutil.c:85 src/gcompris/gameutil.c:367
+#: src/gcompris/gameutil.c:368
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/imageid.c:581 src/boards/missingletter.c:602
-#: src/boards/shapegame.c:1278
+#: src/boards/shapegame.c:1426
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -788,7 +839,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/shapegame.c:121
+#: src/boards/shapegame.c:131
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
@@ -818,7 +869,7 @@ msgstr "Couleurs"
 msgid "Click on the right color"
 msgstr "Clique sur la bonne couleur"
 
-#: src/gcompris/about.c:58
+#: src/gcompris/about.c:60
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
@@ -832,126 +883,158 @@ msgstr ""
 "Graphiques: Renaud Blanchard\n"
 "Musique: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:101
+#: src/gcompris/about.c:103
 msgid "About GCompris"
 msgstr "Au sujet de GCompris"
 
-#: src/gcompris/about.c:213
+#: src/gcompris/about.c:215
 msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
-#: src/gcompris/about.c:235
+#: src/gcompris/about.c:237
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
 
-#: src/gcompris/about.c:263
+#: src/gcompris/about.c:265
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:294 src/gcompris/config.c:142 src/gcompris/help.c:264
+#: src/gcompris/about.c:299 src/gcompris/config.c:157 src/gcompris/help.c:273
 msgid "OK"
 msgstr "Valider"
 
-#: src/gcompris/config.c:40
+#: src/gcompris/config.c:42
 msgid "Azerbaijani Turkic"
 msgstr "Turc azerbaïdjanais"
 
-#: src/gcompris/config.c:41
+#: src/gcompris/config.c:43
 msgid "German"
 msgstr "Allemand"
 
-#: src/gcompris/config.c:42
+#: src/gcompris/config.c:44
 msgid "Greek"
 msgstr "Grec"
 
-#: src/gcompris/config.c:43
+#: src/gcompris/config.c:45
 msgid "English"
 msgstr "Anglais"
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:46
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:47
 msgid "Finnish"
 msgstr "Finnois"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:48
 msgid "French"
 msgstr "Français"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:49
 msgid "Italian"
 msgstr "Italien"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:50
 msgid "Dutch"
 msgstr "Hollandais"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:51
 msgid "Brazil Portuguese"
 msgstr "Portugais brésilien"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:52
 msgid "Romanian"
 msgstr "Roumain"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:53
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:52
+#: src/gcompris/config.c:54
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:59
+msgid "No time limit"
+msgstr "Pas de limite de temps"
+
+#: src/gcompris/config.c:60
+msgid "Slow timer"
+msgstr "Compteur lent"
+
+#: src/gcompris/config.c:61
+msgid "Normal timer"
+msgstr "Compteur normal"
+
+#: src/gcompris/config.c:62
+msgid "Fast timer"
+msgstr "Compteur rapide"
+
+#: src/gcompris/config.c:66
+msgid "640x480"
+msgstr "640x480"
+
+#: src/gcompris/config.c:67
+msgid "800x600 (Default for gcompris)"
+msgstr "800x600 (Défaut pour gcompris)"
+
+#: src/gcompris/config.c:68
+msgid "1024x768"
+msgstr ""
+
+#: src/gcompris/config.c:131
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:247
+#: src/gcompris/config.c:233
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:275
+#: src/gcompris/config.c:276
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:303
+#: src/gcompris/config.c:304
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/gcompris.c:62
+#: src/gcompris/gcompris.c:64
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance gcompris en mode plein écran"
 
-#: src/gcompris/gcompris.c:64
+#: src/gcompris/gcompris.c:66
 msgid "run gcompris in window mode."
 msgstr "lance gcompris en mode fenêtré"
 
-#: src/gcompris/gcompris.c:66
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris with sound enabled."
 msgstr "lance gcompris avec le son."
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris without sound."
 msgstr "lance gcompris sans le son."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris with the default gnome cursor."
 msgstr "lance gcompris avec le curseur par défaut de gnome."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:74
 msgid "Prints the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:297
+#: src/gcompris/gcompris.c:76
+msgid "Use the antialiased canvas (slower)."
+msgstr "Utiliser le canvas anti-aliasé (plus lent)."
+
+#: src/gcompris/gcompris.c:314
 msgid "GCompris I Have Understood"
 msgstr "GCompris J'ai Compris"
 
-#: src/gcompris/gcompris.c:477
+#: src/gcompris/gcompris.c:496
 #, c-format
 msgid ""
 "GCompris\n"
@@ -964,39 +1047,39 @@ msgstr ""
 "License: GPL\n"
 "Plus d'informations sur http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/gcompris.h:96
+#: src/gcompris/gcompris.h:103
 msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
 msgstr "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
 
-#: src/gcompris/gcompris.h:97 src/gcompris/gcompris.h:106
+#: src/gcompris/gcompris.h:104 src/gcompris/gcompris.h:113
 msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
 msgstr "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
 
-#: src/gcompris/gcompris.h:98
+#: src/gcompris/gcompris.h:105
 msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
 msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
 
-#: src/gcompris/gcompris.h:99 src/gcompris/gcompris.h:105
+#: src/gcompris/gcompris.h:106 src/gcompris/gcompris.h:112
 msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
 msgstr "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
 
-#: src/gcompris/gcompris.h:100
+#: src/gcompris/gcompris.h:107
 msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
 msgstr "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
 
-#: src/gcompris/gcompris.h:101 src/gcompris/gcompris.h:104
+#: src/gcompris/gcompris.h:108 src/gcompris/gcompris.h:111
 msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
 msgstr "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
 
-#: src/gcompris/gcompris.h:103
+#: src/gcompris/gcompris.h:110
 msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
 msgstr "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
 
-#: src/gcompris/gcompris.h:107
+#: src/gcompris/gcompris.h:114
 msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
 msgstr "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
 
-#: src/gcompris/gcompris.h:108
+#: src/gcompris/gcompris.h:115
 msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
 msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
 
@@ -1004,11 +1087,11 @@ msgstr "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
 msgid "Prerequisite"
 msgstr "Prérequis"
 
-#: src/gcompris/help.c:190
+#: src/gcompris/help.c:193
 msgid "Goal"
 msgstr "Objectif"
 
-#: src/gcompris/help.c:218
+#: src/gcompris/help.c:224
 msgid "Manual"
 msgstr "Manuel"
 
