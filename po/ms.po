@@ -1,13 +1,39 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2002-09-19 12:58+0200\n"
-"PO-Revision-Date: 1980-01-04 01:58+0800\n"
-"Last-Translator: wawa <gbumla@yahoo.com>\n"
+"POT-Creation-Date: 2003-01-23 01:58+0800\n"
+"PO-Revision-Date: 2003-01-23 02:11+0800\n"
+"Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
 "Language-Team:  <gabai-penyumbang@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: boards/advanced_colors.xml.in.h:1
+#: src/boards/advanced_colors.c:86
+msgid "Advanced colors"
+msgstr "Warna lanjutan"
+
+#: boards/advanced_colors.xml.in.h:2
+#: boards/read_colors.xml.in.h:1
+msgid "Can read"
+msgstr "Boleh membaca"
+
+#: boards/advanced_colors.xml.in.h:3
+#: boards/colors.xml.in.h:2
+#: boards/read_colors.xml.in.h:2
+#: src/boards/advanced_colors.c:87
+#: src/boards/colors.c:68
+msgid "Click on the right color"
+msgstr "Klik di atas warna yang betul"
+
+#: boards/advanced_colors.xml.in.h:4
+msgid "Click on the right colored box."
+msgstr "Klik pada kotak warna yang betul."
+
+#: boards/advanced_colors.xml.in.h:5
+msgid "This board is dedicated to recognize unusual colors."
+msgstr ""
 
 #: boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -33,9 +59,8 @@ msgid "coral"
 msgstr "Matlamat"
 
 #: boards/advanced_colors/board1.xml.in.h:6
-#, fuzzy
 msgid "corn"
-msgstr "mahkota"
+msgstr "jagung"
 
 #: boards/advanced_colors/board1.xml.in.h:7
 msgid "cyan"
@@ -309,14 +334,12 @@ msgid "veronese"
 msgstr ""
 
 #: boards/algebra_by.xml.in.h:1
-msgid ""
-"A multiplication of two numbers is displayed. At the right of the equal "
-"sign, give the answer. Use the left and right arrow to modify your answer, "
-"the return key to validate an answer"
-msgstr ""
+msgid "A multiplication of two numbers is displayed. At the right of the equal sign, give the answer. Use the left and right arrow to modify your answer, the return key to validate an answer"
+msgstr "Pendaraban dua nombor dipaparkan. Pada sebelah kanan tanda samadengan, beri jawapan. Guna panah kiri dan kanan untuk mengubah jawapan anda, kekunci return untuk mengesahkan jawapan"
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_div.xml.in.h:2
-#: boards/algebra_minus.xml.in.h:2 boards/algebra_plus.xml.in.h:2
+#: boards/algebra_by.xml.in.h:2
+#: boards/algebra_minus.xml.in.h:2
+#: boards/algebra_plus.xml.in.h:2
 msgid "I Ask you some algebra questions"
 msgstr "Saya tanyai anda beberapa soalan aljabar"
 
@@ -324,42 +347,21 @@ msgstr "Saya tanyai anda beberapa soalan aljabar"
 msgid "In a limited time, give the result to the multiplication of two numbers"
 msgstr "Dalam masa yang terhad, berikan hasil pendaraban dua nombor"
 
-#: boards/algebra_by.xml.in.h:4 boards/algebra_div.xml.in.h:4
+#: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
 msgstr "Jadual pendaraban"
 
 #: boards/algebra_by.xml.in.h:5
-#, fuzzy
 msgid "Practice the multiplication operation"
 msgstr "Latih operasi pendaraban"
 
-#: boards/algebra_div.xml.in.h:1
-msgid ""
-"A division of two numbers is displayed. At the right of the equal sign, give "
-"the answer. Use the left and right arrow to modify your answer, the return "
-"key to validate an answer. The timer can be enabled or disabled in the "
-"gcompris general configuration."
-msgstr ""
-
-#: boards/algebra_div.xml.in.h:3
-msgid "In a limited time, give the result to the division of two numbers"
-msgstr "Dalam masa yang terhad, berikan hasil pembahagian dua nombor"
-
-#: boards/algebra_div.xml.in.h:5
-#, fuzzy
-msgid "Practice the division operation"
-msgstr "Latih operasi pembahagian"
-
-#: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
-msgid ""
-"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) Ralf has given gcompris the authorization to include "
-"his pictures. Thanks a lot Ralf."
+#: boards/algebra_guesscount.xml.in.h:1
+#: boards/erase.xml.in.h:1
+msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (http://schmode.net/) Ralf has given gcompris the authorization to include his pictures. Thanks a lot Ralf."
 msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:3
@@ -371,23 +373,15 @@ msgid "The four arithmetic operations. Combine several arithmetic operations"
 msgstr "Empat operasi aritmetik. Gabungkan beberapa operasi aritmetik"
 
 #: boards/algebra_guesscount.xml.in.h:5
-msgid ""
-"To compose your operations, choose your numbers and arithmetic operators at "
-"the top of the board area. These numbers and operators can be unselected by "
-"clicking on them."
+msgid "To compose your operations, choose your numbers and arithmetic operators at the top of the board area. These numbers and operators can be unselected by clicking on them."
 msgstr ""
 
 #: boards/algebra_guesscount.xml.in.h:6
-msgid ""
-"With displayed numbers and operations, find the right combination to get the "
-"right result"
+msgid "With displayed numbers and operations, find the right combination to get the right result"
 msgstr ""
 
 #: boards/algebra_minus.xml.in.h:1
-msgid ""
-"A substraction of two numbers is displayed. At the right of the equal sign, "
-"give the answer. Use the left and right arrow to modify your answer, the "
-"return key to validate an answer"
+msgid "A substraction of two numbers is displayed. At the right of the equal sign, give the answer. Use the left and right arrow to modify your answer, the return key to validate an answer"
 msgstr ""
 
 #: boards/algebra_minus.xml.in.h:3
@@ -395,7 +389,6 @@ msgid "In a limited time, give the result to the substraction of two numbers"
 msgstr "Dalam masa yang terhad, berikan hasil  penolakan dua nombor"
 
 #: boards/algebra_minus.xml.in.h:4
-#, fuzzy
 msgid "Practice the substraction operation"
 msgstr "Latih operasi penolakan"
 
@@ -404,10 +397,7 @@ msgid "Simple substraction"
 msgstr "Penolakan mudah"
 
 #: boards/algebra_plus.xml.in.h:1
-msgid ""
-"An addition of two numbers is displayed. At the right of the equal sign, "
-"give the answer. Use the left and right arrow to modify your answer, the "
-"return key to validate an answer"
+msgid "An addition of two numbers is displayed. At the right of the equal sign, give the answer. Use the left and right arrow to modify your answer, the return key to validate an answer"
 msgstr ""
 
 #: boards/algebra_plus.xml.in.h:3
@@ -415,7 +405,6 @@ msgid "In a limited time, give the result to the addition of two numbers"
 msgstr "Dalam masa yang terhad, berikan hasil penambahan dua nombor"
 
 #: boards/algebra_plus.xml.in.h:4
-#, fuzzy
 msgid "Practice the addition operation"
 msgstr "Latih operasi penambahan"
 
@@ -423,33 +412,34 @@ msgstr "Latih operasi penambahan"
 msgid "Simple addition"
 msgstr "Penambahan mudah"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
-#, fuzzy
+#: boards/algebra_group.xml.in.h:1
+#: boards/algebramenu.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Pergi ke papan Aljabar"
+msgstr "Pergi ke aktiviti Aljabar"
 
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
+#: boards/algebra_group.xml.in.h:2
+#: boards/algebramenu.xml.in.h:2
+#: boards/boards.xml.in.h:2
+#: boards/colors_group.xml.in.h:2
+#: boards/computer.xml.in.h:2
+#: boards/fun.xml.in.h:2
+#: boards/menu.xml.in.h:3
 #: boards/reading.xml.in.h:2
-#, fuzzy
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Klik butang kiri tetikus untuk memilih papan"
+msgstr "Klik-kiri dengan tetikus untuk memilih aktiviti"
 
-#: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
-#: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
-#: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
+#: boards/babymatch.xml.in.h:1
+#: boards/babymatch/board1_0.xml.in.h:1
+#: boards/babymatch/board2_0.xml.in.h:1
+#: boards/babymatch/board3_0.xml.in.h:1
+#: boards/babymatch/board4_0.xml.in.h:1
+#: boards/babymatch/board5_0.xml.in.h:1
 #: boards/babymatch/board6_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Heret dan jatuh item untuk memadankan mereka"
 
 #: boards/babymatch.xml.in.h:2
-msgid ""
-"In the main board area, a set of objects are printed. In the vertical frame "
-"- at the left of the main board area, another set of objects are printed, "
-"each of these objects match with exactly one object of the main board area. "
-"The logical link between these objects must be found. This is achieved by "
-"dragging the objects to the right red plots in the main area."
+msgid "In the main board area, a set of objects are printed. In the vertical frame - at the left of the main board area, another set of objects are printed, each of these objects match with exactly one object of the main board area. The logical link between these objects must be found. This is achieved by dragging the objects to the right red plots in the main area."
 msgstr ""
 
 #: boards/babymatch.xml.in.h:3
@@ -460,10 +450,10 @@ msgstr "Item berpadanan"
 msgid "Motor coordination. Concept match."
 msgstr "Koordinasi motor. Konsep berpadanan."
 
-#: boards/babymatch.xml.in.h:5 boards/paintings.xml.in.h:4
-#, fuzzy
+#: boards/babymatch.xml.in.h:5
+#: boards/paintings.xml.in.h:4
 msgid "Mouse manipulation: movement, drag and drop"
-msgstr "Manipulasi tetikus: pergerakan, heret dan letak"
+msgstr "Manipulasi tetikus: pergerakan, heret dan jatuh"
 
 #: boards/babyshapes.xml.in.h:1
 msgid "Baby Shape Puzzle"
@@ -483,76 +473,73 @@ msgstr ""
 
 #: boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr ""
+msgstr "Hello ! Nama saya Lock."
 
 #: boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on grass."
-msgstr ""
+msgstr "Lock di atas rumput."
 
 #: boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
-msgstr ""
+msgstr "Lock dengan bentuk berwarna."
 
 #: boards/boards.xml.in.h:1
-#, fuzzy
 msgid "Go to board based activities"
-msgstr "Pergi ke papan Aljabar"
+msgstr "Pergi ke aktiviti berasaskan papan"
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
+#: boards/canal_lock.xml.in.h:1
+#: src/boards/canal_lock.c:110
 msgid "Operate a canal lock"
 msgstr ""
 
 #: boards/canal_lock.xml.in.h:2
-msgid ""
-"Tux is in trouble in his ship, he needs to take through a lock. Help Tux and "
-"understand how a canal lock works."
+msgid "Tux is in trouble in his ship, he needs to take through a lock. Help Tux and understand how a canal lock works."
 msgstr ""
 
 #: boards/canal_lock.xml.in.h:3
-msgid ""
-"You are in charge of the canal lock. You have to open the gates and the "
-"lockgates in the right order. Let Tux travel through the gates in the two "
-"ways."
+msgid "You are in charge of the canal lock. You have to open the gates and the lockgates in the right order. Let Tux travel through the gates in the two ways."
 msgstr ""
 
-#: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
+#: boards/chess.xml.in.h:1
+#: boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
-msgstr ""
+msgstr "Main catur menentang komputer dalam mod belajar"
 
 #: boards/chess.xml.in.h:2
 msgid "Practice chess"
-msgstr ""
+msgstr "Berlatih catur"
 
-#: boards/chess_computer.xml.in.h:1 boards/chess_movelearn.xml.in.h:2
+#: boards/chess_computer.xml.in.h:1
+#: boards/chess_movelearn.xml.in.h:2
 #: boards/chess_partyend.xml.in.h:1
-#, fuzzy
 msgid "Learning chess"
-msgstr "Belajar Mengenai Jam"
+msgstr "Belajar catur"
 
-#: boards/chess_computer.xml.in.h:2 boards/chess_movelearn.xml.in.h:3
-#: boards/chess_partyend.xml.in.h:2 boards/clickgame.xml.in.h:5
-#: boards/erase.xml.in.h:3 boards/memory.xml.in.h:4
+#: boards/chess_computer.xml.in.h:2
+#: boards/chess_movelearn.xml.in.h:3
+#: boards/chess_partyend.xml.in.h:2
+#: boards/clickgame.xml.in.h:5
+#: boards/erase.xml.in.h:3
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulasi tetikus"
 
-#: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
+#: boards/chess_computer.xml.in.h:4
+#: boards/chess_movelearn.xml.in.h:4
 #: boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is the gnuchess."
-msgstr ""
+msgstr "Jentera catur adalah gnuchess."
 
 #: boards/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
-msgstr ""
+msgstr "Latihan catur. Tangkap komputer punya pawn."
 
 #: boards/chess_partyend.xml.in.h:3
 msgid "Play end of chess game against the computer"
 msgstr ""
 
 #: boards/click_on_letter.xml.in.h:1
-msgid ""
-"A letter is spelled. Click on the corresponding letter in the main area. You "
-"can hear again the letter by clicking on the speaker icon in the bottom "
-"horizontal frame."
+msgid "A letter is spelled. Click on the corresponding letter in the main area. You can hear again the letter by clicking on the speaker icon in the bottom horizontal frame."
 msgstr ""
 
 #: boards/click_on_letter.xml.in.h:2
@@ -567,58 +554,46 @@ msgstr "Dengar huruf dan klik pada huruf yang betul"
 msgid "Letter recognition"
 msgstr "Pengenalan huruf"
 
-#: boards/click_on_letter.xml.in.h:5 boards/railroad.xml.in.h:4
+#: boards/click_on_letter.xml.in.h:5
+#: boards/leftright.xml.in.h:5
+#: boards/railroad.xml.in.h:4
 msgid "None"
 msgstr "Tiada"
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:82
+#: boards/clickgame.xml.in.h:1
+#: src/boards/clickgame.c:82
 msgid "Click On Me"
 msgstr "Klik saya"
 
 #: boards/clickgame.xml.in.h:2
-msgid ""
-"Fish are taken from the Unix utility xfishtank. Images are taken from the "
-"National Undersea Research Program (NURP) Collection at http://www.photolib."
-"noaa.gov All images credit bellongs to the OAR/National Undersea Research "
-"Program (NURP). Except for the first image that also credits the University "
-"of North Carolina at Wilmington. In the gcompris level order, images "
-"information is: Location: Tropical Atlantic Ocean, Florida Keys (image "
-"nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) "
-"Location: Unknown (image nur03505) Location: Unknown (image nur03010) "
-"Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
+msgid "Fish are taken from the Unix utility xfishtank. Images are taken from the National Undersea Research Program (NURP) Collection at http://www.photolib.noaa.gov All images credit bellongs to the OAR/National Undersea Research Program (NURP). Except for the first image that also credits the University of North Carolina at Wilmington. In the gcompris level order, images information is: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: Unknown (image nur03505) Location: Unknown (image nur03010) Location: Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:83
-msgid ""
-"Left-Click with the mouse on all swimming fishes before they leave the "
-"fishtank"
+#: boards/clickgame.xml.in.h:3
+#: src/boards/clickgame.c:83
+msgid "Left-Click with the mouse on all swimming fishes before they leave the fishtank"
 msgstr ""
 
 #: boards/clickgame.xml.in.h:4
-msgid ""
-"Motor coordination: mouse mouvement and mouse click. The goal is just to "
-"click with the left mouse button on the moving fish."
+msgid "Motor coordination: mouse mouvement and mouse click. The goal is just to click with the left mouse button on the moving fish."
 msgstr ""
 
 #: boards/clockgame.xml.in.h:1
-msgid ""
-"Distinguish differences between hour, minute and second. Compose a time in a "
-"clock"
-msgstr ""
+msgid "Distinguish differences between hour, minute and second. Compose a time in a clock"
+msgstr "Kenali perbezaan andara jam, minit, dan saat. Gubah masa pada gambar jam"
 
 #: boards/clockgame.xml.in.h:2
-msgid ""
-"For each printed hour (hours:minutes or hours:minutes:seconds) manipulate "
-"the corresponding arrow to set the clock time matching the given hour. The "
-"different arrows can be turned by selecting them and moving the mouse"
+msgid "For each printed hour (hours:minutes or hours:minutes:seconds) manipulate the corresponding arrow to set the clock time matching the given hour. The different arrows can be turned by selecting them and moving the mouse"
 msgstr ""
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:104
+#: boards/clockgame.xml.in.h:3
+#: src/boards/algebra.c:104
 #: src/boards/clockgame.c:78
 msgid "Learn how to read the time"
 msgstr "Belajar bagaimana membaca waktu"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:103
+#: boards/clockgame.xml.in.h:4
+#: src/boards/algebra.c:103
 #: src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Belajar Mengenai Jam"
@@ -631,31 +606,22 @@ msgstr "Konsep masa Pembacaan Waktu"
 msgid "Can move the mouse."
 msgstr "Boleh menggerakkan tetikus."
 
-#: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:2
-#: src/boards/advanced_colors.c:87 src/boards/colors.c:68
-msgid "Click on the right color"
-msgstr "Klik di atas warna yang betul"
-
-#: boards/colors.xml.in.h:3 src/boards/colors.c:67
+#: boards/colors.xml.in.h:3
+#: src/boards/colors.c:67
 msgid "Colors"
 msgstr "Warna"
 
 #: boards/colors.xml.in.h:4
-#, fuzzy
 msgid "Hear the color and click on the toon."
-msgstr "Dengar warna dan klik padan toon."
+msgstr "Dengar warna dan klik pada toon."
 
 #: boards/colors.xml.in.h:5
-msgid ""
-"This board is dedicated to train kids to recognize colors. Several colored "
-"toons are displayed and a color is spoken. The kid must select the proper "
-"toon."
+msgid "This board is dedicated to train kids to recognize colors. Several colored toons are displayed and a color is spoken. The kid must select the proper toon."
 msgstr ""
 
 #: boards/colors_group.xml.in.h:1
-#, fuzzy
 msgid "Go to colors activities"
-msgstr "Pergi ke papan Aljabar"
+msgstr "Pergi ke aktiviti warna"
 
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -663,7 +629,7 @@ msgstr "Discover komputer"
 
 #: boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
-msgstr "Kemahiran pengiraan asas."
+msgstr "Kemahiran pengiraan asas"
 
 #: boards/doubleentry.xml.in.h:2
 msgid "Double entry table"
@@ -678,24 +644,21 @@ msgid "Drag and Drop the items in the double entry table"
 msgstr "drag dan drop item dalam jadual masukan berganda"
 
 #: boards/doubleentry.xml.in.h:5
-msgid ""
-"The children must move the items on the left to their proper destination in "
-"the double entry table."
+msgid "The children must move the items on the left to their proper destination in the double entry table."
 msgstr ""
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:192
+#: boards/draw.xml.in.h:1
+#: src/boards/draw.c:197
 msgid "A simple vector drawing tool"
 msgstr "Perkakasan lukisan vektor mudah"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:193
+#: boards/draw.xml.in.h:2
+#: src/boards/draw.c:198
 msgid "Creative board where you can freely draw"
 msgstr "Papan kreatif dimana anda boleh melukis dengan mudah"
 
 #: boards/draw.xml.in.h:3
-msgid ""
-"In this game, the children will be able to freely draw. The goal is just to "
-"discover how he can create pretty looking drawings based on basic shapes: "
-"rectangles, ellipses and lines."
+msgid "In this game, the children will be able to freely draw. The goal is just to discover how he can create pretty looking drawings based on basic shapes: rectangles, ellipses and lines."
 msgstr ""
 
 #: boards/draw.xml.in.h:4
@@ -703,33 +666,51 @@ msgid "Needs to handle the mouse with the click easily"
 msgstr "Perlu mengendalikan klik tetikus dengan mudah"
 
 #: boards/draw.xml.in.h:5
-msgid ""
-"On the left select a drawing tool, on the bottom select a color then click "
-"on the white area and drag to create a new shape. To go faster, you can use "
-"the middle mouse button to delete an object."
+msgid "On the left select a drawing tool, on the bottom select a color then click on the white area and drag to create a new shape. To go faster, you can use the middle mouse button to delete an object."
+msgstr ""
+
+#: boards/enumerate.xml.in.h:1
+msgid "Count the items"
+msgstr "Kira item"
+
+#: boards/enumerate.xml.in.h:2
+#: boards/planegame.xml.in.h:2
+msgid "Number"
+msgstr "Nombor"
+
+#: boards/enumerate.xml.in.h:3
+#: boards/planegame.xml.in.h:4
+#: src/boards/enumerate.c:91
+msgid "Numeration training"
+msgstr "Latihan penomboran"
+
+#: boards/enumerate.xml.in.h:4
+#: src/boards/enumerate.c:92
+msgid "Place the items in the best way to count them"
 msgstr ""
 
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr "Koordinasi motor"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69
+#: boards/erase.xml.in.h:4
+#: src/boards/erase.c:69
+#: src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Gerakkan tetikus"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5
+#: src/boards/erase.c:70
 msgid "Move the mouse to erase the area and discover the background"
-msgstr ""
-"Gerakkan tetikus untuk memadam kawasan tersebut dan menjumpai latar belakang"
+msgstr "Gerakkan tetikus untuk memadam kawasan tersebut dan menjumpai latar belakang"
 
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disapear."
 msgstr "Gerakkan tetikus sehingga semua blok hilang"
 
 #: boards/fun.xml.in.h:1
-#, fuzzy
 msgid "Go to Amusement activities"
-msgstr "Pergi ke papan amusement"
+msgstr "Pergi ke aktiviti Hiburan"
 
 #: boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
@@ -740,35 +721,47 @@ msgstr "Drag dn drop item untuk melukis semula peta yang lengkap"
 msgid "Place the lands"
 msgstr "Letakkan land"
 
-#: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:3
+#: boards/geography/board1_0.xml.in.h:1
+msgid "North America"
+msgstr ""
+
+#: boards/geography/board2_0.xml.in.h:1
+msgid "South America"
+msgstr ""
+
+#: boards/gletters.xml.in.h:1
+#: boards/wordsgame.xml.in.h:3
 msgid "Keyboard manipulation"
-msgstr "manipulasi papan kekunci"
+msgstr "Manipulasi papan kekunci"
 
 #: boards/gletters.xml.in.h:2
 msgid "Letter recognition between the screen and the keyboard"
-msgstr "Penecaman huruf diantara skrin dan papan kekunci"
+msgstr "Pengecaman huruf di antara skrin dan papan kekunci"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
+#: boards/gletters.xml.in.h:3
+#: src/boards/gletters.c:76
 msgid "Simple Letters"
-msgstr "Huruf-huruf mudah"
+msgstr "Huruf-huruf Ringkas"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
+#: boards/gletters.xml.in.h:4
+#: src/boards/gletters.c:77
 msgid "Type the falling letters before they reach the ground"
-msgstr "taip huruf-huruf yang berjatuhan sebelum ia mencecah lantai"
+msgstr "Taip huruf yang jatuh sebelum ia mencecah lantai"
 
 #: boards/imageid.xml.in.h:1
-msgid ""
-"Click on the word corresponding to the printed image. When you are sure of "
-"your choice click on the hand at the bottom"
+msgid "Click on the word corresponding to the printed image. When you are sure of your choice click on the hand at the bottom"
 msgstr ""
 
 #: boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
-msgstr "Latih membaca dengan mencari perkataan yang berpadanan dengan imej"
+msgstr "Berlatih membaca dengan mencari perkataan yang padan dengan imej"
 
-#: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
-#: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:103
+#: boards/imageid.xml.in.h:3
+#: boards/imagename.xml.in.h:4
+#: boards/readingh.xml.in.h:5
+#: boards/readingv.xml.in.h:4
+#: src/boards/imageid.c:109
+#: src/boards/missingletter.c:103
 #: src/boards/reading.c:100
 msgid "Reading"
 msgstr "Membaca"
@@ -777,7 +770,8 @@ msgstr "Membaca"
 msgid "Reading pratice"
 msgstr "Latihan membaca"
 
-#: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:1
+#: boards/imagename/board4_0.xml.in.h:2
 msgid "apple"
 msgstr "epal"
 
@@ -789,7 +783,8 @@ msgstr "belakang"
 msgid "bag"
 msgstr "beg"
 
-#: boards/imageid/board1.xml.in.h:4 boards/imagename/board6_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:4
+#: boards/imagename/board6_0.xml.in.h:2
 msgid "ball"
 msgstr "bola"
 
@@ -809,7 +804,8 @@ msgstr "bot"
 msgid "book"
 msgstr "buku"
 
-#: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:9
+#: boards/imagename/board2_0.xml.in.h:2
 msgid "bottle"
 msgstr "botol"
 
@@ -821,7 +817,8 @@ msgstr "kek"
 msgid "camel"
 msgstr "unta"
 
-#: boards/imageid/board1.xml.in.h:12 boards/imagename/board4_0.xml.in.h:4
+#: boards/imageid/board1.xml.in.h:12
+#: boards/imagename/board4_0.xml.in.h:4
 msgid "car"
 msgstr "kereta"
 
@@ -833,7 +830,8 @@ msgstr "keju"
 msgid "cow"
 msgstr "lembu"
 
-#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:15
+#: boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "rumah"
 
@@ -845,9 +843,12 @@ msgstr "pir"
 msgid "satchel"
 msgstr ""
 
-#: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
-#: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
-#: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
+#: boards/imagename.xml.in.h:1
+#: boards/imagename/board1_0.xml.in.h:1
+#: boards/imagename/board2_0.xml.in.h:1
+#: boards/imagename/board3_0.xml.in.h:1
+#: boards/imagename/board4_0.xml.in.h:1
+#: boards/imagename/board5_0.xml.in.h:1
 #: boards/imagename/board6_0.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
 msgstr "Drag dan drop item diatas nama yang ditulis"
@@ -857,12 +858,7 @@ msgid "Image Name"
 msgstr "Nama imej"
 
 #: boards/imagename.xml.in.h:3
-msgid ""
-"In the main board area, a set of red plots associated with work are printed. "
-"In the vertical frame - at the left of the main board area, a set of objects "
-"are represented, each of these objects match with one word of the main board "
-"area. The right association must be find for these objects. This is achieved "
-"by dragging the objects to the right red plot in the main area."
+msgid "In the main board area, a set of red plots associated with work are printed. In the vertical frame - at the left of the main board area, a set of objects are represented, each of these objects match with one word of the main board area. The right association must be find for these objects. This is achieved by dragging the objects to the right red plot in the main area."
 msgstr ""
 
 #: boards/imagename.xml.in.h:5
@@ -885,11 +881,13 @@ msgstr "lampu"
 msgid "mail box"
 msgstr "kotak mel"
 
-#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:3
+#: boards/imagename/board1_0.xml.in.h:6
+#: boards/imagename/board5_0.xml.in.h:3
 msgid "postcard"
 msgstr "poskad"
 
-#: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
+#: boards/imagename/board1_0.xml.in.h:7
+#: boards/imagename/board3_0.xml.in.h:5
 #: boards/imagename/board6_0.xml.in.h:7
 msgid "sailing boat"
 msgstr "bot layar"
@@ -926,7 +924,8 @@ msgstr "roket"
 msgid "sofa"
 msgstr "sofa"
 
-#: boards/imagename/board3_0.xml.in.h:7 boards/imagename/board5_0.xml.in.h:5
+#: boards/imagename/board3_0.xml.in.h:7
+#: boards/imagename/board5_0.xml.in.h:5
 msgid "star"
 msgstr "bintang"
 
@@ -976,39 +975,57 @@ msgstr "bendera"
 
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
-msgstr "reket"
+msgstr "raket"
 
-#: boards/superbrain.xml.in.h:1
-msgid ""
-"Click on the items until you find what you think is the correct answer. "
-"Then, click on the OK button in the control bar. At the lower level, tux "
-"gives you an indication if you got a good position by marking the item with "
-"a black box. You can use the right mouse button to flip the colors in the "
-"oposite order."
+#: boards/leftright.xml.in.h:1
+msgid "A hand is printed. You have to tell if this is the right or left hand. Click on the red button - at the left - or on the green button - at the right, then click on the hand at the bottom to confirm your choice."
 msgstr ""
 
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:122
+#: boards/leftright.xml.in.h:2
+msgid "Distinguish from different point of view the left hand from the right hand. Spatial representation"
+msgstr ""
+
+#: boards/leftright.xml.in.h:3
+#: src/boards/leftright.c:106
+msgid "Find your left and right hands"
+msgstr "Cari tangan kiri dan tangan kanan"
+
+#: boards/leftright.xml.in.h:4
+#: src/boards/leftright.c:107
+msgid "Given hands pictures, find if it's a right or left one"
+msgstr "Diberi gambar tangan, cari samada ia tangan kanan atau tangan kiri"
+
+#: boards/superbrain.xml.in.h:1
+msgid "Click on the items until you find what you think is the correct answer. Then, click on the OK button in the control bar. At the lower level, tux gives you an indication if you got a good position by marking the item with a black box. You can use the right mouse button to flip the colors in the oposite order."
+msgstr ""
+
+#: boards/superbrain.xml.in.h:2
+#: src/boards/superbrain.c:110
 msgid "Super Brain"
 msgstr ""
 
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:123
+#: boards/superbrain.xml.in.h:3
+#: src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
 msgstr ""
 
 #: boards/maze.xml.in.h:1
+#: boards/maze3D.xml.in.h:2
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Boleh gunakan tanda arah pada papan kunci untuk menggerakkan objek"
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:106
-#, fuzzy
+#: boards/maze.xml.in.h:2
+#: src/boards/maze.c:127
 msgid "Find your way out of the maze"
-msgstr "cari jalan keluar dari maze"
+msgstr "Cari jalan keluar dari maze"
 
 #: boards/maze.xml.in.h:3
+#: boards/maze3D.xml.in.h:4
 msgid "Help Tux get out of this maze."
 msgstr "Bantu Tux keluar dari maze"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:105
+#: boards/maze.xml.in.h:4
+#: src/boards/maze.c:126
 msgid "Maze"
 msgstr "Maze"
 
@@ -1016,13 +1033,20 @@ msgstr "Maze"
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Gunakan anak panah papan kekunci untuk menggerakkan TUX ke pintu."
 
+#: boards/maze3D.xml.in.h:1
+msgid "3D Maze"
+msgstr "Maze 3D"
+
+#: boards/maze3D.xml.in.h:3
+msgid "Find your way out of the 3D maze"
+msgstr "cari jalan keluar dari maze 3D"
+
+#: boards/maze3D.xml.in.h:5
+msgid "Use the keyboard arrows to move Tux up to the door. Use the 'space' key to switch between 2D and 3D mode"
+msgstr "Gunakan anak panah papan kekunci untuk menggerakkan Tux ke pintu.i Guna kekunci 'Space' untuk beralih antara mod 2D dan 3D"
+
 #: boards/memory.xml.in.h:1
-msgid ""
-"A set of blink cards is printed. Each pair is associated by the same picture "
-"in their hidden faces. When clicking on a card, you can uncover the card and "
-"see its hidden picture. However you can only see two hidden pictures at "
-"once. You have to remember the position of the pictures to associate them. "
-"To remove a pair of card, uncover both of them."
+msgid "A set of blink cards is printed. Each pair is associated by the same picture in their hidden faces. When clicking on a card, you can uncover the card and see its hidden picture. However you can only see two hidden pictures at once. You have to remember the position of the pictures to associate them. To remove a pair of card, uncover both of them."
 msgstr ""
 
 #: boards/memory.xml.in.h:2
@@ -1034,44 +1058,27 @@ msgid "Memory Game with images"
 msgstr "Permainan memori dengan imej"
 
 #: boards/memory.xml.in.h:5
-#, fuzzy
 msgid "Train your memory and remove all the cards"
-msgstr "Latih memori anda dan alihkan semua kad"
+msgstr "Latih memori anda dan buang semua kad"
 
 #: boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
 msgstr "Menu Utama GCompris"
 
 #: boards/menu.xml.in.h:2
-msgid ""
-"GCompris is an educational games that provides different activities to "
-"children from 3 to 8 years old."
+msgid "GCompris is an educational games that provides different activities to children from 3 to 8 years old."
 msgstr ""
 
 #: boards/menu.xml.in.h:4
-msgid ""
-"The goal of gcompris is to provide a free alternative to popular proprietary "
-"edutainment software"
+msgid "The goal of gcompris is to provide a free alternative to popular proprietary edutainment software"
 msgstr ""
 
 #: boards/menu.xml.in.h:5
-msgid ""
-"To use it, a simple click on an icon brings you to an activity or a menu. At "
-"the bottom of the screen, you have the gcompris control bar. From right to "
-"left, bellow is the meaning of the icons. Note that these icons are "
-"displayed only when available in an activity: Home - Back to previous menu "
-"or exit gcompris if no more Thumb - OK, confirm your answer Dice - The "
-"current level is displayed. Click on it to select another level Music note - "
-"Ask gcompris to repeat the question Question Mark - The help Tool Box - The "
-"configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to "
-"4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
+msgid "To use it, a simple click on an icon brings you to an activity or a menu. At the bottom of the screen, you have the gcompris control bar. From right to left, bellow is the meaning of the icons. Note that these icons are displayed only when available in an activity: Home - Back to previous menu or exit gcompris if no more Thumb - OK, confirm your answer Dice - The current level is displayed. Click on it to select another level Music note - Ask gcompris to repeat the question Question Mark - The help Tool Box - The configuration menu Tux Plane - The about box The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years old 3 Stars - 7 to 8 years old"
 msgstr ""
 
 #: boards/missing_letter.xml.in.h:1
-msgid ""
-"An object is displayed in the main area. An incomplete word is printed under "
-"the picture. Select the missing letter to complete the word. Click on the "
-"hand at the bottom to validate your choice."
+msgid "An object is displayed in the main area. An incomplete word is printed under the picture. Select the missing letter to complete the word. Click on the hand at the bottom to validate your choice."
 msgstr ""
 
 #: boards/missing_letter.xml.in.h:2
@@ -1092,15 +1099,15 @@ msgstr "Membaca perkataan"
 
 #: boards/missing_letter/board1.xml.in.h:1
 msgid "apple/_pple/a/i/o"
-msgstr ""
+msgstr "epal/ep_l/a/i/o"
 
 #: boards/missing_letter/board1.xml.in.h:2
 msgid "ball/_all/b/p/d"
-msgstr ""
+msgstr "bola/_ola/b/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:3
 msgid "banana/b_nana/a/o/i"
-msgstr ""
+msgstr "pisang/pis_ng/a/o/i"
 
 #: boards/missing_letter/board1.xml.in.h:4
 msgid "bed/_ed/b/l/f"
@@ -1122,19 +1129,31 @@ msgstr ""
 msgid "satchel/s_tchel/a/o/i"
 msgstr ""
 
+#: boards/money.xml.in.h:1
+#: boards/money_cents.xml.in.h:1
+#: src/boards/money.c:87
+msgid "Money"
+msgstr "Wang"
+
+#: boards/money.xml.in.h:2
+#: src/boards/money.c:88
+msgid "Pratice money usage"
+msgstr "Berlatih penggunaan wang"
+
+#: boards/money_cents.xml.in.h:2
+msgid "Pratice money usage including cents"
+msgstr ""
+
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr ""
 
 #: boards/paintings.xml.in.h:2
-msgid ""
-"In the main board area, a set of red plots are displayed. In the vertical "
-"frame - at the left of the main board area, a set of image parts of a "
-"painting are avalaible. Drag and drop these parts in the right plot to "
-"rebuild the original painting."
+msgid "In the main board area, a set of red plots are displayed. In the vertical frame - at the left of the main board area, a set of image parts of a painting are avalaible. Drag and drop these parts in the right plot to rebuild the original painting."
 msgstr ""
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:155
+#: boards/paintings.xml.in.h:3
+#: src/boards/shapegame.c:156
 msgid "Make the puzzle"
 msgstr ""
 
@@ -1159,9 +1178,8 @@ msgid "Kandinsky, Wassily, Composition VIII - 1923"
 msgstr "Kandinsky, Wassily, Composition VIII - 1923"
 
 #: boards/paintings/board3_1.xml.in.h:2
-#, fuzzy
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, Ne"
+msgstr "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 
 #: boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
@@ -1176,50 +1194,38 @@ msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
 #: boards/paratrooper.xml.in.h:1
-msgid ""
-"Click on any keyboard key to let Tux jump. Another keypress will open the "
-"parachute. Alternatively, a click on the plane and the tux also works."
+msgid "Click on any keyboard key to let Tux jump. Another keypress will open the parachute. Alternatively, a click on the plane and the tux also works."
 msgstr ""
 
 #: boards/paratrooper.xml.in.h:2
-msgid ""
-"In this game, the children will try to make Tux the paratrooper lands safely "
-"on the fishing boat. He/She needs to take care of the wind side and speed."
+msgid "In this game, the children will try to make Tux the paratrooper lands safely on the fishing boat. He/She needs to take care of the wind side and speed."
 msgstr ""
 
-#: boards/paratrooper.xml.in.h:3 src/boards/paratrooper.c:105
+#: boards/paratrooper.xml.in.h:3
+#: src/boards/paratrooper.c:105
 msgid "Manage the paratrooper to let him safely land"
 msgstr ""
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
+#: boards/paratrooper.xml.in.h:4
+#: src/boards/paratrooper.c:104
 msgid "Paratrooper"
 msgstr "Paratrooper"
 
 #: boards/paratrooper.xml.in.h:5
-msgid ""
-"This board is game oriented. It doesnt needs specific skills to play with."
+msgid "This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 
 #: boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
 msgstr "Gerakkan helikopter untik mengejar awan dalam susunan yang betul"
 
-#: boards/planegame.xml.in.h:2
-msgid "Number"
-msgstr "Nombor"
-
-#: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
+#: boards/planegame.xml.in.h:3
+#: src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Nombor dalam susunan"
 
-#: boards/planegame.xml.in.h:4
-msgid "Numeration training"
-msgstr "Latihan penomboran"
-
 #: boards/planegame.xml.in.h:5
-msgid ""
-"Use the up, down, right and left keyboard keys to move the helicopter to "
-"catch the numbers in the incremental order"
+msgid "Use the up, down, right and left keyboard keys to move the helicopter to catch the numbers in the incremental order"
 msgstr ""
 
 #: boards/railroad.xml.in.h:1
@@ -1227,12 +1233,7 @@ msgid "A memory game based on trains"
 msgstr "Permainan memori berdasarkan keretapi"
 
 #: boards/railroad.xml.in.h:2
-msgid ""
-"A train - a locomotive and wagon(s) - is displayed at the top of the main "
-"area. After a few the second train go away. Then, you have to rebuild it at "
-"the top of the screen by selecting the appropriate wagons and locomotive. "
-"You can always unselect an item by clicking on it. Validate your "
-"construction by clicking on the hand at the bottom."
+msgid "A train - a locomotive and wagon(s) - is displayed at the top of the main area. After a few the second train go away. Then, you have to rebuild it at the top of the screen by selecting the appropriate wagons and locomotive. You can always unselect an item by clicking on it. Validate your construction by clicking on the hand at the bottom."
 msgstr ""
 
 #: boards/railroad.xml.in.h:3
@@ -1243,61 +1244,49 @@ msgstr "Latihan memori"
 msgid "Railroad"
 msgstr "Landasan keretapi"
 
-#: boards/read_colors.xml.in.h:1
-msgid "Can read"
-msgstr ""
-
 #: boards/read_colors.xml.in.h:3
-#, fuzzy
 msgid "Click on the right colored object."
-msgstr "Klik di atas warna yang betul"
+msgstr "Klik di atas objek warna yang betul."
 
 #: boards/read_colors.xml.in.h:4
-#, fuzzy
 msgid "Read colors"
-msgstr "Warna"
+msgstr "Membaca warna"
 
 #: boards/read_colors.xml.in.h:5
 msgid "This board is dedicated to read basic colors."
 msgstr ""
 
 #: boards/read_colors/board1.xml.in.h:1
-#, fuzzy
 msgid "black"
-msgstr "belakang"
+msgstr "hitam"
 
 #: boards/read_colors/board1.xml.in.h:2
-#, fuzzy
 msgid "blue"
-msgstr "botol"
+msgstr "biru"
 
 #: boards/read_colors/board1.xml.in.h:3
-#, fuzzy
 msgid "brown"
-msgstr "mahkota"
+msgstr "perang"
 
 #: boards/read_colors/board1.xml.in.h:4
-#, fuzzy
 msgid "green"
-msgstr "pokok"
+msgstr "hijau"
 
 #: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr ""
 
 #: boards/read_colors/board1.xml.in.h:6
-#, fuzzy
 msgid "orange"
-msgstr "Tiada"
+msgstr "jingga"
 
 #: boards/read_colors/board1.xml.in.h:7
 msgid "pink"
 msgstr ""
 
 #: boards/read_colors/board1.xml.in.h:8
-#, fuzzy
 msgid "red"
-msgstr "Kredit"
+msgstr "merah"
 
 #: boards/read_colors/board1.xml.in.h:9
 #, fuzzy
@@ -1305,24 +1294,20 @@ msgid "violet"
 msgstr "kiri"
 
 #: boards/read_colors/board1.xml.in.h:10
-#, fuzzy
 msgid "white"
-msgstr "Tajuk"
+msgstr "putih"
 
 #: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
-msgstr ""
+msgstr "kuning"
 
 #: boards/reading.xml.in.h:1
-#, fuzzy
 msgid "Go to the Reading activities"
-msgstr "Pergi ke Papan Bacaan"
+msgstr "Pergi ke aktiviti Bacaan"
 
-#: boards/readingh.xml.in.h:1 boards/readingv.xml.in.h:1
-msgid ""
-"At the top and right of the board area, a word is printed. At the left a "
-"list of words will move in and out of the screen. Tell if you see the "
-"initial word in this list."
+#: boards/readingh.xml.in.h:1
+#: boards/readingv.xml.in.h:1
+msgid "At the top and right of the board area, a word is printed. At the left a list of words will move in and out of the screen. Tell if you see the initial word in this list."
 msgstr ""
 
 #: boards/readingh.xml.in.h:2
@@ -1331,58 +1316,56 @@ msgstr "Latihan pembacaan menegak"
 
 #: boards/readingh.xml.in.h:3
 msgid "Read a list of word and tell if the given word is in it"
-msgstr ""
-"Baca senarai perkataan dan cuba beritahu samada perkataan yang diberi "
-"terdapat dalam senaari itu atau tidak"
+msgstr "Baca senarai perkataan dan cuba beritahu samada perkataan yang diberi terdapat dalam senaari itu atau tidak"
 
-#: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
+#: boards/readingh.xml.in.h:4
+#: boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
 msgstr "Latihan membaca dalam masa yang terhad"
 
 #: boards/readingv.xml.in.h:2
-#, fuzzy
 msgid "Read a vertical list of word and tell if the given word is in it"
-msgstr ""
-"Baca senarai pekataan melintang dan cuba beritahu samada terdapat perkataan "
-"yang diberi atau tidak"
+msgstr "Baca senarai perkataan melintang dan beritahu jika perkataan diberi ada di dalamnya atau tidak"
 
 #: boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
 msgstr "Latihan membaca secara melintang"
 
 #: boards/reversecount.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and substract numbers up to 10 for the "
-"first level"
+msgid "Can move the mouse, can read numbers and substract numbers up to 10 for the first level"
 msgstr ""
 
 #: boards/reversecount.xml.in.h:2
-msgid ""
-"First count how many ice spot are between tux and the fish. Then click on "
-"the dice to select the proper number. You can also use the right mouse "
-"button on the dices to count backward. When done, click on the OK button or "
-"hit the keyboard enter key."
+msgid "First count how many ice spot are between tux and the fish. Then click on the dice to select the proper number. You can also use the right mouse button on the dices to count backward. When done, click on the OK button or hit the keyboard enter key."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:122
+#: boards/reversecount.xml.in.h:3
+#: src/boards/reversecount.c:130
 msgid "Practice the substraction with a funny game"
 msgstr "Latih penolakan dengan permaian yang lawak"
 
 #: boards/reversecount.xml.in.h:4
-msgid ""
-"Tux is hungry. Help him find fishes by counting the ice spot needed to reach "
-"them."
+msgid "Tux is hungry. Help him find fishes by counting the ice spot needed to reach them."
 msgstr ""
 
-#: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
-#: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
-#: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
-#: boards/scales/board2_0.xml.in.h:1 boards/scales/board2_1.xml.in.h:1
-#: boards/scales/board2_2.xml.in.h:1 boards/scales/board2_3.xml.in.h:1
-#: boards/scales/board2_4.xml.in.h:1 boards/scales/board2_5.xml.in.h:1
-#: boards/scales/board3_0.xml.in.h:1 boards/scales/board3_1.xml.in.h:1
-#: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
-#: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
+#: boards/scales/board1_0.xml.in.h:1
+#: boards/scales/board1_1.xml.in.h:1
+#: boards/scales/board1_2.xml.in.h:1
+#: boards/scales/board1_3.xml.in.h:1
+#: boards/scales/board1_4.xml.in.h:1
+#: boards/scales/board1_5.xml.in.h:1
+#: boards/scales/board2_0.xml.in.h:1
+#: boards/scales/board2_1.xml.in.h:1
+#: boards/scales/board2_2.xml.in.h:1
+#: boards/scales/board2_3.xml.in.h:1
+#: boards/scales/board2_4.xml.in.h:1
+#: boards/scales/board2_5.xml.in.h:1
+#: boards/scales/board3_0.xml.in.h:1
+#: boards/scales/board3_1.xml.in.h:1
+#: boards/scales/board3_2.xml.in.h:1
+#: boards/scales/board3_3.xml.in.h:1
+#: boards/scales/board3_4.xml.in.h:1
+#: boards/scales/board3_5.xml.in.h:1
 #: boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
 msgstr ""
@@ -1392,16 +1375,11 @@ msgid "Mental calculus, arithmetic equality"
 msgstr "Kalkulus mental, persamaan arithmetik"
 
 #: boards/scalesboard.xml.in.h:3
-msgid ""
-"The painting is an original painting made by Virginie MOREAU (virginie."
-"moreau@free.fr) in 2001. Its name is 'spices seller in egypt'. It is "
-"released under the GPL license."
+msgid "The painting is an original painting made by Virginie MOREAU (virginie.moreau@free.fr) in 2001. Its name is 'spices seller in egypt'. It is released under the GPL license."
 msgstr ""
 
 #: boards/scalesboard.xml.in.h:4
-msgid ""
-"To equilibrate the scales, move the masses in its left plateau. The masses "
-"can be arranged in any order."
+msgid "To equilibrate the scales, move the masses in its left plateau. The masses can be arranged in any order."
 msgstr ""
 
 #: boards/scalesboard.xml.in.h:5
@@ -1416,35 +1394,30 @@ msgstr "Kemahiran mengira"
 msgid "In a limited time, count a number of dots"
 msgstr "Dalam masa yang terhad, kira bilangan titik"
 
-#: boards/smallnumbers.xml.in.h:3 src/boards/smallnumbers.c:69
+#: boards/smallnumbers.xml.in.h:3
+#: src/boards/smallnumbers.c:69
 msgid "Numbers With Dices"
 msgstr "Nombor dengan dadu"
 
-#: boards/smallnumbers.xml.in.h:4 src/boards/smallnumbers.c:70
-#, fuzzy
+#: boards/smallnumbers.xml.in.h:4
+#: src/boards/smallnumbers.c:70
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Taip nombor 1 hinggan 9 di papan kekunci sebelum dadu mencecah "
+msgstr "Taip nombor 1 hinggan 9 di papan kekunci sebelum dadu mencecah tanah"
 
 #: boards/smallnumbers.xml.in.h:5
-msgid ""
-"With the keyboard, press the number corresponding to the number of dots in "
-"the falling dice."
+msgid "With the keyboard, press the number corresponding to the number of dots in the falling dice."
 msgstr ""
 
 #: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 
 #: boards/target.xml.in.h:2
-msgid ""
-"First check the wind strength and direction, then click on the target to "
-"launch a dart, when all your darts are sent, a window appears requiring you "
-"to count your score. Enter the score with the keyboard then press the enter "
-"key or the OK icon."
+msgid "First check the wind strength and direction, then click on the target to launch a dart, when all your darts are sent, a window appears requiring you to count your score. Enter the score with the keyboard then press the enter key or the OK icon."
 msgstr ""
 
-#: boards/target.xml.in.h:3 src/boards/target.c:122
+#: boards/target.xml.in.h:3
+#: src/boards/target.c:122
 msgid "Practice the addition with a target game"
 msgstr "Melatih penambahan dengan permainan sasaran."
 
@@ -1452,15 +1425,27 @@ msgstr "Melatih penambahan dengan permainan sasaran."
 msgid "Send darts on a target and count your score."
 msgstr "Hantar dart ke sasaran dan kira markah anda"
 
-#: boards/target.xml.in.h:5 src/boards/target.c:123
+#: boards/target.xml.in.h:5
+#: src/boards/target.c:123
 msgid "Touch the target and count your points"
 msgstr "Sentuh sasaran dan kira markah anda"
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:85
+#: boards/traffic.xml.in.h:1
+#: src/boards/traffic.c:96
+msgid "A sliding block puzzle game"
+msgstr ""
+
+#: boards/traffic.xml.in.h:2
+msgid "The goal is to remove all of the red car(s) out of the grid through the slot on the right"
+msgstr ""
+
+#: boards/wordsgame.xml.in.h:1
+#: src/boards/wordsgame.c:86
 msgid "Falling Words"
 msgstr "Perkataan berjatuhan"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:86
+#: boards/wordsgame.xml.in.h:2
+#: src/boards/wordsgame.c:87
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Taip sepenuhnya perkataan yang berjatuhan sebelum ia mencecah lantai"
 
@@ -1474,31 +1459,35 @@ msgstr "Permainan pendidikan bermula dari umur 3 tahun"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
-msgstr ""
+msgstr "Editor bagi gcompris"
 
-#: src/boards/advanced_colors.c:86
-msgid "Advanced colors"
-msgstr ""
-
-#: src/boards/advanced_colors.c:529 src/boards/imageid.c:578
-#: src/boards/menu.c:538 src/boards/missingletter.c:599
-#: src/boards/read_colors.c:484 src/boards/shapegame.c:1567
-#: src/gcompris/gameutil.c:83 src/gcompris/gameutil.c:102
-#: src/gcompris/gameutil.c:395 src/gcompris/gameutil.c:396
-#: src/gcompris/gcompris-edit.c:361 src/gcompris/gcompris-edit.c:362
-#: src/gcompris/images_selector.c:353 src/gcompris/soundutil.c:264
+#: src/boards/advanced_colors.c:526
+#: src/boards/imageid.c:573
+#: src/boards/missingletter.c:595
+#: src/boards/read_colors.c:485
+#: src/boards/shapegame.c:1561
+#: src/boards/traffic.c:622
+#: src/gcompris/gameutil.c:90
+#: src/gcompris/gameutil.c:109
+#: src/gcompris/gameutil.c:433
+#: src/gcompris/gameutil.c:434
+#: src/gcompris/images_selector.c:347
+#: src/gcompris/soundutil.c:269
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Tidak menjumpai fail %s!"
 
-#: src/boards/advanced_colors.c:532 src/boards/imageid.c:581
-#: src/boards/missingletter.c:602 src/boards/read_colors.c:487
-#: src/boards/shapegame.c:1570
+#: src/boards/advanced_colors.c:529
+#: src/boards/imageid.c:576
+#: src/boards/missingletter.c:598
+#: src/boards/read_colors.c:488
+#: src/boards/shapegame.c:1564
 #, c-format
 msgid "find file %s !"
 msgstr "Cari fail %s!"
 
-#: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
+#: src/boards/algebra_guesscount.c:143
+#: src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
 msgstr "Operasi meneka"
 
@@ -1509,37 +1498,58 @@ msgid ""
 msgstr ""
 
 #: src/boards/chess.c:137
-#, fuzzy
 msgid "Learning Chess"
-msgstr "Belajar Mengenai Jam"
+msgstr "Belajar Catur"
 
 #: src/boards/chess.c:138
 msgid "Play chess against tux in a learning mode"
+msgstr "Bermain catur menentang tux dalam mod belajar"
+
+#: src/boards/chess.c:191
+msgid ""
+"Error: /usr/bin/gnuchessx is installed\n"
+"which means you run an old version\n"
+"of gnuchess.\n"
+"Please upgrade to gnuchess 5 or above."
 msgstr ""
 
-#: src/boards/chess.c:525
+#: src/boards/chess.c:198
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is in /usr/bin/gnuchess"
+msgstr ""
+
+#: src/boards/chess.c:569
 msgid "White Turn"
-msgstr ""
+msgstr "Giliran Putih"
 
-#: src/boards/chess.c:525
+#: src/boards/chess.c:569
 msgid "Black Turn"
-msgstr ""
+msgstr "Giliran Hitam"
 
-#: src/boards/chess.c:669
+#: src/boards/chess.c:710
 msgid "White check"
 msgstr ""
 
-#: src/boards/chess.c:671
+#: src/boards/chess.c:712
 msgid "Black check"
 msgstr ""
 
-#: src/boards/chess.c:1003
+#: src/boards/chess.c:1044
 msgid "Black mates"
 msgstr ""
 
-#: src/boards/chess.c:1008
+#: src/boards/chess.c:1049
 msgid "White mates"
 msgstr ""
+
+#: src/boards/chess.c:1054
+#, fuzzy
+msgid "Drawn game"
+msgstr "Tiada"
 
 #: src/boards/click_on_letter.c:73
 msgid "Read a letter"
@@ -1554,29 +1564,27 @@ msgstr "Belajar untuk mengenalpasti huruff-huruf"
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Tidak boleh membuka pixmap dir: %s"
 
-#: src/boards/clockgame.c:537
+#: src/boards/clockgame.c:530
 msgid "Set the watch to:"
 msgstr "Set jam ke:"
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:104
+#: src/boards/imageid.c:110
+#: src/boards/missingletter.c:104
 msgid "Learn how to read"
 msgstr "belajar bagaimana untuk membaca"
 
-#: src/boards/leftright.c:106
-msgid "Find your left and right hands"
-msgstr "Cari tangan kiri dan tangan kanan"
-
-#: src/boards/leftright.c:107
-msgid "Given hands pictures, find if it's a right or left one"
-msgstr "Diberi gambar tangan, cari samada ia tangan kanan atau tangan kiri"
-
-#: src/boards/leftright.c:251
+#: src/boards/leftright.c:247
 msgid "left"
 msgstr "kiri"
 
-#: src/boards/leftright.c:261
+#: src/boards/leftright.c:257
 msgid "right"
 msgstr "kanan"
+
+#: src/boards/machpuzzle.c:85
+#, fuzzy
+msgid "Move the mouse to machpuzzle the area and discover the background"
+msgstr "Gerakkan tetikus untuk memadam kawasan tersebut dan menjumpai latar belakang"
 
 #: src/boards/memory.c:227
 msgid "Memory"
@@ -1607,410 +1615,336 @@ msgstr "Permainan memori"
 msgid "Build a train conforming to the model"
 msgstr "Bina keretapi berdasarkan kepada model"
 
-#: src/boards/read_colors.c:83
-#, fuzzy
+#: src/boards/read_colors.c:85
 msgid "Read Colors"
-msgstr "Warna"
+msgstr "Membaca Warna"
 
-#: src/boards/read_colors.c:84
-#, fuzzy
+#: src/boards/read_colors.c:86
 msgid "Click on the corresponding color"
-msgstr "Klik di atas warna yang betul"
+msgstr "Klik pada warna yang betul"
 
 #: src/boards/reading.c:101
 msgid "Read a list of words and then tell if the given word is in it"
-msgstr ""
-"Baca senarai perkataan dan lihat samada terdapat perkataan yang diberi atau "
-"tidak"
+msgstr "Baca senarai perkataan dan lihat samada terdapat perkataan yang diberi atau tidak"
 
-#: src/boards/reading.c:316
+#: src/boards/reading.c:313
 msgid "Please, check if the word"
 msgstr "Tolong pastikan samada perkataan"
 
-#: src/boards/reading.c:336
+#: src/boards/reading.c:333
 msgid "is being displayed"
 msgstr "dipaparkan"
 
-#: src/boards/reading.c:527
+#: src/boards/reading.c:516
 msgid "I am Ready"
 msgstr "Saya telah bersedia"
 
-#: src/boards/reading.c:567
+#: src/boards/reading.c:553
 msgid "Yes I saw it"
 msgstr "Ya, saya nampak akan ia"
 
-#: src/boards/reading.c:597
+#: src/boards/reading.c:583
 msgid "No, it was not there"
 msgstr "Tidak, ia tiada disitu"
 
-#: src/boards/reversecount.c:121
+#: src/boards/reversecount.c:129
 msgid "Reverse count"
 msgstr ""
 
-#: src/boards/shapegame.c:156
+#: src/boards/shapegame.c:157
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Drag and drop item untuk membina objek semula"
 
-#: src/boards/target.c:324 src/boards/target.c:581
+#: src/boards/target.c:324
+#: src/boards/target.c:572
 #, c-format
 msgid "Points = %s"
-msgstr ""
+msgstr "Mata = %s"
 
-#: src/boards/target.c:444
+#: src/boards/target.c:441
 #, c-format
 msgid ""
 "Wind speed = %d\n"
 "kilometers/hour"
 msgstr ""
+"Kelajuan angin = %d\n"
+"kilometer/jam"
 
-#: src/boards/target.c:509
+#: src/boards/target.c:503
 #, c-format
 msgid "Distance to target = %d meters"
-msgstr ""
+msgstr "Jarak sasaran = %d meter"
 
-#: src/gcompris/about.c:60
+#: src/gcompris/about.c:57
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
 "Music: Djilali Sebihi\n"
+""
 msgstr ""
 "Kredit:\n"
 "Pengarangr: Bruno Coudoin\n"
 "Penyumbang: Pascal Georges\n"
 "Grafik: Renaud Blanchard\n"
 "Muzik: Djilali Sebihi\n"
+""
 
-#: src/gcompris/about.c:103
+#: src/gcompris/about.c:94
 msgid "About GCompris"
 msgstr "Perihal GCompris"
 
-#: src/gcompris/about.c:215
+#: src/gcompris/about.c:200
 msgid "GCompris Home Page"
 msgstr "Hompej GCompris"
 
-#: src/gcompris/about.c:237
-msgid ""
-"This software is a GNU Package and is released under the Gnu Public Licence"
+#: src/gcompris/about.c:222
+msgid "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Perisian in ialah Pakej GNU dan dikeluarkan dibawah Lesen Umum Gnu"
 
-#: src/gcompris/about.c:265
+#: src/gcompris/about.c:250
 msgid "Help"
 msgstr "Bantuan"
 
-#: src/gcompris/about.c:299 src/gcompris/config.c:161 src/gcompris/help.c:355
-#: src/gcompris/images_selector.c:154
+#: src/gcompris/about.c:284
+#: src/gcompris/config.c:155
+#: src/gcompris/help.c:342
+#: src/gcompris/images_selector.c:148
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/config.c:43
+#: src/gcompris/config.c:44
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijani Turkic"
 
-#: src/gcompris/config.c:44
+#: src/gcompris/config.c:45
 msgid "German"
 msgstr "German"
 
-#: src/gcompris/config.c:45
+#: src/gcompris/config.c:46
 msgid "Greek"
 msgstr "Greek"
 
-#: src/gcompris/config.c:46
+#: src/gcompris/config.c:47
 msgid "English"
 msgstr "Bahasa Inggeris"
 
-#: src/gcompris/config.c:47
+#: src/gcompris/config.c:48
 msgid "Spanish"
 msgstr "Spanish"
 
-#: src/gcompris/config.c:48
+#: src/gcompris/config.c:49
 msgid "Finnish"
 msgstr "Finnish"
 
-#: src/gcompris/config.c:49
+#: src/gcompris/config.c:50
 msgid "French"
 msgstr "Bahasa Perancis"
 
-#: src/gcompris/config.c:50
+#: src/gcompris/config.c:51
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: src/gcompris/config.c:51
+#: src/gcompris/config.c:52
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:52
-msgid "Malay"
-msgstr ""
-
 #: src/gcompris/config.c:53
+msgid "Malay"
+msgstr "B. Melayu"
+
+#: src/gcompris/config.c:54
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:54
+#: src/gcompris/config.c:55
+msgid "Portuguese"
+msgstr "Portugis"
+
+#: src/gcompris/config.c:56
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:57
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:58
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:59
 msgid "Slovak"
-msgstr ""
+msgstr "Slovak"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:60
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:65
 msgid "No time limit"
 msgstr "Tiada kekangan masa"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:66
 msgid "Slow timer"
 msgstr "Pemasa Perlahan"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:67
 msgid "Normal timer"
 msgstr "Pemasa Normal"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:68
 msgid "Fast timer"
 msgstr "Pemasa pantas"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:73
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default kepada gcompris)"
 
-#: src/gcompris/config.c:135
+#: src/gcompris/config.c:129
 msgid "GCompris Configuration"
 msgstr "Konfigurasi GCompris"
 
-#: src/gcompris/config.c:247
+#: src/gcompris/config.c:235
 msgid "Fullscreen"
 msgstr "Skrinpenuh"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:278
 msgid "Music"
 msgstr "Muzik"
 
-#: src/gcompris/config.c:318
-#, fuzzy
+#: src/gcompris/config.c:306
 msgid "Effect"
-msgstr "Kesan/Efek"
+msgstr "Kesan"
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:66
 msgid "run gcompris in fullscreen mode."
 msgstr "larikan gcompris dalam mod skrin penuh."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:68
 msgid "run gcompris in window mode."
 msgstr "larikan gcompris dalam mod tetingkap"
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:70
 msgid "run gcompris with sound enabled."
 msgstr "larikan gcomnpis dengan menghidupkan bunyi"
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:72
 msgid "run gcompris without sound."
 msgstr "larikan gcompris tanpa bunyi"
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:74
 msgid "run gcompris with the default gnome cursor."
 msgstr "larikan gcompris dengan kursor gnome default"
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:76
 msgid "Prints the version of "
 msgstr "Cetak versi "
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:78
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:320
+#: src/gcompris/gcompris.c:328
 msgid "GCompris I Have Understood"
 msgstr "GCompris I Sudah difahami"
 
-#: src/gcompris/gcompris.c:516
+#: src/gcompris/gcompris.c:541
 #, c-format
 msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
 "More infos on http://ofset.sourceforge.net/gcompris\n"
+""
 msgstr ""
 "GCompris\n"
 "Versi: %s\n"
 "Lesen: GPL\n"
 "Info selanjutnya boleh didapati di http://ofset.sourceforge.net/gcompris\n"
+""
 
-#: src/gcompris/gcompris.h:105
-msgid "-bitstream-charter-black-r-normal-*-*-320-*-*-p-*-iso8859-1"
-msgstr ""
-
-#: src/gcompris/gcompris.h:106 src/gcompris/gcompris.h:115
-msgid "-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*"
-msgstr ""
-
-#: src/gcompris/gcompris.h:107
-msgid "-bitstream-charter-medium-r-normal-*-*-180-*-*-p-*-iso8859-1"
-msgstr ""
-
-#: src/gcompris/gcompris.h:108 src/gcompris/gcompris.h:114
-msgid "-adobe-times-medium-r-normal--*-180-*-*-*-*-*-*"
-msgstr ""
-
-#: src/gcompris/gcompris.h:109
-msgid "-bitstream-charter-medium-r-normal-*-*-140-*-*-p-*-iso8859-1"
-msgstr ""
-
-#: src/gcompris/gcompris.h:110 src/gcompris/gcompris.h:113
-msgid "-adobe-times-medium-r-normal--*-140-*-*-*-*-*-*"
-msgstr ""
-
-#: src/gcompris/gcompris.h:112
-msgid "-adobe-times-medium-r-normal--*-120-*-*-*-*-*-*"
-msgstr ""
-
-#: src/gcompris/gcompris.h:116
-msgid "-adobe-times-bold-r-normal--*-240-*-*-*-*-*-*"
-msgstr ""
-
-#: src/gcompris/gcompris.h:117
-msgid "-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-*-*"
-msgstr ""
-
-#: src/gcompris/help.c:181 src/gcompris/interface.c:435
+#: src/gcompris/help.c:168
+#: src/gcompris/interface.c:243
 msgid "Prerequisite"
-msgstr ""
+msgstr "Keperluan"
 
-#: src/gcompris/help.c:215 src/gcompris/interface.c:446
+#: src/gcompris/help.c:202
+#: src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Matlamat"
 
-#: src/gcompris/help.c:249 src/gcompris/interface.c:457
+#: src/gcompris/help.c:236
+#: src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:283 src/gcompris/interface.c:546
+#: src/gcompris/help.c:270
+#: src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Kredit"
 
-#: src/gcompris/interface.c:117
-#, fuzzy
-msgid "GCompris Edit"
-msgstr "Menu Utama GCompris"
+#: src/gcompris/interface.c:104
+msgid "Gcompris Editor"
+msgstr "Editor Gcompris"
 
-#: src/gcompris/interface.c:222
-msgid "Add"
-msgstr ""
-
-#: src/gcompris/interface.c:223
-msgid "New file"
-msgstr ""
-
-#: src/gcompris/interface.c:235
-msgid "Remove"
-msgstr ""
-
-#: src/gcompris/interface.c:236
-msgid "Open a file"
-msgstr ""
-
-#: src/gcompris/interface.c:248
-msgid "Up"
-msgstr ""
-
-#: src/gcompris/interface.c:261
-#, fuzzy
-msgid "Down"
-msgstr "mahkota"
-
-#: src/gcompris/interface.c:296
-msgid "List of activities"
-msgstr "Senarai aktiviti"
-
-#: src/gcompris/interface.c:302 src/gcompris/interface.c:568
-#, fuzzy
-msgid "Name"
-msgstr "unta"
-
-#: src/gcompris/interface.c:311 src/gcompris/interface.c:590
-msgid "Title"
-msgstr "Tajuk"
-
-#: src/gcompris/interface.c:320 src/gcompris/interface.c:395
-msgid "Difficulty"
-msgstr "Kesukaran"
-
-#: src/gcompris/interface.c:362
-#, fuzzy
+#: src/gcompris/interface.c:180
 msgid "Icon"
-msgstr "mahkota"
+msgstr "Ikon"
 
-#: src/gcompris/interface.c:373
-msgid "Board dir"
-msgstr "Papan Direktori "
+#: src/gcompris/interface.c:189
+msgid "Name"
+msgstr "Nama"
 
-#: src/gcompris/interface.c:384
-msgid "Author"
-msgstr "Pengarang"
-
-#: src/gcompris/interface.c:406
-msgid "Type"
-msgstr "Jenis"
-
-#: src/gcompris/interface.c:536
-msgid "..."
-msgstr "..."
-
-#: src/gcompris/interface.c:544
-msgid "Enregistrer le fichier"
-msgstr ""
-
-#: src/gcompris/interface.c:557 src/gcompris/interface.c:711
+#: src/gcompris/interface.c:198
+#: src/gcompris/interface.c:415
 msgid "Description"
 msgstr "Penerangan"
 
-#: src/gcompris/interface.c:723
-msgid "Content"
-msgstr "Isi kandungan"
+#: src/gcompris/interface.c:207
+msgid "Type"
+msgstr "Jenis"
 
-#: src/gcompris/interface.c:778
-msgid "Icon List"
-msgstr "Senarai ikon"
+#: src/gcompris/interface.c:216
+msgid "Difficulty"
+msgstr "Kesukaran"
 
-#: src/gcompris/support.c:100 src/gcompris/support.c:138
-#, fuzzy, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Tidak menjumpai fail %s!"
+#: src/gcompris/interface.c:225
+msgid "Author"
+msgstr "Pengarang"
 
-#: src/gcompris/support.c:116
-#, fuzzy, c-format
-msgid "Couldn't create pixmap from file: %s"
-msgstr "Tidak boleh membuka pixmap dir: %s"
+#: src/gcompris/interface.c:234
+msgid "Directory"
+msgstr "Direktori"
 
-#: src/gcompris/timer.c:223
-msgid "Time Ellapsed"
+#: src/gcompris/interface.c:286
+msgid "Title"
+msgstr "Tajuk"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/interface.c:484
+msgid "translator_credits"
+msgstr ""
+"Noor Azurah Anuar <gbumla@yahoo.com> & \n"
+" Hasbullah Bin Pit <sebol@ikhlas.com>"
+
+#: src/gcompris/interface.c:490
+msgid "Released under GPL"
 msgstr ""
 
-#: src/gcompris/timer.c:308
+#: src/gcompris/support.c:60
+#: src/gcompris/support.c:85
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Tidak menjumpai fail pixmap: %s"
+
+#: src/gcompris/timer.c:237
+msgid "Time Ellapsed"
+msgstr "Masa Berlalu"
+
+#: src/gcompris/timer.c:323
 #, c-format
 msgid "Remaining Time = %d"
-msgstr ""
+msgstr "Baki Masa = %d"
 
-#, fuzzy
-#~ msgid "Monter"
-#~ msgstr "Tiada"
-
-#, fuzzy
-#~ msgid "Move the mouse to reversecount the area and discover the background"
-#~ msgstr ""
-#~ "Gerakkan tetikus untuk memadam kawasan tersebut dan menjumpai latar "
-#~ "belakang"
