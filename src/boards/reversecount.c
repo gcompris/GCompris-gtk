@@ -520,7 +520,7 @@ static GnomeCanvasItem *reversecount_create_item(GnomeCanvasGroup *parent)
 
   //----------------------------------------
   // Create the dice area
-  pixmap = gcompris_load_pixmap("reversecount/dice_area.jpg");
+  pixmap = gcompris_load_pixmap("reversecount/dice_area.png");
 
   dice_area_x = BOARDWIDTH - block_width - gdk_pixbuf_get_width (pixmap) - 20;
 
