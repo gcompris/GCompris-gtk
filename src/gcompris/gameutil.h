@@ -25,6 +25,7 @@
 #include <gdk-pixbuf/gnome-canvas-pixbuf.h>
 
 #include "gcompris.h"
+#include "sys/wait.h"
 
 // returns a random integer in range [A,B]
 #define RAND(A,B) (A + (int)((float)(B-A+1)*rand()/(RAND_MAX+1.0)))

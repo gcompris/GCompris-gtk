@@ -231,6 +231,7 @@ void gcompris_play_ogg(char *sound, ...) {
 
 	pid = fork ();
         if (pid > 0) { // go back to gcompris
+								waitpid(-1, NULL, WNOHANG);
                 return;
         } else if (pid == 0) { // child process
 		argv[0] = "ogg123";
@@ -242,7 +243,7 @@ void gcompris_play_ogg(char *sound, ...) {
 		  printf("trying to play %s\n", argv[argc]);
 		  argc = 3;
 		}
-		else 
+		else
 		  g_free(argv[2]);
 
 		va_start( ap, sound);
