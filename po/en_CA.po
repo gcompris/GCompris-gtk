@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-01 23:17-0400\n"
-"PO-Revision-Date: 2004-09-01 19:37-0400\n"
+"POT-Creation-Date: 2004-09-06 00:18-0400\n"
+"PO-Revision-Date: 2004-09-06 19:37-0400\n"
 "Last-Translator: Adam Weinberger  <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -842,11 +842,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr "Click on an item and listen to its target position"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:213
+#: boards/draw.xml.in.h:1 src/boards/draw.c:215
 msgid "A simple vector drawing tool"
 msgstr "A simple vector drawing tool"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:214
+#: boards/draw.xml.in.h:2 src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
 msgstr "Creative board where you can draw freely"
 
@@ -932,12 +932,11 @@ msgstr "Fine motor coordination"
 #: boards/followline.xml.in.h:3
 msgid ""
 "Move the mouse over the red part of the pipe. This will emerge it, part by "
-"part up to the flowers. If you move out of the pipe, the red part will go "
-"back."
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
 msgstr ""
-"Move the mouse over the red part of the pipe. This will move it, bit by "
-"bit, up to the flowers. If you move out of the pipe, the red part will go "
-"back."
+"Move the mouse over the red part of the pipe. This will move it, bit by bit, "
+"up to the flowers. If you move out of the pipe, the red part will go back."
 
 #: boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
@@ -2154,7 +2153,7 @@ msgstr "Educational suite gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/boards/shapegame.c:1765 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
 #: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
@@ -2164,7 +2163,7 @@ msgstr "Couldn't find file %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1766
+#: src/boards/shapegame.c:1768
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
