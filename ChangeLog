@@ -1,3 +1,7 @@
+2002-02-21 Pascal Georges <pascal.georges1@free.fr>
+	* src/gcompris/soundutil.[ch] : changed the way ogg sounds are played. Several policies are implemented,
+	  but only the currently used (PLAY_AFTER_CURRENT) has been tested (very quickly tested).
+
 2002-02-17  Bruno Coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/shapegame.c: implemented the discovering of the maxlevel

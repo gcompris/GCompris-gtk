@@ -2,7 +2,7 @@
  *
  * Time-stamp: <2002/02/17 20:02:23 bruno>
  *
- * Copyright (C) 2000 Pascal Georges
+ * Copyright (C) 2002 Pascal Georges
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -21,56 +21,138 @@
 
 #include "gcompris.h"
 
-static gboolean	 sound_playing_1 = FALSE;
-static gboolean	 sound_playing_2 = FALSE;
-static pid_t	 sound_pid_1 = 0;
-static pid_t	 sound_pid_2 = 0;
+static GList *pending_queue = NULL;
+static GList *playing_queue = NULL;
+
+static int sound_policy;
+static int sound_channels_used;
+static int max_sound_channels;
 
 typedef void (*sighandler_t)(int);
 
 /* =====================================================================
- * Generic code to remove zombie processes
- ======================================================================*/
-void zombie_cleanup(void)
-{
-  int pid;
-
-  while((pid = waitpid(-1, NULL, WNOHANG)))
-    {
-      if (pid == sound_pid_1)
-	sound_playing_1 = FALSE;
-
-      if (pid == sound_pid_2)
-	sound_playing_2 = FALSE;
-
-      if(pid == -1)
-	g_error("Error waitpid");
-
-    }
+ *
+ * =====================================================================*/
+void initSound() {
+	sound_policy = PLAY_AFTER_CURRENT;
+	sound_channels_used = 0;
+	max_sound_channels = 1;
 }
 
+/* =====================================================================
+ *
+ * =====================================================================*/
+void setSoundPolicy(int policy) {
+	switch (policy) {
+		case PLAY_ONLY_IF_IDLE : sound_policy = PLAY_ONLY_IF_IDLE; break;
+		case PLAY_AFTER_CURRENT : sound_policy = PLAY_AFTER_CURRENT; break;
+		case PLAY_OVERRIDE_ALL : sound_policy = PLAY_OVERRIDE_ALL; break;
+		default : sound_policy = PLAY_AFTER_CURRENT;
+	}
+}
 /* =====================================================================
  * Process the cleanup of the child (no zombies)
- * And update our status as not playing ogg
- ======================================================================*/
+ * =====================================================================*/
 void child_end(int  signum)
 {
-  int pid;
+  pid_t pid;
+	int i;
+	tsSound * tmpSound;
 
-  pid = waitpid(-1, NULL, WNOHANG);
-  if (pid == sound_pid_1)
-    sound_playing_1 = FALSE;
-  
-  if (pid == sound_pid_2)
-    sound_playing_2 = FALSE;
-  
+	pid = waitpid(-1, NULL, WNOHANG);
+printf("child_end pid=%d  pending = %d playing = %d\n", pid,g_list_length(pending_queue),g_list_length(playing_queue));
+
   if (pid == -1)
     g_error("Error waitpid");
+		else {
+			sound_channels_used--;
+			for (i=0; i<g_list_length(playing_queue) ; i++) {
+				tmpSound = g_list_nth_data(playing_queue, i);
+				if ( tmpSound->pid == pid ) {
+					printf("Found PID\n");
+					g_free(tmpSound->string);
+					playing_queue = g_list_remove(playing_queue, tmpSound);
+					free(tmpSound);
+					break;
+				}
+			} // FOR
+
+
+			for (i=0; i<g_list_length(pending_queue); i++) {
+
+				if (sound_channels_used >= max_sound_channels)
+					break;
+
+				tmpSound = g_list_nth_data(pending_queue, i);
+				pid = exec_play(tmpSound->string);
+				if (pid!=-1) {// play is OK
+					pending_queue = g_list_remove(pending_queue, tmpSound);
+					playing_queue = g_list_append(playing_queue, tmpSound);
+					tmpSound->pid = pid;
+				} else {
+					/* could not play sound -> remove it from pending queues */
+					pending_queue = g_list_remove(pending_queue, tmpSound);
+					g_free(tmpSound->string);
+					free(tmpSound);
+				}
+			} // FOR
+		}
 }
 
 /* =====================================================================
+ * returns -1 if sound can't be played, the pid of the sound process otherwise
+ * =====================================================================*/
+pid_t exec_play(char *s) {
+  char * sound = NULL, *tmp = NULL;
+  char locale[3];
+  pid_t pid = 0;
+	int argc;
+	char *argv[MAX_SOUND_FILES];
+
+	strncpy(locale,gcompris_get_locale(),2);
+  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+
+  signal(SIGCHLD, child_end);
+
+  pid = fork ();
+
+  if (pid > 0) { // go back to gcompris
+	printf("+++execplay %s child pid = %d pending = %d playing = %d\n",s, pid,g_list_length(pending_queue),g_list_length(playing_queue) );
+		sound_channels_used++;
+    return pid;
+  } else if (pid == 0) { // child process
+		argc = 0;
+    argv[argc++] = "ogg123";
+		argv[argc++] = "-q";
+
+		tmp = s;
+		while ( (sound = strtok(tmp, " "))) {
+			argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
+			if (g_file_exists (argv[argc])) {
+				printf("trying to play %s\n", argv[argc]);
+				argc++;
+			} else {
+				g_free(argv[argc]);
+				argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", sound);
+				if (g_file_exists (argv[argc])) {
+					printf("trying to play %s\n", argv[argc]);
+					argc++;
+				} else
+						g_free(argv[argc]);
+			}
+			tmp = NULL;
+		} // WHILE
+
+    argv[argc] = NULL;
+    execvp( "ogg123", argv);
+  } else {
+    fprintf(stderr, "Unable to fork\n");
+  }
+
+	return -1;
+}
+/* =====================================================================
  * Play a list of OGG sound files. The list must be NULL terminated
- * should have used threads instead of fork + exec calls
  * The given ogg files will be first tested as a locale dependant sound file:
  * sounds/<current gcompris locale>/<sound>
  * If it doesn't exists, then the test is done with a music file:
@@ -78,88 +160,75 @@ void child_end(int  signum)
  ======================================================================*/
 void gcompris_play_ogg(char *sound, ...) {
   va_list ap;
-  char * s = NULL;
-  char *argv[20];
-  char locale[3];
-  int argc = 0;
-  pid_t pid = 0;
-  pid_t *ppid = NULL;
+  gchar * s = NULL;
+	char * tmp = NULL;
+	pid_t pid;
+	tsSound * tmpSound = NULL;
 
-  if (!gcompris_get_properties()->fx)
+	if (!gcompris_get_properties()->fx)
     return;
 
-  /* Only 2 sounds can be played : the current one and a pending.
-   * The pending sound is the last coming in.
-   */
-  assert( (!sound_playing_1) || (sound_playing_1 && !sound_playing_2) || (sound_playing_1 && sound_playing_2));
+	if (sound_policy == PLAY_ONLY_IF_IDLE && sound_channels_used > 0)
+		return;
 
-  if (!sound_playing_1) {
-    ppid = &sound_pid_1;
-    sound_playing_1 = TRUE;
-  } else {
-    ppid = &sound_pid_2;
-    if (sound_playing_2) { //sound_playing_1 && sound_playing_2
-      // kill the last pending sound
-      if (kill(sound_pid_2, SIGKILL) != 0) {
-	perror("Kill failed:");
-      }
-      sound_playing_2 = TRUE;
-    } else { //sound_playing_1 && !sound_playing_2
-      sound_playing_2 = TRUE;
-    }
+	if (sound_policy == PLAY_OVERRIDE_ALL) {
+		while ( g_list_length(playing_queue) > 0 ) {
+			tmpSound = g_list_nth_data(playing_queue, 0);
+		  // kill all playing sounds
+      if (kill(tmpSound->pid, SIGKILL) != 0)
+					perror("Kill failed:");
+			g_free(tmpSound->string);
+			playing_queue = g_list_remove(playing_queue, tmpSound);
+			free(tmpSound);
+		}
+
+		// cancel all pending sounds
+		while ( g_list_length(pending_queue) > 0 ) {
+			tmpSound = g_list_nth_data(pending_queue, 0);
+			g_free(tmpSound->string);
+			pending_queue = g_list_remove(pending_queue, tmpSound);
+			free(tmpSound);
+		}
+
+		sound_channels_used = 0;
+	} // PLAY_OVERRIDE_ALL
+
+	// PLAY_AFTER_CURRENT : the sound is played after current running ones, all pending sounds are cancelled
+	if (sound_policy == PLAY_AFTER_CURRENT) {
+		while ( g_list_length(pending_queue) > 0 ) {
+			tmpSound = g_list_nth_data(pending_queue, 0);
+			assert(tmpSound);
+			g_free(tmpSound->string);
+			pending_queue = g_list_remove(pending_queue, tmpSound);
+			free(tmpSound);
+		}
+	} // PLAY_AFTER_CURRENT
+
+	s = g_strconcat(sound, " ", NULL);
+  va_start( ap, sound);
+  while( (tmp = va_arg (ap, char *))) {
+    s = g_strconcat(s, " ", tmp, " ", NULL);
   }
+  va_end(ap);
 
-  assert(ppid != NULL);
+	tmpSound = (tsSound*) malloc(sizeof(tsSound));
+	tmpSound->string = s;
 
-  strncpy(locale,gcompris_get_locale(),2);
-  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
-
-  signal(SIGCHLD, child_end);
-
-  pid = fork ();
-  *ppid = pid;
-
-  if (pid > 0) { // go back to gcompris
-    return;
-  } else if (pid == 0) { // child process
-    argc = 0;
-    argv[argc++] = "ogg123";
-    //    argv[argc++] = "-v";
-    argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, sound);
-    if (g_file_exists (argv[argc])) {
-      printf("trying to play %s\n", argv[argc]);
-      argc++;
-    } else {
-      g_free(argv[argc]);
-      argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", sound);
-      if (g_file_exists (argv[argc])) {
-	printf("trying to play %s\n", argv[argc]);
-	argc++;
-      } else
-	g_free(argv[argc]);
-    }
-
-    va_start( ap, sound);
-    while( (s = va_arg (ap, char *))) {
-      argv[argc] = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
-      printf("trying to play %s\n", argv[argc]);
-      if (!g_file_exists (argv[argc]))
-	argv[argc] = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
-
-      if (!g_file_exists (argv[argc])) {
-	g_warning (_("Couldn't find file %s !"), argv[argc]);
-	g_free(argv[argc]);
-	//				continue;
-      }
-      else
-	argc ++;
-    }
-    va_end(ap);
-    argv[argc] = NULL;
-    execvp( "ogg123", argv);
-  } else {
-    fprintf(stderr, "Unable to fork\n");
-  }
+	if (sound_channels_used < max_sound_channels) {
+		playing_queue = g_list_append(playing_queue, tmpSound);
+ 		pid = exec_play(s);
+		tmpSound->pid = pid;
+		if (pid == -1) { // we got a problem playing sound : cancel it
+				g_free(tmpSound->string);
+				pending_queue = g_list_remove(pending_queue, tmpSound);
+				free(tmpSound);
+				}
+		} else {
+			printf("No more channels free to play %s\n", s);
+			if (g_list_length(pending_queue) < MAX_QUEUE_LENGTH)
+				pending_queue = g_list_append(pending_queue, tmpSound);
+			printf("pending = %d\n",g_list_length(pending_queue));
+		}
 
 }
 /* =====================================================================

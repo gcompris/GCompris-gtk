@@ -393,6 +393,8 @@ main (int argc, char *argv[])
   // Set the user's choice locale
   gcompris_set_locale(properties->locale);
 
+	initSound();
+	
   gnome_init_with_popt_table (PACKAGE, VERSION, argc, argv, command_line, 0, &optCon);
 
   optCon = poptGetContext (NULL, argc, argv, command_line, 0);
@@ -408,7 +410,7 @@ main (int argc, char *argv[])
 		  VERSION);
 	  exit (0);
 	  break;
-	  
+
 	case P_FULLSCREEN:
 	  properties->fullscreen = TRUE;
 	  break;

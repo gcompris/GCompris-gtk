@@ -24,7 +24,25 @@
 #include "gcompris.h"
 #include "sys/wait.h"
 
-void		 gcompris_play_sound (const char *soundlistfile, const char *which);
-void 		 gcompris_play_ogg(char *, ...);
+#define MAX_QUEUE_LENGTH 5
+#define MAX_SOUND_FILES 20
+
+typedef enum
+{
+  PLAY_ONLY_IF_IDLE		= 0,
+  PLAY_AFTER_CURRENT		= 1,
+  PLAY_OVERRIDE_ALL		= 2
+} SoundPolicy;
+
+typedef struct {
+	char *string;
+	pid_t pid;
+} tsSound;
+
+void	 gcompris_play_sound (const char *soundlistfile, const char *which);
+void gcompris_play_ogg(char *, ...);
+void setSoundPolicy(int);
+void initSound();
+pid_t exec_play(char *);
 
 #endif
