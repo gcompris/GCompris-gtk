@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-05 04:05+0200\n"
+"POT-Creation-Date: 2004-08-18 03:21+0200\n"
 "PO-Revision-Date: 2004-07-01 17:43+0200\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
@@ -60,7 +60,6 @@ msgstr "coral"
 msgid "corn"
 msgstr "corn"
 
-#. GRUT modified this item
 #: boards/advanced_colors/board1.xml.in.h:7
 msgid "cyan"
 msgstr "lejla"
@@ -518,6 +517,14 @@ msgstr ""
 msgid "Lock with colored shapes."
 msgstr ""
 
+#: boards/ballcatch.xml.in.h:1
+msgid "Push the two shift keys together to send the ball straight"
+msgstr ""
+
+#: boards/ballcatch.xml.in.h:2
+msgid "Send the ball to Tux"
+msgstr ""
+
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
 #: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
@@ -772,11 +779,11 @@ msgstr ""
 msgid "Click on an item and listen to its target position"
 msgstr ""
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: boards/draw.xml.in.h:1 src/boards/draw.c:213
 msgid "A simple vector drawing tool"
 msgstr ""
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
+#: boards/draw.xml.in.h:2 src/boards/draw.c:214
 msgid "Creative board where you can draw freely"
 msgstr ""
 
@@ -872,12 +879,15 @@ msgstr ""
 msgid "Place the lands"
 msgstr ""
 
-#. GRUT modified this item
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Continents"
+msgstr ""
+
+#: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "Amerika e Veriut"
 
-#: boards/geography/board2_0.xml.in.h:1
+#: boards/geography/board2_1.xml.in.h:1
 msgid "South America"
 msgstr ""
 
@@ -885,11 +895,11 @@ msgstr ""
 msgid "West Europe"
 msgstr ""
 
-#: boards/geography/board4_0.xml.in.h:1
+#: boards/geography/board3_1.xml.in.h:1
 msgid "East Europe"
 msgstr ""
 
-#: boards/geography/board5_0.xml.in.h:1
+#: boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
 msgstr ""
 
@@ -1955,7 +1965,7 @@ msgstr ""
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
 #: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
 #: src/gcompris/gameutil.c:516 src/gcompris/gameutil.c:517
-#: src/gcompris/gcompris.c:404 src/gcompris/images_selector.c:477
+#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -2131,19 +2141,19 @@ msgstr ""
 msgid "Special board that embeds python into gcompris."
 msgstr ""
 
-#: src/boards/python/pythontest.py:67
+#: src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr ""
 
-#: src/boards/python/pythontest.py:76
+#: src/boards/python/pythontest.py:84
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
 msgstr ""
 
-#: src/boards/python/pythontest.py:85
+#: src/boards/python/pythontest.py:93
 msgid "This activity is not playable yet, just a test"
 msgstr ""
 
@@ -2312,7 +2322,7 @@ msgstr ""
 msgid "Help"
 msgstr "Ndihmë"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:202
+#: src/gcompris/about.c:316 src/gcompris/config.c:203
 #: src/gcompris/gameutil.c:831 src/gcompris/help.c:353
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -2450,7 +2460,6 @@ msgstr "Sllovake"
 msgid "Slovenian"
 msgstr "Sllovene"
 
-#. GRUT modified this item
 #: src/gcompris/config.c:95
 msgid "Albanian"
 msgstr "Shqip"
@@ -2471,72 +2480,90 @@ msgstr "Suedisht"
 msgid "Turkish"
 msgstr "Turqisht"
 
-#: src/gcompris/config.c:104
+#. GRUT modified this item
+#: src/gcompris/config.c:100
+msgid "Walloon"
+msgstr "Walloon"
+
+#: src/gcompris/config.c:105
 msgid "No time limit"
 msgstr ""
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Slow timer"
 msgstr ""
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Normal timer"
 msgstr ""
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Fast timer"
 msgstr ""
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "800x600 (Default for gcompris)"
 msgstr ""
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "No filter"
 msgstr ""
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:119
 msgid "Only this level"
 msgstr ""
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "Up to this level"
 msgstr ""
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "This level and above"
 msgstr ""
 
-#: src/gcompris/config.c:176
+#: src/gcompris/config.c:177
 msgid "GCompris Configuration"
 msgstr ""
 
-#: src/gcompris/config.c:285
+#: src/gcompris/config.c:286
 msgid "Fullscreen"
 msgstr "Ekran të plotë"
 
-#: src/gcompris/config.c:328
+#. GRUT modified this item
+#: src/gcompris/config.c:329
 msgid "Music"
-msgstr ""
+msgstr "Muzikë"
 
-#: src/gcompris/config.c:356
+#: src/gcompris/config.c:357
 msgid "Effect"
 msgstr ""
 
-#: src/gcompris/config.c:390
+#: src/gcompris/config.c:391
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr ""
 
-#: src/gcompris/config.c:411
+#: src/gcompris/config.c:412
 #, c-format
 msgid "No skin found in %s\n"
 msgstr ""
 
-#: src/gcompris/config.c:426 src/gcompris/config.c:811
-#: src/gcompris/config.c:822
+#: src/gcompris/config.c:427 src/gcompris/config.c:812
+#: src/gcompris/config.c:823
 #, c-format
 msgid "Skin : %s"
+msgstr ""
+
+#: src/gcompris/file_selector.c:235
+msgid "CANCEL"
+msgstr ""
+
+#: src/gcompris/file_selector.c:266
+msgid "LOAD"
+msgstr ""
+
+#: src/gcompris/file_selector.c:266
+msgid "SAVE"
 msgstr ""
 
 #: src/gcompris/gameutil.c:128
@@ -2553,39 +2580,43 @@ msgid ""
 "the problem to the authors."
 msgstr ""
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:82
 msgid "run gcompris in fullscreen mode."
 msgstr ""
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:84
 msgid "run gcompris in window mode."
 msgstr ""
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:86
 msgid "run gcompris with sound enabled."
 msgstr ""
 
-#: src/gcompris/gcompris.c:86
+#: src/gcompris/gcompris.c:88
 msgid "run gcompris without sound."
 msgstr ""
 
-#: src/gcompris/gcompris.c:88
+#: src/gcompris/gcompris.c:90
 msgid "run gcompris with the default gnome cursor."
 msgstr ""
 
-#: src/gcompris/gcompris.c:90
+#: src/gcompris/gcompris.c:92
 msgid "display only activities with this difficulty level."
 msgstr ""
 
-#: src/gcompris/gcompris.c:92
+#: src/gcompris/gcompris.c:94
+msgid "display debug informations on the console."
+msgstr ""
+
+#: src/gcompris/gcompris.c:96
 msgid "Print the version of "
 msgstr ""
 
-#: src/gcompris/gcompris.c:94
+#: src/gcompris/gcompris.c:98
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:516
+#: src/gcompris/gcompris.c:522
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -2598,7 +2629,7 @@ msgid ""
 "http://www.fsf.org/philosophy"
 msgstr ""
 
-#: src/gcompris/gcompris.c:699
+#: src/gcompris/gcompris.c:717
 #, c-format
 msgid ""
 "GCompris\n"
