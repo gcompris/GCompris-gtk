@@ -1,6 +1,7 @@
 # translation of fr.po to 
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
 # gcompris fr.po.
 # Copyright (C) 2000-2003 Free Software Foundation, Inc.
 # maintainer: Bruno Coudoin <bruno.coudoin@free.fr>, 2000-2003.
@@ -10,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"POT-Creation-Date: 2003-09-30 22:59+0200\n"
-"PO-Revision-Date: 2003-09-30 23:17+0200\n"
+"POT-Creation-Date: 2003-10-13 11:38+0200\n"
+"PO-Revision-Date: 2003-10-13 19:41+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -793,11 +794,11 @@ msgstr "Déplace les éléments et arrange les de façon à pouvoir les compter"
 msgid "Motor coordination"
 msgstr "Coordination moteur"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:66 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Déplace la souris de l'ordinateur"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5 src/boards/erase.c:67
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Déplace la souris pour tout effacer et découvrir le fond"
 
@@ -1465,8 +1466,8 @@ msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
-"Clique sur les pièces ou les billets en bas de l'écran pour payer. "
-"Si tu désire enlever une pièces, clique dessus dans la zone du haut."
+"Clique sur les pièces ou les billets en bas de l'écran pour payer. Si tu "
+"désire enlever une pièces, clique dessus dans la zone du haut."
 
 #: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
@@ -1481,9 +1482,9 @@ msgid ""
 "You must buy the different items and give the exact price. At higher level, "
 "several items are displayed, you must first calculate the total price."
 msgstr ""
-"Tu dois acheter les différents produits et donner leur prix exact. "
-"Aux niveaux supérieurs, plusieurs produits sont affichés, tu dois alors "
-"calculer le prix total."
+"Tu dois acheter les différents produits et donner leur prix exact. Aux "
+"niveaux supérieurs, plusieurs produits sont affichés, tu dois alors calculer "
+"le prix total."
 
 #: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
@@ -1755,7 +1756,7 @@ msgstr ""
 "l'envers.\n"
 "Quand tu as terminé, clique sur le bouton OK ou utilise la touche entrée."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 msgid "Practice the substraction with a funny game"
 msgstr "Entraînement à la soustraction avec un jeu amusant"
 
@@ -1937,6 +1938,25 @@ msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 msgid "Keyboard training"
 msgstr "Entraînement au clavier"
 
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system."
+msgstr ""
+"Clique sur différents éléments actif : soleil, nuage, eau, station de "
+"pompage et station d'épuration afin de remettre en route la "
+"distribution d'eau."
+
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr "Apprentissage du cycle de l'eau"
+
+#: boards/watercycle.xml.in.h:3
+msgid "You have to bring back the water system up before Tux goes home"
+msgstr ""
+"Tu dois remettre en marche la distribution d'eau avant que Tux rentre "
+"à la maison"
+
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
 msgstr "Editeur de gcompris"
@@ -1955,7 +1975,7 @@ msgstr "Suite éducative gcompris"
 #: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
 #: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
 #: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:369
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
@@ -2055,8 +2075,8 @@ msgid ""
 "Error: this activity requires you to install first\n"
 "the package assetml-voices-alphabet-"
 msgstr ""
-"Erreur : cette activité nécessite l'installation "
-"du packet assetml-voices-alphabet-"
+"Erreur : cette activité nécessite l'installation du packet assetml-voices-"
+"alphabet-"
 
 #: src/boards/click_on_letter.c:233
 msgid ""
@@ -2065,10 +2085,8 @@ msgid ""
 "Go in the configuration dialog to\n"
 "enable the sound"
 msgstr ""
-"Erreur : cette activité ne peut être jouée avec "
-"l'option 'effet sonore' désactivé. "
-"Va dans la fenêtre de configuration pour "
-"activer le son."
+"Erreur : cette activité ne peut être jouée avec l'option 'effet sonore' "
+"désactivé. Va dans la fenêtre de configuration pour activer le son."
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2168,7 +2186,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/reversecount.c:136
+#: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
@@ -2526,7 +2544,7 @@ msgstr "Auteur"
 msgid "Directory"
 msgstr "Répertoire"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:242
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:244
 msgid "Title"
 msgstr "Titre"
 
@@ -2542,11 +2560,11 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Sous Licence GPL"
 
-#: src/gcompris/oggplayer.c:205 src/gcompris/oggplayer.c:216
+#: src/gcompris/oggplayer.c:207 src/gcompris/oggplayer.c:218
 msgid "Now Playing Music"
 msgstr "Joue de la musique actuellement"
 
-#: src/gcompris/oggplayer.c:246
+#: src/gcompris/oggplayer.c:248
 msgid "Artist"
 msgstr "Artiste"
 
