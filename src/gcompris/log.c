@@ -39,7 +39,16 @@
  
 #define KEYLOG_MAX 256
 
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
+
+#ifdef WIN32
+static gchar hostname[256]="unknown";
+#else
 static gchar hostname[256];
+#endif
 
 static gchar		*comment_set;
 static gchar		 keylog[KEYLOG_MAX];
@@ -59,7 +68,11 @@ void gcompris_log_start (GcomprisBoard *gcomprisBoard) {
   gcomprisBoard_set = gcomprisBoard;
   start_time     = time(NULL);
   start_time_key = time(NULL);
+
+#ifndef WIN32
   gethostname(hostname, 256);
+#endif
+
   comment_set = "";
   keylog[0]   = '\0';
 }
@@ -164,7 +177,12 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status) {
   strftime(buf, sizeof(buf), fmt, tp);
 
   /* Print it out */
-  file = g_strconcat(g_get_home_dir(), "/.gcompris.log", NULL);
+  if(g_get_home_dir()) {
+    file = g_strconcat(g_get_home_dir(), "/.gcompris.log", NULL);
+  } else {
+    /* On WIN98, No home dir */
+    file = g_strdup("gcompris.log");
+  }
 
   flog = fopen(file,"a");
 

@@ -1,3 +1,10 @@
+2004-05-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/log.c: (gcompris_log_start), (gcompris_log_end): fixed bugs on the win32 side
+	* src/gcompris/sdlplayer.c: (sdlplayer_init): -A- fixed to cleanly disable sounds if SDL fails to 
+	init audio out
+	* src/gcompris/soundutil.c: (initSound): -A-
+
 2004-05-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chess_computer.xml.in: fixed messages

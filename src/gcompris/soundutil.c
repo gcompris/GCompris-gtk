@@ -65,8 +65,12 @@ void initSound()
   sound_policy = PLAY_AFTER_CURRENT;
   is_playing = FALSE;
 
-  //  ao_initialize();
-  sdlplayer_init();
+  if(sdlplayer_init()!=0) {
+    /* Sound init failed. Desactivate the sound */
+    gcompris_get_properties()->music = 0;
+    gcompris_get_properties()->fx    = 0;
+    return;
+  }
 
   thread_scheduler = g_thread_create((GThreadFunc)scheduler, NULL, FALSE, NULL);
   if (thread_scheduler == NULL)

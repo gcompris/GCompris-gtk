@@ -76,6 +76,7 @@ int sdlplayer_init()
   printf("Opened audio at %d Hz %d bit %s, %d bytes audio buffer\n", audio_rate,
 	 bits, audio_channels>1?"stereo":"mono", audio_buffers );
 
+  return(0);
 }
 
 int sdlplayer_quit(Mix_Music *music)
