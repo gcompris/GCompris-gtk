@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-03 05:31+0100\n"
-"PO-Revision-Date: 2003-12-03 05:31+0100\n"
+"POT-Creation-Date: 2003-12-11 19:33+0100\n"
+"PO-Revision-Date: 2003-12-11 19:35+0100\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -595,7 +595,7 @@ msgstr "Препознавање слова"
 msgid "None"
 msgstr "Ниједно"
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
+#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Кликните на мене"
 
@@ -620,7 +620,7 @@ msgstr ""
 "nur03006) Место: непознато (слика nur03505) Место: непознато (слика "
 "nur03010) Место: непознато (слика nur03011) Место: непознато (слика nur03013)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
+#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -722,11 +722,11 @@ msgstr ""
 "Деца морају да преместе ставке са леве стране на одговарајуће место у табели "
 "са двоструким уносом."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:205
+#: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
 msgstr "Једноставно векторско цртање"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:206
+#: boards/draw.xml.in.h:2 src/boards/draw.c:207
 msgid "Creative board where you can freely draw"
 msgstr "Уметничка табла на којој можете слободно да цртате"
 
@@ -888,7 +888,7 @@ msgstr "Вежба читања проналажењем речи која од�
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:100
+#: src/boards/reading.c:101
 msgid "Reading"
 msgstr "Читање"
 
@@ -1474,7 +1474,7 @@ msgstr ""
 "слике. Превуците и пустите ове делове на одговарајуће место да добијете "
 "изворну слику."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
 msgstr "Направи слагалицу"
 
@@ -1702,6 +1702,21 @@ msgid "Vertical reading practice"
 msgstr "Вежба читања усправно"
 
 #: boards/redraw.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw it "
+"in the left area."
+msgstr "На сваком нивоу, цртеж се приказује на десној страни. Морате га поново нацртати на левој."
+
+#: boards/redraw.xml.in.h:2
+msgid ""
+"First you must select the proper tool in the tool bar. Then, you must drag "
+"the mouse to create objects. When you are done, click on the OK button, you "
+"will be told were the errors are with little red cross. The order of objects "
+"(above/under) is not important but take care not to have unwanted object "
+"under others."
+msgstr "Морате прво изабрати одговарајући алат између алатки. Затим, превуците мишем да направите објекте. Када завршите, притисните дугме „У реду“, и добићете обавештење где сте погрешили помоћи црвених крстића. Редослед објеката (изнад/испод) није битан, али пазите да не оставите нежељени објекат испод осталих."
+
+#: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Поново исцртајте дату ставку"
 
@@ -1873,7 +1888,7 @@ msgstr "Испалите стреле у мету и пребројте резу
 msgid "Touch the target and count your points"
 msgstr "Дотакните мету и пребројте ваше поене"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr "Слагалица са клизајућим блоговима"
 
@@ -1905,11 +1920,11 @@ msgstr ""
 "Треба да оспособите систем за воду. Пингослав се враћа са дуге пецарошке "
 "забаве на свом броду. Помозите му да се истушира."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
 msgstr "Падајуће речи"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Потпуно укуцајте речи које падају пре него што стигну до земље"
 
@@ -1931,18 +1946,18 @@ msgstr "Образовни комплет gcompris"
 
 #: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:497
-#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
+#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
+#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
 #: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Не могу да нађем датотеку: %s !"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1728
+#: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
 msgstr "нађи датотеку %s !"
@@ -2049,7 +2064,7 @@ msgstr ""
 "Идите у прозорче за подешавања да\n"
 "укључите звук."
 
-#: src/boards/clickgame.c:182
+#: src/boards/clickgame.c:183
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Не могу да отворим директоријум са сликама: %s"
@@ -2107,6 +2122,141 @@ msgstr "Питон табла"
 msgid "Special board that embed python into gcompris."
 msgstr "Нарочита табла која укључује Питона у гкомприса."
 
+#. gcompris - redraw
+#.
+#. Time-stamp: <2001/08/20 00:54:45 bruno>
+#.
+#. Copyright (C) 2003 Bruno Coudoin
+#.
+#. This program is free software; you can redistribute it and/or modify
+#. it under the terms of the GNU General Public License as published by
+#. the Free Software Foundation; either version 2 of the License, or
+#. (at your option) any later version.
+#.
+#. This program is distributed in the hope that it will be useful,
+#. but WITHOUT ANY WARRANTY; without even the implied warranty of
+#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#. GNU General Public License for more details.
+#.
+#. You should have received a copy of the GNU General Public License
+#. along with this program; if not, write to the Free Software
+#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#.
+#. PythonTest Board module
+#. TOOL SELECTION
+#. COLOR SELECTION
+#. Define the coord of each drawing area
+#. Global used for the select event
+#. The error root item
+#. Set it to 1 to let you create new forms
+#. Once set, draw your shape in the right area. Then clic on OK to display
+#. the data for the form (in the console). Then copy the data in the list at the end of
+#. this file in init_item_list
+#. Set self.editing_mode = None to forbid drawing in the right area
+#. self.editing_mode = 1
+#. Create our rootitem. We put each canvas item in it so at the end we
+#. only have to kill it. The canvas deletes all the items it contains automaticaly.
+#. Remove the root item removes all the others inside it
+#. Delete error previous mark if any
+#. Do nothing special
+#. Save a copy of the target drawing future comparison
+#. Save a copy of the drawing cause we need to remove empty items
+#. Remove all empty items
+#. Need to check if target image equals drawing image
+#. Delete previous mark if any
+#. Create our rootitem for error items mark
+#. display where there is errors
+#. if in_target is set then error are displayed in the target area
+#. Bad Icon Width and Height / 2
+#. The images target are always drawn on the drawing area to ease the final comparison
+#. Called by gcompris when the user click on the level icon
+#. Erase any displayed items (drawing and target)
+#. Display the current level target
+#. Set the level in the control bar
+#. Calc the index in drawlist
+#. the current board is finished : bail out
+#. Prepare an item for the coord display
+#. Create our rootitem for drawing items
+#. Reset the drawing
+#. Code that increments the sublevel and level
+#. And bail out if no more levels are available
+#. return 1 if continue, 0 if bail out
+#. Try the next level
+#. the current board is finished : bail out
+#. display current/sublevel number
+#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+msgid "Level"
+msgstr "Ниво"
+
+#. Display the tools
+#. Display the tools
+#. The last item is select, we select it by default
+#. Event when a tool is selected
+#. Deactivate old button
+#. Activate new button
+#. Display the color selector
+#. Display the tools
+#. The last item is the one we select by default
+#. Color event
+#. Deactivate old button
+#. Activate new button
+#. Display the drawing area
+#.
+#. Given coord are returned swapped
+#. Work fine for rect and ellipse but not line
+#. so that y2 > y1 and x2 > x1
+#.
+#. Draw the image target
+#. Save the drawing in image_target for future comparison
+#. Create our rootitem for target items
+#. The images target are always drawn on the drawing area to ease the final comparison
+#.
+#. Can specify the item type to draw via a real GTK type or a TOOL string
+#.
+#. Draw the grid
+#.
+#. Coord of the written numbers
+#. We manage a 2 colors grid
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Given x,y return a new x,y snapped to the grid
+#. Event when a click on any item. Perform the move
+#.
+#. MOUSE DRAG STOP
+#. ---------------
+#. Reset thein_select_ofx ofset
+#. Workaround for bad line positionning
+#. Save the ofset between the mouse pointer and the upper left corner of the object
+#. Check drawing boundaries
+#. We need to realign x cause the bounds values are not precise enough
+#. We need to realign y cause the bounds values are not precise enough
+#. Need to update current_drawing
+#. It's not a line
+#. It can only be a line
+#. Now perform the object move
+#. Workaround for bad line positionning
+#. Event when a click on an item happen on fill in type object
+#. Reset the item to our list
+#. Event when a click on an item happen on border fill type object
+#. Reset the item to our list
+#. Del an item and internal struct cleanup
+#. Warning, do not realy delete it or we bug the index of other items
+#. Event when a click on an item happen
+#.
+#. Display the mouse coord in the drawing or target area
+#. type:
+#. 1 = in drawing area
+#. 2 = in target area
+#. 3 = out of both area
+#.
+#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+msgid "Coordinate"
+msgstr "Координата"
+
 #: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Игра памћења"
@@ -2123,27 +2273,27 @@ msgstr "Прочитај боје"
 msgid "Click on the corresponding color"
 msgstr "Кликните на одговарајућу боју"
 
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Прочитај списак речи а затим питај да ли је дата реч у њему"
 
-#: src/boards/reading.c:313
+#: src/boards/reading.c:314
 msgid "Please, check if the word"
 msgstr "Молим, проверите да ли се реч"
 
-#: src/boards/reading.c:333
+#: src/boards/reading.c:334
 msgid "is being displayed"
 msgstr "приказује"
 
-#: src/boards/reading.c:516
+#: src/boards/reading.c:517
 msgid "I am Ready"
 msgstr "Спреман сам"
 
-#: src/boards/reading.c:553
+#: src/boards/reading.c:554
 msgid "Yes I saw it"
 msgstr "Да, видео сам га"
 
-#: src/boards/reading.c:583
+#: src/boards/reading.c:584
 msgid "No, it was not there"
 msgstr "Не, није био тамо"
 
@@ -2151,12 +2301,12 @@ msgstr "Не, није био тамо"
 msgid "Reverse count"
 msgstr "Обрни бројач"
 
-#: src/boards/shapegame.c:161
+#: src/boards/shapegame.c:162
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Превуците и пустите ставке да бисте поново изградили објекат"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:407
+#: src/boards/shapegame.c:409
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2168,7 +2318,7 @@ msgstr ""
 "„s“ да сачувате\n"
 "„d“ да прикажете све облике"
 
-#: src/boards/shapegame.c:415
+#: src/boards/shapegame.c:417
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2415,37 +2565,37 @@ msgstr "Ефекат"
 msgid "Couldn't open skin dir: %s"
 msgstr "Нисам могао да отворим директоријум са маскама: %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:719
-#: src/gcompris/config.c:730
+#: src/gcompris/config.c:403 src/gcompris/config.c:720
+#: src/gcompris/config.c:731
 #, c-format
 msgid "Skin : %s"
 msgstr "Маска : %s"
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
 msgstr "Покрени gcompris-а преко целог екрана."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris in window mode."
 msgstr "Покрени гкомприса у прозору."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with sound enabled."
 msgstr "Покрени гкомприса уз укључен звук."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris without sound."
 msgstr "Покрени гкомприса без звука."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:77
 msgid "run gcompris with the default gnome cursor."
 msgstr "Покрени гкомприса уз подразумеваног Гномовог показивача."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:79
 msgid "display only activities with this difficulty level."
 msgstr "прикажи само активности ове тежине."
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:81
 msgid ""
 "select the audio output. Use '-A list' to get the list of available audio "
 "output"
@@ -2453,29 +2603,24 @@ msgstr ""
 "изаберите звучни излаз. Користите „-A list“ да добијете списак свих "
 "доступних звучних излаза"
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:83
 msgid "Prints the version of "
 msgstr "Испиши издање за "
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:85
 msgid "Use the antialiased canvas (slower)."
 msgstr "Користи улепшан приказ (спорије)."
 
-# bug: wha'???
-#: src/gcompris/gcompris.c:358
-msgid "GCompris I Have Understood"
-msgstr "ГКомприс ког сам разумео"
-
-#: src/gcompris/gcompris.c:597
+#: src/gcompris/gcompris.c:614
 #, c-format
 msgid ""
 "GCompris\n"
-"Version: %s\n"
+"Version: %d\n"
 "Licence: GPL\n"
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
 "ГКомприс\n"
-"Издање: %s\n"
+"Издање: %d\n"
 "Лиценца: ОЈЛ (GPL)\n"
 "Више на http://ofset.sourceforge.net/gcompris\n"
 
@@ -2578,6 +2723,10 @@ msgstr "Протекло време"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Преостало време = %d"
+
+# bug: wha'???
+#~ msgid "GCompris I Have Understood"
+#~ msgstr "ГКомприс ког сам разумео"
 
 #~ msgid "select the audio output, one of 'default alsa09 arts esd oss'"
 #~ msgstr ""
