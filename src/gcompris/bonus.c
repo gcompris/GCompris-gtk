@@ -83,7 +83,6 @@ void board_finished(int type) {
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
   char * str = NULL;
-//  end_board_count = 0;
 
   /* First pause the board */
   if(gcomprisBoard->plugin->pause_board != NULL)
@@ -130,7 +129,7 @@ void board_finished(int type) {
 				      NULL);
 
   x = OFFSET;
-  y = OFFSET + gdk_pixbuf_get_height(pixmap_door1)/2;
+  y = (gcomprisBoard->height - gdk_pixbuf_get_height(pixmap_tuxplane)) /2;
   tuxplane_item = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
 				      gnome_canvas_pixbuf_get_type (),
 				      "pixbuf", pixmap_tuxplane,
