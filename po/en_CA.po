@@ -1,15 +1,15 @@
 # Canadian English translation for gcompris
-# Copyright (C) 2004 Adam Weinberger and the GNOME Foundation
+# Copyright (C) 2004-2005 Adam Weinberger and the GNOME Foundation
 # This file is distributed under the same licence as the gcompris package.
-# Maintainer: Adam Weinberger <adamw@FreeBSD.org>
+# Adam Weinberger <adamw@FreeBSD.org>, 2004, 2005.
 # 
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-10 01:36-0500\n"
-"PO-Revision-Date: 2005-01-10 19:37-0400\n"
+"POT-Creation-Date: 2005-01-12 15:47-0500\n"
+"PO-Revision-Date: 2005-01-12 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -1056,11 +1056,11 @@ msgstr "Place the items in the best way to count them"
 msgid "Motor coordination"
 msgstr "Motor coordination"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Move the mouse"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Move the mouse to erase the area and discover the background"
 
@@ -2408,19 +2408,18 @@ msgid ""
 "same weather conditions by using the retry button. Going to the next level "
 "will give your more complex wether conditions."
 msgstr ""
-"In the text entry area, enter line-by-line commands to direct your "
-"boat. Commands supported are displayed between the two entry areas. The "
-"'left' and 'right' commands must be followed by an angle in degrees. The "
-"angle value is also called a 'parameter' to the left or right command. By "
-"default 45 degrees is used. The 'forward' command accept a distance "
-"parameter. By default 1 is used. For example:\n"
+"In the text entry area, enter line-by-line commands to direct your boat. "
+"Commands supported are displayed between the two entry areas. The 'left' and "
+"'right' commands must be followed by an angle in degrees. The angle value is "
+"also called a 'parameter' to the left or right command. By default 45 "
+"degrees is used. The 'forward' command accept a distance parameter. By "
+"default 1 is used. For example:\n"
 "left 90 => Make a perpendicular left turn\n"
-"forward 10 => Go forward for 10 units (as displayed "
-"in the ruler)\n"
-"The goal is to reach the right of the screen (the red line). "
-"When done, you can try to improve your program and start a new race with the "
-"same weather conditions by using the retry button. Going to the next level "
-"will give you more complex weather conditions."
+"forward 10 => Go forward for 10 units (as displayed in the ruler)\n"
+"The goal is to reach the right of the screen (the red line). When done, you "
+"can try to improve your program and start a new race with the same weather "
+"conditions by using the retry button. Going to the next level will give you "
+"more complex weather conditions."
 
 #: boards/searace.xml.in.h:3
 msgid ""
@@ -2829,13 +2828,13 @@ msgstr "Learn how to read"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Given pictures of hands, find if it's a right or left one"
 
-#: src/boards/leftright.c:248 src/boards/python/searace.py:506
-#: src/boards/python/searace.py:771
+#: src/boards/leftright.c:248 src/boards/python/searace.py:513
+#: src/boards/python/searace.py:812
 msgid "left"
 msgstr "left"
 
-#: src/boards/leftright.c:258 src/boards/python/searace.py:515
-#: src/boards/python/searace.py:773
+#: src/boards/leftright.c:258 src/boards/python/searace.py:522
+#: src/boards/python/searace.py:814
 msgid "right"
 msgstr "right"
 
@@ -2911,54 +2910,58 @@ msgstr "Level"
 msgid "Coordinate"
 msgstr "Coordinate"
 
-#: src/boards/python/searace.py:187 src/boards/python/searace.py:192
-#: src/boards/python/searace.py:218
+#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
+#: src/boards/python/searace.py:220
 msgid "Race is already running"
 msgstr "Race is already running"
 
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:756
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:781
 msgid "droite"
 msgstr "droite"
 
 #. Manage default cases (no params given)
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:497 src/boards/python/searace.py:752
-#: src/boards/python/searace.py:765
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:504 src/boards/python/searace.py:777
+#: src/boards/python/searace.py:806
 msgid "forward"
 msgstr "forward"
 
-#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
-#: src/boards/python/searace.py:754
+#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
+#: src/boards/python/searace.py:779
 msgid "gauche"
 msgstr "gauche"
 
-#: src/boards/python/searace.py:488
+#: src/boards/python/searace.py:495
 msgid "COMMANDS ARE"
 msgstr "COMMANDS ARE"
 
-#: src/boards/python/searace.py:663
+#: src/boards/python/searace.py:670
 msgid "The Red boat has won"
 msgstr "The Red boat has won"
 
-#: src/boards/python/searace.py:665
+#: src/boards/python/searace.py:673
 msgid "The Green boat has won"
 msgstr "The Green boat has won"
 
 #. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-#: src/boards/python/searace.py:694
+#: src/boards/python/searace.py:703
 msgid "Angle:"
 msgstr "Angle:"
 
-#: src/boards/python/searace.py:694
+#: src/boards/python/searace.py:703
 msgid "Wind:"
 msgstr "Wind:"
 
-#: src/boards/python/searace.py:759
+#: src/boards/python/searace.py:784
 msgid "Syntax error at line"
 msgstr "Syntax error at line"
 
-#: src/boards/python/searace.py:778
+#: src/boards/python/searace.py:802
+msgid "The command"
+msgstr "The command"
+
+#: src/boards/python/searace.py:821
 msgid "Unknown command at line"
 msgstr "Unknown command at line"
 
