@@ -55,6 +55,7 @@ static void destroy_board();
 
 #define TEXT_COLOR "yellow"
 #define TEXT_RESULT_COLOR "red"
+#define BLANK "___"
 
 #define NO_RESULT -1
 
@@ -283,7 +284,7 @@ static int token_result() {
 
 	for (i=2; i<token_count; i+=2) {
 		assert(!ptr_token_selected[i-1]->isNumber);
-		switch (/*token_value[i-1].oper*/ptr_token_selected[i-1]->oper) {
+		switch (ptr_token_selected[i-1]->oper) {
 			case '+' : 	result += num_values[ptr_token_selected[i]->num];
 									break;
 			case '-' : 	result -= num_values[ptr_token_selected[i]->num];// printf(" - %d\n",num_values[token_value[i].num]);
@@ -298,6 +299,21 @@ static int token_result() {
 	}
 	printf("\n");
 	return result;
+}
+/* ==================================== */
+static void update_line_calcul() {
+	int line;
+	char str[12];
+
+	// finds which line has to be zeroed.
+	if (token_count%2 == 0)
+		line = (int)(token_count/2-1);
+		else
+			line = (int)(token_count/2);
+
+	sprintf(str, "%d",token_result());
+	gnome_canvas_item_set(calcul_line_item[line*2], "text", BLANK, NULL);
+	gnome_canvas_item_set(calcul_line_item[line*2+1], "text", BLANK, NULL);
 }
 /* ==================================== */
 static int generate_numbers() {
@@ -380,7 +396,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 	for (i=0; i<gcomprisBoard->level; i++) {
 		calcul_line_item[i*2] = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
-				"text", "___",
+				"text", BLANK,
 				"font_gdk", gdk_font,
 				"x", (double) X_EQUAL+BUTTON_WIDTH*1.5,
 				"y", (double) y_equal_offset[i]+BUTTON_HEIGHT/2,
@@ -392,7 +408,7 @@ static GnomeCanvasItem *algebra_guesscount_create_item(GnomeCanvasGroup *parent)
 	for (i=0; i<gcomprisBoard->level-1; i++) {
 		calcul_line_item[i*2+1] = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
-				"text", "___",
+				"text", BLANK,
 				"font_gdk", gdk_font,
 				"x", (double) X_NUM1+BUTTON_WIDTH/2,
 				"y", (double) y_equal_offset[i+1]+BUTTON_HEIGHT/2,
@@ -522,7 +538,7 @@ static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 	if(board_paused)
     return FALSE;
 	// first verify it is oper turn
-	if (token_count % 2 == 0 || token_count > 2*gcomprisBoard->level+1)
+	if (token_count % 2 == 0 || token_count >= 2*gcomprisBoard->level+1)
 		return FALSE;
 
   switch (event->type) {
@@ -558,6 +574,7 @@ static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpoint
 			if (count == token_count) {
 				gtk_object_destroy (GTK_OBJECT(item));
 				token_count--;
+				update_line_calcul();
 				}
 			break;
     }
@@ -573,11 +590,14 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 
   switch (event->type){
     case GDK_BUTTON_PRESS:
-			printf("clicked token_count = %d for value = %d\n", token_count,num_values[t->num]);
-			if (t->isMoved && item == ptr_token_selected[token_count-1]->item) {
+			printf("clicked token_count = %d for value = %d ismoved=%d\n", token_count,num_values[t->num], t->isMoved);
+			if (t->isMoved) {
+				if (item != ptr_token_selected[token_count-1]->item)
+					return FALSE;
 			// we put back in its original place a number item
 				item_absolute_move(item, t->xOffset_original, Y_NUM);
 				token_count--;
+				update_line_calcul();
 				t->isMoved = FALSE;
 			} else { // the item is at its original place
 				if (token_count % 2 == 1 || token_count > 2*gcomprisBoard->level+1)
@@ -603,8 +623,8 @@ static gint item_event_num(GnomeCanvasItem *item, GdkEvent *event, gpointer data
 // causes a segfault, why ?
 // FIXME : potential memory leak ?
 static void destroy_board() {
-	int i;
 	return;
+	int i;
 	for (i=0; i<NUM_VALUES; i++)
   	gdk_pixbuf_unref(num_pixmap[i]);
 	for (i=0; i<5; i++)
