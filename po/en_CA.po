@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-07 16:21-0500\n"
-"PO-Revision-Date: 2005-01-07 19:37-0400\n"
+"POT-Creation-Date: 2005-01-10 01:36-0500\n"
+"PO-Revision-Date: 2005-01-10 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -705,7 +705,21 @@ msgstr "Moonwalker"
 msgid "Tux and the apple tree"
 msgstr "Tux and the apple tree"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnot's fardier"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+
+#: boards/chronos/board3_0.xml.in.h:3
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
@@ -717,15 +731,40 @@ msgstr ""
 "If not sure, check online in wikipedia at\n"
 "http://www.wikipedia.org"
 
-#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Transportation"
 
-#: boards/chronos/board4_0.xml.in.h:1
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
 msgstr "1880 The Clement Ader's Eole"
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
 
 #: boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
@@ -762,10 +801,6 @@ msgid ""
 msgstr ""
 "1947 Chuck Yager\n"
 "break the sound barrier"
-
-#: boards/chronos/board4_2.xml.in.h:1
-msgid "1769 Cugnot's fardier"
-msgstr "1769 Cugnot's fardier"
 
 #: boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
@@ -2356,24 +2391,52 @@ msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "Tux is hungry. Help him find fish by counting to the correct ice spot."
 
 #: boards/searace.xml.in.h:1
-msgid "A Sea race against Tux"
-msgstr "A Sea race against Tux"
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Give good instructions to your ship in order to be first in the race."
 
 #: boards/searace.xml.in.h:2
 msgid ""
-"Give good instructions to your ship in order to be first in a race against "
-"Tux."
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. Going to the next level "
+"will give your more complex wether conditions."
 msgstr ""
-"Give good instructions to your ship in order to be first in a race against "
-"Tux."
+"In the text entry area, enter line-by-line commands to direct your "
+"boat. Commands supported are displayed between the two entry areas. The "
+"'left' and 'right' commands must be followed by an angle in degrees. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degrees is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example:\n"
+"left 90 => Make a perpendicular left turn\n"
+"forward 10 => Go forward for 10 units (as displayed "
+"in the ruler)\n"
+"The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. Going to the next level "
+"will give you more complex weather conditions."
 
 #: boards/searace.xml.in.h:3
 msgid ""
-"In the text entry, enter line by line commands to give direction to your "
-"boat. Commands supported are displayed between the two entry area."
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
 msgstr ""
-"In the text entry, enter line-by-line commands to give direct your boat. "
-"Commands supported are displayed between the two entry areas."
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+
+#: boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "Sea race (2 Players)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2766,11 +2829,13 @@ msgstr "Learn how to read"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Given pictures of hands, find if it's a right or left one"
 
-#: src/boards/leftright.c:248
+#: src/boards/leftright.c:248 src/boards/python/searace.py:506
+#: src/boards/python/searace.py:771
 msgid "left"
 msgstr "left"
 
-#: src/boards/leftright.c:258
+#: src/boards/leftright.c:258 src/boards/python/searace.py:515
+#: src/boards/python/searace.py:773
 msgid "right"
 msgstr "right"
 
@@ -2846,30 +2911,56 @@ msgstr "Level"
 msgid "Coordinate"
 msgstr "Coordinate"
 
-#: src/boards/python/searace.py:181 src/boards/python/searace.py:186
-#: src/boards/python/searace.py:212
+#: src/boards/python/searace.py:187 src/boards/python/searace.py:192
+#: src/boards/python/searace.py:218
 msgid "Race is already running"
 msgstr "Race is already running"
 
-#: src/boards/python/searace.py:610
-msgid "The Red boat has won"
-msgstr "The Red boat has won"
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:756
+msgid "droite"
+msgstr "droite"
 
-#: src/boards/python/searace.py:612
-msgid "The Green boat has won"
-msgstr "The Green boat has won"
-
-#: src/boards/python/searace.py:705
+#. Manage default cases (no params given)
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:497 src/boards/python/searace.py:752
+#: src/boards/python/searace.py:765
 msgid "forward"
 msgstr "forward"
 
-#: src/boards/python/searace.py:711
-msgid "turnleft"
-msgstr "turn left"
+#: src/boards/python/searace.py:391 src/boards/python/searace.py:416
+#: src/boards/python/searace.py:754
+msgid "gauche"
+msgstr "gauche"
 
-#: src/boards/python/searace.py:713
-msgid "turnright"
-msgstr "turn right"
+#: src/boards/python/searace.py:488
+msgid "COMMANDS ARE"
+msgstr "COMMANDS ARE"
+
+#: src/boards/python/searace.py:663
+msgid "The Red boat has won"
+msgstr "The Red boat has won"
+
+#: src/boards/python/searace.py:665
+msgid "The Green boat has won"
+msgstr "The Green boat has won"
+
+#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
+#: src/boards/python/searace.py:694
+msgid "Angle:"
+msgstr "Angle:"
+
+#: src/boards/python/searace.py:694
+msgid "Wind:"
+msgstr "Wind:"
+
+#: src/boards/python/searace.py:759
+msgid "Syntax error at line"
+msgstr "Syntax error at line"
+
+#: src/boards/python/searace.py:778
+msgid "Unknown command at line"
+msgstr "Unknown command at line"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
