@@ -15,6 +15,7 @@ xml_in_files = \
 	babymatch.xml.in \
 	babyshapes.xml.in \
 	billard.xml.in \
+	ballcatch.xml.in \
 	boards.xml.in \
 	canal_lock.xml.in \
 	chess.xml.in \

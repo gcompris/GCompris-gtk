@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2004/06/12 23:31:34 bcoudoin>
+ * Time-stamp: <2004/08/08 22:39:17 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -220,6 +220,7 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 static void
 clickgame_end ()
 {
+  int i;
 
   if(gcomprisBoard!=NULL)
     {
@@ -229,6 +230,16 @@ clickgame_end ()
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
   gcomprisBoard = NULL;
+
+  i=g_list_length(pixmaplist);
+  for(i=0; i<g_list_length(pixmaplist); i++) {
+    g_free(g_list_nth_data(item_list, i));
+  }
+
+  if(pixmaplist) {
+    g_list_free(pixmaplist);
+    pixmaplist = NULL;
+  }
 }
 
 static void
@@ -393,7 +404,6 @@ static void clickgame_destroy_items()
 static void clickgame_destroy_all_items()
 {
   FishItem *fishitem;
-  int i;
 
   while(g_list_length(item_list)>0) 
     {
@@ -403,16 +413,6 @@ static void clickgame_destroy_all_items()
   if(item_list) {
     g_list_free(item_list);
     item_list = NULL;
-  }
-
-  i=g_list_length(pixmaplist);
-  for(i=0; i<g_list_length(pixmaplist); i++) {
-    g_free(g_list_nth_data(item_list, i));
-  }
-
-  if(pixmaplist) {
-    g_list_free(pixmaplist);
-    pixmaplist = NULL;
   }
 
   if(imagelist) {

@@ -1,3 +1,22 @@
+2004-08-08  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: added ballcatch game
+	* boards/boardicons/ballcatch.png: added ballcatch game
+	* boards/flags/gcompris_flags.assetml.in: added Walloon flag
+	* boards/gcompris/misc/hand.png: created by Bruno
+	* boards/gcompris/misc/tux.png: fixed. border had white
+	* configure.in:
+	* po/POTFILES.in: added ballcatch game
+	* src/boards/clickgame.c: (clickgame_end),
+	(clickgame_destroy_all_items): fixed, level 2 and above, fishes was not going out
+	* src/boards/python/ballcatch.py: create by Bruno
+	* src/boards/python/pythontest.py: includes now a ballcatch prototype
+	* src/gcompris/config.c: added Wallon
+
+2004-08-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/gcompris/svgutil.c: (gcompris_pixbuf_to_svg_file): fixed by Yves.
+
 2004-07-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/svgutil.c: (gcompris_clone_item),
