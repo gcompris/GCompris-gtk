@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-06-09 14:48+0200\n"
-"PO-Revision-Date: 2003-06-09 14:48+0200\n"
+"POT-Creation-Date: 2003-06-22 00:33+0200\n"
+"PO-Revision-Date: 2003-06-22 00:34+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -510,7 +510,7 @@ msgstr "Sluss med färgade former."
 msgid "Go to board based activities"
 msgstr "Gå till brädbaserade aktiviteter"
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:110
+#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
 msgstr "Styr en sluss"
 
@@ -1880,7 +1880,7 @@ msgstr "sök filen %s!"
 msgid "Guess operations"
 msgstr "Gissningsövningar"
 
-#: src/boards/canal_lock.c:111
+#: src/boards/canal_lock.c:114
 msgid ""
 "Tux is in trouble in his ship, he needs to take through a lock.\n"
 "Help Tux and understand how a canal lock works."
@@ -2384,6 +2384,10 @@ msgstr ""
 #: src/gcompris/interface.c:490
 msgid "Released under GPL"
 msgstr "Släppt under GPL"
+
+#: src/gcompris/oggplayer.c:189
+msgid "Now Playing Music"
+msgstr "Spelar nu musik"
 
 #: src/gcompris/soundutil.c:116
 #, c-format
