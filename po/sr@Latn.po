@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-06 13:24+0100\n"
-"PO-Revision-Date: 2003-11-06 13:24+0100\n"
+"POT-Creation-Date: 2003-11-09 12:48+0100\n"
+"PO-Revision-Date: 2003-11-09 12:50+0100\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -2442,9 +2442,10 @@ msgid "display only activities with this difficulty level."
 msgstr "prikaži samo aktivnosti ove težine."
 
 #: src/gcompris/gcompris.c:79
-msgid "select the audio output, one of 'default alsa09 arts esd oss'"
-msgstr ""
-"izaberite zvučni izlaz, jedan od „default“, „alsa09“, „arts“, „esd“, „oss“"
+msgid ""
+"select the audio output. Use '-A list' to get the list of available audio "
+"output"
+msgstr "izaberite zvučni izlaz. Koristite „-A list“ da dobijete spisak svih dostupnih zvučnih izlaza"
 
 #: src/gcompris/gcompris.c:81
 msgid "Prints the version of "
@@ -2459,7 +2460,7 @@ msgstr "Koristi ulepšan prikaz (sporije)."
 msgid "GCompris I Have Understood"
 msgstr "GKompris kog sam razumeo"
 
-#: src/gcompris/gcompris.c:574
+#: src/gcompris/gcompris.c:579
 #, c-format
 msgid ""
 "GCompris\n"
@@ -2520,7 +2521,7 @@ msgstr "Autor"
 msgid "Directory"
 msgstr "Direktorijum"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:247
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
 msgid "Title"
 msgstr "Naslov"
 
@@ -2536,11 +2537,20 @@ msgstr ""
 msgid "Released under GPL"
 msgstr "Objavljeno pod OJL (GPL)"
 
-#: src/gcompris/oggplayer.c:210 src/gcompris/oggplayer.c:221
+# bug: is "default" translatable?
+#: src/gcompris/oggplayer.c:165
+msgid ""
+"Possible audio output devices are:\n"
+"default "
+msgstr ""
+"Dostupni uređaji za zvučni izlaz su:\n"
+"default "
+
+#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
 msgstr "Sada puštam muziku"
 
-#: src/gcompris/oggplayer.c:251
+#: src/gcompris/oggplayer.c:278
 msgid "Artist"
 msgstr "Izvođač"
 
@@ -2562,3 +2572,7 @@ msgstr "Proteklo vreme"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Preostalo vreme = %d"
+
+#~ msgid "select the audio output, one of 'default alsa09 arts esd oss'"
+#~ msgstr ""
+#~ "izaberite zvučni izlaz, jedan od „default“, „alsa09“, „arts“, „esd“, „oss“"
