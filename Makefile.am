@@ -3,10 +3,10 @@
 SUBDIRS = po src sounds docs boards
 
 icondir=$(datadir)/pixmaps
-icon_DATA = gcompris.png
+icon_DATA = gcompris.png gcompris-edit.png
 
 Gamesdir=$(datadir)/gnome/apps/Games
-Games_in_files = gcompris.desktop.in
+Games_in_files = gcompris.desktop.in gcompris-edit.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 
 Menudir=$(prefix)/lib/menu
