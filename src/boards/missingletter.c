@@ -157,7 +157,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=2; /* Go to next level after this number of 'play' */
       gcompris_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
+			   50, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
@@ -249,13 +249,13 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 
   /* This are the values of the area in which we must display the image */
   gint img_area_x = 290;
-  gint img_area_y = 100;
+  gint img_area_y = 80;
   gint img_area_w = 440;
-  gint img_area_h = 360;
+  gint img_area_h = 310;
 
   /* this is the coordinate of the text to find */
   gint txt_area_x = 515;
-  gint txt_area_y = 500;
+  gint txt_area_y = 430;
 
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 

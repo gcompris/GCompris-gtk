@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2001/12/03 01:21:15 bruno>
+ * Time-stamp: <2001/12/04 00:02:51 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -47,10 +47,11 @@ typedef struct {
   GdkPixbuf *image;
 } MenuItem;
 
-static void menu_start (GcomprisBoard *agcomprisBoard);
-static void menu_pause (gboolean pause);
-static void menu_end ();
-static gboolean menu_is_our_board (GcomprisBoard *gcomprisBoard);
+static void	 menu_start (GcomprisBoard *agcomprisBoard);
+static void	 menu_pause (gboolean pause);
+static void	 menu_end ();
+static gboolean	 menu_is_our_board (GcomprisBoard *gcomprisBoard);
+static void	 menu_help(void);
 
 static GnomeCanvasItem *menu_create_item(GnomeCanvasGroup *parent, GcomprisBoard *board);
 static gboolean next_spot();
@@ -88,7 +89,7 @@ BoardPlugin menu_bp =
    NULL,
    NULL,
    NULL,
-   NULL,
+   menu_help,
    NULL
 };
 
@@ -147,7 +148,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(0);
+      gcompris_bar_set(GCOMPRIS_BAR_HELP);
 
       menu_pause(FALSE);
 
@@ -196,6 +197,43 @@ menu_is_our_board (GcomprisBoard *gcomprisBoard)
 	}
     }
   return FALSE;
+}
+
+static void
+menu_help ()
+{
+  if(gcomprisBoard!=NULL)
+    {
+      menu_pause(TRUE);
+      gcompris_help_start(N_("GCompris Help"), 
+			  N_("\
+Goal:
+GCompris is an educational games that provides different activities to
+children starting at 3.
+
+To use it, a simple click on an icon brings you to a board or a menu.
+
+At the bottom of the screen, you have the gcompris control bar.
+
+From right to left, bellow is the meaning of the icons. Note that these
+icons are displayed only when available in a board:
+Home - Back to previous menu or exit gcompris if no more
+Thumb - OK, confirm your answer
+Dice - The current level is displayed. Click on it to select another level
+Question Mark - The help
+Music note - Ask gcompris to repeat the question
+
+The stars means:
+1 Star  - 3 to 4 years old
+2 Stars - 5 to 6 years old
+3 Stars - 7 to 8 years old
+
+Credits:
+Author: Bruno Coudoin
+Contribution: Pascal Georges
+Graphics: Renaud Blanchard
+"));
+    }
 }
 
 

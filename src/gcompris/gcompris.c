@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2001/11/18 23:37:30 bruno>
+ * Time-stamp: <2001/12/04 01:59:07 bruno>
  *
  * Copyright (C) 2000,2001 Bruno Coudoin
  *
@@ -36,34 +36,11 @@ static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    gpointer     client_data);
 
 
-static GnomeUIInfo game_menu[] =
-{
-  GNOMEUIINFO_MENU_EXIT_ITEM (quit_cb, NULL),
-  GNOMEUIINFO_END
-};
-
-static GnomeUIInfo help_menu[] = {
-	GNOMEUIINFO_ITEM ("Help", NULL, help_cb, NULL),
-	GNOMEUIINFO_MENU_ABOUT_ITEM (about_cb, NULL),
-	GNOMEUIINFO_END
-};
-
-static GnomeUIInfo main_menu[] = {
-	GNOMEUIINFO_MENU_GAME_TREE (game_menu),
-	GNOMEUIINFO_MENU_HELP_TREE (help_menu),
-	GNOMEUIINFO_END
-};
-
 GcomprisProperties	*properties = NULL;
 GcomprisBoard		*gcomprisBoardMenu = NULL;
 
 /****************************************************************************/
 /* Some constants.  */
-
-/* This message will be printed in the statusline, if no message was
-   specified in a board file.  */
-
-static char *default_message= "This software is a GNU Package";
 
 static GnomeCanvasItem *backgroundimg = NULL;
 static gchar           *gcompris_locale = NULL;
@@ -134,8 +111,10 @@ GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)
 static void init_background()
 {
   double xratio, yratio;
-  guint yminus = BARHEIGHT+30;
-  guint xminus = 30;
+  guint yminus = 0;
+  guint xminus = 0;
+  //  guint yminus = BARHEIGHT+30;
+  //  guint xminus = 30;
 
   yratio=(gdk_screen_height()-yminus)/(float)BOARDHEIGHT;
   xratio=(gdk_screen_width()-xminus)/(float)BOARDWIDTH;
@@ -146,7 +125,7 @@ static void init_background()
   yratio=xratio=MIN(xratio, yratio);
 
   /* The canvas does not look pretty when resized above 1 ratio. Avoid that */
-  xratio=MIN(1.0, xratio);
+  //  xratio=MIN(1.0, xratio);
 
   //  printf("Calculated x ratio xratio=%f\n", 
   //	 xratio);
@@ -173,20 +152,26 @@ static void init_background()
 static void setup_window ()
 {
   GtkWidget *vbox;
-  GtkWidget *statusbar= NULL;
-
-  /*  GdkCursor *hand_cursor; */
 
   window = gnome_app_new (PACKAGE, _("GCompris I Have Understood"));
+
+
+  gtk_widget_set_uposition (window, 0, 0);
   gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
 
+
   gtk_widget_realize (window);
+
   gtk_signal_connect (GTK_OBJECT (window), "delete_event",
 		      GTK_SIGNAL_FUNC (quit_cb), NULL);
   gtk_signal_connect (GTK_OBJECT (window), "key_press_event",
 		      GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
 
 
+  // Full screen
+  gnome_win_hints_set_layer (GTK_WIDGET (window),  WIN_LAYER_ABOVE_DOCK);
+
+  /*  GdkCursor *hand_cursor; */
   /*  hand_cursor = gdk_cursor_new(GDK_HAND2);
       gdk_window_set_cursor	 (window->window, hand_cursor);
       gdk_cursor_destroy(hand_cursor);
@@ -229,7 +214,11 @@ static void setup_window ()
   gtk_widget_show (GTK_WIDGET(vbox));
   gtk_widget_show (GTK_WIDGET(canvas));
   gtk_widget_show (GTK_WIDGET(canvas_bar));
+
+  gdk_window_set_decorations (window->window, 0);
+  gdk_window_set_functions (window->window, 0);
   
+
   init_plugins();
 
   /* Load and Run the menu */
@@ -237,21 +226,16 @@ static void setup_window ()
   if(!board_check_file(gcomprisBoardMenu))
     g_error("Cant't find the menu board or plugin execution error");
 
-  /* Create the status bar */
-  statusbar = gnome_appbar_new (TRUE, TRUE, GNOME_PREFERENCES_USER);
-
   /* Run the bar */
-  gcompris_bar_start(canvas_bar, statusbar);
+  gcompris_bar_start(canvas_bar);
 
   board_play (gcomprisBoardMenu);
 
   /* Menu creation */  
-  gnome_app_create_menus (GNOME_APP (window), main_menu);
-  
-  gnome_app_set_statusbar (GNOME_APP (window), statusbar);
-  gnome_appbar_set_default (GNOME_APPBAR (statusbar), _(default_message));
 
-  gnome_app_install_menu_hints (GNOME_APP (window), main_menu);
+  //  gnome_app_create_menus (GNOME_APP (window), main_menu);
+  
+  //  gnome_app_install_menu_hints (GNOME_APP (window), main_menu);
 
   init_background();
 }

@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2001/12/01 23:51:03 bruno>
+ * Time-stamp: <2001/12/03 00:51:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -38,9 +38,7 @@ static GnomeCanvasItem *ok_item = NULL;
 static GnomeCanvasItem *help_item = NULL;
 static GnomeCanvasItem *repeat_item = NULL;
 static guint level_handler_id;
-static gfloat maxtimer;
 
-GtkWidget *statusbar= NULL;
 
 /*
  * Main entry point 
@@ -52,7 +50,7 @@ GtkWidget *statusbar= NULL;
 /*
  * Do all the bar display and register the events
  */
-void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
+void gcompris_bar_start (GnomeCanvas *theCanvas)
 {
 
   GdkPixbuf   *pixmap = NULL;
@@ -60,8 +58,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
   GnomeCanvasItem *rootitem;
   gint16           width, height;
   double           zoom;
-
-  statusbar = theStatusbar;
 
   width  = BOARDWIDTH-1;
   height = BARHEIGHT-2;
@@ -194,9 +190,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas, GtkWidget *theStatusbar)
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     pixmap);
 
-  /* Default value for the timer */
-  gcompris_bar_set_maxtimer (0);
-  
   gnome_canvas_item_show(level_item);
   gnome_canvas_item_show(ok_item);
   gnome_canvas_item_show(help_item);
@@ -238,21 +231,6 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
 }
 
 
-
-void
-gcompris_bar_set_timer (guint time)
-{
-  if(maxtimer>0 && time<maxtimer)
-    gnome_appbar_set_progress (GNOME_APPBAR (statusbar), (gfloat) time/maxtimer);
-}
-
-
-void
-gcompris_bar_set_maxtimer (guint time)
-{
-  maxtimer= time;
-  gnome_appbar_set_progress (GNOME_APPBAR (statusbar), 0.0);
-}
 
 /* Setting list of available icons in the control bar */
 void

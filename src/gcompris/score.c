@@ -1,6 +1,6 @@
-/* gcompris - point.c
+/* gcompris - score.c
  *
- * Time-stamp: <2001/12/01 23:51:03 bruno>
+ * Time-stamp: <2001/12/02 22:19:10 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -20,7 +20,7 @@
  */
 
 /**
- * This includes an API to count points in gcompris
+ * This includes an API to count scores in gcompris
  *
  */
 
@@ -29,7 +29,7 @@
 static GnomeCanvasGroup *boardRootItem = NULL;
 
 static guint x, y, max;
-static PointStyleList currentStyle;
+static ScoreStyleList currentStyle;
 
 /*
  * Forward declarations
@@ -40,16 +40,16 @@ static void display_number(GnomeCanvasGroup *parent,
 			   char *operand_str);
 
 /*
- * Main entry point 
+ * Main entry score 
  * ----------------
  *
  */
 
 
 /*
- * Do all the point display
+ * Do all the score display
  */
-void gcompris_point_start (PointStyleList style, guint gx, guint gy, guint gmax)
+void gcompris_score_start (ScoreStyleList style, guint gx, guint gy, guint gmax)
 {
 
   currentStyle = style;
@@ -59,7 +59,7 @@ void gcompris_point_start (PointStyleList style, guint gx, guint gy, guint gmax)
 
 
   switch(currentStyle) {
-  case POINTSTYLE_NOTE :
+  case SCORESTYLE_NOTE :
     break;
   default:
     break;
@@ -67,7 +67,7 @@ void gcompris_point_start (PointStyleList style, guint gx, guint gy, guint gmax)
 }
 
 
-void gcompris_point_end()
+void gcompris_score_end()
 {
   if(boardRootItem!=NULL)
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
@@ -75,7 +75,7 @@ void gcompris_point_end()
   boardRootItem=NULL;
 }
 
-void gcompris_point_set(guint value)
+void gcompris_score_set(guint value)
 {
 
   if(boardRootItem!=NULL)
@@ -90,7 +90,7 @@ void gcompris_point_set(guint value)
 							    NULL));
 
   switch(currentStyle) {
-  case POINTSTYLE_NOTE :
+  case SCORESTYLE_NOTE :
     {
       gchar *tmp;
       GdkPixbuf *button_pixmap = NULL;

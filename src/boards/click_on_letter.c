@@ -127,8 +127,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=5; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK|GCOMPRIS_BAR_REPEAT);
       gcompris_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
-			   gcomprisBoard->height - 50, 
+			   50, 
+			   50, 
 			   gcomprisBoard->number_of_sublevel);
 
       click_on_letter_next_level();
@@ -196,7 +196,7 @@ static void click_on_letter_next_level()
   click_on_letter_destroy_all_items();
   gamewon = FALSE;
   selected_button = NULL;
-  gcompris_score_set(board_number);
+  gcompris_score_set(gcomprisBoard->sublevel);
 
   /* Try the next level */
   click_on_letter_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -372,9 +372,9 @@ static void game_won()
 {
   gcomprisBoard->sublevel++;
 
-  if(gcomprisBoard->sublevel>=gcomprisBoard->number_of_sublevel) {
+  if(gcomprisBoard->sublevel>gcomprisBoard->number_of_sublevel) {
     /* Try the next level */
-    gcomprisBoard->sublevel=0;
+    gcomprisBoard->sublevel=1;
     gcomprisBoard->level++;
     if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
       board_finished();

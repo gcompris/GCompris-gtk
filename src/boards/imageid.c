@@ -154,13 +154,15 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=4;
       gcomprisBoard->sublevel=1;
+
+      init_xml();
+
       gcomprisBoard->number_of_sublevel=g_list_length(board_list);
       gcompris_score_start(SCORESTYLE_NOTE, 
-			   gcomprisBoard->width - 220, 
+			   50, 
 			   gcomprisBoard->height - 50, 
 			   gcomprisBoard->number_of_sublevel);
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_OK);
-      init_xml();
 
       imageid_next_level();
 

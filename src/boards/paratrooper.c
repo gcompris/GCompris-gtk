@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2001/12/03 00:47:07 bruno>
+ * Time-stamp: <2001/12/03 23:35:25 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -433,7 +433,7 @@ static void paratrooper_next_level()
   str = g_strdup_printf("%s%s", pixmapsdir, "fishingboat.png");
   pixmap = gcompris_load_pixmap(str);
   boat_x = 350;
-  boat_y = 500;
+  boat_y = gcomprisBoard->height-100;
   boat_landarea_y = boat_y+20;
   boat_length = gdk_pixbuf_get_width(pixmap)*imageZoom;
   boatitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),

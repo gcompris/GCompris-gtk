@@ -19,22 +19,22 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef POINT_H
-#define POINT_H
+#ifndef SCORE_H
+#define SCORE_H
 
 #include "gcompris.h"
 
-/* POINT_LAST is equals to the last available point type */
+/* SCORE_LAST is equals to the last available score type */
 
 typedef enum
 {
-  POINTSTYLE_NOTE	= 0,
-  POINTSTYLE_LIFE	= 1,
-  POINT_LAST		= 1
-} PointStyleList;
+  SCORESTYLE_NOTE	= 0,
+  SCORESTYLE_LIFE	= 1,
+  SCORE_LAST		= 1
+} ScoreStyleList;
 
-void gcompris_point_start (PointStyleList style, guint x, guint y, guint max);
-void gcompris_point_end();
-void gcompris_point_set(guint value);
+void gcompris_score_start (ScoreStyleList style, guint x, guint y, guint max);
+void gcompris_score_end();
+void gcompris_score_set(guint value);
 
 #endif
