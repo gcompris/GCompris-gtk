@@ -2308,11 +2308,11 @@ item_event_move(GnomeCanvasItem *item, GdkEvent *event, AnchorsItem *anchorsItem
 	  switch(currentTool) {
 	    /* Perform the reverse operation when it makes sense */
 	  case TOOL_ROTATE_CW:
-	    item_rotate_relative(anchorsItem->item, -10);
+	    item_rotate_relative(anchorsItem->rootitem, -10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_ROTATE_CCW:
-	    item_rotate_relative(anchorsItem->item, 10);
+	    item_rotate_relative(anchorsItem->rootitem, 10);
 	    reset_anchors_bounded(anchorsItem);
 	    break;
 	  case TOOL_RAISE:

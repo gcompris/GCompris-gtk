@@ -1,3 +1,14 @@
+2004-09-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/draw/tool-load.png: remade using an image from openclipart
+	* boards/skins/default/directory.png: remade using an image from openclipart
+	* boards/skins/default/file.png: remade by bruno
+	* src/boards/draw.c: (item_event_move): fixed the rotation
+	* src/boards/python/anim.py: removed internal item_rotate_relative. used this code
+	to fix the implemetation of item_rotate_relative
+	* src/gcompris/gameutil.c: (item_rotate_relative): fixed using the implementation of Yves
+	from anim.py
+
 2004-09-08  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/Makefile.am: added missing ballcatch.py. Thanks

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/09/04 18:46:23 bcoudoin>
+ * Time-stamp: <2004/09/08 23:59:48 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -725,14 +725,33 @@ void item_rotate(GnomeCanvasItem *item, double angle) {
    IMPORTANT NOTE : This is designed for an item with "anchor" =  GTK_ANCHOR_CENTER
    rotation is clockwise if angle > 0 */
 void item_rotate_relative(GnomeCanvasItem *item, double angle) {
-  double r[6],t[6], x1, x2, y1, y2;
+  double x1, x2, y1, y2;
+  double cx, cy;
+  double t;
+  double r[6];
 
   gnome_canvas_item_get_bounds( item, &x1, &y1, &x2, &y2 );
-  art_affine_translate( t , -(x2+x1)/2, -(y2+y1)/2 );
-  art_affine_rotate( r, angle );
-  art_affine_multiply( r, t, r);
-  art_affine_translate( t , (x2+x1)/2, (y2+y1)/2 );
-  art_affine_multiply( r, r, t);
+  cx = (x2+x1)/2;
+  cy = (y2+y1)/2;
+
+  /* Taken from anim by Yves Combe
+   * This matrix rotate around ( cx, cy )
+   * This is the result of the product:
+   *            T_{-c}             Rot (t)                 T_c
+   *
+   *       1    0   cx       cos(t) -sin(t)    0        1    0  -cx
+   *       0    1   cy  by   sin(t)  cos(t)    0   by   0    1  -cy
+   *       0    0    1         0       0       1        0    0   1
+   */
+
+  t = M_PI*angle/180.0;
+
+  r[0] = cos(t);
+  r[1] = sin(t);
+  r[2] = -sin(t);
+  r[3] = cos(t);
+  r[4] = (1-cos(t))*cx + sin(t)*cy;
+  r[5] = -sin(t)*cx + (1 - cos(t))*cy;
 
   gnome_canvas_item_affine_relative(item, r );
 }

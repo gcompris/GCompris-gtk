@@ -2,7 +2,7 @@
 # 
 # Time-stamp: <2001/08/20 00:54:45 bruno>
 # 
-# Copyright (C) 2003 Bruno Coudoin
+# Copyright (C) 2003 Bruno Coudoin (redraw code), 2004 Yves Combe (anim code)
 # 
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -33,11 +33,6 @@ import gtk.keysyms
 import copy
 import math
 import time
-
-# TO BE REMOVED
-#import sys
-#sys.path.append("/home/yves/GCompris")
-#import animutils
 
 #Print
 import os
@@ -680,16 +675,14 @@ class Gcompris_anim:
   def move_item_event(self, item, event):
     if self.tools[self.current_tool][0] == "CCW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        #gcompris.utils.item_rotate_relative(item.get_property("parent"), -10);
-        self.item_rotate_relative(item, -10);
+        gcompris.utils.item_rotate_relative(item.get_property("parent"), -10);
         return gtk.TRUE
       else:
         return gtk.FALSE
 
     if self.tools[self.current_tool][0] == "CW":
       if event.type == gtk.gdk.BUTTON_PRESS:
-        #gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
-        self.item_rotate_relative(item, 10);
+        gcompris.utils.item_rotate_relative(item.get_property("parent"), 10);
         return gtk.TRUE
       else:
         return gtk.FALSE
@@ -1594,34 +1587,6 @@ class Gcompris_anim:
     self.selected = group
     self.selected.item_list[1].show()
 
-
-  # gcompris.utils fonction seems have center problem
-  def item_rotate_relative(self, item, angle):
-    bounds = self.get_bounds(item)
-    (cx, cy) = ( (bounds[2]+bounds[0])/2 , (bounds[3]+bounds[1])/2)
-    
-    t = math.radians(angle)
-
-    # This matrix rotate around ( cx, cy )
-
-    #     This is the result of the product:
-
-
-    #            T_{-c}             Rot (t)                 T_c
-
-    #       1    0   cx       cos(t) -sin(t)    0        1    0  -cx
-    #       0    1   cy  by   sin(t)  cos(t)    0   by   0    1  -cy
-    #       0    0    1         0       0       1        0    0   1
-
-    
-    mat = ( math.cos(t),
-            math.sin(t),
-            -math.sin(t),
-            math.cos(t),
-            (1-math.cos(t))*cx + math.sin(t)*cy,
-            -math.sin(t)*cx + (1 - math.cos(t))*cy)
-   
-    item.get_property("parent").affine_relative(mat)
 
   def item_flip(self, item):
     bounds = self.get_bounds(item)
