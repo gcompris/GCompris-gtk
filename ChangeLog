@@ -1,3 +1,94 @@
+2004-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/skins/default/help_bg.png: remade this image cause it was bugging winxp
+	* boards/sounds/fr/alphabet/0.ogg: Reworked all the french alphabet sounds to normalize them and une mono
+	* boards/sounds/fr/alphabet/1.ogg:
+	* boards/sounds/fr/alphabet/10.ogg:
+	* boards/sounds/fr/alphabet/2.ogg:
+	* boards/sounds/fr/alphabet/3.ogg:
+	* boards/sounds/fr/alphabet/4.ogg:
+	* boards/sounds/fr/alphabet/5.ogg:
+	* boards/sounds/fr/alphabet/6.ogg:
+	* boards/sounds/fr/alphabet/7.ogg:
+	* boards/sounds/fr/alphabet/8.ogg:
+	* boards/sounds/fr/alphabet/9.ogg:
+	* boards/sounds/fr/alphabet/README:
+	* boards/sounds/fr/alphabet/a.ogg:
+	* boards/sounds/fr/alphabet/b.ogg:
+	* boards/sounds/fr/alphabet/c.ogg:
+	* boards/sounds/fr/alphabet/d.ogg:
+	* boards/sounds/fr/alphabet/e.ogg:
+	* boards/sounds/fr/alphabet/f.ogg:
+	* boards/sounds/fr/alphabet/g.ogg:
+	* boards/sounds/fr/alphabet/h.ogg:
+	* boards/sounds/fr/alphabet/i.ogg:
+	* boards/sounds/fr/alphabet/j.ogg:
+	* boards/sounds/fr/alphabet/k.ogg:
+	* boards/sounds/fr/alphabet/l.ogg:
+	* boards/sounds/fr/alphabet/m.ogg:
+	* boards/sounds/fr/alphabet/n.ogg:
+	* boards/sounds/fr/alphabet/o.ogg:
+	* boards/sounds/fr/alphabet/p.ogg:
+	* boards/sounds/fr/alphabet/q.ogg:
+	* boards/sounds/fr/alphabet/r.ogg:
+	* boards/sounds/fr/alphabet/s.ogg:
+	* boards/sounds/fr/alphabet/t.ogg:
+	* boards/sounds/fr/alphabet/u.ogg:
+	* boards/sounds/fr/alphabet/v.ogg:
+	* boards/sounds/fr/alphabet/w.ogg:
+	* boards/sounds/fr/alphabet/x.ogg:
+	* boards/sounds/fr/alphabet/y.ogg:
+	* boards/sounds/fr/alphabet/z.ogg:
+	* configure.in: VERSION_VOICES_ALPHABET_FR is now release 1.1
+
+2004-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/images/scenery3_background.jpg: tux got his right color back
+	* boards/images/scenery_background.jpg: tux got his right color back
+	* boards/images/superbrain_background.jpg: tux got his right color back
+
+2004-05-09  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/paintings/board3_0.xml.in: fixed coord
+	* configure.in: added SDL, removed ogg, ao, vorbis
+	* src/gcompris/Makefile.am: cleanup
+	* src/gcompris/gcompris.c: (init_background), (setup_window),
+	(gcompris_init): audio cleanup, fixes for win32
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save): removed audio out selection
+	* src/gcompris/properties.h: removed audio out selection
+	* src/gcompris/soundutil.c: (scheduler_bgnd), (thread_play_ogg): fixes for win32
+
+2004-05-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/Makefile.am: removed minouche
+	* boards/doubleentry/board3_0.xml.in: fixed audio naming 
+	* boards/doubleentry/boardicon.png: removed, unused here
+	* boards/doubleentry/gcompris-bg.png: color change
+	* boards/geography/board1_0.xml.in: added a zoomed part (caribean)
+	* boards/geography/northamerica/cuba.png: bigger 
+	* boards/geography/northamerica/dominican_republic.png: bigger 
+	* boards/geography/northamerica/haiti.png: bigger 
+	* boards/geography/northamerica/jamaica.png: bigger 
+	* boards/geography/northamerica/north_america.png: added a zoomed part
+	* boards/minouche.xml.in: removed, redundant with hexagon
+	* boards/skins/default/help_bg.png: color change
+	* src/boards/python/Makefile.am: removed minouche
+	* src/boards/python/minouche.py: removed, redundant with hexagon
+	* src/boards/wordsgame.c: (words_table_foreach_remove),
+	(key_press), (remove_old_word), (wordsgame_create_item),
+	(player_win): fixed to use clean UTF-8 implementation. Works on mingw as well.
+	* src/gcompris/Makefile.am: added sdlplayer
+	* src/gcompris/board.c: (board_check_file), (board_play): replaced assert by g_assert. More printout
+	* src/gcompris/bonus.c: (board_finished), (bonus_image): replaced assert by g_assert
+	* src/gcompris/gcompris.c: (setup_window):  replaced stderr printout to stdout
+	* src/gcompris/oggplayer.c: (decode_ogg_file),
+	(display_ogg_file_credits): replaced stderr printout to stdout
+	* src/gcompris/sdlplayer.c: (errorv), (cleanExit),
+	(sdlplayer_init), (sdlplayer_quit), (sdlplayer_bg), (sdlplayer): created to replace oggplayer
+	* src/gcompris/soundutil.c: (initSound), (scheduler_bgnd),
+	(thread_play_ogg): now uses sdlplayer
+
 2004-04-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* README.mingw: taken from the pan project
