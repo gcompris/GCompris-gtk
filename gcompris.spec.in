@@ -55,56 +55,13 @@ Le jeu est inclus dans le bureau Gnome sous le menu Jeux.
 À installer si vous avez des enfants utilisant cet ordinateur.
 
 %changelog
-* Thu Dec 27 2001  Christian Rose  <menthos@menthos.com>
-- gcompris.spec.in: Added fix for the different namings of
--                   the gnomecanvas packages on Mandrake
--                   and Red Hat systems. Also removed references
--                   to dependencies in the descriptions.
-* Sun Sep 30 2001  Bruno Coudoin  <bruno.coudoin@free.fr>
-- GCompris: Release 0.7.5
-- TRANSLATION IS FIXED
-
-* Fri May 25 2001  Bruno Coudoin  <bruno.coudoin@free.fr>
-- TRANSLATION IS BROKEN
-- WARNING: THE HIGHLIGHTING IS BROKEN
-- ALL: Replace the imlib for images by the gdk-pixbuf library
-- gcompris.spec.in: Added back the gcompris icon pixmap
-- clickgame.c: Limit the number of fish to 5
-- clickgame.c: Simplified the code by removing one hashtable.
-- shapegame.c: Changed the board order to have the most difficult
-               at the higher level (as suggested by Yann Dirson)
-	       Added the method shuffle_shape_list()
-- gcompris.c (end_game): reset the timer in the status bar
-- Makefile.am: Added DESTDIR prefix in the install hooks
-- ALL: Boards are now separated from gcompris in src/
-- boards/*: All boards are defined as independant plugins
-- gcompris/*: Added the necessary glue to load the plugins
-- configure.in: Removed PACKAGE_PIXMAPS_DIR
-- data/*: The data directory has been renamed in boards
-- pixmaps/*: The pixmaps directory has been moved to board/gcompris
-             This will be the default gcompris icons. Other icons
-             have been moved in a dir specific to their boards.
-- boards/planegame.c: Set a max speed for the plane because children
-		      have difficulties to manipulate it.
-- docs/C/gcompris.texi: Update of the doc to explain the new plugin
-                        mecanism
-
-* Wed Apr 11 2001  Bruno Coudoin  <bruno.coudoin@free.fr>
-- GCompris: Release 0.4.2
-- gcompris.c: adjusted main window size calculation.
-              it fixes a bug was making gcompris hardly
-	      unusable under 640x400
-	      Changed to not use the Gnome standard menu for loading
-	      help. Implemented my own to be able to be relocatable.
-	      This hack does not implement I18N for the help file.
-- fi.po: Created by Jyrki Kuoppala <jkp@kaapeli.fi>
-- data/wordsgame/*.fi:Created by Jyrki Kuoppala <jkp@kaapeli.fi>
-- gcompris.soundlist: deleted. I now use direct sound call instead
-	                      of gnome .soundlist API
-- sounds/*: now sounds are local to gcompris.
-- configure.in: Changed to use local relative pixmaps and sounds
-	                instead of gnome api
-- src/*.c: Changed to use relative pixmaps and sounds
+* Thu Feb 06 2003  Bruno Coudoin <bruno.coudoin@free.fr>
+- Added the money board
+- Added the traffic board
+- Added more translation
+- Better graphics
+- Code cleanup and bugfixes
+- Added portuguese speech
 
 %package sounds-fr
 Summary:        French sounds for GCompris
@@ -137,6 +94,14 @@ Requires:       %name
 
 %description sounds-en
 English sounds for gcompris.
+
+%package sounds-pt
+Summary:        Portuguese sounds for GCompris
+Group: 		Amusements/Games
+Requires:       %name
+
+%description sounds-pt
+Portuguese sounds for gcompris.
 
 %prep
 %setup -q
