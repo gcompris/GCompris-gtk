@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-04-16 17:02+0200\n"
-"PO-Revision-Date: 2003-04-16 17:04+0200\n"
+"POT-Creation-Date: 2003-05-07 11:06+0200\n"
+"PO-Revision-Date: 2003-05-07 11:08+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1443,7 +1443,7 @@ msgstr ""
 "huvudbrädområdet visas en samling bilddelar från målning. Dra och släpp "
 "dessa delar på rätt plats för att återskapa den ursprungliga målningen."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:156
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:159
 msgid "Make the puzzle"
 msgstr "Lägg pusslet"
 
@@ -1852,10 +1852,10 @@ msgstr "Redigerare för gcompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1566 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
-#: src/gcompris/gameutil.c:157 src/gcompris/gameutil.c:493
-#: src/gcompris/gameutil.c:494 src/gcompris/images_selector.c:347
+#: src/boards/shapegame.c:1706 src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/traffic.c:623 src/gcompris/gameutil.c:91
+#: src/gcompris/gameutil.c:109 src/gcompris/gameutil.c:433
+#: src/gcompris/gameutil.c:434 src/gcompris/images_selector.c:347
 #: src/gcompris/soundutil.c:286
 #, c-format
 msgid "Couldn't find file %s !"
@@ -1863,7 +1863,7 @@ msgstr "Kunde inte hitta filen %s!"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1569
+#: src/boards/shapegame.c:1709
 #, c-format
 msgid "find file %s !"
 msgstr "sök filen %s!"
@@ -2042,9 +2042,30 @@ msgstr "Nej, det fanns inte där"
 msgid "Reverse count"
 msgstr "Omvänd räkning"
 
-#: src/boards/shapegame.c:157
+#: src/boards/shapegame.c:160
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Dra och släpp föremålen för att bygga upp objektet igen"
+
+#. Enter Edit Mode
+#: src/boards/shapegame.c:407
+msgid ""
+"You entered the Edit mode\n"
+"Move the puzzle items and\n"
+"'s' to save\n"
+"'d' to display all the shapes"
+msgstr ""
+"Du gick in i redigeringsläget\n"
+"Flytta pusselobjekten och\n"
+"\"s\" för att spara\n"
+"\"d\" för att visa alla former"
+
+#: src/boards/shapegame.c:415
+msgid ""
+"This board data are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"Denna brädesdata sparas under\n"
+"/tmp/gcompris-board.xml"
 
 #: src/boards/submarine.c:174
 msgid "Submarine"
@@ -2073,11 +2094,11 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Avstånd till målet = %d meter"
 
-#: src/boards/python.c:48
+#: src/boards/python.c:52
 msgid "Python Board"
 msgstr "Pythonbräde"
 
-#: src/boards/python.c:49
+#: src/boards/python.c:53
 msgid "Special board that embed python into gcompris."
 msgstr "Specialbräde som bäddar in python i gcompris."
 
@@ -2242,8 +2263,8 @@ msgstr "Effekt"
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunde inte öppna skalkatalogen: %s"
 
-#: src/gcompris/config.c:387 src/gcompris/config.c:683
-#: src/gcompris/config.c:694
+#: src/gcompris/config.c:387 src/gcompris/config.c:684
+#: src/gcompris/config.c:695
 #, c-format
 msgid "Skin : %s"
 msgstr "Skal: %s"
@@ -2280,7 +2301,7 @@ msgstr "Använd den kantutjämnade canvasen (långsammare)."
 msgid "GCompris I Have Understood"
 msgstr "GCompris - Jag har förstått"
 
-#: src/gcompris/gcompris.c:540
+#: src/gcompris/gcompris.c:541
 #, c-format
 msgid ""
 "GCompris\n"
