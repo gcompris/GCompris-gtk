@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-21 15:39-0400\n"
-"PO-Revision-Date: 2004-10-21 19:37-0400\n"
+"POT-Creation-Date: 2004-10-24 12:11-0400\n"
+"PO-Revision-Date: 2004-10-24 19:37-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canadian <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -278,7 +278,7 @@ msgstr "pistachio"
 msgid "platinum"
 msgstr "platinum"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "purple"
 
@@ -674,6 +674,10 @@ msgstr ""
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Transportation"
+
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "The aviation"
+msgstr "The aviation"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -2089,27 +2093,27 @@ msgstr "Read colours"
 msgid "This board teaches basic colors."
 msgstr "This board teaches basic colours."
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "black"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "blue"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "brown"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "green"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "grey"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "orange"
 
@@ -2117,7 +2121,7 @@ msgstr "orange"
 msgid "pink"
 msgstr "pink"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "red"
 
@@ -2125,11 +2129,11 @@ msgstr "red"
 msgid "violet"
 msgstr "violet"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "white"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "yellow"
 
@@ -2551,10 +2555,45 @@ msgstr "Couldn't open dir: %s"
 msgid "Set the watch to:"
 msgstr "Set the watch to:"
 
-#: src/boards/colors.c:217
-#, c-format
-msgid "Click on the %s toon"
-msgstr "Click on the %s toon"
+#: src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Click on the blue toon"
+
+#: src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Click on the brown toon"
+
+#: src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Click on the green toon"
+
+#: src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Click on the grey toon"
+
+#: src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Click on the orange toon"
+
+#: src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Click on the purple toon"
+
+#: src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Click on the red toon"
+
+#: src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Click on the yellow toon"
+
+#: src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Click on the black toon"
+
+#: src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Click on the white toon"
 
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2604,11 +2643,11 @@ msgstr "Select a Board"
 msgid "Pratice money usage"
 msgstr "Pratice money usage"
 
-#: src/boards/paratrooper.c:104
+#: src/boards/paratrooper.c:102
 msgid "Paratrooper"
 msgstr "Paratrooper"
 
-#: src/boards/paratrooper.c:105
+#: src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
 msgstr "Direct the paratrooper to help him land safely"
 
@@ -3132,7 +3171,7 @@ msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developped to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -3142,7 +3181,7 @@ msgstr ""
 "GCompris is free software released under the GPL Licence. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
 "activities. You can get the full version for a small fee at\n"
-"http://www.ofset.org/order/gcompris\n"
+"http://gcompris.net\n"
 "The Linux version does not have this restriction. Note that gcompris is "
 "being developed to free schools from monopolistic software vendors. If you "
 "also believe that we should teach freedom to kids, please consider using GNU/"
@@ -3155,12 +3194,12 @@ msgid ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
 "GCompris\n"
 "Version: %s\n"
 "Licence: GPL\n"
-"More info at http://www.ofset.org/gcompris\n"
+"More info at http://gcompris.net\n"
 
 #: src/gcompris/help.c:173 src/gcompris/interface.c:243
 msgid "Prerequisite"
