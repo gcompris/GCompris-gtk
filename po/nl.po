@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-02-26 04:54+0100\n"
-"PO-Revision-Date: 2003-02-26 09:23+0100\n"
-"Last-Translator: Sander Devrieze <s.devrieze@pandora.be>\n"
+"POT-Creation-Date: 2003-04-02 12:04+0200\n"
+"PO-Revision-Date: 2003-04-11 03:26+0200\n"
+"Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -595,7 +595,7 @@ msgstr "Herkennen van letters"
 msgid "None"
 msgstr "Geen"
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:82
+#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
 msgid "Click On Me"
 msgstr "Klik Op Mij"
 
@@ -630,7 +630,7 @@ msgstr ""
 "Locatie: Onbekend (beeld nur03011)\n"
 "Locatie: Onbekend (beeld nur03013)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:83
+#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -1794,6 +1794,28 @@ msgstr "Typ de woorden vooraleer ze de grond raken"
 msgid "Keyboard training"
 msgstr "Toetsenbordtraining"
 
+#: boards/pythontest.xml.in.h:1
+msgid "Add a language binding to gcompris."
+msgstr "Voeg een taalbinding toe aan gcompris."
+
+#: boards/pythontest.xml.in.h:2
+msgid "Advanced Python Programmer :)"
+msgstr "Geavanceerde Python-programmeur :)"
+
+#: boards/pythontest.xml.in.h:3
+msgid "Python Test"
+msgstr "Python-test"
+
+#: boards/pythontest.xml.in.h:4
+msgid "Test board for the python plugin"
+msgstr "Test-bord voor de python-plugin"
+
+#: boards/pythontest.xml.in.h:5
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr ""
+"Met dan aan Guido van Rossum en het python team voor deze krachtige taal!"
+
 #: gcompris.desktop.in.h:1
 msgid "Educational game starting at 3 years old"
 msgstr "Educatief spel voor kinderen vanaf drie jaar"
@@ -1804,18 +1826,18 @@ msgstr "Editor voor GCompris"
 
 #: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1562 src/boards/traffic.c:623
+#: src/boards/shapegame.c:1566 src/boards/traffic.c:623
 #: src/gcompris/gameutil.c:91 src/gcompris/gameutil.c:109
 #: src/gcompris/gameutil.c:157 src/gcompris/gameutil.c:493
 #: src/gcompris/gameutil.c:494 src/gcompris/images_selector.c:347
-#: src/gcompris/soundutil.c:265
+#: src/gcompris/soundutil.c:286
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1565
+#: src/boards/shapegame.c:1569
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -1902,7 +1924,7 @@ msgstr "Lees een letter"
 msgid "Learn to recognize letters"
 msgstr "Leer letters herkennen"
 
-#: src/boards/clickgame.c:179
+#: src/boards/clickgame.c:182
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Kan pixmap's map niet openen: %s"
@@ -1941,7 +1963,7 @@ msgstr "Hoofdmenu"
 
 #: src/boards/menu.c:80
 msgid "Select a Board"
-msgstr "Selecteer een Spel"
+msgstr "Selecteer een spel"
 
 #: src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
@@ -1995,6 +2017,14 @@ msgstr "Omgekeerd tellen"
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
 
+#: src/boards/submarine.c:174
+msgid "Submarine"
+msgstr "Onderzeeër"
+
+#: src/boards/submarine.c:175
+msgid "Control the depth of a submarine"
+msgstr "De diepte van een onderzeeër controleren"
+
 #: src/boards/target.c:324 src/boards/target.c:572
 #, c-format
 msgid "Points = %s"
@@ -2013,6 +2043,14 @@ msgstr ""
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Afstand tot het doel = %d meter"
+
+#: src/boards/python.c:47
+msgid "Python Board"
+msgstr "Python-bord"
+
+#: src/boards/python.c:48
+msgid "Special board that embed python into gcompris."
+msgstr "Speciaal bord dat python in gcompris inbed."
 
 #: src/gcompris/about.c:57
 msgid ""
