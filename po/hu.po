@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-18 10:54+0100\n"
-"PO-Revision-Date: 2004-11-18 11:49+0100\n"
+"POT-Creation-Date: 2004-12-05 11:09+0100\n"
+"PO-Revision-Date: 2004-12-05 13:04+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -346,14 +346,14 @@ msgstr "Szorzótábla"
 msgid "Practice the multiplication operation"
 msgstr "Gyakorold a szorzást"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+#: boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "A matematikai táblákhoz"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Egy tábla kiválasztásához kattints rá a bal egérgombbal"
 
@@ -447,6 +447,10 @@ msgstr "Gyakorold az összeadást"
 #: boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Egyszerű összeadás. Képes felismerni írott számokat"
+
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Maths activities"
+msgstr "A matematikai táblákhoz"
 
 #: boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
@@ -668,23 +672,47 @@ msgstr "Tux és az almafa"
 #: boards/chronos/board3_0.xml.in.h:1
 msgid ""
 "Place each image in the order and\n"
-" on the date it has been invented.\n"
-" If not sure, check online in wikipedia at\n"
-" http://www.wikipedia.org"
+"on the date it has been invented.\n"
+"If not sure, check online in wikipedia at\n"
+"http://www.wikipedia.org"
 msgstr ""
 "Rakd sorrendbe a képeket feltalálásuk\n"
-" dátuma szerint. Ha nem tudod biztosan,\n"
-" nézz utána a http://www.wikipedia.org címen."
+"dátuma szerint. Ha nem tudod biztosan,\n"
+"nézz utána a http://www.wikipedia.org címen."
 
-#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:5 boards/chronos/board3_1.xml.in.h:1
 #: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
 #: boards/chronos/board3_4.xml.in.h:1
 msgid "Transportation"
 msgstr "Közlekedési eszközök"
 
-#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+#: boards/chronos/board4_0.xml.in.h:1
+msgid "1880 The Clement Ader's Eole"
+msgstr "1880 Clement Ader: Eole"
+
+#: boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers Flyer III"
+msgstr "1903 A Wright testvérek: Flyer III"
+
+#: boards/chronos/board4_0.xml.in.h:3
+msgid "1909 Louis Bleriot cross the Channel"
+msgstr "1909 Louis Bleriot átrepül a La Manche-csatornán"
+
+#: boards/chronos/board4_0.xml.in.h:4
 msgid "The aviation"
 msgstr "A repülés"
+
+#: boards/chronos/board4_1.xml.in.h:1
+msgid "1927 Charles Lindbergh cross Atlantique ocean"
+msgstr "1927 Charles Lindbergh átrepül az Atlanti-óceánon"
+
+#: boards/chronos/board4_1.xml.in.h:2
+msgid "1934 Helene Boucher speed record 444km/h"
+msgstr "1934 Helene Boucher sebességrekordja: 444km/h"
+
+#: boards/chronos/board4_1.xml.in.h:3
+msgid "1947 Chuck Yager break the sound-wall"
+msgstr "1947 Chuck Yager átlépi a hangsebességet"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -1710,46 +1738,46 @@ msgstr "Edzd a memóriádat és távolítsd el ez összes kártyát"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
-" At the bottom of the screen is the gcompris control bar.\n"
-" The following icons are displayed from right to left.\n"
-" Note that each icon is displayed only if available in the current "
-"activity:\n"
-" Home - Back to previous menu or exit gcompris if at the top\n"
-" Thumb - OK. Confirm your answer\n"
-" Dice - Display the current level. Click to select another level\n"
-" Music note - Repeat the question\n"
-" Question Mark - Help\n"
-" Tool - The configuration menu\n"
-" Tux Plane - About game\n"
-" The stars means:\n"
-" 1 Star - 2 to 3 years old\n"
-" 2 Stars - 4 to 5 years old\n"
-" 3 Stars - 6 to 7 years old\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"Note that each icon is displayed only if available in the current activity:\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About game\n"
+"The stars means:\n"
+"    1 Star  - 2 to 3 years old\n"
+"    2 Stars - 4 to 5 years old\n"
+"    3 Stars - 6 to 7 years old"
 msgstr ""
-"Használata nagyon egyszerű. Egy kattintás a megfelelő ikonra és máris "
-"megjelenik a megfelelő játék vagy egy almenü. \n"
-" A képernyő alján a GCompris panelja látható.\n"
-" A játékban csak akkor jelennek meg az egyes ikonok, ha használni is tudjuk "
+"Egy kattintás a megfelelő ikonra és máris megjelenik a megfelelő játék vagy "
+"a tevékenységek almenüje. \n"
+"A képernyő alján a GCompris panelja látható.\n"
+"A következő ikonok jelennek meg, jobbról balra haladva:\n"
+"A játékokban csak akkor jelennek meg az egyes ikonok, ha használni is tudjuk "
 "azokat.\n"
-" Íme egy rövid magyarázat az egyes ikonokhoz, jobbról balra haladva:\n"
-" Házikó - Vissza az előző menübe illetve a főmenüben: kilépés a programból\n"
-" Hüvelykujj - OK. A megoldásod ellenőrzése\n"
-" Dobókocka - A nehézségi fok megjelenítése. Rákattintva másik szint "
+"     Házikó - Vissza az előző menübe illetve a főmenüben: kilépés a "
+"programból\n"
+"     Hüvelykujj - OK. A megoldásod ellenőrzése\n"
+"     Dobókocka - A nehézségi fok megjelenítése. Rákattintva másik szint "
 "választható\n"
-" Kotta - A kérdés megismétlése\n"
-" Kérdőjel - Segítség\n"
-" Szerszámosláda - A program beállításai\n"
-" Tux repülő - A GCompris névjegye\n"
-" A csillagok jelentése a következő:\n"
-" * - 2-3 éveseknek\n"
-" ** - 4-5 éveseknek\n"
-" *** - 6-7 éveseknek\n"
+"     Kotta - A kérdés megismétlése\n"
+"     Kérdőjel - Segítség\n"
+"     Szerszámosláda - A program beállításai\n"
+"     Tux repülő - A GCompris névjegye\n"
+"     A csillagok jelentése a következő:\n"
+"     * - 2-3 éveseknek\n"
+"     ** - 4-5 éveseknek\n"
+"     *** - 6-7 éveseknek"
 
-#: boards/menu.xml.in.h:2
+#: boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "GCompris főmenü"
 
-#: boards/menu.xml.in.h:3
+#: boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
@@ -1757,7 +1785,7 @@ msgstr ""
 "A GCompris különböző tevékenységeket kínáló oktatóprogramok gyűjteménye \n"
 "3 és 8 év közötti gyerekek számára."
 
-#: boards/menu.xml.in.h:5
+#: boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -2235,7 +2263,7 @@ msgstr ""
 "felül) \n"
 "nem fontos, de figyelj, hogy ne legyenek nemkívánatos ábrák más ábrák alatt."
 
-#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Rajzold újra az adott tárgyat"
 
@@ -2245,6 +2273,10 @@ msgid ""
 "the left."
 msgstr ""
 "Másold át a jobb oldali dobozban lévő tárgy tükörképét a bal oldali dobozba."
+
+#: boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "Tükrözd az adott tárgyat"
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2919,7 +2951,7 @@ msgstr "Ez a program GNU szoftver és a GNU Public Licence alatt áll"
 msgid "Help"
 msgstr "Segítség"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
 #: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:152
 msgid "OK"
@@ -3098,70 +3130,74 @@ msgstr "Török"
 msgid "Walloon"
 msgstr "Vallon"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:105
+msgid "Chinese (Simplified)"
+msgstr "Egyszerűsített kínai"
+
+#: src/gcompris/config.c:110
 msgid "No time limit"
 msgstr "Nincs időkorlátozás"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:111
 msgid "Slow timer"
 msgstr "Sok idő"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "Normal timer"
 msgstr "Átlagos idő"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Fast timer"
 msgstr "Kevés idő"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:118
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (a GCompris alapértelmezettje)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:123
 msgid "No filter"
 msgstr "Nincs szűrő"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:124
 msgid "Only this level"
 msgstr "Csak ezen a szinten"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "Up to this level"
 msgstr "Eddig a szintig"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "This level and above"
 msgstr "Ez a szint és fölötte"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Zene"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effektusok"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:396
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s témakönyvtárat"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:417
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "%s helyen nem található téma\n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:432 src/gcompris/config.c:817
+#: src/gcompris/config.c:828
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
