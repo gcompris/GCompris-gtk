@@ -1,1 +1,1 @@
-SUBDIRS = alphabet colors geography misc
+SUBDIRS = alphabet colors france_region geography misc

@@ -26,8 +26,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -194,7 +194,7 @@ static gboolean update_timeout_very_slow();
 static guint timer_id, timer_slow_id, timer_very_slow_id;
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -282,7 +282,7 @@ static void set_level (guint level) {
 /* =====================================================================
  *
  * =====================================================================*/
-gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
   if (gcomprisBoard) {
     if(g_strcasecmp(gcomprisBoard->type, "submarine")==0) {
       /* Set the plugin entry */

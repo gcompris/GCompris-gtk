@@ -25,8 +25,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -43,8 +43,8 @@ static void		 game_won(void);
 static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasGroup *speedRootItem = NULL;
 
-double wind_speed;
-double ang;
+static double wind_speed;
+static double ang;
 
 static GnomeCanvasItem  *answer_item = NULL;
 static gchar		 answer_string[10];
@@ -65,7 +65,7 @@ static guint		user_points = 0;
  * Functions Definition
  */
 static void		process_ok(void);
-gint			key_press(guint keyval);
+static gint		key_press(guint keyval);
 static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent);
 static void		target_destroy_all_items(void);
 static void		target_next_level(void);
@@ -115,7 +115,7 @@ static guint target_colors[] = {
 static guint number_of_arrow = 0;
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -226,7 +226,7 @@ static void set_level (guint level)
 
 
 /* ======================================= */
-gint key_press(guint keyval)
+static gint key_press(guint keyval)
 {
   guint c;
 
@@ -328,7 +328,7 @@ gint key_press(guint keyval)
 
 
 /* ======================================= */
-gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
@@ -417,7 +417,7 @@ static void display_windspeed()
 			 "points", canvasPoints,
 			 "fill_color_rgba", 0x6df438FF,
 			 "width_units", (double)1,
-			 "width_pixels", (uint) 4,
+			 "width_pixels", (guint) 4,
 			 "last_arrowhead", TRUE,
 			 "arrow_shape_a", (double) wind_speed,
 			 "arrow_shape_b", (double) wind_speed-15,

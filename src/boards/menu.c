@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/01/27 13:21:41 bcoudoin>
+ * Time-stamp: <2004/03/10 23:20:49 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -72,7 +72,7 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 static GnomeCanvasItem *boardname_item, *description_item, *author_item;
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
@@ -191,7 +191,7 @@ menu_end ()
   boardRootItem=NULL;
 }
 
-gboolean
+static gboolean
 menu_is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)

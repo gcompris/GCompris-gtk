@@ -46,7 +46,7 @@ static gboolean  pythonboard_is_ready = FALSE;
 
 
 /* Description of this plugin */
-BoardPlugin pythonboard_bp =
+static BoardPlugin pythonboard_bp =
 {
    NULL,
    NULL,
@@ -84,7 +84,7 @@ BoardPlugin
  * Tests if a python interpreter is available
  * and that all required imports can be loaded.
  */
-void
+static void
 pythonboard_init (){
   PyObject* main_module;
   PyObject* globals;
@@ -164,7 +164,7 @@ pythonboard_init (){
  * - load the python written board
  * - call the board start function
  */
-void
+static void
 pythonboard_start (GcomprisBoard *agcomprisBoard){
   PyObject* main_module;
   PyObject* py_function_result;
@@ -260,7 +260,7 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
 /*
  * Pause the board.
  */
-void pythonboard_pause (gboolean pause){
+static void pythonboard_pause (gboolean pause){
   PyObject* result = NULL;
 
   result = PyObject_CallMethod(python_board_instance, "pause", "i", pause);
@@ -277,7 +277,7 @@ void pythonboard_pause (gboolean pause){
  * - call the board end function
  * - finalise python interpreter
  */
-void pythonboard_end (void){
+static void pythonboard_end (void){
   PyObject* result = NULL;
 
   if(python_gcomprisBoard!=NULL){
@@ -297,10 +297,12 @@ void pythonboard_end (void){
 /*
  * Return TRUE if the board is a python one.
  */
-gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
+static gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
+
   if(pythonboard_is_ready) {
     if (agcomprisBoard!=NULL) {
-      if (g_ascii_strncasecmp(agcomprisBoard->type, "pythonboard:", 12)==0) {
+
+      if (g_ascii_strncasecmp(agcomprisBoard->type, "python", 6)==0) {
 	/* Set the plugin entry */
 	agcomprisBoard->plugin=&pythonboard_bp;
 	
@@ -316,7 +318,7 @@ gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
 /*
  * Key press
  */
-gint pythonboard_key_press (guint keyval){
+static gint pythonboard_key_press (guint keyval){
   PyObject* result = NULL;
 
   result = PyObject_CallMethod(python_board_instance, "key_press", "i", keyval);
@@ -335,7 +337,7 @@ gint pythonboard_key_press (guint keyval){
 /*
  * OK button pressed
  */
-void pythonboard_ok (void){
+static void pythonboard_ok (void){
   PyObject* result = NULL;
   result = PyObject_CallMethod(python_board_instance, "ok", NULL);
   if( result != NULL){
@@ -348,7 +350,7 @@ void pythonboard_ok (void){
 /*
  * Set Level
  */
-void pythonboard_set_level (guint level){
+static void pythonboard_set_level (guint level){
   PyObject* result = NULL;
 
   result = PyObject_CallMethod(python_board_instance, "set_level", "i", level);
@@ -362,7 +364,7 @@ void pythonboard_set_level (guint level){
 /*
  * Config
  */
-void pythonboard_config(void){
+static void pythonboard_config(void){
   PyObject* result = NULL;
   result = PyObject_CallMethod(python_board_instance, "config", NULL);
   if( result != NULL){
@@ -375,7 +377,7 @@ void pythonboard_config(void){
 /*
  * Repeat
  */
-void pythonboard_repeat (void){
+static void pythonboard_repeat (void){
   PyObject* result = NULL;
   result = PyObject_CallMethod(python_board_instance, "repeat", NULL);
   if( result != NULL){

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2004/02/28 14:06:30 bcoudoin>
+ * Time-stamp: <2004/03/13 00:10:08 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -136,7 +136,7 @@ static void 		 end_board (void);
 static gboolean 	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void 		 set_level (guint level);
 static void 		 process_ok(void);
-gint			 key_press(guint keyval);
+static gint		 key_press(guint keyval);
 
 static GnomeCanvasItem 	*shapegame_init_canvas(GnomeCanvasGroup *parent);
 static void 		 shapegame_destroy_all_items(void);
@@ -154,7 +154,7 @@ static gint		 item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
 static gint		 item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape);
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
@@ -321,7 +321,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*
  * Keypress here are use for entering the editing mode
  */
-gint key_press(guint keyval)
+static gint key_press(guint keyval)
 {
   guint c;
   gboolean stop = FALSE;

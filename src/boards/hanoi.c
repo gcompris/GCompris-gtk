@@ -25,8 +25,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
@@ -97,7 +97,7 @@ static guint colorlist [] =
 
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -194,7 +194,7 @@ static void set_level (guint level)
     }
 }
 /* ======================================= */
-gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {

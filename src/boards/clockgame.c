@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2004/02/27 00:41:19 bcoudoin>
+ * Time-stamp: <2004/03/10 23:16:47 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -70,7 +70,7 @@ static void		 display_minute(guint minute);
 static void		 display_second(guint second);
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
@@ -186,7 +186,7 @@ set_level (guint level)
     }
 }
 
-gboolean
+static gboolean
 is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)

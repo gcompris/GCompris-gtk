@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2004/02/24 00:06:24 bcoudoin>
+ * Time-stamp: <2004/03/10 23:51:27 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -24,7 +24,7 @@
 #include "gcompris/gcompris.h"
 
 #define SOUNDLISTFILE PACKAGE
-
+#define DEBUG 1
 static GList *item_list = NULL;
 static GList *item2del_list = NULL;
 
@@ -48,9 +48,9 @@ static gint drop_items_id = 0;
  */
 
 #define FALL_RATE_BASE 40
-float fallRateBase = FALL_RATE_BASE;
+static float fallRateBase = FALL_RATE_BASE;
 #define FALL_RATE_MULT 100
-float fallRateMult = FALL_RATE_MULT;
+static float fallRateMult = FALL_RATE_MULT;
 
 /* these constants control how often letters are dropped
  * the base rate is fixed
@@ -58,9 +58,9 @@ float fallRateMult = FALL_RATE_MULT;
  */
 
 #define DROP_RATE_BASE 1000
-float dropRateBase = DROP_RATE_BASE;
+static float dropRateBase = DROP_RATE_BASE;
 #define DROP_RATE_MULT 8000
-float dropRateMult = DROP_RATE_MULT;
+static float dropRateMult = DROP_RATE_MULT;
 
 /* both letters_array and keymap are read in
  * dynamically at run-time from files based on 
@@ -75,8 +75,8 @@ float dropRateMult = DROP_RATE_MULT;
  */
 
 #define MAXLEVEL 10
-int maxLevel;
-char *letters_array[MAXLEVEL];
+static int maxLevel;
+static char *letters_array[MAXLEVEL];
 
 /* keymap contains pairs of chars. The first char is 
  * on the keyboard map, the second is the unichar that 
@@ -89,8 +89,8 @@ char *letters_array[MAXLEVEL];
  * easier to deal with.
  */
 
-int keyMapSize;
-char **keyMap;
+static int keyMapSize;
+static char **keyMap;
 
 /* Hash table of all displayed letters  */
 static GHashTable *letters_table= NULL;
@@ -100,7 +100,7 @@ static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
-gint key_press(guint keyval);
+static gint key_press(guint keyval);
 
 static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent);
 static gint gletters_drop_items (GtkWidget *widget, gpointer data);
@@ -121,7 +121,7 @@ static  double               speed = 0.0;
 static  int		     gamewon;
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -432,7 +432,7 @@ gint is_falling_letter(char *utfchar) {
   return FALSE;
 }
 
-gint key_press(guint keyval) {
+static gint key_press(guint keyval) {
   char c;
   char lcStr[6],ucStr[6], *str;
   char utf8char[6], keyChar[6], mapChar[6];
@@ -585,7 +585,7 @@ gint key_press(guint keyval) {
   return TRUE;
 }
 
-gboolean
+static gboolean
 is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)

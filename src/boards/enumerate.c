@@ -25,11 +25,11 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
-gint		 key_press(guint keyval);
+static gint	 key_press(guint keyval);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static void	 process_ok(void);
@@ -84,7 +84,7 @@ static guint	         current_focus	= 0;
 
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -170,7 +170,7 @@ static void end_board ()
 }
 
 /* Get the user keys to use to get the answer */
-gint key_press(guint keyval)
+static gint key_press(guint keyval)
 {
   char str[2];
   GnomeCanvasItem	*item = NULL;
@@ -302,7 +302,7 @@ static void set_level (guint level)
     }
 }
 /* ======================================= */
-gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {

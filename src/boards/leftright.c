@@ -24,8 +24,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -99,7 +99,7 @@ static char *hands[32] = {"main_droite_dessus_0.png","main_droite_paume_0.png",
 };
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -192,7 +192,7 @@ static void set_level (guint level) {
 /* =====================================================================
  *
  * =====================================================================*/
-gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
   if (gcomprisBoard) {
     if(g_strcasecmp(gcomprisBoard->type, "leftright")==0) {
       /* Set the plugin entry */

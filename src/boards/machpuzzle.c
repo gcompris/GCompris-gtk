@@ -52,8 +52,8 @@ typedef struct _MachItem MachItem;
 
 static GList *item_list = NULL;
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 static gint move_id = 0;
 static double		times_inc  = 0.1;
 static double		gravity = 0;
@@ -80,7 +80,7 @@ static MachItem		*create_machine_item(MachItemType machItemType, double x, doubl
 #define BORDER 40
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -174,11 +174,11 @@ static void set_level (guint level)
     }
 }
 /* ======================================= */
-gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "minigolf")==0)
+      if(g_strcasecmp(gcomprisBoard->type, "machpuzzle")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;

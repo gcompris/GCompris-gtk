@@ -172,7 +172,7 @@ static guint ext_colorlist [] =
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
-gint		 key_press(guint keyval);
+static gint	 key_press(guint keyval);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 config(void);
 
@@ -199,7 +199,7 @@ static void	 snap_to_grid(double *x, double *y);
 static void	 image_selected(gchar *image);
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -299,7 +299,7 @@ end_board ()
 }
 
 /* Get the user keys to use with the text tool */
-gint key_press(guint keyval)
+static gint key_press(guint keyval)
 {
   char str[2];
   char utf8char[6];
@@ -423,7 +423,7 @@ gint key_press(guint keyval)
 
 
 
-gboolean
+static gboolean
 is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)

@@ -92,7 +92,7 @@ static void	 load_error(void);
 static void	 load_not_found(void);
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -206,7 +206,7 @@ static void set_level (guint level)
     }
 }
 /* ======================================= */
-gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {

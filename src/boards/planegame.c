@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2003/01/06 22:30:56 bruno>
+ * Time-stamp: <2004/03/08 00:01:15 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -54,7 +54,7 @@ static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
-gint key_press(guint keyval);
+static gint key_press(guint keyval);
 
 static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent);
 static gint planegame_drop_items (GtkWidget *widget, gpointer data);
@@ -70,7 +70,7 @@ static  double               speed = 0.0;
 static  double               imageZoom = 0.0;
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
@@ -186,7 +186,7 @@ set_level (guint level)
     }
 }
 
-gint key_press(guint keyval)
+static gint key_press(guint keyval)
 {
 
   if(!gcomprisBoard)

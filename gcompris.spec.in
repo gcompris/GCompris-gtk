@@ -196,6 +196,47 @@ Version: @VERSION_VOICES_MISC_FR@
 %description -n assetml-voices-misc-fr
 Miscelaneous voices in French
 
+%package -n assetml-voices-france-regions-fr
+Summary:        Voices of names of the French Regions in French
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_FRANCE_REGIONS_FR@
+
+%description -n assetml-voices-france-regions-fr
+Voices of names of the French Regions in French
+
+
+%package -n assetml-voices-alphabet-it
+Summary:        Alphabet voices in Italian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_IT@
+
+%description -n assetml-voices-alphabet-it
+Alphabet voices in Italian
+
+%package -n assetml-voices-colors-it
+Summary:        Colors voices in Italian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_IT@
+
+%description -n assetml-voices-colors-it
+Colors voices in Italian
+
+%package -n assetml-voices-geography-it
+Summary:        Country name voices in Italian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_IT@
+
+%description -n assetml-voices-geography-it
+Country name voices in Italian
+
+%package -n assetml-voices-misc-it
+Summary:        Miscelaneous voices in Italian
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_IT@
+
+%description -n assetml-voices-misc-it
+Miscelaneous voices in Italian
+
 
 %package -n assetml-voices-alphabet-pt
 Summary:        Alphabet voices in Portuguese
@@ -381,6 +422,32 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/fr/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_fr.assetml
+
+%files -n assetml-voices-france-regions-fr
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/fr/france_region
+%{prefix}/share/@ASSETML_DIR@/gcompris_franceregion_fr.assetml
+
+
+%files -n assetml-voices-alphabet-it
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/it/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_it.assetml
+
+%files -n assetml-voices-colors-it
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/it/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_it.assetml
+
+%files -n assetml-voices-geography-it
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/it/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_it.assetml
+
+%files -n assetml-voices-misc-it
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/it/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_it.assetml
 
 
 %files -n assetml-voices-alphabet-pt

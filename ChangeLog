@@ -1,3 +1,282 @@
+2004-03-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* Makefile.am: added missing gcompris-edit.desktop
+	* boards/billard.xml.in: changed board plugin name
+	* boards/chronos/board3_0.xml.in: fixed car invention date
+	* boards/chronos/board3_2.xml.in: fixed car invention date
+	* boards/chronos/board3_4.xml.in: fixed car invention date
+	* boards/geography/Makefile.am: added france_region
+	* boards/geography/board5_0.xml.in: France region created by J.Ph. Ayanides
+	* boards/geography/france_region/alsace.png: France region created by J.Ph. Ayanides
+	* boards/geography/france_region/aquitaine.png: -
+	* boards/geography/france_region/auvergne.png: -
+	* boards/geography/france_region/basse-normandie.png: -
+	* boards/geography/france_region/bourgogne.png: -
+	* boards/geography/france_region/bretagne.png: -
+	* boards/geography/france_region/centre.png: -
+	* boards/geography/france_region/champagne-ardenne.png: -
+	* boards/geography/france_region/corse.png: -
+	* boards/geography/france_region/france-regions.png: -
+	* boards/geography/france_region/franche-conte.png: -
+	* boards/geography/france_region/haute-normandie.png: -
+	* boards/geography/france_region/ile-de-france.png: -
+	* boards/geography/france_region/languedoc-roussillon.png: -
+	* boards/geography/france_region/limousin.png: -
+	* boards/geography/france_region/lorraine.png: -
+	* boards/geography/france_region/midi-pyrenees.png: -
+	* boards/geography/france_region/nord-pas-de-calais.png: -
+	* boards/geography/france_region/pays-de-la-loire.png: -
+	* boards/geography/france_region/picardie.png: -
+	* boards/geography/france_region/poitou-charentes.png: -
+	* boards/geography/france_region/provence-alpes-cote_d_azur.png: -
+	* boards/geography/france_region/rhone-alpes.png: -
+	* boards/melody.xml.in: changed board plugin name
+	* boards/pythontest.xml.in: changed board plugin name
+	* boards/redraw.xml.in: changed board plugin name
+	* boards/redraw_symmetrical.xml.in: changed board plugin name
+	* boards/sounds/Makefile.am: added it
+	* boards/sounds/fr/Makefile.am:
+	* boards/sounds/fr/france_region/.cvsignore: France region created by J.Ph. Ayanides
+	* boards/sounds/fr/france_region/Makefile.am: -
+	* boards/sounds/fr/france_region/alsace.ogg: -
+	* boards/sounds/fr/france_region/aquitaine.ogg: -
+	* boards/sounds/fr/france_region/auvergne.ogg: -
+	* boards/sounds/fr/france_region/basse-normandie.ogg: -
+	* boards/sounds/fr/france_region/bourgogne.ogg: -
+	* boards/sounds/fr/france_region/bretagne.ogg: -
+	* boards/sounds/fr/france_region/centre.ogg: -
+	* boards/sounds/fr/france_region/champagne-ardenne.ogg: -
+	* boards/sounds/fr/france_region/corse.ogg: -
+	* boards/sounds/fr/france_region/franche-conte.ogg: -
+	* boards/sounds/fr/france_region/gcompris_franceregion_fr.assetml.in: -
+	* boards/sounds/fr/france_region/haute-normandie.ogg: -
+	* boards/sounds/fr/france_region/ile-de-france.ogg: -
+	* boards/sounds/fr/france_region/languedoc-roussillon.ogg: -
+	* boards/sounds/fr/france_region/limousin.ogg: -
+	* boards/sounds/fr/france_region/lorraine.ogg: -
+	* boards/sounds/fr/france_region/midi-pyrenees.ogg: -
+	* boards/sounds/fr/france_region/nord-pas-de-calais.ogg: -
+	* boards/sounds/fr/france_region/pays-de-la-loire.ogg: -
+	* boards/sounds/fr/france_region/picardie.ogg: -
+	* boards/sounds/fr/france_region/poitou-charentes.ogg: -
+	* boards/sounds/fr/france_region/provence-alpes-cote_d_azur.ogg: -
+	* boards/sounds/fr/france_region/rhone-alpes.ogg: -
+	* boards/sounds/it/.cvsignore: Italian sounds created by Francesco Agrusti 
+	* boards/sounds/it/Makefile.am: -
+	* boards/sounds/it/alphabet/.cvsignore: -
+	* boards/sounds/it/alphabet/1.ogg: -
+	* boards/sounds/it/alphabet/10.ogg: -
+	* boards/sounds/it/alphabet/11.ogg: -
+	* boards/sounds/it/alphabet/12.ogg: -
+	* boards/sounds/it/alphabet/13.ogg: -
+	* boards/sounds/it/alphabet/14.ogg: -
+	* boards/sounds/it/alphabet/15.ogg: -
+	* boards/sounds/it/alphabet/16.ogg: -
+	* boards/sounds/it/alphabet/17.ogg: -
+	* boards/sounds/it/alphabet/18.ogg: -
+	* boards/sounds/it/alphabet/19.ogg: -
+	* boards/sounds/it/alphabet/2.ogg: -
+	* boards/sounds/it/alphabet/20.ogg: -
+	* boards/sounds/it/alphabet/3.ogg: -
+	* boards/sounds/it/alphabet/4.ogg: -
+	* boards/sounds/it/alphabet/5.ogg: -
+	* boards/sounds/it/alphabet/6.ogg: -
+	* boards/sounds/it/alphabet/7.ogg: -
+	* boards/sounds/it/alphabet/8.ogg: -
+	* boards/sounds/it/alphabet/9.ogg: -
+	* boards/sounds/it/alphabet/Makefile.am: -
+	* boards/sounds/it/alphabet/a.ogg: -
+	* boards/sounds/it/alphabet/b.ogg: -
+	* boards/sounds/it/alphabet/c.ogg: -
+	* boards/sounds/it/alphabet/d.ogg: -
+	* boards/sounds/it/alphabet/e.ogg: -
+	* boards/sounds/it/alphabet/f.ogg: -
+	* boards/sounds/it/alphabet/g.ogg: -
+	* boards/sounds/it/alphabet/gcompris_alphabet_it.assetml.in: -
+	* boards/sounds/it/alphabet/h.ogg: -
+	* boards/sounds/it/alphabet/i.ogg: -
+	* boards/sounds/it/alphabet/j.ogg: -
+	* boards/sounds/it/alphabet/k.ogg: -
+	* boards/sounds/it/alphabet/l.ogg: -
+	* boards/sounds/it/alphabet/m.ogg: -
+	* boards/sounds/it/alphabet/n.ogg: -
+	* boards/sounds/it/alphabet/o.ogg: -
+	* boards/sounds/it/alphabet/p.ogg: -
+	* boards/sounds/it/alphabet/q.ogg: -
+	* boards/sounds/it/alphabet/r.ogg: -
+	* boards/sounds/it/alphabet/s.ogg: -
+	* boards/sounds/it/alphabet/t.ogg: -
+	* boards/sounds/it/alphabet/u.ogg: -
+	* boards/sounds/it/alphabet/v.ogg: -
+	* boards/sounds/it/alphabet/w.ogg: -
+	* boards/sounds/it/alphabet/x.ogg: -
+	* boards/sounds/it/alphabet/y.ogg: -
+	* boards/sounds/it/alphabet/z.ogg: -
+	* boards/sounds/it/colors/.cvsignore: -
+	* boards/sounds/it/colors/Makefile.am: -
+	* boards/sounds/it/colors/black.ogg: -
+	* boards/sounds/it/colors/blue.ogg: -
+	* boards/sounds/it/colors/brown.ogg: -
+	* boards/sounds/it/colors/gcompris_colors_it.assetml.in: -
+	* boards/sounds/it/colors/green.ogg: -
+	* boards/sounds/it/colors/grey.ogg: -
+	* boards/sounds/it/colors/orange.ogg: -
+	* boards/sounds/it/colors/pink.ogg: -
+	* boards/sounds/it/colors/purple.ogg: -
+	* boards/sounds/it/colors/red.ogg: -
+	* boards/sounds/it/colors/white.ogg: -
+	* boards/sounds/it/colors/yellow.ogg: -
+	* boards/sounds/it/geography/.cvsignore: -
+	* boards/sounds/it/geography/Makefile.am: -
+	* boards/sounds/it/geography/alaska.ogg: -
+	* boards/sounds/it/geography/albania.ogg: -
+	* boards/sounds/it/geography/argentina.ogg: -
+	* boards/sounds/it/geography/austria.ogg: -
+	* boards/sounds/it/geography/bahamas.ogg: -
+	* boards/sounds/it/geography/belarus.ogg: -
+	* boards/sounds/it/geography/belgium.ogg: -
+	* boards/sounds/it/geography/bolivia.ogg: -
+	* boards/sounds/it/geography/bosnia_herzegovina.ogg: -
+	* boards/sounds/it/geography/brazil.ogg: -
+	* boards/sounds/it/geography/bulgaria.ogg: -
+	* boards/sounds/it/geography/canada.ogg: -
+	* boards/sounds/it/geography/chile.ogg: -
+	* boards/sounds/it/geography/colombia.ogg: -
+	* boards/sounds/it/geography/costa_rica.ogg: -
+	* boards/sounds/it/geography/croatia.ogg: -
+	* boards/sounds/it/geography/cuba.ogg: -
+	* boards/sounds/it/geography/cyprus.ogg: -
+	* boards/sounds/it/geography/czech.ogg: -
+	* boards/sounds/it/geography/denmark.ogg: -
+	* boards/sounds/it/geography/dominican_republic.ogg: -
+	* boards/sounds/it/geography/ecuador.ogg: -
+	* boards/sounds/it/geography/estonia.ogg: -
+	* boards/sounds/it/geography/finland.ogg: -
+	* boards/sounds/it/geography/french_guiana.ogg: -
+	* boards/sounds/it/geography/gcompris_geography_it.assetml.in: -
+	* boards/sounds/it/geography/greece.ogg: -
+	* boards/sounds/it/geography/greenland.ogg: -
+	* boards/sounds/it/geography/guatemala.ogg: -
+	* boards/sounds/it/geography/guyana.ogg: -
+	* boards/sounds/it/geography/haiti.ogg: -
+	* boards/sounds/it/geography/honduras.ogg: -
+	* boards/sounds/it/geography/hungary.ogg: -
+	* boards/sounds/it/geography/iceland.ogg: -
+	* boards/sounds/it/geography/ireland.ogg: -
+	* boards/sounds/it/geography/italy.ogg: -
+	* boards/sounds/it/geography/jamaica.ogg: -
+	* boards/sounds/it/geography/latvia.ogg: -
+	* boards/sounds/it/geography/lithuania.ogg: -
+	* boards/sounds/it/geography/luxembourg.ogg: -
+	* boards/sounds/it/geography/macedonia.ogg: -
+	* boards/sounds/it/geography/mexico.ogg: -
+	* boards/sounds/it/geography/moldova.ogg: -
+	* boards/sounds/it/geography/netherland.ogg: -
+	* boards/sounds/it/geography/nicaragua.ogg: -
+	* boards/sounds/it/geography/norway.ogg: -
+	* boards/sounds/it/geography/panama.ogg: -
+	* boards/sounds/it/geography/paraguay.ogg: -
+	* boards/sounds/it/geography/peru.ogg: -
+	* boards/sounds/it/geography/poland.ogg: -
+	* boards/sounds/it/geography/portugal.ogg: -
+	* boards/sounds/it/geography/romania.ogg: -
+	* boards/sounds/it/geography/russia.ogg: -
+	* boards/sounds/it/geography/salvador.ogg: -
+	* boards/sounds/it/geography/serbia_montenegro.ogg: -
+	* boards/sounds/it/geography/slovakia.ogg: -
+	* boards/sounds/it/geography/slovenia.ogg: -
+	* boards/sounds/it/geography/spain.ogg: -
+	* boards/sounds/it/geography/suriname.ogg: -
+	* boards/sounds/it/geography/sweden.ogg: -
+	* boards/sounds/it/geography/switz.ogg: -
+	* boards/sounds/it/geography/turkey.ogg: -
+	* boards/sounds/it/geography/ukraine.ogg: -
+	* boards/sounds/it/geography/united_kingdom.ogg: -
+	* boards/sounds/it/geography/uruguay.ogg: -
+	* boards/sounds/it/geography/usa.ogg: -
+	* boards/sounds/it/geography/venezuela.ogg: -
+	* boards/sounds/it/misc/.cvsignore: -
+	* boards/sounds/it/misc/Makefile.am: -
+	* boards/sounds/it/misc/back.ogg: -
+	* boards/sounds/it/misc/by.ogg: -
+	* boards/sounds/it/misc/click_on_letter.ogg: -
+	* boards/sounds/it/misc/congratulation.ogg: -
+	* boards/sounds/it/misc/equal.ogg: -
+	* boards/sounds/it/misc/gcompris_misc_it.assetml.in: -
+	* boards/sounds/it/misc/good.ogg: -
+	* boards/sounds/it/misc/great.ogg: -
+	* boards/sounds/it/misc/help.ogg: -
+	* boards/sounds/it/misc/level.ogg: -
+	* boards/sounds/it/misc/minus.ogg: -
+	* boards/sounds/it/misc/ok.ogg: -
+	* boards/sounds/it/misc/outof.ogg: -
+	* boards/sounds/it/misc/plus.ogg: -
+	* boards/sounds/it/misc/quit.ogg: -
+	* boards/sounds/it/misc/super.ogg: -
+	* boards/sounds/it/misc/welcome.ogg: -
+	* boards/watercycle.xml.in:
+	* configure.in: release 5.3.1, added italian
+	* gcompris.spec.in: added italian voices
+	* po/POTFILES.in: added missing files
+	* src/boards/advanced_colors.c: (is_our_board): fixed missing static
+	* src/boards/algebra.c: (key_press): -
+	* src/boards/algebra_guesscount.c: (is_our_board): -
+	* src/boards/canal_lock.c: (is_our_board): -
+	* src/boards/chess.c: (is_our_board): -
+	* src/boards/click_on_letter.c: (is_our_board): -
+	* src/boards/clickgame.c: (clickgame_is_our_board): -
+	* src/boards/clockgame.c: -
+	* src/boards/colors.c: (is_our_board): -
+	* src/boards/draw.c: (key_press): -
+	* src/boards/enumerate.c: (key_press), (is_our_board): -
+	* src/boards/erase.c: (is_our_board): -
+	* src/boards/fifteen.c: (is_our_board): -
+	* src/boards/gletters.c: (key_press): -
+	* src/boards/hanoi.c: (is_our_board): -
+	* src/boards/imageid.c: -
+	* src/boards/leftright.c: (is_our_board): -
+	* src/boards/machpuzzle.c: (is_our_board): -
+	* src/boards/maze.c: (is_our_board): -
+	* src/boards/memory.c: -
+	* src/boards/menu.c: -
+	* src/boards/missingletter.c: -
+	* src/boards/money.c: -
+	* src/boards/paratrooper.c: (key_press): -
+	* src/boards/planegame.c: (key_press): -
+	* src/boards/python.c: (pythonboard_pause), (pythonboard_end), -
+	(pythonboard_is_our_board), (pythonboard_key_press), -
+	(pythonboard_ok), (pythonboard_set_level), (pythonboard_config), -
+	(pythonboard_repeat): -
+	* src/boards/railroad.c: -
+	* src/boards/read_colors.c: (is_our_board): -
+	* src/boards/reading.c: -
+	* src/boards/reversecount.c: -
+	* src/boards/shapegame.c: (key_press): -
+	* src/boards/smallnumbers.c: (key_press): -
+	* src/boards/submarine.c: (is_our_board): -
+	* src/boards/superbrain.c: (is_our_board): -
+	* src/boards/target.c: (key_press), (is_our_board), -
+	(display_windspeed): -
+	* src/boards/traffic.c: (is_our_board): -
+	* src/boards/wordsgame.c: (key_press): -
+	* src/gcompris/Makefile.am: removed useless pluginenum.c and .h
+	* src/gcompris/about.c: (gcompris_about_start):
+	* src/gcompris/board.c: (init_plugins), (get_current_board_plugin),
+	(board_check_file), (board_play), (board_stop): changed to include the work done by pluginenum.
+	now use g_module instead of dl_open and plugins are loaded only when needed. 
+	Note that they are never unloaded yet.
+	* src/gcompris/board.h: cleanup
+	* src/gcompris/config.c: (gcompris_config_start):
+	* src/gcompris/gameutil.c: (gcompris_read_xml_file),
+	(selectMenuXML), (gcompris_load_menus): replaced scandir by readdir
+	* src/gcompris/gcompris-board.h: added g_module items in our plugin struct
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(gcompris_get_locale), (gcompris_set_locale): use g_getenv instead of getenv
+	* src/gcompris/gcompris.h: removed pluginenum.h
+	* src/gcompris/pluginenum.c: removed. the code here is now included in boards.c
+	* src/gcompris/pluginenum.h: removed. the code here is now included in boards.c
+	* src/gcompris/properties.c: (gcompris_properties_new): use g_getenv instead of getenv
+
 2004-03-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/chronos/board3_0.xml.in: missing files for the new transportation board

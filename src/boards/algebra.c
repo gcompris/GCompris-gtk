@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2004/01/27 00:38:42 bcoudoin>
+ * Time-stamp: <2004/03/10 23:15:42 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -72,7 +72,7 @@ static void		 pause_board (gboolean pause);
 static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
-gint			 key_press(guint keyval);
+static gint		 key_press(guint keyval);
 static void		 process_ok(void);
 
 static GnomeCanvasItem	*algebra_create_item(GnomeCanvasGroup *parent);
@@ -90,7 +90,7 @@ static void		 set_focus_item(ToBeFoundItem *toBeFoundItem, gboolean status);
 static void		 init_operation(void);
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
@@ -217,7 +217,7 @@ set_level (guint level)
     }
 }
 
-gint key_press(guint keyval)
+static gint key_press(guint keyval)
 {
   guint c;
   gboolean stop = FALSE;
@@ -349,7 +349,7 @@ gint key_press(guint keyval)
 
 
 
-gboolean
+static gboolean
 is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)

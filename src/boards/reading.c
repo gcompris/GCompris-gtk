@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/02/07 19:17:24 bcoudoin>
+ * Time-stamp: <2004/03/07 23:15:29 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -95,7 +95,7 @@ static gint		 item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer 
 static  guint32              fallSpeed = 0;
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,

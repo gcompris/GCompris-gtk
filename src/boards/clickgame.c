@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2003/12/06 04:19:19 bcoudoin>
+ * Time-stamp: <2004/03/13 00:57:56 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -79,7 +79,7 @@ static  double               speed = 0.0;
 static  double               imageZoom = 0.0;
 
 /* Description of this plugin */
-BoardPlugin clickgame_bp =
+static BoardPlugin clickgame_bp =
 {
    NULL,
    NULL,
@@ -242,10 +242,9 @@ clickgame_set_level (guint level)
     }
 }
 
-gboolean
+static gboolean
 clickgame_is_our_board (GcomprisBoard *gcomprisBoard)
 {
-
   if (gcomprisBoard)
     {
       if(g_strcasecmp(gcomprisBoard->type, "clickgame")==0)

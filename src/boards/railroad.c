@@ -25,8 +25,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -89,7 +89,7 @@ static GList * reset_list(GList * list);
 static void reset_all_lists(void);
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,

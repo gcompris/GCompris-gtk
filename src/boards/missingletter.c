@@ -29,8 +29,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -94,7 +94,7 @@ static void missing_letter_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -200,7 +200,7 @@ set_level (guint level)
     }
 }
 
-gboolean
+static gboolean
 is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)

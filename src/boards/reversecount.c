@@ -31,7 +31,7 @@ static gint	 animate_id = 0;
 static int	 leavenow;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
-gint		 key_press(guint keyval);
+static gint	 key_press(guint keyval);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
@@ -133,7 +133,7 @@ static gchar *fishList[] =
 #define NUMBER_OF_FISHES 27
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,

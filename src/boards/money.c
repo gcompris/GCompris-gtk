@@ -26,8 +26,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
@@ -80,7 +80,7 @@ static gchar *imageList[] =
 static char currentMode = WITHOUT_CENTS;
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,

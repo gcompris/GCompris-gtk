@@ -25,8 +25,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 /*
  * Contains the points that represents the anchors
@@ -103,7 +103,7 @@ static guint solution[MAX_PIECES];
 #define Y_STEP	(PIECE_HEIGHT+PIECE_GAP)
 
 /* Description of this plugin */
-BoardPlugin menu_bp =
+static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
@@ -197,7 +197,7 @@ static void set_level (guint level)
     }
 }
 /* ======================================= */
-gboolean is_our_board (GcomprisBoard *gcomprisBoard)
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {

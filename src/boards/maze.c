@@ -60,8 +60,8 @@ static gboolean run_fast=FALSE;
 static gboolean modeIs2D=TRUE;
 /*-----------------------*/
 
-GcomprisBoard *gcomprisBoard = NULL;
-gboolean board_paused = TRUE;
+static GcomprisBoard *gcomprisBoard = NULL;
+static gboolean board_paused = TRUE;
 
 static void start_board (GcomprisBoard *agcomprisBoard);
 static void pause_board (gboolean pause);
@@ -228,7 +228,7 @@ static void end_board () {
 /* =====================================================================
  *
  * =====================================================================*/
-gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
+static gboolean is_our_board (GcomprisBoard *gcomprisBoard) {
   if (gcomprisBoard) {
     if(g_strcasecmp(gcomprisBoard->type, "maze")==0) {
       /* Set the plugin entry */
