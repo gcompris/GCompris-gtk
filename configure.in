@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(configure.in)
-AM_INIT_AUTOMAKE(gcompris, 1.0.5)
+AM_INIT_AUTOMAKE(gcompris, 1.1.0)
 AM_CONFIG_HEADER(config.h)
 
 GNOME_INIT
@@ -30,7 +30,7 @@ dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
 AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}")
 
-AM_GLIB_GNU_GETTEXT
+AM_GNU_GETTEXT
 
 dnl Add the gnome canvas pixbuf. It comes with GDK_PIXBUF but not added automatically
 dnl FIXME : should use gnome-config gnomecanvaspixbuf --libs

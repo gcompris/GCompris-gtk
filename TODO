@@ -22,3 +22,83 @@
 * Add a board for child identification.
 
 * use gnome-vfs to package boards in a unique file
+
+Bug report from Marec Dirson:
+
+- dans le tableau "trains" (et sans doute ailleurs), il lui arrive
+souvent de cliquer sur des zones transparentes et de s'étonner que ça
+ne marche pas (je me demande si je ne t'avais pas déja fait cette
+remarque)
+
+- il n'y a plus de demande de confirmation pour quitter le jeu, et il
+lui est arrivé de qortir par erreur (ma souris envoie des fois des
+événements clic en double)
+
+- quand on fait glisser qqch à la souris, ça serait intéressant
+d'emêcher le pointeur d'entre dans la barre du bas, pour éviter de la
+même façon d'activer une commande par erreur (il a par exemple
+plusieurs fois cliqué sur le dé, et perdu le tableau en cours)
+
+- un moyen rapide de savoir si le tableau fonctionne avec la souris ou
+le clavier serait utile (ex. une icône dans la barre).  Souvent en
+allant vers un tableau "inconnu" il essaye la souris (il a essayé de
+cliquer sur les lettres qui tombent :) - tiens, ça me rappelle mon 1er
+contact avec le labyrinthe, que par ailleurs il aime bien ;)
+
+- il a été déçu de ne pas "pouvoir" explorer tous les tableaux dispo,
+j'ai dû le convaincre que vu ses perfs aux additions, les
+soustractions et le reste seraint pour plue tard :).  On retombe sur
+la possibilité de restriction des tableaux accessibles suivant l'âge
+ou autre)
+
+- au moins le poisson f09 a le pb du parasite sur la dernière ligne,
+et un autre, je crois que c'est le f04 (en tout cas il était tigré)
+
+- je me demande si dans le tableau "train" il ne serait pas mieux de
+faire la construction par drag'n'drop.  Si il prend la bonne loco mais
+se trompe de wagon, il faut recommencer au début, c'est pas top.
+
+- Aussi, il y a un cas ou malgres qu'on mettes la bonne solution, 
+  il ne trouve pas que c'est OK.
+
+- suggestion pour l'horloge : mettre en couleurs les chiffres
+heure/minute demandés, en utilisant la couleur des aiguilles /
+chiffres du cadrant.  Ca devrait aider à expliquer ce qu'il faut
+faire.
+
+- j'ai encore le même pb de taille des fontes, c'est affreux par
+moment :(
+
+- j'en oublie sûrement, on a vu un film entre la partie et la
+rédaction de ce mail.  A suivre, de toute façon il est accro :)
+
+- dans le jeu du train, c'est très drôle de cliquer sur "replay" quand le
+jeu montre le train, mais après, les trains vont de plus en plus vite, même
+les trains suivants, et ça va beaucoup trop vite !
+
+- si on ajoute beaucoup de wagons, ils dépassent de l'écran et on ne les
+voit plus.  Quand on enlève les wagons qui dépassent, il se passe des choses
+bizarres : ils disparaissent tous en même temps !
+
+- le bouton "dé" est beaucoup trop près des boutons "replay" et "pouce",
+dont on se sert plus souvent.
+
+- décidément, cette grosse flèche n'est pas pratique du tout pour cliquer
+sur le wagon plein de voitures !
+
+- dans le labyrinthe, quand on laisse le doigt appuyé sur la touche pour
+aller vite à la sortie, Tux marche tout seul dans le labyrinthe suivant (il
+faut vider le tampon du clavier au début du tableau)
+
+- dans le tableau des correspondances :
+
+ + si on valide le tableau et que les correspondances sont mauvaises,
+ on n'a pas de message d'erreur comme dans les autres tableaux
+
+ + après ça, si tu laches un objet sur un autre déja posé (pour
+ écahnger, donc), ce dernier disparait du tableau (sournoisement me
+ dit-on ;)
+
+- quand on est en mode plein écran, et qu'on clique sur "aide" dans
+l'écran "à propos", il lance un navigateur qui n'est pas visible.
+
