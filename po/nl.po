@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-23 19:30+0200\n"
-"PO-Revision-Date: 2003-10-24 04:34+0200\n"
+"POT-Creation-Date: 2003-10-28 19:28+0100\n"
+"PO-Revision-Date: 2003-10-29 01:37+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -1690,6 +1690,10 @@ msgstr "Zeg of het gevraagde woord in de lijst zit"
 msgid "Vertical reading practice"
 msgstr "Verticale leesoefening"
 
+#: boards/redraw.xml.in.h:1
+msgid "Redraw the given item"
+msgstr "Teken het gegeven item opnieuw"
+
 #: boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
@@ -1871,18 +1875,6 @@ msgid ""
 "on the right"
 msgstr "Het doel is om de rode auto door het gat rechts uit het vak te halen."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
-msgid "Falling Words"
-msgstr "Vallende Woorden"
-
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
-msgid "Fully type the falling words before they reach the ground"
-msgstr "Typ de woorden vooraleer ze de grond raken"
-
-#: boards/wordsgame.xml.in.h:4
-msgid "Keyboard training"
-msgstr "Toetsenbordtraining"
-
 #: boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, water "
@@ -1905,6 +1897,18 @@ msgid ""
 msgstr ""
 "Je moet proberen de watervoorziening te herstellen. Tux komt terug van een "
 "lange vis-reist op zijn boot. Help hem een douche te krijgen."
+
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+msgid "Falling Words"
+msgstr "Vallende Woorden"
+
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+msgid "Fully type the falling words before they reach the ground"
+msgstr "Typ de woorden vooraleer ze de grond raken"
+
+#: boards/wordsgame.xml.in.h:4
+msgid "Keyboard training"
+msgstr "Toetsenbordtraining"
 
 #: gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -2199,32 +2203,34 @@ msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
-"Music: Djilali Sebihi\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Makers:\n"
 "Auteur: Bruno Coudoin\n"
 "Toevoegingen: Pascal Georges\n"
 "Plaatjes: Renaud Blanchard\n"
-"Muziek: Djilali Sebihi\n"
+"Intromuziek: Djilali Sebihi\n"
+"Acgtergrondmuziek: Rico Da Halvarez\n"
 
-#: src/gcompris/about.c:97
+#: src/gcompris/about.c:99
 msgid "About GCompris"
 msgstr "Over GCompris"
 
-#: src/gcompris/about.c:203
+#: src/gcompris/about.c:205
 msgid "GCompris Home Page"
 msgstr "GCompris Startpagina"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:227
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr "Deze software is een GNU pakket, beschermd door de Gnu Public Licence."
 
-#: src/gcompris/about.c:253
+#: src/gcompris/about.c:255
 msgid "Help"
 msgstr "Hulp"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:178 src/gcompris/help.c:341
+#: src/gcompris/about.c:289 src/gcompris/config.c:178 src/gcompris/help.c:341
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
