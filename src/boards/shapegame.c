@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2001/12/26 21:44:18 bruno>
+ * Time-stamp: <2002/01/06 02:11:18 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -47,25 +47,26 @@ typedef enum
 /* Let's define the structure for a single shape */
 typedef struct _Shape Shape;
 struct _Shape {
-  char  *name;			/* name of the shape */
-  char  *pixmapfile;		/* relative pixmap file name of the shape */
-  GnomeCanvasPoints* points;    /* OR list of points for this shape */
-  char  *targetfile;		/* OPTIONAL relative pixmap file name of the target shape, by default 
-				   a red point is displayed */
-  double x;			/* x coordinate */
-  double y;			/* y coordinate */
-  double w;			/* width */
-  double h;			/* height */
-  double zoomx;			/* x zoom factor */
-  double zoomy;			/* y zoom factor */
-  gint   position;		/* depth position 0=bottom other=intermediate */
-  ShapeType type;		/* Type of shape */
+  char  *name;				/* name of the shape */
+  char  *pixmapfile;			/* relative pixmap file name of the shape */
+  GnomeCanvasPoints* points; 		/* OR list of points for this shape */
+  char  *targetfile;			/* OPTIONAL relative pixmap file name of the target shape, by default 
+					   a red point is displayed */
+  double x;				/* x coordinate */
+  double y;				/* y coordinate */
+  double w;				/* width */
+  double h;				/* height */
+  double zoomx;				/* x zoom factor */
+  double zoomy;				/* y zoom factor */
+  gint   position;			/* depth position 0=bottom other=intermediate */
+  ShapeType type;			/* Type of shape */
 
-  GnomeCanvasItem *item;       	/* Canvas item for this shape */
-  Shape *icon_shape;		/* Temporary Canvas icon shape for this shape */
-  GnomeCanvasItem *bad_item;	/* Temporary bad placed Canvas item for this shape */
+  GnomeCanvasItem *item;     	  	/* Canvas item for this shape */
+  Shape *icon_shape;			/* Temporary Canvas icon shape for this shape */
+  GnomeCanvasItem *bad_item;		/* Temporary bad placed Canvas item for this shape */
 
-  gboolean found;		/* The user found this item */
+  gboolean found;			/* The user found this item */
+  GnomeCanvasItem *target_point;       	/* Target point item for this shape */
 };
 
 gchar *colorlist [] = 
@@ -818,6 +819,103 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
    return FALSE;
  }
 
+/*
+ * Special mode to edit the board by moving the target point
+ */
+static gint
+item_event_edition(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
+{
+   static double x, y;
+   double new_x, new_y;
+   GdkCursor *fleur;
+   static int dragging;
+   double item_x, item_y;
+
+   if(!get_board_playing())
+     return FALSE;
+
+   if(shape==NULL) {
+     g_warning("Shape is NULL : Should not happen");
+     return FALSE;
+   }
+
+   item_x = event->button.x;
+   item_y = event->button.y;
+   gnome_canvas_item_w2i(item->parent, &item_x, &item_y);
+
+   switch (event->type) 
+     {
+     case GDK_BUTTON_PRESS:
+       switch(event->button.button) 
+         {
+         case 1:
+           if (event->button.state & GDK_SHIFT_MASK)
+             {
+	       /* Cheat code to save an XML file */
+	       write_xml_file("/tmp/gcompris-board.xml");
+	     }
+	   else
+	     {
+	       x = item_x;
+	       y = item_y;
+	       
+	       item = shape->target_point;
+
+	       fleur = gdk_cursor_new(GDK_FLEUR);
+
+	       gnome_canvas_item_grab(item,
+				      GDK_POINTER_MOTION_MASK | 
+				      GDK_BUTTON_RELEASE_MASK,
+				      fleur,
+				      event->button.time);
+	       gdk_cursor_destroy(fleur);
+	       dragging = TRUE;
+	     }
+	   break;
+	   
+         default:
+           break;
+         }
+       break;
+
+     case GDK_MOTION_NOTIFY:
+       if (dragging && (event->motion.state & GDK_BUTTON1_MASK)) 
+         {
+	   new_x = item_x;
+	   new_y = item_y;
+	       
+	   gnome_canvas_item_move(item, new_x - x, new_y - y);
+	   gnome_canvas_item_move(shape->item, new_x - x, new_y - y);
+
+	   // Update the shape's coordinate
+	   shape->x = shape->x + new_x - x;
+	   shape->y = shape->y + new_y - y;
+
+	   x = new_x;
+	   y = new_y;
+         }
+       break;
+           
+     case GDK_BUTTON_RELEASE:
+       if(dragging) 
+	 {
+
+	   gnome_canvas_item_ungrab(item, event->button.time);
+	   gnome_canvas_item_raise_to_top(item);
+	   dragging = FALSE;
+
+	 }
+       break;
+
+     default:
+       break;
+     }
+         
+   return FALSE;
+
+}
+
+
 static void
 setup_item(GnomeCanvasItem *item, Shape *shape)
 {
@@ -880,6 +978,10 @@ add_shape_to_canvas(Shape *shape)
 					"outline_color", "black",
 					"width_pixels", 0,
 					NULL);
+	  shape->target_point = item;
+	  gtk_signal_connect(GTK_OBJECT(item), "event",
+			     (GtkSignalFunc) item_event_edition,
+			     shape);
 	}
       gnome_canvas_item_lower_to_bottom(item);
       item_list = g_list_append (item_list, item);

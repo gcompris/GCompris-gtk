@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2001/12/26 21:46:37 bruno>
+ * Time-stamp: <2002/01/05 22:20:18 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -132,12 +132,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "gcompris/gcompris-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "clockgame/clockgame-bg.jpg");
 
 
-      /* set initial values for this level */
+      /* set initial values for this level adjusted to fit the watch background */
       cx =  gcomprisBoard->width/2;
-      cy =  gcomprisBoard->height*0.4;
+      cy =  gcomprisBoard->height*0.4 + 42;
       clock_size = gcomprisBoard->height*0.3;
 
       gcomprisBoard->level=1;
@@ -316,7 +316,7 @@ static void display_minute(guint minute)
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
   gnome_canvas_item_set (minute_item,
 			 "points", canvasPoints,
-			 "fill_color", "green",
+			 "fill_color", "red",
 			 "width_units", (double)1,
 			 "width_pixels", (uint) 4,
 			 "last_arrowhead", TRUE,
@@ -348,7 +348,7 @@ static void display_second(guint second)
   canvasPoints->coords[3]=cy - needle_size * cos(ang);
   gnome_canvas_item_set (second_item,
 			 "points", canvasPoints,
-			 "fill_color", "red",
+			 "fill_color_rgba", 0x68c46f00,
 			 "width_units", (double)1,
 			 "width_pixels", (uint) 4,
 			 "last_arrowhead", TRUE,
@@ -394,7 +394,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	  canvasPoints->coords[0]=cx + (needle_size-hour_point_size) * sin(ang);
 	  canvasPoints->coords[1]=cy - (needle_size-hour_point_size) * cos(ang);
 	  color="darkblue";
-	  color_text="green";
+	  color_text="red";
 	  font = gdk_font;
 	}
       else
@@ -402,8 +402,8 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 	  /* Minute point */
 	  canvasPoints->coords[0]=cx + (needle_size-min_point_size) * sin(ang);
 	  canvasPoints->coords[1]=cy - (needle_size-min_point_size) * cos(ang);
-	  color="green";
-	  color_text="lightgreen";
+	  color="red";
+	  color_text="red";
 	  font = gdk_font_small;
 	}
 
@@ -533,10 +533,10 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 			   gnome_canvas_text_get_type (),
 			   "text", _("Set the clock to:"),
 			   "font_gdk", gdk_font_big3,
-			   "x", (double) cx,
-			   "y", (double) cy + needle_size +  needle_size / 3,
+			   "x", (double) gcomprisBoard->width*0.15,
+			   "y", (double) cy + needle_size +  needle_size / 3 - 30,
 			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color", "green",
+			   "fill_color", "white",
 			   NULL);
   item_list = g_list_append (item_list, item);
   
@@ -545,10 +545,10 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 			   gnome_canvas_text_get_type (),
 			   "text", "",
 			   "font_gdk", gdk_font_big3,
-			   "x", (double) cx,
-			   "y", (double) cy + needle_size +  needle_size / 3 + 30,
+			   "x", (double) gcomprisBoard->width*0.15,
+			   "y", (double) cy + needle_size +  needle_size / 3,
 			   "anchor", GTK_ANCHOR_CENTER,
-			   "fill_color", "green",
+			   "fill_color", "white",
 			   NULL);
   display_digital_time(time_to_find_item, &timeToFind);
   item_list = g_list_append (item_list, time_to_find_item);

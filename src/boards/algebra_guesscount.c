@@ -65,7 +65,7 @@ static void destroy_board();
 #define HORIZONTAL_SEPARATION 20
 #define VERTICAL_SEPARATION 20
 
-static const char* background_images[] = {"gcompris/animals/tiger1_by_Ralf_Schmode","gcompris/animals/tigerdrink001.jpg","gcompris/animals/tigercub003.jpg", "gcompris/animals/tigerplay001.jpg"};
+static char* background_images[] = {"gcompris/animals/tiger1_by_Ralf_Schmode","gcompris/animals/tigerdrink001.jpg","gcompris/animals/tigercub003.jpg", "gcompris/animals/tigerplay001.jpg"};
 static const char oper_values[] = {'+', '-', 'x', ':', '='};
 static const int num_values[] = {1,2,3,4,5,6,7,8,9,10,25,50,100};
 #define NUM_VALUES 13
@@ -588,6 +588,7 @@ static gint item_event_oper(GnomeCanvasItem *item, GdkEvent *event, gpointer dat
     token_count++;
     gtk_signal_connect(GTK_OBJECT(tmp_item), "event", (GtkSignalFunc) item_event_oper_moved, GINT_TO_POINTER(token_count));
     break;
+  default : break;
   }
   return FALSE;
 }
@@ -606,6 +607,7 @@ static gint item_event_oper_moved(GnomeCanvasItem *item, GdkEvent *event, gpoint
       update_line_calcul();
     }
     break;
+  default : break;
   }
   return FALSE;
 }

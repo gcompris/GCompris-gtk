@@ -23,6 +23,8 @@
 
 #define SOUNDLISTFILE PACKAGE
 
+static int gamewon;
+
 static GList *item_list = NULL;
 static GList *item2del_list = NULL;
 
@@ -89,6 +91,9 @@ static void paratrooper_destroy_item(CloudItem *clouditem);
 static void paratrooper_destroy_items(void);
 static void paratrooper_destroy_all_items(void);
 static void paratrooper_next_level(void);
+static gint item_event(GnomeCanvasItem *item, GdkEvent *event, void *data);
+static void next_state();
+
 
 static  double               speed = 0.0;
 static  double               imageZoom = 0.0;
@@ -137,6 +142,7 @@ static void pause_board (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+  printf("paratrooper pause = %d   won=%d\n", pause, gamewon);
   if(pause)
     {
       if (dummy_id) {
@@ -154,6 +160,17 @@ static void pause_board (gboolean pause)
     }
   else
     {
+      if(gamewon == TRUE) /* the game is won */
+	{
+	  gcomprisBoard->level++;
+	  if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
+	    board_finished(BOARD_FINISHED_RANDOM);
+	    return;
+	  }
+	  printf("paratrooper pause start next level\n");
+	}
+
+      // Unpause code
       if(!drop_cloud_id) {
 	drop_cloud_id = gtk_timeout_add (1000,
 					 (GtkFunction) paratrooper_drop_clouds, NULL);
@@ -164,6 +181,9 @@ static void pause_board (gboolean pause)
       if(paratrooperItem.status!=TUX_INPLANE && paratrooperItem.status!=TUX_LANDED) {
 	drop_tux_id = gtk_timeout_add (1000, (GtkFunction) paratrooper_move_tux, NULL);
       }
+
+      if(gamewon == TRUE) /* the game is won */
+	  paratrooper_next_level();
     }
 }
 
@@ -302,42 +322,7 @@ gint key_press(guint keyval)
       return TRUE;
     }
 
-  switch(paratrooperItem.status)
-    {
-    case TUX_INPLANE:
-      gnome_canvas_item_move(paratrooperItem.rootitem, plane_x+100, 0);
-      paratrooperItem.x += plane_x+100;
-      gnome_canvas_item_show(paratrooperItem.paratrooper);
-      paratrooperItem.status = TUX_DROPPING;
-      drop_tux_id = gtk_timeout_add (10, (GtkFunction) paratrooper_move_tux, NULL);
-      break;
-    case TUX_DROPPING:
-      gnome_canvas_item_lower_to_bottom(paratrooperItem.parachute);
-      gnome_canvas_item_show(paratrooperItem.parachute);
-      paratrooperItem.speed /= 3;
-      paratrooperItem.status = TUX_FLYING;
-      break;
-    case TUX_LANDED:
-      gcomprisBoard->level++;
-      if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
-	board_finished(BOARD_FINISHED_RANDOM);
-	return TRUE;
-      }
-      paratrooper_next_level();
-      break;
-    case TUX_CRASHED:
-      /* Restart */
-      gnome_canvas_item_move(paratrooperItem.rootitem, -paratrooperItem.x, -paratrooperItem.y+60);
-      paratrooperItem.status	= TUX_INPLANE;
-      paratrooperItem.x		= 0;
-      paratrooperItem.y		= 60;
-      paratrooperItem.speed	= 3;
-      gnome_canvas_item_hide(paratrooperItem.paratrooper);
-      gnome_canvas_item_show(planeitem);
-      break;
-    default:
-      break;
-    }
+  next_state();
 
   return TRUE;
 }
@@ -374,7 +359,6 @@ help ()
 "<br>Click on any keyboard key to let Tux jump. Another keypress will open the "
 "'parachute'."
 ));
-			  
     }
 }
 
@@ -388,6 +372,8 @@ static void paratrooper_next_level()
 {
   GdkPixbuf *pixmap = NULL;
   char *str = NULL;
+
+  gamewon = FALSE;
 
   gcompris_bar_set_level(gcomprisBoard);
 
@@ -416,6 +402,9 @@ static void paratrooper_next_level()
 				     "width_set", TRUE, 
 				     "height_set", TRUE,
 				     NULL);
+  gtk_signal_connect(GTK_OBJECT(planeitem), "event",
+		     (GtkSignalFunc) item_event,
+		     NULL);
   gdk_pixbuf_unref(pixmap);
  
   windspeed = (3 + rand()%gcomprisBoard->level);
@@ -495,6 +484,9 @@ static void paratrooper_next_level()
 						       NULL);
   gnome_canvas_item_hide(paratrooperItem.paratrooper);
   gdk_pixbuf_unref(pixmap);
+  gtk_signal_connect(GTK_OBJECT(paratrooperItem.paratrooper), "event",
+		     (GtkSignalFunc) item_event,
+		     NULL);
 
   g_free(str);
   str = g_strdup_printf("%s%s", pixmapsdir, "parachute.png");
@@ -560,7 +552,7 @@ static void paratrooper_move_cloud(CloudItem *clouditem)
     {
       item2del_list = g_list_append (item2del_list, clouditem);
 
-      /* Drop a new cloud */
+      /* Move cloud rearm */
       drop_cloud_id = gtk_timeout_add (200,
 				       (GtkFunction) paratrooper_drop_clouds, NULL);
     }
@@ -678,6 +670,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	  gnome_canvas_item_hide(paratrooperItem.parachute);
 	  paratrooperItem.status = TUX_LANDED;
 	  gcompris_play_sound (SOUNDLISTFILE, "bonus");
+	  next_state();
 	}
       else
 	{
@@ -689,6 +682,7 @@ static gint paratrooper_move_tux (GtkWidget *widget, gpointer data)
 	      gnome_canvas_item_hide(paratrooperItem.parachute);
 	      paratrooperItem.status = TUX_CRASHED;
 	      gcompris_play_sound (SOUNDLISTFILE, "crash");
+	      next_state();
 	    }
 	}
     }
@@ -769,6 +763,69 @@ static gint paratrooper_drop_clouds (GtkWidget *widget, gpointer data)
 
   return (FALSE);
 }
+
+
+
+/*
+ * This is the state machine of the paratrooper
+ */
+void next_state()
+{
+
+  switch(paratrooperItem.status)
+    {
+    case TUX_INPLANE:
+      gnome_canvas_item_move(paratrooperItem.rootitem, plane_x+100, 0);
+      paratrooperItem.x += plane_x+100;
+      gnome_canvas_item_show(paratrooperItem.paratrooper);
+      paratrooperItem.status = TUX_DROPPING;
+      drop_tux_id = gtk_timeout_add (10, (GtkFunction) paratrooper_move_tux, NULL);
+      break;
+    case TUX_DROPPING:
+      gnome_canvas_item_lower_to_bottom(paratrooperItem.parachute);
+      gnome_canvas_item_show(paratrooperItem.parachute);
+      paratrooperItem.speed /= 3;
+      paratrooperItem.status = TUX_FLYING;
+      break;
+    case TUX_LANDED:
+      gamewon = TRUE;
+      gcompris_display_bonus(gamewon, BONUS_RANDOM);
+      break;
+    case TUX_CRASHED:
+      /* Restart */
+      gnome_canvas_item_move(paratrooperItem.rootitem, -paratrooperItem.x, -paratrooperItem.y+60);
+      paratrooperItem.status	= TUX_INPLANE;
+      paratrooperItem.x		= 0;
+      paratrooperItem.y		= 60;
+      paratrooperItem.speed	= 3;
+      gnome_canvas_item_hide(paratrooperItem.paratrooper);
+      gnome_canvas_item_show(planeitem);
+      break;
+    default:
+      break;
+    }
+}
+
+static gint
+item_event(GnomeCanvasItem *item, GdkEvent *event, void *data)
+{
+
+   if(!get_board_playing())
+     return FALSE;
+
+   switch (event->type) 
+     {
+     case GDK_BUTTON_PRESS:
+       next_state();
+       break;
+
+     default:
+       break;
+     }
+         
+   return FALSE;
+ }
+
 
 
 

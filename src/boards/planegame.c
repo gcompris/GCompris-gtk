@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2001/12/26 21:45:04 bruno>
+ * Time-stamp: <2002/01/07 00:12:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -497,9 +497,9 @@ static gint planegame_move_items (GtkWidget *widget, gpointer data)
 
   /* move the plane */
   planegame_move_plane(planeitem);
-
-  dummy_id = gtk_timeout_add (speed,
-			      (GtkFunction) planegame_move_items, NULL);
+  printf("ICI\n");
+  //  dummy_id = gtk_timeout_add (speed,
+  //			      (GtkFunction) planegame_move_items, NULL);
 
   return(FALSE);
 }
@@ -592,8 +592,8 @@ static gint planegame_drop_items (GtkWidget *widget, gpointer data)
 {
   planegame_add_new_item();
 
-  drop_items_id = gtk_timeout_add (fallSpeed,
-				   (GtkFunction) planegame_drop_items, NULL);
+  //  drop_items_id = gtk_timeout_add (fallSpeed,
+  //				   (GtkFunction) planegame_drop_items, NULL);
   return (FALSE);
 }
 

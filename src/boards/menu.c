@@ -148,7 +148,7 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
       /* set initial values for this level */
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel=1;
-      gcompris_bar_set(GCOMPRIS_BAR_HELP|GCOMPRIS_BAR_CONFIG);
+      gcompris_bar_set(GCOMPRIS_BAR_HELP|GCOMPRIS_BAR_CONFIG|GCOMPRIS_BAR_ABOUT);
 
       menu_pause(FALSE);
 
