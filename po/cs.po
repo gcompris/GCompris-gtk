@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-18 20:44+0100\n"
-"PO-Revision-Date: 2005-02-19 02:02+0100\n"
+"POT-Creation-Date: 2005-03-05 11:05+0100\n"
+"PO-Revision-Date: 2005-03-05 13:27+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1126,15 +1126,19 @@ msgstr "Hra patnáct"
 msgid "Go to Amusement activities"
 msgstr "Jít na zábavné aktivity"
 
-#: boards/gcompris/mime_type.xml.in.h:1
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:1
 msgid "gcompris animation"
 msgstr "animace gcompris"
 
-#: boards/gcompris/mime_type.xml.in.h:2
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "kresba gcompris"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:3
 msgid "svg drawing"
 msgstr "kresba svg"
 
-#: boards/gcompris/mime_type.xml.in.h:3
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:4
 msgid "svg mozilla animation"
 msgstr "animace mozilla svg"
 
@@ -2692,10 +2696,10 @@ msgstr "Několik činností pro děti"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:848
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
 #: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
 #: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
-#: src/gcompris/images_selector.c:645 src/gcompris/skin.c:83
+#: src/gcompris/images_selector.c:654 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -3196,7 +3200,8 @@ msgstr "Domovská stránka GCompris"
 #: src/gcompris/about.c:252
 msgid ""
 "This software is a GNU Package and is released under the GNU Public License"
-msgstr "Tento software je balík GNU a je uvolněn za podmínek GNU Public Licence"
+msgstr ""
+"Tento software je balík GNU a je uvolněn za podmínek GNU Public Licence"
 
 #: src/gcompris/about.c:281
 msgid "Help"
@@ -3204,7 +3209,7 @@ msgstr "Nápověda"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:209
 #: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:252
+#: src/gcompris/images_selector.c:261
 msgid "OK"
 msgstr "OK"
 
@@ -3457,15 +3462,15 @@ msgstr "V %s nenalezen skin\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:312
+#: src/gcompris/file_selector.c:341
 msgid "CANCEL"
 msgstr "ZRUŠIT"
 
-#: src/gcompris/file_selector.c:343
+#: src/gcompris/file_selector.c:372
 msgid "LOAD"
 msgstr "NAČÍST"
 
-#: src/gcompris/file_selector.c:343
+#: src/gcompris/file_selector.c:372
 msgid "SAVE"
 msgstr "ULOŽIT"
 
