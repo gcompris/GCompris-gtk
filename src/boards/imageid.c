@@ -79,7 +79,7 @@ static GList *board_list = NULL;
 #define IMAGE_AREA_Y2 430
 
 //NUMBER_OF_SUBLEVELS*NUMBER_OF_LEVELS must equal the number of boards in XML file
-#define NUMBER_OF_SUBLEVELS 2
+#define NUMBER_OF_SUBLEVELS 3
 #define NUMBER_OF_LEVELS 4
 
 #define TEXT_COLOR "white"
@@ -259,7 +259,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
   char *str = NULL;
   Board * board;
 
-  board_number = (gcomprisBoard->level-1) *2 + gcomprisBoard->sublevel-1;
+  board_number = (gcomprisBoard->level-1) * NUMBER_OF_SUBLEVELS + gcomprisBoard->sublevel-1;
 /*  if (board_number >= g_list_length(board_list))
 	board_number = g_list_length(board_list)-1;
 */

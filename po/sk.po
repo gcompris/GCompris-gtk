@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris 1.0.2\n"
-"POT-Creation-Date: 2003-01-28 22:37+0100\n"
+"POT-Creation-Date: 2003-01-29 21:42+0100\n"
 "PO-Revision-Date: 2002-07-14 22:54+0100\n"
 "Last-Translator: Zdenko Podobný <zdpo@mailbox.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -883,22 +883,50 @@ msgid "car"
 msgstr "auto"
 
 #: boards/imageid/board1.xml.in.h:13
+#, fuzzy
+msgid "cat"
+msgstr "hrad"
+
+#: boards/imageid/board1.xml.in.h:14
+#, fuzzy
+msgid "catch"
+msgstr "aktovka"
+
+#: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
 msgstr "syr"
 
-#: boards/imageid/board1.xml.in.h:14
+#: boards/imageid/board1.xml.in.h:16
 msgid "cow"
 msgstr "krava"
 
-#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:18
+#, fuzzy
+msgid "finish"
+msgstr "Fínsky"
+
+#: boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "dom"
 
-#: boards/imageid/board1.xml.in.h:16
+#: boards/imageid/board1.xml.in.h:21
 msgid "pear"
 msgstr "hru¹ka"
 
-#: boards/imageid/board1.xml.in.h:17
+#: boards/imageid/board1.xml.in.h:22
+#, fuzzy
+msgid "plane"
+msgstr "jablko"
+
+#: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
 msgstr "aktovka"
 
@@ -1298,41 +1326,69 @@ msgid "car/ca_/r/w/k"
 msgstr "torta/_orta/t/z/b"
 
 #: boards/missing_letter/board1.xml.in.h:22
-msgid "fish/_ish/f/h/l"
-msgstr ""
+#, fuzzy
+msgid "dog/_og/d/p/q"
+msgstr "posteµ/_osteµ/p/l/f"
 
 #: boards/missing_letter/board1.xml.in.h:23
-msgid "fish/f_sh/i/u/l"
+msgid "dog/d_g/o/g/a"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:24
-msgid "fish/fis_/h/o/i"
+msgid "dog/do_/g/p/q"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:28
 #, fuzzy
 msgid "house/_ouse/h/e/j"
 msgstr "dom/do_/n/m/k"
 
-#: boards/missing_letter/board1.xml.in.h:26
+#: boards/missing_letter/board1.xml.in.h:29
 #, fuzzy
 msgid "house/h_use/o/f/u"
 msgstr "dom/do_/n/m/k"
 
-#: boards/missing_letter/board1.xml.in.h:27
+#: boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
 msgstr "dom/do_/n/m/k"
 
-#: boards/missing_letter/board1.xml.in.h:28
+#: boards/missing_letter/board1.xml.in.h:31
+#, fuzzy
+msgid "plane/_lane/p/g/d"
+msgstr "torta/_orta/t/z/b"
+
+#: boards/missing_letter/board1.xml.in.h:32
+#, fuzzy
+msgid "plane/p_ane/l/j/i"
+msgstr "jablko/j_blko/a/i/o"
+
+#: boards/missing_letter/board1.xml.in.h:33
+#, fuzzy
+msgid "plane/pl_ne/a/o/s"
+msgstr "jablko/j_blko/a/i/o"
+
+#: boards/missing_letter/board1.xml.in.h:34
 #, fuzzy
 msgid "satchel/_atchel/s/c/l"
 msgstr "aktovka/_ktovka/a/o/i"
 
-#: boards/missing_letter/board1.xml.in.h:29
+#: boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
 msgstr "aktovka/_ktovka/a/o/i"
 
-#: boards/missing_letter/board1.xml.in.h:30
+#: boards/missing_letter/board1.xml.in.h:36
 #, fuzzy
 msgid "satchel/sa_chel/t/p/c"
 msgstr "aktovka/_ktovka/a/o/i"

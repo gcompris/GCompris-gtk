@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2003-01-28 22:37+0100\n"
+"POT-Creation-Date: 2003-01-29 21:42+0100\n"
 "PO-Revision-Date: 2002-07-03 17:09+0200\n"
 "Last-Translator: Marcel Hilzinger <hili@suselinux.hu>\n"
 "Language-Team: hungarian <kde-lista@sophia.btk.pte.hu>\n"
@@ -901,22 +901,50 @@ msgid "car"
 msgstr "autó"
 
 #: boards/imageid/board1.xml.in.h:13
+#, fuzzy
+msgid "cat"
+msgstr "vár"
+
+#: boards/imageid/board1.xml.in.h:14
+#, fuzzy
+msgid "catch"
+msgstr "táska"
+
+#: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
 msgstr "sajt"
 
-#: boards/imageid/board1.xml.in.h:14
+#: boards/imageid/board1.xml.in.h:16
 msgid "cow"
 msgstr "boci"
 
-#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:18
+#, fuzzy
+msgid "finish"
+msgstr "Finn"
+
+#: boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "ház"
 
-#: boards/imageid/board1.xml.in.h:16
+#: boards/imageid/board1.xml.in.h:21
 msgid "pear"
 msgstr "körte"
 
-#: boards/imageid/board1.xml.in.h:17
+#: boards/imageid/board1.xml.in.h:22
+#, fuzzy
+msgid "plane"
+msgstr "alma"
+
+#: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
 msgstr "táska"
 
@@ -1324,41 +1352,69 @@ msgid "car/ca_/r/w/k"
 msgstr "süti/sü_i/ü/t/i"
 
 #: boards/missing_letter/board1.xml.in.h:22
-msgid "fish/_ish/f/h/l"
-msgstr ""
+#, fuzzy
+msgid "dog/_og/d/p/q"
+msgstr "ágy/á_y/L/G/Y"
 
 #: boards/missing_letter/board1.xml.in.h:23
-msgid "fish/f_sh/i/u/l"
+msgid "dog/d_g/o/g/a"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:24
-msgid "fish/fis_/h/o/i"
+msgid "dog/do_/g/p/q"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:28
 #, fuzzy
 msgid "house/_ouse/h/e/j"
 msgstr "házikó/há_ikó/á/z/k"
 
-#: boards/missing_letter/board1.xml.in.h:26
+#: boards/missing_letter/board1.xml.in.h:29
 #, fuzzy
 msgid "house/h_use/o/f/u"
 msgstr "házikó/há_ikó/á/z/k"
 
-#: boards/missing_letter/board1.xml.in.h:27
+#: boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
 msgstr "házikó/há_ikó/á/z/k"
 
-#: boards/missing_letter/board1.xml.in.h:28
+#: boards/missing_letter/board1.xml.in.h:31
+#, fuzzy
+msgid "plane/_lane/p/g/d"
+msgstr "süti/sü_i/ü/t/i"
+
+#: boards/missing_letter/board1.xml.in.h:32
+#, fuzzy
+msgid "plane/p_ane/l/j/i"
+msgstr "alma/_lma/A/I/O"
+
+#: boards/missing_letter/board1.xml.in.h:33
+#, fuzzy
+msgid "plane/pl_ne/a/o/s"
+msgstr "alma/_lma/A/I/O"
+
+#: boards/missing_letter/board1.xml.in.h:34
 #, fuzzy
 msgid "satchel/_atchel/s/c/l"
 msgstr "táska/tá_ka/z/h/z"
 
-#: boards/missing_letter/board1.xml.in.h:29
+#: boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
 msgstr "táska/tá_ka/z/h/z"
 
-#: boards/missing_letter/board1.xml.in.h:30
+#: boards/missing_letter/board1.xml.in.h:36
 #, fuzzy
 msgid "satchel/sa_chel/t/p/c"
 msgstr "táska/tá_ka/z/h/z"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"POT-Creation-Date: 2003-01-28 22:37+0100\n"
+"POT-Creation-Date: 2003-01-29 21:42+0100\n"
 "PO-Revision-Date: 2002-01-09 00:08+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -867,22 +867,50 @@ msgid "car"
 msgstr "bil"
 
 #: boards/imageid/board1.xml.in.h:13
+#, fuzzy
+msgid "cat"
+msgstr "slott"
+
+#: boards/imageid/board1.xml.in.h:14
+#, fuzzy
+msgid "catch"
+msgstr "skolväska"
+
+#: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
 msgstr "ost"
 
-#: boards/imageid/board1.xml.in.h:14
+#: boards/imageid/board1.xml.in.h:16
 msgid "cow"
 msgstr "ko"
 
-#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:18
+#, fuzzy
+msgid "finish"
+msgstr "Finska"
+
+#: boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "hus"
 
-#: boards/imageid/board1.xml.in.h:16
+#: boards/imageid/board1.xml.in.h:21
 msgid "pear"
 msgstr "päron"
 
-#: boards/imageid/board1.xml.in.h:17
+#: boards/imageid/board1.xml.in.h:22
+#, fuzzy
+msgid "plane"
+msgstr "äpple"
+
+#: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
 msgstr "skolväska"
 
@@ -1278,41 +1306,69 @@ msgid "car/ca_/r/w/k"
 msgstr "kaka/_aka/k/p/d"
 
 #: boards/missing_letter/board1.xml.in.h:22
-msgid "fish/_ish/f/h/l"
-msgstr ""
+#, fuzzy
+msgid "dog/_og/d/p/q"
+msgstr "säng/_äng/s/l/f"
 
 #: boards/missing_letter/board1.xml.in.h:23
-msgid "fish/f_sh/i/u/l"
+msgid "dog/d_g/o/g/a"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:24
-msgid "fish/fis_/h/o/i"
+msgid "dog/do_/g/p/q"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:28
 #, fuzzy
 msgid "house/_ouse/h/e/j"
 msgstr "hus/h_s/u/ä/i"
 
-#: boards/missing_letter/board1.xml.in.h:26
+#: boards/missing_letter/board1.xml.in.h:29
 #, fuzzy
 msgid "house/h_use/o/f/u"
 msgstr "hus/h_s/u/ä/i"
 
-#: boards/missing_letter/board1.xml.in.h:27
+#: boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
 msgstr "hus/h_s/u/ä/i"
 
-#: boards/missing_letter/board1.xml.in.h:28
+#: boards/missing_letter/board1.xml.in.h:31
+#, fuzzy
+msgid "plane/_lane/p/g/d"
+msgstr "kaka/_aka/k/p/d"
+
+#: boards/missing_letter/board1.xml.in.h:32
+#, fuzzy
+msgid "plane/p_ane/l/j/i"
+msgstr "äpple/_pple/ä/i/ö"
+
+#: boards/missing_letter/board1.xml.in.h:33
+#, fuzzy
+msgid "plane/pl_ne/a/o/s"
+msgstr "äpple/_pple/ä/i/ö"
+
+#: boards/missing_letter/board1.xml.in.h:34
 #, fuzzy
 msgid "satchel/_atchel/s/c/l"
 msgstr "skolväska/sk_lväska/o/a/i"
 
-#: boards/missing_letter/board1.xml.in.h:29
+#: boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
 msgstr "skolväska/sk_lväska/o/a/i"
 
-#: boards/missing_letter/board1.xml.in.h:30
+#: boards/missing_letter/board1.xml.in.h:36
 #, fuzzy
 msgid "satchel/sa_chel/t/p/c"
 msgstr "skolväska/sk_lväska/o/a/i"

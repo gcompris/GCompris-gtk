@@ -72,8 +72,8 @@ static GList *board_list = NULL;
 #define HORIZONTAL_SEPARATION 30
 
 //NUMBER_OF_SUBLEVELS*NUMBER_OF_LEVELS must equal the number of boards in XML file
-#define NUMBER_OF_SUBLEVELS 10
-#define NUMBER_OF_LEVELS 3
+#define NUMBER_OF_SUBLEVELS 9
+#define NUMBER_OF_LEVELS 4
 
 #define TEXT_COLOR "white"
 

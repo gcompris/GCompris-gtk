@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.7\n"
-"POT-Creation-Date: 2003-01-28 22:37+0100\n"
+"POT-Creation-Date: 2003-01-29 21:42+0100\n"
 "PO-Revision-Date: 2002-12-31 00:40+0100\n"
 "Last-Translator: Bruno Coudoin <bruno.coudoin@anfora.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -913,22 +913,46 @@ msgid "car"
 msgstr "voiture"
 
 #: boards/imageid/board1.xml.in.h:13
+msgid "cat"
+msgstr "chat"
+
+#: boards/imageid/board1.xml.in.h:14
+msgid "catch"
+msgstr "cartable"
+
+#: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
 msgstr "fromage"
 
-#: boards/imageid/board1.xml.in.h:14
+#: boards/imageid/board1.xml.in.h:16
 msgid "cow"
 msgstr "vache"
 
-#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr "chien"
+
+#: boards/imageid/board1.xml.in.h:18
+msgid "finish"
+msgstr "fin"
+
+#: boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr "poisson"
+
+#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "maison"
 
-#: boards/imageid/board1.xml.in.h:16
+#: boards/imageid/board1.xml.in.h:21
 msgid "pear"
 msgstr "poire"
 
-#: boards/imageid/board1.xml.in.h:17
+#: boards/imageid/board1.xml.in.h:22
+msgid "plane"
+msgstr "avion"
+
+#: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
 msgstr "cartable"
 
@@ -1359,54 +1383,76 @@ msgid "car/ca_/r/w/k"
 msgstr "voiture/voitu_e/r/g/n"
 
 #: boards/missing_letter/board1.xml.in.h:22
+msgid "dog/_og/d/p/q"
+msgstr "chien/ch_en/i/u/e"
+
+#: boards/missing_letter/board1.xml.in.h:23
+msgid "dog/d_g/o/g/a"
+msgstr "chien/c_ien/h/i/g"
+
+#: boards/missing_letter/board1.xml.in.h:24
+msgid "dog/do_/g/p/q"
+msgstr "chien/_hien/c/s/z"
+
+#: boards/missing_letter/board1.xml.in.h:25
 msgid "fish/_ish/f/h/l"
 msgstr "poisson/_oisson/p/b/q"
 
-#: boards/missing_letter/board1.xml.in.h:23
+#: boards/missing_letter/board1.xml.in.h:26
 msgid "fish/f_sh/i/u/l"
 msgstr "poisson/p_isson/o/i/a"
 
-#: boards/missing_letter/board1.xml.in.h:24
+#: boards/missing_letter/board1.xml.in.h:27
 msgid "fish/fis_/h/o/i"
 msgstr "poisson/poisso_/n/m/b"
 
-#: boards/missing_letter/board1.xml.in.h:25
+#: boards/missing_letter/board1.xml.in.h:28
 msgid "house/_ouse/h/e/j"
 msgstr "maison/mai_on/s/l/m"
 
-#: boards/missing_letter/board1.xml.in.h:26
+#: boards/missing_letter/board1.xml.in.h:29
 msgid "house/h_use/o/f/u"
 msgstr "maison/mais_n/o/d/u"
 
-#: boards/missing_letter/board1.xml.in.h:27
+#: boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
 msgstr "maison/_aison/m/l/d"
 
-#: boards/missing_letter/board1.xml.in.h:28
+#: boards/missing_letter/board1.xml.in.h:31
+msgid "plane/_lane/p/g/d"
+msgstr "avion/_vion/a/b/o"
+
+#: boards/missing_letter/board1.xml.in.h:32
+msgid "plane/p_ane/l/j/i"
+msgstr "avion/a_ion/v/w/s"
+
+#: boards/missing_letter/board1.xml.in.h:33
+msgid "plane/pl_ne/a/o/s"
+msgstr "avion/avio_/n/m/u"
+
+#: boards/missing_letter/board1.xml.in.h:34
 msgid "satchel/_atchel/s/c/l"
 msgstr "cartable/_artable/c/g/v"
 
-#: boards/missing_letter/board1.xml.in.h:29
+#: boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
 msgstr "cartable/cart_ble/a/o/u"
 
-#: boards/missing_letter/board1.xml.in.h:30
+#: boards/missing_letter/board1.xml.in.h:36
 msgid "satchel/sa_chel/t/p/c"
 msgstr "cartable/carta_le/b/g/p"
 
 #: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
-#, fuzzy
 msgid "Money"
-msgstr "Aucun"
+msgstr "Argent"
 
 #: boards/money.xml.in.h:2 src/boards/money.c:88
-#, fuzzy
 msgid "Pratice money usage"
-msgstr "Apprentissage des échecs"
+msgstr "Manipulation des billets et pièces"
 
 #: boards/money_cents.xml.in.h:2
 msgid "Pratice money usage including cents"
-msgstr "Apprend à manipuler de l'argent avec les centimes"
+msgstr "Apprends à manipuler de l'argent avec les centimes"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"

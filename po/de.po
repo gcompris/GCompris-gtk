@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
-"POT-Creation-Date: 2003-01-28 22:37+0100\n"
+"POT-Creation-Date: 2003-01-29 21:42+0100\n"
 "PO-Revision-Date: 2002-03-21 21:33+0100\n"
 "Last-Translator: Hansjörg Schwarz <rotten@odn.de>\n"
 "Language-Team: \n"
@@ -897,22 +897,50 @@ msgid "car"
 msgstr "Auto"
 
 #: boards/imageid/board1.xml.in.h:13
+#, fuzzy
+msgid "cat"
+msgstr "Burg"
+
+#: boards/imageid/board1.xml.in.h:14
+#, fuzzy
+msgid "catch"
+msgstr "Schulranzen"
+
+#: boards/imageid/board1.xml.in.h:15
 msgid "cheese"
 msgstr "Käse"
 
-#: boards/imageid/board1.xml.in.h:14
+#: boards/imageid/board1.xml.in.h:16
 msgid "cow"
 msgstr "Kuh"
 
-#: boards/imageid/board1.xml.in.h:15 boards/imagename/board3_0.xml.in.h:2
+#: boards/imageid/board1.xml.in.h:17
+msgid "dog"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:18
+#, fuzzy
+msgid "finish"
+msgstr "Finnisch"
+
+#: boards/imageid/board1.xml.in.h:19
+msgid "fish"
+msgstr ""
+
+#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "Haus"
 
-#: boards/imageid/board1.xml.in.h:16
+#: boards/imageid/board1.xml.in.h:21
 msgid "pear"
 msgstr "Birne"
 
-#: boards/imageid/board1.xml.in.h:17
+#: boards/imageid/board1.xml.in.h:22
+#, fuzzy
+msgid "plane"
+msgstr "Apfel"
+
+#: boards/imageid/board1.xml.in.h:23
 msgid "satchel"
 msgstr "Schulranzen"
 
@@ -1326,43 +1354,71 @@ msgid "car/ca_/r/w/k"
 msgstr "Kuchen _uchen K P D"
 
 #: boards/missing_letter/board1.xml.in.h:22
-msgid "fish/_ish/f/h/l"
-msgstr ""
+#, fuzzy
+msgid "dog/_og/d/p/q"
+msgstr "Bett _ett B L F"
 
 #: boards/missing_letter/board1.xml.in.h:23
-msgid "fish/f_sh/i/u/l"
+msgid "dog/d_g/o/g/a"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:24
-msgid "fish/fis_/h/o/i"
+msgid "dog/do_/g/p/q"
 msgstr ""
 
 #: boards/missing_letter/board1.xml.in.h:25
+msgid "fish/_ish/f/h/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:26
+msgid "fish/f_sh/i/u/l"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:27
+msgid "fish/fis_/h/o/i"
+msgstr ""
+
+#: boards/missing_letter/board1.xml.in.h:28
 #, fuzzy
 msgid "house/_ouse/h/e/j"
 msgstr "Haus Ha_s u a i"
 
-#: boards/missing_letter/board1.xml.in.h:26
+#: boards/missing_letter/board1.xml.in.h:29
 #, fuzzy
 msgid "house/h_use/o/f/u"
 msgstr "Haus Ha_s u a i"
 
-#: boards/missing_letter/board1.xml.in.h:27
+#: boards/missing_letter/board1.xml.in.h:30
 #, fuzzy
 msgid "house/hous_/e/a/i"
 msgstr "Haus Ha_s u a i"
 
-#: boards/missing_letter/board1.xml.in.h:28
+#: boards/missing_letter/board1.xml.in.h:31
+#, fuzzy
+msgid "plane/_lane/p/g/d"
+msgstr "Kuchen _uchen K P D"
+
+#: boards/missing_letter/board1.xml.in.h:32
+#, fuzzy
+msgid "plane/p_ane/l/j/i"
+msgstr "Apfel _pfel A I O"
+
+#: boards/missing_letter/board1.xml.in.h:33
+#, fuzzy
+msgid "plane/pl_ne/a/o/s"
+msgstr "Apfel _pfel A I O"
+
+#: boards/missing_letter/board1.xml.in.h:34
 #, fuzzy
 msgid "satchel/_atchel/s/c/l"
 msgstr "Ranzen R_nzen a o i"
 
-#: boards/missing_letter/board1.xml.in.h:29
+#: boards/missing_letter/board1.xml.in.h:35
 #, fuzzy
 msgid "satchel/s_tchel/a/o/i"
 msgstr "Ranzen R_nzen a o i"
 
-#: boards/missing_letter/board1.xml.in.h:30
+#: boards/missing_letter/board1.xml.in.h:36
 #, fuzzy
 msgid "satchel/sa_chel/t/p/c"
 msgstr "Ranzen R_nzen a o i"
