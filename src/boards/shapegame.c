@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2003/05/21 04:24:33 bcoudoin>
+ * Time-stamp: <2003/08/21 16:42:34 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -852,7 +852,7 @@ static Shape *find_closest_shape(double x, double y, double limit)
   return candidateShape;
 }
 
-#if 0
+//#if 0
 static void dump_shape(Shape *shape)
 {
   printf("dump_shape name=%s found=%d type=%d ", shape->name, shape->found, shape->type);
@@ -862,7 +862,7 @@ static void dump_shape(Shape *shape)
     printf("icon_shape=%s", shape->icon_shape->name);
   printf("\n");
 }
-#endif
+//#endif
 
 /*
  * Given the shape, if it has an icon, it puts it back to
@@ -871,6 +871,7 @@ static void dump_shape(Shape *shape)
 static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 {
   printf("shape_goes_back_to_list shape=%s shape->shapelistgroup_index=%d current_shapelistgroup_index=%d\n", shape->name, shape->shapelistgroup_index, current_shapelistgroup_index);
+
   if(shape->icon_shape!=NULL)
     {
       if(shape->icon_shape->target_shape)
@@ -892,8 +893,6 @@ static void shape_goes_back_to_list(Shape *shape, GnomeCanvasItem *item)
 
       gnome_canvas_item_hide(item);
       gcompris_play_ogg ("gobble", NULL);
-
-
     }
 }
 
@@ -1017,6 +1016,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
          case 3:
 	   /* If There was a previous icon here, put it back to the list */
 	   shape_goes_back_to_list(shape, item);
+	   /* Mark it not found */
 	   shape->found = FALSE;
 	   break;
 
@@ -1139,7 +1139,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 				      shape->x - x + offset_x,
 				      shape->y - y + offset_y);
 	       shape->target_shape->placed = FALSE;
-
+	       /* Mark it not found */
+	       shape->target_shape->found = FALSE;
+	       dump_shape(shape);
+	       dump_shape(shape->target_shape);
 	     }
 	 }
        break;
