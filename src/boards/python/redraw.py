@@ -369,7 +369,7 @@ class Gcompris_redraw:
 
     self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.jpg"),
+      pixbuf = gcompris.utils.load_pixmap("draw/little-tool-selector.png"),
       x=5,
       y=20.0,
       width=30.0

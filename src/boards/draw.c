@@ -264,7 +264,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "draw/draw-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
+			      gcompris_image_to_skin("gcompris-bg.jpg"));
 
 
       /* set initial values for this level */
@@ -527,7 +528,7 @@ static void display_color_selector(GnomeCanvasGroup *parent)
   gint c  = 0;
   guint color_pixmap_height = 0;
 
-  pixmap = gcompris_load_pixmap("draw/color-selector.jpg");
+  pixmap = gcompris_load_pixmap("draw/color-selector.png");
   if(pixmap)
     {
       x = (drawing_area_x2 - drawing_area_x1
@@ -620,7 +621,7 @@ static void display_tool_selector(GnomeCanvasGroup *parent)
   gint y   = 0;
   guint toolIndex = 0;
 
-  pixmap = gcompris_load_pixmap("draw/tool-selector.jpg");
+  pixmap = gcompris_load_pixmap("draw/tool-selector.png");
   if(pixmap)
     {
       x = 3;

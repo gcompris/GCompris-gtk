@@ -1,3 +1,71 @@
+2005-03-19  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Rework of many graphism by Frank
+
+	* boards/draw/color-selector.jpg:
+	* boards/draw/draw-bg.jpg:
+	* boards/draw/tool-camera.png:
+	* boards/draw/tool-camera_on.png:
+	* boards/draw/tool-circle.png:
+	* boards/draw/tool-circle_on.png:
+	* boards/draw/tool-del.png:
+	* boards/draw/tool-del_on.png:
+	* boards/draw/tool-down.png:
+	* boards/draw/tool-down_on.png:
+	* boards/draw/tool-empty.png:
+	* boards/draw/tool-empty_on.png:
+	* boards/draw/tool-fill.png:
+	* boards/draw/tool-fill_on.png:
+	* boards/draw/tool-filledcircle.png:
+	* boards/draw/tool-filledcircle_on.png:
+	* boards/draw/tool-filledrectangle.png:
+	* boards/draw/tool-filledrectangle_on.png:
+	* boards/draw/tool-flip.png:
+	* boards/draw/tool-flip_on.png:
+	* boards/draw/tool-grid.png:
+	* boards/draw/tool-grid_on.png:
+	* boards/draw/tool-image.png:
+	* boards/draw/tool-image_on.png:
+	* boards/draw/tool-line.png:
+	* boards/draw/tool-line_on.png:
+	* boards/draw/tool-load.png:
+	* boards/draw/tool-movie.png:
+	* boards/draw/tool-movie_on.png:
+	* boards/draw/tool-rectangle.png:
+	* boards/draw/tool-rectangle_on.png:
+	* boards/draw/tool-rotation-ccw.png:
+	* boards/draw/tool-rotation-ccw_on.png:
+	* boards/draw/tool-rotation-cw.png:
+	* boards/draw/tool-rotation-cw_on.png:
+	* boards/draw/tool-save.png:
+	* boards/draw/tool-select.png:
+	* boards/draw/tool-select_on.png:
+	* boards/draw/tool-selector.jpg:
+	* boards/draw/tool-text.png:
+	* boards/draw/tool-text_on.png:
+	* boards/draw/tool-up.png:
+	* boards/draw/tool-up_on.png:
+	* boards/melody/background.jpg:
+	* boards/melody/cursor.png:
+	* boards/melody/guitar/background.jpg:
+	* boards/melody/guitar/cursor.png:
+	* boards/melody/son1.png:
+	* boards/melody/son2.png:
+	* boards/melody/son3.png:
+	* boards/melody/son4.png:
+	* boards/melody/tachos/background.jpg:
+	* boards/melody/tachos/cursor.png:
+	* boards/melody/tachos/son1.png:
+	* boards/melody/tachos/son2.png:
+	* boards/melody/tachos/son3.png:
+	* boards/melody/tachos/son4.png:
+	* boards/skins/default/images_selector_bg.png:
+	* src/boards/draw.c: (start_board), (display_color_selector),
+	(display_tool_selector):
+	* src/boards/python/anim.py:
+	* src/boards/python/melody.py:
+	* src/boards/python/redraw.py:
+
 2005-03-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/melody/guitar/background.png: new background by Frank

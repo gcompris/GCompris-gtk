@@ -547,11 +547,11 @@ class Gcompris_anim:
 
     self.root_toolitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.jpg"),
+      pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.png"),
       x=5,
       y=5.0,
-      width=100.0,
-      height=458.0,
+      width=107.0,
+      height=517.0,
       width_set=True,
       height_set=True
       )
@@ -655,14 +655,14 @@ class Gcompris_anim:
   # Display the color selector
   def draw_colors(self):
 
-    pixmap = gcompris.utils.load_pixmap("draw/color-selector.jpg")
+    pixmap = gcompris.utils.load_pixmap("draw/color-selector.png")
 
     x = (self.drawing_area[2] - self.drawing_area[0]
          - pixmap.get_width())/2 + self.drawing_area[0]
 
     color_pixmap_height = pixmap.get_height()
 
-    y = gcompris.BOARD_HEIGHT - color_pixmap_height - 5
+    y = gcompris.BOARD_HEIGHT - color_pixmap_height - 8
 
     c = 0
 
@@ -764,7 +764,7 @@ class Gcompris_anim:
     
     self.flash = self.rootitem.add (
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("anim/camera.png"),
+      pixbuf = gcompris.utils.load_pixmap("draw/camera.png"),
       x=300,
       y=200,
       )
@@ -793,7 +793,7 @@ class Gcompris_anim:
 
     run = self.root_playingitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("submarine/down.png"),
+      pixbuf = gcompris.utils.load_pixmap("draw/down.png"),
       x = 15,
       y = 410,
       width = 20,
@@ -815,7 +815,7 @@ class Gcompris_anim:
 
     run = self.root_playingitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("submarine/up.png"),
+      pixbuf = gcompris.utils.load_pixmap("draw/up.png"),
       x = 70,
       y = 410,
       width = 20,
@@ -1449,11 +1449,11 @@ class Gcompris_anim:
     # Draw the background area
     self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.jpg"),
-      x=x_left-3,
-      y=y_top - 6,
-      width=100.0,
-      height=47.0,
+      pixbuf = gcompris.utils.load_pixmap("draw/counter.png"),
+      x=x_left - -11,
+      y=y_top - 2,
+      width=70.0,
+      height=34.0,
       width_set=True,
       height_set=True
       )
