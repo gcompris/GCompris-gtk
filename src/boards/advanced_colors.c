@@ -37,7 +37,7 @@ static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static int gamewon, errors;
 
-static void		 process_ok(void);
+static void		 ok(void);
 static void		 highlight_selected(int);
 static void		 game_won(void);
 static void		 init_xml(void);
@@ -95,7 +95,7 @@ BoardPlugin menu_bp =
     end_board,
     is_our_board,
     NULL,
-    process_ok,
+    NULL,
     set_level,
     NULL,
     NULL
@@ -336,8 +336,8 @@ static void game_won() {
 /* =====================================================================
  *
  * =====================================================================*/
-static gboolean process_ok_timeout() {
-	printf("+++ process_ok_timeout errors = %d\n", errors);
+static gboolean ok_timeout() {
+	printf("+++ ok_timeout errors = %d\n", errors);
   gcompris_display_bonus(gamewon, BONUS_SMILEY);
   if (!gamewon)
     errors--;
@@ -352,9 +352,9 @@ static gboolean process_ok_timeout() {
   return FALSE;
 }
 
-static void process_ok() {
+static void ok() {
 	// leave time to display the right answer
-  g_timeout_add(TIME_CLICK_TO_BONUS, process_ok_timeout, NULL);
+  g_timeout_add(TIME_CLICK_TO_BONUS, ok_timeout, NULL);
 }
 
 /* =====================================================================
@@ -384,7 +384,7 @@ static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
       if (clicked >= 0) {
 				highlight_selected(clicked);
 				gamewon = (clicked == GPOINTER_TO_INT(g_list_nth_data(listColors,0)));
-  			process_ok();
+  			ok();
       }
       break;
 

@@ -64,8 +64,8 @@ static void game_won();
 #define MAX_DEPTH 250.0
 #define SPEED_MAX 10
 #define SPEED_STEP 1
-#define AIR_INITIAL 50000
-#define BATTERY_INITIAL 5000
+#define AIR_INITIAL 30000
+#define BATTERY_INITIAL 3000
 #define MAX_BALLAST 10000
 #define MAX_REGLEUR 800
 #define REGLEUR_INITIAL 500.0
@@ -812,15 +812,15 @@ static gboolean update_timeout_slow() {
   }
 
   /* position & depth */
-  submarine_x += submarine_horizontal_speed * cos(DEG_TO_RAD(assiette));
-  depth += submarine_vertical_speed;
+  submarine_x += submarine_horizontal_speed * cos(DEG_TO_RAD(assiette)) * UPDATE_DELAY_SLOW/1000.0;
+  depth += submarine_vertical_speed * UPDATE_DELAY_SLOW/1000.0;
   if (depth < SURFACE_DEPTH)
   	depth = SURFACE_DEPTH;
   if (depth > MAX_DEPTH)
   	depth = MAX_DEPTH;
 
   // show an alert if some parameters reach the limit
-  if (depth == MAX_DEPTH || assiette == -30.0 || assiette == 30.0 || air == 0.0 || battery == 0.0)
+  if (depth >= MAX_DEPTH-20.0 || assiette == -30.0 || assiette == 30.0 || air == 0.0 || battery == 0.0)
   	gnome_canvas_item_show(alert_submarine);
   	else
 		gnome_canvas_item_hide(alert_submarine);
@@ -839,7 +839,7 @@ static gboolean update_timeout_slow() {
 
   /* if the submarine is too close from right, put it at left */
   if ( submarine_x > WRAP_X )
-		submarine_x = 0.0;
+		submarine_x = SUBMARINE_WIDTH/2.0;
 
   {
     double r[6],t1[6], t2[6];
@@ -878,7 +878,14 @@ static gboolean update_timeout_very_slow() {
   }
 
   /* battery */
-  setBattery(battery -= submarine_horizontal_speed*submarine_horizontal_speed/10.0);
+	battery -= submarine_horizontal_speed*submarine_horizontal_speed/3.0*UPDATE_DELAY_VERY_SLOW/1000.0;
+  if (battery < 0.0) {
+  	battery = 0.0;
+		speed_ordered = 0;
+    setSpeed(speed_ordered);
+  }
+
+  setBattery( battery );
 
   /* bubbling */
 	if ( (ballast_av_purge_open && ballast_av_air > 0.0) ||

@@ -1,5 +1,9 @@
+2003-03-01  Pascal Georges <pascal.georges1@free.fr>
+	* src/boards/advanced_colors.c : fixed a bug (several points were substracted for one
+  mere error). Corrected by removing "process_ok" function.
+
 2003-02-28  Pascal Georges <pascal.georges1@free.fr>
-	* src/boards/submarine.c : added air and battery triggers, an alert is displayed 
+	* src/boards/submarine.c : added air and battery triggers, an alert is displayed
   when some parameters reach some limits
 
 2003-02-27  Pascal Georges <pascal.georges1@free.fr>
