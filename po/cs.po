@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 03:20+0100\n"
-"PO-Revision-Date: 2005-01-31 10:50+0100\n"
+"POT-Creation-Date: 2005-02-04 11:21+0100\n"
+"PO-Revision-Date: 2005-02-04 13:11+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1742,21 +1742,21 @@ msgid "None"
 msgstr "Žádný"
 
 #: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
-#: boards/maze3D.xml.in.h:2
+#: boards/maze3D.xml.in.h:2 boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Umí používat šipky na klávesnici pro pohyb objektu."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:130
+#: boards/maze.xml.in.h:2 src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Najdi cestu z bludiště"
 
 #: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
-#: boards/maze3D.xml.in.h:4
+#: boards/maze3D.xml.in.h:4 boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Pomoz Tuxovi dostat se z tohoto bludiště."
 
 #: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
-#: src/boards/maze.c:129
+#: boards/mazeInvisible.xml.in.h:4 src/boards/maze.c:132
 msgid "Maze"
 msgstr "Bludiště"
 
@@ -1785,6 +1785,17 @@ msgstr ""
 "Použij šipky na klávesnici pro přesun Tuxe nahoru ke dveřím. Pro přepínání "
 "mezi režimy 2D a 3D použij mezerník. Režim 2D ti dává jen informace o tvé "
 "pozici jako na mapě. V režimu 2D nemůžeš Tuxem pohybovat."
+
+#: boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Najdi cestu z neviditelného bludiště"
+
+#: boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr "Použij šipky na klávesnici pro přesun Tuxe nahoru ke dveřím. Pro přepínání mezi viditelným a neviditelným režimem použij mezerník. Viditelný režim ti dává jen informace o tvé pozici jako na mapě. Ve viditelném režimu nemůžeš Tuxem pohybovat."
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2472,15 +2483,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Dobře vyrovnat váhy."
 
-#: boards/smallnumbers.xml.in.h:1
+#: boards/smallnumbers.xml.in.h:1 boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Spočítej číslo na na kostce než se dotkne země"
 
-#: boards/smallnumbers.xml.in.h:2
+#: boards/smallnumbers.xml.in.h:2 boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Schopnost počítat"
 
-#: boards/smallnumbers.xml.in.h:3
+#: boards/smallnumbers.xml.in.h:3 boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "V omezeném čase spočítat počet teček"
 
@@ -2488,11 +2499,15 @@ msgstr "V omezeném čase spočítat počet teček"
 msgid "Numbers With Dice"
 msgstr "Čísla s kostkami"
 
-#: boards/smallnumbers.xml.in.h:5
+#: boards/smallnumbers.xml.in.h:5 boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr "Na klávesnici napiš číslo odpovídající počtu teček na padající kostce."
+
+#: boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Čísla s dvěma kostkami"
 
 #: boards/submarine.xml.in.h:1
 msgid ""
@@ -2626,6 +2641,10 @@ msgstr "Naučná hra od 2 do 10 let"
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
 msgstr "Naučná sada gcompris"
+
+#: gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Několik činností pro děti"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
@@ -2840,7 +2859,11 @@ msgstr "doleva"
 msgid "right"
 msgstr "doprava"
 
-#: src/boards/maze.c:453
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do neviditelného režimu"
+
+#: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
 
@@ -3054,11 +3077,11 @@ msgstr ""
 "Data této desky jsou uložena pod\n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:70
+#: src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Čísla s kostkami"
 
-#: src/boards/smallnumbers.c:71
+#: src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Stiskni klávesu s číslem 1 až 9, než kostka dopadne na zem"
 
@@ -3385,15 +3408,15 @@ msgstr "V %s nenalezen skin\n"
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/file_selector.c:277
+#: src/gcompris/file_selector.c:284
 msgid "CANCEL"
 msgstr "ZRUŠIT"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:315
 msgid "LOAD"
 msgstr "NAČÍST"
 
-#: src/gcompris/file_selector.c:308
+#: src/gcompris/file_selector.c:315
 msgid "SAVE"
 msgstr "ULOŽIT"
 
