@@ -230,6 +230,8 @@ echo ""
 echo "***************************************************"
 echo ""
 echo configure complete,
+echo with options:
+echo python plugins = $build_python_plugin
 echo gcompris will be installed in ${prefix}
 echo to compile and install in in another directory
 echo type sh configure --prefix=/usr
