@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-21 03:33+0100\n"
-"PO-Revision-Date: 2004-02-21 09:53+0100\n"
+"POT-Creation-Date: 2004-03-01 03:34+0100\n"
+"PO-Revision-Date: 2004-03-01 15:19+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -602,11 +602,9 @@ msgstr "Uspořádej příběh tažením a puštěním"
 
 #: boards/chronos.xml.in.h:3
 msgid ""
-"Moon photo comes from NASA\n"
-" Space sounds from Tuxpaint and Vegastrike"
-msgstr ""
-"Fotografie měsíce je od NASA\n"
-" Vesmírné zvuky z Tuxpaint a Vegastrike"
+"Moon photo comes from NASA Space sounds from Tuxpaint and Vegastrike. Date "
+"of Transportation are based on those found in http://www.wikipedia.org"
+msgstr "Fotografie měsíce je od NASA Vesmírné zvuky z Tuxpaint a Vegastrike. Data přepravy jsou založena na datech nalezených na http://www.wikipedia.org"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -912,11 +910,11 @@ msgstr "Manipulace s klávesnicí"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Rozpoznávání písmen mezi obrazovkou a klávesnicí"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:76
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
 msgid "Simple Letters"
 msgstr "Jednoduchá písmena"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:77
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
 msgid "Type the falling letters before they reach the ground"
 msgstr "Napiš padající písmeno, než dopadne na zem"
 
@@ -1258,10 +1256,20 @@ msgid "Ear training activity"
 msgstr "Aktivita pro cvičení sluchu"
 
 #: boards/melody.xml.in.h:2
+msgid ""
+"Listen the sound sequence played. Then try to repeat it clicking on the "
+"elements. You can listen again clicking on the repeat button."
+msgstr "Poslouchej přehrávanou posloupnost zvuků. Pak ji zkus zopakovat klikáním na prvky. Můžeš znovu poslouchat kliknutím na tlačítko opakování."
+
+#: boards/melody.xml.in.h:3
 msgid "Melody"
 msgstr "Melodie"
 
-#: boards/melody.xml.in.h:3
+#: boards/melody.xml.in.h:4
+msgid "Move and click the mouse"
+msgstr "Hýbej a klikej myší"
+
+#: boards/melody.xml.in.h:5
 msgid "Repeat a melody"
 msgstr "Opakuj melodii"
 
@@ -2034,8 +2042,8 @@ msgstr "Naučná sada gcompris"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:124
-#: src/gcompris/gameutil.c:463 src/gcompris/gameutil.c:464
+#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
+#: src/gcompris/gameutil.c:464 src/gcompris/gameutil.c:465
 #: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
 #: src/gcompris/skin.c:83 src/gcompris/skin.c:261
 #, c-format
@@ -2044,7 +2052,7 @@ msgstr "Nemohu nalézt soubor %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1738
+#: src/boards/shapegame.c:1766
 #, c-format
 msgid "find file %s !"
 msgstr "nalézt soubor %s !"
@@ -2181,11 +2189,11 @@ msgstr "doprava"
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Podívej se na svou pozici a pro pohyb se přepni zpět do režimu 3D"
 
-#: src/boards/memory.c:227
+#: src/boards/memory.c:164
 msgid "Memory"
 msgstr "Paměť"
 
-#: src/boards/memory.c:228
+#: src/boards/memory.c:165
 msgid "Find the matching pair"
 msgstr "Najdi odpovídající si pár"
 
@@ -2354,13 +2362,13 @@ msgstr "Vzdálenost k cíli = %d metrů"
 #: src/gcompris/about.c:60
 msgid ""
 "Author: Bruno Coudoin\n"
-"Contribution: Pascal Georges\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
 "Graphics: Renaud Blanchard\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Autor: Bruno Coudoin\n"
-"Spolupráce: Pascal Georges\n"
+"Spolupráce: Pascal Georges, Jose Jorge\n"
 "Grafika: Renaud Blanchard\n"
 "Úvodní hudba: Djilali Sebihi\n"
 "Hudba na pozadí: Rico Da Halvarez\n"
@@ -2392,7 +2400,7 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:180 src/gcompris/help.c:341
+#: src/gcompris/about.c:309 src/gcompris/config.c:181 src/gcompris/help.c:362
 #: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "OK"
@@ -2434,161 +2442,165 @@ msgid "English"
 msgstr "Angličtina"
 
 #: src/gcompris/config.c:61
+msgid "Canadian English"
+msgstr "Kanadská angličtina"
+
+#: src/gcompris/config.c:62
 msgid "Spanish"
 msgstr "Španělština"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "Finnish"
 msgstr "Finština"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "French"
 msgstr "Francouzština"
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 msgid "Hebrew"
 msgstr "Hebrejština"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Indian"
 msgstr "Hindština"
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Hungarian"
 msgstr "Maďarština"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Croatian"
 msgstr "Chorvatština"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Italian"
 msgstr "Italština"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Lithuanian"
 msgstr "Litevština"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Macedonian"
 msgstr "Makedonština"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Malay"
 msgstr "Malajština"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "Dutch"
 msgstr "Holandština"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "Norwegian"
 msgstr "Norština"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Polish"
 msgstr "Polština"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Portuguese"
 msgstr "Portugalština"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "Brazil Portuguese"
 msgstr "Brazilská portugalština"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Russian"
 msgstr "Ruština"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:83
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:84
 msgid "Serbian"
 msgstr "Srbština"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:85
 msgid "Swedish"
 msgstr "Švédština"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:86
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "No time limit"
 msgstr "Žádný časový limit"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Slow timer"
 msgstr "Pomalý časovač"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Normal timer"
 msgstr "Normální časovač"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Fast timer"
 msgstr "Rychlý časovač"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "800x600 (Default for gcompris)"
 msgstr "800×600 (Implicitní pro gcompris)"
 
-#: src/gcompris/config.c:154
+#: src/gcompris/config.c:155
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: src/gcompris/config.c:263
+#: src/gcompris/config.c:264
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: src/gcompris/config.c:306
+#: src/gcompris/config.c:307
 msgid "Music"
 msgstr "Hudba"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:335
 msgid "Effect"
 msgstr "Efekty"
 
-#: src/gcompris/config.c:371
+#: src/gcompris/config.c:372
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nemohu otevřít adresář skinů: %s"
 
-#: src/gcompris/config.c:404 src/gcompris/config.c:727
-#: src/gcompris/config.c:738
+#: src/gcompris/config.c:405 src/gcompris/config.c:728
+#: src/gcompris/config.c:739
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: src/gcompris/gameutil.c:127
+#: src/gcompris/gameutil.c:128
 msgid "Couldn't find file"
 msgstr "Nemohu najít soubor"
 
-#: src/gcompris/gameutil.c:129
+#: src/gcompris/gameutil.c:130
 msgid "This activity is incomplete."
 msgstr "Tato aktivita není dokončena."
 
-#: src/gcompris/gameutil.c:130
+#: src/gcompris/gameutil.c:131
 msgid ""
 "Exit it and report\n"
 "us the problem"
@@ -2649,19 +2661,19 @@ msgstr ""
 "Licence: GPL\n"
 "Více informací na http://ofset.sourceforge.net/gcompris\n"
 
-#: src/gcompris/help.c:167 src/gcompris/interface.c:243
+#: src/gcompris/help.c:169 src/gcompris/interface.c:243
 msgid "Prerequisite"
 msgstr "Předpoklad"
 
-#: src/gcompris/help.c:201 src/gcompris/interface.c:252
+#: src/gcompris/help.c:203 src/gcompris/interface.c:252
 msgid "Goal"
 msgstr "Cíl"
 
-#: src/gcompris/help.c:235 src/gcompris/interface.c:261
+#: src/gcompris/help.c:237 src/gcompris/interface.c:261
 msgid "Manual"
 msgstr "Manuál"
 
-#: src/gcompris/help.c:269 src/gcompris/interface.c:270
+#: src/gcompris/help.c:271 src/gcompris/interface.c:270
 msgid "Credit"
 msgstr "Kredity"
 
@@ -2740,6 +2752,3 @@ msgstr "Čas vypršel"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Zbývající čas = %d"
-
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Skládačka tvaru dítěte"
