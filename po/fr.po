@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"POT-Creation-Date: 2003-08-24 12:09+0200\n"
+"POT-Creation-Date: 2003-09-06 22:56+0200\n"
 "PO-Revision-Date: 2003-09-04 10:39+0200\n"
 "Last-Translator: Bruno Coudoin\n"
 "Language-Team:  <fr@li.org>\n"
@@ -38,7 +38,8 @@ msgstr "Clique sur le bon objet coloré."
 
 #: boards/advanced_colors.xml.in.h:5
 msgid "This board is dedicated to recognize unusual colors."
-msgstr "L'objectif de cette activité est de reconnaître des couleurs non usuelles."
+msgstr ""
+"L'objectif de cette activité est de reconnaître des couleurs non usuelles."
 
 #: boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -342,7 +343,8 @@ msgstr "Je te pose quelques questions simples d'algèbre"
 
 #: boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the result to the multiplication of two numbers"
-msgstr "En en temps limité, donnez la réponse à la multiplication de deux nombres"
+msgstr ""
+"En en temps limité, donnez la réponse à la multiplication de deux nombres"
 
 #: boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
@@ -373,7 +375,8 @@ msgstr ""
 "Ralf a autorisé gcompris à les inclure. Merci beaucoup Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
-msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid ""
+"Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Déployer une stratégie pour arranges un ensemble d'opérations arithmétique\n"
 "pour trouver une valeur cible"
@@ -636,7 +639,8 @@ msgstr ""
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
-msgstr "Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
+msgstr ""
+"Clique avec la souris sur les poissons avant qu'ils ne quittent l'aquarium"
 
 #: boards/clickgame.xml.in.h:4
 msgid ""
@@ -814,7 +818,8 @@ msgstr ""
 
 #: boards/fifteen.xml.in.h:3 src/boards/fifteen.c:57
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr "Déplace les éléments un par un pour les replacer dans l'ordre croissant."
+msgstr ""
+"Déplace les éléments un par un pour les replacer dans l'ordre croissant."
 
 #: boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
@@ -1469,7 +1474,8 @@ msgstr "Apprends à manipuler de l'argent avec les centimes"
 
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Attrape et fais glisser les éléments pour reconstruire le tableau original"
+msgstr ""
+"Attrape et fais glisser les éléments pour reconstruire le tableau original"
 
 #: boards/paintings.xml.in.h:2
 msgid ""
@@ -1551,7 +1557,8 @@ msgid "Paratrooper"
 msgstr "Parachutiste"
 
 #: boards/paratrooper.xml.in.h:5
-msgid "This board is game oriented. It doesnt needs specific skills to play with."
+msgid ""
+"This board is game oriented. It doesnt needs specific skills to play with."
 msgstr ""
 "Ce tableau est un jeu. Il ne requiert pas de connaissances particulières "
 "pour y jouer."
@@ -1589,8 +1596,10 @@ msgid "Test board for the python plugin"
 msgstr "Activité test pour le plugin python"
 
 #: boards/pythontest.xml.in.h:5
-msgid "Thanks to Guido van Rossum and the python team for this powerfull language !"
-msgstr "Merci à Guido van Rossum et à l'équipe python pour ce language puissant"
+msgid ""
+"Thanks to Guido van Rossum and the python team for this powerfull language !"
+msgstr ""
+"Merci à Guido van Rossum et à l'équipe python pour ce language puissant"
 
 #: boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -1733,7 +1742,7 @@ msgstr ""
 "l'envers.\n"
 "Quand tu as terminé, clique sur le bouton OK ou utilise la touche entrée."
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:137
 msgid "Practice the substraction with a funny game"
 msgstr "Entraînement à la soustraction avec un jeu amusant"
 
@@ -1859,10 +1868,12 @@ msgstr "Super Cerveau"
 
 #: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
 msgid "Tux has hidden several items, find them back in the correct order"
-msgstr "Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
+msgstr ""
+"Tux a caché plusieurs objets de couleur, retrouves les dans le bon ordre"
 
 #: boards/target.xml.in.h:1
-msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid ""
+"Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Sait déplacer la souris, lire des nombres et compter jusqu'à 15\n"
 "pour le premier niveau"
@@ -2037,7 +2048,7 @@ msgstr "Ne peut pas trouver le répertoire d'images: %s"
 msgid "Set the watch to:"
 msgstr "Règle la montre sur :"
 
-#: src/boards/colors.c:252
+#: src/boards/colors.c:210
 #, c-format
 msgid "Click on the %s toon"
 msgstr "Clique sur l'ours %s"
@@ -2126,7 +2137,7 @@ msgstr "Oui je l'ai vu"
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
-#: src/boards/reversecount.c:129
+#: src/boards/reversecount.c:136
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
@@ -2206,7 +2217,8 @@ msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
 #: src/gcompris/about.c:225
-msgid "This software is a GNU Package and is released under the Gnu Public Licence"
+msgid ""
+"This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ce logiciel est un paquetage GNU et est soumis à la License Publique Gnu "
 "(GPL)"
@@ -2373,8 +2385,8 @@ msgstr "Effet"
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:685
-#: src/gcompris/config.c:696
+#: src/gcompris/config.c:396 src/gcompris/config.c:695
+#: src/gcompris/config.c:706
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -2534,4 +2546,3 @@ msgstr "Temps restant = %d"
 
 #~ msgid "You need to remove %d more."
 #~ msgstr "Tu dois en supprimer encore %d. "
-
