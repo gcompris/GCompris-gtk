@@ -1,3 +1,28 @@
+2004-05-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	(AFTER RELEASE 6.0)
+	* boards/missing_letter.xml.in: fixed board name. This board was no more working in 6.0
+	* boards/skins/default/button_large.png: more cute
+	* boards/skins/default/button_large_selected.png: more cute
+	* boards/skins/default/dialogbox.png: more cute
+	* boards/skins/default/skin.xml: more cute
+	* configure.in: flags release increased
+	* src/boards/chess.c: added sys/wait.h include
+	* src/boards/missingletter.c: (is_our_board): fixed board name
+	* src/boards/reading.c: (start_board), (reading_destroy_all_items),
+	(display_what_to_do), (reading_create_item), (ask_ready),
+	(ask_yes_no), (get_random_word): review of the word selection. Was causing random crash. Still memory leak issue
+	it needs more work.
+	* src/gcompris/Makefile.am: packaging fixes from Yann Dirson (Debian)
+	* src/gcompris/about.c: (gcompris_about_start): layout fixes
+	* src/gcompris/config.c: (gcompris_config_start): fixed OK button color
+	* src/gcompris/gameutil.c: (gcompris_dialog): readded missing OK text in the dialog box button
+	* src/gcompris/gameutil.h: removed useless sys/wait.h include
+	* src/gcompris/gcompris.c: (setup_window): fixed order URL
+	* src/gcompris/help.c: (gcompris_help_start), (select_item),
+	(set_content): removed text shadow
+	* src/gcompris/properties.c: fixed setenv. gettext dynamique change was broken.
+
 2004-05-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/boardicons/enumerate.png: -1- changed austere drawing by a new cute colored one

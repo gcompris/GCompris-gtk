@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2004/05/18 22:40:39 bcoudoin>
+ * Time-stamp: <2004/05/28 00:51:54 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,7 +46,6 @@ static gboolean help_displayed			= FALSE;
 
 static GnomeCanvasItem *rootitem		= NULL;
 static GnomeCanvasItem *item_content		= NULL;
-static GnomeCanvasItem *item_content_shadow	= NULL;
 
 static gchar *prerequisite			= NULL;
 static gchar *goal				= NULL;
@@ -176,7 +175,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.20,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gcompris_skin_color_text_button,
+				    "fill_color_rgba", COLOR_UNSELECTED,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_prerequisite_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -210,7 +209,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.4,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gcompris_skin_color_text_button,
+				    "fill_color_rgba", COLOR_UNSELECTED,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_goal_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -244,7 +243,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.6,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gcompris_skin_color_text_button,
+				    "fill_color_rgba", COLOR_UNSELECTED,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_manual_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -278,7 +277,7 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
 				    "x", (double)  BOARDWIDTH*0.8,
 				    "y", (double)  y_start - gdk_pixbuf_get_height(pixmap)  + GAP_TO_BUTTON,
 				    "anchor", GTK_ANCHOR_CENTER,
-				    "fill_color_rgba", gcompris_skin_color_text_button,
+				    "fill_color_rgba", COLOR_UNSELECTED,
 				    NULL);
       gtk_signal_connect(GTK_OBJECT(item_credit_text), "event",
 			 (GtkSignalFunc) item_event_help,
@@ -316,19 +315,6 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
     }
 
   y_start += 5;
-
-  item_content_shadow = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-					gnome_canvas_rich_text_get_type (),
-					"x", (double)  x_start + 40 + 1,
-					"y", (double)  y_start + 1,
-					"width", 620.0,
-					"height", 400.0,
-					"anchor", GTK_ANCHOR_NW,
-					"grow_height", FALSE,
-					"cursor_visible", FALSE,
-					"cursor_blink", FALSE,
-					"editable", FALSE,
-					NULL);
 
   item_content = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 					gnome_canvas_rich_text_get_type (),
@@ -424,16 +410,21 @@ static void select_item(GnomeCanvasItem *item, GnomeCanvasItem *item_text)
   if(item_selected)
     {
       pixmap = gcompris_load_skin_pixmap("button_up.png");
+      /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+      g_object_set_data (G_OBJECT (item_selected), "pixbuf_ref", pixmap);
       gnome_canvas_item_set(item_selected, 
 			    "pixbuf", pixmap,
 			    NULL);
       gnome_canvas_item_set(item_selected_text, 
 			    "fill_color_rgba", COLOR_UNSELECTED,
 			    NULL);
+
       gdk_pixbuf_unref(pixmap);
     }
 
   pixmap = gcompris_load_skin_pixmap("button_up_selected.png");
+  /* Warning changing the image needs to update pixbuf_ref for the focus usage */
+  g_object_set_data (G_OBJECT (item), "pixbuf_ref", pixmap);
   gnome_canvas_item_set(item, 
 			"pixbuf", pixmap,
 			NULL);
@@ -465,13 +456,6 @@ static void set_content(gchar *text) {
   gtk_text_buffer_get_start_iter(buffer, &iter_start);
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
-
-  /* On windows, shadow doesn't look nice, leave it empty */
-#ifndef WIN32
-  gnome_canvas_item_set(item_content_shadow, 
-			"text", text,
-			NULL);
-#endif
 
   buffer  = gnome_canvas_rich_text_get_buffer(GNOME_CANVAS_RICH_TEXT(item_content));
   txt_tag = gtk_text_buffer_create_tag(buffer, NULL, 

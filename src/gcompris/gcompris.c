@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2004/05/24 02:35:38 bcoudoin>
+ * Time-stamp: <2004/05/29 02:20:17 bcoudoin>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -488,7 +488,7 @@ static void setup_window ()
 #ifdef WIN32
   if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
     board_pause();
-    gcompris_dialog(_("This is a Demo version of gcompris,\nonly 12 on 45 activities are available.\nTo get the full version,\ngo to http://ofset.sf.net/gcompris/order.html"), NULL);
+    gcompris_dialog(_("This is a Demo version of gcompris,\nonly 12 on 45 activities are available.\nTo get the full version,\ngo to http://www.ofset.org/order/gcompris"), NULL);
   }
 #endif
 }

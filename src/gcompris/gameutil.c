@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2004/05/24 23:22:05 bcoudoin>
+ * Time-stamp: <2004/05/29 02:07:14 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -735,13 +735,14 @@ void	item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x
  */
 void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
   GnomeCanvasItem *item_dialog = NULL;
   GnomeCanvasItem *item_text   = NULL;
-  GdkPixbuf *pixmap_dialog = NULL;
-  GtkTextIter    iter_start, iter_end;
-  GtkTextBuffer *buffer;
-  GtkTextTag    *txt_tag;
+  GnomeCanvasItem *item_text_ok   = NULL;
+  GdkPixbuf       *pixmap_dialog = NULL;
+  GtkTextIter      iter_start, iter_end;
+  GtkTextBuffer   *buffer;
+  GtkTextTag      *txt_tag;
 
   /* If we already running delete the previous one */
   if(rootDialogItem)
@@ -770,6 +771,20 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 				       "x", (double) (BOARDWIDTH - gdk_pixbuf_get_width(pixmap_dialog))/2,
 				       "y", (double) (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2,
 				      NULL);
+
+  /* OK Text */
+  item_text_ok = gnome_canvas_item_new (rootDialogItem,
+				gnome_canvas_text_get_type (),
+				"text", _("OK"),
+				"font", gcompris_skin_font_title,
+				"x", (double)  BOARDWIDTH*0.5,
+				"y", (double)  (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap_dialog))/2 +
+					gdk_pixbuf_get_height(pixmap_dialog) - 35,
+				"anchor", GTK_ANCHOR_CENTER,
+				"fill_color_rgba", gcompris_skin_color_text_button,
+				NULL);
+
+  gdk_pixbuf_unref(pixmap_dialog);
 
   gtk_signal_connect(GTK_OBJECT(item_dialog), "event",
 		     (GtkSignalFunc) item_event_ok,
@@ -804,6 +819,9 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
   gtk_text_buffer_apply_tag(buffer, txt_tag, &iter_start, &iter_end);
 
   gtk_signal_connect(GTK_OBJECT(item_text), "event",
+		     (GtkSignalFunc) item_event_ok,
+		     dbcb);
+  gtk_signal_connect(GTK_OBJECT(item_text_ok), "event",
 		     (GtkSignalFunc) item_event_ok,
 		     dbcb);
 

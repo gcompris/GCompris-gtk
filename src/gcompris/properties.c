@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2004/05/20 02:17:31 bcoudoin>
+ * Time-stamp: <2004/05/27 00:55:04 bcoudoin>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -25,6 +25,9 @@
 #include <fcntl.h>
 
 #include "gcompris.h"
+
+/* This should be detected in the configure for good portability */
+#define HAVE_SETENV 1
 
 static GHashTable* boards_hash = NULL;
 

@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2004/05/19 23:22:02 bcoudoin>
+ * Time-stamp: <2004/05/28 00:59:40 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -147,7 +147,7 @@ void gcompris_about_start ()
 				gnome_canvas_text_get_type (),
 				"text", gettext(content),
 				"font", gcompris_skin_font_content,
-				"x", (double)  BOARDWIDTH/2,
+				"x", (double)  BOARDWIDTH*0.45,
 				"y", (double)  y_start,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_content,
@@ -158,7 +158,7 @@ void gcompris_about_start ()
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) (BOARDWIDTH*0.20) - gdk_pixbuf_get_width(pixmap)/2,
+				"x", (double) (BOARDWIDTH*0.15) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
@@ -174,7 +174,7 @@ void gcompris_about_start ()
 				gnome_canvas_text_get_type (),
 				"text", "OFSET",
 				"font", gcompris_skin_font_content,
-				"x", (double)  (BOARDWIDTH*0.25),
+				"x", (double)  (BOARDWIDTH*0.15),
 				"y", (double)  y_start + 80,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba",gcompris_skin_color_subtitle, 
@@ -241,7 +241,7 @@ void gcompris_about_start ()
 				"text", "Copyright 2000-2003 Bruno Coudoin",
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
-				"y", (double)  y - 85,
+				"y", (double)  y - 95,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);
@@ -252,7 +252,7 @@ void gcompris_about_start ()
 				"text", _("This software is a GNU Package and is released under the GNU Public Licence"),
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
-				"y", (double)  y - 70,
+				"y", (double)  y - 80,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);
@@ -283,7 +283,7 @@ void gcompris_about_start ()
 				"x", (double)  BOARDWIDTH*0.3,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_title,
+				"fill_color_rgba", gcompris_skin_color_text_button,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,
@@ -318,7 +318,7 @@ void gcompris_about_start ()
 				"x", (double)  BOARDWIDTH*0.7,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_title,
+				"fill_color_rgba", gcompris_skin_color_text_button,
 				NULL);
   gtk_signal_connect(GTK_OBJECT(item2), "event",
 		     (GtkSignalFunc) item_event_ok,

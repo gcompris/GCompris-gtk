@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/03/07 23:15:29 bcoudoin>
+ * Time-stamp: <2004/05/29 13:23:51 bcoudoin>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -176,9 +176,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
       /* Default mode */
-      if(!gcomprisBoard->mode)
-	currentMode=MODE_VERTICAL;
-      else if(g_strcasecmp(gcomprisBoard->mode, "horizontal")==0)
+      currentMode=MODE_VERTICAL;
+      if(gcomprisBoard->mode && g_strcasecmp(gcomprisBoard->mode, "horizontal")==0)
 	currentMode=MODE_HORIZONTAL;
 
       reading_next_level();
@@ -305,6 +304,7 @@ static void reading_destroy_all_items()
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem=NULL;
+  textToFind=NULL;
 }
 
 static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
@@ -313,9 +313,16 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
   gint base_X = 580;
   gint i;
 
+  /* Free the previous text to find */
+  if(textToFind)
+    g_free(textToFind);
+
   /* Load the text to find */
   textToFind = "*";
   textToFind = get_random_word();
+
+  if(textToFind==NULL)
+    return;
 
   gnome_canvas_item_new (parent,
 			 gnome_canvas_text_get_type (),
@@ -364,6 +371,9 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
   gint i;
   gint anchor = GTK_ANCHOR_CENTER;
 
+  if(textToFind==NULL)
+    return;
+
   if(toHideItem)
     {
       gnome_canvas_item_hide(toHideItem->item);
@@ -398,6 +408,9 @@ static GnomeCanvasItem *reading_create_item(GnomeCanvasGroup *parent)
     {
       lettersItem->word = textToFind;
     }
+
+  if(lettersItem->word==NULL)
+    return;
 
   if(textToFindIndex>=0)
     textToFindIndex--;
@@ -493,6 +506,9 @@ static void ask_ready(gboolean status)
   double y_offset = 310;
   double x_offset = 430;
 
+  if(textToFind==NULL)
+    return;
+
   if(status==FALSE)
     {
       if(item1!=NULL)
@@ -542,6 +558,9 @@ static void ask_yes_no()
   GdkPixbuf *button_pixmap = NULL;
   double y_offset = 310;
   double x_offset = 430;
+
+  if(textToFind==NULL)
+    return;
 
   /*----- YES -----*/
   button_pixmap = gcompris_load_skin_pixmap("button_large2.png");
@@ -718,8 +737,9 @@ static FILE *get_wordfile(char *locale)
 static char *get_random_word()
 {
   FILE *wordsfd;
-  long size, i;
+  long  size, i;
   char *str;
+  int   try;
 
   str = malloc(MAXWORDSLENGTH);
 
@@ -731,36 +751,56 @@ static char *get_random_word()
       wordsfd = get_wordfile("en");
       
       /* Too bad, even english is not there. Check your Install */
-      if(wordsfd==NULL)
-	g_error("Cannot open file %s : Check your GCompris install", strerror(errno));
+      if(wordsfd==NULL) {
+	g_free(str);
+	gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
+	return NULL;
+      }
     }
 
   fseek (wordsfd, 0L, SEEK_END);
   size = ftell (wordsfd);
 
+  if(size==0) {
+    g_free(str);
+    gcompris_dialog(_("Cannot open file of words for your locale"), gcompris_end_board);
+    return NULL;
+  }
+
   i=rand()%size;
   fseek(wordsfd, i, SEEK_SET);
 
-  /* Read 2 times so that we are sure to sync on an end of line */
-  /* Warning, We are not allowed to return the text to find     */
-  fgets(str, MAXWORDSLENGTH, wordsfd);
+  try=-1;  /* We want to be sure to loop at least 2 times */
+  do {
 
-  if(ftell(wordsfd)==size || strncmp(textToFind, str, strlen(textToFind))==0)
-    rewind(wordsfd);
-
-  fgets(str, MAXWORDSLENGTH, wordsfd);
-
-  /* We are not allowed to return the text to find */
-  if(strncmp(textToFind, str, strlen(textToFind))==0)
+    /* Read 2 times so that we are sure to sync on an end of line */
+    /* Warning, We are not allowed to return the text to find     */
     fgets(str, MAXWORDSLENGTH, wordsfd);
 
-  /* Chop the return */
-  str[strlen(str)-1]='\0';
+    if(ftell(wordsfd)==size) {
+      rewind(wordsfd);
+      str[0]='\0';
+    }
+
+    /* Chop the return */
+    if(strlen(str)>0)
+      str[strlen(str)-1]='\0';
+
+    try++;
+
+  } while((str[0]=='\0' || strncmp(textToFind, str, strlen(textToFind))==0 || try<=0) && try<10);
+
+  /* We have a problem */
+  if(str[0]=='\0') {
+    gcompris_dialog(_("Error: The wordfile package used for your locale is corrupted."), gcompris_end_board);
+  }
 
   fclose(wordsfd);
 
-  if(strcmp(textToFind, str)==0)
+  if(strcmp(textToFind, str)==0) {
+    g_free(str);
     str=get_random_word();
+  }
 
   return (str);
 }
