@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
-"POT-Creation-Date: 2003-08-24 12:09+0200\n"
+"POT-Creation-Date: 2003-12-15 21:10+0100\n"
 "PO-Revision-Date: 2002-03-13 02:15-0000\n"
 "Last-Translator: Mantas Kriauciunas <mantelis@centras.lt>\n"
 "Language-Team: Lithuanian <komp_lt@lkonferencijos.lt>\n"
@@ -367,8 +367,8 @@ msgstr "Matematikos pamokëlës"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/fun.xml.in.h:2 boards/menu.xml.in.h:3
-#: boards/reading.xml.in.h:2
+#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:3 boards/reading.xml.in.h:2
 #, fuzzy
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Iðsirink pamokëlæ, paspausdamas ant jos kairá pelës klaviðà"
@@ -588,7 +588,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
+#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Spausk mane"
 
@@ -609,7 +609,7 @@ msgstr ""
 "National Undersearch Research Program (NURP) kolekcijos\n"
 " (http://www.photolib.noaa.gov)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
+#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -706,11 +706,11 @@ msgid ""
 "the double entry table."
 msgstr ""
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:197
+#: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
 msgstr "Paprastas pieðimo árankis"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:198
+#: boards/draw.xml.in.h:2 src/boards/draw.c:207
 msgid "Creative board where you can freely draw"
 msgstr "Pieðimo programëlë"
 
@@ -754,15 +754,20 @@ msgstr ""
 msgid "Place the items in the best way to count them"
 msgstr ""
 
+#: boards/experience.xml.in.h:1
+#, fuzzy
+msgid "Go to experiences activities"
+msgstr "Skaitymo pamokëlës"
+
 #: boards/erase.xml.in.h:2
 msgid "Motor coordination"
 msgstr ""
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:69 src/boards/machpuzzle.c:84
+#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:84
 msgid "Move the mouse"
 msgstr "Judink pelæ"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:70
+#: boards/erase.xml.in.h:5 src/boards/erase.c:71
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Judindamas pelæ nuvalysi plotà ir pamatysi fonà"
 
@@ -839,7 +844,7 @@ msgstr "Surask klaviatûroje krintanèias raides, kol jos nenukrito"
 msgid "Drag and Drop the top piece only on an empty location"
 msgstr "Nutempk daiktà prie jam tinkamo"
 
-#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:325
+#: boards/hanoi.xml.in.h:3 src/boards/hanoi.c:324 src/boards/hanoi.c:335
 msgid "Reproduce in the empty area the same tower than the one on the right"
 msgstr ""
 
@@ -867,7 +872,7 @@ msgstr "Mokykis skaityti, surasdamas paveikslëlá atitinkantá þodá"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:100
+#: src/boards/reading.c:101
 msgid "Reading"
 msgstr "Skaitymas"
 
@@ -1421,15 +1426,31 @@ msgstr "krepðys/k_epðys/r/i/l"
 msgid "satchel/sa_chel/t/p/c"
 msgstr "krepðys/k_epðys/r/i/l"
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1 src/boards/money.c:87
+#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
+msgid "Can count"
+msgstr ""
+
+#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+msgid ""
+"Click on the coins or paper money on the botton of the screen to pay. If you "
+"want to remove a coin or note, click on it on the upper screen area."
+msgstr ""
+
+#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
 msgid "Money"
 msgstr ""
 
-#: boards/money.xml.in.h:2 src/boards/money.c:88
+#: boards/money.xml.in.h:4 src/boards/money.c:88
 msgid "Pratice money usage"
 msgstr ""
 
-#: boards/money_cents.xml.in.h:2
+#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+msgid ""
+"You must buy the different items and give the exact price. At higher level, "
+"several items are displayed, you must first calculate the total price."
+msgstr ""
+
+#: boards/money_cents.xml.in.h:4
 msgid "Pratice money usage including cents"
 msgstr ""
 
@@ -1445,7 +1466,7 @@ msgid ""
 "rebuild the original painting."
 msgstr ""
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
 msgstr "Iðspræsk galvosûká"
 
@@ -1673,6 +1694,25 @@ msgstr "Perskaityk þodþiø stulpelá ir paþiûrëk ar duotas þodis jame yra"
 msgid "Vertical reading practice"
 msgstr "Skaitymo stulpeliu pratimai"
 
+#: boards/redraw.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw it "
+"in the left area."
+msgstr ""
+
+#: boards/redraw.xml.in.h:2
+msgid ""
+"First you must select the proper tool in the tool bar. Then, you must drag "
+"the mouse to create objects. When you are done, click on the OK button, you "
+"will be told were the errors are with little red cross. The order of objects "
+"(above/under) is not important but take care not to have unwanted object "
+"under others."
+msgstr ""
+
+#: boards/redraw.xml.in.h:3
+msgid "Redraw the given item"
+msgstr ""
+
 #: boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and substract numbers up to 10 for the "
@@ -1687,7 +1727,7 @@ msgid ""
 "hit the keyboard enter key."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:130
+#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
 #, fuzzy
 msgid "Practice the substraction with a funny game"
 msgstr "Mokykis atimties veiksmø"
@@ -1819,7 +1859,7 @@ msgstr ""
 msgid "Touch the target and count your points"
 msgstr ""
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr ""
 
@@ -1829,11 +1869,28 @@ msgid ""
 "on the right"
 msgstr ""
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+#: boards/watercycle.xml.in.h:1
+msgid ""
+"Click on different active elements : sun, cloud, water pump station, water "
+"cleanup station in order to reactivate the whole water system. When done and "
+"Tux is in his shower, push the shower button for him."
+msgstr ""
+
+#: boards/watercycle.xml.in.h:2
+msgid "Learn the water cycle"
+msgstr ""
+
+#: boards/watercycle.xml.in.h:3
+msgid ""
+"You have to bring back the water system up. Tux comes from a long fishing "
+"party on his boat. Help him to have a shower."
+msgstr ""
+
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
 msgstr "Krintantys þodþiai"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Paraðyk pilnus krintanèius þodþius, kol jie nenukrito"
 
@@ -1853,20 +1910,20 @@ msgstr "Mokomasis þaidimas, vyresniems nei trijø metø vaikams"
 msgid "Educational suite gcompris"
 msgstr ""
 
-#: src/boards/advanced_colors.c:537 src/boards/imageid.c:580
-#: src/boards/missingletter.c:587 src/boards/read_colors.c:493
-#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:510 src/gcompris/gameutil.c:511
-#: src/gcompris/images_selector.c:347 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:363
+#: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
+#: src/boards/missingletter.c:587 src/boards/read_colors.c:497
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
+#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
+#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
+#: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Negaliu rasti bylos %s !"
 
-#: src/boards/advanced_colors.c:540 src/boards/imageid.c:583
-#: src/boards/missingletter.c:590 src/boards/read_colors.c:496
-#: src/boards/shapegame.c:1728
+#: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
+#: src/boards/missingletter.c:590 src/boards/read_colors.c:500
+#: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
 msgstr "rasti bylà %s !"
@@ -1936,15 +1993,29 @@ msgstr ""
 msgid "Drawn game"
 msgstr "karûna"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:74
 msgid "Read a letter"
 msgstr "Perskaityk raidæ"
 
-#: src/boards/click_on_letter.c:74
+#: src/boards/click_on_letter.c:75
 msgid "Learn to recognize letters"
 msgstr "Iðmok atpaþinti raides"
 
-#: src/boards/clickgame.c:182
+#: src/boards/click_on_letter.c:226
+msgid ""
+"Error: this activity requires you to install first\n"
+"the package assetml-voices-alphabet-"
+msgstr ""
+
+#: src/boards/click_on_letter.c:233
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effect disabled.\n"
+"Go in the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+
+#: src/boards/clickgame.c:183
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Negaliu atidaryti pieðinëliø katalogo: %s"
@@ -1953,7 +2024,7 @@ msgstr "Negaliu atidaryti pieðinëliø katalogo: %s"
 msgid "Set the watch to:"
 msgstr "Nustatyk laikrodá:"
 
-#: src/boards/colors.c:252
+#: src/boards/colors.c:216
 #, fuzzy, c-format
 msgid "Click on the %s toon"
 msgstr "Spauskite ant teisingos spalvos"
@@ -2003,11 +2074,146 @@ msgstr ""
 msgid "Special board that embed python into gcompris."
 msgstr ""
 
-#: src/boards/railroad.c:95
+#. gcompris - redraw
+#.
+#. Time-stamp: <2001/08/20 00:54:45 bruno>
+#.
+#. Copyright (C) 2003 Bruno Coudoin
+#.
+#. This program is free software; you can redistribute it and/or modify
+#. it under the terms of the GNU General Public License as published by
+#. the Free Software Foundation; either version 2 of the License, or
+#. (at your option) any later version.
+#.
+#. This program is distributed in the hope that it will be useful,
+#. but WITHOUT ANY WARRANTY; without even the implied warranty of
+#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#. GNU General Public License for more details.
+#.
+#. You should have received a copy of the GNU General Public License
+#. along with this program; if not, write to the Free Software
+#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#.
+#. PythonTest Board module
+#. TOOL SELECTION
+#. COLOR SELECTION
+#. Define the coord of each drawing area
+#. Global used for the select event
+#. The error root item
+#. Set it to 1 to let you create new forms
+#. Once set, draw your shape in the right area. Then clic on OK to display
+#. the data for the form (in the console). Then copy the data in the list at the end of
+#. this file in init_item_list
+#. Set self.editing_mode = None to forbid drawing in the right area
+#. self.editing_mode = 1
+#. Create our rootitem. We put each canvas item in it so at the end we
+#. only have to kill it. The canvas deletes all the items it contains automaticaly.
+#. Remove the root item removes all the others inside it
+#. Delete error previous mark if any
+#. Do nothing special
+#. Save a copy of the target drawing future comparison
+#. Save a copy of the drawing cause we need to remove empty items
+#. Remove all empty items
+#. Need to check if target image equals drawing image
+#. Delete previous mark if any
+#. Create our rootitem for error items mark
+#. display where there is errors
+#. if in_target is set then error are displayed in the target area
+#. Bad Icon Width and Height / 2
+#. The images target are always drawn on the drawing area to ease the final comparison
+#. Called by gcompris when the user click on the level icon
+#. Erase any displayed items (drawing and target)
+#. Display the current level target
+#. Set the level in the control bar
+#. Calc the index in drawlist
+#. the current board is finished : bail out
+#. Prepare an item for the coord display
+#. Create our rootitem for drawing items
+#. Reset the drawing
+#. Code that increments the sublevel and level
+#. And bail out if no more levels are available
+#. return 1 if continue, 0 if bail out
+#. Try the next level
+#. the current board is finished : bail out
+#. display current/sublevel number
+#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+msgid "Level"
+msgstr ""
+
+#. Display the tools
+#. Display the tools
+#. The last item is select, we select it by default
+#. Event when a tool is selected
+#. Deactivate old button
+#. Activate new button
+#. Display the color selector
+#. Display the tools
+#. The last item is the one we select by default
+#. Color event
+#. Deactivate old button
+#. Activate new button
+#. Display the drawing area
+#.
+#. Given coord are returned swapped
+#. Work fine for rect and ellipse but not line
+#. so that y2 > y1 and x2 > x1
+#.
+#. Draw the image target
+#. Save the drawing in image_target for future comparison
+#. Create our rootitem for target items
+#. The images target are always drawn on the drawing area to ease the final comparison
+#.
+#. Can specify the item type to draw via a real GTK type or a TOOL string
+#.
+#. Draw the grid
+#.
+#. Coord of the written numbers
+#. We manage a 2 colors grid
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Given x,y return a new x,y snapped to the grid
+#. Event when a click on any item. Perform the move
+#.
+#. MOUSE DRAG STOP
+#. ---------------
+#. Reset thein_select_ofx ofset
+#. Workaround for bad line positionning
+#. Save the ofset between the mouse pointer and the upper left corner of the object
+#. Check drawing boundaries
+#. We need to realign x cause the bounds values are not precise enough
+#. We need to realign y cause the bounds values are not precise enough
+#. Need to update current_drawing
+#. It's not a line
+#. It can only be a line
+#. Now perform the object move
+#. Workaround for bad line positionning
+#. Event when a click on an item happen on fill in type object
+#. Reset the item to our list
+#. Event when a click on an item happen on border fill type object
+#. Reset the item to our list
+#. Del an item and internal struct cleanup
+#. Warning, do not realy delete it or we bug the index of other items
+#. Event when a click on an item happen
+#.
+#. Display the mouse coord in the drawing or target area
+#. type:
+#. 1 = in drawing area
+#. 2 = in target area
+#. 3 = out of both area
+#.
+#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+msgid "Coordinate"
+msgstr ""
+
+#: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Þaidimas atminèiai lavinti"
 
-#: src/boards/railroad.c:96
+#: src/boards/railroad.c:97
 msgid "Build a train conforming to the model"
 msgstr "Padaryk traukiná pagal pateiktà pavyzdá "
 
@@ -2021,40 +2227,40 @@ msgstr "Spalvos"
 msgid "Click on the corresponding color"
 msgstr "Spauskite ant teisingos spalvos"
 
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Perskaityk sàraðà ir paþiûrëk ar duotas þodis jame yra"
 
-#: src/boards/reading.c:313
+#: src/boards/reading.c:314
 msgid "Please, check if the word"
 msgstr "Patikrink ar þodis"
 
-#: src/boards/reading.c:333
+#: src/boards/reading.c:334
 msgid "is being displayed"
 msgstr "yra ekrane"
 
-#: src/boards/reading.c:516
+#: src/boards/reading.c:517
 msgid "I am Ready"
 msgstr "Að pasiruoðæs"
 
-#: src/boards/reading.c:553
+#: src/boards/reading.c:554
 msgid "Yes I saw it"
 msgstr "Taip, að maèiau tai"
 
-#: src/boards/reading.c:583
+#: src/boards/reading.c:584
 msgid "No, it was not there"
 msgstr "Ne, tai ne èia"
 
-#: src/boards/reversecount.c:129
+#: src/boards/reversecount.c:140
 msgid "Reverse count"
 msgstr ""
 
-#: src/boards/shapegame.c:161
+#: src/boards/shapegame.c:162
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Padëk figûras á atitinkamas vietas"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:407
+#: src/boards/shapegame.c:409
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2062,7 +2268,7 @@ msgid ""
 "'d' to display all the shapes"
 msgstr ""
 
-#: src/boards/shapegame.c:415
+#: src/boards/shapegame.c:417
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2094,243 +2300,273 @@ msgid "Distance to target = %d meters"
 msgstr ""
 
 #: src/gcompris/about.c:60
+#, fuzzy
 msgid ""
 "Credits:\n"
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges\n"
 "Graphics: Renaud Blanchard\n"
-"Music: Djilali Sebihi\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Autorius: Bruno Coudoin\n"
 "Bendradarbis: Pascal Georges\n"
 "Grafika: Renaud Blanchard\n"
 "Muzika: Djilali Sebihi\n"
 
-#: src/gcompris/about.c:97
+#: src/gcompris/about.c:99
 msgid "About GCompris"
 msgstr "Apie Gcompris"
 
-#: src/gcompris/about.c:203
+#: src/gcompris/about.c:205
 msgid "GCompris Home Page"
 msgstr "GCompris namø svetainë"
 
-#: src/gcompris/about.c:225
+#: src/gcompris/about.c:227
 msgid ""
 "This software is a GNU Package and is released under the Gnu Public Licence"
 msgstr ""
 "Ðita programa yra GNU paketas. Ji yra iðleista pagal Gnu bendràjà licenzijà "
 "(GPL)."
 
-#: src/gcompris/about.c:253
+#: src/gcompris/about.c:255
 msgid "Help"
 msgstr "Pagalba"
 
-#: src/gcompris/about.c:287 src/gcompris/config.c:174 src/gcompris/help.c:341
-#: src/gcompris/images_selector.c:148
+#: src/gcompris/about.c:289 src/gcompris/config.c:179 src/gcompris/help.c:341
+#: src/gcompris/images_selector.c:152
 msgid "OK"
 msgstr "Gerai"
 
 #: src/gcompris/config.c:52
-msgid "Amharic"
+msgid "Your system default"
 msgstr ""
 
 #: src/gcompris/config.c:53
-msgid "Arabic"
+msgid "Amharic"
 msgstr ""
 
 #: src/gcompris/config.c:54
+msgid "Arabic"
+msgstr ""
+
+#: src/gcompris/config.c:55
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaidþanieèiø Turkø"
 
-#: src/gcompris/config.c:55
+#: src/gcompris/config.c:56
 #, fuzzy
 msgid "Catalan"
 msgstr "Italø"
 
-#: src/gcompris/config.c:56
+#: src/gcompris/config.c:57
 msgid "Czech"
 msgstr ""
 
-#: src/gcompris/config.c:57
+#: src/gcompris/config.c:58
 msgid "German"
 msgstr "Vokieèiø"
 
-#: src/gcompris/config.c:58
+#: src/gcompris/config.c:59
 msgid "Greek"
 msgstr "Graikø"
 
-#: src/gcompris/config.c:59
+#: src/gcompris/config.c:60
 msgid "English"
 msgstr "Anglø"
 
-#: src/gcompris/config.c:60
+#: src/gcompris/config.c:61
 msgid "Spanish"
 msgstr "Ispanø"
 
-#: src/gcompris/config.c:61
+#: src/gcompris/config.c:62
 msgid "Finnish"
 msgstr "Suomiø"
 
-#: src/gcompris/config.c:62
+#: src/gcompris/config.c:63
 msgid "French"
 msgstr "Prancûzø"
 
-#: src/gcompris/config.c:63
+#: src/gcompris/config.c:64
 msgid "Hebrew"
 msgstr ""
 
-#: src/gcompris/config.c:64
+#: src/gcompris/config.c:65
 #, fuzzy
 msgid "Indian"
 msgstr "Italø"
 
-#: src/gcompris/config.c:65
+#: src/gcompris/config.c:66
 msgid "Hungarian"
 msgstr ""
 
-#: src/gcompris/config.c:66
+#: src/gcompris/config.c:67
 msgid "Italian"
 msgstr "Italø"
 
-#: src/gcompris/config.c:67
+#: src/gcompris/config.c:68
 msgid "Lithuanian"
 msgstr "Lietuviø"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Macedonian"
 msgstr ""
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Malayalam"
 msgstr ""
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "Malay"
 msgstr ""
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Dutch"
 msgstr "Olandø"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "Norwegian"
 msgstr ""
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
+#, fuzzy
+msgid "Polish"
+msgstr "Anglø"
+
+#: src/gcompris/config.c:75
 #, fuzzy
 msgid "Portuguese"
 msgstr "Brazilø (Portugalø)"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:76
 msgid "Brazil Portuguese"
 msgstr "Brazilø (Portugalø)"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:77
 msgid "Romanian"
 msgstr "Rumunø"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:78
 msgid "Russian"
 msgstr ""
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:79
 msgid "Slovak"
 msgstr ""
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:80
+msgid "Slovenian"
+msgstr ""
+
+#: src/gcompris/config.c:81
+msgid "Serbian (Latin)"
+msgstr ""
+
+#: src/gcompris/config.c:82
+#, fuzzy
+msgid "Serbian"
+msgstr "Vokieèiø"
+
+#: src/gcompris/config.c:83
 msgid "Swedish"
 msgstr "Ðvedø"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:84
 msgid "Turkish"
 msgstr ""
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:89
 msgid "No time limit"
 msgstr ""
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:90
 #, fuzzy
 msgid "Slow timer"
 msgstr "gëlë"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:91
 msgid "Normal timer"
 msgstr ""
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:92
 msgid "Fast timer"
 msgstr ""
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:97
 msgid "800x600 (Default for gcompris)"
 msgstr ""
 
-#: src/gcompris/config.c:148
+#: src/gcompris/config.c:153
 msgid "GCompris Configuration"
 msgstr "GCompris nustatymai"
 
-#: src/gcompris/config.c:254
+#: src/gcompris/config.c:262
 msgid "Fullscreen"
 msgstr "Visame ekrane"
 
-#: src/gcompris/config.c:297
+#: src/gcompris/config.c:305
 msgid "Music"
 msgstr "Muzika"
 
-#: src/gcompris/config.c:325
+#: src/gcompris/config.c:333
 msgid "Effect"
 msgstr "Efektai"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:370
 #, fuzzy, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Negaliu atidaryti pieðinëliø katalogo: %s"
 
-#: src/gcompris/config.c:396 src/gcompris/config.c:685
-#: src/gcompris/config.c:696
+#: src/gcompris/config.c:403 src/gcompris/config.c:720
+#: src/gcompris/config.c:731
 #, c-format
 msgid "Skin : %s"
 msgstr ""
 
-#: src/gcompris/gcompris.c:65
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
 msgstr "Paleisti GCompris pilno ekrano reþimu"
 
-#: src/gcompris/gcompris.c:67
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris in window mode."
 msgstr "Paleisti GCompris lange"
 
-#: src/gcompris/gcompris.c:69
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with sound enabled."
 msgstr "Paleisti GCompris su garsais"
 
-#: src/gcompris/gcompris.c:71
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris without sound."
 msgstr "Paleisti GCompris be garsø"
 
-#: src/gcompris/gcompris.c:73
+#: src/gcompris/gcompris.c:77
 #, fuzzy
 msgid "run gcompris with the default gnome cursor."
 msgstr "Paleisti GCompris be garsø"
 
-#: src/gcompris/gcompris.c:75
+#: src/gcompris/gcompris.c:79
+msgid "display only activities with this difficulty level."
+msgstr ""
+
+#: src/gcompris/gcompris.c:81
+msgid ""
+"select the audio output. Use '-A list' to get the list of available audio "
+"output"
+msgstr ""
+
+#: src/gcompris/gcompris.c:83
 msgid "Prints the version of "
 msgstr "Parodo programos versijà"
 
-#: src/gcompris/gcompris.c:77
+#: src/gcompris/gcompris.c:85
 msgid "Use the antialiased canvas (slower)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:330
-msgid "GCompris I Have Understood"
-msgstr "Gcompris - Að supratau"
-
-#: src/gcompris/gcompris.c:546
-#, c-format
+#: src/gcompris/gcompris.c:614
+#, fuzzy, c-format
 msgid ""
 "GCompris\n"
-"Version: %s\n"
+"Version: %d\n"
 "Licence: GPL\n"
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
@@ -2390,7 +2626,7 @@ msgstr ""
 msgid "Directory"
 msgstr ""
 
-#: src/gcompris/interface.c:286
+#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
 msgid "Title"
 msgstr ""
 
@@ -2403,11 +2639,21 @@ msgstr ""
 msgid "Released under GPL"
 msgstr ""
 
-#: src/gcompris/oggplayer.c:189
+#: src/gcompris/oggplayer.c:165
+msgid ""
+"Possible audio output devices are:\n"
+"default "
+msgstr ""
+
+#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
 msgid "Now Playing Music"
 msgstr ""
 
-#: src/gcompris/soundutil.c:116
+#: src/gcompris/oggplayer.c:278
+msgid "Artist"
+msgstr ""
+
+#: src/gcompris/soundutil.c:113
 #, fuzzy, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Negaliu atidaryti pieðinëliø katalogo: %s"
@@ -2425,6 +2671,9 @@ msgstr ""
 #, c-format
 msgid "Remaining Time = %d"
 msgstr ""
+
+#~ msgid "GCompris I Have Understood"
+#~ msgstr "Gcompris - Að supratau"
 
 #, fuzzy
 #~ msgid "Move the mouse to fifteen the area and discover the background"

@@ -55,15 +55,14 @@ py_gcompris_set_image_focus(PyObject* self, PyObject* args)
   GnomeCanvasItem* item;
   gint pyfocus;
   gboolean focus;
-  printf("ICIC1\n");
+
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "Oi:gcompris_set_image_focus", &pyitem, &pyfocus))
     return NULL;
-  printf("ICIC2\n");
+
   item = (GnomeCanvasItem*) pygobject_get(pyitem);
   if(pyfocus>0) focus = TRUE;
   else focus = FALSE;
-  printf("ICIC3 focus =%d\n", focus);
 
   /* Call the corresponding C function */
   gcompris_set_image_focus(item, focus);

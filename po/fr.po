@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"POT-Creation-Date: 2003-11-30 16:33+0100\n"
+"POT-Creation-Date: 2003-12-15 21:10+0100\n"
 "PO-Revision-Date: 2003-11-30 15:37+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -606,7 +606,7 @@ msgstr "Reconnaissance des lettres"
 msgid "None"
 msgstr "Aucun"
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
+#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Clique sur moi"
 
@@ -639,7 +639,7 @@ msgstr ""
 "Emplacement : Inconnu (image nur03011)\n"
 "Emplacement : Inconnu (image nur03013)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
+#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -743,11 +743,11 @@ msgstr ""
 "L'enfant doit déplacer les éléments sur la gauche et les placer\n"
 "sur la bonne destination dans la table à double entrée"
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:205
+#: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
 msgstr "Un outil simple de dessin vectoriel"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:206
+#: boards/draw.xml.in.h:2 src/boards/draw.c:207
 msgid "Creative board where you can freely draw"
 msgstr "Tableau à vocation créative où l'on peut dessiner librement"
 
@@ -914,7 +914,7 @@ msgstr "Exercices de lecture pour trouver le mot correspondant à une image"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:100
+#: src/boards/reading.c:101
 msgid "Reading"
 msgstr "Lecture"
 
@@ -1519,7 +1519,7 @@ msgstr ""
 "positionner les parties d'image sur le bon point rouge pour reconstruire la "
 "peinture originale."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
 msgstr "Construis le puzzle"
 
@@ -1959,7 +1959,7 @@ msgstr "Envoie des flèches sur la cible et compte ton score"
 msgid "Touch the target and count your points"
 msgstr "Touche la cible et compte tes points"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr "Un puzzle avec des pièces qui glissent"
 
@@ -1996,11 +1996,11 @@ msgstr ""
 "voyage \n"
 "en bateau. Aide le à prendre une douche."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
 msgstr "Les mots qui tombent"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Saisis au clavier les mots qui tombent avant qu'ils ne touchent le sol"
 
@@ -2022,18 +2022,18 @@ msgstr "Suite éducative gcompris"
 
 #: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:497
-#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
+#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
+#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
 #: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ne peux pas trouver le fichier %s !"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1728
+#: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
 msgstr "trouve le fichier %s !"
@@ -2141,7 +2141,7 @@ msgstr ""
 "désactivé. Va dans la fenêtre de configuration\n"
 "pour activer le son."
 
-#: src/boards/clickgame.c:182
+#: src/boards/clickgame.c:183
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Ne peut pas trouver le répertoire d'images: %s"
@@ -2350,27 +2350,27 @@ msgstr "Lire des couleurs"
 msgid "Click on the corresponding color"
 msgstr "Clique sur la bonne couleur lue"
 
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Lis une liste de mots et dis si le mot donné en fait partie"
 
-#: src/boards/reading.c:313
+#: src/boards/reading.c:314
 msgid "Please, check if the word"
 msgstr "S'il te plaît, vérifie si le mot"
 
-#: src/boards/reading.c:333
+#: src/boards/reading.c:334
 msgid "is being displayed"
 msgstr "est affiché"
 
-#: src/boards/reading.c:516
+#: src/boards/reading.c:517
 msgid "I am Ready"
 msgstr "Je suis prêt"
 
-#: src/boards/reading.c:553
+#: src/boards/reading.c:554
 msgid "Yes I saw it"
 msgstr "Oui je l'ai vu"
 
-#: src/boards/reading.c:583
+#: src/boards/reading.c:584
 msgid "No, it was not there"
 msgstr "Non, il n'y était pas"
 
@@ -2378,12 +2378,12 @@ msgstr "Non, il n'y était pas"
 msgid "Reverse count"
 msgstr "Compte à rebours"
 
-#: src/boards/shapegame.c:161
+#: src/boards/shapegame.c:162
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Attrape et fais glisser les éléments pour reconstruire l'objet"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:407
+#: src/boards/shapegame.c:409
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2395,7 +2395,7 @@ msgstr ""
 "'s' pour sauver\n"
 "'d' pour afficher toutes les pièces"
 
-#: src/boards/shapegame.c:415
+#: src/boards/shapegame.c:417
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2644,37 +2644,37 @@ msgstr "Effet"
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:719
-#: src/gcompris/config.c:730
+#: src/gcompris/config.c:403 src/gcompris/config.c:720
+#: src/gcompris/config.c:731
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
 
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance gcompris en mode plein écran"
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris in window mode."
 msgstr "lance gcompris en mode fenêtré"
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with sound enabled."
 msgstr "lance gcompris avec le son."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris without sound."
 msgstr "lance gcompris sans le son."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:77
 msgid "run gcompris with the default gnome cursor."
 msgstr "lance gcompris avec le curseur par défaut de gnome."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:79
 msgid "display only activities with this difficulty level."
 msgstr "affiche uniquement les activité avec ce niveau de difficulté"
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:81
 msgid ""
 "select the audio output. Use '-A list' to get the list of available audio "
 "output"
@@ -2682,23 +2682,19 @@ msgstr ""
 "sélectionne la sortie sonore. Utiliser '-A list' pour avoir la liste des "
 "sorties disponibles"
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:83
 msgid "Prints the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:85
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:358
-msgid "GCompris I Have Understood"
-msgstr "GCompris J'ai Compris"
-
-#: src/gcompris/gcompris.c:597
-#, c-format
+#: src/gcompris/gcompris.c:614
+#, fuzzy, c-format
 msgid ""
 "GCompris\n"
-"Version: %s\n"
+"Version: %d\n"
 "Licence: GPL\n"
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
@@ -2805,6 +2801,9 @@ msgstr "Temps écoulé"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
+
+#~ msgid "GCompris I Have Understood"
+#~ msgstr "GCompris J'ai Compris"
 
 #~ msgid "select the audio output, one of 'default alsa09 arts esd oss'"
 #~ msgstr ""

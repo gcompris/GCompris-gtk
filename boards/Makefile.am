@@ -32,6 +32,7 @@ xml_in_files = \
 	imagename.xml.in \
 	maze.xml.in \
 	maze3D.xml.in \
+	melody.xml.in \
 	memory.xml.in \
 	menu.xml.in \
 	money.xml.in \

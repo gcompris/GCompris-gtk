@@ -8,14 +8,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-29 03:27+0100\n"
+"POT-Creation-Date: 2003-12-15 21:10+0100\n"
 "PO-Revision-Date: 2003-11-29 11:00+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -596,7 +596,7 @@ msgstr "Herkennen van letters"
 msgid "None"
 msgstr "Geen"
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:85
+#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Klik Op Mij"
 
@@ -631,7 +631,7 @@ msgstr ""
 "Locatie: Onbekend (beeld nur03011)\n"
 "Locatie: Onbekend (beeld nur03013)"
 
-#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:86
+#: boards/clickgame.xml.in.h:3 src/boards/clickgame.c:87
 msgid ""
 "Left-Click with the mouse on all swimming fishes before they leave the "
 "fishtank"
@@ -727,11 +727,11 @@ msgid ""
 "the double entry table."
 msgstr "Je moet de voorwerpen links naar de juiste plaats slepen."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:205
+#: boards/draw.xml.in.h:1 src/boards/draw.c:206
 msgid "A simple vector drawing tool"
 msgstr "Een eenvoudig tekenprogramma"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:206
+#: boards/draw.xml.in.h:2 src/boards/draw.c:207
 msgid "Creative board where you can freely draw"
 msgstr "Laat je tekentalenten de vrije loop"
 
@@ -891,7 +891,7 @@ msgstr "Lees-oefening om woorden aan beelden te koppelen"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:100
+#: src/boards/reading.c:101
 msgid "Reading"
 msgstr "Lezen"
 
@@ -1470,7 +1470,7 @@ msgstr ""
 "van een schilderij. Sleep deze delen naar de juiste puntjes en vorm zo het "
 "originele schilderij."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:160
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
 msgid "Make the puzzle"
 msgstr "Maak de puzzel"
 
@@ -1695,6 +1695,21 @@ msgid "Vertical reading practice"
 msgstr "Verticale leesoefening"
 
 #: boards/redraw.xml.in.h:1
+msgid ""
+"At each level, a drawing is displayed in the right area. You must redraw it "
+"in the left area."
+msgstr ""
+
+#: boards/redraw.xml.in.h:2
+msgid ""
+"First you must select the proper tool in the tool bar. Then, you must drag "
+"the mouse to create objects. When you are done, click on the OK button, you "
+"will be told were the errors are with little red cross. The order of objects "
+"(above/under) is not important but take care not to have unwanted object "
+"under others."
+msgstr ""
+
+#: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Teken het gegeven item opnieuw"
 
@@ -1869,7 +1884,7 @@ msgstr "Gooi de pijlen naar het doel en tel je punten."
 msgid "Touch the target and count your points"
 msgstr "Raak het doel en tel je punten"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:97
+#: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr "Een puzzel met schuivende blokken"
 
@@ -1902,11 +1917,11 @@ msgstr ""
 "Je moet proberen de watervoorziening te herstellen. Tux komt terug van een "
 "lange vis-reist op zijn boot. Help hem een douche te krijgen."
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:86
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
 msgid "Falling Words"
 msgstr "Vallende Woorden"
 
-#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:2 src/boards/wordsgame.c:88
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Typ de woorden vooraleer ze de grond raken"
 
@@ -1929,18 +1944,18 @@ msgstr "Educatieve software GCompris"
 
 #: src/boards/advanced_colors.c:538 src/boards/imageid.c:580
 #: src/boards/missingletter.c:587 src/boards/read_colors.c:497
-#: src/boards/shapegame.c:1725 src/boards/traffic.c:623
-#: src/gcompris/gameutil.c:93 src/gcompris/gameutil.c:177
-#: src/gcompris/gameutil.c:511 src/gcompris/gameutil.c:512
+#: src/boards/shapegame.c:1735 src/gcompris/gameutil.c:93
+#: src/gcompris/gameutil.c:177 src/gcompris/gameutil.c:511
+#: src/gcompris/gameutil.c:512 src/gcompris/gcompris.c:369
 #: src/gcompris/images_selector.c:477 src/gcompris/skin.c:83
-#: src/gcompris/skin.c:261 src/gcompris/soundutil.c:370
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:583
 #: src/boards/missingletter.c:590 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1728
+#: src/boards/shapegame.c:1738
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -2047,7 +2062,7 @@ msgstr ""
 "Ga naar het configuratiedialoogvenster om \n"
 "het geluid aan te zetten."
 
-#: src/boards/clickgame.c:182
+#: src/boards/clickgame.c:183
 #, c-format
 msgid "Couldn't open pixmap dir: %s"
 msgstr "Kan pixmap's map niet openen: %s"
@@ -2105,6 +2120,142 @@ msgstr "Python-bord"
 msgid "Special board that embed python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
 
+#. gcompris - redraw
+#.
+#. Time-stamp: <2001/08/20 00:54:45 bruno>
+#.
+#. Copyright (C) 2003 Bruno Coudoin
+#.
+#. This program is free software; you can redistribute it and/or modify
+#. it under the terms of the GNU General Public License as published by
+#. the Free Software Foundation; either version 2 of the License, or
+#. (at your option) any later version.
+#.
+#. This program is distributed in the hope that it will be useful,
+#. but WITHOUT ANY WARRANTY; without even the implied warranty of
+#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#. GNU General Public License for more details.
+#.
+#. You should have received a copy of the GNU General Public License
+#. along with this program; if not, write to the Free Software
+#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#.
+#. PythonTest Board module
+#. TOOL SELECTION
+#. COLOR SELECTION
+#. Define the coord of each drawing area
+#. Global used for the select event
+#. The error root item
+#. Set it to 1 to let you create new forms
+#. Once set, draw your shape in the right area. Then clic on OK to display
+#. the data for the form (in the console). Then copy the data in the list at the end of
+#. this file in init_item_list
+#. Set self.editing_mode = None to forbid drawing in the right area
+#. self.editing_mode = 1
+#. Create our rootitem. We put each canvas item in it so at the end we
+#. only have to kill it. The canvas deletes all the items it contains automaticaly.
+#. Remove the root item removes all the others inside it
+#. Delete error previous mark if any
+#. Do nothing special
+#. Save a copy of the target drawing future comparison
+#. Save a copy of the drawing cause we need to remove empty items
+#. Remove all empty items
+#. Need to check if target image equals drawing image
+#. Delete previous mark if any
+#. Create our rootitem for error items mark
+#. display where there is errors
+#. if in_target is set then error are displayed in the target area
+#. Bad Icon Width and Height / 2
+#. The images target are always drawn on the drawing area to ease the final comparison
+#. Called by gcompris when the user click on the level icon
+#. Erase any displayed items (drawing and target)
+#. Display the current level target
+#. Set the level in the control bar
+#. Calc the index in drawlist
+#. the current board is finished : bail out
+#. Prepare an item for the coord display
+#. Create our rootitem for drawing items
+#. Reset the drawing
+#. Code that increments the sublevel and level
+#. And bail out if no more levels are available
+#. return 1 if continue, 0 if bail out
+#. Try the next level
+#. the current board is finished : bail out
+#. display current/sublevel number
+#: src/boards/python/redraw.py:314 src/boards/python/redraw.py:324
+msgid "Level"
+msgstr ""
+
+#. Display the tools
+#. Display the tools
+#. The last item is select, we select it by default
+#. Event when a tool is selected
+#. Deactivate old button
+#. Activate new button
+#. Display the color selector
+#. Display the tools
+#. The last item is the one we select by default
+#. Color event
+#. Deactivate old button
+#. Activate new button
+#. Display the drawing area
+#.
+#. Given coord are returned swapped
+#. Work fine for rect and ellipse but not line
+#. so that y2 > y1 and x2 > x1
+#.
+#. Draw the image target
+#. Save the drawing in image_target for future comparison
+#. Create our rootitem for target items
+#. The images target are always drawn on the drawing area to ease the final comparison
+#.
+#. Can specify the item type to draw via a real GTK type or a TOOL string
+#.
+#. Draw the grid
+#.
+#. Coord of the written numbers
+#. We manage a 2 colors grid
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Shadow for text number
+#. Text number
+#. Clicking on lines let you create object
+#. Given x,y return a new x,y snapped to the grid
+#. Event when a click on any item. Perform the move
+#.
+#. MOUSE DRAG STOP
+#. ---------------
+#. Reset thein_select_ofx ofset
+#. Workaround for bad line positionning
+#. Save the ofset between the mouse pointer and the upper left corner of the object
+#. Check drawing boundaries
+#. We need to realign x cause the bounds values are not precise enough
+#. We need to realign y cause the bounds values are not precise enough
+#. Need to update current_drawing
+#. It's not a line
+#. It can only be a line
+#. Now perform the object move
+#. Workaround for bad line positionning
+#. Event when a click on an item happen on fill in type object
+#. Reset the item to our list
+#. Event when a click on an item happen on border fill type object
+#. Reset the item to our list
+#. Del an item and internal struct cleanup
+#. Warning, do not realy delete it or we bug the index of other items
+#. Event when a click on an item happen
+#.
+#. Display the mouse coord in the drawing or target area
+#. type:
+#. 1 = in drawing area
+#. 2 = in target area
+#. 3 = out of both area
+#.
+#: src/boards/python/redraw.py:815 src/boards/python/redraw.py:818
+#, fuzzy
+msgid "Coordinate"
+msgstr "Dank aan"
+
 #: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Geheugenspel"
@@ -2121,27 +2272,27 @@ msgstr "Kleuren lezen"
 msgid "Click on the corresponding color"
 msgstr "Klik op de overeenkomstige kleur"
 
-#: src/boards/reading.c:101
+#: src/boards/reading.c:102
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Zeg of een woord in de opgegeven lijst zit"
 
-#: src/boards/reading.c:313
+#: src/boards/reading.c:314
 msgid "Please, check if the word"
 msgstr "Ga na of het woord"
 
-#: src/boards/reading.c:333
+#: src/boards/reading.c:334
 msgid "is being displayed"
 msgstr "getoond wordt"
 
-#: src/boards/reading.c:516
+#: src/boards/reading.c:517
 msgid "I am Ready"
 msgstr "Ik ben klaar"
 
-#: src/boards/reading.c:553
+#: src/boards/reading.c:554
 msgid "Yes I saw it"
 msgstr "Ja, ik heb het gezien"
 
-#: src/boards/reading.c:583
+#: src/boards/reading.c:584
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
@@ -2149,12 +2300,12 @@ msgstr "Neen, het was er niet bij"
 msgid "Reverse count"
 msgstr "Omgekeerd tellen"
 
-#: src/boards/shapegame.c:161
+#: src/boards/shapegame.c:162
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:407
+#: src/boards/shapegame.c:409
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2166,7 +2317,7 @@ msgstr ""
 "geef 's' voor opslaan\n"
 "'d' om alle stukjes te tonen"
 
-#: src/boards/shapegame.c:415
+#: src/boards/shapegame.c:417
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2415,38 +2566,38 @@ msgstr "Effect"
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: src/gcompris/config.c:403 src/gcompris/config.c:719
-#: src/gcompris/config.c:730
+#: src/gcompris/config.c:403 src/gcompris/config.c:720
+#: src/gcompris/config.c:731
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
 # Beter: schermvullend?
-#: src/gcompris/gcompris.c:68
+#: src/gcompris/gcompris.c:69
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: src/gcompris/gcompris.c:70
+#: src/gcompris/gcompris.c:71
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: src/gcompris/gcompris.c:72
+#: src/gcompris/gcompris.c:73
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: src/gcompris/gcompris.c:74
+#: src/gcompris/gcompris.c:75
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: src/gcompris/gcompris.c:76
+#: src/gcompris/gcompris.c:77
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: src/gcompris/gcompris.c:78
+#: src/gcompris/gcompris.c:79
 msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
-#: src/gcompris/gcompris.c:80
+#: src/gcompris/gcompris.c:81
 msgid ""
 "select the audio output. Use '-A list' to get the list of available audio "
 "output"
@@ -2454,23 +2605,19 @@ msgstr ""
 "selecteer de geluidsuitgang. Gebruik '-A list' voor een lijst met "
 "beschikbare geluidsuitgangen"
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:83
 msgid "Prints the version of "
 msgstr "Toont de versie van"
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:85
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: src/gcompris/gcompris.c:358
-msgid "GCompris I Have Understood"
-msgstr "GCompris Ik heb het begrepen"
-
-#: src/gcompris/gcompris.c:597
-#, c-format
+#: src/gcompris/gcompris.c:614
+#, fuzzy, c-format
 msgid ""
 "GCompris\n"
-"Version: %s\n"
+"Version: %d\n"
 "Licence: GPL\n"
 "More infos on http://ofset.sourceforge.net/gcompris\n"
 msgstr ""
@@ -2578,3 +2725,6 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "GCompris I Have Understood"
+#~ msgstr "GCompris Ik heb het begrepen"
