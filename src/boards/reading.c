@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2001/11/06 22:21:07 bruno>
+ * Time-stamp: <2001/11/11 20:43:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -541,7 +541,7 @@ static void ask_yes_no()
   gdk_font = gdk_font_load ("-adobe-times-medium-r-normal--*-240-*-*-*-*-*-*");
 
   /*----- YES -----*/
-  button_pixmap = gcompris_load_pixmap("reading/button.png");
+  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap, 
@@ -571,7 +571,7 @@ static void ask_yes_no()
 
   /*----- NO -----*/
   y_offset += 100;
-  button_pixmap = gcompris_load_pixmap("reading/button.png");
+  button_pixmap = gcompris_load_pixmap("gcompris/buttons/button_large2.png");
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf",  button_pixmap, 
