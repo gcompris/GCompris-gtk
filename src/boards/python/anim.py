@@ -666,7 +666,7 @@ class Gcompris_anim:
           x2=x1 + 24  + 26*(j%2),
           y2=y + color_pixmap_height/2  + (color_pixmap_height/2 -6)*(j/2),
           fill_color_rgba=self.colors[c],
-          outline_color_rgba=0x07A3E080L
+          outline_color_rgba=0x07A3E0FFL
           )
         
         item.connect("event", self.color_item_event, c)
@@ -1273,17 +1273,23 @@ class Gcompris_anim:
             (x1, x2, y1, y2) = self.get_bounds(self.newitem)
             self.object_set_size_and_pos(self.newitemgroup, x1, x2, y1, y2)
             self.select_item(self.newitemgroup)
+            self.newitem = None
+            self.newitemgroup = None
 
-            if self.gcomprisBoard.mode == 'draw':
-              self.object_set_size_and_pos(self.newitemgroup,
-                                           x1=points['x1'],
-                                           y1=points['y1'],
-                                           x2=points['x2'],
-                                           y2=points['y2']
-                                           )
-              self.select_item(self.newitemgroup)
-              self.newitem = None
-              self.newitemgroup = None
+          elif self.gcomprisBoard.mode == 'draw':
+            # needed because used to set the anchors.
+            # The item has already the right size
+            self.object_set_size_and_pos(self.newitemgroup,
+                                          x1=points['x1'],
+                                          y1=points['y1'],
+                                          x2=points['x2'],
+                                          y2=points['y2']
+                                          )
+                                          
+            self.select_item(self.newitemgroup)
+            # in draw creation is finished. Object is selected.
+            self.newitem = None
+            self.newitemgroup = None
 
       return gtk.TRUE
 
