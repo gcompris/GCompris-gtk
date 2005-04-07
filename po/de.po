@@ -3,6 +3,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-05 20:30+0200\n"
-"PO-Revision-Date: 2005-04-05 20:52+0200\n"
+"POT-Creation-Date: 2005-04-07 08:53+0200\n"
+"PO-Revision-Date: 2005-04-07 09:04+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1021,7 +1022,9 @@ msgstr "Ordne vier Münzen in einer Reihe"
 
 #: ../boards/connect4.xml.in.h:2
 msgid "Click anywhere in the line in which you want to drop a piece"
-msgstr "Klicke irgendwo in der Reihe, in der du einen Spielstein fallenlassen möchtest"
+msgstr ""
+"Klicke irgendwo in der Reihe, in der du einen Spielstein fallenlassen "
+"möchtest"
 
 #: ../boards/connect4.xml.in.h:3
 msgid "Connect 4"
@@ -1036,7 +1039,10 @@ msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on http://"
 "forcedattack.sourceforge.net"
-msgstr "Laurent Lacheny. Bilder und künstliche Intelligenz aus dem Projekt 4stattack von Jeroen Vloothuis entnommen. Das Original-Projekt befindet sich unter http://forcedattack.sourceforge.net"
+msgstr ""
+"Laurent Lacheny. Bilder und künstliche Intelligenz aus dem Projekt 4stattack "
+"von Jeroen Vloothuis entnommen. Das Original-Projekt befindet sich unter "
+"http://forcedattack.sourceforge.net"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -3072,15 +3078,21 @@ msgstr "Sie benötigen das Python-XML-Modul. Deaktiviere SVG."
 msgid ""
 "Python xml module bot found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
-msgstr "Python-XML-Modul nicht gefunden. SVG wird deaktiviert. Installieren Sie das Python-XML-Modul, um SVG Laden/Speichern zu ermöglichen."
+msgstr ""
+"Python-XML-Modul nicht gefunden. SVG wird deaktiviert. Installieren Sie das "
+"Python-XML-Modul, um SVG Laden/Speichern zu ermöglichen."
 
 #: ../src/boards/python/anim.py:2205
 msgid "SVG is disabled. Install python xml module to enable it"
-msgstr "SVG ist deaktiviert. Installieren Sie das Python-XML-Modul, um es zu aktivieren"
+msgstr ""
+"SVG ist deaktiviert. Installieren Sie das Python-XML-Modul, um es zu "
+"aktivieren"
 
 #: ../src/boards/python/anim.py:2361
 msgid "Warning: the following images cannot be accessed on your system.\n"
-msgstr "Warnung: Auf die folgenden Bilder kann von Ihrem System aus nicht zugegriffen werden.\n"
+msgstr ""
+"Warnung: Auf die folgenden Bilder kann von Ihrem System aus nicht "
+"zugegriffen werden.\n"
 
 #: ../src/boards/python/anim.py:2363
 msgid "The corresponding items have been skiped."
@@ -3337,7 +3349,7 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:210
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
 #: ../src/gcompris/gameutil.c:900 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
@@ -3490,105 +3502,109 @@ msgid "Russian"
 msgstr "Russisch"
 
 #: ../src/gcompris/config.c:99
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: ../src/gcompris/config.c:100
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "Albanisch"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Serbisch (Latein)"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Serbisch"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Walloon"
 msgstr "Wallonisch"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Chinese (Simplified)"
 msgstr "Chinesisch (Vereinfacht)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "No time limit"
 msgstr "Keine Zeitbegrenzung"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slow timer"
 msgstr "Langsame Stoppuhr"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Normal timer"
 msgstr "Normale Stoppuhr"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Fast timer"
 msgstr "Schnelle Stoppuhr"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "No filter"
 msgstr "Kein Filter"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Only this level"
 msgstr "Nur diese Ebene"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Up to this level"
 msgstr "Bis zu dieser Ebene"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "This level and above"
 msgstr "Diese Ebene und höher"
 
-#: ../src/gcompris/config.c:184
+#: ../src/gcompris/config.c:185
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: ../src/gcompris/config.c:293
+#: ../src/gcompris/config.c:294
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: ../src/gcompris/config.c:336
+#: ../src/gcompris/config.c:337
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:365
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:398
+#: ../src/gcompris/config.c:399
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:420
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Keine Verkleidung in %s gefunden\n"
 
-#: ../src/gcompris/config.c:434 ../src/gcompris/config.c:819
-#: ../src/gcompris/config.c:830
+#: ../src/gcompris/config.c:435 ../src/gcompris/config.c:820
+#: ../src/gcompris/config.c:831
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
@@ -3721,7 +3737,9 @@ msgstr "Der Datensatz %s ist ein Verzeichnis. Versuche XML zu lesen "
 #: ../src/gcompris/images_selector.c:629
 #, c-format
 msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
-msgstr "Bildersatz %s Wurzelverzeichnis %s Bild nicht gefunden. Überspringe Bildersatz...\n"
+msgstr ""
+"Bildersatz %s Wurzelverzeichnis %s Bild nicht gefunden. Überspringe "
+"Bildersatz...\n"
 
 #: ../src/gcompris/images_selector.c:664
 #, c-format
@@ -3731,7 +3749,9 @@ msgstr "Bildersatz %s Bild nicht gefunden. Überspringe Bildersatz...\n"
 #: ../src/gcompris/images_selector.c:690
 #, c-format
 msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
-msgstr "Bildersatz %s Verzeichnis %s nicht gefunden. Überspringe alle Bildersätze...\n"
+msgstr ""
+"Bildersatz %s Verzeichnis %s nicht gefunden. Überspringe alle "
+"Bildersätze...\n"
 
 #: ../src/gcompris/interface.c:104
 msgid "Gcompris Editor"
