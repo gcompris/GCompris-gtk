@@ -478,6 +478,19 @@ AC_SUBST(VERSION_VOICES_GEOGRAPHY_RU)
 VERSION_VOICES_MISC_RU=1.0
 AC_SUBST(VERSION_VOICES_MISC_RU)
 
+# SV
+VERSION_VOICES_ALPHABET_SV=1.0
+AC_SUBST(VERSION_VOICES_ALPHABET_SV)
+
+VERSION_VOICES_COLORS_SV=1.0
+AC_SUBST(VERSION_VOICES_COLORS_SV)
+
+VERSION_VOICES_GEOGRAPHY_SV=1.0
+AC_SUBST(VERSION_VOICES_GEOGRAPHY_SV)
+
+VERSION_VOICES_MISC_SV=1.0
+AC_SUBST(VERSION_VOICES_MISC_SV)
+
 #FLAGS
 VERSION_FLAGS=1.8
 AC_SUBST(VERSION_FLAGS)
@@ -564,6 +577,11 @@ boards/sounds/ru/alphabet/Makefile
 boards/sounds/ru/colors/Makefile
 boards/sounds/ru/geography/Makefile
 boards/sounds/ru/misc/Makefile
+boards/sounds/sv/Makefile
+boards/sounds/sv/alphabet/Makefile
+boards/sounds/sv/colors/Makefile
+boards/sounds/sv/geography/Makefile
+boards/sounds/sv/misc/Makefile
 ])
 
 echo ""

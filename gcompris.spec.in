@@ -6,7 +6,7 @@
 %define canvaspackage	%(if rpm -q redhat-release &> /dev/null; then echo gdk-pixbuf-gnome; elif rpm -q mandrake-release &> /dev/null; then echo gdk-pixbuf-gnomecanvas; else echo; fi)
 %define canvaslib	%(if rpm -q mandrakelinux-release &> /dev/null; then echo libgnomecanvas2; else echo libgnomecanvas; fi)
 
-Summary: Educational suite for kids 3-10 years old
+Summary: Educational suite for kids 2-10 years old
 Name: 		%name
 Version: 	%version
 Release: 	%rel
@@ -29,7 +29,7 @@ URL: 		http://ofset.sf.net/gcompris
 
 %description
 GCompris / I Have Understood is an educationnal game for children starting at 2.
-More than 50 different activities are proposed:
+More than 60 different activities are proposed:
 * Click on the animals => learn the mouse/click usage
 * Type the falling letters => learn the keyboard usage
 * Falling Dices
@@ -346,6 +346,39 @@ Version: @VERSION_VOICES_MISC_RU@
 Miscelaneous voices in Russian
 
 
+%package -n assetml-voices-alphabet-sv
+Summary:        Alphabet voices in Swedish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_SV@
+
+%description -n assetml-voices-alphabet-sv
+Alphabet voices in Swedish
+
+%package -n assetml-voices-colors-sv
+Summary:        Colors voices in Swedish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_SV@
+
+%description -n assetml-voices-colors-sv
+Colors voices in Swedish
+
+%package -n assetml-voices-geography-sv
+Summary:        Country name voices in Swedish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_SV@
+
+%description -n assetml-voices-geography-sv
+Country name voices in Swedish
+
+%package -n assetml-voices-misc-sv
+Summary:        Miscelaneous voices in Swedish
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_SV@
+
+%description -n assetml-voices-misc-sv
+Miscelaneous voices in Swedish
+
+
 %package -n assetml-flags
 Summary:        Contains png 60x40 country flags and an assetml description file
 Group: 		Pixmaps
@@ -598,6 +631,28 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/ru/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_ru.assetml
+
+
+%files -n assetml-voices-alphabet-sv
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/sv/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_sv.assetml
+
+%files -n assetml-voices-colors-sv
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/sv/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_sv.assetml
+
+%files -n assetml-voices-geography-sv
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/sv/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_sv.assetml
+
+%files -n assetml-voices-misc-sv
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/sv/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_sv.assetml
+
 
 %files -n assetml-flags
 %defattr(-, root, root)
