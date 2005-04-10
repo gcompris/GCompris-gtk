@@ -12,6 +12,7 @@
 # translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to
+# translation of fr.po to
 # translation of fr.po to Français
 # translation of fr.po to
 # translation of fr.po to
@@ -32,8 +33,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-29 21:30+0200\n"
-"PO-Revision-Date: 2005-03-29 21:58+0200\n"
+"POT-Creation-Date: 2005-04-10 16:54+0200\n"
+"PO-Revision-Date: 2005-04-10 17:08+0200\n"
 "Last-Translator: Bruno coudoin <bruno.coudoin@free.fr>\n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -631,8 +632,9 @@ msgstr "Envoie la balle à Tux."
 
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
-#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
+#: boards/clickgame.xml.in.h:6 boards/connect4.xml.in.h:6
+#: boards/erase.xml.in.h:3 boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulation de la souris"
 
@@ -1037,6 +1039,31 @@ msgstr "Vers les activités des couleurs"
 #: boards/computer.xml.in.h:1
 msgid "Discover the Computer"
 msgstr "Découvre l'ordinateur"
+
+#: boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "Pose quatre pièces alignées"
+
+#: boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr "Clique n'importe où dans la ligne ou tu désires poser une pièce"
+
+#: boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "Connecte 4"
+
+#: boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr "Crée une ligne de 4 pièces horizontalement ou verticalement"
+
+#: boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
+msgstr ""
+"Laurent Lacheny. Les images et l'intelligence artificielle viennent du projet 4stattack par Jeroen Vloothuis. Le projet origical peut être trouvé sur http://"
+"forcedattack.sourceforge.net"
 
 #: boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -2810,7 +2837,7 @@ msgstr "Activités multiples pour enfants"
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:492
 #: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
 #: src/gcompris/gameutil.c:130 src/gcompris/gameutil.c:519
-#: src/gcompris/gameutil.c:520 src/gcompris/gcompris.c:474
+#: src/gcompris/gameutil.c:520 src/gcompris/gcompris.c:492
 #: src/gcompris/images_selector.c:754 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
@@ -2895,7 +2922,7 @@ msgstr "Blancs échec et mat"
 msgid "White mates"
 msgstr "Noirs échec et mat"
 
-#: src/boards/chess.c:1063
+#: src/boards/chess.c:1063 src/gcompris/bonus.c:325
 msgid "Drawn game"
 msgstr "Echec et pat"
 
@@ -3081,7 +3108,7 @@ msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Attention: les images suivantes ne peuvent être trouvées sur votre système.\n"
 
 #: src/boards/python/anim.py:2363
-msgid "The corresponding items have been skiped."
+msgid "The corresponding items have been skipped."
 msgstr "Les éléments suivants ont été enlevés"
 
 #: src/boards/python/pythontest.py:75
@@ -3327,17 +3354,19 @@ msgid "GCompris Home Page"
 msgstr "Page d'accueil de GCompris"
 
 #: src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public License"
+msgid ""
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
 msgstr ""
-"Ce logiciel est un paquetage GNU et est soumis à la Licence Publique Gnu "
+"Ce logiciel est un paquetage GNU et est soumis à la Licence Publique Générale Gnu "
 "(GPL)."
 
 #: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Aide"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:210
-#: src/gcompris/gameutil.c:900 src/gcompris/help.c:329
+#: src/gcompris/about.c:316 src/gcompris/config.c:211
+#: src/gcompris/gameutil.c:923 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "Valider"
@@ -3487,105 +3516,109 @@ msgid "Russian"
 msgstr "Russe"
 
 #: src/gcompris/config.c:99
+msgid "Kinyarwanda"
+msgstr "Kinyarwandais"
+
+#: src/gcompris/config.c:100
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "Albanie"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Serbes (Latin)"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Serbes"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Suédois"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Turkish"
 msgstr "Turc"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Walloon"
 msgstr "Wallon"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Chinese (Simplified)"
 msgstr "Chinoi (Simplifié)"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "No time limit"
 msgstr "Pas de limite de temps"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "Slow timer"
 msgstr "Compteur lent"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "Normal timer"
 msgstr "Compteur normal"
 
-#: src/gcompris/config.c:115
+#: src/gcompris/config.c:116
 msgid "Fast timer"
 msgstr "Compteur rapide"
 
-#: src/gcompris/config.c:120
+#: src/gcompris/config.c:121
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Défaut pour GCompris)"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "No filter"
 msgstr "Aucun filtre"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid "Only this level"
 msgstr "Uniquement ce niveau"
 
-#: src/gcompris/config.c:127
+#: src/gcompris/config.c:128
 msgid "Up to this level"
 msgstr "Jusqu'à ce niveau"
 
-#: src/gcompris/config.c:128
+#: src/gcompris/config.c:129
 msgid "This level and above"
 msgstr "Ce niveau et au-dessus"
 
-#: src/gcompris/config.c:184
+#: src/gcompris/config.c:185
 msgid "GCompris Configuration"
 msgstr "Configuration de GCompris"
 
-#: src/gcompris/config.c:293
+#: src/gcompris/config.c:294
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: src/gcompris/config.c:336
+#: src/gcompris/config.c:337
 msgid "Music"
 msgstr "Musique"
 
-#: src/gcompris/config.c:364
+#: src/gcompris/config.c:365
 msgid "Effect"
 msgstr "Effet"
 
-#: src/gcompris/config.c:398
+#: src/gcompris/config.c:399
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ne peut pas trouver le répertoire de thème : %s"
 
-#: src/gcompris/config.c:419
+#: src/gcompris/config.c:420
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Pas de thème trouvé dans %s\n"
 
-#: src/gcompris/config.c:434 src/gcompris/config.c:819
-#: src/gcompris/config.c:830
+#: src/gcompris/config.c:435 src/gcompris/config.c:820
+#: src/gcompris/config.c:831
 #, c-format
 msgid "Skin : %s"
 msgstr "Thème : %s"
@@ -3618,43 +3651,55 @@ msgstr ""
 "Quitte-la et informe\n"
 "les auteurs du problème."
 
-#: src/gcompris/gcompris.c:90
+#: src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
 msgstr "Lance GCompris en mode plein écran."
 
-#: src/gcompris/gcompris.c:92
+#: src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
 msgstr "Lance GCompris en mode fenêtré."
 
-#: src/gcompris/gcompris.c:94
+#: src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
 msgstr "Lance GCompris avec le son."
 
-#: src/gcompris/gcompris.c:96
+#: src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
 msgstr "Lance GCompris sans le son."
 
-#: src/gcompris/gcompris.c:98
+#: src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
 msgstr "Lance GCompris avec le curseur par défaut de gnome."
 
-#: src/gcompris/gcompris.c:100
+#: src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
 msgstr "Affiche uniquement les activités avec ce niveau de difficulté."
 
-#: src/gcompris/gcompris.c:102
+#: src/gcompris/gcompris.c:107
 msgid "display debug informations on the console."
 msgstr "Affiche les informations de débogage dans la console."
 
-#: src/gcompris/gcompris.c:104
+#: src/gcompris/gcompris.c:109
 msgid "Print the version of "
 msgstr "Affiche la version de "
 
-#: src/gcompris/gcompris.c:106
+#: src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
 msgstr "Utiliser le canvas anti-aliasé (plus lent)."
 
-#: src/gcompris/gcompris.c:583
+#: src/gcompris/gcompris.c:113
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr "Désactivation de XRANDR (Pas de modification de la résolution de l'écran)"
+
+#: src/gcompris/gcompris.c:116
+msgid "Run gcompris with local menu"
+msgstr "Lance GCompris avec un menu local"
+
+#: src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity added to menu"
+msgstr "Lance GCompris avec une activité locale ajoutée au menu"
+
+#: src/gcompris/gcompris.c:601
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3675,7 +3720,7 @@ msgstr ""
 "apprendre la liberté à nos enfants, merci de considérer GNU/Linux. Obtenez "
 "plus d'information sur http://www.fsf.org/philosophy "
 
-#: src/gcompris/gcompris.c:831
+#: src/gcompris/gcompris.c:849
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3711,18 +3756,18 @@ msgstr "dataset %s est un répertoire. Essai de lecture xml"
 
 #: src/gcompris/images_selector.c:629
 #, c-format
-msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
-msgstr "ImageSet %s chemin maison %s image non trouvée. Ignore ImageSet...\n"
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr "Dans l'ImageSet %s, le chemin %s n'est pas trouvée. Ignore ImageSet...\n"
 
 #: src/gcompris/images_selector.c:664
 #, c-format
-msgid "ImageSet %s image not found. Skipping ImageSet...\n"
-msgstr "ImageSet %s image non trouvée. Ignore ImageSet...\n"
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr "Dans l'ImageSet %s une image n'est pas trouvée. Ignore ImageSet...\n"
 
 #: src/gcompris/images_selector.c:690
 #, c-format
-msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
-msgstr "ImageSet %s répertoire %s non trouvé. Ignore tous le jeu d'image...\n"
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr "Dans l'ImageSet %s, le répertoire %s est non trouvé. Ignore tous le jeu d'image...\n"
 
 #: src/gcompris/interface.c:104
 msgid "Gcompris Editor"
