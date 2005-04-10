@@ -1,3 +1,33 @@
+2005-04-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	By Yves and Bruno. Added 2 options to allow gcompris to be used with an external
+	directory containing a complete independant activity. For e.g.
+	gcompris -L /home/user/myboard  => add the activities in this dir to gcompris
+	gcompris -l /reading            => run gcompris directly in the reading activity set
+
+
+	* README: update to point the the boards/gletters/README
+	* boards/boardicons/connect4.png: 
+	* boards/connect4.xml.in: changed to use the icon already in the game
+	* docs/C/python.html: updated
+	* docs/C/python.xml: -
+	* po/POTFILES.in: updated 
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
+	* src/boards/python.c: (pythonboard_start):
+	* src/boards/python/anim.py:
+	* src/gcompris/about.c: (gcompris_about_start):
+	* src/gcompris/bar.c: (gcompris_bar_set_level), (gcompris_bar_set):
+	* src/gcompris/board.c: (board_play), (board_stop):
+	* src/gcompris/bonus.c: (board_finished), (gcompris_display_bonus):
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
+	(gcompris_get_board_from_section), (gcompris_load_menus_dir),
+	(gcompris_load_menus):
+	* src/gcompris/gcompris-board.h:
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_init):
+	* src/gcompris/images_selector.c: (parseImage):
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/properties.h:
+
 2005-04-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	New sounds package for Swedish

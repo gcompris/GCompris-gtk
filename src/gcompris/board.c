@@ -341,6 +341,7 @@ void board_play(GcomprisBoard *gcomprisBoard)
 
       bp = gcomprisBoard->plugin;
       set_current_gcompris_board(gcomprisBoard);
+
       bp->start_board(gcomprisBoard);
       bp_data->playing = TRUE;
       return;
@@ -362,9 +363,11 @@ void board_pause(void)
 
 void board_stop(void)
 {
+
   /* If we are in the upper menu, no need to stop and restart it */
-  if (get_current_gcompris_board()->previous_board == NULL)
+  if (get_current_gcompris_board()->previous_board == NULL){
     return;
+  }
 
   if (bp_data->playing && get_current_board_plugin())
     {
@@ -378,6 +381,7 @@ void board_stop(void)
       bp_data->paused = FALSE;
 
       gcompris_end_board();
+
       return;
     }
   bp_data->playing = FALSE;

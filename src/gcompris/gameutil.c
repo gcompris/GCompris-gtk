@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/02/16 22:11:28 bruno>
+ * Time-stamp: <2005/04/10 23:50:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -117,13 +117,19 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 {
   gchar *filename;
   GdkPixbuf *pixmap;
-
+  GcomprisProperties	*properties = gcompris_get_properties();
 
   /* Search it on the file system */
-  if (!g_path_is_absolute (pixmapfile))
-    filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pixmapfile);
-  else 
-    filename = pixmapfile;
+  if (!g_path_is_absolute (pixmapfile)) {
+    filename = g_strdup_printf("%s/%s", properties->package_data_dir, pixmapfile);
+    if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
+      GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
+      g_free(filename);
+      filename = g_strdup_printf("%s/%s", gcomprisBoard->board_dir, pixmapfile);
+    }
+  } else {
+    filename = strdup(pixmapfile);
+  }
 
   if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
     char *str;
@@ -139,6 +145,8 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
   }
 
   pixmap = gdk_pixbuf_new_from_file (filename, NULL);
+
+  g_free(filename);
 
   if(!pixmap)
     g_warning("Loading image returned a null pointer");
@@ -575,11 +583,15 @@ GcomprisBoard *gcompris_get_board_from_section(gchar *section)
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
+    g_warning("gcompris_get_board_from_section searching '%s' in board '%s'\n", section, board->section);
+
     if( board->section && (strcmp (board->section, section) == 0))
       {
+	g_warning("gcompris_get_board_from_section found '%s' in board '%s'\n", section, board->section);
 	return board;
       }
   }
+  g_warning("gcompris_get_board_from_section searching '%s' but NOT FOUND\n", section);
   return NULL;
 }
 
@@ -643,25 +655,21 @@ void cleanup_menus() {
   }
 }
 
-/* load all the menus xml files in the gcompris path
- * into our memory structures.
+/*
+ * gcompris_load_menus
+ *
+ * Load all the menu it can from the given dirname
+ *
  */
-void gcompris_load_menus()
-{
+void gcompris_load_menus_dir(char *dirname){
   struct dirent *one_dirent;
   DIR *dir;
   int n;
 
-  if(boards_list) {
-    cleanup_menus();
-    return;
-  }
-
-  /* Load the Pixpmaps directory file names */
-  dir = opendir(PACKAGE_DATA_DIR);
+  dir = opendir(dirname);
 
   if (!dir) {
-    g_warning("gcompris_load_menus : no menu found in %s", PACKAGE_DATA_DIR);
+    g_warning("gcompris_load_menus : no menu found in %s", dirname);
   } else {
 
     while((one_dirent = readdir(dir)) != NULL) {
@@ -670,7 +678,7 @@ void gcompris_load_menus()
       gchar *filename;
       
       filename = g_strdup_printf("%s/%s",
-				 PACKAGE_DATA_DIR, one_dirent->d_name);
+				 dirname, one_dirent->d_name);
 
       if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
 	g_free(filename);
@@ -679,6 +687,7 @@ void gcompris_load_menus()
 
       if(selectMenuXML(one_dirent->d_name)) {
 	gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
+	gcomprisBoard->board_dir = dirname;
 
 	/* Need to be initialized here because gcompris_read_xml_file is used also to reread 	*/
 	/* the locale data									*/
@@ -694,8 +703,26 @@ void gcompris_load_menus()
     }
   }
   closedir(dir);
+}
 
-  gcompris_get_menulist("/");
+/* load all the menus xml files in the gcompris path
+ * into our memory structures.
+ */
+void gcompris_load_menus()
+{
+  GcomprisProperties	*properties = gcompris_get_properties();
+
+  if(boards_list) {
+    cleanup_menus();
+    return;
+  }
+
+  gcompris_load_menus_dir(properties->package_data_dir);
+
+  if (properties->local_directory)
+    gcompris_load_menus_dir(properties->local_directory);
+
+  gcompris_get_menulist(properties->root_menu);
 }
 
 /* ======================================= */

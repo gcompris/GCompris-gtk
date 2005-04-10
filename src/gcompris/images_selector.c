@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/03/01 00:27:18 bruno>
+ * Time-stamp: <2005/04/10 16:44:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -624,9 +624,9 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   }
   if (havePathName && pathname[0] == '~'){
     /* replace '~' by home dir */
-    pathname = g_strdup_printf("%s%s",g_get_home_dir(),pathname+1);
+    pathname = g_strdup_printf("%s%s",g_get_home_dir(), pathname+1);
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-       g_warning(_("ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"), imageSetName, pathname);
+       g_warning(_("In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"), imageSetName, pathname);
       return;
     }
     havePathName = TRUE;
@@ -661,7 +661,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   
   if(!g_file_test ((absolutepath), G_FILE_TEST_EXISTS) )
     {
-      g_warning(_("ImageSet %s image not found. Skipping ImageSet...\n"), absolutepath);
+      g_warning(_("In ImageSet %s, an image is not found. Skipping ImageSet...\n"), absolutepath);
       return;
     }
 
@@ -687,7 +687,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     /* or all files with a given suffix */
 
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-      g_warning(_("ImageSet %s directory %s not found. Skipping all the ImageSet...\n"), absolutepath, pathname);
+      g_warning(_("In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"), absolutepath, pathname);
       return;
     }
     imageset_directory = g_dir_open (pathname, 0, error);    

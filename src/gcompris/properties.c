@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/03/29 00:58:14 bruno>
+ * Time-stamp: <2005/04/10 23:46:00 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -120,7 +120,9 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->difficulty_max    = 0;
   tmp->filter_style      = GCOMPRIS_FILTER_NONE;	/* No difficulty filter by default */
   tmp->difficulty_filter = 1;				/* No difficulty filter by default */
-
+  tmp->root_menu         = "/";
+  tmp->local_directory   = NULL;
+  tmp->package_data_dir  = PACKAGE_DATA_DIR;
 
   home_dir = g_get_home_dir();
 

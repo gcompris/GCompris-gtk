@@ -2360,7 +2360,7 @@ def list_restore(picklelist):
       list_images = list_images + im + '\n'
     gcompris.utils.dialog(_('Warning: the following images cannot be accessed on your system.\n') +
                           list_images +
-                          _('The corresponding items have been skiped.'),
+                          _('The corresponding items have been skipped.'),
                           None)
   fles.list_z_last_shot= []
   for item in fles.framelist:

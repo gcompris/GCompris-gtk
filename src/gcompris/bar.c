@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2003/12/21 17:44:37 bcoudoin>
+ * Time-stamp: <2005/04/10 19:25:52 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -317,7 +317,9 @@ void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)
     {
 
       str = g_strdup_printf("level%d.png", gcomprisBoard->level);
+      GcomprisProperties	*properties = gcompris_get_properties();
       pixmap = gcompris_load_skin_pixmap(str);
+   
       g_free(str);
       /* Warning changing the image needs to update pixbuf_ref for the focus usage */
       g_object_set_data (G_OBJECT (level_item), "pixbuf_ref", pixmap);
@@ -355,6 +357,7 @@ gcompris_bar_set_repeat_icon (GdkPixbuf *pixmap)
 void
 gcompris_bar_set (const GComprisBarFlags flags)
 {
+  GcomprisProperties	*properties = gcompris_get_properties();
 
   current_flags = flags;
 

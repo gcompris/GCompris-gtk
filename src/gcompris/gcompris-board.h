@@ -1,6 +1,6 @@
 /* gcompris - gcompris-board.h
  *
- * Time-stamp: <2004/06/18 00:26:05 bcoudoin>
+ * Time-stamp: <2005/04/10 22:33:24 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -31,6 +31,9 @@ struct _GcomprisBoard
   /* Board Type */
   gchar               *type;
   gboolean	       board_ready;
+
+  /* The directory from which it was started */
+  gchar		      *board_dir;
 
   /* Board specific mode */
   gchar		      *mode;

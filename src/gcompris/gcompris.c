@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/04/07 00:03:51 bruno>
+ * Time-stamp: <2005/04/10 20:00:49 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -85,6 +85,10 @@ static int popt_aalias		  = FALSE;
 static int popt_difficulty_filter = FALSE;
 static int popt_debug		  = FALSE;
 static int popt_noxrandr	  = FALSE;
+/* <YC experimental local only options> */
+static char *popt_root_menu        = NULL;
+static char *popt_local_activity    = NULL;
+/* </YC> */
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -107,6 +111,12 @@ static struct poptOption options[] = {
    N_("Use the antialiased canvas (slower)."), NULL},
   {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
    N_("Disable XRANDR (No screen resolution change)."), NULL},
+/* <YC experimental local only options> */
+  {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
+   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory)"), NULL},
+  {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
+   N_("Run gcompris with local activity directory added to menu"), NULL},
+/* </YC> */
 #ifndef WIN32
   POPT_AUTOHELP
 #endif
@@ -571,8 +581,11 @@ static void setup_window ()
   gcompris_load_mime_types();
 
   /* Get and Run the root menu */
-  gcomprisBoardMenu = gcompris_get_board_from_section("/");
-  if(!board_check_file(gcomprisBoardMenu)) {
+  gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
+  if(!gcomprisBoardMenu) {
+    g_warning("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
+    exit(1);
+  } else if(!board_check_file(gcomprisBoardMenu)) {
     g_error("Couldn't find the board menu, or plugin execution error");
   } else {
     g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
@@ -895,6 +908,17 @@ gcompris_init (int argc, char *argv[])
       properties->difficulty_filter = popt_difficulty_filter;
       properties->filter_style      = GCOMPRIS_FILTER_EQUAL;
     }
+
+  if (popt_root_menu){
+    g_warning("Using menu %s as root.", popt_root_menu);
+    properties->root_menu = g_strdup(popt_root_menu);
+  }
+
+  if (popt_local_activity){
+    g_warning("Adding local activies from %s.", popt_local_activity);
+    properties->local_directory = g_strdup(popt_local_activity);
+  }
+
 
   poptFreeContext(pctx); 
   /*------------------------------------------------------------*/

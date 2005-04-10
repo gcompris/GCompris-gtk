@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/03/31 23:06:12 bruno>
+ * Time-stamp: <2005/04/10 23:53:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -34,6 +34,9 @@ typedef struct {
   gint		filter_style;
   gint		difficulty_filter;
   gint		difficulty_max;
+  gchar        *root_menu;
+  gchar        *local_directory;
+  gchar        *package_data_dir;
   gchar	       *locale;
   gchar	       *skin;
   gchar	       *key;
@@ -48,20 +51,6 @@ void			 gcompris_properties_enable_board(gchar *boardName);
 void			 gcompris_properties_disable_board(gchar *boardName);
 gboolean		 gcompris_properties_get_board_status(gchar *boardName);
 void			 gcompris_write_boards_status();
-
-/* private definitions */
-typedef enum {
-  GCOMPRIS_PROP_MUSIC,
-  GCOMPRIS_PROP_FX,
-  GCOMPRIS_PROP_SCREENSIZE,
-  GCOMPRIS_PROP_TIMER,
-  GCOMPRIS_PROP_FULLSCREEN,
-  GCOMPRIS_PROP_LOCALE,
-  GCOMPRIS_PROP_SKIN,
-  GCOMPRIS_PROP_AUDIO,
-  GCOMPRIS_PROP_DIFFICULTY,
-  GCOMPRIS_PROP_FILTER_STYLE
-} GcomprisTokenType;
 
 #endif
 

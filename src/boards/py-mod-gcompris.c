@@ -620,7 +620,6 @@ static PyMethodDef PythonGcomprisModule[] = {
   { NULL, NULL, 0, NULL}
 };
 
-
 void python_gcompris_module_init(void)
 {
   PyObject* gcomprisModule;
@@ -682,7 +681,8 @@ void python_gcompris_module_init(void)
   PyModule_AddIntConstant(gcomprisModule, "CURSOR_DEFAULT",       GCOMPRIS_DEFAULT_CURSOR);
 
   /* Some non gcompris.h constants. */
-  PyModule_AddStringConstant(gcomprisModule, "DATA_DIR", PACKAGE_DATA_DIR);
+  GcomprisProperties	*properties = gcompris_get_properties();
+  PyModule_AddStringConstant(gcomprisModule, "DATA_DIR", properties->package_data_dir);
 
   /* GetText constants. */
   PyModule_AddStringConstant(gcomprisModule, "GETTEXT_PACKAGE", GETTEXT_PACKAGE);

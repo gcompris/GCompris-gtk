@@ -100,6 +100,8 @@ void end_board_finished() {
 #define OFFSET 100
 void board_finished(BoardFinishedList type) {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  GcomprisProperties	*properties = gcompris_get_properties();
+
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
   char * str = NULL;
@@ -190,13 +192,15 @@ void board_finished(BoardFinishedList type) {
   gdk_pixbuf_unref(pixmap_tuxplane);
 
   board_finished_id = gtk_timeout_add (TUX_TIME_STEP, (GtkFunction) end_board_finished, NULL);
+
 }
 
 /* ==================================== */
 void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-  
+  GcomprisProperties	*properties = gcompris_get_properties();
+
   gcompris_bar_hide(TRUE);
 
   if (bonus_display_running)

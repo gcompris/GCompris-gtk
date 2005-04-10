@@ -201,13 +201,17 @@ pythonboard_start (GcomprisBoard *agcomprisBoard){
     /* Add the python plugins dir to the python's search path */
 #ifndef DISABLE_USER_PLUGIN_DIR
     userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
-    boarddir = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s')",
-      userplugindir, PYTHON_PLUGIN_DIR);
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s'); sys.path.append('%s')",
+			       userplugindir,
+			       PYTHON_PLUGIN_DIR,
+			       gcomprisBoard->board_dir);
 #else
     boarddir = g_strdup_printf("import sys; sys.path.append('%s')",PYTHON_PLUGIN_DIR );
 #endif
+
     PyRun_SimpleString(boarddir);
     g_free(boarddir);
+
 #ifndef DISABLE_USER_PLUGIN_DIR
     g_free(userplugindir);
 #endif
