@@ -4,6 +4,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-07 08:53+0200\n"
-"PO-Revision-Date: 2005-04-07 09:04+0200\n"
+"POT-Creation-Date: 2005-04-11 07:50+0200\n"
+"PO-Revision-Date: 2005-04-11 07:57+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2817,8 +2818,8 @@ msgstr "Mehrere Aktivitäten für Kinder"
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
 #: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:130 ../src/gcompris/gameutil.c:519
-#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:482
+#: ../src/gcompris/gameutil.c:136 ../src/gcompris/gameutil.c:527
+#: ../src/gcompris/gameutil.c:528 ../src/gcompris/gcompris.c:492
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -2903,7 +2904,7 @@ msgstr "Schwarz Matt"
 msgid "White mates"
 msgstr "Weiß Matt"
 
-#: ../src/boards/chess.c:1063
+#: ../src/boards/chess.c:1063 ../src/gcompris/bonus.c:314
 msgid "Drawn game"
 msgstr "Unentschieden"
 
@@ -3095,7 +3096,7 @@ msgstr ""
 "zugegriffen werden.\n"
 
 #: ../src/boards/python/anim.py:2363
-msgid "The corresponding items have been skiped."
+msgid "The corresponding items have been skipped."
 msgstr "Die entsprechenden Elemente wurden übersprungen."
 
 #: ../src/boards/python/pythontest.py:75
@@ -3340,7 +3341,9 @@ msgid "GCompris Home Page"
 msgstr "GCompris Webseite"
 
 #: ../src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public License"
+msgid ""
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
 msgstr ""
 "Dieses Programm ist ein GNU-Paket und wird unter der GNU Public Licence "
 "veröffentlicht"
@@ -3350,7 +3353,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:900 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:927 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3621,15 +3624,15 @@ msgstr "Laden"
 msgid "SAVE"
 msgstr "Speichern"
 
-#: ../src/gcompris/gameutil.c:133
+#: ../src/gcompris/gameutil.c:139
 msgid "Couldn't find file"
 msgstr "Kann Datei nicht finden"
 
-#: ../src/gcompris/gameutil.c:135
+#: ../src/gcompris/gameutil.c:141
 msgid "This activity is incomplete."
 msgstr "Diese Aktivität ist unvollständig."
 
-#: ../src/gcompris/gameutil.c:136
+#: ../src/gcompris/gameutil.c:142
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3637,47 +3640,57 @@ msgstr ""
 "Beende und berichte\n"
 "den Autoren über das Problem."
 
-#: ../src/gcompris/gcompris.c:91
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
 msgstr "GCompris im Vollbildmodus ausführen"
 
-#: ../src/gcompris/gcompris.c:93
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
 msgstr "GCompris im Fenstermodus ausführen"
 
-#: ../src/gcompris/gcompris.c:95
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
 msgstr "GCompris mit Klängen ausführen"
 
-#: ../src/gcompris/gcompris.c:97
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
 msgstr "GCompris ohne Klänge ausführen"
 
-#: ../src/gcompris/gcompris.c:99
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
 msgstr "GCompris mit dem voreingestellten Gnome-Mauszeiger ausführen"
 
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
 msgstr "zeige nur Aktivitäten mit dieser Schwierigkeitsstufe an"
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:107
 msgid "display debug informations on the console."
 msgstr "gib Debug-Informationen auf der Konsole aus"
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:109
 msgid "Print the version of "
 msgstr "Ausgabe der Version von "
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:113
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR deaktivieren (Keine Auflösungsänderung)."
 
-#: ../src/gcompris/gcompris.c:591
+#: ../src/gcompris/gcompris.c:116
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory)"
+msgstr "GCompris mit lokalem Menü (z.B. -l /reading öffnet nur Lese-Aktivitäten)"
+
+#: ../src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity directory added to menu"
+msgstr "GCompris mit lokalem Aktivitäten-Verzeichnis im Menü"
+
+#: ../src/gcompris/gcompris.c:604
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3700,7 +3713,7 @@ msgstr ""
 "Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:839
+#: ../src/gcompris/gcompris.c:852
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3736,22 +3749,20 @@ msgstr "Der Datensatz %s ist ein Verzeichnis. Versuche XML zu lesen "
 
 #: ../src/gcompris/images_selector.c:629
 #, c-format
-msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
 msgstr ""
-"Bildersatz %s Wurzelverzeichnis %s Bild nicht gefunden. Überspringe "
+"Im Bildersatz %s wurde das Wurzelverzeichnis %s nicht gefunden. Überspringe "
 "Bildersatz...\n"
 
 #: ../src/gcompris/images_selector.c:664
 #, c-format
-msgid "ImageSet %s image not found. Skipping ImageSet...\n"
-msgstr "Bildersatz %s Bild nicht gefunden. Überspringe Bildersatz...\n"
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr "Im Bildersatz %s wurde ein Bild nicht gefunden. Überspringe Bildersatz...\n"
 
 #: ../src/gcompris/images_selector.c:690
 #, c-format
-msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
-msgstr ""
-"Bildersatz %s Verzeichnis %s nicht gefunden. Überspringe alle "
-"Bildersätze...\n"
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr "Im Bildersatz %s wurde das Verzeichnis %s nicht gefunden. Überspringe den ganzen Bildersatz...\n"
 
 #: ../src/gcompris/interface.c:104
 msgid "Gcompris Editor"
