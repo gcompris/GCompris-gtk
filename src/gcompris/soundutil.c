@@ -220,6 +220,7 @@ static void* thread_play_ogg (void *s)
 {
   char* file = NULL;
   char locale[3];
+  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   strncpy( locale, gcompris_get_locale(), 2 );
   locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
@@ -236,33 +237,52 @@ static void* thread_play_ogg (void *s)
       if (g_file_test ((file), G_FILE_TEST_EXISTS))
 	{
 	  g_warning("trying to play %s\n", file);
-	} else
-	  {
-	    g_free(file);
-	    file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
-	    if (g_file_test ((file), G_FILE_TEST_EXISTS))
-	      {
-		g_warning("trying to play %s\n", file);
-	      } else {
-		/* Try to find a sound file that does not need to be localized 
-		   (ie directly in root /sounds directory) */
-		g_free(file);
-		file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
-		if (g_file_test ((file), G_FILE_TEST_EXISTS)) {
+	} 
+      else
+	{
+	  g_free(file);
+	  file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
+	  if (g_file_test ((file), G_FILE_TEST_EXISTS))
+	    {
+	      g_warning("trying to play %s\n", file);
+	    }
+	  else
+	    {
+	      /* Try to find a sound file that does not need to be localized 
+		 (ie directly in root /sounds directory) */
+	      g_free(file);
+	      file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
+	      if (g_file_test ((file), G_FILE_TEST_EXISTS)) 
+		{
 		  g_warning("trying to play %s\n", file);
-		} else {
+		}
+	      else
+		{
 		  g_free(file);
 		  file = g_strdup_printf("%s", s);
-		  if (g_file_test ((file), G_FILE_TEST_EXISTS)) {
-		    g_warning("trying to play %s\n", file);
-		  } else {
-		    g_free(file);
-		    g_warning("Can't find sound %s", s);
-		    return NULL;
-		  }
+		  if (g_file_test ((file), G_FILE_TEST_EXISTS)) 
+		    {
+		      g_warning("trying to play %s\n", file);
+		    } 
+		  else if(gcomprisBoard)
+		    {
+		      /* Search it in the board_dir */
+		      g_free(file);
+		      file = g_strdup_printf("%s/%s.ogg", gcomprisBoard->board_dir, s);
+		      if (g_file_test ((file), G_FILE_TEST_EXISTS))
+			{
+			  g_warning("trying to play %s\n", file);
+			}
+		    }
+		  else
+		    {
+		      g_free(file);
+		      g_warning("Can't find sound %s", s);
+			  return NULL;
+		    }
 		}
-	      }
-	  }
+	    }
+	}
     }
 
   if ( file )

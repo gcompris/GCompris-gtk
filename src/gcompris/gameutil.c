@@ -583,13 +583,35 @@ GcomprisBoard *gcompris_get_board_from_section(gchar *section)
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
-    g_warning("gcompris_get_board_from_section searching '%s' in board '%s'\n", section, board->section);
+    if (strcmp (board->type,"menu") == 0){
 
-    if( board->section && (strcmp (board->section, section) == 0))
-      {
-	g_warning("gcompris_get_board_from_section found '%s' in board '%s'\n", section, board->section);
+    g_warning("gcompris_get_board_from_section searching '%s' in menu board %s", section, board->section);
+
+      if( board->section && (strcmp (board->section, section) == 0))
+	{
+	  g_warning("gcompris_get_board_from_section found '%s' in board '%s'\n", section, board->section);
+	  return board;
+	}
+    }
+    else {
+      gchar *fullname = NULL;
+      gchar *path = NULL;
+
+      path = g_strndup (board->section,strlen(board->section)-2);
+
+      fullname = g_strdup_printf("%s/%s",
+				 path, board->name);
+
+      g_free(path);
+
+      g_warning("gcompris_get_board_from_section searching '%s' in menu board %s", section, fullname);
+
+      if (strcmp (fullname, section) == 0){
+	g_free(fullname);
 	return board;
       }
+      g_free(fullname);
+    }
   }
   g_warning("gcompris_get_board_from_section searching '%s' but NOT FOUND\n", section);
   return NULL;

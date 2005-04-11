@@ -1,5 +1,19 @@
 2005-04-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* boards/sounds/sv/.cvsignore:
+	* boards/sounds/sv/alphabet/.cvsignore:
+	* boards/sounds/sv/colors/.cvsignore:
+	* boards/sounds/sv/geography/.cvsignore:
+	* boards/sounds/sv/misc/.cvsignore:
+	* src/boards/python/connect4.py: fixed by Yves. There was a bug in case of a draw game.
+	* src/gcompris/gameutil.c: (gcompris_get_board_from_section): By Yves, we can now run a single
+	activity from the command line with for e.g -l /reading/imagename.
+	* src/gcompris/interface.c: (create_gcompris_edit): removed unused menu that seems to crash 
+	compilation on new distrib
+	* src/gcompris/soundutil.c: (thread_play_ogg): fixed to search sound file in local board_dir as well
+
+2005-04-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	By Yves and Bruno. Added 2 options to allow gcompris to be used with an external
 	directory containing a complete independant activity. For e.g.
 	gcompris -L /home/user/myboard  => add the activities in this dir to gcompris

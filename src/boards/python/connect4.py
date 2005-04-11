@@ -281,28 +281,30 @@ class Gcompris_connect4:
 
   def winner(self, player):
     self.gamewon = True
-    print 'The winner is:', player
-    if ((self.firstPlayer and (player==2)) or
-        ((not self.firstPlayer) and (player==1))):
-      self.winPlayers.append('H')
-    else:
-      self.winPlayers.append('N')
-    points = ( self.winLine[0][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
-               (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[0][1])+self.stone_size/2,
-               self.winLine[1][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
-               (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[1][1])+self.stone_size/2
-               )
+    print 'The winner is:', player, 'line', self.winLine
+    if (player != 0):
+      if ((self.firstPlayer and (player==2)) or
+          ((not self.firstPlayer) and (player==1))):
+        self.winPlayers.append('H')
+      else:
+        self.winPlayers.append('N')
+      points = ( self.winLine[0][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
+                 (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[0][1])+self.stone_size/2,
+                 self.winLine[1][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
+                 (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[1][1])+self.stone_size/2
+                 )
                
-    self.redLine = self.boarditem.add(
-      gnome.canvas.CanvasLine,
-       fill_color_rgba=0xFF0000FFL,
-       points=points,
-       width_pixels = 8 
-       )
-    if player == 1:
-      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
-    elif player == 2:
-      gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
+      self.redLine = self.boarditem.add(
+        gnome.canvas.CanvasLine,
+        fill_color_rgba=0xFF0000FFL,
+        points=points,
+        width_pixels = 8 
+        )
+      if player == 1:
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+      else:
+        # player == 2
+        gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
     else:
       gcompris.bonus.display(gcompris.bonus.DRAW, gcompris.bonus.FLOWER)
 

@@ -31,14 +31,6 @@ static GnomeUIInfo file1_menu_uiinfo[] =
   GNOMEUIINFO_END
 };
 
-static GnomeUIInfo edit1_menu_uiinfo[] =
-{
-  GNOMEUIINFO_MENU_CUT_ITEM (on_cut1_activate, NULL),
-  GNOMEUIINFO_MENU_COPY_ITEM (on_copy1_activate, NULL),
-  GNOMEUIINFO_MENU_PASTE_ITEM (on_paste1_activate, NULL),
-  GNOMEUIINFO_END
-};
-
 static GnomeUIInfo help1_menu_uiinfo[] =
 {
   GNOMEUIINFO_HELP ("gcompris-edit"),
@@ -49,7 +41,6 @@ static GnomeUIInfo help1_menu_uiinfo[] =
 static GnomeUIInfo menubar1_uiinfo[] =
 {
   GNOMEUIINFO_MENU_FILE_TREE (file1_menu_uiinfo),
-  GNOMEUIINFO_MENU_EDIT_TREE (edit1_menu_uiinfo),
   GNOMEUIINFO_MENU_HELP_TREE (help1_menu_uiinfo),
   GNOMEUIINFO_END
 };
@@ -122,12 +113,6 @@ create_gcompris_edit (void)
   gtk_widget_set_name (file1_menu_uiinfo[0].widget, "quit1");
 
   gtk_widget_set_name (menubar1_uiinfo[1].widget, "edit1");
-
-  gtk_widget_set_name (edit1_menu_uiinfo[0].widget, "cut1");
-
-  gtk_widget_set_name (edit1_menu_uiinfo[1].widget, "copy1");
-
-  gtk_widget_set_name (edit1_menu_uiinfo[2].widget, "paste1");
 
   gtk_widget_set_name (menubar1_uiinfo[2].widget, "help1");
 
@@ -424,9 +409,6 @@ create_gcompris_edit (void)
   GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[0].widget, "file1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, file1_menu_uiinfo[0].widget, "quit1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[1].widget, "edit1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, edit1_menu_uiinfo[0].widget, "cut1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, edit1_menu_uiinfo[1].widget, "copy1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, edit1_menu_uiinfo[2].widget, "paste1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[2].widget, "help1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, help1_menu_uiinfo[1].widget, "about1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, toolbar1, "toolbar1");
