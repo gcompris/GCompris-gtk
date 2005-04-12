@@ -86,10 +86,12 @@ class MinMax(Player):
       list = []
       for child in node.childs:
         list.append(child.value)
-      if node.player == player:
+      if node.player != player:
         node.value = min(list)
+        #print 'min =', node.value,
       else:
         node.value = max(list)
+        #print 'max =', node.value,
 
     else:
       node.value = self.score(node, player, opponent)  / (depth + 1)
@@ -133,10 +135,10 @@ class MinMax(Player):
       for move in self.listMoves(node.board, current_player):
         node.board.move(move, current_player)
 
-        node.childs.append(self.statespace(Node( node.board, move, player), depth+1, next_player, player, opponent))
+        node.childs.append(self.statespace(Node( node.board, move, next_player), depth+1, next_player, player, opponent))
         node.board.undomove(move)
-
     self.evaluate(node, player, opponent, depth)
+    #print 'v=%d p=%d' %(node.value,node.player)
     return node
 
 

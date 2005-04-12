@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2004/09/29 00:16:53 bcoudoin>
+ * Time-stamp: <2005/04/12 23:03:33 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -280,8 +280,19 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   GdkPixbuf *pixmap = NULL;
   GnomeCanvasItem *item, *menu_button;
   int difficulty;
+  gchar *tmp_board_dir;
 
+  /*
+   * Take care to load the board->icon_name from the dir specified
+   * in the board->board_dir
+   * To make it simple and reuse the gcompris_load_pixmap, we overwrite temporarily
+   * the gcomprisBoard->board_dir and board->board_dir
+   */
+  tmp_board_dir = gcomprisBoard->board_dir;
+  gcomprisBoard->board_dir = board->board_dir;
   menu_pixmap = gcompris_load_pixmap(board->icon_name);
+  gcomprisBoard->board_dir = tmp_board_dir;
+
   next_spot();
 
   menu_button = gnome_canvas_item_new (parent,

@@ -25,13 +25,6 @@
 
 
 #TODO 
-#Correct bug when click out of board: done
-#Reset board on level change: done
-#After level 4 go back to level 1: done
-#Anim coin when playing: done
-#Hide tux after first round: done
-#Enable click on coins: done
-
 
 import gobject
 import gnome
@@ -46,7 +39,6 @@ import gtk.gdk
 from gettext import gettext as _
 
 import types
-import thread
 from  connect4p import rules
 from  connect4p import human
 from  connect4p import minmax
@@ -55,7 +47,7 @@ from  connect4p import board
 # 
 
 class Gcompris_connect4:
-  """catch the ball"""
+  """Connect 4 stones"""
 
 
   def __init__(self, gcomprisBoard):
@@ -64,15 +56,17 @@ class Gcompris_connect4:
 
   def start(self):
     print "Gcompris_connect4_start."
-    self.board_size = 490.0
-    self.boarditem = None
-    self.nb_columns = 7
-    self.nb_lines = 6
-    self.stone_size = 70.0
+    self.boardSize = 490.0
+    self.nbColumns = 7
+    self.nbLines = 6
+    self.stoneSize = 70.0
+    self.maxVictory = 3
+    self.maxLevel = 4
     self.firstPlayer = False
-    self.winPlayers = []
-    self.timer_anim = 0 
-    self.timer_machine = 0 
+    self.boardItem = None
+    self.timerAnim = 0 
+    self.timerMachine = 0 
+    self.humanVictory = 0
     self.machineHasPlayed = True
     self.endAnimCallback = None
     self.gcomprisBoard.level=1
@@ -110,7 +104,7 @@ class Gcompris_connect4:
     selector = self.rootitem.add(
      gnome.canvas.CanvasPixbuf,
       pixbuf = gcompris.utils.load_pixmap("connect4/grid.png"),
-      x=1+(gcompris.BOARD_WIDTH-self.board_size)/2,
+      x=1+(gcompris.BOARD_WIDTH-self.boardSize)/2,
       y=1+50.0
       )
 
@@ -135,21 +129,25 @@ class Gcompris_connect4:
     del self.tuxboatitem
     del self.tuxboatanim
     self.rootitem.destroy()
-    self.boarditem.destroy()
-    if self.timer_anim:
-      gtk.timeout_remove(self.timer_anim)
-    if self.timer_machine:
-      gtk.timeout_remove(self.timer_machine)
+    self.boardItem.destroy()
+    if self.timerAnim:
+      gtk.timeout_remove(self.timerAnim)
+    if self.timerMachine:
+      gtk.timeout_remove(self.timerMachine)
     
 
   def ok(self):
     print("Gcompris_connect4 ok.")
 
   def repeat(self):
-    print("Gcompris_connect4 repeat.")
-    if self.winPlayers[-3:] == ['H', 'H', 'H']:
-      self.winPlayers = []
-      self.set_level(self.gcomprisBoard.level+1)
+    print("Gcompris_connect4 repeat.", self.humanVictory)
+    if self.humanVictory >= self.maxVictory:
+      if self.gcomprisBoard.level < self.maxLevel:
+        self.set_level(self.gcomprisBoard.level+1)
+      else:
+        print "Level max is reached!"
+        self.end()
+        gcompris.end_board()
     else: 
       self.newGame()
 
@@ -167,24 +165,24 @@ class Gcompris_connect4:
 
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
-    if level > 4: level = 1
+    if level > self.maxLevel: level = 1
     self.gcomprisBoard.level=level
     self.gcomprisBoard.sublevel=1
     gcompris.bar_set_level(self.gcomprisBoard)
     self.player1.setDifficulty(level)
     self.player2.setDifficulty(level)
-    self.winPlayers = []
+    self.humanVictory = 0 
     self.newGame()
 
   # End of Initialisation
   # ---------------------
 
   def newGame(self):
-    if self.boarditem != None:
-      self.boarditem.destroy()
-    self.boarditem = self.gcomprisBoard.canvas.root().add(
+    if self.boardItem != None:
+      self.boardItem.destroy()
+    self.boardItem = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
-      x=(gcompris.BOARD_WIDTH-self.board_size)/2.0,
+      x=(gcompris.BOARD_WIDTH-self.boardSize)/2.0,
       y=50.0 
       )
     self.player1 = human.Human(self.gcomprisBoard.level)
@@ -203,23 +201,21 @@ class Gcompris_connect4:
     if event.type == gtk.gdk.BUTTON_PRESS:
       print event.x, event.y
       if event.button == 1 and self.gamewon == False and self.machineHasPlayed:
-        column = int((event.x - (gcompris.BOARD_WIDTH-self.board_size)/2.0) // self.stone_size)
+        column = int((event.x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
         print "columnItemEvent", column
-        if not (column < 0 or column > (self.nb_columns-1)):
-          self.play(self.player1, 1, column)
-          if self.gamewon == False:
-            self.tuxboatitem.gnome_canvas.show()
-            gcompris.bar_hide(True)
-            #To improve the two timers
-            #self.timer_machine = gtk.timeout_add(2000, self.machinePlay)
-            self.endAnimCallback = self.machinePlay
-            self.machineHasPlayed = False
-            #thread.start_new_thread(self.machinePlay, ())
+        if not (column < 0 or column > (self.nbColumns-1)):
+          if self.play(self.player1, 1, column):
+            if self.gamewon == False:
+              self.tuxboatitem.gnome_canvas.show()
+              gcompris.bar_hide(True)
+              self.endAnimCallback = self.machinePlay
+              self.machineHasPlayed = False
    
     return gtk.FALSE
   
   def profItemEvent(self, widget, event, column):
-    if event.type == gtk.gdk.BUTTON_PRESS and self.firstPlayer == False:
+    #if event.type == gtk.gdk.BUTTON_PRESS and self.firstPlayer == False:
+    if event.type == gtk.gdk.BUTTON_PRESS:
       self.firstPlayer = True
       self.machinePlay()
 
@@ -247,9 +243,11 @@ class Gcompris_connect4:
       self.drawBoard(self.board)
       self.winLine = rules.isWinner(self.board, numPlayer)
       if self.winLine:
-        return self.winner(numPlayer)
+        self.winner(numPlayer)
       elif rules.isBoardFull(self.board):
-        return self.winner(0)
+        self.winner(0)
+      return True
+    return False
         
   def drawBoard(self, board):
     stone = self.board.state[self.board.last_move][-1]
@@ -257,54 +255,52 @@ class Gcompris_connect4:
     y = len(self.board.state[self.board.last_move])-1
     file = "connect4/stone_%d.png" % stone
 
-    self.stone = self.boarditem.add(
+    self.stone = self.boardItem.add(
       gnome.canvas.CanvasPixbuf,
        pixbuf = gcompris.utils.load_pixmap(file),
-       x=x*(self.board_size/self.nb_columns),
-       #y=(self.board_size/self.nb_columns)*(self.nb_lines-1-y)
+       x=x*(self.boardSize/self.nbColumns),
+       #y=(self.boardSize/self.nbColumns)*(self.nbLines-1-y)
        y=0
        )
     self.stone.connect("event", self.columnItemEvent, 0)
-    self.countAnim = self.nb_lines-y
-    self.timer_anim = gtk.timeout_add(200, self.timerAnim)
+    self.countAnim = self.nbLines-y
+    self.timerAnim = gtk.timeout_add(200, self.animTimer)
 
-  def timerAnim(self):
-    print "timerAnim", self.countAnim
+  def animTimer(self):
     self.countAnim -= 1
     if self.countAnim > 0:
       y= self.stone.get_property('y')
-      self.stone.set_property('y', y + (self.board_size/self.nb_columns))
-      self.timer_anim = gtk.timeout_add(200, self.timerAnim)
+      self.stone.set_property('y', y + (self.boardSize/self.nbColumns))
+      self.timerAnim = gtk.timeout_add(200, self.animTimer)
     else:
       if self.endAnimCallback:
         self.endAnimCallback()
 
   def winner(self, player):
     self.gamewon = True
-    print 'The winner is:', player, 'line', self.winLine
-    if (player != 0):
-      if ((self.firstPlayer and (player==2)) or
-          ((not self.firstPlayer) and (player==1))):
-        self.winPlayers.append('H')
-      else:
-        self.winPlayers.append('N')
-      points = ( self.winLine[0][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
-                 (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[0][1])+self.stone_size/2,
-                 self.winLine[1][0]*(self.board_size/self.nb_columns)+self.stone_size/2,
-                 (self.board_size/self.nb_columns)*(self.nb_lines-1-self.winLine[1][1])+self.stone_size/2
-                 )
+    print 'The winner is:', player
+    if ((self.firstPlayer and (player==2)) or
+        ((not self.firstPlayer) and (player==1))):
+      self.humanVictory += 1
+    else:
+      self.humanVictory = 0 
+    points = ( self.winLine[0][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
+               (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[0][1])+self.stoneSize/2,
+               self.winLine[1][0]*(self.boardSize/self.nbColumns)+self.stoneSize/2,
+               (self.boardSize/self.nbColumns)*(self.nbLines-1-self.winLine[1][1])+self.stoneSize/2
+               )
                
-      self.redLine = self.boarditem.add(
-        gnome.canvas.CanvasLine,
-        fill_color_rgba=0xFF0000FFL,
-        points=points,
-        width_pixels = 8 
-        )
-      if player == 1:
-        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
-      else:
-        # player == 2
-        gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
+    self.redLine = self.boardItem.add(
+      gnome.canvas.CanvasLine,
+       fill_color_rgba=0xFF0000FFL,
+       points=points,
+       width_pixels = 8 
+       )
+    self.redLine.set_property("cap-style", gtk.gdk.CAP_ROUND)
+    if player == 1:
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+    elif player == 2:
+      gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
     else:
       gcompris.bonus.display(gcompris.bonus.DRAW, gcompris.bonus.FLOWER)
 

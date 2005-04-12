@@ -34,6 +34,8 @@ xml_in_files = \
 	draw.xml.in \
 	enumerate.xml.in \
 	erase.xml.in \
+	erase_clic.xml.in \
+	erase_double_clic.xml.in \
 	experience.xml.in \
 	fifteen.xml.in \
 	followline.xml.in \
@@ -56,6 +58,7 @@ xml_in_files = \
 	missing_letter.xml.in \
 	money.xml.in \
 	money_cents.xml.in \
+	mouse.xml.in \
 	paintings.xml.in \
 	paratrooper.xml.in \
 	planegame.xml.in \

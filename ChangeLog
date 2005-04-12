@@ -1,3 +1,31 @@
+2005-04-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Yves created 2 new activities by changeing the erase one.
+	Now we have a submenu in the computer menu to learn 
+	mouse move, simple and double click
+
+	Laurent fixed connect4 activity. No more bug clicking on a full column.
+
+	menu.c fixed to find boardicon in it's local board directory
+	
+	* boards/Makefile.am:
+	* boards/boardicons/erase_clic.png:
+	* boards/boardicons/erase_double_clic.png:
+	* boards/erase.xml.in:
+	* boards/erase_clic.xml.in:
+	* boards/erase_double_clic.xml.in:
+	* boards/mouse.xml.in:
+	* docs/C/python.xml: added GNU Bonus
+	* po/POTFILES.in:
+	* src/boards/erase.c: (start_board), (end_board), (set_level),
+	(erase_next_level), (item_event):
+	* src/boards/menu.c: (menu_create_item):
+	* src/boards/py-mod-bonus.c: (python_gcompris_bonus_module_init):
+	* src/boards/python/algorithm.py:
+	* src/boards/python/connect4.py:
+	* src/boards/python/connect4p/minmax.py:
+	* src/boards/python/hexagon.py:
+
 2005-04-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/sounds/sv/.cvsignore:

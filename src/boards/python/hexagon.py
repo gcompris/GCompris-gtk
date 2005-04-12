@@ -35,7 +35,12 @@ class Gcompris_hexagon:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
     self.rootitem = None
-    self.timer    = 0
+
+    # These are used to let us restart only after the bonus is displayed.
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    self.board_paused  = 0;
+    self.gamewon       = 0;
+
 
   def start(self): 
     gcompris.bar_set (0)
@@ -61,6 +66,19 @@ class Gcompris_hexagon:
     #print("got key %i" % keyval)
     return gtk.FALSE
 
+  # Called by gcompris core 
+  def pause(self, pause):
+    
+    self.board_paused = pause
+    
+    # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
+    # the game is won
+    if(pause == 0):
+      self.finished()
+      self.gamewon = 0
+
+    return
+
   
   # ----------------------------------------------------------------------
   # ----------------------------------------------------------------------
@@ -68,9 +86,6 @@ class Gcompris_hexagon:
 
 
   def cleanup(self):
-
-    if(self.timer):
-      gtk.timeout_remove(self.timer)
 
     # Remove the root item removes all the others inside it
     if self.rootitem != None: 
@@ -128,7 +143,6 @@ class Gcompris_hexagon:
     
   def finished(self):
     gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-    self.timer = 0
     
   def on_click (self, widget, event=None, x=0, y=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1 :
@@ -138,7 +152,7 @@ class Gcompris_hexagon:
                              
      if catdistance<0.1:
       self.paint_cat()
-      self.timer = gtk.timeout_add(5000, self.finished) 
+      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.GNU)
      else:
        color = self.coloring (catdistance/30.0)
        widget.set(fill_color_rgba=color);

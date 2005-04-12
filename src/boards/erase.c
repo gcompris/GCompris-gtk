@@ -49,6 +49,11 @@ static int number_of_item_y = 0;
 
 static gint timer_id = 0;
 
+// Default Double clic distance to restore on exit.
+gint DefaultDoubleClicDistance;
+
+gint DoubleClicLevel[6]= { 1000, 750, 500, 400, 250, 150};
+
 // List of images to use in the game
 static gchar *imageList[] =
   {
@@ -135,6 +140,23 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
 
+      if (strcmp(gcomprisBoard->mode,"double_clic")==0){
+	GtkSettings *DefaultsGtkSettings = gtk_settings_get_default ();
+
+	if (DefaultsGtkSettings == NULL) {
+	  g_warning(_("Couldn't get GTK settings"));
+	} else {
+	  g_object_get(G_OBJECT(DefaultsGtkSettings), 
+		       "gtk-double-click-time", &DefaultDoubleClicDistance, NULL);
+	  
+	  g_warning(_("Double clic default value %d."),DefaultDoubleClicDistance);
+	}
+
+	gdk_display_set_double_click_time( gdk_display_get_default(),
+					   DoubleClicLevel[gcomprisBoard->level-1]);
+	g_warning(_("Double clic value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+      }
+
       erase_next_level();
 
       gamewon = FALSE;
@@ -144,6 +166,11 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 /* ======================================= */
 static void end_board ()
 {
+  if (strcmp(gcomprisBoard->mode,"double_clic")==0){
+    gdk_display_set_double_click_time( gdk_display_get_default(),
+					   DefaultDoubleClicDistance);
+    g_warning(_("Double clic value is now %d."),DefaultDoubleClicDistance);
+  }
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
@@ -162,6 +189,13 @@ static void set_level (guint level)
       gcomprisBoard->sublevel=1;
       erase_next_level();
     }
+  
+  if (strcmp(gcomprisBoard->mode,"double_clic")==0){
+    gdk_display_set_double_click_time( gdk_display_get_default(),
+				       DoubleClicLevel[gcomprisBoard->level-1]);
+    g_warning(_("Double clic value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+  }
+  
 }
 /* ======================================= */
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
@@ -194,12 +228,17 @@ static void erase_next_level()
   gamewon = FALSE;
 
   /* Select level difficulty */
-  number_of_item_x = ((gcomprisBoard->level+1)%2+1)*5;
-  number_of_item_y = ((gcomprisBoard->level+1)%2+1)*5;
+  if (strcmp(gcomprisBoard->mode,"double_clic")==0){
+    number_of_item_x = 5;
+    number_of_item_y = 5;
+  } else {
+    number_of_item_x = ((gcomprisBoard->level+1)%2+1)*5;
+    number_of_item_y = ((gcomprisBoard->level+1)%2+1)*5;
+  }  
       
   /* Try the next level */
-  erase_create_item(gnome_canvas_root(gcomprisBoard->canvas));
-}
+  erase_create_item(gnome_canvas_root(gcomprisBoard->canvas));}
+  
 /* ==================================== */
 /* Destroy all the items */
 static void erase_destroy_all_items()
@@ -289,42 +328,71 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
   if(board_paused)
     return FALSE;
+  
+  if (strcmp(gcomprisBoard->mode,"normal")==0)
+    if (event->type != GDK_ENTER_NOTIFY)
+      return FALSE;
 
-  if(event->type!=GDK_ENTER_NOTIFY)
-    return FALSE;
+  if (strcmp(gcomprisBoard->mode,"clic")==0)
+    if (event->type != GDK_BUTTON_PRESS)
+      return FALSE;
 
-  state = (GPOINTER_TO_INT (gtk_object_get_data (GTK_OBJECT (item), "state")));
+  if (strcmp(gcomprisBoard->mode,"double_clic")==0)
+    if ((event->type != GDK_BUTTON_PRESS) &
+	(event->type != GDK_2BUTTON_PRESS) &
+	(event->type != GDK_BUTTON_RELEASE))
+      return FALSE;
 
-  if(gcomprisBoard->level>2)
-    {
-      if(!state)
-	{
-	  gnome_canvas_item_set(item,
-				"fill_color_rgba", gcompris_skin_get_color("erase/rectangle in2"),
-				"outline_color_rgba", gcompris_skin_get_color("erase/rectangle out2"),
-				NULL);
-	  state++;
-	  gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(state));
-	  return FALSE;
-	}
 
-      if(gcomprisBoard->level>4) {
-	if(state==1)
-	  {     
+  if (strcmp(gcomprisBoard->mode,"double_clic")!=0){
+    state = (GPOINTER_TO_INT (gtk_object_get_data (GTK_OBJECT (item), "state")));
+    if(gcomprisBoard->level>2)
+      {
+	if(!state)
+	  {
+	    gnome_canvas_item_set(item,
+				  "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in2"),
+				  "outline_color_rgba", gcompris_skin_get_color("erase/rectangle out2"),
+				  NULL);
 	    state++;
 	    gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(state));
-	    gnome_canvas_item_set(item, 
-				  "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in3"),
-				  "outline_color_rgba", NULL,
-				  NULL);
 	    return FALSE;
 	  }
+	
+	if(gcomprisBoard->level>4) {
+	  if(state==1)
+	    {     
+	      state++;
+	      gtk_object_set_data(GTK_OBJECT(item),"state", GINT_TO_POINTER(state));
+	      gnome_canvas_item_set(item, 
+				    "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in3"),
+				    "outline_color_rgba", NULL,
+				    NULL);
+	      return FALSE;
+	    }
+	}
       }
+  }
+  else {
+    if (event->type == GDK_BUTTON_PRESS){
+      gnome_canvas_item_set(item,
+			    "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in2"),
+			    "outline_color_rgba", gcompris_skin_get_color("erase/rectangle out2"),
+			    NULL);
+      return FALSE;
     }
-
+    if (event->type == GDK_BUTTON_RELEASE){
+      gnome_canvas_item_set(item,
+			    "fill_color_rgba", gcompris_skin_get_color("erase/rectangle in"),
+			    "outline_color_rgba", gcompris_skin_get_color("erase/rectangle out"),
+			    NULL);
+      return FALSE;
+    }
+  }
+    
   gtk_object_destroy(GTK_OBJECT(item));
-
-
+  
+    
   if(--number_of_item == 0)
     {
       gamewon = TRUE;
