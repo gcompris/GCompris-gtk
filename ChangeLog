@@ -1,3 +1,64 @@
+2005-04-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+
+	Yves added a new board called bargame. The manual is:
+	Put balls in the holes. You win if the computer play the last one.
+	If you want Tux to begin, just click on him.
+	Bruno Created the background image, Yves did the rest of the game.
+
+	Serveral changes in the computer menu. Now there is a submenu for the
+	mouse activity. I redid the erase activity icons to be more precse.
+	The mouse comes from openclipart.
+
+	I redid the tux teacher image as found in bargame and connect4
+
+	Some minor fixes for win32 compilation
+
+	log format is now generic and does not need to be localised.
+	
+	* Makefile.am:
+	* boards/Makefile.am:
+	* boards/bargame.xml.in:
+	* boards/bargame/blue_ball.png:
+	* boards/bargame/board.png:
+	* boards/bargame/case.png:
+	* boards/bargame/case_last.png:
+	* boards/bargame/green_ball.png:
+	* boards/bargame/mask.png:
+	* boards/bargame/mask_last.png:
+	* boards/bargame/ombre.png:
+	* boards/boardicons/bargame.png:
+	* boards/boardicons/connect4.png:
+	* boards/boardicons/erase.png:
+	* boards/boardicons/erase_clic.png:
+	* boards/boardicons/erase_double_clic.png:
+	* boards/boardicons/mouse.png:
+	* boards/boardicons/mouse_move.png:
+	* boards/clickgame.xml.in:
+	* boards/connect4/prof.png:
+	* boards/followline.xml.in:
+	* boards/images/scenery6_background.png:
+	* boards/images/superbrain_background.jpg:
+	* boards/images/tux-teacher.png:
+	* boards/mouse.xml.in:
+	* configure.in:
+	* po/POTFILES.in:
+	* src/boards/chess.c:
+	* src/boards/erase.c:
+	* src/boards/py-mod-anim.c: (AnimCanvas_free),
+	(py_gcompris_animcanvas_setstate),
+	(py_gcompris_animcanvas_swapanim),
+	(py_gcompris_animcanvas_destroy):
+	* src/boards/python/Makefile.am:
+	* src/boards/python/bargame.py:
+	* src/boards/python/connect4.py:
+	* src/boards/python/gcompris/score/.cvsignore:
+	* src/gcompris/anim.c: (gcompris_load_animation),
+	(gcompris_activate_animation), (gcompris_swap_animation):
+	* src/gcompris/file_selector.c: (create_rootdir):
+	* src/gcompris/log.c: (gcompris_log_end):
+	* src/gcompris/properties.c: (create_rootdir):
+
 2005-04-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/erase.c: (start_board), (end_board), (set_level),

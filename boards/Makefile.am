@@ -14,6 +14,7 @@ xml_in_files = \
 	anim.xml.in \
 	babymatch.xml.in \
 	babyshapes.xml.in \
+	bargame.xml.in \
 	billard.xml.in \
 	ballcatch.xml.in \
 	boards.xml.in \

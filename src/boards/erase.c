@@ -50,15 +50,15 @@ static int number_of_item_y = 0;
 static gint timer_id = 0;
 
 // Default Double clic distance to restore on exit.
-gint DefaultDoubleClicDistance;
+static gint DefaultDoubleClicDistance;
 
-gint DoubleClicLevel[6]= {  1000, 750, 600, 500, 400, 250};
- 1000, 750, 600, 500, 400, 25
+static gint DoubleClicLevel[6]= {  1000, 750, 600, 500, 400, 250};
+
 #define NORMAL 0
 #define CLIC   1
 #define DOUBLECLIC 2
 
-gint board_mode =  NORMAL;
+static gint board_mode =  NORMAL;
 
 // List of images to use in the game
 static gchar *imageList[] =

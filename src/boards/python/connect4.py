@@ -110,7 +110,7 @@ class Gcompris_connect4:
 
     self.prof = self.rootitem.add(
      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("connect4/prof.png"),
+      pixbuf = gcompris.utils.load_pixmap("images/tux-teacher.png"),
       x=10,
       y=350.0
       )

@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/04/05 23:49:59 bruno>
+ * Time-stamp: <2005/04/17 16:01:23 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -424,7 +424,11 @@ create_rootdir (gchar *rootdir)
     return 0;
   }
 
+#if defined WIN32
+  return(mkdir(rootdir));
+#else
   return(mkdir(rootdir, 0755));
+#endif
 }
 
 static void

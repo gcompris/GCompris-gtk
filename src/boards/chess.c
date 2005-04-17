@@ -28,8 +28,6 @@
 #include <unistd.h>
 #include <signal.h>
 
-#include "sys/wait.h"
-
 #include "chess_notation.h"
 
 #include "gcompris/gcompris.h"

@@ -6,6 +6,7 @@ dist_python_DATA= \
 	algorithm.py \
 	anim.py \
 	ballcatch.py \
+	bargame.py \
 	connect4.py \
 	followline.py \
 	hexagon.py \

@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/04/10 23:46:00 bruno>
+ * Time-stamp: <2005/04/17 16:50:21 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -92,7 +92,11 @@ create_rootdir (gchar *rootdir)
     return 0;
   }
 
+#if defined WIN32
+  return(mkdir(rootdir));
+#else
   return(mkdir(rootdir, 0755));
+#endif
 }
 
 GcomprisProperties *gcompris_properties_new ()

@@ -39,14 +39,15 @@ GcomprisAnimation *gcompris_load_animation(char *filename)
     }
   else
     {
-      gchar *tmp = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, filename);
+      GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
+      gchar *tmp = g_strdup_printf("%s/%s", gcomprisBoard->board_dir, filename);
       f = fopen(tmp, "r");
       g_free(tmp);
     }
 
   if(!f)
     {
-      g_warning("Couldn't open animation-spec file\n");
+      g_warning("Couldn't open animation-spec file '%s'\n", filename);
       return NULL;
     }
 
@@ -57,8 +58,9 @@ GcomprisAnimation *gcompris_load_animation(char *filename)
   /* read filenames, one per line, from the animation spec-file */
   while(fscanf(f, "%99s", tmp) == 1)
     {
+      GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
       files = g_slist_append(files, 
-                             g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, tmp));
+                             g_strdup_printf("%s/%s", gcomprisBoard->board_dir, tmp));
     }
 
   anim = g_malloc(sizeof(GcomprisAnimation));
@@ -121,6 +123,12 @@ GcomprisAnimCanvasItem *gcompris_activate_animation(GnomeCanvasGroup *parent,
 
   active = g_slist_append(active, item);
   return item;
+}
+
+void gcompris_swap_animation(GcomprisAnimCanvasItem *item, GcomprisAnimation *new_anim)
+{
+  item->anim = new_anim;
+  gcompris_set_anim_state(item, 0);
 }
 
 void gcompris_deactivate_animation(GcomprisAnimCanvasItem *item)

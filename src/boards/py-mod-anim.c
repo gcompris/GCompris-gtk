@@ -4,6 +4,13 @@
 #include "py-gcompris-board.h"
 #include "py-mod-anim.h"
 
+#define THROW_INACTIVE_ANIMATION                                        \
+{                                                                       \
+    PyErr_SetString(PyExc_RuntimeError, "Tried to access an inactive "  \
+                                        "AnimCanvas");                  \
+    return NULL;                                                        \
+}
+
 static int Animation_init(py_GcomprisAnimation *self, PyObject*, PyObject*);
 static void Animation_free(py_GcomprisAnimation *self);
 
@@ -13,10 +20,16 @@ static PyObject *AnimCanvas_getattr(py_GcomprisAnimCanvas*, char*);
 
 /* AnimCanvas methods */
 static PyObject *py_gcompris_animcanvas_setstate(PyObject*, PyObject*);
+static PyObject *py_gcompris_animcanvas_swapanim(PyObject*, PyObject*);
+static PyObject *py_gcompris_animcanvas_destroy(PyObject*, PyObject*);
 
 static PyMethodDef AnimCanvasMethods[] = {
   {"setState", py_gcompris_animcanvas_setstate, METH_VARARGS,
     "gcompris_animcanvas_setstate"},
+  {"swapAnimation", py_gcompris_animcanvas_swapanim, METH_VARARGS,
+    "gcompris_animcanvas_swapanim"},
+  {"destroy", py_gcompris_animcanvas_destroy, METH_VARARGS,
+    "gcompris_animcanvas_destroy"},
   {NULL, NULL, 0, NULL}
 };
 
@@ -185,8 +198,13 @@ static void
 AnimCanvas_free(py_GcomprisAnimCanvas *self)
 {
   printf("*** garbage collecting AnimCanvas ***\n");
-  gcompris_deactivate_animation(self->item);
-  Py_DECREF(self->anim);
+  if(self->item)
+    {
+      g_warning("You should really call destroy() on an AnimCanvas "
+                "instead of relying on the refcounter\n");
+      gcompris_deactivate_animation(self->item);
+      Py_DECREF(self->anim);
+    }
   PyObject_DEL(self);
 }
 
@@ -206,10 +224,50 @@ py_gcompris_animcanvas_setstate(PyObject *self, PyObject *args)
   int state;
   GcomprisAnimCanvasItem *item = ( (py_GcomprisAnimCanvas*)self )->item;
 
+  if(!item) THROW_INACTIVE_ANIMATION;
+
   if(!PyArg_ParseTuple(args, "i:gcompris_animcanvas_setstate", &state))
     return NULL;
 
   gcompris_set_anim_state( item, state );
+
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+static PyObject*
+py_gcompris_animcanvas_swapanim(PyObject *self, PyObject *args)
+{
+  py_GcomprisAnimCanvas *s = (py_GcomprisAnimCanvas*)self;
+  py_GcomprisAnimation *new_anim;
+  py_GcomprisAnimation *old_anim = (py_GcomprisAnimation*)s->anim;
+  GcomprisAnimCanvasItem *item = s->item;
+
+  if(!item) THROW_INACTIVE_ANIMATION;  
+
+  if(!PyArg_ParseTuple(args, "O:AnimCanvas_swapAnim", (PyObject**)&new_anim))
+    return NULL;
+
+  gcompris_swap_animation(item, new_anim->a);
+  Py_INCREF(new_anim);
+  s->anim = (PyObject*)new_anim;
+  Py_DECREF(old_anim);
+
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+static PyObject*
+py_gcompris_animcanvas_destroy(PyObject *self, PyObject *args)
+{
+  py_GcomprisAnimCanvas *s = (py_GcomprisAnimCanvas*)self;
+
+  if(!s->item) THROW_INACTIVE_ANIMATION;
+
+  gcompris_deactivate_animation(s->item);
+  Py_DECREF(s->anim);
+  s->item = NULL;
+  s->anim = NULL;
 
   Py_INCREF(Py_None);
   return Py_None;

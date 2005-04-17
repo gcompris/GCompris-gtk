@@ -1,6 +1,12 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = po src docs boards
+if TEXINFO
+DOCS_SUBDIR=docs
+else
+DOCS_SUBDIR=
+endif
+
+SUBDIRS = po src boards $(DOCS_SUBDIR)
 
 icondir=$(datadir)/pixmaps
 icon_DATA = gcompris.png gcompris-edit.png
