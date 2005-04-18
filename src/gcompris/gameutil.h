@@ -102,4 +102,7 @@ gchar		*gcompris_get_asset_file(gchar *dataset, gchar* categories,
 */
 void		 gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent);
 
+/* find the complete filename lookig for the file everywhere */
+gchar *gcompris_find_absolute_filename(gchar *filename);
+
 #endif

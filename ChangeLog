@@ -1,5 +1,19 @@
 2005-04-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* boards/erase_clic.xml.in: fixed english
+	* boards/erase_double_clic.xml.in: -
+	* po/POTFILES.in: fixed misspelled files
+	* po_report.pl: added Rwanda
+	* src/gcompris/anim.c: (gcompris_load_animation): 
+	* src/gcompris/gameutil.c: (gcompris_load_pixmap),
+	(gcompris_find_absolute_filename): added gcompris_find_absolute_filename by Yves
+	It makes it easier to search file in GCompris usual directory or local
+	gcomprisBoard->board_dir.
+	* src/gcompris/gameutil.h:
+	* src/gcompris/soundutil.c: (thread_play_ogg):
+
+2005-04-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
 
 	Yves added a new board called bargame. The manual is:
 	Put balls in the holes. You win if the computer play the last one.

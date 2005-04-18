@@ -218,80 +218,43 @@ static gpointer scheduler (gpointer user_data)
  ======================================================================*/
 static void* thread_play_ogg (void *s)
 {
-  char* file = NULL;
+  gchar *file = NULL;
+  gchar *relative_filename;
   char locale[3];
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
 
   strncpy( locale, gcompris_get_locale(), 2 );
   locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
-
-  if(((char *)s)[0]=='/')
-    {
-      /* If the given file starts with a / then we don't need to search it */
-      file = g_strdup(s);
-    }
-  else
-    {
-      file = g_strdup_printf("%s/%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", locale, s);
-      
-      if (g_file_test ((file), G_FILE_TEST_EXISTS))
-	{
-	  g_warning("trying to play %s\n", file);
-	} 
-      else
-	{
-	  g_free(file);
-	  file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/music", s);
-	  if (g_file_test ((file), G_FILE_TEST_EXISTS))
-	    {
-	      g_warning("trying to play %s\n", file);
-	    }
-	  else
-	    {
-	      /* Try to find a sound file that does not need to be localized 
-		 (ie directly in root /sounds directory) */
-	      g_free(file);
-	      file = g_strdup_printf("%s/%s.ogg", PACKAGE_DATA_DIR "/sounds", s);
-	      if (g_file_test ((file), G_FILE_TEST_EXISTS)) 
-		{
-		  g_warning("trying to play %s\n", file);
-		}
-	      else
-		{
-		  g_free(file);
-		  file = g_strdup_printf("%s", s);
-		  if (g_file_test ((file), G_FILE_TEST_EXISTS)) 
-		    {
-		      g_warning("trying to play %s\n", file);
-		    } 
-		  else if(gcomprisBoard)
-		    {
-		      /* Search it in the board_dir */
-		      g_free(file);
-		      file = g_strdup_printf("%s/%s.ogg", gcomprisBoard->board_dir, s);
-		      if (g_file_test ((file), G_FILE_TEST_EXISTS))
-			{
-			  g_warning("trying to play %s\n", file);
-			}
-		    }
-		  else
-		    {
-		      g_free(file);
-		      g_warning("Can't find sound %s", s);
-			  return NULL;
-		    }
-		}
-	    }
+  relative_filename = g_strdup_printf("sounds/%s/%s.ogg", locale, s);
+  file = gcompris_find_absolute_filename(s);
+  if (!file){
+    g_free(relative_filename);
+    relative_filename = g_strdup_printf("music/%s.ogg", s);
+    file = gcompris_find_absolute_filename(relative_filename);
+    if (!file){
+      g_free(relative_filename);
+      /* Try to find a sound file that does not need to be localized 
+	 (ie directly in root /sounds directory) */
+      relative_filename = g_strdup_printf("sounds/%s.ogg", s);
+      file = gcompris_find_absolute_filename(relative_filename);
+      if (!file){
+	file = gcompris_find_absolute_filename(s);
+	if (!file){
+	  g_free(relative_filename);
+	  g_warning("Can't find sound %s", s);
+	  return NULL;
 	}
+      }
     }
-
+  }
+  g_free(relative_filename);
   if ( file )
     {
       g_warning("Calling gcompris internal sdlplayer_file(%s)\n", file);
       sdlplayer(file, 128);
       g_free( file );
     }
-
+  
   return NULL;
 }
 

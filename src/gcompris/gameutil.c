@@ -116,24 +116,15 @@ GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories,
 GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 {
   gchar *filename;
-  GdkPixbuf *pixmap;
-  GcomprisProperties	*properties = gcompris_get_properties();
+  GdkPixbuf *pixmap=NULL;
 
-  /* Search it on the file system */
-  if (!g_path_is_absolute (pixmapfile)) {
-    filename = g_strdup_printf("%s/%s", properties->package_data_dir, pixmapfile);
-    if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
-      GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
-      g_free(filename);
-      filename = g_strdup_printf("%s/%s", gcomprisBoard->board_dir, pixmapfile);
-    }
-  } else {
-    filename = strdup(pixmapfile);
-  }
+  /* Search */
 
-  if (!g_file_test ((filename), G_FILE_TEST_EXISTS)) {
+  filename = gcompris_find_absolute_filename(pixmapfile);
+
+  if (!filename) {
     char *str;
-    g_warning (_("Couldn't find file %s !"), filename);
+    g_warning (_("Couldn't find file %s !"), pixmapfile);
 
     str = g_strdup_printf("%s\n%s\n%s\n%s", 
 			  _("Couldn't find file"), 
@@ -142,6 +133,7 @@ GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)
 			  _("Exit it and report\nthe problem to the authors."));
     gcompris_dialog (str, NULL);
     g_free(str);
+    return NULL;
   }
 
   pixmap = gdk_pixbuf_new_from_file (filename, NULL);
@@ -1096,6 +1088,32 @@ gchar *g_utf8_strndup(gchar* utf8text, gint n)
 
  return result;
 } 
+
+gchar *gcompris_find_absolute_filename(gchar *filename)
+{
+  gchar *absolute_filename;
+  GcomprisProperties	*properties = gcompris_get_properties();
+
+  /* Search it on the file system */
+
+  if (!g_path_is_absolute (filename)) {
+    absolute_filename = g_strdup_printf("%s/%s", properties->package_data_dir, filename);
+    if (!g_file_test (absolute_filename, G_FILE_TEST_EXISTS)) {
+      GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
+      g_free(absolute_filename);
+      absolute_filename = g_strdup_printf("%s/%s", gcomprisBoard->board_dir, filename);
+    }
+  } else {
+    absolute_filename = strdup(filename);
+  }
+
+  if (!g_file_test (absolute_filename, G_FILE_TEST_EXISTS)){
+    g_free(absolute_filename);
+    return NULL;
+  }
+
+  return absolute_filename;
+}
 
 
 /* Local Variables: */

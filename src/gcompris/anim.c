@@ -32,18 +32,16 @@ static gboolean anim_tick(void*);
 
 GcomprisAnimation *gcompris_load_animation(char *filename)
 {
-  FILE *f;
-  if(filename[0] == '/')  /* we were probably called by load_animation_asset */
-    {
-      f = fopen(filename, "r");
-    }
-  else
-    {
-      GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
-      gchar *tmp = g_strdup_printf("%s/%s", gcomprisBoard->board_dir, filename);
-      f = fopen(tmp, "r");
-      g_free(tmp);
-    }
+  FILE *f = NULL;
+
+  gchar *absolute_filename;
+
+  absolute_filename = gcompris_find_absolute_filename(filename);
+
+  if (absolute_filename){
+    f = fopen(absolute_filename, "r");
+    g_free(absolute_filename);
+  }
 
   if(!f)
     {
