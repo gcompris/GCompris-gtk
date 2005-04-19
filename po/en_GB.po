@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-13 15:03+0000\n"
-"PO-Revision-Date: 2005-03-13 15:03+0100\n"
+"POT-Creation-Date: 2005-04-19 20:58+0100\n"
+"PO-Revision-Date: 2005-04-19 21:00+0100\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -353,12 +353,14 @@ msgstr "Go to Maths activities"
 #: ../boards/experience.xml.in.h:2
 #: ../boards/fun.xml.in.h:2
 #: ../boards/menu.xml.in.h:18
+#: ../boards/mouse.xml.in.h:1
 #: ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Left-Click with the mouse to select an activity"
 
 #: ../boards/algebra_guesscount.xml.in.h:1
-#: ../boards/erase.xml.in.h:1
+#: ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
 msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (http://schmode.net/) Ralf has given gcompris the authorization to include his pictures. Thanks a lot Ralf."
 msgstr "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (http://schmode.net/) Ralf has given gcompris the authorisation to include his pictures. Thanks a lot Ralf."
 
@@ -427,6 +429,7 @@ msgid "Find the next in a list of symbols."
 msgstr "Find the next in a list of symbols."
 
 #: ../boards/algorithm.xml.in.h:3
+#: ../boards/bargame.xml.in.h:3
 #: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Logic training activity"
@@ -529,12 +532,31 @@ msgstr "Push the two shift keys together to send the ball straight"
 msgid "Send the ball to Tux"
 msgstr "Send the ball to Tux"
 
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Brain"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
+msgstr "Do not put the last ball"
+
+#: ../boards/bargame.xml.in.h:4
+msgid "Put balls in the holes. You win if the computer play the last one. If you want Tux to begin, just click on him."
+msgstr "Put balls in the holes. You win if the computer plays the last one. If you want Tux to begin, just click on him."
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "bar game"
+
 #: ../boards/billard.xml.in.h:1
 #: ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3
 #: ../boards/chess_partyend.xml.in.h:2
 #: ../boards/clickgame.xml.in.h:6
+#: ../boards/connect4.xml.in.h:6
 #: ../boards/erase.xml.in.h:3
+#: ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6
 #: ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3
 #: ../boards/memory.xml.in.h:4
@@ -646,6 +668,10 @@ msgstr "The 4 Seasons"
 #: ../boards/chronos/board1_1.xml.in.h:5
 msgid "Winter"
 msgstr "Winter"
+
+#: ../boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "Gardening"
 
 #: ../boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -888,6 +914,26 @@ msgstr "Go to colours activities"
 msgid "Discover the Computer"
 msgstr "Discover the Computer"
 
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "Arrange four coins in a row"
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr "Click anywhere in the line where you want to drop a piece"
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "Connect 4"
+
+#: ../boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr "Create a line of 4 pieces either horizontally or vertically"
+
+#: ../boards/connect4.xml.in.h:5
+msgid "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on http://forcedattack.sourceforge.net"
+msgstr "Laurent Lacheny. Images and Artificial Intelligence taken from project 4stattack by Jeroen Vloothuis. The original project can be found on http://forcedattack.sourceforge.net"
+
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
 msgstr "Basic counting skills"
@@ -953,24 +999,54 @@ msgstr "Numeration training"
 msgid "Place the items in the best way to count them"
 msgstr "Place the items in the best way to count them"
 
+#: ../boards/erase.xml.in.h:1
+msgid "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the authorization to include their pictures. Thanks a lot."
+msgstr "Animal pictures are taken from the Animal Photography Page of Ralf Schmode (http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the authorisation to include their pictures. Thanks a lot."
+
 #: ../boards/erase.xml.in.h:2
+#: ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
 msgstr "Motor coordination"
 
 #: ../boards/erase.xml.in.h:4
-#: ../src/boards/erase.c:72
+#: ../src/boards/erase.c:83
 #: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Move the mouse"
 
 #: ../boards/erase.xml.in.h:5
-#: ../src/boards/erase.c:73
+#: ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Move the mouse to erase the area and discover the background"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Move the mouse until all the blocks disappear."
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Click on rectangles with the mouse until all the blocks disappear."
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click with the mouse"
+msgstr "Click with the mouse"
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Click with the mouse to erase the area and discover the background"
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid "Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Double click on rectangles with the mouse until all the blocks disappear."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid "Double-Click with the mouse to erase the area and discover the background"
+msgstr "Double-Click with the mouse to erase the area and discover the background"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click with the mouse"
+msgstr "Double-click with the mouse"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
@@ -1066,273 +1142,274 @@ msgid "Oceania"
 msgstr "Oceania"
 
 #: ../boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "Alaska"
+
+#: ../boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: ../boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "Canada"
+
+#: ../boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "Cuba"
+
+#: ../boards/geography/board2_0.xml.in.h:5
+msgid "Dominican republic"
+msgstr "Dominican republic"
+
+#: ../boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "Greenland"
+
+#: ../boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "Haiti"
+
+#: ../boards/geography/board2_0.xml.in.h:8
+#: ../boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "Iceland"
+
+#: ../boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: ../boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "Mexico"
+
+#: ../boards/geography/board2_0.xml.in.h:11
 msgid "North America"
 msgstr "North America"
 
-#: ../boards/geography/board2_0.xml.in.h:2
-msgid "alaska"
-msgstr "alaska"
-
-#: ../boards/geography/board2_0.xml.in.h:3
-msgid "bahamas"
-msgstr "bahamas"
-
-#: ../boards/geography/board2_0.xml.in.h:4
-msgid "canada"
-msgstr "canada"
-
-#: ../boards/geography/board2_0.xml.in.h:5
-msgid "cuba"
-msgstr "cuba"
-
-#: ../boards/geography/board2_0.xml.in.h:6
-msgid "dominican republic"
-msgstr "dominican republic"
-
-#: ../boards/geography/board2_0.xml.in.h:7
-msgid "greenland"
-msgstr "greenland"
-
-#: ../boards/geography/board2_0.xml.in.h:8
-msgid "haiti"
-msgstr "haiti"
-
-#: ../boards/geography/board2_0.xml.in.h:9
-#: ../boards/geography/board3_0.xml.in.h:8
-msgid "iceland"
-msgstr "iceland"
-
-#: ../boards/geography/board2_0.xml.in.h:10
-msgid "jamaica"
-msgstr "jamaica"
-
-#: ../boards/geography/board2_0.xml.in.h:11
-msgid "mexico"
-msgstr "mexico"
-
 #: ../boards/geography/board2_0.xml.in.h:12
-msgid "united state"
-msgstr "united states"
+msgid "United state"
+msgstr "United States"
 
 #: ../boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "Argentina"
+
+#: ../boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: ../boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "Brazil"
+
+#: ../boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "Chile"
+
+#: ../boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "Colombia"
+
+#: ../boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: ../boards/geography/board2_1.xml.in.h:7
+msgid "French guiana"
+msgstr "French Guiana"
+
+#: ../boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "Guyana"
+
+#: ../boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "Panama"
+
+#: ../boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: ../boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "Peru"
+
+#: ../boards/geography/board2_1.xml.in.h:12
 msgid "South America"
 msgstr "South America"
 
-#: ../boards/geography/board2_1.xml.in.h:2
-msgid "argentina"
-msgstr "argentina"
-
-#: ../boards/geography/board2_1.xml.in.h:3
-msgid "bolivia"
-msgstr "bolivia"
-
-#: ../boards/geography/board2_1.xml.in.h:4
-msgid "brazil"
-msgstr "brazil"
-
-#: ../boards/geography/board2_1.xml.in.h:5
-msgid "chile"
-msgstr "chile"
-
-#: ../boards/geography/board2_1.xml.in.h:6
-msgid "colombia"
-msgstr "colombia"
-
-#: ../boards/geography/board2_1.xml.in.h:7
-msgid "ecuador"
-msgstr "ecuador"
-
-#: ../boards/geography/board2_1.xml.in.h:8
-msgid "french guiana"
-msgstr "french guiana"
-
-#: ../boards/geography/board2_1.xml.in.h:9
-msgid "guyana"
-msgstr "guyana"
-
-#: ../boards/geography/board2_1.xml.in.h:10
-msgid "panama"
-msgstr "panama"
-
-#: ../boards/geography/board2_1.xml.in.h:11
-msgid "paraguay"
-msgstr "paraguay"
-
-#: ../boards/geography/board2_1.xml.in.h:12
-msgid "peru"
-msgstr "peru"
-
 #: ../boards/geography/board2_1.xml.in.h:13
-msgid "suriname"
-msgstr "suriname"
+msgid "Suriname"
+msgstr "Suriname"
 
 #: ../boards/geography/board2_1.xml.in.h:14
-msgid "uruguay"
-msgstr "uruguay"
+msgid "Uruguay"
+msgstr "Uruguay"
 
 #: ../boards/geography/board2_1.xml.in.h:15
-msgid "venezuela"
-msgstr "venezuela"
+msgid "Venezuela"
+msgstr "Venezuela"
 
 #: ../boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "Austria"
+
+#: ../boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "Belgium"
+
+#: ../boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "Denmark"
+
+#: ../boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "Finland"
+
+#: ../boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "France"
+
+#: ../boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "Germany"
+
+#: ../boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "Ireland"
+
+#: ../boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "Italy"
+
+#: ../boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: ../boards/geography/board3_0.xml.in.h:11
+msgid "Netherland"
+msgstr "Netherland"
+
+#: ../boards/geography/board3_0.xml.in.h:12
+msgid "Norway"
+msgstr "Norway"
+
+#: ../boards/geography/board3_0.xml.in.h:13
+msgid "Portugal"
+msgstr "Portugal"
+
+#: ../boards/geography/board3_0.xml.in.h:14
+msgid "Spain"
+msgstr "Spain"
+
+#: ../boards/geography/board3_0.xml.in.h:15
+msgid "Sweden"
+msgstr "Sweden"
+
+#: ../boards/geography/board3_0.xml.in.h:16
+msgid "Switzerland"
+msgstr "Switzerland"
+
+#: ../boards/geography/board3_0.xml.in.h:17
+msgid "United kingdom"
+msgstr "United kingdom"
+
+#: ../boards/geography/board3_0.xml.in.h:18
 msgid "West Europe"
 msgstr "West Europe"
 
-#: ../boards/geography/board3_0.xml.in.h:2
-msgid "austria"
-msgstr "austria"
-
-#: ../boards/geography/board3_0.xml.in.h:3
-msgid "belgium"
-msgstr "belgium"
-
-#: ../boards/geography/board3_0.xml.in.h:4
-msgid "denmark"
-msgstr "denmark"
-
-#: ../boards/geography/board3_0.xml.in.h:5
-msgid "finland"
-msgstr "finland"
-
-#: ../boards/geography/board3_0.xml.in.h:6
-msgid "france"
-msgstr "france"
-
-#: ../boards/geography/board3_0.xml.in.h:7
-msgid "germany"
-msgstr "germany"
-
-#: ../boards/geography/board3_0.xml.in.h:9
-msgid "ireland"
-msgstr "ireland"
-
-#: ../boards/geography/board3_0.xml.in.h:10
-msgid "italy"
-msgstr "italy"
-
-#: ../boards/geography/board3_0.xml.in.h:11
-msgid "luxembourg"
-msgstr "luxembourg"
-
-#: ../boards/geography/board3_0.xml.in.h:12
-msgid "netherland"
-msgstr "netherlands"
-
-#: ../boards/geography/board3_0.xml.in.h:13
-msgid "norway"
-msgstr "norway"
-
-#: ../boards/geography/board3_0.xml.in.h:14
-msgid "portugal"
-msgstr "portugal"
-
-#: ../boards/geography/board3_0.xml.in.h:15
-msgid "spain"
-msgstr "spain"
-
-#: ../boards/geography/board3_0.xml.in.h:16
-msgid "sweden"
-msgstr "sweden"
-
-#: ../boards/geography/board3_0.xml.in.h:17
-msgid "switz"
-msgstr "switz"
-
-#: ../boards/geography/board3_0.xml.in.h:18
-msgid "united kingdom"
-msgstr "united kingdom"
-
 #: ../boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "Albania"
+
+#: ../boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "Belarus"
+
+#: ../boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia herzegovina"
+msgstr "Bosnia Herzegovina"
+
+#: ../boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: ../boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "Croatia"
+
+#: ../boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "Cyprus"
+
+#: ../boards/geography/board3_1.xml.in.h:7
+#: ../src/gcompris/config.c:69
+msgid "Czech"
+msgstr "Czech"
+
+#: ../boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
 msgstr "East Europe"
 
-#: ../boards/geography/board3_1.xml.in.h:2
-msgid "albania"
-msgstr "albania"
-
-#: ../boards/geography/board3_1.xml.in.h:3
-msgid "belarus"
-msgstr "belarus"
-
-#: ../boards/geography/board3_1.xml.in.h:4
-msgid "bosnia herzegovina"
-msgstr "bosnia herzegovina"
-
-#: ../boards/geography/board3_1.xml.in.h:5
-msgid "bulgaria"
-msgstr "bulgaria"
-
-#: ../boards/geography/board3_1.xml.in.h:6
-msgid "croatia"
-msgstr "croatia"
-
-#: ../boards/geography/board3_1.xml.in.h:7
-msgid "cyprus"
-msgstr "cyprus"
-
-#: ../boards/geography/board3_1.xml.in.h:8
-msgid "czech"
-msgstr "czech"
-
 #: ../boards/geography/board3_1.xml.in.h:9
-msgid "estonia"
-msgstr "estonia"
+msgid "Estonia"
+msgstr "Estonia"
 
 #: ../boards/geography/board3_1.xml.in.h:10
-msgid "greece"
-msgstr "greece"
+msgid "Greece"
+msgstr "Greece"
 
 #: ../boards/geography/board3_1.xml.in.h:11
-msgid "hungary"
-msgstr "hungary"
+msgid "Hungary"
+msgstr "Hungary"
 
 #: ../boards/geography/board3_1.xml.in.h:12
-msgid "latvia"
-msgstr "latvia"
+msgid "Latvia"
+msgstr "Latvia"
 
 #: ../boards/geography/board3_1.xml.in.h:13
-msgid "lithuania"
-msgstr "lithuania"
+msgid "Lithuania"
+msgstr "Lithuania"
 
 #: ../boards/geography/board3_1.xml.in.h:14
-msgid "macedonia"
-msgstr "macedonia"
+msgid "Macedonia"
+msgstr "Macedonia"
 
 #: ../boards/geography/board3_1.xml.in.h:15
-msgid "moldova"
-msgstr "moldova"
+msgid "Moldova"
+msgstr "Moldova"
 
 #: ../boards/geography/board3_1.xml.in.h:16
-msgid "poland"
-msgstr "poland"
+msgid "Poland"
+msgstr "Poland"
 
 #: ../boards/geography/board3_1.xml.in.h:17
-msgid "romania"
-msgstr "romania"
+msgid "Romania"
+msgstr "Romania"
 
 #: ../boards/geography/board3_1.xml.in.h:18
-msgid "russia"
-msgstr "russia"
+msgid "Russia"
+msgstr "Russia"
 
 #: ../boards/geography/board3_1.xml.in.h:19
-msgid "serbia montenegro"
-msgstr "serbia montenegro"
+msgid "Serbia montenegro"
+msgstr "Serbia Montenegro"
 
 #: ../boards/geography/board3_1.xml.in.h:20
-msgid "slovakia"
-msgstr "slovakia"
+msgid "Slovakia"
+msgstr "Slovakia"
 
 #: ../boards/geography/board3_1.xml.in.h:21
-msgid "slovenia"
-msgstr "slovenia"
+msgid "Slovenia"
+msgstr "Slovenia"
 
 #: ../boards/geography/board3_1.xml.in.h:22
-msgid "turkey"
-msgstr "turkey"
+msgid "Turkey"
+msgstr "Turkey"
 
 #: ../boards/geography/board3_1.xml.in.h:23
-msgid "ukraine"
-msgstr "ukraine"
+msgid "Ukraine"
+msgstr "Ukraine"
 
 #: ../boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
@@ -2000,6 +2077,10 @@ msgstr "You must buy the different items and give the exact price. At higher lev
 msgid "Practice money usage including cents"
 msgstr "Practise money usage including cents"
 
+#: ../boards/mouse.xml.in.h:2
+msgid "Mouse manipulation boards"
+msgstr "Mouse manipulation boards"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr "Drag and Drop the items to rebuild the original paintings"
@@ -2452,27 +2533,27 @@ msgstr "Educational suite gcompris"
 msgid "Multiple activities for kids"
 msgstr "Multiple activities for kids"
 
-#: ../src/boards/advanced_colors.c:541
+#: ../src/boards/advanced_colors.c:533
 #: ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608
-#: ../src/boards/read_colors.c:500
+#: ../src/boards/read_colors.c:492
 #: ../src/boards/shapegame.c:1880
-#: ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:126
-#: ../src/gcompris/gameutil.c:517
-#: ../src/gcompris/gameutil.c:518
-#: ../src/gcompris/gcompris.c:420
-#: ../src/gcompris/images_selector.c:654
+#: ../src/gcompris/file_selector.c:933
+#: ../src/gcompris/gameutil.c:127
+#: ../src/gcompris/gameutil.c:519
+#: ../src/gcompris/gameutil.c:520
+#: ../src/gcompris/gcompris.c:492
+#: ../src/gcompris/images_selector.c:754
 #: ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Couldn't find file %s !"
 
-#: ../src/boards/advanced_colors.c:544
+#: ../src/boards/advanced_colors.c:536
 #: ../src/boards/imageid.c:608
 #: ../src/boards/missingletter.c:611
-#: ../src/boards/read_colors.c:503
+#: ../src/boards/read_colors.c:495
 #: ../src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
@@ -2491,15 +2572,15 @@ msgstr ""
 "Tux is in trouble in his ship. He needs to take it through a lock.\n"
 "Help Tux and understand how a canal lock works."
 
-#: ../src/boards/chess.c:137
+#: ../src/boards/chess.c:134
 msgid "Learning Chess"
 msgstr "Learning Chess"
 
-#: ../src/boards/chess.c:138
+#: ../src/boards/chess.c:135
 msgid "Play chess against tux in a learning mode"
 msgstr "Play chess against tux in a learning mode"
 
-#: ../src/boards/chess.c:191
+#: ../src/boards/chess.c:188
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2511,7 +2592,8 @@ msgstr ""
 "of gnuchess.\n"
 "Please upgrade to gnuchess 5 or above."
 
-#: ../src/boards/chess.c:198
+#: ../src/boards/chess.c:195
+#: ../src/boards/chess.c:237
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2541,15 +2623,16 @@ msgstr "White check"
 msgid "Black check"
 msgstr "Black check"
 
-#: ../src/boards/chess.c:1052
+#: ../src/boards/chess.c:1051
 msgid "Black mates"
 msgstr "Black mates"
 
-#: ../src/boards/chess.c:1057
+#: ../src/boards/chess.c:1056
 msgid "White mates"
 msgstr "White mates"
 
-#: ../src/boards/chess.c:1062
+#: ../src/boards/chess.c:1061
+#: ../src/gcompris/bonus.c:314
 msgid "Drawn game"
 msgstr "Drawn game"
 
@@ -2634,6 +2717,23 @@ msgstr "Click on the black toon"
 #: ../src/boards/colors.c:63
 msgid "Click on the white toon"
 msgstr "Click on the white toon"
+
+#: ../src/boards/erase.c:160
+msgid "Couldn't get GTK settings"
+msgstr "Couldn't get GTK settings"
+
+#: ../src/boards/erase.c:165
+#, c-format
+msgid "Double clic default value %d."
+msgstr "Double click default value %d."
+
+#: ../src/boards/erase.c:170
+#: ../src/boards/erase.c:185
+#: ../src/boards/erase.c:208
+#: ../src/boards/erase.c:339
+#, c-format
+msgid "Double clic value is now %d."
+msgstr "Double click value is now %d."
 
 #: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -2739,8 +2839,8 @@ msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Warning: the following images cannot be accessed on your system.\n"
 
 #: ../src/boards/python/anim.py:2363
-msgid "The corresponding items have been skiped."
-msgstr "The corresponding items have been skiped."
+msgid "The corresponding items have been skipped."
+msgstr "The corresponding items have been skipped."
 
 #: ../src/boards/python/pythontest.py:75
 msgid ""
@@ -2976,7 +3076,7 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:73
-#: ../src/gcompris/interface.c:484
+#: ../src/gcompris/interface.c:466
 msgid "translator_credits"
 msgstr ""
 "Abigail Brady <morwen@evilmagi_c.org>\n"
@@ -2996,18 +3096,18 @@ msgid "GCompris Home Page"
 msgstr "GCompris Home Page"
 
 #: ../src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public License"
-msgstr "This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU General Public License"
+msgstr "This software is a GNU Package and is released under the GNU General Public License"
 
 #: ../src/gcompris/about.c:281
 msgid "Help"
 msgstr "Help"
 
 #: ../src/gcompris/about.c:316
-#: ../src/gcompris/config.c:210
-#: ../src/gcompris/gameutil.c:898
+#: ../src/gcompris/config.c:211
+#: ../src/gcompris/gameutil.c:941
 #: ../src/gcompris/help.c:329
-#: ../src/gcompris/images_selector.c:261
+#: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
 
@@ -3038,10 +3138,6 @@ msgstr "Bulgarian"
 #: ../src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Catalan"
-
-#: ../src/gcompris/config.c:69
-msgid "Czech"
-msgstr "Czech"
 
 #
 #: ../src/gcompris/config.c:70
@@ -3161,106 +3257,110 @@ msgid "Russian"
 msgstr "Russian"
 
 #: ../src/gcompris/config.c:99
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: ../src/gcompris/config.c:100
 msgid "Slovak"
 msgstr "Slovak"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "Albanian"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Serbian"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Swedish"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Turkish"
 msgstr "Turkish"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Chinese (Simplified)"
 msgstr "Chinese (Simplified)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "No time limit"
 msgstr "No time limit"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "No filter"
 msgstr "No filter"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Only this level"
 msgstr "Only this level"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "This level and above"
 msgstr "This level and above"
 
-#: ../src/gcompris/config.c:184
+#: ../src/gcompris/config.c:185
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: ../src/gcompris/config.c:293
+#: ../src/gcompris/config.c:294
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: ../src/gcompris/config.c:336
+#: ../src/gcompris/config.c:337
 msgid "Music"
 msgstr "Music"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:365
 msgid "Effect"
 msgstr "Effect"
 
-#: ../src/gcompris/config.c:398
+#: ../src/gcompris/config.c:399
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:420
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: ../src/gcompris/config.c:434
-#: ../src/gcompris/config.c:819
-#: ../src/gcompris/config.c:830
+#: ../src/gcompris/config.c:435
+#: ../src/gcompris/config.c:820
+#: ../src/gcompris/config.c:831
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3277,15 +3377,15 @@ msgstr "LOAD"
 msgid "SAVE"
 msgstr "SAVE"
 
-#: ../src/gcompris/gameutil.c:129
+#: ../src/gcompris/gameutil.c:130
 msgid "Couldn't find file"
 msgstr "Couldn't find file"
 
-#: ../src/gcompris/gameutil.c:131
+#: ../src/gcompris/gameutil.c:132
 msgid "This activity is incomplete."
 msgstr "This activity is incomplete."
 
-#: ../src/gcompris/gameutil.c:132
+#: ../src/gcompris/gameutil.c:133
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3293,43 +3393,55 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors"
 
-#: ../src/gcompris/gcompris.c:82
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:84
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:86
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:88
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:90
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:92
+#: ../src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:94
+#: ../src/gcompris/gcompris.c:107
 msgid "display debug informations on the console."
 msgstr "display debug informations on the console."
 
-#: ../src/gcompris/gcompris.c:96
+#: ../src/gcompris/gcompris.c:109
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:541
+#: ../src/gcompris/gcompris.c:113
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr "Disable XRANDR (No screen resolution change)."
+
+#: ../src/gcompris/gcompris.c:116
+msgid "Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory)"
+msgstr "Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory)"
+
+#: ../src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity directory added to menu"
+msgstr "Run gcompris with local activity directory added to menu"
+
+#: ../src/gcompris/gcompris.c:604
 msgid ""
 "GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\n"
 "http://gcompris.net\n"
@@ -3341,7 +3453,7 @@ msgstr ""
 "The Linux version does not have this restriction. Note that gcompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:736
+#: ../src/gcompris/gcompris.c:852
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3355,70 +3467,85 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #: ../src/gcompris/help.c:170
-#: ../src/gcompris/interface.c:243
+#: ../src/gcompris/interface.c:228
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
 #: ../src/gcompris/help.c:198
-#: ../src/gcompris/interface.c:252
+#: ../src/gcompris/interface.c:237
 msgid "Goal"
 msgstr "Goal"
 
 #: ../src/gcompris/help.c:226
-#: ../src/gcompris/interface.c:261
+#: ../src/gcompris/interface.c:246
 msgid "Manual"
 msgstr "Manual"
 
 #: ../src/gcompris/help.c:254
-#: ../src/gcompris/interface.c:270
+#: ../src/gcompris/interface.c:255
 msgid "Credit"
 msgstr "Credit"
 
-#: ../src/gcompris/interface.c:104
+#: ../src/gcompris/images_selector.c:294
+#, c-format
+msgid "dataset %s is a directory. Trying to read xml "
+msgstr "dataset %s is a directory. Trying to read xml "
+
+#: ../src/gcompris/images_selector.c:629
+#, c-format
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+
+#: ../src/gcompris/images_selector.c:664
+#, c-format
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+
+#: ../src/gcompris/images_selector.c:690
+#, c-format
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+
+#: ../src/gcompris/interface.c:95
 msgid "Gcompris Editor"
 msgstr "Gcompris Editor"
 
-#: ../src/gcompris/interface.c:180
+#: ../src/gcompris/interface.c:165
 msgid "Icon"
 msgstr "Icon"
 
-#: ../src/gcompris/interface.c:189
+#: ../src/gcompris/interface.c:174
 msgid "Name"
 msgstr "Name"
 
-#: ../src/gcompris/interface.c:198
-#: ../src/gcompris/interface.c:415
+#: ../src/gcompris/interface.c:183
+#: ../src/gcompris/interface.c:400
 msgid "Description"
 msgstr "Description"
 
-#: ../src/gcompris/interface.c:207
+#: ../src/gcompris/interface.c:192
 msgid "Type"
 msgstr "Type"
 
-#: ../src/gcompris/interface.c:216
+#: ../src/gcompris/interface.c:201
 msgid "Difficulty"
 msgstr "Difficulty"
 
-#: ../src/gcompris/interface.c:225
+#: ../src/gcompris/interface.c:210
 msgid "Author"
 msgstr "Author"
 
-#: ../src/gcompris/interface.c:234
+#: ../src/gcompris/interface.c:219
 msgid "Directory"
 msgstr "Directory"
 
-#: ../src/gcompris/interface.c:286
+#: ../src/gcompris/interface.c:271
 msgid "Title"
 msgstr "Title"
 
-#: ../src/gcompris/interface.c:490
+#: ../src/gcompris/interface.c:472
 msgid "Released under GPL"
 msgstr "Released under GPL"
-
-#. Prepare our log
-#: ../src/gcompris/log.c:157
-msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr "%a %d %b %H:%M:%S %Z %Y"
 
 #: ../src/gcompris/soundutil.c:140
 #, c-format
