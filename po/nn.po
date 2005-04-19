@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-08 23:00+0200\n"
-"PO-Revision-Date: 2005-04-08 23:26+0200\n"
+"POT-Creation-Date: 2005-04-19 19:56+0200\n"
+"PO-Revision-Date: 2005-04-19 21:34+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -355,11 +355,12 @@ msgstr "Matte"
 #: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
 #: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
 #: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:18
-#: ../boards/reading.xml.in.h:2
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Venstreklikk med musa for å velja aktivitet."
 
-#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase.xml.in.h:1
+#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
@@ -378,8 +379,7 @@ msgstr ""
 "dei vekk ved å trykkja på dei."
 
 #: ../boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Prøv å finna en måte å bruka tala og dei fire rekneoperatorane til å gje "
 "rett svar."
@@ -456,10 +456,10 @@ msgstr "Fullfør ei følgje med figurar."
 
 #: ../boards/algorithm.xml.in.h:2
 msgid "Find the next in a list of symbols."
-msgstr ""
-"Finn neste figur i den nedste følgja ved å sjå på mønsteret i den øvste."
+msgstr "Finn neste figur i den nedste følgja ved å sjå på mønsteret i den øvste."
 
-#: ../boards/algorithm.xml.in.h:3 ../boards/hexagon.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Du skal øva på logisk tenking."
 
@@ -597,10 +597,32 @@ msgstr "Trykk på begge «Shift»-tastane samtidig for å senda ballen rett fram
 msgid "Send the ball to Tux"
 msgstr "Send ballen til Tux"
 
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Du må kunna telja og bruka musa."
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
+msgstr "Ikkje legg den siste kula i holet."
+
+#: ../boards/bargame.xml.in.h:4
+msgid ""
+"Put balls in the holes. You win if the computer play the last one. If you "
+"want Tux to begin, just click on him."
+msgstr ""
+"Legg kuler i holet. Du vel sjølv kor mange kuler du vil leggja, og du vinn "
+"viss datamaskina må legga ut den siste kula. Trykk på Tux viss du vil at han "
+"skal starta."
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "Kulespel"
+
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
 #: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
-#: ../boards/erase.xml.in.h:3 ../boards/fifteen.xml.in.h:2
+#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Du må kunna bruka musa."
@@ -677,7 +699,7 @@ msgstr "Kronologi"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "Set gjenstandane i rett rekkjefølgje."
+msgstr "Set bileta i rett rekkjefølgje."
 
 #: ../boards/chronos.xml.in.h:3
 msgid ""
@@ -691,8 +713,7 @@ msgstr ""
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
-msgstr ""
-"Set saman bileta i rett rekkjefølgje, slik at dei fortel ei forteljing."
+msgstr "Set saman bileta i rett rekkjefølgje, slik at dei fortel ei forteljing."
 
 #: ../boards/chronos.xml.in.h:5
 msgid "Pick from the pictures on the left and put them on the red points"
@@ -704,7 +725,7 @@ msgstr "Du må kunna fortelja ei kort forteljing."
 
 #: ../boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
-msgstr "Månevandrar"
+msgstr "Månevandring"
 
 #: ../boards/chronos/board1_1.xml.in.h:1
 msgid "Autumn"
@@ -925,8 +946,7 @@ msgstr ""
 "nur03013)."
 
 #: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr "Trykk med musa på alle fiskane før dei sym ut av akvariet."
 
 #: ../boards/clickgame.xml.in.h:5
@@ -1104,22 +1124,57 @@ msgstr "Øva på å telja."
 msgid "Place the items in the best way to count them"
 msgstr "Plasser gjenstandane slik at det vert lett å telja dei."
 
-#: ../boards/erase.xml.in.h:2
+#: ../boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"authorization to include their pictures. Thanks a lot."
+msgstr ""
+"Dyrebileta er henta frå dyresida til Ralf Schmode (http://schmode.net/) og "
+"frå Daniel Le Berre. Dei har begge gjeve GCompris løyve til bruka bileta. "
+"Takk til dykk begge!"
+
+#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
 msgstr "Auge–hand-koordinering."
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:72
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
 #: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Flytt på musa"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:73
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Flytt på musa for å viska vekk området og visa biletet bak."
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Flytt på musa til heile biletet bak er synleg."
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Trykk på felta med musa, slik at heile biletet bak vert synleg."
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click with the mouse"
+msgstr "Klikk med musa"
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Trykk på felta med musa, slik at heile biletet bak vert synleg."
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid "Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Dobbeltklikk på felta med musa, slik at heile biletet bak vert synleg."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid "Double-Click with the mouse to erase the area and discover the background"
+msgstr "Dobbeltklikk på felta med musa, slik at heile biletet bak vert synleg."
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click with the mouse"
+msgstr "Dobbeltklikk med musa"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
@@ -1425,7 +1480,7 @@ msgstr "Kypros"
 
 #: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
 msgid "Czech"
-msgstr "Tsjekkia"
+msgstr "Tsjekkisk"
 
 #: ../boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
@@ -1877,7 +1932,7 @@ msgstr ""
 
 #: ../boards/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
-msgstr "Finn vegen ut den usynlege labyrinten."
+msgstr "Finn vegen ut av den usynlege labyrinten."
 
 #: ../boards/mazeInvisible.xml.in.h:5
 msgid ""
@@ -1891,7 +1946,7 @@ msgstr ""
 
 #: ../boards/mazeMenu.xml.in.h:1
 msgid "Find your way out different type of mazes"
-msgstr "Finn vegen ut forskjellige typar labyrintar."
+msgstr "Finn vegen ut av forskjellige typar labyrintar."
 
 #: ../boards/mazeMenu.xml.in.h:2
 msgid "Go to Maze activities"
@@ -2202,6 +2257,10 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Øv på å handtera pengar. Her òg med cent."
 
+#: ../boards/mouse.xml.in.h:2
+msgid "Mouse manipulation boards"
+msgstr "Musbruk"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr "Pusla saman bilete av kjente måleri."
@@ -2308,8 +2367,7 @@ msgstr "Tal i rekkjefølgje"
 msgid ""
 "Use the up, down, right and left keyboard keys to move the helicopter to "
 "catch the numbers in increasing order."
-msgstr ""
-"Bruk piltastane på tastaturet å fanga talskyene i aukande rekkjefølgje."
+msgstr "Bruk piltastane på tastaturet å fanga talskyene i aukande rekkjefølgje."
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language binding to gcompris."
@@ -2328,8 +2386,7 @@ msgid "Test board for the python plugin"
 msgstr "Testbrett for python-tillegg"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr "Takk til Guido van Rossum og Python-laget for dette kraftige språket!"
 
 #: ../boards/railroad.xml.in.h:1
@@ -2482,9 +2539,7 @@ msgstr "Spegelkopier teikninga"
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
-msgstr ""
-"Du må kunna bruka musa, lesa tal og trekkja frå tal opp til 10 for første "
-"nivå."
+msgstr "Du må kunna bruka musa og kunna telja (opp til 10 for første nivå)."
 
 #: ../boards/reversecount.xml.in.h:2
 msgid ""
@@ -2494,17 +2549,16 @@ msgid ""
 msgstr ""
 "Tel først kor mange isflak som er mellom Tux og fisken. Trykk så på "
 "terningen for å velja rett tal. Du kan bruka høgre museknapp for telja "
-"baklengs. Når du er ferdig trykkjer du «OK» med musa eller «Enter» på "
+"baklengs. Når du er ferdig, trykkjer du «OK» med musa eller «Enter» på "
 "tastaturet."
 
 #: ../boards/reversecount.xml.in.h:3 ../src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
-msgstr "Øv på å trekkja frå med eit artig spel"
+msgstr "Øv på å telja med eit artig spel"
 
 #: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
-msgstr ""
-"Tux er svolten. Hjelp han å fanga fiskar ved å telja fram til rett isflak."
+msgstr "Tux er svolten. Hjelp han å fanga fiskar ved å telja fram til rett isflak."
 
 #: ../boards/searace.xml.in.h:1 ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
@@ -2670,8 +2724,7 @@ msgid "Tux has hidden several items. Find them again in the correct order"
 msgstr "Tux har ein hemmeleg fargekombinasjon han vil du skal prøva å gjetta."
 
 #: ../boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr "Du må kunna bruka musa, lesa tal og telja opp til 15 for første nivå."
 
 #: ../boards/target.xml.in.h:2
@@ -2704,8 +2757,7 @@ msgstr "Skyvespel"
 
 #: ../boards/traffic.xml.in.h:2
 msgid "Remove all the red cars from the grid through the slot on the right"
-msgstr ""
-"Køyr den raude bilen (eller alle dei raude bilane) ut gjennom luka til høgre."
+msgstr "Køyr den raude bilen (eller alle dei raude bilane) ut gjennom luka til høgre."
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -2764,9 +2816,9 @@ msgstr "Fleire aktivitetar for unga"
 
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:130 ../src/gcompris/gameutil.c:519
-#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:482
+#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:933
+#: ../src/gcompris/gameutil.c:127 ../src/gcompris/gameutil.c:519
+#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:492
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -2793,15 +2845,15 @@ msgstr ""
 "Tux har problem med båten sin, og må navigera gjennom eit sluseanlegg.\n"
 "Hjelp han med å forstå korleis dette fungerer."
 
-#: ../src/boards/chess.c:136
+#: ../src/boards/chess.c:134
 msgid "Learning Chess"
 msgstr "Lær sjakk"
 
-#: ../src/boards/chess.c:137
+#: ../src/boards/chess.c:135
 msgid "Play chess against tux in a learning mode"
 msgstr "Lær å spela sjakk mot Tux."
 
-#: ../src/boards/chess.c:190
+#: ../src/boards/chess.c:188
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2813,7 +2865,7 @@ msgstr ""
 "utgåva av gnuchess.\n"
 "Du må oppgradera til gnuchess 5 eller over."
 
-#: ../src/boards/chess.c:197 ../src/boards/chess.c:239
+#: ../src/boards/chess.c:195 ../src/boards/chess.c:237
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2827,31 +2879,31 @@ msgstr ""
 "eller i GNU/Linux-distribusjonen din.\n"
 "Sjå til at det er installert i "
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Kvit sin tur"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Svart sin tur"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:718
 msgid "White check"
 msgstr "Kvit seier sjakk"
 
-#: ../src/boards/chess.c:722
+#: ../src/boards/chess.c:720
 msgid "Black check"
 msgstr "Svart seier sjakk"
 
-#: ../src/boards/chess.c:1053
+#: ../src/boards/chess.c:1051
 msgid "Black mates"
 msgstr "Svart set matt"
 
-#: ../src/boards/chess.c:1058
+#: ../src/boards/chess.c:1056
 msgid "White mates"
 msgstr "Kvit set matt"
 
-#: ../src/boards/chess.c:1063
+#: ../src/boards/chess.c:1061 ../src/gcompris/bonus.c:314
 msgid "Drawn game"
 msgstr "Remis"
 
@@ -2937,10 +2989,24 @@ msgstr "Trykk på den svarte figuren"
 msgid "Click on the white toon"
 msgstr "Trykk på den kvite figuren"
 
+#: ../src/boards/erase.c:160
+msgid "Couldn't get GTK settings"
+msgstr "Klarte ikkje henta GTK-innstillingar"
+
+#: ../src/boards/erase.c:165
+#, c-format
+msgid "Double clic default value %d."
+msgstr "Standardverdi for dobbeltklikk: %d."
+
+#: ../src/boards/erase.c:170 ../src/boards/erase.c:185
+#: ../src/boards/erase.c:208 ../src/boards/erase.c:339
+#, c-format
+msgid "Double clic value is now %d."
+msgstr "Verdien for dobbeltklikk er no %d."
+
 #: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
-msgstr ""
-"Flytt gjenstandane éin etter éin for å ordna dei i aukande rekkjefølgje"
+msgstr "Flytt gjenstandane éin etter éin for å ordna dei i aukande rekkjefølgje"
 
 #: ../src/boards/hanoi.c:339 ../src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
@@ -3040,8 +3106,8 @@ msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Åtvaring: Deses bileta kan ikkje opnast:\n"
 
 #: ../src/boards/python/anim.py:2363
-msgid "The corresponding items have been skiped."
-msgstr "Dei vert derfor ikkje tekne i bruk."
+msgid "The corresponding items have been skipped."
+msgstr "Tilhøyrande element vert ikkje tekne i bruk."
 
 #: ../src/boards/python/pythontest.py:75
 msgid ""
@@ -3267,7 +3333,7 @@ msgstr ""
 "Bakgrunnsmusikk: Rico da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:484
+#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:466
 msgid "translator_credits"
 msgstr "Karl Ove Hufthammer"
 
@@ -3285,15 +3351,18 @@ msgstr "Heimesida til GCompris"
 
 #: ../src/gcompris/about.c:252
 msgid ""
-"This software is a GNU Package and is released under the GNU Public License"
-msgstr "GCompris er ein GNU-pakke og tilgjengeleg under GNU Public License."
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
+msgstr ""
+"GCompris er ein GNU-pakke og er tilgjengeleg under GNU General Public "
+"License."
 
 #: ../src/gcompris/about.c:281
 msgid "Help"
 msgstr "Hjelp"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:900 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:941 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3372,7 +3441,7 @@ msgstr "Hebraisk"
 
 #: ../src/gcompris/config.c:81
 msgid "Indian (Hindi)"
-msgstr "Indisk (Hindi)"
+msgstr "Indisk (hindi)"
 
 #: ../src/gcompris/config.c:82
 msgid "Indian (Gujarati)"
@@ -3562,15 +3631,15 @@ msgstr "Opna"
 msgid "SAVE"
 msgstr "Lagra"
 
-#: ../src/gcompris/gameutil.c:133
+#: ../src/gcompris/gameutil.c:130
 msgid "Couldn't find file"
 msgstr "Fann ikkje fila"
 
-#: ../src/gcompris/gameutil.c:135
+#: ../src/gcompris/gameutil.c:132
 msgid "This activity is incomplete."
 msgstr "Aktiviteten er ikkje ferdig."
 
-#: ../src/gcompris/gameutil.c:136
+#: ../src/gcompris/gameutil.c:133
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3578,47 +3647,57 @@ msgstr ""
 "Avslutt programmet og meld\n"
 "frå om problemet til forfattarane."
 
-#: ../src/gcompris/gcompris.c:91
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
 msgstr "Køyr GCompris i fullskjermmodus."
 
-#: ../src/gcompris/gcompris.c:93
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
 msgstr "Køyr GCompris i vindaugemodus."
 
-#: ../src/gcompris/gcompris.c:95
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
 msgstr "Køyr GCompris med lyd."
 
-#: ../src/gcompris/gcompris.c:97
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
 msgstr "Køyr GCompris utan lyd."
 
-#: ../src/gcompris/gcompris.c:99
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
 msgstr "Kjør GCompris med standard musepeikarar."
 
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
 msgstr "Vis berre aktivitetar med denne vanskegraden."
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:107
 msgid "display debug informations on the console."
 msgstr "Vis feilsøkingsinformasjon på konsollen."
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:109
 msgid "Print the version of "
 msgstr "Skriv ut versjonsnummer til "
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
 msgstr "Bruk kantutjamna lerret (tregare)."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:113
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Ikkje bruk XRANDR (ikkje byt skjermoppløysing)."
 
-#: ../src/gcompris/gcompris.c:591
+#: ../src/gcompris/gcompris.c:116
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory)"
+msgstr "Køyr GCompris med lokal meny (eksempel: «-l /reading» for å visa lesemenyen)."
+
+#: ../src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity directory added to menu"
+msgstr "Køyr GCompris med lokal aktivitetsmappe lagt til menyen."
+
+#: ../src/gcompris/gcompris.c:604
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3640,7 +3719,7 @@ msgstr ""
 "finn meir informasjon på\n"
 "http://www.fsf.org/philosophy/."
 
-#: ../src/gcompris/gcompris.c:839
+#: ../src/gcompris/gcompris.c:852
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3653,19 +3732,19 @@ msgstr ""
 "Lisensvilkår: GNU GPL\n"
 "Meir informasjon på http://gcompris.net/\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:243
+#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:228
 msgid "Prerequisite"
 msgstr "Føresetnader"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:252
+#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:237
 msgid "Goal"
 msgstr "Mål"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:261
+#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:246
 msgid "Manual"
 msgstr "Bruksrettleiing"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:270
+#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:255
 msgid "Credit"
 msgstr "Bidragsytarar"
 
@@ -3677,68 +3756,58 @@ msgstr "Datasettet «%s» er ei mappe. Prøver å lesa XML "
 # Kva i alle dagar betyr dette?!
 #: ../src/gcompris/images_selector.c:629
 #, c-format
-msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
-msgstr ""
-"Fann ikkje adressa til biletsamlinga «%s», adresse %s-bilete. Hoppar over "
-"biletsamlinga ...\n"
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr "I biletsamlinga «%s» er ikkje heimeadressa %s tilgjengeleg. Hoppar over biletsamlinga ...\n"
 
 #: ../src/gcompris/images_selector.c:664
 #, c-format
-msgid "ImageSet %s image not found. Skipping ImageSet...\n"
-msgstr "Fann ikkje biletet «%s». Hoppar over biletsamlinga ...\n"
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr "I biletsamlinga «%s» manglar eit bilete. Hoppar over biletsamlinga ...\n"
 
 #: ../src/gcompris/images_selector.c:690
 #, c-format
-msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
-msgstr ""
-"Fann ikkje mappa til biletsamlinga %s: %s. Hoppar over biletsamlinga ...\n"
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr "I biletsamlinga «%s» er ikkje mappa %s tilgjengeleg. Hoppar over biletsamlinga ...\n"
 
-#: ../src/gcompris/interface.c:104
+#: ../src/gcompris/interface.c:95
 msgid "Gcompris Editor"
 msgstr "Gcompris-redigering"
 
-#: ../src/gcompris/interface.c:180
+#: ../src/gcompris/interface.c:165
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../src/gcompris/interface.c:189
+#: ../src/gcompris/interface.c:174
 msgid "Name"
 msgstr "Namn"
 
-#: ../src/gcompris/interface.c:198 ../src/gcompris/interface.c:415
+#: ../src/gcompris/interface.c:183 ../src/gcompris/interface.c:400
 msgid "Description"
 msgstr "Skildring"
 
-#: ../src/gcompris/interface.c:207
+#: ../src/gcompris/interface.c:192
 msgid "Type"
 msgstr "Type"
 
-#: ../src/gcompris/interface.c:216
+#: ../src/gcompris/interface.c:201
 msgid "Difficulty"
 msgstr "Vanskegrad"
 
-#: ../src/gcompris/interface.c:225
+#: ../src/gcompris/interface.c:210
 msgid "Author"
 msgstr "Forfattar"
 
-#: ../src/gcompris/interface.c:234
+#: ../src/gcompris/interface.c:219
 msgid "Directory"
 msgstr "Mappe"
 
-#: ../src/gcompris/interface.c:286
+#: ../src/gcompris/interface.c:271
 msgid "Title"
 msgstr "Tittel"
 
-#: ../src/gcompris/interface.c:490
+#: ../src/gcompris/interface.c:472
 msgid "Released under GPL"
 msgstr "Tilgjengeleg under GPL"
-
-# %A%d. %B %H:%M:%S
-#. Prepare our log
-#. The default format for time represenation.  See strftime(3)
-#: ../src/gcompris/log.c:157
-msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr "%A%d. %B %H:%M:%S"
 
 #: ../src/gcompris/soundutil.c:140
 #, c-format
@@ -3767,3 +3836,4 @@ msgstr "Tid gått"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Tid igjen: %d"
+
