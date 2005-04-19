@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2005/03/30 22:07:06 bruno>
+ * Time-stamp: <2005/04/19 23:47:07 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -424,7 +424,7 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
 
     if(x==0.0) {
       x = (double)(rand()%(gcomprisBoard->width-
-			   (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)));
+			   (guint)(gdk_pixbuf_get_width(smallnumbers_pixmap)* imageZoom)*2));
     } else {
       x += ((gdk_pixbuf_get_width(smallnumbers_pixmap)-10)*imageZoom);
     }

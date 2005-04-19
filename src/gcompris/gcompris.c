@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/04/10 20:00:49 bruno>
+ * Time-stamp: <2005/04/19 23:12:30 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -113,7 +113,7 @@ static struct poptOption options[] = {
    N_("Disable XRANDR (No screen resolution change)."), NULL},
 /* <YC experimental local only options> */
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
-   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory)"), NULL},
+   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity)"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run gcompris with local activity directory added to menu"), NULL},
 /* </YC> */

@@ -1,3 +1,17 @@
+2005-04-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/boardicons/connect4.png: Frank reworked the connect4 activity graphism.
+	* boards/connect4/back.png:
+	* boards/connect4/grid.png:
+	* boards/connect4/tux-teacher.png:
+	* boards/music/COPYRIGHT:
+	* boards/music/intro.ogg: Ludovic Grossard reworked the intro music.
+	It's based on the previous melody but sounds better.
+	* src/boards/python/connect4.py: Fixed to work with new graphism
+	* src/boards/smallnumbers.c: (smallnumbers_create_item): In case of 2 dices, one could be hidden 
+	on the right. It's fixed now.
+	* src/gcompris/gcompris.c: Minor string change in the usage.
+
 2005-04-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/erase_clic.xml.in: fixed english

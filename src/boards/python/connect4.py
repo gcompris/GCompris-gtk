@@ -101,16 +101,9 @@ class Gcompris_connect4:
       )
     selector.connect("event", self.columnItemEvent, 0)
 
-    selector = self.rootitem.add(
-     gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("connect4/grid.png"),
-      x=1+(gcompris.BOARD_WIDTH-self.boardSize)/2,
-      y=1+50.0
-      )
-
     self.prof = self.rootitem.add(
      gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("images/tux-teacher.png"),
+      pixbuf = gcompris.utils.load_pixmap("connect4/tux-teacher.png"),
       x=10,
       y=350.0
       )
