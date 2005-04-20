@@ -5,6 +5,8 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -15,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-11 07:50+0200\n"
-"PO-Revision-Date: 2005-04-11 07:57+0200\n"
+"POT-Creation-Date: 2005-04-20 08:48+0200\n"
+"PO-Revision-Date: 2005-04-20 09:12+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -362,11 +364,12 @@ msgstr "Zu den Algebratafeln"
 #: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
 #: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
 #: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:18
-#: ../boards/reading.xml.in.h:2
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Klicke mit der linken Maustaste um eine Tafel anzuwählen"
 
-#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase.xml.in.h:1
+#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
@@ -471,7 +474,8 @@ msgstr "Vervollständige eine Liste mit Symbolen"
 msgid "Find the next in a list of symbols."
 msgstr "Finde den Nachfolger aus einer Liste von Symbolen."
 
-#: ../boards/algorithm.xml.in.h:3 ../boards/hexagon.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Logik-Training"
 
@@ -614,10 +618,29 @@ msgstr "Drücke die beiden Hochstelltasten gleichzeitig, um den Ball gerade zu w
 msgid "Send the ball to Tux"
 msgstr "Wirf den Ball zu Tux"
 
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Gehirn"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
+msgstr "Lege nicht den letzten Ball"
+
+#: ../boards/bargame.xml.in.h:4
+msgid ""
+"Put balls in the holes. You win if the computer play the last one. If you "
+"want Tux to begin, just click on him."
+msgstr "Lege Bälle in die Löcher. Du gewinnst, wenn der Rechner den letzten Ball spielt. Wenn du möchtest, dass Tux anfängt, klicke einfach auf ihn."
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "Ballspiel auf der Leiste"
+
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
 #: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
-#: ../boards/erase.xml.in.h:3 ../boards/fifteen.xml.in.h:2
+#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Maus-Handhabung"
@@ -1129,22 +1152,56 @@ msgstr "Zählübung"
 msgid "Place the items in the best way to count them"
 msgstr "Ordne die Gegenstände so an, dass man sie gut zählen kann"
 
-#: ../boards/erase.xml.in.h:2
+#: ../boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"authorization to include their pictures. Thanks a lot."
+msgstr ""
+"Die Tierbilder wurden der Tierfotoseite von Ralf Schmode (http://schmode."
+"net/) und LE BERRE Daniel entnommen. Sie haben hat GCompris die Verwendung der Bilder gestattet. Vielen Dank!"
+
+#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
 msgstr "Motorische Fähigkeiten"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:72
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
 #: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Bewege die Maus"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:73
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Bewege die Maus um Felder zu löschen und den Hintergrund freizulegen"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Bewege die Maus bis alle Blöcke verschwunden sind."
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Klicke mit der Maus auf Rechtecke, bis alle Blöcke verschwunden sind."
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click with the mouse"
+msgstr "Klicke mit der Maus"
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Klicke mit der Maus um Felder zu löschen und den Hintergrund freizulegen"
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid "Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Doppelklicke mit der Maus auf Rechtecke, bis alle Blöcke verschwunden sind."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid "Double-Click with the mouse to erase the area and discover the background"
+msgstr "Doppelklicke die Maus um Felder zu löschen und den Hintergrund freizulegen"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click with the mouse"
+msgstr "Doppelklicke die Maus"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
@@ -2234,6 +2291,10 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Übe die Verwendung von Geld inklusive Cents"
 
+#: ../boards/mouse.xml.in.h:2
+msgid "Mouse manipulation boards"
+msgstr "Tafeln zur Maus-Handhabung"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr "Füge die Teile zu den Originalgemälden zusammen"
@@ -2817,9 +2878,9 @@ msgstr "Mehrere Aktivitäten für Kinder"
 
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:136 ../src/gcompris/gameutil.c:527
-#: ../src/gcompris/gameutil.c:528 ../src/gcompris/gcompris.c:492
+#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:933
+#: ../src/gcompris/gameutil.c:127 ../src/gcompris/gameutil.c:519
+#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:492
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -2846,15 +2907,15 @@ msgstr ""
 "Tux ist in Schwierigkeiten auf seinem Schiff. Er muss durch eine Schleuse.\n"
 "Hilf Tux und verstehe, wie eine Schleuse funktioniert."
 
-#: ../src/boards/chess.c:136
+#: ../src/boards/chess.c:134
 msgid "Learning Chess"
 msgstr "Lerne Schach"
 
-#: ../src/boards/chess.c:137
+#: ../src/boards/chess.c:135
 msgid "Play chess against tux in a learning mode"
 msgstr "Spiel Schach gegen Tux im Lernmodus"
 
-#: ../src/boards/chess.c:190
+#: ../src/boards/chess.c:188
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2866,7 +2927,7 @@ msgstr ""
 "von gnuchess installiert haben.\n"
 "Bitte aktualisieren Sie auf gnuchess 5 oder höher."
 
-#: ../src/boards/chess.c:197 ../src/boards/chess.c:239
+#: ../src/boards/chess.c:195 ../src/boards/chess.c:237
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2880,31 +2941,31 @@ msgstr ""
 "oder in Ihrere GNU/Linux Distribution\n"
 "Und überprüfen Sie, dass es in "
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Weiß am Zug"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Schwarz am Zug"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:718
 msgid "White check"
 msgstr "Weiß Schach"
 
-#: ../src/boards/chess.c:722
+#: ../src/boards/chess.c:720
 msgid "Black check"
 msgstr "Schwarz Schach"
 
-#: ../src/boards/chess.c:1053
+#: ../src/boards/chess.c:1051
 msgid "Black mates"
 msgstr "Schwarz Matt"
 
-#: ../src/boards/chess.c:1058
+#: ../src/boards/chess.c:1056
 msgid "White mates"
 msgstr "Weiß Matt"
 
-#: ../src/boards/chess.c:1063 ../src/gcompris/bonus.c:314
+#: ../src/boards/chess.c:1061 ../src/gcompris/bonus.c:314
 msgid "Drawn game"
 msgstr "Unentschieden"
 
@@ -2989,6 +3050,21 @@ msgstr "Klicke auf die schwarze Figur"
 #: ../src/boards/colors.c:63
 msgid "Click on the white toon"
 msgstr "Klicke auf die weiße Figur"
+
+#: ../src/boards/erase.c:160
+msgid "Couldn't get GTK settings"
+msgstr "Konnte die GTK-Einstellungen nicht laden"
+
+#: ../src/boards/erase.c:165
+#, c-format
+msgid "Double clic default value %d."
+msgstr "Doppelklick-Voreinstellung %d."
+
+#: ../src/boards/erase.c:170 ../src/boards/erase.c:185
+#: ../src/boards/erase.c:208 ../src/boards/erase.c:339
+#, c-format
+msgid "Double clic value is now %d."
+msgstr "Doppelklick-Wert ist jetzt %d."
 
 #: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -3324,7 +3400,7 @@ msgstr ""
 "Hintergrund-Musik: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:484
+#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:466
 msgid "translator_credits"
 msgstr "Ronny Standtke"
 
@@ -3353,7 +3429,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:927 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:941 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3624,15 +3700,15 @@ msgstr "Laden"
 msgid "SAVE"
 msgstr "Speichern"
 
-#: ../src/gcompris/gameutil.c:139
+#: ../src/gcompris/gameutil.c:130
 msgid "Couldn't find file"
 msgstr "Kann Datei nicht finden"
 
-#: ../src/gcompris/gameutil.c:141
+#: ../src/gcompris/gameutil.c:132
 msgid "This activity is incomplete."
 msgstr "Diese Aktivität ist unvollständig."
 
-#: ../src/gcompris/gameutil.c:142
+#: ../src/gcompris/gameutil.c:133
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3683,8 +3759,8 @@ msgstr "XRANDR deaktivieren (Keine Auflösungsänderung)."
 #: ../src/gcompris/gcompris.c:116
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
-"activity directory)"
-msgstr "GCompris mit lokalem Menü (z.B. -l /reading öffnet nur Lese-Aktivitäten)"
+"activity directory, -l /boards/connect4 only the connect4 activity)"
+msgstr "GCompris mit lokalem Menü (z.B. -l /reading öffnet nur Lese-Aktivitäten, -l /boards/connect4 öffnet nur die Connect4-Tafel)"
 
 #: ../src/gcompris/gcompris.c:118
 msgid "Run gcompris with local activity directory added to menu"
@@ -3726,19 +3802,19 @@ msgstr ""
 "Lizenz: GPL\n"
 "Mehr Informationen unter http://gcompris.net\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:243
+#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:228
 msgid "Prerequisite"
 msgstr "Voraussetzung"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:252
+#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:237
 msgid "Goal"
 msgstr "Ziel"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:261
+#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:246
 msgid "Manual"
 msgstr "Handbuch"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:270
+#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:255
 msgid "Credit"
 msgstr "Dank"
 
@@ -3762,53 +3838,49 @@ msgstr "Im Bildersatz %s wurde ein Bild nicht gefunden. Überspringe Bildersatz.
 #: ../src/gcompris/images_selector.c:690
 #, c-format
 msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
-msgstr "Im Bildersatz %s wurde das Verzeichnis %s nicht gefunden. Überspringe den ganzen Bildersatz...\n"
+msgstr ""
+"Im Bildersatz %s wurde das Verzeichnis %s nicht gefunden. Überspringe den "
+"ganzen Bildersatz...\n"
 
-#: ../src/gcompris/interface.c:104
+#: ../src/gcompris/interface.c:95
 msgid "Gcompris Editor"
 msgstr "GCompris Editor"
 
-#: ../src/gcompris/interface.c:180
+#: ../src/gcompris/interface.c:165
 msgid "Icon"
 msgstr "Symbol"
 
-#: ../src/gcompris/interface.c:189
+#: ../src/gcompris/interface.c:174
 msgid "Name"
 msgstr "Name"
 
-#: ../src/gcompris/interface.c:198 ../src/gcompris/interface.c:415
+#: ../src/gcompris/interface.c:183 ../src/gcompris/interface.c:400
 msgid "Description"
 msgstr "Beschreibung"
 
-#: ../src/gcompris/interface.c:207
+#: ../src/gcompris/interface.c:192
 msgid "Type"
 msgstr "Typ"
 
-#: ../src/gcompris/interface.c:216
+#: ../src/gcompris/interface.c:201
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: ../src/gcompris/interface.c:225
+#: ../src/gcompris/interface.c:210
 msgid "Author"
 msgstr "Autor"
 
-#: ../src/gcompris/interface.c:234
+#: ../src/gcompris/interface.c:219
 msgid "Directory"
 msgstr "Verzeichnis"
 
-#: ../src/gcompris/interface.c:286
+#: ../src/gcompris/interface.c:271
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/gcompris/interface.c:490
+#: ../src/gcompris/interface.c:472
 msgid "Released under GPL"
 msgstr "Unter der GPL veröffentlicht"
-
-#. Prepare our log
-#. The default format for time represenation.  See strftime(3)
-#: ../src/gcompris/log.c:157
-msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr "%a %b %d %H:%M:%S %Z %Y"
 
 #: ../src/gcompris/soundutil.c:140
 #, c-format
