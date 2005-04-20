@@ -141,6 +141,7 @@ Animation_init(py_GcomprisAnimation *self, PyObject *args, PyObject *key)
   if(!PyArg_ParseTupleAndKeywords(args, key, "|sssss", kwlist,
                                    &file, &data, &cat, &mime, &name))
     {
+      PyErr_SetString(PyExc_RuntimeError, "Invalid arguments to Animation()");
       return -1;
     }
 
@@ -150,13 +151,17 @@ Animation_init(py_GcomprisAnimation *self, PyObject *args, PyObject *key)
     }
   else
     {
-      if( !data || !cat || !mime || !name )
+      if( !data || !cat || !mime || !name ) {
+          PyErr_SetString(PyExc_RuntimeError,"Invalid arguments to Animation():"
+                " if file is not specified, data, cat, mime and name must be");
           return -1;
+      }
       self->a = gcompris_load_animation_asset(data, cat, mime, name);
     }
 
   if(!self->a)
     {
+      PyErr_SetString(PyExc_RuntimeError, "Failed to load Animation");
       return -1;
     }
   return 0;
@@ -165,7 +170,8 @@ Animation_init(py_GcomprisAnimation *self, PyObject *args, PyObject *key)
 static void Animation_free(py_GcomprisAnimation *self)
 {
   printf("*** Garbage collecting Animation ***\n");
-  gcompris_free_animation(self->a);
+  if( self->a)
+      gcompris_free_animation(self->a);
   PyObject_DEL(self);
 }
 
@@ -181,8 +187,16 @@ AnimCanvas_init(py_GcomprisAnimCanvas *self, PyObject *args, PyObject *key)
   GnomeCanvasGroup *parent;
   PyObject *py_p, *py_a;
 
-  if(!PyArg_ParseTuple(args, "OO:AnimCanvas_init", &py_a, &py_p))
+  if(!PyArg_ParseTuple(args, "OO:AnimCanvas_init", &py_a, &py_p)) {
+      PyErr_SetString(PyExc_RuntimeError, "Invalid arguments to AnimCanvas()");
       return -1;
+  }
+  if(!PyObject_TypeCheck(py_a, &py_GcomprisAnimationType) ||
+     !PyObject_TypeCheck(py_p,pygobject_lookup_class(GNOME_TYPE_CANVAS_GROUP))){
+
+      PyErr_SetString(PyExc_TypeError, "AnimCanvas() needs an Animation");
+      return -1;
+  }
 
   parent = (GnomeCanvasGroup*) pygobject_get(py_p);
   anim = ( (py_GcomprisAnimation*)py_a )->a;

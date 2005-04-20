@@ -1,5 +1,10 @@
 2005-04-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/py-mod-anim.c: (Animation_init), (Animation_free),
+	(AnimCanvas_init): Improved error cases by Joe Neeman .
+
+2005-04-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* boards/boardicons/connect4.png: Frank reworked the connect4 activity graphism.
 	* boards/connect4/back.png:
 	* boards/connect4/grid.png:
