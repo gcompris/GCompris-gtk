@@ -1,3 +1,12 @@
+2005-04-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+
+	* boards/gletters/README: added a comment explaining the fallrate and droprate are optional
+	* boards/gletters/gletters.sv: provided by G~ran Uddeborg <goeran at uddeborg.se>
+	* src/boards/python/algorithm.py: changed the question mark color to black (for color blind 
+	and ease of view).
+	* src/boards/python/anim.py: fixed a string.
+
 2005-04-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/py-mod-anim.c: (Animation_init), (Animation_free),

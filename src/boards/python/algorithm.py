@@ -169,7 +169,7 @@ class Gcompris_algorithm:
   def paint_qm (self):
     self.qm = self.rootitem.add(gnome.canvas.CanvasText, text = "?", 
      x = self.place*self.distance+30+self.leftx, 
-     y = 185, fill_color_rgba = 0xff0000ffL, 
+     y = 185, fill_color_rgba = 0x000000ffL, 
      font = gcompris.skin.get_font("gcompris/board/huge bold"))
     
   def key_press(self, keyval):

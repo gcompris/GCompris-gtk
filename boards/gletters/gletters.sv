@@ -1,0 +1,6 @@
+level 1 ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ
+level 2 ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ0123456789
+level 3 abcdefghijklmnopqrstuvxyzåäö
+level 4 abcdefghijklmnopqrstuvxyzåäö0123456789
+level 5 abcdefghijklmnopqrstuvxyzåäöABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ
+level 6 abcdefghijklmnopqrstuvxyzåäöABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ0123456789

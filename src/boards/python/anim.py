@@ -412,7 +412,7 @@ class Gcompris_anim:
     global python_xml
     if not python_xml:
       #gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-      print _('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.')
+      print _('Python xml module not found. SVG is disabled. Install the python xml module to enable SVG Save/restore.')
 
   def end(self):
     # stop the animation
