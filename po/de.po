@@ -7,6 +7,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -17,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-20 08:48+0200\n"
-"PO-Revision-Date: 2005-04-20 09:12+0200\n"
+"POT-Creation-Date: 2005-04-22 08:24+0200\n"
+"PO-Revision-Date: 2005-04-22 08:25+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -630,7 +631,9 @@ msgstr "Lege nicht den letzten Ball"
 msgid ""
 "Put balls in the holes. You win if the computer play the last one. If you "
 "want Tux to begin, just click on him."
-msgstr "Lege Bälle in die Löcher. Du gewinnst, wenn der Rechner den letzten Ball spielt. Wenn du möchtest, dass Tux anfängt, klicke einfach auf ihn."
+msgstr ""
+"Lege Bälle in die Löcher. Du gewinnst, wenn der Rechner den letzten Ball "
+"spielt. Wenn du möchtest, dass Tux anfängt, klicke einfach auf ihn."
 
 #: ../boards/bargame.xml.in.h:5
 msgid "bar game"
@@ -1159,7 +1162,8 @@ msgid ""
 "authorization to include their pictures. Thanks a lot."
 msgstr ""
 "Die Tierbilder wurden der Tierfotoseite von Ralf Schmode (http://schmode."
-"net/) und LE BERRE Daniel entnommen. Sie haben hat GCompris die Verwendung der Bilder gestattet. Vielen Dank!"
+"net/) und LE BERRE Daniel entnommen. Sie haben hat GCompris die Verwendung "
+"der Bilder gestattet. Vielen Dank!"
 
 #: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
 #: ../boards/erase_double_clic.xml.in.h:5
@@ -3153,7 +3157,7 @@ msgstr "Sie benötigen das Python-XML-Modul. Deaktiviere SVG."
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
 #: ../src/boards/python/anim.py:415
 msgid ""
-"Python xml module bot found. SVG is disabled. Install the python xml module "
+"Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
 msgstr ""
 "Python-XML-Modul nicht gefunden. SVG wird deaktiviert. Installieren Sie das "
@@ -3760,7 +3764,9 @@ msgstr "XRANDR deaktivieren (Keine Auflösungsänderung)."
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity)"
-msgstr "GCompris mit lokalem Menü (z.B. -l /reading öffnet nur Lese-Aktivitäten, -l /boards/connect4 öffnet nur die Connect4-Tafel)"
+msgstr ""
+"GCompris mit lokalem Menü (z.B. -l /reading öffnet nur Lese-Aktivitäten, -l /"
+"boards/connect4 öffnet nur die Connect4-Tafel)"
 
 #: ../src/gcompris/gcompris.c:118
 msgid "Run gcompris with local activity directory added to menu"
