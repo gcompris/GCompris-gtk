@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-08 10:50+0000\n"
-"PO-Revision-Date: 2005-04-08 21:09+0200\n"
+"POT-Creation-Date: 2005-04-20 10:50+0000\n"
+"PO-Revision-Date: 2005-04-23 00:06+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -355,11 +355,12 @@ msgstr "A matematikai táblákhoz"
 #: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
 #: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
 #: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:18
-#: ../boards/reading.xml.in.h:2
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Egy tábla kiválasztásához kattints rá a bal egérgombbal"
 
-#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase.xml.in.h:1
+#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
@@ -461,7 +462,8 @@ msgstr "Egészítsd ki a szimbólumok listáját"
 msgid "Find the next in a list of symbols."
 msgstr "Keresd meg a következő szimbólumot a listában."
 
-#: ../boards/algorithm.xml.in.h:3 ../boards/hexagon.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Logikai játék"
 
@@ -599,10 +601,29 @@ msgstr "Nyomd meg egyszerre a két shift gombot, hogy egyenesen dobd a labdát"
 msgid "Send the ball to Tux"
 msgstr "Dobd oda a labdát Tuxnak"
 
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Gondolkodás"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
+msgstr "Ne te tedd le az utolsó labdát"
+
+#: ../boards/bargame.xml.in.h:4
+msgid ""
+"Put balls in the holes. You win if the computer play the last one. If you "
+"want Tux to begin, just click on him."
+msgstr "Tegyél labdákat a lyukakba. Ha a számítógép teszi le az utolsót, nyertél. Ha azt szeretnéd, hogy Tux kezdjen, kattints rá."
+
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "Sorjáték"
+
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
 #: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
-#: ../boards/erase.xml.in.h:3 ../boards/fifteen.xml.in.h:2
+#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Egérkezelés"
@@ -747,7 +768,7 @@ msgid ""
 "1829 Stephenson's Rocket\n"
 "Steam locomotive"
 msgstr ""
-"1829 Stephenson \"Rakéta\"\n"
+"1829 Stephenson Rakéta\n"
 "nevű gőzmozdonya"
 
 #: ../boards/chronos/board3_0.xml.in.h:3
@@ -1020,7 +1041,10 @@ msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on http://"
 "forcedattack.sourceforge.net"
-msgstr "Laurent Lacheny. A képeket és a mesterséges intelligenciát Jeroen Vloothuis 4stattack nevű projektjéből vettül. Az eredeti projekt megtalálható a következő címen: http://forcedattack.sourceforge.net"
+msgstr ""
+"Laurent Lacheny. A képeket és a mesterséges intelligenciát Jeroen Vloothuis "
+"4stattack nevű projektjéből vettül. Az eredeti projekt megtalálható a "
+"következő címen: http://forcedattack.sourceforge.net"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1109,22 +1133,54 @@ msgstr "Számlálási gyakorlat"
 msgid "Place the items in the best way to count them"
 msgstr "Helyezd el a tárgyakat úgy, hogy a legkönnyebb legyen őket megszámolni"
 
-#: ../boards/erase.xml.in.h:2
+#: ../boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"authorization to include their pictures. Thanks a lot."
+msgstr "Az állatképek Ralf Schmode honlapjából (http://schmode.net/) és LE BERRE Daniel-től származnak. Mindketten engedélyezték a gcompris számára a használatukat. Köszönet érte."
+
+#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
 msgstr "Mozgáskoordináció"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:72
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
 #: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Mozgasd az egeret"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:73
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
-msgstr "Mozgasd az egeret, hogy kiradírozd a mezőket és lásd a képet a háttérben"
+msgstr "Mozgasd az egeret, hogy kiradírozd a mezőket és felfedezd a képet a háttérben"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
-msgstr "Mozgasd az egeret, amíg minden téglalap eltűnik."
+msgstr "Mozgasd az egeret, amíg minden téglalap el nem tűnik."
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Kattints a téglalapokra az egérrel, amíg minden téglalap el nem tűnik."
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click with the mouse"
+msgstr "Kattints az egérrel"
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Katints az egérrel, hogy kiradírozd a mezőket és felfedezd a képet a háttérben"
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid "Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Kattints kétszer a téglalapokra az egérrel, amíg minden téglalap el nem tűnik."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid "Double-Click with the mouse to erase the area and discover the background"
+msgstr "Kattints kétszer az egérrel, hogy kiradírozd a mezőket és felfedezd a képet a háttérben"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click with the mouse"
+msgstr "Kattints kétszer az egérrel"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
@@ -1431,7 +1487,7 @@ msgstr "Ciprus"
 
 #: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
 msgid "Czech"
-msgstr "Cseh"
+msgstr "Csehország"
 
 #: ../boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
@@ -2217,6 +2273,10 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Gyakorold a pénz használatát, az aprópénzzel együtt"
 
+#: ../boards/mouse.xml.in.h:2
+msgid "Mouse manipulation boards"
+msgstr "Egérkezelést gyakoroltató táblák"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr "Rakd össze a darabokat, hogy lásd az eredeti festményt"
@@ -2558,8 +2618,8 @@ msgid ""
 "enter a program. This activity can be used to introduce the programming "
 "concept to kids."
 msgstr ""
-"Ebben a tevékenységben megtanulhatod, hogyan adj parancsokat adni a "
-"számítógépnek. Mégha a nyelv nagyon alapvető is, itt megtanulhatod, hogyan "
+"Ebben a tevékenységben megtanulhatod, hogyan adj parancsokat a "
+"számítógépnek. Még ha a nyelv nagyon egyszerű is, itt megtanulhatod, hogyan "
 "gondolkozz előre és írj meg egy programot. Ez a tevékenység a programozás "
 "koncepciójának bemutatására használható."
 
@@ -2788,9 +2848,9 @@ msgstr "Változatos tevékenységek gyerekeknek"
 
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:130 ../src/gcompris/gameutil.c:519
-#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:482
+#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:933
+#: ../src/gcompris/gameutil.c:127 ../src/gcompris/gameutil.c:519
+#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:492
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -2817,15 +2877,15 @@ msgstr ""
 "Tuxnak gondjai vannak a hajóban. Át szeretne menni a zsilipen. \n"
 "Segíts Tuxnak és értsd meg, hogyan is működik egy zsilip."
 
-#: ../src/boards/chess.c:136
+#: ../src/boards/chess.c:134
 msgid "Learning Chess"
 msgstr "Tanulj sakkozni"
 
-#: ../src/boards/chess.c:137
+#: ../src/boards/chess.c:135
 msgid "Play chess against tux in a learning mode"
 msgstr "Sakkozz Tux ellen tanuló módban"
 
-#: ../src/boards/chess.c:190
+#: ../src/boards/chess.c:188
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2836,7 +2896,7 @@ msgstr ""
 "ami a gnuchess-nek egy régi verziója. \n"
 "Kérem frissítsen gnuchess 5 vagy újabb verzióra."
 
-#: ../src/boards/chess.c:197 ../src/boards/chess.c:239
+#: ../src/boards/chess.c:195 ../src/boards/chess.c:237
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2851,31 +2911,31 @@ msgstr ""
 "terjesztése webhelyén.\n"
 "És ellenőrizze, hogy benne van-e a következőben:"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Fehér lép"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Fekete lép"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:718
 msgid "White check"
 msgstr "Fehér sakk"
 
-#: ../src/boards/chess.c:722
+#: ../src/boards/chess.c:720
 msgid "Black check"
 msgstr "Fekete sakk"
 
-#: ../src/boards/chess.c:1053
+#: ../src/boards/chess.c:1051
 msgid "Black mates"
 msgstr "Fekete matt"
 
-#: ../src/boards/chess.c:1058
+#: ../src/boards/chess.c:1056
 msgid "White mates"
 msgstr "Fehér matt"
 
-#: ../src/boards/chess.c:1063
+#: ../src/boards/chess.c:1061 ../src/gcompris/bonus.c:314
 msgid "Drawn game"
 msgstr "Döntetlen"
 
@@ -2961,6 +3021,21 @@ msgstr "Kattints a fekete színű figurára"
 #: ../src/boards/colors.c:63
 msgid "Click on the white toon"
 msgstr "Kattints a fehér színű figurára"
+
+#: ../src/boards/erase.c:160
+msgid "Couldn't get GTK settings"
+msgstr "Nem lehet lekérni a GTK-beállításokat"
+
+#: ../src/boards/erase.c:165
+#, c-format
+msgid "Double clic default value %d."
+msgstr "A dupla kattintás alapértelmezett értéke %d."
+
+#: ../src/boards/erase.c:170 ../src/boards/erase.c:185
+#: ../src/boards/erase.c:208 ../src/boards/erase.c:339
+#, c-format
+msgid "Double clic value is now %d."
+msgstr "A dupla kattintás értéke most %d."
 
 #: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -3062,8 +3137,8 @@ msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Figyelmeztetés: a következő képekhez nem lehet hozzáférni a rendszerén.\n"
 
 #: ../src/boards/python/anim.py:2363
-msgid "The corresponding items have been skiped."
-msgstr "A megfelelő elemek ki lesznek hagyva."
+msgid "The corresponding items have been skipped."
+msgstr "A megfelelő elemek ki lettek hagyva."
 
 #: ../src/boards/python/pythontest.py:75
 msgid ""
@@ -3288,7 +3363,7 @@ msgstr ""
 "Háttérzene: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:484
+#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:466
 msgid "translator_credits"
 msgstr ""
 "Hilzinger Marcel <hili@suselinux.hu>\n"
@@ -3307,15 +3382,17 @@ msgid "GCompris Home Page"
 msgstr "A GCompris honlapja"
 
 #: ../src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public License"
-msgstr "Ez a program GNU szoftver és a GNU Public Licence alatt van kiadva"
+msgid ""
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
+msgstr "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
 #: ../src/gcompris/about.c:281
 msgid "Help"
 msgstr "Segítség"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:900 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:941 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3584,15 +3661,15 @@ msgstr "BETÖLTÉS"
 msgid "SAVE"
 msgstr "MENTÉS"
 
-#: ../src/gcompris/gameutil.c:133
+#: ../src/gcompris/gameutil.c:130
 msgid "Couldn't find file"
 msgstr "Nem található a fájl"
 
-#: ../src/gcompris/gameutil.c:135
+#: ../src/gcompris/gameutil.c:132
 msgid "This activity is incomplete."
 msgstr "ez a játék még nincs befejezve."
 
-#: ../src/gcompris/gameutil.c:136
+#: ../src/gcompris/gameutil.c:133
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3600,47 +3677,57 @@ msgstr ""
 "Lépj ki és jelentsd a \n"
 "hibát a szerzőknek."
 
-#: ../src/gcompris/gcompris.c:91
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
 msgstr "A GCompris teljes képernyős módban fusson."
 
-#: ../src/gcompris/gcompris.c:93
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
 msgstr "A GCompris ablakban fusson."
 
-#: ../src/gcompris/gcompris.c:95
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
 msgstr "A GCompris használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:97
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
 msgstr "A GCompris ne használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:99
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
 msgstr "A GCompris az alapértelmezett egérmutatóval fusson."
 
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
 msgstr "Csak az ilyen nehézségi szintű tevékenységek mutatása."
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:107
 msgid "display debug informations on the console."
 msgstr "hibakereső információk megjelenítése a konzolon."
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:109
 msgid "Print the version of "
 msgstr "Verziószám megtekintése: "
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
 msgstr "Élsimított vászon (lassú)."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:113
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR (képernyő felbontásának változtatása) kikapcsolása ."
 
-#: ../src/gcompris/gcompris.c:591
+#: ../src/gcompris/gcompris.c:116
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory, -l /boards/connect4 only the connect4 activity)"
+msgstr "A GCompris futtatása helyi menüvel (például a -l /reading csak az olvasási táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet)"
+
+#: ../src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity directory added to menu"
+msgstr "A GCompris futtatása egy helyi tevékenységkönyvtár menühöz adásával"
+
+#: ../src/gcompris/gcompris.c:604
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3663,7 +3750,7 @@ msgstr ""
 "használatát. További információért nézze meg a következő oldalt:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:839
+#: ../src/gcompris/gcompris.c:852
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3676,19 +3763,19 @@ msgstr ""
 "Licenc: GPL\n"
 "További információ: http://gcompris.net\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:243
+#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:228
 msgid "Prerequisite"
 msgstr "Előfeltétel"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:252
+#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:237
 msgid "Goal"
 msgstr "Cél"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:261
+#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:246
 msgid "Manual"
 msgstr "Kézikönyv"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:270
+#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:255
 msgid "Credit"
 msgstr "Köszönet"
 
@@ -3699,64 +3786,60 @@ msgstr "%s adathalmaz egy könyvtár. Megpróbálok xml-t olvasni "
 
 #: ../src/gcompris/images_selector.c:629
 #, c-format
-msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
-msgstr "%s képhalmaz, %s saját könyvtár nem található, a képhalmaz mellőzve lesz...\n"
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr "%s képhalmazban %s saját könyvtár útvonal neve nem található, a képhalmaz mellőzve lesz...\n"
 
 #: ../src/gcompris/images_selector.c:664
 #, c-format
-msgid "ImageSet %s image not found. Skipping ImageSet...\n"
-msgstr "Képhalmaz %s képe nem található, a képhalmaz mellőzve lesz...\n"
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr "%s képhalmaz egy képe nem található, a képhalmaz mellőzve lesz...\n"
 
 #: ../src/gcompris/images_selector.c:690
 #, c-format
-msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
-msgstr "%s képhalmaz %s könyvtár nem található, a képhalmaz teljesen mellőzve lesz...\n"
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr ""
+"%s képhalmazban %s könyvtár nem található, a képhalmaz teljesen mellőzve "
+"lesz...\n"
 
-#: ../src/gcompris/interface.c:104
+#: ../src/gcompris/interface.c:95
 msgid "Gcompris Editor"
 msgstr "GCompris szerkesztő"
 
-#: ../src/gcompris/interface.c:180
+#: ../src/gcompris/interface.c:165
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../src/gcompris/interface.c:189
+#: ../src/gcompris/interface.c:174
 msgid "Name"
 msgstr "Név"
 
-#: ../src/gcompris/interface.c:198 ../src/gcompris/interface.c:415
+#: ../src/gcompris/interface.c:183 ../src/gcompris/interface.c:400
 msgid "Description"
 msgstr "Leírás"
 
-#: ../src/gcompris/interface.c:207
+#: ../src/gcompris/interface.c:192
 msgid "Type"
 msgstr "Típus"
 
-#: ../src/gcompris/interface.c:216
+#: ../src/gcompris/interface.c:201
 msgid "Difficulty"
 msgstr "Nehézség"
 
-#: ../src/gcompris/interface.c:225
+#: ../src/gcompris/interface.c:210
 msgid "Author"
 msgstr "Szerző"
 
-#: ../src/gcompris/interface.c:234
+#: ../src/gcompris/interface.c:219
 msgid "Directory"
 msgstr "Könyvtár"
 
-#: ../src/gcompris/interface.c:286
+#: ../src/gcompris/interface.c:271
 msgid "Title"
 msgstr "Cím"
 
-#: ../src/gcompris/interface.c:490
+#: ../src/gcompris/interface.c:472
 msgid "Released under GPL"
 msgstr "Kiadva a GPL alatt"
-
-#. Prepare our log
-#. The default format for time represenation.  See strftime(3)
-#: ../src/gcompris/log.c:157
-msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr "%Y. %b. %e., %a., %H.%M.%S %Z"
 
 #: ../src/gcompris/soundutil.c:140
 #, c-format
