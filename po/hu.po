@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-20 10:50+0000\n"
-"PO-Revision-Date: 2005-04-23 00:06+0200\n"
+"POT-Creation-Date: 2005-04-23 11:01+0000\n"
+"PO-Revision-Date: 2005-04-24 00:08+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -613,7 +613,9 @@ msgstr "Ne te tedd le az utolsó labdát"
 msgid ""
 "Put balls in the holes. You win if the computer play the last one. If you "
 "want Tux to begin, just click on him."
-msgstr "Tegyél labdákat a lyukakba. Ha a számítógép teszi le az utolsót, nyertél. Ha azt szeretnéd, hogy Tux kezdjen, kattints rá."
+msgstr ""
+"Tegyél labdákat a lyukakba. Ha a számítógép teszi le az utolsót, nyertél. Ha "
+"azt szeretnéd, hogy Tux kezdjen, kattints rá."
 
 #: ../boards/bargame.xml.in.h:5
 msgid "bar game"
@@ -1138,7 +1140,10 @@ msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
 "authorization to include their pictures. Thanks a lot."
-msgstr "Az állatképek Ralf Schmode honlapjából (http://schmode.net/) és LE BERRE Daniel-től származnak. Mindketten engedélyezték a gcompris számára a használatukat. Köszönet érte."
+msgstr ""
+"Az állatképek Ralf Schmode honlapjából (http://schmode.net/) és LE BERRE "
+"Daniel-től származnak. Mindketten engedélyezték a gcompris számára a "
+"használatukat. Köszönet érte."
 
 #: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
 #: ../boards/erase_double_clic.xml.in.h:5
@@ -1168,15 +1173,21 @@ msgstr "Kattints az egérrel"
 
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click with the mouse to erase the area and discover the background"
-msgstr "Katints az egérrel, hogy kiradírozd a mezőket és felfedezd a képet a háttérben"
+msgstr ""
+"Katints az egérrel, hogy kiradírozd a mezőket és felfedezd a képet a "
+"háttérben"
 
 #: ../boards/erase_double_clic.xml.in.h:2
 msgid "Double click on rectangles with the mouse until all the blocks disappear."
-msgstr "Kattints kétszer a téglalapokra az egérrel, amíg minden téglalap el nem tűnik."
+msgstr ""
+"Kattints kétszer a téglalapokra az egérrel, amíg minden téglalap el nem "
+"tűnik."
 
 #: ../boards/erase_double_clic.xml.in.h:3
 msgid "Double-Click with the mouse to erase the area and discover the background"
-msgstr "Kattints kétszer az egérrel, hogy kiradírozd a mezőket és felfedezd a képet a háttérben"
+msgstr ""
+"Kattints kétszer az egérrel, hogy kiradírozd a mezőket és felfedezd a képet "
+"a háttérben"
 
 #: ../boards/erase_double_clic.xml.in.h:4
 msgid "Double-click with the mouse"
@@ -3122,7 +3133,7 @@ msgstr "A python xml modul szükséges. Az SVG-t kikapcsolom."
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
 #: ../src/boards/python/anim.py:415
 msgid ""
-"Python xml module bot found. SVG is disabled. Install the python xml module "
+"Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
 msgstr ""
 "A Python xml modulja nem található. Az SVG-t kikapcsolom. Telepítse a python "
@@ -3721,7 +3732,9 @@ msgstr "XRANDR (képernyő felbontásának változtatása) kikapcsolása ."
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity)"
-msgstr "A GCompris futtatása helyi menüvel (például a -l /reading csak az olvasási táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet)"
+msgstr ""
+"A GCompris futtatása helyi menüvel (például a -l /reading csak az olvasási "
+"táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet)"
 
 #: ../src/gcompris/gcompris.c:118
 msgid "Run gcompris with local activity directory added to menu"
@@ -3787,7 +3800,9 @@ msgstr "%s adathalmaz egy könyvtár. Megpróbálok xml-t olvasni "
 #: ../src/gcompris/images_selector.c:629
 #, c-format
 msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
-msgstr "%s képhalmazban %s saját könyvtár útvonal neve nem található, a képhalmaz mellőzve lesz...\n"
+msgstr ""
+"%s képhalmazban %s saját könyvtár útvonal neve nem található, a képhalmaz "
+"mellőzve lesz...\n"
 
 #: ../src/gcompris/images_selector.c:664
 #, c-format
