@@ -1,501 +1,535 @@
+# translation of el.po to Greek
+# translation of gcl.po to Greek
+# translation of el.po to
+# translation of el.po to
 # gcompris - greek translation
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# AARG! Anonymous <remailer@aarg.net>, 2001.
-# Simos Xenitellis <simos@hellug.gr>, 2001.
-# Panayotis Pakos <aeikineton@yahoo.com>, 2001.
-# Velonis Petros <velonis@freemail.gr>, 2004.
-
+# Copyright (C) 2001, 2005 Free Software Foundation, Inc.
 # aarg: 89 messages, initial translation
 # simos: review - 89 messages.
 # panayotis: review - 80 messages.
 # petros: 13Apr04 updated translation - 149 messages.
-# 
+# AARG! Anonymous <remailer@aarg.net>, 2001.
+# Simos Xenitellis <simos@hellug.gr>, 2001.
+# Panayotis Pakos <aeikineton@yahoo.com>, 2001.
+# Velonis Petros <velonis@freemail.gr>, 2004, 2005.
+# Kostas Papadimas <pkst@gnome.org>, 2005.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: gcompris 0.9.6\n"
+"Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-16 10:37+0300\n"
-"PO-Revision-Date: 2004-04-13 18:23+0200\n"
-"Last-Translator: Velonis Petros <velonis@freemail.gr>\n"
-"Language-Team: Greek <gnomehellas@gmx.net>\n"
+"POT-Creation-Date: 2005-04-24 12:57+0300\n"
+"PO-Revision-Date: 2005-04-24 13:03+0300\n"
+"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
+"Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.10\n"
 
-#: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
-#, fuzzy
+#: ../boards/advanced_colors.xml.in.h:1 ../src/boards/advanced_colors.c:86
 msgid "Advanced colors"
-msgstr "Άλλα χρώματα"
+msgstr "Περισσότερα χρώματα"
 
-#: boards/advanced_colors.xml.in.h:2 boards/read_colors.xml.in.h:1
-#, fuzzy
+#: ../boards/advanced_colors.xml.in.h:2 ../boards/read_colors.xml.in.h:1
 msgid "Can read"
-msgstr "%s: αδύνατη η ανάγνωση %s.\n"
+msgstr "Δυνατότητα ανάγνωσης"
 
-#: boards/advanced_colors.xml.in.h:3
-#, fuzzy
+#: ../boards/advanced_colors.xml.in.h:3
 msgid "Click on the correct color"
-msgstr "Πατήστε σε ένα χρώμα ή"
+msgstr "Κάνε κλικ στο σωστό χρώμα"
 
-#: boards/advanced_colors.xml.in.h:4
-#, fuzzy
+#: ../boards/advanced_colors.xml.in.h:4
 msgid "Click on the correct colored box."
-msgstr "Πατήστε σε ένα χρώμα ή"
+msgstr "Κάντε κλικ στο σωστό κουτί"
 
-#: boards/advanced_colors.xml.in.h:5
-#, fuzzy
+#: ../boards/advanced_colors.xml.in.h:5
 msgid "Learn to recognize unusual colors."
-msgstr "Εκμάθηση αναγνώρισης γραμμάτων"
+msgstr "Μάθε να αναγνωρίζεις σπάνια χρώματα"
 
-#: boards/advanced_colors/board1.xml.in.h:1
+#: ../boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
-msgstr ""
+msgstr "αμύγδαλο"
 
-#: boards/advanced_colors/board1.xml.in.h:2
+#: ../boards/advanced_colors/board1.xml.in.h:2
 msgid "chestnut"
-msgstr ""
+msgstr "κάστανο"
 
-#: boards/advanced_colors/board1.xml.in.h:3
+#: ../boards/advanced_colors/board1.xml.in.h:3
 msgid "claret"
 msgstr ""
 
-#: boards/advanced_colors/board1.xml.in.h:4
-#, fuzzy
+#: ../boards/advanced_colors/board1.xml.in.h:4
 msgid "cobalt"
-msgstr "Κοβάλτιο"
+msgstr "κοβάλτιο"
 
-#: boards/advanced_colors/board1.xml.in.h:5
-#, fuzzy
+#: ../boards/advanced_colors/board1.xml.in.h:5
 msgid "coral"
-msgstr "Name=Κοράλλι"
+msgstr "κοραλί"
 
-#: boards/advanced_colors/board1.xml.in.h:6
+#: ../boards/advanced_colors/board1.xml.in.h:6
 msgid "corn"
 msgstr ""
 
-#: boards/advanced_colors/board1.xml.in.h:7
-#, fuzzy
+#: ../boards/advanced_colors/board1.xml.in.h:7
 msgid "cyan"
 msgstr "κυανό"
 
-#: boards/advanced_colors/board1.xml.in.h:8
+#: ../boards/advanced_colors/board1.xml.in.h:8
 msgid "sienna"
-msgstr ""
+msgstr "σιένα"
 
-#: boards/advanced_colors/board2.xml.in.h:1
-#, fuzzy
+#: ../boards/advanced_colors/board2.xml.in.h:1
 msgid "lime"
 msgstr "λεμονί"
 
-#: boards/advanced_colors/board2.xml.in.h:2
+#: ../boards/advanced_colors/board2.xml.in.h:2
 msgid "sage"
-msgstr ""
+msgstr "σταχτοπράσινο"
 
-#: boards/advanced_colors/board2.xml.in.h:3
-#, fuzzy
+#: ../boards/advanced_colors/board2.xml.in.h:3
 msgid "salmon"
-msgstr "Salmon"
+msgstr "ροδοκίτρινο"
 
-#: boards/advanced_colors/board2.xml.in.h:4
-#, fuzzy
+#: ../boards/advanced_colors/board2.xml.in.h:4
 msgid "sapphire"
-msgstr "Name=Sapphire"
+msgstr "ζαφείρι"
 
-#: boards/advanced_colors/board2.xml.in.h:5
+#: ../boards/advanced_colors/board2.xml.in.h:5
 msgid "sepia"
-msgstr ""
+msgstr "κοκκινόφαιο"
 
-#: boards/advanced_colors/board2.xml.in.h:6
-#, fuzzy
+#: ../boards/advanced_colors/board2.xml.in.h:6
 msgid "sulphur"
-msgstr "White Sulphur"
+msgstr "ωχροκίτρινο"
 
-#: boards/advanced_colors/board2.xml.in.h:7
-#, fuzzy
+#: ../boards/advanced_colors/board2.xml.in.h:7
 msgid "tea"
 msgstr "τσάι"
 
-#: boards/advanced_colors/board2.xml.in.h:8
-#, fuzzy
+#: ../boards/advanced_colors/board2.xml.in.h:8
 msgid "turquoise"
-msgstr "Τιρκουάζ"
+msgstr "τιρκουάζ"
 
-#: boards/advanced_colors/board3.xml.in.h:1
+#: ../boards/advanced_colors/board3.xml.in.h:1
 msgid "absinthe"
-msgstr ""
+msgstr "αψέντι "
 
-#: boards/advanced_colors/board3.xml.in.h:2
+#: ../boards/advanced_colors/board3.xml.in.h:2
 msgid "alabaster"
-msgstr ""
+msgstr "αλάβαστρο"
 
-#: boards/advanced_colors/board3.xml.in.h:3
+#: ../boards/advanced_colors/board3.xml.in.h:3
 msgid "amber"
-msgstr ""
+msgstr "κεχριμπαρί"
 
-#: boards/advanced_colors/board3.xml.in.h:4
+#: ../boards/advanced_colors/board3.xml.in.h:4
 msgid "amethyst"
-msgstr ""
+msgstr "αμέθυστος"
 
-#: boards/advanced_colors/board3.xml.in.h:5
-#, fuzzy
+#: ../boards/advanced_colors/board3.xml.in.h:5
 msgid "anise"
-msgstr "Ισπανικά"
+msgstr "γλυκάνισος"
 
-#: boards/advanced_colors/board3.xml.in.h:6
+#: ../boards/advanced_colors/board3.xml.in.h:6
 msgid "aquamarine"
-msgstr ""
+msgstr "άκουα-μαρίνα"
 
-#: boards/advanced_colors/board3.xml.in.h:7
+#: ../boards/advanced_colors/board3.xml.in.h:7
 msgid "mahogany"
-msgstr ""
+msgstr "μαονί"
 
-#: boards/advanced_colors/board3.xml.in.h:8
-#: boards/advanced_colors/board8.xml.in.h:8
+#: ../boards/advanced_colors/board3.xml.in.h:8
+#: ../boards/advanced_colors/board8.xml.in.h:8
 msgid "vermilion"
-msgstr ""
+msgstr "ζωηρό κόκκινο"
 
-#: boards/advanced_colors/board4.xml.in.h:1
-#: boards/advanced_colors/board5.xml.in.h:1
+#: ../boards/advanced_colors/board4.xml.in.h:1
+#: ../boards/advanced_colors/board5.xml.in.h:1
 msgid "aubergine"
-msgstr ""
+msgstr "μελιτζανί"
 
-#: boards/advanced_colors/board4.xml.in.h:2
+#: ../boards/advanced_colors/board4.xml.in.h:2
 msgid "ceruse"
 msgstr ""
 
-#: boards/advanced_colors/board4.xml.in.h:3
+#: ../boards/advanced_colors/board4.xml.in.h:3
 msgid "chartreuse"
-msgstr ""
+msgstr "κιτρινοπράσινo"
 
-#: boards/advanced_colors/board4.xml.in.h:4
+#: ../boards/advanced_colors/board4.xml.in.h:4
 msgid "emerald"
-msgstr ""
+msgstr "σμαραγδί"
 
-#: boards/advanced_colors/board4.xml.in.h:5
+#: ../boards/advanced_colors/board4.xml.in.h:5
 msgid "fawn"
-msgstr ""
+msgstr "κιτρινόφαιο"
 
-#: boards/advanced_colors/board4.xml.in.h:6
+#: ../boards/advanced_colors/board4.xml.in.h:6
 msgid "fuchsia"
-msgstr ""
+msgstr "φούξια"
 
-#: boards/advanced_colors/board4.xml.in.h:7
+#: ../boards/advanced_colors/board4.xml.in.h:7
 msgid "glaucous"
-msgstr ""
+msgstr "γλαυκοπράσινο"
 
-#: boards/advanced_colors/board4.xml.in.h:8
-#, fuzzy
+#: ../boards/advanced_colors/board4.xml.in.h:8
 msgid "ruby"
-msgstr "Ruby"
+msgstr "ρουμπινί"
 
-#: boards/advanced_colors/board5.xml.in.h:2
-#, fuzzy
+#: ../boards/advanced_colors/board5.xml.in.h:2
 msgid "auburn"
-msgstr "Auburn"
+msgstr "καστανοκόκκινο"
 
-#: boards/advanced_colors/board5.xml.in.h:3
+#: ../boards/advanced_colors/board5.xml.in.h:3
 msgid "azure"
-msgstr ""
+msgstr "γαλάζιο"
 
-#: boards/advanced_colors/board5.xml.in.h:4
+#: ../boards/advanced_colors/board5.xml.in.h:4
 msgid "bistre"
-msgstr ""
+msgstr "φούμο"
 
-#: boards/advanced_colors/board5.xml.in.h:5
+#: ../boards/advanced_colors/board5.xml.in.h:5
 msgid "celadon"
 msgstr ""
 
-#: boards/advanced_colors/board5.xml.in.h:6
+#: ../boards/advanced_colors/board5.xml.in.h:6
 msgid "cerulean"
-msgstr ""
+msgstr "ουρανί"
 
-#: boards/advanced_colors/board5.xml.in.h:7
+#: ../boards/advanced_colors/board5.xml.in.h:7
 msgid "crimson"
-msgstr ""
+msgstr "βυσσινί"
 
-#: boards/advanced_colors/board5.xml.in.h:8
-#, fuzzy
+#: ../boards/advanced_colors/board5.xml.in.h:8
 msgid "greyish-brown"
-msgstr "ανοιχτό καφέ"
+msgstr "γκρί καφέ"
 
-#: boards/advanced_colors/board6.xml.in.h:1
+#: ../boards/advanced_colors/board6.xml.in.h:1
 msgid "dove"
-msgstr ""
+msgstr "περιστερήσιο λευκό"
 
-#: boards/advanced_colors/board6.xml.in.h:2
+#: ../boards/advanced_colors/board6.xml.in.h:2
 msgid "garnet"
-msgstr ""
+msgstr "σκοτεινό κόκκινο"
 
-#: boards/advanced_colors/board6.xml.in.h:3
-#, fuzzy
+#: ../boards/advanced_colors/board6.xml.in.h:3
 msgid "indigo"
-msgstr "Λουλάκι"
+msgstr "λουλακί"
 
-#: boards/advanced_colors/board6.xml.in.h:4
-#, fuzzy
+#: ../boards/advanced_colors/board6.xml.in.h:4
 msgid "ivory"
-msgstr "Ακτή Ελεφαντοστού"
+msgstr "ιβουάρ"
 
-#: boards/advanced_colors/board6.xml.in.h:5
+#: ../boards/advanced_colors/board6.xml.in.h:5
 msgid "jade"
-msgstr ""
+msgstr "νεφρίτης"
 
-#: boards/advanced_colors/board6.xml.in.h:6
+#: ../boards/advanced_colors/board6.xml.in.h:6
 msgid "lavender"
-msgstr ""
+msgstr "λεβάντα"
 
-#: boards/advanced_colors/board6.xml.in.h:7
+#: ../boards/advanced_colors/board6.xml.in.h:7
 msgid "lichen"
 msgstr ""
 
-#: boards/advanced_colors/board6.xml.in.h:8
-#, fuzzy
+#: ../boards/advanced_colors/board6.xml.in.h:8
 msgid "wine"
-msgstr "Ρυθμίστε το wine"
+msgstr "του κρασιού"
 
-#: boards/advanced_colors/board7.xml.in.h:1
+#: ../boards/advanced_colors/board7.xml.in.h:1
 msgid "larch"
-msgstr ""
+msgstr "αγριόπευκο"
 
-#: boards/advanced_colors/board7.xml.in.h:2
+#: ../boards/advanced_colors/board7.xml.in.h:2
 msgid "lilac"
-msgstr ""
+msgstr "λιλά"
 
-#: boards/advanced_colors/board7.xml.in.h:3
-#, fuzzy
+#: ../boards/advanced_colors/board7.xml.in.h:3
 msgid "magenta"
-msgstr "Ματζέντα"
+msgstr "ματζέντα"
 
-#: boards/advanced_colors/board7.xml.in.h:4
+#: ../boards/advanced_colors/board7.xml.in.h:4
 msgid "malachite"
-msgstr ""
+msgstr "μαλαχίτης"
 
-#: boards/advanced_colors/board7.xml.in.h:5
+#: ../boards/advanced_colors/board7.xml.in.h:5
 msgid "mimosa"
-msgstr ""
+msgstr "μιμόζα"
 
-#: boards/advanced_colors/board7.xml.in.h:6
-#, fuzzy
+#: ../boards/advanced_colors/board7.xml.in.h:6
 msgid "navy"
 msgstr "ναυτικό μπλε"
 
-#: boards/advanced_colors/board7.xml.in.h:7
+#: ../boards/advanced_colors/board7.xml.in.h:7
 msgid "ochre"
-msgstr ""
+msgstr "ώχρα"
 
-#: boards/advanced_colors/board7.xml.in.h:8
+#: ../boards/advanced_colors/board7.xml.in.h:8
 msgid "olive"
-msgstr ""
+msgstr "λαδί"
 
-#: boards/advanced_colors/board8.xml.in.h:1
-#, fuzzy
+#: ../boards/advanced_colors/board8.xml.in.h:1
 msgid "greyish blue"
-msgstr "Αποχρώσεις του Μπλε"
+msgstr "γκρί-μπλέ"
 
-#: boards/advanced_colors/board8.xml.in.h:2
+#: ../boards/advanced_colors/board8.xml.in.h:2
 msgid "mauve"
-msgstr ""
+msgstr "μωβ"
 
-#: boards/advanced_colors/board8.xml.in.h:3
+#: ../boards/advanced_colors/board8.xml.in.h:3
 msgid "opaline"
-msgstr ""
+msgstr "γαλακτώδες"
 
-#: boards/advanced_colors/board8.xml.in.h:4
+#: ../boards/advanced_colors/board8.xml.in.h:4
 msgid "pistachio"
-msgstr ""
+msgstr "φυστικί"
 
-#: boards/advanced_colors/board8.xml.in.h:5
-#, fuzzy
+#: ../boards/advanced_colors/board8.xml.in.h:5
 msgid "platinum"
-msgstr "Πλατινένιο"
+msgstr "πλατινέ"
 
-#: boards/advanced_colors/board8.xml.in.h:6 src/boards/colors.c:59
+#: ../boards/advanced_colors/board8.xml.in.h:6
 msgid "purple"
 msgstr "μωβ"
 
-#: boards/advanced_colors/board8.xml.in.h:7
+#: ../boards/advanced_colors/board8.xml.in.h:7
 msgid "ultramarine"
-msgstr ""
+msgstr "βαθύ-μπλέ"
 
-#: boards/advanced_colors/board9.xml.in.h:1
+#: ../boards/advanced_colors/board9.xml.in.h:1
 msgid "dark purple"
 msgstr "σκούρο μωβ"
 
-#: boards/advanced_colors/board9.xml.in.h:2
+#: ../boards/advanced_colors/board9.xml.in.h:2
 msgid "plum"
-msgstr ""
+msgstr "δαμασκηνί"
 
-#: boards/advanced_colors/board9.xml.in.h:3
-#, fuzzy
+#: ../boards/advanced_colors/board9.xml.in.h:3
 msgid "prussian blue"
-msgstr "Αποχρώσεις του Μπλε"
+msgstr "πρωσικό μπλέ"
 
-#: boards/advanced_colors/board9.xml.in.h:4
+#: ../boards/advanced_colors/board9.xml.in.h:4
 msgid "rust"
-msgstr ""
+msgstr "σκουριάς"
 
-#: boards/advanced_colors/board9.xml.in.h:5
+#: ../boards/advanced_colors/board9.xml.in.h:5
 msgid "saffron"
-msgstr ""
+msgstr "βαθυκίτρινο"
 
-#: boards/advanced_colors/board9.xml.in.h:6
+#: ../boards/advanced_colors/board9.xml.in.h:6
 msgid "vanilla"
-msgstr ""
+msgstr "βανίλια"
 
-#: boards/advanced_colors/board9.xml.in.h:7
+#: ../boards/advanced_colors/board9.xml.in.h:7
 msgid "verdigris"
-msgstr ""
+msgstr "χαλκοσκουριά"
 
-#: boards/advanced_colors/board9.xml.in.h:8
+#: ../boards/advanced_colors/board9.xml.in.h:8
 msgid "veronese"
 msgstr ""
 
-#: boards/algebra_by.xml.in.h:1
+#: ../boards/algebra_by.xml.in.h:1
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
 "and press the Enter key to check your answer."
 msgstr ""
+"Εμφανίζεται ένα πρόβλημα πολλαπλασισμού. Δεξιά από το σημείο του ίσον, δώσε "
+"το αποτέλεσμα. Χρησιμοποιήσε τα δεξί ή το αριστερό βέλος για να αλλάξεις την "
+"απάντηση σου, και πάτησε το πλήκτρο Enter για να δείς το σωστό αποτέλεσμα"
 
-#: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
-#: boards/algebra_plus.xml.in.h:2
-#, fuzzy
+#: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2
 msgid "Answer some algebra questions"
-msgstr "Σας κάνω μερικές ερωτήσεις άλγεβρας"
+msgstr "Απάντησε σε μερικές ερωτήσεις άλγεβρας"
 
-#: boards/algebra_by.xml.in.h:3
+#: ../boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the product of two numbers"
-msgstr ""
+msgstr "Δώσε το αποτέλεσμα από δύο αριθμούς στο χρόνο που δίνεται"
 
-#: boards/algebra_by.xml.in.h:4
-#, fuzzy
+#: ../boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
-msgstr "  Πίνακας Έκδοσης:"
+msgstr " Πίνακας πολλαπλασιασμού"
 
-#: boards/algebra_by.xml.in.h:5
-#, fuzzy
+#: ../boards/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
-msgstr "Εξάσκηση στην πράξη του πολλαπλασιασμού"
+msgstr "Εξάσκηση στον πολλαπλασιασμό"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+#: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Μετάβαση στις δραστηριότητες Άλγεβρας"
+msgstr "Πήγαινε στις δραστηριότητες Άλγεβρας"
 
-#: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
-#: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
-#: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
-#, fuzzy
+#: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
+#: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
+#: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
+#: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Πατήστε το αριστερό πλήκτρο του ποντικιού για να επιλέξετε πινακίδα"
+msgstr "Πατήστε το αριστερό πλήκτρο του ποντικιού για να επιλέξετε μια δραστηριότητα"
 
-#: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
+#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
 "his pictures. Thanks a lot Ralf."
 msgstr ""
+"Οι φωτογραφίες από τα ζώα προέρχονται από την σελίδα με φωτογραφία από ζώα "
+"του Ralf Schmode (http://schmode.net/). Ο Ralf επέτρεψε να χρησιμοποιήσουμε "
+"τις φωτογραφίες του.Σε ευχαριστούμε Ralf."
 
-#: boards/algebra_guesscount.xml.in.h:2
+#: ../boards/algebra_guesscount.xml.in.h:2
 msgid ""
 "Choose the numbers and arithmetic operators at the top of the board area "
 "that give the specified result. The numbers and operators can be unselected "
 "by clicking on them."
 msgstr ""
+"Για να βρεις το αποτέλεσμα διάλεξε τους αριθμούς και τα σημεία των πράξεων "
+"στο επάνω μέρος του πίνακα. Μπορείς να επιλέξειςτους αριθμούς και τα σημεία "
+"των πράξεων κάνοντας κλικ πάνω τους."
 
-#: boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
-msgstr ""
+#: ../boards/algebra_guesscount.xml.in.h:3
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgstr "Σκέψου και φτιάξε μια σειρά πράξεων για να βρείς το ζητούμενο αποτέλεσμα"
 
-#: boards/algebra_guesscount.xml.in.h:4
+#: ../boards/algebra_guesscount.xml.in.h:4
 msgid "Find the correct operations to get the result"
-msgstr ""
+msgstr "Βρες τις σωστές πράξεις για να φτάσεις στο ζητούμενο αποτέλεσμα"
 
-#: boards/algebra_guesscount.xml.in.h:5
+#: ../boards/algebra_guesscount.xml.in.h:5
 msgid ""
 "Find the right combination of numbers and operations to obtain a specified "
 "result"
-msgstr ""
+msgstr "Βρες το σωστό συνδιασμό πράξεων για να φτάσεις στο ζητούμενο αποτέλεσμα"
 
-#: boards/algebra_guesscount.xml.in.h:6
+#: ../boards/algebra_guesscount.xml.in.h:6
 msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr ""
+msgstr "Οι τέσσερις αριθμητικές πράξεις. Συνδύασε μερικές αριθμητικές πράξεις"
 
-#: boards/algebra_minus.xml.in.h:1
+#: ../boards/algebra_minus.xml.in.h:1
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
 "your answer, and press the Enter key to check the result."
 msgstr ""
+"Εμφανίζεται ένα πρόβλημα αφαίρεσης. Δεξιά από το σημείο του ίσον, δώσε το "
+"αποτέλεσμα. Χρησιμοποιήσε τα δεξί ή το αριστερό βέλος για να αλλάξεις την "
+"απάντηση σου, και πάτησε το πλήκτρο Enter για να δείς το σωστό αποτέλεσμα."
 
-#: boards/algebra_minus.xml.in.h:3
+#: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
-msgstr ""
+msgstr "Στο χρόνο που δίνεται βρες τη διαφορά μεταξύ των δυο αριθμών"
 
-#: boards/algebra_minus.xml.in.h:4
-#, fuzzy
+#: ../boards/algebra_minus.xml.in.h:4
 msgid "Practice the substraction operation"
-msgstr "Εξάσκηση στην πράξη της αφαίρεσης"
+msgstr "Κάνε εξάσκηση στην αφαίρεση"
 
-#: boards/algebra_minus.xml.in.h:5
-#, fuzzy
+#: ../boards/algebra_minus.xml.in.h:5
 msgid "Simple substraction"
-msgstr "Απλή Αναζήτηση"
+msgstr "Απλή αφαίρεση"
 
-#: boards/algebra_plus.xml.in.h:1
+#: ../boards/algebra_plus.xml.in.h:1
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
 "Enter key to check your answer."
 msgstr ""
+"Εμφανίζεται ένα πρόβλημα πρόσθεσης. Δεξιά από το σημείο του ίσον, δώσε το "
+"αποτέλεσμα. Χρησιμοποιήσε τα δεξί ή το αριστερό βέλος για να αλλάξεις την "
+"απάντηση σου, και πάτησε το πλήκτρο Enter για να δείς το σωστό αποτέλεσμα."
 
-#: boards/algebra_plus.xml.in.h:3
+#: ../boards/algebra_plus.xml.in.h:3
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
 msgstr ""
+"Στο χρόνο που δίνεται βρες το αποτέλεσμα των δυο αριθμών. Εισαγωγή στην απλή "
+"πρόσθεση."
 
-#: boards/algebra_plus.xml.in.h:4
-#, fuzzy
+#: ../boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
-msgstr "Εξάσκηση στην πράξη της πρόσθεσης"
+msgstr "Κάνε εξάσκηση στην πράξη της πρόσθεσης"
 
-#: boards/algebra_plus.xml.in.h:5
+#: ../boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
-msgstr ""
+msgstr "Απλή πρόσθεση. Δυνατότητα αναγνώρισης εμφανιζόμενων αριθμών"
 
-#: boards/algorithm.xml.in.h:1
+#: ../boards/algebramenu.xml.in.h:1
+msgid "Go to Maths activities"
+msgstr "Πήγαινε στις δραστηριότητες μαθηματικών"
+
+#: ../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
-msgstr ""
+msgstr "Συμπλήρωσε μια λίστα από σύμβολα"
 
-#: boards/algorithm.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:2
 msgid "Find the next in a list of symbols."
-msgstr ""
+msgstr "Βρές το επόμενο σε μια λίστα από σύμβολα"
 
-#: boards/algorithm.xml.in.h:3 boards/hexagon.xml.in.h:2
-#: boards/minouche.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
-msgstr ""
+msgstr "Εξάσκηση λογικής"
 
-#: boards/algorithm.xml.in.h:4 boards/hexagon.xml.in.h:3
-#: boards/melody.xml.in.h:4 boards/minouche.xml.in.h:3
-#, fuzzy
+#: ../boards/algorithm.xml.in.h:4 ../boards/hexagon.xml.in.h:3
+#: ../boards/melody.xml.in.h:4
 msgid "Move and click the mouse"
-msgstr "Κινήστε το ποντίκι"
+msgstr "Μετακίνησε και κάνε κλικ στο ποντίκι"
 
-#: boards/algorithm.xml.in.h:5
+#: ../boards/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "αλγόριθμος"
 
-#: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
-#: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
-#: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
-#: boards/babymatch/board6_0.xml.in.h:1
-msgid "Drag and Drop the items to make them match"
-msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια για να τα κάνετε να ταιριάξουν"
+#: ../boards/anim.xml.in.h:1
+msgid "Create a drawing or an animation"
+msgstr "Φτιάξε μια ζωγραφιά ή ένα κινούμενο σχέδιο"
 
-#: boards/babymatch.xml.in.h:2
+#: ../boards/anim.xml.in.h:2
+msgid "Free drawing and animation tool."
+msgstr "Εργαλείο ελέυθερης σχεδίασης και κινούμενν σχεδίων"
+
+#: ../boards/anim.xml.in.h:3
+#, fuzzy
+msgid ""
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines. To make it more fun for kids, a set of images can also be used."
+msgstr ""
+"Σ'αυτό το παιχνίδι μπορείς να σχεδιάσεις ότι θες. Σκοπός σου είναι να "
+"ανακαλύψεις πως θα φτιάξεις όμορφα σχέδια χρησιμοποιώντας απλά σχήματα όπως "
+"τρίγωνα, τόξα και γραμμές."
+
+#: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Δυνατότητα εύκολου χειρισμού του ποντικιου με ένα κλικ"
+
+#: ../boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left and a color on the bottom. Then click and "
+"drag in the white area to create a new shape. Once one drawing is complete, "
+"you can take a snapshot of it with the 'camera' button. A new image with the "
+"same content is created. You can then move objects a little bit or add/"
+"delete objects. Create several drawings and then click on the 'film' button. "
+"You will see all your images in an infinite loop. You can change the viewing "
+"speed in this mode. In view mode, click on the 'drawing' button to return to "
+"drawing. You can then edit each image of your animation by using the image "
+"selector in the bottom left of the screen. You can save and reload your "
+"animations with the 'floppy' and 'folder' button."
+msgstr ""
+
+#: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
+#: ../boards/babymatch/board2_0.xml.in.h:1
+#: ../boards/babymatch/board3_0.xml.in.h:1
+#: ../boards/babymatch/board4_0.xml.in.h:1
+#: ../boards/babymatch/board5_0.xml.in.h:1
+#: ../boards/babymatch/board6_0.xml.in.h:1
+#: ../boards/babymatch/board7_0.xml.in.h:1
+msgid "Drag and Drop the items to make them match"
+msgstr "Μετακίνησε και τοποθέτησε τα κομμάτια για να τα ταιριάξεις"
+
+#: ../boards/babymatch.xml.in.h:2
 msgid ""
 "In the main board area, a set of objects is shown. In the vertical box (at "
 "the left of the main board), another set of objects is printed, each of "
@@ -504,213 +538,380 @@ msgid ""
 "the main area."
 msgstr ""
 
-#: boards/babymatch.xml.in.h:3
+#: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
-msgstr "Ταιριάζοντας Αντικείμενα"
+msgstr "Ταιριάζοντας αντικείμενα"
 
-#: boards/babymatch.xml.in.h:4
+#: ../boards/babymatch.xml.in.h:4
 msgid "Motor coordination. Concept match."
 msgstr ""
 
-#: boards/babymatch.xml.in.h:5
+#: ../boards/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
 msgstr ""
+"Χειρισμός ποντιικού: κίνηση, μετακίνηση και τοποθέτηση. Πολιτιστικές "
+"αναφορές."
 
-#: boards/babyshapes.xml.in.h:1
-#, fuzzy
+#: ../boards/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
-msgstr "Το πάζλ λύθηκε!"
+msgstr "Φτιάξε το πάζλ"
 
-#: boards/babyshapes.xml.in.h:2
+#: ../boards/babyshapes.xml.in.h:2
 msgid ""
 "Complete the puzzle by dragging the pieces from the set of pieces on the "
 "left."
-msgstr ""
+msgstr "Φτιάξε το παζλ μετακινώντας τα κομμάτια που βρίσκονται αριστερά. "
 
-#: boards/babyshapes.xml.in.h:3
+#: ../boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
-msgstr "Μετακινείστε και Αποθέσατε τα σχήματα στους αντίστοιχους στόχους"
+msgstr "Μετακίνησε και τοποθέτησε τις εικόνες στα αντίστοιχα σχήματα"
 
-#: boards/babyshapes.xml.in.h:4
+#: ../boards/babyshapes.xml.in.h:4
 msgid "Good mouse control"
 msgstr "Καλός χειρισμός ποντικιού"
 
-#: boards/babyshapes.xml.in.h:5
+#: ../boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
 msgstr ""
+"Η εικόνα του σκύλου δημιουργήθηκε από τον Andre Connes και έχει άδεια χρήσης "
+"GPL"
 
-#: boards/babyshapes/board5_0.xml.in.h:1
+#: ../boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr ""
+msgstr "Γειά σου! Το όνομα μου είναι Φλοκ."
 
-#: boards/babyshapes/board6_0.xml.in.h:1
-#, fuzzy
+#: ../boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on grass."
-msgstr "Σφάλμα lock-busy στον %s@%s\n"
+msgstr "Ο Φλόκ στο γρασίδι."
 
-#: boards/babyshapes/board7_0.xml.in.h:1
+#: ../boards/babyshapes/board7_0.xml.in.h:1
 msgid "Lock with colored shapes."
+msgstr "Ο Φλόκ με χρωματιστά σχήματα."
+
+#: ../boards/ballcatch.xml.in.h:1
+msgid "Push the two shift keys together to send the ball straight"
+msgstr "Πάτησε τα δυο πλήκτρα shift μαζί για να στείλεις την μπάλα ευθεία"
+
+#: ../boards/ballcatch.xml.in.h:2
+msgid "Send the ball to Tux"
+msgstr "Στείλε την μπάλα στον Tux"
+
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Μυαλό"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
 msgstr ""
 
-#: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
-#: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
-#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
-#, fuzzy
-msgid "Mouse manipulation"
-msgstr "Χειραγώγηση κειμένου"
+#: ../boards/bargame.xml.in.h:4
+msgid ""
+"Put balls in the holes. You win if the computer play the last one. If you "
+"want Tux to begin, just click on him."
+msgstr ""
 
-#: boards/billard.xml.in.h:2
+#: ../boards/bargame.xml.in.h:5
+#, fuzzy
+msgid "bar game"
+msgstr "Ισόπαλο παιχνίδι"
+
+#: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
+#: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
+#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+msgid "Mouse manipulation"
+msgstr "Χρήση ποντικιού"
+
+#: ../boards/billard.xml.in.h:2
 msgid ""
 "Point and click on the ball to set the speed and direction of the ball. The "
 "closer you click to the center, the slower the ball moves."
 msgstr ""
+"Σημάδεψε και κανε κλικ στη μπάλα για να δώσεις την ταχύτητα και την "
+"κατεύθυνση. Όσο πιο κοντα κάνεις κλικ στο κέντρο της μπάλας τόσο πιο αργα "
+"κινείται."
 
-#: boards/billard.xml.in.h:3
+#: ../boards/billard.xml.in.h:3
 msgid "Shoot the ball into the hole"
-msgstr ""
+msgstr "Χτύπα τη μπάλα για να μπεί στην τρύπα"
 
-#: boards/billard.xml.in.h:4
-#, fuzzy
+#: ../boards/billard.xml.in.h:4
 msgid "The game of billiards"
-msgstr "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½"
+msgstr "Παιχνίδι μπιλιάρδου"
 
-#: boards/boards.xml.in.h:1
-#, fuzzy
+#: ../boards/boards.xml.in.h:1
 msgid "Go to board based activities"
-msgstr "Μετάβαση στις πινακίδες ’λγεβρας"
+msgstr "Πήγαινε στις δραστηριότητες του πίνακα"
 
-#: boards/canal_lock.xml.in.h:1 src/boards/canal_lock.c:113
+#: ../boards/canal_lock.xml.in.h:1 ../src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
-msgstr ""
+msgstr "Είσαι ο υπεύθυνος του φράγματος στο ποτάμι"
 
-#: boards/canal_lock.xml.in.h:2
+#: ../boards/canal_lock.xml.in.h:2
 msgid ""
 "Tux is in trouble, and needs to take his ship through a lock. Help Tux and "
 "understand how a canal lock works."
 msgstr ""
+"Ο Tux έχει πρόβλημα και χρειάζεται να περάσει το πλοίο του μέσα από το "
+"ποτάμι. Βοήθησε τον Tux και κατανόησε πως δουλεύει το φράγμα στο κανάλι."
 
-#: boards/canal_lock.xml.in.h:3
+#: ../boards/canal_lock.xml.in.h:3
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
 msgstr ""
+"Είσαι ο υπεύθυνος για τα φράγματα στο κανάλι. Άνοιξε τις πύλες με την σωστή "
+"σειρά, έτσι ώστε ο Tux να ταξιδεύσει μέσα από τα φράγματα και από τις δύο "
+"κατευθύνσεις."
 
-#: boards/chess.xml.in.h:1 boards/chess_computer.xml.in.h:3
+#: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
-msgstr ""
+msgstr "Παίξε σκάκι  με τον υπολογιστή σε λειτουργία εκμάθησης"
 
-#: boards/chess.xml.in.h:2
-#, fuzzy
+#: ../boards/chess.xml.in.h:2
 msgid "Practice chess"
-msgstr "Σκάκι Gnome"
+msgstr "Εξάσκηση στο σκάκι"
 
-#: boards/chess_computer.xml.in.h:1 boards/chess_movelearn.xml.in.h:2
-#: boards/chess_partyend.xml.in.h:1
+#: ../boards/chess_computer.xml.in.h:1 ../boards/chess_movelearn.xml.in.h:2
+#: ../boards/chess_partyend.xml.in.h:1
 msgid "Learning chess"
 msgstr "Μαθαίνοντας σκάκι"
 
-#: boards/chess_computer.xml.in.h:4 boards/chess_movelearn.xml.in.h:4
-#: boards/chess_partyend.xml.in.h:4
-#, fuzzy
+#: ../boards/chess_computer.xml.in.h:4 ../boards/chess_movelearn.xml.in.h:4
+#: ../boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
-msgstr "Η μηχανή σκακιού είναι το gnuchess."
+msgstr "Η μηχανή σκακιού είναι από το gnuchess."
 
-#: boards/chess_movelearn.xml.in.h:1
+#: ../boards/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
-msgstr ""
+msgstr "Εξάσκηση σκακιού. Φάε τα κομμάτια του υπολογιστή"
 
-#: boards/chess_partyend.xml.in.h:3
+#: ../boards/chess_partyend.xml.in.h:3
 msgid "Play end of chess game against the computer"
-msgstr ""
+msgstr "Παίξε τις τελευταίες κινήσεις του παιχνιδιού με τον υπολογιστή"
 
-#: boards/chronos.xml.in.h:1
+#: ../boards/chronos.xml.in.h:1
 msgid "Chronos"
-msgstr ""
+msgstr "Χρόνος"
 
-#: boards/chronos.xml.in.h:2
-#, fuzzy
+#: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια για να τα κάνετε να ταιριάξουν"
+msgstr "Μετακίνησε και τοποθέτησε τα κομμάτια για να οργανώσεις την ιστορία"
 
-#: boards/chronos.xml.in.h:3
+#: ../boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
 msgstr ""
 
-#: boards/chronos.xml.in.h:4
+#: ../boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
-msgstr ""
+msgstr "Βάλε σε σειρά τις εικόνες για να φτιάξεις την ιστορία"
 
-#: boards/chronos.xml.in.h:5
+#: ../boards/chronos.xml.in.h:5
 msgid "Pick from the pictures on the left and put them on the red points"
-msgstr ""
+msgstr "Διάλεξε από τις εικόνες στα αριστερά και βάλτες στα κόκκινα σημεία"
 
-#: boards/chronos.xml.in.h:6
+#: ../boards/chronos.xml.in.h:6
 msgid "Tell a short story"
-msgstr ""
+msgstr "Φτιάξε μια μικρή ιστορία"
 
-#: boards/chronos/board1_0.xml.in.h:1
+#: ../boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
-msgstr ""
+msgstr "Άνθρωπος στο φεγγάρι"
 
-#: boards/chronos/board2_0.xml.in.h:1
+#: ../boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Φθινόπωρο"
+
+#: ../boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Άνοιξη"
+
+#: ../boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Καλοκάιρι"
+
+#: ../boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "Οι τέσσερις εποχές"
+
+#: ../boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Χειμώνας"
+
+#: ../boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "Κηπουρική"
+
+#: ../boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
-msgstr ""
+msgstr "Ο Tux και η μηλιά"
 
-#: boards/chronos/board3_0.xml.in.h:1
+#: ../boards/chronos/board3_0.xml.in.h:1 ../boards/chronos/board3_2.xml.in.h:1
+#: ../boards/chronos/board3_4.xml.in.h:1 ../boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
+msgstr "1769 Cugnot's fardier"
+
+#: ../boards/chronos/board3_0.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:3
+#: ../boards/chronos/board3_4.xml.in.h:2
 msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+
+#: ../boards/chronos/board3_0.xml.in.h:3
+msgid ""
+"Place each image in the order and\n"
+"on the date it has been invented.\n"
+"If not sure, check online in wikipedia at\n"
+"http://www.wikipedia.org"
 msgstr ""
 
-#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: ../boards/chronos/board3_0.xml.in.h:7 ../boards/chronos/board3_1.xml.in.h:4
+#: ../boards/chronos/board3_2.xml.in.h:4 ../boards/chronos/board3_3.xml.in.h:4
+#: ../boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
-msgstr ""
+msgstr "Μεταφορά"
 
-#: boards/chronos/board3_0.xml.in.h:3
-msgid "VIII Century"
+#: ../boards/chronos/board3_1.xml.in.h:1 ../boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
 msgstr ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
 
-#: boards/click_on_letter.xml.in.h:1
+#: ../boards/chronos/board3_1.xml.in.h:2 ../boards/chronos/board3_2.xml.in.h:3
+#: ../boards/chronos/board3_4.xml.in.h:3 ../boards/chronos/board4_0.xml.in.h:1
+msgid "1880 The Clement Ader's Eole"
+msgstr "1880 The Clement Ader's Eole"
+
+#: ../boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+
+#: ../boards/chronos/board3_2.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+
+#: ../boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers Flyer III"
+msgstr "1903 The Wright brothers Flyer III"
+
+#: ../boards/chronos/board4_0.xml.in.h:3
+msgid "1909 Louis Bleriot cross the Channel"
+msgstr "1909 Louis Bleriot cross the Channel"
+
+#: ../boards/chronos/board4_0.xml.in.h:4 ../boards/chronos/board4_1.xml.in.h:7
+#, fuzzy
+msgid "The aviation"
+msgstr "Χρήση ποντικιού"
+
+#: ../boards/chronos/board4_1.xml.in.h:1
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+
+#: ../boards/chronos/board4_1.xml.in.h:3
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+
+#: ../boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yeager\n"
+"break the sound-wall"
+msgstr ""
+"1947 Chuck Yeager\n"
+"break the sound-wall"
+
+#: ../boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr "1878 Léon Bollé \"La Mancelle\""
+
+#: ../boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 The first gazoline\n"
+"car by Benz"
+
+#: ../boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "Το αυτοκίνητο"
+
+#: ../boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr "1899 Renault \"voiturette\""
+
+#: ../boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr "1923 Lancia Lambda"
+
+#: ../boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 199"
+msgstr "1955 Citroën ds 199"
+
+#: ../boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Αυτοκίνητα"
+
+#: ../boards/click_on_letter.xml.in.h:1
 msgid ""
 "A letter is spoken. Click on the corresponding letter in the main area. You "
 "can hear the letter again by clicking on the mouth icon in the bottom "
 "horizontal box."
 msgstr ""
+"Άκουσες ένα γράμμα. Πάτησε στο αντίστοιχο γράμμα που βρίσκεται στο κεντρικό "
+"πίνακα. Μπορείς να ακούσεις το γράμμα ξανά κάνοντας κλικ στο εικονίδιο του "
+"στόματος που βρίσκεται κάτω δεξιά."
 
-#: boards/click_on_letter.xml.in.h:2
-#, fuzzy
+#: ../boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
-msgstr "Εστίαση στο κλικ"
+msgstr "Κάνε κλικ πάνω σε ένα γράμμα"
 
-#: boards/click_on_letter.xml.in.h:3
-#, fuzzy
+#: ../boards/click_on_letter.xml.in.h:3
 msgid "Hear a letter and click on the right one"
-msgstr "Ακούστε ένα γράμμα και πατήστε το σωστό γράμμα"
+msgstr "Άκουσε ένα γράμμα και πάτησε το σωστό"
 
-#: boards/click_on_letter.xml.in.h:4
-#, fuzzy
+#: ../boards/click_on_letter.xml.in.h:4
 msgid "Letter name recognition"
-msgstr "Name=US Letter"
+msgstr "Αναγνώρισε το όνομα του γράμματος"
 
-#: boards/click_on_letter.xml.in.h:5
+#: ../boards/click_on_letter.xml.in.h:5
 msgid "Visual letters recognition. Can move the mouse."
-msgstr ""
+msgstr "Οπτική αναγνώριση γραμμάτων. Δυνατότητα κίνησης του ποντικιού."
 
-#: boards/clickgame.xml.in.h:1 src/boards/clickgame.c:86
+#: ../boards/clickgame.xml.in.h:1 ../src/boards/clickgame.c:86
 msgid "Click On Me"
 msgstr "Πάτησέ Με"
 
-#: boards/clickgame.xml.in.h:2
+#: ../boards/clickgame.xml.in.h:2
 msgid "Click with the left mouse button on the moving fish."
-msgstr ""
+msgstr "Με το αριστερό κουμπί του ποντικιού κάνε κλικ στο κινούμενο ψάρι."
 
-#: boards/clickgame.xml.in.h:3
-#, fuzzy
+#: ../boards/clickgame.xml.in.h:3
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
 "National Undersea Research Program (NURP) Collection at http://www.photolib."
@@ -722,649 +923,1062 @@ msgid ""
 "Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
 "Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
-"Σκοπός:\n"
-"Σ' αυτό το παιχνίδι, τα παιδιά θα ανακαλύψουν το ποντίκι του υπολογιστή.\n"
-"Ο σκοπός είναι να πατήσουν το αριστερό πλήκτρο του ποντικιού πάνω στα\n"
-"κινούμενα ψάρια.\n"
-"\n"
-"Συντελεστές:\n"
-"Τα ψάρια έχουν ληφθεί από την εφαρμογή xfishtank του unix.\n"
-"Οι φωτογραφίες έχουν ληφθεί από το National Undersearch Research Program "
-"(NURP) Collection\n"
-"στο http://www.photolib.noaa.gov\n"
-"Όλες οι εικόνες προέρχονται από το OAR/National Undersea Research Program "
-"(NURP)\n"
-"Εκτός από την πρώτη εικόνα η οποία επίσης προέρχεται University of North "
-"Carolina at Wilmington\n"
-"Στη σειρά επιπέδου του gcompris, η πληροφορία των εικόνων είναι:\n"
-"Τοποθεσία: Tropical Atlantic Ocean, Florida Keys (εικόνα nur00523)\n"
-"Φωτογράφος: D. Kesling\n"
-"Τοποθεσία: Florida Keys (εικόνα nur03006)\n"
-"Τοποθεσία: Unknown (εικόνα nur03505)\n"
-"Τοποθεσία: Unknown (εικόνα nur03010)\n"
-"Τοποθεσία: Unknown (εικόνα nur03011)\n"
-"Τοποθεσία: Unknown (εικόνα nur03013)\n"
+"Τα ψάρια έχουν ληφθεί από την εφαρμογή xfishtank του unix. Οι φωτογραφίες "
+"έχουν ληφθεί από το National Undersearch Research Program (NURP) Collection "
+"στο http://www.photolib.noaa.gov. 'Ολες οι εικόνες προέρχονται από το OAR/"
+"National Undersea Research Program (NURP) εκτός από την πρώτη εικόνα η οποία "
+"επίσης προέρχεται University of North Carolina at WilmingtonΣτη σειρά "
+"επιπέδου του gcompris, η πληροφορία των εικόνων είναι:Τοποθεσία: Tropical "
+"Atlantic Ocean, Florida Keys (εικόνα nur00523)Φωτογράφος: D. Kesling"
+"\"Τοποθεσία: Florida Keys (εικόνα nur03006), Τοποθεσία: Unknown (εικόνα "
+"nur03505),Τοποθεσία: Unknown (εικόνα nur03010), Τοποθεσία: Unknown (εικόνα "
+"nur03011),Τοποθεσία: Unknown (εικόνα nur03013)"
 
-#: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:87
-#, fuzzy
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
+#: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:87
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
-"Πατήστε το αριστερό πλήκτρο του ποντικιού σε όλα τα ψάρια που κολυμπούν πριν "
+"Κάνε αριστερό κλικ με το ποντίκι σε όλα τα ψάρια που κολυμπούν πριν να "
 "φύγουν από το ενυδρείο"
 
-#: boards/clickgame.xml.in.h:5
+#: ../boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
-msgstr ""
+msgstr "Συγχρονισμός κίνησης ποντικιού και κλικ ποντικιού"
 
-#: boards/clockgame.xml.in.h:1
+#: ../boards/clockgame.xml.in.h:1
 msgid ""
 "Distinguish differences between hour, minute and second. Compose a time in a "
 "clock"
 msgstr ""
+"Βρές τις διαφορές ανάμεσα στην ώρα, στο λεπτό και στο δευτερόλεπτο. Φτιάξε "
+"την ώρα σε ένα ρολόϊ"
 
-#: boards/clockgame.xml.in.h:2
+#: ../boards/clockgame.xml.in.h:2
 msgid ""
 "For each printed hour (hours:minutes or hours:minutes:seconds) click the "
 "corresponding arrow to set the clock time to match the given hour. The "
 "different arrows can be turned by selecting them and moving the mouse"
 msgstr ""
+"Για κάθε ώρα που εμφανίζεται (ώρa:λεπτά ή ώρa:λεπτά:δευτερόλεπτα) πάτησε τον "
+"αντίστοιχο δείκτη για να ρυθμίσεις την ώρα σύμφωνα με αυτήν που εμφανίζεται. "
+"Μπορείς να ρυθμίσεις τους δείκτες επιλέγοντάς τους με το ποντίκι. "
 
-#: boards/clockgame.xml.in.h:3 src/boards/algebra.c:98
-#: src/boards/clockgame.c:78
-#, fuzzy
+#: ../boards/clockgame.xml.in.h:3 ../src/boards/algebra.c:98
+#: ../src/boards/clockgame.c:78
 msgid "Learn how to tell time"
-msgstr "Μάθετε πώς να διαβάζετε την ώρα"
+msgstr "Μάθε πώς να λές την ώρα"
 
-#: boards/clockgame.xml.in.h:4 src/boards/algebra.c:97
-#: src/boards/clockgame.c:77
+#: ../boards/clockgame.xml.in.h:4 ../src/boards/algebra.c:97
+#: ../src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Μαθαίνοντας την Ώρα"
 
-#: boards/clockgame.xml.in.h:5
-#, fuzzy
+#: ../boards/clockgame.xml.in.h:5
 msgid "Time concept Time reading"
-msgstr "Αποτυχία ανάγνωσης χρόνου δημιουργίας."
+msgstr "Αντίληψη και ανάγνωση της ώρας"
 
-#: boards/colors.xml.in.h:1
-#, fuzzy
+#: ../boards/colors.xml.in.h:1
 msgid "Can move the mouse."
-msgstr "Δε μπορείτε να μετακινίσετε εκεί!"
+msgstr "Δυνατότητα χειρισμού του ποντικιού."
 
-#: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:3
-#: src/boards/advanced_colors.c:87 src/boards/colors.c:75
-#, fuzzy
+#: ../boards/colors.xml.in.h:2 ../boards/read_colors.xml.in.h:3
+#: ../src/boards/advanced_colors.c:87 ../src/boards/colors.c:75
 msgid "Click on the right color"
-msgstr "Πατήστε σε ένα χρώμα ή"
+msgstr "Κάνε κλικ στο σωστό χρώμα"
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:74
+#: ../boards/colors.xml.in.h:3 ../src/boards/colors.c:74
 msgid "Colors"
 msgstr "Χρώματα"
 
-#: boards/colors.xml.in.h:4
-#, fuzzy
+#: ../boards/colors.xml.in.h:4
 msgid "Hear the color and click on the toon."
-msgstr "Ακούστε ένα γράμμα και πατήστε το σωστό γράμμα"
+msgstr "Άκουσε το χρώμα και κάνε κλικ στο αντίστοιχο κουκλάκι"
 
-#: boards/colors.xml.in.h:5
+#: ../boards/colors.xml.in.h:5
 msgid ""
 "This board teaches color recognition. Select the spoken color from the set "
 "of colored toons."
 msgstr ""
+"Με αυτότον πίνακα μαθαίνεις να αναγνωρίζεις το χρώμα. Διάλεξε το σωστό "
+"κουκλάκι σύμφωνα με το χρώμα που θα ακούσεις."
 
-#: boards/colors_group.xml.in.h:1
-#, fuzzy
+#: ../boards/colors_group.xml.in.h:1
 msgid "Go to colors activities"
-msgstr "Μετάβαση στις δραστηριότητες Άλγεβρας"
+msgstr "Πήγαινε στις δραστηριότητες με τα χρώματα"
 
-#: boards/computer.xml.in.h:1
+#: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr "Ανακαλύψτε τον Υπολογιστή"
+msgstr "Ανακάλυψε τον Υπολογιστή"
 
-#: boards/doubleentry.xml.in.h:1
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
+msgstr ""
+
+#: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
-msgstr ""
+msgstr "Βασικές ικανότητες αρίθμησης"
 
-#: boards/doubleentry.xml.in.h:2
-#, fuzzy
+#: ../boards/doubleentry.xml.in.h:2
 msgid "Double entry table"
-msgstr "Κακοσυνταίριασμα τύπων καταχώρησης/πίνακα"
+msgstr "Πίνακας διπλής καταχώρησης"
 
-#: boards/doubleentry.xml.in.h:3
-#, fuzzy
+#: ../boards/doubleentry.xml.in.h:3
 msgid "Drag and Drop proposed items to their destination"
-msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια για να τα κάνετε να ταιριάξουν"
+msgstr "Μετακίνησε και τοποθέτησε στα κατάλληλα σημεία τα κομμάτια που προτείνονται "
 
-#: boards/doubleentry.xml.in.h:4
-#, fuzzy
+#: ../boards/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double entry table"
-msgstr ""
-"Μετακινείστε και Αποθέσατε τα κομμάτια για να ξαναδημιουργήσετε το "
-"αντικείμενο"
+msgstr "Μετακίνησε και τοποθέτησε τα κομμάτια στον πίνακα διπλής κατάχώρησης"
 
-#: boards/doubleentry.xml.in.h:5
+#: ../boards/doubleentry.xml.in.h:5
 msgid ""
 "Move the items on the left to their proper position in the double entry "
 "table."
 msgstr ""
+"Μετακίνησε στην κατάλληλη θέσητα αντικείμενα που βρίσκονται αριστερά στον "
+"πίνακα διπλής καταχώρησης."
 
-#: boards/draw.xml.in.h:1 src/boards/draw.c:206
+#: ../boards/doubleentry/board3_0.xml.in.h:1
+msgid "Click on an item and listen to its target position"
+msgstr ""
+
+#: ../boards/draw.xml.in.h:1 ../src/boards/draw.c:215
 msgid "A simple vector drawing tool"
 msgstr "Ένα απλό εργαλείο διανυσματικής σχεδίασης"
 
-#: boards/draw.xml.in.h:2 src/boards/draw.c:207
-#, fuzzy
+#: ../boards/draw.xml.in.h:2 ../src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
-msgstr "Πινακίδα δημιουργίας για ελεύθερη σχεδίαση"
+msgstr "Πίνακας για ελεύθερη σχεδίαση"
 
-#: boards/draw.xml.in.h:3
+#: ../boards/draw.xml.in.h:3
 msgid ""
 "In this game, children can draw freely. The goal is just to discover how to "
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines."
 msgstr ""
+"Σ'αυτό το παιχνίδι μπορείς να σχεδιάσεις ότι θες. Σκοπός σου είναι να "
+"ανακαλύψεις πως θα φτιάξεις όμορφα σχέδια χρησιμοποιώντας απλά σχήματα όπως "
+"τρίγωνα, τόξα και γραμμές."
 
-#: boards/draw.xml.in.h:4
-msgid "Needs to handle the mouse with the click easily"
-msgstr ""
-
-#: boards/draw.xml.in.h:5
+#: ../boards/draw.xml.in.h:5
 msgid ""
 "Select a drawing tool on the left and a color on the bottom, and click and "
 "drag in the white area to create a new shape. To save time, you can use the "
 "middle mouse button to delete an object."
 msgstr ""
+"Επίλεξε ένα εργαλείο σχεδίασης στα αριστερά και ένα χρώμα από κάτω, σύρε το "
+"με το ποντίκι στην λευκή περιοχή για να φτιάξεις μια φιγούρα. Για να "
+"εξοικονομήσεις χρόνο χρησιμοποίησε το μεσαίο πλήκτρο του ποντικιού για να "
+"σβήσεις ένα σχέδιο."
 
-#: boards/enumerate.xml.in.h:1
-#, fuzzy
+#: ../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
-msgstr "Βασική Ρύθμιση"
+msgstr "Βασική Απαρίθμηση"
 
-#: boards/enumerate.xml.in.h:2
+#: ../boards/enumerate.xml.in.h:2
 msgid "Count the items"
 msgstr "Μέτρησε τα αντικείμενα"
 
-#: boards/enumerate.xml.in.h:3
+#: ../boards/enumerate.xml.in.h:3
 msgid ""
 "First, properly organize the items so that you can count them. Then, select "
 "the item you want to answer in the bottom right area. Enter the answer with "
 "the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
+"Αρχικά βάλε τα αντικείμενα στη σειρά για να μπορείς να τα μετρήσεις. Έπειτα "
+"διάλεξε το αντικείμενο που θές για να απαντήσεις στην κάτω δεξιά περιοχή. "
+"Γράψε την απάντηση με το πληκτρολόγιο και πάτησε το OK ή το πλήκτρο Enter."
 
-#: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
-#: src/boards/enumerate.c:91
-#, fuzzy
+#: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:4
+#: ../src/boards/enumerate.c:91
 msgid "Numeration training"
-msgstr "Εξάσκηση Ακοής"
+msgstr "Εξάσκηση Αρίθμησης"
 
-#: boards/enumerate.xml.in.h:5 src/boards/enumerate.c:92
+#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
-msgstr ""
+msgstr "Τοποθέτησε τα αντικείμενα με τέτοιο τρόπο ώστε να μπορείς να τα μετρήσεις"
 
-#: boards/erase.xml.in.h:2
+#: ../boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"authorization to include their pictures. Thanks a lot."
+msgstr ""
+"Οι φωτογραφίες από τα ζώα προέρχονται από την σελίδα με φωτογραφία από ζώα "
+"του Ralf Schmode (http://schmode.net/) και από τοω  LE BERRE Daniel. Μας "
+"επέτρεψαν να χρησιμοποιήσουμε τις φωτογραφίες τους. Τους ευχαριστούμε."
+
+#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
-msgstr ""
+msgstr "Συγχρονισμός κίνησης"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
+#: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
-msgstr "Κινήστε το ποντίκι"
+msgstr "Κίνησε το ποντίκι"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
-msgstr ""
-"Κινήστε το ποντίκι για να σβήσετε την επιφάνεια και να αποκαλύψετε το φόντο"
+msgstr "Κίνησε το ποντίκι για να σβήσεις την επιφάνεια και να αποκαλύψεις το φόντο"
 
-#: boards/erase.xml.in.h:6
+#: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
+msgstr "Κίνησε το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
+
+#: ../boards/erase_clic.xml.in.h:2
+#, fuzzy
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Κίνησε το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
+
+#: ../boards/erase_clic.xml.in.h:3
+#, fuzzy
+msgid "Click with the mouse"
+msgstr "Μετακίνησε και κάνε κλικ στο ποντίκι"
+
+#: ../boards/erase_clic.xml.in.h:4
+#, fuzzy
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Κίνησε το ποντίκι για να σβήσεις την επιφάνεια και να αποκαλύψεις το φόντο"
+
+#: ../boards/erase_double_clic.xml.in.h:2
+#, fuzzy
+msgid "Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Κίνησε το ποντίκι μέχρι να εξαφανιστούν όλα τα τετράγωνα."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+#, fuzzy
+msgid "Double-Click with the mouse to erase the area and discover the background"
+msgstr "Κίνησε το ποντίκι για να σβήσεις την επιφάνεια και να αποκαλύψεις το φόντο"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+#, fuzzy
+msgid "Double-click with the mouse"
+msgstr "Μετακίνησε και κάνε κλικ στο ποντίκι"
+
+#: ../boards/experience.xml.in.h:1
+msgid "Go to experiences activities"
+msgstr "Πήγαινε στις δραστηριότητες εμπειρίας "
+
+#: ../boards/followline.xml.in.h:1
+msgid "Emerge the pipe"
 msgstr ""
 
-#: boards/experience.xml.in.h:1
-#, fuzzy
-msgid "Go to experiences activities"
-msgstr "Μετάβαση στις δραστηριότητες Άλγεβρας"
+#: ../boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr ""
 
-#: boards/fifteen.xml.in.h:1
+#: ../boards/followline.xml.in.h:3
+msgid ""
+"Move the mouse over the red part of the pipe. This will emerge it, part by "
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
+msgstr ""
+
+#: ../boards/followline.xml.in.h:4
+msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
+msgstr ""
+
+#: ../boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
 "the empty block."
 msgstr ""
+"Κάνε κλικ στον αριθμό που έχει δίπλα του ένα κενό τετράγωνο. Αυτός θα "
+"μετακινηθεί στο κενό τετράγωνο."
 
-#: boards/fifteen.xml.in.h:3
+#: ../boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr ""
+msgstr "Μετακίνησε έναν έναν τους αριθμούς  ώστε να τους βάλεις σε άυξουσα σειρά."
 
-#: boards/fifteen.xml.in.h:4
+#: ../boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
 msgstr ""
 
-#: boards/fifteen.xml.in.h:5 src/boards/fifteen.c:56
-#, fuzzy
+#: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
 msgid "The fifteen game"
-msgstr "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½"
+msgstr "Το παιχνίδι Δεκαπέντε"
 
-#: boards/fun.xml.in.h:1
-#, fuzzy
+#: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
-msgstr "Μετάβαση στις δραστηριότητες Άλγεβρας"
+msgstr "Πήγαινε στις δραστηριότητες διασκέδασης"
 
-#: boards/geography.xml.in.h:1
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
 #, fuzzy
-msgid "Drag and Drop the items to redraw the complete map"
+msgid "gcompris animation"
+msgstr "Ρύθμιση GCompris"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
+#, fuzzy
+msgid "gcompris drawing"
+msgstr "Επεξεργαστής GCompris"
+
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
+msgid "svg drawing"
 msgstr ""
-"Μετακινείστε και Αποθέσατε τα κομμάτια για να ξαναδημιουργήσετε το "
-"αντικείμενο"
 
-#: boards/geography.xml.in.h:2
-#, fuzzy
+#: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
+msgid "svg mozilla animation"
+msgstr ""
+
+#: ../boards/geography.xml.in.h:1
+msgid "Drag and Drop the items to redraw the complete map"
+msgstr "Μετακίνησε και τοποθέτησε τα κομμάτια για να ξαναδημιουργήσετε τον χάρτη."
+
+#: ../boards/geography.xml.in.h:2
 msgid "Place the lands"
-msgstr "Κατάσταση τοποθέτησης"
+msgstr "Τοποθέτησε τις ηπείρους"
 
-#: boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Αφρική"
+
+#: ../boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "Αμερική"
+
+#: ../boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Ανταρκτική"
+
+#: ../boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Ασία"
+
+#: ../boards/geography/board1_0.xml.in.h:5
+msgid "Continents"
+msgstr "Ήπειροι"
+
+#: ../boards/geography/board1_0.xml.in.h:6
+msgid "Europa"
+msgstr "Ευρώπη"
+
+#: ../boards/geography/board1_0.xml.in.h:7
+msgid "Oceania"
+msgstr "Ωκεανία"
+
+#: ../boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "Αλάσκα"
+
+#: ../boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "Μπαχάμες"
+
+#: ../boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "Καναδάς"
+
+#: ../boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "Κούβα"
+
+#: ../boards/geography/board2_0.xml.in.h:5
+msgid "Dominican republic"
+msgstr "Δομινικανή δημοκρατία"
+
+#: ../boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr ""
+
+#: ../boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "Αϊτή"
+
+#: ../boards/geography/board2_0.xml.in.h:8
+#: ../boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "Ισλανδία"
+
+#: ../boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "Τζαμάϊκα"
+
+#: ../boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "Μεξικό"
+
+#: ../boards/geography/board2_0.xml.in.h:11
 msgid "North America"
 msgstr "Βόρεια Αμερική"
 
-#: boards/geography/board2_0.xml.in.h:1
+#: ../boards/geography/board2_0.xml.in.h:12
+msgid "United state"
+msgstr "Ηνωμένες πολιτείες"
+
+#: ../boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "Αργεντινή"
+
+#: ../boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "Βολιβία"
+
+#: ../boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "Βραζιλία"
+
+#: ../boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "Χιλή"
+
+#: ../boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "Κολομβία"
+
+#: ../boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "Εκουαδόρ"
+
+#: ../boards/geography/board2_1.xml.in.h:7
+msgid "French guiana"
+msgstr "Γαλλική Γουϊνές"
+
+#: ../boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "Γουϊνέα"
+
+#: ../boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "Παναμάς"
+
+#: ../boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "Παραγουάη"
+
+#: ../boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "Περού"
+
+#: ../boards/geography/board2_1.xml.in.h:12
 msgid "South America"
 msgstr "Νότια Αμερική"
 
-#: boards/geography/board3_0.xml.in.h:1
+#: ../boards/geography/board2_1.xml.in.h:13
+msgid "Suriname"
+msgstr "Σουρινάμ"
+
+#: ../boards/geography/board2_1.xml.in.h:14
+msgid "Uruguay"
+msgstr "Ουρουγουάη"
+
+#: ../boards/geography/board2_1.xml.in.h:15
+msgid "Venezuela"
+msgstr "Βενεζουέλα"
+
+#: ../boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "Αυστρία"
+
+#: ../boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "Βέλγιο"
+
+#: ../boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "Δανία"
+
+#: ../boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "Φιλανδία"
+
+#: ../boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "Γαλλία"
+
+#: ../boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "Γερμανία"
+
+#: ../boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "Ιρλανδία"
+
+#: ../boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "Ιταλία"
+
+#: ../boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "Λουξεμβούργο"
+
+#: ../boards/geography/board3_0.xml.in.h:11
+msgid "Netherland"
+msgstr "Ολλανδία"
+
+#: ../boards/geography/board3_0.xml.in.h:12
+msgid "Norway"
+msgstr "Νορβηγία"
+
+#: ../boards/geography/board3_0.xml.in.h:13
+msgid "Portugal"
+msgstr "Πορτογαλία"
+
+#: ../boards/geography/board3_0.xml.in.h:14
+msgid "Spain"
+msgstr "Ισπανία"
+
+#: ../boards/geography/board3_0.xml.in.h:15
+msgid "Sweden"
+msgstr "Σουηδία"
+
+#: ../boards/geography/board3_0.xml.in.h:16
+msgid "Switzerland"
+msgstr "Ελβετία"
+
+#: ../boards/geography/board3_0.xml.in.h:17
+msgid "United kingdom"
+msgstr "Ηνωμένο Βασίλειο"
+
+#: ../boards/geography/board3_0.xml.in.h:18
 msgid "West Europe"
 msgstr "Δυτική Ευρώπη"
 
-#: boards/geography/board4_0.xml.in.h:1
+#: ../boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "Αλβανία"
+
+#: ../boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "Λευκορωσία"
+
+#: ../boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia herzegovina"
+msgstr "Βοζνία-Ερζεγοβίνη"
+
+#: ../boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "Βουλγαρία"
+
+#: ../boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "Κροατία"
+
+#: ../boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "Κύπρος"
+
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+msgid "Czech"
+msgstr "Czech"
+
+#: ../boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
 msgstr "Ανατολική Ευρώπη"
 
-#: boards/geography/board5_0.xml.in.h:1
-#, fuzzy
+#: ../boards/geography/board3_1.xml.in.h:9
+msgid "Estonia"
+msgstr "Εσθονία"
+
+#: ../boards/geography/board3_1.xml.in.h:10
+msgid "Greece"
+msgstr "Ελλάδα"
+
+#: ../boards/geography/board3_1.xml.in.h:11
+msgid "Hungary"
+msgstr "Ουγγαρία"
+
+#: ../boards/geography/board3_1.xml.in.h:12
+msgid "Latvia"
+msgstr "Λιθουανία"
+
+#: ../boards/geography/board3_1.xml.in.h:13
+msgid "Lithuania"
+msgstr "Λιθουανία"
+
+#: ../boards/geography/board3_1.xml.in.h:14
+msgid "Macedonia"
+msgstr "ΠΓΔΜ"
+
+#: ../boards/geography/board3_1.xml.in.h:15
+msgid "Moldova"
+msgstr "Μολδαβία"
+
+#: ../boards/geography/board3_1.xml.in.h:16
+msgid "Poland"
+msgstr "Πολωνία"
+
+#: ../boards/geography/board3_1.xml.in.h:17
+msgid "Romania"
+msgstr "Ρωσία"
+
+#: ../boards/geography/board3_1.xml.in.h:18
+msgid "Russia"
+msgstr "Ρωσία"
+
+#: ../boards/geography/board3_1.xml.in.h:19
+msgid "Serbia montenegro"
+msgstr "Σερβία Μαυροβούνιο"
+
+#: ../boards/geography/board3_1.xml.in.h:20
+msgid "Slovakia"
+msgstr "Σλοβακία"
+
+#: ../boards/geography/board3_1.xml.in.h:21
+msgid "Slovenia"
+msgstr "Σλοβενία"
+
+#: ../boards/geography/board3_1.xml.in.h:22
+msgid "Turkey"
+msgstr "Τουρκία"
+
+#: ../boards/geography/board3_1.xml.in.h:23
+msgid "Ukraine"
+msgstr "Ουκρανία"
+
+#: ../boards/geography/board4_0.xml.in.h:1
 msgid "Regions of France"
-msgstr "French (France)"
+msgstr "Περιοχές της Γαλλίας"
 
-#: boards/gletters.xml.in.h:1 boards/wordsgame.xml.in.h:2
-#, fuzzy
+#: ../boards/gletters.xml.in.h:1 ../boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
-msgstr "Χειραγώγηση κειμένου"
+msgstr "Χειρισμός πληκτρολογίου"
 
-#: boards/gletters.xml.in.h:2
+#: ../boards/gletters.xml.in.h:2
 msgid "Letter recognition between the screen and the keyboard"
-msgstr ""
+msgstr "Αναγνώριση γραμμάτων μεταξύ οθόνης και πληκτρολογίου"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Απλά Γράμματα"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Πληκτρολογήστε τα γράμματα που πέφτουν πριν φτάσουν στο έδαφος"
 
-#: boards/hanoi.xml.in.h:1
+#: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
-msgstr ""
+msgstr "Μια ιδέα που προέρχεται από τα παιχνίδια EPI."
 
-#: boards/hanoi.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:2
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
 msgstr ""
+"Μετακίνησε και τοποθέτησε τα κομμάτια από πάνω από τη μια στήλη στην άλλη, "
+"για να φτιάξεις στην κενή στήλη έναν ίδιο πύργο όπως αυτός στα δεξιά σου."
 
-#: boards/hanoi.xml.in.h:4 src/boards/hanoi.c:105
+#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
-msgstr ""
+msgstr "Φτίαξε τον ίδιο πύργο"
 
-#: boards/hanoi.xml.in.h:5
+#: ../boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
+msgstr "Φτιάξε στην κενή στήλη αριστερά σου τον ίδιο πύργο που βρίσκεται δεξιά."
 
-#: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
+#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
-msgstr ""
+msgstr "Απλοποιημένος πύργος του Ανόι"
 
-#: boards/hexagon.xml.in.h:1 boards/minouche.xml.in.h:1
+#: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr ""
+msgstr "Βρες τη φράουλα κάνοντας κλικ πάνω στα μπλε χωράφια"
 
-#: boards/hexagon.xml.in.h:4
+#: ../boards/hexagon.xml.in.h:4
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become more red "
 "as you get closer."
 msgstr ""
+"Βρες τη φράουλα κάτω από τα μπλε χωράφια. Όσο θα πλησιιάζεις τα χωράφια θα "
+"γίνονται πιο κόκκινα."
 
-#: boards/hexagon.xml.in.h:5
+#: ../boards/hexagon.xml.in.h:5
 msgid "hexagon"
 msgstr "εξάγωνο"
 
-#: boards/imageid.xml.in.h:1
+#: ../boards/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
-msgstr ""
+msgstr "Κάνε κλικ στην αντίστοιχη λέξη στην εμφανιζόμενη εικόνα."
 
-#: boards/imageid.xml.in.h:2
+#: ../boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
 msgstr "Εξάσκηση ανάγνωσης με εύρεση της λέξης που ταιριάζει σε μια εικόνα"
 
-#: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
-#: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
+#: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
+#: ../src/boards/imageid.c:109 ../src/boards/missingletter.c:101
+#: ../src/boards/reading.c:107
 msgid "Reading"
 msgstr "Ανάγνωση"
 
-#: boards/imageid.xml.in.h:4
-#, fuzzy
+#: ../boards/imageid.xml.in.h:4
 msgid "Reading practice"
-msgstr "ανάγνωση μηνύματος %s@%s:%d από %d"
+msgstr "Εξάσκηση ανάγνωσης"
 
-#: boards/imageid/board1.xml.in.h:1 boards/imagename/board4_0.xml.in.h:2
+#: ../boards/imageid/board1.xml.in.h:1 ../boards/imagename/board4_0.xml.in.h:2
 msgid "apple"
 msgstr "μήλο"
 
-#: boards/imageid/board1.xml.in.h:2
+#: ../boards/imageid/board1.xml.in.h:2
 msgid "back"
 msgstr "πίσω"
 
-#: boards/imageid/board1.xml.in.h:3
+#: ../boards/imageid/board1.xml.in.h:3
 msgid "bag"
-msgstr ""
+msgstr "τσάντα"
 
-#: boards/imageid/board1.xml.in.h:4 boards/imagename/board6_0.xml.in.h:2
+#: ../boards/imageid/board1.xml.in.h:4 ../boards/imagename/board6_0.xml.in.h:2
 msgid "ball"
-msgstr "μπάλα"
+msgstr "τόπι"
 
-#: boards/imageid/board1.xml.in.h:5
+#: ../boards/imageid/board1.xml.in.h:5
 msgid "banana"
 msgstr "μπανάνα"
 
-#: boards/imageid/board1.xml.in.h:6
+#: ../boards/imageid/board1.xml.in.h:6
 msgid "bed"
 msgstr "κρεβάτι"
 
-#: boards/imageid/board1.xml.in.h:7
+#: ../boards/imageid/board1.xml.in.h:7
 msgid "boat"
 msgstr "βάρκα"
 
-#: boards/imageid/board1.xml.in.h:8
+#: ../boards/imageid/board1.xml.in.h:8
 msgid "book"
 msgstr "βιβλίο"
 
-#: boards/imageid/board1.xml.in.h:9 boards/imagename/board2_0.xml.in.h:2
+#: ../boards/imageid/board1.xml.in.h:9 ../boards/imagename/board2_0.xml.in.h:2
 msgid "bottle"
 msgstr "μπουκάλι"
 
-#: boards/imageid/board1.xml.in.h:10
+#: ../boards/imageid/board1.xml.in.h:10
 msgid "cake"
-msgstr ""
+msgstr "τούρτα"
 
-#: boards/imageid/board1.xml.in.h:11
+#: ../boards/imageid/board1.xml.in.h:11
 msgid "camel"
-msgstr ""
+msgstr "καμήλα"
 
-#: boards/imageid/board1.xml.in.h:12 boards/imagename/board4_0.xml.in.h:4
+#: ../boards/imageid/board1.xml.in.h:12
+#: ../boards/imagename/board4_0.xml.in.h:4
 msgid "car"
 msgstr "αυτοκίνητο"
 
-#: boards/imageid/board1.xml.in.h:13
+#: ../boards/imageid/board1.xml.in.h:13
 msgid "cat"
-msgstr "γάλα"
+msgstr "γάτα"
 
-#: boards/imageid/board1.xml.in.h:14
-#, fuzzy
+#: ../boards/imageid/board1.xml.in.h:14
 msgid "catch"
-msgstr "Βρείτε τις βόμβες"
+msgstr ""
 
-#: boards/imageid/board1.xml.in.h:15
+#: ../boards/imageid/board1.xml.in.h:15
 msgid "cheese"
 msgstr "τυρί"
 
-#: boards/imageid/board1.xml.in.h:16
+#: ../boards/imageid/board1.xml.in.h:16
 msgid "cow"
 msgstr "αγελάδα"
 
-#: boards/imageid/board1.xml.in.h:17
+#: ../boards/imageid/board1.xml.in.h:17
 msgid "dog"
 msgstr "σκυλί"
 
-#: boards/imageid/board1.xml.in.h:18
-#, fuzzy
+#: ../boards/imageid/board1.xml.in.h:18
 msgid "finish"
-msgstr "^Τέλος"
+msgstr "τέλος"
 
-#: boards/imageid/board1.xml.in.h:19
+#: ../boards/imageid/board1.xml.in.h:19
 msgid "fish"
 msgstr "ψάρι"
 
-#: boards/imageid/board1.xml.in.h:20 boards/imagename/board3_0.xml.in.h:2
+#: ../boards/imageid/board1.xml.in.h:20
+#: ../boards/imagename/board3_0.xml.in.h:2
 msgid "house"
 msgstr "σπίτι"
 
-#: boards/imageid/board1.xml.in.h:21
+#: ../boards/imageid/board1.xml.in.h:21
 msgid "pear"
-msgstr ""
+msgstr "αχλάδι"
 
-#: boards/imageid/board1.xml.in.h:22
-#, fuzzy
+#: ../boards/imageid/board1.xml.in.h:22
 msgid "plane"
-msgstr "%1 επίπεδο"
+msgstr "αεροπλάνο"
 
-#: boards/imageid/board1.xml.in.h:23
+#: ../boards/imageid/board1.xml.in.h:23
 msgid "satchel"
-msgstr ""
+msgstr "σακίδιο"
 
-#: boards/imagename.xml.in.h:1 boards/imagename/board1_0.xml.in.h:1
-#: boards/imagename/board2_0.xml.in.h:1 boards/imagename/board3_0.xml.in.h:1
-#: boards/imagename/board4_0.xml.in.h:1 boards/imagename/board5_0.xml.in.h:1
-#: boards/imagename/board6_0.xml.in.h:1
+#: ../boards/imagename.xml.in.h:1 ../boards/imagename/board1_0.xml.in.h:1
+#: ../boards/imagename/board2_0.xml.in.h:1
+#: ../boards/imagename/board3_0.xml.in.h:1
+#: ../boards/imagename/board4_0.xml.in.h:1
+#: ../boards/imagename/board5_0.xml.in.h:1
+#: ../boards/imagename/board6_0.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
 msgstr "Μετακινείστε και Αποθέσατε τα κομμάτια πάνω από το γραμμένο όνομά τους"
 
-#: boards/imagename.xml.in.h:2
+#: ../boards/imagename.xml.in.h:2
 msgid ""
 "Drag the images from the vertical box on the left to their corresponding "
 "name on the right. Click the OK button to check your answer."
 msgstr ""
+"Μετακίνησε τις εικόνες από την αριστερή κάθετη στήλη στην αντίστοιχη "
+"ονομασία στα δεξιά. Κάνε κλικ στο ΟΚ για να δείς τη σωστή απάντηση."
 
-#: boards/imagename.xml.in.h:3
+#: ../boards/imagename.xml.in.h:3
 msgid "Image Name"
 msgstr "Όνομα Εικόνας"
 
-#: boards/imagename.xml.in.h:5
+#: ../boards/imagename.xml.in.h:5
 msgid "Vocabulary and reading"
-msgstr ""
+msgstr "Λεξιλόγιο και ανάγνωση"
 
-#: boards/imagename/board1_0.xml.in.h:2
+#: ../boards/imagename/board1_0.xml.in.h:2
 msgid "bulb"
-msgstr ""
+msgstr "λάμπα"
 
-#: boards/imagename/board1_0.xml.in.h:3
+#: ../boards/imagename/board1_0.xml.in.h:3
 msgid "fishing boat"
-msgstr ""
+msgstr "ψαρόβαρκα"
 
-#: boards/imagename/board1_0.xml.in.h:4
+#: ../boards/imagename/board1_0.xml.in.h:4
 msgid "lamp"
 msgstr "λάμπα"
 
-#: boards/imagename/board1_0.xml.in.h:5
+#: ../boards/imagename/board1_0.xml.in.h:5
 msgid "mail box"
 msgstr "Γραμματοκιβώτιο"
 
-#: boards/imagename/board1_0.xml.in.h:6 boards/imagename/board5_0.xml.in.h:3
-#, fuzzy
+#: ../boards/imagename/board1_0.xml.in.h:6
+#: ../boards/imagename/board5_0.xml.in.h:3
 msgid "postcard"
-msgstr "Ταχυδρομική κάρτα"
+msgstr "καρτ-ποστάλ"
 
-#: boards/imagename/board1_0.xml.in.h:7 boards/imagename/board3_0.xml.in.h:5
-#: boards/imagename/board6_0.xml.in.h:7
+#: ../boards/imagename/board1_0.xml.in.h:7
+#: ../boards/imagename/board3_0.xml.in.h:5
+#: ../boards/imagename/board6_0.xml.in.h:7
 msgid "sailing boat"
-msgstr ""
+msgstr "σκάφος"
 
-#: boards/imagename/board2_0.xml.in.h:3
+#: ../boards/imagename/board2_0.xml.in.h:3
 msgid "egg"
 msgstr "αυτό"
 
-#: boards/imagename/board2_0.xml.in.h:4
+#: ../boards/imagename/board2_0.xml.in.h:4
 msgid "eggcup"
-msgstr ""
+msgstr "αυγοθήκη"
 
-#: boards/imagename/board2_0.xml.in.h:5
+#: ../boards/imagename/board2_0.xml.in.h:5
 msgid "flower"
 msgstr "λουλούδι"
 
-#: boards/imagename/board2_0.xml.in.h:6
-#, fuzzy
+#: ../boards/imagename/board2_0.xml.in.h:6
 msgid "glass"
-msgstr "glass-pane"
+msgstr "ποτήρι"
 
-#: boards/imagename/board2_0.xml.in.h:7
+#: ../boards/imagename/board2_0.xml.in.h:7
 msgid "vase"
-msgstr ""
+msgstr "βάζο"
 
-#: boards/imagename/board3_0.xml.in.h:3
-#, fuzzy
+#: ../boards/imagename/board3_0.xml.in.h:3
 msgid "light house"
-msgstr "Euro-House"
+msgstr "φάρος"
 
-#: boards/imagename/board3_0.xml.in.h:4
+#: ../boards/imagename/board3_0.xml.in.h:4
 msgid "rocket"
-msgstr ""
+msgstr "πύραυλος"
 
-#: boards/imagename/board3_0.xml.in.h:6
+#: ../boards/imagename/board3_0.xml.in.h:6
 msgid "sofa"
 msgstr "καναπές"
 
-#: boards/imagename/board3_0.xml.in.h:7 boards/imagename/board5_0.xml.in.h:5
+#: ../boards/imagename/board3_0.xml.in.h:7
+#: ../boards/imagename/board5_0.xml.in.h:5
 msgid "star"
 msgstr "αστέρι"
 
-#: boards/imagename/board4_0.xml.in.h:3
+#: ../boards/imagename/board4_0.xml.in.h:3
 msgid "bicycle"
 msgstr "ποδήλατο"
 
-#: boards/imagename/board4_0.xml.in.h:5
+#: ../boards/imagename/board4_0.xml.in.h:5
 msgid "carrot"
 msgstr "καρότο"
 
-#: boards/imagename/board4_0.xml.in.h:6
+#: ../boards/imagename/board4_0.xml.in.h:6
 msgid "grater"
 msgstr ""
 
-#: boards/imagename/board4_0.xml.in.h:7
+#: ../boards/imagename/board4_0.xml.in.h:7
 msgid "tree"
 msgstr "δέντρο"
 
-#: boards/imagename/board5_0.xml.in.h:2
+#: ../boards/imagename/board5_0.xml.in.h:2
 msgid "pencil"
 msgstr "μολύβι"
 
-#: boards/imagename/board5_0.xml.in.h:4
+#: ../boards/imagename/board5_0.xml.in.h:4
 #, fuzzy
 msgid "spruce"
 msgstr "Spruce"
 
-#: boards/imagename/board5_0.xml.in.h:6
+#: ../boards/imagename/board5_0.xml.in.h:6
 msgid "truck"
-msgstr ""
+msgstr "φορτηγό"
 
-#: boards/imagename/board5_0.xml.in.h:7
-#, fuzzy
+#: ../boards/imagename/board5_0.xml.in.h:7
 msgid "van"
-msgstr "Βάν"
+msgstr "βαν"
 
-#: boards/imagename/board6_0.xml.in.h:3
+#: ../boards/imagename/board6_0.xml.in.h:3
 msgid "castle"
 msgstr "κάστρο"
 
-#: boards/imagename/board6_0.xml.in.h:4
+#: ../boards/imagename/board6_0.xml.in.h:4
 msgid "crown"
 msgstr "στέμα"
 
-#: boards/imagename/board6_0.xml.in.h:5
+#: ../boards/imagename/board6_0.xml.in.h:5
 msgid "flag"
 msgstr "σημαία"
 
-#: boards/imagename/board6_0.xml.in.h:6
+#: ../boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
-msgstr ""
+msgstr "ρακέτα"
 
-#: boards/leftright.xml.in.h:1
+#: ../boards/leftright.xml.in.h:1
 msgid ""
 "A hand is shown. Determine if it is a right or left hand. Click on the red "
 "button at the left, or on the green button at the right."
 msgstr ""
+"Εμφανίζεται ένα χέρι. Όρισε εάν είναι το αριστερό ή το δεξί. Κάνε κλικ στο "
+"κόκκινο κουμπί για το αριστερό ή το πράσινο για το δεξί."
 
-#: boards/leftright.xml.in.h:2
+#: ../boards/leftright.xml.in.h:2
 msgid "Determine if a hand is a right or left hand"
-msgstr ""
+msgstr "Όρισε εάν είναι το αριστερό ή το δεξί χέρι"
 
-#: boards/leftright.xml.in.h:3
+#: ../boards/leftright.xml.in.h:3
 msgid ""
 "Distinguish right and left hands from different points of view. Spatial "
 "representation"
 msgstr ""
+"Διέκρινε από διαφορετική γωνία κάθε φορά εάν προκειται για αριστερό ή για "
+"δεξί χέρι. Εικονίζεται από διάφορες πλευρές"
 
-#: boards/leftright.xml.in.h:4 src/boards/leftright.c:106
+#: ../boards/leftright.xml.in.h:4 ../src/boards/leftright.c:106
 msgid "Find your left and right hands"
-msgstr ""
+msgstr "Βρες το αριστερό σου και το δεξί σου χέρι"
 
-#: boards/leftright.xml.in.h:5 boards/railroad.xml.in.h:4
-#, fuzzy
+#: ../boards/leftright.xml.in.h:5 ../boards/railroad.xml.in.h:4
 msgid "None"
 msgstr "Κανένα"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
+#: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
-msgstr ""
+msgstr "Δυνατότητα χρήσης του βέλους στο πληκτρολόγιο για τη μετακίνηση αντικειμένων."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
 msgid "Find your way out of the maze"
-msgstr ""
+msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#: ../boards/maze.xml.in.h:3 ../boards/maze2DRelative.xml.in.h:3
+#: ../boards/maze3D.xml.in.h:4 ../boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
-msgstr ""
+msgstr "Βοήθησε τον Tux να βγει έξω από τον λαβύρινθο."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:127
-#, fuzzy
+#: ../boards/maze.xml.in.h:4 ../boards/maze2DRelative.xml.in.h:4
+#: ../boards/mazeInvisible.xml.in.h:4 ../src/boards/maze.c:132
 msgid "Maze"
-msgstr "Maze"
+msgstr "Λαβύρινθος"
 
-#: boards/maze.xml.in.h:5
+#: ../boards/maze.xml.in.h:5 ../boards/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr ""
+"Χρησιμοποίησε τα βέλη του πληκτρολόγιου για να οδηγήσεις τον Tux έξω από την "
+"πόρτα."
 
-#: boards/maze3D.xml.in.h:1
-#, fuzzy
+#: ../boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
+
+#: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
-msgstr "Name=Λαβύρινθος"
+msgstr "τρισδιάστατος λαβύρινθος"
 
-#: boards/maze3D.xml.in.h:3
+#: ../boards/maze3D.xml.in.h:3
 msgid "Find your way out of the 3D maze"
-msgstr ""
+msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
 
-#: boards/maze3D.xml.in.h:5
+#: ../boards/maze3D.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
 msgstr ""
+"Χρησιμοποίησε τα βέλη του πληκτρολόγιου για να οδηγήσεις τον Tux έξω από την "
+"πόρτα. Χρησιμοποίησε το spacebar για να αλλάξεις από λειτουργία δυο και "
+"τριων διαστάσεων. Η λειτουργία δύο διαστασεων σου δείχνει απλά τη θεση σου "
+"όπως σε χάρτη. Δεν μπορείς να μετακινήσεις τον Tux σε αυτή τη διάσταση."
 
-#: boards/melody.xml.in.h:1
-msgid "Ear training activity"
+#: ../boards/mazeInvisible.xml.in.h:2
+#, fuzzy
+msgid "Find your way out of the invisible maze"
+msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
+
+#: ../boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
 msgstr ""
+"Χρησιμοποίησε τα βέλη του πληκτρολόγιου για να οδηγήσεις τον Tux έξω από την "
+"πόρτα. Χρησιμοποίησε το spacebar για να αλλάξεις από αόρατη σε ορατή "
+"λειτουργία. Η ορατή λειτουργία δείχνει απλά τη θεση σου όπως σε χάρτη. Δεν "
+"μπορείς να μετακινήσεις τον Tux σε αυτή τη διάσταση."
 
-#: boards/melody.xml.in.h:2
+#: ../boards/mazeMenu.xml.in.h:1
+#, fuzzy
+msgid "Find your way out different type of mazes"
+msgstr "Βρες το δρόμο που θα σε οδηγήσει έξω από το λαβύρινθο"
+
+#: ../boards/mazeMenu.xml.in.h:2
+#, fuzzy
+msgid "Go to Maze activities"
+msgstr "Πήγαινε στις δραστηριότητες Άλγεβρας"
+
+#: ../boards/melody.xml.in.h:1
+msgid "Ear training activity"
+msgstr "Δραστηριότητα ακουστικής εξάσκησης "
+
+#: ../boards/melody.xml.in.h:2
 msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
 msgstr ""
+"Άκουσε την σειρά των ήχων που ακούγονται και επανέλαβε τους κάνοντας κλικ "
+"στα αντίστοιχα αντικείμενα. Κάνοντας κλικ στο αντίστοιχο κουμπί μπορείς να "
+"ακούσεις τους ήχους ξανά."
 
-#: boards/melody.xml.in.h:3
+#: ../boards/melody.xml.in.h:3
 msgid "Melody"
-msgstr ""
+msgstr "Μελωδία"
 
-#: boards/melody.xml.in.h:5
-#, fuzzy
+#: ../boards/melody.xml.in.h:5
 msgid "Repeat a melody"
-msgstr "Ρυθμός Επανάληψης"
+msgstr "Επανάληψη μιας μελωδίας"
 
-#: boards/memory.xml.in.h:1
+#: ../boards/memory.xml.in.h:1
 msgid ""
 "A set of blank cards is shown. Each pair is associated by the same picture "
 "in their hidden faces. Click on a card to can uncover it and see its hidden "
@@ -1372,408 +1986,394 @@ msgid ""
 "remember the position of the pictures to associate them. To remove a pair of "
 "cards, uncover both of them."
 msgstr ""
+"Εμφανίζεται ένα ζευγάρι κενών χαρτιών. Κάθε ζευγάρι έχει κρυμμένη μια όμοια "
+"εικόνα. Κάνε κλικ σεένα χαρτί για να ανακαλύψεις την κρυμμένη εικόνα. Όμως "
+"δεν μπορείς να δείς δύο κρυμμένες εικόνες συγχρόνως.Θα πρέπει να θυμάσαι την "
+"θέση των εικόνων ώστε να τις ταιριάξεις/ Για να απομακρύνεις ένα ζευγάρι "
+"χαρτιών θα πρέπεινα ταιρίαξεις τη εικόνα που κρύβουν."
 
-#: boards/memory.xml.in.h:2
+#: ../boards/memory.xml.in.h:2
 msgid "Discover the cards and find a matching pair"
 msgstr "Ανακαλύψτε τις κάρτες και βρείτε ένα ζεύγος που ταιριάζει"
 
-#: boards/memory.xml.in.h:3
+#: ../boards/memory.xml.in.h:3
 msgid "Memory Game with images"
 msgstr "Παιχνίδι Μνήμης με εικόνες"
 
-#: boards/memory.xml.in.h:5
+#: ../boards/memory.xml.in.h:5
 msgid "Train your memory and remove all the cards"
-msgstr ""
+msgstr "Εξάσκησε την μνήμη σου και απομάκρυνε όλα τα χαρτιά."
 
-#: boards/menu.xml.in.h:1
+#: ../boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool Box - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 3 to 4 years old 2 Stars - 5 to 6 years "
-"old 3 Stars - 7 to 8 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"Note that each icon is displayed only if available in the current activity:\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About game\n"
+"The stars means:\n"
+"    1 Star  - 2 to 3 years old\n"
+"    2 Stars - 4 to 5 years old\n"
+"    3 Stars - 6 to 7 years old"
 msgstr ""
 
-#: boards/menu.xml.in.h:2
-#, fuzzy
+#: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
-msgstr "Εμφάνιση του κυρίως μενού."
+msgstr "Εμφάνιση του κυρίως GCompris μενού"
 
-#: boards/menu.xml.in.h:3
+#: ../boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
 msgstr ""
+"Το GCompris είναι μια συλλογή εκπαιαδευτικών παιχνιδιών που παρέχει διάφορες "
+"δραστηριότητεςγια παιδιά 3 ως 8 χρονών."
 
-#: boards/menu.xml.in.h:5
+#: ../boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
+"Ο σκοπός του gcompris είναι να διαθέσει μια ελεύθερη εναλλακτική πρόταση "
+"λογισμικού εκπαιδευτικής ψυχαγωγίας."
 
-#: boards/minouche.xml.in.h:4
-msgid ""
-"Try to find the strawberry under the blue fields. The closer you get, the "
-"more red the fields become."
-msgstr ""
-
-#: boards/minouche.xml.in.h:5
-msgid "minouche"
-msgstr ""
-
-#: boards/missing_letter.xml.in.h:1
+#: ../boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
 msgstr ""
 
-#: boards/missing_letter.xml.in.h:2
+#: ../boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
 msgstr "Συμπληρώστε το γράμμα που λείπει"
 
-#: boards/missing_letter.xml.in.h:3
+#: ../boards/missing_letter.xml.in.h:3
 msgid "Missing Letter"
 msgstr "Γράμμα που Λείπει"
 
-#: boards/missing_letter.xml.in.h:4
+#: ../boards/missing_letter.xml.in.h:4
 msgid "Train reading skill"
-msgstr ""
+msgstr "Εξασκηση ικανότητας ανάγνωσης"
 
-#: boards/missing_letter.xml.in.h:5
-#, fuzzy
+#: ../boards/missing_letter.xml.in.h:5
 msgid "Word reading"
-msgstr "ανάγνωση μηνύματος %s@%s:%d από %d"
+msgstr "Ανάγνωση λέξης"
 
-#: boards/missing_letter/board1.xml.in.h:1
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:1
 msgid "apple/_pple/a/i/o"
-msgstr "Apple AIFF"
+msgstr "μήλο/μ_λο/η/ι/υ"
 
-#: boards/missing_letter/board1.xml.in.h:2
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:2
 msgid "apple/app_e/l/h/n"
-msgstr "Εξαφάνιση εφαρμογής"
+msgstr "μήλο/μήλ_/ο/ω/υ"
 
-#: boards/missing_letter/board1.xml.in.h:3
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:3
 msgid "apple/appl_/e/h/a"
-msgstr "Εφαρμο_γή Φίλτρων"
+msgstr "μήλο/μή_ο/λ/σ/τ"
 
-#: boards/missing_letter/board1.xml.in.h:4
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:4
 msgid "ball/_all/b/p/d"
-msgstr "/Επιλογή/Όλα"
+msgstr "τόπι/τ_πι/ο/α/ω"
 
-#: boards/missing_letter/board1.xml.in.h:5
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:5
 msgid "ball/b_ll/a/u/o"
-msgstr "Αποθήκευση Ό_λων"
+msgstr "τόπι/τόπ_/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:6
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:6
 msgid "ball/bal_/l/h/s"
-msgstr "Μπόλ Μάουνταιν"
+msgstr "τόπι/_όπι/τ/π/κ"
 
-#: boards/missing_letter/board1.xml.in.h:7
+#: ../boards/missing_letter/board1.xml.in.h:7
 msgid "banana/_anana/b/p/d"
-msgstr ""
+msgstr "μπανάνα/μ_ανάνα/π/ι/υ"
 
-#: boards/missing_letter/board1.xml.in.h:8
+#: ../boards/missing_letter/board1.xml.in.h:8
 msgid "banana/b_nana/a/o/i"
-msgstr ""
+msgstr "μπανάνα/μπ_νάνα/α/ε/ι"
 
-#: boards/missing_letter/board1.xml.in.h:9
+#: ../boards/missing_letter/board1.xml.in.h:9
 msgid "banana/ba_ana/n/m/b"
-msgstr ""
+msgstr "μπανάνα/μπα_άνα/ν/τ/λ"
 
-#: boards/missing_letter/board1.xml.in.h:10
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:10
 msgid "bed/_ed/b/l/f"
-msgstr "Cach_ed"
+msgstr "κρεβάτι/κρ_βάτι/ε/α/ι"
 
-#: boards/missing_letter/board1.xml.in.h:11
+#: ../boards/missing_letter/board1.xml.in.h:11
 msgid "bed/b_d/e/a/i"
-msgstr ""
+msgstr "κρεβάτι/κρεβάτ_/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:12
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:12
 msgid "bed/be_/d/p/b"
-msgstr "&Συμπεριφορά"
+msgstr "κρεβάτι/κρεβά_ι/τ/σ/π"
 
-#: boards/missing_letter/board1.xml.in.h:13
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:13
 msgid "bottle/_ottle/b/t/p"
-msgstr "Δοχείο αερίου"
+msgstr "υ"
 
-#: boards/missing_letter/board1.xml.in.h:14
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:14
 msgid "bottle/b_ttle/o/u/d"
-msgstr "Δοχείο αερίου"
+msgstr "μπουκάλι/μπο_κάλι/υ/ι/η"
 
-#: boards/missing_letter/board1.xml.in.h:15
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:15
 msgid "bottle/bott_e/l/y/r"
-msgstr "Δοχείο αερίου"
+msgstr "μπουκάλι/μπουκάλ_/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:16
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:16
 msgid "cake/_ake/c/p/d"
-msgstr "Γί&νετε ιδιοκτήτης του ημερολογίου"
+msgstr "τούρτα/το_ρτα/υ/η/ι "
 
-#: boards/missing_letter/board1.xml.in.h:17
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:17
 msgid "cake/c_ke/a/o/e"
-msgstr "&Κλειδί υπογραφής:"
+msgstr "τούρτα/τ_ύρτα/ο/ω/α"
 
-#: boards/missing_letter/board1.xml.in.h:18
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:18
 msgid "cake/ca_e/k/q/c"
-msgstr "Cisco CA"
+msgstr "τούρτα/_ούρτα/τ/φ/δ"
 
-#: boards/missing_letter/board1.xml.in.h:19
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:19
 msgid "car/_ar/c/k/b"
-msgstr "Συμπιεσμένο αρχείο ar"
+msgstr "αυτοκίνητο/αυτοκ_νητο/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:20
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:20
 msgid "car/c_r/a/k/o"
-msgstr "Αυτοκίνητο"
+msgstr "αυτοκίνητο/αυτοκίν_το/η/ι/υ"
 
-#: boards/missing_letter/board1.xml.in.h:21
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:21
 msgid "car/ca_/r/w/k"
-msgstr "Cisco CA"
+msgstr "αυτοκίνητο/α_τοκίνητο/υ/φ/β"
 
-#: boards/missing_letter/board1.xml.in.h:22
+#: ../boards/missing_letter/board1.xml.in.h:22
 msgid "dog/_og/d/p/q"
-msgstr ""
+msgstr "σκύλος/σκ_λος/υ/η/ι"
 
-#: boards/missing_letter/board1.xml.in.h:23
+#: ../boards/missing_letter/board1.xml.in.h:23
 msgid "dog/d_g/o/g/a"
-msgstr ""
+msgstr "σκύλος/σκύλ_ς/ο/ω/ε"
 
-#: boards/missing_letter/board1.xml.in.h:24
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:24
 msgid "dog/do_/g/p/q"
-msgstr "Κάτω"
+msgstr "σκύλος/σ_ύλος/κ/τ/π"
 
-#: boards/missing_letter/board1.xml.in.h:25
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:25
 msgid "fish/_ish/f/h/l"
-msgstr "%s το Ψάρι λέει:"
+msgstr "Ψάρι/Ψάρ_/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:26
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:26
 msgid "fish/f_sh/i/u/l"
-msgstr "Διαμοιρα_ζόμενο"
+msgstr "ψάρι/_άρι/ψ/κ/ξ"
 
-#: boards/missing_letter/board1.xml.in.h:27
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:27
 msgid "fish/fis_/h/o/i"
-msgstr "%s το Ψάρι λέει:"
+msgstr "Ψάρι/Ψά_ι/ρ/λ/θ"
 
-#: boards/missing_letter/board1.xml.in.h:28
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:28
 msgid "house/_ouse/h/e/j"
-msgstr "Euro-House"
+msgstr "σπίτι/σπ_τι/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:29
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:29
 msgid "house/h_use/o/f/u"
-msgstr "Χρησιμοποίησε w ή w>>"
+msgstr "σπίτι/σπίτ_/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:30
-#, fuzzy
+#: ../boards/missing_letter/board1.xml.in.h:30
 msgid "house/hous_/e/a/i"
-msgstr "Euro-House"
+msgstr "σπίτι/σπί_ι/τ/ρ/λ"
 
-#: boards/missing_letter/board1.xml.in.h:31
+#: ../boards/missing_letter/board1.xml.in.h:31
 msgid "plane/_lane/p/g/d"
-msgstr ""
+msgstr "αεροπλάνο/α_ροπλάνο/ε/υ/γ"
 
-#: boards/missing_letter/board1.xml.in.h:32
+#: ../boards/missing_letter/board1.xml.in.h:32
 msgid "plane/p_ane/l/j/i"
-msgstr ""
+msgstr "αεροπλάνο/α_ροπλάνο/ε/υ/γ"
 
-#: boards/missing_letter/board1.xml.in.h:33
+#: ../boards/missing_letter/board1.xml.in.h:33
 msgid "plane/pl_ne/a/o/s"
-msgstr ""
+msgstr "αεροπλάνο/αεροπλάν_/ο/ω/ι"
 
-#: boards/missing_letter/board1.xml.in.h:34
+#: ../boards/missing_letter/board1.xml.in.h:34
 msgid "satchel/_atchel/s/c/l"
-msgstr ""
+msgstr "σακίδιο/σακ_διο/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:35
+#: ../boards/missing_letter/board1.xml.in.h:35
 msgid "satchel/s_tchel/a/o/i"
-msgstr ""
+msgstr "σακίδιο/σακίδ_ο/ι/η/υ"
 
-#: boards/missing_letter/board1.xml.in.h:36
+#: ../boards/missing_letter/board1.xml.in.h:36
 msgid "satchel/sa_chel/t/p/c"
-msgstr ""
+msgstr "σακίδιο/σακί_ιο/δ/τ/θ"
 
-#: boards/money.xml.in.h:1 boards/money_cents.xml.in.h:1
-#, fuzzy
+#: ../boards/money.xml.in.h:1 ../boards/money_cents.xml.in.h:1
 msgid "Can count"
-msgstr "Μέτρηση Επισκέψεων"
+msgstr "Δυνατότητα μέτρησης"
 
-#: boards/money.xml.in.h:2 boards/money_cents.xml.in.h:2
+#: ../boards/money.xml.in.h:2 ../boards/money_cents.xml.in.h:2
 msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it in the upper screen area."
 msgstr ""
+"Για να πληρώσεις κάνε κλικ στα κέρματα ή στα χαρτονομίσματα στο κάτω μέρος "
+"της οθόνης. Αν θές να πάρεις πίσω ένακέρμα ή ένα χαρτονόμισμα, κάνε κλικ στο "
+"πάνω μέρος της οθόνης."
 
-#: boards/money.xml.in.h:3 boards/money_cents.xml.in.h:3 src/boards/money.c:87
+#: ../boards/money.xml.in.h:3 ../boards/money_cents.xml.in.h:3
+#: ../src/boards/money.c:87
 msgid "Money"
 msgstr "Χρήματα"
 
-#: boards/money.xml.in.h:4
-#, fuzzy
+#: ../boards/money.xml.in.h:4
 msgid "Practice money usage"
-msgstr "Εξάσκηση με το ποντίκι του υπολογιστή"
+msgstr "Εξάσκηση χρήσης χρημάτων"
 
-#: boards/money.xml.in.h:5 boards/money_cents.xml.in.h:5
+#: ../boards/money.xml.in.h:5 ../boards/money_cents.xml.in.h:5
 msgid ""
 "You must buy the different items and give the exact price. At higher levels, "
 "several items are displayed, and you must first calculate the total price."
 msgstr ""
 
-#: boards/money_cents.xml.in.h:4
-#, fuzzy
+#: ../boards/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
-msgstr "Εξάσκηση με το ποντίκι του υπολογιστή"
+msgstr "Εξάσκηση χρήσης ευρώ και λεπτών"
 
-#: boards/paintings.xml.in.h:1
+#: ../boards/mouse.xml.in.h:2
+#, fuzzy
+msgid "Mouse manipulation boards"
+msgstr "Χρήση ποντικιού"
+
+#: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr ""
 "Μετακινείστε και Αποθέσατε τα κομμάτια για να ξαναφτιάξετε τις αρχικές "
 "ζωγραφιές"
 
-#: boards/paintings.xml.in.h:2
+#: ../boards/paintings.xml.in.h:2
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
 msgstr ""
+"Μετακίνησε τα κομμάτια της εικόνας από τα κουτί στα αριστερά σου για να "
+"φτιάξεις τον πίνακα στο κύριοταμπλώ."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:161
+#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Φτιάξτε τον εικονογρίφο"
 
-#: boards/paintings.xml.in.h:4
+#: ../boards/paintings.xml.in.h:4
 msgid "Mouse manipulation: movement, drag and drop"
 msgstr ""
 
-#: boards/paintings.xml.in.h:5
+#: ../boards/paintings.xml.in.h:5
 msgid "Spatial representation"
 msgstr ""
 
-#: boards/paintings/board1_0.xml.in.h:1
-msgid "Edgar Degas, The Dancing Class - 1873"
-msgstr ""
+#: ../boards/paintings/board1_0.xml.in.h:1
+msgid "Edgar Degas, The Dancing Class - 1873-75"
+msgstr "Edgar Degas, The Dancing Class - 1873-75"
 
-#: boards/paintings/board2_0.xml.in.h:1
+#: ../boards/paintings/board2_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
-msgstr ""
+msgstr "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
 
-#: boards/paintings/board3_0.xml.in.h:1
+#: ../boards/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr ""
+msgstr "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 
-#: boards/paintings/board3_1.xml.in.h:1
+#: ../boards/paintings/board3_1.xml.in.h:1
 msgid "Kandinsky, Wassily, Composition VIII - 1923"
-msgstr ""
+msgstr "Kandinsky, Wassily, Composition VIII - 1923"
 
-#: boards/paintings/board3_1.xml.in.h:2
+#: ../boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr ""
+msgstr "Ελαιογραφία, 140 x 201 cm; Μουσείο Solomon R. Guggenheim, Νέα Υόρκη"
 
-#: boards/paintings/board4_0.xml.in.h:1
+#: ../boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
-msgstr ""
+msgstr "Bazille, The Ramparts at Aigues-Mortes - 1867"
 
-#: boards/paintings/board5_0.xml.in.h:1
-msgid "Cassat, Summertime - 1895"
-msgstr ""
+#: ../boards/paintings/board5_0.xml.in.h:1
+msgid "Cassatt, Mary - Summertime - 1894"
+msgstr "Cassatt, Mary - Summertime - 1894"
 
-#: boards/paintings/board6_0.xml.in.h:1
+#: ../boards/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
-msgstr ""
+msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
-#: boards/paratrooper.xml.in.h:1
-#, fuzzy
-msgid "Help Tux the paratrooper land safely"
-msgstr "Οδηγείστε τον αλεξιπτωτιστή να προσγειωθεί ομαλά"
+#: ../boards/paratrooper.xml.in.h:1
+msgid "Help Tux the parachuter land safely"
+msgstr "Οδήγησε τον Tux τον αλεξιπτωτιστή να προσγειωθεί ομαλά"
 
-#: boards/paratrooper.xml.in.h:2
+#: ../boards/paratrooper.xml.in.h:2
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
 msgstr ""
 
-#: boards/paratrooper.xml.in.h:3
+#: ../boards/paratrooper.xml.in.h:3
 msgid ""
-"In this game, Tux the paratrooper need help to land safely on the fishing "
-"boat. He needs to take watch out for the wind direction and speed."
+"In this game, Tux the parachuter needs help to land safely on the fishing "
+"boat. He needs to take care of the wind direction and speed."
 msgstr ""
 
-#: boards/paratrooper.xml.in.h:4 src/boards/paratrooper.c:104
-msgid "Paratrooper"
+#: ../boards/paratrooper.xml.in.h:4
+msgid "Parachute jumper"
 msgstr "Αλεξιπτωτιστής"
 
-#: boards/paratrooper.xml.in.h:5
+#: ../boards/paratrooper.xml.in.h:5
 msgid "This board is game oriented. No specific skills are needed to play."
 msgstr ""
 
-#: boards/planegame.xml.in.h:1
-#, fuzzy
+#: ../boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Κινείστε το αεροπλάνο για να πιάσει τα σύννεφα με τη σωστή σειρά"
+msgstr "Κίνησε το ελικόπερο για να πιάσει τα σύννεφα με τη σωστή σειρά"
 
-#: boards/planegame.xml.in.h:2
+#: ../boards/planegame.xml.in.h:2
 msgid "Number"
 msgstr "Αριθμός"
 
-#: boards/planegame.xml.in.h:3 src/boards/planegame.c:77
+#: ../boards/planegame.xml.in.h:3 ../src/boards/planegame.c:77
 msgid "Numbers in Order"
 msgstr "Αριθμοί στη Σειρά"
 
-#: boards/planegame.xml.in.h:5
+#: ../boards/planegame.xml.in.h:5
 msgid ""
 "Use the up, down, right and left keyboard keys to move the helicopter to "
 "catch the numbers in increasing order."
 msgstr ""
+"Χρησιμοποίησε τα πλήκτρα-βέλη πάνω, κάτω, δεξιά και αριστερά για να "
+"μετακινήσεις το ελικόπτερο ώστε να πιάσειςτους αριθμούς με αύξουσα σειρά ."
 
-#: boards/pythontest.xml.in.h:1
+#: ../boards/pythontest.xml.in.h:1
 msgid "Add a language binding to gcompris."
 msgstr ""
 
-#: boards/pythontest.xml.in.h:2
+#: ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
 msgstr ""
 
-#: boards/pythontest.xml.in.h:3
-#, fuzzy
+#: ../boards/pythontest.xml.in.h:3
 msgid "Python Test"
-msgstr "Τύπος δοκιμής:"
+msgstr "Δοκιμή Python"
 
-#: boards/pythontest.xml.in.h:4
+#: ../boards/pythontest.xml.in.h:4
 msgid "Test board for the python plugin"
 msgstr ""
 
-#: boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
+#: ../boards/pythontest.xml.in.h:5
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgstr ""
 
-#: boards/railroad.xml.in.h:1
+#: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
 msgstr ""
 
-#: boards/railroad.xml.in.h:2
+#: ../boards/railroad.xml.in.h:2
 msgid ""
 "A train - a locomotive and wagon(s) - is displayed at the top of the main "
 "area for a few seconds. Rebuild it at the top of the screen by selecting the "
@@ -1781,115 +2381,106 @@ msgid ""
 "Check your construction by clicking on the hand at the bottom."
 msgstr ""
 
-#: boards/railroad.xml.in.h:3
-#, fuzzy
+#: ../boards/railroad.xml.in.h:3
 msgid "Memory training"
-msgstr "Εξάσκηση Ακοής"
+msgstr "Εξάσκηση μνήμης"
 
-#: boards/railroad.xml.in.h:5
+#: ../boards/railroad.xml.in.h:5
 msgid "Railroad"
-msgstr ""
+msgstr "Σιδηρόδρομος"
 
-#: boards/read_colors.xml.in.h:2
-#, fuzzy
+#: ../boards/read_colors.xml.in.h:2
 msgid "Click on the correct colored object."
-msgstr "Πατήστε σε ένα χρώμα ή"
+msgstr "Πάτησε στο σωστό χρωματιστό αντικείμενο"
 
-#: boards/read_colors.xml.in.h:4
-#, fuzzy
+#: ../boards/read_colors.xml.in.h:4
 msgid "Read colors"
-msgstr "Άλλα χρώματα"
+msgstr "Ανάγνωση χρωμάτων"
 
-#: boards/read_colors.xml.in.h:5
+#: ../boards/read_colors.xml.in.h:5
 msgid "This board teaches basic colors."
-msgstr ""
+msgstr "Αυτός ο πίνακας διδάσκει τα βασικά χρώματα."
 
-#: boards/read_colors/board1.xml.in.h:1 src/boards/colors.c:62
+#: ../boards/read_colors/board1.xml.in.h:1
 msgid "black"
 msgstr "μαύρο"
 
-#: boards/read_colors/board1.xml.in.h:2 src/boards/colors.c:54
+#: ../boards/read_colors/board1.xml.in.h:2
 msgid "blue"
 msgstr "μπλε"
 
-#: boards/read_colors/board1.xml.in.h:3 src/boards/colors.c:55
+#: ../boards/read_colors/board1.xml.in.h:3
 msgid "brown"
 msgstr "καφέ"
 
-#: boards/read_colors/board1.xml.in.h:4 src/boards/colors.c:56
+#: ../boards/read_colors/board1.xml.in.h:4
 msgid "green"
 msgstr "πράσινο"
 
-#: boards/read_colors/board1.xml.in.h:5 src/boards/colors.c:57
+#: ../boards/read_colors/board1.xml.in.h:5
 msgid "grey"
 msgstr "γκρί"
 
-#: boards/read_colors/board1.xml.in.h:6 src/boards/colors.c:58
+#: ../boards/read_colors/board1.xml.in.h:6
 msgid "orange"
 msgstr "πορτοκαλί"
 
-#: boards/read_colors/board1.xml.in.h:7
+#: ../boards/read_colors/board1.xml.in.h:7
 msgid "pink"
 msgstr "ροζ"
 
-#: boards/read_colors/board1.xml.in.h:8 src/boards/colors.c:60
+#: ../boards/read_colors/board1.xml.in.h:8
 msgid "red"
 msgstr "κόκκινο"
 
-#: boards/read_colors/board1.xml.in.h:9
+#: ../boards/read_colors/board1.xml.in.h:9
 msgid "violet"
 msgstr "βιολετί"
 
-#: boards/read_colors/board1.xml.in.h:10 src/boards/colors.c:63
+#: ../boards/read_colors/board1.xml.in.h:10
 msgid "white"
 msgstr "λευκό"
 
-#: boards/read_colors/board1.xml.in.h:11 src/boards/colors.c:61
+#: ../boards/read_colors/board1.xml.in.h:11
 msgid "yellow"
 msgstr "κίτρινο"
 
-#: boards/reading.xml.in.h:1
-#, fuzzy
+#: ../boards/reading.xml.in.h:1
 msgid "Go to the Reading activities"
-msgstr "Μετάβαση στις δραστηριότητες Άλγεβρας"
+msgstr "Μετάβαση στις δραστηριότητες ανάγνωσης"
 
-#: boards/readingh.xml.in.h:1 boards/readingv.xml.in.h:1
+#: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
 "A word is shown at the top right of the board. A list of words will appear "
 "and disappear on left. Indicate whether or not the given word appeared in "
 "the list."
 msgstr ""
 
-#: boards/readingh.xml.in.h:2
+#: ../boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
 msgstr "Εξάσκηση οριζόντιας ανάγνωσης"
 
-#: boards/readingh.xml.in.h:3
-#, fuzzy
+#: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and tell if a given word is in it"
-msgstr ""
-"Διαβάστε έναν κατάλογο λέξεων και πείτε αν η δοσμένη λέξη υπάρχει σ' αυτόν"
+msgstr "Διάβασε ένα κατάλογο λέξεων και πές αν μια λέξη υπάρχει σ' αυτόν"
 
-#: boards/readingh.xml.in.h:4 boards/readingv.xml.in.h:3
+#: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
-msgstr ""
+msgstr "Εξάσκηση ανάγνωσης σε συγκεκριμένο χρόνο"
 
-#: boards/readingv.xml.in.h:2
-#, fuzzy
+#: ../boards/readingv.xml.in.h:2
 msgid "Read a vertical list of words and tell if a given word is in it"
-msgstr ""
-"Διαβάστε ένα κάθετο κατάλογο λέξεων και πείτε αν η δοσμένη λέξη υπάρχει σ' "
-"αυτόν"
+msgstr "Διάβασε ένα κάθετο κατάλογο λέξεων και πές αν μια λέξη υπάρχει σ' αυτόν"
 
-#: boards/readingv.xml.in.h:5
+#: ../boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
 msgstr "Εξάσκηση κάθετης ανάγνωσης"
 
-#: boards/redraw.xml.in.h:1
+#: ../boards/redraw.xml.in.h:1
 msgid "Copy a drawing from the box on the right into the box on the left."
 msgstr ""
 
-#: boards/redraw.xml.in.h:2 boards/redraw_symmetrical.xml.in.h:2
+#: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
 msgid ""
 "First, select the proper tool from the toolbar. Then, drag the mouse to "
 "create objects. When you are done, click on the OK button. Errors will be "
@@ -1897,124 +2488,165 @@ msgid ""
 "important but take care not to have unwanted objects under others."
 msgstr ""
 
-#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#: ../boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr ""
 
-#: boards/redraw_symmetrical.xml.in.h:1
+#: ../boards/redraw_symmetrical.xml.in.h:1
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:1
+#: ../boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "Φτίαξε τον ίδιο πύργο"
+
+#: ../boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
 msgstr ""
 
-#: boards/reversecount.xml.in.h:2
+#: ../boards/reversecount.xml.in.h:2
 msgid ""
 "Click on the dice to show how many ice spots there are between Tux and the "
-"fish. Click the dict with the right mouse button to coun backwards. When "
+"fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
 
-#: boards/reversecount.xml.in.h:3 src/boards/reversecount.c:141
-#, fuzzy
+#: ../boards/reversecount.xml.in.h:3 ../src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
-msgstr "Εξάσκηση στην πράξη της αφαίρεσης"
+msgstr "Εξάσκηση στην αφαίρεση με ένα αστείο παιχνίδι"
 
-#: boards/reversecount.xml.in.h:4
+#: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
+msgstr "Ο Tux πεινάει. Βοήθησε τον να βρεί ψάρια με το να μετρήσεις τα σωστά παγάκια."
+
+#: ../boards/searace.xml.in.h:1 ../boards/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
 msgstr ""
 
-#: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
-#: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
-#: boards/scales/board1_4.xml.in.h:1 boards/scales/board1_5.xml.in.h:1
-#: boards/scales/board2_0.xml.in.h:1 boards/scales/board2_1.xml.in.h:1
-#: boards/scales/board2_2.xml.in.h:1 boards/scales/board2_3.xml.in.h:1
-#: boards/scales/board2_4.xml.in.h:1 boards/scales/board2_5.xml.in.h:1
-#: boards/scales/board3_0.xml.in.h:1 boards/scales/board3_1.xml.in.h:1
-#: boards/scales/board3_2.xml.in.h:1 boards/scales/board3_3.xml.in.h:1
-#: boards/scales/board3_4.xml.in.h:1 boards/scales/board3_5.xml.in.h:1
+#: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. You can click and drag "
+"your mouse anywhere on the map to get a measurement in distance and angle. "
+"Going to the next level will give your more complex weather conditions."
+msgstr ""
+
+#: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
+msgid ""
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+msgstr ""
+
+#: ../boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr ""
+
+#: ../boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr ""
+
+#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
+#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
+#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
+#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
+#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
+#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
+#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
+#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
+#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
 msgstr "Μετακινείστε και Αποθέσατε βαράκια για να ισορροπήσει η ζυγαριά"
 
-#: boards/scalesboard.xml.in.h:1
-#, fuzzy
+#: ../boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to balance the scales"
-msgstr "Μετακινείστε και Αποθέσατε βαράκια για να ισορροπήσει η ζυγαριά"
+msgstr "Μετακίνησε και τοποθέτησε τα βαράκια για να ισορροπήσει η ζυγαριά"
 
-#: boards/scalesboard.xml.in.h:2
+#: ../boards/scalesboard.xml.in.h:2
 msgid "Mental calculation, arithmetic equality"
 msgstr ""
 
-#: boards/scalesboard.xml.in.h:3
+#: ../boards/scalesboard.xml.in.h:3
 msgid ""
 "The painting is an original painting made by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
 "released under the GPL license."
 msgstr ""
 
-#: boards/scalesboard.xml.in.h:4
+#: ../boards/scalesboard.xml.in.h:4
 msgid ""
-"To balance the scales, move the masses on the left. left side. The masses "
-"can be arranged in any order."
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
 msgstr ""
 
-#: boards/scalesboard.xml.in.h:5
+#: ../boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
 msgstr "Ισορροπήστε τη ζυγαριά"
 
-#: boards/smallnumbers.xml.in.h:1
-#, fuzzy
+#: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Πληκτρολογήστε πλήρως τις λέξεις που πέφτουν πριν φτάσουν στο έδαφος"
+msgstr "Μέτρησε τις κουκίδες στα ζάρια πριν φτάσουν στο έδαφος"
 
-#: boards/smallnumbers.xml.in.h:2
+#: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr ""
 
-#: boards/smallnumbers.xml.in.h:3
+#: ../boards/smallnumbers.xml.in.h:3 ../boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr ""
 
-#: boards/smallnumbers.xml.in.h:4
-#, fuzzy
+#: ../boards/smallnumbers.xml.in.h:4
 msgid "Numbers With Dice"
-msgstr "Αριθμοί με Ζάρια"
+msgstr "Ζάρια με αριθμούς"
 
-#: boards/smallnumbers.xml.in.h:5
+#: ../boards/smallnumbers.xml.in.h:5 ../boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr ""
+"Πληκτρολόγησε τον αριθμό που αντιστοιχεί στον αριθμό των κουκίδων του ζαριού "
+"που πέφτει."
 
-#: boards/submarine.xml.in.h:1
+#: ../boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Αριθμοί με 2 Ζάρια"
+
+#: ../boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the ordered depth."
 msgstr ""
 
-#: boards/submarine.xml.in.h:2
+#: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
 msgstr "Εκμάθηση λειτουργίας υποβρυχίου"
 
-#: boards/submarine.xml.in.h:3
+#: ../boards/submarine.xml.in.h:3
 msgid "Physics basics"
 msgstr ""
 
-#: boards/submarine.xml.in.h:4
-#, fuzzy
+#: ../boards/submarine.xml.in.h:4
 msgid "Pilot a submarine"
-msgstr "Ρυθμίσεις Pilot ..."
+msgstr "Πιλοτάρισε ένα υποβρύχιο"
 
-#: boards/submarine.xml.in.h:5
+#: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr ""
 
-#: boards/superbrain.xml.in.h:1
+#: ../boards/superbrain.xml.in.h:1
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
 "Then, click on the OK button in the control bar. In the lower levels, Tux "
@@ -2023,21 +2655,20 @@ msgid ""
 "opposite order."
 msgstr ""
 
-#: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
+#: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
 #, fuzzy
 msgid "Super Brain"
 msgstr "Super A3"
 
-#: boards/superbrain.xml.in.h:3 src/boards/superbrain.c:111
+#: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:111
 msgid "Tux has hidden several items. Find them again in the correct order"
+msgstr "Ο Tux έχει κρύψει μερικά αντικείμενα. Βρές τα ξανά με την σωστή σειρά."
+
+#: ../boards/target.xml.in.h:1
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 
-#: boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
-msgstr ""
-
-#: boards/target.xml.in.h:2
+#: ../boards/target.xml.in.h:2
 msgid ""
 "Check the wind speed and direction, and then click on the target to launch a "
 "dart. When you have thrown all of your darts, a window appears asking you to "
@@ -2045,116 +2676,133 @@ msgid ""
 "or the OK button."
 msgstr ""
 
-#: boards/target.xml.in.h:3 src/boards/target.c:122
-#, fuzzy
+#: ../boards/target.xml.in.h:3 ../src/boards/target.c:122
 msgid "Practice addition with a target game"
-msgstr "Εξάσκηση στην πράξη της πρόσθεσης"
+msgstr "Εξάσκηση στην πρόσθεση με ένα παιχνίδι στόχων"
 
-#: boards/target.xml.in.h:4
+#: ../boards/target.xml.in.h:4
 msgid "Throw darts at a target and count your score."
-msgstr ""
+msgstr "Πέταξε τα βελάκια στον στόχο και μέτρα το σκόρ σου"
 
-#: boards/target.xml.in.h:5 src/boards/target.c:123
+#: ../boards/target.xml.in.h:5 ../src/boards/target.c:123
 msgid "Touch the target and count the points"
-msgstr ""
+msgstr "Ακούμπησε το στόχο και μέτρα τους βαθμούς"
 
-#: boards/traffic.xml.in.h:1 src/boards/traffic.c:99
+#: ../boards/traffic.xml.in.h:1 ../src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
 msgstr ""
 
-#: boards/traffic.xml.in.h:2
+#: ../boards/traffic.xml.in.h:2
 msgid "Remove all the red cars from the grid through the slot on the right"
 msgstr ""
 
-#: boards/watercycle.xml.in.h:1
+#: ../boards/watercycle.xml.in.h:1
 msgid ""
 "Click on different active elements : sun, cloud, water pump station, and "
 "water cleanup station, in order to reactivate the entire water system. When "
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
 msgstr ""
+"Κάνε κλικ στα διάφορα ενεργά στοιχεία: ήλιος, σύννεφο, σταθμός αντλίας νερού "
+"και σταθμός καθαρισμού νερού,για να ενεργοποιήσεις όλο το σύστημα ύδρευσης. "
+"Όταν το σύστημα ύδρευσης λειουργήσεια ξανά και ο Tux είναι στο ντούζ, πάτησε "
+"το κουμπί του ντουζ για να κάνει μπάνιο."
 
-#: boards/watercycle.xml.in.h:2
+#: ../boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
 msgstr "Εκμάθηση του κύκλου του νερού"
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: ../boards/watercycle.xml.in.h:3
+msgid ""
+"Tux has come back from a long fishing party on his boat. Bring the water "
+"system back up so he can take a shower."
+msgstr ""
+
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Λέξεις που Πέφτουν"
 
-#: boards/wordsgame.xml.in.h:3
-#, fuzzy
+#: ../boards/wordsgame.xml.in.h:3
 msgid "Keyboard training"
-msgstr "Εξάσκηση Ακοής"
+msgstr "Εξάσκηση στο πληκτρολόγιο"
 
-#: boards/wordsgame.xml.in.h:4
-#, fuzzy
+#: ../boards/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr "Πληκτρολογήστε τα γράμματα που πέφτουν πριν φτάσουν στο έδαφος"
+msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
 
-#: boards/wordsgame.xml.in.h:5
-#, fuzzy
+#: ../boards/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
-msgstr "Πληκτρολογήστε πλήρως τις λέξεις που πέφτουν πριν φτάσουν στο έδαφος"
+msgstr "Πληκτρολόγησε τις λέξεις που πέφτουν πριν φτάσουν στο έδαφος"
 
-#: gcompris-edit.desktop.in.h:1
-#, fuzzy
+#: ../gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
-msgstr "Διορθωτής κεφαλίδας για το %1"
+msgstr "Επεξεργαστής gcompris"
 
-#: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Εκπαιδευτικό παιχνίδι για 3 ετών και άνω"
+#: ../gcompris.desktop.in.h:1
+msgid "Educational game from 2 to 10 years old"
+msgstr "Εκπαιδευτικό παιχνίδι για παιδιά από 2 ως 10 ετών."
 
-#: gcompris.desktop.in.h:2
+#: ../gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
+msgstr "Εκπαιδευτική σουίτα gcompris"
+
+#: ../gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
 msgstr ""
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
-#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1763 src/gcompris/gameutil.c:125
-#: src/gcompris/gameutil.c:466 src/gcompris/gameutil.c:467
-#: src/gcompris/gcompris.c:372 src/gcompris/images_selector.c:477
-#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
+#: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
+#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:933
+#: ../src/gcompris/gameutil.c:127 ../src/gcompris/gameutil.c:519
+#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:492
+#: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
+#: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Δε μπορώ να βρω το αρχείο %s !"
 
-#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
-#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1766
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:608
+#: ../src/boards/missingletter.c:611 ../src/boards/read_colors.c:495
+#: ../src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "βρω το αρχείο %s !"
 
-#: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
-#, fuzzy
+#: ../src/boards/algebra_guesscount.c:143
+#: ../src/boards/algebra_guesscount.c:144
 msgid "Guess operations"
-msgstr "Λειτουργίες ορατές"
+msgstr "Μάντεψε τις λειτουργίες"
 
-#: src/boards/canal_lock.c:114
+#: ../src/boards/canal_lock.c:114
 msgid ""
 "Tux is in trouble in his ship. He needs to take it through a lock.\n"
 "Help Tux and understand how a canal lock works."
 msgstr ""
+"Ο Tux έχει πρόβλημα με το πλοίο του. Χρειάζεται να το οδηγήσει μέσα από το "
+"φράγμα.\n"
+"Βοήθησε τον Tux για να καταλάβεις πως λειτουργεί ένα φράγμα ποταμού."
 
-#: src/boards/chess.c:137
+#: ../src/boards/chess.c:134
 msgid "Learning Chess"
 msgstr "Μαθαίνοντας Σκάκι"
 
-#: src/boards/chess.c:138
+#: ../src/boards/chess.c:135
 msgid "Play chess against tux in a learning mode"
 msgstr ""
 
-#: src/boards/chess.c:191
+#: ../src/boards/chess.c:188
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
 "of gnuchess.\n"
 "Please upgrade to gnuchess 5 or above."
 msgstr ""
+"Σφάλμα: το /usr/bin/gnuchessx είναι εγκαυεστημένο\n"
+"πράγμα που σημάινει ότι έχετε μια παλαιά έκδοση\n"
+"του gnuchess.\n"
+"Παρακαλώ εγκαταστήστε το gnuchess 5 ή μεγαλύτερο."
 
-#: src/boards/chess.c:198
+#: ../src/boards/chess.c:195 ../src/boards/chess.c:237
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2163,57 +2811,56 @@ msgid ""
 "And check it is in "
 msgstr ""
 
-#: src/boards/chess.c:577
+#: ../src/boards/chess.c:577
 #, fuzzy
 msgid "White Turn"
 msgstr "&Ενεργοποίηση όλων"
 
-#: src/boards/chess.c:577
+#: ../src/boards/chess.c:577
 #, fuzzy
 msgid "Black Turn"
 msgstr "&Ενεργοποίηση όλων"
 
-#: src/boards/chess.c:718
+#: ../src/boards/chess.c:718
 #, fuzzy
 msgid "White check"
 msgstr "κουτί επιλογής"
 
-#: src/boards/chess.c:720
+#: ../src/boards/chess.c:720
 #, fuzzy
 msgid "Black check"
 msgstr "κουτί επιλογής"
 
-#: src/boards/chess.c:1052
+#: ../src/boards/chess.c:1051
 #, fuzzy
 msgid "Black mates"
 msgstr "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½ _οΏ½οΏ½οΏ½οΏ½οΏ½"
 
-#: src/boards/chess.c:1057
+#: ../src/boards/chess.c:1056
 #, fuzzy
 msgid "White mates"
 msgstr "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½ _οΏ½οΏ½οΏ½οΏ½οΏ½"
 
-#: src/boards/chess.c:1062
+#: ../src/boards/chess.c:1061 ../src/gcompris/bonus.c:314
 #, fuzzy
 msgid "Drawn game"
 msgstr "Ισόπαλο παιχνίδι"
 
-#: src/boards/click_on_letter.c:73
-#, fuzzy
+#: ../src/boards/click_on_letter.c:80
 msgid "Read a letter"
-msgstr "Προσωπική επιστολή"
+msgstr "Διάβασε το γράμμα"
 
-#: src/boards/click_on_letter.c:74
+#: ../src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Εκμάθηση αναγνώρισης γραμμάτων"
 
-#: src/boards/click_on_letter.c:225
+#: ../src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
 msgstr ""
 
-#: src/boards/click_on_letter.c:232
+#: ../src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2221,333 +2868,330 @@ msgid ""
 "enable the sound"
 msgstr ""
 
-#: src/boards/clickgame.c:183
+#. TRANSLATORS: Put here the alphabet in your language
+#: ../src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr ""
+
+#: ../src/boards/clickgame.c:182
 #, c-format
-msgid "Couldn't open pixmap dir: %s"
-msgstr "Δε μπορώ να ανοίξω τον κατάλογο pixmap: %s"
+msgid "Couldn't open dir: %s"
+msgstr "Αδυναμία ανοίγματος καταλόγου: %s"
 
-#: src/boards/clockgame.c:530
-#, fuzzy
+#: ../src/boards/clockgame.c:528
 msgid "Set the watch to:"
-msgstr "Ορισμός γνωρίσματος \"%s\" to \"%s\""
+msgstr "Ορισμός ρολογιού σε:"
 
-#: src/boards/colors.c:217
-#, fuzzy, c-format
-msgid "Click on the %s toon"
-msgstr "Εστίαση στο κλικ"
+#: ../src/boards/colors.c:54
+msgid "Click on the blue toon"
+msgstr "Πάτησε στο μπλέ κουκλάκι"
 
-#: src/boards/fifteen.c:57
+#: ../src/boards/colors.c:55
+msgid "Click on the brown toon"
+msgstr "Πάτησε στο καφέ κουκλάκι"
+
+#: ../src/boards/colors.c:56
+msgid "Click on the green toon"
+msgstr "Πάτησε στο πράσινο κουκλάκι"
+
+#: ../src/boards/colors.c:57
+msgid "Click on the grey toon"
+msgstr "Πάτησε στο γκρί κουκλάκι"
+
+#: ../src/boards/colors.c:58
+msgid "Click on the orange toon"
+msgstr "Πάτησε στο πορτοκαλί κουκλάκι"
+
+#: ../src/boards/colors.c:59
+msgid "Click on the purple toon"
+msgstr "Πάτησε στο μωβ κουκλάκι"
+
+#: ../src/boards/colors.c:60
+msgid "Click on the red toon"
+msgstr "Πάτησε στο κόκκινο κουκλάκι"
+
+#: ../src/boards/colors.c:61
+msgid "Click on the yellow toon"
+msgstr "Πάτησε στο κίτρινο κουκλάκι"
+
+#: ../src/boards/colors.c:62
+msgid "Click on the black toon"
+msgstr "Πάτησε στο μαύρο κουκλάκι"
+
+#: ../src/boards/colors.c:63
+msgid "Click on the white toon"
+msgstr "Πάτησε στο άσπρο κουκλάκι"
+
+#: ../src/boards/erase.c:160
+msgid "Couldn't get GTK settings"
+msgstr ""
+
+#: ../src/boards/erase.c:165
+#, c-format
+msgid "Double clic default value %d."
+msgstr ""
+
+#: ../src/boards/erase.c:170 ../src/boards/erase.c:185
+#: ../src/boards/erase.c:208 ../src/boards/erase.c:339
+#, c-format
+msgid "Double clic value is now %d."
+msgstr ""
+
+#: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr ""
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: ../src/boards/hanoi.c:339 ../src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr ""
 
-#: src/boards/imageid.c:110 src/boards/missingletter.c:102
-#, fuzzy
+#: ../src/boards/imageid.c:110 ../src/boards/missingletter.c:102
 msgid "Learn how to read"
-msgstr "Μάθετε πώς να διαβάζετε την ώρα"
+msgstr "Μάθετε πώς να διαβάζετε"
 
-#: src/boards/leftright.c:107
+#: ../src/boards/leftright.c:107
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr ""
+"Δες τις φωτογραφίες των χεριών και βρές ποιό είναι το αριστερό ή το δεξί "
+"χέρι."
 
-#: src/boards/leftright.c:248
+#: ../src/boards/leftright.c:248 ../src/boards/python/searace.py:429
+#: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:544
+#: ../src/boards/python/searace.py:856 ../src/boards/python/searace.py:889
+#: ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "αριστερά"
 
-#: src/boards/leftright.c:258
+#: ../src/boards/leftright.c:258 ../src/boards/python/searace.py:429
+#: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:553
+#: ../src/boards/python/searace.py:858 ../src/boards/python/searace.py:891
+#: ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "δεξιά"
 
-#: src/boards/maze.c:445
-msgid "Look at your position and switch back to 3D mode to move"
-msgstr ""
+#: ../src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Κοίταξε την θέση σου και ξαναγύρνα στην αόρατη λειτουργία για κινηθείς"
 
-#: src/boards/memory.c:164
+#: ../src/boards/maze.c:490
+msgid "Look at your position and switch back to 3D mode to move"
+msgstr "Κοίταξε την θέση σου και ξαναγύρνα στην τρισδιάσταστη λειτουργία για κινηθείς"
+
+#: ../src/boards/memory.c:164
 msgid "Memory"
 msgstr "Μνήμη"
 
-#: src/boards/memory.c:165
-#, fuzzy
+#: ../src/boards/memory.c:165
 msgid "Find the matching pair"
-msgstr "Εύρεση ορισμών που ταιριάζουν"
+msgstr "Βρές το ζευγάρι που ταιριάζει"
 
-#: src/boards/menu.c:79
+#: ../src/boards/menu.c:72
 msgid "Main Menu"
 msgstr "Κύριο Μενού"
 
-#: src/boards/menu.c:80
-#, fuzzy
+#: ../src/boards/menu.c:73
 msgid "Select a Board"
-msgstr "Επιλέξτε πίνακα"
+msgstr "Διάλεξε πίνακα"
 
-#: src/boards/money.c:88
-#, fuzzy
+#: ../src/boards/money.c:88
 msgid "Pratice money usage"
-msgstr "Εξάσκηση με το ποντίκι του υπολογιστή"
+msgstr "Εξάσκηση χρήσης χρημάτων"
 
-#: src/boards/paratrooper.c:105
-#, fuzzy
+#: ../src/boards/paratrooper.c:102
+msgid "Paratrooper"
+msgstr "Αλεξιπτωτιστής"
+
+#: ../src/boards/paratrooper.c:103
 msgid "Direct the paratrooper to help him land safely"
-msgstr "Οδηγείστε τον αλεξιπτωτιστή να προσγειωθεί ομαλά"
+msgstr "Οδήγησε τον αλεξιπτωτιστή να προσγειωθεί ομαλά"
 
-#: src/boards/planegame.c:78
+#: ../src/boards/planegame.c:78
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Κινείστε το αεροπλάνο για να πιάσει τα σύννεφα με τη σωστή σειρά"
 
-#: src/boards/python.c:53
-#, fuzzy
+#: ../src/boards/python.c:53
 msgid "Python Board"
-msgstr "Πίνακας συζητήσεων"
+msgstr "Python Board"
 
-#: src/boards/python.c:54
+#: ../src/boards/python.c:54
 msgid "Special board that embeds python into gcompris."
 msgstr ""
 
-#. PythonTest Board module
-#: src/boards/python/pythontest.py:67
+#: ../src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr ""
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: ../src/boards/python/anim.py:415
+msgid ""
+"Python xml module not found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr ""
+
+#: ../src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr ""
+
+#: ../src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr ""
+
+#: ../src/boards/python/anim.py:2363
+msgid "The corresponding items have been skipped."
+msgstr ""
+
+#: ../src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr ""
+"Αυτή είναι η πρώτη πρόσθετη λειτουργία του gcompris που φτιάχθηκε στην\n"
+"γλώσσα προγραμματισμού Python."
 
-#: src/boards/python/pythontest.py:76
+#: ../src/boards/python/pythontest.py:84
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
 msgstr ""
 
-#: src/boards/python/pythontest.py:85
+#: ../src/boards/python/pythontest.py:93
 msgid "This activity is not playable yet, just a test"
-msgstr ""
+msgstr "Δεν μπορείς να παίξεις σε αυτή την δραστηριότητα, είναι απλά μια δοκιμή"
 
-#. Remove the canvas item we added during this plugin
-#. gcompris - redraw
-#.
-#. Time-stamp: <2001/08/20 00:54:45 bruno>
-#.
-#. Copyright (C) 2003 Bruno Coudoin
-#.
-#. This program is free software; you can redistribute it and/or modify
-#. it under the terms of the GNU General Public License as published by
-#. the Free Software Foundation; either version 2 of the License, or
-#. (at your option) any later version.
-#.
-#. This program is distributed in the hope that it will be useful,
-#. but WITHOUT ANY WARRANTY; without even the implied warranty of
-#. MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#. GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License
-#. along with this program; if not, write to the Free Software
-#. Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#.
-#. PythonTest Board module
-#. These are used to let us restart only after the bonux is displayed.
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. TOOL SELECTION
-#. COLOR SELECTION
-#. Define the coord of each drawing area
-#. Global used for the select event
-#. The error root item
-#. Set it to 1 to let you create new forms
-#. Once set, draw your shape in the right area. Then clic on OK to display
-#. the data for the form (in the console). Then copy the data in the list at the end of
-#. this file in init_item_list
-#. Set self.editing_mode = None to forbid drawing in the right area
-#. self.editing_mode = 1
-#. Create our rootitem. We put each canvas item in it so at the end we
-#. only have to kill it. The canvas deletes all the items it contains automaticaly.
-#. Remove the root item removes all the others inside it
-#. Delete error previous mark if any
-#. When the bonus is displayed, it call us first with pause(1) and then with pause(0)
-#. the game is won
-#. Save a copy of the target drawing future comparison
-#. Save a copy of the drawing cause we need to remove empty items
-#. Remove all empty items
-#. Need to check if target image equals drawing image
-#. This is a WIN
-#. Delete previous mark if any
-#. Create our rootitem for error items mark
-#. display where there is errors
-#. if in_target is set then error are displayed in the target area
-#. Bad Icon Width and Height / 2
-#. The images target are always drawn on the drawing area to ease the final comparison
-#. Called by gcompris when the user click on the level icon
-#. Erase any displayed items (drawing and target)
-#. Display the current level target
-#. Set the level in the control bar
-#. Calc the index in drawlist
-#. the current board is finished : bail out
-#. Prepare an item for the coord display
-#. Create our rootitem for drawing items
-#. Reset the drawing
-#. Code that increments the sublevel and level
-#. And bail out if no more levels are available
-#. return 1 if continue, 0 if bail out
-#. Try the next level
-#. the current board is finished : bail out
-#. display current/sublevel number
-#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
+#: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
 msgstr "Επίπεδο"
 
-#. Display the tools
-#. Display the tools
-#. The last item is select, we select it by default
-#. Event when a tool is selected
-#. Deactivate old button
-#. Activate new button
-#. Display the color selector
-#. Display the tools
-#. The last item is the one we select by default
-#. Color event
-#. Deactivate old button
-#. Activate new button
-#. Display the drawing area
-#.
-#. Given coord are returned swapped
-#. Work fine for rect and ellipse but not line
-#. so that y2 > y1 and x2 > x1
-#.
-#.
-#. Take a drawing and return a symmetrical one
-#.
-#. Make a deepcopy of the list
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Symmetrical view
-#. Draw the image target
-#. depending on self.gcomprisBoard.level drawing is 'normal' or 'symmetric'
-#.
-#. Save the drawing in image_target for future comparison
-#. Create our rootitem for target items
-#. The images target are always drawn on the drawing area to ease the final comparison
-#.
-#. Can specify the item type to draw via a real GTK type or a TOOL string
-#.
-#. Draw the grid
-#.
-#. Coord of the written numbers
-#. We manage a 2 colors grid
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Shadow for text number
-#. Text number
-#. Clicking on lines let you create object
-#. Given x,y return a new x,y snapped to the grid
-#. Event when a click on any item. Perform the move
-#.
-#. MOUSE DRAG STOP
-#. ---------------
-#. Reset thein_select_ofx ofset
-#. Workaround for bad line positionning
-#. Save the ofset between the mouse pointer and the upper left corner of the object
-#. Check drawing boundaries
-#. We need to realign x cause the bounds values are not precise enough
-#. We need to realign y cause the bounds values are not precise enough
-#. Need to update current_drawing
-#. It's not a line
-#. It can only be a line
-#. Now perform the object move
-#. Workaround for bad line positionning
-#. Event when a click on an item happen on fill in type object
-#. Reset the item to our list
-#. Event when a click on an item happen on border fill type object
-#. Reset the item to our list
-#. Del an item and internal struct cleanup
-#. Warning, do not realy delete it or we bug the index of other items
-#. Event when a click on an item happen
-#.
-#. Display the mouse coord in the drawing or target area
-#. type:
-#. 1 = in drawing area
-#. 2 = in target area
-#. 3 = out of both area
-#.
-#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
-#, fuzzy
+#: ../src/boards/python/redraw.py:902 ../src/boards/python/redraw.py:905
 msgid "Coordinate"
-msgstr "Συντεταγμένη Y"
+msgstr "Συντεταγμένη"
 
-#: src/boards/railroad.c:96
-#, fuzzy
+#: ../src/boards/python/searace.py:201 ../src/boards/python/searace.py:206
+#: ../src/boards/python/searace.py:232
+msgid "Race is already running"
+msgstr ""
+
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: ../src/boards/python/searace.py:429 ../src/boards/python/searace.py:454
+#: ../src/boards/python/searace.py:535 ../src/boards/python/searace.py:854
+#: ../src/boards/python/searace.py:883 ../src/boards/python/searace.py:978
+#: ../src/boards/python/searace.py:984 ../src/boards/python/searace.py:992
+msgid "forward"
+msgstr "μπροστά"
+
+#: ../src/boards/python/searace.py:526
+msgid "COMMANDS ARE"
+msgstr "ΟΙ ΕΝΤΟΛΕΣ ΕΙΝΑΙ"
+
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: ../src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr ""
+
+#: ../src/boards/python/searace.py:759
+msgid "The Red boat has won"
+msgstr "Η κόκκινη βάρκα κέρδισε"
+
+#: ../src/boards/python/searace.py:762
+msgid "The Green boat has won"
+msgstr ""
+
+#: ../src/boards/python/searace.py:780 ../src/boards/python/searace.py:1022
+msgid "Angle:"
+msgstr ""
+
+#: ../src/boards/python/searace.py:780
+msgid "Wind:"
+msgstr ""
+
+#: ../src/boards/python/searace.py:861
+msgid "Syntax error at line"
+msgstr ""
+
+#: ../src/boards/python/searace.py:879
+msgid "The command"
+msgstr ""
+
+#: ../src/boards/python/searace.py:898
+msgid "Unknown command at line"
+msgstr ""
+
+#: ../src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr ""
+
+#: ../src/boards/railroad.c:96
 msgid "Memory game"
-msgstr "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½"
+msgstr "Παιχνίδι μνήμης"
 
-#: src/boards/railroad.c:97
+#: ../src/boards/railroad.c:97
 msgid "Build a train according to the model"
-msgstr ""
+msgstr "Φτιάξε ένα τρένο σύμφωνα με το μοντέλο"
 
-#: src/boards/read_colors.c:85
-#, fuzzy
+#: ../src/boards/read_colors.c:85
 msgid "Read Colors"
-msgstr "Άλλα χρώματα"
+msgstr "Ανάγνωση χρωμάτων"
 
-#: src/boards/read_colors.c:86
-#, fuzzy
+#: ../src/boards/read_colors.c:86
 msgid "Click on the corresponding color"
-msgstr "Πατήστε σε ένα χρώμα ή"
+msgstr "Πάτησε στο αντίστοιχο χρώμα"
 
-#: src/boards/reading.c:103
+#: ../src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
-msgstr ""
-"Διαβάστε έναν κατάλογο λέξεων και μετά πείτε αν η δοσμένη λέξη είναι σ' αυτόν"
+msgstr "Διαβάστε έναν κατάλογο λέξεων και μετά πείτε αν η δοσμένη λέξη είναι σ' αυτόν"
 
-#: src/boards/reading.c:322
+#: ../src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Παρακαλώ, ελέγξτε αν η λέξη"
 
-#: src/boards/reading.c:342
+#: ../src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "εμφανίζεται"
 
-#: src/boards/reading.c:525
+#: ../src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "Είμαι Έτοιμος"
 
-#: src/boards/reading.c:562
+#: ../src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Ναι, το είδα"
 
-#: src/boards/reading.c:592
+#: ../src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "Όχι, δεν υπήρχε"
 
 #  Report what was wrong in the log
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: ../src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr ""
 
-#: src/boards/reading.c:633
-#, fuzzy
+#: ../src/boards/reading.c:645
 msgid "But it was not displayed"
-msgstr "εμφανίζεται"
+msgstr "Αλλά δεν εμφανίστηκε"
 
-#: src/boards/reading.c:635
-#, fuzzy
+#: ../src/boards/reading.c:647
 msgid "And it was displayed"
-msgstr "εμφανίζεται"
+msgstr "και εμφανίζεται"
 
-#: src/boards/reversecount.c:140
-#, fuzzy
+#: ../src/boards/reading.c:748 ../src/boards/wordsgame.c:760
+msgid "Cannot open file of words for your locale"
+msgstr ""
+
+#: ../src/boards/reversecount.c:137
 msgid "Reverse count"
-msgstr "Μέτρηση Επισκέψεων"
+msgstr "Ανάποδο μέτρημα"
 
-#: src/boards/shapegame.c:162
+#: ../src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr ""
 "Μετακινείστε και Αποθέσατε τα κομμάτια για να ξαναδημιουργήσετε το "
 "αντικείμενο"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:409
+#: ../src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2555,483 +3199,556 @@ msgid ""
 "'d' to display all the shapes"
 msgstr ""
 
-#: src/boards/shapegame.c:417
+#: ../src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
 msgstr ""
 
-#: src/boards/smallnumbers.c:70
+#: ../src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Αριθμοί με Ζάρια"
 
-#: src/boards/smallnumbers.c:71
-#, fuzzy
+#: ../src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr "Πληκτρολογήστε τον αριθμό 1 ως 9 πριν το ζάρι φτάσει στο έδαφος"
+msgstr "Πληκτρολόγησε τον αριθμό 1 ως 9 πριν το ζάρι φτάσει στο έδαφος"
 
-#: src/boards/submarine.c:201
+#: ../src/boards/submarine.c:201
 msgid "Submarine"
 msgstr "Υποβρύχιο"
 
-#: src/boards/submarine.c:202
+#: ../src/boards/submarine.c:202
 msgid "Control the depth of a submarine"
-msgstr ""
+msgstr "Έλεγξε το βάθος τπουθ"
 
-#: src/boards/target.c:323 src/boards/target.c:576
+#: ../src/boards/target.c:323 ../src/boards/target.c:576
 #, c-format
 msgid "Points = %s"
 msgstr "Πόντοι = %s"
 
-#: src/boards/target.c:441
+#: ../src/boards/target.c:441
 #, c-format
 msgid ""
 "Wind speed = %d\n"
 "kilometers/hour"
 msgstr ""
+"Ταχύητητα ανέμου = %d\n"
+"χιλιόμετρα/ώρα"
 
-#: src/boards/target.c:503
+#: ../src/boards/target.c:503
 #, c-format
 msgid "Distance to target = %d meters"
-msgstr ""
+msgstr "Απόσταση από το στόχο = %d μέτρα"
 
-#: src/boards/wordsgame.c:88
+#: ../src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Πληκτρολογήστε πλήρως τις λέξεις που πέφτουν πριν φτάσουν στο έδαφος"
 
-#: src/gcompris/about.c:60
+#: ../src/gcompris/about.c:65
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
+"Συγγραφέας: Bruno Coudoin\n"
+"Συντελεστής: Pascal Georges, Jose Jorge\n"
+"Γραφικά: Renaud Blanchard, Franck Doucet\n"
+"Μουσική εισαγωγής: Djilali Sebihi\n"
+"Μουσική παρασκηνίου: Rico Da Halvarez\n"
 
 #  TRANSLATORS: Replace this string with your names, one name per line.
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/about.c:68 src/gcompris/interface.c:484
+#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:466
 msgid "translator_credits"
 msgstr ""
 "Κώστας Παπαδήμας <pkst@gnome.org>\n"
-"Πέτρος Βελώνης <velonis@freemail.gr>"
+"Άννα Κωνσταντινίδου <annkonst@yahoo.com>"
 
-#: src/gcompris/about.c:100
+#: ../src/gcompris/about.c:105
 msgid "About GCompris"
 msgstr "Σχετικά με το GCompris"
 
-#: src/gcompris/about.c:110
+#: ../src/gcompris/about.c:115
 msgid "Translators:"
 msgstr "Μεταφραστές:"
 
-#: src/gcompris/about.c:225
+#: ../src/gcompris/about.c:230
 msgid "GCompris Home Page"
 msgstr "Αρχική Σελίδα του GCompris"
 
-#: src/gcompris/about.c:247
+#: ../src/gcompris/about.c:252
 msgid ""
-"This software is a GNU Package and is released under the GNU Public Licence"
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
 msgstr ""
 
-#: src/gcompris/about.c:275
+#: ../src/gcompris/about.c:281
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: src/gcompris/about.c:309 src/gcompris/config.c:182 src/gcompris/help.c:362
-#: src/gcompris/images_selector.c:152
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
+#: ../src/gcompris/gameutil.c:941 ../src/gcompris/help.c:329
+#: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "Εντάξει"
 
-#: src/gcompris/config.c:52
-#, fuzzy
+#: ../src/gcompris/board.c:170
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr ""
+
+#: ../src/gcompris/config.c:63
 msgid "Your system default"
 msgstr "Χρήση προεπιλεγμένων από το σύστημα"
 
-#: src/gcompris/config.c:53
-#, fuzzy
+#: ../src/gcompris/config.c:64
 msgid "Amharic"
-msgstr "A-M|Amharic"
+msgstr "Amharic"
 
-#: src/gcompris/config.c:54
+#: ../src/gcompris/config.c:65
 msgid "Arabic"
 msgstr "Αραβικά"
 
-#: src/gcompris/config.c:55
-#, fuzzy
+#: ../src/gcompris/config.c:66
 msgid "Azerbaijani Turkic"
 msgstr "Τουρκικά Αζερμπαϊτζάν"
 
-#: src/gcompris/config.c:56
-#, fuzzy
+#: ../src/gcompris/config.c:67
+msgid "Bulgarian"
+msgstr "Βουλγαρικά"
+
+#: ../src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Catalan"
 
-#: src/gcompris/config.c:57
-#, fuzzy
-msgid "Czech"
-msgstr "Czech"
+#: ../src/gcompris/config.c:70
+msgid "Danish"
+msgstr "Δανέζικα"
 
-#: src/gcompris/config.c:58
+#: ../src/gcompris/config.c:71
 msgid "German"
 msgstr "Γερμανικά"
 
-#: src/gcompris/config.c:59
+#: ../src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: src/gcompris/config.c:60
-msgid "American English"
-msgstr "Αμερικάνικα Αγγλικά"
-
-#: src/gcompris/config.c:61
-msgid "Great Britain English"
+#: ../src/gcompris/config.c:73
+msgid "English (Canadian)"
 msgstr ""
 
-#: src/gcompris/config.c:62
-#, fuzzy
-msgid "Canadian English"
-msgstr "English (Canadian)"
+#: ../src/gcompris/config.c:74
+msgid "English (Great Britain)"
+msgstr ""
 
-#: src/gcompris/config.c:63
+#: ../src/gcompris/config.c:75
+msgid "English (USA)"
+msgstr ""
+
+#: ../src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Ισπανικά"
 
-#: src/gcompris/config.c:64
+#: ../src/gcompris/config.c:77
 msgid "Finnish"
 msgstr "Φινλανδικό"
 
-#: src/gcompris/config.c:65
+#: ../src/gcompris/config.c:78
 msgid "French"
 msgstr "Γαλλικά"
 
-#: src/gcompris/config.c:66
+#: ../src/gcompris/config.c:79
+msgid "Irish (Gaelic)"
+msgstr ""
+
+#: ../src/gcompris/config.c:80
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
-#: src/gcompris/config.c:67
-#, fuzzy
-msgid "Indian"
-msgstr "Ινδικός/Ανταναναρίβο"
+#: ../src/gcompris/config.c:81
+msgid "Indian (Hindi)"
+msgstr "Ινδικά"
 
-#: src/gcompris/config.c:68
+#: ../src/gcompris/config.c:82
+msgid "Indian (Gujarati)"
+msgstr ""
+
+#: ../src/gcompris/config.c:83
+msgid "Indian (Punjabi)"
+msgstr ""
+
+#: ../src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "Ουγγρικό"
 
-#: src/gcompris/config.c:69
+#: ../src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Κροατικά"
 
-#: src/gcompris/config.c:70
-#, fuzzy
+#: ../src/gcompris/config.c:86
 msgid "Italian"
 msgstr "Italian"
 
-#: src/gcompris/config.c:71
+#: ../src/gcompris/config.c:87
 msgid "Lithuanian"
 msgstr "Λιθουανική"
 
-#: src/gcompris/config.c:72
+#: ../src/gcompris/config.c:88
 msgid "Macedonian"
 msgstr "ΠΓΔΜ"
 
-#: src/gcompris/config.c:73
+#: ../src/gcompris/config.c:89
 msgid "Malayalam"
 msgstr "Μαλαγιάλαμ"
 
-#: src/gcompris/config.c:74
+#: ../src/gcompris/config.c:90
 msgid "Malay"
 msgstr "Μαλαισιακή"
 
-#: src/gcompris/config.c:75
-#, fuzzy
+#: ../src/gcompris/config.c:91
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:76
-#, fuzzy
-msgid "Norwegian"
-msgstr "Norwegian"
+#: ../src/gcompris/config.c:92
+msgid "Norwegian Bokmal"
+msgstr "Norwegian Bokmal"
 
-#: src/gcompris/config.c:77
-#, fuzzy
+#: ../src/gcompris/config.c:93
+msgid "Norwegian Nynorsk"
+msgstr "Norwegian Nynorsk"
+
+#: ../src/gcompris/config.c:94
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:78
+#: ../src/gcompris/config.c:95
 msgid "Portuguese"
 msgstr "Πορτογαλικό"
 
-#: src/gcompris/config.c:79
-#, fuzzy
+#: ../src/gcompris/config.c:96
 msgid "Brazil Portuguese"
-msgstr "Portuguese of Brazil"
+msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:80
-#, fuzzy
+#: ../src/gcompris/config.c:97
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:81
-#, fuzzy
+#: ../src/gcompris/config.c:98
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:82
+#: ../src/gcompris/config.c:99
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: ../src/gcompris/config.c:100
 msgid "Slovak"
 msgstr "Σλοβακική"
 
-#: src/gcompris/config.c:83
+#: ../src/gcompris/config.c:101
 msgid "Slovenian"
 msgstr "Σλοβενικό"
 
-#: src/gcompris/config.c:84
+#: ../src/gcompris/config.c:102
+msgid "Albanian"
+msgstr "Αλβανικά"
+
+#: ../src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Σερβικά/Λατινικά"
 
-#: src/gcompris/config.c:85
+#: ../src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Σερβική"
 
-#: src/gcompris/config.c:86
+#: ../src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: src/gcompris/config.c:87
+#: ../src/gcompris/config.c:106
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: src/gcompris/config.c:92
-#, fuzzy
-msgid "No time limit"
-msgstr "Καθόλου εργάσιμος χρόνος"
+#: ../src/gcompris/config.c:107
+msgid "Walloon"
+msgstr "Walloon"
 
-#: src/gcompris/config.c:93
-#, fuzzy
-msgid "Slow timer"
-msgstr "διακοπή χρονομέτρου"
-
-#: src/gcompris/config.c:94
-#, fuzzy
-msgid "Normal timer"
-msgstr "διακοπή χρονομέτρου"
-
-#: src/gcompris/config.c:95
-#, fuzzy
-msgid "Fast timer"
-msgstr "διακοπή χρονομέτρου"
-
-#: src/gcompris/config.c:100
-msgid "800x600 (Default for gcompris)"
+#: ../src/gcompris/config.c:108
+msgid "Chinese (Simplified)"
 msgstr ""
 
-#: src/gcompris/config.c:156
-#, fuzzy
-msgid "GCompris Configuration"
-msgstr "Ρύθμιση του Apt"
+#: ../src/gcompris/config.c:113
+msgid "No time limit"
+msgstr "Χωρίς όριο χρόνου"
 
-#: src/gcompris/config.c:265
+#: ../src/gcompris/config.c:114
+msgid "Slow timer"
+msgstr "Αργό χρονόμετρο"
+
+#: ../src/gcompris/config.c:115
+msgid "Normal timer"
+msgstr "Κανονικό χρονόμετρο"
+
+#: ../src/gcompris/config.c:116
+msgid "Fast timer"
+msgstr "Γρήγορο χρονόμετρο"
+
+#: ../src/gcompris/config.c:121
+msgid "800x600 (Default for gcompris)"
+msgstr "800x600 (Προεπιλεγμένο για gcompris)"
+
+#: ../src/gcompris/config.c:126
+msgid "No filter"
+msgstr "Χωρίς φίλτρο"
+
+#: ../src/gcompris/config.c:127
+msgid "Only this level"
+msgstr ""
+
+#: ../src/gcompris/config.c:128
+msgid "Up to this level"
+msgstr ""
+
+#: ../src/gcompris/config.c:129
+msgid "This level and above"
+msgstr ""
+
+#: ../src/gcompris/config.c:185
+msgid "GCompris Configuration"
+msgstr "Ρύθμιση GCompris"
+
+#: ../src/gcompris/config.c:294
 msgid "Fullscreen"
 msgstr "Πλήρης οθόνη"
 
-#: src/gcompris/config.c:308
+#: ../src/gcompris/config.c:337
 msgid "Music"
 msgstr "Μουσική"
 
-#: src/gcompris/config.c:336
+#: ../src/gcompris/config.c:365
 msgid "Effect"
 msgstr "Εφέ"
 
-#: src/gcompris/config.c:370
-#, fuzzy, c-format
+#: ../src/gcompris/config.c:399
+#, c-format
 msgid "Couldn't open skin dir: %s"
-msgstr "Δε μπορώ να ανοίξω τον κατάλογο pixmap: %s"
+msgstr "Αδυναμία ανοίγματος καταλόγου skin: %s"
 
-#: src/gcompris/config.c:391
+#: ../src/gcompris/config.c:420
 #, c-format
 msgid "No skin found in %s\n"
-msgstr ""
+msgstr "Δεν βρέθηκε skin σε %s\n"
 
-#: src/gcompris/config.c:406 src/gcompris/config.c:729
-#: src/gcompris/config.c:740
-#, fuzzy, c-format
+#: ../src/gcompris/config.c:435 ../src/gcompris/config.c:820
+#: ../src/gcompris/config.c:831
+#, c-format
 msgid "Skin : %s"
-msgstr "Skin"
+msgstr "Skin : %s"
 
-#: src/gcompris/gameutil.c:128
+#: ../src/gcompris/file_selector.c:341
+msgid "CANCEL"
+msgstr "ΑΚΥΡΟ"
+
+#: ../src/gcompris/file_selector.c:372
+msgid "LOAD"
+msgstr "ΦΟΡΤΩΣΗ"
+
+#: ../src/gcompris/file_selector.c:372
+msgid "SAVE"
+msgstr "ΑΠΟΘΗΚΕΥΣΗ"
+
+#: ../src/gcompris/gameutil.c:130
 msgid "Couldn't find file"
 msgstr "Δε μπορώ να βρω το αρχείο"
 
-#: src/gcompris/gameutil.c:130
+#: ../src/gcompris/gameutil.c:132
 msgid "This activity is incomplete."
-msgstr ""
+msgstr "Αυτή η δραστηριότητα δεν έχει ολοκληρωθεί."
 
-#: src/gcompris/gameutil.c:131
+#: ../src/gcompris/gameutil.c:133
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
 msgstr ""
+"Έξοδος και αναφορά\n"
+"του προβλήματος στους συγγραφείς."
 
-#: src/gcompris/gcompris.c:69
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
-msgstr ""
+msgstr "εκτέλεση gcompris σε λειτουργία πλήρους οθόνης."
 
-#: src/gcompris/gcompris.c:71
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
-msgstr ""
+msgstr "εκτέλεση gcompris σε λειτουργία παραθύρου "
 
-#: src/gcompris/gcompris.c:73
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
-msgstr ""
+msgstr "εκτέλεση gcompris με ενεργοποιημένο τον ήχο. "
 
-#: src/gcompris/gcompris.c:75
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
-msgstr ""
+msgstr "εκτέλεση gcompris χωρίς ήχο."
 
-#: src/gcompris/gcompris.c:77
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
-msgstr ""
+msgstr "εκτέλεση gcompris με τον προεπιλεγμένο δρομέα του gnome."
 
-#: src/gcompris/gcompris.c:79
+#: ../src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
+msgstr "εμφάνιση των δραστηριοτήτων με αυτό το επίπεδο δυσκολίας μόνο."
+
+#: ../src/gcompris/gcompris.c:107
+msgid "display debug informations on the console."
 msgstr ""
 
-#: src/gcompris/gcompris.c:81
-msgid ""
-"select the audio output. Use '-A list' to get the list of available audio "
-"outputs"
-msgstr ""
-
-#: src/gcompris/gcompris.c:83
-#, fuzzy
+#: ../src/gcompris/gcompris.c:109
 msgid "Print the version of "
-msgstr "Dia έκδοση %s\n"
+msgstr "Εκτύπωση της έκδοσης του"
 
-#: src/gcompris/gcompris.c:85
+#: ../src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
+msgstr "Χρήση antialiased canvas (αργό)"
+
+#: ../src/gcompris/gcompris.c:113
+msgid "Disable XRANDR (No screen resolution change)."
 msgstr ""
 
-#: src/gcompris/gcompris.c:621
+#: ../src/gcompris/gcompris.c:116
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory, -l /boards/connect4 only the connect4 activity)"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity directory added to menu"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:604
+msgid ""
+"GCompris is free software released under the GPL License. In order to "
+"support the development, the Windows version provides only 12 of the 45 "
+"activities. You can get the full version for a small fee at\n"
+"http://gcompris.net\n"
+"The Linux version does not have this restriction. Note that gcompris is "
+"being developped to free schools from monopolistic software vendors. If you "
+"also believe that we should teach freedom to kids, please consider using GNU/"
+"Linux. Get more information on\n"
+"http://www.fsf.org/philosophy"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:852
 #, c-format
 msgid ""
 "GCompris\n"
-"Version: %d\n"
+"Version: %s\n"
 "Licence: GPL\n"
-"More info at http://ofset.sourceforge.net/gcompris\n"
+"More info at http://gcompris.net\n"
 msgstr ""
+"GCompris\n"
+"Έκδοση: %s\n"
+"Άδεια: GPL\n"
+"Πληροφορίες στο http://gcompris.net\n"
 
-#: src/gcompris/help.c:169 src/gcompris/interface.c:243
+#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:228
 msgid "Prerequisite"
+msgstr "Προαπαιτούμενα"
+
+#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:237
+msgid "Goal"
+msgstr "Στόχος"
+
+#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:246
+msgid "Manual"
+msgstr "Οδηγός"
+
+#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:255
+msgid "Credit"
+msgstr "Μνεία"
+
+#: ../src/gcompris/images_selector.c:294
+#, c-format
+msgid "dataset %s is a directory. Trying to read xml "
 msgstr ""
 
-#: src/gcompris/help.c:203 src/gcompris/interface.c:252
-#, fuzzy
-msgid "Goal"
-msgstr "?Αναζήτηση Στόχου?"
+#: ../src/gcompris/images_selector.c:629
+#, c-format
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr ""
 
-#: src/gcompris/help.c:237 src/gcompris/interface.c:261
-#, fuzzy
-msgid "Manual"
-msgstr "χειροκίνητο/εγχειρίδιο"
+#: ../src/gcompris/images_selector.c:664
+#, c-format
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr ""
 
-#: src/gcompris/help.c:271 src/gcompris/interface.c:270
-#, fuzzy
-msgid "Credit"
-msgstr "Πιστωτική Κάρτα"
+#: ../src/gcompris/images_selector.c:690
+#, c-format
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr ""
 
-#: src/gcompris/interface.c:104
+#: ../src/gcompris/interface.c:95
 msgid "Gcompris Editor"
 msgstr "Επεξεργαστής GCompris"
 
-#: src/gcompris/interface.c:180
+#: ../src/gcompris/interface.c:165
 msgid "Icon"
 msgstr "Εικονίδιο"
 
-#: src/gcompris/interface.c:189
+#: ../src/gcompris/interface.c:174
 msgid "Name"
 msgstr "Όνομα"
 
-#: src/gcompris/interface.c:198 src/gcompris/interface.c:415
+#: ../src/gcompris/interface.c:183 ../src/gcompris/interface.c:400
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/gcompris/interface.c:207
+#: ../src/gcompris/interface.c:192
 msgid "Type"
 msgstr "Τύπος"
 
-#: src/gcompris/interface.c:216
+#: ../src/gcompris/interface.c:201
 msgid "Difficulty"
 msgstr "Δυσκολία"
 
-#: src/gcompris/interface.c:225
+#: ../src/gcompris/interface.c:210
 msgid "Author"
 msgstr "Συντάκτης"
 
-#: src/gcompris/interface.c:234
+#: ../src/gcompris/interface.c:219
 msgid "Directory"
 msgstr "Κατάλογος"
 
-#: src/gcompris/interface.c:286 src/gcompris/oggplayer.c:274
+#: ../src/gcompris/interface.c:271
 msgid "Title"
 msgstr "Τίτλος"
 
-#: src/gcompris/interface.c:490
+#: ../src/gcompris/interface.c:472
 msgid "Released under GPL"
-msgstr ""
+msgstr "Εκδόθηκε υπό την GPL"
 
-#: src/gcompris/oggplayer.c:99
+#: ../src/gcompris/soundutil.c:140
 #, c-format
-msgid ""
-"Error unable to find a usable audio output device (%d)\n"
-"Try 'gcompris -A' to select an alternative audio output\n"
-"Use '-A list' to display the list of available devices"
-msgstr ""
-
-#: src/gcompris/oggplayer.c:119
-msgid "Error opening audio device\n"
-msgstr ""
-
-#: src/gcompris/oggplayer.c:165
-msgid ""
-"Possible audio output devices are:\n"
-"default "
-msgstr ""
-
-#: src/gcompris/oggplayer.c:237 src/gcompris/oggplayer.c:248
-msgid "Now Playing Music"
-msgstr "Τώρα Αναπαράγεται Μουσική"
-
-#: src/gcompris/oggplayer.c:278
-msgid "Artist"
-msgstr "Καλλιτέχνης"
-
-#: src/gcompris/soundutil.c:113
-#, fuzzy, c-format
 msgid "Couldn't open music dir: %s"
-msgstr "Δε μπορώ να ανοίξω τον κατάλογο pixmap: %s"
+msgstr "Δε μπορώ να ανοίξω τον κατάλογο μουσικής: %s"
 
-#: src/gcompris/soundutil.c:152
+#: ../src/gcompris/soundutil.c:183
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
 "vorbis OR the sound output failed"
 msgstr ""
 
-#: src/gcompris/support.c:60 src/gcompris/support.c:85
-#, fuzzy, c-format
+#: ../src/gcompris/support.c:60 ../src/gcompris/support.c:85
+#, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "Δε βρέθηκε το αρχείο εικόνας: %s"
 
-#: src/gcompris/timer.c:237
-#, fuzzy
+#: ../src/gcompris/timer.c:237
 msgid "Time Elapsed"
-msgstr "Ζώνη ώρας:"
+msgstr "Χρόνος που πέρασε"
 
-#: src/gcompris/timer.c:323
-#, fuzzy, c-format
+#: ../src/gcompris/timer.c:323
+#, c-format
 msgid "Remaining Time = %d"
-msgstr "_Χρόνος που απομένει"
+msgstr "Χρόνος που απομένει = %d"
 
-#, fuzzy
-#~ msgid "Drag and Drop the top piece only on an empty location"
-#~ msgstr ""
-#~ "Μετακινείστε και Αποθέσατε τα κομμάτια για να τα κάνετε να ταιριάξουν"
