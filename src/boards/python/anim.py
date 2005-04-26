@@ -624,8 +624,11 @@ class Gcompris_anim:
           return gtk.TRUE
         
         elif (self.tools[tool][0] == "MOVIE"):
-          if not self.running:
-            
+          if self.frames_total == 0:
+            print 'Mmm... Need to make shots before run anim !!'
+            return gtk.TRUE
+          
+          if not self.running:            
             # unselect object if necessary
             if (self.selected != None):
               self.selected.item_list[1].hide()

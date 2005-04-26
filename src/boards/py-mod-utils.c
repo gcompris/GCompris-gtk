@@ -299,75 +299,6 @@ py_gcompris_get_asset_file(PyObject* self, PyObject* args)
 }
 
 
-/* void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent);*/
-static PyObject*
-py_gcompris_clone_item(PyObject* self, PyObject* args)
-{
-  PyObject* pyitem;
-  PyObject* pygroup;
-  GnomeCanvasItem* item;
-  GnomeCanvasGroup* group;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OO:gcompris_clone_item", &pyitem, &pygroup))
-    return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
-  group = (GnomeCanvasGroup*) pygobject_get(pygroup);
-
-  /* Call the corresponding C function */
-  gcompris_clone_item(item, group);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
-/* void gcompris_svg_save(char *module, char *file, GnomeCanvasItem *item, int hsize, int vsize, int anim); */
-
-static PyObject*
-py_gcompris_svg_save(PyObject* self, PyObject* args)
-{
-  PyObject* pyitem;
-  GnomeCanvasItem* item;
-  char *module, *file;
-  int hsize, vsize, anim;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssOiii:gcompris_svg_save", &module, &file, &pyitem, &hsize, &vsize, &anim))
-    return NULL;
-  item = (GnomeCanvasItem*) pygobject_get(pyitem);
-
-  /* Call the corresponding C function */
-  gcompris_svg_save(module, file, item, hsize, vsize, anim);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-
-/* void gcompris_svg_restore(char *module, char *filename, GnomeCanvasGroup *parent); */
-static PyObject*
-py_gcompris_svg_restore(PyObject* self, PyObject* args)
-{
-  PyObject* pygroup;
-  GnomeCanvasGroup* group;
-  char *filename, *module;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ssO:gcompris_svg_restore", &module, &filename, &pygroup))
-    return NULL;
-  group = (GnomeCanvasGroup*) pygobject_get(pygroup);
-
-  /* Call the corresponding C function */
-  gcompris_svg_restore( module, filename, group);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
 /* void filename_pass(PyObject *pyitem, PyObject *pystring) */
 static PyObject*
 py_gcompris_filename_pass(PyObject* self, PyObject* args)
@@ -473,9 +404,6 @@ static PyMethodDef PythonGcomprisUtilsModule[] = {
   { "dialog_close",  py_gcompris_dialog_close, METH_VARARGS, "gcompris_dialog_close" },
   { "load_pixmap_asset",  py_gcompris_load_pixmap_asset, METH_VARARGS, "gcompris_load_pixmap_asset" },
   { "get_asset_file",  py_gcompris_get_asset_file, METH_VARARGS, "gcompris_get_asset_file" },
-  { "clone_item",  py_gcompris_clone_item, METH_VARARGS, "gcompris_clone_item" },
-  { "svg_save",  py_gcompris_svg_save, METH_VARARGS, "gcompris_svg_save" },
-  { "svg_restore",  py_gcompris_svg_restore, METH_VARARGS, "gcompris_svg_restore" },
   { "filename_pass",  py_gcompris_filename_pass, METH_VARARGS, "gcompris_filename_pass" },
   { "canvas_set_property",  py_gcompris_canvas_set_property, METH_VARARGS, "gcompris_canvas_set_property" },
   { "canvas_get_property",  py_gcompris_canvas_get_property, METH_VARARGS, "gcompris_canvas_get_property" },

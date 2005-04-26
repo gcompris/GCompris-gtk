@@ -9,6 +9,7 @@ dist_python_DATA= \
 	bargame.py \
 	connect4.py \
 	followline.py \
+	gnumch.py \
 	hexagon.py \
 	melody.py \
 	pythontest.py \

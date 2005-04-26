@@ -1,3 +1,63 @@
+2005-04-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	New activity gnumch from Joe Neeman
+	This is a port of the same activity Joe did separatly.
+
+	removed unused svgutil.c
+
+	anim, fixed the bug when you ask an animation play on an empty
+	drawing.
+	
+	* boards/Makefile.am:
+	* boards/boardicons/gnumch.png:
+	* boards/gletters/gletters.nb:
+	* boards/gletters/gletters.nn:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* boards/gnumch/diaper.gif:
+	* boards/gnumch/diaper.txt:
+	* boards/gnumch/diaper_eating.gif:
+	* boards/gnumch/diaper_walking.gif:
+	* boards/gnumch/eater.gif:
+	* boards/gnumch/eater.txt:
+	* boards/gnumch/eater_eating.gif:
+	* boards/gnumch/eater_walking.gif:
+	* boards/gnumch/fraidy.gif:
+	* boards/gnumch/fraidy.txt:
+	* boards/gnumch/fraidy_eating.gif:
+	* boards/gnumch/fraidy_walking.gif:
+	* boards/gnumch/muncher.gif:
+	* boards/gnumch/muncher.txt:
+	* boards/gnumch/muncher_eating.gif:
+	* boards/gnumch/muncher_walking.gif:
+	* boards/gnumch/reggie.gif:
+	* boards/gnumch/reggie.txt:
+	* boards/gnumch/reggie_eating.gif:
+	* boards/gnumch/reggie_walking.gif:
+	* boards/gnumch/smarty.gif:
+	* boards/gnumch/smarty.txt:
+	* boards/gnumch/smarty_eating.gif:
+	* boards/gnumch/smarty_walking.gif:
+	* boards/gnumchmenu.xml.in:
+	* boards/mazeInvisible.xml.in:
+	* configure.in:
+	* docs/C/python.xml:
+	* po/POTFILES.in:
+	* src/boards/py-mod-utils.c:
+	* src/boards/python/Makefile.am:
+	* src/boards/python/anim.py:
+	* src/boards/python/gnumch.py:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris.h:
+	* src/gcompris/svgutil.c:
+	* src/gcompris/svgutil.h:
+
+
+	*** RELEASE 6.5.3 ***
+
 2005-04-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 

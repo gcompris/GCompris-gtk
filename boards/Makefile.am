@@ -42,6 +42,12 @@ xml_in_files = \
 	followline.xml.in \
 	fun.xml.in \
 	geography.xml.in \
+	gnumch-equality.xml.in \
+	gnumch-factors.xml.in \
+	gnumch-inequality.xml.in \
+	gnumch-multiples.xml.in \
+	gnumch-primes.xml.in \
+	gnumchmenu.xml.in \
 	gletters.xml.in \
 	hanoi.xml.in \
 	hexagon.xml.in \

@@ -1,0 +1,882 @@
+# -*- coding: utf-8 -*-
+#  gcompris - gnumch
+#
+# Time-stamp: <2005/10/03 09:16 Joe Neeman>
+#
+# Copyright (C) 2005 Joe Neeman
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+
+import gnome
+import gnome.canvas
+import gcompris
+import gcompris.utils
+import gcompris.skin
+import gcompris.bonus
+import gcompris.score
+import gcompris.anim
+import gobject
+import gtk
+import gtk.gdk
+import random
+import math
+from gettext import gettext as _
+
+class Number:
+    def __init__(self, text, good):
+        self.text = text
+        self.good = good
+
+class Square:
+    def __init__(self, x, y):
+        self.num = None
+        self.pic = game.rootitem.add( gnome.canvas.CanvasText,
+                                      text = "",
+                                      font = gcompris.skin.get_font("gcompris/content"),
+                                      x = x,
+                                      y = y )
+
+    def setNum(self, num):
+        self.num = num
+        if num != None:
+            self.pic.set( text = num.text )
+        else:
+            self.pic.set( text = "" )
+
+class Level:
+    def __init__(self, title, numlist):
+        self.title = title
+        self.numbers = numlist
+
+# the following class goes unused: is is only here to document the Levelset interface.
+class Levelset:
+    def __init__(self):
+        pass
+
+    def getError(self, num):
+        pass
+
+    def getTitle(self):
+        pass
+
+    def setLevel(self, lnum):
+        pass
+
+    def getNumber(self):
+        pass
+
+def isPrime(n):
+    if n == 1:
+        return 0
+    for i in range(2, int(math.sqrt(n) + 1) ):
+        if (n % i) == 0:
+            return 0
+    return 1
+
+def makeNumList(nums):
+    if len(nums) == 0:
+        return ""
+    fmt = '%d'
+    if len(nums) >= 2:
+        for i in range(1, len(nums)-1):
+            fmt += _(', %d')
+        fmt += _(' and %d')
+    return fmt
+
+def getFactors(n):
+    f = []
+    for i in range(1, n/2 + 1):
+        if n%i == 0:
+            f.append(i)
+    f.append(n)
+    return f
+
+class PrimeLevelset:
+    def __init__(self):
+        self.numlevels = 9
+        self.level_max = [ 3, 5, 7, 11, 13, 17, 19, 23, 29 ]
+        self.curlevel = 1
+
+    def getError(self, num):
+        fmt = _('%d is divisible by %s.')
+        n = int(num.text)
+
+        if n == 1:
+            return _("1 is not a prime number.")
+
+        factors = []
+        for i in range(2, n/2 + 1):
+            if n % i == 0:
+                factors.append(i)
+        s = makeNumList(factors) % tuple(factors)
+        return fmt % tuple(n, s)
+
+    def getTitle(self):
+        return _('Primes less than %d') % ( self.level_max[self.curlevel-1] + 1 )
+
+    def setLevel(self, n):
+        self.curlevel = n
+
+    def getNumber(self):
+        n = random.randint( 1, self.level_max[self.curlevel-1] )
+        return Number( str(n), isPrime(n) )
+
+class FactorLevelset:
+    def __init__(self):
+        self.numlevels = 9
+        self.level_multiple = [ 4, 6, 8, 10, 12, 15, 18, 20, 24 ]
+        self.curlevel = 1
+        self.factors = []
+        self.nonfactors = []
+
+    def getError(self, num):
+        fmt = _('Multiples of %d include %s,\nbut %d is not a multiple of %d.')
+        n = int(num.text)
+        mults = []
+        for i in range(2, 5):
+            mults.append(n*i)
+        s = makeNumList(mults) % tuple(mults)
+        return fmt % (n, s, self.level_multiple[self.curlevel-1], n)
+
+    def getTitle(self):
+        return _('Factors of %d') % ( self.level_multiple[self.curlevel-1] )
+
+    def setLevel(self, n):
+        self.curlevel = n
+        self.factors = []
+        self.nonfactors = []
+        for i in range(1, self.level_multiple[n-1]+1):
+            if self.level_multiple[n-1] % i == 0:
+                self.factors.append(i)
+            else:
+                self.nonfactors.append(i)
+
+    def getNumber(self):
+        if random.randint(0,1):
+            # choose a good number
+            n = self.factors[ random.randint(0, len(self.factors)-1) ]
+            num = Number( str(n), 1 )
+        else:
+            # choose a wrong number
+            n = self.nonfactors[ random.randint(0, len(self.nonfactors)-1) ]
+            num = Number( str(n), 0 )
+        return num
+
+class MultipleLevelset:
+    def __init__(self):
+        self.numlevels = 9
+        self.curlevel = 1
+
+    def getError(self, num):
+        fmt = _('%s are the factors of %d.')
+        n = int(num.text)
+
+        factors = []
+        for i in range(1, n/2+1):
+            if n % i == 0:
+                factors.append(i)
+        factors.append(n)
+        s = makeNumList(factors) % tuple(factors)
+        return fmt % (s, n)
+
+    def getTitle(self):
+        return _('Multiples of %d') % ( self.curlevel+1 )
+
+    def setLevel(self, n):
+        self.curlevel = n
+
+    def getNumber(self):
+        if random.randint(0,1):
+            # choose a good number
+            n = (self.curlevel+1) * random.randint(1, 12)
+            num = Number( str(n), 1 )
+        else:
+            # choose a wrong number
+            n = (self.curlevel+1) * random.randint(1, 12) - random.randint(1, self.curlevel)
+            num = Number( str(n), 0 )
+        return num
+
+# for all expression-based levels, we add a value field to the Number
+class ExpressionLevelset(object):
+    def __init__(self):
+        self.numlevels = 7
+        self.levelops = [ [self.getPlus],
+                          [self.getMinus],
+                          [self.getPlus, self.getMinus],
+                          [self.getTimes],
+                          [self.getPlus, self.getMinus, self.getTimes],
+                          [self.getDivide],
+                          [self.getPlus, self.getMinus, self.getTimes, self.getDivide]
+                        ]
+        self.curlevel = 1
+
+    def getError(self, num):
+        fmt = _('%s = %d')
+        return fmt % (num.text, num.value)
+
+    def getNumberWithAnswer(self, answer):
+        fn = random.choice( self.levelops[self.curlevel-1] )
+        num = fn(answer)
+        num.value = answer
+        return num
+
+    def getPlus(self, answer):
+        n = random.randint(0, answer)
+        num = Number( _('%d + %d') % (n, answer-n), 1 )
+        return num
+
+    def getMinus(self, answer):
+        n = random.randint(answer, answer*2)
+        num = Number( _('%d - %d') % (n, n-answer), 1 )
+        return num
+
+    def getTimes(self, answer):
+        n = random.choice( getFactors(answer) )
+        return Number( _('%d × %d') % (n, answer/n), 1 )
+
+    def getDivide(self, answer):
+        n = random.randint(1, 5)
+        return Number( _('%d ÷ %d') % (answer*n, n), 1 )
+
+class EqualityLevelset(ExpressionLevelset):
+    def __init__(self):
+        super(EqualityLevelset, self).__init__()
+        self.answermin = 5
+        self.answermax = 12
+        self.answer = 5
+
+    def getTitle(self):
+        return _('Equal to %d') % (self.answer,)
+
+    def setLevel(self, n):
+        self.curlevel = n
+        self.answer = random.randint(self.answermin, self.answermax)
+
+    def getNumber(self):
+        if random.randint(0, 1):
+            # correct number
+            num = self.getNumberWithAnswer(self.answer)
+            num.good = 1
+        else:
+            # wrong number
+            ans = random.choice( range(self.answermin, self.answer) + range(self.answer+1, self.answermax+1) )
+            num = self.getNumberWithAnswer(ans)
+            num.good = 0
+        return num
+
+class InequalityLevelset(EqualityLevelset):
+    def getTitle(self):
+        return _('Not equal to %d') % (self.answer,)
+
+    def getNumber(self):
+        num = super(InequalityLevelset, self).getNumber()
+        if num.good:
+            num.good = 0
+        else:
+            num.good = 1
+        return num
+
+class Player(object):
+
+    def __init__(self):
+        self.move_stepnum = 0
+        self.x = self.y = self.x_old = self.y_old = -1
+        self.moving = self.exists = gtk.FALSE
+        self.action_start = 0
+        self.anim = None
+        self.velocity = []
+
+        self.movestep_timer = 0
+        self.munch_timer = 0
+
+        # food chain status
+        self.foodchain = 0
+
+    # These are defined in Muncher and Troggle
+    def spawn(self):
+        pass
+
+    def die(self):
+        if self.movestep_timer != 0:
+            gtk.timeout_remove(self.movestep_timer)
+            self.movestep_timer = 0
+        if self.munch_timer != 0:
+            gtk.timeout_remove(self.munch_timer)
+            self.munch_timer = 0
+
+    def getEaten(self):
+        pass
+
+    def isAt(self, x, y):
+        return self.exists and not self.moving and (self.x == x and self.y == y)
+
+    def isNear(self, x, y):
+        return self.exists and (    (self.x == x and self.y == y)
+                                or  (self.moving and self.x_old == x
+                                                 and self.y_old == y)
+                               )
+
+    def move_step(self):
+        if self.move_stepnum < game.num_moveticks-1:
+            self.move_stepnum += 1
+            x_old = self.anim.gnome_canvas.get_property("x")
+            y_old = self.anim.gnome_canvas.get_property("y")
+            x = self.anim.gnome_canvas.get_property("x") + self.velocity[0]*game.sw/game.num_moveticks
+            y = self.anim.gnome_canvas.get_property("y") + self.velocity[1]*game.sh/game.num_moveticks
+            ret = gtk.TRUE
+        else:
+            self.move_stepnum = 0
+            x = game.sw * self.x + game.left
+            y = game.sh * self.y + game.top
+            self.stop()
+            self.movestep_timer = 0
+            ret = gtk.FALSE
+
+        self.anim.gnome_canvas.set(x=x, y=y)
+        return ret
+
+    def move(self, x_old, y_old, x, y):
+        self.x_old = x_old
+        self.y_old = y_old
+        self.x = x
+        self.y = y
+        self.velocity = [x-x_old, y-y_old]
+        self.anim.gnome_canvas.set(x=(self.x_old * game.sw + game.left),
+                                   y=(self.y_old * game.sh + game.top))
+        self.moving = gtk.TRUE
+
+        # it takes game.num_moveticks iterations of duration game.move_tick to move squares
+        if x != x_old or y != y_old:
+            self.anim.setState(1)
+            self.movestep_timer = game.timeout_add(game.move_tick, self.move_step)
+        else:
+            self.stop()
+
+    def startMunching(self):
+        self.anim.setState(2)
+        self.munch_timer = game.timeout_add(game.munch_time, self.stopMunching)
+        return gtk.FALSE
+
+    def stopMunching(self):
+        self.munch_timer = 0
+        self.anim.setState(0)
+        return gtk.FALSE
+
+    def stop(self):
+        self.anim.setState(0)
+        self.moving = gtk.FALSE
+
+        # work out eating stuff
+        for p in game.players:
+            if p.isAt(self.x, self.y) and p != self:
+                if self.foodchain >= p.foodchain:
+                    p.getEaten()
+                    self.startMunching()
+                else:
+                    self.getEaten()
+                    p.startMunching()
+
+
+class Muncher(Player):
+    def __init__(self):
+        super(Muncher, self).__init__()
+        self.lives = 1
+        self.anim = gcompris.anim.CanvasItem(game.munchanimation, game.rootitem)
+        self.spare = gcompris.anim.CanvasItem(game.munchanimation, game.rootitem)
+        self.anim.gnome_canvas.hide()
+        self.key_queue = []
+        self.spare.gnome_canvas.set(x=0, y=0)
+
+    def spawn(self):
+        if self.lives >= 1:
+            self.spare.gnome_canvas.show()
+        elif self.lives == 0:
+            self.spare.gnome_canvas.hide()
+        else:
+            game.loseGame()
+        self.key_queue = []
+        game.hide_message()
+        self.exists = gtk.TRUE
+        self.move(0,0,0,0)
+        self.anim.gnome_canvas.show()
+
+    def die(self):
+        super(Muncher, self).die()
+        self.lives -= 1
+        self.exists = gtk.FALSE
+        self.anim.gnome_canvas.hide()
+        self.key_queue = []
+
+    def getEaten(self):
+        game.show_message( _("You were eaten by a Troggle.\nPress <Return> to continue.") )
+        self.die()
+
+    def push_key(self, key):
+        if self.exists:
+            if self.moving:
+                self.key_queue.append(key)
+            elif len(self.key_queue) == 0:
+                self.handle_key(key)
+            else:
+                self.key_queue.append(key)
+                self.handle_key(self.key_queue.pop(0))
+        else:
+            if key == gtk.keysyms.Return:
+                self.spawn()
+
+    def handle_key(self, key):
+        if key == gtk.keysyms.Left:
+            if self.x > 0:
+                self.move(self.x, self.y, (self.x-1), self.y)
+            else:
+                self.stop()
+        elif key == gtk.keysyms.Right:
+            if self.x < game.width - 1:
+                self.move(self.x, self.y, (self.x+1), self.y)
+            else:
+                self.stop()
+        elif key == gtk.keysyms.Up:
+            if self.y > 0:
+                self.move(self.x, self.y, self.x, (self.y-1))
+            else:
+                self.stop()
+        elif key == gtk.keysyms.Down:
+            if self.y < game.height - 1:
+                self.move(self.x, self.y, self.x, (self.y+1))
+            else:
+                self.stop()
+        elif key == gtk.keysyms.space:
+            self.munch()
+            if len( self.key_queue ) > 0: # we don't need to wait for munching to finish to start the next action
+                self.handle_key( self.key_queue.pop(0) )
+
+    def munch(self):
+        num = game.squares[self.x][self.y].num
+        if num == None:
+            return
+        if num.good:
+            self.startMunching()
+        else:
+            game.show_message( "You ate a wrong number.\n" +game.levelset.getError(num) +
+                                     "\nPress <Return> to continue." )
+            self.die()
+        game.setNum(self.x, self.y, None)
+
+    def stop(self):
+        super(Muncher, self).stop()
+        if len(self.key_queue) > 0:
+            key = self.key_queue.pop(0)
+            self.handle_key(key)
+
+
+class Troggle(Player):
+    def __init__(self):
+        super(Troggle, self).__init__()
+        self.anim = gcompris.anim.CanvasItem(game.munchanimation, game.rootitem)
+
+        self.nextspawn_timer = 0
+        self.nextmove_timer = 0
+        self.warn_timer = 0
+
+        self.foodchain = 1
+
+    def spawn(self):
+        self.nextspawn_timer = 0
+        self.warn_timer = 0
+        self.exists = gtk.TRUE
+        index = random.randint(0, len( game.troganimation )-1)
+        self.anim.swapAnimation(game.troganimation[index])
+        self.getMove = game.trogmoves[index]
+        self.onMove = game.onmove[index]
+        self.onStop = game.onstop[index]
+        if random.randint(0,1) == 0:
+            if random.randint(0,1) == 0:
+                self.x_old = -1
+                self.x = 0
+            else:
+                self.x_old = game.width
+                self.x = game.width - 1
+            self.y = self.y_old = random.randint(0, game.height-1)
+        else:
+            if random.randint(0,1) == 0:
+                self.y_old = -1
+                self.y = 0
+            else:
+                self.y_old = game.height
+                self.y = game.height - 1
+            self.x = self.x_old = random.randint(0, game.width-1)
+        self.move(self.x_old, self.y_old, self.x, self.y)
+        self.anim.gnome_canvas.show()
+        game.hide_trogwarning()
+
+    def die(self):
+        super(Troggle, self).die()
+        self.exists = 0
+        self.anim.gnome_canvas.hide()
+
+        time = game.trog_spawn_time()
+        self.nextspawn_timer = game.timeout_add( time + game.trogwarn_time, self.spawn )
+        self.warn_timer = game.timeout_add( time, game.show_trogwarning )
+        if self.nextmove_timer != 0:
+            gtk.timeout_remove(self.nextmove_timer)
+            self.nextmove_timer = 0
+
+    def getEaten(self):
+        self.die()
+
+    def move(self, a, b, c, d):
+        if self.onMove != None and (a != c or b != d) and game.onBoard(a, b):
+            self.x = a
+            self.y = b
+            self.onMove(self)
+        super(Troggle, self).move(a, b, c, d)
+
+    def stop(self):
+        self.moving = gtk.FALSE
+        if self.x < 0 or self.x >= game.width or self.y < 0 or self.y >= game.height:
+            self.die()
+        else:
+            super(Troggle, self).stop()
+            self.nextmove_timer = game.timeout_add(game.trog_wait, self.getTrogMove)
+            if self.onStop != None:
+                self.onStop(self)
+
+    def getTrogMove(self):
+        self.nextmove_timer = 0
+        x_old = self.x
+        y_old = self.y
+        x, y = self.getMove(self)
+        self.move(x_old, y_old, x, y)
+
+    # the troggle move types
+    def trogMove_straight(self):
+        x = self.x + (self.x - self.x_old)
+        y = self.y + (self.y - self.y_old)
+        return x, y
+
+    def trogMove_random(self):
+        x = self.x
+        y = self.y
+        r = random.randint(0,3)
+        if r >= 1: # move straight
+            x += self.x - self.x_old
+            y += self.y - self.y_old
+        elif r == 2: # turn left
+            x += self.y - self.y_old
+            y -= self.x - self.x_old
+        else: # turn right
+            x -= self.y - self.y_old
+            y += self.x - self.x_old
+        return x, y
+
+    def trogMove_chase(self):
+        x = self.x
+        y = self.y
+        dx = game.muncher.x - x
+        dy = game.muncher.y - y
+        if dx == 0 and dy == 0:
+            return self.trogMove_straight()
+        if not game.muncher.exists or abs(dx) > game.width/2 or abs(dy) > game.height/2:
+            return self.trogMove_straight()
+        if abs(dx) > abs(dy) or (abs(dx) == abs(dy) and random.randint(0,1) == 0):
+            x += dx / abs(dx)
+        else:
+            y += dy / abs(dy)
+        return x, y
+
+    def trogMove_run(self):
+        x = self.x
+        y = self.y
+        dx = game.muncher.x - x
+        dy = game.muncher.y - y
+        if not game.muncher.exists or abs(dx) > game.width/2 or abs(dy) > game.height/2:
+            return self.trogMove_random()
+        if abs(dx) > abs(dy) or (abs(dx) == abs(dy) and random.randint(0,1) == 0):
+            x -= dx / abs(dx)
+        else:
+            y -= dy / abs(dy)
+        return x, y
+
+    def onMove_create(self):
+        game.setNum( self.x, self.y, game.levelset.getNumber() )
+
+    def onStop_munch(self):
+        if game.squares[self.x][self.y].num != None:
+            self.startMunching()
+            game.setNum( self.x, self.y, None )
+
+class Gcompris_gnumch:
+    def __init__(self, board):
+        global game
+        game = self
+
+        self.board = board
+        self.scrw = gcompris.BOARD_WIDTH
+        self.scrh = gcompris.BOARD_HEIGHT
+        self.width = 6
+        self.height = 6
+
+        self.sw = self.scrw / (self.width + 1)
+        self.sh = self.scrh / (self.width + 1)
+        self.left = self.scrw - (self.sw * self.width)
+        self.top = self.scrh - (self.sh * self.height)
+
+        self.munchanimation = gcompris.anim.Animation("gnumch/muncher.txt")
+        self.troganimation = []
+        self.trogmoves = [Troggle.trogMove_straight, Troggle.trogMove_random,
+                          Troggle.trogMove_run, Troggle.trogMove_random,
+                          Troggle.trogMove_chase]
+        self.onmove = [ None, Troggle.onMove_create, None, None, None ]
+        self.onstop = [ None, None, None, Troggle.onStop_munch, None ]
+        for file in [ "gnumch/reggie.txt",
+                      "gnumch/diaper.txt",
+                      "gnumch/fraidy.txt",
+                      "gnumch/eater.txt",
+                      "gnumch/smarty.txt" ]:
+            self.troganimation.append( gcompris.anim.Animation(file) )
+
+        self.goodies = 0
+        self.paused = 0
+        self.stopped = 0
+        if board.mode == "primes":
+            self.levelset = PrimeLevelset()
+        elif board.mode == "factors":
+            self.levelset = FactorLevelset()
+        elif board.mode == "multiples":
+            self.levelset = MultipleLevelset()
+        elif board.mode == "equality":
+            self.levelset = EqualityLevelset()
+        elif board.mode == "inequality":
+            self.levelset = InequalityLevelset()
+        else:
+            print "Warning: no levelset type specified, defaulting to primes"
+            self.levelset = PrimeLevelset()
+
+        print "Gcompris_gnumch __init__."
+
+        # config options
+        self.move_tick = 30
+        self.num_moveticks = 10
+        self.munch_time = 400
+        self.trog_wait = 1000
+        self.trogwarn_time = 1000
+        self.trogspawn_min = 3000
+        self.trogspawn_max = 10000
+
+    def start(self):
+        self.board.level = 1
+        self.board.maxlevel = self.levelset.numlevels
+        self.board.sublevel = 1
+        self.board.number_of_sublevel = 1
+
+        gcompris.bar_set(0)
+        gcompris.set_background(self.board.canvas.root(), gcompris.skin.image_to_skin("gcompris-bg.jpg"))
+        gcompris.bar_set_level(self.board)
+        gcompris.bar_set(gcompris.BAR_LEVEL | gcompris.BAR_REPEAT)
+
+        # create our rootitem. We put each canvas item here so at the end we only
+        # need to destroy the rootitem
+        self.rootitem = self.board.canvas.root().add(gnome.canvas.CanvasGroup,
+                                                     x=0.0,
+                                                     y=0.0)
+
+        # draw the board on top of the background
+        for i in range(0,self.width+1):
+            self.rootitem.add(gnome.canvas.CanvasLine,
+                              points = (i*self.sw + self.left, self.top,
+                                        i*self.sw + self.left, self.scrh),
+                              fill_color_rgba = 0x000000FFL,
+                              width_units = 3.0)
+        for i in range(0,self.height+1):
+            self.rootitem.add(gnome.canvas.CanvasLine,
+                              points = (self.left, self.top + i*self.sh,
+                                        self.scrw, self.top + i*self.sh),
+                              fill_color_rgba = 0x000000FFL,
+                              width_units = 3.0)
+
+        # munchers and troggles
+        self.players = []
+        self.muncher = Muncher()
+        self.troggles = [Troggle(), Troggle(), Troggle()]
+
+        self.players[:] = self.troggles
+        self.players.append(self.muncher)
+
+        # create the squares
+        self.squares = []
+        for i in range(0, self.width):
+            tmp = []
+            for j in range(0, self.height):
+                s = Square(self.left + self.sw*i + self.sw/2, self.top + self.sh*j + self.sh/2)
+                s.pic.raise_to_top()
+                tmp.append( s )
+            self.squares.append(tmp)
+
+        # so that the troggles get clipped to the board area
+        self.rootitem.add(gnome.canvas.CanvasRect,
+                          x1=0, y1=0,
+                          x2=self.scrw, y2=self.top,
+                          fill_color_rgba = 0xFFFFFFFFL)
+        self.rootitem.add(gnome.canvas.CanvasRect,
+                          x1=0, y1=0,
+                          x2=self.left, y2=self.scrh,
+                          fill_color_rgba = 0xFFFFFFFFL)
+
+        # the board title
+        self.title = self.rootitem.add(gnome.canvas.CanvasText,
+                                       text = "",
+                                       font = gcompris.skin.get_font("gcompris/board/huge bold"),
+                                       x = self.scrw/2,
+                                       y = self.top/2)
+
+        # the message
+        self.message_back = self.rootitem.add(gnome.canvas.CanvasRect,
+                                        x1=0, y1=0, x2=1, y2=1,
+                                        fill_color_rgba = 0x60F06060L)
+        self.message = self.rootitem.add(gnome.canvas.CanvasText,
+                                        text = "",
+                                        justification = gtk.JUSTIFY_CENTER,
+                                        font = gcompris.skin.get_font("gcompris/board/huge bold"),
+                                        x = self.scrw/2,
+                                        y = self.scrh/2)
+        self.message.hide()
+
+        # the trogwarning
+        self.trogwarning = self.rootitem.add(gnome.canvas.CanvasText,
+                                        text = "T\nR\nO\nG\nG\nL\nE",
+                                        justification = gtk.JUSTIFY_CENTER,
+                                        font = gcompris.skin.get_font("gcompris/board/huge bold"),
+                                        x = self.left/2,
+                                        y = self.scrh/2)
+        self.trogwarning.hide()
+        self.trogwarning_num = 0
+
+        # the spare life
+        self.muncher.spare.gnome_canvas.raise_to_top()
+
+        self.startGame()
+
+    def show_trogwarning(self):
+        self.trogwarning_num += 1
+        if self.trogwarning_num == 1:
+            self.trogwarning.show()
+
+    def hide_trogwarning(self):
+        self.trogwarning_num -= 1
+        if self.trogwarning_num == 0:
+            self.trogwarning.hide()
+
+    def show_message(self, text):
+        self.message.set( text = text )
+        w = self.message.get_property("text-width")
+        h = self.message.get_property("text-height")
+        self.message_back.set( x1 = (self.scrw - w)/2, y1 = (self.scrh - h)/2,
+                               x2 = (self.scrw + w)/2, y2 = (self.scrh + h)/2 )
+        self.message_back.show()
+        self.message.show()
+
+    def hide_message(self):
+        self.message.hide()
+        self.message_back.hide()
+
+    def set_level(self, level):
+        self.board.level = level;
+        self.board.sublevel = 1;
+        gcompris.bar_set_level(self.board);
+        self.stopGame()
+        self.startGame()
+
+    def trog_spawn_time(self):
+        return random.randint(self.trogspawn_min, self.trogspawn_max)
+
+    def setNum(self, x, y, new):
+        change = 0
+        if new == None or not new.good:
+            change -= 1
+        else:
+            change += 1
+        if self.squares[x][y].num == None or not self.squares[x][y].num.good:
+            change += 1
+        else:
+            change -= 1
+
+        change /= 2
+        self.goodies += change
+        if self.goodies == 0:
+            self.winGame()
+        self.squares[x][y].setNum(new)
+
+    def key_press(self, keyval):
+        self.muncher.push_key(keyval)
+        return gtk.FALSE
+
+    def stopGame(self):
+        self.stopped = 1
+        if self.muncher.munch_timer != 0:
+            gtk.timeout_remove(self.muncher.munch_timer)
+        if self.muncher.movestep_timer != 0:
+            gtk.timeout_remove(self.muncher.movestep_timer)
+
+        for t in self.troggles:
+            for timer in [t.munch_timer, t.movestep_timer, t.nextmove_timer, t.nextspawn_timer, t.warn_timer]:
+                if timer != 0:
+                    gtk.timeout_remove(timer)
+
+    def startGame(self):
+        self.stopped = 0
+        self.levelset.setLevel(self.board.level)
+        self.title.set(text = self.levelset.getTitle())
+        self.trogwarning_num = 1
+        self.hide_trogwarning()
+        self.goodies = 0
+        for col in self.squares:
+            for s in col:
+                s.setNum( self.levelset.getNumber() )
+                if s.num.good:
+                    self.goodies += 1
+
+        self.muncher.lives = 1
+        for t in self.troggles:
+            t.die()
+        self.muncher.spawn()
+
+    def winGame(self):
+        self.stopGame()
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+
+    def loseGame(self):
+        self.stopGame()
+        gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
+
+    def onBoard(self, x, y):
+        return x >= 0 and x < self.width and y >= 0 and y < self.height
+
+    def pause(self, p):
+        self.paused = p
+
+    def repeat(self):
+        self.stopGame()
+        self.startGame()
+
+    def timeout_add(self, t, fn):
+        if not self.paused and not self.stopped:
+            return gtk.timeout_add(t, fn)
+        else:
+            return 0
+
+    def end(self):
+        self.stopGame()
+        self.rootitem.destroy()

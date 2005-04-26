@@ -551,11 +551,6 @@ attribute is readeable and/or writable.</para>
 		<entry>gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry>
 		<entry>return a string</entry>
 	      </row>
-	      <row>
-		<entry>gcompris.utils.clone_item(item, parent)</entry>
-		<entry>void gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent)</entry>
-		<entry></entry>
-	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
