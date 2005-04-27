@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-09 10:50+0000\n"
-"PO-Revision-Date: 2005-04-09 23:06+0200\n"
+"POT-Creation-Date: 2005-04-27 19:01+0000\n"
+"PO-Revision-Date: 2005-04-27 22:34+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -356,12 +356,14 @@ msgstr "Ga naar de rekensommen"
 #: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
 #: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
 #: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/fun.xml.in.h:2 ../boards/gnumchmenu.xml.in.h:2
+#: ../boards/menu.xml.in.h:18 ../boards/mouse.xml.in.h:1
 #: ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Klik met de linker muisknop om een bordspel te kiezen"
 
-#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase.xml.in.h:1
+#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
@@ -466,7 +468,8 @@ msgstr "Een lijst met symbolen afmaken"
 msgid "Find the next in a list of symbols."
 msgstr "Zoek de volgende in een lijst met symbolen."
 
-#: ../boards/algorithm.xml.in.h:3 ../boards/hexagon.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Training in logica"
 
@@ -606,10 +609,31 @@ msgstr "Druk te twee shift-toetsen tegelijk in om de bal recht te schieten"
 msgid "Send the ball to Tux"
 msgstr "Schiet de bal naar Tux"
 
+# brein/hersens
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Hersens"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
+msgstr "Speel niet de laatste bal"
+
+#: ../boards/bargame.xml.in.h:4
+msgid ""
+"Put balls in the holes. You win if the computer play the last one. If you "
+"want Tux to begin, just click on him."
+msgstr "Doe de ballen in de gaten. Je hebt gewonnen als de computer de laatse bal moet spelen. Als je wilt dat Tux begint, moet je op hem klikken."
+
+# balk/cafe?
+#: ../boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "Balkspel"
+
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
 #: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
-#: ../boards/erase.xml.in.h:3 ../boards/fifteen.xml.in.h:2
+#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Omgaan met de muis"
@@ -1029,7 +1053,10 @@ msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
 "4stattack by Jeroen Vloothuis. The original project can be found on http://"
 "forcedattack.sourceforge.net"
-msgstr "Laurent Lacheny. Afbeeldingen and Kunstmatige Intelligentie van project 4stattack door Jeroen Vloothuis. Het oorspronkelijke project kan worden gevonden op http://forcedattack.sourceforge.net"
+msgstr ""
+"Laurent Lacheny. Afbeeldingen and Kunstmatige Intelligentie van project "
+"4stattack door Jeroen Vloothuis. Het oorspronkelijke project kan worden "
+"gevonden op http://forcedattack.sourceforge.net"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1111,22 +1138,56 @@ msgstr "Leren tellen"
 msgid "Place the items in the best way to count them"
 msgstr "Zet de dingen in de beste volgorde om ze te tellen"
 
-#: ../boards/erase.xml.in.h:2
+#: ../boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"authorization to include their pictures. Thanks a lot."
+msgstr "De prentjes van dieren komen van de Dierenfoto-pagina van Ralf Schmode (http://schmode.net/) en van LE BERRE Daniel. Zij hebben GCompris toestemming gegeven om deze foto's te gebruiken. Bedankt!"
+
+#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:72
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
 #: ../src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:73
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Beweeg de muis om de achtergrond zichtbaar te maken"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Beweeg de muis tot alle blokken verdwijnen."
+
+#: ../boards/erase_clic.xml.in.h:2
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Klik op de rechthoekjes met de muis tot alle blokken verdwijnen."
+
+#: ../boards/erase_clic.xml.in.h:3
+msgid "Click with the mouse"
+msgstr "Klik met de muis"
+
+#: ../boards/erase_clic.xml.in.h:4
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Klik met de muis om de achtergrond zichtbaar te maken"
+
+#: ../boards/erase_double_clic.xml.in.h:2
+msgid ""
+"Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Dubbelklik op de rechthoekjes met de muis tot alle blokken verdwijnen."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+msgid ""
+"Double-Click with the mouse to erase the area and discover the background"
+msgstr "Dubbelklik met de muis om de achtergrond zichtbaar te maken"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+msgid "Double-click with the mouse"
+msgstr "Dubbelklik met de muis"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
@@ -1522,6 +1583,10 @@ msgstr "Eenvoudige Letters"
 #: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Typ de vallende letters voor ze de grond raken"
+
+#: ../boards/gnumchmenu.xml.in.h:1
+msgid "Go to Number Munchers activities"
+msgstr "Ga naar de rekenoefeningen"
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -2220,6 +2285,10 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Leren met geld en kleingeld omgaan"
 
+#: ../boards/mouse.xml.in.h:2
+msgid "Mouse manipulation boards"
+msgstr "Oefeningen in omgaan met de muis"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr "Sleep de plaatjes naar de juiste plaats"
@@ -2801,9 +2870,9 @@ msgstr "Verschillende activiteiten voor kinderen"
 
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:130 ../src/gcompris/gameutil.c:519
-#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:482
+#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:933
+#: ../src/gcompris/gameutil.c:127 ../src/gcompris/gameutil.c:519
+#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:492
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -2830,15 +2899,15 @@ msgstr ""
 "Tux heeft een probleem met zijn boot. Hij moet ermee door een sluis.\n"
 "Help Tux en leer hoe een sluis werkt."
 
-#: ../src/boards/chess.c:136
+#: ../src/boards/chess.c:134
 msgid "Learning Chess"
 msgstr "Leer schaken"
 
-#: ../src/boards/chess.c:137
+#: ../src/boards/chess.c:135
 msgid "Play chess against tux in a learning mode"
 msgstr "Schaken tegen Tux in leermodus"
 
-#: ../src/boards/chess.c:190
+#: ../src/boards/chess.c:188
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2850,7 +2919,7 @@ msgstr ""
 "gnuchess heeft.\n"
 "Doe een upgrade naar gnuchess 5 of hoger."
 
-#: ../src/boards/chess.c:197 ../src/boards/chess.c:239
+#: ../src/boards/chess.c:195 ../src/boards/chess.c:237
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2864,31 +2933,31 @@ msgstr ""
 "of in uw GNU/Linux distributie.\n"
 "Controleer ook of het staat in "
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "White Turn"
 msgstr "Wit's beurt"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:577
 msgid "Black Turn"
 msgstr "Zwart's beurt"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:718
 msgid "White check"
 msgstr "Wit schaak"
 
-#: ../src/boards/chess.c:722
+#: ../src/boards/chess.c:720
 msgid "Black check"
 msgstr "Zwart schaak"
 
-#: ../src/boards/chess.c:1053
+#: ../src/boards/chess.c:1051
 msgid "Black mates"
 msgstr "Zwart schaakmat"
 
-#: ../src/boards/chess.c:1058
+#: ../src/boards/chess.c:1056
 msgid "White mates"
 msgstr "Wit schaakmat"
 
-#: ../src/boards/chess.c:1063
+#: ../src/boards/chess.c:1061 ../src/gcompris/bonus.c:314
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
@@ -2973,6 +3042,23 @@ msgstr "Klik op het zwarte plaatje"
 #: ../src/boards/colors.c:63
 msgid "Click on the white toon"
 msgstr "Klik op het witte plaatje"
+
+#: ../src/boards/erase.c:160
+msgid "Couldn't get GTK settings"
+msgstr "Kon de GTK-instellingen niet laden"
+
+# engels taalfout: clic ipv click
+#: ../src/boards/erase.c:165
+#, c-format
+msgid "Double clic default value %d."
+msgstr "Dubbelklik standaardwaarde %d."
+
+# Engels taalfout clic ipv click
+#: ../src/boards/erase.c:170 ../src/boards/erase.c:185
+#: ../src/boards/erase.c:208 ../src/boards/erase.c:339
+#, c-format
+msgid "Double clic value is now %d."
+msgstr "Dubbelklik waarde is nu %d."
 
 #: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
@@ -3059,26 +3145,123 @@ msgstr "Speciaal bord dat python in gcompris inbed."
 msgid "You need the python xml module. Disabling SVG."
 msgstr "U heeft de python xml-module nodig. SVG wordt uitgezet."
 
-# engels taalfout: bot ipv not
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
 #: ../src/boards/python/anim.py:415
 msgid ""
-"Python xml module bot found. SVG is disabled. Install the python xml module "
+"Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
-msgstr "Python xml-module niet gevonden. SVG is uitgezet. Installeer de python xml-module om SVG opslaan/herstellen te kunnen gebruiken."
+msgstr ""
+"Python xml-module niet gevonden. SVG is uitgezet. Installeer de python xml-"
+"module om SVG opslaan/herstellen te kunnen gebruiken."
 
-#: ../src/boards/python/anim.py:2205
+#: ../src/boards/python/anim.py:2208
 msgid "SVG is disabled. Install python xml module to enable it"
-msgstr "SVG is uitgezet. Installeer python xml-module om het te kunnen gebruiken"
+msgstr ""
+"SVG is uitgezet. Installeer python xml-module om het te kunnen gebruiken"
 
-#: ../src/boards/python/anim.py:2361
+#: ../src/boards/python/anim.py:2364
 msgid "Warning: the following images cannot be accessed on your system.\n"
-msgstr "Waarschuwing: de volgende afbeeldingen kunnen niet worden benaderd op uw systeem.\n"
+msgstr ""
+"Waarschuwing: de volgende afbeeldingen kunnen niet worden benaderd op uw "
+"systeem.\n"
 
-# engels taalfout: skiped
-#: ../src/boards/python/anim.py:2363
-msgid "The corresponding items have been skiped."
+#: ../src/boards/python/anim.py:2366
+msgid "The corresponding items have been skipped."
 msgstr "De volgende items werden overgeslagen."
+
+#: ../src/boards/python/gnumch.py:95
+#, python-format
+msgid ", %d"
+msgstr ", %d"
+
+#: ../src/boards/python/gnumch.py:96
+#, python-format
+msgid " and %d"
+msgstr " en %d"
+
+#: ../src/boards/python/gnumch.py:114
+#, python-format
+msgid "%d is divisible by %s."
+msgstr "%d is deelbaar door %s."
+
+#: ../src/boards/python/gnumch.py:118
+msgid "1 is not a prime number."
+msgstr "1 is geen priemgetal."
+
+#: ../src/boards/python/gnumch.py:128
+#, python-format
+msgid "Primes less than %d"
+msgstr "Priemgetallen kleiner dan %d"
+
+#: ../src/boards/python/gnumch.py:146
+#, python-format
+msgid ""
+"Multiples of %d include %s,\n"
+"but %d is not a multiple of %d."
+msgstr ""
+"Veelvouden van %d zijn %s,\n"
+"maar %d is geen veelvoud van %d."
+
+# priemfactoren/factoren
+#: ../src/boards/python/gnumch.py:155
+#, python-format
+msgid "Factors of %d"
+msgstr "Factoren van %d"
+
+# priemfactoren/factoren
+#: ../src/boards/python/gnumch.py:184
+#, python-format
+msgid "%s are the factors of %d."
+msgstr "%s zijn de factoren van %d."
+
+#: ../src/boards/python/gnumch.py:196
+#, python-format
+msgid "Multiples of %d"
+msgstr "Veelvouden van %d"
+
+#: ../src/boards/python/gnumch.py:227
+#, python-format
+msgid "%s = %d"
+msgstr "%s = %d"
+
+#: ../src/boards/python/gnumch.py:238
+#, python-format
+msgid "%d + %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:243
+#, python-format
+msgid "%d - %d"
+msgstr "%d - %d"
+
+#: ../src/boards/python/gnumch.py:248
+#, python-format
+msgid "%d Ã %d"
+msgstr "%d Ã %d"
+
+#: ../src/boards/python/gnumch.py:252
+#, python-format
+msgid "%d Ã· %d"
+msgstr "%d Ã· %d"
+
+#: ../src/boards/python/gnumch.py:262
+#, python-format
+msgid "Equal to %d"
+msgstr "Gelijk aan %d"
+
+#: ../src/boards/python/gnumch.py:282
+#, python-format
+msgid "Not equal to %d"
+msgstr "Niet gelijk aan %d"
+
+# return zit niet op een toetsenbord
+#: ../src/boards/python/gnumch.py:424
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+"Je bent opgegeten door een Troggel.\n"
+"Druk op <Enter> om door te gaan."
 
 #: ../src/boards/python/pythontest.py:75
 msgid ""
@@ -3308,7 +3491,7 @@ msgstr ""
 "Achtergrondmuziek: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:484
+#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:466
 msgid "translator_credits"
 msgstr ""
 "Tino Meinen\n"
@@ -3332,16 +3515,16 @@ msgstr "GCompris Startpagina"
 
 #: ../src/gcompris/about.c:252
 msgid ""
-"This software is a GNU Package and is released under the GNU Public License"
-msgstr ""
-"Deze software is een GNU pakket en is uitgebracht onder de Gnu Public Licence"
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
+msgstr "Deze software is een GNU pakket en is uitgebracht onder de Gnu Public License"
 
 #: ../src/gcompris/about.c:281
 msgid "Help"
 msgstr "Hulp"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:900 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:941 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3617,15 +3800,15 @@ msgstr "LADEN"
 msgid "SAVE"
 msgstr "OPSLAAN"
 
-#: ../src/gcompris/gameutil.c:133
+#: ../src/gcompris/gameutil.c:130
 msgid "Couldn't find file"
 msgstr "Kan bestand niet vinden!"
 
-#: ../src/gcompris/gameutil.c:135
+#: ../src/gcompris/gameutil.c:132
 msgid "This activity is incomplete."
 msgstr "Deze activiteit is niet voltooid."
 
-#: ../src/gcompris/gameutil.c:136
+#: ../src/gcompris/gameutil.c:133
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3634,47 +3817,57 @@ msgstr ""
 "ons het probleem."
 
 # Beter: schermvullend?
-#: ../src/gcompris/gcompris.c:91
+#: ../src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: ../src/gcompris/gcompris.c:93
+#: ../src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: ../src/gcompris/gcompris.c:95
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: ../src/gcompris/gcompris.c:97
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: ../src/gcompris/gcompris.c:99
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:107
 msgid "display debug informations on the console."
 msgstr "debug informatie tonen op het console."
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:109
 msgid "Print the version of "
 msgstr "Toont de versie van "
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:113
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR uitzetten (geen schermresultie verandering)."
 
-#: ../src/gcompris/gcompris.c:591
+#: ../src/gcompris/gcompris.c:116
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory, -l /boards/connect4 only the connect4 activity)"
+msgstr "GCompris uitvoeren met een lokaal menu (bijv. -l /reading <laat u alleen de leesoefeningen doen, -l /boards/connect4 alleen de 'vier-op-een-rij' oefening)"
+
+#: ../src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity directory added to menu"
+msgstr "GCompris uitvoeren met lokale activiteitenmap aan het menu toegevoegd."
+
+#: ../src/gcompris/gcompris.c:604
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3698,7 +3891,7 @@ msgstr ""
 "op\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:839
+#: ../src/gcompris/gcompris.c:852
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3712,19 +3905,19 @@ msgstr ""
 "Meer informatie op http://gcompris.net\n"
 "\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:243
+#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:228
 msgid "Prerequisite"
 msgstr "Vereisten"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:252
+#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:237
 msgid "Goal"
 msgstr "Doelstelling"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:261
+#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:246
 msgid "Manual"
 msgstr "Handleiding"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:270
+#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:255
 msgid "Credit"
 msgstr "Met dank aan"
 
@@ -3735,69 +3928,59 @@ msgstr "dataset %s is een map. Probeer xml te lezen "
 
 #: ../src/gcompris/images_selector.c:629
 #, c-format
-msgid "ImageSet %s pathname home %s image not found. Skipping ImageSet...\n"
-msgstr "ImageSet %s padnaam home %s afbeelding niet gevonden. ImageSet overslaan...\n"
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr "In ImageSet %s, is home-padnaam %s niet gevonden. ImageSet overslaan...\n"
 
 #: ../src/gcompris/images_selector.c:664
 #, c-format
-msgid "ImageSet %s image not found. Skipping ImageSet...\n"
-msgstr "ImageSet %s afbeelding niet gevonden. ImageSet overslaan...\n"
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr "In ImageSet %s, is geen afbeelding gevonden. ImageSet overslaan...\n"
 
 #: ../src/gcompris/images_selector.c:690
 #, c-format
-msgid "ImageSet %s directory %s not found. Skipping all the ImageSet...\n"
-msgstr "ImageSet %s map %s niet gevonden. De volledige ImageSet overslaan...\n"
+msgid ""
+"In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr "In ImageSet %s, is map %s niet gevonden. De volledige ImageSet overslaan...\n"
 
-#: ../src/gcompris/interface.c:104
+#: ../src/gcompris/interface.c:95
 msgid "Gcompris Editor"
 msgstr "GCompris editor"
 
-#: ../src/gcompris/interface.c:180
+#: ../src/gcompris/interface.c:165
 msgid "Icon"
 msgstr "Pictogram"
 
-#: ../src/gcompris/interface.c:189
+#: ../src/gcompris/interface.c:174
 msgid "Name"
 msgstr "Naam"
 
-#: ../src/gcompris/interface.c:198 ../src/gcompris/interface.c:415
+#: ../src/gcompris/interface.c:183 ../src/gcompris/interface.c:400
 msgid "Description"
 msgstr "Beschrijving"
 
-#: ../src/gcompris/interface.c:207
+#: ../src/gcompris/interface.c:192
 msgid "Type"
 msgstr "Type"
 
-#: ../src/gcompris/interface.c:216
+#: ../src/gcompris/interface.c:201
 msgid "Difficulty"
 msgstr "Moeilijkheid"
 
-#: ../src/gcompris/interface.c:225
+#: ../src/gcompris/interface.c:210
 msgid "Author"
 msgstr "Auteur"
 
-#: ../src/gcompris/interface.c:234
+#: ../src/gcompris/interface.c:219
 msgid "Directory"
 msgstr "Map"
 
-#: ../src/gcompris/interface.c:286
+#: ../src/gcompris/interface.c:271
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/gcompris/interface.c:490
+#: ../src/gcompris/interface.c:472
 msgid "Released under GPL"
 msgstr "Uitgebracht onder de GPL"
-
-# a= afgekorte naam van de weekdag
-# b= afgekorte naam van de maand
-# d= de dag van de maand als getal
-# Z= tijdzonde
-# Y= jaar inclusief de eeuw
-#. Prepare our log
-#. The default format for time represenation.  See strftime(3)
-#: ../src/gcompris/log.c:157
-msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr "%a %d %b %H:%M:%S %Z %Y"
 
 #: ../src/gcompris/soundutil.c:140
 #, c-format
@@ -3826,6 +4009,14 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+# a= afgekorte naam van de weekdag
+# b= afgekorte naam van de maand
+# d= de dag van de maand als getal
+# Z= tijdzonde
+# Y= jaar inclusief de eeuw
+#~ msgid "%a %b %d %H:%M:%S %Z %Y"
+#~ msgstr "%a %d %b %H:%M:%S %Z %Y"
 
 #~ msgid "germany"
 #~ msgstr "duitsland"
