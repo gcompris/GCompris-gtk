@@ -226,7 +226,7 @@ static void* thread_play_ogg (void *s)
   strncpy( locale, gcompris_get_locale(), 2 );
   locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
   relative_filename = g_strdup_printf("sounds/%s/%s.ogg", locale, s);
-  file = gcompris_find_absolute_filename(s);
+  file = gcompris_find_absolute_filename(relative_filename);
   if (!file){
     g_free(relative_filename);
     relative_filename = g_strdup_printf("music/%s.ogg", s);
