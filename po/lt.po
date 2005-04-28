@@ -1,31 +1,22 @@
-# translation of lt_gcompris.po to 
-# translation of lt_gcompris.po to
-# translation of lt_gcompris.po to
-# translation of lt_gcompris.po to
-# translation of lt_gcompris.po to
-# translation of lt_gcompris.po to
-# translation of lt_gcompris.po to
-# translation of lt.po to
-# translation of lt.po to
 # translation of lt.po to
 # Lithuanian translation of GCompris.
-# Copyright (C) 2002, 2004 Free Software Foundation, Inc.
+# Copyright (C) 2002, 2004, 2005 Free Software Foundation, Inc.
 # Mantas Kriaučiūnas <mantas@akl.lt>, 2001,2003.
 # Liudas Dmitrijevas <liudacka@xxx.lt>, 2003.
-# Eglė Kriaučiūnienė <egle@akl.lt>, 2001,2003, 2004.
+# Eglė Kriaučiūnienė <egle@akl.lt>, 2001,2003, 2004, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lt_gcompris\n"
+"Project-Id-Version: lt65\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-28 22:02+0200\n"
-"PO-Revision-Date: 2004-11-07 13:59+0200\n"
+"POT-Creation-Date: 2005-03-11 22:08+0100\n"
+"PO-Revision-Date: 2005-04-27 20:28+0000\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -356,14 +347,14 @@ msgstr "Daugybos lentelė"
 msgid "Practice the multiplication operation"
 msgstr "Mokykis daugybos veiksmų"
 
-#: boards/algebra_group.xml.in.h:1 boards/algebramenu.xml.in.h:1
+#: boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Matematikos pamokėlės"
 
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:4 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Išsirink pamokėlę, paspausdamas ant jos kairį pelės klavišą"
 
@@ -451,6 +442,10 @@ msgstr "Mokykis sudėties veiksmų"
 msgid "Simple addition. Can recognize written numbers"
 msgstr "Paprasta sudėtis.  Mokėti atpažinti parašytus skaičius."
 
+#: boards/algebramenu.xml.in.h:1
+msgid "Go to Maths activities"
+msgstr "Matematikos pamokėlės"
+
 #: boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
 msgstr "Užbaik daiktų seką"
@@ -473,17 +468,44 @@ msgid "algorithm"
 msgstr "algoritmas"
 
 #: boards/anim.xml.in.h:1
-msgid "Create an animation"
-msgstr "Sukurk animaciją"
+msgid "Create a drawing or an animation"
+msgstr "Laisvo piešimo ir animacijos įrankis "
 
 #: boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
 msgstr "Laisvo piešimo ir animacijos įrankis"
 
+#: boards/anim.xml.in.h:3
+msgid ""
+"In this game, children can draw freely. The goal is just to discover how to "
+"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
+"and lines. To make it more fun for kids, a set of images can also be used."
+msgstr ""
+"Šiame žaidime vaikai gali laisvai piešti. Svarbu išmokti kaip kurti gražius\n"
+"piešinius iš pagrindinių geometrinių figūrų: stačiakampių, ovalų ir linijų. kad būtų įdomiau galima naudoti ir paveikslėlius. "
+
+#: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
+msgid "Needs to handle the mouse with the click easily"
+msgstr "Mokėti laisvai elgtis su pele"
+
+#: boards/anim.xml.in.h:5
+msgid ""
+"Select a drawing tool on the left and a color on the bottom. Then click and "
+"drag in the white area to create a new shape. Once one drawing is complete, "
+"you can take a snapshot of it with the 'camera' button. A new image with the "
+"same content is created. You can then move objects a little bit or add/"
+"delete objects. Create several drawings and then click on the 'film' button. "
+"You will see all your images in an infinite loop. You can change the viewing "
+"speed in this mode. In view mode, click on the 'drawing' button to return to "
+"drawing. You can then edit each image of your animation by using the image "
+"selector in the bottom left of the screen. You can save and reload your "
+"animations with the 'floppy' and 'folder' button."
+msgstr "Pasirinkite piešimo įrankį kairėje ir spalvą apačioje. Nauja figūrą pieškite baltoje erdvėje. Kai piešinys baigtas, tai jį galima nufotografuoti su  'kameros' mygtuku.Tada yra sukuriamas naujas paveikslas su tuo pačiu turiniu. Jūs galite truputi pajudinti objektus, arba juos pridėta/ištrinti. Sukurkite keletą  piešinių ir tada nuspauskite 'filmas' mygtuką. Ekrane bus ciklu rodomi jūsų piešiniai. Galima keisti rodymo greitį. Taip pat galima redaguoti kiekvieną piešinį filmuke (prieš tai reikia pereiti į 'piešimo' režimą nuspaudus atitinkamą mygtuką). Piešinį galima pasirinkti piešinio pasirinkimo įrankiu apačioje kairėje. Galima užsaugoti ir iš naujo paleisti jūsų sukurtą animaciją su  'diskelio' 'katalogo' mygtukais."
+
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
 #: boards/babymatch/board4_0.xml.in.h:1 boards/babymatch/board5_0.xml.in.h:1
-#: boards/babymatch/board6_0.xml.in.h:1
+#: boards/babymatch/board6_0.xml.in.h:1 boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
 msgstr "Nutempk daiktą prie jam tinkamo"
 
@@ -639,10 +661,11 @@ msgstr "Nutempk daiktą prie jam tinkamo,"
 #: boards/chronos.xml.in.h:3
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
-"Dates of Transportation are based on those found in http://www.wikipedia.org"
+"Dates of Transportation are based on those found in http://www.wikipedia."
+"org. Transportations images by Franck Doucet"
 msgstr ""
 "Mėnulio nuotraukos iš NASA. Kosmoso garsai iš Tuxpaint ir Vegastrike. "
-"Naudojamos datos  paimtos iš http://www.wikipedia.org"
+"Naudojamos datos  paimtos iš http://www.wikipedia.org. Paveikslėliai  Franck Doucet"
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -660,29 +683,158 @@ msgstr "Papasakok trumpą istoriją"
 msgid "Moonwalker"
 msgstr "Išlipimas mėnulyje"
 
+#: boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Ruduo"
+
+#: boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Pavasaris"
+
+#: boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Vasara"
+
+#: boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "4 metų laikai"
+
+#: boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "ŽiemaŽiema"
+
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
 msgstr "Tuksas ir obelis"
 
-#: boards/chronos/board3_0.xml.in.h:1
-msgid ""
-"Place each image in the order and on the date it has been invented. If not "
-"sure, check online in wikipedia at http://www.wikipedia.org"
+#: boards/chronos/board3_0.xml.in.h:1 boards/chronos/board3_2.xml.in.h:1
+#: boards/chronos/board3_4.xml.in.h:1 boards/chronos/board4_2.xml.in.h:1
+msgid "1769 Cugnot's fardier"
 msgstr ""
-"Padėk kiekvieną paveiklą tokiu eiliškumu ir ant datos, kada jis buvo atrastas. \n"
-"Jei  nesi įsitikinęs pasitikrink  http://www.wikipedia.org"
+
+#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_3.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:2
+msgid ""
+"1829 Stephenson's Rocket\n"
+"Steam locomotive"
+msgstr ""
+"1829 Stephenson's  Raketa\n"
+"garvežys"
+
+#: boards/chronos/board3_0.xml.in.h:3
+msgid ""
+"Place each image in the order and\n"
+"on the date it has been invented.\n"
+"If not sure, check online in wikipedia at\n"
+"http://www.wikipedia.org"
+msgstr ""
+"Padėk kiekvieną paveiklą tokiu eiliškumu \n"
+"ir ant datos, kada jis buvo atrastas. \n"
+"Jei  nesi įsitikinęs pasitikrink  \n"
+"http://www.wikipedia.org"
 
 #  TRANSLATORS: Replace this string with your names, one name per line.
 #  TRANSLATORS: Replace this string with your names, one name per line.
-#: boards/chronos/board3_0.xml.in.h:2 boards/chronos/board3_1.xml.in.h:1
-#: boards/chronos/board3_2.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
-#: boards/chronos/board3_4.xml.in.h:1
+#: boards/chronos/board3_0.xml.in.h:7 boards/chronos/board3_1.xml.in.h:4
+#: boards/chronos/board3_2.xml.in.h:4 boards/chronos/board3_3.xml.in.h:4
+#: boards/chronos/board3_4.xml.in.h:4
 msgid "Transportation"
 msgstr "Transportas"
 
-#: boards/chronos/board4_0.xml.in.h:1 boards/chronos/board4_1.xml.in.h:1
+#: boards/chronos/board3_1.xml.in.h:1 boards/chronos/board3_3.xml.in.h:1
+msgid ""
+"1783 Montgolfier brothers'\n"
+"Hot air balloon"
+msgstr ""
+"1783 blolių Montgolfier \n"
+"Karšto oro balionas"
+
+#: boards/chronos/board3_1.xml.in.h:2 boards/chronos/board3_2.xml.in.h:3
+#: boards/chronos/board3_4.xml.in.h:3 boards/chronos/board4_0.xml.in.h:1
+msgid "1880 The Clement Ader's Eole"
+msgstr ""
+
+#: boards/chronos/board3_1.xml.in.h:3
+msgid ""
+"1906 Paul Cornu\n"
+"First helicopter flight"
+msgstr ""
+"1906 Paul Cornu\n"
+"Pirmas malūnsparnio skydis"
+
+#: boards/chronos/board3_2.xml.in.h:2 boards/chronos/board3_3.xml.in.h:2
+msgid ""
+"1791 Comte de Sivrac's\n"
+"Celerifere"
+msgstr ""
+
+#: boards/chronos/board4_0.xml.in.h:2
+msgid "1903 The Wright brothers Flyer III"
+msgstr "1903  brolių  Wright skraidyklė III"
+
+#: boards/chronos/board4_0.xml.in.h:3
+msgid "1909 Louis Bleriot cross the Channel"
+msgstr "1909 Louis Bleriot perskrido Kanalą"
+
+#: boards/chronos/board4_0.xml.in.h:4 boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
 msgstr "Aviacija "
+
+#: boards/chronos/board4_1.xml.in.h:1
+msgid ""
+"1927 Charles Lindbergh\n"
+"cross Atlantique ocean"
+msgstr ""
+"1927 Charles Lindbergh\n"
+"perskrido Atlanto vandenyną"
+
+#: boards/chronos/board4_1.xml.in.h:3
+msgid ""
+"1934 Helene Boucher speed \n"
+"record 444km/h"
+msgstr ""
+"1934 Helene Boucher geičio \n"
+"rekordas 444km/h"
+
+#: boards/chronos/board4_1.xml.in.h:5
+msgid ""
+"1947 Chuck Yeager\n"
+"break the sound-wall"
+msgstr ""
+"1947 Chuck Yeager\n"
+"garso greičio viršijimas"
+
+#: boards/chronos/board4_2.xml.in.h:2
+msgid "1878 Léon Bollé \"La Mancelle\""
+msgstr ""
+
+#: boards/chronos/board4_2.xml.in.h:3
+msgid ""
+"1885 The first gazoline\n"
+"car by Benz"
+msgstr ""
+"1885 Pirmas Benz benzininis\n"
+" automobilis"
+
+#: boards/chronos/board4_2.xml.in.h:5
+msgid "The car"
+msgstr "automobilis "
+
+#: boards/chronos/board4_3.xml.in.h:1
+msgid "1899 Renault \"voiturette\""
+msgstr ""
+
+#: boards/chronos/board4_3.xml.in.h:2
+msgid "1923 Lancia Lambda"
+msgstr ""
+
+#: boards/chronos/board4_3.xml.in.h:3
+msgid "1955 Citroën ds 199"
+msgstr ""
+
+#: boards/chronos/board4_3.xml.in.h:4
+msgid "Cars"
+msgstr "Automobiliai"
 
 #: boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -807,7 +959,9 @@ msgstr "Nustatyk ir paspausk reikiamą spalvą."
 msgid ""
 "This board teaches color recognition. Select the spoken color from the set "
 "of colored toons."
-msgstr "Čia mokomasi spalvų atpažinimo. Pažymėk nurodytą spalvą iš spalvotų paveiksliukų aibės."
+msgstr ""
+"Čia mokomasi spalvų atpažinimo. Pažymėk nurodytą spalvą iš spalvotų "
+"paveiksliukų aibės."
 
 #: boards/colors_group.xml.in.h:1
 msgid "Go to colors activities"
@@ -862,10 +1016,6 @@ msgstr ""
 "Šiame žaidime vaikai gali laisvai piešti. Svarbu išmokti kaip kurti gražius\n"
 "piešinius iš pagrindinių geometrinių figūrų: stačiakampių, ovalų ir linijų. "
 
-#: boards/draw.xml.in.h:4
-msgid "Needs to handle the mouse with the click easily"
-msgstr "Mokėti laisvai elgtis su pele"
-
 #: boards/draw.xml.in.h:5
 msgid ""
 "Select a drawing tool on the left and a color on the bottom, and click and "
@@ -873,7 +1023,8 @@ msgid ""
 "middle mouse button to delete an object."
 msgstr ""
 "Kairėje pasirinkite piešimo įrankį, o apačioje - norimą spalvą. \n"
-"Piešimo lape paspauskite kairį klavišą ir pajudinkite pelę, kad sukurtumėte naują figūrą. \n"
+"Piešimo lape paspauskite kairį klavišą ir pajudinkite pelę, kad sukurtumėte "
+"naują figūrą. \n"
 "Objektams ištrinti galima naudoti vidurinį pelytės klavišą."
 
 #: boards/enumerate.xml.in.h:1
@@ -907,11 +1058,11 @@ msgstr "Išsidėliok elementus taip, kad būtų patogu juos suskaičiuoti"
 msgid "Motor coordination"
 msgstr "Judesių koordinavimas"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:70 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Judink pelę"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:71
+#: boards/erase.xml.in.h:5 src/boards/erase.c:73
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Judindamas pelę nuvalysi plotą ir pamatysi foną"
 
@@ -937,8 +1088,8 @@ msgid ""
 "part up to the flowers. Take care, if you move out of the pipe, the red part "
 "will go back."
 msgstr ""
-"Nustumkite pelę ant raudonos vamzdžio dalies. Tai jį pakels. Atsargiai- "
-"jei išeisite iš vamzdžio - raudona dalis griš atgal."
+"Nustumkite pelę ant raudonos vamzdžio dalies. Tai jį pakels. Atsargiai- jei "
+"išeisite iš vamzdžio - raudona dalis griš atgal."
 
 #: boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
@@ -968,6 +1119,22 @@ msgstr "Žaidimas \"Penkiolika\""
 msgid "Go to Amusement activities"
 msgstr "Eik linksmintis"
 
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "GCompris animacija"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "GCompris piešimas"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:3
+msgid "svg drawing"
+msgstr "svg piešimas"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:4
+msgid "svg mozilla animation"
+msgstr "svg mozilla animaciją"
+
 #: boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
 msgstr "Sudėliok šalis į atitinkamas vietas, kad gautum pilną žemėlapį"
@@ -977,32 +1144,32 @@ msgid "Place the lands"
 msgstr "Sudėliok šalis"
 
 #: boards/geography/board1_0.xml.in.h:1
+msgid "Africa"
+msgstr "Afrika"
+
+#: boards/geography/board1_0.xml.in.h:2
+msgid "America"
+msgstr "Amerika "
+
+#: boards/geography/board1_0.xml.in.h:3
+msgid "Antartica"
+msgstr "Antarktida"
+
+#: boards/geography/board1_0.xml.in.h:4
+msgid "Asia"
+msgstr "Azija"
+
+#: boards/geography/board1_0.xml.in.h:5
 msgid "Continents"
 msgstr "Žemynai"
 
-#: boards/geography/board1_0.xml.in.h:2
-msgid "africa"
-msgstr "Afrika"
-
-#: boards/geography/board1_0.xml.in.h:3
-msgid "america"
-msgstr "Amerika"
-
-#: boards/geography/board1_0.xml.in.h:4
-msgid "antartica"
-msgstr "Antarktida "
-
-#: boards/geography/board1_0.xml.in.h:5
-msgid "asia"
-msgstr "Azija"
-
 #: boards/geography/board1_0.xml.in.h:6
-msgid "europa"
-msgstr "Europa"
+msgid "Europa"
+msgstr "Europa "
 
 #: boards/geography/board1_0.xml.in.h:7
-msgid "oceania"
-msgstr "Okeanija"
+msgid "Oceania"
+msgstr "Okeanija "
 
 #: boards/geography/board2_0.xml.in.h:1
 msgid "North America"
@@ -1284,11 +1451,11 @@ msgstr "Mokėti naudotis klaviatūra"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Raidžių atpažinimas ekrane ir klaviatūroje."
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:128
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
 msgid "Simple Letters"
 msgstr "Paprastos raidės"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
 msgstr "Surask klaviatūroje krintančias raides, kol jos nenukrito"
 
@@ -1341,7 +1508,7 @@ msgstr "Mokykis skaityti, surasdamas paveikslėlį atitinkantį žodį"
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
 #: src/boards/imageid.c:109 src/boards/missingletter.c:101
-#: src/boards/reading.c:102
+#: src/boards/reading.c:107
 msgid "Reading"
 msgstr "Skaitymas"
 
@@ -1453,8 +1620,8 @@ msgid ""
 "Drag the images from the vertical box on the left to their corresponding "
 "name on the right. Click the OK button to check your answer."
 msgstr ""
-"Perneškite piešinius iš vertikalios dalies kairėje, prie atitinkamo vardo dešinėje. "
-"Atsakymui pasitikrinti išsirinkite OK mygtuką."
+"Perneškite piešinius iš vertikalios dalies kairėje, prie atitinkamo vardo "
+"dešinėje. Atsakymui pasitikrinti išsirinkite OK mygtuką."
 
 #: boards/imagename.xml.in.h:3
 msgid "Image Name"
@@ -1601,25 +1768,32 @@ msgstr "Nuspręsk dešinė ar kairė ranka"
 msgid "None"
 msgstr "nėra jokių"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
+#: boards/maze3D.xml.in.h:2 boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Mokėti judinti objektą naudojantis klaviatūros rodyklėmis."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#: boards/maze.xml.in.h:2 src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Surask kelią iš labirinto"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
+#: boards/maze3D.xml.in.h:4 boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Padėk Tuksui surasti kelią iš labirinto"
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:127
+#: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
+#: boards/mazeInvisible.xml.in.h:4 src/boards/maze.c:132
 msgid "Maze"
 msgstr "Labirintas"
 
-#: boards/maze.xml.in.h:5
+#: boards/maze.xml.in.h:5 boards/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Naudodamasis klaviatūros rodyklėmis išvesk Tuksą pro duris"
+
+#: boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Surask kelią iš labirinto (Ėjimai yra sąlyginiai )"
 
 #: boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -1641,6 +1815,29 @@ msgstr ""
 "Dvimatėje erdvėje galite pasižiūrėti kurioje vietoje esate, tačiau negalite "
 "judėti. "
 
+#: boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Surask kelią iš nematomo labirinto"
+
+#: boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr ""
+"Naudodamasis klaviatūros rodyklėmis išvesk Tuksą pro duris.\n"
+"\"Tarpo\" (ilgas) klavišas perjungia tarp matomos ir nematomos erdvės.\n"
+"Matomoje erdvėje galite pasižiūrėti kurioje vietoje esate, tačiau negalite "
+"judėti. "
+
+#: boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Surask kelią iš skirtingų labirintų"
+
+#: boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Labirintai"
+
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
 msgstr "Klausos lavinimo pamokėlė"
@@ -1650,8 +1847,8 @@ msgid ""
 "Listen to the sound sequence played, and repeat it by clicking on the "
 "elements. You can listen again by clicking on the repeat button."
 msgstr ""
-"Klausykite grojamų garsų sekos ir po to ją pakartokite išsirinkdami "
-"objektus ta pačia seka. Melodija galite pakartoti išsirinkę pakartojimo funkciją."
+"Klausykite grojamų garsų sekos ir po to ją pakartokite išsirinkdami objektus "
+"ta pačia seka. Melodija galite pakartoti išsirinkę pakartojimo funkciją."
 
 #: boards/melody.xml.in.h:3
 msgid "Melody"
@@ -1689,41 +1886,50 @@ msgstr "Lavinti atmintį ir pašalinti visas kortas "
 
 #: boards/menu.xml.in.h:1
 msgid ""
-"A simple click on an icon brings you to an activity or a menu of activities. "
-"At the bottom of the screen is the gcompris control bar. The following icons "
-"are displayed from right to left. Note that each icon is displayed only if "
-"available in the current activity: Home - Back to previous menu or exit "
-"gcompris if at the top Thumb - OK. Confirm your answer Dice - Display the "
-"current level. Click to select another level Music note - Repeat the "
-"question Question Mark - Help Tool - The configuration menu Tux Plane - "
-"About game The stars means: 1 Star - 2 to 3 years old 2 Stars - 4 to 5 years "
-"old 3 Stars - 6 to 7 years old"
+"A simple click on an icon brings you to an activity or a menu of "
+"activities.\n"
+"At the bottom of the screen is the gcompris control bar.\n"
+"The following icons are displayed from right to left.\n"
+"Note that each icon is displayed only if available in the current activity:\n"
+"    Home - Back to previous menu or exit gcompris if at the top\n"
+"    Thumb - OK. Confirm your answer\n"
+"    Dice - Display the current level. Click to select another level\n"
+"    Music note - Repeat the question\n"
+"    Question Mark - Help\n"
+"    Tool - The configuration menu\n"
+"    Tux Plane - About game\n"
+"The stars means:\n"
+"    1 Star  - 2 to 3 years old\n"
+"    2 Stars - 4 to 5 years old\n"
+"    3 Stars - 6 to 7 years old"
 msgstr ""
 "Paprasčiausiai paspauskite ant ikonos ir pateksite į pamokėlę arba į meniu.\n"
 "Lango apačioje yra Gcompris valdymo juosta. Valdymo juostos ikonų\n"
 "aprašymas (iš dešinės į kairę, šios ikonos matomos tik pamokėlėse):\n"
 "  Namelis - atgal į prieš tai buvusį meniu arba išeiti iš Gcompris\n"
 "  Nykštys - OK, pasirinkimo arba atsakymo patvirtinimas\n"
-"  Kauliukas - žaidimo sudėtingumo lygmuo, paspaudę ant jo pereisite į kitą lygį\n"
+"  Kauliukas - žaidimo sudėtingumo lygmuo, paspaudę ant jo pereisite į kitą "
+"lygį\n"
 "  Muzikinė nata - ją spauskite, jei norite išgirsti klausimą dar kartą\n"
 "  Klaustukas - pagalba (informacija apie pamokėlę)\n"
 "  Įrankių dėžė - nustatymų meniu; Lėktuvėlis - informacija apie žaidimą.\n"
+"  Tukso lėktuvas - apie žaidimą\n"
 "Žvaigždučių reikšmės:\n"
 "  1 žvaigždutė - 2 - 3 metų,\n"
 "  2 žvaigždutė - 4 - 5 metų,\n"
 "  2 žvaigždutės - 6 - 7 metų vaikams"
 
-#: boards/menu.xml.in.h:2
+#: boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
 msgstr "GCompris pagrindinis meniu"
 
-#: boards/menu.xml.in.h:3
+#: boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
 msgstr "GCompris - tai įvairių mokomųjų žaidimų sistema, vaikams nuo 3 iki 8 metų. "
 
-#: boards/menu.xml.in.h:5
+#: boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
@@ -1939,9 +2145,11 @@ msgstr "Sudėk paveikslėlį iš figūrų"
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr "Norėdami sukurti piešinį ekrano viduryje, perneškite paveikslo dalis  į jį iš kairės pusės."
+msgstr ""
+"Norėdami sukurti piešinį ekrano viduryje, perneškite paveikslo dalis  į jį "
+"iš kairės pusės."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:168
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
 msgid "Make the puzzle"
 msgstr "Sudėliok paveikslėlį (puzzle)"
 
@@ -1994,8 +2202,8 @@ msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
 msgstr ""
-"Norėdami, kad Tuksas iššoktų, nuspauskite bet kurį klavišą arba pažymėkite lėktuvą. "
-"Kito klavišo paspaudimu arba pažymėdami Tuksą išskeiskite parašiutą."
+"Norėdami, kad Tuksas iššoktų, nuspauskite bet kurį klavišą arba pažymėkite "
+"lėktuvą. Kito klavišo paspaudimu arba pažymėdami Tuksą išskeiskite parašiutą."
 
 #: boards/paratrooper.xml.in.h:3
 msgid ""
@@ -2143,8 +2351,10 @@ msgid ""
 "and disappear on left. Indicate whether or not the given word appeared in "
 "the list."
 msgstr ""
-"Ekrano viršutinėje dalyje, dešinėje pusėje yra žodis. Kairėje pusėje  pasirodys \n"
-" ir išnyks žodžių sąrašas. Pažymėkite ar duotasis žodis buvo ar nebuvo sąraše. "
+"Ekrano viršutinėje dalyje, dešinėje pusėje yra žodis. Kairėje pusėje  "
+"pasirodys \n"
+" ir išnyks žodžių sąrašas. Pažymėkite ar duotasis žodis buvo ar nebuvo "
+"sąraše. "
 
 #: boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
@@ -2183,7 +2393,7 @@ msgstr ""
 "Objektų  eiliškumas (virš/po) nėra svarbus, tačiau atkreipkite dėmesį, kad "
 "tarp kitų objektų nebūtų nenorimų . "
 
-#: boards/redraw.xml.in.h:3 boards/redraw_symmetrical.xml.in.h:3
+#: boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
 msgstr "Nukopijuokite duotą piešinį"
 
@@ -2194,6 +2404,10 @@ msgid ""
 msgstr ""
 "Objekto, esančio dešinėje pusėje, veidrodinį atvaizdą nukopijuok  kairėje \n"
 "pusėje."
+
+#: boards/redraw_symmetrical.xml.in.h:3
+msgid "Mirror the given item"
+msgstr "Nupieškite duoto piešinio veidrodinį vaizdą"
 
 #: boards/reversecount.xml.in.h:1
 msgid ""
@@ -2224,6 +2438,42 @@ msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr ""
 "Tuksas yra alkanas. Skaičiuodami ledo lytis reikalingas žuvims pasiekti, "
 "padėkite jam surasti žuvis. "
+
+#: boards/searace.xml.in.h:1 boards/searace1player.xml.in.h:1
+msgid "Give good instructions to your ship in order to be first in the race."
+msgstr "Norėdami laimėti duokite laivui teisingas instrukcijas."
+
+#: boards/searace.xml.in.h:2 boards/searace1player.xml.in.h:2
+msgid ""
+"In the text entry, enter line by line commands to give direction to your "
+"boat. Commands supported are displayed between the two entry area. The "
+"'left' and 'right' commands must be suffixed by an angle in degree. The "
+"angle value is also called a 'parameter' to the left or right command. By "
+"default 45 degree is used. The 'forward' command accept a distance "
+"parameter. By default 1 is used. For example: left 90 => Make a "
+"perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
+"in the ruler) The goal is to reach the right of the screen (the red line). "
+"When done, you can try to improve your program and start a new race with the "
+"same weather conditions by using the retry button. You can click and drag "
+"your mouse anywhere on the map to get a measurement in distance and angle. "
+"Going to the next level will give your more complex weather conditions."
+msgstr "Tekstinio įvedimo lauke reikia atskiromis eilutėmis duoti komandas jūsų laivui. Galimos komandos yra pavaizduotos. Komandos 'kairėn' ir 'dešinėn' turi būti nurodomos kartu su posūkio kampu. Šis posūkio kampas yra vadinamas komandų  'kairėn' ir 'dešinėn' 'parametru'. Pagal nutylėjimą naudojamas 45 laipsnių kampas. Su komanda 'pirmyn'  gali būti nurodytas ir atstumas. Pvz.: kairėn 90 => statmenai pasisukti kairėn, pirmyn 10 =>  Pirmyn 10 vienetų  (pagal pavaizduotą linuotę). Užduotis yra pasiekti dešinį ekrano kraštą (raudoną liniją). Užbaigus galite patobulinti programą ir pradėti naujas lenktynes, esant toms pačioms oro sąlygoms (Naudojant pakartojimo mygtuką). Pele pažymėję  bet kurią vietą žemėlapyje sužinosite atstumą ir kampą. Kituose lygiuose yra sudėtingesnės oro sąlygos."
+
+#: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
+msgid ""
+"In this activity, you will learn how to enter commands to a computer. Even "
+"if the language is extremely basic, you learn here how to think ahead and "
+"enter a program. This activity can be used to introduce the programming "
+"concept to kids."
+msgstr "Šiame žaidime jūs išmoksite įvesti komandas kompiuteriui. Net esant paprastai kalbai, išmoksite kaip numatyti veiksmus.  Šis žaidimas gali būti kaip vaikų įžanga į programavimo pagrindus."
+
+#: boards/searace.xml.in.h:4
+msgid "Sea race (2 Players)"
+msgstr "Jūros trasa (2 žaidėjams)"
+
+#: boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "Jūros trasa (Žaisti vienam)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2267,15 +2517,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Gerai subalansuok svarstykles"
 
-#: boards/smallnumbers.xml.in.h:1
+#: boards/smallnumbers.xml.in.h:1 boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Suskaičiuok taškų skaičių ant lėkštės, kol ji nenukrito "
 
-#: boards/smallnumbers.xml.in.h:2
+#: boards/smallnumbers.xml.in.h:2 boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Skaičiavimo įgūdžiai"
 
-#: boards/smallnumbers.xml.in.h:3
+#: boards/smallnumbers.xml.in.h:3 boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "Suskaičiuokite taškus per ribotą laiką. "
 
@@ -2283,13 +2533,17 @@ msgstr "Suskaičiuokite taškus per ribotą laiką. "
 msgid "Numbers With Dice"
 msgstr "Kauliukai su skaičiais "
 
-#: boards/smallnumbers.xml.in.h:5
+#: boards/smallnumbers.xml.in.h:5 boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr ""
 "Klaviatūroje nuspauskite skaičių kuris atitinka skaičių taškų ant "
 "krentančios lekštės."
+
+#: boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "2 Kauliukai su skaičiais"
 
 #: boards/submarine.xml.in.h:1
 msgid ""
@@ -2399,7 +2653,7 @@ msgstr ""
 "Paspausdami ant vandens judėjimą gamtoje lemiančių elementų,\n"
 "padėkite Tuksui, su laivus grįžtančiam iš ilgos žūklės, išsimaudyti duše. "
 
-#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:87
+#: boards/wordsgame.xml.in.h:1 src/boards/wordsgame.c:110
 msgid "Falling Words"
 msgstr "Krintantys žodžiai"
 
@@ -2420,26 +2674,31 @@ msgid "Editor for gcompris"
 msgstr "GCompris pamokėlių kūrimas ir tvarkymas"
 
 #: gcompris.desktop.in.h:1
-msgid "Educational game starting at 3 years old"
-msgstr "Mokomasis žaidimas, vyresniems nei trijų metų vaikams"
+msgid "Educational game from 2 to 10 years old"
+msgstr "Mokomasis žaidimas, vaikams nuo 2 iki 10 metų amžiaus"
 
 #: gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
 msgstr "Mokomieji žaidimai \"GCompris\""
 
+#: gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Įvairūs žaidimai vaikams"
+
 #: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
 #: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1850 src/gcompris/gameutil.c:126
-#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:410 src/gcompris/images_selector.c:477
-#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:929
+#: src/gcompris/gameutil.c:126 src/gcompris/gameutil.c:517
+#: src/gcompris/gameutil.c:518 src/gcompris/gcompris.c:420
+#: src/gcompris/images_selector.c:654 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Negaliu rasti bylos %s !"
 
 #: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
 #: src/boards/missingletter.c:611 src/boards/read_colors.c:503
-#: src/boards/shapegame.c:1853
+#: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
 msgstr "rasti bylą %s !"
@@ -2517,15 +2776,15 @@ msgstr "Matas juodiesiems"
 msgid "Drawn game"
 msgstr "Lygiosios"
 
-#: src/boards/click_on_letter.c:72
+#: src/boards/click_on_letter.c:80
 msgid "Read a letter"
 msgstr "Perskaityk raidę"
 
-#: src/boards/click_on_letter.c:73
+#: src/boards/click_on_letter.c:81
 msgid "Learn to recognize letters"
 msgstr "Išmok atpažinti raides"
 
-#: src/boards/click_on_letter.c:223
+#: src/boards/click_on_letter.c:230
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2533,7 +2792,7 @@ msgstr ""
 "Klaida: Šis veiksmas reikalauja prieš tai instaliuoti programą assetml-"
 "voices-alphabet-"
 
-#: src/boards/click_on_letter.c:230
+#: src/boards/click_on_letter.c:237
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2544,6 +2803,11 @@ msgstr ""
 "uždraustais garso efektais. \n"
 "Nueikite, prašau, į nustatymų dialogą\n"
 "ir leiskite garso efektus. "
+
+#. TRANSLATORS: Put here the alphabet in your language
+#: src/boards/click_on_letter.c:282
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "aąbcčdeęėfghiįyjklmnoprsštuųūvzž"
 
 #: src/boards/clickgame.c:182
 #, c-format
@@ -2598,7 +2862,7 @@ msgstr "Paspauskite ant baltos spalvos"
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Perstumk visus skaičius po vieną, kad jei  butų sudėti didėjančia tvarka. "
 
-#: src/boards/hanoi.c:324 src/boards/hanoi.c:335
+#: src/boards/hanoi.c:339 src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Pastatyk tokį patį bokštą koks yra parodytas dešinėje."
 
@@ -2610,15 +2874,27 @@ msgstr "Išmok skaityti"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Iš nuotraukų nuspręsk dešinė ar kairė tai ranka "
 
-#: src/boards/leftright.c:248
+#: src/boards/leftright.c:248 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:544
+#: src/boards/python/searace.py:856 src/boards/python/searace.py:889
+#: src/boards/python/searace.py:986
 msgid "left"
 msgstr "kairė"
 
-#: src/boards/leftright.c:258
+#: src/boards/leftright.c:258 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:553
+#: src/boards/python/searace.py:858 src/boards/python/searace.py:891
+#: src/boards/python/searace.py:980
 msgid "right"
 msgstr "dešinė"
 
-#: src/boards/maze.c:445
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr ""
+"Pasižiūrėk kurioje vietoje esi ir grįžk atgal į nematomą erdvę. Tik tada galėsi eiti "
+"toliau."
+
+#: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr ""
 "Pasižiūrėk kurioje vietoje esi ir grįžk atgal į trimatį vaizdą, kad eiti "
@@ -2663,6 +2939,29 @@ msgstr "Python pamokelė"
 #: src/boards/python.c:54
 msgid "Special board that embeds python into gcompris."
 msgstr "Specialus žaidimas, kuris naudoja python kalbą gcompris programoje ."
+
+#: src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "Jums reikia python xml modulio. Uždraudžiame SVG"
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: src/boards/python/anim.py:415
+msgid ""
+"Python xml module bot found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr "Python xml modulis nerastas. SVG uždraustas. Norėdami turėti SVG užsaugojimą/atstatymą įdiekite pyton xml modulį."
+
+#: src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG uždraustas. Norėdami jį naudoti Įdiekite python xml modulį."
+
+#: src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "Įspėjimas: šis paveiksliukas jūsų sistemoje yra nepasiekiamas.\n"
+
+#: src/boards/python/anim.py:2363
+msgid "The corresponding items have been skiped."
+msgstr "Šie įrašai buvo praleisti."
 
 #: src/boards/python/pythontest.py:75
 msgid ""
@@ -2820,6 +3119,61 @@ msgstr "Lygis"
 msgid "Coordinate"
 msgstr "Koordinatės"
 
+#: src/boards/python/searace.py:201 src/boards/python/searace.py:206
+#: src/boards/python/searace.py:232
+msgid "Race is already running"
+msgstr "Varžybos jau startavo"
+
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:535 src/boards/python/searace.py:854
+#: src/boards/python/searace.py:883 src/boards/python/searace.py:978
+#: src/boards/python/searace.py:984 src/boards/python/searace.py:992
+msgid "forward"
+msgstr "pirmyn"
+
+#: src/boards/python/searace.py:526
+msgid "COMMANDS ARE"
+msgstr "KOMANDOS YRA"
+
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr "Čia yra piešinys"
+
+#: src/boards/python/searace.py:759
+msgid "The Red boat has won"
+msgstr "Raudonasis laivas laimėjo"
+
+#: src/boards/python/searace.py:762
+msgid "The Green boat has won"
+msgstr "Žaliasis laivas laimėjo"
+
+#: src/boards/python/searace.py:780 src/boards/python/searace.py:1022
+msgid "Angle:"
+msgstr "Kampas:"
+
+#: src/boards/python/searace.py:780
+msgid "Wind:"
+msgstr "Vėjas:"
+
+#: src/boards/python/searace.py:861
+msgid "Syntax error at line"
+msgstr "Sintaksės klaida eilutėje"
+
+#: src/boards/python/searace.py:879
+msgid "The command"
+msgstr "Komanda"
+
+#: src/boards/python/searace.py:898
+msgid "Unknown command at line"
+msgstr "Nežinoma komanda eilutėje"
+
+#: src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr "Atstumas:"
+
 #: src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Žaidimas atminčiai lavinti"
@@ -2836,27 +3190,27 @@ msgstr "Perskaitęs išsirink spalvą"
 msgid "Click on the corresponding color"
 msgstr "Paspauskite ant atitinkamos spalvos"
 
-#: src/boards/reading.c:103
+#: src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Perskaityk sąrašą ir pažiūrėk ar duotas žodis jame yra"
 
-#: src/boards/reading.c:315
+#: src/boards/reading.c:339
 msgid "Please, check if the word"
 msgstr "Patikrink ar žodis"
 
-#: src/boards/reading.c:335
+#: src/boards/reading.c:359
 msgid "is being displayed"
 msgstr "yra ekrane"
 
-#: src/boards/reading.c:522
+#: src/boards/reading.c:534
 msgid "I am Ready"
 msgstr "Aš pasiruošęs"
 
-#: src/boards/reading.c:562
+#: src/boards/reading.c:574
 msgid "Yes I saw it"
 msgstr "Taip, aš mačiau tai"
 
-#: src/boards/reading.c:592
+#: src/boards/reading.c:604
 msgid "No, it was not there"
 msgstr "Ne, tai ne čia"
 
@@ -2864,39 +3218,35 @@ msgstr "Ne, tai ne čia"
 #  Report what was wrong in the log
 #  Report what was wrong in the log
 #. Report what was wrong in the log
-#: src/boards/reading.c:630
+#: src/boards/reading.c:642
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Žodis, kurį reikėjo surasti buvo '%s'"
 
-#: src/boards/reading.c:633
+#: src/boards/reading.c:645
 msgid "But it was not displayed"
 msgstr "Nėra ekrane"
 
-#: src/boards/reading.c:635
+#: src/boards/reading.c:647
 msgid "And it was displayed"
 msgstr "yra ekrane "
 
-#: src/boards/reading.c:737 src/boards/reading.c:747
+#: src/boards/reading.c:748 src/boards/wordsgame.c:760
 msgid "Cannot open file of words for your locale"
 msgstr "Negaliu atidaryti jūsų kalbos (lokalės) žodžių failo."
-
-#: src/boards/reading.c:776
-msgid "Error: The wordfile package used for your locale is corrupted."
-msgstr "Klaida: Žodžių failo paketas jūsų kalbai (lokalei) yra sugadintas."
 
 #: src/boards/reversecount.c:137
 msgid "Reverse count"
 msgstr "Atvirkščias skaičiavimas"
 
-#: src/boards/shapegame.c:169
+#: src/boards/shapegame.c:170
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Padėk figūras į atitinkamas vietas"
 
 #  Enter Edit Mode
 #  Enter Edit Mode
 #. Enter Edit Mode
-#: src/boards/shapegame.c:416
+#: src/boards/shapegame.c:417
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -2908,7 +3258,7 @@ msgstr ""
 "'s' užsaugojimui \n"
 "'d' atvaizduoti visas dalis."
 
-#: src/boards/shapegame.c:424
+#: src/boards/shapegame.c:425
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -2916,11 +3266,11 @@ msgstr ""
 "Šio žaidimo duomenys išsaugoti\n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:70
+#: src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Kauliukai su skaičiais"
 
-#: src/boards/smallnumbers.c:71
+#: src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Paspausk klaviatūroje skaičius nuo 1 iki 9 kol kauliukai nenukrito"
 
@@ -2951,7 +3301,7 @@ msgstr ""
 msgid "Distance to target = %d meters"
 msgstr "Atstumas iki tikslo = %d metrai"
 
-#: src/boards/wordsgame.c:88
+#: src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
 msgstr "Parašyk pilnus krintančius žodžius, kol jie nenukrito"
 
@@ -2959,13 +3309,13 @@ msgstr "Parašyk pilnus krintančius žodžius, kol jie nenukrito"
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Autorius: Bruno Coudoin\n"
-"Bendradarbis: Pascal Georges\n"
-"Grafika: Renaud Blanchard\n"
+"Bendradarbis: Pascal Georges, Jose Jorg\n"
+"Grafika: Renaud Blanchard, Franck Doucet\n"
 "Įžanginė muzika: Djilali Sebihi\n"
 "Foninė muzika: Rico Da Halvarez\n"
 
@@ -2994,7 +3344,7 @@ msgid "GCompris Home Page"
 msgstr "GCompris namų svetainė"
 
 #: src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgid "This software is a GNU Package and is released under the GNU Public License"
 msgstr ""
 "Šita programa yra GNU paketas. Ji yra išleista pagal GNU bendrąją licenziją "
 "(GPL)."
@@ -3003,17 +3353,15 @@ msgstr ""
 msgid "Help"
 msgstr "Pagalba"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:207
-#: src/gcompris/gameutil.c:859 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:152
+#: src/gcompris/about.c:316 src/gcompris/config.c:210
+#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
+#: src/gcompris/images_selector.c:261
 msgid "OK"
 msgstr "Gerai"
 
 #: src/gcompris/board.c:170
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
-"Dinaminių objektų užkrovimas yra nepalaikomas. Gcompris negali "
-"užkrauti. \n"
+msgstr "Dinaminių objektų užkrovimas yra nepalaikomas. Gcompris negali užkrauti. \n"
 
 #: src/gcompris/config.c:63
 msgid "Your system default"
@@ -3032,234 +3380,246 @@ msgid "Azerbaijani Turkic"
 msgstr "Azerbaidžaniečių Turkų"
 
 #: src/gcompris/config.c:67
+msgid "Bulgarian"
+msgstr "Bulgarų"
+
+#: src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Kataloniečių"
 
-#: src/gcompris/config.c:68
+#: src/gcompris/config.c:69
 msgid "Czech"
 msgstr "Čekų"
 
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Danish"
 msgstr "Danų"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "German"
 msgstr "Vokiečių"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Graikų"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "English (Canadian)"
 msgstr "Anglų (Kanados)"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Anglų (Jungtinės Karalystės)"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "English (USA)"
 msgstr "Anglų (JAV)"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Ispanų"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Finnish"
 msgstr "Suomių"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "French"
 msgstr "Prancūzų"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Irish (Gaelic)"
 msgstr "Airių (gelų kalba)"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Hebrew"
 msgstr "Hebrajų"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Hindi)"
 msgstr "Indų (Hindi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
+msgid "Indian (Gujarati)"
+msgstr "Indų (Gujarati)"
+
+#: src/gcompris/config.c:83
 msgid "Indian (Punjabi)"
 msgstr "Indų (Pandžabo)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "Vengrų"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Kroatų"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:86
 msgid "Italian"
 msgstr "Italų"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:87
 msgid "Lithuanian"
 msgstr "Lietuvių"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:88
 msgid "Macedonian"
 msgstr "Makedoniečių"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:89
 msgid "Malayalam"
 msgstr "Malajų"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:90
 msgid "Malay"
 msgstr "Malajiečių"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:91
 msgid "Dutch"
 msgstr "Olandų"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:92
 msgid "Norwegian Bokmal"
 msgstr "Norvegų (Bokmal)"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:93
 msgid "Norwegian Nynorsk"
 msgstr "Norvegų (Nynorsk)"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:94
 msgid "Polish"
 msgstr "Lenkų"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:95
 msgid "Portuguese"
 msgstr "Portugalų"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:96
 msgid "Brazil Portuguese"
 msgstr "Brazilų (Portugalų)"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:97
 msgid "Romanian"
 msgstr "Rumunų"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:98
 msgid "Russian"
 msgstr "Rusų"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:99
 msgid "Slovak"
 msgstr "Slovakų"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:100
 msgid "Slovenian"
 msgstr "Slovėnų"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:101
 msgid "Albanian"
 msgstr "Albanų"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:102
 msgid "Serbian (Latin)"
 msgstr "Serbų (Lotyniška)"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:103
 msgid "Serbian"
 msgstr "Serbų"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:104
 msgid "Swedish"
 msgstr "Švedų"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:105
 msgid "Turkish"
 msgstr "Turkų"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:106
 msgid "Walloon"
 msgstr "Valonų"
 
-#: src/gcompris/config.c:109
+#: src/gcompris/config.c:107
+msgid "Chinese (Simplified)"
+msgstr "Kinų (supaprastinta)"
+
+#: src/gcompris/config.c:112
 msgid "No time limit"
 msgstr "Be laiko limito"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:113
 msgid "Slow timer"
 msgstr "Lėtas laikas"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:114
 msgid "Normal timer"
 msgstr "Normalus laikas"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:115
 msgid "Fast timer"
 msgstr "Pagreitintas laikas"
 
-#: src/gcompris/config.c:117
+#: src/gcompris/config.c:120
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Įprastas gcompris)"
 
-#: src/gcompris/config.c:122
+#: src/gcompris/config.c:125
 msgid "No filter"
 msgstr "Nėra filtro"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:126
 msgid "Only this level"
 msgstr "Tik šis lygis"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:127
 msgid "Up to this level"
 msgstr "Iki šio lygio"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:128
 msgid "This level and above"
 msgstr "Šis lygis ir aukščiau"
 
-#: src/gcompris/config.c:181
+#: src/gcompris/config.c:184
 msgid "GCompris Configuration"
 msgstr "GCompris nustatymai"
 
-#: src/gcompris/config.c:290
+#: src/gcompris/config.c:293
 msgid "Fullscreen"
 msgstr "Visame ekrane"
 
-#: src/gcompris/config.c:333
+#: src/gcompris/config.c:336
 msgid "Music"
 msgstr "Muzika"
 
-#: src/gcompris/config.c:361
+#: src/gcompris/config.c:364
 msgid "Effect"
 msgstr "Efektai"
 
-#: src/gcompris/config.c:395
+#: src/gcompris/config.c:398
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Negaliu atidaryti išvaizdos katalogo: %s"
 
-#: src/gcompris/config.c:416
+#: src/gcompris/config.c:419
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Iskiepių %s nerasta \n"
 
-#: src/gcompris/config.c:431 src/gcompris/config.c:816
-#: src/gcompris/config.c:827
+#: src/gcompris/config.c:434 src/gcompris/config.c:819
+#: src/gcompris/config.c:830
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema: %s"
 
-#: src/gcompris/file_selector.c:235
+#: src/gcompris/file_selector.c:341
 msgid "CANCEL"
 msgstr "ATŠAUKTI"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:372
 msgid "LOAD"
 msgstr "UŽKRAUTI"
 
-#: src/gcompris/file_selector.c:266
+#: src/gcompris/file_selector.c:372
 msgid "SAVE"
 msgstr "UŽSAUGOTI"
 
@@ -3315,7 +3675,7 @@ msgstr "Parodo programos versiją "
 msgid "Use the antialiased canvas (slower)."
 msgstr "Naudoti padailintus paveikslus (lėtesnis)"
 
-#: src/gcompris/gcompris.c:522
+#: src/gcompris/gcompris.c:541
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3328,13 +3688,16 @@ msgid ""
 "http://www.fsf.org/philosophy"
 msgstr ""
 "GCompris yra nemokama programa, išleista naudojant GPL licenziją vystymui "
-"palaikyti. Windows versija turi tik 12 pamokėlių iš 45. Pilną versiją galima gauti "
-"už mažą mokestį http://gcompris.net puslapyje \n"
+"palaikyti. Windows versija turi tik 12 pamokėlių iš 45. Pilną versiją galima "
+"gauti už mažą mokestį http://gcompris.net puslapyje \n"
 "Linux versija šio apribojimo neturi.\n"
-"Pastaba: gcompris kuriamas kad apsaugoti mokyklas nuo monopolinės programinės įrangos gamontojų. Jei Jūs taip pat tikite, kad reikia vaikus mokinti laisvės - svarstykite apie GNU/Linux naudojimą. Daugiau informacijos \n"
+"Pastaba: gcompris kuriamas kad apsaugoti mokyklas nuo monopolinės "
+"programinės įrangos gamontojų. Jei Jūs taip pat tikite, kad reikia vaikus "
+"mokinti laisvės - svarstykite apie GNU/Linux naudojimą. Daugiau "
+"informacijos \n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:717
+#: src/gcompris/gcompris.c:736
 #, c-format
 msgid ""
 "GCompris\n"
