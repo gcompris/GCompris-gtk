@@ -25,26 +25,6 @@
 #define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
   gtk_object_set_data (GTK_OBJECT (component), name, widget)
 
-static GnomeUIInfo file1_menu_uiinfo[] =
-{
-  GNOMEUIINFO_MENU_EXIT_ITEM (on_quit1_activate, NULL),
-  GNOMEUIINFO_END
-};
-
-static GnomeUIInfo help1_menu_uiinfo[] =
-{
-  GNOMEUIINFO_HELP ("gcompris-edit"),
-  GNOMEUIINFO_MENU_ABOUT_ITEM (on_about1_activate, NULL),
-  GNOMEUIINFO_END
-};
-
-static GnomeUIInfo menubar1_uiinfo[] =
-{
-  GNOMEUIINFO_MENU_FILE_TREE (file1_menu_uiinfo),
-  GNOMEUIINFO_MENU_HELP_TREE (help1_menu_uiinfo),
-  GNOMEUIINFO_END
-};
-
 GtkWidget*
 create_gcompris_edit (void)
 {
@@ -105,18 +85,6 @@ create_gcompris_edit (void)
   bonobodock1 = GNOME_APP (gcompris_edit)->dock;
   gtk_widget_set_name (bonobodock1, "bonobodock1");
   gtk_widget_show (bonobodock1);
-
-  gnome_app_create_menus (GNOME_APP (gcompris_edit), menubar1_uiinfo);
-
-  gtk_widget_set_name (menubar1_uiinfo[0].widget, "file1");
-
-  gtk_widget_set_name (file1_menu_uiinfo[0].widget, "quit1");
-
-  gtk_widget_set_name (menubar1_uiinfo[1].widget, "edit1");
-
-  gtk_widget_set_name (menubar1_uiinfo[2].widget, "help1");
-
-  gtk_widget_set_name (help1_menu_uiinfo[1].widget, "about1");
 
   toolbar1 = gtk_toolbar_new ();
   gtk_widget_set_name (toolbar1, "toolbar1");
@@ -406,11 +374,6 @@ create_gcompris_edit (void)
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (gcompris_edit, gcompris_edit, "gcompris_edit");
   GLADE_HOOKUP_OBJECT (gcompris_edit, bonobodock1, "bonobodock1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[0].widget, "file1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, file1_menu_uiinfo[0].widget, "quit1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[1].widget, "edit1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, menubar1_uiinfo[2].widget, "help1");
-  GLADE_HOOKUP_OBJECT (gcompris_edit, help1_menu_uiinfo[1].widget, "about1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, toolbar1, "toolbar1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, hpaned1, "hpaned1");
   GLADE_HOOKUP_OBJECT (gcompris_edit, scrolledwindow1, "scrolledwindow1");
