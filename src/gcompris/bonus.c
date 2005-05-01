@@ -100,7 +100,6 @@ void end_board_finished() {
 #define OFFSET 100
 void board_finished(BoardFinishedList type) {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-  GcomprisProperties	*properties = gcompris_get_properties();
 
   int x,y;
   GdkPixbuf *pixmap_door1 = NULL,*pixmap_door2 = NULL,*pixmap_tuxplane = NULL;
@@ -199,7 +198,6 @@ void board_finished(BoardFinishedList type) {
 void gcompris_display_bonus(BonusStatusList gamewon, BonusList bonus_id)
 {
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
-  GcomprisProperties	*properties = gcompris_get_properties();
 
   gcompris_bar_hide(TRUE);
 

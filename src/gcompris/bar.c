@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2005/04/10 19:25:52 bruno>
+ * Time-stamp: <2005/04/30 23:45:37 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -66,7 +66,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 {
 
   GdkPixbuf   *pixmap = NULL;
-  GnomeCanvasItem *item;
   GnomeCanvasItem *rootitem;
   gint16           width, height;
   double           zoom;

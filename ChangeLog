@@ -1,3 +1,25 @@
+2005-05-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Many little changes to ease the windows port. Now uses the glib
+	to load files with g_dir_open and no more readdir.
+	Many compilation warning removed.
+	
+	* INSTALL: updated for SDL_mixer
+	* src/boards/clickgame.c: (clickgame_start):
+	* src/boards/money_widget.c: (finalize):
+	* src/boards/read_colors.c: (item_event), (add_xml_data):
+	* src/boards/reading.c: (reading_create_item):
+	* src/gcompris/assetml.c: (selectAssetML), (assetml_load_xml):
+	* src/gcompris/bar.c: (gcompris_bar_start):
+	* src/gcompris/bonus.c: (board_finished), (gcompris_display_bonus):
+	* src/gcompris/config.c: (gcompris_config_start):
+	* src/gcompris/file_selector.c: (display_files),
+	(gcompris_load_mime_types):
+	* src/gcompris/gameutil.c: (gcompris_get_asset_file),
+	(selectMenuXML), (gcompris_load_menus_dir),
+	(gcompris_display_difficulty_stars):
+	* src/gcompris/soundutil.c: (scheduler_bgnd):
+
 2005-04-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/gcompris/interface.c: (create_gcompris_edit): removed the menu which uses an obsolete

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/04/07 00:19:08 bruno>
+ * Time-stamp: <2005/05/02 01:17:53 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -26,8 +26,6 @@
 #include "gcompris.h"
 #include "gcompris_config.h"
 #include "locale.h"
-
-#include <dirent.h>
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -134,7 +132,9 @@ static gchar *get_locale_name(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
 static gchar *get_previous_locale(gchar *locale);
 static void   display_difficulty_level();
-static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static gint   item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
+static void   display_previous_next(guint x_start, guint y_start, 
+				    gchar *eventname_previous, gchar *eventname_next);
 
 
 /*
@@ -387,33 +387,32 @@ void gcompris_config_start ()
 
   // Skin
   {
-    struct dirent *one_dirent;
-    guint i;
-    char *str;
-    DIR *dir;
+    gchar *one_dirent;
+    guint  i;
+    GDir  *dir;
     
     /* Load the Pixpmaps directory file names */
-    dir = opendir(PACKAGE_DATA_DIR"/skins");
+    dir = g_dir_open(PACKAGE_DATA_DIR"/skins", 0, NULL);
 
     if (!dir)
       g_error (_("Couldn't open skin dir: %s"), PACKAGE_DATA_DIR"/skins");
     
     /* Fill up the skin list */
-    while((one_dirent = readdir(dir)) != NULL) {
+    while((one_dirent = g_dir_read_name(dir)) != NULL) {
 
-      if (one_dirent->d_name[0] != '.') {
+      if (one_dirent[0] != '.') {
 	gchar *filename;
 	/* Only directory here are skins */
-	filename = g_strdup_printf("%s/skins/%s", PACKAGE_DATA_DIR, one_dirent->d_name);
+	filename = g_strdup_printf("%s/skins/%s", PACKAGE_DATA_DIR, one_dirent);
 
 	if (g_file_test ((filename), G_FILE_TEST_IS_DIR)) {
-	  gchar *skin_name = g_strdup_printf("%s", one_dirent->d_name);
+	  gchar *skin_name = g_strdup_printf("%s", one_dirent);
 	  skinlist = g_list_append (skinlist, skin_name);
 	}
 	g_free(filename);
       }
     }
-    closedir(dir);
+    g_dir_close(dir);
 
     /* Should not happen. It the user found the config, there should be a skin */
     if(g_list_length(skinlist) == 0) {
@@ -505,7 +504,7 @@ void gcompris_config_stop ()
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
-
+static void
 display_previous_next(guint x_start, guint y_start, 
 		      gchar *eventname_previous, gchar *eventname_next)
 {

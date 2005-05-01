@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2004/08/08 22:39:17 bcoudoin>
+ * Time-stamp: <2005/05/02 01:42:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -22,7 +22,6 @@
 #ifdef __APPLE__
 #   include <sys/types.h>
 #endif
-#include <dirent.h>
 #include <string.h>
 
 #include "gcompris/gcompris.h"
@@ -164,11 +163,11 @@ static void clickgame_pause (gboolean pause)
  */
 static void clickgame_start (GcomprisBoard *agcomprisBoard)
 {
-  gint i;
-  gchar *str;
-  gchar *filename;
-  DIR *dir;
-  struct dirent *one_dirent;
+  gint		 i;
+  gchar		*str;
+  gchar		*filename;
+  GDir		*dir;
+  const gchar	*one_dirent;
 
   if(agcomprisBoard!=NULL)
     {
@@ -176,27 +175,23 @@ static void clickgame_start (GcomprisBoard *agcomprisBoard)
 
       /* Load the Pixpmaps directory file names */
       filename = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, gcomprisBoard->boarddir);      
-      dir = opendir(filename);
+      dir = g_dir_open(filename, 0, NULL);
       
       if (!dir)
 	g_error (_("Couldn't open dir: %s"),filename);
 
       g_free(filename);
 
-      while((one_dirent = readdir(dir)) != NULL) {
+      while((one_dirent = g_dir_read_name(dir)) != NULL) {
 
-	if (one_dirent->d_name[0] != '.') {
-
-	  str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, one_dirent->d_name);
-	  str[strlen(str)-5]='x';
-
-	  if(g_list_find_custom(pixmaplist, str, (GCompareFunc) strcmp) == NULL)
-	  {
-	    pixmaplist = g_list_append (pixmaplist, str);
-	  }
+	str = g_strdup_printf("%s/%s", gcomprisBoard->boarddir, one_dirent);
+	str[strlen(str)-5]='x';
+	
+	if(g_list_find_custom(pixmaplist, str, (GCompareFunc) strcmp) == NULL) {
+	  pixmaplist = g_list_append (pixmaplist, str);
 	}
       }
-      closedir(dir);
+      g_dir_close(dir);
 
 
       /* set initial values for this level */

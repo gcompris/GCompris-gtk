@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/04/10 23:50:40 bruno>
+ * Time-stamp: <2005/05/02 01:43:21 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -19,7 +19,6 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <dirent.h>
 #include <math.h>
 
 /* libxml includes */
@@ -33,9 +32,6 @@
 #define IMAGEEXTENSION ".png"
 
 #define MAX_DESCRIPTION_LENGTH 1000
-
-/* default gnome pixmap directory in which this game tales the icon */
-static char *lettersdir = "letters/";
 
 /* List of all available boards  */
 static GList *boards_list = NULL;
@@ -56,7 +52,6 @@ gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories,
 {
   GList *gl_result;
   AssetML *assetml;
-  GdkPixbuf *pixmap;
   gchar* resultfile = NULL;
 
   gl_result = assetml_get_asset(dataset, categories, mimetype, gcompris_get_locale(), file);
@@ -650,7 +645,7 @@ GList *gcompris_get_menulist(gchar *section)
  * Select only files with .xml extention
  * Return 1 if the given file end in .xml 0 else
  */
-int selectMenuXML(gchar *file)
+int selectMenuXML(const gchar *file)
 {
 
   if(strlen(file)<4)
@@ -676,30 +671,35 @@ void cleanup_menus() {
  *
  */
 void gcompris_load_menus_dir(char *dirname){
-  struct dirent *one_dirent;
-  DIR *dir;
-  int n;
+  const gchar   *one_dirent;
+  GDir          *dir;
 
-  dir = opendir(dirname);
+  if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
+    g_warning("Failed to parse board in '%s' because it's not a directory\n", dirname);
+    return;
+  }
+
+  dir = g_dir_open(dirname, 0, NULL);
 
   if (!dir) {
     g_warning("gcompris_load_menus : no menu found in %s", dirname);
+    return;
   } else {
 
-    while((one_dirent = readdir(dir)) != NULL) {
+    while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
       GcomprisBoard *gcomprisBoard = NULL;
       gchar *filename;
       
       filename = g_strdup_printf("%s/%s",
-				 dirname, one_dirent->d_name);
+				 dirname, one_dirent);
 
       if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
 	g_free(filename);
 	continue;
       }
 
-      if(selectMenuXML(one_dirent->d_name)) {
+      if(selectMenuXML(one_dirent)) {
 	gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
 	gcomprisBoard->board_dir = dirname;
 
@@ -716,7 +716,7 @@ void gcompris_load_menus_dir(char *dirname){
       g_free(filename);
     }
   }
-  closedir(dir);
+  g_dir_close(dir);
 }
 
 /* load all the menus xml files in the gcompris path
@@ -1033,20 +1033,19 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
 						    gint difficulty)
 {
   GdkPixbuf *pixmap = NULL;
-  int i;
   GnomeCanvasGroup *stars_group = NULL;
   GnomeCanvasGroup *item = NULL;
   gchar *filename = NULL;
 
   if(difficulty==0 || difficulty>6)
-    return;
+    return NULL;
 
   filename = g_strdup_printf("difficulty_star%d.png", difficulty);
   pixmap   = gcompris_load_skin_pixmap(filename);
   g_free(filename);
 
   if(!pixmap)
-    return;
+    return NULL;
 
   stars_group = GNOME_CANVAS_GROUP(
 				  gnome_canvas_item_new (parent,

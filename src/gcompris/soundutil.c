@@ -20,7 +20,6 @@
 #ifdef __APPLE__
 #   include <sys/types.h>
 #endif
-#include <dirent.h>
 #include "gcompris.h"
 #include <signal.h>
 #include <glib.h>
@@ -121,8 +120,8 @@ static gpointer scheduler_bgnd (gpointer user_data)
   gchar *str;
   gchar *filename;
   GList *musiclist = NULL;
-  DIR *dir;
-  struct dirent *one_dirent;
+  GDir *dir;
+  const gchar *one_dirent;
 
   /* Sleep to let gcompris intialisation and intro music to complete */
 #if defined WIN32
@@ -134,7 +133,7 @@ static gpointer scheduler_bgnd (gpointer user_data)
   /* Load the Music directory file names */
   filename = g_strdup_printf("%s", PACKAGE_DATA_DIR "/music/background");
 
-  dir = opendir(filename);
+  dir = g_dir_open(filename, 0, NULL);
       
   if (!dir) {
     g_warning (_("Couldn't open music dir: %s"), filename);
@@ -145,16 +144,15 @@ static gpointer scheduler_bgnd (gpointer user_data)
   g_free(filename);
   
   /* Fill up the music list */
-  while((one_dirent = readdir(dir)) != NULL) {
+  while((one_dirent = g_dir_read_name(dir)) != NULL) {
 
-    if (one_dirent->d_name[0] != '.' &&
-	strcmp(one_dirent->d_name, "COPYRIGHT")) {
-      str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", one_dirent->d_name);
+    if (strcmp(one_dirent, "COPYRIGHT")) {
+      str = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/music/background", one_dirent);
 
       musiclist = g_list_append (musiclist, str);
     }
   }
-  closedir(dir);
+  g_dir_close(dir);
 
   /* No music no play */
   if(g_list_length(musiclist)==0)

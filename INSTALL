@@ -30,7 +30,7 @@ python-base
 Now that the sound is managed internally, you also need:
 libSDL libSDL-mixer
 
-On a Mandrake, you will need to install their -devel counterpart package in
+On a Mandriva, you will need to install their -devel counterpart package in
 order to be abble to compile it plus  intltool, tetex.
 
 In order to compile gcompris on a mandrake 10.1 you must install :
@@ -52,6 +52,7 @@ urpmi texinfo
 urpmi texi2html
 urpmi tetex
 urpmi gnuchess
+urpmi libSDL_mixer1.2-devel
 
 
 

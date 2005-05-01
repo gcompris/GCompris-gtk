@@ -351,7 +351,7 @@ static void process_ok() {
  * =====================================================================*/
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data) {
   double x, y;
-  int i, j, clicked;
+  int i, clicked;
 
   x = event->button.x;
   y = event->button.y;
@@ -419,7 +419,6 @@ static void init_xml()
 static void add_xml_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 {
   char *text = NULL;
-  char * tmp = NULL;
   char *sColor = NULL;
   int color = 0;
   int i;

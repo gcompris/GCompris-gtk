@@ -110,7 +110,6 @@ money_widget_get_type ()
 static void
 finalize (GtkObject *object)
 {
-  guint		   i, length;
   MoneyItem	  *moneyitem;
 
   Money_Widget *moneyWidget = (Money_Widget *) object;

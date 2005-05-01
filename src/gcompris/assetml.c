@@ -17,6 +17,7 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include "glib.h"
 #include "assetml.h"
 #include <config.h>
 
@@ -25,7 +26,6 @@
 #include <libxml/parser.h>
 
 #include <locale.h>
-#include <dirent.h>
 #include <string.h>
 
 #define FILE_EXT ".assetml"
@@ -33,7 +33,7 @@
 const gchar	*assetml_get_locale(void);
 static gchar	*reactivate_newline(gchar *str);
 static void	 dump_asset(AssetML *assetml);
-int		 selectAssetML(const struct dirent *d);
+int		 selectAssetML(const gchar *dirent);
 void		 assetml_read_xml_file(GList **gl_result, char *fname,
 				       gchar *dataset, gchar* categories, gchar* mimetype, 
 				       const gchar *locale, gchar* file);
@@ -340,15 +340,14 @@ void assetml_read_xml_file(GList **gl_result, char *assetmlfile,
 /*
  * Select only files with FILE_EXT
  */
-int selectAssetML(const struct dirent *d)
+int selectAssetML(const gchar *dirent)
 {
-  gchar *file = ((struct dirent *)d)->d_name;
   guint ext_length = strlen(FILE_EXT);
 
-  if(strlen(file)<ext_length)
+  if(strlen(dirent)<ext_length)
     return 0;
 
-  return (strncmp (&file[strlen(file)-ext_length], FILE_EXT, ext_length) == 0);
+  return (strncmp (&dirent[strlen(dirent)-ext_length], FILE_EXT, ext_length) == 0);
 }
 
 /* load all the xml files in the assetml path
@@ -357,20 +356,19 @@ int selectAssetML(const struct dirent *d)
 void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gchar* mimetype, const gchar *locale, 
 		      gchar* name)
 {
-  struct dirent *one_dirent;
-  int n;
-  DIR *dir;
+  const gchar  *one_dirent;
+  GDir    *dir;
 
-  dir = opendir(ASSETML_DIR);
+  dir = g_dir_open(ASSETML_DIR, 0, NULL);
   if(!dir) {
     g_warning("opendir returns no files with extension %s in directory %s", FILE_EXT, ASSETML_DIR);
     return;
   }
 
-  while((one_dirent = readdir(dir)) != NULL) {
+  while((one_dirent = g_dir_read_name(dir)) != NULL) {
 
-    if(strstr(one_dirent->d_name, FILE_EXT)) {
-      gchar *assetmlfile = g_strdup_printf("%s/%s", ASSETML_DIR, one_dirent->d_name);
+    if(strstr(one_dirent, FILE_EXT)) {
+      gchar *assetmlfile = g_strdup_printf("%s/%s", ASSETML_DIR, one_dirent);
       
       assetml_read_xml_file(gl_result, assetmlfile,
 			    dataset, categories, mimetype, locale, name);
@@ -378,7 +376,7 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
       g_free(assetmlfile);
     }
   }
-  closedir(dir);
+  g_dir_close(dir);
 }
 
 

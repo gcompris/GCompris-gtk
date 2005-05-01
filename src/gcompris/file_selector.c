@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/04/17 16:01:23 bruno>
+ * Time-stamp: <2005/05/02 01:27:39 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -26,7 +26,7 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <dirent.h>
+#include <string.h>
 
 /* libxml includes */
 #include <libxml/tree.h>
@@ -441,8 +441,8 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 {
   GnomeCanvasItem *item;
   double iw, ih;
-  struct dirent *one_dirent;
-  DIR *dir;
+  const gchar *one_dirent;
+  GDir  *dir;
 
   /* Initial image position */
   guint ix  = 0.0;
@@ -460,7 +460,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
     return;
 
   /* Display the directory content */
-  dir = opendir(rootdir);
+  dir = g_dir_open(rootdir, 0, NULL);
 
   if (!dir) {
     g_warning("gcompris_file_selector : no root directory found in %s", rootdir);
@@ -553,18 +553,11 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
   /* Insert all files in a sorted list */
 
-  while((one_dirent = readdir(dir)) != NULL) {
+  while((one_dirent = g_dir_read_name(dir)) != NULL) {
     gchar *filename;
 
-    if((strcmp(one_dirent->d_name, "..")==0) &&
-       strcmp(current_rootdir, rootdir)==0)
-      continue;
-
-    if(strcmp(one_dirent->d_name, ".")==0)
-      continue;
-
     filename = g_strdup_printf("%s/%s",
-			       rootdir, (gchar*)(one_dirent->d_name));
+			       rootdir, (gchar*)(one_dirent));
 
     if(g_file_test(filename, G_FILE_TEST_IS_DIR)) {
       dir_list = g_list_insert_sorted(dir_list, filename,
@@ -684,7 +677,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
     listrunner = g_list_next(listrunner);
   }
 
-  closedir(dir);
+  g_dir_close(dir);
 
 }
 
@@ -968,9 +961,9 @@ gboolean load_mime_type_from_file(gchar *fname)
  */
 void gcompris_load_mime_types() 
 {
-  struct dirent *one_dirent;
-  DIR *dir;
-  int n;
+  const gchar  *one_dirent;
+  GDir   *dir;
+  int     n;
 
   if(mimetypes_hash) {
     return;
@@ -981,31 +974,32 @@ void gcompris_load_mime_types()
   mimetypes_desc_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
   /* Load the Pixpmaps directory file names */
-  dir = opendir(PACKAGE_DATA_DIR"/gcompris/mimetypes/");
+  dir = g_dir_open(PACKAGE_DATA_DIR"/gcompris/mimetypes/", 0, NULL);
 
   if (!dir) {
-    g_warning("gcompris_load_mime_types : no mime types found in %s", PACKAGE_DATA_DIR"/gcompris/mimetypes/");
+    g_warning("gcompris_load_mime_types : no mime types found in %s", 
+	      PACKAGE_DATA_DIR"/gcompris/mimetypes/");
   } else {
 
-    while((one_dirent = readdir(dir)) != NULL) {
+    while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
       gchar *filename;
       
       filename = g_strdup_printf("%s/%s",
-				 PACKAGE_DATA_DIR"/gcompris/mimetypes/", one_dirent->d_name);
+				 PACKAGE_DATA_DIR"/gcompris/mimetypes/", one_dirent);
 
       if(!g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
 	g_free(filename);
 	continue;
       }
 
-      if(selectMenuXML(one_dirent->d_name)) {
+      if(selectMenuXML(one_dirent)) {
 	load_mime_type_from_file(filename);
       }
       g_free(filename);
     }
   }
-  closedir(dir);
+  g_dir_close(dir);
 }
 
 

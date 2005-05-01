@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2004/11/06 23:14:34 bruno>
+ * Time-stamp: <2005/04/30 23:14:18 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -370,7 +370,6 @@ static GnomeCanvasItem *display_what_to_do(GnomeCanvasGroup *parent)
 
 static gboolean reading_create_item(GnomeCanvasGroup *parent)
 {
-  gint   i;
   gint   anchor = GTK_ANCHOR_CENTER;
   gchar *word;
   gchar *overword;
