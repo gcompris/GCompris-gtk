@@ -34,7 +34,8 @@
   } \
   BoardPlugin * _##pluginname##_menu_bp = &menu_bp;
 #else
-  BoardPlugin \
+#define GET_BPLUGIN_INFO(pluginname) \
+  BoardPlugin			     \
   *get_bplugin_info(void) \
   { \
     return &menu_bp; \

@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/05/02 02:06:00 bruno>
+ * Time-stamp: <2005/05/02 02:53:44 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -107,6 +107,7 @@ GcomprisProperties *gcompris_properties_new ()
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;
+  const gchar   *locale;
 
   boards_hash = g_hash_table_new (g_str_hash, g_str_equal);
 

@@ -46,7 +46,7 @@ static gboolean  pythonboard_is_ready = FALSE;
 
 
 /* Description of this plugin */
-static BoardPlugin pythonboard_bp =
+static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
@@ -304,7 +304,7 @@ static gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
 
       if (g_ascii_strncasecmp(agcomprisBoard->type, "python", 6)==0) {
 	/* Set the plugin entry */
-	agcomprisBoard->plugin=&pythonboard_bp;
+	agcomprisBoard->plugin=&menu_bp;
 	
 	//g_print("pythonboard: is our board = TRUE\n");
 	
