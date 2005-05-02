@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2005/04/27 22:16:48 bruno>
+ * Time-stamp: <2005/05/02 22:06:44 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -94,8 +94,8 @@ static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
-   N_("Learning Clock"),
-   N_("Learn how to tell time"),
+   N_("Practice the math operation"),
+   N_("Answer some algebra questions"),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

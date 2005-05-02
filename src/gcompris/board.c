@@ -28,92 +28,47 @@ static struct BoardPluginData *bp_data;
 
 
 #ifdef WIN32
-extern BoardPlugin _advanced_colors_menu_bp;
-extern BoardPlugin _algebra_menu_bp;
-extern BoardPlugin _algebra_guesscount_menu_bp;
-extern BoardPlugin _canal_lock_menu_bp;
-extern BoardPlugin _clickgame_menu_bp;
-extern BoardPlugin _click_on_letter_menu_bp;
-extern BoardPlugin _clockgame_menu_bp;
-extern BoardPlugin _colors_menu_bp;
-extern BoardPlugin _enumerate_menu_bp;
-extern BoardPlugin _erase_menu_bp;
-extern BoardPlugin _fifteen_menu_bp;
-extern BoardPlugin _gletters_menu_bp;
-extern BoardPlugin _hanoi_menu_bp;
-extern BoardPlugin _imageid_menu_bp;
-extern BoardPlugin _leftright_menu_bp;
-extern BoardPlugin _machpuzzle_menu_bp;
-extern BoardPlugin _maze_menu_bp;
-extern BoardPlugin _memory_menu_bp;
-extern BoardPlugin _menu_menu_bp;
-extern BoardPlugin _missingletter_menu_bp;
-extern BoardPlugin _money_menu_bp;
-extern BoardPlugin _paratrooper_menu_bp;
-extern BoardPlugin _planegame_menu_bp;
-extern BoardPlugin _railroad_menu_bp;
-extern BoardPlugin _read_colors_menu_bp;
-extern BoardPlugin _reading_menu_bp;
-extern BoardPlugin _reversecount_menu_bp;
-extern BoardPlugin _shapegame_menu_bp;
-extern BoardPlugin _smallnumbers_menu_bp;
-extern BoardPlugin _submarine_menu_bp;
-extern BoardPlugin _superbrain_menu_bp;
-extern BoardPlugin _target_menu_bp;
-extern BoardPlugin _traffic_menu_bp;
-extern BoardPlugin _wordsgame_menu_bp;
+extern BoardPlugin * get_advanced_colors_bplugin_info();
+extern BoardPlugin * get_algebra_bplugin_info();
+extern BoardPlugin * get_algebra_guesscount_bplugin_info();
+extern BoardPlugin * get_canal_lock_bplugin_info();
+extern BoardPlugin * get_chess_bplugin_info();
+extern BoardPlugin * get_clickgame_bplugin_info();
+extern BoardPlugin * get_click_on_letter_bplugin_info();
+extern BoardPlugin * get_clockgame_bplugin_info();
+extern BoardPlugin * get_colors_bplugin_info();
+extern BoardPlugin * get_enumerate_bplugin_info();
+extern BoardPlugin * get_erase_bplugin_info();
+extern BoardPlugin * get_fifteen_bplugin_info();
+extern BoardPlugin * get_gletters_bplugin_info();
+extern BoardPlugin * get_hanoi_bplugin_info();
+extern BoardPlugin * get_imageid_bplugin_info();
+extern BoardPlugin * get_leftright_bplugin_info();
+extern BoardPlugin * get_machpuzzle_bplugin_info();
+extern BoardPlugin * get_maze_bplugin_info();
+extern BoardPlugin * get_memory_bplugin_info();
+extern BoardPlugin * get_menu_bplugin_info();
+extern BoardPlugin * get_missingletter_bplugin_info();
+extern BoardPlugin * get_money_bplugin_info();
+extern BoardPlugin * get_paratrooper_bplugin_info();
+extern BoardPlugin * get_planegame_bplugin_info();
+extern BoardPlugin * get_railroad_bplugin_info();
+extern BoardPlugin * get_read_colors_bplugin_info();
+extern BoardPlugin * get_reading_bplugin_info();
+extern BoardPlugin * get_reversecount_bplugin_info();
+extern BoardPlugin * get_shapegame_bplugin_info();
+extern BoardPlugin * get_smallnumbers_bplugin_info();
+extern BoardPlugin * get_submarine_bplugin_info();
+extern BoardPlugin * get_superbrain_bplugin_info();
+extern BoardPlugin * get_target_bplugin_info();
+extern BoardPlugin * get_traffic_bplugin_info();
+extern BoardPlugin * get_wordsgame_bplugin_info();
 
 static BoardPlugin *static_boards_demo[] = {
-  &_algebra_menu_bp,
-  &_click_on_letter_menu_bp,
-  &_colors_menu_bp,
-  &_clickgame_menu_bp,
-  &_enumerate_menu_bp,
-  &_erase_menu_bp,
-  &_gletters_menu_bp,
-  &_hanoi_menu_bp,
-  &_menu_menu_bp,
-  &_reading_menu_bp,
-  &_submarine_menu_bp,
-  &_superbrain_menu_bp,
-  &_target_menu_bp,
+  NULL
 };
 
 static BoardPlugin *static_boards[] = {
-  &_advanced_colors_menu_bp,
-  &_algebra_guesscount_menu_bp,
-  &_imageid_menu_bp,
-  &_leftright_menu_bp,
-  &_machpuzzle_menu_bp,
-  &_maze_menu_bp,
-  &_memory_menu_bp,
-  &_missingletter_menu_bp,
-  &_money_menu_bp,
-  &_paratrooper_menu_bp,
-  &_planegame_menu_bp,
-  &_read_colors_menu_bp,
-  &_reversecount_menu_bp,
-  &_shapegame_menu_bp,
-  &_smallnumbers_menu_bp,
-  &_traffic_menu_bp,
-  &_wordsgame_menu_bp,
-  &_fifteen_menu_bp,
-  &_algebra_menu_bp,
-  &_click_on_letter_menu_bp,
-  &_colors_menu_bp,
-  &_canal_lock_menu_bp,
-  &_clickgame_menu_bp,
-  &_clockgame_menu_bp,
-  &_enumerate_menu_bp,
-  &_erase_menu_bp,
-  &_gletters_menu_bp,
-  &_hanoi_menu_bp,
-  &_menu_menu_bp,
-  &_railroad_menu_bp,
-  &_reading_menu_bp,
-  &_submarine_menu_bp,
-  &_superbrain_menu_bp,
-  &_target_menu_bp,
   NULL
 };
 #endif
@@ -134,28 +89,59 @@ void init_plugins(void)
 {
   guint i=0;
   BoardPlugin **boards_list = NULL;
-  printf(">init_plugins\n");
-  /* First make sure the module loading is supported on this platform */
-  if (!g_module_supported())
-    g_error("Dynamic module loading is not supported. gcompris cannot work.\n");
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 
-  while(static_boards[i++] != NULL) {
+  static_boards[i++] = get_algebra_bplugin_info();
+  static_boards[i++] = get_advanced_colors_bplugin_info();
+  static_boards[i++] = get_algebra_guesscount_bplugin_info();
+  static_boards[i++] = get_imageid_bplugin_info();
+  static_boards[i++] = get_leftright_bplugin_info();
+  static_boards[i++] = get_machpuzzle_bplugin_info();
+  static_boards[i++] = get_maze_bplugin_info();
+  static_boards[i++] = get_memory_bplugin_info();
+  static_boards[i++] = get_missingletter_bplugin_info();
+  static_boards[i++] = get_money_bplugin_info();
+  static_boards[i++] = get_paratrooper_bplugin_info();
+  static_boards[i++] = get_planegame_bplugin_info();
+  static_boards[i++] = get_read_colors_bplugin_info();
+  static_boards[i++] = get_reversecount_bplugin_info();
+  static_boards[i++] = get_shapegame_bplugin_info();
+  static_boards[i++] = get_smallnumbers_bplugin_info();
+  static_boards[i++] = get_traffic_bplugin_info();
+  static_boards[i++] = get_wordsgame_bplugin_info();
+  static_boards[i++] = get_fifteen_bplugin_info();
+  static_boards[i++] = get_algebra_bplugin_info();
+  static_boards[i++] = get_click_on_letter_bplugin_info();
+  static_boards[i++] = get_colors_bplugin_info();
+  static_boards[i++] = get_canal_lock_bplugin_info();
+  static_boards[i++] = get_clickgame_bplugin_info();
+  static_boards[i++] = get_clockgame_bplugin_info();
+  static_boards[i++] = get_enumerate_bplugin_info();
+  static_boards[i++] = get_erase_bplugin_info();
+  static_boards[i++] = get_gletters_bplugin_info();
+  static_boards[i++] = get_hanoi_bplugin_info();
+  static_boards[i++] = get_menu_bplugin_info();
+  static_boards[i++] = get_railroad_bplugin_info();
+  static_boards[i++] = get_reading_bplugin_info();
+  static_boards[i++] = get_submarine_bplugin_info();
+  static_boards[i++] = get_superbrain_bplugin_info();
+  static_boards[i++] = get_target_bplugin_info();
+  static_boards[i++] = get_chess_bplugin_info();
+  static_boards[i++] = NULL;
+
+  i=0;
+  while(static_boards[i] != NULL) {
     /* If this plugin defines an initialisation entry point, call it */
     BoardPlugin *bp;
       
     /* Get the BoardPlugin Info */
-    bp = (BoardPlugin *) static_boards[i-1];
+    bp = (BoardPlugin *) static_boards[i++];
       
-    printf("Initializing plugin %s\n", bp->name);
     if(bp->init != NULL) {
       bp->init();
     }
   }
-
-  printf("<init_plugins\n");
-
 }
 #else
 void init_plugins(void)
@@ -202,7 +188,6 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
   if(strncmp(properties->key, "thanks_for_your_help", 20)==0) {
     while(static_boards[i++] != NULL) {
-
       BoardPlugin *bp;
 
       /* Get the BoardPlugin Info */
@@ -218,12 +203,11 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
       }
     }
   } else {
-    while(static_boards_demo[i++] != NULL) {
-
+    while(static_boards[i++] != NULL) {
       BoardPlugin *bp;
 
       /* Get the BoardPlugin Info */
-      bp = (BoardPlugin *) static_boards_demo[i-1];
+      bp = (BoardPlugin *) static_boards[i-1];
 
       if(bp->is_our_board(gcomprisBoard)) {
 	/* Great, we found our plugin */

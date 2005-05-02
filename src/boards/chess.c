@@ -501,7 +501,10 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	//	printf("square=%d piece=%d x=%d y=%d\n", square, piece, x, y);
 	if(piece != EMPTY)
 	  {
-	    str = g_strdup_printf("chess/%c.png", piece_to_ascii(piece));
+	    if(BPIECE(piece))
+	      str = g_strdup_printf("chess/B%c.png", piece_to_ascii(piece));
+	    else
+	      str = g_strdup_printf("chess/W%c.png", piece_to_ascii(piece));
 	    
 	    pixmap = gcompris_load_pixmap(str);
 	    //	    g_warning("loading piece %s\n",   str);
@@ -698,7 +701,10 @@ static void move_piece_to(Square from, Square to)
       g_warning("  WARNING promoting a pawn from=%d to=%d piece=%d\n", from, to, piece);
       g_warning("  piece_to_ascii returns %c\n", piece_to_ascii(piece));
 
-      str = g_strdup_printf("chess/%c.png", piece_to_ascii(piece));
+      if(BPIECE(piece))
+	str = g_strdup_printf("chess/B%c.png", piece_to_ascii(piece));
+      else
+	str = g_strdup_printf("chess/W%c.png", piece_to_ascii(piece));
 	      
       pixmap = gcompris_load_pixmap(str);
       g_free(str);

@@ -1,3 +1,14 @@
+2005-05-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* config.h.mingw:
+	* src/boards/Makefile.mingw:
+	* src/boards/algebra.c: fixed board title
+	* src/boards/chess.c: (chess_create_item), (move_piece_to): fixed to work with
+	sub level operating systems inable to differentiate a 'A' from a 'a'. This was
+	creating a bug by having gcompris play black against black only.
+	* src/gcompris/board.c: (init_plugins), (board_check_file): added chess.
+	fixed it to let boards load on windows. It works on windows again.
+
 2005-05-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Windows port updated. Not functional yet.
