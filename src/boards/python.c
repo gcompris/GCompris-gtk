@@ -73,11 +73,7 @@ static BoardPlugin pythonboard_bp =
  * Return the plugin structure (Common to all gcompris boards)
  */
 
-BoardPlugin
-*get_bplugin_info(void)
-{
-   return &pythonboard_bp;
-}
+GET_BPLUGIN_INFO(python)
 
 
 /*

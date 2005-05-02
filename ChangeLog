@@ -1,5 +1,63 @@
 2005-05-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Windows port updated. Not functional yet.
+	A new macro has been added to declare a gcompris activity.
+	This macro make the declaration for a dynamic link on every
+	good enough operating system. On windows, this macro declares
+	the boards as static.
+
+	* src/boards/Makefile.am:
+	* src/boards/Makefile.mingw:
+	* src/boards/advanced_colors.c:
+	* src/boards/algebra.c:
+	* src/boards/algebra_guesscount.c:
+	* src/boards/canal_lock.c:
+	* src/boards/chess.c:
+	* src/boards/click_on_letter.c:
+	* src/boards/clickgame.c:
+	* src/boards/clockgame.c:
+	* src/boards/colors.c:
+	* src/boards/draw.c:
+	* src/boards/enumerate.c:
+	* src/boards/erase.c:
+	* src/boards/fifteen.c:
+	* src/boards/gletters.c:
+	* src/boards/hanoi.c:
+	* src/boards/imageid.c:
+	* src/boards/leftright.c:
+	* src/boards/machpuzzle.c:
+	* src/boards/maze.c:
+	* src/boards/memory.c:
+	* src/boards/menu.c:
+	* src/boards/missingletter.c:
+	* src/boards/money.c:
+	* src/boards/paratrooper.c:
+	* src/boards/planegame.c:
+	* src/boards/python.c:
+	* src/boards/railroad.c:
+	* src/boards/read_colors.c:
+	* src/boards/reading.c:
+	* src/boards/reversecount.c:
+	* src/boards/shapegame.c:
+	* src/boards/smallnumbers.c:
+	* src/boards/submarine.c:
+	* src/boards/superbrain.c:
+	* src/boards/target.c:
+	* src/boards/traffic.c:
+	* src/boards/wordsgame.c:
+	* src/gcompris/Makefile.mingw:
+	* src/gcompris/board.c: (board_check_file):
+	* src/gcompris/board.h:
+	* src/gcompris/file_selector.c: (display_files),
+	(item_event_file_selector):
+	* src/gcompris/gameutil.c:
+	* src/gcompris/gcompris.c:
+	* src/gcompris/gcompris.h:
+	* src/gcompris/properties.c: (gcompris_properties_new):
+	* src/gcompris/sdlplayer.c: (sdlplayer):
+
+2005-05-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Many little changes to ease the windows port. Now uses the glib
 	to load files with g_dir_open and no more readdir.
 	Many compilation warning removed.

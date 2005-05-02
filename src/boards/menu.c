@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/04/12 23:03:33 bruno>
+ * Time-stamp: <2005/04/26 00:22:40 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -94,11 +94,7 @@ static BoardPlugin menu_bp =
  */
 
 
-BoardPlugin
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(menu)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

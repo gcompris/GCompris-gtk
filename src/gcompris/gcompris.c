@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/04/19 23:12:30 bruno>
+ * Time-stamp: <2005/05/02 02:40:06 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -28,6 +28,7 @@
 #include <time.h>
 
 #include "gcompris.h"
+#include "gcompris_config.h"
 #include <locale.h>
 
 #include "cursor.h"
@@ -50,8 +51,6 @@ GtkWidget *drawing_area;
 GnomeCanvas *canvas;
 GnomeCanvas *canvas_bar;
 GnomeCanvas *canvas_bg;
-
-gboolean grace_period = FALSE;
 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
@@ -111,13 +110,11 @@ static struct poptOption options[] = {
    N_("Use the antialiased canvas (slower)."), NULL},
   {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
    N_("Disable XRANDR (No screen resolution change)."), NULL},
-/* <YC experimental local only options> */
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
    N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity)"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run gcompris with local activity directory added to menu"), NULL},
-/* </YC> */
-#ifndef WIN32
+#ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
   {

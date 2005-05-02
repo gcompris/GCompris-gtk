@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/05/02 01:27:39 bruno>
+ * Time-stamp: <2005/05/02 02:03:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -579,7 +579,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 
     gchar *allfilename = listrunner->data;
     gchar *filename    = g_path_get_basename(allfilename);
-    gchar *ext         = rindex(filename, '.');
+    gchar *ext         = strrchr(filename, '.');
 
 
 
@@ -782,7 +782,7 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  } else {
 	    /* LOAD Mode, get the file_type from the extension in the mimetype */
 	    GcomprisMimeType *mimeType = NULL;
-	    gchar *ext         = rindex(result, '.');
+	    gchar *ext         = strrchr(result, '.');
 
 	    /* Extract the mime type */
 	    if(ext) {

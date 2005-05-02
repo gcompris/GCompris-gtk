@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2005/03/30 22:05:27 bruno>
+ * Time-stamp: <2005/04/27 22:16:32 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -98,11 +98,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(planegame)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

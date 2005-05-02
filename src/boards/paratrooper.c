@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2005/03/30 22:04:44 bruno>
+ * Time-stamp: <2005/04/27 22:32:14 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -123,11 +123,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(paratrooper)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

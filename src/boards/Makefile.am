@@ -17,7 +17,6 @@ lib_LTLIBRARIES = \
 	libclickgame.la \
 	libclockgame.la \
 	libcolors.la \
-	libdraw.la \
 	liberase.la \
 	libenumerate.la \
 	libfifteen.la \

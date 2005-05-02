@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/03/30 22:06:15 bruno>
+ * Time-stamp: <2005/04/27 22:16:21 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -190,11 +190,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(shapegame)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

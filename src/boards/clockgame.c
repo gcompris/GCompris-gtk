@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2005/03/21 22:56:23 bruno>
+ * Time-stamp: <2005/04/26 00:22:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -99,11 +99,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(clockgame)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

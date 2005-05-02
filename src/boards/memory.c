@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2004/10/21 22:58:58 bruno>
+ * Time-stamp: <2005/04/27 22:15:58 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -185,11 +185,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(memory)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = UNPAUSE

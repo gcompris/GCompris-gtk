@@ -125,10 +125,8 @@ int sdlplayer_bg(char *filename, int volume)
 
 int sdlplayer(char *filename, int volume)
 {
-  Mix_Music *music;
   Mix_Chunk *sample;
   int channel;
-  int i;
 
   g_warning("sdlplayer %s\n", filename);
 

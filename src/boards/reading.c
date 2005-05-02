@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/04/30 23:14:18 bruno>
+ * Time-stamp: <2005/05/02 02:01:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -128,11 +128,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(reading)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = UNPAUSE

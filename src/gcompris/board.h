@@ -20,6 +20,27 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+/**
+ * Handles plugins initialization
+ *
+ * WIN32 = Static module, else it's dynamic
+ */
+#if defined WIN32
+#define GET_BPLUGIN_INFO(pluginname) \
+  BoardPlugin \
+  *get_##pluginname##_bplugin_info(void) \
+  { \
+    return &menu_bp; \
+  } \
+  BoardPlugin * _##pluginname##_menu_bp = &menu_bp;
+#else
+  BoardPlugin \
+  *get_bplugin_info(void) \
+  { \
+    return &menu_bp; \
+  }
+#endif
+
 struct BoardPluginData
 {
   GcomprisBoard	*current_gcompris_board;

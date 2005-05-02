@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2005/05/02 01:42:09 bruno>
+ * Time-stamp: <2005/05/02 01:58:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -106,12 +106,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-
-BoardPlugin 
-*get_bplugin_info(void)
-{
-   return &menu_bp;
-}
+GET_BPLUGIN_INFO(clickgame)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2005/04/19 23:47:07 bruno>
+ * Time-stamp: <2005/05/02 02:01:35 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -84,11 +84,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin 
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(smallnumbers)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = UNPAUSE

@@ -1,0 +1,163 @@
+#
+# Makefile.mingw
+#
+# Description: Makefile for win32 (mingw) version of GCompris
+#
+
+#
+# PATHS
+#
+
+INCLUDE_DIR :=		.
+GTK_TOP :=		/gtk
+GNUWIN32_TOP :=		/gnuwin32
+LIBXML2_TOP :=		/libxml2
+SDL_TOP :=		/sdl
+CANVAS_TOP :=		/gnomecanvas
+GCOMPRIS_TOP :=		../..
+GCOMPRIS_SRC :=		.
+GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
+
+##
+## VARIABLE DEFINITIONS
+##
+
+TARGET = gcompris
+
+# Compiler and Linker Options
+
+CFLAGS =
+
+DEFINES =
+
+LDFLAGS = -mwindows -mno-cygwin -mms-bitfields 
+
+#-mconsole
+#-mwindows
+
+##
+## INCLUDE  MAKEFILES
+##
+
+include $(GCOMPRIS_TOP)/global_win32.mak
+
+##
+## INCLUDE PATHS
+##
+
+INCLUDE_PATHS +=	-I$(INCLUDE_DIR) \
+			-I$(GTK_TOP)/include \
+			-I$(GTK_TOP)/include/gtk-2.0 \
+			-I$(GTK_TOP)/include/glib-2.0 \
+			-I$(GTK_TOP)/include/pango-1.0 \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/lib/glib-2.0/include \
+			-I$(GTK_TOP)/lib/gtk-2.0/include \
+			-I$(CANVAS_TOP)/include/libgnomecanvas-2.0 \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/include/libart-2.0 \
+			-I$(GTK_TOP)/include/freetype2 \
+			-I$(SDL_TOP)/include/SDL \
+			-I$(LIBXML2_TOP)/include \
+			-I$(GNUWIN32_TOP)/include \
+			-I$(GCOMPRIS_TOP) \
+			-I$(GCOMPRIS_TOP)/src/boards
+
+
+LIB_PATHS =		-L$(GTK_TOP)/lib \
+			-L$(LIBXML2_TOP)/lib \
+			-L$(GNUWIN32_TOP)/lib \
+			-L$(SDL_TOP)/lib \
+			-L$(CANVAS_TOP)/lib \
+			-L$(GCOMPRIS_TOP)/src/gcompris
+
+
+##
+##  SOURCES, OBJECTS
+##
+
+EXE_C_SRC = \
+	main.c \
+	gcompris.c \
+	gameutil.c \
+	properties.c \
+	bar.c \
+	file_selector.c \
+	images_selector.c \
+	help.c \
+	pixbuf_util.c \
+	board.c \
+	soundutil.c \
+	cursor.c \
+	bonus.c \
+	timer.c \
+	score.c \
+	skin.c \
+	config.c \
+	about.c \
+	log.c \
+	sdlplayer.c \
+	assetml.c \
+	anim.c
+
+EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o)
+
+##
+## LIBRARIES
+##
+
+EXE_LIBS =		../boards/libboards.a \
+			-lgtk-win32-2.0 \
+			-latk-1.0 \
+			-lpango-1.0 \
+			-lglib-2.0 \
+			-lgthread-2.0 \
+			-lgdk-win32-2.0 \
+			-lgobject-2.0 \
+			-lintl \
+			-lgmodule-2.0 \
+			-lgdk_pixbuf-2.0 \
+			-lws2_32 \
+			-lpopt \
+			-lxml2 \
+			-lzdll \
+			-lSDLmain -lSDL -lSDL_mixer \
+			-lgnomecanvas-2 \
+			-lart_lgpl_2 \
+			-lpangoft2-1.0 \
+			-liconv
+
+
+##
+## RULES
+##
+
+# How to make a C file
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDE_PATHS) $(DEFINES) -c $< -o $@
+
+##
+## TARGET DEFINITIONS
+##
+
+.PHONY: all clean
+
+all: $(TARGET).exe
+
+install: all
+	cp $(GCOMPRIS_SRC)/gcompris.exe $(GCOMPRIS_INSTALL_DIR)
+
+#
+# BUILD EXE
+#
+
+$(TARGET).exe: $(EXE_OBJECTS)
+	$(CC) $(LDFLAGS) $(EXE_OBJECTS) $(LIB_PATHS) $(EXE_LIBS) -o $(TARGET).exe
+
+##
+## CLEAN RULES
+##
+
+clean:
+	rm -rf *.o
+	rm -rf $(TARGET).exe

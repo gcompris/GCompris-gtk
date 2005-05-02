@@ -143,11 +143,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-BoardPlugin
-*get_bplugin_info(void)
-{
-  return &menu_bp;
-}
+GET_BPLUGIN_INFO(target)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

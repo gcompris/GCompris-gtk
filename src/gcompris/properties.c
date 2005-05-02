@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/04/17 16:50:21 bruno>
+ * Time-stamp: <2005/05/02 02:06:00 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -104,8 +104,6 @@ GcomprisProperties *gcompris_properties_new ()
   GcomprisProperties *tmp;
   G_CONST_RETURN gchar *home_dir;
   char          *config_file;
-  const gchar   *locale;
-  int            i;
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/04/26 01:30:22 bruno>
+ * Time-stamp: <2005/05/02 02:04:12 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -34,7 +34,6 @@
 #include <glib.h>
 #include <libintl.h>
 
-#include <config.h>
 #include <gmodule.h>
 
 #include "plugin.h"

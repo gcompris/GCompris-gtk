@@ -1,0 +1,176 @@
+#
+# Makefile.mingw
+#
+# Description: Makefile for win32 (mingw) version of GCompris Boards (Plugins)
+#
+
+#
+# PATHS
+#
+
+GCOMPRIS_PLUGINS := 	.
+GCOMPRIS_TOP :=		../..
+GTK_TOP :=		/gtk
+GNUWIN32_TOP :=		/gnuwin32
+LIBXML2_TOP :=		/libxml2
+SDL_TOP :=		/sdl
+CANVAS_TOP :=		/gnomecanvas
+GCOMPRIS_INSTALL_DIR :=	$(GCOMPRIS_TOP)/win32-install-dir
+
+##
+## VARIABLE DEFINITIONS
+##
+
+# Compiler Options
+
+CFLAGS =
+
+DEFINES =
+
+.SUFFIXES:
+.SUFFIXES: .c .a
+
+##
+## INCLUDE  MAKEFILES
+##
+
+include $(GCOMPRIS_TOP)/global_win32.mak
+
+##
+## INCLUDE PATHS
+##
+
+INCLUDE_PATHS +=	-I$(GCOMPRIS_PLUGINS) \
+			-I$(GTK_TOP)/include \
+			-I$(GTK_TOP)/include/gtk-2.0 \
+			-I$(GTK_TOP)/include/glib-2.0 \
+			-I$(GTK_TOP)/include/pango-1.0 \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/lib/glib-2.0/include \
+			-I$(GTK_TOP)/lib/gtk-2.0/include \
+			-I$(CANVAS_TOP)/include/libgnomecanvas-2.0 \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/include/libart-2.0 \
+			-I$(GTK_TOP)/include/freetype2 \
+			-I$(LIBXML2_TOP)/include \
+			-I$(GNUWIN32_TOP)/include \
+			-I$(GCOMPRIS_TOP) \
+			-I$(GCOMPRIS_TOP)/src
+
+
+LIB_PATHS =		-L$(GTK_TOP)/lib \
+			-L$(LIBXML2_TOP)/lib \
+			-L$(GNUWIN32_TOP)/lib \
+			-L$(SDL_TOP)/lib \
+			-L$(GCOMPRIS_TOP)/src/gcompris
+
+
+##
+## LIBRARIES
+##
+
+LIBS =			-lgtk-win32-2.0 \
+			-lglib-2.0 \
+			-lgdk-win32-2.0 \
+			-lgobject-2.0 \
+			-lgmodule-2.0 \
+			-lgdk_pixbuf-2.0 \
+			-lpango-1.0 \
+			-lgnomecanvas-2 \
+			-lart_lgpl_2 \
+			-lpangoft2-1.0 \
+			-latk-1.0 \
+			-lpangowin32-1.0 \
+			-lgdi32 -lgthread-2.0 \
+			-lintl \
+			-lws2_32 \
+			libgcompris-1.la
+
+##
+## RULES
+##
+
+##
+## TARGET DEFINITIONS
+##
+
+.PHONY: all clean
+
+all: libboards
+
+install:
+
+##
+##  SOURCES, OBJECTS
+##
+
+BOARDS_C_SRC =	\
+	algebra.c \
+	algebra_guesscount.c \
+	canal_lock.c \
+	click_on_letter.c \
+	clickgame.c \
+	clockgame.c \
+	colors.c \
+	erase.c \
+	enumerate.c \
+	fifteen.c \
+	gletters.c \
+	hanoi.c \
+	imageid.c \
+	leftright.c \
+	superbrain.c \
+	machpuzzle.c \
+	maze.c \
+	memory.c \
+	menu.c \
+	missingletter.c \
+	money.c \
+	money_widget.c \
+	paratrooper.c \
+	planegame.c \
+	railroad.c \
+	reading.c \
+	reversecount.c \
+	shapegame.c \
+	smallnumbers.c \
+	submarine.c \
+	target.c \
+	traffic.c \
+	wordsgame.c \
+	advanced_colors.c \
+	read_colors.c
+
+
+
+
+BOARDS_OBJECTS = $(BOARDS_C_SRC:%.c=%.o) 
+
+
+#
+# BUILD Boards staticlibrary
+#
+
+# How to make a C file
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDE_PATHS) $(DEFINES) -c $< -o $@
+
+.c.o:
+	$(CC) $(CFLAGS) $(DEFINES) $(INCLUDE_PATHS) -o $@.o -c $<
+	$(CC) -shared $@.o $(LIB_PATHS) $(LIBS) $(DLL_LD_FLAGS) -o $@
+
+libboards: \
+		libboards.a
+
+libboards.a: $(BOARDS_OBJECTS)
+	-rm -f libboards.a
+	$(AR) cru libboards.a $(BOARDS_OBJECTS)
+	ranlib libboards.a
+
+##
+## CLEAN RULES
+##
+
+clean:
+	rm -rf *.o
+	rm -rf *.a
