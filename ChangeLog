@@ -1,5 +1,36 @@
 2005-05-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Due to the need to support second grade operating sytem that does
+	not differentiate a 'a' with a 'A' (windows macos)
+	I renamed the chess pieces.
+
+	* boards/chess/B.png:
+	* boards/chess/Bb.png:
+	* boards/chess/Bk.png:
+	* boards/chess/Bn.png:
+	* boards/chess/Bp.png:
+	* boards/chess/Bq.png:
+	* boards/chess/Br.png:
+	* boards/chess/K.png:
+	* boards/chess/N.png:
+	* boards/chess/P.png:
+	* boards/chess/Q.png:
+	* boards/chess/R.png:
+	* boards/chess/WB.png:
+	* boards/chess/WK.png:
+	* boards/chess/WN.png:
+	* boards/chess/WP.png:
+	* boards/chess/WQ.png:
+	* boards/chess/WR.png:
+	* boards/chess/b.png:
+	* boards/chess/k.png:
+	* boards/chess/n.png:
+	* boards/chess/p.png:
+	* boards/chess/q.png:
+	* boards/chess/r.png:
+
+2005-05-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* config.h.mingw:
 	* src/boards/Makefile.mingw:
 	* src/boards/algebra.c: fixed board title
@@ -8,6 +39,14 @@
 	creating a bug by having gcompris play black against black only.
 	* src/gcompris/board.c: (init_plugins), (board_check_file): added chess.
 	fixed it to let boards load on windows. It works on windows again.
+
+2005-05-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	various fixed to compiled on Unix again
+
+	* src/boards/python.c: (pythonboard_is_our_board):
+	* src/gcompris/board.h:
+	* src/gcompris/properties.c: (gcompris_properties_new):
 
 2005-05-02  Bruno coudoin  <bruno.coudoin@free.fr>
 
