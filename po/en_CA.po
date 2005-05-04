@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-27 15:40-0400\n"
-"PO-Revision-Date: 2005-04-27 22:51-0500\n"
+"POT-Creation-Date: 2005-05-04 01:27-0400\n"
+"PO-Revision-Date: 2005-05-04 22:51-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -329,7 +329,7 @@ msgstr ""
 "and press the Enter key to check your answer."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
-#: ../boards/algebra_plus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
 msgid "Answer some algebra questions"
 msgstr "Answer some algebra questions"
 
@@ -913,7 +913,7 @@ msgstr "Letter name recognition"
 msgid "Visual letters recognition. Can move the mouse."
 msgstr "Visual letters recognition. Can move the mouse."
 
-#: ../boards/clickgame.xml.in.h:1 ../src/boards/clickgame.c:86
+#: ../boards/clickgame.xml.in.h:1 ../src/boards/clickgame.c:85
 msgid "Click On Me"
 msgstr "Click On Me"
 
@@ -947,7 +947,7 @@ msgstr ""
 "Location: Unknown (image nur03011)\n"
 "Location: Unknown (image nur03013)"
 
-#: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:87
+#: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:86
 msgid ""
 "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
@@ -975,13 +975,11 @@ msgstr ""
 "corresponding arrow to set the clock time to match the given hour. The "
 "different arrows can be turned by selecting them and moving the mouse"
 
-#: ../boards/clockgame.xml.in.h:3 ../src/boards/algebra.c:98
-#: ../src/boards/clockgame.c:78
+#: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:78
 msgid "Learn how to tell time"
 msgstr "Learn how to tell time"
 
-#: ../boards/clockgame.xml.in.h:4 ../src/boards/algebra.c:97
-#: ../src/boards/clockgame.c:77
+#: ../boards/clockgame.xml.in.h:4 ../src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Learning Clock"
 
@@ -1489,7 +1487,7 @@ msgstr "Croatia"
 msgid "Cyprus"
 msgstr "Cyprus"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:67
 msgid "Czech"
 msgstr "Czech"
 
@@ -2833,23 +2831,27 @@ msgstr "Educational suite gcompris"
 msgid "Multiple activities for kids"
 msgstr "Multiple activities for kids"
 
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
-#: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:933
-#: ../src/gcompris/gameutil.c:127 ../src/gcompris/gameutil.c:519
-#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:492
+#: ../src/boards/advanced_colors.c:531 ../src/boards/imageid.c:601
+#: ../src/boards/missingletter.c:604 ../src/boards/read_colors.c:489
+#: ../src/boards/shapegame.c:1876 ../src/gcompris/file_selector.c:926
+#: ../src/gcompris/gameutil.c:122 ../src/gcompris/gameutil.c:514
+#: ../src/gcompris/gameutil.c:515 ../src/gcompris/gcompris.c:489
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Couldn't find file %s !"
 
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:608
-#: ../src/boards/missingletter.c:611 ../src/boards/read_colors.c:495
-#: ../src/boards/shapegame.c:1883
+#: ../src/boards/advanced_colors.c:534 ../src/boards/imageid.c:604
+#: ../src/boards/missingletter.c:607 ../src/boards/read_colors.c:492
+#: ../src/boards/shapegame.c:1879
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
+
+#: ../src/boards/algebra.c:97
+msgid "Practice the math operation"
+msgstr "Practice math operations"
 
 #: ../src/boards/algebra_guesscount.c:143
 #: ../src/boards/algebra_guesscount.c:144
@@ -2872,7 +2874,7 @@ msgstr "Learning Chess"
 msgid "Play chess against tux in a learning mode"
 msgstr "Play chess against tux in a learning mode"
 
-#: ../src/boards/chess.c:188
+#: ../src/boards/chess.c:184
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2884,7 +2886,7 @@ msgstr ""
 "of gnuchess.\n"
 "Please upgrade to gnuchess 5 or above."
 
-#: ../src/boards/chess.c:195 ../src/boards/chess.c:237
+#: ../src/boards/chess.c:191 ../src/boards/chess.c:233
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2898,31 +2900,31 @@ msgstr ""
 "GNU/Linux distribution\n"
 "And check it is in "
 
-#: ../src/boards/chess.c:577
+#: ../src/boards/chess.c:576
 msgid "White Turn"
 msgstr "White Turn"
 
-#: ../src/boards/chess.c:577
+#: ../src/boards/chess.c:576
 msgid "Black Turn"
 msgstr "Black Turn"
 
-#: ../src/boards/chess.c:718
+#: ../src/boards/chess.c:720
 msgid "White check"
 msgstr "White check"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:722
 msgid "Black check"
 msgstr "Black check"
 
-#: ../src/boards/chess.c:1051
+#: ../src/boards/chess.c:1053
 msgid "Black mates"
 msgstr "Black mates"
 
-#: ../src/boards/chess.c:1056
+#: ../src/boards/chess.c:1058
 msgid "White mates"
 msgstr "White mates"
 
-#: ../src/boards/chess.c:1061 ../src/gcompris/bonus.c:314
+#: ../src/boards/chess.c:1063 ../src/gcompris/bonus.c:312
 msgid "Drawn game"
 msgstr "Drawn game"
 
@@ -2934,7 +2936,7 @@ msgstr "Read a letter"
 msgid "Learn to recognize letters"
 msgstr "Learn to recognize letters"
 
-#: ../src/boards/click_on_letter.c:230
+#: ../src/boards/click_on_letter.c:226
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2942,7 +2944,7 @@ msgstr ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
 
-#: ../src/boards/click_on_letter.c:237
+#: ../src/boards/click_on_letter.c:233
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2955,16 +2957,16 @@ msgstr ""
 "enable sound."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:282
+#: ../src/boards/click_on_letter.c:278
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/boards/clickgame.c:182
+#: ../src/boards/clickgame.c:176
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Couldn't open dir: %s"
 
-#: ../src/boards/clockgame.c:528
+#: ../src/boards/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Set the watch to:"
 
@@ -3008,17 +3010,17 @@ msgstr "Click on the black toon"
 msgid "Click on the white toon"
 msgstr "Click on the white toon"
 
-#: ../src/boards/erase.c:160
+#: ../src/boards/erase.c:156
 msgid "Couldn't get GTK settings"
 msgstr "Could not get GTK settings"
 
-#: ../src/boards/erase.c:165
+#: ../src/boards/erase.c:161
 #, c-format
 msgid "Double clic default value %d."
 msgstr "Double-click default value %d."
 
-#: ../src/boards/erase.c:170 ../src/boards/erase.c:185
-#: ../src/boards/erase.c:208 ../src/boards/erase.c:339
+#: ../src/boards/erase.c:166 ../src/boards/erase.c:181
+#: ../src/boards/erase.c:204 ../src/boards/erase.c:335
 #, c-format
 msgid "Double clic value is now %d."
 msgstr "Double-click value is now %d."
@@ -3027,7 +3029,7 @@ msgstr "Double-click value is now %d."
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Move the items one by one to rearrange them in increasing order"
 
-#: ../src/boards/hanoi.c:339 ../src/boards/hanoi.c:350
+#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Reproduce in the empty area the same tower as the one on the right"
 
@@ -3039,25 +3041,25 @@ msgstr "Learn how to read"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Given pictures of hands, find if it's a right or left one"
 
-#: ../src/boards/leftright.c:248 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:246 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:544
 #: ../src/boards/python/searace.py:856 ../src/boards/python/searace.py:889
 #: ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "left"
 
-#: ../src/boards/leftright.c:258 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:256 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:553
 #: ../src/boards/python/searace.py:858 ../src/boards/python/searace.py:891
 #: ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "right"
 
-#: ../src/boards/maze.c:488
+#: ../src/boards/maze.c:486
 msgid "Look at your position and switch back to invisible mode to move"
 msgstr "Look at your position and switch back to invisible mode to move"
 
-#: ../src/boards/maze.c:490
+#: ../src/boards/maze.c:488
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Look at your position and switch back to 3D mode to move"
 
@@ -3320,41 +3322,41 @@ msgstr "Click on the corresponding colour"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Read a list of words and then tell if the given word is in it"
 
-#: ../src/boards/reading.c:339
+#: ../src/boards/reading.c:335
 msgid "Please, check if the word"
 msgstr "Please, check if the word"
 
-#: ../src/boards/reading.c:359
+#: ../src/boards/reading.c:355
 msgid "is being displayed"
 msgstr "is being displayed"
 
-#: ../src/boards/reading.c:534
+#: ../src/boards/reading.c:529
 msgid "I am Ready"
 msgstr "I am Ready"
 
-#: ../src/boards/reading.c:574
+#: ../src/boards/reading.c:569
 msgid "Yes I saw it"
 msgstr "Yes I saw it"
 
-#: ../src/boards/reading.c:604
+#: ../src/boards/reading.c:599
 msgid "No, it was not there"
 msgstr "No, it was not there"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:637
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "The word to find was '%s'"
 
-#: ../src/boards/reading.c:645
+#: ../src/boards/reading.c:640
 msgid "But it was not displayed"
 msgstr "But it was not displayed"
 
-#: ../src/boards/reading.c:647
+#: ../src/boards/reading.c:642
 msgid "And it was displayed"
 msgstr "And it was displayed"
 
-#: ../src/boards/reading.c:748 ../src/boards/wordsgame.c:760
+#: ../src/boards/reading.c:743 ../src/boards/wordsgame.c:756
 msgid "Cannot open file of words for your locale"
 msgstr "Cannot open wordlist for your locale"
 
@@ -3367,7 +3369,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "Drag and Drop the items to rebuild the object"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:417
+#: ../src/boards/shapegame.c:413
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -3379,7 +3381,7 @@ msgstr ""
 "type 's' to save, and\n"
 "'d' to display all the shapes"
 
-#: ../src/boards/shapegame.c:425
+#: ../src/boards/shapegame.c:421
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -3403,12 +3405,12 @@ msgstr "Submarine"
 msgid "Control the depth of a submarine"
 msgstr "Control the depth of a submarine"
 
-#: ../src/boards/target.c:323 ../src/boards/target.c:576
+#: ../src/boards/target.c:319 ../src/boards/target.c:572
 #, c-format
 msgid "Points = %s"
 msgstr "Points = %s"
 
-#: ../src/boards/target.c:441
+#: ../src/boards/target.c:437
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -3417,7 +3419,7 @@ msgstr ""
 "Wind speed = %d\n"
 "kilometres/hour"
 
-#: ../src/boards/target.c:503
+#: ../src/boards/target.c:499
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
@@ -3441,7 +3443,7 @@ msgstr ""
 "Background Music: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:466
+#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:429
 msgid "translator_credits"
 msgstr "Adam Weinberger <adamw@gnome.org>"
 
@@ -3475,223 +3477,223 @@ msgstr "Help"
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/board.c:170
+#: ../src/gcompris/board.c:152
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:61
 msgid "Your system default"
 msgstr "Your system default"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:62
 msgid "Amharic"
 msgstr "Amharic"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:63
 msgid "Arabic"
 msgstr "Arabic"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:64
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijani Turkic"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Bulgarian"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Catalan"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:68
 msgid "Danish"
 msgstr "Danish"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:69
 msgid "German"
 msgstr "German"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:70
 msgid "Greek"
 msgstr "Greek"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:71
 msgid "English (Canadian)"
 msgstr "English (Canada)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:72
 msgid "English (Great Britain)"
 msgstr "English (Great Britain)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:73
 msgid "English (USA)"
 msgstr "English (USA)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:74
 msgid "Spanish"
 msgstr "Spanish"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:75
 msgid "Finnish"
 msgstr "Finnish"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:76
 msgid "French"
 msgstr "French"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:77
 msgid "Irish (Gaelic)"
 msgstr "Irish (Gaelic)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:78
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:79
 msgid "Indian (Hindi)"
 msgstr "Indian (Hindi)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:80
 msgid "Indian (Gujarati)"
 msgstr "Indian (Gujarati)"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
 msgstr "Indian (Punjabi)"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Hungarian"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Croatian"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italian"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malay"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Dutch"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:90
 msgid "Norwegian Bokmal"
 msgstr "Norwegian Bokmal"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:91
 msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Polish"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Romanian"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Russian"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:97
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:98
 msgid "Slovak"
 msgstr "Slovak"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:99
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:100
 msgid "Albanian"
 msgstr "Albanian"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:101
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:102
 msgid "Serbian"
 msgstr "Serbian"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:103
 msgid "Swedish"
 msgstr "Swedish"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:104
 msgid "Turkish"
 msgstr "Turkish"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:105
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:106
 msgid "Chinese (Simplified)"
 msgstr "Chinese (Simplified)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "No time limit"
 msgstr "No time limit"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:112
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:113
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:114
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:119
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:124
 msgid "No filter"
 msgstr "No filter"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:125
 msgid "Only this level"
 msgstr "Only this level"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:126
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:127
 msgid "This level and above"
 msgstr "This level and above"
 
@@ -3711,18 +3713,18 @@ msgstr "Music"
 msgid "Effect"
 msgstr "Effect"
 
-#: ../src/gcompris/config.c:399
+#: ../src/gcompris/config.c:398
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: ../src/gcompris/config.c:420
+#: ../src/gcompris/config.c:419
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: ../src/gcompris/config.c:435 ../src/gcompris/config.c:820
-#: ../src/gcompris/config.c:831
+#: ../src/gcompris/config.c:434 ../src/gcompris/config.c:819
+#: ../src/gcompris/config.c:830
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -3739,15 +3741,15 @@ msgstr "LOAD"
 msgid "SAVE"
 msgstr "SAVE"
 
-#: ../src/gcompris/gameutil.c:130
+#: ../src/gcompris/gameutil.c:125
 msgid "Couldn't find file"
 msgstr "Couldn't find file"
 
-#: ../src/gcompris/gameutil.c:132
+#: ../src/gcompris/gameutil.c:127
 msgid "This activity is incomplete."
 msgstr "This activity is incomplete."
 
-#: ../src/gcompris/gameutil.c:133
+#: ../src/gcompris/gameutil.c:128
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3755,47 +3757,47 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: ../src/gcompris/gcompris.c:95
+#: ../src/gcompris/gcompris.c:94
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: ../src/gcompris/gcompris.c:97
+#: ../src/gcompris/gcompris.c:96
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: ../src/gcompris/gcompris.c:99
+#: ../src/gcompris/gcompris.c:98
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:100
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:102
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:104
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:106
 msgid "display debug informations on the console."
 msgstr "display debugging information on the console."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:108
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: ../src/gcompris/gcompris.c:111
+#: ../src/gcompris/gcompris.c:110
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: ../src/gcompris/gcompris.c:113
+#: ../src/gcompris/gcompris.c:112
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Disable XRANDR (No screen resolution change)."
 
-#: ../src/gcompris/gcompris.c:116
+#: ../src/gcompris/gcompris.c:114
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity)"
@@ -3803,11 +3805,11 @@ msgstr ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity)"
 
-#: ../src/gcompris/gcompris.c:118
+#: ../src/gcompris/gcompris.c:116
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "Run gcompris with local activity directory added to menu"
 
-#: ../src/gcompris/gcompris.c:604
+#: ../src/gcompris/gcompris.c:601
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3829,7 +3831,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:852
+#: ../src/gcompris/gcompris.c:849
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3842,19 +3844,19 @@ msgstr ""
 "Licence: GPL\n"
 "More info at http://gcompris.net\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:228
+#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:196
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:237
+#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:205
 msgid "Goal"
 msgstr "Goal"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:246
+#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:214
 msgid "Manual"
 msgstr "Manual"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:255
+#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:223
 msgid "Credit"
 msgstr "Credit"
 
@@ -3880,52 +3882,52 @@ msgid ""
 msgstr ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSets...\n"
 
-#: ../src/gcompris/interface.c:95
+#: ../src/gcompris/interface.c:75
 msgid "Gcompris Editor"
 msgstr "Gcompris Editor"
 
-#: ../src/gcompris/interface.c:165
+#: ../src/gcompris/interface.c:133
 msgid "Icon"
 msgstr "Icon"
 
-#: ../src/gcompris/interface.c:174
+#: ../src/gcompris/interface.c:142
 msgid "Name"
 msgstr "Name"
 
-#: ../src/gcompris/interface.c:183 ../src/gcompris/interface.c:400
+#: ../src/gcompris/interface.c:151 ../src/gcompris/interface.c:368
 msgid "Description"
 msgstr "Description"
 
-#: ../src/gcompris/interface.c:192
+#: ../src/gcompris/interface.c:160
 msgid "Type"
 msgstr "Type"
 
-#: ../src/gcompris/interface.c:201
+#: ../src/gcompris/interface.c:169
 msgid "Difficulty"
 msgstr "Difficulty"
 
-#: ../src/gcompris/interface.c:210
+#: ../src/gcompris/interface.c:178
 msgid "Author"
 msgstr "Author"
 
-#: ../src/gcompris/interface.c:219
+#: ../src/gcompris/interface.c:187
 msgid "Directory"
 msgstr "Directory"
 
-#: ../src/gcompris/interface.c:271
+#: ../src/gcompris/interface.c:239
 msgid "Title"
 msgstr "Title"
 
-#: ../src/gcompris/interface.c:472
+#: ../src/gcompris/interface.c:435
 msgid "Released under GPL"
 msgstr "Released under GPL"
 
-#: ../src/gcompris/soundutil.c:140
+#: ../src/gcompris/soundutil.c:139
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Couldn't open music dir: %s"
 
-#: ../src/gcompris/soundutil.c:183
+#: ../src/gcompris/soundutil.c:181
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
