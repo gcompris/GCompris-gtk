@@ -58,19 +58,15 @@ hierarchy make sure to tweak your .profile.
 3: BUILDING GCOMPRIS.EXE
 ========================
 * Get a tarball or CVS snapshot of gcompris.
-* run ./autogen.sh from gcompris's top-level directory.  This will take a long time.
-* copy the provided config.h.windows to config.h
-* convert all src/boards/*.c files from dynamic plugin naming to static plugin using
-  the provided tool src/boards/boards2static.pl. To do this:
-  cd src/boards/
-  mkdir static
-  ./boards2static.pl
-  mv static/*.c .
-* Go back to the top-level directory
+* run make -f Makefile.mingw from gcompris's top-level directory.  This will take a long time.
+* copy an installed GCompris boards directory in win32-install-dir
+  /usr/local/share/gcompris/boards in win32-install-dir/share/gcompris/boards
+  /usr/local/share/assetml in win32-install-dir/share/assetml
+  /usr/local/share/locale in win32-install-dir/share/locale
+  /usr/local/share/pixmaps in win32-install-dir/share/pixmaps
+  Cleanup to have only GCompris specific file.
 * *drum roll...* make!
-* edit the Makefile manualy to add includes and library dependancies when missing
-* copy the share directory that is created at the gcompris binary installation in
-  src/gcompris in order to have src/gcompris/share
+* edit the Makefile.mingw manualy to add includes and library dependancies when missing
 * run ./gcompris.exe
 
 APPENDIX: MY .profile

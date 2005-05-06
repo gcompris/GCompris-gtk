@@ -100,7 +100,9 @@ EXE_C_SRC = \
 	assetml.c \
 	anim.c
 
-EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o)
+RC_SRC =		gcomprisrc.rc
+
+EXE_OBJECTS = $(EXE_C_SRC:%.c=%.o) $(RC_SRC:%.rc=%.o) 
 
 ##
 ## LIBRARIES
@@ -135,6 +137,10 @@ EXE_LIBS =		../boards/libboards.a \
 # How to make a C file
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE_PATHS) $(DEFINES) -c $< -o $@
+
+# How to make an RC file
+%.o: %.rc
+	windres -i $< -o $@
 
 ##
 ## TARGET DEFINITIONS
