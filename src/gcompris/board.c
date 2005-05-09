@@ -64,13 +64,10 @@ extern BoardPlugin * get_target_bplugin_info();
 extern BoardPlugin * get_traffic_bplugin_info();
 extern BoardPlugin * get_wordsgame_bplugin_info();
 
-static BoardPlugin *static_boards_demo[] = {
-  NULL
-};
+#define MAX_NUMBER_OF_BOARDS 100
+static BoardPlugin *static_boards_demo[MAX_NUMBER_OF_BOARDS];
+static BoardPlugin *static_boards[MAX_NUMBER_OF_BOARDS];
 
-static BoardPlugin *static_boards[] = {
-  NULL
-};
 #endif
 
 /*
@@ -91,6 +88,23 @@ void init_plugins(void)
   BoardPlugin **boards_list = NULL;
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
+
+  static_boards_demo[i++] = get_menu_bplugin_info();
+  static_boards_demo[i++] = get_click_on_letter_bplugin_info();
+  static_boards_demo[i++] = get_colors_bplugin_info();
+  static_boards_demo[i++] = get_clickgame_bplugin_info();
+  static_boards_demo[i++] = get_enumerate_bplugin_info();
+  static_boards_demo[i++] = get_erase_bplugin_info();
+  static_boards_demo[i++] = get_gletters_bplugin_info();
+  static_boards_demo[i++] = get_hanoi_bplugin_info();
+  static_boards_demo[i++] = get_menu_bplugin_info();
+  static_boards_demo[i++] = get_reading_bplugin_info();
+  static_boards_demo[i++] = get_submarine_bplugin_info();
+  static_boards_demo[i++] = get_superbrain_bplugin_info();
+  static_boards_demo[i++] = get_target_bplugin_info();
+  static_boards_demo[i++] = NULL;
+
+  i=0;
 
   static_boards[i++] = get_algebra_bplugin_info();
   static_boards[i++] = get_advanced_colors_bplugin_info();
@@ -195,7 +209,8 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
       if(bp->is_our_board(gcomprisBoard)) {
 	/* Great, we found our plugin */
-	g_warning("We found the correct plugin for board %s (type=%s)\n", gcomprisBoard->name, gcomprisBoard->type);
+	g_warning("We found the correct plugin for board %s (type=%s)\n", 
+		  gcomprisBoard->name, gcomprisBoard->type);
 
 	gcomprisBoard->plugin = bp;
 
@@ -203,15 +218,16 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
       }
     }
   } else {
-    while(static_boards[i++] != NULL) {
+    while(static_boards_demo[i++] != NULL) {
       BoardPlugin *bp;
 
       /* Get the BoardPlugin Info */
-      bp = (BoardPlugin *) static_boards[i-1];
+      bp = (BoardPlugin *) static_boards_demo[i-1];
 
       if(bp->is_our_board(gcomprisBoard)) {
 	/* Great, we found our plugin */
-	g_warning("We found the correct plugin for board %s (type=%s)\n", gcomprisBoard->name, gcomprisBoard->type);
+	g_warning("We found the correct plugin for board %s (type=%s)\n", 
+		  gcomprisBoard->name, gcomprisBoard->type);
 
 	gcomprisBoard->plugin = bp;
 
@@ -219,7 +235,6 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
       }
     }
   }
-
 
   g_warning("No plugin library found for board type '%s', requested by '%s'", 
 	    gcomprisBoard->type,  gcomprisBoard->filename);

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/05/02 01:43:21 bruno>
+ * Time-stamp: <2005/05/10 00:27:17 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -56,7 +56,7 @@ gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories,
 
   gl_result = assetml_get_asset(dataset, categories, mimetype, gcompris_get_locale(), file);
 
-  if(g_list_length(gl_result)>0)
+  if(gl_result && g_list_length(gl_result)>0)
     {
 
       /* Always get the first item */
@@ -67,13 +67,22 @@ gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories,
 	  resultfile = g_strdup(assetml->file);
 	}
 
+      assetml_free_assetlist(gl_result);
     }
   else
     {
-      g_warning("Asset not found (dataset='%s' category='%s' mimetype='%s' locale='%s' file='%s')\n", 
-		dataset, categories, mimetype, gcompris_get_locale(), file);
+      
+      g_warning("Asset not found:\n");
+      g_warning("   locale='%s'\n", gcompris_get_locale());
+      if (dataset)
+	g_warning("   dataset='%s'\n", dataset);
+      if (categories)
+	g_warning("   category='%s'\n", categories);
+      if(mimetype)
+	g_warning("   mimetype='%s'\n", mimetype);
+      if(file)
+	g_warning("   file='%s'\n", file);
     }
-  assetml_free_assetlist(gl_result);
 
   return (resultfile);
 }

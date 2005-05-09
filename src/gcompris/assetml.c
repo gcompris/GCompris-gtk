@@ -404,13 +404,14 @@ void assetml_free_assetlist(GList *assetlist)
 
 }
 
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, const gchar *locale, gchar* file)
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype,
+			   const gchar *locale, gchar* file)
 {
   GList *gl_result = NULL;
 
   assetml_load_xml(&gl_result, dataset, categories, mimetype, locale, file);
 
-  if(g_list_length(gl_result)==0)
+  if(gl_result && g_list_length(gl_result)==0)
     {
       g_list_free(gl_result);
       return NULL;
@@ -418,7 +419,7 @@ GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, co
   else
     {
 #ifdef DEBUG
-      printf("Dumping return value of assetml_get_asset\n");
+      g_message("Dumping return value of assetml_get_asset:\n");
       g_list_foreach (gl_result, (GFunc) dump_asset, NULL);
 #endif
       return gl_result;

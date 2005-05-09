@@ -1,3 +1,12 @@
+2005-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed board.c not to write out of bounds in an array
+	
+
+	* src/gcompris/assetml.c: (assetml_get_asset): added more checkings in case of errors.
+	* src/gcompris/board.c: (init_plugins), (board_check_file): Fixed board.c not to write out of bounds in an array.
+	* src/gcompris/gameutil.c: (gcompris_get_asset_file): added more checkings to avoid null pointers in printf that makes windows version crash.
+
 2005-05-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* README.mingw: updated
