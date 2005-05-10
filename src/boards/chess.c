@@ -32,6 +32,10 @@
 
 #include "gcompris/gcompris.h"
 
+#if defined _WIN32 || defined __WIN32__
+# undef WIN32   /* avoid warning on mingw32 */
+# define WIN32
+#endif
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -179,20 +183,15 @@ static void pause_board (gboolean pause)
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
   
-  if (g_file_test ("/usr/bin/gnuchessx", G_FILE_TEST_EXISTS)) {
-    
-    gcompris_dialog(_("Error: /usr/bin/gnuchessx is installed\nwhich means you have an old version\nof gnuchess.\nPlease upgrade to gnuchess 5 or above."), gcompris_end_board);
-    
-    return;
-  }
-  
+#ifndef WIN32  
   if (!g_file_test (GNUCHESS, G_FILE_TEST_EXISTS)) {
     
     gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gcompris_end_board);
     
     return;
   }
-  
+#endif
+
   if(agcomprisBoard!=NULL)
     {
       char *param[2];

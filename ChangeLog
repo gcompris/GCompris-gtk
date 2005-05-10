@@ -1,5 +1,54 @@
 2005-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Added many files needed for the windows side of the world, including
+	installer files. I copied these files from gaim and adapted them for gcompris.
+	fixed gletters not to crash anymore on windows.
+	
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* gcompris-uninstal.ico:
+	* nsis/gcompris-header.bmp:
+	* nsis/gcompris-intro.bmp:
+	* nsis/langmacros.nsh:
+	* nsis/translations/albanian.nsh:
+	* nsis/translations/bulgarian.nsh:
+	* nsis/translations/catalan.nsh:
+	* nsis/translations/czech.nsh:
+	* nsis/translations/danish.nsh:
+	* nsis/translations/dutch.nsh:
+	* nsis/translations/english.nsh:
+	* nsis/translations/finnish.nsh:
+	* nsis/translations/french.nsh:
+	* nsis/translations/german.nsh:
+	* nsis/translations/hebrew.nsh:
+	* nsis/translations/hungarian.nsh:
+	* nsis/translations/italian.nsh:
+	* nsis/translations/japanese.nsh:
+	* nsis/translations/korean.nsh:
+	* nsis/translations/norwegian.nsh:
+	* nsis/translations/polish.nsh:
+	* nsis/translations/portuguese-br.nsh:
+	* nsis/translations/portuguese.nsh:
+	* nsis/translations/romanian.nsh:
+	* nsis/translations/russian.nsh:
+	* nsis/translations/serbian-latin.nsh:
+	* nsis/translations/simp-chinese.nsh:
+	* nsis/translations/slovak.nsh:
+	* nsis/translations/slovenian.nsh:
+	* nsis/translations/spanish.nsh:
+	* nsis/translations/swedish.nsh:
+	* nsis/translations/trad-chinese.nsh:
+	* nsis/translations/vietnamese.nsh:
+	* src/boards/chess.c: (start_board):
+	* src/boards/gletters.c: (fill_letters), (load_charset_from_file),
+	(get_charset), (key_press), (gletters_create_item):
+	* src/gcompris/gcomprisrc.rc:
+
+2005-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Fixed board.c not to write out of bounds in an array
 	
 

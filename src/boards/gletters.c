@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/04/27 22:16:41 bruno>
+ * Time-stamp: <2005/05/10 22:14:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -206,7 +206,7 @@ static void pause_board (gboolean pause)
     }
 }
 
-int fill_letters(char **letterString,char *buffer) {
+void fill_letters(char **letterString,char *buffer) {
   g_message("in fill_letters\n");
   *letterString = g_malloc(strlen(buffer)+1);
   sprintf(*letterString,"%s",buffer);
@@ -237,7 +237,7 @@ int whitespace(char *buffer) {
 }
 
 int load_charset_from_file(FILE *fp) {
-  int level, fp_ret_code, currKeyMap;
+  int level, currKeyMap;
   char lineBuffer[4096], strBuffer[4096], charBuffer[12];
 
   /* keymap size is dynamically allocated */
@@ -300,7 +300,7 @@ int load_charset_from_file(FILE *fp) {
   return TRUE;
 }   
 
-int get_charset(const char *locale) {
+void get_charset(const char *locale) {
   char *filename;
   FILE *charsfd = NULL;
   int i;
@@ -414,14 +414,11 @@ gint is_falling_letter(char *utfchar) {
 }
 
 static gint key_press(guint keyval) {
-  char c;
-  char lcStr[6],ucStr[6];
+  char   lcStr[6], ucStr[6];
+  char   utf8char[6], keyChar[6], mapChar[6];
+  gchar  list_of_letters[255];
   gchar *str;
-  char utf8char[6], keyChar[6], mapChar[6];
-  int i;
-  gchar list_of_letters[255];
-
-  g_message("in key_press: %d, %c, %lc",keyval,keyval,keyval);
+  int    i;
 
   if(!gcomprisBoard)
     return FALSE;
@@ -680,12 +677,11 @@ static gint gletters_move_items (GtkWidget *widget, gpointer data)
 
 static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 {
-  GdkPixbuf *gletters_pixmap = NULL;
   GnomeCanvasItem *item;
   gchar *str  = NULL;
   gchar *str2 = NULL;
   gint i,j,k;
-  guint c, x;
+  guint x;
   gchar *lettersItem, *str_p;
 
   if (!letters_table)
