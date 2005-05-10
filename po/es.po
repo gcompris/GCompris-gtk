@@ -1,3 +1,4 @@
+# translation of gcompris.HEAD.po to Spanish
 # translation of es.po to
 # traducción de es.po al Spanish
 # translation of es.po to Spanish
@@ -8,15 +9,16 @@
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2003.
 # Francisco Javier F. Serrador <serrador@arrakis.es>, 2003.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005.
+# Jaime Iniesta Alemán <capitanplaneta@gmail.com>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: es\n"
+"Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-05 16:16+0100\n"
-"PO-Revision-Date: 2005-03-05 16:33+0100\n"
-"Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
-"Language-Team: Spanish <traductores@es.gnome.org>\n"
+"PO-Revision-Date: 2005-04-16 20:41+0200\n"
+"Last-Translator: Jaime <jaime@domain.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -385,8 +387,7 @@ msgstr ""
 "deseleccionarse pulsando sobre ellos."
 
 #: ../boards/algebra_guesscount.xml.in.h:3
-msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
 "Desarrolla una estrategia para resolver un conjunto de operaciones "
 "aritméticas para encontrar un valor"
@@ -405,8 +406,7 @@ msgstr ""
 
 #: ../boards/algebra_guesscount.xml.in.h:6
 msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr ""
-"La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
+msgstr "La cuatro operaciones aritméticas. Combina varias operaciones aritméticas"
 
 #: ../boards/algebra_minus.xml.in.h:1
 msgid ""
@@ -516,7 +516,17 @@ msgid ""
 "drawing. You can then edit each image of your animation by using the image "
 "selector in the bottom left of the screen. You can save and reload your "
 "animations with the 'floppy' and 'folder' button."
-msgstr ""
+msgstr "A la izquierda selecciona una herramienta de dibujo, y abajo selecciona "
+"un color. Después pulsa y arrastra en el área en blanco para crear una "
+"forma nueva. Una vez hayas terminado un dibujo, puedes tomar una foto de éste con el "
+"botón «cámara». Se creará una nueva imagen con el mismo contenido. Entonces "
+"puedes mover los objetos un poco o añadir/eliminar objetos. Crea varios dibujos "
+"y después pulsa el botón «película». Verás todas tus imágenes en un bucle "
+"infinito. Puedes cambiar la velocidad de visualización en este modo. En el modo "
+"de visualización, pulsa el botón «dibujar» para volver a dibujar. Entonces puedes editar "
+"cada imagen de tu animación usando el selector de imágenes en la parte de abajo a "
+"la izquierda de la pantalla. Puedes guardar y volver a abrir tus animaciones con "
+"el botón «disquete» y «carpeta»."
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -918,8 +928,7 @@ msgstr ""
 "(imagen nur03011) Localización: Desconocida (imagen nur03013)"
 
 #: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:87
-msgid ""
-"Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
 "Pulsa con el botón izquierdo del ratón sobre los peces antes que se escapen "
 "del acuario"
@@ -2305,10 +2314,8 @@ msgid "Test board for the python plugin"
 msgstr "Tablero de prueba para la extensión de Python"
 
 #: ../boards/pythontest.xml.in.h:5
-msgid ""
-"Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr ""
-"¡Gracias a Guido van Rossum y al equipo de python por este poderoso lenguaje!"
+msgid "Thanks to Guido van Rossum and the python team for this powerful language!"
+msgstr "¡Gracias a Guido van Rossum y al equipo de python por este poderoso lenguaje!"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -2412,8 +2419,7 @@ msgstr "Ejercicio de lectura horizontal"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and tell if a given word is in it"
-msgstr ""
-"Lee una lista de palabras y busca si la palabra propuesta está en la lista"
+msgstr "Lee una lista de palabras y busca si la palabra propuesta está en la lista"
 
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -2431,8 +2437,7 @@ msgstr "Ejercicio de lectura vertical"
 
 #: ../boards/redraw.xml.in.h:1
 msgid "Copy a drawing from the box on the right into the box on the left."
-msgstr ""
-"Copia un dibujo desde la caja de la derecha en la caja de la izquierda."
+msgstr "Copia un dibujo desde la caja de la derecha en la caja de la izquierda."
 
 #: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
 msgid ""
@@ -2511,6 +2516,18 @@ msgid ""
 "your mouse anywhere on the map to get a measurement in distance and angle. "
 "Going to the next level will give your more complex weather conditions."
 msgstr ""
+"En la entrada de texto, introduce línea por línea las órdenes para indicarle la dirección a tu "
+"bote. Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes «izquierda» y "
+"«derecha» debe llevar como sufijo el ángulo en grados. Al valor del ángulo también se le llama "
+"«parámetro» de la orden izquierda o derecha. Por omisión, se usan 45 grados. La orden «hacia adelante»"
+" acepta un parámetro con la distancia. Por omisión se usa un valor de 1. Por ejemplo: "
+"izquierda 90 => Hacer un giro perpendicular a la izquierda "
+"hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la regla) "
+"El objetivo es alcanzar la parte derecha de la pantalla (la línea roja). "
+"Cuando se haya conseguido, puedes intentar mejorar tu programa y comenzar una nueva carrera con "
+"las mismas condiciones atmosféricas usando el botón «volver a intentar». Puedes pulsar y "
+"arrastrar con el ratón en cualquier sitio del mapa para tener una medida de la distancia y ángulo. "
+"Al pasar al siguiente nivel te enfrentarás a condiciones atmosféricas más complejas."
 
 #: ../boards/searace.xml.in.h:3 ../boards/searace1player.xml.in.h:3
 msgid ""
@@ -2518,7 +2535,9 @@ msgid ""
 "if the language is extremely basic, you learn here how to think ahead and "
 "enter a program. This activity can be used to introduce the programming "
 "concept to kids."
-msgstr ""
+msgstr "En esta actividad, aprenderás cómo dar órdenes a un ordenador. Incluso si el lenguaje "
+"es extremadamente básico, aquí aprenderás cómo pensar para poder crear un programa. Esta "
+"actividad se puede usar para presentar el concepto de programación a los niños."
 
 #: ../boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
@@ -2647,8 +2666,7 @@ msgstr ""
 "correcto"
 
 #: ../boards/target.xml.in.h:1
-msgid ""
-"Can move the mouse, can read numbers and count up to 15 for the first level"
+msgid "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
 "Puede mover el ratón, puede leer números y contar hasta 15 para el primer "
 "nivel"
@@ -2683,8 +2701,7 @@ msgstr "Un juego de rompecabezas deslizante"
 
 #: ../boards/traffic.xml.in.h:2
 msgid "Remove all the red cars from the grid through the slot on the right"
-msgstr ""
-"Quitar todos los coches rojos de la red a través de la ranura de la derecha"
+msgstr "Quitar todos los coches rojos de la red a través de la ranura de la derecha"
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -2719,8 +2736,7 @@ msgstr "Entrenamiento con el teclado"
 
 #: ../boards/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr ""
-"Teclea la palabra complete mientras cae, antes de que llegue a la tierra"
+msgstr "Teclea la palabra complete mientras cae, antes de que llegue a la tierra"
 
 #: ../boards/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
@@ -2923,8 +2939,7 @@ msgstr "Mueve los elementos uno a uno para reordenarlos en número creciente"
 
 #: ../src/boards/hanoi.c:339 ../src/boards/hanoi.c:350
 msgid "Reproduce in the empty area the same tower as the one on the right"
-msgstr ""
-"Reproduce en el área vacía la misma torre que se encuentra a la derecha"
+msgstr "Reproduce en el área vacía la misma torre que se encuentra a la derecha"
 
 #: ../src/boards/imageid.c:110 ../src/boards/missingletter.c:102
 msgid "Learn how to read"
@@ -2932,8 +2947,7 @@ msgstr "Aprende a leer "
 
 #: ../src/boards/leftright.c:107
 msgid "Given pictures of hands, find if it's a right or left one"
-msgstr ""
-"De acuerdo a las fotografías, diga cuál es la derecha y cuál es la izquierda"
+msgstr "De acuerdo a las fotografías, diga cuál es la derecha y cuál es la izquierda"
 
 #: ../src/boards/leftright.c:248 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:544
@@ -3173,8 +3187,7 @@ msgstr "Juegos de números"
 
 #: ../src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
-msgstr ""
-"Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
+msgstr "Presiona los número 1 a 9 en el teclado antes de que el dado llegue al suelo"
 
 #: ../src/boards/submarine.c:201
 msgid "Submarine"
@@ -3205,8 +3218,7 @@ msgstr "Distancia al blanco = %d metros"
 
 #: ../src/boards/wordsgame.c:111
 msgid "Fully type the falling words before they reach the ground"
-msgstr ""
-"Escribe completamente las palabras que caen antes de que lleguen al suelo"
+msgstr "Escribe completamente las palabras que caen antes de que lleguen al suelo"
 
 #: ../src/gcompris/about.c:65
 msgid ""
@@ -3244,8 +3256,7 @@ msgid "GCompris Home Page"
 msgstr "Página de GCompris"
 
 #: ../src/gcompris/about.c:252
-msgid ""
-"This software is a GNU Package and is released under the GNU Public License"
+msgid "This software is a GNU Package and is released under the GNU Public License"
 msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública GNU "
@@ -3262,8 +3273,7 @@ msgstr "Aceptar"
 
 #: ../src/gcompris/board.c:170
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
-msgstr ""
-"La carga dinámica de módulos no está soportada. gcompris no puede cargar.\n"
+msgstr "La carga dinámica de módulos no está soportada. gcompris no puede cargar.\n"
 
 #: ../src/gcompris/config.c:63
 msgid "Your system default"
@@ -3698,7 +3708,3 @@ msgstr "Tiempo transcurrido"
 msgid "Remaining Time = %d"
 msgstr "Tiempo restante = %d"
 
-#~ msgid "Error: The wordfile package used for your locale is corrupted."
-#~ msgstr ""
-#~ "Error: El paquete del archivo de palabras usado para su localización está "
-#~ "corrompido."
