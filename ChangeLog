@@ -1,3 +1,13 @@
+2005-05-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/gnumch-inequality.xml.in: fixed string
+	* configure.in: removed CFLAGS=
+	* src/boards/chess.c: (start_board), (end_board),
+	(chess_next_level), (chess_destroy_all_items), (chess_create_item),
+	(hightlight_possible_moves), (item_event_black),
+	(engine_local_destroy), (engine_local_cb), (start_child): code cleanup
+	* src/gcompris/gcompris.c: (init_background), (gcompris_exit): fixed core dump on exits due to xrandr
+
 2005-05-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added many files needed for the windows side of the world, including

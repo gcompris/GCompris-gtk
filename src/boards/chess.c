@@ -42,6 +42,7 @@
 static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
+static GPid	 gnuchess_pid;
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
@@ -50,7 +51,7 @@ static void	 set_level (guint level);
 static int	 gamewon;
 static void	 game_won(void);
 
-static void	 engine_local_destroy ();
+static void	 engine_local_destroy (GPid gnuchess_pid);
 
 static gboolean  engine_local_cb     (GIOChannel *source,
 				      GIOCondition condition,
@@ -90,8 +91,6 @@ static GnomeCanvasGroup *boardRootItem = NULL;
 static GIOChannel *read_chan;
 static GIOChannel *write_chan;
 
-static pid_t childpid;
-
 static gint read_cb;
 static gint err_cb;
 
@@ -119,11 +118,11 @@ static void		 chess_destroy_all_items(void);
 static void		 chess_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint		 item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static int		 start_child (char        *cmd,
+static gboolean		 start_child (char        *cmd,
 				      char       **arg,
 				      GIOChannel **read_chan,
 				      GIOChannel **write_chan,
-				      pid_t       *childpid);
+				      GPid	 *gnuchess_pid);
 
 static void		 write_child (GIOChannel  *write_chan,
 				      char        *format,
@@ -226,9 +225,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	default:
 	  gcompris_bar_set(0);
 	}
-      
+
       if(start_child (GNUCHESS, param, &read_chan,
-		      &write_chan, &childpid)==-1) {
+		      &write_chan, &gnuchess_pid)==FALSE) {
 	gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gcompris_end_board);
 	return;
       }
@@ -266,7 +265,7 @@ static void end_board ()
   info_item     = NULL;
 
 
-  engine_local_destroy();
+  engine_local_destroy(gnuchess_pid);
 }
 
 /* ======================================= */
@@ -302,7 +301,6 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 static void chess_next_level()
 {
   register Square square;
-  register Piece piece;
   register gshort rank;
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
@@ -351,7 +349,6 @@ static void chess_next_level()
 static void chess_destroy_all_items()
 {
   register Square square;
-  register Piece piece;
   register gshort rank;
 
   if(boardRootItem!=NULL)
@@ -465,8 +462,8 @@ static GnomeCanvasItem *chess_create_item(GnomeCanvasGroup *parent)
 	if(piece!=NONE)
 	  {
 
-	    if(white_side && BPIECE(piece) ||
-	       !white_side && WPIECE(piece)) 
+	    if( (white_side && BPIECE(piece)) ||
+		(!white_side && WPIECE(piece)) ) 
 	      {
 		white_side = !white_side;
 		//		write_child (write_chan, "c\n");
@@ -753,7 +750,6 @@ void hightlight_possible_moves(GSquare *gsquare)
   Square square_test;
   guint color;
   register Square square;
-  register Piece piece;
   register gshort rank;
   short    current_color;
 
@@ -950,7 +946,10 @@ item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	hightlight_possible_moves(gsquare);
       }
       break;
+    default:
+      break;
     }
+  return(FALSE);
 }
 
 /*======================================================================*/
@@ -958,7 +957,7 @@ item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 /*======================================================================*/
 /*======================================================================*/
 static void
-engine_local_destroy () 
+engine_local_destroy (GPid gnuchess_pid) 
 {
 
   g_warning("engine_local_destroy () \n");
@@ -972,7 +971,9 @@ engine_local_destroy ()
   
   g_io_channel_close (write_chan);
   g_io_channel_unref (write_chan);
-  
+
+  if(gnuchess_pid)
+    g_spawn_close_pid(gnuchess_pid);
 }
 
 static gboolean
@@ -999,33 +1000,35 @@ engine_local_cb (GIOChannel *source,
     q = strchr (buf,'\n');
     if (q == NULL) break;
     tmp = *(q+1);
-    *(q+1) = 0;
+    *(q+1) = '\0';
     
-    *q=0;
+    *q='\0';
     *(q+1) = tmp;
     
-    g_warning("engine_local_cb read=%s\n", &buf);
+    g_warning("engine_local_cb read=%s\n", buf);
     
     /* parse for  NUMBER ... MOVE */
     if (isdigit (*buf))
-      if ((p = strstr (buf, "...")))
-	{
-	  Square from, to;
+      {
+	if ((p = strstr (buf, "...")))
+	  {
+	    Square from, to;
 	  
-	  g_warning("computer number moves to %s\n", p+4);
+	    g_warning("computer number moves to %s\n", p+4);
 	  
-	  if (san_to_move (position, p+4, &from, &to))
-	    ascii_to_move (position, p+4, &from, &to);
+	    if (san_to_move (position, p+4, &from, &to))
+	      ascii_to_move (position, p+4, &from, &to);
 	  
-	  position_move (position, from, to);
-	  move_piece_to(from , to);
-	}
-      else if ((p = strstr (buf, " ")))
-	{
-	  /* It's a legal move case */
-	  g_warning("Legal move to %s\n", p+1);
-	}
-    
+	    position_move (position, from, to);
+	    move_piece_to(from , to);
+	  }
+	else if ((p = strstr (buf, " ")))
+	  {
+	    /* It's a legal move case */
+	    g_warning("Legal move to %s\n", p+1);
+	  }
+      }
+
     /* parse for move MOVE */
     if (!strncmp ("My move is : ",buf,13))
       {
@@ -1093,30 +1096,30 @@ engine_local_err_cb (GIOChannel *source,
 
 /*----------------------------------------
  * Subprocess creation
+ * Return TRUE if gnuchess is started, false instead
  *----------------------------------------*/
 
-static int 
+static gboolean
 start_child (char *cmd, 
 	     char **arg, 
 	     GIOChannel **read_chan, 
-	     GIOChannel **write_chan, 
-	     pid_t *childpid)
+	     GIOChannel **write_chan,
+	     GPid *Child_Process)
 {
-  /*spawn program*/
-  gint Child_Process=0;
-  gint Child_In=0, Child_Out=0, Child_Err=0;
+  gint   Child_In, Child_Out, Child_Err;
+  GError *gerror = NULL;
 
-  gchar *Child_Argv[]={ "gnuchess" };
-
-  gint Bytes_Read=0;
-  gchar Read_Data[300];
+  gchar *Child_Argv[]={ "gnuchess", NULL };
 
   if (!g_spawn_async_with_pipes(NULL, Child_Argv, NULL,
 				G_SPAWN_SEARCH_PATH,
-				NULL, NULL, &Child_Process, &Child_In, &Child_Out,
-				&Child_Err, NULL)) {
+				NULL, NULL, Child_Process, &Child_In, &Child_Out,
+				&Child_Err, &gerror)) {
+    
+    g_warning("Error message '%s'", gerror->message);
+    g_error_free (gerror);
     g_warning("In order to play chess, you need to have gnuchess installed as " GNUCHESS);
-    return(-1);
+    return(FALSE);
 
   }
 
@@ -1125,7 +1128,7 @@ start_child (char *cmd,
   *read_chan = g_io_channel_unix_new (Child_Out);
   *write_chan = g_io_channel_unix_new (Child_In);
 
-  return(0);
+  return(TRUE);
 }
 
 

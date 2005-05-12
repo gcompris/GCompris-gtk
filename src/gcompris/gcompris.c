@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/05/02 02:40:06 bruno>
+ * Time-stamp: <2005/05/13 00:14:48 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -145,8 +145,9 @@ typedef struct
 
 } XRANDRData; 
 
-static SizeID xr_previous_size;
-static XRANDRData   *xrandr;
+static gboolean		 changed_xrandr = FALSE;
+static SizeID		 xr_previous_size = -1;
+static XRANDRData	*xrandr;
 
 static void xrandr_get_config ( XRANDRData *data );
 gboolean xrandr_set_config( XRANDRData  *grandr );
@@ -298,6 +299,7 @@ static void init_background()
       if(xrandr->xr_sizes[i].width == BOARDWIDTH, xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
 	xrandr->xr_current_size = (SizeID)i;
 	xrandr_set_config( xrandr );
+	changed_xrandr = TRUE;
 	break;
       }
     }
@@ -620,7 +622,7 @@ void gcompris_exit()
 
 #ifdef XRANDR
   /* Set back the original screen size */
-  if(properties->fullscreen) {
+  if(properties->fullscreen || changed_xrandr) {
     xrandr_get_config ( xrandr );	/* Need to refresh our config or xrandr api will reject us */
     xrandr->xr_current_size = (SizeID)xr_previous_size;
     xrandr_set_config( xrandr );
