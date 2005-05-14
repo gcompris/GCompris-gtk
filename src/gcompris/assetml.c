@@ -87,19 +87,19 @@ static gchar *reactivate_newline(gchar *str)
 void dump_asset(AssetML *assetml)
 {
 
-  printf("Dump Asset\n");
+  g_message("Dump Asset\n");
 
   if(assetml==NULL)
     return;
 
-  printf("  dataset     = %s\n",assetml->dataset);
-  printf("  file        = %s\n",assetml->file);
-  printf("  name        = %s\n",assetml->name);
-  printf("  locale      = %s\n",assetml->locale);
-  printf("  description = %s\n",assetml->description);
-  printf("  categories  = %s\n",assetml->categories);
-  printf("  mimetype    = %s\n",assetml->mimetype);
-  printf("  credits     = %s\n",assetml->credits);
+  g_message("  dataset     = %s\n",assetml->dataset);
+  g_message("  file        = %s\n",assetml->file);
+  g_message("  name        = %s\n",assetml->name);
+  g_message("  locale      = %s\n",assetml->locale);
+  g_message("  description = %s\n",assetml->description);
+  g_message("  categories  = %s\n",assetml->categories);
+  g_message("  mimetype    = %s\n",assetml->mimetype);
+  g_message("  credits     = %s\n",assetml->credits);
 
 }
 
@@ -279,9 +279,12 @@ parse_doc(GList **gl_result, xmlDocPtr doc,
        we pass NULL as the node of the child */
     AssetML *assetml = assetml_add_xml_to_data(doc, node, rootdir, NULL);
 
-    if(assetml && matching(assetml, mydataset, dataset, categories, mimetype, mylocale, locale, file))
+    if(assetml && matching(assetml, mydataset, dataset, categories, 
+			   mimetype, mylocale, locale, file)) {
+      g_message("if(assetml && matching  g_list_append)\n");
+
       *gl_result = g_list_append (*gl_result, assetml);
-				
+    }
   }
 }
 
@@ -370,6 +373,7 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
     if(strstr(one_dirent, FILE_EXT)) {
       gchar *assetmlfile = g_strdup_printf("%s/%s", ASSETML_DIR, one_dirent);
       
+      g_message("assetml_load_xml file=%s\n", assetmlfile);
       assetml_read_xml_file(gl_result, assetmlfile,
 			    dataset, categories, mimetype, locale, name);
       
@@ -404,10 +408,11 @@ void assetml_free_assetlist(GList *assetlist)
 
 }
 
-GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype,
-			   const gchar *locale, gchar* file)
+GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, const gchar *locale, gchar* file)
 {
   GList *gl_result = NULL;
+
+  g_message("assetml_get_asset file=%s\n", file);
 
   assetml_load_xml(&gl_result, dataset, categories, mimetype, locale, file);
 
@@ -418,10 +423,8 @@ GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype,
     }
   else
     {
-#ifdef DEBUG
-      g_message("Dumping return value of assetml_get_asset:\n");
+      g_message("assetml_get_asset file=%s number of matches=%d\n", file, g_list_length(gl_result));
       g_list_foreach (gl_result, (GFunc) dump_asset, NULL);
-#endif
       return gl_result;
     }
 }

@@ -79,6 +79,8 @@ void       position_set_color_to_move    (Position *pos, short color);
 short      position_get_color_to_move    (Position *pos);
 short      position_last_piece_captured  (Position *pos);
 
+void	   position_display		 (Position *pos);
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

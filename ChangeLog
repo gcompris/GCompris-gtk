@@ -1,3 +1,14 @@
+2005-05-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/chess.c: (start_board), (start_child): cleanup. do not work as expected on widows yet
+	* src/boards/chess_position.h: cleanup
+	* src/gcompris/assetml.c: (dump_asset), (parse_doc),
+	(assetml_load_xml), (assetml_get_asset): added traces
+	* src/gcompris/gameutil.c: (gcompris_find_absolute_filename): cleanup
+	* src/gcompris/soundutil.c: (scheduler), (thread_play_ogg),
+	(gcompris_play_ogg), (gcompris_play_ogg_list): fixed memory leaks for windows. reviewed the
+	whole code of this function.
+
 2005-05-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/gnumch-inequality.xml.in: fixed string

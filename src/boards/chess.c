@@ -119,7 +119,6 @@ static void		 chess_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint		 item_event_black(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gboolean		 start_child (char        *cmd,
-				      char       **arg,
 				      GIOChannel **read_chan,
 				      GIOChannel **write_chan,
 				      GPid	 *gnuchess_pid);
@@ -193,10 +192,6 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
-      char *param[2];
-
-      param[0] = "xboard";
-      param[1] = NULL;
 
       gcomprisBoard=agcomprisBoard;
       
@@ -226,7 +221,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  gcompris_bar_set(0);
 	}
 
-      if(start_child (GNUCHESS, param, &read_chan,
+      if(start_child (GNUCHESS, &read_chan,
 		      &write_chan, &gnuchess_pid)==FALSE) {
 	gcompris_dialog(_("Error: The external program gnuchess is mandatory\nto play chess in gcompris.\nFind this program on http://www.rpmfind.net or in your\nGNU/Linux distribution\nAnd check it is in "GNUCHESS), gcompris_end_board);
 	return;
@@ -1101,7 +1096,6 @@ engine_local_err_cb (GIOChannel *source,
 
 static gboolean
 start_child (char *cmd, 
-	     char **arg, 
 	     GIOChannel **read_chan, 
 	     GIOChannel **write_chan,
 	     GPid *Child_Process)
@@ -1109,7 +1103,7 @@ start_child (char *cmd,
   gint   Child_In, Child_Out, Child_Err;
   GError *gerror = NULL;
 
-  gchar *Child_Argv[]={ "gnuchess", NULL };
+  gchar *Child_Argv[]={ "gnuchess.exe", NULL };
 
   if (!g_spawn_async_with_pipes(NULL, Child_Argv, NULL,
 				G_SPAWN_SEARCH_PATH,

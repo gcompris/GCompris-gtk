@@ -43,7 +43,7 @@ static guint	 sound_init = 0;
 /* Forward function declarations */
 GThread		*thread_scheduler, *thread_scheduler_bgnd;
 
-static void	*thread_play_ogg (void*);
+static void	*thread_play_ogg (char *file);
 static char	*get_next_sound_to_play( );
 
 static gpointer  scheduler (gpointer user_data);
@@ -190,7 +190,6 @@ static gpointer scheduler_bgnd (gpointer user_data)
  ======================================================================*/
 static gpointer scheduler (gpointer user_data)
 {
-  int retcode;
   char *sound = NULL;
 
   while (TRUE)
@@ -199,7 +198,6 @@ static gpointer scheduler (gpointer user_data)
 	{
 	  thread_play_ogg(sound);
 	  is_playing = FALSE;
-	  g_free(sound);
 	}
       else
 	{
@@ -214,38 +212,42 @@ static gpointer scheduler (gpointer user_data)
 /* =====================================================================
  * Thread function for playing a single file
  ======================================================================*/
-static void* thread_play_ogg (void *s)
+static void* thread_play_ogg (char *file)
 {
-  gchar *file = NULL;
-  gchar *relative_filename;
-  char locale[3];
   GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
+  gchar *tmpstr;
 
-  strncpy( locale, gcompris_get_locale(), 2 );
-  locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
-  relative_filename = g_strdup_printf("sounds/%s/%s.ogg", locale, s);
-  file = gcompris_find_absolute_filename(relative_filename);
-  if (!file){
+  if (!g_file_test (file, G_FILE_TEST_EXISTS)) {
+    gchar *relative_filename;
+    char   locale[3];
+    strncpy( locale, gcompris_get_locale(), 2 );
+    locale[2] = 0; // because strncpy does not put a '\0' at the end of the string
+    relative_filename = g_strdup_printf("sounds/%s/%s.ogg", locale, file);
+    tmpstr = gcompris_find_absolute_filename(relative_filename);
     g_free(relative_filename);
-    relative_filename = g_strdup_printf("music/%s.ogg", s);
-    file = gcompris_find_absolute_filename(relative_filename);
-    if (!file){
+    if (!tmpstr){
+      relative_filename = g_strdup_printf("music/%s.ogg", file);
+      tmpstr = gcompris_find_absolute_filename(relative_filename);
       g_free(relative_filename);
-      /* Try to find a sound file that does not need to be localized 
-	 (ie directly in root /sounds directory) */
-      relative_filename = g_strdup_printf("sounds/%s.ogg", s);
-      file = gcompris_find_absolute_filename(relative_filename);
-      if (!file){
-	file = gcompris_find_absolute_filename(s);
-	if (!file){
-	  g_free(relative_filename);
-	  g_warning("Can't find sound %s", s);
+      if (!tmpstr){
+	/* Try to find a sound file that does not need to be localized 
+	   (ie directly in root /sounds directory) */
+	relative_filename = g_strdup_printf("sounds/%s.ogg", file);
+	tmpstr = gcompris_find_absolute_filename(relative_filename);
+	g_free(relative_filename);
+	if (!tmpstr){
+	  tmpstr = gcompris_find_absolute_filename(file);
+	  if (!tmpstr){
+	  g_warning("Can't find sound %s", file);
 	  return NULL;
+	  }
 	}
       }
     }
+    g_free( file );
+    file = tmpstr;
   }
-  g_free(relative_filename);
+
   if ( file )
     {
       g_warning("Calling gcompris internal sdlplayer_file(%s)\n", file);
@@ -289,6 +291,8 @@ void gcompris_play_ogg(char *sound, ...)
 
   list = g_list_append(list, sound);
 
+  g_warning("Adding %s in the play list queue\n", sound);
+
   va_start( ap, sound);
   while( (tmp = va_arg (ap, char *)))
     {
@@ -311,9 +315,6 @@ void gcompris_play_ogg(char *sound, ...)
 void gcompris_play_ogg_list( GList* files )
 {
   GList* list;
-  int err;
-  char* tmp = NULL;
-  char* tmpSound = NULL;
 
   if ( !gcompris_get_properties()->fx )
     return;
