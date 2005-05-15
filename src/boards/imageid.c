@@ -50,13 +50,12 @@ static void		 dump_xml(void);
 #endif
 
 
-typedef struct _Board Board;
-struct _Board {
+typedef struct {
   char  *pixmapfile;
   char  *text1;
   char  *text2;
   char  *text3;
-};
+} Board;
 
 /* XML */
 static gboolean		 read_xml_file(char *fname);

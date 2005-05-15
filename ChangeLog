@@ -1,3 +1,13 @@
+2005-05-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/Makefile.mingw: added missing file for gnuchess
+	* src/boards/chess.c: (start_child): cleanup.
+	* src/boards/draw.c: (tool_event), (load_drawing), (save_drawing): reitroduced for windows version. removed load/save capapility.
+	* src/gcompris/assetml.c: (dump_asset), (assetml_load_xml): fixed null pointer in display dump.
+	* src/gcompris/board.c: (init_plugins): added draw
+	* src/gcompris/soundutil.c: (gcompris_play_ogg) now returns if sound is null
+	* src/gcompris/config.c: code cleanup
+
 2005-05-14  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/chess.c: (start_board), (start_child): cleanup. do not work as expected on widows yet

@@ -929,10 +929,10 @@ tool_event(GnomeCanvasItem *item, GdkEvent *event, gint tool)
 	  switch(tool)
 	    {
 	    case TOOL_LOAD:
-	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
+	      //	      gcompris_file_selector_load(gcomprisBoard, FILE_SELECTOR_ROOT, "", load_drawing);
 	      break;
 	    case TOOL_SAVE:
-	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
+	      //	      gcompris_file_selector_save(gcomprisBoard, FILE_SELECTOR_ROOT, "", save_drawing);
 	      break;
 	    case TOOL_GRID:
 	      display_grid((grid_step==0 ? TRUE : FALSE));
@@ -2149,26 +2149,6 @@ static void recreate_item(GnomeCanvasItem *item)
  */
 static void load_drawing(gchar *file)
 {
-  printf("callback in draw, load_drawing got image %s\n", file);
-
-  /* Delete the current drawing */
-  /* WARNING: We should have a YES/NO Dialog box */
-  gtk_object_destroy (GTK_OBJECT(draw_root_item));
-  draw_root_item = \
-    gnome_canvas_item_new (GNOME_CANVAS_GROUP(shape_root_item),
-			   gnome_canvas_group_get_type (),
-			   "x", (double)0,
-			   "y", (double)0,
-			   NULL);
-
-
-  gcompris_svg_restore(FILE_SELECTOR_ROOT, file, GNOME_CANVAS_GROUP(draw_root_item));
-
-  /* For each item we need to recreate the anchors */
-  g_list_foreach(GNOME_CANVAS_GROUP(draw_root_item)->item_list, (GFunc) recreate_item, NULL);
-
-  /* Set current_tool */
-  set_current_tool(selectionToolItem, TOOL_SELECT);
 
 }
 
@@ -2177,8 +2157,7 @@ static void load_drawing(gchar *file)
  */
 static void save_drawing(gchar *file)
 {
-  printf("callback in draw, save_drawing got image %s\n", file);
-  gcompris_svg_save(FILE_SELECTOR_ROOT, file, draw_root_item, BOARDWIDTH, BOARDHEIGHT, 0);
+
 }
 
 /*

@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/05/02 01:17:53 bruno>
+ * Time-stamp: <2005/05/15 03:20:07 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -556,7 +556,7 @@ static void set_locale_flag(gchar *locale)
   if(locale[0] == '\0') {
     /* Set the flag to the default user's locale */
     locale = gcompris_get_user_default_locale();
-    printf("gcompris_get_user_default_locale = %s\n", locale);
+    g_message("gcompris_get_user_default_locale = %s\n", locale);
   }
 
   /* First try to find a flag for the long locale name */
@@ -694,7 +694,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
   GcomprisProperties	*properties = gcompris_get_properties();
 
   if(data==NULL)
-    return;
+    return FALSE;
 
   switch (event->type) 
     {

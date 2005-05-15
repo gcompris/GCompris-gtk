@@ -1103,7 +1103,9 @@ start_child (char *cmd,
   gint   Child_In, Child_Out, Child_Err;
   GError *gerror = NULL;
 
-  gchar *Child_Argv[]={ "gnuchess.exe", NULL };
+  gchar *Child_Argv[]={ cmd, NULL };
+
+  g_warning("Ready to start child");
 
   if (!g_spawn_async_with_pipes(NULL, Child_Argv, NULL,
 				G_SPAWN_SEARCH_PATH,
@@ -1111,6 +1113,7 @@ start_child (char *cmd,
 				&Child_Err, &gerror)) {
     
     g_warning("Error message '%s'", gerror->message);
+    g_warning("Error code    '%d'", gerror->code);
     g_error_free (gerror);
     g_warning("In order to play chess, you need to have gnuchess installed as " GNUCHESS);
     return(FALSE);

@@ -289,6 +289,9 @@ void gcompris_play_ogg(char *sound, ...)
   char* tmp = NULL;
   GList* list = NULL;
 
+  if(!sound)
+    return;
+
   list = g_list_append(list, sound);
 
   g_warning("Adding %s in the play list queue\n", sound);

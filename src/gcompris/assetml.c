@@ -92,14 +92,22 @@ void dump_asset(AssetML *assetml)
   if(assetml==NULL)
     return;
 
-  g_message("  dataset     = %s\n",assetml->dataset);
-  g_message("  file        = %s\n",assetml->file);
-  g_message("  name        = %s\n",assetml->name);
-  g_message("  locale      = %s\n",assetml->locale);
-  g_message("  description = %s\n",assetml->description);
-  g_message("  categories  = %s\n",assetml->categories);
-  g_message("  mimetype    = %s\n",assetml->mimetype);
-  g_message("  credits     = %s\n",assetml->credits);
+  if(assetml->dataset)
+    g_message("  dataset     = %s\n",assetml->dataset);
+  if(assetml->file)
+    g_message("  file        = %s\n",assetml->file);
+  if(assetml->name)
+    g_message("  name        = %s\n",assetml->name);
+  if(assetml->locale)
+    g_message("  locale      = %s\n",assetml->locale);
+  if(assetml->description)
+    g_message("  description = %s\n",assetml->description);
+  if(assetml->categories)
+    g_message("  categories  = %s\n",assetml->categories);
+  if(assetml->mimetype)
+    g_message("  mimetype    = %s\n",assetml->mimetype);
+  if(assetml->credits)
+    g_message("  credits     = %s\n",assetml->credits);
 
 }
 
@@ -366,6 +374,8 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
   if(!dir) {
     g_warning("opendir returns no files with extension %s in directory %s", FILE_EXT, ASSETML_DIR);
     return;
+  } else {
+    g_message("assetml_load_xml directory parsing=%s\n", ASSETML_DIR);
   }
 
   while((one_dirent = g_dir_read_name(dir)) != NULL) {
@@ -373,7 +383,6 @@ void assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories, gcha
     if(strstr(one_dirent, FILE_EXT)) {
       gchar *assetmlfile = g_strdup_printf("%s/%s", ASSETML_DIR, one_dirent);
       
-      g_message("assetml_load_xml file=%s\n", assetmlfile);
       assetml_read_xml_file(gl_result, assetmlfile,
 			    dataset, categories, mimetype, locale, name);
       

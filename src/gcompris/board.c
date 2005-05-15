@@ -37,6 +37,7 @@ extern BoardPlugin * get_clickgame_bplugin_info();
 extern BoardPlugin * get_click_on_letter_bplugin_info();
 extern BoardPlugin * get_clockgame_bplugin_info();
 extern BoardPlugin * get_colors_bplugin_info();
+extern BoardPlugin * get_draw_bplugin_info();
 extern BoardPlugin * get_enumerate_bplugin_info();
 extern BoardPlugin * get_erase_bplugin_info();
 extern BoardPlugin * get_fifteen_bplugin_info();
@@ -93,6 +94,7 @@ void init_plugins(void)
   static_boards_demo[i++] = get_click_on_letter_bplugin_info();
   static_boards_demo[i++] = get_colors_bplugin_info();
   static_boards_demo[i++] = get_clickgame_bplugin_info();
+  static_boards_demo[i++] = get_draw_bplugin_info();
   static_boards_demo[i++] = get_enumerate_bplugin_info();
   static_boards_demo[i++] = get_erase_bplugin_info();
   static_boards_demo[i++] = get_gletters_bplugin_info();
@@ -109,6 +111,7 @@ void init_plugins(void)
   static_boards[i++] = get_algebra_bplugin_info();
   static_boards[i++] = get_advanced_colors_bplugin_info();
   static_boards[i++] = get_algebra_guesscount_bplugin_info();
+  static_boards[i++] = get_draw_bplugin_info();
   static_boards[i++] = get_imageid_bplugin_info();
   static_boards[i++] = get_leftright_bplugin_info();
   static_boards[i++] = get_machpuzzle_bplugin_info();
