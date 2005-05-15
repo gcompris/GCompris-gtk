@@ -1,0 +1,843 @@
+; Installer script for win32 Gcompris
+; Copyed from GAIM By Herman Bloggs <hermanator12002@yahoo.com>
+; Bruno Coudoin for GCompris
+;
+; NOTE: this .NSI script is intended for NSIS 2.0 (finale release).
+;
+
+;--------------------------------
+;Global Variables
+Var name
+Var LANG_IS_SET
+Var ISSILENT
+Var STARTUP_RUN_KEY
+
+;--------------------------------
+;Configuration
+
+;The name var is set in .onInit
+Name $name
+
+!define GCOMPRIS_VERSION			"6.5.3"
+
+OutFile "gcompris-${GCOMPRIS_VERSION}.exe"
+
+SetCompressor lzma
+ShowInstDetails show
+ShowUninstDetails show
+SetDateSave on
+
+; $name and $INSTDIR are set in .onInit function..
+
+!include "MUI.nsh"
+!include "Sections.nsh"
+
+;--------------------------------
+;Defines
+
+!define GCOMPRIS_NSIS_INCLUDE_PATH		".\nsis"
+!define GCOMPRIS_INSTALLER_DEPS			"..\win32-dev\gcompris-inst-deps"
+
+!define GCOMPRIS_REG_KEY			"SOFTWARE\gcompris"
+!define GCOMPRIS_UNINSTALL_KEY			"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Gcompris"
+!define HKLM_APP_PATHS_KEY			"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\gcompris.exe"
+!define GCOMPRIS_STARTUP_RUN_KEY		"SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+!define GCOMPRIS_UNINST_EXE			"gcompris-uninst.exe"
+!define GCOMPRIS_REG_LANG			"Installer Language"
+
+;--------------------------------
+;Modern UI Configuration
+
+  !define MUI_ICON				".\gcompris.ico"
+  !define MUI_UNICON				".\gcompris.ico"
+  !define MUI_WELCOMEFINISHPAGE_BITMAP 		".\nsis\gcompris-intro.bmp"
+  !define MUI_HEADERIMAGE
+  !define MUI_HEADERIMAGE_BITMAP		".\nsis\gcompris-header.bmp"
+
+  ; Alter License section
+  !define MUI_LICENSEPAGE_BUTTON		$(GCOMPRIS_LICENSE_BUTTON)
+  !define MUI_LICENSEPAGE_TEXT_BOTTOM		$(GCOMPRIS_LICENSE_BOTTOM_TEXT)
+
+  !define MUI_COMPONENTSPAGE_SMALLDESC
+  !define MUI_ABORTWARNING
+
+  ;Finish Page config
+  !define MUI_FINISHPAGE_RUN			"$INSTDIR\gcompris.exe"
+  !define MUI_FINISHPAGE_RUN_NOTCHECKED
+  !define MUI_FINISHPAGE_LINK			$(GCOMPRIS_FINISH_VISIT_WEB_SITE)
+  !define MUI_FINISHPAGE_LINK_LOCATION          "http://gcompris.net/"
+
+;--------------------------------
+;Pages
+  
+  !insertmacro MUI_PAGE_WELCOME
+  !insertmacro MUI_PAGE_LICENSE			"./COPYING"
+  !insertmacro MUI_PAGE_COMPONENTS
+
+  ; Gcompris install dir page
+  !insertmacro MUI_PAGE_DIRECTORY
+
+  !insertmacro MUI_PAGE_INSTFILES
+  !insertmacro MUI_PAGE_FINISH
+
+  !insertmacro MUI_UNPAGE_WELCOME
+  !insertmacro MUI_UNPAGE_CONFIRM
+  !insertmacro MUI_UNPAGE_INSTFILES
+  !insertmacro MUI_UNPAGE_FINISH
+
+;--------------------------------
+;Languages
+ 
+  ;; English goes first because its the default. The rest are
+  ;; in alphabetical order (at least the strings actually displayed
+  ;; will be).
+
+  !insertmacro MUI_LANGUAGE "English"
+
+  !insertmacro MUI_LANGUAGE "Albanian"
+  !insertmacro MUI_LANGUAGE "Bulgarian"
+  !insertmacro MUI_LANGUAGE "Catalan"
+  !insertmacro MUI_LANGUAGE "Czech"
+  !insertmacro MUI_LANGUAGE "Danish"
+  !insertmacro MUI_LANGUAGE "SimpChinese"
+  !insertmacro MUI_LANGUAGE "TradChinese"
+  !insertmacro MUI_LANGUAGE "German"
+  !insertmacro MUI_LANGUAGE "Spanish"
+  !insertmacro MUI_LANGUAGE "French"
+  !insertmacro MUI_LANGUAGE "Hebrew"
+  !insertmacro MUI_LANGUAGE "Italian"
+  !insertmacro MUI_LANGUAGE "Japanese"
+  !insertmacro MUI_LANGUAGE "Korean"
+  !insertmacro MUI_LANGUAGE "Hungarian"
+  !insertmacro MUI_LANGUAGE "Dutch"
+  !insertmacro MUI_LANGUAGE "Norwegian"
+  !insertmacro MUI_LANGUAGE "Polish"
+  !insertmacro MUI_LANGUAGE "PortugueseBR"
+  !insertmacro MUI_LANGUAGE "Portuguese"
+  !insertmacro MUI_LANGUAGE "Romanian"
+  !insertmacro MUI_LANGUAGE "Russian"
+  !insertmacro MUI_LANGUAGE "Serbian"
+  !insertmacro MUI_LANGUAGE "Slovak"
+  !insertmacro MUI_LANGUAGE "Slovenian"
+  !insertmacro MUI_LANGUAGE "Finnish"
+  !insertmacro MUI_LANGUAGE "Swedish"
+
+;--------------------------------
+;Translations
+
+  !define GCOMPRIS_DEFAULT_LANGFILE "${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\english.nsh"
+
+  !include "${GCOMPRIS_NSIS_INCLUDE_PATH}\langmacros.nsh"
+
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ALBANIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\albanian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "BULGARIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\bulgarian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "CATALAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\catalan.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "CZECH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\czech.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "DANISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\danish.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "DUTCH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\dutch.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ENGLISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\english.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "FINNISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\finnish.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "FRENCH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\french.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "GERMAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\german.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "HEBREW"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\hebrew.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "HUNGARIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\hungarian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ITALIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\italian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "JAPANESE"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\japanese.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "KOREAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\korean.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "NORWEGIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\norwegian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "POLISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\polish.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "PORTUGUESE"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\portuguese.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "PORTUGUESEBR"	"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\portuguese-br.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "ROMANIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\romanian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "RUSSIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\russian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SERBIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\serbian-latin.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SIMPCHINESE"	"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\simp-chinese.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SLOVAK"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\slovak.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SLOVENIAN"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\slovenian.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SPANISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\spanish.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "SWEDISH"		"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\swedish.nsh"
+  !insertmacro GCOMPRIS_MACRO_INCLUDE_LANGFILE "TRADCHINESE"	"${GCOMPRIS_NSIS_INCLUDE_PATH}\translations\trad-chinese.nsh"
+
+;--------------------------------
+;Reserve Files
+  ; Only need this if using bzip2 compression
+
+  !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS
+  !insertmacro MUI_RESERVEFILE_LANGDLL 
+  ReserveFile "${NSISDIR}\Plugins\UserInfo.dll"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Start Install Sections ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;--------------------------------
+;Uninstall any old version of Gcompris
+
+Section -SecUninstallOldGcompris
+  ; Check install rights..
+  Call CheckUserInstallRights
+  Pop $R0
+
+  ;If gcompris is currently set to run on startup,
+  ;  save the section of the Registry where the setting is before uninstalling,
+  ;  so we can put it back after installing the new version
+  ClearErrors
+  ReadRegStr $STARTUP_RUN_KEY HKCU "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris"
+  IfErrors +3
+  StrCpy $STARTUP_RUN_KEY "HKCU"
+  Goto +4
+  ReadRegStr $STARTUP_RUN_KEY HKLM "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris"
+  IfErrors +2
+  StrCpy $STARTUP_RUN_KEY "HKLM"
+
+  StrCmp $R0 "HKLM" gcompris_hklm
+  StrCmp $R0 "HKCU" gcompris_hkcu done
+
+  gcompris_hkcu:
+      ReadRegStr $R1 HKCU ${GCOMPRIS_REG_KEY} ""
+      ReadRegStr $R2 HKCU ${GCOMPRIS_REG_KEY} "Version"
+      ReadRegStr $R3 HKCU "${GCOMPRIS_UNINSTALL_KEY}" "UninstallString"
+      Goto try_uninstall
+
+  gcompris_hklm:
+      ReadRegStr $R1 HKLM ${GCOMPRIS_REG_KEY} ""
+      ReadRegStr $R2 HKLM ${GCOMPRIS_REG_KEY} "Version"
+      ReadRegStr $R3 HKLM "${GCOMPRIS_UNINSTALL_KEY}" "UninstallString"
+
+  ; If previous version exists .. remove
+  try_uninstall:
+    StrCmp $R1 "" done
+      ; Version key started with 0.60a3. Prior versions can't be 
+      ; automaticlly uninstalled.
+      StrCmp $R2 "" uninstall_problem
+        ; Check if we have uninstall string..
+        IfFileExists $R3 0 uninstall_problem
+          ; Have uninstall string.. go ahead and uninstall.
+          SetOverwrite on
+          ; Need to copy uninstaller outside of the install dir
+          ClearErrors
+          CopyFiles /SILENT $R3 "$TEMP\${GCOMPRIS_UNINST_EXE}"
+          SetOverwrite off
+          IfErrors uninstall_problem
+            ; Ready to uninstall..
+            ClearErrors
+	    ExecWait '"$TEMP\${GCOMPRIS_UNINST_EXE}" /S _?=$R1'
+	    IfErrors exec_error
+              Delete "$TEMP\${GCOMPRIS_UNINST_EXE}"
+	      Goto done
+
+	    exec_error:
+              Delete "$TEMP\${GCOMPRIS_UNINST_EXE}"
+              Goto uninstall_problem
+
+        uninstall_problem:
+	  ; In this case just wipe out previous Gcompris install dir..
+	  ; We get here because versions 0.60a1 and 0.60a2 don't have versions set in the registry
+	  ; and versions 0.60 and lower did not correctly set the uninstall reg string 
+	  ; (the string was set in quotes)
+          IfSilent do_wipeout
+          MessageBox MB_YESNO $(GCOMPRIS_PROMPT_WIPEOUT) IDYES do_wipeout IDNO cancel_install
+          cancel_install:
+            Quit
+
+          do_wipeout:
+            StrCmp $R0 "HKLM" gcompris_del_lm_reg gcompris_del_cu_reg
+            gcompris_del_cu_reg:
+              DeleteRegKey HKCU ${GCOMPRIS_REG_KEY}
+              Goto uninstall_prob_cont
+            gcompris_del_lm_reg:
+              DeleteRegKey HKLM ${GCOMPRIS_REG_KEY}
+
+            uninstall_prob_cont:
+	      RMDir /r "$R1"
+
+  done:
+SectionEnd
+
+
+;--------------------------------
+;Gcompris Install Section
+
+Section $(GCOMPRIS_SECTION_TITLE) SecGcompris
+  SectionIn 1 RO
+
+  ; Check install rights..
+  Call CheckUserInstallRights
+  Pop $R0
+
+  ; Get GTK+ lib dir if we have it..
+
+  StrCmp $R0 "NONE" gcompris_none
+  StrCmp $R0 "HKLM" gcompris_hklm gcompris_hkcu
+
+  gcompris_hklm:
+    WriteRegStr HKLM "${HKLM_APP_PATHS_KEY}" "" "$INSTDIR\gcompris.exe"
+    WriteRegStr HKLM "${HKLM_APP_PATHS_KEY}" "Path" "$R1\bin"
+    WriteRegStr HKLM ${GCOMPRIS_REG_KEY} "" "$INSTDIR"
+    WriteRegStr HKLM ${GCOMPRIS_REG_KEY} "Version" "${GCOMPRIS_VERSION}"
+    WriteRegStr HKLM "${GCOMPRIS_UNINSTALL_KEY}" "DisplayName" $(GCOMPRIS_UNINSTALL_DESC)
+    WriteRegStr HKLM "${GCOMPRIS_UNINSTALL_KEY}" "UninstallString" "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
+    ; Sets scope of the desktop and Start Menu entries for all users.
+    SetShellVarContext "all"
+    Goto gcompris_install_files
+
+  gcompris_hkcu:
+    WriteRegStr HKCU ${GCOMPRIS_REG_KEY} "" "$INSTDIR"
+    WriteRegStr HKCU ${GCOMPRIS_REG_KEY} "Version" "${GCOMPRIS_VERSION}"
+    WriteRegStr HKCU "${GCOMPRIS_UNINSTALL_KEY}" "DisplayName" $(GCOMPRIS_UNINSTALL_DESC)
+    WriteRegStr HKCU "${GCOMPRIS_UNINSTALL_KEY}" "UninstallString" "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
+    Goto gcompris_install_files
+
+  gcompris_none:
+
+  gcompris_install_files:
+    SetOutPath "$INSTDIR"
+    ; Gcompris files
+    SetOverwrite on
+    File /r .\win32-install-dir\*.*
+
+    ; If this is under NT4, delete the SILC support stuff
+    ; there is a bug that will prevent any account from connecting
+    ; See https://lists.silcnet.org/pipermail/silc-devel/2005-January/001588.html
+    Call GetWindowsVersion
+    Pop $R2
+    StrCmp $R2 "NT 4.0" 0 nt4_done
+    Delete "$INSTDIR\plugins\libsilc.dll"
+    Delete "$INSTDIR\silcclient.dll"
+    Delete "$INSTDIR\silc.dll"
+
+    nt4_done:
+
+    CreateDirectory "$SMPROGRAMS\Gcompris"
+    CreateShortCut "$SMPROGRAMS\Gcompris\Gcompris.lnk" "$INSTDIR\gcompris.exe"
+    CreateShortCut "$DESKTOP\Gcompris.lnk" "$INSTDIR\gcompris.exe"
+    SetOutPath "$INSTDIR"
+
+    ; If we don't have install rights.. we're done
+    StrCmp $R0 "NONE" done
+    CreateShortCut "$SMPROGRAMS\Gcompris\Uninstall.lnk" "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
+    SetOverwrite off
+
+    ; Write out installer language
+    WriteRegStr HKCU "${GCOMPRIS_REG_KEY}" "${GCOMPRIS_REG_LANG}" "$LANGUAGE"
+
+    ; write out uninstaller
+    SetOverwrite on
+    WriteUninstaller "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
+    SetOverwrite off
+
+    ; If we previously had gcompris setup to run on startup, make it do so again
+    StrCmp $STARTUP_RUN_KEY "HKCU" +1 +2
+    WriteRegStr HKCU "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris" "$INSTDIR\gcompris.exe"
+    StrCmp $STARTUP_RUN_KEY "HKLM" +1 +2
+    WriteRegStr HKLM "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris" "$INSTDIR\gcompris.exe"
+
+  done:
+SectionEnd ; end of default Gcompris section
+
+;--------------------------------
+;Uninstaller Section
+
+
+Section Uninstall
+  Call un.CheckUserInstallRights
+  Pop $R0
+  StrCmp $R0 "NONE" no_rights
+  StrCmp $R0 "HKCU" try_hkcu try_hklm
+
+  try_hkcu:
+    ReadRegStr $R0 HKCU ${GCOMPRIS_REG_KEY} ""
+    StrCmp $R0 $INSTDIR 0 cant_uninstall
+      ; HKCU install path matches our INSTDIR.. so uninstall
+      DeleteRegKey HKCU ${GCOMPRIS_REG_KEY}
+      DeleteRegKey HKCU "${GCOMPRIS_UNINSTALL_KEY}"
+      Goto cont_uninstall
+
+  try_hklm:
+    ReadRegStr $R0 HKLM ${GCOMPRIS_REG_KEY} ""
+    StrCmp $R0 $INSTDIR 0 try_hkcu
+      ; HKLM install path matches our INSTDIR.. so uninstall
+      DeleteRegKey HKLM ${GCOMPRIS_REG_KEY}
+      DeleteRegKey HKLM "${GCOMPRIS_UNINSTALL_KEY}"
+      DeleteRegKey HKLM "${HKLM_APP_PATHS_KEY}"
+      ; Sets start menu and desktop scope to all users..
+      SetShellVarContext "all"
+
+  cont_uninstall:
+    ; The WinPrefs plugin may have left this behind..
+    DeleteRegValue HKCU "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris"
+    DeleteRegValue HKLM "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris"
+    ; Remove Language preference info
+    DeleteRegKey HKCU ${GCOMPRIS_REG_KEY} ;${MUI_LANGDLL_REGISTRY_ROOT} ${MUI_LANGDLL_REGISTRY_KEY}
+
+    RMDir /r "$INSTDIR\locale"
+    RMDir /r "$INSTDIR\pixmaps"
+    RMDir /r "$INSTDIR\perlmod"
+    RMDir "$INSTDIR\plugins"
+    Delete "$INSTDIR\gcompris.exe"
+    Delete "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
+
+    ;Try to remove Gcompris install dir .. if empty
+    RMDir "$INSTDIR"
+
+    ; Shortcuts..
+    RMDir /r "$SMPROGRAMS\Gcompris"
+    Delete "$DESKTOP\Gcompris.lnk"
+
+    Goto done
+
+  cant_uninstall:
+    IfSilent skip_mb
+    MessageBox MB_OK $(un.GCOMPRIS_UNINSTALL_ERROR_1) IDOK
+    skip_mb:
+    Quit
+
+  no_rights:
+    IfSilent skip_mb1
+    MessageBox MB_OK $(un.GCOMPRIS_UNINSTALL_ERROR_2) IDOK
+    skip_mb1:
+    Quit
+
+  done:
+SectionEnd ; end of uninstall section
+
+;--------------------------------
+;Descriptions
+!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecGcompris} \
+	$(GCOMPRIS_SECTION_DESCRIPTION)
+!insertmacro MUI_FUNCTION_DESCRIPTION_END
+
+;--------------------------------
+;Functions
+
+Function CheckUserInstallRights
+	ClearErrors
+	UserInfo::GetName
+	IfErrors Win9x
+	Pop $0
+	UserInfo::GetAccountType
+	Pop $1
+
+	StrCmp $1 "Admin" 0 +3
+                StrCpy $1 "HKLM"
+		Goto done
+	StrCmp $1 "Power" 0 +3
+                StrCpy $1 "HKLM"
+		Goto done
+	StrCmp $1 "User" 0 +3
+		StrCpy $1 "HKCU"
+		Goto done
+	StrCmp $1 "Guest" 0 +3
+		StrCpy $1 "NONE"
+		Goto done
+	; Unknown error
+	StrCpy $1 "NONE"
+        Goto done
+
+	Win9x:
+		StrCpy $1 "HKLM"
+
+	done:
+        Push $1
+FunctionEnd
+
+Function un.CheckUserInstallRights
+	ClearErrors
+	UserInfo::GetName
+	IfErrors Win9x
+	Pop $0
+	UserInfo::GetAccountType
+	Pop $1
+
+	StrCmp $1 "Admin" 0 +3
+                StrCpy $1 "HKLM"
+		Goto done
+	StrCmp $1 "Power" 0 +3
+                StrCpy $1 "HKLM"
+		Goto done
+	StrCmp $1 "User" 0 +3
+		StrCpy $1 "HKCU"
+		Goto done
+	StrCmp $1 "Guest" 0 +3
+		StrCpy $1 "NONE"
+		Goto done
+	; Unknown error
+	StrCpy $1 "NONE"
+        Goto done
+
+	Win9x:
+		StrCpy $1 "HKLM"
+
+	done:
+        Push $1
+FunctionEnd
+
+;
+; Usage:
+;   Push $0 ; Path string
+;   Call VerifyDir
+;   Pop $0 ; 0 - Bad path  1 - Good path
+;
+Function VerifyDir
+  Pop $0
+  Loop:
+    IfFileExists $0 dir_exists
+    StrCpy $1 $0 ; save last
+    Push $0
+    Call GetParent
+    Pop $0
+    StrLen $2 $0
+    ; IfFileExists "C:" on xp returns true and on win2k returns false
+    ; So we're done in such a case..
+    IntCmp $2 2 loop_done
+    ; GetParent of "C:" returns ""
+    IntCmp $2 0 loop_done
+    Goto Loop
+
+  loop_done:
+    StrCpy $1 "$0\GcomprisFooB"
+    ; Check if we can create dir on this drive..
+    ClearErrors
+    CreateDirectory $1
+    IfErrors DirBad DirGood
+
+  dir_exists:
+    ClearErrors
+    FileOpen $1 "$0\gcomprisfoo.bar" w
+    IfErrors PathBad PathGood
+
+    DirGood:
+      RMDir $1
+      Goto PathGood1
+
+    DirBad:
+      RMDir $1
+      Goto PathBad1
+
+    PathBad:
+      FileClose $1
+      Delete "$0\gcomprisfoo.bar"
+      PathBad1:
+      StrCpy $0 "0"
+      Push $0
+      Return
+
+    PathGood:
+      FileClose $1
+      Delete "$0\gcomprisfoo.bar"
+      PathGood1:
+      StrCpy $0 "1"
+      Push $0
+FunctionEnd
+
+Function .onVerifyInstDir
+  Push $INSTDIR
+  Call VerifyDir
+  Pop $0
+  StrCmp $0 "0" 0 dir_good
+    Abort
+  dir_good:
+FunctionEnd
+
+; GetParent
+; input, top of stack  (e.g. C:\Program Files\Poop)
+; output, top of stack (replaces, with e.g. C:\Program Files)
+; modifies no other variables.
+;
+; Usage:
+;   Push "C:\Program Files\Directory\Whatever"
+;   Call GetParent
+;   Pop $R0
+;   ; at this point $R0 will equal "C:\Program Files\Directory"
+Function GetParent
+   Exch $0 ; old $0 is on top of stack
+   Push $1
+   Push $2
+   StrCpy $1 -1
+   loop:
+     StrCpy $2 $0 1 $1
+     StrCmp $2 "" exit
+     StrCmp $2 "\" exit
+     IntOp $1 $1 - 1
+   Goto loop
+   exit:
+     StrCpy $0 $0 $1
+     Pop $2
+     Pop $1
+     Exch $0 ; put $0 on top of stack, restore $0 to original value
+FunctionEnd
+
+
+Function RunCheck
+  System::Call 'kernel32::OpenMutex(i 2031617, b 0, t "gcompris_is_running") i .R0'
+  IntCmp $R0 0 done
+  MessageBox MB_OK|MB_ICONEXCLAMATION $(GCOMPRIS_IS_RUNNING) IDOK
+    Abort
+  done:
+FunctionEnd
+
+Function un.RunCheck
+  System::Call 'kernel32::OpenMutex(i 2031617, b 0, t "gcompris_is_running") i .R0'
+  IntCmp $R0 0 done
+  MessageBox MB_OK|MB_ICONEXCLAMATION $(GCOMPRIS_IS_RUNNING) IDOK
+    Abort
+  done:
+FunctionEnd
+
+Function .onInit
+  System::Call 'kernel32::CreateMutexA(i 0, i 0, t "gcompris_installer_running") i .r1 ?e'
+  Pop $R0
+  StrCmp $R0 0 +3
+    MessageBox MB_OK|MB_ICONEXCLAMATION $(INSTALLER_IS_RUNNING)
+    Abort
+  Call RunCheck
+  StrCpy $name "Gcompris ${GCOMPRIS_VERSION}"
+  StrCpy $ISSILENT "/NOUI"
+
+  ; GTK installer has two silent states.. one with Message boxes, one without
+  ; If gcompris installer was run silently, we want to supress gtk installer msg boxes.
+  IfSilent 0 set_gtk_normal
+      StrCpy $ISSILENT "/S"
+  set_gtk_normal:
+
+  Call ParseParameters
+
+  ; Select Language
+  IntCmp $LANG_IS_SET 1 skip_lang
+    ; Display Language selection dialog
+    !insertmacro MUI_LANGDLL_DISPLAY
+    skip_lang:
+
+  ; If install path was set on the command, use it.
+  StrCmp $INSTDIR "" 0 instdir_done
+
+  ;  If gcompris is currently intalled, we should default to where it is currently installed
+  ClearErrors
+  ReadRegStr $INSTDIR HKCU "${GCOMPRIS_REG_KEY}" ""
+  IfErrors +2
+  StrCmp $INSTDIR "" 0 instdir_done
+  ReadRegStr $INSTDIR HKLM "${GCOMPRIS_REG_KEY}" ""
+  IfErrors +2
+  StrCmp $INSTDIR "" 0 instdir_done
+
+  Call CheckUserInstallRights
+  Pop $0
+
+  StrCmp $0 "HKLM" 0 user_dir
+    StrCpy $INSTDIR "$PROGRAMFILES\Gcompris"
+    Goto instdir_done
+  user_dir:
+    StrCpy $2 "$SMPROGRAMS"
+    Push $2
+    Call GetParent
+    Call GetParent
+    Pop $2
+    StrCpy $INSTDIR "$2\Gcompris"
+
+  instdir_done:
+
+FunctionEnd
+
+Function un.onInit
+  Call un.RunCheck
+  StrCpy $name "Gcompris ${GCOMPRIS_VERSION}"
+
+  ; Get stored language prefrence
+  ReadRegStr $LANGUAGE HKCU ${GCOMPRIS_REG_KEY} "${GCOMPRIS_REG_LANG}"
+  
+FunctionEnd
+
+
+; GetParameters
+; input, none
+; output, top of stack (replaces, with e.g. whatever)
+; modifies no other variables.
+ 
+Function GetParameters
+ 
+   Push $R0
+   Push $R1
+   Push $R2
+   Push $R3
+   
+   StrCpy $R2 1
+   StrLen $R3 $CMDLINE
+   
+   ;Check for quote or space
+   StrCpy $R0 $CMDLINE $R2
+   StrCmp $R0 '"' 0 +3
+     StrCpy $R1 '"'
+     Goto loop
+   StrCpy $R1 " "
+   
+   loop:
+     IntOp $R2 $R2 + 1
+     StrCpy $R0 $CMDLINE 1 $R2
+     StrCmp $R0 $R1 get
+     StrCmp $R2 $R3 get
+     Goto loop
+   
+   get:
+     IntOp $R2 $R2 + 1
+     StrCpy $R0 $CMDLINE 1 $R2
+     StrCmp $R0 " " get
+     StrCpy $R0 $CMDLINE "" $R2
+   
+   Pop $R3
+   Pop $R2
+   Pop $R1
+   Exch $R0
+ 
+FunctionEnd
+
+ ; StrStr
+ ; input, top of stack = string to search for
+ ;        top of stack-1 = string to search in
+ ; output, top of stack (replaces with the portion of the string remaining)
+ ; modifies no other variables.
+ ;
+ ; Usage:
+ ;   Push "this is a long ass string"
+ ;   Push "ass"
+ ;   Call StrStr
+ ;   Pop $R0
+ ;  ($R0 at this point is "ass string")
+
+Function StrStr
+   Exch $R1 ; st=haystack,old$R1, $R1=needle
+   Exch    ; st=old$R1,haystack
+   Exch $R2 ; st=old$R1,old$R2, $R2=haystack
+   Push $R3
+   Push $R4
+   Push $R5
+   StrLen $R3 $R1
+   StrCpy $R4 0
+   ; $R1=needle
+   ; $R2=haystack
+   ; $R3=len(needle)
+   ; $R4=cnt
+   ; $R5=tmp
+   loop:
+     StrCpy $R5 $R2 $R3 $R4
+     StrCmp $R5 $R1 done
+     StrCmp $R5 "" done
+     IntOp $R4 $R4 + 1
+     Goto loop
+   done:
+   StrCpy $R1 $R2 "" $R4
+   Pop $R5
+   Pop $R4
+   Pop $R3
+   Pop $R2
+   Exch $R1
+FunctionEnd
+
+;
+; Parse the Command line
+;
+; Unattended install command line parameters
+; /L=Language e.g.: /L=1033
+;
+Function ParseParameters
+  IntOp $LANG_IS_SET 0 + 0
+  Call GetParameters
+  Pop $R0
+  Push $R0
+  Push "L="
+  Call StrStr
+  Pop $R1
+  StrCmp $R1 "" next
+  StrCpy $R1 $R1 4 2 ; Strip first 2 chars of string
+  StrCpy $LANGUAGE $R1
+  IntOp $LANG_IS_SET 0 + 1
+  next:
+FunctionEnd
+
+; GetWindowsVersion
+;
+; Based on Yazno's function, http://yazno.tripod.com/powerpimpit/
+; Updated by Joost Verburg
+;
+; Returns on top of stack
+;
+; Windows Version (95, 98, ME, NT x.x, 2000, XP, 2003)
+; or
+; '' (Unknown Windows Version)
+;
+; Usage:
+;   Call GetWindowsVersion
+;   Pop $R0
+;
+; at this point $R0 is "NT 4.0" or whatnot
+Function GetWindowsVersion
+
+  Push $R0
+  Push $R1
+
+  ReadRegStr $R0 HKLM \
+  "SOFTWARE\Microsoft\Windows NT\CurrentVersion" CurrentVersion
+
+  IfErrors 0 lbl_winnt
+
+  ; we are not NT
+  ReadRegStr $R0 HKLM \
+  "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
+
+  StrCpy $R1 $R0 1
+  StrCmp $R1 '4' 0 lbl_error
+
+  StrCpy $R1 $R0 3
+
+  StrCmp $R1 '4.0' lbl_win32_95
+  StrCmp $R1 '4.9' lbl_win32_ME lbl_win32_98
+
+  lbl_win32_95:
+    StrCpy $R0 '95'
+  Goto lbl_done
+
+  lbl_win32_98:
+    StrCpy $R0 '98'
+  Goto lbl_done
+
+  lbl_win32_ME:
+    StrCpy $R0 'ME'
+  Goto lbl_done
+
+  lbl_winnt:
+    StrCpy $R1 $R0 1
+
+    StrCmp $R1 '3' lbl_winnt_x
+    StrCmp $R1 '4' lbl_winnt_x
+
+    StrCpy $R1 $R0 3
+
+    StrCmp $R1 '5.0' lbl_winnt_2000
+    StrCmp $R1 '5.1' lbl_winnt_XP
+    StrCmp $R1 '5.2' lbl_winnt_2003 lbl_error
+
+  lbl_winnt_x:
+    StrCpy $R0 "NT $R0" 6
+  Goto lbl_done
+
+  lbl_winnt_2000:
+    Strcpy $R0 '2000'
+  Goto lbl_done
+
+  lbl_winnt_XP:
+    Strcpy $R0 'XP'
+  Goto lbl_done
+
+  lbl_winnt_2003:
+    Strcpy $R0 '2003'
+  Goto lbl_done
+
+  lbl_error:
+    Strcpy $R0 ''
+  lbl_done:
+ 
+  Pop $R1
+  Exch $R0
+FunctionEnd
+

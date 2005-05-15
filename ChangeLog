@@ -1,5 +1,11 @@
 2005-05-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* Makefile.mingw: needed to compile on windows
+	* gcompris-installer.nsi: windows installer data file for null soft installer
+	* global_win32.mak: to compile on windows
+
+2005-05-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* src/boards/Makefile.mingw: added missing file for gnuchess
 	* src/boards/chess.c: (start_child): cleanup.
 	* src/boards/draw.c: (tool_event), (load_drawing), (save_drawing): reitroduced for windows version. removed load/save capapility.
