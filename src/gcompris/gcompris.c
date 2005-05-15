@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/05/13 00:14:48 bruno>
+ * Time-stamp: <2005/05/15 16:14:59 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -175,6 +175,18 @@ board_widget_key_press_callback (GtkWidget   *widget,
 					 || (event->keyval == GDK_R))) {
     g_message("Refreshing the canvas\n");
     gnome_canvas_update_now(canvas);
+    return TRUE;
+  }
+
+  if(event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK) && ((event->keyval == GDK_l)
+							  || (event->keyval == GDK_L))) {
+    properties->key="thanks_for_your_help";
+    gcompris_properties_save(properties);
+    gcompris_load_menus();
+
+    gcompris_close_all_dialog();
+
+    board_stop();
     return TRUE;
   }
 

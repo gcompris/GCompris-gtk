@@ -1,5 +1,11 @@
 2005-05-15  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* TODO: updated
+	* configure.in: Added --disable-xrandr option to force xrandr not to be compiled
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback): new windows code
+
+2005-05-15  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* Makefile.mingw: needed to compile on windows
 	* gcompris-installer.nsi: windows installer data file for null soft installer
 	* global_win32.mak: to compile on windows
