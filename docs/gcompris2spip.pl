@@ -42,6 +42,7 @@ my %sections = (
 		"am", 0,
 		"ar", 0,
 		"az", 0,
+		"bg", 0,
 		"ca", 0,
 		"cs", 0,
 		"da", 37,
@@ -74,6 +75,7 @@ my %sections = (
 		"pt_BR", 0,
 		"ro", 0,
 		"ru", 0,
+		"rw", 0,
 		"sk", 0,
 		"sl", 0,
 		"sq", 0,
@@ -89,6 +91,7 @@ my %rubriques = (
 		 "am", 0,
 		 "ar", 0,
 		 "az", 0,
+		 "bg", 0,
 		 "ca", 0,
 		 "cs", 0,
 		 "da", 61,
@@ -121,6 +124,7 @@ my %rubriques = (
 		 "pt_BR", 0,
 		 "ro", 0,
 		 "ru", 0,
+		 "rw", 0,
 		 "sk", 0,
 		 "sl", 0,
 		 "sq", 0,
@@ -137,6 +141,7 @@ my %rubriques_all = (
 		 "am", 0,
 		 "ar", 0,
 		 "az", 0,
+		 "bg", 0,
 		 "ca", 0,
 		 "cs", 0,
 		 "da", 62,
@@ -169,6 +174,7 @@ my %rubriques_all = (
 		 "pt_BR", 0,
 		 "ro", 0,
 		 "ru", 0,
+		 "rw", 0,
 		 "sk", 0,
 		 "sl", 0,
 		 "sq", 0,
@@ -242,7 +248,7 @@ my $output_file = "all_article.spip";
 unlink $tmp_file;
 unlink $output_file;
 
-my $first_article = 9999;
+my $first_article = 999;
 my $article_id    = $first_article;
 
 

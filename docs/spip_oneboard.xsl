@@ -99,7 +99,7 @@
                         </IMG>
                       </xsl:if>
 
-                      <xsl:if test="(@type != 'chess') and (starts-with(@type,'python:')=false)">
+                      <xsl:if test="(starts-with(@type,'python:')=false)">
                         <IMG border="0" alt=""  align="right" src="boardicons/win.png">
                         </IMG>
                       </xsl:if>
