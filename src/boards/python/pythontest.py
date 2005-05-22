@@ -236,10 +236,10 @@ class Gcompris_pythontest:
 
     self.canvasitems[7].set(text="Speed="+str(self.timerinc)+" ms")
 
-    # Return  gtk.TRUE  if you did process a key
+    # Return  True  if you did process a key
     # Return  gtk.FALSE if you did not processed a key
     #         (gtk need to send it to next widget)
-    return gtk.TRUE
+    return True
 
   def pause(self, pause):
     print("Gcompris_pythontest pause. %i" % pause)
@@ -279,7 +279,7 @@ class Gcompris_pythontest:
           )
         self.movingline='line 1'
         print "Button press"
-        return gtk.TRUE
+        return True
     if event.type == gtk.gdk.MOTION_NOTIFY:
       if event.state & gtk.gdk.BUTTON1_MASK:
         self.canvasitems[self.movingline].set(
@@ -289,6 +289,6 @@ class Gcompris_pythontest:
       if event.button == 1:
         self.movingline='line 1'
         print "Button release"
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 

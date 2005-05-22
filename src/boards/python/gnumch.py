@@ -336,7 +336,7 @@ class Player(object):
             y_old = self.anim.gnome_canvas.get_property("y")
             x = self.anim.gnome_canvas.get_property("x") + self.velocity[0]*game.sw/game.num_moveticks
             y = self.anim.gnome_canvas.get_property("y") + self.velocity[1]*game.sh/game.num_moveticks
-            ret = gtk.TRUE
+            ret = True
         else:
             self.move_stepnum = 0
             x = game.sw * self.x + game.left
@@ -356,7 +356,7 @@ class Player(object):
         self.velocity = [x-x_old, y-y_old]
         self.anim.gnome_canvas.set(x=(self.x_old * game.sw + game.left),
                                    y=(self.y_old * game.sh + game.top))
-        self.moving = gtk.TRUE
+        self.moving = True
 
         # it takes game.num_moveticks iterations of duration game.move_tick to move squares
         if x != x_old or y != y_old:
@@ -409,7 +409,7 @@ class Muncher(Player):
             game.loseGame()
         self.key_queue = []
         game.hide_message()
-        self.exists = gtk.TRUE
+        self.exists = True
         self.move(0,0,0,0)
         self.anim.gnome_canvas.show()
 
@@ -496,7 +496,7 @@ class Troggle(Player):
     def spawn(self):
         self.nextspawn_timer = 0
         self.warn_timer = 0
-        self.exists = gtk.TRUE
+        self.exists = True
         index = random.randint(0, len( game.troganimation )-1)
         self.anim.swapAnimation(game.troganimation[index])
         self.getMove = game.trogmoves[index]

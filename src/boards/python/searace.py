@@ -1009,7 +1009,7 @@ class Gcompris_searace:
           fill_color_rgba=0xFF0000FFL,
           width_units=2.0
           )
-        return gtk.TRUE
+        return True
     if event.type == gtk.gdk.MOTION_NOTIFY:
       if event.state & gtk.gdk.BUTTON1_MASK:
         # Calc the angle and distance and display them in the status bar
@@ -1027,6 +1027,6 @@ class Gcompris_searace:
       if event.button == 1:
         self.ruleritem.destroy()
         self.statusitem.set(text="")
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 

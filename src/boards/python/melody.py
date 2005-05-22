@@ -261,19 +261,19 @@ class Gcompris_melody:
     if ((keyval == gtk.keysyms.KP_1) or (keyval == gtk.keysyms._1)):
       print "son1"
       self.sound_play(self.melodylist[self.theme][1][0])
-      return gtk.TRUE
+      return True
     if ((keyval == gtk.keysyms.KP_2) or (keyval == gtk.keysyms._2)):
       print "son2"
       self.sound_play(self.melodylist[self.theme][1][1])
-      return gtk.TRUE
+      return True
     if ((keyval == gtk.keysyms.KP_3) or (keyval == gtk.keysyms._3)):
       print "son3"
       self.sound_play(self.melodylist[self.theme][1][2])
-      return gtk.TRUE
+      return True
     if ((keyval == gtk.keysyms.KP_4) or (keyval == gtk.keysyms._4)):
       print "son4"
       self.sound_play(self.melodylist[self.theme][1][3])
-      return gtk.TRUE
+      return True
 
     return gtk.FALSE
 

@@ -534,7 +534,7 @@ class Gcompris_anim:
     textItem.set(text=newtext.encode('UTF-8'))
     self.updated_text(textItem)
 
-    return gtk.TRUE
+    return True
   
   # Display the tools
   def draw_tools(self):
@@ -604,11 +604,11 @@ class Gcompris_anim:
         if (self.tools[tool][0] == "SAVE"):
 #          self.Anim2Shot()
           gcompris.file_selector_save( self.gcomprisBoard, self.selector_section, self.file_type, general_save)
-          return gtk.TRUE
+          return True
           
         elif (self.tools[tool][0] == "LOAD"):
           gcompris.file_selector_load( self.gcomprisBoard, self.selector_section, self.file_type, general_restore)
-          return gtk.TRUE
+          return True
           
         elif (self.tools[tool][0] == "IMAGE"):
           self.pos_x = gcompris.BOARD_WIDTH/2
@@ -617,16 +617,16 @@ class Gcompris_anim:
           gcompris.images_selector_start(self.gcomprisBoard,
                                          gcompris.DATA_DIR + "/dataset",
                                          image_selected);
-          return gtk.TRUE
+          return True
           
         elif (self.tools[tool][0] == "PICTURE"):
           self.Anim2Shot()
-          return gtk.TRUE
+          return True
         
         elif (self.tools[tool][0] == "MOVIE"):
           if self.frames_total == 0:
             print 'Mmm... Need to make shots before run anim !!'
-            return gtk.TRUE
+            return True
           
           if not self.running:            
             # unselect object if necessary
@@ -635,7 +635,7 @@ class Gcompris_anim:
               self.selected = None
               
             self.playing_start()
-            return gtk.TRUE
+            return True
 
         elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
           self.selected.item_list[1].hide()
@@ -921,7 +921,7 @@ class Gcompris_anim:
         # this one seems broken
         #gcompris.utils.item_rotate_relative(item.get_property("parent"),-10)
         self.rotate_relative(item,-10)
-        return gtk.TRUE
+        return True
       else:
         return gtk.FALSE
 
@@ -930,7 +930,7 @@ class Gcompris_anim:
           (event.button == 1) and
           (gobject.type_name(item)!="GnomeCanvasText")):
         self.rotate_relative(item,10)
-        return gtk.TRUE
+        return True
       else:
         return gtk.FALSE
 
@@ -939,7 +939,7 @@ class Gcompris_anim:
           (event.button == 1) and
           (gobject.type_name(item)!="GnomeCanvasText")):
         self.item_flip(item);
-        return gtk.TRUE
+        return True
       else:
         return gtk.FALSE
 
@@ -947,7 +947,7 @@ class Gcompris_anim:
       if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
         item.get_property("parent").raise_(1)
         self.z_raise(item.get_data("AnimItem"))
-        return gtk.TRUE
+        return True
       else:
         return gtk.FALSE
 
@@ -955,7 +955,7 @@ class Gcompris_anim:
       if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
         item.get_property("parent").lower(1)
         self.z_lower(item.get_data("AnimItem"))
-        return gtk.TRUE
+        return True
       else:
         return gtk.FALSE
     
@@ -976,7 +976,7 @@ class Gcompris_anim:
       if event.button == 1:
         if self.draw_created_object:
           self.draw_created_object = False
-          return gtk.TRUE
+          return True
         # activate the anchors
         self.selected=item.get_property("parent")
         self.selected.item_list[1].show()
@@ -985,7 +985,7 @@ class Gcompris_anim:
         self.in_select_ofx = -1
         self.in_select_ofy = -1
 
-        return gtk.TRUE
+        return True
         
     if event.state & gtk.gdk.BUTTON1_MASK:
       wx=event.x
@@ -1033,7 +1033,7 @@ class Gcompris_anim:
         idy
         )
 
-      return gtk.TRUE
+      return True
     
     return gtk.FALSE
           
@@ -1043,7 +1043,7 @@ class Gcompris_anim:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "FILL":
           item.set(fill_color_rgba=self.colors[self.current_color])
-          return gtk.TRUE
+          return True
     return gtk.FALSE
           
   # Event when a click on an item happen on border fill type object
@@ -1052,7 +1052,7 @@ class Gcompris_anim:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "FILL":
           item.set(outline_color_rgba=self.colors[self.current_color])
-          return gtk.TRUE
+          return True
     return gtk.FALSE
 
   # Del an item and internal struct cleanup
@@ -1066,7 +1066,7 @@ class Gcompris_anim:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "DEL":
           self.del_item(item);
-          return gtk.TRUE
+          return True
     return gtk.FALSE
 
   # Event when an event on the drawing area happen
@@ -1321,7 +1321,7 @@ class Gcompris_anim:
             self.newitem = None
             self.newitemgroup = None
 
-      return gtk.TRUE
+      return True
 
     #
     # MOTION EVENT
@@ -1385,7 +1385,7 @@ class Gcompris_anim:
       # In draw mode, item creation does not use drag&drop
       if self.draw_created_object:
         self.draw_created_object = False
-        return gtk.TRUE
+        return True
 
       if ((self.tools[self.current_tool][0] == "IMAGE") or
           (self.tools[self.current_tool][0] == "TEXT")):
@@ -1411,7 +1411,7 @@ class Gcompris_anim:
 #        print self.newitem.get_bounds()
 #        print self.newitemgroup.get_bounds()
 
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 
   def snapshot_event(self, item, event):
@@ -1641,7 +1641,7 @@ class Gcompris_anim:
 
     # Right button is a shortcup to Shot
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-      self.AnimShot()
+      self.Anim2Shot()
       return gtk.FALSE
     
     if event.state & gtk.gdk.BUTTON1_MASK:
@@ -2356,15 +2356,15 @@ def list_restore(picklelist):
       if fles.gcomprisBoard.mode == 'draw':
         item.z = fles.animlist.index(item)
       restore_item( item, fles.current_frame, missing_images)
-      
+
   if missing_images:
     list_images = ''
     for im in missing_images:
       list_images = list_images + im + '\n'
-    gcompris.utils.dialog(_('Warning: the following images cannot be accessed on your system.\n') +
-                          list_images +
-                          _('The corresponding items have been skipped.'),
-                          None)
+      gcompris.utils.dialog(_('Warning: the following images cannot be accessed on your system.\n') +
+                            list_images +
+                            _('The corresponding items have been skipped.'),
+                            None)
   fles.list_z_last_shot= []
   for item in fles.framelist:
     fles.list_z_last_shot.append(item.z)
@@ -2411,7 +2411,8 @@ def restore_item(item, frame, missing):
     if item.type == 'IMAGE':
       item.image_name =  modif['image_name']
 
-      if not os.access(gcompris.DATA_DIR + '/' + item.image_name, os.R_OK):
+      if (not os.access(gcompris.DATA_DIR + '/' + item.image_name, os.R_OK)
+          and not os.access(item.image_name, os.R_OK)):
         missing.append(item.image_name)
         fles.animlist.remove(item)
         return False

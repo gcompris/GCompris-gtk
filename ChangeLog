@@ -1,3 +1,21 @@
+2005-05-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed by yves, on newer pygtk (2.6), gtk.True is deprecated
+	and must be replaced by True. This solves the key double entry.
+	In anim, fixed a bug when a photo was taken with right click on an anchor
+	In anim, fixed the search for external (full path images)
+	Question: Yves could we put external images relatives to the user home dir.
+	This way we could exchange animation is the user copy her personal image dir.
+	
+	* src/boards/python/anim.py:
+	* src/boards/python/bargame.py:
+	* src/boards/python/gnumch.py:
+	* src/boards/python/melody.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/redraw.py:
+	* src/boards/python/searace.py:
+	* src/boards/python/watercycle.py:
+
 2005-05-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Updated the screenshots web site.

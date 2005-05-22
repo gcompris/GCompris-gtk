@@ -773,7 +773,7 @@ class Gcompris_redraw:
         self.in_select_ofx = -1
         self.in_select_ofy = -1
 
-        return gtk.TRUE
+        return True
         
     if event.state & gtk.gdk.BUTTON1_MASK:
       x=event.x
@@ -835,7 +835,7 @@ class Gcompris_redraw:
       if(self.current_drawing[item_index].has_key('points')):
         item.set(width_units=8.0)
 
-      return gtk.TRUE
+      return True
     
     return gtk.FALSE
           
@@ -847,7 +847,7 @@ class Gcompris_redraw:
           item.set(fill_color_rgba=self.colors[self.current_color])
           # Reset the item to our list
           self.current_drawing[drawing_item_index]['fill_color_rgba'] = self.colors[self.current_color]
-          return gtk.TRUE
+          return True
     return gtk.FALSE
           
   # Event when a click on an item happen on border fill type object
@@ -858,7 +858,7 @@ class Gcompris_redraw:
           item.set(outline_color_rgba=self.colors[self.current_color])
           # Reset the item to our list
           self.current_drawing[drawing_item_index]['outline_color_rgba'] = self.colors[self.current_color]
-          return gtk.TRUE
+          return True
     return gtk.FALSE
 
   # Del an item and internal struct cleanup
@@ -873,7 +873,7 @@ class Gcompris_redraw:
       if event.button == 1:
         if self.tools[self.current_tool][0] == "DEL":
           self.del_item(item, drawing_item_index);
-          return gtk.TRUE
+          return True
     return gtk.FALSE
 
   #
@@ -1077,7 +1077,7 @@ class Gcompris_redraw:
           self.newitem.connect("event", self.create_item_event)
           self.newitem.connect("event", self.del_item_event, len(self.current_drawing)-1)
           
-      return gtk.TRUE
+      return True
 
     #
     # MOTION EVENT
@@ -1157,7 +1157,7 @@ class Gcompris_redraw:
             self.current_drawing[len(self.current_drawing)-1]['x2'] = x2
             self.current_drawing[len(self.current_drawing)-1]['y2'] = y2
           
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 
 

@@ -442,7 +442,7 @@ class Gcompris_bargame:
                 )
       self.new_value(value)
 
-      return gtk.TRUE
+      return True
 
   class prof_button:
     def __init__(self, board, root, x, y):
@@ -467,7 +467,7 @@ class Gcompris_bargame:
       # if answer button has been clicked, that play the human turn
       if self.board.last_played == -1 :
         self.board.machine_play()
-        return gtk.TRUE
+        return True
       
       return gtk.FALSE
       

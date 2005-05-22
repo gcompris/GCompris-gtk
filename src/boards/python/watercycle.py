@@ -470,14 +470,14 @@ class Gcompris_watercycle:
         if not self.sun_on :
           self.sun_timer = gtk.timeout_add(self.timerinc, self.move_sun)
           self.sun_on = 1
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 
   def cloud_item_event(self, widget, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         self.rain_on = 1
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 
   def waterpump_item_event(self, widget, event=None):
@@ -486,7 +486,7 @@ class Gcompris_watercycle:
         if self.riverfull:
           self.waterpump_on = 1
           self.pumpwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/pumpwater.png"));
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 
   def watercleaning_item_event(self, widget, event=None):
@@ -495,7 +495,7 @@ class Gcompris_watercycle:
         if self.waterpump_on:
           self.watercleaning_on = 1
           self.badwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/badwater.png"));
-        return gtk.TRUE
+        return True
     return gtk.FALSE
 
 
