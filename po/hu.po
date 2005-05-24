@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-23 11:01+0000\n"
-"PO-Revision-Date: 2005-04-24 00:08+0200\n"
+"POT-Creation-Date: 2005-05-23 19:05+0000\n"
+"PO-Revision-Date: 2005-05-24 02:26+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.10\n"
 "Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: ../boards/advanced_colors.xml.in.h:1 ../src/boards/advanced_colors.c:86
@@ -331,7 +331,7 @@ msgstr ""
 "Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
-#: ../boards/algebra_plus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
 msgid "Answer some algebra questions"
 msgstr "Felteszek neked néhány matematikai kérdést"
 
@@ -354,8 +354,9 @@ msgstr "A matematikai táblákhoz"
 #: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
 #: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
 #: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:18
-#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
+#: ../boards/fun.xml.in.h:2 ../boards/gnumchmenu.xml.in.h:2
+#: ../boards/menu.xml.in.h:18 ../boards/mouse.xml.in.h:1
+#: ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Egy tábla kiválasztásához kattints rá a bal egérgombbal"
 
@@ -915,7 +916,7 @@ msgstr "Betűnév-felismerés"
 msgid "Visual letters recognition. Can move the mouse."
 msgstr "Leírt betűk felismerése. Tudja mozgatni az egeret."
 
-#: ../boards/clickgame.xml.in.h:1 ../src/boards/clickgame.c:86
+#: ../boards/clickgame.xml.in.h:1 ../src/boards/clickgame.c:85
 msgid "Click On Me"
 msgstr "Kattints rám"
 
@@ -951,7 +952,7 @@ msgstr ""
 "Hely: ismeretlen ( nur03011-es kép)\n"
 "Hely: ismeretlen ( nur03013-as kép)"
 
-#: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:87
+#: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:86
 msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr "Kattints a bal egérgombbal a halakra, mielőtt kiúsznának az akváriumból"
 
@@ -975,13 +976,11 @@ msgstr ""
 "megfelelő mutatóra, hogy beállítsd a megadott időt. A különböző mutatók "
 "beállíthatók, ha rájuk kattintasz és mozgatod az egeret."
 
-#: ../boards/clockgame.xml.in.h:3 ../src/boards/algebra.c:98
-#: ../src/boards/clockgame.c:78
+#: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:78
 msgid "Learn how to tell time"
 msgstr "Tanuld meg az órát olvasni"
 
-#: ../boards/clockgame.xml.in.h:4 ../src/boards/algebra.c:97
-#: ../src/boards/clockgame.c:77
+#: ../boards/clockgame.xml.in.h:4 ../src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Tanuld meg az órát"
 
@@ -1496,7 +1495,7 @@ msgstr "Horvátország"
 msgid "Cyprus"
 msgstr "Ciprus"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:67
 msgid "Czech"
 msgstr "Csehország"
 
@@ -1584,6 +1583,125 @@ msgstr "Egyszerű betűk"
 msgid "Type the falling letters before they reach the ground"
 msgstr "Nyomd meg a billentyűt, mielőtt a betű leérne a földre"
 
+#: ../boards/gnumch-equality.xml.in.h:1
+msgid "Equality Number Munchers"
+msgstr "Számfaló - egyenlőségek"
+
+#: ../boards/gnumch-equality.xml.in.h:2
+msgid ""
+"Guide the Number Muncher to the expressions that equal the number at the top "
+"of the screen."
+msgstr "Irányítsd a Számfalót a képernyő tetején látható számmal egyenlő kifejezésekre."
+
+#: ../boards/gnumch-equality.xml.in.h:3
+msgid "Practise addition, multiplication, division and subtraction."
+msgstr "Gyakorold az összeadást, szorzást, osztást és kivonást."
+
+#: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
+msgid ""
+"Use the arrow keys to navigate around the board and to avoid the Troggles. "
+"Press the spacebar to eat a number."
+msgstr ""
+"Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
+"Nyomd meg a szóközt, hogy megegyél egy számot."
+
+#: ../boards/gnumch-factors.xml.in.h:1
+msgid "Factor Number Munchers"
+msgstr "Számfaló - osztók"
+
+#: ../boards/gnumch-factors.xml.in.h:2
+msgid ""
+"Guide the Number Muncher to the all the factors of the number at the top of "
+"the screen."
+msgstr "Irányítsd a Számfalót a képernyő tetején látható szám osztóira."
+
+#: ../boards/gnumch-factors.xml.in.h:3
+msgid "Learn about factors and multiples."
+msgstr "Tanulj a osztókról és többszörösökről."
+
+#: ../boards/gnumch-factors.xml.in.h:4
+msgid ""
+"The factors of a number are all the numbers that divide that number evenly. "
+"For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
+"because 6 cannot be divided into 4 equal pieces. If one number is a multiple "
+"of a second number, then the second number is a factor of the first number. "
+"Use the arrow keys to navigate around the board and to avoid the Troggles. "
+"Press the spacebar to eat a number."
+msgstr ""
+"Egy szám osztói azok a számok, amik maradék nélkül osztják azt. "
+"Például, a 6 osztói az 1, a 2, a 3, és a 6. A 4 nem osztója a 6-nak, mivel a "
+"6 nem osztható 4 egyenlő részre. Ha egy szám egy másik szám többszöröse, akkor a második szám az első osztója. "
+"Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
+"Nyomd meg a szóközt egy szám megevéséhez."
+
+#: ../boards/gnumch-inequality.xml.in.h:1
+msgid ""
+"Guide the Number Muncher to the all the expressions that do not equal the "
+"number at the top of the screen."
+msgstr "Irányítsd a Számfalót a képernyő tetején látható számmal nem egyező kifejezésekre."
+
+#: ../boards/gnumch-inequality.xml.in.h:2
+msgid "Inequality Number Munchers"
+msgstr "Számfaló - egyenlőtlenség"
+
+#: ../boards/gnumch-inequality.xml.in.h:3
+msgid "Practise addition, subtraction, multiplication and division."
+msgstr "Gyakorold az összeadást, szorzást, osztást és kivonást."
+
+#: ../boards/gnumch-multiples.xml.in.h:1
+msgid ""
+"Guide the Number Muncher to all the multiples of the number at the top of "
+"the screen."
+msgstr "Irányítsd a Számfalót a képernyő tetején látható szám többszöröseire."
+
+#: ../boards/gnumch-multiples.xml.in.h:2
+msgid "Learn about multiples and factors."
+msgstr "Tanulj a többszörösökről és a osztókról."
+
+#: ../boards/gnumch-multiples.xml.in.h:3
+msgid "Multiple Number Munchers"
+msgstr "Számfaló - többszörösök"
+
+#: ../boards/gnumch-multiples.xml.in.h:4
+msgid ""
+"The multiples of a number are all the numbers that are equal to the original "
+"number times another number. For example, 24, 36, 48 and 60 are all "
+"multiples of 12. 25 is not a multiple of 12 because there isn't any number "
+"that can be multiplied by 12 to get 25. If one number is a factor of a "
+"second number, then the second number is a multiple of the first number. Use "
+"the arrow keys to navigate around the board and to avoid the Troggles. Press "
+"the spacebar to eat a number."
+msgstr ""
+"Egy szám többszörösei azok a számok, melyek az eredeti és egy másik szám szorzatával egyeznek meg. Például a 24, a 36, a 48 és a 60 mind a 12 többszörösei. A 25 nem többszöröse a 12-nek, mert nincs olyan szám, amit 12-vel szorozva 25-öt kapunk. Ha egy szám egy második szám tényezője, akkor a második szám az első többszöröse. "
+"Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
+"Nyomd meg a szóközt egy szám megevéséhez."
+
+#: ../boards/gnumch-primes.xml.in.h:1
+msgid "Guide the Number Muncher to all the prime numbers."
+msgstr "Irányítsd a Számfalót a prímszámokra."
+
+#: ../boards/gnumch-primes.xml.in.h:2
+msgid "Learn about prime numbers"
+msgstr "Tanulj a prímszámokról"
+
+#: ../boards/gnumch-primes.xml.in.h:3
+msgid "Prime Number Munchers"
+msgstr "Számfaló - prímek"
+
+#: ../boards/gnumch-primes.xml.in.h:4
+msgid ""
+"Prime numbers are numbers that are only divisible by themselves and 1. For "
+"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). Use "
+"the arrow keys to navigate around the board and to avoid the Troggles. Press "
+"the spacebar to eat a number."
+msgstr ""
+"Prímszámok azok a számok, amelyek csak önmagukkal és 1-el oszthatóak.Például a 3 prímszám, de a 4 nem az (mert a 4 osztható 2-vel). Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
+"Nyomd meg a szóközt egy szám megevéséhez."
+
+#: ../boards/gnumchmenu.xml.in.h:1
+msgid "Go to Number Munchers activities"
+msgstr "A Számfaló játékokhoz"
+
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
 msgstr "A koncepciót az EPI játékoktól vettük."
@@ -1635,7 +1753,7 @@ msgstr "Gyakorold az olvasást, találd meg a képhez illő szót"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:109 ../src/boards/missingletter.c:101
+#: ../src/boards/imageid.c:108 ../src/boards/missingletter.c:101
 #: ../src/boards/reading.c:107
 msgid "Reading"
 msgstr "Olvasás"
@@ -2857,23 +2975,27 @@ msgstr "A GCompris oktatóprogram-gyűjtemény"
 msgid "Multiple activities for kids"
 msgstr "Változatos tevékenységek gyerekeknek"
 
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
-#: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:933
-#: ../src/gcompris/gameutil.c:127 ../src/gcompris/gameutil.c:519
-#: ../src/gcompris/gameutil.c:520 ../src/gcompris/gcompris.c:492
+#: ../src/boards/advanced_colors.c:531 ../src/boards/imageid.c:600
+#: ../src/boards/missingletter.c:604 ../src/boards/read_colors.c:489
+#: ../src/boards/shapegame.c:1876 ../src/gcompris/file_selector.c:926
+#: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:523
+#: ../src/gcompris/gameutil.c:524 ../src/gcompris/gcompris.c:503
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nem találtam meg a(z) %s fájlt!"
 
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:608
-#: ../src/boards/missingletter.c:611 ../src/boards/read_colors.c:495
-#: ../src/boards/shapegame.c:1883
+#: ../src/boards/advanced_colors.c:534 ../src/boards/imageid.c:603
+#: ../src/boards/missingletter.c:607 ../src/boards/read_colors.c:492
+#: ../src/boards/shapegame.c:1879
 #, c-format
 msgid "find file %s !"
 msgstr "keresd meg a(z) %s fájlt!"
+
+#: ../src/boards/algebra.c:97
+msgid "Practice the math operation"
+msgstr "Gyakorold a matematikai műveleteket"
 
 #: ../src/boards/algebra_guesscount.c:143
 #: ../src/boards/algebra_guesscount.c:144
@@ -2888,26 +3010,15 @@ msgstr ""
 "Tuxnak gondjai vannak a hajóban. Át szeretne menni a zsilipen. \n"
 "Segíts Tuxnak és értsd meg, hogyan is működik egy zsilip."
 
-#: ../src/boards/chess.c:134
+#: ../src/boards/chess.c:136
 msgid "Learning Chess"
 msgstr "Tanulj sakkozni"
 
-#: ../src/boards/chess.c:135
+#: ../src/boards/chess.c:137
 msgid "Play chess against tux in a learning mode"
 msgstr "Sakkozz Tux ellen tanuló módban"
 
-#: ../src/boards/chess.c:188
-msgid ""
-"Error: /usr/bin/gnuchessx is installed\n"
-"which means you have an old version\n"
-"of gnuchess.\n"
-"Please upgrade to gnuchess 5 or above."
-msgstr ""
-"Hiba: /usr/bin/gnuchessx van telepítve,\n"
-"ami a gnuchess-nek egy régi verziója. \n"
-"Kérem frissítsen gnuchess 5 vagy újabb verzióra."
-
-#: ../src/boards/chess.c:195 ../src/boards/chess.c:237
+#: ../src/boards/chess.c:187 ../src/boards/chess.c:226
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2922,31 +3033,31 @@ msgstr ""
 "terjesztése webhelyén.\n"
 "És ellenőrizze, hogy benne van-e a következőben:"
 
-#: ../src/boards/chess.c:577
+#: ../src/boards/chess.c:567
 msgid "White Turn"
 msgstr "Fehér lép"
 
-#: ../src/boards/chess.c:577
+#: ../src/boards/chess.c:567
 msgid "Black Turn"
 msgstr "Fekete lép"
 
-#: ../src/boards/chess.c:718
+#: ../src/boards/chess.c:711
 msgid "White check"
 msgstr "Fehér sakk"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:713
 msgid "Black check"
 msgstr "Fekete sakk"
 
-#: ../src/boards/chess.c:1051
+#: ../src/boards/chess.c:1050
 msgid "Black mates"
 msgstr "Fekete matt"
 
-#: ../src/boards/chess.c:1056
+#: ../src/boards/chess.c:1055
 msgid "White mates"
 msgstr "Fehér matt"
 
-#: ../src/boards/chess.c:1061 ../src/gcompris/bonus.c:314
+#: ../src/boards/chess.c:1060 ../src/gcompris/bonus.c:312
 msgid "Drawn game"
 msgstr "Döntetlen"
 
@@ -2958,7 +3069,7 @@ msgstr "Olvass egy betűt"
 msgid "Learn to recognize letters"
 msgstr "Tanuld meg az egyes betűket"
 
-#: ../src/boards/click_on_letter.c:230
+#: ../src/boards/click_on_letter.c:226
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2967,7 +3078,7 @@ msgstr ""
 "lennie a következő csomagnak:\n"
 "assetml-voices-alphabet-"
 
-#: ../src/boards/click_on_letter.c:237
+#: ../src/boards/click_on_letter.c:233
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2980,16 +3091,16 @@ msgstr ""
 "kapcsolhatóak be az effektusok."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:282
+#: ../src/boards/click_on_letter.c:278
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz"
 
-#: ../src/boards/clickgame.c:182
+#: ../src/boards/clickgame.c:176
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s könyvtárat"
 
-#: ../src/boards/clockgame.c:528
+#: ../src/boards/clockgame.c:524
 msgid "Set the watch to:"
 msgstr "Állítsd be az órát erre:"
 
@@ -3033,17 +3144,17 @@ msgstr "Kattints a fekete színű figurára"
 msgid "Click on the white toon"
 msgstr "Kattints a fehér színű figurára"
 
-#: ../src/boards/erase.c:160
+#: ../src/boards/erase.c:156
 msgid "Couldn't get GTK settings"
 msgstr "Nem lehet lekérni a GTK-beállításokat"
 
-#: ../src/boards/erase.c:165
+#: ../src/boards/erase.c:161
 #, c-format
 msgid "Double clic default value %d."
 msgstr "A dupla kattintás alapértelmezett értéke %d."
 
-#: ../src/boards/erase.c:170 ../src/boards/erase.c:185
-#: ../src/boards/erase.c:208 ../src/boards/erase.c:339
+#: ../src/boards/erase.c:166 ../src/boards/erase.c:181
+#: ../src/boards/erase.c:204 ../src/boards/erase.c:335
 #, c-format
 msgid "Double clic value is now %d."
 msgstr "A dupla kattintás értéke most %d."
@@ -3052,11 +3163,11 @@ msgstr "A dupla kattintás értéke most %d."
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Mozgasd a számokat egyenként és rendezd őket növekvő sorrendbe"
 
-#: ../src/boards/hanoi.c:339 ../src/boards/hanoi.c:350
+#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Építs fel az üres részen egy, a jobb oldalival megegyező tornyot"
 
-#: ../src/boards/imageid.c:110 ../src/boards/missingletter.c:102
+#: ../src/boards/imageid.c:109 ../src/boards/missingletter.c:102
 msgid "Learn how to read"
 msgstr "Tanulj meg olvasni"
 
@@ -3064,25 +3175,25 @@ msgstr "Tanulj meg olvasni"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Találd ki, hogy a képen lévő kéz egy jobb vagy egy bal kéz"
 
-#: ../src/boards/leftright.c:248 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:246 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:544
 #: ../src/boards/python/searace.py:856 ../src/boards/python/searace.py:889
 #: ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "bal"
 
-#: ../src/boards/leftright.c:258 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:256 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:553
 #: ../src/boards/python/searace.py:858 ../src/boards/python/searace.py:891
 #: ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "jobb"
 
-#: ../src/boards/maze.c:488
+#: ../src/boards/maze.c:486
 msgid "Look at your position and switch back to invisible mode to move"
 msgstr "Nézd meg, hol állsz majd kapcsolj láthatatlan módba a továbbhaladáshoz"
 
-#: ../src/boards/maze.c:490
+#: ../src/boards/maze.c:488
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Nézd meg, hol állsz majd kapcsolj 3D módba a továbbhaladáshoz"
 
@@ -3139,17 +3250,108 @@ msgstr ""
 "A Python xml modulja nem található. Az SVG-t kikapcsolom. Telepítse a python "
 "xml modult az SVG mentés/betöltés bekapcsolásához."
 
-#: ../src/boards/python/anim.py:2205
+#: ../src/boards/python/anim.py:2208
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "Az SVG ki van kapcsolva. A bekapcsolásához telepítse a python xml modult."
 
-#: ../src/boards/python/anim.py:2361
+#: ../src/boards/python/anim.py:2364
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Figyelmeztetés: a következő képekhez nem lehet hozzáférni a rendszerén.\n"
 
-#: ../src/boards/python/anim.py:2363
+#: ../src/boards/python/anim.py:2366
 msgid "The corresponding items have been skipped."
 msgstr "A megfelelő elemek ki lettek hagyva."
+
+#: ../src/boards/python/gnumch.py:95
+#, python-format
+msgid ", %d"
+msgstr ", %d"
+
+#: ../src/boards/python/gnumch.py:96
+#, python-format
+msgid " and %d"
+msgstr " és %d"
+
+#: ../src/boards/python/gnumch.py:114
+#, python-format
+msgid "%d is divisible by %s."
+msgstr "%d osztható ezzel: %s."
+
+#: ../src/boards/python/gnumch.py:118
+msgid "1 is not a prime number."
+msgstr "Az 1 nem prímszám."
+
+#: ../src/boards/python/gnumch.py:128
+#, python-format
+msgid "Primes less than %d"
+msgstr "Prímek, ami kisebbek mint %d"
+
+#: ../src/boards/python/gnumch.py:146
+#, python-format
+msgid ""
+"Multiples of %d include %s,\n"
+"but %d is not a multiple of %d."
+msgstr ""
+"%d többszörösei között van %s,\n"
+"de %d nem többszöröse ennek: %d."
+
+#: ../src/boards/python/gnumch.py:155
+#, python-format
+msgid "Factors of %d"
+msgstr "%d osztói"
+
+#: ../src/boards/python/gnumch.py:184
+#, python-format
+msgid "%s are the factors of %d."
+msgstr "%s osztói ennek: %d."
+
+#: ../src/boards/python/gnumch.py:196
+#, python-format
+msgid "Multiples of %d"
+msgstr "%d többszörösei"
+
+#: ../src/boards/python/gnumch.py:227
+#, python-format
+msgid "%s = %d"
+msgstr "%s = %d"
+
+#: ../src/boards/python/gnumch.py:238
+#, python-format
+msgid "%d + %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:243
+#, python-format
+msgid "%d - %d"
+msgstr "%d - %d"
+
+#: ../src/boards/python/gnumch.py:248
+#, python-format
+msgid "%d Ã %d"
+msgstr "%d / %d"
+
+#: ../src/boards/python/gnumch.py:252
+#, python-format
+msgid "%d Ã· %d"
+msgstr "%d * %d"
+
+#: ../src/boards/python/gnumch.py:262
+#, python-format
+msgid "Equal to %d"
+msgstr "Egyenlők ezzel: %d"
+
+#: ../src/boards/python/gnumch.py:282
+#, python-format
+msgid "Not equal to %d"
+msgstr "Nem egyenlők ezzel: %d"
+
+#: ../src/boards/python/gnumch.py:424
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+"Megevett egy szörny!\n"
+"Nyomj entert a folytatáshoz."
 
 #: ../src/boards/python/pythontest.py:75
 msgid ""
@@ -3252,41 +3454,41 @@ msgstr "Kattints a megfelelő színre"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Olvasd el a listát, majd mondd meg, hogy benne van-e a keresett szó"
 
-#: ../src/boards/reading.c:339
+#: ../src/boards/reading.c:335
 msgid "Please, check if the word"
 msgstr "Mondd meg nekem, hogy a(z)"
 
-#: ../src/boards/reading.c:359
+#: ../src/boards/reading.c:355
 msgid "is being displayed"
 msgstr "szó szerepelt-e a listán?"
 
-#: ../src/boards/reading.c:534
+#: ../src/boards/reading.c:529
 msgid "I am Ready"
 msgstr "Rajta!"
 
-#: ../src/boards/reading.c:574
+#: ../src/boards/reading.c:569
 msgid "Yes I saw it"
 msgstr "Igen, láttam"
 
-#: ../src/boards/reading.c:604
+#: ../src/boards/reading.c:599
 msgid "No, it was not there"
 msgstr "Nem, nem szerepelt"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:637
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "A keresett szó a(z) '%s' volt"
 
-#: ../src/boards/reading.c:645
+#: ../src/boards/reading.c:640
 msgid "But it was not displayed"
 msgstr "De nem szerepelt a listán"
 
-#: ../src/boards/reading.c:647
+#: ../src/boards/reading.c:642
 msgid "And it was displayed"
 msgstr "És szerepelt a listán"
 
-#: ../src/boards/reading.c:748 ../src/boards/wordsgame.c:760
+#: ../src/boards/reading.c:743 ../src/boards/wordsgame.c:756
 msgid "Cannot open file of words for your locale"
 msgstr "Nem tudom megnyitni a magyar szavak listáját tartalmazó fájlt"
 
@@ -3299,7 +3501,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "Fogd meg a darabokat és rakd össze őket"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:417
+#: ../src/boards/shapegame.c:413
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -3311,7 +3513,7 @@ msgstr ""
 "és nyomj \"s\"-et a mentéshez\n"
 "vagy \"d\"-t az összes alakzat mutatásához"
 
-#: ../src/boards/shapegame.c:425
+#: ../src/boards/shapegame.c:421
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -3336,12 +3538,12 @@ msgstr "Tengeralattjáró"
 msgid "Control the depth of a submarine"
 msgstr "Szabályozd a tengeralattjáró merülésének mélységét"
 
-#: ../src/boards/target.c:323 ../src/boards/target.c:576
+#: ../src/boards/target.c:319 ../src/boards/target.c:572
 #, c-format
 msgid "Points = %s"
 msgstr "Pontszám = %s"
 
-#: ../src/boards/target.c:441
+#: ../src/boards/target.c:437
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -3350,7 +3552,7 @@ msgstr ""
 "Szélsebesség = %d\n"
 "kilométer/óra"
 
-#: ../src/boards/target.c:503
+#: ../src/boards/target.c:499
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "A célpont távolsága = %d méter"
@@ -3374,7 +3576,7 @@ msgstr ""
 "Háttérzene: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:466
+#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:429
 msgid "translator_credits"
 msgstr ""
 "Hilzinger Marcel <hili@suselinux.hu>\n"
@@ -3403,228 +3605,228 @@ msgid "Help"
 msgstr "Segítség"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:941 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:950 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/board.c:170
+#: ../src/gcompris/board.c:169
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:61
 msgid "Your system default"
 msgstr "A rendszer alapértelmezése"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:62
 msgid "Amharic"
 msgstr "Amharic"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:63
 msgid "Arabic"
 msgstr "Arab"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:64
 msgid "Azerbaijani Turkic"
 msgstr "Azerbajdzsáni török"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Bolgár"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Katalán"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:68
 msgid "Danish"
 msgstr "Dán"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:69
 msgid "German"
 msgstr "Német"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:70
 msgid "Greek"
 msgstr "Görög"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:71
 msgid "English (Canadian)"
 msgstr "Angol (Kanadai)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:72
 msgid "English (Great Britain)"
 msgstr "Angol (Brit)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:73
 msgid "English (USA)"
 msgstr "Angol (USA)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:74
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:75
 msgid "Finnish"
 msgstr "Finn"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:76
 msgid "French"
 msgstr "Francia"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:77
 msgid "Irish (Gaelic)"
 msgstr "Ír (Gael)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:78
 msgid "Hebrew"
 msgstr "Héber"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:79
 msgid "Indian (Hindi)"
 msgstr "Indiai (Hindi)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:80
 msgid "Indian (Gujarati)"
 msgstr "Indiai (Gujarati)"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
 msgstr "Indiai (Pandzsábi)"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Magyar"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Horvát"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Olasz"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Litván"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Macedón"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Maláj"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:89
 msgid "Dutch"
 msgstr "Holland"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:90
 msgid "Norwegian Bokmal"
 msgstr "Norvég Bokmal"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:91
 msgid "Norwegian Nynorsk"
 msgstr "Norvég Nyorsk"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:92
 msgid "Polish"
 msgstr "Lengyel"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:93
 msgid "Portuguese"
 msgstr "Portugál"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:94
 msgid "Brazil Portuguese"
 msgstr "Brazil portugál"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:95
 msgid "Romanian"
 msgstr "Román"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:96
 msgid "Russian"
 msgstr "Orosz"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:97
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:98
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:99
 msgid "Slovenian"
 msgstr "Szlovén"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:100
 msgid "Albanian"
 msgstr "Albán"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:101
 msgid "Serbian (Latin)"
 msgstr "Szerb (latin)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:102
 msgid "Serbian"
 msgstr "Szerb"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:103
 msgid "Swedish"
 msgstr "Svéd"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:104
 msgid "Turkish"
 msgstr "Török"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:105
 msgid "Walloon"
 msgstr "Vallon"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:106
 msgid "Chinese (Simplified)"
 msgstr "Egyszerűsített kínai"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:111
 msgid "No time limit"
 msgstr "Nincs időkorlátozás"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:112
 msgid "Slow timer"
 msgstr "Sok idő"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:113
 msgid "Normal timer"
 msgstr "Átlagos idő"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:114
 msgid "Fast timer"
 msgstr "Kevés idő"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:119
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (a GCompris alapértelmezettje)"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:124
 msgid "No filter"
 msgstr "Nincs szűrő"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:125
 msgid "Only this level"
 msgstr "Csak ezen a szinten"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:126
 msgid "Up to this level"
 msgstr "Eddig a szintig"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:127
 msgid "This level and above"
 msgstr "Ez a szint és fölötte"
 
@@ -3644,18 +3846,18 @@ msgstr "Zene"
 msgid "Effect"
 msgstr "Effektusok"
 
-#: ../src/gcompris/config.c:399
+#: ../src/gcompris/config.c:398
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s témakönyvtárat"
 
-#: ../src/gcompris/config.c:420
+#: ../src/gcompris/config.c:419
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "%s helyen nem található téma\n"
 
-#: ../src/gcompris/config.c:435 ../src/gcompris/config.c:820
-#: ../src/gcompris/config.c:831
+#: ../src/gcompris/config.c:434 ../src/gcompris/config.c:819
+#: ../src/gcompris/config.c:830
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
@@ -3672,15 +3874,15 @@ msgstr "BETÖLTÉS"
 msgid "SAVE"
 msgstr "MENTÉS"
 
-#: ../src/gcompris/gameutil.c:130
+#: ../src/gcompris/gameutil.c:134
 msgid "Couldn't find file"
 msgstr "Nem található a fájl"
 
-#: ../src/gcompris/gameutil.c:132
+#: ../src/gcompris/gameutil.c:136
 msgid "This activity is incomplete."
 msgstr "ez a játék még nincs befejezve."
 
-#: ../src/gcompris/gameutil.c:133
+#: ../src/gcompris/gameutil.c:137
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3688,47 +3890,47 @@ msgstr ""
 "Lépj ki és jelentsd a \n"
 "hibát a szerzőknek."
 
-#: ../src/gcompris/gcompris.c:95
+#: ../src/gcompris/gcompris.c:94
 msgid "run gcompris in fullscreen mode."
 msgstr "A GCompris teljes képernyős módban fusson."
 
-#: ../src/gcompris/gcompris.c:97
+#: ../src/gcompris/gcompris.c:96
 msgid "run gcompris in window mode."
 msgstr "A GCompris ablakban fusson."
 
-#: ../src/gcompris/gcompris.c:99
+#: ../src/gcompris/gcompris.c:98
 msgid "run gcompris with sound enabled."
 msgstr "A GCompris használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:100
 msgid "run gcompris without sound."
 msgstr "A GCompris ne használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:102
 msgid "run gcompris with the default gnome cursor."
 msgstr "A GCompris az alapértelmezett egérmutatóval fusson."
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:104
 msgid "display only activities with this difficulty level."
 msgstr "Csak az ilyen nehézségi szintű tevékenységek mutatása."
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:106
 msgid "display debug informations on the console."
 msgstr "hibakereső információk megjelenítése a konzolon."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:108
 msgid "Print the version of "
 msgstr "Verziószám megtekintése: "
 
-#: ../src/gcompris/gcompris.c:111
+#: ../src/gcompris/gcompris.c:110
 msgid "Use the antialiased canvas (slower)."
 msgstr "Élsimított vászon (lassú)."
 
-#: ../src/gcompris/gcompris.c:113
+#: ../src/gcompris/gcompris.c:112
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR (képernyő felbontásának változtatása) kikapcsolása ."
 
-#: ../src/gcompris/gcompris.c:116
+#: ../src/gcompris/gcompris.c:114
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity)"
@@ -3736,11 +3938,11 @@ msgstr ""
 "A GCompris futtatása helyi menüvel (például a -l /reading csak az olvasási "
 "táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet)"
 
-#: ../src/gcompris/gcompris.c:118
+#: ../src/gcompris/gcompris.c:116
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "A GCompris futtatása egy helyi tevékenységkönyvtár menühöz adásával"
 
-#: ../src/gcompris/gcompris.c:604
+#: ../src/gcompris/gcompris.c:615
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3763,7 +3965,7 @@ msgstr ""
 "használatát. További információért nézze meg a következő oldalt:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:852
+#: ../src/gcompris/gcompris.c:863
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3776,19 +3978,19 @@ msgstr ""
 "Licenc: GPL\n"
 "További információ: http://gcompris.net\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:228
+#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:196
 msgid "Prerequisite"
 msgstr "Előfeltétel"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:237
+#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:205
 msgid "Goal"
 msgstr "Cél"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:246
+#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:214
 msgid "Manual"
 msgstr "Kézikönyv"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:255
+#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:223
 msgid "Credit"
 msgstr "Köszönet"
 
@@ -3816,52 +4018,52 @@ msgstr ""
 "%s képhalmazban %s könyvtár nem található, a képhalmaz teljesen mellőzve "
 "lesz...\n"
 
-#: ../src/gcompris/interface.c:95
+#: ../src/gcompris/interface.c:75
 msgid "Gcompris Editor"
 msgstr "GCompris szerkesztő"
 
-#: ../src/gcompris/interface.c:165
+#: ../src/gcompris/interface.c:133
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../src/gcompris/interface.c:174
+#: ../src/gcompris/interface.c:142
 msgid "Name"
 msgstr "Név"
 
-#: ../src/gcompris/interface.c:183 ../src/gcompris/interface.c:400
+#: ../src/gcompris/interface.c:151 ../src/gcompris/interface.c:368
 msgid "Description"
 msgstr "Leírás"
 
-#: ../src/gcompris/interface.c:192
+#: ../src/gcompris/interface.c:160
 msgid "Type"
 msgstr "Típus"
 
-#: ../src/gcompris/interface.c:201
+#: ../src/gcompris/interface.c:169
 msgid "Difficulty"
 msgstr "Nehézség"
 
-#: ../src/gcompris/interface.c:210
+#: ../src/gcompris/interface.c:178
 msgid "Author"
 msgstr "Szerző"
 
-#: ../src/gcompris/interface.c:219
+#: ../src/gcompris/interface.c:187
 msgid "Directory"
 msgstr "Könyvtár"
 
-#: ../src/gcompris/interface.c:271
+#: ../src/gcompris/interface.c:239
 msgid "Title"
 msgstr "Cím"
 
-#: ../src/gcompris/interface.c:472
+#: ../src/gcompris/interface.c:435
 msgid "Released under GPL"
 msgstr "Kiadva a GPL alatt"
 
-#: ../src/gcompris/soundutil.c:140
+#: ../src/gcompris/soundutil.c:139
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s zenekönyvtárat"
 
-#: ../src/gcompris/soundutil.c:183
+#: ../src/gcompris/soundutil.c:181
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
