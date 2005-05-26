@@ -308,7 +308,6 @@ AC_ARG_ENABLE(py-build-only,
           [Skip python modules tests. (Useful if you just need build)]),
           py_build_only="$enableval", py_build_only="no")
 
-
 REQUIRE_PYHTON=""
 if test x$build_python_plugin = xno; then
   AC_MSG_NOTICE([Python plugin is disabled.])
@@ -349,13 +348,13 @@ dnl AC_MSG_RESULT($with_profils)
 dnl Check for SQLITE
 if test x$with_profils = xyes; then
    PKG_CHECK_MODULES(SQLITE3, sqlite3,, AC_MSG_ERROR([*** SQLITE3 not found!]))
-   USE_PROFILS=1
+   use_profils=yes
    AC_DEFINE([USE_PROFILS],[],[Profiles usage])	
 else
-   USE_PROFILS=0
+   use_profils=no
 fi
 
-AC_SUBST(USE_PROFILS)
+AM_CONDITIONAL(USE_PROFILS, test x$use_profils = xyes)
 AC_SUBST(SQLITE3_CFLAGS)
 AC_SUBST(SQLITE3_LIBS)
 
@@ -367,27 +366,29 @@ AC_ARG_ENABLE(cairo,
           [Enable cairo support (experimental)]),
           with_cairo="$enableval", with_cairo="no")
 
-USE_CAIRO=0
+use_cairo=no
 if test x$with_cairo = xyes; then
    PKG_CHECK_MODULES(CAIRO, cairo >= 0.5.0,, AC_MSG_ERROR([*** cairo not found! get it at http://cairographics.org/ if you want --enable-cairo ]))
    if test x$py_build_only = xno; then
       if test x$build_python_plugin = xyes; then
          PKG_CHECK_MODULES(PYCAIRO, pycairo >= 0.5.0,, AC_MSG_ERROR([*** pycairo not found! get it at http://cairographics.org/ if you want --enable-cairo ]))
          AM_CHECK_PYMOD(cairo,,,AC_MSG_ERROR([*** pycairo installed but not visible from python ]))		 
-         USE_CAIRO=1
+         use_cairo=yes
          AC_DEFINE([USE_CAIRO],[],[use Cairo graphic library])
       else
          AC_MSG_WARN([ cairo enabled without python ?])
       fi
    else
     AC_MSG_WARN([py-build-only: skipping test. Do not forget to install pycairo !])
-    USE_CAIRO=1	
-    AC_DEFINE([CAIRO],[],[use Cairo graphic library])
+    use_cairo=yes
+    AC_DEFINE([USE_CAIRO],[],[use Cairo graphic library])
    fi
 fi
-AC_SUBST(USE_CAIRO)
+
+AM_CONDITIONAL(USE_CAIRO, test x$use_cairo = xyes)
 AC_SUBST(CAIRO_CFLAGS)
 AC_SUBST(CAIRO_LIBS)
+
 
 dnl For libassetml
 ASSETML_DIR=assetml
@@ -630,7 +631,7 @@ echo "XRANDR option  = YES"
 fi
 
 echo ""
-if test "x$USE_PROFILS" = "x1"; then
+if test "x$use_profils" = "xyes"; then
 echo "USE_PROFILS option  = YES"
 else
 echo "USE_PROFILS option  = NO"

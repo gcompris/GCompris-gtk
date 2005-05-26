@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/05/14 01:37:18 bruno>
+ * Time-stamp: <2005/05/26 23:06:19 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -682,6 +682,9 @@ void cleanup_menus() {
 void gcompris_load_menus_dir(char *dirname){
   const gchar   *one_dirent;
   GDir          *dir;
+#ifdef USE_PROFILS
+  GcomprisProperties	*properties = gcompris_get_properties();
+#endif
 
   if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
     g_warning("Failed to parse board in '%s' because it's not a directory\n", dirname);
@@ -718,9 +721,14 @@ void gcompris_load_menus_dir(char *dirname){
 	gcomprisBoard->plugin=NULL;
 	gcomprisBoard->previous_board=NULL;
 
+#ifdef USE_PROFILS
+	GcomprisBoard *board_read = gcompris_read_xml_file(gcomprisBoard, filename);
+	if ((board_read) && ((properties->administration) || (strncmp(board_read->section,"/administration",strlen("/administration"))!=0)))
+	  boards_list = g_list_append(boards_list, board_read);
+#else
 	boards_list = g_list_append(boards_list, gcompris_read_xml_file(gcomprisBoard, 
 									filename));
-
+#endif
       }
       g_free(filename);
     }

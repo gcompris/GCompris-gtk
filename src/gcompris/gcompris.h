@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/05/02 02:04:12 bruno>
+ * Time-stamp: <2005/05/26 22:33:36 yves>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -46,6 +46,10 @@
 #include "score.h"
 #include "skin.h"
 #include "anim.h"
+
+#ifdef USE_PROFILS
+#include "profile.h"
+#endif
 
 #ifdef DMALLOC
 #include "dmalloc.h"

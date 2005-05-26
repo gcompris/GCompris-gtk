@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/05/15 16:14:59 bruno>
+ * Time-stamp: <2005/05/26 23:46:08 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -84,10 +84,11 @@ static int popt_aalias		  = FALSE;
 static int popt_difficulty_filter = FALSE;
 static int popt_debug		  = FALSE;
 static int popt_noxrandr	  = FALSE;
-/* <YC experimental local only options> */
 static char *popt_root_menu        = NULL;
 static char *popt_local_activity    = NULL;
-/* </YC> */
+#ifdef USE_PROFILS
+static int popt_administration	  = FALSE;
+#endif
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -111,9 +112,13 @@ static struct poptOption options[] = {
   {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
    N_("Disable XRANDR (No screen resolution change)."), NULL},
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
-   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity)"), NULL},
+   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity), -l list show the list of menus and activity"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run gcompris with local activity directory added to menu"), NULL},
+#ifdef USE_PROFILS
+  {"administration", 'e', POPT_ARG_NONE, &popt_administration, 0,
+   N_("Run gcompris with administration and users management mode"), NULL},
+#endif
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -835,6 +840,10 @@ gcompris_init (int argc, char *argv[])
 
   load_properties ();
 
+#ifdef USE_PROFILS
+  gcompris_profile_load(properties->profil);
+#endif
+
   // Set the default gcompris cursor
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
 
@@ -920,16 +929,61 @@ gcompris_init (int argc, char *argv[])
       properties->filter_style      = GCOMPRIS_FILTER_EQUAL;
     }
 
-  if (popt_root_menu){
-    g_warning("Using menu %s as root.", popt_root_menu);
-    properties->root_menu = g_strdup(popt_root_menu);
-  }
-
   if (popt_local_activity){
     g_warning("Adding local activies from %s.", popt_local_activity);
     properties->local_directory = g_strdup(popt_local_activity);
   }
 
+  if (popt_root_menu){
+    if (strcmp(popt_root_menu,"list")==0){
+      /* check the list of possible values for -l, then exit */
+      printf(_("Use -l activity to access directly to activity.\n"));
+      printf(_("List of available activity is :\n"));
+      properties->root_menu = "/";
+      gcompris_load_menus();
+
+      GList *list = NULL;
+      GList *menulist = NULL;
+      GList *menu_todo = NULL;
+
+      menu_todo = g_list_append(menu_todo,"/");
+
+      while ( menu_todo != NULL) {
+
+	menulist = gcompris_get_menulist(menu_todo->data);
+	menu_todo = menu_todo->next;
+
+	for(list = menulist; list != NULL; list = list->next) {
+	  GcomprisBoard *board = list->data;
+	
+	  if (board){
+	    if (strcmp(board->type,"menu")==0){
+	      printf("%s : %s (%s)\n", board->section, board->title, board->description);
+	      menu_todo = g_list_append(menu_todo, board->section);
+	    }
+	    else {
+	      gchar *path = g_strndup(board->section, strlen(board->section)-2);
+	      printf("%s/%s : %s (%s) \n", path, board->name, board->title, board->description );
+	      g_free(path);
+	    }
+	  }
+	}
+      }
+      
+      exit(0);
+    }
+    else {
+    g_warning("Using menu %s as root.", popt_root_menu);
+    properties->root_menu = g_strdup(popt_root_menu);
+    }
+  }
+
+#ifdef USE_PROFILS
+  if (popt_administration){
+    g_warning("Running in administration mode");
+    properties->administration = TRUE;
+  }
+#endif
 
   poptFreeContext(pctx); 
   /*------------------------------------------------------------*/

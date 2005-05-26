@@ -7,6 +7,18 @@ python_ldadd =
 python_ldflags =
 endif
 
+if USE_PROFILS
+sqlite_ldflags = $(SQLITE3_LIBS)
+sqlite_cflags = $(SQLITE3_CFLAGS)
+profile_h = profile.h
+profile_c = profile.c
+else
+sqlite_ldflags =
+sqlite_cflags =
+profile_h =
+profile_c =
+endif
+
 if PLATFORM_WIN32
 no_undefined = -no-undefined
 endif
@@ -42,13 +54,15 @@ INCLUDES = \
 	$(XML_CFLAGS) \
 	$(SDL_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED \
-	$(gcompris_edit_cflags)
+	$(gcompris_edit_cflags) \
+        $(sqlite_cflags)
 
 gcompris_SOURCES = \
 	main.c
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(python_ldflags) $(SDL_LIBS)
+	-export-dynamic $(python_ldflags) $(SDL_LIBS) $(sqlite_ldflags)
+
 
 gcompris_LDADD = \
 	$(LIBICONV)		\
@@ -104,7 +118,8 @@ libgcomprisinclude_HEADERS =			\
 	gcompris_config.h \
 	about.h \
 	assetml.h \
-	anim.h
+	anim.h \
+        $(profile_h)
 
 libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
@@ -128,7 +143,8 @@ libgcompris_1_la_SOURCES =			\
 	log.c \
 	sdlplayer.c \
 	assetml.c \
-	anim.c
+	anim.c \
+        $(profile_c)
 
 $(libgcompris_1_la_OBJECTS): $(marshal_sources)
 

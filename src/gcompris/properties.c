@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/05/02 02:53:44 bruno>
+ * Time-stamp: <2005/05/26 22:45:11 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -126,6 +126,9 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->root_menu         = "/";
   tmp->local_directory   = NULL;
   tmp->package_data_dir  = PACKAGE_DATA_DIR;
+#ifdef USE_PROFILS
+  tmp->profil            = "default"
+#endif
 
   home_dir = g_get_home_dir();
 
@@ -221,6 +224,13 @@ GcomprisProperties *gcompris_properties_new ()
 	  if(!tmp->key)
 	    g_warning("Config file parsing error on token %s", token);
 	}
+#ifdef USE_PROFILS
+	else if(!strcmp(value.v_identifier, "profil")) {
+	  tmp->profil = scan_get_string(scanner);
+	  if(!tmp->profil)
+	    g_warning("Config file parsing error on token %s", token);
+	}
+#endif
 	break;
       }
       default:
@@ -316,7 +326,9 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
-  
+#ifdef USE_PROFILS
+  fprintf(filefd, "%s=\"%s\"\n", "profil",		props->profil);
+#endif  
   fclose(filefd);
 }
 
