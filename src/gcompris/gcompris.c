@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/05/26 23:46:08 yves>
+ * Time-stamp: <2005/05/27 00:25:57 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -959,7 +959,7 @@ gcompris_init (int argc, char *argv[])
 	  if (board){
 	    if (strcmp(board->type,"menu")==0){
 	      printf("%s : %s (%s)\n", board->section, board->title, board->description);
-	      menu_todo = g_list_append(menu_todo, board->section);
+	      menu_todo = g_list_prepend(menu_todo, board->section);
 	    }
 	    else {
 	      gchar *path = g_strndup(board->section, strlen(board->section)-2);
