@@ -45,6 +45,17 @@ AC_CHECK_LIB(SDL_mixer, Mix_OpenAudio,, AC_MSG_ERROR([*** SDL_mixer not found. V
 AC_SUBST(GCOMPRIS_CFLAGS)
 AC_SUBST(GCOMPRIS_LIBS)
 
+dnl PROFILING support
+AC_MSG_CHECKING([wether we build with profils])
+AC_ARG_ENABLE(profils,
+          AC_HELP_STRING(
+          [--enable-profils],
+          [Turn on profils (needs sqlite)]),
+          with_profils="$enableval", with_profils="no")
+AC_MSG_RESULT($with_profils)
+
+dnl gcompris-edit is incompatible with profils.
+if test x$with_profils = xno; then
 dnl gcompris-edit still require gnome
 GCOMPRIS_EDIT_CFLAGS=
 GCOMPRIS_EDIT_LIBS=
@@ -56,6 +67,9 @@ AC_ARG_WITH(editor,
     [--with-editor],
     [Tell configure to compile gcompris-edit (it requires gnome)]),
   [GCOMPRIS_EDIT=$withval] )
+else
+  GCOMPRIS_EDIT=no
+fi
 
 if test x$GCOMPRIS_EDIT = xno; then
   build_gcompris_edit=no
@@ -284,7 +298,6 @@ dnl check for python
 AC_ARG_WITH(python,AC_HELP_STRING(
     [--with-python=path],
     [set the path for python]), python_path=$withval, python_path=not)
-AC_MSG_WARN([python_path=$python_path])
 if test x$python_path = xno ; then
 build_python_plugin="no"
 else
@@ -335,15 +348,6 @@ dnl   fi
 fi
 
 AC_SUBST(REQUIRE_PYTHON)
-
-dnl AC_MSG_CHECKING([if profils are enabled])
-dnl PROFILING support
-AC_ARG_ENABLE(profils,
-          AC_HELP_STRING(
-          [--enable-profils],
-          [Turn on profils (needs sqlite)]),
-          with_profils="$enableval", with_profils="no")
-dnl AC_MSG_RESULT($with_profils)
 
 dnl Check for SQLITE
 if test x$with_profils = xyes; then

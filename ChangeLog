@@ -1,3 +1,9 @@
+2005-05-30  Yves Combe  <yves@ycombe.net>
+
+	* configure.in: disable gcompris-edit if --enable-profils
+	* src/boards/Makefile.am: add PYTHON_LIBS for python module
+	* src/gcompris/profile.c: initial import (empty functions, but compiles)
+
 2005-05-30  Yves Combe <yves@ycombe.net>
 
 	* src/gcompris/gcompris.c src/gcompris/properties.c src/gcompris/properties.h: 
