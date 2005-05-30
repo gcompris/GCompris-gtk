@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/05/26 22:45:11 yves>
+ * Time-stamp: <2005/05/30 14:07:26 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -31,8 +31,10 @@
 
 static GHashTable* boards_hash = NULL;
 
+#ifndef USE_PROFILS
 void read_boards_status();
 void write_boards_status();
+#endif
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -99,15 +101,50 @@ create_rootdir (gchar *rootdir)
 #endif
 }
 
+/* get the gcompris user directory name */
+/* Architecture dependant: "gcompris" in Win9x, */
+/* "/.gcompris" in POSIX compliant systems */
+
+gchar *get_gcompris_user_root_directory ()
+{
+  G_CONST_RETURN gchar *home_dir = g_get_home_dir();
+
+  if (home_dir == NULL) /* Win9x */
+    return g_strdup("gcompris");
+  else
+    return g_strconcat(home_dir, "/.gcompris", NULL);
+}
+
+gchar *get_gcompris_conf_name()
+{
+  /* why not the same name ? */
+  if (g_get_home_dir()==NULL) {
+    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris.cfg", NULL);
+  } else {
+    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris.conf", NULL);
+  }
+}
+
+#ifdef USE_PROFILS
+/* get the default database name */
+#define DEFAULT_DATABASE "gcompris_sqlite.db"
+#define PROFILES_ROOT "profiles"
+
+gchar *get_default_database_name ()
+{
+  return g_strconcat(get_gcompris_user_root_directory(), "/", PROFILES_ROOT, "/",  DEFAULT_DATABASE, NULL);
+}
+#endif
+
 GcomprisProperties *gcompris_properties_new ()
 {
   GcomprisProperties *tmp;
-  G_CONST_RETURN gchar *home_dir;
   char          *config_file;
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;
   const gchar   *locale;
+  gchar         *gcompris_user_dir;
 
   boards_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
@@ -127,44 +164,33 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->local_directory   = NULL;
   tmp->package_data_dir  = PACKAGE_DATA_DIR;
 #ifdef USE_PROFILS
-  tmp->profil            = "default"
+  tmp->profil            = "default";
+  tmp->database          = get_default_database_name();
+  tmp->administration    = FALSE;
 #endif
 
-  home_dir = g_get_home_dir();
 
-  if(home_dir==NULL) {		/* WIN98 */
+  gcompris_user_dir = get_gcompris_user_root_directory() ;
 
-    /* On WIN98, No home dir */
-    full_rootdir = g_strdup_printf("%s", "gcompris");
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
+  create_rootdir( gcompris_user_dir );
 
-    full_rootdir = g_strdup_printf("%s", "gcompris/user_data");
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
+  full_rootdir = g_strconcat(gcompris_user_dir, "/user_data", NULL);
+  create_rootdir(full_rootdir);
+  g_free(full_rootdir);
 
-    full_rootdir = g_strdup_printf("%s", "gcompris/user_data/images");
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
+  full_rootdir = g_strconcat(gcompris_user_dir, "/user_data/images", NULL);
+  create_rootdir(full_rootdir);
+  g_free(full_rootdir);
 
-    config_file = g_strdup("gcompris/gcompris.cfg");
+#ifdef USE_PROFILS
+  full_rootdir = g_strconcat(gcompris_user_dir, "/", PROFILES_ROOT, NULL);
+  create_rootdir(full_rootdir);
+  g_free(full_rootdir);
+#endif
 
-  } else {
+  config_file = get_gcompris_conf_name();
 
-    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris", NULL);
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
-
-    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data", NULL);
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
-
-    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data/images", NULL);
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
-
-    config_file = g_strdup_printf("%s/.gcompris/gcompris.conf",home_dir);
-  }
+  g_warning("config_file %s", config_file);
 
   filefd = open(config_file, O_RDONLY);
 
@@ -230,6 +256,11 @@ GcomprisProperties *gcompris_properties_new ()
 	  if(!tmp->profil)
 	    g_warning("Config file parsing error on token %s", token);
 	}
+	else if(!strcmp(value.v_identifier, "database")) {
+	  tmp->database = scan_get_string(scanner);
+	  if(!tmp->database)
+	    g_warning("Config file parsing error on token %s", token);
+	}
 #endif
 	break;
       }
@@ -279,7 +310,9 @@ GcomprisProperties *gcompris_properties_new ()
    * Read the board status
    * ---------------------
    */
+#ifndef USE_PROFILS
   read_boards_status();
+#endif
 
   return (tmp);
 }
@@ -294,17 +327,10 @@ void gcompris_properties_destroy (GcomprisProperties *props)
 
 void gcompris_properties_save (GcomprisProperties *props)
 {
-  G_CONST_RETURN gchar *home_dir;
   char *config_file;
   FILE *filefd;
 
-  home_dir = g_get_home_dir();
-
-  if(home_dir==NULL) {
-    config_file = g_strdup("gcompris.cfg");
-  } else {
-    config_file = g_strdup_printf("%s/.gcompris/gcompris.conf",home_dir);
-  }
+  config_file = g_strconcat(get_gcompris_user_root_directory(), "/gcompris.conf", NULL);
 
   filefd = fopen(config_file, "w+");
 
@@ -328,6 +354,7 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
 #ifdef USE_PROFILS
   fprintf(filefd, "%s=\"%s\"\n", "profil",		props->profil);
+  fprintf(filefd, "%s=\"%s\"\n", "database",		props->database);
 #endif  
   fclose(filefd);
 }
@@ -343,24 +370,29 @@ static void boards_write (gchar       *key,
 }
 
 
+/* in USE_PROFILS, that will be managed by profiles database */
+#ifndef USE_PROFILS
+gchar *get_boards_conf_name()
+{
+  /* why not the same name ? */
+  if (g_get_home_dir()==NULL) {
+    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris_boards.cfg", NULL);
+  } else {
+    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris_boards.conf", NULL);
+  }
+}
+
 /*
  * Save the board status (enable/disable)
  */
 void gcompris_write_boards_status()
 {
-  G_CONST_RETURN gchar *home_dir;
   char *config_file;
   int i;
   GScanner *scanner;
   FILE *filefd;
 
-  home_dir = g_get_home_dir();
-
-  if(home_dir==NULL) {
-    config_file = g_strdup("gcompris_boards.cfg");
-  } else {
-    config_file = g_strdup_printf("%s/.gcompris/gcompris_boards.conf",home_dir);
-  }
+  config_file = get_boards_conf_name();
 
   filefd = fopen(config_file, "w+");
 
@@ -377,19 +409,12 @@ void gcompris_write_boards_status()
 
 void read_boards_status()
 {
-  G_CONST_RETURN gchar *home_dir;
   char *config_file;
   int i;
   GScanner *scanner;
   int filefd;
 
-  home_dir = g_get_home_dir();
-
-  if(home_dir==NULL) {
-    config_file = g_strdup("gcompris_boards.cfg");
-  } else {
-    config_file = g_strdup_printf("%s/.gcompris/gcompris_boards.conf",home_dir);
-  }
+  config_file = get_boards_conf_name();
 
   filefd = open(config_file, O_RDONLY);
 
@@ -435,6 +460,7 @@ void read_boards_status()
 
   }
 }
+#endif
 
 /*
  * Management of the status of the boards

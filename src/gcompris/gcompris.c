@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/05/27 00:25:57 yves>
+ * Time-stamp: <2005/05/30 16:57:51 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -74,20 +74,23 @@ static gboolean		gcompris_debug = FALSE;
 /* Command line params */
 
 /*** gcompris-popttable */
-static int popt_fullscreen	  = FALSE;
-static int popt_window		  = FALSE;
-static int popt_sound		  = FALSE;
-static int popt_mute		  = FALSE;
-static int popt_cursor		  = FALSE;
-static int popt_version		  = FALSE;
-static int popt_aalias		  = FALSE;
-static int popt_difficulty_filter = FALSE;
-static int popt_debug		  = FALSE;
-static int popt_noxrandr	  = FALSE;
+static int popt_fullscreen	   = FALSE;
+static int popt_window		   = FALSE;
+static int popt_sound		   = FALSE;
+static int popt_mute		   = FALSE;
+static int popt_cursor		   = FALSE;
+static int popt_version		   = FALSE;
+static int popt_aalias		   = FALSE;
+static int popt_difficulty_filter  = FALSE;
+static int popt_debug		   = FALSE;
+static int popt_noxrandr	   = FALSE;
 static char *popt_root_menu        = NULL;
-static char *popt_local_activity    = NULL;
+static char *popt_local_activity   = NULL;
 #ifdef USE_PROFILS
-static int popt_administration	  = FALSE;
+static int popt_administration	   = FALSE;
+static char *popt_database         = NULL;
+static char *popt_logs_database    = NULL;
+static int popt_create_db   	   = FALSE;
 #endif
 
 static struct poptOption options[] = {
@@ -118,6 +121,12 @@ static struct poptOption options[] = {
 #ifdef USE_PROFILS
   {"administration", 'e', POPT_ARG_NONE, &popt_administration, 0,
    N_("Run gcompris with administration and users management mode"), NULL},
+  {"database", 'b', POPT_ARG_STRING, &popt_database, 0,
+   N_("Use alternate database for profils"), NULL},
+  {"logs", 'j', POPT_ARG_STRING, &popt_logs_database, 0,
+   N_("Use alternate database for logs"), NULL},
+  {"create-db",'\0', POPT_ARG_STRING, &popt_create_db, 0,
+   N_("Use alternate database for profils"), NULL},
 #endif
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
@@ -979,6 +988,26 @@ gcompris_init (int argc, char *argv[])
   }
 
 #ifdef USE_PROFILS
+  if (popt_administration){
+    g_warning("Running in administration mode");
+    properties->administration = TRUE;
+  }
+  if (popt_database){
+    if (g_file_test(popt_database, G_FILE_TEST_EXISTS)) {
+      if (!access(popt_database,R_OK|W_OK)){
+	g_warning("%s exists but is not readable or writable", popt_database);
+	exit(0);
+      } else
+	  properties->database = g_strdup(popt_database);
+    } else if (popt_create_db) {
+      g_warning("Using %s as database", popt_database);
+      properties->database = g_strdup(popt_database);
+    }
+    else {
+      g_warning("Alternate database %s does not exists.\n Use --create-db to force creation !", popt_database); 
+      exit(0);
+    }
+  }
   if (popt_administration){
     g_warning("Running in administration mode");
     properties->administration = TRUE;
