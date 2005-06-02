@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/05/30 16:57:51 yves>
+ * Time-stamp: <2005/06/02 23:51:08 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -646,6 +646,8 @@ void gcompris_exit()
 {
   board_stop();
 
+  gcompris_db_exit();
+
 #ifdef XRANDR
   /* Set back the original screen size */
   if(properties->fullscreen || changed_xrandr) {
@@ -849,10 +851,6 @@ gcompris_init (int argc, char *argv[])
 
   load_properties ();
 
-#ifdef USE_PROFILS
-  gcompris_profile_load(properties->profil);
-#endif
-
   // Set the default gcompris cursor
   properties->defaultcursor = GCOMPRIS_DEFAULT_CURSOR;
 
@@ -1017,6 +1015,12 @@ gcompris_init (int argc, char *argv[])
   poptFreeContext(pctx); 
   /*------------------------------------------------------------*/
 
+#ifdef USE_PROFILS
+  /* init MUST BE after properties */
+  gcompris_db_init();
+  
+  gcompris_profile_load(properties->profil);
+#endif
 
   if(properties->music || properties->fx)
     initSound();

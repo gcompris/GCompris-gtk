@@ -1,3 +1,9 @@
+2005-06-03  Yves Combe  <yves@ycombe.net>
+
+	PROFILS
+	* add gcompris_db.h gcompris_db.c (interface with sqlite).
+	* create table on database creation (gcompris_db_init).
+
 2005-05-30  Yves Combe  <yves@ycombe.net>
 
 	* configure.in: disable gcompris-edit if --enable-profils

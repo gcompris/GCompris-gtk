@@ -10,9 +10,6 @@ GcomprisGroup         *gcompris_group_load(gchar *classname, char * groupname)
 
 }
 
-
-
-
 void                   gcompris_class_destroy()
 {}
 

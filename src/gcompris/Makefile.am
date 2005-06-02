@@ -10,8 +10,8 @@ endif
 if USE_PROFILS
 sqlite_ldflags = $(SQLITE3_LIBS)
 sqlite_cflags = $(SQLITE3_CFLAGS)
-profile_h = profile.h
-profile_c = profile.c
+profile_h = profile.h gcompris_db.h
+profile_c = profile.c gcompris_db.c
 else
 sqlite_ldflags =
 sqlite_cflags =
