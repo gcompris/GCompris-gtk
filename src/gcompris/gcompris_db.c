@@ -5,9 +5,9 @@ static sqlite3 *gcompris_db;
 static sqlite3 *gcompris_db_log;
 
 #define CREATE_TABLE_USERS \
-        "CREATE TABLE users (user_id INT, name TEXT, firstname TEXT, birth TEXT, class_id INT ); "
+        "CREATE TABLE users (user_id INT UNIQUE, name TEXT, firstname TEXT, birth TEXT, class_id INT ); "
 #define CREATE_TABLE_GROUPS \
-        "CREATE TABLE groups (group_id INT, group_name TEXT, class_id INT, description TEXT ); "
+        "CREATE TABLE groups (group_id INT UNIQUE, group_name TEXT, class_id INT, description TEXT ); "
 #define CREATE_TABLE_USERS_IN_GROUPS  \
         "CREATE TABLE list_users_in_groups (user_id INT, group_id INT ); "
 #define CREATE_TABLE_GROUPS_IN_PROFILS  \
@@ -15,11 +15,11 @@ static sqlite3 *gcompris_db_log;
 #define CREATE_TABLE_ACTIVITIES_OUT \
         "CREATE TABLE activities_out (board_id INT, type INT, out_id INT ); "
 #define CREATE_TABLE_PROFILES \
-        "CREATE TABLE profiles (profile_id INT, profile_name TEXT, profile_directory TEXT, description TEXT); "
+        "CREATE TABLE profiles (profile_id INT UNIQUE, profile_name TEXT, profile_directory TEXT, description TEXT); "
 #define CREATE_TABLE_BOARDS_PROFILES_CONF \
         "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, key TEXT, value TEXT ); "
 #define CREATE_TABLE_BOARDS \
-        "CREATE TABLE boards (board_id INT, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT );"
+        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT );"
 #define CREATE_TABLE_BOARDS_LOCALES \
         "CREATE TABLE boards_locales (board_id INT, language TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT);"
 
@@ -30,15 +30,15 @@ static sqlite3 *gcompris_db_log;
         "PRAGMA integrity_check; "
 
 /* WARNING: template for g_strdup_printf */
-#define SET_VERSION(v,d)\
-        "INSERT INTO informations (gcompris_version, init_date) VALUES(\'%s\', \'%s\'); ", v,d
+#define SET_VERSION(v)\
+        "INSERT INTO informations (gcompris_version) VALUES(\'%s\'); ", v
 
 #define CHECK_VERSION \
         "SELECT gcompris_version FROM informations;"
 
 void *gcompris_db_init()
 {
-  int creation = FALSE;
+  gboolean creation = FALSE;
   char *zErrMsg;
   char **result;
   int rc;
@@ -65,6 +65,7 @@ void *gcompris_db_init()
   g_warning(_("Database %s opened"),properties->database);
 
   if (creation){
+    /* create all tables needed */
     rc = sqlite3_exec(gcompris_db,CREATE_TABLE_USERS, NULL,  0, &zErrMsg);
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
@@ -111,7 +112,7 @@ void *gcompris_db_init()
     g_date_set_time (gdate, time (NULL));
     g_date_strftime (date, 20, "%F", gdate);
     
-    request = g_strdup_printf(SET_VERSION(VERSION, date));
+    request = g_strdup_printf(SET_VERSION(VERSION));
 
     rc = sqlite3_get_table(gcompris_db, 
 			   request,  
@@ -123,6 +124,8 @@ void *gcompris_db_init()
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
+
+    sqlite3_free_table(result);
 
     g_free(request);
 
@@ -141,6 +144,7 @@ void *gcompris_db_init()
     if (!(strcmp(result[1],"ok")==0))
       g_error("DATABASE integrity check returns %s \n", result[1]);
     g_warning("Database Integrity ok");
+    sqlite3_free_table(result);
 
     rc = sqlite3_get_table(gcompris_db, 
 			   CHECK_VERSION,  
@@ -155,7 +159,7 @@ void *gcompris_db_init()
 
     if (strcmp(result[1],VERSION)!=0)
       g_warning("Running GCompris is %s, but databse vrsion is %s", VERSION, result[1]);
-   
+    sqlite3_free_table(result);
   }
   
 }
@@ -166,15 +170,192 @@ gcompris_db_exit()
   g_warning("Database closed");
 }
 
-void gcompris_db_board_update(gchar *name, gchar *section, gchar *author, gchar *type, gchar *mode, int difficulty, gchar *icon)
+#define BOARDS_CHECK \
+        "SELECT gcompris_version, init_date FROM informations;"
+gboolean gcompris_db_check_boards()
 {
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gboolean ret_value;
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 BOARDS_CHECK,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    ret_value = (strcmp(result[1],VERSION)==0) && (result[2] != NULL);
+
+    sqlite3_free_table(result);
+
+    return ret_value;
 }
 
+
+#define BOARD_INSERT(b, n, s, si, a, t, m, d, i, r) \
+        "INSERT OR REPLACE INTO boards VALUES (%d, \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', %d, \'%s\', \'%s\');", b, n, s, si, a, t, m, d, i, r
+
+#define MAX_BOARD_ID \
+        "SELECT MAX(board_id) FROM boards;"
+
+#define SECTION_ID(s) \
+        "SELECT section_id FROM boards WHERE section=\'%s\';",s
+
+#define MAX_SECTION_ID \
+        "SELECT MAX(section_id) FROM boards;"
+
+#define CHECK_BOARD(n) \
+        "SELECT board_id FROM boards WHERE name=\'%s\';",n
+
+
+void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gchar *section, gchar *author, gchar *type, gchar *mode, int difficulty, gchar *icon, gchar *boarddir)
+{
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  int i,j;
+  gchar *request;
+
+  if (*board_id==0){
+    /* board not yet registered */
+    
+    /* assume name is unique */
+    
+    request = g_strdup_printf(CHECK_BOARD(name));
+    
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    g_free(request);
+    
+    if (result[1] != NULL){
+      *board_id = atoi(result[1]);
+      sqlite3_free_table(result);
+    } else {
+      /* get last board_id written */
+      sqlite3_free_table(result);
+      
+      rc = sqlite3_get_table(gcompris_db, 
+			     MAX_BOARD_ID,
+			     &result,
+			     &nrow,
+			     &ncolumn,
+			     &zErrMsg
+			     );
+      
+      if( rc!=SQLITE_OK ){
+	g_error("SQL error: %s\n", zErrMsg);
+      }
+      
+      if (result[1] == NULL)
+	*board_id = 1;
+      else
+	*board_id = atoi(result[1]) + 1;
+      
+    }      
+  }
+    
+  sqlite3_free_table(result);
+
+
+  /* get section_id */
+   
+  request = g_strdup_printf(SECTION_ID(section));
+ 
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+    
+  g_free(request);
+ 
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+    
+  if (result[1] == NULL){
+    sqlite3_free_table(result);
+    
+    /* get max section_id */
+    
+    rc = sqlite3_get_table(gcompris_db, 
+			   MAX_SECTION_ID,
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+    
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+      
+    if (result[1] == NULL){
+      *section_id = 1;
+    } else {
+      *section_id = atoi(result[1]) + 1;
+    }
+  } else 
+    *section_id = atoi(result[1]);
+
+  request = g_strdup_printf(BOARD_INSERT( *board_id, name, section, section_id, author, type, mode, difficulty, icon, boarddir));
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  
+  sqlite3_free_table(result);
+  
+  g_free(request);
+ 
+}
+
+#define BOARD_LOCALE_INSERT(bi, l, t, d, p, g, m) \
+        "INSERT OR REPLACE INTO boards_locale VALUES (%d, \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\');", bi, l, t, d, p, g, m
+
+
 void gcompris_db_board_locale_update(int board_id, gchar *language, gchar *title, gchar *description, gchar *prerequisite, gchar *goal, gchar *manual)
+{
+  
+
+}
+
+void gcompris_load_menus_db()
 {
 }
 
 GList *gcompris_db_read_board_from_section(gchar *section)
 {
 }
-

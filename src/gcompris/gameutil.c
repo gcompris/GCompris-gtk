@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/05/26 23:06:19 yves>
+ * Time-stamp: <2005/06/05 16:26:09 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -352,6 +352,13 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->mandatory_sound_dataset = xmlGetProp(xmlnode,"mandatory_sound_dataset");
   gcomprisBoard->section		 = xmlGetProp(xmlnode,"section");
 
+#ifdef USE_PROFILES
+  gcomprisBoard->board_id=0;
+  gcompris->section_id=0;
+  gcompris_db_board_update( &(gcompris->board_id), &(gcompris->section_id) gcompris->name, gcompris->section, gcompris->author, gcompris->type, gcompris->mode, atoi(gcompris->difficulty), gcompris->icon, gcompris->boarddir)
+
+#endif
+
   gcomprisBoard->title = NULL;
   gcomprisBoard->description = NULL;
   gcomprisBoard->prerequisite = NULL;
@@ -370,6 +377,15 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   xmlnode = xmlnode->xmlChildrenNode;
   while (xmlnode != NULL) {
     gchar *lang = xmlGetProp(xmlnode,"lang");
+
+#ifdef USE_PROFILES
+    if (lang == NULL)
+      lang="C";
+
+    
+
+#endif
+
     /* get the title of the board */
     if (!strcmp(xmlnode->name, "title")
 	&& (lang==NULL
@@ -743,17 +759,25 @@ void gcompris_load_menus()
 {
   GcomprisProperties	*properties = gcompris_get_properties();
 
+#ifdef USE_PROFILS
+  if (gcompris_db_check_boards())
+    gcompris_load_menus_db();
+  else
+    gcompris_load_menus_dir(properties->package_data_dir);
+  
+#else
+  /* Is that usefull? */
   if(boards_list) {
     cleanup_menus();
     return;
   }
 
   gcompris_load_menus_dir(properties->package_data_dir);
+#endif
 
   if (properties->local_directory)
     gcompris_load_menus_dir(properties->local_directory);
 
-  gcompris_get_menulist(properties->root_menu);
 }
 
 /* ======================================= */
