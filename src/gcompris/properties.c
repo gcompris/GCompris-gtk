@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/05/30 14:07:26 yves>
+ * Time-stamp: <2005/06/11 21:39:22 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *

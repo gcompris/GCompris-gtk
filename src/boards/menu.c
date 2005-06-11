@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/04/26 00:22:40 bruno>
+ * Time-stamp: <2005/06/11 21:58:32 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -141,7 +141,11 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 			G_CALLBACK (free_stuff),
 			menuitems);
 
-      boardlist = gcompris_get_menulist(gcomprisBoard->section);
+      gchar *path = g_strdup_printf("%s/%s",gcomprisBoard->section, gcomprisBoard->name);
+
+      boardlist = gcompris_get_menulist(path);
+
+      g_free(path);
 
       create_info_area(boardRootItem, menuitems);
 

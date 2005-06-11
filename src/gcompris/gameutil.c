@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/05 16:26:09 yves>
+ * Time-stamp: <2005/06/11 23:14:38 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -350,14 +350,16 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->boarddir		 = xmlGetProp(xmlnode,"boarddir");
   gcomprisBoard->mandatory_sound_file	 = xmlGetProp(xmlnode,"mandatory_sound_file");
   gcomprisBoard->mandatory_sound_dataset = xmlGetProp(xmlnode,"mandatory_sound_dataset");
-  gcomprisBoard->section		 = xmlGetProp(xmlnode,"section");
 
-#ifdef USE_PROFILES
-  gcomprisBoard->board_id=0;
-  gcompris->section_id=0;
-  gcompris_db_board_update( &(gcompris->board_id), &(gcompris->section_id) gcompris->name, gcompris->section, gcompris->author, gcompris->type, gcompris->mode, atoi(gcompris->difficulty), gcompris->icon, gcompris->boarddir)
+  gchar *path                            = xmlGetProp(xmlnode,"section");
+  if (strlen(path)==1){
+    g_free(path);
+    path = g_strdup("");
+    if (strcmp(gcomprisBoard->name,"root")==0)
+      gcomprisBoard->name = "";
+  }
 
-#endif
+  gcomprisBoard->section		 = path;
 
   gcomprisBoard->title = NULL;
   gcomprisBoard->description = NULL;
@@ -369,6 +371,26 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   gcomprisBoard->difficulty		= xmlGetProp(xmlnode,"difficulty");
   if(gcomprisBoard->difficulty == NULL)
     gcomprisBoard->difficulty		= "0";
+
+#ifdef USE_PROFILS
+  gcomprisBoard->board_id=0;
+  gcomprisBoard->section_id=0;
+
+  gcompris_db_board_update( &gcomprisBoard->board_id, 
+			    &gcomprisBoard->section_id, 
+			    gcomprisBoard->name, 
+			    gcomprisBoard->section, 
+			    gcomprisBoard->author, 
+			    gcomprisBoard->type, 
+			    gcomprisBoard->mode, 
+			    atoi(gcomprisBoard->difficulty), 
+			    gcomprisBoard->icon_name, 
+			    gcomprisBoard->boarddir);
+
+  g_warning("db board written %d in %d  %s/%s", gcomprisBoard->board_id, gcomprisBoard->section_id, gcomprisBoard->section, gcomprisBoard->name);
+#endif
+
+
 
   /* Update the difficulty max */
   if(properties->difficulty_max < atoi(gcomprisBoard->difficulty))
@@ -595,35 +617,17 @@ GcomprisBoard *gcompris_get_board_from_section(gchar *section)
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
-    if (strcmp (board->type,"menu") == 0){
+    gchar *fullname = NULL;
+    
+    fullname = g_strdup_printf("%s/%s",
+			       board->section, board->name);
 
-    g_warning("gcompris_get_board_from_section searching '%s' in menu board %s", section, board->section);
-
-      if( board->section && (strcmp (board->section, section) == 0))
-	{
-	  g_warning("gcompris_get_board_from_section found '%s' in board '%s'\n", section, board->section);
-	  return board;
-	}
-    }
-    else {
-      gchar *fullname = NULL;
-      gchar *path = NULL;
-
-      path = g_strndup (board->section,strlen(board->section)-2);
-
-      fullname = g_strdup_printf("%s/%s",
-				 path, board->name);
-
-      g_free(path);
-
-      g_warning("gcompris_get_board_from_section searching '%s' in menu board %s", section, fullname);
-
-      if (strcmp (fullname, section) == 0){
-	g_free(fullname);
-	return board;
-      }
+    if (strcmp (fullname, section) == 0){
       g_free(fullname);
+      return board;
     }
+    g_free(fullname);
+    
   }
   g_warning("gcompris_get_board_from_section searching '%s' but NOT FOUND\n", section);
   return NULL;
@@ -642,23 +646,23 @@ GList *gcompris_get_menulist(gchar *section)
 {
   GList *list = NULL;
   GList *result_list = NULL;
-  gchar *path;
+  gchar *model;
+
+  if (strlen(section)==1)
+    model = g_strdup("");
+  else
+    model = g_strdup(section);
 
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
 
-    if(board && board->section 
-       && strlen(section)<=strlen(board->section)
-       && strcmp (section, board->section) != 0) {
-
-      path = g_path_get_dirname(board->section);
-
-      if(strcmp (section, path) == 0) {	
+    if (strcmp (model, board->section) == 0) {	
+      if (strlen(board->name) != 0)
 	result_list = g_list_append(result_list, board);
-      }
-      g_free(path);
     }
   }
+
+  g_free(model);
 
   /* Sort the list now */
   result_list = g_list_sort(result_list, boardlist_compare_func);

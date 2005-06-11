@@ -1,8 +1,29 @@
+/* gcompris - gameutil.c
+ *
+ * Time-stamp: <2005/06/11 16:08:21 yves>
+ *
+ * Copyright (C) 2000 Bruno Coudoin
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
 #include <sqlite3.h>
 #include "gcompris.h"
 
-static sqlite3 *gcompris_db;
-static sqlite3 *gcompris_db_log;
+static sqlite3 *gcompris_db=NULL;
+static sqlite3 *gcompris_db_log=NULL;
 
 #define CREATE_TABLE_USERS \
         "CREATE TABLE users (user_id INT UNIQUE, name TEXT, firstname TEXT, birth TEXT, class_id INT ); "
@@ -19,7 +40,7 @@ static sqlite3 *gcompris_db_log;
 #define CREATE_TABLE_BOARDS_PROFILES_CONF \
         "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, key TEXT, value TEXT ); "
 #define CREATE_TABLE_BOARDS \
-        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT );"
+        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT );"
 #define CREATE_TABLE_BOARDS_LOCALES \
         "CREATE TABLE boards_locales (board_id INT, language TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT);"
 
@@ -201,8 +222,8 @@ gboolean gcompris_db_check_boards()
 }
 
 
-#define BOARD_INSERT(b, n, s, si, a, t, m, d, i, r) \
-        "INSERT OR REPLACE INTO boards VALUES (%d, \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', %d, \'%s\', \'%s\');", b, n, s, si, a, t, m, d, i, r
+#define BOARD_INSERT(b, n, si, s, a, t, m, d, i, r) \
+        "INSERT OR REPLACE INTO boards VALUES (%d, \'%s\', \'%d\', \'%s\', \'%s\', \'%s\', \'%s\', %d, \'%s\', \'%s\');", b, n, si, s, a, t, m, d, i, r
 
 #define MAX_BOARD_ID \
         "SELECT MAX(board_id) FROM boards;"
@@ -227,12 +248,19 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
   int i,j;
   gchar *request;
 
+  if (gcompris_db == NULL)
+    g_error("Database is closed !!!");
+
+  printf("gcompris_db_board_update:  *board_id %d\n",  *board_id);
+
   if (*board_id==0){
     /* board not yet registered */
     
     /* assume name is unique */
     
     request = g_strdup_printf(CHECK_BOARD(name));
+
+    printf("request %s\n", request);
     
     rc = sqlite3_get_table(gcompris_db, 
 			   request,  
@@ -247,14 +275,16 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
     }
 
     g_free(request);
-    
-    if (result[1] != NULL){
+
+    if (nrow != 0){
       *board_id = atoi(result[1]);
       sqlite3_free_table(result);
     } else {
       /* get last board_id written */
-      sqlite3_free_table(result);
+      printf("get MAX board_id \n");
+      //sqlite3_free_table(result);
       
+      printf("%s\n",MAX_BOARD_ID);
       rc = sqlite3_get_table(gcompris_db, 
 			     MAX_BOARD_ID,
 			     &result,
@@ -263,6 +293,8 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
 			     &zErrMsg
 			     );
       
+      printf("nrow %d %s\n", nrow, result[1]);
+
       if( rc!=SQLITE_OK ){
 	g_error("SQL error: %s\n", zErrMsg);
       }
@@ -271,16 +303,18 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
 	*board_id = 1;
       else
 	*board_id = atoi(result[1]) + 1;
+
+      sqlite3_free_table(result);
       
     }      
   }
-    
-  sqlite3_free_table(result);
-
-
+  
+  printf ("*board_id = %d \n", *board_id);
   /* get section_id */
-   
+ 
   request = g_strdup_printf(SECTION_ID(section));
+
+  printf("request %s\n",request);
  
   rc = sqlite3_get_table(gcompris_db, 
 			 request,
@@ -296,8 +330,7 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
     g_error("SQL error: %s\n", zErrMsg);
   }
     
-  if (result[1] == NULL){
-    sqlite3_free_table(result);
+  if (nrow == 0){
     
     /* get max section_id */
     
@@ -319,10 +352,17 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
     } else {
       *section_id = atoi(result[1]) + 1;
     }
-  } else 
+    sqlite3_free_table(result);
+  } else { 
     *section_id = atoi(result[1]);
+    sqlite3_free_table(result);
+  }
 
-  request = g_strdup_printf(BOARD_INSERT( *board_id, name, section, section_id, author, type, mode, difficulty, icon, boarddir));
+  printf("*section_id %d \n", *section_id );
+
+  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, author, type, mode, difficulty, icon, boarddir));
+
+  printf("request %s\n",request);
 
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
@@ -359,3 +399,12 @@ void gcompris_load_menus_db()
 GList *gcompris_db_read_board_from_section(gchar *section)
 {
 }
+
+
+/* Local Variables: */
+/* mode:c */
+/* eval:(load-library "time-stamp") */
+/* eval:(make-local-variable 'write-file-hooks) */
+/* eval:(add-hook 'write-file-hooks 'time-stamp) */
+/* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
+/* End: */

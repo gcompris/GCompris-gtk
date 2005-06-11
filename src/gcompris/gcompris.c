@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/02 23:51:08 yves>
+ * Time-stamp: <2005/06/11 22:36:52 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -646,7 +646,9 @@ void gcompris_exit()
 {
   board_stop();
 
+#ifdef USE_PROFILS
   gcompris_db_exit();
+#endif
 
 #ifdef XRANDR
   /* Set back the original screen size */
@@ -953,26 +955,21 @@ gcompris_init (int argc, char *argv[])
       GList *menulist = NULL;
       GList *menu_todo = NULL;
 
-      menu_todo = g_list_append(menu_todo,"/");
+      menu_todo = g_list_append(menu_todo,g_strdup("/"));
 
       while ( menu_todo != NULL) {
-
 	menulist = gcompris_get_menulist(menu_todo->data);
+	g_free(menu_todo->data);
 	menu_todo = menu_todo->next;
 
 	for(list = menulist; list != NULL; list = list->next) {
 	  GcomprisBoard *board = list->data;
 	
 	  if (board){
-	    if (strcmp(board->type,"menu")==0){
-	      printf("%s : %s (%s)\n", board->section, board->title, board->description);
-	      menu_todo = g_list_prepend(menu_todo, board->section);
-	    }
-	    else {
-	      gchar *path = g_strndup(board->section, strlen(board->section)-2);
-	      printf("%s/%s : %s (%s) \n", path, board->name, board->title, board->description );
-	      g_free(path);
-	    }
+	    if (strcmp(board->type,"menu")==0)
+	      menu_todo = g_list_prepend(menu_todo, g_strdup_printf("%s/%s",board->section, board->name));
+
+	    printf("%s/%s : %s (%s) \n", board->section, board->name, board->title, board->description );
 	  }
 	}
       }
