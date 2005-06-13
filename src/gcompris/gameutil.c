@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/13 22:29:34 yves>
+ * Time-stamp: <2005/06/13 23:08:30 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -487,6 +487,9 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 			      atoi(gcomprisBoard->difficulty), 
 			      gcomprisBoard->icon_name, 
 			      gcomprisBoard->boarddir,
+			      gcomprisBoard->mandatory_sound_file,
+			      gcomprisBoard->mandatory_sound_dataset,
+			      gcomprisBoard->filename,
 			      title,
 			      description,
 			      prerequisite,
@@ -575,13 +578,14 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard,
     return NULL;
   }
   
+  /* Store the file that belong to this board for trace and further need */
+  gcomprisBoard->filename=filename;
+
   /* parse our document and replace old data */
   parse_doc(doc, gcomprisBoard, db);
 
   xmlFreeDoc(doc);
 
-  /* Store the file that belong to this board for trace and further need */
-  gcomprisBoard->filename=filename;
   gcomprisBoard->board_ready=FALSE;
   gcomprisBoard->canvas=canvas;
 

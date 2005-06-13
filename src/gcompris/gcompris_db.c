@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/13 22:32:33 yves>
+ * Time-stamp: <2005/06/13 23:39:58 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -42,7 +42,7 @@ extern GnomeCanvas *canvas;
 #define CREATE_TABLE_BOARDS_PROFILES_CONF \
         "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, key TEXT, value TEXT ); "
 #define CREATE_TABLE_BOARDS \
-        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
+        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
 
 #define CREATE_TABLE_INFO \
         "CREATE TABLE informations (gcompris_version TEXT, init_date TEXT, profile_id INT ); "
@@ -248,8 +248,9 @@ gboolean gcompris_db_check_boards()
 }
 
 
-#define BOARD_INSERT(board_id, name, section_id, section, author, type, mode, difficulty, icon, boarddir, title, description, prerequisite, goal, manual, credit) \
-        "INSERT OR REPLACE INTO boards VALUES (%d, \"%s\", \"%d\", \"%s\", \"%s\", \"%s\", \"%s\", %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\");", board_id, name, section_id, section, author, type, mode, difficulty, icon, boarddir, title, description, prerequisite, goal, manual, credit
+#define Q(a) a==NULL ? "NULL": g_strjoin(NULL,"\"",a,"\"",NULL)
+#define BOARD_INSERT(board_id, name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit) \
+        "INSERT OR REPLACE INTO boards VALUES (%d, %s, %d, %s, %s, %s, %s, %d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", board_id, Q(name), section_id, Q(section), Q(author), Q(type), Q(mode), difficulty, Q(icon), Q(boarddir), Q(mandatory_sound_file), Q(mandatory_sound_dataset), Q(filename), Q(title), Q(description), Q(prerequisite), Q(goal), Q(manual), Q(credit)
 
 #define MAX_BOARD_ID \
         "SELECT MAX(board_id) FROM boards;"
@@ -274,6 +275,9 @@ void gcompris_db_board_update(gint *board_id,
 			      int difficulty,
 			      gchar *icon,
 			      gchar *boarddir,
+			      gchar *mandatory_sound_file,
+			      gchar *mandatory_sound_dataset,
+			      gchar *filename,
 			      gchar *title, 
 			      gchar *description, 
 			      gchar *prerequisite, 
@@ -387,7 +391,7 @@ void gcompris_db_board_update(gint *board_id,
     sqlite3_free_table(result);
   }
 
-  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, author, type, mode, difficulty, icon, boarddir,  title, description, prerequisite, goal, manual, credit));
+  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit));
 
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
@@ -409,7 +413,7 @@ void gcompris_db_board_update(gint *board_id,
 
 
 #define BOARDS_READ \
-        "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, title, description, prerequisite, goal, manual, credit FROM boards;"
+        "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit FROM boards;"
 
 GList *gcompris_load_menus_db(GList *boards_list)
 {
@@ -470,6 +474,9 @@ GList *gcompris_load_menus_db(GList *boards_list)
   gcomprisBoard->difficulty = g_strdup(result[i++]);
   gcomprisBoard->icon_name = g_strdup(result[i++]);
   gcomprisBoard->board_dir = g_strdup(result[i++]);
+  gcomprisBoard->mandatory_sound_file = g_strdup(result[i++]);
+  gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
+  gcomprisBoard->filename = g_strdup(result[i++]);
   gcomprisBoard->title =  reactivate_newline(gettext(result[i++]));
   gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
   gcomprisBoard->prerequisite = reactivate_newline(gettext(result[i++]));

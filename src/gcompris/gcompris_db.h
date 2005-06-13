@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/06/13 21:21:28 yves>
+ * Time-stamp: <2005/06/13 22:57:10 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -45,6 +45,9 @@ void gcompris_db_board_update(gint *board_id,
 			      int difficulty, 
 			      gchar *icon, 
 			      gchar *boarddir;
+			      gchar *mandatory_sound_file,
+			      gchar *mandatory_sound_dataset,
+			      gchar *filename,
 			      gchar *title, 
 			      gchar *description, 
 			      gchar *prerequisite, 
