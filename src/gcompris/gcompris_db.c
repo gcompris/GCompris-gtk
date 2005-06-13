@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/11 16:08:21 yves>
+ * Time-stamp: <2005/06/12 23:19:11 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -40,9 +40,7 @@ static sqlite3 *gcompris_db_log=NULL;
 #define CREATE_TABLE_BOARDS_PROFILES_CONF \
         "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, key TEXT, value TEXT ); "
 #define CREATE_TABLE_BOARDS \
-        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT );"
-#define CREATE_TABLE_BOARDS_LOCALES \
-        "CREATE TABLE boards_locales (board_id INT, language TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT);"
+        "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
 
 #define CREATE_TABLE_INFO \
         "CREATE TABLE informations (gcompris_version TEXT, init_date TEXT, profile_id INT ); "
@@ -119,10 +117,6 @@ void *gcompris_db_init()
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
-    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_BOARDS_LOCALES, NULL,  0, &zErrMsg);
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
     rc = sqlite3_exec(gcompris_db,CREATE_TABLE_INFO, NULL,  0, &zErrMsg);
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
@@ -191,6 +185,36 @@ gcompris_db_exit()
   g_warning("Database closed");
 }
 
+#define BOARDS_SET_DATE(date) \
+        "UPDATE informations SET init_date=\'%s\';",date
+gboolean gcompris_db_set_date(gchar *date)
+{
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gboolean ret_value;
+  gchar *request;
+
+  request = g_strdup_printf(BOARDS_SET_DATE(date));
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    g_free(request);
+
+    sqlite3_free_table(result);
+
+}
+
 #define BOARDS_CHECK \
         "SELECT gcompris_version, init_date FROM informations;"
 gboolean gcompris_db_check_boards()
@@ -214,7 +238,7 @@ gboolean gcompris_db_check_boards()
       g_error("SQL error: %s\n", zErrMsg);
     }
 
-    ret_value = (strcmp(result[1],VERSION)==0) && (result[2] != NULL);
+    ret_value = (strcmp(result[2],VERSION)==0) && (result[3] != NULL);
 
     sqlite3_free_table(result);
 
@@ -222,8 +246,8 @@ gboolean gcompris_db_check_boards()
 }
 
 
-#define BOARD_INSERT(b, n, si, s, a, t, m, d, i, r) \
-        "INSERT OR REPLACE INTO boards VALUES (%d, \'%s\', \'%d\', \'%s\', \'%s\', \'%s\', \'%s\', %d, \'%s\', \'%s\');", b, n, si, s, a, t, m, d, i, r
+#define BOARD_INSERT(board_id, name, section_id, section, author, type, mode, difficulty, icon, boarddir, title, description, prerequisite, goal, manual, credit) \
+        "INSERT OR REPLACE INTO boards VALUES (%d, \"%s\", \"%d\", \"%s\", \"%s\", \"%s\", \"%s\", %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\");", board_id, name, section_id, section, author, type, mode, difficulty, icon, boarddir, title, description, prerequisite, goal, manual, credit
 
 #define MAX_BOARD_ID \
         "SELECT MAX(board_id) FROM boards;"
@@ -238,7 +262,23 @@ gboolean gcompris_db_check_boards()
         "SELECT board_id FROM boards WHERE name=\'%s\';",n
 
 
-void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gchar *section, gchar *author, gchar *type, gchar *mode, int difficulty, gchar *icon, gchar *boarddir)
+void gcompris_db_board_update(gint *board_id,
+			      gint *section_id,
+			      gchar *name,
+			      gchar *section,
+			      gchar *author,
+			      gchar *type,
+			      gchar *mode,
+			      int difficulty,
+			      gchar *icon,
+			      gchar *boarddir,
+			      gchar *title, 
+			      gchar *description, 
+			      gchar *prerequisite, 
+			      gchar *goal, 
+			      gchar *manual,
+			      gchar *credit
+			      )
 {
   char *zErrMsg;
   char **result;
@@ -360,7 +400,7 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
 
   printf("*section_id %d \n", *section_id );
 
-  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, author, type, mode, difficulty, icon, boarddir));
+  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, author, type, mode, difficulty, icon, boarddir,  title, description, prerequisite, goal, manual, credit));
 
   printf("request %s\n",request);
 
@@ -382,17 +422,8 @@ void gcompris_db_board_update(gint *board_id, gint *section_id, gchar *name, gch
  
 }
 
-#define BOARD_LOCALE_INSERT(bi, l, t, d, p, g, m) \
-        "INSERT OR REPLACE INTO boards_locale VALUES (%d, \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\');", bi, l, t, d, p, g, m
 
-
-void gcompris_db_board_locale_update(int board_id, gchar *language, gchar *title, gchar *description, gchar *prerequisite, gchar *goal, gchar *manual)
-{
-  
-
-}
-
-void gcompris_load_menus_db()
+GList *gcompris_load_menus_db()
 {
 }
 

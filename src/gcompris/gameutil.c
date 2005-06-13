@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/11 23:14:38 yves>
+ * Time-stamp: <2005/06/12 23:05:30 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -308,7 +308,7 @@ gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event,
  * \f \n \r \t \\ \" and the octal format.
  * 
  */
-gchar *reactivate_newline(gchar *str)
+gchar *reactivate_newline(char *str)
 {
   gchar *newstr;
 
@@ -317,7 +317,7 @@ gchar *reactivate_newline(gchar *str)
 
   newstr = g_strcompress(str);
   
-  g_free(str);
+  //g_free(str);
 
   return newstr;
 }
@@ -328,9 +328,15 @@ gchar *reactivate_newline(gchar *str)
  */
 
 static void
-gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GcomprisBoard *gcomprisBoard)
+gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, GcomprisBoard *gcomprisBoard, gboolean db)
 {
   GcomprisProperties	*properties = gcompris_get_properties();
+  gchar *title=NULL;
+  gchar *description=NULL;
+  gchar *prerequisite=NULL;
+  gchar *goal=NULL;
+  gchar *manual=NULL;
+  gchar *credit=NULL;
 
   if(/* if the node has no name */
      !xmlnode->name ||
@@ -372,61 +378,27 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   if(gcomprisBoard->difficulty == NULL)
     gcomprisBoard->difficulty		= "0";
 
-#ifdef USE_PROFILS
-  gcomprisBoard->board_id=0;
-  gcomprisBoard->section_id=0;
-
-  gcompris_db_board_update( &gcomprisBoard->board_id, 
-			    &gcomprisBoard->section_id, 
-			    gcomprisBoard->name, 
-			    gcomprisBoard->section, 
-			    gcomprisBoard->author, 
-			    gcomprisBoard->type, 
-			    gcomprisBoard->mode, 
-			    atoi(gcomprisBoard->difficulty), 
-			    gcomprisBoard->icon_name, 
-			    gcomprisBoard->boarddir);
-
-  g_warning("db board written %d in %d  %s/%s", gcomprisBoard->board_id, gcomprisBoard->section_id, gcomprisBoard->section, gcomprisBoard->name);
-#endif
-
-
-
   /* Update the difficulty max */
   if(properties->difficulty_max < atoi(gcomprisBoard->difficulty))
     properties->difficulty_max = atoi(gcomprisBoard->difficulty);
 
-  xmlnode = xmlnode->xmlChildrenNode;
-  while (xmlnode != NULL) {
-    gchar *lang = xmlGetProp(xmlnode,"lang");
-
-#ifdef USE_PROFILES
-    if (lang == NULL)
-      lang="C";
-
-    
-
-#endif
+  for (xmlnode = xmlnode->xmlChildrenNode; xmlnode != NULL; xmlnode = xmlnode->next) {
+    if (xmlHasProp(xmlnode, "lang"))
+      continue;
 
     /* get the title of the board */
-    if (!strcmp(xmlnode->name, "title")
-	&& (lang==NULL
-	    || !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+    if (!strcmp(xmlnode->name, "title"))
       {
-	gcomprisBoard->title = reactivate_newline(xmlNodeListGetString(doc, 
-								       xmlnode->xmlChildrenNode, 1));
+	title = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->title = reactivate_newline(gettext(title));
       }
 
     /* get the description of the board */
-    if (!strcmp(xmlnode->name, "description")
-	&& (lang==NULL ||
-	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+    if (!strcmp(xmlnode->name, "description"))
       {
 	int i;
-	gcomprisBoard->description = reactivate_newline(xmlNodeListGetString(doc, 
-									     xmlnode->xmlChildrenNode, 1));
+	description = xmlNodeListGetString(doc, xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->description = reactivate_newline(gettext(description));
 
 	/* WARNING: I used to use the richtext item that handle the clipping but it is not
 	 * stable enough. Here I remove any \n unterered by the translator and insert new newlines
@@ -450,58 +422,44 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
       }
 
     /* get the help prerequisite help of the board */
-    if (!strcmp(xmlnode->name, "prerequisite")
-	&& (lang==NULL ||
-	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+    if (!strcmp(xmlnode->name, "prerequisite"))
       {
 	if(gcomprisBoard->prerequisite)
 	  g_free(gcomprisBoard->prerequisite);
-
-	gcomprisBoard->prerequisite = reactivate_newline(xmlNodeListGetString(doc, 
-									      xmlnode->xmlChildrenNode, 1));
+	
+	prerequisite = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->prerequisite = reactivate_newline(gettext(prerequisite));
       }
 
     /* get the help goal of the board */
-    if (!strcmp(xmlnode->name, "goal")
-	&& (lang==NULL ||
-	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+    if (!strcmp(xmlnode->name, "goal"))
       {
 	if(gcomprisBoard->goal)
 	  g_free(gcomprisBoard->goal);
   
-	gcomprisBoard->goal = reactivate_newline(xmlNodeListGetString(doc, 
-								      xmlnode->xmlChildrenNode, 1));
+	goal = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->goal = reactivate_newline(gettext(goal));
       }
 
     /* get the help user manual of the board */
-    if (!strcmp(xmlnode->name, "manual")
-	&& (lang==NULL ||
-	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+    if (!strcmp(xmlnode->name, "manual"))
       {
 	if(gcomprisBoard->manual)
 	  g_free(gcomprisBoard->manual);
-  
-	gcomprisBoard->manual = reactivate_newline(xmlNodeListGetString(doc, 
-									xmlnode->xmlChildrenNode, 1));
+
+	manual = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->manual = reactivate_newline(gettext(manual));
       }
 
     /* get the help user credit of the board */
-    if (!strcmp(xmlnode->name, "credit")
-	&& (lang==NULL ||
-	    !strcmp(lang, gcompris_get_locale())
-	    || !strncmp(lang, gcompris_get_locale(), 2)))
+    if (!strcmp(xmlnode->name, "credit"))
       {
 	if(gcomprisBoard->credit)
 	  g_free(gcomprisBoard->credit);
   
-	gcomprisBoard->credit = reactivate_newline(xmlNodeListGetString(doc, 
-									xmlnode->xmlChildrenNode, 1));
+	credit = xmlNodeListGetString(doc,  xmlnode->xmlChildrenNode, 1);
+	gcomprisBoard->credit = reactivate_newline(gettext(credit));
       }
-
-    xmlnode = xmlnode->next;
   }
 
 
@@ -514,11 +472,38 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
      gcomprisBoard->description == NULL) {
     g_error("failed to read a mandatory field for this board (mandatory fields are name type icon_name difficulty section title description). check the board xml file is complete, perhaps xml-i18n-tools did not generate the file properly");
   }
+#ifdef USE_PROFILS
+  gcomprisBoard->board_id=0;
+  gcomprisBoard->section_id=0;
+
+  if (db){
+    gcompris_db_board_update( &gcomprisBoard->board_id, 
+			      &gcomprisBoard->section_id, 
+			      gcomprisBoard->name, 
+			      gcomprisBoard->section, 
+			      gcomprisBoard->author, 
+			      gcomprisBoard->type, 
+			      gcomprisBoard->mode, 
+			      atoi(gcomprisBoard->difficulty), 
+			      gcomprisBoard->icon_name, 
+			      gcomprisBoard->boarddir,
+			      title,
+			      description,
+			      prerequisite,
+			      goal,
+			      manual,
+			      credit
+			      );
+  
+    g_warning("db board written %d in %d  %s/%s", gcomprisBoard->board_id, gcomprisBoard->section_id, gcomprisBoard->section, gcomprisBoard->name);
+#endif
+  }
+  
 }
 
 /* parse the doc, add it to our internal structures and to the clist */
 static void
-parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard)
+parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard, gboolean db)
 {
   xmlNodePtr node;
 
@@ -527,7 +512,7 @@ parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard)
   for(node = doc->children->children; node != NULL; node = node->next) {
     /* add the board to the list, there are no children so
        we pass NULL as the node of the child */
-    gcompris_add_xml_to_data(doc, node, NULL, gcomprisBoard);
+    gcompris_add_xml_to_data(doc, node, NULL, gcomprisBoard, db);
   }
 }
 
@@ -537,7 +522,9 @@ parse_doc(xmlDocPtr doc, GcomprisBoard *gcomprisBoard)
    dump any old data we have in memory if we can load a new set
    Return a newly allocated GcomprisBoard or NULL if the parsing failed
 */
-GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
+GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, 
+				      char *fname,
+				      gboolean db)
 {
   gchar *filename;
   /* pointer to the new doc */
@@ -589,7 +576,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard, char *fname)
   }
   
   /* parse our document and replace old data */
-  parse_doc(doc, gcomprisBoard);
+  parse_doc(doc, gcomprisBoard, db);
 
   xmlFreeDoc(doc);
 
@@ -689,7 +676,7 @@ void cleanup_menus() {
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *gcomprisBoard = list->data;
 
-    gcompris_read_xml_file(gcomprisBoard, gcomprisBoard->filename);
+    gcompris_read_xml_file(gcomprisBoard, gcomprisBoard->filename, FALSE);
   }
 }
 
@@ -699,7 +686,7 @@ void cleanup_menus() {
  * Load all the menu it can from the given dirname
  *
  */
-void gcompris_load_menus_dir(char *dirname){
+void gcompris_load_menus_dir(char *dirname, gboolean db){
   const gchar   *one_dirent;
   GDir          *dir;
 #ifdef USE_PROFILS
@@ -742,17 +729,24 @@ void gcompris_load_menus_dir(char *dirname){
 	gcomprisBoard->previous_board=NULL;
 
 #ifdef USE_PROFILS
-	GcomprisBoard *board_read = gcompris_read_xml_file(gcomprisBoard, filename);
-	if ((board_read) && ((properties->administration) || (strncmp(board_read->section,"/administration",strlen("/administration"))!=0)))
+	GcomprisBoard *board_read = gcompris_read_xml_file(gcomprisBoard, filename, db);
+	if ((board_read) && 
+	    ((properties->administration) || 
+	     (strncmp(board_read->section,
+		      "/administration",
+		      strlen("/administration"))!=0)))
 	  boards_list = g_list_append(boards_list, board_read);
+
 #else
-	boards_list = g_list_append(boards_list, gcompris_read_xml_file(gcomprisBoard, 
-									filename));
+	boards_list = g_list_append(boards_list, 
+				    gcompris_read_xml_file(gcomprisBoard, 
+							   filename));
 #endif
       }
       g_free(filename);
     }
   }
+
   g_dir_close(dir);
 }
 
@@ -766,8 +760,16 @@ void gcompris_load_menus()
 #ifdef USE_PROFILS
   if (gcompris_db_check_boards())
     gcompris_load_menus_db();
-  else
-    gcompris_load_menus_dir(properties->package_data_dir);
+  else {
+    gcompris_load_menus_dir(properties->package_data_dir, TRUE);
+    GDate *today = g_date_new();
+    g_date_set_time (today, time (NULL));
+
+    gchar date[11];
+    g_date_strftime (date, 11, "%F", today);
+    gcompris_db_set_date(date);
+    g_date_free(today);
+  }
   
 #else
   /* Is that usefull? */
@@ -776,11 +778,11 @@ void gcompris_load_menus()
     return;
   }
 
-  gcompris_load_menus_dir(properties->package_data_dir);
+  gcompris_load_menus_dir(properties->package_data_dir, TRUE);
 #endif
 
   if (properties->local_directory)
-    gcompris_load_menus_dir(properties->local_directory);
+    gcompris_load_menus_dir(properties->local_directory, FALSE);
 
 }
 

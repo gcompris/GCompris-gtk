@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/06/11 14:59:07 yves>
+ * Time-stamp: <2005/06/12 23:22:42 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -33,6 +33,8 @@ void *gcompris_db_exit();
 
 gboolean gcompris_db_check_boards();
 
+void gcompris_db_set_date(gchar *date);
+
 void gcompris_db_board_update(gint *board_id, 
 			      gint *section_id, 
 			      gchar *name, 
@@ -42,19 +44,18 @@ void gcompris_db_board_update(gint *board_id,
 			      gchar *mode, 
 			      int difficulty, 
 			      gchar *icon, 
-			      gchar *boarddir);
-
-void gcompris_db_board_locale_update(int board_id, 
-				     gchar *language, 
-				     gchar *title, 
-				     gchar *description, 
-				     gchar *prerequisite, 
-				     gchar *goal, 
-				     gchar *manual);
+			      gchar *boarddir;
+			      gchar *title, 
+			      gchar *description, 
+			      gchar *prerequisite, 
+			      gchar *goal, 
+			      gchar *manual,
+			      gchar *credit
+			      );
 
 GList *gcompris_db_read_board_from_section(gchar *section);
 
-void gcompris_load_menus_db();
+GList *gcompris_load_menus_db();
 
 #endif
 
