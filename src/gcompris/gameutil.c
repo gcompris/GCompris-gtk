@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/13 23:08:30 yves>
+ * Time-stamp: <2005/06/14 00:13:05 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -499,8 +499,8 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 			      );
   
     g_warning("db board written %d in %d  %s/%s", gcomprisBoard->board_id, gcomprisBoard->section_id, gcomprisBoard->section, gcomprisBoard->name);
-#endif
   }
+#endif
   
 }
 
@@ -744,7 +744,8 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 #else
 	boards_list = g_list_append(boards_list, 
 				    gcompris_read_xml_file(gcomprisBoard, 
-							   filename));
+							   filename,
+							   db));
 #endif
       }
       g_free(filename);
