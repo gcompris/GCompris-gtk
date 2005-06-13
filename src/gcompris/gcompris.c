@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/11 22:36:52 yves>
+ * Time-stamp: <2005/06/13 22:28:10 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -566,9 +566,12 @@ static void setup_window ()
   else
     {
       /* For non anti alias canvas */
-      canvas     = GNOME_CANVAS(gnome_canvas_new ());
+      /* canvas     = GNOME_CANVAS(gnome_canvas_new ());
       canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
-      canvas_bg  = GNOME_CANVAS(gnome_canvas_new ());
+      canvas_bg  = GNOME_CANVAS(gnome_canvas_new ()); */
+      canvas     = gnome_canvas_new ();
+      canvas_bar = gnome_canvas_new ();
+      canvas_bg  = gnome_canvas_new ();
     }
 
   gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
@@ -607,6 +610,7 @@ static void setup_window ()
 
   /* Get and Run the root menu */
   gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
+
   if(!gcomprisBoardMenu) {
     g_warning("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
     exit(1);

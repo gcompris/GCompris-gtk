@@ -1,6 +1,6 @@
 /* gcompris - gcompris-board.h
  *
- * Time-stamp: <2005/06/05 13:57:11 yves>
+ * Time-stamp: <2005/06/13 21:39:18 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *

@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/12 23:19:11 yves>
+ * Time-stamp: <2005/06/13 22:32:33 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -24,6 +24,8 @@
 
 static sqlite3 *gcompris_db=NULL;
 static sqlite3 *gcompris_db_log=NULL;
+
+extern GnomeCanvas *canvas;
 
 #define CREATE_TABLE_USERS \
         "CREATE TABLE users (user_id INT UNIQUE, name TEXT, firstname TEXT, birth TEXT, class_id INT ); "
@@ -291,8 +293,6 @@ void gcompris_db_board_update(gint *board_id,
   if (gcompris_db == NULL)
     g_error("Database is closed !!!");
 
-  printf("gcompris_db_board_update:  *board_id %d\n",  *board_id);
-
   if (*board_id==0){
     /* board not yet registered */
     
@@ -300,8 +300,6 @@ void gcompris_db_board_update(gint *board_id,
     
     request = g_strdup_printf(CHECK_BOARD(name));
 
-    printf("request %s\n", request);
-    
     rc = sqlite3_get_table(gcompris_db, 
 			   request,  
 			   &result,
@@ -320,11 +318,8 @@ void gcompris_db_board_update(gint *board_id,
       *board_id = atoi(result[1]);
       sqlite3_free_table(result);
     } else {
+
       /* get last board_id written */
-      printf("get MAX board_id \n");
-      //sqlite3_free_table(result);
-      
-      printf("%s\n",MAX_BOARD_ID);
       rc = sqlite3_get_table(gcompris_db, 
 			     MAX_BOARD_ID,
 			     &result,
@@ -333,8 +328,6 @@ void gcompris_db_board_update(gint *board_id,
 			     &zErrMsg
 			     );
       
-      printf("nrow %d %s\n", nrow, result[1]);
-
       if( rc!=SQLITE_OK ){
 	g_error("SQL error: %s\n", zErrMsg);
       }
@@ -349,12 +342,8 @@ void gcompris_db_board_update(gint *board_id,
     }      
   }
   
-  printf ("*board_id = %d \n", *board_id);
   /* get section_id */
- 
   request = g_strdup_printf(SECTION_ID(section));
-
-  printf("request %s\n",request);
  
   rc = sqlite3_get_table(gcompris_db, 
 			 request,
@@ -398,11 +387,7 @@ void gcompris_db_board_update(gint *board_id,
     sqlite3_free_table(result);
   }
 
-  printf("*section_id %d \n", *section_id );
-
   request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, author, type, mode, difficulty, icon, boarddir,  title, description, prerequisite, goal, manual, credit));
-
-  printf("request %s\n",request);
 
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
@@ -423,8 +408,84 @@ void gcompris_db_board_update(gint *board_id,
 }
 
 
-GList *gcompris_load_menus_db()
+#define BOARDS_READ \
+        "SELECT board_id ,name, section_id, section, author, type, mode, difficulty, icon, boarddir, title, description, prerequisite, goal, manual, credit FROM boards;"
+
+GList *gcompris_load_menus_db(GList *boards_list)
 {
+
+  GList *boards = boards_list;
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  int i;
+  gchar *request;
+  
+
+  request = g_strdup_printf(BOARDS_READ);
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  /* first ncolumns are columns labels. */
+  i = ncolumn;
+  
+  while (i < (nrow +1)*ncolumn) {
+  GcomprisBoard *gcomprisBoard = NULL;
+
+  gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
+
+  gcomprisBoard->plugin=NULL;
+  gcomprisBoard->previous_board=NULL;
+  gcomprisBoard->board_ready=FALSE;
+  gcomprisBoard->canvas=canvas;
+
+  gcomprisBoard->gmodule      = NULL;
+  gcomprisBoard->gmodule_file = NULL;
+
+  /* Fixed since I use the canvas own pixel_per_unit scheme */
+  gcomprisBoard->width  = BOARDWIDTH;
+  gcomprisBoard->height = BOARDHEIGHT;
+
+
+  gcomprisBoard->board_id = atoi(result[i++]);
+  gcomprisBoard->name = g_strdup(result[i++]);
+  gcomprisBoard->section_id = atoi(result[i++]);
+  gcomprisBoard->section = g_strdup(result[i++]);
+  gcomprisBoard->author = g_strdup(result[i++]);
+  gcomprisBoard->type = g_strdup(result[i++]);
+  gcomprisBoard->mode = g_strdup(result[i++]);
+  gcomprisBoard->difficulty = g_strdup(result[i++]);
+  gcomprisBoard->icon_name = g_strdup(result[i++]);
+  gcomprisBoard->board_dir = g_strdup(result[i++]);
+  gcomprisBoard->title =  reactivate_newline(gettext(result[i++]));
+  gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
+  gcomprisBoard->prerequisite = reactivate_newline(gettext(result[i++]));
+  gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
+  gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
+  gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
+
+  boards = g_list_append(boards, gcomprisBoard);
+  } 
+
+  sqlite3_free_table(result);
+  
+  g_free(request);
+
+  return boards;
+
 }
 
 GList *gcompris_db_read_board_from_section(gchar *section)

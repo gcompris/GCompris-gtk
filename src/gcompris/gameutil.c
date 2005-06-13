@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/12 23:05:30 yves>
+ * Time-stamp: <2005/06/13 22:29:34 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -603,7 +603,7 @@ GcomprisBoard *gcompris_get_board_from_section(gchar *section)
 
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;
-
+	   
     gchar *fullname = NULL;
     
     fullname = g_strdup_printf("%s/%s",
@@ -758,8 +758,9 @@ void gcompris_load_menus()
   GcomprisProperties	*properties = gcompris_get_properties();
 
 #ifdef USE_PROFILS
-  if (gcompris_db_check_boards())
-    gcompris_load_menus_db();
+  if (gcompris_db_check_boards()){
+    boards_list = gcompris_load_menus_db(boards_list);
+  }
   else {
     gcompris_load_menus_dir(properties->package_data_dir, TRUE);
     GDate *today = g_date_new();

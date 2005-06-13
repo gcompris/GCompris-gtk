@@ -44,6 +44,7 @@
 #endif
 
 gchar 		*g_utf8_strndup(gchar*,gint);
+gchar           *reactivate_newline(char *str);
 
 GdkPixbuf	*gcompris_load_pixmap(char *pixmapfile);
 void		 gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus);
