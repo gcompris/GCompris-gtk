@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/13 23:39:58 yves>
+ * Time-stamp: <2005/06/14 00:01:32 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -473,7 +473,7 @@ GList *gcompris_load_menus_db(GList *boards_list)
   gcomprisBoard->mode = g_strdup(result[i++]);
   gcomprisBoard->difficulty = g_strdup(result[i++]);
   gcomprisBoard->icon_name = g_strdup(result[i++]);
-  gcomprisBoard->board_dir = g_strdup(result[i++]);
+  gcomprisBoard->boarddir = g_strdup(result[i++]);
   gcomprisBoard->mandatory_sound_file = g_strdup(result[i++]);
   gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
   gcomprisBoard->filename = g_strdup(result[i++]);
