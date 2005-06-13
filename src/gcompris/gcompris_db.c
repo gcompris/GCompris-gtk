@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/14 00:01:32 yves>
+ * Time-stamp: <2005/06/14 00:44:33 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -418,6 +418,8 @@ void gcompris_db_board_update(gint *board_id,
 GList *gcompris_load_menus_db(GList *boards_list)
 {
 
+  GcomprisProperties	*properties = gcompris_get_properties();
+  
   GList *boards = boards_list;
 
   char *zErrMsg;
@@ -458,6 +460,9 @@ GList *gcompris_load_menus_db(GList *boards_list)
 
   gcomprisBoard->gmodule      = NULL;
   gcomprisBoard->gmodule_file = NULL;
+
+  /* From DB we have only package_data_dir. */
+  gcomprisBoard->board_dir = properties->package_data_dir;
 
   /* Fixed since I use the canvas own pixel_per_unit scheme */
   gcomprisBoard->width  = BOARDWIDTH;

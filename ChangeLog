@@ -1,5 +1,10 @@
 2005-06-14  Yves Combe  <yves@ycombe.net>
 
+	* fix missing board_dir initialisation when board is read 
+	from db.
+
+2005-06-14  Yves Combe  <yves@ycombe.net>
+
 	* fix compilation failure without --enable-profils
 
 2005-06-14  Yves Combe  <yves@ycombe.net>
