@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/14 00:13:05 yves>
+ * Time-stamp: <2005/06/14 11:12:53 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -643,6 +643,11 @@ GList *gcompris_get_menulist(gchar *section)
     model = g_strdup("");
   else
     model = g_strdup(section);
+
+  if(!section){
+    g_warning("gcompris_get_menulist called with section == NULL !");
+    return NULL;
+  }
 
   for(list = boards_list; list != NULL; list = list->next) {
     GcomprisBoard *board = list->data;

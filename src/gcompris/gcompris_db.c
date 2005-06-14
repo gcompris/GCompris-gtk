@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/14 00:44:33 yves>
+ * Time-stamp: <2005/06/14 11:08:42 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -126,9 +126,6 @@ void *gcompris_db_init()
 
     g_warning(_("Database tables created"));
 
-    g_date_set_time (gdate, time (NULL));
-    g_date_strftime (date, 20, "%F", gdate);
-    
     request = g_strdup_printf(SET_VERSION(VERSION));
 
     rc = sqlite3_get_table(gcompris_db, 
