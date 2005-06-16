@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/05/30 10:23:03 yves>
+ * Time-stamp: <2005/06/16 08:37:08 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -44,6 +44,7 @@ typedef struct {
   gchar        *profil;
   gchar        *database;
   gint         administration;
+  gint         reread_xml;
 #endif
 } GcomprisProperties;
 

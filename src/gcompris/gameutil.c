@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/14 11:12:53 yves>
+ * Time-stamp: <2005/06/16 22:39:20 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -689,6 +689,29 @@ void cleanup_menus() {
   }
 }
 
+
+/*
+ * suppress_int_from_list
+ */
+
+GList *suppress_int_from_list(GList *list, int value)
+{
+
+  GList *cell = list;
+  int *data;
+
+  while (cell != NULL){
+    data = cell->data;
+    if (*data==value){
+      g_free(data);
+      return g_list_remove(list, data);
+    }
+    cell = cell->next;
+  }
+  g_warning("suppress_int_from_list value %d not found", value);
+  return list;
+}
+
 /*
  * gcompris_load_menus
  *
@@ -700,7 +723,9 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
   GDir          *dir;
 #ifdef USE_PROFILS
   GcomprisProperties	*properties = gcompris_get_properties();
+  GList *list_old_boards_id = NULL;
 #endif
+
 
   if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
     g_warning("Failed to parse board in '%s' because it's not a directory\n", dirname);
@@ -713,7 +738,10 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
     g_warning("gcompris_load_menus : no menu found in %s", dirname);
     return;
   } else {
-
+#ifdef USE_PROFILS
+    list_old_boards_id = gcompris_db_get_board_id(list_old_boards_id);
+    printf("length list_old_boards_id %d\n", g_list_length(list_old_boards_id));
+#endif
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
       GcomprisBoard *gcomprisBoard = NULL;
@@ -739,13 +767,16 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 
 #ifdef USE_PROFILS
 	GcomprisBoard *board_read = gcompris_read_xml_file(gcomprisBoard, filename, db);
-	if ((board_read) && 
-	    ((properties->administration) || 
-	     (strncmp(board_read->section,
-		      "/administration",
-		      strlen("/administration"))!=0)))
-	  boards_list = g_list_append(boards_list, board_read);
-
+	if (board_read){
+	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board_read->board_id);
+	  if ((properties->administration) || 
+	      (strncmp(board_read->section,
+		       "/administration",
+		       strlen("/administration"))!=0))
+	    boards_list = g_list_append(boards_list, board_read);
+	  //else
+	    //gcompris_free_board(board_read);
+	}
 #else
 	boards_list = g_list_append(boards_list, 
 				    gcompris_read_xml_file(gcomprisBoard, 
@@ -756,6 +787,17 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
       g_free(filename);
     }
   }
+
+#ifdef USE_PROFILS
+  /* remove suppressed boards from db */
+  printf("length list_old_boards_id to suppress %d\n", g_list_length(list_old_boards_id));
+  while (list_old_boards_id != NULL){
+    int *data=list_old_boards_id->data;
+    gcompris_db_remove_board(*data);
+    list_old_boards_id=g_list_remove(list_old_boards_id, data);
+    g_free(data);
+  }
+#endif
 
   g_dir_close(dir);
 }
@@ -768,10 +810,11 @@ void gcompris_load_menus()
   GcomprisProperties	*properties = gcompris_get_properties();
 
 #ifdef USE_PROFILS
-  if (gcompris_db_check_boards()){
+  if ((!properties->reread_xml) && gcompris_db_check_boards()){
     boards_list = gcompris_load_menus_db(boards_list);
   }
   else {
+    properties->reread_xml = TRUE;
     gcompris_load_menus_dir(properties->package_data_dir, TRUE);
     GDate *today = g_date_new();
     g_date_set_time (today, time (NULL));
@@ -965,6 +1008,9 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
 
   printf("Dialog=%s\n", str);
 
+  if(!gcomprisBoard)
+    return;
+
   /* If we are already running do nothing */
   if(rootDialogItem) {
     g_warning("Cannot run a dialog box, one is already running. Message = %s\n", str);
@@ -972,7 +1018,7 @@ void gcompris_dialog(gchar *str, DialogBoxCallBack dbcb)
   }
 
   /* First pause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL)
+  if(gcomprisBoard->plugin && gcomprisBoard->plugin->pause_board != NULL)
       gcomprisBoard->plugin->pause_board(TRUE);
 
   gcompris_bar_hide(TRUE);
@@ -1092,7 +1138,7 @@ GnomeCanvasGroup *gcompris_display_difficulty_stars(GnomeCanvasGroup *parent,
 {
   GdkPixbuf *pixmap = NULL;
   GnomeCanvasGroup *stars_group = NULL;
-  GnomeCanvasGroup *item = NULL;
+  GnomeCanvasPixbuf *item = NULL;
   gchar *filename = NULL;
 
   if(difficulty==0 || difficulty>6)
@@ -1164,17 +1210,21 @@ gchar *gcompris_find_absolute_filename(gchar *filename)
     if (!g_file_test (absolute_filename, G_FILE_TEST_EXISTS)) {
       GcomprisBoard   *gcomprisBoard = get_current_gcompris_board();
       g_free(absolute_filename);
-      absolute_filename = g_strdup_printf("%s/%s", gcomprisBoard->board_dir, filename);
+      if(gcomprisBoard) {
+	absolute_filename = g_strdup_printf("%s/%s", gcomprisBoard->board_dir, filename);
+      } else {
+	return NULL;
+      }
     }
   } else {
     absolute_filename = strdup(filename);
   }
-
+    
   if (!g_file_test (absolute_filename, G_FILE_TEST_EXISTS)){
     g_free(absolute_filename);
     return NULL;
   }
-
+  
   return absolute_filename;
 }
 

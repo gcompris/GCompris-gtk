@@ -1291,7 +1291,7 @@ static const char *color(int dir)
  return "light grey";
 }
 
-static void Display(struct vector position, int viewdir, 
+static void gcDisplay(struct vector position, int viewdir, 
 		    struct screenparam sp, int xmin, int xmax, int dy, gboolean left_wall)
 {  int dxl=dx_left(sp,xmin,dy,left_wall),
      dxr=dx_right(sp,xmax,dy,left_wall),
@@ -1308,7 +1308,7 @@ static void Display(struct vector position, int viewdir,
      struct Trapez t=Trapez_hide(wall_coords(sp,vector_ctor(i,dy),left_wall),xmin,xmax);
      draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_LEFT(viewdir):viewdir),"black");
      // draw left of it
-     if (t.x_left-1>=xmin) Display(position,viewdir,sp,xmin,t.x_left-1,dy,left_wall);
+     if (t.x_left-1>=xmin) gcDisplay(position,viewdir,sp,xmin,t.x_left-1,dy,left_wall);
      // right of it ...
      xmin=t.x_right+1;
    }
@@ -1325,21 +1325,21 @@ static void Display(struct vector position, int viewdir,
    draw_Trapez(threedgroup,t,is_exit?"green":color(left_wall?TURN_RIGHT(viewdir):viewdir),"black");
    // draw right of it
    if (t.x_right+1<xmax)
-     Display(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
+     gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
    // draw right of it
    if (t.x_right+1<xmax)
-     Display(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
+     gcDisplay(position,viewdir,sp,t.x_right+1,xmax,dy,left_wall);
    // left of it ...
    xmax=t.x_left-1;
    }
 
  if (xmin<=xmax) // draw in the middle (no wall there)
-   Display(position,viewdir,sp,xmin,xmax,dy+!left_wall,!left_wall);
+   gcDisplay(position,viewdir,sp,xmin,xmax,dy+!left_wall,!left_wall);
 }
 
 static void Display3(struct vector position, int viewdir,
 		     struct screenparam sp)
-{  Display(position, viewdir, sp, sp.pos.x-sp.size.x, sp.pos.x+sp.size.x, 
+{  gcDisplay(position, viewdir, sp, sp.pos.x-sp.size.x, sp.pos.x+sp.size.x, 
 	   0, TRUE);
 }
 

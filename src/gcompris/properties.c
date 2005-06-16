@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/06/11 21:39:22 yves>
+ * Time-stamp: <2005/06/16 08:37:52 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -167,6 +167,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->profil            = "default";
   tmp->database          = get_default_database_name();
   tmp->administration    = FALSE;
+  tmp->reread_xml        = FALSE;
 #endif
 
 

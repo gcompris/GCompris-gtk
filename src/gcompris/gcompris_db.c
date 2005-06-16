@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/14 11:08:42 yves>
+ * Time-stamp: <2005/06/16 22:20:11 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -57,7 +57,7 @@ extern GnomeCanvas *canvas;
 #define CHECK_VERSION \
         "SELECT gcompris_version FROM informations;"
 
-void *gcompris_db_init()
+void gcompris_db_init()
 {
   gboolean creation = FALSE;
   char *zErrMsg;
@@ -178,7 +178,7 @@ void *gcompris_db_init()
   
 }
 
-gcompris_db_exit()
+void gcompris_db_exit()
 {
   sqlite3_close(gcompris_db);
   g_warning("Database closed");
@@ -186,7 +186,7 @@ gcompris_db_exit()
 
 #define BOARDS_SET_DATE(date) \
         "UPDATE informations SET init_date=\'%s\';",date
-gboolean gcompris_db_set_date(gchar *date)
+void gcompris_db_set_date(gchar *date)
 {
 
   char *zErrMsg;
@@ -245,9 +245,9 @@ gboolean gcompris_db_check_boards()
 }
 
 
-#define Q(a) a==NULL ? "NULL": g_strjoin(NULL,"\"",a,"\"",NULL)
+#define Q(a) a==NULL ? "" : "\"", a==NULL ? "NULL" : a, a==NULL ? "" : "\""
 #define BOARD_INSERT(board_id, name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit) \
-        "INSERT OR REPLACE INTO boards VALUES (%d, %s, %d, %s, %s, %s, %s, %d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", board_id, Q(name), section_id, Q(section), Q(author), Q(type), Q(mode), difficulty, Q(icon), Q(boarddir), Q(mandatory_sound_file), Q(mandatory_sound_dataset), Q(filename), Q(title), Q(description), Q(prerequisite), Q(goal), Q(manual), Q(credit)
+        "INSERT OR REPLACE INTO boards VALUES (%d, %s%s%s, %d, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %d, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s);", board_id, Q(name), section_id, Q(section), Q(author), Q(type), Q(mode), difficulty, Q(icon), Q(boarddir), Q(mandatory_sound_file), Q(mandatory_sound_dataset), Q(filename), Q(title), Q(description), Q(prerequisite), Q(goal), Q(manual), Q(credit)
 
 #define MAX_BOARD_ID \
         "SELECT MAX(board_id) FROM boards;"
@@ -425,13 +425,9 @@ GList *gcompris_load_menus_db(GList *boards_list)
   int nrow;
   int ncolumn;
   int i;
-  gchar *request;
-  
-
-  request = g_strdup_printf(BOARDS_READ);
 
   rc = sqlite3_get_table(gcompris_db, 
-			 request,  
+			 BOARDS_READ,  
 			 &result,
 			 &nrow,
 			 &ncolumn,
@@ -491,14 +487,131 @@ GList *gcompris_load_menus_db(GList *boards_list)
 
   sqlite3_free_table(result);
   
-  g_free(request);
-
   return boards;
 
 }
 
+#define SAVE_USER(user_id, login, name, firstname, birthday, class_id) \
+        "INSERT OR REPLACE INTO users ( %d, \'%s\', \'%s\', \'%s\', %s)", user_id, login, name, firstname, birthday,class_id
+
+void gcompris_db_save_user(int *user_id, gchar *login, gchar *name, gchar *firstname, gchar *birthday, int class_id){
+  
+}
+
 GList *gcompris_db_read_board_from_section(gchar *section)
 {
+}
+
+
+#define BOARD_ID_READ \
+        "SELECT board_id FROM boards;"
+
+GList *gcompris_db_get_board_id(GList *list)
+{
+  int *board_id = g_malloc0(sizeof(int));
+  
+  GList *board_id_list = list;
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  int i;
+  
+  rc = sqlite3_get_table(gcompris_db, 
+			 BOARD_ID_READ,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  /* first ncolumns are columns labels. */
+  i = ncolumn;
+  
+  while (i < (nrow +1)*ncolumn) {
+  int *board_id = g_malloc(sizeof(int));
+  
+  *board_id = atoi(result[i++]);
+  board_id_list = g_list_append(board_id_list, board_id);
+  }
+
+  return  board_id_list;
+
+}
+
+#define DELETE_BOARD(table, board_id) \
+        "DELETE FROM %s WHERE board_id=%d;", table, board_id
+
+void gcompris_db_remove_board(int board_id)
+{
+  g_warning("Supress board %d from db.", board_id);
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  int i;
+  gchar *request;
+
+  /* get section_id */
+  request = g_strdup_printf(DELETE_BOARD("boards",board_id));
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_free(request);
+
+
+  /* get section_id */
+  request = g_strdup_printf(DELETE_BOARD("board_profile_conf",board_id));
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_free(request);
+
+
+  /* get section_id */
+  request = g_strdup_printf(DELETE_BOARD("activities_out",board_id));
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_free(request);
 }
 
 

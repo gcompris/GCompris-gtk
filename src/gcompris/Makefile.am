@@ -19,6 +19,18 @@ profile_h =
 profile_c =
 endif
 
+if USE_CAIRO
+cairo_ldflags = $(CAIRO_LIBS)
+cairo_cflags = $(CAIRO_CFLAGS)
+cairo_h = gcompris-cairo.h
+cairo_c = gcompris-cairo.c
+else
+cairo_ldflags =
+cairo_cflags =
+cairo_h =
+cairo_c =
+endif
+
 if PLATFORM_WIN32
 no_undefined = -no-undefined
 endif
@@ -55,13 +67,14 @@ INCLUDES = \
 	$(SDL_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED \
 	$(gcompris_edit_cflags) \
-        $(sqlite_cflags)
+        $(sqlite_cflags) \
+	$(cairo_cflags)
 
 gcompris_SOURCES = \
 	main.c
 
 gcompris_LDFLAGS = \
-	-export-dynamic $(python_ldflags) $(SDL_LIBS) $(sqlite_ldflags)
+	-export-dynamic $(python_ldflags) $(SDL_LIBS) $(sqlite_ldflags) $(cairo_ldflags)
 
 
 gcompris_LDADD = \
@@ -119,7 +132,8 @@ libgcomprisinclude_HEADERS =			\
 	about.h \
 	assetml.h \
 	anim.h \
-        $(profile_h)
+        $(profile_h) \
+	$(cairo_h)
 
 libgcompris_1_la_SOURCES =			\
 	$(libgcomprisinclude_HEADERS)	\
@@ -144,7 +158,8 @@ libgcompris_1_la_SOURCES =			\
 	sdlplayer.c \
 	assetml.c \
 	anim.c \
-        $(profile_c)
+        $(profile_c) \
+	$(cairo_c)
 
 $(libgcompris_1_la_OBJECTS): $(marshal_sources)
 

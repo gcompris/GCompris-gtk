@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/13 22:28:10 yves>
+ * Time-stamp: <2005/06/16 08:42:12 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -91,7 +91,10 @@ static int popt_administration	   = FALSE;
 static char *popt_database         = NULL;
 static char *popt_logs_database    = NULL;
 static int popt_create_db   	   = FALSE;
+static int popt_reread_xml   	   = FALSE;
 #endif
+
+GTimer *chronometer;
 
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
@@ -125,7 +128,9 @@ static struct poptOption options[] = {
    N_("Use alternate database for profils"), NULL},
   {"logs", 'j', POPT_ARG_STRING, &popt_logs_database, 0,
    N_("Use alternate database for logs"), NULL},
-  {"create-db",'\0', POPT_ARG_STRING, &popt_create_db, 0,
+  {"create-db",'\0', POPT_ARG_NONE, &popt_create_db, 0,
+   N_("Use alternate database for profils"), NULL},
+  {"reread-xml",'\0', POPT_ARG_NONE, &popt_reread_xml, 0,
    N_("Use alternate database for profils"), NULL},
 #endif
 #ifndef WIN32	/* Not supported on windows */
@@ -507,6 +512,9 @@ static void setup_window ()
   GdkPixbuf    *gcompris_icon_pixbuf;
   GError       *error = NULL;
 
+  gdouble      elapsed;
+  gulong       musec;
+
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
   /*
@@ -566,12 +574,9 @@ static void setup_window ()
   else
     {
       /* For non anti alias canvas */
-      /* canvas     = GNOME_CANVAS(gnome_canvas_new ());
+      canvas     = GNOME_CANVAS(gnome_canvas_new ());
       canvas_bar = GNOME_CANVAS(gnome_canvas_new ());
-      canvas_bg  = GNOME_CANVAS(gnome_canvas_new ()); */
-      canvas     = gnome_canvas_new ();
-      canvas_bar = gnome_canvas_new ();
-      canvas_bg  = gnome_canvas_new ();
+      canvas_bg  = GNOME_CANVAS(gnome_canvas_new ());
     }
 
   gtk_signal_connect_after (GTK_OBJECT (window), "key_press_event",
@@ -601,12 +606,21 @@ static void setup_window ()
     }
 
   init_plugins();
+  
+  elapsed = g_timer_elapsed( chronometer, &musec);
+  printf("init_plugins %f sec.\n", elapsed);
 
   /* Load all the menu once */
   gcompris_load_menus();
 
+  elapsed = g_timer_elapsed( chronometer, &musec);
+  printf("gcompris_load_menus %f sec.\n", elapsed);
+
   /* Load the mime type */
   gcompris_load_mime_types();
+
+  elapsed = g_timer_elapsed( chronometer, &musec);
+  printf("gcompris_load_mime_types %f sec.\n", elapsed);
 
   /* Get and Run the root menu */
   gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
@@ -622,9 +636,18 @@ static void setup_window ()
   /* Run the bar */
   gcompris_bar_start(canvas_bar);
 
+  elapsed = g_timer_elapsed( chronometer, &musec);
+  printf("gcompris_bar_start %f sec.\n", elapsed);
+
   board_play (gcomprisBoardMenu);
 
+  elapsed = g_timer_elapsed( chronometer, &musec);
+  printf("board_play %f sec.\n", elapsed);
+
   init_background();
+
+  elapsed = g_timer_elapsed( chronometer, &musec);
+  printf("init_background %f sec.\n", elapsed);
 
 #ifdef WIN32
   {
@@ -653,6 +676,8 @@ void gcompris_exit()
 #ifdef USE_PROFILS
   gcompris_db_exit();
 #endif
+
+  g_timer_destroy (chronometer);
 
 #ifdef XRANDR
   /* Set back the original screen size */
@@ -836,6 +861,10 @@ gcompris_init (int argc, char *argv[])
   int popt_option;
   gchar *str;
 
+  chronometer = g_timer_new ();
+
+  g_timer_start (chronometer);
+
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
@@ -1010,6 +1039,10 @@ gcompris_init (int argc, char *argv[])
   if (popt_administration){
     g_warning("Running in administration mode");
     properties->administration = TRUE;
+  }
+  if (popt_reread_xml){
+    g_warning("Rebuild db from xml files");
+    properties->reread_xml = TRUE;
   }
 #endif
 

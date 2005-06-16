@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/06/13 22:57:10 yves>
+ * Time-stamp: <2005/06/16 18:07:36 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -25,11 +25,9 @@
 
 #include <sqlite3.h>
 
-sqlite3 *gcompris_db;
+void gcompris_db_init();
 
-void *gcompris_db_init();
-
-void *gcompris_db_exit();
+void gcompris_db_exit();
 
 gboolean gcompris_db_check_boards();
 
@@ -44,7 +42,7 @@ void gcompris_db_board_update(gint *board_id,
 			      gchar *mode, 
 			      int difficulty, 
 			      gchar *icon, 
-			      gchar *boarddir;
+			      gchar *boarddir,
 			      gchar *mandatory_sound_file,
 			      gchar *mandatory_sound_dataset,
 			      gchar *filename,
@@ -59,6 +57,10 @@ void gcompris_db_board_update(gint *board_id,
 GList *gcompris_db_read_board_from_section(gchar *section);
 
 GList *gcompris_load_menus_db(GList *boards);
+
+GList *gcompris_db_get_board_id(GList *list);
+
+void gcompris_db_remove_board(int board_id);
 
 #endif
 

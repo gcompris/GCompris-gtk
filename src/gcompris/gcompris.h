@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/05/26 22:33:36 yves>
+ * Time-stamp: <2005/06/16 17:53:16 yves>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -49,6 +49,11 @@
 
 #ifdef USE_PROFILS
 #include "profile.h"
+#include "gcompris_db.h"
+#endif
+
+#ifdef USE_CAIRO
+#include "gcompris-cairo.h"
 #endif
 
 #ifdef DMALLOC

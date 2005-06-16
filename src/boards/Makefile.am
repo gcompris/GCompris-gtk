@@ -6,6 +6,24 @@ python_plugin =
 python_subdir =
 endif
 
+
+if USE_PROFILS
+sqlite_ldflags = $(SQLITE3_LIBS)
+sqlite_cflags = $(SQLITE3_CFLAGS)
+else
+sqlite_ldflags =
+sqlite_cflags =
+endif
+
+if USE_CAIRO
+cairo_ldflags = $(CAIRO_LIBS)
+cairo_cflags = $(CAIRO_CFLAGS)
+else
+cairo_ldflags =
+cairo_cflags =
+endif
+
+
 SUBDIRS= $(python_subdir)
 
 lib_LTLIBRARIES = \
@@ -53,7 +71,9 @@ INCLUDES = \
 	$(GCOMPRIS_CFLAGS) \
 	$(XML_CFLAGS) \
 	$(PYTHON_CFLAGS) \
-	$(PYGTK_CFLAGS)
+	$(PYGTK_CFLAGS) \
+	$(sqlite_cflags) \
+	$(cairo_cflags)
 
 libmenu_la_LDFLAGS = -module -avoid-version
 libmenu_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la

@@ -1,6 +1,6 @@
 /* gcompris - clockgame.c
  *
- * Time-stamp: <2005/04/26 00:22:52 bruno>
+ * Time-stamp: <2005/06/14 23:03:45 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,8 +46,8 @@ typedef struct {
   guint hour;
   guint minute;
   guint second;
-} Time;
-static Time timeToFind, currentTime;
+} GcomprisTime;
+static GcomprisTime timeToFind, currentTime;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -62,7 +62,7 @@ static void		 game_won(void);
 static GnomeCanvasItem	*clockgame_create_item(GnomeCanvasGroup *parent);
 static void		 clockgame_destroy_item(GnomeCanvasItem *item);
 static void		 clockgame_destroy_all_items(void);
-static void		 get_random_hour(Time *time);
+static void		 get_random_hour(GcomprisTime *time);
 static void		 clockgame_next_level(void);
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static void		 display_hour(guint hour);
@@ -240,7 +240,7 @@ static void clockgame_destroy_all_items()
     }
 }
 
-static void display_digital_time(GnomeCanvasItem *item, Time *time)
+static void display_digital_time(GnomeCanvasItem *item, GcomprisTime *time)
 {
   gchar *text = NULL;
 
@@ -549,7 +549,7 @@ static GnomeCanvasItem *clockgame_create_item(GnomeCanvasGroup *parent)
 /*
  * Returns true is given times are equal
  */
-static gboolean time_equal(Time *time1, Time *time2)
+static gboolean time_equal(GcomprisTime *time1, GcomprisTime *time2)
 {
   /* No seconds at first levels */
   if(second_item==NULL || gcomprisBoard->level<=2)
@@ -681,7 +681,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
 
 /* Returns a random time based on the current level */
-static void get_random_hour(Time *time)
+static void get_random_hour(GcomprisTime *time)
 {
 
   time->hour=rand()%12;
