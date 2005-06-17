@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-01 04:47-0400\n"
-"PO-Revision-Date: 2005-06-01 22:51-0400\n"
+"POT-Creation-Date: 2005-06-17 01:31-0400\n"
+"PO-Revision-Date: 2005-06-17 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -628,19 +628,23 @@ msgstr "Mouse manipulation"
 
 #: boards/billard.xml.in.h:2
 msgid ""
-"Point and click on the ball to set the speed and direction of the ball. The "
-"closer you click to the center, the slower the ball moves."
+"Point and click on the ball to set its speed and direction. The closer you "
+"click to the center, the slower the ball moves."
 msgstr ""
-"Point and click on the ball to set the speed and direction of the ball. The "
-"closer you click to the centre, the slower the ball moves."
+"Point and click on the ball to set its speed and direction. The closer you "
+"click to the centre, the slower the ball moves."
 
 #: boards/billard.xml.in.h:3
-msgid "Shoot the ball into the hole"
-msgstr "Shoot the ball into the hole"
+msgid "Put the ball into the black hole on the right"
+msgstr "Put the ball into the black hole on the right"
 
 #: boards/billard.xml.in.h:4
-msgid "The game of billiards"
-msgstr "The game of billiards"
+msgid "Put the ball into the goal"
+msgstr "Put the ball into the goal"
+
+#: boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "The football game"
 
 #: boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -1140,7 +1144,7 @@ msgstr ""
 msgid "Motor coordination"
 msgstr "Motor coordination"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:83 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:83 src/boards/machpuzzle.c:93
 msgid "Move the mouse"
 msgstr "Move the mouse"
 
@@ -2960,8 +2964,8 @@ msgstr "Multiple activities for kids"
 #: src/boards/advanced_colors.c:531 src/boards/imageid.c:600
 #: src/boards/missingletter.c:604 src/boards/read_colors.c:489
 #: src/boards/shapegame.c:1876 src/gcompris/file_selector.c:926
-#: src/gcompris/gameutil.c:131 src/gcompris/gameutil.c:523
-#: src/gcompris/gameutil.c:524 src/gcompris/gcompris.c:517
+#: src/gcompris/gameutil.c:131 src/gcompris/gameutil.c:551
+#: src/gcompris/gameutil.c:552 src/gcompris/gcompris.c:525
 #: src/gcompris/images_selector.c:754 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
@@ -3585,7 +3589,7 @@ msgid "Help"
 msgstr "Help"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:211
-#: src/gcompris/gameutil.c:958 src/gcompris/help.c:329
+#: src/gcompris/gameutil.c:1045 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3870,47 +3874,47 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: src/gcompris/gcompris.c:98
+#: src/gcompris/gcompris.c:101
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:100
+#: src/gcompris/gcompris.c:103
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:102
+#: src/gcompris/gcompris.c:105
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:104
+#: src/gcompris/gcompris.c:107
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:106
+#: src/gcompris/gcompris.c:109
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:108
+#: src/gcompris/gcompris.c:111
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:110
+#: src/gcompris/gcompris.c:113
 msgid "display debug informations on the console."
 msgstr "display debugging information on the console."
 
-#: src/gcompris/gcompris.c:112
+#: src/gcompris/gcompris.c:115
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:114
+#: src/gcompris/gcompris.c:117
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:116
+#: src/gcompris/gcompris.c:119
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Disable XRANDR (No screen resolution change)."
 
-#: src/gcompris/gcompris.c:118
+#: src/gcompris/gcompris.c:121
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -3920,23 +3924,24 @@ msgstr ""
 "activity directory, -l /boards/connect4 only the connect4 activity). -l list "
 "show the list of menus and activity"
 
-#: src/gcompris/gcompris.c:120
+#: src/gcompris/gcompris.c:123
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "Run gcompris with local activity directory added to menu"
 
-#: src/gcompris/gcompris.c:123
+#: src/gcompris/gcompris.c:126
 msgid "Run gcompris with administration and users management mode"
 msgstr "Run gcompris with administration and user management mode"
 
-#: src/gcompris/gcompris.c:125 src/gcompris/gcompris.c:129
+#: src/gcompris/gcompris.c:128 src/gcompris/gcompris.c:132
+#: src/gcompris/gcompris.c:134
 msgid "Use alternate database for profils"
 msgstr "Use alternate database for profiles"
 
-#: src/gcompris/gcompris.c:127
+#: src/gcompris/gcompris.c:130
 msgid "Use alternate database for logs"
 msgstr "Use alternate database for logs"
 
-#: src/gcompris/gcompris.c:629
+#: src/gcompris/gcompris.c:656
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3958,7 +3963,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:881
+#: src/gcompris/gcompris.c:914
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3972,12 +3977,12 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:949
+#: src/gcompris/gcompris.c:982
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Use -l activity to access directly to activity.\n"
 
-#: src/gcompris/gcompris.c:950
+#: src/gcompris/gcompris.c:983
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
