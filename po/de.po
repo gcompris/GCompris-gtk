@@ -11,6 +11,8 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -21,8 +23,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-12 16:10+0200\n"
-"PO-Revision-Date: 2005-06-16 08:47+0200\n"
+"POT-Creation-Date: 2005-06-19 12:59+0200\n"
+"PO-Revision-Date: 2005-06-19 13:36+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +42,7 @@ msgstr "Kann lesen"
 
 #: ../boards/advanced_colors.xml.in.h:3
 msgid "Click on the correct color"
-msgstr "Klicke auf die richtige Farbe"
+msgstr "Klicke auf die richtige Farbe."
 
 #: ../boards/advanced_colors.xml.in.h:4
 msgid "Click on the correct colored box."
@@ -346,7 +348,7 @@ msgstr ""
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
 msgid "Answer some algebra questions"
-msgstr "Beantworte ein paar Fragen aus der Algebra"
+msgstr "Beantworte ein paar Fragen aus der Algebra."
 
 #: ../boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the product of two numbers"
@@ -371,7 +373,7 @@ msgstr "Zu den Algebratafeln"
 #: ../boards/menu.xml.in.h:18 ../boards/mouse.xml.in.h:1
 #: ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
-msgstr "Klicke mit der linken Maustaste um eine Tafel anzuwählen"
+msgstr "Klicke mit der linken Maustaste, um eine Tafel anzuwählen."
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
 #: ../boards/erase_double_clic.xml.in.h:1
@@ -411,7 +413,7 @@ msgid ""
 "result"
 msgstr ""
 "Finde die richtige Kombination von Zahlen und Operationen, um ein "
-"angegebenes Ergebnis zu erhalten"
+"angegebenes Ergebnis zu erhalten."
 
 #: ../boards/algebra_guesscount.xml.in.h:6
 msgid "The four arithmetic operations. Combine several arithmetic operations"
@@ -469,11 +471,11 @@ msgstr "Einfache Addition. Kann geschriebene Zahlen erkennen"
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to Maths activities"
-msgstr "Gehe zu dem Mathe-Aktivitäten"
+msgstr "Gehe zu den Mathe-Aktivitäten"
 
 #: ../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
-msgstr "Vervollständige eine Liste mit Symbolen"
+msgstr "Vervollständige eine Liste mit Symbolen."
 
 #: ../boards/algorithm.xml.in.h:2
 msgid "Find the next in a list of symbols."
@@ -499,7 +501,7 @@ msgstr "Erstelle eine Zeichnung oder einen Trickfilm"
 
 #: ../boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
-msgstr "Zeichen und Animationswerkzeug"
+msgstr "Zeichen- und Animationswerkzeug"
 
 #: ../boards/anim.xml.in.h:3
 msgid ""
@@ -550,7 +552,7 @@ msgstr ""
 #: ../boards/babymatch/board6_0.xml.in.h:1
 #: ../boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "Stelle die Bilder passend zusammen"
+msgstr "Stelle die Bilder passend zusammen."
 
 #: ../boards/babymatch.xml.in.h:2
 msgid ""
@@ -591,7 +593,7 @@ msgstr "Vervollständige das Puzzle durch Anlegen der Teile auf der linken Seite
 
 #: ../boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
-msgstr "Finde für die Formen den passenden Umriß"
+msgstr "Finde für die Formen den passenden Umriss."
 
 #: ../boards/babyshapes.xml.in.h:4
 msgid "Good mouse control"
@@ -617,7 +619,7 @@ msgstr "Lock mit farbigen Formen."
 
 #: ../boards/ballcatch.xml.in.h:1
 msgid "Push the two shift keys together to send the ball straight"
-msgstr "Drücke die beiden Hochstelltasten gleichzeitig, um den Ball gerade zu werfen"
+msgstr "Drücke die beiden Hochstelltasten gleichzeitig, um den Ball gerade zu werfen."
 
 #: ../boards/ballcatch.xml.in.h:2
 msgid "Send the ball to Tux"
@@ -629,7 +631,7 @@ msgstr "Gehirn"
 
 #: ../boards/bargame.xml.in.h:2
 msgid "Do not put the last ball"
-msgstr "Lege nicht den letzten Ball"
+msgstr "Lege nicht den letzten Ball."
 
 #: ../boards/bargame.xml.in.h:4
 msgid ""
@@ -654,19 +656,23 @@ msgstr "Maus-Handhabung"
 
 #: ../boards/billard.xml.in.h:2
 msgid ""
-"Point and click on the ball to set the speed and direction of the ball. The "
-"closer you click to the center, the slower the ball moves."
+"Point and click on the ball to set its speed and direction. The closer you "
+"click to the center, the slower the ball moves."
 msgstr ""
-"Klicke auf den Ball um dessen Richtung und Geschwindigkeit festzulegen. Je "
-"näher Du die Mitte anklickst um so langsamer ist der Ball."
+"Klicke auf den Ball, um dessen Richtung und Geschwindigkeit festzulegen. Je "
+"näher Du die Mitte anklickst, desto langsamer ist der Ball."
 
 #: ../boards/billard.xml.in.h:3
-msgid "Shoot the ball into the hole"
-msgstr "Schieß den Ball ins Loch"
+msgid "Put the ball into the black hole on the right"
+msgstr "Schieß den Ball ins rechte Loch"
 
 #: ../boards/billard.xml.in.h:4
-msgid "The game of billiards"
-msgstr "Das Billard-Spiel"
+msgid "Put the ball into the goal"
+msgstr "Schieß den Ball ins Tor."
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "Das Fußballspiel"
 
 #: ../boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -695,7 +701,7 @@ msgstr ""
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
-msgstr "Spiel Schach gegen den Rechner im Lernmodus"
+msgstr "Spiel Schach gegen den Rechner im Lernmodus."
 
 #: ../boards/chess.xml.in.h:2
 msgid "Practice chess"
@@ -717,7 +723,7 @@ msgstr "Schach-Training. Schlage die Bauern des Rechners."
 
 #: ../boards/chess_partyend.xml.in.h:3
 msgid "Play end of chess game against the computer"
-msgstr "Spiele Schach-Endspiele gegen den Rechner"
+msgstr "Spiele Schach-Endspiele gegen den Rechner."
 
 #: ../boards/chronos.xml.in.h:1
 msgid "Chronos"
@@ -725,9 +731,7 @@ msgstr "Chronos"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr ""
-"Bewege Gegenstände an ihren Platz\n"
-"um eine Geschichte anzuordnen"
+msgstr "Bewege Gegenstände an ihren Platz, um eine Geschichte anzuordnen."
 
 #: ../boards/chronos.xml.in.h:3
 msgid ""
@@ -929,7 +933,7 @@ msgstr "Klicke auf einen Buchstaben"
 
 #: ../boards/click_on_letter.xml.in.h:3
 msgid "Hear a letter and click on the right one"
-msgstr "Höre einen Buchstaben und klicke den richtigen an"
+msgstr "Höre einen Buchstaben und klicke den Richtigen an."
 
 #: ../boards/click_on_letter.xml.in.h:4
 msgid "Letter name recognition"
@@ -976,7 +980,7 @@ msgstr ""
 msgid "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
 "Klicke mit der linken Maustaste auf alle Fische, bevor sie aus dem Aquarium "
-"schwimmen"
+"schwimmen."
 
 #: ../boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
@@ -1002,7 +1006,7 @@ msgstr ""
 
 #: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:78
 msgid "Learn how to tell time"
-msgstr "Lerne die Uhrzeit mitzuteilen"
+msgstr "Lerne, die Uhr zu stellen."
 
 #: ../boards/clockgame.xml.in.h:4 ../src/boards/clockgame.c:77
 msgid "Learning Clock"
@@ -1047,7 +1051,7 @@ msgstr "Entdecke den Computer"
 
 #: ../boards/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
-msgstr "Ordne vier Münzen in einer Reihe"
+msgstr "Ordne vier Münzen in einer Reihe."
 
 #: ../boards/connect4.xml.in.h:2
 msgid "Click anywhere in the line in which you want to drop a piece"
@@ -1087,7 +1091,7 @@ msgstr "Bewege die Gegenstände an die passenden Stellen."
 
 #: ../boards/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double entry table"
-msgstr "Füge Gegenstände in eine Doppel-Tabelle ein"
+msgstr "Füge Gegenstände in eine Doppel-Tabelle ein."
 
 #: ../boards/doubleentry.xml.in.h:5
 msgid ""
@@ -1155,7 +1159,7 @@ msgstr "Zählübung"
 
 #: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
-msgstr "Ordne die Gegenstände so an, dass man sie gut zählen kann"
+msgstr "Ordne die Gegenstände so an, dass man sie gut zählen kann."
 
 #: ../boards/erase.xml.in.h:1
 msgid ""
@@ -1173,13 +1177,13 @@ msgid "Motor coordination"
 msgstr "Motorische Fähigkeiten"
 
 #: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
-#: ../src/boards/machpuzzle.c:87
+#: ../src/boards/machpuzzle.c:93
 msgid "Move the mouse"
 msgstr "Bewege die Maus"
 
 #: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
-msgstr "Bewege die Maus um Felder zu löschen und den Hintergrund freizulegen"
+msgstr "Bewege die Maus, um Felder zu löschen und den Hintergrund freizulegen."
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
@@ -1195,7 +1199,7 @@ msgstr "Klicke mit der Maus"
 
 #: ../boards/erase_clic.xml.in.h:4
 msgid "Click with the mouse to erase the area and discover the background"
-msgstr "Klicke mit der Maus um Felder zu löschen und den Hintergrund freizulegen"
+msgstr "Klicke mit der Maus, um Felder zu löschen und den Hintergrund freizulegen."
 
 #: ../boards/erase_double_clic.xml.in.h:2
 msgid "Double click on rectangles with the mouse until all the blocks disappear."
@@ -1203,7 +1207,7 @@ msgstr "Doppelklicke mit der Maus auf Rechtecke, bis alle Blöcke verschwunden s
 
 #: ../boards/erase_double_clic.xml.in.h:3
 msgid "Double-Click with the mouse to erase the area and discover the background"
-msgstr "Doppelklicke die Maus um Felder zu löschen und den Hintergrund freizulegen"
+msgstr "Doppelklicke die Maus, um Felder zu löschen und den Hintergrund freizulegen."
 
 #: ../boards/erase_double_clic.xml.in.h:4
 msgid "Double-click with the mouse"
@@ -1245,7 +1249,7 @@ msgstr ""
 
 #: ../boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr "Bewege einzelne Zahlen, um sie aufsteigend zu sortieren"
+msgstr "Bewege einzelne Zahlen, um sie aufsteigend zu sortieren."
 
 #: ../boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
@@ -1277,7 +1281,7 @@ msgstr "SVG-Mozilla-Trickfilm"
 
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
-msgstr "Füge eine Landkarte zusammen"
+msgstr "Füge eine Landkarte zusammen."
 
 #: ../boards/geography.xml.in.h:2
 msgid "Place the lands"
@@ -1598,7 +1602,7 @@ msgstr "Einfache Buchstaben"
 
 #: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
-msgstr "Gib die fallenden Buchstaben ein, bevor sie unten ankommen"
+msgstr "Gib die fallenden Buchstaben ein, bevor sie unten ankommen."
 
 #: ../boards/gnumch-equality.xml.in.h:1
 msgid "Equality Number Munchers"
@@ -1618,11 +1622,13 @@ msgstr "Übe Addition, Multiplikation, Division und Subtraktion."
 msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
-msgstr "Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+msgstr ""
+"Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
+"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
-msgstr "Faktor-Zahlenmampfer"
+msgstr "Faktoren-Zahlenmampfer"
 
 #: ../boards/gnumch-factors.xml.in.h:2
 msgid ""
@@ -1643,18 +1649,24 @@ msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
-"Die Faktoren einer Zahl teilen diese Zahl ohne Rest. Zum Beispiel sind 1, 2, 3 und 6 die Faktoren von 6. Jedoch ist 4 kein Faktor von 6, da 6 nicht in 4 ganze Teile zerlegt werden kann. Wenn eine Zahl das Vielfache einer anderen Zahl ist, dann ist die zweite Zahl ein Faktor der ersten Zahl.\n"
-"Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+"Die Faktoren einer Zahl teilen diese Zahl ohne Rest. Zum Beispiel sind 1, 2, "
+"3 und 6 die Faktoren von 6. Jedoch ist 4 kein Faktor von 6, da 6 nicht in 4 "
+"ganze Teile zerlegt werden kann. Wenn eine Zahl das Vielfache einer anderen "
+"Zahl ist, dann ist die zweite Zahl ein Faktor der ersten Zahl.\n"
+"Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
+"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumch-inequality.xml.in.h:1
 msgid ""
 "Guide the Number Muncher to the all the expressions that do not equal the "
 "number at the top of the screen."
-msgstr "Leite den Zahlenmampfer zu allen Ausdrücken, die nicht der oberen Zahl entsprechen."
+msgstr ""
+"Leite den Zahlenmampfer zu allen Ausdrücken, die nicht der oberen Zahl "
+"entsprechen."
 
 #: ../boards/gnumch-inequality.xml.in.h:2
 msgid "Inequality Number Munchers"
-msgstr "Ungleichheit-Zahlenmampfer"
+msgstr "Ungleichheits-Zahlenmampfer"
 
 #: ../boards/gnumch-inequality.xml.in.h:3
 msgid "Practise addition, subtraction, multiplication and division."
@@ -1684,8 +1696,14 @@ msgid ""
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
 msgstr ""
-"Die Vielfachen einer Zahl sind alle Zahlen, die einer beliebigen Anzahl der Zahl entsprechen. Zum Beispiel sind 24, 36, 48 und 60 Vielfache von 12. Jedoch ist 25 kein Vielfaches von 12, da es keine ganze Zahl gibt, mit der man 12 multiplizieren kann, um auf 25 zu kommen. Wenn eine Zahl ein Faktor einer anderen Zahl ist, so ist die andere Zahl ein Vielfaches der ersten Zahl.\n"
-"Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+"Die Vielfachen einer Zahl sind alle Zahlen, die einer beliebigen Anzahl der "
+"Zahl entsprechen. Zum Beispiel sind 24, 36, 48 und 60 Vielfache von 12. "
+"Jedoch ist 25 kein Vielfaches von 12, da es keine ganze Zahl gibt, mit der "
+"man 12 multiplizieren kann, um auf 25 zu kommen. Wenn eine Zahl ein Faktor "
+"einer anderen Zahl ist, so ist die andere Zahl ein Vielfaches der ersten "
+"Zahl.\n"
+"Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
+"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -1706,12 +1724,14 @@ msgid ""
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
 msgstr ""
-"Primzahlen sind Zahlen, die nur durch sich selbst und 1 teilbar sind. Zum Beispiel ist 3 eine Primzahl, jedoch 4 nicht (weil 4 durch 2 teilbar ist).\n"
-"Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+"Primzahlen sind Zahlen, die nur durch sich selbst und 1 teilbar sind. Zum "
+"Beispiel ist 3 eine Primzahl, jedoch 4 nicht (weil 4 durch 2 teilbar ist).\n"
+"Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
+"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
-msgstr "Zu den Zahlenmapfer-Tafeln"
+msgstr "Zu den Zahlenmampfer-Tafeln"
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -1727,7 +1747,7 @@ msgstr ""
 
 #: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
-msgstr "Baue den gegebenen Turm nach"
+msgstr "Baue den gegebenen Turm nach."
 
 #: ../boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
@@ -1739,7 +1759,7 @@ msgstr "Einfache Türme von Hanoi"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr "Finde die Erdbeere durch Anklicken der blauen Felder"
+msgstr "Finde die Erdbeere durch Anklicken der blauen Felder."
 
 #: ../boards/hexagon.xml.in.h:4
 msgid ""
@@ -1759,7 +1779,7 @@ msgstr "Klicke auf das zum Bild gehörende Wort"
 
 #: ../boards/imageid.xml.in.h:2
 msgid "Practice reading by finding the word matching an image"
-msgstr "Finde das zu einem Bild gehörende Wort"
+msgstr "Finde das zu einem Bild gehörende Wort."
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
@@ -1873,7 +1893,7 @@ msgstr "Schulranzen"
 #: ../boards/imagename/board5_0.xml.in.h:1
 #: ../boards/imagename/board6_0.xml.in.h:1
 msgid "Drag and Drop the items above their written name"
-msgstr "Lege die Bilder zu ihren Namenswörtern"
+msgstr "Lege die Bilder zu ihren Namenswörtern."
 
 #: ../boards/imagename.xml.in.h:2
 msgid ""
@@ -2013,7 +2033,7 @@ msgstr ""
 
 #: ../boards/leftright.xml.in.h:2
 msgid "Determine if a hand is a right or left hand"
-msgstr "Erkenne rechte und linke Hände"
+msgstr "Erkenne rechte und linke Hände."
 
 #: ../boards/leftright.xml.in.h:3
 msgid ""
@@ -2038,7 +2058,7 @@ msgstr "Kann die Tastaturpfeile benutzen, um ein Objekt zu bewegen."
 
 #: ../boards/maze.xml.in.h:2 ../src/boards/maze.c:133
 msgid "Find your way out of the maze"
-msgstr "Finde Deinen Weg aus dem Labyrinth"
+msgstr "Finde Deinen Weg aus dem Labyrinth."
 
 #: ../boards/maze.xml.in.h:3 ../boards/maze2DRelative.xml.in.h:3
 #: ../boards/maze3D.xml.in.h:4 ../boards/mazeInvisible.xml.in.h:3
@@ -2056,14 +2076,17 @@ msgstr "Verwende die Tastaturpfeile um Tux zur Tür zu leiten."
 
 #: ../boards/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
-msgstr "Finde Deinen Weg aus dem Labyrinth (Bewegung ist relativ)"
+msgstr "Finde Deinen Weg aus dem Labyrinth (Bewegung ist relativ)."
 
 #: ../boards/maze2DRelative.xml.in.h:5
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
 "is relative (first person). Use the up arrow to go forward. The other arrow "
 "let you turn Tux in another direction."
-msgstr "Benutze die Pfeiltasten, um Tux zur Tür zu leiten. In diesem Labyrinth ist die Bewegung relativ zu Tux. Verwende den Hoch-Pfeil, um vorwärts zu laufen. Mit den  anderen Pfeilen kannst Du Tux in eine andere Richtung drehen."
+msgstr ""
+"Benutze die Pfeiltasten, um Tux zur Tür zu leiten. In diesem Labyrinth ist "
+"die Bewegung relativ zu Tux. Verwende den Hoch-Pfeil, um vorwärts zu laufen. "
+"Mit den  anderen Pfeilen kannst Du Tux in eine andere Richtung drehen."
 
 #: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2071,7 +2094,7 @@ msgstr "3D Labyrinth"
 
 #: ../boards/maze3D.xml.in.h:3
 msgid "Find your way out of the 3D maze"
-msgstr "Finde Deinen Weg aus dem 3D Labyrinth"
+msgstr "Finde Deinen Weg aus dem 3D Labyrinth."
 
 #: ../boards/maze3D.xml.in.h:5
 msgid ""
@@ -2086,7 +2109,7 @@ msgstr ""
 
 #: ../boards/mazeInvisible.xml.in.h:2
 msgid "Find your way out of the invisible maze"
-msgstr "Finde Deinen Weg aus dem unsichtbaren Labyrinth"
+msgstr "Finde Deinen Weg aus dem unsichtbaren Labyrinth."
 
 #: ../boards/mazeInvisible.xml.in.h:5
 msgid ""
@@ -2101,11 +2124,11 @@ msgstr ""
 
 #: ../boards/mazeMenu.xml.in.h:1
 msgid "Find your way out different type of mazes"
-msgstr "Finde Deinen Weg aus verschiedenen Labyrinthen"
+msgstr "Finde Deinen Weg aus verschiedenen Labyrinthen."
 
 #: ../boards/mazeMenu.xml.in.h:2
 msgid "Go to Maze activities"
-msgstr "Gehe zu dem Labyrinthen"
+msgstr "Gehe zu den Labyrinthen"
 
 #: ../boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2126,7 +2149,7 @@ msgstr "Melodie"
 
 #: ../boards/melody.xml.in.h:5
 msgid "Repeat a melody"
-msgstr "Wiederhole eine Melodie"
+msgstr "Wiederhole eine Melodie."
 
 #: ../boards/memory.xml.in.h:1
 msgid ""
@@ -2146,7 +2169,7 @@ msgstr ""
 
 #: ../boards/memory.xml.in.h:2
 msgid "Discover the cards and find a matching pair"
-msgstr "Drehe immer zwei Bilder um und finde die Paare heraus"
+msgstr "Drehe immer zwei Bilder um und finde die Paare heraus."
 
 #: ../boards/memory.xml.in.h:3
 msgid "Memory Game with images"
@@ -2224,7 +2247,7 @@ msgstr ""
 
 #: ../boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
-msgstr "Ergänze den fehlenden Buchstaben"
+msgstr "Ergänze den fehlenden Buchstaben."
 
 #: ../boards/missing_letter.xml.in.h:3
 msgid "Missing Letter"
@@ -2402,7 +2425,7 @@ msgstr "Geld"
 
 #: ../boards/money.xml.in.h:4
 msgid "Practice money usage"
-msgstr "Übe die Verwendung von Geld"
+msgstr "Übe die Verwendung von Geld."
 
 #: ../boards/money.xml.in.h:5 ../boards/money_cents.xml.in.h:5
 msgid ""
@@ -2415,7 +2438,7 @@ msgstr ""
 
 #: ../boards/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
-msgstr "Übe die Verwendung von Geld inklusive Cents"
+msgstr "Übe die Verwendung von Geld inklusive Cents."
 
 #: ../boards/mouse.xml.in.h:2
 msgid "Mouse manipulation boards"
@@ -2423,7 +2446,7 @@ msgstr "Tafeln zur Maus-Handhabung"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Füge die Teile zu den Originalgemälden zusammen"
+msgstr "Füge die Teile zu den Originalgemälden zusammen."
 
 #: ../boards/paintings.xml.in.h:2
 msgid ""
@@ -2477,7 +2500,7 @@ msgstr "Vincent Van Gogh, Village Street in Auvers - 1890"
 
 #: ../boards/paratrooper.xml.in.h:1
 msgid "Help Tux the parachuter land safely"
-msgstr "Hilf Tux dem Fallschirmspringer sicher zu landen"
+msgstr "Hilf Tux dem Fallschirmspringer sicher zu landen."
 
 #: ../boards/paratrooper.xml.in.h:2
 msgid ""
@@ -2508,7 +2531,7 @@ msgstr ""
 
 #: ../boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Bewege den Hubschrauber um die Wolken in der richtigen Reihenfolge zu treffen"
+msgstr "Bewege den Hubschrauber, um die Wolken in der richtigen Reihenfolge zu treffen."
 
 #: ../boards/planegame.xml.in.h:2
 msgid "Number"
@@ -2649,7 +2672,7 @@ msgstr "Horizontale Leseübung"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and tell if a given word is in it"
-msgstr "Lies eine Liste von Wörtern und sag, ob das gesuchte Wort darin vorkommt"
+msgstr "Lies eine Liste von Wörtern und sag, ob das gesuchte Wort darin vorkommt."
 
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -2659,7 +2682,7 @@ msgstr "Lesetraining in begrenzter Zeit"
 msgid "Read a vertical list of words and tell if a given word is in it"
 msgstr ""
 "Lies eine vertikale Liste von Wörtern und sag, ob das gesuchte Wort darin "
-"vorkommt"
+"vorkommt."
 
 #: ../boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
@@ -2797,7 +2820,7 @@ msgstr "Finde die passenden Gewichte um die Seiten der Waage auszugleichen"
 
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to balance the scales"
-msgstr "Stelle Gewichte zusammen, um die Seiten einer Waage auszugleichen"
+msgstr "Stelle Gewichte zusammen, um die Seiten einer Waage auszugleichen."
 
 #: ../boards/scalesboard.xml.in.h:2
 msgid "Mental calculation, arithmetic equality"
@@ -2828,7 +2851,7 @@ msgstr "Waage"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Zähle die Punkte auf den Würfeln bevor sie den Boden erreichen"
+msgstr "Zähle die Punkte auf den Würfeln, bevor sie den Boden erreichen."
 
 #: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
@@ -2874,7 +2897,7 @@ msgstr "Steuere ein U-Boot"
 
 #: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
-msgstr "Steuere ein U-Boot mit Hilfe von Lufttanks und Tauchrudern"
+msgstr "Steuere ein U-Boot mit Hilfe von Lufttanks und Tauchrudern."
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -2892,9 +2915,9 @@ msgstr ""
 "richtig ausgewählt hast, so erscheint dafür neben Deiner Farbkombination ein "
 "weißer Punkt. Hast Du die Farbe sogar an der richtigen Stelle plaziert, "
 "erscheint ein schwarzer Punkt. In den einfachen Spielebenen wird sogar "
-"innerhalb deiner Farbkombination angezeigt, welche Farben Du richtig hattest. "
-"Später wird es dann schwieriger, dann musst Du nämlich mit Hilfe der "
-"vergebenen schwarzen und weißen Punkten kombinieren können, um auf die "
+"innerhalb deiner Farbkombination angezeigt, welche Farben Du richtig "
+"hattest. Später wird es dann schwieriger, dann musst Du nämlich mit Hilfe "
+"der vergebenen schwarzen und weißen Punkten kombinieren können, um auf die "
 "richtigen Farben zu kommen!"
 
 #: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
@@ -2936,7 +2959,7 @@ msgstr "Wirf Dartpfeile auf eine Zielscheibe und zähle Deine Punkte."
 
 #: ../boards/target.xml.in.h:5 ../src/boards/target.c:123
 msgid "Touch the target and count the points"
-msgstr "Berühre die Zielscheibe und zähle die Punkte"
+msgstr "Berühre die Zielscheibe und zähle die Punkte."
 
 #: ../boards/traffic.xml.in.h:1 ../src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
@@ -2944,7 +2967,7 @@ msgstr "Ein Schiebe-Puzzle"
 
 #: ../boards/traffic.xml.in.h:2
 msgid "Remove all the red cars from the grid through the slot on the right"
-msgstr "Entferne den roten Balken aus dem Gitter durch die rechte Öffnung"
+msgstr "Entferne den roten Balken aus dem Gitter durch die rechte Öffnung."
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -2980,11 +3003,11 @@ msgstr "Tastatur-Training"
 
 #: ../boards/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr "Gib das vollständige Wort ein während es fäll, bevor es den Boden erreicht"
+msgstr "Gib das vollständige Wort ein während es fäll, bevor es den Boden erreicht."
 
 #: ../boards/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
-msgstr "Gib die fallenden Wörter ein, bevor sie den Boden erreichen"
+msgstr "Gib die fallenden Wörter ein, bevor sie den Boden erreichen."
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Editor for gcompris"
@@ -3005,8 +3028,8 @@ msgstr "Mehrere Aktivitäten für Kinder"
 #: ../src/boards/advanced_colors.c:531 ../src/boards/imageid.c:600
 #: ../src/boards/missingletter.c:604 ../src/boards/read_colors.c:489
 #: ../src/boards/shapegame.c:1876 ../src/gcompris/file_selector.c:926
-#: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:561
-#: ../src/gcompris/gameutil.c:562 ../src/gcompris/gcompris.c:517
+#: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:551
+#: ../src/gcompris/gameutil.c:552 ../src/gcompris/gcompris.c:525
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -3486,11 +3509,11 @@ msgstr "Klicke auf die richtige Farbe"
 
 #: ../src/boards/reading.c:108
 msgid "Read a list of words and then tell if the given word is in it"
-msgstr "Lies eine Liste von Wörtern und sag mir, ob das gesuchte Wort vorkommt"
+msgstr "Lies eine Liste von Wörtern und sag dann, ob das gesuchte Wort darin vorkommt."
 
 #: ../src/boards/reading.c:335
 msgid "Please, check if the word"
-msgstr "Bitte sag mir, ob das Wort"
+msgstr "Gib bitte an, ob das Wort"
 
 #: ../src/boards/reading.c:355
 msgid "is being displayed"
@@ -3638,7 +3661,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:986 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:1045 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3925,72 +3948,74 @@ msgstr ""
 "Beende und berichte\n"
 "den Autoren über das Problem."
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris in fullscreen mode."
 msgstr "GCompris im Vollbildmodus ausführen"
 
-#: ../src/gcompris/gcompris.c:100
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris in window mode."
 msgstr "GCompris im Fenstermodus ausführen"
 
-#: ../src/gcompris/gcompris.c:102
+#: ../src/gcompris/gcompris.c:105
 msgid "run gcompris with sound enabled."
 msgstr "GCompris mit Klängen ausführen"
 
-#: ../src/gcompris/gcompris.c:104
+#: ../src/gcompris/gcompris.c:107
 msgid "run gcompris without sound."
 msgstr "GCompris ohne Klänge ausführen"
 
-#: ../src/gcompris/gcompris.c:106
+#: ../src/gcompris/gcompris.c:109
 msgid "run gcompris with the default gnome cursor."
 msgstr "GCompris mit dem voreingestellten Gnome-Mauszeiger ausführen"
 
-#: ../src/gcompris/gcompris.c:108
+#: ../src/gcompris/gcompris.c:111
 msgid "display only activities with this difficulty level."
 msgstr "zeige nur Aktivitäten mit dieser Schwierigkeitsstufe an"
 
-#: ../src/gcompris/gcompris.c:110
+#: ../src/gcompris/gcompris.c:113
 msgid "display debug informations on the console."
 msgstr "gib Debug-Informationen auf der Konsole aus"
 
-#: ../src/gcompris/gcompris.c:112
+#: ../src/gcompris/gcompris.c:115
 msgid "Print the version of "
 msgstr "Ausgabe der Version von "
 
-#: ../src/gcompris/gcompris.c:114
+#: ../src/gcompris/gcompris.c:117
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
-#: ../src/gcompris/gcompris.c:116
+#: ../src/gcompris/gcompris.c:119
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR deaktivieren (Keine Auflösungsänderung)."
 
-#: ../src/gcompris/gcompris.c:118
+#: ../src/gcompris/gcompris.c:121
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
 "show the list of menus and activity"
 msgstr ""
 "GCompris mit lokalem Menü (z.B. -l /reading öffnet nur Lese-Aktivitäten, -l /"
-"boards/connect4 öffnet nur die Connect4-Tafel), -l list zeigt die Liste der Menüs und Aktivitäten"
+"boards/connect4 öffnet nur die Connect4-Tafel), -l list zeigt die Liste der "
+"Menüs und Aktivitäten"
 
-#: ../src/gcompris/gcompris.c:120
+#: ../src/gcompris/gcompris.c:123
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "GCompris mit lokalem Aktivitäten-Verzeichnis im Menü"
 
-#: ../src/gcompris/gcompris.c:123
+#: ../src/gcompris/gcompris.c:126
 msgid "Run gcompris with administration and users management mode"
 msgstr "GCompris im Administrator/Nutzerverwaltungs-Modus ausführen"
 
-#: ../src/gcompris/gcompris.c:125 ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:128 ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:134
 msgid "Use alternate database for profils"
 msgstr "Wechselnde Datenbanken für Profile verwenden"
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:130
 msgid "Use alternate database for logs"
 msgstr "Wechselnde Datenbanken für Log verwenden"
 
-#: ../src/gcompris/gcompris.c:629
+#: ../src/gcompris/gcompris.c:656
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4013,7 +4038,7 @@ msgstr ""
 "Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:881
+#: ../src/gcompris/gcompris.c:914
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4027,12 +4052,12 @@ msgstr ""
 "Mehr Informationen unter http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:949
+#: ../src/gcompris/gcompris.c:982
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Verwenden Sie -l Aktivität, um direkt auf die Aktivität zuzugreifen.\n"
 
-#: ../src/gcompris/gcompris.c:950
+#: ../src/gcompris/gcompris.c:983
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Liste der verfügbaren Aktivitäten:\n"
