@@ -1,75 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ShapeGame>
-    <Title x="200" y="45" justification="GTK_JUSTIFY_CENTER">
-         <_name>Regions of France</_name>
+    <Title x="190" y="500" justification="GTK_JUSTIFY_CENTER">
+         <_name>North of Africa</_name>
     </Title>
 
-<Shape name="A" pixmapfile="geography/france_region/alsace.png" sound="france_region/alsace" x="585" y="149" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Alsace</tooltip>
+<Shape name="A" pixmapfile="geography/africa/algeria.png" sound="africa/algeria" x="286" y="150" position="0">
+	<tooltip>Algeria</tooltip>
 </Shape>
-<Shape name="B" pixmapfile="geography/france_region/aquitaine.png" sound="france_region/aquitaine" x="317" y="371" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Aquitaine</tooltip>
+
+<Shape name="B" pixmapfile="geography/africa/benin.png" sound="africa/benin" x="275" y="341" position="0">
+	<tooltip>Benin</tooltip>
 </Shape>
-<Shape name="C" pixmapfile="geography/france_region/auvergne.png" sound="france_region/auvergne" x="443" y="293" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Auvergne</tooltip>
+
+<Shape name="C" pixmapfile="geography/africa/burkina_faso.png" sound="africa/burkina_faso" x="236" y="310" position="0">
+	<tooltip>Burkina Faso</tooltip>
 </Shape>
-<Shape name="D" pixmapfile="geography/france_region/basse-normandie.png" sound="france_region/basse-normandie" x="315" y="115" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Basse Normandie</tooltip>
+
+<Shape name="D" pixmapfile="geography/africa/cameroon.png" sound="africa/cameroon" x="383" y="377" position="0">
+	<tooltip>Cameroon</tooltip>
 </Shape>
-<Shape name="E" pixmapfile="geography/france_region/bourgogne.png" sound="france_region/bourgogne" x="473" y="207" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Bourgogne</tooltip>
+
+<Shape name="E" pixmapfile="geography/africa/central_african_republic.png" sound="africa/central_african_republic" x="465" y="370" position="0">
+	<tooltip>Central African Republic</tooltip>
 </Shape>
-<Shape name="F" pixmapfile="geography/france_region/bretagne.png" sound="france_region/bretagne" x="226" y="158" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Bretagne</tooltip>
+
+<Shape name="F" pixmapfile="geography/africa/chad.png" sound="africa/chad" x="446" y="281" position="0">
+	<tooltip>Chad</tooltip>
 </Shape>
-<Shape name="G" pixmapfile="geography/france_region/centre.png" sound="france_region/centre" x="383" y="188" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Centre</tooltip>
+
+<Shape name="G" pixmapfile="geography/africa/djibouti.png" sound="africa/djibouti" x="684" y="324" position="0">
+	<tooltip>Djibouti</tooltip>
 </Shape>
-<Shape name="H" pixmapfile="geography/france_region/champagne-ardenne.png" sound="france_region/champagne-ardenne" x="487" y="120" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Champagne Ardenne</tooltip>
+
+<Shape name="H" pixmapfile="geography/africa/egypt.png" sound="africa/egypt" x="559" y="164" position="0">
+	<tooltip>Egypt</tooltip>
 </Shape>
-<Shape name="I" pixmapfile="geography/france_region/corse.png" sound="france_region/corse" x="662" y="472" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Corse</tooltip>
+
+<Shape name="I" pixmapfile="geography/africa/equatorial_guinea.png" sound="africa/equatorial_guinea" x="373" y="436" position="0">
+	<tooltip>Equatorial Guinea</tooltip>
 </Shape>
-<Shape name="J" pixmapfile="geography/france_region/franche-conte.png" sound="france_region/franche-conte" x="542" y="212" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Franche Conté</tooltip>
+
+<Shape name="J" pixmapfile="geography/africa/ethiopia.png" sound="africa/ethiopia" x="662" y="338" position="0">
+	<tooltip>Ethiopia</tooltip>
 </Shape>
-<Shape name="K" pixmapfile="geography/france_region/haute-normandie.png" sound="france_region/haute-normandie" x="363" y="95" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Normandie</tooltip>
+
+<Shape name="K" pixmapfile="geography/africa/gabon.png" sound="africa/gabon" x="388" y="462" position="0">
+	<tooltip>Gabon</tooltip>
 </Shape>
-<Shape name="L" pixmapfile="geography/france_region/ile-de-france.png" sound="france_region/ile-de-france" x="415" y="132" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Ile de France</tooltip>
+
+<Shape name="L" pixmapfile="geography/africa/ganbia.png" sound="africa/ganbia" x="101" y="290" position="0">
+	<tooltip>Ganbia</tooltip>
 </Shape>
-<Shape name="M" pixmapfile="geography/france_region/languedoc-roussillon.png" sound="france_region/languedoc-roussillon" x="443" y="404" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Languedoc Roussillon</tooltip>
+
+<Shape name="M" pixmapfile="geography/africa/ghana.png" sound="africa/ghana" x="237" y="355" position="0">
+	<tooltip>Ghana</tooltip>
 </Shape>
-<Shape name="N" pixmapfile="geography/france_region/limousin.png" sound="france_region/limousin" x="384" y="294" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Limousin</tooltip>
+
+<Shape name="N" pixmapfile="geography/africa/guinea_bissau.png" sound="africa/guinea_bissau" x="103" y="306" position="0">
+	<tooltip>Guinea Bissau</tooltip>
 </Shape>
-<Shape name="O" pixmapfile="geography/france_region/lorraine.png" sound="france_region/lorraine" x="540" y="127" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Lorraine</tooltip>
+
+<Shape name="O" pixmapfile="geography/africa/guinea.png" sound="africa/guinea" x="137" y="325" position="0">
+	<tooltip>Guinea</tooltip>
 </Shape>
-<Shape name="P" pixmapfile="geography/france_region/midi-pyrenees.png" sound="france_region/midi-pyrenees" x="380" y="396" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Midi Pyrénées</tooltip>
+
+<Shape name="P" pixmapfile="geography/africa/ivory_coast.png" sound="africa/ivory_coast" x="192" y="356" position="0">
+	<tooltip>Ivory Coast</tooltip>
 </Shape>
-<Shape name="Q" pixmapfile="geography/france_region/nord-pas-de-calais.png" sound="france_region/nord-pas-de-calais" x="427" y="33" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Nord Pas de Calais</tooltip>
+
+<Shape name="Q" pixmapfile="geography/africa/liberia.png" sound="africa/liberia" x="152" y="366" position="0">
+	<tooltip>Liberia</tooltip>
 </Shape>
-<Shape name="R" pixmapfile="geography/france_region/pays-de-la-loire.png" sound="france_region/pays-de-la-loire" x="300" y="199" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Pays de la Loire</tooltip>
+
+<Shape name="R" pixmapfile="geography/africa/libya.png" sound="africa/libya" x="432" y="173" position="0">
+	<tooltip>Libya</tooltip>
 </Shape>
-<Shape name="S" pixmapfile="geography/france_region/picardie.png" sound="france_region/picardie" x="424" y="83" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Picardie</tooltip>
+
+<Shape name="S" pixmapfile="geography/africa/mali.png" sound="africa/mali" x="219" y="250" position="0">
+	<tooltip>Mali</tooltip>
 </Shape>
-<Shape name="T" pixmapfile="geography/france_region/poitou-charentes.png" sound="france_region/poitou-charentes" x="321" y="269" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Poitou Charentes</tooltip>
+
+<Shape name="T" pixmapfile="geography/africa/mauritania.png" sound="africa/mauritania" x="161" y="211" position="0">
+	<tooltip>Mauritania</tooltip>
 </Shape>
-<Shape name="U" pixmapfile="geography/france_region/provence-alpes-cote_d_azur.png" sound="france_region/provence-alpes-cote_d_azur" x="543" y="379" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Provence Alpes Côte d'Azur</tooltip>
+
+<Shape name="U" pixmapfile="geography/africa/moroco.png" sound="africa/moroco" x="212" y="101" position="0">
+	<tooltip>Moroco</tooltip>
 </Shape>
-<Shape name="V" pixmapfile="geography/france_region/rhone-alpes.png" sound="france_region/rhone-alpes" x="520" y="312" zoomx="0.660000" zoomy="0.660000" position="0">
-	<tooltip>Rhône Alpes</tooltip>
+
+<Shape name="V" pixmapfile="geography/africa/nigeria.png" sound="africa/nigeria" x="341" y="344" position="0">
+	<tooltip>Nigeria</tooltip>
 </Shape>
-<Shape name="1" pixmapfile="geography/france_region/france-regions.png" type="SHAPE_BACKGROUND" sound="Undefined" x="420" y="260" zoomx="0.660000" zoomy="0.660000" position="0"/>
+
+<Shape name="W" pixmapfile="geography/africa/niger.png" sound="africa/niger" x="338" y="256" position="0">
+	<tooltip>Niger</tooltip>
+</Shape>
+
+<Shape name="X" pixmapfile="geography/africa/rwanda.png" sound="africa/rwanda" x="565" y="474" position="0">
+	<tooltip>Rwanda</tooltip>
+</Shape>
+
+<Shape name="Y" pixmapfile="geography/africa/senegal.png" sound="africa/senegal" x="106" y="277" position="0">
+	<tooltip>Senegal</tooltip>
+</Shape>
+
+<Shape name="Z" pixmapfile="geography/africa/sierra_leone.png" sound="africa/sierra_leone" x="133" y="340" position="0">
+	<tooltip>Sierra Leone</tooltip>
+</Shape>
+
+<Shape name="AA" pixmapfile="geography/africa/somalia.png" sound="africa/somalia" x="720" y="396" position="0">
+	<tooltip>Somalia</tooltip>
+</Shape>
+
+<Shape name="AB" pixmapfile="geography/africa/sudan.png" sound="africa/sudan" x="557" y="306" position="0">
+	<tooltip>Sudan</tooltip>
+</Shape>
+
+<Shape name="AC" pixmapfile="geography/africa/togo.png" sound="africa/togo" x="258" y="348" position="0">
+	<tooltip>Togo</tooltip>
+</Shape>
+
+<Shape name="AD" pixmapfile="geography/africa/tunisia.png" sound="africa/tunisia" x="367" y="92" position="0">
+	<tooltip>Tunisia</tooltip>
+</Shape>
+
+<Shape name="AE" pixmapfile="geography/africa/uganda.png" sound="africa/uganda" x="587" y="436" position="0">
+	<tooltip>Uganda</tooltip>
+</Shape>
+
+<Shape name="AF" pixmapfile="geography/africa/western_sahara.png" sound="africa/western_sahara" x="148" y="170" position="0">
+	<tooltip>Western Sahara</tooltip>
+</Shape>
+
+<Shape name="1" pixmapfile="geography/africa/north_africa.png" type="SHAPE_BACKGROUND" sound="Undefined" x="420" y="260" position="0"/>
 </ShapeGame>

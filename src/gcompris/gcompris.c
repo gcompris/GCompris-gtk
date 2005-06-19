@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/16 08:42:12 yves>
+ * Time-stamp: <2005/06/19 18:17:03 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -129,9 +129,9 @@ static struct poptOption options[] = {
   {"logs", 'j', POPT_ARG_STRING, &popt_logs_database, 0,
    N_("Use alternate database for logs"), NULL},
   {"create-db",'\0', POPT_ARG_NONE, &popt_create_db, 0,
-   N_("Use alternate database for profils"), NULL},
+   N_("Create the alternate database for profils"), NULL},
   {"reread-xml",'\0', POPT_ARG_NONE, &popt_reread_xml, 0,
-   N_("Use alternate database for profils"), NULL},
+   N_("Re-read XML Menus and store them in the database"), NULL},
 #endif
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP

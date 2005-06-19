@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/04/27 22:16:21 bruno>
+ * Time-stamp: <2005/06/19 02:11:47 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1666,7 +1666,7 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
 
       for(i=0; i<j; i++)
 	{
-	  points->coords[i] = atof(d[i]);
+	  points->coords[i] = g_ascii_strtod(d[i], NULL);
 	}
       g_strfreev(d);
     }
@@ -1674,12 +1674,12 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   /* get the X coord of the shape */
   cx = xmlGetProp(xmlnode,"x");
   if(!cx) cx = "100";
-  x = atof(cx);
+  x = g_ascii_strtod(cx, NULL);
 
   /* get the Y coord of the shape */
   cy = xmlGetProp(xmlnode,"y");
   if(!cy) cy = "100";
-  y = atof(cy);
+  y = g_ascii_strtod(cy, NULL);
 
   /* Back up the current locale to be sure to load well C formated numbers */
   locale = g_strdup(gcompris_get_locale());
@@ -1688,12 +1688,12 @@ add_xml_shape_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child)
   /* get the ZOOMX coord of the shape */
   czoomx = xmlGetProp(xmlnode,"zoomx");
   if(!czoomx) czoomx = "1";
-  zoomx = atof(czoomx);
+  zoomx = g_ascii_strtod(czoomx, NULL);
 
   /* get the ZOOMY coord of the shape */
   czoomy = xmlGetProp(xmlnode,"zoomy");
   if(!czoomy) czoomy = "1";
-  zoomy = atof(czoomy);
+  zoomy = g_ascii_strtod(czoomy, NULL);
 
   /* get the POSITION of the shape */
   /* Position in the xml means:
@@ -1911,7 +1911,7 @@ read_xml_file(char *fname)
   if(!tmpstr) 
       shapeBox.x = 15;
   else
-      shapeBox.x = atof(tmpstr);
+    shapeBox.x = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.x=%f\n", shapeBox.x);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_y");
@@ -1919,7 +1919,7 @@ read_xml_file(char *fname)
   if(!tmpstr) 
       shapeBox.y = 25;
   else
-      shapeBox.y = atof(tmpstr);
+    shapeBox.y = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.y=%f\n", shapeBox.y);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_w");
@@ -1927,7 +1927,7 @@ read_xml_file(char *fname)
   if(!tmpstr) 
       shapeBox.w = 80;
   else
-      shapeBox.w = atof(tmpstr);
+    shapeBox.w = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.w=%f\n", shapeBox.w);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_h");
@@ -1935,7 +1935,7 @@ read_xml_file(char *fname)
   if(!tmpstr) 
       shapeBox.h = 430;
   else
-      shapeBox.h = atof(tmpstr);
+    shapeBox.h = g_ascii_strtod(tmpstr, NULL);
   g_warning("shapeBox.h=%f\n", shapeBox.h);
 
   tmpstr = xmlGetProp(doc->children,"shapebox_nb_shape_x");

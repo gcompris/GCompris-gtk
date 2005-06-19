@@ -618,29 +618,23 @@ echo "***************************************************"
 echo ""
 echo configure complete,
 echo with options:
-echo "python plugins = $build_python_plugin"
-echo "gcompris edit  = $build_gcompris_edit"
+
+echo "Force python (--enable-py-build-only)    = $py_build_only"
+echo "Python plugin                            = $build_python_plugin"
+
+echo "Optional menu edition (--with-editor)    = $build_gcompris_edit"
 
 if test -x "${SDL_LIBS}"; then
-echo "SDL LIBS       = NOT DETECTED (install sdl-devel)"
+echo "SDL LIBS  (--with-sdl-prefix)            = NOT DETECTED (install sdl-devel)"
 else
-echo "SDL LIBS       = FOUND"
+echo "SDL LIBS                                 = found"
 fi
 
-echo ""
-if test "x$found_randr" = "xno"; then
-echo "XRANDR option  = NO"
-else
-echo "XRANDR option  = YES"
-fi
+echo "XRANDR option  (--enable-xrandr)         = $found_randr"
 
-echo ""
-if test "x$use_profils" = "xyes"; then
-echo "USE_PROFILS option  = YES"
-else
-echo "USE_PROFILS option  = NO"
-fi
+echo "Profile system (--enable-profils)        = $use_profils"
 
+echo
 echo gcompris will be installed in ${prefix}
 echo to compile and install in in another directory
 echo type sh configure --prefix=/usr

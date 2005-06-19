@@ -81,9 +81,6 @@ faut vider le tampon du clavier au début du tableau)
 
 - dans le tableau des correspondances :
 
- + si on valide le tableau et que les correspondances sont mauvaises,
- on n'a pas de message d'erreur comme dans les autres tableaux
-
  + après ça, si tu laches un objet sur un autre déja posé (pour
  écahnger, donc), ce dernier disparait du tableau (sournoisement me
  dit-on ;)
@@ -111,12 +108,13 @@ in this profile. No passwords are managed.
 gcompris_edit, gcompris_edit is deleted).
 - There is always at least one profile ('default' by default).
 
-The trace mecanism includes the profil (default is none selected) andhe gcompris kids name instead of the unix user name if available.
+The trace mecanism includes the profil (default is none selected) and
+the gcompris kids name instead of the unix user name if available.
 
 when gcompris -e is run, if an activities is editable, the edit button
 in the gcompris bar will apprear.
 Each activity is in charge of editing its content. it's content is
-always savedn .gcompris/activities_data/<activity_name>/<profile>/<board specific
+always saved in .gcompris/activities_data/<activity_name>/<profile>/<board specific
 here>
 GCompris core provides facilities to the edition. The first facility to
 be implemented is to edit text. in the api, we provideompris_edit("some explanation", validator_callback).

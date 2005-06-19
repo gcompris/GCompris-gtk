@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/16 22:39:20 yves>
+ * Time-stamp: <2005/06/18 18:08:20 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1108,9 +1108,8 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
       break;
     case GDK_BUTTON_PRESS:
       if(rootDialogItem)
-	gtk_object_destroy(GTK_OBJECT(rootDialogItem));
-      rootDialogItem = NULL;
-      
+	gcompris_dialog_close();
+
       /* restart the board */
       if(gcomprisBoard->plugin->pause_board != NULL)
 	gcomprisBoard->plugin->pause_board(FALSE);
