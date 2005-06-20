@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-15 19:02+0000\n"
-"PO-Revision-Date: 2005-06-16 00:08+0200\n"
+"POT-Creation-Date: 2005-06-20 11:04+0000\n"
+"PO-Revision-Date: 2005-06-20 17:02+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -642,19 +642,21 @@ msgstr "Omgaan met de muis"
 
 #: ../boards/billard.xml.in.h:2
 msgid ""
-"Point and click on the ball to set the speed and direction of the ball. The "
-"closer you click to the center, the slower the ball moves."
-msgstr ""
-"Klik op de bal om snelheid en richting aan te geven. Hoe meer je in het "
-"centrum klikt, hoe langzamer de bal."
+"Point and click on the ball to set its speed and direction. The closer you "
+"click to the center, the slower the ball moves."
+msgstr "Klik op de bal om snelheid en richting aan te geven. Hoe meer je in het centrum klikt, hoe langzamer de bal beweegt."
 
 #: ../boards/billard.xml.in.h:3
-msgid "Shoot the ball into the hole"
-msgstr "Stoot de bal in het gat"
+msgid "Put the ball into the black hole on the right"
+msgstr "Stoot de bal in het zwarte gat aan de rechterkant"
 
 #: ../boards/billard.xml.in.h:4
-msgid "The game of billiards"
-msgstr "Het biljartspel"
+msgid "Put the ball into the goal"
+msgstr "Stoot de bal in het doel"
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "Het voetbalspel"
 
 #: ../boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -1154,7 +1156,7 @@ msgid "Motor coordination"
 msgstr "Bewegings-coördinatie"
 
 #: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
-#: ../src/boards/machpuzzle.c:87
+#: ../src/boards/machpuzzle.c:93
 msgid "Move the mouse"
 msgstr "Beweeg de muis"
 
@@ -1568,6 +1570,14 @@ msgid "Ukraine"
 msgstr "Oekraïne"
 
 #: ../boards/geography/board4_0.xml.in.h:1
+msgid "North of Africa"
+msgstr "Noord-Afrika"
+
+#: ../boards/geography/board4_1.xml.in.h:1
+msgid "South of Africa"
+msgstr "Zuid-Afrika"
+
+#: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Franse regios"
 
@@ -2072,7 +2082,7 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
 "is relative (first person). Use the up arrow to go forward. The other arrow "
 "let you turn Tux in another direction."
-msgstr ""
+msgstr "Gebruik de pijltjestoetsen op het toetsenbord om Tux naar de deur te bewegen. In dit doolhof is de beweging relatief (eerste persoon). Gebruik omhoog om naar voren te gaan. De andere pijlen bewegen Tux in een andere richting."
 
 #: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -3011,7 +3021,7 @@ msgstr "Verschillende activiteiten voor kinderen"
 #: ../src/boards/missingletter.c:604 ../src/boards/read_colors.c:489
 #: ../src/boards/shapegame.c:1876 ../src/gcompris/file_selector.c:926
 #: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:551
-#: ../src/gcompris/gameutil.c:552 ../src/gcompris/gcompris.c:517
+#: ../src/gcompris/gameutil.c:552 ../src/gcompris/gcompris.c:525
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -3656,7 +3666,7 @@ msgid "Help"
 msgstr "Hulp"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:999 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:1045 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3949,70 +3959,82 @@ msgstr ""
 "ons het probleem."
 
 # Beter: schermvullend?
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: ../src/gcompris/gcompris.c:100
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: ../src/gcompris/gcompris.c:102
+#: ../src/gcompris/gcompris.c:105
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: ../src/gcompris/gcompris.c:104
+#: ../src/gcompris/gcompris.c:107
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: ../src/gcompris/gcompris.c:106
+#: ../src/gcompris/gcompris.c:109
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: ../src/gcompris/gcompris.c:108
+#: ../src/gcompris/gcompris.c:111
 msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
-#: ../src/gcompris/gcompris.c:110
+#: ../src/gcompris/gcompris.c:113
 msgid "display debug informations on the console."
 msgstr "debug informatie tonen op het console."
 
-#: ../src/gcompris/gcompris.c:112
+#: ../src/gcompris/gcompris.c:115
 msgid "Print the version of "
 msgstr "Toont de versie van "
 
-#: ../src/gcompris/gcompris.c:114
+#: ../src/gcompris/gcompris.c:117
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: ../src/gcompris/gcompris.c:116
+#: ../src/gcompris/gcompris.c:119
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR uitzetten (geen schermresultie verandering)."
 
-#: ../src/gcompris/gcompris.c:118
+#: ../src/gcompris/gcompris.c:121
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
 "show the list of menus and activity"
-msgstr "GCompris uitvoeren met een lokaal menu (bijv. -l /reading <laat u alleen de leesoefeningen doen, -l /boards/connect4 alleen de 'vier-op-een-rij' oefening, -l list toont de lijst met menu's en oefeningen)"
+msgstr ""
+"GCompris uitvoeren met een lokaal menu (bijv. -l /reading <laat u alleen de "
+"leesoefeningen doen, -l /boards/connect4 alleen de 'vier-op-een-rij' "
+"oefening, -l list toont de lijst met menu's en oefeningen)"
 
-#: ../src/gcompris/gcompris.c:120
+#: ../src/gcompris/gcompris.c:123
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "GCompris uitvoeren met lokale activiteitenmap aan het menu toegevoegd."
 
-#: ../src/gcompris/gcompris.c:123
+#: ../src/gcompris/gcompris.c:126
 msgid "Run gcompris with administration and users management mode"
 msgstr "gcompris uitvoeren met beheerdersrechten en in beheersmodus"
 
-#: ../src/gcompris/gcompris.c:125 ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:128
 msgid "Use alternate database for profils"
 msgstr "Alternatieve database gebruiken voor profielen"
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:130
 msgid "Use alternate database for logs"
 msgstr "Alternatieve database gebruiken voor logboeken"
 
-#: ../src/gcompris/gcompris.c:633
+#: ../src/gcompris/gcompris.c:132
+msgid "Create the alternate database for profils"
+msgstr "Alternatieve database aanmaken voor profielen"
+
+# herlezen/opnieuw inlezen
+#: ../src/gcompris/gcompris.c:134
+msgid "Re-read XML Menus and store them in the database"
+msgstr "XML-menus opnieuw inlezen en opslaan in de database"
+
+#: ../src/gcompris/gcompris.c:656
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4036,7 +4058,7 @@ msgstr ""
 "op\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:885
+#: ../src/gcompris/gcompris.c:914
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4051,15 +4073,24 @@ msgstr ""
 "\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:953
+#: ../src/gcompris/gcompris.c:982
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Gebruik -l activity om direct naar een oefening te gaan.\n"
 
-#: ../src/gcompris/gcompris.c:954
+#: ../src/gcompris/gcompris.c:983
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "De lijst met beschikbare oefeningen is:\n"
+
+#: ../src/gcompris/gcompris_db.c:86
+#, c-format
+msgid "Database %s opened"
+msgstr "Database %s geopend"
+
+#: ../src/gcompris/gcompris_db.c:127
+msgid "Database tables created"
+msgstr "Databasetabellen aangemaakt"
 
 #: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:196
 msgid "Prerequisite"
@@ -4167,6 +4198,9 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "The game of billiards"
+#~ msgstr "Het biljartspel"
 
 #~ msgid ""
 #~ "Error: /usr/bin/gnuchessx is installed\n"
