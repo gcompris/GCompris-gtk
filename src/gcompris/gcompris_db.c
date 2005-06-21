@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/16 22:20:11 yves>
+ * Time-stamp: <2005/06/20 22:22:44 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -19,11 +19,12 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <sqlite3.h>
 #include "gcompris.h"
 
+#ifdef USE_SQLITE
 static sqlite3 *gcompris_db=NULL;
 static sqlite3 *gcompris_db_log=NULL;
+#endif
 
 extern GnomeCanvas *canvas;
 
@@ -57,8 +58,9 @@ extern GnomeCanvas *canvas;
 #define CHECK_VERSION \
         "SELECT gcompris_version FROM informations;"
 
-void gcompris_db_init()
+int gcompris_db_init()
 {
+#ifdef USE_SQLITE
   gboolean creation = FALSE;
   char *zErrMsg;
   char **result;
@@ -175,19 +177,27 @@ void gcompris_db_init()
       g_warning("Running GCompris is %s, but databse vrsion is %s", VERSION, result[1]);
     sqlite3_free_table(result);
   }
-  
+
+  return TRUE;
+#else
+  return FALSE;
+#endif
 }
 
 void gcompris_db_exit()
 {
+#ifdef USE_SQLITE
   sqlite3_close(gcompris_db);
   g_warning("Database closed");
+#endif
 }
 
 #define BOARDS_SET_DATE(date) \
         "UPDATE informations SET init_date=\'%s\';",date
+
 void gcompris_db_set_date(gchar *date)
 {
+#ifdef USE_SQLITE
 
   char *zErrMsg;
   char **result;
@@ -212,12 +222,14 @@ void gcompris_db_set_date(gchar *date)
 
     sqlite3_free_table(result);
 
+#endif
 }
 
 #define BOARDS_CHECK \
         "SELECT gcompris_version, init_date FROM informations;"
 gboolean gcompris_db_check_boards()
 {
+#ifdef USE_SQLITE
 
   char *zErrMsg;
   char **result;
@@ -242,6 +254,9 @@ gboolean gcompris_db_check_boards()
     sqlite3_free_table(result);
 
     return ret_value;
+#else
+    return FALSE;
+#endif
 }
 
 
@@ -283,6 +298,8 @@ void gcompris_db_board_update(gint *board_id,
 			      gchar *credit
 			      )
 {
+#ifdef USE_SQLITE
+
   char *zErrMsg;
   char **result;
   int rc;
@@ -388,7 +405,11 @@ void gcompris_db_board_update(gint *board_id,
     sqlite3_free_table(result);
   }
 
-  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit));
+  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, 
+					  author, type, mode, difficulty, icon, boarddir,
+					  mandatory_sound_file, mandatory_sound_dataset, 
+					  filename, title, description, prerequisite, goal, 
+					  manual, credit));
 
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
@@ -406,6 +427,7 @@ void gcompris_db_board_update(gint *board_id,
   
   g_free(request);
  
+#endif
 }
 
 
@@ -414,6 +436,7 @@ void gcompris_db_board_update(gint *board_id,
 
 GList *gcompris_load_menus_db(GList *boards_list)
 {
+#ifdef USE_SQLITE
 
   GcomprisProperties	*properties = gcompris_get_properties();
   
@@ -489,6 +512,9 @@ GList *gcompris_load_menus_db(GList *boards_list)
   
   return boards;
 
+#else
+  return NULL;
+#endif
 }
 
 #define SAVE_USER(user_id, login, name, firstname, birthday, class_id) \
@@ -508,6 +534,7 @@ GList *gcompris_db_read_board_from_section(gchar *section)
 
 GList *gcompris_db_get_board_id(GList *list)
 {
+#ifdef USE_SQLITE
   int *board_id = g_malloc0(sizeof(int));
   
   GList *board_id_list = list;
@@ -543,6 +570,9 @@ GList *gcompris_db_get_board_id(GList *list)
 
   return  board_id_list;
 
+#else
+  return NULL;
+#endif
 }
 
 #define DELETE_BOARD(table, board_id) \
@@ -550,6 +580,7 @@ GList *gcompris_db_get_board_id(GList *list)
 
 void gcompris_db_remove_board(int board_id)
 {
+#ifdef USE_SQLITE
   g_warning("Supress board %d from db.", board_id);
 
   char *zErrMsg;
@@ -612,6 +643,7 @@ void gcompris_db_remove_board(int board_id)
   }
 
   g_free(request);
+#endif
 }
 
 

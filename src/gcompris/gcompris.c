@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/19 18:17:03 bruno>
+ * Time-stamp: <2005/06/20 23:45:43 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -86,13 +86,11 @@ static int popt_debug		   = FALSE;
 static int popt_noxrandr	   = FALSE;
 static char *popt_root_menu        = NULL;
 static char *popt_local_activity   = NULL;
-#ifdef USE_PROFILS
 static int popt_administration	   = FALSE;
 static char *popt_database         = NULL;
 static char *popt_logs_database    = NULL;
 static int popt_create_db   	   = FALSE;
 static int popt_reread_xml   	   = FALSE;
-#endif
 
 GTimer *chronometer;
 
@@ -121,7 +119,6 @@ static struct poptOption options[] = {
    N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity), -l list show the list of menus and activity"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run gcompris with local activity directory added to menu"), NULL},
-#ifdef USE_PROFILS
   {"administration", 'e', POPT_ARG_NONE, &popt_administration, 0,
    N_("Run gcompris with administration and users management mode"), NULL},
   {"database", 'b', POPT_ARG_STRING, &popt_database, 0,
@@ -132,7 +129,6 @@ static struct poptOption options[] = {
    N_("Create the alternate database for profils"), NULL},
   {"reread-xml",'\0', POPT_ARG_NONE, &popt_reread_xml, 0,
    N_("Re-read XML Menus and store them in the database"), NULL},
-#endif
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -673,9 +669,7 @@ void gcompris_exit()
 {
   board_stop();
 
-#ifdef USE_PROFILS
   gcompris_db_exit();
-#endif
 
   g_timer_destroy (chronometer);
 
@@ -1015,7 +1009,6 @@ gcompris_init (int argc, char *argv[])
     }
   }
 
-#ifdef USE_PROFILS
   if (popt_administration){
     g_warning("Running in administration mode");
     properties->administration = TRUE;
@@ -1044,17 +1037,14 @@ gcompris_init (int argc, char *argv[])
     g_warning("Rebuild db from xml files");
     properties->reread_xml = TRUE;
   }
-#endif
 
   poptFreeContext(pctx); 
   /*------------------------------------------------------------*/
 
-#ifdef USE_PROFILS
   /* init MUST BE after properties */
   gcompris_db_init();
   
   gcompris_profile_load(properties->profil);
-#endif
 
   if(properties->music || properties->fx)
     initSound();

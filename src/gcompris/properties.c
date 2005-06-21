@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/06/16 08:37:52 yves>
+ * Time-stamp: <2005/06/20 23:45:59 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -28,13 +28,6 @@
 
 /* This should be detected in the configure for good portability */
 #define HAVE_SETENV 1
-
-static GHashTable* boards_hash = NULL;
-
-#ifndef USE_PROFILS
-void read_boards_status();
-void write_boards_status();
-#endif
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -125,7 +118,6 @@ gchar *get_gcompris_conf_name()
   }
 }
 
-#ifdef USE_PROFILS
 /* get the default database name */
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 #define PROFILES_ROOT "profiles"
@@ -134,7 +126,6 @@ gchar *get_default_database_name ()
 {
   return g_strconcat(get_gcompris_user_root_directory(), "/", PROFILES_ROOT, "/",  DEFAULT_DATABASE, NULL);
 }
-#endif
 
 GcomprisProperties *gcompris_properties_new ()
 {
@@ -145,8 +136,6 @@ GcomprisProperties *gcompris_properties_new ()
   gchar         *full_rootdir;
   const gchar   *locale;
   gchar         *gcompris_user_dir;
-
-  boards_hash = g_hash_table_new (g_str_hash, g_str_equal);
 
   tmp = (GcomprisProperties *) malloc (sizeof (GcomprisProperties));
   tmp->music		 = 1;
@@ -163,13 +152,10 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->root_menu         = "/";
   tmp->local_directory   = NULL;
   tmp->package_data_dir  = PACKAGE_DATA_DIR;
-#ifdef USE_PROFILS
   tmp->profil            = "default";
   tmp->database          = get_default_database_name();
   tmp->administration    = FALSE;
   tmp->reread_xml        = FALSE;
-#endif
-
 
   gcompris_user_dir = get_gcompris_user_root_directory() ;
 
@@ -183,11 +169,9 @@ GcomprisProperties *gcompris_properties_new ()
   create_rootdir(full_rootdir);
   g_free(full_rootdir);
 
-#ifdef USE_PROFILS
   full_rootdir = g_strconcat(gcompris_user_dir, "/", PROFILES_ROOT, NULL);
   create_rootdir(full_rootdir);
   g_free(full_rootdir);
-#endif
 
   config_file = get_gcompris_conf_name();
 
@@ -251,7 +235,6 @@ GcomprisProperties *gcompris_properties_new ()
 	  if(!tmp->key)
 	    g_warning("Config file parsing error on token %s", token);
 	}
-#ifdef USE_PROFILS
 	else if(!strcmp(value.v_identifier, "profil")) {
 	  tmp->profil = scan_get_string(scanner);
 	  if(!tmp->profil)
@@ -262,7 +245,6 @@ GcomprisProperties *gcompris_properties_new ()
 	  if(!tmp->database)
 	    g_warning("Config file parsing error on token %s", token);
 	}
-#endif
 	break;
       }
       default:
@@ -307,14 +289,6 @@ GcomprisProperties *gcompris_properties_new ()
     tmp->locale		= "";
   }
 
-  /*
-   * Read the board status
-   * ---------------------
-   */
-#ifndef USE_PROFILS
-  read_boards_status();
-#endif
-
   return (tmp);
 }
 
@@ -353,144 +327,14 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
-#ifdef USE_PROFILS
+
   fprintf(filefd, "%s=\"%s\"\n", "profil",		props->profil);
   fprintf(filefd, "%s=\"%s\"\n", "database",		props->database);
-#endif  
+
   fclose(filefd);
 }
 
 
-
-static void boards_write (gchar       *key,
-			  gpointer     value,
-			  FILE        *filefd)
-{
-  printf("  %s=%d\n", key, GPOINTER_TO_UINT(value));
-  fprintf(filefd, "%s=%d\n", key, GPOINTER_TO_UINT(value));
-}
-
-
-/* in USE_PROFILS, that will be managed by profiles database */
-#ifndef USE_PROFILS
-gchar *get_boards_conf_name()
-{
-  /* why not the same name ? */
-  if (g_get_home_dir()==NULL) {
-    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris_boards.cfg", NULL);
-  } else {
-    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris_boards.conf", NULL);
-  }
-}
-
-/*
- * Save the board status (enable/disable)
- */
-void gcompris_write_boards_status()
-{
-  char *config_file;
-  int i;
-  GScanner *scanner;
-  FILE *filefd;
-
-  config_file = get_boards_conf_name();
-
-  filefd = fopen(config_file, "w+");
-
-  if(!filefd) {
-    g_warning("cannot open '%s', configuration file not saved\n",(char *) config_file);
-    return;
-  }
-
-  g_free(config_file);
-
-  g_hash_table_foreach (boards_hash, (GHFunc) boards_write, filefd);
-
-}
-
-void read_boards_status()
-{
-  char *config_file;
-  int i;
-  GScanner *scanner;
-  int filefd;
-
-  config_file = get_boards_conf_name();
-
-  filefd = open(config_file, O_RDONLY);
-
-  g_free(config_file);
-
-  if(filefd > 0) {
-
-    /* create a new scanner */
-    scanner = g_scanner_new(NULL);
-
-    /* set up the scanner to read from the file */
-    g_scanner_input_file(scanner, filefd);
-
-    /* while the next token is something else other than end of file */
-    while(g_scanner_peek_next_token(scanner) != G_TOKEN_EOF) {
-
-      /* get the next token */
-      GTokenType token = g_scanner_get_next_token(scanner);
-      switch(token) {
-      case G_TOKEN_IDENTIFIER: {
-	guint data;
-	gchar *token;
-	/* if we have a symbol, check it's ours */
-	GTokenValue value = g_scanner_cur_value(scanner);
-	token = g_strdup(value.v_identifier);
-
-	if(!scan_get_int(scanner, &data))
-	  g_warning("Config file parsing error on token %s", token);
-	else {
-	  g_hash_table_insert(boards_hash, token, GUINT_TO_POINTER(data));
-	}
-	break;
-      }
-      default:
-	break;
-      }
-    }
-
-    /* destroy the scanner */
-    g_scanner_destroy(scanner);
-
-    close(filefd);
-
-  }
-}
-#endif
-
-/*
- * Management of the status of the boards
- */
-void gcompris_properties_enable_board(gchar *boardName)
-{
-  g_hash_table_remove(boards_hash, boardName);
-}
-
-void gcompris_properties_disable_board(gchar *boardName)
-{
-  g_hash_table_insert(boards_hash, boardName, GUINT_TO_POINTER(1));
-}
-
-/*
- * Return TRUE if boardName is available, FALSE otherwise
- *
- */
-gboolean gcompris_properties_get_board_status(gchar *boardName)
-{
-  guint result;
-
-  result = GPOINTER_TO_UINT(g_hash_table_lookup(boards_hash, boardName));
-
-  if(result==1)
-    return FALSE;
-  else
-    return TRUE;
-}
 
 int my_setenv (const char * name, const char * value) {
   size_t namelen = strlen(name);

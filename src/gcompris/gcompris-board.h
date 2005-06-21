@@ -1,6 +1,6 @@
 /* gcompris - gcompris-board.h
  *
- * Time-stamp: <2005/06/13 21:39:18 yves>
+ * Time-stamp: <2005/06/20 22:30:56 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -82,11 +82,9 @@ struct _GcomprisBoard
   guint                sublevel;
   guint                number_of_sublevel;
 
-#ifdef USE_PROFILS
   /* database value */
   guint                board_id;
   guint                section_id;
-#endif
 };
 
 

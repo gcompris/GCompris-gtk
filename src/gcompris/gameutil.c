@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/18 18:08:20 bruno>
+ * Time-stamp: <2005/06/21 18:19:14 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -472,7 +472,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
      gcomprisBoard->description == NULL) {
     g_error("failed to read a mandatory field for this board (mandatory fields are name type icon_name difficulty section title description). check the board xml file is complete, perhaps xml-i18n-tools did not generate the file properly");
   }
-#ifdef USE_PROFILS
   gcomprisBoard->board_id=0;
   gcomprisBoard->section_id=0;
 
@@ -500,7 +499,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
   
     g_warning("db board written %d in %d  %s/%s", gcomprisBoard->board_id, gcomprisBoard->section_id, gcomprisBoard->section, gcomprisBoard->name);
   }
-#endif
   
 }
 
@@ -721,11 +719,8 @@ GList *suppress_int_from_list(GList *list, int value)
 void gcompris_load_menus_dir(char *dirname, gboolean db){
   const gchar   *one_dirent;
   GDir          *dir;
-#ifdef USE_PROFILS
   GcomprisProperties	*properties = gcompris_get_properties();
   GList *list_old_boards_id = NULL;
-#endif
-
 
   if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
     g_warning("Failed to parse board in '%s' because it's not a directory\n", dirname);
@@ -738,10 +733,9 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
     g_warning("gcompris_load_menus : no menu found in %s", dirname);
     return;
   } else {
-#ifdef USE_PROFILS
     list_old_boards_id = gcompris_db_get_board_id(list_old_boards_id);
     printf("length list_old_boards_id %d\n", g_list_length(list_old_boards_id));
-#endif
+
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
       GcomprisBoard *gcomprisBoard = NULL;
@@ -765,7 +759,6 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 	gcomprisBoard->plugin=NULL;
 	gcomprisBoard->previous_board=NULL;
 
-#ifdef USE_PROFILS
 	GcomprisBoard *board_read = gcompris_read_xml_file(gcomprisBoard, filename, db);
 	if (board_read){
 	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board_read->board_id);
@@ -777,18 +770,11 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 	  //else
 	    //gcompris_free_board(board_read);
 	}
-#else
-	boards_list = g_list_append(boards_list, 
-				    gcompris_read_xml_file(gcomprisBoard, 
-							   filename,
-							   db));
-#endif
       }
       g_free(filename);
     }
   }
 
-#ifdef USE_PROFILS
   /* remove suppressed boards from db */
   printf("length list_old_boards_id to suppress %d\n", g_list_length(list_old_boards_id));
   while (list_old_boards_id != NULL){
@@ -797,7 +783,6 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
     list_old_boards_id=g_list_remove(list_old_boards_id, data);
     g_free(data);
   }
-#endif
 
   g_dir_close(dir);
 }
@@ -809,7 +794,11 @@ void gcompris_load_menus()
 {
   GcomprisProperties	*properties = gcompris_get_properties();
 
-#ifdef USE_PROFILS
+  if(boards_list) {
+    cleanup_menus();
+    return;
+  }
+
   if ((!properties->reread_xml) && gcompris_db_check_boards()){
     boards_list = gcompris_load_menus_db(boards_list);
   }
@@ -825,15 +814,6 @@ void gcompris_load_menus()
     g_date_free(today);
   }
   
-#else
-  /* Is that usefull? */
-  if(boards_list) {
-    cleanup_menus();
-    return;
-  }
-
-  gcompris_load_menus_dir(properties->package_data_dir, TRUE);
-#endif
 
   if (properties->local_directory)
     gcompris_load_menus_dir(properties->local_directory, FALSE);

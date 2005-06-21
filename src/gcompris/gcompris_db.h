@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/06/16 18:07:36 yves>
+ * Time-stamp: <2005/06/20 22:12:46 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -23,9 +23,11 @@
 #ifndef GCOMPRIS_DB_H
 #define GCOMPRIS_DB_H
 
+#ifdef USE_SQLITE
 #include <sqlite3.h>
+#endif
 
-void gcompris_db_init();
+int gcompris_db_init();
 
 void gcompris_db_exit();
 

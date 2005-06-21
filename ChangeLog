@@ -1,3 +1,9 @@
+2005-06-22  Yves Combe  <yves@ycombe.net>
+
+	* Completed migration of USE_PROFILS to USE_SQLITE.
+	* Now profile system is always compiled in. 
+	If SQLITE is not avalaible, profile system is just disabled.
+
 2005-06-20  Yves Combe  <yves@ycombe.net>
 
 	* add africa card in geography

@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/06/11 21:58:32 yves>
+ * Time-stamp: <2005/06/20 22:44:45 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -216,8 +216,8 @@ static void display_board_icon(GcomprisBoard *board, MenuItems *menuitems)
 
   difficulty = atoi(board->difficulty);
 
+  /* FIXME: Check board is available for the current profile */
   if (board!=NULL 
-      && gcompris_properties_get_board_status(board->name) 
       && board_check_file(board))
     {
       /* Always display menu items or we risk to have unaccessible boards */
