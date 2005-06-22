@@ -7,7 +7,7 @@ python_subdir =
 endif
 
 
-if USE_PROFILS
+if USE_SQLITE
 sqlite_ldflags = $(SQLITE3_LIBS)
 sqlite_cflags = $(SQLITE3_CFLAGS)
 else
@@ -126,11 +126,6 @@ libparatrooper_la_SOURCES = paratrooper.c
 libreading_la_LDFLAGS = -module -avoid-version
 libreading_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libreading_la_SOURCES = reading.c
-
-
-libdraw_la_LDFLAGS = -module -avoid-version
-libdraw_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
-libdraw_la_SOURCES = draw.c
 
 
 libmemory_la_LDFLAGS = -module -avoid-version

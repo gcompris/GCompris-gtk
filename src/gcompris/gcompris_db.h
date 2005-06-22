@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/06/20 22:12:46 yves>
+ * Time-stamp: <2005/06/22 22:46:07 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -55,6 +55,13 @@ void gcompris_db_board_update(gint *board_id,
 			      gchar *manual,
 			      gchar *credit
 			      );
+
+void gcompris_db_save_user(int *user_id,
+			   gchar *login,
+			   gchar *name,
+			   gchar *firstname,
+			   gchar *birthday,
+			   int class_id);
 
 GList *gcompris_db_read_board_from_section(gchar *section);
 

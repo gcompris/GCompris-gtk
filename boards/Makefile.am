@@ -3,6 +3,7 @@ SUBDIRS = gcompris read_colors advanced_colors babymatch babyshapes flags imagei
 xmldir = $(pkgdatadir)/@PACKAGE_DATA_DIR@
 
 xml_in_files = \
+	administration.xml.in \
 	advanced_colors.xml.in \
 	algebra_by.xml.in \
 	algebra_group.xml.in \

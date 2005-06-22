@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/20 22:22:44 yves>
+ * Time-stamp: <2005/06/22 22:46:45 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -520,8 +520,101 @@ GList *gcompris_load_menus_db(GList *boards_list)
 #define SAVE_USER(user_id, login, name, firstname, birthday, class_id) \
         "INSERT OR REPLACE INTO users ( %d, \'%s\', \'%s\', \'%s\', %s)", user_id, login, name, firstname, birthday,class_id
 
-void gcompris_db_save_user(int *user_id, gchar *login, gchar *name, gchar *firstname, gchar *birthday, int class_id){
+#define CHECK_USER(n) \
+        "SELECT user_id FROM users WHERE login=\'%s\';",n
+
+
+#define MAX_USER_ID \
+        "SELECT MAX(user_id) FROM users;"
+
+void gcompris_db_save_user(int *user_id, gchar *login, gchar *name, gchar *firstname, gchar *birthday, int class_id)
+{
+#ifdef USE_SQLITE
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  int i,j;
+  gchar *request;
+
+  if (gcompris_db == NULL)
+    g_error("Database is closed !!!");
+
+  if (*user_id==0){
+    /* user not yet registered */
+    
+    /* assume login is unique */
+    
+    request = g_strdup_printf(CHECK_USER(login));
+
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    g_free(request);
+
+    if (nrow != 0){
+      *user_id = atoi(result[1]);
+      sqlite3_free_table(result);
+    } else {
+
+      /* get last board_id written */
+      rc = sqlite3_get_table(gcompris_db, 
+			     MAX_USER_ID,
+			     &result,
+			     &nrow,
+			     &ncolumn,
+			     &zErrMsg
+			     );
+      
+      if( rc!=SQLITE_OK ){
+	g_error("SQL error: %s\n", zErrMsg);
+      }
+      
+      if (result[1] == NULL)
+	*user_id = 1;
+      else
+	*user_id = atoi(result[1]) + 1;
+
+      sqlite3_free_table(result);
+      
+    }      
+  }
   
+  request = g_strdup_printf(SAVE_USER( *user_id,
+				       login,
+				       name,
+				       firstname,
+				       birthday,
+				       class_id));
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  
+  sqlite3_free_table(result);
+  
+  g_free(request);
+ 
+#endif
 }
 
 GList *gcompris_db_read_board_from_section(gchar *section)

@@ -7,16 +7,12 @@ python_ldadd =
 python_ldflags =
 endif
 
-if USE_PROFILS
+if USE_SQLITE
 sqlite_ldflags = $(SQLITE3_LIBS)
 sqlite_cflags = $(SQLITE3_CFLAGS)
-profile_h = profile.h gcompris_db.h
-profile_c = profile.c gcompris_db.c
 else
 sqlite_ldflags =
 sqlite_cflags =
-profile_h =
-profile_c =
 endif
 
 if USE_CAIRO
@@ -46,17 +42,8 @@ install-libtool-import-lib:
 uninstall-libtool-import-lib:
 endif
 
-gcompris_edit_INCLUDE = \
-	$(GCOMPRIS_EDIT_CFLAGS)
-
-
-if GCOMPRIS_EDIT
-bin_PROGRAMS = gcompris gcompris_edit
-gcompris_edit_cflags = $(GCOMPRIS_EDIT_CFLAGS)
-else
 bin_PROGRAMS = gcompris
 gcompris_edit_cflags = 
-endif
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
@@ -66,7 +53,6 @@ INCLUDES = \
 	$(XML_CFLAGS) \
 	$(SDL_CFLAGS) \
 	-DGNOME_DISABLE_DEPRECATED \
-	$(gcompris_edit_cflags) \
         $(sqlite_cflags) \
 	$(cairo_cflags)
 
@@ -86,24 +72,6 @@ gcompris_LDADD = \
 
 
 #
-# Gcompris edit
-#
-gcompris_edit_LDFLAGS = \
-	-export-dynamic $(shell sdl-config --libs) -lSDL_mixer
-
-gcompris_edit_SOURCES = \
-	gcompris-edit.c gcompris-edit.h \
-	support.c support.h \
-	interface.c interface.h \
-	callbacks.c callbacks.h
-
-gcompris_edit_LDADD = \
-	$(GCOMPRIS_LIBS) \
-	$(GCOMPRIS_EDIT_LIBS) \
-	$(XML_LIBS) $(INTLLIBS) \
-	$(top_builddir)/src/gcompris/libgcompris-1.la
-
-#
 # Gcompris library
 # 
 lib_LTLIBRARIES = libgcompris-1.la
@@ -117,22 +85,25 @@ libgcompris_1_la_LDFLAGS = $(no_undefined) \
 libgcomprisincludedir = $(includedir)/libgcompris-1.0/libgcompris
 
 libgcomprisinclude_HEADERS =			\
-	gcompris.h gcompris-board.h \
-	gameutil.h \
-	properties.h \
-	pixbuf_util.h \
-	soundutil.h \
-	cursor.h \
-	plugin.h \
+	about.h \
+	anim.h \
+	assetml.h \
 	bonus.h \
-	timer.h \
+	cursor.h \
+	gameutil.h \
+	gcompris.h gcompris-board.h \
+	gcompris_config.h \
+	gcompris_db.c \
+	gcompris_db.h \
+	pixbuf_util.h \
+	plugin.h \
+	profile.c \
+	profile.h \
+	properties.h \
 	score.h \
 	skin.h \
-	gcompris_config.h \
-	about.h \
-	assetml.h \
-	anim.h \
-        $(profile_h) \
+	soundutil.h \
+	timer.h \
 	$(cairo_h)
 
 libgcompris_1_la_SOURCES =			\
