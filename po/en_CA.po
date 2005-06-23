@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-17 01:31-0400\n"
-"PO-Revision-Date: 2005-06-17 22:51-0400\n"
+"POT-Creation-Date: 2005-06-23 19:22-0400\n"
+"PO-Revision-Date: 2005-06-23 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -322,11 +322,13 @@ msgstr "veronese"
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
-"and press the Enter key to check your answer."
+"and press the Enter key to check your answer. You can control the speed of "
+"the timer in the GCompris configuration dialog."
 msgstr ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
-"and press the Enter key to check your answer."
+"and press the Enter key to check your answer. You can control the speed of "
+"the timer in the GCompris configuration dialogue."
 
 #: boards/algebra_by.xml.in.h:2 boards/algebra_minus.xml.in.h:2
 #: boards/algebra_plus.xml.in.h:2 src/boards/algebra.c:98
@@ -404,11 +406,13 @@ msgstr "The four arithmetic operations. Combine several arithmetic operations"
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
-"your answer, and press the Enter key to check the result."
+"your answer, and press the Enter key to check the result. You can control "
+"the speed of the timer in the GCompris configuration dialog."
 msgstr ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
-"your answer, and press the Enter key to check the result."
+"your answer, and press the Enter key to check the result. You can control "
+"the speed of the timer in the GCompris configuration dialogue."
 
 #: boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -426,11 +430,13 @@ msgstr "Simple substraction"
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
-"Enter key to check your answer."
+"Enter key to check your answer. You can control the speed of the timer in "
+"the GCompris configuration dialog."
 msgstr ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
-"Enter key to check your answer."
+"Enter key to check your answer. You can control the speed of the timer in "
+"the GCompris configuration dialogue."
 
 #: boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -1554,6 +1560,14 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 #: boards/geography/board4_0.xml.in.h:1
+msgid "North of Africa"
+msgstr "North of Africa"
+
+#: boards/geography/board4_1.xml.in.h:1
+msgid "South of Africa"
+msgstr "South of Africa"
+
+#: boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regions of France"
 
@@ -2964,8 +2978,8 @@ msgstr "Multiple activities for kids"
 #: src/boards/advanced_colors.c:531 src/boards/imageid.c:600
 #: src/boards/missingletter.c:604 src/boards/read_colors.c:489
 #: src/boards/shapegame.c:1876 src/gcompris/file_selector.c:926
-#: src/gcompris/gameutil.c:131 src/gcompris/gameutil.c:551
-#: src/gcompris/gameutil.c:552 src/gcompris/gcompris.c:525
+#: src/gcompris/gameutil.c:131 src/gcompris/gameutil.c:549
+#: src/gcompris/gameutil.c:550 src/gcompris/gcompris.c:521
 #: src/gcompris/images_selector.c:754 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
@@ -3589,7 +3603,7 @@ msgid "Help"
 msgstr "Help"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:211
-#: src/gcompris/gameutil.c:1045 src/gcompris/help.c:329
+#: src/gcompris/gameutil.c:1025 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3874,47 +3888,47 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: src/gcompris/gcompris.c:101
+#: src/gcompris/gcompris.c:99
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:103
+#: src/gcompris/gcompris.c:101
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:105
+#: src/gcompris/gcompris.c:103
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:107
+#: src/gcompris/gcompris.c:105
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:109
+#: src/gcompris/gcompris.c:107
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:111
+#: src/gcompris/gcompris.c:109
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:113
+#: src/gcompris/gcompris.c:111
 msgid "display debug informations on the console."
 msgstr "display debugging information on the console."
 
-#: src/gcompris/gcompris.c:115
+#: src/gcompris/gcompris.c:113
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:117
+#: src/gcompris/gcompris.c:115
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:119
+#: src/gcompris/gcompris.c:117
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Disable XRANDR (No screen resolution change)."
 
-#: src/gcompris/gcompris.c:121
+#: src/gcompris/gcompris.c:119
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -3924,24 +3938,31 @@ msgstr ""
 "activity directory, -l /boards/connect4 only the connect4 activity). -l list "
 "show the list of menus and activity"
 
-#: src/gcompris/gcompris.c:123
+#: src/gcompris/gcompris.c:121
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "Run gcompris with local activity directory added to menu"
 
-#: src/gcompris/gcompris.c:126
+#: src/gcompris/gcompris.c:123
 msgid "Run gcompris with administration and users management mode"
 msgstr "Run gcompris with administration and user management mode"
 
-#: src/gcompris/gcompris.c:128 src/gcompris/gcompris.c:132
-#: src/gcompris/gcompris.c:134
+#: src/gcompris/gcompris.c:125
 msgid "Use alternate database for profils"
 msgstr "Use alternate database for profiles"
 
-#: src/gcompris/gcompris.c:130
+#: src/gcompris/gcompris.c:127
 msgid "Use alternate database for logs"
 msgstr "Use alternate database for logs"
 
-#: src/gcompris/gcompris.c:656
+#: src/gcompris/gcompris.c:129
+msgid "Create the alternate database for profils"
+msgstr "Create the alternate database for profiles"
+
+#: src/gcompris/gcompris.c:131
+msgid "Re-read XML Menus and store them in the database"
+msgstr "Re-read XML Menus and store them in the database"
+
+#: src/gcompris/gcompris.c:652
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3963,7 +3984,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:914
+#: src/gcompris/gcompris.c:908
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3977,15 +3998,24 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:982
+#: src/gcompris/gcompris.c:976
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Use -l activity to access directly to activity.\n"
 
-#: src/gcompris/gcompris.c:983
+#: src/gcompris/gcompris.c:977
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
+
+#: src/gcompris/gcompris_db.c:88
+#, c-format
+msgid "Database %s opened"
+msgstr "Database %s opened"
+
+#: src/gcompris/gcompris_db.c:129
+msgid "Database tables created"
+msgstr "Database tables created"
 
 #: src/gcompris/help.c:170 src/gcompris/interface.c:196
 msgid "Prerequisite"
