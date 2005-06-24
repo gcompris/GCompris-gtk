@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-23 19:05+0000\n"
-"PO-Revision-Date: 2005-05-24 02:26+0200\n"
+"POT-Creation-Date: 2005-06-23 11:04+0000\n"
+"PO-Revision-Date: 2005-06-24 12:54+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -324,11 +324,12 @@ msgstr "Veronese-zöld"
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
-"and press the Enter key to check your answer."
+"and press the Enter key to check your answer. You can control the speed of "
+"the timer in the GCompris configuration dialog."
 msgstr ""
-"Két szám szorzása jelenik meg. Az egyenlőségjel jobb oldalán add meg\n"
-"az eredményt. A szorzat módosításához használd a jobbra és balra nyilakat.\n"
-"Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez."
+"Két szám szorzása jelenik meg. Az egyenlőségjel jobb oldalán add meg "
+"az eredményt. A szorzat módosításához használd a jobbra és balra nyilakat."
+" Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. Az időzítő sebességét a GCompris beállításai párbeszédablakban állíthatod be."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
@@ -407,11 +408,13 @@ msgstr "A négy alapművelet. Több aritmetikai művelet kombinálása"
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
-"your answer, and press the Enter key to check the result."
+"your answer, and press the Enter key to check the result. You can control "
+"the speed of the timer in the GCompris configuration dialog."
 msgstr ""
-"Két szám kivonása van felírva. Az egyenlőségjel jobb oldalán add \n"
-"meg a különbségüket. A válasz módosításához használd a jobbra és\n"
-"balra nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez."
+"Két szám kivonása van felírva. Az egyenlőségjel jobb oldalán add "
+"meg a különbségüket. A válasz módosításához használd a jobbra és "
+"balra nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. "
+"Az időzítő sebességét a GCompris beállításai párbeszédablakban állíthatod be."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -429,11 +432,13 @@ msgstr "Egyszerű kivonás"
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
-"Enter key to check your answer."
+"Enter key to check your answer. You can control the speed of the timer in "
+"the GCompris configuration dialog."
 msgstr ""
-"Két szám összeadása van felírva. Az egyenlőségjel jobb oldalán add\n"
-"meg az összegüket. A válasz módosításához használd a jobbra és\n"
-"balra nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez."
+"Két szám összeadása van felírva. Az egyenlőségjel jobb oldalán add "
+"meg az összegüket. A válasz módosításához használd a jobbra és "
+"balra nyilakat. Ha kész vagy, nyomj Enter-t a válaszod ellenőrzéséhez. "
+"Az időzítő sebességét a GCompris beállításai párbeszédablakban állíthatod be."
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -633,19 +638,23 @@ msgstr "Egérkezelés"
 
 #: ../boards/billard.xml.in.h:2
 msgid ""
-"Point and click on the ball to set the speed and direction of the ball. The "
-"closer you click to the center, the slower the ball moves."
+"Point and click on the ball to set its speed and direction. The closer you "
+"click to the center, the slower the ball moves."
 msgstr ""
-"Mutass és kattints a labdára az irányának és sebességének megadásához.\n"
+"Mutass és kattints a labdára az irányának és sebességének megadásához. "
 "Minél közelebb kattintasz a középponthoz, a labda annál lassabban mozog."
 
 #: ../boards/billard.xml.in.h:3
-msgid "Shoot the ball into the hole"
-msgstr "Lődd a labdát a lyukba"
+msgid "Put the ball into the black hole on the right"
+msgstr "Lődd a labdát a jobb oldali fekete lyukba"
 
 #: ../boards/billard.xml.in.h:4
-msgid "The game of billiards"
-msgstr "Biliárd játék"
+msgid "Put the ball into the goal"
+msgstr "Lődd a labdát a célba"
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "Labdarúgó játék"
 
 #: ../boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -1150,7 +1159,7 @@ msgid "Motor coordination"
 msgstr "Mozgáskoordináció"
 
 #: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
-#: ../src/boards/machpuzzle.c:87
+#: ../src/boards/machpuzzle.c:93
 msgid "Move the mouse"
 msgstr "Mozgasd az egeret"
 
@@ -1564,6 +1573,14 @@ msgid "Ukraine"
 msgstr "Ukrajna"
 
 #: ../boards/geography/board4_0.xml.in.h:1
+msgid "North of Africa"
+msgstr "Észak-Afrika"
+
+#: ../boards/geography/board4_1.xml.in.h:1
+msgid "South of Africa"
+msgstr "Dél-Afrika"
+
+#: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Franciaország régiói"
 
@@ -1591,7 +1608,9 @@ msgstr "Számfaló - egyenlőségek"
 msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
-msgstr "Irányítsd a Számfalót a képernyő tetején látható számmal egyenlő kifejezésekre."
+msgstr ""
+"Irányítsd a Számfalót a képernyő tetején látható számmal egyenlő "
+"kifejezésekre."
 
 #: ../boards/gnumch-equality.xml.in.h:3
 msgid "Practise addition, multiplication, division and subtraction."
@@ -1602,8 +1621,8 @@ msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
-"Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
-"Nyomd meg a szóközt, hogy megegyél egy számot."
+"Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a "
+"szörnyektől! Nyomd meg a szóközt, hogy megegyél egy számot."
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
@@ -1628,17 +1647,19 @@ msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
-"Egy szám osztói azok a számok, amik maradék nélkül osztják azt. "
-"Például, a 6 osztói az 1, a 2, a 3, és a 6. A 4 nem osztója a 6-nak, mivel a "
-"6 nem osztható 4 egyenlő részre. Ha egy szám egy másik szám többszöröse, akkor a második szám az első osztója. "
-"Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
-"Nyomd meg a szóközt egy szám megevéséhez."
+"Egy szám osztói azok a számok, amik maradék nélkül osztják azt. Például, a 6 "
+"osztói az 1, a 2, a 3, és a 6. A 4 nem osztója a 6-nak, mivel a 6 nem "
+"osztható 4 egyenlő részre. Ha egy szám egy másik szám többszöröse, akkor a "
+"második szám az első osztója. Használd a nyílbillentyűket a táblán való "
+"mozgáshoz és óvakodj a szörnyektől! Nyomd meg a szóközt egy szám megevéséhez."
 
 #: ../boards/gnumch-inequality.xml.in.h:1
 msgid ""
 "Guide the Number Muncher to the all the expressions that do not equal the "
 "number at the top of the screen."
-msgstr "Irányítsd a Számfalót a képernyő tetején látható számmal nem egyező kifejezésekre."
+msgstr ""
+"Irányítsd a Számfalót a képernyő tetején látható számmal nem egyező "
+"kifejezésekre."
 
 #: ../boards/gnumch-inequality.xml.in.h:2
 msgid "Inequality Number Munchers"
@@ -1672,9 +1693,12 @@ msgid ""
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
 msgstr ""
-"Egy szám többszörösei azok a számok, melyek az eredeti és egy másik szám szorzatával egyeznek meg. Például a 24, a 36, a 48 és a 60 mind a 12 többszörösei. A 25 nem többszöröse a 12-nek, mert nincs olyan szám, amit 12-vel szorozva 25-öt kapunk. Ha egy szám egy második szám tényezője, akkor a második szám az első többszöröse. "
-"Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
-"Nyomd meg a szóközt egy szám megevéséhez."
+"Egy szám többszörösei azok a számok, melyek az eredeti és egy másik szám "
+"szorzatával egyeznek meg. Például a 24, a 36, a 48 és a 60 mind a 12 "
+"többszörösei. A 25 nem többszöröse a 12-nek, mert nincs olyan szám, amit 12-"
+"vel szorozva 25-öt kapunk. Ha egy szám egy második szám tényezője, akkor a "
+"második szám az első többszöröse. Használd a nyílbillentyűket a táblán való "
+"mozgáshoz és óvakodj a szörnyektől! Nyomd meg a szóközt egy szám megevéséhez."
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -1695,8 +1719,10 @@ msgid ""
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
 msgstr ""
-"Prímszámok azok a számok, amelyek csak önmagukkal és 1-el oszthatóak.Például a 3 prímszám, de a 4 nem az (mert a 4 osztható 2-vel). Használd a nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! "
-"Nyomd meg a szóközt egy szám megevéséhez."
+"Prímszámok azok a számok, amelyek csak önmagukkal és 1-el oszthatóak.Például "
+"a 3 prímszám, de a 4 nem az (mert a 4 osztható 2-vel). Használd a "
+"nyílbillentyűket a táblán való mozgáshoz és óvakodj a szörnyektől! Nyomd meg "
+"a szóközt egy szám megevéséhez."
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
@@ -2042,13 +2068,20 @@ msgstr "Segíts Tuxnak, hogy kitaláljon a labirintusból."
 msgid "Maze"
 msgstr "Labirintus"
 
-#: ../boards/maze.xml.in.h:5 ../boards/maze2DRelative.xml.in.h:5
+#: ../boards/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Használd a nyílbillentyűket, és mozgasd Tuxot az ajtóig."
 
 #: ../boards/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
 msgstr "Találd meg a kijáratot a labirintusból (a mozgás relatív)"
+
+#: ../boards/maze2DRelative.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. In this maze, the move "
+"is relative (first person). Use the up arrow to go forward. The other arrow "
+"let you turn Tux in another direction."
+msgstr "A nyílbillentyűk segítségével vezesd Tuxot az ajtóhoz. Ebben a labirintusban a mozgás Tuxhoz képest relatív. A fel nyíllal mozoghatsz előre, a többi nyíllal másik irányba fordíthatod Tuxot."
 
 #: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2978,8 +3011,8 @@ msgstr "Változatos tevékenységek gyerekeknek"
 #: ../src/boards/advanced_colors.c:531 ../src/boards/imageid.c:600
 #: ../src/boards/missingletter.c:604 ../src/boards/read_colors.c:489
 #: ../src/boards/shapegame.c:1876 ../src/gcompris/file_selector.c:926
-#: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:523
-#: ../src/gcompris/gameutil.c:524 ../src/gcompris/gcompris.c:503
+#: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:549
+#: ../src/gcompris/gameutil.c:550 ../src/gcompris/gcompris.c:521
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -3605,7 +3638,7 @@ msgid "Help"
 msgstr "Segítség"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:950 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:1025 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3890,59 +3923,80 @@ msgstr ""
 "Lépj ki és jelentsd a \n"
 "hibát a szerzőknek."
 
-#: ../src/gcompris/gcompris.c:94
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris in fullscreen mode."
 msgstr "A GCompris teljes képernyős módban fusson."
 
-#: ../src/gcompris/gcompris.c:96
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris in window mode."
 msgstr "A GCompris ablakban fusson."
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with sound enabled."
 msgstr "A GCompris használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:100
+#: ../src/gcompris/gcompris.c:105
 msgid "run gcompris without sound."
 msgstr "A GCompris ne használjon hangokat."
 
-#: ../src/gcompris/gcompris.c:102
+#: ../src/gcompris/gcompris.c:107
 msgid "run gcompris with the default gnome cursor."
 msgstr "A GCompris az alapértelmezett egérmutatóval fusson."
 
-#: ../src/gcompris/gcompris.c:104
+#: ../src/gcompris/gcompris.c:109
 msgid "display only activities with this difficulty level."
 msgstr "Csak az ilyen nehézségi szintű tevékenységek mutatása."
 
-#: ../src/gcompris/gcompris.c:106
+#: ../src/gcompris/gcompris.c:111
 msgid "display debug informations on the console."
 msgstr "hibakereső információk megjelenítése a konzolon."
 
-#: ../src/gcompris/gcompris.c:108
+#: ../src/gcompris/gcompris.c:113
 msgid "Print the version of "
 msgstr "Verziószám megtekintése: "
 
-#: ../src/gcompris/gcompris.c:110
+#: ../src/gcompris/gcompris.c:115
 msgid "Use the antialiased canvas (slower)."
 msgstr "Élsimított vászon (lassú)."
 
-#: ../src/gcompris/gcompris.c:112
+#: ../src/gcompris/gcompris.c:117
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR (képernyő felbontásának változtatása) kikapcsolása ."
 
-#: ../src/gcompris/gcompris.c:114
+#: ../src/gcompris/gcompris.c:119
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
-"activity directory, -l /boards/connect4 only the connect4 activity)"
+"activity directory, -l /boards/connect4 only the connect4 activity), -l list "
+"show the list of menus and activity"
 msgstr ""
 "A GCompris futtatása helyi menüvel (például a -l /reading csak az olvasási "
-"táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet)"
+"táblákat indítja, a -l /boards/connect4 csak a connect4 tevékenységet), a -l kiírja a menük és tevékenységek listáját."
 
-#: ../src/gcompris/gcompris.c:116
+#: ../src/gcompris/gcompris.c:121
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "A GCompris futtatása egy helyi tevékenységkönyvtár menühöz adásával"
 
-#: ../src/gcompris/gcompris.c:615
+#: ../src/gcompris/gcompris.c:123
+msgid "Run gcompris with administration and users management mode"
+msgstr "A GCompris futtatása adminisztrációs és felhasználókezelési módban"
+
+#: ../src/gcompris/gcompris.c:125
+msgid "Use alternate database for profils"
+msgstr "Alternatív profiladatbázis használata"
+
+#: ../src/gcompris/gcompris.c:127
+msgid "Use alternate database for logs"
+msgstr "Alternatív naplóadatbázis használata"
+
+#: ../src/gcompris/gcompris.c:129
+msgid "Create the alternate database for profils"
+msgstr "Az alternatív profiladatbázis létrehozása"
+
+#: ../src/gcompris/gcompris.c:131
+msgid "Re-read XML Menus and store them in the database"
+msgstr "Az XML menük újraolvasása és tárolása az adatbázisban"
+
+#: ../src/gcompris/gcompris.c:652
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3965,7 +4019,7 @@ msgstr ""
 "használatát. További információért nézze meg a következő oldalt:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:863
+#: ../src/gcompris/gcompris.c:908
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3977,6 +4031,26 @@ msgstr ""
 "Verzió: %s\n"
 "Licenc: GPL\n"
 "További információ: http://gcompris.net\n"
+
+#. check the list of possible values for -l, then exit
+#: ../src/gcompris/gcompris.c:976
+#, c-format
+msgid "Use -l activity to access directly to activity.\n"
+msgstr "Használja a -l tevékenység kapcsolót egy tevékenység közvetlen eléréséhez.\n"
+
+#: ../src/gcompris/gcompris.c:977
+#, c-format
+msgid "List of available activity is :\n"
+msgstr "A rendelkezésre álló tevékenységek listája:\n"
+
+#: ../src/gcompris/gcompris_db.c:88
+#, c-format
+msgid "Database %s opened"
+msgstr "%s adatbázis megnyitva"
+
+#: ../src/gcompris/gcompris_db.c:129
+msgid "Database tables created"
+msgstr "Az adatbázis táblái létrehozva"
 
 #: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:196
 msgid "Prerequisite"
