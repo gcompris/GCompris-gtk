@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/06/20 22:44:45 yves>
+ * Time-stamp: <2005/06/22 10:34:21 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *

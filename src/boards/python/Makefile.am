@@ -1,8 +1,9 @@
-SUBDIRS=gcompris connect4p
+SUBDIRS=gcompris connect4p admin
 
 pythondir = $(PYTHON_PLUGIN_DIR)
 
 dist_python_DATA= \
+	administration.py \
 	algorithm.py \
 	anim.py \
 	ballcatch.py \

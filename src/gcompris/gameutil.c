@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/21 18:19:14 yves>
+ * Time-stamp: <2005/06/22 10:34:42 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *

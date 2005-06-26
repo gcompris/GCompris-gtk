@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/20 23:45:43 yves>
+ * Time-stamp: <2005/06/25 21:17:34 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -619,7 +619,10 @@ static void setup_window ()
   printf("gcompris_load_mime_types %f sec.\n", elapsed);
 
   /* Get and Run the root menu */
-  gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
+  if(properties->administration)
+    gcomprisBoardMenu = gcompris_get_board_from_section("/administration/administration");
+  else
+    gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
 
   if(!gcomprisBoardMenu) {
     g_warning("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
@@ -717,6 +720,16 @@ static void load_properties ()
 GcomprisProperties *gcompris_get_properties ()
 {
   return (properties);
+}
+
+/* Return the database file name
+ * Must be called after properties is initialised
+ */
+gchar *gcompris_get_database ()
+{
+  g_assert(properties!=NULL);
+
+  return (properties->database);
 }
 
 /*
@@ -976,6 +989,9 @@ gcompris_init (int argc, char *argv[])
       printf(_("Use -l activity to access directly to activity.\n"));
       printf(_("List of available activity is :\n"));
       properties->root_menu = "/";
+
+      gcompris_db_init();
+
       gcompris_load_menus();
 
       GList *list = NULL;
@@ -1009,10 +1025,6 @@ gcompris_init (int argc, char *argv[])
     }
   }
 
-  if (popt_administration){
-    g_warning("Running in administration mode");
-    properties->administration = TRUE;
-  }
   if (popt_database){
     if (g_file_test(popt_database, G_FILE_TEST_EXISTS)) {
       if (!access(popt_database,R_OK|W_OK)){
@@ -1029,10 +1041,12 @@ gcompris_init (int argc, char *argv[])
       exit(0);
     }
   }
+
   if (popt_administration){
     g_warning("Running in administration mode");
     properties->administration = TRUE;
   }
+
   if (popt_reread_xml){
     g_warning("Rebuild db from xml files");
     properties->reread_xml = TRUE;

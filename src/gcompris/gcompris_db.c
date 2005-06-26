@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/22 22:46:45 yves>
+ * Time-stamp: <2005/06/25 21:25:41 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -29,7 +29,9 @@ static sqlite3 *gcompris_db_log=NULL;
 extern GnomeCanvas *canvas;
 
 #define CREATE_TABLE_USERS \
-        "CREATE TABLE users (user_id INT UNIQUE, name TEXT, firstname TEXT, birth TEXT, class_id INT ); "
+        "CREATE TABLE users (user_id INT UNIQUE, login TEXT, name TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
+#define CREATE_TABLE_CLASS \
+        "CREATE TABLE class (class_id INT UNIQUE, name TEXT, teacher TEXT ); "
 #define CREATE_TABLE_GROUPS \
         "CREATE TABLE groups (group_id INT UNIQUE, group_name TEXT, class_id INT, description TEXT ); "
 #define CREATE_TABLE_USERS_IN_GROUPS  \
@@ -90,6 +92,10 @@ int gcompris_db_init()
   if (creation){
     /* create all tables needed */
     rc = sqlite3_exec(gcompris_db,CREATE_TABLE_USERS, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    rc = sqlite3_exec(gcompris_db,CREATE_TABLE_CLASS, NULL,  0, &zErrMsg);
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
@@ -517,8 +523,8 @@ GList *gcompris_load_menus_db(GList *boards_list)
 #endif
 }
 
-#define SAVE_USER(user_id, login, name, firstname, birthday, class_id) \
-        "INSERT OR REPLACE INTO users ( %d, \'%s\', \'%s\', \'%s\', %s)", user_id, login, name, firstname, birthday,class_id
+#define SAVE_USER(user_id, login, name, firstname, birthdate, class_id) \
+        "INSERT OR REPLACE INTO users ( %d, \'%s\', \'%s\', \'%s\', %s)", user_id, login, name, firstname, birthdate,class_id
 
 #define CHECK_USER(n) \
         "SELECT user_id FROM users WHERE login=\'%s\';",n
@@ -527,7 +533,7 @@ GList *gcompris_load_menus_db(GList *boards_list)
 #define MAX_USER_ID \
         "SELECT MAX(user_id) FROM users;"
 
-void gcompris_db_save_user(int *user_id, gchar *login, gchar *name, gchar *firstname, gchar *birthday, int class_id)
+void gcompris_db_save_user(int *user_id, gchar *login, gchar *name, gchar *firstname, gchar *birthdate, int class_id)
 {
 #ifdef USE_SQLITE
 
@@ -595,7 +601,7 @@ void gcompris_db_save_user(int *user_id, gchar *login, gchar *name, gchar *first
 				       login,
 				       name,
 				       firstname,
-				       birthday,
+				       birthdate,
 				       class_id));
 
   rc = sqlite3_get_table(gcompris_db, 

@@ -299,6 +299,11 @@ attribute is readeable and/or writable.</para>
 		<entry>void gcompris_file_selector_stop(void)</entry>
 		<entry></entry>
 	      </row>
+	      <row>
+		<entry>gcompris.get_database()</entry>
+		<entry>gchar* gcompris_get_database(void)</entry>
+		<entry>return the filename (string) of the database (fullpath)</entry>
+	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>

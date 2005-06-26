@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/06/20 22:13:03 yves>
+ * Time-stamp: <2005/06/25 21:17:27 yves>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -138,6 +138,8 @@ void		 gcompris_file_selector_save (GcomprisBoard *gcomprisBoard,
 void		 gcompris_file_selector_stop (void);
 
 void		 gcompris_exit();
+
+gchar		*gcompris_get_database();
 
 /* Trace Log */
 #define GCOMPRIS_LOG_STATUS_PASSED    "PASSED"

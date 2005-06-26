@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/06/20 12:56:57 yves>
+ * Time-stamp: <2005/06/25 21:08:21 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -50,11 +50,6 @@ GcomprisProperties	*gcompris_get_properties (void);
 GcomprisProperties	*gcompris_properties_new (void);
 void			 gcompris_properties_destroy (GcomprisProperties *props);
 void			 gcompris_properties_save (GcomprisProperties *props);
-
-void			 gcompris_properties_enable_board(gchar *boardName);
-void			 gcompris_properties_disable_board(gchar *boardName);
-gboolean		 gcompris_properties_get_board_status(gchar *boardName);
-void			 gcompris_write_boards_status();
 
 #endif
 

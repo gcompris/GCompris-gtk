@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/06/14 22:16:19 yves>
+ * Time-stamp: <2005/06/25 14:15:53 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -22,7 +22,7 @@
 /*****************************************************************************/
 /* this files describes structures and fucntions for profile management.     */
 /* GcomprisClass is intended as school class, and defines a partition of     */
-/* set uf all users. Each user is in a class and only one.                   */
+/* set of all users. Each user is in a class and only one.                   */
 /* GcomprisGroup is a subset of class. It's not a partition of the class,    */
 /* user can be in 1 or more groups.                                          */
 /* There is at least one group in a class -- the whole class.                */

@@ -313,6 +313,7 @@ AC_MSG_RESULT($with_sqlite)
 if test x$with_sqlite = xyes; then
    PKG_CHECK_MODULES(SQLITE3, sqlite3,, AC_MSG_ERROR([*** SQLITE3 not found!]))
    AC_DEFINE([USE_SQLITE], 1,[SQLITE Database, Profiles are enabled])
+   AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
 fi
 
 AM_CONDITIONAL(USE_SQLITE, test x$with_sqlite = xyes)
@@ -501,6 +502,7 @@ src/boards/python/gcompris/sound/Makefile
 src/boards/python/gcompris/timer/Makefile
 src/boards/python/gcompris/utils/Makefile
 src/boards/python/connect4p/Makefile
+src/boards/python/admin/Makefile
 po/Makefile.in
 docs/Makefile
 docs/C/Makefile

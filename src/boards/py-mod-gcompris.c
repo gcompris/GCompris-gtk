@@ -586,6 +586,24 @@ py_gcompris_file_selector_stop(PyObject* self, PyObject* args)
   return Py_None;
 }
 
+/* gchar *gcompris_get_database(void); */
+static PyObject*
+py_gcompris_get_database(PyObject* self, PyObject* args)
+{
+  gchar* result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_get_database"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = (gchar*)gcompris_get_database();
+
+  /* Create and return the result */
+  return Py_BuildValue("s", result);
+}
+
+
+
 
 static PyMethodDef PythonGcomprisModule[] = {
   { "end_board",  py_gcompris_end_board, METH_VARARGS, "gcompris_end_board" },
@@ -617,6 +635,7 @@ static PyMethodDef PythonGcomprisModule[] = {
     METH_VARARGS, "gcompris_file_selector_save" },
   { "file_selector_stop",  py_gcompris_file_selector_stop,
     METH_VARARGS, "gcompris_file_selector_stop" },
+  { "get_database",  py_gcompris_get_database, METH_VARARGS, "gcompris_get_database" },
   { NULL, NULL, 0, NULL}
 };
 
