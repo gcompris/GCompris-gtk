@@ -1,3 +1,29 @@
+2005-06-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- readded initalisation of REQUIRE_PYTHON variable for the spec file
+	- removed all code for the old gcompris_edit
+
+	* configure.in:
+	* gcompris-edit.desktop.in:
+	* gcompris-edit.png:
+	* po/POTFILES.in:
+	* po/fr.po:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/callbacks.c:
+	* src/gcompris/callbacks.h:
+	* src/gcompris/gcompris-edit.c:
+	* src/gcompris/gcompris-edit.h:
+	* src/gcompris/interface.c:
+	* src/gcompris/interface.h:
+	* src/gcompris/support.c:
+	* src/gcompris/support.h:
+
+2005-06-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* boards/dataset/mrpatate.xml: added missing images from imageid
+	* boards/dataset/tuxpaint_pictures.xml: will provide tuxpaint user saved drawings from 
+	  gcompris image selector (if any).
+
 2005-06-27  Yves Combe  <yves@ycombe.net>
 
 	* administration module (gcompris -e).

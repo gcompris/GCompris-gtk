@@ -9,11 +9,11 @@ endif
 SUBDIRS = po src boards $(DOCS_SUBDIR)
 
 icondir=$(datadir)/pixmaps
-icon_DATA = gcompris.png gcompris-edit.png
+icon_DATA = gcompris.png
 
 Applicationsdir = $(datadir)/applications/
-Applications_in_files = gcompris.desktop.in gcompris-edit.desktop.in
-Applications_DATA = gcompris.desktop gcompris-edit.desktop
+Applications_in_files = gcompris.desktop.in
+Applications_DATA = gcompris.desktop
 
 Menudir=$(prefix)/lib/menu
 Menu_DATA=gcompris
@@ -46,7 +46,7 @@ dist-hook:
 	fi
 
 
-CLEANFILES = core-translation-report gcompris.desktop gcompris-edit.desktop gcompris.spec
+CLEANFILES = core-translation-report gcompris.desktop gcompris.spec
 
 clean-local:
 	rm -f intltool-extract intltool-merge intltool-update

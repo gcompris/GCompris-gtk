@@ -43,7 +43,6 @@ uninstall-libtool-import-lib:
 endif
 
 bin_PROGRAMS = gcompris
-gcompris_edit_cflags = 
 
 INCLUDES = \
 	-I$(top_srcdir)/intl \
