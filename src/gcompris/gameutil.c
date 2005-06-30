@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/22 10:34:42 yves>
+ * Time-stamp: <2005/06/28 23:34:29 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -733,8 +733,10 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
     g_warning("gcompris_load_menus : no menu found in %s", dirname);
     return;
   } else {
-    list_old_boards_id = gcompris_db_get_board_id(list_old_boards_id);
-    printf("length list_old_boards_id %d\n", g_list_length(list_old_boards_id));
+    if (db){
+      list_old_boards_id = gcompris_db_get_board_id(list_old_boards_id);
+      printf("length list_old_boards_id %d\n", g_list_length(list_old_boards_id));
+    }
 
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
@@ -775,17 +777,21 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
     }
   }
 
-  /* remove suppressed boards from db */
-  printf("length list_old_boards_id to suppress %d\n", g_list_length(list_old_boards_id));
-  while (list_old_boards_id != NULL){
-    int *data=list_old_boards_id->data;
-    gcompris_db_remove_board(*data);
-    list_old_boards_id=g_list_remove(list_old_boards_id, data);
-    g_free(data);
-  }
+  if (db){
+    /* remove suppressed boards from db */
+    printf("length list_old_boards_id to suppress %d\n", g_list_length(list_old_boards_id));
+    while (list_old_boards_id != NULL){
+      int *data=list_old_boards_id->data;
+      gcompris_db_remove_board(*data);
+      list_old_boards_id=g_list_remove(list_old_boards_id, data);
+      g_free(data);
+    }
 
+  }
+  
   g_dir_close(dir);
 }
+  
 
 /* load all the menus xml files in the gcompris path
  * into our memory structures.

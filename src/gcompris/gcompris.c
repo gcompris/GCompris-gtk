@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/25 21:17:34 yves>
+ * Time-stamp: <2005/06/30 10:53:34 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -662,7 +662,8 @@ void gcompris_end_board()
 {
   if (get_current_gcompris_board()->previous_board == NULL)
     /* We are in the upper menu */
-    board_play (gcomprisBoardMenu);
+    /* board_play (gcomprisBoardMenu); */
+    gcompris_exit();
   else
     /* Run the previous board */
     board_play (get_current_gcompris_board()->previous_board);

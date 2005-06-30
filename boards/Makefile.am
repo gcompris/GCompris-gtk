@@ -89,6 +89,7 @@ xml_in_files = \
 	superbrain.xml.in \
 	target.xml.in \
 	traffic.xml.in \
+	tuxpaint.xml.in \
 	watercycle.xml.in \
 	wordsgame.xml.in
 

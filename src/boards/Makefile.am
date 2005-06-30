@@ -233,6 +233,7 @@ libpython_la_LDFLAGS = -export-dynamic -module -avoid-version $(PYTHON_LIBS)
 libpython_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libpython_la_SOURCES = python.c \
 	py-gcompris-board.c	py-gcompris-board.h	\
+	py-gcompris-properties.c	py-gcompris-properties.h	\
 	py-mod-gcompris.c	py-mod-gcompris.h	\
 	py-mod-utils.c		py-mod-utils.h		\
 	py-mod-bonus.c		py-mod-bonus.h		\

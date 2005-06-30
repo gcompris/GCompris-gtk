@@ -16,6 +16,7 @@ dist_python_DATA= \
 	pythontest.py \
 	redraw.py \
 	searace.py \
+	tuxpaint.py \
 	watercycle.py
 
 

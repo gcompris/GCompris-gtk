@@ -3,6 +3,7 @@
 #include "gcompris/gcompris.h"
 #include "py-mod-gcompris.h"
 #include "py-gcompris-board.h"
+#include "py-gcompris-properties.h"
 
 /* submodules includes */
 #include "py-mod-bonus.h"
@@ -603,6 +604,22 @@ py_gcompris_get_database(PyObject* self, PyObject* args)
 }
 
 
+/* GnomeCanvas *gcompris_get_properties(void); */
+static PyObject*
+py_gcompris_get_properties(PyObject* self, PyObject* args)
+{
+  GcomprisProperties* result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_get_properties"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gcompris_get_properties();
+
+  /* Create and return the result */
+  return gcompris_new_pyGcomprisPropertiesObject(result);
+}
+
 
 
 static PyMethodDef PythonGcomprisModule[] = {
@@ -636,6 +653,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "file_selector_stop",  py_gcompris_file_selector_stop,
     METH_VARARGS, "gcompris_file_selector_stop" },
   { "get_database",  py_gcompris_get_database, METH_VARARGS, "gcompris_get_database" },
+  { "get_properties",  py_gcompris_get_properties, METH_VARARGS, "gcompris_get_properties" },
   { NULL, NULL, 0, NULL}
 };
 
