@@ -48,9 +48,13 @@ class Gcompris_tuxpaint:
     if Prop.fullscreen:
       options.append('--fullscreen')
 
-    pid,stdin, stdout, stderr = gobject.spawn_async(
-      options, flags=gobject.SPAWN_DO_NOT_REAP_CHILD|gobject.SPAWN_SEARCH_PATH)
-
+    try:
+      pid,stdin, stdout, stderr = gobject.spawn_async(
+        options, flags=gobject.SPAWN_DO_NOT_REAP_CHILD|gobject.SPAWN_SEARCH_PATH)
+    except:
+      gcompris.utils.dialog(_("Cannot find Tuxpaint. \n Install it to use this board !"),stop_board)
+      return 
+    
     gobject.child_watch_add(pid, child_callback, None)
 
     gcompris.bar_set(0)
@@ -105,3 +109,5 @@ def child_callback(fd,  cond, data):
   gcompris.bar_hide(0)
   gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
   
+def stop_board():
+  gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
