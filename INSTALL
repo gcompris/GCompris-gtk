@@ -26,6 +26,8 @@ gnome-python-canvas
 libpython2.2-devel
 gnome-python
 python-base
+python-pyxml
+python-sqlite (if it's not packaged, download and install it from http://initd.org/tracker/pysqlite)
 
 Now that the sound is managed internally, you also need:
 libSDL libSDL-mixer
@@ -54,7 +56,7 @@ urpmi tetex
 urpmi gnuchess
 urpmi libSDL_mixer1.2-devel
 urpmi libtool
-
+urpmi libsqlite3_0 libsqlite3_0-devel
 
 
 Basic Installation
