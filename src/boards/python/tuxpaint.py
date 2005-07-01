@@ -22,7 +22,7 @@ import gcompris
 import gcompris.utils
 import gcompris.bonus
 import gcompris.skin
-import gobject
+#import gobject
 from gettext import gettext as _
 
 pid = None
@@ -49,13 +49,14 @@ class Gcompris_tuxpaint:
       options.append('--fullscreen')
 
     try:
-      pid,stdin, stdout, stderr = gobject.spawn_async(
-        options, flags=gobject.SPAWN_DO_NOT_REAP_CHILD|gobject.SPAWN_SEARCH_PATH)
+      # gobject.SPAWN_DO_NOT_REAP_CHILD|gobject.SPAWN_SEARCH_PATH = 2 | 4
+      pid,stdin, stdout, stderr = gcompris.spawn_async(
+        options, flags=2|4)
     except:
       gcompris.utils.dialog(_("Cannot find Tuxpaint. \n Install it to use this board !"),stop_board)
       return 
     
-    gobject.child_watch_add(pid, child_callback, None)
+    gcompris.child_watch_add(pid, child_callback, None)
 
     gcompris.bar_set(0)
     gcompris.bar_hide(1)

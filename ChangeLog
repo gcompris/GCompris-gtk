@@ -1,3 +1,8 @@
+2005-07-01  Yves Combe  <yves@ycombe.net>
+
+	* gcompris.child_watch_add compris.spawn_async to bind g_child_watch_add and g_spawn_async, (code from pygtk 2.6)
+	* tuxpaint.py should now run with pygtk 2.4
+
 2005-06-30  Yves Combe <yves@ycombe.net>
 
 	* fix tuxpaint launcher crash if tuxpaint not found
