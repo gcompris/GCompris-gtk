@@ -1,6 +1,26 @@
+2005-07-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added missing files for the edit mode (editing class)
+	Re-Added gcompris-edit menu
+	
+	* Makefile.am:
+	* gcompris-edit.desktop.in:
+	* gcompris-edit.png:
+	* src/boards/python/admin/.cvsignore:
+	* src/boards/python/admin/Makefile.am:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/tuxpaint.py: bad return value
+
+2005-06-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* INSTALL: fixed new dependancies pyxml, pysqlite sqlite-devel
+	* src/boards/python/admin/users.py: improved, started class-edit
+	* src/boards/python/admin/class_edit.py: started, no complete yet.
+	
 2005-07-01  Yves Combe  <yves@ycombe.net>
 
-	* gcompris.child_watch_add compris.spawn_async to bind g_child_watch_add and g_spawn_async, (code from pygtk 2.6)
+	* src/boards/py-mod-gcompris.c: gcompris.child_watch_add compris.spawn_async to bind g_child_watch_add and g_spawn_async, (code from pygtk 2.6)
 	* tuxpaint.py should now run with pygtk 2.4
 
 2005-06-30  Yves Combe <yves@ycombe.net>

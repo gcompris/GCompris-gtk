@@ -22,6 +22,8 @@ import gcompris
 import gcompris.utils
 import gcompris.bonus
 import gcompris.skin
+import gtk
+
 #import gobject
 from gettext import gettext as _
 
@@ -91,7 +93,7 @@ class Gcompris_tuxpaint:
     pass
 
   def key_press(self, keyval):
-    return FALSE
+    return gtk.FALSE
 
   def repeat(self):
     pass
