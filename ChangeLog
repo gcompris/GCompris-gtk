@@ -1,3 +1,54 @@
+2005-07-04  Yves Combe  <yves@ycombe.net>
+
+	add config_start and config_end entry point to all plugin.
+	modify python initialisation to detect config_start in python file and setup it correctly in plugin pointer
+
+	* src/boards/advanced_colors.c:
+	* src/boards/algebra.c:
+	* src/boards/algebra_guesscount.c:
+	* src/boards/animtest.c:
+	* src/boards/canal_lock.c:
+	* src/boards/chess.c:
+	* src/boards/click_on_letter.c:
+	* src/boards/clickgame.c:
+	* src/boards/clockgame.c:
+	* src/boards/colors.c:
+	* src/boards/draw.c:
+	* src/boards/enumerate.c:
+	* src/boards/erase.c:
+	* src/boards/fifteen.c:
+	* src/boards/gletters.c:
+	* src/boards/hanoi.c:
+	* src/boards/imageid.c:
+	* src/boards/leftright.c:
+	* src/boards/machpuzzle.c:
+	* src/boards/maze.c:
+	* src/boards/memory.c:
+	* src/boards/menu.c:
+	* src/boards/missingletter.c:
+	* src/boards/money.c:
+	* src/boards/paratrooper.c:
+	* src/boards/planegame.c:
+	* src/boards/python.c: (get_pythonboards_list), (pythonboard_init),
+	(pythonboard_is_our_board), (pythonboard_repeat),
+	(pythonboard_config_start), (pythonboard_config_stop):
+	* src/boards/railroad.c:
+	* src/boards/read_colors.c:
+	* src/boards/reading.c:
+	* src/boards/reversecount.c:
+	* src/boards/shapegame.c:
+	* src/boards/smallnumbers.c:
+	* src/boards/submarine.c:
+	* src/boards/superbrain.c:
+	* src/boards/target.c:
+	* src/boards/traffic.c:
+	* src/boards/wordsgame.c:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/board.c: (init_plugins), (board_check_file):
+	* src/gcompris/gameutil.c: (gcompris_get_boards_list):
+	* src/gcompris/gameutil.h:
+	* src/gcompris/plugin.h:
+
 2005-07-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added missing files for the edit mode (editing class)

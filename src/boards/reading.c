@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/05/02 02:01:00 bruno>
+ * Time-stamp: <2005/07/01 23:50:00 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -118,6 +118,8 @@ static BoardPlugin menu_bp =
    NULL,
    NULL,
    set_level,
+   NULL,
+   NULL,
    NULL,
    NULL
 };

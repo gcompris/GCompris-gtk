@@ -227,6 +227,8 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     config,
+    NULL,
+    NULL,
     NULL
   };
 

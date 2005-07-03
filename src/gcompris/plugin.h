@@ -1,6 +1,6 @@
 /* gcompris - plugin.h
  *
- * Time-stamp: <2002/01/13 17:50:04 bruno>
+ * Time-stamp: <2005/07/02 16:11:40 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -27,6 +27,7 @@ typedef struct _GcomprisBoard         GcomprisBoard;
 /* Return 1 if the board plugin can handle this board */
 typedef	gboolean      (*GcomprisIsOurBoard)   (GcomprisBoard *gcomprisBoard);
 
+typedef void          (*GcomprisInitBoard)    (GcomprisBoard *gcomprisBoard);
 typedef void          (*GcomprisStartBoard)   (GcomprisBoard *gcomprisBoard);
 typedef void          (*GcomprisPauseBoard)   (gboolean pause);
 typedef void          (*GcomprisEndBoard)     (void);
@@ -35,6 +36,13 @@ typedef void          (*GcomprisOK)           (void);
 typedef void          (*GcomprisSetLevel)     (guint level);
 typedef void          (*GcomprisConfig)       ();
 typedef void          (*GcomprisRepeat)       ();
+typedef void          (*GcomprisConfigStart)  (GcomprisBoard *gcomprisBoard,
+					       GnomeCanvas *canvas,
+					       int x,
+					       int y,
+					       int width,
+					       int height);
+typedef void          (*GcomprisConfigStop)    (void);
 
 typedef struct
 {
@@ -44,7 +52,8 @@ typedef struct
   char *description;		/* The description that describes this board */
   char *author;			/* The author of this board */
 
-  void (*init) (void);		/* Called when the plugin is loaded */
+  GcomprisInitBoard    init;	/* Called when the plugin is loaded */
+
   void (*cleanup) (void);      	/* Called when gcompris exit */
   void (*about) (void);		/* Show the about box */
   void (*configure) (void);	/* Show the configuration dialog */
@@ -60,6 +69,9 @@ typedef struct
   GcomprisSetLevel     set_level;
   GcomprisConfig       config;
   GcomprisRepeat       repeat;
+
+  GcomprisConfigStart  config_start;
+  GcomprisConfigStop   config_stop;
 
 }
 BoardPlugin;

@@ -51,6 +51,8 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     NULL,
+    NULL,
+    NULL,
     NULL
   };
 

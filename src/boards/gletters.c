@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/05/10 22:14:55 bruno>
+ * Time-stamp: <2005/07/01 23:44:34 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -140,6 +140,8 @@ static BoardPlugin menu_bp =
     key_press,
     NULL,
     set_level,
+    NULL,
+    NULL,
     NULL,
     NULL
   };

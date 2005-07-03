@@ -156,7 +156,7 @@ void init_plugins(void)
     bp = (BoardPlugin *) static_boards[i++];
       
     if(bp->init != NULL) {
-      bp->init();
+      bp->init(NULL);
     }
   }
 }
@@ -292,14 +292,14 @@ gboolean board_check_file(GcomprisBoard *gcomprisBoard)
 
       /* If this plugin defines an initialisation entry point, call it */
       if(bp->init != NULL) {
-	bp->init();
+	bp->init(gcomprisBoard);
       }
 
       if(bp->is_our_board(gcomprisBoard)) {
 	/* Great, we found our plugin */
 	g_warning("We found the correct plugin for board %s (type=%s)\n", gcomprisBoard->name, gcomprisBoard->type);
 
-	gcomprisBoard->plugin = bp;
+	/* done in is_our_board gcomprisBoard->plugin = bp; */
 
 	/* Save this for caching and cleanup */
 	gcomprisBoard->gmodule_file = gmodule_file;

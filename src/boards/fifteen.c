@@ -68,6 +68,8 @@ static BoardPlugin menu_bp =
     NULL,
     set_level,
     NULL,
+    NULL,
+    NULL,
     NULL
   };
 

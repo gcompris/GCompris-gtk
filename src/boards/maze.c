@@ -144,7 +144,9 @@ static BoardPlugin menu_bp =
     process_ok,
     set_level,//set_level,
     NULL,
-    repeat
+    repeat,
+    NULL,
+    NULL
   };
 
 /* =====================================================================

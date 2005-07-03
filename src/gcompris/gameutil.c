@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/06/28 23:34:29 yves>
+ * Time-stamp: <2005/07/03 23:01:47 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -43,6 +43,12 @@ static gint item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallB
 extern GnomeCanvas *canvas;
 
 typedef void (*sighandler_t)(int);
+
+
+GList *gcompris_get_boards_list()
+{
+  return boards_list;
+}
 
 /*
  * Returns a filename path found from the assetml base. 

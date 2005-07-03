@@ -56,6 +56,7 @@ GcomprisBoard   *gcompris_get_board_from_section(gchar *section);
 GList		*gcompris_get_menulist(gchar *section);
 void		 gcompris_load_menus();
 void		 gcompris_load_mime_types();
+GList           *gcompris_get_boards_list();
 
 gchar		*convertUTF8Toisolat1(gchar * text);
 void		 item_absolute_move(GnomeCanvasItem *item, int x, int y);

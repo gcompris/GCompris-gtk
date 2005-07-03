@@ -116,6 +116,7 @@ libgcompris_1_la_SOURCES =			\
 	help.c \
 	pixbuf_util.c \
 	board.h board.c \
+	board_config.h board_config.c \
 	soundutil.c \
 	cursor.c \
 	bonus.c \

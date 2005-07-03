@@ -103,6 +103,8 @@ static BoardPlugin menu_bp =
     process_ok,
     set_level,
     NULL,
+    NULL,
+    NULL,
     NULL
   };
 
