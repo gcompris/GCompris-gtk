@@ -1,6 +1,7 @@
 [encoding: UTF-8]
 # List of source files containing translatable strings.
 # Please keep it in alphabetical order.
+boards/administration.xml.in
 boards/adminitration.xml.in
 boards/advanced_colors.xml.in
 boards/advanced_colors/board1.xml.in
@@ -76,8 +77,8 @@ boards/erase.xml.in
 boards/erase_clic.xml.in
 boards/erase_double_clic.xml.in
 boards/experience.xml.in
-boards/followline.xml.in
 boards/fifteen.xml.in
+boards/followline.xml.in
 boards/fun.xml.in
 boards/gcompris/mimetypes/mime_type.xml.in
 boards/geography.xml.in
@@ -88,6 +89,7 @@ boards/geography/board3_0.xml.in
 boards/geography/board3_1.xml.in
 boards/geography/board4_0.xml.in
 boards/geography/board4_1.xml.in
+boards/geography/board4_2.xml.in
 boards/geography/board5_0.xml.in
 boards/gletters.xml.in
 boards/gnumch-equality.xml.in
@@ -141,8 +143,6 @@ boards/readingv.xml.in
 boards/redraw.xml.in
 boards/redraw_symmetrical.xml.in
 boards/reversecount.xml.in
-boards/searace.xml.in
-boards/searace1player.xml.in
 boards/scales/board1_0.xml.in
 boards/scales/board1_1.xml.in
 boards/scales/board1_2.xml.in
@@ -162,6 +162,8 @@ boards/scales/board3_3.xml.in
 boards/scales/board3_4.xml.in
 boards/scales/board3_5.xml.in
 boards/scalesboard.xml.in
+boards/searace.xml.in
+boards/searace1player.xml.in
 boards/smallnumbers.xml.in
 boards/smallnumbers2.xml.in
 boards/submarine.xml.in
@@ -198,11 +200,17 @@ src/boards/money.c
 src/boards/paratrooper.c
 src/boards/planegame.c
 src/boards/python.c
+src/boards/python/admin/class_edit.py
+src/boards/python/admin/class_list.py
+src/boards/python/admin/module_profiles.py
+src/boards/python/admin/user_list.py
+src/boards/python/admin/module_users.py
 src/boards/python/anim.py
 src/boards/python/gnumch.py
 src/boards/python/pythontest.py
 src/boards/python/redraw.py
 src/boards/python/searace.py
+src/boards/python/tuxpaint.py
 src/boards/railroad.c
 src/boards/read_colors.c
 src/boards/reading.c

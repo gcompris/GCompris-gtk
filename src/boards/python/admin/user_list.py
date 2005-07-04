@@ -142,6 +142,21 @@ class User_list:
   # User Management
   # -------------------
 
+  # Add user in the model
+  def add_user_in_model(self, model, user):
+    iter = model.append()
+    model.set (iter,
+               COLUMN_USERID,    user[COLUMN_USERID],
+               COLUMN_LOGIN,     user[COLUMN_LOGIN],
+               COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
+               COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
+               COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE],
+               COLUMN_CLASS,     user[COLUMN_CLASS],
+               COLUMN_USER_EDITABLE,  True
+               )
+
+    
+
   def __create_model(self):
     model = gtk.ListStore(
       gobject.TYPE_INT,
@@ -152,16 +167,9 @@ class User_list:
       gobject.TYPE_INT,
       gobject.TYPE_BOOLEAN)
 
-    for item in self.user_data:
-      iter = model.append()
-      model.set(iter,
-                 COLUMN_USERID,    item[COLUMN_USERID],
-                 COLUMN_LOGIN,     item[COLUMN_LOGIN],
-                 COLUMN_FIRSTNAME, item[COLUMN_FIRSTNAME],
-                 COLUMN_LASTNAME,  item[COLUMN_LASTNAME],
-                 COLUMN_BIRTHDATE, item[COLUMN_BIRTHDATE],
-                 COLUMN_CLASS,     item[COLUMN_CLASS],
-                 COLUMN_USER_EDITABLE,  True)
+    for user in self.user_data:
+      self.add_user_in_model(model, user)
+
     return model
 
 
@@ -232,20 +240,6 @@ class User_list:
     return user_id
 
 
-  # Add user in the model
-  def add_user_in_model(self, model, user):
-    iter = model.append()
-    model.set (iter,
-               COLUMN_USERID,    user[COLUMN_USERID],
-               COLUMN_LOGIN,     user[COLUMN_LOGIN],
-               COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
-               COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
-               COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE],
-               COLUMN_CLASS,     user[COLUMN_CLASS],
-               COLUMN_USER_EDITABLE,  True
-               )
-
-    
   #
   def on_add_item_clicked(self, button, model):
     user_id = self.get_next_user_id()

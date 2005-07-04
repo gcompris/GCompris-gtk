@@ -27,7 +27,7 @@ from gettext import gettext as _
 # Database
 from pysqlite2 import dbapi2 as sqlite
 
-# User Management
+# User List Management
 (
   COLUMN_USERID,
   COLUMN_FIRSTNAME,
@@ -45,9 +45,11 @@ class ClassEdit(gtk.Window):
         self.cur = db_cursor
         self.con = db_connect
 
+        self.class_id = class_id
+        
         self.set_title(_("Class Edition"))
         self.set_border_width(8)
-        self.set_default_size(320, 200)
+        self.set_default_size(320, 350)
 
         frame = gtk.Frame(_("Editing class: ") + class_name)
         self.add(frame)
@@ -74,10 +76,10 @@ class ClassEdit(gtk.Window):
         sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
         # create tree model
-        model = self.__create_model()
+        self.model_left = self.__create_model(False, class_id)
 
         # create tree view
-        treeview = gtk.TreeView(model)
+        treeview = gtk.TreeView(self.model_left)
         treeview.set_rules_hint(True)
         treeview.set_search_column(COLUMN_FIRSTNAME)
 
@@ -90,14 +92,55 @@ class ClassEdit(gtk.Window):
 
 
         # Middle Button
+        # -------------
         vbox2 = gtk.VBox(False, 8)
         vbox2.set_border_width(8)
         hbox.pack_start(vbox2, True, True, 0)
 
         button_add = gtk.Button(_("Add user >"))
         vbox2.pack_start(button_add, False, False, 0)
+        button_add.connect("clicked", self.add_user, treeview)
 
         # Right List
+        # ----------
+
+        # Create the table
+        sw2 = gtk.ScrolledWindow()
+        sw2.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        sw2.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+
+        # create tree model
+        self.model_right = self.__create_model(True, class_id)
+
+        # create tree view
+        treeview2 = gtk.TreeView(self.model_right)
+        treeview2.set_rules_hint(True)
+        treeview2.set_search_column(COLUMN_FIRSTNAME)
+
+        sw2.add(treeview2)
+        
+        # add columns to the tree view
+        self.__add_columns(treeview2)
+
+        hbox.pack_start(sw2, True, True, 0)
+
+        # Confirmation Buttons
+        # --------------------
+        vbox.pack_start(gtk.HSeparator(), False, False, 0)
+
+        bbox = gtk.HButtonBox()
+        bbox.set_border_width(5)
+        bbox.set_layout(gtk.BUTTONBOX_EDGE)
+        bbox.set_spacing(40)
+        
+        button = gtk.Button(stock='gtk-help')
+        bbox.add(button)
+
+        button = gtk.Button(stock='gtk-close')
+        bbox.add(button)
+        button.connect("clicked", self.close)
+
+        vbox.pack_start(bbox, False, False, 0)
         
         # Ready GO
         self.show_all()
@@ -152,10 +195,26 @@ class ClassEdit(gtk.Window):
     # User Management
     # -------------------
 
-    def __create_model(self):
+    # Add user in the model
+    def add_user_in_model(self, model, user):
+        iter = model.append()
+        model.set (iter,
+                   COLUMN_USERID,    user[COLUMN_USERID],
+                   COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
+                   COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
+                   COLUMN_USER_EDITABLE,  False
+                   )
+
+    # If class_id is provided, only users in this class are inserted
+    # If with = True, create a list only with the given class_id.
+    #           False, create a list only without the given class_id
+    def __create_model(self, with, class_id):
 
         # Grab the user data
-        self.cur.execute('select user_id,firstname,name from users')
+        if(with):
+            self.cur.execute('select user_id,firstname,name from users where class_id=?', (class_id,))
+        else:
+            self.cur.execute('select user_id,firstname,name from users where class_id!=?', (class_id,))
         user_data = self.cur.fetchall()
 
         model = gtk.ListStore(
@@ -164,13 +223,9 @@ class ClassEdit(gtk.Window):
             gobject.TYPE_STRING,
             gobject.TYPE_BOOLEAN)
 
-        for item in user_data:
-            iter = model.append()
-            model.set(iter,
-                      COLUMN_USERID,    item[COLUMN_USERID],
-                      COLUMN_FIRSTNAME, item[COLUMN_FIRSTNAME],
-                      COLUMN_LASTNAME,  item[COLUMN_LASTNAME],
-                      COLUMN_USER_EDITABLE,  False)
+        for user in user_data:
+            self.add_user_in_model(model, user)
+
         return model
 
     def __add_columns(self, treeview):
@@ -196,4 +251,29 @@ class ClassEdit(gtk.Window):
         treeview.append_column(column)
 
 
+    # Add a user from the left list to the right list
+    #
+    def add_user(self, button, treeview):
+        selection = treeview.get_selection()
+        model, iter = selection.get_selected()
 
+        if iter:
+            path = model.get_path(iter)[0]
+            user_id        = model.get_value(iter, COLUMN_USERID)
+            user_firstname = model.get_value(iter, COLUMN_FIRSTNAME)
+            user_lastname  = model.get_value(iter, COLUMN_LASTNAME)
+            model.remove(iter)
+
+            # Add in the the right view
+            self.add_user_in_model(self.model_right, (user_id, user_firstname, user_lastname))
+            
+            # Save the change in the base
+            self.cur.execute('update users set class_id=? where user_id=?', (self.class_id, user_id))
+            self.con.commit()
+
+
+    # Done, can quit this dialog
+    #
+    def close(self, button):
+        self.destroy()
+        

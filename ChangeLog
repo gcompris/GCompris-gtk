@@ -1,3 +1,9 @@
+2005-07-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* po/POTFILES.in: updated
+	* src/boards/python/admin/class_edit.py: now it works. It is possible to edit users in classes
+	* src/boards/python/admin/user_list.py: improved a little bit by using add_user_in_model in __create_model
+
 2005-07-04  Yves Combe  <yves@ycombe.net>
 
 	add is_configurable attribut in python board binding.
