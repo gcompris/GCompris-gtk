@@ -25,10 +25,12 @@
 #include "py-mod-gcompris.h"
 
 static GcomprisBoard *gcomprisBoard = NULL;
+
 static PyObject* python_gcomprisBoard = NULL;
 static PyObject* python_board_module = NULL;
 static PyObject* python_board_instance = NULL;
 
+static GcomprisBoard *gcomprisBoard_config = NULL;
 static PyObject* python_gcomprisBoard_config = NULL;;
 static PyObject* python_board_config_module = NULL;
 static PyObject* python_board_config_instance = NULL;
@@ -46,7 +48,7 @@ static void	 pythonboard_set_level (guint level);
 static void	 pythonboard_config(void);
 static void	 pythonboard_repeat (void);
 static void	 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
-					   GnomeCanvas *canvas,
+					   GnomeCanvasGroup *canvasgroup,
 					   int x,
 					   int y,
 					   int width,
@@ -513,7 +515,7 @@ static void pythonboard_repeat (void){
 }
 
 /*
- * Start the board.
+ * Start the board config_start.
  * In this case:
  * - initialize python interpreter
  * - import gcompris functions/objects
@@ -521,9 +523,16 @@ static void pythonboard_repeat (void){
  * - load the python written board
  * - call the board start function
  */
+
+/*
+ * Normally python in already runningwhen config_start is called. If not config_stop has to stop it.
+ */
+
+static gboolean python_run_by_config = FALSE;
+
 static void
 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
-			  GnomeCanvas *canvas,
+			  GnomeCanvasGroup *canvasgroup,
 			  int x,
 			  int y,
 			  int width,
@@ -537,6 +546,59 @@ pythonboard_config_start (GcomprisBoard *agcomprisBoard,
   static char* python_prog_name="gcompris";
   char* boardclass;
   char* board_file_name;
+  PyObject* main_module;
+  char* boarddir;
+  gchar *userplugindir;
+
+  g_assert (agcomprisBoard != NULL);
+ 
+  if(!Py_IsInitialized()){
+    /* Initialize the python interpreter */
+    Py_SetProgramName(python_prog_name);
+    Py_Initialize();
+    
+    PySys_SetArgv(1, python_args);
+    
+    init_pygobject();
+
+    main_module = PyImport_AddModule("__main__");
+    globals = PyModule_GetDict(main_module);
+    
+    if(globals==NULL){
+      g_print("Cannot get info from the python interpreter. Seems there is a problem with this one.\n");
+      return;
+    } else {
+      gcomprisBoard_config = agcomprisBoard;
+    }
+
+    /* Add the python plugins dir to the python's search path */
+#ifndef DISABLE_USER_PLUGIN_DIR
+    userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s'); sys.path.append('%s')",
+			       userplugindir,
+			       PYTHON_PLUGIN_DIR,
+			       gcomprisBoard_config->board_dir);
+#else
+    boarddir = g_strdup_printf("import sys; sys.path.append('%s')",PYTHON_PLUGIN_DIR );
+#endif
+
+    PyRun_SimpleString(boarddir);
+    g_free(boarddir);
+
+#ifndef DISABLE_USER_PLUGIN_DIR
+    g_free(userplugindir);
+#endif
+
+    /* Load the gcompris modules */
+    python_gcompris_module_init();
+
+    python_run_by_config = TRUE;
+   
+  }
+  else {
+    main_module = PyImport_AddModule("__main__"); /* Borrowed reference */
+    globals = PyModule_GetDict(main_module); /* Borrowed reference */
+  }
 
   /* Python is now initialized we create some usefull variables */
   board_file_name = strchr(agcomprisBoard->type, ':')+1;
@@ -547,30 +609,26 @@ pythonboard_config_start (GcomprisBoard *agcomprisBoard,
 						       globals,
 						       globals,
 						       NULL);
-  
+
   if(python_board_config_module!=NULL){
     /* Get the module dictionnary */
     module_dict = PyModule_GetDict(python_board_config_module);
-    
+
     /* Get the python board class */
     py_boardclass = PyDict_GetItemString(module_dict, boardclass);
-    
+
     /* Create a python gcompris board */
     python_gcomprisBoard_config=gcompris_new_pyGcomprisBoardObject(agcomprisBoard);
-    
     /* Create an instance of the board class */
     py_boardclass_args = PyTuple_New(1);
     Py_INCREF(python_gcomprisBoard_config);
     PyTuple_SetItem(py_boardclass_args, 0, python_gcomprisBoard_config);
-    PyTuple_SetItem(py_boardclass_args, 1, PyInt_FromLong((long) x));
-    PyTuple_SetItem(py_boardclass_args, 1, PyInt_FromLong((long) y));
-    PyTuple_SetItem(py_boardclass_args, 1, PyInt_FromLong((long) width));
-    PyTuple_SetItem(py_boardclass_args, 1, PyInt_FromLong((long) height));
     python_board_config_instance = PyInstance_New(py_boardclass, py_boardclass_args, NULL);
     Py_DECREF(py_boardclass_args);
-    
-    /* Call the function */
-    py_function_result = PyObject_CallMethod(python_board_config_instance, "config_start", NULL);
+
+    py_function_result = PyObject_CallMethod(python_board_config_instance, 
+					     "config_start", "Oiiii", pygobject_new((GObject*)canvasgroup), x, y, width, height);
+
     if( py_function_result != NULL){
       Py_DECREF(py_function_result);
     } else {
@@ -602,6 +660,9 @@ static void pythonboard_config_stop (void){
     Py_XDECREF(python_board_config_module);
     Py_XDECREF(python_board_config_instance);
     Py_XDECREF(python_gcomprisBoard_config);
-    Py_Finalize();
+    if (python_run_by_config){
+      Py_Finalize();
+      python_run_by_config = FALSE;
+    }
   }
 }

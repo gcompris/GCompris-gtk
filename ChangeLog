@@ -1,5 +1,23 @@
 2005-07-04  Yves Combe  <yves@ycombe.net>
 
+	rename users.py profiles.py in module_users.py and module_profiles.py.
+	change administration.py to load automaticly module_*.py
+	make config_start and config_stop running in python module (test in board.c, to ne removed).
+
+	* src/boards/python.c: (pythonboard_config_start),
+	(pythonboard_config_stop):
+	* src/boards/python/admin/module_profiles.py:
+	* src/boards/python/admin/module_users.py:
+	* src/boards/python/admin/profiles.py:
+	* src/boards/python/admin/users.py:
+	* src/boards/python/administration.py:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board.c: (board_play):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/plugin.h:
+
+2005-07-04  Yves Combe  <yves@ycombe.net>
+
 	add config_start and config_end entry point to all plugin.
 	modify python initialisation to detect config_start in python file and setup it correctly in plugin pointer
 

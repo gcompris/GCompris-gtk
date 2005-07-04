@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/06/25 21:17:27 yves>
+ * Time-stamp: <2005/07/04 12:51:36 yves>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -39,6 +39,7 @@
 #include "plugin.h"
 #include "gcompris-board.h"
 #include "board.h"
+#include "board_config.h"
 #include "properties.h"
 #include "gameutil.h"
 #include "bonus.h"

@@ -10,11 +10,29 @@ from gettext import gettext as _
 
 # To add a panel, add a python module in the admin subdir
 # This module must have a start() and end() function
-# Also add it in admin/__init__.py
-# Add it in the "from import" bellow
-# Last add it in the self.modules variable
-from admin import users
-from admin import profiles
+
+# Find the list of modules in admin/
+# that means all files, but __init__.py and module.py
+list_modules = []
+
+import glob
+m_list = glob.glob(gcompris.DATA_DIR+'/../python/admin/module_*.py')
+for file in m_list:
+  m_name = file.split('/')[-1].split('.')[0].split('_')[1]
+  list_modules.append(m_name)
+
+print "Modules List : ", list_modules
+
+# Now import modules,
+# and get the list of string 'name.Name' for initialisation below.
+modules_init = []
+
+for module in list_modules:
+  exec('from admin import ' + module)
+  modules_init.append(module+ '.' + module[0].upper() + module[1:])
+
+del list_modules
+  
 
 class Gcompris_administration:
   """Administrating GCompris"""
@@ -77,10 +95,11 @@ class Gcompris_administration:
     # Display the menu in the selection area
     # The list of modules
     i = 0
-    users.Users(self.rootitem).init(i, self.select_area, self.select_event)
-    i+=1
-    profiles.Profiles(self.rootitem).init(i, self.select_area, self.select_event)
-    
+    for module in modules_init:
+      print module +'(self.rootitem).init(i, self.select_area, self.select_event)'
+      exec(module +'(self.rootitem).init(i, self.select_area, self.select_event)')
+      i+=1
+
     print("Gcompris_administration start.")
 
 

@@ -104,7 +104,14 @@ class Gcompris_tuxpaint:
   def config(self):
     print "Config"
     pass
-  
+
+  def config_start(self, canvasgroup, x, y, w, h):
+    print "config_start", self, canvasgroup, x, y, w, h
+    pass
+
+  def config_stop(self):
+    print "config_stop", self
+    pass
 
 def child_callback(fd,  cond, data):
   global pid
