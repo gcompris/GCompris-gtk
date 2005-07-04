@@ -1,5 +1,22 @@
 2005-07-04  Yves Combe  <yves@ycombe.net>
 
+	add missing files.
+	add some bindings in gcompris python bindings.
+
+	* src/boards/menu.c: (item_event):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_child_watch_add),
+	(py_gcompris_spawn_async), (py_board_run_next),
+	(py_board_config_start), (py_board_config_stop):
+	* src/boards/python/admin/Makefile.am:
+	* src/gcompris/board.c: (board_stop), (get_board_paused),
+	(board_run_next):
+	* src/gcompris/board.h:
+	* src/gcompris/board_config.c: (board_config_start),
+	(board_config_stop):
+	* src/gcompris/board_config.h:
+
+2005-07-04  Yves Combe  <yves@ycombe.net>
+
 	rename users.py profiles.py in module_users.py and module_profiles.py.
 	change administration.py to load automaticly module_*.py
 	make config_start and config_stop running in python module (test in board.c, to ne removed).

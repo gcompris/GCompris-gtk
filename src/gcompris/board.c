@@ -379,22 +379,24 @@ void board_stop(void)
 
   /* If we are in the upper menu, no need to stop and restart it */
   if (get_current_gcompris_board()->previous_board == NULL){
+    if (get_current_board_plugin()->end_board)
+      get_current_board_plugin()->end_board();
     return;
   }
 
   if (bp_data->playing && get_current_board_plugin())
     {
       bp_data->playing = FALSE;
-
+      
       if (bp_data->paused)
 	board_pause();
       if (get_current_board_plugin()->end_board)
 	get_current_board_plugin()->end_board();
 
       bp_data->paused = FALSE;
-
+      
       gcompris_end_board();
-
+      
       return;
     }
   bp_data->playing = FALSE;
@@ -408,6 +410,16 @@ gboolean get_board_playing(void)
 gboolean get_board_paused(void)
 {
   return bp_data->paused;
+}
+
+void board_run_next(GcomprisBoard *board)
+{
+
+  board->previous_board = get_current_gcompris_board();
+  if (board->previous_board->plugin->end_board)
+    board->previous_board->plugin->end_board();
+
+  board_play(board);
 }
 
 

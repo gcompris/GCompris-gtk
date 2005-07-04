@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/07/01 23:45:53 yves>
+ * Time-stamp: <2005/07/04 21:20:28 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -433,16 +433,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
       break;
     case GDK_BUTTON_PRESS:
       {
-	/* Back Reference the current board in the next one */
-	board->previous_board = gcomprisBoard;
-
 	gcompris_play_ogg ("gobble", NULL);
 
-	/* End this board */
-	menu_end();
-
-	/* Start the user's one */
-	board_play (board);
+	board_run_next (board);
       };
       break;
       

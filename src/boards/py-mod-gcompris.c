@@ -673,7 +673,7 @@ py_gcompris_child_watch_add(PyObject *unused, PyObject *args, PyObject *kwargs)
     PyObject *func, *user_data = NULL;
     struct _PyGChildData *child_data;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "iO|Oi:gobject.child_watch_add", kwlist,
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "iO|Oi:gcompris.child_watch_add", kwlist,
                                      &pid, &func, &user_data, &priority))
         return NULL;
     if (!PyCallable_Check(func)) {
@@ -739,7 +739,7 @@ py_gcompris_spawn_async(PyObject *unused, PyObject *args, PyObject *kwargs)
     GPid child_pid = -1;
     int len, i;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O|OsiOOOOO:gobject.spawn_async",
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O|OsiOOOOO:gcompris.spawn_async",
                                      kwlist,
                                      &pyargv, &pyenvp, &working_directory, &flags,
                                      &func, &user_data,
@@ -860,6 +860,77 @@ py_gcompris_spawn_async(PyObject *unused, PyObject *args, PyObject *kwargs)
     return Py_BuildValue("iNNN", child_pid, pystdin, pystdout, pystderr);
 }
 
+
+static PyObject*
+py_board_run_next(PyObject* self, PyObject* args)
+{
+  PyObject* pyObject;
+  pyGcomprisBoardObject* pyGcomprisBoard;
+  GcomprisBoard* cGcomprisBoard;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "O:board_run_next", &pyObject))
+    return NULL;
+  pyGcomprisBoard = (pyGcomprisBoardObject*) pyObject;
+  cGcomprisBoard = pyGcomprisBoard->cdata;
+
+  /* Call the corresponding C function */
+  board_run_next(cGcomprisBoard);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+
+}
+
+static PyObject*
+py_board_config_start(PyObject* self, PyObject* args)
+{
+  PyObject* pyBoard;
+  PyObject* pyCanvasGroup;
+  pyGcomprisBoardObject* pyGcomprisBoard;
+  GcomprisBoard* cGcomprisBoard;
+  GnomeCanvasGroup *canvasgroup;
+  int x, y, width, height;
+  
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "OOiiii:board_config_start", &pyBoard,
+		       &pyCanvasGroup, &x, &y, &width, &height))
+    return NULL;
+  pyGcomprisBoard = (pyGcomprisBoardObject*) pyBoard;
+  cGcomprisBoard = pyGcomprisBoard->cdata;
+  canvasgroup = (GnomeCanvasGroup*) pygobject_get(pyCanvasGroup);
+
+  /* Call the corresponding C function */
+  board_config_start(cGcomprisBoard, canvasgroup, x, y, width, height);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+static PyObject*
+py_board_config_stop(PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.board_config_stop"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  board_config_stop();
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+/*
+  { "",  py_gcompris_, METH_VARARGS, "gcompris_" },
+*/
+
+
+
 /****************************************************/
 
 
@@ -899,6 +970,9 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_properties",  py_gcompris_get_properties, METH_VARARGS, "gcompris_get_properties" },
   { "spawn_async",  py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
   { "child_watch_add",  py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
+  { "board_run_next",  py_board_run_next, METH_VARARGS, "board_run_next" },
+  { "board_config_start",  py_board_config_start, METH_VARARGS, "board_config_start" },
+  { "board_config_stop",  py_board_config_stop, METH_VARARGS, "board_config_stop" },
   { NULL, NULL, 0, NULL}
 };
 

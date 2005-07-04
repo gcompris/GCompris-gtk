@@ -64,5 +64,6 @@ gchar		*board_get_info_text(void);
 
 void		 board_set_info_text(gchar * text);
 void		 board_file_info_box(gchar * filename);
+void             board_run_next(GcomprisBoard *board);
 
 #endif
