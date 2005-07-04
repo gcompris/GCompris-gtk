@@ -93,6 +93,26 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
     
     if(strcmp(name,"canvas")==0)
       return (PyObject*) pygobject_new((GObject*)self->cdata->canvas);
+
+    if(strcmp(name,"is_configurable")==0){
+      if (!self->cdata->plugin){
+	board_check_file(self->cdata);
+	if (!self->cdata->plugin){
+	  g_warning("board %s/%s seems not working !", self->cdata->section, self->cdata->name);
+	  Py_INCREF(Py_False);
+	  return Py_False;
+	}
+      }
+      
+      if (self->cdata->plugin->config_start && self->cdata->plugin->config_stop){
+	Py_INCREF(Py_True);
+	return Py_True;
+      } else {
+	Py_INCREF(Py_False);
+	return Py_False;
+      }
+    }
+
     
     /* Other members are special one... 
      * TODO: Does we need to write a BoardPlugin structure wrapper ?

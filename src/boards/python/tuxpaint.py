@@ -107,6 +107,11 @@ class Gcompris_tuxpaint:
 
   def config_start(self, canvasgroup, x, y, w, h):
     print "config_start", self, canvasgroup, x, y, w, h
+    print "Configurables boards:"
+    for board in gcompris.get_boards_list():
+      if board.is_configurable:
+        print "    ", board.name
+    print dir(gcompris)
     pass
 
   def config_stop(self):

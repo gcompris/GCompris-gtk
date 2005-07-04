@@ -1,5 +1,16 @@
 2005-07-04  Yves Combe  <yves@ycombe.net>
 
+	add is_configurable attribut in python board binding.
+	fix beautiful ESC bug in first menu
+	add gcompris_get_boards_list in python module.
+
+	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_get_boards_list):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board.c: (board_play), (board_stop):
+
+2005-07-04  Yves Combe  <yves@ycombe.net>
+
 	add missing files.
 	add some bindings in gcompris python bindings.
 

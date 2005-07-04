@@ -340,22 +340,8 @@ void board_play(GcomprisBoard *gcomprisBoard)
       bp = gcomprisBoard->plugin;
       set_current_gcompris_board(gcomprisBoard);
 
-      if (bp->config_start){
-	printf("Running confg_start before board\n");
-	board_config_start(gcomprisBoard, gnome_canvas_root(gcomprisBoard->canvas), 0,10, 20, 30);
-	board_config_stop();
-      }
-	
       bp->start_board(gcomprisBoard);
       bp_data->playing = TRUE;
-
-
-      if (bp->config_start){
-	printf("Running confg_start after board\n");
-	board_config_start(gcomprisBoard, gnome_canvas_root(gcomprisBoard->canvas), 10,110, 120, 130);
-	board_config_stop();
-      }
-
 
       return;
     }
@@ -379,8 +365,6 @@ void board_stop(void)
 
   /* If we are in the upper menu, no need to stop and restart it */
   if (get_current_gcompris_board()->previous_board == NULL){
-    if (get_current_board_plugin()->end_board)
-      get_current_board_plugin()->end_board();
     return;
   }
 
