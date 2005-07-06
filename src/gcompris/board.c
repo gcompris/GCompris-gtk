@@ -339,12 +339,14 @@ void board_play(GcomprisBoard *gcomprisBoard)
 
       bp = gcomprisBoard->plugin;
       set_current_gcompris_board(gcomprisBoard);
-
+      
       bp->start_board(gcomprisBoard);
       bp_data->playing = TRUE;
 
       return;
     }
+      
+      
 
   /* We set the playing flag even if no boardplugin
      recognizes the board. This way we are sure it will be skipped. */

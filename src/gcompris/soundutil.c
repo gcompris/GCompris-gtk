@@ -27,6 +27,7 @@
 static GList	*pending_queue = NULL;
 static int	 sound_policy;
 static gboolean	 is_playing;
+static gboolean	 sound_closed = FALSE;
 
 #if defined _WIN32 || defined __WIN32__
 # undef WIN32   /* avoid warning on mingw32 */
@@ -35,6 +36,7 @@ static gboolean	 is_playing;
 
 /* mutex */
 GMutex		*lock = NULL;
+GMutex		*lock_bg = NULL;
 GCond		*cond = NULL;
 
 /* Singleton */
@@ -67,6 +69,7 @@ void initSound()
   if (!g_thread_supported ()) g_thread_init (NULL);
 
   lock = g_mutex_new ();
+  lock_bg = g_mutex_new ();
   cond = g_cond_new ();
 
   sound_policy = PLAY_AFTER_CURRENT;
@@ -88,6 +91,26 @@ void initSound()
     perror("create failed for scheduler background");
 
 }
+void gcompris_close_sound()
+{
+  if ( ! ( sound_closed || ( ( gcompris_get_properties()->music ==  0 )
+			     && ( gcompris_get_properties()->fx   == 0) ) ) ){
+    g_mutex_lock(lock);
+    g_mutex_lock(lock_bg);
+    sdlplayer_close();
+    sound_closed = TRUE;
+  }
+}
+void gcompris_reopen_sound()
+{
+  if (sound_closed){
+    sdlplayer_reopen();
+    g_mutex_unlock(lock);
+    g_mutex_unlock(lock_bg);
+    sound_closed = FALSE;
+  }
+}
+
 
 /* =====================================================================
  *
@@ -170,8 +193,12 @@ static gpointer scheduler_bgnd (gpointer user_data)
 	  /* WARNING Displaying stuff in a thread seems to make gcompris unstable */
 	  /*	  display_ogg_file_credits((char *)g_list_nth_data(musiclist, i)); */
 	  //	  if(decode_ogg_file((char *)g_list_nth_data(musiclist, i))!=0)
-	  if(sdlplayer_bg((char *)g_list_nth_data(musiclist, i), 128)!=0)
+	  if(sdlplayer_bg((char *)g_list_nth_data(musiclist, i), 128)!=0){
+	    printf("vire de sound_ng\n");
 	    goto exit;
+	  }
+	  g_mutex_lock( lock_bg );
+	  g_mutex_unlock( lock_bg );
 	}
     }
 
@@ -204,7 +231,6 @@ static gpointer scheduler (gpointer user_data)
 	  g_mutex_lock (lock);
 	  g_cond_wait (cond, lock);
 	  g_mutex_unlock (lock);
-
 	}
     }
   return NULL;

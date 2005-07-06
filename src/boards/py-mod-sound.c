@@ -61,9 +61,44 @@ py_gcompris_play_ogg(PyObject* self, PyObject* args)
   return Py_None;
 }
 
+
+
+static PyObject*
+py_gcompris_reopen_sound(PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.reopen_sound"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gcompris_reopen_sound();
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+static PyObject*
+py_gcompris_close_sound(PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.close_sound"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gcompris_close_sound();
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
 static PyMethodDef PythonGcomprisSoundModule[] = {
   { "play_ogg_list",  py_gcompris_play_ogg_list, METH_VARARGS, "gcompris_play_ogg_list" },
   { "play_ogg",  py_gcompris_play_ogg, METH_VARARGS, "gcompris_play_ogg" },
+  { "reopen",  py_gcompris_reopen_sound, METH_VARARGS, "gcompris_reopen_sound" },
+  { "close",  py_gcompris_close_sound, METH_VARARGS, "gcompris_close_sound" },
   { NULL, NULL, 0, NULL}
 };
 

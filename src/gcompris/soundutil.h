@@ -38,6 +38,8 @@ void	 gcompris_play_ogg_list( GList* files );
 void	 setSoundPolicy(int);
 int	 getSoundPolicy(void);
 void	 initSound(void);
+void	 gcompris_reopen_sound(void);
+void	 gcompris_close_sound(void);
 
 int	 decode_ogg_file(char *infile);
 void	 display_ao_devices();

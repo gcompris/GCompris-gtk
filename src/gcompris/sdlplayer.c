@@ -21,6 +21,7 @@
 #include "SDL.h"
 #include "SDL_thread.h"
 #include "SDL_mixer.h"
+#include "SDL_audio.h"
 
 #include <stdarg.h>
 #include <unistd.h>
@@ -32,6 +33,12 @@
 
 Sint16 stream[2][4096];
 int len=4096, bits=0, which=0;
+
+// set this to any of 512,1024,2048,4096
+// the higher it is, the more FPS shown and CPU needed
+int audio_buffers=2048;
+
+static gboolean sound_closed = FALSE;
 
 /******************************************************************************/
 /* some simple exit and error routines                                        */
@@ -63,12 +70,9 @@ int cleanExit(char *str,...)
 
 /******************************************************************************/
 
-int sdlplayer_init() 
+int sdlplayer_init()
 {
-  int audio_rate,audio_channels,
-    // set this to any of 512,1024,2048,4096
-    // the higher it is, the more FPS shown and CPU needed
-    audio_buffers=2048;
+  int audio_rate,audio_channels;
   Uint16 audio_format;
 
   // initialize SDL for audio
@@ -101,7 +105,6 @@ int sdlplayer_bg(char *filename, int volume)
 {
   Mix_Music *music;
 
-
   printf("sdlplayer_bg %s\n", filename);
 
   // load the song
@@ -126,7 +129,7 @@ int sdlplayer_bg(char *filename, int volume)
 int sdlplayer(char *filename, int volume)
 {
   Mix_Chunk *sample;
-  int channel;
+  static int channel;
 
   g_warning("sdlplayer %s\n", filename);
 
@@ -156,7 +159,8 @@ int sdlplayer(char *filename, int volume)
   /*   } */
   
   // resume music playback
-  Mix_ResumeMusic();
+  if (!sound_closed)
+    Mix_ResumeMusic();
 
   // free the sample
   // Mix_Chunk *sample;
@@ -166,3 +170,17 @@ int sdlplayer(char *filename, int volume)
 
   return(0);
 }
+void sdlplayer_close()
+{
+  Mix_HaltMusic();
+  SDL_PauseAudio(1);
+  Mix_CloseAudio();
+  sound_closed = TRUE;
+}
+void sdlplayer_reopen()
+{
+  Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers);
+  SDL_PauseAudio(0);
+  sound_closed = FALSE;
+}
+

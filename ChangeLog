@@ -1,3 +1,18 @@
+2005-07-06  Yves Combe  <yves@ycombe.net>
+
+	add close/reopen in gcompris sound API, with bindings gcompris.sound.close() and gcompris.sound.reopen()
+	Use these in tuxpaint launcher board to let tuxxpaint use the sound.
+
+	* src/boards/py-mod-sound.c: (py_gcompris_reopen_sound),
+	(py_gcompris_close_sound):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board.c: (board_play):
+	* src/gcompris/sdlplayer.c: (sdlplayer_init), (sdlplayer_bg),
+	(sdlplayer), (sdlplayer_close), (sdlplayer_reopen):
+	* src/gcompris/soundutil.c: (initSound), (gcompris_close_sound),
+	(gcompris_reopen_sound), (scheduler_bgnd), (scheduler):
+	* src/gcompris/soundutil.h:
+
 2005-07-05  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* po/POTFILES.in: updated

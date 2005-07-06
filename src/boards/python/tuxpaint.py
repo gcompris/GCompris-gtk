@@ -22,6 +22,7 @@ import gcompris
 import gcompris.utils
 import gcompris.bonus
 import gcompris.skin
+import gcompris.sound
 import gtk
 
 #import gobject
@@ -50,6 +51,8 @@ class Gcompris_tuxpaint:
     if Prop.fullscreen:
       options.append('--fullscreen')
 
+    gcompris.sound.close()
+
     try:
       # gobject.SPAWN_DO_NOT_REAP_CHILD|gobject.SPAWN_SEARCH_PATH = 2 | 4
       pid,stdin, stdout, stderr = gcompris.spawn_async(
@@ -76,6 +79,7 @@ class Gcompris_tuxpaint:
       )
 
   def end(self):
+    gcompris.sound.reopen()
     global pid
     # force kill - data loss
     if pid != None:
@@ -119,6 +123,7 @@ class Gcompris_tuxpaint:
     pass
 
 def child_callback(fd,  cond, data):
+  gcompris.sound.reopen()
   global pid
   pid = None
   gcompris.bar_hide(0)
