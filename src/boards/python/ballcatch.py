@@ -148,7 +148,7 @@ class Gcompris_ballcatch:
     if (keyval == gtk.keysyms.Shift_R):
       self.right_continue = False
 
-    return gtk.FALSE
+    return False
       
   # Called by gcompris core 
   def pause(self, pause):

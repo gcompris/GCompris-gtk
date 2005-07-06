@@ -294,7 +294,7 @@ class Player(object):
     def __init__(self):
         self.move_stepnum = 0
         self.x = self.y = self.x_old = self.y_old = -1
-        self.moving = self.exists = gtk.FALSE
+        self.moving = self.exists = False
         self.action_start = 0
         self.anim = None
         self.velocity = []
@@ -343,7 +343,7 @@ class Player(object):
             y = game.sh * self.y + game.top
             self.stop()
             self.movestep_timer = 0
-            ret = gtk.FALSE
+            ret = False
 
         self.anim.gnome_canvas.set(x=x, y=y)
         return ret
@@ -368,16 +368,16 @@ class Player(object):
     def startMunching(self):
         self.anim.setState(2)
         self.munch_timer = game.timeout_add(game.munch_time, self.stopMunching)
-        return gtk.FALSE
+        return False
 
     def stopMunching(self):
         self.munch_timer = 0
         self.anim.setState(0)
-        return gtk.FALSE
+        return False
 
     def stop(self):
         self.anim.setState(0)
-        self.moving = gtk.FALSE
+        self.moving = False
 
         # work out eating stuff
         for p in game.players:
@@ -416,7 +416,7 @@ class Muncher(Player):
     def die(self):
         super(Muncher, self).die()
         self.lives -= 1
-        self.exists = gtk.FALSE
+        self.exists = False
         self.anim.gnome_canvas.hide()
         self.key_queue = []
 
@@ -545,7 +545,7 @@ class Troggle(Player):
         super(Troggle, self).move(a, b, c, d)
 
     def stop(self):
-        self.moving = gtk.FALSE
+        self.moving = False
         if self.x < 0 or self.x >= game.width or self.y < 0 or self.y >= game.height:
             self.die()
         else:
@@ -821,7 +821,7 @@ class Gcompris_gnumch:
 
     def key_press(self, keyval):
         self.muncher.push_key(keyval)
-        return gtk.FALSE
+        return False
 
     def stopGame(self):
         self.stopped = 1

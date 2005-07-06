@@ -75,7 +75,7 @@ class Gcompris_followline:
 
 
   def key_press(self, keyval):
-    return gtk.FALSE
+    return False
 
       
   # Called by gcompris core 
@@ -289,7 +289,7 @@ class Gcompris_followline:
       self.loosing_count += 1
       if(self.loosing_count % 10):
         self.highlight_previous_line()
-    return gtk.FALSE
+    return False
 
 
   def line_item_event(self, widget, event=None):
@@ -304,5 +304,5 @@ class Gcompris_followline:
       self.highlight_next_line()
       self.is_done()
       
-    return gtk.FALSE
+    return False
 

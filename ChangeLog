@@ -1,3 +1,28 @@
+2005-07-07  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed the POTFILES.in
+	Changed all gtk.FALSE by False in all python script.
+	gtk.FALSE is deprecated
+		
+	* po/POTFILES.in:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/administration.py:
+	* src/boards/python/algorithm.py:
+	* src/boards/python/anim.py:
+	* src/boards/python/ballcatch.py:
+	* src/boards/python/bargame.py:
+	* src/boards/python/connect4.py:
+	* src/boards/python/followline.py:
+	* src/boards/python/gnumch.py:
+	* src/boards/python/hexagon.py:
+	* src/boards/python/melody.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/redraw.py:
+	* src/boards/python/searace.py:
+	* src/boards/python/tuxpaint.py:
+	* src/boards/python/watercycle.py:
+
 2005-07-06  Yves Combe  <yves@ycombe.net>
 
 	fix bug in administration module (module not loaded with right filename).

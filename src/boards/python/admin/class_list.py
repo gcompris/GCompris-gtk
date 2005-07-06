@@ -88,7 +88,7 @@ class Class_list:
         width=area[2]-area[0]-hgap*2-but_width,
         height=area[3]-area[1],
         anchor=gtk.ANCHOR_NW,
-        size_pixels=gtk.FALSE)
+        size_pixels=False)
       sw.show()
       treeview_class.show()
 
@@ -107,7 +107,7 @@ class Class_list:
         width=100,
         height=but_height,
         anchor=gtk.ANCHOR_NW,
-        size_pixels=gtk.FALSE)
+        size_pixels=False)
       button_add.show()
       
       button_rem = gtk.Button(_("Remove class"))
@@ -120,7 +120,7 @@ class Class_list:
         width=100,
         height=but_height,
         anchor=gtk.ANCHOR_NW,
-        size_pixels=gtk.FALSE)
+        size_pixels=False)
       button_rem.show()
 
       button_rem = gtk.Button(_("Edit class"))
@@ -133,7 +133,7 @@ class Class_list:
         width=100,
         height=but_height,
         anchor=gtk.ANCHOR_NW,
-        size_pixels=gtk.FALSE)
+        size_pixels=False)
       button_rem.show()
 
   # -------------------

@@ -122,7 +122,7 @@ class Gcompris_administration:
 
   def key_press(self, keyval):
     #print("Gcompris_administration key press. %i" % keyval)
-    return gtk.FALSE
+    return False
 
   # ---- End of Initialisation
 

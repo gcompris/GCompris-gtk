@@ -309,7 +309,7 @@ class Gcompris_watercycle:
               
   def key_press(self, keyval):
     print("got key %i" % keyval)
-    return gtk.FALSE
+    return False
 
   # This is called each second to update to castle water level
   def update_waterlevel(self):
@@ -471,14 +471,14 @@ class Gcompris_watercycle:
           self.sun_timer = gtk.timeout_add(self.timerinc, self.move_sun)
           self.sun_on = 1
         return True
-    return gtk.FALSE
+    return False
 
   def cloud_item_event(self, widget, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         self.rain_on = 1
         return True
-    return gtk.FALSE
+    return False
 
   def waterpump_item_event(self, widget, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -487,7 +487,7 @@ class Gcompris_watercycle:
           self.waterpump_on = 1
           self.pumpwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/pumpwater.png"));
         return True
-    return gtk.FALSE
+    return False
 
   def watercleaning_item_event(self, widget, event=None):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -496,7 +496,7 @@ class Gcompris_watercycle:
           self.watercleaning_on = 1
           self.badwateritem.set(pixbuf = gcompris.utils.load_pixmap("watercycle/badwater.png"));
         return True
-    return gtk.FALSE
+    return False
 
 
   # If Tux is in the shower, we must display the water if needed

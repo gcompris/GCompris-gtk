@@ -151,7 +151,7 @@ class Gcompris_connect4:
   def key_press(self, keyval):
     print("Gcompris_connect4 key press. %i" % keyval)
     self.tuxboatitem.hide()
-    return gtk.FALSE
+    return False
 
   def pause(self, pause):
     print("Gcompris_connect4 pause.")
@@ -204,7 +204,7 @@ class Gcompris_connect4:
               self.endAnimCallback = self.machinePlay
               self.machineHasPlayed = False
    
-    return gtk.FALSE
+    return False
   
   def profItemEvent(self, widget, event, column):
     #if event.type == gtk.gdk.BUTTON_PRESS and self.firstPlayer == False:

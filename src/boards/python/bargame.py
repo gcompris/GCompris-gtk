@@ -100,7 +100,7 @@ class Gcompris_bargame:
 
   def key_press(self, keyval):
     #print("got key %i" % keyval)
-    return gtk.FALSE
+    return False
 
   def repeat(self):
     self.newGame()
@@ -428,7 +428,7 @@ class Gcompris_bargame:
     def answer_event(self, item, event):
       if ((event.type != gtk.gdk.BUTTON_PRESS) or
           (event.button != 1)):
-        return gtk.FALSE
+        return False
 
       self.has_focus()
 
@@ -462,12 +462,12 @@ class Gcompris_bargame:
     def event_play(self, item, event):
       if ((event.type != gtk.gdk.BUTTON_PRESS) or
           (event.button != 1)):
-        return gtk.FALSE
+        return False
 
       # if answer button has been clicked, that play the human turn
       if self.board.last_played == -1 :
         self.board.machine_play()
         return True
       
-      return gtk.FALSE
+      return False
       

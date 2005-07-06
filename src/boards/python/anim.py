@@ -476,7 +476,7 @@ class Gcompris_anim:
           (keyval == gtk.keysyms.Mode_switch) or
           (keyval == gtk.keysyms.dead_circumflex) or
           (keyval == gtk.keysyms.Num_Lock)):
-      return gtk.FALSE
+      return False
     
     if (keyval == gtk.keysyms.KP_0):
       keyval= gtk.keysyms._0
@@ -923,7 +923,7 @@ class Gcompris_anim:
         self.rotate_relative(item,-10)
         return True
       else:
-        return gtk.FALSE
+        return False
 
     if self.tools[self.current_tool][0] == "CW":
       if ((event.type == gtk.gdk.BUTTON_PRESS) and
@@ -932,7 +932,7 @@ class Gcompris_anim:
         self.rotate_relative(item,10)
         return True
       else:
-        return gtk.FALSE
+        return False
 
     if self.tools[self.current_tool][0] == "FLIP":
       if ((event.type == gtk.gdk.BUTTON_PRESS) and
@@ -941,7 +941,7 @@ class Gcompris_anim:
         self.item_flip(item);
         return True
       else:
-        return gtk.FALSE
+        return False
 
     if self.tools[self.current_tool][0] == "RAISE":
       if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
@@ -949,7 +949,7 @@ class Gcompris_anim:
         self.z_raise(item.get_data("AnimItem"))
         return True
       else:
-        return gtk.FALSE
+        return False
 
     if self.tools[self.current_tool][0] == "LOWER":
       if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
@@ -957,10 +957,10 @@ class Gcompris_anim:
         self.z_lower(item.get_data("AnimItem"))
         return True
       else:
-        return gtk.FALSE
+        return False
     
     if self.tools[self.current_tool][0] != "SELECT":
-      return gtk.FALSE
+      return False
 
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
       if event.button == 1:
@@ -1035,7 +1035,7 @@ class Gcompris_anim:
 
       return True
     
-    return gtk.FALSE
+    return False
           
   # Event when a click on an item happen on fill in type object
   def fillin_item_event(self, item, event):
@@ -1044,7 +1044,7 @@ class Gcompris_anim:
         if self.tools[self.current_tool][0] == "FILL":
           item.set(fill_color_rgba=self.colors[self.current_color])
           return True
-    return gtk.FALSE
+    return False
           
   # Event when a click on an item happen on border fill type object
   def fillout_item_event(self, item, event):
@@ -1053,7 +1053,7 @@ class Gcompris_anim:
         if self.tools[self.current_tool][0] == "FILL":
           item.set(outline_color_rgba=self.colors[self.current_color])
           return True
-    return gtk.FALSE
+    return False
 
   # Del an item and internal struct cleanup
   def del_item(self, item):
@@ -1067,20 +1067,20 @@ class Gcompris_anim:
         if self.tools[self.current_tool][0] == "DEL":
           self.del_item(item);
           return True
-    return gtk.FALSE
+    return False
 
   # Event when an event on the drawing area happen
   def create_item_event(self, item, event):
     if(event.type == gtk.gdk.BUTTON_PRESS and self.running==True):
       self.playing_stop()
-      return gtk.FALSE
+      return False
     
     # Right button is a shortcup to Shot
     if (self.gcomprisBoard.mode != 'draw' and
         event.type == gtk.gdk.BUTTON_PRESS and
         event.button == 3):
       self.Anim2Shot()
-      return gtk.FALSE
+      return False
     
     if (not (self.tools[self.current_tool][0] == "RECT" or
              self.tools[self.current_tool][0] == "CIRCLE" or
@@ -1089,7 +1089,7 @@ class Gcompris_anim:
              self.tools[self.current_tool][0] == "IMAGE" or
              self.tools[self.current_tool][0] == "TEXT" or
              self.tools[self.current_tool][0] == "LINE")):
-      return gtk.FALSE
+      return False
 
     if event.type == gtk.gdk.BUTTON_PRESS:
       
@@ -1110,7 +1110,7 @@ class Gcompris_anim:
             self.tools[self.current_tool][0] == "FILL"):
           # This event is treated in del_item_event to avoid
           # operating on background item and grid
-          return gtk.FALSE
+          return False
         
         elif self.tools[self.current_tool][0] == "LINE":
           
@@ -1330,16 +1330,16 @@ class Gcompris_anim:
       # That's used only in itel creation.
       # In draw mode, item creation does not use drag&drop
       if self.gcomprisBoard.mode == 'draw':
-        return gtk.FALSE
+        return False
 
       if ((self.tools[self.current_tool][0] == "IMAGE") or
           (self.tools[self.current_tool][0] == "TEXT")):
-        return gtk.FALSE
+        return False
       
       if event.state & gtk.gdk.BUTTON1_MASK:
         if (self.tools[self.current_tool][0] == "RAISE" or
             self.tools[self.current_tool][0] == "LOWER"):
-          return gtk.FALSE
+          return False
         x=event.x
         y=event.y
         x,y = self.snap_to_grid(event.x,event.y)
@@ -1389,12 +1389,12 @@ class Gcompris_anim:
 
       if ((self.tools[self.current_tool][0] == "IMAGE") or
           (self.tools[self.current_tool][0] == "TEXT")):
-        return gtk.FALSE
+        return False
       
       if event.button == 1:
         if (self.tools[self.current_tool][0] == "RAISE" or
             self.tools[self.current_tool][0] == "LOWER"):
-          return gtk.FALSE
+          return False
         # We have to remove empty created items (the kid did not drag enough)
         if self.tools[self.current_tool][0] == "LINE":
           # need to delete empty line. self.newitem est l'objet courant
@@ -1412,7 +1412,7 @@ class Gcompris_anim:
 #        print self.newitemgroup.get_bounds()
 
         return True
-    return gtk.FALSE
+    return False
 
   def snapshot_event(self, item, event):
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -1642,7 +1642,7 @@ class Gcompris_anim:
     # Right button is a shortcup to Shot
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
       self.Anim2Shot()
-      return gtk.FALSE
+      return False
     
     if event.state & gtk.gdk.BUTTON1_MASK:
       # warning: anchor is in a group of anchors, wich is in the object group

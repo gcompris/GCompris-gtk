@@ -64,7 +64,7 @@ class Gcompris_hexagon:
 
   def key_press(self, keyval):
     #print("got key %i" % keyval)
-    return gtk.FALSE
+    return False
 
   # Called by gcompris core 
   def pause(self, pause):

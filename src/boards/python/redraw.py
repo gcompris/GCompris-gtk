@@ -270,7 +270,7 @@ class Gcompris_redraw:
               
   def key_press(self, keyval):
     print("got key %i" % keyval)
-    return gtk.FALSE
+    return False
 
   # Erase any displayed items (drawing and target)
   def erase_drawing_area(self):
@@ -761,7 +761,7 @@ class Gcompris_redraw:
   def move_item_event(self, item, event, item_index):
 
     if self.tools[self.current_tool][0] != "SELECT":
-      return gtk.FALSE
+      return False
 
     #
     # MOUSE DRAG STOP
@@ -837,7 +837,7 @@ class Gcompris_redraw:
 
       return True
     
-    return gtk.FALSE
+    return False
           
   # Event when a click on an item happen on fill in type object
   def fillin_item_event(self, item, event, drawing_item_index):
@@ -848,7 +848,7 @@ class Gcompris_redraw:
           # Reset the item to our list
           self.current_drawing[drawing_item_index]['fill_color_rgba'] = self.colors[self.current_color]
           return True
-    return gtk.FALSE
+    return False
           
   # Event when a click on an item happen on border fill type object
   def fillout_item_event(self, item, event, drawing_item_index):
@@ -859,7 +859,7 @@ class Gcompris_redraw:
           # Reset the item to our list
           self.current_drawing[drawing_item_index]['outline_color_rgba'] = self.colors[self.current_color]
           return True
-    return gtk.FALSE
+    return False
 
   # Del an item and internal struct cleanup
   def del_item(self, item, drawing_item_index):
@@ -874,7 +874,7 @@ class Gcompris_redraw:
         if self.tools[self.current_tool][0] == "DEL":
           self.del_item(item, drawing_item_index);
           return True
-    return gtk.FALSE
+    return False
 
   #
   # Display the mouse coord in the drawing or target area
@@ -939,7 +939,7 @@ class Gcompris_redraw:
             self.tools[self.current_tool][0] == "FILL"):
           # This event is treated in del_item_event to avoid
           # operating on background item and grid
-          return gtk.FALSE
+          return False
         
         elif self.tools[self.current_tool][0] == "LINE":
           
@@ -1158,7 +1158,7 @@ class Gcompris_redraw:
             self.current_drawing[len(self.current_drawing)-1]['y2'] = y2
           
         return True
-    return gtk.FALSE
+    return False
 
 
   # The list of items (data) for this game

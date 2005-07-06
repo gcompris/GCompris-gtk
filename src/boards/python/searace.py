@@ -240,7 +240,7 @@ class Gcompris_searace:
               
   def key_press(self, keyval):
     #print("got key %i" % keyval)
-    return gtk.FALSE
+    return False
 
   # ----------------------------------------------------------------------
   # ----------------------------------------------------------------------
@@ -438,7 +438,7 @@ class Gcompris_searace:
       width=w,
       height= h,
       anchor=gtk.ANCHOR_N,
-      size_pixels=gtk.FALSE)
+      size_pixels=False)
     self.left_boat.tv.show()
     self.left_boat.sw.show()
 
@@ -463,7 +463,7 @@ class Gcompris_searace:
       width=w,
       height= h,
       anchor=gtk.ANCHOR_N,
-      size_pixels=gtk.FALSE)
+      size_pixels=False)
     self.right_boat.tv.show()
     self.right_boat.sw.show()
 
@@ -829,7 +829,7 @@ class Gcompris_searace:
       a = boat.tb.get_iter_at_line(boat.line)
       b = boat.tb.get_iter_at_line(boat.line)
       b.forward_to_line_end()
-      cmd   = boat.tb.get_text(a, b, gtk.FALSE)
+      cmd   = boat.tb.get_text(a, b, False)
       boat.line+=1
       if(cmd and cmd[0] == "\n"):
         boat.line+=1
@@ -1028,5 +1028,5 @@ class Gcompris_searace:
         self.ruleritem.destroy()
         self.statusitem.set(text="")
         return True
-    return gtk.FALSE
+    return False
 

@@ -275,7 +275,7 @@ class Gcompris_melody:
       self.sound_play(self.melodylist[self.theme][1][3])
       return True
 
-    return gtk.FALSE
+    return False
 
 
   def pause(self, pause):  
@@ -325,7 +325,7 @@ class Gcompris_melody:
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
           self.sound_play(sound_struct)
-    return gtk.FALSE
+    return False
   
   # ---------------- sound is effectively played -----------------------
   def sound_play(self, sound_struct):
@@ -352,5 +352,5 @@ class Gcompris_melody:
       	self.display_current_level()
 
     
-    return gtk.FALSE
+    return False
   

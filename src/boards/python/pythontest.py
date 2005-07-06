@@ -237,7 +237,7 @@ class Gcompris_pythontest:
     self.canvasitems[7].set(text="Speed="+str(self.timerinc)+" ms")
 
     # Return  True  if you did process a key
-    # Return  gtk.FALSE if you did not processed a key
+    # Return  False if you did not processed a key
     #         (gtk need to send it to next widget)
     return True
 
@@ -290,5 +290,5 @@ class Gcompris_pythontest:
         self.movingline='line 1'
         print "Button release"
         return True
-    return gtk.FALSE
+    return False
 

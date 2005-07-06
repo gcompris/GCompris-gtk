@@ -97,7 +97,7 @@ class Gcompris_tuxpaint:
     pass
 
   def key_press(self, keyval):
-    return gtk.FALSE
+    return False
 
   def repeat(self):
     pass
