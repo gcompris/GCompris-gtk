@@ -10,35 +10,12 @@ from gettext import gettext as _
 
 # To add a panel, add a python module in the admin subdir
 # This module must have a start() and end() function
-
-# Find the list of modules in admin/
-# that means all files, but __init__.py and module.py
-list_modules = []
-
-import glob
-m_list = glob.glob(gcompris.DATA_DIR+'/../python/admin/module_*.py')
-for file in m_list:
-  m_name = file.split('/')[-1].split('.')[0].split('_')[1]
-  list_modules.append(m_name)
-
-print "Modules List : ", list_modules
-
-# Now import modules,
-# and get the list of string 'name.Name' for initialisation below.
-modules_init = []
-
-for module in list_modules:
-  exec('from admin import ' + module)
-  modules_init.append(module+ '.' + module[0].upper() + module[1:])
-
-del list_modules
-  
-
 class Gcompris_administration:
   """Administrating GCompris"""
 
 
   def __init__(self, gcomprisBoard):
+    print "Gcompris_administration __init__"
     self.gcomprisBoard = gcomprisBoard
 
     # The panel being displayed
@@ -61,6 +38,29 @@ class Gcompris_administration:
 
 
   def start(self):
+
+    # Find the list of modules in admin/
+    # that means all files, but __init__.py and module.py
+    list_modules = []
+    
+    import glob
+    m_list = glob.glob(gcompris.DATA_DIR+'/../python/admin/module_*.py')
+    for file in m_list:
+      m_name = file.split('/')[-1].split('.')[0].split('_')[1]
+      list_modules.append(m_name)
+
+    print "Modules List : ", list_modules
+
+    # Now import modules,
+    # and get the list of string 'name.Name' for initialisation below.
+    modules_init = []
+
+    for module in list_modules:
+      exec('from admin import module_' + module + ' as ' + module)
+      modules_init.append(module+ '.' + module[0].upper() + module[1:])
+
+    del list_modules
+  
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
@@ -96,6 +96,7 @@ class Gcompris_administration:
     # The list of modules
     i = 0
     for module in modules_init:
+      print module
       print module +'(self.rootitem).init(i, self.select_area, self.select_event)'
       exec(module +'(self.rootitem).init(i, self.select_area, self.select_event)')
       i+=1

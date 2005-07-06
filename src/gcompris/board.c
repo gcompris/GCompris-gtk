@@ -345,8 +345,6 @@ void board_play(GcomprisBoard *gcomprisBoard)
 
       return;
     }
-      
-      
 
   /* We set the playing flag even if no boardplugin
      recognizes the board. This way we are sure it will be skipped. */

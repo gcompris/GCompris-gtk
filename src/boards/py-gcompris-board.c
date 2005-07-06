@@ -113,6 +113,9 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
       }
     }
 
+    if(strcmp(name,"id")==0) return Py_BuildValue("i", self->cdata->board_id);
+
+    if(strcmp(name,"section_id")==0) return Py_BuildValue("i", self->cdata->section_id);
     
     /* Other members are special one... 
      * TODO: Does we need to write a BoardPlugin structure wrapper ?

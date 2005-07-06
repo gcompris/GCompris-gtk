@@ -1,5 +1,19 @@
 2005-07-06  Yves Combe  <yves@ycombe.net>
 
+	fix bug in administration module (module not loaded with right filename).
+	add empty boards configuration module.
+
+	* boards/skins/default/config_boards.png:
+	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr):
+	* src/boards/python/admin/Makefile.am:
+	* src/boards/python/admin/module.py:
+	* src/boards/python/admin/module_boards.py:
+	* src/boards/python/administration.py:
+	* src/gcompris/board.c: (board_play):
+	* src/gcompris/gcompris.c: (gcompris_init):
+
+2005-07-06  Yves Combe  <yves@ycombe.net>
+
 	add close/reopen in gcompris sound API, with bindings gcompris.sound.close() and gcompris.sound.reopen()
 	Use these in tuxpaint launcher board to let tuxxpaint use the sound.
 

@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/06/30 10:53:34 yves>
+ * Time-stamp: <2005/07/06 11:57:34 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -1046,6 +1046,8 @@ gcompris_init (int argc, char *argv[])
   if (popt_administration){
     g_warning("Running in administration mode");
     properties->administration = TRUE;
+    g_warning("Background music disabled");
+    properties->music = FALSE;
   }
 
   if (popt_reread_xml){
@@ -1063,7 +1065,7 @@ gcompris_init (int argc, char *argv[])
 
   if(properties->music || properties->fx)
     initSound();
-  
+
   /* Gdk-Pixbuf */
   gdk_rgb_init();
 

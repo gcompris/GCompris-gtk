@@ -51,6 +51,10 @@ class Module:
         self.select_item.connect("event", callback, self)
 
         y1 += 30
+        print "config_" + self.module_name + ".png"
+        print gcompris.skin.image_to_skin("config_" +
+                                                                            self.module_name +
+                                                                            ".png")
         item = self.root_select_item.add(
             gnome.canvas.CanvasPixbuf,
             pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("config_" +
