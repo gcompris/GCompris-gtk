@@ -29,8 +29,6 @@ import gtk.gdk
 import gobject
 from gettext import gettext as _
 
-print "gtk.STOCK_OPEN", type(gtk.STOCK_OPEN), gtk.STOCK_OPEN
-
 # Database
 #from pysqlite2 import dbapi2 as sqlite
 
@@ -62,7 +60,8 @@ class Board_list:
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
-      sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+#      sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+      sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
 
       # create tree model
       model = self.__create_model()
@@ -144,7 +143,6 @@ class Board_list:
     for board in list:
       if (board.section + '/' + board.name) == name:
         return board
-    print "get_board_by_name: ", name, " return ", None 
     return None
    
   def get_board_from_menu(self, menu, list):
@@ -152,13 +150,11 @@ class Board_list:
       section = ''
     else:
       section = menu.section + '/' + menu.name
-    print "get_board_from_menu : ", section
     return_list = []
     for board in list:
       if board.section == section:
         return_list.append([section, board])
         
-    print "get_board_from_menu", return_list
     return return_list
   
   def add_boards_in_model(self, model, boards_list):
@@ -177,17 +173,14 @@ class Board_list:
         if board_cell[1].type == 'menu':
           list.append(board_cell)
 
-      print "add_boards_in_model", len(list)
-      print "add_boards_in_model", len(menu_list)
 
     row_dict = {}
     height = 24
     for board_cell in menu_list:
-      print board_cell[0], '%s/%s' % (board_cell[1].section,board_cell[1].name)
       if  board_cell[0] == None:
-        row_dict[''] = model.append(None, [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height), 'Main Menu'])
+        row_dict[''] = model.append(None, [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height), _('Main menu'), _('/')])
       else:
-        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = model.append(row_dict[board_cell[1].section], [self.pixbuf_at_height(board_cell[1].icon_name, height), '%s/%s' % (board_cell[1].section,board_cell[1].name)])
+        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = model.append(row_dict[board_cell[1].section], [self.pixbuf_at_height(board_cell[1].icon_name, height), _(board_cell[1].title),'%s/%s' % (board_cell[1].section,board_cell[1].name)])
 
   def pixbuf_at_height(self,file, height):
     pixbuf = gcompris.utils.load_pixmap(file)
@@ -199,6 +192,7 @@ class Board_list:
   def __create_model(self):
     model = gtk.TreeStore(
       gtk.gdk.Pixbuf,
+      gobject.TYPE_STRING,
       gobject.TYPE_STRING
       )
 
@@ -215,14 +209,19 @@ class Board_list:
     # Render for Board name with icon.
     cell_board_icon = gtk.CellRendererPixbuf()
     cell_board_name = gtk.CellRendererText()
+    cell_board_title = gtk.CellRendererText()
 
     # columns for Board name
-    column = gtk.TreeViewColumn(_('Board name'))
-    column.pack_start(cell_board_icon, False)
-    column.pack_start(cell_board_name, True)
-    treeview.append_column(column)
-    column.add_attribute(cell_board_icon, 'pixbuf', 0)
-    column.add_attribute(cell_board_name, 'text', 1)
+    column1 = gtk.TreeViewColumn(_('Board title'))
+    column1.pack_start(cell_board_icon, False)
+    column1.pack_start(cell_board_title, True)
+    column2 = gtk.TreeViewColumn(_('Name'))
+    treeview.append_column(column1)
+    treeview.append_column(column2)
+    column2.pack_start(cell_board_name, True)
+    column1.add_attribute(cell_board_icon, 'pixbuf', 0)
+    column1.add_attribute(cell_board_title, 'text', 1)
+    column2.add_attribute(cell_board_name, 'text', 2)
 
 
 
