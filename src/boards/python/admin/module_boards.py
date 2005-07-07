@@ -8,7 +8,11 @@ import gtk
 import gtk.gdk
 from gettext import gettext as _
 
+# Database
+from pysqlite2 import dbapi2 as sqlite
+
 import module
+import board_list
 
 class Boards(module.Module):
   """Administrating GCompris Boards"""
@@ -50,6 +54,24 @@ class Boards(module.Module):
     for board in boards:
       print board.section, board.name, board.id
 
+    
+    hgap = 20
+    vgap = 15
+    
+    origin_y = area[1]+vgap
+
+    boards_height = (area[3]-area[1]) - vgap*2
+
+    list_area = ( area[0], origin_y, area[2], boards_height)
+
+    # Connect to our database
+    self.con = sqlite.connect(gcompris.get_database())
+    self.cur = self.con.cursor()
+
+    board_list.Board_list(self.rootitem,
+                          self.con, self.cur,
+                          list_area, hgap, vgap)
+    
   def stop(self):
     print "stopping boards panel"
     module.Module.stop(self)
