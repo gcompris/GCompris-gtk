@@ -1,6 +1,6 @@
-#  gcompris - module_boards.py
+#  gcompris - module_groups.py
 # 
-# Copyright (C) 2005 Yves Combe
+# Copyright (C) 2005 Bruno Coudoin and Yves Combe
 # 
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -26,22 +26,23 @@ import gtk
 import gtk.gdk
 from gettext import gettext as _
 
-# Database
-from pysqlite2 import dbapi2 as sqlite
-
 import module
-import board_list
 
-class Boards(module.Module):
-  """Administrating GCompris Boards"""
+class Groups(module.Module):
+  """Administrating GCompris Groups"""
 
 
   def __init__(self, canvas):
-    print("Gcompris_administration __init__ boards panel.")
-    module.Module.__init__(self, canvas, "boards", _("Boards"))
+    print("Gcompris_administration __init__ groups panel.")
+    module.Module.__init__(self, canvas, "groups", _("Groups list"))
 
+  # Return the position it must have in the administration menu
+  # The smaller number is the highest.
+  def position(self):
+    return 1
+  
   def start(self, area):
-    print "starting boards panel"
+    print "starting groups panel"
 
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
@@ -63,35 +64,8 @@ class Boards(module.Module):
         fill_color="black"
         )
 
-    boards = []
-    for board in gcompris.get_boards_list():
-      if board.is_configurable:
-        boards.append(board)
-
-    print "Configurable boards :",
-    for board in boards:
-      print board.section, board.name, board.id
-
-    
-    hgap = 20
-    vgap = 15
-    
-    origin_y = area[1]+vgap
-
-    boards_height = (area[3]-area[1]) - vgap*2
-
-    list_area = ( area[0], origin_y, area[2], boards_height)
-
-    # Connect to our database
-    self.con = sqlite.connect(gcompris.get_database())
-    self.cur = self.con.cursor()
-
-    board_list.Board_list(self.rootitem,
-                          self.con, self.cur,
-                          list_area, hgap, vgap)
-    
   def stop(self):
-    print "stopping boards panel"
+    print "stopping groups panel"
     module.Module.stop(self)
 
     # Remove the root item removes all the others inside it

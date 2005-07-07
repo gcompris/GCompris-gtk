@@ -1,3 +1,21 @@
+#  gcompris - administration.py
+# 
+# Copyright (C) 2005 Bruno Coudoin and Yves Combe
+# 
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+# 
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+# 
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+# 
 # Administration Board module
 import gnome
 import gnome.canvas
@@ -94,13 +112,23 @@ class Gcompris_administration:
       width_units=1.0
       )
 
-    # Display the menu in the selection area
+    # Get the menu position for each module
     # The list of modules
-    i = 0
+    modules_ordered = []
     for module in modules_init:
       print module
       print module +'(self.rootitem).init(i, self.select_area, self.select_event)'
-      exec(module +'(self.rootitem).init(i, self.select_area, self.select_event)')
+      p = eval(module +'(self.rootitem).position()')
+      modules_ordered.append((p, module))
+
+    # Display the menu in the selection area
+    # The list of modules
+    i = 0
+    modules_ordered.sort()
+    for tmodule in modules_ordered:
+      module = tmodule[1]
+      print module +'(self.rootitem).init(i, self.select_area, self.select_event)'
+      eval(module +'(self.rootitem).init(i, self.select_area, self.select_event)')
       i+=1
 
     print("Gcompris_administration start.")

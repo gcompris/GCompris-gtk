@@ -1,3 +1,23 @@
+#  gcompris - module.py
+# 
+# Copyright (C) 2005 Bruno Coudoin and Yves Combe
+# 
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+# 
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+# 
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+
+# This is the base Class for all Administration modules.
 
 import gnome
 import gnome.canvas
@@ -19,6 +39,12 @@ class Module:
         self.selector_color = 0xC5D2DDFFL
         self.outline_color  = 0XD8B09AFFL
 
+
+    # Return the position it must have in the administration menu
+    # The smaller number is the highest.
+    # By default, return 999 to let the module be low
+    def position(self):
+        return 999
     
     def init(self, index, select_area, callback):
         print("Gcompris_administration init panel.")

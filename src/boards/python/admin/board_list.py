@@ -1,8 +1,6 @@
-#  gcompris - user_list.py
+#  gcompris - board_list.py
 # 
-# Time-stamp: <2001/08/20 00:54:45 bruno>
-# 
-# Copyright (C) 2005 Bruno Coudoin
+# Copyright (C) 2005 Yves Combe
 # 
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
