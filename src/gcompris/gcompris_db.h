@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/06/23 17:03:21 yves>
+ * Time-stamp: <2005/07/09 00:05:07 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -70,6 +70,11 @@ GList *gcompris_load_menus_db(GList *boards);
 GList *gcompris_db_get_board_id(GList *list);
 
 void gcompris_db_remove_board(int board_id);
+
+
+GcomprisProfile *gcompris_db_get_profile();
+
+GList *gcompris_get_users_from_group(gint group_id);
 
 #endif
 

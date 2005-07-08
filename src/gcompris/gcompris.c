@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/07/06 11:57:34 yves>
+ * Time-stamp: <2005/07/09 00:30:17 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -1061,8 +1061,6 @@ gcompris_init (int argc, char *argv[])
   /* init MUST BE after properties */
   gcompris_db_init();
   
-  gcompris_profile_load(properties->profil);
-
   if(properties->music || properties->fx)
     initSound();
 

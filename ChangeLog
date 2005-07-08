@@ -1,3 +1,16 @@
+2005-07-09  Yves Combe  <yves@ycombe.net>
+
+	profile C implementation.
+
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/gcompris_db.c: (gcompris_db_init),
+	(gcompris_db_get_board_id), (gcompris_db_remove_board),
+	(gcompris_db_get_profile), (gcompris_get_users_from_group):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/profile.c: (gcompris_get_profile),
+	(gcompris_set_user), (gcompris_get_user):
+	* src/gcompris/profile.h:
+
 2005-07-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added groups administration module (empty yet)

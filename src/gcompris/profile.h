@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/06/25 14:15:53 yves>
+ * Time-stamp: <2005/07/09 00:02:27 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -42,21 +42,15 @@ struct _GcomprisClass {
   /* description */
   gchar               *description;
 
-  /* Group for whole class */
+  /* Group id for whole class */
   struct _GcomprisGroup *all;
 
-  /* list of GComprisGroup */
-  GList               *groups;
+  /* list of GComprisGroup id */
+  GList               *group_ids;
 };
 
 typedef struct _GcomprisClass  GcomprisClass;
 
-//GcomprisClass         *gcompris_class_new();
-void                   gcompris_class_destroy();
-
-/* save class, groups and users in file */
-void                   gcompris_class_save(GcomprisClass *class);
-GcomprisClass         *gcompris_class_load(gchar *name);
 
 /*****************************************************************************/
 /* The following structure dsecribes a group, subset of class  */
@@ -68,10 +62,10 @@ struct _GcomprisGroup {
   gchar               *name;
   
   /* GcomprisClass containing the group */
-  gchar               *classname;
+  gint                *class_id;
 
-  /* list of GComprisUser */
-  GList               *users;
+  /* list of GComprisUser user_id */
+  GList               *user_ids;
 
   /* description */
   gchar               *description;
@@ -79,11 +73,8 @@ struct _GcomprisGroup {
 
 typedef struct _GcomprisGroup GcomprisGroup;
 
-GcomprisGroup         *gcompris_group_new();
-void                   gcompris_group_destroy();
-
-/* find a group into a class */
-GcomprisGroup         *gcompris_group_load(gchar *classname, gchar *name);
+/* find a group */
+GcomprisGroup         *gcompris_group_load(gint *group_id);
 
 /*****************************************************************************/
 /* The following structure dsecribes a user */
@@ -92,20 +83,22 @@ GcomprisGroup         *gcompris_group_load(gchar *classname, gchar *name);
 
 
 struct _GcomprisUser {
+  gint               user_id;
+
   /* The login name -- must be unique */
   gchar               *login;
 
   /* mandatory class */
-  gchar               *classname;
+  gint               *class_id;
 
   /* Real Name */
-  gchar               *surname;
+  gchar               *name;
   
   /* First Name */
   gchar               *firstname;
 
   /* Birth day */
-  GDate               *birth;
+  GDate               *birthdate;
 
   /* desactived activities for this user */
   GList               *desactived_activities;
@@ -113,54 +106,37 @@ struct _GcomprisUser {
 
 typedef struct _GcomprisUser GcomprisUser;
 
-GcomprisUser          *gcompris_user_new();
-void                   gcompris_user_destroy();
-
-/* find a user into a group */
-GcomprisUser          *gcompris_user_find_by_name(GcomprisGroup *group, gchar *name);
 
 /*****************************************************************************/
 /* The following structure describes a profile object.  */
 
 typedef struct {
   /* Profile Namee */
+  gint                profile_id;
   gchar               *name;
 
   /* The subdirectory into the user gcompris dir */
-  gchar		      *profile_dir;
+  gchar		      *directory;
 
   gchar               *description;
-  gchar		      *filename;
-
-  /* Help information */
-  gchar		      *information;
 
   /* list of GcomprisGroup. if empty user management is disabled */
-  GList               *groups; 
-
-  /* User logged in */
-  GcomprisUser        *user;
+  GList               *group_ids; 
 
   /* list of activities to play -- gchar section/name */
   GList               *activities;
 
-  /* Profile directoy */
-  gchar               *directory;
-
 } GcomprisProfile;
 
+/* active profil */
 GcomprisProfile       *gcompris_get_profile();
-GcomprisProfile       *gcompris_profile_load(gchar *name);
-void                   gcompris_profile_destroy();
-void                   gcompris_profile_save(GcomprisProfile *profile);
 
-
-/* Usefull for management */
-GList                 *list_of_classname();
-GList                 *list_of_username();
-
+/* list of Gcomprisusers */
+void                    *gcompris_set_user(GcomprisUser *user);
+GcomprisUser            *gcompris_get_user();
 
 #endif
+
 
 /* Local Variables: */
 /* mode:c */
