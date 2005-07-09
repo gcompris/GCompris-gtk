@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/07/09 22:13:38 yves>
+ * Time-stamp: <2005/07/09 23:50:28 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -127,6 +127,7 @@ typedef struct {
   GList               *activities;
 
 } GcomprisProfile;
+
 
 /* active profil */
 GcomprisProfile       *gcompris_get_profile();

@@ -1,3 +1,17 @@
+2005-07-10  Yves Combe  <yves@ycombe.net>
+
+	profile C functions now complete, with missing files
+
+	* src/boards/Makefile.am:
+	* src/boards/py-gcompris-profile.c:
+	(gcompris_new_pyGcomprisProfileObject),
+	(pyGcomprisProfileType_dealloc), (pyGcomprisProfileType_getattr),
+	(pyGcomprisProfileType_setattr):
+	* src/boards/py-gcompris-profile.h:
+	* src/boards/py-mod-gcompris.c: (py_gcompris_get_profile):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/profile.h:
+
 2005-07-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	group_list is now useable to create groups for classes

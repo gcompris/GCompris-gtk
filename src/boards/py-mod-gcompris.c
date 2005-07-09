@@ -4,6 +4,7 @@
 #include "py-mod-gcompris.h"
 #include "py-gcompris-board.h"
 #include "py-gcompris-properties.h"
+#include "py-gcompris-profile.h"
 
 /* submodules includes */
 #include "py-mod-bonus.h"
@@ -604,7 +605,7 @@ py_gcompris_get_database(PyObject* self, PyObject* args)
 }
 
 
-/* GnomeCanvas *gcompris_get_properties(void); */
+/* GcomprisProperties *gcompris_get_properties(void); */
 static PyObject*
 py_gcompris_get_properties(PyObject* self, PyObject* args)
 {
@@ -618,6 +619,23 @@ py_gcompris_get_properties(PyObject* self, PyObject* args)
 
   /* Create and return the result */
   return gcompris_new_pyGcomprisPropertiesObject(result);
+}
+
+
+/* GcomprisProfile *gcompris_get_profile(void); */
+static PyObject*
+py_gcompris_get_profile(PyObject* self, PyObject* args)
+{
+  GcomprisProfile* result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_get_profile"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gcompris_get_profile();
+
+  /* Create and return the result */
+  return gcompris_new_pyGcomprisProfileObject(result);
 }
 
 
@@ -996,6 +1014,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "board_config_start",  py_board_config_start, METH_VARARGS, "board_config_start" },
   { "board_config_stop",  py_board_config_stop, METH_VARARGS, "board_config_stop" },
   { "get_boards_list",  py_gcompris_get_boards_list, METH_VARARGS, "gcompris_get_boards_list" },
+  { "get_profile",  py_gcompris_get_profile, METH_VARARGS, "gcompris_get_profile" },
   { NULL, NULL, 0, NULL}
 };
 
