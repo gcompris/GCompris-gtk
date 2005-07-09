@@ -6,7 +6,7 @@ dist_python_DATA= \
 	__init__.py \
 	module.py \
 	module_users.py \
-	module_group.py \
+	module_groups.py \
 	module_profiles.py \
 	module_boards.py \
 	user_list.py \
