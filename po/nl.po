@@ -9,13 +9,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-20 11:04+0000\n"
-"PO-Revision-Date: 2005-06-20 17:02+0200\n"
+"POT-Creation-Date: 2005-07-09 11:07+0000\n"
+"PO-Revision-Date: 2005-07-09 13:32+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../boards/administration.xml.in.h:1
+msgid "GCompris Administration Menu"
+msgstr "GCompris beheerdersmenu"
+
+#: ../boards/administration.xml.in.h:2 ../boards/algebra_group.xml.in.h:2
+#: ../boards/algebramenu.xml.in.h:2 ../boards/boards.xml.in.h:2
+#: ../boards/colors_group.xml.in.h:2 ../boards/computer.xml.in.h:2
+#: ../boards/experience.xml.in.h:2 ../boards/fun.xml.in.h:2
+#: ../boards/gnumchmenu.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Klik met de linker muisknop om een bordspel te kiezen"
 
 #: ../boards/advanced_colors.xml.in.h:1 ../src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -323,12 +336,9 @@ msgstr "veronees"
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
-"and press the Enter key to check your answer."
-msgstr ""
-"Je ziet een vermenigvuldiging van twee getallen. Geef het antwoord aan de "
-"rechterkant van het gelijkheidsteken. Gebruik de linkse en rechtse pijltjes "
-"om je antwoord te veranderen, en de Enter-toets om je antwoord te "
-"controleren."
+"and press the Enter key to check your answer. You can control the speed of "
+"the timer in the GCompris configuration dialog."
+msgstr "Je ziet een vermenigvuldiging van twee getallen. Geef het antwoord aan de rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om je antwoord aan te passen, en de Enter-toets om te controleren of je antwoord goed is. Je kunt de snelheid van de klok wijzigen in de configuratie van GCompris."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
@@ -352,15 +362,6 @@ msgstr "Oefenen met vermenigvuldigen"
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Ga naar de rekensommen"
-
-#: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
-#: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
-#: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#: ../boards/fun.xml.in.h:2 ../boards/gnumchmenu.xml.in.h:2
-#: ../boards/menu.xml.in.h:18 ../boards/mouse.xml.in.h:1
-#: ../boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Klik met de linker muisknop om een bordspel te kiezen"
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
 #: ../boards/erase_double_clic.xml.in.h:1
@@ -409,11 +410,9 @@ msgstr ""
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
-"your answer, and press the Enter key to check the result."
-msgstr ""
-"Er wordt een aftrekking van twee getallen getoond. Geef het antwoord aan de "
-"rechterkant van het gelijkheidsteken. Gebruik de pijltjes links en rechts om "
-"je antwoord aan te passen, en de Enter-toets om je antwoord te controleren. "
+"your answer, and press the Enter key to check the result. You can control "
+"the speed of the timer in the GCompris configuration dialog."
+msgstr "Er wordt een aftrekking van twee getallen getoond. Geef het antwoord aan de rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om je antwoord aan te passen, en de Enter-toets om te controleren of je antwoord goed is. Je kunt de snelheid van de klok wijzigen in de configuratie van GCompris."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -432,11 +431,9 @@ msgstr "Eenvoudige aftrekking"
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
-"Enter key to check your answer."
-msgstr ""
-"Er wordt een optelling van twee getallen getoond. Geef het antwoord aan de "
-"rechterkant van het gelijkheidsteken. Gebruik de pijltjes links en rechts om "
-"je antwoord aan te passen, en de Enter-toets om je antwoord te controleren. "
+"Enter key to check your answer. You can control the speed of the timer in "
+"the GCompris configuration dialog."
+msgstr "Er wordt een optelling van twee getallen getoond. Geef het antwoord aan de rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om je antwoord aan te passen, en de Enter-toets om te controleren of je antwoord goed is. Je kunt de snelheid van de klok wijzigen in de configuratie van GCompris. "
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -644,7 +641,9 @@ msgstr "Omgaan met de muis"
 msgid ""
 "Point and click on the ball to set its speed and direction. The closer you "
 "click to the center, the slower the ball moves."
-msgstr "Klik op de bal om snelheid en richting aan te geven. Hoe meer je in het centrum klikt, hoe langzamer de bal beweegt."
+msgstr ""
+"Klik op de bal om snelheid en richting aan te geven. Hoe meer je in het "
+"centrum klikt, hoe langzamer de bal beweegt."
 
 #: ../boards/billard.xml.in.h:3
 msgid "Put the ball into the black hole on the right"
@@ -1198,6 +1197,26 @@ msgstr "Dubbelklik met de muis"
 msgid "Go to experiences activities"
 msgstr "Ga naar de ervaringsoefeningen"
 
+#: ../boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block beside it. It will be swapped with "
+"the empty block."
+msgstr ""
+"Klik op een vakje dat een vrije buur heeft. Het zal van plaats verwisselen "
+"met het vrije vak."
+
+#: ../boards/fifteen.xml.in.h:3
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr "Verplaats de vakjes één voor één zodat alle getallen netjes oplopen"
+
+#: ../boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr "Oorspronkelijke code afgekeken van een libgnomecanvas demo"
+
+#: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr "Het vijftien-spel"
+
 #: ../boards/followline.xml.in.h:1
 msgid "Emerge the pipe"
 msgstr "Ontstop de pijp"
@@ -1219,26 +1238,6 @@ msgstr ""
 #: ../boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
 msgstr "Tux moet de bloemetjes water geven maar de pijp is verstopt"
-
-#: ../boards/fifteen.xml.in.h:1
-msgid ""
-"Click on any item that has a free block beside it. It will be swapped with "
-"the empty block."
-msgstr ""
-"Klik op een vakje dat een vrije buur heeft. Het zal van plaats verwisselen "
-"met het vrije vak."
-
-#: ../boards/fifteen.xml.in.h:3
-msgid "Move the items one by one to reorder them in the increasing number"
-msgstr "Verplaats de vakjes één voor één zodat alle getallen netjes oplopen"
-
-#: ../boards/fifteen.xml.in.h:4
-msgid "Original code taken from libgnomecanvas demo"
-msgstr "Oorspronkelijke code afgekeken van een libgnomecanvas demo"
-
-#: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
-msgid "The fifteen game"
-msgstr "Het vijftien-spel"
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1269,6 +1268,7 @@ msgid "Place the lands"
 msgstr "Plaats de landen"
 
 #: ../boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:2
 msgid "Africa"
 msgstr "Afrika"
 
@@ -1576,6 +1576,191 @@ msgstr "Noord-Afrika"
 #: ../boards/geography/board4_1.xml.in.h:1
 msgid "South of Africa"
 msgstr "Zuid-Afrika"
+
+# engels fout: er staat >Ethiopia met extra '>' teken
+#: ../boards/geography/board4_2.xml.in.h:1
+msgid ">Ethiopia"
+msgstr "Ethiopië"
+
+#: ../boards/geography/board4_2.xml.in.h:3
+msgid "Algeria"
+msgstr "Algerijë"
+
+#: ../boards/geography/board4_2.xml.in.h:4
+msgid "Angola"
+msgstr "Angola"
+
+#: ../boards/geography/board4_2.xml.in.h:5
+msgid "Benin"
+msgstr "Benin"
+
+#: ../boards/geography/board4_2.xml.in.h:6
+msgid "Botswana"
+msgstr "Botswana"
+
+#: ../boards/geography/board4_2.xml.in.h:7
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: ../boards/geography/board4_2.xml.in.h:8
+msgid "Burundi"
+msgstr "Burundi"
+
+#: ../boards/geography/board4_2.xml.in.h:9
+msgid "Cameroon"
+msgstr "Kameroen"
+
+#: ../boards/geography/board4_2.xml.in.h:10
+msgid "Central African Republic"
+msgstr "Centraal Afrikaanse Republiek"
+
+#: ../boards/geography/board4_2.xml.in.h:11
+msgid "Chad"
+msgstr "Tsjaad"
+
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Democratic Republic of Congo"
+msgstr "Democratische Republiek Congo"
+
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: ../boards/geography/board4_2.xml.in.h:14
+msgid "Egypt"
+msgstr "Egypte"
+
+#: ../boards/geography/board4_2.xml.in.h:15
+msgid "Equatorial Guinea"
+msgstr "Equatoriaal Guinea"
+
+#: ../boards/geography/board4_2.xml.in.h:16
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../boards/geography/board4_2.xml.in.h:17
+msgid "Gabon"
+msgstr "Gabon"
+
+#: ../boards/geography/board4_2.xml.in.h:18
+msgid "Gambia"
+msgstr "Gambia"
+
+#: ../boards/geography/board4_2.xml.in.h:19
+msgid "Ghana"
+msgstr "Ghana"
+
+#: ../boards/geography/board4_2.xml.in.h:20
+msgid "Guinea"
+msgstr "Guinea"
+
+#: ../boards/geography/board4_2.xml.in.h:21
+msgid "Guinea Bissau"
+msgstr "Guinea Bissau"
+
+#: ../boards/geography/board4_2.xml.in.h:22
+msgid "Ivory Coast"
+msgstr "Ivoorkust"
+
+#: ../boards/geography/board4_2.xml.in.h:23
+msgid "Kenya"
+msgstr "Kenia"
+
+#: ../boards/geography/board4_2.xml.in.h:24
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Liberia"
+msgstr "Liberia"
+
+#: ../boards/geography/board4_2.xml.in.h:26
+msgid "Libya"
+msgstr "Libië"
+
+#: ../boards/geography/board4_2.xml.in.h:27
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: ../boards/geography/board4_2.xml.in.h:28
+msgid "Malawi"
+msgstr "Malawi"
+
+#: ../boards/geography/board4_2.xml.in.h:29
+msgid "Mali"
+msgstr "Mali"
+
+#: ../boards/geography/board4_2.xml.in.h:30
+msgid "Mauritania"
+msgstr "Mauretanië"
+
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Moroco"
+msgstr "Marokko"
+
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: ../boards/geography/board4_2.xml.in.h:33
+msgid "Namibia"
+msgstr "Namibië"
+
+#: ../boards/geography/board4_2.xml.in.h:34
+msgid "Niger"
+msgstr "Niger"
+
+#: ../boards/geography/board4_2.xml.in.h:35
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: ../boards/geography/board4_2.xml.in.h:36
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: ../boards/geography/board4_2.xml.in.h:37
+msgid "Senegal"
+msgstr "Senegal"
+
+#: ../boards/geography/board4_2.xml.in.h:38
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: ../boards/geography/board4_2.xml.in.h:39
+msgid "Somalia"
+msgstr "Somalië"
+
+#: ../boards/geography/board4_2.xml.in.h:40
+msgid "South Africa"
+msgstr "Zuid-Afrika"
+
+#: ../boards/geography/board4_2.xml.in.h:41
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: ../boards/geography/board4_2.xml.in.h:42
+msgid "Tanzania"
+msgstr "Tanzania"
+
+#: ../boards/geography/board4_2.xml.in.h:43
+msgid "Togo"
+msgstr "Togo"
+
+#: ../boards/geography/board4_2.xml.in.h:44
+msgid "Tunisia"
+msgstr "Tunisië"
+
+#: ../boards/geography/board4_2.xml.in.h:45
+msgid "Uganda"
+msgstr "Uganda"
+
+#: ../boards/geography/board4_2.xml.in.h:46
+msgid "Zambia"
+msgstr "Zambia"
+
+#: ../boards/geography/board4_2.xml.in.h:47
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
 
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
@@ -2082,7 +2267,11 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. In this maze, the move "
 "is relative (first person). Use the up arrow to go forward. The other arrow "
 "let you turn Tux in another direction."
-msgstr "Gebruik de pijltjestoetsen op het toetsenbord om Tux naar de deur te bewegen. In dit doolhof is de beweging relatief (eerste persoon). Gebruik omhoog om naar voren te gaan. De andere pijlen bewegen Tux in een andere richting."
+msgstr ""
+"Gebruik de pijltjestoetsen op het toetsenbord om Tux naar de deur te "
+"bewegen. In dit doolhof is de beweging relatief (eerste persoon). Gebruik "
+"omhoog om naar voren te gaan. De andere pijlen bewegen Tux in een andere "
+"richting."
 
 #: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2749,6 +2938,49 @@ msgstr ""
 "Tux heeft honger. Help hem vissen te vinden door het aantal ijsschotsen te "
 "tellen om bij de vis te komen."
 
+#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
+#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
+#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
+#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
+#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
+#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
+#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
+#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
+#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
+msgid "Drag and Drop masses to equilibrate the scales"
+msgstr "Sleep gewichten om de schaal in evenwicht te brengen"
+
+#: ../boards/scalesboard.xml.in.h:1
+msgid "Drag and Drop masses to balance the scales"
+msgstr "Sleep gewichten om de schaal in evenwicht te brengen"
+
+# uit het geheugen rekenen
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Mental calculation, arithmetic equality"
+msgstr "Mentaal rekenen, rekenkundige gelijkheid"
+
+#: ../boards/scalesboard.xml.in.h:3
+msgid ""
+"The painting is an original painting made by Virginie MOREAU (virginie."
+"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+"released under the GPL license."
+msgstr ""
+"Dit is een origineel schilderij van Virginie MOREAU (virginie.moreau@free."
+"fr) uit 2001. De titel is 'Kruidenverkoper in Egypte'. Het is uitgebracht "
+"onder de GPL licentievoorwaarden."
+
+#: ../boards/scalesboard.xml.in.h:4
+msgid ""
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
+msgstr ""
+"Om de weegschaal in evenwicht te brengen sleep je gewichten naar de linker "
+"schaal. De gewichten mogen in willekeurige volgorde staan."
+
+#: ../boards/scalesboard.xml.in.h:5
+msgid "Well balance the scales"
+msgstr "Breng de weegschaal in evenwicht"
+
 #: ../boards/searace.xml.in.h:1 ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr ""
@@ -2802,49 +3034,6 @@ msgstr "Zeerace (2 spelers)"
 #: ../boards/searace1player.xml.in.h:4
 msgid "Sea race (Single Player)"
 msgstr "Zeerace (enkele speler)"
-
-#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
-#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
-#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
-#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
-#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
-#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
-#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
-#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
-#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
-msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Sleep gewichten om de schaal in evenwicht te brengen"
-
-#: ../boards/scalesboard.xml.in.h:1
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Sleep gewichten om de schaal in evenwicht te brengen"
-
-# uit het geheugen rekenen
-#: ../boards/scalesboard.xml.in.h:2
-msgid "Mental calculation, arithmetic equality"
-msgstr "Mentaal rekenen, rekenkundige gelijkheid"
-
-#: ../boards/scalesboard.xml.in.h:3
-msgid ""
-"The painting is an original painting made by Virginie MOREAU (virginie."
-"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL license."
-msgstr ""
-"Dit is een origineel schilderij van Virginie MOREAU (virginie.moreau@free."
-"fr) uit 2001. De titel is 'Kruidenverkoper in Egypte'. Het is uitgebracht "
-"onder de GPL licentievoorwaarden."
-
-#: ../boards/scalesboard.xml.in.h:4
-msgid ""
-"To balance the scales, move the masses on the left side. The masses can be "
-"arranged in any order."
-msgstr ""
-"Om de weegschaal in evenwicht te brengen sleep je gewichten naar de linker "
-"schaal. De gewichten mogen in willekeurige volgorde staan."
-
-#: ../boards/scalesboard.xml.in.h:5
-msgid "Well balance the scales"
-msgstr "Breng de weegschaal in evenwicht"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
@@ -3017,20 +3206,20 @@ msgstr "Educatieve software gcompris"
 msgid "Multiple activities for kids"
 msgstr "Verschillende activiteiten voor kinderen"
 
-#: ../src/boards/advanced_colors.c:531 ../src/boards/imageid.c:600
-#: ../src/boards/missingletter.c:604 ../src/boards/read_colors.c:489
-#: ../src/boards/shapegame.c:1876 ../src/gcompris/file_selector.c:926
-#: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:551
-#: ../src/gcompris/gameutil.c:552 ../src/gcompris/gcompris.c:525
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:602
+#: ../src/boards/missingletter.c:606 ../src/boards/read_colors.c:491
+#: ../src/boards/shapegame.c:1878 ../src/gcompris/file_selector.c:926
+#: ../src/gcompris/gameutil.c:137 ../src/gcompris/gameutil.c:555
+#: ../src/gcompris/gameutil.c:556 ../src/gcompris/gcompris.c:521
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: ../src/boards/advanced_colors.c:534 ../src/boards/imageid.c:603
-#: ../src/boards/missingletter.c:607 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1879
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:605
+#: ../src/boards/missingletter.c:609 ../src/boards/read_colors.c:494
+#: ../src/boards/shapegame.c:1881
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -3060,7 +3249,7 @@ msgstr "Leer schaken"
 msgid "Play chess against tux in a learning mode"
 msgstr "Schaken tegen Tux in leermodus"
 
-#: ../src/boards/chess.c:187 ../src/boards/chess.c:226
+#: ../src/boards/chess.c:189 ../src/boards/chess.c:228
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -3074,31 +3263,31 @@ msgstr ""
 "of in uw GNU/Linux distributie.\n"
 "Controleer ook of het staat in "
 
-#: ../src/boards/chess.c:567
+#: ../src/boards/chess.c:569
 msgid "White Turn"
 msgstr "Wit's beurt"
 
-#: ../src/boards/chess.c:567
+#: ../src/boards/chess.c:569
 msgid "Black Turn"
 msgstr "Zwart's beurt"
 
-#: ../src/boards/chess.c:711
+#: ../src/boards/chess.c:713
 msgid "White check"
 msgstr "Wit schaak"
 
-#: ../src/boards/chess.c:713
+#: ../src/boards/chess.c:715
 msgid "Black check"
 msgstr "Zwart schaak"
 
-#: ../src/boards/chess.c:1050
+#: ../src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Zwart schaakmat"
 
-#: ../src/boards/chess.c:1055
+#: ../src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Wit schaakmat"
 
-#: ../src/boards/chess.c:1060 ../src/gcompris/bonus.c:312
+#: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
@@ -3110,7 +3299,7 @@ msgstr "Lees een letter"
 msgid "Learn to recognize letters"
 msgstr "Leer letters herkennen"
 
-#: ../src/boards/click_on_letter.c:226
+#: ../src/boards/click_on_letter.c:228
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -3118,7 +3307,7 @@ msgstr ""
 "Fout: voor deze activiteit moet u eerst het pakket\n"
 "assetml-voices-aphabet- installeren"
 
-#: ../src/boards/click_on_letter.c:233
+#: ../src/boards/click_on_letter.c:235
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3131,16 +3320,16 @@ msgstr ""
 "het geluid aan te zetten."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:278
+#: ../src/boards/click_on_letter.c:280
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstufwxyz"
 
-#: ../src/boards/clickgame.c:176
+#: ../src/boards/clickgame.c:178
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Kon de map niet openen: %s"
 
-#: ../src/boards/clockgame.c:524
+#: ../src/boards/clockgame.c:526
 msgid "Set the watch to:"
 msgstr "Stel de klok in op:"
 
@@ -3184,19 +3373,19 @@ msgstr "Klik op het zwarte plaatje"
 msgid "Click on the white toon"
 msgstr "Klik op het witte plaatje"
 
-#: ../src/boards/erase.c:156
+#: ../src/boards/erase.c:158
 msgid "Couldn't get GTK settings"
 msgstr "Kon de GTK-instellingen niet laden"
 
 # engels taalfout: clic ipv click
-#: ../src/boards/erase.c:161
+#: ../src/boards/erase.c:163
 #, c-format
 msgid "Double clic default value %d."
 msgstr "Dubbelklik standaardwaarde %d."
 
 # Engels taalfout clic ipv click
-#: ../src/boards/erase.c:166 ../src/boards/erase.c:181
-#: ../src/boards/erase.c:204 ../src/boards/erase.c:335
+#: ../src/boards/erase.c:168 ../src/boards/erase.c:183
+#: ../src/boards/erase.c:206 ../src/boards/erase.c:337
 #, c-format
 msgid "Double clic value is now %d."
 msgstr "Dubbelklik waarde is nu %d."
@@ -3205,7 +3394,7 @@ msgstr "Dubbelklik waarde is nu %d."
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Verplaats de vakjes één voor één zodat alle getallen netjes oplopen"
 
-#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
+#: ../src/boards/hanoi.c:337 ../src/boards/hanoi.c:348
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Maak op een vrije plaats dezelfde toren als die rechts te zien is"
 
@@ -3218,27 +3407,27 @@ msgid "Given pictures of hands, find if it's a right or left one"
 msgstr ""
 "Geef aan of op de plaatjes een rechterhand of een linkerhand te zien is"
 
-#: ../src/boards/leftright.c:246 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:248 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:544
 #: ../src/boards/python/searace.py:856 ../src/boards/python/searace.py:889
 #: ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "links"
 
-#: ../src/boards/leftright.c:256 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:258 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:553
 #: ../src/boards/python/searace.py:858 ../src/boards/python/searace.py:891
 #: ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "rechts"
 
-#: ../src/boards/maze.c:486
+#: ../src/boards/maze.c:488
 msgid "Look at your position and switch back to invisible mode to move"
 msgstr ""
 "Bekijk je positie en ga terug naar onzichtbare weergave om te kunnen bewegen"
 
 # modus/weergave
-#: ../src/boards/maze.c:488
+#: ../src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Bekijk je positie en ga terug naar 3D-modus om te kunnen bewegen"
 
@@ -3274,13 +3463,109 @@ msgstr "Probeer de parachutist veilig op de boot te laten landen"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Vang met het vliegtuig de wolken in de juiste volgorde"
 
-#: ../src/boards/python.c:53
+#: ../src/boards/python.c:66
 msgid "Python Board"
 msgstr "Python-bord"
 
-#: ../src/boards/python.c:54
+#: ../src/boards/python.c:67
 msgid "Special board that embeds python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
+
+#: ../src/boards/python/admin/class_edit.py:48
+msgid "Class Edition"
+msgstr "Klas versier"
+
+#: ../src/boards/python/admin/class_edit.py:52
+msgid "Editing class: "
+msgstr "Klas bewerken: "
+
+#: ../src/boards/python/admin/class_edit.py:98
+msgid "Add user >"
+msgstr "Gebruiker toevoegen >"
+
+#: ../src/boards/python/admin/class_edit.py:236
+#: ../src/boards/python/admin/user_list.py:192
+msgid "First Name"
+msgstr "Voornaam"
+
+#: ../src/boards/python/admin/class_edit.py:245
+#: ../src/boards/python/admin/user_list.py:202
+msgid "Last Name"
+msgstr "Achternaam"
+
+#. Add buttons
+#: ../src/boards/python/admin/class_list.py:98
+msgid "Add class"
+msgstr "Klas toevoegen"
+
+#: ../src/boards/python/admin/class_list.py:111
+msgid "Remove class"
+msgstr "Klas verwijderen"
+
+#: ../src/boards/python/admin/class_list.py:124
+msgid "Edit class"
+msgstr "Klas bewerken"
+
+#: ../src/boards/python/admin/class_list.py:166
+msgid "Name"
+msgstr "Naam"
+
+#: ../src/boards/python/admin/class_list.py:176
+msgid "Teacher"
+msgstr "Docent"
+
+#: ../src/boards/python/admin/class_list.py:267
+msgid "You must first select a class in the list"
+msgstr "U moet eerst in de lijst een klas selecteren"
+
+#: ../src/boards/python/admin/module_profiles.py:37
+msgid "Profiles list"
+msgstr "Profielenlijst"
+
+#: ../src/boards/python/admin/module_profiles.py:60
+msgid " Panel"
+msgstr " Paneel"
+
+#. Add buttons
+#: ../src/boards/python/admin/user_list.py:99
+msgid "Add user"
+msgstr "Gebruiker toevoegen"
+
+#: ../src/boards/python/admin/user_list.py:112
+msgid "Remove user"
+msgstr "Gebruiker verwijderen"
+
+#: ../src/boards/python/admin/user_list.py:125
+msgid "Import file"
+msgstr "Bestand importeren"
+
+# dit is aanmeldnaam hier, niet 'aanmelden' of 'inloggen'
+# het gaat dus hier om de gebruikersnaam
+#: ../src/boards/python/admin/user_list.py:182
+msgid "Login"
+msgstr "Aanmeldnaam"
+
+#: ../src/boards/python/admin/user_list.py:212
+msgid "Birth Date"
+msgstr "Geboortedatum"
+
+#: ../src/boards/python/admin/user_list.py:222
+msgid "Class"
+msgstr "Klas"
+
+#: ../src/boards/python/admin/user_list.py:270
+msgid ""
+"To import a file, it must be formated like this:\n"
+"login;First name;Last name;Birth date\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+"Om een bestand te importeren moet het als volgt zijn opgemaakt:\n"
+"aanmeldnaam;Voornaam;Achternaam;Geboortedatum\n"
+"Het scheidingsteken mag zowel ',', ';' of ':' zijn."
+
+#: ../src/boards/python/admin/module_users.py:43
+msgid "Users list"
+msgstr "Gebruikerslijst"
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3489,6 +3774,18 @@ msgstr "Onbekende opdracht op regel"
 msgid "Distance:"
 msgstr "Afstand:"
 
+#: ../src/boards/python/tuxpaint.py:61
+msgid ""
+"Cannot find Tuxpaint. \n"
+" Install it to use this board !"
+msgstr ""
+"Kan Tuxpaint niet vinden.\n"
+"Installeer dit eerst voor deze opdracht!"
+
+#: ../src/boards/python/tuxpaint.py:74
+msgid "Waiting Tuxpaint Finished"
+msgstr "Wachten op Tuxpaint afsluiten"
+
 #: ../src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Geheugenspel"
@@ -3509,41 +3806,41 @@ msgstr "Klik op de overeenkomstige kleur"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Zeg of een woord in de opgegeven lijst zit"
 
-#: ../src/boards/reading.c:335
+#: ../src/boards/reading.c:337
 msgid "Please, check if the word"
 msgstr "Ga na of het woord"
 
-#: ../src/boards/reading.c:355
+#: ../src/boards/reading.c:357
 msgid "is being displayed"
 msgstr "getoond wordt"
 
-#: ../src/boards/reading.c:529
+#: ../src/boards/reading.c:531
 msgid "I am Ready"
 msgstr "Ik ben klaar"
 
-#: ../src/boards/reading.c:569
+#: ../src/boards/reading.c:571
 msgid "Yes I saw it"
 msgstr "Ja, ik heb het gezien"
 
-#: ../src/boards/reading.c:599
+#: ../src/boards/reading.c:601
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:637
+#: ../src/boards/reading.c:639
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Het te vinden woord was: '%s'"
 
-#: ../src/boards/reading.c:640
+#: ../src/boards/reading.c:642
 msgid "But it was not displayed"
 msgstr "Maar het zat er niet bij"
 
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:644
 msgid "And it was displayed"
 msgstr "En het zat er bij"
 
-#: ../src/boards/reading.c:743 ../src/boards/wordsgame.c:756
+#: ../src/boards/reading.c:745 ../src/boards/wordsgame.c:758
 msgid "Cannot open file of words for your locale"
 msgstr "Kan geen woordenbestand openen voor uw locale"
 
@@ -3556,7 +3853,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:413
+#: ../src/boards/shapegame.c:415
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -3568,7 +3865,7 @@ msgstr ""
 "geef 's' voor opslaan\n"
 "'d' om alle stukjes te tonen"
 
-#: ../src/boards/shapegame.c:421
+#: ../src/boards/shapegame.c:423
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -3594,12 +3891,12 @@ msgstr "Onderzeeër"
 msgid "Control the depth of a submarine"
 msgstr "De diepte van een onderzeeër controleren"
 
-#: ../src/boards/target.c:319 ../src/boards/target.c:572
+#: ../src/boards/target.c:321 ../src/boards/target.c:574
 #, c-format
 msgid "Points = %s"
 msgstr "Punten = %s"
 
-#: ../src/boards/target.c:437
+#: ../src/boards/target.c:439
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -3608,7 +3905,7 @@ msgstr ""
 "Windsnelheid = %d\n"
 "kilometer/uur"
 
-#: ../src/boards/target.c:499
+#: ../src/boards/target.c:501
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Afstand tot het doel = %d meter"
@@ -3632,7 +3929,7 @@ msgstr ""
 "Achtergrondmuziek: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:429
+#: ../src/gcompris/about.c:73
 msgid "translator_credits"
 msgstr ""
 "Tino Meinen\n"
@@ -3666,7 +3963,7 @@ msgid "Help"
 msgstr "Hulp"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:1045 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:1037 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3942,15 +4239,15 @@ msgstr "LADEN"
 msgid "SAVE"
 msgstr "OPSLAAN"
 
-#: ../src/gcompris/gameutil.c:134
+#: ../src/gcompris/gameutil.c:140
 msgid "Couldn't find file"
 msgstr "Kan bestand niet vinden!"
 
-#: ../src/gcompris/gameutil.c:136
+#: ../src/gcompris/gameutil.c:142
 msgid "This activity is incomplete."
 msgstr "Deze activiteit is niet voltooid."
 
-#: ../src/gcompris/gameutil.c:137
+#: ../src/gcompris/gameutil.c:143
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3959,47 +4256,47 @@ msgstr ""
 "ons het probleem."
 
 # Beter: schermvullend?
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:105
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:107
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: ../src/gcompris/gcompris.c:111
+#: ../src/gcompris/gcompris.c:109
 msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
-#: ../src/gcompris/gcompris.c:113
+#: ../src/gcompris/gcompris.c:111
 msgid "display debug informations on the console."
 msgstr "debug informatie tonen op het console."
 
-#: ../src/gcompris/gcompris.c:115
+#: ../src/gcompris/gcompris.c:113
 msgid "Print the version of "
 msgstr "Toont de versie van "
 
-#: ../src/gcompris/gcompris.c:117
+#: ../src/gcompris/gcompris.c:115
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: ../src/gcompris/gcompris.c:119
+#: ../src/gcompris/gcompris.c:117
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR uitzetten (geen schermresultie verandering)."
 
-#: ../src/gcompris/gcompris.c:121
+#: ../src/gcompris/gcompris.c:119
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -4009,32 +4306,32 @@ msgstr ""
 "leesoefeningen doen, -l /boards/connect4 alleen de 'vier-op-een-rij' "
 "oefening, -l list toont de lijst met menu's en oefeningen)"
 
-#: ../src/gcompris/gcompris.c:123
+#: ../src/gcompris/gcompris.c:121
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "GCompris uitvoeren met lokale activiteitenmap aan het menu toegevoegd."
 
-#: ../src/gcompris/gcompris.c:126
+#: ../src/gcompris/gcompris.c:123
 msgid "Run gcompris with administration and users management mode"
 msgstr "gcompris uitvoeren met beheerdersrechten en in beheersmodus"
 
-#: ../src/gcompris/gcompris.c:128
+#: ../src/gcompris/gcompris.c:125
 msgid "Use alternate database for profils"
 msgstr "Alternatieve database gebruiken voor profielen"
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:127
 msgid "Use alternate database for logs"
 msgstr "Alternatieve database gebruiken voor logboeken"
 
-#: ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:129
 msgid "Create the alternate database for profils"
 msgstr "Alternatieve database aanmaken voor profielen"
 
 # herlezen/opnieuw inlezen
-#: ../src/gcompris/gcompris.c:134
+#: ../src/gcompris/gcompris.c:131
 msgid "Re-read XML Menus and store them in the database"
 msgstr "XML-menus opnieuw inlezen en opslaan in de database"
 
-#: ../src/gcompris/gcompris.c:656
+#: ../src/gcompris/gcompris.c:655
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4058,7 +4355,7 @@ msgstr ""
 "op\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:914
+#: ../src/gcompris/gcompris.c:922
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4073,38 +4370,55 @@ msgstr ""
 "\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:982
+#: ../src/gcompris/gcompris.c:990
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Gebruik -l activity om direct naar een oefening te gaan.\n"
 
-#: ../src/gcompris/gcompris.c:983
+#: ../src/gcompris/gcompris.c:991
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "De lijst met beschikbare oefeningen is:\n"
 
-#: ../src/gcompris/gcompris_db.c:86
+#: ../src/gcompris/gcompris_db.c:95
 #, c-format
 msgid "Database %s opened"
 msgstr "Database %s geopend"
 
-#: ../src/gcompris/gcompris_db.c:127
+#: ../src/gcompris/gcompris_db.c:140
 msgid "Database tables created"
 msgstr "Databasetabellen aangemaakt"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:196
+#: ../src/gcompris/gcompris_db.c:744
+#, c-format
+msgid "No users groups for profile %s"
+msgstr "Geen gebruikersgroepen voor profiel %s"
+
+# tooltip voor de desktop
+#: ../src/gcompris/gcompris_db.c:775
+#, c-format
+msgid "No activities out for profile %s"
+msgstr "Geen activiteiten voor profiel %s"
+
+#: ../src/gcompris/gcompris_db.c:829
+#, c-format
+msgid "No users in group with id  %d"
+msgstr "Geen gebruikers in groep met id  %d"
+
+#: ../src/gcompris/help.c:170
 msgid "Prerequisite"
 msgstr "Vereisten"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:205
+# doel/doelstelling
+#: ../src/gcompris/help.c:198
 msgid "Goal"
 msgstr "Doelstelling"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:214
+#: ../src/gcompris/help.c:226
 msgid "Manual"
 msgstr "Handleiding"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:223
+#: ../src/gcompris/help.c:254
 msgid "Credit"
 msgstr "Met dank aan"
 
@@ -4131,52 +4445,12 @@ msgid ""
 msgstr ""
 "In ImageSet %s, is map %s niet gevonden. De volledige ImageSet overslaan...\n"
 
-#: ../src/gcompris/interface.c:75
-msgid "Gcompris Editor"
-msgstr "GCompris editor"
-
-#: ../src/gcompris/interface.c:133
-msgid "Icon"
-msgstr "Pictogram"
-
-#: ../src/gcompris/interface.c:142
-msgid "Name"
-msgstr "Naam"
-
-#: ../src/gcompris/interface.c:151 ../src/gcompris/interface.c:368
-msgid "Description"
-msgstr "Beschrijving"
-
-#: ../src/gcompris/interface.c:160
-msgid "Type"
-msgstr "Type"
-
-#: ../src/gcompris/interface.c:169
-msgid "Difficulty"
-msgstr "Moeilijkheid"
-
-#: ../src/gcompris/interface.c:178
-msgid "Author"
-msgstr "Auteur"
-
-#: ../src/gcompris/interface.c:187
-msgid "Directory"
-msgstr "Map"
-
-#: ../src/gcompris/interface.c:239
-msgid "Title"
-msgstr "Titel"
-
-#: ../src/gcompris/interface.c:435
-msgid "Released under GPL"
-msgstr "Uitgebracht onder de GPL"
-
-#: ../src/gcompris/soundutil.c:139
+#: ../src/gcompris/soundutil.c:162
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Kon muziek-map niet openen: %s"
 
-#: ../src/gcompris/soundutil.c:181
+#: ../src/gcompris/soundutil.c:208
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -4184,11 +4458,6 @@ msgid ""
 msgstr ""
 "De achtergrondmuziek is nu gestopt. De bestanden in %s staan niet in het ogg "
 "formaat OF de geluidsuitvoer is mislukt"
-
-#: ../src/gcompris/support.c:60 ../src/gcompris/support.c:85
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Kon pixmapbestand niet vinden: %s!"
 
 #: ../src/gcompris/timer.c:237
 msgid "Time Elapsed"
@@ -4198,6 +4467,36 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "Gcompris Editor"
+#~ msgstr "GCompris editor"
+
+#~ msgid "Icon"
+#~ msgstr "Pictogram"
+
+#~ msgid "Description"
+#~ msgstr "Beschrijving"
+
+#~ msgid "Type"
+#~ msgstr "Type"
+
+#~ msgid "Difficulty"
+#~ msgstr "Moeilijkheid"
+
+#~ msgid "Author"
+#~ msgstr "Auteur"
+
+#~ msgid "Directory"
+#~ msgstr "Map"
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "Released under GPL"
+#~ msgstr "Uitgebracht onder de GPL"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Kon pixmapbestand niet vinden: %s!"
 
 #~ msgid "The game of billiards"
 #~ msgstr "Het biljartspel"
@@ -4235,9 +4534,6 @@ msgstr "Resterende tijd = %d"
 
 #~ msgid "czech"
 #~ msgstr "Tsjechië"
-
-#~ msgid "lithuania"
-#~ msgstr "litouwen"
 
 #~ msgid "macedonia"
 #~ msgstr "macedonië"
