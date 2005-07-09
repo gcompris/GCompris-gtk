@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-07 13:04-0400\n"
-"PO-Revision-Date: 2005-07-07 22:51-0400\n"
+"POT-Creation-Date: 2005-07-09 15:27-0400\n"
+"PO-Revision-Date: 2005-07-09 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3423,87 +3423,87 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
-#: src/boards/python/admin/class_edit.py:50
+#: src/boards/python/admin/class_edit.py:48
 msgid "Class Edition"
 msgstr "Class Edition"
 
-#: src/boards/python/admin/class_edit.py:54
+#: src/boards/python/admin/class_edit.py:52
 msgid "Editing class: "
 msgstr "Editing class: "
 
-#: src/boards/python/admin/class_edit.py:100
+#: src/boards/python/admin/class_edit.py:98
 msgid "Add user >"
 msgstr "Add user >"
 
-#: src/boards/python/admin/class_edit.py:238
-#: src/boards/python/admin/user_list.py:194
+#: src/boards/python/admin/class_edit.py:236
+#: src/boards/python/admin/user_list.py:192
 msgid "First Name"
 msgstr "First Name"
 
-#: src/boards/python/admin/class_edit.py:247
-#: src/boards/python/admin/user_list.py:204
+#: src/boards/python/admin/class_edit.py:245
+#: src/boards/python/admin/user_list.py:202
 msgid "Last Name"
 msgstr "Last Name"
 
 #. Add buttons
-#: src/boards/python/admin/class_list.py:100
+#: src/boards/python/admin/class_list.py:98
 msgid "Add class"
 msgstr "Add class"
 
-#: src/boards/python/admin/class_list.py:113
+#: src/boards/python/admin/class_list.py:111
 msgid "Remove class"
 msgstr "Remove class"
 
-#: src/boards/python/admin/class_list.py:126
+#: src/boards/python/admin/class_list.py:124
 msgid "Edit class"
 msgstr "Edit class"
 
-#: src/boards/python/admin/class_list.py:168
+#: src/boards/python/admin/class_list.py:166
 msgid "Name"
 msgstr "Name"
 
-#: src/boards/python/admin/class_list.py:178
+#: src/boards/python/admin/class_list.py:176
 msgid "Teacher"
 msgstr "Teacher"
 
-#: src/boards/python/admin/class_list.py:269
+#: src/boards/python/admin/class_list.py:267
 msgid "You must first select a class in the list"
 msgstr "You must first select a class in the list"
 
-#: src/boards/python/admin/module_profiles.py:19
+#: src/boards/python/admin/module_profiles.py:37
 msgid "Profiles list"
 msgstr "Profiles list"
 
-#: src/boards/python/admin/module_profiles.py:37
+#: src/boards/python/admin/module_profiles.py:60
 msgid " Panel"
 msgstr " Panel"
 
 #. Add buttons
-#: src/boards/python/admin/user_list.py:101
+#: src/boards/python/admin/user_list.py:99
 msgid "Add user"
 msgstr "Add user"
 
-#: src/boards/python/admin/user_list.py:114
+#: src/boards/python/admin/user_list.py:112
 msgid "Remove user"
 msgstr "Remove user"
 
-#: src/boards/python/admin/user_list.py:127
+#: src/boards/python/admin/user_list.py:125
 msgid "Import file"
 msgstr "Import file"
 
-#: src/boards/python/admin/user_list.py:184
+#: src/boards/python/admin/user_list.py:182
 msgid "Login"
 msgstr "Login"
 
-#: src/boards/python/admin/user_list.py:214
+#: src/boards/python/admin/user_list.py:212
 msgid "Birth Date"
 msgstr "Birth Date"
 
-#: src/boards/python/admin/user_list.py:224
+#: src/boards/python/admin/user_list.py:222
 msgid "Class"
 msgstr "Class"
 
-#: src/boards/python/admin/user_list.py:272
+#: src/boards/python/admin/user_list.py:270
 msgid ""
 "To import a file, it must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
@@ -3513,7 +3513,7 @@ msgstr ""
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 
-#: src/boards/python/admin/module_users.py:25
+#: src/boards/python/admin/module_users.py:43
 msgid "Users list"
 msgstr "Users list"
 
@@ -4303,14 +4303,29 @@ msgstr "Use -l activity to access directly to activity.\n"
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris_db.c:90
+#: src/gcompris/gcompris_db.c:95
 #, c-format
 msgid "Database %s opened"
 msgstr "Database %s opened"
 
-#: src/gcompris/gcompris_db.c:135
+#: src/gcompris/gcompris_db.c:140
 msgid "Database tables created"
 msgstr "Database tables created"
+
+#: src/gcompris/gcompris_db.c:744
+#, c-format
+msgid "No users groups for profile %s"
+msgstr "No users groups for profile %s"
+
+#: src/gcompris/gcompris_db.c:775
+#, c-format
+msgid "No activities out for profile %s"
+msgstr "No activities out for profile %s"
+
+#: src/gcompris/gcompris_db.c:829
+#, c-format
+msgid "No users in group with id  %d"
+msgstr "No users in group with ID  %d"
 
 #: src/gcompris/help.c:170
 msgid "Prerequisite"
