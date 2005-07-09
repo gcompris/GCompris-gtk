@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/09 13:41:00 bruno>
+ * Time-stamp: <2005/07/09 23:08:35 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -844,6 +844,135 @@ GList *gcompris_get_users_from_group(gint group_id)
   }
 
   return users;
+}
+
+
+#define CHECK_CONF(p, b, k) \
+        "SELECT * FROM board_profile_conf WHERE profile_id=%d AND board_id=%d AND key=%s%s%s;", p, b, Q(k)
+
+#define INSERT_KEY(p, b, k, v) \
+        "INSERT INTO board_profile_conf (profile_id, board_id, key, value) VALUES (%d, %d, %s%s%s, %s%s%s);", p, b, Q(k), Q(v)
+
+#define UPDATE_KEY(p, b, k, v) \
+        "UPDATE board_profile_conf SET value=%s%s%s WHERE profile_id=%d AND board_id=%d AND key=%s%s%s;", Q(v), p, b, Q(k)
+
+void gcompris_set_board_conf(GcomprisProfile *profile, 
+			     GcomprisBoard  *board, 
+			     gchar *key, 
+			     gchar *value)
+{
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  request = g_strdup_printf(CHECK_CONF(profile->profile_id, 
+				       board->board_id, 
+				       key));
+  
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  
+  g_free(request);
+  
+  if (nrow == 0){
+    request = g_strdup_printf(INSERT_KEY(profile->profile_id, 
+					 board->board_id, 
+					 key,
+					 value));
+    
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    
+    g_free(request);
+  } else {
+    request = g_strdup_printf(UPDATE_KEY(profile->profile_id, 
+					 board->board_id, 
+					 key,
+					 value));
+    
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    
+    g_free(request);
+  }
+} 
+
+#define GET_CONF(p, b) \
+        "SELECT key, value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
+
+GList *gcompris_get_board_conf(GcomprisProfile *profile,
+			       GcomprisBoard  *board)
+{
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+  int i;
+
+  GList *list_conf = NULL;
+
+  request = g_strdup_printf(GET_CONF(profile->profile_id, 
+				     board->board_id));
+  
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  
+  i = ncolumn;
+
+  while (i < (nrow +1)*ncolumn){
+    GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
+
+    pair->key = g_strdup(result[i++]);
+    pair->value = g_strdup(result[i++]);
+
+    list_conf = g_list_append(list_conf, pair);
+  }
+
+  g_free(request);
+  
+  return list_conf;
+
 }
 
 

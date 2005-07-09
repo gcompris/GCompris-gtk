@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/07/09 00:05:07 yves>
+ * Time-stamp: <2005/07/09 22:03:02 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -76,6 +76,20 @@ GcomprisProfile *gcompris_db_get_profile();
 
 GList *gcompris_get_users_from_group(gint group_id);
 
+void gcompris_set_board_conf(GcomprisProfile *profile, 
+			     GcomprisBoard  *board, 
+			     gchar *key, 
+			     gchar *value);
+
+
+/* Return List of conf_cell */
+typedef struct {
+  gchar *key;
+  gchar *value;
+} GcomprisConfPair;
+
+GList *gcompris_get_board_conf(GcomprisProfile *profile,
+			       GcomprisBoard  *board);
 #endif
 
 /* Local Variables: */

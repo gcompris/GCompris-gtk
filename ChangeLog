@@ -1,3 +1,13 @@
+2005-07-09  Yves Combe  <yves@ycombe.net>
+
+	profile C functions now complete.
+
+	* src/gcompris/gcompris.c:
+	* src/gcompris/gcompris_db.c: (gcompris_get_users_from_group),
+	(gcompris_set_board_conf), (gcompris_get_board_conf):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/profile.h:
+
 2005-07-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Little change in the database. Replace name by firstname to avoid confusion.

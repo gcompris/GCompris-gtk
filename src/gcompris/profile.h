@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/07/09 13:46:58 bruno>
+ * Time-stamp: <2005/07/09 22:13:38 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -89,7 +89,7 @@ struct _GcomprisUser {
   gchar               *login;
 
   /* mandatory class */
-  gint               *class_id;
+  gint               class_id;
 
   /* Last Name */
   gchar               *lastname;
@@ -98,7 +98,7 @@ struct _GcomprisUser {
   gchar               *firstname;
 
   /* Birth day */
-  GDate               *birthdate;
+  gchar               *birthdate;
 
   /* desactived activities for this user */
   GList               *desactived_activities;
