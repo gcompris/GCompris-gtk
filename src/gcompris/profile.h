@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/07/09 00:02:27 yves>
+ * Time-stamp: <2005/07/09 13:46:58 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -91,8 +91,8 @@ struct _GcomprisUser {
   /* mandatory class */
   gint               *class_id;
 
-  /* Real Name */
-  gchar               *name;
+  /* Last Name */
+  gchar               *lastname;
   
   /* First Name */
   gchar               *firstname;
@@ -111,7 +111,7 @@ typedef struct _GcomprisUser GcomprisUser;
 /* The following structure describes a profile object.  */
 
 typedef struct {
-  /* Profile Namee */
+  /* Profile Name */
   gint                profile_id;
   gchar               *name;
 

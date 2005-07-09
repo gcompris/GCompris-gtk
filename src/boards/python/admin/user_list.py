@@ -318,7 +318,7 @@ class User_list:
       # Save the changes in the base
       new_user = [user_id, login, firstname, lastname, birthdate, 0]
       self.add_user_in_model(model, new_user)
-      self.cur.execute('insert or replace into users (user_id, login, name, firstname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)', new_user)
+      self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)', new_user)
       self.con.commit()
 
     file.close()
@@ -351,7 +351,7 @@ class User_list:
                  model.get_value(iter, COLUMN_CLASS))
 
     # Save the changes in the base
-    self.cur.execute('insert or replace into users (user_id, login, name, firstname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)',
+    self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)',
                      user_data)
     self.con.commit()
 

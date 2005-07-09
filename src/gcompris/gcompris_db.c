@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/09 00:32:25 yves>
+ * Time-stamp: <2005/07/09 13:41:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -29,7 +29,7 @@ static sqlite3 *gcompris_db_log=NULL;
 extern GnomeCanvas *canvas;
 
 #define CREATE_TABLE_USERS \
-        "CREATE TABLE users (user_id INT UNIQUE, login TEXT, name TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
+        "CREATE TABLE users (user_id INT UNIQUE, login TEXT, lastname TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
 #define CREATE_TABLE_CLASS \
         "CREATE TABLE class (class_id INT UNIQUE, name TEXT, teacher TEXT ); "
 #define CREATE_TABLE_GROUPS \
@@ -796,7 +796,7 @@ GcomprisProfile *gcompris_db_get_profile()
 }
 
 #define USERS_FROM_GROUP(n) \
-        "SELECT users.user_id, users.login, users.name, users.firstname, users.birthdate, users.class_id  FROM users, list_users_in_groups WHERE users.user_id = list_users_in_groups.user_id AND list_users_in_groups.group_id = %d;",n
+        "SELECT users.user_id, users.login, users.lastname, users.firstname, users.birthdate, users.class_id  FROM users, list_users_in_groups WHERE users.user_id = list_users_in_groups.user_id AND list_users_in_groups.group_id = %d;",n
 
 GList *gcompris_get_users_from_group(gint group_id)
 {
@@ -834,7 +834,7 @@ GList *gcompris_get_users_from_group(gint group_id)
       
       user->user_id = atoi(result[i++]);
       user->login = g_strdup(result[i++]);
-      user->name = g_strdup(result[i++]);
+      user->lastname = g_strdup(result[i++]);
       user->firstname = g_strdup(result[i++]);
       user->birthdate = g_strdup(result[i++]);
       user->class_id = atoi(result[i++]);

@@ -210,9 +210,9 @@ class ClassEdit(gtk.Window):
 
         # Grab the user data
         if(with):
-            self.cur.execute('select user_id,firstname,name from users where class_id=?', (class_id,))
+            self.cur.execute('select user_id,firstname,lastname from users where class_id=?', (class_id,))
         else:
-            self.cur.execute('select user_id,firstname,name from users where class_id!=?', (class_id,))
+            self.cur.execute('select user_id,firstname,lastname from users where class_id!=?', (class_id,))
         user_data = self.cur.fetchall()
 
         model = gtk.ListStore(
