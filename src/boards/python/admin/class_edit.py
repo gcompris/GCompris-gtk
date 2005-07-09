@@ -57,7 +57,7 @@ class ClassEdit(gtk.Window):
         frame.add(vbox)
 
         # Top message gives instructions
-        label = gtk.Label('Assign all the users bellonging to this class\n')
+        label = gtk.Label(_('Assign all the users bellonging to this class'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 

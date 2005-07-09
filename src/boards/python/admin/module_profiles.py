@@ -57,7 +57,7 @@ class Profiles(module.Module):
 
     item = self.rootitem.add (
         gnome.canvas.CanvasText,
-        text=_(self.module_label + " Panel"),
+        text=_("Profile"),
         font=gcompris.skin.get_font("gcompris/content"),
         x = area[0] + (area[2]-area[0])/2,
         y = area[1] + 50,

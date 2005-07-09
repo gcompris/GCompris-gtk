@@ -26,7 +26,11 @@ import gtk
 import gtk.gdk
 from gettext import gettext as _
 
+# Database
+from pysqlite2 import dbapi2 as sqlite
+
 import module
+import group_list
 
 class Groups(module.Module):
   """Administrating GCompris Groups"""
@@ -40,10 +44,14 @@ class Groups(module.Module):
   # The smaller number is the highest.
   def position(self):
     return 1
-  
+
   def start(self, area):
     print "starting groups panel"
 
+    # Connect to our database
+    self.con = sqlite.connect(gcompris.get_database())
+    self.cur = self.con.cursor()
+        
     # Create our rootitem. We put each canvas item in it so at the end we
     # only have to kill it. The canvas deletes all the items it contains automaticaly.
 
@@ -53,16 +61,23 @@ class Groups(module.Module):
         y=0.0
         )
 
+    # Call our parent start
     module.Module.start(self)
 
-    item = self.rootitem.add (
-        gnome.canvas.CanvasText,
-        text=_(self.module_label + " Panel"),
-        font=gcompris.skin.get_font("gcompris/content"),
-        x = area[0] + (area[2]-area[0])/2,
-        y = area[1] + 50,
-        fill_color="black"
-        )
+    hgap = 20
+    vgap = 15
+
+    # Define the area percent for each list
+    group_percent = 1.0
+
+    origin_y = area[1]+vgap
+
+    group_height = (area[3]-area[1])*group_percent - vgap
+    list_area = ( area[0], origin_y, area[2], group_height)
+    group_list.Group_list(self.rootitem,
+                          self.con, self.cur,
+                          list_area, hgap, vgap)
+
 
   def stop(self):
     print "stopping groups panel"
@@ -70,4 +85,9 @@ class Groups(module.Module):
 
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
+
+    # Close the database
+    self.cur.close()
+    self.con.close()
+
 

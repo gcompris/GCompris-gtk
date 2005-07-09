@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/09 23:08:35 yves>
+ * Time-stamp: <2005/07/09 16:23:47 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -33,7 +33,7 @@ extern GnomeCanvas *canvas;
 #define CREATE_TABLE_CLASS \
         "CREATE TABLE class (class_id INT UNIQUE, name TEXT, teacher TEXT ); "
 #define CREATE_TABLE_GROUPS \
-        "CREATE TABLE groups (group_id INT UNIQUE, group_name TEXT, class_id INT, description TEXT ); "
+        "CREATE TABLE groups (group_id INT UNIQUE, name TEXT, class_id INT, description TEXT ); "
 #define CREATE_TABLE_USERS_IN_GROUPS  \
         "CREATE TABLE list_users_in_groups (user_id INT, group_id INT ); "
 #define CREATE_TABLE_GROUPS_IN_PROFILES  \

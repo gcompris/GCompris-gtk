@@ -50,9 +50,12 @@ class Gcompris_administration:
     gap = 10
     panel_x = 120
     self.select_area = (gap , gap, panel_x + gap , gcompris.BOARD_HEIGHT-gap)
-    self.panel_area  = (panel_x + 2*gap , gap, gcompris.BOARD_WIDTH-gap, gcompris.BOARD_HEIGHT-gap)
+    self.panel_area  = (panel_x + 2*gap ,
+                        gap,
+                        gcompris.BOARD_WIDTH-gap,
+                        gcompris.BOARD_HEIGHT-gap)
 
-    print("Gcompris_administration __init__.")
+    print("Gcompris_administration __init__ DONE.")
 
 
   def start(self):
