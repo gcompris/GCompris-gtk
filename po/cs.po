@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gcompris VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-05-06 03:01+0000\n"
-"PO-Revision-Date: 2005-05-06 10:17+0200\n"
+"PO-Revision-Date: 2005-07-05 20:29+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3842,9 +3842,9 @@ msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
 msgstr "V ImageSet %s, cesta k domovu %s nalezena. Přeskakuji ImageSet...\n"
 
 #: ../src/gcompris/images_selector.c:664
-#, fuzzy, c-format
+#, c-format
 msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
-msgstr "ImageSet %s obrázek nenalezen. Přeskakuji ImageSet...\n"
+msgstr "Nenalezen obrázek v ImageSet %s. Přeskakuji ImageSet...\n"
 
 #: ../src/gcompris/images_selector.c:690
 #, c-format
