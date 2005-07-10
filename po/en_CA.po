@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-10 01:02-0400\n"
+"POT-Creation-Date: 2005-07-10 01:05-0400\n"
 "PO-Revision-Date: 2005-07-10 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -3423,6 +3423,24 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
+#: src/boards/python/admin/board_list.py:179
+msgid "Main menu"
+msgstr "Main menu"
+
+#: src/boards/python/admin/board_list.py:179
+msgid "/"
+msgstr "/"
+
+#. columns for Board name
+#: src/boards/python/admin/board_list.py:213
+msgid "Board title"
+msgstr "Board title"
+
+#: src/boards/python/admin/board_list.py:216
+#: src/boards/python/admin/class_list.py:166
+msgid "Name"
+msgstr "Name"
+
 #: src/boards/python/admin/class_edit.py:48
 msgid "Class Edition"
 msgstr "Class Edition"
@@ -3463,10 +3481,6 @@ msgstr "Remove class"
 msgid "Edit class"
 msgstr "Edit class"
 
-#: src/boards/python/admin/class_list.py:166
-msgid "Name"
-msgstr "Name"
-
 #: src/boards/python/admin/class_list.py:176
 msgid "Teacher"
 msgstr "Teacher"
@@ -3474,6 +3488,18 @@ msgstr "Teacher"
 #: src/boards/python/admin/class_list.py:267
 msgid "You must first select a class in the list"
 msgstr "You must first select a class in the list"
+
+#: src/boards/python/admin/module_boards.py:41
+msgid "Boards"
+msgstr "Boards"
+
+#: src/boards/python/admin/module_boards.py:59
+msgid " Panel"
+msgstr " Panel"
+
+#: src/boards/python/admin/module_groups.py:41
+msgid "Groups list"
+msgstr "Groups list"
 
 #: src/boards/python/admin/module_profiles.py:37
 msgid "Profiles list"
