@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/09 16:23:47 bruno>
+ * Time-stamp: <2005/07/10 22:38:11 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -31,7 +31,7 @@ extern GnomeCanvas *canvas;
 #define CREATE_TABLE_USERS \
         "CREATE TABLE users (user_id INT UNIQUE, login TEXT, lastname TEXT, firstname TEXT, birthdate TEXT, class_id INT ); "
 #define CREATE_TABLE_CLASS \
-        "CREATE TABLE class (class_id INT UNIQUE, name TEXT, teacher TEXT ); "
+        "CREATE TABLE class (class_id INT UNIQUE, name TEXT, teacher TEXT, wholegroup_id INT ); "
 #define CREATE_TABLE_GROUPS \
         "CREATE TABLE groups (group_id INT UNIQUE, name TEXT, class_id INT, description TEXT ); "
 #define CREATE_TABLE_USERS_IN_GROUPS  \
@@ -800,6 +800,7 @@ GcomprisProfile *gcompris_db_get_profile()
 
 GList *gcompris_get_users_from_group(gint group_id)
 {
+#ifdef USE_SQLITE
   char *zErrMsg;
   char **result;
   int rc;
@@ -844,6 +845,155 @@ GList *gcompris_get_users_from_group(gint group_id)
   }
 
   return users;
+#else
+  return NULL;
+#endif
+}
+
+#define USER_FROM_ID(n) \
+        "SELECT users.login, lastname, firstname, birthdate, class_id  FROM users WHERE user_id = %d;",n
+
+GcomprisUser *gcompris_get_user_from_id(gint user_id)
+{
+#ifdef USE_SQLITE
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  int i;
+  GList *users = NULL;
+
+  GcomprisUser *user = NULL;
+
+  request = g_strdup_printf(USER_FROM_ID(user_id));
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_free(request);
+
+  if (nrow == 0){
+    g_warning(_("No user with id  %d"), user_id);
+    return NULL;
+  } else {
+    i = ncolumn;
+    user = g_malloc0(sizeof(GcomprisUser));
+    
+    user->user_id = user_id;
+    user->login = g_strdup(result[i++]);
+    user->lastname = g_strdup(result[i++]);
+    user->firstname = g_strdup(result[i++]);
+    user->birthdate = g_strdup(result[i++]);
+    user->class_id = atoi(result[i++]);
+  }
+  
+
+  return user ;
+#else
+  return NULL;
+#endif
+}
+
+#define CLASS_FROM_ID(n) \
+        "SELECT name, teacher, wholegroup_id  FROM class WHERE class_id = %d;",n
+
+#define GROUPS_IN_CLASS(n) \
+        "SELECT group_id  FROM groups WHERE class_id = %d;",n
+
+GcomprisClass *gcompris_get_class_from_id(gint class_id)
+{
+#ifdef USE_SQLITE
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  int i;
+  GList *users = NULL;
+  GcomprisClass *class = NULL;
+
+  request = g_strdup_printf(CLASS_FROM_ID(class_id));
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_free(request);
+
+  if (nrow == 0){
+    g_warning(_("No class with id  %d"), class_id);
+    return NULL;
+    return NULL;
+  } else {
+    i = ncolumn;
+
+    class = g_malloc0(sizeof(GcomprisClass));
+
+    class->class_id = class_id;
+    class->name = g_strdup(result[i++]);
+    class->description = g_strdup(result[i++]);
+    class->wholegroup_id = atoi(result[i++]);
+  }
+
+  /* Group _ids */
+
+  GList *group_ids = NULL;
+
+  request = g_strdup_printf(GROUPS_IN_CLASS(class_id));
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_free(request);
+
+  if (nrow == 0){
+    g_error(_("No groups in for class %s, there must be at least one for whole class (%d)"), class_id, class->wholegroup_id);
+    class->class_id = NULL;
+  } else {
+
+    i = ncolumn;
+    while (i < (nrow +1)*ncolumn) {
+      int *group_id = g_malloc(sizeof(int));
+
+      *group_id = atoi(result[i++]);
+      group_ids = g_list_append(group_ids, group_id);
+    }
+    class->group_ids = group_ids;
+  }
+
+  return class ;
+#else
+  return NULL;
+#endif
 }
 
 
@@ -930,8 +1080,7 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
 #define GET_CONF(p, b) \
         "SELECT key, value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
-GList *gcompris_get_board_conf(GcomprisProfile *profile,
-			       GcomprisBoard  *board)
+GList *gcompris_get_board_conf()
 {
   char *zErrMsg;
   char **result;
@@ -943,8 +1092,8 @@ GList *gcompris_get_board_conf(GcomprisProfile *profile,
 
   GList *list_conf = NULL;
 
-  request = g_strdup_printf(GET_CONF(profile->profile_id, 
-				     board->board_id));
+  request = g_strdup_printf(GET_CONF(gcompris_get_profile()->profile_id, 
+				     get_current_gcompris_board()->board_id));
   
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  

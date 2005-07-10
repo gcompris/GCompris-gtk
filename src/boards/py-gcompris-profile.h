@@ -11,4 +11,26 @@ typedef struct{
   GcomprisProfile* cdata;
 } pyGcomprisProfileObject;
 
+PyObject* gcompris_new_pyGcomprisClassObject(GcomprisClass* class);
+
+typedef struct{
+  PyObject_HEAD
+  GcomprisClass* cdata;
+} pyGcomprisClassObject;
+
+PyObject* gcompris_new_pyGcomprisGroupObject(GcomprisGroup* group);
+
+typedef struct{
+  PyObject_HEAD
+  GcomprisGroup* cdata;
+} pyGcomprisGroupObject;
+
+
+PyObject* gcompris_new_pyGcomprisUserObject(GcomprisUser* user);
+
+typedef struct{
+  PyObject_HEAD
+  GcomprisUser* cdata;
+} pyGcomprisUserObject;
+
 #endif

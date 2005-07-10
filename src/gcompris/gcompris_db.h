@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/07/09 22:03:02 yves>
+ * Time-stamp: <2005/07/10 21:38:48 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -76,6 +76,10 @@ GcomprisProfile *gcompris_db_get_profile();
 
 GList *gcompris_get_users_from_group(gint group_id);
 
+GcomprisClass *gcompris_get_class_from_id(gint class_id);
+
+GcomprisUser *gcompris_get_user_from_id(gint user_id);
+
 void gcompris_set_board_conf(GcomprisProfile *profile, 
 			     GcomprisBoard  *board, 
 			     gchar *key, 
@@ -88,8 +92,9 @@ typedef struct {
   gchar *value;
 } GcomprisConfPair;
 
-GList *gcompris_get_board_conf(GcomprisProfile *profile,
-			       GcomprisBoard  *board);
+/* get conf for currents profile and board */
+GList *gcompris_get_board_conf();
+
 #endif
 
 /* Local Variables: */

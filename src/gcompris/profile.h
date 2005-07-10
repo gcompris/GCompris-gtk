@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/07/09 23:50:28 yves>
+ * Time-stamp: <2005/07/10 09:28:34 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -36,6 +36,8 @@
 /*****************************************************************************/
 /* The following structure dsecribes a class, partitionning the users set     */
 struct _GcomprisClass {
+  gint                class_id;
+
   /* name of class -- must be unique */
   gchar               *name;
 
@@ -43,10 +45,13 @@ struct _GcomprisClass {
   gchar               *description;
 
   /* Group id for whole class */
-  struct _GcomprisGroup *all;
+  gint *wholegroup_id;
 
   /* list of GComprisGroup id */
   GList               *group_ids;
+
+  /* list of GComprisUser id */
+  GList               *user_ids;
 };
 
 typedef struct _GcomprisClass  GcomprisClass;
@@ -58,6 +63,8 @@ typedef struct _GcomprisClass  GcomprisClass;
 /* group data is saved when class is saved */
 
 struct _GcomprisGroup {
+  gint                group_id;
+
   /*name of group -- must be unique */
   gchar               *name;
   
@@ -100,8 +107,6 @@ struct _GcomprisUser {
   /* Birth day */
   gchar               *birthdate;
 
-  /* desactived activities for this user */
-  GList               *desactived_activities;
 };
 
 typedef struct _GcomprisUser GcomprisUser;

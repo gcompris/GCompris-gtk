@@ -965,6 +965,39 @@ py_gcompris_get_boards_list(PyObject* self, PyObject* args)
   return pylist;;
 }
 
+static PyObject*
+py_gcompris_get_board_conf(PyObject* self, PyObject* args)
+{
+  GList *board_conf;
+  GList *list;
+  PyObject *pydict;
+  PyObject *value;
+  GcomprisConfPair *pair;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.get_boards_list"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  board_conf = gcompris_get_board_conf();
+
+  pydict = PyDict_New();
+  for (list = board_conf; list != NULL; list = list->next){
+    pair = (GcomprisConfPair *) list->data;
+    if (pair->key==NULL)
+      continue;
+    if (pair->value==NULL){
+      Py_INCREF(Py_None);
+      value = Py_None;
+    } else
+      value = PyString_FromString(pair->value);
+
+    PyDict_SetItem(pydict, PyString_FromString(pair->key), value);
+  }
+  /* Create and return the result */
+  return pydict;;
+}
+
 /*
   { "",  py_gcompris_, METH_VARARGS, "gcompris_" },
 */
@@ -1015,6 +1048,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "board_config_stop",  py_board_config_stop, METH_VARARGS, "board_config_stop" },
   { "get_boards_list",  py_gcompris_get_boards_list, METH_VARARGS, "gcompris_get_boards_list" },
   { "get_profile",  py_gcompris_get_profile, METH_VARARGS, "gcompris_get_profile" },
+  { "get_board_conf",  py_gcompris_get_board_conf, METH_VARARGS, "gcompris_get_board_conf" },
   { NULL, NULL, 0, NULL}
 };
 

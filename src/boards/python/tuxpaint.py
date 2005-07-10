@@ -45,6 +45,10 @@ class Gcompris_tuxpaint:
 
     print Prof.profile_id, Prof.name, Prof.description, Prof.group_ids, Prof.activities
 
+    dict = gcompris.get_board_conf()
+
+    print dict
+
     self.rootitem = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
       x=0.0,

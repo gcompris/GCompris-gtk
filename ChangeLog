@@ -1,3 +1,17 @@
+2005-07-10  Yves Combe,,,  <yves@ycombe.net>
+
+	board conf by profile, user/class db access.
+
+	* src/boards/Makefile.am:
+	* src/boards/py-gcompris-profile.h:
+	* src/boards/py-mod-gcompris.c: (py_gcompris_get_board_conf):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/gcompris_db.c: (gcompris_get_users_from_group),
+	(gcompris_get_user_from_id), (gcompris_get_class_from_id),
+	(gcompris_get_board_conf):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/profile.h:
+
 2005-07-10  Yves Combe  <yves@ycombe.net>
 
 	profile C functions now complete, with missing files
