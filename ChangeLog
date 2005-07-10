@@ -1,3 +1,11 @@
+2005-07-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* src/boards/python/admin/class_edit.py: group edition start to works.
+	* admin/group_edit.py: new file for group edition
+	* admin/group_user_list.py: same
+	* src/gcompris/gcompris.c: (gcompris_init): force fullscreen off in edit mode.
+	
+
 2005-07-10  Yves Combe,,,  <yves@ycombe.net>
 
 	board conf by profile, user/class db access.

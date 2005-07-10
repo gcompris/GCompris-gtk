@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/07/09 23:20:37 yves>
+ * Time-stamp: <2005/07/10 23:38:14 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -1048,6 +1048,8 @@ gcompris_init (int argc, char *argv[])
     properties->administration = TRUE;
     g_warning("Background music disabled");
     properties->music = FALSE;
+    g_warning("Fullscreen is disabled");
+    properties->fullscreen = FALSE;
   }
 
   if (popt_reread_xml){

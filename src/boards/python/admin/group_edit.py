@@ -1,4 +1,4 @@
-#  gcompris - class_edit.py
+#  gcompris - group_edit.py
 # 
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
 # 
@@ -34,22 +34,26 @@ from pysqlite2 import dbapi2 as sqlite
 ) = range(4)
 
 
-class ClassEdit(gtk.Window):
+class GroupEdit(gtk.Window):
     counter = 1
-    def __init__(self, db_connect, db_cursor, class_id, class_name):
+    def __init__(self, db_connect, db_cursor,
+                 class_id, class_name,
+                 group_id, group_name):
         # Create the toplevel window
         gtk.Window.__init__(self)
 
         self.cur = db_cursor
         self.con = db_connect
 
+        self.group_id = group_id
         self.class_id = class_id
         
-        self.set_title(_("Class Edition"))
+        self.set_title(_("Group Edition"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
-        frame = gtk.Frame(_("Editing class: ") + class_name)
+        frame = gtk.Frame(_("Editing group: ") + group_name
+                          + _(" for class: ") + class_name)
         self.add(frame)
         
         vbox = gtk.VBox(False, 8)
@@ -57,7 +61,7 @@ class ClassEdit(gtk.Window):
         frame.add(vbox)
 
         # Top message gives instructions
-        label = gtk.Label(_('Assign all the users bellonging to this class'))
+        label = gtk.Label(_('Assign all the users bellonging to this group'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
@@ -74,7 +78,7 @@ class ClassEdit(gtk.Window):
         sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
         # create tree model
-        self.model_left = self.__create_model(False, class_id)
+        self.model_left = self.__create_model(False, group_id)
 
         # create tree view
         treeview = gtk.TreeView(self.model_left)
@@ -108,7 +112,7 @@ class ClassEdit(gtk.Window):
         sw2.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
         # create tree model
-        self.model_right = self.__create_model(True, class_id)
+        self.model_right = self.__create_model(True, group_id)
 
         # create tree view
         treeview2 = gtk.TreeView(self.model_right)
@@ -158,9 +162,9 @@ class ClassEdit(gtk.Window):
                    COLUMN_USER_EDITABLE,  False
                    )
 
-    # If class_id is provided, only users in this class are inserted
-    # If with = True, create a list only with the given class_id.
-    #           False, create a list only without the given class_id
+    # If group_id is provided, only users in this group are inserted
+    # If with = True, create a list only with the given group_id.
+    #           False, create a list only without the given group_id
     def __create_model(self, with, class_id):
 
         # Grab the user data
@@ -221,7 +225,7 @@ class ClassEdit(gtk.Window):
             self.add_user_in_model(self.model_right, (user_id, user_firstname, user_lastname))
             
             # Save the change in the base
-            self.cur.execute('update users set class_id=? where user_id=?', (self.class_id, user_id))
+            self.cur.execute('insert or replace into list_users_in_groups (group_id, user_id) values (?, ?)', (self.group_id, user_id))
             self.con.commit()
 
 
