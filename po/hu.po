@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-07 03:06+0000\n"
-"PO-Revision-Date: 2005-07-07 11:14+0200\n"
+"POT-Creation-Date: 2005-07-12 11:06+0000\n"
+"PO-Revision-Date: 2005-07-12 16:32+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -3463,87 +3463,126 @@ msgstr "Python tábla"
 msgid "Special board that embeds python into gcompris."
 msgstr "Különleges tábla ami beágyazza a GCompris-ba a Python-t."
 
-#: ../src/boards/python/admin/class_edit.py:50
+#: ../src/boards/python/admin/board_list.py:179
+msgid "Main menu"
+msgstr "Főmenü"
+
+#: ../src/boards/python/admin/board_list.py:179
+msgid "/"
+msgstr "/"
+
+#. columns for Board name
+#: ../src/boards/python/admin/board_list.py:213
+msgid "Board title"
+msgstr "Tábla címe"
+
+#: ../src/boards/python/admin/board_list.py:216
+#: ../src/boards/python/admin/class_list.py:166
+msgid "Name"
+msgstr "Név"
+
+#: ../src/boards/python/admin/class_edit.py:48
 msgid "Class Edition"
 msgstr "Osztályszerkesztés"
 
-#: ../src/boards/python/admin/class_edit.py:54
+#: ../src/boards/python/admin/class_edit.py:52
 msgid "Editing class: "
 msgstr "Osztály szerkesztése: "
 
-#: ../src/boards/python/admin/class_edit.py:100
+#. Top message gives instructions
+#: ../src/boards/python/admin/class_edit.py:60
+msgid "Assign all the users bellonging to this class"
+msgstr "Ezen osztályhoz tartozó összes felhasználó hozzárendelése"
+
+#: ../src/boards/python/admin/class_edit.py:98
+#: ../src/boards/python/admin/group_edit.py:102
 msgid "Add user >"
 msgstr "Felhasználó hozzáadása >"
 
-#: ../src/boards/python/admin/class_edit.py:238
-#: ../src/boards/python/admin/user_list.py:194
+#: ../src/boards/python/admin/class_edit.py:191
+#: ../src/boards/python/admin/user_list.py:192
+#: ../src/boards/python/admin/group_edit.py:195
+#: ../src/boards/python/admin/group_user_list.py:162
 msgid "First Name"
 msgstr "Utónév"
 
-#: ../src/boards/python/admin/class_edit.py:247
-#: ../src/boards/python/admin/user_list.py:204
+#: ../src/boards/python/admin/class_edit.py:200
+#: ../src/boards/python/admin/user_list.py:202
+#: ../src/boards/python/admin/group_edit.py:204
+#: ../src/boards/python/admin/group_user_list.py:171
 msgid "Last Name"
 msgstr "Vezetéknév"
 
 #. Add buttons
-#: ../src/boards/python/admin/class_list.py:100
+#: ../src/boards/python/admin/class_list.py:98
 msgid "Add class"
 msgstr "Osztály hozzáadása"
 
-#: ../src/boards/python/admin/class_list.py:113
+#: ../src/boards/python/admin/class_list.py:111
 msgid "Remove class"
 msgstr "Osztály eltávolítása"
 
-#: ../src/boards/python/admin/class_list.py:126
+#: ../src/boards/python/admin/class_list.py:124
 msgid "Edit class"
 msgstr "Osztály szerkesztése"
 
-#: ../src/boards/python/admin/class_list.py:168
-msgid "Name"
-msgstr "Név"
-
-#: ../src/boards/python/admin/class_list.py:178
+#: ../src/boards/python/admin/class_list.py:176
 msgid "Teacher"
 msgstr "Tanár"
 
-#: ../src/boards/python/admin/class_list.py:269
+#: ../src/boards/python/admin/class_list.py:267
 msgid "You must first select a class in the list"
 msgstr "Először ki kell választania egy osztályt a listából"
 
-#: ../src/boards/python/admin/module_profiles.py:19
-msgid "Profiles list"
-msgstr "Profilok listája"
+#: ../src/boards/python/admin/module_boards.py:41
+msgid "Boards"
+msgstr "Táblák"
 
-#: ../src/boards/python/admin/module_profiles.py:37
+#: ../src/boards/python/admin/module_boards.py:59
 msgid " Panel"
 msgstr " Panel"
 
+#: ../src/boards/python/admin/module_groups.py:41
+msgid "Groups list"
+msgstr "Csoportok listája"
+
+#: ../src/boards/python/admin/module_profiles.py:37
+msgid "Profiles list"
+msgstr "Profilok listája"
+
+#: ../src/boards/python/admin/module_profiles.py:60
+msgid "Profile"
+msgstr "Profil"
+
 #. Add buttons
-#: ../src/boards/python/admin/user_list.py:101
+#: ../src/boards/python/admin/user_list.py:99
 msgid "Add user"
 msgstr "Felhasználó hozzáadása"
 
-#: ../src/boards/python/admin/user_list.py:114
+#: ../src/boards/python/admin/user_list.py:112
 msgid "Remove user"
 msgstr "Felhasználó törlése"
 
-#: ../src/boards/python/admin/user_list.py:127
+#: ../src/boards/python/admin/user_list.py:125
 msgid "Import file"
 msgstr "Fájl importálása"
 
-#: ../src/boards/python/admin/user_list.py:184
+#: ../src/boards/python/admin/user_list.py:182
+#: ../src/boards/python/admin/group_user_list.py:153
 msgid "Login"
 msgstr "Bejelentkezés"
 
-#: ../src/boards/python/admin/user_list.py:214
+#: ../src/boards/python/admin/user_list.py:212
+#: ../src/boards/python/admin/group_user_list.py:180
 msgid "Birth Date"
 msgstr "Születési dátum"
 
-#: ../src/boards/python/admin/user_list.py:224
+#: ../src/boards/python/admin/user_list.py:222
+#: ../src/boards/python/admin/group_user_list.py:189
 msgid "Class"
 msgstr "Osztály"
 
-#: ../src/boards/python/admin/user_list.py:272
+#: ../src/boards/python/admin/user_list.py:270
 msgid ""
 "To import a file, it must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
@@ -3551,9 +3590,27 @@ msgid ""
 msgstr ""
 "A következőképpen formázott fájlok importálhatók:\n"
 "bejelentkezés,utónév,vezetéknév,születési dátum\n"
-"Az elválasztójel automatikusan fel lesz ismerve, ha a következők egyike: ',', ';' vagy ':'"
+"Az elválasztójel automatikusan fel lesz ismerve, ha a következők egyike: "
+"',', ';' vagy ':'"
 
-#: ../src/boards/python/admin/module_users.py:25
+#: ../src/boards/python/admin/group_edit.py:51
+msgid "Group Edition"
+msgstr "Csoportszerkesztés"
+
+#: ../src/boards/python/admin/group_edit.py:55
+msgid "Editing group: "
+msgstr "Csoport szerkesztése: "
+
+#: ../src/boards/python/admin/group_edit.py:56
+msgid " for class: "
+msgstr " a következő osztályhoz: "
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:64
+msgid "Assign all the users bellonging to this group"
+msgstr "Ezen csoporthoz tartozó összes felhasználó hozzárendelése"
+
+#: ../src/boards/python/admin/module_users.py:43
 msgid "Users list"
 msgstr "Felhasználók listája"
 
@@ -3754,7 +3811,7 @@ msgstr "Ismeretlen parancs"
 msgid "Distance:"
 msgstr "Távolság:"
 
-#: ../src/boards/python/tuxpaint.py:61
+#: ../src/boards/python/tuxpaint.py:69
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -3762,7 +3819,7 @@ msgstr ""
 "A Tuxpaint nem található.\n"
 " Ezen tábla használatához előbb telepíteni kell!"
 
-#: ../src/boards/python/tuxpaint.py:74
+#: ../src/boards/python/tuxpaint.py:82
 msgid "Waiting Tuxpaint Finished"
 msgstr "Várakozás a Tuxpaint befejeződésére"
 
@@ -4343,14 +4400,44 @@ msgstr "Használja a -l tevékenység kapcsolót egy tevékenység közvetlen el
 msgid "List of available activity is :\n"
 msgstr "A rendelkezésre álló tevékenységek listája:\n"
 
-#: ../src/gcompris/gcompris_db.c:90
+#: ../src/gcompris/gcompris_db.c:95
 #, c-format
 msgid "Database %s opened"
 msgstr "%s adatbázis megnyitva"
 
-#: ../src/gcompris/gcompris_db.c:135
+#: ../src/gcompris/gcompris_db.c:140
 msgid "Database tables created"
 msgstr "Az adatbázis táblái létrehozva"
+
+#: ../src/gcompris/gcompris_db.c:744
+#, c-format
+msgid "No users groups for profile %s"
+msgstr "Nincsenek felhasználói csoportok a(z) %s profilhoz"
+
+#: ../src/gcompris/gcompris_db.c:775
+#, c-format
+msgid "No activities out for profile %s"
+msgstr "Nincsenek tevékenységek a(z) %s profilhoz"
+
+#: ../src/gcompris/gcompris_db.c:830
+#, c-format
+msgid "No users in group with id  %d"
+msgstr "Nincsenek felhasználók a(z) %d azonosítójú csoportban"
+
+#: ../src/gcompris/gcompris_db.c:887
+#, c-format
+msgid "No user with id  %d"
+msgstr "Nincs %d azonosítójú felhasználó"
+
+#: ../src/gcompris/gcompris_db.c:944
+#, c-format
+msgid "No class with id  %d"
+msgstr "Nincs %d azonosítójú osztály"
+
+#: ../src/gcompris/gcompris_db.c:979
+#, c-format
+msgid "No groups in for class %s, there must be at least one for whole class (%d)"
+msgstr "Nincsenek csoportok a(z) %s osztályhoz, legalább egynek kell lennie az egyész osztályhoz (%d)"
 
 #: ../src/gcompris/help.c:170
 msgid "Prerequisite"
