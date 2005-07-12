@@ -39,9 +39,8 @@ from pysqlite2 import dbapi2 as sqlite
   COLUMN_FIRSTNAME,
   COLUMN_LASTNAME,
   COLUMN_BIRTHDATE,
-  COLUMN_CLASS,
   COLUMN_USER_EDITABLE
-) = range(7)
+) = range(6)
 
 
 class Group_user_list:
@@ -107,10 +106,9 @@ class Group_user_list:
       # Now retrieve users detail
       print list_user_id
       for user_id in list_user_id:
-        print user_id
-        self.cur.execute('select * from users where user_id=?', user_id)
+        self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where user_id=?',
+                         user_id)
         user = self.cur.fetchall()[0]
-        print user
         self.add_user_in_model(self.model, user)
 
     
@@ -124,7 +122,6 @@ class Group_user_list:
                COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
                COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
                COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE],
-               COLUMN_CLASS,     user[COLUMN_CLASS],
                COLUMN_USER_EDITABLE,  True
                )
 
@@ -137,7 +134,6 @@ class Group_user_list:
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
-      gobject.TYPE_INT,
       gobject.TYPE_BOOLEAN)
 
     return model
@@ -183,13 +179,6 @@ class Group_user_list:
     column.set_sort_column_id(COLUMN_BIRTHDATE)
     treeview.append_column(column)
 
-    # column for class
-    renderer = gtk.CellRendererText()
-    renderer.set_data("column", COLUMN_CLASS)
-    column = gtk.TreeViewColumn(_('Class'), renderer,
-                                text=COLUMN_CLASS,
-                                editable=COLUMN_USER_EDITABLE)
-    column.set_sort_column_id(COLUMN_CLASS)
-    treeview.append_column(column)
+
 
 

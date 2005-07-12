@@ -84,9 +84,15 @@ class Users(module.Module):
       origin_y =  origin_y + class_height + vgap
       user_height =  origin_y + (area[3]-area[1])*user_percent - vgap*2
       list_area = ( area[0], origin_y, area[2], user_height)
+      
+      # FIXME: Need to rearange this code. The two list are linked and we need
+      #        to pass the class_id in the user list
+      self.class_id = 0
+      
       user_list.User_list(self.rootitem,
                           self.con, self.cur,
-                          list_area, hgap, vgap)
+                          list_area, hgap, vgap,
+                          self.class_id)
 
 
 

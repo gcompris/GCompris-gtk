@@ -37,27 +37,30 @@ from pysqlite2 import dbapi2 as sqlite
   COLUMN_FIRSTNAME,
   COLUMN_LASTNAME,
   COLUMN_BIRTHDATE,
-  COLUMN_CLASS,
   COLUMN_USER_EDITABLE
-) = range(7)
+) = range(6)
 
 class User_list:
   """GCompris Users List Table"""
 
 
   # area is the drawing area for the list
-  def __init__(self, canvas, db_connect, db_cursor, area, hgap, vgap):
+  # Display the users for the givent class_id in a table
+  def __init__(self, canvas, db_connect, db_cursor, area, hgap, vgap, class_id):
 
       self.rootitem = canvas
       self.cur = db_cursor
       self.con = db_connect
+
+      self.class_id = class_id
       
       # ---------------
       # User Management
       # ---------------
 
       # Grab the user data
-      self.cur.execute('select * from users')
+      self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where class_id=?',
+                       (class_id,))
       self.user_data = self.cur.fetchall()
 
       # Create the table
@@ -149,7 +152,6 @@ class User_list:
                COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
                COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
                COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE],
-               COLUMN_CLASS,     user[COLUMN_CLASS],
                COLUMN_USER_EDITABLE,  True
                )
 
@@ -162,7 +164,6 @@ class User_list:
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
-      gobject.TYPE_INT,
       gobject.TYPE_BOOLEAN)
 
     for user in self.user_data:
@@ -215,16 +216,6 @@ class User_list:
     column.set_sort_column_id(COLUMN_BIRTHDATE)
     treeview.append_column(column)
 
-    # column for class
-    renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_edited, model)
-    renderer.set_data("column", COLUMN_CLASS)
-    column = gtk.TreeViewColumn(_('Class'), renderer,
-                                text=COLUMN_CLASS,
-                                editable=COLUMN_USER_EDITABLE)
-    column.set_sort_column_id(COLUMN_CLASS)
-    treeview.append_column(column)
-
 
   # Return the next user id
   def get_next_user_id(self):
@@ -242,7 +233,7 @@ class User_list:
   def on_add_item_clicked(self, button, model):
     user_id = self.get_next_user_id()
 
-    new_user = [user_id, "?", "?", "?", "?", 0]
+    new_user = [user_id, "?", "?", "?", "?", self.class_id]
     self.add_user_in_model(model, new_user)
 
 
@@ -316,7 +307,7 @@ class User_list:
       user_id = self.get_next_user_id()
       login, firstname, lastname, birthdate = line.split(sep)
       # Save the changes in the base
-      new_user = [user_id, login, firstname, lastname, birthdate, 0]
+      new_user = [user_id, login, firstname, lastname, birthdate, self.class_id]
       self.add_user_in_model(model, new_user)
       self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)', new_user)
       self.con.commit()
@@ -348,7 +339,7 @@ class User_list:
                  model.get_value(iter, COLUMN_FIRSTNAME),
                  model.get_value(iter, COLUMN_LASTNAME),
                  model.get_value(iter, COLUMN_BIRTHDATE),
-                 model.get_value(iter, COLUMN_CLASS))
+                 self.class_id)
 
     # Save the changes in the base
     self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)',

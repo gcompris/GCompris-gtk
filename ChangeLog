@@ -1,3 +1,16 @@
+2005-07-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Completed implementation of the group module. Should be usable now
+	and as defined with Yves.
+	I still need to rework the class module to use a single canvas object
+	and use GTK layout instead of a fixed layout.
+	This solved the I18N issue with text too large in buttons.
+	
+	* src/boards/python/admin/group_edit.py:
+	* src/boards/python/admin/group_user_list.py:
+	* src/boards/python/admin/module_users.py:
+	* src/boards/python/admin/user_list.py:
+
 2005-07-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/admin/class_edit.py: group edition start to works.
@@ -6,7 +19,7 @@
 	* src/gcompris/gcompris.c: (gcompris_init): force fullscreen off in edit mode.
 	
 
-2005-07-10  Yves Combe,,,  <yves@ycombe.net>
+2005-07-10  Yves Combe  <yves@ycombe.net>
 
 	board conf by profile, user/class db access.
 

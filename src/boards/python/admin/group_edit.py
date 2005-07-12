@@ -78,7 +78,7 @@ class GroupEdit(gtk.Window):
         sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
         # create tree model
-        self.model_left = self.__create_model(False, group_id)
+        self.model_left = self.__create_model(False, class_id, group_id)
 
         # create tree view
         treeview = gtk.TreeView(self.model_left)
@@ -112,7 +112,7 @@ class GroupEdit(gtk.Window):
         sw2.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
         # create tree model
-        self.model_right = self.__create_model(True, group_id)
+        self.model_right = self.__create_model(True, class_id, group_id)
 
         # create tree view
         treeview2 = gtk.TreeView(self.model_right)
@@ -162,17 +162,11 @@ class GroupEdit(gtk.Window):
                    COLUMN_USER_EDITABLE,  False
                    )
 
-    # If group_id is provided, only users in this group are inserted
-    # If with = True, create a list only with the given group_id.
-    #           False, create a list only without the given group_id
-    def __create_model(self, with, class_id):
-
-        # Grab the user data
-        if(with):
-            self.cur.execute('select user_id,firstname,lastname from users where class_id=?', (class_id,))
-        else:
-            self.cur.execute('select user_id,firstname,lastname from users where class_id!=?', (class_id,))
-        user_data = self.cur.fetchall()
+    # class_id: only users in this class are inserted
+    # group_id: only users in this group are inserted
+    # If with = True,  create a list only with user in the given class_id and group_id.
+    #           False, create a list only with user in the given class_id but NOT this group_id
+    def __create_model(self, with, class_id, group_id):
 
         model = gtk.ListStore(
             gobject.TYPE_INT,
@@ -180,8 +174,26 @@ class GroupEdit(gtk.Window):
             gobject.TYPE_STRING,
             gobject.TYPE_BOOLEAN)
 
+        # Grab the all the users from this class
+        self.cur.execute('select user_id,firstname,lastname from users where class_id=?', (class_id,))
+        user_data = self.cur.fetchall()
+
         for user in user_data:
-            self.add_user_in_model(model, user)
+
+            # Check our user is already in the group
+            self.cur.execute('select * from list_users_in_groups where group_id=? and user_id=?',
+                             (group_id, user[0]))
+            user_is_already = self.cur.fetchall()
+            
+            if(with and user_is_already):
+                print "with and user_is_already"
+                print user_is_already
+                self.add_user_in_model(model, user)
+            elif(not with and not user_is_already):
+                print "not with and not user_is_already"
+                print user_is_already
+                self.add_user_in_model(model, user)
+
 
         return model
 
