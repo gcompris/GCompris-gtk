@@ -47,9 +47,7 @@ class Group_user_list:
   """GCompris Group User List Table"""
 
 
-  # area is the drawing area for the list
-  #
-  # return the list item
+  # The created list will be packed in the given container
   #
   def __init__(self, container, db_connect, db_cursor, group_id):
 

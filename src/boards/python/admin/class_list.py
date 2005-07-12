@@ -31,6 +31,7 @@ from gettext import gettext as _
 from pysqlite2 import dbapi2 as sqlite
 
 import class_edit
+import user_list
 
 # Class Management
 (
@@ -51,88 +52,100 @@ class Class_list:
       self.cur = db_cursor
       self.con = db_connect
       
+      self.class_data = []
+
       # ---------------
       # Class Management
       # ---------------
 
-      # Grab the class data
-      self.cur.execute('select * from class')
-      self.class_data = self.cur.fetchall()
-
-      # Create the table
-      sw = gtk.ScrolledWindow()
-      sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
-      sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+      frame = gtk.Frame(_("User"))
+      frame.show()
 
       # create tree model
       model = self.__create_model_class()
 
+      # Main box is vertical
+      top_box = gtk.VBox(False, 8)
+      top_box.show()
+      frame.add(top_box)
+
+      # First line
+      group_hbox = gtk.HBox(False, 8)
+      group_hbox.show()
+      top_box.add(group_hbox)
+
+      left_box = gtk.VBox(False, 8)
+      left_box.show()
+      group_hbox.add(left_box)
+
+      right_box = gtk.VBox(False, 8)
+      right_box.show()
+      group_hbox.add(right_box)
+
+
+      # Create the table
+      sw = gtk.ScrolledWindow()
+      sw.show()
+      sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+      sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+
       # create tree view
       treeview_class = gtk.TreeView(model)
+      treeview_class.show()
       treeview_class.set_rules_hint(True)
       treeview_class.set_search_column(COLUMN_NAME)
 
       sw.add(treeview_class)
 
-      # Some constants for the layout
-      but_height = hgap * 2
-      but_width  = hgap * 6
+      left_box.pack_start(sw, True, True, 0)
             
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=sw,
-        x=area[0] + hgap,
-        y=area[1],
-        width=area[2]-area[0]-hgap*2-but_width,
-        height=area[3]-area[1],
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
-      sw.show()
-      treeview_class.show()
-
       # add columns to the tree view
       self.__add_columns_class(treeview_class)
 
       # Add buttons
 
-      button_add = gtk.Button(_("Add class"))
-      button_add.connect("clicked", self.on_add_class_clicked, model)
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=button_add,
-        x=area[2]-but_width,
-        y=area[1],
-        width=100,
-        height=but_height,
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
-      button_add.show()
-      
-      button_rem = gtk.Button(_("Remove class"))
-      button_rem.connect("clicked", self.on_remove_class_clicked, treeview_class)
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=button_rem,
-        x=area[2]-but_width,
-        y=area[1] + but_height + vgap,
-        width=100,
-        height=but_height,
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
-      button_rem.show()
+      button = gtk.Button(stock='gtk-add')
+      button.connect("clicked", self.on_add_class_clicked, model)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
 
-      button_rem = gtk.Button(_("Edit class"))
-      button_rem.connect("clicked", self.on_edit_class_clicked, treeview_class)
+      button = gtk.Button(stock='gtk-delete')
+      button.connect("clicked", self.on_remove_class_clicked, treeview_class)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
+      
+      button = gtk.Button(stock='gtk-edit')
+      button.connect("clicked", self.on_edit_class_clicked, treeview_class)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
+
+      # User list for the group
+      user_hbox = gtk.HBox(False, 8)
+      user_hbox.show()
+      top_box.add(user_hbox)
+
+
+      list_user = user_list.User_list(user_hbox,
+                                      self.con, self.cur)
+
+      # Missing callbacks
+      selection = treeview_class.get_selection()
+      selection.connect('changed', self.class_changed_cb, list_user)
+
+
+      # Pack it all
+      # -----------
       self.rootitem.add(
         gnome.canvas.CanvasWidget,
-        widget=button_rem,
-        x=area[2]-but_width,
-        y=area[1] + but_height*2 + vgap*2,
-        width=100,
-        height=but_height,
+        widget=frame,
+        x=area[0] + hgap,
+        y=area[1],
+        width=area[2]-area[0] - hgap*2,
+        height=area[3]-area[1],
         anchor=gtk.ANCHOR_NW,
         size_pixels=False)
-      button_rem.show()
+
+
 
   # -------------------
   # Class Management
@@ -144,6 +157,10 @@ class Class_list:
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
       gobject.TYPE_BOOLEAN)
+
+    # Grab the class data
+    self.cur.execute('select * from class')
+    self.class_data = self.cur.fetchall()
 
     for item in self.class_data:
       iter = model.append()
@@ -267,3 +284,16 @@ class Class_list:
                                  _("You must first select a class in the list"))
       dialog.run()
       dialog.destroy()
+
+
+  def class_changed_cb(self, selection, user_list):
+    print "class_changed_cb"
+    model, iter = selection.get_selected()
+
+    if iter:
+      path = model.get_path(iter)[0]
+      class_id = model.get_value(iter, COLUMN_CLASSID)
+
+      user_list.reload(class_id)
+      print "current class_id = " + str(class_id)
+

@@ -1,3 +1,14 @@
+2005-07-13  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Reworked the class module to use a single canvas item
+	Now layout is managed by GTK
+	Bottom user list now follow the top class list selection
+	
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/group_user_list.py:
+	* src/boards/python/admin/module_users.py:
+	* src/boards/python/admin/user_list.py:
+
 2005-07-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed implementation of the group module. Should be usable now

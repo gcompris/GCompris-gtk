@@ -18,7 +18,6 @@
 # 
 
 import gnome
-import gnome.canvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
@@ -44,104 +43,93 @@ class User_list:
   """GCompris Users List Table"""
 
 
-  # area is the drawing area for the list
-  # Display the users for the givent class_id in a table
-  def __init__(self, canvas, db_connect, db_cursor, area, hgap, vgap, class_id):
+  # The created list will be packed in the given container
+  #
+  # Display the users for a given class_id in a table
+  # The class_id to display must be passed to the reload function
+  def __init__(self, container, db_connect, db_cursor):
 
-      self.rootitem = canvas
       self.cur = db_cursor
       self.con = db_connect
 
-      self.class_id = class_id
-      
       # ---------------
       # User Management
       # ---------------
 
-      # Grab the user data
-      self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where class_id=?',
-                       (class_id,))
-      self.user_data = self.cur.fetchall()
+      self.user_data = []
+
+      # create tree model
+      self.model = self.__create_model()
+
+      # First line
+      group_hbox = gtk.HBox(False, 8)
+      group_hbox.show()
+      container.add(group_hbox)
+
+      left_box = gtk.VBox(False, 8)
+      left_box.show()
+      group_hbox.add(left_box)
+
+      right_box = gtk.VBox(False, 8)
+      right_box.show()
+      group_hbox.add(right_box)
 
       # Create the table
       sw = gtk.ScrolledWindow()
+      sw.show()
       sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
       sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
-      # create tree model
-      model = self.__create_model()
 
       # create tree view
-      treeview = gtk.TreeView(model)
+      treeview = gtk.TreeView(self.model)
+      treeview.show()
       treeview.set_rules_hint(True)
       treeview.set_search_column(COLUMN_FIRSTNAME)
 
       sw.add(treeview)
 
-      # Some constants for the layout
-      but_height = hgap * 2
-      but_width  = hgap * 6
-            
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=sw,
-        x=area[0] + hgap,
-        y=area[1],
-        width=area[2]-area[0]-hgap*2-but_width,
-        height=area[3]-area[1],
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
-      sw.show()
-      treeview.show()
+      left_box.pack_start(sw, True, True, 0)
 
       # add columns to the tree view
       self.__add_columns(treeview)
 
       # Add buttons
+      button = gtk.Button(stock='gtk-add')
+      button.connect("clicked", self.on_add_item_clicked, self.model)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
 
-      button_add = gtk.Button(_("Add user"))
-      button_add.connect("clicked", self.on_add_item_clicked, model)
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=button_add,
-        x=area[2]-but_width,
-        y=area[1],
-        width=100,
-        height=but_height,
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
-      button_add.show()
+      button = gtk.Button(stock='gtk-delete')
+      button.connect("clicked", self.on_remove_item_clicked, treeview)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
       
-      button_rem = gtk.Button(_("Remove user"))
-      button_rem.connect("clicked", self.on_remove_item_clicked, treeview)
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=button_rem,
-        x=area[2]-but_width,
-        y=area[1] + but_height + vgap,
-        width=100,
-        height=but_height,
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
-      button_rem.show()
+      button = gtk.Button(stock='gtk-open')
+      button.connect("clicked", self.on_import_cvs_clicked, treeview)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
 
-      button_imp = gtk.Button(_("Import file"))
-      button_imp.connect("clicked", self.on_import_cvs_clicked, treeview)
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=button_imp,
-        x=area[2]-but_width,
-        y=area[1] + (but_height + vgap) * 2,
-        width=100,
-        height=but_height,
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
-      button_imp.show()
-
-
+      
   # -------------------
   # User Management
   # -------------------
+
+  # Retrieve data from the database for the given class_id
+  def reload(self, class_id):
+    print "Reloading users for class_id=" + str(class_id)
+    self.class_id = class_id
+      
+    # Remove all entries in the list
+    self.model.clear()
+      
+    # Grab the user data
+    self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where class_id=?',
+                     (class_id,))
+    self.user_data = self.cur.fetchall()
+
+    for user in self.user_data:
+      self.add_user_in_model(self.model, user)
 
   # Add user in the model
   def add_user_in_model(self, model, user):
@@ -165,9 +153,6 @@ class User_list:
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
       gobject.TYPE_BOOLEAN)
-
-    for user in self.user_data:
-      self.add_user_in_model(model, user)
 
     return model
 
@@ -345,5 +330,4 @@ class User_list:
     self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)',
                      user_data)
     self.con.commit()
-
 

@@ -31,7 +31,6 @@ from gettext import gettext as _
 from pysqlite2 import dbapi2 as sqlite
 
 import module
-import user_list
 import class_list
 
 class Users(module.Module):
@@ -70,29 +69,15 @@ class Users(module.Module):
       vgap = 15
 
       # Define the area percent for each list
-      class_percent = 0.45
-      user_percent = 1.0-class_percent
-
+      class_percent = 1.0
       origin_y = area[1]+vgap
       
-      class_height = (area[3]-area[1])*class_percent - vgap*2
+      class_height = (area[3]-area[1])*class_percent - vgap
       list_area = ( area[0], origin_y, area[2], class_height)
       class_list.Class_list(self.rootitem,
                             self.con, self.cur,
                             list_area, hgap, vgap)
 
-      origin_y =  origin_y + class_height + vgap
-      user_height =  origin_y + (area[3]-area[1])*user_percent - vgap*2
-      list_area = ( area[0], origin_y, area[2], user_height)
-      
-      # FIXME: Need to rearange this code. The two list are linked and we need
-      #        to pass the class_id in the user list
-      self.class_id = 0
-      
-      user_list.User_list(self.rootitem,
-                          self.con, self.cur,
-                          list_area, hgap, vgap,
-                          self.class_id)
 
 
 
