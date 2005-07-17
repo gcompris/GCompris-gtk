@@ -4,21 +4,34 @@
 # Copyright (C) 2005, Free Software Foundation, Inc
 # This file is distributed under the same license as the Gcompris package.
 #
-# Olle Niit, 2005
+# Olle Niit <olle@paalalinn.com>, 2005
 # Priit Laes <amd@store20.com>, 2005
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: olle@paalalinn.com\n"
-"POT-Creation-Date: 2005-05-19 19:04+0000\n"
-"PO-Revision-Date: 2005-05-23 18:35+0300\n"
-"Last-Translator: Olle Niit\n"
+"POT-Creation-Date: 2005-07-16 03:05+0000\n"
+"PO-Revision-Date: 2005-07-16 17:57+0300\n"
+"Last-Translator: Olle Niit <olle@paalalinn.com>\n"
 "Language-Team:  <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Estonian\n"
 "X-Generator: Emacs\n"
+
+#: ../boards/administration.xml.in.h:1
+msgid "GCompris Administration Menu"
+msgstr "GCompris administraatori menüü"
+
+#: ../boards/administration.xml.in.h:2 ../boards/algebra_group.xml.in.h:2
+#: ../boards/algebramenu.xml.in.h:2 ../boards/boards.xml.in.h:2
+#: ../boards/colors_group.xml.in.h:2 ../boards/computer.xml.in.h:2
+#: ../boards/experience.xml.in.h:2 ../boards/fun.xml.in.h:2
+#: ../boards/gnumchmenu.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Klõpsa hiire vasakut klahvi"
 
 #: ../boards/advanced_colors.xml.in.h:1 ../src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -326,11 +339,9 @@ msgstr "veronese"
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
-"and press the Enter key to check your answer."
-msgstr ""
-"Näidatakse kahe numbriga korrutamisetehet. Paremale poole võrdusmärki "
-"kirjuta summa. Kasuta vajadusel vasakule-paremale nooleklahve. Vajuta Enter "
-"klahvi et kontrollida vastuse õigsust."
+"and press the Enter key to check your answer. You can control the speed of "
+"the timer in the GCompris configuration dialog."
+msgstr "Näidatakse kahe numbriga korrutamisetehet. Paremale poole võrdusmärki kirjuta summa. Kasuta vajadusel vasakule-paremale nooleklahve. Vajuta Enter klahvi et kontrollida vastuse õigsust. Taimeri kiirust saad määrata GComprise seaded menüüs."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
@@ -352,15 +363,6 @@ msgstr "Harjuta korrutamistehet"
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Arvutamisülesanded"
-
-#: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
-#: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
-#: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#: ../boards/fun.xml.in.h:2 ../boards/gnumchmenu.xml.in.h:2
-#: ../boards/menu.xml.in.h:18 ../boards/mouse.xml.in.h:1
-#: ../boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Klõpsa hiire vasakut klahvi"
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
 #: ../boards/erase_double_clic.xml.in.h:1
@@ -408,11 +410,9 @@ msgstr "Neli aritmeetikatehet. Kombineeri erinevaid tehteid."
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
-"your answer, and press the Enter key to check the result."
-msgstr ""
-"Näidatakse kahe numbiga lahutamistehet. Paremale poole võrdusmärki kirjuta "
-"vastus. Kasuta vajadusel vasakule-paremale noolekeklahve. Vastuse "
-"kontrollimiseks vajuta Enter."
+"your answer, and press the Enter key to check the result. You can control "
+"the speed of the timer in the GCompris configuration dialog."
+msgstr "Näidatakse kahe numbiga lahutamistehet. Paremale poole võrdusmärki kirjuta vastus. Kasuta vajadusel vasakule-paremale noolekeklahve. Vastuse kontrollimiseks vajuta Enter. Taimeri kiirust saad määrata GComprise seaded menüüs."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -430,12 +430,9 @@ msgstr "Lihtne lahutamine"
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
-"Enter key to check your answer."
-msgstr ""
-"Näidatakse kahe numbriga liitmistehet. Kirjuta võrdusmärgist paremale "
-"liitmistehte summa. Kahekohalise numbriga summa real liikumiseks kasuta "
-"vajadusel vasakule-paremale nooleklahve. Vajuta Enter klahvi et kontrollida "
-"vastuse õigsust."
+"Enter key to check your answer. You can control the speed of the timer in "
+"the GCompris configuration dialog."
+msgstr "Näidatakse kahe numbriga liitmistehet. Kirjuta võrdusmärgist paremale liitmistehte summa. Kahekohalise numbriga summa real liikumiseks kasuta vajadusel vasakule-paremale nooleklahve. Vajuta Enter klahvi et kontrollida vastuse õigsust. Taimeri kiirust saad määrata GComprise seaded menüüs."
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -633,19 +630,23 @@ msgstr "Hiire tundmine"
 
 #: ../boards/billard.xml.in.h:2
 msgid ""
-"Point and click on the ball to set the speed and direction of the ball. The "
-"closer you click to the center, the slower the ball moves."
+"Point and click on the ball to set its speed and direction. The closer you "
+"click to the center, the slower the ball moves."
 msgstr ""
 "Pallile kiiruse ja suuna andmiseks sihi ja klõpsa palli peal. Mida lähemale "
 "palli keskpaigale klõpsad, seda aeglasemalt pall liigub."
 
 #: ../boards/billard.xml.in.h:3
-msgid "Shoot the ball into the hole"
-msgstr "Löö pall auku"
+msgid "Put the ball into the black hole on the right"
+msgstr "Löö pall parempoolsesse musta auku"
 
 #: ../boards/billard.xml.in.h:4
-msgid "The game of billiards"
-msgstr "Piljardimäng"
+msgid "Put the ball into the goal"
+msgstr "Löö pall väravasse"
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "Jalgpallimäng"
 
 #: ../boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -1146,7 +1147,7 @@ msgid "Motor coordination"
 msgstr "Koordinatsiooni parandamine"
 
 #: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
-#: ../src/boards/machpuzzle.c:87
+#: ../src/boards/machpuzzle.c:93
 msgid "Move the mouse"
 msgstr "Liiguta hiirt"
 
@@ -1188,6 +1189,26 @@ msgstr "Topeltklõpsa hiirega"
 msgid "Go to experiences activities"
 msgstr "Vilumust nõudvad tegevusalad"
 
+#: ../boards/fifteen.xml.in.h:1
+msgid ""
+"Click on any item that has a free block beside it. It will be swapped with "
+"the empty block."
+msgstr ""
+"Saad hiireklõpsuga liigutada suvalist klotsi, mille kõrval on vaba ruumi. "
+"Klots ja tühi koht vahetavad seepeale koha."
+
+#: ../boards/fifteen.xml.in.h:3
+msgid "Move the items one by one to reorder them in the increasing number"
+msgstr "Liiguta klotse ükshaaval et seada numbrid suurusejärjekorda"
+
+#: ../boards/fifteen.xml.in.h:4
+msgid "Original code taken from libgnomecanvas demo"
+msgstr "Originaalkood on võetud libgnomecanvas demost"
+
+#: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr "Viieteistkümne mäng"
+
 #: ../boards/followline.xml.in.h:1
 msgid "Emerge the pipe"
 msgstr "Eemalda torust takistus"
@@ -1210,26 +1231,6 @@ msgstr ""
 #: ../boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
 msgstr "Tux tahab lilli kasta aga toru on ummistunud."
-
-#: ../boards/fifteen.xml.in.h:1
-msgid ""
-"Click on any item that has a free block beside it. It will be swapped with "
-"the empty block."
-msgstr ""
-"Saad hiireklõpsuga liigutada suvalist klotsi, mille kõrval on vaba ruumi. "
-"Klots ja tühi koht vahetavad seepeale koha."
-
-#: ../boards/fifteen.xml.in.h:3
-msgid "Move the items one by one to reorder them in the increasing number"
-msgstr "Liiguta klotse ükshaaval et seada numbrid suurusejärjekorda"
-
-#: ../boards/fifteen.xml.in.h:4
-msgid "Original code taken from libgnomecanvas demo"
-msgstr "Originaalkood on võetud libgnomecanvas demost"
-
-#: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
-msgid "The fifteen game"
-msgstr "Viieteistkümne mäng"
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1260,6 +1261,7 @@ msgid "Place the lands"
 msgstr "Aseta maad"
 
 #: ../boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:2
 msgid "Africa"
 msgstr "Aafrika"
 
@@ -1557,6 +1559,198 @@ msgid "Ukraine"
 msgstr "Ukraina"
 
 #: ../boards/geography/board4_0.xml.in.h:1
+msgid "North of Africa"
+msgstr "Põhja-Aafrika"
+
+#: ../boards/geography/board4_1.xml.in.h:1
+msgid "South of Africa"
+msgstr "Lõuna-Aafrika"
+
+#: ../boards/geography/board4_2.xml.in.h:1
+msgid ">Ethiopia"
+msgstr ">Etioopia"
+
+#: ../boards/geography/board4_2.xml.in.h:3
+msgid "Algeria"
+msgstr "Alžeeria"
+
+#: ../boards/geography/board4_2.xml.in.h:4
+msgid "Angola"
+msgstr "Angoola"
+
+#: ../boards/geography/board4_2.xml.in.h:5
+msgid "Benin"
+msgstr "Benin"
+
+#: ../boards/geography/board4_2.xml.in.h:6
+msgid "Botswana"
+msgstr "Botswana"
+
+#: ../boards/geography/board4_2.xml.in.h:7
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: ../boards/geography/board4_2.xml.in.h:8
+msgid "Burundi"
+msgstr "Burundi"
+
+#: ../boards/geography/board4_2.xml.in.h:9
+msgid "Cameroon"
+msgstr "Kamerun"
+
+#: ../boards/geography/board4_2.xml.in.h:10
+msgid "Central African Republic"
+msgstr "Kesk-Aafrika Vabariik"
+
+#: ../boards/geography/board4_2.xml.in.h:11
+msgid "Chad"
+msgstr "Tšaad"
+
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Democratic Republic of Congo"
+msgstr "Kongo Demokraatlik Vabariik"
+
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: ../boards/geography/board4_2.xml.in.h:14
+msgid "Egypt"
+msgstr "Egiptus"
+
+#: ../boards/geography/board4_2.xml.in.h:15
+msgid "Equatorial Guinea"
+msgstr "Ekvatoriaal-Guinea"
+
+#: ../boards/geography/board4_2.xml.in.h:16
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../boards/geography/board4_2.xml.in.h:17
+msgid "Gabon"
+msgstr "Gabon"
+
+#: ../boards/geography/board4_2.xml.in.h:18
+msgid "Gambia"
+msgstr "Gambia"
+
+#: ../boards/geography/board4_2.xml.in.h:19
+msgid "Ghana"
+msgstr "Ghana"
+
+#: ../boards/geography/board4_2.xml.in.h:20
+msgid "Guinea"
+msgstr "Guinea"
+
+#: ../boards/geography/board4_2.xml.in.h:21
+msgid "Guinea Bissau"
+msgstr "Guinea-Bissau"
+
+#: ../boards/geography/board4_2.xml.in.h:22
+msgid "Ivory Coast"
+msgstr "Elevandiluurannik"
+
+#: ../boards/geography/board4_2.xml.in.h:23
+msgid "Kenya"
+msgstr "Keenia"
+
+#: ../boards/geography/board4_2.xml.in.h:24
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Liberia"
+msgstr "Libeeria"
+
+#: ../boards/geography/board4_2.xml.in.h:26
+msgid "Libya"
+msgstr "Liibüa"
+
+#: ../boards/geography/board4_2.xml.in.h:27
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+#: ../boards/geography/board4_2.xml.in.h:28
+msgid "Malawi"
+msgstr "Malawi"
+
+#: ../boards/geography/board4_2.xml.in.h:29
+msgid "Mali"
+msgstr "Mali"
+
+#: ../boards/geography/board4_2.xml.in.h:30
+msgid "Mauritania"
+msgstr "Mauritaania"
+
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Moroco"
+msgstr "Maroko"
+
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Mozambique"
+msgstr "Mosambiik"
+
+#: ../boards/geography/board4_2.xml.in.h:33
+msgid "Namibia"
+msgstr "Namiibia"
+
+#: ../boards/geography/board4_2.xml.in.h:34
+msgid "Niger"
+msgstr "Niger"
+
+#: ../boards/geography/board4_2.xml.in.h:35
+msgid "Nigeria"
+msgstr "Nigeeria"
+
+#: ../boards/geography/board4_2.xml.in.h:36
+msgid "Rwanda"
+msgstr "Ruanda"
+
+#: ../boards/geography/board4_2.xml.in.h:37
+msgid "Senegal"
+msgstr "Senegal"
+
+#: ../boards/geography/board4_2.xml.in.h:38
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: ../boards/geography/board4_2.xml.in.h:39
+msgid "Somalia"
+msgstr "Somaalia"
+
+#: ../boards/geography/board4_2.xml.in.h:40
+msgid "South Africa"
+msgstr "Lõuna-Aafrika"
+
+#: ../boards/geography/board4_2.xml.in.h:41
+msgid "Swaziland"
+msgstr "Svaasimaa"
+
+#: ../boards/geography/board4_2.xml.in.h:42
+msgid "Tanzania"
+msgstr "Tansaania"
+
+#: ../boards/geography/board4_2.xml.in.h:43
+msgid "Togo"
+msgstr "Togo"
+
+#: ../boards/geography/board4_2.xml.in.h:44
+msgid "Tunisia"
+msgstr "Tuneesia"
+
+#: ../boards/geography/board4_2.xml.in.h:45
+msgid "Uganda"
+msgstr "Uganda"
+
+#: ../boards/geography/board4_2.xml.in.h:46
+msgid "Zambia"
+msgstr "Sambia"
+
+#: ../boards/geography/board4_2.xml.in.h:47
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Prantsusmaa maakonnad"
 
@@ -1584,7 +1778,9 @@ msgstr "Võrdsete arvude mugijad"
 msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
-msgstr "Juhi mugija tehtele mille vastus on võrdne ekraani ülemises osas näidatava numbriga."
+msgstr ""
+"Juhi mugija tehtele mille vastus on võrdne ekraani ülemises osas näidatava "
+"numbriga."
 
 #: ../boards/gnumch-equality.xml.in.h:3
 msgid "Practise addition, multiplication, division and subtraction."
@@ -1594,7 +1790,9 @@ msgstr "Harjuta liitmist, lahutamist, korrutamist ja jagamist."
 msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
-msgstr "Kasuta klaviatuuri nooleklahve töölaual liikumiseks ja väldi kolle. Vajuta numbri söömiseks tühikut."
+msgstr ""
+"Kasuta klaviatuuri nooleklahve töölaual liikumiseks ja väldi kolle. Vajuta "
+"numbri söömiseks tühikut."
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
@@ -1618,13 +1816,19 @@ msgid ""
 "of a second number, then the second number is a factor of the first number. "
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
-msgstr "Tegur on arv, millega jagub vaadeldav arv. Näiteks 6 tegurid on 1, 2, 3 ja 6. 4 ei ole 6 tegur sest 6 ei saa jagada 4 võrdseks osaks. Kasuta klaviatuuri nooleklahve töölaual liikumiseks, väldi kolle. Vajuta tühikuklahvi numbri söömiseks."
+msgstr ""
+"Tegur on arv, millega jagub vaadeldav arv. Näiteks 6 tegurid on 1, 2, 3 ja "
+"6. 4 ei ole 6 tegur sest 6 ei saa jagada 4 võrdseks osaks. Kasuta "
+"klaviatuuri nooleklahve töölaual liikumiseks, väldi kolle. Vajuta "
+"tühikuklahvi numbri söömiseks."
 
 #: ../boards/gnumch-inequality.xml.in.h:1
 msgid ""
 "Guide the Number Muncher to the all the expressions that do not equal the "
 "number at the top of the screen."
-msgstr "Juhata numbrimugija kõigile tehetele mille vastus ei võrdu numbriga, mida näed ekraani ülaservas."
+msgstr ""
+"Juhata numbrimugija kõigile tehetele mille vastus ei võrdu numbriga, mida "
+"näed ekraani ülaservas."
 
 #: ../boards/gnumch-inequality.xml.in.h:2
 msgid "Inequality Number Munchers"
@@ -1657,7 +1861,12 @@ msgid ""
 "second number, then the second number is a multiple of the first number. Use "
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
-msgstr "Kordarv on arv mis on esitatav ühest erinevate naturaalarvude korrutisena. Näiteks 24, 36, 48 ja 60 on kõik 12 kordsed. 25 ei ole 12 kordne sest pole ühtki arvu millega 12 korrutamisel 25 saaks. Kasuta klaviatuuri nooleklahve et liikuda töölaual, püüa vältida kolli. Vajuta tühikuklahvi numbri söömiseks."
+msgstr ""
+"Kordarv on arv mis on esitatav ühest erinevate naturaalarvude korrutisena. "
+"Näiteks 24, 36, 48 ja 60 on kõik 12 kordsed. 25 ei ole 12 kordne sest pole "
+"ühtki arvu millega 12 korrutamisel 25 saaks. Kasuta klaviatuuri nooleklahve "
+"et liikuda töölaual, püüa vältida kolli. Vajuta tühikuklahvi numbri "
+"söömiseks."
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -1677,7 +1886,11 @@ msgid ""
 "example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). Use "
 "the arrow keys to navigate around the board and to avoid the Troggles. Press "
 "the spacebar to eat a number."
-msgstr "Algarv on ühest suurem naturaalarv, millel on ainult 2 naturaalarvulist jagajat: arv 1 ja see arv ise. Näiteks 3 on algarv, aga 4 ei ole (sest 4 on jagatav 2-ga). Kasuta klaviatuuri nooleklahve töölaual liikumiseks, püüa vältida kolle. Vajuta tühikuklahvi numbri söömiseks."
+msgstr ""
+"Algarv on ühest suurem naturaalarv, millel on ainult 2 naturaalarvulist "
+"jagajat: arv 1 ja see arv ise. Näiteks 3 on algarv, aga 4 ei ole (sest 4 on "
+"jagatav 2-ga). Kasuta klaviatuuri nooleklahve töölaual liikumiseks, püüa "
+"vältida kolle. Vajuta tühikuklahvi numbri söömiseks."
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
@@ -2021,13 +2234,20 @@ msgstr "Aita Tuxil väljapääs leida."
 msgid "Maze"
 msgstr "Labürint"
 
-#: ../boards/maze.xml.in.h:5 ../boards/maze2DRelative.xml.in.h:5
+#: ../boards/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Tuxi ukseni juhatamiseks kasuta klaviatuuri nooleklahve."
 
 #: ../boards/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
 msgstr "Leia labürindist väljapääs (Liikumine on suhteline)"
+
+#: ../boards/maze2DRelative.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. In this maze, the move "
+"is relative (first person). Use the up arrow to go forward. The other arrow "
+"let you turn Tux in another direction."
+msgstr "Kasuta klaviatuuri nooleklahve Tuxi üles ukseni juhatamiseks. Selles labürindis on liikumine suhteline. \"Kasuta nool\" üles klahvi edasi liikumiseks. Teised klahvid lubavad Tuxi pöörata teises suunas."
 
 #: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2673,6 +2893,48 @@ msgstr "Harjuta lõbusa mänguga arvutamist"
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr "Tux on näljane. Aita tal arvutada, mitme hüppega kalani jõuab."
 
+#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
+#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
+#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
+#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
+#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
+#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
+#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
+#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
+#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
+msgid "Drag and Drop masses to equilibrate the scales"
+msgstr "Aseta kaaluvihid et tasakaalustada kaal"
+
+#: ../boards/scalesboard.xml.in.h:1
+msgid "Drag and Drop masses to balance the scales"
+msgstr "Aseta kaaluvihid et tasakaalustada kaal"
+
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Mental calculation, arithmetic equality"
+msgstr "Lihtne arvutamine"
+
+#: ../boards/scalesboard.xml.in.h:3
+msgid ""
+"The painting is an original painting made by Virginie MOREAU (virginie."
+"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+"released under the GPL license."
+msgstr ""
+"Taustaks on originaalmaal, tehtud 2001 aastal Virginie MOREAU (virginie."
+"moreau@free.fr) poolt. Selle nimi on 'Maitseainetemüüja Egiptuses'. See on "
+"välja antud GPL litsentsi all."
+
+#: ../boards/scalesboard.xml.in.h:4
+msgid ""
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
+msgstr ""
+"Et mõlemal kaalukausil oleks sama suur raskus, pead vasakult tõmbama õiged "
+"kaaluvihid kaalule. Vahet pole millises järjekorras."
+
+#: ../boards/scalesboard.xml.in.h:5
+msgid "Well balance the scales"
+msgstr "Kaalumine"
+
 #: ../boards/searace.xml.in.h:1 ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Anna enda laevale head juhised võidukihutamises esimene olla."
@@ -2726,48 +2988,6 @@ msgstr "Purjetamine (2 mängijat)"
 #: ../boards/searace1player.xml.in.h:4
 msgid "Sea race (Single Player)"
 msgstr "Purjetamine (1 mängija)"
-
-#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
-#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
-#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
-#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
-#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
-#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
-#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
-#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
-#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
-msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Aseta kaaluvihid et tasakaalustada kaal"
-
-#: ../boards/scalesboard.xml.in.h:1
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Aseta kaaluvihid et tasakaalustada kaal"
-
-#: ../boards/scalesboard.xml.in.h:2
-msgid "Mental calculation, arithmetic equality"
-msgstr "Lihtne arvutamine"
-
-#: ../boards/scalesboard.xml.in.h:3
-msgid ""
-"The painting is an original painting made by Virginie MOREAU (virginie."
-"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL license."
-msgstr ""
-"Taustaks on originaalmaal, tehtud 2001 aastal Virginie MOREAU (virginie."
-"moreau@free.fr) poolt. Selle nimi on 'Maitseainetemüüja Egiptuses'. See on "
-"välja antud GPL litsentsi all."
-
-#: ../boards/scalesboard.xml.in.h:4
-msgid ""
-"To balance the scales, move the masses on the left side. The masses can be "
-"arranged in any order."
-msgstr ""
-"Et mõlemal kaalukausil oleks sama suur raskus, pead vasakult tõmbama õiged "
-"kaaluvihid kaalule. Vahet pole millises järjekorras."
-
-#: ../boards/scalesboard.xml.in.h:5
-msgid "Well balance the scales"
-msgstr "Kaalumine"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
@@ -2938,20 +3158,20 @@ msgstr "Õppekeskkond gcompris"
 msgid "Multiple activities for kids"
 msgstr "Programmide kogumik lastele"
 
-#: ../src/boards/advanced_colors.c:531 ../src/boards/imageid.c:600
-#: ../src/boards/missingletter.c:604 ../src/boards/read_colors.c:489
-#: ../src/boards/shapegame.c:1876 ../src/gcompris/file_selector.c:926
-#: ../src/gcompris/gameutil.c:131 ../src/gcompris/gameutil.c:523
-#: ../src/gcompris/gameutil.c:524 ../src/gcompris/gcompris.c:503
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:602
+#: ../src/boards/missingletter.c:606 ../src/boards/read_colors.c:491
+#: ../src/boards/shapegame.c:1878 ../src/gcompris/file_selector.c:926
+#: ../src/gcompris/gameutil.c:137 ../src/gcompris/gameutil.c:555
+#: ../src/gcompris/gameutil.c:556 ../src/gcompris/gcompris.c:521
 #: ../src/gcompris/images_selector.c:754 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Ei leidnud faili %s !"
 
-#: ../src/boards/advanced_colors.c:534 ../src/boards/imageid.c:603
-#: ../src/boards/missingletter.c:607 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1879
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:605
+#: ../src/boards/missingletter.c:609 ../src/boards/read_colors.c:494
+#: ../src/boards/shapegame.c:1881
 #, c-format
 msgid "find file %s !"
 msgstr "leia fail %s !"
@@ -2981,7 +3201,7 @@ msgstr "Male õppimine"
 msgid "Play chess against tux in a learning mode"
 msgstr "Mängi Tuxi vastu malet õpperežiimis"
 
-#: ../src/boards/chess.c:187 ../src/boards/chess.c:226
+#: ../src/boards/chess.c:189 ../src/boards/chess.c:228
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2995,31 +3215,31 @@ msgstr ""
 "GNU/Linuxi distributsoonist\n"
 "Kontrolli et see olemas on "
 
-#: ../src/boards/chess.c:567
+#: ../src/boards/chess.c:569
 msgid "White Turn"
 msgstr "Valge käik"
 
-#: ../src/boards/chess.c:567
+#: ../src/boards/chess.c:569
 msgid "Black Turn"
 msgstr "Musta käik"
 
-#: ../src/boards/chess.c:711
+#: ../src/boards/chess.c:713
 msgid "White check"
 msgstr "Valge tuli"
 
-#: ../src/boards/chess.c:713
+#: ../src/boards/chess.c:715
 msgid "Black check"
 msgstr "Must tuli"
 
-#: ../src/boards/chess.c:1050
+#: ../src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Must matistas"
 
-#: ../src/boards/chess.c:1055
+#: ../src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Valge matistas"
 
-#: ../src/boards/chess.c:1060 ../src/gcompris/bonus.c:312
+#: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
 msgid "Drawn game"
 msgstr "Patt"
 
@@ -3031,7 +3251,7 @@ msgstr "Loe täht"
 msgid "Learn to recognize letters"
 msgstr "Õpi tähti tundma"
 
-#: ../src/boards/click_on_letter.c:226
+#: ../src/boards/click_on_letter.c:228
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -3039,7 +3259,7 @@ msgstr ""
 "Viga: see tegevus nõuab et sa esmalt installeeriksid\n"
 "programmipaki assetml-voices-alphabet-"
 
-#: ../src/boards/click_on_letter.c:233
+#: ../src/boards/click_on_letter.c:235
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3052,16 +3272,16 @@ msgstr ""
 "luba sealt heliefektid."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:278
+#: ../src/boards/click_on_letter.c:280
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
-#: ../src/boards/clickgame.c:176
+#: ../src/boards/clickgame.c:178
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Ei suutnud avada kataloogi: %s"
 
-#: ../src/boards/clockgame.c:524
+#: ../src/boards/clockgame.c:526
 msgid "Set the watch to:"
 msgstr "Sea kellaaeg:"
 
@@ -3105,17 +3325,17 @@ msgstr "Klõpsa mustal toonil"
 msgid "Click on the white toon"
 msgstr "Klõpsa valgel toonil"
 
-#: ../src/boards/erase.c:156
+#: ../src/boards/erase.c:158
 msgid "Couldn't get GTK settings"
 msgstr "Ei saanud GTK seadeid kätte"
 
-#: ../src/boards/erase.c:161
+#: ../src/boards/erase.c:163
 #, c-format
 msgid "Double clic default value %d."
 msgstr "Topeltklõpsa vaikimisi numbrile %d."
 
-#: ../src/boards/erase.c:166 ../src/boards/erase.c:181
-#: ../src/boards/erase.c:204 ../src/boards/erase.c:335
+#: ../src/boards/erase.c:168 ../src/boards/erase.c:183
+#: ../src/boards/erase.c:206 ../src/boards/erase.c:337
 #, c-format
 msgid "Double clic value is now %d."
 msgstr "Topeltklõpsu väärtus on nüüd %d."
@@ -3124,7 +3344,7 @@ msgstr "Topeltklõpsu väärtus on nüüd %d."
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Liiguta klotsid ükshaaval järjekorda väiksemast suuremaks"
 
-#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
+#: ../src/boards/hanoi.c:337 ../src/boards/hanoi.c:348
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Tee tühjale kohale samasugune torn nagu paremal näed"
 
@@ -3136,26 +3356,26 @@ msgstr "Õpi lugema"
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Näed käte pilte, arva ära kas see on vasak või parem käsi"
 
-#: ../src/boards/leftright.c:246 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:248 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:544
 #: ../src/boards/python/searace.py:856 ../src/boards/python/searace.py:889
 #: ../src/boards/python/searace.py:986
 msgid "left"
 msgstr "vasak"
 
-#: ../src/boards/leftright.c:256 ../src/boards/python/searace.py:429
+#: ../src/boards/leftright.c:258 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:553
 #: ../src/boards/python/searace.py:858 ../src/boards/python/searace.py:891
 #: ../src/boards/python/searace.py:980
 msgid "right"
 msgstr "parem"
 
-#: ../src/boards/maze.c:486
+#: ../src/boards/maze.c:488
 msgid "Look at your position and switch back to invisible mode to move"
 msgstr ""
 "Vaata oma asukohta ja lülita tagasi nähtamatule režiimile kus saad liikuda"
 
-#: ../src/boards/maze.c:488
+#: ../src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Vaata oma asukohta ja lülita tagasi 3D režiimile kus saad liikuda"
 
@@ -3191,13 +3411,139 @@ msgstr "Suuna ja aita langevarjurit et ta saaks ohutult maanduda"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Liiguta lennukit et püüda pilvi õiges järjekorras"
 
-#: ../src/boards/python.c:53
+#: ../src/boards/python.c:66
 msgid "Python Board"
 msgstr "Pythoni laud"
 
-#: ../src/boards/python.c:54
+#: ../src/boards/python.c:67
 msgid "Special board that embeds python into gcompris."
 msgstr "Spetsiaalne laud mis integreerib pythoni koodi gcomprisesse."
+
+#: ../src/boards/python/admin/board_list.py:179
+msgid "Main menu"
+msgstr "Peamenüü"
+
+#: ../src/boards/python/admin/board_list.py:179
+msgid "/"
+msgstr "/"
+
+#. columns for Board name
+#: ../src/boards/python/admin/board_list.py:213
+msgid "Board title"
+msgstr "Mängulaua pealkiri"
+
+#: ../src/boards/python/admin/board_list.py:216
+#: ../src/boards/python/admin/class_list.py:183
+msgid "Name"
+msgstr "Nimi"
+
+#: ../src/boards/python/admin/class_edit.py:48
+msgid "Class Edition"
+msgstr "Klassi redigeerimine"
+
+#: ../src/boards/python/admin/class_edit.py:52
+msgid "Editing class: "
+msgstr "Redigeerin klassi: "
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/class_edit.py:60
+msgid "Assign all the users bellonging to this class"
+msgstr "Märgi kõik kasutajad selle klassi õpilasteks"
+
+#: ../src/boards/python/admin/class_edit.py:98
+#: ../src/boards/python/admin/group_edit.py:102
+msgid "Add user >"
+msgstr "Lisa kasutaja >"
+
+#: ../src/boards/python/admin/class_edit.py:191
+#: ../src/boards/python/admin/user_list.py:178
+#: ../src/boards/python/admin/group_edit.py:207
+#: ../src/boards/python/admin/group_user_list.py:156
+msgid "First Name"
+msgstr "Eesnimi"
+
+#: ../src/boards/python/admin/class_edit.py:200
+#: ../src/boards/python/admin/user_list.py:188
+#: ../src/boards/python/admin/group_edit.py:216
+#: ../src/boards/python/admin/group_user_list.py:165
+msgid "Last Name"
+msgstr "Perekonnanimi"
+
+#. ---------------
+#. Class Management
+#. ---------------
+#: ../src/boards/python/admin/class_list.py:61
+msgid "User"
+msgstr "Kasutaja"
+
+#: ../src/boards/python/admin/class_list.py:193
+msgid "Teacher"
+msgstr "Õpetaja"
+
+#: ../src/boards/python/admin/class_list.py:284
+msgid "You must first select a class in the list"
+msgstr "Esimese asjana pead valima nimekirjast klassi"
+
+#: ../src/boards/python/admin/module_boards.py:41
+msgid "Boards"
+msgstr "Mängulauad"
+
+#: ../src/boards/python/admin/module_boards.py:59
+msgid " Panel"
+msgstr "Paneel"
+
+#: ../src/boards/python/admin/module_groups.py:41
+msgid "Groups list"
+msgstr "Gruppide nimekiri"
+
+#: ../src/boards/python/admin/module_profiles.py:37
+msgid "Profiles list"
+msgstr "Profiilide nimekiri"
+
+#: ../src/boards/python/admin/module_profiles.py:60
+msgid "Profile"
+msgstr "Profiil"
+
+#: ../src/boards/python/admin/user_list.py:168
+#: ../src/boards/python/admin/group_user_list.py:147
+msgid "Login"
+msgstr "Login"
+
+#: ../src/boards/python/admin/user_list.py:198
+#: ../src/boards/python/admin/group_user_list.py:174
+msgid "Birth Date"
+msgstr "Sünnikuupäev"
+
+#: ../src/boards/python/admin/user_list.py:246
+msgid ""
+"To import a file, it must be formated like this:\n"
+"login;First name;Last name;Birth date\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+"Faili importimiseks peab see olema sellises formaadis:\n"
+"login;Eesnimi;Perekonnanimi;Sünnikuupäev\n"
+"Eraldaja tuntakse automaatselt ära ja see võib olla kas ',', ';' või ':'"
+
+#: ../src/boards/python/admin/group_edit.py:51
+msgid "Group Edition"
+msgstr "Grupi redigeerimine"
+
+#: ../src/boards/python/admin/group_edit.py:55
+msgid "Editing group: "
+msgstr "Redigeerin gruppi:"
+
+#: ../src/boards/python/admin/group_edit.py:56
+msgid " for class: "
+msgstr " klassile: "
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:64
+msgid "Assign all the users bellonging to this group"
+msgstr "Märgi kõik kasutajad selle grupi liikmeteks"
+
+#: ../src/boards/python/admin/module_users.py:42
+msgid "Users list"
+msgstr "Kasutajate nimekiri"
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3218,7 +3564,8 @@ msgstr "SVG on keelatud. Paigalda python xml moodul SVG lubamiseks"
 
 #: ../src/boards/python/anim.py:2364
 msgid "Warning: the following images cannot be accessed on your system.\n"
-msgstr "Hoiatus: Sinu süsteemis ei olnud juurdepääsu järgnevatele kujunditele:\n"
+msgstr ""
+"Hoiatus: Sinu süsteemis ei olnud juurdepääsu järgnevatele kujunditele:\n"
 
 #: ../src/boards/python/anim.py:2366
 msgid "The corresponding items have been skipped."
@@ -3398,6 +3745,18 @@ msgstr "Tundmatu käsk real"
 msgid "Distance:"
 msgstr "Vahemaa:"
 
+#: ../src/boards/python/tuxpaint.py:69
+msgid ""
+"Cannot find Tuxpaint. \n"
+" Install it to use this board !"
+msgstr ""
+"Ei leidnud programmi Tuxpaint.\n"
+"Enne kui saad seda mängulauda kasutada, installeri Tuxpaint!"
+
+#: ../src/boards/python/tuxpaint.py:82
+msgid "Waiting Tuxpaint Finished"
+msgstr "Ootan Tuxpainti lõpetamist"
+
 #: ../src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Mälumäng"
@@ -3418,41 +3777,41 @@ msgstr "Klõpsa õigel värvil"
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Loe sõnade nimekiri läbi ja ütle kas antud sõna on nende hulgas"
 
-#: ../src/boards/reading.c:335
+#: ../src/boards/reading.c:337
 msgid "Please, check if the word"
 msgstr "Palun kontrolli kas sõna"
 
-#: ../src/boards/reading.c:355
+#: ../src/boards/reading.c:357
 msgid "is being displayed"
 msgstr "näidatakse praegu"
 
-#: ../src/boards/reading.c:529
+#: ../src/boards/reading.c:531
 msgid "I am Ready"
 msgstr "Olen valmis"
 
-#: ../src/boards/reading.c:569
+#: ../src/boards/reading.c:571
 msgid "Yes I saw it"
 msgstr "Jah, ma nägin seda"
 
-#: ../src/boards/reading.c:599
+#: ../src/boards/reading.c:601
 msgid "No, it was not there"
 msgstr "Ei, seda ei olnud"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:637
+#: ../src/boards/reading.c:639
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Sa pidid leidma sõna '%s'"
 
-#: ../src/boards/reading.c:640
+#: ../src/boards/reading.c:642
 msgid "But it was not displayed"
 msgstr "Aga seda ei näidatud"
 
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:644
 msgid "And it was displayed"
 msgstr "Ja seda näidati"
 
-#: ../src/boards/reading.c:743 ../src/boards/wordsgame.c:756
+#: ../src/boards/reading.c:745 ../src/boards/wordsgame.c:758
 msgid "Cannot open file of words for your locale"
 msgstr "Eestikeelsete sõnadega faili ei saanud avada"
 
@@ -3465,7 +3824,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "Tõmba ja aseta tükid et asi uuesti üles ehitada"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:413
+#: ../src/boards/shapegame.c:415
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -3477,7 +3836,7 @@ msgstr ""
 "sisesta 's' salvestamiseks ja\n"
 "'d' et vaadata kõiki kujundeid"
 
-#: ../src/boards/shapegame.c:421
+#: ../src/boards/shapegame.c:423
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -3501,12 +3860,12 @@ msgstr "Allveelaev"
 msgid "Control the depth of a submarine"
 msgstr "Kontrolli allveelaeva sügavust"
 
-#: ../src/boards/target.c:319 ../src/boards/target.c:572
+#: ../src/boards/target.c:321 ../src/boards/target.c:574
 #, c-format
 msgid "Points = %s"
 msgstr "Punkte = %s"
 
-#: ../src/boards/target.c:437
+#: ../src/boards/target.c:439
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -3515,7 +3874,7 @@ msgstr ""
 "Tuule kiirus = %d\n"
 "km/h"
 
-#: ../src/boards/target.c:499
+#: ../src/boards/target.c:501
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Sihtmärgini = %d meetrit"
@@ -3539,7 +3898,7 @@ msgstr ""
 "Taustamuusika: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:429
+#: ../src/gcompris/about.c:73
 msgid "translator_credits"
 msgstr ""
 "Olle Niit, 2005.\n"
@@ -3572,7 +3931,7 @@ msgid "Help"
 msgstr "Abi"
 
 #: ../src/gcompris/about.c:316 ../src/gcompris/config.c:211
-#: ../src/gcompris/gameutil.c:950 ../src/gcompris/help.c:329
+#: ../src/gcompris/gameutil.c:1037 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -3842,15 +4201,15 @@ msgstr "LAE"
 msgid "SAVE"
 msgstr "SALVESTA"
 
-#: ../src/gcompris/gameutil.c:134
+#: ../src/gcompris/gameutil.c:140
 msgid "Couldn't find file"
 msgstr "Ei leidnud faili"
 
-#: ../src/gcompris/gameutil.c:136
+#: ../src/gcompris/gameutil.c:142
 msgid "This activity is incomplete."
 msgstr "See tegevus on lõpetamata."
 
-#: ../src/gcompris/gameutil.c:137
+#: ../src/gcompris/gameutil.c:143
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3858,60 +4217,78 @@ msgstr ""
 "Välju ja teata\n"
 "probleemist autoritele."
 
-#: ../src/gcompris/gcompris.c:94
+#: ../src/gcompris/gcompris.c:99
 msgid "run gcompris in fullscreen mode."
 msgstr "käivita gcompris täisekraani režiimis."
 
-#: ../src/gcompris/gcompris.c:96
+#: ../src/gcompris/gcompris.c:101
 msgid "run gcompris in window mode."
 msgstr "käivita gcompris aknas."
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:103
 msgid "run gcompris with sound enabled."
 msgstr "käivita gcompris heliefektidega."
 
-#: ../src/gcompris/gcompris.c:100
+#: ../src/gcompris/gcompris.c:105
 msgid "run gcompris without sound."
 msgstr "käivita gcompris ilma helita."
 
-#: ../src/gcompris/gcompris.c:102
+#: ../src/gcompris/gcompris.c:107
 msgid "run gcompris with the default gnome cursor."
 msgstr "käivita gcompris vaikimisi gnome hiirekursoriga."
 
-#: ../src/gcompris/gcompris.c:104
+#: ../src/gcompris/gcompris.c:109
 msgid "display only activities with this difficulty level."
 msgstr "näita ainult selle raskusastme tegevusi."
 
-#: ../src/gcompris/gcompris.c:106
+#: ../src/gcompris/gcompris.c:111
 msgid "display debug informations on the console."
 msgstr "näita veaotsimiseks vajalikku infot terminalis."
 
-#: ../src/gcompris/gcompris.c:108
+#: ../src/gcompris/gcompris.c:113
 msgid "Print the version of "
 msgstr "Trüki versioon "
 
-#: ../src/gcompris/gcompris.c:110
+#: ../src/gcompris/gcompris.c:115
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kasuta silutud lõuendit (aeglasem)."
 
-#: ../src/gcompris/gcompris.c:112
+#: ../src/gcompris/gcompris.c:117
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Keela XRANDR (ekraani resolutsiooni ei muutu)."
 
-#: ../src/gcompris/gcompris.c:114
+#: ../src/gcompris/gcompris.c:119
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
-"activity directory, -l /boards/connect4 only the connect4 activity)"
-msgstr ""
-"Saad gcomprist käivitada ka kohalikust menüüst ( näiteks -l /reading lubab "
-"sul mängida ainult lugemistegevustega, -l /boards/connect4 ainult ühenda4 "
-"mängu)"
+"activity directory, -l /boards/connect4 only the connect4 activity), -l list "
+"show the list of menus and activity"
+msgstr "Saad gcomprist käivitada ka kohalikust menüüst ( näiteks -l /reading lubab sul mängida ainult lugemistegevustega, -l /boards/connect4 ainult ühenda4 mängu) -l list näita menüüde või tegevuste nimekirja"
 
-#: ../src/gcompris/gcompris.c:116
+#: ../src/gcompris/gcompris.c:121
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "Käivita gcompris kohalike tegevuste kataloogiga lisatud menüüsse"
 
-#: ../src/gcompris/gcompris.c:615
+#: ../src/gcompris/gcompris.c:123
+msgid "Run gcompris with administration and users management mode"
+msgstr "Käivita gcompris administreerimise ja kasutajate haldamise režiimis"
+
+#: ../src/gcompris/gcompris.c:125
+msgid "Use alternate database for profils"
+msgstr "Kasuta alternatiivset andmebaasi profiilidele"
+
+#: ../src/gcompris/gcompris.c:127
+msgid "Use alternate database for logs"
+msgstr "Kasuta alternatiivset andmebaasi logide jaoks"
+
+#: ../src/gcompris/gcompris.c:129
+msgid "Create the alternate database for profils"
+msgstr "Loo alternatiivne andmebaas profiilidele"
+
+#: ../src/gcompris/gcompris.c:131
+msgid "Re-read XML Menus and store them in the database"
+msgstr "Loe uuesti XML Menüüd sisse ja salvesta need andmebaasis"
+
+#: ../src/gcompris/gcompris.c:655
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3933,7 +4310,7 @@ msgstr ""
 "kaaluge palunGNU/Linuxi kasutusele võtmist. Lisainfot saad aadressilt\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:863
+#: ../src/gcompris/gcompris.c:922
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3946,19 +4323,70 @@ msgstr ""
 "Litsents: GPL\n"
 "Lisainfot leiad http://gcompris.net\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:196
+#. check the list of possible values for -l, then exit
+#: ../src/gcompris/gcompris.c:990
+#, c-format
+msgid "Use -l activity to access directly to activity.\n"
+msgstr "kasuta -l tegevus et pääseda otse tegevuse juurde.\n"
+
+#: ../src/gcompris/gcompris.c:991
+#, c-format
+msgid "List of available activity is :\n"
+msgstr "Nimekiri kättesaadavatest tegevustest sisaldab:\n"
+
+#: ../src/gcompris/gcompris_db.c:95
+#, c-format
+msgid "Database %s opened"
+msgstr "Andmebaas %s avatud"
+
+#: ../src/gcompris/gcompris_db.c:140
+msgid "Database tables created"
+msgstr "Andmebaasi tabelid loodud"
+
+#: ../src/gcompris/gcompris_db.c:744
+#, c-format
+msgid "No users groups for profile %s"
+msgstr "Pole kasutajagruppe %s profiilile"
+
+#: ../src/gcompris/gcompris_db.c:775
+#, c-format
+msgid "No activities out for profile %s"
+msgstr "Profiili %s jaoks ei ole tegevusi"
+
+#: ../src/gcompris/gcompris_db.c:830
+#, c-format
+msgid "No users in group with id  %d"
+msgstr "Grupis pole kasutajaid kelle id oleks %d"
+
+#: ../src/gcompris/gcompris_db.c:887
+#, c-format
+msgid "No user with id  %d"
+msgstr "Pole kasutajat id-ga %d"
+
+#: ../src/gcompris/gcompris_db.c:944
+#, c-format
+msgid "No class with id  %d"
+msgstr "Pole klassi id-ga %d"
+
+#: ../src/gcompris/gcompris_db.c:979
+#, c-format
+msgid ""
+"No groups in for class %s, there must be at least one for whole class (%d)"
+msgstr "Pole gruppe klassi %s jaoks, peab olema vähemalt üks kogu klassi jaoks (%d)"
+
+#: ../src/gcompris/help.c:170
 msgid "Prerequisite"
 msgstr "Eeltingimus"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:205
+#: ../src/gcompris/help.c:198
 msgid "Goal"
 msgstr "Eesmärk"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:214
+#: ../src/gcompris/help.c:226
 msgid "Manual"
 msgstr "Käsiraamat"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:223
+#: ../src/gcompris/help.c:254
 msgid "Credit"
 msgstr "Tunnustus"
 
@@ -3970,7 +4398,8 @@ msgstr "andmekogu %s on kataloog. Üritan lugeda xml-i"
 #: ../src/gcompris/images_selector.c:629
 #, c-format
 msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
-msgstr "Pildikogus %s, kodukausta nime %s ei leidnud. Jätan pildikogu vahele...\n"
+msgstr ""
+"Pildikogus %s, kodukausta nime %s ei leidnud. Jätan pildikogu vahele...\n"
 
 #: ../src/gcompris/images_selector.c:664
 #, c-format
@@ -3981,54 +4410,15 @@ msgstr "Pildikogus %s, pilti ei leitud. Jätan pildikogu vahele...\n"
 #, c-format
 msgid ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
-msgstr "Pildikogus %s, kataloogi %s ei leitud. Jätan vahele kogu pildikogu...\n"
+msgstr ""
+"Pildikogus %s, kataloogi %s ei leitud. Jätan vahele kogu pildikogu...\n"
 
-#: ../src/gcompris/interface.c:75
-msgid "Gcompris Editor"
-msgstr "Gcompris Toimetaja"
-
-#: ../src/gcompris/interface.c:133
-msgid "Icon"
-msgstr "Ikoon"
-
-#: ../src/gcompris/interface.c:142
-msgid "Name"
-msgstr "Nimi"
-
-#: ../src/gcompris/interface.c:151 ../src/gcompris/interface.c:368
-msgid "Description"
-msgstr "Kirjeldus"
-
-#: ../src/gcompris/interface.c:160
-msgid "Type"
-msgstr "Tüüp"
-
-#: ../src/gcompris/interface.c:169
-msgid "Difficulty"
-msgstr "Raskustase"
-
-#: ../src/gcompris/interface.c:178
-msgid "Author"
-msgstr "Autor"
-
-#: ../src/gcompris/interface.c:187
-msgid "Directory"
-msgstr "Kataloog"
-
-#: ../src/gcompris/interface.c:239
-msgid "Title"
-msgstr "Pealkiri"
-
-#: ../src/gcompris/interface.c:435
-msgid "Released under GPL"
-msgstr "Välja antud GPL all"
-
-#: ../src/gcompris/soundutil.c:139
+#: ../src/gcompris/soundutil.c:162
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Muusikakataloogi ei saanud avada: %s"
 
-#: ../src/gcompris/soundutil.c:181
+#: ../src/gcompris/soundutil.c:208
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -4036,11 +4426,6 @@ msgid ""
 msgstr ""
 "Taustamuusika mängimine on peatatud. Failid kataloogis %s ei ole ogg vorbis "
 "formaadis VÕI ei saanud helikaardiga kaubale"
-
-#: ../src/gcompris/support.c:60 ../src/gcompris/support.c:85
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Ei leidnud pikselrasteri faili: %s"
 
 #: ../src/gcompris/timer.c:237
 msgid "Time Elapsed"
@@ -4050,6 +4435,36 @@ msgstr "Aega kulunud"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Aega jäänud = %d"
+
+#~ msgid "The game of billiards"
+#~ msgstr "Piljardimäng"
+
+#~ msgid "Icon"
+#~ msgstr "Ikoon"
+
+#~ msgid "Description"
+#~ msgstr "Kirjeldus"
+
+#~ msgid "Type"
+#~ msgstr "Tüüp"
+
+#~ msgid "Difficulty"
+#~ msgstr "Raskustase"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Directory"
+#~ msgstr "Kataloog"
+
+#~ msgid "Title"
+#~ msgstr "Pealkiri"
+
+#~ msgid "Released under GPL"
+#~ msgstr "Välja antud GPL all"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Ei leidnud pikselrasteri faili: %s"
 
 #~ msgid ""
 #~ "Error: /usr/bin/gnuchessx is installed\n"
