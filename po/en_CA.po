@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-10 01:05-0400\n"
-"PO-Revision-Date: 2005-07-10 22:51-0400\n"
+"POT-Creation-Date: 2005-07-18 04:29-0400\n"
+"PO-Revision-Date: 2005-07-18 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3437,7 +3437,7 @@ msgid "Board title"
 msgstr "Board title"
 
 #: src/boards/python/admin/board_list.py:216
-#: src/boards/python/admin/class_list.py:166
+#: src/boards/python/admin/class_list.py:183
 msgid "Name"
 msgstr "Name"
 
@@ -3455,37 +3455,36 @@ msgid "Assign all the users bellonging to this class"
 msgstr "Assign all the users belonging to this class"
 
 #: src/boards/python/admin/class_edit.py:98
+#: src/boards/python/admin/group_edit.py:102
 msgid "Add user >"
 msgstr "Add user >"
 
-#: src/boards/python/admin/class_edit.py:236
-#: src/boards/python/admin/user_list.py:192
+#: src/boards/python/admin/class_edit.py:191
+#: src/boards/python/admin/user_list.py:178
+#: src/boards/python/admin/group_edit.py:207
+#: src/boards/python/admin/group_user_list.py:156
 msgid "First Name"
 msgstr "First Name"
 
-#: src/boards/python/admin/class_edit.py:245
-#: src/boards/python/admin/user_list.py:202
+#: src/boards/python/admin/class_edit.py:200
+#: src/boards/python/admin/user_list.py:188
+#: src/boards/python/admin/group_edit.py:216
+#: src/boards/python/admin/group_user_list.py:165
 msgid "Last Name"
 msgstr "Last Name"
 
-#. Add buttons
-#: src/boards/python/admin/class_list.py:98
-msgid "Add class"
-msgstr "Add class"
+#. ---------------
+#. Class Management
+#. ---------------
+#: src/boards/python/admin/class_list.py:61
+msgid "User"
+msgstr "User"
 
-#: src/boards/python/admin/class_list.py:111
-msgid "Remove class"
-msgstr "Remove class"
-
-#: src/boards/python/admin/class_list.py:124
-msgid "Edit class"
-msgstr "Edit class"
-
-#: src/boards/python/admin/class_list.py:176
+#: src/boards/python/admin/class_list.py:193
 msgid "Teacher"
 msgstr "Teacher"
 
-#: src/boards/python/admin/class_list.py:267
+#: src/boards/python/admin/class_list.py:284
 msgid "You must first select a class in the list"
 msgstr "You must first select a class in the list"
 
@@ -3509,32 +3508,17 @@ msgstr "Profiles list"
 msgid "Profile"
 msgstr "Profile"
 
-#. Add buttons
-#: src/boards/python/admin/user_list.py:99
-msgid "Add user"
-msgstr "Add user"
-
-#: src/boards/python/admin/user_list.py:112
-msgid "Remove user"
-msgstr "Remove user"
-
-#: src/boards/python/admin/user_list.py:125
-msgid "Import file"
-msgstr "Import file"
-
-#: src/boards/python/admin/user_list.py:182
+#: src/boards/python/admin/user_list.py:168
+#: src/boards/python/admin/group_user_list.py:147
 msgid "Login"
 msgstr "Login"
 
-#: src/boards/python/admin/user_list.py:212
+#: src/boards/python/admin/user_list.py:198
+#: src/boards/python/admin/group_user_list.py:174
 msgid "Birth Date"
 msgstr "Birth Date"
 
-#: src/boards/python/admin/user_list.py:222
-msgid "Class"
-msgstr "Class"
-
-#: src/boards/python/admin/user_list.py:270
+#: src/boards/python/admin/user_list.py:246
 msgid ""
 "To import a file, it must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
@@ -3544,7 +3528,24 @@ msgstr ""
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 
-#: src/boards/python/admin/module_users.py:43
+#: src/boards/python/admin/group_edit.py:51
+msgid "Group Edition"
+msgstr "Group Edition"
+
+#: src/boards/python/admin/group_edit.py:55
+msgid "Editing group: "
+msgstr "Editing group: "
+
+#: src/boards/python/admin/group_edit.py:56
+msgid " for class: "
+msgstr " for class: "
+
+#. Top message gives instructions
+#: src/boards/python/admin/group_edit.py:64
+msgid "Assign all the users bellonging to this group"
+msgstr "Assign all the users belonging to this group"
+
+#: src/boards/python/admin/module_users.py:42
 msgid "Users list"
 msgstr "Users list"
 
@@ -3747,7 +3748,7 @@ msgstr "Unknown command at line"
 msgid "Distance:"
 msgstr "Distance:"
 
-#: src/boards/python/tuxpaint.py:65
+#: src/boards/python/tuxpaint.py:69
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -3755,7 +3756,7 @@ msgstr ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board!"
 
-#: src/boards/python/tuxpaint.py:78
+#: src/boards/python/tuxpaint.py:82
 msgid "Waiting Tuxpaint Finished"
 msgstr "Waiting Tuxpaint Finished"
 
@@ -4353,10 +4354,27 @@ msgstr "No users groups for profile %s"
 msgid "No activities out for profile %s"
 msgstr "No activities out for profile %s"
 
-#: src/gcompris/gcompris_db.c:829
+#: src/gcompris/gcompris_db.c:830
 #, c-format
 msgid "No users in group with id  %d"
 msgstr "No users in group with ID  %d"
+
+#: src/gcompris/gcompris_db.c:887
+#, c-format
+msgid "No user with id  %d"
+msgstr "No user with ID %d"
+
+#: src/gcompris/gcompris_db.c:944
+#, c-format
+msgid "No class with id  %d"
+msgstr "No class with ID %d"
+
+#: src/gcompris/gcompris_db.c:979
+#, c-format
+msgid ""
+"No groups in for class %s, there must be at least one for whole class (%d)"
+msgstr ""
+"No groups in for class %s, there must be at least one for whole class (%d)"
 
 #: src/gcompris/help.c:170
 msgid "Prerequisite"
