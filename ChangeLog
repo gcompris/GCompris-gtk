@@ -1,3 +1,48 @@
+2005-07-18  Yves Combe  <yves@ycombe.net>
+
+	add some administration usefull function.
+	add gcompris.admin submodule for them.
+	some fonction are empty for now.
+
+	* configure.in:
+	* src/boards/Makefile.am:
+	* src/boards/py-gcompris-class.c:
+	(gcompris_new_pyGcomprisClassObject),
+	(pyGcomprisClassType_dealloc), (pyGcomprisClassType_getattr),
+	(pyGcomprisClassType_setattr):
+	* src/boards/py-gcompris-group.c:
+	(gcompris_new_pyGcomprisGroupObject),
+	(pyGcomprisGroupType_dealloc), (pyGcomprisGroupType_getattr),
+	(pyGcomprisGroupType_setattr):
+	* src/boards/py-gcompris-user.c:
+	(gcompris_new_pyGcomprisUserObject), (pyGcomprisUserType_dealloc),
+	(pyGcomprisUserType_getattr), (pyGcomprisUserType_setattr):
+	* src/boards/py-mod-admin.c: (py_board_run_next),
+	(py_board_config_start), (py_board_config_stop),
+	(py_gcompris_get_boards_list), (py_gcompris_set_board_conf),
+	(py_gcompris_get_profile_from_id), (py_gcompris_get_board_from_id),
+	(py_gcompris_get_group_from_id), (py_gcompris_get_user_from_id),
+	(py_gcompris_get_class_from_id), (py_gcompris_get_profiles_list),
+	(py_gcompris_get_users_list), (py_gcompris_get_groups_list),
+	(py_gcompris_get_classes_list),
+	(python_gcompris_admin_module_init):
+	* src/boards/py-mod-admin.h:
+	* src/boards/py-mod-gcompris.c: (py_gcompris_get_board_conf),
+	(py_gcompris_get_current_profile), (py_gcompris_get_current_user),
+	(python_gcompris_module_init):
+	* src/boards/python/gcompris/Makefile.am:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/gcompris_db.c: (gcompris_load_menus_db),
+	(gcompris_get_profile_from_id), (gcompris_db_get_profile),
+	(gcompris_get_class_from_id), (gcompris_get_board_conf),
+	(gcompris_get_profiles_list), (gcompris_get_group_from_id),
+	(gcompris_get_groups_list), (gcompris_get_board_from_id),
+	(gcompris_get_users_list), (gcompris_get_classes_list):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/profile.c: (gcompris_get_current_profile),
+	(gcompris_set_current_user), (gcompris_get_current_user):
+	* src/gcompris/profile.h:
+
 2005-07-13  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Reworked the class module to use a single canvas item

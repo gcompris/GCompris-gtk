@@ -14,6 +14,7 @@
 #include "py-mod-timer.h"
 #include "py-mod-utils.h"
 #include "py-mod-anim.h"
+#include "py-mod-admin.h"
 
 /* All functions provided by this python module
  * wraps a gcompris function. Each "py_*" function wraps the
@@ -622,23 +623,6 @@ py_gcompris_get_properties(PyObject* self, PyObject* args)
 }
 
 
-/* GcomprisProfile *gcompris_get_profile(void); */
-static PyObject*
-py_gcompris_get_profile(PyObject* self, PyObject* args)
-{
-  GcomprisProfile* result;
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris_get_profile"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  result = gcompris_get_profile();
-
-  /* Create and return the result */
-  return gcompris_new_pyGcomprisProfileObject(result);
-}
-
-
 /* Code stolen from PyGTK */
 /* This bindings are available only in pygtk 2.6, a little bit too young for us. */
 
@@ -879,91 +863,10 @@ py_gcompris_spawn_async(PyObject *unused, PyObject *args, PyObject *kwargs)
 }
 
 
-static PyObject*
-py_board_run_next(PyObject* self, PyObject* args)
-{
-  PyObject* pyObject;
-  pyGcomprisBoardObject* pyGcomprisBoard;
-  GcomprisBoard* cGcomprisBoard;
+/*
+  { "",  py_gcompris_, METH_VARARGS, "gcompris_" },
+*/
 
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:board_run_next", &pyObject))
-    return NULL;
-  pyGcomprisBoard = (pyGcomprisBoardObject*) pyObject;
-  cGcomprisBoard = pyGcomprisBoard->cdata;
-
-  /* Call the corresponding C function */
-  board_run_next(cGcomprisBoard);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-
-}
-
-static PyObject*
-py_board_config_start(PyObject* self, PyObject* args)
-{
-  PyObject* pyBoard;
-  PyObject* pyCanvasGroup;
-  pyGcomprisBoardObject* pyGcomprisBoard;
-  GcomprisBoard* cGcomprisBoard;
-  GnomeCanvasGroup *canvasgroup;
-  int x, y, width, height;
-  
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OOiiii:board_config_start", &pyBoard,
-		       &pyCanvasGroup, &x, &y, &width, &height))
-    return NULL;
-  pyGcomprisBoard = (pyGcomprisBoardObject*) pyBoard;
-  cGcomprisBoard = pyGcomprisBoard->cdata;
-  canvasgroup = (GnomeCanvasGroup*) pygobject_get(pyCanvasGroup);
-
-  /* Call the corresponding C function */
-  board_config_start(cGcomprisBoard, canvasgroup, x, y, width, height);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-static PyObject*
-py_board_config_stop(PyObject* self, PyObject* args)
-{
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris.board_config_stop"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  board_config_stop();
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-static PyObject*
-py_gcompris_get_boards_list(PyObject* self, PyObject* args)
-{
-  GList *boards_list;
-  GList *list;
-  PyObject *pylist;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris.get_boards_list"))
-    return NULL;
-
-  /* Call the corresponding C function */
-  boards_list = gcompris_get_boards_list();
-
-  pylist = PyList_New(0);
-  for (list = boards_list; list != NULL; list = list->next){
-    PyList_Append(pylist, gcompris_new_pyGcomprisBoardObject((GcomprisBoard*) list->data));
-  }
-  /* Create and return the result */
-  return pylist;;
-}
 
 static PyObject*
 py_gcompris_get_board_conf(PyObject* self, PyObject* args)
@@ -975,7 +878,7 @@ py_gcompris_get_board_conf(PyObject* self, PyObject* args)
   GcomprisConfPair *pair;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, ":gcompris.get_boards_list"))
+  if(!PyArg_ParseTuple(args, ":gcompris.get_board_conf"))
     return NULL;
 
   /* Call the corresponding C function */
@@ -998,9 +901,39 @@ py_gcompris_get_board_conf(PyObject* self, PyObject* args)
   return pydict;;
 }
 
-/*
-  { "",  py_gcompris_, METH_VARARGS, "gcompris_" },
-*/
+
+/* GcomprisProfile *gcompris_get_current_profile(void); */
+static PyObject*
+py_gcompris_get_current_profile(PyObject* self, PyObject* args)
+{
+  GcomprisProfile* result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_get_current_profile"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gcompris_get_current_profile();
+
+  /* Create and return the result */
+  return gcompris_new_pyGcomprisProfileObject(result);
+}
+
+
+/* GcomprisUser *gcompris_get_current_user(void); */
+static PyObject*
+py_gcompris_get_current_user(PyObject* self, PyObject* args)
+{
+  GcomprisUser* result;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_get_current_user"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gcompris_get_current_user();
+
+  /* Create and return the result */
+  return gcompris_new_pyGcomprisUserObject(result);
+}
 
 
 
@@ -1043,12 +976,9 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_properties",  py_gcompris_get_properties, METH_VARARGS, "gcompris_get_properties" },
   { "spawn_async",  py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
   { "child_watch_add",  py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
-  { "board_run_next",  py_board_run_next, METH_VARARGS, "board_run_next" },
-  { "board_config_start",  py_board_config_start, METH_VARARGS, "board_config_start" },
-  { "board_config_stop",  py_board_config_stop, METH_VARARGS, "board_config_stop" },
-  { "get_boards_list",  py_gcompris_get_boards_list, METH_VARARGS, "gcompris_get_boards_list" },
-  { "get_profile",  py_gcompris_get_profile, METH_VARARGS, "gcompris_get_profile" },
   { "get_board_conf",  py_gcompris_get_board_conf, METH_VARARGS, "gcompris_get_board_conf" },
+  { "get_current_profile",  py_gcompris_get_current_profile, METH_VARARGS, "gcompris_get_current_profile" },
+  { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },
   { NULL, NULL, 0, NULL}
 };
 
@@ -1129,6 +1059,9 @@ void python_gcompris_module_init(void)
   python_gcompris_timer_module_init();
   python_gcompris_utils_module_init();
   python_gcompris_anim_module_init();
+  printf("python_gcompris_admin_module_init \n");
+  python_gcompris_admin_module_init();
+  printf("python_gcompris_admin_module_init END\n");
 }
 
 /* Some usefull code parts ... */

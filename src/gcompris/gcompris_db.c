@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/10 22:38:11 yves>
+ * Time-stamp: <2005/07/18 15:19:39 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -487,47 +487,47 @@ GList *gcompris_load_menus_db(GList *boards_list)
   i = ncolumn;
   
   while (i < (nrow +1)*ncolumn) {
-  GcomprisBoard *gcomprisBoard = NULL;
+    GcomprisBoard *gcomprisBoard = NULL;
 
-  gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
-
-  gcomprisBoard->plugin=NULL;
-  gcomprisBoard->previous_board=NULL;
-  gcomprisBoard->board_ready=FALSE;
-  gcomprisBoard->canvas=canvas;
-
-  gcomprisBoard->gmodule      = NULL;
-  gcomprisBoard->gmodule_file = NULL;
-
-  /* From DB we have only package_data_dir. */
-  gcomprisBoard->board_dir = properties->package_data_dir;
-
-  /* Fixed since I use the canvas own pixel_per_unit scheme */
-  gcomprisBoard->width  = BOARDWIDTH;
-  gcomprisBoard->height = BOARDHEIGHT;
-
-
-  gcomprisBoard->board_id = atoi(result[i++]);
-  gcomprisBoard->name = g_strdup(result[i++]);
-  gcomprisBoard->section_id = atoi(result[i++]);
-  gcomprisBoard->section = g_strdup(result[i++]);
-  gcomprisBoard->author = g_strdup(result[i++]);
-  gcomprisBoard->type = g_strdup(result[i++]);
-  gcomprisBoard->mode = g_strdup(result[i++]);
-  gcomprisBoard->difficulty = g_strdup(result[i++]);
-  gcomprisBoard->icon_name = g_strdup(result[i++]);
-  gcomprisBoard->boarddir = g_strdup(result[i++]);
-  gcomprisBoard->mandatory_sound_file = g_strdup(result[i++]);
-  gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
-  gcomprisBoard->filename = g_strdup(result[i++]);
-  gcomprisBoard->title =  reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->prerequisite = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
-
-  boards = g_list_append(boards, gcomprisBoard);
+    gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
+    
+    gcomprisBoard->plugin=NULL;
+    gcomprisBoard->previous_board=NULL;
+    gcomprisBoard->board_ready=FALSE;
+    gcomprisBoard->canvas=canvas;
+    
+    gcomprisBoard->gmodule      = NULL;
+    gcomprisBoard->gmodule_file = NULL;
+    
+    /* From DB we have only package_data_dir. */
+    gcomprisBoard->board_dir = properties->package_data_dir;
+    
+    /* Fixed since I use the canvas own pixel_per_unit scheme */
+    gcomprisBoard->width  = BOARDWIDTH;
+    gcomprisBoard->height = BOARDHEIGHT;
+    
+    
+    gcomprisBoard->board_id = atoi(result[i++]);
+    gcomprisBoard->name = g_strdup(result[i++]);
+    gcomprisBoard->section_id = atoi(result[i++]);
+    gcomprisBoard->section = g_strdup(result[i++]);
+    gcomprisBoard->author = g_strdup(result[i++]);
+    gcomprisBoard->type = g_strdup(result[i++]);
+    gcomprisBoard->mode = g_strdup(result[i++]);
+    gcomprisBoard->difficulty = g_strdup(result[i++]);
+    gcomprisBoard->icon_name = g_strdup(result[i++]);
+    gcomprisBoard->boarddir = g_strdup(result[i++]);
+    gcomprisBoard->mandatory_sound_file = g_strdup(result[i++]);
+    gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
+    gcomprisBoard->filename = g_strdup(result[i++]);
+    gcomprisBoard->title =  reactivate_newline(gettext(result[i++]));
+    gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
+    gcomprisBoard->prerequisite = reactivate_newline(gettext(result[i++]));
+    gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
+    gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
+    gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
+    
+    boards = g_list_append(boards, gcomprisBoard);
   } 
 
   sqlite3_free_table(result);
@@ -661,8 +661,6 @@ void gcompris_db_remove_board(int board_id)
 #endif
 }
 
-#define GET_ACTIVE_PROFILE_ID \
-        "SELECT profile_id FROM informations;"
 
 #define GET_PROFILE(n) \
         "SELECT profile_name, profile_directory, description FROM profiles WHERE profile_id=%d;",n
@@ -673,10 +671,10 @@ void gcompris_db_remove_board(int board_id)
 #define GET_ACTIVITIES_OUT_OF_PROFILE(n) \
         "SELECT board_id FROM activities_out WHERE out_id=%d;",n
 
-GcomprisProfile *gcompris_db_get_profile()
+GcomprisProfile *gcompris_get_profile_from_id(gint profile_id)
 {
 #ifdef USE_SQLITE
-  GcomprisProfile *profile = g_malloc0(sizeof(GcomprisProfile));
+  GcomprisProfile *profile = NULL;
 
   char *zErrMsg;
   char **result;
@@ -687,6 +685,118 @@ GcomprisProfile *gcompris_db_get_profile()
 
   int i;
   GList *ids;
+  /* get section_id */
+  request = g_strdup_printf(GET_PROFILE(profile_id));
+
+  
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  
+  if (nrow != 0){
+    profile = g_malloc0(sizeof(GcomprisProfile));
+
+    profile->profile_id = profile_id; 
+
+    
+    profile->name = g_strdup(result[3]);
+    profile->directory = g_strdup(result[4]);
+    profile->description = g_strdup(result[5]);
+    
+    g_free(request);
+    
+    request = g_strdup_printf(GET_GROUPS_IN_PROFILE(profile->profile_id));
+
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			 );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    g_free(request);
+    
+    if (nrow == 0){
+      g_warning(_("No users groups for profile %s"), profile->name);
+      profile->group_ids = NULL;
+    } else {
+      ids = NULL;
+      
+      i = ncolumn;
+      while (i < (nrow +1)*ncolumn) {
+	int *group_id = g_malloc(sizeof(int));
+	
+	*group_id = atoi(result[i++]);
+	ids = g_list_append(ids, group_id);
+      }
+      profile->group_ids = ids;
+    }
+
+    request = g_strdup_printf(GET_ACTIVITIES_OUT_OF_PROFILE(profile->profile_id));
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    
+    g_free(request);
+    
+    if (nrow == 0){
+      g_warning(_("No activities out for profile %s"), profile->name);
+      profile->activities = NULL;
+    } else {
+      ids = NULL;
+      
+      i = ncolumn;
+      while (i < (nrow +1)*ncolumn) {
+	int *board_id = g_malloc(sizeof(int));
+	
+	*board_id = atoi(result[i++]);
+	ids = g_list_append(ids, board_id);
+      }
+      profile->activities = ids;
+    }
+  }
+
+  return profile;
+#else
+  return NULL;
+#endif
+}
+
+#define GET_ACTIVE_PROFILE_ID \
+        "SELECT profile_id FROM informations;"
+
+GcomprisProfile *gcompris_db_get_profile()
+{
+#ifdef USE_SQLITE
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  int profile_id;
 
   rc = sqlite3_get_table(gcompris_db, 
 			 GET_ACTIVE_PROFILE_ID,  
@@ -700,96 +810,10 @@ GcomprisProfile *gcompris_db_get_profile()
     g_error("SQL error: %s\n", zErrMsg);
   }
 
-  profile->profile_id = atoi(result[1]); 
+  profile_id = atoi(result[1]); 
 
-  /* get section_id */
-  request = g_strdup_printf(GET_PROFILE(profile->profile_id));
+  return gcompris_get_profile_from_id(profile_id);
 
-  
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
-			 &result,
-			 &nrow,
-			 &ncolumn,
-			 &zErrMsg
-			 );
-  
-  if( rc!=SQLITE_OK ){
-    g_error("SQL error: %s\n", zErrMsg);
-  }
-  
-  profile->name = g_strdup(result[3]);
-  profile->directory = g_strdup(result[4]);
-  profile->description = g_strdup(result[5]);
-  
-  g_free(request);
-
-  request = g_strdup_printf(GET_GROUPS_IN_PROFILE(profile->profile_id));
-
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
-			 &result,
-			 &nrow,
-			 &ncolumn,
-			 &zErrMsg
-			 );
-  
-  if( rc!=SQLITE_OK ){
-    g_error("SQL error: %s\n", zErrMsg);
-  }
-
-  g_free(request);
-
-  if (nrow == 0){
-    g_warning(_("No users groups for profile %s"), profile->name);
-    profile->group_ids = NULL;
-  } else {
-    ids = NULL;
-
-    i = ncolumn;
-    while (i < (nrow +1)*ncolumn) {
-      int *group_id = g_malloc(sizeof(int));
-
-      *group_id = atoi(result[i++]);
-      ids = g_list_append(ids, group_id);
-    }
-    profile->group_ids = ids;
-  }
-
-  request = g_strdup_printf(GET_ACTIVITIES_OUT_OF_PROFILE(profile->profile_id));
-  rc = sqlite3_get_table(gcompris_db, 
-			 request,  
-			 &result,
-			 &nrow,
-			 &ncolumn,
-			 &zErrMsg
-			 );
-  
-  if( rc!=SQLITE_OK ){
-    g_error("SQL error: %s\n", zErrMsg);
-  }
-
-  g_free(request);
-
-  if (nrow == 0){
-    g_warning(_("No activities out for profile %s"), profile->name);
-    profile->activities = NULL;
-  } else {
-    ids = NULL;
-
-    i = ncolumn;
-    while (i < (nrow +1)*ncolumn) {
-      int *board_id = g_malloc(sizeof(int));
-
-      *board_id = atoi(result[i++]);
-      ids = g_list_append(ids, board_id);
-    }
-    profile->activities = ids;
-  }
-
-
-  return profile;
-    
 #else
   return NULL;
 #endif
@@ -977,7 +1001,8 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
 
   if (nrow == 0){
     g_error(_("No groups in for class %s, there must be at least one for whole class (%d)"), class_id, class->wholegroup_id);
-    class->class_id = NULL;
+    g_free(class);
+    class = NULL;
   } else {
 
     i = ncolumn;
@@ -1092,7 +1117,7 @@ GList *gcompris_get_board_conf()
 
   GList *list_conf = NULL;
 
-  request = g_strdup_printf(GET_CONF(gcompris_get_profile()->profile_id, 
+  request = g_strdup_printf(GET_CONF(gcompris_get_current_profile()->profile_id, 
 				     get_current_gcompris_board()->board_id));
   
   rc = sqlite3_get_table(gcompris_db, 
@@ -1106,24 +1131,211 @@ GList *gcompris_get_board_conf()
   if( rc!=SQLITE_OK ){
     g_error("SQL error: %s\n", zErrMsg);
   }
-  
-  i = ncolumn;
-
-  while (i < (nrow +1)*ncolumn){
-    GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
-
-    pair->key = g_strdup(result[i++]);
-    pair->value = g_strdup(result[i++]);
-
-    list_conf = g_list_append(list_conf, pair);
-  }
 
   g_free(request);
   
+  i = ncolumn;
+
+  if (nrow != 0){
+    while (i < (nrow +1)*ncolumn){
+      GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
+      
+      pair->key = g_strdup(result[i++]);
+      pair->value = g_strdup(result[i++]);
+      
+      list_conf = g_list_append(list_conf, pair);
+    }
+  } else {
+    /* Get default profile if nothing in gcompris_get_current_profile() */
+    request = g_strdup_printf(GET_CONF( 1, 
+				       get_current_gcompris_board()->board_id));
+  
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+  
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    g_free(request);
+  
+    i = ncolumn;
+
+    if (nrow != 0){
+      while (i < (nrow +1)*ncolumn){
+	GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
+      
+	pair->key = g_strdup(result[i++]);
+	pair->value = g_strdup(result[i++]);
+	
+	list_conf = g_list_append(list_conf, pair);
+      }
+      
+    }
+  } 
+
   return list_conf;
 
 }
 
+#define GET_ALL_PROFILES \
+        "SELECT profile_id, profile_name, profile_directory, description FROM profiles;"
+
+
+GList *gcompris_get_profiles_list()
+{
+#ifdef USE_SQLITE
+
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  int i;
+  GList *profiles_list;
+
+  char **result_;
+  int nrow_;
+  int ncolumn_;
+
+  int i_;
+  GList *ids_;
+
+  
+  rc = sqlite3_get_table(gcompris_db, 
+			 GET_ALL_PROFILES,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  if (nrow == 0)
+    return NULL;
+  
+  i = ncolumn;
+  while (i < (nrow +1)*ncolumn) {
+    GcomprisProfile *profile = g_malloc0(sizeof(GcomprisProfile));
+
+    profile->profile_id = atoi(result[i++]); 
+    
+    profile->name = g_strdup(result[i++]);
+    profile->directory = g_strdup(result[i++]);
+    profile->description = g_strdup(result[i++]);
+    
+    request = g_strdup_printf(GET_GROUPS_IN_PROFILE(profile->profile_id));
+
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result_,
+			   &nrow_,
+			   &ncolumn_,
+			   &zErrMsg
+			 );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    g_free(request);
+    
+    if (nrow_ == 0){
+      g_warning(_("No users groups for profile %s"), profile->name);
+      profile->group_ids = NULL;
+    } else {
+      ids_ = NULL;
+      
+      i_ = ncolumn_;
+      while (i_ < (nrow_ +1)*ncolumn_) {
+	int *group_id = g_malloc(sizeof(int));
+	
+	*group_id = atoi(result_[i_++]);
+	ids_ = g_list_append(ids_, group_id);
+      }
+      profile->group_ids = ids_;
+    }
+
+    sqlite3_free_table(result_);
+
+    request = g_strdup_printf(GET_ACTIVITIES_OUT_OF_PROFILE(profile->profile_id));
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result_,
+			   &nrow_,
+			   &ncolumn_,
+			   &zErrMsg
+			   );
+    
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    
+    g_free(request);
+    
+    if (nrow_ == 0){
+      g_warning(_("No activities out for profile %s"), profile->name);
+      profile->activities = NULL;
+    } else {
+      ids_ = NULL;
+      
+      i_ = ncolumn_;
+      while (i_ < (nrow_ +1)*ncolumn_) {
+	int *board_id = g_malloc(sizeof(int));
+	
+	*board_id = atoi(result_[i_++]);
+	ids_ = g_list_append(ids_, board_id);
+      }
+      profile->activities = ids_;
+    }
+
+  sqlite3_free_table(result_);  
+  profiles_list = g_list_append( profiles_list, profile);
+  }  
+
+  sqlite3_free_table(result);  
+  
+  return profiles_list;
+#else
+  return NULL;
+#endif
+}
+
+GcomprisGroup *gcompris_get_group_from_id(int group_id)
+{
+  return NULL;
+}
+
+GList *gcompris_get_groups_list()
+{
+  return NULL;
+}
+
+GcomprisBoard *gcompris_get_board_from_id(int board_id)
+{
+  return NULL;
+}
+
+GList *gcompris_get_users_list()
+{
+  return NULL;
+}
+
+GList *gcompris_get_classes_list()
+{
+  return NULL;
+}
 
 /* Local Variables: */
 /* mode:c */

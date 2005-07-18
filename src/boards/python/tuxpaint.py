@@ -23,7 +23,9 @@ import gcompris.utils
 import gcompris.bonus
 import gcompris.skin
 import gcompris.sound
+import gcompris.admin
 import gtk
+import os
 
 #import gobject
 from gettext import gettext as _
@@ -39,16 +41,13 @@ class Gcompris_tuxpaint:
     pass
     
   def start(self):
+    line = os.sys.stdin.readline()
+    while (len(line) >1):
+      exec(line)
+      line = os.sys.stdin.readline()
+
     Prop = gcompris.get_properties()
-
-    Prof = gcompris.get_profile()
-
-    print Prof.profile_id, Prof.name, Prof.description, Prof.group_ids, Prof.activities
-
-    dict = gcompris.get_board_conf()
-
-    print dict
-
+    
     self.rootitem = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
       x=0.0,

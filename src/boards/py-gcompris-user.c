@@ -1,0 +1,95 @@
+#include "py-gcompris-profile.h"
+#include <pygobject.h>
+
+staticforward PyTypeObject pyGcomprisUserType;
+
+//static char pyGcomprisUserType_doc[]= "Python GcomprisBoars structure binding";
+
+
+/* Special function created for the python plugin to be able to create
+ * a pyGcomprisBoardObject form the existing GcomprisBoard structure
+ */
+PyObject* 
+gcompris_new_pyGcomprisUserObject(GcomprisUser* user)
+{
+  pyGcomprisUserObject* theuser = NULL;
+
+  theuser = PyObject_New(pyGcomprisUserObject, &pyGcomprisUserType);
+  if (theuser!=NULL)
+    theuser->cdata = user;
+
+  return (PyObject*)theuser;
+}
+
+
+/* Free the python gcompris user */
+static void 
+pyGcomprisUserType_dealloc(pyGcomprisUserObject *self)
+{
+  self->cdata = NULL;
+  PyObject_DEL(self);
+}
+                       
+
+/* Methods defined in the pyGcomprisUser class */
+static PyMethodDef pyGcomprisUserType_methods[] = {
+        {NULL,          NULL}           /* sentinel */
+};
+ 
+
+/* Return the value of the members contained in the GcomprisUser structure */
+static PyObject *
+pyGcomprisUserType_getattr(pyGcomprisUserObject *self, char *name)
+{
+    /* int */
+    if(strcmp(name,"user_id")==0) return Py_BuildValue("i", self->cdata->user_id);
+    /* int */
+    if(strcmp(name,"class_id")==0) return Py_BuildValue("i", self->cdata->class_id);
+    /* str */
+    if(strcmp(name,"lastname")==0) return Py_BuildValue("s", self->cdata->lastname);
+    /* str */
+    if(strcmp(name,"firstname")==0) return Py_BuildValue("s", self->cdata->firstname);
+    /* str */
+    if(strcmp(name,"birthdate")==0) return Py_BuildValue("s", self->cdata->birthdate);
+
+  return Py_FindMethod(pyGcomprisUserType_methods, (PyObject *)self, name);
+}
+
+/* Set the value of a GcomprisUser structure member */
+static int
+pyGcomprisUserType_setattr(pyGcomprisUserObject *self, char *name, PyObject *v)
+{
+  int value;
+  
+  if (self->cdata==NULL) return -1;
+  if (v==NULL) return -1;
+
+  /*  if (strcmp(name,"level")==0){
+    value = (int) PyInt_AsLong(v);
+    if ( value < 0 ) return -1;
+    self->cdata->level=value;
+    return 0;
+    } */
+  /* members are supposed to be read only */
+
+  return -1;
+}
+                                                                                
+static PyTypeObject pyGcomprisUserType = {
+  PyObject_HEAD_INIT(&PyType_Type)
+  0,                                        /*ob_size*/
+  "pyGcomprisUser",                        /*tp_name*/
+  sizeof(pyGcomprisUserObject),            /*tp_basicsize*/
+  0,                                        /*tp_itemsize*/
+  /* methods */
+  (destructor)pyGcomprisUserType_dealloc,  /*tp_dealloc*/
+  0,                                        /*tp_print*/
+  (getattrfunc)pyGcomprisUserType_getattr, /*tp_getattr*/
+  (setattrfunc)pyGcomprisUserType_setattr, /*tp_setattr*/
+  0,                                        /*tp_compare*/
+  0,                                        /*tp_repr*/
+  0,                                        /*tp_as_number*/
+  0,                                        /*tp_as_sequence*/
+  0,                                        /*tp_as_mapping*/
+  0,                                        /*tp_hash*/
+};

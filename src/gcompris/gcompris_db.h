@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/07/10 21:38:48 yves>
+ * Time-stamp: <2005/07/11 22:39:57 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -71,14 +71,25 @@ GList *gcompris_db_get_board_id(GList *list);
 
 void gcompris_db_remove_board(int board_id);
 
+GcomprisProfile *gcompris_get_profile_from_id(gint profile_id);
+
+GList *gcompris_get_profiles_list();
+
+GcomprisClass *gcompris_get_class_from_id(gint class_id);
+
+GList *gcompris_get_classes_list();
+
+GcomprisGroup *gcompris_get_group_from_id(gint group_id);
+
+GList *gcompris_get_groups_list();
+
+GcomprisUser *gcompris_get_user_from_id(gint user_id);
+
+GList *gcompris_get_users_list();
 
 GcomprisProfile *gcompris_db_get_profile();
 
 GList *gcompris_get_users_from_group(gint group_id);
-
-GcomprisClass *gcompris_get_class_from_id(gint class_id);
-
-GcomprisUser *gcompris_get_user_from_id(gint user_id);
 
 void gcompris_set_board_conf(GcomprisProfile *profile, 
 			     GcomprisBoard  *board, 

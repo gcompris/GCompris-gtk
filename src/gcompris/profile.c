@@ -1,6 +1,6 @@
 /* gcompris - profile.c
  *
- * Time-stamp: <2005/07/09 00:07:06 yves>
+ * Time-stamp: <2005/07/11 13:18:11 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -29,7 +29,7 @@ static GcomprisProfile        *gcompris_profile = NULL;
 static GcomprisUser           *gcompris_logged_user = NULL;
 
 
-GcomprisProfile       *gcompris_get_profile()
+GcomprisProfile       *gcompris_get_current_profile()
 {
 
   if (gcompris_profile)
@@ -41,14 +41,14 @@ GcomprisProfile       *gcompris_get_profile()
 
 }
 
-/* list of Gcomprisusers */
-void                    *gcompris_set_user(GcomprisUser *user)
+
+void                    *gcompris_set_current_user(GcomprisUser *user)
 {
   gcompris_logged_user = user;
 }
 
 
-GcomprisUser            *gcompris_get_user()
+GcomprisUser            *gcompris_get_current_user()
 {
   return gcompris_logged_user;
 }
