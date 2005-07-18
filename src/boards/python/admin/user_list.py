@@ -29,6 +29,8 @@ from gettext import gettext as _
 # Database
 from pysqlite2 import dbapi2 as sqlite
 
+import constants
+
 # User Management
 (
   COLUMN_USERID,
@@ -158,6 +160,8 @@ class User_list:
 
 
   def __add_columns(self, treeview):
+
+    # Total column lengh must be 400
     
     model = treeview.get_model()
 
@@ -169,6 +173,8 @@ class User_list:
                                 text=COLUMN_LOGIN,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_LOGIN)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_LOGIN)
     treeview.append_column(column)
 
     # columns for first name
@@ -179,6 +185,8 @@ class User_list:
                                 text=COLUMN_FIRSTNAME,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_FIRSTNAME)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED) 
+    column.set_fixed_width(constants.COLUMN_WIDTH_FIRSTNAME)
     treeview.append_column(column)
 
     # column for last name
@@ -189,6 +197,8 @@ class User_list:
                                 text=COLUMN_LASTNAME,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_LASTNAME)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_LASTNAME)
     treeview.append_column(column)
 
     # column for birth date
@@ -199,6 +209,8 @@ class User_list:
                                 text=COLUMN_BIRTHDATE,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_BIRTHDATE)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)
     treeview.append_column(column)
 
 

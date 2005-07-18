@@ -99,7 +99,6 @@ void init_plugins(void)
   static_boards_demo[i++] = get_erase_bplugin_info();
   static_boards_demo[i++] = get_gletters_bplugin_info();
   static_boards_demo[i++] = get_hanoi_bplugin_info();
-  static_boards_demo[i++] = get_menu_bplugin_info();
   static_boards_demo[i++] = get_reading_bplugin_info();
   static_boards_demo[i++] = get_submarine_bplugin_info();
   static_boards_demo[i++] = get_superbrain_bplugin_info();

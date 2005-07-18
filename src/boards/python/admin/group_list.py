@@ -33,6 +33,8 @@ from pysqlite2 import dbapi2 as sqlite
 import group_user_list
 import group_edit
 
+import constants
+
 # Group Management
 (
   COLUMN_GROUPID,
@@ -224,6 +226,8 @@ class Group_list:
                                 text=COLUMN_NAME,
                                 editable=COLUMN_GROUP_EDITABLE)
     column.set_sort_column_id(COLUMN_NAME)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_GROUPNAME)
     treeview.append_column(column)
 
     # columns for description
@@ -234,6 +238,8 @@ class Group_list:
                                 text=COLUMN_DESCRIPTION,
                                 editable=COLUMN_GROUP_EDITABLE)
     column.set_sort_column_id(COLUMN_DESCRIPTION)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_GROUPDESCRIPTION)
     treeview.append_column(column)
 
 

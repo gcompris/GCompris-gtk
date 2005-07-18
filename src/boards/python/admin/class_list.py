@@ -30,6 +30,8 @@ from gettext import gettext as _
 # Database
 from pysqlite2 import dbapi2 as sqlite
 
+import constants
+
 import class_edit
 import user_list
 
@@ -176,6 +178,8 @@ class Class_list:
     
     model = treeview.get_model()
 
+    # Total column length must be 400
+
     # columns for name
     renderer = gtk.CellRendererText()
     renderer.connect("edited", self.on_cell_class_edited, model)
@@ -184,9 +188,11 @@ class Class_list:
                                 text=COLUMN_NAME,
                                 editable=COLUMN_CLASS_EDITABLE)
     column.set_sort_column_id(COLUMN_NAME)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_CLASSNAME)
     treeview.append_column(column)
 
-    # columns for first name
+    # columns for teacher
     renderer = gtk.CellRendererText()
     renderer.connect("edited", self.on_cell_class_edited, model)
     renderer.set_data("column", COLUMN_TEACHER)
@@ -194,6 +200,8 @@ class Class_list:
                                 text=COLUMN_TEACHER,
                                 editable=COLUMN_CLASS_EDITABLE)
     column.set_sort_column_id(COLUMN_TEACHER)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_TEACHER)
     treeview.append_column(column)
 
 

@@ -27,6 +27,8 @@ import gtk.gdk
 import gobject
 from gettext import gettext as _
 
+import constants
+
 # Database
 from pysqlite2 import dbapi2 as sqlite
 
@@ -141,6 +143,8 @@ class Group_user_list:
     
     model = treeview.get_model()
 
+    # Total column lengh must be 400
+    
     # columns for login
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LOGIN)
@@ -148,6 +152,8 @@ class Group_user_list:
                                 text=COLUMN_LOGIN,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_LOGIN)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_LOGIN)
     treeview.append_column(column)
 
     # columns for first name
@@ -157,6 +163,8 @@ class Group_user_list:
                                 text=COLUMN_FIRSTNAME,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_FIRSTNAME)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_FIRSTNAME)
     treeview.append_column(column)
 
     # column for last name
@@ -166,6 +174,8 @@ class Group_user_list:
                                 text=COLUMN_LASTNAME,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_LASTNAME)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_LASTNAME)
     treeview.append_column(column)
 
     # column for birth date
@@ -175,6 +185,8 @@ class Group_user_list:
                                 text=COLUMN_BIRTHDATE,
                                 editable=COLUMN_USER_EDITABLE)
     column.set_sort_column_id(COLUMN_BIRTHDATE)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)
     treeview.append_column(column)
 
 

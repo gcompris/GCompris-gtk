@@ -1,3 +1,20 @@
+2005-07-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved the gcompris editor. Now columns are of fixed size which
+	makes the UI cleaner.
+	Implemented the multiselection support in edit dialog.
+	Implemented the remove button in the edit dialog.
+
+	* po/POTFILES.in:
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/constants.py:
+	* src/boards/python/admin/group_edit.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/group_user_list.py:
+	* src/boards/python/admin/user_list.py:
+	* src/gcompris/board.c: (init_plugins):
+
 2005-07-18  Yves Combe  <yves@ycombe.net>
 
 	add missing files.

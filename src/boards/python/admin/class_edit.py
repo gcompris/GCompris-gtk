@@ -25,6 +25,8 @@ from gettext import gettext as _
 # Database
 from pysqlite2 import dbapi2 as sqlite
 
+import constants
+
 # User List Management
 (
   COLUMN_USERID,
@@ -80,6 +82,7 @@ class ClassEdit(gtk.Window):
         treeview = gtk.TreeView(self.model_left)
         treeview.set_rules_hint(True)
         treeview.set_search_column(COLUMN_FIRSTNAME)
+        treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
         sw.add(treeview)
         
@@ -95,9 +98,12 @@ class ClassEdit(gtk.Window):
         vbox2.set_border_width(8)
         hbox.pack_start(vbox2, True, True, 0)
 
-        button_add = gtk.Button(_("Add user >"))
-        vbox2.pack_start(button_add, False, False, 0)
+        button_add = gtk.Button(stock='gtk-add')
         button_add.connect("clicked", self.add_user, treeview)
+        vbox2.pack_start(button_add, False, False, 0)
+
+        button_delete = gtk.Button(stock='gtk-delete')
+        vbox2.pack_start(button_delete, False, False, 0)
 
         # Right List
         # ----------
@@ -114,6 +120,7 @@ class ClassEdit(gtk.Window):
         treeview2 = gtk.TreeView(self.model_right)
         treeview2.set_rules_hint(True)
         treeview2.set_search_column(COLUMN_FIRSTNAME)
+        treeview2.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
         sw2.add(treeview2)
         
@@ -140,6 +147,9 @@ class ClassEdit(gtk.Window):
 
         vbox.pack_start(bbox, False, False, 0)
         
+        # Missing callbacks
+        button_delete.connect("clicked", self.remove_user, treeview2)
+
         # Ready GO
         self.show_all()
 
@@ -192,6 +202,8 @@ class ClassEdit(gtk.Window):
                                     text=COLUMN_FIRSTNAME,
                                     editable=COLUMN_USER_EDITABLE)
         column.set_sort_column_id(COLUMN_FIRSTNAME)
+        column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        column.set_fixed_width(constants.COLUMN_WIDTH_FIRSTNAME)
         treeview.append_column(column)
 
         # column for last name
@@ -201,16 +213,20 @@ class ClassEdit(gtk.Window):
                                     text=COLUMN_LASTNAME,
                                     editable=COLUMN_USER_EDITABLE)
         column.set_sort_column_id(COLUMN_LASTNAME)
+        column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        column.set_fixed_width(constants.COLUMN_WIDTH_LASTNAME)
         treeview.append_column(column)
 
 
     # Add a user from the left list to the right list
     #
     def add_user(self, button, treeview):
-        selection = treeview.get_selection()
-        model, iter = selection.get_selected()
-
-        if iter:
+        model = treeview.get_model()
+        treestore, paths = treeview.get_selection().get_selected_rows()
+        paths.reverse()
+        
+        for path in paths:
+            iter = treestore.get_iter(path)
             path = model.get_path(iter)[0]
             user_id        = model.get_value(iter, COLUMN_USERID)
             user_firstname = model.get_value(iter, COLUMN_FIRSTNAME)
@@ -222,6 +238,28 @@ class ClassEdit(gtk.Window):
             
             # Save the change in the base
             self.cur.execute('update users set class_id=? where user_id=?', (self.class_id, user_id))
+            self.con.commit()
+
+    # Remove a user from the right list to the left list
+    #
+    def remove_user(self, button, treeview):
+        model = treeview.get_model()
+        treestore, paths = treeview.get_selection().get_selected_rows()
+        paths.reverse()
+        
+        for path in paths:
+            iter = treestore.get_iter(path)
+            path = model.get_path(iter)[0]
+            user_id        = model.get_value(iter, COLUMN_USERID)
+            user_firstname = model.get_value(iter, COLUMN_FIRSTNAME)
+            user_lastname  = model.get_value(iter, COLUMN_LASTNAME)
+            model.remove(iter)
+
+            # Add in the the left view
+            self.add_user_in_model(self.model_left, (user_id, user_firstname, user_lastname))
+            
+            # Save the change in the base (set an impossible class_id)
+            self.cur.execute('update users set class_id=? where user_id=?', (-1, user_id))
             self.con.commit()
 
 
