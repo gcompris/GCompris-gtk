@@ -22,6 +22,7 @@ import gnome.canvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
+import gcompris.admin
 import gtk
 import gtk.gdk
 import gobject
@@ -194,7 +195,7 @@ class Board_list:
       gobject.TYPE_STRING
       )
 
-    boards_list = gcompris.get_boards_list()
+    boards_list = gcompris.admin.get_boards_list()
     self.add_boards_in_model(model, boards_list)
 
     return model

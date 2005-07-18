@@ -22,6 +22,7 @@ import gnome.canvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
+import gcompris.admin
 import gtk
 import gtk.gdk
 from gettext import gettext as _
@@ -64,7 +65,7 @@ class Boards(module.Module):
         )
 
     boards = []
-    for board in gcompris.get_boards_list():
+    for board in gcompris.admin.get_boards_list():
       if board.is_configurable:
         boards.append(board)
 

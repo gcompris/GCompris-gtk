@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/07/11 13:17:30 yves>
+ * Time-stamp: <2005/07/19 00:00:32 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -69,7 +69,7 @@ struct _GcomprisGroup {
   gchar               *name;
   
   /* GcomprisClass containing the group */
-  gint                *class_id;
+  gint                class_id;
 
   /* list of GComprisUser user_id */
   GList               *user_ids;

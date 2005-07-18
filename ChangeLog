@@ -1,3 +1,17 @@
+2005-07-19  Yves Combe  <yves@ycombe.net>
+
+	fix Makefile.am in src/boards/python/admin/.
+	fix Group struct definition.
+	add functions for admin submodule (gcompris_get_group_from_id and gcompris_get_groups_list).
+
+	* src/boards/py-mod-gcompris.c: (python_gcompris_module_init):
+	* src/boards/python/admin/Makefile.am:
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/admin/module_boards.py:
+	* src/gcompris/gcompris_db.c: (gcompris_get_group_from_id),
+	(gcompris_get_groups_list):
+	* src/gcompris/profile.h:
+
 2005-07-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved the gcompris editor. Now columns are of fixed size which

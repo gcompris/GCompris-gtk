@@ -10,8 +10,12 @@ dist_python_DATA= \
 	module_profiles.py \
 	module_boards.py \
 	user_list.py \
+	group_edit.py \
+        group_list.py \
+	group_user_list.py \
 	class_list.py \
+	class_edit.py \
 	board_list.py \
-	class_edit.py
+	constants.py
 
 

@@ -1059,9 +1059,7 @@ void python_gcompris_module_init(void)
   python_gcompris_timer_module_init();
   python_gcompris_utils_module_init();
   python_gcompris_anim_module_init();
-  printf("python_gcompris_admin_module_init \n");
   python_gcompris_admin_module_init();
-  printf("python_gcompris_admin_module_init END\n");
 }
 
 /* Some usefull code parts ... */

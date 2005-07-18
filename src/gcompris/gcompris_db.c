@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/18 15:19:39 yves>
+ * Time-stamp: <2005/07/19 01:00:00 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1312,14 +1312,118 @@ GList *gcompris_get_profiles_list()
 #endif
 }
 
+#define GROUP_FROM_ID(n) \
+        "SELECT name, class_id, description FROM groups WHERE group_id=%d;",n
+
 GcomprisGroup *gcompris_get_group_from_id(int group_id)
 {
+#ifdef USE_SQLITE
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  int i;
+  GList *users = NULL;
+  GcomprisGroup *group = NULL;
+
+  request = g_strdup_printf(GROUP_FROM_ID(group_id));
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  g_free(request);
+
+  if (nrow == 0){
+    g_warning(_("No group with id  %d"), group_id);
+    return NULL;
+  } else {
+    i = ncolumn;
+
+    group = g_malloc0(sizeof(GcomprisGroup));
+
+    group->group_id = group_id;
+    group->name = g_strdup(result[i++]);
+    group->class_id = atoi(result[i++]);
+    group->description = g_strdup(result[i++]);
+  }
+
+  group->user_ids = gcompris_get_users_from_group(group_id);
+
+  return group ;
+
+#else
   return NULL;
+#endif
 }
+
+#define GET_ALL_GROUPS \
+        "SELECT group_id, name, class_id, description FROM groups;"
 
 GList *gcompris_get_groups_list()
 {
+#ifdef USE_SQLITE
+  GList *groups_list;
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  int i;
+  GList *users = NULL;
+  GcomprisGroup *group = NULL;
+
+  rc = sqlite3_get_table(gcompris_db, 
+			 GET_ALL_GROUPS,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+
+  if (nrow == 0){
+    g_warning(_("No groups !"));
+    return NULL;
+  } else {
+    i = ncolumn;
+
+    while ( i < (nrow +1)*ncolumn) {
+      group = g_malloc0(sizeof(GcomprisGroup));
+
+      group->group_id =  atoi(result[i++]);
+      group->name = g_strdup(result[i++]);
+      group->class_id = atoi(result[i++]);
+      group->description = g_strdup(result[i++]);
+   
+      group->user_ids = gcompris_get_users_from_group(group->group_id);
+
+      groups_list = g_list_append(groups_list, group);
+    }
+  }
+
+  return groups_list;
+
+#else
   return NULL;
+#endif
 }
 
 GcomprisBoard *gcompris_get_board_from_id(int board_id)
