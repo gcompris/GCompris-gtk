@@ -97,39 +97,6 @@ py_gcompris_get_boards_list (PyObject* self, PyObject* args)
 }
 
 static PyObject*
-py_gcompris_set_board_conf (PyObject* self, PyObject* args)
-{
-  
-  GcomprisConfPair *pair;
-  PyObject* pyBoard;
-  PyObject* pyProfile;
-  pyGcomprisBoardObject* pyGcomprisBoard;
-  GcomprisBoard* cGcomprisBoard;
-  pyGcomprisProfileObject* pyGcomprisProfile;
-  GcomprisProfile* cGcomprisProfile;
-  char *key;
-  char *value;
-
-  /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OOss:gcompris.set_board_conf",
-		       &pyProfile, &pyBoard,
-		       &key, &value))
-    return NULL;
-  pyGcomprisBoard = (pyGcomprisBoardObject *) pyBoard;
-  pyGcomprisProfile = (pyGcomprisProfileObject *) pyProfile;
-
-  cGcomprisProfile = pyGcomprisProfile->cdata;
-  cGcomprisBoard = pyGcomprisBoard->cdata;
-
-  /* Call the corresponding C function */
-  gcompris_set_board_conf(cGcomprisProfile, cGcomprisBoard, key, value);
-
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
-}
-
-static PyObject*
 py_gcompris_get_profile_from_id (PyObject* self, PyObject* args)
 {
   GcomprisProfile *profile;
@@ -307,7 +274,6 @@ static PyMethodDef PythonGcomprisAdminModule[] = {
   { "board_run_next",  py_board_run_next, METH_VARARGS, "board_run_next" },
   { "board_config_start",  py_board_config_start, METH_VARARGS, "board_config_start" },
   { "board_config_stop",  py_board_config_stop, METH_VARARGS, "board_config_stop" },
-  { "set_board_conf",  py_gcompris_set_board_conf, METH_VARARGS, "gcompris_set_board_conf" },
   { "get_profile_from_id",  py_gcompris_get_profile_from_id, METH_VARARGS, "gcompris_get_profile_from_id" },
   { "get_profiles_list",  py_gcompris_get_profiles_list, METH_VARARGS, "gcompris_get_profiles_list" },
   { "get_user_from_id",  py_gcompris_get_user_from_id, METH_VARARGS, "gcompris_get_user_from_id" },

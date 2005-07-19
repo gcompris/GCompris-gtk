@@ -41,10 +41,10 @@ class Gcompris_tuxpaint:
     pass
     
   def start(self):
-    line = os.sys.stdin.readline()
-    while (len(line) >1):
-      exec(line)
-      line = os.sys.stdin.readline()
+#    line = os.sys.stdin.readline()
+#    while (len(line) >1):
+#      exec(line)
+#      line = os.sys.stdin.readline()
 
     Prop = gcompris.get_properties()
     

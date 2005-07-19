@@ -42,9 +42,9 @@ class Board_list:
 
 
   # area is the drawing area for the list
-  def __init__(self, canvas, db_connect, db_cursor, area, hgap, vgap):
+  def __init__(self, db_connect, db_cursor, frame):
 
-      self.rootitem = canvas
+      self.frame = frame
       self.cur = db_cursor
       self.con = db_connect
       
@@ -56,6 +56,36 @@ class Board_list:
       self.cur.execute('select * from boards')
       self.board_data = self.cur.fetchall()
 
+
+      # Main box is vertical
+      top_box = gtk.VBox(False, 8)
+      top_box.show()
+      self.frame.add(top_box)
+
+
+      # Create the profiles Combo
+      self.profiles_list = gcompris.admin.get_profiles_list()
+      print self.profiles_list
+
+      box1 = gtk.HBox(False, 0)
+      box1.show()
+
+      top_box.pack_start(box1, False, False, 0)
+
+      label = gtk.Label(_('Select a profile:'))
+      label.show()
+      box1.pack_start(label,True, False, 0)
+
+      combobox = gtk.combo_box_new_text()
+      combobox.show()
+      box1.pack_start(combobox, True, False, 0)
+      for profile in self.profiles_list:
+        combobox.append_text(profile.name)
+      combobox.connect('changed', self.changed_cb)
+      combobox.set_active(0)
+      self.active_profile = self.profiles_list[0]
+      print 'Active profile is now', self.active_profile.name
+      
       # Create the table
       sw = gtk.ScrolledWindow()
       sw.set_shadow_type(gtk.SHADOW_ETCHED_IN)
@@ -73,18 +103,11 @@ class Board_list:
       sw.add(treeview)
 
       # Some constants for the layout
-      but_height = hgap * 2
-      but_width  = hgap * 6
-            
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=sw,
-        x=area[0] + hgap,
-        y=area[1],
-        width=area[2]-area[0]-hgap*2-but_width,
-        height=area[3]-area[1],
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=gtk.FALSE)
+      #but_height = hgap * 2
+      #but_width  = hgap * 6
+
+      top_box.add(sw)
+
       sw.show()
       treeview.show()
 
@@ -131,6 +154,15 @@ class Board_list:
 #         anchor=gtk.ANCHOR_NW,
 #         size_pixels=gtk.FALSE)
 #       button_imp.show()
+
+
+  def changed_cb(self, combobox):
+    index = combobox.get_active()
+    self.active_profile = self.profiles_list[index]
+
+    print 'Active profile is now', self.active_profile.name
+
+
 
 
   # -------------------

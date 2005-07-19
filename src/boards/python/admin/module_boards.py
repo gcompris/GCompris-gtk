@@ -55,14 +55,14 @@ class Boards(module.Module):
 
     module.Module.start(self)
 
-    item = self.rootitem.add (
-        gnome.canvas.CanvasText,
-        text=_(self.module_label + " Panel"),
-        font=gcompris.skin.get_font("gcompris/content"),
-        x = area[0] + (area[2]-area[0])/2,
-        y = area[1] + 50,
-        fill_color="black"
-        )
+#     item = self.rootitem.add (
+#         gnome.canvas.CanvasText,
+#         text=_(self.module_label + " Panel"),
+#         font=gcompris.skin.get_font("gcompris/content"),
+#         x = area[0] + (area[2]-area[0])/2,
+#         y = area[1] + 50,
+#         fill_color="black"
+#         )
 
     boards = []
     for board in gcompris.admin.get_boards_list():
@@ -79,7 +79,7 @@ class Boards(module.Module):
     
     origin_y = area[1]+vgap
 
-    boards_height = (area[3]-area[1]) - vgap*2
+    boards_height = (area[3]-area[1]) - vgap*2 
 
     list_area = ( area[0], origin_y, area[2], boards_height)
 
@@ -87,9 +87,21 @@ class Boards(module.Module):
     self.con = sqlite.connect(gcompris.get_database())
     self.cur = self.con.cursor()
 
-    board_list.Board_list(self.rootitem,
-                          self.con, self.cur,
-                          list_area, hgap, vgap)
+    frame = gtk.Frame(_("Boards"))
+    frame.show()
+
+    self.rootitem.add(
+      gnome.canvas.CanvasWidget,
+      widget=frame,
+      x=area[0],
+      y=area[1],
+      width=area[2]-area[0],
+      height=area[3]-area[1],
+      anchor=gtk.ANCHOR_NW,
+      size_pixels=False)
+
+    board_list.Board_list(self.con, self.cur,
+                          frame)
     
   def stop(self):
     print "stopping boards panel"

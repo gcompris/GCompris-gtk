@@ -936,6 +936,39 @@ py_gcompris_get_current_user(PyObject* self, PyObject* args)
 }
 
 
+static PyObject*
+py_gcompris_set_board_conf (PyObject* self, PyObject* args)
+{
+  
+  GcomprisConfPair *pair;
+  PyObject* pyBoard;
+  PyObject* pyProfile;
+  pyGcomprisBoardObject* pyGcomprisBoard;
+  GcomprisBoard* cGcomprisBoard;
+  pyGcomprisProfileObject* pyGcomprisProfile;
+  GcomprisProfile* cGcomprisProfile;
+  char *key;
+  char *value;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "OOss:gcompris.set_board_conf",
+		       &pyProfile, &pyBoard,
+		       &key, &value))
+    return NULL;
+  pyGcomprisBoard = (pyGcomprisBoardObject *) pyBoard;
+  pyGcomprisProfile = (pyGcomprisProfileObject *) pyProfile;
+
+  cGcomprisProfile = pyGcomprisProfile->cdata;
+  cGcomprisBoard = pyGcomprisBoard->cdata;
+
+  /* Call the corresponding C function */
+  gcompris_set_board_conf(cGcomprisProfile, cGcomprisBoard, key, value);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
 
 /****************************************************/
 
@@ -977,6 +1010,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "spawn_async",  py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
   { "child_watch_add",  py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
   { "get_board_conf",  py_gcompris_get_board_conf, METH_VARARGS, "gcompris_get_board_conf" },
+  { "set_board_conf",  py_gcompris_set_board_conf, METH_VARARGS, "gcompris_set_board_conf" },
   { "get_current_profile",  py_gcompris_get_current_profile, METH_VARARGS, "gcompris_get_current_profile" },
   { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },
   { NULL, NULL, 0, NULL}
