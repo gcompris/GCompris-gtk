@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-09 11:07+0000\n"
-"PO-Revision-Date: 2005-07-09 13:32+0200\n"
+"POT-Creation-Date: 2005-07-19 03:09+0000\n"
+"PO-Revision-Date: 2005-07-19 11:26+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -338,7 +338,12 @@ msgid ""
 "sign, give the product. Use the left and right arrows to modify the product, "
 "and press the Enter key to check your answer. You can control the speed of "
 "the timer in the GCompris configuration dialog."
-msgstr "Je ziet een vermenigvuldiging van twee getallen. Geef het antwoord aan de rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om je antwoord aan te passen, en de Enter-toets om te controleren of je antwoord goed is. Je kunt de snelheid van de klok wijzigen in de configuratie van GCompris."
+msgstr ""
+"Je ziet een vermenigvuldiging van twee getallen. Geef het antwoord aan de "
+"rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om "
+"je antwoord aan te passen, en de Enter-toets om te controleren of je "
+"antwoord goed is. Je kunt de snelheid van de klok wijzigen in de "
+"configuratie van GCompris."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
@@ -412,7 +417,12 @@ msgid ""
 "equal sign, give the difference. Use the left and right arrows to modify "
 "your answer, and press the Enter key to check the result. You can control "
 "the speed of the timer in the GCompris configuration dialog."
-msgstr "Er wordt een aftrekking van twee getallen getoond. Geef het antwoord aan de rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om je antwoord aan te passen, en de Enter-toets om te controleren of je antwoord goed is. Je kunt de snelheid van de klok wijzigen in de configuratie van GCompris."
+msgstr ""
+"Er wordt een aftrekking van twee getallen getoond. Geef het antwoord aan de "
+"rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om "
+"je antwoord aan te passen, en de Enter-toets om te controleren of je "
+"antwoord goed is. Je kunt de snelheid van de klok wijzigen in de "
+"configuratie van GCompris."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
@@ -433,7 +443,12 @@ msgid ""
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
 "Enter key to check your answer. You can control the speed of the timer in "
 "the GCompris configuration dialog."
-msgstr "Er wordt een optelling van twee getallen getoond. Geef het antwoord aan de rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om je antwoord aan te passen, en de Enter-toets om te controleren of je antwoord goed is. Je kunt de snelheid van de klok wijzigen in de configuratie van GCompris. "
+msgstr ""
+"Er wordt een optelling van twee getallen getoond. Geef het antwoord aan de "
+"rechterkant van het is-gelijkteken. Gebruik de linker en rechter pijltjes om "
+"je antwoord aan te passen, en de Enter-toets om te controleren of je "
+"antwoord goed is. Je kunt de snelheid van de klok wijzigen in de "
+"configuratie van GCompris. "
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -3471,89 +3486,103 @@ msgstr "Python-bord"
 msgid "Special board that embeds python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
 
-#: ../src/boards/python/admin/class_edit.py:48
-msgid "Class Edition"
-msgstr "Klas versier"
+#: ../src/boards/python/admin/board_list.py:180
+msgid "Main menu"
+msgstr "Hoofdmenu"
 
-#: ../src/boards/python/admin/class_edit.py:52
-msgid "Editing class: "
-msgstr "Klas bewerken: "
+#: ../src/boards/python/admin/board_list.py:180
+msgid "/"
+msgstr "/"
 
-#: ../src/boards/python/admin/class_edit.py:98
-msgid "Add user >"
-msgstr "Gebruiker toevoegen >"
+#. columns for Board name
+#: ../src/boards/python/admin/board_list.py:214
+msgid "Board title"
+msgstr "Bordtitel"
 
-#: ../src/boards/python/admin/class_edit.py:236
-#: ../src/boards/python/admin/user_list.py:192
-msgid "First Name"
-msgstr "Voornaam"
-
-#: ../src/boards/python/admin/class_edit.py:245
-#: ../src/boards/python/admin/user_list.py:202
-msgid "Last Name"
-msgstr "Achternaam"
-
-#. Add buttons
-#: ../src/boards/python/admin/class_list.py:98
-msgid "Add class"
-msgstr "Klas toevoegen"
-
-#: ../src/boards/python/admin/class_list.py:111
-msgid "Remove class"
-msgstr "Klas verwijderen"
-
-#: ../src/boards/python/admin/class_list.py:124
-msgid "Edit class"
-msgstr "Klas bewerken"
-
-#: ../src/boards/python/admin/class_list.py:166
+#: ../src/boards/python/admin/board_list.py:217
+#: ../src/boards/python/admin/class_list.py:187
+#: ../src/boards/python/admin/group_list.py:225
 msgid "Name"
 msgstr "Naam"
 
-#: ../src/boards/python/admin/class_list.py:176
+#: ../src/boards/python/admin/class_edit.py:50
+msgid "Class Edition"
+msgstr "Klas versier"
+
+#: ../src/boards/python/admin/class_edit.py:54
+msgid "Editing class: "
+msgstr "Klas bewerken: "
+
+# engels: bellonging
+#. Top message gives instructions
+#: ../src/boards/python/admin/class_edit.py:62
+msgid "Assign all the users bellonging to this class"
+msgstr "Geven aan alle gebruikers in deze klas"
+
+#: ../src/boards/python/admin/class_edit.py:201
+#: ../src/boards/python/admin/user_list.py:184
+#: ../src/boards/python/admin/group_edit.py:221
+#: ../src/boards/python/admin/group_user_list.py:162
+msgid "First Name"
+msgstr "Voornaam"
+
+#: ../src/boards/python/admin/class_edit.py:212
+#: ../src/boards/python/admin/user_list.py:196
+#: ../src/boards/python/admin/group_edit.py:232
+#: ../src/boards/python/admin/group_user_list.py:173
+msgid "Last Name"
+msgstr "Achternaam"
+
+# leerling/gebruiker
+#. ---------------
+#. Class Management
+#. ---------------
+#: ../src/boards/python/admin/class_list.py:63
+msgid "User"
+msgstr "Gebruiker"
+
+#: ../src/boards/python/admin/class_list.py:199
 msgid "Teacher"
 msgstr "Docent"
 
-#: ../src/boards/python/admin/class_list.py:267
+#: ../src/boards/python/admin/class_list.py:292
 msgid "You must first select a class in the list"
-msgstr "U moet eerst in de lijst een klas selecteren"
+msgstr "U moet eerst een klas uit de lijst selecteren"
+
+# wit rusland
+#: ../src/boards/python/admin/module_boards.py:42
+msgid "Boards"
+msgstr "Borden"
+
+#: ../src/boards/python/admin/module_boards.py:60
+msgid " Panel"
+msgstr " Paneel"
+
+#: ../src/boards/python/admin/module_groups.py:41
+msgid "Groups list"
+msgstr "Groepenlijst"
 
 #: ../src/boards/python/admin/module_profiles.py:37
 msgid "Profiles list"
 msgstr "Profielenlijst"
 
 #: ../src/boards/python/admin/module_profiles.py:60
-msgid " Panel"
-msgstr " Paneel"
-
-#. Add buttons
-#: ../src/boards/python/admin/user_list.py:99
-msgid "Add user"
-msgstr "Gebruiker toevoegen"
-
-#: ../src/boards/python/admin/user_list.py:112
-msgid "Remove user"
-msgstr "Gebruiker verwijderen"
-
-#: ../src/boards/python/admin/user_list.py:125
-msgid "Import file"
-msgstr "Bestand importeren"
+msgid "Profile"
+msgstr "Profiel"
 
 # dit is aanmeldnaam hier, niet 'aanmelden' of 'inloggen'
 # het gaat dus hier om de gebruikersnaam
-#: ../src/boards/python/admin/user_list.py:182
+#: ../src/boards/python/admin/user_list.py:172
+#: ../src/boards/python/admin/group_user_list.py:151
 msgid "Login"
 msgstr "Aanmeldnaam"
 
-#: ../src/boards/python/admin/user_list.py:212
+#: ../src/boards/python/admin/user_list.py:208
+#: ../src/boards/python/admin/group_user_list.py:184
 msgid "Birth Date"
 msgstr "Geboortedatum"
 
-#: ../src/boards/python/admin/user_list.py:222
-msgid "Class"
-msgstr "Klas"
-
-#: ../src/boards/python/admin/user_list.py:270
+#: ../src/boards/python/admin/user_list.py:258
 msgid ""
 "To import a file, it must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
@@ -3563,7 +3592,46 @@ msgstr ""
 "aanmeldnaam;Voornaam;Achternaam;Geboortedatum\n"
 "Het scheidingsteken mag zowel ',', ';' of ':' zijn."
 
-#: ../src/boards/python/admin/module_users.py:43
+# waarschijnlijk frans engels, moet zijn: editing?
+#: ../src/boards/python/admin/group_edit.py:54
+msgid "Group Edition"
+msgstr "Groepsbewerking"
+
+#: ../src/boards/python/admin/group_edit.py:58
+msgid "Editing group: "
+msgstr "Groep bewerken: "
+
+#: ../src/boards/python/admin/group_edit.py:59
+msgid " for class: "
+msgstr " voor klas: "
+
+# engels: bellonging
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:67
+msgid "Assign all the users bellonging to this group"
+msgstr "Geven aan alle gebruikers in deze groep"
+
+#. ---------------
+#. Group Management
+#. ---------------
+#: ../src/boards/python/admin/group_list.py:68
+msgid "Group"
+msgstr "Groep"
+
+#: ../src/boards/python/admin/group_list.py:92
+msgid "Select a class:"
+msgstr "Selecteer een klas:"
+
+# beschrijving/omschrijving
+#: ../src/boards/python/admin/group_list.py:237
+msgid "Description"
+msgstr "Omschrijving"
+
+#: ../src/boards/python/admin/group_list.py:342
+msgid "You must first select a group in the list"
+msgstr "U moet eerst een groep uit de lijst selecteren"
+
+#: ../src/boards/python/admin/module_users.py:42
 msgid "Users list"
 msgstr "Gebruikerslijst"
 
@@ -3774,7 +3842,7 @@ msgstr "Onbekende opdracht op regel"
 msgid "Distance:"
 msgstr "Afstand:"
 
-#: ../src/boards/python/tuxpaint.py:61
+#: ../src/boards/python/tuxpaint.py:68
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -3782,7 +3850,7 @@ msgstr ""
 "Kan Tuxpaint niet vinden.\n"
 "Installeer dit eerst voor deze opdracht!"
 
-#: ../src/boards/python/tuxpaint.py:74
+#: ../src/boards/python/tuxpaint.py:81
 msgid "Waiting Tuxpaint Finished"
 msgstr "Wachten op Tuxpaint afsluiten"
 
@@ -3968,7 +4036,7 @@ msgstr "Hulp"
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/board.c:169
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Dynamisch modules laden wordt niet ondersteund. gcompris kan niet laden.\n"
@@ -4389,21 +4457,46 @@ msgstr "Database %s geopend"
 msgid "Database tables created"
 msgstr "Databasetabellen aangemaakt"
 
-#: ../src/gcompris/gcompris_db.c:744
+#: ../src/gcompris/gcompris_db.c:733 ../src/gcompris/gcompris_db.c:1255
 #, c-format
 msgid "No users groups for profile %s"
 msgstr "Geen gebruikersgroepen voor profiel %s"
 
 # tooltip voor de desktop
-#: ../src/gcompris/gcompris_db.c:775
+#: ../src/gcompris/gcompris_db.c:764 ../src/gcompris/gcompris_db.c:1288
 #, c-format
 msgid "No activities out for profile %s"
 msgstr "Geen activiteiten voor profiel %s"
 
-#: ../src/gcompris/gcompris_db.c:829
+#: ../src/gcompris/gcompris_db.c:854
 #, c-format
 msgid "No users in group with id  %d"
 msgstr "Geen gebruikers in groep met id  %d"
+
+#: ../src/gcompris/gcompris_db.c:911
+#, c-format
+msgid "No user with id  %d"
+msgstr "Geen gebruiker met id  %d"
+
+#: ../src/gcompris/gcompris_db.c:968
+#, c-format
+msgid "No class with id  %d"
+msgstr "Geen klas met id  %d"
+
+#: ../src/gcompris/gcompris_db.c:1003
+#, c-format
+msgid ""
+"No groups in for class %s, there must be at least one for whole class (%d)"
+msgstr "Geen groepen voor klas %s, er moet tenminste een zijn voor de hele klas (%d)"
+
+#: ../src/gcompris/gcompris_db.c:1349
+#, c-format
+msgid "No group with id  %d"
+msgstr "Geen groep met id  %d"
+
+#: ../src/gcompris/gcompris_db.c:1403
+msgid "No groups !"
+msgstr "Geen groepen!"
 
 #: ../src/gcompris/help.c:170
 msgid "Prerequisite"
@@ -4468,14 +4561,32 @@ msgstr "Verstreken tijd"
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
 
-#~ msgid "Gcompris Editor"
-#~ msgstr "GCompris editor"
+#~ msgid "Add user >"
+#~ msgstr "Gebruiker toevoegen >"
+
+#~ msgid "Add class"
+#~ msgstr "Klas toevoegen"
+
+#~ msgid "Remove class"
+#~ msgstr "Klas verwijderen"
+
+#~ msgid "Edit class"
+#~ msgstr "Klas bewerken"
+
+#~ msgid "Add user"
+#~ msgstr "Gebruiker toevoegen"
+
+#~ msgid "Remove user"
+#~ msgstr "Gebruiker verwijderen"
+
+#~ msgid "Import file"
+#~ msgstr "Bestand importeren"
+
+#~ msgid "Class"
+#~ msgstr "Klas"
 
 #~ msgid "Icon"
 #~ msgstr "Pictogram"
-
-#~ msgid "Description"
-#~ msgstr "Beschrijving"
 
 #~ msgid "Type"
 #~ msgstr "Type"
