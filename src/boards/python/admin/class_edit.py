@@ -25,6 +25,8 @@ from gettext import gettext as _
 # Database
 from pysqlite2 import dbapi2 as sqlite
 
+import user_list
+
 import constants
 
 # User List Management
@@ -38,7 +40,9 @@ import constants
 
 class ClassEdit(gtk.Window):
     counter = 1
-    def __init__(self, db_connect, db_cursor, class_id, class_name):
+    def __init__(self, db_connect, db_cursor,
+                 class_id, class_name,
+                 list_user):
         # Create the toplevel window
         gtk.Window.__init__(self)
 
@@ -46,6 +50,10 @@ class ClassEdit(gtk.Window):
         self.con = db_connect
 
         self.class_id = class_id
+        
+        # A pointer to the user_list class
+        # Will be called to refresh the list when edit is done
+        self.list_user = list_user
         
         self.set_title(_("Class Edition"))
         self.set_border_width(8)
@@ -266,5 +274,6 @@ class ClassEdit(gtk.Window):
     # Done, can quit this dialog
     #
     def close(self, button):
+        self.list_user.reload(self.class_id)
         self.destroy()
         

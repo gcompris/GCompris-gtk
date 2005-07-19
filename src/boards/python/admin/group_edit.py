@@ -22,6 +22,8 @@ import gtk
 import gobject
 from gettext import gettext as _
 
+import group_user_list
+
 import constants
 
 # Database
@@ -40,7 +42,8 @@ class GroupEdit(gtk.Window):
 
     def __init__(self, db_connect, db_cursor,
                  class_id, class_name,
-                 group_id, group_name):
+                 group_id, group_name,
+                 group_user):
         # Create the toplevel window
         gtk.Window.__init__(self)
 
@@ -50,6 +53,10 @@ class GroupEdit(gtk.Window):
 
         self.group_id = group_id
         self.class_id = class_id
+
+        # A pointer to the group_user_list class
+        # Will be called to refresh the list when edit is done
+        self.group_user = group_user
         
         self.set_title(_("Group Edition"))
         self.set_border_width(8)
@@ -300,5 +307,6 @@ class GroupEdit(gtk.Window):
     # Done, can quit this dialog
     #
     def close(self, button):
+        self.group_user.reload(self.group_id)
         self.destroy()
         

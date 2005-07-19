@@ -92,6 +92,10 @@ class Group_user_list:
   # User Management
   # -------------------
 
+  # clear all data in the list
+  def clear(self):
+      self.model.clear()
+
   # Retrieve data from the database for the given group_id
   def reload(self, group_id):
       print "Reloading group_user_list for group_id=" + str(group_id)

@@ -161,14 +161,14 @@ class Group_list:
       user_hbox.show()
       top_box.add(user_hbox)
 
-      group_user = group_user_list.Group_user_list(user_hbox,
-                                                   self.con, self.cur,
-                                                   self.current_group_id)
+      self.group_user = group_user_list.Group_user_list(user_hbox,
+                                                        self.con, self.cur,
+                                                        self.current_group_id)
 
       # Missing callbacks
       self.combo_class.connect('changed', self.class_changed_cb)
       selection = treeview_group.get_selection()
-      selection.connect('changed', self.group_changed_cb, group_user)
+      selection.connect('changed', self.group_changed_cb, self.group_user)
 
       # Pack it all
       self.rootitem.add(
@@ -332,7 +332,8 @@ class Group_list:
       group_name = model.get_value(iter, COLUMN_NAME)
       group_edit.GroupEdit(self.con, self.cur,
                            self.current_class_id, self.get_active_text(self.combo_class),
-                           group_id, group_name)
+                           group_id, group_name,
+                           self.group_user)
 
     else:
       # Tell the user to select a group first
@@ -343,6 +344,7 @@ class Group_list:
       dialog.run()
       dialog.destroy()
 
+
   def group_changed_cb(self, selection, group_user):
     print "group_changed_cb"
     model, iter = selection.get_selected()
@@ -352,10 +354,7 @@ class Group_list:
       self.current_group_id = model.get_value(iter, COLUMN_GROUPID)
 
       group_user.reload(self.current_group_id)
-      print "current group_id = " + str(self.current_group_id)
 
   def class_changed_cb(self, combobox):
-    print "class_changed_cb"
     self.current_class_id = self.class_list[combobox.get_active()]
     self.reload_group()
-    print "current class_id = " + str(self.current_class_id)

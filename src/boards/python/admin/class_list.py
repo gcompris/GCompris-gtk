@@ -60,7 +60,7 @@ class Class_list:
       # Class Management
       # ---------------
 
-      frame = gtk.Frame(_("User"))
+      frame = gtk.Frame(_("Classes") + " / " + _("Users") )
       frame.show()
 
       # create tree model
@@ -127,12 +127,12 @@ class Class_list:
       top_box.add(user_hbox)
 
 
-      list_user = user_list.User_list(user_hbox,
-                                      self.con, self.cur)
+      self.list_user = user_list.User_list(user_hbox,
+                                           self.con, self.cur)
 
       # Missing callbacks
       selection = treeview_class.get_selection()
-      selection.connect('changed', self.class_changed_cb, list_user)
+      selection.connect('changed', self.class_changed_cb, self.list_user)
 
 
       # Pack it all
@@ -184,7 +184,7 @@ class Class_list:
     renderer = gtk.CellRendererText()
     renderer.connect("edited", self.on_cell_class_edited, model)
     renderer.set_data("column", COLUMN_NAME)
-    column = gtk.TreeViewColumn(_('Name'), renderer,
+    column = gtk.TreeViewColumn(_('Class'), renderer,
                                 text=COLUMN_NAME,
                                 editable=COLUMN_CLASS_EDITABLE)
     column.set_sort_column_id(COLUMN_NAME)
@@ -282,7 +282,9 @@ class Class_list:
       path = model.get_path(iter)[0]
       class_id   = model.get_value(iter, COLUMN_CLASSID)
       class_name = model.get_value(iter, COLUMN_NAME)
-      class_edit.ClassEdit(self.con, self.cur, class_id, class_name)
+      class_edit.ClassEdit(self.con, self.cur,
+                           class_id, class_name,
+                           self.list_user)
 
     else:
       # Tell the user to select a class first
