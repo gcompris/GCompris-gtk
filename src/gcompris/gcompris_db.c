@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/19 22:15:03 yves>
+ * Time-stamp: <2005/07/20 00:54:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -41,7 +41,7 @@ extern GnomeCanvas *canvas;
 #define CREATE_TABLE_ACTIVITIES_OUT \
         "CREATE TABLE activities_out (board_id INT, type INT, out_id INT ); "
 #define CREATE_TABLE_PROFILES \
-        "CREATE TABLE profiles (profile_id INT UNIQUE, profile_name TEXT, profile_directory TEXT, description TEXT); "
+        "CREATE TABLE profiles (profile_id INT UNIQUE, name TEXT, profile_directory TEXT, description TEXT); "
 #define CREATE_TABLE_BOARDS_PROFILES_CONF \
         "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, key TEXT, value TEXT ); "
 #define CREATE_TABLE_BOARDS \
@@ -61,7 +61,7 @@ extern GnomeCanvas *canvas;
         "SELECT gcompris_version FROM informations;"
 
 #define SET_DEFAULT_PROFILE \
-        "INSERT INTO profiles (profile_id, profile_name, profile_directory, description) VALUES ( 1, \'Default\', \'Default\', \'Default profil for gcompris\');"
+        "INSERT INTO profiles (profile_id, name, profile_directory, description) VALUES ( 1, \'Default\', \'Default\', \'Default profil for gcompris\');"
 #define ACTIVATE_DEFAULT_PROFILE \
         "UPDATE informations SET profile_id=1;"
 
@@ -663,7 +663,7 @@ void gcompris_db_remove_board(int board_id)
 
 
 #define GET_PROFILE(n) \
-        "SELECT profile_name, profile_directory, description FROM profiles WHERE profile_id=%d;",n
+        "SELECT name, profile_directory, description FROM profiles WHERE profile_id=%d;",n
 
 #define GET_GROUPS_IN_PROFILE(n) \
         "SELECT group_id FROM list_groups_in_profiles WHERE profile_id=%d;",n
@@ -1184,7 +1184,7 @@ GList *gcompris_get_board_conf()
 }
 
 #define GET_ALL_PROFILES \
-        "SELECT profile_id, profile_name, profile_directory, description FROM profiles;"
+        "SELECT profile_id, name, profile_directory, description FROM profiles;"
 
 
 GList *gcompris_get_profiles_list()

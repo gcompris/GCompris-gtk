@@ -1,4 +1,4 @@
-#  gcompris - group_edit.py
+#  gcompris - profile_edit.py
 # 
 # Copyright (C) 2005 Bruno Coudoin and Yves Combe
 # 
@@ -22,47 +22,45 @@ import gtk
 import gobject
 from gettext import gettext as _
 
-import group_user_list
+import profile_group_list
 
 import constants
 
 # Database
 from pysqlite2 import dbapi2 as sqlite
 
-# User List Management
+# Group Management
 (
-  COLUMN_USERID,
-  COLUMN_FIRSTNAME,
-  COLUMN_LASTNAME,
-  COLUMN_USER_EDITABLE
+  COLUMN_GROUPID,
+  COLUMN_NAME,
+  COLUMN_DESCRIPTION,
+  COLUMN_GROUP_EDITABLE
 ) = range(4)
 
 
-class GroupEdit(gtk.Window):
+class ProfileEdit(gtk.Window):
 
     def __init__(self, db_connect, db_cursor,
-                 class_id, class_name,
-                 group_id, group_name,
-                 group_user):
+                 profile_id, profile_name,
+                 profile_group):
+
         # Create the toplevel window
         gtk.Window.__init__(self)
 
         self.cur = db_cursor
         self.con = db_connect
 
-        self.group_id = group_id
-        self.class_id = class_id
+        self.profile_id = profile_id
 
-        # A pointer to the group_user_list class
+        # A pointer to the profile_group_list class
         # Will be called to refresh the list when edit is done
-        self.group_user = group_user
+        self.profile_group = profile_group
         
         self.set_title(_("Group Edition"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
-        frame = gtk.Frame(_("Editing group: ") + group_name
-                          + _(" for class: ") + class_name)
+        frame = gtk.Frame(_("Editing profile: ") + profile_name)
         self.add(frame)
         
         vbox = gtk.VBox(False, 8)
@@ -70,7 +68,7 @@ class GroupEdit(gtk.Window):
         frame.add(vbox)
 
         # Top message gives instructions
-        label = gtk.Label(_('Assign all the users bellonging to this group'))
+        label = gtk.Label(_('Assign all the groups bellonging to this profile'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
@@ -87,12 +85,12 @@ class GroupEdit(gtk.Window):
         sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
         # create tree model
-        self.model_left = self.__create_model(False, class_id, group_id)
+        self.model_left = self.__create_model(False, profile_id)
 
         # create tree view
         treeview = gtk.TreeView(self.model_left)
         treeview.set_rules_hint(True)
-        treeview.set_search_column(COLUMN_FIRSTNAME)
+        treeview.set_search_column(COLUMN_NAME)
         treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
         
         sw.add(treeview)
@@ -128,12 +126,12 @@ class GroupEdit(gtk.Window):
         sw2.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
         # create tree model
-        self.model_right = self.__create_model(True, class_id, group_id)
+        self.model_right = self.__create_model(True, profile_id)
 
         # create tree view
         treeview2 = gtk.TreeView(self.model_right)
         treeview2.set_rules_hint(True)
-        treeview2.set_search_column(COLUMN_FIRSTNAME)
+        treeview2.set_search_column(COLUMN_NAME)
         treeview2.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
         sw2.add(treeview2)
@@ -186,7 +184,7 @@ class GroupEdit(gtk.Window):
     # group_id: only users in this group are inserted
     # If with = True,  create a list only with user in the given class_id and group_id.
     #           False, create a list only with user in the given class_id but NOT this group_id
-    def __create_model(self, with, class_id, group_id):
+    def __create_model(self, with, profile_id):
 
         model = gtk.ListStore(
             gobject.TYPE_INT,
@@ -194,8 +192,8 @@ class GroupEdit(gtk.Window):
             gobject.TYPE_STRING,
             gobject.TYPE_BOOLEAN)
 
-        # Grab the all the users from this class
-        self.cur.execute('select user_id,firstname,lastname from users where class_id=?', (class_id,))
+        # Grab the all the groups from this profile
+        self.cur.execute('select group_id,firstname,lastname from users where class_id=?', (class_id,))
         user_data = self.cur.fetchall()
 
         for user in user_data:

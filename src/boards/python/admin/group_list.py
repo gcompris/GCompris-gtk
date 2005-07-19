@@ -222,7 +222,7 @@ class Group_list:
     renderer = gtk.CellRendererText()
     renderer.connect("edited", self.on_cell_group_edited, model)
     renderer.set_data("column", COLUMN_NAME)
-    column = gtk.TreeViewColumn(_('Name'), renderer,
+    column = gtk.TreeViewColumn(_('Group'), renderer,
                                 text=COLUMN_NAME,
                                 editable=COLUMN_GROUP_EDITABLE)
     column.set_sort_column_id(COLUMN_NAME)

@@ -58,6 +58,9 @@ class User_list:
       # User Management
       # ---------------
 
+      # The class to work on
+      self.class_id = 0
+
       self.user_data = []
 
       # create tree model

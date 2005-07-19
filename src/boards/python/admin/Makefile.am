@@ -16,6 +16,8 @@ dist_python_DATA= \
 	class_list.py \
 	class_edit.py \
 	board_list.py \
-	constants.py
-
+	constants.py \
+	profile_edit.py \
+	profile_group_list.py \
+	profile_list.py
 
