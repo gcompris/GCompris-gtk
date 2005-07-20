@@ -61,8 +61,7 @@ class Board_list:
       top_box = gtk.VBox(False, 8)
       top_box.show()
       self.frame.add(top_box)
-
-
+      
       # Create the profiles Combo
       self.profiles_list = gcompris.admin.get_profiles_list()
       print self.profiles_list
@@ -70,15 +69,24 @@ class Board_list:
       box1 = gtk.HBox(False, 0)
       box1.show()
 
+      box2 = gtk.HBox(False, 0)
+      box2.show()
+
+      box3 = gtk.VBox(False, 0)
+      box3.show()
+      
       top_box.pack_start(box1, False, False, 0)
+      top_box.pack_start(box2, True, True, 0)
+
+      box2.pack_end(box3, False, False, 0)
 
       label = gtk.Label(_('Select a profile:'))
       label.show()
-      box1.pack_start(label,True, False, 0)
+      box1.pack_start(label,False, False, 0)
 
       combobox = gtk.combo_box_new_text()
       combobox.show()
-      box1.pack_start(combobox, True, False, 0)
+      box1.pack_start(combobox, False, False, 0)
       for profile in self.profiles_list:
         combobox.append_text(profile.name)
       combobox.connect('changed', self.changed_cb)
@@ -106,7 +114,7 @@ class Board_list:
       #but_height = hgap * 2
       #but_width  = hgap * 6
 
-      top_box.add(sw)
+      box2.pack_start(sw, True, True, 0)
 
       sw.show()
       treeview.show()
@@ -116,18 +124,10 @@ class Board_list:
 
       # Add buttons
 
-#       button_add = gtk.Button(_("Add user"))
+      button_configure = gtk.Button(stock=gtk.STOCK_PROPERTIES)
 #       button_add.connect("clicked", self.on_add_item_clicked, model)
-#       self.rootitem.add(
-#         gnome.canvas.CanvasWidget,
-#         widget=button_add,
-#         x=area[2]-but_width,
-#         y=area[1],
-#         width=100,
-#         height=but_height,
-#         anchor=gtk.ANCHOR_NW,
-#         size_pixels=gtk.FALSE)
-#       button_add.show()
+      button_configure.show()
+      box3.pack_start(button_configure, True, False, 0)
       
 #       button_rem = gtk.Button(_("Remove user"))
 #       button_rem.connect("clicked", self.on_remove_item_clicked, treeview)
@@ -206,12 +206,14 @@ class Board_list:
 
 
     row_dict = {}
+    self.board_dict = {}
     height = 24
     for board_cell in menu_list:
+      self.board_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = board_cell[1]
       if  board_cell[0] == None:
-        row_dict[''] = model.append(None, [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height), _('Main menu'), _('/')])
+        row_dict[''] = model.append(None, [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height), _('Main menu') + '\n' + _('/'), True, '%s/%s' % (board_cell[1].section,board_cell[1].name)])
       else:
-        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = model.append(row_dict[board_cell[1].section], [self.pixbuf_at_height(board_cell[1].icon_name, height), _(board_cell[1].title),'%s/%s' % (board_cell[1].section,board_cell[1].name)])
+        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = model.append(row_dict[board_cell[1].section], [self.pixbuf_at_height(board_cell[1].icon_name, height), _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name), True, '%s/%s' % (board_cell[1].section,board_cell[1].name)])
 
   def pixbuf_at_height(self,file, height):
     pixbuf = gcompris.utils.load_pixmap(file)
@@ -224,10 +226,12 @@ class Board_list:
     model = gtk.TreeStore(
       gtk.gdk.Pixbuf,
       gobject.TYPE_STRING,
-      gobject.TYPE_STRING
+      gobject.TYPE_BOOLEAN,
+      gobject.TYPE_STRING,
       )
 
     boards_list = gcompris.admin.get_boards_list()
+    
     self.add_boards_in_model(model, boards_list)
 
     return model
@@ -239,23 +243,32 @@ class Board_list:
 
     # Render for Board name with icon.
     cell_board_icon = gtk.CellRendererPixbuf()
-    cell_board_name = gtk.CellRendererText()
+#    cell_board_name = gtk.CellRendererText()
     cell_board_title = gtk.CellRendererText()
-
+    cell_active_board = gtk.CellRendererToggle()
+    cell_active_board.set_property('activatable', True)
+    cell_active_board.connect( 'toggled', self.board_acive_cb, model )
+    
     # columns for Board name
+    column0 = gtk.TreeViewColumn(_('active'))
     column1 = gtk.TreeViewColumn(_('Board title'))
     column1.pack_start(cell_board_icon, False)
     column1.pack_start(cell_board_title, True)
-    column2 = gtk.TreeViewColumn(_('Name'))
+#    column2 = gtk.TreeViewColumn(_('Name'))
+    column0.pack_start(cell_active_board, False)
+    treeview.append_column(column0)
     treeview.append_column(column1)
-    treeview.append_column(column2)
-    column2.pack_start(cell_board_name, True)
+#    treeview.append_column(column2)
+#    column2.pack_start(cell_board_name, True)
     column1.add_attribute(cell_board_icon, 'pixbuf', 0)
     column1.add_attribute(cell_board_title, 'text', 1)
-    column2.add_attribute(cell_board_name, 'text', 2)
+    column0.add_attribute(cell_active_board, 'active', 2)
 
 
-
+  def board_acive_cb(self, cell, path, model):
+    model[path][2] = not model[path][2]
+    print "Toggle '%s' to: %s" % (self.board_dict[model[path][3]].title, model[path][2],)
+    return
 
 
 
