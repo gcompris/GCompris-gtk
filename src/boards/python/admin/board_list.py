@@ -52,19 +52,18 @@ class Board_list:
       # Boards Management
       # ---------------
 
-      # Grab the user data
-      self.cur.execute('select * from boards')
-      self.board_data = self.cur.fetchall()
+      
+      # Create the profiles Combo
+      self.profiles_list = gcompris.admin.get_profiles_list()
 
+      self.out_dict = self.get_boards_out_by_profile()
+
+      #print out_dict
 
       # Main box is vertical
       top_box = gtk.VBox(False, 8)
       top_box.show()
       self.frame.add(top_box)
-      
-      # Create the profiles Combo
-      self.profiles_list = gcompris.admin.get_profiles_list()
-      print self.profiles_list
 
       box1 = gtk.HBox(False, 0)
       box1.show()
@@ -89,7 +88,6 @@ class Board_list:
       box1.pack_start(combobox, False, False, 0)
       for profile in self.profiles_list:
         combobox.append_text(profile.name)
-      combobox.connect('changed', self.changed_cb)
       combobox.set_active(0)
       self.active_profile = self.profiles_list[0]
       print 'Active profile is now', self.active_profile.name
@@ -101,10 +99,13 @@ class Board_list:
       sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
 
       # create tree model
-      model = self.__create_model()
+      self.model = self.__create_model()
+
+      # update the combobox
+      combobox.connect('changed', self.changed_cb)
 
       # create tree view
-      treeview = gtk.TreeView(model)
+      treeview = gtk.TreeView(self.model)
       treeview.set_rules_hint(True)
       treeview.set_search_column(COLUMN_BOARDNAME)
 
@@ -128,41 +129,6 @@ class Board_list:
 #       button_add.connect("clicked", self.on_add_item_clicked, model)
       button_configure.show()
       box3.pack_start(button_configure, True, False, 0)
-      
-#       button_rem = gtk.Button(_("Remove user"))
-#       button_rem.connect("clicked", self.on_remove_item_clicked, treeview)
-#       self.rootitem.add(
-#         gnome.canvas.CanvasWidget,
-#         widget=button_rem,
-#         x=area[2]-but_width,
-#         y=area[1] + but_height + vgap,
-#         width=100,
-#         height=but_height,
-#         anchor=gtk.ANCHOR_NW,
-#         size_pixels=gtk.FALSE)
-#       button_rem.show()
-
-#       button_imp = gtk.Button(_("Import file"))
-#       button_imp.connect("clicked", self.on_import_cvs_clicked, treeview)
-#       self.rootitem.add(
-#         gnome.canvas.CanvasWidget,
-#         widget=button_imp,
-#         x=area[2]-but_width,
-#         y=area[1] + (but_height + vgap) * 2,
-#         width=100,
-#         height=but_height,
-#         anchor=gtk.ANCHOR_NW,
-#         size_pixels=gtk.FALSE)
-#       button_imp.show()
-
-
-  def changed_cb(self, combobox):
-    index = combobox.get_active()
-    self.active_profile = self.profiles_list[index]
-
-    print 'Active profile is now', self.active_profile.name
-
-
 
 
   # -------------------
@@ -211,9 +177,9 @@ class Board_list:
     for board_cell in menu_list:
       self.board_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = board_cell[1]
       if  board_cell[0] == None:
-        row_dict[''] = model.append(None, [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height), _('Main menu') + '\n' + _('/'), True, '%s/%s' % (board_cell[1].section,board_cell[1].name)])
+        row_dict[''] = model.append(None, [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height), _('Main menu') + '\n' + _('/'), not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id], '%s/%s' % (board_cell[1].section,board_cell[1].name)])
       else:
-        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = model.append(row_dict[board_cell[1].section], [self.pixbuf_at_height(board_cell[1].icon_name, height), _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name), True, '%s/%s' % (board_cell[1].section,board_cell[1].name)])
+        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = model.append(row_dict[board_cell[1].section], [self.pixbuf_at_height(board_cell[1].icon_name, height), _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name), not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id], '%s/%s' % (board_cell[1].section,board_cell[1].name)])
 
   def pixbuf_at_height(self,file, height):
     pixbuf = gcompris.utils.load_pixmap(file)
@@ -267,10 +233,46 @@ class Board_list:
 
   def board_acive_cb(self, cell, path, model):
     model[path][2] = not model[path][2]
-    print "Toggle '%s' to: %s" % (self.board_dict[model[path][3]].title, model[path][2],)
+    print "Toggle '%s' %d to: %s" % (self.board_dict[model[path][3]].title, self.board_dict[model[path][3]].board_id , model[path][2],)
+
+    if model[path][2]:
+      print 'DELETE FROM activities_out WHERE board_id=%d AND out_id=%d' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id)
+      self.cur.execute('DELETE FROM activities_out WHERE board_id=%d AND out_id=%d' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id))
+    else:
+      print 'INSERT INTO activities_out (board_id, out_id) VALUES (%d, %d)' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id)
+      self.cur.execute('INSERT INTO activities_out (board_id, out_id) VALUES (%d, %d)' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id))
+
+    self.con.commit()
+
+    # update infos
+    self.out_dict = self.get_boards_out_by_profile()
+    
     return
 
+  def dict_from_list(self, list):
+    dict = {}
 
+    for profile in  self.profiles_list:
+      dict[profile.profile_id] = []
 
+    for l in list:
+      dict[l[1]].append(l[0])
 
+    return dict
 
+  def changed_cb(self, combobox):
+    index = combobox.get_active()
+    self.active_profile = self.profiles_list[index]
+
+    print 'Active profile is now', self.active_profile.name
+
+    self.model.foreach(self.update_active)
+
+  def update_active(self, model, path, iter):
+    model[path][2] = not self.board_dict[model[path][3]].board_id in self.out_dict[self.active_profile.profile_id]
+
+  def get_boards_out_by_profile(self):
+    # Grab the user data
+    self.cur.execute('select board_id, out_id from activities_out')
+
+    return self.dict_from_list(self.cur.fetchall())

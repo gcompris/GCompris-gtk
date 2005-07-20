@@ -1,3 +1,12 @@
+2005-07-21  Yves Combe  <yves@ycombe.net>
+
+	Finished board sélection by profile in board_list.py
+	Put board->board_id python binding to board.board_id (was board.id)
+
+	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/admin/module_boards.py:
+
 2005-07-20  Yves Combe  <yves@ycombe.net>
 
 	Add toggle box in the treeview, and a properties button.

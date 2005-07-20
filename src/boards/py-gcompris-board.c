@@ -113,7 +113,7 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
       }
     }
 
-    if(strcmp(name,"id")==0) return Py_BuildValue("i", self->cdata->board_id);
+    if(strcmp(name,"board_id")==0) return Py_BuildValue("i", self->cdata->board_id);
 
     if(strcmp(name,"section_id")==0) return Py_BuildValue("i", self->cdata->section_id);
     

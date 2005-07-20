@@ -64,16 +64,6 @@ class Boards(module.Module):
 #         fill_color="black"
 #         )
 
-    boards = []
-    for board in gcompris.admin.get_boards_list():
-      if board.is_configurable:
-        boards.append(board)
-
-    print "Configurable boards :",
-    for board in boards:
-      print board.section, board.name, board.id
-
-    
     hgap = 20
     vgap = 15
     
