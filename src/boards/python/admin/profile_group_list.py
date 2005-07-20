@@ -94,7 +94,7 @@ class Profile_group_list:
   def clear(self):
       self.model.clear()
 
-  # Retrieve data from the database for the given group_id
+  # Retrieve data from the database for the given profile_id
   def reload(self, profile_id):
       print "Reloading profile_group_list for profile_id=" + str(profile_id)
       self.profile_id = profile_id
@@ -102,15 +102,15 @@ class Profile_group_list:
       # Remove all entries in the list
       self.model.clear()
 
-      self.cur.execute('select group_id from list_groups_in_profiles where profile_id=?', (self.profile_id,))
+      self.cur.execute('select group_id from list_groups_in_profiles where profile_id=?',
+                       (self.profile_id,))
       list_group_id = self.cur.fetchall()
 
       # Now retrieve group detail
-      print list_group_id
       for group_id in list_group_id:
         self.cur.execute('select group_id,name,description from groups where group_id=?',
                          group_id)
-        user = self.cur.fetchall()[0]
+        group = self.cur.fetchall()[0]
         self.add_group_in_model(self.model, group)
 
     
@@ -122,7 +122,7 @@ class Profile_group_list:
                COLUMN_GROUPID,     group[COLUMN_GROUPID],
                COLUMN_NAME,        group[COLUMN_NAME],
                COLUMN_DESCRIPTION, group[COLUMN_DESCRIPTION],
-               COLUMN_USER_EDITABLE,  True
+               COLUMN_GROUP_EDITABLE,  True
                )
 
     

@@ -206,12 +206,8 @@ class GroupEdit(gtk.Window):
             user_is_already = self.cur.fetchall()
             
             if(with and user_is_already):
-                print "with and user_is_already"
-                print user_is_already
                 self.add_user_in_model(model, user)
             elif(not with and not user_is_already):
-                print "not with and not user_is_already"
-                print user_is_already
                 self.add_user_in_model(model, user)
 
 

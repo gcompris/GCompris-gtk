@@ -108,7 +108,7 @@ class ProfileEdit(gtk.Window):
         hbox.pack_start(vbox2, True, True, 0)
 
         button = gtk.Button(stock='gtk-add')
-        button.connect("clicked", self.add_user, treeview)
+        button.connect("clicked", self.add_group, treeview)
         vbox2.pack_start(button, False, False, 0)
         button.show()
 
@@ -160,7 +160,7 @@ class ProfileEdit(gtk.Window):
         vbox.pack_start(bbox, False, False, 0)
 
         # Missing callbacks
-        button_delete.connect("clicked", self.remove_user, treeview2)
+        button_delete.connect("clicked", self.remove_group, treeview2)
 
         # Ready GO
         self.show_all()
@@ -171,19 +171,18 @@ class ProfileEdit(gtk.Window):
     # -------------------
 
     # Add user in the model
-    def add_user_in_model(self, model, user):
+    def add_group_in_model(self, model, group):
         iter = model.append()
         model.set (iter,
-                   COLUMN_USERID,    user[COLUMN_USERID],
-                   COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
-                   COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
-                   COLUMN_USER_EDITABLE,  False
+                   COLUMN_GROUPID,      group[COLUMN_GROUPID],
+                   COLUMN_NAME,         group[COLUMN_NAME],
+                   COLUMN_DESCRIPTION,  group[COLUMN_DESCRIPTION],
+                   COLUMN_GROUP_EDITABLE,  False
                    )
 
-    # class_id: only users in this class are inserted
-    # group_id: only users in this group are inserted
-    # If with = True,  create a list only with user in the given class_id and group_id.
-    #           False, create a list only with user in the given class_id but NOT this group_id
+    # profile_id: only groups in this profile are inserted
+    # If with = True,  create a list only with groups in the given profile_id
+    #           False, create a list only with groups NOT this profile_id
     def __create_model(self, with, profile_id):
 
         model = gtk.ListStore(
@@ -192,26 +191,21 @@ class ProfileEdit(gtk.Window):
             gobject.TYPE_STRING,
             gobject.TYPE_BOOLEAN)
 
-        # Grab the all the groups from this profile
-        self.cur.execute('select group_id,firstname,lastname from users where class_id=?', (class_id,))
-        user_data = self.cur.fetchall()
+        # Grab the all the groups
+        self.cur.execute('select group_id,name,description from groups')
+        group_data = self.cur.fetchall()
 
-        for user in user_data:
+        for group in group_data:
 
-            # Check our user is already in the group
-            self.cur.execute('select * from list_users_in_groups where group_id=? and user_id=?',
-                             (group_id, user[0]))
-            user_is_already = self.cur.fetchall()
+            # Check our group is already in the profile
+            self.cur.execute('select * from list_groups_in_profiles where profile_id=? and group_id=?',
+                             (profile_id, group[0]))
+            group_is_already = self.cur.fetchall()
             
-            if(with and user_is_already):
-                print "with and user_is_already"
-                print user_is_already
-                self.add_user_in_model(model, user)
-            elif(not with and not user_is_already):
-                print "not with and not user_is_already"
-                print user_is_already
-                self.add_user_in_model(model, user)
-
+            if(with and group_is_already):
+                self.add_group_in_model(model, group)
+            elif(not with and not group_is_already):
+                self.add_group_in_model(model, group)
 
         return model
 
@@ -219,32 +213,32 @@ class ProfileEdit(gtk.Window):
 
         model = treeview.get_model()
         
-        # columns for first name
+        # columns for name
         renderer = gtk.CellRendererText()
-        renderer.set_data("column", COLUMN_FIRSTNAME)
-        column = gtk.TreeViewColumn(_('First Name'), renderer,
-                                    text=COLUMN_FIRSTNAME,
-                                    editable=COLUMN_USER_EDITABLE)
-        column.set_sort_column_id(COLUMN_FIRSTNAME)
+        renderer.set_data("column", COLUMN_NAME)
+        column = gtk.TreeViewColumn(_('Group'), renderer,
+                                    text=COLUMN_NAME,
+                                    editable=COLUMN_GROUP_EDITABLE)
+        column.set_sort_column_id(COLUMN_NAME)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-        column.set_fixed_width(constants.COLUMN_WIDTH_FIRSTNAME)
+        column.set_fixed_width(constants.COLUMN_WIDTH_GROUPNAME)
         treeview.append_column(column)
 
-        # column for last name
+        # column for description
         renderer = gtk.CellRendererText()
-        renderer.set_data("column", COLUMN_LASTNAME)
-        column = gtk.TreeViewColumn(_('Last Name'), renderer,
-                                    text=COLUMN_LASTNAME,
-                                    editable=COLUMN_USER_EDITABLE)
-        column.set_sort_column_id(COLUMN_LASTNAME)
+        renderer.set_data("column", COLUMN_DESCRIPTION)
+        column = gtk.TreeViewColumn(_('Description'), renderer,
+                                    text=COLUMN_DESCRIPTION,
+                                    editable=COLUMN_GROUP_EDITABLE)
+        column.set_sort_column_id(COLUMN_DESCRIPTION)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-        column.set_fixed_width(constants.COLUMN_WIDTH_LASTNAME)
+        column.set_fixed_width(constants.COLUMN_WIDTH_GROUPDESCRIPTION_EDIT)
         treeview.append_column(column)
 
 
-    # Add a user from the left list to the right list
+    # Add a group from the left list to the right list
     #
-    def add_user(self, button, treeview):
+    def add_group(self, button, treeview):
 
         model = treeview.get_model()
         
@@ -257,23 +251,23 @@ class ProfileEdit(gtk.Window):
             iter = treestore.get_iter(path)
             
             path = model.get_path(iter)[0]
-            user_id        = model.get_value(iter, COLUMN_USERID)
-            user_firstname = model.get_value(iter, COLUMN_FIRSTNAME)
-            user_lastname  = model.get_value(iter, COLUMN_LASTNAME)
+            group_id           = model.get_value(iter, COLUMN_GROUPID)
+            group_name         = model.get_value(iter, COLUMN_NAME)
+            group_description  = model.get_value(iter, COLUMN_DESCRIPTION)
             model.remove(iter)
 
             # Add in the the right view
-            self.add_user_in_model(self.model_right, (user_id, user_firstname, user_lastname))
+            self.add_group_in_model(self.model_right, (group_id, group_name, group_description))
             
             # Save the change in the base
-            self.cur.execute('insert or replace into list_users_in_groups (group_id, user_id) values (?, ?)',
-                             (self.group_id, user_id))
+            self.cur.execute('insert or replace into list_groups_in_profiles (profile_id, group_id) values (?, ?)',
+                             (self.profile_id, group_id))
             self.con.commit()
 
 
-    # Add a user from the left list to the right list
+    # Add a group from the left list to the right list
     #
-    def remove_user(self, button, treeview):
+    def remove_group(self, button, treeview):
 
         model = treeview.get_model()
         
@@ -286,17 +280,17 @@ class ProfileEdit(gtk.Window):
             iter = treestore.get_iter(path)
             
             path = model.get_path(iter)[0]
-            user_id        = model.get_value(iter, COLUMN_USERID)
-            user_firstname = model.get_value(iter, COLUMN_FIRSTNAME)
-            user_lastname  = model.get_value(iter, COLUMN_LASTNAME)
+            group_id           = model.get_value(iter, COLUMN_GROUPID)
+            group_name         = model.get_value(iter, COLUMN_NAME)
+            group_description  = model.get_value(iter, COLUMN_DESCRIPTION)
             model.remove(iter)
 
             # Add in the the left view
-            self.add_user_in_model(self.model_left, (user_id, user_firstname, user_lastname))
+            self.add_group_in_model(self.model_left, (group_id, group_name, group_description))
             
             # Save the change in the base
-            self.cur.execute('delete from list_users_in_groups where group_id=? and user_id=?',
-                             (self.group_id, user_id))
+            self.cur.execute('delete from list_groups_in_profiles where profile_id=? and group_id=?',
+                             (self.profile_id, group_id))
             self.con.commit()
 
 
@@ -304,6 +298,6 @@ class ProfileEdit(gtk.Window):
     # Done, can quit this dialog
     #
     def close(self, button):
-        self.group_user.reload(self.group_id)
+        self.profile_group.reload(self.profile_id)
         self.destroy()
         
