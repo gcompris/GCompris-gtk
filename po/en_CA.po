@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-18 04:29-0400\n"
-"PO-Revision-Date: 2005-07-18 22:51-0400\n"
+"POT-Creation-Date: 2005-07-20 00:42-0400\n"
+"PO-Revision-Date: 2005-07-20 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3423,102 +3423,173 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
-#: src/boards/python/admin/board_list.py:179
+#: src/boards/python/admin/board_list.py:75
+msgid "Select a profile:"
+msgstr "Select a profile:"
+
+#: src/boards/python/admin/board_list.py:212
 msgid "Main menu"
 msgstr "Main menu"
 
-#: src/boards/python/admin/board_list.py:179
+#: src/boards/python/admin/board_list.py:212
 msgid "/"
 msgstr "/"
 
 #. columns for Board name
-#: src/boards/python/admin/board_list.py:213
+#: src/boards/python/admin/board_list.py:246
 msgid "Board title"
 msgstr "Board title"
 
-#: src/boards/python/admin/board_list.py:216
-#: src/boards/python/admin/class_list.py:183
+#: src/boards/python/admin/board_list.py:249
 msgid "Name"
 msgstr "Name"
 
-#: src/boards/python/admin/class_edit.py:48
+#: src/boards/python/admin/class_edit.py:58
 msgid "Class Edition"
 msgstr "Class Edition"
 
-#: src/boards/python/admin/class_edit.py:52
+#: src/boards/python/admin/class_edit.py:62
 msgid "Editing class: "
 msgstr "Editing class: "
 
 #. Top message gives instructions
-#: src/boards/python/admin/class_edit.py:60
+#: src/boards/python/admin/class_edit.py:70
 msgid "Assign all the users bellonging to this class"
 msgstr "Assign all the users belonging to this class"
 
-#: src/boards/python/admin/class_edit.py:98
-#: src/boards/python/admin/group_edit.py:102
-msgid "Add user >"
-msgstr "Add user >"
-
-#: src/boards/python/admin/class_edit.py:191
-#: src/boards/python/admin/user_list.py:178
-#: src/boards/python/admin/group_edit.py:207
-#: src/boards/python/admin/group_user_list.py:156
+#: src/boards/python/admin/class_edit.py:209
+#: src/boards/python/admin/group_edit.py:227
+#: src/boards/python/admin/group_user_list.py:166
+#: src/boards/python/admin/profile_edit.py:225
+#: src/boards/python/admin/user_list.py:187
 msgid "First Name"
 msgstr "First Name"
 
-#: src/boards/python/admin/class_edit.py:200
-#: src/boards/python/admin/user_list.py:188
-#: src/boards/python/admin/group_edit.py:216
-#: src/boards/python/admin/group_user_list.py:165
+#: src/boards/python/admin/class_edit.py:220
+#: src/boards/python/admin/group_edit.py:238
+#: src/boards/python/admin/group_user_list.py:177
+#: src/boards/python/admin/profile_edit.py:236
+#: src/boards/python/admin/user_list.py:199
 msgid "Last Name"
 msgstr "Last Name"
 
 #. ---------------
 #. Class Management
 #. ---------------
-#: src/boards/python/admin/class_list.py:61
-msgid "User"
-msgstr "User"
+#: src/boards/python/admin/class_list.py:63
+msgid "Classes"
+msgstr "Classes"
 
-#: src/boards/python/admin/class_list.py:193
+#: src/boards/python/admin/class_list.py:63
+msgid "Users"
+msgstr "Users"
+
+#: src/boards/python/admin/class_list.py:187
+msgid "Class"
+msgstr "Class"
+
+#: src/boards/python/admin/class_list.py:199
 msgid "Teacher"
 msgstr "Teacher"
 
-#: src/boards/python/admin/class_list.py:284
+#: src/boards/python/admin/class_list.py:294
 msgid "You must first select a class in the list"
 msgstr "You must first select a class in the list"
 
-#: src/boards/python/admin/module_boards.py:41
+#: src/boards/python/admin/group_edit.py:60
+#: src/boards/python/admin/profile_edit.py:59
+msgid "Group Edition"
+msgstr "Group Edition"
+
+#: src/boards/python/admin/group_edit.py:64
+msgid "Editing group: "
+msgstr "Editing group: "
+
+#: src/boards/python/admin/group_edit.py:65
+msgid " for class: "
+msgstr " for class: "
+
+#. Top message gives instructions
+#: src/boards/python/admin/group_edit.py:73
+msgid "Assign all the users bellonging to this group"
+msgstr "Assign all the users belonging to this group"
+
+#. ---------------
+#. Group Management
+#. ---------------
+#: src/boards/python/admin/group_list.py:68
+#: src/boards/python/admin/group_list.py:225
+#: src/boards/python/admin/profile_group_list.py:149
+msgid "Group"
+msgstr "Group"
+
+#: src/boards/python/admin/group_list.py:92
+msgid "Select a class:"
+msgstr "Select a class:"
+
+#: src/boards/python/admin/group_list.py:237
+#: src/boards/python/admin/profile_group_list.py:160
+#: src/boards/python/admin/profile_list.py:201
+msgid "Description"
+msgstr "Description"
+
+#: src/boards/python/admin/group_list.py:343
+msgid "You must first select a group in the list"
+msgstr "You must first select a group in the list"
+
+#: src/boards/python/admin/group_user_list.py:155
+#: src/boards/python/admin/user_list.py:175
+msgid "Login"
+msgstr "Login"
+
+#: src/boards/python/admin/group_user_list.py:188
+#: src/boards/python/admin/user_list.py:211
+msgid "Birth Date"
+msgstr "Birth Date"
+
+#: src/boards/python/admin/module_boards.py:42
+#: src/boards/python/admin/module_boards.py:90
 msgid "Boards"
 msgstr "Boards"
-
-#: src/boards/python/admin/module_boards.py:59
-msgid " Panel"
-msgstr " Panel"
 
 #: src/boards/python/admin/module_groups.py:41
 msgid "Groups list"
 msgstr "Groups list"
 
-#: src/boards/python/admin/module_profiles.py:37
+#: src/boards/python/admin/module_profiles.py:41
 msgid "Profiles list"
 msgstr "Profiles list"
 
-#: src/boards/python/admin/module_profiles.py:60
+#: src/boards/python/admin/module_users.py:42
+msgid "Users list"
+msgstr "Users list"
+
+#: src/boards/python/admin/profile_edit.py:63
+msgid "Editing profile: "
+msgstr "Editing profile: "
+
+#. Top message gives instructions
+#: src/boards/python/admin/profile_edit.py:71
+msgid "Assign all the groups bellonging to this profile"
+msgstr "Assign all the groups belonging to this profile"
+
+#. ---------------
+#. Profile Management
+#. ---------------
+#: src/boards/python/admin/profile_list.py:64
+#: src/boards/python/admin/profile_list.py:189
 msgid "Profile"
 msgstr "Profile"
 
-#: src/boards/python/admin/user_list.py:168
-#: src/boards/python/admin/group_user_list.py:147
-msgid "Login"
-msgstr "Login"
+#: src/boards/python/admin/profile_list.py:255
+msgid "You cannot remove the default profile"
+msgstr "You cannot remove the default profile"
 
-#: src/boards/python/admin/user_list.py:198
-#: src/boards/python/admin/group_user_list.py:174
-msgid "Birth Date"
-msgstr "Birth Date"
+#: src/boards/python/admin/profile_list.py:308
+msgid "You must first select a profile in the list"
+msgstr "You must first select a profile in the list"
 
-#: src/boards/python/admin/user_list.py:246
+#: src/boards/python/admin/user_list.py:261
 msgid ""
 "To import a file, it must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
@@ -3527,27 +3598,6 @@ msgstr ""
 "To import a file, it must be formatted like this:\n"
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
-
-#: src/boards/python/admin/group_edit.py:51
-msgid "Group Edition"
-msgstr "Group Edition"
-
-#: src/boards/python/admin/group_edit.py:55
-msgid "Editing group: "
-msgstr "Editing group: "
-
-#: src/boards/python/admin/group_edit.py:56
-msgid " for class: "
-msgstr " for class: "
-
-#. Top message gives instructions
-#: src/boards/python/admin/group_edit.py:64
-msgid "Assign all the users bellonging to this group"
-msgstr "Assign all the users belonging to this group"
-
-#: src/boards/python/admin/module_users.py:42
-msgid "Users list"
-msgstr "Users list"
 
 #: src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3748,7 +3798,7 @@ msgstr "Unknown command at line"
 msgid "Distance:"
 msgstr "Distance:"
 
-#: src/boards/python/tuxpaint.py:69
+#: src/boards/python/tuxpaint.py:68
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -3756,7 +3806,7 @@ msgstr ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board!"
 
-#: src/boards/python/tuxpaint.py:82
+#: src/boards/python/tuxpaint.py:81
 msgid "Waiting Tuxpaint Finished"
 msgstr "Waiting Tuxpaint Finished"
 
@@ -3935,7 +3985,7 @@ msgstr "Help"
 msgid "OK"
 msgstr "OK"
 
-#: src/gcompris/board.c:169
+#: src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
 
@@ -4344,37 +4394,50 @@ msgstr "Database %s opened"
 msgid "Database tables created"
 msgstr "Database tables created"
 
-#: src/gcompris/gcompris_db.c:744
+#: src/gcompris/gcompris_db.c:733 src/gcompris/gcompris_db.c:1255
 #, c-format
 msgid "No users groups for profile %s"
 msgstr "No users groups for profile %s"
 
-#: src/gcompris/gcompris_db.c:775
+#: src/gcompris/gcompris_db.c:764 src/gcompris/gcompris_db.c:1288
 #, c-format
 msgid "No activities out for profile %s"
 msgstr "No activities out for profile %s"
 
-#: src/gcompris/gcompris_db.c:830
+#: src/gcompris/gcompris_db.c:854
 #, c-format
 msgid "No users in group with id  %d"
 msgstr "No users in group with ID  %d"
 
-#: src/gcompris/gcompris_db.c:887
+#: src/gcompris/gcompris_db.c:911
 #, c-format
 msgid "No user with id  %d"
 msgstr "No user with ID %d"
 
-#: src/gcompris/gcompris_db.c:944
+#: src/gcompris/gcompris_db.c:968
 #, c-format
 msgid "No class with id  %d"
 msgstr "No class with ID %d"
 
-#: src/gcompris/gcompris_db.c:979
+#: src/gcompris/gcompris_db.c:1003
 #, c-format
 msgid ""
 "No groups in for class %s, there must be at least one for whole class (%d)"
 msgstr ""
 "No groups in for class %s, there must be at least one for whole class (%d)"
+
+#: src/gcompris/gcompris_db.c:1348
+#, c-format
+msgid "No group with id  %d"
+msgstr "No group with ID %d"
+
+#: src/gcompris/gcompris_db.c:1401 src/gcompris/gcompris_db.c:1601
+msgid "No groups !"
+msgstr "No groups!"
+
+#: src/gcompris/gcompris_db.c:1544
+msgid "No users !"
+msgstr "No users!"
 
 #: src/gcompris/help.c:170
 msgid "Prerequisite"
