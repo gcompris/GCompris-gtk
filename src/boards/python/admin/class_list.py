@@ -111,16 +111,16 @@ class Class_list:
       right_box.pack_start(button, False, False, 0)
       button.show()
 
-      button = gtk.Button(stock='gtk-delete')
-      button.connect("clicked", self.on_remove_class_clicked, treeview_class)
-      right_box.pack_start(button, False, False, 0)
-      button.show()
-      
       button = gtk.Button(stock='gtk-edit')
       button.connect("clicked", self.on_edit_class_clicked, treeview_class)
       right_box.pack_start(button, False, False, 0)
       button.show()
 
+      button = gtk.Button(stock='gtk-remove')
+      button.connect("clicked", self.on_remove_class_clicked, treeview_class)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
+      
       # User list for the group
       user_hbox = gtk.HBox(False, 8)
       user_hbox.show()

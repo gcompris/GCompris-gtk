@@ -105,16 +105,16 @@ class User_list:
       right_box.pack_start(button, False, False, 0)
       button.show()
 
-      button = gtk.Button(stock='gtk-delete')
-      button.connect("clicked", self.on_remove_item_clicked, treeview)
-      right_box.pack_start(button, False, False, 0)
-      button.show()
-      
       button = gtk.Button(stock='gtk-open')
       button.connect("clicked", self.on_import_cvs_clicked, treeview)
       right_box.pack_start(button, False, False, 0)
       button.show()
 
+      button = gtk.Button(stock='gtk-remove')
+      button.connect("clicked", self.on_remove_item_clicked, treeview)
+      right_box.pack_start(button, False, False, 0)
+      button.show()
+      
       
   # -------------------
   # User Management

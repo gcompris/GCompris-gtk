@@ -146,13 +146,13 @@ class Group_list:
       vbox_button.pack_start(button, False, False, 0)
       button.show()
       
-      button = gtk.Button(stock='gtk-delete')
-      button.connect("clicked", self.on_remove_group_clicked, treeview_group)
+      button = gtk.Button(stock='gtk-edit')
+      button.connect("clicked", self.on_edit_group_clicked, treeview_group)
       vbox_button.pack_start(button, False, False, 0)
       button.show()
 
-      button = gtk.Button(stock='gtk-edit')
-      button.connect("clicked", self.on_edit_group_clicked, treeview_group)
+      button = gtk.Button(stock='gtk-remove')
+      button.connect("clicked", self.on_remove_group_clicked, treeview_group)
       vbox_button.pack_start(button, False, False, 0)
       button.show()
 

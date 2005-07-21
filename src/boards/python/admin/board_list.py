@@ -177,9 +177,18 @@ class Board_list:
     for board_cell in menu_list:
       self.board_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = board_cell[1]
       if  board_cell[0] == None:
-        row_dict[''] = model.append(None, [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height), _('Main menu') + '\n' + _('/'), not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id], '%s/%s' % (board_cell[1].section,board_cell[1].name)])
+        row_dict[''] = \
+                     model.append(None,
+                                  [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height),
+                                   _('Main menu') + '\n' + _('/'),
+                                   not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
+                                   '%s/%s' % (board_cell[1].section,board_cell[1].name)])
       else:
-        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = model.append(row_dict[board_cell[1].section], [self.pixbuf_at_height(board_cell[1].icon_name, height), _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name), not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id], '%s/%s' % (board_cell[1].section,board_cell[1].name)])
+        row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = \
+                         model.append(row_dict[board_cell[1].section],
+                                      [self.pixbuf_at_height(board_cell[1].icon_name, height),
+                                       _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
+                                       not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id], '%s/%s' % (board_cell[1].section,board_cell[1].name)])
 
   def pixbuf_at_height(self,file, height):
     pixbuf = gcompris.utils.load_pixmap(file)

@@ -110,7 +110,7 @@ class ClassEdit(gtk.Window):
         button_add.connect("clicked", self.add_user, treeview)
         vbox2.pack_start(button_add, False, False, 0)
 
-        button_delete = gtk.Button(stock='gtk-delete')
+        button_delete = gtk.Button(stock='gtk-remove')
         vbox2.pack_start(button_delete, False, False, 0)
 
         # Right List

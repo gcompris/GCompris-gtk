@@ -57,6 +57,12 @@ class Profile_list:
       # The profile_id to work on
       self.current_profile_id = 0
 
+      # Get the default profile
+      self.cur.execute('select * from informations')
+      self.default_profile_id = self.cur.fetchall()[0][2]
+      self.default_profile_id_iter = None
+      self.default_profile_id_description = None
+      
       # ---------------
       # Profile Management
       # ---------------
@@ -112,13 +118,18 @@ class Profile_list:
       vbox_button.pack_start(button, False, False, 0)
       button.show()
       
-      button = gtk.Button(stock='gtk-delete')
+      button = gtk.Button(stock='gtk-edit')
+      button.connect("clicked", self.on_edit_profile_clicked, treeview_profile)
+      vbox_button.pack_start(button, False, False, 0)
+      button.show()
+
+      button = gtk.Button(stock='gtk-remove')
       button.connect("clicked", self.on_remove_profile_clicked, treeview_profile)
       vbox_button.pack_start(button, False, False, 0)
       button.show()
 
-      button = gtk.Button(stock='gtk-edit')
-      button.connect("clicked", self.on_edit_profile_clicked, treeview_profile)
+      button = gtk.Button(_("Default"))
+      button.connect("clicked", self.on_default_profile_clicked, treeview_profile)
       vbox_button.pack_start(button, False, False, 0)
       button.show()
 
@@ -228,7 +239,9 @@ class Profile_list:
                COLUMN_DESCRIPTION,        aprofile[COLUMN_DESCRIPTION],
                COLUMN_PROFILE_EDITABLE,   True
                )
-
+    
+    if self.default_profile_id ==  aprofile[COLUMN_PROFILEID]:
+      self.set_default_in_description(iter)
     
   #
   def on_add_profile_clicked(self, button, model):
@@ -310,8 +323,50 @@ class Profile_list:
       dialog.destroy()
 
 
+
+  # Set the default profile in the 'informations' table
+  def on_default_profile_clicked(self, button, treeview):
+    selection = treeview.get_selection()
+    model, iter = selection.get_selected()
+
+    if iter:
+      path = model.get_path(iter)[0]
+      profile_id   = model.get_value(iter, COLUMN_PROFILEID)
+
+      # Get the old data (informations is a one line table)
+      self.cur.execute('select * from informations')
+      info_data = self.cur.fetchall()[0]
+
+      # Save the changes in the base
+      self.cur.execute('insert or replace into informations (gcompris_version, init_date, profile_id) values (?, ?, ?)',
+                       (info_data[0], info_data[1], profile_id))
+      self.con.commit()
+
+      self.set_default_in_description(iter)
+      
+  # Write an additional [Default] in the profile description
+  def set_default_in_description(self, iter):
+      # set default in description
+      description  = self.profile_model.get_value(iter, COLUMN_DESCRIPTION)
+      self.profile_model.set (iter,
+                              COLUMN_DESCRIPTION,        description + " " + _("[Default]"),
+                              )
+
+      # There was a previous default TAG, erase it
+      if self.default_profile_id_iter:
+        self.profile_model.set (self.default_profile_id_iter,
+                                COLUMN_DESCRIPTION, self.default_profile_id_description,
+                                )
+
+      # Save the default profile iter to erase it's "default" tag if needed
+      self.default_profile_id_iter        = iter
+      self.default_profile_id_description = description
+
+
+  #
+  # Called on profile change
+  #
   def profile_changed_cb(self, selection, profile_group):
-    print "profile_changed_cb"
     model, iter = selection.get_selected()
 
     if iter:

@@ -1,5 +1,26 @@
 2005-07-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Added 3 new background musics (classical music).
+
+	Implemented the management of the default profile.
+	
+	* boards/music/background/COPYRIGHT: Added public domain released classical musics
+	  from T. Willhoite found on http://www.archive.org
+	* boards/music/background/Mozart__WA_-_String_Quartet_No.2_in_D_Mvmt_3.ogg
+        * boards/music/background/Brahms__Johannes_-_String_Quartet_C_minor__Op_51_mvmt_4.ogg
+        * boards/music/background/Bach_JS__Brandenburg_Concert_No_2_in_F_Major_BWV_1047_mvmt1.ogg
+
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/group_edit.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/profile_edit.py:
+	* src/boards/python/admin/profile_list.py:
+	* src/boards/python/admin/user_list.py:
+
+2005-07-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Completed profile_edit. It is now possible to select groups in profiles
 
 	* src/boards/python/admin/constants.py:
