@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/07/03 23:01:47 yves>
+ * Time-stamp: <2005/07/22 01:21:03 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -716,6 +716,17 @@ GList *suppress_int_from_list(GList *list, int value)
   return list;
 }
 
+gboolean compare_id(gconstpointer data1, gconstpointer data2)
+{
+  int *i = (int *) data1;
+  int *j = (int *) data2;
+
+  if (*i == *j)
+    return 0;
+  else
+    return -1;
+}
+
 /*
  * gcompris_load_menus
  *
@@ -739,10 +750,8 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
     g_warning("gcompris_load_menus : no menu found in %s", dirname);
     return;
   } else {
-    if (db){
+    if (db)
       list_old_boards_id = gcompris_db_get_board_id(list_old_boards_id);
-      printf("length list_old_boards_id %d\n", g_list_length(list_old_boards_id));
-    }
 
     while((one_dirent = g_dir_read_name(dir)) != NULL) {
       /* add the board to the list */
@@ -770,13 +779,14 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 	GcomprisBoard *board_read = gcompris_read_xml_file(gcomprisBoard, filename, db);
 	if (board_read){
 	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board_read->board_id);
-	  if ((properties->administration) || 
-	      (strncmp(board_read->section,
-		       "/administration",
-		       strlen("/administration"))!=0))
+	  if (properties->administration)
 	    boards_list = g_list_append(boards_list, board_read);
-	  //else
-	    //gcompris_free_board(board_read);
+	  else 
+	    if ((strncmp(board_read->section,
+			 "/administration",
+			 strlen("/administration"))!=0) &&
+		(!(g_list_find_custom(gcompris_get_current_profile()->activities, &(board_read->board_id), compare_id))))
+	      boards_list = g_list_append(boards_list, board_read);
 	}
       }
       g_free(filename);
@@ -785,7 +795,6 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 
   if (db){
     /* remove suppressed boards from db */
-    printf("length list_old_boards_id to suppress %d\n", g_list_length(list_old_boards_id));
     while (list_old_boards_id != NULL){
       int *data=list_old_boards_id->data;
       gcompris_db_remove_board(*data);
@@ -813,6 +822,21 @@ void gcompris_load_menus()
 
   if ((!properties->reread_xml) && gcompris_db_check_boards()){
     boards_list = gcompris_load_menus_db(boards_list);
+
+    if (!properties->administration){
+      GList *out_boards = NULL;
+      GList *list = NULL;
+      GcomprisBoard *board;
+
+      for (list = boards_list; list != NULL; list = list->next){
+	board = (GcomprisBoard *)list->data;
+	if (g_list_find_custom(gcompris_get_current_profile()->activities,
+			       &(board->board_id), compare_id))
+	  out_boards = g_list_append(out_boards, board);
+      }
+      for (list = out_boards; list != NULL; list = list->next)
+	boards_list = g_list_remove(boards_list, list->data);
+    }
   }
   else {
     properties->reread_xml = TRUE;

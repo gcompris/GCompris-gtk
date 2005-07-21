@@ -125,10 +125,11 @@ class Board_list:
 
       # Add buttons
 
-      button_configure = gtk.Button(stock=gtk.STOCK_PROPERTIES)
-#       button_add.connect("clicked", self.on_add_item_clicked, model)
-      button_configure.show()
-      box3.pack_start(button_configure, True, False, 0)
+      self.button_configure = gtk.Button(stock=gtk.STOCK_PREFERENCES)
+      self.button_configure.connect("clicked", self.configure_board)
+      self.button_configure.show()
+      box3.pack_start(self.button_configure, True, False, 0)
+      self.button_configure.set_sensitive(False)
 
 
   # -------------------
@@ -174,21 +175,27 @@ class Board_list:
     row_dict = {}
     self.board_dict = {}
     height = 24
+
     for board_cell in menu_list:
       self.board_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = board_cell[1]
+
+
       if  board_cell[0] == None:
-        row_dict[''] = \
+        row_dict[''] =  \
                      model.append(None,
                                   [self.pixbuf_at_height('gcompris/misc/tuxplane.png', height),
                                    _('Main menu') + '\n' + _('/'),
                                    not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
-                                   '%s/%s' % (board_cell[1].section,board_cell[1].name)])
+                                   '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
+
       else:
         row_dict['%s/%s' % (board_cell[1].section,board_cell[1].name)] = \
                          model.append(row_dict[board_cell[1].section],
                                       [self.pixbuf_at_height(board_cell[1].icon_name, height),
                                        _(board_cell[1].title) + '\n' + '%s/%s' % (board_cell[1].section,board_cell[1].name),
-                                       not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id], '%s/%s' % (board_cell[1].section,board_cell[1].name)])
+                                       not board_cell[1].board_id in self.out_dict[self.active_profile.profile_id],
+                                       '%s/%s' % (board_cell[1].section,board_cell[1].name), self.pixbuf_configurable(board_cell[1])])
+
 
   def pixbuf_at_height(self,file, height):
     pixbuf = gcompris.utils.load_pixmap(file)
@@ -202,6 +209,7 @@ class Board_list:
       gtk.gdk.Pixbuf,
       gobject.TYPE_STRING,
       gobject.TYPE_BOOLEAN,
+      gobject.TYPE_STRING,
       gobject.TYPE_STRING,
       )
 
@@ -218,38 +226,51 @@ class Board_list:
 
     # Render for Board name with icon.
     cell_board_icon = gtk.CellRendererPixbuf()
-#    cell_board_name = gtk.CellRendererText()
+
     cell_board_title = gtk.CellRendererText()
+
     cell_active_board = gtk.CellRendererToggle()
     cell_active_board.set_property('activatable', True)
     cell_active_board.connect( 'toggled', self.board_acive_cb, model )
-    
-    # columns for Board name
-    column0 = gtk.TreeViewColumn(_('active'))
-    column1 = gtk.TreeViewColumn(_('Board title'))
-    column1.pack_start(cell_board_icon, False)
-    column1.pack_start(cell_board_title, True)
-#    column2 = gtk.TreeViewColumn(_('Name'))
-    column0.pack_start(cell_active_board, False)
-    treeview.append_column(column0)
-    treeview.append_column(column1)
-#    treeview.append_column(column2)
-#    column2.pack_start(cell_board_name, True)
-    column1.add_attribute(cell_board_icon, 'pixbuf', 0)
-    column1.add_attribute(cell_board_title, 'text', 1)
-    column0.add_attribute(cell_active_board, 'active', 2)
 
+    cell_board_configure = gtk.CellRendererPixbuf()
+    
+#    columns for Board name
+#    column_pref = gtk.TreeViewColumn(_('Conf'))
+#    image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#    image.show()
+#    column_pref.set_widget(image)
+
+    column_active = gtk.TreeViewColumn(_('Active'))
+    column_title = gtk.TreeViewColumn(_('Board title'))
+    column_title.pack_start(cell_board_icon, False)
+    column_active.pack_start(cell_board_configure, False)
+    column_title.pack_start(cell_board_title, True)
+    column_active.pack_start(cell_active_board, False)
+
+    treeview.append_column(column_active)
+    treeview.append_column(column_title)
+
+    column_title.add_attribute(cell_board_icon, 'pixbuf', 0)
+    column_title.add_attribute(cell_board_title, 'text', 1)
+    column_active.add_attribute(cell_active_board, 'active', 2)
+    column_active.set_attributes(cell_board_configure, stock_id=4)
+
+    treeview.connect("cursor-changed", self.row_selected, model)
 
   def board_acive_cb(self, cell, path, model):
     model[path][2] = not model[path][2]
-    print "Toggle '%s' %d to: %s" % (self.board_dict[model[path][3]].title, self.board_dict[model[path][3]].board_id , model[path][2],)
 
     if model[path][2]:
-      print 'DELETE FROM activities_out WHERE board_id=%d AND out_id=%d' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id)
-      self.cur.execute('DELETE FROM activities_out WHERE board_id=%d AND out_id=%d' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id))
+      self.cur.execute('DELETE FROM activities_out WHERE board_id=%d AND out_id=%d' % (
+        self.board_dict[model[path][3]].board_id,
+                                                                                       self.active_profile.profile_id
+        ))
     else:
-      print 'INSERT INTO activities_out (board_id, out_id) VALUES (%d, %d)' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id)
-      self.cur.execute('INSERT INTO activities_out (board_id, out_id) VALUES (%d, %d)' % (self.board_dict[model[path][3]].board_id, self.active_profile.profile_id))
+      self.cur.execute('INSERT INTO activities_out (board_id, out_id) VALUES (%d, %d)' % (
+        self.board_dict[model[path][3]].board_id,
+        self.active_profile.profile_id
+        ))
 
     self.con.commit()
 
@@ -285,3 +306,27 @@ class Board_list:
     self.cur.execute('select board_id, out_id from activities_out')
 
     return self.dict_from_list(self.cur.fetchall())
+
+  def pixbuf_configurable(self, board):
+    if board.is_configurable:
+      return gtk.STOCK_PREFERENCES
+    else:
+      return None
+
+  def preference_clicked(self, widget, event, board):
+    print 'preference', board.title
+
+  def row_selected(self, treeview,  model):
+    path = model.get_path(treeview.get_selection().get_selected()[1])
+    print "Row selected:", model[path][3]
+
+    self.selected_board = self.board_dict[model[path][3]]
+    if self.selected_board.is_configurable:
+      self.button_configure.set_sensitive(True)
+    else:
+      self.button_configure.set_sensitive(False)
+
+  def configure_board(self, button):
+    print 'Oui, Oui un de ces jours ça va lancer la conf de ', self.selected_board.title
+#    gcompris.admin.board_config_start(self.selected_board)
+#    gcompris.admin.board_config_stop(self.selected_board)

@@ -31,6 +31,7 @@ import os
 from gettext import gettext as _
 
 pid = None
+#board = None
 
 class Gcompris_tuxpaint:
   """TuxPaint Launcher"""
@@ -39,13 +40,18 @@ class Gcompris_tuxpaint:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
     pass
-    
+
   def start(self):
 #    line = os.sys.stdin.readline()
 #    while (len(line) >1):
 #      exec(line)
 #      line = os.sys.stdin.readline()
 
+    self.window = self.gcomprisBoard.canvas.get_toplevel()
+
+    #global board
+    #board = self
+    
     Prop = gcompris.get_properties()
     
     self.rootitem = self.gcomprisBoard.canvas.root().add(
@@ -60,6 +66,10 @@ class Gcompris_tuxpaint:
 
     gcompris.sound.close()
 
+
+    #self.window.set_property("accept-focus", 0)
+    #self.window.set_keep_below(False)
+    
     try:
       # gobject.SPAWN_DO_NOT_REAP_CHILD|gobject.SPAWN_SEARCH_PATH = 2 | 4
       pid,stdin, stdout, stderr = gcompris.spawn_async(
@@ -84,7 +94,7 @@ class Gcompris_tuxpaint:
       fill_color_rgba = 0x000000ffL, 
       font = gcompris.skin.get_font("gcompris/board/huge bold"),
       )
-
+    
   def end(self):
     gcompris.sound.reopen()
     global pid
@@ -130,6 +140,9 @@ class Gcompris_tuxpaint:
     pass
 
 def child_callback(fd,  cond, data):
+  #global board
+  #board.window.set_property("accept-focus", 1)
+  #board.window.set_keep_above(False)
   gcompris.sound.reopen()
   global pid
   pid = None

@@ -1,3 +1,14 @@
+2005-07-22  Yves Combe  <yves@ycombe.net>
+
+	Connect treeview signal to allow usage of pref button
+	Add pref icon in treeview if board is configurable
+	gcompris_load_menus_* skip boards listed in profile unactivated activities. (Works !)
+
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/gameutil.c: (compare_id), (gcompris_load_menus_dir),
+	(gcompris_load_menus):
+
 2005-07-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added 3 new background musics (classical music).
