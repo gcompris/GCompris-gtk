@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-20 00:42-0400\n"
-"PO-Revision-Date: 2005-07-20 22:51-0400\n"
+"POT-Creation-Date: 2005-07-22 06:20-0400\n"
+"PO-Revision-Date: 2005-07-22 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3423,26 +3423,30 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
-#: src/boards/python/admin/board_list.py:75
+#: src/boards/python/admin/board_list.py:82
 msgid "Select a profile:"
 msgstr "Select a profile:"
 
-#: src/boards/python/admin/board_list.py:212
+#: src/boards/python/admin/board_list.py:187
 msgid "Main menu"
 msgstr "Main menu"
 
-#: src/boards/python/admin/board_list.py:212
+#: src/boards/python/admin/board_list.py:187
 msgid "/"
 msgstr "/"
 
 #. columns for Board name
-#: src/boards/python/admin/board_list.py:246
+#. column_pref = gtk.TreeViewColumn(_('Conf'))
+#. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#. image.show()
+#. column_pref.set_widget(image)
+#: src/boards/python/admin/board_list.py:244
+msgid "Active"
+msgstr "Active"
+
+#: src/boards/python/admin/board_list.py:245
 msgid "Board title"
 msgstr "Board title"
-
-#: src/boards/python/admin/board_list.py:249
-msgid "Name"
-msgstr "Name"
 
 #: src/boards/python/admin/class_edit.py:58
 msgid "Class Edition"
@@ -3458,17 +3462,15 @@ msgid "Assign all the users bellonging to this class"
 msgstr "Assign all the users belonging to this class"
 
 #: src/boards/python/admin/class_edit.py:209
-#: src/boards/python/admin/group_edit.py:227
+#: src/boards/python/admin/group_edit.py:223
 #: src/boards/python/admin/group_user_list.py:166
-#: src/boards/python/admin/profile_edit.py:225
 #: src/boards/python/admin/user_list.py:187
 msgid "First Name"
 msgstr "First Name"
 
 #: src/boards/python/admin/class_edit.py:220
-#: src/boards/python/admin/group_edit.py:238
+#: src/boards/python/admin/group_edit.py:234
 #: src/boards/python/admin/group_user_list.py:177
-#: src/boards/python/admin/profile_edit.py:236
 #: src/boards/python/admin/user_list.py:199
 msgid "Last Name"
 msgstr "Last Name"
@@ -3519,6 +3521,7 @@ msgstr "Assign all the users belonging to this group"
 #. ---------------
 #: src/boards/python/admin/group_list.py:68
 #: src/boards/python/admin/group_list.py:225
+#: src/boards/python/admin/profile_edit.py:219
 #: src/boards/python/admin/profile_group_list.py:149
 msgid "Group"
 msgstr "Group"
@@ -3528,8 +3531,9 @@ msgid "Select a class:"
 msgstr "Select a class:"
 
 #: src/boards/python/admin/group_list.py:237
+#: src/boards/python/admin/profile_edit.py:230
 #: src/boards/python/admin/profile_group_list.py:160
-#: src/boards/python/admin/profile_list.py:201
+#: src/boards/python/admin/profile_list.py:212
 msgid "Description"
 msgstr "Description"
 
@@ -3548,7 +3552,7 @@ msgid "Birth Date"
 msgstr "Birth Date"
 
 #: src/boards/python/admin/module_boards.py:42
-#: src/boards/python/admin/module_boards.py:90
+#: src/boards/python/admin/module_boards.py:80
 msgid "Boards"
 msgstr "Boards"
 
@@ -3576,18 +3580,26 @@ msgstr "Assign all the groups belonging to this profile"
 #. ---------------
 #. Profile Management
 #. ---------------
-#: src/boards/python/admin/profile_list.py:64
-#: src/boards/python/admin/profile_list.py:189
+#: src/boards/python/admin/profile_list.py:70
+#: src/boards/python/admin/profile_list.py:200
 msgid "Profile"
 msgstr "Profile"
 
-#: src/boards/python/admin/profile_list.py:255
+#: src/boards/python/admin/profile_list.py:131
+msgid "Default"
+msgstr "Default"
+
+#: src/boards/python/admin/profile_list.py:268
 msgid "You cannot remove the default profile"
 msgstr "You cannot remove the default profile"
 
-#: src/boards/python/admin/profile_list.py:308
+#: src/boards/python/admin/profile_list.py:321
 msgid "You must first select a profile in the list"
 msgstr "You must first select a profile in the list"
+
+#: src/boards/python/admin/profile_list.py:352
+msgid "[Default]"
+msgstr "[Default]"
 
 #: src/boards/python/admin/user_list.py:261
 msgid ""
@@ -3798,7 +3810,7 @@ msgstr "Unknown command at line"
 msgid "Distance:"
 msgstr "Distance:"
 
-#: src/boards/python/tuxpaint.py:68
+#: src/boards/python/tuxpaint.py:78
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -3806,7 +3818,7 @@ msgstr ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board!"
 
-#: src/boards/python/tuxpaint.py:81
+#: src/boards/python/tuxpaint.py:91
 msgid "Waiting Tuxpaint Finished"
 msgstr "Waiting Tuxpaint Finished"
 
@@ -3980,7 +3992,7 @@ msgid "Help"
 msgstr "Help"
 
 #: src/gcompris/about.c:316 src/gcompris/config.c:211
-#: src/gcompris/gameutil.c:1037 src/gcompris/help.c:329
+#: src/gcompris/gameutil.c:1061 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
