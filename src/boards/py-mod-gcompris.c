@@ -901,6 +901,52 @@ py_gcompris_get_board_conf(PyObject* self, PyObject* args)
   return pydict;;
 }
 
+static PyObject*
+py_gcompris_get_conf(PyObject* self, PyObject* args)
+{
+  GList *board_conf;
+  GList *list;
+  PyObject *pydict;
+  PyObject *value;
+  GcomprisConfPair *pair;
+
+  PyObject* pyBoard;
+  PyObject* pyProfile;
+  pyGcomprisBoardObject* pyGcomprisBoard;
+  GcomprisBoard* cGcomprisBoard;
+  pyGcomprisProfileObject* pyGcomprisProfile;
+  GcomprisProfile* cGcomprisProfile;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "OO:gcompris.get_conf", &pyProfile ,&pyBoard))
+    return NULL;
+
+  pyGcomprisBoard = (pyGcomprisBoardObject *) pyBoard;
+  pyGcomprisProfile = (pyGcomprisProfileObject *) pyProfile;
+
+  cGcomprisProfile = pyGcomprisProfile->cdata;
+  cGcomprisBoard = pyGcomprisBoard->cdata;
+
+  /* Call the corresponding C function */
+  board_conf = gcompris_get_conf(cGcomprisProfile, cGcomprisBoard);
+
+  pydict = PyDict_New();
+  for (list = board_conf; list != NULL; list = list->next){
+    pair = (GcomprisConfPair *) list->data;
+    if (pair->key==NULL)
+      continue;
+    if (pair->value==NULL){
+      Py_INCREF(Py_None);
+      value = Py_None;
+    } else
+      value = PyString_FromString(pair->value);
+
+    PyDict_SetItem(pydict, PyString_FromString(pair->key), value);
+  }
+  /* Create and return the result */
+  return pydict;;
+}
+
 
 /* GcomprisProfile *gcompris_get_current_profile(void); */
 static PyObject*
@@ -955,6 +1001,7 @@ py_gcompris_set_board_conf (PyObject* self, PyObject* args)
 		       &pyProfile, &pyBoard,
 		       &key, &value))
     return NULL;
+
   pyGcomprisBoard = (pyGcomprisBoardObject *) pyBoard;
   pyGcomprisProfile = (pyGcomprisProfileObject *) pyProfile;
 
@@ -1010,6 +1057,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "spawn_async",  py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
   { "child_watch_add",  py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
   { "get_board_conf",  py_gcompris_get_board_conf, METH_VARARGS, "gcompris_get_board_conf" },
+  { "get_conf",  py_gcompris_get_conf, METH_VARARGS, "gcompris_get_conf" },
   { "set_board_conf",  py_gcompris_set_board_conf, METH_VARARGS, "gcompris_set_board_conf" },
   { "get_current_profile",  py_gcompris_get_current_profile, METH_VARARGS, "gcompris_get_current_profile" },
   { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },

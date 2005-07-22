@@ -1,3 +1,15 @@
+2005-07-23  Yves Combe  <yves@ycombe.net>
+
+	add gcompris_get_conf(profile, board) to get confs in conguration mode.
+	tuxpaint launcher configuration is now working ! Yeah!
+
+	* src/boards/py-mod-gcompris.c: (py_gcompris_get_conf),
+	(py_gcompris_set_board_conf):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf),
+	(gcompris_get_board_conf):
+	* src/gcompris/gcompris_db.h:
+
 2005-07-22  Yves Combe  <yves@ycombe.net>
 
 	board config_start function now launched correctly. Example is in tuxpaint.py

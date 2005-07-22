@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/07/11 22:39:57 yves>
+ * Time-stamp: <2005/07/22 19:02:14 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -105,6 +105,9 @@ typedef struct {
 
 /* get conf for currents profile and board */
 GList *gcompris_get_board_conf();
+
+/* get conf for specific profile and board */
+GList *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
 
 #endif
 

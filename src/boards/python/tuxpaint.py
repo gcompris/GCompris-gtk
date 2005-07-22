@@ -41,6 +41,12 @@ class Gcompris_tuxpaint:
     self.gcomprisBoard = gcomprisBoard
     pass
 
+  def configuration(self, value):
+    if self.config_dict.has_key(value):
+      return eval(self.config_dict[value])
+    else:
+      return False
+
   def start(self):
 #    line = os.sys.stdin.readline()
 #    while (len(line) >1):
@@ -53,6 +59,8 @@ class Gcompris_tuxpaint:
     #board = self
     
     Prop = gcompris.get_properties()
+
+    self.config_dict = gcompris.get_board_conf()
     
     self.rootitem = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
@@ -61,9 +69,22 @@ class Gcompris_tuxpaint:
       )
 
     options = ['tuxpaint']
-    if Prop.fullscreen:
+
+    if (Prop.fullscreen and self.configuration('fullscreen')):
       options.append('--fullscreen')
 
+    if self.configuration('disable_shape_rotation'):
+      options.append('--simpleshapes')
+
+    if self.configuration('uppercase_text'):
+      options.append('--uppercase')
+
+    if self.configuration('disable_stamps'):
+      options.append('--nostamps')
+
+    if self.configuration('disable_stamps_control'):
+      options.append('--nostampcontrols')
+  
     gcompris.sound.close()
 
 
@@ -133,8 +154,10 @@ class Gcompris_tuxpaint:
     pass
 
   def config_start(self, profile, window):
-    self.config_window = window
-    print "config_start", self.gcomprisBoard.name, profile.name, window
+    self.config_values = {}
+    self.configure_window = window
+    self.configure_profile = profile
+    print "config_start", self.gcomprisBoard.name, profile.name
     
     button_close = gtk.Button(stock=gtk.STOCK_CLOSE)
     button_close.connect("clicked", self.configuration_close)
@@ -144,25 +167,46 @@ class Gcompris_tuxpaint:
     button_apply.connect("clicked", self.configuration_apply)
     button_apply.show()
 
-    main_box = gtk.VBox(False, 8)
-    main_box.show()
-    window.add(main_box) 
+    self.configure_main_box = gtk.VBox(False, 8)
+    self.configure_main_box.show()
+    window.add(self.configure_main_box) 
     
     box_bottom = gtk.HBox(False, 0)
     box_bottom.show()
-    main_box.pack_end(box_bottom, False, False, 0)
+    self.configure_main_box.pack_end(box_bottom, False, False, 0)
 
     box_bottom.pack_end(button_close, False, False, 0)
     box_bottom.pack_start(button_apply, False, False, 0)
-    
+
+    self.actual_config = gcompris.get_conf(profile, self.gcomprisBoard)
+
+    self.boolean_box('Disable shape rotation', 'disable_shape_rotation')
+    self.boolean_box('Follow gcompris fullscreen', 'fullscreen')
+    self.boolean_box('Show Uppercase text only', 'uppercase_text')
+    self.boolean_box('Disable stamps', 'disable_stamps')
+    self.boolean_box('Disable stamps control', 'disable_stamps_control')
+
     pass
 
   def configuration_close(self, button):
-    self.config_window.destroy()
+    self.configure_window.destroy()
 
   def configuration_apply(self, button):
+    for key,value in self.config_values.iteritems():
+      gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard, key, value)
     pass
 
+  def boolean_box(self, label, value):
+    button = gtk.CheckButton(label)
+    button.connect("toggled", self.boolean_callback, value)
+    button.show()
+    self.configure_main_box.pack_start(button, False, False, 0)
+
+    if self.actual_config.has_key(value):
+      button.set_active(eval(self.actual_config[value]))
+
+  def boolean_callback(self, widget, value):
+    self.config_values[value] = str(widget.get_active())
 
 def child_callback(fd,  cond, data):
   #global board

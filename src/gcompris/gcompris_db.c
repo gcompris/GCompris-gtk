@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/20 00:54:41 bruno>
+ * Time-stamp: <2005/07/22 21:10:04 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1105,7 +1105,8 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
 #define GET_CONF(p, b) \
         "SELECT key, value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
-GList *gcompris_get_board_conf()
+
+GList *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
 {
   char *zErrMsg;
   char **result;
@@ -1117,8 +1118,8 @@ GList *gcompris_get_board_conf()
 
   GList *list_conf = NULL;
 
-  request = g_strdup_printf(GET_CONF(gcompris_get_current_profile()->profile_id, 
-				     get_current_gcompris_board()->board_id));
+  request = g_strdup_printf(GET_CONF(profile->profile_id, 
+				     board->board_id));
   
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
@@ -1136,51 +1137,31 @@ GList *gcompris_get_board_conf()
   
   i = ncolumn;
 
-  if (nrow != 0){
-    while (i < (nrow +1)*ncolumn){
-      GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
+  while (i < (nrow +1)*ncolumn){
+    GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
       
-      pair->key = g_strdup(result[i++]);
-      pair->value = g_strdup(result[i++]);
+    pair->key = g_strdup(result[i++]);
+    pair->value = g_strdup(result[i++]);
       
-      list_conf = g_list_append(list_conf, pair);
-    }
-  } else {
-    /* Get default profile if nothing in gcompris_get_current_profile() */
-    request = g_strdup_printf(GET_CONF( 1, 
-				       get_current_gcompris_board()->board_id));
-  
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
-			   &result,
-			   &nrow,
-			   &ncolumn,
-			   &zErrMsg
-			   );
-  
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-
-    g_free(request);
-  
-    i = ncolumn;
-
-    if (nrow != 0){
-      while (i < (nrow +1)*ncolumn){
-	GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
-      
-	pair->key = g_strdup(result[i++]);
-	pair->value = g_strdup(result[i++]);
-	
-	list_conf = g_list_append(list_conf, pair);
-      }
-      
-    }
-  } 
+    list_conf = g_list_append(list_conf, pair);
+  }
 
   return list_conf;
 
+}
+
+GList *gcompris_get_board_conf()
+{
+  GList *list_result;
+
+  list_result = gcompris_get_conf(gcompris_get_current_profile(),
+				  get_current_gcompris_board());
+
+  if (!list_result)
+    list_result = gcompris_get_conf(gcompris_get_profile_from_id(1),
+				    get_current_gcompris_board());
+
+  return list_result;
 }
 
 #define GET_ALL_PROFILES \
