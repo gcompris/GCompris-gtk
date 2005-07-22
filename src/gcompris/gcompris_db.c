@@ -1,6 +1,10 @@
 /* gcompris - gcompris_db.c
  *
+<<<<<<< gcompris_db.c
+ * Time-stamp: <2005/07/23 01:39:25 bruno>
+=======
  * Time-stamp: <2005/07/22 21:10:04 yves>
+>>>>>>> 1.24
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -64,6 +68,9 @@ extern GnomeCanvas *canvas;
         "INSERT INTO profiles (profile_id, name, profile_directory, description) VALUES ( 1, \'Default\', \'Default\', \'Default profil for gcompris\');"
 #define ACTIVATE_DEFAULT_PROFILE \
         "UPDATE informations SET profile_id=1;"
+
+#define SET_DEFAULT_GROUP \
+        "INSERT INTO groups (group_id, name, class_id, description) VALUES ( 1, \'All\', 1, \'All users\');"
 
 int gcompris_db_init()
 {
@@ -158,6 +165,21 @@ int gcompris_db_init()
     }
 
     rc = sqlite3_exec(gcompris_db,ACTIVATE_DEFAULT_PROFILE, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+
+    request = g_strdup_printf("INSERT INTO class (class_id, name, teacher, wholegroup_id) VALUES ( 1, \'%s\', \'(%s)\', 1);",
+			      _("Unaffected"),
+			      _("Users without class"));
+
+    rc = sqlite3_exec(gcompris_db, request, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    rc = sqlite3_exec(gcompris_db,SET_DEFAULT_GROUP, NULL,  0, &zErrMsg);
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }

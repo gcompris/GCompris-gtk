@@ -111,15 +111,19 @@ class Class_list:
       right_box.pack_start(button, False, False, 0)
       button.show()
 
-      button = gtk.Button(stock='gtk-edit')
-      button.connect("clicked", self.on_edit_class_clicked, treeview_class)
-      right_box.pack_start(button, False, False, 0)
-      button.show()
+      self.button_edit = gtk.Button(stock='gtk-edit')
+      self.button_edit.connect("clicked", self.on_edit_class_clicked, treeview_class)
+      right_box.pack_start(self.button_edit, False, False, 0)
+      self.button_edit.show()
+      # Not editable until one class is selected
+      self.button_edit.set_sensitive(False)
 
-      button = gtk.Button(stock='gtk-remove')
-      button.connect("clicked", self.on_remove_class_clicked, treeview_class)
-      right_box.pack_start(button, False, False, 0)
-      button.show()
+      self.button_remove = gtk.Button(stock='gtk-remove')
+      self.button_remove.connect("clicked", self.on_remove_class_clicked, treeview_class)
+      right_box.pack_start(self.button_remove, False, False, 0)
+      self.button_remove.show()
+      # Not removable until one class is selected
+      self.button_remove.set_sensitive(False)
       
       # User list for the group
       user_hbox = gtk.HBox(False, 8)
@@ -286,15 +290,6 @@ class Class_list:
                            class_id, class_name,
                            self.list_user)
 
-    else:
-      # Tell the user to select a class first
-      dialog = gtk.MessageDialog(None,
-                                 gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                                 gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                 _("You must first select a class in the list"))
-      dialog.run()
-      dialog.destroy()
-
 
   def class_changed_cb(self, selection, user_list):
     print "class_changed_cb"
@@ -307,3 +302,10 @@ class Class_list:
       user_list.reload(class_id)
       print "current class_id = " + str(class_id)
 
+      # The Unaffected class is not editable.
+      if class_id == 1:
+        self.button_edit.set_sensitive(False)
+        self.button_remove.set_sensitive(False)
+      else:
+        self.button_edit.set_sensitive(True)
+        self.button_remove.set_sensitive(True)

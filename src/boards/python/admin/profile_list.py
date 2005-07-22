@@ -333,13 +333,9 @@ class Profile_list:
       path = model.get_path(iter)[0]
       profile_id   = model.get_value(iter, COLUMN_PROFILEID)
 
-      # Get the old data (informations is a one line table)
-      self.cur.execute('select * from informations')
-      info_data = self.cur.fetchall()[0]
-
       # Save the changes in the base
-      self.cur.execute('insert or replace into informations (gcompris_version, init_date, profile_id) values (?, ?, ?)',
-                       (info_data[0], info_data[1], profile_id))
+      self.cur.execute('UPDATE informations SET profile_id=?',
+                       (profile_id,))
       self.con.commit()
 
       self.set_default_in_description(iter)

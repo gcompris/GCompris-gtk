@@ -59,7 +59,7 @@ class User_list:
       # ---------------
 
       # The class to work on
-      self.class_id = 0
+      self.class_id = 1
 
       self.user_data = []
 

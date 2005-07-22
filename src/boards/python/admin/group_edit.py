@@ -52,7 +52,8 @@ class GroupEdit(gtk.Window):
 
         self.group_id = group_id
         self.class_id = class_id
-
+        print "Editing group_id = " + str(self.group_id) + " In class " + str(self.class_id)
+        
         # A pointer to the group_user_list class
         # Will be called to refresh the list when edit is done
         self.group_user = group_user

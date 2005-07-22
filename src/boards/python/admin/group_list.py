@@ -93,7 +93,7 @@ class Group_list:
       class_label.show()
       label_box.pack_start(class_label, False, False, 0)
       
-      self.cur.execute('select * from class')
+      self.cur.execute('select * from class where class_id>1')
       class_list = self.cur.fetchall()
 
       self.combo_class = gtk.combo_box_new_text()
@@ -182,6 +182,7 @@ class Group_list:
         size_pixels=False)
 
       # Load lists
+      self.class_changed_cb(self.combo_class)
       self.reload_group()
 
   # -------------------

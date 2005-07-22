@@ -1,3 +1,17 @@
+2005-07-23  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved contextuality in user module
+	Added a default class and it's all group for Unassigned users
+	When user are removed from a class, there are moved there automatically.
+
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/group_edit.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/profile_list.py:
+	* src/boards/python/admin/user_list.py:
+	* src/gcompris/gcompris_db.c: (gcompris_db_init):
+
 2005-07-23  Yves Combe  <yves@ycombe.net>
 
 	add gcompris_get_conf(profile, board) to get confs in conguration mode.

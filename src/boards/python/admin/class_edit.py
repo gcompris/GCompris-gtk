@@ -266,8 +266,8 @@ class ClassEdit(gtk.Window):
             # Add in the the left view
             self.add_user_in_model(self.model_left, (user_id, user_firstname, user_lastname))
             
-            # Save the change in the base (set an impossible class_id)
-            self.cur.execute('update users set class_id=? where user_id=?', (-1, user_id))
+            # Save the change in the base (1 Is the 'Unselected user' class)
+            self.cur.execute('update users set class_id=? where user_id=?', (1, user_id))
             self.con.commit()
 
 
