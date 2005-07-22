@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/07/04 12:57:21 yves>
+ * Time-stamp: <2005/07/22 15:11:00 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -24,7 +24,9 @@
 
 #include "gcompris.h"
 gboolean board_config_check(GcomprisBoard *aBoard);
-void	 board_config_start(GcomprisBoard *aBoard, GnomeCanvasGroup *canvasgroup, int x, int y, int width , int height);
+void	 board_config_start(GcomprisBoard *aBoard,
+			    GcomprisProfile *aProfile, 
+			    GtkWindow *window);
 void	 board_config_stop();
 
 #endif

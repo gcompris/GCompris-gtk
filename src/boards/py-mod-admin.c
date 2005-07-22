@@ -36,23 +36,29 @@ static PyObject*
 py_board_config_start (PyObject* self, PyObject* args)
 {
   PyObject* pyBoard;
-  PyObject* pyCanvasGroup;
+  PyObject* pyProfile;
+  PyObject* pyWindow;
   pyGcomprisBoardObject* pyGcomprisBoard;
+  pyGcomprisProfileObject* pyGcomprisProfile;
   GcomprisBoard* cGcomprisBoard;
-  GnomeCanvasGroup *canvasgroup;
-  int x, y, width, height;
-  
+  GcomprisProfile* cGcomprisProfile;
+  GtkWindow *window;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "OOiiii:board_config_start", &pyBoard,
-		       &pyCanvasGroup, &x, &y, &width, &height))
+  if(!PyArg_ParseTuple(args, 
+		       "OOO:board_config_start", 
+		       &pyBoard, 
+		       &pyProfile,
+		       &pyWindow))
     return NULL;
   pyGcomprisBoard = (pyGcomprisBoardObject*) pyBoard;
+  pyGcomprisProfile = (pyGcomprisProfileObject*) pyProfile;
   cGcomprisBoard = pyGcomprisBoard->cdata;
-  canvasgroup = (GnomeCanvasGroup*) pygobject_get(pyCanvasGroup);
+  cGcomprisProfile = pyGcomprisProfile->cdata;
+  window = (GtkWindow*) pygobject_get(pyWindow);
 
   /* Call the corresponding C function */
-  board_config_start(cGcomprisBoard, canvasgroup, x, y, width, height);
+  board_config_start(cGcomprisBoard, cGcomprisProfile, window);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

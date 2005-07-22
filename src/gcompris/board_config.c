@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/07/04 21:57:37 yves>
+ * Time-stamp: <2005/07/22 15:38:14 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -26,13 +26,13 @@
 
 static GcomprisBoard *config_board;
 
-void	 board_config_start(GcomprisBoard *aBoard, GnomeCanvasGroup *canvasgroup, int x, int y, int width , int height)
+void	 board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile, GtkWindow *window)
 {
 
-  if (config_board){
-    g_warning("board_config_start Cannot configure two boards at same time !\n Call config_end on previous board before !");
-    return;
-  }
+/*   if (config_board){ */
+/*     g_warning("board_config_start Cannot configure two boards at same time !\n Call config_end on previous board before !"); */
+/*     return; */
+/*   } */
 
   if (aBoard->plugin == NULL){
     g_warning("board_config_start: board %s/%s is not initialised ? Hummmm...", aBoard->section,aBoard->name);
@@ -46,7 +46,7 @@ void	 board_config_start(GcomprisBoard *aBoard, GnomeCanvasGroup *canvasgroup, i
 
   config_board = aBoard;
 
-  aBoard->plugin->config_start(aBoard, canvasgroup, x, y, width, height);
+  aBoard->plugin->config_start(aBoard, aProfile, window);
   return;
 }
 

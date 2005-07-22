@@ -1,6 +1,6 @@
 /* gcompris - plugin.h
  *
- * Time-stamp: <2005/07/04 09:30:03 yves>
+ * Time-stamp: <2005/07/22 15:12:43 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -21,6 +21,8 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
+#include "profile.h"
+
 /* Forward declaration of GcomprisBoard */
 typedef struct _GcomprisBoard         GcomprisBoard;
 
@@ -37,11 +39,8 @@ typedef void          (*GcomprisSetLevel)     (guint level);
 typedef void          (*GcomprisConfig)       ();
 typedef void          (*GcomprisRepeat)       ();
 typedef void          (*GcomprisConfigStart)  (GcomprisBoard *gcomprisBoard,
-					       GnomeCanvasGroup *canvasgroup,
-					       int x,
-					       int y,
-					       int width,
-					       int height);
+					       GcomprisProfile *profile,
+					       GtkWindow *window);
 typedef void          (*GcomprisConfigStop)    (void);
 
 typedef struct

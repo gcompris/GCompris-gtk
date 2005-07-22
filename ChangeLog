@@ -1,5 +1,17 @@
 2005-07-22  Yves Combe  <yves@ycombe.net>
 
+	board config_start function now launched correctly. Example is in tuxpaint.py
+	
+	* src/boards/py-mod-admin.c: (py_board_config_start):
+	* src/boards/python.c: (pythonboard_config_start):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (board_config_start):
+	* src/gcompris/board_config.h:
+	* src/gcompris/plugin.h:
+
+2005-07-22  Yves Combe  <yves@ycombe.net>
+
 	Connect treeview signal to allow usage of pref button
 	Add pref icon in treeview if board is configurable
 	gcompris_load_menus_* skip boards listed in profile unactivated activities. (Works !)

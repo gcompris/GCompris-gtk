@@ -126,18 +126,43 @@ class Gcompris_tuxpaint:
     print "Config"
     pass
 
-  def config_start(self, canvasgroup, x, y, w, h):
-    print "config_start", self, canvasgroup, x, y, w, h
-    print "Configurables boards:"
-    for board in gcompris.get_boards_list():
-      if board.is_configurable:
-        print "    ", board.name
-    print dir(gcompris)
-    pass
 
   def config_stop(self):
     print "config_stop", self
+    self.config_window.destroy()
     pass
+
+  def config_start(self, profile, window):
+    self.config_window = window
+    print "config_start", self.gcomprisBoard.name, profile.name, window
+    
+    button_close = gtk.Button(stock=gtk.STOCK_CLOSE)
+    button_close.connect("clicked", self.configuration_close)
+    button_close.show()
+    
+    button_apply = gtk.Button(stock=gtk.STOCK_APPLY)
+    button_apply.connect("clicked", self.configuration_apply)
+    button_apply.show()
+
+    main_box = gtk.VBox(False, 8)
+    main_box.show()
+    window.add(main_box) 
+    
+    box_bottom = gtk.HBox(False, 0)
+    box_bottom.show()
+    main_box.pack_end(box_bottom, False, False, 0)
+
+    box_bottom.pack_end(button_close, False, False, 0)
+    box_bottom.pack_start(button_apply, False, False, 0)
+    
+    pass
+
+  def configuration_close(self, button):
+    self.config_window.destroy()
+
+  def configuration_apply(self, button):
+    pass
+
 
 def child_callback(fd,  cond, data):
   #global board

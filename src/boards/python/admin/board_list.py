@@ -128,8 +128,23 @@ class Board_list:
       self.button_configure = gtk.Button(stock=gtk.STOCK_PREFERENCES)
       self.button_configure.connect("clicked", self.configure_board)
       self.button_configure.show()
-      box3.pack_start(self.button_configure, True, False, 0)
+      box3.pack_start(self.button_configure, False, False, 0)
       self.button_configure.set_sensitive(False)
+
+      self.button_filter = gtk.Button(_('Filter'))
+      self.button_filter.connect("clicked", self.filter_boards)
+      self.button_filter.show()
+      box3.pack_start(self.button_filter, False, False, 0)
+
+      self.button_select_all = gtk.Button(_('Select all'))
+      self.button_select_all.connect("clicked", self.select_all_boards)
+      self.button_select_all.show()
+      box3.pack_start(self.button_select_all, False, False, 0)
+
+      self.button_unselect_all = gtk.Button(_('Unselect all'))
+      self.button_unselect_all.connect("clicked", self.unselect_all_boards)
+      self.button_unselect_all.show()
+      box3.pack_start(self.button_unselect_all, False, False, 0)
 
 
   # -------------------
@@ -328,5 +343,25 @@ class Board_list:
 
   def configure_board(self, button):
     print 'Oui, Oui un de ces jours ça va lancer la conf de ', self.selected_board.title
-#    gcompris.admin.board_config_start(self.selected_board)
+    window = gtk.Window()
+    window.set_title(_("Board %s configuration for %s") % (self.selected_board.name, self.active_profile.name))
+    window.set_border_width(8)
+    window.set_default_size(320, 350)
+    window.set_transient_for(self.frame.get_toplevel())
+    window.set_modal(True)
+    window.show()
+
+    gcompris.admin.board_config_start(self.selected_board,
+                                      self.active_profile,
+                                      window)
 #    gcompris.admin.board_config_stop(self.selected_board)
+
+  def filter_boards(self, button):
+    pass
+
+  def select_all_boards(self, button):
+    pass
+
+  def unselect_all_boards(self, button):
+    pass
+  

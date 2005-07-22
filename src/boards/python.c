@@ -48,11 +48,8 @@ static void	 pythonboard_set_level (guint level);
 static void	 pythonboard_config(void);
 static void	 pythonboard_repeat (void);
 static void	 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
-					   GnomeCanvasGroup *canvasgroup,
-					   int x,
-					   int y,
-					   int width,
-					   int height);
+					   GcomprisProfile *aProfile,
+					   GtkWindow *window);
 static void	 pythonboard_config_stop (void);
 
 static gboolean  pythonboard_is_ready = FALSE;
@@ -532,11 +529,8 @@ static gboolean python_run_by_config = FALSE;
 
 static void
 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
-			  GnomeCanvasGroup *canvasgroup,
-			  int x,
-			  int y,
-			  int width,
-			  int height){
+			  GcomprisProfile *aProfile,
+			  GtkWindow *window){
   PyObject* py_function_result;
   PyObject* module_dict;
   PyObject* py_boardclass;
@@ -627,7 +621,10 @@ pythonboard_config_start (GcomprisBoard *agcomprisBoard,
     Py_DECREF(py_boardclass_args);
 
     py_function_result = PyObject_CallMethod(python_board_config_instance, 
-					     "config_start", "Oiiii", pygobject_new((GObject*)canvasgroup), x, y, width, height);
+					     "config_start", 
+					     "OO", 
+					     gcompris_new_pyGcomprisProfileObject(aProfile), 
+					     pygobject_new((GObject*)window));
 
     if( py_function_result != NULL){
       Py_DECREF(py_function_result);
