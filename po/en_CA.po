@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-22 06:20-0400\n"
-"PO-Revision-Date: 2005-07-22 22:51-0400\n"
+"POT-Creation-Date: 2005-07-23 14:39-0400\n"
+"PO-Revision-Date: 2005-07-23 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3415,11 +3415,11 @@ msgstr "Direct the paratrooper to help him land safely"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Move the plane to catch the clouds in the correct order"
 
-#: src/boards/python.c:66
+#: src/boards/python.c:63
 msgid "Python Board"
 msgstr "Python Board"
 
-#: src/boards/python.c:67
+#: src/boards/python.c:64
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
@@ -3427,11 +3427,23 @@ msgstr "Special board that embeds python into gcompris."
 msgid "Select a profile:"
 msgstr "Select a profile:"
 
-#: src/boards/python/admin/board_list.py:187
+#: src/boards/python/admin/board_list.py:134
+msgid "Filter"
+msgstr "Filter"
+
+#: src/boards/python/admin/board_list.py:139
+msgid "Select all"
+msgstr "Select all"
+
+#: src/boards/python/admin/board_list.py:144
+msgid "Unselect all"
+msgstr "Unselect all"
+
+#: src/boards/python/admin/board_list.py:202
 msgid "Main menu"
 msgstr "Main menu"
 
-#: src/boards/python/admin/board_list.py:187
+#: src/boards/python/admin/board_list.py:202
 msgid "/"
 msgstr "/"
 
@@ -3440,13 +3452,18 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: src/boards/python/admin/board_list.py:244
+#: src/boards/python/admin/board_list.py:259
 msgid "Active"
 msgstr "Active"
 
-#: src/boards/python/admin/board_list.py:245
+#: src/boards/python/admin/board_list.py:260
 msgid "Board title"
 msgstr "Board title"
+
+#: src/boards/python/admin/board_list.py:347
+#, python-format
+msgid "Board %s configuration for %s"
+msgstr "Board %s configuration for %s"
 
 #: src/boards/python/admin/class_edit.py:58
 msgid "Class Edition"
@@ -3462,14 +3479,14 @@ msgid "Assign all the users bellonging to this class"
 msgstr "Assign all the users belonging to this class"
 
 #: src/boards/python/admin/class_edit.py:209
-#: src/boards/python/admin/group_edit.py:223
+#: src/boards/python/admin/group_edit.py:224
 #: src/boards/python/admin/group_user_list.py:166
 #: src/boards/python/admin/user_list.py:187
 msgid "First Name"
 msgstr "First Name"
 
 #: src/boards/python/admin/class_edit.py:220
-#: src/boards/python/admin/group_edit.py:234
+#: src/boards/python/admin/group_edit.py:235
 #: src/boards/python/admin/group_user_list.py:177
 #: src/boards/python/admin/user_list.py:199
 msgid "Last Name"
@@ -3486,33 +3503,29 @@ msgstr "Classes"
 msgid "Users"
 msgstr "Users"
 
-#: src/boards/python/admin/class_list.py:187
+#: src/boards/python/admin/class_list.py:191
 msgid "Class"
 msgstr "Class"
 
-#: src/boards/python/admin/class_list.py:199
+#: src/boards/python/admin/class_list.py:203
 msgid "Teacher"
 msgstr "Teacher"
 
-#: src/boards/python/admin/class_list.py:294
-msgid "You must first select a class in the list"
-msgstr "You must first select a class in the list"
-
-#: src/boards/python/admin/group_edit.py:60
+#: src/boards/python/admin/group_edit.py:61
 #: src/boards/python/admin/profile_edit.py:59
 msgid "Group Edition"
 msgstr "Group Edition"
 
-#: src/boards/python/admin/group_edit.py:64
+#: src/boards/python/admin/group_edit.py:65
 msgid "Editing group: "
 msgstr "Editing group: "
 
-#: src/boards/python/admin/group_edit.py:65
+#: src/boards/python/admin/group_edit.py:66
 msgid " for class: "
 msgstr " for class: "
 
 #. Top message gives instructions
-#: src/boards/python/admin/group_edit.py:73
+#: src/boards/python/admin/group_edit.py:74
 msgid "Assign all the users bellonging to this group"
 msgstr "Assign all the users belonging to this group"
 
@@ -3520,7 +3533,7 @@ msgstr "Assign all the users belonging to this group"
 #. Group Management
 #. ---------------
 #: src/boards/python/admin/group_list.py:68
-#: src/boards/python/admin/group_list.py:225
+#: src/boards/python/admin/group_list.py:226
 #: src/boards/python/admin/profile_edit.py:219
 #: src/boards/python/admin/profile_group_list.py:149
 msgid "Group"
@@ -3530,14 +3543,14 @@ msgstr "Group"
 msgid "Select a class:"
 msgstr "Select a class:"
 
-#: src/boards/python/admin/group_list.py:237
+#: src/boards/python/admin/group_list.py:238
 #: src/boards/python/admin/profile_edit.py:230
 #: src/boards/python/admin/profile_group_list.py:160
 #: src/boards/python/admin/profile_list.py:212
 msgid "Description"
 msgstr "Description"
 
-#: src/boards/python/admin/group_list.py:343
+#: src/boards/python/admin/group_list.py:344
 msgid "You must first select a group in the list"
 msgstr "You must first select a group in the list"
 
@@ -3597,7 +3610,7 @@ msgstr "You cannot remove the default profile"
 msgid "You must first select a profile in the list"
 msgstr "You must first select a profile in the list"
 
-#: src/boards/python/admin/profile_list.py:352
+#: src/boards/python/admin/profile_list.py:348
 msgid "[Default]"
 msgstr "[Default]"
 
@@ -3810,7 +3823,7 @@ msgstr "Unknown command at line"
 msgid "Distance:"
 msgstr "Distance:"
 
-#: src/boards/python/tuxpaint.py:78
+#: src/boards/python/tuxpaint.py:99
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -3818,7 +3831,7 @@ msgstr ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board!"
 
-#: src/boards/python/tuxpaint.py:91
+#: src/boards/python/tuxpaint.py:112
 msgid "Waiting Tuxpaint Finished"
 msgstr "Waiting Tuxpaint Finished"
 
@@ -3991,7 +4004,7 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:211
+#: src/gcompris/about.c:316 src/gcompris/config.c:212
 #: src/gcompris/gameutil.c:1061 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:262
 msgid "OK"
@@ -4110,141 +4123,145 @@ msgid "Malay"
 msgstr "Malay"
 
 #: src/gcompris/config.c:89
+msgid "Nepal"
+msgstr "Nepal"
+
+#: src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Norwegian Bokmal"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Brazil Portuguese"
 msgstr "Brazil Portuguese"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Albanian"
 msgstr "Albanian"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Walloon"
 msgstr "Walloon"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Chinese (Simplified)"
 msgstr "Chinese (Simplified)"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:112
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:113
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:119
+#: src/gcompris/config.c:120
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:125
 msgid "No filter"
 msgstr "No filter"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:126
 msgid "Only this level"
 msgstr "Only this level"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid "Up to this level"
 msgstr "Up to this level"
 
-#: src/gcompris/config.c:127
+#: src/gcompris/config.c:128
 msgid "This level and above"
 msgstr "This level and above"
 
-#: src/gcompris/config.c:185
+#: src/gcompris/config.c:186
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:294
+#: src/gcompris/config.c:295
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:337
+#: src/gcompris/config.c:338
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:365
+#: src/gcompris/config.c:366
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:398
+#: src/gcompris/config.c:399
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:419
+#: src/gcompris/config.c:420
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:434 src/gcompris/config.c:819
-#: src/gcompris/config.c:830
+#: src/gcompris/config.c:435 src/gcompris/config.c:820
+#: src/gcompris/config.c:831
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -4397,57 +4414,65 @@ msgstr "Use -l activity to access directly to activity.\n"
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris_db.c:95
+#: src/gcompris/gcompris_db.c:102
 #, c-format
 msgid "Database %s opened"
 msgstr "Database %s opened"
 
-#: src/gcompris/gcompris_db.c:140
+#: src/gcompris/gcompris_db.c:147
 msgid "Database tables created"
 msgstr "Database tables created"
 
-#: src/gcompris/gcompris_db.c:733 src/gcompris/gcompris_db.c:1255
+#: src/gcompris/gcompris_db.c:174
+msgid "Unaffected"
+msgstr "Unaffected"
+
+#: src/gcompris/gcompris_db.c:175
+msgid "Users without class"
+msgstr "Users without class"
+
+#: src/gcompris/gcompris_db.c:755 src/gcompris/gcompris_db.c:1258
 #, c-format
 msgid "No users groups for profile %s"
 msgstr "No users groups for profile %s"
 
-#: src/gcompris/gcompris_db.c:764 src/gcompris/gcompris_db.c:1288
+#: src/gcompris/gcompris_db.c:786 src/gcompris/gcompris_db.c:1291
 #, c-format
 msgid "No activities out for profile %s"
 msgstr "No activities out for profile %s"
 
-#: src/gcompris/gcompris_db.c:854
+#: src/gcompris/gcompris_db.c:876
 #, c-format
 msgid "No users in group with id  %d"
 msgstr "No users in group with ID  %d"
 
-#: src/gcompris/gcompris_db.c:911
+#: src/gcompris/gcompris_db.c:933
 #, c-format
 msgid "No user with id  %d"
 msgstr "No user with ID %d"
 
-#: src/gcompris/gcompris_db.c:968
+#: src/gcompris/gcompris_db.c:990
 #, c-format
 msgid "No class with id  %d"
 msgstr "No class with ID %d"
 
-#: src/gcompris/gcompris_db.c:1003
+#: src/gcompris/gcompris_db.c:1025
 #, c-format
 msgid ""
 "No groups in for class %s, there must be at least one for whole class (%d)"
 msgstr ""
 "No groups in for class %s, there must be at least one for whole class (%d)"
 
-#: src/gcompris/gcompris_db.c:1348
+#: src/gcompris/gcompris_db.c:1351
 #, c-format
 msgid "No group with id  %d"
 msgstr "No group with ID %d"
 
-#: src/gcompris/gcompris_db.c:1401 src/gcompris/gcompris_db.c:1601
+#: src/gcompris/gcompris_db.c:1404 src/gcompris/gcompris_db.c:1604
 msgid "No groups !"
 msgstr "No groups!"
 
-#: src/gcompris/gcompris_db.c:1544
+#: src/gcompris/gcompris_db.c:1547
 msgid "No users !"
 msgstr "No users!"
 
