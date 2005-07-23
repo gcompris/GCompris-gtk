@@ -106,7 +106,7 @@ fi
 LDFLAGS="${LDFLAGS} ${RANDR_LIBS}"
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et fi fr ga gu he hi hr hu it lt mk ml ms nb nl nn pa pl pt pt_BR ro ru rw sk sl sq sr sr@Latn sv tr wa zh_CN"
+ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et fi fr ga gu he hi hr hu it lt mk ml ms nb ne nl nn pa pl pt pt_BR ro ru rw sk sl sq sr sr@Latn sv tr wa zh_CN"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
