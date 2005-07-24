@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/07/22 19:02:14 yves>
+ * Time-stamp: <2005/07/23 15:39:41 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -97,17 +97,13 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
 			     gchar *value);
 
 
-/* Return List of conf_cell */
-typedef struct {
-  gchar *key;
-  gchar *value;
-} GcomprisConfPair;
+/* These two hash tables needs to be destroyed when not used more */
 
 /* get conf for currents profile and board */
-GList *gcompris_get_board_conf();
+GHashTable *gcompris_get_board_conf();
 
 /* get conf for specific profile and board */
-GList *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
+GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
 
 #endif
 

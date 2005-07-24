@@ -1,10 +1,6 @@
 /* gcompris - gcompris_db.c
  *
-<<<<<<< gcompris_db.c
- * Time-stamp: <2005/07/23 01:39:25 bruno>
-=======
- * Time-stamp: <2005/07/22 21:10:04 yves>
->>>>>>> 1.24
+ * Time-stamp: <2005/07/23 16:12:09 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1128,7 +1124,7 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
         "SELECT key, value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
 
-GList *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
+GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
 {
   char *zErrMsg;
   char **result;
@@ -1138,7 +1134,7 @@ GList *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
   gchar *request;
   int i;
 
-  GList *list_conf = NULL;
+  GHashTable *hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
   request = g_strdup_printf(GET_CONF(profile->profile_id, 
 				     board->board_id));
@@ -1160,30 +1156,28 @@ GList *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
   i = ncolumn;
 
   while (i < (nrow +1)*ncolumn){
-    GcomprisConfPair *pair = g_malloc0(sizeof(GcomprisConfPair));
-      
-    pair->key = g_strdup(result[i++]);
-    pair->value = g_strdup(result[i++]);
-      
-    list_conf = g_list_append(list_conf, pair);
+    g_hash_table_replace (hash_conf, 
+			  g_strdup(result[i++]),
+			  g_strdup(result[i++]));
   }
 
-  return list_conf;
+  sqlite3_free_table(result);
 
+  return hash_conf;
 }
 
-GList *gcompris_get_board_conf()
+GHashTable *gcompris_get_board_conf()
 {
-  GList *list_result;
+  GHashTable *hash_result;
 
-  list_result = gcompris_get_conf(gcompris_get_current_profile(),
+  hash_result = gcompris_get_conf(gcompris_get_current_profile(),
 				  get_current_gcompris_board());
 
-  if (!list_result)
-    list_result = gcompris_get_conf(gcompris_get_profile_from_id(1),
+  if (g_hash_table_size(hash_result)==0)
+    hash_result = gcompris_get_conf(gcompris_get_profile_from_id(1),
 				    get_current_gcompris_board());
 
-  return list_result;
+  return hash_result;
 }
 
 #define GET_ALL_PROFILES \

@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/07/22 15:38:14 yves>
+ * Time-stamp: <2005/07/24 03:11:39 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -19,14 +19,12 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef BOARD_CONFIG_H
-#define BOARD_CONFIG_H
-
 #include "gcompris.h"
+
 
 static GcomprisBoard *config_board;
 
-void	 board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile, GtkWindow *window)
+void	 board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile)
 {
 
 /*   if (config_board){ */
@@ -46,7 +44,7 @@ void	 board_config_start(GcomprisBoard *aBoard, GcomprisProfile *aProfile, GtkWi
 
   config_board = aBoard;
 
-  aBoard->plugin->config_start(aBoard, aProfile, window);
+  aBoard->plugin->config_start(aBoard, aProfile);
   return;
 }
 
@@ -63,7 +61,128 @@ void	 board_config_stop()
   return;
 }
 
-#endif
+static GtkWindow *conf_window = NULL;
+static GtkVBox *main_conf_box = NULL;
+static GHashTable *hash_conf = NULL;
+static GcomprisConfCallback Confcallback = NULL;
+
+
+void gcompris_close_board_conf (GtkButton *button,
+				gpointer user_data)
+{
+  gtk_object_destroy              ((GtkObject *)conf_window);
+}
+
+void gcompris_apply_board_conf (GtkButton *button,
+				gpointer user_data)
+{
+  if (Confcallback != NULL)
+    Confcallback(hash_conf);
+}
+
+GtkVBox *gcompris_configuration_window(GcomprisConfCallback callback)
+{
+  GtkButton *button;
+
+  GtkHBox   *footer;
+
+  Confcallback = callback;
+
+  hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
+
+  conf_window = GTK_WINDOW(gtk_window_new (GTK_WINDOW_TOPLEVEL));
+
+  gtk_window_set_default_size     (conf_window,
+				   320,
+				   300); 
+
+  gtk_window_set_transient_for(conf_window,
+			       GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(get_current_gcompris_board()->canvas))));
+  
+  gtk_window_set_modal(conf_window, TRUE);
+
+  gtk_widget_show(GTK_WIDGET(conf_window));
+
+  main_conf_box = GTK_VBOX(gtk_vbox_new ( FALSE, 0));
+  gtk_widget_show(GTK_WIDGET(main_conf_box));
+
+  gtk_container_add(GTK_CONTAINER(conf_window), GTK_WIDGET(main_conf_box));
+
+  footer = GTK_HBOX(gtk_hbox_new (FALSE, 0));
+  gtk_widget_show(GTK_WIDGET(footer));
+  
+  gtk_box_pack_end (GTK_BOX(main_conf_box),
+		    GTK_WIDGET(footer),
+		    FALSE,
+                    FALSE,
+		    0);
+
+  button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_CLOSE));
+  gtk_widget_show(GTK_WIDGET(button));
+
+  gtk_box_pack_end (GTK_BOX(footer),
+		    GTK_WIDGET(button),
+		    FALSE,
+		    FALSE,
+		    0);
+
+  g_signal_connect(G_OBJECT(button), 
+		   "clicked",
+		   G_CALLBACK(gcompris_close_board_conf),
+		   NULL);
+
+  button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_APPLY));
+  gtk_widget_show(GTK_WIDGET(button));
+
+  gtk_box_pack_start (GTK_BOX(footer),
+		      GTK_WIDGET(button),
+		      FALSE,
+		      FALSE,
+		      0);
+
+  g_signal_connect                (G_OBJECT(button),
+				   "clicked",
+                                   G_CALLBACK(gcompris_apply_board_conf),
+				   NULL);
+
+  return main_conf_box;
+}
+
+void gcompris_boolean_box_toggled (GtkToggleButton *togglebutton,
+				   gpointer key)
+{
+  gchar *the_key = g_strdup((gchar *)key);
+  gchar *value;
+
+  if (gtk_toggle_button_get_active (togglebutton))
+    value = g_strdup("True");
+  else
+    value = g_strdup("False");
+  
+  g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
+}
+
+void gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value)
+{
+  GtkWidget *CheckBox = gtk_check_button_new_with_label (label);
+
+  gtk_widget_show(CheckBox);
+
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      CheckBox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(CheckBox),
+				initial_value);
+
+  g_signal_connect   (G_OBJECT(CheckBox),
+		      "toggled",
+		      G_CALLBACK(gcompris_boolean_box_toggled),
+		      key);
+
+}
 
 /* Local Variables: */
 /* mode:c */

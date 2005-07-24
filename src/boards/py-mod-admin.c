@@ -37,28 +37,25 @@ py_board_config_start (PyObject* self, PyObject* args)
 {
   PyObject* pyBoard;
   PyObject* pyProfile;
-  PyObject* pyWindow;
   pyGcomprisBoardObject* pyGcomprisBoard;
   pyGcomprisProfileObject* pyGcomprisProfile;
   GcomprisBoard* cGcomprisBoard;
   GcomprisProfile* cGcomprisProfile;
-  GtkWindow *window;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, 
-		       "OOO:board_config_start", 
+		       "OO:board_config_start", 
 		       &pyBoard, 
-		       &pyProfile,
-		       &pyWindow))
+		       &pyProfile))
     return NULL;
+
   pyGcomprisBoard = (pyGcomprisBoardObject*) pyBoard;
   pyGcomprisProfile = (pyGcomprisProfileObject*) pyProfile;
   cGcomprisBoard = pyGcomprisBoard->cdata;
   cGcomprisProfile = pyGcomprisProfile->cdata;
-  window = (GtkWindow*) pygobject_get(pyWindow);
 
   /* Call the corresponding C function */
-  board_config_start(cGcomprisBoard, cGcomprisProfile, window);
+  board_config_start(cGcomprisBoard, cGcomprisProfile);
 
   /* Create and return the result */
   Py_INCREF(Py_None);

@@ -1,6 +1,6 @@
 /* gcompris - plugin.h
  *
- * Time-stamp: <2005/07/22 15:12:43 yves>
+ * Time-stamp: <2005/07/24 01:10:00 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -39,8 +39,7 @@ typedef void          (*GcomprisSetLevel)     (guint level);
 typedef void          (*GcomprisConfig)       ();
 typedef void          (*GcomprisRepeat)       ();
 typedef void          (*GcomprisConfigStart)  (GcomprisBoard *gcomprisBoard,
-					       GcomprisProfile *profile,
-					       GtkWindow *window);
+					       GcomprisProfile *profile);
 typedef void          (*GcomprisConfigStop)    (void);
 
 typedef struct

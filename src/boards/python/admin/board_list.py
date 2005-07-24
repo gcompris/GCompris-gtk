@@ -343,17 +343,8 @@ class Board_list:
 
   def configure_board(self, button):
     print 'Oui, Oui un de ces jours ça va lancer la conf de ', self.selected_board.title
-    window = gtk.Window()
-    window.set_title(_("Board %s configuration for %s") % (self.selected_board.name, self.active_profile.name))
-    window.set_border_width(8)
-    window.set_default_size(320, 350)
-    window.set_transient_for(self.frame.get_toplevel())
-    window.set_modal(True)
-    window.show()
-
     gcompris.admin.board_config_start(self.selected_board,
-                                      self.active_profile,
-                                      window)
+                                      self.active_profile)
 #    gcompris.admin.board_config_stop(self.selected_board)
 
   def filter_boards(self, button):

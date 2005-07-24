@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/07/22 15:11:00 yves>
+ * Time-stamp: <2005/07/24 01:53:50 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -25,9 +25,21 @@
 #include "gcompris.h"
 gboolean board_config_check(GcomprisBoard *aBoard);
 void	 board_config_start(GcomprisBoard *aBoard,
-			    GcomprisProfile *aProfile, 
-			    GtkWindow *window);
+			    GcomprisProfile *aProfile);
 void	 board_config_stop();
+
+
+/* Usefull fonctions for configuration of boards */
+/* This fonction returns the main GtkVBox of the configuration window. */
+/* You can add your own widget if you need */
+/* the callback is called wish the hash key, value when the apply button is clicked */
+
+/* the callback type */
+typedef void (*GcomprisConfCallback) (GHashTable *table);
+
+GtkVBox *gcompris_configuration_window(GcomprisConfCallback callback);
+
+void gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
 
 #endif
 

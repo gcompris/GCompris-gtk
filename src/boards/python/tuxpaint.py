@@ -153,40 +153,20 @@ class Gcompris_tuxpaint:
     self.config_window.destroy()
     pass
 
-  def config_start(self, profile, window):
+  def config_start(self, profile):
     self.config_values = {}
-    self.configure_window = window
-    self.configure_profile = profile
-    print "config_start", self.gcomprisBoard.name, profile.name
-    
-    button_close = gtk.Button(stock=gtk.STOCK_CLOSE)
-    button_close.connect("clicked", self.configuration_close)
-    button_close.show()
-    
-    button_apply = gtk.Button(stock=gtk.STOCK_APPLY)
-    button_apply.connect("clicked", self.configuration_apply)
-    button_apply.show()
-
-    self.configure_main_box = gtk.VBox(False, 8)
-    self.configure_main_box.show()
-    window.add(self.configure_main_box) 
-    
-    box_bottom = gtk.HBox(False, 0)
-    box_bottom.show()
-    self.configure_main_box.pack_end(box_bottom, False, False, 0)
-
-    box_bottom.pack_end(button_close, False, False, 0)
-    box_bottom.pack_start(button_apply, False, False, 0)
+    self.main_vbox = gcompris.configuration_window(apply_callback)
 
     self.actual_config = gcompris.get_conf(profile, self.gcomprisBoard)
 
-    self.boolean_box('Disable shape rotation', 'disable_shape_rotation')
-    self.boolean_box('Follow gcompris fullscreen', 'fullscreen')
-    self.boolean_box('Show Uppercase text only', 'uppercase_text')
-    self.boolean_box('Disable stamps', 'disable_stamps')
-    self.boolean_box('Disable stamps control', 'disable_stamps_control')
+    gcompris.boolean_box('Disable shape rotation', 'disable_shape_rotation', False)
+    gcompris.boolean_box('Follow gcompris fullscreen', 'fullscreen', True)
+    gcompris.boolean_box('Show Uppercase text only', 'uppercase_text', False)
+    gcompris.boolean_box('Disable stamps', 'disable_stamps', False)
+    gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', False)
 
     pass
+
 
   def configuration_close(self, button):
     self.configure_window.destroy()
@@ -220,3 +200,7 @@ def child_callback(fd,  cond, data):
   
 def stop_board():
   gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+
+def apply_callback(table):
+  print table
+  

@@ -1,3 +1,29 @@
+2005-07-24  Yves Combe,,,  <yves@ycombe.net>
+
+	gcompris_configuration_window and gcompris_boolean_box: two usefull functions for boards configuration, with python bindings
+	samples in tuxpaint.py and colors.c
+
+	* src/boards/colors.c: (conf_apply), (colors_config_start),
+	(colors_config_stop):
+	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr):
+	* src/boards/py-mod-admin.c: (py_board_config_start):
+	* src/boards/py-mod-gcompris.c: (pair_in_dict), (hash_to_dict),
+	(py_gcompris_get_board_conf), (py_gcompris_get_conf),
+	(py_gcompris_set_board_conf), (pyGcomprisConfCallback),
+	(py_gcompris_configuration_window), (py_gcompris_boolean_box):
+	* src/boards/python.c: (pythonboard_config_start):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (board_config_start),
+	(gcompris_close_board_conf), (gcompris_apply_board_conf),
+	(gcompris_configuration_window), (gcompris_boolean_box_toggled),
+	(gcompris_boolean_box):
+	* src/gcompris/board_config.h:
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf),
+	(gcompris_get_board_conf):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/plugin.h:
+
 2005-07-23  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed support for Nepal

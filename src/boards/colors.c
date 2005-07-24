@@ -37,6 +37,9 @@ static void		 process_ok(void);
 static void		 highlight_selected(int);
 static void		 game_won(void);
 static void		 repeat(void);
+static void		 colors_config_start(GcomprisBoard *agcomprisBoard,
+					     GcomprisProfile *aProfile);
+static void		 colors_config_stop(void);
 
 /* ================================================================ */
 static GnomeCanvasGroup *boardRootItem = NULL;
@@ -87,14 +90,45 @@ static BoardPlugin menu_bp =
     NULL,//set_level,
     NULL,
     repeat,
-    NULL,
-    NULL
+    colors_config_start,
+    colors_config_stop
   };
 
 /* =====================================================================
  *
  * =====================================================================*/
 GET_BPLUGIN_INFO(colors)
+
+
+/* ======================= */
+/* = config_start        = */
+/* ======================= */
+
+static GtkVBox *config_vbox = NULL;
+
+static GcomprisConfCallback conf_apply(GHashTable *table)
+{
+  printf ("Config Hashtable size %d\n", g_hash_table_size(table));
+}
+
+
+static void 
+colors_config_start(GcomprisBoard *agcomprisBoard,
+		    GcomprisProfile *aProfile)
+{
+    gcompris_configuration_window(conf_apply);
+
+    gcompris_boolean_box("Test Check Box", "key1", TRUE);
+}
+
+/* ======================= */
+/* = config_stop        = */
+/* ======================= */
+static void 
+colors_config_stop()
+{
+}
+
 
 /* =====================================================================
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE

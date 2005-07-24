@@ -105,6 +105,7 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
       }
       
       if (self->cdata->plugin->config_start && self->cdata->plugin->config_stop){
+	printf ("Board %s is configurable \n", self->cdata->name);
 	Py_INCREF(Py_True);
 	return Py_True;
       } else {

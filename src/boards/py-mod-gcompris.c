@@ -16,6 +16,38 @@
 #include "py-mod-anim.h"
 #include "py-mod-admin.h"
 
+
+void pair_in_dict(gpointer key,
+		  gpointer value,
+		  gpointer dict)
+{
+  PyObject *pyValue;
+
+  /* key cannot be NULL. But value can */
+  if (value==NULL){
+    Py_INCREF(Py_None);
+    pyValue = Py_None;
+  } else
+    pyValue = PyString_FromString((gchar *)value);
+
+  PyDict_SetItem((PyObject *)dict, PyString_FromString((gchar *)key), pyValue);
+}
+     
+
+/* Utility */
+PyObject* hash_to_dict(GHashTable *table)
+{
+  PyObject *pydict;
+
+  pydict = PyDict_New();
+
+  g_hash_table_foreach            (table,
+				   pair_in_dict,
+                                   (gpointer) pydict);
+  return pydict;;
+}
+
+
 /* All functions provided by this python module
  * wraps a gcompris function. Each "py_*" function wraps the
  * "*" C function.
@@ -871,44 +903,30 @@ py_gcompris_spawn_async(PyObject *unused, PyObject *args, PyObject *kwargs)
 static PyObject*
 py_gcompris_get_board_conf(PyObject* self, PyObject* args)
 {
-  GList *board_conf;
-  GList *list;
   PyObject *pydict;
   PyObject *value;
-  GcomprisConfPair *pair;
+  GHashTable *table;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, ":gcompris.get_board_conf"))
     return NULL;
 
   /* Call the corresponding C function */
-  board_conf = gcompris_get_board_conf();
 
-  pydict = PyDict_New();
-  for (list = board_conf; list != NULL; list = list->next){
-    pair = (GcomprisConfPair *) list->data;
-    if (pair->key==NULL)
-      continue;
-    if (pair->value==NULL){
-      Py_INCREF(Py_None);
-      value = Py_None;
-    } else
-      value = PyString_FromString(pair->value);
+  table = gcompris_get_board_conf();
 
-    PyDict_SetItem(pydict, PyString_FromString(pair->key), value);
-  }
-  /* Create and return the result */
+  pydict = hash_to_dict(table);
+
+  g_hash_table_destroy(table);
+
   return pydict;;
 }
 
 static PyObject*
 py_gcompris_get_conf(PyObject* self, PyObject* args)
 {
-  GList *board_conf;
-  GList *list;
   PyObject *pydict;
-  PyObject *value;
-  GcomprisConfPair *pair;
+  GHashTable *table;
 
   PyObject* pyBoard;
   PyObject* pyProfile;
@@ -928,22 +946,12 @@ py_gcompris_get_conf(PyObject* self, PyObject* args)
   cGcomprisBoard = pyGcomprisBoard->cdata;
 
   /* Call the corresponding C function */
-  board_conf = gcompris_get_conf(cGcomprisProfile, cGcomprisBoard);
+  table = gcompris_get_conf(cGcomprisProfile, cGcomprisBoard);
 
-  pydict = PyDict_New();
-  for (list = board_conf; list != NULL; list = list->next){
-    pair = (GcomprisConfPair *) list->data;
-    if (pair->key==NULL)
-      continue;
-    if (pair->value==NULL){
-      Py_INCREF(Py_None);
-      value = Py_None;
-    } else
-      value = PyString_FromString(pair->value);
+  pydict = hash_to_dict(table);
 
-    PyDict_SetItem(pydict, PyString_FromString(pair->key), value);
-  }
-  /* Create and return the result */
+  g_hash_table_destroy(table);
+
   return pydict;;
 }
 
@@ -985,8 +993,6 @@ py_gcompris_get_current_user(PyObject* self, PyObject* args)
 static PyObject*
 py_gcompris_set_board_conf (PyObject* self, PyObject* args)
 {
-  
-  GcomprisConfPair *pair;
   PyObject* pyBoard;
   PyObject* pyProfile;
   pyGcomprisBoardObject* pyGcomprisBoard;
@@ -1015,6 +1021,73 @@ py_gcompris_set_board_conf (PyObject* self, PyObject* args)
   Py_INCREF(Py_None);
   return Py_None;
 }
+
+
+/* Some functions and variables needed to get the file selector working */
+static PyObject* pyGcomprisConfCallbackFunc = NULL;
+
+static GcomprisConfCallback pyGcomprisConfCallback(GHashTable* table){
+  PyObject* args;
+  PyObject* result;
+  if(pyGcomprisConfCallbackFunc==NULL) return;
+
+  /* Build arguments */
+  args  = PyTuple_New(1);
+  PyTuple_SetItem(args, 0, Py_BuildValue("O", hash_to_dict(table)));
+  result = PyObject_CallObject(pyGcomprisConfCallbackFunc, args);
+  if(result==NULL){
+    PyErr_Print();
+  } else {
+    Py_DECREF(result);
+  }
+
+}
+
+
+static PyObject*
+py_gcompris_configuration_window(PyObject* self, PyObject* args){
+  PyObject* pyCallback;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args,
+		       "O:gcompris_configuration_window",
+		       &pyCallback))
+    return NULL;
+  if(!PyCallable_Check(pyCallback))
+    {
+      PyErr_SetString(PyExc_TypeError,
+		      "gcompris_configuration_window argument must be callable");
+      return NULL;
+    }
+
+  pyGcomprisConfCallbackFunc = pyCallback;
+
+  return (PyObject *)pygobject_new((GObject*) gcompris_configuration_window(pyGcomprisConfCallback));
+
+}
+
+
+/* void gcompris_boolean_box (label, key, init); */
+static PyObject*
+py_gcompris_boolean_box(PyObject* self, PyObject* args)
+{
+  PyObject *py_bool;
+  gchar *label;
+  gchar *key;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "ssO:gcompris_boolean_box", &label, &key, &py_bool))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gcompris_boolean_box((const gchar *)label, key, PyObject_IsTrue(py_bool));
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
 
 
 /****************************************************/
@@ -1061,6 +1134,8 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "set_board_conf",  py_gcompris_set_board_conf, METH_VARARGS, "gcompris_set_board_conf" },
   { "get_current_profile",  py_gcompris_get_current_profile, METH_VARARGS, "gcompris_get_current_profile" },
   { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },
+  { "configuration_window",  py_gcompris_configuration_window, METH_VARARGS, "gcompris_configuration_window" },
+  { "boolean_box",  py_gcompris_boolean_box, METH_VARARGS, "gcompris_boolean_box" },
   { NULL, NULL, 0, NULL}
 };
 

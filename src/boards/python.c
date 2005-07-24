@@ -48,8 +48,7 @@ static void	 pythonboard_set_level (guint level);
 static void	 pythonboard_config(void);
 static void	 pythonboard_repeat (void);
 static void	 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
-					   GcomprisProfile *aProfile,
-					   GtkWindow *window);
+					   GcomprisProfile *aProfile);
 static void	 pythonboard_config_stop (void);
 
 static gboolean  pythonboard_is_ready = FALSE;
@@ -529,8 +528,8 @@ static gboolean python_run_by_config = FALSE;
 
 static void
 pythonboard_config_start (GcomprisBoard *agcomprisBoard,
-			  GcomprisProfile *aProfile,
-			  GtkWindow *window){
+			  GcomprisProfile *aProfile
+			  ){
   PyObject* py_function_result;
   PyObject* module_dict;
   PyObject* py_boardclass;
@@ -622,9 +621,8 @@ pythonboard_config_start (GcomprisBoard *agcomprisBoard,
 
     py_function_result = PyObject_CallMethod(python_board_config_instance, 
 					     "config_start", 
-					     "OO", 
-					     gcompris_new_pyGcomprisProfileObject(aProfile), 
-					     pygobject_new((GObject*)window));
+					     "O", 
+					     gcompris_new_pyGcomprisProfileObject(aProfile));
 
     if( py_function_result != NULL){
       Py_DECREF(py_function_result);
