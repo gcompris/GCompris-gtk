@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/06/29 10:55:12 yves>
+ * Time-stamp: <2005/07/24 23:48:52 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -22,6 +22,8 @@
 #ifndef _PROPERTIES_H_
 #define _PROPERTIES_H_
 
+#include "profile.h"
+
 typedef struct {
   gint		music;
   gint		fx;
@@ -40,8 +42,9 @@ typedef struct {
   gchar	       *locale;
   gchar	       *skin;
   gchar	       *key;
-  gchar        *profil;
-  gchar        *database;
+  GcomprisProfile *profile;
+  GcomprisUser    *logged_user;
+  gchar	       *database;
   gint          administration;
   gint          reread_xml;
 } GcomprisProperties;

@@ -167,18 +167,6 @@ class Gcompris_tuxpaint:
     gcompris.boolean_box('Disable stamps', 'disable_stamps', self.configuration('disable_stamps'))
     gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
 
-  def boolean_box(self, label, value):
-    button = gtk.CheckButton(label)
-    button.connect("toggled", self.boolean_callback, value)
-    button.show()
-    self.configure_main_box.pack_start(button, False, False, 0)
-
-    if self.actual_config.has_key(value):
-      button.set_active(eval(self.actual_config[value]))
-
-  def boolean_callback(self, widget, value):
-    self.config_values[value] = str(widget.get_active())
-
 
   def apply_callback(self,table):
     for key,value in table.iteritems():

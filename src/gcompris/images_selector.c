@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/04/10 16:44:29 bruno>
+ * Time-stamp: <2005/07/25 00:17:41 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -285,8 +285,6 @@ void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *datase
      -> if dataset is a file read it.
      -> if dataset is a directory, read all xml file in it.
   */
-
-  g_return_val_if_fail(dataset!=NULL,FALSE);
 
   /* if the file doesn't exist */
   if(g_file_test ((dataset), G_FILE_TEST_IS_DIR) )
@@ -691,12 +689,13 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
       return;
     }
     imageset_directory = g_dir_open (pathname, 0, error);    
-    while (filename = g_dir_read_name(imageset_directory)){
+    const gchar * onefile;
+    while (onefile = g_dir_read_name(imageset_directory)){
       if ((g_ascii_strcasecmp (type,"lsdir") != 0) && 
-	  (!g_str_has_suffix (filename,type))){
+	  (!g_str_has_suffix (onefile, type))){
 	continue;
       }
-      filename = g_strdup_printf("%s/%s",pathname,filename);
+      filename = g_strdup_printf("%s/%s", pathname, onefile);
       if (!g_file_test ((filename), G_FILE_TEST_EXISTS)){
 	continue;
       }

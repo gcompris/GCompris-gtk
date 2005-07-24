@@ -1,3 +1,21 @@
+2005-07-25  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Implemented two new options from the command line:
+	gcompris -p or --profile name => run gcompris under the profile 'name'
+	gcompris --profile-list => display on stdout the available profiles
+
+	* src/boards/python/tuxpaint.py: Removed old config code per Yves request.
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/gcompris_db.c: (gcompris_get_profile_from_name):
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/images_selector.c: (gcompris_images_selector_start),
+	(parseImage):
+	* src/gcompris/profile.c: (gcompris_get_current_profile),
+	(gcompris_set_current_user), (gcompris_get_current_user):
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save):
+	* src/gcompris/properties.h:
+
 2005-07-24  Yves Combe  <yves@ycombe.net>
 
 	pass binding of gcomrpis_window like child_spawn.

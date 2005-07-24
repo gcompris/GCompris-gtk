@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/07/23 15:39:41 yves>
+ * Time-stamp: <2005/07/24 23:59:17 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -27,8 +27,8 @@
 #include <sqlite3.h>
 #endif
 
+/* Database management */
 int gcompris_db_init();
-
 void gcompris_db_exit();
 
 gboolean gcompris_db_check_boards();
@@ -71,9 +71,15 @@ GList *gcompris_db_get_board_id(GList *list);
 
 void gcompris_db_remove_board(int board_id);
 
-GcomprisProfile *gcompris_get_profile_from_id(gint profile_id);
 
+/* Profile management */
+
+GcomprisProfile *gcompris_get_profile_from_id(gint profile_id);
+GcomprisProfile *gcompris_get_profile_from_name(gchar *profile_name);
 GList *gcompris_get_profiles_list();
+
+
+/* Classes management */
 
 GcomprisClass *gcompris_get_class_from_id(gint class_id);
 

@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/23 16:12:09 yves>
+ * Time-stamp: <2005/07/25 00:29:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -683,6 +683,9 @@ void gcompris_db_remove_board(int board_id)
 #define GET_PROFILE(n) \
         "SELECT name, profile_directory, description FROM profiles WHERE profile_id=%d;",n
 
+#define GET_PROFILE_FROM_NAME(n) \
+        "SELECT profile_id, profile_directory, description FROM profiles WHERE name='%s';",n
+
 #define GET_GROUPS_IN_PROFILE(n) \
         "SELECT group_id FROM list_groups_in_profiles WHERE profile_id=%d;",n
 
@@ -800,6 +803,62 @@ GcomprisProfile *gcompris_get_profile_from_id(gint profile_id)
   return NULL;
 #endif
 }
+
+/** \brief Given a profile name, return a GcomprisProfile struct
+ *
+ * \param profile_name: the profile to retrieve.
+ * 
+ * \return *GcomprisProfile
+ */
+GcomprisProfile *
+gcompris_get_profile_from_name(gchar *profile_name)
+{
+#ifdef USE_SQLITE
+  GcomprisProfile *profile = NULL;
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gchar *request;
+
+  /* get section_id */
+  request = g_strdup_printf(GET_PROFILE_FROM_NAME(profile_name));
+
+  printf("request = %s\n", request);
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+  
+  if( rc!=SQLITE_OK ){
+    g_error("SQL error: %s\n", zErrMsg);
+  }
+  
+  if (nrow != 0){
+    gint profile_id;
+
+    profile_id  = atoi(result[3]);
+
+    printf("profile_id = %d\n", profile_id);
+    g_free(request);
+
+    profile = gcompris_get_profile_from_id(profile_id);
+
+  }
+
+
+  return profile;
+#else
+  return NULL;
+#endif
+}
+
+
 
 #define GET_ACTIVE_PROFILE_ID \
         "SELECT profile_id FROM informations;"

@@ -1,6 +1,6 @@
 /* gcompris - profile.c
  *
- * Time-stamp: <2005/07/11 13:18:11 yves>
+ * Time-stamp: <2005/07/25 00:10:07 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -21,9 +21,7 @@
 
 #include <stdio.h>
 #include "gcompris.h"
-
-/* Active profile */
-static GcomprisProfile        *gcompris_profile = NULL;
+#include "properties.h"
 
 /* logged user */
 static GcomprisUser           *gcompris_logged_user = NULL;
@@ -31,26 +29,29 @@ static GcomprisUser           *gcompris_logged_user = NULL;
 
 GcomprisProfile       *gcompris_get_current_profile()
 {
+  GcomprisProperties	*properties = gcompris_get_properties();
 
-  if (gcompris_profile)
-    return gcompris_profile;
+  if (properties->profile)
+    return properties->profile;
 
-  gcompris_profile = gcompris_db_get_profile();
+  properties->profile = gcompris_db_get_profile();
 
-  return gcompris_profile;
+  return properties->profile;
 
 }
 
 
 void                    *gcompris_set_current_user(GcomprisUser *user)
 {
-  gcompris_logged_user = user;
+  GcomprisProperties	*properties = gcompris_get_properties();
+  properties->logged_user = user;
 }
 
 
 GcomprisUser            *gcompris_get_current_user()
 {
-  return gcompris_logged_user;
+  GcomprisProperties	*properties = gcompris_get_properties();
+  return properties->logged_user;
 }
 
 

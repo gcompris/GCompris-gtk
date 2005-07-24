@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/07/10 23:38:14 bruno>
+ * Time-stamp: <2005/07/25 00:32:32 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -91,6 +91,8 @@ static char *popt_database         = NULL;
 static char *popt_logs_database    = NULL;
 static int popt_create_db   	   = FALSE;
 static int popt_reread_xml   	   = FALSE;
+static char *popt_profile	   = NULL;
+static int *popt_profile_list	   = FALSE;
 
 GTimer *chronometer;
 
@@ -122,13 +124,17 @@ static struct poptOption options[] = {
   {"administration", 'e', POPT_ARG_NONE, &popt_administration, 0,
    N_("Run gcompris with administration and users management mode"), NULL},
   {"database", 'b', POPT_ARG_STRING, &popt_database, 0,
-   N_("Use alternate database for profils"), NULL},
+   N_("Use alternate database for profiles"), NULL},
   {"logs", 'j', POPT_ARG_STRING, &popt_logs_database, 0,
    N_("Use alternate database for logs"), NULL},
   {"create-db",'\0', POPT_ARG_NONE, &popt_create_db, 0,
-   N_("Create the alternate database for profils"), NULL},
+   N_("Create the alternate database for profiles"), NULL},
   {"reread-xml",'\0', POPT_ARG_NONE, &popt_reread_xml, 0,
    N_("Re-read XML Menus and store them in the database"), NULL},
+  {"profile",'p', POPT_ARG_STRING, &popt_profile, 0,
+   N_("Set the profile to use. Use 'gcompris -e' to create profiles"), NULL},
+  {"profile-list",'\0', POPT_ARG_NONE, &popt_profile_list, 0,
+   N_("List all availaible profiles. Use 'gcompris -e' to create profiles"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -1057,12 +1063,50 @@ gcompris_init (int argc, char *argv[])
     properties->reread_xml = TRUE;
   }
 
+
+  /*
+   * Database nit MUST BE after properties
+   * And after a possible alternate database as been provided
+   *
+   */
+  gcompris_db_init();
+  
+  /* An alternate profile is requested, check it does exists */
+  if (popt_profile){
+    GList * profile_list;
+
+    properties->profile = gcompris_get_profile_from_name(popt_profile);
+
+    if(properties->profile == NULL)
+      {
+	printf("ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list available ones\n",
+	       popt_profile);
+	exit(1);
+      }
+  }
+
+  /* List all available profiles */
+  if (popt_profile_list){
+    GList * profile_list;
+    int i;
+
+    profile_list = gcompris_get_profiles_list();
+
+    printf(_("List of available profiles are:\n"));
+    for(i=0; i< g_list_length(profile_list); i++)
+      {
+	GcomprisProfile *profile = g_list_nth_data(profile_list, i);
+	printf("   %s\n", profile->name);
+      }
+
+    g_list_free(profile_list);
+
+    exit(0);
+  }
+
   poptFreeContext(pctx); 
   /*------------------------------------------------------------*/
 
-  /* init MUST BE after properties */
-  gcompris_db_init();
-  
   if(properties->music || properties->fx)
     initSound();
 

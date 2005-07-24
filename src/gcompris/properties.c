@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/06/22 10:36:03 yves>
+ * Time-stamp: <2005/07/24 23:49:10 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -152,7 +152,8 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->root_menu         = "/";
   tmp->local_directory   = NULL;
   tmp->package_data_dir  = PACKAGE_DATA_DIR;
-  tmp->profil            = "default";
+  tmp->profile           = NULL;
+  tmp->logged_user       = NULL;
   tmp->database          = get_default_database_name();
   tmp->administration    = FALSE;
   tmp->reread_xml        = FALSE;
@@ -233,11 +234,6 @@ GcomprisProperties *gcompris_properties_new ()
 	} else if(!strcmp(value.v_identifier, "key")) {
 	  tmp->key = scan_get_string(scanner);
 	  if(!tmp->key)
-	    g_warning("Config file parsing error on token %s", token);
-	}
-	else if(!strcmp(value.v_identifier, "profil")) {
-	  tmp->profil = scan_get_string(scanner);
-	  if(!tmp->profil)
 	    g_warning("Config file parsing error on token %s", token);
 	}
 	else if(!strcmp(value.v_identifier, "database")) {
@@ -328,7 +324,6 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
 
-  fprintf(filefd, "%s=\"%s\"\n", "profil",		props->profil);
   fprintf(filefd, "%s=\"%s\"\n", "database",		props->database);
 
   fclose(filefd);
