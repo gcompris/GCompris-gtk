@@ -154,27 +154,18 @@ class Gcompris_tuxpaint:
     pass
 
   def config_start(self, profile):
+    self.configure_profile = profile
+    
     self.config_values = {}
-    self.main_vbox = gcompris.configuration_window(apply_callback)
+    self.main_vbox = gcompris.configuration_window(self.apply_callback)
 
-    self.actual_config = gcompris.get_conf(profile, self.gcomprisBoard)
+    self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
 
-    gcompris.boolean_box('Disable shape rotation', 'disable_shape_rotation', False)
-    gcompris.boolean_box('Follow gcompris fullscreen', 'fullscreen', True)
-    gcompris.boolean_box('Show Uppercase text only', 'uppercase_text', False)
-    gcompris.boolean_box('Disable stamps', 'disable_stamps', False)
-    gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', False)
-
-    pass
-
-
-  def configuration_close(self, button):
-    self.configure_window.destroy()
-
-  def configuration_apply(self, button):
-    for key,value in self.config_values.iteritems():
-      gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard, key, value)
-    pass
+    gcompris.boolean_box('Disable shape rotation', 'disable_shape_rotation', self.configuration('disable_shape_rotation'))
+    gcompris.boolean_box('Follow gcompris fullscreen', 'fullscreen', self.configuration('fullscreen'))
+    gcompris.boolean_box('Show Uppercase text only', 'uppercase_text', self.configuration('uppercase_text'))
+    gcompris.boolean_box('Disable stamps', 'disable_stamps', self.configuration('disable_stamps'))
+    gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
 
   def boolean_box(self, label, value):
     button = gtk.CheckButton(label)
@@ -188,6 +179,12 @@ class Gcompris_tuxpaint:
   def boolean_callback(self, widget, value):
     self.config_values[value] = str(widget.get_active())
 
+
+  def apply_callback(self,table):
+    for key,value in table.iteritems():
+      gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard, key, value)
+
+
 def child_callback(fd,  cond, data):
   #global board
   #board.window.set_property("accept-focus", 1)
@@ -200,7 +197,4 @@ def child_callback(fd,  cond, data):
   
 def stop_board():
   gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-
-def apply_callback(table):
-  print table
   

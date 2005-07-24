@@ -22,15 +22,22 @@ void pair_in_dict(gpointer key,
 		  gpointer dict)
 {
   PyObject *pyValue;
+  PyObject *pyKey;
+
+  pyKey = PyString_FromString((gchar *)key);
+  Py_INCREF(pyKey);
+  
 
   /* key cannot be NULL. But value can */
   if (value==NULL){
     Py_INCREF(Py_None);
     pyValue = Py_None;
-  } else
+  } else {
     pyValue = PyString_FromString((gchar *)value);
+    Py_INCREF(pyValue);
+  }
 
-  PyDict_SetItem((PyObject *)dict, PyString_FromString((gchar *)key), pyValue);
+  PyDict_SetItem((PyObject *)dict, pyKey, pyValue);
 }
      
 
@@ -44,7 +51,9 @@ PyObject* hash_to_dict(GHashTable *table)
   g_hash_table_foreach            (table,
 				   pair_in_dict,
                                    (gpointer) pydict);
-  return pydict;;
+
+  Py_INCREF(pydict);
+  return pydict;
 }
 
 
@@ -1029,17 +1038,27 @@ static PyObject* pyGcomprisConfCallbackFunc = NULL;
 static GcomprisConfCallback pyGcomprisConfCallback(GHashTable* table){
   PyObject* args;
   PyObject* result;
+
+  PyGILState_STATE gil;
+
+
   if(pyGcomprisConfCallbackFunc==NULL) return;
 
-  /* Build arguments */
-  args  = PyTuple_New(1);
-  PyTuple_SetItem(args, 0, Py_BuildValue("O", hash_to_dict(table)));
-  result = PyObject_CallObject(pyGcomprisConfCallbackFunc, args);
+  gil = pyg_gil_state_ensure();
+
+  result = PyObject_CallFunction(pyGcomprisConfCallbackFunc, "O", hash_to_dict(table));
+
+  // This callback can be called multiple time
+  // I must add a second callback to mark the window closed and DECREF this ref.
+  //Py_DECREF(pyGcomprisConfCallbackFunc);
+
   if(result==NULL){
     PyErr_Print();
   } else {
     Py_DECREF(result);
   }
+
+  pyg_gil_state_release(gil);
 
 }
 
@@ -1060,9 +1079,15 @@ py_gcompris_configuration_window(PyObject* self, PyObject* args){
       return NULL;
     }
 
+  if (pyGcomprisConfCallbackFunc)
+    Py_DECREF(pyGcomprisConfCallbackFunc);
+
   pyGcomprisConfCallbackFunc = pyCallback;
 
-  return (PyObject *)pygobject_new((GObject*) gcompris_configuration_window(pyGcomprisConfCallback));
+  Py_INCREF(pyGcomprisConfCallbackFunc);
+
+
+  return (PyObject *)pygobject_new((GObject*) gcompris_configuration_window((GcomprisConfCallback )pyGcomprisConfCallback));
 
 }
 

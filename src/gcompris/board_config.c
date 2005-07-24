@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/07/24 03:11:39 yves>
+ * Time-stamp: <2005/07/24 09:48:33 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -71,6 +71,9 @@ void gcompris_close_board_conf (GtkButton *button,
 				gpointer user_data)
 {
   gtk_object_destroy              ((GtkObject *)conf_window);
+  g_hash_table_destroy (hash_conf);
+  hash_conf = NULL;
+ 
 }
 
 void gcompris_apply_board_conf (GtkButton *button,

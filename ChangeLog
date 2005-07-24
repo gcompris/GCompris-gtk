@@ -1,3 +1,14 @@
+2005-07-24  Yves Combe  <yves@ycombe.net>
+
+	pass binding of gcomrpis_window like child_spawn.
+	fix segfault.
+	fix tuxpaint to work effectively with new configuration funtions
+
+	* src/boards/py-mod-gcompris.c: (pair_in_dict), (hash_to_dict),
+	(pyGcomprisConfCallback), (py_gcompris_configuration_window):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (gcompris_close_board_conf):
+
 2005-07-24  Yves Combe,,,  <yves@ycombe.net>
 
 	gcompris_configuration_window and gcompris_boolean_box: two usefull functions for boards configuration, with python bindings
