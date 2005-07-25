@@ -1,3 +1,16 @@
+2005-07-26  Yves Combe  <yves@ycombe.net>
+
+	gcompris_combo_box (gcompris.combo_box) configuration fonction for text combobox.
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_boolean_box),
+	(py_gcompris_combo_box):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (gcompris_configuration_window),
+	(gcompris_boolean_box), (gcompris_combo_box_changed),
+	(gcompris_combo_box):
+	* src/gcompris/board_config.h:
+
 2005-07-25  Yves Combe  <yves@ycombe.net>
 
 	fix compilation error (GComprisProfile  in py-gcompris-properties.c)

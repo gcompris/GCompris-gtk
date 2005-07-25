@@ -170,8 +170,10 @@ class Gcompris_tuxpaint:
     gcompris.boolean_box('Disable stamps', 'disable_stamps', self.configuration('disable_stamps'))
     gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
 
+    gcompris.combo_box('ComboBox Test ', ['red', 'blue', 'green'], 'combo_test', 1)
 
   def apply_callback(self,table):
+    print table
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard, key, value)
 

@@ -1110,8 +1110,47 @@ py_gcompris_boolean_box(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  return (PyObject *)pygobject_new(gcompris_boolean_box((const gchar *)label, key, PyObject_IsTrue(py_bool)));
+  return (PyObject *)pygobject_new((GObject*) \
+				    gcompris_boolean_box((const gchar *)label, key, PyObject_IsTrue(py_bool)));
 
+}
+
+/* GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index); */
+static PyObject*
+py_gcompris_combo_box(PyObject* self, PyObject* args)
+{
+  PyObject *py_list;
+  gchar *label;
+  gchar *key;
+  gchar *item;
+  gint index;
+
+  GList *list = NULL;
+
+  int i, size;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "sOsi:gcompris_combo_box", &label, &py_list, &key, &index))
+    return NULL;
+
+  if (!PyList_Check(py_list)){
+    PyErr_SetString(PyExc_TypeError,
+		      "gcompris_combo_box second argument must be a list");
+    return NULL;
+  }
+
+  size = PyList_Size (py_list);
+
+  for (i=0; i < size; i ++)
+    list = g_list_append( list, 
+			  PyString_AsString( PyList_GetItem( py_list, i)));
+
+  /* Call the corresponding C function */
+  return (PyObject *)pygobject_new((GObject*) \
+				    gcompris_combo_box((const gchar *)label, 
+						       list, 
+						       key, 
+						       index));
 }
 
 
@@ -1163,6 +1202,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },
   { "configuration_window",  py_gcompris_configuration_window, METH_VARARGS, "gcompris_configuration_window" },
   { "boolean_box",  py_gcompris_boolean_box, METH_VARARGS, "gcompris_boolean_box" },
+  { "combo_box",  py_gcompris_combo_box, METH_VARARGS, "gcompris_combo_box" },
   { NULL, NULL, 0, NULL}
 };
 

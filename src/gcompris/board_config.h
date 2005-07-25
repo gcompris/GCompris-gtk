@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/07/25 15:33:43 yves>
+ * Time-stamp: <2005/07/26 00:04:29 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -40,6 +40,8 @@ typedef void (*GcomprisConfCallback) (GHashTable *table);
 GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callback);
 
 GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
+
+GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index);
 
 #endif
 

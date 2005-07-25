@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/07/25 16:23:19 yves>
+ * Time-stamp: <2005/07/26 00:04:05 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -87,7 +87,7 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 {
   GtkButton *button;
   GtkHBox   *footer;
-  GtkLabel  *header;
+  GtkWidget  *header;
 
   /* init static values or callbacks */
   Confcallback = callback;
@@ -147,7 +147,7 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 
 
   /* Label header */
-  header = gtk_label_new (NULL);
+  header = gtk_label_new ((gchar *)NULL);
   gtk_widget_show(header);
   gtk_box_pack_start (GTK_BOX(main_conf_box),
 		      header,
@@ -199,6 +199,74 @@ GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean in
 		      key);
 
   return GTK_CHECK_BUTTON(CheckBox);
+}
+
+void gcompris_combo_box_changed(GtkComboBox *combobox,
+				gpointer key)
+{
+  gchar *the_key = g_strdup((gchar *)key);
+
+  gchar *value = gtk_combo_box_get_active_text   (combobox);
+  
+  g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
+}
+
+GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index)
+{
+  GtkWidget *combobox;
+  GtkWidget *hbox = gtk_hbox_new (FALSE, 0);
+  GList *list;
+  GtkWidget *label_combo;
+
+  gtk_widget_show(hbox);
+
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      hbox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  /* Label */
+  label_combo = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(label_combo);
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      label_combo,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  gtk_label_set_justify (GTK_LABEL(label_combo),
+			 GTK_JUSTIFY_RIGHT);
+
+  gtk_label_set_markup (GTK_LABEL(label_combo),
+                        (const gchar *)label);
+
+
+  combobox = gtk_combo_box_new_text();
+
+  gtk_widget_show(combobox);
+
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      combobox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+
+  for (list = strings; list != NULL; list = list->next)
+    gtk_combo_box_append_text       (GTK_COMBO_BOX(combobox),
+				     list->data);
+
+  
+  gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
+			    index);
+  
+  g_signal_connect(G_OBJECT(combobox),
+		   "changed",
+		   G_CALLBACK(gcompris_combo_box_changed),
+		   key);
+
+  return GTK_COMBO_BOX(combobox);
 }
 
 /* Local Variables: */

@@ -121,11 +121,18 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile->name);
 
-    gcompris_configuration_window(label, conf_apply);
+    gcompris_configuration_window(label, (GcomprisConfCallback )conf_apply);
 
     g_free(label);
 
     gcompris_boolean_box("Test Check Box", "key1", TRUE);
+
+    GList *list = NULL;
+    int i; 
+    for (i =0; i< 10; i++)
+      list = g_list_append( list, g_strdup_printf("value_%d", i));
+
+    gcompris_combo_box( "Gcompris ComboBox", list, "combo_key", 3);
 }
 
 /* ======================= */
