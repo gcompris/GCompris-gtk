@@ -116,7 +116,14 @@ static void
 colors_config_start(GcomprisBoard *agcomprisBoard,
 		    GcomprisProfile *aProfile)
 {
-    gcompris_configuration_window(conf_apply);
+  gchar *label;
+  
+  label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+			  agcomprisBoard->name, aProfile->name);
+
+    gcompris_configuration_window(label, conf_apply);
+
+    g_free(label);
 
     gcompris_boolean_box("Test Check Box", "key1", TRUE);
 }

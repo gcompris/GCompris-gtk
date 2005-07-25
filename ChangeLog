@@ -1,3 +1,18 @@
+2005-07-25  Yves Combe  <yves@ycombe.net>
+
+	fix compilation error (GComprisProfile  in py-gcompris-properties.c)
+	add label option in gcompris_configuration_window fix tuxpaint.py and colors.c for use it.
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_configuration_window),
+	(py_gcompris_boolean_box):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (gcompris_configuration_window),
+	(gcompris_boolean_box):
+	* src/gcompris/board_config.h:
+
 2005-07-25  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Implemented two new options from the command line:

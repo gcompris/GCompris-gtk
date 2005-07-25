@@ -1,5 +1,6 @@
 #include "py-gcompris-properties.h"
 #include <pygobject.h>
+#include "py-gcompris-profile.h"
 
 staticforward PyTypeObject pyGcomprisPropertiesType;
 
@@ -106,8 +107,26 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
     if(strcmp(name,"package_data_dir")==0) return Py_BuildValue("s", self->cdata->package_data_dir);
     if(strcmp(name,"locale")==0) return Py_BuildValue("s", self->cdata->locale);
     if(strcmp(name,"skin")==0) return Py_BuildValue("s", self->cdata->skin);
-    if(strcmp(name,"profil")==0) return Py_BuildValue("s", self->cdata->profil);
-        if(strcmp(name,"database")==0) return Py_BuildValue("s", self->cdata->database);
+    
+    if(strcmp(name,"profile")==0){
+      if (self->cdata->profile)
+	return gcompris_new_pyGcomprisProfileObject(self->cdata->profile);
+      else {
+	Py_INCREF(Py_None);
+	return Py_None;
+      }
+    }
+
+    if(strcmp(name,"logged_user")==0) {
+      if (self->cdata->logged_user)
+	return gcompris_new_pyGcomprisUserObject(self->cdata->logged_user);
+      else {
+	Py_INCREF(Py_None);
+	return Py_None;
+      }
+    }
+
+    if(strcmp(name,"database")==0) return Py_BuildValue("s", self->cdata->database);
     if(strcmp(name,"administration")==0){
       if(self->cdata->administration){
 	Py_INCREF(Py_True);

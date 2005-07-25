@@ -1066,16 +1066,18 @@ static GcomprisConfCallback pyGcomprisConfCallback(GHashTable* table){
 static PyObject*
 py_gcompris_configuration_window(PyObject* self, PyObject* args){
   PyObject* pyCallback;
+  gchar *label;
 
   /* Parse arguments */
   if(!PyArg_ParseTuple(args,
-		       "O:gcompris_configuration_window",
+		       "sO:gcompris_configuration_window",
+		       &label,
 		       &pyCallback))
     return NULL;
   if(!PyCallable_Check(pyCallback))
     {
       PyErr_SetString(PyExc_TypeError,
-		      "gcompris_configuration_window argument must be callable");
+		      "gcompris_configuration_window second argument must be callable");
       return NULL;
     }
 
@@ -1087,12 +1089,15 @@ py_gcompris_configuration_window(PyObject* self, PyObject* args){
   Py_INCREF(pyGcomprisConfCallbackFunc);
 
 
-  return (PyObject *)pygobject_new((GObject*) gcompris_configuration_window((GcomprisConfCallback )pyGcomprisConfCallback));
+  return (PyObject *) \
+             pygobject_new((GObject*) \
+			   gcompris_configuration_window( label,
+							  (GcomprisConfCallback )pyGcomprisConfCallback));
 
 }
 
 
-/* void gcompris_boolean_box (label, key, init); */
+/* GtkCheckButton *gcompris_boolean_box (label, key, init);*/
 static PyObject*
 py_gcompris_boolean_box(PyObject* self, PyObject* args)
 {
@@ -1105,11 +1110,8 @@ py_gcompris_boolean_box(PyObject* self, PyObject* args)
     return NULL;
 
   /* Call the corresponding C function */
-  gcompris_boolean_box((const gchar *)label, key, PyObject_IsTrue(py_bool));
+  return (PyObject *)pygobject_new(gcompris_boolean_box((const gchar *)label, key, PyObject_IsTrue(py_bool)));
 
-  /* Create and return the result */
-  Py_INCREF(Py_None);
-  return Py_None;
 }
 
 

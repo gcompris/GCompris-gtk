@@ -27,6 +27,8 @@ import gcompris.admin
 import gtk
 import os
 
+import pango
+
 #import gobject
 from gettext import gettext as _
 
@@ -157,7 +159,8 @@ class Gcompris_tuxpaint:
     self.configure_profile = profile
     
     self.config_values = {}
-    self.main_vbox = gcompris.configuration_window(self.apply_callback)
+    self.main_vbox = gcompris.configuration_window(_('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Tuxpaint', profile.name ),
+                                                   self.apply_callback)
 
     self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
 
