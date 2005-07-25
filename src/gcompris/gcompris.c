@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/07/25 00:32:32 bruno>
+ * Time-stamp: <2005/07/26 00:57:47 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -113,7 +113,7 @@ static struct poptOption options[] = {
    N_("display debug informations on the console."), NULL},
   {"version", 'v', POPT_ARG_NONE, &popt_version, 0,
    N_("Print the version of " PACKAGE), NULL},
-  {"antialiased", 'a', POPT_ARG_NONE, &popt_aalias, 0,
+  {"antialiased", '\0', POPT_ARG_NONE, &popt_aalias, 0,
    N_("Use the antialiased canvas (slower)."), NULL},
   {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
    N_("Disable XRANDR (No screen resolution change)."), NULL},
@@ -121,7 +121,7 @@ static struct poptOption options[] = {
    N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity), -l list show the list of menus and activity"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run gcompris with local activity directory added to menu"), NULL},
-  {"administration", 'e', POPT_ARG_NONE, &popt_administration, 0,
+  {"administration", 'a', POPT_ARG_NONE, &popt_administration, 0,
    N_("Run gcompris with administration and users management mode"), NULL},
   {"database", 'b', POPT_ARG_STRING, &popt_database, 0,
    N_("Use alternate database for profiles"), NULL},

@@ -38,7 +38,7 @@ class Module:
 
         self.selector_color = 0xC5D2DDFFL
         self.outline_color  = 0XD8B09AFFL
-
+        self.module_panel_ofset = 3
 
     # Return the position it must have in the administration menu
     # The smaller number is the highest.
@@ -97,7 +97,7 @@ class Module:
         item = self.root_select_item.add (
             gnome.canvas.CanvasText,
             text=_(self.module_label),
-            font=gcompris.skin.get_font("gcompris/content"),
+            font=gcompris.skin.get_font("gcompris/tiny"),
             x = x,
             y = y1,
             fill_color="black"

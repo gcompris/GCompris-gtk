@@ -48,9 +48,8 @@ class Group_list:
 
 
   # area is the drawing area for the list
-  def __init__(self, canvas, db_connect, db_cursor, area, hgap, vgap):
+  def __init__(self, frame, db_connect, db_cursor):
 
-      self.rootitem = canvas
       self.cur = db_cursor
       self.con = db_connect
 
@@ -64,9 +63,6 @@ class Group_list:
       # ---------------
       # Group Management
       # ---------------
-
-      frame = gtk.Frame(_("Group"))
-      frame.show()
 
       # create tree model
       self.group_model = self.__create_model_group()
@@ -169,17 +165,6 @@ class Group_list:
       self.combo_class.connect('changed', self.class_changed_cb)
       selection = treeview_group.get_selection()
       selection.connect('changed', self.group_changed_cb, self.group_user)
-
-      # Pack it all
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=frame,
-        x=area[0] + hgap,
-        y=area[1],
-        width=area[2]-area[0] - hgap*2,
-        height=area[3]-area[1],
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
 
       # Load lists
       self.class_changed_cb(self.combo_class)
@@ -357,5 +342,8 @@ class Group_list:
       group_user.reload(self.current_group_id)
 
   def class_changed_cb(self, combobox):
-    self.current_class_id = self.class_list[combobox.get_active()]
+    active = combobox.get_active()
+    if active < 0:
+      return
+    self.current_class_id = self.class_list[active]
     self.reload_group()

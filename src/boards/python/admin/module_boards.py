@@ -55,24 +55,6 @@ class Boards(module.Module):
 
     module.Module.start(self)
 
-#     item = self.rootitem.add (
-#         gnome.canvas.CanvasText,
-#         text=_(self.module_label + " Panel"),
-#         font=gcompris.skin.get_font("gcompris/content"),
-#         x = area[0] + (area[2]-area[0])/2,
-#         y = area[1] + 50,
-#         fill_color="black"
-#         )
-
-    hgap = 20
-    vgap = 15
-    
-    origin_y = area[1]+vgap
-
-    boards_height = (area[3]-area[1]) - vgap*2 
-
-    list_area = ( area[0], origin_y, area[2], boards_height)
-
     # Connect to our database
     self.con = sqlite.connect(gcompris.get_database())
     self.cur = self.con.cursor()
@@ -83,10 +65,10 @@ class Boards(module.Module):
     self.rootitem.add(
       gnome.canvas.CanvasWidget,
       widget=frame,
-      x=area[0],
-      y=area[1],
-      width=area[2]-area[0],
-      height=area[3]-area[1],
+      x=area[0]+self.module_panel_ofset,
+      y=area[1]+self.module_panel_ofset,
+      width=area[2]-area[0]-2*self.module_panel_ofset,
+      height=area[3]-area[1]-2*self.module_panel_ofset,
       anchor=gtk.ANCHOR_NW,
       size_pixels=False)
 

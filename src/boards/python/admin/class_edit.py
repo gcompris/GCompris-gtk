@@ -41,7 +41,7 @@ import constants
 class ClassEdit(gtk.Window):
     counter = 1
     def __init__(self, db_connect, db_cursor,
-                 class_id, class_name,
+                 class_id, class_name, teacher_name,
                  list_user):
         # Create the toplevel window
         gtk.Window.__init__(self)
@@ -59,14 +59,46 @@ class ClassEdit(gtk.Window):
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
-        frame = gtk.Frame(_("Editing class: ") + class_name)
+        if(class_name):
+            frame = gtk.Frame(_("Editing class: ") + class_name)
+        else:
+            frame = gtk.Frame(_("Editing a new class"))
+
         self.add(frame)
-        
+
+        # Main VBOX
         vbox = gtk.VBox(False, 8)
         vbox.set_border_width(8)
         frame.add(vbox)
 
+        # Label and Entry for the class name
+        table = gtk.Table(2, 2, homogeneous=False)
+        table.set_border_width(0)
+        table.set_row_spacings(0)
+        table.set_col_spacings(20)
+        vbox.pack_start(table, True, True, 0)
+        
+        label = gtk.Label(_('Class:'))
+        label.set_alignment(0, 0)
+        table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+        self.entry_class = gtk.Entry()
+        self.entry_class.set_max_length(20)
+        self.entry_class.insert_text(class_name, position=0)
+        table.attach(self.entry_class, 1, 2, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+
+        # FIXME: How to remove the selection
+        
+        # Label and Entry for the teacher name
+        label = gtk.Label(_('Teacher:'))
+        label.set_alignment(0, 0)
+        table.attach(label, 0, 1, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+        self.entry_teacher = gtk.Entry()
+        self.entry_teacher.set_max_length(30)
+        self.entry_teacher.insert_text(teacher_name, position=0)
+        table.attach(self.entry_teacher, 1, 2, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+
         # Top message gives instructions
+        vbox.pack_start(gtk.HSeparator(), False, False, 0)
         label = gtk.Label(_('Assign all the users bellonging to this class'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
@@ -141,16 +173,17 @@ class ClassEdit(gtk.Window):
         # --------------------
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
-        bbox = gtk.HButtonBox()
-        bbox.set_border_width(5)
-        bbox.set_layout(gtk.BUTTONBOX_EDGE)
-        bbox.set_spacing(40)
+        bbox = gtk.HBox(homogeneous=False, spacing=8)
         
         button = gtk.Button(stock='gtk-help')
-        bbox.add(button)
+        bbox.pack_start(button, expand=False, fill=False, padding=0)
+
+        button = gtk.Button(stock='gtk-ok')
+        bbox.pack_end(button, expand=False, fill=False, padding=0)
+        button.connect("clicked", self.ok)
 
         button = gtk.Button(stock='gtk-close')
-        bbox.add(button)
+        bbox.pack_end(button, expand=False, fill=False, padding=0)
         button.connect("clicked", self.close)
 
         vbox.pack_start(bbox, False, False, 0)
@@ -271,9 +304,25 @@ class ClassEdit(gtk.Window):
             self.con.commit()
 
 
-    # Done, can quit this dialog
+    # Done, can quit this dialog (without saving)
     #
     def close(self, button):
+        self.list_user.reload(self.class_id)
+        self.destroy()
+        
+    # Done, can quit this dialog with saving
+    #
+    def ok(self, button):
+
+        class_data = (self.class_id,
+                      self.entry_class.get_text(),
+                      self.entry_teacher.get_text()
+                      )
+        # Save the changes in the base
+        self.cur.execute('insert or replace into class (class_id, name, teacher) values (?, ?, ?)', class_data)
+        self.con.commit()
+
+        # Close the dialog window now
         self.list_user.reload(self.class_id)
         self.destroy()
         

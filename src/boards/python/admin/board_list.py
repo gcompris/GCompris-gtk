@@ -65,13 +65,13 @@ class Board_list:
       top_box.show()
       self.frame.add(top_box)
 
-      box1 = gtk.HBox(False, 0)
+      box1 = gtk.HBox(False, 8)
       box1.show()
 
-      box2 = gtk.HBox(False, 0)
+      box2 = gtk.HBox(False, 8)
       box2.show()
 
-      box3 = gtk.VBox(False, 0)
+      box3 = gtk.VBox(False, 8)
       box3.show()
       
       top_box.pack_start(box1, False, False, 0)
@@ -307,6 +307,8 @@ class Board_list:
 
   def changed_cb(self, combobox):
     index = combobox.get_active()
+    if(index<0):
+      return
     self.active_profile = self.profiles_list[index]
 
     print 'Active profile is now', self.active_profile.name

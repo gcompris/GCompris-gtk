@@ -1,3 +1,31 @@
+2005-07-26  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Renamed the official name of gcompris edit is now gcompris administration
+	  It is now started with gcompris -a
+	- Reworked modules statup to work like Yves did
+	- Reworked class edit to also edit the class name and teacher.
+	  In the end it will not be possible to edit in the tables anymore.
+	  This still does not update the parent list.
+
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/default/skin.xml:
+	* boards/skins/linha_verde/skin.xml:
+	* boards/skins/pink/skin.xml:
+	* gcompris-edit.desktop.in:
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/module.py:
+	* src/boards/python/admin/module_boards.py:
+	* src/boards/python/admin/module_groups.py:
+	* src/boards/python/admin/module_profiles.py:
+	* src/boards/python/admin/module_users.py:
+	* src/boards/python/admin/profile_list.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/administration.py:
+	* src/gcompris/gcompris.c:
+
 2005-07-26  Yves Combe  <yves@ycombe.net>
 
 	gcompris_combo_box (gcompris.combo_box) configuration fonction for text combobox.

@@ -48,9 +48,8 @@ class Profile_list:
 
 
   # area is the drawing area for the list
-  def __init__(self, canvas, db_connect, db_cursor, area, hgap, vgap):
+  def __init__(self, frame, db_connect, db_cursor):
 
-      self.rootitem = canvas
       self.cur = db_cursor
       self.con = db_connect
 
@@ -66,9 +65,6 @@ class Profile_list:
       # ---------------
       # Profile Management
       # ---------------
-
-      frame = gtk.Frame(_("Profile"))
-      frame.show()
 
       # create tree model
       self.profile_model = self.__create_model_profile()
@@ -145,17 +141,6 @@ class Profile_list:
       # Missing callbacks
       selection = treeview_profile.get_selection()
       selection.connect('changed', self.profile_changed_cb, self.profile_group)
-
-      # Pack it all
-      self.rootitem.add(
-        gnome.canvas.CanvasWidget,
-        widget=frame,
-        x=area[0] + hgap,
-        y=area[1],
-        width=area[2]-area[0] - hgap*2,
-        height=area[3]-area[1],
-        anchor=gtk.ANCHOR_NW,
-        size_pixels=False)
 
       # Load lists
       self.reload_profile()

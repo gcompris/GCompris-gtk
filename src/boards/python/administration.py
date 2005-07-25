@@ -104,6 +104,7 @@ class Gcompris_administration:
       width_units=1.0
       )
 
+    # A White background in the panel area
     self.rootitem.add(
       gnome.canvas.CanvasRect,
       x1=self.panel_area[0],

@@ -63,19 +63,20 @@ class Profiles(module.Module):
 
     module.Module.start(self)
 
-    hgap = 20
-    vgap = 15
+    frame = gtk.Frame(_("Profile"))
+    frame.show()
 
-    # Define the area percent for each list
-    group_percent = 1.0
+    self.rootitem.add(
+      gnome.canvas.CanvasWidget,
+      widget=frame,
+      x=area[0]+self.module_panel_ofset,
+      y=area[1]+self.module_panel_ofset,
+      width=area[2]-area[0]-2*self.module_panel_ofset,
+      height=area[3]-area[1]-2*self.module_panel_ofset,
+      anchor=gtk.ANCHOR_NW,
+      size_pixels=False)
 
-    origin_y = area[1]+vgap
-
-    group_height = (area[3]-area[1])*group_percent - vgap
-    list_area = ( area[0], origin_y, area[2], group_height)
-    profile_list.Profile_list(self.rootitem,
-                              self.con, self.cur,
-                              list_area, hgap, vgap)
+    profile_list.Profile_list(frame, self.con, self.cur)
 
   def stop(self):
     print "stopping profiles panel"

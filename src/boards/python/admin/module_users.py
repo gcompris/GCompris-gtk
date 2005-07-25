@@ -65,20 +65,21 @@ class Users(module.Module):
       # Call our parent start
       module.Module.start(self)
 
-      hgap = 20
-      vgap = 15
+      frame = gtk.Frame(_("Classes") + " / " + _("Users") )
+      frame.show()
 
-      # Define the area percent for each list
-      class_percent = 1.0
-      origin_y = area[1]+vgap
-      
-      class_height = (area[3]-area[1])*class_percent - vgap
-      list_area = ( area[0], origin_y, area[2], class_height)
-      class_list.Class_list(self.rootitem,
-                            self.con, self.cur,
-                            list_area, hgap, vgap)
+      self.rootitem.add(
+        gnome.canvas.CanvasWidget,
+        widget=frame,
+        x=area[0]+self.module_panel_ofset,
+        y=area[1]+self.module_panel_ofset,
+        width=area[2]-area[0]-2*self.module_panel_ofset,
+        height=area[3]-area[1]-2*self.module_panel_ofset,
+        anchor=gtk.ANCHOR_NW,
+        size_pixels=False)
 
 
+      class_list.Class_list(frame, self.con, self.cur)
 
 
   def stop(self):
