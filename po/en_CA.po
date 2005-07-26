@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-23 14:39-0400\n"
-"PO-Revision-Date: 2005-07-23 22:51-0400\n"
+"POT-Creation-Date: 2005-07-26 04:03-0400\n"
+"PO-Revision-Date: 2005-07-26 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1003,11 +1003,11 @@ msgid "Can move the mouse."
 msgstr "Can move the mouse."
 
 #: boards/colors.xml.in.h:2 boards/read_colors.xml.in.h:3
-#: src/boards/advanced_colors.c:87 src/boards/colors.c:75
+#: src/boards/advanced_colors.c:87 src/boards/colors.c:78
 msgid "Click on the right color"
 msgstr "Click on the right colour"
 
-#: boards/colors.xml.in.h:3 src/boards/colors.c:74
+#: boards/colors.xml.in.h:3 src/boards/colors.c:77
 msgid "Colors"
 msgstr "Colours"
 
@@ -3149,8 +3149,8 @@ msgid "Type the falling words before they reach the ground"
 msgstr "Type the falling words before they reach the ground"
 
 #: gcompris-edit.desktop.in.h:1
-msgid "Editor for gcompris"
-msgstr "Editor for gcompris"
+msgid "Administration for gcompris"
+msgstr "Administration for gcompris"
 
 #: gcompris.desktop.in.h:1
 msgid "Educational game from 2 to 10 years old"
@@ -3168,8 +3168,8 @@ msgstr "Multiple activities for kids"
 #: src/boards/missingletter.c:606 src/boards/read_colors.c:491
 #: src/boards/shapegame.c:1878 src/gcompris/file_selector.c:926
 #: src/gcompris/gameutil.c:137 src/gcompris/gameutil.c:555
-#: src/gcompris/gameutil.c:556 src/gcompris/gcompris.c:521
-#: src/gcompris/images_selector.c:754 src/gcompris/skin.c:83
+#: src/gcompris/gameutil.c:556 src/gcompris/gcompris.c:527
+#: src/gcompris/images_selector.c:753 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
@@ -3290,43 +3290,43 @@ msgstr "Couldn't open dir: %s"
 msgid "Set the watch to:"
 msgstr "Set the watch to:"
 
-#: src/boards/colors.c:54
+#: src/boards/colors.c:57
 msgid "Click on the blue toon"
 msgstr "Click on the blue toon"
 
-#: src/boards/colors.c:55
+#: src/boards/colors.c:58
 msgid "Click on the brown toon"
 msgstr "Click on the brown toon"
 
-#: src/boards/colors.c:56
+#: src/boards/colors.c:59
 msgid "Click on the green toon"
 msgstr "Click on the green toon"
 
-#: src/boards/colors.c:57
+#: src/boards/colors.c:60
 msgid "Click on the grey toon"
 msgstr "Click on the grey toon"
 
-#: src/boards/colors.c:58
+#: src/boards/colors.c:61
 msgid "Click on the orange toon"
 msgstr "Click on the orange toon"
 
-#: src/boards/colors.c:59
+#: src/boards/colors.c:62
 msgid "Click on the purple toon"
 msgstr "Click on the purple toon"
 
-#: src/boards/colors.c:60
+#: src/boards/colors.c:63
 msgid "Click on the red toon"
 msgstr "Click on the red toon"
 
-#: src/boards/colors.c:61
+#: src/boards/colors.c:64
 msgid "Click on the yellow toon"
 msgstr "Click on the yellow toon"
 
-#: src/boards/colors.c:62
+#: src/boards/colors.c:65
 msgid "Click on the black toon"
 msgstr "Click on the black toon"
 
-#: src/boards/colors.c:63
+#: src/boards/colors.c:66
 msgid "Click on the white toon"
 msgstr "Click on the white toon"
 
@@ -3415,11 +3415,11 @@ msgstr "Direct the paratrooper to help him land safely"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Move the plane to catch the clouds in the correct order"
 
-#: src/boards/python.c:63
+#: src/boards/python.c:62
 msgid "Python Board"
 msgstr "Python Board"
 
-#: src/boards/python.c:64
+#: src/boards/python.c:63
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
@@ -3460,54 +3460,51 @@ msgstr "Active"
 msgid "Board title"
 msgstr "Board title"
 
-#: src/boards/python/admin/board_list.py:347
-#, python-format
-msgid "Board %s configuration for %s"
-msgstr "Board %s configuration for %s"
-
 #: src/boards/python/admin/class_edit.py:58
 msgid "Class Edition"
 msgstr "Class Edition"
 
-#: src/boards/python/admin/class_edit.py:62
+#: src/boards/python/admin/class_edit.py:63
 msgid "Editing class: "
 msgstr "Editing class: "
 
-#. Top message gives instructions
-#: src/boards/python/admin/class_edit.py:70
+#: src/boards/python/admin/class_edit.py:65
+msgid "Editing a new class"
+msgstr "Editing a new class"
+
+#: src/boards/python/admin/class_edit.py:81
+msgid "Class:"
+msgstr "Class:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the teacher name
+#: src/boards/python/admin/class_edit.py:92
+msgid "Teacher:"
+msgstr "Teacher:"
+
+#: src/boards/python/admin/class_edit.py:102
 msgid "Assign all the users bellonging to this class"
 msgstr "Assign all the users belonging to this class"
 
-#: src/boards/python/admin/class_edit.py:209
+#: src/boards/python/admin/class_edit.py:242
 #: src/boards/python/admin/group_edit.py:224
 #: src/boards/python/admin/group_user_list.py:166
 #: src/boards/python/admin/user_list.py:187
 msgid "First Name"
 msgstr "First Name"
 
-#: src/boards/python/admin/class_edit.py:220
+#: src/boards/python/admin/class_edit.py:253
 #: src/boards/python/admin/group_edit.py:235
 #: src/boards/python/admin/group_user_list.py:177
 #: src/boards/python/admin/user_list.py:199
 msgid "Last Name"
 msgstr "Last Name"
 
-#. ---------------
-#. Class Management
-#. ---------------
-#: src/boards/python/admin/class_list.py:63
-msgid "Classes"
-msgstr "Classes"
-
-#: src/boards/python/admin/class_list.py:63
-msgid "Users"
-msgstr "Users"
-
-#: src/boards/python/admin/class_list.py:191
+#: src/boards/python/admin/class_list.py:173
 msgid "Class"
 msgstr "Class"
 
-#: src/boards/python/admin/class_list.py:203
+#: src/boards/python/admin/class_list.py:185
 msgid "Teacher"
 msgstr "Teacher"
 
@@ -3529,28 +3526,25 @@ msgstr " for class: "
 msgid "Assign all the users bellonging to this group"
 msgstr "Assign all the users belonging to this group"
 
-#. ---------------
-#. Group Management
-#. ---------------
-#: src/boards/python/admin/group_list.py:68
-#: src/boards/python/admin/group_list.py:226
+#: src/boards/python/admin/group_list.py:88
+msgid "Select a class:"
+msgstr "Select a class:"
+
+#: src/boards/python/admin/group_list.py:211
+#: src/boards/python/admin/module_groups.py:67
 #: src/boards/python/admin/profile_edit.py:219
 #: src/boards/python/admin/profile_group_list.py:149
 msgid "Group"
 msgstr "Group"
 
-#: src/boards/python/admin/group_list.py:92
-msgid "Select a class:"
-msgstr "Select a class:"
-
-#: src/boards/python/admin/group_list.py:238
+#: src/boards/python/admin/group_list.py:223
 #: src/boards/python/admin/profile_edit.py:230
 #: src/boards/python/admin/profile_group_list.py:160
-#: src/boards/python/admin/profile_list.py:212
+#: src/boards/python/admin/profile_list.py:197
 msgid "Description"
 msgstr "Description"
 
-#: src/boards/python/admin/group_list.py:344
+#: src/boards/python/admin/group_list.py:329
 msgid "You must first select a group in the list"
 msgstr "You must first select a group in the list"
 
@@ -3565,7 +3559,7 @@ msgid "Birth Date"
 msgstr "Birth Date"
 
 #: src/boards/python/admin/module_boards.py:42
-#: src/boards/python/admin/module_boards.py:80
+#: src/boards/python/admin/module_boards.py:62
 msgid "Boards"
 msgstr "Boards"
 
@@ -3577,9 +3571,22 @@ msgstr "Groups list"
 msgid "Profiles list"
 msgstr "Profiles list"
 
+#: src/boards/python/admin/module_profiles.py:66
+#: src/boards/python/admin/profile_list.py:185
+msgid "Profile"
+msgstr "Profile"
+
 #: src/boards/python/admin/module_users.py:42
 msgid "Users list"
 msgstr "Users list"
+
+#: src/boards/python/admin/module_users.py:68
+msgid "Classes"
+msgstr "Classes"
+
+#: src/boards/python/admin/module_users.py:68
+msgid "Users"
+msgstr "Users"
 
 #: src/boards/python/admin/profile_edit.py:63
 msgid "Editing profile: "
@@ -3590,37 +3597,31 @@ msgstr "Editing profile: "
 msgid "Assign all the groups bellonging to this profile"
 msgstr "Assign all the groups belonging to this profile"
 
-#. ---------------
-#. Profile Management
-#. ---------------
-#: src/boards/python/admin/profile_list.py:70
-#: src/boards/python/admin/profile_list.py:200
-msgid "Profile"
-msgstr "Profile"
-
-#: src/boards/python/admin/profile_list.py:131
+#: src/boards/python/admin/profile_list.py:127
 msgid "Default"
 msgstr "Default"
 
-#: src/boards/python/admin/profile_list.py:268
+#: src/boards/python/admin/profile_list.py:253
 msgid "You cannot remove the default profile"
 msgstr "You cannot remove the default profile"
 
-#: src/boards/python/admin/profile_list.py:321
+#: src/boards/python/admin/profile_list.py:306
 msgid "You must first select a profile in the list"
 msgstr "You must first select a profile in the list"
 
-#: src/boards/python/admin/profile_list.py:348
+#: src/boards/python/admin/profile_list.py:333
 msgid "[Default]"
 msgstr "[Default]"
 
 #: src/boards/python/admin/user_list.py:261
 msgid ""
-"To import a file, it must be formated like this:\n"
+"To import a user list from file, first select a class.\\FILE FORMAT: Your "
+"file must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
-"To import a file, it must be formatted like this:\n"
+"To import a user list from file, first select a class.\\FILE FORMAT: Your "
+"file must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 
@@ -3823,7 +3824,7 @@ msgstr "Unknown command at line"
 msgid "Distance:"
 msgstr "Distance:"
 
-#: src/boards/python/tuxpaint.py:99
+#: src/boards/python/tuxpaint.py:101
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -3831,9 +3832,18 @@ msgstr ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board!"
 
-#: src/boards/python/tuxpaint.py:112
+#: src/boards/python/tuxpaint.py:114
 msgid "Waiting Tuxpaint Finished"
 msgstr "Waiting Tuxpaint Finished"
+
+#: src/boards/python/tuxpaint.py:162
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -4294,47 +4304,47 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: src/gcompris/gcompris.c:99
+#: src/gcompris/gcompris.c:101
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:101
+#: src/gcompris/gcompris.c:103
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:103
+#: src/gcompris/gcompris.c:105
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:105
+#: src/gcompris/gcompris.c:107
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:107
+#: src/gcompris/gcompris.c:109
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:109
+#: src/gcompris/gcompris.c:111
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:111
+#: src/gcompris/gcompris.c:113
 msgid "display debug informations on the console."
 msgstr "display debugging information on the console."
 
-#: src/gcompris/gcompris.c:113
+#: src/gcompris/gcompris.c:115
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:115
+#: src/gcompris/gcompris.c:117
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:117
+#: src/gcompris/gcompris.c:119
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Disable XRANDR (No screen resolution change)."
 
-#: src/gcompris/gcompris.c:119
+#: src/gcompris/gcompris.c:121
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -4344,31 +4354,39 @@ msgstr ""
 "activity directory, -l /boards/connect4 only the connect4 activity). -l list "
 "show the list of menus and activity"
 
-#: src/gcompris/gcompris.c:121
+#: src/gcompris/gcompris.c:123
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "Run gcompris with local activity directory added to menu"
 
-#: src/gcompris/gcompris.c:123
+#: src/gcompris/gcompris.c:125
 msgid "Run gcompris with administration and users management mode"
 msgstr "Run gcompris with administration and user management mode"
 
-#: src/gcompris/gcompris.c:125
-msgid "Use alternate database for profils"
+#: src/gcompris/gcompris.c:127
+msgid "Use alternate database for profiles"
 msgstr "Use alternate database for profiles"
 
-#: src/gcompris/gcompris.c:127
+#: src/gcompris/gcompris.c:129
 msgid "Use alternate database for logs"
 msgstr "Use alternate database for logs"
 
-#: src/gcompris/gcompris.c:129
-msgid "Create the alternate database for profils"
+#: src/gcompris/gcompris.c:131
+msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: src/gcompris/gcompris.c:131
+#: src/gcompris/gcompris.c:133
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: src/gcompris/gcompris.c:655
+#: src/gcompris/gcompris.c:135
+msgid "Set the profile to use. Use 'gcompris -e' to create profiles"
+msgstr "Set the profile to use. Use 'gcompris -e' to create profiles"
+
+#: src/gcompris/gcompris.c:137
+msgid "List all availaible profiles. Use 'gcompris -e' to create profiles"
+msgstr "List all availaible profiles. Use 'gcompris -e' to create profiles"
+
+#: src/gcompris/gcompris.c:661
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4390,7 +4408,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:922
+#: src/gcompris/gcompris.c:928
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4404,75 +4422,80 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:990
+#: src/gcompris/gcompris.c:996
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Use -l activity to access directly to activity.\n"
 
-#: src/gcompris/gcompris.c:991
+#: src/gcompris/gcompris.c:997
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris_db.c:102
+#: src/gcompris/gcompris.c:1095
+#, c-format
+msgid "List of available profiles are:\n"
+msgstr "List of available profiles is:\n"
+
+#: src/gcompris/gcompris_db.c:98
 #, c-format
 msgid "Database %s opened"
 msgstr "Database %s opened"
 
-#: src/gcompris/gcompris_db.c:147
+#: src/gcompris/gcompris_db.c:143
 msgid "Database tables created"
 msgstr "Database tables created"
 
-#: src/gcompris/gcompris_db.c:174
+#: src/gcompris/gcompris_db.c:170
 msgid "Unaffected"
 msgstr "Unaffected"
 
-#: src/gcompris/gcompris_db.c:175
+#: src/gcompris/gcompris_db.c:171
 msgid "Users without class"
 msgstr "Users without class"
 
-#: src/gcompris/gcompris_db.c:755 src/gcompris/gcompris_db.c:1258
+#: src/gcompris/gcompris_db.c:754 src/gcompris/gcompris_db.c:1311
 #, c-format
 msgid "No users groups for profile %s"
 msgstr "No users groups for profile %s"
 
-#: src/gcompris/gcompris_db.c:786 src/gcompris/gcompris_db.c:1291
+#: src/gcompris/gcompris_db.c:785 src/gcompris/gcompris_db.c:1344
 #, c-format
 msgid "No activities out for profile %s"
 msgstr "No activities out for profile %s"
 
-#: src/gcompris/gcompris_db.c:876
+#: src/gcompris/gcompris_db.c:931
 #, c-format
 msgid "No users in group with id  %d"
 msgstr "No users in group with ID  %d"
 
-#: src/gcompris/gcompris_db.c:933
+#: src/gcompris/gcompris_db.c:988
 #, c-format
 msgid "No user with id  %d"
 msgstr "No user with ID %d"
 
-#: src/gcompris/gcompris_db.c:990
+#: src/gcompris/gcompris_db.c:1045
 #, c-format
 msgid "No class with id  %d"
 msgstr "No class with ID %d"
 
-#: src/gcompris/gcompris_db.c:1025
+#: src/gcompris/gcompris_db.c:1080
 #, c-format
 msgid ""
 "No groups in for class %s, there must be at least one for whole class (%d)"
 msgstr ""
 "No groups in for class %s, there must be at least one for whole class (%d)"
 
-#: src/gcompris/gcompris_db.c:1351
+#: src/gcompris/gcompris_db.c:1404
 #, c-format
 msgid "No group with id  %d"
 msgstr "No group with ID %d"
 
-#: src/gcompris/gcompris_db.c:1404 src/gcompris/gcompris_db.c:1604
+#: src/gcompris/gcompris_db.c:1457 src/gcompris/gcompris_db.c:1657
 msgid "No groups !"
 msgstr "No groups!"
 
-#: src/gcompris/gcompris_db.c:1547
+#: src/gcompris/gcompris_db.c:1600
 msgid "No users !"
 msgstr "No users!"
 
@@ -4492,22 +4515,22 @@ msgstr "Manual"
 msgid "Credit"
 msgstr "Credit"
 
-#: src/gcompris/images_selector.c:294
+#: src/gcompris/images_selector.c:292
 #, c-format
 msgid "dataset %s is a directory. Trying to read xml "
 msgstr "Dataset %s is a directory. Trying to read XML "
 
-#: src/gcompris/images_selector.c:629
+#: src/gcompris/images_selector.c:627
 #, c-format
 msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
 msgstr "In ImageSet %s, home pathname %s was not found. Skipping ImageSet...\n"
 
-#: src/gcompris/images_selector.c:664
+#: src/gcompris/images_selector.c:662
 #, c-format
 msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
 msgstr "In ImageSet %s, an image was not found. Skipping ImageSet...\n"
 
-#: src/gcompris/images_selector.c:690
+#: src/gcompris/images_selector.c:688
 #, c-format
 msgid ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
