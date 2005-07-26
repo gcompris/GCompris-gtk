@@ -105,6 +105,13 @@ class User_list:
       right_box.pack_start(button, False, False, 0)
       button.show()
 
+      self.button_edit = gtk.Button(stock='gtk-edit')
+      self.button_edit.connect("clicked", self.on_edit_clicked, treeview)
+      right_box.pack_start(self.button_edit, False, False, 0)
+      self.button_edit.show()
+      # Not editable until one class is selected
+      self.button_edit.set_sensitive(False)
+
       button = gtk.Button(stock='gtk-open')
       button.connect("clicked", self.on_import_cvs_clicked, treeview)
       right_box.pack_start(button, False, False, 0)
@@ -115,6 +122,9 @@ class User_list:
       right_box.pack_start(button, False, False, 0)
       button.show()
       
+      # Missing callbacks
+      selection = treeview.get_selection()
+      selection.connect('changed', self.user_changed_cb, treeview)
       
   # -------------------
   # User Management
@@ -122,12 +132,13 @@ class User_list:
 
   # Retrieve data from the database for the given class_id
   def reload(self, class_id):
-    print "Reloading users for class_id=" + str(class_id)
     self.class_id = class_id
       
     # Remove all entries in the list
     self.model.clear()
-      
+
+    self.button_edit.set_sensitive(False)
+
     # Grab the user data
     self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where class_id=?',
                      (class_id,))
@@ -230,6 +241,9 @@ class User_list:
 
 
   #
+  def on_edit_clicked(self, button, treeview):
+    pass
+
   def on_add_item_clicked(self, button, model):
     user_id = self.get_next_user_id()
 
@@ -345,4 +359,8 @@ class User_list:
     self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)',
                      user_data)
     self.con.commit()
+
+  # The user is changed ...
+  def user_changed_cb(self, selection, treeview):
+    self.button_edit.set_sensitive(True)
 

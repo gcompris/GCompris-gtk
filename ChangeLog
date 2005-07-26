@@ -1,3 +1,15 @@
+2005-07-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Improved class management. Now the class editor really
+	edit the class name and teacher.
+	The whole group is now created but not populated.
+
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/class_list.py:
+	* src/boards/python/admin/constants.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/user_list.py:
+
 2005-07-26  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Renamed the official name of gcompris edit is now gcompris administration

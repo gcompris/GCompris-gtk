@@ -307,7 +307,9 @@ class ClassEdit(gtk.Window):
     # Done, can quit this dialog (without saving)
     #
     def close(self, button):
-        self.list_user.reload(self.class_id)
+        self.list_user.reload(self.class_id,
+                              None,
+                              None)
         self.destroy()
         
     # Done, can quit this dialog with saving
@@ -323,6 +325,8 @@ class ClassEdit(gtk.Window):
         self.con.commit()
 
         # Close the dialog window now
-        self.list_user.reload(self.class_id)
+        self.list_user.reload(self.class_id,
+                              self.entry_class.get_text(),
+                              self.entry_teacher.get_text())
         self.destroy()
         

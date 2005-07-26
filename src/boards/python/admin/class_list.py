@@ -40,8 +40,8 @@ import user_list
   COLUMN_CLASSID,
   COLUMN_NAME,
   COLUMN_TEACHER,
-  COLUMN_CLASS_EDITABLE
-) = range(4)
+) = range(3)
+
 
 class Class_list:
   """GCompris Class List Table"""
@@ -88,34 +88,34 @@ class Class_list:
       sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
       # create tree view
-      treeview_class = gtk.TreeView(model)
-      treeview_class.show()
-      treeview_class.set_rules_hint(True)
-      treeview_class.set_search_column(COLUMN_NAME)
+      self.treeview_class = gtk.TreeView(model)
+      self.treeview_class.show()
+      self.treeview_class.set_rules_hint(True)
+      self.treeview_class.set_search_column(COLUMN_NAME)
 
-      sw.add(treeview_class)
+      sw.add(self.treeview_class)
 
       left_box.pack_start(sw, True, True, 0)
             
       # add columns to the tree view
-      self.__add_columns_class(treeview_class)
+      self.__add_columns_class(self.treeview_class)
 
       # Add buttons
 
       button = gtk.Button(stock='gtk-add')
-      button.connect("clicked", self.on_add_class_clicked, model)
+      button.connect("clicked", self.on_add_class_clicked, self.treeview_class)
       right_box.pack_start(button, False, False, 0)
       button.show()
 
       self.button_edit = gtk.Button(stock='gtk-edit')
-      self.button_edit.connect("clicked", self.on_edit_class_clicked, treeview_class)
+      self.button_edit.connect("clicked", self.on_edit_class_clicked, self.treeview_class)
       right_box.pack_start(self.button_edit, False, False, 0)
       self.button_edit.show()
       # Not editable until one class is selected
       self.button_edit.set_sensitive(False)
 
       self.button_remove = gtk.Button(stock='gtk-remove')
-      self.button_remove.connect("clicked", self.on_remove_class_clicked, treeview_class)
+      self.button_remove.connect("clicked", self.on_remove_class_clicked, self.treeview_class)
       right_box.pack_start(self.button_remove, False, False, 0)
       self.button_remove.show()
       # Not removable until one class is selected
@@ -131,7 +131,7 @@ class Class_list:
                                            self.con, self.cur)
 
       # Missing callbacks
-      selection = treeview_class.get_selection()
+      selection = self.treeview_class.get_selection()
       selection.connect('changed', self.class_changed_cb, self.list_user)
 
 
@@ -155,24 +155,20 @@ class Class_list:
       model.set(iter,
                  COLUMN_CLASSID,   item[COLUMN_CLASSID],
                  COLUMN_NAME,      item[COLUMN_NAME],
-                 COLUMN_TEACHER,   item[COLUMN_TEACHER],
-                 COLUMN_CLASS_EDITABLE,  True)
+                 COLUMN_TEACHER,   item[COLUMN_TEACHER])
     return model
 
 
   def __add_columns_class(self, treeview):
-    
     model = treeview.get_model()
 
     # Total column length must be 400
 
     # columns for name
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_class_edited, model)
     renderer.set_data("column", COLUMN_NAME)
     column = gtk.TreeViewColumn(_('Class'), renderer,
-                                text=COLUMN_NAME,
-                                editable=COLUMN_CLASS_EDITABLE)
+                                text=COLUMN_NAME)
     column.set_sort_column_id(COLUMN_NAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_CLASSNAME)
@@ -180,27 +176,13 @@ class Class_list:
 
     # columns for teacher
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_class_edited, model)
     renderer.set_data("column", COLUMN_TEACHER)
     column = gtk.TreeViewColumn(_('Teacher'), renderer,
-                                text=COLUMN_TEACHER,
-                                editable=COLUMN_CLASS_EDITABLE)
+                                text=COLUMN_TEACHER)
     column.set_sort_column_id(COLUMN_TEACHER)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_TEACHER)
     treeview.append_column(column)
-
-
-  # Return the next class id
-  def get_next_class_id(self):
-    self.cur.execute('select max(class_id) from class')
-    class_id = self.cur.fetchone()[0]
-    if(class_id == None):
-      class_id=0
-    else:
-      class_id += 1
-      
-    return class_id
 
 
   # Add class in the model
@@ -209,21 +191,11 @@ class Class_list:
     model.set (iter,
                COLUMN_CLASSID,    aclass[COLUMN_CLASSID],
                COLUMN_NAME,       aclass[COLUMN_NAME],
-               COLUMN_TEACHER,    aclass[COLUMN_TEACHER],
-               COLUMN_CLASS_EDITABLE,  True
+               COLUMN_TEACHER,    aclass[COLUMN_TEACHER]
                )
 
     
-  #
-  def on_add_class_clicked(self, button, model):
-    class_id = self.get_next_class_id()
-
-    new_class = [class_id, "?", "?", "?", "?", 0]
-    self.add_class_in_model(model, new_class)
-
-
   def on_remove_class_clicked(self, button, treeview):
-
     selection = treeview.get_selection()
     model, iter = selection.get_selected()
 
@@ -234,33 +206,14 @@ class Class_list:
       # Remove it from the base
       print "Deleting class_id=" + str(class_id)
       self.cur.execute('delete from class where class_id=?', (class_id,))
+      # Reassign users to the 'unselected class'
+      self.cur.execute('update users set class_id=? where class_id=?', (1, class_id));
       self.con.commit()
 
-
-  def on_cell_class_edited(self, cell, path_string, new_text, model):
-
-    iter = model.get_iter_from_string(path_string)
-    path = model.get_path(iter)[0]
-    column = cell.get_data("column")
-
-    class_id = model.get_value(iter, COLUMN_CLASSID)
-    
-    if column == COLUMN_NAME:
-      model.set(iter, column, new_text)
-
-    elif column == COLUMN_TEACHER:
-      model.set(iter, column, new_text)
-
-    class_data = (class_id,
-                  model.get_value(iter, COLUMN_NAME),
-                  model.get_value(iter, COLUMN_TEACHER))
-    # Save the changes in the base
-    self.cur.execute('insert or replace into class (class_id, name, teacher) values (?, ?, ?)', class_data)
-    self.con.commit()
+      self.list_user.reload(class_id)
 
 
   def on_edit_class_clicked(self, button, treeview):
-
     selection = treeview.get_selection()
     model, iter = selection.get_selected()
 
@@ -271,11 +224,20 @@ class Class_list:
       teacher_name  = model.get_value(iter, COLUMN_TEACHER)
       class_edit.ClassEdit(self.con, self.cur,
                            class_id, class_name, teacher_name,
-                           self.list_user)
+                           self)
 
 
+  def on_add_class_clicked(self, button, treeview):
+    model = treeview.get_model()
+    class_id = constants.get_next_class_id(self.con, self.cur)
+
+    class_edit.ClassEdit(self.con, self.cur,
+                         class_id, "", "",
+                         self)
+
+
+  # The class is changed ...
   def class_changed_cb(self, selection, user_list):
-    print "class_changed_cb"
     model, iter = selection.get_selected()
 
     if iter:
@@ -283,7 +245,6 @@ class Class_list:
       class_id = model.get_value(iter, COLUMN_CLASSID)
 
       user_list.reload(class_id)
-      print "current class_id = " + str(class_id)
 
       # The Unaffected class is not editable.
       if class_id == 1:
@@ -292,3 +253,44 @@ class Class_list:
       else:
         self.button_edit.set_sensitive(True)
         self.button_remove.set_sensitive(True)
+
+
+  # Reload data (class data and users)
+  def reload(self, class_id, class_name, class_teacher):
+    # We need to find the row matching this class_id.
+    # If not found, it's a new class to create
+    model = self.treeview_class.get_model()
+    iter = model.get_iter_first()
+
+    # Loop over each class raw
+    while(True):
+      iter = model.iter_next(iter)
+      if iter == None:
+        break
+      
+      path = model.get_path(iter)[0]
+      tmp_class_id = model.get_value(iter, COLUMN_CLASSID)
+      
+      if(tmp_class_id == class_id):
+        self.list_user.reload(class_id)
+
+        # Now update the class_name and class_teacher if provided
+        if class_name:
+          model.set(iter, COLUMN_NAME, class_name)
+
+          if class_teacher:
+            model.set(iter, COLUMN_TEACHER, class_teacher)
+
+        # It's updated now
+        return
+
+
+    # The job not done yet, it's a new class.
+    new_class = [class_id, class_name, class_teacher]
+    self.add_class_in_model(model, new_class)
+    
+    # Create its Whole group
+    group_id = constants.get_next_group_id(self.con, self.cur)
+    self.cur.execute('INSERT INTO groups (group_id, name, class_id, description) VALUES ( ?, "All", ?, "All users")',
+                     (group_id, class_id));
+    self.con.commit()

@@ -229,18 +229,6 @@ class Group_list:
     treeview.append_column(column)
 
 
-  # Return the next group id
-  def get_next_group_id(self):
-    self.cur.execute('select max(group_id) from groups')
-    group_id = self.cur.fetchone()[0]
-    if(group_id == None):
-      group_id=0
-    else:
-      group_id += 1
-      
-    return group_id
-
-
   # Add group in the model
   def add_group_in_model(self, model, agroup):
     iter = model.append()
@@ -254,7 +242,7 @@ class Group_list:
     
   #
   def on_add_group_clicked(self, button, model):
-    group_id = self.get_next_group_id()
+    group_id = constants.get_next_group_id(self.con, self.cur)
 
     new_group = [group_id, "?", "?", 0]
     self.add_group_in_model(model, new_group)

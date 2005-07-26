@@ -34,3 +34,37 @@ COLUMN_WIDTH_GROUPDESCRIPTION_EDIT   = 150
 
 COLUMN_WIDTH_PROFILENAME             = 100
 COLUMN_WIDTH_PROFILEDESCRIPTION      = 300
+
+#
+# Some utility method
+# -------------------
+
+# Return the next class id in the base
+# Params are db_connect, db_cursor
+def get_next_class_id(con, cur):
+    cur.execute('select max(class_id) from class')
+    class_id = cur.fetchone()[0]
+    
+    if(class_id == None):
+        class_id=0
+    else:
+        class_id += 1
+      
+    return class_id
+
+
+
+# Return the next group id in the base
+# Params are db_connect, db_cursor
+def get_next_group_id(con, cur):
+    cur.execute('select max(group_id) from groups')
+    group_id = cur.fetchone()[0]
+    
+    if(group_id == None):
+        group_id=0
+    else:
+        group_id += 1
+      
+    return group_id
+
+
