@@ -9,6 +9,7 @@ dist_python_DATA= \
 	module_groups.py \
 	module_profiles.py \
 	module_boards.py \
+	user_edit.py \
 	user_list.py \
 	group_edit.py \
         group_list.py \

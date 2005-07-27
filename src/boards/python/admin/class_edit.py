@@ -39,7 +39,7 @@ import constants
 
 
 class ClassEdit(gtk.Window):
-    counter = 1
+
     def __init__(self, db_connect, db_cursor,
                  class_id, class_name, teacher_name,
                  list_user):

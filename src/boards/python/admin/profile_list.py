@@ -114,20 +114,23 @@ class Profile_list:
       vbox_button.pack_start(button, False, False, 0)
       button.show()
       
-      button = gtk.Button(stock='gtk-edit')
-      button.connect("clicked", self.on_edit_profile_clicked, treeview_profile)
-      vbox_button.pack_start(button, False, False, 0)
-      button.show()
+      self.button_edit = gtk.Button(stock='gtk-edit')
+      self.button_edit.connect("clicked", self.on_edit_profile_clicked, treeview_profile)
+      vbox_button.pack_start(self.button_edit, False, False, 0)
+      self.button_edit.show()
+      self.button_edit.set_sensitive(False)
 
-      button = gtk.Button(stock='gtk-remove')
-      button.connect("clicked", self.on_remove_profile_clicked, treeview_profile)
-      vbox_button.pack_start(button, False, False, 0)
-      button.show()
+      self.button_remove = gtk.Button(stock='gtk-remove')
+      self.button_remove.connect("clicked", self.on_remove_profile_clicked, treeview_profile)
+      vbox_button.pack_start(self.button_remove, False, False, 0)
+      self.button_remove.show()
+      self.button_remove.set_sensitive(False)
 
-      button = gtk.Button(_("Default"))
-      button.connect("clicked", self.on_default_profile_clicked, treeview_profile)
-      vbox_button.pack_start(button, False, False, 0)
-      button.show()
+      self.button_default = gtk.Button(_("Default"))
+      self.button_default.connect("clicked", self.on_default_profile_clicked, treeview_profile)
+      vbox_button.pack_start(self.button_default, False, False, 0)
+      self.button_default.show()
+      self.button_default.set_sensitive(False)
 
       # Group list for the profile
       group_hbox = gtk.HBox(False, 8)
@@ -351,8 +354,15 @@ class Profile_list:
     model, iter = selection.get_selected()
 
     if iter:
-      path = model.get_path(iter)[0]
       self.current_profile_id = model.get_value(iter, COLUMN_PROFILEID)
 
       profile_group.reload(self.current_profile_id)
 
+      self.button_edit.set_sensitive(True)
+      self.button_remove.set_sensitive(True)
+
+      # Set the default button on if needed
+      if(self.default_profile_id == self.current_profile_id):
+        self.button_default.set_sensitive(False)
+      else:
+        self.button_default.set_sensitive(True)

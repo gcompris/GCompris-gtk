@@ -1,5 +1,16 @@
 2005-07-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Created a user edit dialog to replace in table edition.
+	Added contextuality to buttons in class and profile list.
+
+	* src/boards/python/admin/Makefile.am:
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/profile_list.py:
+	* src/boards/python/admin/user_edit.py:
+	* src/boards/python/admin/user_list.py:
+
+2005-07-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Improved class management. Now the class editor really
 	edit the class name and teacher.
 	The whole group is now created but not populated.

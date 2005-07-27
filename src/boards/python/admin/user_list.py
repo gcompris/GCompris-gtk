@@ -30,6 +30,7 @@ from gettext import gettext as _
 from pysqlite2 import dbapi2 as sqlite
 
 import constants
+import user_edit
 
 # User Management
 (
@@ -38,8 +39,7 @@ import constants
   COLUMN_FIRSTNAME,
   COLUMN_LASTNAME,
   COLUMN_BIRTHDATE,
-  COLUMN_USER_EDITABLE
-) = range(6)
+) = range(5)
 
 class User_list:
   """GCompris Users List Table"""
@@ -117,10 +117,10 @@ class User_list:
       right_box.pack_start(button, False, False, 0)
       button.show()
 
-      button = gtk.Button(stock='gtk-remove')
-      button.connect("clicked", self.on_remove_item_clicked, treeview)
-      right_box.pack_start(button, False, False, 0)
-      button.show()
+      self.button_remove = gtk.Button(stock='gtk-remove')
+      self.button_remove.connect("clicked", self.on_remove_item_clicked, treeview)
+      right_box.pack_start(self.button_remove, False, False, 0)
+      self.button_remove.show()
       
       # Missing callbacks
       selection = treeview.get_selection()
@@ -138,6 +138,7 @@ class User_list:
     self.model.clear()
 
     self.button_edit.set_sensitive(False)
+    self.button_remove.set_sensitive(False)
 
     # Grab the user data
     self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where class_id=?',
@@ -155,8 +156,7 @@ class User_list:
                COLUMN_LOGIN,     user[COLUMN_LOGIN],
                COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
                COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
-               COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE],
-               COLUMN_USER_EDITABLE,  True
+               COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE]
                )
 
     
@@ -181,11 +181,9 @@ class User_list:
 
     # columns for login
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_edited, model)
     renderer.set_data("column", COLUMN_LOGIN)
     column = gtk.TreeViewColumn(_('Login'), renderer,
-                                text=COLUMN_LOGIN,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_LOGIN)
     column.set_sort_column_id(COLUMN_LOGIN)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_LOGIN)
@@ -193,11 +191,9 @@ class User_list:
 
     # columns for first name
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_edited, model)
     renderer.set_data("column", COLUMN_FIRSTNAME)
     column = gtk.TreeViewColumn(_('First Name'), renderer,
-                                text=COLUMN_FIRSTNAME,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_FIRSTNAME)
     column.set_sort_column_id(COLUMN_FIRSTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED) 
     column.set_fixed_width(constants.COLUMN_WIDTH_FIRSTNAME)
@@ -205,11 +201,9 @@ class User_list:
 
     # column for last name
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_edited, model)
     renderer.set_data("column", COLUMN_LASTNAME)
     column = gtk.TreeViewColumn(_('Last Name'), renderer,
-                                text=COLUMN_LASTNAME,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_LASTNAME)
     column.set_sort_column_id(COLUMN_LASTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_LASTNAME)
@@ -217,11 +211,9 @@ class User_list:
 
     # column for birth date
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_edited, model)
     renderer.set_data("column", COLUMN_BIRTHDATE)
     column = gtk.TreeViewColumn(_('Birth Date'), renderer,
-                                text=COLUMN_BIRTHDATE,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_BIRTHDATE)
     column.set_sort_column_id(COLUMN_BIRTHDATE)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)
@@ -242,13 +234,29 @@ class User_list:
 
   #
   def on_edit_clicked(self, button, treeview):
-    pass
+    selection = treeview.get_selection()
+    model, iter = selection.get_selected()
 
+    if iter:
+      path = model.get_path(iter)[0]
+      user_id       = model.get_value(iter, COLUMN_USERID)
+      login         = model.get_value(iter, COLUMN_LOGIN)
+      firstname     = model.get_value(iter, COLUMN_FIRSTNAME)
+      lastname      = model.get_value(iter, COLUMN_LASTNAME)
+      birthdate     = model.get_value(iter, COLUMN_BIRTHDATE)
+      user_edit.UserEdit(self.con, self.cur,
+                         user_id, login, firstname, lastname, birthdate, self.class_id,
+                         self)
+
+
+  # Create a new user
   def on_add_item_clicked(self, button, model):
     user_id = self.get_next_user_id()
 
-    new_user = [user_id, "?", "?", "?", "?", self.class_id]
-    self.add_user_in_model(model, new_user)
+    user_edit.UserEdit(self.con, self.cur,
+                       user_id, "", "", "", "", self.class_id,
+                       self)
+
 
 
   def on_remove_item_clicked(self, button, treeview):
@@ -328,39 +336,9 @@ class User_list:
 
     file.close()
 
-  def on_cell_edited(self, cell, path_string, new_text, model):
-
-    iter = model.get_iter_from_string(path_string)
-    path = model.get_path(iter)[0]
-    column = cell.get_data("column")
-
-    user_id = model.get_value(iter, COLUMN_USERID)
-    
-    if column == COLUMN_LOGIN:
-      model.set(iter, column, new_text)
-
-    elif column == COLUMN_FIRSTNAME:
-      model.set(iter, column, new_text)
-
-    elif column == COLUMN_LASTNAME:
-      model.set(iter, column, new_text)
-
-    elif column == COLUMN_BIRTHDATE:
-      model.set(iter, column, new_text)
-
-    user_data = (user_id,
-                 model.get_value(iter, COLUMN_LOGIN),
-                 model.get_value(iter, COLUMN_FIRSTNAME),
-                 model.get_value(iter, COLUMN_LASTNAME),
-                 model.get_value(iter, COLUMN_BIRTHDATE),
-                 self.class_id)
-
-    # Save the changes in the base
-    self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)',
-                     user_data)
-    self.con.commit()
 
   # The user is changed ...
   def user_changed_cb(self, selection, treeview):
     self.button_edit.set_sensitive(True)
+    self.button_remove.set_sensitive(True)
 
