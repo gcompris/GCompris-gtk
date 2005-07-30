@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-26 04:03-0400\n"
-"PO-Revision-Date: 2005-07-26 22:51-0400\n"
+"POT-Creation-Date: 2005-07-30 16:14-0400\n"
+"PO-Revision-Date: 2005-07-30 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3460,51 +3460,51 @@ msgstr "Active"
 msgid "Board title"
 msgstr "Board title"
 
-#: src/boards/python/admin/class_edit.py:58
+#: src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
 msgstr "Class Edition"
 
-#: src/boards/python/admin/class_edit.py:63
+#: src/boards/python/admin/class_edit.py:65
 msgid "Editing class: "
 msgstr "Editing class: "
 
-#: src/boards/python/admin/class_edit.py:65
+#: src/boards/python/admin/class_edit.py:68
 msgid "Editing a new class"
 msgstr "Editing a new class"
 
-#: src/boards/python/admin/class_edit.py:81
+#: src/boards/python/admin/class_edit.py:88
 msgid "Class:"
 msgstr "Class:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the teacher name
-#: src/boards/python/admin/class_edit.py:92
+#: src/boards/python/admin/class_edit.py:99
 msgid "Teacher:"
 msgstr "Teacher:"
 
-#: src/boards/python/admin/class_edit.py:102
+#: src/boards/python/admin/class_edit.py:109
 msgid "Assign all the users bellonging to this class"
 msgstr "Assign all the users belonging to this class"
 
-#: src/boards/python/admin/class_edit.py:242
+#: src/boards/python/admin/class_edit.py:249
 #: src/boards/python/admin/group_edit.py:224
 #: src/boards/python/admin/group_user_list.py:166
-#: src/boards/python/admin/user_list.py:187
+#: src/boards/python/admin/user_list.py:195
 msgid "First Name"
 msgstr "First Name"
 
-#: src/boards/python/admin/class_edit.py:253
+#: src/boards/python/admin/class_edit.py:260
 #: src/boards/python/admin/group_edit.py:235
 #: src/boards/python/admin/group_user_list.py:177
-#: src/boards/python/admin/user_list.py:199
+#: src/boards/python/admin/user_list.py:205
 msgid "Last Name"
 msgstr "Last Name"
 
-#: src/boards/python/admin/class_list.py:173
+#: src/boards/python/admin/class_list.py:170
 msgid "Class"
 msgstr "Class"
 
-#: src/boards/python/admin/class_list.py:185
+#: src/boards/python/admin/class_list.py:180
 msgid "Teacher"
 msgstr "Teacher"
 
@@ -3540,21 +3540,21 @@ msgstr "Group"
 #: src/boards/python/admin/group_list.py:223
 #: src/boards/python/admin/profile_edit.py:230
 #: src/boards/python/admin/profile_group_list.py:160
-#: src/boards/python/admin/profile_list.py:197
+#: src/boards/python/admin/profile_list.py:200
 msgid "Description"
 msgstr "Description"
 
-#: src/boards/python/admin/group_list.py:329
+#: src/boards/python/admin/group_list.py:317
 msgid "You must first select a group in the list"
 msgstr "You must first select a group in the list"
 
 #: src/boards/python/admin/group_user_list.py:155
-#: src/boards/python/admin/user_list.py:175
+#: src/boards/python/admin/user_list.py:185
 msgid "Login"
 msgstr "Login"
 
 #: src/boards/python/admin/group_user_list.py:188
-#: src/boards/python/admin/user_list.py:211
+#: src/boards/python/admin/user_list.py:215
 msgid "Birth Date"
 msgstr "Birth Date"
 
@@ -3572,7 +3572,7 @@ msgid "Profiles list"
 msgstr "Profiles list"
 
 #: src/boards/python/admin/module_profiles.py:66
-#: src/boards/python/admin/profile_list.py:185
+#: src/boards/python/admin/profile_list.py:188
 msgid "Profile"
 msgstr "Profile"
 
@@ -3597,23 +3597,23 @@ msgstr "Editing profile: "
 msgid "Assign all the groups bellonging to this profile"
 msgstr "Assign all the groups belonging to this profile"
 
-#: src/boards/python/admin/profile_list.py:127
+#: src/boards/python/admin/profile_list.py:129
 msgid "Default"
 msgstr "Default"
 
-#: src/boards/python/admin/profile_list.py:253
+#: src/boards/python/admin/profile_list.py:256
 msgid "You cannot remove the default profile"
 msgstr "You cannot remove the default profile"
 
-#: src/boards/python/admin/profile_list.py:306
+#: src/boards/python/admin/profile_list.py:309
 msgid "You must first select a profile in the list"
 msgstr "You must first select a profile in the list"
 
-#: src/boards/python/admin/profile_list.py:333
+#: src/boards/python/admin/profile_list.py:336
 msgid "[Default]"
 msgstr "[Default]"
 
-#: src/boards/python/admin/user_list.py:261
+#: src/boards/python/admin/user_list.py:283
 msgid ""
 "To import a user list from file, first select a class.\\FILE FORMAT: Your "
 "file must be formated like this:\n"
@@ -4379,12 +4379,12 @@ msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
 #: src/gcompris/gcompris.c:135
-msgid "Set the profile to use. Use 'gcompris -e' to create profiles"
-msgstr "Set the profile to use. Use 'gcompris -e' to create profiles"
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
 #: src/gcompris/gcompris.c:137
-msgid "List all availaible profiles. Use 'gcompris -e' to create profiles"
-msgstr "List all availaible profiles. Use 'gcompris -e' to create profiles"
+msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
+msgstr "List all availaible profiles. Use 'gcompris -a' to create profiles"
 
 #: src/gcompris/gcompris.c:661
 msgid ""
