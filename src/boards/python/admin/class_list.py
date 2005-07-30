@@ -289,8 +289,3 @@ class Class_list:
     new_class = [class_id, class_name, class_teacher]
     self.add_class_in_model(model, new_class)
     
-    # Create its Whole group
-    group_id = constants.get_next_group_id(self.con, self.cur)
-    self.cur.execute('INSERT INTO groups (group_id, name, class_id, description) VALUES ( ?, "All", ?, "All users")',
-                     (group_id, class_id));
-    self.con.commit()

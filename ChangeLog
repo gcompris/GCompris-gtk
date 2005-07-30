@@ -1,3 +1,12 @@
+2005-07-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Completed management of the wholegroup. Now after editing class users
+	the wholegroup is updated automatically
+	
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/class_list.py:
+	* src/gcompris/gcompris.c:
+
 2005-07-27  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Created a user edit dialog to replace in table edition.

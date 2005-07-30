@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/07/26 00:57:47 bruno>
+ * Time-stamp: <2005/07/29 22:21:48 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -132,9 +132,9 @@ static struct poptOption options[] = {
   {"reread-xml",'\0', POPT_ARG_NONE, &popt_reread_xml, 0,
    N_("Re-read XML Menus and store them in the database"), NULL},
   {"profile",'p', POPT_ARG_STRING, &popt_profile, 0,
-   N_("Set the profile to use. Use 'gcompris -e' to create profiles"), NULL},
+   N_("Set the profile to use. Use 'gcompris -a' to create profiles"), NULL},
   {"profile-list",'\0', POPT_ARG_NONE, &popt_profile_list, 0,
-   N_("List all availaible profiles. Use 'gcompris -e' to create profiles"), NULL},
+   N_("List all availaible profiles. Use 'gcompris -a' to create profiles"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif

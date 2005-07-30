@@ -51,6 +51,8 @@ class ClassEdit(gtk.Window):
 
         self.class_id = class_id
         
+        self.class_users_changed = False
+
         # A pointer to the user_list class
         # Will be called to refresh the list when edit is done
         self.list_user = list_user
@@ -61,9 +63,14 @@ class ClassEdit(gtk.Window):
 
         if(class_name):
             frame = gtk.Frame(_("Editing class: ") + class_name)
+            self.new_class = False
         else:
             frame = gtk.Frame(_("Editing a new class"))
-
+            self.new_class = True
+            
+        # Connect the "destroy" event to close
+        frame.connect("destroy", self.close)
+        
         self.add(frame)
 
         # Main VBOX
@@ -259,12 +266,54 @@ class ClassEdit(gtk.Window):
         treeview.append_column(column)
 
 
+    # Maintain the whole group for the given class_id
+    #
+    def update_wholegroup(self, class_id):
+
+        print "update_wholegroup " + str(class_id)
+        # First, extract the wholegroup_id
+        self.cur.execute('SELECT wholegroup_id FROM class WHERE class_id=?', (class_id,))
+        wholegroup_id = self.cur.fetchall()[0][0]
+
+        # Remove all the users from the wholegroup
+        self.cur.execute('DELETE FROM list_users_in_groups WHERE group_id=?',
+                         (wholegroup_id, ))
+        
+        # Take all the users of this class and add them in the wholegroup
+        self.cur.execute('SELECT user_id FROM users WHERE class_id=?',
+                         (class_id, ))
+        user_list = self.cur.fetchall()
+        
+        for auser in user_list:
+            self.cur.execute('INSERT INTO list_users_in_groups (user_id, group_id) ' +
+                             'VALUES ( ?, ?)',
+                             (auser[0], wholegroup_id))
+        
+        self.con.commit()
+
+
+    # Maintain the whole group for all the class_id
+    #
+    def update_all_wholegroup(self):
+
+        # First, extract the classes
+        self.cur.execute('SELECT class_id FROM class')
+        class_list = self.cur.fetchall()
+        print class_list
+        for aclass in class_list:
+            print "processing " + str(aclass[0])
+            self.update_wholegroup(aclass[0])
+
+        self.class_users_changed = False
+
     # Add a user from the left list to the right list
     #
     def add_user(self, button, treeview):
         model = treeview.get_model()
         treestore, paths = treeview.get_selection().get_selected_rows()
         paths.reverse()
+
+        self.class_users_changed = True
         
         for path in paths:
             iter = treestore.get_iter(path)
@@ -288,6 +337,8 @@ class ClassEdit(gtk.Window):
         treestore, paths = treeview.get_selection().get_selected_rows()
         paths.reverse()
         
+        self.class_users_changed = True
+
         for path in paths:
             iter = treestore.get_iter(path)
             path = model.get_path(iter)[0]
@@ -300,13 +351,17 @@ class ClassEdit(gtk.Window):
             self.add_user_in_model(self.model_left, (user_id, user_firstname, user_lastname))
             
             # Save the change in the base (1 Is the 'Unselected user' class)
-            self.cur.execute('update users set class_id=? where user_id=?', (1, user_id))
+            self.cur.execute('UPDATE users SET class_id=? where user_id=?', (1, user_id))
             self.con.commit()
 
 
     # Done, can quit this dialog (without saving)
     #
     def close(self, button):
+
+        if(not self.new_class and self.class_users_changed):
+            self.update_all_wholegroup()
+        
         self.list_user.reload(self.class_id,
                               None,
                               None)
@@ -320,9 +375,32 @@ class ClassEdit(gtk.Window):
                       self.entry_class.get_text(),
                       self.entry_teacher.get_text()
                       )
+
+        if(self.new_class):
+            # Create its Whole group
+            group_id = constants.get_next_group_id(self.con, self.cur)
+            self.cur.execute('INSERT INTO groups (group_id, name, class_id, description) ' +
+                             'VALUES ( ?, "All", ?, "All users")',
+                             (group_id, self.class_id));
+
+            class_data = (self.class_id,
+                          self.entry_class.get_text(),
+                          self.entry_teacher.get_text(),
+                          group_id
+                          )
+
+            self.cur.execute('INSERT OR REPLACE INTO class (class_id, name, teacher, wholegroup_id) ' +
+                             'values (?, ?, ?, ?)', class_data)
+
         # Save the changes in the base
-        self.cur.execute('insert or replace into class (class_id, name, teacher) values (?, ?, ?)', class_data)
+        self.cur.execute('UPDATE class set name=?,teacher=? where class_id=?',
+                         (self.entry_class.get_text(),
+                          self.entry_teacher.get_text(),
+                          self.class_id));
         self.con.commit()
+
+        if(self.class_users_changed):
+            self.update_all_wholegroup()
 
         # Close the dialog window now
         self.list_user.reload(self.class_id,
