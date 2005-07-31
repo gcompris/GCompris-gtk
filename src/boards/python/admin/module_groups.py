@@ -38,7 +38,7 @@ class Groups(module.Module):
 
   def __init__(self, canvas):
     print("Gcompris_administration __init__ groups panel.")
-    module.Module.__init__(self, canvas, "groups", _("Groups list"))
+    module.Module.__init__(self, canvas, "groups", _("Groups"))
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
@@ -64,7 +64,7 @@ class Groups(module.Module):
     # Call our parent start
     module.Module.start(self)
 
-    frame = gtk.Frame(_("Group"))
+    frame = gtk.Frame(_("Groups"))
     frame.show()
 
     self.rootitem.add(

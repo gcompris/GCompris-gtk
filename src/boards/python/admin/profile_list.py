@@ -39,9 +39,8 @@ import constants
 (
   COLUMN_PROFILEID,
   COLUMN_NAME,
-  COLUMN_DESCRIPTION,
-  COLUMN_PROFILE_EDITABLE
-) = range(4)
+  COLUMN_DESCRIPTION
+) = range(3)
 
 class Profile_list:
   """GCompris Profile List Table"""
@@ -56,12 +55,6 @@ class Profile_list:
       # The profile_id to work on
       self.current_profile_id = 0
 
-      # Get the default profile
-      self.cur.execute('select * from informations')
-      self.default_profile_id = self.cur.fetchall()[0][2]
-      self.default_profile_id_iter = None
-      self.default_profile_id_description = None
-      
       # ---------------
       # Profile Management
       # ---------------
@@ -158,6 +151,12 @@ class Profile_list:
     # Remove all entries in the list
     self.profile_model.clear()
     
+    # Get the default profile
+    self.cur.execute('select * from informations')
+    self.default_profile_id = self.cur.fetchall()[0][2]
+    self.default_profile_id_iter = None
+    self.default_profile_id_description = None
+
     # Grab the profile data
     self.cur.execute('select profile_id, name, description from profiles')
     self.profile_data = self.cur.fetchall()
@@ -165,6 +164,9 @@ class Profile_list:
     for aprofile in self.profile_data:
       self.add_profile_in_model(self.profile_model, aprofile)
 
+    self.profile_group.reload(self.current_profile_id)
+
+      
 
   # Create the model for the profile list
   def __create_model_profile(self):
@@ -183,11 +185,9 @@ class Profile_list:
 
     # columns for name
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_profile_edited, model)
     renderer.set_data("column", COLUMN_NAME)
     column = gtk.TreeViewColumn(_('Profile'), renderer,
-                                text=COLUMN_NAME,
-                                editable=COLUMN_PROFILE_EDITABLE)
+                                text=COLUMN_NAME)
     column.set_sort_column_id(COLUMN_NAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_PROFILENAME)
@@ -195,27 +195,13 @@ class Profile_list:
 
     # columns for description
     renderer = gtk.CellRendererText()
-    renderer.connect("edited", self.on_cell_profile_edited, model)
     renderer.set_data("column", COLUMN_DESCRIPTION)
     column = gtk.TreeViewColumn(_('Description'), renderer,
-                                text=COLUMN_DESCRIPTION,
-                                editable=COLUMN_PROFILE_EDITABLE)
+                                text=COLUMN_DESCRIPTION)
     column.set_sort_column_id(COLUMN_DESCRIPTION)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_PROFILEDESCRIPTION)
     treeview.append_column(column)
-
-
-  # Return the next profile id
-  def get_next_profile_id(self):
-    self.cur.execute('select max(profile_id) from profiles')
-    profile_id = self.cur.fetchone()[0]
-    if(profile_id == None):
-      profile_id=0
-    else:
-      profile_id += 1
-      
-    return profile_id
 
 
   # Add profile in the model
@@ -224,8 +210,7 @@ class Profile_list:
     model.set (iter,
                COLUMN_PROFILEID,          aprofile[COLUMN_PROFILEID],
                COLUMN_NAME,               aprofile[COLUMN_NAME],
-               COLUMN_DESCRIPTION,        aprofile[COLUMN_DESCRIPTION],
-               COLUMN_PROFILE_EDITABLE,   True
+               COLUMN_DESCRIPTION,        aprofile[COLUMN_DESCRIPTION]
                )
     
     if self.default_profile_id ==  aprofile[COLUMN_PROFILEID]:
@@ -233,10 +218,12 @@ class Profile_list:
     
   #
   def on_add_profile_clicked(self, button, model):
-    profile_id = self.get_next_profile_id()
 
-    new_profile = [profile_id, "?", "?", 0]
-    self.add_profile_in_model(model, new_profile)
+    profile_id = constants.get_next_profile_id(self.con, self.cur)
+
+    profile_edit.ProfileEdit(self.con, self.cur,
+                             profile_id, None, None,
+                             self)
 
 
   def on_remove_profile_clicked(self, button, treeview):
@@ -248,21 +235,18 @@ class Profile_list:
       path = model.get_path(iter)[0]
       profile_id = model.get_value(iter, COLUMN_PROFILEID)
 
-      if(profile_id == 1):
-          # Tell the user it' not possible to remove default profile
-          dialog = gtk.MessageDialog(None,
-                                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                                     gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                     _("You cannot remove the default profile"))
-          dialog.run()
-          dialog.destroy()
-          return
-
       model.remove(iter)
       # Remove it from the base
-      print "Deleting profile_id=" + str(profile_id)
-      self.cur.execute('delete from profiles where profile_id=?', (profile_id,))
+      self.cur.execute('DELETE FROM profiles WHERE profile_id=?', (profile_id,))
+
+      # Remove it from list_groups_in_profiles
+      self.cur.execute('DELETE FROM list_groups_in_profiles ' +
+                       'WHERE profile_id=?',
+                       (profile_id,))
+
       self.con.commit()
+
+      self.profile_group.reload(-1)
 
 
   def on_cell_profile_edited(self, cell, path_string, new_text, model):
@@ -295,20 +279,12 @@ class Profile_list:
 
     if iter:
       path = model.get_path(iter)[0]
-      profile_id   = model.get_value(iter, COLUMN_PROFILEID)
-      profile_name = model.get_value(iter, COLUMN_NAME)
+      profile_id          = model.get_value(iter, COLUMN_PROFILEID)
+      profile_name        = model.get_value(iter, COLUMN_NAME)
+      profile_description = model.get_value(iter, COLUMN_DESCRIPTION)
       profile_edit.ProfileEdit(self.con, self.cur,
-                               profile_id, profile_name,
-                               self.profile_group)
-
-    else:
-      # Tell the user to select a profile first
-      dialog = gtk.MessageDialog(None,
-                                 gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                                 gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                 _("You must first select a profile in the list"))
-      dialog.run()
-      dialog.destroy()
+                               profile_id, profile_name, profile_description,
+                               self)
 
 
 
@@ -321,17 +297,21 @@ class Profile_list:
       path = model.get_path(iter)[0]
       profile_id   = model.get_value(iter, COLUMN_PROFILEID)
 
+      self.default_profile_id = profile_id
+      self.button_default.set_sensitive(False)
+
       # Save the changes in the base
       self.cur.execute('UPDATE informations SET profile_id=?',
                        (profile_id,))
       self.con.commit()
 
       self.set_default_in_description(iter)
-      
+     
   # Write an additional [Default] in the profile description
   def set_default_in_description(self, iter):
       # set default in description
       description  = self.profile_model.get_value(iter, COLUMN_DESCRIPTION)
+
       self.profile_model.set (iter,
                               COLUMN_DESCRIPTION,        description + " " + _("[Default]"),
                               )
@@ -366,3 +346,9 @@ class Profile_list:
         self.button_default.set_sensitive(False)
       else:
         self.button_default.set_sensitive(True)
+
+      if(self.current_profile_id == 1):
+         self.button_remove.set_sensitive(False)
+      else:
+         self.button_remove.set_sensitive(True)
+        

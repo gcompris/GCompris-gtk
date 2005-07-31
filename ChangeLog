@@ -1,3 +1,28 @@
+2005-07-31  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Hopefully completed the user/group/profile edition.
+	Completed the code, added some checkings.
+	Still need some testing.
+
+	* boards/skins/default/config_boards.png:
+	* boards/skins/default/config_groups.png:
+	* boards/skins/default/config_profiles.png:
+	* boards/skins/default/config_users.png:
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/constants.py:
+	* src/boards/python/admin/group_edit.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/group_user_list.py:
+	* src/boards/python/admin/module_groups.py:
+	* src/boards/python/admin/module_profiles.py:
+	* src/boards/python/admin/module_users.py:
+	* src/boards/python/admin/profile_edit.py:
+	* src/boards/python/admin/profile_group_list.py:
+	* src/boards/python/admin/profile_list.py:
+	* src/boards/python/admin/user_edit.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/administration.py:
+
 2005-07-30  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Completed management of the wholegroup. Now after editing class users

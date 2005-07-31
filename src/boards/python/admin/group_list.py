@@ -39,9 +39,8 @@ import constants
 (
   COLUMN_GROUPID,
   COLUMN_NAME,
-  COLUMN_DESCRIPTION,
-  COLUMN_GROUP_EDITABLE
-) = range(4)
+  COLUMN_DESCRIPTION
+) = range(3)
 
 class Group_list:
   """GCompris Group List Table"""
@@ -142,15 +141,17 @@ class Group_list:
       vbox_button.pack_start(button, False, False, 0)
       button.show()
       
-      button = gtk.Button(stock='gtk-edit')
-      button.connect("clicked", self.on_edit_group_clicked, treeview_group)
-      vbox_button.pack_start(button, False, False, 0)
-      button.show()
+      self.button_edit = gtk.Button(stock='gtk-edit')
+      self.button_edit.connect("clicked", self.on_edit_group_clicked, treeview_group)
+      vbox_button.pack_start(self.button_edit, False, False, 0)
+      self.button_edit.show()
+      self.button_edit.set_sensitive(False)
 
-      button = gtk.Button(stock='gtk-remove')
-      button.connect("clicked", self.on_remove_group_clicked, treeview_group)
-      vbox_button.pack_start(button, False, False, 0)
-      button.show()
+      self.button_remove = gtk.Button(stock='gtk-remove')
+      self.button_remove.connect("clicked", self.on_remove_group_clicked, treeview_group)
+      vbox_button.pack_start(self.button_remove, False, False, 0)
+      self.button_remove.show()
+      self.button_remove.set_sensitive(False)
 
       # User list for the group
       user_hbox = gtk.HBox(False, 8)
@@ -188,6 +189,8 @@ class Group_list:
     for agroup in self.group_data:
       self.add_group_in_model(self.group_model, agroup)
 
+    self.group_user.reload(self.current_group_id)
+
 
   # Create the model for the group list
   def __create_model_group(self):
@@ -209,8 +212,7 @@ class Group_list:
     renderer.connect("edited", self.on_cell_group_edited, model)
     renderer.set_data("column", COLUMN_NAME)
     column = gtk.TreeViewColumn(_('Group'), renderer,
-                                text=COLUMN_NAME,
-                                editable=COLUMN_GROUP_EDITABLE)
+                                text=COLUMN_NAME)
     column.set_sort_column_id(COLUMN_NAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_GROUPNAME)
@@ -221,8 +223,7 @@ class Group_list:
     renderer.connect("edited", self.on_cell_group_edited, model)
     renderer.set_data("column", COLUMN_DESCRIPTION)
     column = gtk.TreeViewColumn(_('Description'), renderer,
-                                text=COLUMN_DESCRIPTION,
-                                editable=COLUMN_GROUP_EDITABLE)
+                                text=COLUMN_DESCRIPTION)
     column.set_sort_column_id(COLUMN_DESCRIPTION)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_GROUPDESCRIPTION)
@@ -235,8 +236,7 @@ class Group_list:
     model.set (iter,
                COLUMN_GROUPID,          agroup[COLUMN_GROUPID],
                COLUMN_NAME,             agroup[COLUMN_NAME],
-               COLUMN_DESCRIPTION,      agroup[COLUMN_DESCRIPTION],
-               COLUMN_GROUP_EDITABLE,   True
+               COLUMN_DESCRIPTION,      agroup[COLUMN_DESCRIPTION]
                )
 
     
@@ -244,9 +244,11 @@ class Group_list:
   def on_add_group_clicked(self, button, model):
     group_id = constants.get_next_group_id(self.con, self.cur)
 
-    new_group = [group_id, "?", "?", 0]
-    self.add_group_in_model(model, new_group)
-
+    group_edit.GroupEdit(self.con, self.cur,
+                         self.current_class_id, self.get_active_text(self.combo_class),
+                         group_id, None, None,
+                         self)
+    
 
   def on_remove_group_clicked(self, button, treeview):
 
@@ -258,7 +260,6 @@ class Group_list:
       group_id = model.get_value(iter, COLUMN_GROUPID)
       model.remove(iter)
       # Remove it from the base
-      print "Deleting group_id=" + str(group_id)
       self.cur.execute('delete from groups where group_id=?', (group_id,))
       self.con.commit()
 
@@ -302,12 +303,14 @@ class Group_list:
 
     if iter:
       path = model.get_path(iter)[0]
-      group_id   = model.get_value(iter, COLUMN_GROUPID)
-      group_name = model.get_value(iter, COLUMN_NAME)
+      group_id          = model.get_value(iter, COLUMN_GROUPID)
+      group_name        = model.get_value(iter, COLUMN_NAME)
+      group_description = model.get_value(iter, COLUMN_DESCRIPTION)
       group_edit.GroupEdit(self.con, self.cur,
                            self.current_class_id, self.get_active_text(self.combo_class),
                            group_id, group_name,
-                           self.group_user)
+                           group_description,
+                           self)
 
     else:
       # Tell the user to select a group first
@@ -320,7 +323,6 @@ class Group_list:
 
 
   def group_changed_cb(self, selection, group_user):
-    print "group_changed_cb"
     model, iter = selection.get_selected()
 
     if iter:
@@ -329,9 +331,28 @@ class Group_list:
 
       group_user.reload(self.current_group_id)
 
+      # Set the default button on if needed
+
+      # The wholegroup is not editable
+      wholegroup_id = constants.get_wholegroup_id(self.con,
+                                                  self.cur,
+                                                  self.current_class_id)
+      
+      if(wholegroup_id == self.current_group_id):
+        self.button_edit.set_sensitive(False)
+        self.button_remove.set_sensitive(False)
+      else:
+        self.button_edit.set_sensitive(True)
+        self.button_remove.set_sensitive(True)
+
+
   def class_changed_cb(self, combobox):
     active = combobox.get_active()
     if active < 0:
+      self.button_edit.set_sensitive(False)
+      self.button_remove.set_sensitive(False)
       return
+    
     self.current_class_id = self.class_list[active]
     self.reload_group()
+

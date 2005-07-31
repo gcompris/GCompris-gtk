@@ -32,17 +32,17 @@ from pysqlite2 import dbapi2 as sqlite
 # Group Management
 (
   COLUMN_GROUPID,
-  COLUMN_NAME,
+  COLUMN_CLASSNAME,
+  COLUMN_GROUPNAME,
   COLUMN_DESCRIPTION,
-  COLUMN_GROUP_EDITABLE
 ) = range(4)
 
 
 class ProfileEdit(gtk.Window):
 
     def __init__(self, db_connect, db_cursor,
-                 profile_id, profile_name,
-                 profile_group):
+                 profile_id, profile_name, profile_description,
+                 profile_list):
 
         # Create the toplevel window
         gtk.Window.__init__(self)
@@ -52,20 +52,58 @@ class ProfileEdit(gtk.Window):
 
         self.profile_id = profile_id
 
-        # A pointer to the profile_group_list class
+        # A pointer to the profile_list_list class
         # Will be called to refresh the list when edit is done
-        self.profile_group = profile_group
+        self.profile_list = profile_list
         
-        self.set_title(_("Group Edition"))
+        self.set_title(_("Profile Edition"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
-        frame = gtk.Frame(_("Editing profile: ") + profile_name)
+        if(profile_name and profile_description):
+            frame = gtk.Frame(_("Editing profile: ") + profile_name)
+            self.new_profile = False
+        else:
+            frame = gtk.Frame(_("Editing a new profile"))
+            self.new_profile = True
+            profile_name =""
+            profile_description = ""
+
+
         self.add(frame)
         
         vbox = gtk.VBox(False, 8)
         vbox.set_border_width(8)
         frame.add(vbox)
+
+        # Label and Entry for the group and description
+        table = gtk.Table(2, 2, homogeneous=False)
+        table.set_border_width(0)
+        table.set_row_spacings(0)
+        table.set_col_spacings(20)
+        vbox.pack_start(table, True, True, 0)
+        
+        label = gtk.Label(_('Profile:'))
+        label.set_alignment(0, 0)
+        table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+        self.entry_profile = gtk.Entry()
+        self.entry_profile.set_max_length(20)
+        self.entry_profile.insert_text(profile_name, position=0)
+        table.attach(self.entry_profile, 1, 2, 0, 1,
+                     xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+
+        # FIXME: How to remove the selection
+        
+        # Label and Entry for the first name
+        label = gtk.Label(_('Description:'))
+        label.set_alignment(0, 0)
+        table.attach(label, 0, 1, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+        self.entry_description = gtk.Entry()
+        self.entry_description.set_max_length(30)
+        self.entry_description.insert_text(profile_description, position=0)
+        table.attach(self.entry_description, 1, 2, 1, 2,
+                     xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+
 
         # Top message gives instructions
         label = gtk.Label(_('Assign all the groups bellonging to this profile'))
@@ -90,7 +128,7 @@ class ProfileEdit(gtk.Window):
         # create tree view
         treeview = gtk.TreeView(self.model_left)
         treeview.set_rules_hint(True)
-        treeview.set_search_column(COLUMN_NAME)
+        treeview.set_search_column(COLUMN_GROUPNAME)
         treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
         
         sw.add(treeview)
@@ -131,7 +169,7 @@ class ProfileEdit(gtk.Window):
         # create tree view
         treeview2 = gtk.TreeView(self.model_right)
         treeview2.set_rules_hint(True)
-        treeview2.set_search_column(COLUMN_NAME)
+        treeview2.set_search_column(COLUMN_GROUPNAME)
         treeview2.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
         sw2.add(treeview2)
@@ -145,19 +183,21 @@ class ProfileEdit(gtk.Window):
         # --------------------
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 
-        bbox = gtk.HButtonBox()
-        bbox.set_border_width(5)
-        bbox.set_layout(gtk.BUTTONBOX_EDGE)
-        bbox.set_spacing(40)
+        bbox = gtk.HBox(homogeneous=False, spacing=8)
         
         button = gtk.Button(stock='gtk-help')
-        bbox.add(button)
+        bbox.pack_start(button, expand=False, fill=False, padding=0)
+
+        button = gtk.Button(stock='gtk-ok')
+        bbox.pack_end(button, expand=False, fill=False, padding=0)
+        button.connect("clicked", self.ok)
 
         button = gtk.Button(stock='gtk-close')
-        bbox.add(button)
+        bbox.pack_end(button, expand=False, fill=False, padding=0)
         button.connect("clicked", self.close)
 
         vbox.pack_start(bbox, False, False, 0)
+
 
         # Missing callbacks
         button_delete.connect("clicked", self.remove_group, treeview2)
@@ -175,9 +215,9 @@ class ProfileEdit(gtk.Window):
         iter = model.append()
         model.set (iter,
                    COLUMN_GROUPID,      group[COLUMN_GROUPID],
-                   COLUMN_NAME,         group[COLUMN_NAME],
-                   COLUMN_DESCRIPTION,  group[COLUMN_DESCRIPTION],
-                   COLUMN_GROUP_EDITABLE,  False
+                   COLUMN_CLASSNAME,    group[COLUMN_CLASSNAME],
+                   COLUMN_GROUPNAME,    group[COLUMN_GROUPNAME],
+                   COLUMN_DESCRIPTION,  group[COLUMN_DESCRIPTION]
                    )
 
     # profile_id: only groups in this profile are inserted
@@ -189,18 +229,28 @@ class ProfileEdit(gtk.Window):
             gobject.TYPE_INT,
             gobject.TYPE_STRING,
             gobject.TYPE_STRING,
-            gobject.TYPE_BOOLEAN)
+            gobject.TYPE_STRING)
 
         # Grab the all the groups
-        self.cur.execute('select group_id,name,description from groups')
+        self.cur.execute('SELECT group_id,name,description FROM groups')
         group_data = self.cur.fetchall()
 
         for group in group_data:
 
+            group_id = group[0]
             # Check our group is already in the profile
-            self.cur.execute('select * from list_groups_in_profiles where profile_id=? and group_id=?',
-                             (profile_id, group[0]))
+            self.cur.execute('SELECT * FROM list_groups_in_profiles ' +
+                             'WHERE profile_id=? AND group_id=?',
+                             (profile_id, group_id))
             group_is_already = self.cur.fetchall()
+
+            # Extract the class name of this group
+            class_name = constants.get_class_name_for_group_id(self.con,
+                                                               self.cur,
+                                                               group_id)
+
+            # Insert the class name in the group
+            group = (group[0], class_name, group[1], group[2])
             
             if(with and group_is_already):
                 self.add_group_in_model(model, group)
@@ -213,13 +263,22 @@ class ProfileEdit(gtk.Window):
 
         model = treeview.get_model()
         
-        # columns for name
+        # columns for class name
         renderer = gtk.CellRendererText()
-        renderer.set_data("column", COLUMN_NAME)
+        renderer.set_data("column", COLUMN_CLASSNAME)
+        column = gtk.TreeViewColumn(_('Class'), renderer,
+                                    text=COLUMN_CLASSNAME)
+        column.set_sort_column_id(COLUMN_CLASSNAME)
+        column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        column.set_fixed_width(constants.COLUMN_WIDTH_CLASSNAME)
+        treeview.append_column(column)
+
+        # columns for group name
+        renderer = gtk.CellRendererText()
+        renderer.set_data("column", COLUMN_GROUPNAME)
         column = gtk.TreeViewColumn(_('Group'), renderer,
-                                    text=COLUMN_NAME,
-                                    editable=COLUMN_GROUP_EDITABLE)
-        column.set_sort_column_id(COLUMN_NAME)
+                                    text=COLUMN_GROUPNAME)
+        column.set_sort_column_id(COLUMN_GROUPNAME)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
         column.set_fixed_width(constants.COLUMN_WIDTH_GROUPNAME)
         treeview.append_column(column)
@@ -228,8 +287,7 @@ class ProfileEdit(gtk.Window):
         renderer = gtk.CellRendererText()
         renderer.set_data("column", COLUMN_DESCRIPTION)
         column = gtk.TreeViewColumn(_('Description'), renderer,
-                                    text=COLUMN_DESCRIPTION,
-                                    editable=COLUMN_GROUP_EDITABLE)
+                                    text=COLUMN_DESCRIPTION)
         column.set_sort_column_id(COLUMN_DESCRIPTION)
         column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
         column.set_fixed_width(constants.COLUMN_WIDTH_GROUPDESCRIPTION_EDIT)
@@ -252,15 +310,18 @@ class ProfileEdit(gtk.Window):
             
             path = model.get_path(iter)[0]
             group_id           = model.get_value(iter, COLUMN_GROUPID)
-            group_name         = model.get_value(iter, COLUMN_NAME)
+            class_name         = model.get_value(iter, COLUMN_CLASSNAME)
+            group_name         = model.get_value(iter, COLUMN_GROUPNAME)
             group_description  = model.get_value(iter, COLUMN_DESCRIPTION)
             model.remove(iter)
 
             # Add in the the right view
-            self.add_group_in_model(self.model_right, (group_id, group_name, group_description))
+            self.add_group_in_model(self.model_right,
+                                    (group_id, class_name, group_name, group_description))
             
             # Save the change in the base
-            self.cur.execute('insert or replace into list_groups_in_profiles (profile_id, group_id) values (?, ?)',
+            self.cur.execute('INSERT OR REPLACE INTO list_groups_in_profiles ' +
+                             '(profile_id, group_id) VALUES (?, ?)',
                              (self.profile_id, group_id))
             self.con.commit()
 
@@ -281,15 +342,18 @@ class ProfileEdit(gtk.Window):
             
             path = model.get_path(iter)[0]
             group_id           = model.get_value(iter, COLUMN_GROUPID)
-            group_name         = model.get_value(iter, COLUMN_NAME)
+            class_name         = model.get_value(iter, COLUMN_CLASSNAME)
+            group_name         = model.get_value(iter, COLUMN_GROUPNAME)
             group_description  = model.get_value(iter, COLUMN_DESCRIPTION)
             model.remove(iter)
 
             # Add in the the left view
-            self.add_group_in_model(self.model_left, (group_id, group_name, group_description))
+            self.add_group_in_model(self.model_left,
+                                    (group_id, class_name, group_name, group_description))
             
             # Save the change in the base
-            self.cur.execute('delete from list_groups_in_profiles where profile_id=? and group_id=?',
+            self.cur.execute('DELETE FROM list_groups_in_profiles ' +
+                             'WHERE profile_id=? AND group_id=?',
                              (self.profile_id, group_id))
             self.con.commit()
 
@@ -298,6 +362,60 @@ class ProfileEdit(gtk.Window):
     # Done, can quit this dialog
     #
     def close(self, button):
-        self.profile_group.reload(self.profile_id)
+        self.profile_list.reload_profile()
         self.destroy()
         
+    # Done, can quit this dialog with saving
+    #
+    def ok(self, button):
+
+        # Tell the user he must provide enough information
+        if(self.entry_profile.get_text() == ""):
+            dialog = gtk.MessageDialog(None,
+                                       gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                       gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                                       _("You need to provide at least a name for your profile"))
+            dialog.run()
+            dialog.destroy()
+            return
+
+        #
+        # Now everything is correct, create the profile
+        #
+
+        profile_data = (self.profile_id,
+                        self.entry_profile.get_text(),
+                        self.entry_description.get_text()
+                      )
+
+        if(self.new_profile):
+            # Check the login do not exist already
+            self.cur.execute('SELECT name FROM profiles WHERE name=?',
+                             (self.entry_profile.get_text(),))
+            if(self.cur.fetchone()):
+                dialog = gtk.MessageDialog(None,
+                                           gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                           gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                                           _("There is already a profile with this name"))
+                dialog.run()
+                dialog.destroy()
+                return
+
+            # Create the new profile
+            profile_id = constants.get_next_profile_id(self.con, self.cur)
+            self.cur.execute('INSERT INTO profiles (profile_id, name, description) ' +
+                             'VALUES ( ?, ?, ?)',
+                             (profile_data));
+        else:
+            # Save the profile changes
+            self.cur.execute('UPDATE profiles SET name=?, description=? where profile_id=?',
+                             (self.entry_profile.get_text(),
+                              self.entry_description.get_text(),
+                              self.profile_id));
+        self.con.commit()
+
+        # Close the dialog window now
+        self.profile_list.reload_profile()
+
+        self.destroy()
+

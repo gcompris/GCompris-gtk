@@ -29,7 +29,7 @@ COLUMN_WIDTH_CLASSNAME               = 100
 COLUMN_WIDTH_TEACHER                 = 300
 
 COLUMN_WIDTH_GROUPNAME               = 100
-COLUMN_WIDTH_GROUPDESCRIPTION        = 300
+COLUMN_WIDTH_GROUPDESCRIPTION        = 200
 COLUMN_WIDTH_GROUPDESCRIPTION_EDIT   = 150
 
 COLUMN_WIDTH_PROFILENAME             = 100
@@ -68,3 +68,47 @@ def get_next_group_id(con, cur):
     return group_id
 
 
+# Return the next profile id in the base
+# Params are db_connect, db_cursor
+def get_next_profile_id(con, cur):
+    cur.execute('select max(profile_id) from profiles')
+    profile_id = cur.fetchone()[0]
+    
+    if(profile_id == None):
+        profile_id=0
+    else:
+        profile_id += 1
+        
+    return profile_id
+
+
+# get_wholegroup_id
+# From the given class_id, return it's wholegroup_id
+# Params are db_connect, db_cursor, class_id
+def get_wholegroup_id(con, cur, class_id):
+    cur.execute('SELECT wholegroup_id FROM class WHERE class_id=?',
+                (class_id,))
+    return(cur.fetchone()[0])
+
+
+# get_class_name_for_group_id
+# From the given group_id, return it's class name
+# Or "" if not found
+def get_class_name_for_group_id(con, cur, group_id):
+
+    class_name = ""
+    
+    # Extract the class name of this group
+    cur.execute('SELECT class_id FROM groups WHERE group_id=?',
+                     (group_id,))
+    result = cur.fetchall()
+    if(result):
+        class_id = result[0][0]
+
+        cur.execute('SELECT name FROM class WHERE class_id=?',
+                    (class_id,))
+        result = cur.fetchall()
+        if(result):
+            class_name = result[0][0]
+
+    return class_name

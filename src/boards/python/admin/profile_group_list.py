@@ -37,9 +37,9 @@ from pysqlite2 import dbapi2 as sqlite
 # Group Management
 (
   COLUMN_GROUPID,
-  COLUMN_NAME,
+  COLUMN_CLASSNAME,
+  COLUMN_GROUPNAME,
   COLUMN_DESCRIPTION,
-  COLUMN_GROUP_EDITABLE
 ) = range(4)
 
 
@@ -76,7 +76,7 @@ class Profile_group_list:
       treeview_group = gtk.TreeView(self.model)
       treeview_group.show()
       treeview_group.set_rules_hint(True)
-      treeview_group.set_search_column(COLUMN_NAME)
+      treeview_group.set_search_column(COLUMN_GROUPNAME)
 
       sw.add(treeview_group)
 
@@ -96,7 +96,7 @@ class Profile_group_list:
 
   # Retrieve data from the database for the given profile_id
   def reload(self, profile_id):
-      print "Reloading profile_group_list for profile_id=" + str(profile_id)
+
       self.profile_id = profile_id
       
       # Remove all entries in the list
@@ -111,6 +111,16 @@ class Profile_group_list:
         self.cur.execute('select group_id,name,description from groups where group_id=?',
                          group_id)
         group = self.cur.fetchall()[0]
+
+        group_id = group[0]
+        # Extract the class name of this group
+        class_name = constants.get_class_name_for_group_id(self.con,
+                                                           self.cur,
+                                                           group_id)
+
+        # Insert the class name in the group
+        group = (group[0], class_name, group[1], group[2])
+
         self.add_group_in_model(self.model, group)
 
     
@@ -120,9 +130,9 @@ class Profile_group_list:
     iter = model.append()
     model.set (iter,
                COLUMN_GROUPID,     group[COLUMN_GROUPID],
-               COLUMN_NAME,        group[COLUMN_NAME],
+               COLUMN_CLASSNAME,   group[COLUMN_CLASSNAME],
+               COLUMN_GROUPNAME,   group[COLUMN_GROUPNAME],
                COLUMN_DESCRIPTION, group[COLUMN_DESCRIPTION],
-               COLUMN_GROUP_EDITABLE,  True
                )
 
     
@@ -132,7 +142,7 @@ class Profile_group_list:
       gobject.TYPE_INT,
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
-      gobject.TYPE_BOOLEAN)
+      gobject.TYPE_STRING)
 
     return model
 
@@ -143,13 +153,22 @@ class Profile_group_list:
 
     # Total column lengh must be 400
     
+    # columns for class name
+    renderer = gtk.CellRendererText()
+    renderer.set_data("column", COLUMN_CLASSNAME)
+    column = gtk.TreeViewColumn(_('Class'), renderer,
+                                text=COLUMN_CLASSNAME)
+    column.set_sort_column_id(COLUMN_CLASSNAME)
+    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+    column.set_fixed_width(constants.COLUMN_WIDTH_CLASSNAME)
+    treeview.append_column(column)
+
     # columns for name
     renderer = gtk.CellRendererText()
-    renderer.set_data("column", COLUMN_NAME)
+    renderer.set_data("column", COLUMN_GROUPNAME)
     column = gtk.TreeViewColumn(_('Group'), renderer,
-                                text=COLUMN_NAME,
-                                editable=COLUMN_GROUP_EDITABLE)
-    column.set_sort_column_id(COLUMN_NAME)
+                                text=COLUMN_GROUPNAME)
+    column.set_sort_column_id(COLUMN_GROUPNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_GROUPNAME)
     treeview.append_column(column)
@@ -158,8 +177,7 @@ class Profile_group_list:
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_DESCRIPTION)
     column = gtk.TreeViewColumn(_('Description'), renderer,
-                                text=COLUMN_DESCRIPTION,
-                                editable=COLUMN_GROUP_EDITABLE)
+                                text=COLUMN_DESCRIPTION)
     column.set_sort_column_id(COLUMN_DESCRIPTION)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_GROUPDESCRIPTION)

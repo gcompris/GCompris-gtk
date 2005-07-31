@@ -41,8 +41,7 @@ from pysqlite2 import dbapi2 as sqlite
   COLUMN_FIRSTNAME,
   COLUMN_LASTNAME,
   COLUMN_BIRTHDATE,
-  COLUMN_USER_EDITABLE
-) = range(6)
+) = range(5)
 
 
 class Group_user_list:
@@ -79,6 +78,7 @@ class Group_user_list:
       treeview_group.show()
       treeview_group.set_rules_hint(True)
       treeview_group.set_search_column(COLUMN_FIRSTNAME)
+      treeview_group.get_selection().set_mode(gtk.SELECTION_NONE)
 
       sw.add(treeview_group)
 
@@ -98,19 +98,18 @@ class Group_user_list:
 
   # Retrieve data from the database for the given group_id
   def reload(self, group_id):
-      print "Reloading group_user_list for group_id=" + str(group_id)
       self.group_id = group_id
       
       # Remove all entries in the list
       self.model.clear()
 
-      self.cur.execute('select user_id from list_users_in_groups where group_id=?', (self.group_id,))
+      self.cur.execute('SELECT user_id FROM list_users_in_groups WHERE group_id=?', (self.group_id,))
       list_user_id = self.cur.fetchall()
 
       # Now retrieve users detail
-      print list_user_id
       for user_id in list_user_id:
-        self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where user_id=?',
+        self.cur.execute('SELECT user_id,login,firstname,lastname,birthdate ' +
+                         'FROM users WHERE user_id=?',
                          user_id)
         user = self.cur.fetchall()[0]
         self.add_user_in_model(self.model, user)
@@ -125,8 +124,7 @@ class Group_user_list:
                COLUMN_LOGIN,     user[COLUMN_LOGIN],
                COLUMN_FIRSTNAME, user[COLUMN_FIRSTNAME],
                COLUMN_LASTNAME,  user[COLUMN_LASTNAME],
-               COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE],
-               COLUMN_USER_EDITABLE,  True
+               COLUMN_BIRTHDATE, user[COLUMN_BIRTHDATE]
                )
 
     
@@ -137,8 +135,7 @@ class Group_user_list:
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
       gobject.TYPE_STRING,
-      gobject.TYPE_STRING,
-      gobject.TYPE_BOOLEAN)
+      gobject.TYPE_STRING)
 
     return model
 
@@ -153,8 +150,7 @@ class Group_user_list:
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LOGIN)
     column = gtk.TreeViewColumn(_('Login'), renderer,
-                                text=COLUMN_LOGIN,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_LOGIN)
     column.set_sort_column_id(COLUMN_LOGIN)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_LOGIN)
@@ -164,8 +160,7 @@ class Group_user_list:
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_FIRSTNAME)
     column = gtk.TreeViewColumn(_('First Name'), renderer,
-                                text=COLUMN_FIRSTNAME,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_FIRSTNAME)
     column.set_sort_column_id(COLUMN_FIRSTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_FIRSTNAME)
@@ -175,8 +170,7 @@ class Group_user_list:
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_LASTNAME)
     column = gtk.TreeViewColumn(_('Last Name'), renderer,
-                                text=COLUMN_LASTNAME,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_LASTNAME)
     column.set_sort_column_id(COLUMN_LASTNAME)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_LASTNAME)
@@ -186,8 +180,7 @@ class Group_user_list:
     renderer = gtk.CellRendererText()
     renderer.set_data("column", COLUMN_BIRTHDATE)
     column = gtk.TreeViewColumn(_('Birth Date'), renderer,
-                                text=COLUMN_BIRTHDATE,
-                                editable=COLUMN_USER_EDITABLE)
+                                text=COLUMN_BIRTHDATE)
     column.set_sort_column_id(COLUMN_BIRTHDATE)
     column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
     column.set_fixed_width(constants.COLUMN_WIDTH_BIRTHDATE)

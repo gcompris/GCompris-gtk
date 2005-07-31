@@ -69,6 +69,8 @@ class ClassEdit(gtk.Window):
             self.new_class = True
             
         # Connect the "destroy" event to close
+        # FIXME: This makes the close code beeing called twice
+        #        because the close destroy also call close again.
         frame.connect("destroy", self.close)
         
         self.add(frame)
@@ -93,7 +95,7 @@ class ClassEdit(gtk.Window):
         self.entry_class.insert_text(class_name, position=0)
         table.attach(self.entry_class, 1, 2, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
-        # FIXME: How to remove the selection
+        # FIXME: How to remove the default selection
         
         # Label and Entry for the teacher name
         label = gtk.Label(_('Teacher:'))
@@ -371,12 +373,38 @@ class ClassEdit(gtk.Window):
     #
     def ok(self, button):
 
+        # Tell the user he must provide enough information
+        if(self.entry_class.get_text() == ""):
+            dialog = gtk.MessageDialog(None,
+                                       gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                       gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                                       _("You need to provide at least a name for your class"))
+            dialog.run()
+            dialog.destroy()
+            return
+
+        #
+        # Now everything is correct, create the class
+        #
+
         class_data = (self.class_id,
                       self.entry_class.get_text(),
                       self.entry_teacher.get_text()
                       )
 
         if(self.new_class):
+            # Check the login do not exist already
+            self.cur.execute('SELECT name FROM class WHERE name=?',
+                             (self.entry_class.get_text(),))
+            if(self.cur.fetchone()):
+                dialog = gtk.MessageDialog(None,
+                                           gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                           gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                                           _("There is already a class with this name"))
+                dialog.run()
+                dialog.destroy()
+                return
+
             # Create its Whole group
             group_id = constants.get_next_group_id(self.con, self.cur)
             self.cur.execute('INSERT INTO groups (group_id, name, class_id, description) ' +

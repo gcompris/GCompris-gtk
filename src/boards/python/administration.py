@@ -33,7 +33,6 @@ class Gcompris_administration:
 
 
   def __init__(self, gcomprisBoard):
-    print "Gcompris_administration __init__"
     self.gcomprisBoard = gcomprisBoard
 
     # The panel being displayed
@@ -55,7 +54,6 @@ class Gcompris_administration:
                         gcompris.BOARD_WIDTH-gap,
                         gcompris.BOARD_HEIGHT-gap)
 
-    print("Gcompris_administration __init__ DONE.")
 
 
   def start(self):
@@ -71,8 +69,6 @@ class Gcompris_administration:
     for file in m_list:
       m_name = file.split('/')[-1].split('.')[0].split('_')[1]
       list_modules.append(m_name)
-
-    print "Modules List : ", list_modules
 
     # Now import modules,
     # and get the list of string 'name.Name' for initialisation below.
@@ -120,8 +116,6 @@ class Gcompris_administration:
     # The list of modules
     modules_ordered = []
     for module in modules_init:
-      print module
-      print module +'(self.rootitem).init(i, self.select_area, self.select_event)'
       p = eval(module +'(self.rootitem).position()')
       modules_ordered.append((p, module))
 
@@ -131,27 +125,23 @@ class Gcompris_administration:
     modules_ordered.sort()
     for tmodule in modules_ordered:
       module = tmodule[1]
-      print module +'(self.rootitem).init(i, self.select_area, self.select_event)'
       eval(module +'(self.rootitem).init(i, self.select_area, self.select_event)')
       i+=1
 
-    print("Gcompris_administration start.")
-
 
   def end(self):
-    print("Gcompris_administration end.")
-
+    pass
 
   def ok(self):
-    print("Gcompris_administration ok.")
+    pass
 
 
   def repeat(self):
-    print("Gcompris_administration repeat.")
+    pass
 
 
   def config(self):
-    print("Gcompris_administration config.")
+    pass
 
 
   def key_press(self, keyval):

@@ -38,7 +38,7 @@ class Profiles(module.Module):
 
   def __init__(self, canvas):
     print("Gcompris_administration __init__ profiles panel.")
-    module.Module.__init__(self, canvas, "profiles", _("Profiles list"))
+    module.Module.__init__(self, canvas, "profiles", _("Profiles"))
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
@@ -63,7 +63,7 @@ class Profiles(module.Module):
 
     module.Module.start(self)
 
-    frame = gtk.Frame(_("Profile"))
+    frame = gtk.Frame(_("Profiles"))
     frame.show()
 
     self.rootitem.add(

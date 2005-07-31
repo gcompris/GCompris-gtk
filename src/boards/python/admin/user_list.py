@@ -91,6 +91,7 @@ class User_list:
       treeview.show()
       treeview.set_rules_hint(True)
       treeview.set_search_column(COLUMN_FIRSTNAME)
+      treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 
       sw.add(treeview)
 
@@ -232,13 +233,18 @@ class User_list:
     return user_id
 
 
-  #
+  # Edition of a user
+  # It create a dialog box
+  # If multiselection is on, it will create a dialog per selection
   def on_edit_clicked(self, button, treeview):
-    selection = treeview.get_selection()
-    model, iter = selection.get_selected()
-
-    if iter:
+    model = treeview.get_model()
+    treestore, paths = treeview.get_selection().get_selected_rows()
+    paths.reverse()
+        
+    for path in paths:
+      iter = treestore.get_iter(path)
       path = model.get_path(iter)[0]
+
       user_id       = model.get_value(iter, COLUMN_USERID)
       login         = model.get_value(iter, COLUMN_LOGIN)
       firstname     = model.get_value(iter, COLUMN_FIRSTNAME)
@@ -260,12 +266,14 @@ class User_list:
 
 
   def on_remove_item_clicked(self, button, treeview):
-
-    selection = treeview.get_selection()
-    model, iter = selection.get_selected()
-
-    if iter:
+    model = treeview.get_model()
+    treestore, paths = treeview.get_selection().get_selected_rows()
+    paths.reverse()
+        
+    for path in paths:
+      iter = treestore.get_iter(path)
       path = model.get_path(iter)[0]
+
       user_id = model.get_value(iter, COLUMN_USERID)
       model.remove(iter)
       # Remove it from the base
@@ -280,7 +288,7 @@ class User_list:
     dialog = gtk.MessageDialog(None,
                                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                               _("To import a user list from file, first select a class.\FILE FORMAT: Your file must be formated like this:\nlogin;First name;Last name;Birth date\nThe separator is autodetected and can be one of ',', ';' or ':'"))
+                               _("To import a user list from file, first select a class.\nFILE FORMAT: Your file must be formated like this:\nlogin;First name;Last name;Birth date\nThe separator is autodetected and can be one of ',', ';' or ':'"))
     dialog.run()
     dialog.destroy()
     
