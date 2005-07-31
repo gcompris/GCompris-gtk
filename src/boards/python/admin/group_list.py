@@ -136,10 +136,11 @@ class Group_list:
       self.__add_columns_group(treeview_group)
 
       # Add buttons
-      button = gtk.Button(stock='gtk-add')
-      button.connect("clicked", self.on_add_group_clicked, self.group_model)
-      vbox_button.pack_start(button, False, False, 0)
-      button.show()
+      self.button_add = gtk.Button(stock='gtk-add')
+      self.button_add.connect("clicked", self.on_add_group_clicked, self.group_model)
+      vbox_button.pack_start(self.button_add, False, False, 0)
+      self.button_add.show()
+      self.button_add.set_sensitive(False)
       
       self.button_edit = gtk.Button(stock='gtk-edit')
       self.button_edit.connect("clicked", self.on_edit_group_clicked, treeview_group)
@@ -351,8 +352,10 @@ class Group_list:
     if active < 0:
       self.button_edit.set_sensitive(False)
       self.button_remove.set_sensitive(False)
+      self.button_add.set_sensitive(False)
       return
     
+    self.button_add.set_sensitive(True)
     self.current_class_id = self.class_list[active]
     self.reload_group()
 

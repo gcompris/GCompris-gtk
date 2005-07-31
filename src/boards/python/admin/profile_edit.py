@@ -60,7 +60,7 @@ class ProfileEdit(gtk.Window):
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
-        if(profile_name and profile_description):
+        if(profile_name):
             frame = gtk.Frame(_("Editing profile: ") + profile_name)
             self.new_profile = False
         else:
