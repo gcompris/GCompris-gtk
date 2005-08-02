@@ -136,8 +136,8 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
 	return Py_False;
       }
     }
-    if(strcmp(name,"reread_xml")==0){
-      if(self->cdata->reread_xml){
+    if(strcmp(name,"reread_menu")==0){
+      if(self->cdata->reread_menu){
 	Py_INCREF(Py_True);
 	return Py_True;
       } else {

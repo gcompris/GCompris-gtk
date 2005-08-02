@@ -12,6 +12,7 @@ dist_python_DATA= \
 	followline.py \
 	gnumch.py \
 	hexagon.py \
+	login.py \
 	melody.py \
 	pythontest.py \
 	redraw.py \

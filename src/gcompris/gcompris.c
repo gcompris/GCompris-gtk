@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/07/29 22:21:48 bruno>
+ * Time-stamp: <2005/08/03 00:52:23 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -90,7 +90,7 @@ static int popt_administration	   = FALSE;
 static char *popt_database         = NULL;
 static char *popt_logs_database    = NULL;
 static int popt_create_db   	   = FALSE;
-static int popt_reread_xml   	   = FALSE;
+static int popt_reread_menu   	   = FALSE;
 static char *popt_profile	   = NULL;
 static int *popt_profile_list	   = FALSE;
 
@@ -129,7 +129,7 @@ static struct poptOption options[] = {
    N_("Use alternate database for logs"), NULL},
   {"create-db",'\0', POPT_ARG_NONE, &popt_create_db, 0,
    N_("Create the alternate database for profiles"), NULL},
-  {"reread-xml",'\0', POPT_ARG_NONE, &popt_reread_xml, 0,
+  {"reread-menu",'\0', POPT_ARG_NONE, &popt_reread_menu, 0,
    N_("Re-read XML Menus and store them in the database"), NULL},
   {"profile",'p', POPT_ARG_STRING, &popt_profile, 0,
    N_("Set the profile to use. Use 'gcompris -a' to create profiles"), NULL},
@@ -626,9 +626,16 @@ static void setup_window ()
 
   /* Get and Run the root menu */
   if(properties->administration)
-    gcomprisBoardMenu = gcompris_get_board_from_section("/administration/administration");
+    {
+      gcomprisBoardMenu = gcompris_get_board_from_section("/administration/administration");
+    }
   else
-    gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
+    {
+      /* If we have users defined in the current profiles
+       * we must first run the login screen
+       */
+      gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
+    }
 
   if(!gcomprisBoardMenu) {
     g_warning("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
@@ -685,11 +692,13 @@ void gcompris_exit()
 
 #ifdef XRANDR
   /* Set back the original screen size */
-  if(properties->fullscreen || changed_xrandr) {
-    xrandr_get_config ( xrandr );	/* Need to refresh our config or xrandr api will reject us */
-    xrandr->xr_current_size = (SizeID)xr_previous_size;
-    xrandr_set_config( xrandr );
-  }
+  if((properties->fullscreen || changed_xrandr) && properties->noxrandr == 0) 
+    {
+      /* Need to refresh our config or xrandr api will reject us */
+      xrandr_get_config ( xrandr );
+      xrandr->xr_current_size = (SizeID)xr_previous_size;
+      xrandr_set_config( xrandr );
+    }
 #endif
 
   gtk_main_quit ();
@@ -1058,9 +1067,9 @@ gcompris_init (int argc, char *argv[])
     properties->fullscreen = FALSE;
   }
 
-  if (popt_reread_xml){
+  if (popt_reread_menu){
     g_warning("Rebuild db from xml files");
-    properties->reread_xml = TRUE;
+    properties->reread_menu = TRUE;
   }
 
 

@@ -15,17 +15,17 @@ sqlite_ldflags =
 sqlite_cflags =
 endif
 
-if USE_CAIRO
-cairo_ldflags = $(CAIRO_LIBS)
-cairo_cflags = $(CAIRO_CFLAGS)
-cairo_h = gcompris-cairo.h
-cairo_c = gcompris-cairo.c
-else
-cairo_ldflags =
-cairo_cflags =
-cairo_h =
-cairo_c =
-endif
+#if USE_CAIRO
+#cairo_ldflags = $(CAIRO_LIBS)
+#cairo_cflags = $(CAIRO_CFLAGS)
+#cairo_h = gcompris-cairo.h
+#cairo_c = gcompris-cairo.c
+#else
+#cairo_ldflags =
+#cairo_cflags =
+#cairo_h =
+#cairo_c =
+#endif
 
 if PLATFORM_WIN32
 no_undefined = -no-undefined

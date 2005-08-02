@@ -395,14 +395,29 @@ gboolean get_board_paused(void)
   return bp_data->paused;
 }
 
+static GcomprisBoard *next_board = NULL;
+static gint next_board_callback_id = 0;
+#define NEXT_TIME_DELAY 10
+
+void board_run_next_end()
+{
+  gtk_timeout_remove(next_board_callback_id);
+  next_board_callback_id = 0;
+
+  if (next_board->previous_board->plugin->end_board)
+    next_board->previous_board->plugin->end_board();
+
+  board_play(next_board);
+}
+
 void board_run_next(GcomprisBoard *board)
 {
-
   board->previous_board = get_current_gcompris_board();
-  if (board->previous_board->plugin->end_board)
-    board->previous_board->plugin->end_board();
 
-  board_play(board);
+  next_board = board;
+
+  next_board_callback_id = gtk_timeout_add (NEXT_TIME_DELAY, (GtkFunction) board_run_next_end, NULL);
+	
 }
 
 

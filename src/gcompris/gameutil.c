@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/07/22 01:21:03 yves>
+ * Time-stamp: <2005/08/01 20:40:15 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -820,7 +820,7 @@ void gcompris_load_menus()
     return;
   }
 
-  if ((!properties->reread_xml) && gcompris_db_check_boards()){
+  if ((!properties->reread_menu) && gcompris_db_check_boards()){
     boards_list = gcompris_load_menus_db(boards_list);
 
     if (!properties->administration){
@@ -839,7 +839,7 @@ void gcompris_load_menus()
     }
   }
   else {
-    properties->reread_xml = TRUE;
+    properties->reread_menu = TRUE;
     gcompris_load_menus_dir(properties->package_data_dir, TRUE);
     GDate *today = g_date_new();
     g_date_set_time (today, time (NULL));

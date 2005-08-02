@@ -663,6 +663,24 @@ py_gcompris_get_properties(PyObject* self, PyObject* args)
   return gcompris_new_pyGcomprisPropertiesObject(result);
 }
 
+/* GcomprisBoard *gcompris_get_board_from_section(gchar *section); */
+static PyObject*
+py_gcompris_get_board_from_section(PyObject* self, PyObject* args)
+{
+  GcomprisBoard* result;
+  gchar *section;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "s:gcompris_get_board_from_section", &section))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gcompris_get_board_from_section(section);
+
+  /* Create and return the result */
+  return gcompris_new_pyGcomprisBoardObject(result);
+}
+
 
 /* Code stolen from PyGTK */
 /* This bindings are available only in pygtk 2.6, a little bit too young for us. */
@@ -1193,6 +1211,7 @@ static PyMethodDef PythonGcomprisModule[] = {
     METH_VARARGS, "gcompris_file_selector_stop" },
   { "get_database",  py_gcompris_get_database, METH_VARARGS, "gcompris_get_database" },
   { "get_properties",  py_gcompris_get_properties, METH_VARARGS, "gcompris_get_properties" },
+  { "get_board_from_section",  py_gcompris_get_board_from_section, METH_VARARGS, "gcompris_get_board_from_section" },
   { "spawn_async",  py_gcompris_spawn_async, METH_VARARGS|METH_KEYWORDS, "gcompris_spawn_sync" },
   { "child_watch_add",  py_gcompris_child_watch_add, METH_VARARGS|METH_KEYWORDS, "gcompris_child_watch_add" },
   { "get_board_conf",  py_gcompris_get_board_conf, METH_VARARGS, "gcompris_get_board_conf" },

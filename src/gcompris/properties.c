@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/07/24 23:49:10 bruno>
+ * Time-stamp: <2005/08/02 20:41:57 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -142,6 +142,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->fx		 = 1;
   tmp->screensize	 = 1;
   tmp->fullscreen	 = 1;
+  tmp->noxrandr		 = FALSE;
   tmp->timer		 = 1;
   tmp->skin		 = "babytoy";
   tmp->key		 = "default";
@@ -156,7 +157,7 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->logged_user       = NULL;
   tmp->database          = get_default_database_name();
   tmp->administration    = FALSE;
-  tmp->reread_xml        = FALSE;
+  tmp->reread_menu       = FALSE;
 
   gcompris_user_dir = get_gcompris_user_root_directory() ;
 
@@ -213,6 +214,9 @@ GcomprisProperties *gcompris_properties_new ()
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "fullscreen")) {
 	  if(!scan_get_int(scanner, &tmp->fullscreen))
+	    g_warning("Config file parsing error on token %s", token);
+	} else if(!strcmp(value.v_identifier, "noxrandr")) {
+	  if(!scan_get_int(scanner, &tmp->noxrandr))
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "timer")) {
 	  if(!scan_get_int(scanner, &tmp->timer))
@@ -316,6 +320,7 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=%d\n", "fx",			props->fx);
   fprintf(filefd, "%s=%d\n", "screensize",		props->screensize);
   fprintf(filefd, "%s=%d\n", "fullscreen",		props->fullscreen);
+  fprintf(filefd, "%s=%d\n", "noxrandr",		props->noxrandr);
   fprintf(filefd, "%s=%d\n", "timer",			props->timer);
   fprintf(filefd, "%s=%d\n", "difficulty_filter",	props->difficulty_filter);
   fprintf(filefd, "%s=%d\n", "filter_style",		props->filter_style);

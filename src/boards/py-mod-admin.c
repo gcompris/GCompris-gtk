@@ -29,7 +29,6 @@ py_board_run_next (PyObject* self, PyObject* args)
   /* Create and return the result */
   Py_INCREF(Py_None);
   return Py_None;
-
 }
 
 static PyObject*

@@ -55,6 +55,7 @@ xml_in_files = \
 	imageid.xml.in \
 	imagename.xml.in \
 	leftright.xml.in \
+	login.xml.in \
 	maze.xml.in \
 	maze2DRelative.xml.in \
 	maze3D.xml.in \

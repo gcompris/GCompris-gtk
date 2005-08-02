@@ -1,3 +1,40 @@
+2005-08-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixes several issue in src/boards/python.c. No more craches.
+	- Prepared the login screen but empty for now
+	- Renamed reread_xml by reread_menu
+	- Now the noxrandr param is 'almost' persistant in the config file
+	  'almost' because until you enter and quit the gcompris config
+	  panel, it is not saved. This is very dangerous becaus after that
+	  there is no way to put back xrander in since there is no --withxrandr
+	  switch. 
+	  WARNING: This need more works !!
+	
+	* boards/login.xml.in:
+	* src/boards/python/login.py: Empty and unused for now
+	* boards/Makefile.am:
+	* boards/music/background/BachJSBrandenburgConcertNo2inFMajorBWV104
+	7mvmt1.ogg:
+	* boards/music/background/Bach_JS__Brandenburg_Concert_No_2_in_F_Ma
+	jor_BWV_1047_mvmt1.ogg:
+	* configure.in:
+	* po/Makefile.in.in:
+	* po/POTFILES.in:
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/py-mod-admin.c: (py_board_run_next):
+	* src/boards/py-mod-gcompris.c:
+	(py_gcompris_get_board_from_section):
+	* src/boards/python.c: (get_pythonboards_list), (pythonboard_init):
+	* src/boards/python/Makefile.am:
+	* src/gcompris/Makefile.am:
+	* src/gcompris/board.c: (board_run_next_end), (board_run_next):
+	* src/gcompris/gameutil.c: (gcompris_load_menus):
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_init):
+	* src/gcompris/properties.c: (gcompris_properties_new),
+	(gcompris_properties_save):
+	* src/gcompris/properties.h:
+
 2005-07-31  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Hopefully completed the user/group/profile edition.

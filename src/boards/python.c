@@ -56,28 +56,28 @@ static gboolean  pythonboard_is_ready = FALSE;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
-{
-   NULL,
-   NULL,
-   N_("Python Board"),
-   N_("Special board that embeds python into gcompris."),
-   "Olivier Samyn <osamyn@ulb.ac.be>",
-   pythonboard_init,
-   NULL,
-   NULL,
-   NULL,
-   pythonboard_start,
-   pythonboard_pause,
-   pythonboard_end,
-   pythonboard_is_our_board,
-   pythonboard_key_press,
-   pythonboard_ok,
-   pythonboard_set_level,
-   pythonboard_config,
-   pythonboard_repeat,
-   pythonboard_config_start,
-   pythonboard_config_stop
-};
+  {
+    NULL,
+    NULL,
+    N_("Python Board"),
+    N_("Special board that embeds python into gcompris."),
+    "Olivier Samyn <osamyn@ulb.ac.be>",
+    pythonboard_init,
+    NULL,
+    NULL,
+    NULL,
+    pythonboard_start,
+    pythonboard_pause,
+    pythonboard_end,
+    pythonboard_is_our_board,
+    pythonboard_key_press,
+    pythonboard_ok,
+    pythonboard_set_level,
+    pythonboard_config,
+    pythonboard_repeat,
+    pythonboard_config_start,
+    pythonboard_config_stop
+  };
 
 static BoardPlugin *bp_board = NULL;
 
@@ -95,7 +95,8 @@ GET_BPLUGIN_INFO(python)
 
 static GList *config_boards= NULL;
 
-GList *get_pythonboards_list()
+GList *
+get_pythonboards_list()
 {
   GList *pythonboards_list = NULL;
   GList *boards_list = gcompris_get_boards_list();
@@ -127,14 +128,8 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
   PyObject* py_boardclass_args;
   PyObject* py_config_start;
 
-  GcomprisBoard *board;
-  GList *list;
-
-
   if (pythonboard_is_ready)
     return ;
-
-  config_boards = get_pythonboards_list();
 
   /* Initialize the python interpreter */
   Py_Initialize();
@@ -153,7 +148,7 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 #ifndef DISABLE_USER_PLUGIN_DIR
     userplugindir = g_strconcat(g_get_home_dir(), "/.gcompris/Plugins/", NULL);
     execstr = g_strdup_printf("import sys; sys.path.append('%s/python'); sys.path.append('%s')",
-      userplugindir, PYTHON_PLUGIN_DIR);
+			      userplugindir, PYTHON_PLUGIN_DIR);
     g_free(userplugindir);
 #else
     execstr = g_strdup_printf("import sys; sys.path.append('%s')",PYTHON_PLUGIN_DIR );
@@ -188,42 +183,48 @@ pythonboard_init (GcomprisBoard *agcomprisBoard){
 	  if(PyRun_SimpleString(execstr)!=0){
 	    pythonboard_is_ready = FALSE;
 	    g_warning("! Python disabled: Cannot import gcompris modules\n");
-	  }
-	  else {
-	  /* Load the gcompris modules */
-	  python_gcompris_module_init();
-	  
+	  } else {
+	    GList *python_boards;
+	    GList *list;
 
-	  list = config_boards;
-	  
-	  while (list != NULL){
-	    board = (GcomprisBoard *) list->data;
+	    /* Load the gcompris modules */
+	    python_gcompris_module_init();
 
-	    /* Python is now initialized we create some usefull variables */
-	    board_file_name = strchr(board->type, ':')+1;
-	    boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
-	  
-	    /* Insert the board module into the python's interpreter */
-	    python_board_module = PyImport_ImportModuleEx(board_file_name,
-							  globals,
-							  globals,
-							  NULL);
+	    /* Get the list of python boards */
+	    python_boards = get_pythonboards_list();
 
-	    if(python_board_module!=NULL){
-	      //printf("init: python_board_module ok \n");
-	      /* Get the module dictionnary */
-	      module_dict = PyModule_GetDict(python_board_module);
+	    /* Search in the list each one with a config entry */
+	    for(list = python_boards; list != NULL; list = list->next) {
+	      GcomprisBoard *board = (GcomprisBoard *) list->data;
+
+	      /* Python is now initialized we create some usefull variables */
+	      board_file_name = strchr(board->type, ':')+1;
+	      boardclass = g_strdup_printf("Gcompris_%s", board_file_name);
+	  
+	      /* Insert the board module into the python's interpreter */
+	      python_board_module = PyImport_ImportModuleEx(board_file_name,
+							    globals,
+							    globals,
+							    NULL);
+
+	      if(python_board_module!=NULL){
+		/* Get the module dictionnary */
+		module_dict = PyModule_GetDict(python_board_module);
 	      
-	      /* Get the python board class */
-	      py_boardclass = PyDict_GetItemString(module_dict, boardclass);
-      
-	      list = list->next;
-	      if (!PyObject_HasAttrString( py_boardclass, "config_start")){
-		config_boards = g_list_remove(config_boards, board);
-		g_free(boardclass);
+		/* Get the python board class */
+		py_boardclass = PyDict_GetItemString(module_dict, boardclass);
+
+		if (PyObject_HasAttrString( py_boardclass, "config_start")) {
+		  config_boards = g_list_append(config_boards, board);
+		  g_warning("The board '%s' has a configuration entry", 
+			    board_file_name);
+		}
 	      }
+
+	      g_free(boardclass);
 	    }
-	  }
+
+	    g_list_free(python_boards);
 	  }
 	}
       }
