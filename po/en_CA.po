@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-31 00:51-0400\n"
-"PO-Revision-Date: 2005-07-31 22:51-0400\n"
+"POT-Creation-Date: 2005-08-03 15:53-0400\n"
+"PO-Revision-Date: 2005-08-03 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2192,6 +2192,44 @@ msgstr "flag"
 #: boards/imagename/board6_0.xml.in.h:6
 msgid "racket"
 msgstr "racket"
+
+#: boards/login.xml.in.h:1
+msgid ""
+"By identifying in GCompris, we are able to provide specific reporting for "
+"each kids."
+msgstr ""
+"By identifying in GCompris, we are able to provide specific reporting for "
+"each kids."
+
+#: boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "GCompris login screen"
+
+#: boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access the administration part by running 'gcompris -a'.\n"
+"In the administration, you can create different profiles. In each profiles\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"where 'profile'\n"
+"is the name of a profile as you created it in the administration."
+msgstr ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access the administration part by running 'gcompris -a'.\n"
+"In the administration, you can create different profiles. In each profiles\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"where 'profile'\n"
+"is the name of a profile as you created it in the administration."
+
+#: boards/login.xml.in.h:10
+msgid "Select or enter your name to log in GCompris"
+msgstr "Select or enter your name to log in GCompris"
 
 #: boards/leftright.xml.in.h:1
 msgid ""
@@ -4470,7 +4508,7 @@ msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all availaible profiles. Use 'gcompris -a' to create profiles"
 
-#: src/gcompris/gcompris.c:661
+#: src/gcompris/gcompris.c:668
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4492,7 +4530,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:928
+#: src/gcompris/gcompris.c:937
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4506,17 +4544,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:996
+#: src/gcompris/gcompris.c:1005
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Use -l activity to access directly to activity.\n"
 
-#: src/gcompris/gcompris.c:997
+#: src/gcompris/gcompris.c:1006
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris.c:1095
+#: src/gcompris/gcompris.c:1104
 #, c-format
 msgid "List of available profiles are:\n"
 msgstr "List of available profiles is:\n"
