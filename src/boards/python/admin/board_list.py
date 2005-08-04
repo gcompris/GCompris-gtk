@@ -58,6 +58,9 @@ class Board_list:
 
       self.out_dict = self.get_boards_out_by_profile()
 
+
+      self.difficulty = [1, 6]
+
       #print out_dict
 
       # Main box is vertical
@@ -137,12 +140,12 @@ class Board_list:
       box3.pack_start(self.button_filter, False, False, 0)
 
       self.button_select_all = gtk.Button(_('Select all'))
-      self.button_select_all.connect("clicked", self.select_all_boards)
+      self.button_select_all.connect("clicked", self.select_all_boards, True)
       self.button_select_all.show()
       box3.pack_start(self.button_select_all, False, False, 0)
 
       self.button_unselect_all = gtk.Button(_('Unselect all'))
-      self.button_unselect_all.connect("clicked", self.unselect_all_boards)
+      self.button_unselect_all.connect("clicked", self.select_all_boards, False)
       self.button_unselect_all.show()
       box3.pack_start(self.button_unselect_all, False, False, 0)
 
@@ -277,6 +280,12 @@ class Board_list:
     model[path][2] = not model[path][2]
 
     if model[path][2]:
+      self.update_parent(model[path].parent)
+    
+    self.update_selected(model, path)
+
+  def update_selected(self, model, path):
+    if model[path][2]:
       self.cur.execute('DELETE FROM activities_out WHERE board_id=%d AND out_id=%d' % (
         self.board_dict[model[path][3]].board_id,
                                                                                        self.active_profile.profile_id
@@ -344,17 +353,179 @@ class Board_list:
       self.button_configure.set_sensitive(False)
 
   def configure_board(self, button):
-    print 'Oui, Oui un de ces jours ça va lancer la conf de ', self.selected_board.title
     gcompris.admin.board_config_start(self.selected_board,
                                       self.active_profile)
-#    gcompris.admin.board_config_stop(self.selected_board)
+    #unused
+    #gcompris.admin.board_config_stop(self.selected_board)
+
+  def select_all_boards(self, button, Value):
+    self.model.foreach(self.update_all, Value)
+  
+  def update_all(self, model, path, iter, Value):
+    model[path][2] = Value
+
+    self.update_selected( model, path)
+
 
   def filter_boards(self, button):
-    pass
+    window = gtk.Window()
+    window.set_title(_("Filter Boards difficulty for profile %s") % (self.active_profile.name))
+    window.set_border_width(8)
+    window.set_default_size(320, 350)
+    window.set_transient_for(self.frame.get_toplevel())
+    window.set_modal(True)
+    window.show()
+    
+    button_close = gtk.Button(stock=gtk.STOCK_CLOSE)
+    button_close.connect("clicked", self.filter_close, window)
+    button_close.show()
+    
+    button_apply = gtk.Button(stock=gtk.STOCK_APPLY)
+    button_apply.connect("clicked", self.filter_apply)
+    button_apply.show()
 
-  def select_all_boards(self, button):
-    pass
+    main_box = gtk.VBox(False, 8)
+    main_box.show()
+    window.add(main_box) 
+    
+    box_bottom = gtk.HBox(False, 0)
+    box_bottom.show()
+    main_box.pack_end(box_bottom, False, False, 0)
 
-  def unselect_all_boards(self, button):
-    pass
-  
+    box_bottom.pack_end(button_close, False, False, 0)
+    box_bottom.pack_start(button_apply, False, False, 0)
+
+    symbols_box = gtk.HBox(False, 0)
+    symbols_box.show()
+    main_box.pack_start(symbols_box, False, False, 0)
+
+    arrows_box = gtk.HBox(False, 0)
+    arrows_box.show()
+    main_box.pack_start(arrows_box, False, False, 0)
+
+    self.stars = {}
+    
+    for i in range(1,7):
+      self.stars[i] = gtk.Image()
+      self.stars[i].set_from_pixbuf(gcompris.skin.load_pixmap('difficulty_star%d.png' % (i)))
+      self.stars[i].show()
+      symbols_box.pack_start(self.stars[i], False, False, 0)
+
+    self.arrows = {}
+
+    self.arrows[1] = self.create_arrow_button(gtk.ARROW_LEFT, gtk.SHADOW_IN)
+    self.arrows[2] = self.create_arrow_button(gtk.ARROW_RIGHT, gtk.SHADOW_IN)
+    self.arrows[3] = self.create_arrow_button(gtk.ARROW_LEFT, gtk.SHADOW_IN)
+    self.arrows[4] = self.create_arrow_button(gtk.ARROW_RIGHT, gtk.SHADOW_IN)
+
+    arrows_box.pack_start(self.arrows[1], False, False, 3)
+    arrows_box.pack_start(self.arrows[2], False, False, 3)
+    arrows_box.pack_end(self.arrows[4], False, False, 3)
+    arrows_box.pack_end(self.arrows[3], False, False, 3)
+
+    for i in range (1,5):
+      self.arrows[i].connect("clicked", self.arrow_clicked, i)
+
+    self.update_arrows_active()
+    
+  def filter_close(self, button, window):
+    window.destroy()
+
+  def create_arrow_button(self, arrow_type, shadow_type):
+    button = gtk.Button();
+    arrow = gtk.Arrow(arrow_type, shadow_type);
+    button.add(arrow)
+    button.show()
+    arrow.show()
+    return button
+
+  def update_arrows_active(self):
+    if self.difficulty[0] == 1:
+      self.arrows[1].set_sensitive(False)
+    else:
+      self.arrows[1].set_sensitive(True)
+
+    if self.difficulty[1] == 6:
+      self.arrows[4].set_sensitive(False)
+    else:
+      self.arrows[4].set_sensitive(True)
+
+    if self.difficulty[1] == 1:
+      self.arrows[3].set_sensitive(False)
+    else:
+      self.arrows[3].set_sensitive(True)
+
+    if self.difficulty[0] == 6:
+      self.arrows[2].set_sensitive(False)
+    else:
+      self.arrows[2].set_sensitive(True)
+
+    if self.difficulty[0] == self.difficulty[1]:
+      self.arrows[2].set_sensitive(False)
+      self.arrows[3].set_sensitive(False)
+
+    for i in range(1,7):
+      if i in range( self.difficulty[0], self.difficulty[1]+1):
+        self.stars[i].set_sensitive(True)
+      else:
+        self.stars[i].set_sensitive(False)
+
+
+  def arrow_clicked(self, arrow, i):
+    if i < 3:
+      value = 0
+      limits = [1, self.difficulty[1]]
+    else:
+      value = 1
+      limits = [self.difficulty[0], 6]
+
+    if (i % 2 == 0):
+      if self.difficulty[value] == limits[1]:
+        return
+      else:
+        self.difficulty[value] = self.difficulty[value] + 1
+    else:
+      if self.difficulty[value] == limits[0]:
+        return
+      else:
+        self.difficulty[value] = self.difficulty[value] - 1
+
+    self.update_arrows_active()
+
+
+
+  def filter_apply(self, button):
+    self.model.foreach(self.blank)
+    self.model.foreach(self.board_filter)
+
+  def board_filter(self,  model, path, iter):
+    if self.board_dict[model[path][3]].type != "menu":
+      model[path][2] = ( eval(self.board_dict[model[path][3]].difficulty) \
+                         in range( self.difficulty[0],
+                                   self.difficulty[1]+1))
+
+    print self.board_dict[model[path][3]].name, self.board_dict[model[path][3]].difficulty, self.difficulty, model[path][2]
+
+    if model[path][2]:
+      self.update_parent(model[path].parent)
+      
+    self.update_selected( model, path)
+
+
+  def blank(self,  model, path, iter):
+    model[path][2] = False
+
+  def update_parent( self, row):
+    if row == None:
+      return
+
+    if row[2]:
+      return
+
+    row[2] = True
+
+    self.update_parent( row.parent)
+
+    self.update_selected(row.model, row.path)
+
+    
