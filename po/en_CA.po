@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-03 15:53-0400\n"
-"PO-Revision-Date: 2005-08-03 22:51-0400\n"
+"POT-Creation-Date: 2005-08-05 15:50-0400\n"
+"PO-Revision-Date: 2005-08-05 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -3461,27 +3461,27 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
-#: src/boards/python/admin/board_list.py:82
+#: src/boards/python/admin/board_list.py:85
 msgid "Select a profile:"
 msgstr "Select a profile:"
 
-#: src/boards/python/admin/board_list.py:134
+#: src/boards/python/admin/board_list.py:137
 msgid "Filter"
 msgstr "Filter"
 
-#: src/boards/python/admin/board_list.py:139
+#: src/boards/python/admin/board_list.py:142
 msgid "Select all"
 msgstr "Select all"
 
-#: src/boards/python/admin/board_list.py:144
+#: src/boards/python/admin/board_list.py:147
 msgid "Unselect all"
 msgstr "Unselect all"
 
-#: src/boards/python/admin/board_list.py:202
+#: src/boards/python/admin/board_list.py:205
 msgid "Main menu"
 msgstr "Main menu"
 
-#: src/boards/python/admin/board_list.py:202
+#: src/boards/python/admin/board_list.py:205
 msgid "/"
 msgstr "/"
 
@@ -3490,13 +3490,18 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: src/boards/python/admin/board_list.py:259
+#: src/boards/python/admin/board_list.py:262
 msgid "Active"
 msgstr "Active"
 
-#: src/boards/python/admin/board_list.py:260
+#: src/boards/python/admin/board_list.py:263
 msgid "Board title"
 msgstr "Board title"
+
+#: src/boards/python/admin/board_list.py:372
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr "Filter Boards difficulty for profile %s"
 
 #: src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
