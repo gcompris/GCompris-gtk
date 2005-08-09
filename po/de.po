@@ -3,6 +3,9 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
+# translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -15,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-28 17:54+0200\n"
-"PO-Revision-Date: 2005-07-28 18:09+0200\n"
+"POT-Creation-Date: 2005-08-09 12:12+0200\n"
+"PO-Revision-Date: 2005-08-09 12:53+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2220,6 +2223,35 @@ msgstr "Flagge"
 msgid "racket"
 msgstr "Schläger"
 
+#: ../boards/login.xml.in.h:1
+msgid ""
+"By identifying in GCompris, we are able to provide specific reporting for "
+"each kids."
+msgstr "Durch die Identifizierung in GCompris kann für jedes Kind ein spezieller Bericht erstellt werden."
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "GCompris-Anmeldung"
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access the administration part by running 'gcompris -a'.\n"
+"In the administration, you can create different profiles. In each profiles\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"where 'profile'\n"
+"is the name of a profile as you created it in the administration."
+msgstr ""
+"Um den Anmelde-Bildschirm zu aktivieren, müssen Sie zuerst Benutzer in der GCompris-Administration hinzufügen. Sie können die Administration durch Aufruf von \"gcompris -a\" starten. Dort können Sie verschiedene Profile anlegen. Zu jedem Profil können Sie Benutzer hinzufügen und festlegen, welche Aktivitäten ihnen zur Verfügung stehen. "
+"Um GCompris mit einem bestimmten Profil zu starten, rufen Sie \"gcompris -p Profil\" auf, wobei \"Profil\" der Name des Profiles ist, den Sie in der Administration erstellt haben."
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in GCompris"
+msgstr "Wähle deinen Namen aus oder gib ihn ein, um dich bei GCompris anzumelden"
+
 #: ../boards/leftright.xml.in.h:1
 msgid ""
 "A hand is shown. Determine if it is a right or left hand. Click on the red "
@@ -2429,9 +2461,7 @@ msgstr ""
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-msgstr ""
-"Das Ziel von GCompris besteht darin, eine freie Alternative zu proprietärer "
-"Edutainment Software zu bieten."
+msgstr "Das Ziel von GCompris besteht darin, eine freie Alternative zu proprietären Lernprogrammen zu bieten."
 
 #: ../boards/missing_letter.xml.in.h:1
 msgid ""
@@ -3485,27 +3515,27 @@ msgstr "Python Tafel"
 msgid "Special board that embeds python into gcompris."
 msgstr "Spezial-Tafel, die Python in gcompris einbettet."
 
-#: ../src/boards/python/admin/board_list.py:82
+#: ../src/boards/python/admin/board_list.py:85
 msgid "Select a profile:"
 msgstr "Wählen Sie ein Profil"
 
-#: ../src/boards/python/admin/board_list.py:134
+#: ../src/boards/python/admin/board_list.py:137
 msgid "Filter"
 msgstr "Filter"
 
-#: ../src/boards/python/admin/board_list.py:139
+#: ../src/boards/python/admin/board_list.py:142
 msgid "Select all"
 msgstr "Alle auswählen"
 
-#: ../src/boards/python/admin/board_list.py:144
+#: ../src/boards/python/admin/board_list.py:147
 msgid "Unselect all"
 msgstr "Keine auswählen"
 
-#: ../src/boards/python/admin/board_list.py:202
+#: ../src/boards/python/admin/board_list.py:205
 msgid "Main menu"
 msgstr "Hauptmenü"
 
-#: ../src/boards/python/admin/board_list.py:202
+#: ../src/boards/python/admin/board_list.py:205
 msgid "/"
 msgstr "/"
 
@@ -3514,55 +3544,70 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:259
+#: ../src/boards/python/admin/board_list.py:262
 msgid "Active"
 msgstr "Aktiv"
 
-#: ../src/boards/python/admin/board_list.py:260
+#: ../src/boards/python/admin/board_list.py:263
 msgid "Board title"
 msgstr "Titel der Tafel"
 
-#: ../src/boards/python/admin/class_edit.py:58
+#: ../src/boards/python/admin/board_list.py:372
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr "Filter Tafel-Schwierigkeit für Profil %s"
+
+#: ../src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
 msgstr "Klassenbearbeitung"
 
-#: ../src/boards/python/admin/class_edit.py:63
+#: ../src/boards/python/admin/class_edit.py:65
 msgid "Editing class: "
 msgstr "Bearbeite Klasse: "
 
-#: ../src/boards/python/admin/class_edit.py:65
+#: ../src/boards/python/admin/class_edit.py:68
 msgid "Editing a new class"
 msgstr "Neue Klasse bearbeiten"
 
-#: ../src/boards/python/admin/class_edit.py:81
+#: ../src/boards/python/admin/class_edit.py:90
 msgid "Class:"
 msgstr "Klasse:"
 
-#. FIXME: How to remove the selection
+#. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/boards/python/admin/class_edit.py:92
+#: ../src/boards/python/admin/class_edit.py:101
 msgid "Teacher:"
 msgstr "Lehrer:"
 
-#: ../src/boards/python/admin/class_edit.py:102
+#: ../src/boards/python/admin/class_edit.py:111
 msgid "Assign all the users bellonging to this class"
 msgstr "Weise alle Benutzer dieser Klasse hinzu"
 
-#: ../src/boards/python/admin/class_edit.py:242
-#: ../src/boards/python/admin/group_edit.py:224
-#: ../src/boards/python/admin/group_user_list.py:166
-#: ../src/boards/python/admin/user_list.py:195
+#: ../src/boards/python/admin/class_edit.py:251
+#: ../src/boards/python/admin/group_edit.py:264
+#: ../src/boards/python/admin/group_user_list.py:162
+#: ../src/boards/python/admin/user_list.py:196
 msgid "First Name"
 msgstr "Vorname"
 
-#: ../src/boards/python/admin/class_edit.py:253
-#: ../src/boards/python/admin/group_edit.py:235
-#: ../src/boards/python/admin/group_user_list.py:177
-#: ../src/boards/python/admin/user_list.py:205
+#: ../src/boards/python/admin/class_edit.py:262
+#: ../src/boards/python/admin/group_edit.py:275
+#: ../src/boards/python/admin/group_user_list.py:172
+#: ../src/boards/python/admin/user_list.py:206
 msgid "Last Name"
 msgstr "Nachname"
 
+#: ../src/boards/python/admin/class_edit.py:381
+msgid "You need to provide at least a name for your class"
+msgstr "Sie müssen einen Namen für Ihre Klasse angeben"
+
+#: ../src/boards/python/admin/class_edit.py:403
+msgid "There is already a class with this name"
+msgstr "Es gibt bereits eine Klasse mit diesem Namen"
+
 #: ../src/boards/python/admin/class_list.py:170
+#: ../src/boards/python/admin/profile_edit.py:269
+#: ../src/boards/python/admin/profile_group_list.py:159
 msgid "Class"
 msgstr "Klasse"
 
@@ -3570,8 +3615,7 @@ msgstr "Klasse"
 msgid "Teacher"
 msgstr "Lehrer"
 
-#: ../src/boards/python/admin/group_edit.py:61
-#: ../src/boards/python/admin/profile_edit.py:59
+#: ../src/boards/python/admin/group_edit.py:60
 msgid "Group Edition"
 msgstr "Gruppenbearbeitung"
 
@@ -3583,40 +3627,62 @@ msgstr "Bearbeite Gruppe: "
 msgid " for class: "
 msgstr " für Klasse: "
 
+#: ../src/boards/python/admin/group_edit.py:69
+msgid "Editing a new group"
+msgstr "Bearbeite eine neue Gruppe"
+
+#: ../src/boards/python/admin/group_edit.py:89
+msgid "Group:"
+msgstr "Gruppe:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/group_edit.py:101
+#: ../src/boards/python/admin/profile_edit.py:98
+msgid "Description:"
+msgstr "Beschreibung:"
+
 #. Top message gives instructions
-#: ../src/boards/python/admin/group_edit.py:74
+#: ../src/boards/python/admin/group_edit.py:112
 msgid "Assign all the users bellonging to this group"
 msgstr "Weise alle Benutzer dieser Klasse hinzu"
 
-#: ../src/boards/python/admin/group_list.py:88
+#: ../src/boards/python/admin/group_edit.py:358
+msgid "You need to provide at least a name for your group"
+msgstr "Sie müssen einen Namen für Ihre Gruppe angeben"
+
+#: ../src/boards/python/admin/group_edit.py:370
+msgid "There is already a group with this name"
+msgstr "Es gibt bereits eine Gruppe mit diesem Namen"
+
+#: ../src/boards/python/admin/group_list.py:87
 msgid "Select a class:"
 msgstr "Wähle eine Klasse: "
 
-#: ../src/boards/python/admin/group_list.py:211
-#: ../src/boards/python/admin/module_groups.py:67
-#: ../src/boards/python/admin/profile_edit.py:219
-#: ../src/boards/python/admin/profile_group_list.py:149
+#: ../src/boards/python/admin/group_list.py:215
+#: ../src/boards/python/admin/profile_edit.py:279
+#: ../src/boards/python/admin/profile_group_list.py:169
 msgid "Group"
 msgstr "Gruppe"
 
-#: ../src/boards/python/admin/group_list.py:223
-#: ../src/boards/python/admin/profile_edit.py:230
-#: ../src/boards/python/admin/profile_group_list.py:160
-#: ../src/boards/python/admin/profile_list.py:200
+#: ../src/boards/python/admin/group_list.py:226
+#: ../src/boards/python/admin/profile_edit.py:289
+#: ../src/boards/python/admin/profile_group_list.py:179
+#: ../src/boards/python/admin/profile_list.py:199
 msgid "Description"
 msgstr "Beschreibung"
 
-#: ../src/boards/python/admin/group_list.py:317
+#: ../src/boards/python/admin/group_list.py:321
 msgid "You must first select a group in the list"
 msgstr "Sie müssen zuerst eine Gruppe aus der Liste auswählen"
 
-#: ../src/boards/python/admin/group_user_list.py:155
-#: ../src/boards/python/admin/user_list.py:185
+#: ../src/boards/python/admin/group_user_list.py:152
+#: ../src/boards/python/admin/user_list.py:186
 msgid "Login"
-msgstr "Anmelden"
+msgstr "Kennung"
 
-#: ../src/boards/python/admin/group_user_list.py:188
-#: ../src/boards/python/admin/user_list.py:215
+#: ../src/boards/python/admin/group_user_list.py:182
+#: ../src/boards/python/admin/user_list.py:216
 msgid "Birth Date"
 msgstr "Geburtsdatum"
 
@@ -3626,64 +3692,116 @@ msgid "Boards"
 msgstr "Tafeln"
 
 #: ../src/boards/python/admin/module_groups.py:41
-msgid "Groups list"
-msgstr "Gruppenliste"
+#: ../src/boards/python/admin/module_groups.py:67
+msgid "Groups"
+msgstr "Gruppen"
 
 #: ../src/boards/python/admin/module_profiles.py:41
-msgid "Profiles list"
-msgstr "Profilliste"
-
 #: ../src/boards/python/admin/module_profiles.py:66
-#: ../src/boards/python/admin/profile_list.py:188
-msgid "Profile"
-msgstr "Profil"
+msgid "Profiles"
+msgstr "Profile"
 
 #: ../src/boards/python/admin/module_users.py:42
-msgid "Users list"
-msgstr "Benutzerliste"
-
 #: ../src/boards/python/admin/module_users.py:68
 msgid "Classes"
 msgstr "Klassen"
 
+#: ../src/boards/python/admin/module_users.py:42
 #: ../src/boards/python/admin/module_users.py:68
 msgid "Users"
 msgstr "Benutzer"
 
-#: ../src/boards/python/admin/profile_edit.py:63
+#: ../src/boards/python/admin/profile_edit.py:59
+msgid "Profile Edition"
+msgstr "Profilbearbeitung"
+
+#: ../src/boards/python/admin/profile_edit.py:64
 msgid "Editing profile: "
 msgstr "Bearbeite Profil: "
 
+#: ../src/boards/python/admin/profile_edit.py:67
+msgid "Editing a new profile"
+msgstr "Bearbeite ein neues Profil"
+
+#: ../src/boards/python/admin/profile_edit.py:86
+msgid "Profile:"
+msgstr "Profil:"
+
 #. Top message gives instructions
-#: ../src/boards/python/admin/profile_edit.py:71
+#: ../src/boards/python/admin/profile_edit.py:109
 msgid "Assign all the groups bellonging to this profile"
 msgstr "Weise alle Gruppen dieses Profils zu"
 
-#: ../src/boards/python/admin/profile_list.py:129
+#: ../src/boards/python/admin/profile_edit.py:377
+msgid "You need to provide at least a name for your profile"
+msgstr "Sie müssen einen Namen für Ihr Profil angeben"
+
+#: ../src/boards/python/admin/profile_edit.py:399
+msgid "There is already a profile with this name"
+msgstr "Es gibt bereits ein Profil mit diesem Namen"
+
+#: ../src/boards/python/admin/profile_list.py:122
 msgid "Default"
 msgstr "Standard"
 
-#: ../src/boards/python/admin/profile_list.py:256
-msgid "You cannot remove the default profile"
-msgstr "Sie können das Standardprofil nicht löschen"
+#: ../src/boards/python/admin/profile_list.py:189
+msgid "Profile"
+msgstr "Profil"
 
-#: ../src/boards/python/admin/profile_list.py:309
-msgid "You must first select a profile in the list"
-msgstr "Sie müssen zuerst ein Profil aus der Liste auswählen"
-
-#: ../src/boards/python/admin/profile_list.py:336
+#: ../src/boards/python/admin/profile_list.py:316
 msgid "[Default]"
 msgstr "[Standard]"
 
-#: ../src/boards/python/admin/user_list.py:283
+#: ../src/boards/python/admin/user_edit.py:50
+msgid "User Edition"
+msgstr "Benutzerbearbeitung"
+
+#: ../src/boards/python/admin/user_edit.py:55
+msgid "Editing user "
+msgstr "Bearbeite Benutzer "
+
+#: ../src/boards/python/admin/user_edit.py:60
+msgid "Editing a new user"
+msgstr "Neuen Benutzer bearbeiten"
+
+#: ../src/boards/python/admin/user_edit.py:77
+msgid "Login:"
+msgstr "Kennung:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/user_edit.py:88
+msgid "First name:"
+msgstr "Vorname:"
+
+#. Label and Entry for the last name
+#: ../src/boards/python/admin/user_edit.py:97
+msgid "Last name:"
+msgstr "Nachname:"
+
+#. Label and Entry for the birth date
+#: ../src/boards/python/admin/user_edit.py:106
+msgid "Birth date:"
+msgstr "Geburtsdatum:"
+
+#: ../src/boards/python/admin/user_edit.py:158
+msgid "You need to provide at least a login, firstname and lastname for your users"
+msgstr "Sie müssen für Ihre Benutzer mindestens eine Kennung, den Vornamen und den Nachnamen angeben"
+
+#: ../src/boards/python/admin/user_edit.py:171
+msgid "There is already a user with this login"
+msgstr "Es gibt bereits einen Benutzer mit dieser Kennung"
+
+#: ../src/boards/python/admin/user_list.py:291
 msgid ""
-"To import a user list from file, first select a class.\\FILE FORMAT: Your "
-"file must be formated like this:\n"
+"To import a user list from file, first select a class.\n"
+"FILE FORMAT: Your file must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
-"Um eine Benutzerliste aus einer Datei zu importieren, wählen Sie zuerst die Klasse aus. \\DATEI FORMAT: Ihre Datei muss folgendermassen formatiert sein:\n"
-"Anmeldung; Vorname; Nachname; Geburtsdatum\n"
+"Um eine Benutzerliste aus einer Datei zu importieren, wählen Sie zuerst die Klasse aus.\n"
+"DATEI FORMAT: Ihre Datei muss folgendermassen formatiert sein:\n"
+"Kennung; Vorname; Nachname; Geburtsdatum\n"
 "Das Trennzeichen wird automatisch erkannt und kann ',', ';' oder ':' sein."
 
 #: ../src/boards/python/anim.py:59
@@ -4449,14 +4567,14 @@ msgid "Re-read XML Menus and store them in the database"
 msgstr "XML-Menüs erneut einlesen und in der Datenbank abspeichern"
 
 #: ../src/gcompris/gcompris.c:135
-msgid "Set the profile to use. Use 'gcompris -e' to create profiles"
-msgstr "Wählen Sie das zu verwendende Profil aus. Verwenden Sie 'gcompris -e', um Profile anzulegen"
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr "Wählen Sie das zu verwendende Profil aus. Verwenden Sie 'gcompris -a', um Profile anzulegen."
 
 #: ../src/gcompris/gcompris.c:137
-msgid "List all availaible profiles. Use 'gcompris -e' to create profiles"
-msgstr "Alle verfügbaren Profile anzeigen. Verwenden Sie 'gcompris -e', um Profile anzulegen"
+msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
+msgstr "Alle verfügbaren Profile anzeigen. Verwenden Sie 'gcompris -a', um Profile anzulegen."
 
-#: ../src/gcompris/gcompris.c:661
+#: ../src/gcompris/gcompris.c:668
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4479,7 +4597,7 @@ msgstr ""
 "Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:928
+#: ../src/gcompris/gcompris.c:937
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4493,17 +4611,17 @@ msgstr ""
 "Mehr Informationen unter http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:996
+#: ../src/gcompris/gcompris.c:1005
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Verwenden Sie -l Aktivität, um direkt auf die Aktivität zuzugreifen.\n"
 
-#: ../src/gcompris/gcompris.c:997
+#: ../src/gcompris/gcompris.c:1006
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Liste der verfügbaren Aktivitäten:\n"
 
-#: ../src/gcompris/gcompris.c:1095
+#: ../src/gcompris/gcompris.c:1104
 #, c-format
 msgid "List of available profiles are:\n"
 msgstr "Liste der verfügbaren Profile:\n"
@@ -4553,7 +4671,9 @@ msgstr "Keine Klasse %d"
 #: ../src/gcompris/gcompris_db.c:1080
 #, c-format
 msgid "No groups in for class %s, there must be at least one for whole class (%d)"
-msgstr "Keine Gruppe für Klasse %s, es muss mindestens eine für die ganze Klasse geben (%d)"
+msgstr ""
+"Keine Gruppe für Klasse %s, es muss mindestens eine für die ganze Klasse "
+"geben (%d)"
 
 #: ../src/gcompris/gcompris_db.c:1404
 #, c-format
