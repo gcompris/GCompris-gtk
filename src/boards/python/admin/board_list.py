@@ -281,6 +281,13 @@ class Board_list:
 
     if model[path][2]:
       self.update_parent(model[path].parent)
+    else:
+      self.check_parent_active(model[path].parent)
+
+    try:
+      self.update_child(model[path].iterchildren().next(), model[path][2])
+    except StopIteration:
+      pass
     
     self.update_selected(model, path)
 
@@ -470,7 +477,6 @@ class Board_list:
       else:
         self.stars[i].set_sensitive(False)
 
-
   def arrow_clicked(self, arrow, i):
     if i < 3:
       value = 0
@@ -492,12 +498,11 @@ class Board_list:
 
     self.update_arrows_active()
 
-
-
   def filter_apply(self, button):
     self.model.foreach(self.blank)
     self.model.foreach(self.board_filter)
 
+  # Apply the filter as asked.
   def board_filter(self,  model, path, iter):
     if self.board_dict[model[path][3]].type != "menu":
       model[path][2] = ( eval(self.board_dict[model[path][3]].difficulty) \
@@ -511,10 +516,11 @@ class Board_list:
       
     self.update_selected( model, path)
 
-
+  # toggled off.
   def blank(self,  model, path, iter):
     model[path][2] = False
 
+  # This function toggles parents when a child is toggled.
   def update_parent( self, row):
     if row == None:
       return
@@ -528,4 +534,43 @@ class Board_list:
 
     self.update_selected(row.model, row.path)
 
+  # This function toggles parents off when all childs are toggled off.
+  def check_parent_active( self, row):
+    if row == None:
+      return
+
+    # should never appends
+    if not row[2]:
+      return
+
+    child = row.iterchildren().next()
+    select = False
+
+    while child != None:
+      if child[2]:
+        select = True
+        break
+      child = child.next
+
+    if not select:
+      row[2] = False
+      self.check_parent_active(row.parent)
+      self.update_selected(row.model, row.path)
+
+  # This function recursively update childs
+  def update_child( self, row, value):
+    if row[2] == value:
+      return
+
+    row[2] = value
     
+    try:
+      self.update_child(row.iterchildren().next(), value)
+    except StopIteration:
+      pass
+
+    if row.next != None:
+      self.update_child(row.next, value)
+
+    self.update_selected(row.model, row.path)
+
