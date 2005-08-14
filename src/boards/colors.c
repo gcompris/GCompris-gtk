@@ -150,10 +150,12 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
  			  g_strdup_printf("Radio Button %d", i)
  			  );
 
-  gcompris_radio_buttons( " Radio Buttons Sample ",
+  gcompris_radio_buttons( " <b><i>Radio</i> Buttons</b> Sample ",
 			  "color_radio",
 			  table,
 			  "key_7");
+
+  g_hash_table_destroy( table);
 }
   
 /* ======================= */

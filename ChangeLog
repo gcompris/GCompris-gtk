@@ -1,6 +1,17 @@
 2005-08-14  Yves Combe  <yves@ycombe.net>
 
-	gcompris_radio_buttons configuration utility function for boards. Get a GHashTable with (key, label) pair, return the key pf the value selected.
+	gcompris_radio_buttons python binded. Test sample is in tuxpaint.py (colors.c for C sample).
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/py-mod-gcompris.c: (pair_object_in_dict),
+	(hash_object_to_dict), (py_gcompris_radio_buttons):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (gcompris_combo_box_changed),
+	(create_radio_buttons), (gcompris_radio_buttons):
+
+2005-08-14  Yves Combe  <yves@ycombe.net>
+
+	gcompris_radio_buttons configuration utility function for boards. Get a GHashTable with (key, label) pair, return the key of the value selected.
 	python binding is missing.
 
 	* src/boards/colors.c: (colors_config_start):

@@ -1172,7 +1172,93 @@ py_gcompris_combo_box(PyObject* self, PyObject* args)
 }
 
 
+/* Params: */
+/*   - Label */
+/*   - key (for hashtable  return) */
+/*   - g_hash_table (gchar *values, gchar *label) */
+/* Returns */
+/*   - g_hash_table (gchar *values, GtkWidget *pointer) */
 
+/* GHashTable *gcompris_radio_buttons(const gchar *label, */
+/* 				   gchar *key, */
+/* 				   GHashTable *buttons_label, */
+/* 				   gchar *init);  */
+
+void pair_object_in_dict(gpointer key,
+			 gpointer value,
+			 gpointer dict)
+{
+  PyObject *pyValue;
+  PyObject *pyKey;
+
+  pyKey = PyString_FromString((gchar *)key);
+  Py_INCREF(pyKey);
+  
+  pyValue = pygobject_new((GObject*) value);
+  Py_INCREF(pyValue);
+
+  PyDict_SetItem((PyObject *)dict, pyKey, pyValue);
+}
+     
+
+/* Utility */
+PyObject* hash_object_to_dict(GHashTable *table)
+{
+  PyObject *pydict;
+
+  pydict = PyDict_New();
+
+  g_hash_table_foreach            (table,
+				   pair_object_in_dict,
+                                   (gpointer) pydict);
+
+  Py_INCREF(pydict);
+  return pydict;
+}
+
+
+static PyObject*
+py_gcompris_radio_buttons(PyObject* self, PyObject* args)
+{
+  PyObject *py_dict;
+  GHashTable *buttons_label, *result;
+  gchar *label;
+  gchar *key;
+  gchar *init;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "ssOs:gcompris_radio_buttons", &label, &key, &py_dict, &init))
+    return NULL;
+
+  if (!PyDict_Check(py_dict)){
+    PyErr_SetString(PyExc_TypeError,
+		      "gcompris_radio_buttons second argument must be a dict");
+    return NULL;
+  }
+  
+  PyObject *pykey, *pyvalue;
+  int pos = 0;
+
+  buttons_label = g_hash_table_new_full (g_str_hash,
+				    g_str_equal,
+				    g_free,
+				    g_free);
+
+  while (PyDict_Next(py_dict, &pos, &pykey, &pyvalue)) {
+    g_hash_table_replace (buttons_label,
+			  g_strdup(PyString_AsString(pykey)),
+			  g_strdup(PyString_AsString(pyvalue)));
+  }
+
+  result = gcompris_radio_buttons(label, 
+				  key, 
+				  buttons_label,
+				  init);
+
+  g_hash_table_destroy(buttons_label);
+
+  return hash_object_to_dict(result);
+}
 
 /****************************************************/
 
@@ -1222,6 +1308,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "configuration_window",  py_gcompris_configuration_window, METH_VARARGS, "gcompris_configuration_window" },
   { "boolean_box",  py_gcompris_boolean_box, METH_VARARGS, "gcompris_boolean_box" },
   { "combo_box",  py_gcompris_combo_box, METH_VARARGS, "gcompris_combo_box" },
+  { "radio_buttons",  py_gcompris_radio_buttons, METH_VARARGS, "gcompris_radio_buttons" },
   { NULL, NULL, 0, NULL}
 };
 

@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/14 02:38:38 yves>
+ * Time-stamp: <2005/08/14 14:29:23 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -205,7 +205,7 @@ void gcompris_combo_box_changed(GtkComboBox *combobox,
 {
   gchar *the_key = g_strdup((gchar *)key);
 
-  gchar *value = gtk_combo_box_get_active_text   (combobox);
+  gchar *value = g_strdup_printf("%d", gtk_combo_box_get_active (combobox));
   
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
@@ -289,9 +289,9 @@ void radio_changed(GtkToggleButton *togglebutton,
   }
 }
 
-gboolean create_radio_buttons(gpointer key,
-			    gpointer value,
-			    gpointer hash_radio)
+void create_radio_buttons(gpointer key,
+			  gpointer value,
+			  gpointer hash_radio)
 {
   GtkWidget *radio_button;
   gchar *key_copy;
@@ -316,8 +316,6 @@ gboolean create_radio_buttons(gpointer key,
 		   (gpointer) key_copy);
   
   g_hash_table_replace ( hash_radio, (gpointer) key_copy, (gpointer) radio_button);
-
-  return TRUE;
 }
 
 void destroy_hash (GtkObject *object,
@@ -370,11 +368,9 @@ GHashTable *gcompris_radio_buttons(const gchar *label,
   radio_key = g_strdup(key);
   radio_init = g_strdup(init);
 
-  g_hash_table_foreach_remove( buttons_label, 
-			(GHRFunc) create_radio_buttons,
+  g_hash_table_foreach( buttons_label, 
+			(GHFunc) create_radio_buttons,
 			(gpointer) buttons);
-
-  g_hash_table_destroy (buttons_label);
 
   g_signal_connect (G_OBJECT(radio_box), "destroy", G_CALLBACK(destroy_hash), (gpointer) buttons);
 

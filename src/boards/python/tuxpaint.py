@@ -167,10 +167,27 @@ class Gcompris_tuxpaint:
     gcompris.boolean_box('Disable shape rotation', 'disable_shape_rotation', self.configuration('disable_shape_rotation'))
     gcompris.boolean_box('Follow gcompris fullscreen', 'fullscreen', self.configuration('fullscreen'))
     gcompris.boolean_box('Show Uppercase text only', 'uppercase_text', self.configuration('uppercase_text'))
-    gcompris.boolean_box('Disable stamps', 'disable_stamps', self.configuration('disable_stamps'))
-    gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
+    stamps = gcompris.boolean_box('Disable stamps', 'disable_stamps', self.configuration('disable_stamps'))
+    
+    self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
+    self.stamps_control.set_sensitive(self.configuration('disable_stamps'))
+      
 
     gcompris.combo_box('ComboBox Test ', ['red', 'blue', 'green'], 'combo_test', 1)
+
+    gcompris.radio_buttons('<b>Radio Buttons</b> Test',
+                           'radio_test',
+                           { 'red': 'Red Carpet',
+                             'blue': 'Blue Hotel',
+                             'green': 'Yellow Submarine'
+                             },
+                           'green'
+                           )
+
+    stamps.connect("toggled", self.stamps_changed)
+
+  def stamps_changed(self, button):
+    self.stamps_control.set_sensitive(button.get_active())
 
   def apply_callback(self,table):
     print table
