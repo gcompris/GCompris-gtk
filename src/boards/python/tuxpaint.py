@@ -173,10 +173,10 @@ class Gcompris_tuxpaint:
     stamps.connect("toggled", self.stamps_changed)
     
     self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
-    self.stamps_control.set_sensitive(self.configuration('disable_stamps'))
+    self.stamps_control.set_sensitive(not self.configuration('disable_stamps'))
      
   def stamps_changed(self, button):
-    self.stamps_control.set_sensitive(button.get_active())
+    self.stamps_control.set_sensitive(not button.get_active())
 
   def apply_callback(self,table):
     print table
