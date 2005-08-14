@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/07/26 00:04:29 yves>
+ * Time-stamp: <2005/08/14 02:35:18 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -42,6 +42,18 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
 
 GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index);
+
+/* Params: */
+/*   - Label */
+/*   - key (for hashtable  return) */
+/*   - g_hash_table (gchar *values, gchar *label) */
+/* Returns */
+/*   - g_hash_table (gchar *values, GtkWidget *pointer) */
+
+GHashTable *gcompris_radio_buttons(const gchar *label,
+				   gchar *key,
+				   GHashTable *buttons_label,
+				   gchar *init);
 
 #endif
 

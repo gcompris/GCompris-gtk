@@ -106,9 +106,18 @@ GET_BPLUGIN_INFO(colors)
 
 static GtkVBox *config_vbox = NULL;
 
+GHFunc print_table (gpointer key,
+		    gpointer value,
+		    gpointer user_data)
+{
+  printf (" Hash key %s as value %s \n", (gchar *) key, (gchar *) value);
+}
+
 static GcomprisConfCallback conf_apply(GHashTable *table)
 {
   printf ("Config Hashtable size %d\n", g_hash_table_size(table));
+
+  g_hash_table_foreach(table, (GHFunc) print_table, NULL);
 }
 
 
@@ -121,20 +130,32 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile->name);
 
-    gcompris_configuration_window(label, (GcomprisConfCallback )conf_apply);
+  gcompris_configuration_window(label, (GcomprisConfCallback )conf_apply);
 
-    g_free(label);
+  g_free(label);
+  
+  gcompris_boolean_box("Test Check Box", "key1", TRUE);
+    
+  GList *list = NULL;
+  int i; 
+  for (i =0; i< 10; i++)
+    list = g_list_append( list, g_strdup_printf("value_%d", i));
+  
+  gcompris_combo_box( "Gcompris ComboBox", list, "combo_key", 3);
 
-    gcompris_boolean_box("Test Check Box", "key1", TRUE);
+  GHashTable *table = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
+  for (i =0; i< 10; i++) 
+    g_hash_table_insert ( table, 
+ 			  g_strdup_printf("key_%d", i),
+ 			  g_strdup_printf("Radio Button %d", i)
+ 			  );
 
-    GList *list = NULL;
-    int i; 
-    for (i =0; i< 10; i++)
-      list = g_list_append( list, g_strdup_printf("value_%d", i));
-
-    gcompris_combo_box( "Gcompris ComboBox", list, "combo_key", 3);
+  gcompris_radio_buttons( " Radio Buttons Sample ",
+			  "color_radio",
+			  table,
+			  "key_7");
 }
-
+  
 /* ======================= */
 /* = config_stop        = */
 /* ======================= */

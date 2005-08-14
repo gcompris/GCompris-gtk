@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/07/26 00:04:05 yves>
+ * Time-stamp: <2005/08/14 02:38:38 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -140,11 +140,10 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 		      FALSE,
 		      FALSE,
 		      0);
-  g_signal_connect                (G_OBJECT(button),
-				   "clicked",
-                                   G_CALLBACK(gcompris_apply_board_conf),
-				   NULL);
-
+  g_signal_connect (G_OBJECT(button),
+		    "clicked",
+		    G_CALLBACK(gcompris_apply_board_conf),
+		    NULL);
 
   /* Label header */
   header = gtk_label_new ((gchar *)NULL);
@@ -157,10 +156,10 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 
   gtk_label_set_justify (GTK_LABEL(header),
 			 GTK_JUSTIFY_CENTER);
-
+  
   gtk_label_set_markup (GTK_LABEL(header),
                         (const gchar *)label);
-
+  
   return main_conf_box;
 }
 
@@ -169,7 +168,7 @@ void gcompris_boolean_box_toggled (GtkToggleButton *togglebutton,
 {
   gchar *the_key = g_strdup((gchar *)key);
   gchar *value;
-
+  
   if (gtk_toggle_button_get_active (togglebutton))
     value = g_strdup("True");
   else
@@ -267,6 +266,119 @@ GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, 
 		   key);
 
   return GTK_COMBO_BOX(combobox);
+}
+
+static gchar *radio_value = NULL;
+static GSList *radio_group = NULL;
+static GtkWidget *radio_box;
+static gchar *radio_key = NULL;
+static gchar *radio_text = NULL;
+static radio_init = NULL;
+
+void radio_changed(GtkToggleButton *togglebutton,
+		   gpointer key)
+{
+  gboolean state = gtk_toggle_button_get_active (togglebutton);
+  gchar *h_key;
+  gchar *h_value;
+
+  if (state){
+    h_key = g_strdup (radio_key);
+    h_value = g_strdup((gchar *) key);
+    g_hash_table_replace (hash_conf, h_key, h_value);
+  }
+}
+
+gboolean create_radio_buttons(gpointer key,
+			    gpointer value,
+			    gpointer hash_radio)
+{
+  GtkWidget *radio_button;
+  gchar *key_copy;
+
+  radio_button = gtk_radio_button_new_with_label (radio_group,
+						  (const gchar *) g_strdup(value));
+
+  gtk_box_pack_start (GTK_BOX (radio_box), radio_button, TRUE, TRUE, 2);
+  
+  gtk_widget_show (GTK_WIDGET (radio_button));
+  
+  radio_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radio_button));
+  
+  key_copy = g_strdup ((gchar *)key);
+
+  if (strcmp( key_copy, radio_init)==0)
+    gtk_toggle_button_set_active    (GTK_TOGGLE_BUTTON(radio_button),TRUE);
+
+  g_signal_connect(G_OBJECT(radio_button), 
+		   "toggled", 
+		   G_CALLBACK(radio_changed), 
+		   (gpointer) key_copy);
+  
+  g_hash_table_replace ( hash_radio, (gpointer) key_copy, (gpointer) radio_button);
+
+  return TRUE;
+}
+
+void destroy_hash (GtkObject *object,
+                   gpointer hash_table)
+{
+  g_hash_table_destroy((GHashTable *)hash_table);
+  radio_group = NULL;
+  g_free(radio_text);
+  g_free(radio_key);
+  g_free(radio_init);
+}
+
+GHashTable *gcompris_radio_buttons(const gchar *label,
+				   gchar *key,
+				   GHashTable *buttons_label,
+				   gchar *init)
+{
+  GtkWidget *radio_label;
+
+  GHashTable *buttons = g_hash_table_new_full (g_str_hash,
+					       g_str_equal,
+					       g_free,
+					       NULL);
+
+  radio_box = gtk_vbox_new (TRUE, 2);
+  gtk_widget_show (GTK_WIDGET (radio_box));
+
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      radio_box,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  radio_label = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(radio_label);
+
+  gtk_box_pack_start (GTK_BOX(radio_box),
+		      radio_label,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  gtk_label_set_justify (GTK_LABEL(radio_label),
+			 GTK_JUSTIFY_CENTER);
+  
+  radio_text = g_strdup(label);
+  gtk_label_set_markup (GTK_LABEL(radio_label),
+                        (const gchar *)radio_text);
+
+  radio_key = g_strdup(key);
+  radio_init = g_strdup(init);
+
+  g_hash_table_foreach_remove( buttons_label, 
+			(GHRFunc) create_radio_buttons,
+			(gpointer) buttons);
+
+  g_hash_table_destroy (buttons_label);
+
+  g_signal_connect (G_OBJECT(radio_box), "destroy", G_CALLBACK(destroy_hash), (gpointer) buttons);
+
+  return buttons;
 }
 
 /* Local Variables: */
