@@ -1,5 +1,16 @@
 2005-08-14  Yves Combe  <yves@ycombe.net>
 
+	gcompris_spin_int configuration utility function, for integer valued spin buttons. Binded in python (gcompris.spin_int). Sample in colors.c and tuxpaint.py.
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_spin_int):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (gcompris_combo_box),
+	(gcompris_radio_buttons), (spin_changed), (gcompris_spin_int):
+	* src/gcompris/board_config.h:
+
+2005-08-14  Yves Combe  <yves@ycombe.net>
+
 	gcompris_radio_buttons python binded. Test sample is in tuxpaint.py (colors.c for C sample).
 
 	* src/boards/colors.c: (colors_config_start):

@@ -1260,6 +1260,27 @@ py_gcompris_radio_buttons(PyObject* self, PyObject* args)
   return hash_object_to_dict(result);
 }
 
+static PyObject*
+py_gcompris_spin_int(PyObject* self, PyObject* args)
+{
+  gchar *label;
+  gchar *key;
+  gint min, max, step, init;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "ssiiii:gcompris_radio_buttons", &label, &key, &min, &max, &step, &init))
+    return NULL;
+
+  return (PyObject *)pygobject_new((GObject*) \
+				   gcompris_spin_int((const gchar *)label, 
+						     key,
+						     min,
+						     max,
+						     step,
+						     init));
+
+}
+
 /****************************************************/
 
 
@@ -1309,6 +1330,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "boolean_box",  py_gcompris_boolean_box, METH_VARARGS, "gcompris_boolean_box" },
   { "combo_box",  py_gcompris_combo_box, METH_VARARGS, "gcompris_combo_box" },
   { "radio_buttons",  py_gcompris_radio_buttons, METH_VARARGS, "gcompris_radio_buttons" },
+  { "spin_int",  py_gcompris_spin_int, METH_VARARGS, "gcompris_spin_int" },
   { NULL, NULL, 0, NULL}
 };
 

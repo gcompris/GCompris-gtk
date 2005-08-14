@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/14 14:29:23 yves>
+ * Time-stamp: <2005/08/14 17:13:47 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -213,7 +213,7 @@ void gcompris_combo_box_changed(GtkComboBox *combobox,
 GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index)
 {
   GtkWidget *combobox;
-  GtkWidget *hbox = gtk_hbox_new (FALSE, 0);
+  GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
   GList *list;
   GtkWidget *label_combo;
 
@@ -273,7 +273,7 @@ static GSList *radio_group = NULL;
 static GtkWidget *radio_box;
 static gchar *radio_key = NULL;
 static gchar *radio_text = NULL;
-static radio_init = NULL;
+static gchar *radio_init = NULL;
 
 void radio_changed(GtkToggleButton *togglebutton,
 		   gpointer key)
@@ -375,6 +375,69 @@ GHashTable *gcompris_radio_buttons(const gchar *label,
   g_signal_connect (G_OBJECT(radio_box), "destroy", G_CALLBACK(destroy_hash), (gpointer) buttons);
 
   return buttons;
+}
+
+void spin_changed (GtkSpinButton *spinbutton,
+		    gpointer key)
+{
+  gchar *h_key = g_strdup((gchar *) key);
+  gchar *h_value = g_strdup_printf("%d",gtk_spin_button_get_value_as_int (spinbutton));
+
+  g_hash_table_replace (hash_conf, h_key, h_value);
+}
+
+GtkSpinButton *gcompris_spin_int(const gchar *label, gchar *key, gint min, gint max, gint step, gint init)
+{
+  GtkWidget *spin;
+  GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
+  GtkWidget *label_spin;
+
+  gtk_widget_show(hbox);
+
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      hbox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  /* Label */
+  label_spin = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(label_spin);
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      label_spin,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  gtk_label_set_justify (GTK_LABEL(label_spin),
+			 GTK_JUSTIFY_RIGHT);
+
+  gtk_label_set_markup (GTK_LABEL(label_spin),
+                        (const gchar *)label);
+
+  spin = gtk_spin_button_new_with_range  ((gdouble )min,
+					  (gdouble )max,
+                                          (gdouble )step);
+  gtk_widget_show(spin);
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      spin,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  gtk_spin_button_set_wrap ( GTK_SPIN_BUTTON(spin), TRUE);
+  gtk_spin_button_set_numeric ( GTK_SPIN_BUTTON(spin), TRUE);
+  gtk_spin_button_set_digits ( GTK_SPIN_BUTTON(spin), 0);
+
+  gtk_spin_button_set_value ( GTK_SPIN_BUTTON(spin), (gdouble) init);
+
+  g_signal_connect (G_OBJECT(spin), 
+		    "value-changed",
+		    G_CALLBACK(spin_changed),
+		    key);
+
+  return GTK_SPIN_BUTTON(spin);
+
 }
 
 /* Local Variables: */

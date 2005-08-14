@@ -186,6 +186,13 @@ class Gcompris_tuxpaint:
 
     stamps.connect("toggled", self.stamps_changed)
 
+    gcompris.spin_int('<b>Spin Button</b> Test',
+                      'spin_test',
+                      -12,
+                      12,
+                      2,
+                      0)
+                     
   def stamps_changed(self, button):
     self.stamps_control.set_sensitive(button.get_active())
 

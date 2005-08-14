@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/08/14 02:35:18 yves>
+ * Time-stamp: <2005/08/14 16:31:45 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -54,6 +54,13 @@ GHashTable *gcompris_radio_buttons(const gchar *label,
 				   gchar *key,
 				   GHashTable *buttons_label,
 				   gchar *init);
+
+GtkSpinButton *gcompris_spin_int(const gchar *label, 
+				 gchar *key, 
+				 gint min, 
+				 gint max, 
+				 gint step, 
+				 gint init);
 
 #endif
 

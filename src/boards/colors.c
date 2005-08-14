@@ -155,6 +155,13 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 			  table,
 			  "key_7");
 
+  gcompris_spin_int(" <b><i>Spin</i> Button</b> Sample ", 
+		    "color_spin", 
+		    2, 
+		    52, 
+		    5, 
+		    12);
+
   g_hash_table_destroy( table);
 }
   
