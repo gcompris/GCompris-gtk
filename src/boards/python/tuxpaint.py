@@ -149,50 +149,32 @@ class Gcompris_tuxpaint:
     print "Config"
     pass
 
-
   def config_stop(self):
     print "config_stop", self
-    self.config_window.destroy()
     pass
 
   def config_start(self, profile):
     self.configure_profile = profile
     
     self.config_values = {}
+
     self.main_vbox = gcompris.configuration_window(_('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Tuxpaint', profile.name ),
                                                    self.apply_callback)
 
     self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
 
-    gcompris.boolean_box('Disable shape rotation', 'disable_shape_rotation', self.configuration('disable_shape_rotation'))
-    gcompris.boolean_box('Follow gcompris fullscreen', 'fullscreen', self.configuration('fullscreen'))
-    gcompris.boolean_box('Show Uppercase text only', 'uppercase_text', self.configuration('uppercase_text'))
-    stamps = gcompris.boolean_box('Disable stamps', 'disable_stamps', self.configuration('disable_stamps'))
+    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', self.configuration('disable_shape_rotation'))
+
+    gcompris.boolean_box(_('Follow gcompris fullscreen'), 'fullscreen', self.configuration('fullscreen'))
+
+    gcompris.boolean_box(_('Show Uppercase text only'), 'uppercase_text', self.configuration('uppercase_text'))
+
+    stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', self.configuration('disable_stamps'))
+    stamps.connect("toggled", self.stamps_changed)
     
     self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
     self.stamps_control.set_sensitive(self.configuration('disable_stamps'))
-      
-
-    gcompris.combo_box('ComboBox Test ', ['red', 'blue', 'green'], 'combo_test', 1)
-
-    gcompris.radio_buttons('<b>Radio Buttons</b> Test',
-                           'radio_test',
-                           { 'red': 'Red Carpet',
-                             'blue': 'Blue Hotel',
-                             'green': 'Yellow Submarine'
-                             },
-                           'green'
-                           )
-
-    stamps.connect("toggled", self.stamps_changed)
-
-    gcompris.spin_int('<b>Spin Button</b> Test',
-                      'spin_test',
-                      -12,
-                      12,
-                      2,
-                      0)
-                     
+     
   def stamps_changed(self, button):
     self.stamps_control.set_sensitive(button.get_active())
 

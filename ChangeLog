@@ -1,5 +1,12 @@
 2005-08-14  Yves Combe  <yves@ycombe.net>
 
+	pass configuartion sample into pythontest
+
+	* src/boards/python/pythontest.py:
+	* src/boards/python/tuxpaint.py:
+
+2005-08-14  Yves Combe  <yves@ycombe.net>
+
 	gcompris_spin_int configuration utility function, for integer valued spin buttons. Binded in python (gcompris.spin_int). Sample in colors.c and tuxpaint.py.
 
 	* src/boards/colors.c: (colors_config_start):

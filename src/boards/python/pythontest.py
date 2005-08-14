@@ -21,6 +21,11 @@ class Gcompris_pythontest:
     self.colors['circle_out'] = gcompris.skin.get_color("pythontest/circle out")
     self.colors['line'] = gcompris.skin.get_color("pythontest/line")
 
+    # Just for config demo
+    self.config_colors = { 'red' : 0xFF0000FFL,
+                           'green' : 0x00FF00FFL,
+                           'blue' : 0x0000FFFFL }
+
     self.movingline='none'
 
     print("Gcompris_pythontest __init__.")
@@ -31,6 +36,17 @@ class Gcompris_pythontest:
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
+
+    self.config_dict = gcompris.get_board_conf()
+
+
+    # self.colors['line'] s set in init.
+    # I put here the configuration use
+    
+    color_name = self.config_colors.keys()[self.init_conf('color_line', 0)]
+    print 'color name', color_name
+    self.colors['line'] = self.config_colors[color_name]
+
     gcompris.bar_set(0)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
@@ -44,11 +60,25 @@ class Gcompris_pythontest:
       y=0.0
       )
 
+    # distance is used to demo of gcompris.spin_int
+    distance = self.init_conf('distance_circle', 100)
+
+    # pattern is for gcompris.radio_buttons
+    pattern = self.init_conf_str('pattern', 'circle')
+
+    patterns = { 'circle': gnome.canvas.CanvasEllipse,
+                 'rectangle': gnome.canvas.CanvasRect
+                 }
+
+    #error check
+    if not patterns.has_key(pattern):
+      pattern = 'circle'
+    
     self.canvasitems[1] = self.rootitem.add(
-      gnome.canvas.CanvasEllipse,
-      x1=300.0,
+      patterns[pattern],
+      x1=400.0 - distance ,
       y1=200.0,
-      x2=280.0,
+      x2=380.0 - distance,
       y2=220.0,
       fill_color_rgba= self.colors['circle_in'],
       outline_color_rgba= self.colors['circle_out'],
@@ -57,10 +87,10 @@ class Gcompris_pythontest:
     self.canvasitems[1].connect("event", self.circle_item_event)
 
     self.canvasitems[2] = self.rootitem.add(
-      gnome.canvas.CanvasEllipse,
-      x1=500.0,
+      patterns[pattern],
+      x1=400.0 + distance,
       y1=200.0,
-      x2=520.0,
+      x2=420.0 + distance,
       y2=220.0,
       fill_color_rgba= self.colors['circle_in'],
       outline_color_rgba= self.colors['circle_out'],
@@ -262,8 +292,10 @@ class Gcompris_pythontest:
 
     self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
 
-
   def circle_item_event(self, widget, event=None):
+    if self.init_conf('disable_line', True):
+      return False
+    
     if event.type == gtk.gdk.BUTTON_PRESS:
       if event.button == 1:
         bounds = widget.get_bounds()
@@ -274,7 +306,7 @@ class Gcompris_pythontest:
         self.canvasitems['line 1'] = self.rootitem.add(
           gnome.canvas.CanvasLine,
           points=( self.pos_x, self.pos_y, event.x, event.y),
-          fill_color_rgba=self.colors['circle_in'],
+          fill_color_rgba=self.colors['line'],
           width_units=5.0
           )
         self.movingline='line 1'
@@ -292,3 +324,92 @@ class Gcompris_pythontest:
         return True
     return False
 
+  ###################################################
+  # Configuration system
+  ###################################################
+  
+  #mandatory but unused yet
+  def config_stop(self):
+    pass
+
+  # Configuration function.
+  def config_start(self, profile):
+    # keep profile in mind
+    self.configuring_profile = profile
+    
+    #get the configured values for that profile
+    self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
+
+    # Init configuration window:
+    # all the configuration functions will use it
+    # all the configuration functions returns values for their key in
+    # the dict passed to the apply_callback
+    # the returned value is the main GtkVBox of the window,
+    #we can add what you want in it.
+
+    self.main_vbox = gcompris.configuration_window ( \
+      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', profile.name ),
+      self.apply_callback
+      )
+    
+    # toggle box
+    control_line = gcompris.boolean_box(_('Disable line drawing in circle'),
+                                        'disable_line',
+                                        self.init_conf('disable_line', True)
+                                        )
+    # sample of control in python
+    control_line.connect("toggled", self.color_disable)
+
+    # combo box
+    self.color_choice = \
+       gcompris.combo_box(_('Color line'),
+                          self.config_colors.keys(),
+                          'color_line',
+                          self.init_conf('color_line', 0)
+                          )
+    self.color_choice.set_sensitive(not self.init_conf('disable_line', True))
+
+    #spin button for int
+    self.distance_box = \
+       gcompris.spin_int(_('Distance between circles'),
+                         'distance_circle',
+                         20,
+                         200,
+                         20,
+                         self.init_conf('distance_circle', 100)
+                         )
+
+    #radio buttons for circle or rectangle
+    patterns = { 'circle': _('Use circles'),
+                 'rectangle': _('Use rectangles')
+                 }
+    
+    gcompris.radio_buttons(_('Choice of pattern'),
+                           'pattern',
+                           patterns,
+                           self.init_conf_str('pattern', 'circle')
+                           )
+
+  # Get value from config_dict or value passed
+  def init_conf(self, key, value):
+    if self.config_dict.has_key(key):
+      return eval(self.config_dict[key])
+    else:
+      return value
+
+  # Get value from config_dict or value passed, with string type values
+  def init_conf_str(self, key, value):
+    if self.config_dict.has_key(key):
+      return self.config_dict[key]
+    else:
+      return value
+
+  def color_disable(self, button):
+    self.color_choice.set_sensitive(not button.get_active())
+
+  def apply_callback(self, table):
+    print _('Keys and values returned by PythonTest config window:')
+    for key,value in table.iteritems():
+      print '%20s:%20s    ' % (key, value)
+      gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
+  
