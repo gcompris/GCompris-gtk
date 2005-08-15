@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/08/03 00:52:23 bruno>
+ * Time-stamp: <2005/08/16 00:43:08 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -800,6 +800,9 @@ void gcompris_set_locale(gchar *locale)
   setlocale(LC_ALL, locale);
 #else
   gcompris_locale = g_strdup(setlocale(LC_MESSAGES, locale));
+  if (!gcompris_locale)
+    gcompris_locale = g_strdup(locale);
+  setlocale("LC_ALL", "");
 #endif
 
   if(gcompris_locale!=NULL && strcmp(locale, gcompris_locale))
@@ -820,6 +823,12 @@ void gcompris_set_locale(gchar *locale)
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
+
+  /* Make change known.  */
+  {
+    extern int  _nl_msg_cat_cntr;
+    ++_nl_msg_cat_cntr;
+  }
 
 }
 

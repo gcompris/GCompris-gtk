@@ -1,3 +1,14 @@
+2005-08-16  Yves Combe  <yves@ycombe.net>
+
+	fix gcompris_set_locale to inform gettext locale has changed.
+	add gcompris_locales_list.
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/gcompris/board_config.c: (gcompris_separator),
+	(gcompris_locales_list):
+	* src/gcompris/board_config.h:
+	* src/gcompris/gcompris.c: (gcompris_set_locale):
+
 2005-08-15  Yves Combe  <yves@ycombe.net>
 
 	add gcompris_separator() to make easily a GtkHSeparator in configuration.

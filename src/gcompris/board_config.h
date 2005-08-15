@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/08/15 14:42:59 yves>
+ * Time-stamp: <2005/08/15 17:27:18 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -63,6 +63,8 @@ GtkSpinButton *gcompris_spin_int(const gchar *label,
 				 gint init);
 
 GtkHSeparator *gcompris_separator();
+
+GList *gcompris_locales_list();
 
 #endif
 

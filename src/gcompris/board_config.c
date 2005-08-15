@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/15 15:50:21 yves>
+ * Time-stamp: <2005/08/16 00:48:51 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -469,6 +469,45 @@ GtkHSeparator *gcompris_separator()
 
   return GTK_HSEPARATOR(separator);
 
+}
+
+/***********************************************/
+/* L10n                                        */
+/***********************************************/
+
+GList *gcompris_locales_list(){
+  gchar *textdomain;
+  GDir *textdomain_dir;
+  GError **error;
+
+  textdomain = bindtextdomain ("gcompris", NULL);
+
+  GList *locales = NULL;
+
+  textdomain_dir = g_dir_open (textdomain, 0, error);
+  const gchar *fname;
+  gchar *fname_abs;
+  gchar *catalog;
+  
+  while (fname = g_dir_read_name(textdomain_dir)) {
+    fname_abs = g_strdup_printf("%s/%s",textdomain, fname);
+    if (!g_file_test(fname_abs, G_FILE_TEST_IS_DIR))
+      continue;
+
+    catalog = g_strdup_printf("%s/LC_MESSAGES/gcompris.mo", fname_abs);
+
+    if (g_file_test(catalog, G_FILE_TEST_EXISTS)){
+      locales = g_list_append( locales, g_strdup(fname));
+    }
+    g_free (fname_abs);
+    g_free(catalog);
+  }
+
+  g_free(textdomain);
+
+  g_dir_close (textdomain_dir);
+
+  return locales;
 }
 
 /* Local Variables: */

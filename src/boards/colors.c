@@ -150,7 +150,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   gcompris_separator();
 
   GHashTable *table = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
-  for (i =0; i< 10; i++) 
+  for (i =0; i< 5; i++) 
     g_hash_table_insert ( table, 
  			  g_strdup_printf("key_%d", i),
  			  g_strdup_printf("Radio Button %d", i)
@@ -171,6 +171,29 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 		    12);
 
   g_hash_table_destroy( table);
+
+  GList *locales = gcompris_locales_list();
+
+#define LOC "LC_MESSAGES"
+
+  gchar *actual_lang = gcompris_get_locale();
+  printf("%s was set to %s 1 of %d \n", LOC, actual_lang, g_list_length(locales));
+
+  while (locales){
+    printf("Locale %s exists for gcompris \n", locales->data);
+
+    gcompris_set_locale(locales->data);
+
+    printf("Cerveau %s\n", _("Brain"));
+
+    locales = locales->next;
+  }
+ 
+  gcompris_set_locale(actual_lang);
+
+  //segfault (list too long ? )
+  //gcompris_combo_box( "Gcompris locales", locales, "locale", 0);
+
 }
   
 /* ======================= */
