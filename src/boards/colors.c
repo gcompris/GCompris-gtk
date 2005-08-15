@@ -133,15 +133,21 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   gcompris_configuration_window(label, (GcomprisConfCallback )conf_apply);
 
   g_free(label);
+
+  gcompris_separator();
   
   gcompris_boolean_box("Test Check Box", "key1", TRUE);
     
+  gcompris_separator();
+
   GList *list = NULL;
   int i; 
   for (i =0; i< 10; i++)
     list = g_list_append( list, g_strdup_printf("value_%d", i));
   
   gcompris_combo_box( "Gcompris ComboBox", list, "combo_key", 3);
+
+  gcompris_separator();
 
   GHashTable *table = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
   for (i =0; i< 10; i++) 
@@ -154,6 +160,8 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 			  "color_radio",
 			  table,
 			  "key_7");
+
+  gcompris_separator();
 
   gcompris_spin_int(" <b><i>Spin</i> Button</b> Sample ", 
 		    "color_spin", 

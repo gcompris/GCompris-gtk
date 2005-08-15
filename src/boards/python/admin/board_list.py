@@ -56,8 +56,13 @@ class Board_list:
       # Create the profiles Combo
       self.profiles_list = gcompris.admin.get_profiles_list()
 
-      self.out_dict = self.get_boards_out_by_profile()
+      # Get default pofile id.
+      self.cur.execute('SELECT profile_id FROM informations;')
+      self.con.commit()
 
+      self.default_profile_id = self.cur.fetchall()[0][0]
+      
+      self.out_dict = self.get_boards_out_by_profile()
 
       self.difficulty = [1, 6]
 
@@ -89,10 +94,14 @@ class Board_list:
       combobox = gtk.combo_box_new_text()
       combobox.show()
       box1.pack_start(combobox, False, False, 0)
+
+      i = 0
       for profile in self.profiles_list:
         combobox.append_text(profile.name)
-      combobox.set_active(0)
-      self.active_profile = self.profiles_list[0]
+        if profile.profile_id == self.default_profile_id:
+          combobox.set_active(self.profiles_list.index(profile))
+        
+      self.active_profile = self.profiles_list[combobox.get_active()]
       print 'Active profile is now', self.active_profile.name
       
       # Create the table
@@ -399,8 +408,19 @@ class Board_list:
     box_bottom.show()
     main_box.pack_end(box_bottom, False, False, 0)
 
+    sep = gtk.HSeparator()
+    sep.show()
+    main_box.pack_end(sep, False, False, 8)
+
     box_bottom.pack_end(button_close, False, False, 0)
     box_bottom.pack_start(button_apply, False, False, 0)
+
+    label = gtk.Label()
+    label.set_markup(_("<span size='x-large'> Select the difficulty range \nfor profile <b>%s</b></span>") % self.active_profile.name)
+    label.show()
+    label.set_line_wrap(True)
+    label.set_justify(gtk.JUSTIFY_CENTER)
+    main_box.pack_start(label, False, False, 0)
 
     symbols_box = gtk.HBox(False, 0)
     symbols_box.show()

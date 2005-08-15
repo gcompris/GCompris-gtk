@@ -163,11 +163,18 @@ class Gcompris_tuxpaint:
 
     self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
 
-    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', self.configuration('disable_shape_rotation'))
 
     gcompris.boolean_box(_('Follow gcompris fullscreen'), 'fullscreen', self.configuration('fullscreen'))
 
+    gcompris.separator()
+
+    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', self.configuration('disable_shape_rotation'))
+
+    gcompris.separator()
+
     gcompris.boolean_box(_('Show Uppercase text only'), 'uppercase_text', self.configuration('uppercase_text'))
+
+    gcompris.separator()
 
     stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', self.configuration('disable_stamps'))
     stamps.connect("toggled", self.stamps_changed)

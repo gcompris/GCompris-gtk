@@ -1281,6 +1281,21 @@ py_gcompris_spin_int(PyObject* self, PyObject* args)
 
 }
 
+
+/* GtkHSeparator *gcompris_separator(void); */
+static PyObject*
+py_gcompris_separator(PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_separator"))
+    return NULL;
+
+  /* Create and return the result */
+  return (PyObject *)pygobject_new((GObject*) gcompris_separator());
+
+}
+
+
 /****************************************************/
 
 
@@ -1331,6 +1346,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "combo_box",  py_gcompris_combo_box, METH_VARARGS, "gcompris_combo_box" },
   { "radio_buttons",  py_gcompris_radio_buttons, METH_VARARGS, "gcompris_radio_buttons" },
   { "spin_int",  py_gcompris_spin_int, METH_VARARGS, "gcompris_spin_int" },
+  { "separator",  py_gcompris_separator, METH_VARARGS, "gcompris_separator" },
   { NULL, NULL, 0, NULL}
 };
 

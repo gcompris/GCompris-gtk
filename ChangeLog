@@ -1,5 +1,22 @@
 2005-08-15  Yves Combe  <yves@ycombe.net>
 
+	add gcompris_separator() to make easily a GtkHSeparator in configuration.
+	make <span size='large'> the label title in the conf.
+	use a list and not dict to control combo in pythontest.
+	add a label in filter boards tool.
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_separator):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/board_config.c: (gcompris_close_board_conf),
+	(gcompris_configuration_window), (gcompris_spin_int),
+	(gcompris_separator):
+	* src/gcompris/board_config.h:
+
+2005-08-15  Yves Combe  <yves@ycombe.net>
+
 	Fix stupid inversion bug in tuxpaint configuration.
 
 	* src/boards/python/tuxpaint.py:

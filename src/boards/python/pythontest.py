@@ -26,6 +26,9 @@ class Gcompris_pythontest:
                            'green' : 0x00FF00FFL,
                            'blue' : 0x0000FFFFL }
 
+    # dict .keys() list of keys has random order 
+    self.config_colors_list = [ 'red', 'green', 'blue']
+
     self.movingline='none'
 
     print("Gcompris_pythontest __init__.")
@@ -43,8 +46,7 @@ class Gcompris_pythontest:
     # self.colors['line'] s set in init.
     # I put here the configuration use
     
-    color_name = self.config_colors.keys()[self.init_conf('color_line', 0)]
-    print 'color name', color_name
+    color_name = self.config_colors_list[self.init_conf('color_line', 0)]
     self.colors['line'] = self.config_colors[color_name]
 
     gcompris.bar_set(0)
@@ -351,7 +353,7 @@ class Gcompris_pythontest:
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', profile.name ),
       self.apply_callback
       )
-    
+
     # toggle box
     control_line = gcompris.boolean_box(_('Disable line drawing in circle'),
                                         'disable_line',
@@ -363,11 +365,13 @@ class Gcompris_pythontest:
     # combo box
     self.color_choice = \
        gcompris.combo_box(_('Color line'),
-                          self.config_colors.keys(),
+                          self.config_colors_list,
                           'color_line',
                           self.init_conf('color_line', 0)
                           )
     self.color_choice.set_sensitive(not self.init_conf('disable_line', True))
+
+    gcompris.separator()
 
     #spin button for int
     self.distance_box = \
@@ -378,6 +382,8 @@ class Gcompris_pythontest:
                          20,
                          self.init_conf('distance_circle', 100)
                          )
+
+    gcompris.separator()
 
     #radio buttons for circle or rectangle
     patterns = { 'circle': _('Use circles'),

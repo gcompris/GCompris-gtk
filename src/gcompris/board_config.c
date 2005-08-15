@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/14 17:13:47 yves>
+ * Time-stamp: <2005/08/15 15:50:21 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -65,7 +65,7 @@ static GtkWindow *conf_window = NULL;
 static GtkVBox *main_conf_box = NULL;
 static GHashTable *hash_conf = NULL;
 static GcomprisConfCallback Confcallback = NULL;
-
+static gchar *label_markup = NULL;
 
 void gcompris_close_board_conf (GtkButton *button,
 				gpointer user_data)
@@ -73,8 +73,9 @@ void gcompris_close_board_conf (GtkButton *button,
   gtk_object_destroy              ((GtkObject *)conf_window);
   g_hash_table_destroy (hash_conf);
   hash_conf = NULL;
- 
-}
+  Confcallback = NULL;
+  g_free(label_markup);
+ }
 
 void gcompris_apply_board_conf (GtkButton *button,
 				gpointer user_data)
@@ -86,9 +87,10 @@ void gcompris_apply_board_conf (GtkButton *button,
 GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callback)
 {
   GtkButton *button;
-  GtkHBox   *footer;
-  GtkWidget  *header;
-
+  GtkWidget *footer;
+  GtkWidget *header;
+  GtkWidget *separator;
+ 
   /* init static values or callbacks */
   Confcallback = callback;
   hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
@@ -111,14 +113,24 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
   gtk_container_add(GTK_CONTAINER(conf_window), GTK_WIDGET(main_conf_box));
 
   /* hbox for apply and close buttons */
-  footer = GTK_HBOX(gtk_hbox_new (FALSE, 0));
-  gtk_widget_show(GTK_WIDGET(footer));
+  separator = gtk_hseparator_new();
+  gtk_widget_show(separator);
+
+  footer = gtk_hbox_new (FALSE, 0);
+  gtk_widget_show(footer);
+
   gtk_box_pack_end (GTK_BOX(main_conf_box),
-		    GTK_WIDGET(footer),
+		    footer,
 		    FALSE,
                     FALSE,
 		    0);
 
+
+  gtk_box_pack_end (GTK_BOX(main_conf_box),
+		    separator,
+		    FALSE,
+                    FALSE,
+		    8);
   /* Close button */
   button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_CLOSE));
   gtk_widget_show(GTK_WIDGET(button));
@@ -157,8 +169,11 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
   gtk_label_set_justify (GTK_LABEL(header),
 			 GTK_JUSTIFY_CENTER);
   
+  label_markup = g_strdup_printf("<span size='large'>%s</span>",label);
   gtk_label_set_markup (GTK_LABEL(header),
-                        (const gchar *)label);
+                        (const gchar *)label_markup);
+
+  gcompris_separator();
   
   return main_conf_box;
 }
@@ -437,6 +452,22 @@ GtkSpinButton *gcompris_spin_int(const gchar *label, gchar *key, gint min, gint 
 		    key);
 
   return GTK_SPIN_BUTTON(spin);
+
+}
+
+GtkHSeparator *gcompris_separator()
+{
+  GtkWidget *separator = gtk_hseparator_new ();
+
+  gtk_widget_show(separator);
+
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      separator,
+		      FALSE,
+		      FALSE,
+		      8);
+
+  return GTK_HSEPARATOR(separator);
 
 }
 
