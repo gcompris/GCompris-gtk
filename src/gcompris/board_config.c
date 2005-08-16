@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/17 00:04:43 yves>
+ * Time-stamp: <2005/08/17 01:29:47 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -489,13 +489,14 @@ GtkHSeparator *gcompris_separator()
 /* L10n                                        */
 /***********************************************/
 
-GList *gcompris_locales_list(){
+GList *gcompris_get_locales_list(){
   gchar *textdomain;
   GDir *textdomain_dir;
-  GError **error;
+  GError **error = NULL;
 
-  textdomain = bindtextdomain ("gcompris", NULL);
-
+  //textdomain = bindtextdomain ("gcompris", NULL);
+  textdomain = PACKAGE_LOCALE_DIR;
+  
   GList *locales = NULL;
 
   textdomain_dir = g_dir_open (textdomain, 0, error);
@@ -517,8 +518,6 @@ GList *gcompris_locales_list(){
     g_free(catalog);
   }
 
-  g_free(textdomain);
-
   g_dir_close (textdomain_dir);
 
   return locales;
@@ -526,8 +525,8 @@ GList *gcompris_locales_list(){
 
 GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init)
 {
-  gcompris_combo_box(_("Select the language\n to use in the board"),
-		     gcompris_locales_list(),
+  return gcompris_combo_box(_("Select the language to use in the board"),
+		     gcompris_get_locales_list(),
 		     key,
 		     init);
 }

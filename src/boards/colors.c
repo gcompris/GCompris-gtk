@@ -172,7 +172,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 
   g_hash_table_destroy( table);
 
-  GList *locales = gcompris_locales_list();
+  GList *locales = gcompris_get_locales_list();
   GList *locale = locales;
 
   gchar *actual_lang = g_strdup(gcompris_get_locale());

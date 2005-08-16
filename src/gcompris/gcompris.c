@@ -1,6 +1,6 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/08/16 00:43:08 yves>
+ * Time-stamp: <2005/08/17 01:08:31 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -802,7 +802,7 @@ void gcompris_set_locale(gchar *locale)
   gcompris_locale = g_strdup(setlocale(LC_MESSAGES, locale));
   if (!gcompris_locale)
     gcompris_locale = g_strdup(locale);
-  setlocale("LC_ALL", "");
+  setlocale(LC_ALL, "");
 #endif
 
   if(gcompris_locale!=NULL && strcmp(locale, gcompris_locale))

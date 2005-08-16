@@ -1296,6 +1296,46 @@ py_gcompris_separator(PyObject* self, PyObject* args)
 }
 
 
+static PyObject*
+py_gcompris_combo_locales(PyObject* self, PyObject* args)
+{
+  gchar *key;
+  gchar *init;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "ss:gcompris_radio_buttons", &key, &init))
+    return NULL;
+
+  return (PyObject *)pygobject_new((GObject*) \
+				   gcompris_combo_locales( key, init));
+}
+
+
+static PyObject*
+py_gcompris_get_locales_list(PyObject* self, PyObject* args)
+{
+  PyObject *pylist;
+  GList *result, *list ;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.get_locales_list"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gcompris_get_locales_list();
+
+  pylist = PyList_New(0);
+
+  for (list = result; list != NULL; list = list->next){
+    PyList_Append( pylist, PyString_FromString(list->data));
+  }
+
+  Py_INCREF(pylist);
+  return pylist;
+}
+
+
+
 /****************************************************/
 
 
@@ -1347,6 +1387,8 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "radio_buttons",  py_gcompris_radio_buttons, METH_VARARGS, "gcompris_radio_buttons" },
   { "spin_int",  py_gcompris_spin_int, METH_VARARGS, "gcompris_spin_int" },
   { "separator",  py_gcompris_separator, METH_VARARGS, "gcompris_separator" },
+  { "combo_locales",  py_gcompris_combo_locales, METH_VARARGS, "gcompris_combo_locales" },
+  { "get_locales_list",  py_gcompris_get_locales_list, METH_VARARGS, "gcompris_get_locales_list" },
   { NULL, NULL, 0, NULL}
 };
 

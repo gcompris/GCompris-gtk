@@ -1,5 +1,18 @@
 2005-08-17  Yves Combe  <yves@ycombe.net>
 
+	python bindings, fix name (gcompris_get_locales_list) and bug.
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_combo_locales),
+	(py_gcompris_get_locales_list):
+	* src/boards/python/pythontest.py:
+	* src/gcompris/board_config.c: (gcompris_get_locales_list),
+	(gcompris_combo_locales):
+	* src/gcompris/board_config.h:
+	* src/gcompris/gcompris.c: (gcompris_set_locale):
+
+2005-08-17  Yves Combe  <yves@ycombe.net>
+
 	pass gcompris_combo_box init and returned values to string.
 	add gcompris_combo_locale to add easily a locale choice for board.
 	

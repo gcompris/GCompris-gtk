@@ -396,6 +396,10 @@ class Gcompris_pythontest:
                            self.init_conf_str('pattern', 'circle')
                            )
 
+    print gcompris.get_locales_list()
+
+    gcompris.combo_locales('locale', 'fr')
+
   # Get value from config_dict or value passed
   def init_conf(self, key, value):
     if self.config_dict.has_key(key):
