@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-05 15:50-0400\n"
-"PO-Revision-Date: 2005-08-05 22:51-0400\n"
+"POT-Creation-Date: 2005-08-16 03:06-0400\n"
+"PO-Revision-Date: 2005-08-16 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -608,7 +608,7 @@ msgstr "Push the two shift keys together to send the ball straight"
 msgid "Send the ball to Tux"
 msgstr "Send the ball to Tux"
 
-#: boards/bargame.xml.in.h:1
+#: boards/bargame.xml.in.h:1 src/boards/colors.c:187
 msgid "Brain"
 msgstr "Brain"
 
@@ -3461,27 +3461,27 @@ msgstr "Python Board"
 msgid "Special board that embeds python into gcompris."
 msgstr "Special board that embeds python into gcompris."
 
-#: src/boards/python/admin/board_list.py:85
+#: src/boards/python/admin/board_list.py:90
 msgid "Select a profile:"
 msgstr "Select a profile:"
 
-#: src/boards/python/admin/board_list.py:137
+#: src/boards/python/admin/board_list.py:146
 msgid "Filter"
 msgstr "Filter"
 
-#: src/boards/python/admin/board_list.py:142
+#: src/boards/python/admin/board_list.py:151
 msgid "Select all"
 msgstr "Select all"
 
-#: src/boards/python/admin/board_list.py:147
+#: src/boards/python/admin/board_list.py:156
 msgid "Unselect all"
 msgstr "Unselect all"
 
-#: src/boards/python/admin/board_list.py:205
+#: src/boards/python/admin/board_list.py:214
 msgid "Main menu"
 msgstr "Main menu"
 
-#: src/boards/python/admin/board_list.py:205
+#: src/boards/python/admin/board_list.py:214
 msgid "/"
 msgstr "/"
 
@@ -3490,18 +3490,27 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: src/boards/python/admin/board_list.py:262
+#: src/boards/python/admin/board_list.py:271
 msgid "Active"
 msgstr "Active"
 
-#: src/boards/python/admin/board_list.py:263
+#: src/boards/python/admin/board_list.py:272
 msgid "Board title"
 msgstr "Board title"
 
-#: src/boards/python/admin/board_list.py:372
+#: src/boards/python/admin/board_list.py:388
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filter Boards difficulty for profile %s"
+
+#: src/boards/python/admin/board_list.py:419
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
 
 #: src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
@@ -3868,7 +3877,7 @@ msgstr ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
 
-#: src/boards/python/pythontest.py:75
+#: src/boards/python/pythontest.py:107
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -3876,7 +3885,7 @@ msgstr ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 
-#: src/boards/python/pythontest.py:84
+#: src/boards/python/pythontest.py:116
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
@@ -3884,9 +3893,56 @@ msgstr ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
 
-#: src/boards/python/pythontest.py:93
+#: src/boards/python/pythontest.py:125
 msgid "This activity is not playable yet, just a test"
 msgstr "This activity is not playable yet, just a test"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: src/boards/python/pythontest.py:353 src/boards/python/tuxpaint.py:161
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+
+#. toggle box
+#: src/boards/python/pythontest.py:358
+msgid "Disable line drawing in circle"
+msgstr "Disable line drawing in circle"
+
+#. combo box
+#: src/boards/python/pythontest.py:367
+msgid "Color line"
+msgstr "Colour line"
+
+#. spin button for int
+#: src/boards/python/pythontest.py:378
+msgid "Distance between circles"
+msgstr "Distance between circles"
+
+#. radio buttons for circle or rectangle
+#: src/boards/python/pythontest.py:389
+msgid "Use circles"
+msgstr "Use circles"
+
+#: src/boards/python/pythontest.py:390
+msgid "Use rectangles"
+msgstr "Use rectangles"
+
+#: src/boards/python/pythontest.py:393
+msgid "Choice of pattern"
+msgstr "Choice of pattern"
+
+#: src/boards/python/pythontest.py:417
+msgid "Keys and values returned by PythonTest config window:"
+msgstr "Keys and values returned by PythonTest config window:"
 
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
@@ -3963,14 +4019,21 @@ msgstr ""
 msgid "Waiting Tuxpaint Finished"
 msgstr "Waiting Tuxpaint Finished"
 
-#: src/boards/python/tuxpaint.py:162
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
+#: src/boards/python/tuxpaint.py:167
+msgid "Follow gcompris fullscreen"
+msgstr "Follow gcompris fullscreen"
+
+#: src/boards/python/tuxpaint.py:171
+msgid "Disable shape rotation"
+msgstr "Disable shape rotation"
+
+#: src/boards/python/tuxpaint.py:175
+msgid "Show Uppercase text only"
+msgstr "Show Uppercase text only"
+
+#: src/boards/python/tuxpaint.py:179
+msgid "Disable stamps"
+msgstr "Disable stamps"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -4535,7 +4598,7 @@ msgstr ""
 "Linux. Get more information at\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:937
+#: src/gcompris/gcompris.c:946
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4549,17 +4612,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:1005
+#: src/gcompris/gcompris.c:1014
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Use -l activity to access directly to activity.\n"
 
-#: src/gcompris/gcompris.c:1006
+#: src/gcompris/gcompris.c:1015
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris.c:1104
+#: src/gcompris/gcompris.c:1113
 #, c-format
 msgid "List of available profiles are:\n"
 msgstr "List of available profiles is:\n"
