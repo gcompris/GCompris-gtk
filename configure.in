@@ -215,7 +215,7 @@ PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}"
 AC_SUBST(PACKAGE_HELP_DIR)
 
 dnl Plugin Directory
-AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${libdir}/gcompris", [Gcompris plugins directory])
+AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${myprefix}/lib/gcompris", [Gcompris plugins directory])
 plugindir=$libdir/gcompris
 AC_SUBST(plugindir)
 
