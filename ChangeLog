@@ -1,5 +1,11 @@
 2005-08-16  Yves Combe  <yves@ycombe.net>
 
+	Patch to fix compilation (libdir and X path) in x86_64, by Göran Uddeborg, thanks. Python need another check.
+
+	* configure.in:
+
+2005-08-16  Yves Combe  <yves@ycombe.net>
+
 	fix gcompris_set_locale to inform gettext locale has changed.
 	add gcompris_locales_list.
 
