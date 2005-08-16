@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/08/15 17:27:18 yves>
+ * Time-stamp: <2005/08/16 23:25:14 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -41,7 +41,7 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 
 GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value);
 
-GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index);
+GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init);
 
 /* Params: */
 /*   - Label */
@@ -65,6 +65,8 @@ GtkSpinButton *gcompris_spin_int(const gchar *label,
 GtkHSeparator *gcompris_separator();
 
 GList *gcompris_locales_list();
+
+GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init);
 
 #endif
 

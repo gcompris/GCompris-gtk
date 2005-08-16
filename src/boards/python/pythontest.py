@@ -46,7 +46,7 @@ class Gcompris_pythontest:
     # self.colors['line'] s set in init.
     # I put here the configuration use
     
-    color_name = self.config_colors_list[self.init_conf('color_line', 0)]
+    color_name = self.init_conf('color_line', 'red')
     self.colors['line'] = self.config_colors[color_name]
 
     gcompris.bar_set(0)
@@ -367,7 +367,7 @@ class Gcompris_pythontest:
        gcompris.combo_box(_('Color line'),
                           self.config_colors_list,
                           'color_line',
-                          self.init_conf('color_line', 0)
+                          self.init_conf_str('color_line', 'red')
                           )
     self.color_choice.set_sensitive(not self.init_conf('disable_line', True))
 

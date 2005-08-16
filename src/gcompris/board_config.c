@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/16 00:48:51 yves>
+ * Time-stamp: <2005/08/17 00:04:43 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -21,6 +21,7 @@
 
 #include "gcompris.h"
 
+#define COMBOBOX_COL_MAX 15
 
 static GcomprisBoard *config_board;
 
@@ -220,20 +221,30 @@ void gcompris_combo_box_changed(GtkComboBox *combobox,
 {
   gchar *the_key = g_strdup((gchar *)key);
 
-  gchar *value = g_strdup_printf("%d", gtk_combo_box_get_active (combobox));
+  gchar *value = g_strdup_printf("%s", gtk_combo_box_get_active_text (combobox));
   
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
 
-GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gint index)
+inline int my_strcmp(gchar *a, gchar *b) { return strcmp( a, b); }
+
+
+GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init)
 {
   GtkWidget *combobox;
   GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
   GList *list;
   GtkWidget *label_combo;
+  gint init_index = 0;
+
+  if (init)
+    init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
+  
+  if (init_index < 0)
+    init_index=0;
 
   gtk_widget_show(hbox);
-
+  
   gtk_box_pack_start (GTK_BOX(main_conf_box),
 		      hbox,
 		      FALSE,
@@ -271,9 +282,12 @@ GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, 
     gtk_combo_box_append_text       (GTK_COMBO_BOX(combobox),
 				     list->data);
 
+  if (g_list_length(strings) > COMBOBOX_COL_MAX)
+    gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
+  	     g_list_length(strings) / COMBOBOX_COL_MAX +1 );
   
   gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
-			    index);
+			    init_index);
   
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
@@ -508,6 +522,14 @@ GList *gcompris_locales_list(){
   g_dir_close (textdomain_dir);
 
   return locales;
+}
+
+GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init)
+{
+  gcompris_combo_box(_("Select the language\n to use in the board"),
+		     gcompris_locales_list(),
+		     key,
+		     init);
 }
 
 /* Local Variables: */

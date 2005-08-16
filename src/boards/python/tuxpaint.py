@@ -43,11 +43,11 @@ class Gcompris_tuxpaint:
     self.gcomprisBoard = gcomprisBoard
     pass
 
-  def configuration(self, value):
+  def configuration(self, value, init):
     if self.config_dict.has_key(value):
       return eval(self.config_dict[value])
     else:
-      return False
+      return init
 
   def start(self):
 #    line = os.sys.stdin.readline()
@@ -72,19 +72,19 @@ class Gcompris_tuxpaint:
 
     options = ['tuxpaint']
 
-    if (Prop.fullscreen and self.configuration('fullscreen')):
+    if (Prop.fullscreen and self.configuration('fullscreen', True)):
       options.append('--fullscreen')
 
-    if self.configuration('disable_shape_rotation'):
+    if self.configuration('disable_shape_rotation', False):
       options.append('--simpleshapes')
 
-    if self.configuration('uppercase_text'):
+    if self.configuration('uppercase_text', False):
       options.append('--uppercase')
 
-    if self.configuration('disable_stamps'):
+    if self.configuration('disable_stamps', False):
       options.append('--nostamps')
 
-    if self.configuration('disable_stamps_control'):
+    if self.configuration('disable_stamps_control', False):
       options.append('--nostampcontrols')
   
     gcompris.sound.close()
@@ -164,23 +164,23 @@ class Gcompris_tuxpaint:
     self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
 
 
-    gcompris.boolean_box(_('Follow gcompris fullscreen'), 'fullscreen', self.configuration('fullscreen'))
+    gcompris.boolean_box(_('Follow gcompris fullscreen'), 'fullscreen', self.configuration('fullscreen', True))
 
     gcompris.separator()
 
-    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', self.configuration('disable_shape_rotation'))
+    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', self.configuration('disable_shape_rotation', False))
 
     gcompris.separator()
 
-    gcompris.boolean_box(_('Show Uppercase text only'), 'uppercase_text', self.configuration('uppercase_text'))
+    gcompris.boolean_box(_('Show Uppercase text only'), 'uppercase_text', self.configuration('uppercase_text', False))
 
     gcompris.separator()
 
-    stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', self.configuration('disable_stamps'))
+    stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', self.configuration('disable_stamps', False))
     stamps.connect("toggled", self.stamps_changed)
     
-    self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control'))
-    self.stamps_control.set_sensitive(not self.configuration('disable_stamps'))
+    self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control', False))
+    self.stamps_control.set_sensitive(not self.configuration('disable_stamps', False))
      
   def stamps_changed(self, button):
     self.stamps_control.set_sensitive(not button.get_active())

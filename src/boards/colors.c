@@ -145,7 +145,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   for (i =0; i< 10; i++)
     list = g_list_append( list, g_strdup_printf("value_%d", i));
   
-  gcompris_combo_box( "Gcompris ComboBox", list, "combo_key", 3);
+  gcompris_combo_box( "Gcompris ComboBox", list, "combo_key", NULL);
 
   gcompris_separator();
 
@@ -173,26 +173,24 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   g_hash_table_destroy( table);
 
   GList *locales = gcompris_locales_list();
+  GList *locale = locales;
 
-#define LOC "LC_MESSAGES"
+  gchar *actual_lang = g_strdup(gcompris_get_locale());
+  g_warning("locale was set to %s", actual_lang);
 
-  gchar *actual_lang = gcompris_get_locale();
-  printf("%s was set to %s 1 of %d \n", LOC, actual_lang, g_list_length(locales));
+  while (locale){
+    gcompris_set_locale(locale->data);
 
-  while (locales){
-    printf("Locale %s exists for gcompris \n", locales->data);
+    g_warning("Brain in %s : %s",locale->data, _("Brain"));
 
-    gcompris_set_locale(locales->data);
-
-    printf("Cerveau %s\n", _("Brain"));
-
-    locales = locales->next;
+    locale = locale->next;
   }
  
   gcompris_set_locale(actual_lang);
+  g_free(actual_lang);
 
   //segfault (list too long ? )
-  //gcompris_combo_box( "Gcompris locales", locales, "locale", 0);
+  gcompris_combo_box( "Gcompris locales", locales, "locale", "fr");
 
 }
   

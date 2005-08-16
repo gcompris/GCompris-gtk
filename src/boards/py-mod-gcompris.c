@@ -1141,14 +1141,14 @@ py_gcompris_combo_box(PyObject* self, PyObject* args)
   gchar *label;
   gchar *key;
   gchar *item;
-  gint index;
+  gchar *init;
 
   GList *list = NULL;
 
   int i, size;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "sOsi:gcompris_combo_box", &label, &py_list, &key, &index))
+  if(!PyArg_ParseTuple(args, "sOss:gcompris_combo_box", &label, &py_list, &key, &init))
     return NULL;
 
   if (!PyList_Check(py_list)){
@@ -1168,7 +1168,7 @@ py_gcompris_combo_box(PyObject* self, PyObject* args)
 				    gcompris_combo_box((const gchar *)label, 
 						       list, 
 						       key, 
-						       index));
+						       init));
 }
 
 
