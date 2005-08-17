@@ -1066,9 +1066,9 @@ static GcomprisConfCallback pyGcomprisConfCallback(GHashTable* table){
 
   result = PyObject_CallFunction(pyGcomprisConfCallbackFunc, "O", hash_to_dict(table));
 
-  // This callback can be called multiple time
-  // I must add a second callback to mark the window closed and DECREF this ref.
-  //Py_DECREF(pyGcomprisConfCallbackFunc);
+  // This callback can be called multiple time ? not now
+  
+  Py_DECREF(pyGcomprisConfCallbackFunc);
 
   if(result==NULL){
     PyErr_Print();
@@ -1099,8 +1099,8 @@ py_gcompris_configuration_window(PyObject* self, PyObject* args){
       return NULL;
     }
 
-  if (pyGcomprisConfCallbackFunc)
-    Py_DECREF(pyGcomprisConfCallbackFunc);
+  //if (pyGcomprisConfCallbackFunc)
+  //  Py_DECREF(pyGcomprisConfCallbackFunc);
 
   pyGcomprisConfCallbackFunc = pyCallback;
 
@@ -1303,7 +1303,7 @@ py_gcompris_combo_locales(PyObject* self, PyObject* args)
   gchar *init;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "ss:gcompris_radio_buttons", &key, &init))
+  if(!PyArg_ParseTuple(args, "ss:gcompris_combo_locales", &key, &init))
     return NULL;
 
   return (PyObject *)pygobject_new((GObject*) \
@@ -1350,10 +1350,43 @@ py_gcompris_gettext(PyObject* self, PyObject* args)
 
 
 
+/* void gcompris_change_locale(gchar *locale); */
+static PyObject*
+py_gcompris_change_locale(PyObject* self, PyObject* args)
+{
+  gchar *locale;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "s:gcompris_change_locale", &locale))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gcompris_change_locale(locale);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
+/* void gcompris_reset_locale(gchar *locale); */
+static PyObject*
+py_gcompris_reset_locale(PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris_reset_locale"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  gcompris_reset_locale();
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
 /****************************************************/
-
-
-
 
 static PyMethodDef PythonGcomprisModule[] = {
   { "end_board",  py_gcompris_end_board, METH_VARARGS, "gcompris_end_board" },
@@ -1404,6 +1437,8 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "combo_locales",  py_gcompris_combo_locales, METH_VARARGS, "gcompris_combo_locales" },
   { "get_locales_list",  py_gcompris_get_locales_list, METH_VARARGS, "gcompris_get_locales_list" },
   { "gcompris_gettext",  py_gcompris_gettext, METH_VARARGS, "gcompris_gettext" },
+  { "change_locale",  py_gcompris_change_locale, METH_VARARGS, "gcompris_change_locale" },
+  { "reset_locale",  py_gcompris_reset_locale, METH_VARARGS, "gcompris_reset_locale" },
   { NULL, NULL, 0, NULL}
 };
 

@@ -45,7 +45,7 @@ class Gcompris_pythontest:
     self.previous_locale = gcompris.get_locale()
 
     if self.config_dict.has_key('locale'):
-      gcompris.set_locale(self.config_dict['locale'])
+      gcompris.change_locale(self.config_dict['locale'])
 
     # self.colors['line'] s set in init.
     # I put here the configuration use
@@ -205,7 +205,7 @@ class Gcompris_pythontest:
 
   def end(self):
 
-    gcompris.set_locale(self.previous_locale)
+    gcompris.reset_locale()
     
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
@@ -404,7 +404,7 @@ class Gcompris_pythontest:
 
     print gcompris.get_locales_list()
 
-    gcompris.combo_locales('locale', self.init_conf_str('locale', 'fr'))
+    gcompris.combo_locales('locale', self.init_conf_str('locale', 'NULL'))
 
   # Get value from config_dict or value passed
   def init_conf(self, key, value):

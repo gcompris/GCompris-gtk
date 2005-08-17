@@ -98,33 +98,40 @@ static BoardPlugin menu_bp =
  *
  * =====================================================================*/
 GET_BPLUGIN_INFO(colors)
-
+     
 
 /* ======================= */
 /* = config_start        = */
 /* ======================= */
 
-static GtkVBox *config_vbox = NULL;
+static GcomprisProfile *profile_conf;
+static GcomprisBoard   *board_conf;
 
-GHFunc print_table (gpointer key,
+GHFunc save_table (gpointer key,
 		    gpointer value,
 		    gpointer user_data)
 {
-  printf (" Hash key %s as value %s \n", (gchar *) key, (gchar *) value);
+  gcompris_set_board_conf ( profile_conf,
+			    board_conf,
+			    (gchar *) key, 
+			    (gchar *) value);
 }
 
 static GcomprisConfCallback conf_apply(GHashTable *table)
 {
-  printf ("Config Hashtable size %d\n", g_hash_table_size(table));
-
-  g_hash_table_foreach(table, (GHFunc) print_table, NULL);
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
+  
+  board_conf = NULL;
+  profile_conf = NULL;
 }
 
-
-static void 
+static void
 colors_config_start(GcomprisBoard *agcomprisBoard,
 		    GcomprisProfile *aProfile)
 {
+  board_conf = agcomprisBoard;
+  profile_conf = aProfile;
+
   gchar *label;
   
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
@@ -134,65 +141,25 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 
   g_free(label);
 
-  gcompris_separator();
+  /* init the combo to previously saved value */
+  GHashTable *config = gcompris_get_board_conf();
+  gchar *locale = g_hash_table_lookup( config, "locale");
+  if (!locale)
+    locale = "NULL";
+
+  /* Choose new value */
+  gcompris_combo_locales("locale", locale);
+
+  /**************************/
+  /* unusable: too long */
+  /*   GList *locales_asset = gcompris_get_locales_asset_list("gcompris colors", NULL, "audio/x-ogg", "purple.ogg" ); */
   
-  gcompris_boolean_box("Test Check Box", "key1", TRUE);
-    
-  gcompris_separator();
-
-  GList *list = NULL;
-  int i; 
-  for (i =0; i< 10; i++)
-    list = g_list_append( list, g_strdup_printf("value_%d", i));
+  /*   gchar *locale_asset = g_hash_table_lookup( config, "locale_asset"); */
   
-  gcompris_combo_box( "Gcompris ComboBox", list, "combo_key", NULL);
-
-  gcompris_separator();
-
-  GHashTable *table = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
-  for (i =0; i< 5; i++) 
-    g_hash_table_insert ( table, 
- 			  g_strdup_printf("key_%d", i),
- 			  g_strdup_printf("Radio Button %d", i)
- 			  );
-
-  gcompris_radio_buttons( " <b><i>Radio</i> Buttons</b> Sample ",
-			  "color_radio",
-			  table,
-			  "key_7");
-
-  gcompris_separator();
-
-  gcompris_spin_int(" <b><i>Spin</i> Button</b> Sample ", 
-		    "color_spin", 
-		    2, 
-		    52, 
-		    5, 
-		    12);
-
-  g_hash_table_destroy( table);
-
-  GList *locales = gcompris_get_locales_list();
-  GList *locale = locales;
-
-  gchar *actual_lang = g_strdup(gcompris_get_locale());
-  g_warning("locale was set to %s", actual_lang);
-
-  while (locale){
-    gcompris_set_locale(locale->data);
-
-    g_warning("Brain in %s : %s",locale->data, _("Brain"));
-
-    locale = locale->next;
-  }
- 
-  gcompris_set_locale(actual_lang);
-  g_free(actual_lang);
-
-  //segfault (list too long ? )
-  gcompris_combo_box( "Gcompris locales", locales, "locale", "fr");
+  /*   gcompris_combo_box( "Select sound locale", locales_asset, "locale_asset", locale_asset); */
 
 }
+
   
 /* ======================= */
 /* = config_stop        = */
@@ -226,6 +193,13 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
   GList * list = NULL;
   int * item;
   int i;
+
+  GHashTable *config = gcompris_get_board_conf();
+
+  gchar *locale = g_hash_table_lookup( config, "locale");
+
+  if (locale)
+    gcompris_change_locale(locale);
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
@@ -275,6 +249,7 @@ static void end_board () {
     listColors=NULL;
   }
   gcomprisBoard = NULL;
+  gcompris_reset_locale();
 }
 
 /* =====================================================================

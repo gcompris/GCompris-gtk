@@ -1,3 +1,21 @@
+2005-08-18  Yves Combe  <yves@ycombe.net>
+
+	gcompris_change_locale and gcompris_reset_locale are usefull fonction to change locale easily in boards. colors uses it, and pythontest.
+	Fix configuration window behaviour: now the window closes when "Apply" button is clicked.
+	add a asset_get based gcompris_get_locales_asset_list: really to long, needs to be rewritten. unusable.
+
+	* src/boards/colors.c: (save_table), (conf_apply),
+	(colors_config_start), (start_board), (end_board):
+	* src/boards/py-mod-gcompris.c: (pyGcomprisConfCallback),
+	(py_gcompris_configuration_window), (py_gcompris_combo_locales),
+	(py_gcompris_change_locale), (py_gcompris_reset_locale):
+	* src/boards/python/pythontest.py:
+	* src/gcompris/board_config.c: (gcompris_apply_board_conf),
+	(gcompris_combo_locales_changed), (gcompris_combo_locales),
+	(gcompris_change_locale), (gcompris_reset_locale),
+	(gcompris_get_locales_asset_list):
+	* src/gcompris/board_config.h:
+
 2005-08-17  Yves Combe  <yves@ycombe.net>
 
 	fix stupid bug
