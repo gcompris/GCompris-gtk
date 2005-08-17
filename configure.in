@@ -128,7 +128,7 @@ fi
 dnl Define myprefix depending on wether our user gives us one or not
 dnl This is needed for $libdir !
 if test "x${exec_prefix}" = "xNONE"; then
-  exec_prefix=${ac_default_prefix}
+  exec_prefix=${myprefix}
 fi
 
 
