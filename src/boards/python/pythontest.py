@@ -404,7 +404,7 @@ class Gcompris_pythontest:
 
     print gcompris.get_locales_list()
 
-    gcompris.combo_locales('locale', 'fr')
+    gcompris.combo_locales('locale', self.init_conf_str('locale', 'fr'))
 
   # Get value from config_dict or value passed
   def init_conf(self, key, value):
