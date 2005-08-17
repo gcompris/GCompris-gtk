@@ -1336,6 +1336,20 @@ py_gcompris_get_locales_list(PyObject* self, PyObject* args)
 
 
 
+static PyObject*
+py_gcompris_gettext(PyObject* self, PyObject* args)
+{
+  gchar *text;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "s:gcompris_gettext", &text))
+    return NULL;
+
+  return PyString_FromString(_(text));
+}
+
+
+
 /****************************************************/
 
 
@@ -1389,6 +1403,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "separator",  py_gcompris_separator, METH_VARARGS, "gcompris_separator" },
   { "combo_locales",  py_gcompris_combo_locales, METH_VARARGS, "gcompris_combo_locales" },
   { "get_locales_list",  py_gcompris_get_locales_list, METH_VARARGS, "gcompris_get_locales_list" },
+  { "gcompris_gettext",  py_gcompris_gettext, METH_VARARGS, "gcompris_gettext" },
   { NULL, NULL, 0, NULL}
 };
 

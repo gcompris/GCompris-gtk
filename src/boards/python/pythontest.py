@@ -6,7 +6,7 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
-from gettext import gettext as _
+from gcompris import gcompris_gettext as _
 
 class Gcompris_pythontest:
   """Testing gcompris python class"""
@@ -41,12 +41,16 @@ class Gcompris_pythontest:
     self.gcomprisBoard.number_of_sublevel=1
 
     self.config_dict = gcompris.get_board_conf()
+    
+    self.previous_locale = gcompris.get_locale()
 
+    if self.config_dict.has_key('locale'):
+      gcompris.set_locale(self.config_dict['locale'])
 
     # self.colors['line'] s set in init.
     # I put here the configuration use
     
-    color_name = self.init_conf('color_line', 'red')
+    color_name = self.init_conf_str('color_line', 'red')
     self.colors['line'] = self.config_colors[color_name]
 
     gcompris.bar_set(0)
@@ -201,6 +205,8 @@ class Gcompris_pythontest:
 
   def end(self):
 
+    gcompris.set_locale(self.previous_locale)
+    
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 

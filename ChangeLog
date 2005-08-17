@@ -1,5 +1,12 @@
 2005-08-17  Yves Combe  <yves@ycombe.net>
 
+	add gcompris.gcompris_gettext method to call C gettext from python. python gettext does not accept reread it's translation file if environnemnt's LC_MESSAGE is set to a not registered locale. Seems works, but needs more check.
+
+	* src/boards/py-mod-gcompris.c: (py_gcompris_gettext):
+	* src/boards/python/pythontest.py:
+
+2005-08-17  Yves Combe  <yves@ycombe.net>
+
 	python bindings, fix name (gcompris_get_locales_list) and bug.
 
 	* src/boards/colors.c: (colors_config_start):
