@@ -1,3 +1,10 @@
+2005-08-18  Yves Combe,,,  <yves@ycombe.net>
+
+	fix a bug in colors config combo_locales init.
+
+	* src/boards/colors.c: (colors_config_start):
+	* src/gcompris/board_config.c: (gcompris_combo_locales):
+
 2005-08-18  Yves Combe  <yves@ycombe.net>
 
 	gcompris_change_locale and gcompris_reset_locale are usefull fonction to change locale easily in boards. colors uses it, and pythontest.

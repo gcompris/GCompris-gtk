@@ -142,10 +142,12 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   g_free(label);
 
   /* init the combo to previously saved value */
-  GHashTable *config = gcompris_get_board_conf();
+  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+
   gchar *locale = g_hash_table_lookup( config, "locale");
+
   if (!locale)
-    locale = "NULL";
+    locale = g_strdup("NULL");
 
   /* Choose new value */
   gcompris_combo_locales("locale", locale);

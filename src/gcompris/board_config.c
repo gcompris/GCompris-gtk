@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/18 00:53:22 yves>
+ * Time-stamp: <2005/08/18 01:42:58 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -557,8 +557,7 @@ GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init)
   strings = g_list_prepend( strings, _("Default"));
 
   if (init){
-    if (strcmp(init, "NULL")!=0)
-      init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
+    init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
   }
 
   if (init_index < 0)
