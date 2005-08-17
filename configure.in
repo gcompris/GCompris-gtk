@@ -125,6 +125,14 @@ else
   myprefix=${prefix}
 fi
 
+dnl Define myprefix depending on wether our user gives us one or not
+dnl This is needed for $libdir !
+if test "x${exec_prefix}" = "xNONE"; then
+  exec_prefix=${ac_default_prefix}
+fi
+
+
+
 dnl Some debug option
 AC_ARG_ENABLE(debug,
           AC_HELP_STRING(
@@ -215,7 +223,8 @@ PACKAGE_HELP_DIR="${myprefix}/${DATADIRNAME}/gnome/help/${PACKAGE}"
 AC_SUBST(PACKAGE_HELP_DIR)
 
 dnl Plugin Directory
-AC_DEFINE_UNQUOTED(PLUGIN_DIR, "${myprefix}/lib/gcompris", [Gcompris plugins directory])
+my_libdir=`eval echo "${libdir}/gcompris"`
+AC_DEFINE_UNQUOTED(PLUGIN_DIR, ${my_libdir}, [Gcompris plugins directory])
 plugindir=$libdir/gcompris
 AC_SUBST(plugindir)
 

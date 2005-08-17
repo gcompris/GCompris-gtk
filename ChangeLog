@@ -1,4 +1,10 @@
-2005-08-17  Yves Combe,,,  <yves@ycombe.net>
+2005-08-17  Yves Combe  <yves@ycombe.net>
+
+	fix $libdir use for configure. That will allow --libdir=/usr/lib64 if needed.
+
+	* configure.in:
+
+2005-08-17  Yves Combe  <yves@ycombe.net>
 
 	fix locales combo init in pythontest
 
