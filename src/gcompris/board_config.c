@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/18 01:42:58 yves>
+ * Time-stamp: <2005/08/18 14:35:25 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -149,8 +149,8 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
 		   G_CALLBACK(gcompris_close_board_conf),
 		   NULL);
 
-  /* Apply button */
-  button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_APPLY));
+  /* Ok button */
+  button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_OK));
   gtk_widget_show(GTK_WIDGET(button));
   gtk_box_pack_start (GTK_BOX(footer),
 		      GTK_WIDGET(button),

@@ -33,6 +33,8 @@ class Gcompris_pythontest:
 
     print("Gcompris_pythontest __init__.")
 
+    #initialisation to default values. Some of them will be replaced by
+    #the configured values.
 
   def start(self):
     self.gcomprisBoard.level=1
@@ -40,7 +42,11 @@ class Gcompris_pythontest:
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
 
-    self.config_dict = gcompris.get_board_conf()
+    # init config to default values
+    self.config_dict = self.init_config()
+
+    # change configured values
+    self.config_dict.update(gcompris.get_board_conf())
     
     self.previous_locale = gcompris.get_locale()
 
@@ -50,7 +56,7 @@ class Gcompris_pythontest:
     # self.colors['line'] s set in init.
     # I put here the configuration use
     
-    color_name = self.init_conf_str('color_line', 'red')
+    color_name = self.config_dict['color_line']
     self.colors['line'] = self.config_colors[color_name]
 
     gcompris.bar_set(0)
@@ -67,10 +73,10 @@ class Gcompris_pythontest:
       )
 
     # distance is used to demo of gcompris.spin_int
-    distance = self.init_conf('distance_circle', 100)
+    distance = eval(self.config_dict['distance_circle'])
 
     # pattern is for gcompris.radio_buttons
-    pattern = self.init_conf_str('pattern', 'circle')
+    pattern = self.config_dict['pattern']
 
     patterns = { 'circle': gnome.canvas.CanvasEllipse,
                  'rectangle': gnome.canvas.CanvasRect
@@ -301,7 +307,7 @@ class Gcompris_pythontest:
     self.timer_inc  = gtk.timeout_add(self.timerinc, self.timer_inc_display)
 
   def circle_item_event(self, widget, event=None):
-    if self.init_conf('disable_line', True):
+    if eval(self.config_dict['disable_line']):
       return False
     
     if event.type == gtk.gdk.BUTTON_PRESS:
@@ -344,9 +350,12 @@ class Gcompris_pythontest:
   def config_start(self, profile):
     # keep profile in mind
     self.configuring_profile = profile
+
+    # init with default values
+    self.config_dict = self.init_config()
     
     #get the configured values for that profile
-    self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
+    self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     # Init configuration window:
     # all the configuration functions will use it
@@ -363,7 +372,7 @@ class Gcompris_pythontest:
     # toggle box
     control_line = gcompris.boolean_box(_('Disable line drawing in circle'),
                                         'disable_line',
-                                        self.init_conf('disable_line', True)
+                                        eval(self.config_dict['disable_line'])
                                         )
     # sample of control in python
     control_line.connect("toggled", self.color_disable)
@@ -373,9 +382,9 @@ class Gcompris_pythontest:
        gcompris.combo_box(_('Color line'),
                           self.config_colors_list,
                           'color_line',
-                          self.init_conf_str('color_line', 'red')
+                          self.config_dict['color_line']
                           )
-    self.color_choice.set_sensitive(not self.init_conf('disable_line', True))
+    self.color_choice.set_sensitive(not eval(self.config_dict['disable_line']))
 
     gcompris.separator()
 
@@ -386,7 +395,7 @@ class Gcompris_pythontest:
                          20,
                          200,
                          20,
-                         self.init_conf('distance_circle', 100)
+                         eval(self.config_dict['distance_circle'])
                          )
 
     gcompris.separator()
@@ -399,26 +408,12 @@ class Gcompris_pythontest:
     gcompris.radio_buttons(_('Choice of pattern'),
                            'pattern',
                            patterns,
-                           self.init_conf_str('pattern', 'circle')
+                           self.config_dict['pattern']
                            )
 
     print gcompris.get_locales_list()
 
-    gcompris.combo_locales('locale', self.init_conf_str('locale', 'NULL'))
-
-  # Get value from config_dict or value passed
-  def init_conf(self, key, value):
-    if self.config_dict.has_key(key):
-      return eval(self.config_dict[key])
-    else:
-      return value
-
-  # Get value from config_dict or value passed, with string type values
-  def init_conf_str(self, key, value):
-    if self.config_dict.has_key(key):
-      return self.config_dict[key]
-    else:
-      return value
+    gcompris.combo_locales('locale', self.config_dict['locale'])
 
   def color_disable(self, button):
     self.color_choice.set_sensitive(not button.get_active())
@@ -429,3 +424,13 @@ class Gcompris_pythontest:
       print '%20s:%20s    ' % (key, value)
       gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
   
+  def init_config(self):
+    default_config = { 'disable_line'    : 'True',
+                       'color_line'      : 'red',
+                       'distance_circle' : '100',
+                       'pattern'         : 'circle',
+                       'locale'          : 'NULL'
+                       }
+    return default_config
+  
+    

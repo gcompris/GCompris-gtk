@@ -1,5 +1,13 @@
 2005-08-18  Yves Combe,,,  <yves@ycombe.net>
 
+	Change 'Apply' button for 'OK' button in configuration window
+	Use a dict with update() to manage default configurable values in pythontest
+
+	* src/boards/python/pythontest.py:
+	* src/gcompris/board_config.c: (gcompris_configuration_window):
+
+2005-08-18  Yves Combe,,,  <yves@ycombe.net>
+
 	fix a bug in colors config combo_locales init.
 
 	* src/boards/colors.c: (colors_config_start):
