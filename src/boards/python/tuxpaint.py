@@ -62,7 +62,11 @@ class Gcompris_tuxpaint:
     
     Prop = gcompris.get_properties()
 
-    self.config_dict = gcompris.get_board_conf()
+    #get default values
+    self.config_dict = self.init_config()
+
+    #replace configured values
+    self.config_dict.update(gcompris.get_board_conf())
     
     self.rootitem = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
@@ -72,23 +76,22 @@ class Gcompris_tuxpaint:
 
     options = ['tuxpaint']
 
-    if (Prop.fullscreen and self.configuration('fullscreen', True)):
+    if (Prop.fullscreen and eval(self.config_dict['fullscreen'])):
       options.append('--fullscreen')
 
-    if self.configuration('disable_shape_rotation', False):
+    if eval(self.config_dict['disable_shape_rotation']):
       options.append('--simpleshapes')
 
-    if self.configuration('uppercase_text', False):
+    if eval(self.config_dict['uppercase_text']):
       options.append('--uppercase')
 
-    if self.configuration('disable_stamps', False):
+    if eval(self.config_dict['disable_stamps']):
       options.append('--nostamps')
 
-    if self.configuration('disable_stamps_control', False):
+    if eval(self.config_dict['disable_stamps_control']):
       options.append('--nostampcontrols')
   
     gcompris.sound.close()
-
 
     #self.window.set_property("accept-focus", 0)
     #self.window.set_keep_below(False)
@@ -155,32 +158,34 @@ class Gcompris_tuxpaint:
 
   def config_start(self, profile):
     self.configure_profile = profile
-    
-    self.config_values = {}
+
+    #get default values
+    self.config_dict = self.init_config()
+
+    #set already configured values
+    self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     self.main_vbox = gcompris.configuration_window(_('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Tuxpaint', profile.name ),
                                                    self.apply_callback)
 
-    self.config_dict = gcompris.get_conf(profile, self.gcomprisBoard)
 
-
-    gcompris.boolean_box(_('Follow gcompris fullscreen'), 'fullscreen', self.configuration('fullscreen', True))
+    gcompris.boolean_box(_('Follow gcompris fullscreen'), 'fullscreen', eval(self.config_dict['fullscreen']))
 
     gcompris.separator()
 
-    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', self.configuration('disable_shape_rotation', False))
+    gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', eval(self.config_dict['disable_shape_rotation']))
 
     gcompris.separator()
 
-    gcompris.boolean_box(_('Show Uppercase text only'), 'uppercase_text', self.configuration('uppercase_text', False))
+    gcompris.boolean_box(_('Show Uppercase text only'), 'uppercase_text', eval(self.config_dict['uppercase_text']))
 
     gcompris.separator()
 
-    stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', self.configuration('disable_stamps', False))
+    stamps = gcompris.boolean_box(_('Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
     stamps.connect("toggled", self.stamps_changed)
     
-    self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', self.configuration('disable_stamps_control', False))
-    self.stamps_control.set_sensitive(not self.configuration('disable_stamps', False))
+    self.stamps_control = gcompris.boolean_box('Disable stamps control', 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
+    self.stamps_control.set_sensitive(not eval(self.config_dict['disable_stamps']))
      
   def stamps_changed(self, button):
     self.stamps_control.set_sensitive(not button.get_active())
@@ -190,6 +195,14 @@ class Gcompris_tuxpaint:
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configure_profile, self.gcomprisBoard, key, value)
 
+  def init_config(self):
+    default_config_dict = { 'fullscreen'             : 'True',
+                            'disable_shape_rotation' : 'False',
+                            'uppercase_text'         : 'False',
+                            'disable_stamps'         : 'False',
+                            'disable_stamps_control' : 'False'
+      }
+    return default_config_dict
 
 def child_callback(fd,  cond, data):
   #global board
