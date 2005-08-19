@@ -366,7 +366,7 @@ class Gcompris_pythontest:
 
     self.main_vbox = gcompris.configuration_window ( \
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', profile.name ),
-      self.apply_callback
+      self.ok_callback
       )
 
     # toggle box
@@ -410,26 +410,55 @@ class Gcompris_pythontest:
                            patterns,
                            self.config_dict['pattern']
                            )
-
+    
+    print "List of locales shown in gcompris.combo_locale :"
     print gcompris.get_locales_list()
 
+    gcompris.separator()
+
     gcompris.combo_locales('locale', self.config_dict['locale'])
+
+    gcompris.separator()
+
+    print "List of locales shown in gcompris.combo_locales_asset :"
+    locales_purple = gcompris.get_locales_asset_list( "gcompris colors", None, "audio/x-ogg", "purple.ogg")
+    print locales_purple
+
+    label = gtk.Label()
+    label.set_markup('<i>-- unused, but here for test --</i>')
+    label.show()
+    self.main_vbox.pack_start (label, False, False, 8)
+
+    gcompris.combo_locales_asset( _("Select sound locale"), "locale_asset", self.config_dict['locale_asset'], "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
+
+    print gcompris.utils.get_asset_file ("gcompris colors", None, "audio/x-ogg", "purple.ogg")
+    print gcompris.utils.get_asset_file_locale ("gcompris colors", None, "audio/x-ogg", "purple.ogg", None)
+    for lang in locales_purple:
+      print gcompris.utils.get_asset_file_locale ("gcompris colors", None, "audio/x-ogg", "purple.ogg", lang)
 
   def color_disable(self, button):
     self.color_choice.set_sensitive(not button.get_active())
 
-  def apply_callback(self, table):
+  # Callback when the "OK" button is clicked in configuration window
+  # this get all the _changed_ values
+  def ok_callback(self, table):
     print _('Keys and values returned by PythonTest config window:')
+    
+    if (len(table) == 0):
+           print '%20s' % 'None'
+           
     for key,value in table.iteritems():
       print '%20s:%20s    ' % (key, value)
       gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
+
   
   def init_config(self):
     default_config = { 'disable_line'    : 'True',
                        'color_line'      : 'red',
                        'distance_circle' : '100',
                        'pattern'         : 'circle',
-                       'locale'          : 'NULL'
+                       'locale'          : 'NULL',
+                       'locale_asset'    : 'NULL'
                        }
     return default_config
   

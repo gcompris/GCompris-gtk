@@ -1335,6 +1335,65 @@ py_gcompris_get_locales_list(PyObject* self, PyObject* args)
 }
 
 
+static PyObject*
+py_gcompris_combo_locales_asset(PyObject* self, PyObject* args)
+{
+  gchar *key;
+  gchar *init;
+  gchar *label;
+  gchar *dataset;
+  gchar* categories;
+  gchar* mimetype;
+  gchar *file;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "ssszzzz:gcompris_combo_locales", 
+		       &label, 
+		       &key, 
+		       &init,
+		       &dataset,
+		       &categories,
+		       &mimetype,
+		       &file))
+    return NULL;
+
+  return (PyObject *)pygobject_new((GObject*) \
+				   gcompris_combo_locales_asset( label, key, init, dataset, categories, mimetype, file ));
+}
+
+
+static PyObject*
+py_gcompris_get_locales_asset_list(PyObject* self, PyObject* args)
+{
+  PyObject *pylist;
+  GList *result, *list ;
+  gchar *dataset;
+  gchar* categories;
+  gchar* mimetype;
+  gchar *file;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "zzzz:gcompris.get_locales_asset_list",
+		       &dataset,
+		       &categories,
+		       &mimetype,
+		       &file))
+    return NULL;
+
+  /* Call the corresponding C function */
+  result = gcompris_get_locales_asset_list( dataset, categories, mimetype, file);
+
+  pylist = PyList_New(0);
+
+  for (list = result; list != NULL; list = list->next){
+    PyList_Append( pylist, PyString_FromString(list->data));
+  }
+
+  Py_INCREF(pylist);
+  return pylist;
+}
+
+
 
 static PyObject*
 py_gcompris_gettext(PyObject* self, PyObject* args)
@@ -1439,6 +1498,8 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "gcompris_gettext",  py_gcompris_gettext, METH_VARARGS, "gcompris_gettext" },
   { "change_locale",  py_gcompris_change_locale, METH_VARARGS, "gcompris_change_locale" },
   { "reset_locale",  py_gcompris_reset_locale, METH_VARARGS, "gcompris_reset_locale" },
+  { "combo_locales_asset",  py_gcompris_combo_locales_asset, METH_VARARGS, "gcompris_combo_locales_asset" },
+  { "get_locales_asset_list",  py_gcompris_get_locales_asset_list, METH_VARARGS, "gcompris_get_locales_asset_list" },
   { NULL, NULL, 0, NULL}
 };
 

@@ -1,5 +1,17 @@
 2005-08-19  Yves Combe,,,  <yves@ycombe.net>
 
+	python binding for gcompris_combo_locales_asset gcompris_get_locales_asset_list gcompris_get_asset_file_locale.
+	fix gcompris_get_asset_file binding, it now can accept some None arguments.
+	sample in pythontest as usual.
+
+	* src/boards/py-mod-gcompris.c: (py_gcompris_combo_locales_asset),
+	(py_gcompris_get_locales_asset_list):
+	* src/boards/py-mod-utils.c: (py_gcompris_get_asset_file),
+	(py_gcompris_get_asset_file_locale):
+	* src/boards/python/pythontest.py:
+
+2005-08-19  Yves Combe,,,  <yves@ycombe.net>
+
 	Add cache in assetml.c to optimize speed.
 	Add gcompris_get_locales_asset_list and gcompris_combo_locales_asset
 	for sound (asset files) locales choice in conf.
