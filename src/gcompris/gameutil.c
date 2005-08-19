@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/08/01 20:40:15 bruno>
+ * Time-stamp: <2005/08/19 02:14:10 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -80,6 +80,53 @@ gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories,
       
       g_warning("Asset not found:\n");
       g_warning("   locale='%s'\n", gcompris_get_locale());
+      if (dataset)
+	g_warning("   dataset='%s'\n", dataset);
+      if (categories)
+	g_warning("   category='%s'\n", categories);
+      if(mimetype)
+	g_warning("   mimetype='%s'\n", mimetype);
+      if(file)
+	g_warning("   file='%s'\n", file);
+    }
+
+  return (resultfile);
+}
+
+/*
+ * Returns a filename path found from the assetml base. 
+ */
+gchar *gcompris_get_asset_file_locale(gchar *dataset, gchar* categories, 
+			       gchar* mimetype, gchar* file, gchar *locale)
+{
+  GList *gl_result;
+  AssetML *assetml;
+  gchar* resultfile = NULL;
+  gchar *mylocale = locale;
+
+  if (!mylocale || (strcmp( mylocale, "NULL") == 0))
+    mylocale = gcompris_get_locale();
+
+  gl_result = assetml_get_asset(dataset, categories, mimetype, mylocale, file);
+
+  if(gl_result && g_list_length(gl_result)>0)
+    {
+
+      /* Always get the first item */
+      assetml = (AssetML *)g_list_nth_data(gl_result, 0);
+
+      if(assetml->file)
+	{
+	  resultfile = g_strdup(assetml->file);
+	}
+
+      assetml_free_assetlist(gl_result);
+    }
+  else
+    {
+      
+      g_warning("Asset not found:\n");
+      g_warning("   locale='%s'\n", mylocale);
       if (dataset)
 	g_warning("   dataset='%s'\n", dataset);
       if (categories)

@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/18 14:35:25 yves>
+ * Time-stamp: <2005/08/19 02:21:14 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -650,7 +650,6 @@ GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories,
   locales = gcompris_get_locales_list();
 
   for (list = locales; list != NULL; list = list->next){ 
-    printf ("Looking for %s sound file...", list->data);
     gl_result = assetml_get_asset(dataset, categories, mimetype, list->data, file);
 
     if(gl_result && g_list_length(gl_result)>0)
@@ -660,20 +659,86 @@ GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories,
 	assetml = (AssetML *)g_list_nth_data(gl_result, 0);
 
 	if(assetml->file)
-	  {
 	  locales_asset = g_list_append ( locales_asset, list->data);
-	  printf("ok.\n");
-	  }
-	else
-	  printf("no.\n");
 
 	assetml_free_assetlist(gl_result);
       }
-    else
-      printf("no.\n");
   }
   
   return locales_asset;
+}
+
+GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *key, gchar *init, gchar *dataset, gchar* categories, gchar* mimetype, gchar *file)
+{
+  GtkWidget *combobox;
+  GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
+  GList *list, *strings;
+  GtkWidget *label_combo;
+  gint init_index = 0;
+
+  strings = gcompris_get_locales_asset_list(dataset, categories, mimetype, file);
+
+  strings = g_list_prepend( strings, _("Default"));
+
+  if (init){
+    init_index =  g_list_position ( strings, g_list_find_custom ( strings,(gconstpointer)  init, (GCompareFunc) my_strcmp));
+  }
+
+  if (init_index < 0)
+    init_index=0;
+  
+  gtk_widget_show(hbox);
+  
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      hbox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  /* Label */
+  label_combo = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(label_combo);
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      label_combo,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  gtk_label_set_justify (GTK_LABEL(label_combo),
+			 GTK_JUSTIFY_RIGHT);
+
+  gtk_label_set_markup (GTK_LABEL(label_combo),
+                        label);
+
+  combobox = gtk_combo_box_new_text();
+
+  gtk_widget_show(combobox);
+
+  gtk_box_pack_start (GTK_BOX(hbox),
+		      combobox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+
+  for (list = strings; list != NULL; list = list->next)
+    gtk_combo_box_append_text       (GTK_COMBO_BOX(combobox),
+				     list->data);
+
+  if (g_list_length(strings) > COMBOBOX_COL_MAX)
+    gtk_combo_box_set_wrap_width    (GTK_COMBO_BOX(combobox),
+  	     g_list_length(strings) / COMBOBOX_COL_MAX +1 );
+  
+  gtk_combo_box_set_active (GTK_COMBO_BOX(combobox),
+			    init_index);
+  
+  g_signal_connect(G_OBJECT(combobox),
+		   "changed",
+		   G_CALLBACK(gcompris_combo_locales_changed),
+		   key);
+
+  return GTK_COMBO_BOX(combobox);
+
 }
 
 /* Local Variables: */

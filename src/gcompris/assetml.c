@@ -42,6 +42,8 @@ void		 assetml_load_xml(GList **gl_result, gchar *dataset, gchar* categories,
 				  const gchar* locale, gchar* file);
 void		 free_asset(AssetML *assetml);
 
+GHashTable *asset_cache = NULL;
+
 /*
  * This returns the locale for which text must be displayed
  *
@@ -213,7 +215,11 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
 {
   g_assert(assetml);
 
-  assetml->dataset = g_strdup(mydataset);
+  if (!assetml->locale)
+    assetml->locale = g_strdup(mylocale);
+  if (!assetml->dataset)
+    assetml->dataset = g_strdup(mydataset);
+
   if(assetml->dataset && dataset)
     if(g_ascii_strcasecmp(assetml->dataset, dataset))
       return FALSE;
@@ -225,7 +231,9 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
    * pt     pt_BR       OK
    * pt_BR  pt          NO
    */
-  assetml->locale = g_strdup(mylocale);
+  if (!assetml->locale)
+    assetml->locale = g_strdup(mylocale);
+
   if(assetml->locale && locale)
     if(g_ascii_strncasecmp(assetml->locale, locale, strlen(assetml->locale)))
       return FALSE;
@@ -276,8 +284,21 @@ static gboolean matching(AssetML *assetml, gchar *mydataset,
 static void
 parse_doc(GList **gl_result, xmlDocPtr doc, 
 	  gchar *mydataset, gchar *rootdir, gchar* mylocale,
-	  gchar *dataset, gchar* categories, gchar* mimetype, const gchar* locale, gchar* file)
+	  gchar *dataset, gchar* categories, gchar* mimetype, const gchar* locale, gchar* file, GList **cache)
 {
+  if (*cache){
+    GList *list;
+
+    for (list= *cache; list != NULL; list=list->next){
+      AssetML *assetml = (AssetML *) list->data;
+      
+      if (matching(assetml, mydataset, dataset, categories, 
+		   mimetype, mylocale, locale, file))
+	*gl_result = g_list_append (*gl_result, assetml);
+    }
+    return;
+  }
+
   xmlNodePtr node;
 
   /* find <Asset> nodes and add them to the list, this just
@@ -293,10 +314,18 @@ parse_doc(GList **gl_result, xmlDocPtr doc,
 
       *gl_result = g_list_append (*gl_result, assetml);
     }
+
+    if (assetml)
+      *cache = g_list_append( *cache,  assetml);
+
   }
 }
 
-
+void assetml_real_free_assetlist(GList *assetlist)
+{
+  g_list_foreach (assetlist, (GFunc) free_asset, NULL);
+  g_list_free(assetlist);
+}
 
 /* read an xml file into our memory structures and update our view,
    dump any old data we have in memory if we can load a new set
@@ -311,40 +340,66 @@ void assetml_read_xml_file(GList **gl_result, char *assetmlfile,
   gchar *mylocale;
   gchar *mydataset;
 
+  GList *cache = NULL;
+
   g_return_if_fail(assetmlfile!=NULL);
 
-  /* parse the new file and put the result into newdoc */
-  doc = xmlParseFile(assetmlfile);
-
-  /* in case something went wrong */
-  if(!doc) {
-    g_warning("Oups, the parsing of %s failed", assetmlfile);
-    return;
+  /* cache asset for performance in non direct search */
+  if (!asset_cache){
+    asset_cache = g_hash_table_new_full( g_str_hash,
+					 g_str_equal,
+					 g_free,
+					 (GDestroyNotify) assetml_free_assetlist
+					 );
   }
-  
-  if(/* if there is no root element */
-     !doc->children ||
-     /* if it doesn't have a name */
-     !doc->children->name ||
-     /* if it isn't a Assetml node */
-     g_strcasecmp(doc->children->name,"AssetML")!=0) 
-    {
-      xmlFreeDoc(doc);
-      g_warning("Oups, the file %s is not of the assetml type", assetmlfile);
+
+  cache = g_hash_table_lookup (asset_cache, assetmlfile);
+
+  /* parse the new file and put the result into newdoc */
+  if (! cache){
+    doc = xmlParseFile(assetmlfile);
+
+    /* in case something went wrong */
+    if(!doc) {
+      g_warning("Oups, the parsing of %s failed", assetmlfile);
       return;
     }
+  
+    if(/* if there is no root element */
+       !doc->children ||
+       /* if it doesn't have a name */
+       !doc->children->name ||
+       /* if it isn't a Assetml node */
+       g_strcasecmp(doc->children->name,"AssetML")!=0) 
+      {
+	xmlFreeDoc(doc);
+	g_warning("Oups, the file %s is not of the assetml type", assetmlfile);
+	return;
+      }
 
-  rootdir   = xmlGetProp(doc->children,"rootdir");
-  mydataset = xmlGetProp(doc->children,"dataset");
-  mylocale    = xmlGetProp(doc->children,"locale");
+    rootdir   = xmlGetProp(doc->children,"rootdir");
+    mydataset = xmlGetProp(doc->children,"dataset");
+    mylocale  = xmlGetProp(doc->children,"locale");
+  }
+  else {
+    AssetML *myasset = (AssetML *) cache->data;
+
+    mylocale = myasset->locale;
+    mydataset = myasset->dataset;
+    rootdir = NULL;
+  }
 
   /* parse our document and replace old data */
-  parse_doc(gl_result, doc, mydataset, rootdir, mylocale, dataset, categories, mimetype, locale, file);
+  parse_doc(gl_result, doc, mydataset, rootdir, mylocale, dataset, categories, mimetype, locale, file, &cache);
 
-  xmlFree(rootdir);
-  xmlFree(mydataset);
+  if (rootdir)
+    g_hash_table_replace( asset_cache, g_strdup(assetmlfile), cache);
 
-  xmlFreeDoc(doc);
+  if (rootdir){
+    xmlFree(rootdir);
+    xmlFree(mydataset);
+    xmlFreeDoc(doc);
+  }
 }
 
 
@@ -411,10 +466,9 @@ void free_asset(AssetML *assetml)
 
 void assetml_free_assetlist(GList *assetlist)
 {
-  g_list_foreach (assetlist, (GFunc) free_asset, NULL);
+  /* does not  free assets because cache */
+  //g_list_foreach (assetlist, (GFunc) free_asset, NULL);
   g_list_free(assetlist);
-
-
 }
 
 GList*	 assetml_get_asset(gchar *dataset, gchar* categories, gchar* mimetype, const gchar *locale, gchar* file)

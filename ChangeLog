@@ -1,3 +1,23 @@
+2005-08-19  Yves Combe,,,  <yves@ycombe.net>
+
+	Add cache in assetml.c to optimize speed.
+	Add gcompris_get_locales_asset_list and gcompris_combo_locales_asset
+	for sound (asset files) locales choice in conf.
+	gcompris_get_asset_file_locale ofr ask with specific locale.
+	Colors uses it!
+
+	* src/boards/colors.c: (colors_config_start), (start_board),
+	(end_board), (repeat):
+	* src/gcompris/assetml.c: (matching), (parse_doc),
+	(assetml_real_free_assetlist), (assetml_read_xml_file),
+	(assetml_free_assetlist):
+	* src/gcompris/board_config.c: (gcompris_get_locales_asset_list),
+	(gcompris_combo_locales_asset):
+	* src/gcompris/board_config.h:
+	* src/gcompris/gameutil.c: (gcompris_get_asset_file),
+	(gcompris_get_asset_file_locale):
+	* src/gcompris/gameutil.h:
+
 2005-08-18  Yves Combe  <yves@ycombe.net>
 
 	dict with update for config. cleaner.

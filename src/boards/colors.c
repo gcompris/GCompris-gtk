@@ -69,6 +69,9 @@ static gchar *colors[LAST_COLOR*2] = {
 static int X[] = {75,212,242,368,414,533,578,709};
 static int Y[] = {25,170,180,335,337,500};
 
+/* if board has alternate locale */
+static gchar *locale_sound = NULL;
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
   {
@@ -144,21 +147,9 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   /* init the combo to previously saved value */
   GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
 
-  gchar *locale = g_hash_table_lookup( config, "locale");
-
-  if (!locale)
-    locale = g_strdup("NULL");
-
-  /* Choose new value */
-  gcompris_combo_locales("locale", locale);
-
-  /**************************/
-  /* unusable: too long */
-  /*   GList *locales_asset = gcompris_get_locales_asset_list("gcompris colors", NULL, "audio/x-ogg", "purple.ogg" ); */
+  gchar *locale_asset = g_hash_table_lookup( config, "locale_asset");
   
-  /*   gchar *locale_asset = g_hash_table_lookup( config, "locale_asset"); */
-  
-  /*   gcompris_combo_box( "Select sound locale", locales_asset, "locale_asset", locale_asset); */
+  gcompris_combo_locales_asset( "Select sound locale", "locale_asset", locale_asset, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
 
 }
 
@@ -198,10 +189,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   GHashTable *config = gcompris_get_board_conf();
 
-  gchar *locale = g_hash_table_lookup( config, "locale");
-
-  if (locale)
-    gcompris_change_locale(locale);
+  locale_sound = g_hash_table_lookup( config, "locale_asset");
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
@@ -251,7 +239,6 @@ static void end_board () {
     listColors=NULL;
   }
   gcomprisBoard = NULL;
-  gcompris_reset_locale();
 }
 
 /* =====================================================================
@@ -290,7 +277,7 @@ static void repeat (){
 
       str1 = g_strdup_printf("%s%s", colors[GPOINTER_TO_INT(g_list_nth_data(listColors, 0))*2],
 			     ".ogg");
-      str2 = gcompris_get_asset_file("gcompris colors", NULL, "audio/x-ogg", str1);
+      str2 = gcompris_get_asset_file_locale("gcompris colors", NULL, "audio/x-ogg", str1, locale_sound);
 
       /* If we don't find a sound in our locale or the sounds are disabled */
       if(str2 && properties->fx) {
