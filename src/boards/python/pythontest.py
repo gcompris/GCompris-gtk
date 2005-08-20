@@ -40,8 +40,9 @@ class Gcompris_pythontest:
   def start(self):
     logged = gcompris.admin.get_current_user()
 
-    print "User Logged in:"
-    print "   ", logged.login, logged.firstname, logged.lastname
+    if logged:
+      print "User Logged in:"
+      print "   ", logged.login, logged.firstname, logged.lastname
     
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
@@ -459,7 +460,7 @@ class Gcompris_pythontest:
 
   
   def init_config(self):
-    default_config = { 'disable_line'    : 'True',
+    default_config = { 'disable_line'    : 'False',
                        'color_line'      : 'red',
                        'distance_circle' : '100',
                        'pattern'         : 'circle',

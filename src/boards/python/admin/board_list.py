@@ -158,6 +158,21 @@ class Board_list:
       self.button_unselect_all.show()
       box3.pack_start(self.button_unselect_all, False, False, 0)
 
+      self.button_locales = gtk.Button('Locales')
+      self.button_locales.connect("clicked", self.locales)
+      self.button_locales.show()
+      box3.pack_end(self.button_locales, False, False, 0)
+
+      self.button_locales_sound = gtk.Button('Locales_sound')
+      self.button_locales_sound.connect("clicked", self.locales_sound)
+      self.button_locales_sound.show()
+      box3.pack_end(self.button_locales_sound, False, False, 0)
+
+      self.button_wordlist = gtk.Button('Wordlist')
+      self.button_wordlist.connect("clicked", self.wordlist)
+      self.button_wordlist.show()
+      box3.pack_end(self.button_wordlist, False, False, 0)
+
 
   # -------------------
   # Board Management
@@ -594,3 +609,18 @@ class Board_list:
 
     self.update_selected(row.model, row.path)
 
+  ########################################################
+  ########################################################
+
+  def locales(self, button):
+    print "__locales__"
+
+
+  def locales_sound(self, button):
+    print "__locales_sound__"
+
+
+  def wordlist(self, button):
+    print "__wordlist__"
+
+  

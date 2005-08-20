@@ -1,3 +1,19 @@
+2005-08-21  Yves Combe,,,  <set EMAIL_ADDRESS environment variable>
+
+	fix stripping trailing space in profile names (bruno).
+	fix get_user to pass None in python if user = NULL.
+	fix pythontest check a user is logged or not.
+	put buttons in boards_list to make global conf toolbox.
+	fix get_conf to check first global conf for profile (board_id = -1), then default conf for boards (profile_id = 1), yhen profile & board conf.
+
+	* src/boards/py-mod-admin.c: (py_gcompris_set_current_user),
+	(py_gcompris_get_current_user):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/admin/profile_edit.py:
+	* src/boards/python/pythontest.py:
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf_with_table),
+	(gcompris_get_conf), (gcompris_get_board_conf):
+
 2005-08-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/sudoku.py: Implemented support for non 9x9 sudoku

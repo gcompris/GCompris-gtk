@@ -1,3 +1,4 @@
+
 #include <Python.h>
 #include <pygobject.h>
 #include "gcompris/gcompris.h"
@@ -303,7 +304,7 @@ py_gcompris_set_current_user (PyObject* self, PyObject* args)
   GcomprisUser *user;
 
   /* Parse arguments */
-  if(!PyArg_ParseTuple(args, "O:gcompris.get_current_user", &pyObject_user))
+  if(!PyArg_ParseTuple(args, "O:gcompris.set_current_user", &pyObject_user))
     return NULL;
 
   pyUser = (pyGcomprisUserObject *) pyObject_user;
@@ -333,7 +334,12 @@ py_gcompris_get_current_user (PyObject* self, PyObject* args)
   user = gcompris_get_current_user ();
 
   /* Create and return the result */
-  return gcompris_new_pyGcomprisUserObject((GcomprisUser*) user);
+  if (!user) {
+  Py_INCREF(Py_None);
+  return Py_None;
+  }
+  else
+    return gcompris_new_pyGcomprisUserObject((GcomprisUser*) user);
 }
 
 static PyMethodDef PythonGcomprisAdminModule[] = {

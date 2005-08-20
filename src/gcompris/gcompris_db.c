@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/19 23:34:48 yves>
+ * Time-stamp: <2005/08/21 00:19:51 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1182,7 +1182,7 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
 #define GET_CONF(p, b) \
         "SELECT key, value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
-GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
+GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTable *table )
 {
   char *zErrMsg;
   char **result;
@@ -1192,10 +1192,10 @@ GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
   gchar *request;
   int i;
 
-  GHashTable *hash_conf = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
+  GHashTable *hash_conf = table;
 
-  request = g_strdup_printf(GET_CONF(profile->profile_id, 
-				     board->board_id));
+  request = g_strdup_printf(GET_CONF(profile_id, 
+				     board_id));
   
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
@@ -1220,51 +1220,36 @@ GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
   }
 
   sqlite3_free_table(result);
-
-  if (nrow >0) {
-    /* GET GENRAL CONF */
-    request = g_strdup_printf(GET_CONF(profile->profile_id, 
-				       -1));
   
-    rc = sqlite3_get_table(gcompris_db, 
-			   request,  
-			   &result,
-			   &nrow,
-			   &ncolumn,
-			   &zErrMsg
-			   );
-  
-    if( rc!=SQLITE_OK ){
-      g_error("SQL error: %s\n", zErrMsg);
-    }
-    
-    g_free(request);
-    
-    i = ncolumn;
-    
-    while (i < (nrow +1)*ncolumn){
-      g_hash_table_replace (hash_conf, 
-			    g_strdup(result[i++]),
-			    g_strdup(result[i++]));
-    }
-    
-    sqlite3_free_table(result);
-
-  }
-
   return hash_conf;
+}
+
+GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board )
+{
+  GHashTable *hash_result = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
+
+  return gcompris_get_conf_with_table( profile->profile_id, board->board_id, hash_result) ;
+
 }
 
 GHashTable *gcompris_get_board_conf()
 {
-  GHashTable *hash_result;
+  GHashTable *hash_result = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
-  hash_result = gcompris_get_conf(gcompris_get_current_profile(),
-				  get_current_gcompris_board());
+  /* conf values for profile (board independant) */
+  hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
+					     -1,
+					     hash_result);
 
-  if (g_hash_table_size(hash_result)==0)
-    hash_result = gcompris_get_conf(gcompris_get_profile_from_id(1),
-				    get_current_gcompris_board());
+  /* conf values for default profile and current board */
+  hash_result = gcompris_get_conf_with_table(1,
+					     get_current_gcompris_board()->board_id,
+					     hash_result);
+
+  /* conf value for current profile and current board */
+  hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
+					     get_current_gcompris_board()->board_id,
+					     hash_result);
 
   return hash_result;
 }

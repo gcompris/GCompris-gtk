@@ -370,7 +370,7 @@ class ProfileEdit(gtk.Window):
     def ok(self, button):
 
         # Tell the user he must provide enough information
-        if(self.entry_profile.get_text() == ""):
+        if(self.entry_profile.get_text().strip() == ""):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                        gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
@@ -384,7 +384,7 @@ class ProfileEdit(gtk.Window):
         #
 
         profile_data = (self.profile_id,
-                        self.entry_profile.get_text(),
+                        self.entry_profile.get_text().strip(),
                         self.entry_description.get_text()
                       )
 
