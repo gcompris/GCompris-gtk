@@ -47,13 +47,12 @@ class Gcompris_sudoku:
 
     self.normal_square_color = 0xbebbc9ffL
     self.focus_square_color  = 0x8b83a7ffL
+    self.error_square_color  = 0xff77a7ffL
     self.lines_color         = 0xebe745ffL
     
     self.fixed_number_color  = 0xff2100ffL
     self.user_number_color   = 0x000bffffL
     
-    print("Gcompris_sudoku __init__.")
-
 
   def start(self):
     self.gcomprisBoard.level=1
@@ -140,14 +139,13 @@ class Gcompris_sudoku:
     
     self.pause(0);
 
-    print("Gcompris_sudoku start.")
 
 
   def end(self):
 
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
-
+    self.rootitem = None
 
   def ok(self):
     print("Gcompris_sudoku ok.")
@@ -202,7 +200,6 @@ class Gcompris_sudoku:
 
         # Maybe it's all done
         if self.is_solved():
-          print "is solved"
           self.gamewon = 1
           gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
 
@@ -257,9 +254,13 @@ class Gcompris_sudoku:
 
     self.display_sudoku(self.sudoku[self.current_sudoku])
     return True
-      
+
+  #
+  # This function is being called uppon a click on any little square
+  #
   def square_item_event(self, widget, event, square):
-    if event.type == gtk.gdk.BUTTON_PRESS:
+    
+    if (event and event.type == gtk.gdk.BUTTON_PRESS):
       if event.button == 1:
         # Check it's a user editable square
         oldcolor = self.sudo_number[square[0]][square[1]].get_property('fill_color_rgba')
@@ -275,17 +276,40 @@ class Gcompris_sudoku:
           fill_color_rgba = self.focus_square_color,            
           )
         return True
+
     return False
 
+  # Highlight the given item to show it's the one that causes the resufal
+  # to pose a number
+  def set_on_error(self, items):
+    for item in items:
+      item.set(
+        fill_color_rgba= self.error_square_color
+        )
+      
+    gtk.timeout_add(3000, self.unset_on_error, items)
+    
+  def unset_on_error(self, items):
+    if(self.rootitem):
+      for item in items:
+        item.set(
+          fill_color_rgba= self.normal_square_color
+          )
+    
+  
   # Return True or False if the given number is possible
   #
   def is_possible(self, number):
 
+    possible = True
+    bad_square = []
+    
     if(self.cursqre == None):
-      return False
+      return possible
 
-    # Check this number if not already in a row
+    # Check this number is not already in a row
     for x in range(0,9):
+
       if x == self.cursqre[0]:
          continue
 
@@ -293,30 +317,50 @@ class Gcompris_sudoku:
       othernumber = item.get_property('text').decode('UTF-8')
 
       if(number == othernumber):
-        return False
+        bad_square.append(self.sudo_square[x][self.cursqre[1]])
+        possible = False
 
-    # Check this number if not already in a column
+    # Check this number is not already in a column
     for y in range(0,9):
-      if y == self.cursqre[1]:
-         continue
 
+      if y == self.cursqre[1]:
+        continue
+       
       item = self.sudo_number[self.cursqre[0]][y]
       othernumber = item.get_property('text').decode('UTF-8')
 
       if(number == othernumber):
-        return False
+        bad_square.append(self.sudo_square[self.cursqre[0]][y])
+        possible = False
 
     #
-    # Check this number is in a mini sqare
+    # Check this number is in a mini square
     #
 
     # First, find the top-left mini square
-    
-    return True
+    top_left=[self.cursqre[0]/3*3, self.cursqre[1]/3*3]
+    for x in range(0,3):
+      for y in range(0,3):
+        # Do not check the current square
+        if (top_left[0] + x == self.cursqre[0] and
+        top_left[1] + y == self.cursqre[1]):
+          continue
+        
+        item = self.sudo_number[top_left[0] + x][top_left[1] + y]
+        othernumber = item.get_property('text').decode('UTF-8')
+
+        if(number == othernumber):
+          bad_square.append(self.sudo_square[top_left[0] + x][top_left[1] + y])
+          possible = False
+        
+    if not possible:
+      self.set_on_error(bad_square)
+
+    return possible
  
   # Return True or False if the given sudoku is solved
   # We don't really check it's solved, only that all squares
-  # have a value. This worls because only valid numbers can
+  # have a value. This works because only valid numbers can
   # be entered up front.
   #
   def is_solved(self):
