@@ -42,6 +42,8 @@ class Gcompris_sudoku:
     self.sudo_square = []       # The square Rect Item
     self.sudo_number = []       # The square Text Item
 
+    self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
+
     # Holds the coordinate of the current square
     self.cursqre = None
 
@@ -52,11 +54,22 @@ class Gcompris_sudoku:
     
     self.fixed_number_color  = 0xff2100ffL
     self.user_number_color   = 0x000bffffL
-    
+
+    self.root_sudo = None
+
+    self.sudoku = None          # The current sudoku data
+    self.sudo_size = 0          # the size of the current sudoku
+    self.sudo_region = None     # the modulo region in the current sudoku
+
 
   def start(self):
+
+    # Init the sudoku dataset
+    self.sudoku = self.init_item_list()
+    self.current_sudoku = -1
+
     self.gcomprisBoard.level=1
-    self.gcomprisBoard.maxlevel=1
+    self.gcomprisBoard.maxlevel=len(self.sudoku)
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
@@ -71,69 +84,6 @@ class Gcompris_sudoku:
       x=0.0,
       y=0.0
       )
-
-    # Init the sudoku dataset
-    self.sudoku = self.init_item_list()
-    self.current_sudoku = -1
-
-    # Display the board area
-    square_width = 50
-    square_height = 50
-    x_init = (gcompris.BOARD_WIDTH - square_width*9)/2
-    y_init = (gcompris.BOARD_HEIGHT - square_height*9)/2
-    
-    for x in range(0,9):
-      line_square = []
-      line_number = []
-
-      for y in range(0,9):
-
-        item = self.rootitem.add(
-          gnome.canvas.CanvasRect,
-          fill_color_rgba = self.normal_square_color,
-          x1= x_init + square_width * x,
-          y1= y_init + square_height * y,
-          x2= x_init + square_width * (x+1),
-          y2= y_init + square_height * (y+1),
-          width_units=1.0,
-          outline_color_rgba= 0x144B9DFFL
-          )
-        line_square.append(item)
-        item.connect("event", self.square_item_event, (x,y))
-
-        item = self.rootitem.add(
-          gnome.canvas.CanvasText,
-          x= x_init + square_width * x + square_width/2,
-          y= y_init + square_height * y + square_height/2,
-          text= "",
-          font=gcompris.skin.get_font("gcompris/content"),
-          )
-        line_number.append(item)
-        
-        if(y>0 and y%3==0):
-          self.rootitem.add (
-            gnome.canvas.CanvasLine,
-            points=(x_init - 5,
-                    y_init + square_height * y,
-                    x_init + (square_width * 9) + 5,
-                    y_init + square_height * y),
-            fill_color_rgba=self.lines_color,
-            width_units=2.5,
-            )
-
-      self.sudo_square.append(line_square)
-      self.sudo_number.append(line_number)
-
-      if(x>0 and x%3==0):
-        self.rootitem.add (
-          gnome.canvas.CanvasLine,
-          points=(x_init + square_width * x,
-                  y_init - 5,
-                  x_init + square_width * x,
-                  y_init + square_height * 9 + 5),
-          fill_color_rgba=self.lines_color,
-          width_units=2.5,
-          )
 
     self.next_level()
     
@@ -187,11 +137,10 @@ class Gcompris_sudoku:
     if (keyval == gtk.keysyms.KP_9):
       keyval= gtk.keysyms._9
 
-    if(keyval >= gtk.keysyms._1 and
-       keyval <= gtk.keysyms._9):
+    utf8char = gtk.gdk.keyval_to_unicode(keyval)
+    strn = u'%c' % utf8char
 
-      utf8char = gtk.gdk.keyval_to_unicode(keyval)
-      strn = u'%c' % utf8char
+    if(strn in self.valid_chars):
 
       if self.is_possible(strn):
         self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
@@ -238,6 +187,10 @@ class Gcompris_sudoku:
 
   def set_level(self, level):
     print("Gcompris_sudoku set level. %i" % level)
+    self.gcomprisBoard.level = level;
+    self.gcomprisBoard.sublevel = 1;
+    gcompris.bar_set_level(self.gcomprisBoard)
+    self.next_level()
 
 # ---- End of Initialisation
 
@@ -248,10 +201,9 @@ class Gcompris_sudoku:
 
     self.current_sudoku += 1
 
-    if(not self.sudoku[self.current_sudoku]):
-      gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
-      return False
-
+    if(self.current_sudoku >= len(self.sudoku)):
+      self.current_sudoku = 0
+    
     self.display_sudoku(self.sudoku[self.current_sudoku])
     return True
 
@@ -308,7 +260,7 @@ class Gcompris_sudoku:
       return possible
 
     # Check this number is not already in a row
-    for x in range(0,9):
+    for x in range(0,self.sudo_size):
 
       if x == self.cursqre[0]:
          continue
@@ -321,7 +273,7 @@ class Gcompris_sudoku:
         possible = False
 
     # Check this number is not already in a column
-    for y in range(0,9):
+    for y in range(0,self.sudo_size):
 
       if y == self.cursqre[1]:
         continue
@@ -334,24 +286,30 @@ class Gcompris_sudoku:
         possible = False
 
     #
-    # Check this number is in a mini square
+    # Check this number is in a region
     #
 
-    # First, find the top-left mini square
-    top_left=[self.cursqre[0]/3*3, self.cursqre[1]/3*3]
-    for x in range(0,3):
-      for y in range(0,3):
-        # Do not check the current square
-        if (top_left[0] + x == self.cursqre[0] and
-        top_left[1] + y == self.cursqre[1]):
-          continue
-        
-        item = self.sudo_number[top_left[0] + x][top_left[1] + y]
-        othernumber = item.get_property('text').decode('UTF-8')
+    # Region is the modulo place to set region if defined
+    region = None
+    if(self.sudo_region.has_key(self.sudo_size)):
+      region=self.sudo_region[sudo_size]
 
-        if(number == othernumber):
-          bad_square.append(self.sudo_square[top_left[0] + x][top_left[1] + y])
-          possible = False
+    if(region):
+      # First, find the top-left square of the region
+      top_left=[self.cursqre[0]/3*3, self.cursqre[1]/3*3]
+      for x in range(0,3):
+        for y in range(0,3):
+          # Do not check the current square
+          if (top_left[0] + x == self.cursqre[0] and
+          top_left[1] + y == self.cursqre[1]):
+            continue
+
+          item = self.sudo_number[top_left[0] + x][top_left[1] + y]
+          othernumber = item.get_property('text').decode('UTF-8')
+
+          if(number == othernumber):
+            bad_square.append(self.sudo_square[top_left[0] + x][top_left[1] + y])
+            possible = False
         
     if not possible:
       self.set_on_error(bad_square)
@@ -365,56 +323,184 @@ class Gcompris_sudoku:
   #
   def is_solved(self):
 
-    for x in range(0,9):
-      for y in range(0,9):
+    for x in range(0,self.sudo_size):
+      for y in range(0,self.sudo_size):
         item = self.sudo_number[x][y]
         number = item.get_property('text').decode('UTF-8')
-        if(number<1 or number>9):
+        if(number == ""):
           return False
         
     return True
 
+  #
+  # Display the board area
+  #
+  def display_board(self, sudo_size):
+
+    if(self.root_sudo):
+      self.root_sudo.destroy()
+      
+    # Create our rootitem. We put each canvas item in it so at the end we
+    # only have to kill it. The canvas deletes all the items it contains automaticaly.
+    self.root_sudo = self.rootitem.add(
+      gnome.canvas.CanvasGroup,
+      x=0.0,
+      y=0.0
+      )
+
+
+    # Region is the modulo place to set region if defined
+    region = None
+    if(self.sudo_region.has_key(sudo_size)):
+      region=self.sudo_region[sudo_size]
+      
+    square_width = 50
+    square_height = 50
+    x_init = (gcompris.BOARD_WIDTH - square_width*sudo_size)/2
+    y_init = (gcompris.BOARD_HEIGHT - square_height*sudo_size)/2
+    
+    for x in range(0,sudo_size):
+      line_square = []
+      line_number = []
+
+      for y in range(0,sudo_size):
+
+        item = self.root_sudo.add(
+          gnome.canvas.CanvasRect,
+          fill_color_rgba = self.normal_square_color,
+          x1= x_init + square_width * x,
+          y1= y_init + square_height * y,
+          x2= x_init + square_width * (x+1),
+          y2= y_init + square_height * (y+1),
+          width_units=1.0,
+          outline_color_rgba= 0x144B9DFFL
+          )
+        line_square.append(item)
+        item.connect("event", self.square_item_event, (x,y))
+
+        item = self.root_sudo.add(
+          gnome.canvas.CanvasText,
+          x= x_init + square_width * x + square_width/2,
+          y= y_init + square_height * y + square_height/2,
+          text= "",
+          font=gcompris.skin.get_font("gcompris/content"),
+          )
+        line_number.append(item)
+
+        if(region):
+          if(y>0 and y%region==0):
+            self.root_sudo.add (
+              gnome.canvas.CanvasLine,
+              points=(x_init - 5,
+                      y_init + square_height * y,
+                      x_init + (square_width * sudo_size) + 5,
+                      y_init + square_height * y),
+              fill_color_rgba=self.lines_color,
+              width_units=2.5,
+              )
+
+      self.sudo_square.append(line_square)
+      self.sudo_number.append(line_number)
+
+      if(region):
+        if(x>0 and x%region==0):
+          self.root_sudo.add (
+            gnome.canvas.CanvasLine,
+            points=(x_init + square_width * x,
+                    y_init - 5,
+                    x_init + square_width * x,
+                    y_init + square_height * sudo_size + 5),
+            fill_color_rgba=self.lines_color,
+            width_units=2.5,
+            )
+
   # Display the given sudoku
   def display_sudoku(self, sudoku):
-    
-    for x in range(0,9):
-      for y in range(0,9):
+
+    # Reinit the sudoku globals
+    self.sudo_square = []       # The square Rect Item
+    self.sudo_number = []       # The square Text Item
+
+    self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
+
+    self.sudo_size = len(sudoku[0])
+
+    self.display_board(self.sudo_size)
+
+    for x in range(0,self.sudo_size):
+      for y in range(0,self.sudo_size):
         text  = sudoku[y][x]
         color = self.fixed_number_color
-        if text == 0:
+        if text == '.':
           text  = ""
           color = self.user_number_color
-        
+        else:
+          self.valid_chars.append(text)
+          
         self.sudo_number[x][y].set(
           text= text,
           fill_color_rgba= color,
           )
+
+    self.valid_chars.sort()
     
   # return the list of items (data) for this game
   def init_item_list(self):
 
-      return \
+    # It's hard coded that sudoku of size x have y region.
+    # If not defined there, it means no region
+    #
+    # Sudoku size / Number of region
+    #
+    self.sudo_region = {
+      9: 3
+      }
+
+    return \
       [
        [
-        [3,0,0,0,0,5,6,0,2],
-        [0,6,2,7,1,0,0,4,0],
-        [1,0,0,9,0,0,0,5,0],
-        [8,0,0,0,0,0,2,6,0],
-        [0,3,0,0,8,0,0,7,0],
-        [0,9,7,0,0,0,0,0,1],
-        [0,5,0,0,0,0,0,0,6],
-        [0,8,0,0,6,7,4,2,0],
-        [6,0,3,1,0,0,0,0,8]
+        ['A','C','.'],
+        ['.','B','A'],
+        ['B','.','.']
        ],
        [
-        [9,3,1,0,0,7,0,2,8],
-        [0,0,0,0,3,6,0,0,0],
-        [4,0,6,0,0,2,0,0,0],
-        [6,2,0,0,0,0,9,1,0],
-        [1,0,0,0,2,0,0,0,4],
-        [0,4,8,0,0,0,0,6,5],
-        [0,0,0,9,0,0,3,0,2],
-        [0,0,0,2,7,0,0,0,0],
-        [3,7,0,4,0,0,5,9,1]
+        ['C','.','.','.','.'],
+        ['.','F','B','G','A'],
+        ['A','.','.','I','.'],
+        ['H','.','.','.','.'],
+        ['.','C','.','.','H']
+       ],
+       [
+        ['C','.','.','.','.','E','F','.','B'],
+        ['.','F','B','G','A','.','.','D','.'],
+        ['A','.','.','I','.','.','.','E','.'],
+        ['H','.','.','.','.','.','B','F','.'],
+        ['.','C','.','.','H','.','.','G','.'],
+        ['.','I','G','.','.','.','.','.','A'],
+        ['.','E','.','.','.','.','.','.','F'],
+        ['.','H','.','.','F','G','D','B','.'],
+        ['F','.','C','A','.','.','.','.','H']
+       ],
+       [
+        ['3','.','.','.','.','5','6','.','2'],
+        ['.','6','2','7','1','.','.','4','.'],
+        ['1','.','.','9','.','.','.','5','.'],
+        ['8','.','.','.','.','.','2','6','.'],
+        ['.','3','.','.','8','.','.','7','.'],
+        ['.','9','7','.','.','.','.','.','1'],
+        ['.','5','.','.','.','.','.','.','6'],
+        ['.','8','.','.','6','7','4','2','.'],
+        ['6','.','3','1','.','.','.','.','8']
+       ],
+       [
+        ['9','3','1','.','.','7','.','2','8'],
+        ['.','.','.','.','3','6','.','.','.'],
+        ['4','.','6','.','.','2','.','.','.'],
+        ['6','2','.','.','.','.','9','1','.'],
+        ['1','.','.','.','2','.','.','.','4'],
+        ['.','4','8','.','.','.','.','6','5'],
+        ['.','.','.','9','.','.','3','.','2'],
+        ['.','.','.','2','7','.','.','.','.'],
+        ['3','7','.','4','.','.','5','9','1']
        ]
       ]
