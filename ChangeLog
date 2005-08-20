@@ -1,3 +1,19 @@
+2005-08-20  Yves Combe  <yves@ycombe.net>
+
+	fix login launch.
+	test locales in click_on_letter
+	add get global (profile but not board dependant)  conf in get_conf
+
+	* src/boards/click_on_letter.c: (start_board), (end_board),
+	(save_table), (conf_ok), (config_start), (config_stop):
+	* src/gcompris/board_config.c: (check_key),
+	(gcompris_close_board_conf), (gcompris_boolean_box),
+	(gcompris_combo_box), (gcompris_radio_buttons),
+	(gcompris_spin_int), (gcompris_combo_locales),
+	(gcompris_change_locale), (gcompris_combo_locales_asset):
+	* src/gcompris/gcompris.c: (setup_window):
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf):
+
 2005-08-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 

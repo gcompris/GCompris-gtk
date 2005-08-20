@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/19 02:21:14 yves>
+ * Time-stamp: <2005/08/19 23:18:57 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -69,6 +69,13 @@ static GHashTable *hash_conf = NULL;
 static GcomprisConfCallback Confcallback = NULL;
 static gchar *label_markup = NULL;
 
+
+static void check_key(gchar *key)
+{
+  if (strncmp(key, "__", 2) == 0)
+    g_error(" Key beginning by __ are forbiden ! Change %s !", key);
+}
+
 void gcompris_close_board_conf (GtkButton *button,
 				gpointer user_data)
 {
@@ -77,7 +84,7 @@ void gcompris_close_board_conf (GtkButton *button,
   hash_conf = NULL;
   Confcallback = NULL;
   g_free(label_markup);
- }
+}
 
 void gcompris_apply_board_conf (GtkButton *button,
 				gpointer user_data)
@@ -199,6 +206,8 @@ void gcompris_boolean_box_toggled (GtkToggleButton *togglebutton,
 
 GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean initial_value)
 {
+  check_key( key);
+
   GtkWidget *CheckBox = gtk_check_button_new_with_label (label);
 
   gtk_widget_show(CheckBox);
@@ -235,6 +244,8 @@ inline int my_strcmp(gchar *a, gchar *b) { return strcmp( a, b); }
 
 GtkComboBox *gcompris_combo_box(const gchar *label, GList *strings, gchar *key, gchar *init)
 {
+  check_key( key);
+
   GtkWidget *combobox;
   GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
   GList *list;
@@ -366,6 +377,8 @@ GHashTable *gcompris_radio_buttons(const gchar *label,
 				   GHashTable *buttons_label,
 				   gchar *init)
 {
+  check_key( key);
+
   GtkWidget *radio_label;
 
   GHashTable *buttons = g_hash_table_new_full (g_str_hash,
@@ -421,6 +434,8 @@ void spin_changed (GtkSpinButton *spinbutton,
 
 GtkSpinButton *gcompris_spin_int(const gchar *label, gchar *key, gint min, gint max, gint step, gint init)
 {
+  check_key( key);
+
   GtkWidget *spin;
   GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
   GtkWidget *label_spin;
@@ -546,6 +561,8 @@ void gcompris_combo_locales_changed(GtkComboBox *combobox,
 
 GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init)
 {
+  check_key( key);
+
   GtkWidget *combobox;
   GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
   GList *list, *strings;
@@ -620,7 +637,7 @@ GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init)
 static gchar *current_locale = NULL;
 void gcompris_change_locale(gchar *locale)
 {
-  if (strcmp(locale, "NULL") == 0)
+  if ((!locale) || strcmp(locale, "NULL") == 0)
     return;
 
   current_locale = g_strdup(gcompris_get_locale());
@@ -670,6 +687,8 @@ GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories,
 
 GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *key, gchar *init, gchar *dataset, gchar* categories, gchar* mimetype, gchar *file)
 {
+  check_key( key);
+
   GtkWidget *combobox;
   GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
   GList *list, *strings;

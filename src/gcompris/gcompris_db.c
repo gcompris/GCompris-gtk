@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/07/25 00:29:30 bruno>
+ * Time-stamp: <2005/08/19 23:34:48 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1182,7 +1182,6 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
 #define GET_CONF(p, b) \
         "SELECT key, value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
-
 GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
 {
   char *zErrMsg;
@@ -1221,6 +1220,37 @@ GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board)
   }
 
   sqlite3_free_table(result);
+
+  if (nrow >0) {
+    /* GET GENRAL CONF */
+    request = g_strdup_printf(GET_CONF(profile->profile_id, 
+				       -1));
+  
+    rc = sqlite3_get_table(gcompris_db, 
+			   request,  
+			   &result,
+			   &nrow,
+			   &ncolumn,
+			   &zErrMsg
+			   );
+  
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    
+    g_free(request);
+    
+    i = ncolumn;
+    
+    while (i < (nrow +1)*ncolumn){
+      g_hash_table_replace (hash_conf, 
+			    g_strdup(result[i++]),
+			    g_strdup(result[i++]));
+    }
+    
+    sqlite3_free_table(result);
+
+  }
 
   return hash_conf;
 }

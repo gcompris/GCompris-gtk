@@ -639,14 +639,24 @@ static void setup_window ()
        * (the login screen is a board that uppon login completion
        * starts the menu)
        */
-      if(properties->profile)
+      if(properties->profile && properties->profile->group_ids)
 	{
-	  board_to_start = gcompris_get_board_from_section("/login/login");
-	}
-      else
-	{
+	  gboolean found = FALSE;
+	  
+	  GList *group_id;
+
+	  for (group_id = properties->profile->group_ids; group_id != NULL; group_id = group_id->next) 
+	    if (g_list_length(gcompris_get_users_from_group( *((int *) group_id->data))) > 0){
+	      found = TRUE;
+	      break;
+	    }
+	    
 	  /* No profile start normally */
-          board_to_start = gcompris_get_board_from_section(properties->root_menu);
+	  if (found)
+	    board_to_start = gcompris_get_board_from_section("/login/login");	
+	  else
+	    board_to_start = gcompris_get_board_from_section(properties->root_menu);
+	  
 	}
     }
 
