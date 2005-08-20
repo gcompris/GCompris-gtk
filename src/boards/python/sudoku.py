@@ -45,12 +45,12 @@ class Gcompris_sudoku:
     # Holds the coordinate of the current square
     self.cursqre = None
 
-    self.normal_square_color = 0x5566FFFFL
-    self.focus_square_color  = 0xFF45FFFFL
-    self.lines_color         = 0xCCCCCCFFL
+    self.normal_square_color = 0xbebbc9ffL
+    self.focus_square_color  = 0x8b83a7ffL
+    self.lines_color         = 0xebe745ffL
     
-    self.fixed_number_color  = 0x11FF22FFL
-    self.user_number_color   = 0xFFFFFFFFL
+    self.fixed_number_color  = 0xff2100ffL
+    self.user_number_color   = 0x000bffffL
     
     print("Gcompris_sudoku __init__.")
 
@@ -107,7 +107,7 @@ class Gcompris_sudoku:
           x= x_init + square_width * x + square_width/2,
           y= y_init + square_height * y + square_height/2,
           text= "",
-          fill_color_rgba= self.fixed_number_color,
+          font=gcompris.skin.get_font("gcompris/content"),
           )
         line_number.append(item)
         
@@ -191,8 +191,10 @@ class Gcompris_sudoku:
 
     if(keyval >= gtk.keysyms._1 and
        keyval <= gtk.keysyms._9):
+
       utf8char = gtk.gdk.keyval_to_unicode(keyval)
       strn = u'%c' % utf8char
+
       if self.is_possible(strn):
         self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
           text = strn.encode('UTF-8'),
@@ -205,13 +207,18 @@ class Gcompris_sudoku:
           gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
 
     else:
+      # Erase the old number there
       if ((keyval == gtk.keysyms.BackSpace) or
           (keyval == gtk.keysyms.Delete) or
           (keyval == gtk.keysyms.space)):
         self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
           text = "",
           )
-    
+
+      else:
+        # No key processing done
+        return False
+      
     # Return  True  if you did process a key
     # Return  False if you did not processed a key
     #         (gtk need to send it to next widget)
@@ -299,6 +306,12 @@ class Gcompris_sudoku:
       if(number == othernumber):
         return False
 
+    #
+    # Check this number is in a mini sqare
+    #
+
+    # First, find the top-left mini square
+    
     return True
  
   # Return True or False if the given sudoku is solved

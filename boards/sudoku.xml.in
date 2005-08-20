@@ -4,15 +4,16 @@
 	 name="sudoku"
 	 type="python:sudoku" 
 	 section="/boards"
-	 icon="boardicons/draw.png" 
+	 icon="boardicons/sudoku.png" 
 	 difficulty="3"
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="">
-	 <_title>Sudoku</_title>
-	 <_description>Place numbers in a square. Each number must be unique in a raw and in a column</_description>
+	 <_title>Sudoku, place unique numbers in a square.</_title>
+	 <_description>Each number must be unique in a raw,
+in a column and in each 3x3 region.</_description>
 	<_prerequisite></_prerequisite>
-	<_goal></_goal>
-	 <_manual>
+	<_goal>The aim of the puzzle is to enter a numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each numeral. Completing the puzzle requires patience and logical ability (Source http://en.wikipedia.org/wiki/Sudoku)</_goal>
+	 <_manual>Click on an empty square to give it the keyboard focus. Then enter a possible number. GCompris will not let you enter invalid number.
 	 </_manual>
   </Board>
 </GCompris>
