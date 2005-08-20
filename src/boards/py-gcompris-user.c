@@ -46,6 +46,8 @@ pyGcomprisUserType_getattr(pyGcomprisUserObject *self, char *name)
     /* int */
     if(strcmp(name,"class_id")==0) return Py_BuildValue("i", self->cdata->class_id);
     /* str */
+    if(strcmp(name,"login")==0) return Py_BuildValue("s", self->cdata->login);
+    /* str */
     if(strcmp(name,"lastname")==0) return Py_BuildValue("s", self->cdata->lastname);
     /* str */
     if(strcmp(name,"firstname")==0) return Py_BuildValue("s", self->cdata->firstname);

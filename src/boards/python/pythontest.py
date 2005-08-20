@@ -4,6 +4,7 @@ import gnome.canvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
+import gcompris.admin
 import gtk
 import gtk.gdk
 from gcompris import gcompris_gettext as _
@@ -37,6 +38,11 @@ class Gcompris_pythontest:
     #the configured values.
 
   def start(self):
+    logged = gcompris.admin.get_current_user()
+
+    print "User Logged in:"
+    print "   ", logged.login, logged.firstname, logged.lastname
+    
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1

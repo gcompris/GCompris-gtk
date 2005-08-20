@@ -271,6 +271,70 @@ py_gcompris_get_classes_list (PyObject* self, PyObject* args)
   return pylist;
 }
 
+static PyObject*
+py_gcompris_get_users_from_group (PyObject* self, PyObject* args)
+{
+  GList *users_list;
+  GList *list;
+  PyObject *pylist;
+  int group_id;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "i:gcompris_get_users_from_group", &group_id))
+    return NULL;
+
+  /* Call the corresponding C function */
+  users_list = gcompris_get_users_from_group(group_id);
+
+  pylist = PyList_New(0);
+  for (list = users_list; list != NULL; list = list->next){
+    PyList_Append(pylist, gcompris_new_pyGcomprisUserObject((GcomprisUser*) list->data));
+  }
+  /* Create and return the result */
+  return pylist;
+}
+
+/* void                *gcompris_set_current_user(GcomprisUser *user); */
+static PyObject*
+py_gcompris_set_current_user (PyObject* self, PyObject* args)
+{
+  PyObject *pyObject_user;
+  pyGcomprisUserObject *pyUser;
+  GcomprisUser *user;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "O:gcompris.get_current_user", &pyObject_user))
+    return NULL;
+
+  pyUser = (pyGcomprisUserObject *) pyObject_user;
+
+  user = (GcomprisUser *) pyUser->cdata;
+  /* Call the corresponding C function */
+  gcompris_set_current_user(user);
+
+  /* Create and return the result */
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
+
+
+/* GcomprisUser        *gcompris_get_current_user(); */
+static PyObject*
+py_gcompris_get_current_user (PyObject* self, PyObject* args)
+{
+  GcomprisUser *user;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.get_current_user"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  user = gcompris_get_current_user ();
+
+  /* Create and return the result */
+  return gcompris_new_pyGcomprisUserObject((GcomprisUser*) user);
+}
 
 static PyMethodDef PythonGcomprisAdminModule[] = {
   { "board_run_next",  py_board_run_next, METH_VARARGS, "board_run_next" },
@@ -286,6 +350,10 @@ static PyMethodDef PythonGcomprisAdminModule[] = {
   { "get_classes_list",  py_gcompris_get_classes_list, METH_VARARGS, "gcompris_get_classes_list" },
   { "get_board_from_id",  py_gcompris_get_board_from_id, METH_VARARGS, "gcompris_get_board_from_id" },
   { "get_boards_list",  py_gcompris_get_boards_list, METH_VARARGS, "gcompris_get_boards_list" },
+  { "get_users_from_group",  py_gcompris_get_users_from_group, METH_VARARGS, "gcompris_get_users_from_group" },
+  { "get_users_from_group",  py_gcompris_get_users_from_group, METH_VARARGS, "gcompris_get_users_from_group" },
+  { "get_current_user",  py_gcompris_get_current_user, METH_VARARGS, "gcompris_get_current_user" },
+  { "set_current_user",  py_gcompris_set_current_user, METH_VARARGS, "gcompris_set_current_user" },
   { NULL, NULL, 0, NULL}
 };
 

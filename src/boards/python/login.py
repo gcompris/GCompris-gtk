@@ -107,14 +107,32 @@ class Gcompris_login:
       )
 
     # Get the user list
-    users = self.get_users(self.con, self.cur,
-                           Prop.profile.profile_id)
+    #users = self.get_users(self.con, self.cur,
+    #                       Prop.profile.profile_id)
+
+    users = []
+    for group_id in Prop.profile.group_ids:
+      users.extend( gcompris.admin.get_users_from_group(group_id))
+      
+    users = self.check_unique_id(users)
 
     self.display_user_by_letter(users, "")
 
     print("Gcompris_login start.")
 
+  def check_unique_id(self, users):
+    passed = {}
+    for user in users:
+      passed[user.login] = user
 
+    result = []
+    keys = passed.keys()
+    keys.sort()
+    for login in keys:
+      result.append(passed[login])
+
+    return result
+    
   def end(self):
 
     # Remove the root item removes all the others inside it
@@ -155,45 +173,6 @@ class Gcompris_login:
   # ---- End of Initialisation ----
   # -------------------------------
 
-  # Based on the given profile_id, return the list of users
-  def get_users(self, con, cur, profile_id):
-    print "profile_id=%s" % profile_id
-    self.cur.execute('select group_id from list_groups_in_profiles where profile_id=?', (profile_id,))
-    group_ids = self.cur.fetchall()
-
-    print "group_ids"
-    print group_ids
-    if not group_ids:
-      return []
-      
-    # Hold the results
-    users = []
-    
-    # We have the list of groups, now get their users
-    where_clause = ""
-    for group_id in group_ids:
-      group_id = group_id[0]
-      if(where_clause == ""):
-        where_clause += "where "
-      else:
-        where_clause += "or "
-
-      where_clause += "group_id=" + str(group_id) + " "
-
-    # Run the query in one shot to have a Distinct user list
-    self.cur.execute('select distinct user_id from list_users_in_groups ' + where_clause)
-    user_ids = self.cur.fetchall()
-      
-    for user_id in user_ids:
-      # Extract the login, first and last name
-      self.cur.execute('select login from users where user_id=?', (user_id[0],))
-      users.append(self.cur.fetchall()[0][0])
-
-    # Sort the users
-    users.sort()
-    
-    return users
-
   # Display user by letter
   # The first letter of the users is displayed
   # If the remaining list of users with this letter is
@@ -206,27 +185,19 @@ class Gcompris_login:
   # 
   def display_user_by_letter(self, users, start_filter):
 
-    if not users:
-      # Get the default profile
-      Prop = gcompris.get_properties()
-      gcompris.admin.board_run_next(Prop.menu_board)
-      return
-
     print "display_user_by_letter start_filter=" + start_filter
-    # First, create the list of first letter
-    print "users="
-    print users
+          
     first_letters = []
     current_letter = None
     remaining_users=0
     
     for user in users:
-      if user.startswith(start_filter):
+      if user.login.startswith(start_filter):
         remaining_users += 1
-        if(len(start_filter)<len(user)):
+        if(len(start_filter)<len(user.login)):
           if(not current_letter or
-             current_letter != user[len(start_filter)]):
-            current_letter = user[len(start_filter)]
+             current_letter != user.login[len(start_filter)]):
+            current_letter = user.login[len(start_filter)]
             first_letters.append(current_letter)
 
     # Fine we have the list of first letters
@@ -365,7 +336,7 @@ class Gcompris_login:
     
     for user in users:
 
-      if not user.startswith(start_filter):
+      if not user.login.startswith(start_filter):
         continue
       
       item = self.rootitem.add(
@@ -384,7 +355,7 @@ class Gcompris_login:
         gnome.canvas.CanvasText,
         x= x + 1.5,
         y= y + 1.5,
-        text= user,
+        text= user.login,
         fill_color="black",
         font=gcompris.skin.get_font("gcompris/board/huge"),
         )
@@ -395,7 +366,7 @@ class Gcompris_login:
         gnome.canvas.CanvasText,
         x= x,
         y= y,
-        text= user,
+        text= user.login,
         fill_color="white",
         font=gcompris.skin.get_font("gcompris/board/huge"),
         )
@@ -427,7 +398,8 @@ class Gcompris_login:
   #
   def name_click_event(self, widget, event, user):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      print "selected user = " + user
+      print "selected user = " + user.login
+      gcompris.admin.set_current_user(user)
       
       # Get the default profile
       Prop = gcompris.get_properties()

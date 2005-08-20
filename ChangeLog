@@ -1,3 +1,17 @@
+2005-08-20  Yves Combe,,,  <yves@ycombe.net>
+
+	fix GcomprisUser binding (user->login was missing).
+	add missing python bindings in admin: get_users_from_group, set_current_user, get_current_user.
+	login.py now uses that.
+	pythontest check get_current_user
+	
+	* src/boards/py-gcompris-user.c: (pyGcomprisUserType_getattr):
+	* src/boards/py-mod-admin.c: (py_gcompris_get_users_from_group),
+	(py_gcompris_set_current_user), (py_gcompris_get_current_user):
+	* src/boards/python/login.py:
+	* src/boards/python/pythontest.py:
+	* src/gcompris/gcompris_db.h:
+
 2005-08-20  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Now the square number that cause the number entering refusal is
