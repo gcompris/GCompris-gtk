@@ -1,6 +1,106 @@
+2005-08-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+ 	- Included art from Nicu for Mister Potato 
+	  Nicu Buculei <nicu@nicubunu.ro> gave us it's Mister Potato
+	  and released it under GPL.
+	- Implemented a first login screen. Not all problem solved and we 
+	  need at least a login level where kids enter their name with the 
+	  keyboard. 
+	  The problem with the current login is that it become a top level
+	  pseudo board which is loaded shortly even if there is no users.
+	  When there is no users, the login should not be used at all.
+	- Implemented a Sudoku activity (uncomplete yet, the 3x3 sub square
+	  is not checked by the computer)
+
+	* boards/Makefile.am:
+	* boards/babymatch/sun.png:
+	* boards/dataset/misc.xml:
+	* boards/dataset/mrpotato.xml:
+	* boards/login.xml.in:
+	* boards/mrpatate/README:
+	* boards/mrpatate/body2.png:
+	* boards/mrpatate/ear11.png:
+	* boards/mrpatate/ear12.png:
+	* boards/mrpatate/ear21.png:
+	* boards/mrpatate/ear22.png:
+	* boards/mrpatate/ear31.png:
+	* boards/mrpatate/ear32.png:
+	* boards/mrpatate/ear41.png:
+	* boards/mrpatate/ear42.png:
+	* boards/mrpatate/eye11.png:
+	* boards/mrpatate/eye12.png:
+	* boards/mrpatate/eye21.png:
+	* boards/mrpatate/eye22.png:
+	* boards/mrpatate/eye31.png:
+	* boards/mrpatate/eye32.png:
+	* boards/mrpatate/eye41.png:
+	* boards/mrpatate/eye42.png:
+	* boards/mrpatate/eye51.png:
+	* boards/mrpatate/eye52.png:
+	* boards/mrpatate/eye6.png:
+	* boards/mrpatate/eye7.png:
+	* boards/mrpatate/eye8.png:
+	* boards/mrpatate/eye9.png:
+	* boards/mrpatate/eyehair11.png:
+	* boards/mrpatate/eyehair12.png:
+	* boards/mrpatate/eyehair21.png:
+	* boards/mrpatate/eyehair22.png:
+	* boards/mrpatate/eyehair31.png:
+	* boards/mrpatate/eyehair32.png:
+	* boards/mrpatate/eyehair41.png:
+	* boards/mrpatate/eyehair42.png:
+	* boards/mrpatate/glasses1.png:
+	* boards/mrpatate/glasses2.png:
+	* boards/mrpatate/hair1.png:
+	* boards/mrpatate/hair2.png:
+	* boards/mrpatate/hair3.png:
+	* boards/mrpatate/hair4.png:
+	* boards/mrpatate/hair5.png:
+	* boards/mrpatate/hat1.png:
+	* boards/mrpatate/hat2.png:
+	* boards/mrpatate/hat3.png:
+	* boards/mrpatate/hat4.png:
+	* boards/mrpatate/jewelry1.png:
+	* boards/mrpatate/jewelry2.png:
+	* boards/mrpatate/jewelry3.png:
+	* boards/mrpatate/jewelry4.png:
+	* boards/mrpatate/moustache1.png:
+	* boards/mrpatate/moustache2.png:
+	* boards/mrpatate/moustache41.png:
+	* boards/mrpatate/moustache42.png:
+	* boards/mrpatate/moustaches31.png:
+	* boards/mrpatate/moustaches32.png:
+	* boards/mrpatate/mouth1.png:
+	* boards/mrpatate/mouth2.png:
+	* boards/mrpatate/mouth3.png:
+	* boards/mrpatate/mouth4.png:
+	* boards/mrpatate/mouth5.png:
+	* boards/mrpatate/mouth6.png:
+	* boards/mrpatate/mouth7.png:
+	* boards/mrpatate/mouth8.png:
+	* boards/mrpatate/noze1.png:
+	* boards/mrpatate/noze2.png:
+	* boards/mrpatate/noze3.png:
+	* boards/mrpatate/noze4.png:
+	* boards/mrpatate/tie1.png:
+	* boards/mrpatate/tie2.png:
+	* boards/sudoku.xml.in:
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/login.py:
+	* src/boards/python/sudoku.py:
+	* src/gcompris/board.c: (get_current_board_plugin),
+	(board_run_next_end), (board_run_next):
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_end_board):
+	* src/gcompris/images_selector.c: (parseImage):
+	* src/gcompris/profile.h:
+	* src/gcompris/properties.h:
+
 2005-08-19  Yves Combe,,,  <yves@ycombe.net>
 
-	python binding for gcompris_combo_locales_asset gcompris_get_locales_asset_list gcompris_get_asset_file_locale.
+	python binding for gcompris_combo_locales_asset gcompris_get_locales_asset_list
+	gcompris_get_asset_file_locale.
 	fix gcompris_get_asset_file binding, it now can accept some None arguments.
 	sample in pythontest as usual.
 

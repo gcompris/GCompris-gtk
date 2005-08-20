@@ -176,7 +176,7 @@ class User_list:
 
   def __add_columns(self, treeview):
 
-    # Total column lengh must be 400
+    # Total column length must be 400
     
     model = treeview.get_model()
 

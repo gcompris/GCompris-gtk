@@ -1,7 +1,5 @@
 #  gcompris - login
 # 
-# Time-stamp: <2001/08/20 00:54:45 bruno>
-# 
 # Copyright (C) 2005 Bruno Coudoin
 # 
 #   This program is free software; you can redistribute it and/or modify
@@ -23,9 +21,15 @@ import gnome.canvas
 import gcompris
 import gcompris.utils
 import gcompris.skin
+import gcompris.admin
 import gtk
 import gtk.gdk
 from gettext import gettext as _
+
+import math
+
+# Database
+from pysqlite2 import dbapi2 as sqlite
 
 # Background screens
 backgrounds = [
@@ -36,6 +40,8 @@ backgrounds = [
   "images/scenery6_background.png"
 ]
 
+MAX_USERS_AT_ONCE = 10
+
 class Gcompris_login:
   """Login screen for gcompris"""
 
@@ -43,7 +49,7 @@ class Gcompris_login:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
 
-    print("Gcompris_pythontest __init__.")
+    print("Gcompris_login __init__.")
 
 
   def start(self):
@@ -53,18 +59,60 @@ class Gcompris_login:
     self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(0)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            gcompris.utils.load_pixmap(backgrounds[self.gcomprisBoard.level-1]))
+                            backgrounds[self.gcomprisBoard.level-1])
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains automaticaly.
+    # Create our rootitem.
+    # We put each canvas item in it so at the end we only have to kill it.
+    # The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
       gnome.canvas.CanvasGroup,
       x=0.0,
       y=0.0
       )
-    
-    print("Gcompris_pythontest start.")
+
+
+    # Connect to our database
+    self.con = sqlite.connect(gcompris.get_database())
+    self.cur = self.con.cursor()
+
+    # Get the default profile
+    Prop = gcompris.get_properties()
+
+    # Display the profile name
+    x = gcompris.BOARD_WIDTH-100
+    y = 20.0
+    text = _("Profile: ") + Prop.profile.name
+
+    # Shadow
+    self.rootitem.add(
+      gnome.canvas.CanvasText,
+      x= x + 1,
+      y= y + 1,
+      text= text,
+      fill_color="black",
+      font=gcompris.skin.get_font("gcompris/board/small"),
+      justification=gtk.JUSTIFY_RIGHT
+      )
+
+    # Profile name
+    self.rootitem.add(
+      gnome.canvas.CanvasText,
+      x= x,
+      y= y,
+      text= text,
+      fill_color="white",
+      font=gcompris.skin.get_font("gcompris/board/small"),
+      justification=gtk.JUSTIFY_RIGHT
+      )
+
+    # Get the user list
+    users = self.get_users(self.con, self.cur,
+                           Prop.profile.profile_id)
+
+    self.display_user_by_letter(users, "")
+
+    print("Gcompris_login start.")
 
 
   def end(self):
@@ -72,21 +120,24 @@ class Gcompris_login:
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
 
+    # Close the database
+    self.cur.close()
+    self.con.close()
 
   def ok(self):
-    print("Gcompris_pythontest ok.")
+    print("Gcompris_login ok.")
 
 
   def repeat(self):
-    print("Gcompris_pythontest repeat.")
+    print("Gcompris_login repeat.")
 
 
   def config(self):
-    print("Gcompris_pythontest config.")
+    print("Gcompris_login config.")
 
 
   def key_press(self, keyval):
-    print("Gcompris_pythontest key press. %i" % keyval)
+    print("Gcompris_login key press. %i" % keyval)
 
     # Return  True  if you did process a key
     # Return  False if you did not processed a key
@@ -94,11 +145,295 @@ class Gcompris_login:
     return False
 
   def pause(self, pause):
-    print("Gcompris_pythontest pause. %i" % pause)
+    print("Gcompris_login pause. %i" % pause)
 
 
   def set_level(self, level):
-    print("Gcompris_pythontest set level. %i" % level)
+    print("Gcompris_login set level. %i" % level)
 
-# ---- End of Initialisation
+  # -------------------------------
+  # ---- End of Initialisation ----
+  # -------------------------------
+
+  # Based on the given profile_id, return the list of users
+  def get_users(self, con, cur, profile_id):
+    print "profile_id=%s" % profile_id
+    self.cur.execute('select group_id from list_groups_in_profiles where profile_id=?', (profile_id,))
+    group_ids = self.cur.fetchall()
+
+    print "group_ids"
+    print group_ids
+    if not group_ids:
+      return []
+      
+    # Hold the results
+    users = []
+    
+    # We have the list of groups, now get their users
+    where_clause = ""
+    for group_id in group_ids:
+      group_id = group_id[0]
+      if(where_clause == ""):
+        where_clause += "where "
+      else:
+        where_clause += "or "
+
+      where_clause += "group_id=" + str(group_id) + " "
+
+    # Run the query in one shot to have a Distinct user list
+    self.cur.execute('select distinct user_id from list_users_in_groups ' + where_clause)
+    user_ids = self.cur.fetchall()
+      
+    for user_id in user_ids:
+      # Extract the login, first and last name
+      self.cur.execute('select login from users where user_id=?', (user_id[0],))
+      users.append(self.cur.fetchall()[0][0])
+
+    # Sort the users
+    users.sort()
+    
+    return users
+
+  # Display user by letter
+  # The first letter of the users is displayed
+  # If the remaining list of users with this letter is
+  # too large, then the next letter is proposed.
+  # Once the user list is not too long, it is displayed
+  #
+  # param: users is the sorted list of users to display
+  # param: start_filter is a string filter to apply on
+  #        the first letters of the user name
+  # 
+  def display_user_by_letter(self, users, start_filter):
+
+    if not users:
+      # Get the default profile
+      Prop = gcompris.get_properties()
+      gcompris.admin.board_run_next(Prop.menu_board)
+      return
+
+    print "display_user_by_letter start_filter=" + start_filter
+    # First, create the list of first letter
+    print "users="
+    print users
+    first_letters = []
+    current_letter = None
+    remaining_users=0
+    
+    for user in users:
+      if user.startswith(start_filter):
+        remaining_users += 1
+        if(len(start_filter)<len(user)):
+          if(not current_letter or
+             current_letter != user[len(start_filter)]):
+            current_letter = user[len(start_filter)]
+            first_letters.append(current_letter)
+
+    # Fine we have the list of first letters
+    if(remaining_users<MAX_USERS_AT_ONCE):
+      # We now can display the list of users
+      self.display_user_list(users, start_filter)
+    else:
+      # Display only the letters
+      self.display_letters(first_letters, users, start_filter)
+
+  #
+  # Display the letters in 'letters'
+  #
+  # param users and start_filter are just need to let
+  # this function pass it to it's event function
+  # 
+  def display_letters(self, letters, users, start_filter):
+
+    # Create a group for the letters
+    self.letter_rootitem = self.gcomprisBoard.canvas.root().add(
+      self.rootitem,
+      x=0.0,
+      y=0.0
+      )
+
+    #
+    # Display the current filter
+    #
+
+    x = gcompris.BOARD_WIDTH/2
+    y = 20
+
+    # The shadow
+    self.letter_rootitem.add(
+      gnome.canvas.CanvasText,
+      x= x + 1.5,
+      y= y + 1.5,
+      text= _("Login: ") + start_filter + "...",
+      fill_color="black",
+      font=gcompris.skin.get_font("gcompris/board/huge"),
+      )
+    # The text
+    self.letter_rootitem.add(
+      gnome.canvas.CanvasText,
+      x= x,
+      y= y,
+      text= _("Login: ") + start_filter + "...",
+      fill_color="white",
+      font=gcompris.skin.get_font("gcompris/board/huge"),
+      )
+
+
+    # Tricky but does the job, try to make the layout as large as
+    # possible
+    step_x = 480/math.sqrt(len(letters))
+    
+    start_x = 100
+    x = start_x
+    y = 100
+    i = 0
+    step_y = step_x
+    current_line = 0
+    max_letter_by_line = (gcompris.BOARD_WIDTH-start_x*2)/step_x
+    letter_by_line = max_letter_by_line
+    button_pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("ok.png"))
+    
+    for letter in letters:
+
+      # Display both cases for the letter
+      text = letter.upper() + letter.lower()
+
+      item = self.letter_rootitem.add(
+        gnome.canvas.CanvasPixbuf,
+        pixbuf = button_pixbuf,
+        x = x -  button_pixbuf.get_width()/2,
+        y = y -  button_pixbuf.get_height()/2,
+        )
+      # This item is clickeable and it must be seen
+      item.connect("event", gcompris.utils.item_event_focus)
+      item.connect("event", self.letter_click_event,
+                   (users, start_filter + letter))
+      
+      # The shadow
+      item = self.letter_rootitem.add(
+        gnome.canvas.CanvasText,
+        x= x + 1.5,
+        y= y + 1.5,
+        text= text,
+        fill_color="black",
+        font=gcompris.skin.get_font("gcompris/board/huge"),
+        )
+      item.connect("event", self.letter_click_event,
+                   (users, start_filter + letter))
+
+      # The text
+      item = self.letter_rootitem.add(
+        gnome.canvas.CanvasText,
+        x= x,
+        y= y,
+        text= text,
+        fill_color="white",
+        font=gcompris.skin.get_font("gcompris/board/huge"),
+        )
+      item.connect("event", self.letter_click_event,
+                   (users, start_filter + letter))
+      x += step_x
+
+      i += 1
+
+      # Perform the column switch
+      if(i>letter_by_line):
+        i = 0
+        if(current_line%2):
+          x = start_x
+          letter_by_line = max_letter_by_line
+        else:
+          x = start_x + step_x/2 
+          letter_by_line = max_letter_by_line-1
+         
+        y += step_y
+        current_line += 1
+
+
+  # Display the user list so the user can click on it's name
+  #
+  # param users is the list of users to display
+  #
+  def display_user_list(self, users, start_filter):
+
+    y_start = 80
+    y = y_start
+    x = gcompris.BOARD_WIDTH/4
+    i = 0
+    step_y = 90
+    button_pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_large2.png"))
+    
+    for user in users:
+
+      if not user.startswith(start_filter):
+        continue
+      
+      item = self.rootitem.add(
+        gnome.canvas.CanvasPixbuf,
+        pixbuf = button_pixbuf,
+        x = x -  button_pixbuf.get_width()/2,
+        y = y -  button_pixbuf.get_height()/2,
+        )
+      # This item is clickeable and it must be seen
+      item.connect("event", gcompris.utils.item_event_focus)
+      item.connect("event", self.name_click_event, user)
+
+      
+      # The shadow
+      item = self.rootitem.add(
+        gnome.canvas.CanvasText,
+        x= x + 1.5,
+        y= y + 1.5,
+        text= user,
+        fill_color="black",
+        font=gcompris.skin.get_font("gcompris/board/huge"),
+        )
+      item.connect("event", self.name_click_event, user)
+
+      # The text
+      item = self.rootitem.add(
+        gnome.canvas.CanvasText,
+        x= x,
+        y= y,
+        text= user,
+        fill_color="white",
+        font=gcompris.skin.get_font("gcompris/board/huge"),
+        )
+      item.connect("event", self.name_click_event, user)
+
+      y += step_y
+      i += 1
+
+      # Perform the column switch
+      if(i==5):
+        y = y_start
+        x = 3*gcompris.BOARD_WIDTH/4
+
+
+  #
+  # Event when a click happen on a letter
+  # data[0] is the user list we work on
+  # data[1] is the start filter
+  def letter_click_event(self, widget, event, data):
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      self.letter_rootitem.destroy()
+      self.display_user_by_letter(data[0], data[1])
+      return True
+    
+    return False
+
+  #
+  # Event when a click happen on a user name
+  #
+  def name_click_event(self, widget, event, user):
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      print "selected user = " + user
+      
+      # Get the default profile
+      Prop = gcompris.get_properties()
+      
+      gcompris.admin.board_run_next(Prop.menu_board)
+      return True
+    
+    return False
 

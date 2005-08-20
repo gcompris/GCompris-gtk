@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/08/01 20:38:30 bruno>
+ * Time-stamp: <2005/08/16 11:55:07 brunoa>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -44,6 +44,7 @@ typedef struct {
   gchar	       *key;
   GcomprisProfile *profile;
   GcomprisUser    *logged_user;
+  GcomprisBoard	  *menu_board;
   gchar	       *database;
   gint          administration;
   gint          reread_menu;

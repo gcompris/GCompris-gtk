@@ -1,7 +1,5 @@
 /* gcompris - gcompris.c
  *
- * Time-stamp: <2005/08/17 01:08:31 yves>
- *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
  * This program is free software; you can redistribute it and/or modify
@@ -59,7 +57,6 @@ static gint board_widget_key_press_callback (GtkWidget   *widget,
 					    gpointer     client_data);
 
 GcomprisProperties	*properties = NULL;
-GcomprisBoard		*gcomprisBoardMenu = NULL;
 static gboolean		 antialiased = FALSE;
 
 /****************************************************************************/
@@ -511,11 +508,12 @@ void gcompris_set_cursor(guint gdk_cursor_type)
 
 static void setup_window ()
 {
-  GdkPixbuf    *gcompris_icon_pixbuf;
-  GError       *error = NULL;
+  GcomprisBoard *board_to_start;
+  GdkPixbuf     *gcompris_icon_pixbuf;
+  GError        *error = NULL;
 
-  gdouble      elapsed;
-  gulong       musec;
+  gdouble        elapsed;
+  gulong         musec;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
@@ -623,24 +621,39 @@ static void setup_window ()
 
   elapsed = g_timer_elapsed( chronometer, &musec);
   printf("gcompris_load_mime_types %f sec.\n", elapsed);
+  
+  /* Save the root_menu */
+  properties->menu_board = gcompris_get_board_from_section(properties->root_menu);
+
+  /* By default, the menu will be started */
+  board_to_start = properties->menu_board;
 
   /* Get and Run the root menu */
   if(properties->administration)
     {
-      gcomprisBoardMenu = gcompris_get_board_from_section("/administration/administration");
+      board_to_start = gcompris_get_board_from_section("/administration/administration");
     }
   else
     {
-      /* If we have users defined in the current profiles
-       * we must first run the login screen
+      /* If we have a profile defined, run the login screen
+       * (the login screen is a board that uppon login completion
+       * starts the menu)
        */
-      gcomprisBoardMenu = gcompris_get_board_from_section(properties->root_menu);
+      if(properties->profile)
+	{
+	  board_to_start = gcompris_get_board_from_section("/login/login");
+	}
+      else
+	{
+	  /* No profile start normally */
+          board_to_start = gcompris_get_board_from_section(properties->root_menu);
+	}
     }
 
-  if(!gcomprisBoardMenu) {
+  if(!board_to_start) {
     g_warning("Couldn't find the board menu %s, or plugin execution error", properties->root_menu);
     exit(1);
-  } else if(!board_check_file(gcomprisBoardMenu)) {
+  } else if(!board_check_file(board_to_start)) {
     g_error("Couldn't find the board menu, or plugin execution error");
   } else {
     g_warning("Fine, we got the gcomprisBoardMenu, xml boards parsing went fine");
@@ -651,7 +664,7 @@ static void setup_window ()
   elapsed = g_timer_elapsed( chronometer, &musec);
   printf("gcompris_bar_start %f sec.\n", elapsed);
 
-  board_play (gcomprisBoardMenu);
+  board_play (board_to_start);
 
   elapsed = g_timer_elapsed( chronometer, &musec);
   printf("board_play %f sec.\n", elapsed);
@@ -675,7 +688,7 @@ void gcompris_end_board()
 {
   if (get_current_gcompris_board()->previous_board == NULL)
     /* We are in the upper menu */
-    /* board_play (gcomprisBoardMenu); */
+    /* board_play (properties->menu_board); */
     gcompris_exit();
   else
     /* Run the previous board */
@@ -716,9 +729,10 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 
 }
 
-/* =====================================================================
+/* 
  * Process the cleanup of the child (no zombies)
- * =====================================================================*/
+ * ---------------------------------------------
+ */
 void gcompris_terminate(int  signum)
 {
 

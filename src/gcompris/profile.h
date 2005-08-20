@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/07/19 00:00:32 yves>
+ * Time-stamp: <2005/08/13 14:34:54 brunoa>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -58,7 +58,7 @@ typedef struct _GcomprisClass  GcomprisClass;
 
 
 /*****************************************************************************/
-/* The following structure dsecribes a group, subset of class  */
+/* The following structure describes a group, subset of class  */
 
 /* group data is saved when class is saved */
 
@@ -93,19 +93,19 @@ struct _GcomprisUser {
   gint               user_id;
 
   /* The login name -- must be unique */
-  gchar               *login;
+  gchar             *login;
 
   /* mandatory class */
   gint               class_id;
 
   /* Last Name */
-  gchar               *lastname;
+  gchar             *lastname;
   
   /* First Name */
-  gchar               *firstname;
+  gchar             *firstname;
 
   /* Birth day */
-  gchar               *birthdate;
+  gchar             *birthdate;
 
 };
 
@@ -117,29 +117,29 @@ typedef struct _GcomprisUser GcomprisUser;
 
 typedef struct {
   /* Profile Name */
-  gint                profile_id;
-  gchar               *name;
+  gint               profile_id;
+  gchar             *name;
 
   /* The subdirectory into the user gcompris dir */
-  gchar		      *directory;
+  gchar		    *directory;
 
-  gchar               *description;
+  gchar             *description;
 
   /* list of GcomprisGroup. if empty user management is disabled */
-  GList               *group_ids; 
+  GList             *group_ids; 
 
   /* list of activities to play -- gchar section/name */
-  GList               *activities;
+  GList             *activities;
 
 } GcomprisProfile;
 
 
 /* active profil */
-GcomprisProfile       *gcompris_get_current_profile();
+GcomprisProfile     *gcompris_get_current_profile();
 
 /* list of Gcomprisusers */
-void                    *gcompris_set_current_user(GcomprisUser *user);
-GcomprisUser            *gcompris_get_current_user();
+void                *gcompris_set_current_user(GcomprisUser *user);
+GcomprisUser        *gcompris_get_current_user();
 
 #endif
 

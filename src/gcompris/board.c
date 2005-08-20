@@ -174,7 +174,10 @@ void init_plugins(void)
 
 BoardPlugin *get_current_board_plugin(void)
 {
-  return bp_data->current_gcompris_board->plugin;
+  if(bp_data->current_gcompris_board)
+    return bp_data->current_gcompris_board->plugin;
+
+  return NULL;
 }
 
 GcomprisBoard *get_current_gcompris_board(void)
@@ -404,7 +407,9 @@ void board_run_next_end()
   gtk_timeout_remove(next_board_callback_id);
   next_board_callback_id = 0;
 
-  if (next_board->previous_board->plugin->end_board)
+  if (next_board && 
+      next_board->previous_board &&
+      next_board->previous_board->plugin->end_board)
     next_board->previous_board->plugin->end_board();
 
   board_play(next_board);
@@ -416,7 +421,9 @@ void board_run_next(GcomprisBoard *board)
 
   next_board = board;
 
-  next_board_callback_id = gtk_timeout_add (NEXT_TIME_DELAY, (GtkFunction) board_run_next_end, NULL);
+  next_board_callback_id = gtk_timeout_add (NEXT_TIME_DELAY,
+					    (GtkFunction) board_run_next_end,
+					    NULL);
 	
 }
 
@@ -428,7 +435,3 @@ void board_run_next(GcomprisBoard *board)
 /* eval:(add-hook 'write-file-hooks 'time-stamp) */
 /* eval:(setq time-stamp-format '(time-stamp-yyyy/mm/dd time-stamp-hh:mm:ss user-login-name)) */
 /* End: */
-
-
-
-

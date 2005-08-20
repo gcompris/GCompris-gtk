@@ -88,6 +88,7 @@ xml_in_files = \
 	smallnumbers2.xml.in \
 	submarine.xml.in \
 	superbrain.xml.in \
+	sudoku.xml.in \
 	target.xml.in \
 	traffic.xml.in \
 	tuxpaint.xml.in \

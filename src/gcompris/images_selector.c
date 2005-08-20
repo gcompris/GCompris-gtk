@@ -607,7 +607,9 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 void
 parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   gchar *imageSetName = NULL;
-  gchar *filename, *pathname, *absolutepath;;
+  gchar *filename;
+  gchar	*pathname = NULL;
+  gchar *absolutepath;
   GList	*imageList = NULL;	/* List of Images */
   gboolean havePathName = FALSE, lsdir = FALSE;
   gchar *type = NULL;
@@ -627,7 +629,6 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
        g_warning(_("In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"), imageSetName, pathname);
       return;
     }
-    havePathName = TRUE;
   }
 
   if (xmlHasProp(cur,"type")){
@@ -685,8 +686,14 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     /* or all files with a given suffix */
 
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-      g_warning(_("In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"), absolutepath, pathname);
-      return;
+      char *tmpdir;
+      tmpdir = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR, pathname);
+      g_free(pathname);
+      pathname = tmpdir;
+      if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
+        g_warning(_("In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"), absolutepath, pathname);
+        return;
+      }
     }
     imageset_directory = g_dir_open (pathname, 0, error);    
     const gchar * onefile;
@@ -709,7 +716,11 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     display_image_set(imageSetName, imageList);
   
   g_free(absolutepath);
-  
+  if(pathname)
+    g_free(pathname);
+  if(type)
+    g_free(type);
+
   return;
 }
 

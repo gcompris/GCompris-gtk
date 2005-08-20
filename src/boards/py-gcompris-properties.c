@@ -126,6 +126,15 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
       }
     }
 
+    if(strcmp(name,"menu_board")==0) {
+      if (self->cdata->menu_board)
+	return gcompris_new_pyGcomprisBoardObject(self->cdata->menu_board);
+      else {
+	Py_INCREF(Py_None);
+	return Py_None;
+      }
+    }
+
     if(strcmp(name,"database")==0) return Py_BuildValue("s", self->cdata->database);
     if(strcmp(name,"administration")==0){
       if(self->cdata->administration){
