@@ -24,6 +24,7 @@ import gcompris.skin
 import gcompris.bonus
 import gtk
 import gtk.gdk
+import random
 from gettext import gettext as _
 
 class Gcompris_sudoku:
@@ -504,7 +505,7 @@ class Gcompris_sudoku:
       }
 
     # It's a list of level which is a list of sudoku data
-    return \
+    sudoku_list = \
       [
        [ # Level 1
         [
@@ -563,3 +564,18 @@ class Gcompris_sudoku:
          ]
        ]
       ]
+
+
+    # Randomize each level in the list
+    for l in range(0, len(sudoku_list)):
+      for j in range(0, len(sudoku_list[l])):
+        # Select a random new position to set the J sudoku
+        old_sudo = sudoku_list[l][j]
+        new_pos = random.randint(0,len(sudoku_list[l])-1)
+        sudoku_list[l][j] = sudoku_list[l][new_pos]
+        sudoku_list[l][new_pos] = old_sudo
+        
+
+      
+    return sudoku_list
+  
