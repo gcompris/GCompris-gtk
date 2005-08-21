@@ -66,12 +66,10 @@ class Gcompris_sudoku:
 
     # Init the sudoku dataset
     self.sudoku = self.init_item_list()
-    self.current_sudoku = -1
 
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=len(self.sudoku)
     self.gcomprisBoard.sublevel=1
-    self.gcomprisBoard.number_of_sublevel=1
     gcompris.bar_set(gcompris.BAR_LEVEL)
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
@@ -179,14 +177,14 @@ class Gcompris_sudoku:
     # the game is won
     if(self.gamewon == 1 and pause == 0):
       self.gamewon = 0
-      self.next_level()
+      if(self.increment_level()):
+        self.next_level()
 
     return
                   
 
 
   def set_level(self, level):
-    print("Gcompris_sudoku set level. %i" % level)
     self.gcomprisBoard.level = level;
     self.gcomprisBoard.sublevel = 1;
     gcompris.bar_set_level(self.gcomprisBoard)
@@ -199,13 +197,26 @@ class Gcompris_sudoku:
   # return True if continue, False if bail out
   def next_level(self):
 
-    self.current_sudoku += 1
-
-    if(self.current_sudoku >= len(self.sudoku)):
-      self.current_sudoku = 0
-    
-    self.display_sudoku(self.sudoku[self.current_sudoku])
+    self.display_sudoku(self.sudoku[self.gcomprisBoard.level-1][self.gcomprisBoard.sublevel-1])
     return True
+
+  # Code that increments the sublevel and level
+  # And bail out if no more levels are available
+  # return True if continue, False if bail out
+  def increment_level(self):
+    self.gcomprisBoard.sublevel += 1
+
+    if(self.gcomprisBoard.sublevel > len(self.sudoku[self.gcomprisBoard.level-1])):
+      # Try the next level
+      self.gcomprisBoard.sublevel=1
+      self.gcomprisBoard.level += 1
+      if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
+        # the last board is finished : bail out
+        gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
+        return False
+      
+    return True
+        
 
   #
   # This function is being called uppon a click on any little square
@@ -292,13 +303,13 @@ class Gcompris_sudoku:
     # Region is the modulo place to set region if defined
     region = None
     if(self.sudo_region.has_key(self.sudo_size)):
-      region=self.sudo_region[sudo_size]
+      region=self.sudo_region[self.sudo_size]
 
     if(region):
       # First, find the top-left square of the region
-      top_left=[self.cursqre[0]/3*3, self.cursqre[1]/3*3]
-      for x in range(0,3):
-        for y in range(0,3):
+      top_left=[self.cursqre[0]/region*region, self.cursqre[1]/region*region]
+      for x in range(0,region):
+        for y in range(0,region):
           # Do not check the current square
           if (top_left[0] + x == self.cursqre[0] and
           top_left[1] + y == self.cursqre[1]):
@@ -354,8 +365,8 @@ class Gcompris_sudoku:
     if(self.sudo_region.has_key(sudo_size)):
       region=self.sudo_region[sudo_size]
       
-    square_width = 50
-    square_height = 50
+    square_width = (gcompris.BOARD_HEIGHT-50)/sudo_size
+    square_height = square_width
     x_init = (gcompris.BOARD_WIDTH - square_width*sudo_size)/2
     y_init = (gcompris.BOARD_HEIGHT - square_height*sudo_size)/2
     
@@ -414,7 +425,41 @@ class Gcompris_sudoku:
             width_units=2.5,
             )
 
+  #
+  # Display valid number (or chars)
+  #
+  def display_valid_chars(self, sudo_size, valid_chars):
+    
+    square_width = (gcompris.BOARD_HEIGHT-50)/sudo_size
+    square_height = square_width
+    
+    x_init = 20
+    y_init = (gcompris.BOARD_HEIGHT - square_height*sudo_size)/2
+    
+    for y in range(0,sudo_size):
+      # Shadow
+      self.root_sudo.add(
+        gnome.canvas.CanvasText,
+        x= x_init+1.5,
+        y= y_init + square_height * y + square_height/2 + 1.5,
+        text= valid_chars[y],
+        font=gcompris.skin.get_font("gcompris/title"),
+        fill_color="black"
+        )
+      # Text
+      self.root_sudo.add(
+        gnome.canvas.CanvasText,
+        x= x_init,
+        y= y_init + square_height * y + square_height/2,
+        text= valid_chars[y],
+        font=gcompris.skin.get_font("gcompris/title"),
+        fill_color="white"
+        )
+
+
+  #
   # Display the given sudoku
+  #
   def display_sudoku(self, sudoku):
 
     # Reinit the sudoku globals
@@ -435,7 +480,8 @@ class Gcompris_sudoku:
           text  = ""
           color = self.user_number_color
         else:
-          self.valid_chars.append(text)
+          if(not text in self.valid_chars):
+            self.valid_chars.append(text)
           
         self.sudo_number[x][y].set(
           text= text,
@@ -443,6 +489,7 @@ class Gcompris_sudoku:
           )
 
     self.valid_chars.sort()
+    self.display_valid_chars(self.sudo_size, self.valid_chars)
     
   # return the list of items (data) for this game
   def init_item_list(self):
@@ -456,51 +503,63 @@ class Gcompris_sudoku:
       9: 3
       }
 
+    # It's a list of level which is a list of sudoku data
     return \
       [
-       [
-        ['A','C','.'],
-        ['.','B','A'],
-        ['B','.','.']
+       [ # Level 1
+        [
+         ['A','C','.'],
+         ['.','B','A'],
+         ['B','.','.']
+        ],
+        [
+         ['C','A','.'],
+         ['.','.','C'],
+         ['B','.','.']
+        ],
        ],
-       [
-        ['C','.','.','.','.'],
-        ['.','F','B','G','A'],
-        ['A','.','.','I','.'],
-        ['H','.','.','.','.'],
-        ['.','C','.','.','H']
+       [ # Level 2
+        [
+         ['A','B','C','D','E'],
+         ['.','A','B','C','D'],
+         ['.','.','A','B','C'],
+         ['.','.','.','A','B'],
+         ['.','.','.','.','A']
+        ],
        ],
-       [
-        ['C','.','.','.','.','E','F','.','B'],
-        ['.','F','B','G','A','.','.','D','.'],
-        ['A','.','.','I','.','.','.','E','.'],
-        ['H','.','.','.','.','.','B','F','.'],
-        ['.','C','.','.','H','.','.','G','.'],
-        ['.','I','G','.','.','.','.','.','A'],
-        ['.','E','.','.','.','.','.','.','F'],
-        ['.','H','.','.','F','G','D','B','.'],
-        ['F','.','C','A','.','.','.','.','H']
-       ],
-       [
-        ['3','.','.','.','.','5','6','.','2'],
-        ['.','6','2','7','1','.','.','4','.'],
-        ['1','.','.','9','.','.','.','5','.'],
-        ['8','.','.','.','.','.','2','6','.'],
-        ['.','3','.','.','8','.','.','7','.'],
-        ['.','9','7','.','.','.','.','.','1'],
-        ['.','5','.','.','.','.','.','.','6'],
-        ['.','8','.','.','6','7','4','2','.'],
-        ['6','.','3','1','.','.','.','.','8']
-       ],
-       [
-        ['9','3','1','.','.','7','.','2','8'],
-        ['.','.','.','.','3','6','.','.','.'],
-        ['4','.','6','.','.','2','.','.','.'],
-        ['6','2','.','.','.','.','9','1','.'],
-        ['1','.','.','.','2','.','.','.','4'],
-        ['.','4','8','.','.','.','.','6','5'],
-        ['.','.','.','9','.','.','3','.','2'],
-        ['.','.','.','2','7','.','.','.','.'],
-        ['3','7','.','4','.','.','5','9','1']
+       [ # Level 3
+        [
+         ['3','.','.','.','.','5','6','.','2'],
+         ['.','6','2','7','1','.','.','4','.'],
+         ['1','.','.','9','.','.','.','5','.'],
+         ['8','.','.','.','.','.','2','6','.'],
+         ['.','3','.','.','8','.','.','7','.'],
+         ['.','9','7','.','.','.','.','.','1'],
+         ['.','5','.','.','.','.','.','.','6'],
+         ['.','8','.','.','6','7','4','2','.'],
+         ['6','.','3','1','.','.','.','.','8']
+        ],
+        [
+         ['9','3','1','.','.','7','.','2','8'],
+         ['.','.','.','.','3','6','.','.','.'],
+         ['4','.','6','.','.','2','.','.','.'],
+         ['6','2','.','.','.','.','9','1','.'],
+         ['1','.','.','.','2','.','.','.','4'],
+         ['.','4','8','.','.','.','.','6','5'],
+         ['.','.','.','9','.','.','3','.','2'],
+         ['.','.','.','2','7','.','.','.','.'],
+         ['3','7','.','4','.','.','5','9','1']
+        ],
+        [
+         ['.','.','9','.','6','.','.','.','.'],
+         ['2','.','6','4','.','.','1','.','.'],
+         ['.','.','3','1','8','.','5','.','.'],
+         ['.','.','2','.','.','.','.','.','1'],
+         ['7','9','.','.','.','.','.','6','8'],
+         ['1','.','.','.','.','.','3','.','.'],
+         ['.','.','7','.','9','2','8','.','.'],
+         ['.','.','1','.','.','8','6','.','5'],
+         ['.','.','.','.','3','.','4','.','.']
+         ]
        ]
       ]
