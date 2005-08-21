@@ -4,7 +4,7 @@
 	* src/boards/python/sudoku.py: now the list of sudoku of the same level
 	  are randomized
 
-2005-08-21  Yves Combe,,,  <set EMAIL_ADDRESS environment variable>
+2005-08-21  Yves Combe  <yves@ycombe.net>
 
 	fix stripping trailing space in profile names (bruno).
 	fix get_user to pass None in python if user = NULL.
@@ -26,7 +26,7 @@
 	Implemented level management
 	The first level is playable
 	
-2005-08-20  Yves Combe,,,  <yves@ycombe.net>
+2005-08-20  Yves Combe  <yves@ycombe.net>
 
 	fix GcomprisUser binding (user->login was missing).
 	add missing python bindings in admin: get_users_from_group, set_current_user, get_current_user.
