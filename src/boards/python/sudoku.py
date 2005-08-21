@@ -42,6 +42,7 @@ class Gcompris_sudoku:
     # It holds the canvas items for each square
     self.sudo_square = []       # The square Rect Item
     self.sudo_number = []       # The square Text Item
+    self.sudo_symbol = []       # The square Symbol Item
 
     self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
 
@@ -50,6 +51,7 @@ class Gcompris_sudoku:
 
     self.normal_square_color = 0xbebbc9ffL
     self.focus_square_color  = 0x8b83a7ffL
+    self.fixed_square_color  = 0x8bAAa7ffL
     self.error_square_color  = 0xff77a7ffL
     self.lines_color         = 0xebe745ffL
     
@@ -66,7 +68,7 @@ class Gcompris_sudoku:
     self.symbols = [
       gcompris.utils.load_pixmap("images/rectangle.png"),
       gcompris.utils.load_pixmap("images/circle.png"),
-      gcompris.utils.load_pixmap("images/losage.png"),
+      gcompris.utils.load_pixmap("images/rhombus.png"),
       gcompris.utils.load_pixmap("images/triangle.png"),
       gcompris.utils.load_pixmap("images/star.png")
       ]
@@ -230,6 +232,40 @@ class Gcompris_sudoku:
         
 
   #
+  # This function is being called uppon a click on a symbol on the left
+  # If a square has the focus, then the clicked square is assigned there
+  #
+  def symbol_item_event(self, widget, event, data):
+    if (event and event.type == gtk.gdk.BUTTON_PRESS):
+      if event.button == 1:
+        if(not self.cursqre):
+          return False
+
+        item = data[0]
+        text = data[1]
+
+        if self.is_possible(text):
+
+          pixmap = self.get_pixmap_symbol(self.valid_chars, text)
+
+          self.sudo_symbol[self.cursqre[0]][self.cursqre[1]].set(
+            pixbuf = pixmap
+            )
+          self.sudo_symbol[self.cursqre[0]][self.cursqre[1]].show()
+          
+          self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
+            text = text
+            )
+
+          # Maybe it's all done
+          if self.is_solved():
+            self.gamewon = 1
+            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+
+
+    return False
+  
+  #
   # This function is being called uppon a click on any little square
   #
   def square_item_event(self, widget, event, square):
@@ -239,7 +275,7 @@ class Gcompris_sudoku:
         # Check it's a user editable square
         oldcolor = self.sudo_number[square[0]][square[1]].get_property('fill_color_rgba')
         if oldcolor == self.fixed_number_color:
-          return
+          return False
 
         if(self.cursqre):
           self.sudo_square[self.cursqre[0]][self.cursqre[1]].set(
@@ -267,7 +303,7 @@ class Gcompris_sudoku:
     if(self.rootitem):
       for item in items:
         item.set(
-          fill_color_rgba= self.normal_square_color
+          fill_color_rgba= self.fixed_square_color
           )
     
   
@@ -382,6 +418,7 @@ class Gcompris_sudoku:
           height_set=True,
           anchor=gtk.ANCHOR_CENTER
           )
+        item.connect("event", self.symbol_item_event, (item, valid_chars[y]))
       else:
         # Shadow
         self.root_sudo.add(
@@ -418,10 +455,19 @@ class Gcompris_sudoku:
     # Reinit the sudoku globals
     self.sudo_square = []       # The square Rect Item
     self.sudo_number = []       # The square Text Item
+    self.sudo_symbol = []       # The square Symbol Item
 
     self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
 
     self.sudo_size = len(sudoku[0])
+
+    # Randomize symbols
+    for j in range(0, len(self.symbols)):
+        # Select a random new position to set the J symbol
+        old_symbol = self.symbols[j]
+        new_pos = random.randint(0,len(self.symbols)-1)
+        self.symbols[j] = self.symbols[new_pos]
+        self.symbols[new_pos] = old_symbol
 
     if(self.root_sudo):
       self.root_sudo.destroy()
@@ -448,22 +494,25 @@ class Gcompris_sudoku:
     for x in range(0,self.sudo_size):
       line_square = []
       line_number = []
+      line_symbol = []
 
       for y in range(0,self.sudo_size):
 
         # Get the data from the dataset
         text  = sudoku[y][x]
         color = self.fixed_number_color
+        square_color = self.fixed_square_color
         if text == '.':
           text  = ""
           color = self.user_number_color
+          square_color = self.normal_square_color
         else:
           if(not text in self.valid_chars):
             self.valid_chars.append(text)
           
         item = self.root_sudo.add(
           gnome.canvas.CanvasRect,
-          fill_color_rgba = self.normal_square_color,
+          fill_color_rgba = square_color,
           x1= x_init + square_width * x,
           y1= y_init + square_height * y,
           x2= x_init + square_width * (x+1),
@@ -489,6 +538,7 @@ class Gcompris_sudoku:
             height_set=True,
             anchor=gtk.ANCHOR_CENTER
             )
+          line_symbol.append(item)
           if(not text):
             item.hide()
             
@@ -519,6 +569,7 @@ class Gcompris_sudoku:
 
       self.sudo_square.append(line_square)
       self.sudo_number.append(line_number)
+      self.sudo_symbol.append(line_symbol)
 
       if(region):
         if(x>0 and x%region==0):
@@ -532,7 +583,8 @@ class Gcompris_sudoku:
             width_units=2.5,
             )
 
-    self.valid_chars.sort()
+    if(self.gcomprisBoard.level>=self.symbolize_level_max):
+      self.valid_chars.sort()
     self.display_valid_chars(self.sudo_size, self.valid_chars)
     
   # return the list of items (data) for this game
