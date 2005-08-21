@@ -163,7 +163,7 @@ class Board_list:
       self.button_locales.show()
       box3.pack_end(self.button_locales, False, False, 0)
 
-      self.button_locales_sound = gtk.Button('Locales_sound')
+      self.button_locales_sound = gtk.Button('Locales sound')
       self.button_locales_sound.connect("clicked", self.locales_sound)
       self.button_locales_sound.show()
       box3.pack_end(self.button_locales_sound, False, False, 0)
@@ -172,6 +172,11 @@ class Board_list:
       self.button_wordlist.connect("clicked", self.wordlist)
       self.button_wordlist.show()
       box3.pack_end(self.button_wordlist, False, False, 0)
+
+      self.button_login = gtk.Button('Login')
+      self.button_login.connect("clicked", self.login_configure)
+      self.button_login.show()
+      box3.pack_end(self.button_login, False, False, 0)
 
 
   # -------------------
@@ -255,9 +260,9 @@ class Board_list:
       gobject.TYPE_STRING,
       )
 
-    boards_list = gcompris.admin.get_boards_list()
+    self.boards_list = gcompris.admin.get_boards_list()
     
-    self.add_boards_in_model(model, boards_list)
+    self.add_boards_in_model(model, self.boards_list)
 
     return model
 
@@ -615,7 +620,7 @@ class Board_list:
   def locales(self, button):
     conf_locales = self.get_configured(self.active_profile, '__locales', 'NULL')
     self.main_vbox = gcompris.configuration_window ( \
-      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', self.active_profile.name ),
+      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Locale', self.active_profile.name ),
       self.ok_callback
       )
 
@@ -627,13 +632,13 @@ class Board_list:
 
     gcompris.separator()
 
-    gcompris.combo_locales('locales', conf_locales)
+    gcompris.combo_locales( conf_locales)
     
   def locales_sound(self, button):
  
     conf_locales = self.get_configured(self.active_profile, '__locales_sound', 'NULL')
     self.main_vbox = gcompris.configuration_window ( \
-      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', self.active_profile.name ),
+      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Locale sound', self.active_profile.name ),
       self.ok_callback
       )
 
@@ -645,7 +650,7 @@ class Board_list:
 
     gcompris.separator()
 
-    gcompris.combo_locales_asset( _("Select sound locale"), "locales_sound", conf_locales, "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
+    gcompris.combo_locales_asset( _("Select sound locale"), conf_locales, "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
 
 
   def wordlist(self, button):
@@ -690,3 +695,10 @@ class Board_list:
     else:
       return if_not
 
+
+  def login_configure(self, button):
+    print "__login configure__"
+    board_log = self.get_board_by_name('/login/login', self.boards_list)
+    print board_log.name, board_log.is_configurable
+    gcompris.admin.board_config_start(board_log,
+                                      self.active_profile)

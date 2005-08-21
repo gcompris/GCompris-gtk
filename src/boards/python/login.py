@@ -24,6 +24,7 @@ import gcompris.skin
 import gcompris.admin
 import gtk
 import gtk.gdk
+import pango
 from gettext import gettext as _
 
 import math
@@ -64,8 +65,10 @@ class Gcompris_login:
     else:
       gcompris.bar_set(gcompris.BAR_REPEAT)
 
+    
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             backgrounds[self.gcomprisBoard.level-1])
+
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Get the default profile
@@ -75,10 +78,15 @@ class Gcompris_login:
     self.con = sqlite.connect(gcompris.get_database())
     self.cur = self.con.cursor()
 
+    # init config to default values
+    self.config_dict = self.init_config()
+
+    # change configured values
+    self.config_dict.update(gcompris.get_board_conf())
 
     # Create and Initialize the rootitem.
     self.init_rootitem(self.Prop)
-    
+
     # Get the user list
     #users = self.get_users(self.con, self.cur,
     #                       Prop.profile.profile_id)
@@ -89,13 +97,17 @@ class Gcompris_login:
       
     self.users = self.check_unique_id(users)
 
-    self.display_user_by_letter(self.users, "")
+    if eval(self.config_dict['entry_text']):
+      self.entry_text()
+    else:
+      self.display_user_by_letter(self.users, "")
 
     print("Gcompris_login start.")
 
 
   def init_rootitem(self, Prop):
-        # Create our rootitem.
+    print "__rootitem__"
+    # Create our rootitem.
     # We put each canvas item in it so at the end we only have to kill it.
     # The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
@@ -103,7 +115,6 @@ class Gcompris_login:
       x=0.0,
       y=0.0
       )
-
 
     # Display the profile name
     x = gcompris.BOARD_WIDTH-100
@@ -131,7 +142,6 @@ class Gcompris_login:
       font=gcompris.skin.get_font("gcompris/board/small"),
       justification=gtk.JUSTIFY_RIGHT
       )
-
 
 
   def check_unique_id(self, users):
@@ -166,7 +176,10 @@ class Gcompris_login:
 
     self.init_rootitem(self.Prop)
 
-    self.display_user_by_letter(self.users, "")
+    if eval(self.config_dict['entry_text']):
+      self.entry_text()
+    else:
+      self.display_user_by_letter(self.users, "")
 
   def config(self):
     print("Gcompris_login config.")
@@ -417,13 +430,110 @@ class Gcompris_login:
   def name_click_event(self, widget, event, user):
     if event.type == gtk.gdk.BUTTON_PRESS:
       print "selected user = " + user.login
-      gcompris.admin.set_current_user(user)
-      
-      # Get the default profile
-      Prop = gcompris.get_properties()
-      
-      gcompris.admin.board_run_next(Prop.menu_board)
+
+      self.logon(user)
       return True
     
     return False
+
+  def logon(self, user):
+    gcompris.admin.set_current_user(user)
+    gcompris.admin.board_run_next(self.Prop.menu_board)
+ 
+ 
+  def init_config(self):
+    default_config = { 'uppercase_only'    : 'False',
+                       'entry_text'      : 'False'
+                       }
+    return default_config
+
+
+  def entry_text(self):
+    print "__entry__"
+    entry = gtk.Entry()
+
+    entry.modify_font(pango.FontDescription("sans bold 36"))
+    text_color = gtk.gdk.color_parse("white")
+    text_color_selected = gtk.gdk.color_parse("green")
+    bg_color = gtk.gdk.color_parse("blue")
+
+    entry.modify_text(gtk.STATE_NORMAL, text_color)
+    entry.modify_text(gtk.STATE_SELECTED, text_color_selected)
+    entry.modify_base(gtk.STATE_NORMAL, bg_color)
+        
+
+    entry.set_max_length(50)
+    entry.connect("activate", self.enter_callback)
+    entry.show()
+
+    self.widget = self.rootitem.add(
+      gnome.canvas.CanvasWidget,
+      widget=entry,
+      x=400,
+      y=400,
+      width=400,
+      height=72,
+      anchor=gtk.ANCHOR_CENTER,
+      size_pixels=False
+      )
+
+  def enter_callback(self, widget):
+    text = widget.get_text()
+    print text
+    found = False
+    for user in self.users:
+      if text == user.login:
+        self.widget.destroy()
+        self.logon(user)
+        found = True
+
+    if not found:
+      widget.set_text('')
+
+  def config_start(self, profile):
+    print '__login config__'
+    # keep profile in mind
+    self.configuring_profile = profile
+
+    # init with default values
+    self.config_dict = self.init_config()
+    
+    #get the configured values for that profile
+    self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
+
+    # Init configuration window:
+    # all the configuration functions will use it
+    # all the configuration functions returns values for their key in
+    # the dict passed to the apply_callback
+    # the returned value is the main GtkVBox of the window,
+    #we can add what you want in it.
+
+    self.main_vbox = gcompris.configuration_window ( \
+      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Login', profile.name ),
+      self.ok_callback
+      )
+
+    # toggle box
+    uppercase = gcompris.boolean_box(_('Uppercase only text'),
+                                        'uppercase_only',
+                                        eval(self.config_dict['uppercase_only'])
+                                        )
+
+    uppercase.set_sensitive(False)
+
+    gcompris.separator()
+
+    # toggle box
+    entry_text = gcompris.boolean_box(_('Enter login to log'),
+                                        'entry_text',
+                                        eval(self.config_dict['entry_text'])
+                                        )
+
+
+  def config_stop(self):
+    pass
+
+  def ok_callback(self, table):
+    for key,value in table.iteritems():
+      gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
 
