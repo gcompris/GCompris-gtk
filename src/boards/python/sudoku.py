@@ -62,6 +62,14 @@ class Gcompris_sudoku:
     self.sudo_size = 0          # the size of the current sudoku
     self.sudo_region = None     # the modulo region in the current sudoku
 
+    self.symbolize_level_max = 3 # Last level in which we set symbols
+    self.symbols = [
+      gcompris.utils.load_pixmap("images/rectangle.png"),
+      gcompris.utils.load_pixmap("images/circle.png"),
+      gcompris.utils.load_pixmap("images/losage.png"),
+      gcompris.utils.load_pixmap("images/triangle.png"),
+      gcompris.utils.load_pixmap("images/star.png")
+      ]
 
   def start(self):
 
@@ -211,6 +219,8 @@ class Gcompris_sudoku:
       # Try the next level
       self.gcomprisBoard.sublevel=1
       self.gcomprisBoard.level += 1
+      # Set the level in the control bar
+      gcompris.bar_set_level(self.gcomprisBoard);
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
         # the last board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
@@ -345,9 +355,73 @@ class Gcompris_sudoku:
     return True
 
   #
-  # Display the board area
+  # Display valid number (or chars)
   #
-  def display_board(self, sudo_size):
+  def display_valid_chars(self, sudo_size, valid_chars):
+    
+    square_width = (gcompris.BOARD_HEIGHT-50)/sudo_size
+    square_height = square_width
+    
+    x_init = 20
+    y_init = (gcompris.BOARD_HEIGHT - square_height*sudo_size)/2
+    
+    for y in range(0,sudo_size):
+
+      # For low levels, we symbolize the letters
+      if(self.gcomprisBoard.level<self.symbolize_level_max):
+        pixmap = self.get_pixmap_symbol(valid_chars, valid_chars[y])
+        zoom = (square_width*0.5) / pixmap.get_width()
+        item = self.root_sudo.add(
+          gnome.canvas.CanvasPixbuf,
+          pixbuf = pixmap,
+          x= x_init + (pixmap.get_width() * zoom)/2,
+          y= y_init + square_height * y + square_height/2,
+          width= pixmap.get_width() * zoom,
+          height= pixmap.get_height() * zoom,
+          width_set=True,
+          height_set=True,
+          anchor=gtk.ANCHOR_CENTER
+          )
+      else:
+        # Shadow
+        self.root_sudo.add(
+          gnome.canvas.CanvasText,
+          x= x_init+1.5,
+          y= y_init + square_height * y + square_height/2 + 1.5,
+          text= valid_chars[y],
+          font=gcompris.skin.get_font("gcompris/title"),
+          fill_color="black"
+          )
+        # Text
+        self.root_sudo.add(
+          gnome.canvas.CanvasText,
+          x= x_init,
+          y= y_init + square_height * y + square_height/2,
+          text= valid_chars[y],
+          font=gcompris.skin.get_font("gcompris/title"),
+          fill_color="white"
+          )
+
+  # Return a symbol pixmap
+  def get_pixmap_symbol(self, valid_chars, text):
+    if (not text in valid_chars):
+      # Return our first item. It will be hidden anyway.
+      return self.symbols[0]
+
+    return self.symbols[valid_chars.index(text)]
+
+  #
+  # Display the given sudoku (the board and the data)
+  #
+  def display_sudoku(self, sudoku):
+
+    # Reinit the sudoku globals
+    self.sudo_square = []       # The square Rect Item
+    self.sudo_number = []       # The square Text Item
+
+    self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
+
+    self.sudo_size = len(sudoku[0])
 
     if(self.root_sudo):
       self.root_sudo.destroy()
@@ -361,22 +435,32 @@ class Gcompris_sudoku:
       )
 
 
-    # Region is the modulo place to set region if defined
+    # Region is the modulo place to set region (if defined)
     region = None
-    if(self.sudo_region.has_key(sudo_size)):
-      region=self.sudo_region[sudo_size]
+    if(self.sudo_region.has_key(self.sudo_size)):
+      region=self.sudo_region[self.sudo_size]
       
-    square_width = (gcompris.BOARD_HEIGHT-50)/sudo_size
+    square_width = (gcompris.BOARD_HEIGHT-50)/self.sudo_size
     square_height = square_width
-    x_init = (gcompris.BOARD_WIDTH - square_width*sudo_size)/2
-    y_init = (gcompris.BOARD_HEIGHT - square_height*sudo_size)/2
+    x_init = (gcompris.BOARD_WIDTH - square_width*self.sudo_size)/2
+    y_init = (gcompris.BOARD_HEIGHT - square_height*self.sudo_size)/2
     
-    for x in range(0,sudo_size):
+    for x in range(0,self.sudo_size):
       line_square = []
       line_number = []
 
-      for y in range(0,sudo_size):
+      for y in range(0,self.sudo_size):
 
+        # Get the data from the dataset
+        text  = sudoku[y][x]
+        color = self.fixed_number_color
+        if text == '.':
+          text  = ""
+          color = self.user_number_color
+        else:
+          if(not text in self.valid_chars):
+            self.valid_chars.append(text)
+          
         item = self.root_sudo.add(
           gnome.canvas.CanvasRect,
           fill_color_rgba = self.normal_square_color,
@@ -390,13 +474,35 @@ class Gcompris_sudoku:
         line_square.append(item)
         item.connect("event", self.square_item_event, (x,y))
 
+        # For low levels, we symbolize the letters
+        if(self.gcomprisBoard.level<self.symbolize_level_max):
+          pixmap = self.get_pixmap_symbol(self.valid_chars, text)
+          zoom = (square_width*0.8) / pixmap.get_width()
+          item = self.root_sudo.add(
+            gnome.canvas.CanvasPixbuf,
+            pixbuf = pixmap,
+            x= x_init + square_width * x + square_width/2,
+            y= y_init + square_height * y + square_height/2,
+            width= pixmap.get_width() * zoom,
+            height= pixmap.get_height() * zoom,
+            width_set=True,
+            height_set=True,
+            anchor=gtk.ANCHOR_CENTER
+            )
+          if(not text):
+            item.hide()
+            
         item = self.root_sudo.add(
           gnome.canvas.CanvasText,
           x= x_init + square_width * x + square_width/2,
           y= y_init + square_height * y + square_height/2,
-          text= "",
+          text= text,
+          fill_color_rgba= color,
           font=gcompris.skin.get_font("gcompris/content"),
           )
+        if(self.gcomprisBoard.level<self.symbolize_level_max):
+          item.hide()
+          
         line_number.append(item)
 
         if(region):
@@ -405,7 +511,7 @@ class Gcompris_sudoku:
               gnome.canvas.CanvasLine,
               points=(x_init - 5,
                       y_init + square_height * y,
-                      x_init + (square_width * sudo_size) + 5,
+                      x_init + (square_width * self.sudo_size) + 5,
                       y_init + square_height * y),
               fill_color_rgba=self.lines_color,
               width_units=2.5,
@@ -421,73 +527,10 @@ class Gcompris_sudoku:
             points=(x_init + square_width * x,
                     y_init - 5,
                     x_init + square_width * x,
-                    y_init + square_height * sudo_size + 5),
+                    y_init + square_height * self.sudo_size + 5),
             fill_color_rgba=self.lines_color,
             width_units=2.5,
             )
-
-  #
-  # Display valid number (or chars)
-  #
-  def display_valid_chars(self, sudo_size, valid_chars):
-    
-    square_width = (gcompris.BOARD_HEIGHT-50)/sudo_size
-    square_height = square_width
-    
-    x_init = 20
-    y_init = (gcompris.BOARD_HEIGHT - square_height*sudo_size)/2
-    
-    for y in range(0,sudo_size):
-      # Shadow
-      self.root_sudo.add(
-        gnome.canvas.CanvasText,
-        x= x_init+1.5,
-        y= y_init + square_height * y + square_height/2 + 1.5,
-        text= valid_chars[y],
-        font=gcompris.skin.get_font("gcompris/title"),
-        fill_color="black"
-        )
-      # Text
-      self.root_sudo.add(
-        gnome.canvas.CanvasText,
-        x= x_init,
-        y= y_init + square_height * y + square_height/2,
-        text= valid_chars[y],
-        font=gcompris.skin.get_font("gcompris/title"),
-        fill_color="white"
-        )
-
-
-  #
-  # Display the given sudoku
-  #
-  def display_sudoku(self, sudoku):
-
-    # Reinit the sudoku globals
-    self.sudo_square = []       # The square Rect Item
-    self.sudo_number = []       # The square Text Item
-
-    self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
-
-    self.sudo_size = len(sudoku[0])
-
-    self.display_board(self.sudo_size)
-
-    for x in range(0,self.sudo_size):
-      for y in range(0,self.sudo_size):
-        text  = sudoku[y][x]
-        color = self.fixed_number_color
-        if text == '.':
-          text  = ""
-          color = self.user_number_color
-        else:
-          if(not text in self.valid_chars):
-            self.valid_chars.append(text)
-          
-        self.sudo_number[x][y].set(
-          text= text,
-          fill_color_rgba= color,
-          )
 
     self.valid_chars.sort()
     self.display_valid_chars(self.sudo_size, self.valid_chars)

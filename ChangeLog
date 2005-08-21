@@ -1,5 +1,10 @@
 2005-08-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	* src/boards/python/sudoku.py: Now first levels uses colored symbols instead
+	of letters (not playable yet)
+
+2005-08-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	* po/POTFILES.in: added missing entries
 	* src/boards/python/sudoku.py: now the list of sudoku of the same level
 	  are randomized
@@ -10,7 +15,8 @@
 	fix get_user to pass None in python if user = NULL.
 	fix pythontest check a user is logged or not.
 	put buttons in boards_list to make global conf toolbox.
-	fix get_conf to check first global conf for profile (board_id = -1), then default conf for boards (profile_id = 1), yhen profile & board conf.
+	fix get_conf to check first global conf for profile (board_id = -1),
+	then default conf for boards (profile_id = 1), yhen profile & board conf.
 
 	* src/boards/py-mod-admin.c: (py_gcompris_set_current_user),
 	(py_gcompris_get_current_user):
