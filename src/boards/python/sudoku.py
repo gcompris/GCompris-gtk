@@ -81,7 +81,14 @@ class Gcompris_sudoku:
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=len(self.sudoku)
     self.gcomprisBoard.sublevel=1
-    gcompris.bar_set(gcompris.BAR_LEVEL)
+
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
+    if(pixmap):
+      gcompris.bar_set_repeat_icon(pixmap)
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
+    else:
+      gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             gcompris.skin.image_to_skin("gcompris-bg.jpg"))
     gcompris.bar_set_level(self.gcomprisBoard)
@@ -111,8 +118,7 @@ class Gcompris_sudoku:
 
 
   def repeat(self):
-    print("Gcompris_sudoku repeat.")
-
+    self.display_sudoku(self.sudoku[self.gcomprisBoard.level-1][self.gcomprisBoard.sublevel-1])
 
   def config(self):
     print("Gcompris_sudoku config.")
@@ -207,6 +213,14 @@ class Gcompris_sudoku:
   # And bail out if no more levels are available
   # return True if continue, False if bail out
   def next_level(self):
+
+    # Randomize symbols
+    for j in range(0, len(self.symbols)):
+        # Select a random new position to set the J symbol
+        old_symbol = self.symbols[j]
+        new_pos = random.randint(0,len(self.symbols)-1)
+        self.symbols[j] = self.symbols[new_pos]
+        self.symbols[new_pos] = old_symbol
 
     self.display_sudoku(self.sudoku[self.gcomprisBoard.level-1][self.gcomprisBoard.sublevel-1])
     return True
@@ -460,14 +474,6 @@ class Gcompris_sudoku:
     self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
 
     self.sudo_size = len(sudoku[0])
-
-    # Randomize symbols
-    for j in range(0, len(self.symbols)):
-        # Select a random new position to set the J symbol
-        old_symbol = self.symbols[j]
-        new_pos = random.randint(0,len(self.symbols)-1)
-        self.symbols[j] = self.symbols[new_pos]
-        self.symbols[new_pos] = old_symbol
 
     if(self.root_sudo):
       self.root_sudo.destroy()
