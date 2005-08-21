@@ -510,7 +510,7 @@ static void highlight_selected(GnomeCanvasItem * item) {
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-GHFunc save_table (gpointer key,
+static GHFunc save_table (gpointer key,
 		    gpointer value,
 		    gpointer user_data)
 {

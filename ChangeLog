@@ -1,3 +1,13 @@
+2005-08-21  Yves Combe,,,  <yves@ycombe.net>
+
+	fix crash in colors.c config_start (missing static statement).
+	add tools for global conf in board_list.
+
+	* src/boards/click_on_letter.c: (save_table):
+	* src/boards/colors.c: (save_table), (conf_ok),
+	(colors_config_start):
+	* src/boards/python/admin/board_list.py:
+
 2005-08-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* src/boards/python/sudoku.py: Now first levels uses colored symbols instead

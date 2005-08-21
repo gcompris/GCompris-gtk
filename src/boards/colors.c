@@ -110,7 +110,7 @@ GET_BPLUGIN_INFO(colors)
 static GcomprisProfile *profile_conf;
 static GcomprisBoard   *board_conf;
 
-GHFunc save_table (gpointer key,
+static GHFunc save_table (gpointer key,
 		    gpointer value,
 		    gpointer user_data)
 {
@@ -120,7 +120,7 @@ GHFunc save_table (gpointer key,
 			    (gchar *) value);
 }
 
-static GcomprisConfCallback conf_apply(GHashTable *table)
+static GcomprisConfCallback conf_ok(GHashTable *table)
 {
   g_hash_table_foreach(table, (GHFunc) save_table, NULL);
   
@@ -140,7 +140,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
 			  agcomprisBoard->name, aProfile->name);
 
-  gcompris_configuration_window(label, (GcomprisConfCallback )conf_apply);
+  gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
 
   g_free(label);
 

@@ -613,14 +613,80 @@ class Board_list:
   ########################################################
 
   def locales(self, button):
-    print "__locales__"
+    conf_locales = self.get_configured(self.active_profile, '__locales', 'NULL')
+    self.main_vbox = gcompris.configuration_window ( \
+      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', self.active_profile.name ),
+      self.ok_callback
+      )
 
+    label = gtk.Label()
+    label.set_line_wrap(True)
+    label.set_markup('Choose the default locale used by localizable boards for profile %s' % self.active_profile.name)
+    label.show()
+    self.main_vbox.pack_start (label, False, False, 8)
 
+    gcompris.separator()
+
+    gcompris.combo_locales('locales', conf_locales)
+    
   def locales_sound(self, button):
-    print "__locales_sound__"
+ 
+    conf_locales = self.get_configured(self.active_profile, '__locales_sound', 'NULL')
+    self.main_vbox = gcompris.configuration_window ( \
+      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Pythontest', self.active_profile.name ),
+      self.ok_callback
+      )
+
+    label = gtk.Label()
+    label.set_line_wrap(True)
+    label.set_markup('Choose the default locale for <b>sounds</b> used by localizable boards for profile %s' % self.active_profile.name)
+    label.show()
+    self.main_vbox.pack_start (label, False, False, 8)
+
+    gcompris.separator()
+
+    gcompris.combo_locales_asset( _("Select sound locale"), "locales_sound", conf_locales, "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
 
 
   def wordlist(self, button):
     print "__wordlist__"
 
-  
+
+  def ok_callback(self, dict):
+    if dict.has_key('locales'):
+      dict['__locales'] = dict['locales']
+      del dict['locales']
+
+    if dict.has_key('locales_sound'):
+      dict['__locales_sound'] = dict['locales_sound']
+      del dict['locales_sound']
+
+    if dict.has_key('wordlist'):
+      dict['__wordlist'] = dict['wordlist']
+      del dict['wordlist']
+
+    for key, value in dict.iteritems():
+      if key in self.already_conf:
+        req = 'UPDATE board_profile_conf SET value=\'%s\' WHERE profile_id=%d AND board_id=-1 AND key=\'%s\'' % (value, self.active_profile.profile_id, key) 
+      else:
+        req = 'INSERT INTO board_profile_conf (profile_id, board_id, key, value) VALUES (%d, -1, \'%s\', \'%s\')' % (self.active_profile.profile_id, key, value)
+      
+      self.cur.execute(req)
+      self.con.commit()
+      
+  def get_configured(self, profile, key, if_not):
+    self.cur.execute('select value from board_profile_conf where profile_id=%d and board_id=-1 and key =\'%s\' ' % (profile.profile_id, key))
+
+    value = self.cur.fetchall()
+
+    try:
+      s = self.already_conf
+    except:
+      self.already_conf = []
+
+    if len(value)==1:
+      self.already_conf.append(key)
+      return value[0][0]
+    else:
+      return if_not
+
