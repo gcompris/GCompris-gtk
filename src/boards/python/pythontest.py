@@ -423,7 +423,7 @@ class Gcompris_pythontest:
 
     gcompris.separator()
 
-    gcompris.combo_locales('locale', self.config_dict['locale'])
+    gcompris.combo_locales( self.config_dict['locale'])
 
     gcompris.separator()
 
@@ -436,7 +436,7 @@ class Gcompris_pythontest:
     label.show()
     self.main_vbox.pack_start (label, False, False, 8)
 
-    gcompris.combo_locales_asset( _("Select sound locale"), "locale_asset", self.config_dict['locale_asset'], "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
+    gcompris.combo_locales_asset( _("Select sound locale"), self.config_dict['locale_sound'], "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
 
     print gcompris.utils.get_asset_file ("gcompris colors", None, "audio/x-ogg", "purple.ogg")
     print gcompris.utils.get_asset_file_locale ("gcompris colors", None, "audio/x-ogg", "purple.ogg", None)
@@ -465,7 +465,7 @@ class Gcompris_pythontest:
                        'distance_circle' : '100',
                        'pattern'         : 'circle',
                        'locale'          : 'NULL',
-                       'locale_asset'    : 'NULL'
+                       'locale_sound'    : 'NULL'
                        }
     return default_config
   

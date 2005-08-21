@@ -1,5 +1,21 @@
 2005-08-21  Yves Combe,,,  <yves@ycombe.net>
 
+	key is no more passed in combo_locales nor combo_locales_asset (for general conf control).
+	add a repeat button in bar for login. Usefull to restart the login process in case of mistake.
+	
+	* src/boards/click_on_letter.c: (config_start):
+	* src/boards/colors.c: (colors_config_start):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_combo_locales),
+	(py_gcompris_combo_locales_asset):
+	* src/boards/python/login.py:
+	* src/boards/python/pythontest.py:
+	* src/gcompris/board_config.c: (check_key),
+	(gcompris_combo_locales), (gcompris_combo_locales_asset):
+	* src/gcompris/board_config.h:
+	* src/gcompris/gcompris_db.c: (gcompris_get_board_conf):
+
+2005-08-21  Yves Combe,,,  <yves@ycombe.net>
+
 	fix crash in colors.c config_start (missing static statement).
 	add tools for global conf in board_list.
 

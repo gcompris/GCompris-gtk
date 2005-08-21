@@ -57,12 +57,45 @@ class Gcompris_login:
     self.gcomprisBoard.maxlevel=1
     self.gcomprisBoard.sublevel=1
     self.gcomprisBoard.number_of_sublevel=1
-    gcompris.bar_set(0)
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
+    if(pixmap):
+      gcompris.bar_set_repeat_icon(pixmap)
+      gcompris.bar_set(gcompris.BAR_REPEAT_ICON)
+    else:
+      gcompris.bar_set(gcompris.BAR_REPEAT)
+
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             backgrounds[self.gcomprisBoard.level-1])
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    # Create our rootitem.
+    # Get the default profile
+    self.Prop = gcompris.get_properties()
+
+    # Connect to our database
+    self.con = sqlite.connect(gcompris.get_database())
+    self.cur = self.con.cursor()
+
+
+    # Create and Initialize the rootitem.
+    self.init_rootitem(self.Prop)
+    
+    # Get the user list
+    #users = self.get_users(self.con, self.cur,
+    #                       Prop.profile.profile_id)
+
+    users = []
+    for group_id in self.Prop.profile.group_ids:
+      users.extend( gcompris.admin.get_users_from_group(group_id))
+      
+    self.users = self.check_unique_id(users)
+
+    self.display_user_by_letter(self.users, "")
+
+    print("Gcompris_login start.")
+
+
+  def init_rootitem(self, Prop):
+        # Create our rootitem.
     # We put each canvas item in it so at the end we only have to kill it.
     # The canvas deletes all the items it contains automaticaly.
     self.rootitem = self.gcomprisBoard.canvas.root().add(
@@ -71,13 +104,6 @@ class Gcompris_login:
       y=0.0
       )
 
-
-    # Connect to our database
-    self.con = sqlite.connect(gcompris.get_database())
-    self.cur = self.con.cursor()
-
-    # Get the default profile
-    Prop = gcompris.get_properties()
 
     # Display the profile name
     x = gcompris.BOARD_WIDTH-100
@@ -106,19 +132,7 @@ class Gcompris_login:
       justification=gtk.JUSTIFY_RIGHT
       )
 
-    # Get the user list
-    #users = self.get_users(self.con, self.cur,
-    #                       Prop.profile.profile_id)
 
-    users = []
-    for group_id in Prop.profile.group_ids:
-      users.extend( gcompris.admin.get_users_from_group(group_id))
-      
-    users = self.check_unique_id(users)
-
-    self.display_user_by_letter(users, "")
-
-    print("Gcompris_login start.")
 
   def check_unique_id(self, users):
     passed = {}
@@ -148,7 +162,11 @@ class Gcompris_login:
 
   def repeat(self):
     print("Gcompris_login repeat.")
+    self.rootitem.destroy()
 
+    self.init_rootitem(self.Prop)
+
+    self.display_user_by_letter(self.users, "")
 
   def config(self):
     print("Gcompris_login config.")
@@ -217,7 +235,7 @@ class Gcompris_login:
   def display_letters(self, letters, users, start_filter):
 
     # Create a group for the letters
-    self.letter_rootitem = self.gcomprisBoard.canvas.root().add(
+    self.letter_rootitem = self.rootitem.add(
       self.rootitem,
       x=0.0,
       y=0.0

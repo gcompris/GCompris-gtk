@@ -545,7 +545,7 @@ config_start(GcomprisBoard *agcomprisBoard,
 
   gchar *locale = g_hash_table_lookup( config, "locale");
   
-  gcompris_combo_locales("locale", locale);
+  gcompris_combo_locales( locale);
 
 }
 

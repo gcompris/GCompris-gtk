@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/21 00:19:51 yves>
+ * Time-stamp: <2005/08/21 21:14:48 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1236,14 +1236,16 @@ GHashTable *gcompris_get_board_conf()
 {
   GHashTable *hash_result = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
-  /* conf values for profile (board independant) */
-  hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
-					     -1,
-					     hash_result);
+  /* priority order : board + Profile conf, else profile Default (all boards) conf, if not  Default profile + board */
 
   /* conf values for default profile and current board */
   hash_result = gcompris_get_conf_with_table(1,
 					     get_current_gcompris_board()->board_id,
+					     hash_result);
+
+  /* conf values for profile (board independant) */
+  hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
+					     -1,
 					     hash_result);
 
   /* conf value for current profile and current board */

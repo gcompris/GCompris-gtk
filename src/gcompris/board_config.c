@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/19 23:18:57 yves>
+ * Time-stamp: <2005/08/21 21:20:17 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -72,8 +72,10 @@ static gchar *label_markup = NULL;
 
 static void check_key(gchar *key)
 {
-  if (strncmp(key, "__", 2) == 0)
-    g_error(" Key beginning by __ are forbiden ! Change %s !", key);
+  if ((strcmp(key, "locale") == 0) ||
+      (strcmp(key, "locale_sound") == 0) ||
+      (strcmp(key, "wordlist") == 0))
+    g_error(" Key %s forbiden ! Change !", key);
 }
 
 void gcompris_close_board_conf (GtkButton *button,
@@ -559,9 +561,9 @@ void gcompris_combo_locales_changed(GtkComboBox *combobox,
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
 
-GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init)
+/* key = "locale" */
+GtkComboBox *gcompris_combo_locales(gchar *init)
 {
-  check_key( key);
 
   GtkWidget *combobox;
   GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
@@ -628,7 +630,7 @@ GtkComboBox *gcompris_combo_locales(gchar *key, gchar *init)
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
 		   G_CALLBACK(gcompris_combo_locales_changed),
-		   key);
+		   "locale");
 
   return GTK_COMBO_BOX(combobox);
 
@@ -685,9 +687,9 @@ GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories,
   return locales_asset;
 }
 
-GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *key, gchar *init, gchar *dataset, gchar* categories, gchar* mimetype, gchar *file)
+/* key = "locale_sound" */
+GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init, gchar *dataset, gchar* categories, gchar* mimetype, gchar *file)
 {
-  check_key( key);
 
   GtkWidget *combobox;
   GtkWidget *hbox = gtk_hbox_new (FALSE, 8);
@@ -754,7 +756,7 @@ GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *key, gchar 
   g_signal_connect(G_OBJECT(combobox),
 		   "changed",
 		   G_CALLBACK(gcompris_combo_locales_changed),
-		   key);
+		   "locale_sound");
 
   return GTK_COMBO_BOX(combobox);
 

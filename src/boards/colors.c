@@ -147,9 +147,9 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   /* init the combo to previously saved value */
   GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
 
-  gchar *locale_asset = g_hash_table_lookup( config, "locale_asset");
+  gchar *locale_sound = g_hash_table_lookup( config, "locale_sound");
   
-  gcompris_combo_locales_asset( "Select sound locale", "locale_asset", locale_asset, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
+  gcompris_combo_locales_asset( "Select sound locale", locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
 
 }
 
