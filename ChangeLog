@@ -1,3 +1,10 @@
+2005-08-22  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: moved sweden geography to 1.1
+	* src/boards/python/admin/group_edit.py: fixed 2 annoying bugs.
+	  now we can edit a group without description and re-edit a group
+	  without changing it's name
+
 2005-08-22  Yves Combe,,,  <yves@ycombe.net>
 
 	add en entry in login, to enter typing the login. Configurable by profile.

@@ -61,14 +61,15 @@ class GroupEdit(gtk.Window):
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
-        if(group_name and group_description):
-            frame = gtk.Frame(_("Editing group: ") + group_name +
+        self.group_name = group_name
+        if(self.group_name):
+            frame = gtk.Frame(_("Editing group: ") + self.group_name +
                               _(" for class: ") + class_name)
             self.new_group = False
         else:
             frame = gtk.Frame(_("Editing a new group"))
             self.new_group = True
-            group_name =""
+            self.group_name =""
             group_description = ""
 
 
@@ -91,7 +92,7 @@ class GroupEdit(gtk.Window):
         table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_group = gtk.Entry()
         self.entry_group.set_max_length(20)
-        self.entry_group.insert_text(group_name, position=0)
+        self.entry_group.insert_text(self.group_name, position=0)
         table.attach(self.entry_group, 1, 2, 0, 1,
                      xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
@@ -360,17 +361,19 @@ class GroupEdit(gtk.Window):
             dialog.destroy()
             return
 
-        # Check the login do not exist already
-        self.cur.execute('SELECT name FROM groups WHERE name=?',
-                    (self.entry_group.get_text(),))
-        if(self.cur.fetchone()):
-            dialog = gtk.MessageDialog(None,
-                                       gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                                       gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                       _("There is already a group with this name"))
-            dialog.run()
-            dialog.destroy()
-            return
+        # If the group name as changed, check it does not exists already
+        if(self.entry_group.get_text() != self.group_name):
+            # Check the group does not exist already
+            self.cur.execute('SELECT name FROM groups WHERE name=?',
+                             (self.entry_group.get_text(),))
+            if(self.cur.fetchone()):
+                dialog = gtk.MessageDialog(None,
+                                           gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                           gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                                           _("There is already a group with this name"))
+                dialog.run()
+                dialog.destroy()
+                return
 
         #
         # Now everything is correct, create the group
