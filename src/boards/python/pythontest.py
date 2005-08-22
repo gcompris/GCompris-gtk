@@ -52,8 +52,13 @@ class Gcompris_pythontest:
     # init config to default values
     self.config_dict = self.init_config()
 
+    print "init self.config_dict :", self.config_dict
+
     # change configured values
+    print "gcompris.get_board_conf() : ", gcompris.get_board_conf()
     self.config_dict.update(gcompris.get_board_conf())
+
+    print "self.config_dict final :", self.config_dict
     
     self.previous_locale = gcompris.get_locale()
 

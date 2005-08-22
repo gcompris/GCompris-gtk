@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/21 21:14:48 yves>
+ * Time-stamp: <2005/08/22 07:00:18 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1217,6 +1217,10 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
     g_hash_table_replace (hash_conf, 
 			  g_strdup(result[i++]),
 			  g_strdup(result[i++]));
+    i -=2;
+    g_warning("get_conf: put key %s, value %s in the hash",
+	      g_strdup(result[i++]),
+	      g_strdup(result[i++]));
   }
 
   sqlite3_free_table(result);

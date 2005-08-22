@@ -38,6 +38,8 @@ void pair_in_dict(gpointer key,
   }
 
   PyDict_SetItem((PyObject *)dict, pyKey, pyValue);
+
+  g_warning("Hash to dict: pass key %s and value %s",(gchar *)key, (gchar *)value );
 }
      
 

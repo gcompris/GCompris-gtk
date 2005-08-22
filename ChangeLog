@@ -1,3 +1,12 @@
+2005-08-22  Yves Combe  <yves@ycombe.net>
+
+	add trace in get_conf and it's binding to control the key, value inversion bruno had.
+
+	* src/boards/py-mod-gcompris.c: (pair_in_dict):
+	* src/boards/python/login.py:
+	* src/boards/python/pythontest.py:
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf_with_table):
+
 2005-08-22  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: moved sweden geography to 1.1
@@ -5,7 +14,7 @@
 	  now we can edit a group without description and re-edit a group
 	  without changing it's name
 
-2005-08-22  Yves Combe,,,  <yves@ycombe.net>
+2005-08-22  Yves Combe  <yves@ycombe.net>
 
 	add en entry in login, to enter typing the login. Configurable by profile.
 
@@ -31,7 +40,7 @@
 	* src/boards/python/sudoku.py: Completed the symbols level.
 	  the board is fully functionnal but we need nore data in the dataset.
 
-2005-08-21  Yves Combe,,,  <yves@ycombe.net>
+2005-08-21  Yves Combe  <yves@ycombe.net>
 
 	key is no more passed in combo_locales nor combo_locales_asset (for general conf control).
 	add a repeat button in bar for login. Usefull to restart the login process in case of mistake.
@@ -47,7 +56,7 @@
 	* src/gcompris/board_config.h:
 	* src/gcompris/gcompris_db.c: (gcompris_get_board_conf):
 
-2005-08-21  Yves Combe,,,  <yves@ycombe.net>
+2005-08-21  Yves Combe  <yves@ycombe.net>
 
 	fix crash in colors.c config_start (missing static statement).
 	add tools for global conf in board_list.
