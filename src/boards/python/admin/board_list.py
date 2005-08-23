@@ -653,10 +653,6 @@ class Board_list:
     gcompris.combo_locales_asset( _("Select sound locale"), conf_locales, "gcompris colors", None, "audio/x-ogg", "purple.ogg" )
 
 
-  def wordlist(self, button):
-    print "__wordlist__"
-
-
   def ok_callback(self, dict):
     if dict.has_key('locales'):
       dict['__locales'] = dict['locales']
@@ -702,3 +698,33 @@ class Board_list:
     print board_log.name, board_log.is_configurable
     gcompris.admin.board_config_start(board_log,
                                       self.active_profile)
+
+
+
+  def wordlist(self, button):
+    print "__wordlist__"
+
+    self.main_vbox = gcompris.configuration_window ( \
+      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Wordlist', self.active_profile.name ),
+      self.wordlist_callback
+      )
+
+    gcompris.textview('Test python textview',
+                      'test_textview',
+                      'Play with that, it\'s a test !',
+                      'Initialisation',
+                      self.wordlist_validate)
+
+  def wordlist_callback(self, table):
+    print "wordlist_callback"
+    for k, v in table.iteritems():
+      print k, v
+
+
+  def wordlist_validate( self, key, text, label):
+    print "wordlist_validate"
+    print key, text
+    label.set_markup(text)
+    return True
+
+  

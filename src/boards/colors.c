@@ -128,6 +128,12 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   profile_conf = NULL;
 }
 
+static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
+  gtk_label_set_markup(label, text);
+
+  return TRUE;
+}
+
 static void
 colors_config_start(GcomprisBoard *agcomprisBoard,
 		    GcomprisProfile *aProfile)
@@ -151,6 +157,11 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   
   gcompris_combo_locales_asset( "Select sound locale", locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
 
+  gcompris_textview("Test <b>TextView</b>", 
+		    "text_text_tool",
+		    "<i>Rien c'est juste un test !</i>", 
+		    "Texte initial pour mettre au début.", 
+		    (GcomprisTextCallback) check_text);
 }
 
   

@@ -1444,6 +1444,87 @@ py_gcompris_reset_locale(PyObject* self, PyObject* args)
 }
 
 
+/* How can i free that ? */
+static GHashTable *text_callbacks = NULL;
+
+static GcomprisTextCallback pyGcomprisTextCallback(gchar *key, gchar *text, GtkLabel *label){
+  PyObject* args;
+  PyObject* result;
+  gboolean validate;
+
+  PyGILState_STATE gil;
+
+  PyObject* pyGcomprisTextCallbackFunc = g_hash_table_lookup( text_callbacks, key);
+
+  if(pyGcomprisTextCallbackFunc==NULL) return FALSE;
+
+  gil = pyg_gil_state_ensure();
+
+  result = PyObject_CallFunction(pyGcomprisTextCallbackFunc, "ssO", key, text,(PyObject *)pygobject_new((GObject*) label ));
+
+  //Py_DECREF(pyGcomprisTextCallbackFunc);
+
+  if (PyObject_IsTrue(result))
+    validate = TRUE;
+  else
+    validate = FALSE;
+
+  if(result==NULL){
+    PyErr_Print();
+  } else {
+    Py_DECREF(result);
+  }
+
+  pyg_gil_state_release(gil);
+
+  return validate;
+
+}
+
+
+static PyObject*
+py_gcompris_textview(PyObject* self, PyObject* args){
+  PyObject* pyCallback;
+  gchar *label;
+  gchar *key;
+  gchar *desc = NULL;
+  gchar *init_text = NULL;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args,
+		       "sszzO:gcompris_configuration_window",
+		       &label,
+		       &key,
+		       &desc,
+		       &init_text,
+		       &pyCallback))
+    return NULL;
+  if(!PyCallable_Check(pyCallback))
+    {
+      PyErr_SetString(PyExc_TypeError,
+		      "gcompris_textview 5th argument must be callable");
+      return NULL;
+    }
+
+  if (!text_callbacks)
+    text_callbacks = g_hash_table_new ( g_str_hash, g_str_equal);
+
+  g_hash_table_replace (text_callbacks, key, pyCallback);
+
+  Py_INCREF(pyCallback);
+
+  return (PyObject *) \
+             pygobject_new((GObject*) \
+			   gcompris_textview( label,
+					      key,
+					      desc,
+					      init_text,
+					      (GcomprisTextCallback )pyGcomprisTextCallback));
+
+}
+
+
+
 /****************************************************/
 
 static PyMethodDef PythonGcomprisModule[] = {
@@ -1499,6 +1580,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "reset_locale",  py_gcompris_reset_locale, METH_VARARGS, "gcompris_reset_locale" },
   { "combo_locales_asset",  py_gcompris_combo_locales_asset, METH_VARARGS, "gcompris_combo_locales_asset" },
   { "get_locales_asset_list",  py_gcompris_get_locales_asset_list, METH_VARARGS, "gcompris_get_locales_asset_list" },
+  { "textview",  py_gcompris_textview, METH_VARARGS, "gcompris_textview" },
   { NULL, NULL, 0, NULL}
 };
 

@@ -1,3 +1,17 @@
+2005-08-23  Yves Combe  <yves@ycombe.net>
+
+	add gcompris_textview text editor tool with validation callback function (Bruno idea). And Python binding.
+	Example in color.c, and in the Wordlist button in Boards configuration panel. Does nothing yet, work in progress.
+
+	* src/boards/colors.c: (check_text), (colors_config_start):
+	* src/boards/py-mod-gcompris.c: (pyGcomprisTextCallback),
+	(py_gcompris_textview):
+	* src/boards/python/admin/board_list.py:
+	* src/gcompris/board_config.c: (gcompris_textview_destroy),
+	(gcompris_textview_check), (gcompris_textview):
+	* src/gcompris/board_config.h:
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf_with_table):
+
 2005-08-23  bruno coudoin,,,  <set EMAIL_ADDRESS environment variable>
 
 	Fixed maintenance of the wholegroup by using sqlite triggers

@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/23 00:47:58 brunoa>
+ * Time-stamp: <2005/08/23 22:22:31 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1285,13 +1285,18 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   i = ncolumn;
 
   while (i < (nrow +1)*ncolumn){
-    g_hash_table_replace (hash_conf, 
-			  g_strdup(result[i++]),
-			  g_strdup(result[i++]));
-    i -=2;
-    g_warning("get_conf: put key %s, value %s in the hash",
-	      g_strdup(result[i++]),
-	      g_strdup(result[i++]));
+    if (strcmp(result[i+1],"NULL")!=0){
+      /* "NULL" values are ignored */
+      g_hash_table_replace (hash_conf,
+			    g_strdup(result[i++]),
+			    g_strdup(result[i++]));
+      i -=2;
+      g_warning("get_conf: put key %s, value %s in the hash",
+		g_strdup(result[i++]),
+		g_strdup(result[i++]));
+    }
+    else
+      i += 2;
   }
 
   sqlite3_free_table(result);

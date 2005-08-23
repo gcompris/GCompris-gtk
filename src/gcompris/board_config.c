@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/21 21:20:17 yves>
+ * Time-stamp: <2005/08/23 23:40:14 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -761,6 +761,231 @@ GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init, gchar
   return GTK_COMBO_BOX(combobox);
 
 }
+
+/****************************************/
+/* TextView                             */
+
+typedef struct {
+  gchar *key;
+  GcomprisTextCallback callback;
+  GtkLabel *feedback;
+  GtkTextBuffer *TextBuffer;
+} user_param_type;
+
+void *gcompris_textview_destroy (GtkButton *button,
+				gpointer user_data){
+  g_free(((user_param_type *)user_data)->key);
+  g_free(user_data);
+}
+
+void *gcompris_textview_check (GtkButton *button,
+				gpointer user_data){
+  user_param_type *params= (user_param_type *) user_data;
+
+  gchar *key = params->key;
+  GcomprisTextCallback validate = params->callback;
+  GtkLabel *label = params->feedback;
+  GtkTextBuffer *text_buffer = params->TextBuffer;
+
+  GtkTextIter start_iter;
+  GtkTextIter end_iter;
+
+  gtk_text_buffer_get_start_iter  (text_buffer,
+                                   &start_iter);
+
+  gtk_text_buffer_get_end_iter  (text_buffer,
+				 &end_iter);
+    
+  /* has this to be freed ? */
+  gchar *text = gtk_text_buffer_get_slice (text_buffer,
+					   &start_iter,
+					   &end_iter,
+					   TRUE);
+
+  
+
+  gchar *in_memoriam_text = g_strdup (text);
+  gchar *in_memoriam_key = g_strdup (key);
+
+  if (validate( key, text, label))
+    g_hash_table_replace ( hash_conf, (gpointer) in_memoriam_key, (gpointer) in_memoriam_text);
+  else
+    g_free (in_memoriam_text);
+  
+}
+
+GtkTextView *gcompris_textview(const gchar *label, 
+			       gchar *key,
+			       const gchar*description, 
+			       gchar *init_text, 
+			       GcomprisTextCallback validate){
+
+
+  GtkWidget*frame =  gtk_frame_new ("GCompris text tool");
+  gtk_widget_show(frame);
+
+  gtk_box_pack_start (GTK_BOX(main_conf_box),
+		      frame,
+		      FALSE,
+		      FALSE,
+		      8);
+  
+
+  
+  /* Main vbox for all our widegt */
+  GtkWidget *textVbox = gtk_vbox_new ( FALSE, 8);
+  gtk_widget_show(textVbox);
+
+  gtk_container_add(GTK_CONTAINER(frame),
+		    textVbox);
+  /* Title */
+  GtkWidget *title = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(title);
+
+  gtk_box_pack_start (GTK_BOX(textVbox),
+		      title,
+		      FALSE,
+		      FALSE,
+		      8);
+
+  gtk_label_set_justify (GTK_LABEL(title),
+			 GTK_JUSTIFY_CENTER);
+  
+  gchar *title_text = g_strdup(label);
+  gtk_label_set_markup (GTK_LABEL(title),
+                        (const gchar *)title_text);
+ 
+  GtkWidget *separator = gtk_hseparator_new ();
+
+  gtk_widget_show(separator);
+
+  gtk_box_pack_start (GTK_BOX(textVbox),
+		      separator,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  /* Description */
+  GtkWidget *desc = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(desc);
+
+  gtk_box_pack_start (GTK_BOX(textVbox),
+		      desc,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  //gtk_label_set_justify (GTK_LABEL(title),
+  //		 GTK_JUSTIFY_CENTER);
+
+  gtk_label_set_line_wrap(GTK_LABEL(desc), TRUE);
+
+  gchar *desc_text = g_strdup(description);
+  gtk_label_set_markup (GTK_LABEL(desc),
+                        (const gchar *)desc_text);
+ 
+/*   GtkWidget *desc_separator = gtk_hseparator_new (); */
+
+/*   gtk_widget_show(desc_separator); */
+
+/*   gtk_box_pack_start (GTK_BOX(textVbox), */
+/* 		      desc_separator, */
+/* 		      FALSE, */
+/* 		      FALSE, */
+/* 		      0); */
+
+  GtkWidget *scroll = gtk_scrolled_window_new ( NULL, NULL);
+
+  
+  gtk_scrolled_window_set_policy  (GTK_SCROLLED_WINDOW(scroll),
+				   GTK_POLICY_NEVER,
+				   GTK_POLICY_AUTOMATIC);
+
+  gtk_widget_set_size_request     (scroll,
+				   -1,
+				   100);
+
+  gtk_widget_show( scroll);
+
+  gtk_box_pack_start (GTK_BOX(textVbox),
+		      scroll,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  /* TextView */
+  GtkWidget *textView = gtk_text_view_new ();
+  gtk_widget_show(textView);
+
+  gtk_container_add (GTK_CONTAINER(scroll),
+		     textView);
+
+  gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (textView), GTK_WRAP_WORD_CHAR);
+
+
+  GtkTextBuffer *buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (textView));
+
+  gtk_text_buffer_set_text (buffer, g_strdup(init_text), -1);
+
+
+  /* hbox for feedback and validation button */
+  GtkWidget *validationHbox = gtk_hbox_new ( FALSE, 8);
+  gtk_widget_show(validationHbox);
+
+  gtk_box_pack_start (GTK_BOX(textVbox),
+		      validationHbox,
+		      FALSE,
+		      FALSE,
+		      0);
+
+  /* Feedback */
+  GtkWidget *feedback = gtk_label_new ((gchar *)NULL);
+  gtk_widget_show(feedback);
+
+  gtk_box_pack_start (GTK_BOX(validationHbox),
+		      feedback,
+		      FALSE,
+		      FALSE,
+		      0);
+  
+  gtk_label_set_justify (GTK_LABEL(title),
+			 GTK_JUSTIFY_FILL);
+  
+  gtk_label_set_line_wrap(GTK_LABEL(feedback), TRUE);
+  
+  user_param_type *user_param = g_malloc0(sizeof(user_param_type));
+
+  user_param->key = g_strdup(key);
+  user_param->callback = validate;
+  user_param->feedback = GTK_LABEL(feedback);
+  user_param->TextBuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW(textView));
+
+  /* Validate button */
+  GtkWidget *button = gtk_button_new_from_stock(GTK_STOCK_EXECUTE);
+  gtk_widget_show(button);
+  gtk_box_pack_end (GTK_BOX(validationHbox),
+		    button,
+		    FALSE,
+		    FALSE,
+		    0);
+
+  g_signal_connect(G_OBJECT(button), 
+		   "clicked",
+		   G_CALLBACK(gcompris_textview_check),
+		   (gpointer) user_param);
+
+
+  g_signal_connect(G_OBJECT(button), 
+		   "destroy",
+		   G_CALLBACK(gcompris_textview_destroy),
+		   (gpointer) user_param);
+
+
+
+
+  return GTK_TEXT_VIEW(textView);
+}
+
 
 /* Local Variables: */
 /* mode:c */

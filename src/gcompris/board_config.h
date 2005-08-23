@@ -1,6 +1,6 @@
 /* gcompris - board_config.h
  *
- * Time-stamp: <2005/08/21 21:20:48 yves>
+ * Time-stamp: <2005/08/23 23:28:51 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -77,6 +77,22 @@ GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories,
 
 GtkComboBox *gcompris_combo_locales_asset(const gchar *label, gchar *init, gchar *dataset, gchar* categories, gchar* mimetype, gchar *file);
 #endif
+
+/***********************************/
+/* TextView  facility              */
+/* Callback is text vaidating function */
+/* key is used to pass last validated text on "Apply" event */
+/* and returned to callback */
+
+typedef gboolean (*GcomprisTextCallback) (gchar *key, gchar *text, GtkLabel *label);
+
+GtkTextView *gcompris_textview(const gchar *label, 
+			       gchar *key,
+			       const gchar*description, 
+			       gchar *init_text, 
+			       GcomprisTextCallback validate);
+
+/***********************************/
 
 /* Local Variables: */
 /* mode:c */
