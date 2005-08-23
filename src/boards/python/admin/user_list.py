@@ -133,6 +133,7 @@ class User_list:
 
   # Retrieve data from the database for the given class_id
   def reload(self, class_id):
+    print "user_list reload %d" %class_id
     self.class_id = class_id
       
     # Remove all entries in the list
@@ -339,7 +340,7 @@ class User_list:
       # Save the changes in the base
       new_user = [user_id, login, firstname, lastname, birthdate, self.class_id]
       self.add_user_in_model(model, new_user)
-      self.cur.execute('insert or replace into users (user_id, login, firstname, lastname, birthdate, class_id) values (?, ?, ?, ?, ?, ?)', new_user)
+      self.cur.execute('INSERT OR REPLACE INTO users (user_id, login, firstname, lastname, birthdate, class_id) VALUES (?, ?, ?, ?, ?, ?)', new_user)
       self.con.commit()
 
     file.close()

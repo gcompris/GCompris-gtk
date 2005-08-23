@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/22 07:00:18 yves>
+ * Time-stamp: <2005/08/23 00:47:58 brunoa>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -67,6 +67,51 @@ extern GnomeCanvas *canvas;
 
 #define SET_DEFAULT_GROUP \
         "INSERT INTO groups (group_id, name, class_id, description) VALUES ( 1, \'All\', 1, \'All users\');"
+
+/*
+ * TRIGGERS
+ * --------
+ */
+
+#define TRIGGER_DELETE_CLASS \
+  "CREATE TRIGGER delete_class  DELETE ON class\
+     BEGIN								\
+       DELETE FROM groups WHERE class_id=old.class_id;			\
+       UPDATE users SET class_id=1 WHERE class_id=old.class_id;		\
+     END;"
+
+#define TRIGGER_DELETE_GROUPS \
+  "CREATE TRIGGER delete_groups  DELETE ON groups\
+     BEGIN								\
+       DELETE FROM list_users_in_groups WHERE group_id=old.group_id;	\
+       DELETE FROM list_groups_in_profiles WHERE group_id=old.group_id; \
+     END;"
+
+#define TRIGGER_DELETE_PROFILES \
+  "CREATE TRIGGER delete_profiles DELETE ON profiles\
+     BEGIN								\
+       DELETE FROM list_groups_in_profiles WHERE profile_id=old.profile_id; \
+       DELETE FROM board_profile_conf WHERE profile_id=old.profile_id;	\
+     END;"
+
+#define TRIGGER_DELETE_USERS \
+  "CREATE TRIGGER delete_users DELETE ON users\
+     BEGIN							   \
+       DELETE FROM list_users_in_groups WHERE user_id=old.user_id; \
+     END;"
+
+#define TRIGGER_INSERT_USERS \
+  "CREATE TRIGGER insert_users INSERT ON users\
+     BEGIN								\
+       INSERT INTO list_users_in_groups (user_id, group_id) VALUES (new.user_id, (SELECT wholegroup_id FROM class WHERE class_id=new.class_id)); \
+     END;"
+
+#define TRIGGER_UPDATE_USERS \
+  "CREATE TRIGGER update_wholegroup UPDATE OF class_id ON users\
+     BEGIN							   \
+       UPDATE list_users_in_groups SET group_id=(SELECT wholegroup_id FROM class WHERE class_id=old.class_id) WHERE user_id=old.user_id; \
+     END;"
+
 
 int gcompris_db_init()
 {
@@ -136,6 +181,32 @@ int gcompris_db_init()
       g_error("SQL error: %s\n", zErrMsg);
     }
     rc = sqlite3_exec(gcompris_db,CREATE_TABLE_INFO, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+
+    /* CREATE TRIGGERS */
+    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_CLASS, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_GROUPS, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_PROFILES, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    rc = sqlite3_exec(gcompris_db,TRIGGER_DELETE_USERS, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    rc = sqlite3_exec(gcompris_db,TRIGGER_INSERT_USERS, NULL,  0, &zErrMsg);
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    rc = sqlite3_exec(gcompris_db,TRIGGER_UPDATE_USERS, NULL,  0, &zErrMsg);
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }

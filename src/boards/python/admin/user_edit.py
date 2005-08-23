@@ -188,6 +188,7 @@ class UserEdit(gtk.Window):
         self.con.commit()
 
         # Close the dialog window now
+        print "user_edit calling reload"
         self.list_user.reload(self.class_id)
 
         self.destroy()

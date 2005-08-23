@@ -42,7 +42,7 @@ class ClassEdit(gtk.Window):
 
     def __init__(self, db_connect, db_cursor,
                  class_id, class_name, teacher_name,
-                 list_user):
+                 list_class):
         # Create the toplevel window
         gtk.Window.__init__(self)
 
@@ -50,19 +50,21 @@ class ClassEdit(gtk.Window):
         self.con = db_connect
 
         self.class_id = class_id
+        self.class_name = class_name
+        self.teacher_name = teacher_name
         
         self.class_users_changed = False
 
         # A pointer to the user_list class
         # Will be called to refresh the list when edit is done
-        self.list_user = list_user
+        self.list_class = list_class
         
         self.set_title(_("Class Edition"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
-        if(class_name):
-            frame = gtk.Frame(_("Editing class: ") + class_name)
+        if(self.class_name):
+            frame = gtk.Frame(_("Editing class: ") + self.class_name)
             self.new_class = False
         else:
             frame = gtk.Frame(_("Editing a new class"))
@@ -89,11 +91,13 @@ class ClassEdit(gtk.Window):
         
         label = gtk.Label(_('Class:'))
         label.set_alignment(0, 0)
-        table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+        table.attach(label, 0, 1, 0, 1, xoptions=gtk.SHRINK,
+                     yoptions=gtk.EXPAND)
         self.entry_class = gtk.Entry()
         self.entry_class.set_max_length(20)
-        self.entry_class.insert_text(class_name, position=0)
-        table.attach(self.entry_class, 1, 2, 0, 1, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
+        self.entry_class.insert_text(self.class_name, position=0)
+        table.attach(self.entry_class, 1, 2, 0, 1,
+                     xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
         # FIXME: How to remove the default selection
         
@@ -103,7 +107,7 @@ class ClassEdit(gtk.Window):
         table.attach(label, 0, 1, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
         self.entry_teacher = gtk.Entry()
         self.entry_teacher.set_max_length(30)
-        self.entry_teacher.insert_text(teacher_name, position=0)
+        self.entry_teacher.insert_text(self.teacher_name, position=0)
         table.attach(self.entry_teacher, 1, 2, 1, 2, xoptions=gtk.SHRINK, yoptions=gtk.EXPAND)
 
         # Top message gives instructions
@@ -268,46 +272,6 @@ class ClassEdit(gtk.Window):
         treeview.append_column(column)
 
 
-    # Maintain the whole group for the given class_id
-    #
-    def update_wholegroup(self, class_id):
-
-        print "update_wholegroup " + str(class_id)
-        # First, extract the wholegroup_id
-        self.cur.execute('SELECT wholegroup_id FROM class WHERE class_id=?', (class_id,))
-        wholegroup_id = self.cur.fetchall()[0][0]
-
-        # Remove all the users from the wholegroup
-        self.cur.execute('DELETE FROM list_users_in_groups WHERE group_id=?',
-                         (wholegroup_id, ))
-        
-        # Take all the users of this class and add them in the wholegroup
-        self.cur.execute('SELECT user_id FROM users WHERE class_id=?',
-                         (class_id, ))
-        user_list = self.cur.fetchall()
-        
-        for auser in user_list:
-            self.cur.execute('INSERT INTO list_users_in_groups (user_id, group_id) ' +
-                             'VALUES ( ?, ?)',
-                             (auser[0], wholegroup_id))
-        
-        self.con.commit()
-
-
-    # Maintain the whole group for all the class_id
-    #
-    def update_all_wholegroup(self):
-
-        # First, extract the classes
-        self.cur.execute('SELECT class_id FROM class')
-        class_list = self.cur.fetchall()
-        print class_list
-        for aclass in class_list:
-            print "processing " + str(aclass[0])
-            self.update_wholegroup(aclass[0])
-
-        self.class_users_changed = False
-
     # Add a user from the left list to the right list
     #
     def add_user(self, button, treeview):
@@ -329,7 +293,8 @@ class ClassEdit(gtk.Window):
             self.add_user_in_model(self.model_right, (user_id, user_firstname, user_lastname))
             
             # Save the change in the base
-            self.cur.execute('update users set class_id=? where user_id=?', (self.class_id, user_id))
+            self.cur.execute('UPDATE users SET class_id=? WHERE user_id=?',
+                             (self.class_id, user_id))
             self.con.commit()
 
     # Remove a user from the right list to the left list
@@ -363,10 +328,11 @@ class ClassEdit(gtk.Window):
 
         if(not self.new_class and self.class_users_changed):
             self.update_all_wholegroup()
-        
-        self.list_user.reload(self.class_id,
-                              None,
-                              None)
+
+        print "class_edit CLOSE"
+        self.list_class.reload(self.class_id,
+                               self.class_name,
+                               self.teacher_name)
         self.destroy()
         
     # Done, can quit this dialog with saving
@@ -431,8 +397,10 @@ class ClassEdit(gtk.Window):
             self.update_all_wholegroup()
 
         # Close the dialog window now
-        self.list_user.reload(self.class_id,
-                              self.entry_class.get_text(),
-                              self.entry_teacher.get_text())
+        # (The close code will refresh the class_list)
+        self.class_name   = self.entry_class.get_text()
+        self.teacher_name = self.entry_teacher.get_text()
+
+        print "class_edit done"
         self.destroy()
         

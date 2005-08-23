@@ -203,13 +203,15 @@ class Class_list:
       path = model.get_path(iter)[0]
       class_id = model.get_value(iter, COLUMN_CLASSID)
       model.remove(iter)
-      # Remove it from the base
+
+      #
+      # Remove it from the base (Triggers maintains other tables)
+      #
       print "Deleting class_id=" + str(class_id)
-      self.cur.execute('delete from class where class_id=?', (class_id,))
-      # Reassign users to the 'unselected class'
-      self.cur.execute('update users set class_id=? where class_id=?', (1, class_id));
+      self.cur.execute('DELETE FROM class WHERE class_id=?', (class_id,))
       self.con.commit()
 
+      print "class_list:remove_class_clicked calling reload"
       self.list_user.reload(class_id)
 
 
@@ -243,7 +245,7 @@ class Class_list:
     if iter:
       path = model.get_path(iter)[0]
       class_id = model.get_value(iter, COLUMN_CLASSID)
-
+      print "class_changed_cb %d" %class_id
       user_list.reload(class_id)
 
       # The Unaffected class is not editable.
@@ -257,35 +259,53 @@ class Class_list:
 
   # Reload data (class data and users)
   def reload(self, class_id, class_name, class_teacher):
+    print ">> class_list:reload %d" %class_id
+    print "class_name %s" %class_name
     # We need to find the row matching this class_id.
     # If not found, it's a new class to create
     model = self.treeview_class.get_model()
     iter = model.get_iter_first()
 
+    updated = False
     # Loop over each class raw
-    while(True):
-      iter = model.iter_next(iter)
-      if iter == None:
-        break
-      
+    while(iter):
       path = model.get_path(iter)[0]
       tmp_class_id = model.get_value(iter, COLUMN_CLASSID)
       
       if(tmp_class_id == class_id):
-        self.list_user.reload(class_id)
 
         # Now update the class_name and class_teacher if provided
         if class_name:
+          print "updating %s" %class_name
+          print dir(class_name)
           model.set(iter, COLUMN_NAME, class_name)
 
-          if class_teacher:
-            model.set(iter, COLUMN_TEACHER, class_teacher)
+        if class_teacher:
+          model.set(iter, COLUMN_TEACHER, class_teacher)
 
+        updated = True
         # It's updated now
-        return
+        break
+      
+      iter = model.iter_next(iter)
+      
 
 
     # The job not done yet, it's a new class.
-    new_class = [class_id, class_name, class_teacher]
-    self.add_class_in_model(model, new_class)
-    
+    if(not updated):
+      new_class = [class_id, class_name, class_teacher]
+      self.add_class_in_model(model, new_class)
+
+    # Reload the selected class
+    selection = self.treeview_class.get_selection()
+    if(selection):
+      print "got selection"
+      model, iter = selection.get_selected()
+      if iter:
+        path = model.get_path(iter)[0]
+        sel_class_id = model.get_value(iter, COLUMN_CLASSID)
+        print "got selection %d" %sel_class_id
+        self.list_user.reload(sel_class_id)
+
+    print "class_list reload DONE"
+  
