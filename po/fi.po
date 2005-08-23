@@ -3,23 +3,19 @@
 # Jyrki Kuoppala <jkp@kaapeli.fi>, 2001.
 # Rami Aubourg-Kaires <rami at kaires.org>, 2003-2004
 # Ilkka Tuohela <hile@iki.fi>, 2005.
-# Huom. yhtenäisyyden nimissä vaihdettu: 
-#    näpäytä -> napsauta
-#    nappi -> painike (OK-painike, ei OK nappi)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-25 05:19+0300\n"
-"PO-Revision-Date: 2005-07-25 17:19+0100\n"
+"POT-Creation-Date: 2005-08-23 06:07+0300\n"
+"PO-Revision-Date: 2005-08-23 06:40+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"kaires.org>\n"
-"X-Generator: KBabel 1.0.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../boards/administration.xml.in.h:1
 msgid "GCompris Administration Menu"
@@ -32,12 +28,11 @@ msgstr "GComprisin hallintavalikko"
 #: ../boards/gnumchmenu.xml.in.h:2 ../boards/menu.xml.in.h:18
 #: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
-msgstr ""
-"Napsauta vastaavaa kuvaa hiiren vasemmalla näppäimellä valitaksesi tehtävän."
+msgstr "Valitse tehtävä napsauttamalla vasenta hiiren nappia"
 
 #: ../boards/advanced_colors.xml.in.h:1 ../src/boards/advanced_colors.c:86
 msgid "Advanced colors"
-msgstr "Harvinaiset värit"
+msgstr "Harvinaisemmat värit"
 
 #: ../boards/advanced_colors.xml.in.h:2 ../boards/read_colors.xml.in.h:1
 msgid "Can read"
@@ -53,7 +48,7 @@ msgstr "Napsauta oikean väristä ruutua"
 
 #: ../boards/advanced_colors.xml.in.h:5
 msgid "Learn to recognize unusual colors."
-msgstr "Opettele harvinaisten värit"
+msgstr "Opettele tuntemaan epätavalliset värit."
 
 #: ../boards/advanced_colors/board1.xml.in.h:1
 msgid "almond"
@@ -61,7 +56,7 @@ msgstr "manteli"
 
 #: ../boards/advanced_colors/board1.xml.in.h:2
 msgid "chestnut"
-msgstr ""
+msgstr "kastanja"
 
 #: ../boards/advanced_colors/board1.xml.in.h:3
 msgid "claret"
@@ -69,7 +64,7 @@ msgstr ""
 
 #: ../boards/advanced_colors/board1.xml.in.h:4
 msgid "cobalt"
-msgstr ""
+msgstr "kobaltinsininen"
 
 #: ../boards/advanced_colors/board1.xml.in.h:5
 msgid "coral"
@@ -150,7 +145,7 @@ msgstr "mahonki"
 #: ../boards/advanced_colors/board3.xml.in.h:8
 #: ../boards/advanced_colors/board8.xml.in.h:8
 msgid "vermilion"
-msgstr ""
+msgstr "helakanpunainen"
 
 #: ../boards/advanced_colors/board4.xml.in.h:1
 #: ../boards/advanced_colors/board5.xml.in.h:1
@@ -187,7 +182,7 @@ msgstr "rubiini"
 
 #: ../boards/advanced_colors/board5.xml.in.h:2
 msgid "auburn"
-msgstr ""
+msgstr "kullanruskea"
 
 #: ../boards/advanced_colors/board5.xml.in.h:3
 msgid "azure"
@@ -243,11 +238,11 @@ msgstr "jäkälä"
 
 #: ../boards/advanced_colors/board6.xml.in.h:8
 msgid "wine"
-msgstr "viininpunainen"
+msgstr ""
 
 #: ../boards/advanced_colors/board7.xml.in.h:1
 msgid "larch"
-msgstr ""
+msgstr "lehtikuusi"
 
 #: ../boards/advanced_colors/board7.xml.in.h:2
 msgid "lilac"
@@ -338,37 +333,37 @@ msgid "veronese"
 msgstr "veronanvihreä"
 
 #: ../boards/algebra_by.xml.in.h:1
-#, fuzzy
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
 "and press the Enter key to check your answer. You can control the speed of "
 "the timer in the GCompris configuration dialog."
 msgstr ""
-"Kahden numeron kerroinlasku. Anna oikea vastaus yhtälön oikealle puolelle.\n"
-"Käytä näppäimistön vasenta ja oikeaa nuolta vastauksen vaihtamiseen.\n"
-"Enter varmistaa vastauksen."
+"Näytetään kertolasku, jossa on kaksi numeroa. Anna kertolaskun tulos "
+"yhtäsuuruusmerkin oikealle puolelle. Käytä vasenta ja oikeaa nuolta arvon "
+"muuttamiseen ja paina Enter, kun haluat tarkistaa vastauksesi. Voit säätää "
+"ajanottajan nopeutta GComprisin asetuksista."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
 #: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
 msgid "Answer some algebra questions"
-msgstr "Annan sinulle hiukan laskettavaa"
+msgstr "Vastaa laskutehtäviin"
 
 #: ../boards/algebra_by.xml.in.h:3
 msgid "In a limited time, give the product of two numbers"
-msgstr "Anna ynnälaskun lopputulos määrätyssä ajassa"
+msgstr "Anna kahden luvun kertolaskun tulos rajatussa ajassa"
 
 #: ../boards/algebra_by.xml.in.h:4
 msgid "Multiplication table"
-msgstr "Kerroinlasku"
+msgstr "Kertotaulu"
 
 #: ../boards/algebra_by.xml.in.h:5
 msgid "Practice the multiplication operation"
-msgstr "Harjoittele kerroinlaskua"
+msgstr "Harjoittele kertolaskua"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
-msgstr "Mennään laskutehtäviin"
+msgstr "Siirry laskutehtäviin"
 
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
 #: ../boards/erase_double_clic.xml.in.h:1
@@ -377,9 +372,9 @@ msgid ""
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
 "his pictures. Thanks a lot Ralf."
 msgstr ""
-"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta (http://schmode.net/).\n"
-"Ralf antoi gcompris'lle luvan käyttää kuviansa.\n"
-"Paljon kiitoksia Ralf."
+"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta (http://schmode.net/). "
+"Ralf antoi gcomprisin tekijöille luvan käyttää kuviansa ohjelmassa, Paljon "
+"kiitoksia Ralfille."
 
 #: ../boards/algebra_guesscount.xml.in.h:2
 msgid ""
@@ -387,127 +382,128 @@ msgid ""
 "that give the specified result. The numbers and operators can be unselected "
 "by clicking on them."
 msgstr ""
-"Voidaksesi suorittaa laskutoimituksen, valitse numerosi ja laskutoimitukset "
-"taulun \n"
-"yläosasta. Voit valita numerot ja laskutoimitukset klikkaamalla niihin."
+"Valitse laudan yläosasta ne  numerot ja laskutoimitukset, jotka antavat "
+"määritellyn tuloksen. Voit poistaa numeron ja laskutoimituksen valinnan "
+"napsauttamalla niitä uudestaan."
 
 #: ../boards/algebra_guesscount.xml.in.h:3
 msgid ""
 "Deploy a strategy to arrange a set of arithmetic operations to find a value"
-msgstr "Löydä oikea tapa päästä lopputulokseen"
+msgstr ""
+"Löydä tapa yhdistää laskutoimitukset, joilla saadaan pyydetty lopputulos"
 
 #: ../boards/algebra_guesscount.xml.in.h:4
 msgid "Find the correct operations to get the result"
-msgstr "Miten päästään lopputulokseen?"
+msgstr "Etsi oikeat laskutoimitukset saadaksesi oikea tulos"
 
 #: ../boards/algebra_guesscount.xml.in.h:5
 msgid ""
 "Find the right combination of numbers and operations to obtain a specified "
 "result"
 msgstr ""
-"Löydä oikea laskutoimituksen oikea järjestys päästäksesi lopputulokseen."
+"Etsi oikea yhdistelmä numeroita ja laskutoimituksia, joilla saat annetun "
+"tuloksen"
 
 #: ../boards/algebra_guesscount.xml.in.h:6
 msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr "Ynnä-, miinus-, kerroin- sekä jakolasku."
+msgstr "Neljä laskutoimitusta. Yhdistele useita eri laskutoimituksia"
 
 #: ../boards/algebra_minus.xml.in.h:1
-#, fuzzy
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
 "your answer, and press the Enter key to check the result. You can control "
 "the speed of the timer in the GCompris configuration dialog."
 msgstr ""
-"Kahden numeron miinuslaskua. Anna oikea vastaus yhtälön oikealle puolelle.\n"
-"Käytä vasempaa ja oikeata nuolta vastauksesi muuttamiseen.\n"
-"Enter varmistaaksesi vastauksesi."
+"Näet kahden numeron vähennyslaskuongelman. Anna lukujen erotus oikealla "
+"olevan yhtäsuuruusmerkin oikealle puolelle. Käytä vasenta ja oikeaa nuolta "
+"arvon muuttamiseen ja paina Enter, kun haluat tarkistaa vastauksesi. Voit "
+"säätää ajanottajan nopeutta GComprisin asetuksista."
 
 #: ../boards/algebra_minus.xml.in.h:3
 msgid "In a limited time, find the difference between two numbers"
-msgstr "Anna miinuslaskun lopputulos määrätyssä ajassa"
+msgstr "Anna vähennyslaskun tulos rajoitetussa ajassa"
 
 #: ../boards/algebra_minus.xml.in.h:4
 msgid "Practice the substraction operation"
-msgstr "Miinuslaskun harjoittelemista"
+msgstr "Harjoittele vähennyslaskua"
 
 #: ../boards/algebra_minus.xml.in.h:5
 msgid "Simple substraction"
-msgstr "Helppo miinuslasku"
+msgstr "Yksinkertainen vähennyslasku"
 
 #: ../boards/algebra_plus.xml.in.h:1
-#, fuzzy
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
 "Enter key to check your answer. You can control the speed of the timer in "
 "the GCompris configuration dialog."
 msgstr ""
-"Kahden numeron ynnälasku. Anna oikea vastaus yhtälön oikealle puolelle.\n"
-"Käytä vasempaa ja oikeata nuolta vastauksesi muuttamiseen.\n"
-"Enter varmistaaksesi vastauksesi."
+"Näet kahden numeron yhteenlaskuongelman. Anna  lukujen summa oikealla olevan "
+"yhtäsuuruusmerkin oikealle puolelle. Käytä vasenta ja oikeaa nuolta arvon "
+"muuttamiseen ja paina Enter, kun haluat tarkistaa vastauksesi. Voit säätää "
+"ajanottajan nopeutta GComprisin asetuksista."
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
 "In a limited time, find the sum of of two numbers. Introduction to simple in-"
 "line addition."
-msgstr "Anna ynnälaskun loppusumma määrätyssä ajassa"
+msgstr ""
+"Anna yhteenlaskun tulos rajoitetussa ajassa. Johdanto yksinkertaiseen "
+"yhteenlaskuun."
 
 #: ../boards/algebra_plus.xml.in.h:4
 msgid "Practice the addition operation"
-msgstr "Ynnälaskun harjoittelua"
+msgstr "Harjoittele yhteenlaskua"
 
 #: ../boards/algebra_plus.xml.in.h:5
 msgid "Simple addition. Can recognize written numbers"
-msgstr "Helppo ynnälasku. Osaa tunnistaa numerot"
+msgstr "Yksinkertainen yhteenlasku. Osaa tunnistaa kirjoitetut numerot"
 
 #: ../boards/algebramenu.xml.in.h:1
-#, fuzzy
 msgid "Go to Maths activities"
-msgstr "Väritehtävät"
+msgstr "Siirry matematiikkatehtäviin"
 
 #: ../boards/algorithm.xml.in.h:1
 msgid "Complete a list of symbols"
-msgstr "Täydennä symboolien lista."
+msgstr "Täydennä merkkien lista"
 
 #: ../boards/algorithm.xml.in.h:2
 msgid "Find the next in a list of symbols."
-msgstr "Löydä seuraava symbooli."
+msgstr "Löydä seuraava listasta merkkejä"
 
 #: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
 #: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
-msgstr "Loogisen ajattelun harjoittelu."
+msgstr "Logiikan harjoittelu"
 
 #: ../boards/algorithm.xml.in.h:4 ../boards/hexagon.xml.in.h:3
 #: ../boards/melody.xml.in.h:4
 msgid "Move and click the mouse"
-msgstr "Osaa liikuttaa ja näpäyttää hiirtä"
+msgstr "Siirrä hiirtä ja napsauttele sen nappeja"
 
 #: ../boards/algorithm.xml.in.h:5
 msgid "algorithm"
 msgstr "algoritmi"
 
 #: ../boards/anim.xml.in.h:1
-#, fuzzy
 msgid "Create a drawing or an animation"
-msgstr "Vapaa piirtämis- ja animaatio väline"
+msgstr "Piirrä kuva tai luo animaatio"
 
 #: ../boards/anim.xml.in.h:2
 msgid "Free drawing and animation tool."
-msgstr "Vapaa piirtämis- ja animaatio väline"
+msgstr "Vapaa piirtäminen ja animaatiot."
 
 #: ../boards/anim.xml.in.h:3
-#, fuzzy
 msgid ""
 "In this game, children can draw freely. The goal is just to discover how to "
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines. To make it more fun for kids, a set of images can also be used."
 msgstr ""
-"Tässä pelissä lapsi voi piirtää vapaasti. Päämäärä on ainoastaan ymmärtää\n"
+"Tässä pelissä lapsi voi piirtää vapaasti. Päämäärä on ainoastaan ymmärtää, "
 "miten hän voi tehdä hauskoja piirustuksia käyttämällä ainoastaan tavallisia "
-"muotoja,\n"
-"kuten neliöitä, ellipsejä tai viivoja."
+"muotoja, kuten suorakulmioita, ellipsejä ja viivoja. Jotta piirtäminen olisi "
+"hauskempaa, voidaan käyttää myös joukkoa valmiita kuvia."
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
@@ -526,6 +522,16 @@ msgid ""
 "selector in the bottom left of the screen. You can save and reload your "
 "animations with the 'floppy' and 'folder' button."
 msgstr ""
+"Valitse piirtotyökalu vasemmalta ja väri alhaalta. Napsauta ja raahaa "
+"valkoisella alueella piirtääksesi uuden kuvion. Kun piirros on valmis, voit "
+"ottaa siitä kuvan 'kamera'-painikkeella. Piirtämäsi kuvan sisältävä kuva "
+"luodaan. Voit sitten siirrellä, lisätä ja poistaa kuvan osia. Luo useita "
+"kuvia samalla tavalla ja paina sitten 'filmi'-painiketta. Kuvasi näytetään "
+"nyt peräkkäin silmukassa, jonka nopeutta voit muuttaa. Pääset katselutilasta "
+"takaisin piirtotilaan painamalla 'piirros'-painiketta. Voit muokata "
+"animaation jokaista kuvaa käyttämällä kuvan valitsijaa vasemmassa "
+"alakulmassa. Voit tallentaa ja ladata animaatioitasi 'korppu'- ja 'kansio'-"
+"painikkeilla."
 
 #: ../boards/babymatch.xml.in.h:1 ../boards/babymatch/board1_0.xml.in.h:1
 #: ../boards/babymatch/board2_0.xml.in.h:1
@@ -535,7 +541,7 @@ msgstr ""
 #: ../boards/babymatch/board6_0.xml.in.h:1
 #: ../boards/babymatch/board7_0.xml.in.h:1
 msgid "Drag and Drop the items to make them match"
-msgstr "Vie esineet vastaaville paikoille"
+msgstr "Raahaa esineet vastaaville paikoille"
 
 #: ../boards/babymatch.xml.in.h:2
 msgid ""
@@ -545,11 +551,11 @@ msgid ""
 "these objects must be found. Drag the objects to the correct red space in "
 "the main area."
 msgstr ""
-"Keskellä on tiettyjä esineitä. Vasemmalla on toisia esineitä.\n"
-"Yksi ainoa vasemmalla oleva esine vastaa yhtä ainoata keskellä olevaa "
-"esinettä.\n"
-"Sinun täytyy loytää looginen side näitten esineitten välillä.\n"
-"Vie esineet hiiren avulla punaisien pisteitten päälle."
+"Kentän keskellä näytetään joukko kohteita. Vasemmalla olevassa "
+"pystylaatikossa on joukko sanoja, joiden täytyy vastata tarkalleen "
+"yhtä kentän keskellä olevaa kohtaa. Sinun täytyy löytää näiden kohteiden "
+"väliset loogiset linkit. Raahaa vasemmalta osio oikeaan punaiseen kohtaan "
+"kuvan keskiosassa."
 
 #: ../boards/babymatch.xml.in.h:3
 msgid "Matching Items"
@@ -561,7 +567,7 @@ msgstr "Moottorikoordinaatio."
 
 #: ../boards/babymatch.xml.in.h:5
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr "Hiiren käyttäminen. Kulttuurisia referenssejä."
+msgstr "Hiiren käyttäminen: siirto ja raahaus. Kulttuurisia viitteitä."
 
 #: ../boards/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -571,11 +577,11 @@ msgstr "Kokoa palapeli"
 msgid ""
 "Complete the puzzle by dragging the pieces from the set of pieces on the "
 "left."
-msgstr "Kokoa palapeli vasemmalla olevista paloista."
+msgstr "Kokoa palapeli raahaamalla vasemmalla olevat palat paikalleen. "
 
 #: ../boards/babyshapes.xml.in.h:3
 msgid "Drag and Drop the shapes on their respective target"
-msgstr "Vie palaset oikean muotoisille paikoille."
+msgstr "Raahaa palaset omille paikoilleen"
 
 #: ../boards/babyshapes.xml.in.h:4
 msgid "Good mouse control"
@@ -583,11 +589,11 @@ msgstr "Hyvä hiiren hallinta"
 
 #: ../boards/babyshapes.xml.in.h:5
 msgid "The dog is provided by Andre Connes and released under the GPL"
-msgstr "Koira on Andre Connes'in lainaama ja GPL lisenssin alainen."
+msgstr "Koira on Andre Connes'in lainaama ja julkaistu GPL-lisenssillä"
 
 #: ../boards/babyshapes/board5_0.xml.in.h:1
 msgid "Hello ! My name is Lock."
-msgstr "Heippa! Nimeni on Lock"
+msgstr "Heippa! Nimeni on Lock."
 
 #: ../boards/babyshapes/board6_0.xml.in.h:1
 msgid "Lock on grass."
@@ -600,11 +606,12 @@ msgstr "Lock värillisten muotojen ympäröimänä. "
 #: ../boards/ballcatch.xml.in.h:1
 msgid "Push the two shift keys together to send the ball straight"
 msgstr ""
-"Paina kumpaakin SHIFT-näppäintä samanaikaisesti heittääksesi pallon suoraan."
+"Heitä pallo suoraan Tuxille painamalla kumpaakin SHIFT-näppäintä "
+"samanaikaisesti"
 
 #: ../boards/ballcatch.xml.in.h:2
 msgid "Send the ball to Tux"
-msgstr "Heitâ pallo Tux'ille"
+msgstr "Heitä pallo Tuxille"
 
 #: ../boards/bargame.xml.in.h:1
 msgid "Brain"
@@ -612,18 +619,19 @@ msgstr "Aivo"
 
 #: ../boards/bargame.xml.in.h:2
 msgid "Do not put the last ball"
-msgstr ""
+msgstr "Älä laita viimeistä palloa"
 
 #: ../boards/bargame.xml.in.h:4
 msgid ""
 "Put balls in the holes. You win if the computer play the last one. If you "
 "want Tux to begin, just click on him."
 msgstr ""
+"Laita pallot reikiin. Voitat, jos tietokone pelaa viimeisen pallon. Jos "
+"haluat että Tux aloittaa, napsauta häntä."
 
 #: ../boards/bargame.xml.in.h:5
-#, fuzzy
 msgid "bar game"
-msgstr "Viisitoista-peli"
+msgstr "Viivapeli"
 
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
@@ -632,82 +640,77 @@ msgstr "Viisitoista-peli"
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
 #: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
-msgstr "Hiiren käyttöä"
+msgstr "Hiiren käyttö"
 
 #: ../boards/billard.xml.in.h:2
-#, fuzzy
 msgid ""
 "Point and click on the ball to set its speed and direction. The closer you "
 "click to the center, the slower the ball moves."
 msgstr ""
-"Napsauta palloa antaaksesi sille halutun nopeuden sekä suunnan.\n"
-"Mitä lähemmälle keskustaa näpäyt, sitä hitaammin pallo tulee likkumaan."
+"Osoita ja napsauta palloa asettaaksesi sen nopeuden ja suunnan. Mitä "
+"lähemmäs keskustaa osut, sitä hitaammin pallo liikkuu."
 
 #: ../boards/billard.xml.in.h:3
-#, fuzzy
 msgid "Put the ball into the black hole on the right"
-msgstr "Ammu pallo reikään"
+msgstr "Laita pallo oikealla olevaan mustaan reikään"
 
 #: ../boards/billard.xml.in.h:4
-#, fuzzy
 msgid "Put the ball into the goal"
-msgstr "Ammu pallo reikään"
+msgstr "Laita pallo maaliin"
 
 #: ../boards/billard.xml.in.h:5
-#, fuzzy
 msgid "The football game"
-msgstr "Viisitoista-peli"
+msgstr "Jalkapallopeli"
 
 #: ../boards/boards.xml.in.h:1
 msgid "Go to board based activities"
-msgstr "Pelilauta-tehtävät"
+msgstr "Siirry lautapeleihin"
 
 #: ../boards/canal_lock.xml.in.h:1 ../src/boards/canal_lock.c:113
 msgid "Operate a canal lock"
-msgstr "Miten sulku toimii."
+msgstr "Käytä kanavan sulkua"
 
 #: ../boards/canal_lock.xml.in.h:2
 msgid ""
 "Tux is in trouble, and needs to take his ship through a lock. Help Tux and "
 "understand how a canal lock works."
 msgstr ""
-"Tux on vaikeuksissa veneensä kanssa. Hänen täytyy mennä sulun läpi.\n"
-"Auta Tuxia ja oivalla miten sulku toimii."
+"Tux on vaikeuksissa veneensä kanssa, sillä hänen täytyy mennä sulun läpi.\n"
+"Auta Tuxia ja oivalla miten kanavan sulku toimii."
 
 #: ../boards/canal_lock.xml.in.h:3
 msgid ""
 "You are in charge of the canal lock. Open the gates and the locks in the "
 "right order, so Tux can travel through the gates in both directions."
 msgstr ""
-"Olet kanaalin suluissa. Sinun täytyy avata kaikki osat oikeassa "
-"järjestyksessä.\n"
-"Auta Tuxia pääsemään läpi kumpaakin suuntaan."
+"Olet vastuussa kanavan sulusta. Sinun täytyy avata kaikki osat oikeassa "
+"järjestyksessä, jotta Tux voi matkustaa porttien läpi kumpaankin suuntaan."
 
 #: ../boards/chess.xml.in.h:1 ../boards/chess_computer.xml.in.h:3
 msgid "Play chess against the computer in a learning mode"
-msgstr "Pelaa shakkia tietokonetta vastaan opettelumoodissa."
+msgstr "Pelaa shakkia tietokonetta vastaan opettelutilassa"
 
 #: ../boards/chess.xml.in.h:2
 msgid "Practice chess"
-msgstr "Harjoittele shakkia."
+msgstr "Harjoittele shakinpeluuta"
 
 #: ../boards/chess_computer.xml.in.h:1 ../boards/chess_movelearn.xml.in.h:2
 #: ../boards/chess_partyend.xml.in.h:1
 msgid "Learning chess"
-msgstr "Opettele shakkia"
+msgstr "Opettele shakinpeluuta"
 
 #: ../boards/chess_computer.xml.in.h:4 ../boards/chess_movelearn.xml.in.h:4
 #: ../boards/chess_partyend.xml.in.h:4
 msgid "The chess engine is from gnuchess."
-msgstr "Shakkipelin mottori on gnuchess."
+msgstr "Shakkipelin mottori on pelistä gnuchess."
 
 #: ../boards/chess_movelearn.xml.in.h:1
 msgid "Chess training. Catch the computer's pawns."
-msgstr "Shakin harjoittelua. Syö tietokonevastustajan nappulat."
+msgstr "Shakin harjoittulu. Syö tietokonevastustajan nappulat."
 
 #: ../boards/chess_partyend.xml.in.h:3
 msgid "Play end of chess game against the computer"
-msgstr "Pelaa shakkipeli tietokonetta vastaan"
+msgstr "Pelaa shakkipelin lopetus tietokonetta vastaan"
 
 #: ../boards/chronos.xml.in.h:1
 msgid "Chronos"
@@ -715,22 +718,21 @@ msgstr "Kronos"
 
 #: ../boards/chronos.xml.in.h:2
 msgid "Drag and Drop the items to organize the story"
-msgstr "Vie tarinan osat oikeille paikoille pannaksesi tarinan järjestykseen."
+msgstr "Raahaa tarinan osat oikeille paikoilleen"
 
 #: ../boards/chronos.xml.in.h:3
-#, fuzzy
 msgid ""
 "Moon photo comes from NASA. Space sounds comes from Tuxpaint and Vegastrike. "
 "Dates of Transportation are based on those found in http://www.wikipedia."
 "org. Transportations images by Franck Doucet"
 msgstr ""
-"Kuun kuva tulee NASA:lta. Avaruusäänet tulevat Tuxpaintistä ja "
-"Vegastrikesta.\n"
-"Aikataulu on katsottu http://www.wikipedia.org 'ista."
+"Kuun kuva tulee NASA:lta. Avaruusäänet tulevat Tuxpaintistä ja Vegastrikesta."
+"Aikataulu on katsottu http://www.wikipedia.org 'ista. Kuvat aikatauluista on "
+"tehnyt Franck Doucet."
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
-msgstr "Pistä kuvat aikajärjestykseen"
+msgstr "Pistä kuvat oikeaan kertomisjärjestykseen"
 
 #: ../boards/chronos.xml.in.h:5
 msgid "Pick from the pictures on the left and put them on the red points"
@@ -738,7 +740,7 @@ msgstr "Vie vasemmalla olevat kuvat hiiren avulla punaisten pisteiden päälle"
 
 #: ../boards/chronos.xml.in.h:6
 msgid "Tell a short story"
-msgstr "Osaa kertoa lyhyen tarinan"
+msgstr "Kerro lyhyt tarina"
 
 #: ../boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
@@ -749,28 +751,24 @@ msgid "Autumn"
 msgstr "Syksy"
 
 #: ../boards/chronos/board1_1.xml.in.h:2
-#, fuzzy
 msgid "Spring"
-msgstr "Serbiksi"
+msgstr "Kevät"
 
 #: ../boards/chronos/board1_1.xml.in.h:3
-#, fuzzy
 msgid "Summer"
-msgstr "Numerot"
+msgstr "Kesä"
 
 #: ../boards/chronos/board1_1.xml.in.h:4
 msgid "The 4 Seasons"
 msgstr "Neljä vuodenaikaa"
 
 #: ../boards/chronos/board1_1.xml.in.h:5
-#, fuzzy
 msgid "Winter"
-msgstr "Valkoisten vuoro"
+msgstr "Talvi"
 
 #: ../boards/chronos/board1_2.xml.in.h:1
-#, fuzzy
 msgid "Gardening"
-msgstr "Argentiina"
+msgstr "Puutarhanhoito"
 
 #: ../boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -779,26 +777,26 @@ msgstr "Tux ja omenapuu"
 #: ../boards/chronos/board3_0.xml.in.h:1 ../boards/chronos/board3_2.xml.in.h:1
 #: ../boards/chronos/board3_4.xml.in.h:1 ../boards/chronos/board4_2.xml.in.h:1
 msgid "1769 Cugnot's fardier"
-msgstr ""
+msgstr "1769 Cugnot's fardier"
 
 #: ../boards/chronos/board3_0.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:3
 #: ../boards/chronos/board3_4.xml.in.h:2
 msgid ""
 "1829 Stephenson's Rocket\n"
 "Steam locomotive"
-msgstr ""
+msgstr "1829 Stephensonin \"Rocket\"-höyryveturi"
 
 #: ../boards/chronos/board3_0.xml.in.h:3
-#, fuzzy
 msgid ""
 "Place each image in the order and\n"
 "on the date it has been invented.\n"
 "If not sure, check online in wikipedia at\n"
 "http://www.wikipedia.org"
 msgstr ""
-"Pistä kuvat oikeaan aikajärjestykseen ja jokaisen keksimisen vuosiluvun "
-"kohdalle.\n"
-"Jos et ole varma, voit tarkistaa täältä: http://www.wikipedia.org"
+"Järjestä kaikki kuvat sen mukaan, milloin\n"
+"ne on kehitetty.\n"
+"Jos et ole varma, tarkista wikipediasta ositteessa\n"
+"http://www.wikipedia.org/"
 
 #: ../boards/chronos/board3_0.xml.in.h:7 ../boards/chronos/board3_1.xml.in.h:4
 #: ../boards/chronos/board3_2.xml.in.h:4 ../boards/chronos/board3_3.xml.in.h:4
@@ -811,31 +809,37 @@ msgid ""
 "1783 Montgolfier brothers'\n"
 "Hot air balloon"
 msgstr ""
+"1783 Montgolfierin veljesten\n"
+"kuumailmapallo"
 
 #: ../boards/chronos/board3_1.xml.in.h:2 ../boards/chronos/board3_2.xml.in.h:3
 #: ../boards/chronos/board3_4.xml.in.h:3 ../boards/chronos/board4_0.xml.in.h:1
 msgid "1880 The Clement Ader's Eole"
-msgstr ""
+msgstr "1880 Clement Ader's Eole"
 
 #: ../boards/chronos/board3_1.xml.in.h:3
 msgid ""
 "1906 Paul Cornu\n"
 "First helicopter flight"
 msgstr ""
+"1906 Paul Cornu\n"
+"Ensimmäinen helikopterilento"
 
 #: ../boards/chronos/board3_2.xml.in.h:2 ../boards/chronos/board3_3.xml.in.h:2
 msgid ""
 "1791 Comte de Sivrac's\n"
 "Celerifere"
 msgstr ""
+"1791 Comte de Sivracin\n"
+"Celerifere"
 
 #: ../boards/chronos/board4_0.xml.in.h:2
 msgid "1903 The Wright brothers Flyer III"
-msgstr ""
+msgstr "1903 Wrightin veljesten Flyer III"
 
 #: ../boards/chronos/board4_0.xml.in.h:3
 msgid "1909 Louis Bleriot cross the Channel"
-msgstr ""
+msgstr "1909 Louis Bleriotin Kanaalin ylilento"
 
 #: ../boards/chronos/board4_0.xml.in.h:4 ../boards/chronos/board4_1.xml.in.h:7
 msgid "The aviation"
@@ -846,50 +850,56 @@ msgid ""
 "1927 Charles Lindbergh\n"
 "cross Atlantique ocean"
 msgstr ""
+"1927 Charles Lindbergh\n"
+"Atlantin ylilento"
 
 #: ../boards/chronos/board4_1.xml.in.h:3
 msgid ""
 "1934 Helene Boucher speed \n"
 "record 444km/h"
 msgstr ""
+"1934 Helene Boucher\n"
+"nopeusennätys 444km/h"
 
 #: ../boards/chronos/board4_1.xml.in.h:5
 msgid ""
 "1947 Chuck Yeager\n"
 "break the sound-wall"
 msgstr ""
+"1947 Check Yeager\n"
+"rikkoi äänivallin"
 
 #: ../boards/chronos/board4_2.xml.in.h:2
 msgid "1878 Léon Bollé \"La Mancelle\""
-msgstr ""
+msgstr "1878 Léon Bollé'n \"La Mancelle\""
 
 #: ../boards/chronos/board4_2.xml.in.h:3
 msgid ""
 "1885 The first gazoline\n"
 "car by Benz"
 msgstr ""
+"1885 Benzin ensimmäinen \n"
+"polttomoottoriauto"
 
 #: ../boards/chronos/board4_2.xml.in.h:5
-#, fuzzy
 msgid "The car"
-msgstr "auto"
+msgstr "Auto"
 
 #: ../boards/chronos/board4_3.xml.in.h:1
 msgid "1899 Renault \"voiturette\""
-msgstr ""
+msgstr "1899 Renault \"voiturette\""
 
 #: ../boards/chronos/board4_3.xml.in.h:2
 msgid "1923 Lancia Lambda"
-msgstr ""
+msgstr "1923 Lancia Lambda"
 
 #: ../boards/chronos/board4_3.xml.in.h:3
 msgid "1955 Citroën ds 199"
-msgstr ""
+msgstr "1955 Citroën ds 199"
 
 #: ../boards/chronos/board4_3.xml.in.h:4
-#, fuzzy
 msgid "Cars"
-msgstr "Värit"
+msgstr "Autot"
 
 #: ../boards/click_on_letter.xml.in.h:1
 msgid ""
@@ -897,8 +907,9 @@ msgid ""
 "can hear the letter again by clicking on the mouth icon in the bottom "
 "horizontal box."
 msgstr ""
-"Kuulet aakkoskirjaimen. Napsauta oikeata kirjainta keskiruudussa.\n"
-"Voit kuunnella kirjaimen uudellen näpäyttämällä suun kuvaa alhaalla."
+"Kuulet lausutun kirjaimen. Napsauta vastaavaa kirjainta ruudussa. Voit "
+"kuulla saman kirjaimen uudestaan napsauttamalla suun kuvaa alareunassa."
+
 
 #: ../boards/click_on_letter.xml.in.h:2
 msgid "Click on a letter"
@@ -906,7 +917,7 @@ msgstr "Napsauta kirjainta"
 
 #: ../boards/click_on_letter.xml.in.h:3
 msgid "Hear a letter and click on the right one"
-msgstr "Kuuntele kirjaimen ääntäminen ja napsauta vastaavaa kirjainta"
+msgstr "Kuuntele kirjaimen ääntäminen ja napsauta oikeaa kirjainta"
 
 #: ../boards/click_on_letter.xml.in.h:4
 msgid "Letter name recognition"
@@ -936,12 +947,17 @@ msgid ""
 "Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
 "Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
-"Kalat ovat lainattu Unixin xfishtank-ohjelmasta.\n"
-"Kuvat ovat lainattu National Undersea Research Program (NURP) kokoelmasta \n"
-"(htttp://www.photolib.noaa.gov). Kaikki kuvien krediitit ovat NURPin, "
-"paitsi \n"
-"ensimmäinen kuva jonka krediitti on myös University of North Carolina at "
-"Wilmingtonin. "
+"Kalat on otettu Unix-ohjelmasta xfishtank. Kuvat on otettu kokoelmasta "
+"National Undersea Research Program (NURP) osoitteessa "
+"http://www.photolib.noaa.gov. Kaikkien kuvien tekijänoikeudet kuuluvat "
+"tahoille OAR/National Undersea Research Program (NURP), lukuun ottamatta "
+"ensimmäistä kuvaa, jonka omistaa North Carolinan yliopisto Wilmingtonissa. "
+"Kussakin tasossa käytetyt kuvat ovat: "
+"Sijainti: Tropical Atlantic Ocean, Florida Keys (kuva nur00523) "
+"Valokuvannut: D. Kesling Sijainti: Florida Keys (kuva nur03006) "
+"Sijainti: Tuntematon (kuva nur03505) Sijainti: Tuntematon (kuva nur03010) "
+"Sijainti: Tuntematon (kuva nur03011) Sijainti: Tuntematon (kuva nur03013)"
+
 
 #: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:86
 msgid ""
@@ -951,7 +967,7 @@ msgstr ""
 
 #: ../boards/clickgame.xml.in.h:5
 msgid "Motor coordination: mouse mouvement and mouse click."
-msgstr "Moottorikoordinaatio."
+msgstr "Moottorikoordinaatio: hiiren liike ja napsautus."
 
 #: ../boards/clockgame.xml.in.h:1
 msgid ""
@@ -965,11 +981,11 @@ msgid ""
 "For each printed hour (hours:minutes or hours:minutes:seconds) click the "
 "corresponding arrow to set the clock time to match the given hour. The "
 "different arrows can be turned by selecting them and moving the mouse"
-msgstr "Pistä kellon viisarit oikeaan aikaan hiiren avulla."
+msgstr ""
 
 #: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:78
 msgid "Learn how to tell time"
-msgstr "Kuinka kelloa luetaan"
+msgstr "Opettele lukemaan kelloa"
 
 #: ../boards/clockgame.xml.in.h:4 ../src/boards/clockgame.c:77
 msgid "Learning Clock"
@@ -981,7 +997,7 @@ msgstr "Ajan ymmärtäminen ja kellon lukeminen"
 
 #: ../boards/colors.xml.in.h:1
 msgid "Can move the mouse."
-msgstr "Osaa siirtää hiirtä."
+msgstr "Osaa liikuttaa hiirtä."
 
 #: ../boards/colors.xml.in.h:2 ../boards/read_colors.xml.in.h:3
 #: ../src/boards/advanced_colors.c:87 ../src/boards/colors.c:78
@@ -1001,12 +1017,12 @@ msgid ""
 "This board teaches color recognition. Select the spoken color from the set "
 "of colored toons."
 msgstr ""
-"Tämä tehtävä opettaa värien tunnistamista.\n"
-"Kuuntele väri ja valitse oikean värinen nukke. "
+"Tämä tehtävä opettaa värien tunnistamista. Kuuntele värin nimi ja valitse "
+"oikean värinen nukke."
 
 #: ../boards/colors_group.xml.in.h:1
 msgid "Go to colors activities"
-msgstr "Väritehtävät"
+msgstr "Siirry väritehtäviin"
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
@@ -1014,20 +1030,19 @@ msgstr "Tietokoneen ymmärtäminen"
 
 #: ../boards/connect4.xml.in.h:1
 msgid "Arrange four coins in a row"
-msgstr ""
+msgstr "Järjestä neljä kolikkoa riviin"
 
 #: ../boards/connect4.xml.in.h:2
 msgid "Click anywhere in the line in which you want to drop a piece"
-msgstr ""
+msgstr "Napsauta mistä tahansa viivan kohdasta, johon haluat tiputtaa palan"
 
 #: ../boards/connect4.xml.in.h:3
-#, fuzzy
 msgid "Connect 4"
-msgstr "Maanosat"
+msgstr "Yhdistä neljä"
 
 #: ../boards/connect4.xml.in.h:4
 msgid "Create a line of 4 pieces either horizontaly or vertically"
-msgstr ""
+msgstr "Luo neljän kappaleen kokoinen viiva joko pysty- tai vaakasuoraan"
 
 #: ../boards/connect4.xml.in.h:5
 msgid ""
@@ -1046,29 +1061,30 @@ msgstr "Taulukkotehtävä"
 
 #: ../boards/doubleentry.xml.in.h:3
 msgid "Drag and Drop proposed items to their destination"
-msgstr "Siirrä esineet okeaan kohtaan taulukkoon"
+msgstr "Raahaa ehdotetut esineet paikalleet"
 
 #: ../boards/doubleentry.xml.in.h:4
 msgid "Drag and Drop the items in the double entry table"
-msgstr "Siirrä esineet okeaan kohtaan taulukkoon"
+msgstr "Raahaa esineet oikeaan kohtaan taulukkoon"
 
 #: ../boards/doubleentry.xml.in.h:5
 msgid ""
 "Move the items on the left to their proper position in the double entry "
 "table."
-msgstr "Lapsen täytyy siirtää esineet vasemmalta oikeaan kohtaan taulukkoon."
+msgstr ""
+"Siirrä kohteet vasemmalta oikeeaan kohtaan taulukossa"
 
 #: ../boards/doubleentry/board3_0.xml.in.h:1
 msgid "Click on an item and listen to its target position"
-msgstr "Napsauta esinettä ja kuuntele sen päämäärä."
+msgstr "Napsauta esinettä ja kuuntele sen päämäärä"
 
 #: ../boards/draw.xml.in.h:1 ../src/boards/draw.c:215
 msgid "A simple vector drawing tool"
-msgstr "Vektori piirtäminen"
+msgstr "Yksinkertainen vektoripiirto-ohjelma"
 
 #: ../boards/draw.xml.in.h:2 ../src/boards/draw.c:216
 msgid "Creative board where you can draw freely"
-msgstr "Voit piirtää mitä ikinä lystäät"
+msgstr "Luova taulu, jolle voit piirtää mitä haluat"
 
 #: ../boards/draw.xml.in.h:3
 msgid ""
@@ -1076,10 +1092,9 @@ msgid ""
 "create pretty-looking drawings based on basic shapes: rectangles, ellipses "
 "and lines."
 msgstr ""
-"Tässä pelissä lapsi voi piirtää vapaasti. Päämäärä on ainoastaan ymmärtää\n"
+"Tässä pelissä lapsi voi piirtää vapaasti. Päämäärä on ainoastaan ymmärtää "
 "miten hän voi tehdä hauskoja piirustuksia käyttämällä ainoastaan tavallisia "
-"muotoja,\n"
-"kuten neliöitä, ellipsejä tai viivoja."
+"muotoja, kuten suorakulmioita, ellipsejä tai viivoja."
 
 #: ../boards/draw.xml.in.h:5
 msgid ""
@@ -1087,13 +1102,13 @@ msgid ""
 "drag in the white area to create a new shape. To save time, you can use the "
 "middle mouse button to delete an object."
 msgstr ""
-"Valitse vasemmalta piirustusväline. Valitse alhaalta väri.\n"
-"Napsauta sitten valkoista osaa ja siirrä hiirtä uuden muodon tekemiseksi.\n"
-"Voit käyttää hiiren keskimmäist näppäintä esineen poispyyhkimiseen."
+"Valitse vasemmalta piirustusväline. Valitse alhaalta väri. Napsauta sitten "
+"valkoista osaa ja siirrä hiirtä uuden muodon tekemiseksi. Voit pyyhkiä "
+"esineen kuvasta painamalla hiiren keskimmäistä nappia."
 
 #: ../boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
-msgstr "Helppoa laskemista."
+msgstr "Helpot laskutehtävät"
 
 #: ../boards/enumerate.xml.in.h:2
 msgid "Count the items"
@@ -1105,29 +1120,28 @@ msgid ""
 "the item you want to answer in the bottom right area. Enter the answer with "
 "the keyboard and press the OK button or the 'Enter' key."
 msgstr ""
-"Ensin, sinun täytyy järjestää osat jotta voisit laskea ne.\n"
-"Sitten, valitse se osa johon haluat vastata alaosassa.\n"
-"Naputtele vastaus näppäimistön avulla ja paina OK-painiketta tai Enter'iä."
+"Järjestä aluksi kohteet niin että voit laskea ne. Valitse sitten kohta, "
+"jonka haluat vastata, oikeasta alakulmasta. Syötä vastaus näppäimistöltä "
+"ja napsauta \"OK\"-painiketta tai paina \"Enter\"-näppäintä."
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:4
 #: ../src/boards/enumerate.c:91
 msgid "Numeration training"
-msgstr "Numeroitten oppiminen"
+msgstr "Järjestyksen harjoittelu"
 
 #: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:92
 msgid "Place the items in the best way to count them"
 msgstr "Laita esineet oikeaan järjestykseen"
 
 #: ../boards/erase.xml.in.h:1
-#, fuzzy
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
 "authorization to include their pictures. Thanks a lot."
 msgstr ""
-"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta (http://schmode.net/).\n"
-"Ralf antoi gcompris'lle luvan käyttää kuviansa.\n"
-"Paljon kiitoksia Ralf."
+"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta (http://schmode.net/) ja "
+"Le Berre Danielilta. He antoivat gcomprisille luvan käyttää kuviansa. Paljon "
+"kiitoksia heille."
 
 #: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
 #: ../boards/erase_double_clic.xml.in.h:5
@@ -1137,67 +1151,61 @@ msgstr "Moottorikoordinaatio"
 #: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
 #: ../src/boards/machpuzzle.c:93
 msgid "Move the mouse"
-msgstr "Liikuttaa hiirtä"
+msgstr "Liikuta hiirtä"
 
 #: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
-msgstr "Liikuta hiirtä ja näe allapiilevä kuva"
+msgstr "Pyyhi aluetta liikuttamalla hiirtä ja näe piilotettu taustakuva"
 
 #: ../boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Liikuta hiirtä kunnes paloja ei ole enää jäljellä."
 
 #: ../boards/erase_clic.xml.in.h:2
-#, fuzzy
 msgid "Click on rectangles with the mouse until all the blocks disappear."
-msgstr "Liikuta hiirtä kunnes paloja ei ole enää jäljellä."
+msgstr "Napsuta suorakaiteita hiirellä, kunnes paloja ei ole enää jäljellä."
 
 #: ../boards/erase_clic.xml.in.h:3
-#, fuzzy
 msgid "Click with the mouse"
-msgstr "Osaa liikuttaa ja näpäyttää hiirtä"
+msgstr "Napsauta hiirellä"
 
 #: ../boards/erase_clic.xml.in.h:4
-#, fuzzy
 msgid "Click with the mouse to erase the area and discover the background"
-msgstr "Liikuta hiirtä ja näe allapiilevä kuva"
+msgstr "Pyyhi napsauttamalla hiirellä ja paljasta taustakuva"
 
 #: ../boards/erase_double_clic.xml.in.h:2
-#, fuzzy
 msgid ""
 "Double click on rectangles with the mouse until all the blocks disappear."
-msgstr "Liikuta hiirtä kunnes paloja ei ole enää jäljellä."
+msgstr "Kaksoisnapsauta hiirellä suorakulmioita kunnes kaikki palat katoavat."
 
 #: ../boards/erase_double_clic.xml.in.h:3
-#, fuzzy
 msgid ""
 "Double-Click with the mouse to erase the area and discover the background"
-msgstr "Liikuta hiirtä ja näe allapiilevä kuva"
+msgstr "Kaksoisnapsauta hiirellä aluetta kunnes taustakuva paljastuu"
 
 #: ../boards/erase_double_clic.xml.in.h:4
-#, fuzzy
 msgid "Double-click with the mouse"
-msgstr "Osaa liikuttaa ja näpäyttää hiirtä"
+msgstr "Kaksoisnapsauta hiirellä"
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
-msgstr "Askartelutehtävät"
+msgstr "Siirry askartelutehtäviin"
 
 #: ../boards/fifteen.xml.in.h:1
 msgid ""
 "Click on any item that has a free block beside it. It will be swapped with "
 "the empty block."
 msgstr ""
-"Napsauta mitä tahansa esinettä jonka vieressä on palanen.\n"
-"Tyhjä palanen tulee sen tilalle."
+"Napsauta mitä tahansa esinettä jonka vieressä on vapaa palanen. Tyhjä "
+"palanen vaihdetaan sen tilalle."
 
 #: ../boards/fifteen.xml.in.h:3
 msgid "Move the items one by one to reorder them in the increasing number"
-msgstr "Siirrä esineitä korkeusjärjestyksessä pienimmästä suurimpaan määrään"
+msgstr "Siirrä esineitä yksitellen ja järjestä ne pienimmästä suurimpaan"
 
 #: ../boards/fifteen.xml.in.h:4
 msgid "Original code taken from libgnomecanvas demo"
-msgstr "Alkuperäinen lähdekoodi tulee libgnomecanvas demosta"
+msgstr "Alkuperäinen lähdekoodi tulee libgnomecanvasin demosta"
 
 #: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
 msgid "The fifteen game"
@@ -1217,45 +1225,41 @@ msgid ""
 "part up to the flowers. Take care, if you move out of the pipe, the red part "
 "will go back."
 msgstr ""
-"Liikuta letkussa oleva punainen tukos ulos asti jotta Tux voisi kastella "
-"kukat. \n"
-"Ole varovainen, sillâ jos hiiri ei ole enäâ letkun päällä, tukos menee "
-"taaksepäin."
+"Liikuta letkussa oleva punainen tukos ulos letkusta, jotta Tux voi kastella "
+"kukat. Ole varovainen, sillâ jos hiiri ei ole enäâ letkun päällä, tukos "
+"siirtyy takaisinpäin."
 
 #: ../boards/followline.xml.in.h:4
 msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
-msgstr "Tux halouaa kastella kukkia,mutta letku on tukossa."
+msgstr "Tux haluaa kastella kukat, mutta letku on tukossa"
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
-msgstr "Hauskoja pelejä"
+msgstr "Siirry viihdykkeisiin"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:1
-#, fuzzy
 msgid "gcompris animation"
-msgstr "GCompris asetukset"
+msgstr "gcompris-animaatio"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:2
-#, fuzzy
 msgid "gcompris drawing"
-msgstr "GCompris ediittori"
+msgstr "gcompris-piirros"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:3
 msgid "svg drawing"
 msgstr "svg-kuva"
 
 #: ../boards/gcompris/mimetypes/mime_type.xml.in.h:4
-#, fuzzy
 msgid "svg mozilla animation"
-msgstr "Tee oma animaatiosi"
+msgstr "svg-animaatio"
 
 #: ../boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
-msgstr "Siirrä paloja ja piirrä koko kartta"
+msgstr "Raahaa paloja, jotta saat piirrettyä koko kartan"
 
 #: ../boards/geography.xml.in.h:2
 msgid "Place the lands"
-msgstr "Laita maat oikeille paikoille"
+msgstr "Laita maat paikoilleen"
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:2
@@ -1276,7 +1280,7 @@ msgstr "Aasia"
 
 #: ../boards/geography/board1_0.xml.in.h:5
 msgid "Continents"
-msgstr "Maanosat"
+msgstr "Mantereet"
 
 #: ../boards/geography/board1_0.xml.in.h:6
 msgid "Europa"
@@ -1287,53 +1291,43 @@ msgid "Oceania"
 msgstr "Australia"
 
 #: ../boards/geography/board2_0.xml.in.h:1
-#, fuzzy
 msgid "Alaska"
 msgstr "Alaska"
 
 #: ../boards/geography/board2_0.xml.in.h:2
-#, fuzzy
 msgid "Bahamas"
-msgstr "Bahama"
+msgstr "Bahamasaaret"
 
 #: ../boards/geography/board2_0.xml.in.h:3
-#, fuzzy
 msgid "Canada"
 msgstr "Kanada"
 
 #: ../boards/geography/board2_0.xml.in.h:4
-#, fuzzy
 msgid "Cuba"
 msgstr "Kuuba"
 
 #: ../boards/geography/board2_0.xml.in.h:5
-#, fuzzy
 msgid "Dominican republic"
 msgstr "Dominikaaninen tasavalta"
 
 #: ../boards/geography/board2_0.xml.in.h:6
-#, fuzzy
 msgid "Greenland"
-msgstr "Grônlanti"
+msgstr "Grönlanti"
 
 #: ../boards/geography/board2_0.xml.in.h:7
-#, fuzzy
 msgid "Haiti"
 msgstr "Haiti"
 
 #: ../boards/geography/board2_0.xml.in.h:8
 #: ../boards/geography/board3_0.xml.in.h:7
-#, fuzzy
 msgid "Iceland"
 msgstr "Islanti"
 
 #: ../boards/geography/board2_0.xml.in.h:9
-#, fuzzy
 msgid "Jamaica"
 msgstr "Jamaika"
 
 #: ../boards/geography/board2_0.xml.in.h:10
-#, fuzzy
 msgid "Mexico"
 msgstr "Meksiko"
 
@@ -1342,62 +1336,50 @@ msgid "North America"
 msgstr "Pohjois-Amerikka"
 
 #: ../boards/geography/board2_0.xml.in.h:12
-#, fuzzy
 msgid "United state"
 msgstr "Yhdysvallat"
 
 #: ../boards/geography/board2_1.xml.in.h:1
-#, fuzzy
 msgid "Argentina"
 msgstr "Argentiina"
 
 #: ../boards/geography/board2_1.xml.in.h:2
-#, fuzzy
 msgid "Bolivia"
 msgstr "Bolivia"
 
 #: ../boards/geography/board2_1.xml.in.h:3
-#, fuzzy
 msgid "Brazil"
 msgstr "Brasilia"
 
 #: ../boards/geography/board2_1.xml.in.h:4
-#, fuzzy
 msgid "Chile"
 msgstr "Chile"
 
 #: ../boards/geography/board2_1.xml.in.h:5
-#, fuzzy
 msgid "Colombia"
 msgstr "Kolumbia"
 
 #: ../boards/geography/board2_1.xml.in.h:6
-#, fuzzy
 msgid "Ecuador"
 msgstr "Ecuador"
 
 #: ../boards/geography/board2_1.xml.in.h:7
-#, fuzzy
 msgid "French guiana"
 msgstr "Ranskan Guayana"
 
 #: ../boards/geography/board2_1.xml.in.h:8
-#, fuzzy
 msgid "Guyana"
 msgstr "Guyana"
 
 #: ../boards/geography/board2_1.xml.in.h:9
-#, fuzzy
 msgid "Panama"
 msgstr "Panama"
 
 #: ../boards/geography/board2_1.xml.in.h:10
-#, fuzzy
 msgid "Paraguay"
 msgstr "Paraguay"
 
 #: ../boards/geography/board2_1.xml.in.h:11
-#, fuzzy
 msgid "Peru"
 msgstr "Peru"
 
@@ -1406,224 +1388,182 @@ msgid "South America"
 msgstr "Etelä-Amerikka"
 
 #: ../boards/geography/board2_1.xml.in.h:13
-#, fuzzy
 msgid "Suriname"
 msgstr "Suriname"
 
 #: ../boards/geography/board2_1.xml.in.h:14
-#, fuzzy
 msgid "Uruguay"
 msgstr "Uruguay"
 
 #: ../boards/geography/board2_1.xml.in.h:15
-#, fuzzy
 msgid "Venezuela"
 msgstr "Venezuela"
 
 #: ../boards/geography/board3_0.xml.in.h:1
-#, fuzzy
 msgid "Austria"
 msgstr "Itävalta"
 
 #: ../boards/geography/board3_0.xml.in.h:2
-#, fuzzy
 msgid "Belgium"
 msgstr "Belgia"
 
 #: ../boards/geography/board3_0.xml.in.h:3
-#, fuzzy
 msgid "Denmark"
 msgstr "Tanska"
 
 #: ../boards/geography/board3_0.xml.in.h:4
-#, fuzzy
 msgid "Finland"
 msgstr "Suomi"
 
 #: ../boards/geography/board3_0.xml.in.h:5
-#, fuzzy
 msgid "France"
 msgstr "Ranska"
 
 #: ../boards/geography/board3_0.xml.in.h:6
-#, fuzzy
 msgid "Germany"
-msgstr "Saksaksi"
+msgstr "Saksa"
 
 #: ../boards/geography/board3_0.xml.in.h:8
-#, fuzzy
 msgid "Ireland"
 msgstr "Irlanti"
 
 #: ../boards/geography/board3_0.xml.in.h:9
-#, fuzzy
 msgid "Italy"
 msgstr "Italia"
 
 #: ../boards/geography/board3_0.xml.in.h:10
-#, fuzzy
 msgid "Luxembourg"
 msgstr "Luxemburg"
 
 #: ../boards/geography/board3_0.xml.in.h:11
-#, fuzzy
 msgid "Netherland"
 msgstr "Alankomaat"
 
 #: ../boards/geography/board3_0.xml.in.h:12
-#, fuzzy
 msgid "Norway"
 msgstr "Norja"
 
 #: ../boards/geography/board3_0.xml.in.h:13
-#, fuzzy
 msgid "Portugal"
 msgstr "Portugali"
 
 #: ../boards/geography/board3_0.xml.in.h:14
-#, fuzzy
 msgid "Spain"
 msgstr "Espanja"
 
 #: ../boards/geography/board3_0.xml.in.h:15
-#, fuzzy
 msgid "Sweden"
 msgstr "Ruotsi"
 
 #: ../boards/geography/board3_0.xml.in.h:16
-#, fuzzy
 msgid "Switzerland"
-msgstr "Alankomaat"
+msgstr "Sveitsi"
 
 #: ../boards/geography/board3_0.xml.in.h:17
-#, fuzzy
 msgid "United kingdom"
-msgstr "Yhdistynyt kuningaskunta"
+msgstr "Iso-Britannia"
 
 #: ../boards/geography/board3_0.xml.in.h:18
 msgid "West Europe"
 msgstr "Länsi-Eurooppa"
 
 #: ../boards/geography/board3_1.xml.in.h:1
-#, fuzzy
 msgid "Albania"
 msgstr "Albania"
 
 #: ../boards/geography/board3_1.xml.in.h:2
-#, fuzzy
 msgid "Belarus"
 msgstr "Valko-Venäjâ"
 
 #: ../boards/geography/board3_1.xml.in.h:3
-#, fuzzy
 msgid "Bosnia herzegovina"
 msgstr "Bosnia ja Hertsegovina"
 
 #: ../boards/geography/board3_1.xml.in.h:4
-#, fuzzy
 msgid "Bulgaria"
 msgstr "Bulgaria"
 
 #: ../boards/geography/board3_1.xml.in.h:5
-#, fuzzy
 msgid "Croatia"
-msgstr "Katalonjaksi"
+msgstr "Kroatia"
 
 #: ../boards/geography/board3_1.xml.in.h:6
-#, fuzzy
 msgid "Cyprus"
 msgstr "Kypros"
 
 #: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:67
 msgid "Czech"
-msgstr "Tsekiksi"
+msgstr "Tsekinmaa"
 
 #: ../boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
 msgstr "Itä-Eurooppa"
 
 #: ../boards/geography/board3_1.xml.in.h:9
-#, fuzzy
 msgid "Estonia"
 msgstr "Viro"
 
 #: ../boards/geography/board3_1.xml.in.h:10
-#, fuzzy
 msgid "Greece"
 msgstr "Kreikka"
 
 #: ../boards/geography/board3_1.xml.in.h:11
-#, fuzzy
 msgid "Hungary"
 msgstr "Unkari"
 
 #: ../boards/geography/board3_1.xml.in.h:12
-#, fuzzy
 msgid "Latvia"
 msgstr "Latvia"
 
 #: ../boards/geography/board3_1.xml.in.h:13
-#, fuzzy
 msgid "Lithuania"
-msgstr "Liettuaksi"
+msgstr "Liettua"
 
 #: ../boards/geography/board3_1.xml.in.h:14
-#, fuzzy
 msgid "Macedonia"
-msgstr "Makedoniaksi"
+msgstr "Makedonia"
 
 #: ../boards/geography/board3_1.xml.in.h:15
-#, fuzzy
 msgid "Moldova"
 msgstr "Moldova"
 
 #: ../boards/geography/board3_1.xml.in.h:16
-#, fuzzy
 msgid "Poland"
 msgstr "Puola"
 
 #: ../boards/geography/board3_1.xml.in.h:17
-#, fuzzy
 msgid "Romania"
-msgstr "Romaniaksi"
+msgstr "Romania"
 
 #: ../boards/geography/board3_1.xml.in.h:18
-#, fuzzy
 msgid "Russia"
-msgstr "Venäjäksi"
+msgstr "Venäjä"
 
 #: ../boards/geography/board3_1.xml.in.h:19
-#, fuzzy
 msgid "Serbia montenegro"
 msgstr "Serbia ja Montenegro"
 
 #: ../boards/geography/board3_1.xml.in.h:20
-#, fuzzy
 msgid "Slovakia"
 msgstr "Slovakia"
 
 #: ../boards/geography/board3_1.xml.in.h:21
-#, fuzzy
 msgid "Slovenia"
-msgstr "Sloveniaksi"
+msgstr "Slovenia"
 
 #: ../boards/geography/board3_1.xml.in.h:22
-#, fuzzy
 msgid "Turkey"
 msgstr "Turkki"
 
 #: ../boards/geography/board3_1.xml.in.h:23
-#, fuzzy
 msgid "Ukraine"
 msgstr "Ukraina"
 
 #: ../boards/geography/board4_0.xml.in.h:1
-#, fuzzy
 msgid "North of Africa"
 msgstr "Pohjois-Amerikka"
 
 #: ../boards/geography/board4_1.xml.in.h:1
-#, fuzzy
 msgid "South of Africa"
 msgstr "Etelä-Amerikka"
 
@@ -1632,9 +1572,8 @@ msgid ">Ethiopia"
 msgstr ">Etiopia"
 
 #: ../boards/geography/board4_2.xml.in.h:3
-#, fuzzy
 msgid "Algeria"
-msgstr "Amerikka"
+msgstr "Algeria"
 
 #: ../boards/geography/board4_2.xml.in.h:4
 msgid "Angola"
@@ -1657,14 +1596,12 @@ msgid "Burundi"
 msgstr "Burundi"
 
 #: ../boards/geography/board4_2.xml.in.h:9
-#, fuzzy
 msgid "Cameroon"
-msgstr "meripihka"
+msgstr "Kamerun"
 
 #: ../boards/geography/board4_2.xml.in.h:10
-#, fuzzy
 msgid "Central African Republic"
-msgstr "Dominikaaninen tasavalta"
+msgstr "Keski-Afrikan tasavalta"
 
 #: ../boards/geography/board4_2.xml.in.h:11
 msgid "Chad"
@@ -1687,28 +1624,24 @@ msgid "Equatorial Guinea"
 msgstr "Päiväntasaajan Guinea"
 
 #: ../boards/geography/board4_2.xml.in.h:16
-#, fuzzy
 msgid "Eritrea"
-msgstr "tee"
+msgstr "Eritrea"
 
 #: ../boards/geography/board4_2.xml.in.h:17
-#, fuzzy
 msgid "Gabon"
-msgstr "ruskea"
+msgstr "Gabon"
 
 #: ../boards/geography/board4_2.xml.in.h:18
-#, fuzzy
 msgid "Gambia"
-msgstr "Jamaika"
+msgstr "Gambia"
 
 #: ../boards/geography/board4_2.xml.in.h:19
 msgid "Ghana"
 msgstr "Ghana"
 
 #: ../boards/geography/board4_2.xml.in.h:20
-#, fuzzy
 msgid "Guinea"
-msgstr "Ukraina"
+msgstr "Guinea"
 
 #: ../boards/geography/board4_2.xml.in.h:21
 msgid "Guinea Bissau"
@@ -1739,19 +1672,16 @@ msgid "Madagascar"
 msgstr "Madagascar"
 
 #: ../boards/geography/board4_2.xml.in.h:28
-#, fuzzy
 msgid "Malawi"
-msgstr "Malaiji"
+msgstr "Malawi"
 
 #: ../boards/geography/board4_2.xml.in.h:29
-#, fuzzy
 msgid "Mali"
-msgstr "Malaiji"
+msgstr "Mali"
 
 #: ../boards/geography/board4_2.xml.in.h:30
-#, fuzzy
 msgid "Mauritania"
-msgstr "Liettua"
+msgstr "Mauritania"
 
 #: ../boards/geography/board4_2.xml.in.h:31
 msgid "Moroco"
@@ -1774,9 +1704,8 @@ msgid "Nigeria"
 msgstr "Nigeria"
 
 #: ../boards/geography/board4_2.xml.in.h:36
-#, fuzzy
 msgid "Rwanda"
-msgstr "Kanada"
+msgstr "Ruanda"
 
 #: ../boards/geography/board4_2.xml.in.h:37
 msgid "Senegal"
@@ -1787,43 +1716,36 @@ msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
 #: ../boards/geography/board4_2.xml.in.h:39
-#, fuzzy
 msgid "Somalia"
-msgstr "Romania"
+msgstr "Somalia"
 
 #: ../boards/geography/board4_2.xml.in.h:40
-#, fuzzy
 msgid "South Africa"
-msgstr "Etelä-Amerikka"
+msgstr "Etelä-Afrikka"
 
 #: ../boards/geography/board4_2.xml.in.h:41
-#, fuzzy
 msgid "Swaziland"
-msgstr "Islanti"
+msgstr "Swazimaa"
 
 #: ../boards/geography/board4_2.xml.in.h:42
-#, fuzzy
 msgid "Tanzania"
-msgstr "banaani"
+msgstr "Tansania"
 
 #: ../boards/geography/board4_2.xml.in.h:43
 msgid "Togo"
 msgstr "Togo"
 
 #: ../boards/geography/board4_2.xml.in.h:44
-#, fuzzy
 msgid "Tunisia"
-msgstr "Venäjä"
+msgstr "Tunisia"
 
 #: ../boards/geography/board4_2.xml.in.h:45
-#, fuzzy
 msgid "Uganda"
-msgstr "Guyana"
+msgstr "Uganda"
 
 #: ../boards/geography/board4_2.xml.in.h:46
-#, fuzzy
 msgid "Zambia"
-msgstr "Jamaika"
+msgstr "Sambia"
 
 #: ../boards/geography/board4_2.xml.in.h:47
 msgid "Zimbabwe"
@@ -1831,11 +1753,11 @@ msgstr "Zimbabwe"
 
 #: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
-msgstr "Ranskan provinssit"
+msgstr "Ranskan alueet"
 
 #: ../boards/gletters.xml.in.h:1 ../boards/wordsgame.xml.in.h:2
 msgid "Keyboard manipulation"
-msgstr "Näppäimiston käyttäminen"
+msgstr "Näppäimiston käyttö"
 
 #: ../boards/gletters.xml.in.h:2
 msgid "Letter recognition between the screen and the keyboard"
@@ -1847,42 +1769,46 @@ msgstr "Kirjaimet"
 
 #: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
 msgid "Type the falling letters before they reach the ground"
-msgstr "Kirjoita putoavat kirjaimet ennen kuin ne osuvat maahan"
+msgstr "Syötä putoavat kirjaimet näppäimistöltä ennen kuin ne osuvat maahan"
 
 #: ../boards/gnumch-equality.xml.in.h:1
 msgid "Equality Number Munchers"
-msgstr ""
+msgstr "Yhtäsuurten numeroiden mutustajat"
 
 #: ../boards/gnumch-equality.xml.in.h:2
 msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
 msgstr ""
+"Ohjaa numeronmutustaja lausekkeisiin, jotka vastaavat numeroa näytön "
+"ylälaidassa."
 
 #: ../boards/gnumch-equality.xml.in.h:3
-#, fuzzy
 msgid "Practise addition, multiplication, division and subtraction."
-msgstr "Harjoittele kerroinlaskua"
+msgstr "Harjoittele yhteen-, vähennys-, kerto- ja jakolaskua."
 
 #: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
 msgid ""
 "Use the arrow keys to navigate around the board and to avoid the Troggles. "
 "Press the spacebar to eat a number."
 msgstr ""
+"Liiku laudalla käyttäen nuolinäppäimiä ja välttääksesi Trogglesia. Paina "
+"välilyöntiä kun haluat syödä numeron."
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
-msgstr ""
+msgstr "Numeroiden tekijöiden mutustajat"
 
 #: ../boards/gnumch-factors.xml.in.h:2
 msgid ""
 "Guide the Number Muncher to the all the factors of the number at the top of "
 "the screen."
 msgstr ""
+"Ohjaa numeronmutustaja kaikkiin näytön yläosassa olevan numeron tekijöihin."
 
 #: ../boards/gnumch-factors.xml.in.h:3
 msgid "Learn about factors and multiples."
-msgstr ""
+msgstr "Opi kertoimia ja moninkertaisuusia."
 
 #: ../boards/gnumch-factors.xml.in.h:4
 msgid ""
@@ -1899,28 +1825,31 @@ msgid ""
 "Guide the Number Muncher to the all the expressions that do not equal the "
 "number at the top of the screen."
 msgstr ""
+"Ohjaa numeronmutustaja kaikkiin laskutoimituksiin, jotka eivät vastaa näytön "
+"ylälaidassa olevaa numeroa."
 
 #: ../boards/gnumch-inequality.xml.in.h:2
 msgid "Inequality Number Munchers"
-msgstr ""
+msgstr "Erisuurten numeroiden mutustajat"
 
 #: ../boards/gnumch-inequality.xml.in.h:3
 msgid "Practise addition, subtraction, multiplication and division."
-msgstr ""
+msgstr "Harjoittele lisäystä, vähennystä, kertomista ja jakamista."
 
 #: ../boards/gnumch-multiples.xml.in.h:1
 msgid ""
 "Guide the Number Muncher to all the multiples of the number at the top of "
 "the screen."
 msgstr ""
+"Ohjaa numeronmutustaja kaikkiin näytön ylälaidassa olevan numeron kertoimiin."
 
 #: ../boards/gnumch-multiples.xml.in.h:2
 msgid "Learn about multiples and factors."
-msgstr ""
+msgstr "Opi kertomista ja tekijöistä."
 
 #: ../boards/gnumch-multiples.xml.in.h:3
 msgid "Multiple Number Munchers"
-msgstr ""
+msgstr "Moninkertaisten numeroiden mutustajat"
 
 #: ../boards/gnumch-multiples.xml.in.h:4
 msgid ""
@@ -1935,15 +1864,15 @@ msgstr ""
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
-msgstr ""
+msgstr "Ohjaa numeronmutustaja kaikkiin alkulukuihin."
 
 #: ../boards/gnumch-primes.xml.in.h:2
 msgid "Learn about prime numbers"
-msgstr ""
+msgstr "Opettele, kuinka lasketaan alkulukuja"
 
 #: ../boards/gnumch-primes.xml.in.h:3
 msgid "Prime Number Munchers"
-msgstr ""
+msgstr "Alkulukujen mutustajat"
 
 #: ../boards/gnumch-primes.xml.in.h:4
 msgid ""
@@ -1954,31 +1883,28 @@ msgid ""
 msgstr ""
 
 #: ../boards/gnumchmenu.xml.in.h:1
-#, fuzzy
 msgid "Go to Number Munchers activities"
-msgstr "Askartelutehtävät"
+msgstr "Siirry numeronmutustajiin"
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
-msgstr "Lainasin idean EPI gamesiltä"
+msgstr "Idea lainattu EPI games:lta."
 
 #: ../boards/hanoi.xml.in.h:2
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
 msgstr ""
-"Vie rinkulat ainuastaan yhdestä tornista toiseen. \n"
-"Tee samanlainen torni kuin oikealla vasemmalle."
+"Raahaa tornien ylimmät rinkulat tornista toiseen siten, että saat toistettua "
+"oikealla olevan tornin tyhjään tilaan oikealla."
 
 #: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:105
 msgid "Reproduce the given tower"
-msgstr "Rakenna täsmälleen samanlainen torni"
+msgstr "Rakenna samanlainen torni"
 
 #: ../boards/hanoi.xml.in.h:5
 msgid "Reproduce the tower on the right in the empty space on the left"
-msgstr ""
-"Rakenna samanlainen torni kuin oikealla vasemmalla olevan tyhjän tornin "
-"päälle."
+msgstr "Rakenna oikealla oleva torni vasemmalla olevaan tyhjään tilaan"
 
 #: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
@@ -1986,19 +1912,19 @@ msgstr "Helpot Hanoin tornit"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
-msgstr "Löydä vadelma näpäyttämällä sinisiä osia."
+msgstr "Löydä vadelma napsauttamalla sinisiä kenttiä"
 
 #: ../boards/hexagon.xml.in.h:4
 msgid ""
 "Try to find the strawberry under the blue fields. The fields become more red "
 "as you get closer."
 msgstr ""
-"Sinun täytyy löytää vadelma sinisien peltojen alapuolelta.\n"
-"Pellot tulevat koko ajan punaisemmiksi mitä lähemmällä olet."
+"Etsi vadelma sinisten kenttien alta. Kentät muuttuvat sitä punaisemmiksi "
+"mitä lähempänä olet."
 
 #: ../boards/hexagon.xml.in.h:5
 msgid "hexagon"
-msgstr "Kuusikulmio"
+msgstr "kuusikulmio"
 
 #: ../boards/imageid.xml.in.h:1
 msgid "Click on the word corresponding to the printed image."
@@ -2090,7 +2016,7 @@ msgstr "koira"
 
 #: ../boards/imageid/board1.xml.in.h:18
 msgid "finish"
-msgstr "loppu"
+msgstr "maaliviiva"
 
 #: ../boards/imageid/board1.xml.in.h:19
 msgid "fish"
@@ -2250,14 +2176,50 @@ msgstr "lippu"
 msgid "racket"
 msgstr "maila"
 
+#: ../boards/login.xml.in.h:1
+msgid ""
+"By identifying in GCompris, we are able to provide specific reporting for "
+"each kids."
+msgstr ""
+"Kirjautumalla GComprisiin on mahdollista kerätä kullekin lapselle omat "
+"tulokset."
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "GComprisin kirjautumisruutu"
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access the administration part by running 'gcompris -a'.\n"
+"In the administration, you can create different profiles. In each profiles\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"where 'profile'\n"
+"is the name of a profile as you created it in the administration."
+msgstr ""
+"Jotta kirjautumisruutua voitaisiin käyttää, tulee sinun ensin\n"
+"lisätä käyttäjiä GCompriksen hallintaosasta.\n"
+"Pääset käsiksi hallintaosaan suorittamalla komennon \"gcompris -a\".\n"
+"Hallintaosassa voit luoda erilaisia profiileja, joihin voit liittää\n"
+"eri joukon käyttäjiä ja määritellä, mitkä tehtävät heillä on\n"
+"käytettävissään.\n"
+"GCompris käynnistetään haluttuun profiiliin komennolla \"gcompris -p "
+"profiili\", jossa \"profiili\" on tallentamasi profiilin nimi."
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in GCompris"
+msgstr "Valitse tai syötä nimesi kirjautuaksesi GComprisiin"
+
 #: ../boards/leftright.xml.in.h:1
 msgid ""
 "A hand is shown. Determine if it is a right or left hand. Click on the red "
 "button at the left, or on the green button at the right."
 msgstr ""
 "Tässä on käden kuva. Napsauta vasemmalla olevaa punaista nappulaa jos se on "
-"vasen käsi.\n"
-"Napsauta oikeanpuoleista vihreää nappulaa jos se on oikea käsi."
+"vasen käsi. Napsauta oikeanpuoleista vihreää nappulaa jos se on oikea käsi."
 
 #: ../boards/leftright.xml.in.h:2
 msgid "Determine if a hand is a right or left hand"
@@ -2267,7 +2229,8 @@ msgstr "Näytä kumpi on vasen tai oikea käsi"
 msgid ""
 "Distinguish right and left hands from different points of view. Spatial "
 "representation"
-msgstr "Eroita oikean ja vasemman puoleiset kädet eri näkosuunnista."
+msgstr ""
+"Erota oikean ja vasemman puoleiset kädet eri näkosuunnista. Tilan ymmärrys"
 
 #: ../boards/leftright.xml.in.h:4 ../src/boards/leftright.c:106
 msgid "Find your left and right hands"
@@ -2275,7 +2238,7 @@ msgstr "Löydä vasen sekä oikea käsi"
 
 #: ../boards/leftright.xml.in.h:5 ../boards/railroad.xml.in.h:4
 msgid "None"
-msgstr "Ei kirjainta"
+msgstr "Ei mitään"
 
 #: ../boards/maze.xml.in.h:1 ../boards/maze2DRelative.xml.in.h:1
 #: ../boards/maze3D.xml.in.h:2 ../boards/mazeInvisible.xml.in.h:1
@@ -2298,12 +2261,11 @@ msgstr "Sokkelo"
 
 #: ../boards/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
-msgstr "Käytä näppäimiston nuolia apunasi viemään Tuxin ovellensa asti."
+msgstr "Käytä näppäimiston nuolia apunasi viemään Tux ovelle asti."
 
 #: ../boards/maze2DRelative.xml.in.h:2
-#, fuzzy
 msgid "Find your way out of the maze (Move is relative)"
-msgstr "Löydä ulos sokkelosta"
+msgstr "Löydä tie ulos sokkelosta (liike on suhteellista)"
 
 #: ../boards/maze2DRelative.xml.in.h:5
 msgid ""
@@ -2311,6 +2273,9 @@ msgid ""
 "is relative (first person). Use the up arrow to go forward. The other arrow "
 "let you turn Tux in another direction."
 msgstr ""
+"Käytä näppäimistön nuolia siirtämään Tux ovelle. Tässä sokkelossa liike on "
+"suhteessa käyttäjään. Käytä nuolta ylös mennäksesi eteenpäin, ja muita "
+"nuolia siiryäksesi muihin suuntiin."
 
 #: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2325,30 +2290,32 @@ msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between 2D and 3D modes. 2D mode gives you just an indication of your "
 "position like a map. You cannot move tux in 2D mode."
-msgstr "Käytä näppäimiston nuolia apunasi viemään Tuxin ovellensa asti. "
+msgstr ""
+"Käytä näppäimistön nuolia siirtämään Tux ovelle. Vaihda kaksi- ja "
+"kolmiulottisen tilan välillä välilyöntinäppäimellä. Kaksiuloittesessa "
+"tilassa voit nähdä sijaintisi kuten kartalla, mutta et voi liikkua."
 
 #: ../boards/mazeInvisible.xml.in.h:2
-#, fuzzy
 msgid "Find your way out of the invisible maze"
-msgstr "Löydä ulos sokkelosta"
+msgstr "Löydä tiesi ulos näkymättömästä sokkelosta"
 
 #: ../boards/mazeInvisible.xml.in.h:5
-#, fuzzy
 msgid ""
 "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
 "switch between invisible and visible modes. Visible mode gives you just an "
 "indication of your position like a map. You cannot move tux in visible mode."
-msgstr "Käytä näppäimiston nuolia apunasi viemään Tuxin ovellensa asti. "
+msgstr ""
+"Käytä näppäimistön nuolia siirtämään Tux ovelle. Vaihda näkyvän ja "
+"näkymättömän tilan tilan välillä välilyöntinäppäimellä. Näkyvässä tilassa "
+"voit nähdä sijaintisi kuten kartalla, mutta et voi liikkua."
 
 #: ../boards/mazeMenu.xml.in.h:1
-#, fuzzy
 msgid "Find your way out different type of mazes"
-msgstr "Löydä ulos sokkelosta"
+msgstr "Löydä tiesi ulos erilaisistai sokkeloista"
 
 #: ../boards/mazeMenu.xml.in.h:2
-#, fuzzy
 msgid "Go to Maze activities"
-msgstr "Mennään laskutehtäviin"
+msgstr "Siirry sokkelotehtäviin"
 
 #: ../boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2368,7 +2335,7 @@ msgstr "Melodia"
 
 #: ../boards/melody.xml.in.h:5
 msgid "Repeat a melody"
-msgstr "Soita kuulemasi melodia uudestaan"
+msgstr "Toista melodia"
 
 #: ../boards/memory.xml.in.h:1
 msgid ""
@@ -2378,13 +2345,11 @@ msgid ""
 "remember the position of the pictures to associate them. To remove a pair of "
 "cards, uncover both of them."
 msgstr ""
-"Kaikki kortit ovat käännetty nurinpäin. Jokaisella kortilla on samannäköinen "
-"pari.\n"
-"Kun näppäät korttia, voit kääntää sen ja nähdä sen kätketyn kuvan.\n"
-"Mutta voit kääntää ainoastaan kaksi korttia kerrallaan.\n"
-"Sinun täytyy muistaa missä kuvat olivat jotta voit liittää kaksi "
-"samannäköistä kuvaa toisiinsa.\n"
-"Liittääksesi kaksi kuvaa, sinun täytyy näpäyttää kumpaakin peräkanaa."
+"Joukko tyhjiä kortteja näytetään. Kutakin kuvakorttia on kaksi kappaletta "
+"piilotettuna väärin päin. Napsauta korttia ja näet sen kuvan. Et voi "
+"kuitenkaan pitää auki useampaa kuin kahta korttia samaan aikaan: sinun "
+"täytyy muistaa korttien sijainnit, jotta voit saada ne yhdistettyä. Poista "
+"korttipari paljastamalla molemmat samanlaiset kortit."
 
 #: ../boards/memory.xml.in.h:2
 msgid "Discover the cards and find a matching pair"
@@ -2396,10 +2361,9 @@ msgstr "Muistipeli kuvien avulla"
 
 #: ../boards/memory.xml.in.h:5
 msgid "Train your memory and remove all the cards"
-msgstr "Harjoita muistiasi kunnes kaikki kortit ovat poissa pelilaudalta"
+msgstr "Harjoita muistiasi ja poista kaikki kortit pelilaudalta"
 
 #: ../boards/menu.xml.in.h:1
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -2418,45 +2382,52 @@ msgid ""
 "    2 Stars - 4 to 5 years old\n"
 "    3 Stars - 6 to 7 years old"
 msgstr ""
-"Sinun tarvitsee ainoastaan näpäyttää tehtävää vastaavaa kuvaa.\n"
-"Näytön alapuolella ovat kontrollinappulat joiden tarkoitus on seurraava:\n"
-"Koti - Takaisin edelliseen menuun\n"
-"Peukalo - OK, varmista vastauksesi\n"
-"Noppa - Tämänhetkinen vaikeustaso. Napsauta sitä vaihtaaksesi vaikeustasoa\n"
-"Nuotti - Pyydä gcomprista esittämään kysymys uudelleen\n"
-"Kysmysmerkki - Apua\n"
-"Työkalulaatikko - gcompris konfiguraatio\n"
-"Tuxin lentokone - Tekijätietoja\n"
-"Tähtien merkitys: \n"
-"Yksi tähti - 3 tai 4 vuotiaille \n"
-"Kaksi tähteä - 5 tai 6 vuotiaille\n"
-"Kolme tähteä - 7 tai 8 vuotiaille\n"
+"Napsauttamalla kuvaketta pääset tehtävään tai tehtävävalikkoon.\n"
+"Näytön alalaidassa on gcomprisin ohjauspaneeli.\n"
+"Siinä näytetään seuraavat kuvakkeet, vasemmalta oikealle katsottuna.\n"
+"Ota huomioon että kukin kuvake näytetään vain jos se on käytettävissä "
+"valitun tehtävän kohdalla.\n"
+"  Koti    - Takaisin edelliseen valikkoon, tai sulje ohjelma jos päätasolla\n"
+"  Peukalo - OK, eli varmista vastauksesi\n"
+"  Noppa   - Näytä tämänhetkinen tehtävän taso, vaihda tasoa napsauttamalla\n"
+"  Nuotti  - Toista kysymys\n"
+"  Kysymysmerkki - Ohje\n"
+"  Työkalu       - Asetusvalikko\n"
+"  Lentokone     - Tietoja pelistä\n"
+"Tähtien merkitys:\n"
+"  1 tähti  - 2-3 vuotias\n"
+"  2 tähteä - 4-5 vuotias\n"
+"  3 tähteä - 6-7 vuotias"
 
 #: ../boards/menu.xml.in.h:16
 msgid "GCompris Main Menu"
-msgstr "GCompris pääosa"
+msgstr "GCompris päävalikko"
 
 #: ../boards/menu.xml.in.h:17
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities to children from 3 to 8 years old."
-msgstr "Gcompris on 3-8 vuotiaille tarkoitettu opettavien pelien kokoelma."
+msgstr "Gcompris on kokoelma erilaisia opetuspelejä 3-8 vuotiaille lapsille"
 
 #: ../boards/menu.xml.in.h:19
 msgid ""
 "The goal of gcompris is to provide a free alternative to popular proprietary "
 "edutainment software"
-msgstr "Gcompris'n tarkoitus on olla vapaa vaihtoehto oppimispeleille"
+msgstr ""
+"Gcompris'n tarkoitus on olla vapaa vaihtoehto suosituille kaupallisille "
+"oppimispeleille"
 
 #: ../boards/missing_letter.xml.in.h:1
 msgid ""
 "An object is displayed in the main area, and an incomplete word is printed "
 "under the picture. Select the missing letter to complete the word."
-msgstr "Esineen alla on sen nimi. Löydä nimestä puuttuva kirjain."
+msgstr ""
+"Näytön keskellä on kappale, ja keskeneräinen sana näytetään kuvan alla. "
+"Valitse oikea puuttuva kirjain ja täydennä sana."
 
 #: ../boards/missing_letter.xml.in.h:2
 msgid "Fill up the missing letter"
-msgstr "Kirjoita puuttuva kirjain."
+msgstr "Lisää puuttuva kirjain"
 
 #: ../boards/missing_letter.xml.in.h:3
 msgid "Missing Letter"
@@ -2623,8 +2594,8 @@ msgid ""
 "Click on the coins or paper money on the botton of the screen to pay. If you "
 "want to remove a coin or note, click on it in the upper screen area."
 msgstr ""
-"Napsauta alhaalla olevia kolikoita tai seteleitä maksaaksesi.\n"
-"Jos haluat poistaa kolikon tai setelin yläpuolelta, napsauta sitä."
+"Napsauta alhaalla olevia kolikoita tai seteleitä maksaaksesi. Jos haluat "
+"poistaa kolikon tai setelin, napsauta sitä näytön yläosassa."
 
 #: ../boards/money.xml.in.h:3 ../boards/money_cents.xml.in.h:3
 #: ../src/boards/money.c:87
@@ -2640,28 +2611,29 @@ msgid ""
 "You must buy the different items and give the exact price. At higher levels, "
 "several items are displayed, and you must first calculate the total price."
 msgstr ""
-"Sinun täytyy ostaa kaikki esineet antamalla oikean hinnan.\n"
-"Vaikeimmilla tasoilla ostetaan useita esineitä joitten kokonaishinta sinun "
-"tulee laskea."
+"Sinun täytyy ostaa kaikki esineet antamalla oikean hinnan. Vaikeimmilla "
+"tasoilla ostetaan useita esineitä kerralla ja sinun täytyy laskea ensin "
+"niiden kokonaishinta."
 
 #: ../boards/money_cents.xml.in.h:4
 msgid "Practice money usage including cents"
-msgstr "Opettele käyttämään Euroja sekä centtejä"
+msgstr "Opettele käyttämään euroja sekä senttejä"
 
 #: ../boards/mouse.xml.in.h:2
-#, fuzzy
 msgid "Mouse manipulation boards"
-msgstr "Hiiren käyttöä"
+msgstr "Hiiren käytön laudat"
 
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
-msgstr "Siirrä paloja ja kokoa maalaus"
+msgstr "Siirrä paloja ja kokoa alkuperäinen maalaus"
 
 #: ../boards/paintings.xml.in.h:2
 msgid ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
-msgstr "Vie vasemmalla olevat osat keskelle tehdäksesi maalauksen."
+msgstr ""
+"Raahaa kuvan osia vasemmalla olevasta laatikosta vasempaan osaan ja luo "
+"niistä oma maalaus."
 
 #: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:169
 msgid "Make the puzzle"
@@ -2669,11 +2641,11 @@ msgstr "Kokoa palapeli"
 
 #: ../boards/paintings.xml.in.h:4
 msgid "Mouse manipulation: movement, drag and drop"
-msgstr "Hiiren käyttäminen"
+msgstr "Hiiren käyttäminen: siirtäminen ja raahaus"
 
 #: ../boards/paintings.xml.in.h:5
 msgid "Spatial representation"
-msgstr "Komiulotteinen hahmottaminen"
+msgstr "Kolmiulotteinen hahmottaminen"
 
 #: ../boards/paintings/board1_0.xml.in.h:1
 msgid "Edgar Degas, The Dancing Class - 1873-75"
@@ -2685,7 +2657,7 @@ msgstr "Pierre-Auguste Renoir, Galettin mylly - 1876"
 
 #: ../boards/paintings/board3_0.xml.in.h:1
 msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
-msgstr "Pierre-auguste Renoir, Tytöt pianon ääressä - 1892"
+msgstr "Pierre-Auguste Renoir, Tytöt pianon ääressä - 1892"
 
 #: ../boards/paintings/board3_1.xml.in.h:1
 msgid "Kandinsky, Wassily, Composition VIII - 1923"
@@ -2693,7 +2665,7 @@ msgstr "Wassily Kandinsky, Composition VIII - 1923"
 
 #: ../boards/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
-msgstr "öljymaalaus, 140 x 201 cm, Guggenheim-museo, New York"
+msgstr "Öljymaalaus, 140 x 201 cm, Guggenheim-museo, New York"
 
 #: ../boards/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
@@ -2709,24 +2681,24 @@ msgstr "Vincent Van Gogh, Kylätie Auversissa - 1890"
 
 #: ../boards/paratrooper.xml.in.h:1
 msgid "Help Tux the parachuter land safely"
-msgstr "Auta laskuvarjohyppääjää laskeutumaan turvallistesti"
+msgstr "Auta Tux-laskuvarjohyppääjää laskeutumaan turvallistesti"
 
 #: ../boards/paratrooper.xml.in.h:2
 msgid ""
 "Hit any key or click on the plane to make Tux jump. Hit another key or click "
 "on Tux to open the parachute."
 msgstr ""
-"Näppää mitä tahansa nappia näppäimistölla niin Tux hyppää.\n"
-"Näppää uudestaan niin Tux avaa laskuvarjon."
+"Paina jotain näppäintä tai napsauta lentokonetta hiirellä niin Tux hyppää. "
+"Paina toista näppäintä tai napsauta Tuxia niin laskuvarjo aukeaa."
 
 #: ../boards/paratrooper.xml.in.h:3
 msgid ""
 "In this game, Tux the parachuter needs help to land safely on the fishing "
 "boat. He needs to take care of the wind direction and speed."
 msgstr ""
-"Tässä pelissä Tux laskuvarjohyppääjä laskeutuu turvallistesti kalastusveneen "
-"päälle.\n"
-"Lapsen täytyy varoa tuulen suuntaa sekä nopeutta."
+"Tässä pelissä Tux laskuvarjohyppääjä tarvitsee apua laskeutumisessa "
+"turvallisesti kalastusveneen päälle. Tuxin täytyy varoa tuulen suuntaa ja "
+"nopeutta."
 
 #: ../boards/paratrooper.xml.in.h:4
 msgid "Parachute jumper"
@@ -2734,11 +2706,11 @@ msgstr "Laskuvarjohyppâäjâ"
 
 #: ../boards/paratrooper.xml.in.h:5
 msgid "This board is game oriented. No specific skills are needed to play."
-msgstr "Tämä osa on leikkitehtävä. Mitään erikoisia edellytyksiä ei tarvita."
+msgstr "Tämä osa on pelejä varten. Mitään erikoisia edellytyksiä ei tarvita."
 
 #: ../boards/planegame.xml.in.h:1
 msgid "Move the helicopter to catch the clouds in the correct order"
-msgstr "Ohjaa helikopteria ja kerää pilvet numerojärjestyksessä"
+msgstr "Ohjaa helikopteria ja kerää pilvet oikeassa järjestyksessä"
 
 #: ../boards/planegame.xml.in.h:2
 msgid "Number"
@@ -2746,19 +2718,19 @@ msgstr "Numerot"
 
 #: ../boards/planegame.xml.in.h:3 ../src/boards/planegame.c:77
 msgid "Numbers in Order"
-msgstr "Kerää numerot järjestyksessä"
+msgstr "Numerot järjestyksessä"
 
 #: ../boards/planegame.xml.in.h:5
 msgid ""
 "Use the up, down, right and left keyboard keys to move the helicopter to "
 "catch the numbers in increasing order."
 msgstr ""
-"Käytä näppäimistön neljää nuolta helikopterin ohjaamiseen.\n"
-"Sinun täytyy kerätä kaikki numerot järjestyksessä."
+"Käytä nuolinäppäimiä ylös, alas, oikealle ja vasemmalle helikopterin "
+"ohjaamiseen, ja kerää sillä kaikki numerot järjestyksessä."
 
 #: ../boards/pythontest.xml.in.h:1
 msgid "Add a language binding to gcompris."
-msgstr "Lisää uusi kieli-side gcompris'hin"
+msgstr "Lisää uusi kielisidos gcomprisiin"
 
 #: ../boards/pythontest.xml.in.h:2
 msgid "Advanced Python Programmer :)"
@@ -2770,12 +2742,13 @@ msgstr "Python testi"
 
 #: ../boards/pythontest.xml.in.h:4
 msgid "Test board for the python plugin"
-msgstr "Testaa Python plugin"
+msgstr "Testaa Python-liitännäistä"
 
 #: ../boards/pythontest.xml.in.h:5
 msgid ""
 "Thanks to Guido van Rossum and the python team for this powerful language!"
-msgstr "Kiitos Guido Van Rossumille ja Python-tiimille."
+msgstr ""
+"Kiitos Guido Van Rossumille ja Python-tiimille tästä tehokkaasta kielestä!"
 
 #: ../boards/railroad.xml.in.h:1
 msgid "A memory game based on trains"
@@ -2788,18 +2761,14 @@ msgid ""
 "appropriate wagons and locomotive. Unselect an item by clicking on it again. "
 "Check your construction by clicking on the hand at the bottom."
 msgstr ""
-"Sinulle näytetään ensin juna - veturi ja vaunut - ylhäällä. Muutaman "
-"sekunnin kuluttua\n"
-"juna lähtee pois. Pane mieleesi mikä veturi ja mitkä vaunut siinä junassa "
-"oli\n"
-"Sitten, sinun täytyy koota koko juna uudestaan samalla veturilla ja samoilla "
-"vaunuilla.\n"
-"Voit aina poistaa vaunun tai veturin näpäyttämällä sitä.\n"
-"Kun olet valmis, tarkista näpäyttämällä peukalokättä alhaalla."
+"Juna (veturi ja vaunuja) näytetään hetken aikaa näytön ylosassa. Kokoa se "
+"uudestaan näytön yläosaan valitsemalla oikeat vaunut ja veturi. Voit perua "
+"valinnan napsauttamalla sitä uudestaan. Tarkista vastauksesi napsauttamalla "
+"alaosassa olevaa käden kuvaa."
 
 #: ../boards/railroad.xml.in.h:3
 msgid "Memory training"
-msgstr "Muistin harjoittamista"
+msgstr "Muistin harjoittaminen"
 
 #: ../boards/railroad.xml.in.h:5
 msgid "Railroad"
@@ -2815,7 +2784,7 @@ msgstr "Lue värit"
 
 #: ../boards/read_colors.xml.in.h:5
 msgid "This board teaches basic colors."
-msgstr "Tämän osan tarkoitus on tunnistaa tavallisimmat värit"
+msgstr "Tämä osan opettaa tunnistamaan tavallisimmat värit."
 
 #: ../boards/read_colors/board1.xml.in.h:1
 msgid "black"
@@ -2863,7 +2832,7 @@ msgstr "keltainen"
 
 #: ../boards/reading.xml.in.h:1
 msgid "Go to the Reading activities"
-msgstr "Lukuharjoittelua"
+msgstr "Siirry lukutehtäviin"
 
 #: ../boards/readingh.xml.in.h:1 ../boards/readingv.xml.in.h:1
 msgid ""
@@ -2871,18 +2840,16 @@ msgid ""
 "and disappear on left. Indicate whether or not the given word appeared in "
 "the list."
 msgstr ""
-"Oikealla näet kirjoitetun sanan.\n"
-"Vasemmalla tulet näkemään häipyvän sanalistan.\n"
-" Sinun täytyy sanoa näitkö oikealla olevan sanan vasemmalla olevassa "
-"sanalistassa."
+"Näytön yläosassa näytetään sana. Lista sanoja näkyy ja häipyy näytön "
+"vasemmassa osassa. Anna palautetta näkyikö annettu sana listassa vai ei."
 
 #: ../boards/readingh.xml.in.h:2
 msgid "Horizontal reading practice"
-msgstr "Vaakatasolukemis harjoitelu"
+msgstr "Vaakasuuntaisen tekstin lukuharjoittelu"
 
 #: ../boards/readingh.xml.in.h:3
 msgid "Read a list of words and tell if a given word is in it"
-msgstr "Lue sanalista ja kerro onko etsittävä sana siinä"
+msgstr "Lue lista sanoja ja kerro onko etsittävä sana listassa"
 
 #: ../boards/readingh.xml.in.h:4 ../boards/readingv.xml.in.h:3
 msgid "Read training in a limited time"
@@ -2894,11 +2861,11 @@ msgstr "Lue pystysuora sanalista ja kerro onko etsittävä sana siinä"
 
 #: ../boards/readingv.xml.in.h:5
 msgid "Vertical reading practice"
-msgstr "Pystysuoralukemis harjoittelu"
+msgstr "Pystysuoran tekstin lukuharjoittelu"
 
 #: ../boards/redraw.xml.in.h:1
 msgid "Copy a drawing from the box on the right into the box on the left."
-msgstr "Tee sama piirustus kuin oikealla vasemmalle."
+msgstr "Kopioi piirros oikealla olevasta laatikosta vasempaan laatikkoon."
 
 #: ../boards/redraw.xml.in.h:2 ../boards/redraw_symmetrical.xml.in.h:2
 msgid ""
@@ -2907,36 +2874,34 @@ msgid ""
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but take care not to have unwanted objects under others."
 msgstr ""
-"Ensin, valitse oikea työkalu työkalupakista. Sitten, käytä hiirtä apunasi "
-"luodaksesi esineitä.\n"
-"Kun olet lopettanut, napsauta OK-painiketta. Virheet hahmottuvat silloin "
-"punaisella ristillä.\n"
-"Esineitten järjetys (päällä/alla) ei ole tärkeä mutta varo ettet pistä "
-"vääriä esineitä toisten alle."
+"Valitse ensin sopiva työkalu työkalupalkista. Raahaa sitten hiirtä ja "
+"luo uusia kohteita. Kun olet valmis voit painaa \"OK\"-painiketta. Virheet "
+"merkitään pienellä punaisella rastilla. Kappaleiden järjestyksellä ei ole "
+"väliä, mutta pidä huolta ettet piilota sellaisia kohteita, joita et halua, "
+"toisten kohteiden alle."
 
 #: ../boards/redraw.xml.in.h:3
 msgid "Redraw the given item"
-msgstr "Piirrä esine uudestaan"
+msgstr "Piirrä kopio"
 
 #: ../boards/redraw_symmetrical.xml.in.h:1
 msgid ""
 "Copy the mirror image of an object from the box on the right into the box on "
 "the left."
-msgstr "Kopioioikealla olevan esineen peilikuva vasemmalle."
+msgstr ""
+"Kopioi oikealla olevan laatikon sisällön peilikuva vasempaan laatikkoon."
 
 #: ../boards/redraw_symmetrical.xml.in.h:3
-#, fuzzy
 msgid "Mirror the given item"
-msgstr "Piirrä esine uudestaan"
+msgstr "Piirrä peilikuva"
 
 #: ../boards/reversecount.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and subtract numbers up to 10 for the "
 "first level"
 msgstr ""
-"Osaa liikuttaa hiirtä, osaa lukea numerot ja osaa miinuslaskun kymmeneen "
-"asti\n"
-"ensimmäisellä vaikeusasteella."
+"Osaa liikuttaa hiirtä, osaa lukea numerot ja osaa vähennyslaskun kymmeneen "
+"asti ensimmäisellä vaikeusasteella."
 
 #: ../boards/reversecount.xml.in.h:2
 msgid ""
@@ -2944,21 +2909,18 @@ msgid ""
 "fish. Click the dice with the right mouse button to count backwards. When "
 "done, click on the OK button or hit the Enter key."
 msgstr ""
-"Laske ensin montako jäälauttaa on Tuxin ja kalan välissä.\n"
-"Napsauta sitten noppaa kunnes se on oikean numeron kohdalla.\n"
-"Voit myös käyttää hiiren oikeanpuoleista näppäintä laskeaksesi takaperin.\n"
-"Kun olet valmis, napsauta OK-painiketta tai paina Enteriä."
+"Kerro noppaa napsauttamalla kuinka monta jäälauttaa Tuxin ja kalan välissä "
+"on. Napsauta noppaa oikealla napilla, jos haluat laskea takaperin. Kun olet "
+"valmis, napsauta \"OK\"-painiketta tai paina Enteriä."
 
 #: ../boards/reversecount.xml.in.h:3 ../src/boards/reversecount.c:138
 msgid "Practice substraction with a funny game"
-msgstr "Harjoittele miinuslaskua hauskalla pelillä"
+msgstr "Harjoittele vähennyslaskua hauskalla pelillä"
 
 #: ../boards/reversecount.xml.in.h:4
 msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr ""
-"Tux on nälkäinen.\n"
-"Auta häntä löytämään silakoita laskemalla montako jäälauttaa on heidän "
-"välillä."
+"Tux on nälkäinen. Auta häntä löytämään silakoita laskemalla oikea jäälautta"
 
 #: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
 #: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
@@ -2970,11 +2932,11 @@ msgstr ""
 #: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
 #: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
 msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Siirrä painoja tasapainottaaksesi vaaan"
+msgstr "Siirrä painoja tasapainottaaksesi vaa'an"
 
 #: ../boards/scalesboard.xml.in.h:1
 msgid "Drag and Drop masses to balance the scales"
-msgstr "Siirrä painoja tasapainottaaksesi vaaan"
+msgstr "Siirrä painoja tasapainottaaksesi vaa'an"
 
 #: ../boards/scalesboard.xml.in.h:2
 msgid "Mental calculation, arithmetic equality"
@@ -2987,8 +2949,8 @@ msgid ""
 "released under the GPL license."
 msgstr ""
 "Maalaus on Virginie Moreau'n (virginie.moreau@free.fr) vuonna 2001 maalama "
-"teos.\n"
-"Sen nimi on 'Mausteiden myyjät Egyptissä'. Se on GPL lisenssin alainen."
+"teos. Sen nimi on 'Mausteiden myyjät Egyptissä'. Se on julkaistu GPL-"
+"lisenssillä."
 
 #: ../boards/scalesboard.xml.in.h:4
 msgid ""
@@ -2996,16 +2958,15 @@ msgid ""
 "arranged in any order."
 msgstr ""
 "Tasapainottaaksesi vaaan sinun täytyy laskea painoja sen vasemmalle "
-"puolelle.\n"
-"Painot voi pistää missä järjestyksessä tahansa."
+"puolelle. Painot voi laittaa missä järjestyksessä tahansa."
 
 #: ../boards/scalesboard.xml.in.h:5
 msgid "Well balance the scales"
-msgstr "Tasapainoitettu vaaka"
+msgstr "Tasapainota vaaka"
 
 #: ../boards/searace.xml.in.h:1 ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
-msgstr ""
+msgstr "Anna hyvät ohjeet laivallesi, jotta voitatte kilpailun."
 
 #: ../boards/searace.xml.in.h:2 ../boards/searace1player.xml.in.h:2
 msgid ""
@@ -3030,18 +2991,22 @@ msgid ""
 "enter a program. This activity can be used to introduce the programming "
 "concept to kids."
 msgstr ""
+"Tässä tehtävässä opit kuinka tietokoneella syötetään komentoja. Vaikka "
+"kieli onkin yksinkertainen, opit kuinka ajatella etukäteen ja syöttää "
+"ohjelman. Tämän tehtävän avulla voidaan esitellä ohjelmoinnin ajatuksia "
+"lapsille."
 
 #: ../boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
-msgstr ""
+msgstr "Purjehduskilpailu (kaksi pelaajaa)"
 
 #: ../boards/searace1player.xml.in.h:4
 msgid "Sea race (Single Player)"
-msgstr ""
+msgstr "Purjehduskilpailu (yksi pelaaja)"
 
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
-msgstr "Kirjoita nopassa oleva numero ennen kuin noppa osuu maahan"
+msgstr "Laske nopassa oleva numero ennen kuin noppa osuu maahan"
 
 #: ../boards/smallnumbers.xml.in.h:2 ../boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
@@ -3059,24 +3024,25 @@ msgstr "Noppapeli"
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
-msgstr "Paina näppäimistön numeroa joka vastaa putoavan nopan numeroa."
+msgstr ""
+"Paina näppäimistöltä oikeaa numeroa, joka vastaa nopassa olevien pisteiden "
+"lukumäärää."
 
 #: ../boards/smallnumbers2.xml.in.h:4
-#, fuzzy
 msgid "Numbers With 2 Dices"
-msgstr "Noppapeli"
+msgstr "Numerot kahdella nopalla"
 
 #: ../boards/submarine.xml.in.h:1
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the ordered depth."
 msgstr ""
-"Napsauta sukellusveneen eri osia:\n"
-"moottoria, eviä sekä ilmavarastoja sukeltaaksesi oikealla syvyydellä."
+"Napsauta eri aktiivisia osia: moottoria, eviä ja ilmatankkeja, jotta "
+"sukellat oikealla syvyydellä."
 
 #: ../boards/submarine.xml.in.h:2
 msgid "Learn how a submarine works"
-msgstr "Ymmärrä miten sukellusvene toimii"
+msgstr "Opi kuinka sukellusvene toimii"
 
 #: ../boards/submarine.xml.in.h:3
 msgid "Physics basics"
@@ -3084,7 +3050,7 @@ msgstr "Fysiikan alkeet"
 
 #: ../boards/submarine.xml.in.h:4
 msgid "Pilot a submarine"
-msgstr "Ole sukellusveneen ratissa"
+msgstr "Ohjaa sukellusvenettä"
 
 #: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
@@ -3098,10 +3064,10 @@ msgid ""
 "a black box. You can use the right mouse button to flip the colors in the "
 "opposite order."
 msgstr ""
-"Napsauta esineitä kunnes löydät oikean vastauksen.\n"
-"Napsauta sitten OK-painiketta.\n"
-"Alussa Tux antaa sinulle vihjeen osoittamalla esinettä mustalla laatikolla.\n"
-"Voit käyttää hiiren oikeaa näpäytintä pyörittääksesi värejä toiseen suuntaan."
+"Napsauta kohteita kunnes löydät mielestäsi oikean vastauksen. Napsauta "
+"sitten \"OK\"-painiketta ohjauspaneelista. Alemmilla tasoilla Tux kertoo, "
+"jos löysit piilopaikan, merkitsemällä kappaleen mustalla laatikolla. Voit "
+"käyttää oikeata hiiren nappia vaihtaaksesi värit keskenään." 
 
 #: ../boards/superbrain.xml.in.h:2 ../src/boards/superbrain.c:110
 msgid "Super Brain"
@@ -3109,15 +3075,14 @@ msgstr "Superaivot"
 
 #: ../boards/superbrain.xml.in.h:3 ../src/boards/superbrain.c:111
 msgid "Tux has hidden several items. Find them again in the correct order"
-msgstr ""
-"Tux on piiloittanut muutamia esineitä. Löydä ne oikeassa järjestyksessä"
+msgstr "Tux on piiloittanut useita esineitä. Löydä ne oikeassa järjestyksessä"
 
 #: ../boards/target.xml.in.h:1
 msgid ""
 "Can move the mouse, can read numbers and count up to 15 for the first level"
 msgstr ""
-"Osaa käyttää hiirtä, osaa lukea numerot ja osaa laskea viiteentoista asti\n"
-"ensimmäisellä vaikeusasteella"
+"Osaa käyttää hiirtä, osaa lukea numerot ja osaa laskea viiteentoista "
+"astiensimmäisellä vaikeusasteella"
 
 #: ../boards/target.xml.in.h:2
 msgid ""
@@ -3127,13 +3092,13 @@ msgid ""
 "or the OK button."
 msgstr ""
 "Tarkista ensin tuulen voimakkuus ja suunta, ja napsauta sitten maalia "
-"heittääksesi tikan.\n"
-"Kun olet heittänyt kaikki tikat, sinua pyydetään laskemaan tuloksesi.\n"
-"Kirjoita tuloksesi ikkunaan ja napsauta OK-painiketta tai paina Enteriä."
+"heittääksesi tikan. Kun olet heittänyt kaikki tikat, sinua pyydetään "
+"laskemaan tuloksesi. Kirjoita tuloksesi ikkunaan ja napsauta OK-painiketta "
+"tai paina Enteriä."
 
 #: ../boards/target.xml.in.h:3 ../src/boards/target.c:122
 msgid "Practice addition with a target game"
-msgstr "Ynnälaskua tikkapelin ansiosta"
+msgstr "Ynnälaskua tikkapelin avulla"
 
 #: ../boards/target.xml.in.h:4
 msgid "Throw darts at a target and count your score."
@@ -3145,12 +3110,11 @@ msgstr "Osu maaliin ja laske saamasi pisteet"
 
 #: ../boards/traffic.xml.in.h:1 ../src/boards/traffic.c:99
 msgid "A sliding block puzzle game"
-msgstr "Palapelin tapainen"
+msgstr "Palapelin tapainen autopeli"
 
 #: ../boards/traffic.xml.in.h:2
 msgid "Remove all the red cars from the grid through the slot on the right"
-msgstr ""
-"Tarkoitus on viedä kaikki punaiset autot pois oikealla olevan reiän kautta."
+msgstr "Poista kaikki punaiset autot ruudukosta oikealla olevan rei'än kautta"
 
 #: ../boards/watercycle.xml.in.h:1
 msgid ""
@@ -3159,11 +3123,10 @@ msgid ""
 "the system is back up and Tux is in the shower, push the shower button for "
 "him."
 msgstr ""
-"Napsauta eri elementtejä oikeassa järjestyksessä: \n"
-"aurinkoa, pilviä, pumppauslaitosta, vedenpuhdistuslaitosta.\n"
-"Tällä tavoin aktivoit koko vedenjakelusysteemin.\n"
-"Kun olet lopettanut ja Tux on suihkussa, paina suihkun painiketta hänen "
-"puolestansa."
+"Napsauta eri elementtejä oikeassa järjestyksessä: aurinkoa, pilviä, "
+"pumppauslaitosta ja vedenpuhdistuslaitosta. Tällä tavoin aktivoit koko "
+"vedenjakelusysteemin. Kun olet valmis ja Tux on suihkussa, paina suihkun "
+"painiketta hänen puolestansa."
 
 #: ../boards/watercycle.xml.in.h:2
 msgid "Learn the water cycle"
@@ -3174,9 +3137,8 @@ msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the water "
 "system back up so he can take a shower."
 msgstr ""
-"Sinun täytyy korjata veden jakelusysteemi. \n"
-"Tux tulee takaisin pitkältä kalastusretkeltä. \n"
-"Auta häntä ottamaan suihkun."
+"Tux tuli takaisin pitkältä kalastusretkeltä veneellään.\n"
+"Korjaa vedenjakelujärjestelmä, jotta Tux pääsee suihkuun."
 
 #: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:110
 msgid "Falling Words"
@@ -3184,19 +3146,19 @@ msgstr "Putoavat sanat"
 
 #: ../boards/wordsgame.xml.in.h:3
 msgid "Keyboard training"
-msgstr "Konekirjoitus harjoitus"
+msgstr "Kirjoitusharjoitus"
 
 #: ../boards/wordsgame.xml.in.h:4
 msgid "Type the complete word as it falls, before it reachs the ground"
-msgstr "Kirjoita putoavat kirjaimet ennen kuin ne osuvat maahan"
+msgstr "Kirjoita koko putoava sana ennen kuin se osuu maahan"
 
 #: ../boards/wordsgame.xml.in.h:5
 msgid "Type the falling words before they reach the ground"
 msgstr "Kirjoita putoavat sanat ennen kuin ne osuvat maahan"
 
 #: ../gcompris-edit.desktop.in.h:1
-msgid "Editor for gcompris"
-msgstr "gcompris-ediittori"
+msgid "Administration for gcompris"
+msgstr "Gcomprisin hallinta"
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game from 2 to 10 years old"
@@ -3208,7 +3170,7 @@ msgstr "Gcompris on opettavien pelien kokoelma"
 
 #: ../gcompris.desktop.in.h:3
 msgid "Multiple activities for kids"
-msgstr ""
+msgstr "Useita tehtäviä lapsille"
 
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:602
 #: ../src/boards/missingletter.c:606 ../src/boards/read_colors.c:491
@@ -3219,19 +3181,18 @@ msgstr ""
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
-msgstr "Tiedostoa %s ei löydy"
+msgstr "Tiedostoa %s ei löydy!"
 
 #: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:605
 #: ../src/boards/missingletter.c:609 ../src/boards/read_colors.c:494
 #: ../src/boards/shapegame.c:1881
 #, c-format
 msgid "find file %s !"
-msgstr "Tiedostoa %s ei löydy"
+msgstr "%s ei löydy!"
 
 #: ../src/boards/algebra.c:97
-#, fuzzy
 msgid "Practice the math operation"
-msgstr "Ynnälaskun harjoittelua"
+msgstr "Harjoittele laskutoimituksia"
 
 #: ../src/boards/algebra_guesscount.c:143
 #: ../src/boards/algebra_guesscount.c:144
@@ -3243,9 +3204,8 @@ msgid ""
 "Tux is in trouble in his ship. He needs to take it through a lock.\n"
 "Help Tux and understand how a canal lock works."
 msgstr ""
-"Tuxilla on pulmia laivansa kanssa.\n"
-"Hänen täytyy mennä sulkujen läpi.\n"
-"Auta häntä ymmärtämään miten sulut toimivat."
+"Tux on ongelmissa laivassaan. Hänen täytyy saada se sulkujen läpi. Auta "
+"Tuxia ymmärtämään kuinka kanaalin sulut toimivat."
 
 #: ../src/boards/chess.c:136
 msgid "Learning Chess"
@@ -3253,7 +3213,7 @@ msgstr "Opettele Shakkia"
 
 #: ../src/boards/chess.c:137
 msgid "Play chess against tux in a learning mode"
-msgstr "Pelaa shakkia Tuxia vastaan opetusmoodissa"
+msgstr "Pelaa shakkia Tuxia vastaan opetustilassa"
 
 #: ../src/boards/chess.c:189 ../src/boards/chess.c:228
 msgid ""
@@ -3264,9 +3224,10 @@ msgid ""
 "And check it is in "
 msgstr ""
 "Virhe: Tarvitset gnuchess ohjelman pelataksesi\n"
-"shakkia gcompris:sa.\n"
-"Voit löytää sen vaikka http://www.rpmfind.net tai\n"
-"omilta GNU/Linux levyiltäsi"
+"shakkia gcomprisissa.\n"
+"Hae se vaikka osoitteesta http://www.rpmfind.net tai\n"
+"omilta GNU/Linux asennuslevyiltäsi\n"
+"ja tarkista että se on paikassa "
 
 #: ../src/boards/chess.c:569
 msgid "White Turn"
@@ -3286,11 +3247,11 @@ msgstr "Musta shakki"
 
 #: ../src/boards/chess.c:1052
 msgid "Black mates"
-msgstr "Mustat voittavat"
+msgstr "Musta matittaa"
 
 #: ../src/boards/chess.c:1057
 msgid "White mates"
-msgstr "Valkoiset voittavat"
+msgstr "Valkoinen matittaa"
 
 #: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
 msgid "Drawn game"
@@ -3309,8 +3270,8 @@ msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
 msgstr ""
-"Virhe: sinun täytyy ensin asentaa \n"
-"assetml-voices-alphabet- pelateksasi tätä tehtävää."
+"Virhe: sinun täytyy ensin asentaa paketti assetml-voices-alphabet- ennen "
+"kuin voit käyttää tätä osaa."
 
 #: ../src/boards/click_on_letter.c:235
 msgid ""
@@ -3319,21 +3280,19 @@ msgid ""
 "Go in the configuration dialog to\n"
 "enable the sound"
 msgstr ""
-"Virhe: tätä osaa ei voi pelata jos\n"
-"ääni ei toimi.\n"
-"Mahdollista ääniefektit\n"
-"konfiguraatio moduulissa (tyokalulaatikko)."
+"Virhe: tätä osaa ei voi käyttää, jos äänet eivät\n"
+"ole käytössä.\n"
+"Mene asetuksiin ja ota äänen äänet käyttöön"
 
 #. TRANSLATORS: Put here the alphabet in your language
 #: ../src/boards/click_on_letter.c:280
-#, fuzzy
 msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstufw"
+msgstr "abcdefghijklmnopqrstuvwxyzåäö"
 
 #: ../src/boards/clickgame.c:178
 #, c-format
 msgid "Couldn't open dir: %s"
-msgstr "Pixmap-hakemistoa %s ei voi avata"
+msgstr "Hakemistoa ei voida avata: %s"
 
 #: ../src/boards/clockgame.c:526
 msgid "Set the watch to:"
@@ -3381,22 +3340,22 @@ msgstr "Napsauta valkoista nukkea"
 
 #: ../src/boards/erase.c:158
 msgid "Couldn't get GTK settings"
-msgstr ""
+msgstr "GTK-asetuksia ei voitu ladata"
 
 #: ../src/boards/erase.c:163
 #, c-format
 msgid "Double clic default value %d."
-msgstr ""
+msgstr "Kaksoisnapsautuksen oletus on %d."
 
 #: ../src/boards/erase.c:168 ../src/boards/erase.c:183
 #: ../src/boards/erase.c:206 ../src/boards/erase.c:337
 #, c-format
 msgid "Double clic value is now %d."
-msgstr ""
+msgstr "Kaksoisnapsautuksen arvo on nyt %d."
 
 #: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
-msgstr "Siirrä esineitä korkeusjärjestyksessä pienimmästä suurimpaan määrään"
+msgstr "Siirrä esineitä korkeusjärjestyksessä pienimmästä suurimpaan"
 
 #: ../src/boards/hanoi.c:337 ../src/boards/hanoi.c:348
 msgid "Reproduce in the empty area the same tower as the one on the right"
@@ -3408,8 +3367,7 @@ msgstr "Opettele lukemaan"
 
 #: ../src/boards/leftright.c:107
 msgid "Given pictures of hands, find if it's a right or left one"
-msgstr ""
-"Käsien kuvista täytyy päätellä mitkä ovat oikean- ja mitkä vasemmanpuoleisia"
+msgstr "Päättele käsien kuvista mitkä ovat oikean- ja mitkä vasemmanpuoleisia"
 
 #: ../src/boards/leftright.c:248 ../src/boards/python/searace.py:429
 #: ../src/boards/python/searace.py:454 ../src/boards/python/searace.py:544
@@ -3426,17 +3384,13 @@ msgid "right"
 msgstr "oikea"
 
 #: ../src/boards/maze.c:488
-#, fuzzy
 msgid "Look at your position and switch back to invisible mode to move"
-msgstr ""
-"Voit varmistaa missä olet ja mene sitten takaisin kolmiulotteiseen moodiin "
-"jotta voisit liikkua."
+msgstr "Katso sijaintiasi ja vaihda takaisin näkymättömäksi niin voit liikkua"
 
 #: ../src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr ""
-"Voit varmistaa missä olet ja mene sitten takaisin kolmiulotteiseen moodiin "
-"jotta voisit liikkua."
+"Katso sijaintiasi ja vaihda takaisin kolmiulotteiseksi niin voit liikkua"
 
 #: ../src/boards/memory.c:164
 msgid "Memory"
@@ -3448,7 +3402,7 @@ msgstr "Löydä täsmäävä pari"
 
 #: ../src/boards/menu.c:72
 msgid "Main Menu"
-msgstr "Pääosaan"
+msgstr "Päävalikko"
 
 #: ../src/boards/menu.c:73
 msgid "Select a Board"
@@ -3456,7 +3410,7 @@ msgstr "Valitse tehtävä"
 
 #: ../src/boards/money.c:88
 msgid "Pratice money usage"
-msgstr "Opettele käyttämään rahaa"
+msgstr "Harjoittele rahan käyttöä"
 
 #: ../src/boards/paratrooper.c:102
 msgid "Paratrooper"
@@ -3472,219 +3426,302 @@ msgstr "Ohjaa lentokonetta ja kerää pilvet numerojärjestyksessä"
 
 #: ../src/boards/python.c:62
 msgid "Python Board"
-msgstr "Python osa"
+msgstr "Python-osa"
 
 #: ../src/boards/python.c:63
 msgid "Special board that embeds python into gcompris."
-msgstr "Erikoisosa jossa käytetään Pythonia gcomprissa"
+msgstr "Erikoisosa, joka liittää Pythonin gcomprisiin."
 
-#: ../src/boards/python/admin/board_list.py:82
-#, fuzzy
+#: ../src/boards/python/admin/board_list.py:85
 msgid "Select a profile:"
-msgstr "Käännä kellon viisarit aikaan:"
+msgstr "Valitse profiili:"
 
-#: ../src/boards/python/admin/board_list.py:134
-#, fuzzy
+#: ../src/boards/python/admin/board_list.py:137
 msgid "Filter"
-msgstr "Ei suodatinta"
+msgstr "Suodatin"
 
-#: ../src/boards/python/admin/board_list.py:139
-#, fuzzy
+#: ../src/boards/python/admin/board_list.py:142
 msgid "Select all"
-msgstr "Käännä kellon viisarit aikaan:"
+msgstr "Valitse kaikki"
 
-#: ../src/boards/python/admin/board_list.py:144
+#: ../src/boards/python/admin/board_list.py:147
 msgid "Unselect all"
-msgstr ""
+msgstr "Unohda kaikki valinnat"
 
-#: ../src/boards/python/admin/board_list.py:202
-#, fuzzy
+#: ../src/boards/python/admin/board_list.py:205
 msgid "Main menu"
-msgstr "Pääosaan"
+msgstr "Päävalikko"
 
-#: ../src/boards/python/admin/board_list.py:202
+#: ../src/boards/python/admin/board_list.py:205
 msgid "/"
-msgstr ""
+msgstr "/"
 
 #. columns for Board name
 #. column_pref = gtk.TreeViewColumn(_('Conf'))
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:259
+#: ../src/boards/python/admin/board_list.py:262
 msgid "Active"
-msgstr ""
+msgstr "Käytössä"
 
-#: ../src/boards/python/admin/board_list.py:260
+#: ../src/boards/python/admin/board_list.py:263
 msgid "Board title"
-msgstr ""
+msgstr "Laudan nimi"
 
-#: ../src/boards/python/admin/class_edit.py:58
+#: ../src/boards/python/admin/board_list.py:379
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr "Suodata tehtävät vaikeusasteen mukaan profiilille %s"
+
+#: ../src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
-msgstr ""
+msgstr "Luokan muokkaus"
 
-#: ../src/boards/python/admin/class_edit.py:62
+#: ../src/boards/python/admin/class_edit.py:65
 msgid "Editing class: "
-msgstr ""
+msgstr "Muokattava luokka: "
 
-#. Top message gives instructions
-#: ../src/boards/python/admin/class_edit.py:70
+#: ../src/boards/python/admin/class_edit.py:68
+msgid "Editing a new class"
+msgstr "Muokkaa uutta luokkaa"
+
+#: ../src/boards/python/admin/class_edit.py:90
+msgid "Class:"
+msgstr "Luokka:"
+
+#. FIXME: How to remove the default selection
+#. Label and Entry for the teacher name
+#: ../src/boards/python/admin/class_edit.py:101
+msgid "Teacher:"
+msgstr "Opettaja:"
+
+#: ../src/boards/python/admin/class_edit.py:111
 msgid "Assign all the users bellonging to this class"
-msgstr ""
+msgstr "Anna tehtäväksi kaikille tämän luokan käyttäjille"
 
-#: ../src/boards/python/admin/class_edit.py:209
-#: ../src/boards/python/admin/group_edit.py:224
-#: ../src/boards/python/admin/group_user_list.py:166
-#: ../src/boards/python/admin/user_list.py:187
-#, fuzzy
+#: ../src/boards/python/admin/class_edit.py:251
+#: ../src/boards/python/admin/group_edit.py:264
+#: ../src/boards/python/admin/group_user_list.py:162
+#: ../src/boards/python/admin/user_list.py:196
 msgid "First Name"
-msgstr "Nopea kello"
+msgstr "Etunimi"
 
-#: ../src/boards/python/admin/class_edit.py:220
-#: ../src/boards/python/admin/group_edit.py:235
-#: ../src/boards/python/admin/group_user_list.py:177
-#: ../src/boards/python/admin/user_list.py:199
-#, fuzzy
+#: ../src/boards/python/admin/class_edit.py:262
+#: ../src/boards/python/admin/group_edit.py:275
+#: ../src/boards/python/admin/group_user_list.py:172
+#: ../src/boards/python/admin/user_list.py:206
 msgid "Last Name"
-msgstr "Nopea kello"
+msgstr "Sukunimi"
 
-#. ---------------
-#. Class Management
-#. ---------------
-#: ../src/boards/python/admin/class_list.py:63
-#, fuzzy
-msgid "Classes"
-msgstr "lasi"
+#: ../src/boards/python/admin/class_edit.py:381
+msgid "You need to provide at least a name for your class"
+msgstr "Vähintään luokan nimi täytyy antaa"
 
-#: ../src/boards/python/admin/class_list.py:63
-msgid "Users"
-msgstr ""
+#: ../src/boards/python/admin/class_edit.py:403
+msgid "There is already a class with this name"
+msgstr "Tämänniminen luokka on jo olemassa"
 
-#: ../src/boards/python/admin/class_list.py:191
-#, fuzzy
+#: ../src/boards/python/admin/class_list.py:170
+#: ../src/boards/python/admin/profile_edit.py:269
+#: ../src/boards/python/admin/profile_group_list.py:159
 msgid "Class"
-msgstr "lasi"
+msgstr "Luokka"
 
-#: ../src/boards/python/admin/class_list.py:203
+#: ../src/boards/python/admin/class_list.py:180
 msgid "Teacher"
-msgstr ""
+msgstr "Opettaja"
 
-#: ../src/boards/python/admin/group_edit.py:61
-#: ../src/boards/python/admin/profile_edit.py:59
-#, fuzzy
+#: ../src/boards/python/admin/group_edit.py:60
 msgid "Group Edition"
-msgstr "GCompris ediittori"
+msgstr "Ryhmien muokkaus"
 
 #: ../src/boards/python/admin/group_edit.py:65
 msgid "Editing group: "
-msgstr ""
+msgstr "Muokataan ryhmää: "
 
 #: ../src/boards/python/admin/group_edit.py:66
 msgid " for class: "
-msgstr ""
+msgstr " luokalle: "
+
+#: ../src/boards/python/admin/group_edit.py:69
+msgid "Editing a new group"
+msgstr "Muokataan uutta ryhmää"
+
+#: ../src/boards/python/admin/group_edit.py:89
+msgid "Group:"
+msgstr "Ryhmä:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/group_edit.py:101
+#: ../src/boards/python/admin/profile_edit.py:98
+msgid "Description:"
+msgstr "Kuvaus:"
 
 #. Top message gives instructions
-#: ../src/boards/python/admin/group_edit.py:74
+#: ../src/boards/python/admin/group_edit.py:112
 msgid "Assign all the users bellonging to this group"
-msgstr ""
+msgstr "Anna tehtäväksi kaikille tämän ryhmän käyttäjille"
 
-#. ---------------
-#. Group Management
-#. ---------------
-#: ../src/boards/python/admin/group_list.py:68
-#: ../src/boards/python/admin/group_list.py:226
-#: ../src/boards/python/admin/profile_edit.py:219
-#: ../src/boards/python/admin/profile_group_list.py:149
-msgid "Group"
-msgstr ""
+#: ../src/boards/python/admin/group_edit.py:358
+msgid "You need to provide at least a name for your group"
+msgstr "Vähintään ryhmän nimi täytyy antaa"
 
-#: ../src/boards/python/admin/group_list.py:92
-#, fuzzy
+#: ../src/boards/python/admin/group_edit.py:370
+msgid "There is already a group with this name"
+msgstr "Tämän niminen ryhmä on jo olemassa"
+
+#: ../src/boards/python/admin/group_list.py:87
 msgid "Select a class:"
-msgstr "Valitse tehtävä"
+msgstr "Valitse luokka:"
 
-#: ../src/boards/python/admin/group_list.py:238
-#: ../src/boards/python/admin/profile_edit.py:230
-#: ../src/boards/python/admin/profile_group_list.py:160
-#: ../src/boards/python/admin/profile_list.py:212
+#: ../src/boards/python/admin/group_list.py:215
+#: ../src/boards/python/admin/profile_edit.py:279
+#: ../src/boards/python/admin/profile_group_list.py:169
+msgid "Group"
+msgstr "Ryhmä"
+
+#: ../src/boards/python/admin/group_list.py:226
+#: ../src/boards/python/admin/profile_edit.py:289
+#: ../src/boards/python/admin/profile_group_list.py:179
+#: ../src/boards/python/admin/profile_list.py:199
 msgid "Description"
-msgstr "Selvitys"
+msgstr "Kuvaus"
 
-#: ../src/boards/python/admin/group_list.py:344
+#: ../src/boards/python/admin/group_list.py:321
 msgid "You must first select a group in the list"
-msgstr ""
+msgstr "Valitse ensin ryhmä listasta"
 
-#: ../src/boards/python/admin/group_user_list.py:155
-#: ../src/boards/python/admin/user_list.py:175
+#: ../src/boards/python/admin/group_user_list.py:152
+#: ../src/boards/python/admin/user_list.py:186
 msgid "Login"
-msgstr ""
+msgstr "Kirjautuminen"
 
-#: ../src/boards/python/admin/group_user_list.py:188
-#: ../src/boards/python/admin/user_list.py:211
+#: ../src/boards/python/admin/group_user_list.py:182
+#: ../src/boards/python/admin/user_list.py:216
 msgid "Birth Date"
-msgstr ""
+msgstr "Syntymäpäivä"
 
 #: ../src/boards/python/admin/module_boards.py:42
-#: ../src/boards/python/admin/module_boards.py:80
+#: ../src/boards/python/admin/module_boards.py:62
 msgid "Boards"
-msgstr ""
+msgstr "Laudat"
 
 #: ../src/boards/python/admin/module_groups.py:41
-msgid "Groups list"
-msgstr ""
+#: ../src/boards/python/admin/module_groups.py:67
+msgid "Groups"
+msgstr "Ryhmät"
 
 #: ../src/boards/python/admin/module_profiles.py:41
-msgid "Profiles list"
-msgstr ""
+#: ../src/boards/python/admin/module_profiles.py:66
+msgid "Profiles"
+msgstr "Profiilit"
 
 #: ../src/boards/python/admin/module_users.py:42
-msgid "Users list"
-msgstr ""
+#: ../src/boards/python/admin/module_users.py:68
+msgid "Classes"
+msgstr "Luokat"
 
-#: ../src/boards/python/admin/profile_edit.py:63
+#: ../src/boards/python/admin/module_users.py:42
+#: ../src/boards/python/admin/module_users.py:68
+msgid "Users"
+msgstr "Käyttäjät"
+
+#: ../src/boards/python/admin/profile_edit.py:59
+msgid "Profile Edition"
+msgstr "Profiilien muokkaus"
+
+#: ../src/boards/python/admin/profile_edit.py:64
 msgid "Editing profile: "
-msgstr ""
+msgstr "Muokataan profiilia: "
+
+#: ../src/boards/python/admin/profile_edit.py:67
+msgid "Editing a new profile"
+msgstr "Muokataan uutta profiilia"
+
+#: ../src/boards/python/admin/profile_edit.py:86
+msgid "Profile:"
+msgstr "Profiili:"
 
 #. Top message gives instructions
-#: ../src/boards/python/admin/profile_edit.py:71
+#: ../src/boards/python/admin/profile_edit.py:109
 msgid "Assign all the groups bellonging to this profile"
-msgstr ""
+msgstr "Anna tehtäväksi kaikille tähän profiiliin kuuluville ryhmille"
 
-#. ---------------
-#. Profile Management
-#. ---------------
-#: ../src/boards/python/admin/profile_list.py:70
-#: ../src/boards/python/admin/profile_list.py:200
-#, fuzzy
-msgid "Profile"
-msgstr "Ei suodatinta"
+#: ../src/boards/python/admin/profile_edit.py:377
+msgid "You need to provide at least a name for your profile"
+msgstr "Vähintään profiilin nimi täytyy antaa"
 
-#: ../src/boards/python/admin/profile_list.py:131
+#: ../src/boards/python/admin/profile_edit.py:399
+msgid "There is already a profile with this name"
+msgstr "Tämän niminen profiilin on jo olemassa"
+
+#: ../src/boards/python/admin/profile_list.py:122
 msgid "Default"
-msgstr ""
+msgstr "Oletus"
 
-#: ../src/boards/python/admin/profile_list.py:268
-msgid "You cannot remove the default profile"
-msgstr ""
+#: ../src/boards/python/admin/profile_list.py:189
+msgid "Profile"
+msgstr "Profiili"
 
-#: ../src/boards/python/admin/profile_list.py:321
-msgid "You must first select a profile in the list"
-msgstr ""
-
-#: ../src/boards/python/admin/profile_list.py:348
+#: ../src/boards/python/admin/profile_list.py:316
 msgid "[Default]"
-msgstr ""
+msgstr "[Oletus]"
 
-#: ../src/boards/python/admin/user_list.py:261
+#: ../src/boards/python/admin/user_edit.py:50
+msgid "User Edition"
+msgstr "Käyttäjän muokkaus"
+
+#: ../src/boards/python/admin/user_edit.py:55
+msgid "Editing user "
+msgstr "Muokataan käyttäjää "
+
+#: ../src/boards/python/admin/user_edit.py:60
+msgid "Editing a new user"
+msgstr "Muokataan uutta käyttäjää"
+
+#: ../src/boards/python/admin/user_edit.py:77
+msgid "Login:"
+msgstr "Kirjautuminen:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/user_edit.py:88
+msgid "First name:"
+msgstr "Etunimi:"
+
+#. Label and Entry for the last name
+#: ../src/boards/python/admin/user_edit.py:97
+msgid "Last name:"
+msgstr "Sukunimi:"
+
+#. Label and Entry for the birth date
+#: ../src/boards/python/admin/user_edit.py:106
+msgid "Birth date:"
+msgstr "Syntymäpäivä:"
+
+#: ../src/boards/python/admin/user_edit.py:158
 msgid ""
-"To import a file, it must be formated like this:\n"
+"You need to provide at least a login, firstname and lastname for your users"
+msgstr ""
+"Käyttäjistä täytyy kertoa vähintään kirjautumisnimi, etunimi ja sukunimi"
+
+#: ../src/boards/python/admin/user_edit.py:171
+msgid "There is already a user with this login"
+msgstr "Tällä kirjautumisnimellä on jo käyttäjä"
+
+#: ../src/boards/python/admin/user_list.py:291
+msgid ""
+"To import a user list from file, first select a class.\n"
+"FILE FORMAT: Your file must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
-msgstr ""
+msgstr "Tarvitset pythonin XMl-osan. Poistetaan SVG käytöstä."
 
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
 #: ../src/boards/python/anim.py:415
@@ -3692,42 +3729,44 @@ msgid ""
 "Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
 msgstr ""
+"Pythonin XMl-osaa ei löytynyt. SVG on pois käytöstä. Asenna pythonin XML-osa "
+"jos haluat käyttää SVG-tallennusta tai -palautusta."
 
 #: ../src/boards/python/anim.py:2208
 msgid "SVG is disabled. Install python xml module to enable it"
-msgstr ""
+msgstr "SVG ei ole käytössä. Asenna pythonin XML-osa jos haluat käyttää sitä"
 
 #: ../src/boards/python/anim.py:2364
 msgid "Warning: the following images cannot be accessed on your system.\n"
-msgstr ""
+msgstr "Varoitus: seuraavia kuvia ei löydy järjestelmästä.\n"
 
 #: ../src/boards/python/anim.py:2366
 msgid "The corresponding items have been skipped."
-msgstr ""
+msgstr "Niihin liittyvät osat sivuutetaan."
 
 #: ../src/boards/python/gnumch.py:95
 #, python-format
 msgid ", %d"
-msgstr ""
+msgstr ", %d"
 
 #: ../src/boards/python/gnumch.py:96
 #, python-format
 msgid " and %d"
-msgstr ""
+msgstr " ja %d"
 
 #: ../src/boards/python/gnumch.py:114
 #, python-format
 msgid "%d is divisible by %s."
-msgstr ""
+msgstr "%d on jaettavissa %s:lla"
 
 #: ../src/boards/python/gnumch.py:118
 msgid "1 is not a prime number."
-msgstr ""
+msgstr "1 ei ole alkuluku."
 
 #: ../src/boards/python/gnumch.py:128
 #, python-format
 msgid "Primes less than %d"
-msgstr ""
+msgstr "%d pienemmät alkuluvut"
 
 #: ../src/boards/python/gnumch.py:146
 #, python-format
@@ -3735,80 +3774,131 @@ msgid ""
 "Multiples of %d include %s,\n"
 "but %d is not a multiple of %d."
 msgstr ""
+"%d kertoimet sisältää %s,\n"
+"mutta %d ei ole %d kerroin."
 
 #: ../src/boards/python/gnumch.py:155
 #, python-format
 msgid "Factors of %d"
-msgstr ""
+msgstr "%d tekijät"
 
 #: ../src/boards/python/gnumch.py:184
 #, python-format
 msgid "%s are the factors of %d."
-msgstr ""
+msgstr "%s ovat %d tekijät."
 
 #: ../src/boards/python/gnumch.py:196
 #, python-format
 msgid "Multiples of %d"
-msgstr ""
+msgstr "%d kertoimet"
 
 #: ../src/boards/python/gnumch.py:227
 #, python-format
 msgid "%s = %d"
-msgstr ""
+msgstr "%s = %d"
 
 #: ../src/boards/python/gnumch.py:238
 #, python-format
 msgid "%d + %d"
-msgstr ""
+msgstr "%d + %d"
 
 #: ../src/boards/python/gnumch.py:243
 #, python-format
 msgid "%d - %d"
-msgstr ""
+msgstr "%d - %d "
 
 #: ../src/boards/python/gnumch.py:248
 #, python-format
 msgid "%d Ã %d"
-msgstr ""
+msgstr "%d Ã %d"
 
 #: ../src/boards/python/gnumch.py:252
-#, python-format
 msgid "%d Ã· %d"
-msgstr ""
+msgstr "%d Ã· %d"
 
 #: ../src/boards/python/gnumch.py:262
 #, python-format
 msgid "Equal to %d"
-msgstr ""
+msgstr "Yhtä kuin %d"
 
 #: ../src/boards/python/gnumch.py:282
 #, python-format
 msgid "Not equal to %d"
-msgstr ""
+msgstr "Erisuuri kuin %d"
 
 #: ../src/boards/python/gnumch.py:424
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
 msgstr ""
+"Troggle söi sinut.\n"
+"Paina <Return> jatkaaksesi."
 
-#: ../src/boards/python/pythontest.py:75
+#: ../src/boards/python/pythontest.py:105
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
-msgstr "Tämä on ensimmäinen Gcompris'hin koodattu Python plugin."
+msgstr ""
+"Tämä on ensimmäinen Gcomprisin liitännäinen, joka on kirjoitettu pythonilla."
 
-#: ../src/boards/python/pythontest.py:84
+#: ../src/boards/python/pythontest.py:114
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
 msgstr ""
-"Nyt on mahdollista luoda myös Python-tauluja Gcompris'hin.\n"
-"kittos Olivier Samyn'ille."
+"Nyt on mahdollista luoda gcomprisin osia sekä C:llä että pythonilla.\n"
+"Kiitos tästä Olivier Samynille."
 
-#: ../src/boards/python/pythontest.py:93
+#: ../src/boards/python/pythontest.py:123
 msgid "This activity is not playable yet, just a test"
-msgstr "Tämä taulu ei ole tarkoitettu käytettävaksi. Testi vain."
+msgstr "Tämä tehtävä ei ole vieläl pelattava, se on pelkkä testi"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/python/pythontest.py:351 ../src/boards/python/tuxpaint.py:161
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> asetukset\n"
+" profiilille <b>%s</b>"
+
+#. toggle box
+#: ../src/boards/python/pythontest.py:356
+msgid "Disable line drawing in circle"
+msgstr "Älä käytä viivanpiirtoa ympyrässä"
+
+#. combo box
+#: ../src/boards/python/pythontest.py:365
+msgid "Color line"
+msgstr "Väriviiva"
+
+#. spin button for int
+#: ../src/boards/python/pythontest.py:374
+msgid "Distance between circles"
+msgstr "Ympyröiden välinen etäisyys"
+
+#. radio buttons for circle or rectangle
+#: ../src/boards/python/pythontest.py:383
+msgid "Use circles"
+msgstr "Käytä ympyröitä"
+
+#: ../src/boards/python/pythontest.py:384
+msgid "Use rectangles"
+msgstr "Käytä suorakaiteita"
+
+#: ../src/boards/python/pythontest.py:387
+msgid "Choice of pattern"
+msgstr "Valittu kuvio"
+
+#: ../src/boards/python/pythontest.py:411
+msgid "Keys and values returned by PythonTest config window:"
+msgstr "Avaimet ja arvot, jotka PythonTest asetusikkuna palautti:"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
@@ -3821,7 +3911,7 @@ msgstr "Koordinaatit"
 #: ../src/boards/python/searace.py:201 ../src/boards/python/searace.py:206
 #: ../src/boards/python/searace.py:232
 msgid "Race is already running"
-msgstr ""
+msgstr "Kilpailu on jo käynnissä"
 
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
@@ -3829,60 +3919,77 @@ msgstr ""
 #: ../src/boards/python/searace.py:535 ../src/boards/python/searace.py:854
 #: ../src/boards/python/searace.py:883 ../src/boards/python/searace.py:978
 #: ../src/boards/python/searace.py:984 ../src/boards/python/searace.py:992
-#, fuzzy
 msgid "forward"
-msgstr "Norja"
+msgstr "eteenpäin"
 
 #: ../src/boards/python/searace.py:526
 msgid "COMMANDS ARE"
-msgstr ""
+msgstr "KÄSKYT OVAT"
 
 #. The two boat arrived in a close time frame (1s), it's a draw
 #: ../src/boards/python/searace.py:752
 msgid "This is a draw"
-msgstr ""
+msgstr "Tämä on tasapeli"
 
 #: ../src/boards/python/searace.py:759
 msgid "The Red boat has won"
-msgstr ""
+msgstr "Punainen vene voitti"
 
 #: ../src/boards/python/searace.py:762
 msgid "The Green boat has won"
-msgstr ""
+msgstr "Vihreä vene voitti"
 
 #: ../src/boards/python/searace.py:780 ../src/boards/python/searace.py:1022
 msgid "Angle:"
-msgstr ""
+msgstr "Kulma:"
 
 #: ../src/boards/python/searace.py:780
 msgid "Wind:"
-msgstr ""
+msgstr "Tuuli:"
 
 #: ../src/boards/python/searace.py:861
 msgid "Syntax error at line"
-msgstr ""
+msgstr "Syntaksivirhe rivillä"
 
 #: ../src/boards/python/searace.py:879
 msgid "The command"
-msgstr ""
+msgstr "Komento"
 
 #: ../src/boards/python/searace.py:898
 msgid "Unknown command at line"
-msgstr ""
+msgstr "Tuntematon komento rivillä"
 
 #: ../src/boards/python/searace.py:1022
 msgid "Distance:"
-msgstr ""
+msgstr "Etäisyys:"
 
-#: ../src/boards/python/tuxpaint.py:99
+#: ../src/boards/python/tuxpaint.py:101
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
 msgstr ""
+"Tuxpaintia ei löydy. \n"
+"Asenna se, jos haluat käyttää tätä tehtävää !"
 
-#: ../src/boards/python/tuxpaint.py:112
+#: ../src/boards/python/tuxpaint.py:114
 msgid "Waiting Tuxpaint Finished"
-msgstr ""
+msgstr "Odotetaan tuxpaintin sulkeutumista"
+
+#: ../src/boards/python/tuxpaint.py:166
+msgid "Disable shape rotation"
+msgstr "Älä pyöritä kappaleita"
+
+#: ../src/boards/python/tuxpaint.py:168
+msgid "Follow gcompris fullscreen"
+msgstr "Seuraa gcomprisin kokoruututilaa"
+
+#: ../src/boards/python/tuxpaint.py:170
+msgid "Show Uppercase text only"
+msgstr "Näytä vain isoja kirjaimia"
+
+#: ../src/boards/python/tuxpaint.py:172
+msgid "Disable stamps"
+msgstr "Älä käytä leimoja"
 
 #: ../src/boards/railroad.c:96
 msgid "Memory game"
@@ -4009,7 +4116,6 @@ msgid "Fully type the falling words before they reach the ground"
 msgstr "Kirjoita putoavat sanat ennen kuin ne osuvat maahan"
 
 #: ../src/gcompris/about.c:65
-#, fuzzy
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
@@ -4017,25 +4123,26 @@ msgid ""
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
-"Krediitit:\n"
-"Pääohjelmoja: Bruno Coudoin\n"
-"Contribuutio: Pascal George\n"
-"Grafiikka: Renaud Blanchard\n"
-"Intro-musiikki: Djilaly Sebihi\n"
+"Kirjoittanut: Bruno Coudoin\n"
+"Avustanut: Pascal Georges, Jose Jorge\n"
+"Grafiikka: Renaud Blanchard, Franck Doucet\n"
+"Alkumusiikki: Djilaly Sebihi\n"
 "Taustamusiikki: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:73
 msgid "translator_credits"
 msgstr ""
-"Jyrki Kuoppala, 2001\n"
-"http://gnome.fi/\n"
 "Rami Aubourg-Kaires, Merja Kaires, Satu Ellermaa, 2003-2004\n"
-"http://www.kaires.org"
+"http://www.kaires.org\n"
+"\n"
+"Ilkka Tuohela, 2005\n"
+"Jyrki Kuoppala, 2001\n"
+"http://gnome.fi/"
 
 #: ../src/gcompris/about.c:105
 msgid "About GCompris"
-msgstr "GComprista"
+msgstr "Tietoja GComprisista"
 
 #: ../src/gcompris/about.c:115
 msgid "Translators:"
@@ -4046,11 +4153,12 @@ msgid "GCompris Home Page"
 msgstr "GCompris Kotisivut"
 
 #: ../src/gcompris/about.c:252
-#, fuzzy
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
-msgstr "Tämä ohjelma on GNU Public Licence'in alainen"
+msgstr ""
+"Tämä ohjelma on GNU-ohjelma ja on julkaistu GNU General Public Licensen "
+"mukaisesti"
 
 #: ../src/gcompris/about.c:281
 msgid "Help"
@@ -4068,40 +4176,39 @@ msgstr "Dynaaminen moduulin lataus ei toiminut. Gcompris ei voi startata.\n"
 
 #: ../src/gcompris/config.c:61
 msgid "Your system default"
-msgstr "Tietokoneesi alkuperäiset määritykset"
+msgstr "Järjestelmän oletusasetus"
 
 #: ../src/gcompris/config.c:62
 msgid "Amharic"
-msgstr ""
+msgstr "Amhari"
 
 #: ../src/gcompris/config.c:63
 msgid "Arabic"
-msgstr "Arabiaksi"
+msgstr "Arabia"
 
 #: ../src/gcompris/config.c:64
 msgid "Azerbaijani Turkic"
 msgstr "Azerbaijanin turkki"
 
 #: ../src/gcompris/config.c:65
-#, fuzzy
 msgid "Bulgarian"
 msgstr "Bulgaria"
 
 #: ../src/gcompris/config.c:66
 msgid "Catalan"
-msgstr "Katalonjaksi"
+msgstr "Katalonia"
 
 #: ../src/gcompris/config.c:68
 msgid "Danish"
-msgstr "Tanskaksi"
+msgstr "Tanska"
 
 #: ../src/gcompris/config.c:69
 msgid "German"
-msgstr "Saksaksi"
+msgstr "Saksa"
 
 #: ../src/gcompris/config.c:70
 msgid "Greek"
-msgstr "Kreikaksi"
+msgstr "Kreikka"
 
 #: ../src/gcompris/config.c:71
 msgid "English (Canadian)"
@@ -4117,15 +4224,15 @@ msgstr "Englanti (Yhdysvallat)"
 
 #: ../src/gcompris/config.c:74
 msgid "Spanish"
-msgstr "Espanjaksi"
+msgstr "Espanja"
 
 #: ../src/gcompris/config.c:75
 msgid "Finnish"
-msgstr "Suomeksi"
+msgstr "Suomi"
 
 #: ../src/gcompris/config.c:76
 msgid "French"
-msgstr "Ranskaksi"
+msgstr "Ranska"
 
 #: ../src/gcompris/config.c:77
 msgid "Irish (Gaelic)"
@@ -4133,97 +4240,95 @@ msgstr "Iiri (Gaeli)"
 
 #: ../src/gcompris/config.c:78
 msgid "Hebrew"
-msgstr "Hepreaksi"
+msgstr "Heprea"
 
 #: ../src/gcompris/config.c:79
 msgid "Indian (Hindi)"
-msgstr "Hindiksi"
+msgstr "Hindi"
 
 #: ../src/gcompris/config.c:80
-#, fuzzy
 msgid "Indian (Gujarati)"
-msgstr "Punjabi"
+msgstr "Intia (Gujarati)"
 
 #: ../src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
-msgstr "Punjabi"
+msgstr "Intia (Punjabi)"
 
 #: ../src/gcompris/config.c:82
 msgid "Hungarian"
-msgstr "Unkariksi"
+msgstr "Unkari"
 
 #: ../src/gcompris/config.c:83
 msgid "Croatian"
-msgstr "Katalonjaksi"
+msgstr "Kroatia"
 
 #: ../src/gcompris/config.c:84
 msgid "Italian"
-msgstr "Italiaksi"
+msgstr "Italia"
 
 #: ../src/gcompris/config.c:85
 msgid "Lithuanian"
-msgstr "Liettuaksi"
+msgstr "Liettua"
 
 #: ../src/gcompris/config.c:86
 msgid "Macedonian"
-msgstr "Makedoniaksi"
+msgstr "Makedonia"
 
 #: ../src/gcompris/config.c:87
 msgid "Malayalam"
-msgstr "Malaiji"
+msgstr "Malayalam"
 
 #: ../src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malaiji"
 
 #: ../src/gcompris/config.c:89
-#, fuzzy
 msgid "Nepal"
-msgstr "seepia"
+msgstr "Nepali"
 
 #: ../src/gcompris/config.c:90
 msgid "Dutch"
-msgstr "Hollanniksi"
+msgstr "Hollanti"
 
 #: ../src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
-msgstr "Norjaksi (Bokmal)"
+msgstr "Norja (Bokmal)"
 
 #: ../src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
-msgstr "Norjaksi (Nynorsk)"
+msgstr "Norja (Nynorsk)"
 
 #: ../src/gcompris/config.c:93
 msgid "Polish"
-msgstr "Puolaksi"
+msgstr "Puola"
 
 #: ../src/gcompris/config.c:94
 msgid "Portuguese"
-msgstr "Portugaliksi"
+msgstr "Portugali"
 
 #: ../src/gcompris/config.c:95
 msgid "Brazil Portuguese"
-msgstr "Brasilian Portugaliksi"
+msgstr "Brasilian Portugali"
 
 #: ../src/gcompris/config.c:96
 msgid "Romanian"
-msgstr "Romaniaksi"
+msgstr "Romania"
 
 #: ../src/gcompris/config.c:97
 msgid "Russian"
-msgstr "Venäjäksi"
+msgstr "Venäjä"
 
 #: ../src/gcompris/config.c:98
 msgid "Kinyarwanda"
-msgstr ""
+msgstr "Kinyawanda"
 
 #: ../src/gcompris/config.c:99
 msgid "Slovak"
-msgstr "Slovakiksi"
+msgstr "Slovakia"
 
 #: ../src/gcompris/config.c:100
 msgid "Slovenian"
-msgstr "Sloveniaksi"
+msgstr "Slovenia"
 
 #: ../src/gcompris/config.c:101
 msgid "Albanian"
@@ -4231,27 +4336,27 @@ msgstr "Albania"
 
 #: ../src/gcompris/config.c:102
 msgid "Serbian (Latin)"
-msgstr "Serbi (latinalaiset aakkoset)"
+msgstr "Serbia (latinalaiset aakkoset)"
 
 #: ../src/gcompris/config.c:103
 msgid "Serbian"
-msgstr "Serbiksi"
+msgstr "Serbi"
 
 #: ../src/gcompris/config.c:104
 msgid "Swedish"
-msgstr "Ruotsiksi"
+msgstr "Ruotsi"
 
 #: ../src/gcompris/config.c:105
 msgid "Turkish"
-msgstr "Turkiksi"
+msgstr "Turkki"
 
 #: ../src/gcompris/config.c:106
 msgid "Walloon"
-msgstr "Belgian hollanniksi"
+msgstr "Belgian hollanti"
 
 #: ../src/gcompris/config.c:107
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Kiina (yksinkertaistettu)"
 
 #: ../src/gcompris/config.c:112
 msgid "No time limit"
@@ -4271,7 +4376,7 @@ msgstr "Nopea kello"
 
 #: ../src/gcompris/config.c:120
 msgid "800x600 (Default for gcompris)"
-msgstr "800x600 (Gcompris'n tavallinen resoluutio)"
+msgstr "800x600 (Gcomprisin oletus)"
 
 #: ../src/gcompris/config.c:125
 msgid "No filter"
@@ -4291,11 +4396,11 @@ msgstr "Tämä ja korkeammat vaikeusasteet "
 
 #: ../src/gcompris/config.c:186
 msgid "GCompris Configuration"
-msgstr "GCompris asetukset"
+msgstr "GComprisin asetukset"
 
 #: ../src/gcompris/config.c:295
 msgid "Fullscreen"
-msgstr "Täysi näyttö"
+msgstr "Kokoruututila"
 
 #: ../src/gcompris/config.c:338
 msgid "Music"
@@ -4319,7 +4424,7 @@ msgstr "En löytänyt pohjakuvaa täältä: %s\n"
 #: ../src/gcompris/config.c:831
 #, c-format
 msgid "Skin : %s"
-msgstr "Nahka : %s"
+msgstr "Teema: %s"
 
 #: ../src/gcompris/file_selector.c:341
 msgid "CANCEL"
@@ -4351,23 +4456,23 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:101
 msgid "run gcompris in fullscreen mode."
-msgstr "Täysi näyttö"
+msgstr "Suorita kokoruututilassa."
 
 #: ../src/gcompris/gcompris.c:103
 msgid "run gcompris in window mode."
-msgstr "Ikkunassa"
+msgstr "Suorita ikkunassa."
 
 #: ../src/gcompris/gcompris.c:105
 msgid "run gcompris with sound enabled."
-msgstr "Aänen kanssa"
+msgstr "Suorita änen kanssa."
 
 #: ../src/gcompris/gcompris.c:107
 msgid "run gcompris without sound."
-msgstr "Ilman ääntä."
+msgstr "Suorita ilman ääntä."
 
 #: ../src/gcompris/gcompris.c:109
 msgid "run gcompris with the default gnome cursor."
-msgstr "Gcompris Gnomen tavallisella kursorilla"
+msgstr "Suorita Gnomen käyttämällä kursorilla."
 
 #: ../src/gcompris/gcompris.c:111
 msgid "display only activities with this difficulty level."
@@ -4375,19 +4480,19 @@ msgstr "näytä ainoastaan tätä vaikeusastetta vastaavat tehtävät."
 
 #: ../src/gcompris/gcompris.c:113
 msgid "display debug informations on the console."
-msgstr "Näytä debug-tiedot konsolilla"
+msgstr "Näytä debug-tiedot konsolilla."
 
 #: ../src/gcompris/gcompris.c:115
 msgid "Print the version of "
-msgstr "Tulostaa version"
+msgstr "Tulosta versio "
 
 #: ../src/gcompris/gcompris.c:117
 msgid "Use the antialiased canvas (slower)."
-msgstr "Käytä hiottua kanvasia (hitaampi)"
+msgstr "Käytä antialiasoitua piirtoa (hitaampi)."
 
 #: ../src/gcompris/gcompris.c:119
 msgid "Disable XRANDR (No screen resolution change)."
-msgstr ""
+msgstr "Poista XRANDR käytöstä (ei vaihdeta näytön tarkkuutta)."
 
 #: ../src/gcompris/gcompris.c:121
 msgid ""
@@ -4395,41 +4500,44 @@ msgid ""
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
 "show the list of menus and activity"
 msgstr ""
+"Suorita gcompris halutulla valikolla. Esimerkiksi -l /reading antaa pelata "
+"vain lukutehtäviä, -l /boards/connect4 vain connect4-tehtävää. Käytä "
+"komentoa -l list näyttääksesi listan valikoista ja tehtävistä."
 
 #: ../src/gcompris/gcompris.c:123
 msgid "Run gcompris with local activity directory added to menu"
-msgstr ""
+msgstr "Suorita gcompris näyttäen vain halutun valikon"
 
 #: ../src/gcompris/gcompris.c:125
-#, fuzzy
 msgid "Run gcompris with administration and users management mode"
-msgstr "Aänen kanssa"
+msgstr "Suorita gcompris hallintatilassa"
 
 #: ../src/gcompris/gcompris.c:127
 msgid "Use alternate database for profiles"
-msgstr ""
+msgstr "Käytä vaihtoehtoista profiilien tietokantaa"
 
 #: ../src/gcompris/gcompris.c:129
 msgid "Use alternate database for logs"
-msgstr ""
+msgstr "Käytä vaihtoehtoista tietokantaa lokitiedoille"
 
 #: ../src/gcompris/gcompris.c:131
 msgid "Create the alternate database for profiles"
-msgstr ""
+msgstr "Luo vaihtoehtoinen tietokanta profiileille"
 
 #: ../src/gcompris/gcompris.c:133
 msgid "Re-read XML Menus and store them in the database"
-msgstr ""
+msgstr "Lue XML-valikot uudestaan ja tallenna ne tietokantaan"
 
 #: ../src/gcompris/gcompris.c:135
-msgid "Set the profile to use. Use 'gcompris -e' to create profiles"
-msgstr ""
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr "Aseta käytettävä profiili. Luo profiileja komennolla'gcompris -a'"
 
 #: ../src/gcompris/gcompris.c:137
-msgid "List all availaible profiles. Use 'gcompris -e' to create profiles"
+msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
+"Näytä olemassaolevat profiilit. Luo profiileja komennolla 'gcompris -a'"
 
-#: ../src/gcompris/gcompris.c:661
+#: ../src/gcompris/gcompris.c:668
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4451,7 +4559,7 @@ msgstr ""
 "miettiä mahdollisuutta\n"
 "käyttää esim. GNU / Linuxia. Lisää tietoja: http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:928
+#: ../src/gcompris/gcompris.c:937
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4465,86 +4573,85 @@ msgstr ""
 "Lisää tetoja täältä: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:996
+#: ../src/gcompris/gcompris.c:1005
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
-msgstr ""
+msgstr "Käytä -l tehtävä saadaksesi tietyn tehtävän suoraan.\n"
 
-#: ../src/gcompris/gcompris.c:997
+#: ../src/gcompris/gcompris.c:1006
 #, c-format
 msgid "List of available activity is :\n"
-msgstr ""
+msgstr "Lista mahdollisista tehtävistä:\n"
 
-#: ../src/gcompris/gcompris.c:1095
+#: ../src/gcompris/gcompris.c:1104
 #, c-format
 msgid "List of available profiles are:\n"
-msgstr ""
+msgstr "Lista mahdollisista profiileista:\n"
 
 #: ../src/gcompris/gcompris_db.c:98
 #, c-format
 msgid "Database %s opened"
-msgstr ""
+msgstr "Tietokanta %s avattu"
 
 #: ../src/gcompris/gcompris_db.c:143
 msgid "Database tables created"
-msgstr ""
+msgstr "Tietokannan taulut luotu"
 
 #: ../src/gcompris/gcompris_db.c:170
-#, fuzzy
 msgid "Unaffected"
-msgstr "Tehosteet"
+msgstr "Ei vaikutusta"
 
 #: ../src/gcompris/gcompris_db.c:171
 msgid "Users without class"
-msgstr ""
+msgstr "Luokkaan kuulumattomat käyttäjät"
 
 #: ../src/gcompris/gcompris_db.c:754 ../src/gcompris/gcompris_db.c:1311
 #, c-format
 msgid "No users groups for profile %s"
-msgstr ""
+msgstr "Profiilissa %s ei ole käyttäjäryhmiä"
 
 #: ../src/gcompris/gcompris_db.c:785 ../src/gcompris/gcompris_db.c:1344
 #, c-format
 msgid "No activities out for profile %s"
-msgstr ""
+msgstr "Profiilissa %s ei ole aktiviteetteja"
 
 #: ../src/gcompris/gcompris_db.c:931
 #, c-format
 msgid "No users in group with id  %d"
-msgstr ""
+msgstr "Ei käyttäjiä ryhmässä, jonka tunniste on %d"
 
 #: ../src/gcompris/gcompris_db.c:988
 #, c-format
 msgid "No user with id  %d"
-msgstr ""
+msgstr "Ei käyttäjää tunnisteella %d"
 
 #: ../src/gcompris/gcompris_db.c:1045
 #, c-format
 msgid "No class with id  %d"
-msgstr ""
+msgstr "Ei luokkaa tunnisteella %d"
 
 #: ../src/gcompris/gcompris_db.c:1080
 #, c-format
 msgid ""
 "No groups in for class %s, there must be at least one for whole class (%d)"
-msgstr ""
+msgstr "Luokalle %s ei ole ryhmiä. Ainakin yksi täytyy olla koko luokalle (%d)"
 
 #: ../src/gcompris/gcompris_db.c:1404
 #, c-format
 msgid "No group with id  %d"
-msgstr ""
+msgstr "Ei ryhmää tunnisteella %d"
 
 #: ../src/gcompris/gcompris_db.c:1457 ../src/gcompris/gcompris_db.c:1657
 msgid "No groups !"
-msgstr ""
+msgstr "Ei ryhmiä!"
 
 #: ../src/gcompris/gcompris_db.c:1600
 msgid "No users !"
-msgstr ""
+msgstr "Ei käyttäjiä!"
 
 #: ../src/gcompris/help.c:170
 msgid "Prerequisite"
-msgstr "Edellytykset"
+msgstr "Edellytys"
 
 #: ../src/gcompris/help.c:198
 msgid "Goal"
@@ -4552,32 +4659,33 @@ msgstr "Päämäärä"
 
 #: ../src/gcompris/help.c:226
 msgid "Manual"
-msgstr "Selitys"
+msgstr "Ohje"
 
 #: ../src/gcompris/help.c:254
 msgid "Credit"
-msgstr "Krediitit"
+msgstr "Kiitokset"
 
 #: ../src/gcompris/images_selector.c:292
 #, c-format
 msgid "dataset %s is a directory. Trying to read xml "
-msgstr ""
+msgstr "tietojoukko %s on hakemisto, yritetään lukea xml "
 
 #: ../src/gcompris/images_selector.c:627
 #, c-format
 msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
-msgstr ""
+msgstr "Kuvajoukossa %s, kotihakemiston polkua %s ei löydy. Ohitetaan...\n"
 
 #: ../src/gcompris/images_selector.c:662
 #, c-format
 msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
-msgstr ""
+msgstr "Kuvajoukossa %s, kuvaa ei löydy. Ohitetaan...\n"
 
 #: ../src/gcompris/images_selector.c:688
 #, c-format
 msgid ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
 msgstr ""
+"Kuvajoukossa %s, hakemistoa %s ei löydy. Ohitetaan koko kuvajoukko...\n"
 
 #: ../src/gcompris/soundutil.c:162
 #, c-format
@@ -4591,7 +4699,7 @@ msgid ""
 "vorbis OR the sound output failed"
 msgstr ""
 "Taustamusiikki on nyt pysäytetty. Voi olla että tiedostot %s eivät ole ogg "
-"vorbis'ia tai ääni ei toimi."
+"vorbis-muodossa tai että ääni ei toimi."
 
 #: ../src/gcompris/timer.c:237
 msgid "Time Elapsed"
@@ -4602,223 +4710,5 @@ msgstr "Aika loppui"
 msgid "Remaining Time = %d"
 msgstr "Aikaa jäljellä = %d"
 
-#~ msgid "The game of billiards"
-#~ msgstr "Biljardipeli"
-
-#~ msgid "germany"
-#~ msgstr "Saksa"
-
-#~ msgid "switz"
-#~ msgstr "Sveitsi"
-
-#~ msgid "albania"
-#~ msgstr "Albania"
-
-#~ msgid "croatia"
-#~ msgstr "Kroatia"
-
-#~ msgid "czech"
-#~ msgstr "Tsekki"
-
-#~ msgid "macedonia"
-#~ msgstr "Makedonia"
-
-#~ msgid "slovenia"
-#~ msgstr "Slovenia"
-
-#~ msgid ""
-#~ "Error: /usr/bin/gnuchessx is installed\n"
-#~ "which means you have an old version\n"
-#~ "of gnuchess.\n"
-#~ "Please upgrade to gnuchess 5 or above."
-#~ msgstr ""
-#~ "Virhe: /usr/bin/gnuchessx on asennettu\n"
-#~ "Se tarkoittaa että sinulla on vanha\n"
-#~ "gnuchess versio.\n"
-#~ "Asenna gnuchess 5 tai korkeampi."
-
-#~ msgid "Icon"
-#~ msgstr "Kuva"
-
-#~ msgid "Name"
-#~ msgstr "Nimi"
-
-#~ msgid "Type"
-#~ msgstr "Tyyppi"
-
-#~ msgid "Difficulty"
-#~ msgstr "Vaikeusaste"
-
-#~ msgid "Author"
-#~ msgstr "Ohjelmoija"
-
-#~ msgid "Directory"
-#~ msgstr "Hakemisto"
-
-#~ msgid "Title"
-#~ msgstr "Otsikko"
-
-#~ msgid "Released under GPL"
-#~ msgstr "GPL-lisenssi"
-
-#~ msgid "%a %b %d %H:%M:%S %Z %Y"
-#~ msgstr "%a %b %d %H:%M:%S %Z %Y"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Pixmap-tiedostoa %s ei löydy!"
-
-#~ msgid "VIII Century"
-#~ msgstr "Kahdeksas vuosisata"
-
-#~ msgid "Error: The wordfile package used for your locale is corrupted."
-#~ msgstr "Virhe: kielellesi tehty sanasto on virheellinen."
-
-#~ msgid "American English"
-#~ msgstr "Amerikan Englanniksi"
-
-#~ msgid "Great Britain English"
-#~ msgstr "Englannin englanniksi"
-
-#~ msgid "Canadian English"
-#~ msgstr "Kanadan Englanniksi"
-
-#~ msgid ""
-#~ "This is a Demo version of gcompris,\n"
-#~ "only 12 on 45 activities are available.\n"
-#~ "To get the full version,\n"
-#~ "go to http://www.ofset.org/order/gcompris"
-#~ msgstr ""
-#~ "Tämä on demoversion Gcompris'ta.\n"
-#~ "Ainoastaan kaksitoista 45:stä taulusta ovat käytettävissä.\n"
-#~ "Saadaksesi täyden version, mene tänne: http://www.ofset.org/order/"
-#~ "gcompris\n"
-#~ "tai käytä Linuxia."
-
-#~ msgid "This board is dedicated to recognize unusual colors."
-#~ msgstr ""
-#~ "Tämän osan tarkoitus on tunnistaa harvinaisia värejä \n"
-#~ "(Ei vielä täysin käännetty)"
-
-#~ msgid ""
-#~ "In a limited time, give the result to the multiplication of two numbers"
-#~ msgstr "Anna kerroinlaskun vastaus rajoitetussa ajassa."
-
-#~ msgid ""
-#~ "With displayed numbers and operations, find the right combination to get "
-#~ "the right result"
-#~ msgstr "Löydä miten päästään lopputulokseen."
-
-#~ msgid "Simple addition"
-#~ msgstr "Helppo ynnälasku"
-
-#~ msgid "Baby Shape Puzzle"
-#~ msgstr "Muotopeli"
-
-#~ msgid ""
-#~ "Motor coordination: mouse mouvement and mouse click. The goal is just to "
-#~ "click with the left mouse button on the moving fish."
-#~ msgstr ""
-#~ "Hiiren hallitseminen. Tarkoitus on ainoastaan näpäyttää uivia kaloja "
-#~ "hiiren\n"
-#~ "vasemmalla näppäimellä ennen kuin ne karkaavat."
-
-#~ msgid ""
-#~ "This board is dedicated to train kids to recognize colors. Several "
-#~ "colored toons are displayed and a color is spoken. The kid must select "
-#~ "the proper toon."
-#~ msgstr ""
-#~ "Tämän tehtävän tarkoitus on autta lapsia tuntemaan värit.\n"
-#~ "Värillisiä kuvia näytetään ja värin nimi kuullaan. Lapsen täytyy valita "
-#~ "oikean värinen kuva."
-
-#~ msgid "Drag and Drop the top piece only on an empty location"
-#~ msgstr "Siirrä yläpuolella oleva esine ainoastaan tyhjään kohtaan"
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots associated with work are "
-#~ "printed. In the vertical frame - at the left of the main board area, a "
-#~ "set of objects are represented, each of these objects match with one word "
-#~ "of the main board area. The right association must be find for these "
-#~ "objects. This is achieved by dragging the objects to the right red plot "
-#~ "in the main area."
-#~ msgstr ""
-#~ "Keskellä on punaisia pisteitä. Vasemmalla on tiettyjä esineitä.\n"
-#~ "Jokainen vasemmalla oleva esine täsmää yhtä keskellä olevaa sanaa.\n"
-#~ "Vie hiiren avulla esineet vasemmalta esineen nimeä täsmäävän punaisen "
-#~ "pisteen päälle."
-
-#~ msgid ""
-#~ "In the main board area, a set of red plots are displayed. In the vertical "
-#~ "frame - at the left of the main board area, a set of image parts of a "
-#~ "painting are avalaible. Drag and drop these parts in the right plot to "
-#~ "rebuild the original painting."
-#~ msgstr ""
-#~ "Keskellä on punaisia pisteitä. Vasemmalla on osia alkuperäisestä "
-#~ "maalauksesta.\n"
-#~ "Siirrä vasemmalla olevat palaset oikeitten punaisten pisteitten päälle "
-#~ "kokoaksesi\n"
-#~ "maalauksen uudelleen."
-
-#~ msgid ""
-#~ "Click on any keyboard key to let Tux jump. Another keypress will open the "
-#~ "parachute. Alternatively, a click on the plane and the tux also works."
-#~ msgstr ""
-#~ "Paina mitä tahansa näppäimistön nappulaa käskeäksesi Tuxia hypätä.\n"
-#~ "Toinen nappulan painaminen avaa laskuvarjon.\n"
-#~ "Hiiren näppäys lentokoneeseen ja sitten tuxiin toimii myös."
-
-#~ msgid ""
-#~ "At the top and right of the board area, a word is printed. At the left a "
-#~ "list of words will move in and out of the screen. Tell if you see the "
-#~ "initial word in this list."
-#~ msgstr ""
-#~ "Ylhäällä sekä oikealla on kirjoitettu etsittävä sana.\n"
-#~ "Vasemmalla näkyy jonkin aikaa sanalista.\n"
-#~ "Kerro näetkö etsittävän sanan listassa."
-
-#~ msgid "Couldn't open pixmap dir: %s"
-#~ msgstr "Pixmap-hakemistoa %s ei voi avata"
-
-#~ msgid ""
-#~ "select the audio output. Use '-A list' to get the list of available audio "
-#~ "output"
-#~ msgstr ""
-#~ "Valitse äänitulostus. Käytä '-A list' tietääksesi mahdolliset "
-#~ "äänitulostimet."
-
-#~ msgid ""
-#~ "Possible audio output devices are:\n"
-#~ "default "
-#~ msgstr ""
-#~ "Mahdolliset äänitulostimet ovat:\n"
-#~ "default "
-
-#~ msgid "Now Playing Music"
-#~ msgstr "Pelaamassa musiikkia"
-
-#~ msgid "Artist"
-#~ msgstr "Taiteilija"
-
-#~ msgid "Move the mouse to machpuzzle the area and discover the background"
-#~ msgstr "Siirtele hiirtä järjestääksesi alapuolella olevan kuvan"
-
-#~ msgid "GCompris I Have Understood"
-#~ msgstr "GCompris, Ymmärrän"
-
-#, fuzzy
-#~ msgid "Couldn't create pixmap from file: %s"
-#~ msgstr "Pixmap-hakemistoa %s ei voi avata"
-
-#, fuzzy
-#~ msgid "Type the keyboard number 1 to 9 before the dices reach the ground"
-#~ msgstr "Kirjoita nopassa oleva numero ennen kuin noppa osuu maahan"
-
-#, fuzzy
-#~ msgid ""
-#~ "A simple educational board based game for children starting at 3. This "
-#~ "software is a GNU Package"
-#~ msgstr "Helppo opettava peli kolmevuotiaille ja vanhemmille."
-
-#, fuzzy
-#~ msgid "Do you really want to quit GCompris?"
-#~ msgstr "Haluatko lopettaa pelin?"
+#~ msgid "%d ã· %d"
+#~ msgstr "%d ã· %d"
