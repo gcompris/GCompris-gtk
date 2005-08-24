@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/24 21:09:54 yves>
+ * Time-stamp: <2005/08/24 22:33:31 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1286,18 +1286,21 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   
   i = ncolumn;
 
-  g_warning("key == %s  -- value == %s ", result[0], result[1]);
+  if (i == 2)
+    g_warning(" i %d key == %s  -- value == %s ", i, result[0], result[1]);
+  else
+    g_warning("Request returned %d column(s) !", i);
 
   while (i < (nrow +1)*ncolumn){
     if (strcmp(result[i+1],"NULL")!=0){
       /* "NULL" values are ignored */
       g_hash_table_replace (hash_conf,
-			    g_strdup(result[i++]),
-			    g_strdup(result[i++]));
-      i -=2;
+			    g_strdup(result[i]),
+			    g_strdup(result[i+1]));
+
       g_warning("get_conf: put key %s, value %s in the hash",
-		g_strdup(result[i++]),
-		g_strdup(result[i++]));
+		result[i++],
+		result[i++]);
     }
     else
       i += 2;
