@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/23 23:40:14 yves>
+ * Time-stamp: <2005/08/24 08:39:43 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -116,6 +116,9 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
   gtk_window_set_default_size     (conf_window,
 				   320,
 				   300); 
+
+  gtk_window_set_resizable (conf_window, TRUE);
+
   gtk_window_set_transient_for(conf_window,
 			       GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(get_current_gcompris_board()->canvas))));
   gtk_window_set_modal(conf_window, TRUE);
@@ -898,7 +901,7 @@ GtkTextView *gcompris_textview(const gchar *label,
 
   
   gtk_scrolled_window_set_policy  (GTK_SCROLLED_WINDOW(scroll),
-				   GTK_POLICY_NEVER,
+				   GTK_POLICY_AUTOMATIC,
 				   GTK_POLICY_AUTOMATIC);
 
   gtk_widget_set_size_request     (scroll,
@@ -961,7 +964,7 @@ GtkTextView *gcompris_textview(const gchar *label,
   user_param->TextBuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW(textView));
 
   /* Validate button */
-  GtkWidget *button = gtk_button_new_from_stock(GTK_STOCK_EXECUTE);
+  GtkWidget *button = gtk_button_new_with_label ("Check text");
   gtk_widget_show(button);
   gtk_box_pack_end (GTK_BOX(validationHbox),
 		    button,

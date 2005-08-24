@@ -712,7 +712,7 @@ class Board_list:
     gcompris.textview('Test python textview',
                       'test_textview',
                       'Play with that, it\'s a test !',
-                      'Initialisation',
+                      'Initialisation ce texte là devrait être nettement trop long pour ne pas être wrappé. Æ',
                       self.wordlist_validate)
 
   def wordlist_callback(self, table):

@@ -65,11 +65,10 @@ class Gcompris_login:
     else:
       gcompris.bar_set(gcompris.BAR_REPEAT)
 
-    
+    gcompris.bar_set_level(self.gcomprisBoard)
+
     gcompris.set_background(self.gcomprisBoard.canvas.root(),
                             backgrounds[self.gcomprisBoard.level-1])
-
-    gcompris.bar_set_level(self.gcomprisBoard)
 
     # Get the default profile
     self.Prop = gcompris.get_properties()
@@ -465,10 +464,10 @@ class Gcompris_login:
     entry.modify_text(gtk.STATE_NORMAL, text_color)
     entry.modify_text(gtk.STATE_SELECTED, text_color_selected)
     entry.modify_base(gtk.STATE_NORMAL, bg_color)
-        
 
     entry.set_max_length(50)
     entry.connect("activate", self.enter_callback)
+
     entry.show()
 
     self.widget = self.rootitem.add(
@@ -482,6 +481,15 @@ class Gcompris_login:
       size_pixels=False
       )
 
+    self.widget.raise_to_top()
+
+    # does not work. Why ?
+    #self.gcomprisBoard.canvas.grab_focus()
+    self.widget.grab_focus()
+    entry.grab_focus()
+   
+    
+    
   def enter_callback(self, widget):
     text = widget.get_text()
     print text
@@ -541,4 +549,4 @@ class Gcompris_login:
   def ok_callback(self, table):
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configuring_profile, self.gcomprisBoard, key, value)
-
+    

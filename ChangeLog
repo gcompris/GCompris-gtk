@@ -1,3 +1,14 @@
+2005-08-24  Yves Combe  <yves@ycombe.net>
+
+	change init_background and board_play order to get entry login active on launch.
+	improve wrap lines behaviour in textview tool.
+
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/login.py:
+	* src/gcompris/board_config.c: (gcompris_configuration_window),
+	(gcompris_textview):
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_init):
+
 2005-08-23  Yves Combe  <yves@ycombe.net>
 
 	add gcompris_textview text editor tool with validation callback function (Bruno idea). And Python binding.

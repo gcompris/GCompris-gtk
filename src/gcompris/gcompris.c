@@ -671,18 +671,9 @@ static void setup_window ()
   /* Run the bar */
   gcompris_bar_start(canvas_bar);
 
-  elapsed = g_timer_elapsed( chronometer, &musec);
-  printf("gcompris_bar_start %f sec.\n", elapsed);
-
-  board_play (board_to_start);
-
-  elapsed = g_timer_elapsed( chronometer, &musec);
-  printf("board_play %f sec.\n", elapsed);
-
   init_background();
 
-  elapsed = g_timer_elapsed( chronometer, &musec);
-  printf("init_background %f sec.\n", elapsed);
+  board_play (board_to_start);
 
 #ifdef WIN32
   {
@@ -1076,22 +1067,34 @@ gcompris_init (int argc, char *argv[])
 
   if (popt_database){
     if (g_file_test(popt_database, G_FILE_TEST_EXISTS)) {
-      if (!access(popt_database,R_OK|W_OK)){
+      if (access(popt_database,R_OK)==-1){
 	g_warning("%s exists but is not readable or writable", popt_database);
 	exit(0);
-      } else
+      } else {
+	g_warning("Using %s as database", popt_database);
 	  properties->database = g_strdup(popt_database);
+      }
     } else if (popt_create_db) {
-      g_warning("Using %s as database", popt_database);
+      gchar *dirname = g_path_get_dirname (popt_database);
+      if (access(dirname, W_OK)==-1){
+	g_warning("Cannot create %s : %s is not writable !", popt_database, dirname);
+	exit (0);
+      }
+      g_warning("Using %s as database.", popt_database);
       properties->database = g_strdup(popt_database);
-    }
-    else {
+    } else {
       g_warning("Alternate database %s does not exists.\n Use --create-db to force creation !", popt_database); 
       exit(0);
     }
   }
 
   if (popt_administration){
+    if (popt_database){
+      if (access(popt_database,R_OK|W_OK)==-1){
+	g_warning("%s exists but is not writable", popt_database);
+	exit(0);
+      }
+    }
     g_warning("Running in administration mode");
     properties->administration = TRUE;
     g_warning("Background music disabled");
