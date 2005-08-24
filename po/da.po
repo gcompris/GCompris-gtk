@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-13 00:04+0100\n"
-"PO-Revision-Date: 2005-01-24 22:38+0100\n"
+"POT-Creation-Date: 2005-04-24 21:59+0200\n"
+"PO-Revision-Date: 2005-08-22 12:15+0200\n"
 "Last-Translator: Frederik Dannemare <frederik@dannemare.net>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.10\n"
 
 #: boards/advanced_colors.xml.in.h:1 src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -356,11 +356,13 @@ msgstr "Gå til regneaktiviteter"
 #: boards/algebra_group.xml.in.h:2 boards/algebramenu.xml.in.h:2
 #: boards/boards.xml.in.h:2 boards/colors_group.xml.in.h:2
 #: boards/computer.xml.in.h:2 boards/experience.xml.in.h:2
-#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/reading.xml.in.h:2
+#: boards/fun.xml.in.h:2 boards/menu.xml.in.h:18 boards/mouse.xml.in.h:1
+#: boards/reading.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Klik med musen for at vælge en aktivitet"
 
-#: boards/algebra_guesscount.xml.in.h:1 boards/erase.xml.in.h:1
+#: boards/algebra_guesscount.xml.in.h:1 boards/erase_clic.xml.in.h:1
+#: boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
@@ -382,8 +384,8 @@ msgstr ""
 #: boards/algebra_guesscount.xml.in.h:3
 msgid "Deploy a strategy to arrange a set of arithmetic operations to find a value"
 msgstr ""
-"Find ud af hvilke tal og regnetegn, der skal bruges sammen, for at komme frem "
-"til det rigtige resultat."
+"Find ud af hvilke tal og regnetegn, der skal bruges sammen, for at komme "
+"frem til det rigtige resultat."
 
 #: boards/algebra_guesscount.xml.in.h:4
 msgid "Find the correct operations to get the result"
@@ -429,9 +431,9 @@ msgid ""
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
 "Enter key to check your answer."
 msgstr ""
-"Et plusstykke med to tal vises. Til højre for lighedstegnet "
-"skrives resultatet. Brug venstre og højre piletaste til at ændre dit svar "
-"og tryk Retur for at kontrollere svaret."
+"Et plusstykke med to tal vises. Til højre for lighedstegnet skrives "
+"resultatet. Brug venstre og højre piletaste til at ændre dit svar og tryk "
+"Retur for at kontrollere svaret."
 
 #: boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -461,7 +463,8 @@ msgstr "Fuldfør en liste med symboler"
 msgid "Find the next in a list of symbols."
 msgstr "Find det næste symbol i en række af symboler."
 
-#: boards/algorithm.xml.in.h:3 boards/hexagon.xml.in.h:2
+#: boards/algorithm.xml.in.h:3 boards/bargame.xml.in.h:3
+#: boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Træning af logisk aktivitet"
 
@@ -489,8 +492,9 @@ msgid ""
 "and lines. To make it more fun for kids, a set of images can also be used."
 msgstr ""
 "I dette program kan børn tegne frit. Målet er at opdage, hvordan man skaber "
-"pæne tegninger baseret på grundlæggende former: firkanter, elipser og linjer. "
-"For at gøre det sjovere for børnene kan de også bruge et sæt billeder."
+"pæne tegninger baseret på grundlæggende former: firkanter, elipser og "
+"linjer. For at gøre det sjovere for børnene kan de også bruge et sæt "
+"billeder."
 
 #: boards/anim.xml.in.h:4 boards/draw.xml.in.h:4
 msgid "Needs to handle the mouse with the click easily"
@@ -509,16 +513,17 @@ msgid ""
 "selector in the bottom left of the screen. You can save and reload your "
 "animations with the 'floppy' and 'folder' button."
 msgstr ""
-"Vælg et tegneredskab i venstre side og en farve i bunden. Derefter klik og træk "
-"i det hvide område for at lave en ny form. Når tegningen er færdig, kan du tage "
-"et billede af det med \"kamera\"-knappen. Et nyt billede med det samme "
-"indhold bliver lavet. Du kan derefter flytte på billedet, føje noget til billedet, "
-"eller slette dele af indholdet. Lav flere billeder og klik på \"film\"-knappen. "
-"Dine billeder bliver vist i en uendelig løkke. Du kan ændre på visningshastigheden "
-"i denne indstilling. Tryk på \"tegning\"-knappen for at vende tilbage til tegning. "
-"Du kan rette i de enkelte billeder eller i animationen ved at bruge billedvælgeren "
-"i bunden til venstre af skærmen. Du kan gemme og hente dine animationer med "
-"\"diskette\" og \"mappe\"-knapperne."
+"Vælg et tegneredskab i venstre side og en farve i bunden. Derefter klik og "
+"træk i det hvide område for at lave en ny form. Når tegningen er færdig, kan "
+"du tage et billede af det med \"kamera\"-knappen. Et nyt billede med det "
+"samme indhold bliver lavet. Du kan derefter flytte på billedet, føje noget "
+"til billedet, eller slette dele af indholdet. Lav flere billeder og klik på "
+"\"film\"-knappen. Dine billeder bliver vist i en uendelig løkke. Du kan "
+"ændre på visningshastigheden i denne indstilling. Tryk på \"tegning\"-"
+"knappen for at vende tilbage til tegning. Du kan rette i de enkelte billeder "
+"eller i animationen ved at bruge billedvælgeren i bunden til venstre af "
+"skærmen. Du kan gemme og hente dine animationer med \"diskette\" og \"mappe"
+"\"-knapperne."
 
 #: boards/babymatch.xml.in.h:1 boards/babymatch/board1_0.xml.in.h:1
 #: boards/babymatch/board2_0.xml.in.h:1 boards/babymatch/board3_0.xml.in.h:1
@@ -594,10 +599,30 @@ msgstr "Tryk på begge skifte-tasterne samtidigt for at sende bolden lige."
 msgid "Send the ball to Tux"
 msgstr "Spil bolden til Tux"
 
+#: boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Hjerne"
+
+#: boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
+msgstr "Undgå at lægge den sidste bold"
+
+#: boards/bargame.xml.in.h:4
+msgid ""
+"Put balls in the holes. You win if the computer play the last one. If you "
+"want Tux to begin, just click on him."
+msgstr "Læg bolde i hullerne. Du vinder hvi computeren lægger den sidste. Hvis du vil have Tux til at starte, skal du bare klikke på ham."
+
+#: boards/bargame.xml.in.h:5
+msgid "bar game"
+msgstr "Række spil"
+
 #: boards/billard.xml.in.h:1 boards/chess_computer.xml.in.h:2
 #: boards/chess_movelearn.xml.in.h:3 boards/chess_partyend.xml.in.h:2
-#: boards/clickgame.xml.in.h:6 boards/erase.xml.in.h:3
-#: boards/fifteen.xml.in.h:2 boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
+#: boards/clickgame.xml.in.h:6 boards/connect4.xml.in.h:6
+#: boards/erase.xml.in.h:3 boards/erase_clic.xml.in.h:6
+#: boards/erase_double_clic.xml.in.h:6 boards/fifteen.xml.in.h:2
+#: boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Brug af mus"
 
@@ -681,9 +706,9 @@ msgid ""
 "Dates of Transportation are based on those found in http://www.wikipedia."
 "org. Transportations images by Franck Doucet"
 msgstr ""
-"Månefoto fra NASA. Rumlyde fra \"Tuxpaint\" og \"Vegastrike\". Data om transport "
-"er baseret på angivelserne på: http://da.wikipedia.org/wiki/Forside"
-"Transportbilleder ved Franck Doucet."
+"Månefoto fra NASA. Rumlyde fra \"Tuxpaint\" og \"Vegastrike\". Data om "
+"transport er baseret på angivelserne på: http://da.wikipedia.org/wiki/"
+"ForsideTransportbilleder ved Franck Doucet."
 
 #: boards/chronos.xml.in.h:4
 msgid "Order the pictures to tell the story"
@@ -700,6 +725,30 @@ msgstr "Fortæl en kort historie"
 #: boards/chronos/board1_0.xml.in.h:1
 msgid "Moonwalker"
 msgstr "Månevandrer"
+
+#: boards/chronos/board1_1.xml.in.h:1
+msgid "Autumn"
+msgstr "Efterår"
+
+#: boards/chronos/board1_1.xml.in.h:2
+msgid "Spring"
+msgstr "Forår"
+
+#: boards/chronos/board1_1.xml.in.h:3
+msgid "Summer"
+msgstr "Sommer"
+
+#: boards/chronos/board1_1.xml.in.h:4
+msgid "The 4 Seasons"
+msgstr "De fire årstider"
+
+#: boards/chronos/board1_1.xml.in.h:5
+msgid "Winter"
+msgstr "Vinter"
+
+#: boards/chronos/board1_2.xml.in.h:1
+msgid "Gardening"
+msgstr "Havearbejde"
 
 #: boards/chronos/board2_0.xml.in.h:1
 msgid "Tux and the apple tree"
@@ -796,10 +845,10 @@ msgstr ""
 
 #: boards/chronos/board4_1.xml.in.h:5
 msgid ""
-"1947 Chuck Yager\n"
+"1947 Chuck Yeager\n"
 "break the sound-wall"
 msgstr ""
-"1947 Chuck Yager\n"
+"1947 Chuck Yeager\n"
 "bryder lydmuren"
 
 #: boards/chronos/board4_2.xml.in.h:2
@@ -959,6 +1008,29 @@ msgstr "Start farveaktiviteter"
 msgid "Discover the Computer"
 msgstr "Opdag computeren"
 
+#: boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr "Arranger 4 mønter på en række"
+
+#: boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr "Klik et vilkårligt sted i den linie hvor du vil placere en kugle"
+
+#: boards/connect4.xml.in.h:3
+msgid "Connect 4"
+msgstr "Saml 4"
+
+#: boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr "Dan en linie af 4 kugler, enten vandret, lodret eller diagonalt"
+
+#: boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
+msgstr "Laurent Lacheny. Billeder og kunstig intelligens hentet fra projektet 4stattack af Jeroen Vloothuis. Det oprindelige projekt kan findes på http://forcedattack.sourceforge.net"
+
 #: boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
 msgstr "Grundlæggende tælleevner."
@@ -1011,9 +1083,9 @@ msgid ""
 "drag in the white area to create a new shape. To save time, you can use the "
 "middle mouse button to delete an object."
 msgstr ""
-"Vælg et tegneværktøj i venstre side og en farve i bunden. Klik og træk i "
-"det hvide område for at skabe en ny form. For at spare tid kan du bruge "
-"musens midtertaste til at slette et objekt med."
+"Vælg et tegneværktøj i venstre side og en farve i bunden. Klik og træk i det "
+"hvide område for at skabe en ny form. For at spare tid kan du bruge musens "
+"midtertaste til at slette et objekt med."
 
 #: boards/enumerate.xml.in.h:1
 msgid "Basic enumeration"
@@ -1031,8 +1103,8 @@ msgid ""
 msgstr ""
 "Først skal du sortere delene, så du kan tælle dem. Pas på, de store dele kan "
 "godt dække mindre dele. Dernæst vælger du den del, du vil tælle ved at "
-"klikke på delens boks i højre side. Indtast svaret og tryk på Retur eller "
-"på O.k.-knappen."
+"klikke på delens boks i højre side. Indtast svaret og tryk på Retur eller på "
+"O.k.-knappen."
 
 #: boards/enumerate.xml.in.h:4 boards/planegame.xml.in.h:4
 #: src/boards/enumerate.c:91
@@ -1043,21 +1115,53 @@ msgstr "Tælletræning"
 msgid "Place the items in the best way to count them"
 msgstr "Flyt delene, så de er lettest at tælle."
 
-#: boards/erase.xml.in.h:2
+#: boards/erase.xml.in.h:1
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"authorization to include their pictures. Thanks a lot."
+msgstr "Dyrebillederne er hentet fra \"Animal Photography Page\" af Ralf Schmode (http://schmode.net/) og fra \"LE BERRE Daniel\". De har givet GCompris lov til at bruge billederne. Mange tak."
+
+#: boards/erase.xml.in.h:2 boards/erase_clic.xml.in.h:5
+#: boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
 msgstr "Motorisk koordination"
 
-#: boards/erase.xml.in.h:4 src/boards/erase.c:72 src/boards/machpuzzle.c:87
+#: boards/erase.xml.in.h:4 src/boards/erase.c:83 src/boards/machpuzzle.c:87
 msgid "Move the mouse"
 msgstr "Bevæg musen"
 
-#: boards/erase.xml.in.h:5 src/boards/erase.c:73
+#: boards/erase.xml.in.h:5 src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Bevæg musen for at slette dækfelter og opdag baggrunden."
 
 #: boards/erase.xml.in.h:6
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Bevæg musen, indtil alle dækfelter er væk."
+
+#: boards/erase_clic.xml.in.h:2
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Klik med musen på kasserne, indtil alle dækfelter er væk."
+
+#: boards/erase_clic.xml.in.h:3
+msgid "Click with the mouse"
+msgstr "Klik med musen"
+
+#: boards/erase_clic.xml.in.h:4
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Klik med musen for at slette dækfelter og opdag baggrunden."
+
+#: boards/erase_double_clic.xml.in.h:2
+msgid "Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Dobbeltklik med musen på kasserne, indtil alle dækfelter er væk."
+
+#: boards/erase_double_clic.xml.in.h:3
+msgid "Double-Click with the mouse to erase the area and discover the background"
+msgstr "Dobbeltklik med musen for at slette dækfelter og opdag baggrunden."
+
+#: boards/erase_double_clic.xml.in.h:4
+msgid "Double-click with the mouse"
+msgstr "Dobbeltklik med musen"
 
 #: boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
@@ -1109,6 +1213,22 @@ msgstr "Talpuslespil"
 msgid "Go to Amusement activities"
 msgstr "Start underholdningsaktiviteter"
 
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:1
+msgid "gcompris animation"
+msgstr "GCompris animation"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:2
+msgid "gcompris drawing"
+msgstr "GCompris tegning"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:3
+msgid "svg drawing"
+msgstr "svg tegning"
+
+#: boards/gcompris/mimetypes/mime_type.xml.in.h:4
+msgid "svg mozilla animation"
+msgstr "svg mozilla animation"
+
 #: boards/geography.xml.in.h:1
 msgid "Drag and Drop the items to redraw the complete map"
 msgstr "Træk og slip enkeltdelene for at gentegne hele kortet."
@@ -1146,271 +1266,271 @@ msgid "Oceania"
 msgstr "Oceanien"
 
 #: boards/geography/board2_0.xml.in.h:1
+msgid "Alaska"
+msgstr "Alaska"
+
+#: boards/geography/board2_0.xml.in.h:2
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: boards/geography/board2_0.xml.in.h:3
+msgid "Canada"
+msgstr "Canada"
+
+#: boards/geography/board2_0.xml.in.h:4
+msgid "Cuba"
+msgstr "Cuba"
+
+#: boards/geography/board2_0.xml.in.h:5
+msgid "Dominican republic"
+msgstr "Dominikanske Republik"
+
+#: boards/geography/board2_0.xml.in.h:6
+msgid "Greenland"
+msgstr "Grønland"
+
+#: boards/geography/board2_0.xml.in.h:7
+msgid "Haiti"
+msgstr "Haiti"
+
+#: boards/geography/board2_0.xml.in.h:8 boards/geography/board3_0.xml.in.h:7
+msgid "Iceland"
+msgstr "Island"
+
+#: boards/geography/board2_0.xml.in.h:9
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: boards/geography/board2_0.xml.in.h:10
+msgid "Mexico"
+msgstr "Mexico"
+
+#: boards/geography/board2_0.xml.in.h:11
 msgid "North America"
 msgstr "Nordamerika"
 
-#: boards/geography/board2_0.xml.in.h:2
-msgid "alaska"
-msgstr "Alaska"
-
-#: boards/geography/board2_0.xml.in.h:3
-msgid "bahamas"
-msgstr "Bahamas"
-
-#: boards/geography/board2_0.xml.in.h:4
-msgid "canada"
-msgstr "Canada"
-
-#: boards/geography/board2_0.xml.in.h:5
-msgid "cuba"
-msgstr "Cuba"
-
-#: boards/geography/board2_0.xml.in.h:6
-msgid "dominican republic"
-msgstr "Dominikanske Republik"
-
-#: boards/geography/board2_0.xml.in.h:7
-msgid "greenland"
-msgstr "Grønland"
-
-#: boards/geography/board2_0.xml.in.h:8
-msgid "haiti"
-msgstr "Haiti"
-
-#: boards/geography/board2_0.xml.in.h:9 boards/geography/board3_0.xml.in.h:8
-msgid "iceland"
-msgstr "Island"
-
-#: boards/geography/board2_0.xml.in.h:10
-msgid "jamaica"
-msgstr "Jamaica"
-
-#: boards/geography/board2_0.xml.in.h:11
-msgid "mexico"
-msgstr "Mexico"
-
 #: boards/geography/board2_0.xml.in.h:12
-msgid "united state"
+msgid "United state"
 msgstr "USA"
 
 #: boards/geography/board2_1.xml.in.h:1
+msgid "Argentina"
+msgstr "Argentina"
+
+#: boards/geography/board2_1.xml.in.h:2
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: boards/geography/board2_1.xml.in.h:3
+msgid "Brazil"
+msgstr "Brasilien"
+
+#: boards/geography/board2_1.xml.in.h:4
+msgid "Chile"
+msgstr "Chile"
+
+#: boards/geography/board2_1.xml.in.h:5
+msgid "Colombia"
+msgstr "Colombia"
+
+#: boards/geography/board2_1.xml.in.h:6
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: boards/geography/board2_1.xml.in.h:7
+msgid "French guiana"
+msgstr "Fransk Guiana"
+
+#: boards/geography/board2_1.xml.in.h:8
+msgid "Guyana"
+msgstr "Guyana"
+
+#: boards/geography/board2_1.xml.in.h:9
+msgid "Panama"
+msgstr "Panama"
+
+#: boards/geography/board2_1.xml.in.h:10
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: boards/geography/board2_1.xml.in.h:11
+msgid "Peru"
+msgstr "Peru"
+
+#: boards/geography/board2_1.xml.in.h:12
 msgid "South America"
 msgstr "Sydamerika"
 
-#: boards/geography/board2_1.xml.in.h:2
-msgid "argentina"
-msgstr "Argentina"
-
-#: boards/geography/board2_1.xml.in.h:3
-msgid "bolivia"
-msgstr "Bolivia"
-
-#: boards/geography/board2_1.xml.in.h:4
-msgid "brazil"
-msgstr "Brasilien"
-
-#: boards/geography/board2_1.xml.in.h:5
-msgid "chile"
-msgstr "Chile"
-
-#: boards/geography/board2_1.xml.in.h:6
-msgid "colombia"
-msgstr "Colombia"
-
-#: boards/geography/board2_1.xml.in.h:7
-msgid "ecuador"
-msgstr "Ecuador"
-
-#: boards/geography/board2_1.xml.in.h:8
-msgid "french guiana"
-msgstr "Fransk Guinea"
-
-#: boards/geography/board2_1.xml.in.h:9
-msgid "guyana"
-msgstr "Guyana"
-
-#: boards/geography/board2_1.xml.in.h:10
-msgid "panama"
-msgstr "Panama"
-
-#: boards/geography/board2_1.xml.in.h:11
-msgid "paraguay"
-msgstr "Paraguay"
-
-#: boards/geography/board2_1.xml.in.h:12
-msgid "peru"
-msgstr "Peru"
-
 #: boards/geography/board2_1.xml.in.h:13
-msgid "suriname"
+msgid "Suriname"
 msgstr "Surinam"
 
 #: boards/geography/board2_1.xml.in.h:14
-msgid "uruguay"
+msgid "Uruguay"
 msgstr "Uruguay"
 
 #: boards/geography/board2_1.xml.in.h:15
-msgid "venezuela"
+msgid "Venezuela"
 msgstr "Venezuela"
 
 #: boards/geography/board3_0.xml.in.h:1
+msgid "Austria"
+msgstr "Østrig"
+
+#: boards/geography/board3_0.xml.in.h:2
+msgid "Belgium"
+msgstr "Belgien"
+
+#: boards/geography/board3_0.xml.in.h:3
+msgid "Denmark"
+msgstr "Danmark"
+
+#: boards/geography/board3_0.xml.in.h:4
+msgid "Finland"
+msgstr "Finland"
+
+#: boards/geography/board3_0.xml.in.h:5
+msgid "France"
+msgstr "Frankrig"
+
+#: boards/geography/board3_0.xml.in.h:6
+msgid "Germany"
+msgstr "Tyskland"
+
+#: boards/geography/board3_0.xml.in.h:8
+msgid "Ireland"
+msgstr "Irland"
+
+#: boards/geography/board3_0.xml.in.h:9
+msgid "Italy"
+msgstr "Italien"
+
+#: boards/geography/board3_0.xml.in.h:10
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: boards/geography/board3_0.xml.in.h:11
+msgid "Netherland"
+msgstr "Holland"
+
+#: boards/geography/board3_0.xml.in.h:12
+msgid "Norway"
+msgstr "Norge"
+
+#: boards/geography/board3_0.xml.in.h:13
+msgid "Portugal"
+msgstr "Portugal"
+
+#: boards/geography/board3_0.xml.in.h:14
+msgid "Spain"
+msgstr "Spanien"
+
+#: boards/geography/board3_0.xml.in.h:15
+msgid "Sweden"
+msgstr "Sverige"
+
+#: boards/geography/board3_0.xml.in.h:16
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: boards/geography/board3_0.xml.in.h:17
+msgid "United kingdom"
+msgstr "United kingdom"
+
+#: boards/geography/board3_0.xml.in.h:18
 msgid "West Europe"
 msgstr "Vesteuropa"
 
-#: boards/geography/board3_0.xml.in.h:2
-msgid "austria"
-msgstr "Østrig"
-
-#: boards/geography/board3_0.xml.in.h:3
-msgid "belgium"
-msgstr "Belgien"
-
-#: boards/geography/board3_0.xml.in.h:4
-msgid "denmark"
-msgstr "Danmark"
-
-#: boards/geography/board3_0.xml.in.h:5
-msgid "finland"
-msgstr "Finland"
-
-#: boards/geography/board3_0.xml.in.h:6
-msgid "france"
-msgstr "Frankrig"
-
-#: boards/geography/board3_0.xml.in.h:7
-msgid "germany"
-msgstr "Tyskland"
-
-#: boards/geography/board3_0.xml.in.h:9
-msgid "ireland"
-msgstr "Irland"
-
-#: boards/geography/board3_0.xml.in.h:10
-msgid "italy"
-msgstr "Italien"
-
-#: boards/geography/board3_0.xml.in.h:11
-msgid "luxembourg"
-msgstr "Luxembourg"
-
-#: boards/geography/board3_0.xml.in.h:12
-msgid "netherland"
-msgstr "Holland"
-
-#: boards/geography/board3_0.xml.in.h:13
-msgid "norway"
-msgstr "Norge"
-
-#: boards/geography/board3_0.xml.in.h:14
-msgid "portugal"
-msgstr "Portugal"
-
-#: boards/geography/board3_0.xml.in.h:15
-msgid "spain"
-msgstr "Spanien"
-
-#: boards/geography/board3_0.xml.in.h:16
-msgid "sweden"
-msgstr "Sverige"
-
-#: boards/geography/board3_0.xml.in.h:17
-msgid "switz"
-msgstr "Schweiz"
-
-#: boards/geography/board3_0.xml.in.h:18
-msgid "united kingdom"
-msgstr "Storbritannien"
-
 #: boards/geography/board3_1.xml.in.h:1
+msgid "Albania"
+msgstr "Albanien"
+
+#: boards/geography/board3_1.xml.in.h:2
+msgid "Belarus"
+msgstr "Hviderusland"
+
+#: boards/geography/board3_1.xml.in.h:3
+msgid "Bosnia herzegovina"
+msgstr "Bosnien Herzegovina"
+
+#: boards/geography/board3_1.xml.in.h:4
+msgid "Bulgaria"
+msgstr "Bulgarien"
+
+#: boards/geography/board3_1.xml.in.h:5
+msgid "Croatia"
+msgstr "Kroatien"
+
+#: boards/geography/board3_1.xml.in.h:6
+msgid "Cyprus"
+msgstr "Cypern"
+
+#: boards/geography/board3_1.xml.in.h:7 src/gcompris/config.c:69
+msgid "Czech"
+msgstr "Tjekkiet"
+
+#: boards/geography/board3_1.xml.in.h:8
 msgid "East Europe"
 msgstr "Østeuropa"
 
-#: boards/geography/board3_1.xml.in.h:2
-msgid "albania"
-msgstr "Albanien"
-
-#: boards/geography/board3_1.xml.in.h:3
-msgid "belarus"
-msgstr "Hviderusland"
-
-#: boards/geography/board3_1.xml.in.h:4
-msgid "bosnia herzegovina"
-msgstr "Bosnien Herzegovina"
-
-#: boards/geography/board3_1.xml.in.h:5
-msgid "bulgaria"
-msgstr "Bulgarien"
-
-#: boards/geography/board3_1.xml.in.h:6
-msgid "croatia"
-msgstr "Kroatien"
-
-#: boards/geography/board3_1.xml.in.h:7
-msgid "cyprus"
-msgstr "Cypern"
-
-#: boards/geography/board3_1.xml.in.h:8
-msgid "czech"
-msgstr "Tjekkiet"
-
 #: boards/geography/board3_1.xml.in.h:9
-msgid "estonia"
+msgid "Estonia"
 msgstr "Estland"
 
 #: boards/geography/board3_1.xml.in.h:10
-msgid "greece"
+msgid "Greece"
 msgstr "Grækenland"
 
 #: boards/geography/board3_1.xml.in.h:11
-msgid "hungary"
+msgid "Hungary"
 msgstr "Ungarn"
 
 #: boards/geography/board3_1.xml.in.h:12
-msgid "latvia"
+msgid "Latvia"
 msgstr "Letland"
 
 #: boards/geography/board3_1.xml.in.h:13
-msgid "lithuania"
+msgid "Lithuania"
 msgstr "Litauen"
 
 #: boards/geography/board3_1.xml.in.h:14
-msgid "macedonia"
+msgid "Macedonia"
 msgstr "Makedonien"
 
 #: boards/geography/board3_1.xml.in.h:15
-msgid "moldova"
+msgid "Moldova"
 msgstr "Moldova"
 
 #: boards/geography/board3_1.xml.in.h:16
-msgid "poland"
+msgid "Poland"
 msgstr "Polen"
 
 #: boards/geography/board3_1.xml.in.h:17
-msgid "romania"
+msgid "Romania"
 msgstr "Rumænien"
 
 #: boards/geography/board3_1.xml.in.h:18
-msgid "russia"
+msgid "Russia"
 msgstr "Rusland"
 
 #: boards/geography/board3_1.xml.in.h:19
-msgid "serbia montenegro"
+msgid "Serbia montenegro"
 msgstr "Serbien Montenegro"
 
 #: boards/geography/board3_1.xml.in.h:20
-msgid "slovakia"
+msgid "Slovakia"
 msgstr "Slovakiet"
 
 #: boards/geography/board3_1.xml.in.h:21
-msgid "slovenia"
+msgid "Slovenia"
 msgstr "Slovenien"
 
 #: boards/geography/board3_1.xml.in.h:22
-msgid "turkey"
+msgid "Turkey"
 msgstr "Tyrkiet"
 
 #: boards/geography/board3_1.xml.in.h:23
-msgid "ukraine"
+msgid "Ukraine"
 msgstr "Ukraine"
 
 #: boards/geography/board4_0.xml.in.h:1
@@ -1744,25 +1864,32 @@ msgstr "Find din venstre og højre hånd."
 msgid "None"
 msgstr "Ingen"
 
-#: boards/maze.xml.in.h:1 boards/maze3D.xml.in.h:2
+#: boards/maze.xml.in.h:1 boards/maze2DRelative.xml.in.h:1
+#: boards/maze3D.xml.in.h:2 boards/mazeInvisible.xml.in.h:1
 msgid "Can use the keyboard arrow to move an object."
 msgstr "Kan bruge tastaturets piletaster til at flytte et objekt."
 
-#: boards/maze.xml.in.h:2 src/boards/maze.c:128
+#: boards/maze.xml.in.h:2 src/boards/maze.c:133
 msgid "Find your way out of the maze"
 msgstr "Find vej ud af labyrinten"
 
-#: boards/maze.xml.in.h:3 boards/maze3D.xml.in.h:4
+#: boards/maze.xml.in.h:3 boards/maze2DRelative.xml.in.h:3
+#: boards/maze3D.xml.in.h:4 boards/mazeInvisible.xml.in.h:3
 msgid "Help Tux get out of this maze."
 msgstr "Hjælp Tux med at finde ud af labyrinten."
 
-#: boards/maze.xml.in.h:4 src/boards/maze.c:127
+#: boards/maze.xml.in.h:4 boards/maze2DRelative.xml.in.h:4
+#: boards/mazeInvisible.xml.in.h:4 src/boards/maze.c:132
 msgid "Maze"
 msgstr "Labyrint"
 
-#: boards/maze.xml.in.h:5
+#: boards/maze.xml.in.h:5 boards/maze2DRelative.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Brug tastaturets piletaster til at bevæge Tux frem til døren."
+
+#: boards/maze2DRelative.xml.in.h:2
+msgid "Find your way out of the maze (Move is relative)"
+msgstr "Find vej ud af labyrinten (træk er relative)"
 
 #: boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -1780,7 +1907,27 @@ msgid ""
 msgstr ""
 "Brug tastaturets piletaster til at hjælpe Tux frem til døren. Brug "
 "mellemrumstasten til at skifte mellem 2D- og 3D-visning. 2D giver kun en "
-"indikation af din position (som et kort). Du kan ikke flytte Tux i 2D visning."
+"indikation af din position (som et kort). Du kan ikke flytte Tux i 2D "
+"visning."
+
+#: boards/mazeInvisible.xml.in.h:2
+msgid "Find your way out of the invisible maze"
+msgstr "Find vej ud af den usynlige labyrint"
+
+#: boards/mazeInvisible.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+"switch between invisible and visible modes. Visible mode gives you just an "
+"indication of your position like a map. You cannot move tux in visible mode."
+msgstr "Brug tastaturets piletaster til at bevæge Tux frem til døren. Brug mellemrumstasten til at skifte mellem synlig og usynlig visning. Synlig visning giver kun en indikation af din position (som et kort). Du kan ikke flytte Tux i synlig visning."
+
+#: boards/mazeMenu.xml.in.h:1
+msgid "Find your way out different type of mazes"
+msgstr "Find vej ud af forskellige typer af labyrinter"
+
+#: boards/mazeMenu.xml.in.h:2
+msgid "Go to Maze activities"
+msgstr "Gå til labyrintaktiviteter"
 
 #: boards/melody.xml.in.h:1
 msgid "Ear training activity"
@@ -2083,6 +2230,10 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Træn brug af penge inklusiv cents."
 
+#: boards/mouse.xml.in.h:2
+msgid "Mouse manipulation boards"
+msgstr "Brug af mus aktiviteter"
+
 #: boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr "Træk og slip enkeltdelene til at genopbygge de originale malerier."
@@ -2216,10 +2367,10 @@ msgid ""
 "appropriate wagons and locomotive. Unselect an item by clicking on it again. "
 "Check your construction by clicking on the hand at the bottom."
 msgstr ""
-"Et tog bestående af et lokomotiv samt tilhørende vogn(e) vises øverst på siden en "
-"kort tid. Genopbyg det øverst på siden ved at vælge de samme vogne og lokomotiver. "
-"Fravælg en enhed igen ved at klikke på den. Når du er færdig, kan du teste "
-"din sammensætning ved at klikke på O.k."
+"Et tog bestående af et lokomotiv samt tilhørende vogn(e) vises øverst på "
+"siden en kort tid. Genopbyg det øverst på siden ved at vælge de samme vogne "
+"og lokomotiver. Fravælg en enhed igen ved at klikke på den. Når du er "
+"færdig, kan du teste din sammensætning ved at klikke på O.k."
 
 #: boards/railroad.xml.in.h:3
 msgid "Memory training"
@@ -2329,8 +2480,8 @@ msgid ""
 "marked with a little red cross. The order of objects (above/under) is not "
 "important but take care not to have unwanted objects under others."
 msgstr ""
-"Vælg først et passende værktøj fra værktøjskassen. Klik og træk dernæst "
-"med musen og skab objektet. Når du er færdig, klik da på O.k.-knappen. Fejl "
+"Vælg først et passende værktøj fra værktøjskassen. Klik og træk dernæst med "
+"musen og skab objektet. Når du er færdig, klik da på O.k.-knappen. Fejl "
 "bliver markeret med kryds i små røde cirkler. Det er lige meget, om "
 "objekterne ligger over eller under, men pas på med uønskede/ekstra objekter "
 "under andre (større!) objekter."
@@ -2377,11 +2528,11 @@ msgstr ""
 "Tux er sulten. Hjælp ham med at finde fisk ved at tælle frem til den rigtige "
 "isflage."
 
-#: boards/searace.xml.in.h:1
+#: boards/searace.xml.in.h:1 boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Indtast gode instruktioner til dit skib for at vinde kapsejladsen."
 
-#: boards/searace.xml.in.h:2
+#: boards/searace.xml.in.h:2 boards/searace1player.xml.in.h:2
 msgid ""
 "In the text entry, enter line by line commands to give direction to your "
 "boat. Commands supported are displayed between the two entry area. The "
@@ -2392,23 +2543,12 @@ msgid ""
 "perpendicular left turn forward 10 => Go forward for 10 units (as displayed "
 "in the ruler) The goal is to reach the right of the screen (the red line). "
 "When done, you can try to improve your program and start a new race with the "
-"same weather conditions by using the retry button. Going to the next level "
-"will give your more complex wether conditions."
-msgstr ""
-"Du skal skrive kommandoer til din båd i tekstfeltet nederst. De kommandoer, "
-"du kan bruge, står i feltet mellem de to tekstfelter. \"venstre\"- og \"højre\"-"
-"kommandoerne skal have en vinkelangivelse i grader. Vinkelangivelsen kaldes "
-"også en \"parameter\" til venstre- og højre-kommandoerne. Som forvalgt værdi "
-"bruges 45 grader. \"fremad\"-kommandoen accepterer en afstandsparameter."
-"Som standardværdi bruges 1. For eksempel:\n"
-"venstre 90 => lav en vinkelret drejning til venstre\n"
-"fremad 10 => fremad i 10 felter (som vist på afstandsskalaen øverst)\n"
-"Målet er højre side (den røde linje). Når du har nået den røde streg, kan du prøve "
-"at forbedre dit program. Du kan starte en ny kapsejlads med de samme vejrbetingelser "
-"ved at bruge \"nyt forsøg\"-knappen. Når du går videre til næste niveau, får du "
-"mere komplekse vejrbetingelser."
+"same weather conditions by using the retry button. You can click and drag "
+"your mouse anywhere on the map to get a measurement in distance and angle. "
+"Going to the next level will give your more complex weather conditions."
+msgstr "Du skal skrive kommandoer til din båd i tekstfeltet nederst. De kommandoer, du kan bruge, står i feltet mellem de to tekstfelter. \"venstre\"- og \"højre\"-kommandoerne skal have en vinkelangivelse i grader. Vinkelangivelsen kaldes også en \"parameter\" til venstre- og højre-kommandoerne. Som forvalgt værdi bruges 45 grader. \"fremad\"-kommandoen accepterer en afstandsparameter.Som standardværdi bruges 1. For eksempel: venstre 90 => lav en vinkelret drejning til venstre fremad 10 => fremad i 10 felter (som vist på afstandsskalaen øverst) Målet er højre side (den røde linje). Når du har nået den røde streg, kan du prøve at forbedre dit program. Du kan starte en ny kapsejlads med de samme vejrbetingelser ved at bruge \"nyt forsøg\"-knappen. Når du går videre til næste niveau, får du mere komplekse vejrbetingelser."
 
-#: boards/searace.xml.in.h:3
+#: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
 msgid ""
 "In this activity, you will learn how to enter commands to a computer. Even "
 "if the language is extremely basic, you learn here how to think ahead and "
@@ -2423,6 +2563,10 @@ msgstr ""
 #: boards/searace.xml.in.h:4
 msgid "Sea race (2 Players)"
 msgstr "Kapsejlads (2 spillere)"
+
+#: boards/searace1player.xml.in.h:4
+msgid "Sea race (Single Player)"
+msgstr "Kapsejlads (enkeltspiller)"
 
 #: boards/scales/board1_0.xml.in.h:1 boards/scales/board1_1.xml.in.h:1
 #: boards/scales/board1_2.xml.in.h:1 boards/scales/board1_3.xml.in.h:1
@@ -2466,15 +2610,15 @@ msgstr ""
 msgid "Well balance the scales"
 msgstr "Bring vægten i ligevægt."
 
-#: boards/smallnumbers.xml.in.h:1
+#: boards/smallnumbers.xml.in.h:1 boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Tæl antallet af prikker på terningen, før den rammer bunden."
 
-#: boards/smallnumbers.xml.in.h:2
+#: boards/smallnumbers.xml.in.h:2 boards/smallnumbers2.xml.in.h:2
 msgid "Counting skill"
 msgstr "Tælleevne."
 
-#: boards/smallnumbers.xml.in.h:3
+#: boards/smallnumbers.xml.in.h:3 boards/smallnumbers2.xml.in.h:3
 msgid "In a limited time, count the number of dots"
 msgstr "På begrænset tid tælles antallet af prikker."
 
@@ -2482,13 +2626,17 @@ msgstr "På begrænset tid tælles antallet af prikker."
 msgid "Numbers With Dice"
 msgstr "Tæl med terning."
 
-#: boards/smallnumbers.xml.in.h:5
+#: boards/smallnumbers.xml.in.h:5 boards/smallnumbers2.xml.in.h:5
 msgid ""
 "With the keyboard, type the number corresponding to the number of dots on "
 "the falling dice."
 msgstr ""
 "Med tastaturet skrives tallet der svarer til antallet af prikker på "
 "terningen."
+
+#: boards/smallnumbers2.xml.in.h:4
+msgid "Numbers With 2 Dices"
+msgstr "Tal med 2 terninger."
 
 #: boards/submarine.xml.in.h:1
 msgid ""
@@ -2524,8 +2672,8 @@ msgid ""
 msgstr ""
 "Klik på de farvede punkter til du mener, du har den rigtige kombination. "
 "Derefter klikker du på O.k.-knappen eller trykker Retur. I de lave niveauer "
-"giver Tux en hjælp i form af en sort kasse om punktet, hvis du har fundet "
-"et gemmested. Du kan bruge højre musetaste til at bladre baglæns i farverne."
+"giver Tux en hjælp i form af en sort kasse om punktet, hvis du har fundet et "
+"gemmested. Du kan bruge højre musetaste til at bladre baglæns i farverne."
 
 #: boards/superbrain.xml.in.h:2 src/boards/superbrain.c:110
 msgid "Super Brain"
@@ -2546,10 +2694,10 @@ msgid ""
 "count your score. Enter the score with the keyboard then press the Enter key "
 "or the OK button."
 msgstr ""
-"Kontrollér vindhastigheden, vindretningen og afstanden og klik så på målet for "
-"at kaste en pil. Når du har kastet alle dine pile, åbner et vindue, hvor du "
-"skal tælle dine points. Indtast pointene med tastaturet og tryk Retur eller "
-"klik på O.k.-knappen."
+"Kontrollér vindhastigheden, vindretningen og afstanden og klik så på målet "
+"for at kaste en pil. Når du har kastet alle dine pile, åbner et vindue, hvor "
+"du skal tælle dine points. Indtast pointene med tastaturet og tryk Retur "
+"eller klik på O.k.-knappen."
 
 #: boards/target.xml.in.h:3 src/boards/target.c:122
 msgid "Practice addition with a target game"
@@ -2622,18 +2770,23 @@ msgstr "Lærerige spil for børn i alderen fra 2 til 10 år."
 msgid "Educational suite gcompris"
 msgstr "GCompris"
 
-#: src/boards/advanced_colors.c:541 src/boards/imageid.c:605
-#: src/boards/missingletter.c:608 src/boards/read_colors.c:500
-#: src/boards/shapegame.c:1880 src/gcompris/gameutil.c:126
-#: src/gcompris/gameutil.c:517 src/gcompris/gameutil.c:518
-#: src/gcompris/gcompris.c:420 src/gcompris/images_selector.c:477
-#: src/gcompris/skin.c:83 src/gcompris/skin.c:261
+#: gcompris.desktop.in.h:3
+msgid "Multiple activities for kids"
+msgstr "Gangeaktiviteter for børn"
+
+#: src/boards/advanced_colors.c:533 src/boards/imageid.c:605
+#: src/boards/missingletter.c:608 src/boards/read_colors.c:492
+#: src/boards/shapegame.c:1880 src/gcompris/file_selector.c:933
+#: src/gcompris/gameutil.c:127 src/gcompris/gameutil.c:519
+#: src/gcompris/gameutil.c:520 src/gcompris/gcompris.c:492
+#: src/gcompris/images_selector.c:754 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kunne ikke finde filen %s !"
 
-#: src/boards/advanced_colors.c:544 src/boards/imageid.c:608
-#: src/boards/missingletter.c:611 src/boards/read_colors.c:503
+#: src/boards/advanced_colors.c:536 src/boards/imageid.c:608
+#: src/boards/missingletter.c:611 src/boards/read_colors.c:495
 #: src/boards/shapegame.c:1883
 #, c-format
 msgid "find file %s !"
@@ -2651,15 +2804,15 @@ msgstr ""
 "Tux har vanskeligheder på sit skib. Han er nødt til at styre det gennem en "
 "sluse. Hjælp Tux og forstå, hvordan en sluse virker."
 
-#: src/boards/chess.c:137
+#: src/boards/chess.c:134
 msgid "Learning Chess"
 msgstr "Træn skakspillet."
 
-#: src/boards/chess.c:138
+#: src/boards/chess.c:135
 msgid "Play chess against tux in a learning mode"
 msgstr "Spil skak mod Tux i indlæringstilstand."
 
-#: src/boards/chess.c:191
+#: src/boards/chess.c:188
 msgid ""
 "Error: /usr/bin/gnuchessx is installed\n"
 "which means you have an old version\n"
@@ -2671,7 +2824,7 @@ msgstr ""
 "version af gnuchess.\n"
 "Opgrader til gnuchess 5 eller bedre."
 
-#: src/boards/chess.c:198
+#: src/boards/chess.c:195 src/boards/chess.c:237
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2701,15 +2854,15 @@ msgstr "Hvid siger skak"
 msgid "Black check"
 msgstr "Sort siger skak"
 
-#: src/boards/chess.c:1052
+#: src/boards/chess.c:1051
 msgid "Black mates"
 msgstr "Sort sætter skakmat"
 
-#: src/boards/chess.c:1057
+#: src/boards/chess.c:1056
 msgid "White mates"
 msgstr "Hvid sætter skakmat"
 
-#: src/boards/chess.c:1062
+#: src/boards/chess.c:1061 src/gcompris/bonus.c:314
 msgid "Drawn game"
 msgstr "Pat"
 
@@ -2795,6 +2948,21 @@ msgstr "Klik på den sorte figur."
 msgid "Click on the white toon"
 msgstr "Klik på den hvide figur."
 
+#: src/boards/erase.c:160
+msgid "Couldn't get GTK settings"
+msgstr "Kunne ikke finde GTK-indstillinger"
+
+#: src/boards/erase.c:165
+#, c-format
+msgid "Double clic default value %d."
+msgstr "Dobbeltklik standard værdi %d."
+
+#: src/boards/erase.c:170 src/boards/erase.c:185 src/boards/erase.c:208
+#: src/boards/erase.c:339
+#, c-format
+msgid "Double clic value is now %d."
+msgstr "Dobbeltklik værdi er nu %d."
+
 #: src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Flyt delene en efter en, for at arrangere dem i stigende orden."
@@ -2811,17 +2979,25 @@ msgstr "Lær at læse."
 msgid "Given pictures of hands, find if it's a right or left one"
 msgstr "Se på den viste hånd. Er det en højre eller venstre hånd?"
 
-#: src/boards/leftright.c:248 src/boards/python/searace.py:513
-#: src/boards/python/searace.py:825
+#: src/boards/leftright.c:248 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:544
+#: src/boards/python/searace.py:856 src/boards/python/searace.py:889
+#: src/boards/python/searace.py:986
 msgid "left"
 msgstr "venstre"
 
-#: src/boards/leftright.c:258 src/boards/python/searace.py:522
-#: src/boards/python/searace.py:827
+#: src/boards/leftright.c:258 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:553
+#: src/boards/python/searace.py:858 src/boards/python/searace.py:891
+#: src/boards/python/searace.py:980
 msgid "right"
 msgstr "højre"
 
-#: src/boards/maze.c:445
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "Læg mærke til, hvor du er, og skift tilbage til usynlig tilstand for at gå videre."
+
+#: src/boards/maze.c:490
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Læg mærke til, hvor du er, og skift tilbage til 3D-tilstand for at gå videre."
 
@@ -2865,6 +3041,29 @@ msgstr "Python-bræt"
 msgid "Special board that embeds python into gcompris."
 msgstr "Specielt bræt der indlejrer Python i GCompris."
 
+#: src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "Du mangler python xml modulet. SVG er slået fra."
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: src/boards/python/anim.py:415
+msgid ""
+"Python xml module not found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr "Python xml modulet blev ikke fundet. SVG er slået fra. Installerpython xml modulet for at kunne bruge SVG gem/genoprette."
+
+#: src/boards/python/anim.py:2205
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG er slået fra. Installer python xml modulet."
+
+#: src/boards/python/anim.py:2361
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "Advarsel: de følgende billeder kan ikke findes i dit system.\n"
+
+#: src/boards/python/anim.py:2363
+msgid "The corresponding items have been skipped."
+msgstr "De tilhørende elementer er blevet forbigået."
+
 #: src/boards/python/pythontest.py:75
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
@@ -2893,60 +3092,60 @@ msgstr "Niveau."
 msgid "Coordinate"
 msgstr "Koordineret."
 
-#: src/boards/python/searace.py:189 src/boards/python/searace.py:194
-#: src/boards/python/searace.py:220
+#: src/boards/python/searace.py:201 src/boards/python/searace.py:206
+#: src/boards/python/searace.py:232
 msgid "Race is already running"
 msgstr "Kapsejladsen er begyndt"
 
-#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
-#: src/boards/python/searace.py:794
-msgid "droite"
-msgstr "venstre"
-
 #. Manage default cases (no params given)
-#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
-#: src/boards/python/searace.py:504 src/boards/python/searace.py:790
-#: src/boards/python/searace.py:819
+#. Final move, add an ofset because we loose space in abs()
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:535 src/boards/python/searace.py:854
+#: src/boards/python/searace.py:883 src/boards/python/searace.py:978
+#: src/boards/python/searace.py:984 src/boards/python/searace.py:992
 msgid "forward"
 msgstr "fremad"
 
-#: src/boards/python/searace.py:398 src/boards/python/searace.py:423
-#: src/boards/python/searace.py:792
-msgid "gauche"
-msgstr "højre"
-
-#: src/boards/python/searace.py:495
+#: src/boards/python/searace.py:526
 msgid "COMMANDS ARE"
 msgstr "KOMMANDOER:"
 
-#: src/boards/python/searace.py:683
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr "Dette er et træk"
+
+#: src/boards/python/searace.py:759
 msgid "The Red boat has won"
 msgstr "Den røde båd vandt."
 
-#: src/boards/python/searace.py:686
+#: src/boards/python/searace.py:762
 msgid "The Green boat has won"
 msgstr "Den grønne båd vandt."
 
-#. print "Player " + str(boat.player) + "  wind_angle=" + str(abs(wind_angle)) + " condition=" + str(condition[1]) + " cx=" + str(cx) + "     wind=" + str(wind)
-#: src/boards/python/searace.py:716
+#: src/boards/python/searace.py:780 src/boards/python/searace.py:1022
 msgid "Angle:"
 msgstr "Vinkel:"
 
-#: src/boards/python/searace.py:716
+#: src/boards/python/searace.py:780
 msgid "Wind:"
 msgstr "Vindhastighed:"
 
-#: src/boards/python/searace.py:797
+#: src/boards/python/searace.py:861
 msgid "Syntax error at line"
 msgstr "Syntaksfejl i linje"
 
-#: src/boards/python/searace.py:815
+#: src/boards/python/searace.py:879
 msgid "The command"
 msgstr "Kommandoen"
 
-#: src/boards/python/searace.py:834
+#: src/boards/python/searace.py:898
 msgid "Unknown command at line"
 msgstr "Ukendt kommando i linje"
+
+#: src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr "Afstand:"
 
 #: src/boards/railroad.c:96
 msgid "Memory game"
@@ -3035,11 +3234,11 @@ msgstr ""
 "Dette bræds data er gemt i filen\n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:70
+#: src/boards/smallnumbers.c:63
 msgid "Numbers With Dices"
 msgstr "Tal med terninger."
 
-#: src/boards/smallnumbers.c:71
+#: src/boards/smallnumbers.c:64
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Tryk på tastaturets tal fra 1 til 9, før terningen rammer bunden."
 
@@ -3078,18 +3277,18 @@ msgstr "Skriv de nedfaldende ord, inden de når bunden."
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge\n"
-"Graphics: Renaud Blanchard\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
 "Forfatter: Bruno Coudoin\n"
 "Bidragydere: Pascal Georges, Jose Jorge\n"
-"Grafik: Renaud Blanchard\n"
+"Grafik: Renaud Blanchard, Franck Doucet\n"
 "Intro musik: Djilali Sebihi\n"
 "Baggrunds musik: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: src/gcompris/about.c:73 src/gcompris/interface.c:484
+#: src/gcompris/about.c:73 src/gcompris/interface.c:466
 msgid "translator_credits"
 msgstr ""
 "Mogens Jæger\n"
@@ -3112,16 +3311,18 @@ msgid "GCompris Home Page"
 msgstr "GCompris' hjemmeside"
 
 #: src/gcompris/about.c:252
-msgid "This software is a GNU Package and is released under the GNU Public Licence"
+msgid ""
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
 msgstr "Dette program er en GNU-pakke, der er frigivet under GNU GPL."
 
 #: src/gcompris/about.c:281
 msgid "Help"
 msgstr "Hjælp"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:208
-#: src/gcompris/gameutil.c:898 src/gcompris/help.c:329
-#: src/gcompris/images_selector.c:152
+#: src/gcompris/about.c:316 src/gcompris/config.c:211
+#: src/gcompris/gameutil.c:941 src/gcompris/help.c:329
+#: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "O.k."
 
@@ -3146,250 +3347,258 @@ msgid "Azerbaijani Turkic"
 msgstr "Aserbajdjansk tyrkisk"
 
 #: src/gcompris/config.c:67
+msgid "Bulgarian"
+msgstr "Bulgarsk"
+
+#: src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Catalansk"
 
-#: src/gcompris/config.c:68
-msgid "Czech"
-msgstr "Tjekkisk"
-
-#: src/gcompris/config.c:69
+#: src/gcompris/config.c:70
 msgid "Danish"
 msgstr "Dansk"
 
-#: src/gcompris/config.c:70
+#: src/gcompris/config.c:71
 msgid "German"
 msgstr "Tysk"
 
-#: src/gcompris/config.c:71
+#: src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Græsk"
 
-#: src/gcompris/config.c:72
+#: src/gcompris/config.c:73
 msgid "English (Canadian)"
 msgstr "Engelsk (Canadisk)"
 
-#: src/gcompris/config.c:73
+#: src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Engelsk (UK)"
 
-#: src/gcompris/config.c:74
+#: src/gcompris/config.c:75
 msgid "English (USA)"
 msgstr "Engelsk (USA)"
 
-#: src/gcompris/config.c:75
+#: src/gcompris/config.c:76
 msgid "Spanish"
 msgstr "Spansk"
 
-#: src/gcompris/config.c:76
+#: src/gcompris/config.c:77
 msgid "Finnish"
 msgstr "Finsk"
 
-#: src/gcompris/config.c:77
+#: src/gcompris/config.c:78
 msgid "French"
 msgstr "Fransk"
 
-#: src/gcompris/config.c:78
+#: src/gcompris/config.c:79
 msgid "Irish (Gaelic)"
 msgstr "Irsk (Gaelic)"
 
-#: src/gcompris/config.c:79
+#: src/gcompris/config.c:80
 msgid "Hebrew"
 msgstr "Hebræisk"
 
-#: src/gcompris/config.c:80
+#: src/gcompris/config.c:81
 msgid "Indian (Hindi)"
 msgstr "Indisk (Hindi)"
 
-#: src/gcompris/config.c:81
+#: src/gcompris/config.c:82
+msgid "Indian (Gujarati)"
+msgstr "Indisk (Gujarati)"
+
+#: src/gcompris/config.c:83
 msgid "Indian (Punjabi)"
 msgstr "Indisk (Punjabi)"
 
-#: src/gcompris/config.c:82
+#: src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "Ungarnsk"
 
-#: src/gcompris/config.c:83
+#: src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: src/gcompris/config.c:84
+#: src/gcompris/config.c:86
 msgid "Italian"
 msgstr "Italiensk"
 
-#: src/gcompris/config.c:85
+#: src/gcompris/config.c:87
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:88
 msgid "Macedonian"
 msgstr "Makedonsk"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:89
 msgid "Malayalam"
 msgstr "Malajalam"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:90
 msgid "Malay"
 msgstr "Malaysisk"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:91
 msgid "Dutch"
 msgstr "Hollandsk"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:92
 msgid "Norwegian Bokmal"
 msgstr "Norsk (bogmål)"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:93
 msgid "Norwegian Nynorsk"
 msgstr "Norsk (nynorsk)"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:94
 msgid "Polish"
 msgstr "Polsk"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:95
 msgid "Portuguese"
 msgstr "Portugisisk"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:96
 msgid "Brazil Portuguese"
 msgstr "Braziliansk portugisisk"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:97
 msgid "Romanian"
 msgstr "Rumænsk"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:98
 msgid "Russian"
 msgstr "Russisk"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:99
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: src/gcompris/config.c:100
 msgid "Slovak"
 msgstr "Slovensk"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:101
 msgid "Slovenian"
 msgstr "Slovakisk"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "Albansk"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Serbisk (Latin)"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Serbisk"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Svensk"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:106
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:107
 msgid "Walloon"
 msgstr "Vallonsk"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:108
 msgid "Chinese (Simplified)"
 msgstr "Kinesisk (simplificeret)"
 
-#: src/gcompris/config.c:110
+#: src/gcompris/config.c:113
 msgid "No time limit"
 msgstr "Ingen tidsgrænse"
 
-#: src/gcompris/config.c:111
+#: src/gcompris/config.c:114
 msgid "Slow timer"
 msgstr "Langsomt tidsforløb"
 
-#: src/gcompris/config.c:112
+#: src/gcompris/config.c:115
 msgid "Normal timer"
 msgstr "Normalt tidsforløb"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:116
 msgid "Fast timer"
 msgstr "Hurtigt tidsforløb"
 
-#: src/gcompris/config.c:118
+#: src/gcompris/config.c:121
 msgid "800x600 (Default for gcompris)"
 msgstr "800*600 (standard for GCompris)"
 
-#: src/gcompris/config.c:123
+#: src/gcompris/config.c:126
 msgid "No filter"
 msgstr "Intet filter"
 
-#: src/gcompris/config.c:124
+#: src/gcompris/config.c:127
 msgid "Only this level"
 msgstr "Kun dette niveau"
 
-#: src/gcompris/config.c:125
+#: src/gcompris/config.c:128
 msgid "Up to this level"
 msgstr "Op til dette niveau"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:129
 msgid "This level and above"
 msgstr "Dette niveau og højere"
 
-#: src/gcompris/config.c:182
+#: src/gcompris/config.c:185
 msgid "GCompris Configuration"
 msgstr "GCompris-konfiguration"
 
-#: src/gcompris/config.c:291
+#: src/gcompris/config.c:294
 msgid "Fullscreen"
 msgstr "Fuldskærm"
 
-#: src/gcompris/config.c:334
+#: src/gcompris/config.c:337
 msgid "Music"
 msgstr "Baggrundsmusik"
 
-#: src/gcompris/config.c:362
+#: src/gcompris/config.c:365
 msgid "Effect"
 msgstr "Lydeffekter"
 
-#: src/gcompris/config.c:396
+#: src/gcompris/config.c:399
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kunne ikke åbne temabibliotek: %s"
 
-#: src/gcompris/config.c:417
+#: src/gcompris/config.c:420
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Intet tema fundet i %s\n"
 
-#: src/gcompris/config.c:432 src/gcompris/config.c:817
-#: src/gcompris/config.c:828
+#: src/gcompris/config.c:435 src/gcompris/config.c:820
+#: src/gcompris/config.c:831
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema : %s"
 
-#: src/gcompris/file_selector.c:242
+#: src/gcompris/file_selector.c:341
 msgid "CANCEL"
 msgstr "AFBRYD"
 
-#: src/gcompris/file_selector.c:273
+#: src/gcompris/file_selector.c:372
 msgid "LOAD"
 msgstr "INDLÆS"
 
-#: src/gcompris/file_selector.c:273
+#: src/gcompris/file_selector.c:372
 msgid "SAVE"
 msgstr "GEM"
 
-#: src/gcompris/gameutil.c:129
+#: src/gcompris/gameutil.c:130
 msgid "Couldn't find file"
 msgstr "Kunne ikke finde filen"
 
-#: src/gcompris/gameutil.c:131
+#: src/gcompris/gameutil.c:132
 msgid "This activity is incomplete."
 msgstr "Denne aktivitet er ikke færdig."
 
-#: src/gcompris/gameutil.c:132
+#: src/gcompris/gameutil.c:133
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3397,43 +3606,57 @@ msgstr ""
 "Afslut og rapportér\n"
 "problemet til forfatterne."
 
-#: src/gcompris/gcompris.c:82
+#: src/gcompris/gcompris.c:95
 msgid "run gcompris in fullscreen mode."
 msgstr "kør GCompris i fuldskærmstilstand."
 
-#: src/gcompris/gcompris.c:84
+#: src/gcompris/gcompris.c:97
 msgid "run gcompris in window mode."
 msgstr "kør GCompris i vinduestilstand."
 
-#: src/gcompris/gcompris.c:86
+#: src/gcompris/gcompris.c:99
 msgid "run gcompris with sound enabled."
 msgstr "kør GCompris med lyd."
 
-#: src/gcompris/gcompris.c:88
+#: src/gcompris/gcompris.c:101
 msgid "run gcompris without sound."
 msgstr "kør GCompris uden lyd."
 
-#: src/gcompris/gcompris.c:90
+#: src/gcompris/gcompris.c:103
 msgid "run gcompris with the default gnome cursor."
 msgstr "kør GCompris med standard gnome markør."
 
-#: src/gcompris/gcompris.c:92
+#: src/gcompris/gcompris.c:105
 msgid "display only activities with this difficulty level."
 msgstr "vis kun aktiviteter med denne sværhedsgrad."
 
-#: src/gcompris/gcompris.c:94
+#: src/gcompris/gcompris.c:107
 msgid "display debug informations on the console."
 msgstr "vis fejlsøgningsinformationer på kommandolinjen."
 
-#: src/gcompris/gcompris.c:96
+#: src/gcompris/gcompris.c:109
 msgid "Print the version of "
 msgstr "Udskriv versionen af "
 
-#: src/gcompris/gcompris.c:98
+#: src/gcompris/gcompris.c:111
 msgid "Use the antialiased canvas (slower)."
 msgstr "Brug antialiseret lærred (langsommere)."
 
-#: src/gcompris/gcompris.c:532
+#: src/gcompris/gcompris.c:113
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr "Slå XRANDR fra (Ingen ændring i skærmopløsning)."
+
+#: src/gcompris/gcompris.c:116
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory, -l /boards/connect4 only the connect4 activity)"
+msgstr "Kør GCompris med lokale menuer (f.eks. -l /reading lader dig kun køre aktiviteter fra læsebiblioteket, -l /boards/connect4 lader dig kun køre aktiviteter fra connect4biblioteket)"
+
+#: src/gcompris/gcompris.c:118
+msgid "Run gcompris with local activity directory added to menu"
+msgstr "Kør GCompris med lokalt aktivitetsbibliotek tilføjet til menuen."
+
+#: src/gcompris/gcompris.c:604
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3455,7 +3678,7 @@ msgstr ""
 "Se:\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:727
+#: src/gcompris/gcompris.c:852
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3468,67 +3691,81 @@ msgstr ""
 "Licens: GPL\n"
 "Mere information på http://gcompris.net\n"
 
-#: src/gcompris/help.c:170 src/gcompris/interface.c:243
+#: src/gcompris/help.c:170 src/gcompris/interface.c:228
 msgid "Prerequisite"
 msgstr "Forudsætninger"
 
-#: src/gcompris/help.c:198 src/gcompris/interface.c:252
+#: src/gcompris/help.c:198 src/gcompris/interface.c:237
 msgid "Goal"
 msgstr "Målsætning"
 
-#: src/gcompris/help.c:226 src/gcompris/interface.c:261
+#: src/gcompris/help.c:226 src/gcompris/interface.c:246
 msgid "Manual"
 msgstr "Vejledning"
 
-#: src/gcompris/help.c:254 src/gcompris/interface.c:270
+#: src/gcompris/help.c:254 src/gcompris/interface.c:255
 msgid "Credit"
 msgstr "Anerkendelse"
 
-#: src/gcompris/interface.c:104
+#: src/gcompris/images_selector.c:294
+#, c-format
+msgid "dataset %s is a directory. Trying to read xml "
+msgstr "datasæt %s er et bibliotek. Prøver at læse xml "
+
+#: src/gcompris/images_selector.c:629
+#, c-format
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr "I billedsæt %s, blev stinavnet %s ikke fundet. Forbigår billedsæt...\n"
+
+#: src/gcompris/images_selector.c:664
+#, c-format
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr "I billedsæt %s, mangler et billede. Forbigår billedsæt...\n"
+
+#: src/gcompris/images_selector.c:690
+#, c-format
+msgid "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr "I billedsæt %s, blev biblioteket %s ikke fundet. Forbigår alle billedsæt...\n"
+
+#: src/gcompris/interface.c:95
 msgid "Gcompris Editor"
 msgstr "GCompris-redigering"
 
-#: src/gcompris/interface.c:180
+#: src/gcompris/interface.c:165
 msgid "Icon"
 msgstr "Ikon"
 
-#: src/gcompris/interface.c:189
+#: src/gcompris/interface.c:174
 msgid "Name"
 msgstr "Navn"
 
-#: src/gcompris/interface.c:198 src/gcompris/interface.c:415
+#: src/gcompris/interface.c:183 src/gcompris/interface.c:400
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/gcompris/interface.c:207
+#: src/gcompris/interface.c:192
 msgid "Type"
 msgstr "Type"
 
-#: src/gcompris/interface.c:216
+#: src/gcompris/interface.c:201
 msgid "Difficulty"
 msgstr "Sværhedsgrad"
 
-#: src/gcompris/interface.c:225
+#: src/gcompris/interface.c:210
 msgid "Author"
 msgstr "Forfatter"
 
-#: src/gcompris/interface.c:234
+#: src/gcompris/interface.c:219
 msgid "Directory"
 msgstr "Bibliotek"
 
-#: src/gcompris/interface.c:286
+#: src/gcompris/interface.c:271
 msgid "Title"
 msgstr "Titel"
 
-#: src/gcompris/interface.c:490
+#: src/gcompris/interface.c:472
 msgid "Released under GPL"
 msgstr "Udgivet under GPL"
-
-#. Prepare our log
-#. The default format for time represenation.  See strftime(3)
-#: src/gcompris/log.c:157
-msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr "%a %b %d %H:%M:%S %Z %Y"
 
 #: src/gcompris/soundutil.c:140
 #, c-format
