@@ -563,6 +563,7 @@ static void reposition_model() {
     return;
 
   g_warning("+++ reposition_model\n");
+  gnome_canvas_item_move(modelRootItem, 0, 0);
   for (i=0; i<model_size; i++) {
     item = item_model[i];
     gnome_canvas_item_get_bounds(item, &dx1, &dy1, &dx2, &dy2);

@@ -50,7 +50,8 @@ class Gcompris_sudoku:
     self.cursqre = None
 
     self.normal_square_color = 0xbebbc9ffL
-    self.focus_square_color  = 0x8b83a7ffL
+    self.highl_square_color  = 0x8b83a7ffL
+    self.focus_square_color  = 0x555555ffL
     self.fixed_square_color  = 0x8bAAa7ffL
     self.error_square_color  = 0xff77a7ffL
     self.lines_color         = 0xebe745ffL
@@ -64,7 +65,7 @@ class Gcompris_sudoku:
     self.sudo_size = 0          # the size of the current sudoku
     self.sudo_region = None     # the modulo region in the current sudoku
 
-    self.symbolize_level_max = 3 # Last level in which we set symbols
+    self.symbolize_level_max = 4 # Last level in which we set symbols
     self.symbols = [
       gcompris.utils.load_pixmap("images/rectangle.png"),
       gcompris.utils.load_pixmap("images/circle.png"),
@@ -244,62 +245,123 @@ class Gcompris_sudoku:
       
     return True
         
+  #
+  # Set a symbol in the sudoku
+  #
+  def set_sudoku_symbol(self, text, x, y):
+    pixmap = self.get_pixmap_symbol(self.valid_chars, text)
 
+    self.sudo_symbol[x][y].set(
+      pixbuf = pixmap
+      )
+    self.sudo_symbol[x][y].show()
+    
+    self.sudo_number[x][y].set(
+      text = text
+      )
+
+
+  #
+  # Event on a placed symbol. Means that we remove it
+  #
+  def hide_symbol_event(self, item, event, data):
+    if event.type == gtk.gdk.BUTTON_PRESS:
+      item.hide()
+      self.sudo_number[data[0]][data[1]].set(
+        text = ""
+        )
+    
   #
   # This function is being called uppon a click on a symbol on the left
   # If a square has the focus, then the clicked square is assigned there
   #
-  def symbol_item_event(self, widget, event, data):
-    if (event and event.type == gtk.gdk.BUTTON_PRESS):
+  def symbol_item_event(self, item, event, text):
+    #
+    # MOTION EVENT
+    # ------------
+    if event.type == gtk.gdk.MOTION_NOTIFY:
+      if event.state & gtk.gdk.BUTTON1_MASK:
+        x=event.x
+        y=event.y
+
+        item.set(
+          x= x,
+          y= y)
+        
+        return True
+    #
+    # MOUSE DRAG STOP
+    # ---------------
+    if event.type == gtk.gdk.BUTTON_RELEASE:
       if event.button == 1:
-        if(not self.cursqre):
-          return False
+        x=event.x
+        y=event.y
+        
+        cx = float(item.get_data("orig_x"))
+        cy = float(item.get_data("orig_y"))
+        item.set(
+          x= cx,
+          y= cy)
 
-        item = data[0]
-        text = data[1]
+        target_item = self.gcomprisBoard.canvas.get_item_at(x, y)
 
-        if self.is_possible(text):
+        if target_item:
+          # Get it's sudo coord
+          x = target_item.get_data("sudo_x")
+          if x:
+            x = int(x)
+            
+          y = target_item.get_data("sudo_y")
+          if y:
+            y = int(y)
 
-          pixmap = self.get_pixmap_symbol(self.valid_chars, text)
+          self.cursqre = (x, y)
+          if self.is_possible(text):
+            self.set_sudoku_symbol(text, x, y)
 
-          self.sudo_symbol[self.cursqre[0]][self.cursqre[1]].set(
-            pixbuf = pixmap
-            )
-          self.sudo_symbol[self.cursqre[0]][self.cursqre[1]].show()
-          
-          self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
-            text = text
-            )
+            # Maybe it's all done
+            if self.is_solved():
+              self.gamewon = 1
+              gcompris.bonus.display(gcompris.bonus.WIN,
+                                     gcompris.bonus.FLOWER)
 
-          # Maybe it's all done
-          if self.is_solved():
-            self.gamewon = 1
-            gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
-
-
+        return True
+      
     return False
   
   #
   # This function is being called uppon a click on any little square
   #
   def square_item_event(self, widget, event, square):
-    
-    if (event and event.type == gtk.gdk.BUTTON_PRESS):
-      if event.button == 1:
-        # Check it's a user editable square
-        oldcolor = self.sudo_number[square[0]][square[1]].get_property('fill_color_rgba')
-        if oldcolor == self.fixed_number_color:
-          return False
-
-        if(self.cursqre):
-          self.sudo_square[self.cursqre[0]][self.cursqre[1]].set(
-            fill_color_rgba = self.normal_square_color,            
-            )
-        self.cursqre = square
+    # Check it's a user editable square
+    oldcolor = self.sudo_number[square[0]][square[1]].get_property('fill_color_rgba')
+    if oldcolor == self.fixed_number_color:
+      return False
+        
+    if event.type == gtk.gdk.ENTER_NOTIFY:
+      if self.cursqre != square:
+        self.sudo_square[square[0]][square[1]].set(
+          fill_color_rgba = self.highl_square_color,            
+          )
+    elif event.type == gtk.gdk.LEAVE_NOTIFY:
+      if self.cursqre == square:
         self.sudo_square[square[0]][square[1]].set(
           fill_color_rgba = self.focus_square_color,            
           )
-        return True
+      else:
+        self.sudo_square[square[0]][square[1]].set(
+          fill_color_rgba = self.normal_square_color,            
+          )        
+    elif event.type == gtk.gdk.BUTTON_PRESS:
+      if(self.cursqre):
+        self.sudo_square[self.cursqre[0]][self.cursqre[1]].set(
+          fill_color_rgba = self.normal_square_color,            
+          )
+      self.cursqre = square
+      self.sudo_square[square[0]][square[1]].set(
+        fill_color_rgba = self.focus_square_color,            
+        )
+      return True
 
     return False
 
@@ -421,18 +483,29 @@ class Gcompris_sudoku:
       if(self.gcomprisBoard.level<self.symbolize_level_max):
         pixmap = self.get_pixmap_symbol(valid_chars, valid_chars[y])
         zoom = (square_width*0.5) / pixmap.get_width()
+        
+        cx = int(x_init + (pixmap.get_width() * zoom)/2)
+        cy = int(y_init + square_height * y + square_height/2)
+        
         item = self.root_sudo.add(
           gnome.canvas.CanvasPixbuf,
           pixbuf = pixmap,
-          x= x_init + (pixmap.get_width() * zoom)/2,
-          y= y_init + square_height * y + square_height/2,
+          x= cx,
+          y= cy,
           width= pixmap.get_width() * zoom,
           height= pixmap.get_height() * zoom,
           width_set=True,
           height_set=True,
           anchor=gtk.ANCHOR_CENTER
           )
-        item.connect("event", self.symbol_item_event, (item, valid_chars[y]))
+        item.connect("event", self.symbol_item_event, valid_chars[y])
+        # This item is clickeable and it must be seen
+        item.connect("event", gcompris.utils.item_event_focus)
+
+        # Save it's coordinate origines for the drag and drop
+        item.set_data('orig_x', str(cx))
+        item.set_data('orig_y', str(cy))
+        
       else:
         # Shadow
         self.root_sudo.add(
@@ -473,13 +546,17 @@ class Gcompris_sudoku:
 
     self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
 
+    self.cursqre = None
+
     self.sudo_size = len(sudoku[0])
 
+    
     if(self.root_sudo):
       self.root_sudo.destroy()
       
     # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains automaticaly.
+    # only have to kill it. The canvas deletes all the items it contains
+    # automaticaly.
     self.root_sudo = self.rootitem.add(
       gnome.canvas.CanvasGroup,
       x=0.0,
@@ -515,7 +592,8 @@ class Gcompris_sudoku:
         else:
           if(not text in self.valid_chars):
             self.valid_chars.append(text)
-          
+
+        # The background of the square
         item = self.root_sudo.add(
           gnome.canvas.CanvasRect,
           fill_color_rgba = square_color,
@@ -527,7 +605,12 @@ class Gcompris_sudoku:
           outline_color_rgba= 0x144B9DFFL
           )
         line_square.append(item)
-        item.connect("event", self.square_item_event, (x,y))
+        if(self.gcomprisBoard.level>=self.symbolize_level_max):
+          item.connect("event", self.square_item_event, (x,y))
+
+        # Save it's sudo coord for the drag and drop
+        item.set_data('sudo_x', str(x))
+        item.set_data('sudo_y', str(y))
 
         # For low levels, we symbolize the letters
         if(self.gcomprisBoard.level<self.symbolize_level_max):
@@ -547,7 +630,14 @@ class Gcompris_sudoku:
           line_symbol.append(item)
           if(not text):
             item.hide()
-            
+            # This item is clickeable and it must be seen
+            item.connect("event", gcompris.utils.item_event_focus)
+            item.connect("event", self.hide_symbol_event, (x, y))
+
+        #
+        #
+        #
+        
         item = self.root_sudo.add(
           gnome.canvas.CanvasText,
           x= x_init + square_width * x + square_width/2,
@@ -599,10 +689,11 @@ class Gcompris_sudoku:
     # It's hard coded that sudoku of size x have y region.
     # If not defined there, it means no region
     #
-    # Sudoku size / Number of region
+    # Sudoku size : Number of region
     #
     self.sudo_region = {
-      9: 3
+      9: 3,
+      4: 2
       }
 
     # It's a list of level which is a list of sudoku data
@@ -619,8 +710,78 @@ class Gcompris_sudoku:
          ['.','.','C'],
          ['B','.','.']
         ],
+        [
+         ['A','B','.'],
+         ['C','.','B'],
+         ['B','.','A']
+        ],
+        [
+         ['A','C','.'],
+         ['B','.','C'],
+         ['C','.','.']
+        ],
+        [
+         ['B','C','A'],
+         ['.','.','.'],
+         ['C','A','B']
+        ],
+        [
+         ['.','B','.'],
+         ['.','C','.'],
+         ['.','A','.']
+        ],
        ],
        [ # Level 2
+        [
+         ['C','.','.','D'],
+         ['.','.','B','.'],
+         ['A','.','.','.'],
+         ['.','.','D','.']
+        ],
+        [
+         ['.','B','.','A'],
+         ['.','.','B','.'],
+         ['C','.','D','.'],
+         ['.','.','.','C']
+        ],
+        [
+         ['A','.','B','.'],
+         ['.','C','.','A'],
+         ['.','.','.','D'],
+         ['D','.','C','.']
+        ],
+        [
+         ['.','A','.','.'],
+         ['C','.','A','B'],
+         ['.','.','C','.'],
+         ['D','.','.','A']
+        ],
+        [
+         ['C','.','.','D'],
+         ['B','.','A','.'],
+         ['.','B','.','A'],
+         ['.','.','.','.']
+        ],
+        [
+         ['.','A','C','.'],
+         ['.','.','.','D'],
+         ['C','.','.','A'],
+         ['.','B','.','.']
+        ],
+        [
+         ['.','C','.','D'],
+         ['B','.','.','.'],
+         ['.','.','.','.'],
+         ['C','A','.','B']
+        ],
+        [
+         ['B','.','.','C'],
+         ['.','A','.','.'],
+         ['.','.','D','.'],
+         ['.','B','.','.']
+        ],
+       ],
+       [ # Level 3
         [
          ['A','B','C','D','E'],
          ['.','A','B','C','D'],
@@ -628,8 +789,43 @@ class Gcompris_sudoku:
          ['.','.','.','A','B'],
          ['.','.','.','.','A']
         ],
+        [
+         ['A','B','.','D','.'],
+         ['.','.','D','E','A'],
+         ['C','.','.','A','.'],
+         ['D','E','.','.','C'],
+         ['.','A','B','.','D']
+        ],
+        [
+         ['.','C','.','A','.'],
+         ['A','.','B','.','C'],
+         ['.','B','.','C','.'],
+         ['D','.','C','.','A'],
+         ['.','A','E','.','B']
+        ],
+        [
+         ['C','B','.','.','D'],
+         ['.','.','D','C','.'],
+         ['D','.','B','.','E'],
+         ['.','A','.','D','C'],
+         ['E','.','.','B','.']
+        ],
+        [
+         ['D','.','.','B','E'],
+         ['.','E','A','.','.'],
+         ['A','C','.','.','B'],
+         ['.','.','B','C','.'],
+         ['C','B','.','A','.']
+        ],
+        [
+         ['.','.','C','D','.'],
+         ['B','.','.','.','C'],
+         ['.','C','.','B','D'],
+         ['C','.','D','A','.'],
+         ['D','E','.','.','A']
+        ],
        ],
-       [ # Level 3
+       [ # Level 5
         [
          ['3','.','.','.','.','5','6','.','2'],
          ['.','6','2','7','1','.','.','4','.'],

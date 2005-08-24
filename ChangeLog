@@ -1,3 +1,11 @@
+2005-08-24  bruno coudoin,,,  <set EMAIL_ADDRESS environment variable>
+
+	* boards/fifteen.xml.in: Changed the difficulty from 1 to 5
+	* boards/sudoku.xml.in: updated help
+	* src/boards/python/sudoku.py: completed, now work in drag and drop mode
+	* src/boards/railroad.c: (reposition_model): fix by François Gannaz
+	  the original position was not resetted on repeat button
+
 2005-08-24  Yves Combe,,,  <yves@ycombe.net>
 
 	fix segfault.

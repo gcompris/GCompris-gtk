@@ -10,10 +10,11 @@
 	 boarddir="">
 	 <_title>Sudoku, place unique numbers in a square.</_title>
 	 <_description>Each number must be unique in a raw,
-in a column and in each 3x3 region.</_description>
-	<_prerequisite></_prerequisite>
-	<_goal>The aim of the puzzle is to enter a numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each numeral. Completing the puzzle requires patience and logical ability (Source http://en.wikipedia.org/wiki/Sudoku)</_goal>
-	 <_manual>Click on an empty square to give it the keyboard focus. Then enter a possible number. GCompris will not let you enter invalid number.
+in a column and, if defined in each region.</_description>
+	<_prerequisite>Completing the puzzle requires patience and logical ability</_prerequisite>
+	<_goal>The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called 'regions'), starting with various symbols or numerals given in some cells (the 'givens'). Each row, column and region must contain only one instance of each symbol or numeral (Source http://en.wikipedia.org/wiki/Sudoku).</_goal>
+	 <_manual>For the first level with colored symbols, drag symbols on the left to their target position.
+For the higher levels, click on an empty square to give it the keyboard focus. Then enter a possible letter or number. GCompris will not let you enter invalid data.
 	 </_manual>
   </Board>
 </GCompris>
