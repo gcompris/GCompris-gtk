@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/23 22:22:31 yves>
+ * Time-stamp: <2005/08/24 21:09:54 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1268,6 +1268,8 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   request = g_strdup_printf(GET_CONF(profile_id, 
 				     board_id));
   
+  g_warning ( "Request get_conf : %s", request);
+
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
 			 &result,
@@ -1283,6 +1285,8 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   g_free(request);
   
   i = ncolumn;
+
+  g_warning("key == %s  -- value == %s ", result[0], result[1]);
 
   while (i < (nrow +1)*ncolumn){
     if (strcmp(result[i+1],"NULL")!=0){
