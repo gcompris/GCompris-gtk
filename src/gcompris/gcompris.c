@@ -823,7 +823,6 @@ void gcompris_set_locale(gchar *locale)
   gcompris_locale = g_strdup(setlocale(LC_MESSAGES, locale));
   if (!gcompris_locale)
     gcompris_locale = g_strdup(locale);
-  setlocale(LC_ALL, "");
 #endif
 
   if(gcompris_locale!=NULL && strcmp(locale, gcompris_locale))

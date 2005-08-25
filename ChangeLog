@@ -1,5 +1,11 @@
 2005-08-25  Yves Combe,,,  <yves@ycombe.net>
 
+	Fix (hope it's fixed) strange locale bug with shapegame. Bar buttons actions like Help and About were passed non translated when go in/out shapegame. 
+
+	* src/gcompris/gcompris.c: (gcompris_set_locale):
+
+2005-08-25  Yves Combe,,,  <yves@ycombe.net>
+
 	divide gcompris user's files into .gcompris/shared and ./gcompris/users
 	mv db default name to .gcompris/shared/profils/gcompris_sqlite.db
 	add commend line options with all that.
