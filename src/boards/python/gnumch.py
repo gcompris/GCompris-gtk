@@ -72,7 +72,7 @@ class Levelset:
     def getTitle(self):
         pass
 
-    def setLevel(self, lnum):
+    def setLevel(self, level, sublevel):
         pass
 
     def getNumber(self):
@@ -106,9 +106,11 @@ def getFactors(n):
 
 class PrimeLevelset:
     def __init__(self):
-        self.numlevels = 9
+        self.numlevels = 1
+        self.num_sublevels = 9
         self.level_max = [ 3, 5, 7, 11, 13, 17, 19, 23, 29 ]
         self.curlevel = 1
+        self.cur_sublevel = 1
 
     def getError(self, num):
         fmt = _('%d is divisible by %s.')
@@ -122,23 +124,26 @@ class PrimeLevelset:
             if n % i == 0:
                 factors.append(i)
         s = makeNumList(factors) % tuple(factors)
-        return fmt % tuple(n, s)
+        return fmt % (n,s)
 
     def getTitle(self):
-        return _('Primes less than %d') % ( self.level_max[self.curlevel-1] + 1 )
+        return _('Primes less than %d') % ( self.level_max[self.cur_sublevel-1] + 1 )
 
-    def setLevel(self, n):
-        self.curlevel = n
+    def setLevel(self, level, sublevel):
+        self.cur_sublevel = level
+        self.cur_sublevel = sublevel
 
     def getNumber(self):
-        n = random.randint( 1, self.level_max[self.curlevel-1] )
+        n = random.randint( 1, self.level_max[self.cur_sublevel-1] )
         return Number( str(n), isPrime(n) )
 
 class FactorLevelset:
     def __init__(self):
-        self.numlevels = 9
+        self.num_sublevels = 9
+        self.numlevels = 1
         self.level_multiple = [ 4, 6, 8, 10, 12, 15, 18, 20, 24 ]
         self.curlevel = 1
+        self.cur_sublevel = 1
         self.factors = []
         self.nonfactors = []
 
@@ -149,17 +154,18 @@ class FactorLevelset:
         for i in range(2, 5):
             mults.append(n*i)
         s = makeNumList(mults) % tuple(mults)
-        return fmt % (n, s, self.level_multiple[self.curlevel-1], n)
+        return fmt % (n, s, self.level_multiple[self.cur_sublevel-1], n)
 
     def getTitle(self):
-        return _('Factors of %d') % ( self.level_multiple[self.curlevel-1] )
+        return _('Factors of %d') % ( self.level_multiple[self.cur_sublevel-1] )
 
-    def setLevel(self, n):
-        self.curlevel = n
+    def setLevel(self, level, sublevel):
+        self.curlevel = level
+        self.cur_sublevel = sublevel
         self.factors = []
         self.nonfactors = []
-        for i in range(1, self.level_multiple[n-1]+1):
-            if self.level_multiple[n-1] % i == 0:
+        for i in range(1, self.level_multiple[sublevel-1]+1):
+            if self.level_multiple[sublevel-1] % i == 0:
                 self.factors.append(i)
             else:
                 self.nonfactors.append(i)
@@ -177,8 +183,11 @@ class FactorLevelset:
 
 class MultipleLevelset:
     def __init__(self):
-        self.numlevels = 9
+        self.numlevels = 4
+        self.num_sublevels = 9
+        self.min_mult = 4
         self.curlevel = 1
+        self.cur_sublevel = 1
 
     def getError(self, num):
         fmt = _('%s are the factors of %d.')
@@ -193,19 +202,20 @@ class MultipleLevelset:
         return fmt % (s, n)
 
     def getTitle(self):
-        return _('Multiples of %d') % ( self.curlevel+1 )
+        return _('Multiples of %d') % ( self.cur_sublevel+1 )
 
-    def setLevel(self, n):
-        self.curlevel = n
+    def setLevel(self, level, sublevel):
+        self.curlevel = level
+        self.cur_sublevel = sublevel
 
     def getNumber(self):
         if random.randint(0,1):
             # choose a good number
-            n = (self.curlevel+1) * random.randint(1, 12)
+            n = (self.cur_sublevel+1) * random.randint(1, self.min_mult + self.curlevel*2)
             num = Number( str(n), 1 )
         else:
             # choose a wrong number
-            n = (self.curlevel+1) * random.randint(1, 12) - random.randint(1, self.curlevel)
+            n = (self.cur_sublevel+1) * random.randint(1, self.min_mult + self.curlevel*2) - random.randint(1, self.cur_sublevel)
             num = Number( str(n), 0 )
         return num
 
@@ -213,6 +223,7 @@ class MultipleLevelset:
 class ExpressionLevelset(object):
     def __init__(self):
         self.numlevels = 7
+        self.num_sublevels = 7
         self.levelops = [ [self.getPlus],
                           [self.getMinus],
                           [self.getPlus, self.getMinus],
@@ -222,6 +233,7 @@ class ExpressionLevelset(object):
                           [self.getPlus, self.getMinus, self.getTimes, self.getDivide]
                         ]
         self.curlevel = 1
+        self.cur_sublevel = 1
 
     def getError(self, num):
         fmt = _('%s = %d')
@@ -235,35 +247,34 @@ class ExpressionLevelset(object):
 
     def getPlus(self, answer):
         n = random.randint(0, answer)
-        num = Number( _('%d + %d') % (n, answer-n), 1 )
+        num = Number( _(u'%d + %d') % (n, answer-n), 1 )
         return num
 
     def getMinus(self, answer):
         n = random.randint(answer, answer*2)
-        num = Number( _('%d - %d') % (n, n-answer), 1 )
+        num = Number( _(u'%d \u2212 %d') % (n, n-answer), 1 )
         return num
 
     def getTimes(self, answer):
         n = random.choice( getFactors(answer) )
-        return Number( _('%d × %d') % (n, answer/n), 1 )
+        return Number( _(u'%d \u00d7 %d') % (n, answer/n), 1 )
 
     def getDivide(self, answer):
         n = random.randint(1, 5)
-        return Number( _('%d ÷ %d') % (answer*n, n), 1 )
+        return Number( _(u'%d \u2215 %d') % (answer*n, n), 1 )
 
 class EqualityLevelset(ExpressionLevelset):
     def __init__(self):
         super(EqualityLevelset, self).__init__()
         self.answermin = 5
-        self.answermax = 12
-        self.answer = 5
 
     def getTitle(self):
         return _('Equal to %d') % (self.answer,)
 
-    def setLevel(self, n):
-        self.curlevel = n
-        self.answer = random.randint(self.answermin, self.answermax)
+    def setLevel(self, level, sublevel):
+        self.curlevel = level
+        self.cur_sublevel = sublevel
+        self.answer = self.answermin + self.cur_sublevel
 
     def getNumber(self):
         if random.randint(0, 1):
@@ -272,7 +283,7 @@ class EqualityLevelset(ExpressionLevelset):
             num.good = 1
         else:
             # wrong number
-            ans = random.choice( range(self.answermin, self.answer) + range(self.answer+1, self.answermax+1) )
+            ans = random.choice( range(self.answermin, self.answer) + range(self.answer+1, self.answer*2) )
             num = self.getNumberWithAnswer(ans)
             num.good = 0
         return num
@@ -470,8 +481,8 @@ class Muncher(Player):
         if num.good:
             self.startMunching()
         else:
-            game.show_message( "You ate a wrong number.\n" +game.levelset.getError(num) +
-                                     "\nPress <Return> to continue." )
+            game.show_message( _("You ate a wrong number.\n") +game.levelset.getError(num) +
+                               _("\nPress <Return> to continue.") )
             self.die()
         game.setNum(self.x, self.y, None)
 
@@ -497,7 +508,7 @@ class Troggle(Player):
         self.nextspawn_timer = 0
         self.warn_timer = 0
         self.exists = True
-        index = random.randint(0, len( game.troganimation )-1)
+        index = random.randint(0, (len( game.troganimation )-1) * game.board.sublevel / game.board.number_of_sublevel)
         self.anim.swapAnimation(game.troganimation[index])
         self.getMove = game.trogmoves[index]
         self.onMove = game.onmove[index]
@@ -680,7 +691,8 @@ class Gcompris_gnumch:
         self.board.level = 1
         self.board.maxlevel = self.levelset.numlevels
         self.board.sublevel = 1
-        self.board.number_of_sublevel = 1
+        self.board.number_of_sublevel = self.levelset.num_sublevels
+        self.trog_wait = 1900
 
         gcompris.bar_set(0)
         gcompris.set_background(self.board.canvas.root(), gcompris.skin.image_to_skin("gcompris-bg.jpg"))
@@ -756,7 +768,7 @@ class Gcompris_gnumch:
 
         # the trogwarning
         self.trogwarning = self.rootitem.add(gnome.canvas.CanvasText,
-                                        text = "T\nR\nO\nG\nG\nL\nE",
+                                        text = _("T\nR\nO\nG\nG\nL\nE"),
                                         justification = gtk.JUSTIFY_CENTER,
                                         font = gcompris.skin.get_font("gcompris/board/huge bold"),
                                         x = self.left/2,
@@ -796,6 +808,7 @@ class Gcompris_gnumch:
         self.board.level = level;
         self.board.sublevel = 1;
         gcompris.bar_set_level(self.board);
+        self.trog_wait = 2000 - self.board.level*100
         self.stopGame()
         self.startGame()
 
@@ -837,11 +850,12 @@ class Gcompris_gnumch:
 
     def startGame(self):
         self.stopped = 0
-        self.levelset.setLevel(self.board.level)
+        self.levelset.setLevel(self.board.level, self.board.sublevel)
         self.title.set(text = self.levelset.getTitle())
         self.trogwarning_num = 1
         self.hide_trogwarning()
         self.goodies = 0
+        self.won_level = 0
         for col in self.squares:
             for s in col:
                 s.setNum( self.levelset.getNumber() )
@@ -849,23 +863,43 @@ class Gcompris_gnumch:
                     self.goodies += 1
 
         self.muncher.lives = 1
-        for t in self.troggles:
-            t.die()
+        for i in range(0, len(self.troggles)):
+            if i < self.board.sublevel-1:
+                self.troggles[i].die()
+            else: # don't move them into the spawning queue
+                self.troggles[i].exists = 0
+                self.troggles[i].anim.gnome_canvas.hide()
         self.muncher.spawn()
 
     def winGame(self):
         self.stopGame()
-        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+        self.won_level = 1
+        gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
 
     def loseGame(self):
         self.stopGame()
-        gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
+        gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.TUX)
 
     def onBoard(self, x, y):
         return x >= 0 and x < self.width and y >= 0 and y < self.height
 
     def pause(self, p):
         self.paused = p
+
+        if p == 0:
+            if self.won_level:
+                # if we are paused, then unpaused it means that they beat the sublevel
+                self.increment_level()
+            else:
+                self.set_level(self.board.level)
+
+    def increment_level(self):
+        self.board.sublevel += 1
+        if self.board.sublevel > self.board.number_of_sublevel:
+            self.set_level( self.board.level % self.board.maxlevel + 1)
+        else:
+            self.startGame();
+            
 
     def repeat(self):
         self.stopGame()
