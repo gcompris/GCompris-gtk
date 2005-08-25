@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/08/16 11:55:07 brunoa>
+ * Time-stamp: <2005/08/25 07:55:12 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -48,12 +48,16 @@ typedef struct {
   gchar	       *database;
   gint          administration;
   gint          reread_menu;
+  gchar        *shared_dir;
+  gchar        *users_dir;
 } GcomprisProperties;
 
 GcomprisProperties	*gcompris_get_properties (void);
 GcomprisProperties	*gcompris_properties_new (void);
 void			 gcompris_properties_destroy (GcomprisProperties *props);
 void			 gcompris_properties_save (GcomprisProperties *props);
+
+gchar                   *get_default_database_name (gchar *shared_dir);
 
 #endif
 

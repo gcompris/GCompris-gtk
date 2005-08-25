@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/08/02 20:41:57 bruno>
+ * Time-stamp: <2005/08/25 12:47:50 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -122,9 +122,13 @@ gchar *get_gcompris_conf_name()
 #define DEFAULT_DATABASE "gcompris_sqlite.db"
 #define PROFILES_ROOT "profiles"
 
-gchar *get_default_database_name ()
+gchar *get_default_database_name (gchar *shared_dir)
 {
-  return g_strconcat(get_gcompris_user_root_directory(), "/", PROFILES_ROOT, "/",  DEFAULT_DATABASE, NULL);
+  gchar *dir_base = g_strconcat( shared_dir, "/",  PROFILES_ROOT, NULL);
+  create_rootdir(dir_base);
+  g_free(dir_base);
+  return g_strconcat( shared_dir, "/",  PROFILES_ROOT, "/",  DEFAULT_DATABASE, NULL);
+  
 }
 
 GcomprisProperties *gcompris_properties_new ()
@@ -155,13 +159,21 @@ GcomprisProperties *gcompris_properties_new ()
   tmp->package_data_dir  = PACKAGE_DATA_DIR;
   tmp->profile           = NULL;
   tmp->logged_user       = NULL;
-  tmp->database          = get_default_database_name();
+
   tmp->administration    = FALSE;
   tmp->reread_menu       = FALSE;
 
   gcompris_user_dir = get_gcompris_user_root_directory() ;
-
   create_rootdir( gcompris_user_dir );
+
+  tmp->shared_dir        = g_strconcat(gcompris_user_dir, "/shared", NULL);
+  create_rootdir( tmp->shared_dir );
+
+  tmp->users_dir        = g_strconcat(gcompris_user_dir, "/users", NULL);
+  create_rootdir( tmp->users_dir );
+
+  /* Needs to be set after command line parsing */
+  tmp->database          = NULL;
 
   full_rootdir = g_strconcat(gcompris_user_dir, "/user_data", NULL);
   create_rootdir(full_rootdir);

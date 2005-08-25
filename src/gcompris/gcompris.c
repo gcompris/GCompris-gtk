@@ -90,6 +90,8 @@ static int popt_create_db   	   = FALSE;
 static int popt_reread_menu   	   = FALSE;
 static char *popt_profile	   = NULL;
 static int *popt_profile_list	   = FALSE;
+static char *popt_shared_dir	   = NULL;
+static char *popt_users_dir	   = NULL;
 
 GTimer *chronometer;
 
@@ -132,6 +134,10 @@ static struct poptOption options[] = {
    N_("Set the profile to use. Use 'gcompris -a' to create profiles"), NULL},
   {"profile-list",'\0', POPT_ARG_NONE, &popt_profile_list, 0,
    N_("List all availaible profiles. Use 'gcompris -a' to create profiles"), NULL},
+  {"shared-dir",'\0', POPT_ARG_STRING, &popt_shared_dir, 0,
+   N_("SHDIR Shared directory emplacement. For profiles and boards configuration data. [$HOME/.gcompris/shared]"), NULL},
+  {"users-dir",'\0', POPT_ARG_STRING, &popt_users_dir, 0,
+   N_("USERSDIR Users directory emplacement. [$HOME/.gcompris/users] "), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif
@@ -1065,6 +1071,38 @@ gcompris_init (int argc, char *argv[])
     }
   }
 
+  if (popt_users_dir){
+    if ((!g_file_test(popt_users_dir, G_FILE_TEST_IS_DIR)) || 
+	(access(popt_users_dir, popt_administration? R_OK : W_OK ) == -1)){
+	g_warning("%s does not exists or is not %s ", popt_users_dir,
+		  popt_administration? "readable" : "writable");
+	exit(0);
+    } else {
+      g_warning("Using %s as users directory.", popt_users_dir);
+      properties->users_dir = g_strdup(popt_users_dir);
+    }
+  }
+
+  if (popt_shared_dir){
+    if ((!g_file_test(popt_shared_dir, G_FILE_TEST_IS_DIR)) ||
+	(access(popt_shared_dir, popt_administration? W_OK : R_OK ) == -1)){
+      g_warning("%s does not exists or is not %s", popt_shared_dir,
+		popt_administration? "writable" : "readable"	);
+      exit(0);
+    }
+    else {
+      g_warning("Using %s as shared directory.", popt_shared_dir);
+      properties->shared_dir = g_strdup(popt_shared_dir);
+    }
+  }
+
+  /* shared_dir initialised, now we can set the default */
+  properties->database = get_default_database_name ( properties->shared_dir );
+  printf( " Infos: %s %s %s \n",  
+	  properties->shared_dir, 
+	  properties->users_dir,
+	  properties->database);
+
   if (popt_database){
     if (g_file_test(popt_database, G_FILE_TEST_EXISTS)) {
       if (access(popt_database,R_OK)==-1){
@@ -1072,7 +1110,7 @@ gcompris_init (int argc, char *argv[])
 	exit(0);
       } else {
 	g_warning("Using %s as database", popt_database);
-	  properties->database = g_strdup(popt_database);
+	properties->database = g_strdup(popt_database);
       }
     } else if (popt_create_db) {
       gchar *dirname = g_path_get_dirname (popt_database);
@@ -1176,6 +1214,7 @@ gcompris_init (int argc, char *argv[])
   gtk_main ();
   return 0;
 }
+    
 
 
 /* Local Variables: */

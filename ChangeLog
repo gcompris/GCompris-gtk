@@ -1,3 +1,15 @@
+2005-08-25  Yves Combe,,,  <yves@ycombe.net>
+
+	divide gcompris user's files into .gcompris/shared and ./gcompris/users
+	mv db default name to .gcompris/shared/profils/gcompris_sqlite.db
+	add commend line options with all that.
+
+	* po/Makefile.in.in:
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/properties.c: (get_default_database_name),
+	(gcompris_properties_new):
+	* src/gcompris/properties.h:
+
 2005-08-24  bruno coudoin,,,  <set EMAIL_ADDRESS environment variable>
 
 	* boards/fifteen.xml.in: Changed the difficulty from 1 to 5
