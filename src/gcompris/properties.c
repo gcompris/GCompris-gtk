@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/08/25 12:47:50 yves>
+ * Time-stamp: <2005/08/25 22:58:04 yves>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -74,7 +74,7 @@ gchar *scan_get_string(GScanner *scanner) {
  *
  * return 0 if OK, -1 if ERROR
  */
-static int
+int
 create_rootdir (gchar *rootdir)
 {
 

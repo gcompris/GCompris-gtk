@@ -53,6 +53,8 @@ pyGcomprisUserType_getattr(pyGcomprisUserObject *self, char *name)
     if(strcmp(name,"firstname")==0) return Py_BuildValue("s", self->cdata->firstname);
     /* str */
     if(strcmp(name,"birthdate")==0) return Py_BuildValue("s", self->cdata->birthdate);
+    /* u int */
+    if(strcmp(name,"session_id")==0) return Py_BuildValue("i", self->cdata->session_id);
 
   return Py_FindMethod(pyGcomprisUserType_methods, (PyObject *)self, name);
 }

@@ -1447,7 +1447,7 @@ py_gcompris_reset_locale(PyObject* self, PyObject* args)
 /* How can i free that ? */
 static GHashTable *text_callbacks = NULL;
 
-static GcomprisTextCallback pyGcomprisTextCallback(gchar *key, gchar *text, GtkLabel *label){
+static gboolean pyGcomprisTextCallback(gchar *key, gchar *text, GtkLabel *label){
   PyObject* args;
   PyObject* result;
   gboolean validate;
@@ -1524,6 +1524,71 @@ py_gcompris_textview(PyObject* self, PyObject* args){
 }
 
 
+static PyObject*
+py_gcompris_get_user_dirname (PyObject* self, PyObject* args)
+{
+  PyObject* pyUser;
+  pyGcomprisUserObject* pyGcomprisUser;
+  GcomprisUser* cGcomprisUser;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "O:gcompris.get_user_dirname", &pyUser))
+    return NULL;
+
+  pyGcomprisUser = (pyGcomprisUserObject *) pyUser;
+
+  cGcomprisUser = pyGcomprisUser->cdata;
+
+  /* Call the corresponding C function */
+  return PyString_FromString(gcompris_get_user_dirname(cGcomprisUser));
+
+}
+
+static PyObject*
+py_gcompris_get_board_dirname (PyObject* self, PyObject* args)
+{
+  PyObject* pyBoard;
+  pyGcomprisBoardObject* pyGcomprisBoard;
+  GcomprisBoard* cGcomprisBoard;
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "O:gcompris.get_board_dirname", &pyBoard))
+    return NULL;
+
+  pyGcomprisBoard = (pyGcomprisBoardObject *) pyBoard;
+
+  cGcomprisBoard = pyGcomprisBoard->cdata;
+
+  /* Call the corresponding C function */
+  return PyString_FromString(gcompris_get_board_dirname(cGcomprisBoard));
+
+}
+
+static PyObject*
+py_gcompris_get_current_user_dirname (PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.get_current_user_dirname"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  return PyString_FromString(gcompris_get_current_user_dirname());
+
+}
+
+static PyObject*
+py_gcompris_get_current_board_dirname (PyObject* self, PyObject* args)
+{
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.get_current_board_dirname"))
+    return NULL;
+
+  /* Call the corresponding C function */
+  return PyString_FromString(gcompris_get_current_board_dirname());
+
+}
+
+
 
 /****************************************************/
 
@@ -1581,6 +1646,11 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "combo_locales_asset",  py_gcompris_combo_locales_asset, METH_VARARGS, "gcompris_combo_locales_asset" },
   { "get_locales_asset_list",  py_gcompris_get_locales_asset_list, METH_VARARGS, "gcompris_get_locales_asset_list" },
   { "textview",  py_gcompris_textview, METH_VARARGS, "gcompris_textview" },
+  { "get_user_dirname",  py_gcompris_get_user_dirname, METH_VARARGS, "gcompris_get_user_dirname" },
+  { "get_current_user_dirname",  py_gcompris_get_current_user_dirname, METH_VARARGS, "gcompris_get_current_user_dirname" },
+  { "get_board_dirname",  py_gcompris_get_board_dirname, METH_VARARGS, "gcompris_get_board_dirname" },
+  { "get_current_board_dirname",  py_gcompris_get_current_board_dirname, METH_VARARGS, "gcompris_get_current_board_dirname" },
+
   { NULL, NULL, 0, NULL}
 };
 

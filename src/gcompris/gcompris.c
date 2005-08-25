@@ -660,10 +660,15 @@ static void setup_window ()
 	  /* No profile start normally */
 	  if (found)
 	    board_to_start = gcompris_get_board_from_section("/login/login");	
-	  else
+	  else {
 	    board_to_start = gcompris_get_board_from_section(properties->root_menu);
-	  
+	    /* this will set user information to system one */
+	    gcompris_set_current_user(NULL);
+	  }
 	}
+      else
+	/* this will set user information to system one */
+	gcompris_set_current_user(NULL);
     }
 
   if(!board_to_start) {

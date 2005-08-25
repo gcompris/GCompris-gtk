@@ -1,6 +1,6 @@
 /* gcompris - profile.h
  *
- * Time-stamp: <2005/08/13 14:34:54 brunoa>
+ * Time-stamp: <2005/08/26 00:35:48 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -107,6 +107,8 @@ struct _GcomprisUser {
   /* Birth day */
   gchar             *birthdate;
 
+  /* Unique Session ID */
+  guint             session_id;
 };
 
 typedef struct _GcomprisUser GcomprisUser;

@@ -1,6 +1,6 @@
 /* gcompris - profile.c
  *
- * Time-stamp: <2005/07/25 00:10:07 bruno>
+ * Time-stamp: <2005/08/26 01:02:32 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -23,10 +23,6 @@
 #include "gcompris.h"
 #include "properties.h"
 
-/* logged user */
-static GcomprisUser           *gcompris_logged_user = NULL;
-
-
 GcomprisProfile       *gcompris_get_current_profile()
 {
   GcomprisProperties	*properties = gcompris_get_properties();
@@ -44,7 +40,28 @@ GcomprisProfile       *gcompris_get_current_profile()
 void                    *gcompris_set_current_user(GcomprisUser *user)
 {
   GcomprisProperties	*properties = gcompris_get_properties();
-  properties->logged_user = user;
+
+  if (user)
+    properties->logged_user = user;
+  else {
+    g_warning("No user, getting one from system.");
+    GcomprisUser *sys_user = g_malloc0(sizeof(GcomprisUser));
+
+    sys_user->login = g_strdup(g_get_user_name ());
+    sys_user->lastname = g_strdup(g_get_real_name ());
+    sys_user->firstname = g_strdup("Unknown");
+    sys_user->birthdate = g_strdup("");
+
+    properties->logged_user = sys_user;
+  }
+
+  GTimeVal now;
+  g_get_current_time (&now);
+
+  gchar *session_id_str = g_strdup_printf("%s%ld%ld", (properties->logged_user)->login, now.tv_sec, now.tv_usec);
+
+  (properties->logged_user)->session_id = g_str_hash((gconstpointer) session_id_str);
+   
 }
 
 

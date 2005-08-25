@@ -94,6 +94,8 @@ libgcomprisinclude_HEADERS =			\
 	gcompris_config.h \
 	gcompris_db.c \
 	gcompris_db.h \
+	gcompris_files.c \
+	gcompris_files.h \
 	pixbuf_util.h \
 	plugin.h \
 	profile.c \
