@@ -22,6 +22,7 @@ import gcompris
 import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
+import gcompris.score
 import gtk
 import gtk.gdk
 import random
@@ -65,6 +66,8 @@ class Gcompris_sudoku:
     self.sudo_size = 0          # the size of the current sudoku
     self.sudo_region = None     # the modulo region in the current sudoku
 
+    self.timer = 0              # The timer that highlights errors
+    
     self.symbolize_level_max = 4 # Last level in which we set symbols
     self.symbols = [
       gcompris.utils.load_pixmap("images/rectangle.png"),
@@ -113,6 +116,7 @@ class Gcompris_sudoku:
     # Remove the root item removes all the others inside it
     self.rootitem.destroy()
     self.rootitem = None
+    gcompris.score.end()
 
   def ok(self):
     print("Gcompris_sudoku ok.")
@@ -158,7 +162,7 @@ class Gcompris_sudoku:
 
     if(strn in self.valid_chars):
 
-      if self.is_possible(strn):
+      if self.is_legal(strn):
         self.sudo_number[self.cursqre[0]][self.cursqre[1]].set(
           text = strn.encode('UTF-8'),
           )
@@ -224,6 +228,11 @@ class Gcompris_sudoku:
         self.symbols[new_pos] = old_symbol
 
     self.display_sudoku(self.sudoku[self.gcomprisBoard.level-1][self.gcomprisBoard.sublevel-1])
+
+    gcompris.score.start(gcompris.score.STYLE_NOTE, 610, 485,
+                         len(self.sudoku[self.gcomprisBoard.level-1]))
+    gcompris.score.set(self.gcomprisBoard.sublevel)
+
     return True
 
   # Code that increments the sublevel and level
@@ -238,6 +247,7 @@ class Gcompris_sudoku:
       self.gcomprisBoard.level += 1
       # Set the level in the control bar
       gcompris.bar_set_level(self.gcomprisBoard);
+
       if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
         # the last board is finished : bail out
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
@@ -316,7 +326,7 @@ class Gcompris_sudoku:
             y = int(y)
 
           self.cursqre = (x, y)
-          if self.is_possible(text):
+          if self.is_legal(text):
             self.set_sudoku_symbol(text, x, y)
 
             # Maybe it's all done
@@ -373,7 +383,7 @@ class Gcompris_sudoku:
         fill_color_rgba= self.error_square_color
         )
       
-    gtk.timeout_add(3000, self.unset_on_error, items)
+    self.timer = gtk.timeout_add(3000, self.unset_on_error, items)
     
   def unset_on_error(self, items):
     if(self.rootitem):
@@ -385,8 +395,12 @@ class Gcompris_sudoku:
   
   # Return True or False if the given number is possible
   #
-  def is_possible(self, number):
+  def is_legal(self, number):
 
+    if((self.cursqre[0] == None) or
+       (self.cursqre[1] == None)):
+      return
+  
     possible = True
     bad_square = []
     
@@ -540,17 +554,20 @@ class Gcompris_sudoku:
   def display_sudoku(self, sudoku):
 
     # Reinit the sudoku globals
+    if self.timer:
+      gtk.timeout_remove(self.timer)
+    
     self.sudo_square = []       # The square Rect Item
     self.sudo_number = []       # The square Text Item
     self.sudo_symbol = []       # The square Symbol Item
 
-    self.valid_chars = []       # The valid chars for the sudoku are calculated from the dataset
+    # The valid chars for the sudoku are calculated from the dataset
+    self.valid_chars = []
 
     self.cursqre = None
 
     self.sudo_size = len(sudoku[0])
 
-    
     if(self.root_sudo):
       self.root_sudo.destroy()
       
@@ -571,7 +588,7 @@ class Gcompris_sudoku:
       
     square_width = (gcompris.BOARD_HEIGHT-50)/self.sudo_size
     square_height = square_width
-    x_init = (gcompris.BOARD_WIDTH - square_width*self.sudo_size)/2
+    x_init = (gcompris.BOARD_WIDTH - square_width*self.sudo_size)/2 - 40
     y_init = (gcompris.BOARD_HEIGHT - square_height*self.sudo_size)/2
     
     for x in range(0,self.sudo_size):
@@ -593,7 +610,7 @@ class Gcompris_sudoku:
           if(not text in self.valid_chars):
             self.valid_chars.append(text)
 
-        # The background of the square
+        # The background of the square
         item = self.root_sudo.add(
           gnome.canvas.CanvasRect,
           fill_color_rgba = square_color,
@@ -628,10 +645,15 @@ class Gcompris_sudoku:
             anchor=gtk.ANCHOR_CENTER
             )
           line_symbol.append(item)
+          
+          # Save it's sudo coord for the drag and drop
+          item.set_data('sudo_x', str(x))
+          item.set_data('sudo_y', str(y))
+
           if(not text):
             item.hide()
             # This item is clickeable and it must be seen
-            item.connect("event", gcompris.utils.item_event_focus)
+            #item.connect("event", gcompris.utils.item_event_focus)
             item.connect("event", self.hide_symbol_event, (x, y))
 
         #
@@ -714,16 +736,6 @@ class Gcompris_sudoku:
          ['A','B','.'],
          ['C','.','B'],
          ['B','.','A']
-        ],
-        [
-         ['A','C','.'],
-         ['B','.','C'],
-         ['C','.','.']
-        ],
-        [
-         ['B','C','A'],
-         ['.','.','.'],
-         ['C','A','B']
         ],
         [
          ['.','B','.'],

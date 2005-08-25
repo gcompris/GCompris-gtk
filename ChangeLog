@@ -1,3 +1,10 @@
+2005-08-25  bruno coudoin
+
+	* boards/sudoku.xml.in: typos (thanks to Gabor Kelemen)
+	* src/boards/python/sudoku.py: After gcompris team review, fixed
+	several bugs, added support for drop over previous symbol
+	added current sublevel number display
+	
 2005-08-25  Yves Combe,,,  <yves@ycombe.net>
 
 	Fix (hope it's fixed) strange locale bug with shapegame. Bar buttons actions like Help and About were passed non translated when go in/out shapegame. 
@@ -16,7 +23,7 @@
 	(gcompris_properties_new):
 	* src/gcompris/properties.h:
 
-2005-08-24  bruno coudoin,,,  <set EMAIL_ADDRESS environment variable>
+2005-08-24  bruno coudoin
 
 	* boards/fifteen.xml.in: Changed the difficulty from 1 to 5
 	* boards/sudoku.xml.in: updated help
