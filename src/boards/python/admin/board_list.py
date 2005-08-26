@@ -702,29 +702,5 @@ class Board_list:
 
 
   def wordlist(self, button):
-    print "__wordlist__"
-
-    self.main_vbox = gcompris.configuration_window ( \
-      _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Wordlist', self.active_profile.name ),
-      self.wordlist_callback
-      )
-
-    gcompris.textview('Test python textview',
-                      'test_textview',
-                      'Play with that, it\'s a test !',
-                      'Initialisation ce texte là devrait être nettement trop long pour ne pas être wrappé. Æ',
-                      self.wordlist_validate)
-
-  def wordlist_callback(self, table):
-    print "wordlist_callback"
-    for k, v in table.iteritems():
-      print k, v
-
-
-  def wordlist_validate( self, key, text, label):
-    print "wordlist_validate"
-    print key, text
-    label.set_markup(text)
-    return True
-
-  
+    import wordlist
+    wordlist.Words_list(self.con, self.cur, self.active_profile)

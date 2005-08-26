@@ -20,5 +20,6 @@ dist_python_DATA= \
 	constants.py \
 	profile_edit.py \
 	profile_group_list.py \
-	profile_list.py
+	profile_list.py \
+	wordlist.py
 
