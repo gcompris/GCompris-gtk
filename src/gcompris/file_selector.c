@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/05/02 02:03:17 bruno>
+ * Time-stamp: <2005/08/26 16:29:42 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -388,47 +388,13 @@ display_file_selector(int the_mode,
 
   file_selector_displayed = TRUE;
 
-  if(g_get_home_dir()) {
-    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data", NULL);
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
-
-    full_rootdir = g_strconcat(g_get_home_dir(), "/.gcompris/user_data/", rootdir, NULL);
-  } else {
-    /* On WIN98, No home dir */
-    full_rootdir = g_strdup_printf("%s", "gcompris/user_data");
-    create_rootdir(full_rootdir);
-    g_free(full_rootdir);
-  
-    full_rootdir = g_strdup_printf("%s/%s", "gcompris/user_data", rootdir);
-  }
-
+  full_rootdir = g_strconcat(gcompris_get_current_user_dirname(), "/", rootdir, NULL);
   create_rootdir(full_rootdir);
 
   current_rootdir = full_rootdir;
+
   display_files(rootitem, full_rootdir);
 
-}
-
-
-/*
- * create the root dir if needed
- *
- * return 0 if OK, -1 if ERROR
- */
-static int
-create_rootdir (gchar *rootdir)
-{
-
-  if(g_file_test(rootdir, G_FILE_TEST_IS_DIR)) {
-    return 0;
-  }
-
-#if defined WIN32
-  return(mkdir(rootdir));
-#else
-  return(mkdir(rootdir, 0755));
-#endif
 }
 
 static void

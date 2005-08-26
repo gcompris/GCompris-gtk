@@ -1,18 +1,29 @@
 2005-08-26  Yves Combe  <yves@ycombe.net>
 
+	fix compilation error with create_rootdir.
+	test system user name (for win 9x).
+	change button stock to STOCK_YES in textviex tool.
+
+	* src/gcompris/board_config.c: (gcompris_textbuffer_changed),
+	(gcompris_textview_yes), (gcompris_textview):
+	* src/gcompris/file_selector.c: (display_file_selector):
+	* src/gcompris/profile.c: (gcompris_set_current_user):
+
+2005-08-26  Yves Combe  <yves@ycombe.net>
+
 	improve textview tool.
 
 	* src/gcompris/board_config.c: (gcompris_textbuffer_changed),
 	(gcompris_textview_check), (gcompris_textview):
 
-2005-08-26  Yves Combe,,,  <yves@ycombe.net>
+2005-08-26  Yves Combe  <yves@ycombe.net>
 
 	patch by Joe Neeman.
 	This patch fixes some issues with Troggle difficulty and fixes translation problems. 
 
 	* src/boards/python/gnumch.py:
 
-2005-08-26  Yves Combe,,,  <yves@ycombe.net>
+2005-08-26  Yves Combe  <yves@ycombe.net>
 
 	add several functions for directory management.
 	create user from system data if no user to log (system encoding?).
@@ -42,13 +53,13 @@
 	several bugs, added support for drop over previous symbol
 	added current sublevel number display
 	
-2005-08-25  Yves Combe,,,  <yves@ycombe.net>
+2005-08-25  Yves Combe  <yves@ycombe.net>
 
 	Fix (hope it's fixed) strange locale bug with shapegame. Bar buttons actions like Help and About were passed non translated when go in/out shapegame. 
 
 	* src/gcompris/gcompris.c: (gcompris_set_locale):
 
-2005-08-25  Yves Combe,,,  <yves@ycombe.net>
+2005-08-25  Yves Combe  <yves@ycombe.net>
 
 	divide gcompris user's files into .gcompris/shared and ./gcompris/users
 	mv db default name to .gcompris/shared/profils/gcompris_sqlite.db
@@ -68,7 +79,7 @@
 	* src/boards/railroad.c: (reposition_model): fix by François Gannaz
 	  the original position was not resetted on repeat button
 
-2005-08-24  Yves Combe,,,  <yves@ycombe.net>
+2005-08-24  Yves Combe  <yves@ycombe.net>
 
 	fix segfault.
 

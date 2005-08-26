@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/26 09:38:37 yves>
+ * Time-stamp: <2005/08/26 15:57:24 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -782,16 +782,16 @@ void *gcompris_textview_destroy (GtkButton *button,
 }
 
 
-void *gcompris_textbuffer_changed (GtkButton *button,
+void *gcompris_textbuffer_changed (GtkTextBuffer *buffer,
 				gpointer user_data){
 
   gtk_widget_set_sensitive        (GTK_WIDGET(user_data),
 				   TRUE);
-
 }
 
-void *gcompris_textview_check (GtkButton *button,
-				gpointer user_data){
+void *gcompris_textview_yes (GtkButton *button,
+			      gpointer user_data){
+
   user_param_type *params= (user_param_type *) user_data;
 
   gchar *key = params->key;
@@ -824,9 +824,11 @@ void *gcompris_textview_check (GtkButton *button,
     gtk_widget_set_sensitive        (GTK_WIDGET(button),
 				     FALSE);
   }
-  else
+  else {
     g_free (in_memoriam_text);
-  
+    g_free (in_memoriam_key);
+  }
+  g_free(text);
 }
 
 GtkTextView *gcompris_textview(const gchar *label, 
@@ -899,16 +901,6 @@ GtkTextView *gcompris_textview(const gchar *label,
   gtk_label_set_markup (GTK_LABEL(desc),
                         (const gchar *)desc_text);
  
-/*   GtkWidget *desc_separator = gtk_hseparator_new (); */
-
-/*   gtk_widget_show(desc_separator); */
-
-/*   gtk_box_pack_start (GTK_BOX(textVbox), */
-/* 		      desc_separator, */
-/* 		      FALSE, */
-/* 		      FALSE, */
-/* 		      0); */
-
   GtkWidget *scroll = gtk_scrolled_window_new ( NULL, NULL);
 
   
@@ -988,7 +980,7 @@ GtkTextView *gcompris_textview(const gchar *label,
 
 
   /* Validate button */
-  GtkWidget *button = gtk_button_new_with_label ("Check text");
+  GtkWidget *button =  gtk_button_new_from_stock (GTK_STOCK_YES);
   gtk_widget_show(button);
   gtk_box_pack_end (GTK_BOX(validationVbox),
 		    button,
@@ -998,7 +990,7 @@ GtkTextView *gcompris_textview(const gchar *label,
 
   g_signal_connect(G_OBJECT(button), 
 		   "clicked",
-		   G_CALLBACK(gcompris_textview_check),
+		   G_CALLBACK(gcompris_textview_yes),
 		   (gpointer) user_param);
 
 
@@ -1014,7 +1006,6 @@ GtkTextView *gcompris_textview(const gchar *label,
 
   gtk_widget_set_sensitive (button,
 			    FALSE);
-
 
   return GTK_TEXT_VIEW(textView);
 }
