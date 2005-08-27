@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/24 22:33:31 yves>
+ * Time-stamp: <2005/08/27 11:40:27 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -43,7 +43,7 @@ extern GnomeCanvas *canvas;
 #define CREATE_TABLE_PROFILES \
         "CREATE TABLE profiles (profile_id INT UNIQUE, name TEXT, profile_directory TEXT, description TEXT); "
 #define CREATE_TABLE_BOARDS_PROFILES_CONF \
-        "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, key TEXT, value TEXT ); "
+        "CREATE TABLE board_profile_conf (profile_id INT, board_id INT, conf_key TEXT, conf_value TEXT ); "
 #define CREATE_TABLE_BOARDS \
         "CREATE TABLE boards (board_id INT UNIQUE, name TEXT, section_id INT, section TEXT, author TEXT, type TEXT, mode TEXT, difficulty INT, icon TEXT, boarddir TEXT, mandatory_sound_file TEXT, mandatory_sound_dataset TEXT, filename TEXT, title TEXT, description TEXT, prerequisite TEXT, goal TEXT, manual TEXT, credit TEXT);"
 
@@ -1171,13 +1171,13 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
 
 
 #define CHECK_CONF(p, b, k) \
-        "SELECT * FROM board_profile_conf WHERE profile_id=%d AND board_id=%d AND key=%s%s%s;", p, b, Q(k)
+        "SELECT * FROM board_profile_conf WHERE profile_id=%d AND board_id=%d AND conf_key=%s%s%s;", p, b, Q(k)
 
 #define INSERT_KEY(p, b, k, v) \
-        "INSERT INTO board_profile_conf (profile_id, board_id, key, value) VALUES (%d, %d, %s%s%s, %s%s%s);", p, b, Q(k), Q(v)
+        "INSERT INTO board_profile_conf (profile_id, board_id, conf_key, conf_value) VALUES (%d, %d, %s%s%s, %s%s%s);", p, b, Q(k), Q(v)
 
 #define UPDATE_KEY(p, b, k, v) \
-        "UPDATE board_profile_conf SET value=%s%s%s WHERE profile_id=%d AND board_id=%d AND key=%s%s%s;", Q(v), p, b, Q(k)
+        "UPDATE board_profile_conf SET conf_value=%s%s%s WHERE profile_id=%d AND board_id=%d AND conf_key=%s%s%s;", Q(v), p, b, Q(k)
 
 void gcompris_set_board_conf(GcomprisProfile *profile, 
 			     GcomprisBoard  *board, 
@@ -1251,7 +1251,7 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
 } 
 
 #define GET_CONF(p, b) \
-        "SELECT key, value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
+        "SELECT conf_key, conf_value FROM board_profile_conf WHERE profile_id=%d AND board_id=%d;", p, b
 
 GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTable *table )
 {
@@ -1287,7 +1287,7 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   i = ncolumn;
 
   if (i == 2)
-    g_warning(" i %d key == %s  -- value == %s ", i, result[0], result[1]);
+    g_warning(" i %d conf_key == %s  -- conf_value == %s ", i, result[0], result[1]);
   else
     g_warning("Request returned %d column(s) !", i);
 

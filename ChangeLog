@@ -1,3 +1,11 @@
+2005-08-27  Yves Combe  <yves@ycombe.net>
+
+	refix compilation error with create_rootdir. Hope is ok !
+	change key, value name in db (bruno's bug test).
+
+	* src/gcompris/file_selector.c:
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf_with_table):
+
 2005-08-27  Yves Combe,,,  <yves@ycombe.net>
 
 	add wordlist.py in POTFILES.in

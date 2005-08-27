@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/08/26 16:29:42 yves>
+ * Time-stamp: <2005/08/27 11:50:13 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -60,7 +60,6 @@ static int		 display_file_selector(int mode,
 					       FileSelectorCallBack iscb);
 static void		 entry_enter_callback( GtkWidget *widget,
 					       GtkWidget *entry );
-static int		 create_rootdir (gchar *rootdir);
 static void		 free_stuff (GtkObject *obj, gchar* data);
 
 static gboolean		 file_selector_displayed = FALSE;
