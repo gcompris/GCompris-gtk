@@ -158,7 +158,7 @@ class Profile_list:
     self.default_profile_id_description = None
 
     # Grab the profile data
-    self.cur.execute('select profile_id, name, description from profiles')
+    self.cur.execute('SELECT profile_id, name, description FROM profiles ORDER BY name')
     self.profile_data = self.cur.fetchall()
 
     for aprofile in self.profile_data:

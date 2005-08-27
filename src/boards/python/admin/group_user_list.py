@@ -103,18 +103,11 @@ class Group_user_list:
       # Remove all entries in the list
       self.model.clear()
 
-      self.cur.execute('SELECT user_id FROM list_users_in_groups WHERE group_id=?', (self.group_id,))
-      list_user_id = self.cur.fetchall()
-
-      # Now retrieve users detail
-      for user_id in list_user_id:
-        self.cur.execute('SELECT user_id,login,firstname,lastname,birthdate ' +
-                         'FROM users WHERE user_id=?',
-                         user_id)
-        user = self.cur.fetchall()[0]
+      self.cur.execute('SELECT DISTINCT users.user_id,login,firstname,lastname,birthdate FROM users,list_users_in_groups WHERE list_users_in_groups.group_id=? AND list_users_in_groups.user_id=users.user_id ORDER BY login', (self.group_id,));
+      users = self.cur.fetchall()
+      for user in users:
         self.add_user_in_model(self.model, user)
-
-    
+            
 
   # Add user in the model
   def add_user_in_model(self, model, user):

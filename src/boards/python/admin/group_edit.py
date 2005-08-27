@@ -237,13 +237,13 @@ class GroupEdit(gtk.Window):
             gobject.TYPE_BOOLEAN)
 
         # Grab the all the users from this class
-        self.cur.execute('select user_id,firstname,lastname from users where class_id=?', (class_id,))
+        self.cur.execute('SELECT user_id,firstname,lastname FROM users WHERE class_id=? ORDER BY login', (class_id,))
         user_data = self.cur.fetchall()
 
         for user in user_data:
 
             # Check our user is already in the group
-            self.cur.execute('select * from list_users_in_groups where group_id=? and user_id=?',
+            self.cur.execute('SELECT * FROM list_users_in_groups WHERE group_id=? AND user_id=?',
                              (group_id, user[0]))
             user_is_already = self.cur.fetchall()
             
@@ -306,7 +306,7 @@ class GroupEdit(gtk.Window):
             self.add_user_in_model(self.model_right, (user_id, user_firstname, user_lastname))
             
             # Save the change in the base
-            self.cur.execute('insert or replace into list_users_in_groups (group_id, user_id) values (?, ?)',
+            self.cur.execute('INSERT OR REPLACE INTO list_users_in_groups (group_id, user_id) VALUES (?, ?)',
                              (self.group_id, user_id))
             self.con.commit()
 

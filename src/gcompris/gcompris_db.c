@@ -1,7 +1,5 @@
 /* gcompris - gcompris_db.c
  *
- * Time-stamp: <2005/08/27 11:40:27 yves>
- *
  * Copyright (C) 2000 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
@@ -109,7 +107,7 @@ extern GnomeCanvas *canvas;
 #define TRIGGER_UPDATE_USERS \
   "CREATE TRIGGER update_wholegroup UPDATE OF class_id ON users\
      BEGIN							   \
-       UPDATE list_users_in_groups SET group_id=(SELECT wholegroup_id FROM class WHERE class_id=old.class_id) WHERE user_id=old.user_id; \
+       UPDATE list_users_in_groups SET group_id=(SELECT wholegroup_id FROM class WHERE class_id=new.class_id) WHERE user_id=new.user_id; \
      END;"
 
 

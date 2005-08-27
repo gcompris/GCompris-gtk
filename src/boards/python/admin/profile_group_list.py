@@ -102,25 +102,11 @@ class Profile_group_list:
       # Remove all entries in the list
       self.model.clear()
 
-      self.cur.execute('select group_id from list_groups_in_profiles where profile_id=?',
-                       (self.profile_id,))
-      list_group_id = self.cur.fetchall()
-
-      # Now retrieve group detail
-      for group_id in list_group_id:
-        self.cur.execute('select group_id,name,description from groups where group_id=?',
-                         group_id)
-        group = self.cur.fetchall()[0]
-
-        group_id = group[0]
-        # Extract the class name of this group
-        class_name = constants.get_class_name_for_group_id(self.con,
-                                                           self.cur,
-                                                           group_id)
-
-        # Insert the class name in the group
-        group = (group[0], class_name, group[1], group[2])
-
+      self.cur.execute('SELECT DISTINCT groups.group_id,class.name,groups.name,groups.description FROM groups,list_groups_in_profiles,class WHERE list_groups_in_profiles.profile_id=? AND list_groups_in_profiles.group_id=groups.group_id AND class.class_id=groups.class_id ORDER BY class.name,groups.name',
+                       (self.profile_id, ))
+      
+      groups = self.cur.fetchall()
+      for group in groups:
         self.add_group_in_model(self.model, group)
 
     

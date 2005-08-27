@@ -1,3 +1,22 @@
+2005-08-27  bruno coudoin
+
+	- a trigger was bad and caused wholegroup to be not 
+	  well maintained
+	- added many ORDER BY to keep list ordered in the user
+	  interface
+	
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/group_edit.py:
+	* src/boards/python/admin/group_list.py:
+	* src/boards/python/admin/group_user_list.py:
+	* src/boards/python/admin/profile_edit.py:
+	* src/boards/python/admin/profile_group_list.py:
+	* src/boards/python/admin/profile_list.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/sudoku.py: minor, color change
+	* src/gcompris/gcompris_db.c: fixed trigger.
+	 
+
 2005-08-27  Yves Combe  <yves@ycombe.net>
 
 	refix compilation error with create_rootdir. Hope is ok !

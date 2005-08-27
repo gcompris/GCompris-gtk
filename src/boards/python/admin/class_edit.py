@@ -53,8 +53,6 @@ class ClassEdit(gtk.Window):
         self.class_name = class_name
         self.teacher_name = teacher_name
         
-        self.class_users_changed = False
-
         # A pointer to the user_list class
         # Will be called to refresh the list when edit is done
         self.list_class = list_class
@@ -229,9 +227,9 @@ class ClassEdit(gtk.Window):
 
         # Grab the user data
         if(with):
-            self.cur.execute('select user_id,firstname,lastname from users where class_id=?', (class_id,))
+            self.cur.execute('SELECT user_id,firstname,lastname FROM users where class_id=? ORDER BY login', (class_id,))
         else:
-            self.cur.execute('select user_id,firstname,lastname from users where class_id!=?', (class_id,))
+            self.cur.execute('SELECT user_id,firstname,lastname FROM users WHERE class_id!=? ORDER BY login', (class_id,))
         user_data = self.cur.fetchall()
 
         model = gtk.ListStore(
@@ -279,8 +277,9 @@ class ClassEdit(gtk.Window):
         treestore, paths = treeview.get_selection().get_selected_rows()
         paths.reverse()
 
-        self.class_users_changed = True
-        
+        if(len(paths)>0 and self.new_class):
+            self.create_class()
+
         for path in paths:
             iter = treestore.get_iter(path)
             path = model.get_path(iter)[0]
@@ -296,6 +295,7 @@ class ClassEdit(gtk.Window):
             self.cur.execute('UPDATE users SET class_id=? WHERE user_id=?',
                              (self.class_id, user_id))
             self.con.commit()
+            print "UPDATE users SET class_id=%d" %self.class_id
 
     # Remove a user from the right list to the left list
     #
@@ -304,8 +304,6 @@ class ClassEdit(gtk.Window):
         treestore, paths = treeview.get_selection().get_selected_rows()
         paths.reverse()
         
-        self.class_users_changed = True
-
         for path in paths:
             iter = treestore.get_iter(path)
             path = model.get_path(iter)[0]
@@ -320,16 +318,12 @@ class ClassEdit(gtk.Window):
             # Save the change in the base (1 Is the 'Unselected user' class)
             self.cur.execute('UPDATE users SET class_id=? where user_id=?', (1, user_id))
             self.con.commit()
-
+            print "UPDATE users SET class_id=1"
 
     # Done, can quit this dialog (without saving)
     #
     def close(self, button):
 
-        if(not self.new_class and self.class_users_changed):
-            self.update_all_wholegroup()
-
-        print "class_edit CLOSE"
         self.list_class.reload(self.class_id,
                                self.class_name,
                                self.teacher_name)
@@ -359,32 +353,7 @@ class ClassEdit(gtk.Window):
                       )
 
         if(self.new_class):
-            # Check the login do not exist already
-            self.cur.execute('SELECT name FROM class WHERE name=?',
-                             (self.entry_class.get_text(),))
-            if(self.cur.fetchone()):
-                dialog = gtk.MessageDialog(None,
-                                           gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                                           gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                           _("There is already a class with this name"))
-                dialog.run()
-                dialog.destroy()
-                return
-
-            # Create its Whole group
-            group_id = constants.get_next_group_id(self.con, self.cur)
-            self.cur.execute('INSERT INTO groups (group_id, name, class_id, description) ' +
-                             'VALUES ( ?, "All", ?, "All users")',
-                             (group_id, self.class_id));
-
-            class_data = (self.class_id,
-                          self.entry_class.get_text(),
-                          self.entry_teacher.get_text(),
-                          group_id
-                          )
-
-            self.cur.execute('INSERT OR REPLACE INTO class (class_id, name, teacher, wholegroup_id) ' +
-                             'values (?, ?, ?, ?)', class_data)
+            self.create_class()
 
         # Save the changes in the base
         self.cur.execute('UPDATE class set name=?,teacher=? where class_id=?',
@@ -393,9 +362,6 @@ class ClassEdit(gtk.Window):
                           self.class_id));
         self.con.commit()
 
-        if(self.class_users_changed):
-            self.update_all_wholegroup()
-
         # Close the dialog window now
         # (The close code will refresh the class_list)
         self.class_name   = self.entry_class.get_text()
@@ -403,4 +369,40 @@ class ClassEdit(gtk.Window):
 
         print "class_edit done"
         self.destroy()
-        
+
+
+    #
+    # Create a class
+    # Make the necessary checks and create the class in the base
+    #
+    def create_class(self):
+                
+        # Check the login do not exist already
+        self.cur.execute('SELECT name FROM class WHERE name=?',
+                         (self.entry_class.get_text(),))
+        if(self.cur.fetchone()):
+            dialog = gtk.MessageDialog(None,
+                                       gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                       gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                                       _("There is already a class with this name"))
+            dialog.run()
+            dialog.destroy()
+            return
+
+        # Create its Whole group
+        group_id = constants.get_next_group_id(self.con, self.cur)
+        self.cur.execute('INSERT INTO groups (group_id, name, class_id, description) ' +
+                         'VALUES ( ?, "All", ?, "All users")',
+                         (group_id, self.class_id));
+
+        class_data = (self.class_id,
+                      self.entry_class.get_text(),
+                      self.entry_teacher.get_text(),
+                      group_id
+                      )
+
+        self.cur.execute('INSERT OR REPLACE INTO class (class_id, name, teacher, wholegroup_id) ' +
+                         'values (?, ?, ?, ?)', class_data)
+
+        # No more need to create this class, it's done
+        self.new_class = False

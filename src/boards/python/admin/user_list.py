@@ -143,7 +143,7 @@ class User_list:
     self.button_remove.set_sensitive(False)
 
     # Grab the user data
-    self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where class_id=?',
+    self.cur.execute('select user_id,login,firstname,lastname,birthdate from users where class_id=? order by login',
                      (class_id,))
     self.user_data = self.cur.fetchall()
 

@@ -56,8 +56,9 @@ class Gcompris_sudoku:
     self.fixed_square_color  = 0x8bAAa7ffL
     self.error_square_color  = 0xff77a7ffL
     self.lines_color         = 0xebe745ffL
-    
-    self.fixed_number_color  = 0xff2100ffL
+
+    # These colors must be different or it won't work
+    self.fixed_number_color  = 0x000cffffL
     self.user_number_color   = 0x000bffffL
 
     self.root_sudo = None

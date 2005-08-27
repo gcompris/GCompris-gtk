@@ -232,7 +232,7 @@ class ProfileEdit(gtk.Window):
             gobject.TYPE_STRING)
 
         # Grab the all the groups
-        self.cur.execute('SELECT group_id,name,description FROM groups')
+        self.cur.execute('SELECT group_id,name,description FROM groups ORDER BY name')
         group_data = self.cur.fetchall()
 
         for group in group_data:

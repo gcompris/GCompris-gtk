@@ -88,7 +88,7 @@ class Group_list:
       class_label.show()
       label_box.pack_start(class_label, False, False, 0)
       
-      self.cur.execute('select * from class where class_id>1')
+      self.cur.execute('SELECT * FROM class WHERE class_id>1 ORDER BY name')
       class_list = self.cur.fetchall()
 
       self.combo_class = gtk.combo_box_new_text()
@@ -183,7 +183,7 @@ class Group_list:
     self.group_model.clear()
     
     # Grab the group data
-    self.cur.execute('select group_id, name, description from groups where class_id=?',
+    self.cur.execute('SELECT group_id, name, description FROM groups WHERE class_id=? ORDER BY name',
                      (self.current_class_id,))
     self.group_data = self.cur.fetchall()
 
@@ -263,6 +263,8 @@ class Group_list:
       # Remove it from the base
       self.cur.execute('delete from groups where group_id=?', (group_id,))
       self.con.commit()
+
+    self.group_user.clear()
 
 
   def on_cell_group_edited(self, cell, path_string, new_text, model):
