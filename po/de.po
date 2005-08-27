@@ -8,6 +8,8 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -20,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-21 13:21+0200\n"
-"PO-Revision-Date: 2005-08-21 14:25+0200\n"
+"POT-Creation-Date: 2005-08-27 21:45+0200\n"
+"PO-Revision-Date: 2005-08-27 22:25+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1826,7 +1828,7 @@ msgid ""
 "Press the spacebar to eat a number."
 msgstr ""
 "Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
-"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+"den Troggeln auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumch-factors.xml.in.h:1
 msgid "Factor Number Munchers"
@@ -1856,7 +1858,7 @@ msgstr ""
 "ganze Teile zerlegt werden kann. Wenn eine Zahl das Vielfache einer anderen "
 "Zahl ist, dann ist die zweite Zahl ein Faktor der ersten Zahl.\n"
 "Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
-"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+"den Troggeln auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumch-inequality.xml.in.h:1
 msgid ""
@@ -1905,7 +1907,7 @@ msgstr ""
 "einer anderen Zahl ist, so ist die andere Zahl ein Vielfaches der ersten "
 "Zahl.\n"
 "Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
-"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+"den Troggeln auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumch-primes.xml.in.h:1
 msgid "Guide the Number Muncher to all the prime numbers."
@@ -1929,7 +1931,7 @@ msgstr ""
 "Primzahlen sind Zahlen, die nur durch sich selbst und 1 teilbar sind. Zum "
 "Beispiel ist 3 eine Primzahl, jedoch 4 nicht (weil 4 durch 2 teilbar ist).\n"
 "Verwende die Pfeiltasten, um den Zahlenmampfer auf dem Brett zu bewegen und "
-"den Troggles auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
+"den Troggeln auszuweichen. Drücke die Leertaste, um eine Zahl zu essen."
 
 #: ../boards/gnumchmenu.xml.in.h:1
 msgid "Go to Number Munchers activities"
@@ -3140,28 +3142,40 @@ msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr "Steuere ein U-Boot mit Hilfe von Lufttanks und Tauchrudern."
 
 #: ../boards/sudoku.xml.in.h:1
-msgid ""
-"Click on an empty square to give it the keyboard focus. Then enter a "
-"possible number. GCompris will not let you enter invalid number."
-msgstr "Klicke auf ein leeres Feld, um dort Werte einzugeben. Dann gib einen möglichen Wert ein. GCompris lässt dich keine ungültigen Werte eingeben."
+msgid "Completing the puzzle requires patience and logical ability"
+msgstr "Um das Puzzle zu lösen, benötigt man Geduld und logisches Denken."
 
 #: ../boards/sudoku.xml.in.h:2
-msgid "Each number must be unique in a raw, in a column and in each 3x3 region."
-msgstr "Jeder Wert muss in jeder Zeile, jeder Spalte und jedem 3x3-Feld einzigartig sein."
+msgid ""
+"For the first level with colored symbols, drag symbols on the left to their "
+"target position. For the higher levels, click on an empty square to give it "
+"the keyboard focus. Then enter a possible letter or number. GCompris will "
+"not let you enter invalid data."
+msgstr "In den ersten Ebenen kannst du die farbigen Symbole von der linken Seite auf ihre Zielpositionen ziehen. In den höheren Ebenen musst du auf ein leeres Feld klicken und danach die mögliche Zahl oder den möglichen Buchstaben eingeben. GCompris lässt dich keine falschen Werte eingeben."
 
 #: ../boards/sudoku.xml.in.h:3
-msgid "Sudoku, place unique numbers in a square."
+msgid "Sudoku, place unique symbols in a square."
 msgstr "Sudoku"
 
 #: ../boards/sudoku.xml.in.h:4
+msgid "Symbols must be unique in a row, column, and if defined in each region."
+msgstr ""
+"Jeder Wert muss in jeder Zeile, jeder Spalte und gegebenenfalls\n"
+"in jeder Region einzigartig sein."
+
+#: ../boards/sudoku.xml.in.h:5
 msgid ""
-"The aim of the puzzle is to enter a numeral from 1 through 9 in each cell of "
-"a grid, most frequently a 9x9 grid made up of 3x3 subgrids (called "
-"'regions'), starting with various numerals given in some cells (the "
-"'givens'). Each row, column and region must contain only one instance of "
-"each numeral. Completing the puzzle requires patience and logical ability "
-"(Source http://en.wikipedia.org/wiki/Sudoku)"
-msgstr "Das Ziel dieses Puzzles ist es, in jeder Zelle eines vorgegebenen Gitters Werte einzugeben. Das Gitter ist meistens 9x9 Felder groß und besteht aus 3x3 Untergittern (genannt \"Regionen\"). Beim Start des Spiels sind einige Felder schon vorbelegt (die \"Gegebenen\"). In jeder Zeile, Spalte und Region darf jeder Wert nur einmal vorkommen. Um das Puzzle zu vervollständigen benötigt man Geduld und logisches Denken."
+"The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in "
+"each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
+"(called 'regions'), starting with various symbols or numerals given in some "
+"cells (the 'givens'). Each row, column and region must contain only one "
+"instance of each symbol or numeral (Source http://en.wikipedia.org/wiki/"
+"Sudoku)."
+msgstr ""
+"Das Ziel dieses Puzzles ist es, in jeder Zelle eines vorgegebenen Gitters "
+"Symbole oder Werte einzugeben. Das Gitter ist meistens 9x9 Felder groß und besteht aus 3x3 Untergittern (genannt \"Regionen\"). Beim Start des Spiels sind einige Felder schon vorbelegt (die \"Gegebenen\"). In jeder Zeile, Spalte und "
+"Region darf jeder Wert nur einmal vorkommen. Um das Puzzle zu "
+"vervollständigen benötigt man Geduld und logisches Denken."
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -3291,9 +3305,9 @@ msgstr "Mehrere Aktivitäten für Kinder"
 
 #: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:602
 #: ../src/boards/missingletter.c:606 ../src/boards/read_colors.c:491
-#: ../src/boards/shapegame.c:1878 ../src/gcompris/file_selector.c:926
+#: ../src/boards/shapegame.c:1878 ../src/gcompris/file_selector.c:891
 #: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:602
-#: ../src/gcompris/gameutil.c:603 ../src/gcompris/gcompris.c:525
+#: ../src/gcompris/gameutil.c:603 ../src/gcompris/gcompris.c:531
 #: ../src/gcompris/images_selector.c:764 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
@@ -3567,11 +3581,11 @@ msgstr "Alle auswählen"
 msgid "Unselect all"
 msgstr "Keine auswählen"
 
-#: ../src/boards/python/admin/board_list.py:229
+#: ../src/boards/python/admin/board_list.py:234
 msgid "Main menu"
 msgstr "Hauptmenü"
 
-#: ../src/boards/python/admin/board_list.py:229
+#: ../src/boards/python/admin/board_list.py:234
 msgid "/"
 msgstr "/"
 
@@ -3580,20 +3594,20 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:286
+#: ../src/boards/python/admin/board_list.py:291
 msgid "Active"
 msgstr "Aktiv"
 
-#: ../src/boards/python/admin/board_list.py:287
+#: ../src/boards/python/admin/board_list.py:292
 msgid "Board title"
 msgstr "Titel der Tafel"
 
-#: ../src/boards/python/admin/board_list.py:403
+#: ../src/boards/python/admin/board_list.py:408
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filter Tafel-Schwierigkeit für Profil %s"
 
-#: ../src/boards/python/admin/board_list.py:434
+#: ../src/boards/python/admin/board_list.py:439
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -3601,6 +3615,29 @@ msgid ""
 msgstr ""
 "<span size='x-large'> Wähle den Schwierigkeitsbereich \n"
 "für das Profil <b>%s</b></span>"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/python/admin/board_list.py:623
+#: ../src/boards/python/admin/board_list.py:641
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:525
+#: ../src/boards/python/pythontest.py:383 ../src/boards/python/tuxpaint.py:168
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> Konfiguration\n"
+" für Profil <b>%s</b>"
+
+#: ../src/boards/python/admin/board_list.py:653
+#: ../src/boards/python/pythontest.py:447
+msgid "Select sound locale"
+msgstr "Gebietsschema für Tonausgabe auswählen"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
@@ -3620,39 +3657,39 @@ msgstr "Klasse:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/boards/python/admin/class_edit.py:101
+#: ../src/boards/python/admin/class_edit.py:103
 msgid "Teacher:"
 msgstr "Lehrer:"
 
-#: ../src/boards/python/admin/class_edit.py:111
+#: ../src/boards/python/admin/class_edit.py:113
 msgid "Assign all the users bellonging to this class"
 msgstr "Weise alle Benutzer dieser Klasse hinzu"
 
-#: ../src/boards/python/admin/class_edit.py:251
-#: ../src/boards/python/admin/group_edit.py:264
-#: ../src/boards/python/admin/group_user_list.py:162
-#: ../src/boards/python/admin/user_list.py:196
+#: ../src/boards/python/admin/class_edit.py:253
+#: ../src/boards/python/admin/group_edit.py:265
+#: ../src/boards/python/admin/group_user_list.py:155
+#: ../src/boards/python/admin/user_list.py:197
 msgid "First Name"
 msgstr "Vorname"
 
-#: ../src/boards/python/admin/class_edit.py:262
-#: ../src/boards/python/admin/group_edit.py:275
-#: ../src/boards/python/admin/group_user_list.py:172
-#: ../src/boards/python/admin/user_list.py:206
+#: ../src/boards/python/admin/class_edit.py:264
+#: ../src/boards/python/admin/group_edit.py:276
+#: ../src/boards/python/admin/group_user_list.py:165
+#: ../src/boards/python/admin/user_list.py:207
 msgid "Last Name"
 msgstr "Nachname"
 
-#: ../src/boards/python/admin/class_edit.py:381
+#: ../src/boards/python/admin/class_edit.py:341
 msgid "You need to provide at least a name for your class"
 msgstr "Sie müssen einen Namen für Ihre Klasse angeben"
 
-#: ../src/boards/python/admin/class_edit.py:403
+#: ../src/boards/python/admin/class_edit.py:387
 msgid "There is already a class with this name"
 msgstr "Es gibt bereits eine Klasse mit diesem Namen"
 
 #: ../src/boards/python/admin/class_list.py:170
 #: ../src/boards/python/admin/profile_edit.py:269
-#: ../src/boards/python/admin/profile_group_list.py:159
+#: ../src/boards/python/admin/profile_group_list.py:145
 msgid "Class"
 msgstr "Klasse"
 
@@ -3664,39 +3701,39 @@ msgstr "Lehrer"
 msgid "Group Edition"
 msgstr "Gruppenbearbeitung"
 
-#: ../src/boards/python/admin/group_edit.py:65
+#: ../src/boards/python/admin/group_edit.py:66
 msgid "Editing group: "
 msgstr "Bearbeite Gruppe: "
 
-#: ../src/boards/python/admin/group_edit.py:66
+#: ../src/boards/python/admin/group_edit.py:67
 msgid " for class: "
 msgstr " für Klasse: "
 
-#: ../src/boards/python/admin/group_edit.py:69
+#: ../src/boards/python/admin/group_edit.py:70
 msgid "Editing a new group"
 msgstr "Bearbeite eine neue Gruppe"
 
-#: ../src/boards/python/admin/group_edit.py:89
+#: ../src/boards/python/admin/group_edit.py:90
 msgid "Group:"
 msgstr "Gruppe:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/group_edit.py:101
+#: ../src/boards/python/admin/group_edit.py:102
 #: ../src/boards/python/admin/profile_edit.py:98
 msgid "Description:"
 msgstr "Beschreibung:"
 
 #. Top message gives instructions
-#: ../src/boards/python/admin/group_edit.py:112
+#: ../src/boards/python/admin/group_edit.py:113
 msgid "Assign all the users bellonging to this group"
 msgstr "Weise alle Benutzer dieser Klasse hinzu"
 
-#: ../src/boards/python/admin/group_edit.py:358
+#: ../src/boards/python/admin/group_edit.py:359
 msgid "You need to provide at least a name for your group"
 msgstr "Sie müssen einen Namen für Ihre Gruppe angeben"
 
-#: ../src/boards/python/admin/group_edit.py:370
+#: ../src/boards/python/admin/group_edit.py:373
 msgid "There is already a group with this name"
 msgstr "Es gibt bereits eine Gruppe mit diesem Namen"
 
@@ -3706,28 +3743,28 @@ msgstr "Wähle eine Klasse: "
 
 #: ../src/boards/python/admin/group_list.py:215
 #: ../src/boards/python/admin/profile_edit.py:279
-#: ../src/boards/python/admin/profile_group_list.py:169
+#: ../src/boards/python/admin/profile_group_list.py:155
 msgid "Group"
 msgstr "Gruppe"
 
 #: ../src/boards/python/admin/group_list.py:226
 #: ../src/boards/python/admin/profile_edit.py:289
-#: ../src/boards/python/admin/profile_group_list.py:179
+#: ../src/boards/python/admin/profile_group_list.py:165
 #: ../src/boards/python/admin/profile_list.py:199
 msgid "Description"
 msgstr "Beschreibung"
 
-#: ../src/boards/python/admin/group_list.py:321
+#: ../src/boards/python/admin/group_list.py:323
 msgid "You must first select a group in the list"
 msgstr "Sie müssen zuerst eine Gruppe aus der Liste auswählen"
 
-#: ../src/boards/python/admin/group_user_list.py:152
-#: ../src/boards/python/admin/user_list.py:186
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
 msgid "Login"
 msgstr "Kennung"
 
-#: ../src/boards/python/admin/group_user_list.py:182
-#: ../src/boards/python/admin/user_list.py:216
+#: ../src/boards/python/admin/group_user_list.py:175
+#: ../src/boards/python/admin/user_list.py:217
 msgid "Birth Date"
 msgstr "Geburtsdatum"
 
@@ -3786,7 +3823,7 @@ msgid "There is already a profile with this name"
 msgstr "Es gibt bereits ein Profil mit diesem Namen"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:574 ../src/gcompris/board_config.c:700
+#: ../src/gcompris/board_config.c:579 ../src/gcompris/board_config.c:705
 msgid "Default"
 msgstr "Standard"
 
@@ -3840,7 +3877,7 @@ msgstr ""
 msgid "There is already a user with this login"
 msgstr "Es gibt bereits einen Benutzer mit dieser Kennung"
 
-#: ../src/boards/python/admin/user_list.py:291
+#: ../src/boards/python/admin/user_list.py:292
 msgid ""
 "To import a user list from file, first select a class.\n"
 "FILE FORMAT: Your file must be formated like this:\n"
@@ -3892,21 +3929,21 @@ msgstr ", %d"
 msgid " and %d"
 msgstr " und %d"
 
-#: ../src/boards/python/gnumch.py:114
+#: ../src/boards/python/gnumch.py:116
 #, python-format
 msgid "%d is divisible by %s."
 msgstr "%d ist teilbar durch %s."
 
-#: ../src/boards/python/gnumch.py:118
+#: ../src/boards/python/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "1 ist keine Primzahl."
 
-#: ../src/boards/python/gnumch.py:128
+#: ../src/boards/python/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "Primzahlen kleiner als %d"
 
-#: ../src/boards/python/gnumch.py:146
+#: ../src/boards/python/gnumch.py:151
 #, python-format
 msgid ""
 "Multiples of %d include %s,\n"
@@ -3915,73 +3952,113 @@ msgstr ""
 "Vielfache von %d enthalten %s,\n"
 "aber %d ist kein Vielfaches von %d."
 
-#: ../src/boards/python/gnumch.py:155
+#: ../src/boards/python/gnumch.py:160
 #, python-format
 msgid "Factors of %d"
 msgstr "Faktoren von %d"
 
-#: ../src/boards/python/gnumch.py:184
+#: ../src/boards/python/gnumch.py:193
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s sind die Faktoren von %d."
 
-#: ../src/boards/python/gnumch.py:196
+#: ../src/boards/python/gnumch.py:205
 #, python-format
 msgid "Multiples of %d"
 msgstr "Vielfache von %d"
 
-#: ../src/boards/python/gnumch.py:227
+#: ../src/boards/python/gnumch.py:239
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
-#: ../src/boards/python/gnumch.py:238
+#: ../src/boards/python/gnumch.py:250
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
-#: ../src/boards/python/gnumch.py:243
+#: ../src/boards/python/gnumch.py:255
 #, python-format
-msgid "%d - %d"
-msgstr "%d - %d"
+msgid "%d − %d"
+msgstr "%d − %d"
 
-#: ../src/boards/python/gnumch.py:248
+#: ../src/boards/python/gnumch.py:260
 #, python-format
-msgid "%d Ã %d"
-msgstr "%d Ã %d"
+msgid "%d × %d"
+msgstr "%d × %d"
 
-#: ../src/boards/python/gnumch.py:252
+#: ../src/boards/python/gnumch.py:264
 #, python-format
-msgid "%d Ã· %d"
-msgstr "%d Ã· %d"
+msgid "%d ∕ %d"
+msgstr "%d ∕ %d"
 
-#: ../src/boards/python/gnumch.py:262
+#: ../src/boards/python/gnumch.py:272
 #, python-format
 msgid "Equal to %d"
 msgstr "Gleich %d"
 
-#: ../src/boards/python/gnumch.py:282
+#: ../src/boards/python/gnumch.py:293
 #, python-format
 msgid "Not equal to %d"
 msgstr "Ungleich %d"
 
-#: ../src/boards/python/gnumch.py:424
+#: ../src/boards/python/gnumch.py:435
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
 msgstr ""
-"Du wurdest durch einen Troggle gefressen.\n"
+"Du wurdest durch einen Troggel gefressen.\n"
 "Drücke <Return> zum Weitermachen."
 
-#: ../src/boards/python/login.py:85
+#: ../src/boards/python/gnumch.py:484
+msgid "You ate a wrong number.\n"
+msgstr "Du hast eine falsche Nummer gegessen.\n"
+
+#: ../src/boards/python/gnumch.py:485
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr ""
+"\n"
+"Drücke <Return> zum Weitermachen."
+
+#: ../src/boards/python/gnumch.py:777
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"E\n"
+"L"
+
+#: ../src/boards/python/login.py:126
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/boards/python/login.py:238 ../src/boards/python/login.py:247
+#: ../src/boards/python/login.py:273 ../src/boards/python/login.py:282
 msgid "Login: "
 msgstr "Kennung: "
 
-#: ../src/boards/python/pythontest.py:124
+#. toggle box
+#: ../src/boards/python/login.py:530
+msgid "Uppercase only text"
+msgstr "Nur Großbuchstaben"
+
+#. toggle box
+#: ../src/boards/python/login.py:540
+msgid "Enter login to log"
+msgstr ""
+
+#: ../src/boards/python/pythontest.py:132
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -3989,7 +4066,7 @@ msgstr ""
 "Dies ist das erste in der Programmiersprache Python geschriebene Gcompris-"
 "Plug-In."
 
-#: ../src/boards/python/pythontest.py:133
+#: ../src/boards/python/pythontest.py:141
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
@@ -3998,58 +4075,39 @@ msgstr ""
 "entwickeln.\n"
 "Vielen Dank an Olivier Samys, der dies ermöglichte."
 
-#: ../src/boards/python/pythontest.py:142
+#: ../src/boards/python/pythontest.py:150
 msgid "This activity is not playable yet, just a test"
 msgstr "Diese Aktivität ist nicht spielbar, nur ein Test"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/boards/python/pythontest.py:375 ../src/boards/python/tuxpaint.py:168
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"<b>%s</b> Konfiguration\n"
-" für Profil <b>%s</b>"
-
 #. toggle box
-#: ../src/boards/python/pythontest.py:380
+#: ../src/boards/python/pythontest.py:388
 msgid "Disable line drawing in circle"
 msgstr "Linien im Kreis deaktivieren"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:389
+#: ../src/boards/python/pythontest.py:397
 msgid "Color line"
 msgstr "Farblinie"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:400
+#: ../src/boards/python/pythontest.py:408
 msgid "Distance between circles"
 msgstr "Abstand zwischen den Kreisen"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:411
+#: ../src/boards/python/pythontest.py:419
 msgid "Use circles"
 msgstr "Benutze Kreise"
 
-#: ../src/boards/python/pythontest.py:412
+#: ../src/boards/python/pythontest.py:420
 msgid "Use rectangles"
 msgstr "Benutze Rechtecke"
 
-#: ../src/boards/python/pythontest.py:415
+#: ../src/boards/python/pythontest.py:423
 msgid "Choice of pattern"
 msgstr "Musterauswahl"
 
-#: ../src/boards/python/pythontest.py:439
-msgid "Select sound locale"
-msgstr "Gebietsschema für Tonausgabe auswählen"
-
-#: ../src/boards/python/pythontest.py:452
+#: ../src/boards/python/pythontest.py:460
 msgid "Keys and values returned by PythonTest config window:"
 msgstr "Schlüssel und Werte, von PythonTest-Konfigurationsfenster zurückgegeben:"
 
@@ -4327,7 +4385,7 @@ msgstr ""
 "Dynamisches Laden von Modulen wird nicht unterstützt. gcompris kann nicht "
 "laden.\n"
 
-#: ../src/gcompris/board_config.c:604
+#: ../src/gcompris/board_config.c:609
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -4587,15 +4645,15 @@ msgstr "Keine Verkleidung in %s gefunden\n"
 msgid "Skin : %s"
 msgstr "Thema: %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/file_selector.c:340
 msgid "CANCEL"
 msgstr "Abbrechen"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "LOAD"
 msgstr "Laden"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "SAVE"
 msgstr "Speichern"
 
@@ -4615,47 +4673,47 @@ msgstr ""
 "Beende und berichte\n"
 "den Autoren über das Problem."
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:100
 msgid "run gcompris in fullscreen mode."
 msgstr "GCompris im Vollbildmodus ausführen"
 
-#: ../src/gcompris/gcompris.c:100
+#: ../src/gcompris/gcompris.c:102
 msgid "run gcompris in window mode."
 msgstr "GCompris im Fenstermodus ausführen"
 
-#: ../src/gcompris/gcompris.c:102
+#: ../src/gcompris/gcompris.c:104
 msgid "run gcompris with sound enabled."
 msgstr "GCompris mit Klängen ausführen"
 
-#: ../src/gcompris/gcompris.c:104
+#: ../src/gcompris/gcompris.c:106
 msgid "run gcompris without sound."
 msgstr "GCompris ohne Klänge ausführen"
 
-#: ../src/gcompris/gcompris.c:106
+#: ../src/gcompris/gcompris.c:108
 msgid "run gcompris with the default gnome cursor."
 msgstr "GCompris mit dem voreingestellten Gnome-Mauszeiger ausführen"
 
-#: ../src/gcompris/gcompris.c:108
+#: ../src/gcompris/gcompris.c:110
 msgid "display only activities with this difficulty level."
 msgstr "zeige nur Aktivitäten mit dieser Schwierigkeitsstufe an"
 
-#: ../src/gcompris/gcompris.c:110
+#: ../src/gcompris/gcompris.c:112
 msgid "display debug informations on the console."
 msgstr "gib Debug-Informationen auf der Konsole aus"
 
-#: ../src/gcompris/gcompris.c:112
+#: ../src/gcompris/gcompris.c:114
 msgid "Print the version of "
 msgstr "Ausgabe der Version von "
 
-#: ../src/gcompris/gcompris.c:114
+#: ../src/gcompris/gcompris.c:116
 msgid "Use the antialiased canvas (slower)."
 msgstr "Kantenglättung verwenden (langsamer)."
 
-#: ../src/gcompris/gcompris.c:116
+#: ../src/gcompris/gcompris.c:118
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR deaktivieren (Keine Auflösungsänderung)."
 
-#: ../src/gcompris/gcompris.c:118
+#: ../src/gcompris/gcompris.c:120
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -4665,43 +4723,53 @@ msgstr ""
 "boards/connect4 öffnet nur die Connect4-Tafel), -l list zeigt die Liste der "
 "Menüs und Aktivitäten"
 
-#: ../src/gcompris/gcompris.c:120
+#: ../src/gcompris/gcompris.c:122
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "GCompris mit lokalem Aktivitäten-Verzeichnis im Menü"
 
-#: ../src/gcompris/gcompris.c:122
+#: ../src/gcompris/gcompris.c:124
 msgid "Run gcompris with administration and users management mode"
 msgstr "GCompris im Administrator/Nutzerverwaltungs-Modus ausführen"
 
-#: ../src/gcompris/gcompris.c:124
+#: ../src/gcompris/gcompris.c:126
 msgid "Use alternate database for profiles"
 msgstr "Andere Datenbank für Profile verwenden"
 
-#: ../src/gcompris/gcompris.c:126
+#: ../src/gcompris/gcompris.c:128
 msgid "Use alternate database for logs"
 msgstr "Wechselnde Datenbanken für Log verwenden"
 
-#: ../src/gcompris/gcompris.c:128
+#: ../src/gcompris/gcompris.c:130
 msgid "Create the alternate database for profiles"
 msgstr "Erzeuge andere Datenbank für Profile"
 
-#: ../src/gcompris/gcompris.c:130
+#: ../src/gcompris/gcompris.c:132
 msgid "Re-read XML Menus and store them in the database"
 msgstr "XML-Menüs erneut einlesen und in der Datenbank abspeichern"
 
-#: ../src/gcompris/gcompris.c:132
+#: ../src/gcompris/gcompris.c:134
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Wählen Sie das zu verwendende Profil aus. Verwenden Sie 'gcompris -a', um "
 "Profile anzulegen."
 
-#: ../src/gcompris/gcompris.c:134
+#: ../src/gcompris/gcompris.c:136
 msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
 msgstr ""
 "Alle verfügbaren Profile anzeigen. Verwenden Sie 'gcompris -a', um Profile "
 "anzulegen."
 
-#: ../src/gcompris/gcompris.c:691
+#: ../src/gcompris/gcompris.c:138
+msgid ""
+"SHDIR Shared directory emplacement. For profiles and boards configuration "
+"data. [$HOME/.gcompris/shared]"
+msgstr "SHDIR Ort des gemeinsamen Verzeichnisses. Für Profile und Tafelkonfigurationen. [$HOME/.gcompris/shared]"
+
+#: ../src/gcompris/gcompris.c:140
+msgid "USERSDIR Users directory emplacement. [$HOME/.gcompris/users] "
+msgstr "USERSDIR Ort des Benutzerverzeichnisses. [$HOME/.gcompris/users] "
+
+#: ../src/gcompris/gcompris.c:693
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4724,7 +4792,7 @@ msgstr ""
 "Betracht. Mehr Informationen zu diesem Thema erhalten Sie unter\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:970
+#: ../src/gcompris/gcompris.c:971
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4738,80 +4806,80 @@ msgstr ""
 "Mehr Informationen unter http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1038
+#: ../src/gcompris/gcompris.c:1039
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Verwenden Sie -l Aktivität, um direkt auf die Aktivität zuzugreifen.\n"
 
-#: ../src/gcompris/gcompris.c:1039
+#: ../src/gcompris/gcompris.c:1040
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Liste der verfügbaren Aktivitäten:\n"
 
-#: ../src/gcompris/gcompris.c:1137
+#: ../src/gcompris/gcompris.c:1182
 #, c-format
 msgid "List of available profiles are:\n"
 msgstr "Liste der verfügbaren Profile:\n"
 
-#: ../src/gcompris/gcompris_db.c:98
+#: ../src/gcompris/gcompris_db.c:141
 #, c-format
 msgid "Database %s opened"
 msgstr "Datenbank %s geöffnet"
 
-#: ../src/gcompris/gcompris_db.c:143
+#: ../src/gcompris/gcompris_db.c:212
 msgid "Database tables created"
 msgstr "Datenbanktabellen erzeugt"
 
-#: ../src/gcompris/gcompris_db.c:170
+#: ../src/gcompris/gcompris_db.c:239
 msgid "Unaffected"
 msgstr "Nicht betroffen"
 
-#: ../src/gcompris/gcompris_db.c:171
+#: ../src/gcompris/gcompris_db.c:240
 msgid "Users without class"
 msgstr "Benutzer ohne Klasse"
 
-#: ../src/gcompris/gcompris_db.c:754 ../src/gcompris/gcompris_db.c:1326
+#: ../src/gcompris/gcompris_db.c:823 ../src/gcompris/gcompris_db.c:1413
 #, c-format
 msgid "No users groups for profile %s"
 msgstr "Keine Benutzergruppe für Profil %s"
 
-#: ../src/gcompris/gcompris_db.c:785 ../src/gcompris/gcompris_db.c:1359
+#: ../src/gcompris/gcompris_db.c:854 ../src/gcompris/gcompris_db.c:1446
 #, c-format
 msgid "No activities out for profile %s"
 msgstr "Keine Aktivitäten für Profil %s"
 
-#: ../src/gcompris/gcompris_db.c:931
+#: ../src/gcompris/gcompris_db.c:1000
 #, c-format
 msgid "No users in group with id  %d"
 msgstr "Keine Benutzer in Gruppe %d"
 
-#: ../src/gcompris/gcompris_db.c:988
+#: ../src/gcompris/gcompris_db.c:1057
 #, c-format
 msgid "No user with id  %d"
 msgstr "Kein Benutzer %d"
 
-#: ../src/gcompris/gcompris_db.c:1045
+#: ../src/gcompris/gcompris_db.c:1114
 #, c-format
 msgid "No class with id  %d"
 msgstr "Keine Klasse %d"
 
-#: ../src/gcompris/gcompris_db.c:1080
+#: ../src/gcompris/gcompris_db.c:1149
 #, c-format
 msgid "No groups in for class %s, there must be at least one for whole class (%d)"
 msgstr ""
 "Keine Gruppe für Klasse %s, es muss mindestens eine für die ganze Klasse "
 "geben (%d)"
 
-#: ../src/gcompris/gcompris_db.c:1419
+#: ../src/gcompris/gcompris_db.c:1506
 #, c-format
 msgid "No group with id  %d"
 msgstr "Keine Gruppe %d"
 
-#: ../src/gcompris/gcompris_db.c:1472 ../src/gcompris/gcompris_db.c:1672
+#: ../src/gcompris/gcompris_db.c:1559 ../src/gcompris/gcompris_db.c:1759
 msgid "No groups !"
 msgstr "Keine Gruppen!"
 
-#: ../src/gcompris/gcompris_db.c:1615
+#: ../src/gcompris/gcompris_db.c:1702
 msgid "No users !"
 msgstr "Keine Benutzer!"
 
