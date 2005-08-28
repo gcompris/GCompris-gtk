@@ -1,3 +1,41 @@
+2005-08-28  Yves Combe,,,  <yves@ycombe.net>
+
+	make all boards in reading configurable for locale, and use this and the global locale configuration.
+	add enabling sound in conf for smallnumber (the two boards) and use locale_sound in this case.
+	disable wordlist button as is not ready for the coming release
+	clean login.py trace
+	clean get_conf trace in gcompris_db
+	add wordlist.h wordlist.c: preparation of api for getting wordlist xml files. Not used in the coming release.
+	
+	* src/boards/click_on_letter.c: (start_board):
+	* src/boards/colors.c: (colors_config_start), (start_board):
+	* src/boards/gletters.c: (start_board), (end_board), (save_table),
+	(conf_ok), (check_text), (colors_config_start),
+	(gletters_config_stop):
+	* src/boards/imageid.c: (start_board), (end_board), (save_table),
+	(conf_ok), (config_start), (config_stop):
+	* src/boards/missingletter.c: (start_board), (end_board),
+	(destroy_board), (save_table), (conf_ok), (config_start),
+	(config_stop):
+	* src/boards/python/admin/board_list.py:
+	* src/boards/python/login.py:
+	* src/boards/reading.c: (start_board), (end_board),
+	(get_random_word), (save_table), (conf_ok), (reading_config_start),
+	(reading_config_stop):
+	* src/boards/shapegame.c: (start_board), (end_board),
+	(is_our_board), (save_table), (conf_ok), (config_start),
+	(config_stop):
+	* src/boards/smallnumbers.c: (start_board),
+	(smallnumbers_create_item), (player_loose), (save_table),
+	(conf_ok), (check_text), (sound_control_box_toggled),
+	(smallnumber_config_start), (smallnumber_config_stop):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf_with_table):
+	* src/gcompris/wordlist.c: (gcompris_get_wordlist_from_file),
+	(gcompris_wordlist_free):
+	* src/gcompris/wordlist.h:
+
 2005-08-27  bruno coudoin
 
 	- a trigger was bad and caused wholegroup to be not 

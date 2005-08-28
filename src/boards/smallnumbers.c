@@ -1,6 +1,6 @@
 /* gcompris - smallnumbers.c
  *
- * Time-stamp: <2005/07/01 23:50:45 yves>
+ * Time-stamp: <2005/08/28 11:42:10 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -48,12 +48,20 @@ static void smallnumbers_destroy_all_items(void);
 static void smallnumbers_next_level(void);
 static void smallnumbers_gotkey_item(GnomeCanvasItem *item, guint key);
 
+static void		 smallnumber_config_start(GcomprisBoard *agcomprisBoard,
+					     GcomprisProfile *aProfile);
+static void		 smallnumber_config_stop(void);
+
 static void player_win(GnomeCanvasItem *item);
 static void player_loose(void);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
 static  double               imageZoom = 0.0;
+
+/* if board has alternate locale */
+static gchar *locale_sound = NULL;
+static gboolean with_sound = FALSE;
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -76,8 +84,8 @@ static BoardPlugin menu_bp =
    set_level,
    NULL,
    NULL,
-   NULL,
-   NULL
+   smallnumber_config_start,
+   smallnumber_config_stop
 };
 
 /*
@@ -130,6 +138,16 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+  GHashTable *config = gcompris_get_board_conf();
+
+  locale_sound = g_hash_table_lookup( config, "locale_sound");
+
+  gchar *control_sound = g_hash_table_lookup( config, "with_sound");
+
+  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+    with_sound = TRUE;
+  else
+    with_sound = FALSE;
 
   if(agcomprisBoard!=NULL)
     {
@@ -409,7 +427,10 @@ static void smallnumbers_create_item(GnomeCanvasGroup *parent)
     lettersItem[1] = '\0';
 
     str1 = g_strdup_printf("%s%s", lettersItem, ".ogg");
-    str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+    str2 = gcompris_get_asset_file_locale("gcompris alphabet", NULL, "audio/x-ogg", str1, locale_sound);
+
+    if (with_sound)
+      gcompris_play_ogg(str2, NULL);
 
     g_free(str1);
     g_free(str2);
@@ -486,6 +507,91 @@ static void player_win(GnomeCanvasItem *item)
 static void player_loose()
 {
   gcompris_play_ogg ("crash", NULL);
+}
+
+
+/* ======================= */
+/* = config_start        = */
+/* ======================= */
+
+static GcomprisProfile *profile_conf;
+static GcomprisBoard   *board_conf;
+
+static GHFunc save_table (gpointer key,
+		    gpointer value,
+		    gpointer user_data)
+{
+  gcompris_set_board_conf ( profile_conf,
+			    board_conf,
+			    (gchar *) key, 
+			    (gchar *) value);
+}
+
+static GcomprisConfCallback conf_ok(GHashTable *table)
+{
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
+  
+  board_conf = NULL;
+  profile_conf = NULL;
+}
+
+static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
+  gtk_label_set_markup(label, text);
+
+  return TRUE;
+}
+
+static void sound_control_box_toggled(GtkToggleButton *togglebutton,
+				      gpointer combo)
+{
+  gtk_widget_set_sensitive(GTK_WIDGET(combo), gtk_toggle_button_get_active (togglebutton));
+}
+
+
+static void
+smallnumber_config_start(GcomprisBoard *agcomprisBoard,
+		    GcomprisProfile *aProfile)
+{
+  board_conf = agcomprisBoard;
+  profile_conf = aProfile;
+
+  gchar *label;
+  
+  label = g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+			  agcomprisBoard->name, aProfile->name);
+
+  gcompris_configuration_window(label, (GcomprisConfCallback )conf_ok);
+
+  g_free(label);
+
+  /* init the combo to previously saved value */
+  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+
+  locale_sound = g_hash_table_lookup( config, "locale_sound");
+
+  gchar *control_sound = g_hash_table_lookup( config, "with_sound");
+  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+    with_sound = TRUE;
+  else
+    with_sound = FALSE;
+
+  GtkCheckButton  *sound_control = gcompris_boolean_box("Enable sounds", "with_sound", with_sound);
+  
+  GtkComboBox *sound_box = gcompris_combo_locales_asset( "Select sound locale", locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
+
+  gtk_widget_set_sensitive(GTK_WIDGET(sound_box), with_sound);
+
+  g_signal_connect(G_OBJECT(sound_control), "toggled", 
+		   G_CALLBACK(sound_control_box_toggled),
+		   sound_box);
+
+}  
+/* ======================= */
+/* = config_stop        = */
+/* ======================= */
+static void 
+smallnumber_config_stop()
+{
 }
 
 

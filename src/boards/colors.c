@@ -157,11 +157,6 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
   
   gcompris_combo_locales_asset( "Select sound locale", locale_sound, "gcompris colors", NULL, "audio/x-ogg", "purple.ogg");
 
-  gcompris_textview("Test <b>TextView</b>", 
-		    "text_text_tool",
-		    "<i>Rien c'est juste un test !</i>", 
-		    "Texte initial pour mettre au début.", 
-		    (GcomprisTextCallback) check_text);
 }
 
   
@@ -200,7 +195,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   GHashTable *config = gcompris_get_board_conf();
 
-  locale_sound = g_hash_table_lookup( config, "locale_asset");
+  locale_sound = g_hash_table_lookup( config, "locale_sound");
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;

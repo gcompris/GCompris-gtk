@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/07/01 23:50:26 yves>
+ * Time-stamp: <2005/08/28 15:01:23 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -143,6 +143,9 @@ static gboolean 	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void 		 set_level (guint level);
 static void 		 process_ok(void);
 static gint		 key_press(guint keyval);
+static void	         config_start (GcomprisBoard *agcomprisBoard,
+					   GcomprisProfile *aProfile);
+static void	         config_stop (void);
 
 static void              shapegame_init_canvas(GnomeCanvasGroup *parent);
 static void 		 shapegame_destroy_all_items(void);
@@ -182,8 +185,8 @@ static BoardPlugin menu_bp =
    set_level,
    NULL,
    NULL,
-   NULL,
-   NULL
+   config_start,
+   config_stop
 };
 
 /*
@@ -219,6 +222,14 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 {
   gchar *filename = NULL;
   gboolean default_background = TRUE;
+
+  if (strcmp(agcomprisBoard->name, "imagename")==0){
+    GHashTable *config = gcompris_get_board_conf();
+    
+    gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+
+    g_hash_table_destroy(config);
+  }
 
   if(agcomprisBoard!=NULL)
     {
@@ -292,6 +303,11 @@ end_board ()
       shapegame_destroy_all_items();
       gcomprisBoard->level = 1;       // Restart this game to zero
     }
+
+  if (strcmp(gcomprisBoard->name, "imagename")==0){
+    gcompris_reset_locale();
+  }
+
   gcomprisBoard = NULL;
   gcompris_set_cursor(GCOMPRIS_DEFAULT_CURSOR);
 }
@@ -315,9 +331,39 @@ is_our_board (GcomprisBoard *gcomprisBoard)
     {
       if(g_strcasecmp(gcomprisBoard->type, "shapegame")==0)
 	{
+	  BoardPlugin *bp_board = g_malloc0(sizeof(BoardPlugin));
+	
+	  bp_board->handle        = menu_bp.handle;
+	  bp_board->filename      = menu_bp.filename;
+	  bp_board->name          = menu_bp.name;
+	  bp_board->description   = menu_bp.description;
+	  bp_board->author        = menu_bp.author;
+	  bp_board->init          = menu_bp.init;
+	  bp_board->cleanup       = menu_bp.cleanup;
+	  bp_board->about         = menu_bp.about;
+	  bp_board->configure     = menu_bp.configure;
+	  bp_board->start_board   = menu_bp.start_board;
+	  bp_board->pause_board   = menu_bp.pause_board;
+	  bp_board->end_board     = menu_bp.end_board;
+	  bp_board->is_our_board  = menu_bp.is_our_board;
+	  bp_board->key_press     = menu_bp.key_press;
+	  bp_board->ok            = menu_bp.ok;
+	  bp_board->set_level     = menu_bp.set_level;
+	  bp_board->config        = menu_bp.config;
+	  bp_board->repeat        = menu_bp.repeat;
+	  
+	  if (strcmp(gcomprisBoard->name, "imagename")==0){
+	    bp_board->config_start  = menu_bp.config_start;
+	    bp_board->config_stop   = menu_bp.config_stop;
+	  } else {
+	    bp_board->config_start  = NULL;
+	    bp_board->config_stop   = NULL;
+	  }
+	  
+	  
 	  /* Set the plugin entry */
-	  gcomprisBoard->plugin=&menu_bp;
-
+	  gcomprisBoard->plugin = bp_board;
+	
 	  return TRUE;
 	}
     }
@@ -2041,6 +2087,69 @@ write_xml_file(char *fname)
   
   return TRUE;
 }
+
+
+
+/* ************************************* */
+/* *            Configuration          * */
+/* ************************************* */
+
+
+/* ======================= */
+/* = config_start        = */
+/* ======================= */
+
+static GcomprisProfile *profile_conf;
+static GcomprisBoard   *board_conf;
+
+static GHFunc save_table (gpointer key,
+		    gpointer value,
+		    gpointer user_data)
+{
+  gcompris_set_board_conf ( profile_conf,
+			    board_conf,
+			    (gchar *) key, 
+			    (gchar *) value);
+}
+
+static GcomprisConfCallback conf_ok(GHashTable *table)
+{
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
+  
+  board_conf = NULL;
+  profile_conf = NULL;
+}
+
+static void
+config_start(GcomprisBoard *agcomprisBoard,
+		    GcomprisProfile *aProfile)
+{
+  board_conf = agcomprisBoard;
+  profile_conf = aProfile;
+
+  gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+						 agcomprisBoard->name, 
+						 aProfile->name), 
+				 (GcomprisConfCallback )conf_ok);
+
+  /* init the combo to previously saved value */
+  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+
+  gchar *locale = g_hash_table_lookup( config, "locale");
+  
+  gcompris_combo_locales( locale);
+
+}
+
+  
+/* ======================= */
+/* = config_stop        = */
+/* ======================= */
+static void 
+config_stop()
+{
+}
+
 
 
 

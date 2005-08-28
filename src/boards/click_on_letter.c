@@ -130,8 +130,6 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-
-
   GHashTable *config = gcompris_get_board_conf();
 
   gcompris_change_locale(g_hash_table_lookup( config, "locale"));

@@ -1266,7 +1266,7 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   request = g_strdup_printf(GET_CONF(profile_id, 
 				     board_id));
   
-  g_warning ( "Request get_conf : %s", request);
+  //g_warning ( "Request get_conf : %s", request);
 
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
@@ -1284,21 +1284,17 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   
   i = ncolumn;
 
-  if (i == 2)
-    g_warning(" i %d conf_key == %s  -- conf_value == %s ", i, result[0], result[1]);
-  else
-    g_warning("Request returned %d column(s) !", i);
+/*   if (i == 2) */
+/*     g_warning(" i %d conf_key == %s  -- conf_value == %s ", i, result[0], result[1]); */
+/*   else */
+/*     g_warning("Request returned %d column(s) !", i); */
 
   while (i < (nrow +1)*ncolumn){
     if (strcmp(result[i+1],"NULL")!=0){
       /* "NULL" values are ignored */
       g_hash_table_replace (hash_conf,
-			    g_strdup(result[i]),
-			    g_strdup(result[i+1]));
-
-      g_warning("get_conf: put key %s, value %s in the hash",
-		result[i++],
-		result[i++]);
+			    g_strdup(result[i++]),
+			    g_strdup(result[i++]));
     }
     else
       i += 2;

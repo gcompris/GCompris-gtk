@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/08/25 23:17:42 yves>
+ * Time-stamp: <2005/08/28 00:02:19 yves>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -51,6 +51,7 @@
 #include "profile.h"
 #include "gcompris_db.h"
 #include "gcompris_files.h"
+#include "wordlist.h"
 
 #ifdef USE_CAIRO
 #include "gcompris-cairo.h"

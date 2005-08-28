@@ -41,6 +41,9 @@ static int gamewon;
 static void		 process_ok(void);
 static void		 highlight_selected(GnomeCanvasItem *);
 static void		 game_won(void);
+static void		 config_start(GcomprisBoard *agcomprisBoard,
+					     GcomprisProfile *aProfile);
+static void		 config_stop(void);
 
 typedef struct _Board Board;
 struct _Board {
@@ -114,8 +117,8 @@ static BoardPlugin menu_bp =
     set_level,
     NULL,
     NULL,
-    NULL,
-    NULL
+    config_start,
+    config_stop
   };
 
 /*
@@ -149,6 +152,12 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+  GHashTable *config = gcompris_get_board_conf();
+
+  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+
+  g_hash_table_destroy(config);
+
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
@@ -183,6 +192,9 @@ static void end_board ()
       missing_letter_destroy_all_items();
       destroy_board_list();
     }
+
+  gcompris_reset_locale();
+
   gcomprisBoard = NULL;
 }
 
@@ -648,4 +660,64 @@ static void destroy_board(Board * board) {
   g_free(board->l2);
   g_free(board->l3);
   g_free(board);
+}
+
+/* ************************************* */
+/* *            Configuration          * */
+/* ************************************* */
+
+
+/* ======================= */
+/* = config_start        = */
+/* ======================= */
+
+static GcomprisProfile *profile_conf;
+static GcomprisBoard   *board_conf;
+
+static GHFunc save_table (gpointer key,
+		    gpointer value,
+		    gpointer user_data)
+{
+  gcompris_set_board_conf ( profile_conf,
+			    board_conf,
+			    (gchar *) key, 
+			    (gchar *) value);
+}
+
+static GcomprisConfCallback conf_ok(GHashTable *table)
+{
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
+  
+  board_conf = NULL;
+  profile_conf = NULL;
+}
+
+static void
+config_start(GcomprisBoard *agcomprisBoard,
+		    GcomprisProfile *aProfile)
+{
+  board_conf = agcomprisBoard;
+  profile_conf = aProfile;
+
+  gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+						 agcomprisBoard->name, 
+						 aProfile->name), 
+				 (GcomprisConfCallback )conf_ok);
+
+  /* init the combo to previously saved value */
+  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+
+  gchar *locale = g_hash_table_lookup( config, "locale");
+  
+  gcompris_combo_locales( locale);
+
+}
+
+  
+/* ======================= */
+/* = config_stop        = */
+/* ======================= */
+static void 
+config_stop()
+{
 }

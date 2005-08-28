@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/07/01 23:50:00 yves>
+ * Time-stamp: <2005/08/28 12:37:29 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -87,6 +87,9 @@ static gint		 reading_drop_items (void);
 //static void reading_destroy_item(LettersItem *item);
 static void		 reading_destroy_all_items(void);
 static gint		 reading_next_level(void);
+static void		 reading_config_start(GcomprisBoard *agcomprisBoard,
+					     GcomprisProfile *aProfile);
+static void		 reading_config_stop(void);
 
 static void		 player_win(void);
 static void		 player_loose(void);
@@ -120,8 +123,8 @@ static BoardPlugin menu_bp =
    set_level,
    NULL,
    NULL,
-   NULL,
-   NULL
+   reading_config_start,
+   reading_config_stop
 };
 
 /*
@@ -165,6 +168,11 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
+  GHashTable *config = gcompris_get_board_conf();
+
+  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+
+  g_hash_table_destroy(config);
 
   if(agcomprisBoard!=NULL)
     {
@@ -196,6 +204,9 @@ end_board ()
       pause_board(TRUE);
       reading_destroy_all_items();
     }
+
+  gcompris_reset_locale();
+
   gcomprisBoard = NULL;
 }
 
@@ -774,6 +785,67 @@ static gchar *get_random_word(gboolean remove)
     return g_ptr_array_remove_index(words,i);
   else
     return g_ptr_array_index(words,i);
+}
+
+
+/* ************************************* */
+/* *            Configuration          * */
+/* ************************************* */
+
+
+/* ======================= */
+/* = config_start        = */
+/* ======================= */
+
+static GcomprisProfile *profile_conf;
+static GcomprisBoard   *board_conf;
+
+static GHFunc save_table (gpointer key,
+		    gpointer value,
+		    gpointer user_data)
+{
+  gcompris_set_board_conf ( profile_conf,
+			    board_conf,
+			    (gchar *) key, 
+			    (gchar *) value);
+}
+
+static GcomprisConfCallback conf_ok(GHashTable *table)
+{
+  g_hash_table_foreach(table, (GHFunc) save_table, NULL);
+  
+  board_conf = NULL;
+  profile_conf = NULL;
+}
+
+static void
+reading_config_start(GcomprisBoard *agcomprisBoard,
+		    GcomprisProfile *aProfile)
+{
+  board_conf = agcomprisBoard;
+  profile_conf = aProfile;
+
+  gcompris_configuration_window( g_strdup_printf("<b>%s</b> configuration\n for profile <b>%s</b>",
+						 agcomprisBoard->name, 
+						 aProfile->name), 
+				 (GcomprisConfCallback )conf_ok);
+
+  /* init the combo to previously saved value */
+  GHashTable *config = gcompris_get_conf( profile_conf, board_conf);
+
+  gchar *locale = g_hash_table_lookup( config, "locale");
+  
+  gcompris_combo_locales( locale);
+
+}
+
+  
+/* ======================= */
+/* = config_stop        = */
+/* ======================= */
+static void 
+reading_config_stop()
+{
 }
 
 

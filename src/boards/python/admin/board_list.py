@@ -172,6 +172,8 @@ class Board_list:
       self.button_wordlist.connect("clicked", self.wordlist)
       self.button_wordlist.show()
       box3.pack_end(self.button_wordlist, False, False, 0)
+      #not ready yet
+      self.button_wordlist.set_sensitive(False)
 
       self.button_login = gtk.Button('Login')
       self.button_login.connect("clicked", self.login_configure)
@@ -618,7 +620,7 @@ class Board_list:
   ########################################################
 
   def locales(self, button):
-    conf_locales = self.get_configured(self.active_profile, '__locales', 'NULL')
+    conf_locales = self.get_configured(self.active_profile, 'locale', 'NULL')
     self.main_vbox = gcompris.configuration_window ( \
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Locale', self.active_profile.name ),
       self.ok_callback
@@ -636,7 +638,7 @@ class Board_list:
     
   def locales_sound(self, button):
  
-    conf_locales = self.get_configured(self.active_profile, '__locales_sound', 'NULL')
+    conf_locales = self.get_configured(self.active_profile, 'locale_sound', 'NULL')
     self.main_vbox = gcompris.configuration_window ( \
       _('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Locale sound', self.active_profile.name ),
       self.ok_callback
@@ -654,29 +656,18 @@ class Board_list:
 
 
   def ok_callback(self, dict):
-    if dict.has_key('locales'):
-      dict['__locales'] = dict['locales']
-      del dict['locales']
-
-    if dict.has_key('locales_sound'):
-      dict['__locales_sound'] = dict['locales_sound']
-      del dict['locales_sound']
-
-    if dict.has_key('wordlist'):
-      dict['__wordlist'] = dict['wordlist']
-      del dict['wordlist']
 
     for key, value in dict.iteritems():
       if key in self.already_conf:
-        req = 'UPDATE board_profile_conf SET value=\'%s\' WHERE profile_id=%d AND board_id=-1 AND key=\'%s\'' % (value, self.active_profile.profile_id, key) 
+        req = 'UPDATE board_profile_conf SET conf_value=\'%s\' WHERE profile_id=%d AND board_id=-1 AND conf_key=\'%s\'' % (value, self.active_profile.profile_id, key) 
       else:
-        req = 'INSERT INTO board_profile_conf (profile_id, board_id, key, value) VALUES (%d, -1, \'%s\', \'%s\')' % (self.active_profile.profile_id, key, value)
+        req = 'INSERT INTO board_profile_conf (profile_id, board_id, conf_key, conf_value) VALUES (%d, -1, \'%s\', \'%s\')' % (self.active_profile.profile_id, key, value)
       
       self.cur.execute(req)
       self.con.commit()
       
   def get_configured(self, profile, key, if_not):
-    self.cur.execute('select value from board_profile_conf where profile_id=%d and board_id=-1 and key =\'%s\' ' % (profile.profile_id, key))
+    self.cur.execute('select conf_value from board_profile_conf where profile_id=%d and board_id=-1 and conf_key =\'%s\' ' % (profile.profile_id, key))
 
     value = self.cur.fetchall()
 

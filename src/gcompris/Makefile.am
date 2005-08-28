@@ -96,6 +96,8 @@ libgcomprisinclude_HEADERS =			\
 	gcompris_db.h \
 	gcompris_files.c \
 	gcompris_files.h \
+	wordlist.h \
+	wordlist.c \
 	pixbuf_util.h \
 	plugin.h \
 	profile.c \
