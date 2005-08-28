@@ -80,6 +80,8 @@ class Gcompris_login:
     # init config to default values
     self.config_dict = self.init_config()
 
+    print gcompris.get_board_conf(), self.gcomprisBoard.board_id, self.gcomprisBoard.name
+
     # change configured values
     self.config_dict.update(gcompris.get_board_conf())
 

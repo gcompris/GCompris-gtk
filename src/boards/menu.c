@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/07/04 21:20:28 yves>
+ * Time-stamp: <2005/08/29 00:03:16 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -108,6 +108,13 @@ static void menu_pause (gboolean pause)
   if(gcomprisBoard==NULL)
     return;
 
+
+  if (gcomprisBoard->previous_board)
+    g_warning("menu_pause %s %d", gcomprisBoard->previous_board->name, gcomprisBoard->previous_board->board_id);
+  else
+    g_warning("menu_pause no previous board");
+
+
   board_paused = pause;
 }
 
@@ -176,6 +183,11 @@ menu_end ()
     gtk_object_destroy (GTK_OBJECT(boardRootItem));
 
   boardRootItem=NULL;
+
+  if (gcomprisBoard->previous_board)
+    g_warning("menu_end %s %d", gcomprisBoard->previous_board->name, gcomprisBoard->previous_board->board_id);
+  else
+    g_warning("menu_end no previous board");
 }
 
 static gboolean
@@ -397,6 +409,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
     return;
 
   board = g_object_get_data (G_OBJECT (item), "board");
+
+
+  g_warning("item_event %s %d", gcomprisBoard->previous_board->name, gcomprisBoard->previous_board->board_id);
 
   switch (event->type)
     {

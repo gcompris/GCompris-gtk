@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/26 15:57:24 yves>
+ * Time-stamp: <2005/08/29 00:34:21 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -100,7 +100,7 @@ void gcompris_apply_board_conf (GtkButton *button,
 
 GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callback)
 {
-  GtkButton *button;
+  GtkButton *button, *button_ok;
   GtkWidget *footer;
   GtkWidget *header;
   GtkWidget *separator;
@@ -151,28 +151,31 @@ GtkVBox *gcompris_configuration_window(gchar *label, GcomprisConfCallback callba
   /* Close button */
   button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_CLOSE));
   gtk_widget_show(GTK_WIDGET(button));
-  gtk_box_pack_end (GTK_BOX(footer),
-		    GTK_WIDGET(button),
-		    FALSE,
-		    FALSE,
-		    0);
+
   g_signal_connect(G_OBJECT(button), 
 		   "clicked",
 		   G_CALLBACK(gcompris_close_board_conf),
 		   NULL);
 
   /* Ok button */
-  button = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_OK));
-  gtk_widget_show(GTK_WIDGET(button));
-  gtk_box_pack_start (GTK_BOX(footer),
-		      GTK_WIDGET(button),
-		      FALSE,
-		      FALSE,
-		      0);
-  g_signal_connect (G_OBJECT(button),
+  button_ok = GTK_BUTTON(gtk_button_new_from_stock(GTK_STOCK_OK));
+  gtk_widget_show(GTK_WIDGET(button_ok));
+  g_signal_connect (G_OBJECT(button_ok),
 		    "clicked",
 		    G_CALLBACK(gcompris_apply_board_conf),
 		    NULL);
+
+  gtk_box_pack_end (GTK_BOX(footer),
+		    GTK_WIDGET(button_ok),
+		    FALSE,
+		    FALSE,
+		    0);
+
+  gtk_box_pack_end (GTK_BOX(footer),
+		    GTK_WIDGET(button),
+		    FALSE,
+		    FALSE,
+		    0);
 
   /* Label header */
   header = gtk_label_new ((gchar *)NULL);

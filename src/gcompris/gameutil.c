@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/08/19 02:14:10 yves>
+ * Time-stamp: <2005/08/29 00:26:24 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -525,8 +525,6 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
      gcomprisBoard->description == NULL) {
     g_error("failed to read a mandatory field for this board (mandatory fields are name type icon_name difficulty section title description). check the board xml file is complete, perhaps xml-i18n-tools did not generate the file properly");
   }
-  gcomprisBoard->board_id=0;
-  gcomprisBoard->section_id=0;
 
   if (db){
     gcompris_db_board_update( &gcomprisBoard->board_id, 

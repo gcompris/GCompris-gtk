@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/07/23 14:32:38 bruno>
+ * Time-stamp: <2005/08/29 00:23:36 yves>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -490,7 +490,7 @@ void gcompris_config_stop ()
   pixmap_checked = NULL;
 
   /* UnPause the board */
-  if(gcomprisBoard->plugin->pause_board != NULL && is_displayed)
+  if((gcomprisBoard->plugin->pause_board != NULL) && is_displayed)
     {
       gcomprisBoard->plugin->pause_board(FALSE);
     }
@@ -716,7 +716,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  gcompris_skin_load(properties->skin);
 	  gcompris_config_stop();
 	  gcompris_properties_save(properties);
-	  gcompris_load_menus();
+	  //gcompris_load_menus();
 
 	  if(properties->music || properties->fx) {
 	    initSound();

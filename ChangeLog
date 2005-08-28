@@ -1,3 +1,17 @@
+2005-08-29  Yves Combe,,,  <yves@ycombe.net>
+
+	finally fix this *$%@# bug in get_conf.
+	fix config (bar button) bug: boards were reinitialised with board_id = 0.
+	Change button order in configuration window.
+
+	* src/boards/menu.c: (menu_pause), (menu_end), (item_event):
+	* src/boards/python/login.py:
+	* src/gcompris/bar.c:
+	* src/gcompris/board_config.c: (gcompris_configuration_window):
+	* src/gcompris/config.c: (gcompris_config_stop), (item_event_ok):
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data):
+	* src/gcompris/gcompris_db.c: (gcompris_get_conf_with_table):
+
 2005-08-28  Yves Combe,,,  <yves@ycombe.net>
 
 	make all boards in reading configurable for locale, and use this and the global locale configuration.
