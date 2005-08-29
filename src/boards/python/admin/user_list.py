@@ -332,16 +332,45 @@ class User_list:
         count=c
         sep=asep
 
+    self.cur.execute('SELECT login FROM users')
+    
+    passed_upper_login = [x[0].upper() for x in self.cur.fetchall()]
+
+    rejected = []
+
     for line in file.readlines():
       print line
       line = line.rstrip("\n\r")
       user_id = self.get_next_user_id()
       login, firstname, lastname, birthdate = line.split(sep)
+
+      #check uppercase are unique.
+      up_login = login.decode('utf-8').upper()
+      if up_login in passed_upper_login:
+        rejected.append(login.encode('utf-8'))
+        import time
+        login = login + str(time.time())
+      else:
+        passed_upper_login.append(up_login)
+        
       # Save the changes in the base
       new_user = [user_id, login, firstname, lastname, birthdate, self.class_id]
       self.add_user_in_model(model, new_user)
       self.cur.execute('INSERT OR REPLACE INTO users (user_id, login, firstname, lastname, birthdate, class_id) VALUES (?, ?, ?, ?, ?, ?)', new_user)
       self.con.commit()
+
+    if len(rejected) != 0:
+      p = ''
+      for rej in rejected:
+        p = p + ' ' + rej
+
+      p.strip()
+      dialog = gtk.MessageDialog(None,
+                               gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                               gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                               _("Uppercased login was not unique !\n Some of them have been changed appending time . Change them : %s !") % p)
+      dialog.run()
+      dialog.destroy()
 
     file.close()
 

@@ -56,6 +56,7 @@ class UserEdit(gtk.Window):
                               lastname + " " +
                               firstname)
             self.new_user = False
+            self.old_login = login
         else:
             frame = gtk.Frame(_("Editing a new user"))
             self.new_user = True
@@ -162,16 +163,20 @@ class UserEdit(gtk.Window):
 
         if(self.new_user):
             # Check the login do not exist already
-            self.cur.execute('SELECT login FROM users WHERE login=?',
-                             (self.entry_login.get_text(),))
-            if(self.cur.fetchone()):
-                dialog = gtk.MessageDialog(None,
-                                           gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                                           gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                                           _("There is already a user with this login"))
-                dialog.run()
-                dialog.destroy()
-                return
+            self.cur.execute('SELECT login FROM users')
+        else:
+            self.cur.execute('SELECT login FROM users WHERE login != \'%s\'' % self.old_login)
+        logins = [x[0].upper() for x in self.cur.fetchall()]
+        login = self.entry_login.get_text().decode('utf-8').upper()
+
+        if login in logins:
+            dialog = gtk.MessageDialog(None,
+                                       gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                       gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
+                                       _("There is already a user with this login"))
+            dialog.run()
+            dialog.destroy()
+            return
 
         #
         # Now everything is correct, create the user
