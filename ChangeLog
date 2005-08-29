@@ -1,5 +1,13 @@
 2005-08-29  Yves Combe,,,  <yves@ycombe.net>
 
+	Change fonts size and interline  in reading.c
+	suppress filter boards from old config.
+	
+	* src/boards/reading.c: (start_board), (reading_create_item):
+	* src/gcompris/config.c: (gcompris_config_start), (item_event_ok):
+
+2005-08-29  Yves Combe,,,  <yves@ycombe.net>
+
 	finally fix this *$%@# bug in get_conf.
 	fix config (bar button) bug: boards were reinitialised with board_id = 0.
 	Change button order in configuration window.

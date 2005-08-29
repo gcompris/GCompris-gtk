@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/08/28 12:37:29 yves>
+ * Time-stamp: <2005/08/29 09:26:18 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -73,6 +73,7 @@ static LettersItem toDeleteFocus;
 gint current_x;
 gint current_y;
 gint numberOfLine;
+gint interline;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
 static void		 pause_board (gboolean pause);
@@ -185,6 +186,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcomprisBoard->level = 1;
       gcomprisBoard->maxlevel = 9;
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
+
+      interline = (int) (1.5*PANGO_PIXELS(pango_font_description_get_size (pango_font_description_from_string (gcompris_skin_font_board_medium))));
+
+      g_warning ("Font to display words have size %d", interline);
 
       /* Default mode */
       currentMode=MODE_VERTICAL;
@@ -439,7 +444,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
 			   "text", word,
-			   "font", gcompris_skin_font_board_fixed,
+			   "font-desc", pango_font_description_from_string (gcompris_skin_font_board_medium),
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
@@ -450,7 +455,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
 			   "text", overword,
-			   "font", gcompris_skin_font_board_fixed,
+			   "font-desc", pango_font_description_from_string (gcompris_skin_font_board_medium),
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
@@ -462,7 +467,7 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
   // Calculate the next spot
   if(currentMode==MODE_VERTICAL)
     {
-      current_y += 20;
+      current_y += interline;
       numberOfLine--;
     }
   else
@@ -475,8 +480,8 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
       if(x2>BASE_X2)
 	{
 	  // Do the line Wrapping
-	  gnome_canvas_item_move(GNOME_CANVAS_ITEM(previousFocus.rootItem), BASE_X1-x1, 20);
-	  current_y += 20;
+	  gnome_canvas_item_move(GNOME_CANVAS_ITEM(previousFocus.rootItem), BASE_X1-x1, interline);
+	  current_y += interline;
 	  current_x = BASE_X1;
 	  numberOfLine--;
 	}
