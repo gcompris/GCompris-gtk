@@ -1,4 +1,11 @@
-2005-08-29  Yves Combe,,,  <set EMAIL_ADDRESS environment variable>
+2005-08-29  Yves Combe  <yves@ycombe.net>
+
+	add uppercase test for unique login in user creation.
+
+	* src/boards/python/admin/user_edit.py:
+	* src/boards/python/admin/user_list.py:
+
+2005-08-29  Yves Combe  <yves@ycombe.net>
 
 	fix horizontal space replacing 'x' overwrite by black background.
 
