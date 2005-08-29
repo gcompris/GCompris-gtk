@@ -224,12 +224,16 @@ class Gcompris_login:
     remaining_users=0
     
     for user in users:
-      if user.login.startswith(start_filter):
+      if eval(self.config_dict['uppercase_only']):
+        login = user.login.decode('utf8').upper().encode('utf8')
+      else:
+        login = user.login
+      if login.startswith(start_filter):
         remaining_users += 1
-        if(len(start_filter)<len(user.login)):
+        if(len(start_filter)<len(login)):
           if(not current_letter or
-             current_letter != user.login[len(start_filter)]):
-            current_letter = user.login[len(start_filter)]
+             current_letter != login[len(start_filter)]):
+            current_letter = login[len(start_filter)]
             first_letters.append(current_letter)
 
     # Fine we have the list of first letters
@@ -299,7 +303,10 @@ class Gcompris_login:
     for letter in letters:
 
       # Display both cases for the letter
-      text = letter.upper() + letter.lower()
+      if eval(self.config_dict['uppercase_only']):
+        text = letter
+      else:
+        text = letter.upper() + letter.lower()
 
       item = self.letter_rootitem.add(
         gnome.canvas.CanvasPixbuf,
@@ -367,8 +374,12 @@ class Gcompris_login:
     button_pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_large2.png"))
     
     for user in users:
+      if eval(self.config_dict['uppercase_only']):
+        login = user.login.decode('utf8').upper().encode('utf8')
+      else:
+        login = user.login
 
-      if not user.login.startswith(start_filter):
+      if not login.startswith(start_filter):
         continue
       
       item = self.rootitem.add(
@@ -387,7 +398,7 @@ class Gcompris_login:
         gnome.canvas.CanvasText,
         x= x + 1.5,
         y= y + 1.5,
-        text= user.login,
+        text= login,
         fill_color="black",
         font=gcompris.skin.get_font("gcompris/board/huge"),
         )
@@ -398,7 +409,7 @@ class Gcompris_login:
         gnome.canvas.CanvasText,
         x= x,
         y= y,
-        text= user.login,
+        text= login,
         fill_color="white",
         font=gcompris.skin.get_font("gcompris/board/huge"),
         )
@@ -464,6 +475,7 @@ class Gcompris_login:
 
     entry.set_max_length(50)
     entry.connect("activate", self.enter_callback)
+    entry.connect("changed", self.enter_char_callback)
 
     entry.show()
 
@@ -485,14 +497,21 @@ class Gcompris_login:
     self.widget.grab_focus()
     entry.grab_focus()
    
-    
+  def enter_char_callback(self, widget):
+    if eval(self.config_dict['uppercase_only']):
+      text = widget.get_text()
+      widget.set_text(text.decode('utf8').upper().encode('utf8'))
     
   def enter_callback(self, widget):
     text = widget.get_text()
-    print text
+
     found = False
     for user in self.users:
-      if text == user.login:
+      if eval(self.config_dict['uppercase_only']):
+        login = user.login.decode('utf8').upper().encode('utf8')
+      else:
+        login = user.login
+      if text == login:
         self.widget.destroy()
         self.logon(user)
         found = True
@@ -529,7 +548,7 @@ class Gcompris_login:
                                         eval(self.config_dict['uppercase_only'])
                                         )
 
-    uppercase.set_sensitive(False)
+    #uppercase.set_sensitive(False)
 
     gcompris.separator()
 
