@@ -1,3 +1,9 @@
+2005-08-29  Yves Combe,,,  <set EMAIL_ADDRESS environment variable>
+
+	fix horizontal space replacing 'x' overwrite by black background.
+
+	* src/boards/reading.c: (start_board), (reading_create_item):
+
 2005-08-29  Yves Combe  <yves@ycombe.net>
 
 	fix segfault is login not used. (trace fonction not well cleaned).
