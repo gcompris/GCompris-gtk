@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/08/29 08:31:18 yves>
+ * Time-stamp: <2005/08/30 01:02:48 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -122,7 +122,7 @@ static gchar *screenname[] = {
 };
 
 static gchar *filtername[] = {
-  N_("<i>use Gcompris administration module\n to select boards</i>")
+  N_("<i>Use Gcompris administration module\nto filter boards</i>")
 };
 
 static void set_locale_flag(gchar *locale);
@@ -441,7 +441,7 @@ void gcompris_config_start ()
   // Difficulty Filter
   y_start += Y_GAP;
 
-  display_previous_next(x_start, y_start, "filter_style_previous", "filter_style_next");
+  //  display_previous_next(x_start, y_start, "filter_style_previous", "filter_style_next");
 
   stars_group_x = x_start + 45;
   stars_group_y = y_start - 25;

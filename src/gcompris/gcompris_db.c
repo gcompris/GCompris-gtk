@@ -138,7 +138,7 @@ int gcompris_db_init()
     exit(1);
   }
 
-  g_warning(_("Database %s opened"),properties->database);
+  g_warning("Database %s opened", properties->database);
 
   if (creation){
     /* create all tables needed */
@@ -209,7 +209,7 @@ int gcompris_db_init()
       g_error("SQL error: %s\n", zErrMsg);
     }
 
-    g_warning(_("Database tables created"));
+    g_warning("Database tables created");
 
     request = g_strdup_printf(SET_VERSION(VERSION));
 
@@ -820,7 +820,7 @@ GcomprisProfile *gcompris_get_profile_from_id(gint profile_id)
     g_free(request);
     
     if (nrow == 0){
-      g_warning(_("No users groups for profile %s"), profile->name);
+      g_warning("No users groups for profile %s", profile->name);
       profile->group_ids = NULL;
     } else {
       ids = NULL;
@@ -851,7 +851,7 @@ GcomprisProfile *gcompris_get_profile_from_id(gint profile_id)
     g_free(request);
     
     if (nrow == 0){
-      g_warning(_("No activities out for profile %s"), profile->name);
+      g_warning("No activities out for profile %s", profile->name);
       profile->activities = NULL;
     } else {
       ids = NULL;
@@ -997,7 +997,7 @@ GList *gcompris_get_users_from_group(gint group_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning(_("No users in group with id  %d"), group_id);
+    g_warning("No users in group with id %d", group_id);
   } else {
     i = ncolumn;
     while (i < (nrow +1)*ncolumn) {
@@ -1054,7 +1054,7 @@ GcomprisUser *gcompris_get_user_from_id(gint user_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning(_("No user with id  %d"), user_id);
+    g_warning("No user with id  %d", user_id);
     return NULL;
   } else {
     i = ncolumn;
@@ -1111,7 +1111,7 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning(_("No class with id  %d"), class_id);
+    g_warning("No class with id %d", class_id);
     return NULL;
     return NULL;
   } else {
@@ -1146,7 +1146,7 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
   g_free(request);
 
   if (nrow == 0){
-    g_error(_("No groups in for class %s, there must be at least one for whole class (%d)"), class_id, class->wholegroup_id);
+    g_error("No groups in for class %s, there must be at least one for whole class (%d)", class_id, class->wholegroup_id);
     g_free(class);
     class = NULL;
   } else {
@@ -1400,7 +1400,7 @@ GList *gcompris_get_profiles_list()
     g_free(request);
     
     if (nrow_ == 0){
-      g_warning(_("No users groups for profile %s"), profile->name);
+      g_warning("No users groups for profile %s", profile->name);
       profile->group_ids = NULL;
     } else {
       ids_ = NULL;
@@ -1433,7 +1433,7 @@ GList *gcompris_get_profiles_list()
     g_free(request);
     
     if (nrow_ == 0){
-      g_warning(_("No activities out for profile %s"), profile->name);
+      g_warning("No activities out for profile %s", profile->name);
       profile->activities = NULL;
     } else {
       ids_ = NULL;
@@ -1493,7 +1493,7 @@ GcomprisGroup *gcompris_get_group_from_id(int group_id)
   g_free(request);
 
   if (nrow == 0){
-    g_warning(_("No group with id  %d"), group_id);
+    g_warning("No group with id  %d", group_id);
     return NULL;
   } else {
     i = ncolumn;
@@ -1546,7 +1546,7 @@ GList *gcompris_get_groups_list()
   }
 
   if (nrow == 0){
-    g_warning(_("No groups !"));
+    g_warning("No groups !");
     return NULL;
   } else {
     i = ncolumn;
@@ -1689,7 +1689,7 @@ GList *gcompris_get_users_list()
   }
 
   if (nrow == 0){
-    g_warning(_("No users !"));
+    g_warning("No users !");
     return NULL;
   } else {
     i = ncolumn;
@@ -1746,7 +1746,7 @@ GList *gcompris_get_classes_list()
   }
 
   if (nrow == 0){
-    g_warning(_("No groups !"));
+    g_warning("No groups !");
     return NULL;
   } else {
     i = ncolumn;

@@ -1,3 +1,32 @@
+2005-08-30  Bruno coudoin  <bruno.coudoin@free.fr>
+
+        - added continent voices for french by Julien Gilles
+	- removed useless translation in src/gcompris/gcompris_db.c
+	
+
+	* boards/login.xml.in: typo
+	* boards/sounds/fr/geography/COPYRIGHT:
+	* boards/sounds/fr/geography/africa.ogg: Continent files are from Julien Gilles
+	* boards/sounds/fr/geography/america.ogg:
+	* boards/sounds/fr/geography/antartica.ogg:
+	* boards/sounds/fr/geography/asia.ogg:
+	* boards/sounds/fr/geography/europa.ogg:
+	* boards/sounds/fr/geography/gcompris_geography_fr.assetml.in:
+	* boards/sounds/fr/geography/oceania.ogg:
+	* configure.in: change for french geography version
+	* src/boards/fifteen.c: (fifteen_create_item): font change
+	* src/boards/python/pythontest.py: removed useless translation
+	* src/boards/reading.c: (reading_create_item): do not use pango for black overwrite
+	                                               because it bugs for unknown reason
+	* src/gcompris/config.c: (gcompris_config_start): changed message
+	* src/gcompris/gcompris.c: minor, changed message
+	* src/gcompris/gcompris_db.c: (gcompris_db_init),
+	(gcompris_get_profile_from_id), (gcompris_get_users_from_group),
+	(gcompris_get_user_from_id), (gcompris_get_class_from_id),
+	(gcompris_get_profiles_list), (gcompris_get_group_from_id),
+	(gcompris_get_groups_list), (gcompris_get_users_list),
+	(gcompris_get_classes_list): removed useless translation in src/gcompris/gcompris_db.c
+
 2005-08-29  Yves Combe  <yves@ycombe.net>
 
 	add uppercase test for unique login in user creation.

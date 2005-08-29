@@ -457,7 +457,7 @@ class Gcompris_pythontest:
   # Callback when the "OK" button is clicked in configuration window
   # this get all the _changed_ values
   def ok_callback(self, table):
-    print _('Keys and values returned by PythonTest config window:')
+    print "Keys and values returned by PythonTest config window:"
     
     if (len(table) == 0):
            print '%20s' % 'None'

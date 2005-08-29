@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/08/29 15:09:51 yves>
+ * Time-stamp: <2005/08/29 23:15:22 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -443,36 +443,25 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
 			   gnome_canvas_text_get_type (),
 			   "text", word,
-			   "font-desc", pango_font_description_from_string (gcompris_skin_font_board_medium),
+			   "font", gcompris_skin_font_board_medium,
 			   "x", (double) 0,
 			   "y", (double) 0,
 			   "anchor", anchor,
 			   "fill_color", "black",
 			   NULL);
 
-
-  PangoAttrList *pango_list = pango_attr_list_new ();
-
-  PangoAttribute *bg_color =  pango_attr_background_new   (0xFF,
-							   0xFF,
-							   0xFF);
-
-  bg_color->start_index = 0;
-  bg_color->end_index = g_utf8_strlen(word,-1) + 1;
-
-  pango_attr_list_insert (pango_list,
-			  bg_color);
+  double x1, y1, x2, y2;
+  gnome_canvas_item_get_bounds(GNOME_CANVAS_ITEM(previousFocus.item), &x1, &y1, &x2, &y2);
 
   previousFocus.overwriteItem = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
-			   gnome_canvas_text_get_type (),
-			   "text", word,
-			   "font-desc", pango_font_description_from_string (gcompris_skin_font_board_medium),
-			   "x", (double) 0,
-			   "y", (double) 0,
-			   "anchor", anchor,
-			   "fill_color", "black",
-			   "attributes", pango_list,
+			   gnome_canvas_rect_get_type (),
+			   "x1", (double) x1,
+			   "y1", (double) y1,
+			   "x2", (double) x2,
+			   "y2", (double) y2,
+			   "fill_color", "grey",
+			   "width_units", (double)0,
 			   NULL);
 
   gnome_canvas_item_hide(previousFocus.overwriteItem);

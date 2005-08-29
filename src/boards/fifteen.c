@@ -248,7 +248,7 @@ static GnomeCanvasItem *fifteen_create_item(GnomeCanvasGroup *parent)
 				  "text", buf,
 				  "x", (double) PIECE_SIZE / 2.0,
 				  "y", (double) PIECE_SIZE / 2.0,
-				  "font", "Sans bold 24",
+				  "font", gcompris_skin_font_board_medium,
 				  "anchor", GTK_ANCHOR_CENTER,
 				  "fill_color", "black",
 				  NULL);
