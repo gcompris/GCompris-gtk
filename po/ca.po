@@ -1,19 +1,32 @@
 # Catalan translation of gcompris.
 # Copyright © 2003, 2004, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
-# Xavier A. Conde Rueda <xaviconde@eresmas.com>, 2003, 2004, 2005.
+# Xavier A. Conde Rueda <xavi.conde@gmail.com>, 2003, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-26 13:30+0100\n"
-"PO-Revision-Date: 2005-03-26 13:28+0100\n"
-"Last-Translator: Xavier A. Conde Rueda <xaviconde@eresmas.com>\n"
+"POT-Creation-Date: 2005-08-30 02:34+0200\n"
+"PO-Revision-Date: 2005-08-30 03:05+0200\n"
+"Last-Translator: Xavier A. Conde Rueda <xavi.conde@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../boards/administration.xml.in.h:1
+msgid "GCompris Administration Menu"
+msgstr "Menú d'administració del GCompris"
+
+#: ../boards/administration.xml.in.h:2 ../boards/algebra_group.xml.in.h:2
+#: ../boards/algebramenu.xml.in.h:2 ../boards/boards.xml.in.h:2
+#: ../boards/colors_group.xml.in.h:2 ../boards/computer.xml.in.h:2
+#: ../boards/experience.xml.in.h:2 ../boards/fun.xml.in.h:2
+#: ../boards/gnumchmenu.xml.in.h:2 ../boards/menu.xml.in.h:18
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
+msgid "Left-Click with the mouse to select an activity"
+msgstr "Feu clic amb el botó esquerre del ratolí per seleccionar una activitat"
 
 #: ../boards/advanced_colors.xml.in.h:1 ../src/boards/advanced_colors.c:86
 msgid "Advanced colors"
@@ -319,17 +332,19 @@ msgid "veronese"
 msgstr "veronès"
 
 #: ../boards/algebra_by.xml.in.h:1
+#, fuzzy
 msgid ""
 "A multiplication with two numbers is displayed. At the right of the equal "
 "sign, give the product. Use the left and right arrows to modify the product, "
-"and press the Enter key to check your answer."
+"and press the Enter key to check your answer. You can control the speed of "
+"the timer in the GCompris configuration dialog."
 msgstr ""
 "Es mostra la multiplicació de dos nombres. Doneu la resposta correcta a la "
 "dreta del signe igual. Feu servir les fletxes esquerra i dreta per modificar "
 "la vostra resposta, i confirmeu el resultat amb la tecla de retorn."
 
 #: ../boards/algebra_by.xml.in.h:2 ../boards/algebra_minus.xml.in.h:2
-#: ../boards/algebra_plus.xml.in.h:2
+#: ../boards/algebra_plus.xml.in.h:2 ../src/boards/algebra.c:98
 msgid "Answer some algebra questions"
 msgstr "Responeu algunes preguntes d'àlgebra"
 
@@ -349,15 +364,8 @@ msgstr "Practiqueu la taula de multiplicar"
 msgid "Go to Algebra activities"
 msgstr "Vés a les activitats d'àlgebra"
 
-#: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
-#: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
-#: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
-#: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:18
-#: ../boards/reading.xml.in.h:2
-msgid "Left-Click with the mouse to select an activity"
-msgstr "Feu clic amb el botó esquerre del ratolí per seleccionar una activitat"
-
-#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase.xml.in.h:1
+#: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
+#: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/) Ralf has given gcompris the authorization to include "
@@ -403,10 +411,12 @@ msgstr ""
 "aritmètiques"
 
 #: ../boards/algebra_minus.xml.in.h:1
+#, fuzzy
 msgid ""
 "A substraction problem with two numbers is displayed. At the right of the "
 "equal sign, give the difference. Use the left and right arrows to modify "
-"your answer, and press the Enter key to check the result."
+"your answer, and press the Enter key to check the result. You can control "
+"the speed of the timer in the GCompris configuration dialog."
 msgstr ""
 "Es mostra la resta de dos nombres. Doneu la resposta a la dreta del signe "
 "igual. Feu servir les fletxes esquerra i dreta per modificar la vostra "
@@ -425,10 +435,12 @@ msgid "Simple substraction"
 msgstr "Resta senzilla"
 
 #: ../boards/algebra_plus.xml.in.h:1
+#, fuzzy
 msgid ""
 "A addition problem with two numbers is displayed. At the right of the equal "
 "sign, give the sum. Use the left and right arrows to modify the sum, and the "
-"Enter key to check your answer."
+"Enter key to check your answer. You can control the speed of the timer in "
+"the GCompris configuration dialog."
 msgstr ""
 "Es mostra la suma de dos nombres. Doneu la resposta a la dreta del signe "
 "igual. Feu servir les fletxes esquerra i dreta per modificar la vostra "
@@ -460,7 +472,8 @@ msgstr "Completeu una llista de símbols"
 msgid "Find the next in a list of symbols."
 msgstr "Trobeu el següent d'una llista de símbols."
 
-#: ../boards/algorithm.xml.in.h:3 ../boards/hexagon.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
+#: ../boards/hexagon.xml.in.h:2
 msgid "Logic training activity"
 msgstr "Activitats d'entrenament en lògica"
 
@@ -603,29 +616,55 @@ msgstr "Prem a la vegada les dues tecles majúscules per llençar la pilota"
 msgid "Send the ball to Tux"
 msgstr "Llença la pilota a en Tux"
 
+#: ../boards/bargame.xml.in.h:1
+msgid "Brain"
+msgstr "Cervell"
+
+#: ../boards/bargame.xml.in.h:2
+msgid "Do not put the last ball"
+msgstr "No posis l'última bola"
+
+#: ../boards/bargame.xml.in.h:4
+msgid ""
+"Put balls in the holes. You win if the computer play the last one. If you "
+"want Tux to begin, just click on him."
+msgstr ""
+
+#: ../boards/bargame.xml.in.h:5
+#, fuzzy
+msgid "bar game"
+msgstr "Taules. Joc empatat"
+
 #: ../boards/billard.xml.in.h:1 ../boards/chess_computer.xml.in.h:2
 #: ../boards/chess_movelearn.xml.in.h:3 ../boards/chess_partyend.xml.in.h:2
-#: ../boards/clickgame.xml.in.h:6 ../boards/erase.xml.in.h:3
-#: ../boards/fifteen.xml.in.h:2 ../boards/hanoi.xml.in.h:3
-#: ../boards/memory.xml.in.h:4
+#: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
+#: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
+#: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Manipulació del ratolí"
 
 #: ../boards/billard.xml.in.h:2
+#, fuzzy
 msgid ""
-"Point and click on the ball to set the speed and direction of the ball. The "
-"closer you click to the center, the slower the ball moves."
+"Point and click on the ball to set its speed and direction. The closer you "
+"click to the center, the slower the ball moves."
 msgstr ""
 "Apunteu i cliqueu a la bola per establir la velocitat i la direcció de la "
 "bola. Com més a prop del centre cliqueu, la bola es mourà més lentament."
 
 #: ../boards/billard.xml.in.h:3
-msgid "Shoot the ball into the hole"
+#, fuzzy
+msgid "Put the ball into the black hole on the right"
 msgstr "Fiqueu la bola al forat"
 
 #: ../boards/billard.xml.in.h:4
-msgid "The game of billiards"
-msgstr "El joc del billar"
+msgid "Put the ball into the goal"
+msgstr "Feu entrar la bola a la porteria"
+
+#: ../boards/billard.xml.in.h:5
+msgid "The football game"
+msgstr "El joc de futbol"
 
 #: ../boards/boards.xml.in.h:1
 msgid "Go to board based activities"
@@ -895,7 +934,7 @@ msgstr "Reconeixement de noms de lletres"
 msgid "Visual letters recognition. Can move the mouse."
 msgstr "Reconeixement de lletres. Saber moure el ratolí."
 
-#: ../boards/clickgame.xml.in.h:1 ../src/boards/clickgame.c:86
+#: ../boards/clickgame.xml.in.h:1 ../src/boards/clickgame.c:85
 msgid "Click On Me"
 msgstr "Cliqueu-me"
 
@@ -926,7 +965,7 @@ msgstr ""
 "nur03010) Ubicació: Desconeguda (imatge nur03011) Ubicació: Desconeguda "
 "(imatge nur03013)"
 
-#: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:87
+#: ../boards/clickgame.xml.in.h:4 ../src/boards/clickgame.c:86
 msgid ""
 "Left-Click with the mouse on all swimming fish before they leave the fishtank"
 msgstr ""
@@ -954,13 +993,11 @@ msgstr ""
 "fletxa corresponent per posar el rellotge en l'hora donada. Es poden girar "
 "les diferents fletxes seleccionant-les i movent el ratolí"
 
-#: ../boards/clockgame.xml.in.h:3 ../src/boards/algebra.c:98
-#: ../src/boards/clockgame.c:78
+#: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:78
 msgid "Learn how to tell time"
 msgstr "Apreneu a dir l'hora"
 
-#: ../boards/clockgame.xml.in.h:4 ../src/boards/algebra.c:97
-#: ../src/boards/clockgame.c:77
+#: ../boards/clockgame.xml.in.h:4 ../src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Aprenentatge de rellotge"
 
@@ -973,11 +1010,11 @@ msgid "Can move the mouse."
 msgstr "Saber moure el ratolí."
 
 #: ../boards/colors.xml.in.h:2 ../boards/read_colors.xml.in.h:3
-#: ../src/boards/advanced_colors.c:87 ../src/boards/colors.c:75
+#: ../src/boards/advanced_colors.c:87 ../src/boards/colors.c:81
 msgid "Click on the right color"
 msgstr "Feu clic en el color correcte"
 
-#: ../boards/colors.xml.in.h:3 ../src/boards/colors.c:74
+#: ../boards/colors.xml.in.h:3 ../src/boards/colors.c:80
 msgid "Colors"
 msgstr "Colors"
 
@@ -1000,6 +1037,30 @@ msgstr "Vés a les activitats de colors"
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
 msgstr "Descobriu l'ordinador"
+
+#: ../boards/connect4.xml.in.h:1
+msgid "Arrange four coins in a row"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:2
+msgid "Click anywhere in the line in which you want to drop a piece"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:3
+#, fuzzy
+msgid "Connect 4"
+msgstr "Continents"
+
+#: ../boards/connect4.xml.in.h:4
+msgid "Create a line of 4 pieces either horizontaly or vertically"
+msgstr ""
+
+#: ../boards/connect4.xml.in.h:5
+msgid ""
+"Laurent Lacheny. Images and Artificial Intelligence taken from project "
+"4stattack by Jeroen Vloothuis. The original project can be found on http://"
+"forcedattack.sourceforge.net"
+msgstr ""
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1085,16 +1146,28 @@ msgstr "Aprenentatge de numeració"
 msgid "Place the items in the best way to count them"
 msgstr "Situeu els elements de la millor manera per comptar-los"
 
-#: ../boards/erase.xml.in.h:2
+#: ../boards/erase.xml.in.h:1
+#, fuzzy
+msgid ""
+"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"authorization to include their pictures. Thanks a lot."
+msgstr ""
+"Les fotografies d'animals provenen de la pàgina de fotografies animals de "
+"Ralf Schmode (http://schmode.net/). En Ralf ha autoritzat al gcompris "
+"incloure les seves fotografies. Moltes gràcies, Ralf."
+
+#: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
+#: ../boards/erase_double_clic.xml.in.h:5
 msgid "Motor coordination"
 msgstr "Coordinació motriu"
 
-#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:72
-#: ../src/boards/machpuzzle.c:87
+#: ../boards/erase.xml.in.h:4 ../src/boards/erase.c:83
+#: ../src/boards/machpuzzle.c:93
 msgid "Move the mouse"
 msgstr "Moveu el ratolí"
 
-#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:73
+#: ../boards/erase.xml.in.h:5 ../src/boards/erase.c:84
 msgid "Move the mouse to erase the area and discover the background"
 msgstr "Moveu el ratolí per esborrar l'àrea i descobrir el fons"
 
@@ -1102,28 +1175,41 @@ msgstr "Moveu el ratolí per esborrar l'àrea i descobrir el fons"
 msgid "Move the mouse until all the blocks disappear."
 msgstr "Moveu el ratolí fins que tots els blocs despareguin."
 
+#: ../boards/erase_clic.xml.in.h:2
+#, fuzzy
+msgid "Click on rectangles with the mouse until all the blocks disappear."
+msgstr "Moveu el ratolí fins que tots els blocs despareguin."
+
+#: ../boards/erase_clic.xml.in.h:3
+#, fuzzy
+msgid "Click with the mouse"
+msgstr "Moure el ratolí i clicar"
+
+#: ../boards/erase_clic.xml.in.h:4
+#, fuzzy
+msgid "Click with the mouse to erase the area and discover the background"
+msgstr "Moveu el ratolí per esborrar l'àrea i descobrir el fons"
+
+#: ../boards/erase_double_clic.xml.in.h:2
+#, fuzzy
+msgid ""
+"Double click on rectangles with the mouse until all the blocks disappear."
+msgstr "Moveu el ratolí fins que tots els blocs despareguin."
+
+#: ../boards/erase_double_clic.xml.in.h:3
+#, fuzzy
+msgid ""
+"Double-Click with the mouse to erase the area and discover the background"
+msgstr "Moveu el ratolí per esborrar l'àrea i descobrir el fons"
+
+#: ../boards/erase_double_clic.xml.in.h:4
+#, fuzzy
+msgid "Double-click with the mouse"
+msgstr "Moure el ratolí i clicar"
+
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiences activities"
 msgstr "Vés a les activitats d'experiència"
-
-#: ../boards/followline.xml.in.h:1
-msgid "Emerge the pipe"
-msgstr ""
-
-#: ../boards/followline.xml.in.h:2
-msgid "Fine motor coordination"
-msgstr "Bona coordinació motriu"
-
-#: ../boards/followline.xml.in.h:3
-msgid ""
-"Move the mouse over the red part of the pipe. This will emerge it, part by "
-"part up to the flowers. Take care, if you move out of the pipe, the red part "
-"will go back."
-msgstr ""
-
-#: ../boards/followline.xml.in.h:4
-msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
-msgstr ""
 
 #: ../boards/fifteen.xml.in.h:1
 msgid ""
@@ -1144,6 +1230,25 @@ msgstr "Codi original agafat de la demostració de libgnomecanvas"
 #: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
 msgid "The fifteen game"
 msgstr "El joc del quinze"
+
+#: ../boards/followline.xml.in.h:1
+msgid "Emerge the pipe"
+msgstr ""
+
+#: ../boards/followline.xml.in.h:2
+msgid "Fine motor coordination"
+msgstr "Bona coordinació motriu"
+
+#: ../boards/followline.xml.in.h:3
+msgid ""
+"Move the mouse over the red part of the pipe. This will emerge it, part by "
+"part up to the flowers. Take care, if you move out of the pipe, the red part "
+"will go back."
+msgstr ""
+
+#: ../boards/followline.xml.in.h:4
+msgid "Tux needs to sprinkle the flowers but the pipe is stopped"
+msgstr ""
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -1174,6 +1279,7 @@ msgid "Place the lands"
 msgstr "Situeu les regions"
 
 #: ../boards/geography/board1_0.xml.in.h:1
+#: ../boards/geography/board4_2.xml.in.h:2
 msgid "Africa"
 msgstr "Àfrica"
 
@@ -1402,7 +1508,7 @@ msgstr "Croàcia"
 msgid "Cyprus"
 msgstr "Xipre"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:67
 msgid "Czech"
 msgstr "Txec"
 
@@ -1471,6 +1577,201 @@ msgid "Ukraine"
 msgstr "Ucraïna"
 
 #: ../boards/geography/board4_0.xml.in.h:1
+msgid "North of Africa"
+msgstr "Amèrica del nord"
+
+#: ../boards/geography/board4_1.xml.in.h:1
+msgid "South of Africa"
+msgstr "Amèrica del sud"
+
+#: ../boards/geography/board4_2.xml.in.h:1
+msgid ">Ethiopia"
+msgstr "Etiòpia"
+
+#: ../boards/geography/board4_2.xml.in.h:3
+msgid "Algeria"
+msgstr "Algèria"
+
+#: ../boards/geography/board4_2.xml.in.h:4
+msgid "Angola"
+msgstr "Angola"
+
+#: ../boards/geography/board4_2.xml.in.h:5
+msgid "Benin"
+msgstr ""
+
+#: ../boards/geography/board4_2.xml.in.h:6
+msgid "Botswana"
+msgstr ""
+
+#: ../boards/geography/board4_2.xml.in.h:7
+msgid "Burkina Faso"
+msgstr ""
+
+#: ../boards/geography/board4_2.xml.in.h:8
+msgid "Burundi"
+msgstr "Burundi"
+
+#: ../boards/geography/board4_2.xml.in.h:9
+msgid "Cameroon"
+msgstr "Camerun"
+
+#: ../boards/geography/board4_2.xml.in.h:10
+#, fuzzy
+msgid "Central African Republic"
+msgstr "República dominicana"
+
+#: ../boards/geography/board4_2.xml.in.h:11
+msgid "Chad"
+msgstr "Txad"
+
+#: ../boards/geography/board4_2.xml.in.h:12
+msgid "Democratic Republic of Congo"
+msgstr "República democràtica del Congo"
+
+#: ../boards/geography/board4_2.xml.in.h:13
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: ../boards/geography/board4_2.xml.in.h:14
+msgid "Egypt"
+msgstr "Egipte"
+
+#: ../boards/geography/board4_2.xml.in.h:15
+msgid "Equatorial Guinea"
+msgstr "Guinea Equatorial"
+
+#: ../boards/geography/board4_2.xml.in.h:16
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../boards/geography/board4_2.xml.in.h:17
+#, fuzzy
+msgid "Gabon"
+msgstr "marró"
+
+#: ../boards/geography/board4_2.xml.in.h:18
+msgid "Gambia"
+msgstr "Gàmbia"
+
+#: ../boards/geography/board4_2.xml.in.h:19
+msgid "Ghana"
+msgstr "Ghana"
+
+#: ../boards/geography/board4_2.xml.in.h:20
+msgid "Guinea"
+msgstr "Guinea"
+
+#: ../boards/geography/board4_2.xml.in.h:21
+msgid "Guinea Bissau"
+msgstr ""
+
+#: ../boards/geography/board4_2.xml.in.h:22
+msgid "Ivory Coast"
+msgstr "Costa d'Ivori"
+
+#: ../boards/geography/board4_2.xml.in.h:23
+msgid "Kenya"
+msgstr "Kenya"
+
+#: ../boards/geography/board4_2.xml.in.h:24
+msgid "Lesotho"
+msgstr ""
+
+#: ../boards/geography/board4_2.xml.in.h:25
+msgid "Liberia"
+msgstr "Libèria"
+
+#: ../boards/geography/board4_2.xml.in.h:26
+msgid "Libya"
+msgstr "Líbia"
+
+#: ../boards/geography/board4_2.xml.in.h:27
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: ../boards/geography/board4_2.xml.in.h:28
+msgid "Malawi"
+msgstr "Malawi"
+
+#: ../boards/geography/board4_2.xml.in.h:29
+msgid "Mali"
+msgstr "Mali"
+
+#: ../boards/geography/board4_2.xml.in.h:30
+msgid "Mauritania"
+msgstr "Mauritània"
+
+#: ../boards/geography/board4_2.xml.in.h:31
+msgid "Moroco"
+msgstr "Marroc"
+
+#: ../boards/geography/board4_2.xml.in.h:32
+msgid "Mozambique"
+msgstr ""
+
+#: ../boards/geography/board4_2.xml.in.h:33
+msgid "Namibia"
+msgstr "Namíbia"
+
+#: ../boards/geography/board4_2.xml.in.h:34
+msgid "Niger"
+msgstr "Níger"
+
+#: ../boards/geography/board4_2.xml.in.h:35
+msgid "Nigeria"
+msgstr "Nigèria"
+
+#: ../boards/geography/board4_2.xml.in.h:36
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: ../boards/geography/board4_2.xml.in.h:37
+msgid "Senegal"
+msgstr "Senegal"
+
+#: ../boards/geography/board4_2.xml.in.h:38
+msgid "Sierra Leone"
+msgstr ""
+
+#: ../boards/geography/board4_2.xml.in.h:39
+msgid "Somalia"
+msgstr "Somàlia"
+
+#: ../boards/geography/board4_2.xml.in.h:40
+msgid "South Africa"
+msgstr "Àfrica del sud"
+
+#: ../boards/geography/board4_2.xml.in.h:41
+#, fuzzy
+msgid "Swaziland"
+msgstr "Suïssa"
+
+#: ../boards/geography/board4_2.xml.in.h:42
+msgid "Tanzania"
+msgstr "Tanzània"
+
+#: ../boards/geography/board4_2.xml.in.h:43
+msgid "Togo"
+msgstr "Togo"
+
+#: ../boards/geography/board4_2.xml.in.h:44
+msgid "Tunisia"
+msgstr "Tuníssia"
+
+#: ../boards/geography/board4_2.xml.in.h:45
+msgid "Uganda"
+msgstr "Uganda"
+
+#: ../boards/geography/board4_2.xml.in.h:46
+msgid "Zambia"
+msgstr "Zàmbia"
+
+#: ../boards/geography/board4_2.xml.in.h:47
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: ../boards/geography/board5_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regions de França"
 
@@ -1482,13 +1783,122 @@ msgstr "Manipulació amb el teclat"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Reconeixement de lletres entre la pantalla i el teclat"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:129
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
 msgid "Simple Letters"
 msgstr "Lletres senzilles"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
 msgid "Type the falling letters before they reach the ground"
 msgstr "Escriviu les lletres que van caient abans que arribin al terra"
+
+#: ../boards/gnumch-equality.xml.in.h:1
+msgid "Equality Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-equality.xml.in.h:2
+msgid ""
+"Guide the Number Muncher to the expressions that equal the number at the top "
+"of the screen."
+msgstr ""
+
+#: ../boards/gnumch-equality.xml.in.h:3
+#, fuzzy
+msgid "Practise addition, multiplication, division and subtraction."
+msgstr "Practiqueu la taula de multiplicar"
+
+#: ../boards/gnumch-equality.xml.in.h:4 ../boards/gnumch-inequality.xml.in.h:4
+msgid ""
+"Use the arrow keys to navigate around the board and to avoid the Troggles. "
+"Press the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumch-factors.xml.in.h:1
+msgid "Factor Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-factors.xml.in.h:2
+msgid ""
+"Guide the Number Muncher to the all the factors of the number at the top of "
+"the screen."
+msgstr ""
+
+#: ../boards/gnumch-factors.xml.in.h:3
+msgid "Learn about factors and multiples."
+msgstr "Aprèn sobre factors i múltiples."
+
+#: ../boards/gnumch-factors.xml.in.h:4
+msgid ""
+"The factors of a number are all the numbers that divide that number evenly. "
+"For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a factor of 6 "
+"because 6 cannot be divided into 4 equal pieces. If one number is a multiple "
+"of a second number, then the second number is a factor of the first number. "
+"Use the arrow keys to navigate around the board and to avoid the Troggles. "
+"Press the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumch-inequality.xml.in.h:1
+msgid ""
+"Guide the Number Muncher to the all the expressions that do not equal the "
+"number at the top of the screen."
+msgstr ""
+
+#: ../boards/gnumch-inequality.xml.in.h:2
+msgid "Inequality Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-inequality.xml.in.h:3
+msgid "Practise addition, subtraction, multiplication and division."
+msgstr ""
+
+#: ../boards/gnumch-multiples.xml.in.h:1
+msgid ""
+"Guide the Number Muncher to all the multiples of the number at the top of "
+"the screen."
+msgstr ""
+
+#: ../boards/gnumch-multiples.xml.in.h:2
+msgid "Learn about multiples and factors."
+msgstr "Aprèn sobre múltiples i factors."
+
+#: ../boards/gnumch-multiples.xml.in.h:3
+msgid "Multiple Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-multiples.xml.in.h:4
+msgid ""
+"The multiples of a number are all the numbers that are equal to the original "
+"number times another number. For example, 24, 36, 48 and 60 are all "
+"multiples of 12. 25 is not a multiple of 12 because there isn't any number "
+"that can be multiplied by 12 to get 25. If one number is a factor of a "
+"second number, then the second number is a multiple of the first number. Use "
+"the arrow keys to navigate around the board and to avoid the Troggles. Press "
+"the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumch-primes.xml.in.h:1
+msgid "Guide the Number Muncher to all the prime numbers."
+msgstr ""
+
+#: ../boards/gnumch-primes.xml.in.h:2
+msgid "Learn about prime numbers"
+msgstr "Aprèn sobre nombres primers"
+
+#: ../boards/gnumch-primes.xml.in.h:3
+msgid "Prime Number Munchers"
+msgstr ""
+
+#: ../boards/gnumch-primes.xml.in.h:4
+msgid ""
+"Prime numbers are numbers that are only divisible by themselves and 1. For "
+"example, 3 is a prime number, but 4 isn't (because 4 is divisible by 2). Use "
+"the arrow keys to navigate around the board and to avoid the Troggles. Press "
+"the spacebar to eat a number."
+msgstr ""
+
+#: ../boards/gnumchmenu.xml.in.h:1
+#, fuzzy
+msgid "Go to Number Munchers activities"
+msgstr "Vés a les activitats d'experiència"
 
 #: ../boards/hanoi.xml.in.h:1
 msgid "Concept taken from EPI games."
@@ -1540,8 +1950,8 @@ msgstr "Practiqueu la lectura trobant la paraula que concorda amb la imatge"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:109 ../src/boards/missingletter.c:101
-#: ../src/boards/reading.c:107
+#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/reading.c:113
 msgid "Reading"
 msgstr "Lectura"
 
@@ -1781,6 +2191,33 @@ msgstr "bandera"
 msgid "racket"
 msgstr "raqueta"
 
+#: ../boards/login.xml.in.h:1
+msgid ""
+"By identifying in GCompris, we are able to provide specific reporting for "
+"each kid."
+msgstr ""
+
+#: ../boards/login.xml.in.h:2
+msgid "GCompris login screen"
+msgstr "Pantalla d'entrada del GCompris"
+
+#: ../boards/login.xml.in.h:3
+msgid ""
+"In order to activate the login screen, you must \n"
+"first add users in the administration part of GCompris. \n"
+"You access the administration part by running 'gcompris -a'.\n"
+"In the administration, you can create different profiles. In each profiles\n"
+"you can have a different set of users and select which activities are "
+"available to them.\n"
+"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
+"where 'profile'\n"
+"is the name of a profile as you created it in the administration."
+msgstr ""
+
+#: ../boards/login.xml.in.h:10
+msgid "Select or enter your name to log in GCompris"
+msgstr ""
+
 #: ../boards/leftright.xml.in.h:1
 msgid ""
 "A hand is shown. Determine if it is a right or left hand. Click on the red "
@@ -1828,13 +2265,20 @@ msgstr "Ajudeu en Tux a trobar el camí de sortida del laberint."
 msgid "Maze"
 msgstr "Laberint"
 
-#: ../boards/maze.xml.in.h:5 ../boards/maze2DRelative.xml.in.h:5
+#: ../boards/maze.xml.in.h:5
 msgid "Use the keyboard arrows to move Tux up to the door."
 msgstr "Feu servir les fletxes de teclat per moure en Tux fins la porta."
 
 #: ../boards/maze2DRelative.xml.in.h:2
 msgid "Find your way out of the maze (Move is relative)"
 msgstr "Trobeu el camí de sortida del laberint (moviment relatiu)"
+
+#: ../boards/maze2DRelative.xml.in.h:5
+msgid ""
+"Use the keyboard arrows to move Tux up to the door. In this maze, the move "
+"is relative (first person). Use the up arrow to go forward. The other arrow "
+"let you turn Tux in another direction."
+msgstr ""
 
 #: ../boards/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -2183,6 +2627,11 @@ msgstr ""
 msgid "Practice money usage including cents"
 msgstr "Practiqueu l'ús dels diners, amb centaus"
 
+#: ../boards/mouse.xml.in.h:2
+#, fuzzy
+msgid "Mouse manipulation boards"
+msgstr "Manipulació del ratolí"
+
 #: ../boards/paintings.xml.in.h:1
 msgid "Drag and Drop the items to rebuild the original paintings"
 msgstr ""
@@ -2196,7 +2645,7 @@ msgstr ""
 "Arrossegueu les parts de la imatge de la caixa de l'esquerra per crear una "
 "pintura en la taula principal."
 
-#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:169
+#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:172
 msgid "Make the puzzle"
 msgstr "Construïu el trenca-closques"
 
@@ -2487,6 +2936,48 @@ msgid "Tux is hungry. Help him find fish by counting to the correct ice spot."
 msgstr ""
 "El Tux té gana. Ajudeu-lo a trobar els peixos comptant els glaçons correctes."
 
+#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
+#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
+#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
+#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
+#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
+#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
+#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
+#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
+#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
+msgid "Drag and Drop masses to equilibrate the scales"
+msgstr "Arrossegueu i deixeu anar els pesos per equilibrar les balances"
+
+#: ../boards/scalesboard.xml.in.h:1
+msgid "Drag and Drop masses to balance the scales"
+msgstr "Arrossegueu i deixeu anar els pesos per equilibrar les balances"
+
+#: ../boards/scalesboard.xml.in.h:2
+msgid "Mental calculation, arithmetic equality"
+msgstr "Càlcul mental, igualtat aritmètica"
+
+#: ../boards/scalesboard.xml.in.h:3
+msgid ""
+"The painting is an original painting made by Virginie MOREAU (virginie."
+"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+"released under the GPL license."
+msgstr ""
+"El quadre és una obra original de Virginie MOREAU (virginie.moreau@free.fr) "
+"del 2001. El seu nom és 'venedors d'espècies d'Egipte'. S'ha alliberat sota "
+"la llicència GPL."
+
+#: ../boards/scalesboard.xml.in.h:4
+msgid ""
+"To balance the scales, move the masses on the left side. The masses can be "
+"arranged in any order."
+msgstr ""
+"Per equilibrar les balances, moveu les masses en el plat esquerre. Les "
+"masses es poden col·locar en qualsevol ordre."
+
+#: ../boards/scalesboard.xml.in.h:5
+msgid "Well balance the scales"
+msgstr "Equilibreu correctament les balances"
+
 #: ../boards/searace.xml.in.h:1 ../boards/searace1player.xml.in.h:1
 msgid "Give good instructions to your ship in order to be first in the race."
 msgstr "Dóna les ordres correctes a la teva barca per a arribar el primer."
@@ -2540,48 +3031,6 @@ msgstr "Cursa marina (dos jugadors)"
 msgid "Sea race (Single Player)"
 msgstr "Cursa marina (un jugador)"
 
-#: ../boards/scales/board1_0.xml.in.h:1 ../boards/scales/board1_1.xml.in.h:1
-#: ../boards/scales/board1_2.xml.in.h:1 ../boards/scales/board1_3.xml.in.h:1
-#: ../boards/scales/board1_4.xml.in.h:1 ../boards/scales/board1_5.xml.in.h:1
-#: ../boards/scales/board2_0.xml.in.h:1 ../boards/scales/board2_1.xml.in.h:1
-#: ../boards/scales/board2_2.xml.in.h:1 ../boards/scales/board2_3.xml.in.h:1
-#: ../boards/scales/board2_4.xml.in.h:1 ../boards/scales/board2_5.xml.in.h:1
-#: ../boards/scales/board3_0.xml.in.h:1 ../boards/scales/board3_1.xml.in.h:1
-#: ../boards/scales/board3_2.xml.in.h:1 ../boards/scales/board3_3.xml.in.h:1
-#: ../boards/scales/board3_4.xml.in.h:1 ../boards/scales/board3_5.xml.in.h:1
-msgid "Drag and Drop masses to equilibrate the scales"
-msgstr "Arrossegueu i deixeu anar els pesos per equilibrar les balances"
-
-#: ../boards/scalesboard.xml.in.h:1
-msgid "Drag and Drop masses to balance the scales"
-msgstr "Arrossegueu i deixeu anar els pesos per equilibrar les balances"
-
-#: ../boards/scalesboard.xml.in.h:2
-msgid "Mental calculation, arithmetic equality"
-msgstr "Càlcul mental, igualtat aritmètica"
-
-#: ../boards/scalesboard.xml.in.h:3
-msgid ""
-"The painting is an original painting made by Virginie MOREAU (virginie."
-"moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-"released under the GPL license."
-msgstr ""
-"El quadre és una obra original de Virginie MOREAU (virginie.moreau@free.fr) "
-"del 2001. El seu nom és 'venedors d'espècies d'Egipte'. S'ha alliberat sota "
-"la llicència GPL."
-
-#: ../boards/scalesboard.xml.in.h:4
-msgid ""
-"To balance the scales, move the masses on the left side. The masses can be "
-"arranged in any order."
-msgstr ""
-"Per equilibrar les balances, moveu les masses en el plat esquerre. Les "
-"masses es poden col·locar en qualsevol ordre."
-
-#: ../boards/scalesboard.xml.in.h:5
-msgid "Well balance the scales"
-msgstr "Equilibreu correctament les balances"
-
 #: ../boards/smallnumbers.xml.in.h:1 ../boards/smallnumbers2.xml.in.h:1
 msgid "Count the number of dots on dice before they reach the ground"
 msgstr "Compteu el nombre de punts dels daus abans que arribin al terra"
@@ -2633,6 +3082,36 @@ msgstr "Piloteu un submarí"
 #: ../boards/submarine.xml.in.h:5
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr "Piloteu un submarí fent servir tancs d'aire i el timó d'immersió"
+
+#: ../boards/sudoku.xml.in.h:1
+msgid "Completing the puzzle requires patience and logical ability"
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:2
+msgid ""
+"For the first level with colored symbols, drag symbols on the left to their "
+"target position. For the higher levels, click on an empty square to give it "
+"the keyboard focus. Then enter a possible letter or number. GCompris will "
+"not let you enter invalid data."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:3
+msgid "Sudoku, place unique symbols in a square."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:4
+msgid "Symbols must be unique in a row, column, and if defined in each region."
+msgstr ""
+
+#: ../boards/sudoku.xml.in.h:5
+msgid ""
+"The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in "
+"each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
+"(called 'regions'), starting with various symbols or numerals given in some "
+"cells (the 'givens'). Each row, column and region must contain only one "
+"instance of each symbol or numeral (Source http://en.wikipedia.org/wiki/"
+"Sudoku)."
+msgstr ""
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -2740,8 +3219,8 @@ msgid "Type the falling words before they reach the ground"
 msgstr "Escriviu les paraules que van caient abans que arribin al terra"
 
 #: ../gcompris-edit.desktop.in.h:1
-msgid "Editor for gcompris"
-msgstr "Editor del gcompris"
+msgid "Administration for gcompris"
+msgstr "Administració per el gcompris"
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational game from 2 to 10 years old"
@@ -2755,23 +3234,27 @@ msgstr "Conjunt de jocs educatius"
 msgid "Multiple activities for kids"
 msgstr "Múltiples activitats per a nens i nenes"
 
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:605
-#: ../src/boards/missingletter.c:608 ../src/boards/read_colors.c:492
-#: ../src/boards/shapegame.c:1880 ../src/gcompris/file_selector.c:929
-#: ../src/gcompris/gameutil.c:126 ../src/gcompris/gameutil.c:517
-#: ../src/gcompris/gameutil.c:518 ../src/gcompris/gcompris.c:420
-#: ../src/gcompris/images_selector.c:654 ../src/gcompris/skin.c:83
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:615
+#: ../src/boards/missingletter.c:618 ../src/boards/read_colors.c:491
+#: ../src/boards/shapegame.c:1924 ../src/gcompris/file_selector.c:891
+#: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:600
+#: ../src/gcompris/gameutil.c:601 ../src/gcompris/gcompris.c:531
+#: ../src/gcompris/images_selector.c:764 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "No es pot trobar el fitxer %s"
 
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:608
-#: ../src/boards/missingletter.c:611 ../src/boards/read_colors.c:495
-#: ../src/boards/shapegame.c:1883
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:618
+#: ../src/boards/missingletter.c:621 ../src/boards/read_colors.c:494
+#: ../src/boards/shapegame.c:1927
 #, c-format
 msgid "find file %s !"
 msgstr "troba el fitxer %s"
+
+#: ../src/boards/algebra.c:97
+msgid "Practice the math operation"
+msgstr "Practica l'operació matemàtica"
 
 #: ../src/boards/algebra_guesscount.c:143
 #: ../src/boards/algebra_guesscount.c:144
@@ -2795,19 +3278,7 @@ msgstr "Apreneu escacs"
 msgid "Play chess against tux in a learning mode"
 msgstr "Jugueu escacs contra en Tux en un mode d'aprenentatge"
 
-#: ../src/boards/chess.c:190
-msgid ""
-"Error: /usr/bin/gnuchessx is installed\n"
-"which means you have an old version\n"
-"of gnuchess.\n"
-"Please upgrade to gnuchess 5 or above."
-msgstr ""
-"S'ha produït un error. Està instal·lat /usr/bin/gnuchessx.\n"
-"Això significa que esteu executant una versió antiga\n"
-"de gnuchess.\n"
-"Per favor, actualitzeu a la versió 5 o superior."
-
-#: ../src/boards/chess.c:197 ../src/boards/chess.c:239
+#: ../src/boards/chess.c:189 ../src/boards/chess.c:228
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2821,43 +3292,43 @@ msgstr ""
 "distribució GNU/Linux\n"
 "I comproveu que hi és "
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:569
 msgid "White Turn"
 msgstr "Torn de les blanques"
 
-#: ../src/boards/chess.c:579
+#: ../src/boards/chess.c:569
 msgid "Black Turn"
 msgstr "Torn de les negres"
 
-#: ../src/boards/chess.c:720
+#: ../src/boards/chess.c:713
 msgid "White check"
 msgstr "Escac de les blanques"
 
-#: ../src/boards/chess.c:722
+#: ../src/boards/chess.c:715
 msgid "Black check"
 msgstr "Escac de les negres"
 
-#: ../src/boards/chess.c:1053
+#: ../src/boards/chess.c:1052
 msgid "Black mates"
 msgstr "Escac i mat de les negres"
 
-#: ../src/boards/chess.c:1058
+#: ../src/boards/chess.c:1057
 msgid "White mates"
 msgstr "Escac i mat de les blanques"
 
-#: ../src/boards/chess.c:1063
+#: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
 msgid "Drawn game"
 msgstr "Taules. Joc empatat"
 
-#: ../src/boards/click_on_letter.c:80
+#: ../src/boards/click_on_letter.c:84
 msgid "Read a letter"
 msgstr "Llegeix una lletra"
 
-#: ../src/boards/click_on_letter.c:81
+#: ../src/boards/click_on_letter.c:85
 msgid "Learn to recognize letters"
 msgstr "Apreneu a reconèixer lletres"
 
-#: ../src/boards/click_on_letter.c:230
+#: ../src/boards/click_on_letter.c:240
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -2865,7 +3336,7 @@ msgstr ""
 "S'ha produït un error: aquesta activitat requereix que instal·leu\n"
 "el paquet assetml-voices-alphabet-"
 
-#: ../src/boards/click_on_letter.c:237
+#: ../src/boards/click_on_letter.c:247
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2878,68 +3349,83 @@ msgstr ""
 "habilitar el so"
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:282
+#: ../src/boards/click_on_letter.c:292
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcçdefghijklmnopqrstuvwxyz"
 
-#: ../src/boards/clickgame.c:182
+#: ../src/boards/clickgame.c:178
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "No es pot obrir el directori: %s"
 
-#: ../src/boards/clockgame.c:528
+#: ../src/boards/clockgame.c:526
 msgid "Set the watch to:"
-msgstr "Poseu el rellotge en la següent hora:"
+msgstr "Poseu el rellotge a la següent hora:"
 
-#: ../src/boards/colors.c:54
+#: ../src/boards/colors.c:57
 msgid "Click on the blue toon"
 msgstr "Feu clic en el dibuix blau"
 
-#: ../src/boards/colors.c:55
+#: ../src/boards/colors.c:58
 msgid "Click on the brown toon"
 msgstr "Feu clic en el dibuix marró"
 
-#: ../src/boards/colors.c:56
+#: ../src/boards/colors.c:59
 msgid "Click on the green toon"
 msgstr "Feu clic en el dibuix verd"
 
-#: ../src/boards/colors.c:57
+#: ../src/boards/colors.c:60
 msgid "Click on the grey toon"
 msgstr "Feu clic en el dibuix gris"
 
-#: ../src/boards/colors.c:58
+#: ../src/boards/colors.c:61
 msgid "Click on the orange toon"
 msgstr "Feu clic en el dibuix taronja"
 
-#: ../src/boards/colors.c:59
+#: ../src/boards/colors.c:62
 msgid "Click on the purple toon"
 msgstr "Feu clic en el dibuix violeta"
 
-#: ../src/boards/colors.c:60
+#: ../src/boards/colors.c:63
 msgid "Click on the red toon"
 msgstr "Feu clic en el dibuix vermell"
 
-#: ../src/boards/colors.c:61
+#: ../src/boards/colors.c:64
 msgid "Click on the yellow toon"
 msgstr "Feu clic en el dibuix groc"
 
-#: ../src/boards/colors.c:62
+#: ../src/boards/colors.c:65
 msgid "Click on the black toon"
 msgstr "Feu clic en el dibuix negre"
 
-#: ../src/boards/colors.c:63
+#: ../src/boards/colors.c:66
 msgid "Click on the white toon"
 msgstr "Feu clic en el dibuix blanc"
+
+#: ../src/boards/erase.c:158
+msgid "Couldn't get GTK settings"
+msgstr ""
+
+#: ../src/boards/erase.c:163
+#, c-format
+msgid "Double clic default value %d."
+msgstr ""
+
+#: ../src/boards/erase.c:168 ../src/boards/erase.c:183
+#: ../src/boards/erase.c:206 ../src/boards/erase.c:337
+#, c-format
+msgid "Double clic value is now %d."
+msgstr ""
 
 #: ../src/boards/fifteen.c:57
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Moveu els elements d'un en un per reordenar-los en nombre creixent"
 
-#: ../src/boards/hanoi.c:339 ../src/boards/hanoi.c:350
+#: ../src/boards/hanoi.c:337 ../src/boards/hanoi.c:348
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Reproduïu a l'àrea buida la mateixa torre que la de la dreta"
 
-#: ../src/boards/imageid.c:110 ../src/boards/missingletter.c:102
+#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Aprendre a llegir"
 
@@ -3002,13 +3488,339 @@ msgstr "Controleu el para-caigudista perquè aterri correctament"
 msgid "Move the plane to catch the clouds in the correct order"
 msgstr "Moveu l'avió per agafar els núvols en l'ordre correcte"
 
-#: ../src/boards/python.c:53
+#: ../src/boards/python.c:62
 msgid "Python Board"
 msgstr "Taula Python"
 
-#: ../src/boards/python.c:54
+#: ../src/boards/python.c:63
 msgid "Special board that embeds python into gcompris."
 msgstr "Taula especial que incrusta el python al gcompris."
+
+#: ../src/boards/python/admin/board_list.py:90
+msgid "Select a profile:"
+msgstr "Seleccioneu un perfil:"
+
+#: ../src/boards/python/admin/board_list.py:146
+msgid "Filter"
+msgstr "Filtre"
+
+#: ../src/boards/python/admin/board_list.py:151
+msgid "Select all"
+msgstr "Selecciona-ho tot"
+
+#: ../src/boards/python/admin/board_list.py:156
+msgid "Unselect all"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:236
+msgid "Main menu"
+msgstr "Menú principal"
+
+#: ../src/boards/python/admin/board_list.py:236
+msgid "/"
+msgstr "/"
+
+#. columns for Board name
+#. column_pref = gtk.TreeViewColumn(_('Conf'))
+#. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#. image.show()
+#. column_pref.set_widget(image)
+#: ../src/boards/python/admin/board_list.py:293
+msgid "Active"
+msgstr "Actiu"
+
+#: ../src/boards/python/admin/board_list.py:294
+msgid "Board title"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:410
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr ""
+
+#: ../src/boards/python/admin/board_list.py:441
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/python/admin/board_list.py:625
+#: ../src/boards/python/admin/board_list.py:643
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:541
+#: ../src/boards/python/pythontest.py:383 ../src/boards/python/tuxpaint.py:168
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> configuració\n"
+" per al perfil <b>%s</b>"
+
+#: ../src/boards/python/admin/board_list.py:655
+#: ../src/boards/python/pythontest.py:447
+#, fuzzy
+msgid "Select sound locale"
+msgstr "Seleccioneu una taula"
+
+#: ../src/boards/python/admin/class_edit.py:60
+msgid "Class Edition"
+msgstr "Edicció de classes"
+
+#: ../src/boards/python/admin/class_edit.py:65
+msgid "Editing class: "
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:68
+msgid "Editing a new class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:90
+msgid "Class:"
+msgstr "Classe:"
+
+#. FIXME: How to remove the default selection
+#. Label and Entry for the teacher name
+#: ../src/boards/python/admin/class_edit.py:103
+msgid "Teacher:"
+msgstr "Mestre:"
+
+#: ../src/boards/python/admin/class_edit.py:113
+msgid "Assign all the users bellonging to this class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:253
+#: ../src/boards/python/admin/group_edit.py:265
+#: ../src/boards/python/admin/group_user_list.py:155
+#: ../src/boards/python/admin/user_list.py:197
+msgid "First Name"
+msgstr "Nom"
+
+#: ../src/boards/python/admin/class_edit.py:264
+#: ../src/boards/python/admin/group_edit.py:276
+#: ../src/boards/python/admin/group_user_list.py:165
+#: ../src/boards/python/admin/user_list.py:207
+msgid "Last Name"
+msgstr "Cognom"
+
+#: ../src/boards/python/admin/class_edit.py:341
+msgid "You need to provide at least a name for your class"
+msgstr ""
+
+#: ../src/boards/python/admin/class_edit.py:387
+msgid "There is already a class with this name"
+msgstr ""
+
+#: ../src/boards/python/admin/class_list.py:170
+#: ../src/boards/python/admin/profile_edit.py:269
+#: ../src/boards/python/admin/profile_group_list.py:145
+msgid "Class"
+msgstr "Classe"
+
+#: ../src/boards/python/admin/class_list.py:180
+msgid "Teacher"
+msgstr "Mestre"
+
+#: ../src/boards/python/admin/group_edit.py:60
+msgid "Group Edition"
+msgstr "Edició de grups"
+
+#: ../src/boards/python/admin/group_edit.py:66
+msgid "Editing group: "
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:67
+msgid " for class: "
+msgstr " per a la classe: "
+
+#: ../src/boards/python/admin/group_edit.py:70
+msgid "Editing a new group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:90
+msgid "Group:"
+msgstr "Grup:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/group_edit.py:102
+#: ../src/boards/python/admin/profile_edit.py:98
+msgid "Description:"
+msgstr "Descripció:"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/group_edit.py:113
+msgid "Assign all the users bellonging to this group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:359
+msgid "You need to provide at least a name for your group"
+msgstr ""
+
+#: ../src/boards/python/admin/group_edit.py:373
+msgid "There is already a group with this name"
+msgstr "Ja hi ha un grup amb aquest nom"
+
+#: ../src/boards/python/admin/group_list.py:87
+msgid "Select a class:"
+msgstr "Seleccioneu una classe:"
+
+#: ../src/boards/python/admin/group_list.py:215
+#: ../src/boards/python/admin/profile_edit.py:279
+#: ../src/boards/python/admin/profile_group_list.py:155
+msgid "Group"
+msgstr "Grup"
+
+#: ../src/boards/python/admin/group_list.py:226
+#: ../src/boards/python/admin/profile_edit.py:289
+#: ../src/boards/python/admin/profile_group_list.py:165
+#: ../src/boards/python/admin/profile_list.py:199
+msgid "Description"
+msgstr "Descripció"
+
+#: ../src/boards/python/admin/group_list.py:323
+msgid "You must first select a group in the list"
+msgstr ""
+
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr ""
+
+#: ../src/boards/python/admin/group_user_list.py:175
+#: ../src/boards/python/admin/user_list.py:217
+msgid "Birth Date"
+msgstr "Data de naixament"
+
+#: ../src/boards/python/admin/module_boards.py:42
+#: ../src/boards/python/admin/module_boards.py:62
+#, fuzzy
+msgid "Boards"
+msgstr "Bielorússia"
+
+#: ../src/boards/python/admin/module_groups.py:41
+#: ../src/boards/python/admin/module_groups.py:67
+msgid "Groups"
+msgstr "Grups"
+
+#: ../src/boards/python/admin/module_profiles.py:41
+#: ../src/boards/python/admin/module_profiles.py:66
+msgid "Profiles"
+msgstr "Perfils"
+
+#: ../src/boards/python/admin/module_users.py:42
+#: ../src/boards/python/admin/module_users.py:68
+msgid "Classes"
+msgstr "Classes"
+
+#: ../src/boards/python/admin/module_users.py:42
+#: ../src/boards/python/admin/module_users.py:68
+msgid "Users"
+msgstr "Usuaris"
+
+#: ../src/boards/python/admin/profile_edit.py:59
+msgid "Profile Edition"
+msgstr "Edició de perfils"
+
+#: ../src/boards/python/admin/profile_edit.py:64
+msgid "Editing profile: "
+msgstr ""
+
+#: ../src/boards/python/admin/profile_edit.py:67
+msgid "Editing a new profile"
+msgstr ""
+
+#: ../src/boards/python/admin/profile_edit.py:86
+msgid "Profile:"
+msgstr "Perfil:"
+
+#. Top message gives instructions
+#: ../src/boards/python/admin/profile_edit.py:109
+msgid "Assign all the groups bellonging to this profile"
+msgstr ""
+
+#: ../src/boards/python/admin/profile_edit.py:377
+msgid "You need to provide at least a name for your profile"
+msgstr "Cal que proporcioneu almenys un nom per al perfil"
+
+#: ../src/boards/python/admin/profile_edit.py:399
+msgid "There is already a profile with this name"
+msgstr "Ja hi ha un perfil amb aquest nom"
+
+#: ../src/boards/python/admin/profile_list.py:122
+#: ../src/gcompris/board_config.c:582 ../src/gcompris/board_config.c:708
+msgid "Default"
+msgstr "Predeterminat"
+
+#: ../src/boards/python/admin/profile_list.py:189
+msgid "Profile"
+msgstr "Perfil"
+
+#: ../src/boards/python/admin/profile_list.py:316
+msgid "[Default]"
+msgstr "[Predeterminat]"
+
+#: ../src/boards/python/admin/user_edit.py:50
+msgid "User Edition"
+msgstr "Descripció de l'usuari"
+
+#: ../src/boards/python/admin/user_edit.py:55
+msgid "Editing user "
+msgstr ""
+
+#: ../src/boards/python/admin/user_edit.py:61
+msgid "Editing a new user"
+msgstr ""
+
+#: ../src/boards/python/admin/user_edit.py:78
+msgid "Login:"
+msgstr ""
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: ../src/boards/python/admin/user_edit.py:89
+msgid "First name:"
+msgstr "Nom:"
+
+#. Label and Entry for the last name
+#: ../src/boards/python/admin/user_edit.py:98
+msgid "Last name:"
+msgstr "Cognom:"
+
+#. Label and Entry for the birth date
+#: ../src/boards/python/admin/user_edit.py:107
+msgid "Birth date:"
+msgstr "Data de naixament:"
+
+#: ../src/boards/python/admin/user_edit.py:159
+msgid ""
+"You need to provide at least a login, firstname and lastname for your users"
+msgstr ""
+
+#: ../src/boards/python/admin/user_edit.py:176
+msgid "There is already a user with this login"
+msgstr "Ja hi ha un usuari amb aquesta entrada"
+
+#: ../src/boards/python/admin/user_list.py:292
+msgid ""
+"To import a user list from file, first select a class.\n"
+"FILE FORMAT: Your file must be formated like this:\n"
+"login;First name;Last name;Birth date\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+
+#: ../src/boards/python/admin/user_list.py:371
+#, python-format
+msgid ""
+"Uppercased login was not unique !\n"
+" Some of them have been changed appending time . Change them : %s !"
+msgstr ""
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3016,27 +3828,155 @@ msgstr "Necessiteu el mòdul python xml. S'ha inhabilitat SVG."
 
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
 #: ../src/boards/python/anim.py:415
+#, fuzzy
 msgid ""
-"Python xml module bot found. SVG is disabled. Install the python xml module "
+"Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
 msgstr ""
 "No s'ha trobat el mòdul XML de Python. S'ha inhabilitat SVG. Instal·leu el "
 "mòdul xml de python per a desar i restaurar SVG."
 
-#: ../src/boards/python/anim.py:2205
+#: ../src/boards/python/anim.py:2208
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "L'SVG està inhabilitat. Instal·leu el mòdul XML de python."
 
-#: ../src/boards/python/anim.py:2361
+#: ../src/boards/python/anim.py:2364
 msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "Avís: no es pot accedir a les següents imatges del vostre sistema.\n"
+
+#: ../src/boards/python/anim.py:2366
+msgid "The corresponding items have been skipped."
+msgstr "S'han omès els elements corresponents."
+
+#: ../src/boards/python/gnumch.py:95
+#, python-format
+msgid ", %d"
+msgstr ", %d"
+
+#: ../src/boards/python/gnumch.py:96
+#, python-format
+msgid " and %d"
+msgstr " i %d"
+
+#: ../src/boards/python/gnumch.py:116
+#, python-format
+msgid "%d is divisible by %s."
+msgstr "%d és divisible per %s."
+
+#: ../src/boards/python/gnumch.py:120
+msgid "1 is not a prime number."
+msgstr "L'1 no és un nombre primer."
+
+#: ../src/boards/python/gnumch.py:130
+#, python-format
+msgid "Primes less than %d"
+msgstr "Primers menors que %d"
+
+#: ../src/boards/python/gnumch.py:151
+#, python-format
+msgid ""
+"Multiples of %d include %s,\n"
+"but %d is not a multiple of %d."
 msgstr ""
-"Atenció: no es pot accedir a les següents imatges del vostre sistema.\n"
 
-#: ../src/boards/python/anim.py:2363
-msgid "The corresponding items have been skiped."
-msgstr "S'han ignorat els elements corresponents."
+#: ../src/boards/python/gnumch.py:160
+#, python-format
+msgid "Factors of %d"
+msgstr "Factors de %d"
 
-#: ../src/boards/python/pythontest.py:75
+#: ../src/boards/python/gnumch.py:193
+#, python-format
+msgid "%s are the factors of %d."
+msgstr "%s són factors de %d."
+
+#: ../src/boards/python/gnumch.py:205
+#, python-format
+msgid "Multiples of %d"
+msgstr "Múltiples de %d"
+
+#: ../src/boards/python/gnumch.py:239
+#, python-format
+msgid "%s = %d"
+msgstr "%s = %d"
+
+#: ../src/boards/python/gnumch.py:250
+#, python-format
+msgid "%d + %d"
+msgstr "%d + %d"
+
+#: ../src/boards/python/gnumch.py:255
+#, python-format
+msgid "%d − %d"
+msgstr "%d − %d"
+
+#: ../src/boards/python/gnumch.py:260
+#, python-format
+msgid "%d × %d"
+msgstr "%d × %d"
+
+#: ../src/boards/python/gnumch.py:264
+#, python-format
+msgid "%d ∕ %d"
+msgstr "%d ∕ %d"
+
+#: ../src/boards/python/gnumch.py:272
+#, python-format
+msgid "Equal to %d"
+msgstr "És igual a %d"
+
+#: ../src/boards/python/gnumch.py:293
+#, python-format
+msgid "Not equal to %d"
+msgstr "No és igual a %d"
+
+#: ../src/boards/python/gnumch.py:435
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+
+#: ../src/boards/python/gnumch.py:484
+msgid "You ate a wrong number.\n"
+msgstr "T'has menjat un nombre equivocat.\n"
+
+#: ../src/boards/python/gnumch.py:485
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr ""
+"\n"
+"Premeu <retorn> per a continuar."
+
+#: ../src/boards/python/gnumch.py:777
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+
+#: ../src/boards/python/login.py:123
+msgid "Profile: "
+msgstr "Perfil: "
+
+#: ../src/boards/python/login.py:274 ../src/boards/python/login.py:283
+msgid "Login: "
+msgstr ""
+
+#. toggle box
+#: ../src/boards/python/login.py:546
+msgid "Uppercase only text"
+msgstr "Només text en majúscules"
+
+#. toggle box
+#: ../src/boards/python/login.py:556
+msgid "Enter login to log"
+msgstr ""
+
+#: ../src/boards/python/pythontest.py:132
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -3044,7 +3984,7 @@ msgstr ""
 "Aquest és el primer connector del gcompris codificat en el\n"
 "llenguatge de programació Python."
 
-#: ../src/boards/python/pythontest.py:84
+#: ../src/boards/python/pythontest.py:141
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
@@ -3052,9 +3992,37 @@ msgstr ""
 "Gràcies a n'Olivier Samys, ara és possible desenvolupar activitats\n"
 "per al gcompris en C o en Python."
 
-#: ../src/boards/python/pythontest.py:93
+#: ../src/boards/python/pythontest.py:150
 msgid "This activity is not playable yet, just a test"
 msgstr "Aquesta activitat encara no és jugable, només per provar"
+
+#. toggle box
+#: ../src/boards/python/pythontest.py:388
+msgid "Disable line drawing in circle"
+msgstr ""
+
+#. combo box
+#: ../src/boards/python/pythontest.py:397
+msgid "Color line"
+msgstr "Línia de color"
+
+#. spin button for int
+#: ../src/boards/python/pythontest.py:408
+msgid "Distance between circles"
+msgstr "Distància entre cercles"
+
+#. radio buttons for circle or rectangle
+#: ../src/boards/python/pythontest.py:419
+msgid "Use circles"
+msgstr "Utilitza cercles"
+
+#: ../src/boards/python/pythontest.py:420
+msgid "Use rectangles"
+msgstr "Utilitza rectangles"
+
+#: ../src/boards/python/pythontest.py:423
+msgid "Choice of pattern"
+msgstr "Elecció del patró"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
@@ -3097,7 +4065,7 @@ msgstr "Ha guanyat la barca verda"
 
 #: ../src/boards/python/searace.py:780 ../src/boards/python/searace.py:1022
 msgid "Angle:"
-msgstr "Angle: "
+msgstr "Àngle:"
 
 #: ../src/boards/python/searace.py:780
 msgid "Wind:"
@@ -3119,6 +4087,33 @@ msgstr "Ordre desconeguda a la línia"
 msgid "Distance:"
 msgstr "Distància:"
 
+#: ../src/boards/python/tuxpaint.py:104
+msgid ""
+"Cannot find Tuxpaint. \n"
+" Install it to use this board !"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:117
+msgid "Waiting Tuxpaint Finished"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:172
+#, fuzzy
+msgid "Follow gcompris fullscreen"
+msgstr "executa gcompris en mode de pantalla completa"
+
+#: ../src/boards/python/tuxpaint.py:176
+msgid "Disable shape rotation"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:180
+msgid "Show Uppercase text only"
+msgstr ""
+
+#: ../src/boards/python/tuxpaint.py:184
+msgid "Disable stamps"
+msgstr ""
+
 #: ../src/boards/railroad.c:96
 msgid "Memory game"
 msgstr "Joc de memòria"
@@ -3135,45 +4130,45 @@ msgstr "Llegir els colors"
 msgid "Click on the corresponding color"
 msgstr "Feu clic en els colors corresponents"
 
-#: ../src/boards/reading.c:108
+#: ../src/boards/reading.c:114
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Llegiu una llista de paraules i digueu si la paraula donada hi és"
 
-#: ../src/boards/reading.c:339
+#: ../src/boards/reading.c:356
 msgid "Please, check if the word"
 msgstr "Comproveu si la paraula"
 
-#: ../src/boards/reading.c:359
+#: ../src/boards/reading.c:376
 msgid "is being displayed"
 msgstr "s'està mostrant"
 
-#: ../src/boards/reading.c:534
+#: ../src/boards/reading.c:549
 msgid "I am Ready"
 msgstr "Estic llest"
 
-#: ../src/boards/reading.c:574
+#: ../src/boards/reading.c:589
 msgid "Yes I saw it"
 msgstr "Sí, ho he vist"
 
-#: ../src/boards/reading.c:604
+#: ../src/boards/reading.c:619
 msgid "No, it was not there"
 msgstr "No, no era allà"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:657
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "S'havia de trobar la paraula '%s'"
 
-#: ../src/boards/reading.c:645
+#: ../src/boards/reading.c:660
 msgid "But it was not displayed"
 msgstr "Però no s'ha mostrat"
 
-#: ../src/boards/reading.c:647
+#: ../src/boards/reading.c:662
 msgid "And it was displayed"
 msgstr "S'ha mostrat"
 
-#: ../src/boards/reading.c:748 ../src/boards/wordsgame.c:760
+#: ../src/boards/reading.c:763 ../src/boards/wordsgame.c:758
 msgid "Cannot open file of words for your locale"
 msgstr ""
 "No s'ha pogut obrir cap fitxer de paraules per a la vostra localització"
@@ -3182,12 +4177,12 @@ msgstr ""
 msgid "Reverse count"
 msgstr "Comptar a l'inrevés"
 
-#: ../src/boards/shapegame.c:170
+#: ../src/boards/shapegame.c:173
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Arrossegueu i deixeu anar els elements per reconstruir els objectes"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:417
+#: ../src/boards/shapegame.c:461
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -3199,7 +4194,7 @@ msgstr ""
 "Deseu amb 's'\n"
 "i mostreu totes les peces amb 'd'"
 
-#: ../src/boards/shapegame.c:425
+#: ../src/boards/shapegame.c:469
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -3207,11 +4202,11 @@ msgstr ""
 "Les dades d'aquesta taula es desen\n"
 "a /tmp/gcompris-board.xml"
 
-#: ../src/boards/smallnumbers.c:63
+#: ../src/boards/smallnumbers.c:71
 msgid "Numbers With Dices"
 msgstr "Nombres amb daus"
 
-#: ../src/boards/smallnumbers.c:64
+#: ../src/boards/smallnumbers.c:72
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr ""
 "Escriviu el nombre del teclat de l'1 al 9 abans que el dau arribi al terra"
@@ -3224,12 +4219,12 @@ msgstr "Submarí"
 msgid "Control the depth of a submarine"
 msgstr "Controleu la profunditat del submarí"
 
-#: ../src/boards/target.c:323 ../src/boards/target.c:576
+#: ../src/boards/target.c:321 ../src/boards/target.c:574
 #, c-format
 msgid "Points = %s"
 msgstr "Punts = %s"
 
-#: ../src/boards/target.c:441
+#: ../src/boards/target.c:439
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -3238,7 +4233,7 @@ msgstr ""
 "Velocitat del vent = %d\n"
 "quilòmetres/hora"
 
-#: ../src/boards/target.c:503
+#: ../src/boards/target.c:501
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distància a l'objectiu = %d metres"
@@ -3263,7 +4258,7 @@ msgstr ""
 "Música de fons: Rico Da Halvarez\n"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/gcompris/about.c:73 ../src/gcompris/interface.c:484
+#: ../src/gcompris/about.c:73
 msgid "translator_credits"
 msgstr "Xavier Conde Rueda <xaviconde@eresmas.com>"
 
@@ -3273,15 +4268,17 @@ msgstr "Quant al GCompris"
 
 #: ../src/gcompris/about.c:115
 msgid "Translators:"
-msgstr "Traductor:"
+msgstr "Traductors:"
 
 #: ../src/gcompris/about.c:230
 msgid "GCompris Home Page"
-msgstr "Pàgina principal de GCompris"
+msgstr "Pàgina principal del GCompris"
 
 #: ../src/gcompris/about.c:252
+#, fuzzy
 msgid ""
-"This software is a GNU Package and is released under the GNU Public License"
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
 msgstr ""
 "Aquest programari és un paquet GNU i s'allibera sota la llicència pública GNU"
 
@@ -3289,156 +4286,172 @@ msgstr ""
 msgid "Help"
 msgstr "Ajuda"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:210
-#: ../src/gcompris/gameutil.c:898 ../src/gcompris/help.c:329
-#: ../src/gcompris/images_selector.c:261
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:208
+#: ../src/gcompris/gameutil.c:1106 ../src/gcompris/help.c:329
+#: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "D'acord"
 
-#: ../src/gcompris/board.c:170
+#: ../src/gcompris/board.c:168
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
-"No se suporta la càrrega de mòduls dinàmica. El gcompris no pot carregar.\n"
+"No es permet la càrrega de mòduls dinàmica. El gcompris no pot carregar.\n"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/board_config.c:612
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"Seleccioneu l'idioma\n"
+"del teclat"
+
+#: ../src/gcompris/config.c:61
 msgid "Your system default"
 msgstr "El valor predeterminat del vostre sistema"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:62
 msgid "Amharic"
 msgstr "Amhàric"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:63
 msgid "Arabic"
 msgstr "Àrab"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:64
 msgid "Azerbaijani Turkic"
 msgstr "Àzeri turc"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Búlgar"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Català"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:68
 msgid "Danish"
 msgstr "Danès"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:69
 msgid "German"
 msgstr "Alemany"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:70
 msgid "Greek"
 msgstr "Grec"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:71
 msgid "English (Canadian)"
 msgstr "Anglès (Canadà)"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:72
 msgid "English (Great Britain)"
 msgstr "Anglès (Gran Bretanya)"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:73
 msgid "English (USA)"
 msgstr "Anglès (EUA)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:74
 msgid "Spanish"
 msgstr "Espanyol"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:75
 msgid "Finnish"
 msgstr "Finès"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:76
 msgid "French"
 msgstr "Francès"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:77
 msgid "Irish (Gaelic)"
 msgstr "Irlandès (gaèlic)"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:78
 msgid "Hebrew"
 msgstr "Hebreu"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:79
 msgid "Indian (Hindi)"
 msgstr "Indi (Hindi)"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:80
 msgid "Indian (Gujarati)"
 msgstr "Indi (Gujarati)"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:81
 msgid "Indian (Punjabi)"
 msgstr "Indi (Punjabi)"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:82
 msgid "Hungarian"
 msgstr "Hongarès"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:83
 msgid "Croatian"
 msgstr "Croata"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:84
 msgid "Italian"
 msgstr "Italià"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:85
 msgid "Lithuanian"
 msgstr "Lituà"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:86
 msgid "Macedonian"
 msgstr "Macedoni"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:87
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:88
 msgid "Malay"
 msgstr "Malai"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:89
+msgid "Nepal"
+msgstr "Nepalès"
+
+#: ../src/gcompris/config.c:90
 msgid "Dutch"
 msgstr "Holandès"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:91
 msgid "Norwegian Bokmal"
 msgstr "Norueg Bokmal"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:92
 msgid "Norwegian Nynorsk"
 msgstr "Norueg Nynorsk"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:93
 msgid "Polish"
 msgstr "Polac"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:94
 msgid "Portuguese"
 msgstr "Portuguès"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:95
 msgid "Brazil Portuguese"
 msgstr "Portugès de Brasil"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:96
 msgid "Romanian"
 msgstr "Romanès"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:97
 msgid "Russian"
 msgstr "Rus"
+
+#: ../src/gcompris/config.c:98
+msgid "Kinyarwanda"
+msgstr ""
 
 #: ../src/gcompris/config.c:99
 msgid "Slovak"
@@ -3497,74 +4510,64 @@ msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Per defecte per a gcompris)"
 
 #: ../src/gcompris/config.c:125
-msgid "No filter"
-msgstr "Cap filtre"
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
 
-#: ../src/gcompris/config.c:126
-msgid "Only this level"
-msgstr "Només aquest nivell"
-
-#: ../src/gcompris/config.c:127
-msgid "Up to this level"
-msgstr "Fins aquest nivell"
-
-#: ../src/gcompris/config.c:128
-msgid "This level and above"
-msgstr "Aquest nivell i per sobre"
-
-#: ../src/gcompris/config.c:184
+#: ../src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "Configuració del GCompris"
 
-#: ../src/gcompris/config.c:293
+#: ../src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:336
+#: ../src/gcompris/config.c:334
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:364
+#: ../src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Efecte"
 
-#: ../src/gcompris/config.c:398
+#: ../src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "No es pot obrir el directori d'aparences: %s"
 
-#: ../src/gcompris/config.c:419
+#: ../src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No s'ha trobat cap aparença a %s\n"
 
-#: ../src/gcompris/config.c:434 ../src/gcompris/config.c:819
-#: ../src/gcompris/config.c:830
+#: ../src/gcompris/config.c:431 ../src/gcompris/config.c:787
+#: ../src/gcompris/config.c:798
 #, c-format
 msgid "Skin : %s"
 msgstr "Aparença: %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/file_selector.c:340
 msgid "CANCEL"
 msgstr "Cancel·la"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "LOAD"
 msgstr "Carrega"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "SAVE"
 msgstr "Desa"
 
-#: ../src/gcompris/gameutil.c:129
+#: ../src/gcompris/gameutil.c:187
 msgid "Couldn't find file"
 msgstr "No es pot trobar el fitxer"
 
-#: ../src/gcompris/gameutil.c:131
+#: ../src/gcompris/gameutil.c:189
 msgid "This activity is incomplete."
 msgstr "Aquesta activitat no està completa."
 
-#: ../src/gcompris/gameutil.c:132
+#: ../src/gcompris/gameutil.c:190
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -3572,43 +4575,97 @@ msgstr ""
 "Sortiu-ne i informeu\n"
 "del problema als autors."
 
-#: ../src/gcompris/gcompris.c:82
+#: ../src/gcompris/gcompris.c:100
 msgid "run gcompris in fullscreen mode."
 msgstr "executa gcompris en mode de pantalla completa"
 
-#: ../src/gcompris/gcompris.c:84
+#: ../src/gcompris/gcompris.c:102
 msgid "run gcompris in window mode."
 msgstr "executa gcompris en mode de finestra."
 
-#: ../src/gcompris/gcompris.c:86
+#: ../src/gcompris/gcompris.c:104
 msgid "run gcompris with sound enabled."
 msgstr "executa gcompris amb so habilitat."
 
-#: ../src/gcompris/gcompris.c:88
+#: ../src/gcompris/gcompris.c:106
 msgid "run gcompris without sound."
 msgstr "executa gcompris sense so."
 
-#: ../src/gcompris/gcompris.c:90
+#: ../src/gcompris/gcompris.c:108
 msgid "run gcompris with the default gnome cursor."
 msgstr "executa gcompris amb el cursor per defecte del GNOME."
 
-#: ../src/gcompris/gcompris.c:92
+#: ../src/gcompris/gcompris.c:110
 msgid "display only activities with this difficulty level."
 msgstr "visualitza només les activitats amb aquest nivell de dificultat."
 
-#: ../src/gcompris/gcompris.c:94
+#: ../src/gcompris/gcompris.c:112
 msgid "display debug informations on the console."
 msgstr "mostra informació de depuració en la consola."
 
-#: ../src/gcompris/gcompris.c:96
+#: ../src/gcompris/gcompris.c:114
 msgid "Print the version of "
 msgstr "Imprimeix la versió de "
 
-#: ../src/gcompris/gcompris.c:98
+#: ../src/gcompris/gcompris.c:116
 msgid "Use the antialiased canvas (slower)."
 msgstr "Feu servir una àrea de dibuix amb traços suavitzats (més lent)."
 
-#: ../src/gcompris/gcompris.c:541
+#: ../src/gcompris/gcompris.c:118
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:120
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory, -l /boards/connect4 only the connect4 activity), -l list "
+"show the list of menus and activity"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:122
+msgid "Run gcompris with local activity directory added to menu"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:124
+#, fuzzy
+msgid "Run gcompris with administration and users management mode"
+msgstr "executa gcompris amb so habilitat."
+
+#: ../src/gcompris/gcompris.c:126
+msgid "Use alternate database for profiles"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:128
+msgid "Use alternate database for logs"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:130
+msgid "Create the alternate database for profiles"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:132
+msgid "Re-read XML Menus and store them in the database"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:134
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:136
+msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:138
+msgid ""
+"Shared directory emplacement. For profiles and boards configuration data. "
+"[$HOME/.gcompris/shared]"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:140
+msgid "Users directory emplacement. [$HOME/.gcompris/users] "
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:693
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -3631,7 +4688,7 @@ msgstr ""
 "informació a:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:736
+#: ../src/gcompris/gcompris.c:971
 #, c-format
 msgid ""
 "GCompris\n"
@@ -3644,74 +4701,74 @@ msgstr ""
 "Llicència: GPL\n"
 "Més informació a http://gcompris.net\n"
 
-#: ../src/gcompris/help.c:170 ../src/gcompris/interface.c:243
+#. check the list of possible values for -l, then exit
+#: ../src/gcompris/gcompris.c:1039
+#, c-format
+msgid "Use -l activity to access directly to activity.\n"
+msgstr ""
+
+#: ../src/gcompris/gcompris.c:1040
+#, c-format
+msgid "List of available activity is :\n"
+msgstr "Aquesta és la llista d'activitats disponibles:\n"
+
+#: ../src/gcompris/gcompris.c:1182
+#, c-format
+msgid "List of available profiles are:\n"
+msgstr "Aquesta és la llista de perfils disponibles:\n"
+
+#: ../src/gcompris/gcompris_db.c:239
+#, fuzzy
+msgid "Unaffected"
+msgstr "Efecte"
+
+#: ../src/gcompris/gcompris_db.c:240
+msgid "Users without class"
+msgstr "Usuaris sense classe"
+
+#: ../src/gcompris/help.c:170
 msgid "Prerequisite"
 msgstr "Prerrequisit"
 
-#: ../src/gcompris/help.c:198 ../src/gcompris/interface.c:252
+#: ../src/gcompris/help.c:198
 msgid "Goal"
 msgstr "Objectiu"
 
-#: ../src/gcompris/help.c:226 ../src/gcompris/interface.c:261
+#: ../src/gcompris/help.c:226
 msgid "Manual"
 msgstr "Manual"
 
-#: ../src/gcompris/help.c:254 ../src/gcompris/interface.c:270
+#: ../src/gcompris/help.c:254
 msgid "Credit"
 msgstr "Reconeixements"
 
-#: ../src/gcompris/interface.c:104
-msgid "Gcompris Editor"
-msgstr "Editor de Gcompris"
+#: ../src/gcompris/images_selector.c:292
+#, c-format
+msgid "dataset %s is a directory. Trying to read xml "
+msgstr ""
 
-#: ../src/gcompris/interface.c:180
-msgid "Icon"
-msgstr "Icona"
+#: ../src/gcompris/images_selector.c:629
+#, c-format
+msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
+msgstr ""
 
-#: ../src/gcompris/interface.c:189
-msgid "Name"
-msgstr "Nom"
+#: ../src/gcompris/images_selector.c:663
+#, c-format
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr ""
 
-#: ../src/gcompris/interface.c:198 ../src/gcompris/interface.c:415
-msgid "Description"
-msgstr "Descripció"
+#: ../src/gcompris/images_selector.c:694
+#, c-format
+msgid ""
+"In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr ""
 
-#: ../src/gcompris/interface.c:207
-msgid "Type"
-msgstr "Tipus"
-
-#: ../src/gcompris/interface.c:216
-msgid "Difficulty"
-msgstr "Dificultat"
-
-#: ../src/gcompris/interface.c:225
-msgid "Author"
-msgstr "Autor"
-
-#: ../src/gcompris/interface.c:234
-msgid "Directory"
-msgstr "Directori"
-
-#: ../src/gcompris/interface.c:286
-msgid "Title"
-msgstr "Títol"
-
-#: ../src/gcompris/interface.c:490
-msgid "Released under GPL"
-msgstr "Alliberat sota la llicència GPL"
-
-#. Prepare our log
-#. The default format for time represenation.  See strftime(3)
-#: ../src/gcompris/log.c:157
-msgid "%a %b %d %H:%M:%S %Z %Y"
-msgstr "%A, %e de %B del %Y a les %H:%M:%S"
-
-#: ../src/gcompris/soundutil.c:140
+#: ../src/gcompris/soundutil.c:162
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "No es pot obrir el directori de música: %s"
 
-#: ../src/gcompris/soundutil.c:183
+#: ../src/gcompris/soundutil.c:208
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -3719,11 +4776,6 @@ msgid ""
 msgstr ""
 "No es reprodueix música de fons. Els fitxers a %s no estan en format ogg "
 "vorbis, o bé la sortida de so ha fallat"
-
-#: ../src/gcompris/support.c:60 ../src/gcompris/support.c:85
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "No es pot trobar el fitxer de mapa de píxels: %s"
 
 #: ../src/gcompris/timer.c:237
 msgid "Time Elapsed"
@@ -3733,6 +4785,59 @@ msgstr "Temps transcorregut"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Temps restant = %d"
+
+#~ msgid "The game of billiards"
+#~ msgstr "El joc del billar"
+
+#~ msgid ""
+#~ "Error: /usr/bin/gnuchessx is installed\n"
+#~ "which means you have an old version\n"
+#~ "of gnuchess.\n"
+#~ "Please upgrade to gnuchess 5 or above."
+#~ msgstr ""
+#~ "S'ha produït un error. Està instal·lat /usr/bin/gnuchessx.\n"
+#~ "Això significa que esteu executant una versió antiga\n"
+#~ "de gnuchess.\n"
+#~ "Per favor, actualitzeu a la versió 5 o superior."
+
+#~ msgid "Only this level"
+#~ msgstr "Només aquest nivell"
+
+#~ msgid "Up to this level"
+#~ msgstr "Fins aquest nivell"
+
+#~ msgid "This level and above"
+#~ msgstr "Aquest nivell i per sobre"
+
+#~ msgid "Icon"
+#~ msgstr "Icona"
+
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#~ msgid "Type"
+#~ msgstr "Tipus"
+
+#~ msgid "Difficulty"
+#~ msgstr "Dificultat"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Directory"
+#~ msgstr "Directori"
+
+#~ msgid "Title"
+#~ msgstr "Títol"
+
+#~ msgid "Released under GPL"
+#~ msgstr "Alliberat sota la llicència GPL"
+
+#~ msgid "%a %b %d %H:%M:%S %Z %Y"
+#~ msgstr "%A, %e de %B del %Y a les %H:%M:%S"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "No es pot trobar el fitxer de mapa de píxels: %s"
 
 #~ msgid "germany"
 #~ msgstr "alemanya"
@@ -3748,9 +4853,6 @@ msgstr "Temps restant = %d"
 
 #~ msgid "czech"
 #~ msgstr "txèquia"
-
-#~ msgid "lithuania"
-#~ msgstr "lituània"
 
 #~ msgid "macedonia"
 #~ msgstr "macedònia"
