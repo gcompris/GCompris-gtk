@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/08/30 08:48:16 yves>
+ * Time-stamp: <2005/08/30 23:35:10 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -32,6 +32,7 @@
 
 //#define TEXT_FONT gcompris_skin_font_board_huge_bold
 #define TEXT_FONT "Serif bold 28"
+#define LETTER_BLUE 0x0000FFFF
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -511,7 +512,7 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 				     "x", (double) (width*0.8)/2,
 				     "y", (double) (height*0.8)/2,
 				     "anchor", GTK_ANCHOR_CENTER,
-				     "fill_color_rgba", 0x99CDFFFF,
+				     "fill_color_rgba", LETTER_BLUE,
 				     NULL);
 
 	  }

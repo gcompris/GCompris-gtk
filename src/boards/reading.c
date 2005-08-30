@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/08/30 08:35:56 yves>
+ * Time-stamp: <2005/08/30 23:51:50 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -269,7 +269,9 @@ static gint reading_next_level()
 
   gamewon = FALSE;
 
+  g_warning("destroying_all...");
   reading_destroy_all_items();
+  g_warning("destroying_all... done ");
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -317,8 +319,11 @@ static void reading_destroy_all_items()
     drop_items_id = 0;
   }
 
+  g_warning("destroying boardRootItem ...");
   if(boardRootItem!=NULL)
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
+
+  g_warning("destroying boardRootItem ... done");
 
   boardRootItem = NULL;
   previousFocus.rootItem = NULL;
@@ -329,12 +334,16 @@ static void reading_destroy_all_items()
     g_free(textToFind);
     textToFind=NULL;
     }
-  
+
+  g_warning("destroying words ...");  
+
   if (words!=NULL) 
     {
     g_ptr_array_free (words, TRUE);
     words=NULL;
     }
+
+  g_warning("destroying words ... done");  
   
   
 
@@ -459,9 +468,6 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
 			   "anchor", anchor,
 			   "fill_color", "black",
 			   NULL);
-
-  double x1, y1, x2, y2;
-  gnome_canvas_item_get_bounds(GNOME_CANVAS_ITEM(previousFocus.item), &x1, &y1, &x2, &y2);
 
   gchar *oldword = g_strdup_printf("<span foreground=\"black\" background=\"black\">%s</span>", word);
 
