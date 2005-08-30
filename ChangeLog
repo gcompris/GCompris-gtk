@@ -1,4 +1,12 @@
-2005-08-30  Yves Combe,,,  <set EMAIL_ADDRESS environment variable>
+2005-08-30  Yves Combe  <yves@ycombe.net>
+
+	huftis has remade railroad background from frack svg, because the jpg had awful artifacts.
+
+	* boards/railroad/railroad-bg.png:
+	* src/boards/railroad.c: (start_board):
+	* src/svg_images/railroad-bg.svg:
+
+2005-08-30  Yves Combe  <yves@ycombe.net>
 
 	use pango metrics to determine interline in reading, and pango text markup to make black square in last word.
 	change font in memory, to avoid confusion between uppercased i and lowercased L. Set to "Serif bold 28" in source, should be passed through skin.
