@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/08/29 23:15:22 bruno>
+ * Time-stamp: <2005/08/30 08:35:56 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -192,7 +192,17 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       font_size = PANGO_PIXELS(pango_font_description_get_size (pango_font_description_from_string (gcompris_skin_font_board_medium)));
       interline = (int) (1.5*font_size);
 
-      g_warning ("Font to display words have size %d", font_size);
+      PangoContext *pango_context = gtk_widget_get_pango_context  (GTK_WIDGET(agcomprisBoard->canvas));
+
+      PangoFontMetrics* pango_metrics =  pango_context_get_metrics (pango_context,
+								    pango_font_description_from_string (gcompris_skin_font_board_medium),
+								    pango_language_from_string   (gcompris_get_locale()));
+
+      int ascent = PANGO_PIXELS(pango_font_metrics_get_ascent (pango_metrics));
+      int descent = PANGO_PIXELS(pango_font_metrics_get_descent (pango_metrics));
+      interline = ascent + descent;
+
+      g_warning ("Font to display words have size %d  ascent : %d, descent : %d.\n Set inerline to %d", font_size, ascent, descent, interline);
 
       /* Default mode */
       currentMode=MODE_VERTICAL;
@@ -282,7 +292,7 @@ static gint reading_next_level()
       numberOfLine=2+gcomprisBoard->level;
     }
 
-  current_y = BASE_Y1;
+  current_y = BASE_Y1 - 2 * interline;
 
   gcomprisBoard->number_of_sublevel=1;
   gcomprisBoard->sublevel=1;
@@ -453,17 +463,19 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
   double x1, y1, x2, y2;
   gnome_canvas_item_get_bounds(GNOME_CANVAS_ITEM(previousFocus.item), &x1, &y1, &x2, &y2);
 
+  gchar *oldword = g_strdup_printf("<span foreground=\"black\" background=\"black\">%s</span>", word);
+
   previousFocus.overwriteItem = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(previousFocus.rootItem),
-			   gnome_canvas_rect_get_type (),
-			   "x1", (double) x1,
-			   "y1", (double) y1,
-			   "x2", (double) x2,
-			   "y2", (double) y2,
-			   "fill_color", "grey",
-			   "width_units", (double)0,
+			   gnome_canvas_text_get_type (),
+			   "markup", oldword,
+			   "font", gcompris_skin_font_board_medium,
+			   "x", (double) 0,
+			   "y", (double) 0,
+			   "anchor", anchor,
 			   NULL);
 
+  g_free(oldword);
   gnome_canvas_item_hide(previousFocus.overwriteItem);
 
   // Calculate the next spot

@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/07/01 23:45:39 yves>
+ * Time-stamp: <2005/08/30 08:48:16 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -29,6 +29,9 @@
 #define SOUNDLISTFILE PACKAGE
 #define MAX_MEMORY_WIDTH  7
 #define MAX_MEMORY_HEIGHT 6
+
+//#define TEXT_FONT gcompris_skin_font_board_huge_bold
+#define TEXT_FONT "Serif bold 28"
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -504,7 +507,7 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_text_get_type (),
 				     "text", &memoryItem->text,
-				     "font", gcompris_skin_font_board_huge_bold,
+				     "font", TEXT_FONT,
 				     "x", (double) (width*0.8)/2,
 				     "y", (double) (height*0.8)/2,
 				     "anchor", GTK_ANCHOR_CENTER,
