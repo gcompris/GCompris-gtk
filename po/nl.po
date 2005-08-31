@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 11:06+0000\n"
-"PO-Revision-Date: 2005-08-04 23:59+0200\n"
+"POT-Creation-Date: 2005-08-30 19:05+0000\n"
+"PO-Revision-Date: 2005-08-31 00:27+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Nederlands <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -1019,11 +1019,11 @@ msgid "Can move the mouse."
 msgstr "Kan de muis bewegen"
 
 #: ../boards/colors.xml.in.h:2 ../boards/read_colors.xml.in.h:3
-#: ../src/boards/advanced_colors.c:87 ../src/boards/colors.c:78
+#: ../src/boards/advanced_colors.c:87 ../src/boards/colors.c:81
 msgid "Click on the right color"
 msgstr "Klik op de juiste kleur"
 
-#: ../boards/colors.xml.in.h:3 ../src/boards/colors.c:77
+#: ../boards/colors.xml.in.h:3 ../src/boards/colors.c:80
 msgid "Colors"
 msgstr "Kleuren"
 
@@ -1789,11 +1789,11 @@ msgstr "Toetsenbord-vaardigheden"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Herken letters op het scherm en het toetsenbord"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:129
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
 msgid "Simple Letters"
 msgstr "Eenvoudige Letters"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
 msgid "Type the falling letters before they reach the ground"
 msgstr "Typ de vallende letters voor ze de grond raken"
 
@@ -1982,8 +1982,8 @@ msgstr "Lees-oefening om woorden aan beelden te koppelen"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:108 ../src/boards/missingletter.c:101
-#: ../src/boards/reading.c:107
+#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/reading.c:113
 msgid "Reading"
 msgstr "Lezen"
 
@@ -2222,11 +2222,12 @@ msgstr "vlag"
 msgid "racket"
 msgstr "raket"
 
+# laten aanmelden van gemaakt
 #: ../boards/login.xml.in.h:1
 msgid ""
 "By identifying in GCompris, we are able to provide specific reporting for "
-"each kids."
-msgstr "Door aanmelden bij GCompris, zijn we in staat om voor elk kind afzonderlijk een rapportage te maken."
+"each kid."
+msgstr "Door het laten aanmelden bij GCompris, zijn we in staat om voor elk kind afzonderlijk een rapportage te maken."
 
 #: ../boards/login.xml.in.h:2
 msgid "GCompris login screen"
@@ -2240,7 +2241,7 @@ msgid ""
 "In the administration, you can create different profiles. In each profiles\n"
 "you can have a different set of users and select which activities are "
 "available to them.\n"
-"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
 "where 'profile'\n"
 "is the name of a profile as you created it in the administration."
 msgstr ""
@@ -2250,8 +2251,8 @@ msgstr ""
 "U kunt daar dan vervolgens verschillende profielen aanmaken. In een profiel\n"
 "kunt u gebruikers selecteren en aangeven welke activiteiten voor hen\n"
 "beschikbaar zijn.\n"
-"Om GCompris in een specifiek profiel uit te voeren start u het op als\n"
-"volg: 'gcompris -p profiel' waarbij 'profiel' de naam is van een profiel\n"
+"Om GCompris in een specifiek profiel uit te voeren start u het als\n"
+"volgt op: 'gcompris -p profiel' waarbij 'profiel' de naam is van een profiel\n"
 "dat u in het onderdeel administratie heeft aangemaakt."
 
 #: ../boards/login.xml.in.h:10
@@ -2690,7 +2691,7 @@ msgstr ""
 "Sleep de stukken uit het linkergedeelte om een schilderij of het hoofdbord "
 "te maken."
 
-#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:169
+#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:172
 msgid "Make the puzzle"
 msgstr "Maak de puzzel"
 
@@ -3139,6 +3140,39 @@ msgstr "Een onderzeeër besturen"
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr "Bestuur een onderzeeër door middel van luchttanks en duikroeren"
 
+#: ../boards/sudoku.xml.in.h:1
+msgid "Completing the puzzle requires patience and logical ability"
+msgstr "Het oplossen van de puzzel vereist geduld en logisch nadenken"
+
+#: ../boards/sudoku.xml.in.h:2
+msgid ""
+"For the first level with colored symbols, drag symbols on the left to their "
+"target position. For the higher levels, click on an empty square to give it "
+"the keyboard focus. Then enter a possible letter or number. GCompris will "
+"not let you enter invalid data."
+msgstr "Op het eerste niveau met gekleurde symbolen, moeten de symbolen die links te zien zijn, naar de doelpositie gesleept worden. Op de hogere niveaus moet je eerst op een leeg vakje klikken en dan een letter of cijfer intoetsen. GCompris voorkomt ongeldige invoer."
+
+# unieke/afzonderlijke
+# plaats/zet
+#: ../boards/sudoku.xml.in.h:3
+msgid "Sudoku, place unique symbols in a square."
+msgstr "Sudoku, plaats unieke symbolen in een vierkant."
+
+# uniek/mogen maar 1 keer voorkomen
+#: ../boards/sudoku.xml.in.h:4
+msgid "Symbols must be unique in a row, column, and if defined in each region."
+msgstr "De symbolen mogen maar 1 keer voorkomen in elke rij, kolom, en zonodig in elk gebiedje."
+
+#: ../boards/sudoku.xml.in.h:5
+msgid ""
+"The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in "
+"each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
+"(called 'regions'), starting with various symbols or numerals given in some "
+"cells (the 'givens'). Each row, column and region must contain only one "
+"instance of each symbol or numeral (Source http://en.wikipedia.org/wiki/"
+"Sudoku)."
+msgstr "Het doel van de puzzel is om in elke cel van het rooster een symbool of getal van 1 tot 9 in te voeren op een zodanige manier dat elk symbool of getal slechts één keer voorkomt in elke rij, kolom of deelrooster. Het rooster heeft meestal afmetingen van 9x9 en is dan onderverdeeld is groepjes van 3x3. Een gedeelte van het rooster is vooraf al ingevuld. (Bron: http://en.wikipedia.org/wiki/Sudoku)."
+
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
 "Click on the items until you find what you think is the correct answer. "
@@ -3257,20 +3291,20 @@ msgstr "Educatieve software gcompris"
 msgid "Multiple activities for kids"
 msgstr "Verschillende activiteiten voor kinderen"
 
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:602
-#: ../src/boards/missingletter.c:606 ../src/boards/read_colors.c:491
-#: ../src/boards/shapegame.c:1878 ../src/gcompris/file_selector.c:926
-#: ../src/gcompris/gameutil.c:137 ../src/gcompris/gameutil.c:555
-#: ../src/gcompris/gameutil.c:556 ../src/gcompris/gcompris.c:527
-#: ../src/gcompris/images_selector.c:753 ../src/gcompris/skin.c:83
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:615
+#: ../src/boards/missingletter.c:618 ../src/boards/read_colors.c:491
+#: ../src/boards/shapegame.c:1924 ../src/gcompris/file_selector.c:891
+#: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:600
+#: ../src/gcompris/gameutil.c:601 ../src/gcompris/gcompris.c:531
+#: ../src/gcompris/images_selector.c:764 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kan bestand %s niet vinden !"
 
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:605
-#: ../src/boards/missingletter.c:609 ../src/boards/read_colors.c:494
-#: ../src/boards/shapegame.c:1881
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:618
+#: ../src/boards/missingletter.c:621 ../src/boards/read_colors.c:494
+#: ../src/boards/shapegame.c:1927
 #, c-format
 msgid "find file %s !"
 msgstr "bestand %s zoeken !"
@@ -3342,15 +3376,15 @@ msgstr "Wit schaakmat"
 msgid "Drawn game"
 msgstr "Onbeslist spel"
 
-#: ../src/boards/click_on_letter.c:80
+#: ../src/boards/click_on_letter.c:84
 msgid "Read a letter"
 msgstr "Lees een letter"
 
-#: ../src/boards/click_on_letter.c:81
+#: ../src/boards/click_on_letter.c:85
 msgid "Learn to recognize letters"
 msgstr "Leer letters herkennen"
 
-#: ../src/boards/click_on_letter.c:228
+#: ../src/boards/click_on_letter.c:240
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -3358,7 +3392,7 @@ msgstr ""
 "Fout: voor deze activiteit moet u eerst het pakket\n"
 "assetml-voices-aphabet- installeren"
 
-#: ../src/boards/click_on_letter.c:235
+#: ../src/boards/click_on_letter.c:247
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3371,7 +3405,7 @@ msgstr ""
 "het geluid aan te zetten."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:280
+#: ../src/boards/click_on_letter.c:292
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstufwxyz"
 
@@ -3449,7 +3483,7 @@ msgstr "Verplaats de vakjes één voor één zodat alle getallen netjes oplopen"
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Maak op een vrije plaats dezelfde toren als die rechts te zien is"
 
-#: ../src/boards/imageid.c:109 ../src/boards/missingletter.c:102
+#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Leer lezen"
 
@@ -3482,11 +3516,11 @@ msgstr ""
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Bekijk je positie en ga terug naar 3D-modus om te kunnen bewegen"
 
-#: ../src/boards/memory.c:164
+#: ../src/boards/memory.c:167
 msgid "Memory"
 msgstr "Geheugen"
 
-#: ../src/boards/memory.c:165
+#: ../src/boards/memory.c:168
 msgid "Find the matching pair"
 msgstr "Zoek het gelijke paar"
 
@@ -3522,27 +3556,27 @@ msgstr "Python-bord"
 msgid "Special board that embeds python into gcompris."
 msgstr "Speciaal bord dat python in gcompris inbed."
 
-#: ../src/boards/python/admin/board_list.py:82
+#: ../src/boards/python/admin/board_list.py:90
 msgid "Select a profile:"
 msgstr "Selecteer een profiel:"
 
-#: ../src/boards/python/admin/board_list.py:134
+#: ../src/boards/python/admin/board_list.py:146
 msgid "Filter"
 msgstr "Filter"
 
-#: ../src/boards/python/admin/board_list.py:139
+#: ../src/boards/python/admin/board_list.py:151
 msgid "Select all"
 msgstr "Alles selecteren"
 
-#: ../src/boards/python/admin/board_list.py:144
+#: ../src/boards/python/admin/board_list.py:156
 msgid "Unselect all"
 msgstr "Alles deselecteren"
 
-#: ../src/boards/python/admin/board_list.py:202
+#: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Hoofdmenu"
 
-#: ../src/boards/python/admin/board_list.py:202
+#: ../src/boards/python/admin/board_list.py:236
 msgid "/"
 msgstr "/"
 
@@ -3551,13 +3585,50 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:259
+#: ../src/boards/python/admin/board_list.py:293
 msgid "Active"
 msgstr "Actief"
 
-#: ../src/boards/python/admin/board_list.py:260
+#: ../src/boards/python/admin/board_list.py:294
 msgid "Board title"
 msgstr "Bordtitel"
+
+#: ../src/boards/python/admin/board_list.py:410
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr "Borden filteren op moeilijkheidsgraad voor profiel %s"
+
+#: ../src/boards/python/admin/board_list.py:441
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+"<span size='x-large'> Selecteer de moeilijkheidsgraad \n"
+"voor profiel <b>%s</b></span>"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: ../src/boards/python/admin/board_list.py:625
+#: ../src/boards/python/admin/board_list.py:643
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:541
+#: ../src/boards/python/pythontest.py:383 ../src/boards/python/tuxpaint.py:168
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> configuratie\n"
+" voor profiel <b>%s</b>"
+
+#: ../src/boards/python/admin/board_list.py:655
+#: ../src/boards/python/pythontest.py:447
+msgid "Select sound locale"
+msgstr "Geluidstaal selecteren"
 
 #: ../src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
@@ -3577,40 +3648,40 @@ msgstr "Klas:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/boards/python/admin/class_edit.py:101
+#: ../src/boards/python/admin/class_edit.py:103
 msgid "Teacher:"
 msgstr "Docent:"
 
 # engels: bellonging
-#: ../src/boards/python/admin/class_edit.py:111
+#: ../src/boards/python/admin/class_edit.py:113
 msgid "Assign all the users bellonging to this class"
 msgstr "Geven aan alle gebruikers in deze klas"
 
-#: ../src/boards/python/admin/class_edit.py:251
-#: ../src/boards/python/admin/group_edit.py:264
-#: ../src/boards/python/admin/group_user_list.py:162
-#: ../src/boards/python/admin/user_list.py:196
+#: ../src/boards/python/admin/class_edit.py:253
+#: ../src/boards/python/admin/group_edit.py:265
+#: ../src/boards/python/admin/group_user_list.py:155
+#: ../src/boards/python/admin/user_list.py:197
 msgid "First Name"
 msgstr "Voornaam"
 
-#: ../src/boards/python/admin/class_edit.py:262
-#: ../src/boards/python/admin/group_edit.py:275
-#: ../src/boards/python/admin/group_user_list.py:172
-#: ../src/boards/python/admin/user_list.py:206
+#: ../src/boards/python/admin/class_edit.py:264
+#: ../src/boards/python/admin/group_edit.py:276
+#: ../src/boards/python/admin/group_user_list.py:165
+#: ../src/boards/python/admin/user_list.py:207
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: ../src/boards/python/admin/class_edit.py:381
+#: ../src/boards/python/admin/class_edit.py:341
 msgid "You need to provide at least a name for your class"
 msgstr "U moet uw klas ten minste een naam geven"
 
-#: ../src/boards/python/admin/class_edit.py:403
+#: ../src/boards/python/admin/class_edit.py:387
 msgid "There is already a class with this name"
 msgstr "Er is al een klas met deze naam"
 
 #: ../src/boards/python/admin/class_list.py:170
 #: ../src/boards/python/admin/profile_edit.py:269
-#: ../src/boards/python/admin/profile_group_list.py:159
+#: ../src/boards/python/admin/profile_group_list.py:145
 msgid "Class"
 msgstr "Klas"
 
@@ -3623,41 +3694,41 @@ msgstr "Docent"
 msgid "Group Edition"
 msgstr "Groepsbewerking"
 
-#: ../src/boards/python/admin/group_edit.py:65
+#: ../src/boards/python/admin/group_edit.py:66
 msgid "Editing group: "
 msgstr "Groep bewerken: "
 
-#: ../src/boards/python/admin/group_edit.py:66
+#: ../src/boards/python/admin/group_edit.py:67
 msgid " for class: "
 msgstr " voor klas: "
 
-#: ../src/boards/python/admin/group_edit.py:69
+#: ../src/boards/python/admin/group_edit.py:70
 msgid "Editing a new group"
 msgstr "Een nieuwe groep bewerken"
 
-#: ../src/boards/python/admin/group_edit.py:89
+#: ../src/boards/python/admin/group_edit.py:90
 msgid "Group:"
 msgstr "Groep:"
 
 # beschrijving/omschrijving
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/group_edit.py:101
+#: ../src/boards/python/admin/group_edit.py:102
 #: ../src/boards/python/admin/profile_edit.py:98
 msgid "Description:"
 msgstr "Omschrijving:"
 
 # engels: bellonging
 #. Top message gives instructions
-#: ../src/boards/python/admin/group_edit.py:112
+#: ../src/boards/python/admin/group_edit.py:113
 msgid "Assign all the users bellonging to this group"
 msgstr "Geven aan alle gebruikers in deze groep"
 
-#: ../src/boards/python/admin/group_edit.py:358
+#: ../src/boards/python/admin/group_edit.py:359
 msgid "You need to provide at least a name for your group"
 msgstr "U moet uw groep ten minste een naam geven"
 
-#: ../src/boards/python/admin/group_edit.py:370
+#: ../src/boards/python/admin/group_edit.py:373
 msgid "There is already a group with this name"
 msgstr "Er is al een groep met deze naam"
 
@@ -3667,31 +3738,31 @@ msgstr "Selecteer een klas:"
 
 #: ../src/boards/python/admin/group_list.py:215
 #: ../src/boards/python/admin/profile_edit.py:279
-#: ../src/boards/python/admin/profile_group_list.py:169
+#: ../src/boards/python/admin/profile_group_list.py:155
 msgid "Group"
 msgstr "Groep"
 
 # beschrijving/omschrijving
 #: ../src/boards/python/admin/group_list.py:226
 #: ../src/boards/python/admin/profile_edit.py:289
-#: ../src/boards/python/admin/profile_group_list.py:179
+#: ../src/boards/python/admin/profile_group_list.py:165
 #: ../src/boards/python/admin/profile_list.py:199
 msgid "Description"
 msgstr "Omschrijving"
 
-#: ../src/boards/python/admin/group_list.py:321
+#: ../src/boards/python/admin/group_list.py:323
 msgid "You must first select a group in the list"
 msgstr "U moet eerst een groep uit de lijst selecteren"
 
 # dit is aanmeldnaam hier, niet 'aanmelden' of 'inloggen'
 # het gaat dus hier om de gebruikersnaam
-#: ../src/boards/python/admin/group_user_list.py:152
-#: ../src/boards/python/admin/user_list.py:186
+#: ../src/boards/python/admin/group_user_list.py:145
+#: ../src/boards/python/admin/user_list.py:187
 msgid "Login"
 msgstr "Aanmeldnaam"
 
-#: ../src/boards/python/admin/group_user_list.py:182
-#: ../src/boards/python/admin/user_list.py:216
+#: ../src/boards/python/admin/group_user_list.py:175
+#: ../src/boards/python/admin/user_list.py:217
 msgid "Birth Date"
 msgstr "Geboortedatum"
 
@@ -3753,6 +3824,7 @@ msgid "There is already a profile with this name"
 msgstr "Er is al een profiel met deze naam"
 
 #: ../src/boards/python/admin/profile_list.py:122
+#: ../src/gcompris/board_config.c:582 ../src/gcompris/board_config.c:708
 msgid "Default"
 msgstr "Standaard"
 
@@ -3773,52 +3845,65 @@ msgstr "Gebruiker bewerken"
 msgid "Editing user "
 msgstr "Gebruiker bewerken "
 
-#: ../src/boards/python/admin/user_edit.py:60
+#: ../src/boards/python/admin/user_edit.py:61
 msgid "Editing a new user"
 msgstr "Een nieuwe gebruiker bewerken"
 
 # dit is aanmeldnaam hier, niet 'aanmelden' of 'inloggen'
 # het gaat dus hier om de gebruikersnaam/aanmeldnaam
-#: ../src/boards/python/admin/user_edit.py:77
+#: ../src/boards/python/admin/user_edit.py:78
 msgid "Login:"
 msgstr "Gebruikersnaam:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/user_edit.py:88
+#: ../src/boards/python/admin/user_edit.py:89
 msgid "First name:"
 msgstr "Voornaam:"
 
 #. Label and Entry for the last name
-#: ../src/boards/python/admin/user_edit.py:97
+#: ../src/boards/python/admin/user_edit.py:98
 msgid "Last name:"
 msgstr "Achternaam:"
 
 #. Label and Entry for the birth date
-#: ../src/boards/python/admin/user_edit.py:106
+#: ../src/boards/python/admin/user_edit.py:107
 msgid "Birth date:"
 msgstr "Geboortedatum:"
 
-#: ../src/boards/python/admin/user_edit.py:158
+#: ../src/boards/python/admin/user_edit.py:159
 msgid ""
 "You need to provide at least a login, firstname and lastname for your users"
-msgstr "U moet uw gebruikers ten minste een gebruikersnaam, voornaam en achternaam geven"
+msgstr ""
+"U moet uw gebruikers ten minste een gebruikersnaam, voornaam en achternaam "
+"geven"
 
-#: ../src/boards/python/admin/user_edit.py:171
+#: ../src/boards/python/admin/user_edit.py:176
 msgid "There is already a user with this login"
 msgstr "Er is al een gebruiker met deze naam"
 
-#: ../src/boards/python/admin/user_list.py:291
+#: ../src/boards/python/admin/user_list.py:292
 msgid ""
 "To import a user list from file, first select a class.\n"
 "FILE FORMAT: Your file must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
-"Om een gebruikerslijst uit een  bestand te importeren selecteert u eerst een klas.\n"
+"Om een gebruikerslijst uit een  bestand te importeren selecteert u eerst een "
+"klas.\n"
 "BESTANDSFORMAAT: Uw bestand moet de volgende opmaak hebben:\n"
 "gebruikersnaam; Voornaam;Achternaam;Geboortedatum\n"
-"Het scheidingsteken wordt uitomatisch herkend mag zowel ',', ';' als ':' zijn."
+"Het scheidingsteken wordt uitomatisch herkend mag zowel ',', ';' als ':' "
+"zijn."
+
+#: ../src/boards/python/admin/user_list.py:371
+#, python-format
+msgid ""
+"Uppercased login was not unique !\n"
+" Some of them have been changed appending time . Change them : %s !"
+msgstr ""
+"Aanmelding met hoofdletters was niet uniek!\n"
+" Sommigen zijn gewijzigd door de toegevoegde tijd. Wijzigen door: %s !"
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3858,21 +3943,21 @@ msgstr ", %d"
 msgid " and %d"
 msgstr " en %d"
 
-#: ../src/boards/python/gnumch.py:114
+#: ../src/boards/python/gnumch.py:116
 #, python-format
 msgid "%d is divisible by %s."
 msgstr "%d is deelbaar door %s."
 
-#: ../src/boards/python/gnumch.py:118
+#: ../src/boards/python/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "1 is geen priemgetal."
 
-#: ../src/boards/python/gnumch.py:128
+#: ../src/boards/python/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "Priemgetallen kleiner dan %d"
 
-#: ../src/boards/python/gnumch.py:146
+#: ../src/boards/python/gnumch.py:151
 #, python-format
 msgid ""
 "Multiples of %d include %s,\n"
@@ -3882,59 +3967,59 @@ msgstr ""
 "maar %d is geen veelvoud van %d."
 
 # priemfactoren/factoren
-#: ../src/boards/python/gnumch.py:155
+#: ../src/boards/python/gnumch.py:160
 #, python-format
 msgid "Factors of %d"
 msgstr "Factoren van %d"
 
 # priemfactoren/factoren
-#: ../src/boards/python/gnumch.py:184
+#: ../src/boards/python/gnumch.py:193
 #, python-format
 msgid "%s are the factors of %d."
 msgstr "%s zijn de factoren van %d."
 
-#: ../src/boards/python/gnumch.py:196
+#: ../src/boards/python/gnumch.py:205
 #, python-format
 msgid "Multiples of %d"
 msgstr "Veelvouden van %d"
 
-#: ../src/boards/python/gnumch.py:227
+#: ../src/boards/python/gnumch.py:239
 #, python-format
 msgid "%s = %d"
 msgstr "%s = %d"
 
-#: ../src/boards/python/gnumch.py:238
+#: ../src/boards/python/gnumch.py:250
 #, python-format
 msgid "%d + %d"
 msgstr "%d + %d"
 
-#: ../src/boards/python/gnumch.py:243
+#: ../src/boards/python/gnumch.py:255
 #, python-format
-msgid "%d - %d"
-msgstr "%d - %d"
+msgid "%d − %d"
+msgstr "%d − %d"
 
-#: ../src/boards/python/gnumch.py:248
+#: ../src/boards/python/gnumch.py:260
 #, python-format
-msgid "%d Ã %d"
-msgstr "%d Ã %d"
+msgid "%d × %d"
+msgstr "%d × %d"
 
-#: ../src/boards/python/gnumch.py:252
+#: ../src/boards/python/gnumch.py:264
 #, python-format
-msgid "%d Ã· %d"
-msgstr "%d Ã· %d"
+msgid "%d ∕ %d"
+msgstr "%d ∕ %d"
 
-#: ../src/boards/python/gnumch.py:262
+#: ../src/boards/python/gnumch.py:272
 #, python-format
 msgid "Equal to %d"
 msgstr "Gelijk aan %d"
 
-#: ../src/boards/python/gnumch.py:282
+#: ../src/boards/python/gnumch.py:293
 #, python-format
 msgid "Not equal to %d"
 msgstr "Niet gelijk aan %d"
 
 # return zit niet op een toetsenbord
-#: ../src/boards/python/gnumch.py:424
+#: ../src/boards/python/gnumch.py:435
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -3942,7 +4027,57 @@ msgstr ""
 "Je bent opgegeten door een Troggel.\n"
 "Druk op <Enter> om door te gaan."
 
-#: ../src/boards/python/pythontest.py:75
+#: ../src/boards/python/gnumch.py:484
+msgid "You ate a wrong number.\n"
+msgstr "Je hebt een verkeerd getal opgegeten.\n"
+
+# return zit niet op een toetsenbord
+#: ../src/boards/python/gnumch.py:485
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr "\nDruk op <Enter> om door te gaan."
+
+#: ../src/boards/python/gnumch.py:777
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"E\n"
+"L"
+
+#: ../src/boards/python/login.py:123
+msgid "Profile: "
+msgstr "Profiel: "
+
+# dit is aanmeldnaam hier, niet 'aanmelden' of 'inloggen'
+# het gaat dus hier om de gebruikersnaam/aanmeldnaam
+#: ../src/boards/python/login.py:274 ../src/boards/python/login.py:283
+msgid "Login: "
+msgstr "Gebruikersnaam: "
+
+#. toggle box
+#: ../src/boards/python/login.py:546
+msgid "Uppercase only text"
+msgstr "Alleen hoofdletters"
+
+# huh? Enter login to log
+#. toggle box
+#: ../src/boards/python/login.py:556
+msgid "Enter login to log"
+msgstr "Aanmelding invoeren om in te loggen."
+
+#: ../src/boards/python/pythontest.py:132
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -3950,7 +4085,7 @@ msgstr ""
 "Dit is de eerste plugin van gcompris die in Python is \n"
 "geprogrammeerd."
 
-#: ../src/boards/python/pythontest.py:84
+#: ../src/boards/python/pythontest.py:141
 msgid ""
 "It is now possible to develop gcompris activies in C or in Python.\n"
 " Thanks to Olivier Samys who makes this possible."
@@ -3959,9 +4094,39 @@ msgstr ""
 "Python.\n"
 "Met dank aan Olivier Samys die dit mogelijk heeft gemaakt."
 
-#: ../src/boards/python/pythontest.py:93
+#: ../src/boards/python/pythontest.py:150
 msgid "This activity is not playable yet, just a test"
 msgstr "Deze activiteit is nog niet speelbaar, alleen een test"
+
+#. toggle box
+#: ../src/boards/python/pythontest.py:388
+msgid "Disable line drawing in circle"
+msgstr "Lijnen tekenen in cirkels uitzetten"
+
+# kleur van de lijn/lijnkleur
+#. combo box
+#: ../src/boards/python/pythontest.py:397
+msgid "Color line"
+msgstr "Kleur lijn"
+
+#. spin button for int
+#: ../src/boards/python/pythontest.py:408
+msgid "Distance between circles"
+msgstr "Afstand tussen cirkels"
+
+# cirkels gebruiken/gebruik cirkels
+#. radio buttons for circle or rectangle
+#: ../src/boards/python/pythontest.py:419
+msgid "Use circles"
+msgstr "Gebruik cirkels"
+
+#: ../src/boards/python/pythontest.py:420
+msgid "Use rectangles"
+msgstr "Gebruik rechthoeken"
+
+#: ../src/boards/python/pythontest.py:423
+msgid "Choice of pattern"
+msgstr "Patroonkeuze"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
@@ -4027,7 +4192,7 @@ msgstr "Onbekende opdracht op regel"
 msgid "Distance:"
 msgstr "Afstand:"
 
-#: ../src/boards/python/tuxpaint.py:101
+#: ../src/boards/python/tuxpaint.py:104
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -4035,18 +4200,26 @@ msgstr ""
 "Kan Tuxpaint niet vinden.\n"
 "Installeer dit eerst voor deze opdracht!"
 
-#: ../src/boards/python/tuxpaint.py:114
+#: ../src/boards/python/tuxpaint.py:117
 msgid "Waiting Tuxpaint Finished"
 msgstr "Wachten op Tuxpaint afsluiten"
 
-#: ../src/boards/python/tuxpaint.py:162
-#, python-format
-msgid ""
-"<b>%s</b> configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"<b>%s</b> configuratie\n"
-" voor profiel <b>%s</b>"
+# Beter: schermvullend?
+#: ../src/boards/python/tuxpaint.py:172
+msgid "Follow gcompris fullscreen"
+msgstr "gcompris uitvoeren in volledig scherm"
+
+#: ../src/boards/python/tuxpaint.py:176
+msgid "Disable shape rotation"
+msgstr "Draaien van vormen uitzetten"
+
+#: ../src/boards/python/tuxpaint.py:180
+msgid "Show Uppercase text only"
+msgstr "Alleen hoofdletters tonen"
+
+#: ../src/boards/python/tuxpaint.py:184
+msgid "Disable stamps"
+msgstr "Stempels uitzetten"
 
 #: ../src/boards/railroad.c:96
 msgid "Memory game"
@@ -4064,45 +4237,45 @@ msgstr "Kleuren lezen"
 msgid "Click on the corresponding color"
 msgstr "Klik op de overeenkomstige kleur"
 
-#: ../src/boards/reading.c:108
+#: ../src/boards/reading.c:114
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Zeg of een woord in de opgegeven lijst zit"
 
-#: ../src/boards/reading.c:337
+#: ../src/boards/reading.c:366
 msgid "Please, check if the word"
 msgstr "Ga na of het woord"
 
-#: ../src/boards/reading.c:357
+#: ../src/boards/reading.c:386
 msgid "is being displayed"
 msgstr "getoond wordt"
 
-#: ../src/boards/reading.c:531
+#: ../src/boards/reading.c:561
 msgid "I am Ready"
 msgstr "Ik ben klaar"
 
-#: ../src/boards/reading.c:571
+#: ../src/boards/reading.c:601
 msgid "Yes I saw it"
 msgstr "Ja, ik heb het gezien"
 
-#: ../src/boards/reading.c:601
+#: ../src/boards/reading.c:631
 msgid "No, it was not there"
 msgstr "Neen, het was er niet bij"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:639
+#: ../src/boards/reading.c:669
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Het te vinden woord was: '%s'"
 
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:672
 msgid "But it was not displayed"
 msgstr "Maar het zat er niet bij"
 
-#: ../src/boards/reading.c:644
+#: ../src/boards/reading.c:674
 msgid "And it was displayed"
 msgstr "En het zat er bij"
 
-#: ../src/boards/reading.c:745 ../src/boards/wordsgame.c:758
+#: ../src/boards/reading.c:775 ../src/boards/wordsgame.c:758
 msgid "Cannot open file of words for your locale"
 msgstr "Kan geen woordenbestand openen voor uw locale"
 
@@ -4110,12 +4283,12 @@ msgstr "Kan geen woordenbestand openen voor uw locale"
 msgid "Reverse count"
 msgstr "Omgekeerd tellen"
 
-#: ../src/boards/shapegame.c:170
+#: ../src/boards/shapegame.c:173
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Sleep de onderdelen om het geheel te bouwen"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:415
+#: ../src/boards/shapegame.c:461
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -4127,7 +4300,7 @@ msgstr ""
 "geef 's' voor opslaan\n"
 "'d' om alle stukjes te tonen"
 
-#: ../src/boards/shapegame.c:423
+#: ../src/boards/shapegame.c:469
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4135,11 +4308,11 @@ msgstr ""
 "De gegevens van dit bord zijn opgeslagen\n"
 "onder /tmp/gcompris-board.xml"
 
-#: ../src/boards/smallnumbers.c:63
+#: ../src/boards/smallnumbers.c:71
 msgid "Numbers With Dices"
 msgstr "Getallen met dobbelstenen"
 
-#: ../src/boards/smallnumbers.c:64
+#: ../src/boards/smallnumbers.c:72
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr ""
 "Typ de getallen 1 tot 9 op het toetsenbord voordat de dobbelsteen de grond "
@@ -4224,8 +4397,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:212
-#: ../src/gcompris/gameutil.c:1061 ../src/gcompris/help.c:329
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:208
+#: ../src/gcompris/gameutil.c:1106 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -4234,6 +4407,14 @@ msgstr "OK"
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr ""
 "Dynamisch modules laden wordt niet ondersteund. gcompris kan niet laden.\n"
+
+#: ../src/gcompris/board_config.c:612
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"Kies de taal voor\n"
+"het bord"
 
 #: ../src/gcompris/config.c:61
 msgid "Your system default"
@@ -4446,74 +4627,66 @@ msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (standaard voor gcompris)"
 
 #: ../src/gcompris/config.c:125
-msgid "No filter"
-msgstr "Geen filter"
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>Administratieonderdeel van Gcompris\n"
+"gebruiken om borden te filteren</i>"
 
-#: ../src/gcompris/config.c:126
-msgid "Only this level"
-msgstr "Alleen dit niveau"
-
-#: ../src/gcompris/config.c:127
-msgid "Up to this level"
-msgstr "Tot aan dit niveau"
-
-#: ../src/gcompris/config.c:128
-msgid "This level and above"
-msgstr "Vanaf dit niveau en hoger"
-
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris configuratie"
 
-#: ../src/gcompris/config.c:295
+#: ../src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: ../src/gcompris/config.c:338
+#: ../src/gcompris/config.c:334
 msgid "Music"
 msgstr "Muziek"
 
-#: ../src/gcompris/config.c:366
+#: ../src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effect"
 
-#: ../src/gcompris/config.c:399
+#: ../src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kon skin-map niet openen: %s"
 
-#: ../src/gcompris/config.c:420
+#: ../src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Geen skin gevonden in %s\n"
 
-#: ../src/gcompris/config.c:435 ../src/gcompris/config.c:820
-#: ../src/gcompris/config.c:831
+#: ../src/gcompris/config.c:431 ../src/gcompris/config.c:787
+#: ../src/gcompris/config.c:798
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/file_selector.c:340
 msgid "CANCEL"
 msgstr "ANNULEREN"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "LOAD"
 msgstr "LADEN"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "SAVE"
 msgstr "OPSLAAN"
 
-#: ../src/gcompris/gameutil.c:140
+#: ../src/gcompris/gameutil.c:187
 msgid "Couldn't find file"
 msgstr "Kan bestand niet vinden!"
 
-#: ../src/gcompris/gameutil.c:142
+#: ../src/gcompris/gameutil.c:189
 msgid "This activity is incomplete."
 msgstr "Deze activiteit is niet voltooid."
 
-#: ../src/gcompris/gameutil.c:143
+#: ../src/gcompris/gameutil.c:190
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -4522,47 +4695,47 @@ msgstr ""
 "ons het probleem."
 
 # Beter: schermvullend?
-#: ../src/gcompris/gcompris.c:101
+#: ../src/gcompris/gcompris.c:100
 msgid "run gcompris in fullscreen mode."
 msgstr "gcompris uitvoeren in volledig scherm."
 
-#: ../src/gcompris/gcompris.c:103
+#: ../src/gcompris/gcompris.c:102
 msgid "run gcompris in window mode."
 msgstr "gcompris uitvoeren in een venster."
 
-#: ../src/gcompris/gcompris.c:105
+#: ../src/gcompris/gcompris.c:104
 msgid "run gcompris with sound enabled."
 msgstr "gcompris uitvoeren met geluid."
 
-#: ../src/gcompris/gcompris.c:107
+#: ../src/gcompris/gcompris.c:106
 msgid "run gcompris without sound."
 msgstr "gcompris uitvoeren zonder geluid."
 
-#: ../src/gcompris/gcompris.c:109
+#: ../src/gcompris/gcompris.c:108
 msgid "run gcompris with the default gnome cursor."
 msgstr "gcompris uitvoeren met de normale cursor."
 
-#: ../src/gcompris/gcompris.c:111
+#: ../src/gcompris/gcompris.c:110
 msgid "display only activities with this difficulty level."
 msgstr "alleen activiteiten weergeven met deze moeilijkheidsgraad."
 
-#: ../src/gcompris/gcompris.c:113
+#: ../src/gcompris/gcompris.c:112
 msgid "display debug informations on the console."
 msgstr "debug informatie tonen op het console."
 
-#: ../src/gcompris/gcompris.c:115
+#: ../src/gcompris/gcompris.c:114
 msgid "Print the version of "
 msgstr "Toont de versie van "
 
-#: ../src/gcompris/gcompris.c:117
+#: ../src/gcompris/gcompris.c:116
 msgid "Use the antialiased canvas (slower)."
 msgstr "Gebruik anti-aliasing (trager)."
 
-#: ../src/gcompris/gcompris.c:119
+#: ../src/gcompris/gcompris.c:118
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "XRANDR uitzetten (geen schermresultie verandering)."
 
-#: ../src/gcompris/gcompris.c:121
+#: ../src/gcompris/gcompris.c:120
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -4572,40 +4745,54 @@ msgstr ""
 "leesoefeningen doen, -l /boards/connect4 alleen de 'vier-op-een-rij' "
 "oefening, -l list toont de lijst met menu's en oefeningen)"
 
-#: ../src/gcompris/gcompris.c:123
+#: ../src/gcompris/gcompris.c:122
 msgid "Run gcompris with local activity directory added to menu"
 msgstr "GCompris uitvoeren met lokale activiteitenmap aan het menu toegevoegd."
 
-#: ../src/gcompris/gcompris.c:125
+#: ../src/gcompris/gcompris.c:124
 msgid "Run gcompris with administration and users management mode"
 msgstr "gcompris uitvoeren met beheerdersrechten en in beheersmodus"
 
-#: ../src/gcompris/gcompris.c:127
+#: ../src/gcompris/gcompris.c:126
 msgid "Use alternate database for profiles"
 msgstr "Alternatieve database gebruiken voor profielen"
 
-#: ../src/gcompris/gcompris.c:129
+#: ../src/gcompris/gcompris.c:128
 msgid "Use alternate database for logs"
 msgstr "Alternatieve database gebruiken voor logboeken"
 
-#: ../src/gcompris/gcompris.c:131
+#: ../src/gcompris/gcompris.c:130
 msgid "Create the alternate database for profiles"
 msgstr "De alternatieve database aanmaken voor profielen"
 
 # herlezen/opnieuw inlezen
-#: ../src/gcompris/gcompris.c:133
+#: ../src/gcompris/gcompris.c:132
 msgid "Re-read XML Menus and store them in the database"
 msgstr "XML-menus opnieuw inlezen en opslaan in de database"
 
-#: ../src/gcompris/gcompris.c:135
+#: ../src/gcompris/gcompris.c:134
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr "Geef het te gebruiken profiel. Gebruik 'gcompris -a' om profielen aan te maken"
+msgstr ""
+"Geef het te gebruiken profiel. Gebruik 'gcompris -a' om profielen aan te "
+"maken"
 
-#: ../src/gcompris/gcompris.c:137
+#: ../src/gcompris/gcompris.c:136
 msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
-msgstr "Geef een lijst met alle beschikbare profielen. Gebruik 'gcompris -a' om profielen aan te maken"
+msgstr ""
+"Geef een lijst met alle beschikbare profielen. Gebruik 'gcompris -a' om "
+"profielen aan te maken"
 
-#: ../src/gcompris/gcompris.c:668
+#: ../src/gcompris/gcompris.c:138
+msgid ""
+"Shared directory emplacement. For profiles and boards configuration data. "
+"[$HOME/.gcompris/shared]"
+msgstr "De locatie voor gedeelde mappen. Voor profielen en bordconfiguraties. [$HOME/.gcompris/shared]"
+
+#: ../src/gcompris/gcompris.c:140
+msgid "Users directory emplacement. [$HOME/.gcompris/users] "
+msgstr "De locatie voor gebruikersmappen. [$HOME/.gcompris/users] "
+
+#: ../src/gcompris/gcompris.c:693
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4629,7 +4816,7 @@ msgstr ""
 "op\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:937
+#: ../src/gcompris/gcompris.c:971
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4644,84 +4831,29 @@ msgstr ""
 "\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1005
+#: ../src/gcompris/gcompris.c:1039
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
 msgstr "Gebruik -l activity om direct naar een oefening te gaan.\n"
 
-#: ../src/gcompris/gcompris.c:1006
+#: ../src/gcompris/gcompris.c:1040
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "De lijst met beschikbare oefeningen is:\n"
 
-#: ../src/gcompris/gcompris.c:1104
+#: ../src/gcompris/gcompris.c:1182
 #, c-format
 msgid "List of available profiles are:\n"
 msgstr "De lijst met beschikbare profielen is:\n"
 
-#: ../src/gcompris/gcompris_db.c:98
-#, c-format
-msgid "Database %s opened"
-msgstr "Database %s geopend"
-
-#: ../src/gcompris/gcompris_db.c:143
-msgid "Database tables created"
-msgstr "Databasetabellen aangemaakt"
-
 # niet beinvloed/gewijzigd
-#: ../src/gcompris/gcompris_db.c:170
+#: ../src/gcompris/gcompris_db.c:239
 msgid "Unaffected"
 msgstr "Niet gewijzigd"
 
-#: ../src/gcompris/gcompris_db.c:171
+#: ../src/gcompris/gcompris_db.c:240
 msgid "Users without class"
 msgstr "Gebruikers zonder klas"
-
-#: ../src/gcompris/gcompris_db.c:754 ../src/gcompris/gcompris_db.c:1311
-#, c-format
-msgid "No users groups for profile %s"
-msgstr "Geen gebruikersgroepen voor profiel %s"
-
-# tooltip voor de desktop
-#: ../src/gcompris/gcompris_db.c:785 ../src/gcompris/gcompris_db.c:1344
-#, c-format
-msgid "No activities out for profile %s"
-msgstr "Geen activiteiten voor profiel %s"
-
-#: ../src/gcompris/gcompris_db.c:931
-#, c-format
-msgid "No users in group with id  %d"
-msgstr "Geen gebruikers in groep met id  %d"
-
-#: ../src/gcompris/gcompris_db.c:988
-#, c-format
-msgid "No user with id  %d"
-msgstr "Geen gebruiker met id  %d"
-
-#: ../src/gcompris/gcompris_db.c:1045
-#, c-format
-msgid "No class with id  %d"
-msgstr "Geen klas met id  %d"
-
-#: ../src/gcompris/gcompris_db.c:1080
-#, c-format
-msgid ""
-"No groups in for class %s, there must be at least one for whole class (%d)"
-msgstr ""
-"Geen groepen voor klas %s, er moet tenminste een zijn voor de hele klas (%d)"
-
-#: ../src/gcompris/gcompris_db.c:1404
-#, c-format
-msgid "No group with id  %d"
-msgstr "Geen groep met id  %d"
-
-#: ../src/gcompris/gcompris_db.c:1457 ../src/gcompris/gcompris_db.c:1657
-msgid "No groups !"
-msgstr "Geen groepen!"
-
-#: ../src/gcompris/gcompris_db.c:1600
-msgid "No users !"
-msgstr "Geen gebruikers!"
 
 #: ../src/gcompris/help.c:170
 msgid "Prerequisite"
@@ -4745,18 +4877,18 @@ msgstr "Met dank aan"
 msgid "dataset %s is a directory. Trying to read xml "
 msgstr "dataset %s is een map. Probeer xml te lezen "
 
-#: ../src/gcompris/images_selector.c:627
+#: ../src/gcompris/images_selector.c:629
 #, c-format
 msgid "In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"
 msgstr ""
 "In ImageSet %s, is home-padnaam %s niet gevonden. ImageSet overslaan...\n"
 
-#: ../src/gcompris/images_selector.c:662
+#: ../src/gcompris/images_selector.c:663
 #, c-format
 msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
 msgstr "In ImageSet %s, is geen afbeelding gevonden. ImageSet overslaan...\n"
 
-#: ../src/gcompris/images_selector.c:688
+#: ../src/gcompris/images_selector.c:694
 #, c-format
 msgid ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
@@ -4785,6 +4917,57 @@ msgstr "Verstreken tijd"
 #, c-format
 msgid "Remaining Time = %d"
 msgstr "Resterende tijd = %d"
+
+#~ msgid "%d - %d"
+#~ msgstr "%d - %d"
+
+#~ msgid "%d Ã· %d"
+#~ msgstr "%d Ã· %d"
+
+#~ msgid "No filter"
+#~ msgstr "Geen filter"
+
+#~ msgid "Only this level"
+#~ msgstr "Alleen dit niveau"
+
+#~ msgid "Up to this level"
+#~ msgstr "Tot aan dit niveau"
+
+#~ msgid "This level and above"
+#~ msgstr "Vanaf dit niveau en hoger"
+
+#~ msgid "Database %s opened"
+#~ msgstr "Database %s geopend"
+
+#~ msgid "Database tables created"
+#~ msgstr "Databasetabellen aangemaakt"
+
+#~ msgid "No users groups for profile %s"
+#~ msgstr "Geen gebruikersgroepen voor profiel %s"
+
+#~ msgid "No users in group with id  %d"
+#~ msgstr "Geen gebruikers in groep met id  %d"
+
+#~ msgid "No user with id  %d"
+#~ msgstr "Geen gebruiker met id  %d"
+
+#~ msgid "No class with id  %d"
+#~ msgstr "Geen klas met id  %d"
+
+#~ msgid ""
+#~ "No groups in for class %s, there must be at least one for whole class (%d)"
+#~ msgstr ""
+#~ "Geen groepen voor klas %s, er moet tenminste een zijn voor de hele klas (%"
+#~ "d)"
+
+#~ msgid "No group with id  %d"
+#~ msgstr "Geen groep met id  %d"
+
+#~ msgid "No groups !"
+#~ msgstr "Geen groepen!"
+
+#~ msgid "No users !"
+#~ msgstr "Geen gebruikers!"
 
 #~ msgid "Name"
 #~ msgstr "Naam"
