@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-26 03:06+0000\n"
-"PO-Revision-Date: 2005-08-26 10:05+0200\n"
+"POT-Creation-Date: 2005-08-31 03:24+0000\n"
+"PO-Revision-Date: 2005-08-31 09:14+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -1782,11 +1782,11 @@ msgstr "Billentyűzetkezelés"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Betűfelismerés a képernyő és a billentyűzet között"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:129
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
 msgid "Simple Letters"
 msgstr "Egyszerű betűk"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
 msgid "Type the falling letters before they reach the ground"
 msgstr "Nyomd meg a billentyűt, mielőtt a betű leérne a földre"
 
@@ -1969,8 +1969,8 @@ msgstr "Gyakorold az olvasást, találd meg a képhez illő szót"
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:108 ../src/boards/missingletter.c:101
-#: ../src/boards/reading.c:107
+#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/reading.c:113
 msgid "Reading"
 msgstr "Olvasás"
 
@@ -2213,7 +2213,7 @@ msgstr "ütő"
 #: ../boards/login.xml.in.h:1
 msgid ""
 "By identifying in GCompris, we are able to provide specific reporting for "
-"each kids."
+"each kid."
 msgstr ""
 "A GCompris-ban történő azonosítás segítségével az egyes gyerekekre jellemző "
 "jelentések készíthetők."
@@ -2230,7 +2230,7 @@ msgid ""
 "In the administration, you can create different profiles. In each profiles\n"
 "you can have a different set of users and select which activities are "
 "available to them.\n"
-"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
 "where 'profile'\n"
 "is the name of a profile as you created it in the administration."
 msgstr ""
@@ -2683,7 +2683,7 @@ msgstr ""
 "Húzd ki a képrészeket a bal oldali dobozból, hogy kirakhasd a festményt a \n"
 "főtáblán."
 
-#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:169
+#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:172
 msgid "Make the puzzle"
 msgstr "Kirakós játék"
 
@@ -3283,20 +3283,20 @@ msgstr "A GCompris oktatóprogram-gyűjtemény"
 msgid "Multiple activities for kids"
 msgstr "Változatos tevékenységek gyerekeknek"
 
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:602
-#: ../src/boards/missingletter.c:606 ../src/boards/read_colors.c:491
-#: ../src/boards/shapegame.c:1878 ../src/gcompris/file_selector.c:926
-#: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:602
-#: ../src/gcompris/gameutil.c:603 ../src/gcompris/gcompris.c:531
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:615
+#: ../src/boards/missingletter.c:618 ../src/boards/read_colors.c:491
+#: ../src/boards/shapegame.c:1924 ../src/gcompris/file_selector.c:891
+#: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:600
+#: ../src/gcompris/gameutil.c:601 ../src/gcompris/gcompris.c:531
 #: ../src/gcompris/images_selector.c:764 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Nem találtam meg a(z) %s fájlt!"
 
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:605
-#: ../src/boards/missingletter.c:609 ../src/boards/read_colors.c:494
-#: ../src/boards/shapegame.c:1881
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:618
+#: ../src/boards/missingletter.c:621 ../src/boards/read_colors.c:494
+#: ../src/boards/shapegame.c:1927
 #, c-format
 msgid "find file %s !"
 msgstr "keresd meg a(z) %s fájlt!"
@@ -3377,7 +3377,7 @@ msgstr "Olvass egy betűt"
 msgid "Learn to recognize letters"
 msgstr "Tanuld meg az egyes betűket"
 
-#: ../src/boards/click_on_letter.c:242
+#: ../src/boards/click_on_letter.c:240
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -3386,7 +3386,7 @@ msgstr ""
 "lennie a következő csomagnak:\n"
 "assetml-voices-alphabet-"
 
-#: ../src/boards/click_on_letter.c:249
+#: ../src/boards/click_on_letter.c:247
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3399,7 +3399,7 @@ msgstr ""
 "kapcsolhatóak be az effektusok."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:294
+#: ../src/boards/click_on_letter.c:292
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz"
 
@@ -3475,7 +3475,7 @@ msgstr "Mozgasd a számokat egyenként és rendezd őket növekvő sorrendbe"
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Építs fel az üres részen egy, a jobb oldalival megegyező tornyot"
 
-#: ../src/boards/imageid.c:109 ../src/boards/missingletter.c:102
+#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Tanulj meg olvasni"
 
@@ -3505,11 +3505,11 @@ msgstr "Nézd meg, hol állsz majd kapcsolj láthatatlan módba a továbbhaladá
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Nézd meg, hol állsz majd kapcsolj 3D módba a továbbhaladáshoz"
 
-#: ../src/boards/memory.c:164
+#: ../src/boards/memory.c:168
 msgid "Memory"
 msgstr "Memória játék"
 
-#: ../src/boards/memory.c:165
+#: ../src/boards/memory.c:169
 msgid "Find the matching pair"
 msgstr "Találd meg a párját"
 
@@ -3561,11 +3561,11 @@ msgstr "Minden kijelölése"
 msgid "Unselect all"
 msgstr "Kijelölés megszüntetése"
 
-#: ../src/boards/python/admin/board_list.py:234
+#: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Főmenü"
 
-#: ../src/boards/python/admin/board_list.py:234
+#: ../src/boards/python/admin/board_list.py:236
 msgid "/"
 msgstr "/"
 
@@ -3574,20 +3574,20 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:291
+#: ../src/boards/python/admin/board_list.py:293
 msgid "Active"
 msgstr "Aktív"
 
-#: ../src/boards/python/admin/board_list.py:292
+#: ../src/boards/python/admin/board_list.py:294
 msgid "Board title"
 msgstr "Tábla címe"
 
-#: ../src/boards/python/admin/board_list.py:408
+#: ../src/boards/python/admin/board_list.py:410
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Tevékenységek szűrése a(z) %s profilhoz"
 
-#: ../src/boards/python/admin/board_list.py:439
+#: ../src/boards/python/admin/board_list.py:441
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -3602,11 +3602,10 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:623
-#: ../src/boards/python/admin/board_list.py:641
-#: ../src/boards/python/admin/board_list.py:708
-#: ../src/boards/python/login.py:525 ../src/boards/python/pythontest.py:383
-#: ../src/boards/python/tuxpaint.py:168
+#: ../src/boards/python/admin/board_list.py:625
+#: ../src/boards/python/admin/board_list.py:643
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:541
+#: ../src/boards/python/pythontest.py:383 ../src/boards/python/tuxpaint.py:168
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3615,62 +3614,62 @@ msgstr ""
 "<b>%s</b> beállítása\n"
 "<b>%s</b> profilhoz"
 
-#: ../src/boards/python/admin/board_list.py:653
+#: ../src/boards/python/admin/board_list.py:655
 #: ../src/boards/python/pythontest.py:447
 msgid "Select sound locale"
 msgstr "Válassza ki a hang nyelvét"
 
-#: ../src/boards/python/admin/class_edit.py:62
+#: ../src/boards/python/admin/class_edit.py:60
 msgid "Class Edition"
 msgstr "Osztályszerkesztés"
 
-#: ../src/boards/python/admin/class_edit.py:67
+#: ../src/boards/python/admin/class_edit.py:65
 msgid "Editing class: "
 msgstr "Osztály szerkesztése: "
 
-#: ../src/boards/python/admin/class_edit.py:70
+#: ../src/boards/python/admin/class_edit.py:68
 msgid "Editing a new class"
 msgstr "Új osztály szerkesztése"
 
-#: ../src/boards/python/admin/class_edit.py:92
+#: ../src/boards/python/admin/class_edit.py:90
 msgid "Class:"
 msgstr "Osztály:"
 
 #. FIXME: How to remove the default selection
 #. Label and Entry for the teacher name
-#: ../src/boards/python/admin/class_edit.py:105
+#: ../src/boards/python/admin/class_edit.py:103
 msgid "Teacher:"
 msgstr "Tanár:"
 
-#: ../src/boards/python/admin/class_edit.py:115
+#: ../src/boards/python/admin/class_edit.py:113
 msgid "Assign all the users bellonging to this class"
 msgstr "Ezen osztályhoz tartozó összes felhasználó hozzárendelése"
 
-#: ../src/boards/python/admin/class_edit.py:255
+#: ../src/boards/python/admin/class_edit.py:253
 #: ../src/boards/python/admin/group_edit.py:265
-#: ../src/boards/python/admin/group_user_list.py:162
+#: ../src/boards/python/admin/group_user_list.py:155
 #: ../src/boards/python/admin/user_list.py:197
 msgid "First Name"
 msgstr "Utónév"
 
-#: ../src/boards/python/admin/class_edit.py:266
+#: ../src/boards/python/admin/class_edit.py:264
 #: ../src/boards/python/admin/group_edit.py:276
-#: ../src/boards/python/admin/group_user_list.py:172
+#: ../src/boards/python/admin/group_user_list.py:165
 #: ../src/boards/python/admin/user_list.py:207
 msgid "Last Name"
 msgstr "Vezetéknév"
 
-#: ../src/boards/python/admin/class_edit.py:347
+#: ../src/boards/python/admin/class_edit.py:341
 msgid "You need to provide at least a name for your class"
 msgstr "Legalább egy nevet meg kell adnia az osztálynak"
 
-#: ../src/boards/python/admin/class_edit.py:369
+#: ../src/boards/python/admin/class_edit.py:387
 msgid "There is already a class with this name"
 msgstr "Már létezik ilyen nevű osztály"
 
 #: ../src/boards/python/admin/class_list.py:170
 #: ../src/boards/python/admin/profile_edit.py:269
-#: ../src/boards/python/admin/profile_group_list.py:159
+#: ../src/boards/python/admin/profile_group_list.py:145
 msgid "Class"
 msgstr "Osztály"
 
@@ -3724,27 +3723,27 @@ msgstr "Válasszon egy osztályt:"
 
 #: ../src/boards/python/admin/group_list.py:215
 #: ../src/boards/python/admin/profile_edit.py:279
-#: ../src/boards/python/admin/profile_group_list.py:169
+#: ../src/boards/python/admin/profile_group_list.py:155
 msgid "Group"
 msgstr "Csoport"
 
 #: ../src/boards/python/admin/group_list.py:226
 #: ../src/boards/python/admin/profile_edit.py:289
-#: ../src/boards/python/admin/profile_group_list.py:179
+#: ../src/boards/python/admin/profile_group_list.py:165
 #: ../src/boards/python/admin/profile_list.py:199
 msgid "Description"
 msgstr "Leírás"
 
-#: ../src/boards/python/admin/group_list.py:321
+#: ../src/boards/python/admin/group_list.py:323
 msgid "You must first select a group in the list"
 msgstr "Először ki kell választania egy csoportot a listából"
 
-#: ../src/boards/python/admin/group_user_list.py:152
+#: ../src/boards/python/admin/group_user_list.py:145
 #: ../src/boards/python/admin/user_list.py:187
 msgid "Login"
 msgstr "Bejelentkezés"
 
-#: ../src/boards/python/admin/group_user_list.py:182
+#: ../src/boards/python/admin/group_user_list.py:175
 #: ../src/boards/python/admin/user_list.py:217
 msgid "Birth Date"
 msgstr "Születési dátum"
@@ -3804,7 +3803,7 @@ msgid "There is already a profile with this name"
 msgstr "Már létezik ilyen nevű profil"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:579 ../src/gcompris/board_config.c:705
+#: ../src/gcompris/board_config.c:582 ../src/gcompris/board_config.c:708
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -3824,37 +3823,37 @@ msgstr "Felhasználószerkesztés"
 msgid "Editing user "
 msgstr "Felhasználó szerkesztése "
 
-#: ../src/boards/python/admin/user_edit.py:60
+#: ../src/boards/python/admin/user_edit.py:61
 msgid "Editing a new user"
 msgstr "Új felhasználó szerkesztése"
 
-#: ../src/boards/python/admin/user_edit.py:77
+#: ../src/boards/python/admin/user_edit.py:78
 msgid "Login:"
 msgstr "Bejelentkezés:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/user_edit.py:88
+#: ../src/boards/python/admin/user_edit.py:89
 msgid "First name:"
 msgstr "Utónév:"
 
 #. Label and Entry for the last name
-#: ../src/boards/python/admin/user_edit.py:97
+#: ../src/boards/python/admin/user_edit.py:98
 msgid "Last name:"
 msgstr "Vezetéknév:"
 
 #. Label and Entry for the birth date
-#: ../src/boards/python/admin/user_edit.py:106
+#: ../src/boards/python/admin/user_edit.py:107
 msgid "Birth date:"
 msgstr "Születési dátum:"
 
-#: ../src/boards/python/admin/user_edit.py:158
+#: ../src/boards/python/admin/user_edit.py:159
 msgid "You need to provide at least a login, firstname and lastname for your users"
 msgstr ""
 "Legalább egy bejelentkezési nevet valamint egy utó- és vezetéknevet meg kell "
 "adnia a felhasználóknak."
 
-#: ../src/boards/python/admin/user_edit.py:171
+#: ../src/boards/python/admin/user_edit.py:176
 msgid "There is already a user with this login"
 msgstr "Már létezik ilyen bejelentkezési nevű felhasználó"
 
@@ -3870,6 +3869,13 @@ msgstr ""
 "bejelentkezési név;utónév;vezetéknév;születési dátum\n"
 "Az elválasztójel automatikusan fel lesz ismerve, ha a következők egyike: "
 "',', ';' vagy ':'"
+
+#: ../src/boards/python/admin/user_list.py:371
+#, python-format
+msgid ""
+"Uppercased login was not unique !\n"
+" Some of them have been changed appending time . Change them : %s !"
+msgstr ""
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3999,7 +4005,7 @@ msgstr ""
 "\n"
 "Nyomd meg az <enter>-t a folytatáshoz."
 
-#: ../src/boards/python/gnumch.py:771
+#: ../src/boards/python/gnumch.py:777
 msgid ""
 "T\n"
 "R\n"
@@ -4016,21 +4022,21 @@ msgstr ""
 "N\n"
 "Y"
 
-#: ../src/boards/python/login.py:126
+#: ../src/boards/python/login.py:123
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/boards/python/login.py:273 ../src/boards/python/login.py:282
+#: ../src/boards/python/login.py:274 ../src/boards/python/login.py:283
 msgid "Login: "
 msgstr "Bejelentkezési név: "
 
 #. toggle box
-#: ../src/boards/python/login.py:530
+#: ../src/boards/python/login.py:546
 msgid "Uppercase only text"
 msgstr "Csak nagybetűs szöveg"
 
 #. toggle box
-#: ../src/boards/python/login.py:540
+#: ../src/boards/python/login.py:556
 msgid "Enter login to log"
 msgstr "Add meg a bejelentkezési nevet"
 
@@ -4079,10 +4085,6 @@ msgstr "Téglalapok használata"
 #: ../src/boards/python/pythontest.py:423
 msgid "Choice of pattern"
 msgstr "Minta választása"
-
-#: ../src/boards/python/pythontest.py:460
-msgid "Keys and values returned by PythonTest config window:"
-msgstr "A PythonTest beállítóablak által visszaadott kulcsok és értékek:"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
@@ -4191,45 +4193,45 @@ msgstr "Színek olvasása"
 msgid "Click on the corresponding color"
 msgstr "Kattints a megfelelő színre"
 
-#: ../src/boards/reading.c:108
+#: ../src/boards/reading.c:114
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Olvasd el a listát, majd mondd meg, hogy benne van-e a keresett szó"
 
-#: ../src/boards/reading.c:337
+#: ../src/boards/reading.c:375
 msgid "Please, check if the word"
 msgstr "Mondd meg nekem, hogy a(z)"
 
-#: ../src/boards/reading.c:357
+#: ../src/boards/reading.c:395
 msgid "is being displayed"
 msgstr "szó szerepelt-e a listán?"
 
-#: ../src/boards/reading.c:531
+#: ../src/boards/reading.c:567
 msgid "I am Ready"
 msgstr "Rajta!"
 
-#: ../src/boards/reading.c:571
+#: ../src/boards/reading.c:607
 msgid "Yes I saw it"
 msgstr "Igen, láttam"
 
-#: ../src/boards/reading.c:601
+#: ../src/boards/reading.c:637
 msgid "No, it was not there"
 msgstr "Nem, nem szerepelt"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:639
+#: ../src/boards/reading.c:675
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "A keresett szó a(z) '%s' volt"
 
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:678
 msgid "But it was not displayed"
 msgstr "De nem szerepelt a listán"
 
-#: ../src/boards/reading.c:644
+#: ../src/boards/reading.c:680
 msgid "And it was displayed"
 msgstr "És szerepelt a listán"
 
-#: ../src/boards/reading.c:745 ../src/boards/wordsgame.c:758
+#: ../src/boards/reading.c:781 ../src/boards/wordsgame.c:758
 msgid "Cannot open file of words for your locale"
 msgstr "Nem tudom megnyitni a magyar szavak listáját tartalmazó fájlt"
 
@@ -4237,12 +4239,12 @@ msgstr "Nem tudom megnyitni a magyar szavak listáját tartalmazó fájlt"
 msgid "Reverse count"
 msgstr "Visszafelé számolás"
 
-#: ../src/boards/shapegame.c:170
+#: ../src/boards/shapegame.c:173
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Fogd meg a darabokat és rakd össze őket"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:415
+#: ../src/boards/shapegame.c:461
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -4254,7 +4256,7 @@ msgstr ""
 "és nyomj \"s\"-et a mentéshez\n"
 "vagy \"d\"-t az összes alakzat mutatásához"
 
-#: ../src/boards/shapegame.c:423
+#: ../src/boards/shapegame.c:469
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4263,11 +4265,11 @@ msgstr ""
 "/tmp/gcompris-board.xml\n"
 "néven lettek mentve."
 
-#: ../src/boards/smallnumbers.c:63
+#: ../src/boards/smallnumbers.c:71
 msgid "Numbers With Dices"
 msgstr "Kockák és számok"
 
-#: ../src/boards/smallnumbers.c:64
+#: ../src/boards/smallnumbers.c:72
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Írd be, hogy hány pont van a kockán (1-9), mielőtt az leesik a földre"
 
@@ -4345,8 +4347,8 @@ msgstr "Ez a program GNU szoftver és a GNU General Public License alatt van kia
 msgid "Help"
 msgstr "Segítség"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:212
-#: ../src/gcompris/gameutil.c:1108 ../src/gcompris/help.c:329
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:208
+#: ../src/gcompris/gameutil.c:1106 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -4355,7 +4357,7 @@ msgstr "OK"
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Modulok dinamikus betöltése nem támogatott. A GCompris nem tölthető be.\n"
 
-#: ../src/gcompris/board_config.c:609
+#: ../src/gcompris/board_config.c:612
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -4568,62 +4570,54 @@ msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (a GCompris alapértelmezettje)"
 
 #: ../src/gcompris/config.c:125
-msgid "No filter"
-msgstr "Nincs szűrő"
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>Táblák szűréséhez használja a Gcompris\n"
+"adminisztrációs modulját</i> "
 
-#: ../src/gcompris/config.c:126
-msgid "Only this level"
-msgstr "Csak ezen a szinten"
-
-#: ../src/gcompris/config.c:127
-msgid "Up to this level"
-msgstr "Eddig a szintig"
-
-#: ../src/gcompris/config.c:128
-msgid "This level and above"
-msgstr "Ez a szint és fölötte"
-
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: ../src/gcompris/config.c:295
+#: ../src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: ../src/gcompris/config.c:338
+#: ../src/gcompris/config.c:334
 msgid "Music"
 msgstr "Zene"
 
-#: ../src/gcompris/config.c:366
+#: ../src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effektusok"
 
-#: ../src/gcompris/config.c:399
+#: ../src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nem sikerült megnyitnom a(z) %s témakönyvtárat"
 
-#: ../src/gcompris/config.c:420
+#: ../src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "%s helyen nem található téma\n"
 
-#: ../src/gcompris/config.c:435 ../src/gcompris/config.c:820
-#: ../src/gcompris/config.c:831
+#: ../src/gcompris/config.c:431 ../src/gcompris/config.c:787
+#: ../src/gcompris/config.c:798
 #, c-format
 msgid "Skin : %s"
 msgstr "Téma: %s"
 
-#: ../src/gcompris/file_selector.c:341
+#: ../src/gcompris/file_selector.c:340
 msgid "CANCEL"
 msgstr "MÉGSEM"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "LOAD"
 msgstr "BETÖLTÉS"
 
-#: ../src/gcompris/file_selector.c:372
+#: ../src/gcompris/file_selector.c:371
 msgid "SAVE"
 msgstr "MENTÉS"
 
@@ -4731,15 +4725,13 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:138
 msgid ""
-"SHDIR Shared directory emplacement. For profiles and boards configuration "
-"data. [$HOME/.gcompris/shared]"
-msgstr ""
-"SHDIR A megosztott könyvtár helye, a profilok és táblák beállítási adatainak. "
+"Shared directory emplacement. For profiles and boards configuration data. "
 "[$HOME/.gcompris/shared]"
+msgstr "A megosztott könyvtár helye, a profilok és táblák beállítási adatainak. [$HOME/.gcompris/shared]"
 
 #: ../src/gcompris/gcompris.c:140
-msgid "USERSDIR Users directory emplacement. [$HOME/.gcompris/users] "
-msgstr "USERSDIR A felhasználók könyvtárának helye. [$HOME/.gcompris/users] "
+msgid "Users directory emplacement. [$HOME/.gcompris/users] "
+msgstr "A felhasználók könyvtárának helye. [$HOME/.gcompris/users] "
 
 #: ../src/gcompris/gcompris.c:693
 msgid ""
@@ -4793,67 +4785,13 @@ msgstr "A rendelkezésre álló tevékenységek listája:\n"
 msgid "List of available profiles are:\n"
 msgstr "A rendelkezésre álló profilok listája:\n"
 
-#: ../src/gcompris/gcompris_db.c:143
-#, c-format
-msgid "Database %s opened"
-msgstr "%s adatbázis megnyitva"
-
-#: ../src/gcompris/gcompris_db.c:214
-msgid "Database tables created"
-msgstr "Az adatbázis táblái létrehozva"
-
-#: ../src/gcompris/gcompris_db.c:241
+#: ../src/gcompris/gcompris_db.c:239
 msgid "Unaffected"
 msgstr "Nem befolyásolt"
 
-#: ../src/gcompris/gcompris_db.c:242
+#: ../src/gcompris/gcompris_db.c:240
 msgid "Users without class"
 msgstr "Csoport nélküli felhasználók"
-
-#: ../src/gcompris/gcompris_db.c:825 ../src/gcompris/gcompris_db.c:1415
-#, c-format
-msgid "No users groups for profile %s"
-msgstr "Nincsenek felhasználói csoportok a(z) %s profilhoz"
-
-#: ../src/gcompris/gcompris_db.c:856 ../src/gcompris/gcompris_db.c:1448
-#, c-format
-msgid "No activities out for profile %s"
-msgstr "Nincsenek tevékenységek a(z) %s profilhoz"
-
-#: ../src/gcompris/gcompris_db.c:1002
-#, c-format
-msgid "No users in group with id  %d"
-msgstr "Nincsenek felhasználók a(z) %d azonosítójú csoportban"
-
-#: ../src/gcompris/gcompris_db.c:1059
-#, c-format
-msgid "No user with id  %d"
-msgstr "Nincs %d azonosítójú felhasználó"
-
-#: ../src/gcompris/gcompris_db.c:1116
-#, c-format
-msgid "No class with id  %d"
-msgstr "Nincs %d azonosítójú osztály"
-
-#: ../src/gcompris/gcompris_db.c:1151
-#, c-format
-msgid "No groups in for class %s, there must be at least one for whole class (%d)"
-msgstr ""
-"Nincsenek csoportok a(z) %s osztályhoz, legalább egynek kell lennie az "
-"egyész osztályhoz (%d)"
-
-#: ../src/gcompris/gcompris_db.c:1508
-#, c-format
-msgid "No group with id  %d"
-msgstr "Nincs %d azonosítójú csoport"
-
-#: ../src/gcompris/gcompris_db.c:1561 ../src/gcompris/gcompris_db.c:1761
-msgid "No groups !"
-msgstr "Nincsenek csoportok!"
-
-#: ../src/gcompris/gcompris_db.c:1704
-msgid "No users !"
-msgstr "Nincsenek felhasználók!"
 
 #: ../src/gcompris/help.c:170
 msgid "Prerequisite"
