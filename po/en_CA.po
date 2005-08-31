@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-27 17:17-0400\n"
-"PO-Revision-Date: 2005-08-27 22:51-0400\n"
+"POT-Creation-Date: 2005-08-31 17:22-0400\n"
+"PO-Revision-Date: 2005-08-31 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1768,11 +1768,11 @@ msgstr "Keyboard manipulation"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Letter recognition between the screen and the keyboard"
 
-#: boards/gletters.xml.in.h:3 src/boards/gletters.c:129
+#: boards/gletters.xml.in.h:3 src/boards/gletters.c:132
 msgid "Simple Letters"
 msgstr "Simple Letters"
 
-#: boards/gletters.xml.in.h:4 src/boards/gletters.c:130
+#: boards/gletters.xml.in.h:4 src/boards/gletters.c:133
 msgid "Type the falling letters before they reach the ground"
 msgstr "Type the falling letters before they reach the ground"
 
@@ -1960,8 +1960,8 @@ msgstr "Practise reading by finding the word matching an image"
 
 #: boards/imageid.xml.in.h:3 boards/imagename.xml.in.h:4
 #: boards/readingh.xml.in.h:5 boards/readingv.xml.in.h:4
-#: src/boards/imageid.c:108 src/boards/missingletter.c:101
-#: src/boards/reading.c:107
+#: src/boards/imageid.c:112 src/boards/missingletter.c:104
+#: src/boards/reading.c:113
 msgid "Reading"
 msgstr "Reading"
 
@@ -2196,10 +2196,10 @@ msgstr "racket"
 #: boards/login.xml.in.h:1
 msgid ""
 "By identifying in GCompris, we are able to provide specific reporting for "
-"each kids."
+"each kid."
 msgstr ""
 "By identifying in GCompris, we are able to provide specific reporting for "
-"each kids."
+"each kid."
 
 #: boards/login.xml.in.h:2
 msgid "GCompris login screen"
@@ -2213,7 +2213,7 @@ msgid ""
 "In the administration, you can create different profiles. In each profiles\n"
 "you can have a different set of users and select which activities are "
 "available to them.\n"
-"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
 "where 'profile'\n"
 "is the name of a profile as you created it in the administration."
 msgstr ""
@@ -2223,7 +2223,7 @@ msgstr ""
 "In the administration, you can create different profiles. In each profiles\n"
 "you can have a different set of users and select which activities are "
 "available to them.\n"
-"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
 "where 'profile'\n"
 "is the name of a profile as you created it in the administration."
 
@@ -2654,7 +2654,7 @@ msgstr ""
 "Drag the image parts from the box on the left to create a painting on the "
 "main board."
 
-#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:169
+#: boards/paintings.xml.in.h:3 src/boards/shapegame.c:172
 msgid "Make the puzzle"
 msgstr "Make the puzzle"
 
@@ -3108,7 +3108,8 @@ msgstr "Sudoku, place unique symbols in a square."
 
 #: boards/sudoku.xml.in.h:4
 msgid "Symbols must be unique in a row, column, and if defined in each region."
-msgstr "Symbols must be unique in a row, column, and if defined in each region."
+msgstr ""
+"Symbols must be unique in a row, column, and if defined in each region."
 
 #: boards/sudoku.xml.in.h:5
 msgid ""
@@ -3242,20 +3243,20 @@ msgstr "Educational suite gcompris"
 msgid "Multiple activities for kids"
 msgstr "Multiple activities for kids"
 
-#: src/boards/advanced_colors.c:533 src/boards/imageid.c:602
-#: src/boards/missingletter.c:606 src/boards/read_colors.c:491
-#: src/boards/shapegame.c:1878 src/gcompris/file_selector.c:891
-#: src/gcompris/gameutil.c:184 src/gcompris/gameutil.c:602
-#: src/gcompris/gameutil.c:603 src/gcompris/gcompris.c:531
+#: src/boards/advanced_colors.c:533 src/boards/imageid.c:615
+#: src/boards/missingletter.c:618 src/boards/read_colors.c:491
+#: src/boards/shapegame.c:1924 src/gcompris/file_selector.c:891
+#: src/gcompris/gameutil.c:184 src/gcompris/gameutil.c:600
+#: src/gcompris/gameutil.c:601 src/gcompris/gcompris.c:531
 #: src/gcompris/images_selector.c:764 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Couldn't find file %s !"
 
-#: src/boards/advanced_colors.c:536 src/boards/imageid.c:605
-#: src/boards/missingletter.c:609 src/boards/read_colors.c:494
-#: src/boards/shapegame.c:1881
+#: src/boards/advanced_colors.c:536 src/boards/imageid.c:618
+#: src/boards/missingletter.c:621 src/boards/read_colors.c:494
+#: src/boards/shapegame.c:1927
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -3334,7 +3335,7 @@ msgstr "Read a letter"
 msgid "Learn to recognize letters"
 msgstr "Learn to recognize letters"
 
-#: src/boards/click_on_letter.c:242
+#: src/boards/click_on_letter.c:240
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -3342,7 +3343,7 @@ msgstr ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
 
-#: src/boards/click_on_letter.c:249
+#: src/boards/click_on_letter.c:247
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3355,7 +3356,7 @@ msgstr ""
 "enable sound."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: src/boards/click_on_letter.c:294
+#: src/boards/click_on_letter.c:292
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -3431,7 +3432,7 @@ msgstr "Move the items one by one to rearrange them in increasing order"
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Reproduce in the empty area the same tower as the one on the right"
 
-#: src/boards/imageid.c:109 src/boards/missingletter.c:102
+#: src/boards/imageid.c:113 src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Learn how to read"
 
@@ -3461,11 +3462,11 @@ msgstr "Look at your position and switch back to invisible mode to move"
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Look at your position and switch back to 3D mode to move"
 
-#: src/boards/memory.c:164
+#: src/boards/memory.c:168
 msgid "Memory"
 msgstr "Memory"
 
-#: src/boards/memory.c:165
+#: src/boards/memory.c:169
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
 
@@ -3517,11 +3518,11 @@ msgstr "Select all"
 msgid "Unselect all"
 msgstr "Unselect all"
 
-#: src/boards/python/admin/board_list.py:234
+#: src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Main menu"
 
-#: src/boards/python/admin/board_list.py:234
+#: src/boards/python/admin/board_list.py:236
 msgid "/"
 msgstr "/"
 
@@ -3530,20 +3531,20 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: src/boards/python/admin/board_list.py:291
+#: src/boards/python/admin/board_list.py:293
 msgid "Active"
 msgstr "Active"
 
-#: src/boards/python/admin/board_list.py:292
+#: src/boards/python/admin/board_list.py:294
 msgid "Board title"
 msgstr "Board title"
 
-#: src/boards/python/admin/board_list.py:408
+#: src/boards/python/admin/board_list.py:410
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filter Boards difficulty for profile %s"
 
-#: src/boards/python/admin/board_list.py:439
+#: src/boards/python/admin/board_list.py:441
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -3558,9 +3559,9 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: src/boards/python/admin/board_list.py:623
-#: src/boards/python/admin/board_list.py:641
-#: src/boards/python/admin/wordlist.py:51 src/boards/python/login.py:525
+#: src/boards/python/admin/board_list.py:625
+#: src/boards/python/admin/board_list.py:643
+#: src/boards/python/admin/wordlist.py:51 src/boards/python/login.py:541
 #: src/boards/python/pythontest.py:383 src/boards/python/tuxpaint.py:168
 #, python-format
 msgid ""
@@ -3570,7 +3571,7 @@ msgstr ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
 
-#: src/boards/python/admin/board_list.py:653
+#: src/boards/python/admin/board_list.py:655
 #: src/boards/python/pythontest.py:447
 msgid "Select sound locale"
 msgstr "Select sound locale"
@@ -3758,8 +3759,8 @@ msgstr "You need to provide at least a name for your profile"
 msgid "There is already a profile with this name"
 msgstr "There is already a profile with this name"
 
-#: src/boards/python/admin/profile_list.py:122 src/gcompris/board_config.c:579
-#: src/gcompris/board_config.c:705
+#: src/boards/python/admin/profile_list.py:122 src/gcompris/board_config.c:582
+#: src/gcompris/board_config.c:708
 msgid "Default"
 msgstr "Default"
 
@@ -3779,37 +3780,37 @@ msgstr "User Edition"
 msgid "Editing user "
 msgstr "Editing user "
 
-#: src/boards/python/admin/user_edit.py:60
+#: src/boards/python/admin/user_edit.py:61
 msgid "Editing a new user"
 msgstr "Editing a new user"
 
-#: src/boards/python/admin/user_edit.py:77
+#: src/boards/python/admin/user_edit.py:78
 msgid "Login:"
 msgstr "Login:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: src/boards/python/admin/user_edit.py:88
+#: src/boards/python/admin/user_edit.py:89
 msgid "First name:"
 msgstr "First name:"
 
 #. Label and Entry for the last name
-#: src/boards/python/admin/user_edit.py:97
+#: src/boards/python/admin/user_edit.py:98
 msgid "Last name:"
 msgstr "Last name:"
 
 #. Label and Entry for the birth date
-#: src/boards/python/admin/user_edit.py:106
+#: src/boards/python/admin/user_edit.py:107
 msgid "Birth date:"
 msgstr "Birth date:"
 
-#: src/boards/python/admin/user_edit.py:158
+#: src/boards/python/admin/user_edit.py:159
 msgid ""
 "You need to provide at least a login, firstname and lastname for your users"
 msgstr ""
 "You need to provide at least a login, first name and last name for your users"
 
-#: src/boards/python/admin/user_edit.py:171
+#: src/boards/python/admin/user_edit.py:176
 msgid "There is already a user with this login"
 msgstr "There is already a user with this login"
 
@@ -3824,6 +3825,15 @@ msgstr ""
 "FILE FORMAT: Your file must be formated like this:\n"
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
+
+#: src/boards/python/admin/user_list.py:371
+#, python-format
+msgid ""
+"Uppercased login was not unique !\n"
+" Some of them have been changed appending time . Change them : %s !"
+msgstr ""
+"Uppercased login was not unique !\n"
+" Some of them have been changed appending time . Change them : %s !"
 
 #: src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3971,21 +3981,21 @@ msgstr ""
 "L\n"
 "E"
 
-#: src/boards/python/login.py:126
+#: src/boards/python/login.py:123
 msgid "Profile: "
 msgstr "Profile: "
 
-#: src/boards/python/login.py:273 src/boards/python/login.py:282
+#: src/boards/python/login.py:274 src/boards/python/login.py:283
 msgid "Login: "
 msgstr "Login: "
 
 #. toggle box
-#: src/boards/python/login.py:530
+#: src/boards/python/login.py:546
 msgid "Uppercase only text"
 msgstr "Uppercase only text"
 
 #. toggle box
-#: src/boards/python/login.py:540
+#: src/boards/python/login.py:556
 msgid "Enter login to log"
 msgstr "Enter login to log"
 
@@ -4036,10 +4046,6 @@ msgstr "Use rectangles"
 #: src/boards/python/pythontest.py:423
 msgid "Choice of pattern"
 msgstr "Choice of pattern"
-
-#: src/boards/python/pythontest.py:460
-msgid "Keys and values returned by PythonTest config window:"
-msgstr "Keys and values returned by PythonTest config window:"
 
 #: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
 msgid "Level"
@@ -4148,45 +4154,45 @@ msgstr "Read Colours"
 msgid "Click on the corresponding color"
 msgstr "Click on the corresponding colour"
 
-#: src/boards/reading.c:108
+#: src/boards/reading.c:114
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr "Read a list of words and then tell if the given word is in it"
 
-#: src/boards/reading.c:337
+#: src/boards/reading.c:375
 msgid "Please, check if the word"
 msgstr "Please, check if the word"
 
-#: src/boards/reading.c:357
+#: src/boards/reading.c:395
 msgid "is being displayed"
 msgstr "is being displayed"
 
-#: src/boards/reading.c:531
+#: src/boards/reading.c:567
 msgid "I am Ready"
 msgstr "I am Ready"
 
-#: src/boards/reading.c:571
+#: src/boards/reading.c:607
 msgid "Yes I saw it"
 msgstr "Yes I saw it"
 
-#: src/boards/reading.c:601
+#: src/boards/reading.c:637
 msgid "No, it was not there"
 msgstr "No, it was not there"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:639
+#: src/boards/reading.c:675
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "The word to find was '%s'"
 
-#: src/boards/reading.c:642
+#: src/boards/reading.c:678
 msgid "But it was not displayed"
 msgstr "But it was not displayed"
 
-#: src/boards/reading.c:644
+#: src/boards/reading.c:680
 msgid "And it was displayed"
 msgstr "And it was displayed"
 
-#: src/boards/reading.c:745 src/boards/wordsgame.c:758
+#: src/boards/reading.c:781 src/boards/wordsgame.c:758
 msgid "Cannot open file of words for your locale"
 msgstr "Cannot open wordlist for your locale"
 
@@ -4194,12 +4200,12 @@ msgstr "Cannot open wordlist for your locale"
 msgid "Reverse count"
 msgstr "Reverse count"
 
-#: src/boards/shapegame.c:170
+#: src/boards/shapegame.c:173
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Drag and Drop the items to rebuild the object"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:415
+#: src/boards/shapegame.c:461
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -4211,7 +4217,7 @@ msgstr ""
 "type 's' to save, and\n"
 "'d' to display all the shapes"
 
-#: src/boards/shapegame.c:423
+#: src/boards/shapegame.c:469
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4219,11 +4225,11 @@ msgstr ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
 
-#: src/boards/smallnumbers.c:63
+#: src/boards/smallnumbers.c:71
 msgid "Numbers With Dices"
 msgstr "Numbers With Dices"
 
-#: src/boards/smallnumbers.c:64
+#: src/boards/smallnumbers.c:72
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Type the keyboard number 1 to 9 before the dice reaches the ground"
 
@@ -4301,8 +4307,8 @@ msgstr ""
 msgid "Help"
 msgstr "Help"
 
-#: src/gcompris/about.c:316 src/gcompris/config.c:212
-#: src/gcompris/gameutil.c:1108 src/gcompris/help.c:329
+#: src/gcompris/about.c:316 src/gcompris/config.c:208
+#: src/gcompris/gameutil.c:1106 src/gcompris/help.c:329
 #: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -4311,7 +4317,7 @@ msgstr "OK"
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
 
-#: src/gcompris/board_config.c:609
+#: src/gcompris/board_config.c:612
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -4524,49 +4530,41 @@ msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
 #: src/gcompris/config.c:125
-msgid "No filter"
-msgstr "No filter"
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
 
-#: src/gcompris/config.c:126
-msgid "Only this level"
-msgstr "Only this level"
-
-#: src/gcompris/config.c:127
-msgid "Up to this level"
-msgstr "Up to this level"
-
-#: src/gcompris/config.c:128
-msgid "This level and above"
-msgstr "This level and above"
-
-#: src/gcompris/config.c:186
+#: src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:295
+#: src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:338
+#: src/gcompris/config.c:334
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:366
+#: src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:399
+#: src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:420
+#: src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:435 src/gcompris/config.c:820
-#: src/gcompris/config.c:831
+#: src/gcompris/config.c:431 src/gcompris/config.c:787
+#: src/gcompris/config.c:798
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -4683,15 +4681,15 @@ msgstr "List all availaible profiles. Use 'gcompris -a' to create profiles"
 
 #: src/gcompris/gcompris.c:138
 msgid ""
-"SHDIR Shared directory emplacement. For profiles and boards configuration "
-"data. [$HOME/.gcompris/shared]"
+"Shared directory emplacement. For profiles and boards configuration data. "
+"[$HOME/.gcompris/shared]"
 msgstr ""
-"SHDIR Shared directory emplacement. For profiles and boards configuration "
-"data. [$HOME/.gcompris/shared]"
+"Shared directory emplacement. For profiles and boards configuration data. "
+"[$HOME/.gcompris/shared]"
 
 #: src/gcompris/gcompris.c:140
-msgid "USERSDIR Users directory emplacement. [$HOME/.gcompris/users] "
-msgstr "USERSDIR Users directory emplacement. [$HOME/.gcompris/users] "
+msgid "Users directory emplacement. [$HOME/.gcompris/users] "
+msgstr "Users directory emplacement. [$HOME/.gcompris/users] "
 
 #: src/gcompris/gcompris.c:693
 msgid ""
@@ -4744,15 +4742,6 @@ msgstr "List of available activity is:\n"
 msgid "List of available profiles are:\n"
 msgstr "List of available profiles is:\n"
 
-#: src/gcompris/gcompris_db.c:141
-#, c-format
-msgid "Database %s opened"
-msgstr "Database %s opened"
-
-#: src/gcompris/gcompris_db.c:212
-msgid "Database tables created"
-msgstr "Database tables created"
-
 #: src/gcompris/gcompris_db.c:239
 msgid "Unaffected"
 msgstr "Unaffected"
@@ -4760,51 +4749,6 @@ msgstr "Unaffected"
 #: src/gcompris/gcompris_db.c:240
 msgid "Users without class"
 msgstr "Users without class"
-
-#: src/gcompris/gcompris_db.c:823 src/gcompris/gcompris_db.c:1413
-#, c-format
-msgid "No users groups for profile %s"
-msgstr "No users groups for profile %s"
-
-#: src/gcompris/gcompris_db.c:854 src/gcompris/gcompris_db.c:1446
-#, c-format
-msgid "No activities out for profile %s"
-msgstr "No activities out for profile %s"
-
-#: src/gcompris/gcompris_db.c:1000
-#, c-format
-msgid "No users in group with id  %d"
-msgstr "No users in group with ID  %d"
-
-#: src/gcompris/gcompris_db.c:1057
-#, c-format
-msgid "No user with id  %d"
-msgstr "No user with ID %d"
-
-#: src/gcompris/gcompris_db.c:1114
-#, c-format
-msgid "No class with id  %d"
-msgstr "No class with ID %d"
-
-#: src/gcompris/gcompris_db.c:1149
-#, c-format
-msgid ""
-"No groups in for class %s, there must be at least one for whole class (%d)"
-msgstr ""
-"No groups in for class %s, there must be at least one for whole class (%d)"
-
-#: src/gcompris/gcompris_db.c:1506
-#, c-format
-msgid "No group with id  %d"
-msgstr "No group with ID %d"
-
-#: src/gcompris/gcompris_db.c:1559 src/gcompris/gcompris_db.c:1759
-msgid "No groups !"
-msgstr "No groups!"
-
-#: src/gcompris/gcompris_db.c:1702
-msgid "No users !"
-msgstr "No users!"
 
 #: src/gcompris/help.c:170
 msgid "Prerequisite"
