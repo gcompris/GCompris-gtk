@@ -40,7 +40,7 @@
       <lien_auteur>1</lien_auteur>
       <ps>__REMOVEME__</ps>
 
-      <xsl:for-each select="GComprisBoards/GCompris/Board[starts-with(@section,$section) and (substring-after(substring(@section,string-length($section)),'/')='')]">
+      <xsl:for-each select="GComprisBoards/GCompris/Board[@name=$name]">
 
         <titre>
           <xsl:variable name="tmptext" select="title[@xml:lang=$language]"/>
@@ -57,7 +57,7 @@
         <HTML>
           <DIV class="conteneur">
             
-            <xsl:for-each select="GComprisBoards/GCompris/Board[starts-with(@section,$section) and (substring-after(substring(@section,string-length($section)),'/')='.')]">
+            <xsl:for-each select="GComprisBoards/GCompris/Board[@section=$section]">
               <!-- order the result by difficulty -->
               <xsl:sort select="@difficulty"
                 data-type="number"

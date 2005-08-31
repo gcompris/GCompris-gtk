@@ -69,6 +69,7 @@ my %sections = (
 		"nl", 92,
 		"nb", 107,
 		"nn", 38,
+		"ne", 0,
 		"pa", 0,
 		"pl", 0,
 		"pt", 28,
@@ -118,6 +119,7 @@ my %rubriques = (
 		 "nl", 93,
 		 "nb", 108,
 		 "nn", 69,
+		 "ne", 0,
 		 "pa", 0,
 		 "pl", 0,
 		 "pt", 56,
@@ -168,6 +170,7 @@ my %rubriques_all = (
 		 "nl", 94,
 		 "nb", 109,
 		 "nn", 70,
+		 "ne", 0,
 		 "pa", 0,
 		 "pl", 0,
 		 "pt", 72,
@@ -278,13 +281,25 @@ foreach my $board (@files) {
   open(BOARD, "<$file");
 
   my $board_content;
+  my $board_section;
+  my $board_name;
+  my $board_type;
   read(BOARD, $board_content, 65535);
 
-  $board_content =~ /section=\"([a-zA-Z\/\.]+)\"/;
-  print "   Section=$1\n";
-  if($1 !~ /\.$/ && $1 ne "/") { # Remove the root menu and boards
+  $board_section = ($board_content =~ /section=\"([a-zA-Z\/\.]+)\"/)[0];
+  $board_name    = ($board_content =~ /name=\"([a-zA-Z\/\.\:]+)\"/)[0];
+  $board_type    = ($board_content =~ /type=\"([a-zA-Z\/\.\:]+)\"/)[0];
+  if($board_type eq "menu") {
     print "   This is a menu\n";
-    push(@sections, $1);
+    my @section;
+    push(@section, "$board_section/$board_name");
+    push(@section, $board_name);
+
+    print "   Section=$board_section\n";
+    print "      Type=$board_type\n";
+    print "      Name=$board_name\n";
+
+    push(@sections, \@section);
   }
 
   if($board_content =~ /difficulty=\"0\"/) {
@@ -304,9 +319,11 @@ print OUTPUT "\n</GComprisBoards>\n";
 close (OUTPUT);
 
 # Loop over each menu entry
-foreach my $section (@sections) {
-
-  print "\nProcessing $section\nLang:";
+foreach my $onesection (@sections) {
+  my @deref = @{$onesection};
+  my $section = $deref[0];
+  my $name    = $deref[1];
+  print "\nProcessing section=$section name=$name\nLang:";
 
   # The first article is the reference article
   my $traduction_id = $article_id;
@@ -320,7 +337,9 @@ foreach my $section (@sections) {
 
     print "$lang ";
 
-    my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file`;
+    my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file`;
+
+    #    print "xsltproc --stringparam language $lang --stringparam date \"${date}\" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file\n";
 
     if ($?>>8) {
       print "#\n";
