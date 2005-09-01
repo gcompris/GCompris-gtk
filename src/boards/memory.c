@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/09/01 10:49:42 yves>
+ * Time-stamp: <2005/09/01 15:33:53 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -74,8 +74,10 @@ static MemoryItem *secondCard = NULL;
 /* Define the page area where memory cards can be displayed */
 #define BASE_X1 50
 #define BASE_Y1 50
-#define BASE_X2 750
+#define BASE_X2 790
 #define BASE_Y2 500
+
+#define BASE_X1_TUX 200
 
 gint current_x;
 gint current_y;
@@ -197,7 +199,7 @@ static BoardPlugin menu_bp =
 static gboolean to_tux = FALSE;
 static GQueue *tux_memory;
 static gint tux_memory_size;
-static gint tux_memory_sizes[] = { 2, 4, 6, 8, 10, 12, 14, 16, 18 };
+static gint tux_memory_sizes[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 static gint tux_pairs = 0;
 static gint player_pairs = 0;
 
@@ -228,6 +230,13 @@ static gint tux_id = 0;
 #define TYPE_SOUND     16
 
 static GList *passed_token = NULL;
+
+static GnomeCanvasItem *tux;
+static GnomeCanvasItem *tux_score;
+static GnomeCanvasItem *player_score;
+
+static gchar *tux_score_str;
+static gchar *player_score_str;
 
 extern int strcmp (char *, char *);
 
@@ -438,7 +447,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
 
       if (currentMode == MODE_TUX){
-	tux_memory_size = tux_memory_sizes[gcomprisBoard->level-1];
+	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
 	tux_memory = g_queue_new ();
       }
 
@@ -497,6 +506,18 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
 
+static void update_scores()
+{
+  
+  g_free(tux_score_str);
+  g_free(player_score_str);
+  tux_score_str = g_strdup_printf("%d", tux_pairs);
+  player_score_str = g_strdup_printf("%d", player_pairs);
+  gnome_canvas_item_set(tux_score, "text", tux_score_str, NULL);
+  gnome_canvas_item_set(player_score, "text", player_score_str, NULL);
+
+}
+
 /* set initial values for the next level */
 static void memory_next_level() 
 {
@@ -521,11 +542,12 @@ static void memory_next_level()
   create_item(boardRootItem);
 
   if (currentMode == MODE_TUX){
-	tux_memory_size = tux_memory_sizes[gcomprisBoard->level-1];
+	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
   }
   tux_pairs = 0;
   player_pairs = 0;
 
+  update_scores();
 }
 
 
@@ -679,13 +701,47 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
   double card_shadow_w, card_shadow_h;
 
   // Calc width and height of one card
-  width  = (BASE_X2-BASE_X1)/numberOfColumn;
+  width  = (BASE_X2-(currentMode == MODE_TUX ? BASE_X1_TUX : BASE_X1))/numberOfColumn;
   height = (BASE_Y2-BASE_Y1)/numberOfLine;
 
   /* Remove a little bit of space for the card shadow */
   height2 = height * 0.9;
   width2  = width  * 0.9;
 
+  if (currentMode == MODE_TUX){
+    GdkPixbuf *pixmap_tux =  gcompris_load_pixmap("images/tux-teacher.png");
+
+    tux = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+				 gnome_canvas_pixbuf_get_type (),
+				 "pixbuf", pixmap_tux, 
+				 "x", (double) 50,
+				 "y", (double) 20,
+				 NULL);
+    
+
+    tux_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+				       gnome_canvas_text_get_type (),
+				       "text", tux_score, 
+				       "font", gcompris_skin_font_board_huge_bold,
+				       "x", (double) 100,
+				       "y", (double) 200,
+				       "anchor", GTK_ANCHOR_CENTER,
+				       "fill_color_rgba", 0xFF0F0FFF,
+				       NULL);
+
+    player_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
+					  gnome_canvas_text_get_type (),
+					  "text", player_score, 
+					  "font", gcompris_skin_font_board_huge_bold,
+					  "x", (double) 100,
+					  "y", (double) BASE_Y2 - 20,
+					  "anchor", GTK_ANCHOR_CENTER,
+					  "fill_color_rgba", 0xFF0F0FFF,
+					  NULL);
+    
+    
+
+  }
 
   for(x=0; x<numberOfColumn; x++)
     {
@@ -697,7 +753,7 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 	  memoryItem->rootItem = \
 	    gnome_canvas_item_new (parent,
 				   gnome_canvas_group_get_type (),
-				   "x", (double) BASE_X1 + x*width,
+				   "x", (double) (currentMode == MODE_TUX ? BASE_X1_TUX : BASE_X1) + x*width,
 				   "y", (double) BASE_Y1 + y*height,
 				   NULL);
 	  
@@ -852,6 +908,8 @@ static gint hide_card (GtkWidget *widget, gpointer data)
       tux_pairs++;
     else
       player_pairs++;
+
+    update_scores();
   }
 
   if(firstCard!=NULL)

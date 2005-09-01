@@ -1,5 +1,13 @@
 2005-09-01  Yves Combe  <yves@ycombe.net>
 
+	improve menmory_tux UI marking scores.
+	adapt memory to make less difficult the board.
+
+	* src/boards/memory.c: (start_board), (update_scores),
+	(memory_next_level), (create_item), (hide_card):
+
+2005-09-01  Yves Combe  <yves@ycombe.net>
+
 	add new mode in memory.c: Play against the computer.
 	That makes a new board: /boards/memory_tux
 
