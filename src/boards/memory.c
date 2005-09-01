@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/08/30 23:35:10 yves>
+ * Time-stamp: <2005/09/01 10:49:42 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -32,7 +32,6 @@
 
 //#define TEXT_FONT gcompris_skin_font_board_huge_bold
 #define TEXT_FONT "Serif bold 28"
-#define LETTER_BLUE 0x0000FFFF
 
 static GcomprisBoard *gcomprisBoard = NULL;
 
@@ -42,10 +41,10 @@ static gint win_id = 0;
 
 typedef enum
 {
-  MODE_IMAGE		= 0,
-  MODE_TEXT		= 1
+  MODE_NORMAL		= 0,
+  MODE_TUX              = 1
 } Mode;
-static Mode currentMode = MODE_IMAGE;
+static Mode currentMode = MODE_NORMAL;
 
 typedef enum
 {
@@ -54,16 +53,19 @@ typedef enum
   HIDDEN		= 2
 } CardStatus;
 
-static gchar *alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+static gchar *numbers;
+static gchar *alphabet_lowercase;
+static gchar *alphabet_uppercase;
 
 typedef struct {
-  char *image;
-  char  text[2];
+  gchar *data;
+  gint type;
   guint status;
   GnomeCanvasItem *rootItem;
   GnomeCanvasItem *backcardItem;
   GnomeCanvasItem *framecardItem;
   GnomeCanvasItem *frontcardItem;
+  gboolean hidden;
 } MemoryItem;
 
 static MemoryItem *firstCard = NULL;
@@ -185,6 +187,174 @@ static BoardPlugin menu_bp =
    NULL
 };
 
+
+/*
+ * Against computer version
+ * ------------------------
+ *
+ */
+
+static gboolean to_tux = FALSE;
+static GQueue *tux_memory;
+static gint tux_memory_size;
+static gint tux_memory_sizes[] = { 2, 4, 6, 8, 10, 12, 14, 16, 18 };
+static gint tux_pairs = 0;
+static gint player_pairs = 0;
+
+static void add_card_in_tux_memory(MemoryItem *card);
+static MemoryItem *find_card_in_tux_memory(MemoryItem *card);
+static void remove_card_from_tux_memory(MemoryItem *card);
+static gint tux_play();
+
+typedef struct {
+  MemoryItem *first;
+  MemoryItem *second;
+} WINNING;
+
+static GList *winning_pairs = NULL;
+
+static gint tux_id = 0;
+
+/*
+ * random without repeted token
+ * ------------------------
+ *
+ */
+
+#define TYPE_IMAGE     1
+#define TYPE_NUMBER    2
+#define TYPE_UPPERCASE 4
+#define TYPE_LOWERCASE 8
+#define TYPE_SOUND     16
+
+static GList *passed_token = NULL;
+
+extern int strcmp (char *, char *);
+
+/* set the type of the token returned in string in type_returned */
+void get_random_token(int token_type, gint *returned_type, gchar **string)
+{
+  gchar *result = NULL;
+
+  gint max_token;
+  gint j, i, k;
+  gint type;
+
+  typedef struct {
+    gint bound;
+    gint type;
+  } DATUM ;
+
+  GList *data= NULL;
+  GList *list;
+
+  max_token = 0;
+
+  if (token_type & TYPE_IMAGE){
+    max_token += NUMBER_OF_IMAGES;
+
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =  TYPE_IMAGE;
+    data = g_list_append(data, dat);
+  }
+
+  if (token_type & TYPE_NUMBER) {
+    max_token += g_utf8_strlen (numbers, -1);
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =  TYPE_NUMBER;
+    data = g_list_append(data, dat);
+  }
+
+  if (token_type & TYPE_UPPERCASE){
+    max_token += g_utf8_strlen (alphabet_uppercase, -1);
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =   TYPE_UPPERCASE;
+    data = g_list_append(data, dat);
+  }
+
+  if (token_type & TYPE_LOWERCASE){
+    max_token += g_utf8_strlen (alphabet_lowercase, -1);;
+    DATUM *dat = g_malloc0(sizeof(DATUM));
+    dat->bound = max_token;
+    dat->type =   TYPE_LOWERCASE;
+    data = g_list_append(data, dat);
+  }
+  g_assert(max_token >0);
+
+  g_warning("token_type %d,  max_token %d", token_type, max_token);
+
+  i = rand()%max_token;
+
+  for (list = data; list != NULL; list = list->next)
+    if ( i < ((DATUM *)list->data)->bound)
+      break;
+
+  j=-1;
+
+  do {
+    g_free(result);
+    j++;
+
+    if ((i+j) == max_token) {
+      list = data;
+    }
+
+    if ((i+j)%max_token == ((DATUM *)list->data)->bound)
+      list = list->next;
+
+    /* calculate index in right table */
+    k = (i+j)%max_token - (list->prev ? ((DATUM *)list->prev->data)->bound : 0);
+
+
+    type = ((DATUM *)list->data)->type;
+
+    switch (type) {
+    case TYPE_IMAGE:
+      result= g_strdup(imageList[k]);
+      break;
+    case TYPE_NUMBER:
+      result = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(result, g_utf8_offset_to_pointer (numbers,k),1);
+      break;
+    case TYPE_UPPERCASE:
+      result = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(result, g_utf8_offset_to_pointer (alphabet_uppercase,k),1);
+      break;
+    case TYPE_LOWERCASE:
+      result = g_malloc0(2*sizeof(gunichar));
+      g_utf8_strncpy(result, g_utf8_offset_to_pointer (alphabet_lowercase,k),1);
+      break;
+    default:
+      /* should never append */
+      g_error("never !");
+      break;
+    }
+  }
+  while ((j < max_token ) &&  (g_list_find_custom(passed_token, result, strcmp)));
+
+  g_assert (j < max_token);
+	 
+  passed_token = g_list_append( passed_token, result);
+  
+  g_warning("passed_token %d", g_list_length(passed_token));
+
+  *returned_type = type;
+
+  *string = result;
+
+  for (list = data; list != NULL; list=list->next)
+    g_free(list->data);
+
+  g_list_free(data);
+
+}
+
+
+
+
 /*
  * Main entry point mandatory for each Gcompris's game
  * ---------------------------------------------------
@@ -197,20 +367,39 @@ GET_BPLUGIN_INFO(memory)
  * in : boolean TRUE = PAUSE : FALSE = UNPAUSE
  *
  */
+
+static gboolean Paused = FALSE;
+
 static void pause_board (gboolean pause)
 {
 
   if(gcomprisBoard==NULL)
     return;
 
-  if(pause)
-    {
-    }
-  else
-    {
-    }
-}
+  Paused = pause;
 
+  if(pause){
+    if (currentMode == MODE_TUX){
+      if (tux_id){
+	g_source_remove(tux_id);
+	tux_id = 0;
+      }
+    }
+  }
+  else {
+    if (remainingCards<=0)
+      memory_next_level();
+    else {
+      if (currentMode == MODE_TUX){
+	if (to_tux){
+	  tux_id = g_timeout_add (2000,
+				  (GSourceFunc) tux_play, NULL);
+	}
+      }
+    }
+    
+  }
+}
 /*
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
@@ -228,12 +417,35 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       /* Default mode */
       if(!gcomprisBoard->mode)
-	currentMode=MODE_IMAGE;
-      else if(g_strcasecmp(gcomprisBoard->mode, "image")==0)
-	currentMode=MODE_IMAGE;
+	currentMode=MODE_NORMAL;
+      else {
+	if(g_strcasecmp(gcomprisBoard->mode, "tux")==0)
+	  currentMode=MODE_TUX;
+	else
+	  currentMode=MODE_NORMAL;
+      }
+
+      /* TRANSLATORS: Put here the numbers in your language */
+      numbers=_("0123456789");
+      assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
+
+      /* TRANSLATORS: Put here the alphabet lowercase in your language */
+      alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
+      assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
+
+      /* TRANSLATORS: Put here the alphabet uppercase in your language */
+      alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+      assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
+
+      if (currentMode == MODE_TUX){
+	tux_memory_size = tux_memory_sizes[gcomprisBoard->level-1];
+	tux_memory = g_queue_new ();
+      }
+
+      Paused = FALSE;
 
       memory_next_level();
-    }
+    }      
 }
 
 static void
@@ -243,6 +455,10 @@ end_board ()
   if(gcomprisBoard!=NULL)
     {
       pause_board(TRUE);
+      if (tux_id)
+	g_source_remove(tux_id);
+      if (win_id)
+	g_source_remove(win_id);
       memory_destroy_all_items();
     }
   gcomprisBoard = NULL;
@@ -303,6 +519,13 @@ static void memory_next_level()
   gcomprisBoard->sublevel=0;
 
   create_item(boardRootItem);
+
+  if (currentMode == MODE_TUX){
+	tux_memory_size = tux_memory_sizes[gcomprisBoard->level-1];
+  }
+  tux_pairs = 0;
+  player_pairs = 0;
+
 }
 
 
@@ -320,9 +543,18 @@ static void memory_destroy_all_items()
   boardRootItem=NULL;
 
   if (win_id) {
-    gtk_timeout_remove (win_id);
+    g_source_remove (win_id);
   }
   win_id = 0;
+
+  if (currentMode == MODE_TUX){
+    if (tux_id) {
+      g_source_remove (tux_id);
+    }
+
+    tux_id =0;
+    to_tux = FALSE;
+  }
 
   // Clear the memoryArray
   for(x=0; x<MAX_MEMORY_WIDTH; x++)
@@ -331,6 +563,26 @@ static void memory_destroy_all_items()
 	g_free(memoryArray[x][y]);
 	memoryArray[x][y] = NULL;	
       }
+
+  GList *list;
+
+  for (list = passed_token; list != NULL; list=list->next)
+    g_free(list->data);
+  
+  g_list_free(passed_token);
+  
+  passed_token = NULL;
+    
+  if (currentMode == MODE_TUX){
+    for (list = winning_pairs; list != NULL; list=list->next)
+      g_free(list->data);
+    
+    g_list_free(winning_pairs);
+    
+    winning_pairs = NULL;
+    while (g_queue_pop_head (tux_memory));
+  }
+  
 }
 
 /*
@@ -343,17 +595,21 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   guint i;
   guint rx, ry;
 
+  memoryItem->hidden = FALSE;
+
   if(memoryArray[x][y])
     {
       // Get the pair's image
-      memoryItem->image = memoryArray[x][y]->image;
-      strcpy((char *)&memoryItem->text, (char *)&memoryArray[x][y]->text);
+      memoryItem->data = memoryArray[x][y]->data;
+      memoryItem->type =  memoryArray[x][y]->type;
       memoryArray[x][y] = memoryItem;
       return;
     }
 
+
   memoryArray[x][y] = memoryItem;
 
+  int returned;
 
   switch(gcomprisBoard->level) {
 
@@ -363,30 +619,32 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   case 3:
   case 4:
     /* Image mode */
-    i = rand()%NUMBER_OF_IMAGES;
-    memoryItem->image   = imageList[i];
-    memoryItem->text[0] = '\0';
+    get_random_token ( TYPE_IMAGE, &memoryItem->type,  &memoryItem->data);
+    g_assert (memoryItem->type ==  TYPE_IMAGE);
+    g_warning("returned token %s", memoryItem->data);
     break;
 
   case 5:
     /* Limited Text mode Numbers only */
-    memoryItem->image    = NULL;
-    memoryItem->text[0]  = alphabet[rand()%(strlen(alphabet)-52)];
-    memoryItem->text[1]  = '\0';
+    get_random_token ( TYPE_NUMBER, &memoryItem->type,  &memoryItem->data);
+    g_assert (memoryItem->type ==  TYPE_NUMBER);
+    g_warning("returned token %s", memoryItem->data);
     break;
 
   case 6:
     /* Limited Text mode Numbers + Capitals */
-    memoryItem->image    = NULL;
-    memoryItem->text[0]  = alphabet[rand()%(strlen(alphabet)-26)];
-    memoryItem->text[1]  = '\0';
+    get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE, &memoryItem->type,  &memoryItem->data);
+    g_assert((memoryItem->type == TYPE_NUMBER)||(memoryItem->type==TYPE_UPPERCASE));
+    g_warning("returned token %s", memoryItem->data);
+    break;
     break;
 
   default:
     /* Text mode ALL */
-    memoryItem->image    = NULL;
-    memoryItem->text[0]  = alphabet[rand()%strlen(alphabet)];
-    memoryItem->text[1]  = '\0';
+    get_random_token ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE, &memoryItem->type,  &memoryItem->data);
+    g_assert (memoryItem->type & ( TYPE_NUMBER | TYPE_UPPERCASE | TYPE_LOWERCASE));
+    g_warning("returned token %s", memoryItem->data);
+    break;
   }
 
   // Randomly set the pair
@@ -476,8 +734,8 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 	  // Display the image itself while taking care of its size and maximize the ratio
 	  get_image(memoryItem, x, y);
 
-	  if(memoryItem->image) {
-	    pixmap = gcompris_load_pixmap(memoryItem->image);
+	  if(memoryItem->type == TYPE_IMAGE) {
+	    pixmap = gcompris_load_pixmap(memoryItem->data);
 
 	    yratio=(height2*0.8)/(float)gdk_pixbuf_get_height(pixmap);
 	    xratio=(width2*0.8)/(float)gdk_pixbuf_get_width(pixmap);
@@ -507,12 +765,12 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 	    memoryItem->frontcardItem =	 \
 	      gnome_canvas_item_new (GNOME_CANVAS_GROUP(memoryItem->rootItem),
 				     gnome_canvas_text_get_type (),
-				     "text", &memoryItem->text,
+				     "text", memoryItem->data,
 				     "font", TEXT_FONT,
 				     "x", (double) (width*0.8)/2,
 				     "y", (double) (height*0.8)/2,
 				     "anchor", GTK_ANCHOR_CENTER,
-				     "fill_color_rgba", LETTER_BLUE,
+				     "fill_color_rgba", 0x99CDFFFF,
 				     NULL);
 
 	  }
@@ -532,12 +790,14 @@ static void player_win()
 {
   gcompris_play_ogg ("bonus", NULL);
   /* Try the next level */
-  gcomprisBoard->level++;
+  if (tux_pairs <= player_pairs)
+    gcomprisBoard->level++;
   if(gcomprisBoard->level>gcomprisBoard->maxlevel) { // the current board is finished : bail out
     board_finished(BOARD_FINISHED_RANDOM);
     return;
   }
-  memory_next_level();
+  gcompris_display_bonus((tux_pairs <= player_pairs), BONUS_RANDOM);
+
 }
 
 static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
@@ -559,6 +819,7 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
       gnome_canvas_item_hide(memoryItem->backcardItem);
       gnome_canvas_item_hide(memoryItem->framecardItem);
       gnome_canvas_item_hide(memoryItem->frontcardItem);
+      memoryItem->hidden = TRUE;
       break;
     }
 
@@ -570,22 +831,55 @@ static void display_card(MemoryItem *memoryItem, CardStatus cardStatus)
  */
 static gint hide_card (GtkWidget *widget, gpointer data)
 {
+  if (currentMode == MODE_TUX){
+    GList *list = NULL;
+    GList *to_remove = NULL;
+
+    for (list =  winning_pairs; list != NULL; list=list->next)
+      if ((((WINNING *) list->data)->first == firstCard) || (((WINNING *) list->data)->first == secondCard)){
+	to_remove = g_list_append( to_remove, list->data);
+      }
+  
+    for (list =  to_remove; list != NULL; list=list->next){
+      g_free (list->data);
+      winning_pairs = g_list_remove (winning_pairs, list->data);
+      g_warning("Again %d winning pairs in tux list! ", g_list_length(winning_pairs));
+    }
+
+    g_list_free(to_remove);
+
+    if (to_tux)
+      tux_pairs++;
+    else
+      player_pairs++;
+  }
+
   if(firstCard!=NULL)
     {
       display_card(firstCard, HIDDEN);
       firstCard  = NULL;
+      remove_card_from_tux_memory(firstCard);
     }
 
   if(secondCard!=NULL)
     {
       display_card(secondCard, HIDDEN);
       secondCard  = NULL;
+      remove_card_from_tux_memory(secondCard);
     }
   win_id = 0;
 
   remainingCards -= 2;
-  if(remainingCards<=0)
+  if(remainingCards<=0){
+    if (currentMode == MODE_TUX){
+      if (tux_id){
+	g_source_remove(tux_id);
+	tux_id = 0;
+	to_tux = FALSE;
+      }
+    }
     player_win();
+  }
 
   return (FALSE);
 }
@@ -603,6 +897,14 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
        switch(event->button.button) 
          {
          case 1:
+
+	   if (currentMode == MODE_TUX){
+	     if (to_tux){
+	       g_warning("He ! it's tux turn !");
+	       return FALSE;
+	     }
+	   }
+
 	   if(win_id)
 	     return FALSE;
 
@@ -619,6 +921,8 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 	   if(!firstCard)
 	     {
 	       firstCard = memoryItem;
+	       if (currentMode == MODE_TUX)
+		 add_card_in_tux_memory(memoryItem);
 	     }
 	   else
 	     {
@@ -627,35 +931,191 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem)
 		 return FALSE;
 
 	       secondCard = memoryItem;
+	       if (currentMode == MODE_TUX)
+		 add_card_in_tux_memory(memoryItem);
 
 	       // Check win
-	       if(firstCard->image && secondCard->image) {
-		 /* It's images in both cards */
-		 if(strcmp(firstCard->image, secondCard->image)==0)
-		   {
-		     gcompris_play_ogg ("gobble", NULL);
-		     win_id = gtk_timeout_add (1000,
-					     (GtkFunction) hide_card, NULL);
-		   }
-	       } else if (!firstCard->image && !secondCard->image) {
-		 /* It's text in both cards */
-		  if(strcmp(&firstCard->text, &secondCard->text)==0)
-		   {
-		     gcompris_play_ogg ("gobble", NULL);
-		     win_id = gtk_timeout_add (1000,
-					     (GtkFunction) hide_card, NULL);
-		   }
+	       if (compare_card((gpointer) firstCard, (gpointer) secondCard) == 0) {
+		 gcompris_play_ogg ("gobble", NULL);
+		 win_id = g_timeout_add (1000,
+					 (GSourceFunc) hide_card, NULL);
+		 return TRUE;
 	       }
+
+	       if (currentMode == MODE_TUX){
+		 /* time to tux to play, after a delay */
+		 to_tux = TRUE;
+		 g_warning("Now tux will play !");
+		 tux_id = g_timeout_add (2000,
+					 (GSourceFunc) tux_play, NULL);
+		 return TRUE;
+	       }
+	     
 	     }
 	   break;
 	 default:
 	   break;
-	 }
+	 }	   
      default:
        break;
      }
    return FALSE;
 }
+
+void add_card_in_tux_memory(MemoryItem *card)
+{
+  MemoryItem *first = NULL;
+
+  g_warning("Adding card %s ", card->data);
+
+  g_warning("now tux_memory has size %d", g_queue_get_length(tux_memory));
+  /* check if card is already in memory */
+  remove_card_from_tux_memory(card);
+  g_warning("now tux_memory has size %d", g_queue_get_length(tux_memory));
+
+  first = find_card_in_tux_memory(card);
+
+  if (first){
+    g_warning("found %s and %s !", first->data, card->data);
+    WINNING *win = g_malloc0(sizeof(WINNING));
+    win->first = card;
+    win->second = first;
+    winning_pairs = g_list_append( winning_pairs, win);
+    g_warning("Now %d winning pairs in tux list! ", g_list_length(winning_pairs));
+
+    remove_card_from_tux_memory(first);
+    g_warning("now tux_memory has size %d", g_queue_get_length(tux_memory));
+  }
+
+  /* Local Variables: */
+  g_queue_push_head(tux_memory, card);
+
+  g_warning("Now tuxmemory size = %d", g_queue_get_length (tux_memory));
+
+  if (g_queue_get_length (tux_memory)>tux_memory_size){
+    g_queue_pop_tail(tux_memory);
+    g_warning("Removing 1: Now tuxmemory size = %d", g_queue_get_length (tux_memory));
+  }
+}
+
+gint compare_card (gconstpointer a,
+		   gconstpointer b)
+{
+  MemoryItem *card_a = (MemoryItem *)a;
+  MemoryItem *card_b = (MemoryItem *)b;
+
+  //g_warning("comparing %d %d ? %s == %s %d", (int) a, (int) b, ((MemoryItem *)a)->data, ((MemoryItem *)b)->data,  (((MemoryItem *)a)->data == ((MemoryItem *)b)->data) ? 0: -1);
+
+  if (((MemoryItem *)a)->data == ((MemoryItem *)b)->data)
+    return  0;
+  else
+    return -1; 
+}
+
+MemoryItem *find_card_in_tux_memory(MemoryItem *card)
+{
+  GList *link;
+
+  if (link = g_queue_find_custom(tux_memory, card, compare_card))
+    return link->data;
+  else
+    return NULL;
+}
+
+void remove_card_from_tux_memory(MemoryItem *card)
+{
+  g_queue_remove(tux_memory, card);
+}
+
+static gint tux_play(){
+  int rx, ry;
+
+  if (Paused){
+    g_warning("Paused");
+    return TRUE;
+  }
+
+  g_warning("Now tux playing !");
+
+  if(secondCard)
+    {
+      display_card(firstCard, ON_BACK);
+      firstCard = NULL;
+      display_card(secondCard, ON_BACK);
+      secondCard = NULL;	       
+    }
+
+  if (winning_pairs){
+    g_warning("I will won !");
+    if (!firstCard){
+      g_warning("case 1");
+      firstCard = ((WINNING *) winning_pairs->data)->first ;
+      display_card(firstCard, ON_FRONT);
+      return TRUE;
+    } else {
+      g_warning("case 2");
+      secondCard = ((WINNING *) winning_pairs->data)->second;
+      display_card(secondCard, ON_FRONT);
+      gcompris_play_ogg ("gobble", NULL);
+      win_id = g_timeout_add (1000,
+				(GSourceFunc) hide_card, NULL);
+      return TRUE;
+    }
+  }
+
+  // Randomly set the pair
+  rx = (int)(numberOfColumn*((double)rand()/RAND_MAX));
+  ry = (int)(numberOfLine*((double)rand()/RAND_MAX));
+  
+  gboolean  stay_unknown = (remainingCards > (g_queue_get_length (tux_memory) 
+					      + (firstCard ? 1 : 0)));
+
+  g_warning("remainingCards %d tux_memory %d -> stay_unknown %d ", 
+	    remainingCards, 
+	    g_queue_get_length (tux_memory), 
+	    stay_unknown );
+
+  while((memoryArray[rx][ry]->hidden) || (memoryArray[rx][ry] == firstCard)
+	|| (stay_unknown && g_queue_find(tux_memory,memoryArray[rx][ry])))
+    {
+      g_warning("Loop to find %d %d %s", rx, ry, memoryArray[rx][ry]->data);
+      rx++;
+      // Wrap
+      if(rx>=numberOfColumn)
+	{
+	  rx=0;
+	  ry++;
+	  if(ry>=numberOfLine)
+	    ry=0;
+	}
+    }
+  
+  if (!firstCard){
+    g_warning("case 3");
+    firstCard = memoryArray[rx][ry];
+    add_card_in_tux_memory(firstCard);
+    display_card(firstCard, ON_FRONT);
+    g_warning("Now tux replay !");
+    return TRUE;
+  } else {
+    g_warning("case 4");
+    secondCard = memoryArray[rx][ry];
+    add_card_in_tux_memory(secondCard);
+    display_card(secondCard, ON_FRONT);
+    if (compare_card(firstCard, secondCard)==0){
+      gcompris_play_ogg ("gobble", NULL);
+      g_warning("Now tux win !");
+      win_id = g_timeout_add (1000,
+			      (GSourceFunc) hide_card, NULL);
+      return TRUE;
+    } else{
+      to_tux = FALSE;
+      return FALSE;
+    }
+  }
+  return FALSE;
+}
+
 
 
 /* Local Variables: */

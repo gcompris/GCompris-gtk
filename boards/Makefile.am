@@ -63,6 +63,7 @@ xml_in_files = \
 	mazeMenu.xml.in \
 	melody.xml.in \
 	memory.xml.in \
+	memory_tux.xml.in \
 	menu.xml.in \
 	missing_letter.xml.in \
 	money.xml.in \

@@ -1,3 +1,19 @@
+2005-09-01  Yves Combe  <yves@ycombe.net>
+
+	add new mode in memory.c: Play against the computer.
+	That makes a new board: /boards/memory_tux
+
+	* boards/Makefile.am:
+	* boards/boardicons/memory_tux.png:
+	* boards/memory_tux.xml.in:
+	* src/boards/memory.c: (get_random_token), (pause_board),
+	(start_board), (end_board), (memory_next_level),
+	(memory_destroy_all_items), (get_image), (create_item),
+	(player_win), (display_card), (hide_card), (item_event),
+	(add_card_in_tux_memory), (compare_card),
+	(find_card_in_tux_memory), (remove_card_from_tux_memory),
+	(tux_play):
+
 2005-09-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed to work with the new section management
@@ -10,7 +26,7 @@
 	* boards/dataset/tuxpaint_pictures.xml: updated to use our tuxpaint icon
 	* boards/dataset/mrpatate.xml: removed, replaced by mrpotato.xml
 
-2005-08-30  Yves Combe,,,  <set EMAIL_ADDRESS environment variable>
+2005-08-30  Yves Combe  <yves@ycombe.net>
 
 	change colors letters in memory.
 	clean code and add trace in reading (strange crash).
