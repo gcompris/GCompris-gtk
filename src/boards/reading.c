@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/08/30 23:51:50 yves>
+ * Time-stamp: <2005/09/01 22:38:40 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -299,9 +299,13 @@ static gint reading_next_level()
   gcomprisBoard->number_of_sublevel=1;
   gcomprisBoard->sublevel=1;
 
+  g_warning("reading wordfile...");
   read_wordfile();
+  g_warning("reading wordfile...done");
   display_what_to_do(boardRootItem);
+  g_warning("display_what_to_do...done");
   ask_ready(TRUE);
+  g_warning("ask_ready...done");
   return (FALSE);
 }
 
@@ -718,6 +722,7 @@ item_event_valid(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 	  {
 	    player_loose();
 	  }
+	return TRUE;
       }
       break;
 
