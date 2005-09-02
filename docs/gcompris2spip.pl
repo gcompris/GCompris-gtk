@@ -289,10 +289,15 @@ foreach my $board (@files) {
   $board_section = ($board_content =~ /section=\"([a-zA-Z\/\.]+)\"/)[0];
   $board_name    = ($board_content =~ /name=\"([a-zA-Z\/\.\:]+)\"/)[0];
   $board_type    = ($board_content =~ /type=\"([a-zA-Z\/\.\:]+)\"/)[0];
-  if($board_type eq "menu") {
+
+  if($board_type eq "menu" and $board_name ne "root") {
     print "   This is a menu\n";
     my @section;
-    push(@section, "$board_section/$board_name");
+    if( $board_section ne "/") {
+      push(@section, "$board_section/$board_name");
+    } else {
+      push(@section, "/$board_name");
+    }
     push(@section, $board_name);
 
     print "   Section=$board_section\n";
@@ -313,7 +318,6 @@ foreach my $board (@files) {
  done:
   close(BOARD);
 }
-
 print OUTPUT "\n</GComprisBoards>\n";
 
 close (OUTPUT);
@@ -339,7 +343,7 @@ foreach my $onesection (@sections) {
 
     my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file`;
 
-    #    print "xsltproc --stringparam language $lang --stringparam date \"${date}\" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file\n";
+    #print "xsltproc --stringparam language $lang --stringparam date \"${date}\" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file\n";
 
     if ($?>>8) {
       print "#\n";
@@ -377,6 +381,12 @@ my %articles;
 foreach my $board (@files) {
 
   print "\nProcessing $board\nLang:";
+
+  # Skip some boards
+  if($board eq "administration.xml") {
+    print " (administration is skipped)";
+    next;
+  }
 
   # The first article is the reference article
   my $traduction_id = $article_id;

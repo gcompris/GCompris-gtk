@@ -19,9 +19,11 @@ foreach my $image (@files) {
   # Skip old thumbs
   next if ($image =~ m/_small\.jpg/);
 
-  print "Processing $image\n";
   my $file  = "$screenshots_dir/$image";
   (my $thumb = $file) =~ s/\.jpg/_small\.jpg/;
+
+  next if (-f "$thumb");
+
   system ("convert -geometry ".$thumb_size.
       " -quality 100 $file $thumb") == 0
       || die "Problems with convert: $?\n";
