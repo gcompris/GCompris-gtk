@@ -1,3 +1,4 @@
+# translation of de.po to 
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-27 21:45+0200\n"
-"PO-Revision-Date: 2005-08-27 22:25+0200\n"
+"POT-Creation-Date: 2005-09-02 08:39+0200\n"
+"PO-Revision-Date: 2005-09-02 08:46+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1788,11 +1789,11 @@ msgstr "Tastatur-Handhabung"
 msgid "Letter recognition between the screen and the keyboard"
 msgstr "Buchstaben-Erkennung zwischen Bildschirm und Tastatur"
 
-#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:129
+#: ../boards/gletters.xml.in.h:3 ../src/boards/gletters.c:132
 msgid "Simple Letters"
 msgstr "Einfache Buchstaben"
 
-#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:130
+#: ../boards/gletters.xml.in.h:4 ../src/boards/gletters.c:133
 msgid "Type the falling letters before they reach the ground"
 msgstr "Gib die fallenden Buchstaben ein, bevor sie unten ankommen."
 
@@ -1975,8 +1976,8 @@ msgstr "Finde das zu einem Bild gehörende Wort."
 
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
-#: ../src/boards/imageid.c:108 ../src/boards/missingletter.c:101
-#: ../src/boards/reading.c:107
+#: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
+#: ../src/boards/reading.c:113
 msgid "Reading"
 msgstr "Lesen"
 
@@ -2218,7 +2219,7 @@ msgstr "Schläger"
 #: ../boards/login.xml.in.h:1
 msgid ""
 "By identifying in GCompris, we are able to provide specific reporting for "
-"each kids."
+"each kid."
 msgstr ""
 "Durch die Identifizierung in GCompris kann für jedes Kind ein spezieller "
 "Bericht erstellt werden."
@@ -2235,7 +2236,7 @@ msgid ""
 "In the administration, you can create different profiles. In each profiles\n"
 "you can have a different set of users and select which activities are "
 "available to them.\n"
-"To run Gcompris in a specific profile, you can run 'gcompris -p profile' "
+"To run GCompris in a specific profile, you can run 'gcompris -p profile' "
 "where 'profile'\n"
 "is the name of a profile as you created it in the administration."
 msgstr ""
@@ -2683,7 +2684,7 @@ msgid ""
 "main board."
 msgstr "Lege die Bildteile zu einem Gemälde zusammen."
 
-#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:169
+#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:172
 msgid "Make the puzzle"
 msgstr "Gemäldepuzzle"
 
@@ -3139,7 +3140,11 @@ msgid ""
 "target position. For the higher levels, click on an empty square to give it "
 "the keyboard focus. Then enter a possible letter or number. GCompris will "
 "not let you enter invalid data."
-msgstr "In den ersten Ebenen kannst du die farbigen Symbole von der linken Seite auf ihre Zielpositionen ziehen. In den höheren Ebenen musst du auf ein leeres Feld klicken und danach die mögliche Zahl oder den möglichen Buchstaben eingeben. GCompris lässt dich keine falschen Werte eingeben."
+msgstr ""
+"In den ersten Ebenen kannst du die farbigen Symbole von der linken Seite auf "
+"ihre Zielpositionen ziehen. In den höheren Ebenen musst du auf ein leeres "
+"Feld klicken und danach die mögliche Zahl oder den möglichen Buchstaben "
+"eingeben. GCompris lässt dich keine falschen Werte eingeben."
 
 #: ../boards/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -3161,8 +3166,10 @@ msgid ""
 "Sudoku)."
 msgstr ""
 "Das Ziel dieses Puzzles ist es, in jeder Zelle eines vorgegebenen Gitters "
-"Symbole oder Werte einzugeben. Das Gitter ist meistens 9x9 Felder groß und besteht aus 3x3 Untergittern (genannt \"Regionen\"). Beim Start des Spiels sind einige Felder schon vorbelegt (die \"Gegebenen\"). In jeder Zeile, Spalte und "
-"Region darf jeder Wert nur einmal vorkommen. Um das Puzzle zu "
+"Symbole oder Werte einzugeben. Das Gitter ist meistens 9x9 Felder groß und "
+"besteht aus 3x3 Untergittern (genannt \"Regionen\"). Beim Start des Spiels "
+"sind einige Felder schon vorbelegt (die \"Gegebenen\"). In jeder Zeile, "
+"Spalte und Region darf jeder Wert nur einmal vorkommen. Um das Puzzle zu "
 "vervollständigen benötigt man Geduld und logisches Denken."
 
 #: ../boards/superbrain.xml.in.h:1
@@ -3291,20 +3298,20 @@ msgstr "Bildungs-Sammlung gcompris"
 msgid "Multiple activities for kids"
 msgstr "Mehrere Aktivitäten für Kinder"
 
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:602
-#: ../src/boards/missingletter.c:606 ../src/boards/read_colors.c:491
-#: ../src/boards/shapegame.c:1878 ../src/gcompris/file_selector.c:891
-#: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:602
-#: ../src/gcompris/gameutil.c:603 ../src/gcompris/gcompris.c:531
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:615
+#: ../src/boards/missingletter.c:618 ../src/boards/read_colors.c:491
+#: ../src/boards/shapegame.c:1924 ../src/gcompris/file_selector.c:891
+#: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:600
+#: ../src/gcompris/gameutil.c:601 ../src/gcompris/gcompris.c:531
 #: ../src/gcompris/images_selector.c:764 ../src/gcompris/skin.c:83
 #: ../src/gcompris/skin.c:261
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Kann Datei %s nicht finden!"
 
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:605
-#: ../src/boards/missingletter.c:609 ../src/boards/read_colors.c:494
-#: ../src/boards/shapegame.c:1881
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:618
+#: ../src/boards/missingletter.c:621 ../src/boards/read_colors.c:494
+#: ../src/boards/shapegame.c:1927
 #, c-format
 msgid "find file %s !"
 msgstr "finde Datei %s ! "
@@ -3384,7 +3391,7 @@ msgstr "Lies einen Buchstaben"
 msgid "Learn to recognize letters"
 msgstr "Das Erkennen von Buchstaben lernen"
 
-#: ../src/boards/click_on_letter.c:242
+#: ../src/boards/click_on_letter.c:240
 msgid ""
 "Error: this activity requires you that you first install \n"
 "the package assetml-voices-alphabet-"
@@ -3392,7 +3399,7 @@ msgstr ""
 "Fehler: Diese Aktivität erfordert die Installation\n"
 "des Paketes \"assetml-voices-alphabet\"!"
 
-#: ../src/boards/click_on_letter.c:249
+#: ../src/boards/click_on_letter.c:247
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3405,7 +3412,9 @@ msgstr ""
 "angeschalten werden."
 
 #. TRANSLATORS: Put here the alphabet in your language
-#: ../src/boards/click_on_letter.c:294
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:292 ../src/boards/memory.c:442
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -3481,7 +3490,7 @@ msgstr "Bewege die Gegenstände einzeln, um sie aufsteigend zu sortieren"
 msgid "Reproduce in the empty area the same tower as the one on the right"
 msgstr "Baue an der leeren Stelle den Turm auf der rechten Seite nach"
 
-#: ../src/boards/imageid.c:109 ../src/boards/missingletter.c:102
+#: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
 msgstr "Lerne lesen"
 
@@ -3513,13 +3522,24 @@ msgstr "Betrachte Deine Position und schalte zum Weiterlaufen wieder zurück"
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Betrachte Deine Position und schalte zum Weitermachen zum 3D-Modus zurück"
 
-#: ../src/boards/memory.c:164
+#: ../src/boards/memory.c:172
 msgid "Memory"
 msgstr "Memory"
 
-#: ../src/boards/memory.c:165
+#: ../src/boards/memory.c:173
 msgid "Find the matching pair"
 msgstr "Finde das zusammengehörige Paar"
+
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/boards/memory.c:438
+msgid "0123456789"
+msgstr "0123456789"
+
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/boards/memory.c:446
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 #: ../src/boards/menu.c:72
 msgid "Main Menu"
@@ -3569,11 +3589,11 @@ msgstr "Alle auswählen"
 msgid "Unselect all"
 msgstr "Keine auswählen"
 
-#: ../src/boards/python/admin/board_list.py:234
+#: ../src/boards/python/admin/board_list.py:236
 msgid "Main menu"
 msgstr "Hauptmenü"
 
-#: ../src/boards/python/admin/board_list.py:234
+#: ../src/boards/python/admin/board_list.py:236
 msgid "/"
 msgstr "/"
 
@@ -3582,20 +3602,20 @@ msgstr "/"
 #. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
 #. image.show()
 #. column_pref.set_widget(image)
-#: ../src/boards/python/admin/board_list.py:291
+#: ../src/boards/python/admin/board_list.py:293
 msgid "Active"
 msgstr "Aktiv"
 
-#: ../src/boards/python/admin/board_list.py:292
+#: ../src/boards/python/admin/board_list.py:294
 msgid "Board title"
 msgstr "Titel der Tafel"
 
-#: ../src/boards/python/admin/board_list.py:408
+#: ../src/boards/python/admin/board_list.py:410
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
 msgstr "Filter Tafel-Schwierigkeit für Profil %s"
 
-#: ../src/boards/python/admin/board_list.py:439
+#: ../src/boards/python/admin/board_list.py:441
 #, python-format
 msgid ""
 "<span size='x-large'> Select the difficulty range \n"
@@ -3610,9 +3630,9 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:623
-#: ../src/boards/python/admin/board_list.py:641
-#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:525
+#: ../src/boards/python/admin/board_list.py:625
+#: ../src/boards/python/admin/board_list.py:643
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:541
 #: ../src/boards/python/pythontest.py:383 ../src/boards/python/tuxpaint.py:168
 #, python-format
 msgid ""
@@ -3622,7 +3642,7 @@ msgstr ""
 "<b>%s</b> Konfiguration\n"
 " für Profil <b>%s</b>"
 
-#: ../src/boards/python/admin/board_list.py:653
+#: ../src/boards/python/admin/board_list.py:655
 #: ../src/boards/python/pythontest.py:447
 msgid "Select sound locale"
 msgstr "Gebietsschema für Tonausgabe auswählen"
@@ -3811,7 +3831,7 @@ msgid "There is already a profile with this name"
 msgstr "Es gibt bereits ein Profil mit diesem Namen"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:579 ../src/gcompris/board_config.c:705
+#: ../src/gcompris/board_config.c:582 ../src/gcompris/board_config.c:708
 msgid "Default"
 msgstr "Standard"
 
@@ -3831,37 +3851,37 @@ msgstr "Benutzerbearbeitung"
 msgid "Editing user "
 msgstr "Bearbeite Benutzer "
 
-#: ../src/boards/python/admin/user_edit.py:60
+#: ../src/boards/python/admin/user_edit.py:61
 msgid "Editing a new user"
 msgstr "Neuen Benutzer bearbeiten"
 
-#: ../src/boards/python/admin/user_edit.py:77
+#: ../src/boards/python/admin/user_edit.py:78
 msgid "Login:"
 msgstr "Kennung:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/boards/python/admin/user_edit.py:88
+#: ../src/boards/python/admin/user_edit.py:89
 msgid "First name:"
 msgstr "Vorname:"
 
 #. Label and Entry for the last name
-#: ../src/boards/python/admin/user_edit.py:97
+#: ../src/boards/python/admin/user_edit.py:98
 msgid "Last name:"
 msgstr "Nachname:"
 
 #. Label and Entry for the birth date
-#: ../src/boards/python/admin/user_edit.py:106
+#: ../src/boards/python/admin/user_edit.py:107
 msgid "Birth date:"
 msgstr "Geburtsdatum:"
 
-#: ../src/boards/python/admin/user_edit.py:158
+#: ../src/boards/python/admin/user_edit.py:159
 msgid "You need to provide at least a login, firstname and lastname for your users"
 msgstr ""
 "Sie müssen für Ihre Benutzer mindestens eine Kennung, den Vornamen und den "
 "Nachnamen angeben"
 
-#: ../src/boards/python/admin/user_edit.py:171
+#: ../src/boards/python/admin/user_edit.py:176
 msgid "There is already a user with this login"
 msgstr "Es gibt bereits einen Benutzer mit dieser Kennung"
 
@@ -3877,6 +3897,15 @@ msgstr ""
 "DATEI FORMAT: Ihre Datei muss folgendermaßen formatiert sein:\n"
 "Kennung; Vorname; Nachname; Geburtsdatum\n"
 "Das Trennzeichen wird automatisch erkannt und kann ',', ';' oder ':' sein."
+
+#: ../src/boards/python/admin/user_list.py:371
+#, python-format
+msgid ""
+"Uppercased login was not unique !\n"
+" Some of them have been changed appending time . Change them : %s !"
+msgstr ""
+"Die Kennung ist in Großschreibung nicht eindeutig!\n"
+"Einige von ihnen wurden durch anhängen der Zeit geändert. Ändern Sie sie: %s!"
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -4028,23 +4057,23 @@ msgstr ""
 "E\n"
 "L"
 
-#: ../src/boards/python/login.py:126
+#: ../src/boards/python/login.py:123
 msgid "Profile: "
 msgstr "Profil: "
 
-#: ../src/boards/python/login.py:273 ../src/boards/python/login.py:282
+#: ../src/boards/python/login.py:274 ../src/boards/python/login.py:283
 msgid "Login: "
 msgstr "Kennung: "
 
 #. toggle box
-#: ../src/boards/python/login.py:530
+#: ../src/boards/python/login.py:546
 msgid "Uppercase only text"
 msgstr "Nur Großbuchstaben"
 
 #. toggle box
-#: ../src/boards/python/login.py:540
+#: ../src/boards/python/login.py:556
 msgid "Enter login to log"
-msgstr ""
+msgstr "Kennung eingeben"
 
 #: ../src/boards/python/pythontest.py:132
 msgid ""
@@ -4094,10 +4123,6 @@ msgstr "Benutze Rechtecke"
 #: ../src/boards/python/pythontest.py:423
 msgid "Choice of pattern"
 msgstr "Musterauswahl"
-
-#: ../src/boards/python/pythontest.py:460
-msgid "Keys and values returned by PythonTest config window:"
-msgstr "Schlüssel und Werte, von PythonTest-Konfigurationsfenster zurückgegeben:"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
@@ -4206,47 +4231,47 @@ msgstr "Farben lesen"
 msgid "Click on the corresponding color"
 msgstr "Klicke auf die richtige Farbe"
 
-#: ../src/boards/reading.c:108
+#: ../src/boards/reading.c:114
 msgid "Read a list of words and then tell if the given word is in it"
 msgstr ""
 "Lies eine Liste von Wörtern und sag dann, ob das gesuchte Wort darin "
 "vorkommt."
 
-#: ../src/boards/reading.c:337
+#: ../src/boards/reading.c:379
 msgid "Please, check if the word"
 msgstr "Gib bitte an, ob das Wort"
 
-#: ../src/boards/reading.c:357
+#: ../src/boards/reading.c:399
 msgid "is being displayed"
 msgstr "angezeigt wurde"
 
-#: ../src/boards/reading.c:531
+#: ../src/boards/reading.c:571
 msgid "I am Ready"
 msgstr "Los geht's!"
 
-#: ../src/boards/reading.c:571
+#: ../src/boards/reading.c:611
 msgid "Yes I saw it"
 msgstr "Ja, ich hab's gesehen"
 
-#: ../src/boards/reading.c:601
+#: ../src/boards/reading.c:641
 msgid "No, it was not there"
 msgstr "Nein, es kam nicht vor"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:639
+#: ../src/boards/reading.c:679
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Das gesuchte Wort war '%s'"
 
-#: ../src/boards/reading.c:642
+#: ../src/boards/reading.c:682
 msgid "But it was not displayed"
 msgstr "aber es wurde nicht angezeigt"
 
-#: ../src/boards/reading.c:644
+#: ../src/boards/reading.c:684
 msgid "And it was displayed"
 msgstr "und es wurde angezeigt"
 
-#: ../src/boards/reading.c:745 ../src/boards/wordsgame.c:758
+#: ../src/boards/reading.c:786 ../src/boards/wordsgame.c:758
 msgid "Cannot open file of words for your locale"
 msgstr "Kann Wörterdatei für Ihre Sprache nicht öffnen"
 
@@ -4254,12 +4279,12 @@ msgstr "Kann Wörterdatei für Ihre Sprache nicht öffnen"
 msgid "Reverse count"
 msgstr "Rückwärts zählen"
 
-#: ../src/boards/shapegame.c:170
+#: ../src/boards/shapegame.c:173
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Füge die Teile zusammen"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:415
+#: ../src/boards/shapegame.c:461
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -4271,7 +4296,7 @@ msgstr ""
 "\"s\" um abzuspeichern\n"
 "\"d\" um alle Formen anzuzeigen"
 
-#: ../src/boards/shapegame.c:423
+#: ../src/boards/shapegame.c:469
 msgid ""
 "This board data are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4279,11 +4304,11 @@ msgstr ""
 "Die Daten dieser Tafel werden unter\n"
 "/tmp/gcompris-board.xml gespeichert"
 
-#: ../src/boards/smallnumbers.c:63
+#: ../src/boards/smallnumbers.c:71
 msgid "Numbers With Dices"
 msgstr "Würfel und Zahlen"
 
-#: ../src/boards/smallnumbers.c:64
+#: ../src/boards/smallnumbers.c:72
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
 msgstr "Gib die Anzahl der Augen ein (Ziffern 1-9) bevor der Würfel unten ankommt"
 
@@ -4361,8 +4386,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hilfe"
 
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:212
-#: ../src/gcompris/gameutil.c:1108 ../src/gcompris/help.c:329
+#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:208
+#: ../src/gcompris/gameutil.c:1106 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -4373,7 +4398,7 @@ msgstr ""
 "Dynamisches Laden von Modulen wird nicht unterstützt. gcompris kann nicht "
 "laden.\n"
 
-#: ../src/gcompris/board_config.c:609
+#: ../src/gcompris/board_config.c:612
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -4586,49 +4611,41 @@ msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Voreinstellung für gcompris)"
 
 #: ../src/gcompris/config.c:125
-msgid "No filter"
-msgstr "Kein Filter"
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>Benutzen Sie das Gcompris-Administrationsmodul,\n"
+"um Tafeln zu filtern</i>"
 
-#: ../src/gcompris/config.c:126
-msgid "Only this level"
-msgstr "Nur diese Ebene"
-
-#: ../src/gcompris/config.c:127
-msgid "Up to this level"
-msgstr "Bis zu dieser Ebene"
-
-#: ../src/gcompris/config.c:128
-msgid "This level and above"
-msgstr "Diese Ebene und höher"
-
-#: ../src/gcompris/config.c:186
+#: ../src/gcompris/config.c:182
 msgid "GCompris Configuration"
 msgstr "GCompris Konfiguration"
 
-#: ../src/gcompris/config.c:295
+#: ../src/gcompris/config.c:291
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: ../src/gcompris/config.c:338
+#: ../src/gcompris/config.c:334
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/gcompris/config.c:366
+#: ../src/gcompris/config.c:362
 msgid "Effect"
 msgstr "Effekt"
 
-#: ../src/gcompris/config.c:399
+#: ../src/gcompris/config.c:395
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Kann Themen-Verzeichnis %s nicht öffnen"
 
-#: ../src/gcompris/config.c:420
+#: ../src/gcompris/config.c:416
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "Keine Verkleidung in %s gefunden\n"
 
-#: ../src/gcompris/config.c:435 ../src/gcompris/config.c:820
-#: ../src/gcompris/config.c:831
+#: ../src/gcompris/config.c:431 ../src/gcompris/config.c:787
+#: ../src/gcompris/config.c:798
 #, c-format
 msgid "Skin : %s"
 msgstr "Thema: %s"
@@ -4749,13 +4766,13 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:138
 msgid ""
-"SHDIR Shared directory emplacement. For profiles and boards configuration "
-"data. [$HOME/.gcompris/shared]"
-msgstr "SHDIR Ort des gemeinsamen Verzeichnisses. Für Profile und Tafelkonfigurationen. [$HOME/.gcompris/shared]"
+"Shared directory emplacement. For profiles and boards configuration data. "
+"[$HOME/.gcompris/shared]"
+msgstr "Ort des gemeinsamen Verzeichnisses. Für Profile und Tafelkonfigurationen. [$HOME/.gcompris/shared]"
 
 #: ../src/gcompris/gcompris.c:140
-msgid "USERSDIR Users directory emplacement. [$HOME/.gcompris/users] "
-msgstr "USERSDIR Ort des Benutzerverzeichnisses. [$HOME/.gcompris/users] "
+msgid "Users directory emplacement. [$HOME/.gcompris/users] "
+msgstr "Ort des Benutzerverzeichnisses. [$HOME/.gcompris/users] "
 
 #: ../src/gcompris/gcompris.c:693
 msgid ""
@@ -4809,15 +4826,6 @@ msgstr "Liste der verfügbaren Aktivitäten:\n"
 msgid "List of available profiles are:\n"
 msgstr "Liste der verfügbaren Profile:\n"
 
-#: ../src/gcompris/gcompris_db.c:141
-#, c-format
-msgid "Database %s opened"
-msgstr "Datenbank %s geöffnet"
-
-#: ../src/gcompris/gcompris_db.c:212
-msgid "Database tables created"
-msgstr "Datenbanktabellen erzeugt"
-
 #: ../src/gcompris/gcompris_db.c:239
 msgid "Unaffected"
 msgstr "Nicht betroffen"
@@ -4825,51 +4833,6 @@ msgstr "Nicht betroffen"
 #: ../src/gcompris/gcompris_db.c:240
 msgid "Users without class"
 msgstr "Benutzer ohne Klasse"
-
-#: ../src/gcompris/gcompris_db.c:823 ../src/gcompris/gcompris_db.c:1413
-#, c-format
-msgid "No users groups for profile %s"
-msgstr "Keine Benutzergruppe für Profil %s"
-
-#: ../src/gcompris/gcompris_db.c:854 ../src/gcompris/gcompris_db.c:1446
-#, c-format
-msgid "No activities out for profile %s"
-msgstr "Keine Aktivitäten für Profil %s"
-
-#: ../src/gcompris/gcompris_db.c:1000
-#, c-format
-msgid "No users in group with id  %d"
-msgstr "Keine Benutzer in Gruppe %d"
-
-#: ../src/gcompris/gcompris_db.c:1057
-#, c-format
-msgid "No user with id  %d"
-msgstr "Kein Benutzer %d"
-
-#: ../src/gcompris/gcompris_db.c:1114
-#, c-format
-msgid "No class with id  %d"
-msgstr "Keine Klasse %d"
-
-#: ../src/gcompris/gcompris_db.c:1149
-#, c-format
-msgid "No groups in for class %s, there must be at least one for whole class (%d)"
-msgstr ""
-"Keine Gruppe für Klasse %s, es muss mindestens eine für die ganze Klasse "
-"geben (%d)"
-
-#: ../src/gcompris/gcompris_db.c:1506
-#, c-format
-msgid "No group with id  %d"
-msgstr "Keine Gruppe %d"
-
-#: ../src/gcompris/gcompris_db.c:1559 ../src/gcompris/gcompris_db.c:1759
-msgid "No groups !"
-msgstr "Keine Gruppen!"
-
-#: ../src/gcompris/gcompris_db.c:1702
-msgid "No users !"
-msgstr "Keine Benutzer!"
 
 #: ../src/gcompris/help.c:170
 msgid "Prerequisite"
