@@ -57,7 +57,7 @@
         <HTML>
           <DIV class="conteneur">
             
-            <xsl:for-each select="GComprisBoards/GCompris/Board[@section=$section]">
+            <xsl:for-each select="GComprisBoards/GCompris/Board[@section=$section and @type!='menu']">
               <!-- order the result by difficulty -->
               <xsl:sort select="@difficulty"
                 data-type="number"
