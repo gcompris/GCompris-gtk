@@ -6,6 +6,20 @@ done to bring back everything to .po files but it is not exhaustive.
 
 To complete the translation, you must also provide:
 
+Note that in the po file when you encounter string like this:
+#: ../boards/missing_letter/board1.xml.in.h:2
+msgid "apple/appl_/e/h/a"
+
+You don't have to translate apple in your language at all.
+You can and should provide words that make sense to learn in your language.
+The number in board1.xml.in means this word will be provided at level 1 of this very activity in gcompris.
+
+So here is the format description:
+   The word    The _                    3 proposals
+   to find     is the missing           chose them to
+               letter                   confuse the kid
+   apple       appl_                    / e / h / a
+
 A set of file in boards/wordsgame/wordslevelx.yy
 Where x is the level or max and yy your target locale.
 Note that these words must be choosen to be simple in your language, don't

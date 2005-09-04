@@ -133,11 +133,11 @@ static struct poptOption options[] = {
   {"profile",'p', POPT_ARG_STRING, &popt_profile, 0,
    N_("Set the profile to use. Use 'gcompris -a' to create profiles"), NULL},
   {"profile-list",'\0', POPT_ARG_NONE, &popt_profile_list, 0,
-   N_("List all availaible profiles. Use 'gcompris -a' to create profiles"), NULL},
+   N_("List all available profiles. Use 'gcompris -a' to create profiles"), NULL},
   {"shared-dir",'\0', POPT_ARG_STRING, &popt_shared_dir, 0,
-   N_("Shared directory emplacement. For profiles and boards configuration data. [$HOME/.gcompris/shared]"), NULL},
+   N_("Shared directory location, for profiles and board-configuration data: [$HOME/.gcompris/shared]"), NULL},
   {"users-dir",'\0', POPT_ARG_STRING, &popt_users_dir, 0,
-   N_("Users directory emplacement. [$HOME/.gcompris/users] "), NULL},
+   N_("The location of user directories: [$HOME/.gcompris/users]"), NULL},
 #ifndef WIN32	/* Not supported on windows */
   POPT_AUTOHELP
 #endif

@@ -368,7 +368,7 @@ class User_list:
       dialog = gtk.MessageDialog(None,
                                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                gtk.MESSAGE_INFO, gtk.BUTTONS_OK,
-                               _("Uppercased login was not unique !\n Some of them have been changed appending time . Change them : %s !") % p)
+                               _("One or more logins are not unique !\nYou need to change them: %s !") % p)
       dialog.run()
       dialog.destroy()
 
