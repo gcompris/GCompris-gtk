@@ -22,15 +22,15 @@
  
  
 ; Installer Finish Page
-!define GCOMPRIS_FINISH_VISIT_WEB_SITE		"Besuchen Sie die Windows GCompris Webseite"
+!define GCOMPRIS_FINISH_VISIT_WEB_SITE		"Besuchen Sie die Windows GCompris-Webseite"
  
 ; GCompris Section Prompts and Texts
 !define GCOMPRIS_UNINSTALL_DESC			"GCompris (nur entfernen)"
-!define GCOMPRIS_PROMPT_WIPEOUT			"Ihre altes GCompris-Verzeichnis soll gelöscht werden. Möchten Sie fortfahren?$\r$\rHinweis: Alle nicht-Standard Plugins, die Sie evtl. installiert haben werden$\rgelöscht. GCompris-Benutzereinstellungen sind nicht betroffen."
-!define GCOMPRIS_PROMPT_DIR_EXISTS		"Das Installationsverzeichnis, daß Sie angegeben haben, existiert schon. Der Verzeichnisinhalt$\rwird gelöscht. Möchten Sie fortfahren?"
+!define GCOMPRIS_PROMPT_WIPEOUT			"Ihr altes GCompris-Verzeichnis soll gelöscht werden. Möchten Sie fortfahren?$\r$\rHinweis: Alle nicht-Standard Plugins, die Sie evtl. installiert haben werden$\rgelöscht. GCompris-Benutzereinstellungen sind nicht betroffen."
+!define GCOMPRIS_PROMPT_DIR_EXISTS		"Das Installationsverzeichnis, das Sie angegeben haben, existiert schon. Der Verzeichnisinhalt$\rwird gelöscht. Möchten Sie fortfahren?"
  
  
  
 ; Uninstall Section Prompts
-!define un.GCOMPRIS_UNINSTALL_ERROR_1		"Der Deinstaller konnte keine Registrierungsschlüssel für GCompris finden.$\rEs ist wahrscheinlich, daß ein anderer Benutzer diese Anwendunng installiert hat."
+!define un.GCOMPRIS_UNINSTALL_ERROR_1		"Der Deinstaller konnte keine Registrierungsschlüssel für GCompris finden.$\rEs ist wahrscheinlich, dass ein anderer Benutzer diese Anwendunng installiert hat."
 !define un.GCOMPRIS_UNINSTALL_ERROR_2		"Sie haben keine Berechtigung, diese Anwendung zu deinstallieren."
