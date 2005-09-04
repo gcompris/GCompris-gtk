@@ -24,6 +24,7 @@ typedef struct {
   gchar         *filename;
   gchar         *description;
   gchar         *locale;
+  gchar         *level;
   GList         *words;
 } GcomprisWordlist;
 

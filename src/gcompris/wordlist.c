@@ -42,16 +42,23 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
   /* if the file doesn't exist */
   if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS))
     {
-      g_warning(_("Couldn't find file %s !"), xmlfilename);
-      return;
+      g_free(xmlfilename);
+      xmlfilename = g_strdup_printf("%s/wordgame/%s.xml", properties->package_data_dir, filename);
+      if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS)){
+	g_warning(_("Couldn't find file %s !"), xmlfilename);
+	g_free(xmlfilename);
+	return NULL;
+      }
     }
+
+  g_warning("Wordlist found %s\n", xmlfilename);
 
   xmldoc = xmlParseFile(xmlfilename);
   g_free(xmlfilename);  
 
   if(!xmldoc){
     g_warning(_("Couldn't parse file %s !"), xmlfilename);
-    return;
+    return NULL;
   }
 
   if(/* if there is no root element */
@@ -62,7 +69,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
      g_strcasecmp((gchar *)xmldoc->children->name,(gchar *)"GCompris")!=0) {
     g_warning("No Gcompris node");
     xmlFreeDoc(xmldoc);
-    return;
+    return NULL;
   }
 
   /* there is only one element child */
@@ -74,7 +81,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
      g_strcasecmp((gchar *)wlNode->name,"wordlist")!=0) {
     g_warning("No wordlist node %s", (wlNode == NULL) ? (gchar *)wlNode->name : "NULL node");
     xmlFreeDoc(xmldoc);
-    return;
+    return NULL;
   }
  
  node = wlNode->children;
@@ -83,7 +90,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
 
  if (!node){
    g_warning("No wordlist text node %s", wlNode->name);
-   return;
+   return NULL;
  }
 
  /* ok, we can process the wordlist */
@@ -103,12 +110,18 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
    wordlist->locale = g_strdup ((gchar *) text);
    xmlFree (text);
  }
+ text = xmlGetProp ( wlNode,
+		     (const xmlChar *) "level");
+ if (text) {
+   wordlist->level = g_strdup ((gchar *) text);
+   xmlFree (text);
+ }
 
  text = xmlNodeGetContent ( node);
  
- wordsArray = g_strsplit ((const gchar *) text,
-			  (const gchar *) " ",
-			  0);
+ wordsArray = g_strsplit_set ((const gchar *) text,
+			      (const gchar *) " \n\t",
+			      0);
  
  xmlFree (text);
 
@@ -130,7 +143,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
   g_free ( wordlist->filename);
   g_free ( wordlist->description);
   g_free ( wordlist->locale);
-  
+  g_free ( wordlist->level);
   
   for ( list = wordlist->words; list !=NULL; list=list->next)
     g_free(list->data);

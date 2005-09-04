@@ -5,6 +5,7 @@
 #include "py-gcompris-board.h"
 #include "py-gcompris-properties.h"
 #include "py-gcompris-profile.h"
+#include "py-gcompris-wordlist.h"
 
 /* submodules includes */
 #include "py-mod-bonus.h"
@@ -1588,6 +1589,19 @@ py_gcompris_get_current_board_dirname (PyObject* self, PyObject* args)
 
 }
 
+static PyObject*
+py_gcompris_get_wordlist_from_file (PyObject* self, PyObject* args)
+{
+  gchar *filename;
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, "s:gcompris.get_wordlist", &filename))
+    return NULL;
+
+  /* Call the corresponding C function */
+  return gcompris_new_pyGcomprisWordlistObject(gcompris_get_wordlist_from_file (filename));
+
+}
+
 
 
 /****************************************************/
@@ -1650,7 +1664,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_current_user_dirname",  py_gcompris_get_current_user_dirname, METH_VARARGS, "gcompris_get_current_user_dirname" },
   { "get_board_dirname",  py_gcompris_get_board_dirname, METH_VARARGS, "gcompris_get_board_dirname" },
   { "get_current_board_dirname",  py_gcompris_get_current_board_dirname, METH_VARARGS, "gcompris_get_current_board_dirname" },
-
+  { "get_wordlist",  py_gcompris_get_wordlist_from_file, METH_VARARGS, "gcompris_get_wordlist_from_file" },
   { NULL, NULL, 0, NULL}
 };
 

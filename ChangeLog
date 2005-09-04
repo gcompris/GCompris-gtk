@@ -1,3 +1,14 @@
+2005-09-04  Yves Combe  <yves@ycombe.net>
+
+	 checked get_wordlist utility fonction, and add binding.
+
+	* src/boards/Makefile.am:
+	* src/boards/py-mod-gcompris.c:
+	(py_gcompris_get_wordlist_from_file):
+	* src/gcompris/wordlist.c: (gcompris_get_wordlist_from_file),
+	(gcompris_wordlist_free):
+	* src/gcompris/wordlist.h:
+
 2005-09-04  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* boards/administration.xml.in: added documentation (edited from Yves)

@@ -235,6 +235,7 @@ libpython_la_SOURCES = python.c \
 	py-gcompris-board.c	py-gcompris-board.h	\
 	py-gcompris-properties.c	py-gcompris-properties.h	\
 	py-gcompris-profile.c	py-gcompris-profile.h	\
+	py-gcompris-wordlist.c	py-gcompris-wordlist.h	\
 	py-gcompris-user.c	\
 	py-gcompris-class.c	\
 	py-gcompris-group.c	\
