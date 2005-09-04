@@ -1,3 +1,73 @@
+2005-09-04  Yves Combe  <yves@ycombe.net>
+
+	add file for wordlists in xml format.
+	add missing file from yesterday's commit.
+
+	* boards/wordsgame/wordslevel_1_da.xml:
+	* boards/wordsgame/wordslevel_1_de.xml:
+	* boards/wordsgame/wordslevel_1_el.xml:
+	* boards/wordsgame/wordslevel_1_en.xml:
+	* boards/wordsgame/wordslevel_1_es.xml:
+	* boards/wordsgame/wordslevel_1_fi.xml:
+	* boards/wordsgame/wordslevel_1_fr.xml:
+	* boards/wordsgame/wordslevel_1_hu.xml:
+	* boards/wordsgame/wordslevel_1_it.xml:
+	* boards/wordsgame/wordslevel_1_lt.xml:
+	* boards/wordsgame/wordslevel_1_nb.xml:
+	* boards/wordsgame/wordslevel_1_nn.xml:
+	* boards/wordsgame/wordslevel_1_pt.xml:
+	* boards/wordsgame/wordslevel_1_pt_BR.xml:
+	* boards/wordsgame/wordslevel_1_ro.xml:
+	* boards/wordsgame/wordslevel_1_ru.xml:
+	* boards/wordsgame/wordslevel_1_sk.xml:
+	* boards/wordsgame/wordslevel_1_sl.xml:
+	* boards/wordsgame/wordslevel_1_sv.xml:
+	* boards/wordsgame/wordslevel_2_da.xml:
+	* boards/wordsgame/wordslevel_2_de.xml:
+	* boards/wordsgame/wordslevel_2_el.xml:
+	* boards/wordsgame/wordslevel_2_en.xml:
+	* boards/wordsgame/wordslevel_2_es.xml:
+	* boards/wordsgame/wordslevel_2_fi.xml:
+	* boards/wordsgame/wordslevel_2_fr.xml:
+	* boards/wordsgame/wordslevel_2_it.xml:
+	* boards/wordsgame/wordslevel_2_lt.xml:
+	* boards/wordsgame/wordslevel_2_nb.xml:
+	* boards/wordsgame/wordslevel_2_nn.xml:
+	* boards/wordsgame/wordslevel_2_pt.xml:
+	* boards/wordsgame/wordslevel_2_pt_BR.xml:
+	* boards/wordsgame/wordslevel_2_ro.xml:
+	* boards/wordsgame/wordslevel_2_ru.xml:
+	* boards/wordsgame/wordslevel_2_sk.xml:
+	* boards/wordsgame/wordslevel_2_sl.xml:
+	* boards/wordsgame/wordslevel_2_sv.xml:
+	* boards/wordsgame/wordslevel_3_fr.xml:
+	* boards/wordsgame/wordslevel_3_lt.xml:
+	* boards/wordsgame/wordslevel_max_da.xml:
+	* boards/wordsgame/wordslevel_max_de.xml:
+	* boards/wordsgame/wordslevel_max_el.xml:
+	* boards/wordsgame/wordslevel_max_en.xml:
+	* boards/wordsgame/wordslevel_max_es.xml:
+	* boards/wordsgame/wordslevel_max_fi.xml:
+	* boards/wordsgame/wordslevel_max_fr.xml:
+	* boards/wordsgame/wordslevel_max_hu.xml:
+	* boards/wordsgame/wordslevel_max_it.xml:
+	* boards/wordsgame/wordslevel_max_lt.xml:
+	* boards/wordsgame/wordslevel_max_nb.xml:
+	* boards/wordsgame/wordslevel_max_nl.xml:
+	* boards/wordsgame/wordslevel_max_nn.xml:
+	* boards/wordsgame/wordslevel_max_pt.xml:
+	* boards/wordsgame/wordslevel_max_pt_BR.xml:
+	* boards/wordsgame/wordslevel_max_ro.xml:
+	* boards/wordsgame/wordslevel_max_ru.xml:
+	* boards/wordsgame/wordslevel_max_sk.xml:
+	* boards/wordsgame/wordslevel_max_sl.xml:
+	* boards/wordsgame/wordslevel_max_sv.xml:
+	* src/boards/py-gcompris-wordlist.c:
+	(gcompris_new_pyGcomprisWordlistObject),
+	(pyGcomprisWordlistType_dealloc), (pyGcomprisWordlistType_getattr),
+	(pyGcomprisWordlistType_setattr):
+	* src/boards/py-gcompris-wordlist.h:
+
 2005-09-04  bruno coudoin
 
 	Fixed english text. Bug #315177
