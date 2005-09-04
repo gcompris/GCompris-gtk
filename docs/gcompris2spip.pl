@@ -84,6 +84,7 @@ my %sections = (
 		'sr@Latn', 0,
 		"sv", 0,
 		"tr", 0,
+		"vi", 0,
 		"wa", 0,
 		"zh_CN", 0,
 	       );
@@ -134,6 +135,7 @@ my %rubriques = (
 		 'sr@Latn', 0,
 		 "sv", 0,
 		 "tr", 0,
+		 "vi", 0,
 		 "wa", 0,
 		 "zh_CN", 0,
 		);
@@ -185,6 +187,7 @@ my %rubriques_all = (
 		 'sr@Latn', 0,
 		 "sv", 0,
 		 "tr", 0,
+		 "vi", 0,
 		 "wa", 0,
 		 "zh_CN", 0,
 		);
