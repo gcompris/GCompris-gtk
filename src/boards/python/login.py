@@ -553,7 +553,7 @@ class Gcompris_login:
     gcompris.separator()
 
     # toggle box
-    entry_text = gcompris.boolean_box(_('Enter login to log'),
+    entry_text = gcompris.boolean_box(_('Enter login to log in'),
                                         'entry_text',
                                         eval(self.config_dict['entry_text'])
                                         )

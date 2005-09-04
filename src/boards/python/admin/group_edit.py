@@ -57,7 +57,7 @@ class GroupEdit(gtk.Window):
         # Will be called to refresh the list when edit is done
         self.group_user = group_user
         
-        self.set_title(_("Group Edition"))
+        self.set_title(_("Editing a Group"))
         self.set_border_width(8)
         self.set_default_size(320, 350)
 
@@ -110,7 +110,7 @@ class GroupEdit(gtk.Window):
 
 
         # Top message gives instructions
-        label = gtk.Label(_('Assign all the users bellonging to this group'))
+        label = gtk.Label(_('Assign all the users belonging to this group'))
         vbox.pack_start(label, False, False, 0)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
 

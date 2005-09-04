@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/07/25 00:17:41 bruno>
+ * Time-stamp: <2005/09/04 20:27:32 brunoa>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -626,7 +626,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     /* replace '~' by home dir */
     pathname = g_strdup_printf("%s%s",g_get_home_dir(), pathname+1);
     if (!g_file_test ((pathname), G_FILE_TEST_IS_DIR)){
-       g_warning(_("In ImageSet %s, home pathname %s is not found. Skipping ImageSet...\n"), imageSetName, pathname);
+       g_warning(_("In ImageSet %s, the pathname for the home directory '%s' is not found. Skipping the whole ImageSet.\n"), imageSetName, pathname);
       return;
     }
   }

@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/08/28 15:01:23 yves>
+ * Time-stamp: <2005/09/04 19:45:03 brunoa>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -466,7 +466,7 @@ static gint key_press(guint keyval)
       if(edit_mode)
 	{
 	  write_xml_file("/tmp/gcompris-board.xml");
-	  gcompris_dialog(_("This board data are saved under\n/tmp/gcompris-board.xml"), NULL);
+	  gcompris_dialog(_("The data from this activity are saved under\n/tmp/gcompris-board.xml"), NULL);
 	}
       break;
     case 'd':

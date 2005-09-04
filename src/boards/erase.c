@@ -49,7 +49,7 @@ static int number_of_item_y = 0;
 
 static gint timer_id = 0;
 
-// Default Double clic distance to restore on exit.
+// Default Double click distance to restore on exit.
 static gint DefaultDoubleClicDistance;
 
 static gint DoubleClicLevel[6]= {  1000, 750, 600, 500, 400, 250};
@@ -160,12 +160,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  g_object_get(G_OBJECT(DefaultsGtkSettings), 
 		       "gtk-double-click-time", &DefaultDoubleClicDistance, NULL);
 	  
-	  g_warning(_("Double clic default value %d."),DefaultDoubleClicDistance);
+	  g_warning(_("Double click default value %d."),DefaultDoubleClicDistance);
 	}
 
 	gdk_display_set_double_click_time( gdk_display_get_default(),
 					   DoubleClicLevel[gcomprisBoard->level-1]);
-	g_warning(_("Double clic value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+	g_warning(_("Double click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
       }
 
       erase_next_level();
@@ -180,7 +180,7 @@ static void end_board ()
   if (board_mode == DOUBLECLIC){
     gdk_display_set_double_click_time( gdk_display_get_default(),
 					   DefaultDoubleClicDistance);
-    g_warning(_("Double clic value is now %d."),DefaultDoubleClicDistance);
+    g_warning(_("Double click value is now %d."),DefaultDoubleClicDistance);
   }
   if(gcomprisBoard!=NULL)
     {
@@ -203,7 +203,7 @@ static void set_level (guint level)
   if (board_mode == DOUBLECLIC){
     gdk_display_set_double_click_time( gdk_display_get_default(),
 				       DoubleClicLevel[gcomprisBoard->level-1]);
-    g_warning(_("Double clic value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+    g_warning(_("Double click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
   }
   
 }
@@ -334,7 +334,7 @@ static void game_won()
     if (board_mode == DOUBLECLIC){
       gdk_display_set_double_click_time( gdk_display_get_default(),
 					 DoubleClicLevel[gcomprisBoard->level-1]);
-      g_warning(_("Double clic value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+      g_warning(_("Double click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
     }
 
     gcompris_play_ogg ("bonus", NULL);

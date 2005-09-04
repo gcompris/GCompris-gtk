@@ -104,7 +104,7 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("Find your left and right hands"),
-    N_("Given pictures of hands, find if it's a right or left one"),
+    N_("Given each picture of a hand, indentify it as either left or right"),
     "Pascal Georges pascal.georges1@free.fr>",
     NULL,
     NULL,

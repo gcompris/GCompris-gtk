@@ -111,7 +111,7 @@ static BoardPlugin menu_bp =
    NULL,
    NULL,
    N_("Reading"),
-   N_("Read a list of words and then tell if the given word is in it"),
+   N_("Read a list of words to see if the given word is there."),
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

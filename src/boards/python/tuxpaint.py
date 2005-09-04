@@ -114,7 +114,7 @@ class Gcompris_tuxpaint:
 
     textItem = self.rootitem.add(
       gnome.canvas.CanvasText,
-      text = _("Waiting Tuxpaint Finished"), 
+      text = _("Waiting for Tuxpaint finishes"), 
       x = gcompris.BOARD_WIDTH/2, 
       y = 185,
       fill_color_rgba = 0x000000ffL, 
@@ -169,7 +169,7 @@ class Gcompris_tuxpaint:
                                                    self.apply_callback)
 
 
-    gcompris.boolean_box(_('Follow gcompris fullscreen'), 'fullscreen', eval(self.config_dict['fullscreen']))
+    gcompris.boolean_box(_('Inherit fullscreen setting from GCompris'), 'fullscreen', eval(self.config_dict['fullscreen']))
 
     gcompris.separator()
 

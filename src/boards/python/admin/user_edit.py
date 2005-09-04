@@ -47,12 +47,12 @@ class UserEdit(gtk.Window):
         # Will be called to refresh the list when edit is done
         self.list_user = list_user
         
-        self.set_title(_("User Edition"))
+        self.set_title(_("Editing a User"))
         self.set_border_width(8)
         self.set_default_size(320, 250)
 
         if(firstname and lastname):
-            frame = gtk.Frame(_("Editing user ") +
+            frame = gtk.Frame(_("Editing a User ") +
                               lastname + " " +
                               firstname)
             self.new_user = False

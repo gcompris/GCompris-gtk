@@ -1,3 +1,98 @@
+2005-09-04  bruno coudoin
+
+	Fixed english text. Bug #315177
+	http://bugzilla.gnome.org/show_bug.cgi?id=315177
+	Thanks to Clytie Siddall for this complete fixup of our
+	bad english.
+	It's very important for an educational software like GCompris to be
+	as correct as possible in the text messages.
+
+	* boards/anim.xml.in:
+	* boards/babymatch.xml.in:
+	* boards/ballcatch.xml.in:
+	* boards/bargame.xml.in:
+	* boards/billard.xml.in:
+	* boards/canal_lock.xml.in:
+	* boards/chronos.xml.in:
+	* boards/chronos/board4_0.xml.in:
+	* boards/chronos/board4_1.xml.in:
+	* boards/chronos/board4_2.xml.in:
+	* boards/clickgame.xml.in:
+	* boards/clockgame.xml.in:
+	* boards/colors_group.xml.in:
+	* boards/connect4.xml.in:
+	* boards/doubleentry.xml.in:
+	* boards/draw.xml.in:
+	* boards/experience.xml.in:
+	* boards/followline.xml.in:
+	* boards/geography.xml.in:
+	* boards/geography/board1_0.xml.in:
+	* boards/geography/board2_0.xml.in:
+	* boards/geography/board3_0.xml.in:
+	* boards/geography/board3_1.xml.in:
+	* boards/geography/board4_0.xml.in:
+	* boards/geography/board4_1.xml.in:
+	* boards/geography/board4_2.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/login.xml.in:
+	* boards/memory.xml.in:
+	* boards/menu.xml.in:
+	* boards/missing_letter.xml.in:
+	* boards/money.xml.in:
+	* boards/readingh.xml.in:
+	* boards/reversecount.xml.in:
+	* boards/scales/board1_0.xml.in:
+	* boards/scales/board1_1.xml.in:
+	* boards/scales/board1_2.xml.in:
+	* boards/scales/board1_3.xml.in:
+	* boards/scales/board1_4.xml.in:
+	* boards/scales/board1_5.xml.in:
+	* boards/scales/board2_0.xml.in:
+	* boards/scales/board2_1.xml.in:
+	* boards/scales/board2_2.xml.in:
+	* boards/scales/board2_3.xml.in:
+	* boards/scales/board2_4.xml.in:
+	* boards/scales/board2_5.xml.in:
+	* boards/scales/board3_0.xml.in:
+	* boards/scales/board3_1.xml.in:
+	* boards/scales/board3_2.xml.in:
+	* boards/scales/board3_3.xml.in:
+	* boards/scales/board3_4.xml.in:
+	* boards/scales/board3_5.xml.in:
+	* boards/scalesboard.xml.in:
+	* boards/searace.xml.in:
+	* boards/smallnumbers2.xml.in:
+	* boards/sudoku.xml.in:
+	* boards/target.xml.in:
+	* boards/traffic.xml.in:
+	* src/boards/chess.c: (start_board):
+	* src/boards/click_on_letter.c: (sounds_are_fine):
+	* src/boards/clockgame.c:
+	* src/boards/erase.c: (start_board), (end_board), (set_level),
+	(game_won):
+	* src/boards/hanoi.c: (hanoi_create_item):
+	* src/boards/leftright.c:
+	* src/boards/python/admin/class_edit.py:
+	* src/boards/python/admin/group_edit.py:
+	* src/boards/python/admin/profile_edit.py:
+	* src/boards/python/admin/user_edit.py:
+	* src/boards/python/admin/user_list.py:
+	* src/boards/python/login.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/tuxpaint.py:
+	* src/boards/reading.c:
+	* src/boards/shapegame.c: (key_press):
+	* src/boards/smallnumbers.c:
+	* src/boards/target.c:
+	* src/boards/wordsgame.c:
+	* src/gcompris/config.c:
+	* src/gcompris/gcompris.c: (setup_window), (gcompris_init):
+	* src/gcompris/gcompris_db.c: (gcompris_get_profile_from_id),
+	(gcompris_get_users_from_group), (gcompris_get_class_from_id):
+	* src/gcompris/images_selector.c: (parseImage):
+
 2005-09-04  Yves Combe  <yves@ycombe.net>
 
 	 checked get_wordlist utility fonction, and add binding.

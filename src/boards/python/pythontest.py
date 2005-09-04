@@ -138,7 +138,7 @@ class Gcompris_pythontest:
       gnome.canvas.CanvasText,
       x=400.0,
       y=140.0,
-      text=_("It is now possible to develop gcompris activies in C or in Python.\n Thanks to Olivier Samys who makes this possible."),
+      text=_("It is now possible to develop gcompris activities in C or in Python.\nThanks to Olivier Samys who makes this possible."),
       fill_color="white",
       justification=gtk.JUSTIFY_CENTER
       )
@@ -394,7 +394,7 @@ class Gcompris_pythontest:
 
     # combo box
     self.color_choice = \
-       gcompris.combo_box(_('Color line'),
+       gcompris.combo_box(_('Colour of the line'),
                           self.config_colors_list,
                           'color_line',
                           self.config_dict['color_line']

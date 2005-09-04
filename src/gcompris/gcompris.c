@@ -117,11 +117,11 @@ static struct poptOption options[] = {
   {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
    N_("Disable XRANDR (No screen resolution change)."), NULL},
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
-   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity), -l list show the list of menus and activity"), NULL},
+   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity), -l list shows the list of menus and activities"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
-   N_("Run gcompris with local activity directory added to menu"), NULL},
+   N_("Run GCompris with local activity directory added to menu"), NULL},
   {"administration", 'a', POPT_ARG_NONE, &popt_administration, 0,
-   N_("Run gcompris with administration and users management mode"), NULL},
+   N_("Run GCompris in administration and user-management mode"), NULL},
   {"database", 'b', POPT_ARG_STRING, &popt_database, 0,
    N_("Use alternate database for profiles"), NULL},
   {"logs", 'j', POPT_ARG_STRING, &popt_logs_database, 0,
@@ -690,7 +690,7 @@ static void setup_window ()
   {
     if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
       board_pause();
-      gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://gcompris.net\nThe Linux version does not have this restriction. Note that gcompris is being developped to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information on\nhttp://www.fsf.org/philosophy"), NULL);
+      gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://gcompris.net\nThe Linux version does not have this restriction. Note that gcompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information at FSF:\nhttp://www.fsf.org/philosophy"), NULL);
     }
   }
 #endif
@@ -1036,7 +1036,7 @@ gcompris_init (int argc, char *argv[])
   if (popt_root_menu){
     if (strcmp(popt_root_menu,"list")==0){
       /* check the list of possible values for -l, then exit */
-      printf(_("Use -l activity to access directly to activity.\n"));
+      printf(_("Use -l to access an activity directly.\n"));
       printf(_("List of available activity is :\n"));
       properties->root_menu = "/";
 
@@ -1179,7 +1179,7 @@ gcompris_init (int argc, char *argv[])
 
     profile_list = gcompris_get_profiles_list();
 
-    printf(_("List of available profiles are:\n"));
+    printf(_("The list of available profiles is:\n"));
     for(i=0; i< g_list_length(profile_list); i++)
       {
 	GcomprisProfile *profile = g_list_nth_data(profile_list, i);

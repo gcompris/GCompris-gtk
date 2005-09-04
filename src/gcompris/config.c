@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/09/03 23:16:06 bruno>
+ * Time-stamp: <2005/09/04 19:50:58 brunoa>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -61,14 +61,14 @@ static gchar *linguas[] = {
   "",			N_("Your system default"),
   "am_ET.UTF-8", 	N_("Amharic"),
   "ar_AE.UTF-8", 	N_("Arabic"),
-  "az_AZ.UTF-8", 	N_("Azerbaijani Turkic"),
+  "az_AZ.UTF-8", 	N_("Turkish (Azerbaijan)"),
   "bg_BG.UTF-8",	N_("Bulgarian"),
   "ca_ES.UTF-8",	N_("Catalan"),
   "cs_CZ.UTF-8",	N_("Czech"),
   "da_DK.UTF-8", 	N_("Danish"),
   "de_DE.UTF-8", 	N_("German"),
   "el_GR.UTF-8", 	N_("Greek"),
-  "en_CA.UTF-8",	N_("English (Canadian)"),
+  "en_CA.UTF-8",	N_("English (Canada)"),
   "en_GB.UTF-8",	N_("English (Great Britain)"),
   "en_US.UTF-8",	N_("English (USA)"),
   "es_ES.UTF-8", 	N_("Spanish"),
@@ -76,9 +76,9 @@ static gchar *linguas[] = {
   "fr_FR.UTF-8", 	N_("French"),
   "ga_IE.UTF-8", 	N_("Irish (Gaelic)"),
   "he_IL.UTF-8",	N_("Hebrew"),
-  "hi_IN.UTF-8",	N_("Indian (Hindi)"),
-  "gu_IN.UTF-8",	N_("Indian (Gujarati)"),
-  "pa_IN.UTF-8",	N_("Indian (Punjabi)"),
+  "hi_IN.UTF-8",	N_("Hindi"),
+  "gu_IN.UTF-8",	N_("Gujarati"),
+  "pa_IN.UTF-8",	N_("Punjabi"),
   "hu_HU.UTF-8",	N_("Hungarian"),
   "hr_HR.UTF-8",	N_("Croatian"),
   "it_IT.UTF-8", 	N_("Italian"),
@@ -92,7 +92,7 @@ static gchar *linguas[] = {
   "nn_NO.UTF-8",	N_("Norwegian Nynorsk"),
   "pl_PL.UTF-8",	N_("Polish"),
   "pt_PT.UTF-8",	N_("Portuguese"),
-  "pt_BR.UTF-8",	N_("Brazil Portuguese"),
+  "pt_BR.UTF-8",	N_("Portuguese (Brazil)"),
   "ro_RO.UTF-8",	N_("Romanian"),
   "ru_RU.UTF-8",	N_("Russian"),
   "rw_RW.UTF-8",	N_("Kinyarwanda"),

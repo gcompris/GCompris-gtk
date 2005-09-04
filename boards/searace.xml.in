@@ -9,25 +9,20 @@
 	 author="Bruno Coudoin (bruno.coudoin@free.fr)"
 	 boarddir="searace">
 	 <_title>Sea race (2 Players)</_title>
-	 <_description>Give good instructions to your ship in order to be first
-in the race.</_description>
+	 <_description>Direct your boat accurately to win the race.</_description>
 	<_prerequisite></_prerequisite>
 	<_goal>In this activity, you will learn how to enter commands to a computer.
 Even if the language is extremely basic, you learn here how to think ahead and enter a program.
 This activity can be used to introduce the programming concept to kids.</_goal>
-	<_manual>In the text entry, enter line by line commands to give direction to your boat.
-Commands supported are displayed between the two entry area.
-The 'left' and 'right' commands must be suffixed by an angle in degree. The angle value is also
-called a 'parameter' to the left or right command. By default 45 degree is used.
-The 'forward' command accept a distance parameter. By default 1 is used.
-For example:
-left 90    => Make a perpendicular left turn
-forward 10 => Go forward for 10 units (as displayed in the ruler)
-The goal is to reach the right of the screen (the red line).
-When done, you can try to improve your program and start a new race with the same weather
- conditions by using the retry button.
-You can click and drag your mouse anywhere on the map to get a measurement in distance
-and angle.
-Going to the next level will give your more complex weather conditions.</_manual>
+	<_manual>In the text box, enter commands, line by line, to direct your ship. You can use any of the commands shown between the two entry areas. When you use the "left" or "right" commands, you have to tell the ship how far you want it to turn, in degrees (e.g. "left 30" degrees). Giving special measurements like this is also called 'passing a parameter': this is how we tell the computer how much to do something. 
+The "forward" command accepts a distance parameter, so you can tell it how far you want your ship to move. The default is 1, so if you don't add that parameter, each move will be 1 unit. (Defaults are handy values that help the computer out when we don't pass any parameters.) 
+
+So you could say:
+"left 90" : make a perpendicular turn (a whole corner) to the left.
+"forward 10" : go ahead 10 units (as shown on the ruler).
+
+The goal is to reach the right edge of the screen (the red line). When you get there, you can try to improve your program, with the same weather conditions, and try again, using the Retry button.
+You can click and drag your mouse anywhere on the map, to show a measurement of distance (how far) and angle (how much turn).
+Going to the next level will introduce more complex weather conditions: a fun challenge for a budding programmer. ;)</_manual>
   </Board>
 </GCompris>
