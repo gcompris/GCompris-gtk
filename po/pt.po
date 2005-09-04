@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-08-23 14:27+0200\n"
-"PO-Revision-Date: 2005-08-23 22:52+0200\n"
+"PO-Revision-Date: 2005-09-04 21:36+0200\n"
 "Last-Translator: Jose Jorge <jjorge@free.fr>\n"
 "Language-Team: português <pt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2212,6 +2212,12 @@ msgid ""
 "where 'profile'\n"
 "is the name of a profile as you created it in the administration."
 msgstr ""
+"Para activar o ecrã de identificação, deve primeiro adicionar utilizadores com o Administrador do GCompris.\n"
+"Pode aceder ao Administrador lançando 'gcompris -a'.\n"
+"No Administrador, pode criar diferentes perfiles. Em "
+"cada perfil pode ter um grupo de utilizadores "
+"diferentes e escolher as actividades disponivéis para eles.\n"
+"Para iniciar Gcompris sob um perfil, pode lançar 'gcompris -p perfil' onde 'perfil' é o nome dum perfil que criou no Administrador."
 
 #: ../boards/login.xml.in.h:10
 msgid "Select or enter your name to log in GCompris"
@@ -3083,11 +3089,11 @@ msgstr ""
 msgid ""
 "Click on an empty square to give it the keyboard focus. Then enter a "
 "possible number. GCompris will not let you enter invalid number."
-msgstr ""
+msgstr "Carrega num quadrado vazio para o activar. Escreve então um número válido. O GCompris não vai aceitar que escrevas um número inválido."
 
 #: ../boards/sudoku.xml.in.h:2
 msgid "Each number must be unique in a raw, in a column and in each 3x3 region."
-msgstr ""
+msgstr "Cada número de ser único na linha, na coluna, e na zona 3x3."
 
 #: ../boards/sudoku.xml.in.h:3
 msgid "Sudoku, place unique numbers in a square."
@@ -3102,6 +3108,8 @@ msgid ""
 "each numeral. Completing the puzzle requires patience and logical ability "
 "(Source http://en.wikipedia.org/wiki/Sudoku)"
 msgstr ""
+"O objectivo do quebra-cabeças é de entrar cifres entre 1 e 9 em cada quadrado da grelha, frequentemente grelhas de 9x9 que contêem grelhas de 3x3 (chamadas 'zonas'), começando com alguns números já metidos (os 'dados'). Cada linha, coluna, e zona só pode ter uma vez um cifre igual. Terminar o quebra-cabeças pede paciência e capacidades lógicas "
+"(Fonte http://pt.wikipedia.org/wiki/Sudoku)"
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -3573,7 +3581,7 @@ msgstr "Professor:"
 
 #: ../src/boards/python/admin/class_edit.py:111
 msgid "Assign all the users bellonging to this class"
-msgstr ""
+msgstr "Nomeie todos os utilizadores que pertencem a esta turma"
 
 #: ../src/boards/python/admin/class_edit.py:251
 #: ../src/boards/python/admin/group_edit.py:265
@@ -3637,7 +3645,7 @@ msgstr "Descrição:"
 #. Top message gives instructions
 #: ../src/boards/python/admin/group_edit.py:113
 msgid "Assign all the users bellonging to this group"
-msgstr ""
+msgstr "Nomeie todos os utilizadores que pertencem a este grupo"
 
 #: ../src/boards/python/admin/group_edit.py:359
 msgid "You need to provide at least a name for your group"
@@ -3722,7 +3730,7 @@ msgstr "Perfil:"
 #. Top message gives instructions
 #: ../src/boards/python/admin/profile_edit.py:109
 msgid "Assign all the groups bellonging to this profile"
-msgstr ""
+msgstr "Nomeie todos os grupos que pertencem a este perfil"
 
 #: ../src/boards/python/admin/profile_edit.py:377
 msgid "You need to provide at least a name for your profile"
@@ -3792,6 +3800,10 @@ msgid ""
 "login;First name;Last name;Birth date\n"
 "The separator is autodetected and can be one of ',', ';' or ':'"
 msgstr ""
+"Para importar uma lista de utilizadores a partir dum ficheiro, seleccione primeiro uma turma.\n"
+"FORMATO DE FICHEIRO: O seu ficheiro deve ser formatado assim:\n"
+"login;nome;apelido;data de aniversário\n"
+"O separador pode ser ',', ';' ou ':'"
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -3920,12 +3932,12 @@ msgstr "Login: "
 #. toggle box
 #: ../src/boards/python/login.py:522
 msgid "Uppercase only text"
-msgstr ""
+msgstr "Texto sómente em maiúsculas"
 
 #. toggle box
 #: ../src/boards/python/login.py:532
 msgid "Enter login to log"
-msgstr ""
+msgstr "Entre o login para abrir"
 
 #: ../src/boards/python/pythontest.py:129
 msgid ""
@@ -3949,9 +3961,8 @@ msgstr "Esta actividade não pode ser jogada por agora, é só um teste"
 
 #. toggle box
 #: ../src/boards/python/pythontest.py:385
-#, fuzzy
 msgid "Disable line drawing in circle"
-msgstr "Desactivar"
+msgstr "Desactivar o desenho de linhas nos círculos"
 
 #. combo box
 #: ../src/boards/python/pythontest.py:394
@@ -3961,25 +3972,24 @@ msgstr "Linha Colorida"
 #. spin button for int
 #: ../src/boards/python/pythontest.py:405
 msgid "Distance between circles"
-msgstr ""
+msgstr "Distância entre círculos"
 
 #. radio buttons for circle or rectangle
 #: ../src/boards/python/pythontest.py:416
 msgid "Use circles"
-msgstr ""
+msgstr "Usar círculos"
 
 #: ../src/boards/python/pythontest.py:417
 msgid "Use rectangles"
-msgstr ""
+msgstr "Usar rectângulos"
 
 #: ../src/boards/python/pythontest.py:420
 msgid "Choice of pattern"
 msgstr "Escolha do desenho"
 
 #: ../src/boards/python/pythontest.py:457
-#, fuzzy
 msgid "Keys and values returned by PythonTest config window:"
-msgstr "Chaves:"
+msgstr "Chaves e valores dados pela janela de configuração do PythonTest:"
 
 #: ../src/boards/python/redraw.py:348 ../src/boards/python/redraw.py:358
 msgid "Level"
@@ -4066,7 +4076,7 @@ msgstr "Desactivar a rotação das formas"
 
 #: ../src/boards/python/tuxpaint.py:180
 msgid "Show Uppercase text only"
-msgstr ""
+msgstr "Mostrar o texto sómente em maiúsculas"
 
 #: ../src/boards/python/tuxpaint.py:184
 msgid "Disable stamps"
@@ -4595,34 +4605,31 @@ msgstr "Lança gcompris com uma pasta de actividades local adicionada ao menu"
 
 #: ../src/gcompris/gcompris.c:122
 msgid "Run gcompris with administration and users management mode"
-msgstr ""
+msgstr "Inicia o GCompris em modo Administrador de Utilizadores"
 
 #: ../src/gcompris/gcompris.c:124
 msgid "Use alternate database for profiles"
-msgstr ""
+msgstr "Utilizar a base de dados alternativa para os perfiles"
 
 #: ../src/gcompris/gcompris.c:126
 msgid "Use alternate database for logs"
-msgstr ""
+msgstr "Utilizar a base de dados alternativa para os registos"
 
 #: ../src/gcompris/gcompris.c:128
-#, fuzzy
 msgid "Create the alternate database for profiles"
-msgstr "Criar"
+msgstr "Criara base de dados alternativa para os perfiles"
 
 #: ../src/gcompris/gcompris.c:130
-#, fuzzy
 msgid "Re-read XML Menus and store them in the database"
-msgstr "Menus"
+msgstr "Re-ler os Menus XML e gravar-los na base de dados"
 
 #: ../src/gcompris/gcompris.c:132
-#, fuzzy
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
-msgstr "Definir uso"
+msgstr "Define o perfil a utilizar. Utilize 'gcompris -a' para criar perfiles"
 
 #: ../src/gcompris/gcompris.c:134
 msgid "List all availaible profiles. Use 'gcompris -a' to create profiles"
-msgstr ""
+msgstr "Lista todos os perfiles disponíveis. Utilize 'gcompris -a' para criar perfiles"
 
 #: ../src/gcompris/gcompris.c:691
 msgid ""
@@ -4663,89 +4670,77 @@ msgstr ""
 #: ../src/gcompris/gcompris.c:1038
 #, c-format
 msgid "Use -l activity to access directly to activity.\n"
-msgstr ""
+msgstr "Utilize -l actividade para aceder directamente à actividade.\n"
 
 #: ../src/gcompris/gcompris.c:1039
 #, c-format
 msgid "List of available activity is :\n"
-msgstr ""
+msgstr "A lista das actividades disponíveis é:\n"
 
 #: ../src/gcompris/gcompris.c:1137
 #, c-format
 msgid "List of available profiles are:\n"
-msgstr ""
+msgstr "A lista dos perfiles disponíveis é:\n"
 
 #: ../src/gcompris/gcompris_db.c:98
 #, c-format
-#, fuzzy
 msgid "Database %s opened"
-msgstr "Base de Dados"
+msgstr "Base de Dados %s aberta"
 
 #: ../src/gcompris/gcompris_db.c:143
-#, fuzzy
 msgid "Database tables created"
-msgstr "Base de Dados"
+msgstr "Base de Dados criada"
 
 #: ../src/gcompris/gcompris_db.c:170
 msgid "Unaffected"
-msgstr ""
+msgstr "Não afetado"
 
 #: ../src/gcompris/gcompris_db.c:171
-#, fuzzy
 msgid "Users without class"
-msgstr "Utilizadores"
+msgstr "Utilizadores sem turma"
 
 #: ../src/gcompris/gcompris_db.c:754 ../src/gcompris/gcompris_db.c:1332
 #, c-format
-#, fuzzy
 msgid "No users groups for profile %s"
-msgstr "Não"
+msgstr "Nenhum grupo de utilizadores no perfil %s"
 
 #: ../src/gcompris/gcompris_db.c:785 ../src/gcompris/gcompris_db.c:1365
 #, c-format
-#, fuzzy
 msgid "No activities out for profile %s"
-msgstr "Não"
+msgstr "Nenhuma actividade para o perfil %s"
 
 #: ../src/gcompris/gcompris_db.c:931
 #, c-format
-#, fuzzy
 msgid "No users in group with id  %d"
-msgstr "Não grupo"
+msgstr "Nenhum utilizador no grupo com id  %d"
 
 #: ../src/gcompris/gcompris_db.c:988
 #, c-format
-#, fuzzy
 msgid "No user with id  %d"
-msgstr "Não utilizador"
+msgstr "Nenhum utilizador com id  %d"
 
 #: ../src/gcompris/gcompris_db.c:1045
 #, c-format
-#, fuzzy
 msgid "No class with id  %d"
-msgstr "Não"
+msgstr "Nenhuma turma com id  %d"
 
 #: ../src/gcompris/gcompris_db.c:1080
 #, c-format
-#, fuzzy
 msgid "No groups in for class %s, there must be at least one for whole class (%d)"
-msgstr "Não"
+msgstr "Nenhum grupo para a turma %s, é preciso pelo menos um para toda a turma (%d)"
 
 #: ../src/gcompris/gcompris_db.c:1425
 #, c-format
-#, fuzzy
 msgid "No group with id  %d"
-msgstr "Não grupo"
+msgstr "Nenhum grupo com id  %d"
 
 #: ../src/gcompris/gcompris_db.c:1478 ../src/gcompris/gcompris_db.c:1678
-#, fuzzy
 msgid "No groups !"
-msgstr "Não!"
+msgstr "Nenhum grupo!"
 
 #: ../src/gcompris/gcompris_db.c:1621
-#, fuzzy
 msgid "No users !"
-msgstr "Não!"
+msgstr "Nenhum utilizador!"
 
 #: ../src/gcompris/help.c:170
 msgid "Prerequisite"
