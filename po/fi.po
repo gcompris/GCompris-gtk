@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-06 05:57+0300\n"
-"PO-Revision-Date: 2005-09-06 06:30+0300\n"
+"POT-Creation-Date: 2005-09-07 07:16+0300\n"
+"PO-Revision-Date: 2005-09-07 07:16+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,22 @@ msgid ""
 "also recognizes the children as individuals; they can learn to type in, and "
 "recognize their own usernames (login is configurable)."
 msgstr ""
+"- Osasta \"Laudat\" voit muuttaa listaa valittavista tehtävistä poistamalla "
+"tai lisäämällä niiden valinnan puunäkymästä. Voit myös muuttaa lukemiseen "
+"käytettävää kieltä, jota käytetään esimerkiksi värien nimen lausumiseen. "
+"- Voit tallentaa useita asetuksia ja vaihtaa niiden välillä helposti. Kohdasta "
+"\"Profiili\" lisätään profiili ja \"Laudat\" kohdasta liitetään halutut tehtävät "
+"tähän uuteen profiiliin. Voit lisätä suurenkin määrän eri profiileja, joilla "
+"kullakin on eri laudat ja eri kielet. Oletusprofiili voidaaan asettaa "
+"valitsemalla \"Oletus\"-painike kun haluttu profiili on valittu. Normaalisti "
+"profiili annetaan komentoriviltä. - Voit lisätä käyttäjiä, luokkia ja liittää "
+"ryhmän käyttäjiä kuhunkin luokkaan. Käyttäjä listat voidaan tuoda pilkuilla "
+"erotetuissa tiedostoissa ohjelmaan. Liitä yksi tai useampi ryhmä profiiliin, "
+"jonka jälkeen nämä uudet kirjautumiset näkyvän GComprisin käynnistyksen "
+"jälkeen. Yksittäisten lasten tunnistaminen tarkoittaa, että kunkin lapsen "
+"kehityksestä voidaan antaa omat tulokset. Lapset oppivat myös tunnistautumaan "
+"koneen kanssa yksilöinä, eli kirjoittamaan ja tunnistamaan käyttäjätunnuksensa."
+
 
 #: ../boards/administration.xml.in.h:2
 msgid "GCompris Administration Menu"
@@ -48,6 +64,10 @@ msgid ""
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and weakenesses of their children."
 msgstr ""
+"Jos haluat säätää GComprisia tarkemmin omiin tarpeisiisi, voit käyttää "
+"ohjelman hallintaosaa tästä. Hallintaosan päätarkoitus on tarjota vanhemmille "
+"ja opettajalle lapsikohtaiset tulokset, joiden avulla voidaan seurata lapsen "
+"kehitystä, vahvuuksia ja heikkouksia yksilöllisesti."
 
 #: ../boards/administration.xml.in.h:4 ../boards/algebra_group.xml.in.h:2
 #: ../boards/algebramenu.xml.in.h:2 ../boards/boards.xml.in.h:2
@@ -755,10 +775,10 @@ msgid ""
 "images are copyright Franck Doucet. Dates of Transportation are based on "
 "those found in http://www.wikipedia.org."
 msgstr ""
-"Kuun kuvan oikeudet ovat NASA:lla. Avaruusäänet tulevat Tuxpaintistä "
-"ja Vegastrikesta, jotka on julkaistu GPL-lisenssillä. Ajankohtien kuvien "
-"tekijänoikeudet omistaa Franck Doucet. Ajankohdat perustuvat sivuilta "
-"http://www.wikipedia.org löytyviin."
+"Kuun kuvan oikeudet ovat NASA:lla. Avaruusäänet tulevat Tuxpaintistä ja "
+"Vegastrikesta, jotka on julkaistu GPL-lisenssillä. Ajankohtien kuvien "
+"tekijänoikeudet omistaa Franck Doucet. Ajankohdat perustuvat sivuilta http://"
+"www.wikipedia.org löytyviin."
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -1008,6 +1028,9 @@ msgid ""
 "minutes or hours:minutes:seconds). You can change the direction of an arrow "
 "by selecting it and moving the mouse."
 msgstr ""
+"Siirrä hiirellä viisareita niin, että ne vastaavat annettua kellonaikaa "
+"numeroina (tunteja:minuutteja tai tunteja:minuutteja:sekunteja). Viisarin "
+"suuntaa muutetaan napsauttamalla sitä hiirellä ja siirtämällä sitten hiirtä."
 
 #: ../boards/clockgame.xml.in.h:2 ../src/boards/clockgame.c:78
 msgid "Learn how to tell the time"
@@ -3687,7 +3710,7 @@ msgstr "Laudan nimi"
 #: ../src/boards/python/admin/board_list.py:410
 #, python-format
 msgid "Filter Boards difficulty for profile %s"
-msgstr "Suodata tehtävät vaikeusasteen mukaan profiilille %s"
+msgstr "Suodata laudat vaikeusasteen mukaan profiilille %s"
 
 #: ../src/boards/python/admin/board_list.py:441
 #, python-format
@@ -4372,7 +4395,8 @@ msgstr ""
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
-msgstr "Tämän osan tiedot on tallennettu tiedostoon\n"
+msgstr ""
+"Tämän osan tiedot on tallennettu tiedostoon\n"
 "/tmp/gcompris-board.xml"
 
 #: ../src/boards/smallnumbers.c:72
@@ -4890,6 +4914,7 @@ msgid "List of available activity is :\n"
 msgstr "Lista mahdollisista tehtävistä:\n"
 
 #: ../src/gcompris/gcompris.c:1182
+#, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Lista mahdollisista profiileista:\n"
 
@@ -4928,8 +4953,8 @@ msgid ""
 "In ImageSet %s, the pathname for the home directory '%s' is not found. "
 "Skipping the whole ImageSet.\n"
 msgstr ""
-"Kuvajoukossa %s, polkua hakemistoon %s ei löydy. "
-"Ohitetaan koko kuvajoukko...\n"
+"Kuvajoukossa %s, polkua hakemistoon %s ei löydy. Ohitetaan koko "
+"kuvajoukko...\n"
 
 #: ../src/gcompris/images_selector.c:663
 #, c-format
