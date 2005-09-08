@@ -40,6 +40,15 @@ class Gcompris_pythontest:
   def start(self):
     logged = gcompris.admin.get_current_user()
 
+    wordlist = gcompris.get_wordlist('wordslevel_max_pt_BR')
+    print wordlist
+    print wordlist.filename
+    print wordlist.level
+    print wordlist.locale
+    print wordlist.description
+    print wordlist.words
+       
+
     print gcompris.get_current_user_dirname()
     print gcompris.get_current_board_dirname()
 

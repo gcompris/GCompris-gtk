@@ -1592,14 +1592,20 @@ py_gcompris_get_current_board_dirname (PyObject* self, PyObject* args)
 static PyObject*
 py_gcompris_get_wordlist_from_file (PyObject* self, PyObject* args)
 {
+  GcomprisWordlist *result;
   gchar *filename;
   /* Parse arguments */
   if(!PyArg_ParseTuple(args, "s:gcompris.get_wordlist", &filename))
     return NULL;
 
   /* Call the corresponding C function */
-  return gcompris_new_pyGcomprisWordlistObject(gcompris_get_wordlist_from_file (filename));
-
+  result = gcompris_get_wordlist_from_file (filename);
+  if (result)
+    return gcompris_new_pyGcomprisWordlistObject(result);
+  else {
+    Py_INCREF(Py_None);
+    return Py_None;
+  }
 }
 
 

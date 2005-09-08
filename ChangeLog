@@ -1,3 +1,13 @@
+2005-09-08  Yves Combe  <yves@ycombe.net>
+
+	fix bargame help bug.
+
+	* src/boards/py-mod-gcompris.c:
+	(py_gcompris_get_wordlist_from_file):
+	* src/boards/python/bargame.py:
+	* src/boards/python/pythontest.py:
+	* src/gcompris/wordlist.c: (gcompris_get_wordlist_from_file):
+
 2005-09-06  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Created new xml files for new wordlist format.

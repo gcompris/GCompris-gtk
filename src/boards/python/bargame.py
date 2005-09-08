@@ -110,7 +110,7 @@ class Gcompris_bargame:
     
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     # the game is won
-    if(pause == 0):
+    if ((pause == 0) and self.finished_sublevel):
       self.set_sublevel(self.gcomprisBoard.sublevel+1)
       return 0
 
@@ -183,6 +183,7 @@ class Gcompris_bargame:
 
     self.holes = []
     self.last_played = -1
+    self.finished_sublevel = False
     self.game_won = False
     self.list_win = self.calculate_win_places()
 
@@ -270,6 +271,7 @@ class Gcompris_bargame:
     self.answer.new_value(self.number_balls[self.gcomprisBoard.sublevel-1][0])
 
   def gamelost(self,human):
+    self.finished_sublevel = True
     if human:
       print 'Lost !'
       gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.GNU)

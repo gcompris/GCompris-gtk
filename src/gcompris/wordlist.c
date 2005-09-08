@@ -37,13 +37,13 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
 
   GcomprisProperties	*properties = gcompris_get_properties ();
 
-  xmlfilename = g_strdup_printf("%s/wordlists/%s.xml", properties->shared_dir, filename);
+  xmlfilename = g_strdup_printf("%s/wordsgame/%s.xml", properties->shared_dir, filename);
 
   /* if the file doesn't exist */
   if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS))
     {
       g_free(xmlfilename);
-      xmlfilename = g_strdup_printf("%s/wordgame/%s.xml", properties->package_data_dir, filename);
+      xmlfilename = g_strdup_printf("%s/wordsgame/%s.xml", properties->package_data_dir, filename);
       if(!g_file_test(xmlfilename, G_FILE_TEST_EXISTS)){
 	g_warning(_("Couldn't find file %s !"), xmlfilename);
 	g_free(xmlfilename);
