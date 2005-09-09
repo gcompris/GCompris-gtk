@@ -111,22 +111,24 @@ class Gcompris_connect4:
     self.prof.connect("event", gcompris.utils.item_event_focus)
 
     self.tuxboatanim = gcompris.anim.Animation("connect4/sablier.txt")
-    self.tuxboatitem = gcompris.anim.CanvasItem( self.tuxboatanim, self.rootitem )
-    self.tuxboatitem.gnome_canvas.hide()
+    self.timericon = gcompris.anim.CanvasItem( self.tuxboatanim, self.rootitem )
+    self.timericon.gnome_canvas.hide()
 
     self.newGame()
 
   def end(self):
     print "Gcompris_connect4 end."
-    # Remove the root item removes all the others inside it
-    del self.tuxboatitem
-    del self.tuxboatanim
-    self.rootitem.destroy()
-    self.boardItem.destroy()
     if self.timerAnim:
       gtk.timeout_remove(self.timerAnim)
     if self.timerMachine:
       gtk.timeout_remove(self.timerMachine)
+
+    del self.timericon
+    del self.tuxboatanim
+
+    # Remove the root item removes all the others inside it
+    self.rootitem.destroy()
+    self.boardItem.destroy()
     
 
   def ok(self):
@@ -150,7 +152,7 @@ class Gcompris_connect4:
 
   def key_press(self, keyval):
     print("Gcompris_connect4 key press. %i" % keyval)
-    self.tuxboatitem.hide()
+    self.timericon.hide()
     return False
 
   def pause(self, pause):
@@ -192,15 +194,14 @@ class Gcompris_connect4:
 
   def columnItemEvent(self, widget, event, column):
     if event.type == gtk.gdk.BUTTON_PRESS:
-      print event.x, event.y
       if event.button == 1 and self.gamewon == False and self.machineHasPlayed:
         column = int((event.x - (gcompris.BOARD_WIDTH-self.boardSize)/2.0) // self.stoneSize)
-        print "columnItemEvent", column
+        #print "columnItemEvent", column
         if not (column < 0 or column > (self.nbColumns-1)):
+          gcompris.bar_hide(True)
           if self.play(self.player1, 1, column):
             if self.gamewon == False:
-              self.tuxboatitem.gnome_canvas.show()
-              gcompris.bar_hide(True)
+              self.timericon.gnome_canvas.show()
               self.endAnimCallback = self.machinePlay
               self.machineHasPlayed = False
    
@@ -216,13 +217,13 @@ class Gcompris_connect4:
     print "ai starts"
     self.play(self.player2, 2, 0)
     print "ai ends"
-    self.tuxboatitem.gnome_canvas.hide()
-    gcompris.bar_hide(False)
+    self.timericon.gnome_canvas.hide()
     self.prof.hide()
     self.endAnimCallback = self.machinePlayed
 
   def machinePlayed(self):
     self.machineHasPlayed = True
+    gcompris.bar_hide(False)
 
   def refreshScreen(self):
     gtk.main_iteration(block=False)
@@ -230,16 +231,20 @@ class Gcompris_connect4:
 
   def play(self, player, numPlayer, column):
     move = player.doMove(self.board, numPlayer, column)
+    
     if type(move) is types.IntType and rules.isMoveLegal(self.board, move):
 #      self.firstPlayer = True
       self.board.move(move, numPlayer)
       self.drawBoard(self.board)
       self.winLine = rules.isWinner(self.board, numPlayer)
+      
       if self.winLine:
         self.winner(numPlayer)
       elif rules.isBoardFull(self.board):
         self.winner(0)
       return True
+    
+    gcompris.bar_hide(False)
     return False
         
   def drawBoard(self, board):
@@ -272,6 +277,13 @@ class Gcompris_connect4:
   def winner(self, player):
     self.gamewon = True
     print 'The winner is:', player
+
+    # It's a draw, no line to draw
+    if player == 0:
+      gcompris.bonus.display(gcompris.bonus.DRAW, gcompris.bonus.FLOWER)
+      return
+
+    # Display the winner line
     if ((self.firstPlayer and (player==2)) or
         ((not self.firstPlayer) and (player==1))):
       self.humanVictory += 1
@@ -294,6 +306,4 @@ class Gcompris_connect4:
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
     elif player == 2:
       gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
-    else:
-      gcompris.bonus.display(gcompris.bonus.DRAW, gcompris.bonus.FLOWER)
 

@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2005/04/10 16:48:33 bruno>
+ * Time-stamp: <2005/09/08 22:31:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -162,17 +162,11 @@ void gcompris_about_start ()
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "ofset");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
   gdk_pixbuf_unref(pixmap);
   
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "OFSET",
+				"text", "OFSET\nhttp://ofset.org",
 				"font", gcompris_skin_font_content,
 				"x", (double)  (BOARDWIDTH*0.15),
 				"y", (double)  y_start + 80,
@@ -188,18 +182,11 @@ void gcompris_about_start ()
 				"x", (double) (BOARDWIDTH*0.8) - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
-
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "fsf");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
   gdk_pixbuf_unref(pixmap);
   
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "Free Software Foundation",
+				"text", "Free Software Foundation\nhttp://www.fsf.org",
 				"font", gcompris_skin_font_content,
 				"x", (double)  (BOARDWIDTH*0.75),
 				"y", (double)  y_start + 80,
@@ -217,17 +204,11 @@ void gcompris_about_start ()
 				"y", (double) y_start - gdk_pixbuf_get_height(pixmap)/2,
 				NULL);
 
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "gcompris");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
   gdk_pixbuf_unref(pixmap);
 
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", _("GCompris Home Page"),
+				"text", _("GCompris Home Page\nhttp://gcompris.net"),
 				"font", gcompris_skin_font_content,
 				"x", (double)  (BOARDWIDTH*0.5),
 				"y", (double)  y_start + 30,
@@ -238,7 +219,7 @@ void gcompris_about_start ()
   // Copyright
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
-				"text", "Copyright 2000-2003 Bruno Coudoin",
+				"text", "Copyright 2000-2005 Bruno Coudoin",
 				"font", gcompris_skin_font_content,
 				"x", (double)  BOARDWIDTH/2,
 				"y", (double)  y - 95,
@@ -257,48 +238,12 @@ void gcompris_about_start ()
 				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);
 
-  // GCompris HELP
-#ifndef WIN32
-  pixmap = gcompris_load_skin_pixmap("button_large.png");
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_pixbuf_get_type (),
-				"pixbuf", pixmap, 
-				"x", (double) BOARDWIDTH*0.3 - gdk_pixbuf_get_width(pixmap)/2,
-				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
-				NULL);
-
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "help");
-  gtk_signal_connect(GTK_OBJECT(item), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     NULL);
-  gdk_pixbuf_unref(pixmap);
-
-
-  item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("Help"),
-				"font", gcompris_skin_font_title,
-				"x", (double)  BOARDWIDTH*0.3,
-				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_text_button,
-				NULL);
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) item_event_ok,
-		     "help");
-  gtk_signal_connect(GTK_OBJECT(item2), "event",
-		     (GtkSignalFunc) gcompris_item_event_focus,
-		     item);
-#endif
-
   // OK
   pixmap = gcompris_load_skin_pixmap("button_large.png");
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_pixbuf_get_type (),
 				"pixbuf", pixmap, 
-				"x", (double) BOARDWIDTH*0.7 - gdk_pixbuf_get_width(pixmap)/2,
+				"x", (double) BOARDWIDTH*0.5 - gdk_pixbuf_get_width(pixmap)/2,
 				"y", (double) y - gdk_pixbuf_get_height(pixmap) - 5,
 				NULL);
 
@@ -315,7 +260,7 @@ void gcompris_about_start ()
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),
 				"font", gcompris_skin_font_title,
-				"x", (double)  BOARDWIDTH*0.7,
+				"x", (double)  BOARDWIDTH*0.5,
 				"y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20,
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_text_button,
@@ -427,31 +372,6 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
       if(!strcmp((char *)data, "ok"))
 	{
 	  gcompris_about_stop();
-	}
-      else if (!strcmp((char *)data, "ofset"))
-	{
-	  /* FIXME: Should inform the user that we don't find mozilla. */
-	  system("mozilla http://www.ofset.org &");
-	}
-      else if (!strcmp((char *)data, "fsf"))
-	{
-	  /* FIXME: Should inform the user that we don't find mozilla. */
-	  system("mozilla http://www.fsf.org &");
-	}
-      else if (!strcmp((char *)data, "gcompris"))
-	{
-	  /* FIXME: Should inform the user that we don't find mozilla. */
-	  system("mozilla http://gcompris.net &");
-	}
-      else if (!strcmp((char *)data, "help"))
-	{
-	  /* It implements gcompris's own way to load help in order to be
-	   * Package relocatable.
-	   * Unfortunatly, this does not supports I18N
-	   */
-	  /* FIXME: Should inform the user that we don't find mozilla. */
-	  system("mozilla "PACKAGE_HELP_DIR"/C/gcompris.html &");
-
 	}
     default:
       break;
