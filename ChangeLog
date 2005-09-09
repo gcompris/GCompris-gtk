@@ -1,3 +1,14 @@
+2005-09-09  Bruno coudoin  <bruno.coudoin@free.fr>
+	
+	Fixed connect4 (bug #313432)
+	Added sudoku dataset (9x9 level)
+	Removed external lauch of mozilla in the about box. It create problems
+	when kids click all around.
+
+	* src/boards/python/sudoku.py:
+	* src/boards/python/connect4.py:
+	* src/gcompris/about.c
+
 2005-09-08  Yves Combe  <yves@ycombe.net>
 
 	fix bargame help bug.
