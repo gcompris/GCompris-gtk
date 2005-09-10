@@ -4,12 +4,13 @@
 # Rami Aubourg-Kaires <rami at kaires.org>, 2003-2004
 # Ilkka Tuohela <hile@iki.fi>, 2005.
 #
+#: ../src/boards/hanoi_real.c:107
 msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-07 07:16+0300\n"
-"PO-Revision-Date: 2005-09-07 07:16+0300\n"
+"POT-Creation-Date: 2005-09-10 17:27+0300\n"
+"PO-Revision-Date: 2005-09-10 17:35+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -38,20 +39,20 @@ msgid ""
 msgstr ""
 "- Osasta \"Laudat\" voit muuttaa listaa valittavista tehtävistä poistamalla "
 "tai lisäämällä niiden valinnan puunäkymästä. Voit myös muuttaa lukemiseen "
-"käytettävää kieltä, jota käytetään esimerkiksi värien nimen lausumiseen. "
-"- Voit tallentaa useita asetuksia ja vaihtaa niiden välillä helposti. Kohdasta "
-"\"Profiili\" lisätään profiili ja \"Laudat\" kohdasta liitetään halutut tehtävät "
-"tähän uuteen profiiliin. Voit lisätä suurenkin määrän eri profiileja, joilla "
-"kullakin on eri laudat ja eri kielet. Oletusprofiili voidaaan asettaa "
-"valitsemalla \"Oletus\"-painike kun haluttu profiili on valittu. Normaalisti "
-"profiili annetaan komentoriviltä. - Voit lisätä käyttäjiä, luokkia ja liittää "
-"ryhmän käyttäjiä kuhunkin luokkaan. Käyttäjä listat voidaan tuoda pilkuilla "
-"erotetuissa tiedostoissa ohjelmaan. Liitä yksi tai useampi ryhmä profiiliin, "
-"jonka jälkeen nämä uudet kirjautumiset näkyvän GComprisin käynnistyksen "
-"jälkeen. Yksittäisten lasten tunnistaminen tarkoittaa, että kunkin lapsen "
-"kehityksestä voidaan antaa omat tulokset. Lapset oppivat myös tunnistautumaan "
-"koneen kanssa yksilöinä, eli kirjoittamaan ja tunnistamaan käyttäjätunnuksensa."
-
+"käytettävää kieltä, jota käytetään esimerkiksi värien nimen lausumiseen. - "
+"Voit tallentaa useita asetuksia ja vaihtaa niiden välillä helposti. Kohdasta "
+"\"Profiili\" lisätään profiili ja \"Laudat\" kohdasta liitetään halutut "
+"tehtävät tähän uuteen profiiliin. Voit lisätä suurenkin määrän eri "
+"profiileja, joilla kullakin on eri laudat ja eri kielet. Oletusprofiili "
+"voidaaan asettaa valitsemalla \"Oletus\"-painike kun haluttu profiili on "
+"valittu. Normaalisti profiili annetaan komentoriviltä. - Voit lisätä "
+"käyttäjiä, luokkia ja liittää ryhmän käyttäjiä kuhunkin luokkaan. Käyttäjä "
+"listat voidaan tuoda pilkuilla erotetuissa tiedostoissa ohjelmaan. Liitä "
+"yksi tai useampi ryhmä profiiliin, jonka jälkeen nämä uudet kirjautumiset "
+"näkyvän GComprisin käynnistyksen jälkeen. Yksittäisten lasten tunnistaminen "
+"tarkoittaa, että kunkin lapsen kehityksestä voidaan antaa omat tulokset. "
+"Lapset oppivat myös tunnistautumaan koneen kanssa yksilöinä, eli "
+"kirjoittamaan ja tunnistamaan käyttäjätunnuksensa."
 
 #: ../boards/administration.xml.in.h:2
 msgid "GCompris Administration Menu"
@@ -65,9 +66,9 @@ msgid ""
 "strengths and weakenesses of their children."
 msgstr ""
 "Jos haluat säätää GComprisia tarkemmin omiin tarpeisiisi, voit käyttää "
-"ohjelman hallintaosaa tästä. Hallintaosan päätarkoitus on tarjota vanhemmille "
-"ja opettajalle lapsikohtaiset tulokset, joiden avulla voidaan seurata lapsen "
-"kehitystä, vahvuuksia ja heikkouksia yksilöllisesti."
+"ohjelman hallintaosaa tästä. Hallintaosan päätarkoitus on tarjota "
+"vanhemmille ja opettajalle lapsikohtaiset tulokset, joiden avulla voidaan "
+"seurata lapsen kehitystä, vahvuuksia ja heikkouksia yksilöllisesti."
 
 #: ../boards/administration.xml.in.h:4 ../boards/algebra_group.xml.in.h:2
 #: ../boards/algebramenu.xml.in.h:2 ../boards/boards.xml.in.h:2
@@ -202,11 +203,11 @@ msgstr "munakoiso"
 
 #: ../boards/advanced_colors/board4.xml.in.h:2
 msgid "ceruse"
-msgstr ""
+msgstr "lyijynvalkoinen"
 
 #: ../boards/advanced_colors/board4.xml.in.h:3
 msgid "chartreuse"
-msgstr ""
+msgstr "vihertävänkeltainen"
 
 #: ../boards/advanced_colors/board4.xml.in.h:4
 msgid "emerald"
@@ -222,7 +223,7 @@ msgstr "fuksia"
 
 #: ../boards/advanced_colors/board4.xml.in.h:7
 msgid "glaucous"
-msgstr ""
+msgstr "sinertävänvihreä"
 
 #: ../boards/advanced_colors/board4.xml.in.h:8
 msgid "ruby"
@@ -238,11 +239,11 @@ msgstr "taivaansininen"
 
 #: ../boards/advanced_colors/board5.xml.in.h:4
 msgid "bistre"
-msgstr ""
+msgstr "kellanruskea"
 
 #: ../boards/advanced_colors/board5.xml.in.h:5
 msgid "celadon"
-msgstr ""
+msgstr "vaaleanvihreä"
 
 #: ../boards/advanced_colors/board5.xml.in.h:6
 msgid "cerulean"
@@ -694,7 +695,8 @@ msgstr "Potkaise pallo maaliin"
 #: ../boards/clickgame.xml.in.h:6 ../boards/connect4.xml.in.h:6
 #: ../boards/erase.xml.in.h:3 ../boards/erase_clic.xml.in.h:6
 #: ../boards/erase_double_clic.xml.in.h:6 ../boards/fifteen.xml.in.h:2
-#: ../boards/hanoi.xml.in.h:3 ../boards/memory.xml.in.h:4
+#: ../boards/hanoi.xml.in.h:3 ../boards/hanoi_real.xml.in.h:2
+#: ../boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Hiiren käyttö"
 
@@ -1963,7 +1965,7 @@ msgstr "Siirry numeronmutustajiin"
 msgid "Concept taken from EPI games."
 msgstr "Idea lainattu EPI games:lta."
 
-#: ../boards/hanoi.xml.in.h:2
+#: ../boards/hanoi.xml.in.h:2 ../boards/hanoi_real.xml.in.h:1
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
@@ -1982,6 +1984,43 @@ msgstr "Rakenna oikealla oleva torni vasemmalla olevaan tyhjään tilaan"
 #: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
 msgstr "Helpot Hanoin tornit"
+
+#: ../boards/hanoi_real.xml.in.h:3
+msgid "Reproduce the tower on the right side"
+msgstr "Rakenna oikealla oleva torni"
+
+#: ../boards/hanoi_real.xml.in.h:4
+msgid "The Tower of Hanoi"
+msgstr "Hanoin tornit"
+
+#: ../boards/hanoi_real.xml.in.h:5
+msgid ""
+"The object of the game is to move the entire stack to another peg, obeying "
+"the following rules: * only one disc may be moved at a time * no disc may be "
+"placed atop a smaller disc"
+msgstr ""
+"Pelin tarkoitus on siirtää koko pino toiseen tappiin, seuraten seuraavia "
+"sääntöjä: * vain yhtä kiekkoa sa siirtää kerrallaan * kiekkoa ei voi laittaa "
+"pienemmän kiekon päälle"
+
+#: ../boards/hanoi_real.xml.in.h:6
+msgid ""
+"The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
+"There is a legend about a Hindu temple whose priests were constantly engaged "
+"in moving a set of 64 discs according to the rules of the Tower of Hanoi "
+"puzzle. According to the legend, the world would end when the priests "
+"finished their work. The puzzle is therefore also known as the Tower of "
+"Brahma puzzle. It is not clear whether Lucas invented this legend or was "
+"inspired by it. (source Wikipedia http://en.wikipedia.org/wiki/"
+"Tower_of_hanoi)"
+msgstr ""
+"Tämän arvoituksen kehitti ranskalainen matemaatikko Edouard Lucas vuonna 1883."
+"Legenda kertoo myös Hindu-temppelin munkeista, jotka siirsivät jatkuvasti "
+"64 kiekkoa Hanoin tornien sääntöjen mukaisesti. Legendan mukaan maailman "
+"päättyisi, kun munkit saisivat työnsä valmiiksi. Tämän legenda takia peli "
+"tunnetaan myös nimellä Brahman tornit. Ei ole tunnettua kehittikö Lucas "
+"tämän legendan vai inspiroiko se häntä. (Lähde: "
+"Wikipedia http://en.wikipedia.org/wiki/Tower_of_hanoi)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -3084,22 +3123,21 @@ msgstr "Ohjaa venettä tarkasti ja voita kilpailu."
 msgid ""
 "In the text box, enter commands, line by line, to direct your ship. You can "
 "use any of the commands shown between the two entry areas. When you use the "
-"\"left\" or \"right\" commands, you have to tell the ship how far you want "
-"it to turn, in degrees (e.g. \"left 30\" degrees). Giving special "
-"measurements like this is also called 'passing a parameter': this is how we "
-"tell the computer how much to do something. The \"forward\" command accepts "
-"a distance parameter, so you can tell it how far you want your ship to move. "
-"The default is 1, so if you don't add that parameter, each move will be 1 "
-"unit. (Defaults are handy values that help the computer out when we don't "
-"pass any parameters.) So you could say: \"left 90\" : make a perpendicular "
-"turn (a whole corner) to the left. \"forward 10\" : go ahead 10 units (as "
-"shown on the ruler). The goal is to reach the right edge of the screen (the "
-"red line). When you get there, you can try to improve your program, with the "
-"same weather conditions, and try again, using the Retry button. You can "
-"click and drag your mouse anywhere on the map, to show a measurement of "
-"distance (how far) and angle (how much turn). Going to the next level will "
-"introduce more complex weather conditions: a fun challenge for a budding "
-"programmer. ;)"
+"'left' or 'right' commands, you have to tell the ship how far you want it to "
+"turn, in degrees (e.g. 'left 30' degrees). Giving special measurements like "
+"this is also called 'passing a parameter': this is how we tell the computer "
+"how much to do something. The 'forward' command accepts a distance "
+"parameter, so you can tell it how far you want your ship to move. The "
+"default is 1, so if you don't add that parameter, each move will be 1 unit. "
+"(Defaults are handy values that help the computer out when we don't pass any "
+"parameters.) So you could say: 'left 90' : make a perpendicular turn (a "
+"whole corner) to the left. 'forward 10' : go ahead 10 units (as shown on the "
+"ruler). The goal is to reach the right edge of the screen (the red line). "
+"When you get there, you can try to improve your program, with the same "
+"weather conditions, and try again, using the Retry button. You can click and "
+"drag your mouse anywhere on the map, to show a measurement of distance (how "
+"far) and angle (how much turn). Going to the next level will introduce more "
+"complex weather conditions: a fun challenge for a budding programmer. ;)"
 msgstr ""
 "Syötä tekstikenttään rivi riviltä komentoja, joilla ohjaat veneesi suuntaa. "
 "Kelvolliset komennot näet kahden syötekentän alla. Komennoille 'vasen' ja "
@@ -3474,6 +3512,7 @@ msgid "White mates"
 msgstr "Valkoinen matittaa"
 
 #: ../src/boards/chess.c:1062 ../src/gcompris/bonus.c:312
+#: ../src/gcompris/bonus.c:321
 msgid "Drawn game"
 msgstr "Tasapeli"
 
@@ -3580,13 +3619,17 @@ msgstr "Kaksoisnapsautuksen arvo on nyt %d."
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Siirrä esineitä korkeusjärjestyksessä pienimmästä suurimpaan"
 
-#: ../src/boards/hanoi.c:337
+#: ../src/boards/hanoi.c:337 ../src/boards/hanoi.c:348
 msgid "Re-create in the empty area the same tower as the one on the right"
 msgstr "Rakenna tyhjään paikkaan täsmälleen samanlainen torni kuin oikealla"
 
-#: ../src/boards/hanoi.c:348
-msgid "Reproduce in the empty area the same tower as the one on the right"
-msgstr "Rakenna tyhjään paikkaan täsmälleen samanlainen torni kuin oikealla"
+#: ../src/boards/hanoi_real.c:106
+msgid "Tower of Hanoi"
+msgstr "Hanoin tornit"
+
+#: ../src/boards/hanoi_real.c:309 ../src/boards/hanoi_real.c:320
+msgid "Move the entire stack to the right peg"
+msgstr "Siirrä koko pino oikealla olevaan tappiin" 
 
 #: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -3730,7 +3773,7 @@ msgstr ""
 #: ../src/boards/python/admin/board_list.py:625
 #: ../src/boards/python/admin/board_list.py:643
 #: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:541
-#: ../src/boards/python/pythontest.py:383 ../src/boards/python/tuxpaint.py:168
+#: ../src/boards/python/pythontest.py:392 ../src/boards/python/tuxpaint.py:168
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3740,7 +3783,7 @@ msgstr ""
 " profiilille <b>%s</b>"
 
 #: ../src/boards/python/admin/board_list.py:655
-#: ../src/boards/python/pythontest.py:447
+#: ../src/boards/python/pythontest.py:456
 msgid "Select sound locale"
 msgstr "Valitse äänen maa-asetusto"
 
@@ -4170,14 +4213,14 @@ msgstr "Näytä vain isoja kirjaimia"
 msgid "Enter login to log in"
 msgstr "Kirjaudu sisään"
 
-#: ../src/boards/python/pythontest.py:132
+#: ../src/boards/python/pythontest.py:141
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr ""
 "Tämä on ensimmäinen Gcomprisin liitännäinen, joka on kirjoitettu pythonilla."
 
-#: ../src/boards/python/pythontest.py:141
+#: ../src/boards/python/pythontest.py:150
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -4185,35 +4228,35 @@ msgstr ""
 "Nyt on mahdollista luoda gcomprisin osia sekä C:llä että pythonilla.\n"
 "Kiitos tästä Olivier Samynille."
 
-#: ../src/boards/python/pythontest.py:150
+#: ../src/boards/python/pythontest.py:159
 msgid "This activity is not playable yet, just a test"
 msgstr "Tämä tehtävä ei ole vieläl pelattava, se on pelkkä testi"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:388
+#: ../src/boards/python/pythontest.py:397
 msgid "Disable line drawing in circle"
 msgstr "Älä käytä viivanpiirtoa ympyrässä"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:397
+#: ../src/boards/python/pythontest.py:406
 msgid "Colour of the line"
 msgstr "Viivan väri"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:408
+#: ../src/boards/python/pythontest.py:417
 msgid "Distance between circles"
 msgstr "Ympyröiden välinen etäisyys"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:419
+#: ../src/boards/python/pythontest.py:428
 msgid "Use circles"
 msgstr "Käytä ympyröitä"
 
-#: ../src/boards/python/pythontest.py:420
+#: ../src/boards/python/pythontest.py:429
 msgid "Use rectangles"
 msgstr "Käytä suorakaiteita"
 
-#: ../src/boards/python/pythontest.py:423
+#: ../src/boards/python/pythontest.py:432
 msgid "Choice of pattern"
 msgstr "Valittu kuvio"
 
@@ -4463,11 +4506,15 @@ msgstr "Tietoja GComprisista"
 msgid "Translators:"
 msgstr "Kääntäjät:"
 
-#: ../src/gcompris/about.c:230
-msgid "GCompris Home Page"
-msgstr "GCompris Kotisivut"
+#: ../src/gcompris/about.c:211
+msgid ""
+"GCompris Home Page\n"
+"http://gcompris.net"
+msgstr ""
+"GCompris Kotisivut\n"
+"http://gcompris.net/"
 
-#: ../src/gcompris/about.c:252
+#: ../src/gcompris/about.c:233
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -4475,11 +4522,7 @@ msgstr ""
 "Tämä ohjelma on GNU-ohjelma ja on julkaistu GNU General Public Licensen "
 "mukaisesti"
 
-#: ../src/gcompris/about.c:281
-msgid "Help"
-msgstr "Apua"
-
-#: ../src/gcompris/about.c:316 ../src/gcompris/config.c:209
+#: ../src/gcompris/about.c:261 ../src/gcompris/config.c:209
 #: ../src/gcompris/gameutil.c:1106 ../src/gcompris/help.c:329
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
@@ -4995,6 +5038,12 @@ msgstr "Aikaa jäljellä = %d"
 #, c-format
 msgid "Couldn't parse file %s !"
 msgstr "Tiedostoa %s ei voitu tulkita!"
+
+#~ msgid "Reproduce in the empty area the same tower as the one on the right"
+#~ msgstr "Rakenna tyhjään paikkaan täsmälleen samanlainen torni kuin oikealla"
+
+#~ msgid "Help"
+#~ msgstr "Apua"
 
 #~ msgid ""
 #~ "1885 The first gazoline\n"
