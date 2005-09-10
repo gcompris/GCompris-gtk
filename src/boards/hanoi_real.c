@@ -51,8 +51,6 @@ typedef struct {
   gint j;
   double x;
   double y;
-  double xt;
-  double yt;
   gboolean on_top;
   gint width;
 } PieceItem;
@@ -76,26 +74,6 @@ static gint limit_column_x2[MAX_NUMBER_X];
 
 static gint peg_disc_count[MAX_NUMBER_X];
 static gint peg_top_disc[MAX_NUMBER_X];
-
-static guint colorlist [] = 
-  {
-    0x00FFFFFF,
-    0xA00000FF,
-    0xF00000FF,
-    0x00A000FF,
-    0x00F000FF,
-    0x0000AAFF,
-    0x0000FFFF,
-    0x505000FF,
-    0xA0A000FF,
-    0xF0F000FF,
-    0x005050FF,
-    0x00A0A0FF,
-    0x500050FF,
-    0xA000A0FF,
-    0xF000F0FF
-  };
-#define NUMBER_OF_COLOR 14
 
 
 /* Description of this plugin */
@@ -157,7 +135,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
-      gcomprisBoard->maxlevel=6;
+      gcomprisBoard->maxlevel=2;
       gcomprisBoard->sublevel=1;
       gcomprisBoard->number_of_sublevel=1; /* Go to next level after this number of 'play' */
       gcompris_bar_set(GCOMPRIS_BAR_LEVEL);
@@ -278,10 +256,9 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   double gap_x, gap_y;
   double baseline;
   GnomeCanvasItem *item = NULL;
-  guint color_to_place;
   GnomeCanvasPathDef *path;
-  guint w;
   GdkPixbuf *pixmap = NULL;
+  gchar *filename;
       
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -381,63 +358,43 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 				 "width_units", (double)1,
 				 NULL);
 	}
-      /* Create the vertical line */
-      w = 10;
-      gnome_canvas_item_new (boardRootItem,
-			     gnome_canvas_rect_get_type (),
-			     "x1", (double) item_width * i + item_width/2 - w,
-			     "y1", (double) baseline - item_height * number_of_item_y - gap_y,
-			     "x2", (double) item_width * i + item_width/2 + w,
-			     "y2", (double) baseline,
-			     "fill_color_rgba", 0xFF1030FF,
-			     "outline_color", "black",
-			     "width_units", (double)1,
-			     NULL);
 
-      /* And the base line */
-      w = 40;
-      path = gnome_canvas_path_def_new();
-      gnome_canvas_path_def_moveto (path, item_width * i + item_width/2 - w, baseline);
-      gnome_canvas_path_def_lineto (path, item_width * i + item_width/2 + w, baseline);
-      gnome_canvas_path_def_curveto (path,
-				     item_width * i + item_width/2 + w , baseline,
-				     item_width * i + item_width/2, baseline + w + 10,
-				     item_width * i + item_width/2 - w, baseline);
-      gnome_canvas_path_def_closepath_current (path);
-        
+      /* The disc support */
+      filename = g_strdup_printf("%s/%s.png", PACKAGE_DATA_DIR, "images/disc_support");
+      pixmap = gcompris_load_pixmap (filename);
+      
       item = gnome_canvas_item_new (boardRootItem,
-				    GNOME_TYPE_CANVAS_SHAPE,
-				    "fill_color_rgba", 0x20FF30FF,
-				    "outline_color", "black",
+				    gnome_canvas_pixbuf_get_type (),
+				    "x", (double) item_width * i + item_width/2,
+				    "y", (double) baseline - gdk_pixbuf_get_height(pixmap)/2 + item_height/2,
+				    "pixbuf", pixmap,
+				    "anchor", GTK_ANCHOR_CENTER,
 				    NULL);
-      gnome_canvas_shape_set_path_def (GNOME_CANVAS_SHAPE (item), path);
-      gnome_canvas_item_show (item);
-      gnome_canvas_path_def_unref (path);
 
-      guint color = 0;
+      g_free(filename);
+      gdk_pixbuf_unref(pixmap);
+
+
       for(j=0; j<number_of_item_y; j++)
 	{
 
-	  position[i][j]->x = item_width * i + gap_x;
+	  position[i][j]->x = item_width * i + item_width/2;
 	  position[i][j]->y = baseline - item_height * j - item_height + gap_y;
-
-	  position[i][j]->xt = position[i][j]->x + 20;
-	  position[i][j]->yt = position[i][j]->y + 2;
-
 
 	  if(position[i][j]->width != -1)
 	    {
-	      double zoom = (number_of_item_y - position[i][j]->width) * 0.1;
+	      filename = g_strdup_printf("%s/%s%d.png", PACKAGE_DATA_DIR, "images/disc", j+1);
+	      pixmap = gcompris_load_pixmap (filename);
+
 	      item = gnome_canvas_item_new (boardRootItem,
-					    gnome_canvas_rect_get_type (),
-					    "x1", (double) position[i][j]->x + item_width * zoom,
-					    "y1", (double) position[i][j]->y,
-					    "x2", (double) item_width * i + item_width - gap_x - item_width * zoom,
-					    "y2", (double) baseline - item_height * j,
-					    "fill_color_rgba", colorlist[color++],
-					    "outline_color", "black",
-					    "width_units", (double)1,
+					    gnome_canvas_pixbuf_get_type (),
+					    "pixbuf", pixmap,
+					    "x", position[i][j]->x,
+					    "y", position[i][j]->y,
+					    "anchor", GTK_ANCHOR_CENTER,
 					    NULL);
+	      g_free(filename);
+	      gdk_pixbuf_unref(pixmap);
 
 	      position[i][j]->item = item;
 
@@ -510,16 +467,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
   switch (event->type) 
     {
     case GDK_ENTER_NOTIFY:
-      gnome_canvas_item_set(item,
-			    "outline_color", "white",
-			    "width_units", (double)3,
-			    NULL);
+      gcompris_set_image_focus(item, TRUE);
       break;
     case GDK_LEAVE_NOTIFY:
-      gnome_canvas_item_set(item,
-			    "outline_color", "black",
-			    "width_units", (double)1,
-			    NULL);
+      gcompris_set_image_focus(item, FALSE);
       break;
     case GDK_BUTTON_PRESS:
       switch(event->button.button) 
@@ -549,7 +500,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  new_x = item_x;
 	  new_y = item_y;
 	  
-	  gnome_canvas_item_move(data->item     , new_x - x, new_y - y);
+	  gnome_canvas_item_move(data->item, new_x - x, new_y - y);
 	  x = new_x;
 	  y = new_y;
 	}
@@ -564,30 +515,39 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  PieceItem *piece_src;
 	  PieceItem *piece_dst;
 	  gint line;
-	  gint col;
+	  gint col=-1;
+	  double disc_w, disc_h;
+	  GdkPixbuf *pixmap;
+
+	  g_object_get(G_OBJECT(data->item), "pixbuf", &pixmap, NULL);
+	  disc_w = gdk_pixbuf_get_width(pixmap)/2;
+	  disc_h = gdk_pixbuf_get_height(pixmap)/2;
+	  gdk_pixbuf_unref(pixmap);
       
 	  gnome_canvas_item_ungrab(data->item, event->button.time);
 	  dragging = FALSE;
 	  
 	  /* Search the column (x) where this item is ungrabbed */
-	  if(item_x > position[number_of_item_x-1][0]->x)
-	    col = number_of_item_x-1;
+	  if(item_x > (position[number_of_item_x-1][0]->x 
+		       - (position[number_of_item_x-1][0]->x - position[number_of_item_x-2][0]->x) / 2))
+	     col = number_of_item_x-1;
 	  else if(item_x < position[0][0]->x)
 	    col = 0;
-	  else
-	    for(i=0; i<number_of_item_x-1; i++)
-	      if(position[i][0]->x   < item_x &&
-		 position[i+1][0]->x > item_x)
+	  else {
+	    for(i=0; i<number_of_item_x-1; i++) {
+	      int distance = (position[i+1][0]->x - position[i][0]->x) / 2;
+	      if(position[i][0]->x -  distance < item_x &&
+		 position[i+1][0]->x - distance > item_x)
 		col = i;
+	    }
+	  }
 
-
-	  printf("col=%d\n", col);
 	  /* Bad drop / Outside of column area */
 	  /* Bad drop / On the same column */
 	  if(col<0 || col > number_of_item_x || col == data->i)
 	    {
 	      /* Return to the original position */
-	      item_absolute_move (data->item     , data->x , data->y);
+	      item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -603,14 +563,11 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	      line = i;
 	  
 	  /* Bad drop / Too many pieces here or larger disc is above */
-	  printf("[col][line]=[%d][%d]\n", col, line);
-	  printf("position[col][line]->width=%d   data->width=%d \n",
-		 position[col][line]->width , data->width);
 	  if(line > number_of_item_y || 
 	     (line > 0 && position[col][line-1]->width != -1 && position[col][line-1]->width < data->width))
 	    {
 	      /* Return to the original position */
-	      item_absolute_move (data->item     , data->x , data->y);
+	      item_absolute_move (data->item , data->x - disc_w, data->y - disc_h);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -629,7 +586,10 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  /* Move the piece */
 	  piece_dst = position[col][line];
 	  piece_src = data;
-	  item_absolute_move (data->item     , piece_dst->x , piece_dst->y);
+
+	  item_absolute_move (data->item,
+			      piece_dst->x - disc_w,
+			      piece_dst->y - disc_h);
 	  
 	  /* FIXME : Workaround for bugged canvas */
 	  gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -641,13 +601,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  piece_src->y = piece_dst->y;
 	  piece_dst->x = tmpx;
 	  piece_dst->y = tmpy;
-	  
-	  tmpx    = data->xt;
-	  tmpy    = data->yt;
-	  piece_src->xt = piece_dst->xt;
-	  piece_src->yt = piece_dst->yt;
-	  piece_dst->xt = tmpx;
-	  piece_dst->yt = tmpy;
 	  
 	  tmpi    = data->i;
 	  tmpj    = data->j;
