@@ -40,6 +40,7 @@ lib_LTLIBRARIES = \
 	libfifteen.la \
 	libgletters.la \
 	libhanoi.la \
+	libhanoi_real.la \
 	libimageid.la \
 	libleftright.la \
 	libsuperbrain.la \
@@ -223,6 +224,10 @@ libsubmarine_la_SOURCES = submarine.c
 libhanoi_la_LDFLAGS = -module -avoid-version
 libhanoi_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
 libhanoi_la_SOURCES = hanoi.c
+
+libhanoi_real_la_LDFLAGS = -module -avoid-version
+libhanoi_real_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la
+libhanoi_real_la_SOURCES = hanoi_real.c
 
 libfifteen_la_LDFLAGS = -module -avoid-version
 libfifteen_la_LIBADD = $(top_builddir)/src/gcompris/libgcompris-1.la

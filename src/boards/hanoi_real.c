@@ -1,6 +1,6 @@
-/* gcompris - hanoi.c
+/* gcompris - hanoi_real.c
  *
- * Copyright (C) 2003 Bruno Coudoin
+ * Copyright (C) 2005 Bruno Coudoin
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -47,7 +47,6 @@ static void		 hanoi_next_level(void);
  */
 typedef struct {
   GnomeCanvasItem *item;
-  GnomeCanvasItem *item_text;
   gint i;
   gint j;
   double x;
@@ -55,18 +54,18 @@ typedef struct {
   double xt;
   double yt;
   gboolean on_top;
-  gint color;
+  gint width;
 } PieceItem;
 
 static gint		 item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data);
 
 /* This contains the layout of the pieces */
-#define MAX_NUMBER_X 10
+#define MAX_NUMBER_X 3
 #define MAX_NUMBER_Y 10
 static PieceItem *position[MAX_NUMBER_X][MAX_NUMBER_Y];
 
 static int number_of_item = 0;
-static int number_of_item_x = 0;
+static int number_of_item_x = MAX_NUMBER_X;
 static int number_of_item_y = 0;
 static int item_width;
 static int item_height;
@@ -74,6 +73,9 @@ static int item_height;
 /* Keep here the limit of the column */
 static gint limit_column_x1[MAX_NUMBER_X];
 static gint limit_column_x2[MAX_NUMBER_X];
+
+static gint peg_disc_count[MAX_NUMBER_X];
+static gint peg_top_disc[MAX_NUMBER_X];
 
 static guint colorlist [] = 
   {
@@ -101,8 +103,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Simplified Tower of Hanoi"),
-    N_("Reproduce the given tower"),
+    N_("Tower of Hanoi"),
+    N_(""),
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
@@ -163,6 +165,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
 			      gcompris_image_to_skin("gcompris-bg.jpg"));
 
+      boardRootItem = NULL;
+
       hanoi_next_level();
 
       gamewon = FALSE;
@@ -196,7 +200,7 @@ static gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 {
   if (gcomprisBoard)
     {
-      if(g_strcasecmp(gcomprisBoard->type, "hanoi")==0)
+      if(g_strcasecmp(gcomprisBoard->type, "hanoi_real")==0)
 	{
 	  /* Set the plugin entry */
 	  gcomprisBoard->plugin=&menu_bp;
@@ -219,36 +223,7 @@ static void hanoi_next_level()
   gamewon = FALSE;
 
   /* Select level difficulty */
-  switch(gcomprisBoard->level)
-    {
-    case 1:
-      number_of_item_x = 3;
-      number_of_item_y = 5;
-      break;
-    case 2:
-      number_of_item_x = 4;
-      number_of_item_y = 5;
-      break;
-    case 3: 
-      number_of_item_x = 5;
-      number_of_item_y = 6;
-    case 4:
-      number_of_item_x = 6;
-      number_of_item_y = 7;
-      break;
-    case 5:
-      number_of_item_x = 6;
-      number_of_item_y = 8;
-      break;
-    case 6:
-      number_of_item_x = 5;
-      number_of_item_y = 9;
-      break;
-    default:
-      number_of_item_x = 5;
-      number_of_item_y = 7;
-    }
-      
+  number_of_item_y = gcomprisBoard->level + 2;
 
   /* Try the next level */
   hanoi_create_item(gnome_canvas_root(gcomprisBoard->canvas));
@@ -264,7 +239,7 @@ static void hanoi_destroy_all_items()
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
       
       /* Cleanup our memory structure */
-      for(i=0; i<(number_of_item_x+2); i++)
+      for(i=0; i<number_of_item_x; i++)
 	{
 	  for(j=0; j<number_of_item_y; j++)
 	    {
@@ -276,27 +251,25 @@ static void hanoi_destroy_all_items()
 
 }
 
+#if 0
 static void dump_solution()
 {
   guint i, j;
 
-  g_warning("Dumping solution\n");
-  for(i=0; i<(number_of_item_x+2); i++)
+  printf("Dumping solution\n");
+  for(i=0; i<number_of_item_x; i++)
     {
       for(j=0; j<number_of_item_y; j++)
 	{
-	  g_warning("(%d,%d=%2d/%d) ",  position[i][j]->i,  position[i][j]->j, position[i][j]->color, 
-		 position[i][j]->on_top);
+	  printf("(%d,%d= width=%d top=%d) ",  position[i][j]->i, position[i][j]->j, 
+		    position[i][j]->width, 
+		    position[i][j]->on_top);
 	}
-      g_warning("\n");
+      printf("\n");
     }
 
 }
-
-static void print_piece(PieceItem *piece)
-{
-  g_warning("Piece: (%d,%d=%2d/%d)\n",  piece->i,  piece->j, piece->color, piece->on_top);
-}
+#endif
 
 /* ==================================== */
 static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
@@ -306,7 +279,6 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   double baseline;
   GnomeCanvasItem *item = NULL;
   guint color_to_place;
-  guint used_colors[NUMBER_OF_COLOR];
   GnomeCanvasPathDef *path;
   guint w;
   GdkPixbuf *pixmap = NULL;
@@ -334,7 +306,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", _("Re-create in the empty area the same tower as the one on the right"),
+			 "text", _("Move the entire stack to the right peg"),
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2 +1,
 			 "y", (double) BOARDHEIGHT - 50 +1,
@@ -345,7 +317,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", _("Re-create in the empty area the same tower as the one on the right"),
+			 "text", _("Move the entire stack to the right peg"),
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) BOARDHEIGHT - 50,
@@ -357,87 +329,33 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   /*----------------------------------------*/
   /* Empty the solution */
-  for(i=0; i<(number_of_item_x+2); i++)
+  for(i=0; i<number_of_item_x; i++)
     {
       for(j=0; j<number_of_item_y; j++)
 	{
 	  position[i][j] = g_malloc(sizeof(PieceItem));
-	  position[i][j]->color  = -1;
+	  position[i][j]->width  = -1;
 	  position[i][j]->i      = i;
 	  position[i][j]->j      = j;
 	  position[i][j]->on_top = FALSE;
 	}
     }
 
-  /* Clear the used colors list */
-  for(i=0; i<NUMBER_OF_COLOR; i++)
-    used_colors[i] = FALSE;
-
-  /* Initialize a random goal and store the color index in position[number_of_item_x] */
-  for(i=0; i<(number_of_item_y); i++)
+  /* Initialize the left positions */
+  for(j=0; j<number_of_item_y; j++)
     {
-      guint color = (guint)RAND(0, NUMBER_OF_COLOR);
-      position[number_of_item_x+1][i]->color = color;
-      used_colors[color] = TRUE;
-      
+      position[0][j]->width = number_of_item_y - j;
     }
 
-  /* Randomly place the solution */
-  for (color_to_place=0; color_to_place<number_of_item_y; color_to_place++)
-    {
-      gboolean done;
+  /* Mark the top piece */
+  position[0][number_of_item_y-1]->on_top = TRUE;
 
-      do
-	{
-	  done = FALSE;
-
-	  i = (guint)RAND(0, number_of_item_x-2);
-
-	  /* Restrict the goal to lowest items */
-	  j = (guint)RAND(0, 2);
-
-	  if(position[i][j]->color == -1)
-	    {
-	      done = TRUE;
-	      position[i][j]->color = position[number_of_item_x+1][color_to_place]->color;
-	    }
-	}
-      while(!done);
-    }
-
-  /* Initialize the left open positions */
-  for(i=0; i<(number_of_item_x); i++)
-    {
-      for(j=0; j<number_of_item_y-1; j++)
-	{
-	  if(position[i][j]->color == -1)
-	    {
-	      /* Take only a color that is not part of the goal */
-	      guint color = (guint)RAND(0, NUMBER_OF_COLOR);
-	      //printf(" i,j=%d,%d random color = %d used_colors[color]=%d\n", i,j,color, used_colors[color]);
-	      while(used_colors[color])
-		{
-		  //printf("  used_colors[%d]=%d\n", color, used_colors[color]);
-		if(color++>NUMBER_OF_COLOR)
-		  color = 0;
-		}
-
-	      position[i][j]->color = color;
-	    }
-	}
-    }
-  //dump_solution();
-
-  /* Mark the top pieces */
-  for(i=0; i<(number_of_item_x); i++)
-    {
-      position[i][number_of_item_y-2]->on_top = TRUE;
-    }
+  /*dump_solution();*/
 
   /*----------------------------------------*/
   /* Display it now */
 
-  item_width  = BOARDWIDTH / (number_of_item_x + 2);
+  item_width  = BOARDWIDTH / (number_of_item_x);
   item_height = 30;
 
   gap_x = item_width  * 0.1;
@@ -447,9 +365,9 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   number_of_item = 0;
 
-  for(i=0; i<(number_of_item_x+2); i++)
+  for(i=0; i<number_of_item_x; i++)
     {
-      if(i==number_of_item_x+1)
+      if(i==number_of_item_x-1)
 	{
 	  /* Create the backgound for the target */
 	  gnome_canvas_item_new (boardRootItem,
@@ -463,21 +381,6 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 				 "width_units", (double)1,
 				 NULL);
 	}
-      else if (i==number_of_item_x)
-	{
-	  /* Create the backgound for the empty area */
-	  gnome_canvas_item_new (boardRootItem,
-				 gnome_canvas_rect_get_type (),
-				 "x1", (double) item_width * i + gap_x/2,
-				 "y1", (double) baseline - item_height * number_of_item_y - gap_y - 50,
-				 "x2", (double) item_width * (i+1) - gap_x/2,
-				 "y2", (double) baseline + 50,
-				 "fill_color_rgba", 0x48AAF1FF,
-				 "outline_color", "black",
-				 "width_units", (double)1,
-				 NULL);
-	}
-
       /* Create the vertical line */
       w = 10;
       gnome_canvas_item_new (boardRootItem,
@@ -511,6 +414,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
       gnome_canvas_item_show (item);
       gnome_canvas_path_def_unref (path);
 
+      guint color = 0;
       for(j=0; j<number_of_item_y; j++)
 	{
 
@@ -521,43 +425,25 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	  position[i][j]->yt = position[i][j]->y + 2;
 
 
-	  if(position[i][j]->color != -1)
+	  if(position[i][j]->width != -1)
 	    {
-	      char car[2];
-
+	      double zoom = (number_of_item_y - position[i][j]->width) * 0.1;
 	      item = gnome_canvas_item_new (boardRootItem,
 					    gnome_canvas_rect_get_type (),
-					    "x1", (double) position[i][j]->x,
+					    "x1", (double) position[i][j]->x + item_width * zoom,
 					    "y1", (double) position[i][j]->y,
-					    "x2", (double) item_width * i + item_width - gap_x,
+					    "x2", (double) item_width * i + item_width - gap_x - item_width * zoom,
 					    "y2", (double) baseline - item_height * j,
-					    "fill_color_rgba", colorlist[position[i][j]->color],
+					    "fill_color_rgba", colorlist[color++],
 					    "outline_color", "black",
 					    "width_units", (double)1,
 					    NULL);
 
-	      car[0] = 'a' + position[i][j]->color;
-	      car[1] = '\0';
-
-	       position[i][j]->item_text = \
-		 gnome_canvas_item_new (boardRootItem,
-					gnome_canvas_text_get_type (),
-					"text", &car,
-					"font", gcompris_skin_font_board_tiny,
-					"x", (double) position[i][j]->xt,
-					"y", (double) position[i][j]->yt,
-					"anchor", GTK_ANCHOR_NORTH,
-					"fill_color", "white",
-					"justification", GTK_JUSTIFY_CENTER,
-					NULL);
-
 	      position[i][j]->item = item;
 
-	      if(i!=number_of_item_x+1)
-		gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,  position[i][j]);
+	      gtk_signal_connect(GTK_OBJECT(item), "event", (GtkSignalFunc) item_event,  position[i][j]);
 
 	    }
-
 	}
     }
 
@@ -591,7 +477,7 @@ static gboolean is_completed()
 
   for(j=0; j<number_of_item_y; j++)
     {
-      if(position[number_of_item_x+1][j]->color != position[number_of_item_x][j]->color)
+      if(position[number_of_item_x-1][j]->width != number_of_item_y - j)
 	done = FALSE;
     }
 
@@ -644,7 +530,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  y = item_y;
 	  
 	  gnome_canvas_item_raise_to_top(data->item);
-	  gnome_canvas_item_raise_to_top(data->item_text);
 	  
 	  fleur = gdk_cursor_new(GDK_FLEUR);
 	  gnome_canvas_item_grab(data->item,
@@ -665,7 +550,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  new_y = item_y;
 	  
 	  gnome_canvas_item_move(data->item     , new_x - x, new_y - y);
-	  gnome_canvas_item_move(data->item_text, new_x - x, new_y - y);
 	  x = new_x;
 	  y = new_y;
 	}
@@ -679,24 +563,31 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  double tmpx, tmpy;
 	  PieceItem *piece_src;
 	  PieceItem *piece_dst;
-	  gint col, line;
-	  
+	  gint line;
+	  gint col;
+      
 	  gnome_canvas_item_ungrab(data->item, event->button.time);
 	  dragging = FALSE;
 	  
 	  /* Search the column (x) where this item is ungrabbed */
-	  for(i=0; i<=number_of_item_x; i++)
-	    if(position[i][0]->x   < item_x &&
-	       position[i+1][0]->x > item_x)
-	      col = i;
+	  if(item_x > position[number_of_item_x-1][0]->x)
+	    col = number_of_item_x-1;
+	  else if(item_x < position[0][0]->x)
+	    col = 0;
+	  else
+	    for(i=0; i<number_of_item_x-1; i++)
+	      if(position[i][0]->x   < item_x &&
+		 position[i+1][0]->x > item_x)
+		col = i;
 
+
+	  printf("col=%d\n", col);
 	  /* Bad drop / Outside of column area */
 	  /* Bad drop / On the same column */
 	  if(col<0 || col > number_of_item_x || col == data->i)
 	    {
 	      /* Return to the original position */
 	      item_absolute_move (data->item     , data->x , data->y);
-	      item_absolute_move (data->item_text, data->xt, data->yt);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -708,15 +599,18 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  /* Now search the free line (y) */
 	  line = number_of_item_y;
 	  for(i=number_of_item_y-1; i>=0; i--)
-	    if(position[col][i]->color == -1)
+	    if(position[col][i]->width == -1)
 	      line = i;
 	  
-	  /* Bad drop / Too many pieces here */
-	  if(line >= number_of_item_y)
+	  /* Bad drop / Too many pieces here or larger disc is above */
+	  printf("[col][line]=[%d][%d]\n", col, line);
+	  printf("position[col][line]->width=%d   data->width=%d \n",
+		 position[col][line]->width , data->width);
+	  if(line > number_of_item_y || 
+	     (line > 0 && position[col][line-1]->width != -1 && position[col][line-1]->width < data->width))
 	    {
 	      /* Return to the original position */
 	      item_absolute_move (data->item     , data->x , data->y);
-	      item_absolute_move (data->item_text, data->xt, data->yt);
 
 	      /* FIXME : Workaround for bugged canvas */
 	      gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -736,7 +630,6 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  piece_dst = position[col][line];
 	  piece_src = data;
 	  item_absolute_move (data->item     , piece_dst->x , piece_dst->y);
-	  item_absolute_move (data->item_text, piece_dst->xt, piece_dst->yt);
 	  
 	  /* FIXME : Workaround for bugged canvas */
 	  gnome_canvas_update_now(gcomprisBoard->canvas);
@@ -766,7 +659,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
 	  position[piece_src->i][piece_src->j] = piece_src;
 	  position[piece_dst->i][piece_dst->j] = piece_dst;
 
-	  //	  dump_solution();
+	  /*dump_solution();*/
 	  if(is_completed())
 	    {
 	      gamewon = TRUE;

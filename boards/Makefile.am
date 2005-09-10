@@ -51,6 +51,7 @@ xml_in_files = \
 	gnumchmenu.xml.in \
 	gletters.xml.in \
 	hanoi.xml.in \
+	hanoi_real.xml.in \
 	hexagon.xml.in \
 	imageid.xml.in \
 	imagename.xml.in \

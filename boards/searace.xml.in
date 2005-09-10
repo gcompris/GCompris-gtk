@@ -14,12 +14,12 @@
 	<_goal>In this activity, you will learn how to enter commands to a computer.
 Even if the language is extremely basic, you learn here how to think ahead and enter a program.
 This activity can be used to introduce the programming concept to kids.</_goal>
-	<_manual>In the text box, enter commands, line by line, to direct your ship. You can use any of the commands shown between the two entry areas. When you use the "left" or "right" commands, you have to tell the ship how far you want it to turn, in degrees (e.g. "left 30" degrees). Giving special measurements like this is also called 'passing a parameter': this is how we tell the computer how much to do something. 
-The "forward" command accepts a distance parameter, so you can tell it how far you want your ship to move. The default is 1, so if you don't add that parameter, each move will be 1 unit. (Defaults are handy values that help the computer out when we don't pass any parameters.) 
+	<_manual>In the text box, enter commands, line by line, to direct your ship. You can use any of the commands shown between the two entry areas. When you use the 'left' or 'right' commands, you have to tell the ship how far you want it to turn, in degrees (e.g. 'left 30' degrees). Giving special measurements like this is also called 'passing a parameter': this is how we tell the computer how much to do something. 
+The 'forward' command accepts a distance parameter, so you can tell it how far you want your ship to move. The default is 1, so if you don't add that parameter, each move will be 1 unit. (Defaults are handy values that help the computer out when we don't pass any parameters.) 
 
 So you could say:
-"left 90" : make a perpendicular turn (a whole corner) to the left.
-"forward 10" : go ahead 10 units (as shown on the ruler).
+'left 90' : make a perpendicular turn (a whole corner) to the left.
+'forward 10' : go ahead 10 units (as shown on the ruler).
 
 The goal is to reach the right edge of the screen (the red line). When you get there, you can try to improve your program, with the same weather conditions, and try again, using the Retry button.
 You can click and drag your mouse anywhere on the map, to show a measurement of distance (how far) and angle (how much turn).

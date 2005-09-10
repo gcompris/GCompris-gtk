@@ -1,3 +1,20 @@
+2005-09-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added non functionnal hanoi_real game (the real tower of hanoi).
+
+	* boards/Makefile.am:
+	* boards/hanoi_real.xml.in:
+	* boards/searace.xml.in: removed " and <> that bugs our reread menu
+	* docs/screenshots/billard.jpg:
+	* po/Makefile.in.in:
+	* po/POTFILES.in:
+	* src/boards/Makefile.am:
+	* src/boards/hanoi.c: (hanoi_create_item): fixed string
+	* src/boards/hanoi_real.c: (pause_board), (start_board),
+	(end_board), (set_level), (is_our_board), (hanoi_next_level),
+	(hanoi_destroy_all_items), (dump_solution), (print_piece),
+	(hanoi_create_item), (game_won), (is_completed), (item_event):
+
 2005-09-09  Bruno coudoin  <bruno.coudoin@free.fr>
 	
 	Fixed connect4 (bug #313432)

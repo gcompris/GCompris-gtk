@@ -99,6 +99,7 @@ boards/gnumch-multiples.xml.in
 boards/gnumch-primes.xml.in
 boards/gnumchmenu.xml.in
 boards/hanoi.xml.in
+boards/hanoi_real.xml.in
 boards/hexagon.xml.in
 boards/imageid.xml.in
 boards/imageid/board1.xml.in
@@ -192,6 +193,7 @@ src/boards/erase.c
 src/boards/fifteen.c
 src/boards/gletters.c
 src/boards/hanoi.c
+src/boards/hanoi_real.c
 src/boards/imageid.c
 src/boards/leftright.c
 src/boards/machpuzzle.c
