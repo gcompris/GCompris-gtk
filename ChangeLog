@@ -1,3 +1,12 @@
+2005-09-12  Yves Combe,,,  <yves@ycombe.net>
+
+	refuse --reread-menu if db is read-only.
+	quote boards strings before inserting in db with sqlite3_mprintf.
+	
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/gcompris_db.c: (gcompris_db_board_update),
+	(gcompris_db_get_board_id):
+
 2005-09-11  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed comilation option --disable-sqlite.

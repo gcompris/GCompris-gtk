@@ -1147,7 +1147,10 @@ gcompris_init (int argc, char *argv[])
 
   if (popt_reread_menu){
     g_warning("Rebuild db from xml files");
-    properties->reread_menu = TRUE;
+    if (access(properties->database, W_OK)==-1)
+      g_warning("Cannot reread menu when database is read-only !");
+    else
+      properties->reread_menu = TRUE;
   }
 
 

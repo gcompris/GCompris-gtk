@@ -369,9 +369,10 @@ gboolean gcompris_db_check_boards()
 }
 
 
-#define Q(a) a==NULL ? "" : "\"", a==NULL ? "NULL" : a, a==NULL ? "" : "\""
-#define BOARD_INSERT(board_id, name, section_id, section, author, type, mode, difficulty, icon, boarddir, mandatory_sound_file, mandatory_sound_dataset, filename, title, description, prerequisite, goal, manual, credit) \
-        "INSERT OR REPLACE INTO boards VALUES (%d, %s%s%s, %d, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %d, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s, %s%s%s);", board_id, Q(name), section_id, Q(section), Q(author), Q(type), Q(mode), difficulty, Q(icon), Q(boarddir), Q(mandatory_sound_file), Q(mandatory_sound_dataset), Q(filename), Q(title), Q(description), Q(prerequisite), Q(goal), Q(manual), Q(credit)
+#define Q(a) a==NULL ? "" : "\'", a==NULL ? "NULL" : a, a==NULL ? "" : "\'"
+
+#define BOARD_INSERT \
+        "INSERT OR REPLACE INTO boards VALUES (%d, %Q, %d, %Q, %Q, %Q, %Q, %d, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q);"
 
 #define MAX_BOARD_ID \
         "SELECT MAX(board_id) FROM boards;"
@@ -514,12 +515,28 @@ void gcompris_db_board_update(gint *board_id,
     sqlite3_free_table(result);
   }
 
-  request = g_strdup_printf(BOARD_INSERT( *board_id,  name, *section_id, section, 
-					  author, type, mode, difficulty, icon, boarddir,
-					  mandatory_sound_file, mandatory_sound_dataset, 
-					  filename, title, description, prerequisite, goal, 
-					  manual, credit));
-
+  request = sqlite3_mprintf( BOARD_INSERT,
+			    *board_id,
+			    name,
+			    *section_id,
+			    section, 
+			    author,
+			    type,
+			    mode,
+			    difficulty,
+			    icon,
+			    boarddir,
+			    mandatory_sound_file,
+			    mandatory_sound_dataset, 
+			    filename, 
+			    title,
+			    description,
+			    prerequisite, 
+				goal, 
+			    manual,
+			    credit
+			    );
+  
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
 			 &result,
@@ -534,7 +551,7 @@ void gcompris_db_board_update(gint *board_id,
   
   sqlite3_free_table(result);
   
-  g_free(request);
+  sqlite3_free(request);
  
 #endif
 }
@@ -673,7 +690,7 @@ GList *gcompris_db_get_board_id(GList *list)
   return  board_id_list;
 
 #else
-  return NULL;
+  return list;
 #endif
 }
 
