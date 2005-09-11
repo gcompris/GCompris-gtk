@@ -1152,7 +1152,7 @@ gcompris_init (int argc, char *argv[])
 
 
   /*
-   * Database nit MUST BE after properties
+   * Database init MUST BE after properties
    * And after a possible alternate database as been provided
    *
    */

@@ -1326,14 +1326,16 @@ GHashTable *gcompris_get_board_conf()
 					     hash_result);
 
   /* conf values for profile (board independant) */
-  hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
-					     -1,
-					     hash_result);
+  if(gcompris_get_current_profile()) {
+    hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
+					       -1,
+					       hash_result);
 
-  /* conf value for current profile and current board */
-  hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
-					     get_current_gcompris_board()->board_id,
-					     hash_result);
+    /* conf value for current profile and current board */
+    hash_result = gcompris_get_conf_with_table(gcompris_get_current_profile()->profile_id,
+					       get_current_gcompris_board()->board_id,
+					       hash_result);
+  }
 
   return hash_result;
 }
