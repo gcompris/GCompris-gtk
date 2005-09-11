@@ -1190,6 +1190,7 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
   int ncolumn;
   gchar *request;
 
+#ifdef USE_SQLITE
   request = g_strdup_printf(CHECK_CONF(profile->profile_id, 
 				       board->board_id, 
 				       key));
@@ -1247,6 +1248,7 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
     
     g_free(request);
   }
+#endif
 } 
 
 #define GET_CONF(p, b) \
@@ -1264,6 +1266,7 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
 
   GHashTable *hash_conf = table;
 
+#ifdef USE_SQLITE
   request = g_strdup_printf(GET_CONF(profile_id, 
 				     board_id));
   
@@ -1296,7 +1299,7 @@ GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTabl
   }
 
   sqlite3_free_table(result);
-  
+#endif  
   return hash_conf;
 }
 
@@ -1304,8 +1307,11 @@ GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board )
 {
   GHashTable *hash_result = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
+#ifdef USE_SQLITE
   return gcompris_get_conf_with_table( profile->profile_id, board->board_id, hash_result) ;
-
+#else
+  return hash_result;
+#endif
 }
 
 GHashTable *gcompris_get_board_conf()

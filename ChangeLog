@@ -1,3 +1,58 @@
+2005-09-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed comilation option --disable-sqlite.
+	Should work as expected now.
+
+	Changed all original message to use &gt; and &lt; in .xml.in files.
+	Not using them bugs the libxml2 parsing.
+	I added them around all http://... reference because translators tend to use
+	the form <http://...>
+	now hopefully they will respect this syntax.
+
+	* boards/algebra_guesscount.xml.in:
+	* boards/chronos.xml.in:
+	* boards/clickgame.xml.in:
+	* boards/connect4.xml.in:
+	* boards/erase.xml.in:
+	* boards/erase_clic.xml.in:
+	* boards/erase_double_clic.xml.in:
+	* boards/hanoi_real.xml.in:
+	* boards/sudoku.xml.in:
+	* docs/create_thumbnails.pl:
+	* docs/screenshots/billard_small.jpg:
+	* docs/screenshots/hanoi_real.jpg:
+	* docs/screenshots/hanoi_real_small.jpg:
+	* src/gcompris/gameutil.c: (gcompris_add_xml_to_data),
+	(gcompris_read_xml_file), (gcompris_load_menus_dir),
+	(gcompris_load_menus):
+	* src/gcompris/gcompris.c: (gcompris_init):
+	* src/gcompris/gcompris_db.c: (gcompris_set_board_conf),
+	(gcompris_get_conf_with_table), (gcompris_get_conf):
+
+2005-09-11  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Reworked icons by Bruno.
+	
+	* boards/boardicons/fifteen.png:
+	* boards/boardicons/hanoi.png:
+	* boards/boardicons/hanoi_real.png:
+
+2005-09-10  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Complete the real hanoi game, including new images.
+	moved configure to 7.0
+
+	* boards/boardicons/hanoi_real.png:
+	* boards/hanoi_real.xml.in:
+	* boards/images/disc1.png:
+	* boards/images/disc2.png:
+	* boards/images/disc3.png:
+	* boards/images/disc4.png:
+	* boards/images/disc_support.png:
+	* configure.in:
+	* src/boards/hanoi_real.c: (start_board), (hanoi_create_item),
+	(item_event):
+
 2005-09-11  Yves Combe,,,  <yves@ycombe.net>
 
 	cleaning unused files
@@ -70,6 +125,7 @@
 	* src/boards/reading.c: (reading_next_level),
 	(reading_destroy_all_items), (get_wordfile):
 
+>>>>>>> 1.630
 2005-09-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added non functionnal hanoi_real game (the real tower of hanoi).

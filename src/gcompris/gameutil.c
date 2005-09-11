@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/08/29 00:26:24 yves>
+ * Time-stamp: <2005/09/11 18:12:34 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -548,7 +548,9 @@ gcompris_add_xml_to_data(xmlDocPtr doc, xmlNodePtr xmlnode, GNode * child, Gcomp
 			      credit
 			      );
   
-    g_warning("db board written %d in %d  %s/%s", gcomprisBoard->board_id, gcomprisBoard->section_id, gcomprisBoard->section, gcomprisBoard->name);
+    g_warning("db board written %d in %d  %s/%s", 
+	      gcomprisBoard->board_id, gcomprisBoard->section_id, 
+	      gcomprisBoard->section, gcomprisBoard->name);
   }
   
 }
@@ -582,7 +584,7 @@ GcomprisBoard *gcompris_read_xml_file(GcomprisBoard *gcomprisBoard,
   /* pointer to the new doc */
   xmlDocPtr doc;
 
-  g_return_val_if_fail(fname!=NULL,FALSE);
+  g_return_val_if_fail(fname!=NULL, NULL);
 
   filename = g_strdup(fname);
 
@@ -826,12 +828,20 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 	  list_old_boards_id = suppress_int_from_list(list_old_boards_id, board_read->board_id);
 	  if (properties->administration)
 	    boards_list = g_list_append(boards_list, board_read);
-	  else 
+	  else {
 	    if ((strncmp(board_read->section,
 			 "/administration",
-			 strlen("/administration"))!=0) &&
-		(!(g_list_find_custom(gcompris_get_current_profile()->activities, &(board_read->board_id), compare_id))))
-	      boards_list = g_list_append(boards_list, board_read);
+			 strlen("/administration"))!=0)) {
+		
+	      if (gcompris_get_current_profile() &&
+		  !(g_list_find_custom(gcompris_get_current_profile()->activities, 
+				       &(board_read->board_id), compare_id))) {
+		boards_list = g_list_append(boards_list, board_read);
+	      } else {
+		boards_list = g_list_append(boards_list, board_read);
+	      }
+	    }
+	  }
 	}
       }
       g_free(filename);
@@ -884,8 +894,9 @@ void gcompris_load_menus()
     }
   }
   else {
+    int db = (gcompris_get_current_profile() ? TRUE: FALSE);
     properties->reread_menu = TRUE;
-    gcompris_load_menus_dir(properties->package_data_dir, TRUE);
+    gcompris_load_menus_dir(properties->package_data_dir, db);
     GDate *today = g_date_new();
     g_date_set_time (today, time (NULL));
 

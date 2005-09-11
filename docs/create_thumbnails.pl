@@ -24,6 +24,7 @@ foreach my $image (@files) {
 
   next if (-f "$thumb");
 
+  print "Creating $thumb\n";
   system ("convert -geometry ".$thumb_size.
       " -quality 100 $file $thumb") == 0
       || die "Problems with convert: $?\n";

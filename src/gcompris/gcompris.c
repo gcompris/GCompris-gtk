@@ -1102,10 +1102,10 @@ gcompris_init (int argc, char *argv[])
 
   /* shared_dir initialised, now we can set the default */
   properties->database = get_default_database_name ( properties->shared_dir );
-  printf( " Infos: %s %s %s \n",  
-	  properties->shared_dir, 
-	  properties->users_dir,
-	  properties->database);
+  g_warning( "Infos:\n   Shared dir '%s'\n   Users dir '%s'\n   Database '%s'\n",
+	     properties->shared_dir, 
+	     properties->users_dir,
+	     properties->database);
 
   if (popt_database){
     if (g_file_test(popt_database, G_FILE_TEST_EXISTS)) {
