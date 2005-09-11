@@ -1,3 +1,11 @@
+2005-09-11  Yves Combe,,,  <yves@ycombe.net>
+
+	fix crash in reading, when looking for wordlevel_max file.
+
+	* po/Makefile.in.in:
+	* src/boards/reading.c: (reading_next_level),
+	(reading_destroy_all_items), (get_wordfile):
+
 2005-09-10  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added non functionnal hanoi_real game (the real tower of hanoi).

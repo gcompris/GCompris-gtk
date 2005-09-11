@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/09/01 22:38:40 yves>
+ * Time-stamp: <2005/09/11 16:21:05 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -269,9 +269,7 @@ static gint reading_next_level()
 
   gamewon = FALSE;
 
-  g_warning("destroying_all...");
   reading_destroy_all_items();
-  g_warning("destroying_all... done ");
 
   boardRootItem = GNOME_CANVAS_GROUP(
 				     gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -299,13 +297,9 @@ static gint reading_next_level()
   gcomprisBoard->number_of_sublevel=1;
   gcomprisBoard->sublevel=1;
 
-  g_warning("reading wordfile...");
   read_wordfile();
-  g_warning("reading wordfile...done");
   display_what_to_do(boardRootItem);
-  g_warning("display_what_to_do...done");
   ask_ready(TRUE);
-  g_warning("ask_ready...done");
   return (FALSE);
 }
 
@@ -323,11 +317,8 @@ static void reading_destroy_all_items()
     drop_items_id = 0;
   }
 
-  g_warning("destroying boardRootItem ...");
   if(boardRootItem!=NULL)
       gtk_object_destroy (GTK_OBJECT(boardRootItem));
-
-  g_warning("destroying boardRootItem ... done");
 
   boardRootItem = NULL;
   previousFocus.rootItem = NULL;
@@ -339,17 +330,11 @@ static void reading_destroy_all_items()
     textToFind=NULL;
     }
 
-  g_warning("destroying words ...");  
-
   if (words!=NULL) 
     {
     g_ptr_array_free (words, TRUE);
     words=NULL;
     }
-
-  g_warning("destroying words ... done");  
-  
-  
 
 }
 
@@ -750,12 +735,13 @@ static FILE *get_wordfile(const char *locale)
                                                                                                                               
   if(wordsfd==NULL)
     {
+      g_free(filename);
       /* Second Try to find a file matching the 'max' and the locale */
-      g_sprintf(filename, "%s%s%.2s",
-              PACKAGE_DATA_DIR, "/wordsgame/wordslevelmax.",
-              locale);
+      filename = g_strdup_printf("%s%s%.2s",
+				 PACKAGE_DATA_DIR, "/wordsgame/wordslevelmax.",
+				 locale);
       //      g_message("Trying to open file %s ", filename);
-                                                                                                                              
+      
       wordsfd = fopen (filename, "r");
     }
                                                                                                                               
