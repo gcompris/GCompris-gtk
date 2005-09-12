@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<!--
+This file is in the xml docbook format. It can be translated to many formats
+(including HTML) using the stylesheets available at: http://docbook.sourceforge.net.
+
+If you have a good libxslt installation, you may use the following command to
+translate this file to html:
+xsltproc -o python.html http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl python.xml
+-->
+
+<article><articleinfo><author><honorific>Ir</honorific> <firstname>Olivier</firstname> <surname>Samyn</surname> <email>osamyn@ulb.ac.be</email></author> <date>2003ko otsaila</date> <revhistory><revision><revnumber>0.1</revnumber> <date>2003ko otsaila</date></revision> <revision><revnumber>0.2</revnumber> <date>2003ko apirila</date></revision> <revision><revnumber>0.3</revnumber> <date>2004ko urtarrila</date></revision></revhistory></articleinfo>
+    <title>Python bildukia Gcompris-entzat</title>
+
+
+    <sect1>
+      <title>Bilduki honi buruzko oharrak</title>
+<para>Oro har, C gcompris_xxx funtzio guztiak dagozkien gcompris.xxx funtzioekin bilduta daude; parametroak eta itzulera-motak berdin gelditzen dira. Egitura batzuk ere bildu dira. Ikus honi buruzko ohar zehatzak behean.</para>
+
+<para>Bildutako funtzioak paketetan banatuta daude. Pakete bakoitza gcompris goiburu-fitxategi bati dagokio (gameutil.h, score.h, ...)</para>
+
+<para>Baina ez dira bildu pakete/goiburu bakoitzaren funtzio guztiak. Plugin-entzat erabilgarri diren funtzioak bakarrik bildu dira.</para>
+
+<para>Kontuan hartu ez direla funtzio guztiak probatu (denborarekin eta python plugin berriekin egingo da, baina..). Bildukiak idatzi dira, konpilatzen dira, baina ez dago bermerik haien portaerari buruz... Programa-errore bat aurkitzen baduzu, eman horren berri!</para></sect1>
+
+    <sect1>
+      <title>Python taularen egitura</title>
+<para>Python-en idatzitako taula bakoitzak &quot;Gcompris_xxx&quot; izeneko klase bat eduki behar du (xxx taularen izena da). Adibidez: Gcompris taula bat egin dut, python-en idatzita eta &quot;pythontest&quot; izenekoa.</para> <para>Taula honentzat badago gcompris pythontest.xml fitxategi bat, &quot;pythontest&quot; taula-izenerako eta &quot;pythonboard&quot; taula-motarako duena. Gainera, pythontest.py fitxategiak taula-kodea dauka. Eta, amaitzeko, fitxategi honek &quot;Gcompris_pythontest&quot; klase-definizio bat dauka, txandaka behar diren gcompris taula-funtzioak dituena.</para> <para>Python taulan definitutako klaseak ondoko metodoak eduki behar ditu:<itemizedlist><listitem>__init__(self, gcomprisBoard)</listitem> <listitem>start(self)</listitem> <listitem>end(self)</listitem> <listitem>ok(self)</listitem> <listitem>repeat(self)</listitem> <listitem>config(self)</listitem> <listitem>key_press(self, keyval)</listitem> <listitem>pause(self, pause)</listitem> <listitem>set_level(self, level)</listitem></itemizedlist></para> <para>Metodoaren funtzioaz eta erabileraz gehiago jakiteko, ikus pythontest.py taula eta beste C taulak.</para></sect1>
+
+    <sect1>
+      <title>GcomprisBoard egituraren mapaketa </title>
+<para>Python-en egitura honen instantzia batek C egituraren instantzia balitz bezala jokatuko du. Hona Python dei-adibide batzuk:</para> <programlisting>... gcomprisBoard.level = 1 gcomprisBoard.maxlevel = 1 ... gcompris.bar_start(gcomprisBoard.canvas) ...</programlisting> <para>Hona Python egituraren kide-izena eta mota, eta ohar bat atributua irakurgarria edota idazgarria den adierazten.</para>
+
+      <informaltable><tgroup cols="4">
+	  <thead>
+	    <row><entry>Egituraren kidea</entry> <entry>Mota</entry> <entry>Irakurgarria</entry> <entry>Idazgarria</entry></row>
+	  </thead>
+	  <tbody>
+	    <row><entry>type</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>board_ready</entry><entry>boolean</entry><entry>Y</entry><entry>N</entry></row><row><entry>mode</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>name</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>title</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>description</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>icon_name</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>author</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>boarddir</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>filename</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>difficulty</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>mandatory_sound_file</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>section</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>menuposotion</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>prerequisite</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>goal</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>manual</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>credit</entry><entry>string</entry><entry>Y</entry><entry>N</entry></row><row><entry>width</entry><entry>int</entry><entry>Y</entry><entry>N</entry></row><row><entry>height</entry><entry>int</entry><entry>Y</entry><entry>N</entry></row><row><entry>canvas</entry><entry>gnome.canvas.Canvas</entry><entry>Y</entry><entry>N</entry></row><row><entry>previous_board</entry><entry>GcomprisBoard</entry><entry>Y</entry><entry>N</entry></row><row><entry>level</entry><entry>int</entry><entry>Y</entry><entry>Y</entry></row><row><entry>maxlevel</entry><entry>int</entry><entry>Y</entry><entry>Y</entry></row><row><entry>sublevel</entry><entry>int</entry><entry>Y</entry><entry>Y</entry></row><row><entry>number_of_sublevel</entry><entry>int</entry><entry>Y</entry><entry>Y</entry></row>
+	  </tbody>
+	</tgroup></informaltable></sect1>
+
+
+
+    <sect1>
+      <title>gcompris.h funtzioen eta konstanteen mapaketa</title>
+      <sect2>
+	<title>Funtzioen mapaketa</title>
+	<informaltable><tgroup cols="3">
+	    <thead>
+	      <row><entry>Python funtzioa</entry> <entry>C baliokidea</entry> <entry>Oharrak</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.end_board()</entry> <entry>void gcompris_end_board(void)</entry> <entry></entry></row> <row><entry>gcompris.bar_start(gnomeCanvas)</entry> <entry>void gcompris_bar_start(GnomeCanvas *theCanvas)</entry> <entry></entry></row> <row><entry>gcompris.set_background(gnomeCanvasGroup, file)</entry> <entry>GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file)</entry> <entry>return a gnome.canvas.CanvasItem object</entry></row> <row><entry>gcompris.bar_set_level(gcomprisBoard)</entry> <entry>void gcompris_bar_set_level(GcomprisBoard *gcomprisBoard)</entry> <entry></entry></row> <row><entry>gcompris.bar_set_repeat_icon(pixmap)</entry> <entry>void gcompris_bar_set_repeat_icon(GdkPixbuf *pixmap)</entry> <entry></entry></row> <row><entry>gcompris.bar_set(flags)</entry> <entry>void gcompris_bar_set(const GComprisBarFlags flags)</entry> <entry></entry></row> <row><entry>gcompris.bar_hide(hide)</entry> <entry>void gcompris_bar_hide(gboolean hide)</entry> <entry></entry></row> <row><entry>gcompris.board_has_help(gcomprisBoard)</entry> <entry>gboolean gcompris_board_has_help(GcomprisBoard *gcomprisBoard)</entry> <entry>return a boolean</entry></row> <row><entry>gcompris.help_start(gcomprisBoard)</entry> <entry>void gcompris_help_start(GcomprisBoard *gcomprisBoard)</entry> <entry></entry></row> <row><entry>gcompris.help_stop()</entry> <entry>void gcompris_help_stop(void)</entry> <entry></entry></row> <row><entry>gcompris.get_canvas()</entry> <entry>GnomeCanvas* gcompris_get_canvas()</entry> <entry>return a gnome.canvas.Canvas</entry></row> <row><entry>gcompris.get_window()</entry> <entry>GtkWidget* gcompris_get_window(void)</entry> <entry>return a gtk.Widget</entry></row> <row><entry>gcompris.get_locale()</entry> <entry>gchar* gcompris_get_locale(void)</entry> <entry>return a string</entry></row> <row><entry>gcompris.set_locale(locale)</entry> <entry>void gcompris_set_locale(gchar *locale)</entry> <entry></entry></row> <row><entry>gcompris.set_cursor(cursor_type)</entry> <entry>void gcompris_set_cursor(guint gdk_cursor_type)</entry> <entry></entry></row> <row><entry>gcompris.images_selector_start(gcomprisBoard, dataset, callback)</entry> <entry>void gcompris_images_selector_start (GcomprisBoard *gcomprisBoard, gchar *dataset, ImageSelectorCallBack imscb)</entry> <entry>The callback must be a callable object</entry></row> <row><entry>gcompris.images_selector_stop()</entry> <entry>void gcompris_images_selector_stop(void)</entry> <entry></entry></row> <row><entry>gcompris.exit()</entry> <entry>void gcompris_exit(void)</entry> <entry></entry></row> <row><entry>gcompris.log_set_reason (gcomprisBoard, expected, got)</entry> <entry>gcompris_log_set_reason (GcomprisBoard *gcomprisBoard, gchar *expected, gchar *got)</entry> <entry></entry></row> <row><entry>gcompris.log_end (gcomprisBoard, status)</entry> <entry>gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status)</entry> <entry></entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2> <sect2>
+	<title>GComprisBarFlags enumerazio-mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.BAR_LEVEL</entry> <entry>GCOMPRIS_BAR_LEVEL</entry></row> <row><entry>gcompris.BAR_OK</entry> <entry>GCOMPRIS_BAR_OK</entry></row> <row><entry>gcompris.BAR_REPEAT</entry> <entry>GCOMPRIS_BAR_REPEAT</entry></row> <row><entry>gcompris.BAR_CONFIG</entry> <entry>GCOMPRIS_BAR_CONFIG</entry></row> <row><entry>gcompris.BAR_ABOUT</entry> <entry>GCOMPRIS_BAR_ABOUT</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+      <sect2>
+	<title>Hainbat konstanteren mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.BOARD_HEIGHT</entry> <entry>BOARDHEIGHT</entry></row> <row><entry>gcompris.BOARD_WIDTH</entry> <entry>BOARDWIDTH</entry></row> <row><entry>gcompris.BAR_HEIGHT</entry> <entry>BAR_HEIGHT</entry></row> <row><entry>gcompris.DEFAULT_SKIN</entry> <entry>DEFAULT_SKIN</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+      <sect2>
+	<title>Koloreen konstanteen mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.COLOR_TITLE</entry><entry>COLOR_TITLE</entry></row> <row><entry>gcompris.COLOR_TEXT_BUTTON</entry><entry>COLOR_TEXT_BUTTON</entry></row> <row><entry>gcompris.COLOR_CONTENT</entry><entry>COLOR_CONTENT</entry></row> <row><entry>gcompris.COLOR_SUBTITLE</entry><entry>COLOR_SUBTITLE</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+      <sect2>
+	<title>Letra-tipoen konstanteen mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.FONT_TITLE</entry><entry>FONT_TITLE</entry></row> <row><entry>gcompris.FONT_TITLE_FALLBACK</entry><entry>FONT_TITLE_FALLBACK</entry></row> <row><entry>gcompris.FONT_SUBTITLE</entry><entry>FONT_SUBTITLE</entry></row> <row><entry>gcompris.FONT_SUBTITLE_FALLBACK</entry><entry>FONT_SUBTITLE_FALLBACK</entry></row> <row><entry>gcompris.FONT_CONTENT</entry><entry>FONT_CONTENT</entry></row> <row><entry>gcompris.FONT_CONTENT_FALLBACK</entry><entry>FONT_CONTENT_FALLBACK</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+      <sect2>
+	<title>Taulako letra-tipoaren konstanteen mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.FONT_BOARD_TINY</entry><entry>FONT_BOARD_TINY</entry></row> <row><entry>gcompris.FONT_BOARD_SMALL</entry><entry>FONT_BOARD_SMALL</entry></row> <row><entry>gcompris.FONT_BOARD_MEDIUM</entry><entry>FONT_BOARD_MEDIUM</entry></row> <row><entry>gcompris.FONT_BOARD_BIG</entry><entry>FONT_BOARD_BIG</entry></row> <row><entry>gcompris.FONT_BOARD_BIG_BOLD</entry><entry>FONT_BOARD_BIG_BOLD</entry></row> <row><entry>gcompris.FONT_BOARD_FIXED</entry><entry>FONT_BOARD_FIXED</entry></row> <row><entry>gcompris.FONT_BOARD_TITLE</entry><entry>FONT_BOARD_TITLE</entry></row> <row><entry>gcompris.FONT_BOARD_TITLE_BOLD</entry><entry>FONT_BOARD_TITLE_BOLD</entry></row> <row><entry>gcompris.FONT_BOARD_HUGE</entry><entry>FONT_BOARD_HUGE</entry></row> <row><entry>gcompris.FONT_BOARD_HUGE_BOLD</entry><entry>FONT_BOARD_HUGE_BOLD</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+      <sect2>
+	<title>Kurtsorearen konstanteen mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.CURSOR_FIRST_CUSTOM</entry> <entry>GCOMPRIS_FIRST_CUSTOM_CURSOR</entry></row> <row><entry>gcompris.CURSOR_BIG_RED_ARROW</entry> <entry>GCOMPRIS_BIG_RED_ARROW_CURSOR</entry></row> <row><entry>gcompris.CURSOR_BIRD</entry><entry>GCOMPRIS_BIRD_CURSOR</entry></row> <row><entry>gcompris.CURSOR_LINE</entry><entry>GCOMPRIS_LINE_CURSOR</entry></row> <row><entry>gcompris.CURSOR_FILLRECT</entry><entry>GCOMPRIS_FILLRECT_CURSOR</entry></row> <row><entry>gcompris.CURSOR_RECT</entry><entry>GCOMPRIS_RECT_CURSOR</entry></row> <row><entry>gcompris.CURSOR_FILLCIRCLE</entry><entry>GCOMPRIS_FILLCIRCLE_CURSOR</entry></row> <row><entry>gcompris.CURSOR_CIRCLE</entry><entry>GCOMPRIS_CIRCLE_CURSOR</entry></row> <row><entry>gcompris.CURSOR_DEL</entry><entry>GCOMPRIS_DEL_CURSOR</entry></row> <row><entry>gcompris.CURSOR_FILL</entry><entry>GCOMPRIS_FILL_CURSOR</entry></row> <row><entry>gcompris.CURSOR_SELECT</entry><entry>GCOMPRIS_SELECT_CURSOR</entry></row> <row><entry>gcompris.CURSOR_DEFAULT</entry><entry>GCOMPRIS_DEFAULT_CURSOR</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+    </sect1>
+
+    <sect1>
+      <title>gameutil.h funtzioak eta konstanteak Mapaketa</title>
+      <sect2>
+	<title>Funtzioen mapaketa</title>
+	<informaltable><tgroup cols="3">
+	    <thead>
+	      <row><entry>Python funtzioa</entry> <entry>C baliokidea</entry> <entry>Oharrak</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.utils.image_to_skin(imagename)</entry> <entry>gchar *gcompris_image_to_skin(gchar *imagename)</entry> <entry>return a string</entry></row> <row><entry>gcompris.utils.load_skin_pixmap(pixmapfile)</entry> <entry>GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)</entry> <entry>return a gtk.gdk.Pixbuf</entry></row> <row><entry>gcompris.utils.load_pixmap(pixmapfile)</entry> <entry>GdkPixbuf *gcompris_load_pixmap(char *pixmapfile)</entry> <entry>return a gtk.gdk.Pixbuf</entry></row> <row><entry>gcompris.utils.set_image_focus(item, focus)</entry> <entry>void gcompris_set_image_focus(GnomeCanvasItem *item, gboolean focus)</entry> <entry></entry></row> <row><entry>gcompris.utils.item_event_focus(item, event, dest_item)</entry> <entry>gint gcompris_item_event_focus(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvasItem *dest_item)</entry> <entry>return an integer</entry></row> <row><entry>gcompris.utils.item_absolute_move(item, x, y)</entry> <entry>void item_absolute_move(GnomeCanvasItem *item, int x, int y)</entry> <entry></entry></row> <row><entry>gcompris.utils.item_rotate(item, angle)</entry> <entry>void item_rotate(GnomeCanvasItem *item, double angle)</entry> <entry></entry></row> <row><entry>gcompris.utils.item_rotate_relative(item, angle)</entry> <entry>void item_rotate_relative(GnomeCanvasItem *item, double angle)</entry> <entry></entry></row> <row><entry>gcompris.utils.item_rotate_with_center(item, angle, x, y)</entry> <entry>void item_rotate_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry> <entry></entry></row> <row><entry>gcompris.utils.item_rotate_relative_with_center(item, angle, x, y)</entry> <entry>void item_rotate_relative_with_center(GnomeCanvasItem *item, double angle, int x, int y)</entry> <entry></entry></row> <row><entry>gcompris.utils.dialog(str, callback)</entry> <entry>void gcompris_dialog(gchar *str, DialogBoxCallBack callback)</entry> <entry>The callback must be a callable object</entry></row> <row><entry>gcompris.utils.load_pixmap_asset(dataset, categories, mimetype, name)</entry> <entry>GdkPixbuf *gcompris_load_pixmap_asset(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry> <entry>return a gtk.gdk.Pixbuf</entry></row> <row><entry>gcompris.utils.get_asset_file(dataset, categories, mimetype, name)</entry> <entry>gchar *gcompris_get_asset_file(gchar *dataset, gchar* categories, gchar* mimetype, gchar* name)</entry> <entry>return a string</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+
+      <sect2>
+	<title>Konstanteen mapaketa</title>
+        <para>Pakete honetan ez dago konstanterik.</para></sect2></sect1>
+
+    <sect1>
+      <title>bonus.h funtzioak eta konstanteak Mapaketa</title>
+      <sect2>
+	<title>Funtzioen mapaketa</title>
+	<informaltable><tgroup cols="3">
+	    <thead>
+	      <row><entry>Python funtzioa</entry> <entry>C baliokidea</entry> <entry>Oharrak</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.bonus.display(gamewon, bonus_id)</entry> <entry>void gcompris_display_bonus(int gamewon, int bonus_id)</entry> <entry></entry></row> <row><entry>gcompris.bonus.board_finished(type)</entry> <entry>void board_finished(int type)</entry> <entry></entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+
+      <sect2>
+	<title>Konstanteen mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.bonus.TIME_CLICK_TO</entry> <entry>TIME_CLICK_TO_BONUS</entry></row> <row><entry>gcompris.bonus.RANDOM</entry> <entry>BONUS_RANDOM</entry></row> <row><entry>gcompris.bonus.SMILEY</entry> <entry>BONUS_SMILEY</entry></row> <row><entry>gcompris.bonus.FLOWER</entry> <entry>BONUS_FLOWER</entry></row> <row><entry>gcompris.bonus.LAST</entry> <entry>BONUS_LAST</entry></row> <row><entry>gcompris.bonus.FINISHED_RANDOM</entry> <entry>BOARD_FINISHED_RANDOM</entry></row> <row><entry>gcompris.bonus.FINISHED_TUXPLANE</entry> <entry>BOARD_FINISHED_TUXPLANE</entry></row> <row><entry>gcompris.bonus.FINISHED_TUXLOCO</entry> <entry>BOARD_FINISHED_TUXLOCO</entry></row> <row><entry>gcompris.bonus.FINISHED_TOOMANYERRORS</entry> <entry>BOARD_FINISHED_TOOMANYERRORS</entry></row> <row><entry>gcompris.bonus.FINISHED_LAST</entry> <entry>BOARD_FINISHED_LAST</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2></sect1>
+
+    <sect1>
+      <title>score.h funtzioak eta konstanteak Mapaketa</title>
+      <sect2>
+	<title>Funtzioen mapaketa</title>
+	<informaltable><tgroup cols="3">
+	    <thead>
+	      <row><entry>Python funtzioa</entry> <entry>C baliokidea</entry> <entry>Oharrak</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.score.start(style, x, y, max)</entry> <entry>void gcompris_score_start(ScoreStyleList style, guint x, guint y, guint max)</entry> <entry></entry></row> <row><entry>gcompris.score.end()</entry> <entry>void gcompris_score_end()</entry> <entry></entry></row> <row><entry>gcompris.score.set(value)</entry> <entry>void gcompris_score_set(guint value)</entry> <entry></entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+
+      <sect2>
+	<title>Konstanteen mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.score.STYLE_NOTE</entry> <entry>SCORESTYLE_NOTE</entry></row> <row><entry>gcompris.score.STYLE_LIFE</entry> <entry>SCORESTYLE_LIFE</entry></row> <row><entry>gcompris.score.LAST</entry> <entry>SCORE_LAST</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2></sect1>
+
+    <sect1>
+      <title>sound.h funtzioak eta konstanteak Mapaketa</title>
+      <sect2>
+	<title>Funtzioen mapaketa</title>
+	<informaltable><tgroup cols="3">
+	    <thead>
+	      <row><entry>Python funtzioa</entry> <entry>C baliokidea</entry> <entry>Oharrak</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.sound.play_ogg_list(list)</entry> <entry>void gcompris_play_ogg_list( GList* files )</entry> <entry>The list argument is a GList</entry></row> <row><entry>gcompris.sound.play_ogg(list)</entry> <entry>void gcompris_play_ogg(char *, ...)</entry> <entry>Zerrenda-argumentua kateak dauzkan python zerrenda bat da</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+
+      <sect2>
+	<title>Konstanteen mapaketa</title>
+	<para>Pakete honetan ez dago konstanterik.</para></sect2></sect1>
+
+    <sect1>
+      <title>timer.h funtzioak eta konstanteak Mapaketa</title>
+      <sect2>
+	<title>Funtzioen mapaketa</title>
+	<informaltable><tgroup cols="3">
+	    <thead>
+	      <row><entry>Python funtzioa</entry> <entry>C baliokidea</entry> <entry>Oharrak</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.timer.display(x, y, type, second, callback)</entry> <entry>void gcompris_timer_display (int x, int y, TimerList type, int second, GcomprisTimerEnd gcomprisTimerEnd);</entry> <entry>The callback must be a callable object</entry></row> <row><entry>gcompris.timer.add(second)</entry> <entry>void gcompris_timer_add(int second)</entry> <entry></entry></row> <row><entry>gcompris.timer.end()</entry> <entry>void gcompris_timer_end(void)</entry> <entry></entry></row> <row><entry>gcompris.timer.get_remaining()</entry> <entry>guint gcompris_timer_get_remaining()</entry> <entry>Return an integer</entry></row> <row><entry>gcompris.timer.pause(pause)</entry> <entry>void gcompris_timer_pause(gboolean pause)</entry> <entry></entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2>
+
+
+      <sect2>
+	<title>Konstanteen mapaketa</title>
+	<informaltable><tgroup cols="2">
+	    <thead>
+	      <row><entry>Python konstantea</entry> <entry>C baliokidea</entry></row>
+	    </thead>
+	    <tbody>
+	      <row><entry>gcompris.timer.TEXT</entry> <entry>GCOMPRIS_TIMER_TEXT</entry></row> <row><entry>gcompris.timer.SAND</entry> <entry>GCOMPRIS_TIMER_SAND</entry></row> <row><entry>gcompris.timer.BALLOON</entry> <entry>GCOMPRIS_TIMER_BALLOON</entry></row> <row><entry>gcompris.timer.CLOCK</entry> <entry>GCOMPRIS_TIMER_CLOCK</entry></row>
+	    </tbody>
+	  </tgroup></informaltable></sect2></sect1>
+
+</article>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-default-dtd-file:"/usr/share/xml/docbook/xemacs/docbook-4.2"
+End:
+-->

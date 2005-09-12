@@ -1,0 +1,851 @@
+\input texinfo   @c -*-texinfo-*- 
+@c %**start of header 
+@setfilename gcompris.info 
+@settitle GCompris dokumentazioa 
+@c %**end of header 
+
+@setchapternewpage odd 
+
+@ifinfo 
+@dircategory Jokoak 
+@format 
+START-INFO-DIR-ENTRY 
+* gcompris: (gcompris.info).   Haurrentzako hezkuntza-jokoak. 
+END-INFO-DIR-ENTRY 
+@end format 
+GCompris-en dokumentazioa da hau. 
+Erabiltzailearen eskuliburua eta 
+garatzaileentzako inplementazio-xehetasunak aurkituko dituzu bertan. 
+
+Copyright 2001 Free Software Foundation, Inc. 
+
+Baimena ematen da dokumentu hau kopiatu, banatu eta/edo aldatzeko Free 
+Software Foundation-ek argitaratutako GNU Dokumentazio Librearen 1.1 
+bertsioan edo berriago batean ezarritako baldintzak betetzen badira; Atal 
+Aldaezinik, Aurreko azaleko testurik eta Atzeko azaleko testurik gabe. 
+Lizentziaren kopia bat aurkituko duzu "GNU  Dokumentazio Librearen 
+Lizentzia" atalean. 
+@end ifinfo 
+
+@titlepage 
+@sp 10 
+@comment Titulua letra handiz inprimatzen da. 
+@center 
+@titlefont{GCompris Documentation} 
+@author Bruno Coudoin-ek idatzia 
+
+@c Ondorengo bi komandoek copyright orria irekitzen dute. 
+@page 
+@vskip 0pt plus 1filll 
+Copyright @copyright{} 2001 Free Software Foundation, Inc. 
+
+Baimena ematen da dokumentu hau kopiatu, banatu eta/edo aldatzeko Free 
+Software Foundation-ek argitaratutako GNU Dokumentazio Librearen 
+Lizentziaren 1.1. bertsioan edo berriago batean ezarritako baldintzak 
+betetzen badira; Atal Aldaezinik, Aurreko azaleko testurik eta Atzeko 
+azaleko testurik gabe.  Lizentziaren kopia bat aurkituko duzu "GNU 
+Dokumentazio Librearen Lizentzia" atalean. 
+@end titlepage 
+
+@ifnottex 
+@node Gora, Sarrera, (dir), (dir) 
+@top Gcompris 
+@end ifnottex 
+
+@menu 
+* Sarrera::		 
+* Erabiltzailearen eskuliburua::			 
+* Nazioartekotze-gaiak::			 
+* Garatzaileen gida::		 
+* GNU Dokumentazio Librearen Lizentzia::
+* Kontzeptu-indizea::		 
+@end menu 
+
+@node    Sarrera, Erabiltzailearen eskuliburua, Gora,      Gora 
+@chapter Sarrera 
+@section Zergatik GCompris 
+GCompris-en xedea hau da: hainbat hezkuntza-joko txiki biltzen dituen gune 
+nagusi bat eskaintzea erabiltzaileari. 
+
+Gaur egun nolabaiteko hezkuntza-edukia eskaintzen duen software libre asko 
+dago jada. Zoritxarrez, zaila izaten da joko horien jarraipena egitea, 
+instalatzea eta erabiltzea, ez baitira abiadura berean garatzen, eta 
+bakoitzak bere erabiltzaile-interfaze berezia eskaintzen baitu. 
+
+Hainbat jardueratarako sarbidea ematen duen erabiltzaile-interfaze bat 
+eskaintzea da GCompris-en xedea. 
+
+GNU proiektukoa da GCompris. 
+
+@cindex Gcompris-en xedea 
+
+@node    Erabiltzailearen eskuliburua, Nazioartekotze-gaiak, Sarrera, Gora 
+@chapter Erabiltzailearen eskuliburua 
+@section Kontrola 
+Haurrek erraz erabiltzeko diseinatuta daude kontrol guztiak. Horregatik, 
+GCompris-ek ez dio jarraitzen Gnome-ren erabiltzaile-interfazeen estandarrari. 
+Sagu bidez kontrolatzen da GCompris. Ezin da erabili sagurik edo gailu 
+erakuslerik gabe. 
+
+@section Jokatzeko modua 
+@cindex Interfazea 
+@cindex GUI 
+
+@subsection Leiho nagusia 
+Abiarazitakoan, goitik behera ondokoak erakusten dituen ikuspegi grafiko 
+bat aurkezten du GCompris-ek: 
+@enumerate 
+@item 
+Jardueren ikonoen zerrenda 
+
+Ikono bakoitzak jarduera bat adierazten du. Sagua ikono baten gainetik 
+pasatzean, nabarmendu egiten dira, eta jardueraren izena eta azalpena 
+agertzen dira jardueren azalpen-arean. 
+@item 
+@dfn{Jardueren azalpen-area} 
+
+Nabarmendutako jarduera-ikonoari buruzko azalpen labur bat bistaratzen du. 
+Kontuan izan azalpenak nazioartekotuta daudela; horrek esan nahi du helburuko 
+hizkuntzara itzulita agertuko direla (Nazioartekotzeari buruzko informazio 
+gehiago nahi izanez gero, ikus @ref{Nazioartekotze-gaiak}. 
+
+ 
+@item 
+Kontrol-barra: 
+@cindex Kontrol-barra 
+Kontrol-barra beti agertzen da GCompris-en. Ikono horiek testuinguruaren 
+araberakoak izaten dira; horrek esan nahi du ikono bat ez dela bistaratzen 
+testuinguru jakin horretan esanahirik ez daukanean. 
+
+Kontrol-barrak ikonoak hauek ditu ezkerretik eskuinera: 
+@enumerate 
+@item 
+Laguntza: 
+@cindex Laguntza ikonoa 
+Kasuren batean jarduera bat zailegia izan daiteke @dfn{Jardueren azalpen-area}
+ eremuan azaltzeko. Horrelakoetan, informazio osagarria eskaintzen da. 
+
+@item 
+Maila: 
+@cindex Maila ikonoa 
+Jarduera batzuek maila bat baino gehiago eskaintzen dituzte. Maila-kopurua 
+jardueraren araberakoa izaten da. 
+
+@item 
+Ados: 
+@cindex Ados ikonoa 
+Jarduera batzuek ez dute automatikoki detektatzen haurrak zeregina amaitu 
+duela. Hor klik egitea teklatuan @key{RET} sakatzearen antzekoa da, eta, 
+beraz, @key{RET} tekla laster-tekla bat da. 
+
+@item 
+Amaitu: 
+@cindex Amaitu ikonoa 
+Amaitu uneko jarduera, baten bat irekita badago, eta, bestela, irten GCompris-etik. 
+Jarduera-menuaren mailan sartzen denean, elkarrizketa-leiho bat irekiko da, 
+GCompris-etik irten nahi dugula berresteko. 
+@cindex GCompris-etik irtetea 
+
+@item 
+Honi buruz: 
+@cindex Honi buruz ikonoa 
+Ireki Gcompris-en Honi buruz koadroa bertsio-zenbakiarekin, egilearekin, 
+lizentziarekin eta lineako baliabideetarako estekekin. 
+@cindex GCompris-i buruz 
+
+@item 
+Konfiguratu: 
+@cindex Konfiguratu ikonoa 
+Bistaratu GCompris-en konfigurazio-koadroa. Konfigurazioa GCompris-mailan 
+egin daiteke, jarduerarik hautatuta eduki beharrik gabe. 
+Jarduera bat hautatuta egonez gero, konfigurazio-aukerak agertzen dira. 
+Konfigurazioa iraunkorra izaten da, eta erabiltzailearen home direktorioko 
+gnome fitxategian gordetzen da, .gnome/gcompris-en. 
+@cindex GCompris konfiguratzea 
+
+@end enumerate 
+
+@end enumerate 
+
+@subsection Joko bat hastea 
+Menu-mailan, egin klik jardueraren ikonoan. 
+
+@subsection Joko bat amaitzea 
+Kontrol-barran, hautatu eskuin-eskuineko ikonoa. 
+
+@node    Nazioartekotze-gaiak, Garatzaileen gida, Erabiltzailearen eskuliburua, Gora 
+@chapter Nazioartekotze-gaiak 
+@section Nire hizkuntza onartzen du Gcompris-ek? 
+GCompris nazioartekotuta dago, eta gaur egun dagoeneko onartzen ditu 
+hainbat hizkuntza. 
+
+Zure hizkuntza badagoen ikusteko, Gcompris-en iturburu-paketeko 'po' 
+direktorioan begira dezakezu. Zure hizkuntzara itzulita badago, honelako 
+fitxategi bat egongo da: @file{eu.po} (eu=euskara). 
+
+Zure hizkuntza ez badago, zeuk itzul dezakezu GCompris-entzat! 
+Jarraibiderik nahi izanez gero, galdetu proiektu-buru ofizialari. 
+
+@section Nola itzul dezaket GCompris nire hizkuntzara 
+Lehendabizi, gehitu zure hizkuntzaren izena ALL_LINGUAS-en, configure.in-en 
+Birsortu configure fitxategia honekin: 
+@code{autoconf} 
+
+Ondoren, sortu fitxategi berri bat, @file{gcompris.pot}, komando hau erabiliz: 
+@code{cd gcompris/po} 
+@code{make update-po} 
+
+Hori egindakoan, eskuratu @file{gcompris.pot} fitxategia, eta kopiatu 
+@file{XX.po} fitxategi batean. Hor zure hizkuntza adierazten du XX-ek; 
+adib., 'it' italiera da, eta 'eu' euskara. 
+
+Irakurri fitxategia; hor dago GCompris-en agertzen den ingelesezko testu 
+guztia. Nahikoa duzu zure itzulpena idaztea ingelesezko esaldi bakoitzaren 
+ondoren agertzen den area hutsean. 
+
+Zure itzulpena egiaztatzeko, @code{make install}-ekin 
+instalatu behar duzu gcompris maila gorenean. 
+
+Ondoren, bidali itzulpena GCompris-en mantentzaileari. Hurrengo banaketa 
+ofizialean gehituko du zure itzulpena. 
+
+@node    Garatzaileen gida, GNU Dokumentazio Librearen Lizentzia, Nazioartekotze-gaiak, Gora 
+@chapter Garatzaileen gida 
+@section Zergatik gehitu jarduerak GCompris-i? 
+Haurrentzako egokia iruditzen zaizun jokoren baten ideiaren bat baldin 
+badaukazu, proiektu berri bat sor dezakezu. Proiektu berri horri gIdeia 
+deituko diogu. Hutsetik hasten bazara, menua, egoera-barra, erabiltzaileen 
+feedback-mekanismoa eta abar inplementatu beharko dituzu. 
+
+gIdeia ez bada programa konplexua eta handia, errazagoa izan daiteke 
+gIdeia hori GCompris jarduera gisa inplementatzea. 
+Horrela, uneko azpiegitura osoa baliatuko duzu, eta nahikoa duzu zeurea 
+den ideia hori bakarrik lantzea. 
+
+Azken erabiltzailearentzat ere errazagoa izaten da interfaze bakar bat 
+edukitzea hainbat jarduerarekin erabiltzeko, gIdeia1, gIdeia2 eta abar 
+instalatzea baino. 
+
+GCompris-en xedea ez da programazio-lengoaia berri bat bihurtzea. 
+C lengoaian inplementatzen da, eta jarduerak ere bai. Jarduerak eta 
+GCompris dinamikoki estekatzen dira abioan (plugin-ak), eta, beraz, 
+posible da jarduera berriak gcompris-en nukleotik bereiz banatzea. 
+
+Uneko inplementazioak Gnome Canvas trepeta du oinarri 
+(ikus @uref{http://www.gnome.org} dokumentazioak). Gnome Canvas-ek maila 
+handiko trepeta bat eskaintzen du, programatzaileak bit-mapak manipulatzetik 
+libratzen dituena aplikazio grafikoak egitean. Uneko inplementazioan, jarduerak 
+ezin dira beste trepeta batekin idatzi. Canvas-en ahalmena eskasegia bada, 
+GCompris aldatu egin beharko da beste trepeta batzuk onartzeko. 
+
+Datu-fitxategiak irakur ditzaketen eta horren arabera portatzen diren 
+jarduera finagoak erabiltzea litzateke beste hurbilketa bat. Programatzaile 
+ez direnek GComprisen edukia gehitzea ahalbidetuko duen GCompris 
+jarduera-editore bat da horrelako kasuetarako bururatzen zaiguna. 
+GCompris-en helburu nagusia irakasleak eta hezitzaileak direnez, 
+etorkizun handiko aukera dirudi. Kontuan izan zenbait jarduera prestatuta 
+daudela datuak XML fitxategi batetik hartzeko. 
+
+@section Nola gehitu jarduerak GCompris-en 
+
+@subsection Irudi osoa 
+
+@image{overview, 17cm, } 
+
+@subsection GCompris API 
+
+GCompris-ek hainbat zerbitzu eskaintzen dizkie jarduera-garatzaileei. 
+Fitxategi honetan azaltzen dira zerbitzuak: gcompris/gcompris.h 
+
+@itemize @bullet 
+
+@item 
+@code{GnomeCanvasItem *gcompris_set_background(GnomeCanvasGroup *parent, gchar *file);} 
+
+Ezarri zure jokoaren atzeko planoko irudia. Irudia kargatzeko laguntza 
+nahi izanez gero: gameutil.h 
+
+@item 
+@code{void gcompris_bar_set_level (GcomprisGame *gcomprisGame);} 
+
+Erabiltzaileak ondo egin du. Hurrengo mailara joan behar du orain. 
+Dei egin aurretik, @code{gcomprisGame->level} eguneratu egin behar du 
+jarduerak. 
+
+@item 
+@code{void gcompris_bar_set_timer (guint time);} 
+
+Erabiltzaileari jardueran zein puntutan dagoen adierazteko erabiltzen 
+den progresio-barra bat da denbora-neurgailua. Balio horrek 0 eta 
+gehienezko denboraren artekoa izan behar du (gehienezko denbora 
+honek ematen du: @code{bar_set_maxtimer()} 
+
+@item 
+@code{void bar_set_maxtimer (guint time);} 
+
+Ezarri progresio-barraren gehienezko balioa. 
+
+Horrela, beraz, jarduera bat sortzen duzunean, gcompris/plugin.h 
+gehitu behar duzu metodo horiek atzitzeko (dagoeneko badago hemen: gcompris/gcompris.h). 
+
+plugin.h-k BoardPlugin egitura ere definitzen du. GCompris-en 
+bihotza da, hain zuzen ere. 
+Jarduera bakoitzak bere BoardPlugin-a sortzen du, eta Gcompris-i 
+itzultzen dio get_bplugin_info() sarrera-puntuari dei egitean: 
+
+@code{BoardPlugin* *get_bplugin_info ();} 
+
+BoardPlugin-ak itzulitako egiturak zure inplementazio-metodoetarako 
+atzeradeiak eduki behar ditu. 
+
+BoardPlugin egiturak gutxienez hauetarako atzeradeiak 
+hornitu behar ditu: 
+
+@end itemize 
+
+@itemize @bullet 
+
+@item 
+@code{void *GcomprisStartBoard     (GcomprisBoard *gcomprisBoard);} 
+
+GCompris-ek dei egiten dio, erabiltzaileak jarduera hori eskatutakoan 
+
+@item 
+@code{void *GcomprisEndBoard      (void);} 
+
+GCompris-ek dei egiten dio, erabiltzaileak kontrol-barrako 'amaitu'n klik egitean. 
+
+@end itemize 
+
+Aukeran, GComprisGame egitura batek honen atzeradeiak izan ditzake: 
+
+@itemize @bullet 
+
+@item 
+@code{gint *GcomprisKeyPress     (guint keyval);} 
+
+Jarduerak erabiltzailearen tekla-sakatzea jaso nahi badu, 
+atzeradei-metodo hori hornitu behar du. Keyval ez da iragazten eta 
+Gnomek itzuli bezalaxe itzultzen da. Egiaztatu Gnome dokumentazioa, 
+nola manipulatu ikusteko. 
+
+@item 
+@code{void *GcomprisOK           (void);} 
+
+Metodo horri dei egiten zaio erabiltzaileak kontrol-barrako 'Ados' botoian 
+klik egitean. Normalean ohitura ona izaten da Sartu eta Itzuli teklak 'Ados' 
+botoi gisa erabiltzea, baina beharbada batzuetan ez da egokia izango. 
+Horregatik, jarduera-inplementazioaren erantzukizuna da hori egitea. 
+
+@item 
+@code{void *GcomprisSetLevel     (guint level);} 
+
+Erabiltzaileak eskatutako mailarekin dei egiten zaio. 
+Hemen onartzen duzun gehienezko maila-zenbakia eman behar duzu: 
+@code{gcomprisGame->maxlevel}.  Baliozko maila-balio batekin bakarrik dei 
+egiten saiatuko da Gcompris. 
+
+@end itemize 
+
+@subsection Zure jarduera sortzeko lehendik dagoen beste jarduera 
+bat bikoiztearen adibide bat 
+
+GCompris-en jarduera berri bat gehitzeko egin beharreko urrats guztiak 
+azaltzen ditu. 
+
+Esate baterako, erlojuaren jokoa nola egin nuen azaltzen dut hemen. 
+
+@enumerate 
+@item 
+Lehendik dagoen joko bat kopiatu (jarduera berriaren antzekoena). 
+@code{cp algebra.c clockgame.c} 
+
+@item 
+Editatu src/boards/Makefile.am eta gehitu fitxategia lib_LTLIBRARIES zerrendari 
+Ondoren, gehitu amaieran hauen sarrerak: libclockgame_la_LDFLAGS, 
+libclockgame_la_LIBADD eta libclockgame_la_SOURCES. Hori nola egin 
+ikusteko, begiratu src/boards/Makefile.am-eko adibideak. 
+
+@item 
+clockgame.c-n ordeztu 'algebra' guztiak 'clockgame'rekin 
+
+@item 
+clockgame.c-n ezarri joko berriaren datu egokiak: 
+
+@code{if(g_strcasecmp(gcomprisBoard->type, "clockgame")==0)} 
+
+  Orduan jardueraren azalpena sortu edo kopiatu behar duzu dagokion lekuan 
+
+@code{cp boards/algebra.xml boards/clockgame.xml} 
+
+  Ondoren, editatu clockgame.xml azalpen eta ikono egoki batekin. 
+  Ezarri ikono-fitxategia clockgame.xml fitxategian zehaztutako kokalekuan. 
+
+@item 
+boards/Makefile.am-n, gehitu zure fitxategia zerrendan. Errespetatu ordena alfanumerikoa. 
+Urrats bera hemen: po/POTFILES.in 
+
+@item 
+make eginda dena behar bezala konpilatu beharko litzateke. 
+
+@item 
+make install komandoa ezinbestekoa da; bestela, ikonoa ez da aurkituko abioan. 
+
+@item 
+Orain gcompris exekutatzean ikonoak agertu beharko luke, eta gai izan 
+beharko zenuke kopiatuko jokoarekin jolasteko. Orain clockgame.c-ko 
+jarduera kodetu behar duzu 
+
+@item 
+Eguneratu po fitxategiak: 
+
+@code{cd gcompris/po} 
+
+@code{edit POTFILES.in and add src/clockgame.c)} 
+
+@code{make} 
+
+@code{make update-po} 
+
+@item 
+Orain itzulpena gehi dezakezu po fitxategietan. 
+
+@item 
+'make' eta ondoren 'make install' exekutatzean, zure itzulpena 
+konpilatu eta instalatu egingo da. 
+
+@end enumerate 
+
+@node GNU Dokumentazio Librearen Lizentzia, Kontzeptu-indizea, Garatzaileen gida, Gora 
+@appendix GNU Dokumentazio Librearen Lizentzia 
+
+@cindex FDL, GNU Dokumentazio Librearen Lizentzia 
+@center 1.1 bertsioa, 2000ko martxoa 
+
+@display 
+Copyright @copyright{} 2000 Free Software Foundation, Inc. 
+59 Temple Place, Suite 330, Boston, MA  02111-1307, USA 
+
+Edonork egin eta bana ditzake lizentzia-dokumentu honen kopia literalak, 
+baina debekatuta dago dokumentuan aldaketak egitea. 
+@end display 
+
+@enumerate 0 
+@item 
+AITZINSOLASA 
+
+Lizentzia honen xedea da eskuliburua, testuliburua edo beste edozein 
+dokumentu idatzi @dfn{free} (libre) egitea askatasunaren zentzuan: 
+edonori ziurtatzea kopiatzeko eta birbanatzeko benetako askatasuna, 
+aldatuta zein aldatu gabe, eta komertzialki zein ez-komertzialki. 
+Bestalde, Lizentziari esker autoreei eta argitaratzaileei euren lana 
+aitortu ahal zaie, eta ez dira beste batzuk egindako aldaketen erantzule. 
+
+Lizentzia hau "copyleft" mota bat da, hau da, dokumentu horretatik 
+eratorritako lan guztiek ere libreak izan behar dute zentzu berean.  GNU 
+Lizentzia Publiko Orokorra osatzen du, lizentzia hori software 
+librearentzat diseinatutako "copyleft" lizentzia baita. 
+
+Lizentzia hau software librearen eskuliburuentzat erabiltzeko diseinatu 
+dugu, izan ere, software libreak dokumentazio librea behar baitu. Programa 
+libre baten eskuliburuek software librearen askatasun berberak izan 
+behar lituzkete.  Baina lizentzia hau ez da software-eskuliburuentzat 
+soilik; edozein testu-lanentzat erabil daiteke, zein gairi buruzkoa den 
+eta liburu gisa inprimatua dagoen ala ez kontuan hartu gabe.   Lizentzia 
+hau batez ere gida edo erreferentzia izatea helburu duten lanentzat 
+erabiltzea gomendatzen dugu. 
+
+@item 
+APLIKAGARRITASUNA ETA DEFINIZIOAK 
+
+Eskuliburu edo bestelako lan bati Lizentzia honen baldintzen pean bana 
+daitekeela adierazten duen oharra jarri baldin badio egile-eskubideen 
+jabeak, eskuliburu edo lan horri lizentzia hau aplikatuko zaio.  Hemendik 
+aurrera "Dokumentua" aipatzen denean, horrelako eskuliburu edo lanei 
+egiten die erreferentzia.  Publikoko edonor da lizentziaren hartzaile, eta 
+"zu"ren bidez zuzentzen zaio dokumentua. 
+
+Dokumentuaren "Bertsio aldatua" esaten denean, Dokumentu hau osorik 
+edo zati batean biltzen duen edozein lan adierazten da, hau da, kopia 
+literala, aldaketak dituena edo beste hizkuntza batera itzulitakoa. 
+
+"Atal sekundarioa" Dokumentuaren eranskin izenduna edo gai nagusiaren 
+aurreko hasierako atala da, eta Dokumentuaren argitaratzaileek edo 
+autoreek Dokumentuaren gai nagusiarekiko (edo gai horrekin zerikusia 
+duten gaiekiko) duten erlazioari buruzkoa da soil-soilik. Atal 
+sekundarioan ez da agertzen zuzenean gai nagusiari dagokion ezer. 
+(Adibidez, Dokumentua matematikako eskuliburu bat bada, Atal sekundarioak 
+ez da matematikarik azalduko.)  Gai nagusiarekiko edo harekin zerikusia duten 
+gaiekiko harremana lotura historikoa izan liteke, edo haien ikuspegi 
+legal, komertzial, filosofiko, etiko edo politikoa. 
+
+"Atal aldaezinak" Atal sekundario jakin batzuk dira. Euren izenburuak 
+Dokumentu hau Lizentzia honen pean argitaratu dela adierazten duen 
+oharrean aipatzen dira, Atal aldaezin gisa. 
+
+"Azaleko testuak" testu zati txikiak dira eta Dokumentu hau Lizentzia 
+honen pean argitaratu dela adierazten duen oharrean aipatzen dira, 
+Aurreko azaleko testu edo Atzeko azaleko testu gisa. 
+
+Dokumentuaren kopia "gardena" makina bidez irakurtzeko moduko kopia da 
+eta, gainera, publiko orokorrak erabiltzeko moduko formatuduna, 
+zuzenean testu-editore arruntekin ikusi eta edita daitekeena edo, 
+pixeletan osatutako irudia bada, pintatzeko editore orokorrekin edo, 
+marrazkia bada, marrazki-editore oso erabilgarriekin editatzeko 
+modukoa, eta testu-formateatzaileetan sargai edo input gisa erabil 
+daitekeena, edo automatikoki itzul daitekeena testu-formateatzaileek 
+sargai gisa onartzen duten formatuetako batera.  Beste era bateko 
+fitxategi-formatu Gardenean egindako kopia, irakurleek aldaketak egiteko 
+eragozpenak eta trabak jartzeko diseinatutako marka-sistema duena, ez da 
+Gardena.  "Gardena" ez den kopiari "Opakoa" esaten zaio. 
+
+Kopia Gardenak egiteko erabil daitezkeen formatu egokien artean, 
+besteak beste, honakoak ditugu: markaketarik gabeko @sc{ascii} soila, 
+Texinfo sarrera-formatua, La@TeX{} sarrera-formatua, @acronym{SGML} edo 
+@acronym{XML} jendeak erabiltzeko moduko @acronym{DTD}arekin, eta 
+pertsonek aldatu ahal izateko diseinatutako @acronym{HTML} sinple eta 
+estandarrarekiko egokitua.  Formatu opakoen artean, berriz, honako hauek 
+ditugu: PostScript, @acronym{PDF}, testu-prozesadore propietarioek soilik 
+irakurri eta edita ditzaketen testu-formatu propietarioak, normalean 
+erabilgarri izaten ez diren prozesatze-tresnak edota @acronym{DTD}ak 
+dituzten @acronym{SGML} edo @acronym{XML}ak, eta zenbait testu-prozesadore 
+irteera-erabileretarako soilik sortutako makina-bidezko sorkuntza duten 
+@acronym{HTML}ak. 
+
+"Titulu-orriak" esan nahi duena zera da: inprimatutako liburu bati 
+dagokionez, titulu-orria bera eta Lizentzia honek titulu-orrian 
+agertzera behartzen duen materiala modu irakurgarrian biltzeko behar 
+diren ondorengo orriak.  Berez titulu-orririk ez duten formatuetan 
+egindako lanetan, "Titulu-orriak" esan nahi duena da, testuaren gorputza 
+hasi aurretik, gehien nabarmenduta agertzen den lanaren tituluaren ondoan 
+agertzen den testua. 
+
+@item 
+KOPIA LITERALAK 
+
+Dokumentua edozein euskarritan kopia eta bana dezakezu, komertzialki 
+zein ez-komertzialki, baldin eta Lizentzia hau, copyright oharrak eta, 
+Dokumentuari lizentzia hau aplikatzen zaiola adierazten duen 
+lizentzia-oharra jartzen bazaie kopia guztiei, eta Lizentzia honi 
+inolako beste baldintzarik gehitzen ez badiozu.  Egiten edo 
+banatzen dituzun kopietan ezin da erabili irakurketa edo kopiak egitea 
+eragozten edo kontrolatzen duen inongo baliabide teknikorik.  Nolanahi ere, 
+kopiak egiteagatik ordaintzea onartzen da.  Kopia asko banatzen baduzu 
+(hurrengo atalean zehazten da kopurua), 3. ataleko baldintzak ere bete 
+behar dituzu. 
+
+Goian azaldutako baldintza berdinen pean kopiak mailega ditzakezu 
+baita ere, eta kopiak jendaurrean erakutsi ere bai. 
+
+@item 
+KANTITATE HANDIAK KOPIATZEA 
+
+Dokumentuaren 100 kopia baino gehiago argitaratzen badituzu eta 
+dokumentuaren lizentzia-oharrak Azaleko testuak behar baditu, azalean, 
+argi eta garbi Azaleko testu hauek dituzten kopiak erantsi behar 
+dituzu: Aurrealdeko testuak aurrealdeko azalean eta atzealdeko testuak 
+atzealdeko azalean.  Bi azalek modu argi eta irakurgarrian identifikatu 
+behar zaituzte kopia horien argitaratzaile gisa.  Aurrealdeko azalak titulu 
+osoa izan behar du, eta tituluaren hitz guztiak maila berdinean izan 
+behar dute nabarmenak eta ikusteko modukoak.  Horrez gainera, beste 
+material batzuk ere gehi ditzakezu azaletan. 
+Azaletara mugatutako aldaketekin egindako kopiak, Dokumentuaren 
+titulua mantentzen bada eta baldintza horiek betez egiten badira, 
+kopia literaltzat jo daitezke beste alderdi batzuei dagokienez. 
+
+Azal horietan jarri beharreko testuak handiegiak badira modu 
+irakurgarrian ipintzeko, zerrendako lehenak jarri behar dituzu azalean 
+bertan (sartzen diren guztiak), eta ondorengo orrietan jarraitu 
+besteekin. 
+
+Dokumentuaren100 kopia Opako argitaratzen edo banatzen badituzu, kopia 
+Opako bakoitzarekin batera makinaz irakurtzeko moduko kopia Garden bat 
+eman behar duzu, edo bestela, kopia Opako bakoitzean edo bakoitzarekin 
+batera ordenagailu-sare bateko helbide bat adierazi beharko duzu, 
+edonork libreki atzi dezakeena eta Dokumentuaren kopia Garden osoa 
+daukana, gehitutako materialik gabe, sare-erabiltzaile arruntak 
+anonimoki deskargatu ahal izateko doan eta sare-protokolo estandar 
+publikoen bidez.  Azken aukeraren bidetik jotzen baduzu, zentzuz eta 
+zuhur jokatu behar duzu kopia Opako asko banatzen hasten zarenean, kopia 
+Garden hori adierazitako kokalekuan urtebetean gutxienez erabilgarri eta 
+atzigarri egongo dela segurtatzeko zuk edizio horren azken kopia Opakoa 
+(zuzenean edo zure agente edo xehekarien bidez) publikoari banatzen 
+diozunetik kontatzen hasita. 
+
+Bestalde, Dokumentuaren kopiak kantitate handian birbanatzen hasi 
+aurretik, autoreekin harremanetan jar zaitezen eskatzen zaizu, behartu 
+gabe, Dokumentuaren bertsio eguneratua eman ahal izan diezazuten. 
+
+@item 
+ALDAKETAK 
+
+Dokumentuaren Bertsio aldatuaren kopiak egin eta bana ditzakezu, baldin 
+eta goiko 2. eta 3. ataletako baldintzak betetzen badituzu, kontuan 
+izanik betiere, Bertsio aldatua Lizentzia honen pean banatu behar 
+duzula, Bertsio aldatua izanik Dokumentuaren funtzioa egingo duena, eta 
+beraz, Bertsio aldatua banatu eta aldatzeko baimena eman behar diozula 
+kopia bat duen edonori.  Horrez gainera, honako hauek egin 
+behar dituzu Bertsio Aldatuan: 
+
+@enumerate A 
+@item 
+Titulu-orrian (eta azaletan, azalik badu) beste titulu bat erabili 
+behar duzu Dokumentuaren eta aurreko bertsioen tituluengandik 
+desberdina (aurreko bertsiorik badago, Dokumentuaaren Historiaren 
+atalean zerrendatuta egongo da).  Aurreko bertsio horietako baten izenburu 
+bera erabil dezakezu, baldin eta jatorrizko argitaratzaileak 
+horretarako baimena ematen badu. 
+
+@item 
+Titulu-orrian, autore gisa, Bertsio aldatuan aldaketak egin dituen 
+pertsona edo erakunde baten edo gehiagoren izena jarri behar duzu, eta 
+horrekin batera, Dokumentuaren bost egile nagusien izena gutxienez (eta 
+bost baino gutxiago badira, guztiena). 
+
+@item 
+Titulu-orrian Bertsio aldatuaren argitaratzailearen izena jarri behar 
+duzu, argitaratzaile gisa. 
+
+@item 
+Dokumentuaren copyright ohar guztiak mantendu behar dituzu. 
+
+@item 
+Jar ezazu egin dituzun aldaketei dagokien copyright-oharra 
+beste copyright oharren ondoan. 
+
+@item 
+Copyright oharren jarraian, ipini lizentzia-oharra, Lizentzia honen 
+baldintzak betez Bertsio aldatua erabiltzea baimentzen duena, beheko 
+eranskinean agertzen den moduan. 
+
+@item 
+Lizentzia-ohar horretan Dokumentuaren lizentzia-oharrean adierazitako 
+Atal aldaezin eta jarri beharreko Azaleko testu guztien zerrenda 
+mantendu behar duzu. 
+
+@item 
+Lizentzia honen kopia ere, aldaketarik gabe, jarri behar duzu. 
+
+@item 
+"Historia" izeneko atala ere mantendu, eta baita bere titulua ere, eta 
+gehitu gutxienez Bertsio aldatuaren titulua, urtea, egile berriak eta 
+argitaratzailea Titulu-orrian bezala adierazten dituen elementua. 
+Dokumentuan "Historia" izeneko atalik ez badago, sortu Dokumentuaren 
+titulua, urtea, egileak eta argitaratzailea Titulu-orrian bezala aipatzen 
+dituena, ondoren gehitu aurreko esaldian aipatu den Bertsio aldatua 
+deskribatzen duen elementua. 
+
+@item 
+Dokumentuaren kopia Gardena publikoki atzitzeko Dokumentuan ematen den 
+sare-helbidea (helbiderik ematen bada) mantendu behar duzu, eta era 
+berean, baita Dokumentuaren oinarri izan diren aurreko bertsioentzat 
+ematen diren sare-helbideak ere.  Helbide horiek "Historia" atalean sar 
+daitezke. Sare-helbideak ez dira nahitaez jarri behar, Dokumentua bera 
+baino gutxienez lau urte lehenago argitaratutako lanari dagozkionak baldin 
+badira, edo horretarako baimena ematen badu bertsioaren jatorrizko 
+argitaratzaileak. 
+
+@item 
+"Eskertzak" edo "Eskaintzak" izeneko atal guztietan mantendu atalaren 
+titulua eta ataleko eskertza edota eskaintza bakoitzean egileak 
+darabilen substantzia eta tonua. 
+
+@item 
+Dokumentuko Atal aldaezin guztiak mantendu behar dituzu, 
+testuak eta tituluak batere aldatu gabe.  Sekzio-zenbakiak 
+edo haien baliokideak ez dira sekkzioaren tituluaren zatitzat jotzen. 
+
+@item 
+Ezabatu "Oniritziak" izeneko sekzio guztiak.  Mota horretako 
+atalik ez da sartuko Bertsio aldatuan. 
+
+@item 
+Lehendik dagoen atal bati ez jarri "oniritziak" 
+titulua edo Atal aldaezinen baten tituluarekin gatazka sor lezakeena. 
+@end enumerate 
+
+Bertsio aldatuak gai nagusiaren inguruko atal edo eranskin berriak 
+baditu, Atal sekundario gisa agertzen direnak, eta elementu horiek ez 
+baldin badute Dokumentutik kopiatutako materialik, zuk hala nahi izanez 
+gero, atal horietako batzuk edo denak aldaezin izenda ditzakezu. 
+Horretarako, gehitu atal horien tituluak Atal aldaezinen zerrendari 
+Bertsio aldatuaren lizentzia-oharrean. Titulu horiek gainerako 
+sekzio-tituluekiko ezberdinak izan behar dute. 
+
+"Oniritziak" titulua duen atala gehi dezakezu, baldin eta alderdi 
+desberdinek emandako zure Bertsio aldatuaren oniritziak soilik biltzen 
+badira bertan, eta ez beste ezer--adibidez, perituek egindako 
+ikuskatzea edo erakunde batek testua estandartzat onartu duela, eta 
+abar. 
+
+Gehienez 5 hitz dituen pasartea Aurreko azaleko testu gisa eta 
+gehienez 25 hitz dituen pasartea Atzeko azaleko testu gisa gehi 
+ditzakezu Bertsio Aldatuaren Azaleko testuen zerrendaren amaieran. 
+Aurreko azaleko testu bakar bat eta Atzeko azaleko testu bat gehi daiteke 
+entitate baten bidez (edo entitate batek egindako egokitzapenen bidez). 
+Dagoeneko Dokumentuak azaleko testua baldin badauka azal berarentzat, 
+aurretik zuk edo zu ordezkari zaituen entitateak gehitutakoa, ezingo duzu 
+beste testurik gehitu, baina nahi izanez gero, lehendik dagoena ordeztu 
+dezakezu, testu zaharra gehitu zuen argitaratzailearen baimen esplizitua 
+baldin baduzu. 
+
+Dokumentuaren egileak (edo egileek) edo argitaratzaileak (edo 
+argitaratzaileek), Lizentzia honen arabera, ez dute baimenik ematen 
+euren izenak inongo Bertsio aldatuaren publizitatean erabiltzeko edo 
+oniritzia eragiteko edo adierazteko. 
+
+@item 
+DOKUMENTUAK BATZEA 
+
+Dokumentu hau lizentzia honen pean argitaratutako beste dokumentu 
+batzuekin bat dezakezu, lehen azaldutako Bertsio aldatuen 4. ataleko 
+baldintzak betetzen badituzu, baldin eta bateratzean jatorrizko 
+dokumentu guztien Atal aldaezinak gehitu badituzu, aldatu gabe, eta 
+guztiak zure lanaren lizentzia-oharrean Atal aldaezin gisa zerrendatu 
+badituzu. 
+
+Lana konbinatuak Lizentzia honen kopia bakarra baino ez du behar, eta 
+berdin-berdinak diren hainbat Atal aldaezin badaude, kopia bakarrarekin 
+ordeztu daitezke.  Izen bera baina eduki ezberdina duten hainbat Atal 
+aldaezin baldin badaude, atal bakoitzaren titulua desberdindu eta titulu 
+bakar bihur ezazu, bukaeran autorearen edo argitaratzailearen izena jarriz 
+parentesi artean, edo errepikatzen ez den zenbaki bat. Egin ezazu 
+egokitzapen bera Atal aldaezinen zerrendako atal-tituluetan, lan 
+konbinatuaren lizentzia-oharrean. 
+Bateratzean, jatorrizko dokumentuetan "Historia" titulua duten sekzioak 
+bateratu behar dituzu, eta "Historia" tituludun sekzio bakar bat 
+osatu. Era berean, "Eskertzak" eta "Eskaintzak" tituluak dituzten 
+sekzio guztiak bateratu.  "Oniritziak" titulua duten 
+sekzio guztiak, aldiz, ezabatu egin behar dituzu 
+
+@item 
+DOKUMENTU-BILDUMAK 
+
+Dokumentu honekin eta lizentzia honekin argitaratutako beste dokumentu 
+batzuekin bilduma bat osa dezakezu, eta dokumentu bakoitzarekin batera 
+ematen den Lizentziaren kopiaren ordez, Lizentzia bakarra eman dezakezu 
+bilduma osoarentzat, baldin eta dokumentu bakoitzaren kopia literalak 
+egiteko lizentzia honek ezartzen dituen baldintzak betetzen badituzu 
+beste alderdi guztiei dagokienez. 
+
+Bildumatik dokumentu bat atera eta banaka bana dezakezu Lizentzia honen 
+pean, baldin eta ateratako dokumentuari Lizentziaren kopia bat jartzen 
+badiozu, eta kopia literalei dagokienez Lizentziaren beste alderdi 
+guztiak betetzen badituzu. 
+
+@item 
+LAN INDEPENDENTEAK AGREGATZEA 
+
+Dokumentuaren edo haren eratorrien konpilazioa beste dokumentu edo lan 
+bereizi eta independente batzuekin, biltegi-bolumen batean edo 
+banaketarako euskarri batean, osorik ez da Dokumentuaren Bertsio aldatu 
+bat, non eta konpilazio-copyright-ik ez den eskatzen 
+konpilazioarengatik.  Horrelako konpilazioei "agregazio" esaten zaie, eta 
+Lizentzia hau ez zaie aplikatuko Dokumentuarekin batera konpilazioan 
+sartutako gainerako lanei, konpilazioan sartu izanagatik bakarrik, 
+baldin eta ez badira Dokumentuaren lan eratorriak. 
+
+Azaleko testuari dagokion 3. ataleko betebeharra Dokumentuaren kopia 
+hauei aplikatzerik baldin badago, orduan, Dokumentua agregazio osoaren 
+laurdena baino txikiagoa bada, Azaleko testuak Dokumentua agregazioaren 
+barnean biltzen duten azaletan bakarrik jar daitezke. 
+Gainerantzean, agregazio osoa inguratzen duten azaletan jarri behar 
+dira testu horiek. 
+
+@item 
+ITZULPENA 
+
+Itzulpena aldaketatzat jotzen da, eta beraz, Dokumentuaren itzulpenak 
+bana ditzakezu 4. ataleko baldintzen pean. 
+Atal aldaezinen ordez itzulpena bakarrik jartzeko copyright-aren jabeen 
+baimena behar da, baina Atal aldaezin batzuen edo guztien itzulpenak 
+jar ditzakezu Atal aldaezin horien jatorrizko bertsioekin batera. 
+Lizentzia honen itzulpena ere jar dezakezu, baldin eta ingelesezko 
+jatorrizko bertsioa ere jartzen baduzu.  Lizentzia honen itzulpena eta 
+jatorrizko ingelesezko bertsioa bat ez badatoz, jatorrizko bertsioak 
+balioko du. 
+
+@item 
+ESKUBIDEAK KENTZEA 
+
+Lizentzia honen baitan espresuki adierazitakoa bete gabe ezin da 
+Dokumentua kopiatu, aldatu, azpilizentziatu edo banatu.  Beste era batean 
+Dokumentua kopiatu, aldatu, azpilizentziatu edo banatzeko saio oro 
+deuseza izango da, eta Lizentzia honen baitan dauzkazun eskubideak 
+automatikoki kendu egingo zaizkizu.  Dena den, 
+Lizentzia honen baitan zuregandik kopiak edo eskubideak jaso dituztenei 
+ez zaizkie lizentziak kenduko, baldintzak betetzen dituzten bitartean. 
+
+@item 
+LIZENTZIAREN BIRMOLDAKETAK 
+
+Free Software Foundation-ek GNU Dokumentazio Librearen Lizentziaren 
+bertsio berrituak eta birmoldatuak argitaratuko ditu noizean behin. 
+Bertsio berri horiek egungoaren antzekoak izango dira espirituz, baina 
+arazo edo kezka berriei aurre egin beharko dietenez, litekeena da 
+zehatz-mehatz bat ez etortzea.  Ikus 
+@uref{http://www.gnu.org/copyleft/}. 
+
+Lizentziaren bertsio bakoitzak bertsio-zenbaki desberdindua dauka. 
+Dokumentuak Lizentziaren bertsio zenbakidun jakin bat "edo berriago 
+bat" dagokiola zehazten badu, orduan, bertsio zehaztuko baldintzak edo 
+Free Software Foundation-ek argitaratutako bertsio berriago batekoak 
+jarraitzeko aukera duzu (zirriborro gisa argitaratutakoek ez dute 
+balio).  Dokumentuak ez badu Lizentzia honen 
+bertsio-zenbakirik zehazten, Free Software Foundation-ek argitaratutako 
+bertsioetako edozein aukera dezakezu (baina ez zirriborro gisa 
+argitaratutakoa). 
+@end enumerate 
+
+@page 
+@appendixsubsec ADDENDUM: Lizentzia honen erabilera zure dokumentuetarako 
+
+Zuk idatzitako dokumentu batean Lizentzia hau erabiltzeko, jar ezazu 
+Lizentziaren kopia bat dokumentuan, eta titulu-orriaren jarraian, 
+berriz, copyright-a eta lizentzia-ohar hauek: 
+
+@smallexample 
+@group 
+  Copyright (C)  @var{year}  @var{your name}. 
+  Baimena ematen da dokumentu hau kopiatu, banatu edota aldatzeko 
+  Free Software Foundation-ek argitaratutako GNU Dokumentazio Librearen 
+  Lizentziaren 1.1 bertsioan edo berriago batean ezarritako baldintzak 
+  betetzen badira, non Atal aldaezina @var{list their titles} ZERRENDATU 
+  EUREN TITULUAK den eta Aurreko azaleko testuak eta Atzeko azaleko 
+testuak @var{list} ZERRENDATU diren. 
+  Lizentziaren kopia bat aurkituko duzu "GNU Dokumentazio Librearen 
+  Lizentzia" atalean. 
+@end group 
+@end smallexample 
+
+Atal aldaezinik ez baduzu, idatzi "Atal aldaezinik gabe" aldaezinak 
+zein diren adierazi beharrean.  Aurreko azaleko 
+testurik ez baduzu, "Aurreko azaleko testurik gabe" idatzi "Aurreko 
+azaleko testuak @var{list} ZERRENDATU dira" adierazi beharrean; gauza 
+bera Atzeko azaleko testuei dagokienez. 
+
+Zure dokumentuan programa-kodearen adibide ez-tribialik baldin badago, 
+zera gomendatzen dizugu: adibide horiek ere jartzea aukeratutako 
+software librearen lizentziarekin batera paraleloki, GNU Lizentzia 
+Publiko Orokorra lizentzian esaterako, software librean erabil daitezen 
+ahalbidetzeko. 
+
+@cindex FDL, GNU Dokumentazio Librearen Lizentzia
+@center Version 1.1, March 2000
+
+@display
+Copyright @copyright{} 2000 Free Software Foundation, Inc.
+59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+@end display
+
+@node     Kontzeptu-indizea,  , GNU Dokumentazio Librearen Lizentzia, Gora
+@comment      node-name, next,       previous, up
+@unnumbered Kontzeptu-indizea
+     
+@printindex cp
+
+@contents
+@bye

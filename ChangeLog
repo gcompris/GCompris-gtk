@@ -1,3 +1,26 @@
+2005-09-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added Basque support (from dooteo <dooteo@euskalgnu.org>)
+
+	* boards/flags/eu.png:
+	* boards/flags/gcompris_flags.assetml.in:
+	* boards/wordsgame/default-eu.xml:
+	* boards/wordsgame/wordslevel1.eu:
+	* boards/wordsgame/wordslevel2.eu:
+	* boards/wordsgame/wordslevelmax.eu:
+	* configure.in:
+	* docs/Makefile.am:
+	* docs/checkScreenshots.sh:
+	* docs/eu/.cvsignore:
+	* docs/eu/Makefile.am:
+	* docs/eu/gcompris.texi:
+	* docs/eu/overview.dia:
+	* docs/eu/overview.jpg:
+	* docs/eu/python.xml:
+	* docs/gcompris2spip.pl:
+	* po/Makefile.in.in:
+	* src/gcompris/config.c:
+
 2005-09-12  Yves Combe,,,  <yves@ycombe.net>
 
 	refuse --reread-menu if db is read-only.

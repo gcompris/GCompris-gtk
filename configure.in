@@ -107,7 +107,7 @@ fi
 LDFLAGS="${LDFLAGS} ${RANDR_LIBS}"
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et fi fr ga gu he hi hr hu it lt mk ml ms nb ne nl nn pa pl pt pt_BR ro ru rw sk sl sq sr sr@Latn sv tr vi wa zh_CN"
+ALL_LINGUAS="am ar az bg ca cs da de el en_CA en_GB es et eu fi fr ga gu he hi hr hu it lt mk ml ms nb ne nl nn pa pl pt pt_BR ro ru rw sk sl sq sr sr@Latn sv tr vi wa zh_CN"
 
 dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
@@ -521,6 +521,7 @@ po/Makefile.in
 docs/Makefile
 docs/C/Makefile
 docs/fr/Makefile
+docs/eu/Makefile
 boards/Makefile
 boards/advanced_colors/Makefile
 boards/babymatch/Makefile
