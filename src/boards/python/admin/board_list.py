@@ -455,10 +455,17 @@ class Board_list:
     self.stars = {}
     
     for i in range(1,7):
+      box = gtk.VBox(False, 8)
+      box.show()
+      symbols_box.pack_start(box, True, False, 0)
       self.stars[i] = gtk.Image()
       self.stars[i].set_from_pixbuf(gcompris.skin.load_pixmap('difficulty_star%d.png' % (i)))
       self.stars[i].show()
-      symbols_box.pack_start(self.stars[i], False, False, 0)
+      box.pack_start(self.stars[i], False, False, 0)
+      i_label = gtk.Label()
+      i_label.set_markup("<span size='x-large'><b>%d</b></span>" % i)
+      i_label.show()
+      box.pack_start(i_label, False, False, 0)
 
     self.arrows = {}
 
