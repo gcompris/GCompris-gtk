@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-12 22:15+0200\n"
-"PO-Revision-Date: 2005-09-13 16:28+0200\n"
+"PO-Revision-Date: 2005-09-13 23:20+0200\n"
 "Last-Translator: Jose Jorge <jjorge@free.fr>\n"
 "Language-Team: português <pt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgid ""
 "individual children in GCompris means we can provide individual reports. It "
 "also recognizes the children as individuals; they can learn to type in, and "
 "recognize their own usernames (login is configurable)."
-msgstr ""
+msgstr "- Na secção 'Actividades' pode mudar a lista das actividades. Basta tirar a cruz na árvore. Pode mudar a língua utilizada para ler, por exemplo, ou para dizer o nome das cores. - Pode gravar configurações múltiplas, e bascular entre elas fácilmente. Na secção 'Perfil' adicione um perfil, depois na secção 'Actividades' seleccione o perfil na lista, depois escolha as actividades que deseja. Pode adicionar muitos perfiles, com listas de actividades diferentes,e línguas diferentes. Define o perfil predefinido na secção 'Perfil', carregando no perfil desejado e no botão 'Predefinido'. Pode também escolher um perfil a partir da linha de comando. - Pode adicionar utilizadores, turmas e para cada turma, pode criar grupos de utilizadores. Note que pode importar utilizadores a partir dum ficheiro separado por vírgulas. Inscreva um ou vários grupos a um perfil, para que os login apareçam ao reiniciar GCompris. Poder identificar as crianças no GCompris significa poder ter relatórios individuais.Também reconhece as crianças como indivíduos, podem aprender a escrever e reconhecer o login deles (que é configurável)."
 
 #: ../boards/administration.xml.in.h:2
 msgid "GCompris Administration Menu"
@@ -48,7 +48,7 @@ msgid ""
 "administration module here. The ultimate goal is to provide child-specific "
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and weakenesses of their children."
-msgstr ""
+msgstr "Se deseja adaptar o GCompris às suas necessidades, pode utilizar o módulo de administração aqui. O objectivo  é de fornecer resultados por criança aos pais ou professores que desejam controlar a progressão, as qualidades e fraquezas das crianças."
 
 #: ../boards/administration.xml.in.h:4 ../boards/algebra_group.xml.in.h:2
 #: ../boards/algebramenu.xml.in.h:2 ../boards/boards.xml.in.h:2
@@ -914,6 +914,9 @@ msgid ""
 "petrol-driven car in 1885.\n"
 "car by Benz"
 msgstr ""
+"Benz fabrica primeiro\n"
+"carro a petróleo em 1885.\n"
+"carro por Benz"
 
 #: ../boards/chronos/board4_2.xml.in.h:6
 msgid "The car"
@@ -1248,7 +1251,7 @@ msgstr "Coordenação dos movimentos"
 
 #: ../boards/followline.xml.in.h:2
 msgid "Help the hose move up"
-msgstr ""
+msgstr "Ajuda a mangueira a desentupir"
 
 #: ../boards/followline.xml.in.h:3
 msgid ""
@@ -1290,7 +1293,7 @@ msgstr "Puxa e Larga os elementos para redesenhar todo o mapa"
 
 #: ../boards/geography.xml.in.h:2
 msgid "Identify the countries"
-msgstr ""
+msgstr "Identifica os países"
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1969,7 +1972,7 @@ msgid ""
 "The object of the game is to move the entire stack to another peg, obeying "
 "the following rules: * only one disc may be moved at a time * no disc may be "
 "placed atop a smaller disc"
-msgstr ""
+msgstr "O objectivo do jogo é de mover a pilha inteira para outro bico, respeitando as regras seguintes: * só um disco pode ser movido de cada vez * nenhum disco pode ser metido por cima dum disco mais pequeno"
 
 #: ../boards/hanoi_real.xml.in.h:6
 msgid ""
@@ -1982,6 +1985,8 @@ msgid ""
 "inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
 "Tower_of_hanoi&gt;)"
 msgstr ""
+"Há uma lenda acerca dum templo Hindu onde os religiosos deviam mover sempre 64 discos conforme as regras do quebra-cabeças Torres de Hanoi. Seguinte esta lenda, o mundo acabaria quando os religiosos acabariam o trabalho deles. O quebra-cabeças também é conhecido sob o nome Torres de Brama. Não se sabe bem se o Lucas inventou esta lenda ou se inspirou dela. (fonte Wikipedia &lt;http://en.wikipedia.org/wiki/"
+"Tower_of_hanoi&gt;)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -3081,7 +3086,7 @@ msgstr ""
 
 #: ../boards/searace.xml.in.h:1
 msgid "Direct your boat accurately to win the race."
-msgstr ""
+msgstr "Dirige o teu barco para ganhar a corrida."
 
 #: ../boards/searace.xml.in.h:2
 msgid ""
@@ -3222,7 +3227,7 @@ msgstr ""
 
 #: ../boards/sudoku.xml.in.h:1
 msgid "Completing the puzzle requires patience and logical ability"
-msgstr ""
+msgstr "Acabar o quebra-cabeças pede paciência e lógica"
 
 #: ../boards/sudoku.xml.in.h:2
 msgid ""
@@ -3585,7 +3590,7 @@ msgstr "Torres de Hanoi"
 
 #: ../src/boards/hanoi_real.c:286 ../src/boards/hanoi_real.c:297
 msgid "Move the entire stack to the right peg"
-msgstr ""
+msgstr "Move a pilha inteira para o bico direito"
 
 #: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -3628,13 +3633,13 @@ msgstr "Descubra os pares"
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/boards/memory.c:438
 msgid "0123456789"
-msgstr ""
+msgstr "0123456789"
 
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet uppercase in your language
 #: ../src/boards/memory.c:446
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr ""
+msgstr "ABCDEFGHIJLMNOPQRSTUVXZ"
 
 #: ../src/boards/menu.c:72
 msgid "Main Menu"
@@ -3928,7 +3933,7 @@ msgstr "Já existe um perfil com esse nome"
 #: ../src/boards/python/admin/profile_list.py:122
 #: ../src/gcompris/board_config.c:582 ../src/gcompris/board_config.c:708
 msgid "Default"
-msgstr "Por omissão"
+msgstr "Predefinido"
 
 #: ../src/boards/python/admin/profile_list.py:189
 msgid "Profile"
@@ -3998,6 +4003,8 @@ msgid ""
 "One or more logins are not unique !\n"
 "You need to change them: %s !"
 msgstr ""
+"Alguns login não são únicos!\n"
+"Deve mudar-los : %s !"
 
 #: ../src/boards/python/anim.py:59
 msgid "You need the python xml module. Disabling SVG."
@@ -4117,7 +4124,7 @@ msgstr ""
 
 #: ../src/boards/python/gnumch.py:484
 msgid "You ate a wrong number.\n"
-msgstr ""
+msgstr "Tu comeste um número errado.\n"
 
 #: ../src/boards/python/gnumch.py:485
 msgid ""
@@ -4137,6 +4144,13 @@ msgid ""
 "L\n"
 "E"
 msgstr ""
+"C\n"
+"O\n"
+"M\n"
+"I\n"
+"L\n"
+"Ã\n"
+"O"
 
 #: ../src/boards/python/login.py:123
 msgid "Profile: "
@@ -4276,13 +4290,12 @@ msgstr ""
 " Instale-o para usar esta actividade !"
 
 #: ../src/boards/python/tuxpaint.py:117
-#, fuzzy
 msgid "Waiting for Tuxpaint finishes"
-msgstr "Á espera que o Tuxpaint pare"
+msgstr "Á espera que o Tuxpaint acabe"
 
 #: ../src/boards/python/tuxpaint.py:172
 msgid "Inherit fullscreen setting from GCompris"
-msgstr ""
+msgstr "Herdar a configuração do ecrã do GCompris"
 
 #: ../src/boards/python/tuxpaint.py:176
 msgid "Disable shape rotation"
@@ -4313,9 +4326,8 @@ msgid "Click on the corresponding color"
 msgstr "Carregue na cor que corresponde"
 
 #: ../src/boards/reading.c:114
-#, fuzzy
 msgid "Read a list of words to see if the given word is there."
-msgstr "Leia uma lista de palavras e diga se uma palavra indicada está nela"
+msgstr "Lê uma lista de palavras e vê se uma palavra indicada está nela"
 
 #: ../src/boards/reading.c:364
 msgid "Please, check if the word"
@@ -4381,13 +4393,12 @@ msgstr ""
 "'d' para mostrar todas as peças"
 
 #: ../src/boards/shapegame.c:469
-#, fuzzy
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
 msgstr ""
-"Os dados desta actividade são\n"
-"gravados em /tmp/Gcompris-board.xml"
+"Os dados desta actividade são gravados\n"
+"em /tmp/gcompris-board.xml"
 
 #: ../src/boards/smallnumbers.c:72
 msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
@@ -4448,11 +4459,12 @@ msgid "Translators:"
 msgstr "Tradutores :"
 
 #: ../src/gcompris/about.c:211
-#, fuzzy
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
-msgstr "Pagina do GCompris"
+msgstr ""
+"Página do GCompris\n"
+"http://gcompris.net"
 
 #: ../src/gcompris/about.c:233
 msgid ""
@@ -4494,7 +4506,7 @@ msgstr "Árabe"
 
 #: ../src/gcompris/config.c:64
 msgid "Turkish (Azerbaijan)"
-msgstr ""
+msgstr "Turco (Azerbaijano)"
 
 #: ../src/gcompris/config.c:65
 msgid "Bulgarian"
@@ -4517,9 +4529,8 @@ msgid "Greek"
 msgstr "Grego"
 
 #: ../src/gcompris/config.c:71
-#, fuzzy
 msgid "English (Canada)"
-msgstr "Inglês (Canadiano)"
+msgstr "Inglês (Canadá)"
 
 #: ../src/gcompris/config.c:72
 msgid "English (Great Britain)"
@@ -4550,19 +4561,16 @@ msgid "Hebrew"
 msgstr "Hebreu"
 
 #: ../src/gcompris/config.c:79
-#, fuzzy
 msgid "Hindi"
-msgstr "indigo"
+msgstr "Hindi"
 
 #: ../src/gcompris/config.c:80
-#, fuzzy
 msgid "Gujarati"
-msgstr "Indiano (Gujarati)"
+msgstr "Gujarati"
 
 #: ../src/gcompris/config.c:81
-#, fuzzy
 msgid "Punjabi"
-msgstr "Indiano (Punjabi)"
+msgstr "Punjabi"
 
 #: ../src/gcompris/config.c:82
 msgid "Hungarian"
@@ -4617,9 +4625,8 @@ msgid "Portuguese"
 msgstr "Português"
 
 #: ../src/gcompris/config.c:95
-#, fuzzy
 msgid "Portuguese (Brazil)"
-msgstr "Português"
+msgstr "Português (Brasil)"
 
 #: ../src/gcompris/config.c:96
 msgid "Romanian"
@@ -4663,7 +4670,7 @@ msgstr "Turco"
 
 #: ../src/gcompris/config.c:106
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamiano"
 
 #: ../src/gcompris/config.c:107
 msgid "Walloon"
@@ -4698,6 +4705,8 @@ msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
 msgstr ""
+"<i>Utilize o módulo de administração do\n"
+"Gcompris para filtrar as actividades</i>"
 
 #: ../src/gcompris/config.c:183
 msgid "GCompris Configuration"
@@ -4800,7 +4809,6 @@ msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Desactivar XRANDR (Não muda a definição do ecrã)."
 
 #: ../src/gcompris/gcompris.c:120
-#, fuzzy
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -4811,14 +4819,12 @@ msgstr ""
 "actividade 4 em linha), -l list mostra a lista dos menus e actividades"
 
 #: ../src/gcompris/gcompris.c:122
-#, fuzzy
 msgid "Run GCompris with local activity directory added to menu"
-msgstr "Lança gcompris com uma pasta de actividades local adicionada ao menu"
+msgstr "Inicia o GCompris com uma pasta de actividades local adicionada ao menu"
 
 #: ../src/gcompris/gcompris.c:124
-#, fuzzy
 msgid "Run GCompris in administration and user-management mode"
-msgstr "Inicia o GCompris em modo Administrador de Utilizadores"
+msgstr "Inicia o GCompris em modo de administração e gestão de utilizadores"
 
 #: ../src/gcompris/gcompris.c:126
 msgid "Use alternate database for profiles"
@@ -4841,24 +4847,22 @@ msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Define o perfil a utilizar. Utilize 'gcompris -a' para criar perfiles"
 
 #: ../src/gcompris/gcompris.c:136
-#, fuzzy
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
-msgstr ""
-"Lista todos os perfiles disponíveis. Utilize 'gcompris -a' para criar "
-"perfiles"
+msgstr "Lista todos os perfiles disponíveis. Utilize 'gcompris -a' para criar perfiles"
 
 #: ../src/gcompris/gcompris.c:138
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 msgstr ""
+"Localização da pasta partilhada, para os perfiles e os dados de configuração das actividades: "
+"[$HOME/.gcompris/shared]"
 
 #: ../src/gcompris/gcompris.c:140
 msgid "The location of user directories: [$HOME/.gcompris/users]"
-msgstr ""
+msgstr "Localização das pastas dos utilizadores : [$HOME/.gcompris/users]"
 
 #: ../src/gcompris/gcompris.c:693
-#, fuzzy
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4895,7 +4899,7 @@ msgstr ""
 
 #. check the list of possible values for -l, then exit
 #: ../src/gcompris/gcompris.c:1039
-#, fuzzy, c-format
+#, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Utilize -l actividade para aceder directamente à actividade.\n"
 
@@ -4905,7 +4909,7 @@ msgid "List of available activity is :\n"
 msgstr "A lista das actividades disponíveis é:\n"
 
 #: ../src/gcompris/gcompris.c:1185
-#, fuzzy, c-format
+#, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista dos perfiles disponíveis é:\n"
 
@@ -4939,11 +4943,11 @@ msgid "dataset %s is a directory. Trying to read xml "
 msgstr "%s é uma pasta. Vou ler xml "
 
 #: ../src/gcompris/images_selector.c:629
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "In ImageSet %s, the pathname for the home directory '%s' is not found. "
 "Skipping the whole ImageSet.\n"
-msgstr "No ImageSet %s, a pasta %s não foi encontrada. Ignoro todo o ImageSet...\n"
+msgstr "No ImageSet %s, o caminho da pasta '%s' não foi encontrado. Ignoro todo o ImageSet...\n"
 
 #: ../src/gcompris/images_selector.c:663
 #, c-format
@@ -4979,9 +4983,9 @@ msgid "Remaining Time = %d"
 msgstr "Tempo restante = %d"
 
 #: ../src/gcompris/wordlist.c:60
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't parse file %s !"
-msgstr "Não pude encontrar o ficheiro %s !"
+msgstr "Não pude ler o ficheiro %s !"
 
 #~ msgid ""
 #~ "1885 The first gazoline\n"
