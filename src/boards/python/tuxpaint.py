@@ -79,6 +79,17 @@ class Gcompris_tuxpaint:
     if (Prop.fullscreen and eval(self.config_dict['fullscreen'])):
       options.append('--fullscreen')
 
+    # tuxpaint size are 800x600 and 640x480 in 9.14
+    # in cvs (future 9.15) it will be
+    # [--640x480   | --800x600   | --1024x768 |
+    #  --1280x1024 | --1400x1050 | --1600x1200]
+    if (Prop.screensize and eval(self.config_dict['size'])):
+      if (Prop.screensize >=1):
+        print 'Prop.screensize', Prop.screensize
+        options.append('--800x600')
+      else:
+        options.append('--640x480')
+
     if eval(self.config_dict['disable_shape_rotation']):
       options.append('--simpleshapes')
 
@@ -173,6 +184,10 @@ class Gcompris_tuxpaint:
 
     gcompris.separator()
 
+    gcompris.boolean_box(_('Inherit size setting from GCompris (800x600, 640x480)'), 'size', eval(self.config_dict['size']))
+
+    gcompris.separator()
+
     gcompris.boolean_box(_('Disable shape rotation'), 'disable_shape_rotation', eval(self.config_dict['disable_shape_rotation']))
 
     gcompris.separator()
@@ -200,7 +215,8 @@ class Gcompris_tuxpaint:
                             'disable_shape_rotation' : 'False',
                             'uppercase_text'         : 'False',
                             'disable_stamps'         : 'False',
-                            'disable_stamps_control' : 'False'
+                            'disable_stamps_control' : 'False',
+                            'size'                   : 'True'
       }
     return default_config_dict
 
@@ -209,6 +225,15 @@ def child_callback(fd,  cond, data):
   #board.window.set_property("accept-focus", 1)
   #board.window.set_keep_above(False)
   gcompris.sound.reopen()
+
+  #a bug in tuxpaint 9.14: it does not suppress it lockfile
+  lockfile = os.getenv('HOME') + '/.tuxpaint/lockfile.dat'
+
+  try:
+    os.remove(lockfile)
+  except:
+    print lockfile, 'not removed.'
+
   global pid
   pid = None
   gcompris.bar_hide(0)

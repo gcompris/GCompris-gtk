@@ -1,3 +1,14 @@
+2005-09-13  Yves Combe  <yves@ycombe.net>
+
+	sqlite quote string in conf too.
+	workaround tuxpaint lockfile bug.
+
+	* po/Makefile.in.in:
+	* src/boards/py-gcompris-properties.c: typo.
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/python/tuxpaint.py:
+	* src/gcompris/gcompris_db.c: (gcompris_set_board_conf):
+
 2005-09-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Added Basque support (from dooteo <dooteo@euskalgnu.org>)

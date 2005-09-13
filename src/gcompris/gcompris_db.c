@@ -369,8 +369,6 @@ gboolean gcompris_db_check_boards()
 }
 
 
-#define Q(a) a==NULL ? "" : "\'", a==NULL ? "NULL" : a, a==NULL ? "" : "\'"
-
 #define BOARD_INSERT \
         "INSERT OR REPLACE INTO boards VALUES (%d, %Q, %d, %Q, %Q, %Q, %Q, %d, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q);"
 
@@ -1186,14 +1184,14 @@ GcomprisClass *gcompris_get_class_from_id(gint class_id)
 }
 
 
-#define CHECK_CONF(p, b, k) \
-        "SELECT * FROM board_profile_conf WHERE profile_id=%d AND board_id=%d AND conf_key=%s%s%s;", p, b, Q(k)
+#define CHECK_CONF \
+        "SELECT * FROM board_profile_conf WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
 
-#define INSERT_KEY(p, b, k, v) \
-        "INSERT INTO board_profile_conf (profile_id, board_id, conf_key, conf_value) VALUES (%d, %d, %s%s%s, %s%s%s);", p, b, Q(k), Q(v)
+#define INSERT_KEY \
+        "INSERT INTO board_profile_conf (profile_id, board_id, conf_key, conf_value) VALUES (%d, %d, %Q, %Q);"
 
-#define UPDATE_KEY(p, b, k, v) \
-        "UPDATE board_profile_conf SET conf_value=%s%s%s WHERE profile_id=%d AND board_id=%d AND conf_key=%s%s%s;", Q(v), p, b, Q(k)
+#define UPDATE_KEY \
+        "UPDATE board_profile_conf SET conf_value=%Q WHERE profile_id=%d AND board_id=%d AND conf_key=%Q;"
 
 void gcompris_set_board_conf(GcomprisProfile *profile, 
 			     GcomprisBoard  *board, 
@@ -1208,10 +1206,11 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
   gchar *request;
 
 #ifdef USE_SQLITE
-  request = g_strdup_printf(CHECK_CONF(profile->profile_id, 
-				       board->board_id, 
-				       key));
-  
+  request = sqlite3_mprintf(CHECK_CONF,
+			    profile->profile_id, 
+			    board->board_id, 
+			    key);
+
   rc = sqlite3_get_table(gcompris_db, 
 			 request,  
 			 &result,
@@ -1224,13 +1223,14 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
     g_error("SQL error: %s\n", zErrMsg);
   }
   
-  g_free(request);
+  sqlite3_free(request);
   
   if (nrow == 0){
-    request = g_strdup_printf(INSERT_KEY(profile->profile_id, 
-					 board->board_id, 
-					 key,
-					 value));
+    request = sqlite3_mprintf(INSERT_KEY, 
+			      profile->profile_id, 
+			      board->board_id, 
+			      key,
+			      value);
     
     rc = sqlite3_get_table(gcompris_db, 
 			   request,  
@@ -1244,12 +1244,14 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
       g_error("SQL error: %s\n", zErrMsg);
     }
     
-    g_free(request);
+    sqlite3_free(request);
   } else {
-    request = g_strdup_printf(UPDATE_KEY(profile->profile_id, 
-					 board->board_id, 
-					 key,
-					 value));
+    request = sqlite3_mprintf(UPDATE_KEY,
+			      value,
+			      profile->profile_id, 
+			      board->board_id, 
+			      key
+			      );
     
     rc = sqlite3_get_table(gcompris_db, 
 			   request,  
@@ -1262,8 +1264,8 @@ void gcompris_set_board_conf(GcomprisProfile *profile,
     if( rc!=SQLITE_OK ){
       g_error("SQL error: %s\n", zErrMsg);
     }
-    
-    g_free(request);
+   
+    sqlite3_free(request);
   }
 #endif
 } 
