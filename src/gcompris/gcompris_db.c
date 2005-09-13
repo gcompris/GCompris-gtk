@@ -334,6 +334,39 @@ void gcompris_db_set_date(gchar *date)
 #endif
 }
 
+#define BOARDS_UPDATE_VERSION(version) \
+        "UPDATE informations SET gcompris_version=\'%s\';",version
+
+void gcompris_db_set_version(gchar *version)
+{
+#ifdef USE_SQLITE
+
+  char *zErrMsg;
+  char **result;
+  int rc;
+  int nrow;
+  int ncolumn;
+  gboolean ret_value;
+  gchar *request;
+
+  request = g_strdup_printf(BOARDS_UPDATE_VERSION(version));
+  rc = sqlite3_get_table(gcompris_db, 
+			 request,  
+			 &result,
+			 &nrow,
+			 &ncolumn,
+			 &zErrMsg
+			 );
+    if( rc!=SQLITE_OK ){
+      g_error("SQL error: %s\n", zErrMsg);
+    }
+    g_free(request);
+
+    sqlite3_free_table(result);
+
+#endif
+}
+
 #define BOARDS_CHECK \
         "SELECT gcompris_version, init_date FROM informations;"
 gboolean gcompris_db_check_boards()

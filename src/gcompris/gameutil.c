@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/09/11 18:12:34 bruno>
+ * Time-stamp: <2005/09/13 23:02:09 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -903,6 +903,7 @@ void gcompris_load_menus()
     gchar date[11];
     g_date_strftime (date, 11, "%F", today);
     gcompris_db_set_date(date);
+    gcompris_db_set_version(VERSION);
     g_date_free(today);
   }
   

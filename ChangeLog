@@ -1,3 +1,11 @@
+2005-09-13  Yves Combe,,,  <yves@ycombe.net>
+
+	 new version was not written in the db when reread boards because of version change.
+
+	* src/gcompris/gameutil.c: (gcompris_load_menus):
+	* src/gcompris/gcompris_db.c: (gcompris_db_set_version):
+	* src/gcompris/gcompris_db.h:
+
 2005-09-13  Yves Combe  <yves@ycombe.net>
 
 	change background with level, to make level change visible.

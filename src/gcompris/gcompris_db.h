@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/08/20 23:44:47 yves>
+ * Time-stamp: <2005/09/13 22:57:36 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -34,6 +34,8 @@ void gcompris_db_exit();
 gboolean gcompris_db_check_boards();
 
 void gcompris_db_set_date(gchar *date);
+
+void gcompris_db_set_version(gchar *version);
 
 void gcompris_db_board_update(gint *board_id, 
 			      gint *section_id, 
