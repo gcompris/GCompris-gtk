@@ -7,7 +7,7 @@ EXTRA_DIST = overview.jpg \
 	     topic.dat \
 	     overview.dia
 
-gcompris_helpdir = $(datadir)/gnome/help/$(PACKAGE)/fr
+gcompris_helpdir = $(datadir)/gnome/help/$(PACKAGE)/eu
 
 all: $(doc)
 
