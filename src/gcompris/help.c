@@ -1,6 +1,6 @@
 /* gcompris - help.c
  *
- * Time-stamp: <2005/09/13 01:01:39 bruno>
+ * Time-stamp: <2005/09/14 00:44:47 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -136,15 +136,20 @@ void gcompris_help_start (GcomprisBoard *gcomprisBoard)
   gdk_pixbuf_unref(pixmap);
 
   y_start += 5;
-  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-			 gnome_canvas_text_get_type (),
-			 "text", gcomprisBoard->name,
-			 "font", gcompris_skin_font_board_tiny,
-			 "x", (double) BOARDWIDTH*0.10,
-			 "y", (double) y_start,
-			 "anchor", GTK_ANCHOR_NW,
-			 "fill_color_rgba", gcompris_skin_color_title,
-			 NULL);
+  if(gcomprisBoard->section && gcomprisBoard->name) {
+    text_to_display = g_strdup_printf("%s/%s", gcomprisBoard->section, gcomprisBoard->name);
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			   gnome_canvas_text_get_type (),
+			   "text", text_to_display,
+			   "font", gcompris_skin_font_board_tiny,
+			   "x", (double) BOARDWIDTH*0.10,
+			   "y", (double) y_start,
+			   "anchor", GTK_ANCHOR_NW,
+			   "fill_color_rgba", gcompris_skin_color_title,
+			   NULL);
+    g_free(text_to_display);
+  }
+
   y_start += 35;
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
