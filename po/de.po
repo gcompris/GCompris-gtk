@@ -3,6 +3,7 @@
 # translation of de.po to
 # translation of de.po to
 # translation of de.po to
+# translation of de.po to
 # translation of de.po to Deutsch
 # Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
 # Gerhard Dieringer <GDieringer@compuserve.com>, 2000.
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-13 08:33+0200\n"
-"PO-Revision-Date: 2005-09-13 09:01+0200\n"
+"POT-Creation-Date: 2005-09-14 21:53+0200\n"
+"PO-Revision-Date: 2005-09-14 21:58+0200\n"
 "Last-Translator: Ronny Standtke <Ronny.Standtke@gmx.net>\n"
 "Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +35,7 @@ msgid ""
 "add a profile, then in the 'Board' section select the profile in the "
 "combobox, then select the boards you want to be active. You can add lot of "
 "profiles, with different lists of boards, and different languages. You set "
-"the default profile in the 'Profile' section, by chhosing the profile you "
+"the default profile in the 'Profile' section, by choosing the profile you "
 "want, then clicking on the 'Default' button. You can also choose a profile "
 "from the command line. - You can add users, classes and for each class, you "
 "can create groups of users. Note that you can import users from a comma-"
@@ -1028,10 +1029,10 @@ msgid ""
 msgstr ""
 "Die Fische stammen aus dem Unix-Utility xfishtank. Die Bilder wurden der "
 "Sammlung des National Undersea Research Program  (NURP) unter &lt;http://www."
-"photolib.noaa.gov&gt; entnommen. Die Rechte der Bilder liegen beim OAR/National "
-"Undersea Research Program (NURP), mit Ausnahme des ersten Bildes, bei dem "
-"die Rechte auch bei der University of North Carolina in Wilmington liegen. "
-"Die Bilder, die in jeder Ebene verwendet werden sind:Ort: Tropischer "
+"photolib.noaa.gov&gt; entnommen. Die Rechte der Bilder liegen beim OAR/"
+"National Undersea Research Program (NURP), mit Ausnahme des ersten Bildes, "
+"bei dem die Rechte auch bei der University of North Carolina in Wilmington "
+"liegen. Die Bilder, die in jeder Ebene verwendet werden sind:Ort: Tropischer "
 "Atlantischer Ozean, Florida Keys (Bild nur00523) Fotograf: D. Kesling\n"
 "Ort: Florida Keys (Bild nur03006)\n"
 "Ort: unbekannt (Bild nur03505)\n"
@@ -1060,23 +1061,21 @@ msgstr ""
 "kannst die Richtung der Zeiger durch Anklicken und Bewegen mit der Maus "
 "ändern."
 
-#: ../boards/clockgame.xml.in.h:2 ../src/boards/clockgame.c:78
+#: ../boards/clockgame.xml.in.h:2
+msgid "Distinguish between hours, minutes and seconds. Display time on a clock."
+msgstr "Erkenne Unterschiede zwischen Stunden, Minuten und Sekunden. Stelle die Zeit einer Uhr ein."
+
+#: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:78
 msgid "Learn how to tell the time"
 msgstr "Lerne, die Uhr zu stellen."
 
-#: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:77
+#: ../boards/clockgame.xml.in.h:4 ../src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Lerne die Uhrzeit"
 
-#: ../boards/clockgame.xml.in.h:4
+#: ../boards/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Der Begriff Zeit. Zeit lesen."
-
-#: ../boards/clockgame.xml.in.h:5
-msgid "istinguish between hours, minutes and seconds. Display time on a clock."
-msgstr ""
-"Erkenne Unterschiede zwischen Stunde, Minute und Sekunde. Stelle die Zeit "
-"einer Uhr ein."
 
 #: ../boards/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -1136,8 +1135,8 @@ msgid ""
 "http://forcedattack.sourceforge.net&gt;"
 msgstr ""
 "Laurent Lacheny. Bilder und künstliche Intelligenz aus dem Projekt 4stattack "
-"von Jeroen Vloothuis entnommen. Das Original-Projekt befindet sich unter "
-"&lt;http://forcedattack.sourceforge.net&gt;"
+"von Jeroen Vloothuis entnommen. Das Original-Projekt befindet sich unter &lt;"
+"http://forcedattack.sourceforge.net&gt;"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1230,8 +1229,8 @@ msgid ""
 "authorization to include their pictures. Thanks a lot."
 msgstr ""
 "Die Tierbilder wurden der Tierfotoseite von Ralf Schmode &lt;http://schmode."
-"net/&gt; und LE BERRE Daniel entnommen. Sie haben hat GCompris die Verwendung "
-"der Bilder gestattet. Vielen Dank!"
+"net/&gt; und LE BERRE Daniel entnommen. Sie haben hat GCompris die "
+"Verwendung der Bilder gestattet. Vielen Dank!"
 
 #: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
 #: ../boards/erase_double_clic.xml.in.h:5
@@ -2025,7 +2024,10 @@ msgid ""
 "The object of the game is to move the entire stack to another peg, obeying "
 "the following rules: * only one disc may be moved at a time * no disc may be "
 "placed atop a smaller disc"
-msgstr "Das Ziel des Spieles ist es, den gesamten Stapel auf einen anderen Zapfen zu bewegen und folgende Regeln einzuhalten: * es kann jeweils nur eine Scheibe bewegt werden * Scheiben dürfen nicht auf kleinere Scheiben gelegt werden"
+msgstr ""
+"Das Ziel des Spieles ist es, den gesamten Stapel auf einen anderen Zapfen zu "
+"bewegen und folgende Regeln einzuhalten: * es kann jeweils nur eine Scheibe "
+"bewegt werden * Scheiben dürfen nicht auf kleinere Scheiben gelegt werden"
 
 #: ../boards/hanoi_real.xml.in.h:6
 msgid ""
@@ -2038,8 +2040,14 @@ msgid ""
 "inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
 "Tower_of_hanoi&gt;)"
 msgstr ""
-"Vermutlich wurde das Spiel 1883 vom französischen Mathematiker Edouard Lucas erfunden. Er dachte sich dazu die Geschichte aus, dass indische Mönche im großen Tempel zu Benares, im Mittelpunkt der Welt, einen Turm aus 64 goldenen Scheiben versetzen müssten, und wenn ihnen das gelungen sei, wäre das Ende der Welt gekommen. "
-"Das Puzzle ist deswegen auch als \"Die Türme von Benares\" bekannt. Es ist nicht bekannt, ob Lucas diese Sage erfunden hat oder durch sie inspiriert wurde. (Quelle Wikipedia &lt;http://de.wikipedia.org/wiki/Türme_von_Hanoi&gt;)"
+"Vermutlich wurde das Spiel 1883 vom französischen Mathematiker Edouard Lucas "
+"erfunden. Er dachte sich dazu die Geschichte aus, dass indische Mönche im "
+"großen Tempel zu Benares, im Mittelpunkt der Welt, einen Turm aus 64 "
+"goldenen Scheiben versetzen müssten, und wenn ihnen das gelungen sei, wäre "
+"das Ende der Welt gekommen. Das Puzzle ist deswegen auch als \"Die Türme von "
+"Benares\" bekannt. Es ist nicht bekannt, ob Lucas diese Sage erfunden hat "
+"oder durch sie inspiriert wurde. (Quelle Wikipedia &lt;http://de.wikipedia."
+"org/wiki/Türme_von_Hanoi&gt;)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -3188,8 +3196,8 @@ msgstr ""
 "Befehl \"vorwärts\" nimmt einen Entfernungsparameter entgegen. So kannst du "
 "angeben, wie weit dein Schiff fahren soll. Die Voreinstellung ist 1. Wenn du "
 "also diesen Parameter weglässt, bewegt sich dein Schiff eine Einheit weiter. "
-"(Voreinstellungen sind praktische Werte, die dem Rechner weiterhelfen, wenn wir "
-"keine Parameter übergeben.)\n"
+"(Voreinstellungen sind praktische Werte, die dem Rechner weiterhelfen, wenn "
+"wir keine Parameter übergeben.)\n"
 "\n"
 "Zum Beispiel kannst du sagen:\n"
 "links 90 => steure im rechten Winkel nach links\n"
@@ -3347,8 +3355,11 @@ msgid ""
 "Sudoku&gt;)."
 msgstr ""
 "Das Ziel dieses Puzzles ist es, in jeder Zelle eines vorgegebenen Gitters "
-"Symbole oder Werte zwischen 1 und 9 einzugeben. Das Gitter ist meistens 9x9 Felder groß und besteht aus 3x3 Untergittern (genannt \"Regionen\"). Beim Start des Spiels sind einige Felder schon vorbelegt (die \"Gegebenen\"). In jeder Zeile, "
-"Spalte und Region darf jeder Wert nur einmal vorkommen. (Quelle &lt;http://de.wikipedia.org/wiki/Sudoku&gt;)."
+"Symbole oder Werte zwischen 1 und 9 einzugeben. Das Gitter ist meistens 9x9 "
+"Felder groß und besteht aus 3x3 Untergittern (genannt \"Regionen\"). Beim "
+"Start des Spiels sind einige Felder schon vorbelegt (die \"Gegebenen\"). In "
+"jeder Zeile, Spalte und Region darf jeder Wert nur einmal vorkommen. (Quelle "
+"&lt;http://de.wikipedia.org/wiki/Sudoku&gt;)."
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -3832,10 +3843,10 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:625
-#: ../src/boards/python/admin/board_list.py:643
+#: ../src/boards/python/admin/board_list.py:632
+#: ../src/boards/python/admin/board_list.py:650
 #: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:541
-#: ../src/boards/python/pythontest.py:392 ../src/boards/python/tuxpaint.py:168
+#: ../src/boards/python/pythontest.py:392 ../src/boards/python/tuxpaint.py:179
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3844,7 +3855,7 @@ msgstr ""
 "<b>%s</b> Konfiguration\n"
 " für Profil <b>%s</b>"
 
-#: ../src/boards/python/admin/board_list.py:655
+#: ../src/boards/python/admin/board_list.py:662
 #: ../src/boards/python/pythontest.py:456
 msgid "Select sound locale"
 msgstr "Gebietsschema für Tonausgabe auswählen"
@@ -4389,7 +4400,7 @@ msgstr "Unbekannter Befehl auf Zeile"
 msgid "Distance:"
 msgstr "Entfernung:"
 
-#: ../src/boards/python/tuxpaint.py:104
+#: ../src/boards/python/tuxpaint.py:115
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -4397,23 +4408,27 @@ msgstr ""
 "Kann Tuxpaint nicht finden.\n"
 "Installieren Sie es, um diese Tafel zu benutzen!"
 
-#: ../src/boards/python/tuxpaint.py:117
+#: ../src/boards/python/tuxpaint.py:128
 msgid "Waiting for Tuxpaint finishes"
 msgstr "Warte auf Beendigung von Tuxpaint"
 
-#: ../src/boards/python/tuxpaint.py:172
+#: ../src/boards/python/tuxpaint.py:183
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Vollbild-Einstellung von GCompris übernehmen"
 
-#: ../src/boards/python/tuxpaint.py:176
+#: ../src/boards/python/tuxpaint.py:187
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr "Vollbild-Einstellung von GCompris übernehmen (800x600, 640x480)"
+
+#: ../src/boards/python/tuxpaint.py:191
 msgid "Disable shape rotation"
 msgstr "Formrotation deaktivieren"
 
-#: ../src/boards/python/tuxpaint.py:180
+#: ../src/boards/python/tuxpaint.py:195
 msgid "Show Uppercase text only"
 msgstr "Nur Großbuchstaben anzeigen"
 
-#: ../src/boards/python/tuxpaint.py:184
+#: ../src/boards/python/tuxpaint.py:199
 msgid "Disable stamps"
 msgstr "Stempel deaktivieren"
 
@@ -4585,7 +4600,7 @@ msgstr ""
 "veröffentlicht"
 
 #: ../src/gcompris/about.c:261 ../src/gcompris/config.c:209
-#: ../src/gcompris/gameutil.c:1117 ../src/gcompris/help.c:339
+#: ../src/gcompris/gameutil.c:1118 ../src/gcompris/help.c:344
 #: ../src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -5038,19 +5053,19 @@ msgstr "Nicht betroffen"
 msgid "Users without class"
 msgstr "Benutzer ohne Klasse"
 
-#: ../src/gcompris/help.c:180
+#: ../src/gcompris/help.c:185
 msgid "Prerequisite"
 msgstr "Voraussetzung"
 
-#: ../src/gcompris/help.c:208
+#: ../src/gcompris/help.c:213
 msgid "Goal"
 msgstr "Ziel"
 
-#: ../src/gcompris/help.c:236
+#: ../src/gcompris/help.c:241
 msgid "Manual"
 msgstr "Handbuch"
 
-#: ../src/gcompris/help.c:264
+#: ../src/gcompris/help.c:269
 msgid "Credit"
 msgstr "Dank"
 
