@@ -1,0 +1,4378 @@
+# Georgian translation for GCompris
+# Copyright (C) 2005 Gia Shervashidze & GICT
+# This file is distributed under the same licence as the gcompris package.
+# Gia Shervashidze <giasher@telenet.ge>, 2005.
+# 
+# 
+#: src/boards/hanoi_real.c:85
+msgid ""
+msgstr ""
+"Project-Id-Version: gcompris\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-17 01:34+0200\n"
+"PO-Revision-Date: 2005-09-12 22:38+0300\n"
+"Last-Translator: Giasher <giasher@telenet.ge>\n"
+"Language-Team: Georgian <giasher@telenet.ge>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/boards/advanced_colors.c:86
+msgid "Advanced colors"
+msgstr "შედგენილი ფერები"
+
+#: src/boards/advanced_colors.c:87 src/boards/colors.c:81
+msgid "Click on the right color"
+msgstr "დაწკაპეთ მართებული ფერი"
+
+#: src/boards/advanced_colors.c:533 src/boards/imageid.c:615
+#: src/boards/missingletter.c:618 src/boards/read_colors.c:491
+#: src/boards/shapegame.c:1924 src/gcompris/file_selector.c:891
+#: src/gcompris/gameutil.c:184 src/gcompris/gameutil.c:602
+#: src/gcompris/gameutil.c:603 src/gcompris/gcompris.c:531
+#: src/gcompris/images_selector.c:764 src/gcompris/skin.c:83
+#: src/gcompris/skin.c:261 src/gcompris/wordlist.c:48
+#, c-format
+msgid "Couldn't find file %s !"
+msgstr "ვერ ვპოულობ ფაილს - %s!"
+
+#: src/boards/advanced_colors.c:536 src/boards/imageid.c:618
+#: src/boards/missingletter.c:621 src/boards/read_colors.c:494
+#: src/boards/shapegame.c:1927
+#, c-format
+msgid "find file %s !"
+msgstr "ფაილის პოვნა - %s!"
+
+#: src/boards/algebra.c:97
+msgid "Practice the math operation"
+msgstr "არითმეტიკული სავარჯიშოები"
+
+#: src/boards/algebra.c:98
+msgid "Answer some algebra questions"
+msgstr "უპასუხეთ რამდენიმე კითხვას ალგებრიდან"
+
+#: src/boards/algebra_guesscount.c:143 src/boards/algebra_guesscount.c:144
+msgid "Guess operations"
+msgstr "ამოცანები საზრიანობაზე"
+
+#: src/boards/canal_lock.c:113
+msgid "Operate a canal lock"
+msgstr "რაბის მართვა"
+
+#: src/boards/canal_lock.c:114
+msgid ""
+"Tux is in trouble in his ship. He needs to take it through a lock.\n"
+"Help Tux and understand how a canal lock works."
+msgstr ""
+"პინგვინი ტუქსი თავის გემზე გასაჭირშია, მას გემის რაბში გაყვანა ესაჭიროება.\n"
+"გაერკვიეთ თუ როგორ მუშაობს რაბი და დაეხმარეთ ტუქსს."
+
+#: src/boards/chess.c:136
+msgid "Learning Chess"
+msgstr "ჭადრაკის შესწავლა"
+
+#: src/boards/chess.c:137
+msgid "Play chess against tux in a learning mode"
+msgstr "ჭადრაკის თამაში ტუქსის წინააღმდეგ სწავლების რეჟიმში"
+
+#: src/boards/chess.c:189
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is located here: "
+msgstr ""
+"შეცდომა: gnuchess გარე პროგრამა\n"
+"ჭადრაკის სათამაშოდ აუცილებელია.\n"
+"პროგრამა მოიპოვება აქ http://www.rpmfind.net\n"
+"ან ნახეთ თქვენს GNU/Linux დისტრიბუტივში \n"
+"გადაამოწმეთ აქ:."
+
+#: src/boards/chess.c:228
+msgid ""
+"Error: The external program gnuchess is mandatory\n"
+"to play chess in gcompris.\n"
+"Find this program on http://www.rpmfind.net or in your\n"
+"GNU/Linux distribution\n"
+"And check it is in "
+msgstr ""
+"შეცდომა: gnuchess გარე პროგრამა პროგრამაში \n"
+"ჭადრაკის სათამაშოდ აუცილებელია.\n"
+"პროგრამა მოიპოვება აქ http://www.rpmfind.net \n"
+"ან ნახეთ თქვენს GNU/Linuxდისტრიბუტივში :)\n"
+"გადაამოწმეთ."
+
+#: src/boards/chess.c:569
+msgid "White Turn"
+msgstr "თეთრების სვლა"
+
+#: src/boards/chess.c:569
+msgid "Black Turn"
+msgstr "შავების სვლა"
+
+#: src/boards/chess.c:713
+msgid "White check"
+msgstr "თეთრების ქიში"
+
+#: src/boards/chess.c:715
+msgid "Black check"
+msgstr "შავების ქიში"
+
+#: src/boards/chess.c:1052
+msgid "Black mates"
+msgstr "შავების შამათი"
+
+#: src/boards/chess.c:1057
+msgid "White mates"
+msgstr "თეთრების შამათი"
+
+#: src/boards/chess.c:1062 src/gcompris/bonus.c:312 src/gcompris/bonus.c:321
+msgid "Drawn game"
+msgstr "ხატვა"
+
+#: src/boards/click_on_letter.c:84
+msgid "Read a letter"
+msgstr "ასოების კითხვა"
+
+#: src/boards/click_on_letter.c:85
+msgid "Learn to recognize letters"
+msgstr "ასოების ამოცნობის სწავლა"
+
+#: src/boards/click_on_letter.c:240
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s"
+msgstr ""
+"შეცდომა: ეს სავარჯიშო მოითხოვს ჩაიდგას\n"
+"პაკეტი assetml-voices-alphabet-%s"
+
+#: src/boards/click_on_letter.c:247
+msgid ""
+"Error: this activity cannot be played with the\n"
+"sound effects disabled.\n"
+"Go in the configuration dialog to\n"
+"enable the sound"
+msgstr ""
+"შეცდომა:·ეს სავარჯიშო ვერ შესრულდება \n"
+"გამორთული ხმით.\n"
+"ჩართეთ ხმა კონფიგურაციის დიალოგში."
+
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: src/boards/click_on_letter.c:292 src/boards/memory.c:442
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ"
+
+#: src/boards/clickgame.c:85
+msgid "Click On Me"
+msgstr "დამწკაპე"
+
+#: src/boards/clickgame.c:86
+msgid ""
+"Left-Click with the mouse on all swimming fish before they leave the fishtank"
+msgstr ""
+"დაწკაპეთ ყველა მოძრავი თევზი თაგუნას მარცხენა კლავიშით სანამ აქვარიუმს არ "
+"დატოვებენ"
+
+#: src/boards/clickgame.c:178
+#, c-format
+msgid "Couldn't open dir: %s"
+msgstr "ვერ ვხსნი დასტას: %s"
+
+#: src/boards/clockgame.c:77
+msgid "Learning Clock"
+msgstr "საათის შესწავლა"
+
+#: src/boards/clockgame.c:78
+msgid "Learn how to tell the time"
+msgstr "დროის წარმოთქმის შესწავლა"
+
+#: src/boards/clockgame.c:526
+msgid "Set the watch to:"
+msgstr "საათის მითითება:"
+
+#: src/boards/colors.c:57
+msgid "Click on the blue toon"
+msgstr "დაწკაპეთ ლურჯი სათამაშო"
+
+#: src/boards/colors.c:58
+msgid "Click on the brown toon"
+msgstr "დაწკაპეთ ყავისფერი სათამაშო"
+
+#: src/boards/colors.c:59
+msgid "Click on the green toon"
+msgstr "დაწკაპეთ მწვანე სათამაშო"
+
+#: src/boards/colors.c:60
+msgid "Click on the grey toon"
+msgstr "დაწკაპეთ ნაცრისფერი სათამაშო"
+
+#: src/boards/colors.c:61
+msgid "Click on the orange toon"
+msgstr "დაწკაპეთ ნარინჯისფერი სათამაშო"
+
+#: src/boards/colors.c:62
+msgid "Click on the purple toon"
+msgstr "დაწკაპეთ მეწამული სათამაშო"
+
+#: src/boards/colors.c:63
+msgid "Click on the red toon"
+msgstr "დაწკაპეთ წითელი სათამაშო"
+
+#: src/boards/colors.c:64
+msgid "Click on the yellow toon"
+msgstr "დაწკაპეთ ყვითელი სათამაშო"
+
+#: src/boards/colors.c:65
+msgid "Click on the black toon"
+msgstr "დაწკაპეთ შავი სათამაშო"
+
+#: src/boards/colors.c:66
+msgid "Click on the white toon"
+msgstr "დაწკაპეთ თეთრი სათამაშო"
+
+#: src/boards/colors.c:80
+msgid "Colors"
+msgstr "ფერები"
+
+#: src/boards/draw.c:215
+msgid "A simple vector drawing tool"
+msgstr "ვექტორული ხატვის მარტივი პროგრამა"
+
+#: src/boards/draw.c:216
+msgid "Creative board where you can draw freely"
+msgstr "სახატავი დაფა, რომელზეც ნებისმიერი რამის დახატვა შეგიძლიათ"
+
+#: src/boards/enumerate.c:91
+msgid "Numeration training"
+msgstr "გადათვლის სავარჯიშო"
+
+#: src/boards/enumerate.c:92
+msgid "Place the items in the best way to count them"
+msgstr "დააჯგუფეთ საგნები მათი მარტივად დასათვლელად"
+
+#: src/boards/erase.c:83 src/boards/machpuzzle.c:93
+msgid "Move the mouse"
+msgstr "თაგაუნას გადააადგილება"
+
+#: src/boards/erase.c:84
+msgid "Move the mouse to erase the area and discover the background"
+msgstr "გადააადგილეთ თაგუნა არის წასაშლელად და ფონის სრულად გამოსაჩენად"
+
+#: src/boards/erase.c:158
+msgid "Couldn't get GTK settings"
+msgstr "ვერ ვიღებ GTK პარამეტრებს"
+
+#: src/boards/erase.c:163
+#, c-format
+msgid "Double click default value %d."
+msgstr "ორმაგად დაწკაპვის ნაგულისხმები მნიშვნელობაა %d."
+
+#: src/boards/erase.c:168 src/boards/erase.c:183 src/boards/erase.c:206
+#: src/boards/erase.c:337
+#, c-format
+msgid "Double click value is now %d."
+msgstr "ორმაგად დაწკაპვის მიმდინარე მნიშვნელობაა %d."
+
+#: src/boards/fifteen.c:56
+msgid "The fifteen game"
+msgstr "თამაში - თხუთმეტი"
+
+#: src/boards/fifteen.c:57
+msgid "Move the items one by one to rearrange them in increasing order"
+msgstr "საგნების მიმდევრობით გადააადგილებით გადაალაგე ისინი ზრდადობით"
+
+#: src/boards/gletters.c:132
+msgid "Simple Letters"
+msgstr "მარტივი ასოები"
+
+#: src/boards/gletters.c:133
+msgid "Type the falling letters before they reach the ground"
+msgstr "დაწკაპეთ ასოები ჩამოვარდნამდე"
+
+#: src/boards/hanoi.c:104
+msgid "Simplified Tower of Hanoi"
+msgstr "ჰანოის გამარტივებული კოშკი"
+
+#: src/boards/hanoi.c:105
+msgid "Reproduce the given tower"
+msgstr "მოცემული კოშკის გამეორება"
+
+#: src/boards/hanoi.c:337 src/boards/hanoi.c:348
+msgid "Re-create in the empty area the same tower as the one on the right"
+msgstr "ცარიელ ადგილას მარჯვენა კოშკის მსგავსი კოშკის გამეორება"
+
+#: src/boards/hanoi_real.c:84
+#, fuzzy
+msgid "Tower of Hanoi"
+msgstr "ჰანოის გამარტივებული კოშკი"
+
+#: src/boards/hanoi_real.c:286 src/boards/hanoi_real.c:297
+#, fuzzy
+msgid "Move the entire stack to the right peg"
+msgstr "მოისმინეთ ასო და დაწკაპეთ შესაბამისი"
+
+#: src/boards/imageid.c:112 src/boards/missingletter.c:104
+#: src/boards/reading.c:113
+msgid "Reading"
+msgstr "კითხვა"
+
+#: src/boards/imageid.c:113 src/boards/missingletter.c:105
+msgid "Learn how to read"
+msgstr "კითხვის სწავლა"
+
+#: src/boards/leftright.c:106
+msgid "Find your left and right hands"
+msgstr "იპოვეთ თქვენი მარცხენა და მარჯვენა ხელები"
+
+#: src/boards/leftright.c:107
+msgid "Given each picture of a hand, indentify it as either left or right"
+msgstr "მოცემულია ხელების გამოსახულებები. დაადგინეთ მარცხენაა თუ მარჯვენა"
+
+#: src/boards/leftright.c:248 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:544
+#: src/boards/python/searace.py:856 src/boards/python/searace.py:889
+#: src/boards/python/searace.py:986
+msgid "left"
+msgstr "მარცხენა"
+
+#: src/boards/leftright.c:258 src/boards/python/searace.py:429
+#: src/boards/python/searace.py:454 src/boards/python/searace.py:553
+#: src/boards/python/searace.py:858 src/boards/python/searace.py:891
+#: src/boards/python/searace.py:980
+msgid "right"
+msgstr "მარჯვენა"
+
+#: src/boards/maze.c:132
+msgid "Maze"
+msgstr "ლაბირინთი"
+
+#: src/boards/maze.c:133
+msgid "Find your way out of the maze"
+msgstr "იპოვნეთ ლაბირინთიდან გასასვლელი"
+
+#: src/boards/maze.c:488
+msgid "Look at your position and switch back to invisible mode to move"
+msgstr "ნახეთ თქვენი პოზიცია და გადასააადგილებლად დაუბრუნდით უხილავ რეჟიმს"
+
+#: src/boards/maze.c:490
+msgid "Look at your position and switch back to 3D mode to move"
+msgstr "ნახეთ თქვენი პოზიცია და გადასააადგილებლად დაუბრუნდით 3d რეჟიმს"
+
+#: src/boards/memory.c:172
+msgid "Memory"
+msgstr "მეხსიერება"
+
+#: src/boards/memory.c:173
+msgid "Find the matching pair"
+msgstr "თანმხვედრი წყვილის პოვნა"
+
+#. TRANSLATORS: Put here the numbers in your language
+#: src/boards/memory.c:438
+msgid "0123456789"
+msgstr "0123456789"
+
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: src/boards/memory.c:446
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#: src/boards/menu.c:72
+msgid "Main Menu"
+msgstr "მთავარი მენიუ"
+
+#: src/boards/menu.c:73
+msgid "Select a Board"
+msgstr "დაფის არჩევა"
+
+#: src/boards/money.c:87
+msgid "Money"
+msgstr "ფული"
+
+#: src/boards/money.c:88
+msgid "Pratice money usage"
+msgstr "ფულის გამოყენების სავარჯიშო"
+
+#: src/boards/paratrooper.c:102
+msgid "Paratrooper"
+msgstr "პარაშუტისტი"
+
+#: src/boards/paratrooper.c:103
+msgid "Direct the paratrooper to help him land safely"
+msgstr "მართეთ პარაშუტი და დაეხმარეთ უვნებლად დაშვებაში"
+
+#: src/boards/planegame.c:77
+msgid "Numbers in Order"
+msgstr "რიგობითი რიცხვები"
+
+#: src/boards/planegame.c:78
+msgid "Move the plane to catch the clouds in the correct order"
+msgstr "გადააადგილეთ თვითმფრინავი ღრუბლების სწორი თანმიმდევრობით დასაჭერად"
+
+#: src/boards/python.c:62
+msgid "Python Board"
+msgstr "Python-ის არე"
+
+#: src/boards/python.c:63
+msgid "Special board that embeds python into gcompris."
+msgstr "სპეციალური არე, რომლითაც Python-ი პროგრამაში ინტეგრირდება."
+
+#: src/boards/python/admin/board_list.py:90
+msgid "Select a profile:"
+msgstr "პროფილის არჩევა:"
+
+#: src/boards/python/admin/board_list.py:146
+msgid "Filter"
+msgstr "ფილტრი"
+
+#: src/boards/python/admin/board_list.py:151
+msgid "Select all"
+msgstr "სრული მონიშვნა"
+
+#: src/boards/python/admin/board_list.py:156
+msgid "Unselect all"
+msgstr "მონიშვნის მოხსნა"
+
+#: src/boards/python/admin/board_list.py:236
+msgid "Main menu"
+msgstr "მთავარი მენიუ"
+
+#: src/boards/python/admin/board_list.py:236
+msgid "/"
+msgstr "/"
+
+#. columns for Board name
+#. column_pref = gtk.TreeViewColumn(_('Conf'))
+#. image = gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
+#. image.show()
+#. column_pref.set_widget(image)
+#: src/boards/python/admin/board_list.py:293
+msgid "Active"
+msgstr "აქტიური"
+
+#: src/boards/python/admin/board_list.py:294
+msgid "Board title"
+msgstr "დაფის სათაური"
+
+#: src/boards/python/admin/board_list.py:410
+#, python-format
+msgid "Filter Boards difficulty for profile %s"
+msgstr "დაფების სირთულის გაფილტვრა პროფილისთვის %s"
+
+#: src/boards/python/admin/board_list.py:441
+#, python-format
+msgid ""
+"<span size='x-large'> Select the difficulty range \n"
+"for profile <b>%s</b></span>"
+msgstr ""
+"<span size='x-large'> შეარჩიეთ სირთულის რანგი \n"
+"პროფილისთვის <b>%s</b></span>"
+
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#: src/boards/python/admin/board_list.py:632
+#: src/boards/python/admin/board_list.py:650
+#: src/boards/python/admin/wordlist.py:51 src/boards/python/login.py:541
+#: src/boards/python/pythontest.py:392 src/boards/python/tuxpaint.py:179
+#, python-format
+msgid ""
+"<b>%s</b> configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"<b>%s</b> - გამართვა\n"
+" პროფილისთვის <b>%s</b>"
+
+#: src/boards/python/admin/board_list.py:662
+#: src/boards/python/pythontest.py:456
+msgid "Select sound locale"
+msgstr "ხმის ლოკალის არჩევა"
+
+#: src/boards/python/admin/class_edit.py:60
+msgid "Editing a Class"
+msgstr "კლასის რედაქტირება"
+
+#: src/boards/python/admin/class_edit.py:65
+msgid "Editing class: "
+msgstr "კლასის რედაქტირება: "
+
+#: src/boards/python/admin/class_edit.py:68
+msgid "Editing a new class"
+msgstr "ახალი კლასის რედაქტირება"
+
+#: src/boards/python/admin/class_edit.py:90
+msgid "Class:"
+msgstr "კლასი:"
+
+#. FIXME: How to remove the default selection
+#. Label and Entry for the teacher name
+#: src/boards/python/admin/class_edit.py:103
+msgid "Teacher:"
+msgstr "მასწავლებელი:"
+
+#: src/boards/python/admin/class_edit.py:113
+msgid "Assign all the users belonging to this class"
+msgstr "ამ კლასის ყველა მომხმარებლის განსაზღვრა"
+
+#: src/boards/python/admin/class_edit.py:253
+#: src/boards/python/admin/group_edit.py:265
+#: src/boards/python/admin/group_user_list.py:155
+#: src/boards/python/admin/user_list.py:197
+msgid "First Name"
+msgstr "სახელი"
+
+#: src/boards/python/admin/class_edit.py:264
+#: src/boards/python/admin/group_edit.py:276
+#: src/boards/python/admin/group_user_list.py:165
+#: src/boards/python/admin/user_list.py:207
+msgid "Last Name"
+msgstr "გვარი"
+
+#: src/boards/python/admin/class_edit.py:341
+msgid "You need to provide at least a name for your class"
+msgstr "უნდა მიუთითოთ კლასის სახელი მაინც"
+
+#: src/boards/python/admin/class_edit.py:387
+msgid "There is already a class with this name"
+msgstr "ამ სახელით კლასი უკვე არსებობს"
+
+#: src/boards/python/admin/class_list.py:170
+#: src/boards/python/admin/profile_edit.py:269
+#: src/boards/python/admin/profile_group_list.py:145
+msgid "Class"
+msgstr "კლასი"
+
+#: src/boards/python/admin/class_list.py:180
+msgid "Teacher"
+msgstr "მასწავლებელი"
+
+#: src/boards/python/admin/group_edit.py:60
+msgid "Editing a Group"
+msgstr "ჯგუფის რედაქტირება"
+
+#: src/boards/python/admin/group_edit.py:66
+msgid "Editing group: "
+msgstr "ჯგუფის რედაქტირება: "
+
+#: src/boards/python/admin/group_edit.py:67
+msgid " for class: "
+msgstr " კლასისთვის: "
+
+#: src/boards/python/admin/group_edit.py:70
+msgid "Editing a new group"
+msgstr "ახალი ჯგუფის რედაქტირება"
+
+#: src/boards/python/admin/group_edit.py:90
+msgid "Group:"
+msgstr "ჯგუფი:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: src/boards/python/admin/group_edit.py:102
+#: src/boards/python/admin/profile_edit.py:98
+msgid "Description:"
+msgstr "აღწერილობა:"
+
+#. Top message gives instructions
+#: src/boards/python/admin/group_edit.py:113
+msgid "Assign all the users belonging to this group"
+msgstr "ამ ჯგუფის ყველა მომხმარებლის განსაზღვრა"
+
+#: src/boards/python/admin/group_edit.py:359
+msgid "You need to provide at least a name for your group"
+msgstr "უნდა მიუთითოთ ჯგუფის სახელი მაინც"
+
+#: src/boards/python/admin/group_edit.py:373
+msgid "There is already a group with this name"
+msgstr "ამ სახელით ჯგუფი უკვე არსებობს"
+
+#: src/boards/python/admin/group_list.py:87
+msgid "Select a class:"
+msgstr "კლასის არჩევა:"
+
+#: src/boards/python/admin/group_list.py:215
+#: src/boards/python/admin/profile_edit.py:279
+#: src/boards/python/admin/profile_group_list.py:155
+msgid "Group"
+msgstr "ჯგუფი"
+
+#: src/boards/python/admin/group_list.py:226
+#: src/boards/python/admin/profile_edit.py:289
+#: src/boards/python/admin/profile_group_list.py:165
+#: src/boards/python/admin/profile_list.py:199
+msgid "Description"
+msgstr "აღწერა"
+
+#: src/boards/python/admin/group_list.py:323
+msgid "You must first select a group in the list"
+msgstr "თავდაპირველად ამ სიაში ჯგუფი უნდა შეარჩიოთ"
+
+#: src/boards/python/admin/group_user_list.py:145
+#: src/boards/python/admin/user_list.py:187
+msgid "Login"
+msgstr "შესვლა"
+
+#: src/boards/python/admin/group_user_list.py:175
+#: src/boards/python/admin/user_list.py:217
+msgid "Birth Date"
+msgstr "დაბადების თარიღი"
+
+#: src/boards/python/admin/module_boards.py:42
+#: src/boards/python/admin/module_boards.py:62
+msgid "Boards"
+msgstr "დაფები"
+
+#: src/boards/python/admin/module_groups.py:41
+#: src/boards/python/admin/module_groups.py:67
+msgid "Groups"
+msgstr "ჯგუფები"
+
+#: src/boards/python/admin/module_profiles.py:41
+#: src/boards/python/admin/module_profiles.py:66
+msgid "Profiles"
+msgstr "პროფილები"
+
+#: src/boards/python/admin/module_users.py:42
+#: src/boards/python/admin/module_users.py:68
+msgid "Classes"
+msgstr "კლასები"
+
+#: src/boards/python/admin/module_users.py:42
+#: src/boards/python/admin/module_users.py:68
+msgid "Users"
+msgstr "მომხმარებლები"
+
+#: src/boards/python/admin/profile_edit.py:59
+msgid "Editing a Profile"
+msgstr "პროფილის რედაქტირება"
+
+#: src/boards/python/admin/profile_edit.py:64
+msgid "Editing profile: "
+msgstr "პროფილის რედაქტირება: "
+
+#: src/boards/python/admin/profile_edit.py:67
+msgid "Editing a new profile"
+msgstr "ახალი პროფილის რედაქტირება"
+
+#: src/boards/python/admin/profile_edit.py:86
+msgid "Profile:"
+msgstr "პროფილი:"
+
+#. Top message gives instructions
+#: src/boards/python/admin/profile_edit.py:109
+msgid "Assign all the groups belonging to this profile"
+msgstr "ამ პროფილის ყველა ჯგუფის განსაზღვრა"
+
+#: src/boards/python/admin/profile_edit.py:377
+msgid "You need to provide at least a name for your profile"
+msgstr "უნდა მიუთითოთ პროფილის სახელი მაინც"
+
+#: src/boards/python/admin/profile_edit.py:399
+msgid "There is already a profile with this name"
+msgstr "ამ სახელით პროფილი უკვე არსებობს"
+
+#: src/boards/python/admin/profile_list.py:122 src/gcompris/board_config.c:582
+#: src/gcompris/board_config.c:708
+msgid "Default"
+msgstr "ნაგულისხმევი"
+
+#: src/boards/python/admin/profile_list.py:189
+msgid "Profile"
+msgstr "პროფილი"
+
+#: src/boards/python/admin/profile_list.py:316
+msgid "[Default]"
+msgstr "[ნაგულისხმევი]"
+
+#: src/boards/python/admin/user_edit.py:50
+msgid "Editing a User"
+msgstr "მომხმარებლის რედაქტირება"
+
+#: src/boards/python/admin/user_edit.py:55
+msgid "Editing a User "
+msgstr "მომხმარებლის რედაქტირება"
+
+#: src/boards/python/admin/user_edit.py:61
+msgid "Editing a new user"
+msgstr "ახალი მომხმარებლის რედაქტირება"
+
+#: src/boards/python/admin/user_edit.py:78
+msgid "Login:"
+msgstr "შესვლა:"
+
+#. FIXME: How to remove the selection
+#. Label and Entry for the first name
+#: src/boards/python/admin/user_edit.py:89
+msgid "First name:"
+msgstr "სახელი:"
+
+#. Label and Entry for the last name
+#: src/boards/python/admin/user_edit.py:98
+msgid "Last name:"
+msgstr "გვარი:"
+
+#. Label and Entry for the birth date
+#: src/boards/python/admin/user_edit.py:107
+msgid "Birth date:"
+msgstr "დაბადების თარიღი:"
+
+#: src/boards/python/admin/user_edit.py:159
+msgid ""
+"You need to provide at least a login, firstname and lastname for your users"
+msgstr "უნდა მიუთითოთ მომხმარებლის მეტსახელი, სახელი ან გვარი მაინც"
+
+#: src/boards/python/admin/user_edit.py:176
+msgid "There is already a user with this login"
+msgstr "მომხმარებელი ამ სახელით უკვე არსებობს"
+
+#: src/boards/python/admin/user_list.py:292
+msgid ""
+"To import a user list from a file, first select a class.\n"
+"FILE FORMAT: Your file must be formatted like this:\n"
+"login;First name;Last name;Birth date\n"
+"The separator is autodetected and can be one of ',', ';' or ':'"
+msgstr ""
+"ფაილიდან მომხმარებელთა სიის მისაღებად თავდაპირველად აარჩიეთ კლასი.\n"
+"ფაილის ფორმატი: თქვენი ფაილი დაფორმატებული უნდა იყოს ასე:\n"
+"მეტსახელი;სახელი;გვარი;დაბადების თარიღი\n"
+"სიტყვებს შორის ავტომატურად დაისმის გამყოფი, რომელიც შეიძლება იყოს ',', ';' "
+"ან ':'"
+
+#: src/boards/python/admin/user_list.py:371
+#, python-format
+msgid ""
+"One or more logins are not unique !\n"
+"You need to change them: %s !"
+msgstr ""
+"ერთი ან მეტი სახელი არ არის უნიკალური!\n"
+"უნდა შეცვალოთ ისინი: %s !"
+
+#: src/boards/python/anim.py:59
+msgid "You need the python xml module. Disabling SVG."
+msgstr "თქვენ გჭირდებათ Python XML მოდული.  ამორთეთ SVG."
+
+#. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
+#: src/boards/python/anim.py:415
+msgid ""
+"Python xml module not found. SVG is disabled. Install the python xml module "
+"to enable SVG Save/restore."
+msgstr ""
+"Python XML მოდული არ იძებნება. SVG ამორთულია. SVG-ს შენახვა/აღდგენისთვის "
+"ჩადგით Python XML მოდული."
+
+#: src/boards/python/anim.py:2208
+msgid "SVG is disabled. Install python xml module to enable it"
+msgstr "SVG ამორთულია. მის ჩასართველად ჩადგით Python XML მოდული"
+
+#: src/boards/python/anim.py:2364
+msgid "Warning: the following images cannot be accessed on your system.\n"
+msgstr "გაფრთხილება: შემდეგი გამოსახულებები მიუწვდომელია თქვენს სისტემაში.\n"
+
+#: src/boards/python/anim.py:2366
+msgid "The corresponding items have been skipped."
+msgstr "შესაბამისი ელემენტები გამოტოვებულია."
+
+#: src/boards/python/gnumch.py:95
+#, python-format
+msgid ", %d"
+msgstr ", %d"
+
+#: src/boards/python/gnumch.py:96
+#, python-format
+msgid " and %d"
+msgstr " და %d"
+
+#: src/boards/python/gnumch.py:116
+#, python-format
+msgid "%d is divisible by %s."
+msgstr "%d იყოფა %s-ზე."
+
+#: src/boards/python/gnumch.py:120
+msgid "1 is not a prime number."
+msgstr "1 არ არის მარტივი რიცხვი."
+
+#: src/boards/python/gnumch.py:130
+#, python-format
+msgid "Primes less than %d"
+msgstr "%d-ზე ნაკლები მარტივი რიცხვები"
+
+#: src/boards/python/gnumch.py:151
+#, python-format
+msgid ""
+"Multiples of %d include %s,\n"
+"but %d is not a multiple of %d."
+msgstr ""
+"%d-ის მამრავლი შეიცავს %s-ს,\n"
+"მაგრამ %d არ არის %d-ის მამრავლი."
+
+#: src/boards/python/gnumch.py:160
+#, python-format
+msgid "Factors of %d"
+msgstr "%d-ის ჯერადები"
+
+#: src/boards/python/gnumch.py:193
+#, python-format
+msgid "%s are the factors of %d."
+msgstr "%s - %d-ის ჯერადებია."
+
+#: src/boards/python/gnumch.py:205
+#, python-format
+msgid "Multiples of %d"
+msgstr "%d-ის მამრავლები"
+
+#: src/boards/python/gnumch.py:239
+#, python-format
+msgid "%s = %d"
+msgstr "%s = %d"
+
+#: src/boards/python/gnumch.py:250
+#, python-format
+msgid "%d + %d"
+msgstr "%d + %d"
+
+#: src/boards/python/gnumch.py:255
+#, python-format
+msgid "%d − %d"
+msgstr "%d − %d"
+
+#: src/boards/python/gnumch.py:260
+#, python-format
+msgid "%d × %d"
+msgstr "%d × %d"
+
+#: src/boards/python/gnumch.py:264
+#, python-format
+msgid "%d ∕ %d"
+msgstr "%d ∕ %d"
+
+#: src/boards/python/gnumch.py:272
+#, python-format
+msgid "Equal to %d"
+msgstr "%d-ს ტოლია"
+
+#: src/boards/python/gnumch.py:293
+#, python-format
+msgid "Not equal to %d"
+msgstr "არ ეტოლება %d-ს"
+
+#: src/boards/python/gnumch.py:435
+msgid ""
+"You were eaten by a Troggle.\n"
+"Press <Return> to continue."
+msgstr ""
+"თქვენ ტროლმა შეგჭამათ.\n"
+"გასაგრძელებლად, დააჭირეთ ღილაკს <Return>."
+
+#: src/boards/python/gnumch.py:484
+msgid "You ate a wrong number.\n"
+msgstr "თქვენ გადაყლაპეთ მცდარი რიცხი.\n"
+
+#: src/boards/python/gnumch.py:485
+msgid ""
+"\n"
+"Press <Return> to continue."
+msgstr ""
+"\n"
+"გასაგრძელებლად, დააჭირეთ ღილაკს <Return>."
+
+#: src/boards/python/gnumch.py:777
+msgid ""
+"T\n"
+"R\n"
+"O\n"
+"G\n"
+"G\n"
+"L\n"
+"E"
+msgstr ""
+"ტ\n"
+"რ\n"
+"ო\n"
+"ლ\n"
+"ი"
+
+#: src/boards/python/login.py:123
+msgid "Profile: "
+msgstr "პროფილი: "
+
+#: src/boards/python/login.py:274 src/boards/python/login.py:283
+msgid "Login: "
+msgstr "მეტსახელი: "
+
+#. toggle box
+#: src/boards/python/login.py:546
+msgid "Uppercase only text"
+msgstr "მთავრულით მხოლოდ ტექსტი"
+
+#. toggle box
+#: src/boards/python/login.py:556
+msgid "Enter login to log in"
+msgstr "შესასვლელად მიუთითეთ მეტსახელი"
+
+#: src/boards/python/pythontest.py:141
+msgid ""
+"This is the first plugin in gcompris coded in the Python\n"
+"Programming language."
+msgstr ""
+"ეს არის Python-ზე დაწერილი პროგრამის პირველი მოდული \n"
+"( Python-ი - პროგრამირების ენა )"
+
+#: src/boards/python/pythontest.py:150
+msgid ""
+"It is now possible to develop gcompris activities in C or in Python.\n"
+"Thanks to Olivier Samys who makes this possible."
+msgstr ""
+"ახლა უკვე შეიძლება სავარჯიშოების С და Python-ზე შექმნა. \n"
+"მადლობა Olivier Samys-ს, რომელმაც ეს შესაძლებელი გახადა."
+
+#: src/boards/python/pythontest.py:159
+msgid "This activity is not playable yet, just a test"
+msgstr "ეს სავარჯიშო ვერ ითამაშება.  ეს ტესტია"
+
+#. toggle box
+#: src/boards/python/pythontest.py:397
+msgid "Disable line drawing in circle"
+msgstr "ხაზების წრეში ხატვის ამორთვა"
+
+#. combo box
+#: src/boards/python/pythontest.py:406
+msgid "Colour of the line"
+msgstr "ხაზის ფერი"
+
+#. spin button for int
+#: src/boards/python/pythontest.py:417
+msgid "Distance between circles"
+msgstr "მანძილი წრეებს შორის"
+
+#. radio buttons for circle or rectangle
+#: src/boards/python/pythontest.py:428
+msgid "Use circles"
+msgstr "გამოიყენე წრეები"
+
+#: src/boards/python/pythontest.py:429
+msgid "Use rectangles"
+msgstr "გამოიყენე მართკუთხედები"
+
+#: src/boards/python/pythontest.py:432
+msgid "Choice of pattern"
+msgstr "ნიმუშის არჩევა"
+
+#: src/boards/python/redraw.py:348 src/boards/python/redraw.py:358
+msgid "Level"
+msgstr "დონე"
+
+#: src/boards/python/redraw.py:902 src/boards/python/redraw.py:905
+msgid "Coordinate"
+msgstr "კოორდინატი"
+
+#: src/boards/python/searace.py:201 src/boards/python/searace.py:206
+#: src/boards/python/searace.py:232
+msgid "Race is already running"
+msgstr "შეჯიბრი დაიწყო"
+
+#. Manage default cases (no params given)
+#. Final move, add an ofset because we loose space in abs()
+#: src/boards/python/searace.py:429 src/boards/python/searace.py:454
+#: src/boards/python/searace.py:535 src/boards/python/searace.py:854
+#: src/boards/python/searace.py:883 src/boards/python/searace.py:978
+#: src/boards/python/searace.py:984 src/boards/python/searace.py:992
+msgid "forward"
+msgstr "წინ"
+
+#: src/boards/python/searace.py:526
+msgid "COMMANDS ARE"
+msgstr "ბრძანებებია"
+
+#. The two boat arrived in a close time frame (1s), it's a draw
+#: src/boards/python/searace.py:752
+msgid "This is a draw"
+msgstr "ეს ნახატია"
+
+#: src/boards/python/searace.py:759
+msgid "The Red boat has won"
+msgstr "გაიმარჯვა წითელმა ნავმა"
+
+#: src/boards/python/searace.py:762
+msgid "The Green boat has won"
+msgstr "გაიმარჯვა მწვანე ნავმა"
+
+#: src/boards/python/searace.py:780 src/boards/python/searace.py:1022
+msgid "Angle:"
+msgstr "კუთხე:"
+
+#: src/boards/python/searace.py:780
+msgid "Wind:"
+msgstr "ქარი:"
+
+#: src/boards/python/searace.py:861
+msgid "Syntax error at line"
+msgstr "სინტაქსური შეცდომა სტრიქონში"
+
+#: src/boards/python/searace.py:879
+msgid "The command"
+msgstr "ბრძანება"
+
+#: src/boards/python/searace.py:898
+msgid "Unknown command at line"
+msgstr "უცნობი ბრძანება სტრიქონში"
+
+#: src/boards/python/searace.py:1022
+msgid "Distance:"
+msgstr "მანძილი:"
+
+#: src/boards/python/tuxpaint.py:115
+msgid ""
+"Cannot find Tuxpaint. \n"
+" Install it to use this board !"
+msgstr ""
+"ვერ პოულობს Tuxpaint. \n"
+"დააინსტალირე ის, რომ გამოიყენო ეს დაფა!"
+
+#: src/boards/python/tuxpaint.py:128
+msgid "Waiting for Tuxpaint finishes"
+msgstr "ველოდებით თხუპნიას დასრულებას"
+
+#: src/boards/python/tuxpaint.py:183
+msgid "Inherit fullscreen setting from GCompris"
+msgstr "GCompris-იდან სრული ეკრანის რეჟიმის გადმოტანა"
+
+#: src/boards/python/tuxpaint.py:187
+#, fuzzy
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr "GCompris-იდან სრული ეკრანის რეჟიმის გადმოტანა"
+
+#: src/boards/python/tuxpaint.py:191
+msgid "Disable shape rotation"
+msgstr "ფორმის დატრიალების ამორთვა"
+
+#: src/boards/python/tuxpaint.py:195
+msgid "Show Uppercase text only"
+msgstr "მხოლოდ მთავრული ტექსტის ჩვენება"
+
+#: src/boards/python/tuxpaint.py:199
+msgid "Disable stamps"
+msgstr "შტამპების ამორთვა"
+
+#: src/boards/railroad.c:96
+msgid "Memory game"
+msgstr "თამაში 'მეხსიერება'"
+
+#: src/boards/railroad.c:97
+msgid "Build a train according to the model"
+msgstr "მატარებლის აგება ნიმუშის მიხედვით"
+
+#: src/boards/read_colors.c:85
+msgid "Read Colors"
+msgstr "ფერები"
+
+#: src/boards/read_colors.c:86
+msgid "Click on the corresponding color"
+msgstr "დაწკაფეთ შესაბამისი ფერი"
+
+#: src/boards/reading.c:114
+msgid "Read a list of words to see if the given word is there."
+msgstr "წაიკითხეთ სიტყვების სია და მიუთითეთ არის თუ არა მასში მოცემული სიტყვა."
+
+#: src/boards/reading.c:364
+msgid "Please, check if the word"
+msgstr "გთხოვთ შეამოწმოთ არის თუ არა სიტყვა"
+
+#: src/boards/reading.c:384
+msgid "is being displayed"
+msgstr "ნაჩვენები"
+
+#: src/boards/reading.c:556
+msgid "I am Ready"
+msgstr "მზად ვარ!"
+
+#: src/boards/reading.c:596
+msgid "Yes I saw it"
+msgstr "დიახ, დავინახე"
+
+#: src/boards/reading.c:626
+msgid "No, it was not there"
+msgstr "არა, იქ არ იყო"
+
+#. Report what was wrong in the log
+#: src/boards/reading.c:664
+#, c-format
+msgid "The word to find was '%s'"
+msgstr "საძიებო სიტყვა იყო '%s'"
+
+#: src/boards/reading.c:667
+msgid "But it was not displayed"
+msgstr "მაგრამ იგი არ იყო ნაჩვენები"
+
+#: src/boards/reading.c:669
+msgid "And it was displayed"
+msgstr "და იგი ნაჩვენები იყო"
+
+#: src/boards/reading.c:772 src/boards/wordsgame.c:758
+msgid "Cannot open file of words for your locale"
+msgstr "ვერ ვხსნი თქვენი ლოკალის შესაბამის სიტყვების ფაილს"
+
+#: src/boards/reversecount.c:137
+msgid "Reverse count"
+msgstr "უკუდათვლა"
+
+#: src/boards/reversecount.c:138
+msgid "Practice substraction with a funny game"
+msgstr "სავარჯიშო გამოკლებაში თამაშის სახით"
+
+#: src/boards/shapegame.c:172
+msgid "Make the puzzle"
+msgstr "თავსატეხის ამოხსნა"
+
+#: src/boards/shapegame.c:173
+msgid "Drag and Drop the items to rebuild the object"
+msgstr "გადააადგილეთ ელემენტები ობიექტის აღსადგენად"
+
+#. Enter Edit Mode
+#: src/boards/shapegame.c:461
+msgid ""
+"You entered the Edit mode\n"
+"Move the puzzle items and\n"
+"type 's' to save, and\n"
+"'d' to display all the shapes"
+msgstr ""
+"თქვენ რედაქტირების რეჟიმში შეხვედით \n"
+"გადააადგილეთ თავსატეხის ელემენტები და \n"
+"შესანახად დააჭირეთ 's'- კლავიშას, \n"
+"ყველა ფორმის საჩვენებლად - 'd'-ს"
+
+#: src/boards/shapegame.c:469
+msgid ""
+"The data from this activity are saved under\n"
+"/tmp/gcompris-board.xml"
+msgstr ""
+"ამ სავარჯიშოს მონაცემები შენახულია სახელით\n"
+"/tmp/gcompris-board.xml"
+
+#: src/boards/smallnumbers.c:71
+msgid "Numbers With Dice"
+msgstr "რიცხვები და კამათელი"
+
+#: src/boards/smallnumbers.c:72
+msgid "Type the keyboard number 1 to 9 before the dice reaches the ground"
+msgstr "აკრიფეთ კლავიატურაზე რიცხვები 1-დან 9-მდე კამათელის ჩამოვარდნამდე"
+
+#: src/boards/submarine.c:201
+msgid "Submarine"
+msgstr "წყალქვეშა ნავი"
+
+#: src/boards/submarine.c:202
+msgid "Control the depth of a submarine"
+msgstr "წყალქვეშა ნავის სიღრმის კონტროლი"
+
+#: src/boards/superbrain.c:110
+msgid "Super Brain"
+msgstr "სუპერტვინი"
+
+#: src/boards/superbrain.c:111
+msgid "Tux has hidden several items. Find them again in the correct order"
+msgstr ""
+"ტუქსმა დამალა რამდენიმე საგანი.  მოძებნეთ და განალაგეთ მართებული რიგით."
+
+#: src/boards/target.c:122
+msgid "Practice addition with a target game"
+msgstr "სავარჯიშო შეკრებაში ისრების მიზანში სროლით"
+
+#: src/boards/target.c:123
+msgid "Hit the target and count your points"
+msgstr "მოახვედრეთ მიზანს და დათვალეთ ქულები"
+
+#: src/boards/target.c:321 src/boards/target.c:574
+#, c-format
+msgid "Points = %s"
+msgstr "ქულები = %s"
+
+#: src/boards/target.c:439
+#, c-format
+msgid ""
+"Wind speed = %d\n"
+"kilometers/hour"
+msgstr ""
+"ქარის სიჩქარე·=·%d\n"
+"კილომეტრი/საათში"
+
+#: src/boards/target.c:501
+#, c-format
+msgid "Distance to target = %d meters"
+msgstr "მანძილი მიზნამდე = %d მეტრი"
+
+#: src/boards/traffic.c:99
+msgid "A sliding block puzzle game"
+msgstr "ბლოკების გადაწევის თავსატეხი"
+
+#: src/boards/wordsgame.c:110
+msgid "Falling Words"
+msgstr "სიტყვების ცვენა"
+
+#: src/boards/wordsgame.c:111
+msgid "Type the falling words before they reach the ground"
+msgstr "აკრიფეთ სიტყვები სრულად მათ ჩამოვარდნამდე"
+
+#: src/gcompris/about.c:65
+msgid ""
+"Author: Bruno Coudoin\n"
+"Contribution: Pascal Georges, Jose Jorge\n"
+"Graphics: Renaud Blanchard, Franck Doucet\n"
+"Intro Music: Djilali Sebihi\n"
+"Background Music: Rico Da Halvarez\n"
+msgstr ""
+"ავტორი:·Bruno·Coudoin\n"
+"წვლილი: Pascal·Georges, Jose·Jorge\n"
+"გრაფიკა: Renaud Blanchard, Franck Doucet\n"
+"შესავალი მუსიკა: Djilali Sebihi\n"
+"ფონური მუსიკა: Rico Da Halvarez\n"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/gcompris/about.c:73
+msgid "translator_credits"
+msgstr "Gia Shervashidze"
+
+#: src/gcompris/about.c:105
+msgid "About GCompris"
+msgstr "GCompris პროგრამის შესახებ"
+
+#: src/gcompris/about.c:115
+msgid "Translators:"
+msgstr "მთარგმნელები: გია შერვაშიძე"
+
+#: src/gcompris/about.c:211
+#, fuzzy
+msgid ""
+"GCompris Home Page\n"
+"http://gcompris.net"
+msgstr "GCompris სათაო გვერდი"
+
+#: src/gcompris/about.c:233
+msgid ""
+"This software is a GNU Package and is released under the GNU General Public "
+"License"
+msgstr "ეს პროგრამა GNU პაკეტის ნაწილია და გამოსულია GNU საზოგადო ლიცენზიით"
+
+#: src/gcompris/about.c:261 src/gcompris/config.c:210
+#: src/gcompris/gameutil.c:1118 src/gcompris/help.c:344
+#: src/gcompris/images_selector.c:262
+msgid "OK"
+msgstr "დიახ"
+
+#: src/gcompris/board.c:168
+msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
+msgstr ""
+"დინამიური მოდულების ჩამოტვირთვა რეალიზებული არაა. gcompris ვერ "
+"ჩაიტვირთება. \n"
+
+#: src/gcompris/board_config.c:612
+msgid ""
+"Select the language\n"
+" to use in the board"
+msgstr ""
+"აირჩიეთ ამ დაფაზე\n"
+" გამოსაყენებელი ენა"
+
+#: src/gcompris/config.c:61
+msgid "Your system default"
+msgstr "სისტემური ძირითადი პარამეტრები"
+
+#: src/gcompris/config.c:62
+msgid "Amharic"
+msgstr "ამჰარული"
+
+#: src/gcompris/config.c:63
+msgid "Arabic"
+msgstr "არაბული"
+
+#: src/gcompris/config.c:64
+msgid "Turkish (Azerbaijan)"
+msgstr "თურქული (აზერბაიჯანული)"
+
+#: src/gcompris/config.c:65
+msgid "Bulgarian"
+msgstr "ბულგარული"
+
+#: src/gcompris/config.c:66
+msgid "Catalan"
+msgstr "კატალონური"
+
+#: src/gcompris/config.c:67
+msgid "Czech"
+msgstr "ჩეხეთი"
+
+#: src/gcompris/config.c:68
+msgid "Danish"
+msgstr "დანიური"
+
+#: src/gcompris/config.c:69
+msgid "German"
+msgstr "გერმანული"
+
+#: src/gcompris/config.c:70
+msgid "Greek"
+msgstr "ბერძნული"
+
+#: src/gcompris/config.c:71
+msgid "English (Canada)"
+msgstr "ინგლისური (კანადა)"
+
+#: src/gcompris/config.c:72
+msgid "English (Great Britain)"
+msgstr "ინგლისური (დიდი ბრიტანეთი)"
+
+#: src/gcompris/config.c:73
+msgid "Spanish"
+msgstr "ესპანური"
+
+#: src/gcompris/config.c:74
+#, fuzzy
+msgid "Basque"
+msgstr "ლარნაკი"
+
+#: src/gcompris/config.c:75
+msgid "Finnish"
+msgstr "ფინური"
+
+#: src/gcompris/config.c:76
+msgid "French"
+msgstr "ფრანგული"
+
+#: src/gcompris/config.c:77
+msgid "Irish (Gaelic)"
+msgstr "ირლანდიური (გალური)"
+
+#: src/gcompris/config.c:78
+msgid "Hebrew"
+msgstr "ებრაული"
+
+#: src/gcompris/config.c:79
+msgid "Hindi"
+msgstr "ჰინდი"
+
+#: src/gcompris/config.c:80
+msgid "Gujarati"
+msgstr "გუჯარათი"
+
+#: src/gcompris/config.c:81
+msgid "Punjabi"
+msgstr "პენჯაბური"
+
+#: src/gcompris/config.c:82
+msgid "Hungarian"
+msgstr "უნგრული"
+
+#: src/gcompris/config.c:83
+msgid "Croatian"
+msgstr "ჰორვატული"
+
+#: src/gcompris/config.c:84
+msgid "Italian"
+msgstr "იტალიური"
+
+#: src/gcompris/config.c:85
+#, fuzzy
+msgid "Georgian"
+msgstr "გერმანული"
+
+#: src/gcompris/config.c:86
+msgid "Lithuanian"
+msgstr "ლიტვური"
+
+#: src/gcompris/config.c:87
+msgid "Macedonian"
+msgstr "მაკედონური"
+
+#: src/gcompris/config.c:88
+msgid "Malayalam"
+msgstr "მალაილამი"
+
+#: src/gcompris/config.c:89
+msgid "Malay"
+msgstr "მალაური"
+
+#: src/gcompris/config.c:90
+msgid "Nepal"
+msgstr "ნეპალური"
+
+#: src/gcompris/config.c:91
+msgid "Dutch"
+msgstr "ჰოლანდიური"
+
+#: src/gcompris/config.c:92
+msgid "Norwegian Bokmal"
+msgstr "ნორვეგიული (ბოკმალი)"
+
+#: src/gcompris/config.c:93
+msgid "Norwegian Nynorsk"
+msgstr "ნორვეგიული (ნინორსკი)"
+
+#: src/gcompris/config.c:94
+msgid "Polish"
+msgstr "პოლონური"
+
+#: src/gcompris/config.c:95
+msgid "Portuguese"
+msgstr "პორტუგალური"
+
+#: src/gcompris/config.c:96
+msgid "Portuguese (Brazil)"
+msgstr "პორტუგალური (ბრაზილიური)"
+
+#: src/gcompris/config.c:97
+msgid "Romanian"
+msgstr "რუმინული"
+
+#: src/gcompris/config.c:98
+msgid "Russian"
+msgstr "რუსული"
+
+#: src/gcompris/config.c:99
+msgid "Kinyarwanda"
+msgstr "კინიარვანდა"
+
+#: src/gcompris/config.c:100
+msgid "Slovak"
+msgstr "სლოვაკური"
+
+#: src/gcompris/config.c:101
+msgid "Slovenian"
+msgstr "სლოვენური"
+
+#: src/gcompris/config.c:102
+msgid "Albanian"
+msgstr "ალბანური"
+
+#: src/gcompris/config.c:103
+msgid "Serbian (Latin)"
+msgstr "სერბული (ლათინური)"
+
+#: src/gcompris/config.c:104
+msgid "Serbian"
+msgstr "სერბული"
+
+#: src/gcompris/config.c:105
+msgid "Swedish"
+msgstr "შვედური"
+
+#: src/gcompris/config.c:106
+msgid "Turkish"
+msgstr "თურქული"
+
+#: src/gcompris/config.c:107
+msgid "Vietnamese"
+msgstr "ვიეტნამური"
+
+#: src/gcompris/config.c:108
+msgid "Walloon"
+msgstr "ვალონური"
+
+#: src/gcompris/config.c:109
+msgid "Chinese (Simplified)"
+msgstr "ჩინური (გამარტივებული)"
+
+#: src/gcompris/config.c:114
+msgid "No time limit"
+msgstr "დროის შეუზღუდავად"
+
+#: src/gcompris/config.c:115
+msgid "Slow timer"
+msgstr "დროის შენელება"
+
+#: src/gcompris/config.c:116
+msgid "Normal timer"
+msgstr "ჩვეულებრივი დრო"
+
+#: src/gcompris/config.c:117
+msgid "Fast timer"
+msgstr "დროის დაჩქარება"
+
+#: src/gcompris/config.c:122
+msgid "800x600 (Default for gcompris)"
+msgstr "800x600 (gcompris-ის ნაგულისხმები)"
+
+#: src/gcompris/config.c:127
+msgid ""
+"<i>Use Gcompris administration module\n"
+"to filter boards</i>"
+msgstr ""
+"<i>დაგების გასაფილტრად გამოიყენეთ\n"
+"Gcompris-ის ადმინისტრირების მოდული</i>"
+
+#: src/gcompris/config.c:184
+msgid "GCompris Configuration"
+msgstr "GCompris-ის კონფიგურაცია"
+
+#: src/gcompris/config.c:293
+msgid "Fullscreen"
+msgstr "მთელს ეკრანზე"
+
+#: src/gcompris/config.c:336
+msgid "Music"
+msgstr "მუსიკა"
+
+#: src/gcompris/config.c:364
+msgid "Effect"
+msgstr "ეფექტები"
+
+#: src/gcompris/config.c:397
+#, c-format
+msgid "Couldn't open skin dir: %s"
+msgstr "ვერ იხსნება გარსების დასტა: %s"
+
+#: src/gcompris/config.c:418
+#, c-format
+msgid "No skin found in %s\n"
+msgstr "გარსი ვერ მოიძებნა - %s\n"
+
+#: src/gcompris/config.c:433 src/gcompris/config.c:789
+#: src/gcompris/config.c:800
+#, c-format
+msgid "Skin : %s"
+msgstr "გარსი : %s"
+
+#: src/gcompris/file_selector.c:340
+msgid "CANCEL"
+msgstr "გაუქმება"
+
+#: src/gcompris/file_selector.c:371
+msgid "LOAD"
+msgstr "ჩამოტვირთვა"
+
+#: src/gcompris/file_selector.c:371
+msgid "SAVE"
+msgstr "შენახვა"
+
+#: src/gcompris/gameutil.c:187
+msgid "Couldn't find file"
+msgstr "ფაილი ვერ მოიძებნა"
+
+#: src/gcompris/gameutil.c:189
+msgid "This activity is incomplete."
+msgstr "სავარჯიშო დასასრულებელია."
+
+#: src/gcompris/gameutil.c:190
+msgid ""
+"Exit it and report\n"
+"the problem to the authors."
+msgstr ""
+"გამოდით პროგრამიდან \n"
+"და აცნობეთ ავტორებს პრობლემის შესახებ."
+
+#: src/gcompris/gcompris.c:100
+msgid "run gcompris in fullscreen mode."
+msgstr "gcompris-ის გამოყენება სრულ ეკრანზე."
+
+#: src/gcompris/gcompris.c:102
+msgid "run gcompris in window mode."
+msgstr "gcompris-ის გამოყენება ფანჯარის რეჟიმში."
+
+#: src/gcompris/gcompris.c:104
+msgid "run gcompris with sound enabled."
+msgstr "gcompris-ის გამოყენება ჩართული ხმით."
+
+#: src/gcompris/gcompris.c:106
+msgid "run gcompris without sound."
+msgstr "gcompris-ის გამოყენება ამორთული ხმით."
+
+#: src/gcompris/gcompris.c:108
+msgid "run gcompris with the default gnome cursor."
+msgstr "gcompris-ის გამოყენება gnome ნაგულისხმები კურსორით."
+
+#: src/gcompris/gcompris.c:110
+msgid "display only activities with this difficulty level."
+msgstr "მხოლოდ ამ სირთულის ამოცანების ჩვენება."
+
+#: src/gcompris/gcompris.c:112
+msgid "display debug informations on the console."
+msgstr "კონსოლის გამართვის ინფორმაციის ჩვენება."
+
+#: src/gcompris/gcompris.c:114
+msgid "Print the version of "
+msgstr "ვერსიის დაბეჭდვა"
+
+#: src/gcompris/gcompris.c:116
+msgid "Use the antialiased canvas (slower)."
+msgstr "დაგლუვების გამოყენება (ნელია)."
+
+#: src/gcompris/gcompris.c:118
+msgid "Disable XRANDR (No screen resolution change)."
+msgstr "XRANDR-ის ამორთვა (ეკრანის გარჩევადობა არ შეიცვლება)."
+
+#: src/gcompris/gcompris.c:120
+msgid ""
+"Run gcompris with local menu (e.g -l /reading will let you play only reading "
+"activity directory, -l /boards/connect4 only the connect4 activity), -l list "
+"shows the list of menus and activities"
+msgstr ""
+"GCompris-ის დაწყება ლოკალური მენიუთი (მაგ., -l /reading მხოლოდ კითხვის "
+"სავარჯიშოების შესრულების შესაძლებლობას მოგცემთ, -l /boards/connect4 - მხოლოდ "
+"connect4 სავარჯიშოების), -l list აჩვენებს მენიუსა და სავარჯიშოების სიას"
+
+#: src/gcompris/gcompris.c:122
+msgid "Run GCompris with local activity directory added to menu"
+msgstr "GCompris-ის დაწყება მენიუში დამატებული სავარჯიშოების ლოკალური დასტით"
+
+#: src/gcompris/gcompris.c:124
+msgid "Run GCompris in administration and user-management mode"
+msgstr "GCompris ადმინისტრირების და მონაწილეთა მართვის რეჟიმი"
+
+#: src/gcompris/gcompris.c:126
+msgid "Use alternate database for profiles"
+msgstr "პროფილებისთვის ალტერნატული მონაცემთა ბაზის გამოყენება"
+
+#: src/gcompris/gcompris.c:128
+msgid "Use alternate database for logs"
+msgstr "ჟურნალებისთვის ალტერნატული მონაცემთა ბაზის გამოყენება"
+
+#: src/gcompris/gcompris.c:130
+msgid "Create the alternate database for profiles"
+msgstr "პროფილებისთვის ალტერნატული მონაცემთა ბაზის შექმნა"
+
+#: src/gcompris/gcompris.c:132
+msgid "Re-read XML Menus and store them in the database"
+msgstr "XML მენიუების ხელახლა გადაკითხვა და მონაცემთა ბაზაში შენახვა"
+
+#: src/gcompris/gcompris.c:134
+msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
+msgstr ""
+"გამოსაყენებელი პროფილის მითითება.  პროფილის შესაქმნელად გამოიყენეთ 'gcompris "
+"-a'"
+
+#: src/gcompris/gcompris.c:136
+msgid "List all available profiles. Use 'gcompris -a' to create profiles"
+msgstr "შესაძლო პროფილების სია.  პროფილის შესაქმნელად გამოიყენეთ 'gcompris -a'"
+
+#: src/gcompris/gcompris.c:138
+msgid ""
+"Shared directory location, for profiles and board-configuration data: "
+"[$HOME/.gcompris/shared]"
+msgstr ""
+"პროფილებისა და დაფების გამართვის მონაცემების საზიარო დასტის მისამართი: "
+"[$HOME/.gcompris/shared]"
+
+#: src/gcompris/gcompris.c:140
+msgid "The location of user directories: [$HOME/.gcompris/users]"
+msgstr "მონაწილეთა დასტების მისამართი: [$HOME/.gcompris/users]"
+
+#: src/gcompris/gcompris.c:693
+msgid ""
+"GCompris is free software released under the GPL License. In order to "
+"support the development, the Windows version provides only 12 of the 45 "
+"activities. You can get the full version for a small fee at\n"
+"http://gcompris.net\n"
+"The Linux version does not have this restriction. Note that gcompris is "
+"being developed to free schools from monopolistic software vendors. If you "
+"also believe that we should teach freedom to kids, please consider using GNU/"
+"Linux. Get more information at FSF:\n"
+"http://www.fsf.org/philosophy"
+msgstr ""
+"GCompris თავისუფალი ფროგრამაა GPL ლიცენზიით.  ვერსია Windows საოპერაციო "
+"სისტემისთვის შეიცავს მხოლოდ 12-ს 45 სავარჯიშოდან.  სრული ვერსიის მოპოვება "
+"შეგიძლიათ მცირე ფასად მისამართზე \n"
+"http://gcompris.net\n"
+"ლინუქსის ვერსია შეუზღუდავია.  გაითვალისწინეთ, რომ gcompris შემუშავდა "
+"სკოლების პროგრამული უზრუნველყოფის მონოპოლისტი მიმწოდებლებისგან "
+"გათავისუფლების მიზნით.  თუ ასევე გჯერათ, რომ ბავშვები თავისუფლები უნდა "
+"იყვნენ, გამოიყენეთ GNU/Linux. დამატებითი ინფორმაცია შეგიძლიათ ნახოთ აქ\n"
+"http://www.fsf.org/philosophy"
+
+#: src/gcompris/gcompris.c:971
+#, c-format
+msgid ""
+"GCompris\n"
+"Version: %s\n"
+"Licence: GPL\n"
+"More info at http://gcompris.net\n"
+msgstr ""
+"GCompris\n"
+"ვერსია:·%s\n"
+"ლიცენზია:·GPL\n"
+"დამატებითი ინფორმაცია - http://gcompris.net\n"
+
+#. check the list of possible values for -l, then exit
+#: src/gcompris/gcompris.c:1039
+#, c-format
+msgid "Use -l to access an activity directly.\n"
+msgstr "სავარჯიშოების დასტის გასახსნელად გამოიყენეთ -l.\n"
+
+#: src/gcompris/gcompris.c:1040
+#, c-format
+msgid "List of available activity is :\n"
+msgstr "შესაძლო სავარჯიშოების სია:\n"
+
+#: src/gcompris/gcompris.c:1185
+#, c-format
+msgid "The list of available profiles is:\n"
+msgstr "შესაძლო პროფილების სია:\n"
+
+#: src/gcompris/gcompris_db.c:239
+msgid "Unaffected"
+msgstr "ხელუხლებელი"
+
+#: src/gcompris/gcompris_db.c:240
+msgid "Users without class"
+msgstr "მომხმარებლები კლასის გარეშე"
+
+#: src/gcompris/help.c:185
+msgid "Prerequisite"
+msgstr "მოთხოვნები"
+
+#: src/gcompris/help.c:213
+msgid "Goal"
+msgstr "მიზანი"
+
+#: src/gcompris/help.c:241
+msgid "Manual"
+msgstr "სახელმძღვანელო"
+
+#: src/gcompris/help.c:269
+msgid "Credit"
+msgstr "მადლობები"
+
+#: src/gcompris/images_selector.c:292
+#, c-format
+msgid "dataset %s is a directory. Trying to read xml "
+msgstr "%s მონაცემების ნაკრები დასტაა. ვცდილობ XML-ის გადაკითხვას"
+
+#: src/gcompris/images_selector.c:629
+#, c-format
+msgid ""
+"In ImageSet %s, the pathname for the home directory '%s' is not found. "
+"Skipping the whole ImageSet.\n"
+msgstr ""
+"%s ნახატების ნაკრებში '%s' ძირეული დასტის გეზი ვერ მოიძებნა.  ნახატების "
+"მთელი ნაკრები გამოტოვებულია.\n"
+
+#: src/gcompris/images_selector.c:663
+#, c-format
+msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
+msgstr ""
+"%s ნახატების ნაკრებში ნახატი ვერ მოიძებნა.  ნახატების ნაკრების "
+"გამოტოვება...\n"
+
+#: src/gcompris/images_selector.c:694
+#, c-format
+msgid ""
+"In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
+msgstr ""
+"%s ნახატების ნაკრებში  '%s' დასტა ვერ მოიძებნა.  ნახატების ნაკრების "
+"გამოტოვება...\n"
+
+#: src/gcompris/soundutil.c:162
+#, c-format
+msgid "Couldn't open music dir: %s"
+msgstr "ვერ იხსნება მუსიკების დასტა: %s"
+
+#: src/gcompris/soundutil.c:208
+#, c-format
+msgid ""
+"The background thread music is stopped now. The files in %s are not ogg "
+"vorbis OR the sound output failed"
+msgstr ""
+"ფონური მუსიკა შეჩერებულია. ფაილები %s-ში არ არიან ogg vorbis ან გახმოვანება "
+"ვერ ხერხდება."
+
+#: src/gcompris/timer.c:237
+msgid "Time Elapsed"
+msgstr "გასული დრო"
+
+#: src/gcompris/timer.c:323
+#, c-format
+msgid "Remaining Time = %d"
+msgstr "დარჩენილი დრო = %d"
+
+#: src/gcompris/wordlist.c:60
+#, c-format
+msgid "Couldn't parse file %s !"
+msgstr "ვერ ვამუშავებ ფაილს - %s!"
+
+#~ msgid ""
+#~ "- In the 'Boards' section you can change the list of activities. Just "
+#~ "untoggle them in the treeview. You can change the language used for "
+#~ "reading, for example, then language used for saying the name of colours. "
+#~ "- You can save multiple configurations, and switch easily. In the "
+#~ "'Profile' section add a profile, then in the 'Board' section select the "
+#~ "profile in the combobox, then select the boards you want to be active. "
+#~ "You can add lot of profiles, with different lists of boards, and "
+#~ "different languages. You set the default profile in the 'Profile' "
+#~ "section, by chhosing the profile you want, then clicking on the 'Default' "
+#~ "button. You can also choose a profile from the command line. - You can "
+#~ "add users, classes and for each class, you can create groups of users. "
+#~ "Note that you can import users from a comma-separated file. Assign one or "
+#~ "more groups to a profile, after which those new logins will appear after "
+#~ "restarting GCompris. Being able to identify individual children in "
+#~ "GCompris means we can provide individual reports. It also recognizes the "
+#~ "children as individuals; they can learn to type in, and recognize their "
+#~ "own usernames (login is configurable)."
+#~ msgstr ""
+#~ "- სექციებში 'დაფები' შეგიძლიათ შეცვალოთ თქვენი სავარჯიშოების სია. უბრალოდ "
+#~ "შეცვალეთ განტოტვილი ჩვენება. შეგიძლიათ წასაკითხი ენის შეცვლაც. მაგალითად, "
+#~ "ენა, რომლითაც ფერთა სახელები გამოითქმის. - თქვენ შეგიძლიათ შეინახოთ "
+#~ "სხვადასხვა კონფიგურაციები და მარტივად გადაერთოთ მათზე. სექციაში 'პროფილი' "
+#~ "დაუმატეთ პროფილი და შემდეგ სექციაში 'დაფა' ჩამოშლად სიაში აირჩიეთ "
+#~ "სასურველი პროფილი.  უკვე შემდეგ მიუთითეთ დაფები, რომელთა გააქტივებაც "
+#~ "გსურთ. შეგიძლიათ დაამატოთ ბევრი პროფილი, სხვადასხვა სიებითა და ენებით. "
+#~ "ძირითადი პროფილის მითითება შეგიძლიათ სექციაში 'პროფილი' და შემდეგ ღილაკზე "
+#~ "'ნაგულისხმები' დაწკაპვით. პროფილის არჩევა ასევე შეგიძლიათ უშუალოდ "
+#~ "ბრძანების მითითებით. - შეგიძლიათ ასევე დაამატოთ მონაწილეები და კლასები, "
+#~ "ხოლო თითოეული ცალკეული კლასისთვის შექმნათ ჯგუფები.  გაითვალისწინეთ, რომ "
+#~ "მონაწილეთა იმპორტირება შეგიძლიათმძიმით გამოყოფილი ფაილიდან. მიანიჭეთ ერთი "
+#~ "ან რამდენიმე ჯგუფი პროფილს, რის შემგდეგაც პროგრამაში ხელახლა შესვლისას "
+#~ "ახალი ანგარიშები გამოჩნდება. თითოეული ბავშვის ამოცნობით GCompris-ს "
+#~ "შეუძლია ინდივიდუალური ანგარიშების მოწოდება. იგი ასევე ცნობს ბავშვების "
+#~ "ინდივიდუალობას; მათ შეუძლიათ აკრიფონ, ამოიცნონ თავიანთი სახელები (შესვის "
+#~ "მორგება შესაძლებელია)."
+
+#~ msgid "GCompris Administration Menu"
+#~ msgstr "GCompris-ის ადმინისტრირების მენიუ"
+
+#~ msgid ""
+#~ "If you want to fine tune GCompris to your needs, you can use the "
+#~ "administration module here. The ultimate goal is to provide child-"
+#~ "specific reporting for parents and teacher who want to monitor the "
+#~ "progress, strengths and weakenesses of their children."
+#~ msgstr ""
+#~ "თუ GCompris-ის მორგება გსურთ თქვენი მოთხოვნებისთვის, შეგიძლიათ გამოიყენოთ "
+#~ "ადმინისტრირების მოდული. საბოლოო მიზანია ბავშვთა ინდივიდუალური ანგარიშების "
+#~ "მიწოდება იმ მასწავლებელთა და მშობლებისათვის, რომელთაც ბავშვთა ძლიერი და "
+#~ "სუსტი მხარეების დადგენა და მათი განვითარების თვალმიდევნება სურთ."
+
+#~ msgid "Left-Click with the mouse to select an activity"
+#~ msgstr "სავარჯიშოს ასარჩევად დაწკაპეთ თაგუნას მარცხენა ღილაკი"
+
+#~ msgid "Can read"
+#~ msgstr "კითხვის უნარი"
+
+#~ msgid "Click on the correct color"
+#~ msgstr "დაწკაპეთ მართებული ფერი"
+
+#~ msgid "Click on the correct colored box."
+#~ msgstr "დაწკაპეთ მართებულად შეფერილი უჯრა."
+
+#~ msgid "Learn to recognize unusual colors."
+#~ msgstr "იშვიათი ფერების შესწავლა."
+
+#~ msgid "almond"
+#~ msgstr "ნუშისფერი"
+
+#~ msgid "chestnut"
+#~ msgstr "წაბლისფერი"
+
+#~ msgid "claret"
+#~ msgstr "ბორდო"
+
+#~ msgid "cobalt"
+#~ msgstr "კობალტი"
+
+#~ msgid "coral"
+#~ msgstr "მარჯანი"
+
+#~ msgid "corn"
+#~ msgstr "სიმინდისფერი"
+
+#~ msgid "cyan"
+#~ msgstr "ციანი"
+
+#~ msgid "sienna"
+#~ msgstr "ოხრა"
+
+#~ msgid "lime"
+#~ msgstr "კირი"
+
+#~ msgid "sage"
+#~ msgstr "სალბი"
+
+#~ msgid "salmon"
+#~ msgstr "ორაგულისფერი"
+
+#~ msgid "sapphire"
+#~ msgstr "საფირონი"
+
+#~ msgid "sepia"
+#~ msgstr "სეპია"
+
+#~ msgid "sulphur"
+#~ msgstr "გოგირდი"
+
+#~ msgid "tea"
+#~ msgstr "ჩაისფერი"
+
+#~ msgid "turquoise"
+#~ msgstr "ფირუზი"
+
+#~ msgid "absinthe"
+#~ msgstr "აბზინდა"
+
+#~ msgid "alabaster"
+#~ msgstr "თაბაშირი"
+
+#~ msgid "amber"
+#~ msgstr "ქარვა"
+
+#~ msgid "amethyst"
+#~ msgstr "ამეთვისტო"
+
+#~ msgid "anise"
+#~ msgstr "ანისული"
+
+#~ msgid "aquamarine"
+#~ msgstr "აქვამარინი"
+
+#~ msgid "mahogany"
+#~ msgstr "წითელი ხე"
+
+#~ msgid "vermilion"
+#~ msgstr "ხასხასა წითელი"
+
+#~ msgid "aubergine"
+#~ msgstr "ბადრიჯანი"
+
+#~ msgid "ceruse"
+#~ msgstr "ტყვიის თეთრა"
+
+#~ msgid "chartreuse"
+#~ msgstr "შარტრეზი"
+
+#~ msgid "emerald"
+#~ msgstr "ზურმუხტი"
+
+#~ msgid "fawn"
+#~ msgstr "ჩალისფერი"
+
+#~ msgid "fuchsia"
+#~ msgstr "ფუქსია"
+
+#~ msgid "glaucous"
+#~ msgstr "მონაცრისფრო მწვანე"
+
+#~ msgid "ruby"
+#~ msgstr "ლალისფერი"
+
+#~ msgid "auburn"
+#~ msgstr "ჟღალი"
+
+#~ msgid "azure"
+#~ msgstr "ცისფერი"
+
+#~ msgid "bistre"
+#~ msgstr "ბისტრე"
+
+#~ msgid "celadon"
+#~ msgstr "ტალღისფერი"
+
+#~ msgid "cerulean"
+#~ msgstr "ლაჟვარდი"
+
+#~ msgid "crimson"
+#~ msgstr "ალისფერი"
+
+#~ msgid "greyish-brown"
+#~ msgstr "მონაცრისფრო ყავისფერი"
+
+#~ msgid "dove"
+#~ msgstr "მტრედი"
+
+#~ msgid "garnet"
+#~ msgstr "ბროწეული"
+
+#~ msgid "indigo"
+#~ msgstr "მუქი ლურჯი"
+
+#~ msgid "ivory"
+#~ msgstr "სპილოს ძვლისფერი"
+
+#~ msgid "jade"
+#~ msgstr "ნეფრიტი"
+
+#~ msgid "lavender"
+#~ msgstr "ლავანდა"
+
+#~ msgid "lichen"
+#~ msgstr "სირსველი"
+
+#~ msgid "wine"
+#~ msgstr "ღვინისფერი"
+
+#~ msgid "larch"
+#~ msgstr "ლარიქსი"
+
+#~ msgid "lilac"
+#~ msgstr "იასამანი"
+
+#~ msgid "magenta"
+#~ msgstr "ანილინი"
+
+#~ msgid "malachite"
+#~ msgstr "მალაქიტი"
+
+#~ msgid "mimosa"
+#~ msgstr "მიმოზა"
+
+#~ msgid "navy"
+#~ msgstr "მუქი ლურჯი"
+
+#~ msgid "ochre"
+#~ msgstr "ოხრა"
+
+#~ msgid "olive"
+#~ msgstr "ზეთისხილი"
+
+#~ msgid "greyish blue"
+#~ msgstr "მონაცრისფრო ლურჯი"
+
+#~ msgid "mauve"
+#~ msgstr "ლილა"
+
+#~ msgid "opaline"
+#~ msgstr "ოპალი"
+
+#~ msgid "pistachio"
+#~ msgstr "ფისტა"
+
+#~ msgid "platinum"
+#~ msgstr "პლატინა"
+
+#~ msgid "purple"
+#~ msgstr "მეწამული"
+
+#~ msgid "ultramarine"
+#~ msgstr "ულტრამარინი"
+
+#~ msgid "dark purple"
+#~ msgstr "მუქი მეწამული"
+
+#~ msgid "plum"
+#~ msgstr "ქლიავი"
+
+#~ msgid "prussian blue"
+#~ msgstr "ბერლინური ლაჟვარდი"
+
+#~ msgid "rust"
+#~ msgstr "ჟანგი"
+
+#~ msgid "saffron"
+#~ msgstr "ზაფრანა"
+
+#~ msgid "vanilla"
+#~ msgstr "ვანილი"
+
+#~ msgid "verdigris"
+#~ msgstr "სპილენძისფერი"
+
+#~ msgid "veronese"
+#~ msgstr "ვერონეზე"
+
+#~ msgid ""
+#~ "A multiplication with two numbers is displayed. At the right of the equal "
+#~ "sign, give the product. Use the left and right arrows to modify the "
+#~ "product, and press the Enter key to check your answer. You can control "
+#~ "the speed of the timer in the GCompris configuration dialog."
+#~ msgstr ""
+#~ "ნაჩვენებია ორი რიცხვის გამრავლება.  მიუთითეთ შედეგი ტოლობის ნიშნის "
+#~ "მარჯვნივ.  პასუხის შესაცვლელად გამოიყენეთ მარჯვენა და მარცხენა ისრები.  "
+#~ "შედეგის შესამოწმებლად დააჭირეთ ღილაკს Enter.  დროის შეზღუდვა შეგიძლიათ "
+#~ "მიუთითოთ GCompris-ის გამართვის დიალოგში."
+
+#~ msgid "In a limited time, give the product of two numbers"
+#~ msgstr "იპოვნეთ ორი რიცხვის ჯამი.  დრო შეზღუდულია!"
+
+#~ msgid "Multiplication table"
+#~ msgstr "გამრავლების ცხრილი"
+
+#~ msgid "Practice the multiplication operation"
+#~ msgstr "სავარჯიშოები გამრავლებაში"
+
+#~ msgid "Go to Algebra activities"
+#~ msgstr "გადასვლა ალგებრულ სავარჯიშოებზე"
+
+#~ msgid ""
+#~ "Animal pictures are taken from the Animal Photography Page of Ralf "
+#~ "Schmode (http://schmode.net/) Ralf has given gcompris the authorization "
+#~ "to include his pictures. Thanks a lot Ralf."
+#~ msgstr ""
+#~ "ცხოველების ფოტოგრაფიები აღებულია Ralf Schmode-ს (http://schmode.net) "
+#~ "ვებგვერდიდან.  რალფმა GCompris-ს ფოტოების გამოყენების ნება დაგვრთო.  დიდი "
+#~ "მადლობა რალფ!"
+
+#~ msgid ""
+#~ "Choose the numbers and arithmetic operators at the top of the board area "
+#~ "that give the specified result. The numbers and operators can be "
+#~ "unselected by clicking on them."
+#~ msgstr ""
+#~ "მითითებული შედეგის მისაღებად გამოიყენეთ დაფის ზემო ნაწილში განთავსებული "
+#~ "რიცხვები და არითმეტიკული მოქმედებები.  რიცხვებისა და მოქმედებების შეცვლა "
+#~ "მათზე დაწკაპვით შეიძლება. "
+
+#~ msgid ""
+#~ "Deploy a strategy to arrange a set of arithmetic operations to find a "
+#~ "value"
+#~ msgstr ""
+#~ "განალაგეთ რიცხვები და არითმეტიკული მოქმედებები მართებული შედეგის მისაღებად"
+
+#~ msgid "Find the correct operations to get the result"
+#~ msgstr "იპოვნე მართებული მოქმედება შედეგის მისაღებად"
+
+#~ msgid ""
+#~ "Find the right combination of numbers and operations to obtain a "
+#~ "specified result"
+#~ msgstr ""
+#~ "იპოვნეთ რიცხვებისა და არითმეტიკული მოქმედებების მართებული კომბინაცია "
+#~ "მითითებული შედეგის მისაღებად"
+
+#~ msgid ""
+#~ "The four arithmetic operations. Combine several arithmetic operations"
+#~ msgstr "ოთხი არითმეტიკული მოქმედება. შეაჯერეთ რამდენიმე მოქმედება"
+
+#~ msgid ""
+#~ "A substraction problem with two numbers is displayed. At the right of the "
+#~ "equal sign, give the difference. Use the left and right arrows to modify "
+#~ "your answer, and press the Enter key to check the result. You can control "
+#~ "the speed of the timer in the GCompris configuration dialog."
+#~ msgstr ""
+#~ "ნაჩვენებია ორი რიცხვის გამოკლების მცდარი შედეგი.  მიუთითეთ განსხვავება "
+#~ "ტოლობის ნიშნის მარჯვნივ.  პასუხის შესაცვლელად გამოიყენეთ მარჯვენა და "
+#~ "მარცხენა ისრები.  შედეგის შესამოწმებლად დააჭირეთ ღილაკს Enter. დროის "
+#~ "შეზღუდვა შეგიძლიათ მიუთითოთ GCompris-ის გამართვის დიალოგში."
+
+#~ msgid "In a limited time, find the difference between two numbers"
+#~ msgstr "მოძებნეთ ორი რიცხვის სხვაობა.  დრო შეზღუდულია!"
+
+#~ msgid "Practice the substraction operation"
+#~ msgstr "სავარჯიშოები გამოკლებაში"
+
+#~ msgid "Simple substraction"
+#~ msgstr "მარტივი გამოკლება"
+
+#~ msgid ""
+#~ "A addition problem with two numbers is displayed. At the right of the "
+#~ "equal sign, give the sum. Use the left and right arrows to modify the "
+#~ "sum, and the Enter key to check your answer. You can control the speed of "
+#~ "the timer in the GCompris configuration dialog."
+#~ msgstr ""
+#~ "ნაჩვენებია ორი რიცხვის მიმატების მცდარი შედეგი.  მიუთითეთ განსხვავება "
+#~ "ტოლობის ნიშნის მარჯვნივ.  პასუხის შესაცვლელად გამოიყენეთ მარჯვენა და "
+#~ "მარცხენა ისრები.  შედეგის შესამოწმებლად დააჭირეთ ღილაკს Enter. დროის "
+#~ "შეზღუდვა შეგიძლიათ მიუთითოთ GCompris-ის გამართვის დიალოგში."
+
+#~ msgid ""
+#~ "In a limited time, find the sum of of two numbers. Introduction to simple "
+#~ "in-line addition."
+#~ msgstr ""
+#~ "შეზღუდულ დროში იპოვნეთ ორი რიცხვის ჯამი.  შესავალი მარტივ მიმატებაში."
+
+#~ msgid "Practice the addition operation"
+#~ msgstr "სავარჯიშოები მიმატებაში"
+
+#~ msgid "Simple addition. Can recognize written numbers"
+#~ msgstr "მარტივი მიმატება.  რიცხვების ამოცნობის უნარი"
+
+#~ msgid "Go to Maths activities"
+#~ msgstr "გადასვლა არითმეტიკულ სავარჯიშოებზე"
+
+#~ msgid "Complete a list of symbols"
+#~ msgstr "დაასრულეთ სიმბოლოების სია"
+
+#~ msgid "Find the next in a list of symbols."
+#~ msgstr "იპოვეთ შემდეგი სიმბოლოების სიაში."
+
+#~ msgid "Logic training activity"
+#~ msgstr "ლოგიკური სავარჯიშო"
+
+#~ msgid "Move and click the mouse"
+#~ msgstr "გადაიტანეთ და დაწკაპეთ"
+
+#~ msgid "algorithm"
+#~ msgstr "ალგორითმი"
+
+#~ msgid "Create a drawing or an animation"
+#~ msgstr "შექმენი ანიმაცია"
+
+#~ msgid "Free drawing and animation tool."
+#~ msgstr "ხატვისა და ანიმაციის ხელსაწყო."
+
+#~ msgid ""
+#~ "In this game, children can draw freely. The goal is just to discover how "
+#~ "to create pretty-looking drawings based on basic shapes: rectangles, "
+#~ "ellipses and lines. To make it more fun for kids, a set of images can "
+#~ "also be used."
+#~ msgstr ""
+#~ "ამ თამაშში ბავშვებს ნებისმიერი რამის დახატვა შეუძლიათ. მიზანია აღმოაჩინონ "
+#~ "თუ როგორ შაიძლება ნახატების შექმნა ძირითადი ფიგურების: ოთხკუთხედების, "
+#~ "ოვალებისა და წრფეების გამოყენებით. წასახალისებლად გამოიყენეთ უკვე "
+#~ "არსებული ნახატები."
+
+#~ msgid "Needs to be able to move and click the mouse readily"
+#~ msgstr "საჭიროებს თაგუნას გადაადგილებისა და დაწკაპვის მზადყოფნის უნარებს"
+
+#~ msgid ""
+#~ "Select a drawing tool on the left and a color on the bottom. Then click "
+#~ "and drag in the white area to create a new shape. Once one drawing is "
+#~ "complete, you can take a snapshot of it with the 'camera' button. A new "
+#~ "image with the same content is created. You can then move objects a "
+#~ "little bit or add/delete objects. Create several drawings and then click "
+#~ "on the 'film' button. You will see all your images in an infinite loop. "
+#~ "You can change the viewing speed in this mode. In view mode, click on the "
+#~ "'drawing' button to return to drawing. You can then edit each image of "
+#~ "your animation by using the image selector in the bottom left of the "
+#~ "screen. You can save and reload your animations with the 'floppy' and "
+#~ "'folder' button."
+#~ msgstr ""
+#~ "აირჩიეთ სახატავი ხელსაწყო მარცხნივ და ფერი ქვემოთ. შემდეგ დაწკაპეთ და "
+#~ "გადმოიტანეთ თეთრ არეში ახალი ფორმის შესაქმნელად. ერთი ნახატის დასრულების "
+#~ "შემდეგ მისი ანაბეჭდის შექმნა შეგიძლიათ ღილაკით „ფოტო”. შეიქმნება იგივე "
+#~ "შინაარსის ახალი გამოსახულება. ამის შემდეგ შეგიძლიათ გადააადგილოთ, "
+#~ "დაამატოთ/წაშალოთ ობიექტები. შექმენით რამდენიმე ნახატი და დაწკაპეთ ღილაკი "
+#~ "'film'. You will see all your images in an infinite loop. You can change "
+#~ "the viewing speed in this mode. In view mode, click on the 'drawing' "
+#~ "button to return to drawing. You can then edit each image of your "
+#~ "animation by using the image selector in the bottom left of the screen. "
+#~ "You can save and reload your animations with the 'floppy' and 'folder' "
+#~ "button."
+
+#~ msgid "Drag and Drop the items to make them match"
+#~ msgstr "თაგუნას საშუალებით შეათავსე ელემენტები."
+
+#~ msgid ""
+#~ "In the main board area, a set of objects is shown. In the vertical box "
+#~ "(at the left of the main board), another set of objects is printed, each "
+#~ "of which match exactly one object on the main board. The logical link "
+#~ "between these objects must be found. Drag the objects to the correct red "
+#~ "space in the main area."
+#~ msgstr ""
+#~ "დაფის ძირითად ნაწილში ნაჩვენებია ობიექტების ნაკრები.  მარცხნივ, "
+#~ "ვერტიკალურ პანელში ნაჩვენებია ობიექტთა მეორე ნაკრები რომელთაგან თითოეული "
+#~ "შეესაბამება ერთერთს ძირითად დაფაზე.  \n"
+#~ "იპოვნეთ ლოგიკური კავშირები ობიექტებს შორის და გადააადგილეთ ძირითადი დაფის "
+#~ "შესაბამის წითელ ველებზე."
+
+#~ msgid "Matching Items"
+#~ msgstr "შესაბამისი ობიექტები"
+
+#~ msgid "Motor-skills co-ordination. Conceptual matching."
+#~ msgstr "მოტორული კოორდინაცია.  ასოციაციაცია."
+
+#~ msgid "Mouse manipulation: movement, drag and drop. Cultural references."
+#~ msgstr "თაგუნათი მუშაობა: მოძრაობა, გადატანა. ბმების დამოწმება."
+
+#~ msgid "Complete the puzzle"
+#~ msgstr "ამოხსენით თავსატეხი"
+
+#~ msgid ""
+#~ "Complete the puzzle by dragging the pieces from the set of pieces on the "
+#~ "left."
+#~ msgstr "ამოხსენით თავსატეხი მარცხენა პანელიდან ნაწილების გადმოტანით."
+
+#~ msgid "Drag and Drop the shapes on their respective target"
+#~ msgstr "გადმოიტანეთ ფორმები მათ შესაბამის ადგილებზე"
+
+#~ msgid "Good mouse control"
+#~ msgstr "თაგუნას კარგი მართვა"
+
+#~ msgid "The dog is provided by Andre Connes and released under the GPL"
+#~ msgstr "ძაღლის საავტორო უფლება GPL ლიცენზიიით ეკუთვნის Andre Connes-ს."
+
+#~ msgid "Hello ! My name is Lock."
+#~ msgstr "მოგესალმებით! მე მქვია ლოკი."
+
+#~ msgid "Lock on grass."
+#~ msgstr "ლოკი ბალახებში."
+
+#~ msgid "Lock with colored shapes."
+#~ msgstr "ლოკი ფერადი ფორმებით."
+
+#~ msgid "Kick the ball to Tux"
+#~ msgstr "ესროლე ბურთი პინგვინ ტუქსს"
+
+#~ msgid "Push the two shift keys together to send the ball straight"
+#~ msgstr "ბურთი წინ გადასაგდებად ერთდროულად დააჭირეთ ორივე shift კლავიშს"
+
+#~ msgid "Brain"
+#~ msgstr "ტვინი"
+
+#~ msgid "Do not place the last ball"
+#~ msgstr "არ მოათავსოთ ბოლო ბურთი"
+
+#~ msgid ""
+#~ "Place balls in the holes. You win if the computer has to place the last "
+#~ "ball. If you want Tux to begin, just click on him."
+#~ msgstr ""
+#~ "მოათავსეთ ბურთები ფოსოებში.  გაიმარჯვებთ, თუ კომპიუტერი ბოლო ბურთს თავად "
+#~ "მოათავსებს.  თუ გსურთ რომ ტუქსმა დაიწყოს, დაწკაპეთ იგი"
+
+#, fuzzy
+#~ msgid "bar game"
+#~ msgstr "ბურთულებით თამაში"
+
+#~ msgid "Kick the ball into the black hole on the right"
+#~ msgstr "ჩააგდეთ ბურთი მარჯვენა შავ ფოსოში"
+
+#~ msgid "Kick the ball into the goal"
+#~ msgstr "ისროლეთ ბურთი მიზანში"
+
+#~ msgid "Mouse manipulation"
+#~ msgstr "თაგუნათი მანიპულირება"
+
+#~ msgid ""
+#~ "Point and click on the ball to set its speed and direction. The closer "
+#~ "you click to the center, the slower the ball moves."
+#~ msgstr ""
+#~ "დაწკაპეთ ბურთი სიჩქარისა და მიმართულების მისაცემად.  რაც უფრო ახლოს "
+#~ "დაწკაპავთ ცენტრთან, მით უფრო ნელი იქნება ბურთის მოძრაობა."
+
+#~ msgid "The football game"
+#~ msgstr "ფეხბურთი"
+
+#~ msgid "Go to board based activities"
+#~ msgstr "მაგიდის თამაშები"
+
+#~ msgid ""
+#~ "Tux is in trouble, and needs to take his boat through a lock. Help Tux "
+#~ "and understand how a canal lock works."
+#~ msgstr ""
+#~ "ტუქსს გემბანზე პრობლემები შეექმნა.  მას ნავით არხის გავლა სჭირდება.  "
+#~ "გაარკვიე როგორ მუშაობს რაბი და დაეხმარე ტუქსს."
+
+#~ msgid ""
+#~ "You are in charge of the canal lock. Open the gates and the locks in the "
+#~ "right order, so Tux can travel through the gates in both directions."
+#~ msgstr ""
+#~ "შენ მართავ რაბს.  უნდა გახსნათ და დაკეტოთ რაბი იმ რიგით, რომ ტუქსმა "
+#~ "შეძლოს რაბის გავლა ორივე მიმართულებით."
+
+#~ msgid "Play chess against the computer in a learning mode"
+#~ msgstr "ჭადრაკის თამაში კომპიუტერთან სწავლის რეჟიმში."
+
+#~ msgid "Practice chess"
+#~ msgstr "ჭადრაკის თამაში"
+
+#~ msgid "Learning chess"
+#~ msgstr "ჭადრაკის შესწავლა"
+
+#~ msgid "The chess engine is from gnuchess."
+#~ msgstr "ჭადრაკის პროგრამა gnuchess."
+
+#~ msgid "Chess training. Catch the computer's pawns."
+#~ msgstr "ჭადრაკის შესწავლა.  გაანადგურე კომპიუტერის პაიკები."
+
+#~ msgid "Play end of chess game against the computer"
+#~ msgstr "დაასრულე საჭადრაკო პარტია კომპიუტერთან"
+
+#~ msgid "Chronos"
+#~ msgstr "საათი"
+
+#~ msgid "Drag and Drop the items to organize the story"
+#~ msgstr "გადააადგილე ელემენტები მოთხრობის შესადგენად"
+
+#~ msgid ""
+#~ "Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
+#~ "Vegastrike which are released under the GPL license. The transportation "
+#~ "images are copyright Franck Doucet. Dates of Transportation are based on "
+#~ "those found in http://www.wikipedia.org."
+#~ msgstr ""
+#~ "მთვარის ფოტოები აღებულია NASA-დან. კოსმოსური ხმები აღებულია პროგრამებიდან "
+#~ "Tuxpaint·და·Vegastrike-დან, რომლებიც GPL ლიცენზიითაა გამოსული.  ნახატებზე "
+#~ "საავტორო უფლება ეკუთვნის Frank Ducet-ს.  გაფრენის თარიღები აღებულია "
+#~ "საიტიდან - http://www.wikipedia.org"
+
+#~ msgid "Pick from the pictures on the left and put them on the red dots"
+#~ msgstr "აიღეთ ნახატები მარცხნიდან და დადეთ წითელ წერტილებზე"
+
+#~ msgid "Sort the pictures into the order that tells the story"
+#~ msgstr "განალაგე ნახატები მოთხრობის მოსაყოლად"
+
+#~ msgid "Tell a short story"
+#~ msgstr "მოყევით მოკლე მოთხრობა"
+
+#~ msgid "Moonwalker"
+#~ msgstr "მთვარეზე მოსიარულე"
+
+#~ msgid "Autumn"
+#~ msgstr "შემოდგომა"
+
+#~ msgid "Spring"
+#~ msgstr "გაზაფხული"
+
+#~ msgid "Summer"
+#~ msgstr "ზაფხული"
+
+#~ msgid "The 4 Seasons"
+#~ msgstr "წელიწადის 4 დრო"
+
+#~ msgid "Winter"
+#~ msgstr "ზამთარი"
+
+#~ msgid "Gardening"
+#~ msgstr "მებაღეობა"
+
+#~ msgid "Tux and the apple tree"
+#~ msgstr "პინგვინი ტუქსი და ვაშლის ხე"
+
+#, fuzzy
+#~ msgid "1769 Cugnot's fardier"
+#~ msgstr "1769 Cugnot's fardier"
+
+#~ msgid ""
+#~ "1829 Stephenson's Rocket\n"
+#~ "Steam locomotive"
+#~ msgstr ""
+#~ "1829 სტივენსონის რაკეტა\n"
+#~ "ორთქლმავალი"
+
+#~ msgid ""
+#~ "Place each image in the order and\n"
+#~ "on the date it has been invented.\n"
+#~ "If not sure, check online in wikipedia at\n"
+#~ "http://www.wikipedia.org"
+#~ msgstr ""
+#~ "გამოსახულებები დაალაგეთ თანმიმდევრულად\n"
+#~ "მათი გამოგომების თარიღების მიხედვით.\n"
+#~ "თუ დარწმუნებული არ ხართ, გადაამოწმეთ\n"
+#~ "http://www.wikipedia.org"
+
+#~ msgid "Transportation"
+#~ msgstr "ტრანსპორტი"
+
+#~ msgid ""
+#~ "1783 Montgolfier brothers'\n"
+#~ "Hot air balloon"
+#~ msgstr ""
+#~ "1783 ძმები მონგოლფიეები\n"
+#~ "საჰაერო ბურთი ცხელი აირით"
+
+#~ msgid "1880 The Clement Ader's Eole"
+#~ msgstr "1880 კლემენტ ადერის ეოლი"
+
+#~ msgid ""
+#~ "1906 Paul Cornu\n"
+#~ "First helicopter flight"
+#~ msgstr ""
+#~ "1906 პოლ კორნიუ\n"
+#~ "პირველად გაფრენა ვერტმფრენით"
+
+#, fuzzy
+#~ msgid ""
+#~ "1791 Comte de Sivrac's\n"
+#~ "Celerifere"
+#~ msgstr ""
+#~ "1791 Comte de Sivrac's\n"
+#~ "Celerifere"
+
+#~ msgid "1903 The Wright brothers' Flyer III"
+#~ msgstr "1903 ძმები რაიტების Flyer III"
+
+#~ msgid "1909 Louis Bleriot crosses the Channel"
+#~ msgstr "1909 ლუი ბერიომ გადაცურა სრუტე."
+
+#~ msgid "Aviation"
+#~ msgstr "ავიაცია"
+
+#~ msgid ""
+#~ "1927 Charles Lindbergh\n"
+#~ "crosses the Atlantic Ocean"
+#~ msgstr ""
+#~ "1927 ჩარლზ ლინდბერგი\n"
+#~ "ჩარლზ ლინბერგმა გადაცურა ატლანტის ოკეანე."
+
+#~ msgid ""
+#~ "1934 Helene Boucher sets a\n"
+#~ "speed record of 444km/h"
+#~ msgstr ""
+#~ "1934 ელენ ბუშე ამყარებს\n"
+#~ "სიჩქარის რეკორდს - 444 კმ/სთ"
+
+#~ msgid ""
+#~ "1947 Chuck Yeager\n"
+#~ "breaks the sound-barrier"
+#~ msgstr ""
+#~ "1947 ჩაკ იგერი\n"
+#~ "გადალახა ზებგერითი ბარიერი"
+
+#~ msgid "The aviation"
+#~ msgstr "ავიაცია"
+
+#, fuzzy
+#~ msgid "1878 Léon Bollé \"La Mancelle\""
+#~ msgstr "1878 ლეონ ბოლე \"La Mancelle\""
+
+#~ msgid ""
+#~ "Benz builds the first\n"
+#~ "petrol-driven car in 1885.\n"
+#~ "car by Benz"
+#~ msgstr ""
+#~ "1885 - ბენცმა ააგო პირველი\n"
+#~ "საწვავზე მომუშავე მანქანა.\n"
+#~ "ბენცის ავტომობილი"
+
+#~ msgid "The car"
+#~ msgstr "ავტომობილი"
+
+#, fuzzy
+#~ msgid "1899 Renault \"voiturette\""
+#~ msgstr "1899 რენო \"voiturette\""
+
+#~ msgid "1923 Lancia Lambda"
+#~ msgstr "1923 ლანსია ლამბდა"
+
+#~ msgid "1955 Citroën ds 199"
+#~ msgstr "1955 სიტროენი ds 199"
+
+#~ msgid "Cars"
+#~ msgstr "ავტომობილები"
+
+#~ msgid ""
+#~ "A letter is spoken. Click on the corresponding letter in the main area. "
+#~ "You can hear the letter again by clicking on the mouth icon in the bottom "
+#~ "horizontal box."
+#~ msgstr ""
+#~ "წარმოითქმის ასო.  დაწკაპეთ შესაბამისი ასო ეკრანის ძირითად ნაწილში.  "
+#~ "ხელახლა მოსმენა შესაძლებელია პირის გამოსახულებაზე დაწკაპვით ეკრანის ქვედა "
+#~ "ნაწილში."
+
+#~ msgid "Click on a letter"
+#~ msgstr "დაწკაპეთ ასო"
+
+#~ msgid "Letter name recognition"
+#~ msgstr "ასოს ამოცნობა"
+
+#~ msgid "Visual letters recognition. Can move the mouse."
+#~ msgstr "ასოების ვიზუალური ამოცნობა. თაგუნას მოძრაობის უნარი."
+
+#~ msgid "Click with the left mouse button on the moving fish."
+#~ msgstr "დაწკაპეთ მოძრავი თევზი თაგუნას მარცხენა კლავიშით."
+
+#~ msgid ""
+#~ "Fish are taken from the Unix utility xfishtank. Images are taken from the "
+#~ "National Undersea Research Program (NURP) Collection at http://www."
+#~ "photolib.noaa.gov All image credits belong to the OAR/National Undersea "
+#~ "Research Program (NURP), except for the first image, which is property of "
+#~ "the University of North Carolina at Wilmington. The images used in each "
+#~ "level are: Location: Tropical Atlantic Ocean, Florida Keys (image "
+#~ "nur00523) Photographer: D. Kesling Location: Florida Keys (image "
+#~ "nur03006) Location: Unknown (image nur03505) Location: Unknown (image "
+#~ "nur03010) Location: Unknown (image nur03011) Location: Unknown (image "
+#~ "nur03013)"
+#~ msgstr ""
+#~ "თევზი აღებულია იუნიქს უტილიტიდან xfishtank.  ნახატები აღებულია წყალქვეშა "
+#~ "სამყაროს შესწავლის ეროვნული პროგრამის კოლექციიდან (NURP) მისამართით "
+#~ "http://www.photolib.noaa.gov.  ყველა მადლობები ნახატებისთვის ეკუთვნის OAR/"
+#~ "წყალქვეშა სამყაროს შესწავლის ეროვნულ პროგრამას·(NURP), პირველი "
+#~ "გამოსახულების გამოკლებით, რომელიც ეგუკთვნის ჩრდილო კაროლინის უნივერსიტეტს "
+#~ "ვილინგთონში.  თითოეულ დონეზე წარმოდგენილი გამოსახულებებია: ატლანტის "
+#~ "ოკეანე,·Florida·Keys·(ნახატი·nur00523)·ფოტოგრაფი:·დ.·კესლინგი  ადგილი:"
+#~ "·Florida·Keys·(ნახატი·nur03006)· ადგილი:·უცნობია·(ნახატი·nur03505)· "
+#~ "ადგილი:·უცნობია·(ნახატი·nur03010)· ადგილი: უცნობია·(ნახატი·nur03011)· "
+#~ "ადგილი:·უცნობია·(ნახატი·nur03013)"
+
+#~ msgid "Motor coordination: moving and clicking the mouse."
+#~ msgstr "კოორდინაცია:  თაგუნას მოძრაობა და დაწკაპვა."
+
+#~ msgid ""
+#~ "Click on the arrows to match the clock time with the time in numbers "
+#~ "(hours:minutes or hours:minutes:seconds). You can change the direction of "
+#~ "an arrow by selecting it and moving the mouse."
+#~ msgstr ""
+#~ "დაწკაპეთ ისრებზე საათის დასაყენებლად (საათი:წუთები ან საათი:წუთი:წამი). "
+#~ "ისრის მიმართულების შეცვლა შეიძლება ისრის არჩევით და თაგუნას გადაადგილებით."
+
+#~ msgid "The concept of time. Reading the time."
+#~ msgstr "დროის არსი.  დროის წაკითხვა."
+
+#~ msgid ""
+#~ "istinguish between hours, minutes and seconds. Display time on a clock."
+#~ msgstr ""
+#~ "განსხვავება საათებს, წუთებისა და წამების შორის. საათიზე დროის მითითება"
+
+#~ msgid "Can move the mouse."
+#~ msgstr "თაგუნას გადატანის უნარი"
+
+#~ msgid "Hear the color and click on the toon."
+#~ msgstr "მოუსმინეთ ფერს და დაწკაპეთ შესაბამისი ნახატი."
+
+#~ msgid ""
+#~ "This board teaches color recognition. Select the spoken color from the "
+#~ "set of colored toons."
+#~ msgstr ""
+#~ "ამ თამაშით ფერები შეისწავლება.  აირჩიეთ საჭირო ფერი ფერადი სათამაშოების "
+#~ "ნაკრებიდან."
+
+#~ msgid "Go to colour activities"
+#~ msgstr "გადასვლა ფერების სავარჯიშოებზე"
+
+#~ msgid "Discover the Computer"
+#~ msgstr "კომპიუტერის შესწავლა"
+
+#~ msgid "Arrange four coins in a row"
+#~ msgstr "ოთხი მონეტა განალაგეთ მწკრივში."
+
+#~ msgid "Click anywhere in the line in which you want to drop a piece"
+#~ msgstr ""
+#~ "დაწკაპეთ ნებისმიერ ადგილას ის ხაზი (მწკრივი), რომელშიც გინდათ ელემენტის "
+#~ "ჩასმა."
+
+#~ msgid "Connect 4"
+#~ msgstr "კავშირი 4"
+
+#~ msgid "Create a line of 4 pieces either horizontally or vertically"
+#~ msgstr ""
+#~ "შექმენით ჰორიზონტალურად ან ვერტიკალურად 4 ელემენტისგანგან შემდგარი "
+#~ "მწკრივი."
+
+#~ msgid ""
+#~ "Laurent Lacheny. Images and Artificial Intelligence taken from project "
+#~ "4stattack by Jeroen Vloothuis. The original project can be found on "
+#~ "http://forcedattack.sourceforge.net"
+#~ msgstr ""
+#~ "ლორენ ლაშენი. ნახატები და ხელოვნური ინტელექტი აღებულია Jeroen Vloothuis-"
+#~ "ის პროექტიდან 4stattack.  თავად პროექტი შეგიძლიათ ნახოთ აქ  http://"
+#~ "forcedattack.sourceforge.net"
+
+#~ msgid "Basic counting skills"
+#~ msgstr "თვლის ძირითადი ჩვევები"
+
+#~ msgid "Double entry table"
+#~ msgstr "ორმაგი შესვლის ცხრილი"
+
+#~ msgid "Drag and Drop each item at its correct destination."
+#~ msgstr "გადააადგილეთ შემოთავაზებული საგნები დანიშნულების ადგილზე"
+
+#~ msgid "Drag and Drop the items in the double entry table"
+#~ msgstr "გადააადგილეთ შემოთავაზებული საგნები ორმაგი შესვლის ცხრილში"
+
+#~ msgid ""
+#~ "Move the items on the left to their proper position in the double entry "
+#~ "table."
+#~ msgstr ""
+#~ "გადააადგილეთ შემოთავაზებული საგნები მარცხნიდან ორმაგი შესვლის ცხრილის "
+#~ "მართებულ ადგიზე."
+
+#~ msgid "Click on an item and listen to its target position"
+#~ msgstr "დაწკაპეთ საგანი და მოისმინეთ მისი საბოლოო პოზიცია"
+
+#~ msgid ""
+#~ "In this game, children can draw freely. The goal is just to discover how "
+#~ "to create pretty-looking drawings based on basic shapes: rectangles, "
+#~ "ellipses and lines."
+#~ msgstr ""
+#~ "ამ თამაშში შესაძლებელია თავისუფალი ხატვა.  ამოცანა მდგომარეობს ძირითადი "
+#~ "ფორმების (მართკუთხედები, ოვალები და მონაკვეთები) საშუალებით ლამაზი "
+#~ "ნახატის შექმნაში."
+
+#~ msgid ""
+#~ "Select a drawing tool on the left and a color on the bottom, and click "
+#~ "and drag in the white area to create a new shape. To save time, you can "
+#~ "use the middle mouse button to delete an object."
+#~ msgstr ""
+#~ "სახატავი ხელსაწყო აირჩიეთ მარცხნივ, ფერი - ქვემოთ, შემდეგ დაწკაპეთ და "
+#~ "გადაიტანეთ თეთრ არეში ახალი ფორმის შესაქმნელად.  დროის დაზოგნის მიზნით, "
+#~ "ობიექტის წასაშლელად თაგუნას შუა ღილაკის გამოყენება შეგიძლიათ."
+
+#~ msgid "Basic enumeration"
+#~ msgstr "მარტივი თვლა"
+
+#~ msgid "Count the items"
+#~ msgstr "საგნების დათვლა"
+
+#~ msgid ""
+#~ "First, properly organize the items so that you can count them. Then, "
+#~ "select the item you want to answer in the bottom right area. Enter the "
+#~ "answer with the keyboard and press the OK button or the 'Enter' key."
+#~ msgstr ""
+#~ "თავიდან გადააჯგუფე საგნები ისე, რომ მათი დათვლა ადვილად შეძლო.  შემდეგ "
+#~ "პასუხებისთვის აირჩიე საგანი ქვედა მარჯვენა დაფიდან.  მიუთითეთ პასუხები "
+#~ "კლავიატურით და დაწკაპეთ კლავიშები 'დიახ' ან 'enter'."
+
+#~ msgid ""
+#~ "Animal pictures are taken from the Animal Photography Page of Ralf "
+#~ "Schmode (http://schmode.net/) and from LE BERRE Daniel. They gave "
+#~ "GCompris the authorization to include their pictures. Thanks a lot."
+#~ msgstr ""
+#~ "ცხოველების ფოტოგრაფიები აღებულია Ralf Schmode-ს (http://schmode.net) "
+#~ "ვებგვერდიდან და დანიელ ლე-ბერედან. მათ GCompris-ს ფოტოგრაფიების "
+#~ "გამოყენების ნება დართო.  დიდი მადლობა!"
+
+#~ msgid "Motor coordination"
+#~ msgstr "მოძრაობის კოორდინაცია"
+
+#~ msgid "Move the mouse until all the blocks disappear."
+#~ msgstr "გადააადგილეთ თაგუნა ყველა ბლოკის გახსნამდე."
+
+#~ msgid "Click on rectangles with the mouse until all the blocks disappear."
+#~ msgstr "დაწკაპეთ მართკუთხედები თაგუნათი ყველა ბლოკის გახსნამდე."
+
+#~ msgid "Click with the mouse"
+#~ msgstr "დაწკაპეთ თაგუნა"
+
+#~ msgid "Click with the mouse to erase the area and discover the background"
+#~ msgstr "დაწკაპეთ თაგუნა არის წასაშლელად და ფონის სრულად გამოსაჩენად"
+
+#~ msgid ""
+#~ "Double click on rectangles with the mouse until all the blocks disappear."
+#~ msgstr "ორმაგად დაწკაპეთ მართკუთხედები თაგუნათი ყველა ბლოკის გახსნამდე."
+
+#~ msgid ""
+#~ "Double-Click with the mouse to erase the area and discover the background"
+#~ msgstr "ორმაგად დაწკაპეთ თაგუნა არის წასაშლელად და ფონის სრულად გამოსაჩენად"
+
+#~ msgid "Double-click with the mouse"
+#~ msgstr "ორმაგად დაწკაპეთ თაგუნა"
+
+#~ msgid "Go to experiential activities"
+#~ msgstr "რთულ სავარჯიშოებზე გადასვლა"
+
+#~ msgid ""
+#~ "Click on any item that has a free block beside it. It will be swapped "
+#~ "with the empty block."
+#~ msgstr ""
+#~ "დაწკაპეთ ცარიელის ბლოკის მახლობელი ნებისმიერი ელემენტი. ისინი ადგილებს "
+#~ "შეიცვლია."
+
+#~ msgid "Move the items one by one to reorder them in the increasing number"
+#~ msgstr "გადააადგილეთ საგნები ნომრის ზრდადობის მიხედვით დასალაგებლად"
+
+#~ msgid "Original code taken from libgnomecanvas demo"
+#~ msgstr "პროგრამული კოდის პირველწყარო - libgnomecanvas demo."
+
+#~ msgid "Fine motor coordination"
+#~ msgstr "კარგი კოორდინაცია."
+
+#~ msgid "Help the hose move up"
+#~ msgstr "დაეხმარეთ მორწყვაში"
+
+#~ msgid ""
+#~ "Move the mouse over the red part of the pipe. This will bring it up, bit "
+#~ "by bit, closer to the flowers. Be careful: if you move off the hose, the "
+#~ "red section will go back down."
+#~ msgstr ""
+#~ "გადააადგილეთ თაგუნა მილის წითელი ნაწილის გასწვრივ მისი ნაწილ-ნაწილ "
+#~ "გასახსნელად და წყლის ყვავილებამდე მისაყვანად.  ფრთხილად იყავით, თუ მილს "
+#~ "უკან დასწევთ, წითელ ნაწილი უკან დაბრუნდება."
+
+#~ msgid "Tux needs to water the flowers, but the hose is blocked."
+#~ msgstr "ტუქსმა ყვავილები უნდა მორწყას, მაგრამ წყალსადენი დაკეტილია."
+
+#~ msgid "Go to Amusement activities"
+#~ msgstr "გართობა"
+
+#~ msgid "gcompris animation"
+#~ msgstr "GCompris-ის ანიმაცია"
+
+#~ msgid "gcompris drawing"
+#~ msgstr "GCompris-ის ნახატი"
+
+#~ msgid "svg drawing"
+#~ msgstr "SVG ნახატი"
+
+#~ msgid "svg mozilla animation"
+#~ msgstr "Mozilla-ს SVG ანიმაცია"
+
+#~ msgid "Drag and Drop the items to redraw the complete map"
+#~ msgstr "გადააადგილეთ ფილები სრული ნახატის მისაღებად"
+
+#~ msgid "Identify the countries"
+#~ msgstr "ქვეყნების ამოცნობა"
+
+#~ msgid "Africa"
+#~ msgstr "აფრიკა"
+
+#~ msgid "America"
+#~ msgstr "ამერიკა"
+
+#~ msgid "Antartica"
+#~ msgstr "ანტარქტიკა"
+
+#~ msgid "Asia"
+#~ msgstr "აზია"
+
+#~ msgid "Continents"
+#~ msgstr "კონტინენტები"
+
+#~ msgid "Europe"
+#~ msgstr "ევროპა"
+
+#~ msgid "Oceania"
+#~ msgstr "ოკეანია"
+
+#~ msgid "Alaska"
+#~ msgstr "ალასკა"
+
+#~ msgid "Bahamas"
+#~ msgstr "ბაჰამის კუნძულები"
+
+#~ msgid "Canada"
+#~ msgstr "კანადა"
+
+#~ msgid "Cuba"
+#~ msgstr "კუბა"
+
+#~ msgid "Dominican republic"
+#~ msgstr "დომინიკის რესპუბლიკა"
+
+#~ msgid "Greenland"
+#~ msgstr "გრენლანდია"
+
+#~ msgid "Haiti"
+#~ msgstr "ჰაიტი"
+
+#~ msgid "Iceland"
+#~ msgstr "ისლანდია"
+
+#~ msgid "Jamaica"
+#~ msgstr "იამაიკა"
+
+#~ msgid "Mexico"
+#~ msgstr "მექსიკა"
+
+#~ msgid "North America"
+#~ msgstr "ჩრდილოეთ ამერიკა"
+
+#~ msgid "United States of America"
+#~ msgstr "ამერიკის შეერთებული შტატები"
+
+#~ msgid "Argentina"
+#~ msgstr "არგენტინა"
+
+#~ msgid "Bolivia"
+#~ msgstr "ბოლივია"
+
+#~ msgid "Brazil"
+#~ msgstr "ბრაზილია"
+
+#~ msgid "Chile"
+#~ msgstr "ჩილე"
+
+#~ msgid "Colombia"
+#~ msgstr "კოლუმბია"
+
+#~ msgid "Ecuador"
+#~ msgstr "ეკვადორი"
+
+#~ msgid "French guiana"
+#~ msgstr "საფრანგეთის გვინეა"
+
+#~ msgid "Guyana"
+#~ msgstr "გაიანა"
+
+#~ msgid "Panama"
+#~ msgstr "პანამა"
+
+#~ msgid "Paraguay"
+#~ msgstr "პარაგვაი"
+
+#~ msgid "Peru"
+#~ msgstr "პერუ"
+
+#~ msgid "South America"
+#~ msgstr "სამხრეთ ამერიკა"
+
+#~ msgid "Suriname"
+#~ msgstr "სურინამი"
+
+#~ msgid "Uruguay"
+#~ msgstr "ურუგვაი"
+
+#~ msgid "Venezuela"
+#~ msgstr "ვენესუელა"
+
+#~ msgid "Austria"
+#~ msgstr "ავსტრია"
+
+#~ msgid "Belgium"
+#~ msgstr "ბელგია"
+
+#~ msgid "Denmark"
+#~ msgstr "დანია"
+
+#~ msgid "Finland"
+#~ msgstr "ფინეთი"
+
+#~ msgid "France"
+#~ msgstr "საფრანგეთი"
+
+#~ msgid "Germany"
+#~ msgstr "გერმანია"
+
+#~ msgid "Ireland"
+#~ msgstr "ირლანდია"
+
+#~ msgid "Italy"
+#~ msgstr "იტალია"
+
+#~ msgid "Luxembourg"
+#~ msgstr "ლუქსემბურგი"
+
+#~ msgid "Norway"
+#~ msgstr "ნორვეგია"
+
+#~ msgid "Portugal"
+#~ msgstr "პორტუგალია"
+
+#~ msgid "Spain"
+#~ msgstr "ესპანეთი"
+
+#~ msgid "Sweden"
+#~ msgstr "შვედეთი"
+
+#~ msgid "Switzerland"
+#~ msgstr "ისლანდია"
+
+#~ msgid "The Netherlands"
+#~ msgstr "ჰოლანდია"
+
+#~ msgid "The United Kingdom"
+#~ msgstr "გაერთიანებული სამეფო"
+
+#~ msgid "Western Europe"
+#~ msgstr "დასავლეთ ევროპა"
+
+#~ msgid "Albania"
+#~ msgstr "ალბანეთი"
+
+#~ msgid "Belarus"
+#~ msgstr "ბელორუსეთი"
+
+#~ msgid "Bosnia and Herzegovina"
+#~ msgstr "ბოსნია-ჰერცეგოვინა"
+
+#~ msgid "Bulgaria"
+#~ msgstr "ბულგარეთი"
+
+#~ msgid "Croatia"
+#~ msgstr "ჰორვატია"
+
+#~ msgid "Cyprus"
+#~ msgstr "კვიპროსი"
+
+#~ msgid "Eastern Europe"
+#~ msgstr "აღმოსავლეთ ევროპა"
+
+#~ msgid "Estonia"
+#~ msgstr "ესტონეთი"
+
+#~ msgid "Greece"
+#~ msgstr "საბერძნეთი"
+
+#~ msgid "Hungary"
+#~ msgstr "უნგრეთი"
+
+#~ msgid "Latvia"
+#~ msgstr "ლატვია"
+
+#~ msgid "Lithuania"
+#~ msgstr "ლიტვა"
+
+#~ msgid "Macedonia"
+#~ msgstr "მაკედონია"
+
+#~ msgid "Moldova"
+#~ msgstr "მოლდოვა"
+
+#~ msgid "Poland"
+#~ msgstr "პოლონეთი"
+
+#~ msgid "Romania"
+#~ msgstr "რუმინეთი"
+
+#~ msgid "Russia"
+#~ msgstr "რუსეთი"
+
+#~ msgid "Serbia and Montenegro"
+#~ msgstr "სერბეთი"
+
+#~ msgid "Slovakia"
+#~ msgstr "სლოვაკეთი"
+
+#~ msgid "Slovenia"
+#~ msgstr "სლოვენია"
+
+#~ msgid "Turkey"
+#~ msgstr "თურქეთი"
+
+#~ msgid "Ukraine"
+#~ msgstr "უკრაინა"
+
+#~ msgid "Northern Africa"
+#~ msgstr "ჩრდილოეთ აფრიკა"
+
+#~ msgid "Southern Africa"
+#~ msgstr "სამხრეთ აფრიკა"
+
+#~ msgid "Algeria"
+#~ msgstr "ალჟირი"
+
+#~ msgid "Angola"
+#~ msgstr "ანგოლა"
+
+#~ msgid "Benin"
+#~ msgstr "ბენინი"
+
+#~ msgid "Botswana"
+#~ msgstr "ბოსტვანა"
+
+#~ msgid "Burkina Faso"
+#~ msgstr "ბურკინა ფასო"
+
+#~ msgid "Burundi"
+#~ msgstr "ბურუნდი"
+
+#~ msgid "Cameroon"
+#~ msgstr "კამერუნი"
+
+#~ msgid "Central African Republic"
+#~ msgstr "დომინიკის რესპუბლიკა (ცენტრალური აფრიკის რესპუბლიკა)"
+
+#~ msgid "Chad"
+#~ msgstr "ჩადი"
+
+#~ msgid "Democratic Republic of Congo"
+#~ msgstr "კონგოს დემოკრატიული რესპუბლიკა"
+
+#~ msgid "Djibouti"
+#~ msgstr "ჯიბუტი"
+
+#~ msgid "Egypt"
+#~ msgstr "ეგვიპტე"
+
+#~ msgid "Equatorial Guinea"
+#~ msgstr "ეკვატორული გვინეა"
+
+#~ msgid "Eritrea"
+#~ msgstr "ერითრია"
+
+#~ msgid "Ethiopia"
+#~ msgstr "ეთიოპია"
+
+#~ msgid "Gabon"
+#~ msgstr "გაბონი"
+
+#~ msgid "Gambia"
+#~ msgstr "გამბია"
+
+#~ msgid "Ghana"
+#~ msgstr "განა"
+
+#~ msgid "Guinea"
+#~ msgstr "გვინეა"
+
+#~ msgid "Guinea Bissau"
+#~ msgstr "გვინეა ბისაუ"
+
+#~ msgid "Ivory Coast"
+#~ msgstr "სპილოს ძვლის სანაპირო"
+
+#~ msgid "Kenya"
+#~ msgstr "კენია"
+
+#~ msgid "Lesotho"
+#~ msgstr "ლესოთო"
+
+#~ msgid "Liberia"
+#~ msgstr "ლიბერია"
+
+#~ msgid "Libya"
+#~ msgstr "ლიბია"
+
+#~ msgid "Madagascar"
+#~ msgstr "მადაგასკარი"
+
+#~ msgid "Malawi"
+#~ msgstr "მალავი"
+
+#~ msgid "Mali"
+#~ msgstr "მალი"
+
+#~ msgid "Mauritania"
+#~ msgstr "მავრიტანია"
+
+#~ msgid "Morocco"
+#~ msgstr "მაროკო"
+
+#~ msgid "Mozambique"
+#~ msgstr "მოზამბიკი"
+
+#~ msgid "Namibia"
+#~ msgstr "ნამიბია"
+
+#~ msgid "Niger"
+#~ msgstr "ნიგერი"
+
+#~ msgid "Nigeria"
+#~ msgstr "ნიგერია"
+
+#~ msgid "Rwanda"
+#~ msgstr "რუანდა"
+
+#~ msgid "Senegal"
+#~ msgstr "სენეგალი"
+
+#~ msgid "Sierra Leone"
+#~ msgstr "სიერა ლეონე"
+
+#~ msgid "Somalia"
+#~ msgstr "სომალი"
+
+#~ msgid "South Africa"
+#~ msgstr "სამხრეთ აფრიკა"
+
+#~ msgid "Swaziland"
+#~ msgstr "სვაზილენდი"
+
+#~ msgid "Tanzania"
+#~ msgstr "ტანზანია"
+
+#~ msgid "Togo"
+#~ msgstr "ტოგო"
+
+#~ msgid "Tunisia"
+#~ msgstr "ტუნისი"
+
+#~ msgid "Uganda"
+#~ msgstr "უგანდა"
+
+#~ msgid "Zambia"
+#~ msgstr "ზამბია"
+
+#~ msgid "Zimbabwe"
+#~ msgstr "ზიმბაბვე"
+
+#~ msgid "Regions of France"
+#~ msgstr "საფრანგეთის რეგიონები"
+
+#~ msgid "Keyboard manipulation"
+#~ msgstr "კლავიატურასთან მუშაობა"
+
+#~ msgid "Letter recognition between the screen and the keyboard"
+#~ msgstr "ასოთა ამოცნობა ეკრანსა და კლავიატურაზე"
+
+#~ msgid "Equality Number Munchers"
+#~ msgstr "ტოლობების რიცხვიყლაპია"
+
+#~ msgid ""
+#~ "Guide the Number Muncher to the expressions that equal the number at the "
+#~ "top of the screen."
+#~ msgstr ""
+#~ "მიმართე რიცხვიყლაპია გამოსახულებებისკენ, რომლებიც ეკრანის ზედა ნაწილში "
+#~ "მოცემული რიცხვის ტოლია."
+
+#~ msgid "Practise addition, multiplication, division and substraction."
+#~ msgstr "სავარჯიშოები მიმატებაში, გამრავლებაში, გაყოფასა და გამოკლებაში."
+
+#~ msgid ""
+#~ "Use the arrow keys to navigate around the board and to avoid the "
+#~ "Troggles. Press the spacebar to eat a number."
+#~ msgstr ""
+#~ "ისრების გამოყენებით იმოძრავე ისე, რომ თავი დააღწიო ტროლებს. დააჭირე ხარეს "
+#~ "რიცხვების გადასაყლაპად."
+
+#~ msgid "Factor Number Munchers"
+#~ msgstr "მარტივი მამრავლების რიცხვიყლაპია"
+
+#~ msgid ""
+#~ "Guide the Number Muncher to all the factors of the number at the top of "
+#~ "the screen."
+#~ msgstr ""
+#~ "მიმართეთ რიცხვიყლაპია ეკრანის ზედა ნაწილში მოცემული რიცხვის ყველა მარტივი "
+#~ "მამრავლისკენ."
+
+#~ msgid "Learn about factors and multiples."
+#~ msgstr "მარტივი მამრავლებისა და ჯერადების შესწავლა"
+
+#~ msgid ""
+#~ "The factors of a number are all the numbers that divide that number "
+#~ "evenly. For example, the factors of 6 are 1, 2, 3 and 6. 4 is not a "
+#~ "factor of 6 because 6 cannot be divided into 4 equal pieces. If one "
+#~ "number is a multiple of a second number, then the second number is a "
+#~ "factor of the first number. Use the arrow keys to navigate around the "
+#~ "board and to avoid the Troggles. Press the spacebar to eat a number."
+#~ msgstr ""
+#~ "რიცხვის მარტივი მამრავლი არის ყველა ის რიცხვი, რომელზეც ეს რიცხვი უნაშთოდ "
+#~ "იყოფა. მაგალითად, 6-ის მარტივი მამრავლია 1, 2, 3 და 6. 4 არ არის 6-ის "
+#~ "მარტივი მამრავლი , რადგან 6 არ შეიძლება გაიყოს 4 თანაბარ ნაწილად.თუ ერთი "
+#~ "რიცხვი მეორე რიცხვის ჯერადია, მაშინ მეორე რიცხვი პირველის მარტივი "
+#~ "მამრავლია. ისრების გამოყენებით იმოძრავე ისე, რომ თავი დააღწიო ტროლებს. "
+#~ "დააჭირე ხარეს რიცხვების გადასაყლაპად."
+
+#~ msgid ""
+#~ "Guide the Number Muncher to the all the expressions that do not equal the "
+#~ "number at the top of the screen."
+#~ msgstr ""
+#~ "მიმართეთ რიცხვიყლაპია ყველა იმ გამოსახულებისკენ, რომლებიც ეკრანის ზედა "
+#~ "ნაწილში მოცემული რიცხვის ტოლი არ არის."
+
+#~ msgid "Inequality Number Munchers"
+#~ msgstr "უტოლობების რიცხვიყლაპია"
+
+#~ msgid "Practise addition, substraction, multiplication and division."
+#~ msgstr "სავარჯიშოები მიმატებაში, გამოკლებაში, გამრავლებასა და გაყოფაში."
+
+#~ msgid ""
+#~ "Guide the Number Muncher to all the multiples of the number at the top of "
+#~ "the screen."
+#~ msgstr ""
+#~ "მიმართეთ რიცხვიყლაპია ეკრანის ზედა ნაწილში მოცემული რიცხვის ყველა მარტივი "
+#~ "მამრავლისკენ."
+
+#~ msgid "Learn about multiples and factors."
+#~ msgstr "ჯერადებისა და მარტივი მამრავლები შესწავლა"
+
+#~ msgid "Multiple Number Munchers"
+#~ msgstr "ჯერადების რიცხვიყლაპია"
+
+#~ msgid ""
+#~ "The multiples of a number are all the numbers that are equal to the "
+#~ "original number times another number. For example, 24, 36, 48 and 60 are "
+#~ "all multiples of 12. 25 is not a multiple of 12 because there isn't any "
+#~ "number that can be multiplied by 12 to get 25. If one number is a factor "
+#~ "of a second number, then the second number is a multiple of the first "
+#~ "number. Use the arrow keys to navigate around the board and to avoid the "
+#~ "Troggles. Press the spacebar to eat a number."
+#~ msgstr ""
+#~ "რიცხვის ჯერადი არის ყველა ის რიცხვი, რომელიც ამ რიცხვის რომელიმე რიცხვზე "
+#~ "ნამრავლის ტოლია. მაგალითად, 24, 36, 48 და 60 არის 12-ის ჯერადი. 25 არ "
+#~ "არის 12-ის ჯერადი, რადგან არ არსებობს მთელი რიცხვი, რომელიც შეიძლება "
+#~ "გამრავლდეს 12-ზე და მივიღოთ 25. თუ ერთი რიცხვი მეორე რიცხვის გამყოფია, "
+#~ "მაშინ მეორე რიცხვი პირველის ჯერადია. ისრების გამოყენებით იმოძრავე ისე, "
+#~ "რომ თავი დააღწიო ტროლებს. დააჭირე ხარეს რიცხვების გადასაყლაპად."
+
+#~ msgid "Guide the Number Muncher to all the prime numbers."
+#~ msgstr "მიმართეთ რიცხვიყლაპია ყველა მარტივი რიცხვისკენ."
+
+#~ msgid "Learn about prime numbers"
+#~ msgstr "მარტივი რიცხვების შესწავლა"
+
+#~ msgid "Prime Number Munchers"
+#~ msgstr "მარტივი რიცხვების რიცხვიყლაპია"
+
+#~ msgid ""
+#~ "Prime numbers are numbers that are only divisible by themselves and 1. "
+#~ "For example, 3 is a prime number, but 4 isn't (because 4 is divisible by "
+#~ "2). Use the arrow keys to navigate around the board and to avoid the "
+#~ "Troggles. Press the spacebar to eat a number."
+#~ msgstr ""
+#~ "მარტივია რიცხვი რომელიც იყოფა მხოლოდ თავის თავზე და 1-ზე. მაგალითად, 3 "
+#~ "მარტივი რიცხვია, მაგრამ 4 არა (რადგან 4 იყოფა 2-ზე). ისრების გამოყენებით "
+#~ "იმოძრავე ისე, რომ თავი დააღწიო ტროლებს. დააჭირე ხარეს რიცხვების "
+#~ "გადასაყლაპად."
+
+#~ msgid "Go to Number Munchers activities"
+#~ msgstr "რიცხვების დამუშავების სავარჯიშოებზე გადასვლა"
+
+#~ msgid "Concept taken from EPI games."
+#~ msgstr "კონცეფცია აღებულია EPI თამაშებიდან."
+
+#~ msgid ""
+#~ "Drag and Drop the top pieces only from one peg to another, to reproduce "
+#~ "the tower on the right in the empty space on the left."
+#~ msgstr ""
+#~ "გადააადგილეთ ზედა ელემენტები ერთი ღერძიდან მეორეზე ისე, რომ მარცხენა "
+#~ "ცარიელ ადგილზე გაიმეოროთ მარჯვენა კოშკი."
+
+#~ msgid "Reproduce the tower on the right in the empty space on the left"
+#~ msgstr "მარჯვენა კოშკის აგება ცარიელ ადგილზე მარცხნივ"
+
+#~ msgid "Find the strawberry by clicking on the blue fields"
+#~ msgstr "ცისფერ ველებზე დაწკაპვით იპოვეთ მარწყვი "
+
+#~ msgid ""
+#~ "Try to find the strawberry under the blue fields. The fields become more "
+#~ "red as you get closer."
+#~ msgstr "იპოვეთ მარწყვი ცისფერი ველებზე. მიახლოვებისას ველები გაწითლდება."
+
+#~ msgid "hexagon"
+#~ msgstr "ექვსკუთხედი"
+
+#~ msgid "Click on the word corresponding to the printed image."
+#~ msgstr "დაწკაპეთ ნახატის შესაბამისი სიტყვა."
+
+#~ msgid "Practice reading by finding the word matching an image"
+#~ msgstr "კითხვის პრაქტიკა ნახატის შესაბამისი სიტყვის ძებნით"
+
+#~ msgid "Reading practice"
+#~ msgstr "კითხვის პრაქტიკა"
+
+#~ msgid "apple"
+#~ msgstr "ვაშლი"
+
+#~ msgid "back"
+#~ msgstr "უკან"
+
+#~ msgid "bag"
+#~ msgstr "პარკი"
+
+#~ msgid "ball"
+#~ msgstr "ბურთი"
+
+#~ msgid "banana"
+#~ msgstr "ბანანი"
+
+#~ msgid "bed"
+#~ msgstr "საწოლი"
+
+#~ msgid "boat"
+#~ msgstr "ნავი"
+
+#~ msgid "book"
+#~ msgstr "წიგნი"
+
+#~ msgid "bottle"
+#~ msgstr "ბოთლი"
+
+#~ msgid "cake"
+#~ msgstr "ნამცხვარი"
+
+#~ msgid "camel"
+#~ msgstr "აქლემი"
+
+#~ msgid "car"
+#~ msgstr "ავტომანქანა"
+
+#~ msgid "cat"
+#~ msgstr "კატა"
+
+#~ msgid "catch"
+#~ msgstr "დაჭერა"
+
+#~ msgid "cheese"
+#~ msgstr "ყველი"
+
+#~ msgid "cow"
+#~ msgstr "ძროხა"
+
+#~ msgid "dog"
+#~ msgstr "ძაღლი"
+
+#~ msgid "finish"
+#~ msgstr "ფინიში"
+
+#~ msgid "fish"
+#~ msgstr "თევზი"
+
+#~ msgid "house"
+#~ msgstr "სახლი"
+
+#~ msgid "pear"
+#~ msgstr "მსხალი"
+
+#~ msgid "plane"
+#~ msgstr "თვითმფრინავი"
+
+#~ msgid "satchel"
+#~ msgstr "ჩანთა"
+
+#~ msgid "Drag and Drop the items above their written name"
+#~ msgstr "გადაიტანეთ საგნები მათ დასახელებების წარწერებზე"
+
+#~ msgid ""
+#~ "Drag the images from the vertical box on the left to their corresponding "
+#~ "name on the right. Click the OK button to check your answer."
+#~ msgstr ""
+#~ "მარცხენა ვერტიკალური ყუთიდან გადაიტანეთ საგნები მათ შესაბამის "
+#~ "დასახელებებზე. პასუხის შესამოწმებლად დაწკაპეთ დიახ."
+
+#~ msgid "Image Name"
+#~ msgstr "ნახატის სახელი"
+
+#~ msgid "Vocabulary and reading"
+#~ msgstr "კითხვა და სიტყვების მარაგი"
+
+#~ msgid "bulb"
+#~ msgstr "ნათურა"
+
+#~ msgid "fishing boat"
+#~ msgstr "სათევზაო ნავი"
+
+#~ msgid "lamp"
+#~ msgstr "ლამპა"
+
+#~ msgid "mail box"
+#~ msgstr "საფოსტო ყუთი"
+
+#~ msgid "postcard"
+#~ msgstr "ბარათი"
+
+#~ msgid "sailing boat"
+#~ msgstr "აფრიანი ნავი"
+
+#~ msgid "egg"
+#~ msgstr "კვერცხი"
+
+#~ msgid "eggcup"
+#~ msgstr "კვერცხის სადგამი"
+
+#~ msgid "flower"
+#~ msgstr "ყვავილი"
+
+#~ msgid "glass"
+#~ msgstr "ჭიქა"
+
+#~ msgid "light house"
+#~ msgstr "შუქურა"
+
+#~ msgid "rocket"
+#~ msgstr "რაკეტა"
+
+#~ msgid "sofa"
+#~ msgstr "სოფა"
+
+#~ msgid "star"
+#~ msgstr "ვარსკვლავი"
+
+#~ msgid "bicycle"
+#~ msgstr "ველოსიპედი"
+
+#~ msgid "carrot"
+#~ msgstr "სტაფილო"
+
+#~ msgid "grater"
+#~ msgstr "სახეხი"
+
+#~ msgid "tree"
+#~ msgstr "ხე"
+
+#~ msgid "pencil"
+#~ msgstr "ფანქარი"
+
+#~ msgid "spruce"
+#~ msgstr "ნაძვი"
+
+#~ msgid "truck"
+#~ msgstr "საბარგო მანქანა"
+
+#~ msgid "van"
+#~ msgstr "ფურგონი"
+
+#~ msgid "castle"
+#~ msgstr "ციხე-კოშკი"
+
+#~ msgid "crown"
+#~ msgstr "გვირგვინი"
+
+#~ msgid "flag"
+#~ msgstr "ალამი"
+
+#~ msgid "racket"
+#~ msgstr "ჩოგანი"
+
+#~ msgid ""
+#~ "GCompris identifies each child, so we can provide child-specific reports."
+#~ msgstr ""
+#~ "GCompris ამოიცნობს თითოეულ ბავშვს, ასე რომ ინდივიდუალური ანგარიშების "
+#~ "მიღება შეგიძლიათ."
+
+#~ msgid "GCompris login screen"
+#~ msgstr "GCompris-ში შესვლის ეკრანი"
+
+#~ msgid ""
+#~ "In order to activate the login screen, you must \n"
+#~ "first add users in the administration part of GCompris. \n"
+#~ "You access the administration part by running 'gcompris -a'.\n"
+#~ "In the administration, you can create different profiles. In each "
+#~ "profiles\n"
+#~ "you can have a different set of users and select which activities are "
+#~ "available to them.\n"
+#~ "To run GCompris in a specific profile, you can run 'gcompris -p profile' "
+#~ "where 'profile'\n"
+#~ "is the name of a profile as you created it in the administration."
+#~ msgstr ""
+#~ "იმისათვის რომ შესვლის ეკრანი გაააქტივოთ, თავდაპირველად \n"
+#~ "GCompris-ის ადმინისტრირების პულტის საშუალებით მონაწილე უნდა დაამატოთ. \n"
+#~ "ადმინისტრირების პულტის გამოძახება შეგიძლიათ ბრძანებით 'gcompris -a'.\n"
+#~ "ადმინისტრირების პულტით სხავდასხვა პროფილის შექმნა შეგიძლიათ.\n"
+#~ "თითოეულ პროფილში მონაწილეთა სხადასხვა ჯგუფები და სავარჯიშოებია.\n"
+#~ "GCompris-ის რომელიმე პროფილით სამუშაოდ გამოიყენეთ 'gcompris -p profile',\n"
+#~ "სადაც 'profile' ადმინისტრირებისას შექმნილი სასურველი პროფილის სახელია."
+
+#~ msgid "Select or enter your name to log in GCompris"
+#~ msgstr "აარჩიეთ ან შეიტანეთ თქვენი სახელი GCompris-ში შესასვლელად"
+
+#~ msgid ""
+#~ "A hand is shown. Determine if it is a right or left hand. Click on the "
+#~ "red button at the left, or on the green button at the right."
+#~ msgstr ""
+#~ "გამოჩნდება ხელი.  განსაზღვრეთ მარჯვენაა თუ მარცხენა.  თუ მარცხენაა "
+#~ "დაწკაპეთ წითელი ღილაკი მარცნივ,თუ მარჯვენაა - მწვანე მარჯვნივ."
+
+#~ msgid "Determine if a hand is a right or left hand"
+#~ msgstr "განსაზღვრეთ მარცხენაა თუ მარჯვენა ეს ხელი"
+
+#~ msgid ""
+#~ "Distinguish right and left hands from different points of view. Spatial "
+#~ "representation"
+#~ msgstr ""
+#~ "მარცხენა და მარჯვენა ხელის განსხვავება სხვადასხვა კუთხიდან. სივრცობრივი "
+#~ "აღქმა."
+
+#~ msgid "None"
+#~ msgstr "არც ერთი"
+
+#~ msgid "Can use the keyboard arrow to move an object."
+#~ msgstr ""
+#~ "ობიექტის გადასატანად მარცხენა და მარჯვენა კლავიშების გამოყენება შეგიძლიათ."
+
+#~ msgid "Help Tux get out of this maze."
+#~ msgstr "დაეხმარეთ პინგვინ ტუქსს ლაბირინთიდან გამოსვლაში."
+
+#~ msgid "Use the keyboard arrows to move Tux up to the door."
+#~ msgstr "გამოიყენეთ კლავიატურის ისრები ტუქსის კართან მისაყვანად."
+
+#~ msgid "Find your way out of the maze (Move is relative)"
+#~ msgstr "იპოვნეთ გასასვლელი ლაბირინთიდან"
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
+#~ "move is relative (first person). Use the up arrow to go forward. The "
+#~ "other arrow let you turn Tux in another direction."
+#~ msgstr ""
+#~ "გამოიყენეთ კლავიატურის ისრები ტუქსის კართან მისაყვანად.  ამ ლაბირინთში "
+#~ "მოძრაობა ფარდობითია (პირველი პირი).  გამოიყენეთ ზედა ისარი წინ "
+#~ "წასასვლელად.  მეორე ისრით შეგიძლიათ ტუქსი სხვა მიმართულებით შეაბრუნოთ."
+
+#~ msgid "3D Maze"
+#~ msgstr "მოცულობითი ლაბირინთი"
+
+#~ msgid "Find your way out of the 3D maze"
+#~ msgstr "იპოვნეთ გასასვლელი მოცულობითი ლაბირინთიდან"
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+#~ "switch between 2D and 3D modes. 2D mode gives you just an indication of "
+#~ "your position like a map. You cannot move tux in 2D mode."
+#~ msgstr ""
+#~ "კლავიატურის ისრების საშუალებით ტუქსი კარებთან გადაიყვანეთ.  გამოიყენეთ "
+#~ "ხარე 2D და 3D რეჟიმებზე გადასართველად. 2D რეჟიმში მხოლოდ თქვენი პოზიციის "
+#~ "ნახვა შეგიძლიათ, ისე როგორც რუკაზე.  ამ რეჟიმში ვერ იმოძრავებთ."
+
+#~ msgid "Find your way out of the invisible maze"
+#~ msgstr "იპოვნეთ გასასვლელი უხილავი ლაბირინთიდან"
+
+#~ msgid ""
+#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
+#~ "switch between invisible and visible modes. Visible mode gives you just "
+#~ "an indication of your position like a map. You cannot move tux in visible "
+#~ "mode."
+#~ msgstr ""
+#~ "კლავიატურის ისრების საშუალებით ტუქსი კარებთან გადაიყვანეთ.  გამოიყენეთ "
+#~ "ხარე 2D და 3D რეჟიმებზე გადასართველად. ხილულ რეჟიმში მხოლოდ თქვენი "
+#~ "პოზიციისნახვა შეგიძლიათ, ისე როგორც რუკაზე.  ამ რეჟიმში ვერ იმოძრავებთ."
+
+#~ msgid "Find your way out different type of mazes"
+#~ msgstr "იპოვნეთ გასასვლელი სხავდასხვა სახის ლაბირინთებიდან"
+
+#~ msgid "Go to Maze activities"
+#~ msgstr "გადასვლა ლაბირინთების სავარჯიშოებზე"
+
+#~ msgid "Ear training activity"
+#~ msgstr "სმენის გავარჯიშება"
+
+#~ msgid ""
+#~ "Listen to the sound sequence played, and repeat it by clicking on the "
+#~ "elements. You can listen again by clicking on the repeat button."
+#~ msgstr ""
+#~ "მოუსმინეთ ხმების მიმდევრობას და გაიმეორეთ იგი ელემენტებზე დაწკაპვით. \n"
+#~ "ხელმეორედ მოსმენა შეგიძლიათ 'გამეორება' ღილაკზე დაწკაპვით."
+
+#~ msgid "Melody"
+#~ msgstr "მელოდია"
+
+#~ msgid "Repeat a melody"
+#~ msgstr "მელოდიის გამეორება"
+
+#~ msgid ""
+#~ "A set of blank cards is shown. Each pair is associated by the same "
+#~ "picture in their hidden faces. Click on a card to can uncover it and see "
+#~ "its hidden picture. However, you can only see two hidden pictures at "
+#~ "once. You have to remember the position of the pictures to associate "
+#~ "them. To remove a pair of cards, uncover both of them."
+#~ msgstr ""
+#~ "ნაჩვენებია ბარათების ნაკრები.  თითოეულ ბარათს გააჩნია წყვილი მსგავსი "
+#~ "ნახატით. \n"
+#~ "ბარათზე დაწკაპვით იგი გადმოტრიალდება და გამოჩნდება მისი ნახატი. \n"
+#~ "ერთდროულად მხოლოდ ორი ნახატის ნახვა შეგიძლიათ.\n"
+#~ "უნდა დაიმახსოვროთ ნახატები და მათი შესაბამისი მდგომარეობა.\n"
+#~ "ორი ერთნაირი ნახატის წყვილის ამოსაშლელად ერთდროულად გახსენით ორივე "
+#~ "მათგანი."
+
+#~ msgid "Flip the cards to find the matching pairs"
+#~ msgstr "ბარათების გადმოტრიალება და წყვილების პოვნა"
+
+#~ msgid "Memory Game with images"
+#~ msgstr "თამაში 'მეხსიერება' ნახატებით"
+
+#~ msgid "Train your memory and remove all the cards"
+#~ msgstr "გაავარჯიშე მეხსიერება და ამოშალე ყველა ბარათი"
+
+#~ msgid ""
+#~ "A set of blank cards is shown. Each pair is associated by the same "
+#~ "picture in their hidden faces. Click on a card to can uncover it and see "
+#~ "its hidden picture. However, you can only see two hidden pictures at "
+#~ "once. You have to remember the position of the pictures to associate "
+#~ "them. To remove a pair of cards, uncover both of them. You play "
+#~ "alternatively with Tux, and must take more pairs of cards than him."
+#~ msgstr ""
+#~ "ნაჩვენებია ბარათების ნაკრები.  თითოეულ ბარათს გააჩნია წყვილი მსგავსი "
+#~ "ნახატით.  ბარათზე დაწკაპვით იგი გადმოტრიალდება და გამოჩნდება მისი ნახატი. "
+#~ "ერთდროულად მხოლოდ ორი ნახატის ნახვა შეგიძლიათ.უნდა დაიმახსოვროთ ნახატები "
+#~ "და მათი შესაბამისი მდგომარეობა.  ორი ერთნაირი ნახატის წყვილის ამოსაშლელად "
+#~ "ერთდროულად გახსენით ორივე მათგანი. რიგრიგობით თამაშობთ თქვენ და ტუქსი. "
+#~ "მასზე მეტი წყვილი უნდა გახსნათ იმისათვის რომ მოიგოთ."
+
+#~ msgid "Memory Game with images, against Tux"
+#~ msgstr "თამაში ნახატებით - 'მეხსიერება', ტუქსის წინააღმდეგ"
+
+#~ msgid "Mouse manipulation, Brain."
+#~ msgstr "თაგუნათი მანიპულირება, ტვინი"
+
+#~ msgid "Play to memory against Tux."
+#~ msgstr "/\"მეხსიერების თამაში/\" ტუქსთან."
+
+#~ msgid ""
+#~ "A simple click on an icon brings you to an activity or a menu of "
+#~ "activities.\n"
+#~ "At the bottom of the screen is the gcompris control bar.\n"
+#~ "The following icons are displayed from right to left.\n"
+#~ "Note that each icon is displayed only if available in the current "
+#~ "activity:\n"
+#~ "    Home - Back to previous menu or exit gcompris if at the top\n"
+#~ "    Thumb - OK. Confirm your answer\n"
+#~ "    Die - Display the current level. Click to select another level\n"
+#~ "    Music note - Repeat the question\n"
+#~ "    Question Mark - Help\n"
+#~ "    Tool - The configuration menu\n"
+#~ "    Tux Plane - About game\n"
+#~ "The stars, beside the activity icon, gives an indication of the "
+#~ "difficulty:\n"
+#~ "    1, 2 or 3 simple stars  - 2 to 6 years old\n"
+#~ "    1, 2 or 3 complex stars - From 7 years old"
+#~ msgstr ""
+#~ "დაწკაპეთ პიქტოგრამები სავარჯიშოებზე ან სავარჯიშოების მენიუში "
+#~ "გადასასვლელად. \n"
+#~ "ეკრანის ქვედა ნაწილში განთავსებულია პროგრამის საკონტროლო პანელი. \n"
+#~ "მარჯვნიდან მარცხნივ განლაგებულია შემდეგი პიქტოგრამები:\n"
+#~ "(შენიშვნა: თითოეული სავარჯიშოსთვის ნაჩვენებია მხოლოდ შესაძლო "
+#~ "პიქტოგრამები)\n"
+#~ "  სახლი - დაბრუნება წინა მენიუში ან პროგრამიდან გასვლა (სულ დასაწყისში)\n"
+#~ "  დიახ - თქვენი პასუხის დადასტურება\n"
+#~ "  კამათელი - აჩვენებს სირთულის დონეს. დაწკაპეთ სირთულის შესაცვლელად\n"
+#~ "  ნოტი - კითხვის გამეორება\n"
+#~ "  კითხვის ნიშანი - დახმარება\n"
+#~ "   ქანჩის გასაღები - პროგრამის მორგება\n"
+#~ "   თვითმფრინავი - ინფორმაცია პროგრამის შესახებ\n"
+#~ "ვარსკვლავების მნიშვნელობა:\n"
+#~ "  1, 2 ან 3 უბრალო ვარსკვლავი - 2-დან 6 წლამდე\n"
+#~ "  1, 2 ან 3 მრავალქიმიანი ვარსკვლავი - 7 წელი და მეტი"
+
+#~ msgid "GCompris Main Menu"
+#~ msgstr "GCompris მთავარი მენიუ"
+
+#~ msgid ""
+#~ "GCompris is a collection of educational games that provides for children "
+#~ "from 2 years old with different activities."
+#~ msgstr ""
+#~ "GCompris გახლავთ სასწავლო თამაშების კოლექცია, რომლებშიც წარმოდგენილია "
+#~ "სხვადასხვა სავარჯიშო 2 წლიდან და ზემოთ  ასაკის ბავშვებისთვის."
+
+#~ msgid ""
+#~ "The goal of gcompris is to provide a free alternative to popular "
+#~ "proprietary edutainment software"
+#~ msgstr ""
+#~ "პროგრამის მიზანია წარმოადგინოს ფასიანი პროგრამული უზრუნველყოფის უფასო "
+#~ "ალტერნატულობა"
+
+#~ msgid ""
+#~ "An object is displayed in the main area, and an incomplete word is "
+#~ "printed under the picture. Select the missing letter to complete the word."
+#~ msgstr ""
+#~ "ეკრანის ძირითად არეში ნაჩვენებია ობიექტი მის ქვეშ დაუმთავრებელი "
+#~ "სიტყვით. \n"
+#~ "შეარჩიეთ გამოტოვებული ასო და შეავსეთ სიტყვა."
+
+#~ msgid "Fill in the missing letter"
+#~ msgstr "გამოტოვებული ასოს ჩასმა"
+
+#~ msgid "Missing Letter"
+#~ msgstr "გამოტოვებული ასო"
+
+#~ msgid "To train reading skills"
+#~ msgstr "კითხვის უნარ-ჩვევების სავარჯიშო"
+
+#~ msgid "Word reading"
+#~ msgstr "სიტყვების წაკითხვა"
+
+#~ msgid "apple/_pple/a/i/o"
+#~ msgstr "ვაშლი/_აშლი/ვ/ბ/დ"
+
+#~ msgid "apple/app_e/l/h/n"
+#~ msgstr "ვაშლი/ვაშ_ი/ლ/ტ/ხ"
+
+#~ msgid "apple/appl_/e/h/a"
+#~ msgstr "ვაშლი/ვაშლ_/ი/უ/ე"
+
+#~ msgid "ball/_all/b/p/d"
+#~ msgstr "ბურთი/_ურთი/ბ/ზ/ყ"
+
+#~ msgid "ball/b_ll/a/u/o"
+#~ msgstr "ბურთი/ბუ_თი/რ/შ/ს"
+
+#~ msgid "ball/bal_/l/h/s"
+#~ msgstr "ბურთი/ბურ_ი/თ/კ/ჭ"
+
+#~ msgid "banana/_anana/b/p/d"
+#~ msgstr "ბანანი/_ანანი/ბ/ვ/ღ"
+
+#~ msgid "banana/b_nana/a/o/i"
+#~ msgstr "ბანანი/ბა_ანი/ნ/შ/მ"
+
+#~ msgid "banana/ba_ana/n/m/b"
+#~ msgstr "ბანანი/ბან_ნი/ა/ო/ი"
+
+#~ msgid "bed/_ed/b/l/f"
+#~ msgstr "საწოლი/_აწოლი/ს/წ/ჯ"
+
+#~ msgid "bed/b_d/e/a/i"
+#~ msgstr "საწოლი/სა_ოლი/წ/გ/თ"
+
+#~ msgid "bed/be_/d/p/b"
+#~ msgstr "საწოლი/საწო_ი/ლ/რ/ხ"
+
+#~ msgid "bottle/_ottle/b/t/p"
+#~ msgstr "ბოთლი/ბ_თლი/ო/ე/ა"
+
+#~ msgid "bottle/b_ttle/o/u/d"
+#~ msgstr "ბოთლი/ბო_ლი/თ/ღ/გ"
+
+#~ msgid "bottle/bott_e/l/y/r"
+#~ msgstr "ბოთლი/ბოთ_ი/ლ/რ/ხ"
+
+#~ msgid "cake/_ake/c/p/d"
+#~ msgstr "ტორტი/_ორტი/ტ/წ/ვ"
+
+#~ msgid "cake/c_ke/a/o/e"
+#~ msgstr "ტორტი/ტ_რტი/ო/უ/ი"
+
+#~ msgid "cake/ca_e/k/q/c"
+#~ msgstr "ტორტი/ტო_ტი/რ/ნ/ლ"
+
+#~ msgid "car/_ar/c/k/b"
+#~ msgstr "მანქანა/_ანქანა/მ/ჩ/ჟ"
+
+#~ msgid "car/c_r/a/k/o"
+#~ msgstr "მანქანა/მა_ქანა/ნ/ტ/მ"
+
+#~ msgid "car/ca_/r/w/k"
+#~ msgstr "მანქანა/მან_ანა/ქ/დ/ძ"
+
+#~ msgid "dog/_og/d/p/q"
+#~ msgstr "ძაღლი/_აღლი/ძ/ბ/ქ"
+
+#~ msgid "dog/d_g/o/g/a"
+#~ msgstr "ძაღლი/ძა_ლი/ღ/შ/პ"
+
+#~ msgid "dog/do_/g/p/q"
+#~ msgstr "ძაღლი/ძაღ_ი/ლ/ვ/რ"
+
+#~ msgid "fish/_ish/f/h/l"
+#~ msgstr "თევზი/_ევზი/თ/ჭ/ყ"
+
+#~ msgid "fish/f_sh/i/u/l"
+#~ msgstr "თევზი/თე_ზი/ვ/მ/გ"
+
+#~ msgid "fish/fis_/h/o/i"
+#~ msgstr "თევზი/თევ_ი/ზ/შ/ხ"
+
+#~ msgid "house/_ouse/h/e/j"
+#~ msgstr "სახლი/_ახლი/ს/მ/ქ"
+
+#~ msgid "house/h_use/o/f/u"
+#~ msgstr "სახლი/სა_ლი/ხ/კ/ბ"
+
+#~ msgid "house/hous_/e/a/i"
+#~ msgstr "სახლი/სახ_ი/ლ/რ/მ"
+
+#~ msgid "plane/_lane/p/g/d"
+#~ msgstr "თვითმფრინავი/_ვითმფრინავი/თ/ჩ/ც"
+
+#~ msgid "plane/p_ane/l/j/i"
+#~ msgstr "თვითმფრინავი/თვით_ფრინავი/მ/კ/დ"
+
+#~ msgid "plane/pl_ne/a/o/s"
+#~ msgstr "თვითმფრინავი/თვითმფრი_ავი/ნ/შ/ლ"
+
+#~ msgid "satchel/_atchel/s/c/l"
+#~ msgstr "ჩანთა/_ანთა/ჩ/ქ/ღ"
+
+#~ msgid "satchel/s_tchel/a/o/i"
+#~ msgstr "ჩანთა/ჩ_ნთა/ა/უ/ო"
+
+#~ msgid "satchel/sa_chel/t/p/c"
+#~ msgstr "ჩანთა/ჩან_ა/თ/გ/ფ"
+
+#~ msgid "Can count"
+#~ msgstr "დათვლის უნარი"
+
+#~ msgid ""
+#~ "Click on the coins or paper money on the bottom of the screen to pay. If "
+#~ "you want to remove a coin or note, click on it in the upper screen area."
+#~ msgstr ""
+#~ "ფულის გადასახდელად დაწკაპეთ მონეტა ან ქაღალდის ბანკნოტი ეკრანის ქვედა "
+#~ "ნაწილში.  ფულის დასაბრუნებლად დაწკაპეთ ეკრანის ზედა ნაწილზე."
+
+#~ msgid "Practice money usage"
+#~ msgstr "ფულის გამოყენების პრაქტიკა"
+
+#~ msgid ""
+#~ "You must buy the different items and give the exact price. At higher "
+#~ "levels, several items are displayed, and you must first calculate the "
+#~ "total price."
+#~ msgstr ""
+#~ "უნდა შეიძინოთ სხვადასხვა საგანი და გადაიხადოთ ზუსტი ღირებულება.  რთულ "
+#~ "დონეებზე ერთდროულად რამდენიმე საგანი გამოისახება და საერთო ფასი უნდა "
+#~ "გამოთვალოთ."
+
+#~ msgid ""
+#~ "Click on the coins or paper money on the botton of the screen to pay. If "
+#~ "you want to remove a coin or note, click on it in the upper screen area."
+#~ msgstr ""
+#~ "ფულის გადასახდელად დაწკაპეთ მონეტა ან ქაღალდის ბანკნოტი ეკრანის ქვედა "
+#~ "ნაწილში.  დასაბრუნებლად დაწკაპეთ ეკრანის ზედა ნაწილზე."
+
+#~ msgid "Practice money usage including cents"
+#~ msgstr "ფულის გამოყენების პრაქტიკა, თეთრების ჩათვლით."
+
+#~ msgid "Mouse manipulation boards"
+#~ msgstr "თაგუნათი მანიპულირების დაფები"
+
+#~ msgid "Drag and Drop the items to rebuild the original paintings"
+#~ msgstr "გადააადგილეთ ელემენტები საწყისი ნახატის აღსადგენად"
+
+#~ msgid ""
+#~ "Drag the image parts from the box on the left to create a painting on the "
+#~ "main board."
+#~ msgstr ""
+#~ "ნახატის ასაგებად გადააადგილეთ ნახატის ნაწილები მარცხენა პანელიდან ეკრანის "
+#~ "ცენტრში."
+
+#~ msgid "Mouse manipulation: movement, drag and drop"
+#~ msgstr "თაგუნას მართვა: მოძრაობა, გადააადგილება"
+
+#~ msgid "Spatial representation"
+#~ msgstr "სივრცობრივი აღქმა"
+
+#~ msgid "Edgar Degas, The Dancing Class - 1873-75"
+#~ msgstr "ედგარ დეგა, \"ცეკვის გაკვეთილი\" - 1873-75"
+
+#, fuzzy
+#~ msgid "Pierre-Auguste Renoir, Le Moulin de la Galette - 1876"
+#~ msgstr "პიერ-ოგიუსტ რენუარი, \"Bal au moulin de la Galette\" - 1876"
+
+#~ msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
+#~ msgstr "პიერ-ოგიუსტ რენუარი, \"გოგონები პიანინოსთან\" - 1892"
+
+#~ msgid "Kandinsky, Wassily, Composition VIII - 1923"
+#~ msgstr "ვასილი კანდინსკი, \"კომპოზიცია VIII\" - 1923"
+
+#~ msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
+#~ msgstr "ზეთი, ტილო 140 x 201 სმ; სოლომონ რ. გუგენჰეიმის მუზეუმი,·ნიუ-იორკი"
+
+#, fuzzy
+#~ msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
+#~ msgstr "ბაზილი, The Ramparts at Aigues-Mortes - 1867"
+
+#~ msgid "Cassatt, Mary - Summertime - 1894"
+#~ msgstr "მერი კასეტი, - ზაფხული - 1894"
+
+#~ msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
+#~ msgstr "ვინცენტ ვან-გოგი, \"სოფლის ქუჩა ოვერში\" - 1890"
+
+#~ msgid "Help Tux the parachuter land safely"
+#~ msgstr "დაეხმარეთ პარაშუტისტ ტუქსს უვნებლად დაშვებაში"
+
+#~ msgid ""
+#~ "Hit any key or click on the plane to make Tux jump. Hit another key or "
+#~ "click on Tux to open the parachute."
+#~ msgstr ""
+#~ "ტუქსის გადმოსახტომად დააჭირეთ ნებისმიერ ღილაკს ან დაწკაპეთ თვითმფრინავი.  "
+#~ "დააჭირეთ სხვა კლავიშს ან დაწკაპეთ ტუქსი პარაშუტის გასახსნელად."
+
+#~ msgid ""
+#~ "In this game, Tux the parachuter needs help to land safely on the fishing "
+#~ "boat. He needs to take care of the wind direction and speed."
+#~ msgstr ""
+#~ "ამ თამაშში პარაშუტისტ ტუქსს უვნებლად დასაშვებად დახმარება სჭირდება.  მან "
+#~ "ქარის მიმართულება და სიჩქარე უნდა გაითვალისწინოს."
+
+#~ msgid "Parachute jumper"
+#~ msgstr "პარაშუტისტი"
+
+#~ msgid "This board is game oriented. No specific skills are needed to play."
+#~ msgstr ""
+#~ "ეს გახლავთ თამაშების განყოფილება.  სათამაშოდ სპეციალური უნარ-ჩვევები "
+#~ "საჭირო არაა."
+
+#~ msgid "Move the helicopter to catch the clouds in the correct order"
+#~ msgstr "გადააადგილეთ ვერტმფრენის ღრუბლების მართებული რიგის დასაჭერად"
+
+#~ msgid "Number"
+#~ msgstr "რიცხვი"
+
+#~ msgid ""
+#~ "Use the up, down, right and left keyboard keys to move the helicopter to "
+#~ "catch the numbers in increasing order."
+#~ msgstr ""
+#~ "კლავიატურის ისრების გამოყენებით გადააადგილეთ ვერტმფრენი რიცხვების "
+#~ "ზრდადობის რიგით შესაგროვებლად."
+
+#~ msgid "Add a language binding to gcompris."
+#~ msgstr "პროგრამაში ამ ენის მხარდაჭერის დამატება."
+
+#~ msgid "Advanced Python Programmer :)"
+#~ msgstr "Python-ის გამოცდილი პროგრამისტი :)"
+
+#~ msgid "Python Test"
+#~ msgstr "Python-ის ტესტი"
+
+#~ msgid "Test board for the python plugin"
+#~ msgstr "ტექტური არე Python-ის ჩადგმისთვის"
+
+#~ msgid ""
+#~ "Thanks to Guido van Rossum and the python team for this powerful language!"
+#~ msgstr ""
+#~ "მადლობა გვიდო ვან როსუმს და Python-ის გუნდს პროგრამირების ამ ძლიერი "
+#~ "ენისთვის!"
+
+#~ msgid "A memory game based on trains"
+#~ msgstr "თამაში მატარებლებით მეხსიერების გასავარჯიშებლად"
+
+#~ msgid ""
+#~ "A train - a locomotive and wagon(s) - is displayed at the top of the main "
+#~ "area for a few seconds. Rebuild it at the top of the screen by selecting "
+#~ "the appropriate wagons and locomotive. Unselect an item by clicking on it "
+#~ "again. Check your construction by clicking on the hand at the bottom."
+#~ msgstr ""
+#~ "მატარებელი - ლოკომოტივი და ვაგონები - რამდენიმე წამით გამოისახება ეკრანის "
+#~ "ზედა ნაწილში.  აღადგინეთ იგი ეკრანის ზედა ნაწილში ლოკომოტივისა და "
+#~ "ვაგონების სწორად შერჩევით.  მონიშვნის მოხსნა ხელმეორედ დაწკაპვით "
+#~ "შეგიძლიათ.  თქვენი კონსტრუქციის შესამოწმებლად დაწკაპეთ ხელი ეკრანის ქვედა "
+#~ "ნაწილში."
+
+#~ msgid "Memory training"
+#~ msgstr "მეხსიერების ვარჯიში"
+
+#~ msgid "Railroad"
+#~ msgstr "რკინიგზა"
+
+#~ msgid "Click on the correct colored object."
+#~ msgstr "დაწკაპეთ სწორად გაფერადებული ობიექტი."
+
+#~ msgid "Read colors"
+#~ msgstr "ფერები"
+
+#~ msgid "This board teaches basic colors."
+#~ msgstr "ამ თამაშით ისწავლება მარტივი ფერები"
+
+#~ msgid "black"
+#~ msgstr "შავი"
+
+#~ msgid "blue"
+#~ msgstr "ლურჯი"
+
+#~ msgid "brown"
+#~ msgstr "ყავისფერი"
+
+#~ msgid "green"
+#~ msgstr "მწვანე"
+
+#~ msgid "grey"
+#~ msgstr "ნაცრისფერ"
+
+#~ msgid "orange"
+#~ msgstr "ნარინჯისფერი"
+
+#~ msgid "pink"
+#~ msgstr "ვარდისფერი"
+
+#~ msgid "red"
+#~ msgstr "წითელი"
+
+#~ msgid "violet"
+#~ msgstr "იისფერი"
+
+#~ msgid "white"
+#~ msgstr "თეთრი"
+
+#~ msgid "yellow"
+#~ msgstr "ყვითელი"
+
+#~ msgid "Go to the Reading activities"
+#~ msgstr "კითხვის სავარჯიშოებზე გადასვლა"
+
+#~ msgid ""
+#~ "A word is shown at the top right of the board. A list of words will "
+#~ "appear and disappear on the left. Indicate whether or not the given word "
+#~ "appeared in the list."
+#~ msgstr ""
+#~ "ზემოთ, მარჯვნივ გამოჩნდება სიტყვა, მარცხნივ კი გამოჩნდება და გაქრება "
+#~ "სიტყვების ჩამონათვალი.  მიუთითეთ გამოჩნდა თუ არა მოცემული სიტყვა სიაში."
+
+#~ msgid "Horizontal reading practice"
+#~ msgstr "ჰორიზონტალურად კითხვის ვარჯიში"
+
+#~ msgid "Read a list of words and tell if a given word is in it"
+#~ msgstr ""
+#~ "წაიკითხეთ სიტყვების სია და უპასუხეთ, არის თუ არა მოცემული სიტყვა სიაში"
+
+#~ msgid "Read training in a limited time"
+#~ msgstr "შეზღუდულ დროში კითხვის ვარჯიში"
+
+#~ msgid ""
+#~ "A word is shown at the top right of the board. A list of words will "
+#~ "appear and disappear on left. Indicate whether or not the given word "
+#~ "appeared in the list."
+#~ msgstr ""
+#~ "ზემოთ, მარჯვნივ გამოჩნდება სიტყვა, მარცხნივ კი გამოჩნდება და გაქრება "
+#~ "სიტყვების ჩამონათვალი.  მიუთითეთ გამოჩნდა თუ არა მოცემული სიტყვა სიაში."
+
+#~ msgid "Read a vertical list of words and tell if a given word is in it"
+#~ msgstr ""
+#~ "წაიკითხეთ სიტყვების ვერტიკალური სია და უპასუხეთ, არის თუ არა მოცემული "
+#~ "სიტყვა მასში"
+
+#~ msgid "Vertical reading practice"
+#~ msgstr "ვერტიკალურად კითხვის ვარჯიში"
+
+#~ msgid "Copy a drawing from the box on the right into the box on the left."
+#~ msgstr "გაიმეორე ნახატი მარჯვენა პანელიდან მარცხენა ნაწილში."
+
+#~ msgid ""
+#~ "First, select the proper tool from the toolbar. Then, drag the mouse to "
+#~ "create objects. When you are done, click on the OK button. Errors will be "
+#~ "marked with a little red cross. The order of objects (above/under) is not "
+#~ "important but take care not to have unwanted objects under others."
+#~ msgstr ""
+#~ "თავდაპირველად აირჩიეთ მართებული ხელსაწყო ხელსაწყოთა პანელიდან.  შემდეგ "
+#~ "გადააადგილეთ თაგუნა ობიექტის შესაქმნელად და დასრულებისას დაწკაპეთ ღილაკი "
+#~ "'დიახ'.  შეცდომები პატარა წითელი ჯვრით აღინიშნება.  ობიექტების მიმდევრობა"
+#~ "(ზემოთ/ქვემოთ) არაა მნიშვნელოვანი, მაგრამ გაითვალისწინეთ, რომ უსარგებლო "
+#~ "ობიექტები სხვების ქვეშ არ მოხვდნენ."
+
+#~ msgid "Redraw the given item"
+#~ msgstr "მოცემული ელემენტის გადახატვა"
+
+#~ msgid ""
+#~ "Copy the mirror image of an object from the box on the right into the box "
+#~ "on the left."
+#~ msgstr ""
+#~ "მოცემული ობიექტის სარკისებრი გამოსახულება მარჯვენა პანელიდან დააკოპირეთ "
+#~ "მარცხენაში."
+
+#~ msgid "Mirror the given item"
+#~ msgstr "მოცემული ელემენტის დასარკვა"
+
+#~ msgid ""
+#~ "Can move the mouse, can read numbers and substract numbers up to 10 for "
+#~ "the first level"
+#~ msgstr ""
+#~ "თაგუნას მოძრაობის, რიცხვების კითხვისა და 10-მდე გამოკლების უნარ-ჩვევები "
+#~ "პირველ დონეზე"
+
+#~ msgid ""
+#~ "Click on the dice to show how many ice spots there are between Tux and "
+#~ "the fish. Click the dice with the right mouse button to count backwards. "
+#~ "When done, click on the OK button or hit the Enter key."
+#~ msgstr ""
+#~ "დაწკაპეთ კამათელი ტუქსსა და თევზს შორის ყინულის კუნძულების რაოდენობის "
+#~ "საჩვენებლად.  დაწკაპეთ კამათელი მარჯვენა კლავიშით უკუათვლისთვის.  "
+#~ "დასრულებისას დაწკაპეთ 'დიახ' ან დააჭირეთ კლავიშს 'Enter'."
+
+#~ msgid "Practice subtraction while enjoying a game."
+#~ msgstr "სავარჯიშო გამოკლებაში თამაშის სახით."
+
+#~ msgid ""
+#~ "Tux is hungry. Help him find fish by counting to the correct ice spot."
+#~ msgstr ""
+#~ "ტუქსი მშიერია.  გამოთვალე ყინულის კუნძულების რაოდენობა და დაეხმარე თევზის "
+#~ "მოძებნაში."
+
+#~ msgid "Drag and Drop masses to balance the scales"
+#~ msgstr "გადაიტანეთ საწონები სასწორის გასათანაბრებლად"
+
+#~ msgid "Balance the scales exactly"
+#~ msgstr "გააწონასწორეთ სასწორი"
+
+#~ msgid "Mental calculation, arithmetic equality"
+#~ msgstr "ზეპირი ანგარიში, არითმეტიკული ტოლობა"
+
+#~ msgid ""
+#~ "The painting is an original painting made by Virginie MOREAU (virginie."
+#~ "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
+#~ "released under the GPL license."
+#~ msgstr ""
+#~ "ნახატი თავდაპირველად ვირჯინია მოროს (virginie.moreau@free.fr) მიერაა "
+#~ "დახატული 2001 წელს.  მისი სახელია 'სუნელების გამყიდველი ეგვიპტეში'.  "
+#~ "გამოცემულია GPL ლიცენზიით."
+
+#~ msgid ""
+#~ "To balance the scales, move the masses on the left side. The masses can "
+#~ "be arranged in any order."
+#~ msgstr ""
+#~ "სასწორის გასაწონასწორებლად გადაიტანეთ საწონები მარცხნივ.  საწინები "
+#~ "ნებისმიერი რიგით შეიძლება დალაგდეს."
+
+#~ msgid "Direct your boat accurately to win the race."
+#~ msgstr "მართეთ ნავი აკურატულად შეჯიბრებაში გასამარჯვებლად"
+
+#~ msgid ""
+#~ "In the text box, enter commands, line by line, to direct your ship. You "
+#~ "can use any of the commands shown between the two entry areas. When you "
+#~ "use the \"left\" or \"right\" commands, you have to tell the ship how far "
+#~ "you want it to turn, in degrees (e.g. \"left 30\" degrees). Giving "
+#~ "special measurements like this is also called 'passing a parameter': this "
+#~ "is how we tell the computer how much to do something. The \"forward\" "
+#~ "command accepts a distance parameter, so you can tell it how far you want "
+#~ "your ship to move. The default is 1, so if you don't add that parameter, "
+#~ "each move will be 1 unit. (Defaults are handy values that help the "
+#~ "computer out when we don't pass any parameters.) So you could say: \"left "
+#~ "90\" : make a perpendicular turn (a whole corner) to the left. \"forward "
+#~ "10\" : go ahead 10 units (as shown on the ruler). The goal is to reach "
+#~ "the right edge of the screen (the red line). When you get there, you can "
+#~ "try to improve your program, with the same weather conditions, and try "
+#~ "again, using the Retry button. You can click and drag your mouse anywhere "
+#~ "on the map, to show a measurement of distance (how far) and angle (how "
+#~ "much turn). Going to the next level will introduce more complex weather "
+#~ "conditions: a fun challenge for a budding programmer. ;)"
+#~ msgstr ""
+#~ "ტექსტურ ველში, შეიტანეთ ბრძანებები, თითო ცალკე სტრიქონში, იმისათვის, რომ "
+#~ "გემი მართოთ. შეგიძლიათ გამოიყენოთ ნებისმიერი ბრძანება რომელიც ნაჩვენებია "
+#~ "ორ  შეტანის არეს შორის. როდესაც იყენებთ ბრძანებას \"მარცხნივ\" ან "
+#~ "\"მარჯვნივ\", უნდა მიუთითოთ გრადუსებში რამდენით გინდათ გემის შეტრიალება "
+#~ "(მაგ., \"მარცხნივ 30\" გრადუსი). ამგვარი სპეციალური ზომების მიცემას "
+#~ "ეწოდება 'პარამეტრების გადაცემა': როგორ ვეუბნებით კომპუტერს, როგორ "
+#~ "შეასრულოს ბრძანება. ბრძანება \"წინ\" იღებს მანძილის პარამეტრს. შეგიძლიათ "
+#~ "მას მიმართოთ, რამდენით წინ გინდათ წაიწიოს თქვენმა ხომალდმა. ცდომილება "
+#~ "არის 1. თუ ამ პარამეტრს ან დაამატებთ, ყოველი მოძრაობა იქნება 1 ერთეული. "
+#~ "(ცდომილებები ხელსაყრელი სიდიდეებია, რომლებიც ეხმარება კომპუტერს, როდესაც "
+#~ "ჩვენ არ ვაწვდით მას პარამეტრებს). ამდენად შეგიძლიათ თქვათ: \"მარცხნივ 90"
+#~ "\": შეასრულოთ პერპენდიკულარული ბრუნი (სრული კუთხე) მარცხნივ. \"წინ 10\": "
+#~ "წინ წაწევა 10 ერთეულით (როგორც შკალაზეა ნაჩვენები). თამაშის მიზანია,"
+#~ "მიაღწიოთ ეკრანის მარჯვენა კიდეს (წითელ ზოლს). როდესაც იქამდე მიაღწევთ, "
+#~ "შეგიძლიათ გააუმჯობესოთ თქვენი პროგრამა, იგივე ამინდის პირობებში და "
+#~ "თავიდან სცადოთ 'კვლავ' ღილაკის გამოყენებით. თაგუნა შეგიძლიათ გადაიტანოთ "
+#~ "და დაწკაპოთ რუკის ნებისმიერ ადგილზე, რომ აჩვენოთ მანძილის (სადამდე) და "
+#~ "კუთხის (რამდენით) ზომები. შემდეგი დონე წარმოდგენილია გართულებული ამინდის "
+#~ "პირობებში: სახალისო გამოწვევა იმედისმომცემი პროგრამისტისათვის. ;)"
+
+#~ msgid ""
+#~ "In this activity, you will learn how to enter commands to a computer. "
+#~ "Even if the language is extremely basic, you learn here how to think "
+#~ "ahead and enter a program. This activity can be used to introduce the "
+#~ "programming concept to kids."
+#~ msgstr ""
+#~ "ამ სავარჯიშოთი თქვენ შეისწავლით როგორ შეიტანოთ ბრძანებები კომპუტერში. "
+#~ "მიუხედავად ენის სიმარტივისა, თქვენ ისწავლით, როგორ იაზროვნოთ და შეხვიდეთ "
+#~ "პროგრამაში მომავალში. ეს სავაეჯიშო შეიძლება გამოვიყენოთ ბავშვებისათვის "
+#~ "პროგრამირების კონცეფციის გასაცნობად."
+
+#~ msgid "Sea race (2 Players)"
+#~ msgstr "საზღვაო შეჯიბრება (2 მოთამაშე)"
+
+#~ msgid ""
+#~ "Give good instructions to your ship in order to be first in the race."
+#~ msgstr "კარგად წარმართეთ გემი იმისათვის, რომ გაიმარჯვოთ."
+
+#~ msgid ""
+#~ "In the text entry, enter line by line commands to give direction to your "
+#~ "boat. Commands supported are displayed between the two entry area. The "
+#~ "'left' and 'right' commands must be suffixed by an angle in degree. The "
+#~ "angle value is also called a 'parameter' to the left or right command. By "
+#~ "default 45 degree is used. The 'forward' command accept a distance "
+#~ "parameter. By default 1 is used. For example: left 90 => Make a "
+#~ "perpendicular left turn forward 10 => Go forward for 10 units (as "
+#~ "displayed in the ruler) The goal is to reach the right of the screen (the "
+#~ "red line). When done, you can try to improve your program and start a new "
+#~ "race with the same weather conditions by using the retry button. You can "
+#~ "click and drag your mouse anywhere on the map to get a measurement in "
+#~ "distance and angle. Going to the next level will give your more complex "
+#~ "weather conditions."
+#~ msgstr ""
+#~ "ტექსტის შეტანის ველში ცალკ-ცალკე სტრიქონზე მიუთითეთ ბრძანებები ნავის "
+#~ "სამართავად. შესაძლო ბრძანებები მოცემულია ტექსტის შეტანის ორ არეს შორის.  "
+#~ "ბრძანებებს 'მარცხნივ' და 'მარჯვნივ' უნდა მოსდევდეს კუთხის ზომა "
+#~ "გრადუსებში. კუთხის ზომა გხლავთ 'მარცხივ' და 'მარჯვნივ' ბრძანებების  "
+#~ "პარამეტრი'. საწყისი მნიშვნელობა 45 გრადუსია. ბრძანება 'წინ' დაირთავს "
+#~ "მანძილის პარამეტრს. საწყისი მნიშვნოლობაა 1. მაგალითად:\n"
+#~ "მარცხნივ 90 => მართობული მოხვევა მარცხნივ\n"
+#~ "წინ 10 => წინ გადადგილება 10 ერთეულით (როგორც სკალაზეა ნაჩვენები)\n"
+#~ "ამოცანაა ეკრანის მარჯვენა ნაწილის (წითელი ხაზი) მიღწევა. წარუმატებლობის "
+#~ "შემთხვევაში შეგიძლიათ ხელახლა სცადოთ ამინდის იგივე პირობებში თუ დაწკაპავთ "
+#~ "'კვლავ' ღილაკს. შემდეგ დონეზე გადასვლისას ამოცანის გადაწყვეტა უფრო რთულ "
+#~ "კლიმატურ პირობებში მოგიწევთ."
+
+#~ msgid "Sea race (Single Player)"
+#~ msgstr "საზღვაო შეჯიბრება (ერთი მოთამაშე)"
+
+#~ msgid "Count the number of dots on dice before they reach the ground"
+#~ msgstr "დათვალეთ წერტილები კამათელზე მის ჩამოვარდნამდე"
+
+#~ msgid "Counting skill"
+#~ msgstr "თვლის ჩვევა"
+
+#~ msgid "In a limited time, count the number of dots"
+#~ msgstr "შეზღუდულ დროში დათვალეთ წერტილების რაოდენობა"
+
+#~ msgid ""
+#~ "With the keyboard, type the number corresponding to the number of dots on "
+#~ "the falling dice."
+#~ msgstr ""
+#~ "კლავიატურით აკრიფეთ წერტილების რაოდენობა კამათელზე, რომელიც ვარდება."
+
+#~ msgid "Numbers with pairs of dice"
+#~ msgstr "რიცხვები და კამათელი"
+
+#~ msgid ""
+#~ "Click on different active elements : engine, rudders and air tanks, in "
+#~ "order to navigate to the ordered depth."
+#~ msgstr ""
+#~ "დაწკაპეთ სხვადასხვა აქტიური ელემენტი: ძრავი, საჭე, ჰაერის ცისტერნები "
+#~ "მართებული რიგით მითითებულ სიღრმეზე ჩასაშვებად."
+
+#~ msgid "Learn how a submarine works"
+#~ msgstr "წყალქვეშა ნავის მუშაობის პრინციპების შესწავლა."
+
+#~ msgid "Physics basics"
+#~ msgstr "ფიზიკის საფუძვლები"
+
+#~ msgid "Pilot a submarine"
+#~ msgstr "წყალქვეშა ნავის მართვა"
+
+#~ msgid "Pilot a submarine using air tanks and dive rudders"
+#~ msgstr ""
+#~ "წყალქვეშა ნავის მართვა საჰაერო ცისტერნებისა და ჩაყვინთვის საჭის დახმარებით"
+
+#~ msgid "Completing the puzzle requires patience and logical ability"
+#~ msgstr ""
+#~ "თავსატეხის ამოხსნა მოითხოვს მოჲმინებასა და ლოგიკური აზროვნების უნარს"
+
+#~ msgid ""
+#~ "For the first level with colored symbols, drag symbols on the left to "
+#~ "their target position. For the higher levels, click on an empty square to "
+#~ "give it the keyboard focus. Then enter a possible letter or number. "
+#~ "GCompris will not let you enter invalid data."
+#~ msgstr ""
+#~ "პირველ დონეზე შეფერილი სიმბოლოები დანიშნულების ადგილზე უნდა გადაიტანოთ.  "
+#~ "უფრო მაღალ დონეებზე დაწკაპეთ ცარიელი კვადრატი შეტანის გასააქტივებლად. "
+#~ "შემდეგ მიუთითეთ შესაძლო ასო ან რიცხვი. GCompris მცდარი მონაცემების "
+#~ "შეტანის უფლებას არ მოგცემთ."
+
+#~ msgid "Sudoku, place unique symbols in a square."
+#~ msgstr "სუდოკუ, მოათავსეთ სიმბოლოები კვადრატში."
+
+#~ msgid ""
+#~ "Symbols must be unique in a row, in a column, and (if defined) each "
+#~ "region."
+#~ msgstr ""
+#~ "სიმბოლოები არ უნდა განმეორდეს მწკრივებსა და სვეტებში და (თუ მითითებულია) "
+#~ "თითოეულ რეგიონში."
+
+#~ msgid ""
+#~ "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in "
+#~ "each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
+#~ "(called 'regions'), starting with various symbols or numerals given in "
+#~ "some cells (the 'givens'). Each row, column and region must contain only "
+#~ "one instance of each symbol or numeral (Source http://en.wikipedia.org/"
+#~ "wiki/Sudoku)."
+#~ msgstr ""
+#~ "თავსატეხის ამოცანაა სიმბოლოების ან ციფრების (1-დან 9-მდე) განთავსება, "
+#~ "როგორც წესი, ზომით 9x9 ბადეზე.  რომელიც შედგენილია ქვებადეებისგან (3x3 - "
+#~ "'რეგიონებისგან') და მასში რამდენიმე უჯრაში ('მოცემულობა') წინასწარ "
+#~ "ჩაწერილია სიმბოლოები ან რიცხვები. თითოეული მწკრივი, სვეტი და რეგიონი უნდა "
+#~ "შეიცავდეს ასო-ნიშნების სრულ ნაკრებს და ისინი არ უნდა მეორდებოდნენ (წყარო "
+#~ "http://en.wikipedia.org/wiki/Sudoku)."
+
+#~ msgid ""
+#~ "Click on the items until you find what you think is the correct answer. "
+#~ "Then, click on the OK button in the control bar. In the lower levels, Tux "
+#~ "gives you an indication if you found a hiding place by marking the item "
+#~ "with a black box. You can use the right mouse button to flip the colors "
+#~ "in the opposite order."
+#~ msgstr ""
+#~ "დაწკაპეთ ელემენტები სწორი პასუხის პოვნამდე.  შემდეგ დაწკაპეთ ღილაკი "
+#~ "'დიახ' საკონტროლო პანელზე.  დაბალ დონეებზე დამალული საგნის პოვნისას ტუქსი "
+#~ "ამ ადგილებს შავი კვადრატით აღნიშნავს.  ფერების შებრუნებული რიგით "
+#~ "გადასართველად ასევე შეგიძლიათ გამოიყენოთ თაგუნას მარჯვენა ღილაკი."
+
+#~ msgid ""
+#~ "Can move the mouse, can read numbers and count up to 15 for the first "
+#~ "level"
+#~ msgstr ""
+#~ "თაგუნას მოძრაობის, რიცხვების კითხვისა და 15-მდე შეკრების უნარი პირველ "
+#~ "დონეზე"
+
+#~ msgid ""
+#~ "Check the wind speed and direction, and then click on the target to "
+#~ "launch a dart. When you all your darts are thrown, a window appears "
+#~ "asking you to count your score. Enter the score with the keyboard then "
+#~ "press the Enter key or the OK button."
+#~ msgstr ""
+#~ "ჯერ ქარის სიჩქარე და მიმართულება შეამოწმეთ და შემდეგ დაწკაპეთ სამიზნე "
+#~ "ისრის გასაშვებად.  თქვენი ყველა ისრის სროლის შემდეგ გამოჩნდება ფანჯარა "
+#~ "ჯამური ქულების მითითების მოთხოვნით.  მიუთითეთ ქულები კლავიატურის "
+#~ "საშუალებით და დააჭირეთ კლავიშას 'Enter'-ს ან დაწკაპეთ 'დიახ' ღილაკი."
+
+#~ msgid "Throw darts at a target and count your score."
+#~ msgstr "ისროლეთ ისრები მიზანში და დათვალეთ ქულები."
+
+#~ msgid "Get all the red cars off the grid, through the opening on the right."
+#~ msgstr "გამოიყვანე ყველა წითელი ავტომანქანა მარჯვენა გასასვლელის გავლით."
+
+#~ msgid ""
+#~ "Click on different active elements : sun, cloud, water pump station, and "
+#~ "water cleanup station, in order to reactivate the entire water system. "
+#~ "When the system is back up and Tux is in the shower, push the shower "
+#~ "button for him."
+#~ msgstr ""
+#~ "დაწკაპეთ სხვადასხვა აქტიური ელემენტი: მზე, ღრუბელი, ტუმბო და წყლის "
+#~ "გამწმენდი სადგური იმ რიგით, როგორც წყლის მიმოქცევის სრული სისტემის "
+#~ "ამუშავებისას ხდება. როცა ყველაფერი დასრულდება ტუქსი აბაზანაში შევა და "
+#~ "შხაპი ჩაურთეთ."
+
+#~ msgid "Learn the water cycle"
+#~ msgstr "წყლის მიმოქცევა ბუნებაში"
+
+#~ msgid ""
+#~ "Tux has come back from a long fishing party on his boat. Bring the water "
+#~ "system back up so he can take a shower."
+#~ msgstr ""
+#~ "ტუქსი სახლში ხანგრძლივი თევზაობის შემდეგ დაბრუნდა.  გამართეთ წყლის "
+#~ "სისტემა, რათა მან შხაპის მიღება შეძლოს."
+
+#~ msgid "Keyboard training"
+#~ msgstr "კლავიატურის სავარჯიშო"
+
+#~ msgid "Type the complete word as it falls, before it reachs the ground"
+#~ msgstr "აკრიფეთ სიტყვები სრულად მათ ჩამოვარდნამდე"
+
+#~ msgid "Administration for gcompris"
+#~ msgstr "პროგრამის მართვა"
+
+#~ msgid "Educational game from 2 to 10 years old"
+#~ msgstr "საგანმანათლებლო თამაში 2-დან 10-წლამდე ბავშვებისთვის"
+
+#~ msgid "Educational suite gcompris"
+#~ msgstr "თამაშების კრებული"
+
+#~ msgid "Multiple activities for kids"
+#~ msgstr "სხვადასხვა სავარჯიშო ბავშვებისთვის"
+
+#~ msgid "Reproduce in the empty area the same tower as the one on the right"
+#~ msgstr "ცარიელ ადგილას მარჯვენა კოშკის მსგავსი კოშკის გამეორება"
+
+#~ msgid "Help"
+#~ msgstr "დახმარება"
+
+#~ msgid "English (USA)"
+#~ msgstr "ინგლისური (აშშ)"
