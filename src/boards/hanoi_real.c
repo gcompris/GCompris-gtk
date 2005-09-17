@@ -82,7 +82,7 @@ static BoardPlugin menu_bp =
     NULL,
     NULL,
     N_("Tower of Hanoi"),
-    N_(""),
+    "",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
