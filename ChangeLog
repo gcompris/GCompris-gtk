@@ -1,3 +1,11 @@
+2005-09-18  Yves Combe,,,  <yves@ycombe.net>
+
+	try to fix dependances on gtk 2.4 and not 2.6
+
+	* po/Makefile.in.in:
+	* src/gcompris/board_config.c: (gcompris_get_active_text),
+	(gcompris_combo_box_changed), (gcompris_combo_locales_changed):
+
 2005-09-17  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Release 7.0.1

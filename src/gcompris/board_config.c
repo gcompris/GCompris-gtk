@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/08/29 00:34:21 yves>
+ * Time-stamp: <2005/09/18 00:01:46 yves>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -237,12 +237,30 @@ GtkCheckButton *gcompris_boolean_box(const gchar *label, gchar *key, gboolean in
   return GTK_CHECK_BUTTON(CheckBox);
 }
 
+/* code get from gtk */
+/* included here to not depend on gtk 2.6 */
+
+static gchar *
+gcompris_get_active_text (GtkComboBox *combo_box)
+{
+  GtkTreeIter iter;
+  gchar *text = NULL;
+
+  g_return_val_if_fail (GTK_IS_LIST_STORE (gtk_combo_box_get_model (combo_box)), NULL);
+
+  if (gtk_combo_box_get_active_iter (combo_box, &iter))
+    gtk_tree_model_get (gtk_combo_box_get_model (combo_box), &iter, 
+			0, &text, -1);
+
+  return text;
+}
+
 void gcompris_combo_box_changed(GtkComboBox *combobox,
 				gpointer key)
 {
   gchar *the_key = g_strdup((gchar *)key);
 
-  gchar *value = g_strdup_printf("%s", gtk_combo_box_get_active_text (combobox));
+  gchar *value = g_strdup_printf("%s", gcompris_get_active_text (combobox));
   
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
@@ -562,7 +580,7 @@ void gcompris_combo_locales_changed(GtkComboBox *combobox,
     /* Default value of gcompris selected */
     value = g_strdup ("NULL");
   else
-    value = gtk_combo_box_get_active_text (combobox);
+    value = gcompris_get_active_text (combobox);
 
   g_hash_table_replace(hash_conf, (gpointer) the_key, (gpointer) value);
 }
