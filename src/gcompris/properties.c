@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/08/25 22:58:04 yves>
+ * Time-stamp: <2005/09/18 18:00:12 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -332,7 +332,9 @@ void gcompris_properties_save (GcomprisProperties *props)
   fprintf(filefd, "%s=%d\n", "fx",			props->fx);
   fprintf(filefd, "%s=%d\n", "screensize",		props->screensize);
   fprintf(filefd, "%s=%d\n", "fullscreen",		props->fullscreen);
-  fprintf(filefd, "%s=%d\n", "noxrandr",		props->noxrandr);
+  /* FIXME: No more persist the noxrandr option until we provide a way to set it back
+   *
+   fprintf(filefd, "%s=%d\n", "noxrandr",		props->noxrandr); */
   fprintf(filefd, "%s=%d\n", "timer",			props->timer);
   fprintf(filefd, "%s=%d\n", "difficulty_filter",	props->difficulty_filter);
   fprintf(filefd, "%s=%d\n", "filter_style",		props->filter_style);

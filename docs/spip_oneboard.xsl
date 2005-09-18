@@ -36,7 +36,7 @@
             <nom_site>__REMOVEME__</nom_site>
             <url_site>__REMOVEME__</url_site>
             <extra>__REMOVEME__</extra>
-            <idx>oui</idx>
+            <idx>1</idx>
             <id_version>0</id_version>
             <lien_auteur>1</lien_auteur>
             <ps>__REMOVEME__</ps>

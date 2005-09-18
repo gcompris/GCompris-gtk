@@ -35,9 +35,14 @@
       <nom_site>__REMOVEME__</nom_site>
       <url_site>__REMOVEME__</url_site>
       <extra>__REMOVEME__</extra>
-      <idx>oui</idx>
+      <idx>1</idx>
       <id_version>0</id_version>
       <lien_auteur>1</lien_auteur>
+      <surtitre>__REMOVEME__</surtitre>
+      <soustitre>__REMOVEME__</soustitre>
+      <descriptif>__REMOVEME__</descriptif>
+      <chapo>__REMOVEME__</chapo>
+      <url_propre>__REMOVEME__</url_propre>
       <ps>__REMOVEME__</ps>
 
       <xsl:for-each select="GComprisBoards/GCompris/Board[@name=$name]">

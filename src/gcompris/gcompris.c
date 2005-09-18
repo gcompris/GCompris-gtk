@@ -173,6 +173,7 @@ static gboolean		 changed_xrandr = FALSE;
 static SizeID		 xr_previous_size = -1;
 static XRANDRData	*xrandr;
 
+static void xrandr_init ( XRANDRData *data );
 static void xrandr_get_config ( XRANDRData *data );
 gboolean xrandr_set_config( XRANDRData  *grandr );
 #endif
@@ -322,36 +323,37 @@ static void init_background()
   GtkWidget *vbox;
   int i;
 
+  screen_height = gdk_screen_height();
+  screen_width  = gdk_screen_width();
+
 #ifdef XRANDR
   /* Search the 800x600 Resolution */
   if(properties->fullscreen && !properties->noxrandr) {
     g_warning("XRANDR Is compiled in. Searching a good resolution");
 
     xrandr = g_new0 (XRANDRData, 1);
-    xrandr_get_config ( xrandr );
-    xr_previous_size = (SizeID)xrandr->xr_current_size;
+    xrandr_init ( xrandr );
 
-    for (i = 0; i < xrandr->xr_nsize; i++) {
-      if(xrandr->xr_sizes[i].width == BOARDWIDTH, xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
-	xrandr->xr_current_size = (SizeID)i;
-	xrandr_set_config( xrandr );
-	changed_xrandr = TRUE;
-	break;
+    /* Check if XRANDR is available */
+    if (!properties->noxrandr) {
+      xrandr_get_config ( xrandr );
+      xr_previous_size = (SizeID)xrandr->xr_current_size;
+
+      for (i = 0; i < xrandr->xr_nsize; i++) {
+        if(xrandr->xr_sizes[i].width == BOARDWIDTH, xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
+	  xrandr->xr_current_size = (SizeID)i;
+	  xrandr_set_config( xrandr );
+	  break;
+	}
       }
+      screen_height = xrandr->xr_sizes[xrandr->xr_current_size].height;
+      screen_width  = xrandr->xr_sizes[xrandr->xr_current_size].width;
     }
-    screen_height = xrandr->xr_sizes[xrandr->xr_current_size].height;
-    screen_width  = xrandr->xr_sizes[xrandr->xr_current_size].width;
-  } else {
-  screen_height = gdk_screen_height();
-  screen_width  = gdk_screen_width();
   }
-#else
-  screen_height = gdk_screen_height();
-  screen_width  = gdk_screen_width();
 #endif
 
-  yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
-  xratio=screen_width/(float)BOARDWIDTH;
+    yratio=screen_height/(float)(BOARDHEIGHT+BARHEIGHT);
+    xratio=screen_width/(float)BOARDWIDTH;
     g_message("The screen_width=%f screen_height=%f\n",
   	 (double)screen_width, (double)screen_height);
     g_message("The xratio=%f yratio=%f\n", xratio, yratio);
@@ -717,7 +719,7 @@ void gcompris_exit()
 
 #ifdef XRANDR
   /* Set back the original screen size */
-  if((properties->fullscreen || changed_xrandr) && properties->noxrandr == 0) 
+  if(properties->fullscreen && !properties->noxrandr)
     {
       /* Need to refresh our config or xrandr api will reject us */
       xrandr_get_config ( xrandr );
@@ -871,10 +873,24 @@ void gcompris_log_handler (const gchar *log_domain,
  * ------------
  */
 static void
-xrandr_get_config ( XRANDRData *data )
+xrandr_init ( XRANDRData *data )
 {
   data->xr_screen_conf = XRRGetScreenInfo (GDK_DISPLAY(), GDK_ROOT_WINDOW());
-  
+
+  if (data->xr_screen_conf == NULL)
+    {
+      g_warning("XRANDR not available");
+      properties->noxrandr = TRUE;
+    }
+  else
+      g_warning("XRANDR support enabled");
+ }
+
+static void
+xrandr_get_config ( XRANDRData *data )
+{
+  xrandr_init (data);
+
   data->xr_current_size = XRRConfigCurrentConfiguration (data->xr_screen_conf, 
 							 &data->xr_current_rotation);
 

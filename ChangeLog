@@ -1,3 +1,22 @@
+2005-09-18  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed gcompris2spip to work with spip 1.8.2
+
+	Commit of XRANDR patch from debian Bug report logs - #310058
+	
+	* INSTALL:
+	* boards/hanoi_real.xml.in:
+	* docs/screenshots/memory_tux.jpg:
+	* docs/screenshots/memory_tux_small.jpg:
+	* docs/screenshots/tuxpaint.jpg:
+	* docs/screenshots/tuxpaint_small.jpg:
+	* docs/spip_menuboard.xsl:
+	* docs/spip_oneboard.xsl:
+	* po/Makefile.in.in:
+	* src/gcompris/gcompris.c: (init_background), (gcompris_exit),
+	(xrandr_init), (xrandr_get_config):
+	* src/gcompris/properties.c: (gcompris_properties_save):
+
 2005-09-18  Yves Combe,,,  <yves@ycombe.net>
 
 	try to fix dependances on gtk 2.4 and not 2.6
