@@ -62,7 +62,7 @@ class Gcompris_hexagon:
   def ok(self):
     print("Gcompris_minouche ok.")
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     #print("got key %i" % keyval)
     return False
 

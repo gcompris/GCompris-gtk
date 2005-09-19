@@ -139,7 +139,7 @@ class Gcompris_ballcatch:
     print("Gcompris_ballcatch config.")
 
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     print("Gcompris_ballcatch key press. %i" % keyval)
 
     if (keyval == gtk.keysyms.Shift_L):

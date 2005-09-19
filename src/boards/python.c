@@ -42,7 +42,7 @@ static void	 pythonboard_end (void);
 
 static gboolean	 pythonboard_is_our_board (GcomprisBoard *agcomprisBoard);
 
-static gint	 pythonboard_key_press (guint keyval);
+static gint	 pythonboard_key_press (guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	 pythonboard_ok (void);
 static void	 pythonboard_set_level (guint level);
 static void	 pythonboard_config(void);
@@ -442,10 +442,10 @@ static gboolean pythonboard_is_our_board (GcomprisBoard *agcomprisBoard){
 /*
  * Key press
  */
-static gint pythonboard_key_press (guint keyval){
+static gint pythonboard_key_press (guint keyval, gchar *commit_str, gchar *preedit_str){
   PyObject* result = NULL;
 
-  result = PyObject_CallMethod(python_board_instance, "key_press", "i", keyval);
+  result = PyObject_CallMethod(python_board_instance, "key_press", "iss", keyval, commit_str, preedit_str);
 
   if (result==NULL) return FALSE;
 

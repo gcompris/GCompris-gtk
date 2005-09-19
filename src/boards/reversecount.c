@@ -31,7 +31,7 @@ static gint	 animate_id = 0;
 static int	 leavenow;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
-static gint	 key_press(guint keyval);
+static gint	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
@@ -244,7 +244,7 @@ gboolean is_our_board (GcomprisBoard *gcomprisBoard)
 }
 
 /* ======================================= */
-gint key_press(guint keyval)
+gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
 
   if(!gcomprisBoard)

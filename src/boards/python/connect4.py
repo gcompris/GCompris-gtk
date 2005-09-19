@@ -150,7 +150,7 @@ class Gcompris_connect4:
     print("Gcompris_connect4 config.")
 
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     print("Gcompris_connect4 key press. %i" % keyval)
     self.timericon.hide()
     return False

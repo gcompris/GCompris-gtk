@@ -130,7 +130,7 @@ class Gcompris_sudoku:
     print("Gcompris_sudoku config.")
 
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
 
     if(self.cursqre == None):
       return False

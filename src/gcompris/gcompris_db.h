@@ -1,6 +1,6 @@
 /* gcompris - gcompris_db.h
  *
- * Time-stamp: <2005/09/13 22:57:36 yves>
+ * Time-stamp: <2005/09/15 10:06:18 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -112,6 +112,9 @@ GHashTable *gcompris_get_board_conf();
 
 /* get conf for specific profile and board */
 GHashTable *gcompris_get_conf(GcomprisProfile *profile, GcomprisBoard  *board);
+
+/*internal initialisation use only, do not use it for boards*/
+GHashTable *gcompris_get_conf_with_table(int profile_id, int board_id, GHashTable *table );
 
 GcomprisBoard *gcompris_get_board_from_id(int board_id);
 

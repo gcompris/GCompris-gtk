@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/09/01 15:33:53 yves>
+ * Time-stamp: <2005/09/16 14:01:03 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -442,9 +442,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
       assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
 
+      g_warning("Using lowercase %s", alphabet_lowercase);
+
       /* TRANSLATORS: Put here the alphabet uppercase in your language */
       alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
       assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
+      g_warning("Using uppercase %s", alphabet_uppercase);
 
       if (currentMode == MODE_TUX){
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];

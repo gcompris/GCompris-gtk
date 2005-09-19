@@ -158,6 +158,17 @@ pyGcomprisPropertiesType_getattr(pyGcomprisPropertiesObject *self, char *name)
       }
     }
 
+    if(strcmp(name,"context")==0){
+      if (self->cdata->context)
+	return (PyObject*) pygobject_new((GObject*)self->cdata->context);
+      else {
+	Py_INCREF(Py_None);
+	return Py_None;
+      }
+    }
+
+    if(strcmp(name,"default_context")==0) return Py_BuildValue("s", self->cdata->default_context);
+
   }
   return Py_FindMethod(pyGcomprisPropertiesType_methods, (PyObject *)self, name);
 }

@@ -144,7 +144,7 @@ class Gcompris_administration:
     pass
 
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     #print("Gcompris_administration key press. %i" % keyval)
     return False
 

@@ -1,6 +1,6 @@
 /* gcompris - plugin.h
  *
- * Time-stamp: <2005/07/24 01:10:00 yves>
+ * Time-stamp: <2005/09/14 23:30:48 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -33,7 +33,9 @@ typedef void          (*GcomprisInitBoard)    (GcomprisBoard *gcomprisBoard);
 typedef void          (*GcomprisStartBoard)   (GcomprisBoard *gcomprisBoard);
 typedef void          (*GcomprisPauseBoard)   (gboolean pause);
 typedef void          (*GcomprisEndBoard)     (void);
-typedef gint          (*GcomprisKeyPress)     (guint keyval);
+typedef gint          (*GcomprisKeyPress)     (guint keyval, 
+					       gchar *commited_str, 
+					       gchar *preedit_str);
 typedef void          (*GcomprisOK)           (void);
 typedef void          (*GcomprisSetLevel)     (guint level);
 typedef void          (*GcomprisConfig)       ();

@@ -256,8 +256,8 @@ class Gcompris_pythontest:
     print("Gcompris_pythontest config.")
 
 
-  def key_press(self, keyval):
-    print("Gcompris_pythontest key press. %i" % keyval)
+  def key_press(self, keyval, commit_str, preedit_str):
+    print("Gcompris_pythontest key press. %i %s" % (keyval, str))
 
     win = False
     

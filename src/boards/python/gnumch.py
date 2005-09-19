@@ -838,8 +838,15 @@ class Gcompris_gnumch:
             self.winGame()
         self.squares[x][y].setNum(new)
 
-    def key_press(self, keyval):
-        self.muncher.push_key(keyval)
+    def key_press(self, keyval, commit_str, preedit_str):
+        if ((commit_str != None) or (preedit_str != None)):
+            if ((' ' in commit_str) or (' ' in preedit_str)):
+                key = gtk.keysyms.space
+            else:
+                key = 0
+        else:
+            key = keyval
+        self.muncher.push_key(key)
         return False
 
     def stopGame(self):

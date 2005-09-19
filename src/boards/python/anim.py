@@ -383,6 +383,8 @@ class Gcompris_anim:
 
   def start(self):
 
+    self.last_commit = None
+
     # GCompris initialisation
     self.gcomprisBoard.level=1
     self.gcomprisBoard.maxlevel=1
@@ -434,7 +436,8 @@ class Gcompris_anim:
   def config(self):
     print("Gcompris_anim config.")
               
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
+    print keyval, commit_str, preedit_str
     #
     # I suppose codec is the stdin one.
     #
@@ -508,7 +511,10 @@ class Gcompris_anim:
       return True
 
     textItem = self.selected.item_list[0]
-    oldtext = textItem.get_property('text').decode('UTF-8')
+    if (self.last_commit == None):
+      oldtext = textItem.get_property('text').decode('UTF-8')
+    else:
+      oldtext = self.last_commit
     
     if ((keyval == gtk.keysyms.BackSpace) or
         (keyval == gtk.keysyms.Delete)):
@@ -519,19 +525,26 @@ class Gcompris_anim:
         newtext = u'?'
     else:
     
-      utf8char=gtk.gdk.keyval_to_unicode(keyval)
-      str = u'%c' % utf8char
+        
 
       if ((oldtext[:1] == u'?') and (len(oldtext)==1)):
         oldtext = u' '
         oldtext = oldtext.strip()
 
+      if (commit_str != None):
+        str = commit_str
+        self.last_commit = oldtext + str
+      if (preedit_str != None):
+        str = '<span foreground="red">'+ preedit_str +'</span>'
+        self.last_commit = oldtext
+        
       if (len(oldtext) < self.MAX_TEXT_CHAR):
         newtext = oldtext + str
       else:
         newtext = oldtext
 
-    textItem.set(text=newtext.encode('UTF-8'))
+
+    textItem.set(markup=newtext.encode('UTF-8'))
     self.updated_text(textItem)
 
     return True
@@ -630,16 +643,13 @@ class Gcompris_anim:
           
           if not self.running:            
             # unselect object if necessary
-            if (self.selected != None):
-              self.selected.item_list[1].hide()
-              self.selected = None
+            self.unselect()
               
             self.playing_start()
             return True
 
         elif (self.tools[tool][0] != "SELECT") and (self.selected != None):
-          self.selected.item_list[1].hide()
-          self.selected = None
+          self.unselect()
 
         #
         # Normal case, tool button switch
@@ -964,10 +974,7 @@ class Gcompris_anim:
 
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
       if event.button == 1:
-        # deactivate the anchors
-        if self.selected != None:
-          self.selected.item_list[1].hide()
-          self.selected=None
+        self.unselect()
       
     #
     # MOUSE DRAG STOP
@@ -1861,8 +1868,7 @@ class Gcompris_anim:
 
   def select_item(self, group):
     if (self.selected != None):
-      self.selected.item_list[1].hide()
-      self.selected = None
+      self.unselect()
 
     # Deactivate old button
     self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
@@ -2159,6 +2165,20 @@ class Gcompris_anim:
    
     self.timeout=gobject.timeout_add(1000/self.anim_speed, self.run_anim2)
 
+
+  def unselect(self):
+    if ((gobject.type_name(self.selected.item_list[0])=="GnomeCanvasText")
+        and
+        (self.last_commit != None)):
+      #suppress preedit
+      self.selected.item_list[0].set(markup=self.last_commit)
+      self.last_commit = None
+      gcompris.im_reset()
+    self.selected.item_list[1].hide()
+    self.selected = None
+
+      
+    
 
 
 ###############################################

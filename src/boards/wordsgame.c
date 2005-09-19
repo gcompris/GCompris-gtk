@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2005/09/04 19:48:02 brunoa>
+ * Time-stamp: <2005/09/15 00:08:05 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -72,7 +72,7 @@ static void		 pause_board (gboolean pause);
 static void 		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
-static gint		 key_press(guint keyval);
+static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 
 static gboolean  	 wordsgame_read_wordfile();
 static GnomeCanvasItem	 *wordsgame_create_item(GnomeCanvasGroup *parent);
@@ -218,7 +218,7 @@ set_level (guint level)
 }
 
 
-static gint key_press(guint keyval)
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
     gchar *letter; 
     gint i;

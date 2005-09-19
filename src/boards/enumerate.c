@@ -29,7 +29,7 @@ static GcomprisBoard *gcomprisBoard = NULL;
 static gboolean board_paused = TRUE;
 
 static void	 start_board (GcomprisBoard *agcomprisBoard);
-static gint	 key_press(guint keyval);
+static gint	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
 static void	 process_ok(void);
@@ -168,7 +168,7 @@ static void end_board ()
 }
 
 /* Get the user keys to use to get the answer */
-static gint key_press(guint keyval)
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   char str[2];
   GnomeCanvasItem	*item = NULL;

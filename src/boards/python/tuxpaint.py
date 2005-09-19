@@ -150,7 +150,7 @@ class Gcompris_tuxpaint:
   def ok(self):
     pass
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     return False
 
   def repeat(self):

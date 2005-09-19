@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/08/25 22:58:31 yves>
+ * Time-stamp: <2005/09/15 10:10:48 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -50,6 +50,9 @@ typedef struct {
   gint          reread_menu;
   gchar        *shared_dir;
   gchar        *users_dir;
+  /* this are set by gcompris_im_init() */
+  GtkIMContext *context;
+  gchar        *default_context;
 } GcomprisProperties;
 
 GcomprisProperties	*gcompris_get_properties (void);

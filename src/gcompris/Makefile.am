@@ -90,17 +90,16 @@ libgcomprisinclude_HEADERS =			\
 	bonus.h \
 	cursor.h \
 	gameutil.h \
-	gcompris.h gcompris-board.h \
+	gcompris.h 
+	gcompris-board.h \
+	board_config.h
 	gcompris_config.h \
-	gcompris_db.c \
 	gcompris_db.h \
-	gcompris_files.c \
+	gcompris_im.h \
 	gcompris_files.h \
 	wordlist.h \
-	wordlist.c \
 	pixbuf_util.h \
 	plugin.h \
-	profile.c \
 	profile.h \
 	properties.h \
 	score.h \
@@ -121,6 +120,11 @@ libgcompris_1_la_SOURCES =			\
 	pixbuf_util.c \
 	board.h board.c \
 	board_config.h board_config.c \
+	gcompris_files.c \
+	profile.c \
+	wordlist.c \
+	gcompris_db.c \
+	gcompris_im.c \
 	soundutil.c \
 	cursor.c \
 	bonus.c \

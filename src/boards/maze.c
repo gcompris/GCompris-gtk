@@ -87,7 +87,7 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent);
 static void maze_destroy_all_items(void);
 static void maze_next_level(void);
 static void set_level (guint level);
-static gint key_press(guint keyval);
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 /*--------------------*/
 static void draw_a_rect(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, char *color);
 static void draw_a_line(GnomeCanvasGroup *group, int x1, int y1, int x2, int y2, guint32 color);
@@ -120,8 +120,8 @@ static eyepos_t eye_pos_x=0, eye_pos_y=0, eye_pos_z=0;
 static void threeDdisplay();
 static void twoDdisplay();
 static void draw3D();
-static gint key_press_3D(guint keyval);
-static gint key_press_2D_relative(guint keyval);
+static gint key_press_3D(guint keyval, gchar *commit_str, gchar *preedit_str);
+static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedit_str);
 /*----------------------*/
 
 /* Description of this plugin */
@@ -876,16 +876,16 @@ static void one_step(guint richting)
     }
 }
 
-static gint key_press(guint keyval)
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint richting=0,level=gcomprisBoard->level;
 
   if(board_paused)
     return FALSE;
 
-  if (threeDactive) return key_press_3D(keyval);
+  if (threeDactive) return key_press_3D(keyval, commit_str, preedit_str);
 
-  if (modeRelative) return key_press_2D_relative(keyval);
+  if (modeRelative) return key_press_2D_relative(keyval, commit_str, preedit_str);
 
   switch (keyval)
     {
@@ -972,7 +972,7 @@ static gint target_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
  return FALSE;
 }
 
-static gint key_press_2D_relative(guint keyval)
+static gint key_press_2D_relative(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint richting=0,level=gcomprisBoard->level;
 
@@ -1009,7 +1009,7 @@ static gint key_press_2D_relative(guint keyval)
   return TRUE;
 }
 
-static gint key_press_3D(guint keyval)
+static gint key_press_3D(guint keyval, gchar *commit_str, gchar *preedit_str)
 {	
   switch (keyval)
     {	

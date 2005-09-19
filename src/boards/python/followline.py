@@ -74,7 +74,7 @@ class Gcompris_followline:
     print("Gcompris_followline config.")
 
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     return False
 
       

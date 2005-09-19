@@ -1,3 +1,51 @@
+2005-09-19  Yves Combe  <yves@ycombe.net>
+
+	Uses GtkIMContext to handle correctly input in all languages. All boards using key_press are now broken.
+	anim.py and gnumch.py are fixed.
+
+	* src/boards/algebra.c: (key_press):
+	* src/boards/draw.c: (key_press):
+	* src/boards/enumerate.c: (key_press):
+	* src/boards/gletters.c: (key_press):
+	* src/boards/maze.c: (key_press), (key_press_2D_relative),
+	(key_press_3D):
+	* src/boards/memory.c: (start_board):
+	* src/boards/paratrooper.c: (key_press):
+	* src/boards/planegame.c: (key_press):
+	* src/boards/py-gcompris-properties.c:
+	(pyGcomprisPropertiesType_getattr):
+	* src/boards/py-mod-gcompris.c: (py_gcompris_im_reset):
+	* src/boards/python.c: (pythonboard_key_press):
+	* src/boards/python/administration.py:
+	* src/boards/python/algorithm.py:
+	* src/boards/python/anim.py:
+	* src/boards/python/ballcatch.py:
+	* src/boards/python/bargame.py:
+	* src/boards/python/connect4.py:
+	* src/boards/python/followline.py:
+	* src/boards/python/gnumch.py:
+	* src/boards/python/hexagon.py:
+	* src/boards/python/login.py:
+	* src/boards/python/melody.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/redraw.py:
+	* src/boards/python/searace.py:
+	* src/boards/python/sudoku.py:
+	* src/boards/python/tuxpaint.py:
+	* src/boards/python/watercycle.py:
+	* src/boards/reversecount.c: (key_press):
+	* src/boards/shapegame.c: (key_press):
+	* src/boards/smallnumbers.c: (key_press):
+	* src/boards/target.c: (key_press):
+	* src/boards/wordsgame.c: (key_press):
+	* src/gcompris/Makefile.am:
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(popup_menu_detach), (setup_window), (gcompris_init):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/gcompris_db.h:
+	* src/gcompris/plugin.h:
+	* src/gcompris/properties.h:
+
 2005-09-18  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed gcompris2spip to work with spip 1.8.2

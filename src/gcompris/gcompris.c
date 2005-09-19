@@ -49,7 +49,7 @@ GtkWidget *drawing_area;
 GnomeCanvas *canvas;
 GnomeCanvas *canvas_bar;
 GnomeCanvas *canvas_bg;
-
+ 
 //static gint pause_board_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static gint board_widget_key_press_callback (GtkWidget   *widget,
@@ -195,6 +195,15 @@ board_widget_key_press_callback (GtkWidget   *widget,
 				GdkEventKey *event,
 				gpointer     client_data)
 {
+  int kv = event->keyval;
+
+  //first, pas through the IM context.
+  if (gtk_im_context_filter_keypress (properties->context, event))
+    {
+      g_warning("%d key is handled by context", kv);
+      return TRUE;
+    }
+
 
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
@@ -245,30 +254,22 @@ board_widget_key_press_callback (GtkWidget   *widget,
       g_message("Refreshing the canvas\n");
       gnome_canvas_update_now(canvas);
       return TRUE;
-    case GDK_KP_Enter:
-    case GDK_Return:
+
+    default:
+      g_warning("%d key is NOT handled by context", kv);
       /* If the board needs to receive key pressed */
       /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
        *       whenever possible
        */
       if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
 	{
-	  return(get_current_board_plugin()->key_press (event->keyval));
-	} 
+	  return(get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
+	}
       else if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok)
 	{
 	  /* Else we send the OK signal. */
 	  get_current_board_plugin()->ok ();
-	}
-      return TRUE;
-    default:
-      /* If the board needs to receive key pressed */
-      if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
-	{
-	  // Removed, Too hard to analyse.
-	  //	  gcompris_log_set_key(get_current_board_plugin(), event->keyval);
-
-	  return(get_current_board_plugin()->key_press (event->keyval));
+	  return TRUE;
 	}
     }
 
@@ -514,6 +515,13 @@ void gcompris_set_cursor(guint gdk_cursor_type)
   }
 }
 
+static void
+popup_menu_detach (GtkWidget *attach_widget,
+		   GtkMenu   *menu)
+{
+  GTK_ENTRY (attach_widget)->popup_menu = NULL;
+}
+
 static void setup_window ()
 {
   GcomprisBoard *board_to_start;
@@ -595,6 +603,9 @@ static void setup_window ()
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
   gtk_signal_connect_after (GTK_OBJECT (canvas_bg), "key_press_event",
 			    GTK_SIGNAL_FUNC (board_widget_key_press_callback), 0);
+
+  gcompris_im_init(window);
+
 
   if(properties->fullscreen)
     gtk_container_add (GTK_CONTAINER (window), GTK_WIDGET(canvas_bg));
@@ -1237,8 +1248,6 @@ gcompris_init (int argc, char *argv[])
   gtk_main ();
   return 0;
 }
-    
-
 
 /* Local Variables: */
 /* mode:c */

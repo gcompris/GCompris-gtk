@@ -172,7 +172,7 @@ class Gcompris_algorithm:
      y = 185, fill_color_rgba = 0x000000ffL, 
      font = gcompris.skin.get_font("gcompris/board/huge bold"))
     
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     print("got key %i" % keyval)
     return False
 

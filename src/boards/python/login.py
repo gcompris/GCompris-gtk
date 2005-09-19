@@ -186,7 +186,7 @@ class Gcompris_login:
     print("Gcompris_login config.")
 
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     print("Gcompris_login key press. %i" % keyval)
 
     # Return  True  if you did process a key

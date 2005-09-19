@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/08/28 12:16:42 yves>
+ * Time-stamp: <2005/09/15 00:21:33 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -101,7 +101,7 @@ static void pause_board (gboolean pause);
 static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
-static gint key_press(guint keyval);
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void gletter_config_start(GcomprisBoard *agcomprisBoard,
 					     GcomprisProfile *aProfile);
 static void gletter_config_stop(void);
@@ -427,7 +427,7 @@ gint is_falling_letter(char *utfchar) {
   return FALSE;
 }
 
-static gint key_press(guint keyval) {
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
   char   lcStr[6], ucStr[6];
   char   utf8char[6], keyChar[6], mapChar[6];
   gchar  list_of_letters[255];

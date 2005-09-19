@@ -255,7 +255,7 @@ class Gcompris_melody:
       
     self.timers.append(gtk.timeout_add(1300, self.repeat_it))
               
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     print("got key %i" % keyval)
     # Play sounds with the keys
     if ((keyval == gtk.keysyms.KP_1) or (keyval == gtk.keysyms._1)):

@@ -307,7 +307,7 @@ class Gcompris_watercycle:
   def config(self):
     print("Gcompris_watercycle config.")
               
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     print("got key %i" % keyval)
     return False
 

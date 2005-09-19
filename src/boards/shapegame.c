@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/09/04 19:45:03 brunoa>
+ * Time-stamp: <2005/09/15 00:09:39 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -142,7 +142,7 @@ static void 		 end_board (void);
 static gboolean 	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void 		 set_level (guint level);
 static void 		 process_ok(void);
-static gint		 key_press(guint keyval);
+static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void	         config_start (GcomprisBoard *agcomprisBoard,
 					   GcomprisProfile *aProfile);
 static void	         config_stop (void);
@@ -373,7 +373,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 /*
  * Keypress here are use for entering the editing mode
  */
-static gint key_press(guint keyval)
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint c;
   gboolean stop = FALSE;

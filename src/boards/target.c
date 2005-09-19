@@ -65,7 +65,7 @@ static guint		user_points = 0;
  * Functions Definition
  */
 static void		process_ok(void);
-static gint		key_press(guint keyval);
+static gint		key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent);
 static void		target_destroy_all_items(void);
 static void		target_next_level(void);
@@ -224,7 +224,7 @@ static void set_level (guint level)
 
 
 /* ======================================= */
-static gint key_press(guint keyval)
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   guint c;
 

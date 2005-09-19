@@ -177,7 +177,7 @@ static guint ext_colorlist [] =
 static void	 start_board (GcomprisBoard *agcomprisBoard);
 static void	 pause_board (gboolean pause);
 static void	 end_board (void);
-static gint	 key_press(guint keyval);
+static gint	 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static gboolean	 is_our_board (GcomprisBoard *gcomprisBoard);
 static void	 config(void);
 
@@ -307,7 +307,7 @@ end_board ()
 }
 
 /* Get the user keys to use with the text tool */
-static gint key_press(guint keyval)
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
   char str[2];
   char utf8char[6];

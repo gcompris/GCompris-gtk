@@ -1608,6 +1608,21 @@ py_gcompris_get_wordlist_from_file (PyObject* self, PyObject* args)
   }
 }
 
+static PyObject*
+py_gcompris_im_reset (PyObject* self, PyObject* args)
+{
+
+  /* Parse arguments */
+  if(!PyArg_ParseTuple(args, ":gcompris.im_reset"))
+    return NULL;
+  
+  /* Call the corresponding C function */
+  gcompris_im_reset ();
+  
+  Py_INCREF(Py_None);
+  return Py_None;
+}
+
 
 
 /****************************************************/
@@ -1671,6 +1686,7 @@ static PyMethodDef PythonGcomprisModule[] = {
   { "get_board_dirname",  py_gcompris_get_board_dirname, METH_VARARGS, "gcompris_get_board_dirname" },
   { "get_current_board_dirname",  py_gcompris_get_current_board_dirname, METH_VARARGS, "gcompris_get_current_board_dirname" },
   { "get_wordlist",  py_gcompris_get_wordlist_from_file, METH_VARARGS, "gcompris_get_wordlist_from_file" },
+  { "im_reset",  py_gcompris_im_reset, METH_VARARGS, "gcompris_im_reset" },
   { NULL, NULL, 0, NULL}
 };
 

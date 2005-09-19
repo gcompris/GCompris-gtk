@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2005/07/01 23:09:38 yves>
+ * Time-stamp: <2005/09/18 20:31:25 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -72,7 +72,7 @@ static void		 pause_board (gboolean pause);
 static void		 end_board (void);
 static gboolean		 is_our_board (GcomprisBoard *gcomprisBoard);
 static void		 set_level (guint level);
-static gint		 key_press(guint keyval);
+static gint		 key_press(guint keyval, gchar *commit_str, gchar *preedit_str);
 static void		 process_ok(void);
 
 static GnomeCanvasItem	*algebra_create_item(GnomeCanvasGroup *parent);
@@ -215,8 +215,15 @@ set_level (guint level)
     }
 }
 
-static gint key_press(guint keyval)
+static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
+  if (preedit_str)
+    return;
+
+  g_warning("key_press: %d %s %s %s", keyval, gdk_keyval_name (keyval), commit_str, preedit_str);
+
+  
+
   guint c;
   gboolean stop = FALSE;
 

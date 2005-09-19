@@ -238,7 +238,7 @@ class Gcompris_searace:
     #print("Gcompris_searace config.")
     return
               
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     #print("got key %i" % keyval)
     return False
 

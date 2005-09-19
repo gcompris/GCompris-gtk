@@ -105,7 +105,7 @@ class Gcompris_bargame:
     self.play(self.answer.value,True)
     pass
 
-  def key_press(self, keyval):
+  def key_press(self, keyval, commit_str, preedit_str):
     #print("got key %i" % keyval)
     return False
 
