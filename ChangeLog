@@ -1,3 +1,13 @@
+2005-09-20  Yves Combe  <yves@ycombe.net>
+
+	Add missing files.
+
+	* src/boards/algebra.c: (key_press):
+	* src/gcompris/gcompris_im.c: (gcompris_im_init),
+	(gcompris_im_reset), (im_context_commit_callback),
+	(im_context_preedit_callback), (window_focus_callback):
+	* src/gcompris/gcompris_im.h:
+
 2005-09-19  Yves Combe  <yves@ycombe.net>
 
 	Uses GtkIMContext to handle correctly input in all languages. All boards using key_press are now broken.

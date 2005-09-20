@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2005/09/18 20:31:25 yves>
+ * Time-stamp: <2005/09/19 23:14:52 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -221,13 +221,12 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     return;
 
   g_warning("key_press: %d %s %s %s", keyval, gdk_keyval_name (keyval), commit_str, preedit_str);
-
-  
+ 
 
   guint c;
   gboolean stop = FALSE;
 
-  if(!gcomprisBoard)
+  if(!boardRootItem)
     return FALSE;
 
   /* Add some filter for control and shift key */
