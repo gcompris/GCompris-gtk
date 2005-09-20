@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2005/09/08 22:31:34 bruno>
+ * Time-stamp: <2005/09/20 00:12:28 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -237,6 +237,41 @@ void gcompris_about_start ()
 				"anchor", GTK_ANCHOR_CENTER,
 				"fill_color_rgba", gcompris_skin_color_content,
 				NULL);
+
+  /* Location for a potential sponsor */
+  gchar *sponsor_image = gcompris_find_absolute_filename("sponsor.png");
+  if(sponsor_image)
+    {
+      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			     gnome_canvas_text_get_type (),
+			     "text", "Version parrainée par",
+			     "font", gcompris_skin_font_content,
+			     "x", (double)  BOARDWIDTH*0.85,
+			     "y", (double)  10,
+			     "anchor", GTK_ANCHOR_CENTER,
+			     "fill_color_rgba", gcompris_skin_color_content,
+			     NULL);
+      gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			     gnome_canvas_text_get_type (),
+			     "text", "Version parrainée par",
+			     "font", gcompris_skin_font_content,
+			     "x", (double)  BOARDWIDTH*0.85 + 1,
+			     "y", (double)  10,
+			     "anchor", GTK_ANCHOR_CENTER,
+			     "fill_color", "black",
+			     NULL);
+
+      pixmap = gcompris_load_pixmap(sponsor_image);
+      item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+				    gnome_canvas_pixbuf_get_type (),
+				    "pixbuf", pixmap, 
+				    "x", (double) (BOARDWIDTH*0.85) - gdk_pixbuf_get_width(pixmap)/2,
+				    "y", (double) 15,
+				    NULL);
+
+      gdk_pixbuf_unref(pixmap);
+      g_free(sponsor_image);
+    }
 
   // OK
   pixmap = gcompris_load_skin_pixmap("button_large.png");

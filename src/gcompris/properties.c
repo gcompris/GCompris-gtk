@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/09/18 18:00:12 bruno>
+ * Time-stamp: <2005/09/19 22:08:44 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -336,9 +336,12 @@ void gcompris_properties_save (GcomprisProperties *props)
    *
    fprintf(filefd, "%s=%d\n", "noxrandr",		props->noxrandr); */
   fprintf(filefd, "%s=%d\n", "timer",			props->timer);
-  fprintf(filefd, "%s=%d\n", "difficulty_filter",	props->difficulty_filter);
-  fprintf(filefd, "%s=%d\n", "filter_style",		props->filter_style);
-  
+
+  /* No more need to persist these, it's in the base now
+     fprintf(filefd, "%s=%d\n", "difficulty_filter",	props->difficulty_filter);
+     fprintf(filefd, "%s=%d\n", "filter_style",		props->filter_style);
+  */
+
   fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);

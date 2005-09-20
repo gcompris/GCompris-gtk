@@ -1,3 +1,14 @@
+2005-09-21  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	* configure.in: HEAD is not 7.1
+	* gcompris.spec.in:
+	* src/boards/python/pythontest.py: (preparing a board with my son Clement)
+	* src/gcompris/Makefile.am:
+	* src/gcompris/about.c: (gcompris_about_start): added support for an optional
+	                                                icon sponsor
+	* src/gcompris/properties.c: (gcompris_properties_save): no more save difficulty
+	* src/gcompris/sdlplayer.c: (sdlplayer_quit), (sdlplayer): removed warnings
+
 2005-09-21  Yves Combe  <yves@ycombe.net>
 
 	pass text colors for menu into skin (Franck Doucet need it). 

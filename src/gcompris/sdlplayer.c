@@ -99,6 +99,8 @@ int sdlplayer_quit(Mix_Music *music)
   Mix_CloseAudio(); 
   printf("SDL PLAYER SDL_Quit\n"); 
   SDL_Quit(); 
+
+  return 0;
 }
 
 int sdlplayer_bg(char *filename, int volume)
@@ -143,7 +145,7 @@ int sdlplayer(char *filename, int volume)
 
   Mix_VolumeChunk(sample, MIX_MAX_VOLUME);
 
-  if(channel=Mix_PlayChannel(-1, sample, 0)==-1) {
+  if((channel=Mix_PlayChannel(-1, sample, 0))==-1) {
     return(cleanExit("Mix_LoadChannel(0x%p,1)",channel));
   }
 

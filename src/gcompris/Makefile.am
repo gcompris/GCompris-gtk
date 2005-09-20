@@ -90,9 +90,9 @@ libgcomprisinclude_HEADERS =			\
 	bonus.h \
 	cursor.h \
 	gameutil.h \
-	gcompris.h 
+	gcompris.h \
 	gcompris-board.h \
-	board_config.h
+	board_config.h \
 	gcompris_config.h \
 	gcompris_db.h \
 	gcompris_im.h \

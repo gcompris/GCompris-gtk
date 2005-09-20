@@ -15,15 +15,16 @@ Group: 		Games/Other
 Source:		ftp://gcompris.sourceforge.net/gcompris-%{PACKAGE_VERSION}.tar.gz
 BuildRoot: 	%_tmppath/%name-%version-buildroot
 Buildrequires: gnuchess
-Buildrequires: libxml2-devel libgnomeui2-devel
+Buildrequires: libxml2-devel libgnomeui2-devel libsqlite3_0-devel
 Buildrequires: texinfo 
 # (misc) needed for python support
-Buildrequires: gnome-python python-devel pygtk2.0-devel
+Buildrequires: gnome-python python-devel pygtk2.0-devel 
 Requires:	gnome-libs libxml2 gdk-pixbuf %canvaspackage %canvaslib >= 2.3.6
 Requires:       gnuchess >= 5.02
 Requires:       @REQUIRE_PYTHON@
 Requires:	assetml-flags
 Requires:	libSDL_mixer1.2
+Requires:	libsqlite3_0 python-sqlite2
 Packager:       Bruno Coudoin <bcoudoin.coudoin@free.fr>
 URL: 		http://ofset.sf.net/gcompris
 

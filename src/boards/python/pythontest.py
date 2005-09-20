@@ -7,13 +7,15 @@ import gcompris.skin
 import gcompris.admin
 import gtk
 import gtk.gdk
+import random
+
 from gcompris import gcompris_gettext as _
 
 class Gcompris_pythontest:
   """Testing gcompris python class"""
 
 
-  def __init__(self, gcomprisBoard):
+  def __init__(self, gcomprisBoard):    
     self.gcomprisBoard = gcomprisBoard
     self.canvasitems = {}
 
@@ -32,6 +34,9 @@ class Gcompris_pythontest:
 
     self.movingline='none'
 
+    # Find a number game
+    self.solution = random.randint(0,9)
+
     print("Gcompris_pythontest __init__.")
 
     #initialisation to default values. Some of them will be replaced by
@@ -47,7 +52,7 @@ class Gcompris_pythontest:
     print wordlist.locale
     print wordlist.description
     print wordlist.words
-       
+
 
     print gcompris.get_current_user_dirname()
     print gcompris.get_current_board_dirname()
@@ -259,6 +264,32 @@ class Gcompris_pythontest:
   def key_press(self, keyval, commit_str, preedit_str):
     print("Gcompris_pythontest key press. %i %s" % (keyval, str))
 
+    if (keyval == gtk.keysyms.KP_0):
+      keyval= gtk.keysyms._0
+    if (keyval == gtk.keysyms.KP_1):
+      keyval= gtk.keysyms._1
+    if (keyval == gtk.keysyms.KP_2):
+      keyval= gtk.keysyms._2
+    if (keyval == gtk.keysyms.KP_2):
+      keyval= gtk.keysyms._2
+    if (keyval == gtk.keysyms.KP_3):
+      keyval= gtk.keysyms._3
+    if (keyval == gtk.keysyms.KP_4):
+      keyval= gtk.keysyms._4
+    if (keyval == gtk.keysyms.KP_5):
+      keyval= gtk.keysyms._5
+    if (keyval == gtk.keysyms.KP_6):
+      keyval= gtk.keysyms._6
+    if (keyval == gtk.keysyms.KP_7):
+      keyval= gtk.keysyms._7
+    if (keyval == gtk.keysyms.KP_8):
+      keyval= gtk.keysyms._8
+    if (keyval == gtk.keysyms.KP_9):
+      keyval= gtk.keysyms._9
+
+    utf8char = gtk.gdk.keyval_to_unicode(keyval)
+    strn = u'%c' % utf8char
+
     win = False
     
     if (keyval == gtk.keysyms.Shift_L):
@@ -303,6 +334,12 @@ class Gcompris_pythontest:
       self.canvasitems[6].set(text="")
 
     self.canvasitems[7].set(text="Speed="+str(self.timerinc)+" ms")
+
+    # Find a number game
+    if str(self.solution) == strn:
+      print "WIN"
+    else:
+      print "LOST"
 
     # Return  True  if you did process a key
     # Return  False if you did not processed a key
