@@ -1,3 +1,14 @@
+2005-09-21  Yves Combe  <yves@ycombe.net>
+
+	pass text colors for menu into skin (Franck Doucet need it). 
+
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/default/skin.xml:
+	* boards/skins/linha_verde/skin.xml:
+	* boards/skins/pink/skin.xml:
+	* po/Makefile.in.in:
+	* src/boards/menu.c: (menu_start), (create_info_area):
+
 2005-09-20  Yves Combe  <yves@ycombe.net>
 
 	Add missing files.

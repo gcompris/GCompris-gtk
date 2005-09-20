@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/08/29 13:17:32 yves>
+ * Time-stamp: <2005/09/21 00:10:23 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -115,7 +115,6 @@ static void menu_pause (gboolean pause)
  */
 static void menu_start (GcomprisBoard *agcomprisBoard)
 {
-
   current_x = 0.0;
   current_y = 0.0;
 
@@ -462,7 +461,7 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "x", (double) x,
 			   "y", (double) y,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color", "white",
+			   "fill_color_rgba",  gcompris_skin_get_color("menu/text"),
 			   NULL);
 
   menuitems->description_item = \
@@ -473,7 +472,7 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "x", (double) x,
 			   "y", (double) y + 28,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color", "white",
+			   "fill_color_rgba", gcompris_skin_get_color("menu/text"),
 			   NULL);
 
   menuitems->author_item = \
@@ -484,7 +483,7 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "x", (double) x,
 			   "y", (double) y + 90,
   			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color", "white",
+  			   "fill_color_rgba", gcompris_skin_get_color("menu/text"),
   			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 
