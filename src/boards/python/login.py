@@ -50,6 +50,8 @@ class Gcompris_login:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
 
+    self.gcomprisBoard.disable_im_context = True
+
     print("Gcompris_login __init__.")
 
 

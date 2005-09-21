@@ -20,6 +20,8 @@ class Gcompris_ballcatch:
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
 
+    self.gcomprisBoard.disable_im_context = True
+
     # These are used to let us restart only after the bonus is displayed.
     # When the bonus is displayed, it call us first with pause(1) and then with pause(0)
     self.board_paused  = 0;

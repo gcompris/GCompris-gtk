@@ -93,8 +93,6 @@ static int *popt_profile_list	   = FALSE;
 static char *popt_shared_dir	   = NULL;
 static char *popt_users_dir	   = NULL;
 
-GTimer *chronometer;
-
 static struct poptOption options[] = {
   {"fullscreen", 'f', POPT_ARG_NONE, &popt_fullscreen, 0,
    N_("run gcompris in fullscreen mode."), NULL},
@@ -198,11 +196,12 @@ board_widget_key_press_callback (GtkWidget   *widget,
   int kv = event->keyval;
 
   //first, pas through the IM context.
-  if (gtk_im_context_filter_keypress (properties->context, event))
-    {
-      g_warning("%d key is handled by context", kv);
-      return TRUE;
-    }
+  if (get_current_gcompris_board() && (!get_current_gcompris_board()->disable_im_context))
+    if (gtk_im_context_filter_keypress (properties->context, event))
+      {
+	g_warning("%d key is handled by context", kv);
+	return TRUE;
+      }
 
 
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
@@ -528,9 +527,6 @@ static void setup_window ()
   GdkPixbuf     *gcompris_icon_pixbuf;
   GError        *error = NULL;
 
-  gdouble        elapsed;
-  gulong         musec;
-
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
   /*
@@ -626,21 +622,13 @@ static void setup_window ()
 
   init_plugins();
   
-  elapsed = g_timer_elapsed( chronometer, &musec);
-  printf("init_plugins %f sec.\n", elapsed);
 
   /* Load all the menu once */
   gcompris_load_menus();
 
-  elapsed = g_timer_elapsed( chronometer, &musec);
-  printf("gcompris_load_menus %f sec.\n", elapsed);
-
   /* Load the mime type */
   gcompris_load_mime_types();
 
-  elapsed = g_timer_elapsed( chronometer, &musec);
-  printf("gcompris_load_mime_types %f sec.\n", elapsed);
-  
   /* Save the root_menu */
   properties->menu_board = gcompris_get_board_from_section(properties->root_menu);
 
@@ -725,8 +713,6 @@ void gcompris_exit()
   board_stop();
 
   gcompris_db_exit();
-
-  g_timer_destroy (chronometer);
 
 #ifdef XRANDR
   /* Set back the original screen size */
@@ -944,10 +930,6 @@ gcompris_init (int argc, char *argv[])
   poptContext pctx; 
   int popt_option;
   gchar *str;
-
-  chronometer = g_timer_new ();
-
-  g_timer_start (chronometer);
 
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");

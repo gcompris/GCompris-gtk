@@ -54,6 +54,8 @@ pyGcomprisBoardType_getattr(pyGcomprisBoardObject *self, char *name)
       }
     }
 
+    if(strcmp(name,"disable_im_context")==0) return PyBool_FromLong(self->cdata->disable_im_context);
+
     /* Board specific mode */
     if(strcmp(name,"mode")==0) return Py_BuildValue("s", self->cdata->mode);
 
@@ -156,6 +158,11 @@ pyGcomprisBoardType_setattr(pyGcomprisBoardObject *self, char *name, PyObject *v
     value = PyInt_AsLong(v);
     if ( value < 0 ) return -1;
     self->cdata->number_of_sublevel=value;
+    return 0;
+  }
+  if (strcmp(name,"disable_im_context")==0){
+    value = PyObject_IsTrue( v);
+    self->cdata->disable_im_context = value;
     return 0;
   }
   /* Other members are supposed to be read only */

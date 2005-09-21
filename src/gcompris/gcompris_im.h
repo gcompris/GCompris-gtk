@@ -1,6 +1,6 @@
 /* gcompris - gcompris_im.h
  *
- * Time-stamp: <2005/09/15 14:19:33 yves>
+ * Time-stamp: <2005/09/21 15:01:36 yves>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *

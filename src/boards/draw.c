@@ -262,6 +262,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
+      /* disable im_context */
+      gcomprisBoard->disable_im_context = TRUE;
+
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), 
 			      gcompris_image_to_skin("gcompris-bg.jpg"));
 

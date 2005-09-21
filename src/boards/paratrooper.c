@@ -1,6 +1,6 @@
 /* gcompris - paratrooper.c
  *
- * Time-stamp: <2005/09/15 00:19:23 yves>
+ * Time-stamp: <2005/09/21 23:04:36 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -180,6 +180,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
+
+      /* disable im_context */
+      gcomprisBoard->disable_im_context = TRUE;
 
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery3_background.png");
 

@@ -635,6 +635,7 @@ class Gcompris_gnumch:
         game = self
 
         self.board = board
+        self.board.disable_im_context = True
         self.scrw = gcompris.BOARD_WIDTH
         self.scrh = gcompris.BOARD_HEIGHT
         self.width = 6
@@ -839,15 +840,8 @@ class Gcompris_gnumch:
         self.squares[x][y].setNum(new)
 
     def key_press(self, keyval, commit_str, preedit_str):
-        if ((commit_str != None) or (preedit_str != None)):
-            if ((' ' in commit_str) or (' ' in preedit_str)):
-                key = gtk.keysyms.space
-            else:
-                key = 0
-        else:
-            key = keyval
-        self.muncher.push_key(key)
-        return False
+        self.muncher.push_key(keyval)
+        return True
 
     def stopGame(self):
         self.stopped = 1

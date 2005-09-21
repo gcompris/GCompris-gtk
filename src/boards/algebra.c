@@ -1,6 +1,6 @@
 /* gcompris - algebra.c
  *
- * Time-stamp: <2005/09/19 23:14:52 yves>
+ * Time-stamp: <2005/09/21 22:59:56 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -152,6 +152,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
+      /* disable im_context */
+      gcomprisBoard->disable_im_context = TRUE;
+
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery2_background.png");
 
       /* set initial values for this level */
@@ -217,12 +220,6 @@ set_level (guint level)
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 {
-  if (preedit_str)
-    return;
-
-  g_warning("key_press: %d %s %s %s", keyval, gdk_keyval_name (keyval), commit_str, preedit_str);
- 
-
   guint c;
   gboolean stop = FALSE;
 

@@ -140,6 +140,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
   if(agcomprisBoard!=NULL)
     {
+      /* disable im_context */
+      gcomprisBoard->disable_im_context = TRUE;
+
       gcomprisBoard=agcomprisBoard;
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=5;

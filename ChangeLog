@@ -1,3 +1,36 @@
+2005-09-22  Yves Combe,,,  <yves@ycombe.net>
+
+	fix all boards after IMContext installation. At least gletters needs to be rewritten. anim/draw use IMContext, others desactive it. Add a gcomprisBoard->disable_im_context for that.
+	clean gcompris.c from timer stuff and output.
+	fix connect4p/minmax from psyco import.
+
+	* src/boards/algebra.c: (start_board), (key_press):
+	* src/boards/draw.c: (start_board):
+	* src/boards/enumerate.c: (start_board):
+	* src/boards/maze.c: (start_board):
+	* src/boards/paratrooper.c: (start_board):
+	* src/boards/planegame.c: (start_board):
+	* src/boards/py-gcompris-board.c: (pyGcomprisBoardType_getattr),
+	(pyGcomprisBoardType_setattr):
+	* src/boards/python/anim.py:
+	* src/boards/python/ballcatch.py:
+	* src/boards/python/connect4p/minmax.py:
+	* src/boards/python/gnumch.py:
+	* src/boards/python/login.py:
+	* src/boards/python/melody.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/sudoku.py:
+	* src/boards/reversecount.c: (start_board):
+	* src/boards/shapegame.c: (start_board):
+	* src/boards/smallnumbers.c: (start_board):
+	* src/boards/target.c: (start_board):
+	* src/boards/wordsgame.c: (start_board):
+	* src/gcompris/board.c: (board_run_next_end):
+	* src/gcompris/gcompris-board.h:
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback),
+	(setup_window), (gcompris_exit), (gcompris_init):
+	* src/gcompris/gcompris_im.h:
+
 2005-09-21  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* configure.in: HEAD is not 7.1

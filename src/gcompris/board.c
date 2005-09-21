@@ -412,6 +412,10 @@ void board_run_next_end()
       next_board->previous_board->plugin->end_board)
     next_board->previous_board->plugin->end_board();
 
+  /* reset the im context */
+  gcompris_im_reset();
+
+  /*run the board */
   board_play(next_board);
 }
 

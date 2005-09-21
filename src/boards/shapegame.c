@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/09/15 00:09:39 yves>
+ * Time-stamp: <2005/09/21 23:10:20 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -234,6 +234,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
+
+      /* disable im_context */
+      gcomprisBoard->disable_im_context = TRUE;
 
       /* set initial values for this level */
       gcomprisBoard->level = 1;

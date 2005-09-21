@@ -35,6 +35,9 @@ class Gcompris_melody:
 
   def __init__(self, gcomprisBoard):
     self.gcomprisBoard = gcomprisBoard
+
+    self.gcomprisBoard.disable_im_context = True
+    
     print("Gcompris_melody __init__.")
 
     # These are used to let us restart only after the bonux is displayed.

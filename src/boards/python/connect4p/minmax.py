@@ -42,12 +42,6 @@
 # This software is licensed under the GPL - General Public License      #
 #########################################################################
 
-try:
-  import psyco
-except ImportError:
-  print "Not using psyco (psyco.sf.net), AI not a maximum speed!"
-
-
 import rules
 from player import *
 from random import *

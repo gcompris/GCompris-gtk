@@ -437,7 +437,6 @@ class Gcompris_anim:
     print("Gcompris_anim config.")
               
   def key_press(self, keyval, commit_str, preedit_str):
-    print keyval, commit_str, preedit_str
     #
     # I suppose codec is the stdin one.
     #

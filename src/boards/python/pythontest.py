@@ -17,6 +17,9 @@ class Gcompris_pythontest:
 
   def __init__(self, gcomprisBoard):    
     self.gcomprisBoard = gcomprisBoard
+
+    self.gcomprisBoard.disable_im_context = True
+    
     self.canvasitems = {}
 
     self.colors = {}
