@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/09/15 00:21:33 yves>
+ * Time-stamp: <2005/09/22 22:47:57 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -117,8 +117,8 @@ static void gletters_add_new_item(void);
 
 static void player_win(GnomeCanvasItem *item);
 static void player_loose(void);
-static GnomeCanvasItem *item_find_by_title (const gchar *title);
-static char *key_find_by_item (const GnomeCanvasItem *item);
+static GnomeCanvasItem *item_find_by_title (const gunichar *title);
+static gunichar *key_find_by_item (const GnomeCanvasItem *item);
 
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
@@ -211,20 +211,44 @@ static void pause_board (gboolean pause)
     }
 }
 
-void fill_letters(char **letterString,char *buffer) {
-  g_message("in fill_letters\n");
-  *letterString = g_malloc(strlen(buffer)+1);
-  sprintf(*letterString,"%s",buffer);
-}
-
 int load_default_charset() {
   g_message("in load_default_charset\n");
-  fill_letters(&letters_array[0],"ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-  fill_letters(&letters_array[1],"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
-  fill_letters(&letters_array[2],"abcdefghijklmnopqrstuvwxyz");
-  fill_letters(&letters_array[3],"abcdefghijklmnopqrstuvwxyz0123456789");
-  fill_letters(&letters_array[4],"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-  fill_letters(&letters_array[5],"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+
+  gchar *numbers;
+  gchar *alphabet_lowercase;
+  gchar *alphabet_uppercase;
+
+  /* TRANSLATORS: Put here the numbers in your language */
+  numbers=_("0123456789");
+  assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
+  
+  /* TRANSLATORS: Put here the alphabet lowercase in your language */
+  alphabet_lowercase=_("abcdefghijklmnopqrstuvwxyz");
+  assert(g_utf8_validate(alphabet_lowercase,-1,NULL)); // require by all utf8-functions
+  
+  g_warning("Using lowercase %s", alphabet_lowercase);
+  
+  /* TRANSLATORS: Put here the alphabet uppercase in your language */
+  alphabet_uppercase=_("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+  assert(g_utf8_validate(alphabet_uppercase,-1,NULL)); // require by all utf8-functions
+  g_warning("Using uppercase %s", alphabet_uppercase);
+
+  letters_array[0] = g_strdup(alphabet_uppercase);
+  letters_array[1] = g_strdup_printf("%s%s",
+				     alphabet_uppercase,
+				     numbers);
+  letters_array[2] = g_strdup(alphabet_lowercase); 
+  letters_array[3] = g_strdup_printf("%s%s",
+				     alphabet_lowercase,
+				     numbers);
+  letters_array[4] = g_strdup_printf("%s%s",
+				     alphabet_lowercase,
+				     alphabet_uppercase);
+  letters_array[5] = g_strdup_printf("%s%s%s",
+				     alphabet_lowercase, 
+				     alphabet_uppercase,
+				     numbers);
+
   keyMapSize = 0;
   maxLevel = 6;
   return TRUE;
@@ -241,109 +265,6 @@ int whitespace(char *buffer) {
   return TRUE;
 }
 
-int load_charset_from_file(FILE *fp) {
-  int level, currKeyMap;
-  char lineBuffer[4096], strBuffer[4096], charBuffer[12];
-
-  /* keymap size is dynamically allocated */
-  g_message("scanning line\n");
-  keyMapSize = 64;
-  currKeyMap = 0;
-  keyMap = (char **)g_malloc((sizeof (char *))*keyMapSize);
-  g_warning("in load_charset_from_file\n");
-  /* first read each line into a buffer */
-  while( fgets(lineBuffer,4095,fp) ) {
-    /* if it's a comment or blank (empty), skip line */
-    if ( lineBuffer[0] == '#' || whitespace(lineBuffer) ) continue;
-    /* if it's not a comment, it can be one of 4 things
-     * a level string, where it starts with "level "
-     * and the format is "level %d %s" or
-     * a keymap which starts with "key" and the format is "key %lc%lc"
-     * fall rate, which starts with "fallrate" and format is "fallrate %f %f"
-     * drop rate, which starts with "droprate" and format is "droprate %f %f"
-     */
-    g_message("scanning line\n");
-    if( sscanf(lineBuffer,"level %d %s",&level, strBuffer) == 2 ) {
-      /* we have a level charset */
-      if (level > MAXLEVEL || level < 1) {
-	g_message("level %d outside range of 1 to %d in line %s ",level,MAXLEVEL,lineBuffer);
-	return FALSE;
-      }
-      fill_letters(&letters_array[level-1],strBuffer);
-      if(maxLevel < level) maxLevel = level;
-      g_message("maxLevel: %d\n",maxLevel);
-    }
-    else if( sscanf(lineBuffer,"key %11s",charBuffer) == 1) {
-      /* we potentially have a keymap */
-      if( !g_utf8_validate(charBuffer,-1,(void *)NULL) ) {
-	/* it's not a valid UTF-8 string */
-	g_message("malformed UTF-8 character string >%s< ",charBuffer);
-	return FALSE;
-      }
-      keyMap[currKeyMap] = (char *)g_malloc((sizeof (char))*strlen(charBuffer));
-      sprintf(keyMap[currKeyMap],"%s",charBuffer);
-      currKeyMap++;
-      if(currKeyMap ==  keyMapSize) {
-	keyMapSize *= 2;
-	keyMap = (char **)realloc(keyMap,(sizeof(char *))*keyMapSize);
-      }
-    }
-    else if (sscanf(lineBuffer,"fallrate %f %f",&fallRateBase,&fallRateMult) == 2) {
-      if(fallRateBase < 5 || fallRateBase > 500 || fallRateMult < 5 || fallRateMult > 500) 
-	g_message("WARNING: fallrate outside reasonable parameters");
-    }
-    else if (sscanf(lineBuffer,"droprate %f %f",&dropRateBase,&dropRateMult) == 2) {
-      if(dropRateBase < 100 || dropRateBase > 20000 || dropRateMult < 100 || dropRateMult > 20000)
-	g_message("WARNING: droprate outside reasonable parameters");
-    }
-    else
-      g_message("unknown or bad command in file: >%s<",lineBuffer);
-  }
-  /* now check to see all levels have been filled
-   */
-  keyMapSize = currKeyMap;
-  return TRUE;
-}   
-
-void get_charset(const char *locale) {
-  char *filename;
-  FILE *charsfd = NULL;
-  int i;
-  
-  /* zero out letters_array so we know which ones got assigned */
-  for(i = 0; i < MAXLEVEL; i++)
-    letters_array[i] = (char *)0;
-  maxLevel=0;
-
-  /* First Try to find a file matching the level and the locale */
-  filename = g_strdup_printf("%s%s.%.2s",
-                             PACKAGE_DATA_DIR, "/gletters/gletters",
-                             locale);
-  g_message("Trying to open file %s ", filename);
-  charsfd = fopen (filename, "r");
-  g_free(filename);
-
-                                                                                                         
-  if (charsfd == (FILE *)NULL) {
-    g_message("failed to open file.\n");
-    load_default_charset();
-  }
-  else if (load_charset_from_file(charsfd))
-    g_message("loaded charset from file.\n");
-  else {
-    g_message("failed to load charset from file - using defaults.\n");
-    load_default_charset();
-  }
-
-  /*now make sure all levels have been filled */
-  for(i = 0; i < maxLevel; i++)
-    if(letters_array[i] == (char *)0) {
-      g_message("WARNING: level %d uninitialized in config file, setting defaults",i);
-      fill_letters(&letters_array[i],"ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-
-}
-
 /*
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
@@ -357,8 +278,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   if(agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
+      load_default_charset();
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
-      get_charset(gcompris_get_locale());
       gcomprisBoard->maxlevel=maxLevel;
       gcomprisBoard->level = 1;
       level_set_score();
@@ -412,148 +333,67 @@ static void add_char(char *key, char *value, char *char_list)
   strcat(char_list, key);
 }
 
-gint is_falling_letter(char *utfchar) {
-  gchar *old_value;
-  gchar *old_name;
+gboolean *unichar_comp (gpointer key,
+		      gpointer value,
+		      gpointer user_data)
+{
+  gunichar *target = (gunichar *) user_data;
+  if (*((gunichar *)key) == *target)
+    return TRUE;
+  return FALSE;    
+}
 
-  if (g_hash_table_lookup_extended (letters_table,
-                                    utfchar,
-                                    (gpointer) &old_name,
-                                    (gpointer) &old_value))
+gint is_falling_letter(gunichar  unichar) {
+  GnomeCanvasItem *item;
+  if (item = g_hash_table_find         (letters_table,
+				       unichar_comp,
+				       &unichar))
     {
-      player_win(item_find_by_title(utfchar));
+      player_win(item);
       return TRUE;
     }
   return FALSE;
 }
 
 static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
-  char   lcStr[6], ucStr[6];
-  char   utf8char[6], keyChar[6], mapChar[6];
+  gint length_passed, i;
+  gunichar c;
   gchar  list_of_letters[255];
   gchar *str;
-  int    i;
 
   if(!gcomprisBoard)
     return FALSE;
 
-  /* Add some filter for control and shift key */
-  switch (keyval)
-    {
-      /* Avoid all this keys to be interpreted by this game */
-    case GDK_Shift_L:
-    case GDK_Shift_R:
-    case GDK_Control_L:
-    case GDK_Control_R:
-    case GDK_Caps_Lock:
-    case GDK_Shift_Lock:
-    case GDK_Meta_L:
-    case GDK_Meta_R:
-    case GDK_Alt_L:
-    case GDK_Alt_R:
-    case GDK_Super_L:
-    case GDK_Super_R:
-    case GDK_Hyper_L:
-    case GDK_Hyper_R:
-    case GDK_Num_Lock:
-      return FALSE; 
-    case GDK_KP_0:
-    case GDK_KP_Insert:
-      keyval=GDK_0;
-      break;
-    case GDK_KP_1:
-    case GDK_KP_End:
-      keyval=GDK_1;
-      break;
-    case GDK_KP_2:
-    case GDK_KP_Down:
-      keyval=GDK_2;
-      break;
-    case GDK_KP_3:
-    case GDK_KP_Page_Down:
-      keyval=GDK_3;
-      break;
-    case GDK_KP_4:
-    case GDK_KP_Left:
-      keyval=GDK_4;
-      break;
-    case GDK_KP_5:
-    case GDK_KP_Begin:
-      keyval=GDK_5;
-      break;
-    case GDK_KP_6:
-    case GDK_KP_Right:
-      keyval=GDK_6;
-      break;
-    case GDK_KP_7:
-    case GDK_KP_Home:
-      keyval=GDK_7;
-      break;
-    case GDK_KP_8:
-    case GDK_KP_Up:
-      keyval=GDK_8;
-      break;
-    case GDK_KP_9:
-    case GDK_KP_Page_Up:
-      keyval=GDK_9;
-      break;
+  /* i suppose even numbers are passed through IM_context */
+  if ((commit_str == NULL) && (preedit_str == NULL))
+    return FALSE;
+
+  gchar *string_passed;
+  if (commit_str)
+    string_passed = commit_str;
+  else
+    string_passed = preedit_str;
+
+  str = g_strdup(string_passed);
+
+  length_passed = g_utf8_strlen(string_passed, -1);
+
+  for (i=0; i < length_passed; i++){
+    c = g_utf8_get_char (string_passed);
+    if (is_falling_letter(c)){
+      gcompris_im_reset();
+      return TRUE;
+    }
+    /* for 2 first level don't care abour uppercase/lowercase */
+    if ((gcomprisBoard->level < 3) && 
+	(is_falling_letter(g_unichar_toupper(c)))){
+      gcompris_im_reset();
+      return TRUE;
     }
 
-  /* first check the obvious - simple keystrokes 
-     check for keymap 
-     convert to unichar/utf8
-     set to lower case
-     check direct match
-     check upper case match
-  */
-  g_message("checking keymap: %d\n",keyMapSize);
-
-  i = g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval),utf8char);
-  utf8char[i]='\0';
-
-
-  for (i = 0; i < keyMapSize; i++) {
-    g_message("keymap: %d: %s\n",i,keyMap[i]);
-
-    sprintf(keyChar, "%lc", g_utf8_get_char(keyMap[i]));
-    sprintf(mapChar, "%lc", g_utf8_get_char(g_utf8_find_next_char(keyMap[i], NULL)));
-
-    g_message("char1: %s, char2: %s",keyChar, mapChar);
-
-    if (strcmp(utf8char, keyChar) == 0) {
-
-      /* match in keymap */
-      sprintf(utf8char, "%s", mapChar);
-      if( is_falling_letter(utf8char) ) {
-	str = utf8char;
-	break;
-      }
-    }
+    string_passed = g_utf8_next_char (string_passed);
   }
-
-  g_message("no match-moving on\n");
-
-  /* no match in keymap */
-  if (i == keyMapSize) {
-
-    g_message("i == keyMapSize\n");
-
-    sprintf(lcStr,"%s",g_utf8_strdown(utf8char,-1));
-    sprintf(ucStr,"%s",g_utf8_strup(utf8char,-1));
-    g_message("lcStr = %s\n", lcStr);
-    g_message("ucStr = %s\n", ucStr);
-    if ( is_falling_letter(lcStr) ) {
-      str = lcStr;
-    }
-    else if( is_falling_letter(ucStr) ) {
-      str = ucStr;
-    }
-    else {
-      str = utf8char;
-      player_loose();
-    }
-  }
-
+  
   list_of_letters[0] = '\0';
 
   /* We have to loop to concat the letters */
@@ -564,6 +404,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
   /* Log what happened, what was expected, what we got */
 
   gcompris_log_set_comment(gcomprisBoard, list_of_letters, str);
+  g_free(str);
 
   return TRUE;
 }
@@ -628,17 +469,18 @@ static void gletters_move_item(GnomeCanvasItem *item)
 
 static void gletters_destroy_item(GnomeCanvasItem *item)
 {
-  char *key;
-
+  gunichar *key;
 
   key = key_find_by_item(item);
-  /* Remove old letter  */
-  g_hash_table_remove (letters_table, key);
-  g_free (key);
 
   item_list = g_list_remove (item_list, item);
+
   item2del_list = g_list_remove (item2del_list, item);
-  gtk_object_destroy (GTK_OBJECT(item));
+
+  /* Remove old letter; this destroy the canvas item  */
+  g_warning("destroying %c", key);
+  g_hash_table_remove (letters_table, key);
+
 }
 
 /* Destroy items that falls out of the canvas */
@@ -689,20 +531,27 @@ static gint gletters_move_items (GtkWidget *widget, gpointer data)
   return(FALSE);
 }
 
+
+GDestroyNotify destroy_canvas_item(gpointer item)
+{
+  //g_free(g_object_get_data (G_OBJECT(item),"unichar_key"));
+  //g_free(g_object_get_data (G_OBJECT(item),"utf8_key"));
+  gtk_object_destroy (GTK_OBJECT(item));
+}
+
 static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 {
   GnomeCanvasItem *item;
-  gchar *str  = NULL;
   gchar *str2 = NULL;
   gint i,j,k;
   guint x;
-  gchar *lettersItem, *str_p;
+  gunichar *lettersItem;
+  gchar *str_p, *letter;
 
   if (!letters_table)
     {
-      letters_table= g_hash_table_new (g_str_hash, g_str_equal);
+      letters_table= g_hash_table_new_full (g_int_hash, g_int_equal, g_free, destroy_canvas_item);
     }
-
 
   /* Beware, since we put the letters in a hash table, we do not allow the same
      letter to be displayed two times 
@@ -712,7 +561,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
 
   k=g_utf8_strlen(letters_array[gcomprisBoard->level-1],-1);
 
-  lettersItem = g_new(gchar,6);
+  lettersItem = g_new(gunichar,1);
   gint attempt=0;
   do {
 
@@ -724,20 +573,21 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
       str_p=g_utf8_find_next_char(str_p,NULL);
     }
 
-    g_utf8_strncpy (lettersItem, str_p,1);
+    *lettersItem = g_utf8_get_char (str_p);
 
   } while((attempt<MAX_RAND_ATTEMPTS) && (item_find_by_title(lettersItem)!=NULL));
 
   if (item_find_by_title(lettersItem)!=NULL)  {g_free(lettersItem); return NULL;}
-
-  gchar *letter_no_caps=g_utf8_strdown(lettersItem,-1);
-  str = g_strdup_printf("%s%s", letter_no_caps, ".ogg");
-  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str);
+  gchar *letter_unichar_name=g_strdup_printf("U%.4X.ogg",(gint32) *lettersItem);
+  str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg",letter_unichar_name);
   gcompris_play_ogg(str2, NULL);
 
-  g_free(letter_no_caps);
-  g_free(str);
+  g_free(letter_unichar_name);
   g_free(str2);
+
+  letter = g_new0(gchar, 6);
+  g_unichar_to_utf8 ( *lettersItem, letter);
+
 
   item =					\
     gnome_canvas_item_new (parent,
@@ -749,7 +599,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   x = 80 + (int)((float)(gcomprisBoard->width-160)*rand()/(RAND_MAX+1.0));
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
 			 gnome_canvas_text_get_type (),
-			 "text", lettersItem,
+			 "text", letter,
 			 "font", gcompris_skin_font_board_huge_bold,
 			 "x", (double) x,
 			 "y", (double) -20,
@@ -759,13 +609,16 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   x -= 2;
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(item),
 			 gnome_canvas_text_get_type (),
-			 "text", lettersItem,
+			 "text", letter,
 			 "font", gcompris_skin_font_board_huge_bold,
 			 "x", (double) x,
 			 "y", (double) -22,
 			 "anchor", GTK_ANCHOR_CENTER,
 			 "fill_color_rgba", 0x254c87FF,
 			 NULL);
+
+  g_object_set_data (G_OBJECT(item), "unichar_key", lettersItem);
+  g_object_set_data (G_OBJECT(item), "utf8_key", letter);
 
   item_list = g_list_append (item_list, item);
 
@@ -847,34 +700,14 @@ static void player_loose()
   g_warning("leaving player_loose\n");
 }
 
-/* Return in item the key if the value equals the item */
-static void get_item(char *key, char *value, char **item)
-{
-  if(value==*item) {
-    *item=key;
-  }
-}
-
-static char *
+static gunichar *
 key_find_by_item (const GnomeCanvasItem *item)
 {
-  static char *key_found;
-
-  key_found = (char *)item;
-
-  if (!letters_table)
-    return NULL;
-  
-  /* We have to loop to find this item's key */
-  g_hash_table_foreach (letters_table,
-			(GHFunc) get_item,
-			&key_found);
-
-  return key_found;
+  return g_object_get_data (G_OBJECT(item), "unichar_key");
 }
 
 static GnomeCanvasItem *
-item_find_by_title (const gchar *title)
+item_find_by_title (const gunichar *title)
 {
   if (!letters_table)
     return NULL;
@@ -920,7 +753,7 @@ static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
 }
 
 static void
-colors_config_start(GcomprisBoard *agcomprisBoard,
+gletter_config_start(GcomprisBoard *agcomprisBoard,
 		    GcomprisProfile *aProfile)
 {
   board_conf = agcomprisBoard;
@@ -949,7 +782,7 @@ colors_config_start(GcomprisBoard *agcomprisBoard,
 /* = config_stop        = */
 /* ======================= */
 static void 
-gletters_config_stop()
+gletter_config_stop()
 {
 }
 

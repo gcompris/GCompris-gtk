@@ -1,4 +1,14 @@
-2005-09-22  Yves Combe,,,  <yves@ycombe.net>
+2005-09-23  Yves Combe  <yves@ycombe.net>
+
+	fixed gletters to work with IMContext. Seems ok, but needs more tests.
+
+	* src/boards/gletters.c: (load_default_charset), (start_board),
+	(unichar_comp), (is_falling_letter), (key_press),
+	(gletters_destroy_item), (destroy_canvas_item),
+	(gletters_create_item), (key_find_by_item), (item_find_by_title),
+	(gletter_config_start), (gletter_config_stop):
+
+2005-09-22  Yves Combe  <yves@ycombe.net>
 
 	fix all boards after IMContext installation. At least gletters needs to be rewritten. anim/draw use IMContext, others desactive it. Add a gcomprisBoard->disable_im_context for that.
 	clean gcompris.c from timer stuff and output.
