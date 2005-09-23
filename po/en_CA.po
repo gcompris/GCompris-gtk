@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-06 18:04-0400\n"
+"POT-Creation-Date: 2005-09-23 09:31-0400\n"
 "PO-Revision-Date: 2005-09-06 22:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -25,7 +25,7 @@ msgid ""
 "add a profile, then in the 'Board' section select the profile in the "
 "combobox, then select the boards you want to be active. You can add lot of "
 "profiles, with different lists of boards, and different languages. You set "
-"the default profile in the 'Profile' section, by chhosing the profile you "
+"the default profile in the 'Profile' section, by choosing the profile you "
 "want, then clicking on the 'Default' button. You can also choose a profile "
 "from the command line. - You can add users, classes and for each class, you "
 "can create groups of users. Note that you can import users from a comma-"
@@ -42,7 +42,7 @@ msgstr ""
 "add a profile, then in the 'Board' section select the profile in the "
 "combobox, then select the boards you want to be active. You can add lot of "
 "profiles, with different lists of boards, and different languages. You set "
-"the default profile in the 'Profile' section, by chhosing the profile you "
+"the default profile in the 'Profile' section, by choosing the profile you "
 "want, then clicking on the 'Default' button. You can also choose a profile "
 "from the command line. - You can add users, classes and for each class, you "
 "can create groups of users. Note that you can import users from a comma-"
@@ -416,12 +416,12 @@ msgstr "Go to Algebra activities"
 #: boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) Ralf has given gcompris the authorization to include "
-"his pictures. Thanks a lot Ralf."
+"&lt;http://schmode.net/&gt; Ralf has given gcompris the authorization to "
+"include his pictures. Thanks a lot Ralf."
 msgstr ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) Ralf has given gcompris the authorization to include "
-"his pictures. Thanks a lot Ralf."
+"&lt;http://schmode.net/&gt; Ralf has given gcompris the authorization to "
+"include his pictures. Thanks a lot Ralf."
 
 #: boards/algebra_guesscount.xml.in.h:2
 msgid ""
@@ -689,7 +689,8 @@ msgstr "Kick the ball into the goal"
 #: boards/clickgame.xml.in.h:6 boards/connect4.xml.in.h:6
 #: boards/erase.xml.in.h:3 boards/erase_clic.xml.in.h:6
 #: boards/erase_double_clic.xml.in.h:6 boards/fifteen.xml.in.h:2
-#: boards/hanoi.xml.in.h:3 boards/memory.xml.in.h:4
+#: boards/hanoi.xml.in.h:3 boards/hanoi_real.xml.in.h:2
+#: boards/memory.xml.in.h:4
 msgid "Mouse manipulation"
 msgstr "Mouse manipulation"
 
@@ -768,12 +769,12 @@ msgid ""
 "Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
 "Vegastrike which are released under the GPL license. The transportation "
 "images are copyright Franck Doucet. Dates of Transportation are based on "
-"those found in http://www.wikipedia.org."
+"those found in &lt;http://www.wikipedia.org&gt;."
 msgstr ""
 "Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
-"Vegastrike which are released under the GPL licence. The transportation "
+"Vegastrike which are released under the GPL license. The transportation "
 "images are copyright Franck Doucet. Dates of Transportation are based on "
-"those found in http://www.wikipedia.org."
+"those found in &lt;http://www.wikipedia.org&gt;."
 
 #: boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -991,28 +992,24 @@ msgstr "Click with the left mouse button on the moving fish."
 #: boards/clickgame.xml.in.h:3
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
-"National Undersea Research Program (NURP) Collection at http://www.photolib."
-"noaa.gov All image credits belong to the OAR/National Undersea Research "
-"Program (NURP), except for the first image, which is property of the "
-"University of North Carolina at Wilmington. The images used in each level "
-"are: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
+"National Undersea Research Program (NURP) Collection at &lt;http://www."
+"photolib.noaa.gov&gt; All image credits belong to the OAR/National Undersea "
+"Research Program (NURP), except for the first image, which is property of "
+"the University of North Carolina at Wilmington. The images used in each "
+"level are: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
 "Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: "
 "Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
 "Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
-"National Undersea Research Program (NURP) Collection at http://www.photolib."
-"noaa.gov All image credits belong to the OAR/National Undersea Research "
-"Program (NURP), except for the first image, which is property of the "
-"University of North Carolina at Wilmington.\n"
-"The images used in each level are:\n"
-"Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
-"Photographer: D. Kesling\n"
-"Location: Florida Keys (image nur03006)\n"
-"Location: Unknown (image nur03505)\n"
-"Location: Unknown (image nur03010)\n"
-"Location: Unknown (image nur03011)\n"
-"Location: Unknown (image nur03013)"
+"National Undersea Research Program (NURP) Collection at &lt;http://www."
+"photolib.noaa.gov&gt; All image credits belong to the OAR/National Undersea "
+"Research Program (NURP), except for the first image, which is property of "
+"the University of North Carolina at Wilmington. The images used in each "
+"level are: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
+"Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: "
+"Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
+"Unknown (image nur03011) Location: Unknown (image nur03013)"
 
 #: boards/clickgame.xml.in.h:4 src/boards/clickgame.c:86
 msgid ""
@@ -1034,21 +1031,23 @@ msgstr ""
 "minutes or hours:minutes:seconds). You can change the direction of an arrow "
 "by selecting it and moving the mouse."
 
-#: boards/clockgame.xml.in.h:2 src/boards/clockgame.c:78
+#: boards/clockgame.xml.in.h:2
+msgid ""
+"Distinguish between hours, minutes and seconds. Display time on a clock."
+msgstr ""
+"Distinguish between hours, minutes and seconds. Display time on a clock."
+
+#: boards/clockgame.xml.in.h:3 src/boards/clockgame.c:78
 msgid "Learn how to tell the time"
 msgstr "Learn how to tell the time"
 
-#: boards/clockgame.xml.in.h:3 src/boards/clockgame.c:77
+#: boards/clockgame.xml.in.h:4 src/boards/clockgame.c:77
 msgid "Learning Clock"
 msgstr "Learning Clock"
 
-#: boards/clockgame.xml.in.h:4
+#: boards/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "The concept of time. Reading the time."
-
-#: boards/clockgame.xml.in.h:5
-msgid "istinguish between hours, minutes and seconds. Display time on a clock."
-msgstr "Distinguish between hours, minutes and seconds. Display time on a clock."
 
 #: boards/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -1102,12 +1101,12 @@ msgstr "Create a line of 4 pieces either horizontally or vertically"
 #: boards/connect4.xml.in.h:5
 msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
-"4stattack by Jeroen Vloothuis. The original project can be found on http://"
-"forcedattack.sourceforge.net"
+"4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
+"http://forcedattack.sourceforge.net&gt;"
 msgstr ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
-"4stattack by Jeroen Vloothuis. The original project can be found on http://"
-"forcedattack.sourceforge.net"
+"4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
+"http://forcedattack.sourceforge.net&gt;"
 
 #: boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1195,11 +1194,11 @@ msgstr "Place the items in the best way to count them"
 #: boards/erase.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"&lt;http://schmode.net/&gt; and from LE BERRE Daniel. They gave GCompris the "
 "authorization to include their pictures. Thanks a lot."
 msgstr ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"&lt;http://schmode.net/&gt; and from LE BERRE Daniel. They gave GCompris the "
 "authorization to include their pictures. Thanks a lot."
 
 #: boards/erase.xml.in.h:2 boards/erase_clic.xml.in.h:5
@@ -1967,7 +1966,7 @@ msgstr "Go to Number Munchers activities"
 msgid "Concept taken from EPI games."
 msgstr "Concept taken from EPI games."
 
-#: boards/hanoi.xml.in.h:2
+#: boards/hanoi.xml.in.h:2 boards/hanoi_real.xml.in.h:1
 msgid ""
 "Drag and Drop the top pieces only from one peg to another, to reproduce the "
 "tower on the right in the empty space on the left."
@@ -1986,6 +1985,44 @@ msgstr "Reproduce the tower on the right in the empty space on the left"
 #: boards/hanoi.xml.in.h:6 src/boards/hanoi.c:104
 msgid "Simplified Tower of Hanoi"
 msgstr "Simplified Tower of Hanoi"
+
+#: boards/hanoi_real.xml.in.h:3
+msgid "Reproduce the tower on the right side"
+msgstr "Reproduce the tower on the right side"
+
+#: boards/hanoi_real.xml.in.h:4
+msgid "The Tower of Hanoi"
+msgstr "The Tower of Hanoi"
+
+#: boards/hanoi_real.xml.in.h:5
+msgid ""
+"The object of the game is to move the entire stack to another peg, obeying "
+"the following rules: * only one disc may be moved at a time * no disc may be "
+"placed atop a smaller disc"
+msgstr ""
+"The object of the game is to move the entire stack to another peg, obeying "
+"the following rules: * only one disc may be moved at a time * no disc may be "
+"placed atop a smaller disc"
+
+#: boards/hanoi_real.xml.in.h:6
+msgid ""
+"The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
+"There is a legend about a Hindu temple whose priests were constantly engaged "
+"in moving a set of 64 discs according to the rules of the Tower of Hanoi "
+"puzzle. According to the legend, the world would end when the priests "
+"finished their work. The puzzle is therefore also known as the Tower of "
+"Brahma puzzle. It is not clear whether Lucas invented this legend or was "
+"inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
+"Tower_of_hanoi&gt;)"
+msgstr ""
+"The puzzle was invented by the French mathematician Edouard Lucas in 1883. "
+"There is a legend about a Hindu temple whose priests were constantly engaged "
+"in moving a set of 64 discs according to the rules of the Tower of Hanoi "
+"puzzle. According to the legend, the world would end when the priests "
+"finished their work. The puzzle is therefore also known as the Tower of "
+"Brahma puzzle. It is not clear whether Lucas invented this legend or was "
+"inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
+"Tower_of_hanoi&gt;)"
 
 #: boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -3082,41 +3119,39 @@ msgstr "Direct your boat accurately to win the race."
 msgid ""
 "In the text box, enter commands, line by line, to direct your ship. You can "
 "use any of the commands shown between the two entry areas. When you use the "
-"\"left\" or \"right\" commands, you have to tell the ship how far you want "
-"it to turn, in degrees (e.g. \"left 30\" degrees). Giving special "
-"measurements like this is also called 'passing a parameter': this is how we "
-"tell the computer how much to do something. The \"forward\" command accepts "
-"a distance parameter, so you can tell it how far you want your ship to move. "
-"The default is 1, so if you don't add that parameter, each move will be 1 "
-"unit. (Defaults are handy values that help the computer out when we don't "
-"pass any parameters.) So you could say: \"left 90\" : make a perpendicular "
-"turn (a whole corner) to the left. \"forward 10\" : go ahead 10 units (as "
-"shown on the ruler). The goal is to reach the right edge of the screen (the "
-"red line). When you get there, you can try to improve your program, with the "
-"same weather conditions, and try again, using the Retry button. You can "
-"click and drag your mouse anywhere on the map, to show a measurement of "
-"distance (how far) and angle (how much turn). Going to the next level will "
-"introduce more complex weather conditions: a fun challenge for a budding "
-"programmer. ;)"
+"'left' or 'right' commands, you have to tell the ship how far you want it to "
+"turn, in degrees (e.g. 'left 30' degrees). Giving special measurements like "
+"this is also called 'passing a parameter': this is how we tell the computer "
+"how much to do something. The 'forward' command accepts a distance "
+"parameter, so you can tell it how far you want your ship to move. The "
+"default is 1, so if you don't add that parameter, each move will be 1 unit. "
+"(Defaults are handy values that help the computer out when we don't pass any "
+"parameters.) So you could say: 'left 90' : make a perpendicular turn (a "
+"whole corner) to the left. 'forward 10' : go ahead 10 units (as shown on the "
+"ruler). The goal is to reach the right edge of the screen (the red line). "
+"When you get there, you can try to improve your program, with the same "
+"weather conditions, and try again, using the Retry button. You can click and "
+"drag your mouse anywhere on the map, to show a measurement of distance (how "
+"far) and angle (how much turn). Going to the next level will introduce more "
+"complex weather conditions: a fun challenge for a budding programmer. ;)"
 msgstr ""
 "In the text box, enter commands, line by line, to direct your ship. You can "
 "use any of the commands shown between the two entry areas. When you use the "
-"\"left\" or \"right\" commands, you have to tell the ship how far you want "
-"it to turn, in degrees (e.g. \"left 30\" degrees). Giving special "
-"measurements like this is also called 'passing a parameter': this is how we "
-"tell the computer how much to do something. The \"forward\" command accepts "
-"a distance parameter, so you can tell it how far you want your ship to move. "
-"The default is 1, so if you don't add that parameter, each move will be 1 "
-"unit. (Defaults are handy values that help the computer out when we don't "
-"pass any parameters.) So you could say: \"left 90\" : make a perpendicular "
-"turn (a whole corner) to the left. \"forward 10\" : go ahead 10 units (as "
-"shown on the ruler). The goal is to reach the right edge of the screen (the "
-"red line). When you get there, you can try to improve your program, with the "
-"same weather conditions, and try again, using the Retry button. You can "
-"click and drag your mouse anywhere on the map, to show a measurement of "
-"distance (how far) and angle (how much turn). Going to the next level will "
-"introduce more complex weather conditions: a fun challenge for a budding "
-"programmer. ;)"
+"'left' or 'right' commands, you have to tell the ship how far you want it to "
+"turn, in degrees (e.g. 'left 30' degrees). Giving special measurements like "
+"this is also called 'passing a parameter': this is how we tell the computer "
+"how much to do something. The 'forward' command accepts a distance "
+"parameter, so you can tell it how far you want your ship to move. The "
+"default is 1, so if you don't add that parameter, each move will be 1 unit. "
+"(Defaults are handy values that help the computer out when we don't pass any "
+"parameters.) So you could say: 'left 90' : make a perpendicular turn (a "
+"whole corner) to the left. 'forward 10' : go ahead 10 units (as shown on the "
+"ruler). The goal is to reach the right edge of the screen (the red line). "
+"When you get there, you can try to improve your program, with the same "
+"weather conditions, and try again, using the Retry button. You can click and "
+"drag your mouse anywhere on the map, to show a measurement of distance (how "
+"far) and angle (how much turn). Going to the next level will introduce more "
+"complex weather conditions: a fun challenge for a budding programmer. ;)"
 
 #: boards/searace.xml.in.h:3 boards/searace1player.xml.in.h:3
 msgid ""
@@ -3254,15 +3289,15 @@ msgid ""
 "each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
 "(called 'regions'), starting with various symbols or numerals given in some "
 "cells (the 'givens'). Each row, column and region must contain only one "
-"instance of each symbol or numeral (Source http://en.wikipedia.org/wiki/"
-"Sudoku)."
+"instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
+"Sudoku&gt;)."
 msgstr ""
 "The aim of the puzzle is to enter a symbol or numeral from 1 through 9 in "
 "each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
 "(called 'regions'), starting with various symbols or numerals given in some "
 "cells (the 'givens'). Each row, column and region must contain only one "
-"instance of each symbol or numeral (Source http://en.wikipedia.org/wiki/"
-"Sudoku)."
+"instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
+"Sudoku&gt;)."
 
 #: boards/superbrain.xml.in.h:1
 msgid ""
@@ -3382,9 +3417,9 @@ msgstr "Multiple activities for kids"
 
 #: src/boards/advanced_colors.c:533 src/boards/imageid.c:615
 #: src/boards/missingletter.c:618 src/boards/read_colors.c:491
-#: src/boards/shapegame.c:1924 src/gcompris/file_selector.c:891
-#: src/gcompris/gameutil.c:184 src/gcompris/gameutil.c:600
-#: src/gcompris/gameutil.c:601 src/gcompris/gcompris.c:531
+#: src/boards/shapegame.c:1927 src/gcompris/file_selector.c:891
+#: src/gcompris/gameutil.c:184 src/gcompris/gameutil.c:602
+#: src/gcompris/gameutil.c:603 src/gcompris/gcompris.c:537
 #: src/gcompris/images_selector.c:764 src/gcompris/skin.c:83
 #: src/gcompris/skin.c:261 src/gcompris/wordlist.c:48
 #, c-format
@@ -3393,7 +3428,7 @@ msgstr "Couldn't find file %s !"
 
 #: src/boards/advanced_colors.c:536 src/boards/imageid.c:618
 #: src/boards/missingletter.c:621 src/boards/read_colors.c:494
-#: src/boards/shapegame.c:1927
+#: src/boards/shapegame.c:1930
 #, c-format
 msgid "find file %s !"
 msgstr "find file %s !"
@@ -3474,7 +3509,7 @@ msgstr "Black mates"
 msgid "White mates"
 msgstr "White mates"
 
-#: src/boards/chess.c:1062 src/gcompris/bonus.c:312
+#: src/boards/chess.c:1062 src/gcompris/bonus.c:312 src/gcompris/bonus.c:321
 msgid "Drawn game"
 msgstr "Drawn game"
 
@@ -3510,7 +3545,8 @@ msgstr ""
 #. TRANSLATORS: Put here the alphabet in your language
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
-#: src/boards/click_on_letter.c:292 src/boards/memory.c:442
+#: src/boards/click_on_letter.c:292 src/boards/gletters.c:226
+#: src/boards/memory.c:442
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
@@ -3582,13 +3618,27 @@ msgstr "Double click value is now %d."
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Move the items one by one to rearrange them in increasing order"
 
-#: src/boards/hanoi.c:337
+#. TRANSLATORS: Put here the numbers in your language
+#: src/boards/gletters.c:222 src/boards/memory.c:438
+msgid "0123456789"
+msgstr "0123456789"
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: src/boards/gletters.c:232 src/boards/memory.c:448
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#: src/boards/hanoi.c:337 src/boards/hanoi.c:348
 msgid "Re-create in the empty area the same tower as the one on the right"
 msgstr "Re-create in the empty area the same tower as the one on the right"
 
-#: src/boards/hanoi.c:348
-msgid "Reproduce in the empty area the same tower as the one on the right"
-msgstr "Reproduce in the empty area the same tower as the one on the right"
+#: src/boards/hanoi_real.c:84
+msgid "Tower of Hanoi"
+msgstr "Tower of Hanoi"
+
+#: src/boards/hanoi_real.c:286 src/boards/hanoi_real.c:297
+msgid "Move the entire stack to the right peg"
+msgstr "Move the entire stack to the right peg"
 
 #: src/boards/imageid.c:113 src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -3612,11 +3662,11 @@ msgstr "left"
 msgid "right"
 msgstr "right"
 
-#: src/boards/maze.c:488
+#: src/boards/maze.c:492
 msgid "Look at your position and switch back to invisible mode to move"
 msgstr "Look at your position and switch back to invisible mode to move"
 
-#: src/boards/maze.c:490
+#: src/boards/maze.c:494
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr "Look at your position and switch back to 3D mode to move"
 
@@ -3627,17 +3677,6 @@ msgstr "Memory"
 #: src/boards/memory.c:173
 msgid "Find the matching pair"
 msgstr "Find the matching pair"
-
-#. TRANSLATORS: Put here the numbers in your language
-#: src/boards/memory.c:438
-msgid "0123456789"
-msgstr "0123456789"
-
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: src/boards/memory.c:446
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 #: src/boards/menu.c:72
 msgid "Main Menu"
@@ -3728,10 +3767,10 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: src/boards/python/admin/board_list.py:625
-#: src/boards/python/admin/board_list.py:643
-#: src/boards/python/admin/wordlist.py:51 src/boards/python/login.py:541
-#: src/boards/python/pythontest.py:383 src/boards/python/tuxpaint.py:168
+#: src/boards/python/admin/board_list.py:632
+#: src/boards/python/admin/board_list.py:650
+#: src/boards/python/admin/wordlist.py:51 src/boards/python/login.py:543
+#: src/boards/python/pythontest.py:432 src/boards/python/tuxpaint.py:179
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3740,8 +3779,8 @@ msgstr ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
 
-#: src/boards/python/admin/board_list.py:655
-#: src/boards/python/pythontest.py:447
+#: src/boards/python/admin/board_list.py:662
+#: src/boards/python/pythontest.py:496
 msgid "Select sound locale"
 msgstr "Select sound locale"
 
@@ -3928,8 +3967,8 @@ msgstr "You need to provide at least a name for your profile"
 msgid "There is already a profile with this name"
 msgstr "There is already a profile with this name"
 
-#: src/boards/python/admin/profile_list.py:122 src/gcompris/board_config.c:582
-#: src/gcompris/board_config.c:708
+#: src/boards/python/admin/profile_list.py:122 src/gcompris/board_config.c:600
+#: src/gcompris/board_config.c:726
 msgid "Default"
 msgstr "Default"
 
@@ -4009,7 +4048,7 @@ msgid "You need the python xml module. Disabling SVG."
 msgstr "You need the Python XML module. Disabling SVG."
 
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: src/boards/python/anim.py:415
+#: src/boards/python/anim.py:417
 msgid ""
 "Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
@@ -4017,15 +4056,15 @@ msgstr ""
 "Python XML module not found. SVG is disabled. Install the python XML module "
 "to enable SVG save/restore."
 
-#: src/boards/python/anim.py:2208
+#: src/boards/python/anim.py:2227
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG is disabled. Install Python XML module to enable it"
 
-#: src/boards/python/anim.py:2364
+#: src/boards/python/anim.py:2383
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Warning: the following images cannot be accessed on your system.\n"
 
-#: src/boards/python/anim.py:2366
+#: src/boards/python/anim.py:2385
 msgid "The corresponding items have been skipped."
 msgstr "The corresponding items have been skipped."
 
@@ -4132,7 +4171,7 @@ msgstr ""
 "\n"
 "Press <Return> to continue."
 
-#: src/boards/python/gnumch.py:777
+#: src/boards/python/gnumch.py:778
 msgid ""
 "T\n"
 "R\n"
@@ -4150,25 +4189,25 @@ msgstr ""
 "L\n"
 "E"
 
-#: src/boards/python/login.py:123
+#: src/boards/python/login.py:125
 msgid "Profile: "
 msgstr "Profile: "
 
-#: src/boards/python/login.py:274 src/boards/python/login.py:283
+#: src/boards/python/login.py:276 src/boards/python/login.py:285
 msgid "Login: "
 msgstr "Login: "
 
 #. toggle box
-#: src/boards/python/login.py:546
+#: src/boards/python/login.py:548
 msgid "Uppercase only text"
 msgstr "Uppercase only text"
 
 #. toggle box
-#: src/boards/python/login.py:556
+#: src/boards/python/login.py:558
 msgid "Enter login to log in"
 msgstr "Enter login to log in"
 
-#: src/boards/python/pythontest.py:132
+#: src/boards/python/pythontest.py:149
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
@@ -4176,7 +4215,7 @@ msgstr ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 
-#: src/boards/python/pythontest.py:141
+#: src/boards/python/pythontest.py:158
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -4184,35 +4223,35 @@ msgstr ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 
-#: src/boards/python/pythontest.py:150
+#: src/boards/python/pythontest.py:167
 msgid "This activity is not playable yet, just a test"
 msgstr "This activity is not playable yet, just a test"
 
 #. toggle box
-#: src/boards/python/pythontest.py:388
+#: src/boards/python/pythontest.py:437
 msgid "Disable line drawing in circle"
 msgstr "Disable line drawing in circle"
 
 #. combo box
-#: src/boards/python/pythontest.py:397
+#: src/boards/python/pythontest.py:446
 msgid "Colour of the line"
 msgstr "Colour of the line"
 
 #. spin button for int
-#: src/boards/python/pythontest.py:408
+#: src/boards/python/pythontest.py:457
 msgid "Distance between circles"
 msgstr "Distance between circles"
 
 #. radio buttons for circle or rectangle
-#: src/boards/python/pythontest.py:419
+#: src/boards/python/pythontest.py:468
 msgid "Use circles"
 msgstr "Use circles"
 
-#: src/boards/python/pythontest.py:420
+#: src/boards/python/pythontest.py:469
 msgid "Use rectangles"
 msgstr "Use rectangles"
 
-#: src/boards/python/pythontest.py:423
+#: src/boards/python/pythontest.py:472
 msgid "Choice of pattern"
 msgstr "Choice of pattern"
 
@@ -4279,7 +4318,7 @@ msgstr "Unknown command at line"
 msgid "Distance:"
 msgstr "Distance:"
 
-#: src/boards/python/tuxpaint.py:104
+#: src/boards/python/tuxpaint.py:115
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -4287,23 +4326,27 @@ msgstr ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board!"
 
-#: src/boards/python/tuxpaint.py:117
+#: src/boards/python/tuxpaint.py:128
 msgid "Waiting for Tuxpaint finishes"
 msgstr "Waiting for Tuxpaint finishes"
 
-#: src/boards/python/tuxpaint.py:172
+#: src/boards/python/tuxpaint.py:183
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Inherit fullscreen setting from GCompris"
 
-#: src/boards/python/tuxpaint.py:176
+#: src/boards/python/tuxpaint.py:187
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr "Inherit size setting from GCompris (800x600, 640x480)"
+
+#: src/boards/python/tuxpaint.py:191
 msgid "Disable shape rotation"
 msgstr "Disable shape rotation"
 
-#: src/boards/python/tuxpaint.py:180
+#: src/boards/python/tuxpaint.py:195
 msgid "Show Uppercase text only"
 msgstr "Show Uppercase text only"
 
-#: src/boards/python/tuxpaint.py:184
+#: src/boards/python/tuxpaint.py:199
 msgid "Disable stamps"
 msgstr "Disable stamps"
 
@@ -4327,41 +4370,41 @@ msgstr "Click on the corresponding colour"
 msgid "Read a list of words to see if the given word is there."
 msgstr "Read a list of words to see if the given word is there."
 
-#: src/boards/reading.c:379
+#: src/boards/reading.c:364
 msgid "Please, check if the word"
 msgstr "Please, check if the word"
 
-#: src/boards/reading.c:399
+#: src/boards/reading.c:384
 msgid "is being displayed"
 msgstr "is being displayed"
 
-#: src/boards/reading.c:571
+#: src/boards/reading.c:556
 msgid "I am Ready"
 msgstr "I am Ready"
 
-#: src/boards/reading.c:611
+#: src/boards/reading.c:596
 msgid "Yes I saw it"
 msgstr "Yes I saw it"
 
-#: src/boards/reading.c:641
+#: src/boards/reading.c:626
 msgid "No, it was not there"
 msgstr "No, it was not there"
 
 #. Report what was wrong in the log
-#: src/boards/reading.c:679
+#: src/boards/reading.c:664
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "The word to find was '%s'"
 
-#: src/boards/reading.c:682
+#: src/boards/reading.c:667
 msgid "But it was not displayed"
 msgstr "But it was not displayed"
 
-#: src/boards/reading.c:684
+#: src/boards/reading.c:669
 msgid "And it was displayed"
 msgstr "And it was displayed"
 
-#: src/boards/reading.c:786 src/boards/wordsgame.c:758
+#: src/boards/reading.c:772 src/boards/wordsgame.c:761
 msgid "Cannot open file of words for your locale"
 msgstr "Cannot open wordlist for your locale"
 
@@ -4378,7 +4421,7 @@ msgid "Drag and Drop the items to rebuild the object"
 msgstr "Drag and Drop the items to rebuild the object"
 
 #. Enter Edit Mode
-#: src/boards/shapegame.c:461
+#: src/boards/shapegame.c:464
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -4390,7 +4433,7 @@ msgstr ""
 "type 's' to save, and\n"
 "'d' to display all the shapes"
 
-#: src/boards/shapegame.c:469
+#: src/boards/shapegame.c:472
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4410,12 +4453,12 @@ msgstr "Submarine"
 msgid "Control the depth of a submarine"
 msgstr "Control the depth of a submarine"
 
-#: src/boards/target.c:321 src/boards/target.c:574
+#: src/boards/target.c:325 src/boards/target.c:578
 #, c-format
 msgid "Points = %s"
 msgstr "Points = %s"
 
-#: src/boards/target.c:439
+#: src/boards/target.c:443
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -4424,7 +4467,7 @@ msgstr ""
 "Wind speed = %d\n"
 "kilometres/hour"
 
-#: src/boards/target.c:501
+#: src/boards/target.c:505
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "Distance to target = %d metres"
@@ -4456,11 +4499,15 @@ msgstr "About GCompris"
 msgid "Translators:"
 msgstr "Translators:"
 
-#: src/gcompris/about.c:230
-msgid "GCompris Home Page"
-msgstr "GCompris Home Page"
+#: src/gcompris/about.c:211
+msgid ""
+"GCompris Home Page\n"
+"http://gcompris.net"
+msgstr ""
+"GCompris Home Page\n"
+"http://gcompris.net"
 
-#: src/gcompris/about.c:252
+#: src/gcompris/about.c:233
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -4468,12 +4515,8 @@ msgstr ""
 "This software is a GNU Package and is released under the GNU General Public "
 "Licence"
 
-#: src/gcompris/about.c:281
-msgid "Help"
-msgstr "Help"
-
-#: src/gcompris/about.c:316 src/gcompris/config.c:209
-#: src/gcompris/gameutil.c:1106 src/gcompris/help.c:329
+#: src/gcompris/about.c:296 src/gcompris/config.c:210
+#: src/gcompris/gameutil.c:1118 src/gcompris/help.c:344
 #: src/gcompris/images_selector.c:262
 msgid "OK"
 msgstr "OK"
@@ -4482,7 +4525,7 @@ msgstr "OK"
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynamic module loading is not supported. gcompris cannot load.\n"
 
-#: src/gcompris/board_config.c:612
+#: src/gcompris/board_config.c:630
 msgid ""
 "Select the language\n"
 " to use in the board"
@@ -4535,12 +4578,12 @@ msgid "English (Great Britain)"
 msgstr "English (Great Britain)"
 
 #: src/gcompris/config.c:73
-msgid "English (USA)"
-msgstr "English (USA)"
-
-#: src/gcompris/config.c:74
 msgid "Spanish"
 msgstr "Spanish"
+
+#: src/gcompris/config.c:74
+msgid "Basque"
+msgstr "Basque"
 
 #: src/gcompris/config.c:75
 msgid "Finnish"
@@ -4583,122 +4626,126 @@ msgid "Italian"
 msgstr "Italian"
 
 #: src/gcompris/config.c:85
+msgid "Georgian"
+msgstr "Georgian"
+
+#: src/gcompris/config.c:86
 msgid "Lithuanian"
 msgstr "Lithuanian"
 
-#: src/gcompris/config.c:86
+#: src/gcompris/config.c:87
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: src/gcompris/config.c:87
+#: src/gcompris/config.c:88
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: src/gcompris/config.c:88
+#: src/gcompris/config.c:89
 msgid "Malay"
 msgstr "Malay"
 
-#: src/gcompris/config.c:89
+#: src/gcompris/config.c:90
 msgid "Nepal"
 msgstr "Nepal"
 
-#: src/gcompris/config.c:90
+#: src/gcompris/config.c:91
 msgid "Dutch"
 msgstr "Dutch"
 
-#: src/gcompris/config.c:91
+#: src/gcompris/config.c:92
 msgid "Norwegian Bokmal"
 msgstr "Norwegian Bokmal"
 
-#: src/gcompris/config.c:92
+#: src/gcompris/config.c:93
 msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
-#: src/gcompris/config.c:93
+#: src/gcompris/config.c:94
 msgid "Polish"
 msgstr "Polish"
 
-#: src/gcompris/config.c:94
+#: src/gcompris/config.c:95
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: src/gcompris/config.c:95
+#: src/gcompris/config.c:96
 msgid "Portuguese (Brazil)"
 msgstr "Portuguese (Brazil)"
 
-#: src/gcompris/config.c:96
+#: src/gcompris/config.c:97
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/gcompris/config.c:97
+#: src/gcompris/config.c:98
 msgid "Russian"
 msgstr "Russian"
 
-#: src/gcompris/config.c:98
+#: src/gcompris/config.c:99
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: src/gcompris/config.c:99
+#: src/gcompris/config.c:100
 msgid "Slovak"
 msgstr "Slovak"
 
-#: src/gcompris/config.c:100
+#: src/gcompris/config.c:101
 msgid "Slovenian"
 msgstr "Slovenian"
 
-#: src/gcompris/config.c:101
+#: src/gcompris/config.c:102
 msgid "Albanian"
 msgstr "Albanian"
 
-#: src/gcompris/config.c:102
+#: src/gcompris/config.c:103
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/gcompris/config.c:103
+#: src/gcompris/config.c:104
 msgid "Serbian"
 msgstr "Serbian"
 
-#: src/gcompris/config.c:104
+#: src/gcompris/config.c:105
 msgid "Swedish"
 msgstr "Swedish"
 
-#: src/gcompris/config.c:105
+#: src/gcompris/config.c:106
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/gcompris/config.c:106
+#: src/gcompris/config.c:107
 msgid "Vietnamese"
 msgstr "Vietnamese"
 
-#: src/gcompris/config.c:107
+#: src/gcompris/config.c:108
 msgid "Walloon"
 msgstr "Walloon"
 
-#: src/gcompris/config.c:108
+#: src/gcompris/config.c:109
 msgid "Chinese (Simplified)"
 msgstr "Chinese (Simplified)"
 
-#: src/gcompris/config.c:113
+#: src/gcompris/config.c:114
 msgid "No time limit"
 msgstr "No time limit"
 
-#: src/gcompris/config.c:114
+#: src/gcompris/config.c:115
 msgid "Slow timer"
 msgstr "Slow timer"
 
-#: src/gcompris/config.c:115
+#: src/gcompris/config.c:116
 msgid "Normal timer"
 msgstr "Normal timer"
 
-#: src/gcompris/config.c:116
+#: src/gcompris/config.c:117
 msgid "Fast timer"
 msgstr "Fast timer"
 
-#: src/gcompris/config.c:121
+#: src/gcompris/config.c:122
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Default for gcompris)"
 
-#: src/gcompris/config.c:126
+#: src/gcompris/config.c:127
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -4706,34 +4753,34 @@ msgstr ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
 
-#: src/gcompris/config.c:183
+#: src/gcompris/config.c:184
 msgid "GCompris Configuration"
 msgstr "GCompris Configuration"
 
-#: src/gcompris/config.c:292
+#: src/gcompris/config.c:293
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: src/gcompris/config.c:335
+#: src/gcompris/config.c:336
 msgid "Music"
 msgstr "Music"
 
-#: src/gcompris/config.c:363
+#: src/gcompris/config.c:364
 msgid "Effect"
 msgstr "Effect"
 
-#: src/gcompris/config.c:396
+#: src/gcompris/config.c:397
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Couldn't open skin dir: %s"
 
-#: src/gcompris/config.c:417
+#: src/gcompris/config.c:418
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "No skin found in %s\n"
 
-#: src/gcompris/config.c:432 src/gcompris/config.c:788
-#: src/gcompris/config.c:799
+#: src/gcompris/config.c:433 src/gcompris/config.c:789
+#: src/gcompris/config.c:800
 #, c-format
 msgid "Skin : %s"
 msgstr "Skin : %s"
@@ -4766,47 +4813,47 @@ msgstr ""
 "Exit it and report\n"
 "the problem to the authors."
 
-#: src/gcompris/gcompris.c:100
+#: src/gcompris/gcompris.c:98
 msgid "run gcompris in fullscreen mode."
 msgstr "run gcompris in fullscreen mode."
 
-#: src/gcompris/gcompris.c:102
+#: src/gcompris/gcompris.c:100
 msgid "run gcompris in window mode."
 msgstr "run gcompris in window mode."
 
-#: src/gcompris/gcompris.c:104
+#: src/gcompris/gcompris.c:102
 msgid "run gcompris with sound enabled."
 msgstr "run gcompris with sound enabled."
 
-#: src/gcompris/gcompris.c:106
+#: src/gcompris/gcompris.c:104
 msgid "run gcompris without sound."
 msgstr "run gcompris without sound."
 
-#: src/gcompris/gcompris.c:108
+#: src/gcompris/gcompris.c:106
 msgid "run gcompris with the default gnome cursor."
 msgstr "run gcompris with the default gnome cursor."
 
-#: src/gcompris/gcompris.c:110
+#: src/gcompris/gcompris.c:108
 msgid "display only activities with this difficulty level."
 msgstr "display only activities with this difficulty level."
 
-#: src/gcompris/gcompris.c:112
+#: src/gcompris/gcompris.c:110
 msgid "display debug informations on the console."
 msgstr "display debugging information on the console."
 
-#: src/gcompris/gcompris.c:114
+#: src/gcompris/gcompris.c:112
 msgid "Print the version of "
 msgstr "Print the version of "
 
-#: src/gcompris/gcompris.c:116
+#: src/gcompris/gcompris.c:114
 msgid "Use the antialiased canvas (slower)."
 msgstr "Use the antialiased canvas (slower)."
 
-#: src/gcompris/gcompris.c:118
+#: src/gcompris/gcompris.c:116
 msgid "Disable XRANDR (No screen resolution change)."
 msgstr "Disable XRANDR (No screen resolution change)."
 
-#: src/gcompris/gcompris.c:120
+#: src/gcompris/gcompris.c:118
 msgid ""
 "Run gcompris with local menu (e.g -l /reading will let you play only reading "
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
@@ -4816,39 +4863,39 @@ msgstr ""
 "activity directory, -l /boards/connect4 only the connect4 activity), -l list "
 "shows the list of menus and activities"
 
-#: src/gcompris/gcompris.c:122
+#: src/gcompris/gcompris.c:120
 msgid "Run GCompris with local activity directory added to menu"
 msgstr "Run GCompris with local activity directory added to menu"
 
-#: src/gcompris/gcompris.c:124
+#: src/gcompris/gcompris.c:122
 msgid "Run GCompris in administration and user-management mode"
 msgstr "Run GCompris in administration and user-management mode"
 
-#: src/gcompris/gcompris.c:126
+#: src/gcompris/gcompris.c:124
 msgid "Use alternate database for profiles"
 msgstr "Use alternate database for profiles"
 
-#: src/gcompris/gcompris.c:128
+#: src/gcompris/gcompris.c:126
 msgid "Use alternate database for logs"
 msgstr "Use alternate database for logs"
 
-#: src/gcompris/gcompris.c:130
+#: src/gcompris/gcompris.c:128
 msgid "Create the alternate database for profiles"
 msgstr "Create the alternate database for profiles"
 
-#: src/gcompris/gcompris.c:132
+#: src/gcompris/gcompris.c:130
 msgid "Re-read XML Menus and store them in the database"
 msgstr "Re-read XML Menus and store them in the database"
 
-#: src/gcompris/gcompris.c:134
+#: src/gcompris/gcompris.c:132
 msgid "Set the profile to use. Use 'gcompris -a' to create profiles"
 msgstr "Set the profile to use. Use 'gcompris -a' to create profiles"
 
-#: src/gcompris/gcompris.c:136
+#: src/gcompris/gcompris.c:134
 msgid "List all available profiles. Use 'gcompris -a' to create profiles"
 msgstr "List all available profiles. Use 'gcompris -a' to create profiles"
 
-#: src/gcompris/gcompris.c:138
+#: src/gcompris/gcompris.c:136
 msgid ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
@@ -4856,11 +4903,11 @@ msgstr ""
 "Shared directory location, for profiles and board-configuration data: "
 "[$HOME/.gcompris/shared]"
 
-#: src/gcompris/gcompris.c:140
+#: src/gcompris/gcompris.c:138
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "The location of user directories: [$HOME/.gcompris/users]"
 
-#: src/gcompris/gcompris.c:693
+#: src/gcompris/gcompris.c:694
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4882,7 +4929,7 @@ msgstr ""
 "Linux. Get more information at FSF:\n"
 "http://www.fsf.org/philosophy"
 
-#: src/gcompris/gcompris.c:971
+#: src/gcompris/gcompris.c:980
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4896,17 +4943,17 @@ msgstr ""
 "More info at http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: src/gcompris/gcompris.c:1039
+#: src/gcompris/gcompris.c:1048
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l to access an activity directly.\n"
 
-#: src/gcompris/gcompris.c:1040
+#: src/gcompris/gcompris.c:1049
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "List of available activity is:\n"
 
-#: src/gcompris/gcompris.c:1182
+#: src/gcompris/gcompris.c:1194
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "The list of available profiles is:\n"
@@ -4919,19 +4966,19 @@ msgstr "Unaffected"
 msgid "Users without class"
 msgstr "Users without class"
 
-#: src/gcompris/help.c:170
+#: src/gcompris/help.c:185
 msgid "Prerequisite"
 msgstr "Prerequisite"
 
-#: src/gcompris/help.c:198
+#: src/gcompris/help.c:213
 msgid "Goal"
 msgstr "Goal"
 
-#: src/gcompris/help.c:226
+#: src/gcompris/help.c:241
 msgid "Manual"
 msgstr "Manual"
 
-#: src/gcompris/help.c:254
+#: src/gcompris/help.c:269
 msgid "Credit"
 msgstr "Credit"
 
