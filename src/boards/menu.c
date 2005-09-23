@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/09/21 00:10:23 yves>
+ * Time-stamp: <2005/09/24 00:04:12 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -36,10 +36,13 @@
 #define MENU_PER_LINE 5
 
 typedef struct {
-  /* Information items */
+  /* Information items (_s are shadow) */
   GnomeCanvasItem *boardname_item;
   GnomeCanvasItem *description_item;
   GnomeCanvasItem *author_item;
+  GnomeCanvasItem *boardname_item_s;
+  GnomeCanvasItem *description_item_s;
+  GnomeCanvasItem *author_item_s;
 } MenuItems;
 
 static GcomprisBoard *gcomprisBoard = NULL;
@@ -415,6 +418,21 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 			       "text",  board->author,
 			       NULL);
 
+      if(board->title && G_IS_OBJECT(menuitems->boardname_item_s))
+	gnome_canvas_item_set (menuitems->boardname_item_s,
+			       "text", board->title,
+			       NULL);
+
+      if(board->description && G_IS_OBJECT(menuitems->description_item_s))
+	gnome_canvas_item_set (menuitems->description_item_s,
+			       "text",  board->description,
+			       NULL);
+
+      if(board->author && G_IS_OBJECT(menuitems->author_item_s))
+	gnome_canvas_item_set (menuitems->author_item_s,
+			       "text",  board->author,
+			       NULL);
+
       break;
     case GDK_LEAVE_NOTIFY:
       gnome_canvas_item_set (menuitems->boardname_item,
@@ -426,6 +444,18 @@ item_event(GnomeCanvasItem *item, GdkEvent *event,  MenuItems *menuitems)
 			     NULL);
 
       gnome_canvas_item_set (menuitems->author_item,
+			     "text",  " ",
+			     NULL);
+
+      gnome_canvas_item_set (menuitems->boardname_item_s,
+			     "text", " ",
+			     NULL);
+
+      gnome_canvas_item_set (menuitems->description_item_s,
+			     "text",  " ",
+			     NULL);
+
+      gnome_canvas_item_set (menuitems->author_item_s,
 			     "text",  " ",
 			     NULL);
 
@@ -452,6 +482,40 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 
   if(parent    == NULL)
     return;
+
+  menuitems->boardname_item_s = \
+    gnome_canvas_item_new (parent,
+			   gnome_canvas_text_get_type (),
+			   "text", " ",
+			   "font", gcompris_skin_font_board_big,
+			   "x", (double) x + 1.0,
+			   "y", (double) y + 1.0,
+			   "anchor", GTK_ANCHOR_NORTH,
+			   "fill_color_rgba",  gcompris_skin_get_color("menu/text_shadow"),
+			   NULL);
+
+  menuitems->description_item_s = \
+    gnome_canvas_item_new (parent,
+			   gnome_canvas_text_get_type (),
+			   "text", "",
+			   "font",       gcompris_skin_font_board_medium,
+			   "x", (double) x + 1.0,
+			   "y", (double) y + 28 + 1.0,
+			   "anchor", GTK_ANCHOR_NORTH,
+			   "fill_color_rgba", gcompris_skin_get_color("menu/text_shadow"),
+			   NULL);
+
+  menuitems->author_item_s = \
+    gnome_canvas_item_new (parent,
+			   gnome_canvas_text_get_type (),
+			   "text", " ",
+			   "font", gcompris_skin_font_board_tiny,
+			   "x", (double) x + 1.0,
+			   "y", (double) y + 90 + 1.0,
+  			   "anchor", GTK_ANCHOR_NORTH,
+  			   "fill_color_rgba", gcompris_skin_get_color("menu/text_shadow"),
+  			   "justification", GTK_JUSTIFY_CENTER,
+			   NULL);
 
   menuitems->boardname_item = \
     gnome_canvas_item_new (parent,

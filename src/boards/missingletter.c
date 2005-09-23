@@ -162,7 +162,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "missing_letter/missingletter-bg.jpg");
+			      gcompris_image_to_skin("missingletter-bg.jpg"));
       gcomprisBoard->level=1;
       gcomprisBoard->maxlevel=NUMBER_OF_LEVELS;
       gcomprisBoard->sublevel=1;

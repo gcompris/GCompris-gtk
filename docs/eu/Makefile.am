@@ -11,7 +11,8 @@ gcompris_helpdir = $(datadir)/gnome/help/$(PACKAGE)/eu
 
 all: $(doc)
 
-info_TEXINFOS = gcompris.texi
+# FIXME: Is it possible to have I18N info files installed ?
+#info_TEXINFOS = gcompris.texi
 
 install-data-local:
 	$(mkinstalldirs) $(DESTDIR)$(gcompris_helpdir)

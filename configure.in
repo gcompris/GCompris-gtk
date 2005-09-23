@@ -326,7 +326,7 @@ if test x$with_sqlite = xyes; then
    PKG_CHECK_MODULES(SQLITE3, sqlite3,, AC_MSG_ERROR([*** SQLITE3 not found!]))
    AC_DEFINE([USE_SQLITE], 1,[SQLITE Database, Profiles are enabled])
    AM_CHECK_PYMOD(pysqlite2,,,AC_MSG_ERROR([*** pysqlite2 missing ]))
-   REQUIRE_PYTHON="$REQUIRE_PYTHON pysqlite2"
+   REQUIRE_PYTHON="$REQUIRE_PYTHON python-sqlite2"
 fi
 
 AM_CONDITIONAL(USE_SQLITE, test x$with_sqlite = xyes)
@@ -424,6 +424,19 @@ AC_SUBST(VERSION_VOICES_GEOGRAPHY_ES)
 
 VERSION_VOICES_MISC_ES=1.0
 AC_SUBST(VERSION_VOICES_MISC_ES)
+
+# EU
+VERSION_VOICEU_ALPHABET_EU=1.0
+AC_SUBST(VERSION_VOICEU_ALPHABET_EU)
+
+VERSION_VOICEU_COLORS_EU=1.0
+AC_SUBST(VERSION_VOICEU_COLORS_EU)
+
+VERSION_VOICEU_GEOGRAPHY_EU=1.0
+AC_SUBST(VERSION_VOICEU_GEOGRAPHY_EU)
+
+VERSION_VOICEU_MISC_EU=1.0
+AC_SUBST(VERSION_VOICEU_MISC_EU)
 
 # FR
 VERSION_VOICES_ALPHABET_FR=1.1
@@ -561,6 +574,11 @@ boards/sounds/es/alphabet/Makefile
 boards/sounds/es/colors/Makefile
 boards/sounds/es/geography/Makefile
 boards/sounds/es/misc/Makefile
+boards/sounds/eu/Makefile
+boards/sounds/eu/alphabet/Makefile
+boards/sounds/eu/colors/Makefile
+boards/sounds/eu/geography/Makefile
+boards/sounds/eu/misc/Makefile
 boards/sounds/fr/Makefile
 boards/sounds/fr/alphabet/Makefile
 boards/sounds/fr/colors/Makefile

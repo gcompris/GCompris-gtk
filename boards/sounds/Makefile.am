@@ -1,1 +1,1 @@
-SUBDIRS = da de en es fr it pt ru sv
+SUBDIRS = da de en es eu fr it pt ru sv

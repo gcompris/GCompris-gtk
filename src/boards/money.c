@@ -210,7 +210,7 @@ static void money_next_level()
   gchar		  *display_format;
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			  "money/money-bg.png");
+			  gcompris_image_to_skin("money-bg.png"));
 
   gcompris_bar_set_level(gcomprisBoard);
 

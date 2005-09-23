@@ -1,3 +1,257 @@
+2005-09-24  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Integrated new gartoon theme by Franck Doucet
+	Original theme from Zeus (zeussama_at_yahoo.com)
+	http://art.gnome.org/themes/icon/675/
+	Licence DSL
+	Design Science License
+
+	Franck gave us 3 new background images for missingletter, money
+	and reading. We are lucky.
+	
+	Integrated Basque sounds by Jone de la Cruz Plazaola (GPL)
+
+	Added a shadows in the text of the menu. Need to be well designed
+	for each skin.
+
+	enumerate.c: fixed, was crashing at activity startup
+	
+	* boards/missing_letter/missingletter-bg.jpg:
+	* boards/money/money-bg.png:
+	* boards/reading/reading-bg.jpg:
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/default/missingletter-bg.jpg:
+	* boards/skins/default/money-bg.png:
+	* boards/skins/default/reading-bg.jpg:
+	* boards/skins/default/skin.xml:
+	* boards/skins/gartoon/README:
+	* boards/skins/gartoon/about.png:
+	* boards/skins/gartoon/bad.png:
+	* boards/skins/gartoon/bar_bg.jpg:
+	* boards/skins/gartoon/button.png:
+	* boards/skins/gartoon/button_backward.png:
+	* boards/skins/gartoon/button_checked.png:
+	* boards/skins/gartoon/button_exit.png:
+	* boards/skins/gartoon/button_forward.png:
+	* boards/skins/gartoon/button_large.png:
+	* boards/skins/gartoon/button_large2.png:
+	* boards/skins/gartoon/button_large_selected.png:
+	* boards/skins/gartoon/button_redo.png:
+	* boards/skins/gartoon/button_reload.png:
+	* boards/skins/gartoon/button_selected.png:
+	* boards/skins/gartoon/button_small.png:
+	* boards/skins/gartoon/button_small_selected.png:
+	* boards/skins/gartoon/button_unchecked.png:
+	* boards/skins/gartoon/button_up.png:
+	* boards/skins/gartoon/button_up_selected.png:
+	* boards/skins/gartoon/config.png:
+	* boards/skins/gartoon/difficulty_star1.png:
+	* boards/skins/gartoon/difficulty_star2.png:
+	* boards/skins/gartoon/difficulty_star3.png:
+	* boards/skins/gartoon/difficulty_star4.png:
+	* boards/skins/gartoon/difficulty_star5.png:
+	* boards/skins/gartoon/difficulty_star6.png:
+	* boards/skins/gartoon/file_selector_bg.png:
+	* boards/skins/gartoon/gcompris-bg.jpg:
+	* boards/skins/gartoon/gcompris-init.jpg:
+	* boards/skins/gartoon/gcompris-shapebg.jpg:
+	* boards/skins/gartoon/gcompris-shapelabel.png:
+	* boards/skins/gartoon/help.png:
+	* boards/skins/gartoon/help_bg.png:
+	* boards/skins/gartoon/home.png:
+	* boards/skins/gartoon/level1.png:
+	* boards/skins/gartoon/level2.png:
+	* boards/skins/gartoon/level3.png:
+	* boards/skins/gartoon/level4.png:
+	* boards/skins/gartoon/level5.png:
+	* boards/skins/gartoon/level6.png:
+	* boards/skins/gartoon/level7.png:
+	* boards/skins/gartoon/level8.png:
+	* boards/skins/gartoon/level9.png:
+	* boards/skins/gartoon/maze-2d-bubble.png:
+	* boards/skins/gartoon/maze-3d-bubble.png:
+	* boards/skins/gartoon/missingletter-bg.jpg:
+	* boards/skins/gartoon/money-bg.jpg:
+	* boards/skins/gartoon/money-bg.png:
+	* boards/skins/gartoon/ok.png:
+	* boards/skins/gartoon/reading-bg.jpg:
+	* boards/skins/gartoon/repeat.png:
+	* boards/skins/gartoon/skin.xml:
+	* boards/skins/linha_verde/skin.xml:
+	* boards/skins/pink/skin.xml:
+	* boards/sounds/Makefile.am:
+	* boards/sounds/eu/.cvsignore:
+	* boards/sounds/eu/Makefile.am:
+	* boards/sounds/eu/alphabet/.cvsignore:
+	* boards/sounds/eu/alphabet/0.ogg:
+	* boards/sounds/eu/alphabet/1.ogg:
+	* boards/sounds/eu/alphabet/10.ogg:
+	* boards/sounds/eu/alphabet/11.ogg:
+	* boards/sounds/eu/alphabet/12.ogg:
+	* boards/sounds/eu/alphabet/13.ogg:
+	* boards/sounds/eu/alphabet/14.ogg:
+	* boards/sounds/eu/alphabet/15.ogg:
+	* boards/sounds/eu/alphabet/16.ogg:
+	* boards/sounds/eu/alphabet/17.ogg:
+	* boards/sounds/eu/alphabet/18.ogg:
+	* boards/sounds/eu/alphabet/19.ogg:
+	* boards/sounds/eu/alphabet/2.ogg:
+	* boards/sounds/eu/alphabet/20.ogg:
+	* boards/sounds/eu/alphabet/3.ogg:
+	* boards/sounds/eu/alphabet/4.ogg:
+	* boards/sounds/eu/alphabet/5.ogg:
+	* boards/sounds/eu/alphabet/6.ogg:
+	* boards/sounds/eu/alphabet/7.ogg:
+	* boards/sounds/eu/alphabet/8.ogg:
+	* boards/sounds/eu/alphabet/9.ogg:
+	* boards/sounds/eu/alphabet/Makefile.am:
+	* boards/sounds/eu/alphabet/a.ogg:
+	* boards/sounds/eu/alphabet/b.ogg:
+	* boards/sounds/eu/alphabet/c.ogg:
+	* boards/sounds/eu/alphabet/d.ogg:
+	* boards/sounds/eu/alphabet/e.ogg:
+	* boards/sounds/eu/alphabet/f.ogg:
+	* boards/sounds/eu/alphabet/g.ogg:
+	* boards/sounds/eu/alphabet/gcompris_alphabet_eu.assetml.in:
+	* boards/sounds/eu/alphabet/h.ogg:
+	* boards/sounds/eu/alphabet/i.ogg:
+	* boards/sounds/eu/alphabet/j.ogg:
+	* boards/sounds/eu/alphabet/k.ogg:
+	* boards/sounds/eu/alphabet/l.ogg:
+	* boards/sounds/eu/alphabet/m.ogg:
+	* boards/sounds/eu/alphabet/n.ogg:
+	* boards/sounds/eu/alphabet/o.ogg:
+	* boards/sounds/eu/alphabet/p.ogg:
+	* boards/sounds/eu/alphabet/q.ogg:
+	* boards/sounds/eu/alphabet/r.ogg:
+	* boards/sounds/eu/alphabet/s.ogg:
+	* boards/sounds/eu/alphabet/t.ogg:
+	* boards/sounds/eu/alphabet/u.ogg:
+	* boards/sounds/eu/alphabet/v.ogg:
+	* boards/sounds/eu/alphabet/w.ogg:
+	* boards/sounds/eu/alphabet/x.ogg:
+	* boards/sounds/eu/alphabet/y.ogg:
+	* boards/sounds/eu/alphabet/z.ogg:
+	* boards/sounds/eu/colors/.cvsignore:
+	* boards/sounds/eu/colors/Makefile.am:
+	* boards/sounds/eu/colors/black.ogg:
+	* boards/sounds/eu/colors/blue.ogg:
+	* boards/sounds/eu/colors/brown.ogg:
+	* boards/sounds/eu/colors/gcompris_colors_eu.assetml.in:
+	* boards/sounds/eu/colors/green.ogg:
+	* boards/sounds/eu/colors/grey.ogg:
+	* boards/sounds/eu/colors/orange.ogg:
+	* boards/sounds/eu/colors/pink.ogg:
+	* boards/sounds/eu/colors/purple.ogg:
+	* boards/sounds/eu/colors/red.ogg:
+	* boards/sounds/eu/colors/white.ogg:
+	* boards/sounds/eu/colors/yellow.ogg:
+	* boards/sounds/eu/geography/.cvsignore:
+	* boards/sounds/eu/geography/Makefile.am:
+	* boards/sounds/eu/geography/alaska.ogg:
+	* boards/sounds/eu/geography/albania.ogg:
+	* boards/sounds/eu/geography/argentina.ogg:
+	* boards/sounds/eu/geography/austria.ogg:
+	* boards/sounds/eu/geography/bahamas.ogg:
+	* boards/sounds/eu/geography/belarus.ogg:
+	* boards/sounds/eu/geography/belgium.ogg:
+	* boards/sounds/eu/geography/bolivia.ogg:
+	* boards/sounds/eu/geography/bosnia_herzegovina.ogg:
+	* boards/sounds/eu/geography/brazil.ogg:
+	* boards/sounds/eu/geography/bulgaria.ogg:
+	* boards/sounds/eu/geography/canada.ogg:
+	* boards/sounds/eu/geography/chile.ogg:
+	* boards/sounds/eu/geography/colombia.ogg:
+	* boards/sounds/eu/geography/costa_rica.ogg:
+	* boards/sounds/eu/geography/croatia.ogg:
+	* boards/sounds/eu/geography/cuba.ogg:
+	* boards/sounds/eu/geography/cyprus.ogg:
+	* boards/sounds/eu/geography/czech.ogg:
+	* boards/sounds/eu/geography/denmark.ogg:
+	* boards/sounds/eu/geography/dominican_republic.ogg:
+	* boards/sounds/eu/geography/ecuador.ogg:
+	* boards/sounds/eu/geography/estonia.ogg:
+	* boards/sounds/eu/geography/finland.ogg:
+	* boards/sounds/eu/geography/france.ogg:
+	* boards/sounds/eu/geography/french-guyana.ogg:
+	* boards/sounds/eu/geography/french_guiana.ogg:
+	* boards/sounds/eu/geography/gcompris_geography_eu.assetml.in:
+	* boards/sounds/eu/geography/germany.ogg:
+	* boards/sounds/eu/geography/greece.ogg:
+	* boards/sounds/eu/geography/greenland.ogg:
+	* boards/sounds/eu/geography/guatemala.ogg:
+	* boards/sounds/eu/geography/guyana.ogg:
+	* boards/sounds/eu/geography/haiti.ogg:
+	* boards/sounds/eu/geography/honduras.ogg:
+	* boards/sounds/eu/geography/hungary.ogg:
+	* boards/sounds/eu/geography/iceland.ogg:
+	* boards/sounds/eu/geography/ireland.ogg:
+	* boards/sounds/eu/geography/italy.ogg:
+	* boards/sounds/eu/geography/jamaica.ogg:
+	* boards/sounds/eu/geography/latvia.ogg:
+	* boards/sounds/eu/geography/lithuania.ogg:
+	* boards/sounds/eu/geography/luxembourg.ogg:
+	* boards/sounds/eu/geography/macedonia.ogg:
+	* boards/sounds/eu/geography/mexico.ogg:
+	* boards/sounds/eu/geography/moldova.ogg:
+	* boards/sounds/eu/geography/netherland.ogg:
+	* boards/sounds/eu/geography/nicaragua.ogg:
+	* boards/sounds/eu/geography/norway.ogg:
+	* boards/sounds/eu/geography/panama.ogg:
+	* boards/sounds/eu/geography/paraguay.ogg:
+	* boards/sounds/eu/geography/peru.ogg:
+	* boards/sounds/eu/geography/poland.ogg:
+	* boards/sounds/eu/geography/portugal.ogg:
+	* boards/sounds/eu/geography/romania.ogg:
+	* boards/sounds/eu/geography/russia.ogg:
+	* boards/sounds/eu/geography/salvador.ogg:
+	* boards/sounds/eu/geography/serbia_montenegro.ogg:
+	* boards/sounds/eu/geography/slovakia.ogg:
+	* boards/sounds/eu/geography/slovenia.ogg:
+	* boards/sounds/eu/geography/spain.ogg:
+	* boards/sounds/eu/geography/suriname.ogg:
+	* boards/sounds/eu/geography/sweden.ogg:
+	* boards/sounds/eu/geography/switz.ogg:
+	* boards/sounds/eu/geography/turkey.ogg:
+	* boards/sounds/eu/geography/ukraine.ogg:
+	* boards/sounds/eu/geography/united_kingdom.ogg:
+	* boards/sounds/eu/geography/uruguay.ogg:
+	* boards/sounds/eu/geography/usa.ogg:
+	* boards/sounds/eu/geography/venezuela.ogg:
+	* boards/sounds/eu/misc/.cvsignore:
+	* boards/sounds/eu/misc/Makefile.am:
+	* boards/sounds/eu/misc/awesome.ogg:
+	* boards/sounds/eu/misc/back.ogg:
+	* boards/sounds/eu/misc/by.ogg:
+	* boards/sounds/eu/misc/click_on_letter.ogg:
+	* boards/sounds/eu/misc/congratulation.ogg:
+	* boards/sounds/eu/misc/equal.ogg:
+	* boards/sounds/eu/misc/fantastic.ogg:
+	* boards/sounds/eu/misc/gcompris_misc_eu.assetml.in:
+	* boards/sounds/eu/misc/good.ogg:
+	* boards/sounds/eu/misc/great.ogg:
+	* boards/sounds/eu/misc/help.ogg:
+	* boards/sounds/eu/misc/level.ogg:
+	* boards/sounds/eu/misc/minus.ogg:
+	* boards/sounds/eu/misc/ok.ogg:
+	* boards/sounds/eu/misc/outof.ogg:
+	* boards/sounds/eu/misc/perfect.ogg:
+	* boards/sounds/eu/misc/plus.ogg:
+	* boards/sounds/eu/misc/quit.ogg:
+	* boards/sounds/eu/misc/super.ogg:
+	* boards/sounds/eu/misc/waytogo.ogg:
+	* boards/sounds/eu/misc/welcome.ogg:
+	* configure.in:
+	* docs/eu/Makefile.am:
+	* docs/fr/Makefile.am:
+	* gcompris.spec.in:
+	* po/Makefile.in.in:
+	* src/boards/enumerate.c: (start_board):
+	* src/boards/menu.c: (item_event), (create_info_area):
+	* src/boards/missingletter.c: (start_board):
+	* src/boards/money.c: (money_next_level):
+	* src/boards/reading.c: (start_board):
+
 2005-09-23  Yves Combe  <yves@ycombe.net>
 
 	fixed gletters to work with IMContext. Seems ok, but needs more tests.

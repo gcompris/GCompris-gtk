@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/09/11 16:21:05 yves>
+ * Time-stamp: <2005/09/24 00:09:38 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -181,7 +181,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     {
       gcomprisBoard=agcomprisBoard;
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "reading/reading-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			      gcompris_image_to_skin("reading-bg.jpg"));
       wait_for_ready = TRUE;
       gamewon = FALSE;
 
