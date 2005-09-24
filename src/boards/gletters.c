@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/09/22 22:47:57 yves>
+ * Time-stamp: <2005/09/23 15:53:23 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -570,7 +570,7 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
     i=(int)((float)k*rand()/(RAND_MAX+1.0));
 
     for( j = 0; j < i; j++) {
-      str_p=g_utf8_find_next_char(str_p,NULL);
+      str_p=g_utf8_get_next_char(str_p);
     }
 
     *lettersItem = g_utf8_get_char (str_p);
@@ -578,15 +578,15 @@ static GnomeCanvasItem *gletters_create_item(GnomeCanvasGroup *parent)
   } while((attempt<MAX_RAND_ATTEMPTS) && (item_find_by_title(lettersItem)!=NULL));
 
   if (item_find_by_title(lettersItem)!=NULL)  {g_free(lettersItem); return NULL;}
-  gchar *letter_unichar_name=g_strdup_printf("U%.4X.ogg",(gint32) *lettersItem);
+  letter = g_new0(gchar, 6);
+  g_unichar_to_utf8 ( *lettersItem, letter);
+
+  gchar *letter_unichar_name= gcompris_alphabet_sound(letter);
   str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg",letter_unichar_name);
   gcompris_play_ogg(str2, NULL);
 
   g_free(letter_unichar_name);
   g_free(str2);
-
-  letter = g_new0(gchar, 6);
-  g_unichar_to_utf8 ( *lettersItem, letter);
 
 
   item =					\

@@ -69,12 +69,14 @@ static void click_on_letter_destroy_all_items(void);
 static void click_on_letter_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
 static gint phone_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data);
-static gboolean sounds_are_fine(gchar* letter);
+static gboolean sounds_are_fine();
 
 static int right_position;
 static int number_of_letters=MAX_NUMBER_OF_LETTERS;
 static gchar *right_letter;
 
+static gchar *alphabet;
+static void quit_board();
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -130,16 +132,9 @@ static void pause_board (gboolean pause)
  */
 static void start_board (GcomprisBoard *agcomprisBoard)
 {
-  GHashTable *config = gcompris_get_board_conf();
+  sounds_are_fine();
 
-  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
-
-  g_hash_table_destroy(config);
-
-  if(!sounds_are_fine("a"))
-    return;
-
-  if(agcomprisBoard!=NULL)
+  if (agcomprisBoard!=NULL)
     {
       gcomprisBoard=agcomprisBoard;
       gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery4_background.png");
@@ -157,22 +152,27 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       gamewon = FALSE;
       pause_board(FALSE);
-
     }
+
 }
 /* ======================================= */
 static void end_board ()
 {
   if(gcomprisBoard!=NULL)
     {
+      printf("end_board 1\n");
       pause_board(TRUE);
+      printf("end_board 1\n");
       gcompris_score_end();
+      printf("end_board 1\n");
       click_on_letter_destroy_all_items();
+      printf("end_board 1\n");
     }
-
+  printf("end_board 2\n");
   gcompris_reset_locale();
-
+  printf("end_board 3\n");
   gcomprisBoard = NULL;
+  printf("end_board 4\n");
 }
 
 /* ======================================= */
@@ -211,7 +211,7 @@ static void repeat ()
       gchar *str1 = NULL;
       gchar *right_letter_ogg = NULL;
 
-      right_letter_ogg = g_strdup_printf("%s%s",right_letter,".ogg");
+      right_letter_ogg = gcompris_alphabet_sound(right_letter);
       str1 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", right_letter_ogg);
 
       if(str1) {
@@ -223,34 +223,69 @@ static void repeat ()
     }
 }
 
-static gboolean sounds_are_fine (gchar* letter)
+static gboolean sounds_are_fine ()
 {
   char *str1 = NULL;
   char *str2 = NULL;
   GcomprisProperties	*properties = gcompris_get_properties();
-  gchar *locale;
+  gchar *locale = NULL;
   gboolean fine = TRUE;
 
-  locale= g_strndup(gcompris_get_locale(), 2);
+  GHashTable *config = gcompris_get_board_conf();
+
+  gcompris_change_locale(g_hash_table_lookup( config, "locale"));
+
+  g_hash_table_destroy(config);
+
+  /* TRANSLATORS: Put here the alphabet in your language */
+  alphabet=_("abcdefghijklmnopqrstuvwxyz");
+  assert(g_utf8_validate(alphabet,-1,NULL)); // require by all utf8-functions
   
-  str1 = g_strdup_printf("%s%s", letter, ".ogg");
+  gchar *letter = g_new0(gchar, 8);
+  g_unichar_to_utf8 ( g_utf8_get_char (alphabet), letter);
+
+  str1 = gcompris_alphabet_sound(letter);
+  g_free(letter);
   str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+  g_free(str1);
   
-  if(!str2) {
-    gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s"),
-				  locale);
-    gcompris_dialog(msg, gcompris_end_board);
-    g_free(msg);
-    fine = FALSE;
-  } else {
-    if(!properties->fx) {
-      gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo in the configuration dialog to\nenable the sound"), gcompris_end_board);
-      fine = FALSE;
+  if (!str2){
+    locale = g_strndup(gcompris_get_locale(), 2);
+    gcompris_reset_locale();
+    gcompris_change_locale("en_US");
+
+    /* TRANSLATORS: Put here the alphabet in your language */
+    alphabet=_("abcdefghijklmnopqrstuvwxyz");
+    assert(g_utf8_validate(alphabet,-1,NULL)); // require by all utf8-functions
+    
+    gchar *letter = g_new0(gchar, 8);
+    g_unichar_to_utf8 ( g_utf8_get_char (alphabet), letter);
+
+    str1 = gcompris_alphabet_sound(letter);
+    g_free(letter);
+    str2 = gcompris_get_asset_file("gcompris alphabet", NULL, "audio/x-ogg", str1);
+    g_free(str1);
+
+    if (!str2){
+      gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s or %s"),
+					locale, "en");
+      gcompris_dialog(msg, board_stop);
+      g_free(msg);
+      return (fine);
+    }
+    else{
+      gchar *msg = g_strdup_printf( _("Error: this activity requires that you first install\nthe packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"), locale);
+      gcompris_dialog(msg, NULL);
+      g_free(msg);
     }
   }
-  
-  g_free(locale);
-  g_free(str1);
+
+  fine = TRUE;
+  if(!properties->fx) {
+    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo in the configuration dialog to\nenable the sound"), board_stop);
+    fine = FALSE;
+  }
+
   g_free(str2);
   
   return(fine);
@@ -288,17 +323,13 @@ static GnomeCanvasItem *click_on_letter_create_item(GnomeCanvasGroup *parent)
   int xOffset,yOffset,i,j;
   GdkPixbuf *button_pixmap = NULL;
 
-  /* TRANSLATORS: Put here the alphabet in your language */
-  gchar *alphabet=_("abcdefghijklmnopqrstuvwxyz");
-  assert(g_utf8_validate(alphabet,-1,NULL)); // require by all utf8-functions
-
-
   int length_of_aphabet=g_utf8_strlen (alphabet,-1);
 
   number_of_letters=gcomprisBoard->level+1;
   if (number_of_letters>MAX_NUMBER_OF_LETTERS) number_of_letters=MAX_NUMBER_OF_LETTERS;
 
   int numbers[number_of_letters];
+
   gchar *letters[number_of_letters];
   assert(number_of_letters<=length_of_aphabet); // because we must set unique letter on every "vagon"
 
@@ -555,4 +586,3 @@ static void
 config_stop()
 {
 }
-
