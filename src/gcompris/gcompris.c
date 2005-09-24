@@ -327,6 +327,7 @@ static void init_background()
   screen_width  = gdk_screen_width();
 
 #ifdef XRANDR
+  gint i;
   /* Search the 800x600 Resolution */
   if(properties->fullscreen && !properties->noxrandr) {
     g_warning("XRANDR Is compiled in. Searching a good resolution");

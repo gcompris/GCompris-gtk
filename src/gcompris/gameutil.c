@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/09/13 23:02:09 yves>
+ * Time-stamp: <2005/09/24 22:50:37 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -1195,6 +1195,7 @@ item_event_ok(GnomeCanvasItem *item, GdkEvent *event, DialogBoxCallBack dbcb)
     default:
       break;
     }
+  return TRUE;
 }
 
 /**

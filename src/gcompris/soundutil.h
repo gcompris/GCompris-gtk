@@ -44,4 +44,6 @@ void	 gcompris_close_sound(void);
 int	 decode_ogg_file(char *infile);
 void	 display_ao_devices();
 
+gchar *gcompris_alphabet_sound(gchar *chars);
+
 #endif

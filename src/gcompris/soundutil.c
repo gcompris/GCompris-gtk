@@ -372,6 +372,38 @@ void gcompris_play_ogg_list( GList* files )
 
 }
 
+/* get alphabet sound file name from gunichar */
+
+gchar *gcompris_alphabet_sound(gchar *chars)
+{
+  gchar *next, *str, *prev, *result;
+  gint i;
+  gint length;
+  gunichar next_unichar;
+
+  length = g_utf8_strlen(chars, -1);
+
+  next = chars;
+  result = NULL;
+  str = g_new0(gchar, 6);
+
+  for (i=0; i < length; i++) {
+    next_unichar = g_utf8_get_char(next);
+    str = g_strdup_printf("U%.4X",(gint32) g_unichar_tolower(next_unichar));
+    prev = result;
+    if (prev)
+      result = g_strconcat( prev, str, NULL);
+    else
+      result = g_strdup(str);
+
+    g_free(str);
+    g_free(prev);
+    next = g_utf8_next_char(next);
+  }
+
+  return g_strdup_printf("%s.ogg",result);
+}
+
 /* Local Variables: */
 /* mode:c */
 /* eval:(load-library "time-stamp") */
