@@ -68,14 +68,6 @@ static int number_of_item_y = 0;
 static int item_width;
 static int item_height;
 
-/* Keep here the limit of the column */
-static gint limit_column_x1[MAX_NUMBER_X];
-static gint limit_column_x2[MAX_NUMBER_X];
-
-static gint peg_disc_count[MAX_NUMBER_X];
-static gint peg_top_disc[MAX_NUMBER_X];
-
-
 /* Description of this plugin */
 static BoardPlugin menu_bp =
   {
@@ -107,7 +99,7 @@ static BoardPlugin menu_bp =
  *
  */
 
-GET_BPLUGIN_INFO(hanoi)
+GET_BPLUGIN_INFO(hanoi_real)
 
 /*
  * in : boolean TRUE = PAUSE : FALSE = CONTINUE
@@ -256,7 +248,6 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
   double gap_x, gap_y;
   double baseline;
   GnomeCanvasItem *item = NULL;
-  GnomeCanvasPathDef *path;
   GdkPixbuf *pixmap = NULL;
   gchar *filename;
       
@@ -509,7 +500,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
     case GDK_BUTTON_RELEASE:
       if(dragging) 
 	{
-	  gint i,j;
+	  gint i;
 	  gint tmpi, tmpj;
 	  double tmpx, tmpy;
 	  PieceItem *piece_src;

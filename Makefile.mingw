@@ -22,7 +22,7 @@ MAKENSIS := "/c/Program Files/NSIS/makensis.exe"
 # These will be copied in the win32-install-dir ready to be packaged.
 NEEDED_DLLS =		$(GNUCHESS_TOP)/bin/pthreadGC.dll \
 			$(GNUCHESS_TOP)/bin/libreadline.dll \
-			$(GNUCHESS_TOP)/bin/gspawn-win32-helper.exe \
+			$(GTK_TOP)/bin/gspawn-win32-helper.exe \
 			$(GNUCHESS_TOP)/bin/gnuchess.exe \
 			$(GNUWIN32_TOP)/bin/popt1.dll \
 			$(GNUWIN32_TOP)/bin/libintl-2.dll \

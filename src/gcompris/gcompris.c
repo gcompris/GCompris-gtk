@@ -24,6 +24,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <time.h>
+#include <string.h>
 
 #include "gcompris.h"
 #include "gcompris_config.h"
@@ -321,7 +322,6 @@ static void init_background()
   double xratio, yratio, max;
   gint screen_height, screen_width;
   GtkWidget *vbox;
-  int i;
 
   screen_height = gdk_screen_height();
   screen_width  = gdk_screen_width();
@@ -848,11 +848,13 @@ void gcompris_set_locale(gchar *locale)
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
+#ifndef WIN32
   /* Make change known.  */
   {
     extern int  _nl_msg_cat_cntr;
     ++_nl_msg_cat_cntr;
   }
+#endif
 
 }
 

@@ -77,28 +77,33 @@ LIB_PATHS =		-L$(GTK_TOP)/lib \
 ##
 
 EXE_C_SRC = \
-	main.c \
-	gcompris.c \
-	gameutil.c \
-	properties.c \
-	bar.c \
-	file_selector.c \
-	images_selector.c \
-	help.c \
-	pixbuf_util.c \
-	board.c \
-	soundutil.c \
-	cursor.c \
-	bonus.c \
-	timer.c \
-	score.c \
-	skin.c \
-	config.c \
 	about.c \
-	log.c \
-	sdlplayer.c \
+	anim.c \
 	assetml.c \
-	anim.c
+	bar.c \
+	board.c \
+	board_config.c \
+	bonus.c \
+	config.c \
+	cursor.c \
+	file_selector.c \
+	gameutil.c \
+	gcompris.c \
+	gcompris_db.c \
+	gcompris_im.c \
+	gcompris_files.c \
+	help.c \
+	images_selector.c \
+	log.c \
+	main.c \
+	pixbuf_util.c \
+	profile.c \
+	properties.c \
+	score.c \
+	sdlplayer.c \
+	skin.c \
+	soundutil.c \
+	timer.c
 
 RC_SRC =		gcomprisrc.rc
 

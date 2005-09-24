@@ -43,6 +43,7 @@ extern BoardPlugin * get_erase_bplugin_info();
 extern BoardPlugin * get_fifteen_bplugin_info();
 extern BoardPlugin * get_gletters_bplugin_info();
 extern BoardPlugin * get_hanoi_bplugin_info();
+extern BoardPlugin * get_hanoi_real_bplugin_info();
 extern BoardPlugin * get_imageid_bplugin_info();
 extern BoardPlugin * get_leftright_bplugin_info();
 extern BoardPlugin * get_machpuzzle_bplugin_info();
@@ -137,6 +138,7 @@ void init_plugins(void)
   static_boards[i++] = get_erase_bplugin_info();
   static_boards[i++] = get_gletters_bplugin_info();
   static_boards[i++] = get_hanoi_bplugin_info();
+  static_boards[i++] = get_hanoi_real_bplugin_info();
   static_boards[i++] = get_menu_bplugin_info();
   static_boards[i++] = get_railroad_bplugin_info();
   static_boards[i++] = get_reading_bplugin_info();

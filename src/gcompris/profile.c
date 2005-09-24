@@ -1,6 +1,6 @@
 /* gcompris - profile.c
  *
- * Time-stamp: <2005/08/26 17:05:13 yves>
+ * Time-stamp: <2005/09/18 22:51:12 bruno>
  *
  * Copyright (C) 2005 Bruno Coudoin
  *
@@ -23,7 +23,8 @@
 #include "gcompris.h"
 #include "properties.h"
 
-GcomprisProfile       *gcompris_get_current_profile()
+GcomprisProfile
+*gcompris_get_current_profile()
 {
   GcomprisProperties	*properties = gcompris_get_properties();
 
@@ -37,7 +38,8 @@ GcomprisProfile       *gcompris_get_current_profile()
 }
 
 
-void                    *gcompris_set_current_user(GcomprisUser *user)
+void
+*gcompris_set_current_user(GcomprisUser *user)
 {
   GcomprisProperties	*properties = gcompris_get_properties();
 
