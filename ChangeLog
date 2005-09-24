@@ -1,5 +1,11 @@
 2005-09-25  Yves Combe  <yves@ycombe.net>
 
+	fix macro name in gletters: plugin was fail starting.
+
+	* src/boards/gletters.c: (gletters_create_item):
+
+2005-09-25  Yves Combe  <yves@ycombe.net>
+
 	pass sounds files from name like y.ogg to U0079.ogg.
 	Update assetml.in to.
 	Alexey Lubimov fixes the description in russian assetml alphabet file.
