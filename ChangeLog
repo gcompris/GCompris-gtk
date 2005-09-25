@@ -1,5 +1,11 @@
 2005-09-25  Yves Combe  <yves@ycombe.net>
 
+	fix segfault in worsgame (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=273680). Same bug as in reading (see 2005-11-09).
+
+	* src/boards/wordsgame.c: (get_wordfile):
+
+2005-09-25  Yves Combe  <yves@ycombe.net>
+
 	fix macro name in gletters: plugin was fail starting.
 
 	* src/boards/gletters.c: (gletters_create_item):
