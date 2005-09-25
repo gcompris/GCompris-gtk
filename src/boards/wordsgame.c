@@ -1,6 +1,6 @@
 /* gcompris - wordsgame.c
  *
- * Time-stamp: <2005/09/25 09:44:21 yves>
+ * Time-stamp: <2005/09/26 00:17:42 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -102,6 +102,8 @@ static void		 player_loose(void);
 static  guint32              fallSpeed = 0;
 static  double               speed = 0.0;
 
+static GnomeCanvasItem *preedit_text = NULL;
+
 /* Description of this plugin */
 static BoardPlugin menu_bp =
 {
@@ -178,7 +180,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
     gcomprisBoard=agcomprisBoard;
 
     /* disable im_context */
-    gcomprisBoard->disable_im_context = TRUE;
+    //gcomprisBoard->disable_im_context = TRUE;
 
     gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "images/scenery_background.png");
 
@@ -205,6 +207,11 @@ end_board ()
       pause_board(TRUE);
       gcompris_score_end();
       wordsgame_destroy_all_items();
+      if (preedit_text){
+	gtk_object_destroy(GTK_OBJECT(preedit_text));
+	preedit_text=NULL;
+      }
+      gcompris_im_reset();
       gcomprisBoard = NULL;
     }
 }
@@ -226,143 +233,144 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     gchar *letter; 
     gint i;
     LettersItem *item;
+    gint str_length;
+    gchar *str;
+    gunichar unichar_letter;
 
     if(!gcomprisBoard)
 	return FALSE;
 
-    if(!g_unichar_isalnum (gdk_keyval_to_unicode (keyval)))
-	return FALSE;
+    if (keyval){
+      g_warning("keyval %d", keyval);
+      return TRUE;
+    }
 
+    if (preedit_str){
+      g_warning("preedit_str %s", preedit_str);
+      /* show the preedit string on bottom of the window */
+      GcomprisProperties	*properties = gcompris_get_properties ();
+      gchar *text;
+      PangoAttrList *attrs;
+      gint cursor_pos;
+      gtk_im_context_get_preedit_string (properties->context,
+					 &text,
+					 &attrs,
+					 &cursor_pos);
+      
+      if (!preedit_text)
+	preedit_text = \
+	gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
+			       gnome_canvas_text_get_type (),
+			       "font", gcompris_skin_font_board_huge_bold,
+			       "x", (double) BOARDWIDTH/2,
+			       "y", (double) BOARDHEIGHT - 100,
+			       "anchor", GTK_ANCHOR_N,
+			       //"fill_color_rgba", 0xba00ffff,
+			       NULL);
+     
+      
+      gnome_canvas_item_set (preedit_text,
+			     "text", text,
+			     "attributes", attrs,
+			     NULL);
+      
+      return TRUE;
+      
+    }
 
-  /* Add some filter for control and shift key */
-    switch (keyval)
-	{
-	case GDK_Shift_L:
-	case GDK_Shift_R:
-        case GDK_Control_L:
-	case GDK_Control_R:
-        case GDK_Caps_Lock:
-	case GDK_Shift_Lock:
-        case GDK_Meta_L:
-        case GDK_Meta_R:
-        case GDK_Alt_L:
-        case GDK_Alt_R:
-        case GDK_Super_L:
-        case GDK_Super_R:
-        case GDK_Hyper_L:
-        case GDK_Hyper_R:
-        case GDK_Mode_switch:
-        case GDK_dead_circumflex:
-        case GDK_Num_Lock:
-          return FALSE; 
-        case GDK_KP_0:
-          keyval=GDK_0;
-          break;
-        case GDK_KP_1:
-          keyval=GDK_1;
-          break;
-        case GDK_KP_2:
-          keyval=GDK_2;
-          break;
-        case GDK_KP_3:
-          keyval=GDK_3;
-          break;
-        case GDK_KP_4:
-          keyval=GDK_4;
-          break;
-        case GDK_KP_5:
-          keyval=GDK_5;
-          break;
-        case GDK_KP_6:
-          keyval=GDK_6;
-	  break;
-        case GDK_KP_7:
-	  keyval=GDK_7;
-          break;
-        case GDK_KP_8:
-	  keyval=GDK_8;
-          break;
-        case GDK_KP_9:
-          keyval=GDK_9;
-          break;
-        }
+    /* commit str */
+    g_warning("commit_str %s", commit_str);
 
-    letter=g_strnfill(6,'\0');
-    g_unichar_to_utf8 (gdk_keyval_to_unicode(keyval), letter);
-
+    str = commit_str;
     
-    if(item_on_focus==NULL) 
+    for (i=0; i < g_utf8_strlen(commit_str,-1); i++){      
+      unichar_letter = g_utf8_get_char(str);
+      str = g_utf8_next_char(str);
+      if(!g_unichar_isalnum (unichar_letter)){
+	player_loose();
+	return FALSE;
+      }
+      
+      letter = g_new0(gchar,6);
+      g_unichar_to_utf8 (unichar_letter, letter);
+    
+      if(item_on_focus==NULL) 
 	{
-	g_static_rw_lock_reader_lock (&items_lock);
-	gint count=items->len;
-	g_static_rw_lock_reader_unlock (&items_lock);
-
-	for (i=0;i<count;i++)
+	  g_static_rw_lock_reader_lock (&items_lock);
+	  gint count=items->len;
+	  g_static_rw_lock_reader_unlock (&items_lock);
+	  
+	  for (i=0;i<count;i++)
 	    { 
-	    g_static_rw_lock_reader_lock (&items_lock);
-	    item=g_ptr_array_index(items,i);
-	    g_static_rw_lock_reader_unlock (&items_lock);
-	    assert (item!=NULL);
-	    if (strcmp(item->letter,letter)==0) 
+	      g_static_rw_lock_reader_lock (&items_lock);
+	      item=g_ptr_array_index(items,i);
+	      g_static_rw_lock_reader_unlock (&items_lock);
+	      assert (item!=NULL);
+	      if (strcmp(item->letter,letter)==0) 
 		{
-		item_on_focus=item;
-	    	break;	     
+		  item_on_focus=item;
+		  break;	     
 		}
 	    }
 	}
-
-
-    if(item_on_focus!=NULL) 
+      
+      
+      if(item_on_focus!=NULL) 
 	{
-	
-	if(strcmp(item_on_focus->letter, letter)==0)
+	  
+	  if(strcmp(item_on_focus->letter, letter)==0)
 	    {
-	    item_on_focus->count++;
-	    g_free(item_on_focus->overword);
-	    item_on_focus->overword=g_utf8_strndup(item_on_focus->word,item_on_focus->count);
-	    gnome_canvas_item_set (item_on_focus->overwriteItem,
+	      item_on_focus->count++;
+	      g_free(item_on_focus->overword);
+	      item_on_focus->overword=g_utf8_strndup(item_on_focus->word,item_on_focus->count);
+	      gnome_canvas_item_set (item_on_focus->overwriteItem,
 				     "text", item_on_focus->overword,
 				     NULL);
-		
-
-	    if (item_on_focus->count<g_utf8_strlen(item_on_focus->word,-1))
+	      
+	      
+	      if (item_on_focus->count<g_utf8_strlen(item_on_focus->word,-1))
 	        {
-	        g_free(item_on_focus->letter);
-	        item_on_focus->letter=g_utf8_strndup(item_on_focus->pos,1);
-		item_on_focus->pos=g_utf8_find_next_char(item_on_focus->pos,NULL);
+		  g_free(item_on_focus->letter);
+		  item_on_focus->letter=g_utf8_strndup(item_on_focus->pos,1);
+		  item_on_focus->pos=g_utf8_find_next_char(item_on_focus->pos,NULL);
 	        }
-	    else
+	      else
 	        {
-	        player_win(item_on_focus);
-	        item_on_focus=NULL;
+		  player_win(item_on_focus);
+		  item_on_focus=NULL;
 	        }
 	    }
-	else
+	  else
 	    {
-	     /* It is a loose : unselect the word and defocus */
-	    g_free(item_on_focus->overword);
-	    item_on_focus->overword=g_strdup(" ");
-	    item_on_focus->count=0;
-	    g_free(item_on_focus->letter);
-	    item_on_focus->letter=g_utf8_strndup(item_on_focus->word,1);
-	    
-	    item_on_focus->pos=g_utf8_find_next_char(item_on_focus->word,NULL);
-
-	    gnome_canvas_item_set (item_on_focus->overwriteItem,
-			     "text", item_on_focus->overword,
+	      /* It is a loose : unselect the word and defocus */
+	      g_free(item_on_focus->overword);
+	      item_on_focus->overword=g_strdup(" ");
+	      item_on_focus->count=0;
+	      g_free(item_on_focus->letter);
+	      item_on_focus->letter=g_utf8_strndup(item_on_focus->word,1);
+	      
+	      item_on_focus->pos=g_utf8_find_next_char(item_on_focus->word,NULL);
+	      
+	      gnome_canvas_item_set (item_on_focus->overwriteItem,
+				     "text", item_on_focus->overword,
 				     NULL);
- 	    item_on_focus=NULL;
-	    player_loose();
+	      item_on_focus=NULL;
+	      g_free(letter);
+	      player_loose();
+	      break;
 	    }	
 	}
-    else
+      else
 	{
-        /* Anyway kid you clicked on the wrong key */
-        player_loose();
+	  /* Anyway kid you clicked on the wrong key */
+	  player_loose();
+	  g_free(letter);
+	  break;
 	}
 
-  g_free(letter);
-  return TRUE;
+      g_free(letter);
+    }
+    return TRUE;
 }
 
 static gboolean
@@ -402,8 +410,14 @@ static void wordsgame_next_level()
   gcompris_bar_set_level(gcomprisBoard);
   gcompris_score_set(gcomprisBoard->sublevel);
 
-
   wordsgame_destroy_all_items();
+  
+  if (preedit_text){
+    gtk_object_destroy(GTK_OBJECT(preedit_text));
+    preedit_text=NULL;
+  }
+  gcompris_im_reset();
+  
   wordsgame_read_wordfile();
   items=g_ptr_array_new();
   items2del=g_ptr_array_new();

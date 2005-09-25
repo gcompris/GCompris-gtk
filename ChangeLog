@@ -1,3 +1,10 @@
+2005-09-26  Yves Combe  <yves@ycombe.net>
+
+	Use IMContext: compare words with commit_str only, show preedit string as help.
+
+	* src/boards/wordsgame.c: (start_board), (end_board), (key_press),
+	(wordsgame_next_level):
+
 2005-09-25  Yves Combe  <yves@ycombe.net>
 
 	fix segfault in worsgame (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=273680). Same bug as in reading (see 2005-11-09).
