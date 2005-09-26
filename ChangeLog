@@ -1,3 +1,42 @@
+2005-09-27  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Added keywords in our menu file to provide keyword searching
+	for the ofset gnuedu project. It maybe usefull also for the gcompris
+	website and our administratif activity filter.
+	The keywords is incomplete yet.
+	Fixed some warnings.
+	
+
+	* boards/algebra_by.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/bargame.xml.in:
+	* boards/chess_computer.xml.in:
+	* boards/chess_movelearn.xml.in:
+	* boards/chess_partyend.xml.in:
+	* boards/connect4.xml.in:
+	* boards/enumerate.xml.in:
+	* boards/fifteen.xml.in:
+	* boards/geography.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* boards/hanoi.xml.in:
+	* boards/memory.xml.in:
+	* boards/paintings.xml.in:
+	* boards/railroad.xml.in:
+	* boards/sudoku.xml.in:
+	* boards/superbrain.xml.in:
+	* docs/website/menu.html:
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(item_event_directory), (item_event_scroll),
+	(item_event_file_selector), (entry_enter_callback), (parseMime),
+	(gcompris_load_mime_types):
+	* src/gcompris/gameutil.c: (gcompris_get_asset_file_locale):
+	* src/gcompris/gameutil.h:
+
 2005-09-26  Yves Combe  <yves@ycombe.net>
 
 	Use IMContext: compare words with commit_str only, show preedit string as help.

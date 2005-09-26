@@ -107,7 +107,10 @@ gchar		*gcompris_get_asset_file_locale(gchar *dataset, gchar* categories,
 */
 void		 gcompris_clone_item(GnomeCanvasItem *item, GnomeCanvasGroup *parent);
 
-/* find the complete filename lookig for the file everywhere */
+/* find the complete filename looking for the file everywhere */
 gchar *gcompris_find_absolute_filename(gchar *filename);
+
+/** Select only files with .xml extention */
+int selectMenuXML(const gchar *file);
 
 #endif

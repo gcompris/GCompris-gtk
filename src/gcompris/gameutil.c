@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/09/24 22:50:37 yves>
+ * Time-stamp: <2005/09/26 23:39:51 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -20,6 +20,8 @@
  */
 
 #include <math.h>
+#include <string.h>
+#include <time.h>
 
 /* libxml includes */
 #include <libxml/tree.h>
@@ -105,7 +107,7 @@ gchar *gcompris_get_asset_file_locale(gchar *dataset, gchar* categories,
   gchar *mylocale = locale;
 
   if (!mylocale || (strcmp( mylocale, "NULL") == 0))
-    mylocale = gcompris_get_locale();
+    mylocale = (gchar *)gcompris_get_locale();
 
   gl_result = assetml_get_asset(dataset, categories, mimetype, mylocale, file);
 
@@ -717,8 +719,8 @@ GList *gcompris_get_menulist(gchar *section)
   return result_list;
 }
 
-/*
- * Select only files with .xml extention
+/** Select only files with .xml extention
+ *
  * Return 1 if the given file end in .xml 0 else
  */
 int selectMenuXML(const gchar *file)

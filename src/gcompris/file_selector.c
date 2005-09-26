@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/08/27 11:50:13 yves>
+ * Time-stamp: <2005/09/26 23:31:44 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -206,7 +206,7 @@ display_file_selector(int the_mode,
   }
 
   if(rootitem)
-    return;
+    return 0;
 
   gcompris_bar_hide(TRUE);
 
@@ -393,6 +393,8 @@ display_file_selector(int the_mode,
   current_rootdir = full_rootdir;
 
   display_files(rootitem, full_rootdir);
+
+  return 0;
 
 }
 
@@ -652,7 +654,7 @@ item_event_directory(GnomeCanvasItem *item, GdkEvent *event, gchar *dir)
 {
 
   if(!rootitem)
-    return;
+    return FALSE;
 
   switch (event->type) 
     {
@@ -682,7 +684,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 {
   int x, y;
   if(!rootitem)
-    return;
+    return FALSE;
 
   switch (event->type) 
     {
@@ -694,6 +696,8 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 	gnome_canvas_scroll_to (canvas, x, y + 20);
 
       break;
+    default:
+      break;
     }
   return FALSE;
 }
@@ -704,7 +708,7 @@ item_event_file_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 {
 
   if(!rootitem)
-    return;
+    return FALSE;
 
   switch (event->type) 
     {
@@ -796,7 +800,7 @@ static void entry_enter_callback( GtkWidget *widget,
   if(!rootitem)
     return;
 
-  entry_text = gtk_entry_get_text(GTK_ENTRY(entry));
+  entry_text = (char *)gtk_entry_get_text(GTK_ENTRY(entry));
 }
 
 /*
@@ -805,9 +809,6 @@ static void entry_enter_callback( GtkWidget *widget,
  */
 
 void parseMime (xmlDocPtr doc, xmlNodePtr xmlnode) {
-  gchar *mimeSetName = NULL;
-  gchar *filename;
-  GList	*mimeList = NULL;	/* List of Mimes */
 
   GcomprisMimeType *gcomprisMime = g_malloc0 (sizeof (GcomprisMimeType));
 
@@ -919,7 +920,7 @@ gboolean load_mime_type_from_file(gchar *fname)
 
 /**
  * gcompris_load_mime_types
- * Load all the mime type in PACKAGE_DATA_DIR"/gcompris/mimetypes/*.xml"
+ * Load all the mime type in PACKAGE_DATA_DIR"/gcompris/mimetypes/ *.xml"
  *
  * Must be called once at GCompris startup.
  *
@@ -928,7 +929,6 @@ void gcompris_load_mime_types()
 {
   const gchar  *one_dirent;
   GDir   *dir;
-  int     n;
 
   if(mimetypes_hash) {
     return;
