@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/09/15 13:35:47 yves>
+ * Time-stamp: <2005/09/27 23:34:06 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -66,7 +66,7 @@
 #define BOARDHEIGHT 520
 #define BARHEIGHT   80
 
-#define DEFAULT_SKIN "default"
+#define DEFAULT_SKIN "gartoon"
 
 #define _(String) gettext (String)
 #define gettext_noop(String) String

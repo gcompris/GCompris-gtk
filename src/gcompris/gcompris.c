@@ -28,6 +28,7 @@
 
 #include "gcompris.h"
 #include "gcompris_config.h"
+#include "about.h"
 #include <locale.h>
 
 #include "cursor.h"
@@ -168,7 +169,6 @@ typedef struct
 
 } XRANDRData; 
 
-static gboolean		 changed_xrandr = FALSE;
 static SizeID		 xr_previous_size = -1;
 static XRANDRData	*xrandr;
 
@@ -341,7 +341,8 @@ static void init_background()
       xr_previous_size = (SizeID)xrandr->xr_current_size;
 
       for (i = 0; i < xrandr->xr_nsize; i++) {
-        if(xrandr->xr_sizes[i].width == BOARDWIDTH, xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
+        if(xrandr->xr_sizes[i].width == BOARDWIDTH &&
+	   xrandr->xr_sizes[i].height == BOARDHEIGHT+BARHEIGHT) {
 	  xrandr->xr_current_size = (SizeID)i;
 	  xrandr_set_config( xrandr );
 	  break;
@@ -513,13 +514,6 @@ void gcompris_set_cursor(guint gdk_cursor_type)
     gdk_window_set_cursor(window->window, cursor);
     gdk_cursor_unref(cursor);
   }
-}
-
-static void
-popup_menu_detach (GtkWidget *attach_widget,
-		   GtkMenu   *menu)
-{
-  GTK_ENTRY (attach_widget)->popup_menu = NULL;
 }
 
 static void setup_window ()
@@ -1175,8 +1169,6 @@ gcompris_init (int argc, char *argv[])
   
   /* An alternate profile is requested, check it does exists */
   if (popt_profile){
-    GList * profile_list;
-
     properties->profile = gcompris_get_profile_from_name(popt_profile);
 
     if(properties->profile == NULL)

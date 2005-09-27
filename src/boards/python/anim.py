@@ -559,7 +559,7 @@ class Gcompris_anim:
 
     self.root_toolitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/tool-selector.png"),
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/tool-selector.png")),
       x=5,
       y=5.0,
       width=107.0,
@@ -588,7 +588,7 @@ class Gcompris_anim:
         
       item = self.root_toolitem.add(
         gnome.canvas.CanvasPixbuf,
-        pixbuf = gcompris.utils.load_pixmap(self.tools[i][1]),
+        pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][1])),
         x=theX,
         y=y
         )
@@ -602,7 +602,7 @@ class Gcompris_anim:
         # Always select the SELECT item by default
         self.current_tool = i
         self.old_tool_item = item
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[i][2]))
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[i][2])))
         gcompris.set_cursor(self.tools[i][3]);
 
 
@@ -655,19 +655,19 @@ class Gcompris_anim:
         # -------------------------------
         
         # Deactivate old button
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
 
         # Activate new button                         
         self.current_tool = tool
         self.old_tool_item = item
-        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
+        self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
         gcompris.set_cursor(self.tools[self.current_tool][3]);
 
         
   # Display the color selector
   def draw_colors(self):
 
-    pixmap = gcompris.utils.load_pixmap("draw/color-selector.png")
+    pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/color-selector.png"))
 
     x = (self.drawing_area[2] - self.drawing_area[0]
          - pixmap.get_width())/2 + self.drawing_area[0]
@@ -776,7 +776,7 @@ class Gcompris_anim:
     
     self.flash = self.rootitem.add (
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/camera.png"),
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/camera.png")),
       x=300,
       y=200,
       )
@@ -805,7 +805,7 @@ class Gcompris_anim:
 
     run = self.root_playingitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/down.png"),
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/down.png")),
       x = 15,
       y = 410,
       width = 20,
@@ -827,7 +827,7 @@ class Gcompris_anim:
 
     run = self.root_playingitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/up.png"),
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/up.png")),
       x = 70,
       y = 410,
       width = 20,
@@ -1458,7 +1458,7 @@ class Gcompris_anim:
     # Draw the background area
     self.rootitem.add(
       gnome.canvas.CanvasPixbuf,
-      pixbuf = gcompris.utils.load_pixmap("draw/counter.png"),
+      pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("draw/counter.png")),
       x=x_left - -11,
       y=y_top - 2,
       width=70.0,
@@ -1470,7 +1470,7 @@ class Gcompris_anim:
     # First
     #item = self.rootitem.add(
     #  gnome.canvas.CanvasPixbuf,
-    #  pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left,
     #  y = y_top,
     #  )
@@ -1494,7 +1494,7 @@ class Gcompris_anim:
     # Last
     #item = self.rootitem.add(
     #  gnome.canvas.CanvasPixbuf,
-    #  pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left + 2*minibutton_width,
     #  y = y_top,
     #  )
@@ -1513,7 +1513,7 @@ class Gcompris_anim:
     # Previous
     #item = self.rootitem.add(
     #  gnome.canvas.CanvasPixbuf,
-    #  pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left,
     #  y = y_top,
     #  )
@@ -1529,7 +1529,7 @@ class Gcompris_anim:
     # Next
     #item = self.rootitem.add(
     #  gnome.canvas.CanvasPixbuf,
-    #  pixbuf = gcompris.utils.load_pixmap("anim/minibutton.png"),
+    #  pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("anim/minibutton.png")),
     #  x = x_left + 2*minibutton_width,
     #  y = y_top,
     #  )
@@ -1870,12 +1870,12 @@ class Gcompris_anim:
       self.unselect()
 
     # Deactivate old button
-    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][1]))
+    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][1])))
         
     # Activate new button                         
     self.current_tool = self.select_tool_number
     self.old_tool_item = self.select_tool
-    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(self.tools[self.current_tool][2]))
+    self.old_tool_item.set(pixbuf = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin(self.tools[self.current_tool][2])))
     gcompris.set_cursor(self.tools[self.current_tool][3]);
 
     self.selected = group

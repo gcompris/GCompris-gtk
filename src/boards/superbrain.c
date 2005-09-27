@@ -225,7 +225,6 @@ static void process_ok() {
 static void superbrain_next_level()
 {
   guint i;
-  GdkPixbuf *pixmap = NULL;
   gboolean selected_color[MAX_COLORS];
 
   gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
@@ -262,7 +261,6 @@ static void superbrain_next_level()
   for(i=0; i<number_of_piece; i++)
     {
       guint j;
-      gboolean found = FALSE;
 
       j = (guint)RAND(1, number_of_color);
       while(selected_color[j])
