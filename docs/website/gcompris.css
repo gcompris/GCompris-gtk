@@ -27,6 +27,23 @@
   padding: 15px;
   display: block;
 } 
+
+/* Menu content */
+.secteuroff { font-weight: normal; }
+.rubriqueoff { font-weight: normal; }
+a.rubriqueoff:hover {
+  background-color: #d6d8ec;
+}
+.secteuron, .rubriqueon { font-weight: bold; }
+a.rubriqueon:hover {
+  background-color: #d6d8ec;
+}
+.secteur, .rubrique { font-weight: bold; }
+a.rubrique:hover {
+  background-color: #d6d8ec;
+}
+/* ---- */
+
 #MAIN {
   position : absolute;
   left : 250px;

@@ -1,18 +1,3 @@
-<style type="text/css">
-.secteuroff { font-weight: normal; }
-.rubriqueoff { font-weight: normal; }
-a.rubriqueoff:hover {
-  background-color: #d6d8ec;
-}
-.secteuron, .rubriqueon { font-weight: bold; }
-a.rubriqueon:hover {
-  background-color: #d6d8ec;
-}
-.secteur, .rubrique { font-weight: bold; }
-a.rubrique:hover {
-  background-color: #d6d8ec;
-}
-</style>
 <?php
 if(floor(phpversion()) < 4)	{
 	// La version de PHP est inférieure à 4,
@@ -75,7 +60,7 @@ afficher_script_layer();
 									echo bouton_block_invisible('rub#ID_RUBRIQUE');
 								}
 							} else {
-								echo '<img src="img_pack/puce'.(#ID_RUBRIQUE == $actuelle ? 'on' : 'off').'.gif" />';
+								echo '<img src="img_pack/puce'.(#ID_RUBRIQUE == $actuelle ? 'on' : 'off').'.gif" alt=""/>';
 							}
 							?>
 						</td>
@@ -136,7 +121,7 @@ afficher_script_layer();
 									echo bouton_block_invisible('rub#ID_RUBRIQUE');
 								}
 							} else {
-								echo '<img src="img_pack/puce'.(#ID_RUBRIQUE == $actuelle ? 'on' : 'off').'.gif" />';
+								echo '<img src="img_pack/puce'.(#ID_RUBRIQUE == $actuelle ? 'on' : 'off').'.gif" alt=""/>';
 							}
 							?>
 						</td>

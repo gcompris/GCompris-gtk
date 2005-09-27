@@ -17,7 +17,7 @@
 
   </head>
 
-  <body TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0">
+  <body>
     <!-- Titre du site et lien vers l'accueil -->
     <div>
       <INCLURE(header.php3)>
@@ -41,7 +41,7 @@
 	  [<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>] 
 	</BOUCLE_chemin>
 	<a HREF="#" class="imprimer" onClick="window.open('./imprimer.php3?id_article=#ID_ARTICLE','_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=1, resizable=0, copyhistory=0, menuBar=0, width=800, height=600');return(false)"> 
-	  <img src="i-printer.gif" alt="print" width="48" height="48" border="0"> 
+	  <img src="NAVPICS/i-printer.gif" alt="print" width="48" height="48" border="0"> 
 	</a>
       </p>
 
@@ -65,7 +65,7 @@
 	    <div class="chapo">[(#CHAPO)]</div>
 	  </div>
 	  [<div class="date">(#FORMULAIRE_SIGNATURE)</div>]
-	  <div class="contenu">[(#TEXTE|smileys)]</div>
+	  <div class="contenu">[(#TEXTE)]</div>
 
 	  <B_auteurs>
 	  <div class="lesauteurs">
@@ -134,7 +134,7 @@
 		<div class="forum-chapo"> 
 		  <div class="titrearticle">#TITRE</div>
 		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>] </div>
-		<div class="forum-item"> [(#TEXTE|smileys)] 
+		<div class="forum-item"> [(#TEXTE)] 
 		  [
 		  <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
 
@@ -149,7 +149,7 @@
 		  <div class="forum-titre">#TITRE</div>
 		  [(#DATE|affdate)][, par <A HREF="mailto:#EMAIL">(#NOM)</A>] 
 		</div>
-		<div class="forum-item"> [(#TEXTE|smileys)] 
+		<div class="forum-item"> [(#TEXTE)] 
 		  [
 		  <div>Site : <a href="#URL_SITE">(#NOM_SITE)</a></div>]
 
