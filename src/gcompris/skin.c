@@ -16,6 +16,8 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+
+#include "string.h"
  
 #include "skin.h"
 #include <libxml/tree.h>
@@ -28,6 +30,7 @@ guint32 gcompris_skin_color_title;
 guint32 gcompris_skin_color_text_button;
 guint32 gcompris_skin_color_content;
 guint32 gcompris_skin_color_subtitle;
+guint32 gcompris_skin_color_shadow;
 
 gchar* gcompris_skin_font_title;
 gchar* gcompris_skin_font_subtitle;
@@ -93,7 +96,6 @@ gchar *gcompris_image_to_skin(gchar *pixmapfile)
 GdkPixbuf *gcompris_load_skin_pixmap(char *pixmapfile)
 {
   gchar *filename;
-  GcomprisProperties	*properties = gcompris_get_properties();
   GdkPixbuf *result_pixbuf;
 
   filename = gcompris_image_to_skin(pixmapfile);
@@ -128,6 +130,8 @@ void gcompris_skin_setup_vars(void)
     gcompris_skin_get_color_default("gcompris/content", COLOR_CONTENT);
   gcompris_skin_color_subtitle = 
     gcompris_skin_get_color_default("gcompris/subtitle", COLOR_SUBTITLE);
+  gcompris_skin_color_shadow = 
+    gcompris_skin_get_color_default("gcompris/shadow", COLOR_SHADOW);
   
   gcompris_skin_font_title = 
     gcompris_skin_get_font_default("gcompris/title", FONT_TITLE);
@@ -339,8 +343,8 @@ void gcompris_skin_load (gchar* skin)
   gcompris_skin_colors = g_hash_table_new_full(g_str_hash, g_str_equal,
 					      gcompris_skin_free_string,
 					      NULL);
-  gcompris_skin_xml_load("default");
-  if(strcmp(skin,"default")!=0)
+  gcompris_skin_xml_load(DEFAULT_SKIN);
+  if(strcmp(skin,DEFAULT_SKIN)!=0)
     gcompris_skin_xml_load(skin);
 
   gcompris_skin_setup_vars();

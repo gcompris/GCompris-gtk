@@ -1,6 +1,6 @@
 /* gcompris - gcompris.h
  *
- * Time-stamp: <2005/09/27 23:34:06 bruno>
+ * Time-stamp: <2005/09/28 20:53:47 bruno>
  *
  * Copyright (C) 2000,2001,2002 Bruno Coudoin
  *
@@ -164,10 +164,11 @@ void gcompris_log_end (GcomprisBoard *gcomprisBoard, gchar *status);
 /*=========================================================*/
 /* Some global definition to keep a constant look and feel */
 /* Boards coders are invited to use them                   */
-#define COLOR_TITLE		0x0F0FC000
-#define COLOR_TEXT_BUTTON       0x0F0FC000
-#define COLOR_CONTENT		0x0D0DFA00
-#define COLOR_SUBTITLE		0xB0040000
+#define COLOR_TITLE		0x0F0FC0FF
+#define COLOR_TEXT_BUTTON       0x0F0FC0FF
+#define COLOR_CONTENT		0x0D0DFAFF
+#define COLOR_SUBTITLE		0xB00400FF
+#define COLOR_SHADOW		0x000000FF
 
 #define FONT_TITLE		"Sans 20"
 #define FONT_TITLE_FALLBACK	"Sans 12"

@@ -1,6 +1,6 @@
 /* gcompris - properties.h
  *
- * Time-stamp: <2005/09/15 10:10:48 yves>
+ * Time-stamp: <2005/09/28 21:03:08 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -61,7 +61,8 @@ void			 gcompris_properties_destroy (GcomprisProperties *props);
 void			 gcompris_properties_save (GcomprisProperties *props);
 
 gchar                   *get_default_database_name (gchar *shared_dir);
-int                     create_rootdir (gchar *rootdir);
+int                      create_rootdir (gchar *rootdir);
+int			 my_setenv (const char * name, const char * value);
 
 #endif
 

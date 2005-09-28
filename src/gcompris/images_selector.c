@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/09/04 20:27:32 brunoa>
+ * Time-stamp: <2005/09/28 21:00:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -594,6 +594,8 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
       else if ( event->scroll.direction == GDK_SCROLL_DOWN )
 	gnome_canvas_scroll_to (canvas, x, y + 20);
 
+      break;
+    default:
       break;
     }
   return FALSE;

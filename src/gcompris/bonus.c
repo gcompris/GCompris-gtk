@@ -311,8 +311,8 @@ void bonus_image(char *image, BonusStatusList gamewon)
 			   gnome_canvas_text_get_type (),
 			   "text", _("Drawn game"),
 			   "font", gcompris_skin_font_title,
-			   "x", (double) BOARDWIDTH/2 + 1.5,
-			   "y", (double) gdk_pixbuf_get_height(pixmap) + 1.5,
+			   "x", (double) BOARDWIDTH/2 + 1.0,
+			   "y", (double) gdk_pixbuf_get_height(pixmap) + 1.0,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "fill_color", "black",
 			   NULL);

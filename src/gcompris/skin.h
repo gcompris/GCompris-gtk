@@ -27,6 +27,7 @@ extern guint32 gcompris_skin_color_title;
 extern guint32 gcompris_skin_color_text_button;
 extern guint32 gcompris_skin_color_content;
 extern guint32 gcompris_skin_color_subtitle;
+extern guint32 gcompris_skin_color_shadow;
 
 extern gchar* gcompris_skin_font_title;
 extern gchar* gcompris_skin_font_subtitle;

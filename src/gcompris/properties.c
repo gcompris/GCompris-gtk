@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/09/19 22:08:44 bruno>
+ * Time-stamp: <2005/09/28 21:02:52 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -23,6 +23,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
 
 #include "gcompris.h"
 
@@ -353,10 +355,11 @@ void gcompris_properties_save (GcomprisProperties *props)
 
 
 
-int my_setenv (const char * name, const char * value) {
+int
+my_setenv (const char * name, const char * value) {
+#if defined WIN32
   size_t namelen = strlen(name);
   size_t valuelen = (value==NULL ? 0 : strlen(value));
-#if defined WIN32
   /* On Woe32, each process has two copies of the environment variables,
      one managed by the OS and one managed by the C library. We set
      the value in both locations, so that other software that looks in

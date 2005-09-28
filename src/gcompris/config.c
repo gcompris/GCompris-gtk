@@ -1,6 +1,6 @@
 /* gcompris - config.c
  *
- * Time-stamp: <2005/09/16 23:55:22 yves>
+ * Time-stamp: <2005/09/28 22:43:13 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -22,6 +22,8 @@
 /**
  * Configuration of gcompris
  */
+
+#include <string.h>
 
 #include "gcompris.h"
 #include "gcompris_config.h"
@@ -179,15 +181,24 @@ void gcompris_config_start ()
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("GCompris Configuration"),
-				"font", gcompris_skin_font_title,
-				"x", (double) BOARDWIDTH/2,
-				"y", (double) y_start + 40,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_title,
-				NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("GCompris Configuration"),
+			 "font", gcompris_skin_font_title,
+			 "x", (double) BOARDWIDTH/2 + 1.0,
+			 "y", (double) y_start + 40 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("GCompris Configuration"),
+			 "font", gcompris_skin_font_title,
+			 "x", (double) BOARDWIDTH/2,
+			 "y", (double) y_start + 40,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_title,
+			 NULL);
 
   // OK
   pixmap = gcompris_load_skin_pixmap("button_large.png");
@@ -205,6 +216,15 @@ void gcompris_config_start ()
 		     (GtkSignalFunc) gcompris_item_event_focus,
 		     NULL);
 
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("OK"),
+			 "font", gcompris_skin_font_title,
+			 "x", (double)  BOARDWIDTH*0.5 + 1.0,
+			 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),

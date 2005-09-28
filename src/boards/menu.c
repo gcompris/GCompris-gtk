@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/09/24 00:04:12 bruno>
+ * Time-stamp: <2005/09/28 20:55:01 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -491,7 +491,7 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "x", (double) x + 1.0,
 			   "y", (double) y + 1.0,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba",  gcompris_skin_get_color("menu/text_shadow"),
+			   "fill_color_rgba",  gcompris_skin_color_shadow,
 			   NULL);
 
   menuitems->description_item_s = \
@@ -502,7 +502,7 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "x", (double) x + 1.0,
 			   "y", (double) y + 28 + 1.0,
 			   "anchor", GTK_ANCHOR_NORTH,
-			   "fill_color_rgba", gcompris_skin_get_color("menu/text_shadow"),
+			   "fill_color_rgba", gcompris_skin_color_shadow,
 			   NULL);
 
   menuitems->author_item_s = \
@@ -513,7 +513,7 @@ static void create_info_area(GnomeCanvasGroup *parent, MenuItems *menuitems)
 			   "x", (double) x + 1.0,
 			   "y", (double) y + 90 + 1.0,
   			   "anchor", GTK_ANCHOR_NORTH,
-  			   "fill_color_rgba", gcompris_skin_get_color("menu/text_shadow"),
+  			   "fill_color_rgba", gcompris_skin_color_shadow,
   			   "justification", GTK_JUSTIFY_CENTER,
 			   NULL);
 

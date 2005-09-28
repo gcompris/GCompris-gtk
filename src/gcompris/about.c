@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2005/09/20 00:12:28 bruno>
+ * Time-stamp: <2005/09/28 22:42:59 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -100,16 +100,34 @@ void gcompris_about_start ()
   y = BOARDHEIGHT - (BOARDHEIGHT - gdk_pixbuf_get_height(pixmap))/2;
   gdk_pixbuf_unref(pixmap);
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", _("About GCompris"), 
-				"font", gcompris_skin_font_title,
-				"x", (double) BOARDWIDTH/2,
-				"y", (double) y_start + 40,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_title,
-				NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("About GCompris"), 
+			 "font", gcompris_skin_font_title,
+			 "x", (double) BOARDWIDTH/2 + 1.0,
+			 "y", (double) y_start + 40 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("About GCompris"), 
+			 "font", gcompris_skin_font_title,
+			 "x", (double) BOARDWIDTH/2,
+			 "y", (double) y_start + 40,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_title,
+			 NULL);
 
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("Translators:"), 
+			 "font", gcompris_skin_font_subtitle,
+			 "x", (double) BOARDWIDTH/2-320 + 1.0,
+			 "y", (double) y_start + 90 + 1.0,
+			 "anchor", GTK_ANCHOR_NORTH_WEST,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
   gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			 gnome_canvas_text_get_type (),
 			 "text", _("Translators:"), 
@@ -124,6 +142,15 @@ void gcompris_about_start ()
 			 gnome_canvas_text_get_type (),
 			 "text", translators,
 			 "font", gcompris_skin_font_content,
+			 "x", (double)  BOARDWIDTH/2-320 + 1.0,
+			 "y", (double)  y_start + 120 + 1.0,
+			 "anchor", GTK_ANCHOR_NORTH_WEST,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", translators,
+			 "font", gcompris_skin_font_content,
 			 "x", (double)  BOARDWIDTH/2-320,
 			 "y", (double)  y_start + 120,
 			 "anchor", GTK_ANCHOR_NORTH_WEST,
@@ -132,26 +159,44 @@ void gcompris_about_start ()
   // Version
   y_start += 100;
 
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", "GCompris V" VERSION,
-				"font", gcompris_skin_font_title,
-				"x", (double)  BOARDWIDTH/2,
-				"y", (double)  y_start,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_subtitle,
-				NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", "GCompris V" VERSION,
+			 "font", gcompris_skin_font_title,
+			 "x", (double)  BOARDWIDTH/2 + 1.0,
+			 "y", (double)  y_start + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", "GCompris V" VERSION,
+			 "font", gcompris_skin_font_title,
+			 "x", (double)  BOARDWIDTH/2,
+			 "y", (double)  y_start,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_subtitle,
+			 NULL);
 
   y_start += 180;
-  item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
-				gnome_canvas_text_get_type (),
-				"text", gettext(content),
-				"font", gcompris_skin_font_content,
-				"x", (double)  BOARDWIDTH*0.45,
-				"y", (double)  y_start,
-				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_content,
-				NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", gettext(content),
+			 "font", gcompris_skin_font_content,
+			 "x", (double)  BOARDWIDTH*0.45 + 1.0,
+			 "y", (double)  y_start + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", gettext(content),
+			 "font", gcompris_skin_font_content,
+			 "x", (double)  BOARDWIDTH*0.45,
+			 "y", (double)  y_start,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_content,
+			 NULL);
 
   // Ofset Reference
   pixmap = gcompris_load_skin_pixmap("ofsetlogo.png");
@@ -291,6 +336,15 @@ void gcompris_about_start ()
   gdk_pixbuf_unref(pixmap);
 
 
+  gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
+			 gnome_canvas_text_get_type (),
+			 "text", _("OK"),
+			 "font", gcompris_skin_font_title,
+			 "x", (double)  BOARDWIDTH*0.5 + 1.0,
+			 "y", (double)  y - gdk_pixbuf_get_height(pixmap) + 20 + 1.0,
+			 "anchor", GTK_ANCHOR_CENTER,
+			 "fill_color_rgba", gcompris_skin_color_shadow,
+			 NULL);
   item2 = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_text_get_type (),
 				"text", _("OK"),

@@ -342,6 +342,15 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				"x",  (double) xp,
 				"y",  (double) yp,
 				NULL);
+  gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_text_get_type (),
+				      "text", buf[0],
+				      "font", gcompris_skin_font_board_big,
+				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+				      "anchor", GTK_ANCHOR_CENTER,
+				      "fill_color_rgba", gcompris_skin_color_shadow,
+				      NULL);
   text1_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[0],
@@ -349,7 +358,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", "white",
+				      "fill_color_rgba", gcompris_skin_color_text_button,
 				      NULL);
 
   yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
@@ -359,6 +368,15 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				"x",  (double) xp,
 				"y",  (double) yp,
 				NULL);
+  gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_text_get_type (),
+				      "text", buf[1],
+				      "font", gcompris_skin_font_board_big,
+				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+				      "anchor", GTK_ANCHOR_CENTER,
+				      "fill_color_rgba", gcompris_skin_color_shadow,
+				      NULL);
   text2_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[1],
@@ -366,7 +384,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", "white",
+				      "fill_color_rgba", gcompris_skin_color_text_button,
 				      NULL);
 
   yp += gdk_pixbuf_get_height(button_pixmap) + VERTICAL_SEPARATION;
@@ -377,6 +395,15 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				"y",  (double) yp,
 				NULL);
 
+  gnome_canvas_item_new (boardRootItem,
+				      gnome_canvas_text_get_type (),
+				      "text", buf[2],
+				      "font", gcompris_skin_font_board_big,
+				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2 + 1.0,
+				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2 + 1.0,
+				      "anchor", GTK_ANCHOR_CENTER,
+				      "fill_color_rgba", gcompris_skin_color_shadow,
+				      NULL);
   text3_item = gnome_canvas_item_new (boardRootItem,
 				      gnome_canvas_text_get_type (),
 				      "text", buf[2],
@@ -384,7 +411,7 @@ static GnomeCanvasItem *imageid_create_item(GnomeCanvasGroup *parent)
 				      "x", (double) xp + gdk_pixbuf_get_width(button_pixmap)/2,
 				      "y", (double) yp + gdk_pixbuf_get_height(button_pixmap)/2,
 				      "anchor", GTK_ANCHOR_CENTER,
-				      "fill_color", "white",
+				      "fill_color_rgba", gcompris_skin_color_text_button,
 				      NULL);
 
   gdk_pixbuf_unref(button_pixmap);

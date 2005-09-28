@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/09/21 23:10:20 yves>
+ * Time-stamp: <2005/09/28 23:10:45 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -134,6 +134,7 @@ static GnomeCanvasItem	*shape_list_root_item;
 /* The tooltip */
 static GnomeCanvasGroup	*tooltip_root_item;
 static GnomeCanvasItem	*tooltip_text_item;
+static GnomeCanvasItem	*tooltip_text_item_s;
 static GnomeCanvasItem	*tooltip_bg_item;
 
 static void		 start_board (GcomprisBoard *agcomprisBoard);
@@ -721,6 +722,17 @@ static void shapegame_init_canvas(GnomeCanvasGroup *parent)
 			   NULL);
   gdk_pixbuf_unref(pixmap);
 
+  tooltip_text_item_s = \
+    gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
+			   gnome_canvas_text_get_type (),
+			   "text", "",
+			   "font", gcompris_skin_font_board_small,
+			   "x", (double)gdk_pixbuf_get_width(pixmap)/2 + 1.0,
+			   "y", 24.0 + 1.0,
+			   "anchor", GTK_ANCHOR_CENTER,
+			   "justification", GTK_JUSTIFY_CENTER,
+			   "fill_color_rgba", gcompris_skin_color_shadow,
+			   NULL);
   tooltip_text_item = \
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(tooltip_root_item),
 			   gnome_canvas_text_get_type (),
@@ -1035,6 +1047,9 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, Shape *shape)
 	 /* WARNING: This should not be needed but if I don't do it, it's not refreshed */
 	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_bg_item),
 			       "y", 0.0,
+			       NULL);
+	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item_s),
+			       "text", shape->tooltip,
 			       NULL);
 	 gnome_canvas_item_set(GNOME_CANVAS_ITEM(tooltip_text_item),
 			       "text", shape->tooltip,
@@ -1573,11 +1588,11 @@ static void create_title(char *name, double x, double y, GtkJustification justif
 			   gnome_canvas_text_get_type (),
 			   "text", name,
 			   "font", gcompris_skin_font_board_medium,
-			   "x", x + 1,
-			   "y", y + 1,
+			   "x", x + 1.0,
+			   "y", y + 1.0,
 			   "anchor", GTK_ANCHOR_CENTER,
 			   "justification", justification,
-			   "fill_color", "black",
+			   "fill_color_rgba", gcompris_skin_color_shadow,
 			   NULL);
 
   gnome_canvas_item_raise_to_top(item);

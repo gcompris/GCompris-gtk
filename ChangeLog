@@ -1,5 +1,78 @@
 2005-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Improved gartoon text colors.
+	Added many text shadows
+	Removed warnings
+
+	* boards/algebra_by.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/bargame.xml.in:
+	* boards/chess_computer.xml.in:
+	* boards/chess_movelearn.xml.in:
+	* boards/chess_partyend.xml.in:
+	* boards/connect4.xml.in:
+	* boards/enumerate.xml.in:
+	* boards/fifteen.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* boards/hanoi.xml.in:
+	* boards/memory.xml.in:
+	* boards/paintings.xml.in:
+	* boards/railroad.xml.in:
+	* boards/skins/babytoy/difficulty_star1.png:
+	* boards/skins/babytoy/difficulty_star2.png:
+	* boards/skins/babytoy/difficulty_star3.png:
+	* boards/skins/babytoy/difficulty_star4.png:
+	* boards/skins/babytoy/difficulty_star5.png:
+	* boards/skins/babytoy/difficulty_star6.png:
+	* boards/skins/babytoy/draw/camera.png:
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/gartoon/config_boards.png:
+	* boards/skins/gartoon/config_groups.png:
+	* boards/skins/gartoon/config_profiles.png:
+	* boards/skins/gartoon/config_users.png:
+	* boards/skins/gartoon/dialogbox.png:
+	* boards/skins/gartoon/directory.png:
+	* boards/skins/gartoon/draw/camera.png:
+	* boards/skins/gartoon/file.png:
+	* boards/skins/gartoon/fsflogo.png:
+	* boards/skins/gartoon/gcompris-about.png:
+	* boards/skins/gartoon/gcomprislogo.png:
+	* boards/skins/gartoon/images_selector_bg.png:
+	* boards/skins/gartoon/menuicon.png:
+	* boards/skins/gartoon/mini_bad.png:
+	* boards/skins/gartoon/ofsetlogo.png:
+	* boards/skins/gartoon/skin.xml:
+	* boards/skins/gartoon/voice.png:
+	* boards/skins/gartoon/voice_bad.png:
+	* boards/sudoku.xml.in:
+	* boards/superbrain.xml.in:
+	* docs/website/meta.html:
+	* src/boards/imageid.c: (imageid_create_item):
+	* src/boards/menu.c: (create_info_area):
+	* src/boards/missingletter.c: (missing_letter_create_item),
+	(process_ok), (conf_ok):
+	* src/boards/shapegame.c: (shapegame_init_canvas), (item_event),
+	(create_title):
+	* src/gcompris/about.c: (gcompris_about_start):
+	* src/gcompris/bar.c: (gcompris_bar_set_level), (gcompris_bar_set):
+	* src/gcompris/bonus.c: (bonus_image):
+	* src/gcompris/config.c: (gcompris_config_start):
+	* src/gcompris/gcompris.h:
+	* src/gcompris/help.c: (gcompris_help_start):
+	* src/gcompris/images_selector.c: (item_event_scroll):
+	* src/gcompris/properties.c: (my_setenv):
+	* src/gcompris/properties.h:
+	* src/gcompris/skin.c: (gcompris_load_skin_pixmap),
+	(gcompris_skin_setup_vars), (gcompris_skin_load):
+	* src/gcompris/skin.h:
+
+2005-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Fixed HTML validation for the web site.
 
 	* docs/website/article.html:
