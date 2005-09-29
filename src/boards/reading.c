@@ -1,6 +1,6 @@
 /* gcompris - reading.c
  *
- * Time-stamp: <2005/09/24 00:09:38 bruno>
+ * Time-stamp: <2005/09/29 22:09:55 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -23,6 +23,7 @@
 
 #include <errno.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "gcompris/gcompris.h"
 
@@ -398,7 +399,6 @@ static gboolean reading_create_item(GnomeCanvasGroup *parent)
 {
   gint   anchor = GTK_ANCHOR_CENTER;
   gchar *word;
-  gchar *overword;
 
   assert(textToFind!=NULL);
 

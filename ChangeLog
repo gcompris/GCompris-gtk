@@ -1,3 +1,34 @@
+2005-09-29  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Fixed formatting of boards/wordsgame/default-*
+	Removed some warnings
+	Added shadow in missingletter question and changed 
+	it's color to come from the skin
+
+	* boards/skins/gartoon/skin.xml:
+	* boards/wordsgame/default-da.xml:
+	* boards/wordsgame/default-de.xml:
+	* boards/wordsgame/default-el.xml:
+	* boards/wordsgame/default-en.xml:
+	* boards/wordsgame/default-es.xml:
+	* boards/wordsgame/default-eu.xml:
+	* boards/wordsgame/default-fi.xml:
+	* boards/wordsgame/default-fr.xml:
+	* boards/wordsgame/default-hu.xml:
+	* boards/wordsgame/default-it.xml:
+	* boards/wordsgame/default-lt.xml:
+	* boards/wordsgame/default-nb.xml:
+	* boards/wordsgame/default-nn.xml:
+	* boards/wordsgame/default-pt.xml:
+	* boards/wordsgame/default-pt_BR.xml:
+	* boards/wordsgame/default-ro.xml:
+	* boards/wordsgame/default-ru.xml:
+	* boards/wordsgame/default-sk.xml:
+	* boards/wordsgame/default-sl.xml:
+	* boards/wordsgame/default-sv.xml:
+	* src/boards/missingletter.c: (missing_letter_create_item):
+	* src/boards/reading.c: (reading_create_item):
+
 2005-09-28  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Improved gartoon text colors.

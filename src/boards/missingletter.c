@@ -270,7 +270,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 
   /* this is the coordinate of the text to find */
   gint txt_area_x = 515;
-  gint txt_area_y = 430;
+  gint txt_area_y = 435;
 
   board_number = (gcomprisBoard->level-1) * NUMBER_OF_SUBLEVELS + gcomprisBoard->sublevel-1;
 
@@ -302,7 +302,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 				"x", (double) txt_area_x + 1.0,
 				"y", (double) txt_area_y + 1.0,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_shadow,
+				"fill_color_rgba", gcompris_skin_get_color("missingletter/shadow"),
 				NULL);
   text = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
@@ -311,7 +311,7 @@ static GnomeCanvasItem *missing_letter_create_item(GnomeCanvasGroup *parent)
 				"x", (double) txt_area_x,
 				"y", (double) txt_area_y,
 				"anchor", GTK_ANCHOR_CENTER,
-				"fill_color_rgba", gcompris_skin_color_title,
+				"fill_color_rgba", gcompris_skin_get_color("missingletter/question"),
 				NULL);
 
   gnome_canvas_item_get_bounds(text, &dx1, &dy1, &dx2, &dy2);
