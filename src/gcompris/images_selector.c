@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/09/28 21:00:01 bruno>
+ * Time-stamp: <2005/09/29 23:09:06 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -23,6 +23,8 @@
  * An image selector for gcompris
  *
  */
+
+#include "string.h"
 
 /* libxml includes */
 #include <libxml/tree.h>

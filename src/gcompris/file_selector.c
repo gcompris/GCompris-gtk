@@ -1,6 +1,6 @@
 /* gcompris - file_selector.c
  *
- * Time-stamp: <2005/09/26 23:31:44 bruno>
+ * Time-stamp: <2005/10/01 00:19:33 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -46,9 +46,6 @@ static gint		 item_event_file_selector(GnomeCanvasItem *item,
 static gint		 item_event_scroll(GnomeCanvasItem *item,
 					   GdkEvent *event,
 					   GnomeCanvas *canvas);
-static gint		 item_event_fileset_selector(GnomeCanvasItem *item, 
-						     GdkEvent *event, 
-						     gpointer data);
 static gint		 item_event_directory(GnomeCanvasItem *item, 
 					      GdkEvent *event, 
 					      char *dir);
@@ -76,19 +73,18 @@ static GtkEntry *widget_entry = NULL;
 static GList  *file_list = NULL;
 
 /* Represent the limits of control area */
-#define	CONTROL_AREA_X1	40.0
-#define	CONTROL_AREA_Y1	20.0
-#define	CONTROL_AREA_X2	760.0
-#define	CONTROL_AREA_Y2	80.0
+static guint32 control_area_x1;
+static guint32 control_area_y1;
+static guint32 directory_label_y;
 
 /* Represent the limits of the file area */
 #define	DRAWING_AREA_X1	40.0
-#define DRAWING_AREA_Y1	120.0
+#define DRAWING_AREA_Y1	220.0
 #define DRAWING_AREA_X2	760.0
 #define DRAWING_AREA_Y2	500.0
 
-#define HORIZONTAL_NUMBER_OF_IMAGE	6
-#define VERTICAL_NUMBER_OF_IMAGE	5
+#define HORIZONTAL_NUMBER_OF_IMAGE	5
+#define VERTICAL_NUMBER_OF_IMAGE	3
 #define IMAGE_GAP			18
 
 #define IMAGE_WIDTH  (DRAWING_AREA_X2-DRAWING_AREA_X1)/HORIZONTAL_NUMBER_OF_IMAGE-IMAGE_GAP
@@ -201,6 +197,11 @@ display_file_selector(int the_mode,
 
   mode = the_mode;
 
+  /* Get the coordinate x y of the control area from the skin */
+  control_area_x1   = gcompris_skin_get_number_default("gcompris/fileselectx", 85);
+  control_area_y1   = gcompris_skin_get_number_default("gcompris/fileselecty", 80);
+  directory_label_y = gcompris_skin_get_number_default("gcompris/fileselectdiry", 180);
+
   if(file_types) {
     file_types_string = g_strdup(file_types);
   }
@@ -239,13 +240,13 @@ display_file_selector(int the_mode,
   gdk_pixbuf_unref(pixmap);
 
   /* Entry area */
-  widget_entry = (GtkEntry *)gtk_entry_new_with_max_length (50);
+  widget_entry = (GtkEntry *)gtk_entry_new_with_max_length (30);
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				gnome_canvas_widget_get_type (),
 				"widget", GTK_WIDGET(widget_entry),
-				"x", (double) CONTROL_AREA_X1 + 10,
-				"y", (double) y_start + 30,
-				"width", 250.0,
+				"x", (double) control_area_x1,
+				"y", (double) control_area_y1,
+				"width", 230.0,
 				"height", 30.0,
 				"anchor", GTK_ANCHOR_NW,
 				"size_pixels", FALSE,
@@ -296,8 +297,8 @@ display_file_selector(int the_mode,
     gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 			   gnome_canvas_widget_get_type (),
 			   "widget", GTK_WIDGET(gtk_combo_filetypes),
-			   "x", (double) CONTROL_AREA_X1 + 450,
-			   "y", (double) y_start + 30,
+			   "x", (double) control_area_x1 + 400,
+			   "y", (double) control_area_y1,
 			   "width", 250.0,
 			   "height", 35.0,
 			   "anchor", GTK_ANCHOR_NW,
@@ -508,9 +509,9 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
   item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(file_root_item),
 				gnome_canvas_text_get_type (),
 				"text", rootdir,
-				"x", (double)CONTROL_AREA_X1 + 10,
-				"y", (double)CONTROL_AREA_Y1 + 50,
-				"fill_color_rgba", 0x0000FFFF,
+				"x", (double)control_area_x1,
+				"y", (double)directory_label_y,
+				"fill_color_rgba", gcompris_skin_get_color("gcompris/fileselectcol"),
 				"anchor", GTK_ANCHOR_NW,
 				NULL);
 
@@ -611,7 +612,7 @@ static void display_files(GnomeCanvasItem *root_item, gchar *rootdir)
 				  "x", (double)ix + (IMAGE_WIDTH + IMAGE_GAP)/2,
 				  "y", (double)iy + IMAGE_HEIGHT - 5,
 				  "anchor", GTK_ANCHOR_CENTER,
-				  "fill_color_rgba", 0x0000FFFF,
+				  "fill_color_rgba", gcompris_skin_get_color("gcompris/fileselectcol"),
 				  NULL);
 
     if(g_file_test(allfilename, G_FILE_TEST_IS_DIR)) {

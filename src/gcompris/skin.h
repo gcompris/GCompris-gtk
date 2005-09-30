@@ -54,7 +54,8 @@ void            gcompris_skin_free (void);
 guint32         gcompris_skin_get_color_default(gchar* id, guint32 def);
 gchar*          gcompris_skin_get_font_default(gchar* id, gchar* def);
 
-#define gcompris_skin_get_color(id) gcompris_skin_get_color_default(id, 0x0D0DFA00)
-#define gcompris_skin_get_font(id) gcompris_skin_get_font_default(id, "Sans 12")
+#define gcompris_skin_get_color(id)  gcompris_skin_get_color_default(id, 0x0D0DFA00)
+#define gcompris_skin_get_font(id)   gcompris_skin_get_font_default(id, "Sans 12")
+#define gcompris_skin_get_number(id) gcompris_skin_get_number_default(id, 0)
 
 #endif

@@ -261,8 +261,6 @@ static void canal_lock_destroy_all_items()
 /* ==================================== */
 static GnomeCanvasItem *canal_lock_create_item(GnomeCanvasGroup *parent)
 {
-  int i,j;
-  GnomeCanvasItem *item = NULL;
   GdkPixbuf *pixmap = NULL;
 
   boardRootItem = GNOME_CANVAS_GROUP(
@@ -461,9 +459,6 @@ static void game_won()
 /* Move the boat to the next possible position */
 static void move_boat()
 {
-  gboolean status = TRUE;
-  double y1 = 0;
-  gint min = LEFT_CANAL_HEIGHT;
 
   /* If there is already an animation do nothing else set animation to avoid deadlock */
   if(animation)
@@ -556,8 +551,8 @@ static void toggle_lock(GnomeCanvasItem *item)
 {
   gboolean status = TRUE;
   double y1 = 0;
-  gint min;
-  guint animate_speed;
+  gint min = 0;
+  guint animate_speed = 0;
 
   /* If there is already an animation do nothing else set animation to avoid deadlock */
   if(animation)
@@ -671,7 +666,7 @@ static gboolean animate_step()
 /* Highlight the given item */
 static void hightlight(GnomeCanvasItem *item, gboolean status)
 {
-  guint color;
+  guint color = 0;
   
   /* This is an image, not a rectangle */
   if(item == tuxboat_item)
@@ -719,7 +714,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, gpointer data)
 
       /* If there is already an animation do nothing */
       if(animation)
-	return;
+	return FALSE;
 	   
       if(item == lock_left_item)
 	{

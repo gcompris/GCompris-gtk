@@ -17,6 +17,9 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include "string.h"
+#include <unistd.h>		/* sleep */
+
 #ifdef __APPLE__
 #   include <sys/types.h>
 #endif
@@ -186,7 +189,7 @@ static gpointer scheduler_bgnd (gpointer user_data)
     {
       /* Music can be disabled at any time */
       if ( !gcompris_get_properties()->music )
-	return;
+	return NULL;
 
       for(i=0; i<g_list_length(musiclist); i++)
 	{
@@ -240,7 +243,6 @@ static gpointer scheduler (gpointer user_data)
  ======================================================================*/
 static void* thread_play_ogg (char *file)
 {
-  GcomprisBoard *gcomprisBoard = get_current_gcompris_board();
   gchar *tmpstr;
 
   if (!g_file_test (file, G_FILE_TEST_EXISTS)) {

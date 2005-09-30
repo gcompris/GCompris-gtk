@@ -44,6 +44,15 @@ void	 gcompris_close_sound(void);
 int	 decode_ogg_file(char *infile);
 void	 display_ao_devices();
 
+/*
+ * SDL PLAYER
+ */
+int	 sdlplayer_init();
+int	 sdlplayer_bg();
+void	 sdlplayer_close();
+void	 sdlplayer_reopen();
+int	 sdlplayer(char *filename, int volume);
+
 gchar *gcompris_alphabet_sound(gchar *chars);
 
 #endif

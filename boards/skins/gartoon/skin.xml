@@ -3,16 +3,18 @@
 <GCompris>
   <Skin>
     <!-- Defines the gcompris colors -->
-    <color id="gcompris/title"         rgba="0Xc20200FF"/>
-    <color id="gcompris/text button"   rgba="0Xc20200FF"/>
-    <color id="gcompris/content"       rgba="0Xfb891bFF"/>
-    <color id="gcompris/subtitle"      rgba="0Xf4bb00FF"/>
-    <color id="gcompris/shadow"        rgba="0XFFFFFFFF"/>
-    <color id="gcompris/fileselectbg"  rgba="0X1ECECEFF"/>
-    <color id="gcompris/imageselectbg" rgba="0X1ECECEFF"/>
-    <color id="gcompris/boardselectbg"  rgba="0X1ECECEFF"/>
-   
-    
+    <color  id="gcompris/title"          rgba="0Xc20200FF"/>
+    <color  id="gcompris/text button"    rgba="0Xc20200FF"/>
+    <color  id="gcompris/content"        rgba="0Xfb891bFF"/>
+    <color  id="gcompris/subtitle"       rgba="0Xf4bb00FF"/>
+    <color  id="gcompris/shadow"         rgba="0XFFFFFFFF"/>
+    <color  id="gcompris/imageselectbg"  rgba="0X6280d9FF"/>
+
+    <color  id="gcompris/fileselectbg"   rgba="0X018404FF"/>
+    <color  id="gcompris/fileselectcol"  rgba="0X000000FF"/>
+    <number id="gcompris/fileselectx"    value="85"/>
+    <number id="gcompris/fileselecty"    value="80"/>
+    <number id="gcompris/fileselectdiry" value="180"/>
 
     <!-- Defines the main gcompris fonts -->
     <font id="gcompris/title"    name="sans 20"/>
@@ -32,6 +34,9 @@
     <font id="gcompris/board/huge"       name="sans 28"/>
     <font id="gcompris/board/huge bold"  name="sans 29"/>
     
+    <color id="menu/text"             rgba="0x597ad7FF"/>
+    <color id="menu/text_shadow"      rgba="0x000000FF"/>
+
     <!-- Here you may define some other properties that will -->
     <!-- affect a particular game. -->
     <!-- For example, in futur, the colors of the canal lock game will be -->
@@ -58,7 +63,7 @@
 
     <color id="maze/wall color"       rgba="0x1a1109ff"/>
     
-    <color id="menu/text"             rgba="0x597ad7FF"/>
+    <color id="clockgame/text"        rgba="0Xc20200FF"/>
     
   </Skin>
 </GCompris>

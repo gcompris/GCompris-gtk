@@ -1,3 +1,29 @@
+2005-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Cleanup of clockgame.c, make a good usage of it's 2 background images.
+	Adapter skins to support 2 different file selector
+	Added a function in skin API to accept number in skins:
+	    <number id="gcompris/fileselectdiry" value="80"/>
+	Updated our 2 skin.xml
+	removed many warnings.
+
+	* boards/skins/babytoy/skin.xml:
+	* boards/skins/gartoon/skin.xml:
+	* src/boards/canal_lock.c: (canal_lock_create_item), (move_boat),
+	(toggle_lock), (hightlight), (item_event):
+	* src/boards/clockgame.c: (end_board), (clockgame_next_level),
+	(destroy_all_items), (display_hour), (display_minute),
+	(display_second), (clockgame_create_item), (time_equal):
+	* src/gcompris/file_selector.c: (display_file_selector),
+	(display_files):
+	* src/gcompris/images_selector.c:
+	* src/gcompris/skin.c: (gcompris_skin_xml_load),
+	(gcompris_skin_load), (gcompris_skin_get_font_default),
+	(gcompris_skin_get_number_default):
+	* src/gcompris/skin.h:
+	* src/gcompris/soundutil.c: (scheduler_bgnd), (thread_play_ogg):
+	* src/gcompris/soundutil.h:
+
 2005-09-29  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Fixed formatting of boards/wordsgame/default-*

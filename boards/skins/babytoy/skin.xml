@@ -3,13 +3,19 @@
 <GCompris>
   <Skin>
     <!-- Defines the gcompris colors -->
-    <color id="gcompris/title"         rgba="0x0F0FC0FF"/>
-    <color id="gcompris/text button"   rgba="0xFFFFFFFF"/>
-    <color id="gcompris/content"       rgba="0x0D0DFAFF"/>
-    <color id="gcompris/subtitle"      rgba="0xB00400FF"/>
-    <color id="gcompris/shadow"        rgba="0X000000FF"/>
-    <color id="gcompris/fileselectbg"  rgba="0xf6f9b1FF"/>
-    <color id="gcompris/imageselectbg" rgba="0x6280d9FF"/>
+    <color  id="gcompris/title"          rgba="0x0F0FC0FF"/>
+    <color  id="gcompris/text button"    rgba="0xFFFFFFFF"/>
+    <color  id="gcompris/content"        rgba="0x0D0DFAFF"/>
+    <color  id="gcompris/subtitle"       rgba="0xB00400FF"/>
+    <color  id="gcompris/shadow"         rgba="0X000000FF"/>
+
+    <!-- Defines the entry coordinate in your file_selector_bg.png -->
+    <color  id="gcompris/fileselectbg"   rgba="0xf6f9b1FF"/>
+    <color  id="gcompris/fileselectcol"  rgba="0X3558f0FF"/>
+    <number id="gcompris/fileselectx"    value="55"/>
+    <number id="gcompris/fileselecty"    value="30"/>
+    <number id="gcompris/fileselectdiry" value="80"/>
+
 
     <!-- Defines the main gcompris fonts -->
     <font id="gcompris/title"    name="Sans 20"/>
@@ -29,6 +35,9 @@
     <font id="gcompris/board/huge"       name="Sans 28"/>
     <font id="gcompris/board/huge bold"  name="Sans bold 28"/>
     
+    <color id="menu/text"             rgba="0xFFFFFFFF"/>
+    <color id="menu/text_shadow"      rgba="0x000000FF"/>
+
     <!-- Here you may define some other properties that will -->
     <!-- affect a particular game. -->
     <!-- For example, in futur, the colors of the canal lock game will be -->
@@ -50,8 +59,7 @@
     <color id="erase/rectangle in3"   rgba="0xf49a9a66"/>
     <color id="erase/rectangle out3"  rgba="0XFFFFFFFF"/>
     <color id="maze/wall color"       rgba="0x0000FFFF"/>
-    <color id="menu/text"             rgba="0xFFFFFFFF"/>
-    <color id="menu/text_shadow"      rgba="0x000000FF"/>
+    <color id="clockgame/text"        rgba="0xFFFFFFFF"/>
   </Skin>
 </GCompris>
 

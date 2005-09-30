@@ -23,8 +23,9 @@
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 
-GHashTable* gcompris_skin_fonts = NULL;
-GHashTable* gcompris_skin_colors = NULL;
+GHashTable* gcompris_skin_fonts   = NULL;
+GHashTable* gcompris_skin_colors  = NULL;
+GHashTable* gcompris_skin_numbers = NULL;
 
 guint32 gcompris_skin_color_title;
 guint32 gcompris_skin_color_text_button;
@@ -317,6 +318,17 @@ void gcompris_skin_xml_load (gchar* skin)
 	} else {
 	  if(key!=NULL) g_free(key);
 	  if(data!=NULL) g_free(data);
+	}
+      }
+      else if(g_strcasecmp(node->name,"number")==0){
+	key = xmlGetProp(node, "id");
+	data = xmlGetProp(node, "value");
+	if((key!=NULL)&&(data!=NULL)){
+	  int number = atoi(data);
+	  g_hash_table_insert(gcompris_skin_numbers, key, GUINT_TO_POINTER(number));
+	} else {
+	  if(key!=NULL) g_free(key);
+	  if(data!=NULL) g_free(data);
 	}	
       }
       node = node->next;
@@ -341,6 +353,9 @@ void gcompris_skin_load (gchar* skin)
 					      gcompris_skin_free_string,
 					      gcompris_skin_free_string);
   gcompris_skin_colors = g_hash_table_new_full(g_str_hash, g_str_equal,
+					      gcompris_skin_free_string,
+					      NULL);
+  gcompris_skin_numbers = g_hash_table_new_full(g_str_hash, g_str_equal,
 					      gcompris_skin_free_string,
 					      NULL);
   gcompris_skin_xml_load(DEFAULT_SKIN);
@@ -383,5 +398,17 @@ gchar* gcompris_skin_get_font_default(gchar* id, gchar* def)
   result = g_hash_table_lookup(gcompris_skin_fonts, (gpointer)id);
   if(result!=NULL)
     return (gchar*)result;
+  return def;
+}
+
+/*
+ * Get the skin 'number' associated to the id
+ */
+guint32 gcompris_skin_get_number_default(gchar* id, guint32 def)
+{
+  gpointer result;
+  result = g_hash_table_lookup(gcompris_skin_numbers, (gpointer)id);
+  if(result!=NULL)
+    return GPOINTER_TO_UINT(result);
   return def;
 }
