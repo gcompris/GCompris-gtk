@@ -1,6 +1,6 @@
 /* gcompris - board_config.c
  *
- * Time-stamp: <2005/09/18 00:01:46 yves>
+ * Time-stamp: <2005/10/01 14:34:12 bruno>
  *
  * Copyright (C) 2001 Pascal Georges
  *
@@ -18,6 +18,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
+
+#include <string.h>
 
 #include "gcompris.h"
 #include "assetml.h"
@@ -688,7 +690,6 @@ GList *gcompris_get_locales_asset_list(gchar *dataset, gchar* categories,
 
   GList *gl_result;
   AssetML *assetml;
-  gchar* resultfile = NULL;
 
   locales = gcompris_get_locales_list();
 
@@ -800,6 +801,8 @@ void *gcompris_textview_destroy (GtkButton *button,
 				gpointer user_data){
   g_free(((user_param_type *)user_data)->key);
   g_free(user_data);
+
+  return NULL;
 }
 
 
@@ -808,6 +811,8 @@ void *gcompris_textbuffer_changed (GtkTextBuffer *buffer,
 
   gtk_widget_set_sensitive        (GTK_WIDGET(user_data),
 				   TRUE);
+
+  return NULL;
 }
 
 void *gcompris_textview_yes (GtkButton *button,
@@ -850,6 +855,8 @@ void *gcompris_textview_yes (GtkButton *button,
     g_free (in_memoriam_key);
   }
   g_free(text);
+
+  return NULL;
 }
 
 GtkTextView *gcompris_textview(const gchar *label, 

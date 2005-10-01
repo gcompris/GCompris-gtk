@@ -279,7 +279,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 			 "x", (double) BOARDWIDTH/2 +1,
 			 "y", (double) BOARDHEIGHT - 50 +1,
 			 "anchor", GTK_ANCHOR_NORTH,
-			 "fill_color", "black",
+			 "fill_color_rgba", gcompris_skin_color_shadow,
 			 "justification", GTK_JUSTIFY_CENTER,
 			 NULL);
 

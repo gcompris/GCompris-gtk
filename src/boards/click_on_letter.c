@@ -547,6 +547,8 @@ static GHFunc save_table (gpointer key,
 			    board_conf,
 			    (gchar *) key, 
 			    (gchar *) value);
+
+  return NULL;
 }
 
 static GcomprisConfCallback conf_ok(GHashTable *table)

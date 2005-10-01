@@ -1,6 +1,6 @@
 /* gcompris - images_selector.c
  *
- * Time-stamp: <2005/09/29 23:09:06 bruno>
+ * Time-stamp: <2005/10/01 14:49:05 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -500,11 +500,11 @@ item_event_imageset_selector(GnomeCanvasItem *item, GdkEvent *event, gpointer da
 
 	  /* We must display the list of images for this set */
 	  image_list = (GList *)g_object_get_data (G_OBJECT (item), "imagelist");
-	  g_return_if_fail (image_list != NULL);
+	  g_return_val_if_fail (image_list != NULL, FALSE);
 
 	  /* We must display the list of images for this set */
 	  rootitem_set = (GnomeCanvasItem *)g_object_get_data (G_OBJECT (item), "rootitem");
-	  g_return_if_fail (rootitem_set != NULL);
+	  g_return_val_if_fail (rootitem_set != NULL, FALSE);
 
 	  imageset_done = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "imageset_done"));
 
@@ -585,7 +585,7 @@ item_event_scroll(GnomeCanvasItem *item, GdkEvent *event, GnomeCanvas *canvas)
 {
   int x, y;
   if(!rootitem)
-    return;
+    return FALSE;
 
   switch (event->type) 
     {
@@ -615,10 +615,10 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
   gchar	*pathname = NULL;
   gchar *absolutepath;
   GList	*imageList = NULL;	/* List of Images */
-  gboolean havePathName = FALSE, lsdir = FALSE;
+  gboolean havePathName = FALSE;
   gchar *type = NULL;
   GDir *imageset_directory;
-  GError **error;
+  GError **error = NULL;
 
   /* get the filename of this ImageSet */
   imageSetName = xmlGetProp(cur,"filename");
@@ -802,7 +802,7 @@ read_dataset_directory(gchar *dataset_dir)
 {
 
 
-  GError **error;
+  GError **error = NULL;
   GDir *dataset_directory = g_dir_open (dataset_dir, 0, error);
   gchar *fname, *absolute_fname;
 

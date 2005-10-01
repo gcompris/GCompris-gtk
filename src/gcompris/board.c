@@ -17,7 +17,11 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+
+#include <string.h>
+
 #include "gcompris.h"
+
 
 static struct BoardPluginData *bp_data;
 
@@ -87,7 +91,6 @@ static gchar *plugin_paths[] = {
 void init_plugins(void)
 {
   guint i=0;
-  BoardPlugin **boards_list = NULL;
 
   bp_data = g_malloc0(sizeof (struct BoardPluginData));
 

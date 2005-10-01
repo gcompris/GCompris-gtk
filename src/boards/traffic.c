@@ -20,6 +20,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include <string.h>
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
@@ -85,11 +86,8 @@ gboolean	 load_level(guint level, guint card);
 
 static jam	 current_card  ={0,0,0,NULL};
 
-static void	 draw_border(GnomeCanvasGroup *rootBorder);
 static void	 draw_grid  (GnomeCanvasGroup *rootBorder);
 static gint	 cars_from_strv(char *strv);
-static void	 load_error(void);
-static void	 load_not_found(void);
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -171,8 +169,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
       }
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
-			      "traffic/traffic-bg.jpg");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "traffic/traffic.png");
 
       traffic_next_level();
 
@@ -268,7 +265,6 @@ static void traffic_destroy_all_items()
 /* ==================================== */
 static GnomeCanvasItem *traffic_create_item(GnomeCanvasGroup *parent)
 {
-  int i,j;
   GnomeCanvasGroup *borderItem = NULL;
 
   boardRootItem = GNOME_CANVAS_GROUP(
@@ -283,7 +279,6 @@ static GnomeCanvasItem *traffic_create_item(GnomeCanvasGroup *parent)
 							 "x", (double) OFSET_X,
 							 "y", (double) OFSET_Y,
 							 NULL));
-  //  draw_border(borderItem);
   draw_grid(borderItem);
 
   allcars= GNOME_CANVAS_GROUP(
@@ -380,38 +375,6 @@ void draw_car(car *thiscar)
   gtk_object_set_data(GTK_OBJECT(car_group),"car",(gpointer)thiscar);
   gtk_object_set_data(GTK_OBJECT(car_group),"whatami",(gpointer)"car_group");
   gtk_object_set_data(GTK_OBJECT(car_rect),"whatami",(gpointer)"car_rect");
-}
-
-static void draw_border(GnomeCanvasGroup *rootBorder)
-{
-  GnomeCanvasItem *border;
-  GnomeCanvasPoints *points;
-  double mypoints[]={
-    0,0,
-    261,0,
-    261,90,
-    251,90,
-    251,9,
-    9,9,
-    9,251,
-    251,251,
-    251,130,
-    261,130,
-    261,261,
-    0,261,
-    0,0
-  };
-
-  points=gnome_canvas_points_new(13);
-  memcpy(points->coords,mypoints,sizeof(mypoints));
-
-  border=gnome_canvas_item_new(rootBorder,
-			       gnome_canvas_polygon_get_type(),
-			       "points", points,
-			       "fill_color", "black",
-			       "outline_color", NULL,
-			       "width_units", 0.0,
-			       NULL);
 }
 
 void draw_jam(jam *myjam)
@@ -645,7 +608,6 @@ gint cars_from_strv(char *strv)
 {
   car *ccar;
   char x,y,id;
-  int col, row;
   int number_of_cars = 0;
   gboolean more_car = TRUE;
 
@@ -720,15 +682,5 @@ gint cars_from_strv(char *strv)
     
   }
   return number_of_cars;
-}
-
-void load_error(void)
-{
-  board_finished(BOARD_FINISHED_RANDOM);
-}
-
-void load_not_found(void)
-{
-  board_finished(BOARD_FINISHED_RANDOM);
 }
 

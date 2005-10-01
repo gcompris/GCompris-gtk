@@ -71,10 +71,6 @@ static int number_of_item_y = 0;
 static int item_width;
 static int item_height;
 
-/* Keep here the limit of the column */
-static gint limit_column_x1[MAX_NUMBER_X];
-static gint limit_column_x2[MAX_NUMBER_X];
-
 static guint colorlist [] = 
   {
     0x00FFFFFF,
@@ -276,6 +272,7 @@ static void hanoi_destroy_all_items()
 
 }
 
+#if 0
 static void dump_solution()
 {
   guint i, j;
@@ -297,6 +294,7 @@ static void print_piece(PieceItem *piece)
 {
   g_warning("Piece: (%d,%d=%2d/%d)\n",  piece->i,  piece->j, piece->color, piece->on_top);
 }
+#endif
 
 /* ==================================== */
 static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
@@ -674,7 +672,7 @@ item_event(GnomeCanvasItem *item, GdkEvent *event, PieceItem *data)
     case GDK_BUTTON_RELEASE:
       if(dragging) 
 	{
-	  gint i,j;
+	  gint i;
 	  gint tmpi, tmpj;
 	  double tmpx, tmpy;
 	  PieceItem *piece_src;

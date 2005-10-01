@@ -1,6 +1,6 @@
 /* gcompris - properties.c
  *
- * Time-stamp: <2005/09/28 21:02:52 bruno>
+ * Time-stamp: <2005/10/01 14:03:36 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -40,6 +40,8 @@
 # define WIN32_LEAN_AND_MEAN
 # include <windows.h>
 #endif
+
+static gchar *config_file = NULL;
 
 /*
  * return 1 if parsing OK, 0 otherwise
@@ -110,14 +112,24 @@ gchar *get_gcompris_user_root_directory ()
     return g_strconcat(home_dir, "/.gcompris", NULL);
 }
 
+/** return the name of the configuration file used
+ *  the name has the full path and is platform dependant
+ *  must not be freed by the caller.
+ * 
+ */
 gchar *get_gcompris_conf_name()
 {
-  /* why not the same name ? */
+  if(config_file)
+    return(config_file);
+
+  /* Was never called, mus calculate it */
   if (g_get_home_dir()==NULL) {
-    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris.cfg", NULL);
+    config_file = g_strconcat(get_gcompris_user_root_directory(), "/gcompris.cfg", NULL);
   } else {
-    return g_strconcat(get_gcompris_user_root_directory(), "/gcompris.conf", NULL);
+    config_file = g_strconcat(get_gcompris_user_root_directory(), "/gcompris.conf", NULL);
   }
+
+   return(config_file);
 }
 
 /* get the default database name */
@@ -136,7 +148,7 @@ gchar *get_default_database_name (gchar *shared_dir)
 GcomprisProperties *gcompris_properties_new ()
 {
   GcomprisProperties *tmp;
-  char          *config_file;
+  char          *config_file = get_gcompris_conf_name();
   GScanner      *scanner;
   int		 filefd;
   gchar         *full_rootdir;
@@ -189,13 +201,9 @@ GcomprisProperties *gcompris_properties_new ()
   create_rootdir(full_rootdir);
   g_free(full_rootdir);
 
-  config_file = get_gcompris_conf_name();
-
   g_warning("config_file %s", config_file);
 
   filefd = open(config_file, O_RDONLY);
-
-  g_free(config_file);
 
   if(filefd > 0) {
 
@@ -316,10 +324,8 @@ void gcompris_properties_destroy (GcomprisProperties *props)
 
 void gcompris_properties_save (GcomprisProperties *props)
 {
-  char *config_file;
+  char *config_file = get_gcompris_conf_name();
   FILE *filefd;
-
-  config_file = g_strconcat(get_gcompris_user_root_directory(), "/gcompris.conf", NULL);
 
   filefd = fopen(config_file, "w+");
 
@@ -327,8 +333,6 @@ void gcompris_properties_save (GcomprisProperties *props)
       g_warning("cannot open '%s', configuration file not saved\n",(char *) config_file);
       return;
     }
-
-  g_free(config_file);
 
   fprintf(filefd, "%s=%d\n", "music",			props->music);
   fprintf(filefd, "%s=%d\n", "fx",			props->fx);

@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "chess_position.h"
+#include "chess_notation.h"
 
 
 struct _PositionPrivate {
@@ -216,7 +217,6 @@ position_set_initial (Position *pos)
 void
 position_set_initial_partyend (Position *pos, int level)
 {
-	unsigned int a;
 	register Square square;
 	register gshort rank;
 
@@ -283,7 +283,6 @@ position_set_initial_partyend (Position *pos, int level)
 void
 position_set_initial_movelearn (Position *pos, int level)
 {
-	unsigned int a;
 	register Square square;
 	register gshort rank;
 
@@ -384,7 +383,6 @@ void
 position_display (Position *pos)
 {
   register Square square;
-  register Piece piece;
   register gshort rank;
 
   for (rank = 8; rank >= 1; rank--) { 

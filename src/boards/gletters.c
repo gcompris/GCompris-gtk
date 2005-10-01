@@ -1,6 +1,6 @@
 /* gcompris - gletters.c
  *
- * Time-stamp: <2005/09/25 00:18:36 yves>
+ * Time-stamp: <2005/10/01 13:56:29 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -744,12 +744,6 @@ static GcomprisConfCallback conf_ok(GHashTable *table)
   
   board_conf = NULL;
   profile_conf = NULL;
-}
-
-static gboolean check_text(gchar *key, gchar *text, GtkLabel *label){
-  gtk_label_set_markup(label, text);
-
-  return TRUE;
 }
 
 static void

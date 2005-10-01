@@ -1,5 +1,34 @@
 2005-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	Removed some more warnings
+	Fixed config file searching (was broken on win98)
+	Improved traffic activity background and icon based on the
+	red car from Franck
+
+	* boards/boardicons/traffic.png:
+	* boards/traffic/traffic-bg.jpg:
+	* boards/traffic/traffic.png:
+	* src/boards/chess_position.c: (position_set_initial_partyend),
+	(position_set_initial_movelearn), (position_display):
+	* src/boards/click_on_letter.c: (save_table):
+	* src/boards/gletters.c: (conf_ok):
+	* src/boards/hanoi.c: (item_event):
+	* src/boards/hanoi_real.c: (hanoi_create_item):
+	* src/boards/money_widget.c:
+	* src/boards/traffic.c: (start_board), (traffic_create_item),
+	(cars_from_strv):
+	* src/gcompris/board.c: (init_plugins):
+	* src/gcompris/board_config.c: (gcompris_get_locales_asset_list),
+	(gcompris_textview_destroy), (gcompris_textbuffer_changed),
+	(gcompris_textview_yes):
+	* src/gcompris/images_selector.c: (item_event_imageset_selector),
+	(item_event_scroll), (parseImage), (read_dataset_directory):
+	* src/gcompris/main.c: (main):
+	* src/gcompris/properties.c: (get_gcompris_conf_name),
+	(gcompris_properties_new), (gcompris_properties_save):
+
+2005-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	Cleanup of clockgame.c, make a good usage of it's 2 background images.
 	Adapter skins to support 2 different file selector
 	Added a function in skin API to accept number in skins:

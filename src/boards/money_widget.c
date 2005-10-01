@@ -107,6 +107,7 @@ money_widget_get_type ()
 	return money_widget_type;
 }
 
+#if 0
 static void
 finalize (GtkObject *object)
 {
@@ -129,6 +130,7 @@ finalize (GtkObject *object)
   moneyWidget->priv = NULL;
 
 }
+#endif
 
 static void
 class_init (Money_WidgetClass *class)
