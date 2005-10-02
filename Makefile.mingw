@@ -4,7 +4,9 @@
 # Description: Top Makefile for win32 (mingw) port of GCompris
 #
 
-VERSION = "6.5.3"
+VERSION = "7.1PRE1"
+
+pkgdatadir = gcompris
 
 GCOMPRIS_SRC = ./src/gcompris
 GCOMPRIS_BOARDS = ./src/boards
@@ -95,5 +97,12 @@ installer:
 clean:
 	$(MAKE) -C $(GCOMPRIS_SRC) -f Makefile.mingw clean
 	$(MAKE) -C $(GCOMPRIS_BOARDS) -f Makefile.mingw clean
-	rm -rf config.h $(GCOMPRIS_INSTALL_DIR)
+	rm -rf config.h
 	rm -rf gcompris*.exe
+
+#
+# Run this on Linux to prepare datadir for windows
+#
+prep:
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
+	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics --exclude "*.assetml" * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;

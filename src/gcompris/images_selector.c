@@ -52,7 +52,6 @@ static gboolean		 images_selector_displayed = FALSE;
 
 static GnomeCanvasItem	*rootitem = NULL;
 static GnomeCanvasItem	*current_root_set = NULL;
-static GnomeCanvasItem	*item_content = NULL;
 
 static GnomeCanvas	*canvas_list_selector; /* The scrolled left part */
 static GnomeCanvasItem  *list_bg_item;
@@ -701,7 +700,7 @@ parseImage (xmlDocPtr doc, xmlNodePtr cur) {
     }
     imageset_directory = g_dir_open (pathname, 0, error);    
     const gchar * onefile;
-    while (onefile = g_dir_read_name(imageset_directory)){
+    while ((onefile = g_dir_read_name(imageset_directory))){
       if ((g_ascii_strcasecmp (type,"lsdir") != 0) && 
 	  (!g_str_has_suffix (onefile, type))){
 	continue;
@@ -806,7 +805,7 @@ read_dataset_directory(gchar *dataset_dir)
   GDir *dataset_directory = g_dir_open (dataset_dir, 0, error);
   gchar *fname, *absolute_fname;
 
-  while (fname = g_dir_read_name(dataset_directory)) {
+  while ((fname = g_dir_read_name(dataset_directory))) {
     /* skip files without ".xml" */
     if (!g_str_has_suffix (fname,".xml")){
       printf("skipping file not in .xml : %s\n", fname);

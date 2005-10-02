@@ -169,7 +169,8 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	gcompris_bar_set(GCOMPRIS_BAR_LEVEL|GCOMPRIS_BAR_REPEAT);
       }
 
-      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "traffic/traffic.png");
+      gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas),
+			      gcompris_image_to_skin("traffic-bg.jpg"));
 
       traffic_next_level();
 

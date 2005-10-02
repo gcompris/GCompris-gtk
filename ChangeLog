@@ -1,3 +1,41 @@
+2005-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	updated mingw makefiles.
+	Added a new background for traffic from Franck. Since I also did one
+	I added traffic background in skins, one from me in babytoy, the new one 
+	in gartoon.
+	Fixed gcompris_im.c not to crash if no profiles are found
+	Removed some warnings
+
+	* Makefile.mingw:
+	* boards/boardicons/money.png:
+	* boards/skins/babytoy/traffic-bg.jpg:
+	* boards/skins/gartoon/traffic-bg.jpg:
+	* boards/traffic/.cvsignore:
+	* boards/traffic/traffic.png:
+	* config.h.mingw:
+	* configure.in:
+	* gcompris-installer.nsi:
+	* po/Makefile.in.in:
+	* src/boards/traffic.c: (start_board):
+	* src/gcompris/gcompris_im.c: (gcompris_im_init),
+	(gcompris_im_reset):
+	* src/gcompris/gcompris_im.h:
+	* src/gcompris/images_selector.c: (parseImage),
+	(read_dataset_directory):
+
+2005-10-02  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* config.h.mingw:
+	* configure.in:
+	* src/gcompris/gcompris_im.c: (gcompris_im_init),
+	(gcompris_im_reset):
+	* src/gcompris/gcompris_im.h:
+	* src/gcompris/images_selector.c: (parseImage),
+	(read_dataset_directory):
+
 2005-10-01  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Removed some more warnings

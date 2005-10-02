@@ -1,6 +1,6 @@
 /* gcompris - gcompris_im.c
  *
- * Time-stamp: <2005/09/15 14:56:51 yves>
+ * Time-stamp: <2005/10/02 22:17:33 bruno>
  *
  * Copyright (C) 2000,2003 Bruno Coudoin
  *
@@ -33,27 +33,28 @@ static gint window_focus_callback (GtkWidget *widget,
 				   gpointer user_data);
 
 
-void *gcompris_im_init(GtkWidget *window)
+void gcompris_im_init(GtkWidget *window)
 {
   GcomprisProperties	*properties = gcompris_get_properties ();
 
 
   /* set IMContext */
   properties->context = gtk_im_multicontext_new ();
-  GtkWidget *submenu;
 
+  if(gcompris_get_current_profile())
+    {
+      GHashTable *init_im =  g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+      init_im = gcompris_get_conf_with_table (gcompris_get_current_profile()->profile_id, 
+					      -1, 
+					      init_im );
 
-  GHashTable *init_im =  g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
-  init_im = gcompris_get_conf_with_table (gcompris_get_current_profile()->profile_id, 
-					  -1, 
-					  init_im );
+      properties->default_context = g_hash_table_lookup ( init_im, "default_im");
 
-  properties->default_context = g_hash_table_lookup ( init_im, "default_im");
-
-  if (properties->default_context)
-    g_setenv ("GTK_IM_MODULE",
-	      properties->default_context,
-	      TRUE);
+      if (properties->default_context)
+	g_setenv ("GTK_IM_MODULE",
+		  properties->default_context,
+		  TRUE);
+    }
 
   gtk_im_context_set_client_window (properties->context,
                                     window->window);
@@ -72,7 +73,7 @@ void *gcompris_im_init(GtkWidget *window)
  
 }
 
-void *gcompris_im_reset()
+void gcompris_im_reset()
 {
   GcomprisProperties	*properties = gcompris_get_properties ();
   gtk_im_context_reset (properties->context);

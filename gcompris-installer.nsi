@@ -18,7 +18,7 @@ Var STARTUP_RUN_KEY
 ;The name var is set in .onInit
 Name $name
 
-!define GCOMPRIS_VERSION			"7.1.0"
+!define GCOMPRIS_VERSION			"7.1PRE1"
 
 OutFile "gcompris-${GCOMPRIS_VERSION}.exe"
 
