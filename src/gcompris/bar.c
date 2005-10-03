@@ -1,6 +1,6 @@
 /* gcompris - bar.c
  *
- * Time-stamp: <2005/09/28 20:59:17 bruno>
+ * Time-stamp: <2005/10/03 21:36:37 bruno>
  *
  * Copyright (C) 2000-2003 Bruno Coudoin
  *
@@ -23,6 +23,8 @@
  * The bar button common to each games
  *
  */
+
+#include <string.h>
 
 #include "gcompris.h"
 #include "gcompris_config.h"
@@ -88,8 +90,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				"pixbuf", pixmap, 
 				"x", (double) 0,
 				"y", (double) 0,
-				"width", (double)  gdk_pixbuf_get_width(pixmap),
-				"height", (double) gdk_pixbuf_get_height(pixmap),
 				NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -102,10 +102,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				     "x", (double) (width/NUMBER_OF_ITEMS) * 1 -
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     "width", (double)  gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     "width_set", TRUE, 
-				     "height_set", TRUE,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -127,10 +123,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				     "x", (double) (width/NUMBER_OF_ITEMS) * 9 - 
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     "width", (double)  gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     "width_set", TRUE, 
-				     "height_set", TRUE,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -152,10 +144,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				   "x", (double) (width/NUMBER_OF_ITEMS) * 7 -
 				   gdk_pixbuf_get_width(pixmap)/2,
 				   "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				   "width", (double)  gdk_pixbuf_get_width(pixmap),
-				   "height", (double) gdk_pixbuf_get_height(pixmap),
-				   "width_set", TRUE, 
-				   "height_set", TRUE,
 				   NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -177,10 +165,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				      "x", (double) (width/NUMBER_OF_ITEMS) * 5 -
 				      gdk_pixbuf_get_width(pixmap)/2,
 				      "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				      "width", (double)  gdk_pixbuf_get_width(pixmap),
-				      "height", (double) gdk_pixbuf_get_height(pixmap),
-				      "width_set", TRUE, 
-				      "height_set", TRUE,
 				      NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -202,10 +186,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				       "x", (double) (width/NUMBER_OF_ITEMS) * 6 -
 				       gdk_pixbuf_get_width(pixmap)/2,
 				       "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				       "width", (double)  gdk_pixbuf_get_width(pixmap),
-				       "height", (double) gdk_pixbuf_get_height(pixmap),
-				       "width_set", TRUE, 
-				       "height_set", TRUE,
 				       NULL);
   gdk_pixbuf_unref(pixmap);
   
@@ -226,10 +206,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				     "x", (double) (width/NUMBER_OF_ITEMS) * 4 -
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     "width", (double)  gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     "width_set", TRUE, 
-				     "height_set", TRUE,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -250,10 +226,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				     "x", (double) (width/NUMBER_OF_ITEMS) * 3 -
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     "width", (double)  gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     "width_set", TRUE, 
-				     "height_set", TRUE,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 
@@ -274,10 +246,6 @@ void gcompris_bar_start (GnomeCanvas *theCanvas)
 				     "x", (double) (width/NUMBER_OF_ITEMS) * 2 -
 				     gdk_pixbuf_get_width(pixmap)/2,
 				     "y", (double) (height-gdk_pixbuf_get_height(pixmap)*zoom)/2,
-				     "width", (double)  gdk_pixbuf_get_width(pixmap),
-				     "height", (double) gdk_pixbuf_get_height(pixmap),
-				     "width_set", TRUE, 
-				     "height_set", TRUE,
 				     NULL);
   gdk_pixbuf_unref(pixmap);
 

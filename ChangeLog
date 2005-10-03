@@ -1,5 +1,12 @@
 2005-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
+	fixed reload images in the bar that was thrinked.
+
+	* Makefile.mingw: added a prep target to prepare gcompris for nsis installer
+	* src/gcompris/bar.c: (gcompris_bar_start):
+
+2005-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
+
 	updated mingw makefiles.
 	Added a new background for traffic from Franck. Since I also did one
 	I added traffic background in skins, one from me in babytoy, the new one 

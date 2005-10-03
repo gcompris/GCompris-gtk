@@ -106,3 +106,8 @@ clean:
 prep:
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
 	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics --exclude "*.assetml" * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
+	echo "WARNING: MAKE SURE TO HAVE RUN A MAKE INSTALL OF GCOMPRIS IN /USR/LOCAL FIRST"
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/lib/locale
+	cp -r /usr/local/share/locale/* $(GCOMPRIS_INSTALL_DIR)/lib/locale/
+	echo "Remove other .mo file not from gcompris"
+	find ./win32-install-dir/lib/locale/ -name \*.mo | grep -v gcompris.mo | xargs rm -f
