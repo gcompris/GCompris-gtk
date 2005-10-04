@@ -5,7 +5,8 @@ doc = gcompris.html
 EXTRA_DIST = overview.jpg \
 	     overview.txt \
 	     topic.dat \
-	     overview.dia
+	     overview.dia \
+	     gcompris.texi
 
 gcompris_helpdir = $(datadir)/gnome/help/$(PACKAGE)/eu
 

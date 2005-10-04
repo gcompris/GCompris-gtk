@@ -379,6 +379,38 @@ Version: @VERSION_VOICES_MISC_SV@
 %description -n assetml-voices-misc-sv
 Miscelaneous voices in Swedish
 
+%package -n assetml-voices-alphabet-eu
+Summary:        Alphabet voices in Basque
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_ALPHABET_EU@
+
+%description -n assetml-voices-alphabet-eu
+Alphabet voices in Basque
+
+%package -n assetml-voices-colors-eu
+Summary:        Colors voices in Basque
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_COLORS_EU@
+
+%description -n assetml-voices-colors-eu
+Colors voices in Basque
+
+%package -n assetml-voices-geography-eu
+Summary:        Country name voices in Basque
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_GEOGRAPHY_EU@
+
+%description -n assetml-voices-geography-eu
+Country name voices in Basque
+
+%package -n assetml-voices-misc-eu
+Summary:        Miscelaneous voices in Basque
+Group: 		Amusements/Games
+Version: @VERSION_VOICES_MISC_EU@
+
+%description -n assetml-voices-misc-eu
+Miscelaneous voices in Basque
+
 
 %package -n assetml-flags
 Summary:        Contains png 60x40 country flags and an assetml description file
@@ -653,6 +685,27 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{prefix}/share/gcompris/boards/sounds/sv/misc
 %{prefix}/share/@ASSETML_DIR@/gcompris_misc_sv.assetml
+
+
+%files -n assetml-voices-alphabet-eu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/eu/alphabet
+%{prefix}/share/@ASSETML_DIR@/gcompris_alphabet_eu.assetml
+
+%files -n assetml-voices-colors-eu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/eu/colors
+%{prefix}/share/@ASSETML_DIR@/gcompris_colors_eu.assetml
+
+%files -n assetml-voices-geography-eu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/eu/geography
+%{prefix}/share/@ASSETML_DIR@/gcompris_geography_eu.assetml
+
+%files -n assetml-voices-misc-eu
+%defattr(-, root, root)
+%{prefix}/share/gcompris/boards/sounds/eu/misc
+%{prefix}/share/@ASSETML_DIR@/gcompris_misc_eu.assetml
 
 
 %files -n assetml-flags
