@@ -28,7 +28,7 @@ EXTRA_DIST = \
 	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in \
-	README.mingw config.h.windows
+	README.mingw config.h.mingw Makefile.mingw global_win32.mak gcompris.ico gcompris-installer.nsi
 
 distcore = $(PACKAGE)-core-$(VERSION)
 

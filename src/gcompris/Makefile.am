@@ -157,7 +157,9 @@ gcompris-marshal.c: gcompris-marshal.list $(GLIB_GENMARSHAL)
 EXTRA_DIST = \
 	gcompris-marshal.list	\
 	libgcompris-1.0.pc.in	\
-	libgcompris-1.0-uninstalled.pc.in
+	libgcompris-1.0-uninstalled.pc.in \
+	Makefile.mingw gcomprisrc.rc
+
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libgcompris-1.0.pc

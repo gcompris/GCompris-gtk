@@ -106,8 +106,17 @@ clean:
 prep:
 	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards
 	cd boards ; tar cf -  --exclude "Makefile.in" --exclude "*.in" --exclude "*~" --exclude "Makefile" --exclude "Makefile.am" --exclude CVS --exclude .xvpics --exclude "*.assetml" * | ( cd ../$(GCOMPRIS_INSTALL_DIR)/share/$(pkgdatadir)/boards ; tar xf -) ; cd .. ;
-	echo "WARNING: MAKE SURE TO HAVE RUN A MAKE INSTALL OF GCOMPRIS IN /USR/LOCAL FIRST"
-	mkdir -p $(GCOMPRIS_INSTALL_DIR)/lib/locale
-	cp -r /usr/local/share/locale/* $(GCOMPRIS_INSTALL_DIR)/lib/locale/
-	echo "Remove other .mo file not from gcompris"
-	find ./win32-install-dir/lib/locale/ -name \*.mo | grep -v gcompris.mo | xargs rm -f
+	@echo "-------------------------------------------------------------------------------"
+	@echo " WARNING: MAKE SURE TO HAVE RUN A MAKE INSTALL OF GCOMPRIS IN /USR/LOCAL FIRST"
+	@echo "-------------------------------------------------------------------------------"
+	mkdir -p $(GCOMPRIS_INSTALL_DIR)/share/locale
+	cp -r /usr/local/share/locale/* $(GCOMPRIS_INSTALL_DIR)/share/locale/
+	@echo "Remove other .mo file not from gcompris"
+	find ./win32-install-dir/share/locale/ -name \*.mo | grep -v gcompris.mo | xargs rm -f
+	@echo "Grab installed assetml files"
+	cp -r /usr/local/share/assetml $(GCOMPRIS_INSTALL_DIR)/share/
+	@echo "Copy pixmap"
+	mkdir $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
+	cp gcompris.png $(GCOMPRIS_INSTALL_DIR)/share/pixmaps
+	@echo "Create the file gcompris-win-prepack.tar.gz
+	tar -czf gcompris-win-prepack.tar.gz win32-install-dir nsis

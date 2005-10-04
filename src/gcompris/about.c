@@ -1,6 +1,6 @@
 /* gcompris - about.c
  *
- * Time-stamp: <2005/09/28 22:42:59 bruno>
+ * Time-stamp: <2005/10/05 00:57:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -306,7 +306,7 @@ void gcompris_about_start ()
 			     "fill_color", "black",
 			     NULL);
 
-      pixmap = gcompris_load_pixmap(sponsor_image);
+      pixmap = gcompris_load_pixmap("sponsor.png");
       item = gnome_canvas_item_new (GNOME_CANVAS_GROUP(rootitem),
 				    gnome_canvas_pixbuf_get_type (),
 				    "pixbuf", pixmap, 
