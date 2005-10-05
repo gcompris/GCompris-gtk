@@ -30,11 +30,17 @@ import gtk.gdk
 import random
 import math
 
-backgrounds = [ 'images/scenery6_background.png',
-                'images/scenery5_background.png',
-                'images/scenery6_background.png',
-                'images/scenery5_background.png'
+backgrounds = [ 'images/school_bg1.jpg',
+                'images/school_bg2.jpg',
+                'images/school_bg3.jpg',
+                'images/school_bg4.jpg'
                 ]
+
+profs = [ 'images/tux.png',
+          'images/tux_teen.png',
+          'images/tux_graduate.png',
+          'images/tux_albert.png'
+          ]
 
 class Gcompris_bargame:
   """The Bar Game"""
@@ -73,7 +79,7 @@ class Gcompris_bargame:
     self.ANSWER_WIDTH =  self.pixmap_answer.get_width()
     self.ANSWER_HEIGHT = self.pixmap_answer.get_height()
 
-    self.pixmap_prof = gcompris.utils.load_pixmap("images/tux-teacher.png")
+    self.pixmap_prof = gcompris.utils.load_pixmap(profs[self.gcomprisBoard.level - 1])
 
     #
     pixmap = gcompris.utils.load_pixmap(gcompris.skin.image_to_skin("button_reload.png"))
@@ -97,6 +103,7 @@ class Gcompris_bargame:
     self.gcomprisBoard.sublevel = 1
     gcompris.bar_set_level(self.gcomprisBoard)
     self.pixmap_background = gcompris.utils.load_pixmap(backgrounds[self.gcomprisBoard.level - 1])
+    self.pixmap_prof       = gcompris.utils.load_pixmap(profs[self.gcomprisBoard.level - 1])
     self.newGame()
     pass
         
