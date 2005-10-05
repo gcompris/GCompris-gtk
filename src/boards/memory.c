@@ -1,6 +1,6 @@
 /* gcompris - memory.c
  *
- * Time-stamp: <2005/09/16 14:01:03 yves>
+ * Time-stamp: <2005/10/05 21:22:52 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  * 
@@ -91,7 +91,7 @@ static void end_board (void);
 static gboolean is_our_board (GcomprisBoard *gcomprisBoard);
 static void set_level (guint level);
 
-static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent);
+static void create_item(GnomeCanvasGroup *parent);
 static void memory_destroy_all_items(void);
 static void memory_next_level(void);
 static gint item_event(GnomeCanvasItem *item, GdkEvent *event, MemoryItem *memoryItem);
@@ -428,8 +428,10 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       if(!gcomprisBoard->mode)
 	currentMode=MODE_NORMAL;
       else {
-	if(g_strcasecmp(gcomprisBoard->mode, "tux")==0)
+	if(g_strcasecmp(gcomprisBoard->mode, "tux")==0){
 	  currentMode=MODE_TUX;
+	  g_warning("Mode set to tux");
+	}
 	else
 	  currentMode=MODE_NORMAL;
       }
@@ -525,7 +527,7 @@ static void update_scores()
 static void memory_next_level() 
 {
   gcompris_bar_set_level(gcomprisBoard);
-
+  
   memory_destroy_all_items();
 
   boardRootItem = GNOME_CANVAS_GROUP(
@@ -546,6 +548,7 @@ static void memory_next_level()
 
   if (currentMode == MODE_TUX){
 	tux_memory_size = tux_memory_sizes[gcomprisBoard->level];
+	g_warning("tux_memory_size %d", tux_memory_size );
   }
   tux_pairs = 0;
   player_pairs = 0;
@@ -692,7 +695,7 @@ static void get_image(MemoryItem *memoryItem, guint x, guint y)
   memoryArray[rx][ry] = memoryItem;
 }
 
-static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
+static void create_item(GnomeCanvasGroup *parent)
 {
   MemoryItem *memoryItem;
   gint x, y;
@@ -721,10 +724,8 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 				 "y", (double) 20,
 				 NULL);
     
-
     tux_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 				       gnome_canvas_text_get_type (),
-				       "text", tux_score, 
 				       "font", gcompris_skin_font_board_huge_bold,
 				       "x", (double) 100,
 				       "y", (double) 200,
@@ -734,16 +735,12 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 
     player_score = gnome_canvas_item_new (GNOME_CANVAS_GROUP(parent),
 					  gnome_canvas_text_get_type (),
-					  "text", player_score, 
 					  "font", gcompris_skin_font_board_huge_bold,
 					  "x", (double) 100,
 					  "y", (double) BASE_Y2 - 20,
 					  "anchor", GTK_ANCHOR_CENTER,
 					  "fill_color_rgba", 0xFF0F0FFF,
 					  NULL);
-    
-    
-
   }
 
   for(x=0; x<numberOfColumn; x++)
@@ -842,7 +839,7 @@ static GnomeCanvasItem *create_item(GnomeCanvasGroup *parent)
 	}
     }
 
-  return (NULL);
+  //return (NULL);
 }
 
 static void player_win()

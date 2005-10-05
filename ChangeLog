@@ -1,3 +1,10 @@
+2005-10-05  Yves Combe  <yves@ycombe.net>
+
+	reviewed by: fix stupid bug, causing crash in memory_tux in edubuntu.
+
+	* src/boards/memory.c: (start_board), (memory_next_level),
+	(create_item):
+
 2005-10-03  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	fixed reload images in the bar that was thrinked.
