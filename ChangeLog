@@ -1,7 +1,16 @@
-2005-10-05  Bruno coudoin  <bruno.coudoin@free.fr>
+2005-10-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	reviewed by: <delete if not using a buddy>
 
+	* docs/spip_menuboard.xsl:
+	* src/boards/hanoi_real.c: (hanoi_create_item):
+
+2005-10-05  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	New image set for the bar game from Franck.
+	Now we have a different image set by level that show up
+	the difficulty increase.
+	
 	* .cvsignore:
 	* boards/images/README:
 	* boards/images/school_bg1.jpg:
@@ -16,7 +25,7 @@
 
 2005-10-05  Yves Combe  <yves@ycombe.net>
 
-	reviewed by: fix stupid bug, causing crash in memory_tux in edubuntu.
+	Fix stupid bug, causing crash in memory_tux in edubuntu.
 
 	* src/boards/memory.c: (start_board), (memory_next_level),
 	(create_item):

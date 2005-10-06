@@ -35,6 +35,7 @@
             <id_trad><xsl:value-of select="$traduction_id"/></id_trad>
             <nom_site>__REMOVEME__</nom_site>
             <url_site>__REMOVEME__</url_site>
+            <url_propre><xsl:value-of select="$language"/><xsl:value-of select="$section"/>/<xsl:value-of select="$name"/></url_propre>
             <extra>__REMOVEME__</extra>
             <idx>1</idx>
             <id_version>0</id_version>

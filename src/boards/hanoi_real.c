@@ -351,8 +351,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 	}
 
       /* The disc support */
-      filename = g_strdup_printf("%s/%s.png", PACKAGE_DATA_DIR, "images/disc_support");
-      pixmap = gcompris_load_pixmap (filename);
+      pixmap = gcompris_load_pixmap ("images/disc_support.png");
       
       item = gnome_canvas_item_new (boardRootItem,
 				    gnome_canvas_pixbuf_get_type (),
@@ -362,7 +361,6 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 				    "anchor", GTK_ANCHOR_CENTER,
 				    NULL);
 
-      g_free(filename);
       gdk_pixbuf_unref(pixmap);
 
 
@@ -374,7 +372,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
 	  if(position[i][j]->width != -1)
 	    {
-	      filename = g_strdup_printf("%s/%s%d.png", PACKAGE_DATA_DIR, "images/disc", j+1);
+	      filename = g_strdup_printf("%s%d.png", "images/disc", j+1);
 	      pixmap = gcompris_load_pixmap (filename);
 
 	      item = gnome_canvas_item_new (boardRootItem,
