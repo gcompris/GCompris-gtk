@@ -4,12 +4,11 @@
 # Rami Aubourg-Kaires <rami at kaires.org>, 2003-2004
 # Ilkka Tuohela <hile@iki.fi>, 2005.
 #
-#: ../src/boards/hanoi_real.c:107
 msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-10 17:27+0300\n"
+"POT-Creation-Date: 2005-10-08 14:32+0300\n"
 "PO-Revision-Date: 2005-09-10 17:35+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -27,7 +26,7 @@ msgid ""
 "add a profile, then in the 'Board' section select the profile in the "
 "combobox, then select the boards you want to be active. You can add lot of "
 "profiles, with different lists of boards, and different languages. You set "
-"the default profile in the 'Profile' section, by chhosing the profile you "
+"the default profile in the 'Profile' section, by choosing the profile you "
 "want, then clicking on the 'Default' button. You can also choose a profile "
 "from the command line. - You can add users, classes and for each class, you "
 "can create groups of users. Note that you can import users from a comma-"
@@ -418,10 +417,10 @@ msgstr "Siirry laskutehtäviin"
 #: ../boards/erase_double_clic.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) Ralf has given gcompris the authorization to include "
-"his pictures. Thanks a lot Ralf."
+"&lt;http://schmode.net/&gt; Ralf has given gcompris the authorization to "
+"include his pictures. Thanks a lot Ralf."
 msgstr ""
-"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta (http://schmode.net/). "
+"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta &lt;http://schmode.net/&gt;. "
 "Ralf antoi gcomprisin tekijöille luvan käyttää kuviansa ohjelmassa, Paljon "
 "kiitoksia Ralfille."
 
@@ -775,12 +774,12 @@ msgid ""
 "Moon photo is copyright NASA. The space sounds come from Tuxpaint and "
 "Vegastrike which are released under the GPL license. The transportation "
 "images are copyright Franck Doucet. Dates of Transportation are based on "
-"those found in http://www.wikipedia.org."
+"those found in &lt;http://www.wikipedia.org&gt;."
 msgstr ""
 "Kuun kuvan oikeudet ovat NASA:lla. Avaruusäänet tulevat Tuxpaintistä ja "
 "Vegastrikesta, jotka on julkaistu GPL-lisenssillä. Ajankohtien kuvien "
-"tekijänoikeudet omistaa Franck Doucet. Ajankohdat perustuvat sivuilta http://"
-"www.wikipedia.org löytyviin."
+"tekijänoikeudet omistaa Franck Doucet. Ajankohdat perustuvat sivuilta "
+"&lt;http://www.wikipedia.org&gt; löytyviin tietoihin."
 
 #: ../boards/chronos.xml.in.h:4
 msgid "Pick from the pictures on the left and put them on the red dots"
@@ -995,20 +994,21 @@ msgstr "Napsauta liikuvia kaloja hiiren vasemmalla näppäimellä"
 #: ../boards/clickgame.xml.in.h:3
 msgid ""
 "Fish are taken from the Unix utility xfishtank. Images are taken from the "
-"National Undersea Research Program (NURP) Collection at http://www.photolib."
-"noaa.gov All image credits belong to the OAR/National Undersea Research "
-"Program (NURP), except for the first image, which is property of the "
-"University of North Carolina at Wilmington. The images used in each level "
-"are: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
+"National Undersea Research Program (NURP) Collection at &lt;http://www."
+"photolib.noaa.gov&gt; All image credits belong to the OAR/National Undersea "
+"Research Program (NURP), except for the first image, which is property of "
+"the University of North Carolina at Wilmington. The images used in each "
+"level are: Location: Tropical Atlantic Ocean, Florida Keys (image nur00523) "
 "Photographer: D. Kesling Location: Florida Keys (image nur03006) Location: "
 "Unknown (image nur03505) Location: Unknown (image nur03010) Location: "
 "Unknown (image nur03011) Location: Unknown (image nur03013)"
 msgstr ""
 "Kalat on otettu Unix-ohjelmasta xfishtank. Kuvat on otettu kokoelmasta "
-"National Undersea Research Program (NURP) osoitteessa http://www.photolib."
-"noaa.gov. Kaikkien kuvien tekijänoikeudet kuuluvat tahoille OAR/National "
-"Undersea Research Program (NURP), lukuun ottamatta ensimmäistä kuvaa, jonka "
-"omistaa North Carolinan yliopisto Wilmingtonissa. Kussakin tasossa käytetyt "
+"National Undersea Research Program (NURP) osoitteessa "
+"&lt;http://www.photolib.noaa.gov&gt;. Kaikkien kuvien tekijänoikeudet "
+"kuuluvat järjestölle OAR/National Undersea Research Program (NURP), "
+"lukuun ottamatta ensimmäistä kuvaa, jonka omistaa North Carolinan "
+"yliopisto Wilmingtonissa. Kussakin tasossa käytetyt "
 "kuvat ovat: Sijainti: Tropical Atlantic Ocean, Florida Keys (kuva nur00523) "
 "Valokuvannut: D. Kesling Sijainti: Florida Keys (kuva nur03006) Sijainti: "
 "Tuntematon (kuva nur03505) Sijainti: Tuntematon (kuva nur03010) Sijainti: "
@@ -1034,22 +1034,23 @@ msgstr ""
 "numeroina (tunteja:minuutteja tai tunteja:minuutteja:sekunteja). Viisarin "
 "suuntaa muutetaan napsauttamalla sitä hiirellä ja siirtämällä sitten hiirtä."
 
-#: ../boards/clockgame.xml.in.h:2 ../src/boards/clockgame.c:78
+#: ../boards/clockgame.xml.in.h:2
+msgid ""
+"Distinguish between hours, minutes and seconds. Display time on a clock."
+msgstr ""
+"Erota tunnit, minuutit sekä sekunnit. Näytä aika kellon viisareitten avulla."
+
+#: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:80
 msgid "Learn how to tell the time"
 msgstr "Opettele lukemaan kelloa"
 
-#: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:77
+#: ../boards/clockgame.xml.in.h:4 ../src/boards/clockgame.c:79
 msgid "Learning Clock"
 msgstr "Kello"
 
-#: ../boards/clockgame.xml.in.h:4
+#: ../boards/clockgame.xml.in.h:5
 msgid "The concept of time. Reading the time."
 msgstr "Ajan käsite ja kellon lukeminen."
-
-#: ../boards/clockgame.xml.in.h:5
-msgid "istinguish between hours, minutes and seconds. Display time on a clock."
-msgstr ""
-"Erota tunnit, minuutit sekä sekunnit. Näytä aika kellon viisareitten avulla."
 
 #: ../boards/colors.xml.in.h:1
 msgid "Can move the mouse."
@@ -1103,12 +1104,12 @@ msgstr "Luo neljän kappaleen pituinen viiva joko pysty- tai vaakasuoraan"
 #: ../boards/connect4.xml.in.h:5
 msgid ""
 "Laurent Lacheny. Images and Artificial Intelligence taken from project "
-"4stattack by Jeroen Vloothuis. The original project can be found on http://"
-"forcedattack.sourceforge.net"
+"4stattack by Jeroen Vloothuis. The original project can be found on &lt;"
+"http://forcedattack.sourceforge.net&gt;"
 msgstr ""
 "Laurent Lacheny. Kuvat ja tekoäly otettu Jeroen Vloothuisin 4stattack-"
-"projektista. Alkuperäinen projekti löytyy osoitteesta http://forcedattack."
-"sourceforge.net/"
+"projektista. Alkuperäinen projekti löytyy osoitteesta &lt;http://forcedattack."
+"sourceforge.net/&gt;"
 
 #: ../boards/doubleentry.xml.in.h:1
 msgid "Basic counting skills"
@@ -1183,22 +1184,22 @@ msgstr ""
 "napsauta \"OK\"-painiketta tai paina \"Enter\"-näppäintä."
 
 #: ../boards/enumerate.xml.in.h:4 ../boards/planegame.xml.in.h:4
-#: ../src/boards/enumerate.c:91
+#: ../src/boards/enumerate.c:92
 msgid "Numeration training"
 msgstr "Järjestyksen harjoittelu"
 
-#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:92
+#: ../boards/enumerate.xml.in.h:5 ../src/boards/enumerate.c:93
 msgid "Place the items in the best way to count them"
 msgstr "Laita esineet oikeaan järjestykseen"
 
 #: ../boards/erase.xml.in.h:1
 msgid ""
 "Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/) and from LE BERRE Daniel. They gave GCompris the "
+"&lt;http://schmode.net/&gt; and from LE BERRE Daniel. They gave GCompris the "
 "authorization to include their pictures. Thanks a lot."
 msgstr ""
-"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta (http://schmode.net/) ja "
-"Le Berre Danielilta. He antoivat gcomprisille luvan käyttää kuviansa. Paljon "
+"Eläinkuvat tulevat Ralf Schmoden eläinkuvasivuilta &lt;http://schmode.net/&gt; "
+"ja Le Berre Danielilta. He antoivat gcomprisille luvan käyttää kuviansa. Paljon "
 "kiitoksia heille."
 
 #: ../boards/erase.xml.in.h:2 ../boards/erase_clic.xml.in.h:5
@@ -1265,9 +1266,37 @@ msgstr "Siirrä esineitä yksitellen ja järjestä ne pienimmästä suurimpaan"
 msgid "Original code taken from libgnomecanvas demo"
 msgstr "Alkuperäinen lähdekoodi tulee libgnomecanvasin demosta"
 
-#: ../boards/fifteen.xml.in.h:5 ../src/boards/fifteen.c:56
+#: ../boards/fifteen.xml.in.h:5
+msgid "Samuel Loyd"
+msgstr "Samuel Loyd"
+
+#: ../boards/fifteen.xml.in.h:6 ../src/boards/fifteen.c:56
 msgid "The fifteen game"
 msgstr "Viisitoista-peli"
+
+#: ../boards/fifteen.xml.in.h:7
+msgid "anticipate"
+msgstr "aavista"
+
+#: ../boards/fifteen.xml.in.h:8
+msgid "logical"
+msgstr "looginen"
+
+#: ../boards/fifteen.xml.in.h:9
+msgid "move"
+msgstr "siirrä"
+
+#: ../boards/fifteen.xml.in.h:10
+msgid "puzzle"
+msgstr "palapeli"
+
+#: ../boards/fifteen.xml.in.h:11
+msgid "slide"
+msgstr "liu'uta"
+
+#: ../boards/fifteen.xml.in.h:12
+msgid "taquin"
+msgstr ""
 
 #: ../boards/followline.xml.in.h:1
 msgid "Fine motor coordination"
@@ -1318,6 +1347,10 @@ msgstr "Raahaa paloja, jotta saat piirrettyä koko kartan"
 #: ../boards/geography.xml.in.h:2
 msgid "Identify the countries"
 msgstr "Tunnista maat"
+
+#: ../boards/geography.xml.in.h:3 ../boards/paintings.xml.in.h:4
+msgid "Mouse manipulation: movement, drag and drop"
+msgstr "Hiiren käyttäminen: siirtäminen ja raahaus"
 
 #: ../boards/geography/board1_0.xml.in.h:1
 #: ../boards/geography/board4_2.xml.in.h:1
@@ -1549,7 +1582,7 @@ msgstr "Kroatia"
 msgid "Cyprus"
 msgstr "Kypros"
 
-#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:67
+#: ../boards/geography/board3_1.xml.in.h:7 ../src/gcompris/config.c:69
 msgid "Czech"
 msgstr "Tsekinmaa"
 
@@ -1973,7 +2006,7 @@ msgstr ""
 "Raahaa tornien ylimmät rinkulat tornista toiseen siten, että saat toistettua "
 "oikealla olevan tornin tyhjään tilaan oikealla."
 
-#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:105
+#: ../boards/hanoi.xml.in.h:4 ../src/boards/hanoi.c:101
 msgid "Reproduce the given tower"
 msgstr "Rakenna samanlainen torni"
 
@@ -1981,7 +2014,7 @@ msgstr "Rakenna samanlainen torni"
 msgid "Reproduce the tower on the right in the empty space on the left"
 msgstr "Rakenna oikealla oleva torni vasemmalla olevaan tyhjään tilaan"
 
-#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:104
+#: ../boards/hanoi.xml.in.h:6 ../src/boards/hanoi.c:100
 msgid "Simplified Tower of Hanoi"
 msgstr "Helpot Hanoin tornit"
 
@@ -2011,16 +2044,16 @@ msgid ""
 "puzzle. According to the legend, the world would end when the priests "
 "finished their work. The puzzle is therefore also known as the Tower of "
 "Brahma puzzle. It is not clear whether Lucas invented this legend or was "
-"inspired by it. (source Wikipedia http://en.wikipedia.org/wiki/"
-"Tower_of_hanoi)"
+"inspired by it. (source Wikipedia &lt;http://en.wikipedia.org/wiki/"
+"Tower_of_hanoi&gt;)"
 msgstr ""
-"Tämän arvoituksen kehitti ranskalainen matemaatikko Edouard Lucas vuonna 1883."
-"Legenda kertoo myös Hindu-temppelin munkeista, jotka siirsivät jatkuvasti "
-"64 kiekkoa Hanoin tornien sääntöjen mukaisesti. Legendan mukaan maailman "
-"päättyisi, kun munkit saisivat työnsä valmiiksi. Tämän legenda takia peli "
-"tunnetaan myös nimellä Brahman tornit. Ei ole tunnettua kehittikö Lucas "
-"tämän legendan vai inspiroiko se häntä. (Lähde: "
-"Wikipedia http://en.wikipedia.org/wiki/Tower_of_hanoi)"
+"Tämän arvoituksen kehitti ranskalainen matemaatikko Edouard Lucas vuonna "
+"1883. Legenda kertoo myös Hindu-temppelin munkeista, jotka siirsivät "
+"jatkuvasti 64 kiekkoa Hanoin tornien sääntöjen mukaisesti. Legendan mukaan "
+"maailman päättyisi, kun munkit saisivat työnsä valmiiksi. Tämän legenda "
+"takia peli tunnetaan myös nimellä Brahman tornit. Ei ole tunnettua kehittikö "
+"Lucas tämän legendan vai inspiroiko se häntä. (Lähde: Wikipedia &lt;http://en."
+"wikipedia.org/wiki/Tower_of_hanoi&gt;)"
 
 #: ../boards/hexagon.xml.in.h:1
 msgid "Find the strawberry by clicking on the blue fields"
@@ -2049,7 +2082,7 @@ msgstr "Harjoittele lukemista löytämällä kuvaa vastaava sana"
 #: ../boards/imageid.xml.in.h:3 ../boards/imagename.xml.in.h:4
 #: ../boards/readingh.xml.in.h:5 ../boards/readingv.xml.in.h:4
 #: ../src/boards/imageid.c:112 ../src/boards/missingletter.c:104
-#: ../src/boards/reading.c:113
+#: ../src/boards/reading.c:114
 msgid "Reading"
 msgstr "Lukutaito"
 
@@ -2780,13 +2813,9 @@ msgstr ""
 "Raahaa kuvan osia vasemmalla olevasta laatikosta vasempaan osaan ja luo "
 "niistä oma maalaus."
 
-#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:172
+#: ../boards/paintings.xml.in.h:3 ../src/boards/shapegame.c:173
 msgid "Make the puzzle"
 msgstr "Kokoa palapeli"
-
-#: ../boards/paintings.xml.in.h:4
-msgid "Mouse manipulation: movement, drag and drop"
-msgstr "Hiiren käyttäminen: siirtäminen ja raahaus"
 
 #: ../boards/paintings.xml.in.h:5
 msgid "Spatial representation"
@@ -3290,15 +3319,15 @@ msgid ""
 "each cell of a grid, most frequently a 9x9 grid made up of 3x3 subgrids "
 "(called 'regions'), starting with various symbols or numerals given in some "
 "cells (the 'givens'). Each row, column and region must contain only one "
-"instance of each symbol or numeral (Source http://en.wikipedia.org/wiki/"
-"Sudoku)."
+"instance of each symbol or numeral (Source &lt;http://en.wikipedia.org/wiki/"
+"Sudoku&gt;)."
 msgstr ""
 "Arvoitus ratkaistaan syöttämällä kuvio tai numero väliltä 1-9 jokaiseen "
 "ristikon ruutuun, tavallisesi 9x9 ruudun ruudukkoon, joka muodostuu 3x3 "
 "aliruudukosta eli alueista. Alussa osassa ruuduista on annettu numeroita, "
 "joita ei voi muuttaa. Kukin rivi, sarake ja alue saa sisältää kunkin numeron "
-"tai kuvion ainoastaan yhden kerran. Pelin lähde osoitteessa http://en."
-"wikipedia.org/wiki/Sudoku"
+"tai kuvion ainoastaan yhden kerran. Pelin lähde osoitteessa &lt;http://en."
+"wikipedia.org/wiki/Sudoku&gt;"
 
 #: ../boards/superbrain.xml.in.h:1
 msgid ""
@@ -3352,7 +3381,7 @@ msgstr "Ynnälaskua tikkapelin avulla"
 msgid "Throw darts at a target and count your score."
 msgstr "Heitä tikka maaliin ja laske saamasi pisteet"
 
-#: ../boards/traffic.xml.in.h:1 ../src/boards/traffic.c:99
+#: ../boards/traffic.xml.in.h:1 ../src/boards/traffic.c:97
 msgid "A sliding block puzzle game"
 msgstr "Palapelin tapainen autopeli"
 
@@ -3384,7 +3413,7 @@ msgstr ""
 "Tux tuli takaisin pitkältä kalastusretkeltä veneellään.\n"
 "Korjaa vedenjakelujärjestelmä, jotta Tux pääsee suihkuun."
 
-#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:110
+#: ../boards/wordsgame.xml.in.h:1 ../src/boards/wordsgame.c:112
 msgid "Falling Words"
 msgstr "Putoavat sanat"
 
@@ -3396,7 +3425,7 @@ msgstr "Kirjoitusharjoitus"
 msgid "Type the complete word as it falls, before it reachs the ground"
 msgstr "Kirjoita koko putoava sana ennen kuin se osuu maahan"
 
-#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:111
+#: ../boards/wordsgame.xml.in.h:5 ../src/boards/wordsgame.c:113
 msgid "Type the falling words before they reach the ground"
 msgstr "Kirjoita putoavat sanat ennen kuin ne osuvat maahan"
 
@@ -3410,26 +3439,26 @@ msgstr "Opettavaisia pelejä kahdesta kymmenen ikäisille"
 
 #: ../gcompris.desktop.in.h:2
 msgid "Educational suite gcompris"
-msgstr "Gcompris on opettavien pelien kokoelma"
+msgstr "Gcompris-opetuspelit"
 
 #: ../gcompris.desktop.in.h:3
 msgid "Multiple activities for kids"
 msgstr "Useita tehtäviä lapsille"
 
-#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:615
-#: ../src/boards/missingletter.c:618 ../src/boards/read_colors.c:491
-#: ../src/boards/shapegame.c:1924 ../src/gcompris/file_selector.c:891
-#: ../src/gcompris/gameutil.c:184 ../src/gcompris/gameutil.c:600
-#: ../src/gcompris/gameutil.c:601 ../src/gcompris/gcompris.c:531
-#: ../src/gcompris/images_selector.c:764 ../src/gcompris/skin.c:83
-#: ../src/gcompris/skin.c:261 ../src/gcompris/wordlist.c:48
+#: ../src/boards/advanced_colors.c:533 ../src/boards/imageid.c:642
+#: ../src/boards/missingletter.c:655 ../src/boards/read_colors.c:491
+#: ../src/boards/shapegame.c:1942 ../src/gcompris/file_selector.c:893
+#: ../src/gcompris/gameutil.c:186 ../src/gcompris/gameutil.c:604
+#: ../src/gcompris/gameutil.c:605 ../src/gcompris/gcompris.c:532
+#: ../src/gcompris/images_selector.c:767 ../src/gcompris/skin.c:87
+#: ../src/gcompris/skin.c:266 ../src/gcompris/wordlist.c:48
 #, c-format
 msgid "Couldn't find file %s !"
 msgstr "Tiedostoa %s ei löydy!"
 
-#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:618
-#: ../src/boards/missingletter.c:621 ../src/boards/read_colors.c:494
-#: ../src/boards/shapegame.c:1927
+#: ../src/boards/advanced_colors.c:536 ../src/boards/imageid.c:645
+#: ../src/boards/missingletter.c:658 ../src/boards/read_colors.c:494
+#: ../src/boards/shapegame.c:1945
 #, c-format
 msgid "find file %s !"
 msgstr "%s ei löydy!"
@@ -3516,24 +3545,42 @@ msgstr "Valkoinen matittaa"
 msgid "Drawn game"
 msgstr "Tasapeli"
 
-#: ../src/boards/click_on_letter.c:84
+#: ../src/boards/click_on_letter.c:86
 msgid "Read a letter"
 msgstr "Lue kirjain"
 
-#: ../src/boards/click_on_letter.c:85
+#: ../src/boards/click_on_letter.c:87
 msgid "Learn to recognize letters"
 msgstr "Opettele kirjainten järjestämistä"
 
-#: ../src/boards/click_on_letter.c:240
+#. TRANSLATORS: Put here the alphabet in your language
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the alphabet lowercase in your language
+#: ../src/boards/click_on_letter.c:241 ../src/boards/click_on_letter.c:258
+#: ../src/boards/gletters.c:226 ../src/boards/memory.c:444
+msgid "abcdefghijklmnopqrstuvwxyz"
+msgstr "abcdefghijklmnopqrstuvwxyzåäö"
+
+#: ../src/boards/click_on_letter.c:270
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
-"the packages assetml-voices-alphabet-%s"
+"the packages assetml-voices-alphabet-%s or %s"
 msgstr ""
 "Virhe: sinun täytyy ensin asentaa paketti \n"
-"assetml-voices-alphabet-%s ennen kuin voit käyttää tätä osaa"
+"assetml-voices-alphabet-%s tai %s ennen kuin voit käyttää tätä osaa"
 
-#: ../src/boards/click_on_letter.c:247
+#: ../src/boards/click_on_letter.c:277
+#, c-format
+msgid ""
+"Error: this activity requires that you first install\n"
+"the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
+msgstr ""
+"Virhe: sinun täytyy ensin asentaa paketti \n"
+"assetml-voices-alphabet-%s ennen kuin voit käyttää tätä osaa. Palataan "
+"käyttämään englantia!"
+
+#: ../src/boards/click_on_letter.c:285
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3544,19 +3591,12 @@ msgstr ""
 "ole käytössä.\n"
 "Mene asetuksiin ja ota äänen äänet käyttöön"
 
-#. TRANSLATORS: Put here the alphabet in your language
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/boards/click_on_letter.c:292 ../src/boards/memory.c:442
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstuvwxyzåäö"
-
 #: ../src/boards/clickgame.c:178
 #, c-format
 msgid "Couldn't open dir: %s"
 msgstr "Hakemistoa ei voida avata: %s"
 
-#: ../src/boards/clockgame.c:526
+#: ../src/boards/clockgame.c:536 ../src/boards/clockgame.c:546
 msgid "Set the watch to:"
 msgstr "Käännä kellon viisarit aikaan:"
 
@@ -3619,17 +3659,27 @@ msgstr "Kaksoisnapsautuksen arvo on nyt %d."
 msgid "Move the items one by one to rearrange them in increasing order"
 msgstr "Siirrä esineitä korkeusjärjestyksessä pienimmästä suurimpaan"
 
-#: ../src/boards/hanoi.c:337 ../src/boards/hanoi.c:348
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/boards/gletters.c:222 ../src/boards/memory.c:440
+msgid "0123456789"
+msgstr "0123456789"
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/boards/gletters.c:232 ../src/boards/memory.c:450
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
+
+#: ../src/boards/hanoi.c:335 ../src/boards/hanoi.c:346
 msgid "Re-create in the empty area the same tower as the one on the right"
 msgstr "Rakenna tyhjään paikkaan täsmälleen samanlainen torni kuin oikealla"
 
-#: ../src/boards/hanoi_real.c:106
+#: ../src/boards/hanoi_real.c:76
 msgid "Tower of Hanoi"
 msgstr "Hanoin tornit"
 
-#: ../src/boards/hanoi_real.c:309 ../src/boards/hanoi_real.c:320
+#: ../src/boards/hanoi_real.c:277 ../src/boards/hanoi_real.c:288
 msgid "Move the entire stack to the right peg"
-msgstr "Siirrä koko pino oikealla olevaan tappiin" 
+msgstr "Siirrä koko pino oikealla olevaan tappiin"
 
 #: ../src/boards/imageid.c:113 ../src/boards/missingletter.c:105
 msgid "Learn how to read"
@@ -3653,11 +3703,11 @@ msgstr "vasen"
 msgid "right"
 msgstr "oikea"
 
-#: ../src/boards/maze.c:488
+#: ../src/boards/maze.c:492
 msgid "Look at your position and switch back to invisible mode to move"
 msgstr "Katso sijaintiasi ja vaihda takaisin näkymättömäksi niin voit liikkua"
 
-#: ../src/boards/maze.c:490
+#: ../src/boards/maze.c:494
 msgid "Look at your position and switch back to 3D mode to move"
 msgstr ""
 "Katso sijaintiasi ja vaihda takaisin kolmiulotteiseksi niin voit liikkua"
@@ -3670,22 +3720,11 @@ msgstr "Memory"
 msgid "Find the matching pair"
 msgstr "Löydä täsmäävä pari"
 
-#. TRANSLATORS: Put here the numbers in your language
-#: ../src/boards/memory.c:438
-msgid "0123456789"
-msgstr "0123456789"
-
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/boards/memory.c:446
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
-
-#: ../src/boards/menu.c:72
+#: ../src/boards/menu.c:75
 msgid "Main Menu"
 msgstr "Päävalikko"
 
-#: ../src/boards/menu.c:73
+#: ../src/boards/menu.c:76
 msgid "Select a Board"
 msgstr "Valitse tehtävä"
 
@@ -3770,10 +3809,10 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/boards/python/admin/board_list.py:625
-#: ../src/boards/python/admin/board_list.py:643
-#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:541
-#: ../src/boards/python/pythontest.py:392 ../src/boards/python/tuxpaint.py:168
+#: ../src/boards/python/admin/board_list.py:632
+#: ../src/boards/python/admin/board_list.py:650
+#: ../src/boards/python/admin/wordlist.py:51 ../src/boards/python/login.py:543
+#: ../src/boards/python/pythontest.py:432 ../src/boards/python/tuxpaint.py:179
 #, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -3782,8 +3821,8 @@ msgstr ""
 "<b>%s</b> asetukset\n"
 " profiilille <b>%s</b>"
 
-#: ../src/boards/python/admin/board_list.py:655
-#: ../src/boards/python/pythontest.py:456
+#: ../src/boards/python/admin/board_list.py:662
+#: ../src/boards/python/pythontest.py:496
 msgid "Select sound locale"
 msgstr "Valitse äänen maa-asetusto"
 
@@ -3971,7 +4010,7 @@ msgid "There is already a profile with this name"
 msgstr "Tämän niminen profiilin on jo olemassa"
 
 #: ../src/boards/python/admin/profile_list.py:122
-#: ../src/gcompris/board_config.c:582 ../src/gcompris/board_config.c:708
+#: ../src/gcompris/board_config.c:602 ../src/gcompris/board_config.c:727
 msgid "Default"
 msgstr "Oletus"
 
@@ -4054,7 +4093,7 @@ msgid "You need the python xml module. Disabling SVG."
 msgstr "Tarvitset pythonin XMl-osan. Poistetaan SVG käytöstä."
 
 #. gcompris.utils.dialog(_('Python xml module bot found. SVG is disabled. Install the python xml module to enable SVG Save/restore.'), None)
-#: ../src/boards/python/anim.py:415
+#: ../src/boards/python/anim.py:417
 msgid ""
 "Python xml module not found. SVG is disabled. Install the python xml module "
 "to enable SVG Save/restore."
@@ -4062,15 +4101,15 @@ msgstr ""
 "Pythonin XMl-osaa ei löytynyt. SVG on pois käytöstä. Asenna pythonin XML-osa "
 "jos haluat käyttää SVG-tallennusta tai -palautusta."
 
-#: ../src/boards/python/anim.py:2208
+#: ../src/boards/python/anim.py:2227
 msgid "SVG is disabled. Install python xml module to enable it"
 msgstr "SVG ei ole käytössä. Asenna pythonin XML-osa jos haluat käyttää sitä"
 
-#: ../src/boards/python/anim.py:2364
+#: ../src/boards/python/anim.py:2383
 msgid "Warning: the following images cannot be accessed on your system.\n"
 msgstr "Varoitus: seuraavia kuvia ei löydy järjestelmästä.\n"
 
-#: ../src/boards/python/anim.py:2366
+#: ../src/boards/python/anim.py:2385
 msgid "The corresponding items have been skipped."
 msgstr "Niihin liittyvät osat sivuutetaan."
 
@@ -4177,7 +4216,7 @@ msgstr ""
 "\n"
 "Paina <Return> jatkaaksesi."
 
-#: ../src/boards/python/gnumch.py:777
+#: ../src/boards/python/gnumch.py:778
 msgid ""
 "T\n"
 "R\n"
@@ -4195,32 +4234,32 @@ msgstr ""
 "L\n"
 "E"
 
-#: ../src/boards/python/login.py:123
+#: ../src/boards/python/login.py:125
 msgid "Profile: "
 msgstr "Profiili:"
 
-#: ../src/boards/python/login.py:274 ../src/boards/python/login.py:283
+#: ../src/boards/python/login.py:276 ../src/boards/python/login.py:285
 msgid "Login: "
 msgstr "Kirjautuminen:"
 
 #. toggle box
-#: ../src/boards/python/login.py:546
+#: ../src/boards/python/login.py:548
 msgid "Uppercase only text"
 msgstr "Näytä vain isoja kirjaimia"
 
 #. toggle box
-#: ../src/boards/python/login.py:556
+#: ../src/boards/python/login.py:558
 msgid "Enter login to log in"
 msgstr "Kirjaudu sisään"
 
-#: ../src/boards/python/pythontest.py:141
+#: ../src/boards/python/pythontest.py:149
 msgid ""
 "This is the first plugin in gcompris coded in the Python\n"
 "Programming language."
 msgstr ""
 "Tämä on ensimmäinen Gcomprisin liitännäinen, joka on kirjoitettu pythonilla."
 
-#: ../src/boards/python/pythontest.py:150
+#: ../src/boards/python/pythontest.py:158
 msgid ""
 "It is now possible to develop gcompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
@@ -4228,35 +4267,35 @@ msgstr ""
 "Nyt on mahdollista luoda gcomprisin osia sekä C:llä että pythonilla.\n"
 "Kiitos tästä Olivier Samynille."
 
-#: ../src/boards/python/pythontest.py:159
+#: ../src/boards/python/pythontest.py:167
 msgid "This activity is not playable yet, just a test"
 msgstr "Tämä tehtävä ei ole vieläl pelattava, se on pelkkä testi"
 
 #. toggle box
-#: ../src/boards/python/pythontest.py:397
+#: ../src/boards/python/pythontest.py:437
 msgid "Disable line drawing in circle"
 msgstr "Älä käytä viivanpiirtoa ympyrässä"
 
 #. combo box
-#: ../src/boards/python/pythontest.py:406
+#: ../src/boards/python/pythontest.py:446
 msgid "Colour of the line"
 msgstr "Viivan väri"
 
 #. spin button for int
-#: ../src/boards/python/pythontest.py:417
+#: ../src/boards/python/pythontest.py:457
 msgid "Distance between circles"
 msgstr "Ympyröiden välinen etäisyys"
 
 #. radio buttons for circle or rectangle
-#: ../src/boards/python/pythontest.py:428
+#: ../src/boards/python/pythontest.py:468
 msgid "Use circles"
 msgstr "Käytä ympyröitä"
 
-#: ../src/boards/python/pythontest.py:429
+#: ../src/boards/python/pythontest.py:469
 msgid "Use rectangles"
 msgstr "Käytä suorakaiteita"
 
-#: ../src/boards/python/pythontest.py:432
+#: ../src/boards/python/pythontest.py:472
 msgid "Choice of pattern"
 msgstr "Valittu kuvio"
 
@@ -4323,7 +4362,7 @@ msgstr "Tuntematon komento rivillä"
 msgid "Distance:"
 msgstr "Etäisyys:"
 
-#: ../src/boards/python/tuxpaint.py:104
+#: ../src/boards/python/tuxpaint.py:115
 msgid ""
 "Cannot find Tuxpaint. \n"
 " Install it to use this board !"
@@ -4331,23 +4370,27 @@ msgstr ""
 "Tuxpaintia ei löydy. \n"
 "Asenna se, jos haluat käyttää tätä tehtävää !"
 
-#: ../src/boards/python/tuxpaint.py:117
+#: ../src/boards/python/tuxpaint.py:128
 msgid "Waiting for Tuxpaint finishes"
 msgstr "Odotetaan tuxpaintin sulkeutumista"
 
-#: ../src/boards/python/tuxpaint.py:172
+#: ../src/boards/python/tuxpaint.py:183
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Hae kokoruudun asetukset GComprisilta"
 
-#: ../src/boards/python/tuxpaint.py:176
+#: ../src/boards/python/tuxpaint.py:187
+msgid "Inherit size setting from GCompris (800x600, 640x480)"
+msgstr "Hae koon asetukset GComprisilta (800x600, 640x480)"
+
+#: ../src/boards/python/tuxpaint.py:191
 msgid "Disable shape rotation"
 msgstr "Älä pyöritä kappaleita"
 
-#: ../src/boards/python/tuxpaint.py:180
+#: ../src/boards/python/tuxpaint.py:195
 msgid "Show Uppercase text only"
 msgstr "Näytä vain isoja kirjaimia"
 
-#: ../src/boards/python/tuxpaint.py:184
+#: ../src/boards/python/tuxpaint.py:199
 msgid "Disable stamps"
 msgstr "Älä käytä leimoja"
 
@@ -4367,45 +4410,45 @@ msgstr "Lue värit"
 msgid "Click on the corresponding color"
 msgstr "Napsauta täsmäävää väriä"
 
-#: ../src/boards/reading.c:114
+#: ../src/boards/reading.c:115
 msgid "Read a list of words to see if the given word is there."
 msgstr "Lue sanalista ja kerro onko etsittävä sana listassa."
 
-#: ../src/boards/reading.c:379
+#: ../src/boards/reading.c:366
 msgid "Please, check if the word"
 msgstr "Katso onko sana"
 
-#: ../src/boards/reading.c:399
+#: ../src/boards/reading.c:386
 msgid "is being displayed"
 msgstr "näkyvissä"
 
-#: ../src/boards/reading.c:571
+#: ../src/boards/reading.c:557
 msgid "I am Ready"
 msgstr "Olen valmis."
 
-#: ../src/boards/reading.c:611
+#: ../src/boards/reading.c:597
 msgid "Yes I saw it"
 msgstr "Aivan. Näin sen."
 
-#: ../src/boards/reading.c:641
+#: ../src/boards/reading.c:627
 msgid "No, it was not there"
 msgstr "Ei se siinä ollutkaan!"
 
 #. Report what was wrong in the log
-#: ../src/boards/reading.c:679
+#: ../src/boards/reading.c:665
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Löydettävä sana oli '%s'"
 
-#: ../src/boards/reading.c:682
+#: ../src/boards/reading.c:668
 msgid "But it was not displayed"
 msgstr "Mutta se ei ollut näkyvissä"
 
-#: ../src/boards/reading.c:684
+#: ../src/boards/reading.c:670
 msgid "And it was displayed"
 msgstr "Oli näkyvissä"
 
-#: ../src/boards/reading.c:786 ../src/boards/wordsgame.c:758
+#: ../src/boards/reading.c:773 ../src/boards/wordsgame.c:776
 msgid "Cannot open file of words for your locale"
 msgstr "En voi löytää kielellesi sanastoa."
 
@@ -4417,12 +4460,12 @@ msgstr "Laske toiseen suuntaan"
 msgid "Practice substraction with a funny game"
 msgstr "Harjoittele vähennyslaskua hauskalla pelillä"
 
-#: ../src/boards/shapegame.c:173
+#: ../src/boards/shapegame.c:174
 msgid "Drag and Drop the items to rebuild the object"
 msgstr "Siirrä paloja ja rakenna uudestaan"
 
 #. Enter Edit Mode
-#: ../src/boards/shapegame.c:461
+#: ../src/boards/shapegame.c:465
 msgid ""
 "You entered the Edit mode\n"
 "Move the puzzle items and\n"
@@ -4434,7 +4477,7 @@ msgstr ""
 "'s' tallentaaksesi\n"
 "'d' nähdäksesi kaikki muodot"
 
-#: ../src/boards/shapegame.c:469
+#: ../src/boards/shapegame.c:473
 msgid ""
 "The data from this activity are saved under\n"
 "/tmp/gcompris-board.xml"
@@ -4454,12 +4497,12 @@ msgstr "Sukellusvene"
 msgid "Control the depth of a submarine"
 msgstr "Säädä sukellusveneen syvyyttä"
 
-#: ../src/boards/target.c:321 ../src/boards/target.c:574
+#: ../src/boards/target.c:325 ../src/boards/target.c:578
 #, c-format
 msgid "Points = %s"
 msgstr "Pisteet = %s"
 
-#: ../src/boards/target.c:439
+#: ../src/boards/target.c:443
 #, c-format
 msgid ""
 "Wind speed = %d\n"
@@ -4468,7 +4511,7 @@ msgstr ""
 "Tuulen nopeus = %d\n"
 "kilometriä tunnissa"
 
-#: ../src/boards/target.c:501
+#: ../src/boards/target.c:505
 #, c-format
 msgid "Distance to target = %d meters"
 msgstr "%d metriä maaliin."
@@ -4498,15 +4541,15 @@ msgstr ""
 "Jyrki Kuoppala, 2001\n"
 "http://gnome.fi/"
 
-#: ../src/gcompris/about.c:105
+#: ../src/gcompris/about.c:105 ../src/gcompris/about.c:114
 msgid "About GCompris"
 msgstr "Tietoja GComprisista"
 
-#: ../src/gcompris/about.c:115
+#: ../src/gcompris/about.c:124 ../src/gcompris/about.c:133
 msgid "Translators:"
 msgstr "Kääntäjät:"
 
-#: ../src/gcompris/about.c:211
+#: ../src/gcompris/about.c:256
 msgid ""
 "GCompris Home Page\n"
 "http://gcompris.net"
@@ -4514,7 +4557,7 @@ msgstr ""
 "GCompris Kotisivut\n"
 "http://gcompris.net/"
 
-#: ../src/gcompris/about.c:233
+#: ../src/gcompris/about.c:278
 msgid ""
 "This software is a GNU Package and is released under the GNU General Public "
 "License"
@@ -4522,231 +4565,236 @@ msgstr ""
 "Tämä ohjelma on GNU-ohjelma ja on julkaistu GNU General Public Licensen "
 "mukaisesti"
 
-#: ../src/gcompris/about.c:261 ../src/gcompris/config.c:209
-#: ../src/gcompris/gameutil.c:1106 ../src/gcompris/help.c:329
-#: ../src/gcompris/images_selector.c:262
+#: ../src/gcompris/about.c:341 ../src/gcompris/about.c:350
+#: ../src/gcompris/config.c:221 ../src/gcompris/config.c:230
+#: ../src/gcompris/gameutil.c:1120 ../src/gcompris/help.c:362
+#: ../src/gcompris/help.c:371 ../src/gcompris/images_selector.c:263
 msgid "OK"
 msgstr "OK"
 
-#: ../src/gcompris/board.c:168
+#: ../src/gcompris/board.c:173
 msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgstr "Dynaaminen moduulin lataus ei toiminut. Gcompris ei voi startata.\n"
 
-#: ../src/gcompris/board_config.c:612
+#: ../src/gcompris/board_config.c:632
 msgid ""
 "Select the language\n"
 " to use in the board"
 msgstr "Valitse kentässä käytettävä kieli."
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:63
 msgid "Your system default"
 msgstr "Järjestelmän oletusasetus"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:64
 msgid "Amharic"
 msgstr "Amhari"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:65
 msgid "Arabic"
 msgstr "Arabia"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:66
 msgid "Turkish (Azerbaijan)"
 msgstr "Turkki (Azerbajzan)"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:67
 msgid "Bulgarian"
 msgstr "Bulgaria"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:68
 msgid "Catalan"
 msgstr "Katalonia"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:70
 msgid "Danish"
 msgstr "Tanska"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:71
 msgid "German"
 msgstr "Saksa"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:72
 msgid "Greek"
 msgstr "Kreikka"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:73
 msgid "English (Canada)"
 msgstr "Englanti (Kanada)"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:74
 msgid "English (Great Britain)"
 msgstr "Englanti (Iso-Britannia)"
 
-#: ../src/gcompris/config.c:73
-msgid "English (USA)"
-msgstr "Englanti (Yhdysvallat)"
-
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "Spanish"
 msgstr "Espanja"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
+msgid "Basque"
+msgstr "Baski"
+
+#: ../src/gcompris/config.c:77
 msgid "Finnish"
 msgstr "Suomi"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:78
 msgid "French"
 msgstr "Ranska"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:79
 msgid "Irish (Gaelic)"
 msgstr "Iiri (Gaeli)"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:80
 msgid "Hebrew"
 msgstr "Heprea"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:81
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:82
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:83
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:84
 msgid "Hungarian"
 msgstr "Unkari"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:85
 msgid "Croatian"
 msgstr "Kroatia"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:86
 msgid "Italian"
 msgstr "Italia"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:87
+msgid "Georgian"
+msgstr "Georgia"
+
+#: ../src/gcompris/config.c:88
 msgid "Lithuanian"
 msgstr "Liettua"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:89
 msgid "Macedonian"
 msgstr "Makedonia"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:90
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:91
 msgid "Malay"
 msgstr "Malaiji"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:92
 msgid "Nepal"
 msgstr "Nepali"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:93
 msgid "Dutch"
 msgstr "Hollanti"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:94
 msgid "Norwegian Bokmal"
 msgstr "Norja (Bokmal)"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:95
 msgid "Norwegian Nynorsk"
 msgstr "Norja (Nynorsk)"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:96
 msgid "Polish"
 msgstr "Puola"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:97
 msgid "Portuguese"
 msgstr "Portugali"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:98
 msgid "Portuguese (Brazil)"
 msgstr "Portugali (Brasilia)"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:99
 msgid "Romanian"
 msgstr "Romania"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:100
 msgid "Russian"
 msgstr "Venäjä"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:101
 msgid "Kinyarwanda"
 msgstr "Kinyawanda"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:102
 msgid "Slovak"
 msgstr "Slovakia"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:103
 msgid "Slovenian"
 msgstr "Slovenia"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:104
 msgid "Albanian"
 msgstr "Albania"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:105
 msgid "Serbian (Latin)"
 msgstr "Serbia (latinalaiset aakkoset)"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:106
 msgid "Serbian"
 msgstr "Serbi"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:107
 msgid "Swedish"
 msgstr "Ruotsi"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:108
 msgid "Turkish"
 msgstr "Turkki"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:109
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:110
 msgid "Walloon"
 msgstr "Belgian hollanti"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:111
 msgid "Chinese (Simplified)"
 msgstr "Kiina (yksinkertaistettu)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:116
 msgid "No time limit"
 msgstr "Ei aikarajaa"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:117
 msgid "Slow timer"
 msgstr "Hidas kello"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:118
 msgid "Normal timer"
 msgstr "Normaali kello"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:119
 msgid "Fast timer"
 msgstr "Nopea kello"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:124
 msgid "800x600 (Default for gcompris)"
 msgstr "800x600 (Gcomprisin oletus)"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:129
 msgid ""
 "<i>Use Gcompris administration module\n"
 "to filter boards</i>"
@@ -4754,59 +4802,59 @@ msgstr ""
 "<i>Käytä GComprisin hallintaosaa\n"
 "tehtävien rajaamiseen</i>"
 
-#: ../src/gcompris/config.c:183
+#: ../src/gcompris/config.c:186 ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "GComprisin asetukset"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:313
 msgid "Fullscreen"
 msgstr "Kokoruututila"
 
-#: ../src/gcompris/config.c:335
+#: ../src/gcompris/config.c:356
 msgid "Music"
 msgstr "Musiikki"
 
-#: ../src/gcompris/config.c:363
+#: ../src/gcompris/config.c:384
 msgid "Effect"
 msgstr "Tehosteet"
 
-#: ../src/gcompris/config.c:396
+#: ../src/gcompris/config.c:417
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Pixmap-hakemistoa %s ei voi avata"
 
-#: ../src/gcompris/config.c:417
+#: ../src/gcompris/config.c:438
 #, c-format
 msgid "No skin found in %s\n"
 msgstr "En löytänyt pohjakuvaa täältä: %s\n"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:788
-#: ../src/gcompris/config.c:799
+#: ../src/gcompris/config.c:453 ../src/gcompris/config.c:809
+#: ../src/gcompris/config.c:820
 #, c-format
 msgid "Skin : %s"
 msgstr "Teema: %s"
 
-#: ../src/gcompris/file_selector.c:340
+#: ../src/gcompris/file_selector.c:341
 msgid "CANCEL"
 msgstr "TAKAISIN"
 
-#: ../src/gcompris/file_selector.c:371
+#: ../src/gcompris/file_selector.c:372
 msgid "LOAD"
 msgstr "LATAA"
 
-#: ../src/gcompris/file_selector.c:371
+#: ../src/gcompris/file_selector.c:372
 msgid "SAVE"
 msgstr "TALLENNA"
 
-#: ../src/gcompris/gameutil.c:187
+#: ../src/gcompris/gameutil.c:189
 msgid "Couldn't find file"
 msgstr "Tiedostoa ei löydy"
 
-#: ../src/gcompris/gameutil.c:189
+#: ../src/gcompris/gameutil.c:191
 msgid "This activity is incomplete."
 msgstr "Tämä taulu on keskeneräinen"
 
-#: ../src/gcompris/gameutil.c:190
+#: ../src/gcompris/gameutil.c:192
 msgid ""
 "Exit it and report\n"
 "the problem to the authors."
@@ -4909,7 +4957,7 @@ msgstr ""
 msgid "The location of user directories: [$HOME/.gcompris/users]"
 msgstr "Käyttäjien hakemiston sijainti: [$HOME/.gcompris/users] "
 
-#: ../src/gcompris/gcompris.c:693
+#: ../src/gcompris/gcompris.c:689
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support the development, the Windows version provides only 12 of the 45 "
@@ -4932,7 +4980,7 @@ msgstr ""
 "Lisää tietoja aiheesta FSF:n sivuilta:\n"
 "http://www.fsf.org/philosophy"
 
-#: ../src/gcompris/gcompris.c:971
+#: ../src/gcompris/gcompris.c:977
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4946,17 +4994,17 @@ msgstr ""
 "Lisää tetoja täältä: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1039
+#: ../src/gcompris/gcompris.c:1045
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Käytä valitsinta -l saadaksesi tietyn tehtävän suoraan.\n"
 
-#: ../src/gcompris/gcompris.c:1040
+#: ../src/gcompris/gcompris.c:1046
 #, c-format
 msgid "List of available activity is :\n"
 msgstr "Lista mahdollisista tehtävistä:\n"
 
-#: ../src/gcompris/gcompris.c:1182
+#: ../src/gcompris/gcompris.c:1189
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Lista mahdollisista profiileista:\n"
@@ -4969,28 +5017,28 @@ msgstr "Ei vaikutusta"
 msgid "Users without class"
 msgstr "Luokkaan kuulumattomat käyttäjät"
 
-#: ../src/gcompris/help.c:170
+#: ../src/gcompris/help.c:203
 msgid "Prerequisite"
 msgstr "Edellytys"
 
-#: ../src/gcompris/help.c:198
+#: ../src/gcompris/help.c:231
 msgid "Goal"
 msgstr "Päämäärä"
 
-#: ../src/gcompris/help.c:226
+#: ../src/gcompris/help.c:259
 msgid "Manual"
 msgstr "Ohje"
 
-#: ../src/gcompris/help.c:254
+#: ../src/gcompris/help.c:287
 msgid "Credit"
 msgstr "Kiitokset"
 
-#: ../src/gcompris/images_selector.c:292
+#: ../src/gcompris/images_selector.c:293
 #, c-format
 msgid "dataset %s is a directory. Trying to read xml "
 msgstr "tietojoukko %s on hakemisto, yritetään lukea xml "
 
-#: ../src/gcompris/images_selector.c:629
+#: ../src/gcompris/images_selector.c:632
 #, c-format
 msgid ""
 "In ImageSet %s, the pathname for the home directory '%s' is not found. "
@@ -4999,24 +5047,24 @@ msgstr ""
 "Kuvajoukossa %s, polkua hakemistoon %s ei löydy. Ohitetaan koko "
 "kuvajoukko...\n"
 
-#: ../src/gcompris/images_selector.c:663
+#: ../src/gcompris/images_selector.c:666
 #, c-format
 msgid "In ImageSet %s, an image is not found. Skipping ImageSet...\n"
 msgstr "Kuvajoukossa %s, kuvaa ei löydy. Ohitetaan...\n"
 
-#: ../src/gcompris/images_selector.c:694
+#: ../src/gcompris/images_selector.c:697
 #, c-format
 msgid ""
 "In ImageSet %s, directory %s is not found. Skipping all the ImageSet...\n"
 msgstr ""
 "Kuvajoukossa %s, hakemistoa %s ei löydy. Ohitetaan koko kuvajoukko...\n"
 
-#: ../src/gcompris/soundutil.c:162
+#: ../src/gcompris/soundutil.c:165
 #, c-format
 msgid "Couldn't open music dir: %s"
 msgstr "Musiikki-hakemistoa %s ei voi avata"
 
-#: ../src/gcompris/soundutil.c:208
+#: ../src/gcompris/soundutil.c:211
 #, c-format
 msgid ""
 "The background thread music is stopped now. The files in %s are not ogg "
@@ -5038,6 +5086,9 @@ msgstr "Aikaa jäljellä = %d"
 #, c-format
 msgid "Couldn't parse file %s !"
 msgstr "Tiedostoa %s ei voitu tulkita!"
+
+#~ msgid "English (USA)"
+#~ msgstr "Englanti (Yhdysvallat)"
 
 #~ msgid "Reproduce in the empty area the same tower as the one on the right"
 #~ msgstr "Rakenna tyhjään paikkaan täsmälleen samanlainen torni kuin oikealla"
