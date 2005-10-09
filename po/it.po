@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-06 22:44+0200\n"
-"PO-Revision-Date: 2005-10-06 22:44+0200\n"
+"POT-Creation-Date: 2005-10-09 17:55+0200\n"
+"PO-Revision-Date: 2005-10-07 10:33+0200\n"
 "Last-Translator: Immacolata Arenga <imma@eppesuigoccas.homedns.org>\n"
 "Language-Team: IT <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../boards/administration.xml.in.h:1
-#, fuzzy
 msgid ""
 "- In the 'Boards' section you can change the list of activities. Just "
 "untoggle them in the treeview. You can change the language used for reading, "
@@ -68,12 +67,7 @@ msgstr ""
 "specifiche per ogni bambino ai genitori e agli insegnanti che vogliono "
 "controllare i progressi, le potenzialità e i punti deboli dei loro bambini."
 
-#: ../boards/administration.xml.in.h:4 ../boards/algebra_group.xml.in.h:2
-#: ../boards/algebramenu.xml.in.h:2 ../boards/boards.xml.in.h:2
-#: ../boards/colors_group.xml.in.h:2 ../boards/computer.xml.in.h:2
-#: ../boards/experience.xml.in.h:2 ../boards/fun.xml.in.h:2
-#: ../boards/gnumchmenu.xml.in.h:2 ../boards/menu.xml.in.h:17
-#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
+#: ../boards/administration.xml.in.h:4 ../boards/gnumchmenu.xml.in.h:2
 msgid "Left-Click with the mouse to select an activity"
 msgstr "Premi il tasto sinistro del mouse per scegliere un'attività"
 
@@ -380,11 +374,12 @@ msgid "veronese"
 msgstr "veronese"
 
 #: ../boards/algebra_by.xml.in.h:1
+#, fuzzy
 msgid ""
-"A multiplication with two numbers is displayed. At the right of the equal "
-"sign, give the product. Use the left and right arrows to modify the product, "
-"and press the Enter key to check your answer. You can control the speed of "
-"the timer in the GCompris configuration dialog."
+"A multiplication of two numbers is displayed. At the right of the equals "
+"sign, give the answer, the product. Use the left and right arrows to modify "
+"your answer and press the Enter key to check if you've got it right. If not, "
+"just try again."
 msgstr ""
 "Osserva la moltiplicazione tra due numeri. Scrivi il prodotto a destra "
 "dell'uguale. Usa le frecce sinistra e destra per modificare il prodotto, il "
@@ -412,12 +407,22 @@ msgstr "Esercizi con la moltiplicazione"
 msgid "Go to Algebra activities"
 msgstr "Vai agli esercizi di algebra"
 
+#: ../boards/algebra_group.xml.in.h:2 ../boards/algebramenu.xml.in.h:2
+#: ../boards/boards.xml.in.h:2 ../boards/colors_group.xml.in.h:2
+#: ../boards/computer.xml.in.h:2 ../boards/experience.xml.in.h:2
+#: ../boards/fun.xml.in.h:2 ../boards/menu.xml.in.h:17
+#: ../boards/mouse.xml.in.h:1 ../boards/reading.xml.in.h:2
+#, fuzzy
+msgid "Left-click the mouse on an activity to select it."
+msgstr "Premi il tasto sinistro del mouse per scegliere un'attività"
+
 #: ../boards/algebra_guesscount.xml.in.h:1 ../boards/erase_clic.xml.in.h:1
 #: ../boards/erase_double_clic.xml.in.h:1
+#, fuzzy
 msgid ""
-"Animal pictures are taken from the Animal Photography Page of Ralf Schmode "
-"&lt;http://schmode.net/&gt; Ralf has given gcompris the authorization to "
-"include his pictures. Thanks a lot Ralf."
+"Animal pictures come from the Animal Photography Page of Ralf Schmode "
+"(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
+"pictures. Thanks a lot, Ralf."
 msgstr ""
 "Le immagini degli animali sono state prese da Animal Photography Page di "
 "Ralf \n"
@@ -426,43 +431,50 @@ msgstr ""
 "per includere le sue foto. Molte grazie a Ralf."
 
 #: ../boards/algebra_guesscount.xml.in.h:2
+#, fuzzy
 msgid ""
-"Choose the numbers and arithmetic operators at the top of the board area "
-"that give the specified result. The numbers and operators can be unselected "
-"by clicking on them."
+"At the top of the board area, choose the numbers and arithmetic operators "
+"that give the specified result. You can deselect a number or operator by "
+"clicking on it again."
 msgstr ""
 "Scegli dalla parte alta della tavola i numeri e le operazioni per ottenere "
 "il risultato richiesto. Puoi annullare la selezione di questi numeri e "
 "operazioni cliccandoci sopra."
 
 #: ../boards/algebra_guesscount.xml.in.h:3
+#, fuzzy
 msgid ""
-"Deploy a strategy to arrange a set of arithmetic operations to find a value"
+"Deploy a strategy to arrange a set of arithmetic operations to match a given "
+"value."
 msgstr "Inserisci le operazioni aritmetiche per ottenere il risultato"
 
 #: ../boards/algebra_guesscount.xml.in.h:4
-msgid "Find the correct operations to get the result"
+#, fuzzy
+msgid "Find the series of correct operations that matches the given answer"
 msgstr "Trova le operazioni giuste per ottenere il risultato"
 
 #: ../boards/algebra_guesscount.xml.in.h:5
+#, fuzzy
+msgid "The four arithmetic operations. Combine several arithmetic operations."
+msgstr ""
+"Le quattro operazioni aritmetiche. Combina varie operazioni aritmetiche"
+
+#: ../boards/algebra_guesscount.xml.in.h:6
+#, fuzzy
 msgid ""
-"Find the right combination of numbers and operations to obtain a specified "
-"result"
+"Work out the right combination of numbers and operations to match the given "
+"value"
 msgstr ""
 "Trova la giusta combinazione di numeri e operazioni per ottenere\n"
 "il risultato richiesto"
 
-#: ../boards/algebra_guesscount.xml.in.h:6
-msgid "The four arithmetic operations. Combine several arithmetic operations"
-msgstr ""
-"Le quattro operazioni aritmetiche. Combina varie operazioni aritmetiche"
-
 #: ../boards/algebra_minus.xml.in.h:1
+#, fuzzy
 msgid ""
-"A substraction problem with two numbers is displayed. At the right of the "
-"equal sign, give the difference. Use the left and right arrows to modify "
-"your answer, and press the Enter key to check the result. You can control "
-"the speed of the timer in the GCompris configuration dialog."
+"A subtraction problem with two numbers is displayed. At the right of the "
+"equals sign, give the answer, the difference. Use the left and right arrows "
+"to modify your answer and press the Enter key to check if you've got it "
+"right. If not, just try again."
 msgstr ""
 "Osserva la sottrazione tra due numeri. Scrivi la differenza a destra "
 "dell'uguale. Usa le frecce sinistra e destra per modificare la tua risposta, "
@@ -474,24 +486,27 @@ msgid "In a limited time, find the difference between two numbers"
 msgstr "Entro il tempo limite, trova la differenza tra due numeri"
 
 #: ../boards/algebra_minus.xml.in.h:4
-msgid "Practice the substraction operation"
+#, fuzzy
+msgid "Practise the subtraction operation"
 msgstr "Esercizi con la sottrazione"
 
 #: ../boards/algebra_minus.xml.in.h:5
-msgid "Simple substraction"
+#, fuzzy
+msgid "Simple subtraction"
 msgstr "Sottrazioni semplici"
 
 #: ../boards/algebra_plus.xml.in.h:1
+#, fuzzy
 msgid ""
-"A addition problem with two numbers is displayed. At the right of the equal "
-"sign, give the sum. Use the left and right arrows to modify the sum, and the "
-"Enter key to check your answer. You can control the speed of the timer in "
-"the GCompris configuration dialog."
+"An addition problem with two numbers is displayed. At the right of the "
+"equals sign, give the answer, the sum. Use the left and right arrows to "
+"modify your answer and press the Enter key to check if you've got it right. "
+"If not, just try again."
 msgstr ""
-"Osserva l'addizione tra due numeri. Scrivi la somma a destra dell'uguale. "
-"Usa le frecce sinistra e destra per modificare la tua somma, il tasto invio "
-"per verificarla. Puoi controllare la velocità del timer nella finestra di "
-"configurazione di GCompris."
+"Osserva la sottrazione tra due numeri. Scrivi la differenza a destra "
+"dell'uguale. Usa le frecce sinistra e destra per modificare la tua risposta, "
+"il tasto invio per verificarla. Puoi controllare la velocità del timer nella "
+"finestra di configurazione di GCompris."
 
 #: ../boards/algebra_plus.xml.in.h:3
 msgid ""
@@ -502,7 +517,8 @@ msgstr ""
 "Introduzione all'addizione semplice."
 
 #: ../boards/algebra_plus.xml.in.h:4
-msgid "Practice the addition operation"
+#, fuzzy
+msgid "Practise the addition operation"
 msgstr "Esercizi con l'addizione"
 
 #: ../boards/algebra_plus.xml.in.h:5
@@ -518,11 +534,11 @@ msgid "Complete a list of symbols"
 msgstr "Completa una lista di simboli"
 
 #: ../boards/algorithm.xml.in.h:2
-msgid "Find the next in a list of symbols."
+#, fuzzy
+msgid "Find the next symbol in a list."
 msgstr "Trova il prossimo in una lista di simboli."
 
-#: ../boards/algorithm.xml.in.h:3 ../boards/bargame.xml.in.h:3
-#: ../boards/hexagon.xml.in.h:2
+#: ../boards/algorithm.xml.in.h:3
 msgid "Logic training activity"
 msgstr "Esercizi di logica"
 
@@ -544,10 +560,12 @@ msgid "Free drawing and animation tool."
 msgstr "Strumento per il disegno libero e l'animazione."
 
 #: ../boards/anim.xml.in.h:3
+#, fuzzy
 msgid ""
-"In this game, children can draw freely. The goal is just to discover how to "
-"create pretty-looking drawings based on basic shapes: rectangles, ellipses "
-"and lines. To make it more fun for kids, a set of images can also be used."
+"In this game, children can draw freely. The goal is to discover how to "
+"create attractive drawings based on basic shapes: rectangles, ellipses and "
+"lines. To give children a wider range of choices, a set of images can also "
+"be used."
 msgstr ""
 "In questo gioco i bambini possono disegnare liberamente. Lo scopo è "
 "semplicemente scoprire come si possono creare disegni graziosi con le forme "
@@ -555,21 +573,25 @@ msgstr ""
 "essere usato un insieme di immagini."
 
 #: ../boards/anim.xml.in.h:4 ../boards/draw.xml.in.h:4
-msgid "Needs to be able to move and click the mouse readily"
+#, fuzzy
+msgid "Needs to be capable of moving and clicking the mouse easily"
 msgstr "È necessario saper muovere il mouse e fare clic rapidamente"
 
 #: ../boards/anim.xml.in.h:5
+#, fuzzy
 msgid ""
-"Select a drawing tool on the left and a color on the bottom. Then click and "
-"drag in the white area to create a new shape. Once one drawing is complete, "
-"you can take a snapshot of it with the 'camera' button. A new image with the "
-"same content is created. You can then move objects a little bit or add/"
-"delete objects. Create several drawings and then click on the 'film' button. "
-"You will see all your images in an infinite loop. You can change the viewing "
-"speed in this mode. In view mode, click on the 'drawing' button to return to "
-"drawing. You can then edit each image of your animation by using the image "
-"selector in the bottom left of the screen. You can save and reload your "
-"animations with the 'floppy' and 'folder' button."
+"Select a drawing tool on the left, and a colour down the bottom. Then click "
+"and drag in the white area to create a new shape. Once you've completed a "
+"drawing, you can take a snapshot of it with the 'camera' button. This "
+"creates a new image with the same content, a copy of your image. You can "
+"then edit it by moving objects a little bit or adding/deleting objects. When "
+"you create several drawings and then click on the 'film' button, you will "
+"see all your images in a continuous slide-show (an infinite loop pattern). "
+"You can also change the viewing speed in this mode. In viewing mode, click "
+"on the 'drawing' button to return to drawing mode. You can then edit each "
+"image in your animation, by using the image selector in the bottom-left "
+"corner of the screen. You can also save and reload your animations with the "
+"'floppy disk' and 'folder' buttons."
 msgstr ""
 "Scegli uno strumento per disegnare sulla sinistra e un colore in basso. Poi "
 "fai clic e trascina nell'area bianca per creare una nuova forma. Quando il "
@@ -672,6 +694,11 @@ msgstr "Intelligenza"
 #: ../boards/bargame.xml.in.h:2
 msgid "Do not place the last ball"
 msgstr "Non posizionare l'ultima biglia"
+
+#: ../boards/bargame.xml.in.h:3 ../boards/hexagon.xml.in.h:2
+#, fuzzy
+msgid "Logic-training activity"
+msgstr "Esercizi di logica"
 
 #: ../boards/bargame.xml.in.h:4
 msgid ""
@@ -1046,12 +1073,11 @@ msgstr ""
 "direzione di una lancetta selezionandola e muovendo il mouse."
 
 #: ../boards/clockgame.xml.in.h:2
-#, fuzzy
 msgid ""
 "Distinguish between hours, minutes and seconds. Display time on a clock."
 msgstr ""
-"Distingui le differenze tra ore, minuti e secondi. Imposta l'ora "
-"sull'orologio"
+"Distingui la differenza tra ore, minuti e secondi. Imposta l'ora "
+"sull'orologio."
 
 #: ../boards/clockgame.xml.in.h:3 ../src/boards/clockgame.c:80
 msgid "Learn how to tell the time"
@@ -1282,7 +1308,7 @@ msgstr "Il codice originale è preso dal demo di libgnome canvas"
 
 #: ../boards/fifteen.xml.in.h:5
 msgid "Samuel Loyd"
-msgstr ""
+msgstr "Samuel Loyd"
 
 #: ../boards/fifteen.xml.in.h:6 ../src/boards/fifteen.c:56
 msgid "The fifteen game"
@@ -1290,31 +1316,27 @@ msgstr "Il gioco del quindici"
 
 #: ../boards/fifteen.xml.in.h:7
 msgid "anticipate"
-msgstr ""
+msgstr "anticipa"
 
 #: ../boards/fifteen.xml.in.h:8
 msgid "logical"
-msgstr ""
+msgstr "logico"
 
 #: ../boards/fifteen.xml.in.h:9
-#, fuzzy
 msgid "move"
-msgstr "tortora"
+msgstr "muovi"
 
 #: ../boards/fifteen.xml.in.h:10
-#, fuzzy
 msgid "puzzle"
-msgstr "porpora"
+msgstr "rompicapo"
 
 #: ../boards/fifteen.xml.in.h:11
-#, fuzzy
 msgid "slide"
-msgstr "limetta"
+msgstr "tassello"
 
 #: ../boards/fifteen.xml.in.h:12
-#, fuzzy
 msgid "taquin"
-msgstr "acquamarina"
+msgstr "gioco del quindici"
 
 #: ../boards/followline.xml.in.h:1
 msgid "Fine motor coordination"
@@ -3616,22 +3638,22 @@ msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcdefghijklmnopqrstuvwxyz"
 
 #: ../src/boards/click_on_letter.c:270
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s or %s"
 msgstr ""
 "Errore: questa attività richiede che siano prima installati\n"
-"i pacchetti assetml-voices-alphabet-%s"
+"i pacchetti assetml-voices-alphabet-%s o %s"
 
 #: ../src/boards/click_on_letter.c:277
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages assetml-voices-alphabet-%s ! Fallback to english, sorry!"
 msgstr ""
 "Errore: questa attività richiede che siano prima installati\n"
-"i pacchetti assetml-voices-alphabet-%s"
+"i pacchetti assetml-voices-alphabet-%s! Scusa, utilizzo l'inglese!"
 
 #: ../src/boards/click_on_letter.c:285
 msgid ""
@@ -4433,9 +4455,8 @@ msgid "Inherit fullscreen setting from GCompris"
 msgstr "Utilizza le impostazioni dello schermo da GCompris"
 
 #: ../src/boards/python/tuxpaint.py:187
-#, fuzzy
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr "Utilizza le impostazioni dello schermo da GCompris"
+msgstr "Utilizza le impostazioni dello schermo da GCompris (800x600, 640x480)"
 
 #: ../src/boards/python/tuxpaint.py:191
 msgid "Disable shape rotation"
@@ -4685,9 +4706,8 @@ msgid "Spanish"
 msgstr "spagnolo"
 
 #: ../src/gcompris/config.c:76
-#, fuzzy
 msgid "Basque"
-msgstr "vaso"
+msgstr "basco"
 
 #: ../src/gcompris/config.c:77
 msgid "Finnish"
@@ -4730,9 +4750,8 @@ msgid "Italian"
 msgstr "italiano"
 
 #: ../src/gcompris/config.c:87
-#, fuzzy
 msgid "Georgian"
-msgstr "tedesco"
+msgstr "georgiano"
 
 #: ../src/gcompris/config.c:88
 msgid "Lithuanian"
@@ -5149,5 +5168,13 @@ msgstr "Tempo restante = %d"
 msgid "Couldn't parse file %s !"
 msgstr "Impossibile leggere il file %s !"
 
-#~ msgid "English (USA)"
-#~ msgstr "inglese (USA)"
+#~ msgid ""
+#~ "A addition problem with two numbers is displayed. At the right of the "
+#~ "equal sign, give the sum. Use the left and right arrows to modify the "
+#~ "sum, and the Enter key to check your answer. You can control the speed of "
+#~ "the timer in the GCompris configuration dialog."
+#~ msgstr ""
+#~ "Osserva l'addizione tra due numeri. Scrivi la somma a destra dell'uguale. "
+#~ "Usa le frecce sinistra e destra per modificare la tua somma, il tasto "
+#~ "invio per verificarla. Puoi controllare la velocità del timer nella "
+#~ "finestra di configurazione di GCompris."
