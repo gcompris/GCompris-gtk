@@ -39,6 +39,7 @@ int len=4096, bits=0, which=0;
 int audio_buffers=2048;
 
 static gboolean sound_closed = FALSE;
+static gboolean sound_paused = FALSE;
 
 /******************************************************************************/
 /* some simple exit and error routines                                        */
@@ -88,6 +89,7 @@ int sdlplayer_init()
   bits=audio_format&0xFF;
   printf("Opened audio at %d Hz %d bit %s, %d bytes audio buffer\n", audio_rate,
 	 bits, audio_channels>1?"stereo":"mono", audio_buffers );
+  sound_paused = FALSE;
 
   return(0);
 }
@@ -106,6 +108,9 @@ int sdlplayer_quit(Mix_Music *music)
 int sdlplayer_bg(char *filename, int volume)
 {
   Mix_Music *music;
+
+  while (sound_paused)
+    SDL_Delay(50);
 
   printf("sdlplayer_bg %s\n", filename);
 
@@ -161,7 +166,7 @@ int sdlplayer(char *filename, int volume)
   /*   } */
   
   // resume music playback
-  if (!sound_closed)
+  if ((!sound_closed) && (!sound_paused))
     Mix_ResumeMusic();
 
   // free the sample
@@ -184,5 +189,18 @@ void sdlplayer_reopen()
   Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,audio_buffers);
   SDL_PauseAudio(0);
   sound_closed = FALSE;
+  sound_paused = FALSE;
 }
 
+void sdlplayer_pause(){
+  Mix_PauseMusic();
+  sound_paused = TRUE;
+}
+
+void sdlplayer_resume(){
+  // resume music playback
+  if (!sound_closed){
+    Mix_ResumeMusic();
+    sound_paused = FALSE;
+  }
+}

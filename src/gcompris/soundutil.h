@@ -40,6 +40,8 @@ int	 getSoundPolicy(void);
 void	 initSound(void);
 void	 gcompris_reopen_sound(void);
 void	 gcompris_close_sound(void);
+void	 gcompris_pause_sound(void);
+void	 gcompris_resume_sound(void);
 
 int	 decode_ogg_file(char *infile);
 void	 display_ao_devices();
@@ -51,6 +53,8 @@ int	 sdlplayer_init();
 int	 sdlplayer_bg();
 void	 sdlplayer_close();
 void	 sdlplayer_reopen();
+void	 sdlplayer_pause();
+void	 sdlplayer_resume();
 int	 sdlplayer(char *filename, int volume);
 
 gchar *gcompris_alphabet_sound(gchar *chars);

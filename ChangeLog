@@ -1,3 +1,18 @@
+2005-10-09  Yves Combe  <yves@ycombe.net>
+
+	add pause/resume functions for sound bg. Example in melody.py
+
+	* po/Makefile.in.in:
+	* src/boards/py-mod-sound.c: (py_gcompris_pause_sound),
+	(py_gcompris_resume_sound):
+	* src/boards/python/melody.py:
+	* src/gcompris/sdlplayer.c: (sdlplayer_init), (sdlplayer_bg),
+	(sdlplayer), (sdlplayer_reopen), (sdlplayer_pause),
+	(sdlplayer_resume):
+	* src/gcompris/soundutil.c: (gcompris_pause_sound),
+	(gcompris_resume_sound):
+	* src/gcompris/soundutil.h:
+
 2005-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	Started to integrate a complete review of our english strings

@@ -114,6 +114,13 @@ void gcompris_reopen_sound()
   }
 }
 
+void gcompris_pause_sound(){
+  sdlplayer_pause();
+}
+
+void gcompris_resume_sound(){
+  sdlplayer_resume();
+}
 
 /* =====================================================================
  *

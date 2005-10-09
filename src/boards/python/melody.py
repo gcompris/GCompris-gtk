@@ -50,6 +50,11 @@ class Gcompris_melody:
     self.gcomprisBoard.level=1
     self.gcomprisBoard.sublevel=1 
     self.gcomprisBoard.number_of_sublevel=1
+
+    # pause the bg music
+    print "pause sound"
+    gcompris.sound.pause()
+
     self.timers = []
     self.solution = []
     self.kidstry = []
@@ -100,6 +105,7 @@ class Gcompris_melody:
   def end(self):
     self.cleanup()
     print("Gcompris_melody end.")
+    gcompris.sound.resume()
         
 
   def ok(self):
