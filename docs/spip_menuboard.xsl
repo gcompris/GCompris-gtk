@@ -42,7 +42,7 @@
       <soustitre>__REMOVEME__</soustitre>
       <descriptif>__REMOVEME__</descriptif>
       <chapo>__REMOVEME__</chapo>
-      <url_propre><xsl:value-of select="$language"/><xsl:value-of select="$section"/></url_propre>
+      <url_propre><xsl:value-of select="$langstrip"/>-<xsl:value-of select="$name"/></url_propre>
       <ps>__REMOVEME__</ps>
 
       <xsl:for-each select="GComprisBoards/GCompris/Board[@name=$name]">

@@ -1,6 +1,47 @@
-2005-10-07  Bruno coudoin  <bruno.coudoin@free.fr>
+2005-10-09  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
+	Started to integrate a complete review of our english strings
+	by Clytie Siddall
+
+	Updated screenshots.
+	Changed the web site generation to have clean URL.
+	
+	* boards/algebra_by.xml.in:
+	* boards/algebra_group.xml.in:
+	* boards/algebra_guesscount.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/algebramenu.xml.in:
+	* boards/algorithm.xml.in:
+	* boards/anim.xml.in:
+	* boards/bargame.xml.in:
+	* boards/boards.xml.in:
+	* boards/colors_group.xml.in:
+	* boards/computer.xml.in:
+	* boards/draw.xml.in:
+	* boards/erase_clic.xml.in:
+	* boards/erase_double_clic.xml.in:
+	* boards/experience.xml.in:
+	* boards/fun.xml.in:
+	* boards/hexagon.xml.in:
+	* boards/menu.xml.in:
+	* boards/mouse.xml.in:
+	* boards/reading.xml.in:
+	* docs/gcompris2spip.pl:
+	* docs/screenshots/algorithm.jpg:
+	* docs/screenshots/algorithm_small.jpg:
+	* docs/screenshots/bargame.jpg:
+	* docs/screenshots/bargame_small.jpg:
+	* docs/screenshots/clockgame.jpg:
+	* docs/screenshots/clockgame_small.jpg:
+	* docs/screenshots/melody.jpg:
+	* docs/screenshots/melody_small.jpg:
+	* docs/screenshots/traffic.jpg:
+	* docs/screenshots/traffic_small.jpg:
+	* docs/spip_menuboard.xsl:
+	* docs/spip_oneboard.xsl:
+
+2005-10-07  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	* docs/spip_menuboard.xsl:
 	* src/boards/hanoi_real.c: (hanoi_create_item):

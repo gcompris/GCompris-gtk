@@ -350,7 +350,11 @@ foreach my $onesection (@sections) {
 
     print "$lang ";
 
-    my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file`;
+    # Remove @ from some langage to avoid non URL char
+    my $langstrip = $lang;
+    $langstrip =~ s/\@/_/g;
+
+    my $output = `xsltproc --stringparam language $lang --stringparam langstrip $langstrip --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file`;
 
     #print "xsltproc --stringparam language $lang --stringparam date \"${date}\" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques{$lang} --stringparam section $section --stringparam name $name --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $all_boards_file\n";
 
@@ -410,10 +414,15 @@ foreach my $board (@files) {
 
     print "$lang ";
 
+    # Remove @ from some langage to avoid non URL char
+    my $langstrip = $lang;
+    $langstrip =~ s/\@/_/g;
+
+
     # Hide the article
 #    $rubriques{$lang} = 0;
 
-    my $output = `xsltproc --stringparam language $lang --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques_all{$lang} --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $file`;
+    my $output = `xsltproc --stringparam language $lang --stringparam langstrip $langstrip --stringparam date "${date}" --stringparam article_id ${article_id} --stringparam rubrique_id $rubriques_all{$lang} --stringparam section_id $sections{$lang} --stringparam traduction_id ${traduction_id} $xslfile $file`;
 
     if ($?>>8) {
       print "#\n";
