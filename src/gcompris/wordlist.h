@@ -21,11 +21,17 @@
 #define WORDLIST_H
 
 typedef struct {
+  gint level;
+  GList *words;
+} LevelWordlist;
+
+typedef struct {
   gchar         *filename;
+  gchar         *name;
   gchar         *description;
   gchar         *locale;
-  gchar         *level;
-  GList         *words;
+  /* LevelWordlist list */
+  GList         *levels_words;
 } GcomprisWordlist;
 
 GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename);

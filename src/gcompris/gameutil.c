@@ -1,6 +1,6 @@
 /* gcompris - gameutil.c
  *
- * Time-stamp: <2005/09/26 23:39:51 bruno>
+ * Time-stamp: <2005/10/11 22:45:13 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -817,7 +817,7 @@ void gcompris_load_menus_dir(char *dirname, gboolean db){
 
       if(selectMenuXML(one_dirent)) {
 	gcomprisBoard = g_malloc0 (sizeof (GcomprisBoard));
-	gcomprisBoard->board_dir = dirname;
+	gcomprisBoard->board_dir = g_strdup(dirname);
 
 	/* Need to be initialized here because gcompris_read_xml_file is used also to reread 	*/
 	/* the locale data									*/
@@ -910,9 +910,11 @@ void gcompris_load_menus()
   }
   
 
-  if (properties->local_directory)
-    gcompris_load_menus_dir(properties->local_directory, FALSE);
-
+  if (properties->local_directory){
+    gchar *board_dir = g_strdup_printf("%s/boards/", properties->local_directory);
+    gcompris_load_menus_dir(board_dir, FALSE);
+    g_free(board_dir);
+  }
 }
 
 /* ======================================= */

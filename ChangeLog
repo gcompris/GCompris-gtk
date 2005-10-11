@@ -1,3 +1,18 @@
+2005-10-11  Yves Combe  <yves@ycombe.net>
+
+	change -L behaviour: folder/boards a,d folder/python are now needed.
+	fix wordlist compilation, untested yet.
+
+	* src/boards/menu.c: (menu_create_item):
+	* src/boards/py-gcompris-wordlist.c:
+	(pyGcomprisWordlistType_getattr):
+	* src/boards/python.c: (pythonboard_init), (pythonboard_start):
+	* src/gcompris/gameutil.c: (gcompris_load_menus_dir),
+	(gcompris_load_menus):
+	* src/gcompris/wordlist.c: (gcompris_get_wordlist_from_file),
+	(gcompris_wordlist_free):
+	* src/gcompris/wordlist.h:
+
 2005-10-09  Yves Combe  <yves@ycombe.net>
 
 	add pause/resume functions for sound bg. Example in melody.py

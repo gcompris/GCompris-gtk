@@ -48,26 +48,36 @@ pyGcomprisWordlistType_getattr(pyGcomprisWordlistObject *self, char *name)
     /* Wordlist filename */
     if(strcmp(name,"filename")==0) return Py_BuildValue("s", self->cdata->filename);
     if(strcmp(name,"locale")==0) return Py_BuildValue("z", self->cdata->locale);
-    if(strcmp(name,"level")==0) return Py_BuildValue("z", self->cdata->level);
-
     if(strcmp(name,"description")==0) return Py_BuildValue("z", self->cdata->description);
 
     /* list */
     if(strcmp(name,"words")==0){
+      PyObject *pydict;
       PyObject *pylist;
-      GList *list;
+      gint level;
+      GList *words;
+      GList *list, *list_words;
 
-      pylist = PyList_New(0);
-      for (list = self->cdata->words; list !=NULL; list = list->next){
-	PyList_Append(pylist, Py_BuildValue("s", (gchar *)list->data));
+      pydict = PyDict_New();
+      
+      for (list = self->cdata->levels_words; list !=NULL; list = list->next){
+	level =  ((LevelWordlist *)  list)->level;
+	words = ((LevelWordlist *)  list)->words;
+	
+	pylist = PyList_New(0);
+	for (list_words = words; list_words !=NULL; list_words = list_words->next){
+	  PyList_Append(pylist, Py_BuildValue("s", (gchar *)list->data));
+	}
+	
+	PyDict_SetItem( pydict, PyInt_FromLong(	(long) level), pylist);
+	
+      return pydict;
       }
-
-      return pylist;
     }
-
-
   }
+
   return Py_FindMethod(pyGcomprisWordlistType_methods, (PyObject *)self, name);
+
 }
 
 /* Set the value of a GcomprisWordlist structure member */

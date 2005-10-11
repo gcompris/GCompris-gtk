@@ -1,6 +1,6 @@
 /* gcompris - menu.c
  *
- * Time-stamp: <2005/09/28 20:55:01 bruno>
+ * Time-stamp: <2005/10/10 22:56:10 yves>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -320,15 +320,18 @@ static void menu_create_item(GnomeCanvasGroup *parent, MenuItems *menuitems, Gco
   if(board->mandatory_sound_file)
     {
       gchar *soundfile = NULL;
-      
+      gchar *soundfilename = NULL;
+
       if(board->mandatory_sound_dataset) {
 	/* We have to search for an assetml sound */
 	soundfile = gcompris_get_asset_file(board->mandatory_sound_dataset, NULL, NULL, 
 					    board->mandatory_sound_file);
       } else {
 	/* We search a fixed path sound file */
-	soundfile = g_strdup_printf("%s/%s", PACKAGE_DATA_DIR "/sounds", 
+	soundfilename = g_strdup_printf("%s/%s", "sounds", 
 				    board->mandatory_sound_file);
+	soundfile = gcompris_find_absolute_filename(soundfilename);
+	g_free(soundfilename);
 	g_warning("Checking mandatory_sound_file %s\n", soundfile);
       }
 

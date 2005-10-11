@@ -27,6 +27,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
   xmlDocPtr xmldoc;
   xmlNodePtr wlNode;
   xmlNodePtr node;
+  xmlNodePtr wordsNode;
   int i;
 
   GcomprisWordlist     *wordlist;
@@ -78,25 +79,29 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
     wlNode = wlNode->next;
 
  if((wlNode==NULL)||
-     g_strcasecmp((gchar *)wlNode->name,"wordlist")!=0) {
+     g_strcasecmp((gchar *)wlNode->name,"Wordlist")!=0) {
     g_warning("No wordlist node %s", (wlNode == NULL) ? (gchar *)wlNode->name : "NULL node");
     xmlFreeDoc(xmldoc);
     return NULL;
   }
  
- node = wlNode->children;
- while((node!=NULL)&&(node->type!=XML_TEXT_NODE))
-    node = node->next;
-
- if (!node){
-   g_warning("No wordlist text node %s", wlNode->name);
-   return NULL;
- }
 
  /* ok, we can process the wordlist */
  wordlist = g_malloc0(sizeof(GcomprisWordlist));
 
  wordlist->filename = g_strdup(filename);
+
+ /* Get name */
+ text = xmlGetProp ( wlNode,
+		     (const xmlChar *) "name");
+
+ if (text) {
+   wordlist->name = g_strdup ((gchar *) text);
+   xmlFree (text);
+ }
+
+
+ /* Get description */
  text = xmlGetProp ( wlNode,
 		     (const xmlChar *) "description");
  if (text) {
@@ -104,51 +109,87 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
    xmlFree (text);
  }
 
+ /* Get locale */
  text = xmlGetProp ( wlNode,
 		     (const xmlChar *) "locale");
  if (text) {
    wordlist->locale = g_strdup ((gchar *) text);
    xmlFree (text);
  }
- text = xmlGetProp ( wlNode,
-		     (const xmlChar *) "level");
- if (text) {
-   wordlist->level = g_strdup ((gchar *) text);
+
+ /* Levels loop */
+
+ node = wlNode->children;
+ while((node!=NULL)) {
+   if (node->type!=XML_ELEMENT_NODE){
+     node = node->next;
+     continue;
+   }
+
+   if (strcmp(node->name,"level")!=0){
+     g_warning("Parsing %s error", filename);
+     break;
+   }
+
+   wordsNode = node->children;
+   if (wordsNode->type!=XML_TEXT_NODE){
+     g_warning("Parsing %s error", filename);
+     break;
+   }
+
+   text = xmlNodeGetContent ( wordsNode);
+ 
+   wordsArray = g_strsplit_set ((const gchar *) text,
+				(const gchar *) " \n\t",
+				0);
+ 
    xmlFree (text);
+
+   i=0;
+   while (wordsArray[i] != NULL) {
+     words = g_list_append( words, g_strdup( wordsArray[i++]));
+   }
+   
+   g_strfreev ( wordsArray);
+
+
+   /* initialise LevelWordlist struct */
+   LevelWordlist *level_words = g_malloc0(sizeof(LevelWordlist));
+
+   text = xmlGetProp ( node,
+		       (const xmlChar *) "value");
+   if (text) {
+     level_words->level = atoi((gchar *) text);
+     xmlFree (text);
+   }
+
+   level_words->words = words;
+
+   wordlist->levels_words = level_words;
+   
+   node = node->next;
  }
-
- text = xmlNodeGetContent ( node);
- 
- wordsArray = g_strsplit_set ((const gchar *) text,
-			      (const gchar *) " \n\t",
-			      0);
- 
- xmlFree (text);
-
- i=0;
- while (wordsArray[i] != NULL) {
-   words = g_list_append( words, g_strdup( wordsArray[i++]));
- }
-
- g_strfreev ( wordsArray);
-
- wordlist->words = words;
 
  return wordlist;
 }
 
  void gcompris_wordlist_free(GcomprisWordlist *wordlist)
 {
-  GList *list;
+  GList *list, *words;
   g_free ( wordlist->filename);
   g_free ( wordlist->description);
   g_free ( wordlist->locale);
-  g_free ( wordlist->level);
+  g_free ( wordlist->name);
   
-  for ( list = wordlist->words; list !=NULL; list=list->next)
-    g_free(list->data);
-
-  g_list_free ( wordlist->words);
+  for ( list = wordlist->levels_words; list !=NULL; list=list->next){
+    LevelWordlist *lw = (LevelWordlist *)list->data;
+    for ( words = lw->words; words !=NULL; words = words->next)
+      g_free(words->data);
+    g_list_free(lw->words);
+    g_free(lw);
+  }
+  g_list_free ( wordlist->levels_words);
+  g_free (wordlist);
 }
 
 
