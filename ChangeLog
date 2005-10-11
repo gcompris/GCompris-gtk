@@ -1,6 +1,18 @@
 2005-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
-	reviewed by: <delete if not using a buddy>
+	A new activity coded by my son Clement.
+	Tux hide a number and you have to find it.
+	It's already playable but uncomplete.
+	It's hidden by a difficulty 0
+	run 'gcompris -d 0'  to play with it
+	
+	* boards/guessnumber.xml.in:
+	* src/boards/python/guessnumber.py:
+
+2005-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Clytie Siddall gave us a complete string review.
+	This commit is the intergration of her work.
 
 	* AUTHORS:
 	* boards/Makefile.am:
