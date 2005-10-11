@@ -1,6 +1,6 @@
 /* gcompris - shapegame.c
  *
- * Time-stamp: <2005/09/28 23:10:45 bruno>
+ * Time-stamp: <2005/10/12 00:36:09 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -170,8 +170,8 @@ static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
-   N_("Make the puzzle"),
-   N_("Drag and Drop the items to rebuild the object"),
+   "Make the puzzle",
+   "Drag and Drop the items to rebuild the object",
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,
@@ -462,7 +462,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     {
     case 'e':
       /* Enter Edit Mode */
-      gcompris_dialog(_("You entered the Edit mode\nMove the puzzle items and\ntype 's' to save, and\n'd' to display all the shapes"), NULL);
+      gcompris_dialog(_("You have entered Edit mode\nMove the puzzle items;\ntype 's' to save, and\n'd' to display all the shapes"), NULL);
       edit_mode = TRUE;
       break;
     case 's':

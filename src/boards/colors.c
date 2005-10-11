@@ -77,9 +77,9 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Colors"),
-    N_("Click on the right color"),
-    "Pascal Georges pascal.georges1@free.fr>",
+    "Colors",
+    "Click on the right color",
+    "Pascal Georges <pascal.georges1@free.fr>",
     NULL,
     NULL,
     NULL,

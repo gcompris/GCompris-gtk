@@ -117,7 +117,7 @@ static struct poptOption options[] = {
   {"noxrandr", 'x', POPT_ARG_NONE, &popt_noxrandr, 0,
    N_("Disable XRANDR (No screen resolution change)."), NULL},
   {"root-menu", 'l', POPT_ARG_STRING, &popt_root_menu, 0,
-   N_("Run gcompris with local menu (e.g -l /reading will let you play only reading activity directory, -l /boards/connect4 only the connect4 activity), -l list shows the list of menus and activities"), NULL},
+   N_("Run gcompris with local menu (e.g -l /reading will let you play only activities in the reading directory, -l /boards/connect4 only the connect4 activity)"), NULL},
   {"local-activity", 'L', POPT_ARG_STRING, &popt_local_activity, 0,
    N_("Run GCompris with local activity directory added to menu"), NULL},
   {"administration", 'a', POPT_ARG_NONE, &popt_administration, 0,
@@ -683,10 +683,14 @@ static void setup_window ()
   board_play (board_to_start);
 
 #ifdef WIN32
+#define WIN_ACTIVITY_COUNT   15
+#define TOTAL_ACTIVITY_COUNT 55
   {
     if(strncmp(properties->key, "thanks_for_your_help", 20)!=0) {
+      char *msg = g_strdup_printf(_("GCompris is free software released under the GPL License. In order to support its development, the Windows version provides only %d of the %d activities. You can get the full version for a small fee at\n<http://gcompris.net>\nThe Linux version does not have this restriction. Note that GCompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to children, please consider using GNU/Linux. Get more information at FSF:\n<http://www.fsf.org/philosophy>"), WIN_ACTIVITY_COUNT, TOTAL_ACTIVITY_COUNT);
       board_pause();
-      gcompris_dialog(_("GCompris is free software released under the GPL License. In order to support the development, the Windows version provides only 12 of the 45 activities. You can get the full version for a small fee at\nhttp://gcompris.net\nThe Linux version does not have this restriction. Note that gcompris is being developed to free schools from monopolistic software vendors. If you also believe that we should teach freedom to kids, please consider using GNU/Linux. Get more information at FSF:\nhttp://www.fsf.org/philosophy"), NULL);
+      gcompris_dialog(msg, NULL);
+      g_free(msg);
     }
   }
 #endif

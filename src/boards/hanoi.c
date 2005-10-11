@@ -332,7 +332,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", _("Re-create in the empty area the same tower as the one on the right"),
+			 "text", _("Build the same tower in the empty area as the one you see on the right-hand side."),
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2 +1,
 			 "y", (double) BOARDHEIGHT - 50 +1,
@@ -343,7 +343,7 @@ static GnomeCanvasItem *hanoi_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", _("Re-create in the empty area the same tower as the one on the right"),
+			 "text", _("Build the same tower in the empty area as the one you see on the right-hand side."),
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) BOARDWIDTH/2,
 			 "y", (double) BOARDHEIGHT - 50,

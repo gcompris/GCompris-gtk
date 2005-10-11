@@ -50,11 +50,11 @@ class Gcompris_pythontest:
 
     wordlist = gcompris.get_wordlist('wordslevel_max_pt_BR')
     print wordlist
-    print wordlist.filename
-    print wordlist.level
-    print wordlist.locale
-    print wordlist.description
-    print wordlist.words
+#    print wordlist.filename
+#    print wordlist.level
+#    print wordlist.locale
+#    print wordlist.description
+#    print wordlist.words
 
 
     print gcompris.get_current_user_dirname()
@@ -164,7 +164,7 @@ class Gcompris_pythontest:
       gnome.canvas.CanvasText,
       x=400.0,
       y=250.0,
-      text=_("This activity is not playable yet, just a test"),
+      text=_("This activity is not playable, just a test"),
       fill_color="white",
       justification=gtk.JUSTIFY_CENTER
       )

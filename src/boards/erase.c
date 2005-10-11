@@ -160,12 +160,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	  g_object_get(G_OBJECT(DefaultsGtkSettings), 
 		       "gtk-double-click-time", &DefaultDoubleClicDistance, NULL);
 	  
-	  g_warning(_("Double click default value %d."),DefaultDoubleClicDistance);
+	  g_warning(_("Double-click default value %d."),DefaultDoubleClicDistance);
 	}
 
 	gdk_display_set_double_click_time( gdk_display_get_default(),
 					   DoubleClicLevel[gcomprisBoard->level-1]);
-	g_warning(_("Double click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
+	g_warning(_("Double-click value is now %d."),DoubleClicLevel[gcomprisBoard->level-1]);
       }
 
       erase_next_level();

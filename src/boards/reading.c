@@ -111,8 +111,8 @@ static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
-   N_("Reading"),
-   N_("Read a list of words to see if the given word is there."),
+   "Reading",
+   "Read a list of words and then work out if the given word is in it",
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,
@@ -594,7 +594,7 @@ static void ask_yes_no()
 
   item = gnome_canvas_item_new (boardRootItem,
 				gnome_canvas_text_get_type (),
-				"text", _("Yes I saw it"),
+				"text", _("Yes, I saw it"),
 				"font", gcompris_skin_font_board_big,
 				"x", (double) x_offset +
 				gdk_pixbuf_get_width(button_pixmap)/2,

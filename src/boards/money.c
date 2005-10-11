@@ -84,8 +84,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Money"),
-    N_("Pratice money usage"),
+    "Money",
+    "Pratise money usage",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

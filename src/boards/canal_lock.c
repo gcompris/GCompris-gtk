@@ -110,8 +110,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Operate a canal lock"),
-    N_("Tux is in trouble in his ship. He needs to take it through a lock.\nHelp Tux and understand how a canal lock works."),
+    "Operate a canal lock",
+    "Tux is in trouble in his ship. He needs to take it through a lock",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

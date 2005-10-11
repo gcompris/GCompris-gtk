@@ -53,8 +53,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("The fifteen game"),
-    N_("Move the items one by one to rearrange them in increasing order"),
+    "The fifteen game",
+    "Move the items one by one, to rearrange them in increasing order",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,

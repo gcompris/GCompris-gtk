@@ -1,6 +1,6 @@
 /* gcompris - clickgame.c
  *
- * Time-stamp: <2005/07/01 23:42:40 yves>
+ * Time-stamp: <2005/10/10 00:21:56 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -82,8 +82,8 @@ static BoardPlugin menu_bp =
 {
    NULL,
    NULL,
-   N_("Click On Me"),
-   N_("Left-Click with the mouse on all swimming fish before they leave the fishtank"),
+   "Click On Me",
+   "Left-Click with the mouse on all swimming fish before they leave the fishtank",
    "Bruno Coudoin <bruno.coudoin@free.fr>",
    NULL,
    NULL,

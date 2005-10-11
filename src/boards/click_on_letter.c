@@ -83,8 +83,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Read a letter"),
-    N_("Learn to recognize letters"),
+    "Read a letter",
+    "Learn to recognize letters",
     "Pascal Georges pascal.georges1@free.fr>",
     NULL,
     NULL,
@@ -282,7 +282,7 @@ static gboolean sounds_are_fine ()
 
   fine = TRUE;
   if(!properties->fx) {
-    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo in the configuration dialog to\nenable the sound"), board_stop);
+    gcompris_dialog(_("Error: this activity cannot be played with the\nsound effects disabled.\nGo to the configuration dialogue to\nenable the sound"), board_stop);
     fine = FALSE;
   }
 

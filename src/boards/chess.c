@@ -133,8 +133,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Learning Chess"),
-    N_("Play chess against tux in a learning mode"),
+    "Learning Chess",
+    "Play chess against tux in a learning mode",
     "Bruno Coudoin <bruno.coudoin@free.fr>",
     NULL,
     NULL,
@@ -566,7 +566,7 @@ static void display_white_turn(gboolean whiteturn)
 					 NULL);
     }
 
-  gnome_canvas_item_set(turn_item, "text", (whiteturn ? _("White Turn") : _("Black Turn")),
+  gnome_canvas_item_set(turn_item, "text", (whiteturn ? _("White's Turn") : _("Black's Turn")),
 			NULL);
 }
 
@@ -710,9 +710,9 @@ static void move_piece_to(Square from, Square to)
 
   /* Display check info */
   if(position_white_king_attack(position))
-    display_info(_("White check"));
+    display_info(_("White checks"));
   else if(position_black_king_attack(position))
-    display_info(_("Black check"));
+    display_info(_("Black checks"));
   else
     display_info(" ");
 

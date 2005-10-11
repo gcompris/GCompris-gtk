@@ -489,9 +489,9 @@ static GnomeCanvasItem *maze_create_item(GnomeCanvasGroup *parent) {
 						     NULL));
 
   if(modeIsInvisible) {
-    message = _("Look at your position and switch back to invisible mode to move");
+    message = _("Look at your position, then switch back to invisible mode to continue your moves");
   } else {
-    message = _("Look at your position and switch back to 3D mode to move");
+    message = _("Look at your position, then switch back to 3D mode to continue your moves");
   }
 
   warning_item = gnome_canvas_item_new (boardRootItem,

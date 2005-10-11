@@ -11,14 +11,9 @@
 	 boarddir="">
 	 <_title>Memory Game with images</_title>
  	 <_description>Flip the cards to find the matching pairs</_description>
-	<_prerequisite>Mouse manipulation</_prerequisite>
+	<_prerequisite>Mouse-manipulation</_prerequisite>
 	<_goal>Train your memory and remove all the cards</_goal>
-	<_manual>A set of blank cards is shown. Each pair is
-associated by the same picture in their hidden faces. Click on a
-card to can uncover it and see its hidden picture. However, you
-can only see two hidden pictures at once. You have to remember the
-position of the pictures to associate them. To remove a pair of cards,
-uncover both of them.</_manual>
+	<_manual>A set of blank cards is shown. Each card has a picture on the other side, and each picture card has a twin exactly the same. Click on a card to see its hidden picture, and try to match the twins. You can only turn over two cards at once, so you need to remember where a picture is, while you look for its twin. When you turn over the twins, they both disappear.</_manual>
   </Board>
   <Data directory=""/>
 </GCompris>

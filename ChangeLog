@@ -1,3 +1,116 @@
+2005-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	reviewed by: <delete if not using a buddy>
+
+	* AUTHORS:
+	* boards/Makefile.am:
+	* boards/babymatch.xml.in:
+	* boards/babyshapes.xml.in:
+	* boards/babyshapes/board6_0.xml.in:
+	* boards/ballcatch.xml.in:
+	* boards/bargame.xml.in:
+	* boards/billard.xml.in:
+	* boards/boards.xml.in:
+	* boards/canal_lock.xml.in:
+	* boards/chess.xml.in:
+	* boards/chess_computer.xml.in:
+	* boards/chess_movelearn.xml.in:
+	* boards/chess_partyend.xml.in:
+	* boards/chronos/board3_0.xml.in:
+	* boards/chronos/board3_1.xml.in:
+	* boards/chronos/board3_2.xml.in:
+	* boards/chronos/board3_3.xml.in:
+	* boards/chronos/board3_4.xml.in:
+	* boards/chronos/board4_0.xml.in:
+	* boards/chronos/board4_1.xml.in:
+	* boards/chronos/board4_2.xml.in:
+	* boards/click_on_letter.xml.in:
+	* boards/clickgame.xml.in:
+	* boards/clockgame.xml.in:
+	* boards/colors.xml.in:
+	* boards/colors_group.xml.in:
+	* boards/connect4.xml.in:
+	* boards/doubleentry.xml.in:
+	* boards/draw.xml.in:
+	* boards/erase.xml.in:
+	* boards/erase_clic.xml.in:
+	* boards/erase_double_clic.xml.in:
+	* boards/fifteen.xml.in:
+	* boards/followline.xml.in:
+	* boards/geography.xml.in:
+	* boards/geography/board2_1.xml.in:
+	* boards/geography/board3_0.xml.in:
+	* boards/geography/board3_1.xml.in:
+	* boards/gletters.xml.in:
+	* boards/hanoi.xml.in:
+	* boards/hexagon.xml.in:
+	* boards/imageid.xml.in:
+	* boards/imagename.xml.in:
+	* boards/imagename/board1_0.xml.in:
+	* boards/imagename/board2_0.xml.in:
+	* boards/imagename/board3_0.xml.in:
+	* boards/imagename/board4_0.xml.in:
+	* boards/imagename/board5_0.xml.in:
+	* boards/imagename/board6_0.xml.in:
+	* boards/images/billard_background.jpg:
+	* boards/leftright.xml.in:
+	* boards/maze3D.xml.in:
+	* boards/mazeInvisible.xml.in:
+	* boards/melody.xml.in:
+	* boards/memory.xml.in:
+	* boards/menu.xml.in:
+	* boards/missing_letter.xml.in:
+	* boards/money.xml.in:
+	* boards/money_cents.xml.in:
+	* boards/mouse.xml.in:
+	* boards/paintings.xml.in:
+	* boards/paratrooper.xml.in:
+	* boards/planegame.xml.in:
+	* boards/pythontest.xml.in:
+	* boards/railroad.xml.in:
+	* boards/read_colors.xml.in:
+	* boards/readingh.xml.in:
+	* boards/readingv.xml.in:
+	* boards/redraw.xml.in:
+	* boards/redraw_symmetrical.xml.in:
+	* boards/reversecount.xml.in:
+	* boards/scalesboard.xml.in:
+	* boards/searace.xml.in:
+	* boards/searace1player.xml.in:
+	* boards/smallnumbers.xml.in:
+	* boards/smallnumbers2.xml.in:
+	* boards/submarine.xml.in:
+	* boards/traffic.xml.in:
+	* boards/watercycle.xml.in:
+	* gcompris.desktop.in:
+	* src/boards/advanced_colors.c:
+	* src/boards/algebra.c:
+	* src/boards/algebra_guesscount.c:
+	* src/boards/canal_lock.c:
+	* src/boards/chess.c: (display_white_turn), (move_piece_to):
+	* src/boards/click_on_letter.c: (sounds_are_fine):
+	* src/boards/clickgame.c:
+	* src/boards/clockgame.c:
+	* src/boards/colors.c:
+	* src/boards/draw.c:
+	* src/boards/erase.c: (start_board):
+	* src/boards/fifteen.c:
+	* src/boards/hanoi.c: (hanoi_create_item):
+	* src/boards/leftright.c:
+	* src/boards/maze.c: (maze_create_item):
+	* src/boards/money.c:
+	* src/boards/python/Makefile.am:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/searace.py:
+	* src/boards/reading.c: (ask_yes_no):
+	* src/boards/reversecount.c:
+	* src/boards/shapegame.c: (key_press):
+	* src/boards/smallnumbers.c:
+	* src/boards/target.c: (target_create_item):
+	* src/boards/traffic.c:
+	* src/gcompris/config.c:
+	* src/gcompris/gcompris.c: (setup_window):
+
 2005-10-11  Yves Combe  <yves@ycombe.net>
 
 	change -L behaviour: folder/boards a,d folder/python are now needed.

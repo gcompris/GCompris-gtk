@@ -10,6 +10,7 @@ dist_python_DATA= \
 	bargame.py \
 	connect4.py \
 	followline.py \
+	guessnumber.py \
 	gnumch.py \
 	hexagon.py \
 	login.py \

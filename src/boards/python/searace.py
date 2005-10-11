@@ -198,12 +198,12 @@ class Gcompris_searace:
       self.race_one_command(self.left_boat)
       self.race_one_command(self.right_boat)
     else:
-      self.statusitem.set(text=_("Race is already running"))
+      self.statusitem.set(text=_("The race is already being run"))
 
   # Called by gcompris when the user click on the level icon
   def set_level(self, level):
     if(self.left_boat.timer or self.right_boat.timer):
-      self.statusitem.set(text=_("Race is already running"))
+      self.statusitem.set(text=_("The race is already being run"))
     else:
       self.gcomprisBoard.level=level;
       self.gcomprisBoard.sublevel=1;
@@ -229,7 +229,7 @@ class Gcompris_searace:
   def repeat(self):
     # Want to rerun it
     if(self.left_boat.timer or self.right_boat.timer):
-      self.statusitem.set(text=_("Race is already running"))
+      self.statusitem.set(text=_("The race is already being run"))
     else:
       self.init_boats()
       

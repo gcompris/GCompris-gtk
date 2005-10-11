@@ -140,8 +140,8 @@ static BoardPlugin menu_bp =
   {
     NULL,
     NULL,
-    N_("Guess operations"),
-    N_("Guess operations"),
+    "Guess operations",
+    "Guess operations",
     "Pascal Georges pascal.georges1@free.fr>",
     NULL,
     NULL,
