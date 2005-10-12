@@ -206,36 +206,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_Return:
       process_ok();
       return TRUE;
-    case GDK_KP_0:
-      keyval=GDK_0;
-      break;
-    case GDK_KP_1:
-      keyval=GDK_1;
-      break;
-    case GDK_KP_2:
-      keyval=GDK_2;
-      break;
-    case GDK_KP_3:
-      keyval=GDK_3;
-      break;
-    case GDK_KP_4:
-      keyval=GDK_4;
-      break;
-    case GDK_KP_5:
-      keyval=GDK_5;
-      break;
-    case GDK_KP_6:
-      keyval=GDK_6;
-      break;
-    case GDK_KP_7:
-      keyval=GDK_7;
-      break;
-    case GDK_KP_8:
-      keyval=GDK_8;
-      break;
-    case GDK_KP_9:
-      keyval=GDK_9;
-      break;
     }
 
   sprintf(str, "%c", keyval);

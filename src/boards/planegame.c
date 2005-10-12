@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2005/09/21 23:08:13 yves>
+ * Time-stamp: <2005/10/12 23:25:00 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -216,46 +216,6 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
     case GDK_KP_Enter:
     case GDK_Return:
       return TRUE;
-    case GDK_KP_0:
-    case GDK_KP_Insert:
-      keyval=GDK_0;
-      break;
-    case GDK_KP_1:
-    case GDK_KP_End:
-      keyval=GDK_1;
-      break;
-    case GDK_KP_2:
-    case GDK_KP_Down:
-      keyval=GDK_2;
-      break;
-    case GDK_KP_3:
-    case GDK_KP_Page_Down:
-      keyval=GDK_3;
-      break;
-    case GDK_KP_4:
-    case GDK_KP_Left:
-      keyval=GDK_4;
-      break;
-    case GDK_KP_5:
-    case GDK_KP_Begin:
-      keyval=GDK_5;
-      break;
-    case GDK_KP_6:
-    case GDK_KP_Right:
-      keyval=GDK_6;
-      break;
-    case GDK_KP_7:
-    case GDK_KP_Home:
-      keyval=GDK_7;
-      break;
-    case GDK_KP_8:
-    case GDK_KP_Up:
-      keyval=GDK_8;
-      break;
-    case GDK_KP_9:
-    case GDK_KP_Page_Up:
-      keyval=GDK_9;
-      break;
     case GDK_Right:
       if(planespeed_x < MAXSPEED)
 	planespeed_x++;

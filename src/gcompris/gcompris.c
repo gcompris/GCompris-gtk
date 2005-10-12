@@ -46,6 +46,22 @@
 # define WIN32
 #endif
 
+/* List of keycodes */
+static gchar *keycode[] =
+  {
+    "83640",
+    "33251",
+    "99301",
+    "71848",
+    "79657",
+    "47561",
+    "84175",
+    NULL
+  };
+#define KEYCODE_LENGTH 5
+static char current_keycode[KEYCODE_LENGTH];
+static int  current_keycode_index;
+
 GtkWidget *window;
 GtkWidget *drawing_area;
 GnomeCanvas *canvas;
@@ -191,19 +207,10 @@ static void gcompris_close_all_dialog() {
 
 static gint
 board_widget_key_press_callback (GtkWidget   *widget,
-				GdkEventKey *event,
-				gpointer     client_data)
+				 GdkEventKey *event,
+				 gpointer     client_data)
 {
   int kv = event->keyval;
-
-  //first, pas through the IM context.
-  if (get_current_gcompris_board() && (!get_current_gcompris_board()->disable_im_context))
-    if (gtk_im_context_filter_keypress (properties->context, event))
-      {
-	g_warning("%d key is handled by context", kv);
-	return TRUE;
-      }
-
 
   if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_r)
 					 || (event->keyval == GDK_R))) {
@@ -212,6 +219,13 @@ board_widget_key_press_callback (GtkWidget   *widget,
     return TRUE;
   }
 
+  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_q)
+					 || (event->keyval == GDK_Q))) {
+    gcompris_exit();
+    return TRUE;
+  }
+
+#ifdef WIN32
   if(event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK) && ((event->keyval == GDK_l)
 							  || (event->keyval == GDK_L))) {
     properties->key="thanks_for_your_help";
@@ -236,16 +250,16 @@ board_widget_key_press_callback (GtkWidget   *widget,
     return TRUE;
   }
 
-  if(event->state & GDK_CONTROL_MASK && ((event->keyval == GDK_q)
-					 || (event->keyval == GDK_Q))) {
-    gcompris_exit();
-    return TRUE;
-  }
+  if(event->keyval>=GDK_0 && event->keyval<=GDK_9)
+    current_keycode[current_keycode_index++] = event->keyval;
+
+  if((char)event->keyval == '*')
+      current_keycode_index = 0;
+#endif
 
   switch (event->keyval)
     {
     case GDK_Escape:
-
       gcompris_close_all_dialog();
 
       board_stop();
@@ -255,22 +269,110 @@ board_widget_key_press_callback (GtkWidget   *widget,
       gnome_canvas_update_now(canvas);
       return TRUE;
 
+    case GDK_KP_Multiply:
+      current_keycode_index = 0;
+      break;
+    case GDK_KP_0:
+    case GDK_KP_Insert:
+      event->keyval=GDK_0;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_1:
+    case GDK_KP_End:
+      event->keyval=GDK_1;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_2:
+    case GDK_KP_Down:
+      event->keyval=GDK_2;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_3:
+    case GDK_KP_Page_Down:
+      event->keyval=GDK_3;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_4:
+    case GDK_KP_Left:
+      event->keyval=GDK_4;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_5:
+    case GDK_KP_Begin:
+      event->keyval=GDK_5;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_6:
+    case GDK_KP_Right:
+      event->keyval=GDK_6;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_7:
+    case GDK_KP_Home:
+      event->keyval=GDK_7;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_8:
+    case GDK_KP_Up:
+      event->keyval=GDK_8;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
+    case GDK_KP_9:
+    case GDK_KP_Page_Up:
+      event->keyval=GDK_9;
+      current_keycode[current_keycode_index++] = event->keyval;
+      break;
     default:
-      g_warning("%d key is NOT handled by context", kv);
-      /* If the board needs to receive key pressed */
-      /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
-       *       whenever possible
-       */
-      if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
+      break;
+    }
+
+  /* Check keycode */
+#ifdef WIN32
+  if(current_keycode_index == KEYCODE_LENGTH)
+    {
+      int i = 0;
+      current_keycode_index = 0;
+      while(keycode[i++])
 	{
-	  return(get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
+	  if(strncmp(current_keycode, keycode[i-1], KEYCODE_LENGTH) == 0)
+	    {
+	      properties->key="thanks_for_your_help";
+	      gcompris_properties_save(properties);
+	      gcompris_load_menus();
+
+	      gcompris_close_all_dialog();
+
+	      board_stop();
+	      return TRUE;
+	    }
 	}
-      else if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok)
+    }
+#endif
+
+  /* pass through the IM context */
+  if (get_current_gcompris_board() && (!get_current_gcompris_board()->disable_im_context))
+    {
+      if (gtk_im_context_filter_keypress (properties->context, event))
 	{
-	  /* Else we send the OK signal. */
-	  get_current_board_plugin()->ok ();
+	  g_warning("%d key is handled by context", kv);
 	  return TRUE;
 	}
+    }
+
+  g_warning("%d key is NOT handled by context", kv);
+  /* If the board needs to receive key pressed */
+  /* NOTE: If a board receives key press, it must bind the ENTER Keys to OK
+   *       whenever possible
+   */
+  if (get_current_board_plugin()!=NULL && get_current_board_plugin()->key_press)
+    {
+      return(get_current_board_plugin()->key_press (event->keyval, NULL, NULL));
+    }
+  else if (get_current_board_plugin()!=NULL && get_current_board_plugin()->ok)
+    {
+      /* Else we send the OK signal. */
+      get_current_board_plugin()->ok ();
+      return TRUE;
     }
 
   /* Event not handled; try parent item */

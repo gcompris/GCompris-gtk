@@ -1,3 +1,26 @@
+2005-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Changed the key system for windows to use only numbers
+	- Now the keypad is always considered with num lock set.
+	  boards no more need to make the keypad adaptation.
+	- created a new group
+
+	* boards/Makefile.am:
+	* boards/memory.xml.in:
+	* boards/memory_tux.xml.in:
+	* boards/railroad.xml.in:
+	* po/POTFILES.in:
+	* src/boards/algebra.c: (key_press):
+	* src/boards/draw.c: (key_press):
+	* src/boards/enumerate.c: (key_press):
+	* src/boards/paratrooper.c: (key_press):
+	* src/boards/planegame.c: (key_press):
+	* src/boards/shapegame.c: (key_press):
+	* src/boards/smallnumbers.c: (key_press):
+	* src/boards/target.c: (key_press):
+	* src/gcompris/gcompris.c: (board_widget_key_press_callback):
+	* boards/memory_group.xml.in: create a new group
+	
 2005-10-12  Yves Combe  <yves@ycombe.net>
 
 	test and fix wordlist reading. Will be continued after 7.1.
