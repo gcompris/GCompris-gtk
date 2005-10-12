@@ -121,6 +121,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
 
  node = wlNode->children;
  while((node!=NULL)) {
+   words = NULL;
    if (node->type!=XML_ELEMENT_NODE){
      node = node->next;
      continue;
@@ -142,12 +143,16 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
    wordsArray = g_strsplit_set ((const gchar *) text,
 				(const gchar *) " \n\t",
 				0);
+
+   g_warning("Wordlist read : %s", text);
  
    xmlFree (text);
 
    i=0;
    while (wordsArray[i] != NULL) {
-     words = g_list_append( words, g_strdup( wordsArray[i++]));
+     if (wordsArray[i][0]!='\0')
+       words = g_list_append( words, g_strdup( wordsArray[i]));
+     i++;
    }
    
    g_strfreev ( wordsArray);
@@ -165,7 +170,7 @@ GcomprisWordlist     *gcompris_get_wordlist_from_file(gchar *filename)
 
    level_words->words = words;
 
-   wordlist->levels_words = level_words;
+   wordlist->levels_words = g_list_append( wordlist->levels_words, level_words);
    
    node = node->next;
  }

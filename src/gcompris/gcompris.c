@@ -1199,6 +1199,25 @@ gcompris_init (int argc, char *argv[])
 
     g_list_free(profile_list);
 
+/*     g_warning("Wordlist test"); */
+
+/*     GcomprisWordlist *wl = gcompris_get_wordlist_from_file("default-fr"); */
+
+/*     GList *lev_list, *words, *list; */
+
+/*     lev_list = wl->levels_words; */
+
+/*     for (list = lev_list; list != NULL; list = list->next){ */
+/*       LevelWordlist *lw = list->data; */
+
+/*       g_warning("Level : %d", lw->level); */
+
+/*       for (words = lw->words; words != NULL; words = words->next) */
+/* 	g_warning("%s", (gchar *)words->data); */
+/*     } */
+
+/*     gcompris_wordlist_free(wl); */
+
     exit(0);
   }
 
