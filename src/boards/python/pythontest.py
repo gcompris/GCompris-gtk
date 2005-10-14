@@ -443,7 +443,7 @@ class Gcompris_pythontest:
 
     # combo box
     self.color_choice = \
-       gcompris.combo_box(_('Colour of the line'),
+       gcompris.combo_box(_('Color of the line'),
                           self.config_colors_list,
                           'color_line',
                           self.config_dict['color_line']

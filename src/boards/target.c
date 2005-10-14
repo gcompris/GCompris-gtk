@@ -462,7 +462,7 @@ static GnomeCanvasItem *target_create_item(GnomeCanvasGroup *parent)
 
   gnome_canvas_item_new (boardRootItem,
 			 gnome_canvas_text_get_type (),
-			 "text", g_strdup_printf(_("Distance to target = %d metres"), 
+			 "text", g_strdup_printf(_("Distance to target = %d meters"), 
 						 targetDefinition[gcomprisBoard->level-1].target_distance),
 			 "font", gcompris_skin_font_board_medium,
 			 "x", (double) 0,
