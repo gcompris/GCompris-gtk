@@ -104,7 +104,7 @@ class Gcompris_guessnumber:
     gcompris.reset_locale()
     
     # Remove the root item removes all the others inside it
-    self.rootitem.destroy()
+    self.cleanup_game()
 
   def ok(self):
     print("Gcompris_guessnumber ok.")
