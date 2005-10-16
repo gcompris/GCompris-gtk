@@ -3,15 +3,17 @@
   <Board
         name="guessnumber"
         type="python:guessnumber"
-        section="/"
+        section="/boards/memory"
         icon="boardicons/guessnumber.png"
-        difficulty="0"
+        difficulty="3"
         author="Clement Coudoin (clement.coudoin@free.fr)"
         boarddir="">
         <_title>Guess a number</_title>
-        <_description>Tux hide a number and you must guess it</_description>
-        <_prerequisite></_prerequisite>
+        <_description  xml:space="preserve">Help Tux escape the cave.
+Tux hide a number that you must discover.</_description>
+        <_prerequisite>Numbers from 1 to 1000 for the last level.</_prerequisite>
         <_goal></_goal>
+        <_manual>Read the instructions that give you the range of the number to find. Enter a number in the top right blue entry box. Tux tell you if your number is higher or lower. Then enter another number. The distance between Tux and the escape area on the right represents how far you are from the right number. If Tux is above or under the escape area, it means your number is higher or under the right number.</_manual>
         <_credit></_credit>
   </Board>
   <Data directory=""/>

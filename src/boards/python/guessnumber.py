@@ -98,8 +98,6 @@ class Gcompris_guessnumber:
 
     self.display_game()
     
-    print("Gcompris_guessnumber start.")
-
 
   def end(self):
 
@@ -142,8 +140,6 @@ class Gcompris_guessnumber:
 
 
   def set_level(self, level):
-    print("Gcompris_guessnumber set level. %i" % level)
-
     self.gcomprisBoard.level=level;
     self.gcomprisBoard.sublevel=1;
 
@@ -220,7 +216,6 @@ class Gcompris_guessnumber:
 
       # Select the number to find
       self.solution = random.randint(self.min, self.max)
-      print "Solution = %d" % self.solution
     
       text = "Guess a number between %d and %d" %(self.min, self.max)
       
@@ -284,7 +279,6 @@ class Gcompris_guessnumber:
         )
 
   def entry_text(self):
-    print "__entry__"
     self.entry = gtk.Entry()
 
     self.entry.modify_font(pango.FontDescription("sans bold 24"))
@@ -337,27 +331,29 @@ class Gcompris_guessnumber:
         # can have been destroyed before by a delete action. No matter
         number = int(text)
       except:
+        self.indicator.set(text=_("Please enter a number between %d and %d") %(self.min, self.max))
+        self.indicator_s.set(text=_("Please enter a number between %d and %d") %(self.min, self.max))
         widget.set_text('')
         return
 
-      if number > self.max:
-        number = self.max + 1
-
-      max_distance = max(self.max - self.solution, self.solution)
-      distance_x = self.target_x - abs(self.solution - number) * float(self.target_x - self.orig_x) / max_distance
-      distance_y = self.orig_y + float(((self.solution - number) * 170) / max_distance)
-      if(number > self.solution):
-        self.indicator.set(text=_("Too high"))
-        self.indicator_s.set(text=_("Too high"))
+      if number > self.max or number == 0:
+        self.indicator.set(text=_("Out of range"))
+        self.indicator_s.set(text=_("Out of range"))
       else:
-        self.indicator.set(text=_("Too low"))
-        self.indicator_s.set(text=_("Too low"))
+        max_distance = max(self.max - self.solution, self.solution)
+        distance_x = self.target_x - abs(self.solution - number) * float(self.target_x - self.orig_x) / max_distance
+        distance_y = self.orig_y + float(((self.solution - number) * 170) / max_distance)
+        if(number > self.solution):
+          self.indicator.set(text=_("Too high"))
+          self.indicator_s.set(text=_("Too high"))
+        else:
+          self.indicator.set(text=_("Too low"))
+          self.indicator_s.set(text=_("Too low"))
         
-      self.move(self.x_old, self.y_old,
-                distance_x,
-                distance_y)
+        self.move(self.x_old, self.y_old,
+                  distance_x,
+                  distance_y)
                       
-
     widget.set_text('')
 
 
@@ -385,7 +381,6 @@ class Gcompris_guessnumber:
       
 
   def move(self, x_old, y_old, x, y):
-    print "move old = %d %d  new = %d %d" %(x_old, y_old, x, y)
     if x == x_old and y == y_old:
       return
     
