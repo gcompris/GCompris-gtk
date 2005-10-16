@@ -43,6 +43,7 @@ class Gcompris_guessnumber:
 
     # A text canvas item use to indicate it's over or lower
     self.indicator = None
+    self.indicator_s = None
 
     # The text entry for the number
     self.entry = None
@@ -93,9 +94,7 @@ class Gcompris_guessnumber:
     
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    gcompris.set_background(self.gcomprisBoard.canvas.root(),
-                            gcompris.skin.image_to_skin("gcompris-bg.jpg"))
-
+    gcompris.set_background(self.gcomprisBoard.canvas.root(), "images/cave.png")
 
     self.display_game()
     
@@ -219,28 +218,49 @@ class Gcompris_guessnumber:
       elif(self.gcomprisBoard.level == 4):
           self.max = 1000
 
-      # Find a number game
+      # Select the number to find
       self.solution = random.randint(self.min, self.max)
       print "Solution = %d" % self.solution
     
       text = "Guess a number between %d and %d" %(self.min, self.max)
+      
+      self.rootitem.add(
+          gnome.canvas.CanvasText,
+          x=400.0 + 1.0,
+          y=30.0 + 1.0,
+          font=gcompris.skin.get_font("gcompris/title"),
+          text=(text),
+          fill_color="white",
+          justification=gtk.JUSTIFY_CENTER
+          )
+
       self.rootitem.add(
           gnome.canvas.CanvasText,
           x=400.0,
           y=30.0,
           font=gcompris.skin.get_font("gcompris/title"),
           text=(text),
-          fill_color="black",
+          fill_color_rgba=0x1514c4ffL,
+          justification=gtk.JUSTIFY_CENTER
+          )
+
+      self.indicator_s = self.rootitem.add(
+          gnome.canvas.CanvasText,
+          x=300.0 + 1.0,
+          y=70.0 + 1.0,
+          font=gcompris.skin.get_font("gcompris/subtitle"),
+          text=(""),
+          fill_color="white",
           justification=gtk.JUSTIFY_CENTER
           )
 
       self.indicator = self.rootitem.add(
           gnome.canvas.CanvasText,
-          x=400.0,
-          y=120.0,
+          x=300.0,
+          y=70.0,
           font=gcompris.skin.get_font("gcompris/subtitle"),
           text=(""),
-          fill_color="black",
+          fill_color_rgba=0xff0006ffL,
           justification=gtk.JUSTIFY_CENTER
           )
 
@@ -285,9 +305,9 @@ class Gcompris_guessnumber:
     self.widget = self.rootitem.add(
       gnome.canvas.CanvasWidget,
       widget=self.entry,
-      x=400,
-      y=80,
-      width=400,
+      x=730,
+      y=30,
+      width=100,
       height=46,
       anchor=gtk.ANCHOR_CENTER,
       size_pixels=False
@@ -310,6 +330,7 @@ class Gcompris_guessnumber:
     # Find a number game
     if str(self.solution) == text:
       self.indicator.set(text="")
+      self.indicator_s.set(text="")
       gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.TUX)
     else:
       try:
@@ -318,13 +339,19 @@ class Gcompris_guessnumber:
       except:
         widget.set_text('')
         return
-      
-      distance_x = self.orig_x + (self.target_x - self.orig_x) / abs(number - self.solution)
-      distance_y = self.orig_y + ((self.solution - number) * 170) / (self.max - self.min)
+
+      if number > self.max:
+        number = self.max + 1
+
+      max_distance = max(self.max - self.solution, self.solution)
+      distance_x = self.target_x - abs(self.solution - number) * float(self.target_x - self.orig_x) / max_distance
+      distance_y = self.orig_y + float(((self.solution - number) * 170) / max_distance)
       if(number > self.solution):
         self.indicator.set(text=_("Too high"))
+        self.indicator_s.set(text=_("Too high"))
       else:
         self.indicator.set(text=_("Too low"))
+        self.indicator_s.set(text=_("Too low"))
         
       self.move(self.x_old, self.y_old,
                 distance_x,
@@ -375,7 +402,6 @@ class Gcompris_guessnumber:
       self.rotation = -2
     else:
       self.rotation = 0
-    print self.helico_width/2
     gcompris.utils.item_rotate(self.anim, self.rotation)
     
     self.moving = True
