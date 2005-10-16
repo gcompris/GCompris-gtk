@@ -137,29 +137,6 @@ class Gcompris_sudoku:
     if(self.cursqre == None):
       return False
 
-    if (keyval == gtk.keysyms.KP_0):
-      keyval= gtk.keysyms._0
-    if (keyval == gtk.keysyms.KP_1):
-      keyval= gtk.keysyms._1
-    if (keyval == gtk.keysyms.KP_2):
-      keyval= gtk.keysyms._2
-    if (keyval == gtk.keysyms.KP_2):
-      keyval= gtk.keysyms._2
-    if (keyval == gtk.keysyms.KP_3):
-      keyval= gtk.keysyms._3
-    if (keyval == gtk.keysyms.KP_4):
-      keyval= gtk.keysyms._4
-    if (keyval == gtk.keysyms.KP_5):
-      keyval= gtk.keysyms._5
-    if (keyval == gtk.keysyms.KP_6):
-      keyval= gtk.keysyms._6
-    if (keyval == gtk.keysyms.KP_7):
-      keyval= gtk.keysyms._7
-    if (keyval == gtk.keysyms.KP_8):
-      keyval= gtk.keysyms._8
-    if (keyval == gtk.keysyms.KP_9):
-      keyval= gtk.keysyms._9
-
     utf8char = gtk.gdk.keyval_to_unicode(keyval)
     strn = u'%c' % utf8char
 

@@ -1,6 +1,6 @@
 /* gcompris - planegame.c
  *
- * Time-stamp: <2005/10/12 23:25:00 bruno>
+ * Time-stamp: <2005/10/15 16:54:30 bruno>
  *
  * Copyright (C) 2000 Bruno Coudoin
  *
@@ -262,7 +262,6 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void planegame_next_level() 
 {
   GdkPixbuf *pixmap = NULL;
-  char *str = NULL;
 
   gcompris_bar_set_level(gcomprisBoard);
 
@@ -277,8 +276,7 @@ static void planegame_next_level()
   /* Setup and Display the plane */
   planespeed_y = 0;
   planespeed_x = 0;
-  str = g_strdup_printf("%s%s", pixmapsdir, "tuxhelico.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gcompris_load_pixmap("gcompris/misc/tuxhelico.png");
   plane_x = 50;
   plane_y = 300;
   planeitem = gnome_canvas_item_new (gnome_canvas_root(gcomprisBoard->canvas),
@@ -314,10 +312,6 @@ static void planegame_next_level()
 			   gcomprisBoard->number_of_sublevel);
       gcompris_score_set(gcomprisBoard->sublevel);
     }
-
-
-  g_free (str);
-
 }
 
 #define ISIN(x1, y1, px1, py1, px2, py2) (x1>px1 && x1<px2 && y1>py1 && y2<py2 ? TRUE : FALSE)
@@ -473,7 +467,6 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 {
   GdkPixbuf *pixmap = NULL;
   GnomeCanvasItem *itemgroup;
-  char *str = NULL;
   char *number = NULL;
   int i, min;
   CloudItem *clouditem;
@@ -491,8 +484,7 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
     }
   number = g_strdup_printf("%d", i);
 
-  str = g_strdup_printf("%s%s", pixmapsdir, "cloud.png");
-  pixmap = gcompris_load_pixmap(str);
+  pixmap = gcompris_load_pixmap("gcompris/misc/cloud.png");
 
   itemgroup = \
     gnome_canvas_item_new (parent,
@@ -535,7 +527,6 @@ static GnomeCanvasItem *planegame_create_item(GnomeCanvasGroup *parent)
 
   item_list = g_list_append (item_list, clouditem);
 
-  g_free (str);
   g_free (number);
 
   return (itemgroup);

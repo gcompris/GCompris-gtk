@@ -198,7 +198,9 @@ class Gcompris_algorithm:
         gcompris.bonus.board_finished(gcompris.bonus.FINISHED_RANDOM)
         return 0
       
+    self.display_current_level()
     return 1
+
 
   def apple_click (self, widget, event=None, index=0):
     if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
@@ -211,13 +213,4 @@ class Gcompris_algorithm:
         return
       self.paint_qm ()
 
-  def increment_level(self):
-   self.gcomprisBoard.sublevel += 1
-   
-   if(self.gcomprisBoard.sublevel>self.gcomprisBoard.number_of_sublevel):
-    self.gcomprisBoard.sublevel=1
-    self.gcomprisBoard.level += 1
-    if(self.gcomprisBoard.level>self.gcomprisBoard.maxlevel):
-     gcompris.bonus.board_finished (gcompris.bonus.FINISHED_RANDOM)
-     return 0
-   self.display_current_level()
+

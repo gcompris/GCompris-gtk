@@ -1,3 +1,61 @@
+2005-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	- Fixed non translated string in chronos.
+	  (strings in xml with preverve must not use \n)
+	- Added a new icon for the gnumch game by Franck Doucet.
+	- Removed keymap association that are not more needed in python
+	  boards
+	- Now the guessnumber game as an helico that shows the distance
+	  to the number to find
+	
+	* boards/boardicons/connect4.png:
+	* boards/boardicons/gnumch-equal.png:
+	* boards/boardicons/gnumch-factors.png:
+	* boards/boardicons/gnumch-inequal.png:
+	* boards/boardicons/gnumch-multiples.png:
+	* boards/boardicons/gnumch-primes.png:
+	* boards/boardicons/gnumch.png:
+	* boards/boardicons/sudoku.png:
+	* boards/chronos/board3_0.xml.in:
+	* boards/chronos/board3_1.xml.in:
+	* boards/chronos/board3_2.xml.in:
+	* boards/chronos/board3_3.xml.in:
+	* boards/chronos/board4_0.xml.in:
+	* boards/chronos/board4_3.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-factors.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/gnumch-multiples.xml.in:
+	* boards/gnumch-primes.xml.in:
+	* src/boards/planegame.c: (planegame_next_level),
+	(planegame_create_item):
+	* src/boards/python/algorithm.py:
+	* src/boards/python/anim.py:
+	* src/boards/python/guessnumber.py:
+	* src/boards/python/pythontest.py:
+	* src/boards/python/sudoku.py:
+
+2005-10-14  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Replaced UK English to US English for:
+	"Colour", "metre", and "practise" are all examples of non-US English
+	spellings. They, and any other British English spellings, should be
+	changed to their US English counterparts.
+	thanks to Adam Weinberger for his patience in explaining it to me.
+	
+	* boards/administration.xml.in:
+	* boards/algebra_minus.xml.in:
+	* boards/algebra_plus.xml.in:
+	* boards/anim.xml.in:
+	* boards/chess.xml.in:
+	* boards/colors.xml.in:
+	* boards/draw.xml.in:
+	* boards/gnumch-equality.xml.in:
+	* boards/gnumch-inequality.xml.in:
+	* boards/read_colors.xml.in:
+	* src/boards/python/pythontest.py:
+	* src/boards/target.c: (target_create_item):
+
 2005-10-12  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Changed the key system for windows to use only numbers
