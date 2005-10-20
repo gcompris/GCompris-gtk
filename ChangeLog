@@ -1,3 +1,27 @@
+2005-10-20  Bruno coudoin  <bruno.coudoin@free.fr>
+
+	Franck has ramake 2 backgrounds. one for color and one for leftright.
+	Still need to review the way we highlight the button uppon click in the
+	leftright game.
+
+	Fixed string issues (Thanks Ronny)
+
+	* INSTALL:
+	* boards/chronos.xml.in:
+	* boards/colors/colors_bg.jpg:
+	* boards/colors/colors_bg.png:
+	* boards/leftright/leftright-bg.jpg:
+	* boards/skins/babytoy/leftright-bg.jpg:
+	* boards/skins/gartoon/leftright-bg.jpg:
+	* configure.in:
+	* src/boards/colors.c: (start_board):
+	* src/boards/leftright.c: (start_board):
+	* src/boards/python/guessnumber.py:
+
+
+	*** CREATED THE gcompris_7_1 branch   ***
+	*** configure.in now refer to 7.2PRE1 ***
+
 2005-10-16  Bruno coudoin  <bruno.coudoin@free.fr>
 
 	- Completed the guessnumber activity, including artwork
@@ -356,8 +380,6 @@
 	(read_dataset_directory):
 
 2005-10-02  Bruno coudoin  <bruno.coudoin@free.fr>
-
-	reviewed by: <delete if not using a buddy>
 
 	* config.h.mingw:
 	* configure.in:

@@ -54,16 +54,16 @@ static GList * listColors = NULL;
 
 #define LAST_COLOR 10
 static gchar *colors[LAST_COLOR*2] = {
-  "blue", 	N_("Click on the blue toon"),
-  "brown",	N_("Click on the brown toon"),
-  "green",	N_("Click on the green toon"),
-  "grey",	N_("Click on the grey toon"),
-  "orange",	N_("Click on the orange toon"),
-  "purple",	N_("Click on the purple toon"),
-  "red",	N_("Click on the red toon"),
-  "yellow",	N_("Click on the yellow toon"),
-  "black",	N_("Click on the black toon"),
-  "white",	N_("Click on the white toon")
+  "blue", 	N_("Click on the blue duck"),
+  "brown",	N_("Click on the brown duck"),
+  "green",	N_("Click on the green duck"),
+  "grey",	N_("Click on the grey duck"),
+  "orange",	N_("Click on the orange duck"),
+  "purple",	N_("Click on the purple duck"),
+  "red",	N_("Click on the red duck"),
+  "yellow",	N_("Click on the yellow duck"),
+  "black",	N_("Click on the black duck"),
+  "white",	N_("Click on the white duck")
 };
 
 static int X[] = {75,212,242,368,414,533,578,709};
@@ -199,7 +199,7 @@ static void start_board (GcomprisBoard *agcomprisBoard) {
 
   if(agcomprisBoard!=NULL) {
     gcomprisBoard=agcomprisBoard;
-    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.jpg");
+    gcompris_set_background(gnome_canvas_root(gcomprisBoard->canvas), "colors/colors_bg.png");
     gcomprisBoard->level=1;
     gcomprisBoard->maxlevel=1;
 

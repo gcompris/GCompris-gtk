@@ -217,7 +217,7 @@ class Gcompris_guessnumber:
       # Select the number to find
       self.solution = random.randint(self.min, self.max)
     
-      text = "Guess a number between %d and %d" %(self.min, self.max)
+      text = _("Guess a number between %d and %d") %(self.min, self.max)
       
       self.rootitem.add(
           gnome.canvas.CanvasText,
@@ -336,7 +336,7 @@ class Gcompris_guessnumber:
         widget.set_text('')
         return
 
-      if number > self.max or number == 0:
+      if number > self.max or number <= 0:
         self.indicator.set(text=_("Out of range"))
         self.indicator_s.set(text=_("Out of range"))
       else:
